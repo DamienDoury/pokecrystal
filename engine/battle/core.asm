@@ -4,6 +4,8 @@ DoBattle:
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
+	ld [wAllBattleParticipants], a
+	ld [wAllBattleParticipantsAfterVirusSpread], a
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	inc a
@@ -3225,8 +3227,37 @@ AddBattleParticipant:
 	push bc
 	predef SmallFarFlagAction
 	pop bc
+
+	; Damien's addition.
+	ld hl, wAllBattleParticipants
+	push bc
+	predef SmallFarFlagAction
+	pop bc
+
+	ld a, [wAllBattleParticipantsAfterVirusSpread]
+	and a
+	call nz, InfectedOrPotentiallyInfected ; If the flag wAllBattleParticipantsAfterVirusSpread is not 0, that means a Pokémon with the virus has been on the battlefield. So we add the current mon to the list.
+
+
+	ld hl, wPartyMon1PokerusStatus
+	ld a, [wCurBattleMon]
+	push bc
+	call GetPartyLocation
+	pop bc
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION
+	call nc, InfectedOrPotentiallyInfected ; If this Pokémon is infected, we add it to the list. This is the list the list gets "opened" to non-infected mons added thanks to the previous check.
+
 	ld hl, wBattleParticipantsIncludingFainted
 	predef_jump SmallFarFlagAction
+
+InfectedOrPotentiallyInfected:
+	ld hl, wAllBattleParticipantsAfterVirusSpread ; This flag retains the list of the Pokémons that showed up on the battlefield, after a contamined Pokémon was on it.
+	push bc
+	predef SmallFarFlagAction
+	pop bc
+	ret
 
 FindMonInOTPartyToSwitchIntoBattle:
 	ld b, -1
@@ -3893,7 +3924,8 @@ InitBattleMon:
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
 	call ApplyStatusEffectOnPlayerStats
-	call BadgeStatBoosts
+	call ApplyPokerusWeaknessSymptom
+	;call BadgeStatBoosts ; Edited by Damien.
 	ret
 
 BattleCheckPlayerShininess:
@@ -6564,6 +6596,67 @@ BattleWinSlideInEnemyTrainerFrontpic:
 	pop hl
 	ret
 
+ApplyPokerusWeaknessSymptom: ; Damien
+	ld a, MON_PKRUS
+	call GetPartyParamLocation
+	ld a, [hl]
+	ld b, b
+	ld b, a
+
+	; We check if the Pokémon has the weakness disease.
+	and POKERUS_WEAKNESS_DISEASE_MASK ; The first 3 bits indicate the strain which determines the effects of the disease. The leftmost bit determines the XP disease.
+	ret z
+
+	; We check if the Pokémon has symptoms.
+	ld a, b
+	and POKERUS_DURATION_MASK
+	cp POKERUS_SYMPTOMS_START
+	ret nc
+
+	; We check if the Pokémon is still sick.
+	ld a, b
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION ; Note that this discards vaccinated Pokémons.
+	ret c
+
+	ld b, NUM_LEVEL_STATS - 3
+	ld hl, wBattleMonAttack
+.loop
+	ld a, [hl]
+	srl a ; We divide the stat upper byte by two.
+	ld [hli], a
+	ld a, [hl]
+	rr a ; We divide the stat lower byte by two (using the carry from the previous bit shift).
+	or 15 ; We add a small boost to weak Pokémons. Also, this sets the minimum value to 15 and prevents stats from going down to zero. It's unnoticeable on high level mons, but it is a boost to very low lvl pkmns!
+	ld [hli], a
+	dec b
+	jr nz, .loop
+	ld a, [wBattleMonAttack + 1]
+	ld a, [wBattleMonAttack + 3]
+	ld a, [wBattleMonAttack + 5]
+	ld a, [wBattleMonAttack + 7]
+	ld a, [wBattleMonAttack + 9]
+
+	ld b, 2
+	ld hl, wBattleMonAttack
+.loop2
+	ld a, [hl]
+	srl a
+	ld [hli], a
+	ld a, [hl]
+	rr a ; We divide the stat by two once again, which effectively divides this stat by four.
+	or 10 ; We add a small boost to weak Pokémons. Also, this sets the minimum value to 15.
+	ld [hl], a
+	ld hl, wBattleMonSpclAtk
+	dec b
+	jr nz, .loop2
+	ld a, [wBattleMonAttack + 1]
+	ld a, [wBattleMonAttack + 3]
+	ld a, [wBattleMonAttack + 5]
+	ld a, [wBattleMonAttack + 7]
+	ld a, [wBattleMonAttack + 9]
+	ret
+
 ApplyStatusEffectOnPlayerStats:
 	ld a, 1
 	jr ApplyStatusEffectOnStats
@@ -7008,7 +7101,7 @@ GiveExperiencePoints:
 	ld a, c
 	and a
 	pop bc
-	jp z, .next_mon
+	jp z, .next_mon ; didn't take part in the battle.
 
 ; give stat exp
 	ld hl, MON_STAT_EXP + 1
@@ -7063,11 +7156,64 @@ GiveExperiencePoints:
 	inc de
 	inc de
 	dec c
-	jr nz, .stat_exp_loop
+	jr nz, .stat_exp_loop	
 	xor a
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
-	ld a, [wEnemyMonBaseExp]
+
+
+
+
+
+	; Damien's main edit.
+	push hl
+	push bc
+
+	ld a, 42
+	ld [wStringBuffer2 + 3], a
+	
+	ld a, MON_PKRUS
+	call GetPartyParamLocation
+
+	; Force XP disease.
+;	xor a ; force the enemy base XP to 0.
+;	ld [wStringBuffer2 + 3], a ; This will be read later to know which text to display.
+;	jr .not_affected_by_xp_disease
+	; End force XP disease.
+
+	; We check if the Pokémon has the XP disease.
+	ld a, [hl]
+	and POKERUS_XP_DISEASE_MASK ; The first 3 bits indicate the strain which determines the effects of the disease. The leftmost bit determines the XP disease.
+	ld a, [wEnemyMonBaseExp] ; Retrieving the enemy base XP.
+	jr z, .not_affected_by_xp_disease
+
+	; We check if the Pokémon has symptoms.
+	ld a, [hl]
+	and POKERUS_DURATION_MASK ;
+	cp POKERUS_SYMPTOMS_START
+	ld a, [wEnemyMonBaseExp] ; Retrieving the enemy base XP.
+	jp nc, .not_affected_by_xp_disease
+
+	; We check if the Pokémon is still sick.
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION ; Note that this discards vaccinated Pokémons.
+	ld a, [wEnemyMonBaseExp] ; Retrieving the enemy base XP.
+	jp c, .not_affected_by_xp_disease
+
+	xor a ; force the enemy base XP to 0.
+	ld [wStringBuffer2 + 3], a ; This will be read later to know which text to display.
+	
+.not_affected_by_xp_disease
+
+	pop bc
+	pop hl
+	; End of main Damien's edit.
+
+
+
+
+
 	ldh [hMultiplicand + 2], a
 	ld a, [wEnemyMonLevel]
 	ldh [hMultiplier], a
@@ -7076,6 +7222,7 @@ GiveExperiencePoints:
 	ldh [hDivisor], a
 	ld b, 4
 	call Divide
+
 ; Boost Experience for traded Pokemon
 	pop bc
 	ld hl, MON_ID
@@ -7106,14 +7253,30 @@ GiveExperiencePoints:
 	ld a, [hl]
 	cp LUCKY_EGG
 	call z, BoostExp
-	ldh a, [hQuotient + 3]
+
+	ldh a, [hQuotient + 3] ; XP to display is being stored within the string buffer.
 	ld [wStringBuffer2 + 1], a
 	ldh a, [hQuotient + 2]
 	ld [wStringBuffer2], a
-	ld a, [wCurPartyMon]
+
+	ld a, [wStringBuffer2 + 3]
+	and a
+	ld a, [wCurPartyMon] ; Display formatting.
+	jr z, .pkrs_text_display
+
+.normal_text_display
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
+	jr .go_on
+
+
+.pkrs_text_display
+	ld hl, wPartyMonNicknames
+	call GetNickname
+	ld hl, Text_MonGainedNoExpPoint
+
+.go_on
 	call BattleTextbox
 	ld a, [wStringBuffer2 + 1]
 	ldh [hQuotient + 3], a
@@ -7412,7 +7575,9 @@ BoostExp:
 Text_MonGainedExpPoint:
 	text_far Text_Gained
 	text_asm
+
 	ld hl, ExpPointsText
+
 	ld a, [wStringBuffer2 + 2] ; IsTradedMon
 	and a
 	ret z
@@ -7420,8 +7585,18 @@ Text_MonGainedExpPoint:
 	ld hl, BoostedExpPointsText
 	ret
 
+Text_MonGainedNoExpPoint:
+	text_far Text_No_Xp_Gained
+	text_asm
+	ld hl, NoExpPointsPokerusText
+	ret
+
 BoostedExpPointsText:
 	text_far _BoostedExpPointsText
+	text_end
+
+NoExpPointsPokerusText:
+	text_far _NoExpPointsPokerusText
 	text_end
 
 ExpPointsText:

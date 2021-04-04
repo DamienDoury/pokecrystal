@@ -515,6 +515,9 @@ DisabledMoveText:
 	cont "DISABLED!"
 	prompt
 
+
+
+
 LoafingAroundText:
 	text_ram wBattleMonNickname
 	text " is"
@@ -550,6 +553,48 @@ IgnoredSleepingText:
 	text " ignored"
 	line "orders…sleeping!"
 	prompt
+
+
+
+
+Pkrus_LoafingAroundText:
+	text_ram wBattleMonNickname
+	text " is"
+	line "exhausted…"
+	prompt
+
+Pkrus_BeganToNapText:
+	text_ram wBattleMonNickname
+	text " needs"
+	line "to rest…"
+	prompt
+
+Pkrus_WontObeyText:
+	text_ram wBattleMonNickname
+	text " body"
+	line "is aching…"
+	prompt
+
+Pkrus_TurnedAwayText:
+	text_ram wBattleMonNickname
+	text " seems"
+	line "to have fever…"
+	prompt
+
+Pkrus_IgnoredOrdersText:
+	text_ram wBattleMonNickname
+	text " catches"
+	line "its breath…"
+	prompt
+
+Pkrus_IgnoredSleepingText:
+	text_ram wBattleMonNickname
+	text " didn't"
+	line "hear you."
+	prompt
+
+
+
 
 NoPPLeftText:
 	text "But no PP is left"

@@ -111,9 +111,10 @@ PokecenterNurseScript:
 	iffalse .done
 
 	farwritetext NurseTakePokemonText
-	pause 20
+	pause 10
 	special StubbedTrainerRankings_Healings
 	turnobject LAST_TALKED, LEFT
+	closetext
 	pause 10
 	special HealParty
 	playmusic MUSIC_NONE
@@ -121,49 +122,69 @@ PokecenterNurseScript:
 	special HealMachineAnim
 	pause 30
 	special RestartMapMusic
-	turnobject LAST_TALKED, DOWN
-	pause 10
 
-	checkphonecall ; elm already called about pokerus
-	iftrue .no
-	checkflag ENGINE_CAUGHT_POKERUS
-	iftrue .no
+	;checkphonecall ; elm already called about pokerus
+	;iftrue .no
+	;checkflag ENGINE_CAUGHT_POKERUS
+	;iftrue .no
 	special CheckPokerus
 	iftrue .pokerus
-.no
 
-	farwritetext NurseReturnPokemonText
+	turnobject LAST_TALKED, DOWN
+	pause 20
+	opentext
+	sjump .done ; Damien
+
+.pokerus
+	; already cleared earlier in the script
+	;checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
+	;iftrue .pokerus_comcenter
+	;closetext
+	pause 1
+	showemote EMOTE_SHOCK, LAST_TALKED, 20 ; Damien
+	pause 15
+	turnobject LAST_TALKED, DOWN
+	pause 15
+	opentext
+
+	farwritetext NursePokerusReaction
+	waitbutton
+
+	checkflag ENGINE_CAUGHT_POKERUS
+	iftrue .quick_pokerus_warning
+
+	farwritetext NursePokerusLongTextStart
+	waitbutton
+
+.quick_pokerus_warning
+	farwritetext NursePokerusEssentialText
+	waitbutton
+
+	checkflag ENGINE_CAUGHT_POKERUS
+	iftrue .pokerus_done
+
+	farwritetext NursePokerusLongTextEnd
+	waitbutton
+
+.pokerus_done
 	pause 20
 
+	;checkphonecall ; True if elm already called about pokerus ; Commented by Damien. To do: re-enable this line. The player will never get the phone call if he saves then reload before getting the call.
+	checkflag ENGINE_CAUGHT_POKERUS
+	iftrue .done
+	setflag ENGINE_CAUGHT_POKERUS
+	specialphonecall SPECIALCALL_POKERUS
+
 .done
-	farwritetext NurseGoodbyeText
+	farwritetext NurseGoodbyeText ; Damien
 
 	turnobject LAST_TALKED, UP
 	pause 10
 	turnobject LAST_TALKED, DOWN
-	pause 10
+	pause 10 ; Damien
 
 	waitbutton
-	closetext
-	end
-
-.pokerus
-	; already cleared earlier in the script
-	checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
-	iftrue .pokerus_comcenter
-	farwritetext NursePokerusText
-	waitbutton
-	closetext
-	sjump .pokerus_done
-
-.pokerus_comcenter
-	farwritetext PokeComNursePokerusText
-	waitbutton
-	closetext
-
-.pokerus_done
-	setflag ENGINE_CAUGHT_POKERUS
-	specialphonecall SPECIALCALL_POKERUS
+	closetext ; Damien
 	end
 
 DifficultBookshelfScript:
@@ -602,6 +623,7 @@ InitializeEventsScript:
 	variablesprite SPRITE_FUCHSIA_GYM_4, SPRITE_JANINE
 	variablesprite SPRITE_COPYCAT, SPRITE_LASS
 	variablesprite SPRITE_JANINE_IMPERSONATOR, SPRITE_LASS
+	variablesprite SPRITE_MISTYS_BOYFRIEND, SPRITE_ROCKET
 	setevent EVENT_FOUND_MACHINE_PART_IN_CERULEAN_GYM
 	setevent EVENT_CERULEAN_GYM_ROCKET
 	setevent EVENT_ROUTE_24_ROCKET

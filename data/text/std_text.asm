@@ -1,21 +1,21 @@
 NurseMornText:
 	text "Good morning!"
-	line "Welcome to our"
-	cont "#MON CENTER."
+	;line "Welcome to our"
+	;cont "#MON CENTER."
 	done
 
 NurseDayText:
 	text "Hello!"
-	line "Welcome to our"
-	cont "#MON CENTER."
+	;line "Welcome to our"
+	;cont "#MON CENTER."
 	done
 
 NurseNiteText:
 	text "Good evening!"
-	line "You're out late."
+	;line "You're out late." ; Damien
 
-	para "Welcome to our"
-	line "#MON CENTER."
+	;para "Welcome to our"
+	;line "#MON CENTER."
 	done
 
 PokeComNurseMornText:
@@ -50,11 +50,7 @@ PokeComNurseNiteText:
 	done
 
 NurseAskHealText:
-	text "We can heal your"
-	line "#MON to perfect"
-	cont "health."
-
-	para "Shall we heal your"
+	text "Shall we heal your"
 	line "#MON?"
 	done
 
@@ -64,11 +60,11 @@ NurseTakePokemonText:
 	done
 
 NurseReturnPokemonText:
-	text "Thank you for"
-	line "waiting."
+	;text "Thank you for" ; Damien
+	;line "waiting."
 
-	para "Your #MON are"
-	line "fully healed."
+	;para "Your #MON are"
+	;line "fully healed."
 	done
 
 NurseGoodbyeText:
@@ -76,42 +72,41 @@ NurseGoodbyeText:
 	line "again."
 	done
 
-; not used
-	text "We hope to see you"
-	line "again."
+
+NursePokerusReaction:
+	text "Some of your"
+	line "#MON appear"
+
+	para "to be infected"
+	line "by the virus."
 	done
 
-NursePokerusText:
-	text "Your #MON"
-	line "appear to be"
+NursePokerusLongTextStart:
+	text "They may feel"
+	line "exhausted and may"
+	cont "have headaches."
 
-	para "infected by tiny"
-	line "life forms."
+	para "We don't know"
+	line "yet how to heal"
+	cont "this disease."
 
-	para "Your #MON are"
-	line "healthy and seem"
-	cont "to be fine."
-
-	para "But we can't tell"
-	line "you anything more"
-
-	para "at a #MON"
-	line "CENTER."
+	para "Your #MON"
+	line "should get better"
+	cont "within 7 days."
 	done
 
-PokeComNursePokerusText:
-	text "Your #MON"
-	line "appear to be"
+NursePokerusEssentialText:
+	text "Please keep them"
+	line "confined inside"
+	cont "their #BALL"
+	cont "until they"
+	cont "feel better."
+	done
 
-	para "infected by tiny"
-	line "life forms."
-
-	para "Your #MON are"
-	line "healthy and seem"
-	cont "to be fine."
-
-	para "But we can't tell"
-	line "you anything more."
+NursePokerusLongTextEnd:
+	text "Once cured, they"
+	line "should be immuned"
+	cont "for a long time."
 	done
 
 DifficultBookshelfText:

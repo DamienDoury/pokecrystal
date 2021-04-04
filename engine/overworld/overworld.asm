@@ -128,15 +128,18 @@ AddOutdoorSprites:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	ld c, MAX_OUTDOOR_SPRITES
+	;ld c, MAX_OUTDOOR_SPRITES ; Damien
 .loop
-	push bc
+	;push bc ; Damien
 	ld a, [hli]
+	and a ; added by Damien
+	ret z ; added by Damien
 	call AddSpriteGFX
-	pop bc
-	dec c
-	jr nz, .loop
-	ret
+	;pop bc ; Damien
+	;dec c ; Damien
+	;jr nz, .loop ; Damien
+	;ret ; Damien
+	jr .loop ; Damien
 
 LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
@@ -303,7 +306,7 @@ _GetSpritePalette::
 
 LoadAndSortSprites:
 	call LoadSpriteGFX
-	call SortUsedSprites
+	;call SortUsedSprites ; Damien
 	call ArrangeUsedSprites
 	ret
 
@@ -346,9 +349,6 @@ AddSpriteGFX:
 	ret
 
 LoadSpriteGFX:
-; Bug: b is not preserved, so it's useless as a next count.
-; Uncomment the lines below to fix.
-
 	ld hl, wUsedSprites
 	ld b, SPRITE_GFX_LIST_CAPACITY
 .loop
@@ -366,81 +366,81 @@ LoadSpriteGFX:
 	ret
 
 .LoadSprite:
-	; push bc
+	push bc
 	call GetSprite
-	; pop bc
+	pop bc
 	ld a, l
 	ret
 
-SortUsedSprites:
+;SortUsedSprites:
 ; Bubble-sort sprites by type.
 
 ; Run backwards through wUsedSprites to find the last one.
-
-	ld c, SPRITE_GFX_LIST_CAPACITY
-	ld de, wUsedSprites + (SPRITE_GFX_LIST_CAPACITY - 1) * 2
-.FindLastSprite:
-	ld a, [de]
-	and a
-	jr nz, .FoundLastSprite
-	dec de
-	dec de
-	dec c
-	jr nz, .FindLastSprite
-.FoundLastSprite:
-	dec c
-	jr z, .quit
-
-; If the length of the current sprite is
-; higher than a later one, swap them.
-
-	inc de
-	ld hl, wUsedSprites + 1
-
-.CheckSprite:
-	push bc
-	push de
-	push hl
-
-.CheckFollowing:
-	ld a, [de]
-	cp [hl]
-	jr nc, .loop
-
-; Swap the two sprites.
-
-	ld b, a
-	ld a, [hl]
-	ld [hl], b
-	ld [de], a
-	dec de
-	dec hl
-	ld a, [de]
-	ld b, a
-	ld a, [hl]
-	ld [hl], b
-	ld [de], a
-	inc de
-	inc hl
-
-; Keep doing this until everything's in order.
-
-.loop
-	dec de
-	dec de
-	dec c
-	jr nz, .CheckFollowing
-
-	pop hl
-	inc hl
-	inc hl
-	pop de
-	pop bc
-	dec c
-	jr nz, .CheckSprite
-
-.quit
-	ret
+; Commented by Damien
+;	ld c, SPRITE_GFX_LIST_CAPACITY
+;	ld de, wUsedSprites + (SPRITE_GFX_LIST_CAPACITY - 1) * 2
+;.FindLastSprite:
+;	ld a, [de]
+;	and a
+;	jr nz, .FoundLastSprite
+;	dec de
+;	dec de
+;	dec c
+;	jr nz, .FindLastSprite
+;.FoundLastSprite:
+;	dec c
+;	jr z, .quit
+;
+;; If the length of the current sprite is
+;; higher than a later one, swap them.
+;
+;	inc de
+;	ld hl, wUsedSprites + 1
+;
+;.CheckSprite:
+;	push bc
+;	push de
+;	push hl
+;
+;.CheckFollowing:
+;	ld a, [de]
+;	cp [hl]
+;	jr nc, .loop
+;
+;; Swap the two sprites.
+;
+;	ld b, a
+;	ld a, [hl]
+;	ld [hl], b
+;	ld [de], a
+;	dec de
+;	dec hl
+;	ld a, [de]
+;	ld b, a
+;	ld a, [hl]
+;	ld [hl], b
+;	ld [de], a
+;	inc de
+;	inc hl
+;
+;; Keep doing this until everything's in order.
+;
+;.loop
+;	dec de
+;	dec de
+;	dec c
+;	jr nz, .CheckFollowing
+;
+;	pop hl
+;	inc hl
+;	inc hl
+;	pop de
+;	pop bc
+;	dec c
+;	jr nz, .CheckSprite
+;
+;.quit
+;	ret
 
 ArrangeUsedSprites:
 ; Get the length of each sprite and space them out in VRAM.

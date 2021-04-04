@@ -49,16 +49,38 @@ CeruleanCityCooltrainerFScript:
 	writetext CeruleanCityCooltrainerFText1
 	waitbutton
 	closetext
-	turnobject CERULEANCITY_COOLTRAINER_F, LEFT
+	turnobject CERULEANCITY_COOLTRAINER_F, LEFT ; Damien
 	opentext
 	writetext CeruleanCityCooltrainerFText2
 	waitbutton
 	closetext
+	pause 25 ; Damien
 	opentext
 	writetext CeruleanCitySlowbroText
 	cry SLOWBRO
 	waitbutton
 	closetext
+	turnobject CERULEANCITY_COOLTRAINER_F, UP ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, RIGHT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, DOWN ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, LEFT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, UP ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, RIGHT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, DOWN ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, LEFT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, UP ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, RIGHT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, DOWN ; Damien
 	opentext
 	writetext CeruleanCityCooltrainerFText3
 	waitbutton

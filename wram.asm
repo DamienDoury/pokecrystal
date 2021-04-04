@@ -571,6 +571,8 @@ wEnemyMinimized:: db
 wAlreadyFailed:: db
 
 wBattleParticipantsIncludingFainted:: db
+wAllBattleParticipants:: db
+wAllBattleParticipantsAfterVirusSpread:: db
 wBattleLowHealthAlarm:: db
 wPlayerMinimized:: db
 wPlayerScreens::

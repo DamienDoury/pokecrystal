@@ -50,7 +50,6 @@ AppendToMovementBufferNTimes::
 
 ComputePathToWalkToPlayer::
 	push af
-; compare x coords, load left/right into h, and x distance into d
 	ld a, b
 	sub d
 	ld h, LEFT
@@ -60,8 +59,11 @@ ComputePathToWalkToPlayer::
 	ld h, RIGHT
 
 .got_x_distance
+	cp 0 						; added by Damien.
+	jr z, .noXDistanceDecrease 	; added by Damien.
+	dec a 						; added by Damien. We subtract 1 to the distance, so the NPC stays at a safe distance from the player.
+.noXDistanceDecrease 			; added by Damien.
 	ld d, a
-; compare y coords, load up/down into l, and y distance into e
 	ld a, c
 	sub e
 	ld l, UP
@@ -71,6 +73,10 @@ ComputePathToWalkToPlayer::
 	ld l, DOWN
 
 .got_y_distance
+	cp 0 						; added by Damien.
+	jr z, .noYDistanceDecrease 	; added by Damien.
+	dec a 						; added by Damien. We subtract 1 to the distance, so the NPC stays at a safe distance from the player.
+.noYDistanceDecrease 			; added by Damien.
 	ld e, a
 ; if the x distance is less than the y distance, swap h and l, and swap d and e
 	cp d

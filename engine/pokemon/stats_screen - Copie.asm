@@ -583,132 +583,43 @@ LoadPinkPage:
 	ld de, .Status_Type
 	hlcoord 0, 12
 	call PlaceString
+	ld a, [wTempMonPokerusStatus]
+	ld b, a
 
-;	ld a, [wTempMonPokerusStatus]
-;	ld b, a ; Pokérus can be tested then reloaded from b.
+	and $e0 ; Damien's editing starts here.
+	jr z, .NotImmuneToPkrs
+	hlcoord 8, 8
+	ld [hl], "." ; the "Pokérus immunity dot" now means that you were once infected.
+	ld a, b
 
-;	; Damien's editing starts here.
-;	and POKERUS_STRAIN_MASK 
-;	jr z, .NotImmuneToPkrs
-;	hlcoord 8, 8
-;	ld [hl], "." ; the "Pokérus immunity dot" now means that you were once infected.
-;	ld a, b
-;
-;	and POKERUS_DURATION_MASK
-;	jr z, .NotImmuneToPkrs
-;	cp POKERUS_IMMUNITY_DURATION
-;	jr nc, .IsCurrentlyInfectedByPkrs
-;	jr c, .IsImmuneToPokerus
-;
-;.NotImmuneToPkrs:
-;	ld a, [wMonType]
-;	cp BOXMON
-;	jr z, .ShapeOK
-;	hlcoord 6, 13
-;	push hl
-;	ld de, wTempMonStatus
-;	predef PlaceStatusString
-;	pop hl
-;	jr nz, .done_status
-;	jr .ShapeOK
-;.IsCurrentlyInfectedByPkrs:
-;	ld de, .PkrsStr
-;	hlcoord 1, 13
-;	call PlaceString
-;	jr .done_status
-;.IsImmuneToPokerus:
-;	ld de, .PkrsImmuneStr
-;	hlcoord 1, 13
-;	call PlaceString
-;	jr .done_status
-
-
-
-
-
-	; We display the status.
+	and $1f
+	jr z, .NotImmuneToPkrs
+	cp POKERUS_IMMUNITY_DURATION
+	jr nc, .IsCurrentlyInfectedByPkrs
+	jr c, .IsImmuneToPokerus
+	
+.NotImmuneToPkrs:
 	ld a, [wMonType]
 	cp BOXMON
-	jr z, .CheckShape
-	hlcoord 1, 8
+	jr z, .StatusOK
+	hlcoord 6, 13
 	push hl
 	ld de, wTempMonStatus
 	predef PlaceStatusString
 	pop hl
-
-	; We display the shape of the Pokémon.
-.CheckShape
-	ld a, [wTempMonPokerusStatus]
-	ld b, a
-	and POKERUS_TEST_MASK 
-	jr z, .HasNotBeenTestedYet
-
-.HasBeenTested
-	; Status displayed will be either Pokérus, Asympt. or Immune Also, the Vaccinated icon can be displayed.
-	ld a, b
-	and POKERUS_DURATION_MASK 
-	jr z, .VaccineCaseTreated
-
-	; At this point, we know the duration is strictly above zero.
-
-	ld a, b
-	and POKERUS_STRAIN_MASK
-	cp POKERUS_VACCINE_STRAIN
-	jr nz, .VaccineCaseTreated
-
-	; At this point, we also know that the strain is strictly equal to the one of the vaccine. We conclude that this Pokémon is vaccinated.
-	hlcoord 8, 12
-	ld [hl], "<VC>"
-	ld a, b
-
-.VaccineCaseTreated
-	ld a, b
-	and POKERUS_DURATION_MASK 
-	cp POKERUS_IMMUNITY_DURATION
-	jr nc, .pkrsOrAsymptomatic
-
-	; Immmune text.
-	ld de, .PkrsImmuneStr
-	hlcoord 1, 13
-	call PlaceString
-	jr .done_status
-
-.pkrsOrAsymptomatic
-	; Pokérus text.
+	jr nz, .done_status
+	jr .StatusOK
+.IsCurrentlyInfectedByPkrs:
 	ld de, .PkrsStr
 	hlcoord 1, 13
 	call PlaceString
 	jr .done_status
-
-
-
-.HasNotBeenTestedYet
-	; Status displayed will be either Sick or Ok (jump).
-	ld a, b
-	and POKERUS_DURATION_MASK 
-	cp POKERUS_SYMPTOMS_START
-	jr nc, .ShapeOK
-
-	ld a, b
-	and POKERUS_DURATION_MASK 
-	cp POKERUS_IMMUNITY_DURATION
-	jr c, .ShapeOK
-	;jr z, .ShapeOK ; greater or equal.
-
-	; Sick text.
-	ld de, .PkrsSickStr
+.IsImmuneToPokerus:
+	ld de, .PkrsImmuneStr
 	hlcoord 1, 13
 	call PlaceString
 	jr .done_status
-
-
-
-
-
-
-
-.ShapeOK:
-	hlcoord 1, 13
+.StatusOK:
 	ld de, .OK_str
 	call PlaceString
 .done_status
@@ -798,7 +709,7 @@ LoadPinkPage:
 	ret
 
 .Status_Type:
-	db   "HEALTH/"
+	db   "STATUS/"
 	next "TYPE/@"
 
 .OK_str:
@@ -817,10 +728,7 @@ LoadPinkPage:
 	db "#RUS@"
 
 .PkrsImmuneStr:
-	db "IMMUNE@"
-
-.PkrsSickStr:
-	db "SICK@"
+	db "IMMUNE!@"
 
 LoadGreenPage:
 	ld de, .Item

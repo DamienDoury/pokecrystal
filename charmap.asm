@@ -174,6 +174,7 @@
 	charmap "'t",        $d5
 	charmap "'v",        $d6
 
+	charmap "<VC>",      $de
 	charmap "←",         $df
 	charmap "'",         $e0
 	charmap "<PK>",      $e1

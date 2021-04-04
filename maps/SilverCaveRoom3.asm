@@ -46,6 +46,12 @@ RedWinLossText:
 RedLeavesText:
 	text "<……>"
 	line "<……>"
+	line "*COUGH COUGH*" ; Damien
+	line "*COUGH COUGH*" ; Damien
+	closetext
+	pause 30
+	text "…Red collapses" ; Damien
+	cont "to the ground…" ; Damien
 	done
 
 SilverCaveRoom3_MapEvents:

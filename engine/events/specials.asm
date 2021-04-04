@@ -305,7 +305,7 @@ StoreSwarmMapIndices::
 	ld [wYanmaMapNumber], a
 	ret
 
-CheckPokerus:
+CheckPokerus: ; Only called by the nurse.
 ; Check if a monster in your party has Pokerus
 	farcall _CheckPokerus
 	jp ScriptReturnCarry

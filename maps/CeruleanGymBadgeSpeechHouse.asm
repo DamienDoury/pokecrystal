@@ -10,8 +10,15 @@ CeruleanGymBadgeSpeechHousePokefanMScript:
 	jumptextfaceplayer CeruleanGymBadgeSpeechHousePokefanMText
 
 CeruleanGymBadgeSpeechHousePokefanMText:
-	text "Are you collecting"
-	line "KANTO GYM BADGES?"
+	text "There used to be" ; Speech altered by Damien.
+	line "SANDSHREWs west"
+	cont "of here."
+	para "I haven't seen"
+	line "any since the"
+	cont "pandemic started."
+	para "I like to think"
+	line "they went"
+	cont "somewhere safer!"
 	done
 
 CeruleanGymBadgeSpeechHouse_MapEvents:

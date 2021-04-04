@@ -47,3 +47,20 @@ MAX_DAY_CARE_EXP EQU $500000
 
 ; hall of fame
 HOF_MASTER_COUNT EQU 200
+
+; Pokerus immunity duration, added by Damien
+POKERUS_DURATION_MASK EQU %00001111
+POKERUS_STRAIN_MASK EQU %11100000
+POKERUS_TEST_MASK EQU %00010000 ; The nurse sets this bit once she positively test a Pokémon to covid. It changes what's written on the status screen. Also, when testing, the nurse has a chance to declare a negative result (other disease that's not the virus) and cure the pokémon.
+
+POKERUS_DISOBEDIENCE_DISEASE_MASK EQU %10000000
+POKERUS_XP_DISEASE_MASK EQU %01000000
+POKERUS_WEAKNESS_DISEASE_MASK EQU %00100000
+
+POKERUS_VACCINE_STRAIN EQU %00000000 ; For a Pokémon to be vaccinated, along with this strain (000), it must have a test bit activated, and a duration between 0 and POKERUS_IMMUNITY_DURATION (both excluded, ideally set it to 1).
+POKERUS_VACCINE_SIGNATURE EQU %00010001 ; The exact signature of a vaccine. 000 strain + test bit set + 1 remaining day of immunity.
+POKERUS_DISEASE_STRAIN_FLOOR EQU %01100000
+POKERUS_IMMUNITY_DURATION EQU 10 ; days
+POKERUS_SYMPTOMS_DURATION EQU 3 ; days
+POKERUS_SYMPTOMS_START EQU 13 ; days
+

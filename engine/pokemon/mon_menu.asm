@@ -1188,6 +1188,9 @@ PlaceMoveData:
 	hlcoord 12, 12
 	ld de, String_MoveAtk
 	call PlaceString
+	hlcoord 12, 13
+	ld de, String_MoveAcc
+	call PlaceString
 	ld a, [wCurSpecies]
 	ld b, a
 	hlcoord 2, 12
@@ -1202,13 +1205,45 @@ PlaceMoveData:
 	hlcoord 16, 12
 	cp 2
 	jr c, .no_power
+
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
 	lb bc, 1, 3
 	call PrintNum
-	jr .description
+	jr .accuracy
 
 .no_power
+	ld de, String_MoveNoPower
+	call PlaceString
+	
+.accuracy
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_EFFECT
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	cp EFFECT_ALWAYS_HIT
+	jr z, .perfect_accuracy
+
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_ACC
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	call ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
+	ld [wTextDecimalByte], a
+	ld de, wTextDecimalByte
+	lb bc, 1, 3
+	hlcoord 16, 13
+	call PrintNum
+	jr .description
+
+.perfect_accuracy
+	hlcoord 16, 13
 	ld de, String_MoveNoPower
 	call PlaceString
 
@@ -1225,6 +1260,8 @@ String_MoveType_Bottom:
 	db "│TYPE/└@"
 String_MoveAtk:
 	db "ATK/@"
+String_MoveAcc:
+	db "ACC/@"
 String_MoveNoPower:
 	db "---@"
 
@@ -1291,4 +1328,29 @@ PlaceMoveScreenRightArrow:
 .legal
 	hlcoord 18, 0
 	ld [hl], "▶"
+	ret
+
+ConvertToPercentage:
+	ld b, a
+	xor a, $FF
+	ld a, 100
+	ret z ; We can't add 1 to 255, so we make a shortcut for this case.
+
+	ld a, b
+	inc a
+	ld [hMultiplicand + 2], a
+	xor a
+	ld [hMultiplicand + 1], a
+	ld [hMultiplicand], a
+	ld a, 100
+	ld [hMultiplier], a
+	call Multiply
+
+	; The result of the multiplication is stored in the memory slots used for the dividend.
+	ld a, 255
+	ld [hDivisor], a
+	ld b, 4
+	call Divide
+
+	ld a, [hQuotient + 3]
 	ret

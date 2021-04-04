@@ -99,6 +99,13 @@ Text_Gained::
 	text " gained@"
 	text_end
 
+Text_No_Xp_Gained::
+	text_ram wStringBuffer1
+	text " doesn't"
+	line "feel good enough"
+	cont "@"
+	text_end
+
 _BoostedExpPointsText::
 	text_start
 	line "a boosted"
@@ -112,6 +119,13 @@ _ExpPointsText::
 	line "@"
 	text_decimal wStringBuffer2, 2, 4
 	text " EXP. Points!"
+	prompt
+
+_NoExpPointsPokerusText::
+	text_start
+	line "@"
+	;text_decimal wStringBuffer2, 2, 4
+	text "to gain any EXP.…"
 	prompt
 
 _GoMonText::

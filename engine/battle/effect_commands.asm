@@ -659,11 +659,39 @@ BattleCommand_CheckObedience:
 	and a
 	ret nz
 
+	; Damien : when the player has the Pokérus, is cannot obey all the time.
+	ld a, MON_PKRUS
+	call BattlePartyAttr
+
+	; We check if the Pokémon has the disobedience disease.
+	ld a, [hl]
+	and POKERUS_DISOBEDIENCE_DISEASE_MASK ; The middle bit of the strain (strain = 3 leftmost bits) indicate the disobedience disease.
+	jr z, .no_disobedience_disease
+
+	; We check if the Pokémon has symptoms.
+	ld a, [hl]
+	and POKERUS_DURATION_MASK ; The middle bit of the strain (strain = 3 leftmost bits) indicate the disobedience disease.
+	cp POKERUS_SYMPTOMS_START
+	jr nc, .no_disobedience_disease
+
+	; We check if the Pokémon is still sick.
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION ; Note that this check discards vaccinated pokemons as well.
+	ld a, 10 ; We set the obedience lvl to 10 when the Pkmon has the Pkrus.
+	jr nc, .getlevel
+
+.no_disobedience_disease
 	; If the monster's id doesn't match the player's,
 	; some conditions need to be met.
 	ld a, MON_ID
 	call BattlePartyAttr
-
+	push bc
+	ld a, [wPlayerID]
+	ld c, a
+	ld a, [wPlayerID+1]
+	ld b, a
+	pop bc
 	ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .obeylevel
@@ -707,11 +735,12 @@ BattleCommand_CheckObedience:
 	ld b, a
 	ld c, a
 
-	ld a, [wBattleMonLevel]
-	ld d, a
-
-	add b
-	ld b, a
+	ld a, [wBattleMonLevel] ; a = 22 ; Pokémon de lvl 22.
+	ld c, a ; c = 22
+	add 40 ; a = 62
+	ld d, a ; d = 62
+	add c ; a = 84
+	ld b, a ; b = 84
 
 ; No overflow (this should never happen)
 	jr nc, .checklevel

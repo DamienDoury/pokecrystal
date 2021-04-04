@@ -1,6 +1,6 @@
 	object_const_def
 	const ROUTE25_MISTY
-	const ROUTE25_COOLTRAINER_M1
+	const ROUTE25_RED
 	const ROUTE25_YOUNGSTER1
 	const ROUTE25_LASS1
 	const ROUTE25_YOUNGSTER2
@@ -10,6 +10,7 @@
 	const ROUTE25_SUPER_NERD
 	const ROUTE25_COOLTRAINER_M2
 	const ROUTE25_POKE_BALL
+
 
 Route25_MapScripts:
 	def_scene_scripts
@@ -25,13 +26,15 @@ Route25_MapScripts:
 	end
 
 Route25MistyDate1Script:
-	showemote EMOTE_HEART, ROUTE25_MISTY, 15
-	pause 30
-	showemote EMOTE_SHOCK, ROUTE25_COOLTRAINER_M1, 10
+	showemote EMOTE_HEART, ROUTE25_MISTY, 40 ; Damien
+	pause 15 ; Damien
+	showemote EMOTE_SHOCK, ROUTE25_RED, 15 ; Damien
 	turnobject ROUTE25_MISTY, DOWN
-	applymovement ROUTE25_COOLTRAINER_M1, Route25MistysDateLeavesMovement1
-	disappear ROUTE25_COOLTRAINER_M1
-	pause 15
+	applymovement ROUTE25_RED, Route25MistysDateLeavesMovement1 ; Damien
+	disappear ROUTE25_RED ; Damien
+	pause 20 ; Damien
+	turnobject ROUTE25_MISTY, UP ; Damien
+	pause 20 ; Damien
 	playmusic MUSIC_BEAUTY_ENCOUNTER
 	turnobject ROUTE25_MISTY, UP
 	pause 10
@@ -40,9 +43,9 @@ Route25MistyDate1Script:
 	writetext Route25MistyDateText
 	waitbutton
 	closetext
-	turnobject PLAYER, DOWN
+	;turnobject PLAYER, DOWN ; Damien
 	applymovement ROUTE25_MISTY, Route25MistyLeavesPlayerMovement1
-	turnobject PLAYER, LEFT
+	turnobject PLAYER, DOWN ; Damien
 	applymovement ROUTE25_MISTY, Route25MistyLeavesMovement
 	disappear ROUTE25_MISTY
 	clearevent EVENT_TRAINERS_IN_CERULEAN_GYM
@@ -51,13 +54,15 @@ Route25MistyDate1Script:
 	end
 
 Route25MistyDate2Script:
-	showemote EMOTE_HEART, ROUTE25_MISTY, 15
-	pause 30
-	showemote EMOTE_SHOCK, ROUTE25_COOLTRAINER_M1, 10
+	showemote EMOTE_HEART, ROUTE25_MISTY, 40 ; Damien
+	pause 15 ; Damien
+	showemote EMOTE_SHOCK, ROUTE25_RED, 15 ; Damien
 	turnobject ROUTE25_MISTY, DOWN
-	applymovement ROUTE25_COOLTRAINER_M1, Route25MistysDateLeavesMovement2
-	disappear ROUTE25_COOLTRAINER_M1
-	pause 15
+	applymovement ROUTE25_RED, Route25MistysDateLeavesMovement2 ; Damien
+	disappear ROUTE25_RED ; Damien
+	pause 15 ; Damien
+	turnobject ROUTE25_MISTY, UP ; Damien
+	pause 15 ; Damien
 	playmusic MUSIC_BEAUTY_ENCOUNTER
 	turnobject ROUTE25_MISTY, UP
 	pause 10
@@ -66,9 +71,9 @@ Route25MistyDate2Script:
 	writetext Route25MistyDateText
 	waitbutton
 	closetext
-	turnobject PLAYER, UP
+	;turnobject PLAYER, UP ; Damien
 	applymovement ROUTE25_MISTY, Route25MistyLeavesPlayerMovement2
-	turnobject PLAYER, LEFT
+	turnobject PLAYER, DOWN ; Damien
 	applymovement ROUTE25_MISTY, Route25MistyLeavesMovement
 	disappear ROUTE25_MISTY
 	clearevent EVENT_TRAINERS_IN_CERULEAN_GYM
@@ -200,47 +205,46 @@ Route25MistysDateLeavesMovement2:
 	big_step DOWN
 	step_end
 
-Route25MistyApproachesPlayerMovement1:
+Route25MistyApproachesPlayerMovement1: ; Damien
 	step UP
 	step UP
 	step UP
-	step LEFT
 	step LEFT
 	step LEFT
 	step_end
 
-Route25MistyApproachesPlayerMovement2:
+Route25MistyApproachesPlayerMovement2: ; Damien
 	step UP
 	step UP
-	step LEFT
 	step LEFT
 	step LEFT
 	step_end
 
-Route25MistyLeavesPlayerMovement1:
+Route25MistyLeavesPlayerMovement1: ; Damien
+	step RIGHT
+	step RIGHT
 	step DOWN
-	step LEFT
 	step_end
 
-Route25MistyLeavesPlayerMovement2:
-	step UP
-	step LEFT
+Route25MistyLeavesPlayerMovement2: ; Damien
+	step RIGHT
+	step RIGHT
 	step_end
 
-Route25MistyLeavesMovement:
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
+Route25MistyLeavesMovement: ; Damien
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
 	step_end
 
 Route25MistyDateText:
-	text "MISTY: Aww! Why"
-	line "did you have to"
+	text "MISTY: (cough)"
+	line "Aww! Why did you"
 
-	para "show up and bug us"
-	line "now?"
+	para "have to show up"
+	line "and bug us now?"
 
 	para "Do you know what"
 	line "they call people"
@@ -250,13 +254,15 @@ Route25MistyDateText:
 	line "me right, pest!"
 
 	para "…"
+	line "" ; Damien
 
 	para "…Oh? Those BADGES"
 	line "you have… Are they"
 	cont "JOHTO GYM BADGES?"
 
 	para "If you have eight,"
-	line "you must be good."
+	line "you must be good…"
+	cont "…(cough)…"
 
 	para "OK, then. Come to"
 	line "CERULEAN GYM."
@@ -442,8 +448,8 @@ Route25_MapEvents:
 	bg_event  4,  5, BGEVENT_ITEM, Route25HiddenPotion
 
 	def_object_events
-	object_event 46,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
-	object_event 46, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND
+	object_event 46,  9, SPRITE_MISTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND 
+	object_event 46, 10, SPRITE_RED, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ROUTE_25_MISTY_BOYFRIEND ; Damien
 	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSchoolboyDudley, -1
 	object_event 16, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerLassEllen, -1
 	object_event 21,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSchoolboyJoe, -1
