@@ -584,49 +584,10 @@ LoadPinkPage:
 	hlcoord 0, 12
 	call PlaceString
 
-;	ld a, [wTempMonPokerusStatus]
-;	ld b, a ; Pokérus can be tested then reloaded from b.
-
-;	; Damien's editing starts here.
-;	and POKERUS_STRAIN_MASK 
-;	jr z, .NotImmuneToPkrs
-;	hlcoord 8, 8
-;	ld [hl], "." ; the "Pokérus immunity dot" now means that you were once infected.
-;	ld a, b
-;
-;	and POKERUS_DURATION_MASK
-;	jr z, .NotImmuneToPkrs
-;	cp POKERUS_IMMUNITY_DURATION
-;	jr nc, .IsCurrentlyInfectedByPkrs
-;	jr c, .IsImmuneToPokerus
-;
-;.NotImmuneToPkrs:
-;	ld a, [wMonType]
-;	cp BOXMON
-;	jr z, .ShapeOK
-;	hlcoord 6, 13
-;	push hl
-;	ld de, wTempMonStatus
-;	predef PlaceStatusString
-;	pop hl
-;	jr nz, .done_status
-;	jr .ShapeOK
-;.IsCurrentlyInfectedByPkrs:
-;	ld de, .PkrsStr
-;	hlcoord 1, 13
-;	call PlaceString
-;	jr .done_status
-;.IsImmuneToPokerus:
-;	ld de, .PkrsImmuneStr
-;	hlcoord 1, 13
-;	call PlaceString
-;	jr .done_status
 
 
 
-
-
-	; We display the status.
+	; We display the battle permanent status (Burnt, Sleeping, etc.).
 	ld a, [wMonType]
 	cp BOXMON
 	jr z, .CheckShape
@@ -644,7 +605,7 @@ LoadPinkPage:
 	jr z, .HasNotBeenTestedYet
 
 .HasBeenTested
-	; Status displayed will be either Pokérus, Asympt. or Immune Also, the Vaccinated icon can be displayed.
+	; Status displayed will be either Pokérus, Asympt. or Immune. Also, the Vaccinated icon can be displayed.
 	ld a, b
 	and POKERUS_DURATION_MASK 
 	jr z, .VaccineCaseTreated
@@ -666,8 +627,9 @@ LoadPinkPage:
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_IMMUNITY_DURATION
 	jr nc, .pkrsOrAsymptomatic
+	jr z, .pkrsOrAsymptomatic ; Strictly greater.
 
-	; Immmune text.
+	; Immune text.
 	ld de, .PkrsImmuneStr
 	hlcoord 1, 13
 	call PlaceString
@@ -688,12 +650,13 @@ LoadPinkPage:
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_SYMPTOMS_START
 	jr nc, .ShapeOK
+	jr z, .ShapeOK ; Strictly greater.
 
 	ld a, b
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_IMMUNITY_DURATION
 	jr c, .ShapeOK
-	;jr z, .ShapeOK ; greater or equal.
+	jr z, .ShapeOK ; less or equal.
 
 	; Sick text.
 	ld de, .PkrsSickStr

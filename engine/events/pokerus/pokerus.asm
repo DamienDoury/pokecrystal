@@ -26,6 +26,7 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 	cp POKERUS_IMMUNITY_DURATION ; Note that a vaccinated Pokémon has a duration of 1: this test discards him.
+	jp z,  .TrySpreadPokerus ; starting 10 days left, you are immune and can't transmit the virus.
 	jp nc, .TrySpreadPokerus
 
 
@@ -103,9 +104,10 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 
 	and POKERUS_DURATION_MASK ; A virus a just considered a "disease" (with a lower transmision rate) until it is tested and declared as the Pokérus.
 	cp POKERUS_SYMPTOMS_START ; It has already been checked that the source Pokémon is not immune yet.
-	ld a, 255; 3% of 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 85% of no contamination (15% odds of 1+ new contamination).
-	jr nc, .runDices ; If the source Pokémon is still within its incubation stage, it is less contagious.
-	add 0 ; 17% of 256, which brings the odds at 8 + 43 = 51 = 20% * 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 32% of no contamination (68% odds of 1+ new contamination).
+	ld a, 51; 20% of 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 32% of no contamination (68% odds of 1+ new contamination).
+	jr c, .runDices ; If the source Pokémon is still within its incubation stage, it is less contagious.
+	jr z, .runDices ; less or equal to POKERUS_SYMPTOMS_START.
+	sub 43 ; 3% of 256, which brings the odds at 8 = 51 - 43 = 3% * 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 85% of no contamination (15% odds of 1+ new contamination).
 
 .runDices
 	ld b, a

@@ -751,6 +751,30 @@ _ActorNameText::
 	text "<USER>@"
 	text_end
 
+_FeelsWeakText::
+	text "<USER> feels"
+	line "weak…"
+	para "@"
+	text_end
+
+_FeelsWeakText1::
+	text "<USER> feels"
+
+_FeelsWeakText2::
+	line "weak…"
+	para "@"
+	text_end
+
+_FeelsWeakText3::
+	line "exhausted…"
+	para "@"
+	text_end
+
+_FeelsWeakText4::
+	line "out of energy…"
+	para "@"
+	text_end
+
 _UsedMove1Text::
 	text_start
 	line "used @"

@@ -1,3 +1,18 @@
+DisplayWeaknessDiseaseText:
+	ld hl, WeaknessDiseaseText
+	call BattleTextbox
+	ret
+
+WeaknessDiseaseText:
+	text_far _FeelsWeakText
+	text_end
+
+WeaknessDiseaseText2:
+	text_far _FeelsWeakText1
+	text_asm
+	text_far _FeelsWeakText4
+	text_end
+
 DisplayUsedMoveText:
 	ld hl, UsedMoveText
 	call BattleTextbox

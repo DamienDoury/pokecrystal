@@ -3247,8 +3247,10 @@ AddBattleParticipant:
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 	cp POKERUS_IMMUNITY_DURATION
+	jr z, .not_infected ; if it is exactly 10 days left, the pokemon is immune and not contagious anymore.
 	call nc, InfectedOrPotentiallyInfected ; If this Pokémon is infected, we add it to the list. This is the list the list gets "opened" to non-infected mons added thanks to the previous check.
 
+.not_infected
 	ld hl, wBattleParticipantsIncludingFainted
 	predef_jump SmallFarFlagAction
 
@@ -6611,14 +6613,17 @@ ApplyPokerusWeaknessSymptom: ; Damien
 	ld a, b
 	and POKERUS_DURATION_MASK
 	cp POKERUS_SYMPTOMS_START
+	jr z, .has_symptoms
 	ret nc
 
 	; We check if the Pokémon is still sick.
 	ld a, b
 	and POKERUS_DURATION_MASK
 	cp POKERUS_IMMUNITY_DURATION ; Note that this discards vaccinated Pokémons.
-	ret c
+	ret z
+	ret c ; the remaining days of infection is less than or equal to POKERUS_IMMUNITY_DURATION.
 
+.has_symptoms
 	ld b, NUM_LEVEL_STATS - 3
 	ld hl, wBattleMonAttack
 .loop
@@ -7192,15 +7197,18 @@ GiveExperiencePoints:
 	and POKERUS_DURATION_MASK ;
 	cp POKERUS_SYMPTOMS_START
 	ld a, [wEnemyMonBaseExp] ; Retrieving the enemy base XP.
-	jp nc, .not_affected_by_xp_disease
+	jr z, .hasSymptoms
+	jr nc, .not_affected_by_xp_disease
 
 	; We check if the Pokémon is still sick.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 	cp POKERUS_IMMUNITY_DURATION ; Note that this discards vaccinated Pokémons.
 	ld a, [wEnemyMonBaseExp] ; Retrieving the enemy base XP.
-	jp c, .not_affected_by_xp_disease
+	jr z, .not_affected_by_xp_disease
+	jr c, .not_affected_by_xp_disease ; less or equal
 
+.hasSymptoms
 	xor a ; force the enemy base XP to 0.
 	ld [wStringBuffer2 + 3], a ; This will be read later to know which text to display.
 	

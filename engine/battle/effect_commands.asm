@@ -659,25 +659,37 @@ BattleCommand_CheckObedience:
 	and a
 	ret nz
 
+
+
 	; Damien : when the player has the Pokérus, is cannot obey all the time.
 	ld a, MON_PKRUS
 	call BattlePartyAttr
 
-	; We check if the Pokémon has the disobedience disease.
-	ld a, [hl]
-	and POKERUS_DISOBEDIENCE_DISEASE_MASK ; The middle bit of the strain (strain = 3 leftmost bits) indicate the disobedience disease.
-	jr z, .no_disobedience_disease
-
 	; We check if the Pokémon has symptoms.
 	ld a, [hl]
-	and POKERUS_DURATION_MASK ; The middle bit of the strain (strain = 3 leftmost bits) indicate the disobedience disease.
+	and POKERUS_DURATION_MASK
 	cp POKERUS_SYMPTOMS_START
+	jr z, .symptoms_started_today
 	jr nc, .no_disobedience_disease
 
 	; We check if the Pokémon is still sick.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 	cp POKERUS_IMMUNITY_DURATION ; Note that this check discards vaccinated pokemons as well.
+	jr c, .no_disobedience_disease
+	jr z, .no_disobedience_disease ; less or equal.
+
+.symptoms_started_today
+	; We check if the Pokémon has the weakness disease.
+	ld a, [hl]
+	and POKERUS_WEAKNESS_DISEASE_MASK
+	call nz, BattleCommand_WeaknessDiseaseText
+
+	; We check if the Pokémon has the disobedience disease.
+	ld a, [hl]
+	and POKERUS_DISOBEDIENCE_DISEASE_MASK
+	jr z, .no_disobedience_disease
+
 	ld a, 10 ; We set the obedience lvl to 10 when the Pkmon has the Pkrus.
 	jr nc, .getlevel
 
@@ -973,6 +985,10 @@ IgnoreSleepOnly:
 BattleCommand_UsedMoveText:
 ; usedmovetext
 	farcall DisplayUsedMoveText
+	ret
+
+BattleCommand_WeaknessDiseaseText: ; Damien
+	farcall DisplayWeaknessDiseaseText
 	ret
 
 CheckUserIsCharging:
