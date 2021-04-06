@@ -291,8 +291,8 @@ HPBarAnim_BGMapUpdate:
 	ldh a, [hCGB]
 	and a
 	jr nz, .cgb
-	call DelayFrame
-	call DelayFrame
+	;call DelayFrame ; Damien commented out those 2 lines.
+	;call DelayFrame
 	ret
 
 .cgb
