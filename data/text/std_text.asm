@@ -68,10 +68,23 @@ NurseReturnPokemonText:
 	done
 
 NurseGoodbyeText:
-	text "We hope to see you"
+	text "Your #BALLS"
+	line "have been"
+	cont "disinfected."
+
+	para "We hope to see you"
 	line "again."
 	done
 
+
+NurseMildIllnessText:
+	text "Some of your"
+	line "#MON had a mild"
+	cont "illness, but they"
+	cont "have been taken"
+	cont "care of and they"
+	cont "are now cured!"
+	done
 
 NursePokerusReaction:
 	text "Some of your"

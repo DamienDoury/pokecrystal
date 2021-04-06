@@ -50,8 +50,10 @@ HOF_MASTER_COUNT EQU 200
 
 ; Pokerus immunity duration, added by Damien
 POKERUS_DURATION_MASK EQU %00001111
+POKERUS_INVERSED_DURATION_MASK EQU %11110000
 POKERUS_STRAIN_MASK EQU %11100000
 POKERUS_TEST_MASK EQU %00010000 ; The nurse sets this bit once she positively test a Pokémon to covid. It changes what's written on the status screen. Also, when testing, the nurse has a chance to declare a negative result (other disease that's not the virus) and cure the pokémon.
+POKERUS_INVERSED_TEST_MASK EQU %11101111
 
 POKERUS_DISOBEDIENCE_DISEASE_MASK EQU %10000000
 POKERUS_XP_DISEASE_MASK EQU %01000000

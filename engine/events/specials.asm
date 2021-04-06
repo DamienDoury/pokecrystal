@@ -305,8 +305,13 @@ StoreSwarmMapIndices::
 	ld [wYanmaMapNumber], a
 	ret
 
+CheckMildIllness: ; Only called by the nurse.
+; Check if a monster in your party has Pokerus with a 1 bit strain.
+	farcall _CheckMildIllness
+	jp ScriptReturnCarry
+
 CheckPokerus: ; Only called by the nurse.
-; Check if a monster in your party has Pokerus
+; Check if a monster in your party has Pokerus (with a 2 or 3 bits strain).
 	farcall _CheckPokerus
 	jp ScriptReturnCarry
 

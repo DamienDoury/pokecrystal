@@ -15,6 +15,13 @@
 PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
+	ld hl, PokecenterPCSanitizerText
+	call PC_DisplayText
+	call PC_PlaySanitizerSound
+	push bc
+	ld c, 75
+	call DelayFrames
+	pop bc
 	call PC_PlayBootSound
 	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText
@@ -176,6 +183,12 @@ TurnOffPC:
 	ld hl, PokecenterPCOaksClosedText
 	call PrintText
 	scf
+	ret
+
+PC_PlaySanitizerSound:
+	ld de, SFX_2_BOOPS
+	jr PC_WaitPlaySFX
+	call WaitSFX
 	ret
 
 PC_PlayBootSound:
@@ -653,6 +666,10 @@ PC_DisplayText:
 	call MenuTextbox
 	call ExitMenu
 	ret
+
+PokecenterPCSanitizerText:
+	text_far _PlayersPCSanitizerText
+	text_end
 
 PokecenterPCTurnOnText:
 	text_far _PokecenterPCTurnOnText

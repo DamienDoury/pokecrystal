@@ -111,6 +111,7 @@ PokecenterNurseScript:
 	iffalse .done
 
 	farwritetext NurseTakePokemonText
+	promptbutton
 	pause 10
 	special StubbedTrainerRankings_Healings
 	turnobject LAST_TALKED, LEFT
@@ -127,10 +128,28 @@ PokecenterNurseScript:
 	;iftrue .no
 	;checkflag ENGINE_CAUGHT_POKERUS
 	;iftrue .no
+	special CheckMildIllness
+	iftrue .mildIllness
 	special CheckPokerus
 	iftrue .pokerus
 
+	pause 20
 	turnobject LAST_TALKED, DOWN
+	pause 20
+	opentext
+	sjump .done ; Damien
+
+.mildIllness
+	pause 20
+	opentext
+	farwritetext NurseMildIllnessText
+	waitbutton
+	closetext
+	special CheckPokerus
+	iftrue .pokerus
+
+	pause 20
+	turnobject LAST_TALKED, DOWN ; This code is a copy/paste from the code above. I should create a "function"
 	pause 20
 	opentext
 	sjump .done ; Damien
@@ -140,11 +159,11 @@ PokecenterNurseScript:
 	;checkevent EVENT_WELCOMED_TO_POKECOM_CENTER
 	;iftrue .pokerus_comcenter
 	;closetext
-	pause 1
+	pause 20
 	showemote EMOTE_SHOCK, LAST_TALKED, 20 ; Damien
-	pause 15
+	pause 20
 	turnobject LAST_TALKED, DOWN
-	pause 15
+	pause 20
 	opentext
 
 	farwritetext NursePokerusReaction

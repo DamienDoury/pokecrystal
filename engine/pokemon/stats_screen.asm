@@ -601,21 +601,22 @@ LoadPinkPage:
 .CheckShape
 	ld a, [wTempMonPokerusStatus]
 	ld b, a
+
+	and POKERUS_DURATION_MASK 
+	jr z, .ShapeOK ; If the remaining duration is zero, then the Pokémon is always "OK".
+
+	ld a, b
 	and POKERUS_TEST_MASK 
 	jr z, .HasNotBeenTestedYet
+
+
 
 .HasBeenTested
 	; Status displayed will be either Pokérus, Asympt. or Immune. Also, the Vaccinated icon can be displayed.
 	ld a, b
-	and POKERUS_DURATION_MASK 
-	jr z, .VaccineCaseTreated
-
-	; At this point, we know the duration is strictly above zero.
-
-	ld a, b
 	and POKERUS_STRAIN_MASK
 	cp POKERUS_VACCINE_STRAIN
-	jr nz, .VaccineCaseTreated
+	jr nz, .VaccineCaseTreated ; If the strain is not equal to the one of a vaccinated Pokemon, then it is not vaccinated.
 
 	; At this point, we also know that the strain is strictly equal to the one of the vaccine. We conclude that this Pokémon is vaccinated.
 	hlcoord 8, 12
@@ -626,9 +627,10 @@ LoadPinkPage:
 	ld a, b
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_IMMUNITY_DURATION
-	jr nc, .pkrsOrAsymptomatic
-	jr z, .pkrsOrAsymptomatic ; Strictly greater.
+	jr z, .immune 
+	jr nc, .pkrsOrAsymptomatic ; If the duration is strictly greater than the immune duration, then the Pokémon has the "Pokérus" status. Otherwise it is "immune".
 
+.immune
 	; Immune text.
 	ld de, .PkrsImmuneStr
 	hlcoord 1, 13
@@ -645,12 +647,12 @@ LoadPinkPage:
 
 
 .HasNotBeenTestedYet
-	; Status displayed will be either Sick or Ok (jump).
+	; Status displayed will be either Sick or Ok.
 	ld a, b
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_SYMPTOMS_START
-	jr nc, .ShapeOK
-	jr z, .ShapeOK ; Strictly greater.
+	jr z, .sick ; First day of symptoms.
+	jr nc, .ShapeOK ; If the remaining duration strictly greater than the first day of symptoms, then we are "ok".
 
 	ld a, b
 	and POKERUS_DURATION_MASK 
@@ -658,6 +660,7 @@ LoadPinkPage:
 	jr c, .ShapeOK
 	jr z, .ShapeOK ; less or equal.
 
+.sick
 	; Sick text.
 	ld de, .PkrsSickStr
 	hlcoord 1, 13

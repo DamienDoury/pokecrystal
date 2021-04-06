@@ -1183,6 +1183,12 @@ _PlayersPCNoRoomDepositText::
 	line "store items."
 	prompt
 
+_PlayersPCSanitizerText::
+	text "<PLAYER> washes its"
+	line "hands with some"
+	cont "hand sanitizer."
+	prompt
+
 _PokecenterPCTurnOnText::
 	text "<PLAYER> turned on"
 	line "the PC."
