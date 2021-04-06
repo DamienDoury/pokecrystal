@@ -1,3 +1,4 @@
+;magick convert i.png -crop 30x17-1-9@ -gravity NorthWest +repage +adjoin spaced_%d.png
 ; IconPointers indexes (see data/icon_pointers.asm)
 	const_def
 	const ICON_NULL
