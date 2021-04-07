@@ -27,8 +27,6 @@ MonMenuIconPals:
 	icon_pals BROWN, RED ; RATICATE
 	icon_pals RED, GREEN ; SPEAROW
 	icon_pals BROWN, RED ; FEAROW
-	icon_pals BLUE, GREEN ; MARILL
-	icon_pals BLUE, BROWN ; AZUMARILL
 	icon_pals PURPLE, BROWN ; EKANS
 	icon_pals PURPLE, BROWN ; ARBOK
 	icon_pals RED, BLUE ; PIKACHU
@@ -126,8 +124,6 @@ MonMenuIconPals:
 	icon_pals BLUE, PURPLE ; SEADRA
 	icon_pals RED, GREEN ; GOLDEEN
 	icon_pals RED, GREEN ; SEAKING
-	icon_pals RED, BLUE ; TOGEPI
-	icon_pals RED, BLUE ; TOGETIC
 	icon_pals BROWN, BLUE ; STARYU
 	icon_pals PURPLE, BLUE ; STARMIE
 	icon_pals PINK, GREEN ; MR_MIME
@@ -183,12 +179,16 @@ MonMenuIconPals:
 	icon_pals RED, BLUE ; PICHU
 	icon_pals RED, GREEN ; CLEFFA
 	icon_pals RED, BLUE ; IGGLYBUFF
+	icon_pals RED, BLUE ; TOGEPI
+	icon_pals RED, BLUE ; TOGETIC
 	icon_pals GREEN, RED ; NATU
 	icon_pals GREEN, RED ; XATU
 	icon_pals BLUE, PURPLE ; MAREEP
 	icon_pals PINK, RED ; FLAAFFY
 	icon_pals BROWN, RED ; AMPHAROS
 	icon_pals GREEN, RED ; BELLOSSOM
+	icon_pals BLUE, GREEN ; MARILL
+	icon_pals BLUE, BROWN ; AZUMARILL
 	icon_pals GREEN, RED ; SUDOWOODO
 	icon_pals GREEN, TEAL ; POLITOED
 	icon_pals RED, GREEN ; HOPPIP
