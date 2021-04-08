@@ -115,7 +115,7 @@ TrainerType2:
 	cp $ff
 	ret z
 
-	ld [wCurPartyLevel], a
+	ld [wCurPartyLevel], a ; Damien. HERE TO ADAPT CHAMPION PARTY LEVEL.
 	ld a, [hli]
 	ld [wCurPartySpecies], a
 	ld a, OTPARTYMON
