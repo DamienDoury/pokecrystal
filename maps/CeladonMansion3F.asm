@@ -1,5 +1,6 @@
 	object_const_def
-	const CELADONMANSION3F_COOLTRAINER_M
+	const CELADONMANSION3F_COOLTRAINER_M_1
+	const CELADONMANSION3F_COOLTRAINER_M_2
 	const CELADONMANSION3F_GYM_GUIDE
 	const CELADONMANSION3F_SUPER_NERD
 	const CELADONMANSION3F_FISHER
@@ -8,6 +9,42 @@ CeladonMansion3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
+GameFreakBotheringFanScript:
+	faceplayer
+	opentext
+	writetext GameFreakBotheringFanText1
+	waitbutton
+	closetext
+
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, LEFT
+	pause 3 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, RIGHT
+	pause 2 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, LEFT
+	pause 3 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, RIGHT
+
+	opentext
+	writetext GameFreakBotheringFanText2
+	waitbutton
+	closetext
+
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, DOWN
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, LEFT
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, UP
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, RIGHT
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, DOWN
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, LEFT
+	pause 1 ; Damien
+	turnobject CELADONMANSION3F_COOLTRAINER_M_1, UP
+	
+	end
 
 GameFreakGameDesignerScript:
 	faceplayer
@@ -81,8 +118,31 @@ CeladonMansion3FGameProgram:
 CeladonMansion3FReferenceMaterial:
 	jumptext CeladonMansion3FReferenceMaterialText
 
+GameFreakBotheringFanText1:
+	text "I avoided the"
+	line "security guards"
+	cont "to come and see"
+	cont "my heroes!"
+
+	para "I want to see"
+	line "what they are"
+	cont "working on!"
+	done
+
+GameFreakBotheringFanText2:
+	text "Could you take"
+	line "a picture of me?"
+	cont "Maybe I should"
+	cont "apply for a"
+	cont "position?"
+
+	para "I'm so excited!!"
+	line "Hyaaa!!"
+	done
+
 GameFreakGameDesignerText:
-	text "Is that right?"
+	text "SATOSHI TAJIRI: Is"
+	line "that right?"
 
 	para "I'm the GAME"
 	line "DESIGNER!"
@@ -93,8 +153,9 @@ GameFreakGameDesignerText:
 	done
 
 GameFreakGameDesignerCompletedPokedexText:
-	text "Wow! Excellent!"
-	line "You completed your"
+	text "SATOSHI TAJIRI:"
+	line "Wow! Excellent!"
+	cont "You completed your"
 	cont "#DEX!"
 
 	para "Congratulations!"
@@ -114,15 +175,17 @@ GameFreakGameDesignerAfterDiplomaText:
 	done
 
 GameFreakGraphicArtistText:
-	text "I'm the GRAPHIC"
-	line "ARTIST."
+	text "KEN SUGIMORI: I'm"
+	line "the GRAPHIC"
+	cont "ARTIST."
 
 	para "I drew you!"
 	done
 
 GameFreakGraphicArtistPrintDiplomaText:
-	text "I'm the GRAPHIC"
-	line "ARTIST."
+	text "KEN SUGIMORI: I'm"
+	line "the GRAPHIC"
+	cont "ARTIST."
 
 	para "Oh, you completed"
 	line "your #DEX?"
@@ -152,8 +215,9 @@ GameFreakProgrammerText:
 	done
 
 GameFreakCharacterDesignerText:
-	text "Aren't the TWINS"
-	line "adorable?"
+	text "KOHJI NISHINO:"
+	line "Aren't the TWINS"
+	cont "adorable?"
 
 	para "JASMINE's pretty"
 	line "too."
@@ -205,6 +269,7 @@ CeladonMansion3F_MapEvents:
 	bg_event  1,  3, BGEVENT_UP, CeladonMansion3FReferenceMaterial
 
 	def_object_events
+	object_event  3,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakBotheringFanScript, -1
 	object_event  3,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GameFreakGameDesignerScript, -1
 	object_event  3,  4, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakGraphicArtistScript, -1
 	object_event  0,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakProgrammerScript, -1
