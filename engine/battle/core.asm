@@ -6595,7 +6595,6 @@ ApplyPokerusWeaknessSymptom: ; Damien
 	ld a, MON_PKRUS
 	call GetPartyParamLocation
 	ld a, [hl]
-	ld b, b
 	ld b, a
 
 	; We check if the Pokémon has the weakness disease.

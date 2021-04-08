@@ -104,10 +104,10 @@ PokemonFanClubTeacherScript:
 PokemonFanClubClefairyDollScript:
 	jumptext PokemonFanClubClefairyDollText
 
-PokemonFanClubBayleefScript:
+PokemonFanClubChikoritaScript:
 	opentext
-	writetext PokemonFanClubBayleefText
-	cry BAYLEEF
+	writetext PokemonFanClubChikoritaText
+	cry CHIKORITA
 	waitbutton
 	closetext
 	end
@@ -264,7 +264,7 @@ PokemonFanClubClefairyGuyPackIsJammedFullText:
 
 PokemonFanClubTeacherText:
 	text "Look at my darling"
-	line "BAYLEEF!"
+	line "CHIKORITA!"
 
 	para "The leaf on its"
 	line "head is so cute!"
@@ -279,8 +279,9 @@ PokemonFanClubClefairyDollText:
 	cont "DOLL."
 	done
 
-PokemonFanClubBayleefText:
-	text "BAYLEEF: Li liif!"
+PokemonFanClubChikoritaText:
+	text "CHIKORITA: Chi"
+	line "chiii!"
 	done
 
 PokemonFanClubListenSignText:
@@ -312,5 +313,5 @@ PokemonFanClub_MapEvents:
 	object_event  4,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokemonFanClubReceptionistScript, -1
 	object_event  2,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubClefairyGuyScript, -1
 	object_event  7,  2, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubTeacherScript, -1
-	object_event  2,  4, SPRITE_FAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PokemonFanClubClefairyDollScript, EVENT_VERMILION_FAN_CLUB_DOLL
-	object_event  7,  3, SPRITE_ODDISH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokemonFanClubBayleefScript, -1
+	object_event  2,  4, SPRITE_CLEFAIRY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PokemonFanClubClefairyDollScript, EVENT_VERMILION_FAN_CLUB_DOLL
+	object_event  7,  3, SPRITE_CHIKORITA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PokemonFanClubChikoritaScript, -1
