@@ -4,13 +4,30 @@ CeladonMansion2F_MapScripts:
 	def_callbacks
 
 CeladonMansion2FComputer:
-	jumptext CeladonMansion2FComputerText
+	opentext
+	writetext CeladonMansion2FSanitizerText
+	waitbutton
+	closetext
+	waitsfx
+	playsound SFX_2_BOOPS
+	waitsfx
+	pause 10
+	opentext
+	writetext CeladonMansion2FComputerText
+	waitbutton
+	closetext
 
 CeladonMansion2FMeetingRoomSign:
 	jumptext CeladonMansion2FMeetingRoomSignText
 
 CeladonMansion2FBookshelf:
 	jumpstd DifficultBookshelfScript
+
+CeladonMansion2FSanitizerText:
+	text "<PLAYER> washes its"
+	line "hands with some"
+	cont "hand sanitizer."
+	done
 
 CeladonMansion2FComputerText:
 	text "<PLAYER> turned on"
