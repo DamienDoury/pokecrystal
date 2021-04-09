@@ -86,10 +86,15 @@ SoulHouseGrannyText:
 
 AmphyText:
 	text "AMPHY"
+	cont " "
+	para "Sorry."
+	cont " "
 	done
 
 MoomooText:
-	text "MOOMOO"
+	text "Here lies our"
+	line "beloved"
+	cont "MOOMOO."
 	done
 
 SoulHouse_MapEvents:
