@@ -40,19 +40,43 @@ OlivineLighthouseJasmine:
 	opentext
 	playmusic MUSIC_HEAL
 	writetext JasmineAmphyHowAreYouFeelingText
-	pause 60
 	promptbutton
 	closetext
+	pause 30
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, UP
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, UP
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, UP
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, UP
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, UP
+	pause 1
+	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
+	pause 90
 	special RestartMapMusic
 	;cry AMPHAROS
 	special FadeOutPalettes
 	disappear OLIVINELIGHTHOUSE6F_AMPHAROS_SICK
-	pause 60
+	pause 30
 	special FadeInPalettes
-	pause 180
-	faceplayer
+	pause 150
 	opentext
 	writetext JasmineThankYouText
+	waitbutton
+	closetext
+	pause 90
+	opentext
+	writetext JasmineBackToGymText
 	waitbutton
 	closetext
 	setevent EVENT_JASMINE_RETURNED_TO_GYM
@@ -216,8 +240,10 @@ JasmineThankYouText:
 	line "…"
 
 	para "We did our best…"
+	done
 
-	para "…I will return to"
+JasmineBackToGymText:
+	text "…I will return to"
 	line "the GYM…"
 	done
 
