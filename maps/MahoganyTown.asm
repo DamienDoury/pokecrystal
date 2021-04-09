@@ -149,8 +149,8 @@ RageCandyBarMerchantTryOneText:
 	para "Since you're new,"
 	line "you should try a"
 
-	para "yummy RAGECANDY-"
-	line "BAR!"
+	para "yummy CAKE OF"
+	line "RAGE!"
 
 	para "Right now, it can"
 	line "be yours for just"
@@ -176,7 +176,7 @@ RageCandyBarMerchantNoRoomText:
 	done
 
 RageCandyBarMerchantSoldOutText:
-	text "RAGECANDYBAR's"
+	text "CAKE OF RAGE's"
 	line "sold out."
 
 	para "I'm packing up."
@@ -231,8 +231,9 @@ MahoganyTownSignText:
 
 MahoganyTownRagecandybarSignText:
 	text "While visiting"
-	line "MAHOGANY TOWN, try"
-	cont "a RAGECANDYBAR!"
+	line "MAHOGANY TOWN, and"
+	cont "LAKE OF RAGE, try"
+	cont "a CAKE OF RAGE!"
 	done
 
 MahoganyGymSignText:
