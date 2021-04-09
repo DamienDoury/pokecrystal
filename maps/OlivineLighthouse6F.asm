@@ -63,7 +63,6 @@ OlivineLighthouseJasmine:
 	pause 1
 	turnobject OLIVINELIGHTHOUSE6F_AMPHAROS_SICK, DOWN
 	pause 90
-	special RestartMapMusic
 	;cry AMPHAROS
 	special FadeOutPalettes
 	disappear OLIVINELIGHTHOUSE6F_AMPHAROS_SICK
@@ -86,6 +85,8 @@ OlivineLighthouseJasmine:
 	ifequal RIGHT, .FacingRight
 	applymovement OLIVINELIGHTHOUSE6F_JASMINE, OlivineLighthouseJasmineLeavesUpMovement
 	disappear OLIVINELIGHTHOUSE6F_JASMINE
+	pause 30
+	;special RestartMapMusic
 	end
 
 .FacingDown:
