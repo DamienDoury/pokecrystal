@@ -569,11 +569,11 @@ MovementData_Farfetched_Pos5_Pos4_Up:
 
 MovementData_Farfetched_Pos5_Pos4_Right:
 	big_step RIGHT
-	turn_head UP
+	;turn_head UP
 	step_sleep 1
-	turn_head DOWN
+	;turn_head DOWN
 	step_sleep 1
-	turn_head UP
+	;turn_head UP
 	step_sleep 1
 	big_step DOWN
 	big_step DOWN
@@ -673,9 +673,9 @@ MovementData_Farfetched_Pos9_Pos10:
 	jump_step RIGHT
 	step_sleep 8
 	step_sleep 8
+	big_step LEFT
+	big_step LEFT
 	remove_fixed_facing
-	big_step LEFT
-	big_step LEFT
 	big_step UP
 	big_step UP
 	big_step UP
@@ -952,7 +952,7 @@ IlexForest_MapEvents:
 	bg_event  8, 22, BGEVENT_UP, IlexForestShrineScript
 
 	def_object_events
-	object_event 14, 31, SPRITE_BIRD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
+	object_event 14, 31, SPRITE_FARFETCH_D, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
 	object_event  7, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalApprenticeScript, EVENT_ILEX_FOREST_APPRENTICE
 	object_event  5, 28, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalMasterScript, EVENT_ILEX_FOREST_CHARCOAL_MASTER
 	object_event 15, 14, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1
