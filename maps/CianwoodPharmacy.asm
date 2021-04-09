@@ -19,7 +19,7 @@ CianwoodPharmacist:
 	iffalse .Mart
 	writetext PharmacistGiveSecretpotionText
 	promptbutton
-	giveitem SECRETPOTION
+	giveitem CHLOROQUINE
 	writetext ReceivedSecretpotionText
 	playsound SFX_KEY_ITEM
 	waitsfx
@@ -59,11 +59,11 @@ PharmacistGiveSecretpotionText:
 
 ReceivedSecretpotionText:
 	text "<PLAYER> received"
-	line "SECRETPOTION."
+	line "CHLOROQUINE."
 	done
 
 PharmacistDescribeSecretpotionText:
-	text "My SECRETPOTION is"
+	text "My CHLOROQUINE is"
 	line "a tad too strong."
 
 	para "I only offer it in"

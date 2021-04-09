@@ -72,7 +72,7 @@
 	const MAX_ETHER    ; 40
 	const ELIXER       ; 41
 	const RED_SCALE    ; 42
-	const SECRETPOTION ; 43
+	const CHLOROQUINE  ; 43
 	const S_S_TICKET   ; 44
 	const MYSTERY_EGG  ; 45
 	const CLEAR_BELL   ; 46

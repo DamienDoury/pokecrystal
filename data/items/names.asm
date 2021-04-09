@@ -66,7 +66,7 @@ ItemNames::
 	li "MAX ETHER"
 	li "ELIXER"
 	li "RED SCALE"
-	li "SECRETPOTION"
+	li "CHLOROQUINE"
 	li "S.S.TICKET"
 	li "MYSTERY EGG"
 	li "CLEAR BELL"
