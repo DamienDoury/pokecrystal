@@ -165,6 +165,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_MURKROW ; b5
 	const SPRITE_AMPHAROS ; b6
 	const SPRITE_SHUCKLE ; b7
+	const SPRITE_SLOWBRO ; b8
 NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)

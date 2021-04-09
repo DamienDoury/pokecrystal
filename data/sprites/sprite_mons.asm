@@ -59,4 +59,5 @@ SpriteMons:
 	db MURKROW
 	db AMPHAROS
 	db SHUCKLE
+	db SLOWBRO
 	assert_table_length NUM_POKEMON_SPRITES

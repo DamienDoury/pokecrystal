@@ -716,7 +716,7 @@ SaffronGroupSprites:
 	db SPRITE_MISTY
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
-	db SPRITE_SLOWPOKE
+	db SPRITE_SLOWBRO
 	db SPRITE_ROCKET
 	db 0 ; end
 
