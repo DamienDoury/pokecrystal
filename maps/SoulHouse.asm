@@ -21,6 +21,14 @@ SoulHouseLassScript:
 SoulHouseGrannyScript:
 	jumptextfaceplayer SoulHouseGrannyText
 
+AmphysGraveScript:
+	checkevent EVENT_JASMINE_RETURNED_TO_GYM
+	iftrue .AmphyIzDedLol
+	end
+
+.AmphyIzDedLol
+	jumptext AmphyText
+
 MrFujiText:
 	text "MR.FUJI: Welcome."
 
@@ -70,6 +78,10 @@ SoulHouseGrannyText:
 	line "my grandchildren…"
 	done
 
+AmphyText:
+	text "AMPHY"
+	done
+
 SoulHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -80,6 +92,7 @@ SoulHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  8,  4, BGEVENT_READ, AmphysGraveScript
 
 	def_object_events
 	object_event  4,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MrFuji, -1
