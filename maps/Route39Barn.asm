@@ -138,7 +138,7 @@ Route39BarnTwinWereFeedingMoomooText:
 	done
 
 MoomooWeakMooText:
-	text "MILTANK: …Moo…"
+	text "MOOMOO: …Moo…"
 	done
 
 Route39BarnItsCryIsWeakText:
@@ -146,7 +146,7 @@ Route39BarnItsCryIsWeakText:
 	done
 
 MoomooHappyMooText:
-	text "MILTANK: Mooo!"
+	text "MOOMOO: Mooo!"
 	done
 
 Route39BarnAskGiveBerryText:
@@ -160,18 +160,18 @@ Route39BarnGaveBerryText:
 	done
 
 Route39BarnLittleHealthierText:
-	text "MILTANK became a"
+	text "MOOMOO feels a"
 	line "little healthier!"
 	done
 
 Route39BarnQuiteHealthyText:
-	text "MILTANK became"
-	line "quite healthy!"
+	text "MOOMOO feels a"
+	line "little bit better!"
 	done
 
 Route39BarnTotallyHealthyText:
-	text "MILTANK became"
-	line "totally healthy!"
+	text "MOOMOO feels"
+	line "better!"
 	done
 
 Route39BarnNoBerriesText:
@@ -183,7 +183,7 @@ Route39BarnRefusedBerryText:
 	text "<PLAYER> wouldn't"
 	line "give a BERRY."
 
-	para "MILTANK looks sad."
+	para "MOOMOO looks sad."
 	done
 
 Route39Barn_MapEvents:
@@ -198,6 +198,6 @@ Route39Barn_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  2,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin1Script, -1
-	object_event  4,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin2Script, -1
-	object_event  3,  3, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoomooScript, -1
+	object_event  2,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin1Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
+	object_event  4,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route39BarnTwin2Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
+	object_event  3,  3, SPRITE_MILTANK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, MoomooScript, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN

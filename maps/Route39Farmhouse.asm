@@ -3,6 +3,8 @@ ROUTE39FARMHOUSE_MILK_PRICE EQU 500
 	object_const_def
 	const ROUTE39FARMHOUSE_POKEFAN_M
 	const ROUTE39FARMHOUSE_POKEFAN_F
+	const ROUTE39FARMHOUSE_TWIN1
+	const ROUTE39FARMHOUSE_TWIN2
 
 Route39Farmhouse_MapScripts:
 	def_scene_scripts
@@ -12,6 +14,8 @@ Route39Farmhouse_MapScripts:
 PokefanM_DairyFarmer:
 	faceplayer
 	opentext
+	checkevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN ; Moomoo died (whether or not the player saved her first).
+	iftrue FarmerMScript_SellMilk
 	checkevent EVENT_HEALED_MOOMOO
 	iftrue FarmerMScript_SellMilk
 	writetext FarmerMText_SickCow
@@ -72,6 +76,8 @@ PokefanF_SnoreFarmer:
 	iftrue FarmerFScript_GotSnore
 	checkevent EVENT_HEALED_MOOMOO
 	iftrue FarmerFScript_GiveSnore
+	checkevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN ; Moomoo died (whether or not the player saved her first).
+	iftrue FarmerFScript_MoomooDead
 	writetext FarmerFText_InTrouble
 	waitbutton
 	closetext
@@ -89,6 +95,24 @@ FarmerFScript_GotSnore:
 FarmerFScript_NoRoomForSnore:
 	closetext
 	end
+
+FarmerFScript_MoomooDead:
+	writetext FarmerMText_Milking
+	waitbutton
+	closetext
+	end
+
+PokefanF_Twin1:
+	faceplayer
+	opentext
+	writetext Twin1Text
+	waitbutton
+	closetext
+	turnobject ROUTE39FARMHOUSE_TWIN1, UP
+	end
+
+PokefanF_Twin2:
+	jumptextfaceplayer Twin2Text
 
 FarmhouseBookshelf:
 	jumpstd PictureBookshelfScript
@@ -162,11 +186,8 @@ FarmerFText_InTrouble:
 	done
 
 FarmerFText_HealedMiltank:
-	text "You fixed our"
-	line "MILTANK, hon. Now"
-
-	para "it gives MOOMOO"
-	line "MILK again."
+	text "You helped our"
+	line "MOOMOO, hon."
 
 	para "Here's somethin'"
 	line "fer your trouble."
@@ -192,6 +213,20 @@ FarmerFText_SnoreSpeech:
 	cont "it, hon."
 	done
 
+Twin1Text:
+	text "I miss MOOMOO…"
+	done
+
+Twin2Text:
+	text "In the end, the"
+	line "illness was"
+	cont "stronger than"
+	cont "MOOMOO."
+
+	para "It's sad, she was"
+	line "my favorite."
+	done
+
 Route39Farmhouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -208,3 +243,5 @@ Route39Farmhouse_MapEvents:
 	def_object_events
 	object_event  3,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PokefanM_DairyFarmer, -1
 	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_SnoreFarmer, -1
+	object_event  2,  2, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_Twin1, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
+	object_event  1,  4, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PokefanF_Twin2, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
