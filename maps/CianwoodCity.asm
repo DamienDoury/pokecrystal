@@ -27,6 +27,10 @@ CianwoodCity_MapScripts:
 	end
 
 .FlyPointAndSuicune:
+	checkevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
+	iftrue .continue
+	setevent EVENT_GAVE_SHUCKIE_BACK
+.continue
 	setflag ENGINE_FLYPOINT_CIANWOOD
 	setevent EVENT_EUSINE_IN_BURNED_TOWER
 	checkevent EVENT_FOUGHT_EUSINE

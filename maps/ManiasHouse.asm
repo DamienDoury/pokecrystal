@@ -1,5 +1,7 @@
 	object_const_def
 	const MANIASHOUSE_ROCKER
+	const MANIASHOUSE_SHUCKIE_BEFORE
+	const MANIASHOUSE_SHUCKIE_AFTER
 
 ManiasHouse_MapScripts:
 	def_scene_scripts
@@ -20,8 +22,8 @@ ManiaScript:
 	iffalse .partyfull
 	writetext ManiaText_TakeCareOfShuckle
 	promptbutton
-	waitsfx
 	writetext ManiaText_GotShuckle
+	disappear MANIASHOUSE_SHUCKIE_BEFORE
 	playsound SFX_KEY_ITEM
 	waitsfx
 	closetext
@@ -59,8 +61,11 @@ ManiaScript:
 	ifequal SHUCKIE_FAINTED, .default_postevent
 	; SHUCKIE_RETURNED
 	writetext ManiaText_ThankYou
+	appear MANIASHOUSE_SHUCKIE_AFTER
+	cry SHUCKLE
 	waitbutton
 	closetext
+	clearevent EVENT_GAVE_SHUCKIE_BACK
 	setevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	end
 
@@ -95,8 +100,59 @@ ManiaScript:
 	closetext
 	end
 
+ShuckleBeforeScript:
+	opentext
+	writetext ShuckieBeforeText
+	cry SHUCKLE
+	waitbutton
+	closetext
+	end
+
+ShuckleAfterScript:
+	opentext
+	writetext ShuckieAfterText
+	cry SHUCKLE
+	waitbutton
+	closetext
+	playsound SFX_SQUEAK
+	applymovement MANIASHOUSE_SHUCKIE_AFTER, ShuckieHappyJump1
+	playsound SFX_SQUEAK
+	applymovement MANIASHOUSE_SHUCKIE_AFTER, ShuckieHappyJump2
+	playsound SFX_SQUEAK
+	applymovement MANIASHOUSE_SHUCKIE_AFTER, ShuckieHappyJump3
+	playsound SFX_SQUEAK
+	applymovement MANIASHOUSE_SHUCKIE_AFTER, ShuckieHappyJump4
+	waitsfx
+	cry SHUCKLE
+	end
+
 ManiasHouseUnusedBookshelf: ; unreferenced
 	jumpstd PictureBookshelfScript
+
+ShuckieHappyJump1:
+	jump_step RIGHT
+	step_end
+
+ShuckieHappyJump2:
+	jump_step UP
+	step_end
+
+ShuckieHappyJump3:
+	jump_step LEFT
+	step_end
+
+ShuckieHappyJump4:
+	jump_step DOWN
+	step_end
+
+ShuckieBeforeText:
+	text "SHUCKIE: Uuuck?"
+	done
+
+ShuckieAfterText:
+	text "SHUCKIE: Shuuuuuu-"
+	line "uuuuuuuuuuuuuuuck!"
+	done
 
 ManiaText_AskLookAfterShuckle:
 	text "I, I'm in shock!"
@@ -126,7 +182,7 @@ ManiaText_TakeCareOfShuckle:
 	text "Oh, thank you!"
 
 	para "Take good care of"
-	line "it, please!"
+	line "SHUCKIE, please!"
 	done
 
 ManiaText_GotShuckle:
@@ -146,8 +202,8 @@ ManiaText_IfHeComesBack:
 	done
 
 ManiaText_CanIHaveMyMonBack:
-	text "Hi! How's my #-"
-	line "MON?"
+	text "Hi! How's my"
+	line "SHUCKIE?"
 
 	para "I think I'm safe"
 	line "now, so may I have"
@@ -159,9 +215,8 @@ ManiaText_ThankYou:
 	done
 
 ManiaText_ShuckleNotThere:
-	text "Hey, you don't"
-	line "have my #MON"
-	cont "with you."
+	text "Hey, that's not"
+	line "my SHUCKIE!"
 	done
 
 ManiaText_ShuckleLikesYou:
@@ -210,3 +265,5 @@ ManiasHouse_MapEvents:
 
 	def_object_events
 	object_event  2,  4, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ManiaScript, -1
+	object_event  2,  3, SPRITE_SHUCKLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ShuckleBeforeScript, EVENT_GOT_SHUCKIE
+	object_event  4,  5, SPRITE_SHUCKLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ShuckleAfterScript, EVENT_GAVE_SHUCKIE_BACK
