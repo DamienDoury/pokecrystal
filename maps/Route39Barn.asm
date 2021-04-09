@@ -16,6 +16,7 @@ Route39BarnTwin1Script:
 	writetext Route39BarnTwinMoomooIsSickText
 	waitbutton
 	closetext
+	setevent EVENT_TALKED_TO_FARMER_ABOUT_MOOMOO
 	turnobject ROUTE39BARN_TWIN1, RIGHT
 	end
 
@@ -34,6 +35,7 @@ Route39BarnTwin2Script:
 	writetext Route39BarnTwinMoomooIsSickText
 	waitbutton
 	closetext
+	setevent EVENT_TALKED_TO_FARMER_ABOUT_MOOMOO
 	turnobject ROUTE39BARN_TWIN2, LEFT
 	end
 
