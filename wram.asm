@@ -2448,7 +2448,8 @@ wRestartClockMin::  db
 
 NEXTU
 ; link
-	ds 9
+	ds 8
+wOtherTrainerType:: db
 wLinkBattleRNPreamble:: ds SERIAL_RN_PREAMBLE_LENGTH
 wLinkBattleRNs:: ds SERIAL_RNS_LENGTH
 
