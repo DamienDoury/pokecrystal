@@ -506,7 +506,7 @@ CheckEnemyTurn:
 	call StdBattleTextbox
 
 	call HitSelfInConfusion
-	call BattleCommand_DamageCalc
+	call ConfusionDamageCalc
 	call BattleCommand_LowerSub
 
 	xor a
@@ -609,7 +609,7 @@ HitConfusion:
 	ld [wCriticalHit], a
 
 	call HitSelfInConfusion
-	call BattleCommand_DamageCalc
+	call ConfusionDamageCalc
 	call BattleCommand_LowerSub
 
 	xor a
@@ -1918,13 +1918,11 @@ BattleCommand_EffectChance:
 	jr z, .got_move_chance
 	ld hl, wEnemyMoveStruct + MOVE_CHANCE
 .got_move_chance
-
-	; BUG: 1/256 chance to fail even for a 100% effect chance,
-	; since carry is not set if BattleRandom == [hl] == 255
 	call BattleRandom
 	cp [hl]
 	pop hl
 	ret c
+	ret z ; This fixes the 1 / 256 chances to miss on a 100% accuracy move, and rounds all other probabilities as well.
 
 .failed
 	ld a, 1
@@ -2155,6 +2153,8 @@ BattleCommand_FailureText:
 	cp EFFECT_DOUBLE_HIT
 	jr z, .multihit
 	cp EFFECT_POISON_MULTI_HIT
+	jr z, .multihit
+	cp EFFECT_BEAT_UP
 	jr z, .multihit
 	jp EndMoveEffect
 
@@ -2600,6 +2600,17 @@ DittoMetalPowder:
 .done
 	scf
 	rr c
+
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp b
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp c
+	ret nc
+
+.cap
+	ld bc, MAX_STAT_VALUE
 	ret
 
 BattleCommand_DamageStats:
@@ -2724,17 +2735,9 @@ TruncateHL_BC:
 	inc l
 
 .finish
-	ld a, [wLinkMode]
-	cp LINK_COLOSSEUM
-	jr z, .done
-; If we go back to the loop point,
-; it's the same as doing this exact
-; same check twice.
 	ld a, h
 	or b
 	jr nz, .loop
-
-.done
 	ld b, l
 	ret
 
@@ -2852,6 +2855,17 @@ SpeciesItemBoost:
 ; Double the stat
 	sla l
 	rl h
+
+	ld a, HIGH(MAX_STAT_VALUE)
+	cp h
+	jr c, .cap
+	ret nz
+	ld a, LOW(MAX_STAT_VALUE)
+	cp l
+	ret nc
+
+.cap
+	ld hl, MAX_STAT_VALUE
 	ret
 
 EnemyAttackDamage:
@@ -2976,6 +2990,8 @@ HitSelfInConfusion:
 	ld d, 40
 	pop af
 	ld e, a
+	ld a, TRUE
+	ld [wIsConfusionDamage], a
 	ret
 
 BattleCommand_DamageCalc:
@@ -3011,6 +3027,11 @@ BattleCommand_DamageCalc:
 	ret z
 
 .skip_zero_damage_check
+	xor a ; Not confusion damage
+	ld [wIsConfusionDamage], a
+	; fallthrough
+
+ConfusionDamageCalc:
 ; Minimum defense value is 1.
 	ld a, c
 	and a
@@ -3065,6 +3086,11 @@ BattleCommand_DamageCalc:
 	call Divide
 
 ; Item boosts
+; Item boosts don't apply to confusion damage
+	ld a, [wIsConfusionDamage]
+	and a
+	jr nz, .DoneItem
+
 	call GetUserItem
 
 	ld a, b
@@ -5331,8 +5357,7 @@ BattleCommand_EndLoop:
 	ld a, BATTLE_VARS_SUBSTATUS3
 	call GetBattleVarAddr
 	res SUBSTATUS_IN_LOOP, [hl]
-	call BattleCommand_BeatUpFailText
-	jp EndMoveEffect
+	ret
 
 .not_triple_kick
 	call BattleRandom
@@ -6629,10 +6654,7 @@ INCLUDE "engine/battle/move_effects/future_sight.asm"
 INCLUDE "engine/battle/move_effects/thunder.asm"
 
 CheckHiddenOpponent:
-; BUG: This routine is completely redundant and introduces a bug, since BattleCommand_CheckHit does these checks properly.
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
+	xor a
 	ret
 
 GetUserItem:
