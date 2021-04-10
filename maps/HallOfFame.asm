@@ -33,7 +33,11 @@ HallOfFame_MapScripts:
 	setevent EVENT_BEAT_ELITE_FOUR
 	setevent EVENT_TELEPORT_GUY
 	setevent EVENT_RIVAL_SPROUT_TOWER
+	checkevent EVENT_RED_BEATEN ; You can now beat Red only once.
+	iftrue .continue
 	clearevent EVENT_RED_IN_MT_SILVER
+
+.continue
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED

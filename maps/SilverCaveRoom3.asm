@@ -25,6 +25,7 @@ Red:
 	closetext
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
+	setevent EVENT_RED_BEATEN
 	disappear SILVERCAVEROOM3_RED
 	pause 15
 	special FadeInQuickly
