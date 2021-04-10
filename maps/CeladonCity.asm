@@ -25,7 +25,7 @@ CeladonCityFisherScript:
 CeladonCityPoliwrath:
 	opentext
 	writetext CeladonCityPoliwrathText
-	cry POLIWRATH
+	cry POLIWHIRL
 	waitbutton
 	closetext
 	end
@@ -76,7 +76,7 @@ CeladonCityHiddenPpUp:
 	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
 
 CeladonCityFisherText:
-	text "This POLIWRATH is"
+	text "This POLIWHIRL is"
 	line "my partner."
 
 	para "I wonder if it'll"
@@ -85,7 +85,7 @@ CeladonCityFisherText:
 	done
 
 CeladonCityPoliwrathText:
-	text "POLIWRATH: Croak!"
+	text "POLIWHIRL: Croak!"
 	done
 
 CeladonCityTeacher1Text:
@@ -272,7 +272,7 @@ CeladonCity_MapEvents:
 
 	def_object_events
 	object_event 26, 11, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityFisherScript, -1
-	object_event 27, 11, SPRITE_POLIWRATH, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_ICON_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCityPoliwrath, -1
+	object_event 27, 11, SPRITE_POLIWHIRL, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_ICON_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCityPoliwrath, -1
 	object_event 20, 24, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityTeacher1Script, -1
 	object_event 14, 16, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps1Script, -1
 	object_event  8, 31, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityGramps2Script, -1

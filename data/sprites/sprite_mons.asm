@@ -37,6 +37,7 @@ SpriteMons:
 	db LUGIA
 	db HO_OH
 	db MEOWTH
+	db POLIWHIRL
 	db POLIWRATH
 	db PSYDUCK
 	db PIDGEY

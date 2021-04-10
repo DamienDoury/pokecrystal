@@ -143,29 +143,30 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_LUGIA ; a1
 	const SPRITE_HO_OH ; a2
 	const SPRITE_MEOWTH ; a3
-	const SPRITE_POLIWRATH ; a4
-	const SPRITE_PSYDUCK ; a5
-	const SPRITE_PIDGEY ; a6
-	const SPRITE_NIDORINO ; a7
-	const SPRITE_RATTATA ; a6
-	const SPRITE_SPEAROW ; a7
-	const SPRITE_FEAROW ; a8
-	const SPRITE_KANGASKHAN ; a9
-	const SPRITE_NIDORAN_F ; aa
-	const SPRITE_NIDORAN_M ; ab
-	const SPRITE_ELECTRODE ; ac
-	const SPRITE_CHANSEY ; ad
-	const SPRITE_BLISSEY ; ae
-	const SPRITE_FARFETCH_D ; af
-	const SPRITE_ABRA ; b0
-	const SPRITE_DODRIO ; b1
-	const SPRITE_CHIKORITA ; b2
-	const SPRITE_ARTICUNO ; b3
-	const SPRITE_PERSIAN ; b4
-	const SPRITE_MURKROW ; b5
-	const SPRITE_AMPHAROS ; b6
-	const SPRITE_SHUCKLE ; b7
-	const SPRITE_SLOWBRO ; b8
+	const SPRITE_POLIWHIRL ; a4
+	const SPRITE_POLIWRATH ; a5
+	const SPRITE_PSYDUCK ; a6
+	const SPRITE_PIDGEY ; a7
+	const SPRITE_NIDORINO ; a8
+	const SPRITE_RATTATA ; a9
+	const SPRITE_SPEAROW ; aa
+	const SPRITE_FEAROW ; ab
+	const SPRITE_KANGASKHAN ; ac
+	const SPRITE_NIDORAN_F ; ad
+	const SPRITE_NIDORAN_M ; ae
+	const SPRITE_ELECTRODE ; af
+	const SPRITE_CHANSEY ; b0
+	const SPRITE_BLISSEY ; b1
+	const SPRITE_FARFETCH_D ; b2
+	const SPRITE_ABRA ; b3
+	const SPRITE_DODRIO ; b4
+	const SPRITE_CHIKORITA ; b5
+	const SPRITE_ARTICUNO ; b6
+	const SPRITE_PERSIAN ; b7
+	const SPRITE_MURKROW ; b8
+	const SPRITE_AMPHAROS ; b9
+	const SPRITE_SHUCKLE ; ba
+	const SPRITE_SLOWBRO ; bb
 NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)

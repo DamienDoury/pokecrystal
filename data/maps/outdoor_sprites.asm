@@ -743,7 +743,7 @@ CeladonGroupSprites:
 	db SPRITE_LASS
 	db SPRITE_BIKER
 	; 6 of max 9 walking sprites
-	db SPRITE_POLIWRATH
+	db SPRITE_POLIWHIRL
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
 	db 0 ; end
