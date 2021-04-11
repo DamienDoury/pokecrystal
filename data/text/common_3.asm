@@ -1513,3 +1513,54 @@ _MomLostGearBookletText::
 	para "Come back again in"
 	line "a while."
 	prompt
+
+_GymPowerRestrainerFirstExplanation::
+	text "Oh! It's the first"
+	line "time you challenge"
+	cont "a GYM leader?"
+
+	para "I see."
+
+	para "Let me tell you"
+	line "how it goes."
+
+	para "My goal is to"
+	line "fairly judge your"
+	cont "trainer skills"
+	cont "through battle."
+
+	para "That's why"
+	line "GYM leaders use a"
+	cont "POWER RESTRAINER"
+	cont "on their #MON."
+
+	para "It enables our"
+	line "#MON to lower"
+	cont "their level by up"
+	cont "to 30."
+	
+	para "I will adjust the"
+	line "level of my team"
+	cont "based on your"
+	cont "strongest #MON."
+
+	para "Of course, if your"
+	line "strongest one has"
+	cont "a higher level"
+	cont "than mine, I won't"
+	cont "need to use the"
+	cont "POWER RESTRAINER."
+
+	para "All right!" ; A virer. To delete. To remove.
+	
+
+;	para "Also, each GYM"
+;	line "leader sets some"
+;	cont "special rules for"
+;	cont "its battle."
+;
+;	para "Have you checked"
+;	line "them on the"
+;	cont "pillars at the "
+;	cont "entrance?"
+	done

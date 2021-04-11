@@ -26,6 +26,18 @@ GoldenrodGymWhitneyScript:
 	iftrue .FightDone
 	opentext
 	writetext WhitneyBeforeText
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	waitbutton
+	closetext
+	showemote EMOTE_QUESTION, GOLDENRODGYM_WHITNEY, 10
+	showemote EMOTE_QUESTION, GOLDENRODGYM_MILTANK, 10
+	opentext
+	writetext GoldenrodGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	waitbutton
+	writetext WhitneySequelText
 	waitbutton
 	closetext
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
@@ -195,8 +207,10 @@ GoldenrodGymMiltankScript:
 
 WhitneyBeforeText:
 	text "Hi! I'm WHITNEY!"
+	done
 
-	para "Everyone was into"
+WhitneySequelText:
+	text "Everyone was into"
 	line "#MON, so I got"
 	cont "into it too!"
 
@@ -207,6 +221,10 @@ WhitneyBeforeText:
 	line "tle? I'm warning"
 	cont "you--I'm good!"
 	done
+
+GoldenrodGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 WhitneyShouldntBeSoSeriousText:
 	text "Sob…"

@@ -15,6 +15,17 @@ VioletGymFalknerScript:
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FightDone
 	writetext FalknerIntroText
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	waitbutton
+	closetext
+	showemote EMOTE_QUESTION, VIOLETGYM_FALKNER, 20
+	opentext
+	writetext VioletGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	waitbutton
+	writetext FalknerIntroSequelText
 	waitbutton
 	closetext
 	winlosstext FalknerWinLossText, 0
@@ -114,8 +125,10 @@ FalknerIntroText:
 	text "I'm FALKNER, the"
 	line "VIOLET #MON GYM"
 	cont "leader!"
+	done
 
-	para "People say you can"
+FalknerIntroSequelText:
+	text "People say you can"
 	line "clip flying-type"
 
 	para "#MON's wings"
@@ -132,6 +145,10 @@ FalknerIntroText:
 	para "magnificent bird"
 	line "#MON!"
 	done
+
+VioletGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 FalknerWinLossText:
 	text "…Darn! My dad's"

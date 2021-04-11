@@ -18,6 +18,17 @@ AzaleaGymBugsyScript:
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .FightDone
 	writetext BugsyText_INeverLose
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	waitbutton
+	closetext
+	showemote EMOTE_QUESTION, AZALEAGYM_BUGSY, 20
+	opentext
+	writetext AzaleaGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	waitbutton
+	writetext BugsyText_INeverLoseSequel
 	waitbutton
 	closetext
 	winlosstext BugsyText_ResearchIncomplete, 0
@@ -153,8 +164,10 @@ BugsyText_INeverLose:
 
 	para "it comes to bug"
 	line "#MON."
+	done
 
-	para "My research is"
+BugsyText_INeverLoseSequel:
+	text "My research is"
 	line "going to make me"
 
 	para "the authority on"
@@ -164,6 +177,10 @@ BugsyText_INeverLose:
 	line "what I've learned"
 	cont "from my studies."
 	done
+
+AzaleaGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 BugsyText_ResearchIncomplete:
 	text "Whoa, amazing!"

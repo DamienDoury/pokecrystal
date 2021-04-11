@@ -112,6 +112,7 @@ ShuckleAfterScript:
 	opentext
 	writetext ShuckieAfterText
 	cry SHUCKLE
+	showemote EMOTE_HAPPY, MANIASHOUSE_SHUCKIE_AFTER, 20
 	waitbutton
 	closetext
 	playsound SFX_SQUEAK

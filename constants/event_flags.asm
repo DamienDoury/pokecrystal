@@ -512,7 +512,8 @@
 	const EVENT_GOT_ODD_EGG
 	const_skip ; unused
 	const EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
-; Unused: next 167 events
+	const EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+; Unused: next 166 events
 
 	const_next 1000
 ; Trainer flags
