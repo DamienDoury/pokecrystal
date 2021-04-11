@@ -84,6 +84,29 @@ ReadTrainerPartyPieces:
 	ret z
 
 ; level
+	ld c, a ; We store the real level of the pkmn in b, for backup.
+	call IsFairTrainer ; Note that this is unoptimized, as it is called once per loop, but could be done once per trainer.
+	ld a, c
+	jr nc, .lvl_determined ; If the current trainer does not match the class, it uses its fixed lvl.
+	call GetPlayerHighestLevel ; Note that this is unoptimized, as it is called once per loop, but could be done once per trainer.
+
+	ld b, a
+	ld a, c
+	; Here we have the enemy real/highest level in a, and the highest level of the player in b.
+	cp b
+	jr c, .lvl_determined
+	jr z, .lvl_determined ; If both levels are the same, we take a shortcut.
+
+	sub 30 ; The "power restrainer" can lower the level of a gym leader by 30 levels maximum.
+	; No need to check if the level underflows, as we set the levels by hand and they all are above 31.
+	; Here we have the enemy lowest possible level in a, and the highest level of the player in b.
+	cp b
+	jr nc, .lvl_determined
+	jr z, .lvl_determined ; The lvl of the player is the minimum lvl of the gym, so we take a shortcut. Note: this shortcut may take more time than just executing the following action.
+
+	ld a, b ; We give the Other Trainer pokemon the same level as the player's highest level.
+
+.lvl_determined
 	ld [wCurPartyLevel], a
 
 ; species
@@ -378,6 +401,101 @@ IncompleteCopyNameFunction: ; unreferenced
 	push de
 	ld bc, NAME_LENGTH
 	pop de
+	ret
+
+; This function sets the carry flag if this trainer class must adapt
+; the level of its Pokemon to the player.
+; Destroys a (and the flags).
+IsFairTrainer:
+	ld a, [wOtherTrainerClass]
+
+	; All gym leaders from johto.
+	cp FALKNER
+	jr z, .yes
+	cp WHITNEY
+	jr z, .yes
+	cp BUGSY
+	jr z, .yes
+	cp MORTY
+	jr z, .yes
+	cp PRYCE
+	jr z, .yes
+	cp JASMINE
+	jr z, .yes
+	cp CHUCK
+	jr z, .yes
+	cp CLAIR
+	jr z, .yes
+
+	; All gym leaders from kanto.
+	cp BROCK
+	jr z, .yes
+	cp MISTY
+	jr z, .yes
+	cp LT_SURGE
+	jr z, .yes
+	cp ERIKA
+	jr z, .yes
+	cp JANINE
+	jr z, .yes
+	cp SABRINA
+	jr z, .yes
+	cp BLAINE
+	jr z, .yes
+	cp BLUE
+	jr z, .yes
+
+	; All elite four.
+	cp WILL
+	jr z, .yes
+	cp BRUNO
+	jr z, .yes
+	cp KAREN
+	jr z, .yes
+	cp KOGA
+	jr z, .yes
+
+	; Champion (special case for this one).
+	cp CHAMPION
+	jr z, .yes
+
+; no
+	xor a ; Resets the carry flag.
+	ret
+
+.yes
+	scf ; Sets the carry flag.
+	ret
+
+; Gets the level of the strongest Pokemon in the player's team, and stores it in a.
+; Destroys the flags.
+GetPlayerHighestLevel:
+	push bc
+	push de
+	push hl
+
+	ld hl, wPartyMon1Level
+	ld de, PARTYMON_STRUCT_LENGTH
+	ld b, 0 ; We start from the first pkmn of the team.
+	ld c, 0 ; The highest level is 0 at start.
+
+.loop
+	ld a, [hl] ; We get the level of this Pokémon.
+	cp c
+	jr c, .next
+	ld c, a
+
+.next
+	add hl, de
+	inc b
+	ld a, [wPartyCount]
+	cp b
+	jr nz, .loop
+
+	ld a, c ; We return the highest level in a.
+	pop hl ; Restoring dem values.
+	pop de
+	pop bc
 	ret
 
 INCLUDE "data/trainers/parties.asm"
