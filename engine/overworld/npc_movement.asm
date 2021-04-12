@@ -229,7 +229,7 @@ WillObjectRemainOnWater:
 CheckFacingObject::
 	call GetFacingTileCoord
 
-; Double the distance for counter tiles.
+; Double the distance for counter tiles. Damien's note: this is still useful for pkmns behind counters (like Butterfree outside Ilex Forest).
 	call CheckCounterTile
 	jr nz, .not_counter
 
@@ -265,6 +265,109 @@ CheckFacingObject::
 	scf
 	ret
 
+CheckFacingObjectNPCExcluded::
+	call GetFacingTileCoord
+
+; Double the distance for counter tiles. Damien's note: this is still useful for pkmns behind counters (like Butterfree outside Ilex Forest).
+	call CheckCounterTile
+	jr nz, .not_counter
+
+	ld a, [wPlayerStandingMapX]
+	sub d
+	cpl
+	inc a
+	add d
+	ld d, a
+
+	ld a, [wPlayerStandingMapY]
+	sub e
+	cpl
+	inc a
+	add e
+	ld e, a
+
+.not_counter
+	ld bc, wObjectStructs ; redundant
+	ld a, 0
+	ldh [hMapObjectIndex], a
+	call IsNPCAtCoord
+	ret nc
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	call IsNPCSprite
+	jr nc, .is_obj
+	xor a
+	ret
+
+.is_obj
+	scf
+	ret
+
+CheckFacingFarNPCOnly::
+	call GetFacingTileCoord
+	ld b, b
+	call CheckSpeechBlockingTile ; If there is a tile that blocks the speech between the player and a NPC, we cancel the talk.
+	jr z, .can_talk
+	xor a
+	ret
+
+.can_talk
+	ld a, [wPlayerStandingMapX]
+	sub d
+	cpl
+	inc a
+	add d
+	ld d, a
+
+	ld a, [wPlayerStandingMapY]
+	sub e
+	cpl
+	inc a
+	add e
+	ld e, a
+
+	ld bc, wObjectStructs ; redundant
+	ld a, 0
+	ldh [hMapObjectIndex], a
+	call IsNPCAtCoord
+	ret nc
+	ld hl, OBJECT_SPRITE
+	add hl, bc
+	call IsNPCSprite
+	jr c, .is_npc
+	xor a
+	ret
+
+.is_npc
+	scf
+	ret
+
+; Set the carry flag if the Sprite corresponds to one of an NPC.
+IsNPCSprite::
+	ld a, [hl]
+	cp SPRITE_NONE
+	jr z, .not_npc
+	cp SPRITE_BIG_SNORLAX
+	jr z, .not_npc
+	cp SPRITE_SURFING_PIKACHU
+	jr z, .not_npc
+	cp SPRITE_SLOWPOKE
+	jr z, .not_npc
+	cp SPRITE_BIG_LAPRAS
+	jr z, .not_npc
+	cp SPRITE_OLIVINE_RIVAL
+	jr nc, .is_npc ; All sprites above this one (including this one) are NPC with a variable sprite.
+	cp SPRITE_MONSTER ; All sprites above this one (including this one) are not NPCs (as the variable sprites have already been treated).
+	jr nc, .not_npc
+
+.is_npc
+	scf
+	ret
+
+.not_npc
+	xor a ; Resets carry flag.
+	ret
+
 WillObjectBumpIntoSomeoneElse:
 	ld hl, OBJECT_NEXT_MAP_X
 	add hl, bc
@@ -273,13 +376,6 @@ WillObjectBumpIntoSomeoneElse:
 	add hl, bc
 	ld e, [hl]
 	jr IsNPCAtCoord
-
-IsObjectFacingSomeoneElse: ; unreferenced
-	ldh a, [hMapObjectIndex]
-	call GetObjectStruct
-	call .GetFacingCoords
-	call IsNPCAtCoord
-	ret
 
 .GetFacingCoords:
 	ld hl, OBJECT_NEXT_MAP_X
@@ -467,72 +563,6 @@ IsObjectMovingOffEdgeOfScreen:
 
 .nope
 	and a
-	ret
-
-.yes
-	scf
-	ret
-
-IsNPCAtPlayerCoord: ; unreferenced
-	ld a, [wPlayerStandingMapX]
-	ld d, a
-	ld a, [wPlayerStandingMapY]
-	ld e, a
-	ld bc, wObjectStructs
-	xor a
-.loop
-	ldh [hObjectStructIndex], a
-	call DoesObjectHaveASprite
-	jr z, .next
-
-	ld hl, OBJECT_MOVEMENTTYPE
-	add hl, bc
-	ld a, [hl]
-	cp SPRITEMOVEDATA_BIGDOLLSYM
-	jr nz, .not_big
-	call WillObjectIntersectBigObject
-	jr c, .yes
-	jr .next
-
-.not_big
-	ld hl, OBJECT_NEXT_MAP_Y
-	add hl, bc
-	ld a, [hl]
-	cp e
-	jr nz, .check_current_coords
-	ld hl, OBJECT_NEXT_MAP_X
-	add hl, bc
-	ld a, [hl]
-	cp d
-	jr nz, .check_current_coords
-	ldh a, [hObjectStructIndex]
-	cp PLAYER_OBJECT
-	jr z, .next
-	jr .yes
-
-.check_current_coords
-	ld hl, OBJECT_MAP_Y
-	add hl, bc
-	ld a, [hl]
-	cp e
-	jr nz, .next
-	ld hl, OBJECT_MAP_X
-	add hl, bc
-	ld a, [hl]
-	cp d
-	jr nz, .next
-	jr .yes
-
-.next
-	ld hl, OBJECT_LENGTH
-	add hl, bc
-	ld b, h
-	ld c, l
-	ldh a, [hObjectStructIndex]
-	inc a
-	cp NUM_OBJECT_STRUCTS
-	jr nz, .loop
-	xor a
 	ret
 
 .yes
