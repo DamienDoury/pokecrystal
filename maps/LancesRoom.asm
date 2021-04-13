@@ -55,6 +55,12 @@ LancesRoomLanceScript:
 	writetext LanceBattleIntroText
 	waitbutton
 	closetext
+	applymovement LANCESROOM_LANCE, MovementData_LanceStepsBack
+	opentext
+	writetext LanceBattleIntroEndText
+	waitbutton
+	closetext
+	applymovement PLAYER, MovementData_PlayerPreparesForBattle
 	winlosstext LanceBattleWinText, 0
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE
@@ -85,9 +91,9 @@ LancesRoomLanceScript:
 	closetext
 	appear LANCESROOM_OAK
 	applymovement LANCESROOM_OAK, LancesRoomMovementData_OakWalksIn
-	follow LANCESROOM_MARY, LANCESROOM_OAK
+	;follow LANCESROOM_MARY, LANCESROOM_OAK
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryYieldsToOak
-	stopfollow
+	;stopfollow
 	turnobject LANCESROOM_OAK, UP
 	turnobject LANCESROOM_LANCE, LEFT
 	opentext
@@ -95,7 +101,7 @@ LancesRoomLanceScript:
 	waitbutton
 	closetext
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryInterviewChampion
-	turnobject PLAYER, LEFT
+	turnobject PLAYER, RIGHT
 	opentext
 	writetext LancesRoomMaryInterviewText
 	waitbutton
@@ -106,11 +112,11 @@ LancesRoomLanceScript:
 	writetext LancesRoomNoisyText
 	waitbutton
 	closetext
-	follow LANCESROOM_LANCE, PLAYER
+	;follow LANCESROOM_LANCE, PLAYER
 	turnobject LANCESROOM_MARY, UP
 	turnobject LANCESROOM_OAK, UP
 	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
-	stopfollow
+	;stopfollow
 	playsound SFX_EXIT_BUILDING
 	disappear LANCESROOM_LANCE
 	applymovement PLAYER, LancesRoomMovementData_PlayerExits
@@ -136,20 +142,35 @@ LancesRoom_EnterMovement:
 	step_end
 
 MovementData_ApproachLanceFromLeft:
-	step UP
-	step UP
-	turn_head RIGHT
+	step RIGHT
+	turn_head UP
 	step_end
 
 MovementData_ApproachLanceFromRight:
+	turn_head UP
+	step_end
+
+MovementData_LanceStepsBack:
+	turn_head LEFT
+	fix_facing
+	step RIGHT
+	turn_head LEFT
+	remove_fixed_facing
+	step_end
+
+MovementData_PlayerPreparesForBattle:
 	step UP
+	step LEFT
 	step LEFT
 	step UP
 	turn_head RIGHT
 	step_end
 
+MovementData_ApproachLanceFromRight:
+	turn_head UP
+	step_end
+
 LancesRoomMovementData_MaryRushesIn:
-	big_step UP
 	big_step UP
 	big_step UP
 	turn_head DOWN
@@ -158,20 +179,22 @@ LancesRoomMovementData_MaryRushesIn:
 LancesRoomMovementData_OakWalksIn:
 	step UP
 	step UP
+	step LEFT
 	step_end
 
 LancesRoomMovementData_MaryYieldsToOak:
-	step LEFT
-	turn_head RIGHT
+	step RIGHT
+	turn_head LEFT
 	step_end
 
 LancesRoomMovementData_MaryInterviewChampion:
 	big_step UP
-	turn_head RIGHT
+	turn_head LEFT
 	step_end
 
 LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway:
 	step UP
+	step LEFT
 	step LEFT
 	turn_head DOWN
 	step_end
@@ -180,13 +203,19 @@ LancesRoomMovementData_LanceLeadsPlayerToHallOfFame:
 	step UP
 	step_end
 
+LancesRoomMovementData_PlayerFollowsLance
+	step RIGHT
+	step UP
+	step_end
+
 LancesRoomMovementData_PlayerExits:
+	step RIGHT
 	step UP
 	step_end
 
 LancesRoomMovementData_MaryTriesToFollow:
 	step UP
-	step RIGHT
+	step LEFT
 	turn_head UP
 	step_end
 
@@ -230,8 +259,10 @@ LanceBattleIntroText:
 
 	para "the #MON LEAGUE"
 	line "CHAMPION…"
+	done
 
-	para "I, LANCE the drag-"
+LanceBattleIntroEndText:
+	text "I, LANCE the Drag-"
 	line "on master, accept"
 	cont "your challenge!"
 	done

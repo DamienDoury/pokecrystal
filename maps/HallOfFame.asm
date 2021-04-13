@@ -16,10 +16,11 @@ HallOfFame_MapScripts:
 	end
 
 .EnterHallOfFameScript:
-	follow HALLOFFAME_LANCE, PLAYER
-	applymovement HALLOFFAME_LANCE, HallOfFame_WalkUpWithLance
-	stopfollow
+	;follow HALLOFFAME_LANCE, PLAYER
+	applymovement PLAYER, HallOfFame_WalkUp
+	;stopfollow
 	turnobject PLAYER, RIGHT
+	turnobject HALLOFFAME_LANCE, LEFT
 	opentext
 	writetext HallOfFame_LanceText
 	waitbutton
@@ -49,7 +50,7 @@ HallOfFame_MapScripts:
 	halloffame
 	end
 
-HallOfFame_WalkUpWithLance:
+HallOfFame_WalkUp:
 	step UP
 	step UP
 	step UP
@@ -57,12 +58,12 @@ HallOfFame_WalkUpWithLance:
 	step UP
 	step UP
 	step UP
-	step UP
-	step RIGHT
-	turn_head LEFT
+	turn_head RIGHT
 	step_end
 
 HallOfFame_SlowlyApproachMachine:
+	slow_step UP
+	slow_step UP
 	slow_step UP
 	step_end
 
@@ -124,4 +125,4 @@ HallOfFame_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  4, 12, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  6,  6, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
