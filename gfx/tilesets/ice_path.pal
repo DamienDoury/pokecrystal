@@ -9,10 +9,15 @@
 	RGB 13, 00, 08
 	RGB 00, 00, 00
 ; green (ice)
-	RGB 22, 29, 31
-	RGB 10, 27, 31
-	RGB 31, 31, 31
-	RGB 05, 00, 09
+	RGB 15, 14, 24
+	RGB 08, 13, 19
+	RGB 00, 11, 21
+	RGB 00, 00, 00
+; green (ice) (original)
+;	RGB 22, 29, 31
+;	RGB 10, 27, 31
+;	RGB 31, 31, 31
+;	RGB 05, 00, 09
 ; water
 	RGB 15, 14, 24
 	RGB 05, 05, 17
@@ -29,12 +34,17 @@
 	RGB 08, 04, 05
 	RGB 00, 00, 00
 ; roof (snow)
+	RGB 15, 14, 24
+	RGB 12, 13, 23
+	RGB 11, 09, 20
+	RGB 00, 00, 00
+; text (might affect Hall of Fame, but I think no text is displayed there, as it is an "indoor" location).
 	RGB 25, 31, 31
 	RGB 09, 28, 31
 	RGB 16, 11, 31
 	RGB 05, 00, 09
-; text
-	RGB 31, 31, 16
-	RGB 31, 31, 16
-	RGB 14, 09, 00
-	RGB 00, 00, 00
+; text (original)
+;	RGB 31, 31, 16
+;	RGB 31, 31, 16
+;	RGB 14, 09, 00
+;	RGB 00, 00, 00
