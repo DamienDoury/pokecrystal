@@ -407,6 +407,9 @@ UsedSurfScript:
 
 	callasm .stubbed_fn
 
+	setval (PAL_NPC_BLUE << 4) ; Damien.
+	special SetPlayerPalette ; The surfing Pikachu will be blue also, it doesn't matter much.
+
 	readmem wSurfingPlayerState
 	writevar VAR_MOVEMENT
 
@@ -855,6 +858,7 @@ EscapeRopeOrDig:
 	applymovement PLAYER, .DigOut
 	farscall Script_AbortBugContest
 	special WarpToSpawnPoint
+	callasm ResetPlayerPalette ; Damien.
 	loadvar VAR_MOVEMENT, PLAYER_NORMAL
 	newloadmap MAPSETUP_DOOR
 	playsound SFX_WARP_FROM

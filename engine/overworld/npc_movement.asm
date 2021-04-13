@@ -305,7 +305,6 @@ CheckFacingObjectNPCExcluded::
 
 CheckFacingFarNPCOnly::
 	call GetFacingTileCoord
-	ld b, b
 	call CheckSpeechBlockingTile ; If there is a tile that blocks the speech between the player and a NPC, we cancel the talk.
 	jr z, .can_talk
 	xor a
