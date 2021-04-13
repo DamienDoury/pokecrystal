@@ -166,10 +166,6 @@ MovementData_PlayerPreparesForBattle:
 	turn_head RIGHT
 	step_end
 
-MovementData_ApproachLanceFromRight:
-	turn_head UP
-	step_end
-
 LancesRoomMovementData_MaryRushesIn:
 	big_step UP
 	big_step UP
@@ -200,11 +196,6 @@ LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway:
 	step_end
 
 LancesRoomMovementData_LanceLeadsPlayerToHallOfFame:
-	step UP
-	step_end
-
-LancesRoomMovementData_PlayerFollowsLance
-	step RIGHT
 	step UP
 	step_end
 
