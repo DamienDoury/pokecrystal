@@ -14,6 +14,7 @@ ENDM
 	auto_weather_map LAKE_OF_RAGE, AUTOMATIC_RAIN
 	auto_weather_map ROUTE_45, AUTOMATIC_SANDSTORM
 	auto_weather_map SILVER_CAVE_ROOM_3, AUTOMATIC_RAIN
+	auto_weather_map ROUTE_41, AUTOMATIC_RAIN
 	db 0 ; end
 
 AutomaticWeatherEffects:
