@@ -2816,7 +2816,7 @@ wObject12Struct:: object_struct wObject12
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
 
-	ds 40
+	ds 6
 
 wMapObjects::
 	table_width MAPOBJECT_LENGTH, wMapObjects
@@ -2836,6 +2836,21 @@ wMap12Object::  map_object wMap12
 wMap13Object::  map_object wMap13
 wMap14Object::  map_object wMap14
 wMap15Object::  map_object wMap15
+wMap16Object::  map_object wMap16
+wMap17Object::  map_object wMap17
+wMap18Object::  map_object wMap18
+wMap19Object::  map_object wMap19
+wMap20Object::  map_object wMap20
+wMap21Object::  map_object wMap21
+wMap22Object::  map_object wMap22
+wMap23Object::  map_object wMap23
+wMap24Object::  map_object wMap24
+wMap25Object::  map_object wMap25
+wMap26Object::  map_object wMap26
+wMap27Object::  map_object wMap27
+wMap28Object::  map_object wMap28
+wMap29Object::  map_object wMap29
+wMap30Object::  map_object wMap30
 	assert_table_length NUM_OBJECTS
 
 wObjectMasks:: ds NUM_OBJECTS
@@ -2928,7 +2943,7 @@ wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 
-	ds 13
+	ds 1
 
 ; map scene ids
 wPokecenter2FSceneID::                            db
@@ -3011,39 +3026,11 @@ wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 
-	ds 49
+	ds 4
 
-; fight counts
-wJackFightCount::    db
-wBeverlyFightCount:: db ; unreferenced
-wHueyFightCount::    db
-wGavenFightCount::   db
-wBethFightCount::    db
-wJoseFightCount::    db
-wReenaFightCount::   db
-wJoeyFightCount::    db
-wWadeFightCount::    db
-wRalphFightCount::   db
-wLizFightCount::     db
-wAnthonyFightCount:: db
-wToddFightCount::    db
-wGinaFightCount::    db
-wIrwinFightCount::   db ; unreferenced
-wArnieFightCount::   db
-wAlanFightCount::    db
-wDanaFightCount::    db
-wChadFightCount::    db
-wDerekFightCount::   db ; unreferenced
-wTullyFightCount::   db
-wBrentFightCount::   db
-wTiffanyFightCount:: db
-wVanceFightCount::   db
-wWiltonFightCount::  db
-wKenjiFightCount::   db ; unreferenced
-wParryFightCount::   db
-wErinFightCount::    db
+; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
-	ds 100
+	ds 1
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -3136,7 +3123,7 @@ wPlayerMonSelection:: ds 3
 wdc5f:: db
 wdc60:: db
 
-	ds 18
+	ds 1
 
 wStepCount:: db
 wPoisonStepCount:: db
@@ -3150,7 +3137,7 @@ wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
-	ds 22
+	ds 1
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db
