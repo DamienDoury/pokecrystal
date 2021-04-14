@@ -146,7 +146,7 @@ MonMenuIconPals:
 	icon_pals BLUE, GRAY ; OMASTAR
 	icon_pals BROWN, GRAY ; KABUTO
 	icon_pals BROWN, GRAY ; KABUTOPS
-	icon_pals BROWN, GRAY ; AERODACTYL
+	icon_pals PURPLE, PINK ; AERODACTYL
 	icon_pals RED, BLUE ; SNORLAX
 	icon_pals BLUE, BLUE ; ARTICUNO
 	icon_pals BROWN, RED ; ZAPDOS
