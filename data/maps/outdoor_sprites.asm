@@ -821,6 +821,7 @@ AzaleaGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT ; non-walking version of SPRITE_KURT
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 GoldenrodGroupSprites:
