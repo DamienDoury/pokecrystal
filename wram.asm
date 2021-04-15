@@ -1109,7 +1109,10 @@ NEXTU
 wMysteryGiftCardHolderName:: ds PLAYER_NAME_LENGTH
 ENDU
 
-	ds 138
+wFreedomState:: db ; Represents the level of freedom (curfew, lockdown, freedom).
+wResearchLevelPerLandmark:: ds NUM_LANDMARKS_HALF ; Stores the research level for each landmark (2 landmarks per byte).
+
+	ds 137 - NUM_LANDMARKS_HALF
 
 wMysteryGiftPartnerData::
 wMysteryGiftGameVersion:: db

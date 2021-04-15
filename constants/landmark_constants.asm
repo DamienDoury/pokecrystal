@@ -99,7 +99,7 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_28          ; 5e
 	const LANDMARK_FAST_SHIP         ; 5f
 NUM_LANDMARKS EQU const_value
-NUM_LANDMARKS_HALF EQU const_value >> 1
+NUM_LANDMARKS_HALF EQU (const_value + 1) >> 1
 
 ; used in CaughtData
 	const_def $7f, -1

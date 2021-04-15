@@ -8499,11 +8499,37 @@ ExitBattle:
 	ret nz
 	call CheckPayDay
 	xor a
+	call IncreaseResearchLevel
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
 	ret
 
+IncreaseResearchLevel:
+	ld a, [wOtherTrainerClass]
+	cp OFFICER
+	ret nz ; Only a won battle against an Officer can increase the research level.
+
+	ld a, [wFreedomState]
+	cp 1
+	ret z ; We only increase the research level during curfew and/or lockdown, not during a "freedom" period of time.
+
+	ld a, [wCurLandmark]
+	ld e, a
+	and $01 ; We mask the last bit to know if the number is odd or even.
+
+	srl e ; We divide by two, and floor the result.
+	ld hl, wResearchLevelPerLandmark
+	ld bc, e
+	add hl, bc
+
+	cp 1
+	jr z, .odd
+;even
+	
+.odd
+
+	ld bc, 
 CleanUpBattleRAM:
 	call BattleEnd_HandleRoamMons
 	xor a
