@@ -268,12 +268,14 @@ CheckObjectTime::
 	ld hl, MAPOBJECT_HOUR
 	add hl, bc
 	ld a, [hl]
-	cp -1
+	and %00011111 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
+	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
 	jr nz, .check_hour
 	ld hl, MAPOBJECT_TIMEOFDAY
 	add hl, bc
 	ld a, [hl]
-	cp -1
+	and %00011111 ; Damien: same as before: only the 5 first bits are used to store the time.
+	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
 	jr z, .timeofday_always
 	ld hl, .TimesOfDay
 	ld a, [wTimeOfDay]
@@ -283,16 +285,20 @@ CheckObjectTime::
 	inc h
 
 .ok
-	ld a, [hl]
+	ld d, [hl]
 	ld hl, MAPOBJECT_TIMEOFDAY
 	add hl, bc
-	and [hl]
-	jr nz, .timeofday_always
+	ld a, [hl]
+	and %00011111 ; We mask MAPOBJECT_TIMEOFDAY.
+	ld e, a
+	ld a, d
+	and e ; Comparing wTimeOfDay to the masked value of MAPOBJECT_TIMEOFDAY.
+	jr nz, .timeofday_always ; If there is at least 1 flag overlap, it means the current wTimeOfDay is a match for MAPOBJECT_TIMEOFDAY, and so the map_object can be displayed.
 	scf
 	ret
 
-.timeofday_always
-	and a
+.timeofday_always ; If both HOUR and TIMEOFDAY are -1, the object must always appear.
+	and a ; Resets the carry.
 	ret
 
 .TimesOfDay:
@@ -302,12 +308,15 @@ CheckObjectTime::
 	db NITE
 
 .check_hour
-	ld hl, MAPOBJECT_HOUR
-	add hl, bc
-	ld d, [hl]
-	ld hl, MAPOBJECT_TIMEOFDAY
-	add hl, bc
-	ld e, [hl]
+	;ld hl, MAPOBJECT_HOUR
+	;add hl, bc
+	ld d, a ; Retrieving the already masked value, and saving some cycles.
+	;ld hl, MAPOBJECT_TIMEOFDAY
+	;add hl, bc
+	inc hl ; Saving some cycles.
+	ld a, [hl]
+	and %00011111
+	ld e, a
 	ld hl, hHours
 	ld a, d
 	cp e
@@ -321,7 +330,7 @@ CheckObjectTime::
 	jr z, .yes
 	jr .no
 
-.check_timeofday
+.check_timeofday ; Both HOUR and TIMEOFDAY are properly masked here.
 	ld a, e
 	cp [hl]
 	jr c, .no
@@ -331,7 +340,7 @@ CheckObjectTime::
 	jr .no
 
 .yes
-	and a
+	and a ; Resets the carry.
 	ret
 
 .no

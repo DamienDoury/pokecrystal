@@ -66,3 +66,26 @@ POKERUS_IMMUNITY_DURATION EQU 10 ; days
 POKERUS_SYMPTOMS_DURATION EQU 3 ; days
 POKERUS_SYMPTOMS_START EQU 13 ; days
 
+; Liberty flags
+; Réflexion : de base, le byte hour et timeofday valent -1, soit tous les bits à 1. Si on a pas à changer ça, c'est cool. 
+; On dit donc que si le bit est à 1, alors l'objet doit s'afficher. Il faudra quand même faire une repasse globale, pour les objets à activation temporaire.
+
+;const_def
+;	const FREE_F		;0
+;	const CURFEW_F		;1
+;	const LOCKDOWN_F	;2
+;
+;FREE 		EQU %100000 << FREE_F
+;CURFEW 		EQU %100000 << CURFEW_F
+;LOCKDOWN 	EQU %100000 << LOCKDOWN_F
+;
+;; Research level. They work as flags, as you may want to make a NPC appear at several levels, but not all, in order to make the landmark diverse.
+;const_def
+;	const RESEARCH_1_F	;0
+;	const RESEARCH_2_F	;1
+;	const RESEARCH_3_F	;2
+;
+;RESEARCH_0  EQU 0
+;RESEARCH_1 	EQU %100000 << RESEARCH_1_F
+;RESEARCH_2 	EQU %100000 << RESEARCH_2_F
+;RESEARCH_3 	EQU %100000 << RESEARCH_3_F
