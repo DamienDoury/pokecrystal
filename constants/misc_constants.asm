@@ -70,11 +70,11 @@ POKERUS_SYMPTOMS_START EQU 13 ; days
 ; Réflexion : de base, le byte hour et timeofday valent -1, soit tous les bits à 1. Si on a pas à changer ça, c'est cool. 
 ; On dit donc que si le bit est à 1, alors l'objet doit s'afficher. Il faudra quand même faire une repasse globale, pour les objets à activation temporaire.
 
-;const_def
-;	const FREE_F		;0
-;	const CURFEW_F		;1
-;	const LOCKDOWN_F	;2
-;
+	const_def
+	const FREE_F		;0
+	const CURFEW_F		;1
+	const LOCKDOWN_F	;2
+
 ;FREE 		EQU %100000 << FREE_F
 ;CURFEW 		EQU %100000 << CURFEW_F
 ;LOCKDOWN 	EQU %100000 << LOCKDOWN_F

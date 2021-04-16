@@ -3217,7 +3217,7 @@ wPartyMon6Nickname:: ds MON_NAME_LENGTH
 	assert_table_length PARTY_LENGTH
 wPartyMonNicknamesEnd::
 
-wFreedomState:: db ; Represents the level of freedom (curfew, lockdown, freedom).
+wCurFreedomState:: db ; Represents the level of freedom (curfew, lockdown, freedom).
 wWantedLevelPerLandmark:: ds NUM_LANDMARKS_QUARTER ; MUST BE 24. Can be increased to 25 by finding "ds 1" somewhere between wGameData and wGameDataEnd. Stores the research level for each landmark (2 bits per landmark).
 wCurWantedLevel:: db
 

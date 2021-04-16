@@ -4,8 +4,6 @@
 ; Updates [wCurLandmark] (because it's never done at this point).
 ; Destroys c.
 GetCurrentResearchLevelAtLandmark::
-	ld b, b
-
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -39,7 +37,6 @@ GetCurrentResearchLevelAtLandmark::
 .masking
 	ld a, c
 	and $03
-	ld b, b
 	ret
 
 ; Call this after a won battle against a policeman.
@@ -49,7 +46,6 @@ IncreaseResearchLevel::
 	cp $FF
 	ret z
 
-	ld b, b
 	ld a, [wOtherTrainerClass]
 	cp OFFICER
 	ret nz ; Only a won battle against an Officer can increase the research level.

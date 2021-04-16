@@ -1,4 +1,4 @@
-LoadObjectMasks:
+LoadObjectMasks: ; Called NUM_OBJECTS times, so it better be optimized now that I doubled the original amount.
 	ld hl, wObjectMasks
 	xor a
 	ld bc, NUM_OBJECTS
@@ -12,6 +12,8 @@ LoadObjectMasks:
 	push bc
 	push de
 	call GetObjectTimeMask
+	jr c, .next
+	call CheckLockdownMask
 	jr c, .next
 	call CheckObjectFlag
 .next
@@ -66,5 +68,23 @@ GetObjectTimeMask:
 	call CheckObjectTime
 	ld a, -1
 	ret c
+	xor a
+	ret
+
+CheckLockdownMask:
+	ld hl, MAPOBJECT_HOUR
+	add hl, bc
+	ld a, [hl]
+	and %11100000 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
+	srl a
+	swap a
+	ld h, a
+	ld a, [wCurFreedomState]
+	cp h
+	jr nz, .ok
+	ld a, -1
+	scf
+	ret
+.ok
 	xor a
 	ret
