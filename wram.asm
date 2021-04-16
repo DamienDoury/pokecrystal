@@ -1109,10 +1109,7 @@ NEXTU
 wMysteryGiftCardHolderName:: ds PLAYER_NAME_LENGTH
 ENDU
 
-wFreedomState:: db ; Represents the level of freedom (curfew, lockdown, freedom).
-wResearchLevelPerLandmark:: ds NUM_LANDMARKS_HALF ; Stores the research level for each landmark (2 landmarks per byte).
-
-	ds 137 - NUM_LANDMARKS_HALF
+	ds 138 ; Erased every time a map is loaded (filled with zeros by FillBytes).
 
 wMysteryGiftPartnerData::
 wMysteryGiftGameVersion:: db
@@ -1126,7 +1123,7 @@ wMysteryGiftPartnerBackupItem:: db
 	ds 1
 wMysteryGiftPartnerDataEnd::
 
-	ds 60
+	ds 60 ; Also erased every time a map is loaded.
 
 wMysteryGiftPlayerData::
 	ds 1
@@ -3166,7 +3163,7 @@ wBackupWarpNumber:: db
 wBackupMapGroup::   db
 wBackupMapNumber::  db
 
-	ds 3
+;	ds 3
 
 wLastSpawnMapGroup:: db
 wLastSpawnMapNumber:: db
@@ -3220,7 +3217,9 @@ wPartyMon6Nickname:: ds MON_NAME_LENGTH
 	assert_table_length PARTY_LENGTH
 wPartyMonNicknamesEnd::
 
-	ds 22
+wFreedomState:: db ; Represents the level of freedom (curfew, lockdown, freedom).
+wWantedLevelPerLandmark:: ds NUM_LANDMARKS_QUARTER ; MUST BE 24. Can be increased to 25 by finding "ds 1" somewhere between wGameData and wGameDataEnd. Stores the research level for each landmark (2 bits per landmark).
+wCurWantedLevel:: db
 
 wPokedexCaught:: flag_array NUM_POKEMON
 wEndPokedexCaught::

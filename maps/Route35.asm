@@ -220,16 +220,16 @@ TrainerFirebreatherWalt:
 	end
 
 TrainerOfficerDirk:
-	faceplayer
-	opentext
-	checktime NITE
-	iffalse .NotNight
-	checkevent EVENT_BEAT_OFFICER_DIRK
-	iftrue .AfterBattle
-	playmusic MUSIC_OFFICER_ENCOUNTER
-	writetext OfficerDirkSeenText
-	waitbutton
-	closetext
+;	faceplayer
+;	opentext
+;	checktime NITE ; Damien : à remettre.
+;	iffalse .NotNight
+;	checkevent EVENT_BEAT_OFFICER_DIRK
+;	iftrue .AfterBattle
+;	playmusic MUSIC_OFFICER_ENCOUNTER
+;	writetext OfficerDirkSeenText
+;	waitbutton
+;	closetext
 	winlosstext OfficerDirkBeatenText, 0
 	loadtrainer OFFICER, DIRK
 	startbattle

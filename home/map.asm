@@ -402,6 +402,11 @@ CopyMapPartialAndAttributes::
 
 ReadMapEvents::
 	push af
+	push bc
+	farcall GetCurrentResearchLevelAtLandmark
+	pop bc
+	pop af
+	push af
 	ld hl, wMapEventsPointer
 	ld a, [hli]
 	ld h, [hl]
