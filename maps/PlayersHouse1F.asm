@@ -78,6 +78,11 @@ MeetMomScript:
 
 .FinishPhone:
 	writetext InstructionsNextText
+	promptbutton
+	writetext CovidIntroText
+	playsound SFX_ITEM
+	waitsfx
+	writetext CovidNextText
 	waitbutton
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -290,6 +295,42 @@ InstructionsNextText:
 	line "convenient?"
 	done
 
+CovidIntroText:
+	text "One last thing!"
+	line "They are talking"
+	cont "about a new virus"
+	cont "on TV."
+
+	para "I have a leftover"
+	line "box of face masks"
+	cont "from last time I"
+	cont "got sick."
+
+	para "You can have it!"
+
+	para "<PLAYER> puts on"
+	line "a FACE MASK!"
+	done
+
+CovidNextText:
+	text "Better safe than"
+	line "sorry, right?"
+
+	para "Doctors on TV"
+	line "recommended to"
+	cont "stay 1 step away"
+	cont "when talking to"
+	cont "someone."
+
+	para "Now people may not"
+	line "want to talk to"
+	cont "you if you do not"
+	cont "respect this rule."
+
+	para "Be careful"
+	line "out there!"
+	done
+
 HurryUpElmIsWaitingText:
 	text "PROF.ELM is wait-"
 	line "ing for you."
@@ -341,14 +382,13 @@ NeighborText:
 	text "<PLAY_G>, have you"
 	line "heard?"
 
-	para "My daughter is"
-	line "adamant about"
+	para "Some people caught"
+	line "a virus never seen"
+	cont "before."
 
-	para "becoming PROF."
-	line "ELM's assistant."
+	para "Nothing to worry"
+	line "about, I'm sure!"
 
-	para "She really loves"
-	line "#MON!"
 	done
 
 PlayersHouse1FStoveText:
