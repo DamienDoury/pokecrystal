@@ -69,7 +69,7 @@ MeetMomScript:
 .KnowPhone:
 	writetext KnowTheInstructionsText
 	promptbutton
-	sjump .FinishPhone
+	sjump .FinishPhoneForReal
 
 .ExplainPhone:
 	writetext DontKnowTheInstructionsText
@@ -79,6 +79,7 @@ MeetMomScript:
 .FinishPhone:
 	writetext InstructionsNextText
 	promptbutton
+.FinishPhoneForReal:
 	writetext CovidIntroText
 	playsound SFX_ITEM
 	waitsfx
@@ -113,6 +114,54 @@ PokegearName:
 
 PlayersHouse1FReceiveItemStd:
 	jumpstd ReceiveItemScript
+	end
+
+FakeMomMornScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .quit
+	checktime MORN
+	iffalse .quit
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+.quit:
+	end
+
+FakeMomDayScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .meet
+	checktime DAY
+	iffalse .quit
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+	end
+.meet
+	turnobject PLAYERSHOUSE1F_MOM1, UP
+	sjump MomScript
+.quit:
+	end
+
+FakeMomNiteScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .quit
+	checktime NITE
+	iffalse .quit
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+.quit:
+	end
+
+FakeNeighborScript:
+	checkevent EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
+	iftrue .quit
+	sjump NeighborScript
+	end
+.quit:
 	end
 
 MomScript:
@@ -156,7 +205,6 @@ MomScript:
 	end
 
 NeighborScript:
-	faceplayer
 	opentext
 	checktime MORN
 	iftrue .MornScript
@@ -184,7 +232,7 @@ NeighborScript:
 	writetext NeighborText
 	waitbutton
 	closetext
-	turnobject PLAYERSHOUSE1F_POKEFAN_F, RIGHT
+	turnobject PLAYERSHOUSE1F_POKEFAN_F, UP
 	end
 
 PlayersHouse1FTVScript:
@@ -214,6 +262,17 @@ MomTurnsBackMovement:
 MomWalksBackMovement:
 	slow_step LEFT
 	step_end
+
+SocialDistancingText:
+	text "Remember what I"
+	line "told you…"
+
+	para "Stay 1 step away"
+	line "when talking to"
+	cont "someone. It is"
+	cont "called social"
+	cont "distancing."
+	done
 
 ElmsLookingForYouText:
 	text "Oh, <PLAYER>…! Our"
@@ -268,11 +327,7 @@ ComeHomeForDSTText:
 	done
 
 KnowTheInstructionsText:
-	text "Don't you just"
-	line "turn the #GEAR"
-
-	para "on and select the"
-	line "PHONE icon?"
+	text "Great!"
 	done
 
 DontKnowTheInstructionsText:
@@ -387,7 +442,8 @@ NeighborText:
 	cont "before."
 
 	para "Nothing to worry"
-	line "about, I'm sure!"
+	line "about, I'm sure"
+	cont "we will be fine!"
 
 	done
 
@@ -413,14 +469,25 @@ PlayersHouse1FFridgeText:
 	done
 
 PlayersHouse1FTVText:
-	text "There's a movie on"
-	line "TV: Stars dot the"
+	text "On the news,"
+	line "a doctor debates"
+	cont "with a politician"
+	cont "about a newly"
+	cont "discovered virus."
 
-	para "sky as two boys"
-	line "ride on a train…"
+	para "The doctor seems"
+	line "nervous."
 
-	para "I'd better get"
-	line "rolling too!"
+	para "The politician"
+	line "laughes and says"
+
+	para "there is no need"
+	line "to panic."
+
+	para "…"
+
+	para "I better"
+	line "get going."
 	done
 
 PlayersHouse1F_MapEvents:
@@ -440,10 +507,14 @@ PlayersHouse1F_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, PlayersHouse1FSinkScript
 	bg_event  2,  1, BGEVENT_READ, PlayersHouse1FFridgeScript
 	bg_event  4,  1, BGEVENT_READ, PlayersHouse1FTVScript
+	bg_event  4,  4, BGEVENT_READ, FakeNeighborScript
+	bg_event  2,  2, BGEVENT_READ, FakeMomMornScript
+	bg_event  7,  4, BGEVENT_READ, FakeMomDayScript
+	bg_event  0,  2, BGEVENT_READ, FakeMomNiteScript
 
 	def_object_events
-	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_1
+	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_1
 	object_event  2,  2, SPRITE_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_2
 	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_2
 	object_event  0,  2, SPRITE_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, NITE, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_2
-	object_event  4,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, NeighborScript, EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
+	object_event  4,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, NeighborScript, EVENT_PLAYERS_HOUSE_1F_NEIGHBOR

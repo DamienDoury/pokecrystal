@@ -299,6 +299,23 @@ ElmsLabHealingMachine:
 	end
 
 .CanHeal:
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .FemaleHandWash
+	writetext WashHandsMaleText
+	promptbutton
+	closetext
+	sjump .HealEnd
+
+.FemaleHandWash:
+	writetext WashHandsFemaleText
+	promptbutton
+	closetext
+	sjump .HealEnd
+
+.HealEnd:
+	playsound SFX_2_BOOPS
+	pause 30
+	opentext
 	writetext ElmsLabHealingMachineText2
 	yesorno
 	iftrue ElmsLabHealingMachine_HealParty
@@ -729,7 +746,7 @@ ElmText_Intro:
 	para "I needed to ask"
 	line "you a favor."
 
-	para "I'm conducting new"
+	para "I'm conducting"
 	line "#MON research"
 
 	para "right now. I was"
@@ -746,11 +763,9 @@ ElmText_Intro:
 	para "to present at a"
 	line "conference."
 
-	para "But there are some"
-	line "things I don't"
-
-	para "quite understand"
-	line "yet."
+	para "And I need to"
+	line "gather more data"
+	cont "from the field."
 
 	para "So!"
 
@@ -777,14 +792,9 @@ ElmText_ResearchAmbitions:
 	text "When I announce my"
 	line "findings, I'm sure"
 
-	para "we'll delve a bit"
-	line "deeper into the"
-
-	para "many mysteries of"
-	line "#MON."
-
-	para "You can count on"
-	line "it!"
+	para "it will shock the"
+	line "scientific"
+	cont "community."
 	done
 
 ElmText_GotAnEmail:
@@ -824,7 +834,7 @@ ElmText_MissionFromMrPokemon:
 
 	para "Wait!"
 
-	para "I know!"
+	para "I know."
 
 	para "<PLAY_G>, can you"
 	line "go in our place?"
@@ -839,7 +849,7 @@ ElmText_ChooseAPokemon:
 
 	para "You'll be that"
 	line "#MON's first"
-	cont "partner, <PLAY_G>!"
+	cont "partner, <PLAY_G>."
 
 	para "Go on. Pick one!"
 	done
@@ -911,7 +921,7 @@ ElmDirectionsText1:
 	line "here's my phone"
 
 	para "number. Call me if"
-	line "anything comes up!"
+	line "anything comes up."
 	done
 
 ElmDirectionsText2:
@@ -921,8 +931,16 @@ ElmDirectionsText2:
 	para "heal it with this"
 	line "machine."
 
+	para "It can heal their"
+	line "health points but"
+	cont "won't cure"
+	cont "diseases."
+
 	para "Feel free to use"
-	line "it anytime."
+	line "it anytime, but"
+	cont "please, wash your"
+	cont "hands before"
+	cont "using it."
 	done
 
 ElmDirectionsText3:
@@ -949,6 +967,18 @@ ElmPokeBallText:
 	text "It contains a"
 	line "#MON caught by"
 	cont "PROF.ELM."
+	done
+
+WashHandsMaleText:
+	text "<PLAYER> washes his"
+	line "hands with some"
+	cont "hand sanitizer."
+	done
+
+WashHandsFemaleText:
+	text "<PLAYER> washes her"
+	line "hands with some"
+	cont "hand sanitizer."
 	done
 
 ElmsLabHealingMachineText1:
@@ -1354,14 +1384,13 @@ ElmsLabTravelTip4Text:
 	done
 
 ElmsLabTrashcanText:
-	text "The wrapper from"
-	line "the snack PROF.ELM"
-	cont "ate is in there…"
+	text "Some used surgical"
+	line "masks and gloves…"
 	done
 
 ElmsLabPCText:
 	text "OBSERVATIONS ON"
-	line "#MON EVOLUTION"
+	line "#MON VIROLOGY"
 
 	para "…It says on the"
 	line "screen…"
