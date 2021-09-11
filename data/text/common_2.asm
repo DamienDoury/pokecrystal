@@ -1183,7 +1183,13 @@ _PlayersPCNoRoomDepositText::
 	prompt
 
 _PlayersPCSanitizerText::
-	text "<PLAYER> washes its"
+	text "<PLAYER> washes his"
+	line "hands with some"
+	cont "hand sanitizer."
+	prompt
+
+_PlayersPCSanitizerFemaleText::
+	text "<PLAYER> washes her"
 	line "hands with some"
 	cont "hand sanitizer."
 	prompt

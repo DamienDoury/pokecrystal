@@ -15,7 +15,17 @@
 PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .male_text
+	ld hl, PokecenterPCSanitizerFemaleText
+	jr .display_sanitizer_text
+
+.male_text
 	ld hl, PokecenterPCSanitizerText
+	jr .display_sanitizer_text
+
+.display_sanitizer_text
 	call PC_DisplayText
 	call PC_PlaySanitizerSound
 	push bc
@@ -669,6 +679,10 @@ PC_DisplayText:
 
 PokecenterPCSanitizerText:
 	text_far _PlayersPCSanitizerText
+	text_end
+
+PokecenterPCSanitizerFemaleText:
+	text_far _PlayersPCSanitizerFemaleText
 	text_end
 
 PokecenterPCTurnOnText:
