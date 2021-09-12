@@ -28,6 +28,10 @@ FakeSilverScript:
 	sjump NewBarkTownSilverScript
 	end
 .quit:
+	opentext
+	writetext FootstepsText
+	promptbutton
+	closetext
 	end
 
 NewBarkTown_TeacherStopsYouScene1:
@@ -265,6 +269,11 @@ NewBarkTownRivalText1:
 NewBarkTownRivalText2:
 	text "…What are you"
 	line "staring at?"
+	done
+
+FootstepsText:
+	text "Footsteps in the"
+	line "dirt."
 	done
 
 NewBarkTownSignText:

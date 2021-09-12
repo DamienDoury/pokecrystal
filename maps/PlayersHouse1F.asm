@@ -4,6 +4,7 @@
 	const PLAYERSHOUSE1F_MOM3
 	const PLAYERSHOUSE1F_MOM4
 	const PLAYERSHOUSE1F_POKEFAN_F
+	const PLAYERSHOUSE1F_WALL
 
 PlayersHouse1F_MapScripts:
 	def_scene_scripts
@@ -121,11 +122,19 @@ FakeMomMornScript:
 	iffalse .quit
 	checktime MORN
 	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM2
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM2, 15
+	faceplayer
 	opentext
 	writetext SocialDistancingText
 	promptbutton
 	closetext
+	end
 .quit:
+	opentext
+	writetext SmellText
+	promptbutton
+	closetext
 	end
 
 FakeMomDayScript:
@@ -133,15 +142,23 @@ FakeMomDayScript:
 	iffalse .meet
 	checktime DAY
 	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM3
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM3, 15
+	faceplayer
 	opentext
 	writetext SocialDistancingText
 	promptbutton
 	closetext
 	end
 .meet
-	turnobject PLAYERSHOUSE1F_MOM1, UP
+	setlasttalked PLAYERSHOUSE1F_MOM1
 	sjump MomScript
+	end
 .quit:
+	opentext
+	writetext MomsSeatText
+	promptbutton
+	closetext
 	end
 
 FakeMomNiteScript:
@@ -149,19 +166,39 @@ FakeMomNiteScript:
 	iffalse .quit
 	checktime NITE
 	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM4
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM4, 15
+	faceplayer
 	opentext
 	writetext SocialDistancingText
 	promptbutton
 	closetext
+	end
 .quit:
+	opentext
+	writetext SmellText
+	promptbutton
+	closetext
 	end
 
 FakeNeighborScript:
 	checkevent EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
 	iftrue .quit
+	setlasttalked PLAYERSHOUSE1F_POKEFAN_F
 	sjump NeighborScript
 	end
 .quit:
+	opentext
+	writetext PlayerSeatText
+	promptbutton
+	closetext
+	end
+
+WallScript:
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
 	end
 
 MomScript:
@@ -205,6 +242,7 @@ MomScript:
 	end
 
 NeighborScript:
+	faceplayer
 	opentext
 	checktime MORN
 	iftrue .MornScript
@@ -263,15 +301,37 @@ MomWalksBackMovement:
 	slow_step LEFT
 	step_end
 
+SmellText:
+	text "Smells good!"
+	line "Mom's a good cook!"
+	done
+
+PlayerSeatText:
+	text "This is my seat"
+	line "at the table."
+
+	para "It has the best"
+	line "view on the TV!"
+	done
+
+MomsSeatText:
+	text "Mom's seat has"
+	line "lovely cushions."
+	done
+
 SocialDistancingText:
-	text "Remember what I"
-	line "told you…"
+	text "<PLAYER> what"
+	line "did I tell you?"
 
 	para "Stay 1 step away"
 	line "when talking to"
 	cont "someone. It is"
 	cont "called social"
 	cont "distancing."
+
+	para "Move 1 step back"
+	line "or I won't talk"
+	cont "to you."
 	done
 
 ElmsLookingForYouText:
@@ -434,24 +494,22 @@ NeighborNiteIntroText:
 	done
 
 NeighborText:
-	text "<PLAY_G>, have you"
-	line "heard?"
+	text "Have you heard?"
+	line "Some people caught"
 
-	para "Some people caught"
-	line "a virus never seen"
-	cont "before."
+	para "a virus never seen"
+	line "before."
 
 	para "Nothing to worry"
 	line "about, I'm sure"
 	cont "we will be fine!"
-
 	done
 
 PlayersHouse1FStoveText:
 	text "Mom's specialty!"
 
-	para "CINNABAR VOLCANO"
-	line "BURGER!"
+	para "CIANWOOD WHIRL"
+	line "MAKIS!"
 	done
 
 PlayersHouse1FSinkText:
@@ -507,10 +565,10 @@ PlayersHouse1F_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, PlayersHouse1FSinkScript
 	bg_event  2,  1, BGEVENT_READ, PlayersHouse1FFridgeScript
 	bg_event  4,  1, BGEVENT_READ, PlayersHouse1FTVScript
-	bg_event  4,  4, BGEVENT_READ, FakeNeighborScript
 	bg_event  2,  2, BGEVENT_READ, FakeMomMornScript
 	bg_event  7,  4, BGEVENT_READ, FakeMomDayScript
 	bg_event  0,  2, BGEVENT_READ, FakeMomNiteScript
+	bg_event  4,  4, BGEVENT_READ, FakeNeighborScript
 
 	def_object_events
 	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_1
