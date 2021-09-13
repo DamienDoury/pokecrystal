@@ -14,6 +14,7 @@
 	const GOLDENRODCITY_ROCKET5
 	const GOLDENRODCITY_ROCKET6
 	const GOLDENRODCITY_MOVETUTOR
+	const GOLDENRODCITY_BEATER
 
 GoldenrodCity_MapScripts:
 	def_scene_scripts
@@ -267,8 +268,33 @@ GoldenrodCityPokecenterSign:
 GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
 
-GoldenrodHospitalSign
+GoldenrodHospitalSign:
 	jumptext GoldenrodHospitalSignText
+
+GoldenrodCityBeaterScript:
+	opentext
+	writetext BeaterText1
+	yesorno
+	iffalse .GetLost
+	writetext BeaterText2
+	yesorno
+	iftrue .GoodBye
+	writetext BeaterText2Bis
+	promptbutton
+
+.GoodBye:
+	writetext BeaterText3
+	waitbutton
+	closetext
+	setevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	clearevent EVENT_GOLDENROD_ILLEGAL_CASINO
+	end
+
+.GetLost:
+	writetext GetLostText
+	waitbutton
+	closetext
+	end
 
 GoldenrodCityMoveTutorEnterGameCornerMovement:
 	step RIGHT
@@ -552,6 +578,51 @@ GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText:
 	line "enough coins here…"
 	done
 
+BeaterText1:
+	text "Hey kid."
+
+	para "Wanna have"
+	line "some fun?"
+	done
+
+BeaterText2:
+	text "All right."
+
+	para "Go in the"
+	line "underground just"
+	cont "after nightfall"
+
+	para "and talk to my"
+	line "colleague."
+
+	para "You show him a"
+	line "KOFFING & a GASTLY"
+	cont "so he knows I sent"
+	cont "you."
+
+	para "Bring some cash."
+	line "6000 at least."
+
+	para "Got it?"
+	done
+
+BeaterText2Bis:
+	text "Underground. Just"
+	line "after nightfall."
+
+	para "Bring"
+	line "KOFFING & GASTLY"
+	cont "and 6000 cash."
+	done
+
+BeaterText3:
+	text "Now, move."
+	done
+
+GetLostText:
+	text "Get lost kiddo…"
+	done
+
 GoldenrodCityMoveTutorMoveText:
 	text_start
 	done
@@ -610,3 +681,4 @@ GoldenrodCity_MapEvents:
 	object_event 26,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 26, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 12, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
+	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, 6, 10, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
