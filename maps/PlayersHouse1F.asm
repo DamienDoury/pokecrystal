@@ -4,6 +4,7 @@
 	const PLAYERSHOUSE1F_MOM3
 	const PLAYERSHOUSE1F_MOM4
 	const PLAYERSHOUSE1F_POKEFAN_F
+	const PLAYERSHOUSE1F_WALL
 
 PlayersHouse1F_MapScripts:
 	def_scene_scripts
@@ -69,7 +70,7 @@ MeetMomScript:
 .KnowPhone:
 	writetext KnowTheInstructionsText
 	promptbutton
-	sjump .FinishPhone
+	sjump .FinishPhoneForReal
 
 .ExplainPhone:
 	writetext DontKnowTheInstructionsText
@@ -78,6 +79,12 @@ MeetMomScript:
 
 .FinishPhone:
 	writetext InstructionsNextText
+	promptbutton
+.FinishPhoneForReal:
+	writetext CovidIntroText
+	playsound SFX_ITEM
+	waitsfx
+	writetext CovidNextText
 	waitbutton
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -108,6 +115,90 @@ PokegearName:
 
 PlayersHouse1FReceiveItemStd:
 	jumpstd ReceiveItemScript
+	end
+
+FakeMomMornScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .quit
+	checktime MORN
+	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM2
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM2, 15
+	faceplayer
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+	end
+.quit:
+	opentext
+	writetext SmellText
+	promptbutton
+	closetext
+	end
+
+FakeMomDayScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .meet
+	checktime DAY
+	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM3
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM3, 15
+	faceplayer
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+	end
+.meet
+	setlasttalked PLAYERSHOUSE1F_MOM1
+	sjump MomScript
+	end
+.quit:
+	opentext
+	writetext MomsSeatText
+	promptbutton
+	closetext
+	end
+
+FakeMomNiteScript:
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	iffalse .quit
+	checktime NITE
+	iffalse .quit
+	setlasttalked PLAYERSHOUSE1F_MOM4
+	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM4, 15
+	faceplayer
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+	end
+.quit:
+	opentext
+	writetext SmellText
+	promptbutton
+	closetext
+	end
+
+FakeNeighborScript:
+	checkevent EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
+	iftrue .quit
+	setlasttalked PLAYERSHOUSE1F_POKEFAN_F
+	sjump NeighborScript
+	end
+.quit:
+	opentext
+	writetext PlayerSeatText
+	promptbutton
+	closetext
+	end
+
+WallScript:
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
 	end
 
 MomScript:
@@ -179,7 +270,6 @@ NeighborScript:
 	writetext NeighborText
 	waitbutton
 	closetext
-	turnobject PLAYERSHOUSE1F_POKEFAN_F, RIGHT
 	end
 
 PlayersHouse1FTVScript:
@@ -209,6 +299,39 @@ MomTurnsBackMovement:
 MomWalksBackMovement:
 	slow_step LEFT
 	step_end
+
+SmellText:
+	text "Smells good!"
+	line "Mom's a good cook!"
+	done
+
+PlayerSeatText:
+	text "This is my seat"
+	line "at the table."
+
+	para "It has the best"
+	line "view on the TV!"
+	done
+
+MomsSeatText:
+	text "Mom's seat has"
+	line "lovely cushions."
+	done
+
+SocialDistancingText:
+	text "<PLAYER> what"
+	line "did I tell you?"
+
+	para "Stay 1 step away"
+	line "when talking to"
+	cont "someone. It is"
+	cont "called social"
+	cont "distancing."
+
+	para "Move 1 step back"
+	line "or I won't talk"
+	cont "to you."
+	done
 
 ElmsLookingForYouText:
 	text "Oh, <PLAYER>…! Our"
@@ -263,11 +386,7 @@ ComeHomeForDSTText:
 	done
 
 KnowTheInstructionsText:
-	text "Don't you just"
-	line "turn the #GEAR"
-
-	para "on and select the"
-	line "PHONE icon?"
+	text "Great!"
 	done
 
 DontKnowTheInstructionsText:
@@ -288,6 +407,42 @@ InstructionsNextText:
 
 	para "Gee, isn't that"
 	line "convenient?"
+	done
+
+CovidIntroText:
+	text "One last thing!"
+	line "They are talking"
+	cont "about a new virus"
+	cont "on TV."
+
+	para "I have a leftover"
+	line "box of face masks"
+	cont "from last time I"
+	cont "got sick."
+
+	para "You can have it!"
+
+	para "<PLAYER> puts on"
+	line "a FACE MASK!"
+	done
+
+CovidNextText:
+	text "Better safe than"
+	line "sorry, right?"
+
+	para "Doctors on TV"
+	line "recommended to"
+	cont "stay 1 step away"
+	cont "when talking to"
+	cont "someone."
+
+	para "Now people may not"
+	line "want to talk to"
+	cont "you if you do not"
+	cont "respect this rule."
+
+	para "Be careful"
+	line "out there!"
 	done
 
 HurryUpElmIsWaitingText:
@@ -338,24 +493,22 @@ NeighborNiteIntroText:
 	done
 
 NeighborText:
-	text "<PLAY_G>, have you"
-	line "heard?"
+	text "Have you heard?"
+	line "Some people caught"
 
-	para "My daughter is"
-	line "adamant about"
+	para "a virus never seen"
+	line "before."
 
-	para "becoming PROF."
-	line "ELM's assistant."
-
-	para "She really loves"
-	line "#MON!"
+	para "Nothing to worry"
+	line "about, I'm sure"
+	cont "we will be fine!"
 	done
 
 PlayersHouse1FStoveText:
 	text "Mom's specialty!"
 
-	para "CINNABAR VOLCANO"
-	line "BURGER!"
+	para "CIANWOOD WHIRL"
+	line "MAKIS!"
 	done
 
 PlayersHouse1FSinkText:
@@ -373,14 +526,25 @@ PlayersHouse1FFridgeText:
 	done
 
 PlayersHouse1FTVText:
-	text "There's a movie on"
-	line "TV: Stars dot the"
+	text "On the news,"
+	line "a doctor debates"
+	cont "with a politician"
+	cont "about a newly"
+	cont "discovered virus."
 
-	para "sky as two boys"
-	line "ride on a train…"
+	para "The doctor seems"
+	line "nervous."
 
-	para "I'd better get"
-	line "rolling too!"
+	para "The politician"
+	line "laughes and says"
+
+	para "there is no need"
+	line "to panic."
+
+	para "…"
+
+	para "I better"
+	line "get going."
 	done
 
 PlayersHouse1F_MapEvents:
@@ -400,6 +564,10 @@ PlayersHouse1F_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, PlayersHouse1FSinkScript
 	bg_event  2,  1, BGEVENT_READ, PlayersHouse1FFridgeScript
 	bg_event  4,  1, BGEVENT_READ, PlayersHouse1FTVScript
+	bg_event  2,  2, BGEVENT_READ, FakeMomMornScript
+	bg_event  7,  4, BGEVENT_READ, FakeMomDayScript
+	bg_event  0,  2, BGEVENT_READ, FakeMomNiteScript
+	bg_event  4,  4, BGEVENT_READ, FakeNeighborScript
 
 	def_object_events
 	object_event  7,  4, SPRITE_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MomScript, EVENT_PLAYERS_HOUSE_MOM_1

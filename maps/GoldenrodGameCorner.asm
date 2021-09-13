@@ -18,14 +18,20 @@ GOLDENRODGAMECORNER_WOBBUFFET_COINS EQU 1500
 	const GOLDENRODGAMECORNER_GENTLEMAN
 	const GOLDENRODGAMECORNER_POKEFAN_M2
 	const GOLDENRODGAMECORNER_MOVETUTOR
+	const GOLDENRODGAMECORNER_ABRA
 
 GoldenrodGameCorner_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveTutor
 
+.DummyScene:
+	end
+
 .MoveTutor:
+	setscene SCENE_DEFAULT
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iffalse .finish
 	checkitem COIN_CASE
@@ -44,6 +50,31 @@ GoldenrodGameCorner_MapScripts:
 .finish
 	endcallback
 
+GoldenrodGameCornerGreetingsScript:
+	opentext
+	writetext GoldenrodGameCornerGreetings1Text
+	promptbutton
+	closetext
+	checkitem COIN_CASE
+	iftrue .HasCoinCase
+	showemote EMOTE_SHOCK, GOLDENRODGAMECORNER_CLERK, 10
+	turnobject GOLDENRODGAMECORNER_CLERK, LEFT
+	showemote EMOTE_HAPPY, GOLDENRODGAMECORNER_CLERK, 25
+	opentext
+	writetext GoldenrodGameCornerGreetings1Text
+	promptbutton
+	giveitem COIN_CASE
+	promptbutton
+	writetext GoldenrodGameCornerGreetings2Text
+	givecoins 50
+	promptbutton
+	writetext GoldenrodGameCornerGreetings3Text
+	closetext
+	end
+
+.HasCoinCase:
+	end
+
 MoveTutorInsideScript:
 	faceplayer
 	opentext
@@ -54,6 +85,8 @@ MoveTutorInsideScript:
 	end
 
 GoldenrodGameCornerCoinVendorScript:
+	disappear GOLDENRODGAMECORNER_RECEPTIONIST1
+	setmapscene GOLDENROD_GAME_CORNER, SCENE_DEFAULT
 	jumpstd GameCornerCoinVendorScript
 
 GoldenrodGameCornerTMVendorScript:
@@ -294,8 +327,28 @@ GoldenrodGameCornerGentlemanScript:
 GoldenrodGameCornerPokefanM2Script:
 	jumptextfaceplayer GoldenrodGameCornerPokefanM2Text
 
+GoldenrodGameCornerAbraScript:
+	cry ABRA
+	opentext
+	writetext AbraTeleportText
+	yesorno
+	iffalse .No
+	closetext
+	playsound SFX_WARP_TO
+	special FadeOutPalettes
+	waitsfx
+	warp GOLDENROD_CITY, 13, 6
+	end
+
+.No:
+	closetext
+	end
+
 GoldenrodGameCornerLeftTheirDrinkScript:
 	jumptext GoldenrodGameCornerLeftTheirDrinkText
+
+GoldenrodGameCornerFrontDoorLockScript:
+	jumptext GoldenrodGameCornerFrontDoorLockText
 
 GoldenrodGameCornerSlotsMachineScript:
 	random 6
@@ -318,6 +371,22 @@ GoldenrodGameCornerCardFlipMachineScript:
 	special CardFlip
 	closetext
 	end
+
+GoldenrodGameCornerGreetings1Text:
+	text "First time"
+	line "I see you."
+
+	para "Please take this."
+	done
+
+GoldenrodGameCornerGreetings2Text:
+	text "Also here are some"
+	line "coins."
+	done
+
+GoldenrodGameCornerGreetings3Text:
+	text "It's on the house."
+	line "Have fun!"
 
 GoldenrodGameCornerPrizeVendorIntroText:
 	text "Welcome!"
@@ -476,14 +545,28 @@ GoldenrodGameCornerLeftTheirDrinkText:
 	para "It smells sweet."
 	done
 
+GoldenrodGameCornerFrontDoorLockText:
+	text "The front door is"
+	line "locked with chains"
+
+	para "and hidden behind"
+	line "an opaque curtain."
+	done
+
+AbraTeleportText:
+	text "Teleport out of"
+	line "here?"
+	done
+
 GoldenrodGameCorner_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2, 13, GOLDENROD_CITY, 10
-	warp_event  3, 13, GOLDENROD_CITY, 10
+	warp_event  2,  0, GOLDENROD_UNDERGROUND, 9
 
 	def_coord_events
+	coord_event  2,  2, SCENE_DEFAULT, GoldenrodGameCornerGreetingsScript
+	coord_event  4,  4, SCENE_DEFAULT, GoldenrodGameCornerAbraScript
 
 	def_bg_events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript
@@ -517,6 +600,10 @@ GoldenrodGameCorner_MapEvents:
 	bg_event 18, 10, BGEVENT_READ, GoldenrodGameCornerCardFlipMachineScript
 	bg_event 18, 11, BGEVENT_RIGHT, GoldenrodGameCornerCardFlipMachineScript
 	bg_event 12,  1, BGEVENT_LEFT, GoldenrodGameCornerLeftTheirDrinkScript
+	bg_event  2, 13, BGEVENT_DOWN, GoldenrodGameCornerFrontDoorLockScript
+	bg_event  3, 13, BGEVENT_DOWN, GoldenrodGameCornerFrontDoorLockScript
+	bg_event  2, 14, BGEVENT_DOWN, GoldenrodGameCornerFrontDoorLockScript
+	bg_event  3, 14, BGEVENT_DOWN, GoldenrodGameCornerFrontDoorLockScript
 
 	def_object_events
 	object_event  3,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCoinVendorScript, -1
@@ -531,3 +618,4 @@ GoldenrodGameCorner_MapEvents:
 	object_event  5, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerGentlemanScript, -1
 	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
 	object_event 17, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorInsideScript, EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
+	object_event  2,  7, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerAbraScript, -1

@@ -106,7 +106,7 @@ CeladonGameCornerPoster1Script:
 	jumptext CeladonGameCornerPoster1Text
 
 CeladonGameCornerPoster2Script:
-	jumptext CeladonGameCornerPoster2Text
+	jumptext CeladonGameCornerPoster1Text
 
 CeladonGameCornerLuckySlotMachineScript:
 	random 6
@@ -289,15 +289,6 @@ else
 endc
 
 CeladonGameCornerPoster1Text:
-	text "Hey!"
-
-	para "Underneath this"
-	line "poster…"
-
-	para "There's nothing!"
-	done
-
-CeladonGameCornerPoster2Text:
 	text "Hey!"
 
 	para "Underneath this"

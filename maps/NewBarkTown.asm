@@ -22,6 +22,18 @@ NewBarkTown_MapScripts:
 	clearevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 	endcallback
 
+FakeSilverScript:
+	checkevent EVENT_RIVAL_NEW_BARK_TOWN
+	iftrue .quit
+	sjump NewBarkTownSilverScript
+	end
+.quit:
+	opentext
+	writetext FootstepsText
+	promptbutton
+	closetext
+	end
+
 NewBarkTown_TeacherStopsYouScene1:
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
@@ -259,6 +271,11 @@ NewBarkTownRivalText2:
 	line "staring at?"
 	done
 
+FootstepsText:
+	text "Footsteps in the"
+	line "dirt."
+	done
+
 NewBarkTownSignText:
 	text "NEW BARK TOWN"
 
@@ -297,6 +314,7 @@ NewBarkTown_MapEvents:
 	bg_event 11,  5, BGEVENT_READ, NewBarkTownPlayersHouseSign
 	bg_event  3,  3, BGEVENT_READ, NewBarkTownElmsLabSign
 	bg_event  9, 13, BGEVENT_READ, NewBarkTownElmsHouseSign
+	bg_event  3,  2, BGEVENT_READ, FakeSilverScript
 
 	def_object_events
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1

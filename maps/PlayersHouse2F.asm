@@ -79,6 +79,13 @@ PlayersHouseRadioScript:
 	closetext
 	end
 
+PlayersHousePoster2Script:
+	opentext
+	writetext OkText
+	promptbutton
+	closetext
+	end
+
 PlayersHouseBookshelfScript:
 	jumpstd PictureBookshelfScript
 
@@ -107,6 +114,11 @@ PlayersRadioText3:
 	line "your co-host!"
 	done
 
+OkText:
+	text "Yo, fo sho"
+	line "whadup?"
+	done
+
 PlayersRadioText4:
 	text "#MON!"
 	line "#MON CHANNEL…"
@@ -125,6 +137,7 @@ PlayersHouse2F_MapEvents:
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
 	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
 	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
+	bg_event  1,  2, BGEVENT_LEFT, PlayersHousePoster2Script
 
 	def_object_events
 	object_event  4,  2, SPRITE_CONSOLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseGameConsoleScript, EVENT_PLAYERS_HOUSE_2F_CONSOLE

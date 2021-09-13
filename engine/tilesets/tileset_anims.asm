@@ -250,9 +250,34 @@ UnusedTilesetAnim5: ; unreferenced
 	dw NULL,  WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
-TilesetBattleTowerOutsideAnim:
-TilesetHouseAnim:
+TilesetPlayersRoomAnim:
+	dw PlayersRoomTVFrames1,  AnimateHouseTVTile
+	dw PlayersRoomTVFrames2,  AnimateHouseTVTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
 TilesetPlayersHouseAnim:
+	dw PlayersHouseTVFrames1,  AnimateHouseTVTile
+	dw PlayersHouseTVFrames2,  AnimateHouseTVTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
+TilesetHouseAnim:
+	dw HouseTVFrames1,  AnimateHouseTVTile
+	dw HouseTVFrames2,  AnimateHouseTVTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  StandingTileFrame8
+	dw NULL,  DoneTileAnimation
+
+TilesetBattleTowerOutsideAnim:
 TilesetPokecenterAnim:
 TilesetGateAnim:
 TilesetLabAnim:
@@ -264,7 +289,6 @@ TilesetTraditionalHouseAnim:
 TilesetTrainStationAnim:
 TilesetChampionsRoomAnim:
 TilesetLighthouseAnim:
-TilesetPlayersRoomAnim:
 TilesetPokeComCenterAnim:
 TilesetBattleTowerInsideAnim:
 TilesetRuinsOfAlphAnim:
@@ -695,6 +719,42 @@ AnimateFlowerTile:
 	INCBIN "gfx/tilesets/flower/dmg_2.2bpp"
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
+AnimateHouseTVTile:
+; Input de points to the destination in VRAM, then the source tile frames
+
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+; de = the destination in VRAM
+	ld l, e
+	ld h, d
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+	inc hl
+
+; A cycle of 4 frames, updating every tick
+	ld a, [wTileAnimationTimer]
+	and %001
+
+; hl = the source tile frames + a * 16
+	swap a
+	add [hl]
+	inc hl
+	ld h, [hl]
+	ld l, a
+	ld a, 0
+	adc h
+	ld h, a
+
+; Write the tile graphic from hl (now sp) to de (now hl)
+	ld sp, hl
+	ld l, e
+	ld h, d
+	jp WriteTile
+
 AnimateLavaBubbleTile1:
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
@@ -1043,3 +1103,21 @@ WhirlpoolTiles1: INCBIN "gfx/tilesets/whirlpool/1.2bpp"
 WhirlpoolTiles2: INCBIN "gfx/tilesets/whirlpool/2.2bpp"
 WhirlpoolTiles3: INCBIN "gfx/tilesets/whirlpool/3.2bpp"
 WhirlpoolTiles4: INCBIN "gfx/tilesets/whirlpool/4.2bpp"
+
+HouseTVFrames1: dw vTiles2 tile $16, HouseTVTiles1
+HouseTVFrames2: dw vTiles2 tile $17, HouseTVTiles2
+
+HouseTVTiles1: INCBIN "gfx/tilesets/house-tv/bottom-left.2bpp"
+HouseTVTiles2: INCBIN "gfx/tilesets/house-tv/bottom-right.2bpp"
+
+PlayersHouseTVFrames1: dw vTiles2 tile $16, PlayersHouseTVTiles1
+PlayersHouseTVFrames2: dw vTiles2 tile $17, PlayersHouseTVTiles2
+
+PlayersHouseTVTiles1: INCBIN "gfx/tilesets/players-house-tv/bottom-left.2bpp"
+PlayersHouseTVTiles2: INCBIN "gfx/tilesets/players-house-tv/bottom-right.2bpp"
+
+PlayersRoomTVFrames1: dw vTiles2 tile $4b, PlayersRoomTVTiles1
+PlayersRoomTVFrames2: dw vTiles2 tile $4c, PlayersRoomTVTiles2
+
+PlayersRoomTVTiles1: INCBIN "gfx/tilesets/players-house-tv/bottom-left.2bpp"
+PlayersRoomTVTiles2: INCBIN "gfx/tilesets/players-house-tv/bottom-right.2bpp"
