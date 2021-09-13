@@ -12,6 +12,8 @@ GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_PRICE EQU 300
 	const GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_BROTHER
 	const GOLDENRODUNDERGROUND_GRANNY
 	const GOLDENRODUNDERGROUND_GAMECORNER_EMPLOYEES_BACKDOOR
+	const GOLDENRODUNDERGROUND_GAMECORNER_EXIT_BLOCK
+	const GOLDENRODUNDERGROUND_BEATER
 
 GoldenrodUnderground_MapScripts:
 	def_scene_scripts
@@ -433,6 +435,90 @@ GoldenrodUndergroundHiddenAntidote:
 GoldenrodUndergroundExitBoard:
 	jumptext GoldenrodUndergroundExitText
 
+DoorKeeperScript:
+	opentext
+	readvar VAR_XCOORD
+	ifgreater 7, .Instruct
+	writetext DoorKeeperCheckTeamText
+	yesorno
+	iffalse .RefuseTeamCheck
+	checkpoke KOFFING
+	iffalse .FakeCompliments
+	checkpoke GASTLY
+	iffalse .FakeCompliments
+	writetext CheckPassText
+	yesorno
+	iffalse .GoGetIt
+	checkmoney YOUR_MONEY, 6000
+	ifequal HAVE_LESS, .NotEnoughMoney
+	special PlaceMoneyTopRight
+	writetext MoneyCheckPassText
+	promptbutton
+	takemoney YOUR_MONEY, 1000
+	waitsfx
+	playsound SFX_TRANSACTION
+	pause 15
+	special PlaceMoneyTopRight
+	writetext FollowText
+	waitbutton
+	closetext
+	follow GOLDENRODUNDERGROUND_BEATER, PLAYER
+	applymovement GOLDENRODUNDERGROUND_BEATER, PathMovement
+	waitsfx
+	playsound SFX_GLASS_TING_2
+	pause 20
+	applymovement GOLDENRODUNDERGROUND_BEATER, PathMovementEnd
+	stopfollow
+	setmapscene GOLDENROD_GAME_CORNER, SCENE_DEFAULT
+	disappear GOLDENRODUNDERGROUND_GAMECORNER_EMPLOYEES_BACKDOOR
+	opentext
+.Instruct:
+	writetext PathInstructionText
+	waitbutton
+	closetext
+	end
+
+
+.RefuseTeamCheck:
+	writetext NevermindText
+	waitbutton
+	closetext
+	end
+
+.FakeCompliments:
+	writetext FakeComplimentsText
+	waitbutton
+	closetext
+	end
+
+.GoGetIt:
+	writetext RefuseMoneyCheckText
+	waitbutton
+	closetext
+	end
+
+.NotEnoughMoney:
+	writetext NotEnoughMoneyCheckText
+	waitbutton
+	closetext
+	end
+
+PathMovement:
+	step UP
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	turn_head UP
+	step_end
+
+PathMovementEnd:
+	step RIGHT
+	turn_head LEFT
+	step_end
+
 SupernerdEricSeenText:
 	text "I got booted out"
 	line "of the GAME COR-"
@@ -502,7 +588,7 @@ PokemaniacDonaldSeenText:
 	line "some rare #MON"
 	cont "with you."
 
-	para "Let me see them!"
+	para "Lemme see them!"
 	done
 
 PokemaniacDonaldBeatenText:
@@ -672,6 +758,71 @@ GoldenrodUndergroundExitText:
 	line "DO NOT BLOCK"
 	done
 
+DoorKeeperCheckTeamText:
+	text "Good evening!"
+
+	para "You seem to be a"
+	line "good trainer!"
+
+	para "Can I see your"
+	line "#MON team?"
+	done
+
+NevermindText:
+	text "Nevermind."
+	done
+
+FakeComplimentsText:
+	text "…"
+
+	para "That's a fine"
+	line "team! Keep up the"
+	cont "good training!"
+	done
+
+CheckPassText:
+	text "…"
+
+	para "OK, you're clean."
+
+	para "You got the money?"
+	line "Let me see it."
+	done
+
+RefuseMoneyCheckText:
+	text "Go get cash now,"
+	line "before I leave!"
+	done
+
+NotEnoughMoneyCheckText:
+	text "…"
+
+	para "We said 6000¥"
+	line "or more…"
+
+	para "…"
+
+	para "Get out of my"
+	line "sight, now!"
+	done
+
+MoneyCheckPassText:
+	text "My share is 1000¥."
+	done
+
+FollowText:
+	text "All right,"
+	line "come with me."
+	done
+
+PathInstructionText:
+	text "Behind that door,"
+	line "straight forward."
+
+	para "Have fun."
+	done
+
+
 GoldenrodUnderground_MapEvents:
 	db 0, 0 ; filler
 
@@ -709,3 +860,4 @@ GoldenrodUnderground_MapEvents:
 	object_event  7, 21, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BitterMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRANNY
 	object_event 12,  6, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerEmployeesBackdoorScript, -1
 	object_event 26,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerExitBlockScript, -1
+	object_event  6,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, 18, 19, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DoorKeeperScript, EVENT_GOLDENROD_ILLEGAL_CASINO

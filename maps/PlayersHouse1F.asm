@@ -123,12 +123,7 @@ FakeMomMornScript:
 	checktime MORN
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM2
-	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM2, 15
-	faceplayer
-	opentext
-	writetext SocialDistancingText
-	promptbutton
-	closetext
+	sjump FakeMomScript
 	end
 .quit:
 	opentext
@@ -143,12 +138,7 @@ FakeMomDayScript:
 	checktime DAY
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM3
-	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM3, 15
-	faceplayer
-	opentext
-	writetext SocialDistancingText
-	promptbutton
-	closetext
+	sjump FakeMomScript
 	end
 .meet
 	setlasttalked PLAYERSHOUSE1F_MOM1
@@ -167,12 +157,7 @@ FakeMomNiteScript:
 	checktime NITE
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM4
-	showemote EMOTE_QUESTION, PLAYERSHOUSE1F_MOM4, 15
-	faceplayer
-	opentext
-	writetext SocialDistancingText
-	promptbutton
-	closetext
+	sjump FakeMomScript
 	end
 .quit:
 	opentext
@@ -180,6 +165,74 @@ FakeMomNiteScript:
 	promptbutton
 	closetext
 	end
+
+FakeMomScript:
+	showemote EMOTE_QUESTION, LAST_TALKED, 15
+	faceplayer
+	opentext
+	writetext SocialDistancingText
+	promptbutton
+	closetext
+	readvar VAR_FACING
+	ifequal DOWN, .down
+	ifequal UP, .up
+	ifequal LEFT, .left
+	ifequal RIGHT, .right
+	end
+
+.left:
+	applymovement PLAYER, RightBackStepMovement
+	sjump .congrats
+	end
+
+.right:
+	applymovement PLAYER, LeftBackStepMovement
+	sjump .congrats
+	end
+
+.up:
+	applymovement PLAYER, DownBackStepMovement
+	sjump .congrats
+	end
+
+.down:
+	applymovement PLAYER, UpBackStepMovement
+	sjump .congrats
+	end
+
+.congrats:
+	showemote EMOTE_HAPPY, LAST_TALKED, 20
+	opentext 
+	writetext NowWeCanTalkText
+	waitbutton
+	closetext
+	pause 5
+	sjump MomScript
+	end
+
+RightBackStepMovement:
+	fix_facing
+	step RIGHT
+	remove_fixed_facing
+	step_end
+
+LeftBackStepMovement:
+	fix_facing
+	step LEFT
+	remove_fixed_facing
+	step_end
+
+DownBackStepMovement:
+	fix_facing
+	step DOWN
+	remove_fixed_facing
+	step_end
+
+UpBackStepMovement:
+	fix_facing
+	step UP
+	remove_fixed_facing
+	step_end
 
 FakeNeighborScript:
 	checkevent EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
@@ -192,7 +245,55 @@ FakeNeighborScript:
 	writetext PlayerSeatText
 	promptbutton
 	closetext
+	readvar VAR_FACING
+	ifequal DOWN, .down
+	ifequal UP, .up
+	ifequal LEFT, .left
+	ifequal RIGHT, .right
 	end
+
+.left:
+	applymovement PLAYER, LeftStepMovement
+	sjump .watch_tv
+	end
+
+.right:
+	applymovement PLAYER, RightStepMovement
+	sjump .watch_tv
+	end
+
+.up:
+	applymovement PLAYER, UpStepMovement
+	sjump .watch_tv
+	end
+
+.down:
+	applymovement PLAYER, DownStepMovement
+	sjump .watch_tv
+	end
+
+.watch_tv:
+	sjump PlayersHouse1FTVScript
+	end
+
+RightStepMovement:
+	step RIGHT
+	turn_head UP
+	step_end
+
+LeftStepMovement:
+	step LEFT
+	turn_head UP
+	step_end
+
+DownStepMovement:
+	step DOWN
+	turn_head UP
+	step_end
+
+UpStepMovement:
+	step UP
+	step_end
 
 WallScript:
 	opentext
@@ -319,18 +420,9 @@ MomsSeatText:
 	done
 
 SocialDistancingText:
-	text "<PLAYER> what"
-	line "did I tell you?"
-
-	para "Stay 1 step away"
-	line "when talking to"
-	cont "someone. It is"
-	cont "called social"
-	cont "distancing."
-
-	para "Move 1 step back"
-	line "or I won't talk"
-	cont "to you."
+	text "<PLAYER> remember"
+	line "to keep 1 step of"
+	cont "social distancing."
 	done
 
 ElmsLookingForYouText:
@@ -545,6 +637,11 @@ PlayersHouse1FTVText:
 
 	para "I better"
 	line "get going."
+	done
+
+NowWeCanTalkText:
+	text "Perfect!"
+	line "Now we can talk!"
 	done
 
 PlayersHouse1F_MapEvents:
