@@ -53,8 +53,11 @@ ElmsLab_MapScripts:
 .MustSayYes:
 	yesorno
 	iftrue .ElmGetsEmail
-	writetext ElmText_Refused
-	sjump .MustSayYes
+	writetext ElmText_Insist
+	yesorno
+	iffalse .ElmGetsEmail
+	writetext ElmText_AllRighty
+	credits
 
 .ElmGetsEmail:
 	writetext ElmText_Accepted
@@ -786,6 +789,22 @@ ElmText_Accepted:
 ElmText_Refused:
 	text "But… Please, I"
 	line "need your help!"
+	done
+
+ElmText_Insist:
+	text "Wait? Are you sure"
+	line "you don't want a"
+	cont "#MON?"
+	done
+
+ElmText_AllRighty:
+	text "All righty then…"
+	para "…"
+	para "…"
+	para "…"
+	para "…"
+	para "NOW GET OUT YOU"
+	line "SON OF A B"
 	done
 
 ElmText_ResearchAmbitions:

@@ -34,6 +34,7 @@ MeetMomRightScript:
 .OnRight:
 	applymovement PLAYERSHOUSE1F_MOM1, MomWalksToPlayerMovement
 MeetMomScript:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	opentext
 	writetext ElmsLookingForYouText
 	promptbutton
@@ -137,9 +138,14 @@ FakeMomDayScript:
 	iffalse .meet
 	checktime DAY
 	iffalse .quit
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue .firstMom
 	setlasttalked PLAYERSHOUSE1F_MOM3
 	sjump FakeMomScript
 	end
+.firstMom:
+	setlasttalked PLAYERSHOUSE1F_MOM1
+	sjump FakeMomScript
 .meet
 	setlasttalked PLAYERSHOUSE1F_MOM1
 	sjump MomScript
