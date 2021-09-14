@@ -273,6 +273,8 @@ GoldenrodHospitalSign:
 
 GoldenrodCityBeaterScript:
 	opentext
+	checkevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	iftrue .GetLost
 	writetext BeaterText1
 	yesorno
 	iffalse .GetLost
@@ -616,7 +618,7 @@ BeaterText2Bis:
 	done
 
 BeaterText3:
-	text "Now, move."
+	text "Now bounce."
 	done
 
 GetLostText:
@@ -681,4 +683,4 @@ GoldenrodCity_MapEvents:
 	object_event 26,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 26, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 12, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
-	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, 6, 10, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
