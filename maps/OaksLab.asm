@@ -41,6 +41,8 @@ Oak:
 	writetext OakOpenMtSilverText
 	promptbutton
 	setevent EVENT_OPENED_MT_SILVER
+	setevent EVENT_RED_BEATEN
+	clearevent EVENT_RED_IN_MT_SILVER ; Now Red will be available only once for battle.
 	sjump .CheckPokedex
 
 .Complain:
