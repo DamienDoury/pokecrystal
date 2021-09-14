@@ -271,8 +271,9 @@ CheckObjectTime::
 	and %00011111 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
 	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
 	jr nz, .check_hour
-	ld hl, MAPOBJECT_TIMEOFDAY
-	add hl, bc
+	;ld hl, MAPOBJECT_TIMEOFDAY
+	;add hl, bc
+	inc hl ; saving some cycles, as MAPOBJECT_TIMEOFDAY is the byte after MAPOBJECT_HOUR, and hl already contains the address of MAPOBJECT_HOUR.
 	ld a, [hl]
 	and %00011111 ; Damien: same as before: only the 5 first bits are used to store the time.
 	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
@@ -320,7 +321,8 @@ CheckObjectTime::
 	ld hl, hHours
 	ld a, d
 	cp e
-	jr z, .yes
+	;jr z, .yes ; This means that if we set the same hour in both MAPOBJECT_HOUR and MAPOBJECT_TIMEOFDAY, it will always display the object. This is not what we expect/want from this.
+	jr z, .check_timeofday ; Instead, when both hours are the same, it means the object should appear for only 1 hour.
 	jr c, .check_timeofday
 	ld a, [hl]
 	cp d
