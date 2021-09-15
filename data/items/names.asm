@@ -35,7 +35,7 @@ ItemNames::
 	li "X ACCURACY"
 	li "LEAF STONE"
 	li "METAL POWDER"
-	li "NUGGET"
+	li "TOILET PAPER"
 	li "# DOLL"
 	li "FULL HEAL"
 	li "REVIVE"

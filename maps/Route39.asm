@@ -56,7 +56,7 @@ TrainerPokefanmDerek:
 
 .HasNugget:
 	scall .Gift
-	verbosegiveitem NUGGET
+	verbosegiveitem TOILET_PAPER
 	iffalse .NoRoom
 	clearflag ENGINE_DEREK_HAS_NUGGET
 	sjump .NumberAccepted
@@ -178,7 +178,7 @@ Route39FruitTree:
 	fruittree FRUITTREE_ROUTE_39
 
 Route39HiddenNugget:
-	hiddenitem NUGGET, EVENT_ROUTE_39_HIDDEN_NUGGET
+	hiddenitem TOILET_PAPER, EVENT_ROUTE_39_HIDDEN_NUGGET
 
 Route39MiltankText:
 	text "MILTANK: Mooo!"

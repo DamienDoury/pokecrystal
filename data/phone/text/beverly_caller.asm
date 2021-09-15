@@ -43,13 +43,13 @@ BeverlyHangUpText:
 
 BeverlyFoundItemText:
 	text "My husband got"
-	line "some NUGGETS."
+	line "some TOILET PAPER."
 
 	para "If you'd like, you"
-	line "could have one as"
+	line "could have one"
 
-	para "thanks for helping"
-	line "me out."
+	para "roll as thanks for"
+	line "helping me out."
 
 	para "I'll be at"
 	line "@"
@@ -70,7 +70,8 @@ BeverlyLetsChatAboutMonAgainText:
 
 BeverlyComePickUpText:
 	text "Pardon?"
-	line "Oh, the NUGGET?"
+	line "Oh, the"
+	cont "TOILET PAPER?"
 
 	para "There's no need to"
 	line "hurry. Come see me"

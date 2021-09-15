@@ -36,7 +36,7 @@ ItemDescriptions:
 	dw XAccuracyDesc
 	dw LeafStoneDesc
 	dw MetalPowderDesc
-	dw NuggetDesc
+	dw ToiletPaperDesc
 	dw PokeDollDesc
 	dw FullHealDesc
 	dw ReviveDesc
@@ -397,9 +397,9 @@ MetalPowderDesc:
 	db   "Raises DEFENSE of"
 	next "DITTO. (HOLD)@"
 
-NuggetDesc:
-	db   "Made of pure gold."
-	next "Sell high.@"
+ToiletPaperDesc:
+	db   "Made of ultra soft"
+	next "3-ply sheets.@"
 
 PokeDollDesc:
 	db   "Use to escape from"

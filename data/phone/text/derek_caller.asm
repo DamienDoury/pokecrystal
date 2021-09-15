@@ -73,7 +73,8 @@ DerekBugCatchingContestText:
 
 DerekFoundItemText:
 	text "I'd like you to"
-	line "have a NUGGET."
+	line "have some"
+	cont "TOILET PAPER."
 
 	para "My PIKACHU just"
 	line "loves it."

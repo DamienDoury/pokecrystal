@@ -167,7 +167,7 @@ TrainerCooltrainermKevin:
 	iftrue .AfterNuggetBridge
 	writetext CooltrainermKevinNuggetText
 	promptbutton
-	verbosegiveitem NUGGET
+	verbosegiveitem TOILET_PAPER
 	iffalse .NoRoomForNugget
 	setevent EVENT_CLEARED_NUGGET_BRIDGE
 .AfterNuggetBridge:

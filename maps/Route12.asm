@@ -65,7 +65,7 @@ Route12Calcium:
 	itemball CALCIUM
 
 Route12Nugget:
-	itemball NUGGET
+	itemball TOILET_PAPER
 
 Route12HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_12_HIDDEN_ELIXER

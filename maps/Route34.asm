@@ -453,7 +453,7 @@ DayCareSign:
 	jumptext DayCareSignText
 
 Route34Nugget:
-	itemball NUGGET
+	itemball TOILET_PAPER
 
 Route34HiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_ROUTE_34_HIDDEN_RARE_CANDY

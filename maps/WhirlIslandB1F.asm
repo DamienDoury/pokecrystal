@@ -21,7 +21,7 @@ WhirlIslandB1FCalcium:
 	itemball CALCIUM
 
 WhirlIslandB1FNugget:
-	itemball NUGGET
+	itemball TOILET_PAPER
 
 WhirlIslandB1FEscapeRope:
 	itemball ESCAPE_ROPE

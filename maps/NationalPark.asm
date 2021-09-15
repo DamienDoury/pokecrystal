@@ -215,7 +215,7 @@ TrainerPokefanfBeverly1:
 
 .GiveNugget:
 	scall .Gift
-	verbosegiveitem NUGGET
+	verbosegiveitem TOILET_PAPER
 	iffalse .NoRoom
 	clearflag ENGINE_BEVERLY_HAS_NUGGET
 	sjump .NumberAccepted

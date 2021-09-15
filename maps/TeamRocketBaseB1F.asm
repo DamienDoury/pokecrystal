@@ -532,7 +532,7 @@ TeamRocketBaseB1FHyperPotion:
 	itemball HYPER_POTION
 
 TeamRocketBaseB1FNugget:
-	itemball NUGGET
+	itemball TOILET_PAPER
 
 TeamRocketBaseB1FGuardSpec:
 	itemball GUARD_SPEC

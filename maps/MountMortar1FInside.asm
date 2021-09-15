@@ -53,7 +53,7 @@ MountMortar1FInsideMaxPotion:
 	itemball MAX_POTION
 
 MountMortar1FInsideNugget:
-	itemball NUGGET
+	itemball TOILET_PAPER
 
 MountMortar1FInsideIron:
 	itemball IRON

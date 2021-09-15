@@ -49,7 +49,7 @@ ItemEffects:
 	dw XAccuracyEffect     ; X_ACCURACY
 	dw EvoStoneEffect      ; LEAF_STONE
 	dw NoEffect            ; METAL_POWDER
-	dw NoEffect            ; NUGGET
+	dw NoEffect            ; TOILET PAPER (NUGGET)
 	dw PokeDollEffect      ; POKE_DOLL
 	dw StatusHealingEffect ; FULL_HEAL
 	dw ReviveEffect        ; REVIVE

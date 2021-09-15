@@ -41,7 +41,7 @@
 	const X_ACCURACY   ; 21
 	const LEAF_STONE   ; 22
 	const METAL_POWDER ; 23
-	const NUGGET       ; 24
+	const TOILET_PAPER ; 24
 	const POKE_DOLL    ; 25
 	const FULL_HEAL    ; 26
 	const REVIVE       ; 27

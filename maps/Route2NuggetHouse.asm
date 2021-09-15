@@ -13,7 +13,7 @@ Route2NuggetHouseFisherScript:
 	iftrue .GotNugget
 	writetext Route2NuggetHouseFisherText
 	promptbutton
-	verbosegiveitem NUGGET
+	verbosegiveitem TOILET_PAPER
 	iffalse .NoRoom
 	setevent EVENT_GOT_NUGGET_FROM_GUY
 .GotNugget:
@@ -40,13 +40,12 @@ Route2NuggetHouseFisherText:
 	done
 
 Route2NuggetHouseFisherText_GotNugget:
-	text "That's a NUGGET."
+	text "That's"
+	line "TOILET PAPER."
 
-	para "I can't give you"
-	line "any nuggets of"
-
-	para "wisdom, so that'll"
-	line "have to do!"
+	para "It should seal our"
+	line "new friendship"
+	cont "on paper."
 	done
 
 Route2NuggetHouse_MapEvents:
