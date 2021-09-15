@@ -379,7 +379,7 @@ INCLUDE "engine/events/treemons.asm"
 INCLUDE "engine/events/fishing_gfx.asm"
 INCLUDE "engine/pokegear/radio.asm"
 INCLUDE "engine/pokemon/mail_2.asm"
-
+INCLUDE "engine/events/tv.asm"
 
 SECTION "Phone Scripts 2", ROMX
 

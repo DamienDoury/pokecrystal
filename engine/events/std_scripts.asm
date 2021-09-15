@@ -236,11 +236,7 @@ WindowScript:
 	farjumptext WindowText
 
 TVScript:
-	opentext
-	farwritetext TVText
-	waitbutton
-	closetext
-	end
+	farsjump TVShow
 
 HomepageScript:
 	farjumptext HomepageText
