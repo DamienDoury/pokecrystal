@@ -3,6 +3,7 @@
 	const PLAYERSHOUSE2F_DOLL_1
 	const PLAYERSHOUSE2F_DOLL_2
 	const PLAYERSHOUSE2F_BIG_DOLL
+	const PLAYERSHOUSE2F_INVISIBLE_TV
 
 PlayersHouse2F_MapScripts:
 	def_scene_scripts
@@ -79,13 +80,6 @@ PlayersHouseRadioScript:
 	closetext
 	end
 
-PlayersHousePoster2Script:
-	opentext
-	writetext OkText
-	promptbutton
-	closetext
-	end
-
 PlayersHouseBookshelfScript:
 	jumpstd PictureBookshelfScript
 
@@ -97,6 +91,15 @@ PlayersHousePCScript:
 	end
 .Warp:
 	warp NONE, 0, 0
+	end
+
+PlayersHousePlayersTV:
+	clearevent EVENT_WATCHED_INITIAL_TV
+	opentext
+	writetext PlayersHousePlayersTVText
+	waitbutton
+	closetext
+	disappear PLAYERSHOUSE2F_INVISIBLE_TV
 	end
 
 PlayersRadioText1:
@@ -114,14 +117,22 @@ PlayersRadioText3:
 	line "your co-host!"
 	done
 
-OkText:
-	text "Yo, fo sho"
-	line "whadup?"
-	done
-
 PlayersRadioText4:
 	text "#MON!"
 	line "#MON CHANNEL…"
+	done
+
+PlayersHousePlayersTVText:
+	text "My favorite anime!"
+	line "It's the story of"
+
+	para "Oh no! It got"
+	line "interrupted by"
+	cont "some news show…"
+
+	para "…"
+
+	para "Time to go out."
 	done
 
 PlayersHouse2F_MapEvents:
@@ -137,10 +148,10 @@ PlayersHouse2F_MapEvents:
 	bg_event  3,  1, BGEVENT_READ, PlayersHouseRadioScript
 	bg_event  5,  1, BGEVENT_READ, PlayersHouseBookshelfScript
 	bg_event  6,  0, BGEVENT_IFSET, PlayersHousePosterScript
-	bg_event  1,  2, BGEVENT_LEFT, PlayersHousePoster2Script
 
 	def_object_events
 	object_event  4,  2, SPRITE_CONSOLE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseGameConsoleScript, EVENT_PLAYERS_HOUSE_2F_CONSOLE
 	object_event  4,  4, SPRITE_DOLL_1, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll1Script, EVENT_PLAYERS_HOUSE_2F_DOLL_1
 	object_event  5,  4, SPRITE_DOLL_2, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseDoll2Script, EVENT_PLAYERS_HOUSE_2F_DOLL_2
 	object_event  0,  1, SPRITE_BIG_DOLL, SPRITEMOVEDATA_BIGDOLL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHouseBigDollScript, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
+	object_event  4,  1, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PlayersHousePlayersTV, EVENT_WATCHED_INITIAL_TV

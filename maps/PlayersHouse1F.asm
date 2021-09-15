@@ -279,7 +279,7 @@ FakeNeighborScript:
 	end
 
 .watch_tv:
-	sjump PlayersHouse1FTVScript
+	callstd TVScript
 	end
 
 RightStepMovement:
@@ -378,9 +378,6 @@ NeighborScript:
 	waitbutton
 	closetext
 	end
-
-PlayersHouse1FTVScript:
-	jumptext PlayersHouse1FTVText
 
 PlayersHouse1FStoveScript:
 	jumptext PlayersHouse1FStoveText
@@ -623,28 +620,6 @@ PlayersHouse1FFridgeText:
 	line "tasty LEMONADE!"
 	done
 
-PlayersHouse1FTVText:
-	text "On the news,"
-	line "a doctor debates"
-	cont "with a politician"
-	cont "about a newly"
-	cont "discovered virus."
-
-	para "The doctor seems"
-	line "nervous."
-
-	para "The politician"
-	line "laughes and says"
-
-	para "there is no need"
-	line "to panic."
-
-	para "…"
-
-	para "I better"
-	line "get going."
-	done
-
 NowWeCanTalkText:
 	text "Perfect!"
 	line "Now we can talk!"
@@ -666,7 +641,6 @@ PlayersHouse1F_MapEvents:
 	bg_event  0,  1, BGEVENT_READ, PlayersHouse1FStoveScript
 	bg_event  1,  1, BGEVENT_READ, PlayersHouse1FSinkScript
 	bg_event  2,  1, BGEVENT_READ, PlayersHouse1FFridgeScript
-	bg_event  4,  1, BGEVENT_READ, PlayersHouse1FTVScript
 	bg_event  2,  2, BGEVENT_READ, FakeMomMornScript
 	bg_event  7,  4, BGEVENT_READ, FakeMomDayScript
 	bg_event  0,  2, BGEVENT_READ, FakeMomNiteScript
