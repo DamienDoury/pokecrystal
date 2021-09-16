@@ -1063,4 +1063,16 @@ checksave: MACRO
 	db checksave_command
 ENDM
 
+	const ifeven_command ; $aa
+ifeven: MACRO
+	db ifeven_command
+	dw \1 ; pointer
+ENDM
+
+	const ifodd_command ; $ab
+ifodd: MACRO
+	db ifodd_command
+	dw \1 ; pointer
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value

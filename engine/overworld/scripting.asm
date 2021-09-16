@@ -234,6 +234,8 @@ ScriptCommandTable:
 	dw Script_getname                    ; a7
 	dw Script_wait                       ; a8
 	dw Script_checksave                  ; a9
+	dw Script_ifeven                  	 ; aa
+	dw Script_ifodd                  	 ; ab
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -1349,6 +1351,18 @@ Script_ifless:
 	cp b
 	jr c, Script_sjump
 	jr SkipTwoScriptBytes
+
+Script_ifodd:
+	ld a, [wScriptVar]
+	and 1
+	jp nz, Script_sjump
+	jp SkipTwoScriptBytes
+
+Script_ifeven:
+	ld a, [wScriptVar]
+	and 1
+	jp nz, SkipTwoScriptBytes
+	jp Script_sjump
 
 Script_jumpstd:
 	call StdScript
