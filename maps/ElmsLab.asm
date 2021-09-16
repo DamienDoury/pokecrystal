@@ -356,6 +356,16 @@ ElmAfterTheftScript:
 	writetext ElmAfterTheftText4
 	promptbutton
 	writetext ElmAfterTheftText5
+	waitbutton
+	pause 3
+	turnobject ELMSLAB_ELM, RIGHT
+	pause 3
+	writetext ElmIsItOfficialText
+	promptbutton
+	pause 3
+	turnobject ELMSLAB_ELM, DOWN
+	pause 3
+	writetext ElmListenRadioText
 	promptbutton
 	closetext
 	applymovement ELMSLAB_ELM, ElmRunsTowardsPCMovement
@@ -1054,6 +1064,8 @@ ElmAfterTheftText1:
 	text "ELM: <PLAY_G>, this"
 	line "is terrible…"
 
+	para "…"
+
 	para "Oh, yes, what was"
 	line "MR.#MON's big"
 	cont "discovery?"
@@ -1081,8 +1093,8 @@ ElmAfterTheftText4:
 ElmAfterTheftText5:
 	text "What?!?"
 
-	para "PROF.OAK gave you"
-	line "a #DEX?"
+	para "PROF.OAK also gave"
+	line "you a #DEX?"
 
 	para "<PLAY_G>, is that"
 	line "true? Th-that's"
@@ -1107,16 +1119,20 @@ ElmAfterTheftText5:
 	line "would be the one"
 	cont "in VIOLET CITY."
 
-	para "…"
+	para "… Hmm?"
 
 	para "PROF.OAK asked me"
 	line "to turn on the"
 	cont "radio?"
+	done
 
-	para "Is he going to"
+ElmIsItOfficialText:
+	text "Is he going to"
 	line "make it official?"
+	done
 
-	para "Let's listen to it"
+ElmListenRadioText:
+	text "Let's listen to it"
 	line "on my computer!"
 	done
 
@@ -1572,6 +1588,10 @@ ElmsLab_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  9,  1, BGEVENT_READ, ElmsLabBookshelf
+	bg_event  0,  7, BGEVENT_READ, ElmsLabBookshelf
+	bg_event  1,  7, BGEVENT_READ, ElmsLabBookshelf
+	bg_event  2,  7, BGEVENT_READ, ElmsLabBookshelf
+	bg_event  3,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  6,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  7,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  7, BGEVENT_READ, ElmsLabBookshelf
