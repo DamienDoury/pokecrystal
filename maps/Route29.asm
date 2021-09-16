@@ -218,7 +218,6 @@ DudeMovementData1a:
 	step UP
 	step UP
 	step RIGHT
-	step RIGHT
 	step_end
 
 DudeMovementData2a:
@@ -226,11 +225,9 @@ DudeMovementData2a:
 	step UP
 	step UP
 	step RIGHT
-	step RIGHT
 	step_end
 
 DudeMovementData1b:
-	step LEFT
 	step LEFT
 	step DOWN
 	step DOWN
@@ -239,7 +236,6 @@ DudeMovementData1b:
 	step_end
 
 DudeMovementData2b:
-	step LEFT
 	step LEFT
 	step DOWN
 	step DOWN

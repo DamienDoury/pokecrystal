@@ -39,10 +39,8 @@ MrPokemonsHouse_MapScripts:
 	promptbutton
 	turnobject MRPOKEMONSHOUSE_GENTLEMAN, RIGHT
 	writetext MrPokemonIntroText4
-	promptbutton
-	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
+	turnobject MRPOKEMONSHOUSE_GENTLEMAN, RIGHT
 	turnobject MRPOKEMONSHOUSE_OAK, LEFT
-	writetext MrPokemonIntroText5
 	waitbutton
 	closetext
 	sjump MrPokemonsHouse_OakScript
@@ -102,6 +100,7 @@ MrPokemonsHouse_OakScript:
 	disappear MRPOKEMONSHOUSE_OAK
 	waitsfx
 	special RestartMapMusic
+	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
 	pause 15
 	turnobject PLAYER, UP
 	opentext
@@ -160,11 +159,11 @@ MrPokemonsHouse_PlayerWalksToMrPokemon:
 MrPokemonsHouse_OakWalksToPlayer:
 	step DOWN
 	step LEFT
-	step LEFT
 	step_end
 
 MrPokemonsHouse_OakExits:
 	step DOWN
+	step LEFT
 	step LEFT
 	turn_head DOWN
 	step_sleep 2
@@ -186,35 +185,22 @@ MrPokemonIntroText2:
 
 MrPokemonsHouse_GotEggText:
 	text "<PLAYER> received"
-	line "MYSTERY EGG."
+	line "PARCEL."
 	done
 
 MrPokemonIntroText3:
-	text "I know a couple"
-	line "who run a #MON"
-	cont "DAY-CARE service."
-
-	para "They gave me that"
-	line "EGG."
-
-	para "I was intrigued,"
-	line "so I sent mail to"
+	text "I recently started"
+	line "working with"
 	cont "PROF.ELM."
 
-	para "For #MON evolu-"
-	line "tion, PROF.ELM is"
+	para "For #MON VIRO-"
+	line "LOGY, PROF.ELM is"
 	cont "the authority."
 	done
 
 MrPokemonIntroText4:
 	text "Even PROF.OAK here"
 	line "recognizes that."
-	done
-
-MrPokemonIntroText5:
-	text "If my assumption"
-	line "is correct, PROF."
-	cont "ELM will know it."
 	done
 
 MrPokemonsHouse_MrPokemonHealText:
@@ -320,10 +306,12 @@ MrPokemonsHouse_OakText2:
 
 	para "I have to get to"
 	line "GOLDENROD for my"
-	cont "usual radio show."
+	cont "radio show."
 
-	para "<PLAY_G>, I'm"
-	line "counting on you!"
+	para "<PLAY_G>, when you"
+	line "see PROF.ELM, tell"
+	cont "him to turn on the"
+	cont "radio!"
 	done
 
 MrPokemonText_GimmeTheScale:
@@ -387,5 +375,5 @@ MrPokemonsHouse_MapEvents:
 	bg_event  6,  4, BGEVENT_READ, MrPokemonsHouse_StrangeCoins
 
 	def_object_events
-	object_event  3,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrPokemonsHouse_MrPokemonScript, -1
+	object_event  3,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MrPokemonsHouse_MrPokemonScript, -1
 	object_event  6,  5, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MR_POKEMONS_HOUSE_OAK

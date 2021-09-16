@@ -357,15 +357,46 @@ ElmAfterTheftScript:
 	promptbutton
 	writetext ElmAfterTheftText5
 	promptbutton
+	closetext
+	applymovement ELMSLAB_ELM, ElmRunsTowardsPCMovement
+	turnobject PLAYER, LEFT
+	;special FadeOutMusic
+	musicfadeout MUSIC_NONE, 8
+	;playmusic MUSIC_NONE
+	opentext 
+	writetext ElmCovidAnnouncementText
+	waitbutton
+	closetext
+	musicfadeout MUSIC_PROF_ELM, 8
+	;playmapmusic
+	;special RestartMapMusic
+	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
+	opentext
+	writetext ElmWorksWithOakText
+	waitbutton
+	closetext
+	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement1
+	turnobject PLAYER, UP
+	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
+	opentext
 	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
 	setmapscene ROUTE_29, SCENE_ROUTE29_CATCH_TUTORIAL
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 	setevent EVENT_ROUTE_30_BATTLE
+	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	writetext ElmAfterTheftText6
+	yesorno
+	iftrue .ElmMissionAccepted
+.InsistALot:
+	writetext ElmInsistOnGettingHelpText
+	yesorno
+	iffalse .InsistALot
+
+.ElmMissionAccepted:
+	writetext ElmMissionAcceptedText
 	waitbutton
 	closetext
-	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
 	end
 
 ElmStudyingEggScript:
@@ -477,23 +508,25 @@ ElmJumpRightScript:
 
 AideScript_WalkPotion1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
-	turnobject PLAYER, DOWN
+	turnobject PLAYER, LEFT
 	scall AideScript_GivePotion
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	turnobject PLAYER, DOWN
 	end
 
 AideScript_WalkPotion2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
-	turnobject PLAYER, DOWN
+	turnobject PLAYER, LEFT
 	scall AideScript_GivePotion
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	turnobject PLAYER, DOWN
 	end
 
 AideScript_GivePotion:
 	opentext
 	writetext AideText_GiveYouPotion
-	promptbutton
-	verbosegiveitem POTION
+	playsound SFX_ITEM
+	waitsfx
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext
@@ -502,16 +535,18 @@ AideScript_GivePotion:
 
 AideScript_WalkBalls1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
-	turnobject PLAYER, DOWN
+	turnobject PLAYER, LEFT
 	scall AideScript_GiveYouBalls
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	turnobject PLAYER, DOWN
 	end
 
 AideScript_WalkBalls2:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
-	turnobject PLAYER, DOWN
+	turnobject PLAYER, LEFT
 	scall AideScript_GiveYouBalls
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	turnobject PLAYER, DOWN
 	end
 
 AideScript_GiveYouBalls:
@@ -581,6 +616,9 @@ CopScript:
 	applymovement ELMSLAB_OFFICER, OfficerLeavesMovement
 	disappear ELMSLAB_OFFICER
 	setscene SCENE_ELMSLAB_NOTHING
+	applymovement PLAYER, PlayerTakesPlaceOfOfficerMovement
+	opentext
+	sjump ElmAfterTheftScript
 	end
 
 ElmsLabWindow:
@@ -603,18 +641,6 @@ ElmsLabWindow:
 	closetext
 	end
 
-ElmsLabTravelTip1:
-	jumptext ElmsLabTravelTip1Text
-
-ElmsLabTravelTip2:
-	jumptext ElmsLabTravelTip2Text
-
-ElmsLabTravelTip3:
-	jumptext ElmsLabTravelTip3Text
-
-ElmsLabTravelTip4:
-	jumptext ElmsLabTravelTip4Text
-
 ElmsLabTrashcan:
 	jumptext ElmsLabTrashcanText
 
@@ -634,6 +660,7 @@ ElmsLab_WalkUpToElmMovement:
 	step UP
 	step UP
 	step UP
+	step RIGHT
 	step UP
 	turn_head LEFT
 	step_end
@@ -648,7 +675,7 @@ MeetCopScript2_StepLeft:
 
 MeetCopScript_WalkUp:
 	step UP
-	step UP
+	step LEFT
 	turn_head RIGHT
 	step_end
 
@@ -657,32 +684,41 @@ OfficerLeavesMovement:
 	step DOWN
 	step DOWN
 	step DOWN
-	step DOWN
+	step_end
+
+PlayerTakesPlaceOfOfficerMovement:
+	step RIGHT
+	step RIGHT
+	turn_head UP
+	step_end
+
+ElmRunsTowardsPCMovement:
+	big_step LEFT
+	big_step LEFT
+	big_step DOWN
+	big_step DOWN
 	step_end
 
 AideWalksRight1:
-	step RIGHT
-	step RIGHT
-	turn_head UP
+	step UP
+	turn_head RIGHT
 	step_end
 
 AideWalksRight2:
+	step UP
 	step RIGHT
-	step RIGHT
-	step RIGHT
-	turn_head UP
+	turn_head RIGHT
 	step_end
 
 AideWalksLeft1:
-	step LEFT
+	step DOWN
 	step LEFT
 	turn_head DOWN
 	step_end
 
 AideWalksLeft2:
 	step LEFT
-	step LEFT
-	step LEFT
+	step DOWN
 	turn_head DOWN
 	step_end
 
@@ -712,25 +748,23 @@ ElmJumpRightMovement:
 
 ElmsLab_ElmToDefaultPositionMovement1:
 	step UP
+	step UP
 	step_end
 
 ElmsLab_ElmToDefaultPositionMovement2:
 	step RIGHT
 	step RIGHT
-	step UP
 	turn_head DOWN
 	step_end
 
 AfterCyndaquilMovement:
 	step LEFT
-	step UP
 	turn_head UP
 	step_end
 
 AfterTotodileMovement:
 	step LEFT
 	step LEFT
-	step UP
 	turn_head UP
 	step_end
 
@@ -738,13 +772,18 @@ AfterChikoritaMovement:
 	step LEFT
 	step LEFT
 	step LEFT
-	step UP
 	turn_head UP
 	step_end
 
 ElmText_Intro:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
+
+	para "Oh! I see you are"
+	line "keeping a 1 step"
+	
+	para "social distance,"
+	line "that's great!"
 
 	para "I needed to ask"
 	line "you a favor."
@@ -811,7 +850,7 @@ ElmText_ResearchAmbitions:
 	text "When I announce my"
 	line "findings, I'm sure"
 
-	para "it will shock the"
+	para "it will shake the"
 	line "scientific"
 	cont "community."
 	done
@@ -953,7 +992,8 @@ ElmDirectionsText2:
 	para "It can heal their"
 	line "health points but"
 	cont "won't cure"
-	cont "diseases."
+	cont "diseases"
+	cont "unfortunately…"
 
 	para "Feel free to use"
 	line "it anytime, but"
@@ -1021,7 +1061,7 @@ ElmAfterTheftText1:
 
 ElmAfterTheftText2:
 	text "<PLAYER> handed"
-	line "the MYSTERY EGG to"
+	line "the PARCEL to"
 	cont "PROF.ELM."
 	done
 
@@ -1030,15 +1070,16 @@ ElmAfterTheftText3:
 	done
 
 ElmAfterTheftText4:
-	text "But… Is it a"
-	line "#MON EGG?"
+	text "But… how did he"
+	line "get this?"
 
-	para "If it is, it is a"
-	line "great discovery!"
+	para "It's going to"
+	line "help a lot with my"
+	cont "research!"
 	done
 
 ElmAfterTheftText5:
-	text "ELM: What?!?"
+	text "What?!?"
 
 	para "PROF.OAK gave you"
 	line "a #DEX?"
@@ -1052,15 +1093,11 @@ ElmAfterTheftText5:
 	cont "tial of people as"
 	cont "trainers."
 
-	para "Wow, <PLAY_G>. You"
-	line "may have what it"
+	para "The last two he"
+	line "gave a #DEX"
 
-	para "takes to become"
-	line "the CHAMPION."
-
-	para "You seem to be"
-	line "getting on great"
-	cont "with #MON too."
+	para "became #MON"
+	line "LEAGUE CHAMPION."
 
 	para "You should take"
 	line "the #MON GYM"
@@ -1069,18 +1106,152 @@ ElmAfterTheftText5:
 	para "The closest GYM"
 	line "would be the one"
 	cont "in VIOLET CITY."
+
+	para "…"
+
+	para "PROF.OAK asked me"
+	line "to turn on the"
+	cont "radio?"
+
+	para "Is he going to"
+	line "make it official?"
+
+	para "Let's listen to it"
+	line "on my computer!"
+	done
+
+ElmCovidAnnouncementText:
+	text "MARY: today PROF."
+	line "OAK you have"
+	cont "something very"
+	cont "important to tell"
+	cont "us, am I right?"
+
+	para "OAK: It is true."
+	line "In the past days,"
+	cont "I have been"
+	cont "working with a"
+	cont "counsel of highly"
+	cont "qualified medical"
+	cont "experts."
+
+	para "Our goal is to"
+	line "study this new"
+	cont "virus. We named"
+	cont "the disease caused"
+	cont "by this virus"
+	cont "COVID-19."
+
+	para "It affects #MON"
+	line "as well as humans."
+
+	para "The symptoms can"
+	line "be dangerous,"
+	cont "especially for"
+	cont "#MON."
+
+	para "So far, we have"
+	line "identified 16"
+	cont "cases in JOHTO."
+
+	para "It is very"
+	line "contagious and"
+	cont "spreads fast."
+
+	para "As such, it will"
+	line "become a"
+	cont "public health"
+	cont "issue in a matter"
+	cont "of days."
+
+	para "Tomorrow I will"
+	line "hold a meeting"
+	cont "with politicians"
+	cont "and authorities"
+	cont "to come up with a"
+	cont "plan of action."
+
+	para "Please take COVID"
+	line "seriously and"
+	cont "respect social"
+	cont "distancing"
+	cont "for now."
+	done
+
+ElmWorksWithOakText:
+	text "So now the word"
+	line "is out."
 	done
 
 ElmAfterTheftText6:
 	text "…<PLAY_G>. The"
-	line "road to the"
+	line "PARCEL you brought"
+	cont "from MR.#MON"
+	cont "contains a sample"
+	cont "of the virus from"
+	cont "an infected"
+	cont "#MON."
 
-	para "championship will"
-	line "be a long one."
+	para "We don't know much"
+	line "about this virus"
+	cont "yet, so I need"
+	cont "this sample for my"
+	cont "research."
 
-	para "Before you leave,"
-	line "make sure that you"
-	cont "talk to your mom."
+	para "…but that's not"
+	line "enough."
+
+	para "I would need"
+	line "someone on the"
+	cont "field, to gather"
+	cont "info for me."
+
+	para "Look, I need your"
+	line "help more than"
+	cont "ever, <PLAY_G>."
+
+	para "Are you willing"
+	line "to help me on"
+	cont "this mission?"
+	done
+
+ElmInsistOnGettingHelpText:
+	text "This work is"
+	line "crucial and will"
+	cont "save lives."
+
+	para "I need you"
+	line "to help me!"
+	done
+
+ElmMissionAcceptedText:
+	text "Great! Explore the"
+	line "region and call me"
+	cont "whenever you"
+	cont "discover something"
+	cont "of interest."
+
+	para "If you could find"
+	line "patient zero, the"
+	cont "first patient that"
+	cont "ever contracted"
+	cont "COVID, that would"
+	cont "help understand"
+	cont "how this all"
+	cont "started."
+	
+
+	para "I also hope you"
+	line "will enjoy your"
+	cont "journey and make"
+	cont "friend with your"
+	cont "#MON!"
+
+	para "Before you leave"
+	line "NEW BARK TOWN"
+	cont "make sure to say"
+	cont "good bye to your"
+	cont "Mom."
 	done
 
 ElmStudyingEggText:
@@ -1265,14 +1436,21 @@ ElmsLabMonEggText: ; unreferenced
 
 AideText_GiveYouPotion:
 	text "<PLAY_G>, I want"
-	line "you to have this"
+	line "you to put this on"
 	cont "for your errand."
+
+	para "<PLAYER> puts on"
+	line "a FACE MASK!"
 	done
 
 AideText_AlwaysBusy:
-	text "There are only two"
-	line "of us, so we're"
-	cont "always busy."
+	text "Better safe than"
+	line "sorry."
+
+	para "This virus is"
+	line "something serious"
+	cont "and you should be"
+	cont "careful about it."
 	done
 
 AideText_TheftTestimony:
@@ -1358,50 +1536,6 @@ ElmsLabWindowText2:
 	line "through here!"
 	done
 
-ElmsLabTravelTip1Text:
-	text "<PLAYER> opened a"
-	line "book."
-
-	para "Travel Tip 1:"
-
-	para "Press START to"
-	line "open the MENU."
-	done
-
-ElmsLabTravelTip2Text:
-	text "<PLAYER> opened a"
-	line "book."
-
-	para "Travel Tip 2:"
-
-	para "Record your trip"
-	line "with SAVE!"
-	done
-
-ElmsLabTravelTip3Text:
-	text "<PLAYER> opened a"
-	line "book."
-
-	para "Travel Tip 3:"
-
-	para "Open your PACK and"
-	line "press SELECT to"
-	cont "move items."
-	done
-
-ElmsLabTravelTip4Text:
-	text "<PLAYER> opened a"
-	line "book."
-
-	para "Travel Tip 4:"
-
-	para "Check your #MON"
-	line "moves. Press the"
-
-	para "A Button to switch"
-	line "moves."
-	done
-
 ElmsLabTrashcanText:
 	text "Some used surgical"
 	line "masks and gloves…"
@@ -1438,10 +1572,6 @@ ElmsLab_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  9,  1, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  0,  7, BGEVENT_READ, ElmsLabTravelTip1
-	bg_event  1,  7, BGEVENT_READ, ElmsLabTravelTip2
-	bg_event  2,  7, BGEVENT_READ, ElmsLabTravelTip3
-	bg_event  3,  7, BGEVENT_READ, ElmsLabTravelTip4
 	bg_event  6,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  7,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  7, BGEVENT_READ, ElmsLabBookshelf
@@ -1456,4 +1586,4 @@ ElmsLab_MapEvents:
 	object_event  6,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CyndaquilPokeBallScript, EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
 	object_event  7,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TotodilePokeBallScript, EVENT_TOTODILE_POKEBALL_IN_ELMS_LAB
 	object_event  8,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ChikoritaPokeBallScript, EVENT_CHIKORITA_POKEBALL_IN_ELMS_LAB
-	object_event  5,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CopScript, EVENT_COP_IN_ELMS_LAB
+	object_event  5,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CopScript, EVENT_COP_IN_ELMS_LAB

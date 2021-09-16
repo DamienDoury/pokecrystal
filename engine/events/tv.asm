@@ -873,8 +873,8 @@ TVShow:
 	text "SCIENTIFIC REVIEW"
 
 	para "“Vaccines are now"
-	line "available for"
-	cont "#MONs!"
+	line "available for free"
+	cont "for #MONs!"
 
 	para "This is our best"
 	line "weapon to beat"
@@ -1033,11 +1033,11 @@ TVShow:
 	cont "allowing the virus"
 	cont "to spread."
 
-	para "To everyone: you"
-	line "should be afraid"
-	cont "of the virus, and"
-	cont "not about the"
-	cont "vaccine.”"
+	para "To boost"
+	cont "vaccinations,"
+	cont "a gift is offered"
+	cont "for every #MON"
+	cont "you vaccinate.”"
 	done
 
 

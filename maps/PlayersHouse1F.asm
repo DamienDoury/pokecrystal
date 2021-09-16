@@ -83,9 +83,6 @@ MeetMomScript:
 	promptbutton
 .FinishPhoneForReal:
 	writetext CovidIntroText
-	playsound SFX_ITEM
-	waitsfx
-	writetext CovidNextText
 	waitbutton
 	closetext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -508,22 +505,7 @@ CovidIntroText:
 	text "One last thing!"
 	line "They are talking"
 	cont "about a new virus"
-	cont "on TV."
-
-	para "I have a leftover"
-	line "box of face masks"
-	cont "from last time I"
-	cont "got sick."
-
-	para "You can have it!"
-
-	para "<PLAYER> puts on"
-	line "a FACE MASK!"
-	done
-
-CovidNextText:
-	text "Better safe than"
-	line "sorry, right?"
+	cont "in the news."
 
 	para "Doctors on TV"
 	line "recommended to"

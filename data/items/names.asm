@@ -68,7 +68,7 @@ ItemNames::
 	li "RED SCALE"
 	li "CHLOROQUINE"
 	li "S.S.TICKET"
-	li "MYSTERY EGG"
+	li "PARCEL"
 	li "CLEAR BELL"
 	li "SILVER WING"
 	li "MOOMOO MILK"
