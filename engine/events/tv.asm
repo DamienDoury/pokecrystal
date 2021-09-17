@@ -1016,8 +1016,8 @@ TVShow:
 
 	para "“Our vaccination"
 	line "level is now at"
-	cont "90% but struggling"
-	cont "to go beyond."
+	cont "90 percent but"
+	cont "won't go above."
 
 	para "Indeed a lot of"
 	line "people are afraid"
@@ -1034,7 +1034,7 @@ TVShow:
 	cont "to spread."
 
 	para "To boost"
-	cont "vaccinations,"
+	line "vaccinations,"
 	cont "a gift is offered"
 	cont "for every #MON"
 	cont "you vaccinate.”"
