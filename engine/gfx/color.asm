@@ -1252,10 +1252,16 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_pals
+	ld de, MapObjectPals
+	call GetPurpleMaps
+	jr nc, .normal_sprite_palette
+	ld de, MapObjectPalsPurple
+.normal_sprite_palette:
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
-	ld hl, MapObjectPals
+	ld h, d
+	ld l, e
 	call AddNTimes
 	ld de, wOBPals1
 	ld bc, 8 palettes
@@ -1290,6 +1296,29 @@ endr
 	call FarCopyWRAM
 	ret
 
+
+
+GetPurpleMaps:
+	ld hl, PurpleMapList
+	ld a, [wMapGroup]
+	ld b, a
+	ld a, [wMapNumber]
+	ld c, a
+.loop
+	ld a, [hli] ; group
+	and a ; unsets the carry flag.
+	ret z ; end.
+	cp b
+	ld a, [hli] ; map
+	jr nz, .loop
+	cp c
+	jr nz, .loop
+	scf ; set carry flag.
+	ret
+
+
+INCLUDE "data/sprites/maps_with_purple_objects.asm"
+
 INCLUDE "data/maps/environment_colors.asm"
 
 PartyMenuBGMobilePalette:
@@ -1303,6 +1332,9 @@ INCLUDE "gfx/tilesets/bg_tiles.pal"
 
 MapObjectPals::
 INCLUDE "gfx/overworld/npc_sprites.pal"
+
+MapObjectPalsPurple::
+INCLUDE "gfx/overworld/npc_sprites_purple.pal"
 
 RoofPals:
 	table_width PAL_COLOR_SIZE * 2 * 2, RoofPals
