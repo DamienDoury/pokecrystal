@@ -116,6 +116,8 @@ PlayersHouse1FReceiveItemStd:
 	end
 
 FakeMomMornScript:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; If the player has never ever left the house (new game).
+	iftrue .quit
 	checkevent EVENT_PLAYERS_HOUSE_MOM_1
 	iffalse .quit
 	checktime MORN
@@ -131,12 +133,12 @@ FakeMomMornScript:
 	end
 
 FakeMomDayScript:
-	checkevent EVENT_PLAYERS_HOUSE_MOM_1
+	checkevent EVENT_PLAYERS_HOUSE_MOM_1 ; If the player has never ever talked to Mom (new game).
 	iffalse .meet
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; If the player has never ever left the house (new game).
+	iftrue .firstMom
 	checktime DAY
 	iffalse .quit
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
-	iftrue .firstMom
 	setlasttalked PLAYERSHOUSE1F_MOM3
 	sjump FakeMomScript
 	end
@@ -155,6 +157,8 @@ FakeMomDayScript:
 	end
 
 FakeMomNiteScript:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; If the player has never ever left the house (new game).
+	iftrue .quit
 	checkevent EVENT_PLAYERS_HOUSE_MOM_1
 	iffalse .quit
 	checktime NITE
@@ -383,7 +387,32 @@ PlayersHouse1FSinkScript:
 	jumptext PlayersHouse1FSinkText
 
 PlayersHouse1FFridgeScript:
-	jumptext PlayersHouse1FFridgeText
+	checkflag ENGINE_TOOK_DRINK_FROM_FRIDGE
+	iftrue .AlreadyTookDrinkToday
+	opentext
+	writetext PlayersHouse1FFridgeText
+	yesorno
+	iftrue .TakeFreshWater
+	writetext AskLemonadeFridgeText
+	yesorno
+	iftrue .TakeLemonade
+	closetext
+	end
+
+.TakeFreshWater:
+	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
+	verbosegiveitem FRESH_WATER
+	closetext
+	end
+
+.TakeLemonade:
+	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
+	verbosegiveitem LEMONADE
+	closetext
+	end
+
+.AlreadyTookDrinkToday:
+	jumptext OtherDrinkIsForMomText
 
 MomTurnsTowardPlayerMovement:
 	turn_head RIGHT
@@ -600,6 +629,19 @@ PlayersHouse1FFridgeText:
 
 	para "FRESH WATER and"
 	line "tasty MILK TEA!"
+
+	para "Take the FRESH"
+	line "WATER?"
+	done
+
+AskLemonadeFridgeText:
+	text "Take the MILK"
+	line "TEA?"
+	done
+
+OtherDrinkIsForMomText:
+	text "The other drink"
+	line "is for Mom."
 	done
 
 NowWeCanTalkText:

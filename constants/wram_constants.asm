@@ -290,6 +290,17 @@ CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 	const DAILYFLAGS2_MOVE_TUTOR_F                        ; 6
 	const DAILYFLAGS2_BUENAS_PASSWORD_F                   ; 7
 
+; wDailyFlags3::
+	const_def
+	const DAILYFLAGS3_TOOK_DRINK_FROM_FRIDGE_F	; 0
+	const DAILYFLAGS3_UNUSED_1_F               	; 1
+	const DAILYFLAGS3_UNUSED_2_F 				; 2
+	const DAILYFLAGS3_UNUSED_3_F  				; 3
+	const DAILYFLAGS3_UNUSED_4_F                ; 4
+	const DAILYFLAGS3_UNUSED_5_F        		; 5
+	const DAILYFLAGS3_UNUSED_6_F                ; 6
+	const DAILYFLAGS3_UNUSED_7_F                ; 7
+
 ; wSwarmFlags::
 	const_def
 	const SWARMFLAGS_BUENAS_PASSWORD_F           ; 0
