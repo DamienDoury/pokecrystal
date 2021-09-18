@@ -105,36 +105,38 @@ MovementData_AideFinishesLeavingPokecenter:
 
 VioletPokecenterElmsAideFavorText:
 	text "<PLAY_G>, long"
-	line "time, no see."
+	line "time no see!"
 
 	para "PROF.ELM asked me"
 	line "to find you."
 
-	para "He has another"
-	line "favor to ask."
+	para "He knows a couple"
+	line "who run a #MON."
+	cont "DAY-CARE service."
+
+	para "They gave him an"
+	line "EGG."
+
+	para "PROF.ELM thought"
+	line "it could become a"
+	
+	para "great partner for"
+	line "you, once it"
+	cont "hatches of course."
 
 	para "Would you take the"
 	line "#MON EGG?"
 	done
 
 VioletPokecenterElmsAideGiveEggText:
-	text "We discovered that"
-	line "a #MON will not"
-
-	para "hatch until it"
-	line "grows in the EGG."
-
-	para "It also has to be"
-	line "with other active"
-	cont "#MON to hatch."
-
-	para "<PLAY_G>, you're"
-	line "the only person"
-	cont "we can rely on."
+	text "Keep it in your"
+	line "#MON team, or"
+	cont "it won't hatch."
 
 	para "Please call PROF."
 	line "ELM when that EGG"
-	cont "hatches!"
+	cont "hatches, it will"
+	cont "make him happy!"
 	done
 
 VioletCityElmsAideFullPartyText:

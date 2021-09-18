@@ -31,11 +31,11 @@ ElmPhonePokemonStolenText:
 ElmPhoneCheckingTheEggText:
 	text "Hello, <PLAY_G>?"
 
-	para "We're checking the"
-	line "EGG now. It does"
-
-	para "appear to be a"
-	line "#MON EGG."
+	para "I'm making a lot"
+	line "of progress on my"
+	cont "research thanks"
+	cont "to OAK's sample"
+	cont "you brought me."
 	done
 
 ElmPhoneAssistantText:
@@ -76,48 +76,71 @@ ElmPhoneDiscoveredHatchTimeText:
 	para "I just made a new"
 	line "discovery."
 
-	para "The time it takes"
-	line "for an EGG to"
-
-	para "hatch depends on"
-	line "the #MON."
+	para "I confirmed the"
+	line "virus that gives"
+	cont "COVID is a mutated"
+	cont "version of the"
+	cont "POKéRUS, the"
+	cont "#MON virus."
 	done
 
 ElmPhoneInvestigatingEggMovesText:
 	text "Hello, <PLAY_G>?"
 
-	para "It's still a"
-	line "mystery what kinds"
+	para "I studied the"
+	line "resistance of a"
+	cont "#BALL against"
+	cont "the virus."
 
-	para "of moves hatched"
-	line "#MON have."
+	para "My results show"
+	line "that a #BALL is"
+	cont "fully permeable"
+	cont "to the virus."
 
-	para "We're investigat-"
-	line "ing that now."
+	para "A #MON that"
+	line "stays within it"
+	cont "can neither catch"
+	cont "nor spread the"
+	cont "virus."
+
+	para "Good to know,"
+	line "right?"
 	done
 
 ElmPhoneDiscoveredPokerusText:
-	text "Hello, <PLAY_G>?"
+	text "Hello <PLAY_G>."
 
 	para "The #MON CENTER"
 	line "called about your"
 	cont "infected #MON."
 
-	para "This is serious."
-	para "It's dangerous, it"
-	line "spreads fast and"
-	cont "it infects others."
+	para "It is a matter"
+	line "you should not"
+	cont "underestimate."
 
-	para "I've even heard"
-	line "eggs can catch it…"
+	para "COVID is dangerous"
+	line "and spreads fast."
+
+	para "I recently made"
+	line "a discovery that"
+
+	para "can help you go"
+	line "through this: the"
+
+	para "virus can float"
+	line "in the air for a"
+	cont "few minutes."
 
 	para "Don't send your"
 	line "infected #MON"
 	cont "to battle!"
 
-	para "Anyway I'm sure"
-	line "you will handle"
-	cont "it!"
+	para "It could infect"
+	line "#MONs sent to"
+	cont "battle afterwards."
+
+	para "I'm sure you can"
+	line "handle it!"
 
 	para "Take care!"
 	done
@@ -137,18 +160,21 @@ ElmPhoneDisasterText:
 	done
 
 ElmPhoneEggAssistantText:
-	text "Hello, <PLAY_G>? We"
-	line "discovered some-"
+	text "Hello, <PLAY_G>? I"
+	line "want to thank you"
 
-	para "thing about the"
-	line "EGG!"
+	para "for helping my"
+	line "research."
 
 	para "My assistant is at"
 	line "the #MON CENTER"
 
-	para "in VIOLET CITY. "
-	line "Could you talk to"
-	cont "him?"
+	para "in VIOLET CITY"
+	line "with a present"
+	cont "for you!"
+
+	para "Could you talk to"
+	line "him?"
 	done
 
 ElmPhoneRadioTowerRocketTakeoverText:
