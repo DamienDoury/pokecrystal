@@ -1615,7 +1615,7 @@ _MomBankWhatDoYouWantToDoText::
 
 _MomStoreMoneyText::
 	text "How much do you"
-	line "want to save?"
+	line "want to give?"
 	done
 
 _MomTakeMoneyText::
@@ -1625,11 +1625,13 @@ _MomTakeMoneyText::
 
 _MomSaveMoneyText::
 	text "Do you want to"
-	line "save some money?"
+	line "send me some of"
+	cont "the money you"
+	cont "earn?"
 	done
 
 _MomHaventSavedThatMuchText::
-	text "You haven't saved"
+	text "Mom doesn't have"
 	line "that much."
 	prompt
 
@@ -1644,21 +1646,21 @@ _MomInsufficientFundsInWalletText::
 	prompt
 
 _MomNotEnoughRoomInBankText::
-	text "You can't save"
+	text "You can't give"
 	line "that much."
 	prompt
 
 _MomStartSavingMoneyText::
-	text "OK, I'll save your"
-	line "money. Trust me!"
+	text "OK, I'll take your"
+	line "money. Thanks!"
 
 	para "<PLAYER>, stick"
 	line "with it!"
 	done
 
 _MomStoredMoneyText::
-	text "Your money's safe"
-	line "here! Get going!"
+	text "It's very generous"
+	line "of you! Get going!"
 	done
 
 _MomTakenMoneyText::
