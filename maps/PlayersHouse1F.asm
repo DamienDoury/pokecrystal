@@ -389,9 +389,11 @@ PlayersHouse1FSinkScript:
 PlayersHouse1FFridgeScript:
 	checkflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	iftrue .AlreadyTookDrinkToday
-	checkflag ENGINE_FLYPOINT_VIOLET
-	iftrue .DrinksOnTheHouse
-	checkmoney MOMS_MONEY, 50
+	checkevent EVENT_GOT_HM05_FLASH
+	iffalse .DrinksOnTheHouse
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	iftrue .EmptyFridge
+	checkmoney MOMS_MONEY, 150
 	ifequal HAVE_LESS, .EmptyFridge
 .DrinksOnTheHouse:
 	opentext
@@ -405,11 +407,12 @@ PlayersHouse1FFridgeScript:
 	end
 
 .EmptyFridge:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 	jumptext EmptyFridgeText
 
 .TakeFreshWater:
-	checkflag ENGINE_FLYPOINT_VIOLET
-	iftrue .FridgeFreeFreshWater
+	checkevent EVENT_GOT_HM05_FLASH
+	iffalse .FridgeFreeFreshWater
 	takemoney MOMS_MONEY, 50
 .FridgeFreeFreshWater:
 	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
@@ -418,9 +421,9 @@ PlayersHouse1FFridgeScript:
 	end
 
 .TakeLemonade:
-	checkflag ENGINE_FLYPOINT_VIOLET
-	iftrue .FridgeFreeLemonade
-	takemoney MOMS_MONEY, 50
+	checkevent EVENT_GOT_HM05_FLASH
+	iffalse .FridgeFreeLemonade
+	takemoney MOMS_MONEY, 150
 .FridgeFreeLemonade:
 	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	verbosegiveitem LEMONADE
@@ -642,8 +645,9 @@ PlayersHouse1FSinkText:
 EmptyFridgeText:
 	text "It's empty…"
 
-	para "Does MOM need"
-	line "money?"
+	para "Maybe MOM doesn't"
+	line "have enough money"
+	cont "to do groceries?"
 	done
 
 PlayersHouse1FFridgeText:

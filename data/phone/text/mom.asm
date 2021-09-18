@@ -90,6 +90,8 @@ MomCheckBalanceText:
 MomImportantToSaveText:
 	text "Sending money"
 	line "helps me a ton."
+
+	para "Is it still ok?"
 	done
 
 MomYoureNotSavingText:
@@ -203,7 +205,7 @@ MomPhoneLectureText:
 	line "circumstances."
 	
 	para "It bothers me to"
-	line "ask you, but"
+	line "ask, but"
 
 	para "if you could share"
 	line "with me a small"
