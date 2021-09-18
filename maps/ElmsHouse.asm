@@ -49,7 +49,7 @@ ElmsHousePCText:
 	para "Why does it have"
 	line "negative effects?"
 
-	para "How does it
+	para "How does it"
 	line "infect humans?"
 
 	para "We need to know. I"

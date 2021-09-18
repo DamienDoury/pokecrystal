@@ -50,11 +50,12 @@ BankOfMom:
 .InitializeBank:
 	ld hl, MomLeavingText1
 	call PrintText
-	call YesNoBox
-	jr c, .DontSaveMoney
-	ld hl, MomLeavingText2
-	call PrintText
-	ld a, (1 << MOM_ACTIVE_F) | (1 << MOM_SAVING_SOME_MONEY_F)
+	;call YesNoBox ; Commented by Damien.
+	;jr c, .DontSaveMoney
+	;ld hl, MomLeavingText2
+	;call PrintText
+	call PromptButton
+	ld a, (1 << MOM_ACTIVE_F) | (0 << MOM_SAVING_SOME_MONEY_F)
 	jr .done_1
 
 .DontSaveMoney:
@@ -638,7 +639,7 @@ MomJustDoWhatYouCanText:
 	text_end
 
 Mom_SavedString:
-	db "SAVED@"
+	db "MOM@"
 
 Mon_WithdrawString:
 	db "WITHDRAW@"
@@ -647,7 +648,7 @@ Mom_DepositString:
 	db "DEPOSIT@"
 
 Mom_HeldString:
-	db "HELD@"
+	db "YOU@"
 
 BankOfMom_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -659,6 +660,6 @@ BankOfMom_MenuHeader:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "GET@"
-	db "SAVE@"
+	db "GIVE@"
 	db "CHANGE@"
 	db "CANCEL@"

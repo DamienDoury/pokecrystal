@@ -343,7 +343,7 @@ MomScript:
 .GaveMysteryEgg:
 	setevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 .BankOfMom:
-	setevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
+	;setevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	special BankOfMom
 	waitbutton
 	closetext

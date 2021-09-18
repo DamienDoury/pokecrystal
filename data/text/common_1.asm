@@ -356,7 +356,8 @@ _MomHiHowAreYouText::
 
 _MomFoundAnItemText::
 	text "I found a useful"
-	line "item shopping, so"
+	line "item on sale"
+	cont "while shopping, so"
 	prompt
 
 _MomBoughtWithYourMoneyText::
@@ -1555,20 +1556,27 @@ _MomLeavingText1::
 	para "So, you're leaving"
 	line "on an adventure…"
 
+	para "Helping fight this"
+	line "virus is very"
+	cont "honorable of you."
+
 	para "OK!"
-	line "I'll help too."
+	line "I also want"
+	cont "to help!"
 
-	para "But what can I do"
-	line "for you?"
+	para "Take anything you"
+	line "need in the fridge"
+	
+	para "I will go grocery"
+	line "shopping everyday."
 
-	para "I know! I'll save"
-	line "money for you."
+	para "Watch TV often"
+	line "to stay informed"
+	cont "on the latest"
+	cont "news about COVID."
 
-	para "On a long journey,"
-	line "money's important."
-
-	para "Do you want me to"
-	line "save your money?"
+	para "Don't forget to"
+	line "call your Mom!"
 	done
 
 _MomLeavingText2::

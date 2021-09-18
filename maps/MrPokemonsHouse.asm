@@ -82,6 +82,7 @@ MrPokemonsHouse_MrPokemonScript:
 MrPokemonsHouse_OakScript:
 	playmusic MUSIC_PROF_OAK
 	applymovement MRPOKEMONSHOUSE_OAK, MrPokemonsHouse_OakWalksToPlayer
+	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext MrPokemonsHouse_OakText1
@@ -100,7 +101,6 @@ MrPokemonsHouse_OakScript:
 	disappear MRPOKEMONSHOUSE_OAK
 	waitsfx
 	special RestartMapMusic
-	turnobject MRPOKEMONSHOUSE_GENTLEMAN, DOWN
 	pause 15
 	turnobject PLAYER, UP
 	opentext

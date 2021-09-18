@@ -1143,7 +1143,7 @@ ElmCovidAnnouncementText:
 	cont "important to tell"
 	cont "us, am I right?"
 
-	para "OAK: It is true."
+	para "OAK: Indeed."
 	line "In the past days,"
 	cont "I have been"
 	cont "working with a"
@@ -1175,10 +1175,9 @@ ElmCovidAnnouncementText:
 	cont "spreads fast."
 
 	para "As such, it will"
-	line "become a"
-	cont "public health"
-	cont "issue in a matter"
-	cont "of days."
+	line "become a public"
+	cont "health issue in"
+	cont "a matter of days."
 
 	para "Tomorrow I will"
 	line "hold a meeting"

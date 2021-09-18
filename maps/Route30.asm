@@ -285,26 +285,38 @@ YoungsterJoey1AfterText:
 	done
 
 YoungsterMikeySeenText:
-	text "You're a #MON"
-	line "trainer, right?"
+	text "SOCIAL DISTANCING"
+	line "ALERT!"
 
-	para "Then you have to"
-	line "battle!"
+	para "SOCIAL DISTANCING"
+	line "ALERT!!"
+
+	para "Haven't you"
+	line "heard??"
+
+	para "I'm gonna teach"
+	line "you respect!"
 	done
 
 YoungsterMikeyBeatenText:
-	text "That's strange."
-	line "I won before."
+	text "Still, you should"
+	line "respect social"
+	cont "distancing."
+
+	para "I'm gonna tell"
+	line "mommy."
 	done
 
 YoungsterMikeyAfterText:
-	text "Becoming a good"
-	line "trainer is really"
-	cont "tough."
+	text "Social distancing"
+	line "is for your own"
+	cont "good."
 
-	para "I'm going to bat-"
-	line "tle other people"
-	cont "to get better."
+	para "It limits the"
+	line "odds of getting"
+
+	para "infected by"
+	line "others."
 	done
 
 BugCatcherDonSeenText:

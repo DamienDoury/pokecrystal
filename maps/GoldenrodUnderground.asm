@@ -807,7 +807,7 @@ NotEnoughMoneyCheckText:
 	done
 
 MoneyCheckPassText:
-	text "My share is 1000¥."
+	text "My share is ¥1000."
 	done
 
 FollowText:

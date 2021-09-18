@@ -41,13 +41,17 @@ MomPhoneNewBarkText:
 	done
 
 MomPhoneCherrygroveText:
-	text "You're visiting"
-	line "@"
-	text_ram wStringBuffer3
-	text "?"
+	text "Hello!"
 
-	para "How about coming"
-	line "home for a bit?"
+	para "I have heard on"
+	line "TV that COVID is"
+	cont "transmitted via"
+	cont "respiratory"
+	cont "droplets."
+
+	para "Be careful and"
+	line "respect social"
+	cont "distancing."
 	done
 
 MomOtherAreaText:
@@ -73,45 +77,51 @@ MomDeterminedText:
 
 MomCheckBalanceText:
 	text "By the way, you've"
-	line "saved up ¥@"
+	line "sent me ¥@"
 	text_ram wStringBuffer3
 	text "."
 
-	para "Do you want to"
-	line "keep on saving?"
+	para "Are you still"
+	line "able to"
+	cont "financially help"
+	cont "me?"
 	done
 
 MomImportantToSaveText:
-	text "It's important to"
-	line "save your money."
+	text "Sending money"
+	line "helps me a ton."
 	done
 
 MomYoureNotSavingText:
 	text "Oh, <PLAYER>,"
-	line "you're not saving"
+	line "is it ok for you"
+	cont "to send me money"
 
-	para "any money. Would"
-	line "you like to save?"
+	para "until I can find"
+	line "a new job?"
+
 	done
 
 MomYouveSavedText:
 	text "By the way, you've"
-	line "saved up ¥@"
+	line "sent me ¥@"
 	text_ram wStringBuffer3
 	text "."
 
-	para "Want to start"
-	line "saving again?"
+	para "Could you share"
+	line "some of the money"
+	cont "you make with me?"
 	done
 
 MomOKIllSaveText:
-	text "OK. I'll save your"
-	line "money."
+	text "Thanks! It will"
+	line "help me a lot!"
 	done
 
 MomPhoneWontSaveMoneyText:
-	text "OK. I won't save"
-	line "your money."
+	text "OK. I'll try to"
+	line "make do with my"
+	cont "own savings."
 	done
 
 MomPhoneHangUpText:
@@ -152,14 +162,57 @@ MomPhoneLectureText:
 	text "Hello?"
 
 	para "…… <PLAYER>?"
-	line "I heard from PROF."
+	line "Are you in good"
+	cont "shape?"
 
-	para "ELM that you went"
-	line "on a long trip."
+	para "…"
 
-	para "I wish you would"
-	line "have told me…"
+	para "Good!"
 
-	para "What about money?"
-	line "Should I save it?"
+	para "…"
+
+	para "Listen. I don't"
+	line "know how to tell"
+	cont "you… I have bad"
+	cont "news."
+
+	para "I got a phone call"
+	line "from my employer."
+
+	para "Because of the"
+	line "sanitary situation"
+
+	para "borders are now"
+	line "closed, which"
+	
+	para "forces the company"
+	line "I work for to"
+	
+	para "shutdown and"
+	line "lay off me."
+
+	para "…"
+
+	para "I will be looking"
+	line "for a new job,"
+
+	para "but it may take a"
+	line "while to find one"
+
+	para "in the current"
+	line "circumstances."
+	
+	para "It bothers me to"
+	line "ask you, but"
+
+	para "if you could share"
+	line "with me a small"
+	cont "amount of the"
+	cont "money you make,"
+
+	para "it would be very"
+	line "generous of you,"
+	cont "<PLAYER>."
+
+	para "Is it ok?"
 	done
