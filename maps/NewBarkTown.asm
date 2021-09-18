@@ -254,16 +254,15 @@ Text_ElmDiscoveredNewMon:
 	text "Yo, <PLAYER>!"
 
 	para "I hear PROF.ELM"
-	line "discovered some"
-	cont "new #MON."
+	line "is doing some"
+	cont "important work."
 	done
 
 NewBarkTownRivalText1:
 	text "<……>"
 
 	para "So this is the"
-	line "famous ELM #MON"
-	cont "LAB…"
+	line "famous ELM'S LAB…"
 	done
 
 NewBarkTownRivalText2:
@@ -289,7 +288,7 @@ NewBarkTownPlayersHouseSignText:
 	done
 
 NewBarkTownElmsLabSignText:
-	text "ELM #MON LAB"
+	text "ELM'S LAB"
 	done
 
 NewBarkTownElmsHouseSignText:

@@ -27,7 +27,7 @@ ElmsWifeText:
 	line "he's OK."
 
 	para "When he's caught"
-	line "up in his #MON"
+	line "up in his virus"
 
 	para "research, he even"
 	line "forgets to eat."
@@ -39,38 +39,25 @@ ElmsSonText:
 	cont "my dad!"
 
 	para "I'm going to be a"
-	line "great #MON"
-	cont "professor!"
-	done
-
-ElmsHouseLabFoodText: ; unreferenced
-	text "There's some food"
-	line "here. It must be"
-	cont "for the LAB."
-	done
-
-ElmsHousePokemonFoodText: ; unreferenced
-	text "There's some food"
-	line "here. This must be"
-	cont "for #MON."
+	line "great professor!"
 	done
 
 ElmsHousePCText:
-	text "#MON. Where do"
-	line "they come from? "
+	text "“…Where"
+	line "does it come from?"
 
-	para "Where are they"
-	line "going?"
+	para "Why does it have"
+	line "negative effects?"
 
-	para "Why has no one"
-	line "ever witnessed a"
-	cont "#MON's birth?"
+	para "How does it
+	line "infect humans?"
 
-	para "I want to know! I"
+	para "We need to know. I"
 	line "will dedicate my"
 
 	para "life to the study"
-	line "of #MON!"
+	line "of #MON"
+	cont "VIROLOGY!”"
 
 	para "…"
 

@@ -1272,10 +1272,8 @@ ElmMissionAcceptedText:
 
 ElmStudyingEggText:
 	text "ELM: Don't give"
-	line "up! I'll call if"
-
-	para "I learn anything"
-	line "about that EGG!"
+	line "up! Find patient"
+	cont "zero!"
 	done
 
 ElmAideHasEggText:
@@ -1284,7 +1282,7 @@ ElmAideHasEggText:
 	cont "assistant?"
 
 	para "He should have met"
-	line "you with the EGG"
+	line "you with a gift"
 
 	para "at VIOLET CITY's"
 	line "#MON CENTER."
@@ -1319,23 +1317,22 @@ ShowElmTogepiText2:
 
 ShowElmTogepiText3:
 	text "The EGG hatched!"
-	line "So, #MON are"
-	cont "born from EGGS…"
+	line "I'm so happy you"
+	cont "have a new friend!"
 
-	para "No, perhaps not"
-	line "all #MON are."
-
-	para "Wow, there's still"
-	line "a lot of research"
-	cont "to be done."
+	para "Take good care"
+	line "of TOGEPI! I hope"
+	cont "it will be a good"
+	cont "help in your"
+	cont "journey."
 	done
 
 ElmGiveEverstoneText1:
 	text "Thanks, <PLAY_G>!"
 	line "You're helping"
 
-	para "unravel #MON"
-	line "mysteries for us!"
+	para "a lot with the"
+	line "research on COVID."
 
 	para "I want you to have"
 	line "this as a token of"
@@ -1442,12 +1439,6 @@ ElmGiveTicketText2:
 
 	para "Give my regards to"
 	line "PROF.OAK in KANTO!"
-	done
-
-ElmsLabMonEggText: ; unreferenced
-	text "It's the #MON"
-	line "EGG being studied"
-	cont "by PROF.ELM."
 	done
 
 AideText_GiveYouPotion:

@@ -54,7 +54,7 @@ PlayersNeighborsDaughterText:
 
 	para "He's so famous for"
 	line "his research on"
-	cont "#MON evolution."
+	cont "#MON virology."
 
 	para "…sigh…"
 
@@ -69,11 +69,6 @@ PlayersNeighborText:
 
 	para "becoming PROF."
 	line "ELM's assistant."
-
-	para "She really loves"
-	line "#MON!"
-
-	para "But then, so do I!"
 	done
 
 PlayerNeighborRadioText1:
