@@ -22,12 +22,16 @@ GOLDENRODGAMECORNER_WOBBUFFET_COINS EQU 1500
 
 GoldenrodGameCorner_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
+	scene_script .DummyScene0 ; SCENE_DEFAULT
+	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveTutor
 
-.DummyScene:
+.DummyScene0:
+	end
+
+.DummyScene1:
 	end
 
 .MoveTutor:
@@ -51,26 +55,26 @@ GoldenrodGameCorner_MapScripts:
 	endcallback
 
 GoldenrodGameCornerGreetingsScript:
-	opentext
-	writetext GoldenrodGameCornerGreetings1Text
-	promptbutton
-	closetext
 	checkitem COIN_CASE
 	iftrue .HasCoinCase
+	playsound SFX_HIT_END_OF_EXP_BAR
 	showemote EMOTE_SHOCK, GOLDENRODGAMECORNER_CLERK, 10
+	pause 15
 	turnobject GOLDENRODGAMECORNER_CLERK, LEFT
+	pause 15
+	turnobject PLAYER, RIGHT
 	showemote EMOTE_HAPPY, GOLDENRODGAMECORNER_CLERK, 25
 	opentext
 	writetext GoldenrodGameCornerGreetings1Text
 	promptbutton
-	giveitem COIN_CASE
-	promptbutton
+	verbosegiveitem COIN_CASE
 	writetext GoldenrodGameCornerGreetings2Text
 	givecoins 50
 	promptbutton
 	writetext GoldenrodGameCornerGreetings3Text
+	waitbutton
+	turnobject GOLDENRODGAMECORNER_CLERK, DOWN
 	closetext
-	end
 
 .HasCoinCase:
 	end
@@ -85,7 +89,6 @@ MoveTutorInsideScript:
 	end
 
 GoldenrodGameCornerCoinVendorScript:
-	disappear GOLDENRODGAMECORNER_RECEPTIONIST1
 	setmapscene GOLDENROD_GAME_CORNER, SCENE_DEFAULT
 	jumpstd GameCornerCoinVendorScript
 
@@ -337,7 +340,38 @@ GoldenrodGameCornerAbraScript:
 	playsound SFX_WARP_TO
 	special FadeOutPalettes
 	waitsfx
+	random 7
+	ifequal 0, .FailWarp
+	ifequal 1, .GoodEnoughWarp1
+	ifequal 2, .GoodEnoughWarp2
+	ifequal 3, .AccidentWarpNorth
+	ifequal 4, .AccidentWarpWest
+	ifequal 5, .AccidentWarpSouth
 	warp GOLDENROD_CITY, 13, 6
+	end
+
+.FailWarp:
+	warp GOLDENROD_GAME_CORNER, 12, 3
+	end
+
+.GoodEnoughWarp1:
+	warp GOLDENROD_CITY, 33, 15
+	end
+
+.GoodEnoughWarp2:
+	warp GOLDENROD_CITY, 3, 25
+	end
+
+.AccidentWarpNorth:
+	warp ROUTE_35, 17, 15
+	end
+
+.AccidentWarpWest:
+	warp ROUTE_32, 4, 58
+	end
+
+.AccidentWarpSouth:
+	warp ILEX_FOREST, 26, 22
 	end
 
 .No:
@@ -374,19 +408,33 @@ GoldenrodGameCornerCardFlipMachineScript:
 
 GoldenrodGameCornerGreetings1Text:
 	text "First time"
-	line "I see you."
+	line "I see you!"
 
-	para "Please take this."
+	para "Please take this!"
 	done
 
 GoldenrodGameCornerGreetings2Text:
-	text "Also here are some"
-	line "coins."
+	text "I put 50 coins"
+	line "inside."
 	done
 
 GoldenrodGameCornerGreetings3Text:
 	text "It's on the house."
-	line "Have fun!"
+	line "Enjoy the slots!"
+
+	para "Oh! You should"
+	line "know: to get out"
+	cont "of here, ask"
+	cont "the ABRA. He will"
+	cont "teleport you"
+	cont "somewhere far"
+	cont "from here, so that"
+	cont "no one can guess"
+	cont "you were doing"
+	cont "something illegal!"
+
+	para "Have fun!"
+	done
 
 GoldenrodGameCornerPrizeVendorIntroText:
 	text "Welcome!"
@@ -554,7 +602,10 @@ GoldenrodGameCornerFrontDoorLockText:
 	done
 
 AbraTeleportText:
-	text "Teleport out of"
+	text "This ABRA seems"
+	line "exhausted…"
+
+	para "Teleport out of"
 	line "here?"
 	done
 
@@ -565,8 +616,8 @@ GoldenrodGameCorner_MapEvents:
 	warp_event  2,  0, GOLDENROD_UNDERGROUND, 9
 
 	def_coord_events
-	coord_event  2,  2, SCENE_DEFAULT, GoldenrodGameCornerGreetingsScript
-	coord_event  4,  4, SCENE_DEFAULT, GoldenrodGameCornerAbraScript
+	coord_event  2,  2, SCENE_DEFAULT,  GoldenrodGameCornerGreetingsScript
+	coord_event  2,  2, SCENE_FINISHED, GoldenrodGameCornerGreetingsScript
 
 	def_bg_events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript

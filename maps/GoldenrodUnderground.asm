@@ -439,6 +439,7 @@ DoorKeeperScript:
 	opentext
 	readvar VAR_XCOORD
 	ifgreater 7, .Instruct
+	showemote EMOTE_HAPPY, GOLDENRODUNDERGROUND_BEATER, 25
 	writetext DoorKeeperCheckTeamText
 	yesorno
 	iffalse .RefuseTeamCheck
@@ -446,6 +447,8 @@ DoorKeeperScript:
 	iffalse .FakeCompliments
 	checkpoke GASTLY
 	iffalse .FakeCompliments
+	readvar VAR_PARTYCOUNT
+	ifgreater 2, .FakeCompliments
 	writetext CheckPassText
 	yesorno
 	iffalse .GoGetIt
@@ -769,7 +772,8 @@ DoorKeeperCheckTeamText:
 	done
 
 NevermindText:
-	text "Nevermind."
+	text "Maybe another"
+	line "time!"
 	done
 
 FakeComplimentsText:
@@ -786,12 +790,12 @@ CheckPassText:
 	para "OK, you're clean."
 
 	para "You got the money?"
-	line "Let me see it."
+	line "Lemme see it."
 	done
 
 RefuseMoneyCheckText:
-	text "Go get cash now,"
-	line "before I leave!"
+	text "GO GET CASH NOW,"
+	line "BEFORE I LEAVE!"
 	done
 
 NotEnoughMoneyCheckText:
@@ -802,8 +806,8 @@ NotEnoughMoneyCheckText:
 
 	para "…"
 
-	para "Get out of my"
-	line "sight, now!"
+	para "GET OUT OF MY"
+	line "SIGHT, NOW!"
 	done
 
 MoneyCheckPassText:

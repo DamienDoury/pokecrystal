@@ -602,8 +602,13 @@ BeaterText2:
 	cont "so he knows I sent"
 	cont "you."
 
+	para "No other #MON"
+	line "than those two in"
+	cont "your party,"
+	cont "that's the code."
+
 	para "Bring some cash."
-	line "6000 at least."
+	line "¥6000 at least."
 
 	para "Got it?"
 	done
@@ -612,9 +617,9 @@ BeaterText2Bis:
 	text "Underground. Just"
 	line "after nightfall."
 
-	para "Bring"
+	para "Bring only"
 	line "KOFFING & GASTLY"
-	cont "and 6000 cash."
+	cont "and ¥6000 cash."
 	done
 
 BeaterText3:
