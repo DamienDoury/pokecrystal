@@ -599,7 +599,7 @@ PlayersHouse1FFridgeText:
 	line "in the fridge…"
 
 	para "FRESH WATER and"
-	line "tasty LEMONADE!"
+	line "tasty MILK TEA!"
 	done
 
 NowWeCanTalkText:
