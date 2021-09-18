@@ -567,17 +567,17 @@ if DEF(_CRYSTAL_AU)
 	cont "UNDERGROUND."
 	done
 else
-	text "I couldn't win at"
-	line "the slots, and I"
+	text "Playing illegally"
+	line "is even more"
+	cont "thrilling!"
 
-	para "blew it on card"
-	line "flipping…"
+	para "This is the most"
+	line "exciting thing"
 
-	para "I got so furious,"
-	line "I tossed out my"
+	para "I have done in"
+	line "years!"
 
-	para "COIN CASE in the"
-	line "UNDERGROUND."
+	para "Hyaaaah!"
 	done
 endc
 
