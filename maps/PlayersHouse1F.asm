@@ -389,6 +389,11 @@ PlayersHouse1FSinkScript:
 PlayersHouse1FFridgeScript:
 	checkflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	iftrue .AlreadyTookDrinkToday
+	checkflag ENGINE_FLYPOINT_VIOLET
+	iftrue .DrinksOnTheHouse
+	checkmoney MOMS_MONEY, 50
+	ifequal HAVE_LESS, .EmptyFridge
+.DrinksOnTheHouse:
 	opentext
 	writetext PlayersHouse1FFridgeText
 	yesorno
@@ -399,13 +404,24 @@ PlayersHouse1FFridgeScript:
 	closetext
 	end
 
+.EmptyFridge:
+	jumptext EmptyFridgeText
+
 .TakeFreshWater:
+	checkflag ENGINE_FLYPOINT_VIOLET
+	iftrue .FridgeFreeFreshWater
+	takemoney MOMS_MONEY, 50
+.FridgeFreeFreshWater:
 	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	verbosegiveitem FRESH_WATER
 	closetext
 	end
 
 .TakeLemonade:
+	checkflag ENGINE_FLYPOINT_VIOLET
+	iftrue .FridgeFreeLemonade
+	takemoney MOMS_MONEY, 50
+.FridgeFreeLemonade:
 	setflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	verbosegiveitem LEMONADE
 	closetext
@@ -623,6 +639,13 @@ PlayersHouse1FSinkText:
 	cont "clean."
 	done
 
+EmptyFridgeText:
+	text "It's empty…"
+
+	para "Does MOM need"
+	line "money?"
+	done
+
 PlayersHouse1FFridgeText:
 	text "Let's see what's"
 	line "in the fridge…"
@@ -641,7 +664,7 @@ AskLemonadeFridgeText:
 
 OtherDrinkIsForMomText:
 	text "The other drink"
-	line "is for Mom."
+	line "is for MOM."
 	done
 
 NowWeCanTalkText:
