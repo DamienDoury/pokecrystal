@@ -94,11 +94,26 @@ GetPlayerIcon:
 	ret
 
 GetCardPic:
+	; If the player is deep enough into the story and is now wearing a mask, we must display it.
+
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_WEARING_FACE_MASK_F, a
+	jr nz, .with_mask
+
 	ld hl, ChrisCardPic
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_pic
 	ld hl, KrisCardPic
+	jr .got_pic
+
+.with_mask
+	ld hl, ChrisCardMaskedPic
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .got_pic
+	ld hl, KrisCardMaskedPic
+	
 .got_pic
 	ld de, vTiles2 tile $00
 	ld bc, $23 tiles
@@ -114,8 +129,14 @@ GetCardPic:
 ChrisCardPic:
 INCBIN "gfx/trainer_card/chris_card.2bpp"
 
+ChrisCardMaskedPic:
+INCBIN "gfx/trainer_card/chris_card_masked.2bpp"
+
 KrisCardPic:
 INCBIN "gfx/trainer_card/kris_card.2bpp"
+
+KrisCardMaskedPic:
+INCBIN "gfx/trainer_card/kris_card_masked.2bpp"
 
 TrainerCardGFX:
 INCBIN "gfx/trainer_card/trainer_card.2bpp"

@@ -534,6 +534,7 @@ AideScript_WalkPotion2:
 
 AideScript_GivePotion:
 	opentext
+	setflag ENGINE_WEARING_FACE_MASK
 	writetext AideText_GiveYouPotion
 	playsound SFX_ITEM
 	waitsfx
