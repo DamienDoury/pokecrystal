@@ -405,6 +405,11 @@ HurtItselfText:
 	line "its confusion!"
 	prompt
 
+Pkrus_HurtItselfText:
+	text "The ache is"
+	line "unbearable."
+	prompt
+
 ConfusedNoMoreText:
 	text "<USER>'s"
 	line "confused no more!"

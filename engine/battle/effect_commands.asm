@@ -602,7 +602,11 @@ MoveDisabled:
 	jp StdBattleTextbox
 
 HitConfusion:
+	cp 42
 	ld hl, HurtItselfText
+	jr nz, .HurtItselfNormal
+	ld hl, Pkrus_HurtItselfText
+.HurtItselfNormal
 	call StdBattleTextbox
 
 	xor a
@@ -661,7 +665,7 @@ BattleCommand_CheckObedience:
 
 
 
-	; Damien : when the player has the Pokérus, is cannot obey all the time.
+	; Damien : when the player has the Pokérus, it cannot obey all the time.
 	ld a, MON_PKRUS
 	call BattlePartyAttr
 
@@ -682,15 +686,17 @@ BattleCommand_CheckObedience:
 .symptoms_started_today
 	; We check if the Pokémon has the weakness disease.
 	ld a, [hl]
+	push af
 	and POKERUS_WEAKNESS_DISEASE_MASK
-	call nz, BattleCommand_WeaknessDiseaseText
+	call nz, BattleCommand_WeaknessDiseaseText ; This destroys all registers.
 
 	; We check if the Pokémon has the disobedience disease.
-	ld a, [hl]
+	pop af ; we get back the Pokérus byte that had been destroyed by BattleCommand_WeaknessDiseaseText.
 	and POKERUS_DISOBEDIENCE_DISEASE_MASK
 	jr z, .no_disobedience_disease
 
 	ld a, 10 ; We set the obedience lvl to 10 when the Pkmon has the Pkrus.
+	ld e, 42 ; We store 42 in e, to distinguish between a normal disobedience or a covid disobedience. The e register may get erased (BattleRandom doesn't), so we would be btter off using a variable in RAM. 
 	jr nc, .getlevel
 
 .no_disobedience_disease
@@ -740,6 +746,9 @@ BattleCommand_CheckObedience:
 	ld a, 10
 
 .getlevel
+; input:
+; a = obedience level
+; output:
 ; c = obedience level
 ; d = monster level
 ; b = c + d
@@ -747,12 +756,11 @@ BattleCommand_CheckObedience:
 	ld b, a
 	ld c, a
 
-	ld a, [wBattleMonLevel] ; a = 22 ; Pokémon de lvl 22.
-	ld c, a ; c = 22
-	add 40 ; a = 62
-	ld d, a ; d = 62
-	add c ; a = 84
-	ld b, a ; b = 84
+	ld a, [wBattleMonLevel]
+	ld d, a
+
+	add b
+	ld b, a
 
 ; No overflow (this should never happen)
 	jr nc, .checklevel
@@ -781,6 +789,11 @@ BattleCommand_CheckObedience:
 	call IgnoreSleepOnly
 	ret c
 
+; When the pokemon has COVID with the disobedience symptom, we skip "use instead".
+	ld a, e
+	cp 42
+	jr z, .SkipUseInstead
+
 ; Another random number from 0 to obedience level + monster level
 .rand2
 	call BattleRandom
@@ -792,6 +805,7 @@ BattleCommand_CheckObedience:
 	jr c, .UseInstead
 
 ; No hope of using a move now.
+.SkipUseInstead:
 
 ; b = number of levels the monster is above the obedience level
 	ld a, d
@@ -808,8 +822,17 @@ BattleCommand_CheckObedience:
 	cp b
 	jr nc, .DoNothing
 
+	ld a, e
+	cp 42
+	push af
 	ld hl, WontObeyText
+	jr nz, .HitConfusionNormal
+; Hit confusion pokérus version.	
+	ld hl, Pkrus_WontObeyText
+
+.HitConfusionNormal
 	call StdBattleTextbox
+	pop af
 	call HitConfusion
 	jp .EndDisobedience
 
@@ -826,6 +849,10 @@ BattleCommand_CheckObedience:
 	jr .Print
 
 .DoNothing:
+	ld a, e
+	cp 42
+	jr z, .Pkrus_DoNothing
+
 	; 4 random choices
 	call BattleRandom
 	and %11
@@ -843,6 +870,26 @@ BattleCommand_CheckObedience:
 	jr z, .Print
 
 	ld hl, IgnoredOrdersText
+	jr .Print
+
+.Pkrus_DoNothing
+	; 4 random choices
+	call BattleRandom
+	and %11
+
+	ld hl, Pkrus_LoafingAroundText
+	and a ; 0
+	jr z, .Print
+
+	ld hl, Pkrus_WontObeyText
+	dec a ; 1
+	jr z, .Print
+
+	ld hl, Pkrus_TurnedAwayText
+	dec a ; 2
+	jr z, .Print
+
+	ld hl, Pkrus_IgnoredOrdersText
 
 .Print:
 	call StdBattleTextbox

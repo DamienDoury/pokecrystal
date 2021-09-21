@@ -780,7 +780,7 @@ LoadPinkPage:
 	db "TO@"
 
 .PkrsStr:
-	db "#RUS@"
+	db "INFECTED@"
 
 .PkrsImmuneStr:
 	db "IMMUNE@"

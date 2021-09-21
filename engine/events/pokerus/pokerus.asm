@@ -1,8 +1,6 @@
 GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	call ConvertBerriesToBerryJuice
 	ld hl, wPartyMon1PokerusStatus
-	ld a, [wPartyCount]
-	ld b, a
 	ld de, PARTYMON_STRUCT_LENGTH
 
 	; Récupération du premier Pokémon de l'équipe (index 0)
@@ -21,14 +19,13 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	and a
 	jp z, .next_mon_contaminated ; This Pokémon didn't go into battle, so it shall not be contaminated.
 
-
-	; If the Pokémon went into battle, it may infect other party members.
+	; We may have found a contagious Pokémon that has been into battle. We need to run additional tests to check if he is really contagious.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
-	cp POKERUS_IMMUNITY_DURATION ; Note that a vaccinated Pokémon has a duration of 1: this test discards him.
+	cp POKERUS_IMMUNITY_DURATION ; Note that a vaccinated Pokémon has a duration of 1: this test discards them.
 	jp z,  .TrySpreadPokerus ; starting 10 days left, you are immune and can't transmit the virus.
-	jp nc, .TrySpreadPokerus
-
+	jp nc, .TrySpreadPokerus ; If your virus duration left is above the immunity duration, then this Pokémon is indeed contagious. He will now try to spread its virus.
+	; Note: as we "jumped" instead of "called", this means we are leaving this script. Therefore, only the contagious pokémon with the lowest index in the team can try to spread its virus. It is not ideal.
 
 .next_mon_contaminated
 	ld a, [wPartyCount]
@@ -38,7 +35,6 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	cp b
 	jr z, .potentialInfectionFromStranger
 	ld [wCurPartyMon], a
-	ld de, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
 	add hl, de
 	jr .loop_contaminated
 
@@ -48,7 +44,7 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 .TrySpreadPokerus:
 	call Random
 	cp 255
-	;cp 33 percent + 1
+	;cp 33 percent + 1 ; Note: the odds are now managed later, so we shouldn't put a condition here.
 	jr nc, .potentialInfectionFromStranger ; 1/3 chance the virus won't try to spread.
 
 	ld a, [wPartyCount]
@@ -173,7 +169,7 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	ld a, [wCurPartyMon]
 	inc a
 	cp b
-	ret z; End 1 of this script page.
+	ret z; End 1 of this script page. Perhaps we should go back to.loop_contamined instead, so that other contagious Pokémon can try to spread their own virus.
 	ld [wCurPartyMon], a
 	ld de, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
 	add hl, de
