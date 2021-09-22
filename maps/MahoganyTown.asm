@@ -30,6 +30,7 @@ MahoganyTownTryARageCandyBarScript:
 	follow PLAYER, MAHOGANYTOWN_POKEFAN_M
 	applymovement PLAYER, MahoganyTownPlayerStepLeftMovement
 	stopfollow
+	applymovement PLAYER, MahoganyTownPlayerStepLeftMovement
 	turnobject PLAYER, RIGHT
 	scall RageCandyBarMerchantScript
 	applymovement MAHOGANYTOWN_POKEFAN_M, MahoganyTownRageCandyBarMerchantReturnsMovement
@@ -126,7 +127,9 @@ MahoganyTownCollideDownFaceLeftMovement: ; unreferenced
 	big_step UP
 	turn_head DOWN
 MahoganyTownPlayerStepLeftMovement:
+	turn_head RIGHT
 	step LEFT
+	turn_head RIGHT
 	step_end
 
 MahoganyTownRageCandyBarMerchantBlocksYouMovement:
