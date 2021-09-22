@@ -64,6 +64,9 @@ PlayBattleMusic:
 	jp z, .done
 	cp BATTLETYPE_ROAMING
 	jp z, .done
+	cp BATTLETYPE_SHINY
+	ld de, MUSIC_ROCKET_BATTLE
+	jp z, .done
 
 	; Are we fighting a trainer?
 	ld a, [wOtherTrainerClass]
