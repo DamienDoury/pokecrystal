@@ -184,8 +184,12 @@ CyndaquilPokeBallScript:
 	givepoke CYNDAQUIL, 5, BERRY
 	closetext
 	readvar VAR_FACING
-	ifequal RIGHT, ElmDirectionsScript
+	ifequal RIGHT, .AfterCyndaquilFromTheLeft
 	applymovement PLAYER, AfterCyndaquilMovement
+	sjump ElmDirectionsScript
+
+.AfterCyndaquilFromTheLeft:
+	applymovement PLAYER, AfterCyndaquilDownMovement
 	sjump ElmDirectionsScript
 
 TotodilePokeBallScript:
@@ -766,6 +770,11 @@ ElmsLab_ElmToDefaultPositionMovement2:
 	step RIGHT
 	step RIGHT
 	turn_head DOWN
+	step_end
+
+AfterCyndaquilDownMovement:
+	step DOWN
+	turn_head UP
 	step_end
 
 AfterCyndaquilMovement:
