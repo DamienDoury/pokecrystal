@@ -100,24 +100,26 @@ GetCardPic:
 	bit STATUSFLAGS2_WEARING_FACE_MASK_F, a
 	jr nz, .with_mask
 
-	ld hl, ChrisCardPic
+	ld hl, ChrisPicUnmasked
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_pic
-	ld hl, KrisCardPic
+	ld hl, KrisPicUnmasked
 	jr .got_pic
 
 .with_mask
-	ld hl, ChrisCardMaskedPic
+	ld hl, ChrisPic
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_pic
-	ld hl, KrisCardMaskedPic
+	ld hl, KrisPic
 	
 .got_pic
+	ld de, 112 ; We are using the 7 tiles * 7 tiles pic in stead of the default 5*7. So we need to start reading 7 tiles ahead. 7 tiles * 64 pixels / 4 (pixels / byte) = 112.
+	add hl, de
 	ld de, vTiles2 tile $00
 	ld bc, $23 tiles
-	ld a, BANK(ChrisCardPic) ; aka BANK(KrisCardPic)
+	ld a, BANK(ChrisPic) ; aka BANK(KrisCardPic)
 	call FarCopyBytes
 	ld hl, TrainerCardGFX
 	ld de, vTiles2 tile $23
@@ -125,18 +127,6 @@ GetCardPic:
 	ld a, BANK(TrainerCardGFX)
 	call FarCopyBytes
 	ret
-
-ChrisCardPic:
-INCBIN "gfx/trainer_card/chris_card.2bpp"
-
-ChrisCardMaskedPic:
-INCBIN "gfx/trainer_card/chris_card_masked.2bpp"
-
-KrisCardPic:
-INCBIN "gfx/trainer_card/kris_card.2bpp"
-
-KrisCardMaskedPic:
-INCBIN "gfx/trainer_card/kris_card_masked.2bpp"
 
 TrainerCardGFX:
 INCBIN "gfx/trainer_card/trainer_card.2bpp"
@@ -202,14 +192,15 @@ DrawIntroPlayerPic:
 	ld [wTrainerClass], a
 
 ; Load pic
-	ld de, ChrisPic
+	ld de, ChrisPicUnmasked
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .got_pic
-	ld de, KrisPic
+	ld de, KrisPicUnmasked
+
 .got_pic
 	ld hl, vTiles2
-	ld b, BANK(ChrisPic) ; aka BANK(KrisPic)
+	ld b, BANK(ChrisPicUnmasked) ; aka BANK(KrisPic)
 	ld c, 7 * 7 ; dimensions
 	call Get2bpp
 
@@ -221,8 +212,14 @@ DrawIntroPlayerPic:
 	predef PlaceGraphic
 	ret
 
+ChrisPicUnmasked:
+INCBIN "gfx/player/chris_unmasked.2bpp"
+
 ChrisPic:
 INCBIN "gfx/player/chris.2bpp"
+
+KrisPicUnmasked:
+INCBIN "gfx/player/kris_unmasked.2bpp"
 
 KrisPic:
 INCBIN "gfx/player/kris.2bpp"
