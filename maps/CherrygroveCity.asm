@@ -39,15 +39,15 @@ CherrygroveCityGuideGent:
 	readvar VAR_FACING
 	ifequal LEFT, .PlayerWalksLeft
 	ifequal RIGHT, .PlayerWalksRight
-	applymovement PLAYER, PlayerWalksUpMovement
+	applymovement PLAYER, CherrygroveCity_PlayerWalksUpMovement
 	sjump .StartFollowGrampForMap
 
 .PlayerWalksLeft:
-	applymovement PLAYER, PlayerWalksLeftMovement
+	applymovement PLAYER, CherrygroveCity_PlayerWalksLeftMovement
 	sjump .StartFollowGrampForMap
 
 .PlayerWalksRight:
-	applymovement PLAYER, PlayerWalksRightMovement
+	applymovement PLAYER, CherrygroveCity_PlayerWalksRightMovement
 	sjump .StartFollowGrampForMap
 
 .StartFollowGrampForMap:
@@ -77,7 +77,7 @@ CherrygroveCityGuideGent:
 	closetext
 	applymovement CHERRYGROVECITY_GRAMPS, GuideGentMovement5
 	stopfollow
-	applymovement CHERRYGROVECITY_GRAMPS, PlayerWalksRightMovement
+	applymovement CHERRYGROVECITY_GRAMPS, CherrygroveCity_PlayerWalksRightMovement
 	turnobject CHERRYGROVECITY_GRAMPS, UP
 	turnobject PLAYER, UP
 	pause 60
@@ -253,15 +253,15 @@ CherrygroveCityPokecenterSign:
 CherrygroveCityMartSign:
 	jumpstd MartSignScript
 
-PlayerWalksUpMovement:
+CherrygroveCity_PlayerWalksUpMovement:
 	step UP
 	step_end
 
-PlayerWalksLeftMovement:
+CherrygroveCity_PlayerWalksLeftMovement:
 	step LEFT
 	step_end
 
-PlayerWalksRightMovement:
+CherrygroveCity_PlayerWalksRightMovement:
 	step RIGHT
 	step_end
 

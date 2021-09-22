@@ -38,11 +38,22 @@ VioletCityEarlScript:
 	waitbutton
 	closetext
 	playmusic MUSIC_SHOW_ME_AROUND
+
+	readvar VAR_FACING
+	ifequal LEFT, .PlayerWalksLeft
+	applymovement PLAYER, VioletCity_PlayerWalksUpMovement
+	sjump .StartFollowEarl
+
+.PlayerWalksLeft:
+	applymovement PLAYER, VioletCity_PlayerWalksLeftMovement
+	sjump .StartFollowEarl
+
+.StartFollowEarl:
 	follow VIOLETCITY_EARL, PLAYER
 	applymovement VIOLETCITY_EARL, VioletCityFollowEarl_MovementData
-	turnobject PLAYER, UP
-	applymovement VIOLETCITY_EARL, VioletCitySpinningEarl_MovementData
 	stopfollow
+	applymovement VIOLETCITY_EARL, VioletCity_PlayerWalksUpMovement
+	applymovement VIOLETCITY_EARL, VioletCitySpinningEarl_MovementData
 	special RestartMapMusic
 	opentext
 	writetext Text_HereTeacherIAm
@@ -98,6 +109,14 @@ VioletCityFruitTree:
 VioletCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_VIOLET_CITY_HIDDEN_HYPER_POTION
 
+VioletCity_PlayerWalksUpMovement:
+	big_step UP
+	step_end
+
+VioletCity_PlayerWalksLeftMovement:
+	big_step LEFT
+	step_end
+
 VioletCityFollowEarl_MovementData:
 	big_step DOWN
 	big_step DOWN
@@ -129,6 +148,8 @@ VioletCityFollowEarl_MovementData:
 	turn_head RIGHT
 	turn_head DOWN
 	big_step DOWN
+	big_step DOWN
+	big_step DOWN
 	turn_head DOWN
 	turn_head LEFT
 	turn_head UP
@@ -154,7 +175,7 @@ VioletCityFollowEarl_MovementData:
 	turn_head LEFT
 	turn_head UP
 	big_step UP
-	turn_head DOWN
+	big_step UP
 	step_end
 
 VioletCityFinishFollowEarl_MovementData:
