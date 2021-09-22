@@ -47,8 +47,18 @@ TrainerGruntM1:
 	disappear SLOWPOKEWELLB1F_KURT
 	moveobject SLOWPOKEWELLB1F_KURT, 11, 6
 	appear SLOWPOKEWELLB1F_KURT
-	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictoryMovementData
+	readvar VAR_YCOORD
+	ifequal 3, .SlowpokeWellB1F_KurtTop
+	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictoryMovementBotData
+	pause 5
+	applymovement PLAYER, PlayerRespectsKurtDistancingMovementData
+	sjump .SlowpokeWellB1F_KurtIsInPlace
+
+.SlowpokeWellB1F_KurtTop:
+	applymovement SLOWPOKEWELLB1F_KURT, KurtSlowpokeWellVictoryMovementTopData
 	turnobject PLAYER, RIGHT
+
+.SlowpokeWellB1F_KurtIsInPlace:
 	opentext
 	writetext KurtLeaveSlowpokeWellText
 	waitbutton
@@ -68,7 +78,7 @@ TrainerGruntM1:
 	special FadeOutPalettes
 	special HealParty
 	pause 15
-	warp KURTS_HOUSE, 3, 3
+	warp KURTS_HOUSE, 3, 4
 	end
 
 TrainerGruntM2:
@@ -124,22 +134,50 @@ SlowpokeWellB1FBoulder:
 SlowpokeWellB1FSuperPotion:
 	itemball SUPER_POTION
 
-KurtSlowpokeWellVictoryMovementData:
+KurtSlowpokeWellVictoryMovementTopData:
 	step LEFT
 	step LEFT
 	step LEFT
+	step LEFT
+	step_sleep 8
+	step_sleep 8
+	step_sleep 8
+	step UP
 	step LEFT
 	step UP
-	step_sleep 8
-	step_sleep 8
-	step_sleep 8
-	step LEFT
 	step UP
+	step RIGHT
+	step_sleep 8
+	step_sleep 8
+	step_sleep 8
+	turn_head LEFT
+	step_end
+
+KurtSlowpokeWellVictoryMovementBotData:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_sleep 8
+	step_sleep 8
+	step_sleep 8
+	step UP
+	step LEFT
 	step UP
 	step_sleep 8
 	step_sleep 8
 	step_sleep 8
 	turn_head LEFT
+	step_end
+
+PlayerRespectsKurtDistancingMovementData:
+	turn_head RIGHT
+	step_sleep 8
+	step_sleep 8
+	step_sleep 8
+	fix_facing
+	step LEFT
+	remove_fixed_facing
 	step_end
 
 SlowpokeWellB1FKurtText:
@@ -301,7 +339,7 @@ SlowpokeWellB1FSlowpokeWithMailText:
 	done
 
 SlowpokeWellB1FSlowpokeMailText:
-	text "<PLAYER> read the"
+	text "<PLAYER> reads the"
 	line "MAIL."
 
 	para "Be good and look"

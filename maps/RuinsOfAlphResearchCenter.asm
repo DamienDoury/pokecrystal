@@ -42,9 +42,6 @@ RuinsOfAlphResearchCenter_MapScripts:
 	opentext
 	writetext RuinsOfAlphResearchCenterModifiedDexText
 	waitbutton
-	closetext
-	applymovement RUINSOFALPHRESEARCHCENTER_SCIENTIST3, RuinsOfAlphResearchCenterApproachesPlayerMovement
-	opentext
 	writetext RuinsOfAlphResearchCenterDexUpgradedText
 	playsound SFX_ITEM
 	waitsfx
@@ -180,12 +177,8 @@ RuinsOfAlphResearchCenterApproachesComputerMovement:
 	turn_head UP
 	step_end
 
-RuinsOfAlphResearchCenterApproachesPlayerMovement:
-	step DOWN
-	step_end
-
 RuinsOfAlphResearchCenterLeavesPlayerMovement:
-	step UP
+	turn_head UP
 	step_end
 
 RuinsOfAlphResearchCenterModifiedDexText:

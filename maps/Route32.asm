@@ -84,9 +84,12 @@ Route32CooltrainerMContinueScene:
 	closetext
 	end
 
+Route32CooltrainerMStopsYouLeftScene:
+	applymovement ROUTE32_COOLTRAINER_M, Route32_OneStepLeftMovement
+
 Route32CooltrainerMStopsYouScene:
-	turnobject ROUTE32_COOLTRAINER_M, LEFT
-	turnobject PLAYER, RIGHT
+	turnobject ROUTE32_COOLTRAINER_M, UP
+	turnobject PLAYER, DOWN
 	opentext
 	writetext Route32CooltrainerMText_WhatsTheHurry
 	waitbutton
@@ -97,7 +100,10 @@ Route32CooltrainerMStopsYouScene:
 	turnobject PLAYER, DOWN
 	scall Route32CooltrainerMContinueScene
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset1
+	readvar VAR_XCOORD
+	ifgreater 18, .Route32_EndMovement
 	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset2
+.Route32_EndMovement:
 	end
 
 Route32RoarTMGuyScript:
@@ -117,6 +123,9 @@ Route32RoarTMGuyScript:
 	closetext
 	end
 
+Route32WannaBuyASlowpokeTailTopScript:
+	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMPushesYouBackToViolet
+
 Route32WannaBuyASlowpokeTailScript:
 	turnobject ROUTE32_FISHER4, DOWN
 	turnobject PLAYER, UP
@@ -133,12 +142,20 @@ _OfferToSellSlowpokeTail:
 	writetext Text_ThoughtKidsWereLoaded
 	waitbutton
 	closetext
+	readvar VAR_YCOORD
+	ifequal 70, .Route32_FisherSlowpokeTailWalksDown
+	end
+
+.Route32_FisherSlowpokeTailWalksDown
+	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMReset1
 	end
 
 .refused
 	writetext Text_RefusedToBuySlowpokeTail
 	waitbutton
 	closetext
+	readvar VAR_YCOORD
+	ifequal 70, .Route32_FisherSlowpokeTailWalksDown
 	end
 
 TrainerCamperRoland:
@@ -479,8 +496,11 @@ Route32HiddenGreatBall:
 Route32HiddenSuperPotion:
 	hiddenitem SUPER_POTION, EVENT_ROUTE_32_HIDDEN_SUPER_POTION
 
+Route32_OneStepLeftMovement:
+	step LEFT
+	step_end
+
 Movement_Route32CooltrainerMPushesYouBackToViolet:
-	step UP
 	step UP
 	step_end
 
@@ -900,8 +920,10 @@ Route32_MapEvents:
 	warp_event  6, 79, UNION_CAVE_1F, 4
 
 	def_coord_events
-	coord_event 18,  8, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
-	coord_event  7, 71, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
+	coord_event 18,  6, SCENE_DEFAULT, Route32CooltrainerMStopsYouLeftScene
+	coord_event 19,  6, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
+	coord_event  6, 70, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailTopScript
+	coord_event  6, 71, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
 
 	def_bg_events
 	bg_event 13,  5, BGEVENT_READ, Route32Sign
@@ -921,7 +943,7 @@ Route32_MapEvents:
 	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1
 	object_event 19,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32CooltrainerMScript, -1
 	object_event 11, 82, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPeter, -1
-	object_event  7, 70, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeTailSalesmanScript, EVENT_SLOWPOKE_WELL_ROCKETS
+	object_event  6, 69, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeTailSalesmanScript, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  6, 53, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL
 	object_event 15, 13, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32RoarTMGuyScript, -1
 	object_event 12, 67, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FriedaScript, EVENT_ROUTE_32_FRIEDA_OF_FRIDAY
