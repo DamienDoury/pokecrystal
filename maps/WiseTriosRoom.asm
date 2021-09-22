@@ -58,6 +58,7 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	applymovement PLAYER, WiseTriosRoomSageBlocksPlayerMovement
 	stopfollow
 	turnobject PLAYER, RIGHT
+	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomWalkRightMovement
 	opentext
 	writetext WiseTriosRoomSage3BlocksExitText
 	waitbutton
@@ -118,8 +119,12 @@ WiseTriosRoomSageBlocksPlayerMovement:
 	step LEFT
 	step_end
 
-WiseTriosRoomSageReturnsMovement:
+WiseTriosRoomWalkRightMovement:
 	step RIGHT
+	turn_head LEFT
+	step_end
+
+WiseTriosRoomSageReturnsMovement:
 	step DOWN
 	step_end
 
