@@ -138,9 +138,17 @@ VermilionMachopOwnerText:
 	line "preparing the land"
 	cont "for construction."
 
-	para "But I have no"
-	line "money to start the"
-	cont "project…"
+	para "The project was"
+	line "already running"
+	cont "late, but because"
+	cont "of the pandemic,"
+	cont "it has been"
+	cont "delayed even"
+	cont "more."
+
+	para "I wonder if it is"
+	line "ever going to be"
+	cont "finished…"
 	done
 
 VermilionMachopText1:
