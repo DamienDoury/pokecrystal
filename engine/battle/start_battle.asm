@@ -65,7 +65,7 @@ PlayBattleMusic:
 	cp BATTLETYPE_ROAMING
 	jp z, .done
 	cp BATTLETYPE_SHINY
-	ld de, MUSIC_ROCKET_BATTLE
+	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
 	jp z, .done
 
 	; Are we fighting a trainer?
