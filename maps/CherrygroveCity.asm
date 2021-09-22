@@ -35,6 +35,22 @@ CherrygroveCityGuideGent:
 	waitbutton
 	closetext
 	playmusic MUSIC_SHOW_ME_AROUND
+
+	readvar VAR_FACING
+	ifequal LEFT, .PlayerWalksLeft
+	ifequal RIGHT, .PlayerWalksRight
+	applymovement PLAYER, PlayerWalksUpMovement
+	sjump .StartFollowGrampForMap
+
+.PlayerWalksLeft:
+	applymovement PLAYER, PlayerWalksLeftMovement
+	sjump .StartFollowGrampForMap
+
+.PlayerWalksRight:
+	applymovement PLAYER, PlayerWalksRightMovement
+	sjump .StartFollowGrampForMap
+
+.StartFollowGrampForMap:
 	follow CHERRYGROVECITY_GRAMPS, PLAYER
 	applymovement CHERRYGROVECITY_GRAMPS, GuideGentMovement1
 	opentext
@@ -60,6 +76,9 @@ CherrygroveCityGuideGent:
 	waitbutton
 	closetext
 	applymovement CHERRYGROVECITY_GRAMPS, GuideGentMovement5
+	stopfollow
+	applymovement CHERRYGROVECITY_GRAMPS, PlayerWalksRightMovement
+	turnobject CHERRYGROVECITY_GRAMPS, UP
 	turnobject PLAYER, UP
 	pause 60
 	turnobject CHERRYGROVECITY_GRAMPS, LEFT
@@ -75,7 +94,6 @@ CherrygroveCityGuideGent:
 	writetext GuideGentPokegearText
 	waitbutton
 	closetext
-	stopfollow
 	special RestartMapMusic
 	turnobject PLAYER, UP
 	applymovement CHERRYGROVECITY_GRAMPS, GuideGentMovement6
@@ -235,6 +253,18 @@ CherrygroveCityPokecenterSign:
 CherrygroveCityMartSign:
 	jumpstd MartSignScript
 
+PlayerWalksUpMovement:
+	step UP
+	step_end
+
+PlayerWalksLeftMovement:
+	step LEFT
+	step_end
+
+PlayerWalksRightMovement:
+	step RIGHT
+	step_end
+
 GuideGentMovement1:
 	step LEFT
 	step LEFT
@@ -295,8 +325,6 @@ GuideGentMovement5:
 	step RIGHT
 	step RIGHT
 	step RIGHT
-	step RIGHT
-	turn_head UP
 	step_end
 
 GuideGentMovement6:

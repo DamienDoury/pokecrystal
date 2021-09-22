@@ -298,8 +298,7 @@ TVShow:
 	cont "on weekdays that"
 	cont "depend on the last"
 	cont "figure of their"
-	cont "social security"
-	cont "number."
+	cont "TRAINER ID."
 	done
 
 .Phase1Even3:
@@ -309,8 +308,8 @@ TVShow:
 	text "INTERNATIONAL"
 
 	para "“The president of"
-	line "another region is"
-	cont "calling the virus"
+	line "Unova is calling"
+	cont "the virus the"
 	cont "“Kantonese virus”,"
 	cont "spreading hate"
 	cont "against Kanto"
