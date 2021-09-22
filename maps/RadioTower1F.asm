@@ -235,7 +235,7 @@ RadioTower1FLuckyNumberManAskToPlayText:
 	done
 
 RadioTower1FLuckyNumberManThisWeeksIdIsText:
-	text "This week's ID"
+	text "Today's ID"
 	line "number is @"
 	text_ram wStringBuffer3
 	text "."
