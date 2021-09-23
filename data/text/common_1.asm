@@ -1836,6 +1836,32 @@ _ComeAgainText::
 	text "Come again."
 	done
 
+_DayCare_RumorsText::
+	text "I've heard some"
+	line "rumors saying that"
+	cont "this #MON"
+	cont "species might be"
+	cont "at the origin"
+	cont "of the virus."
+
+	para "I don't want to"
+	line "take the risk of"
+	cont "getting infected."
+
+	para "I won't raise"
+	line "this one. Sorry."
+	prompt
+
+_DayCare_LooksLikeVirusText::
+	text "This #MON"
+	line "looks like a giant"
+	cont "virus, and I'm"
+	cont "superstitious…"
+
+	para "I can't raise this"
+	line "#MON, sorry."
+	prompt
+
 _NotYetText::
 	text "Not yet…"
 	done

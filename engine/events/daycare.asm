@@ -20,6 +20,8 @@
 	const DAYCARETEXT_NOT_ENOUGH_MONEY
 	const DAYCARETEXT_OH_FINE
 	const DAYCARETEXT_COME_AGAIN
+	const DAYCARETEXT_RUMORS
+	const DAYCARETEXT_LOOKS_LIKE_VIRUS
 
 DayCareMan:
 	ld hl, wDayCareMan
@@ -126,6 +128,20 @@ DayCareAskDepositPokemon:
 	ld a, [wCurPartySpecies]
 	cp EGG
 	jr z, .Egg
+	cp KOFFING
+	jr z, .LooksLikeVirus
+	cp WEEZING
+	jr z, .LooksLikeVirus
+	cp ZUBAT
+	jr z, .Rumors
+	cp GOLBAT
+	jr z, .Rumors
+	cp CROBAT
+	jr z, .Rumors
+	cp SANDSHREW
+	jr z, .Rumors
+	cp SANDSLASH
+	jr z, .Rumors
 	farcall CheckCurPartyMonFainted
 	jr c, .OutOfUsableMons
 	ld hl, wPartyMon1Item
@@ -148,6 +164,16 @@ DayCareAskDepositPokemon:
 
 .Egg:
 	ld a, DAYCARETEXT_CANT_BREED_EGG
+	scf
+	ret
+
+.Rumors:
+	ld a, DAYCARETEXT_RUMORS
+	scf
+	ret
+
+.LooksLikeVirus:
+	ld a, DAYCARETEXT_LOOKS_LIKE_VIRUS
 	scf
 	ret
 
@@ -293,6 +319,8 @@ PrintDayCareText:
 	dw .NotEnoughMoneyText ; 11
 	dw .OhFineThenText ; 12
 	dw .ComeAgainText ; 13
+	dw .RumorsText ; 14
+	dw .LooksLikeVirusText ; 15
 
 .DayCareManIntroText:
 	text_far _DayCareManIntroText
@@ -372,6 +400,14 @@ PrintDayCareText:
 
 .ComeAgainText:
 	text_far _ComeAgainText
+	text_end
+
+.RumorsText:
+	text_far _DayCare_RumorsText
+	text_end
+
+.LooksLikeVirusText:
+	text_far _DayCare_LooksLikeVirusText
 	text_end
 
 DayCareManOutside:
