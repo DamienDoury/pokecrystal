@@ -132,7 +132,7 @@ TinTower1F_MapScripts:
 	clearevent EVENT_SET_WHEN_FOUGHT_HO_OH
 	reloadmapafterbattle
 	pause 20
-	turnobject PLAYER, DOWN
+	applymovement PLAYER, TinTower1FPlayerStandsBackMovement
 	playmusic MUSIC_MYSTICALMAN_ENCOUNTER
 	playsound SFX_ENTER_DOOR
 	moveobject TINTOWER1F_EUSINE, 10, 15
@@ -274,14 +274,23 @@ TinTower1FPlayerBacksUpMovement:
 	remove_fixed_facing
 	step_end
 
+TinTower1FPlayerStandsBackMovement:
+	step UP
+	turn_head DOWN
+	step_end
+
 TinTower1FEusineEntersMovement:
 	step UP
+	step UP
+	step RIGHT
 	step UP
 	step UP
 	turn_head LEFT
 	step_end
 
 TinTower1FEusineLeavesMovement:
+	step DOWN
+	step LEFT
 	step DOWN
 	step DOWN
 	step DOWN
