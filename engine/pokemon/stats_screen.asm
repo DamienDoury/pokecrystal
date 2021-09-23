@@ -612,7 +612,7 @@ LoadPinkPage:
 
 
 .HasBeenTested
-	; Status displayed will be either Pokérus, Asympt. or Immune. Also, the Vaccinated icon can be displayed.
+	; Status displayed will be either Covid, Incub. or Immune. Also, the Vaccinated icon can be displayed.
 	ld a, b
 	and POKERUS_STRAIN_MASK
 	cp POKERUS_VACCINE_STRAIN
@@ -628,7 +628,7 @@ LoadPinkPage:
 	and POKERUS_DURATION_MASK 
 	cp POKERUS_IMMUNITY_DURATION
 	jr z, .immune 
-	jr nc, .pkrsOrAsymptomatic ; If the duration is strictly greater than the immune duration, then the Pokémon has the "Pokérus" status. Otherwise it is "immune".
+	jr nc, .incubOrCovid ; If the duration is strictly greater than the immune duration, then the Pokémon is either incubating or has the covid. Otherwise it is "immune".
 
 .immune
 	; Immune text.
@@ -637,14 +637,24 @@ LoadPinkPage:
 	call PlaceString
 	jr .done_status
 
-.pkrsOrAsymptomatic
-	; Pokérus text.
+.incubOrCovid
+	ld a, b
+	and POKERUS_DURATION_MASK
+	cp POKERUS_SYMPTOMS_START
+	jr z, .covid 
+	jr nc, .incub
+
+.covid
 	ld de, .PkrsStr
 	hlcoord 1, 13
 	call PlaceString
 	jr .done_status
 
-
+.incub
+	ld de, .IncubStr
+	hlcoord 1, 13
+	call PlaceString
+	jr .done_status
 
 .HasNotBeenTestedYet
 	; Status displayed will be either Sick or Ok.
@@ -768,7 +778,7 @@ LoadPinkPage:
 	next "TYPE/@"
 
 .OK_str:
-	db "OK @"
+	db "HEALTHY@"
 
 .ExpPointStr:
 	db "EXP POINTS@"
@@ -779,8 +789,11 @@ LoadPinkPage:
 .ToStr:
 	db "TO@"
 
+.IncubStr:
+	db "INCUB.@"
+
 .PkrsStr:
-	db "INFECTED@"
+	db "COVID@"
 
 .PkrsImmuneStr:
 	db "IMMUNE@"

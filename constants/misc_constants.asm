@@ -62,9 +62,9 @@ POKERUS_WEAKNESS_DISEASE_MASK EQU %00100000
 POKERUS_VACCINE_STRAIN EQU %00000000 ; For a Pokémon to be vaccinated, along with this strain (000), it must have a test bit activated, and a duration between 0 and POKERUS_IMMUNITY_DURATION (both excluded, ideally set it to 1).
 POKERUS_VACCINE_SIGNATURE EQU %00010001 ; The exact signature of a vaccine. 000 strain + test bit set + 1 remaining day of immunity.
 POKERUS_DISEASE_STRAIN_FLOOR EQU %01100000
-POKERUS_IMMUNITY_DURATION EQU 10 ; days
+POKERUS_IMMUNITY_DURATION EQU 10 ; days. The 10th day is included within the immunity period.
 POKERUS_SYMPTOMS_DURATION EQU 3 ; days
-POKERUS_SYMPTOMS_START EQU 13 ; days
+POKERUS_SYMPTOMS_START EQU 13 ; days. The 13th day is included within the covid period.
 
 ; Liberty flags
 ; Réflexion : de base, le byte hour et timeofday valent -1, soit tous les bits à 1. Si on a pas à changer ça, c'est cool. 
