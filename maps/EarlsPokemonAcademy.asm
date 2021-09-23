@@ -67,58 +67,58 @@ AcademyBlackboard:
 	loadmenu .BlackboardMenuHeader
 	_2dmenu
 	closewindow
-	ifequal 1, .Poison
-	ifequal 2, .Paralysis
-	ifequal 3, .Sleep
-	ifequal 4, .Burn
-	ifequal 5, .Freeze
+	ifequal 1, .Healthy
+	ifequal 2, .Sick
+	ifequal 3, .Incub
+	ifequal 4, .Covid
+	ifequal 5, .Immune
 	closetext
 	end
 
-.Poison:
-	writetext AcademyPoisonText
+.Healthy:
+	writetext AcademyHealthyText
 	waitbutton
 	sjump .Loop
 
-.Paralysis:
-	writetext AcademyParalysisText
+.Sick:
+	writetext AcademySickText
 	waitbutton
 	sjump .Loop
 
-.Sleep:
-	writetext AcademySleepText
+.Incub:
+	writetext AcademyIncubText
 	waitbutton
 	sjump .Loop
 
-.Burn:
-	writetext AcademyBurnText
+.Covid:
+	writetext AcademyCovidText
 	waitbutton
 	sjump .Loop
 
-.Freeze:
-	writetext AcademyFreezeText
+.Immune:
+	writetext AcademyImmuneText
 	waitbutton
 	sjump .Loop
 
 .BlackboardMenuHeader:
 	db MENU_BACKUP_TILES ; flags
-	menu_coords 0, 0, 11, 8
+	menu_coords 0, 0, 17, 8
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	dn 3, 2 ; rows, columns
-	db 5 ; spacing
+	db 9 ; spacing
 	dba .Text
 	dbw BANK(@), NULL
 
 .Text:
-	db "PSN@"
-	db "PAR@"
-	db "SLP@"
-	db "BRN@"
-	db "FRZ@"
+	db "HEALTHY@"
+	db "SICK@"
+	db "INCUB.@"
+	db "COVID@"
+	db "IMMUNE@"
 	db "QUIT@"
 
 AcademyNotebook:
@@ -266,76 +266,111 @@ AcademyBlackboardText:
 	text "The blackboard"
 	line "describes #MON"
 
-	para "status changes in"
-	line "battle."
+	para "health status,"
+	line "and what we know"
+	cont "about the virus."
 	done
 
 AcademyBlackboardText2: ; unreferenced
 	text "Read which topic?"
 	done
 
-AcademyPoisonText:
-	text "If poisoned, a"
-	line "#MON steadily"
-	cont "loses HP."
-
-	para "Poison lingers"
-	line "after the battle,"
-
-	para "and HP is lost as"
-	line "you walk."
-
-	para "To cure it, use an"
-	line "ANTIDOTE."
+AcademyHealthyText:
+	text "The #MON is in"
+	line "good shape."
+	cont "Nothing to report."
 	done
 
-AcademyParalysisText:
-	text "Paralysis reduces"
-	line "speed and may"
-	cont "prevent movement."
+AcademySickText:
+	text "Symptoms of a"
+	line "disease. Better"
+	cont "keep the #MON"
+	cont "quarantined to"
+	cont "prevent spreading."
 
-	para "It remains after"
-	line "battle, so use"
-	cont "a PARLYZ HEAL."
+	para "Test the #MON"
+	line "at a #MON"
+	cont "CENTER to find out"
+	cont "if it's a disease"
+	cont "that they can"
+	cont "cure, or if it is"
+	cont "COVID."
 	done
 
-AcademySleepText:
-	text "If asleep, your"
-	line "#MON can't make"
-	cont "a move."
+AcademyIncubText:
+	text "The #MON has"
+	line "been tested"
+	cont "positive to COVID."
 
-	para "A sleeping #MON"
-	line "doesn't wake up"
-	cont "after battle."
+	para "The incubation is"
+	line "phase 1/3 of the"
+	cont "infection by the"
+	cont "virus."
 
-	para "Wake it up with"
-	line "an AWAKENING."
+	para "During this phase"
+	line "the #MON won't"
+	cont "have any disease"
+	cont "symptom."
+
+	para "However, it is"
+	line "already contagious"
+	cont "and should be kept"
+	cont "quarantined."
+
+	para "The next phase is"
+	line "the appearance"
+	cont "of symptoms."
 	done
 
-AcademyBurnText:
-	text "A burn steadily"
-	line "consumes HP."
+AcademyCovidText:
+	text "The #MON has"
+	line "been tested"
+	cont "positive to COVID."
 
-	para "It also reduces"
-	line "attack power."
+	para "The disease is"
+	line "phase 2/3 of the"
+	cont "infection by the"
+	cont "virus."
 
-	para "A burn lingers"
-	line "after battle."
+	para "The #MON will"
+	line "have symptoms"
+	cont "of a disease."
 
-	para "Use a BURN HEAL as"
-	line "the cure."
+	para "We don't know"
+	line "exactly what those"
+	cont "symptoms are, and"
+	cont "how long they"
+	cont "last."
+
+	para "Keep the #MON"
+	line "quarantined to"
+	cont "prevent spreading"
+	cont "of the virus, and"
+	cont "keep up with the"
+	cont "latest news."
 	done
 
-AcademyFreezeText:
-	text "If your #MON is"
-	line "frozen, it can't"
-	cont "do a thing."
+AcademyImmuneText:
+	text "The #MON has"
+	line "recovered from"
+	cont "COVID."
 
-	para "It remains frozen"
-	line "after battle."
+	para "The immunity is"
+	line "phase 3/3 of the"
+	cont "infection by the"
+	cont "virus."
 
-	para "Thaw it out with"
-	line "an ICE HEAL."
+	para "This phase should"
+	line "last a long time."
+
+	para "Meanwhile, the"
+	line "#MON can"
+	cont "neither catch nor"
+	cont "spread the virus."
+
+	para "At this point,"
+	line "the quarantine"
+	cont "can be ended."
 	done
 
 AcademyNotebookText:
