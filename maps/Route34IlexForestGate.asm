@@ -32,6 +32,7 @@ Route34IlexForestGateCelebiEvent:
 	follow PLAYER, ROUTE34ILEXFORESTGATE_TEACHER2
 	applymovement PLAYER, Route34IlexForestGateTeacherBlocksPlayerMovement
 	stopfollow
+	applymovement ROUTE34ILEXFORESTGATE_TEACHER2, Route34IlexForestGateTeacherStepsBackMovement
 	turnobject PLAYER, DOWN
 	opentext
 	writetext Route34IlexForestGateTeacher_ForestIsRestless
@@ -82,8 +83,12 @@ Route34IlexForestGateTeacherBlocksPlayerMovement:
 	step UP
 	step_end
 
-Route34IlexForestGateTeacherReturnsMovement:
+Route34IlexForestGateTeacherStepsBackMovement:
 	step DOWN
+	turn_head UP
+	step_end
+
+Route34IlexForestGateTeacherReturnsMovement:
 	step RIGHT
 	step_end
 

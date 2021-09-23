@@ -1,7 +1,7 @@
 	object_const_def
 	const TEAMROCKETBASEB3F_LANCE
 	const TEAMROCKETBASEB3F_ROCKET1
-	const TEAMROCKETBASEB3F_MOLTRES
+	const TEAMROCKETBASEB3F_MURKROW
 	const TEAMROCKETBASEB3F_ROCKET_GIRL
 	const TEAMROCKETBASEB3F_ROCKET2
 	const TEAMROCKETBASEB3F_SCIENTIST1
@@ -49,12 +49,18 @@ TeamRocketBaseB3F_MapScripts:
 LanceGetPasswordScript:
 	turnobject PLAYER, LEFT
 	pause 5
-	turnobject TEAMROCKETBASEB3F_MOLTRES, RIGHT
+	turnobject TEAMROCKETBASEB3F_MURKROW, RIGHT
 	pause 20
-	applymovement TEAMROCKETBASEB3F_LANCE, RocketBaseLanceApproachesPlayerMovement
+	turnobject TEAMROCKETBASEB3F_LANCE, RIGHT
 	opentext
 	writetext LanceGetPasswordText
-	waitbutton
+	waitbutton 
+	turnobject TEAMROCKETBASEB3F_LANCE, LEFT
+	writetext LanceGetPasswordText2
+	waitbutton 
+	turnobject TEAMROCKETBASEB3F_LANCE, RIGHT
+	writetext LanceGetPasswordText3
+	waitbutton 
 	closetext
 	applymovement TEAMROCKETBASEB3F_LANCE, RocketBaseLanceLeavesMovement
 	disappear TEAMROCKETBASEB3F_LANCE
@@ -84,13 +90,11 @@ RocketBaseRival:
 TeamRocketBaseB3FRocketScript:
 	jumptextfaceplayer TeamRocketBaseB3FRocketText
 
-RocketBaseBossLeft:
-	applymovement PLAYER, RocketBasePlayerApproachesBossLeftMovement
-	sjump RocketBaseBoss
-
 RocketBaseBossRight:
 	applymovement PLAYER, RocketBasePlayerApproachesBossRightMovement
-RocketBaseBoss:
+
+RocketBaseBossLeft:
+	applymovement PLAYER, RocketBasePlayerApproachesBossLeftMovement
 	pause 30
 	showemote EMOTE_SHOCK, TEAMROCKETBASEB3F_ROCKET1, 15
 	playmusic MUSIC_ROCKET_ENCOUNTER
@@ -217,32 +221,21 @@ TeamRocketBaseB3FIceHeal:
 TeamRocketBaseB3FUltraBall:
 	itemball ULTRA_BALL
 
-RocketBaseLanceApproachesPlayerMovement:
-	step RIGHT
-	step_end
-
 RocketBaseLanceLeavesMovement:
 	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
+	step_end
+
+RocketBasePlayerApproachesBossRightMovement:
 	step LEFT
 	step_end
 
 RocketBasePlayerApproachesBossLeftMovement:
 	step UP
 	step UP
-	step UP
-	step LEFT
-	step LEFT
-	turn_head UP
-	step_end
-
-RocketBasePlayerApproachesBossRightMovement:
-	step UP
-	step UP
-	step LEFT
 	step UP
 	step LEFT
 	step LEFT
@@ -326,12 +319,16 @@ LanceGetPasswordText:
 	para "Those passwords"
 	line "are known only to"
 	cont "a few ROCKETS."
+	done
 
-	para "That ROCKET there"
+LanceGetPasswordText2:
+	text "That ROCKET there"
 	line "very graciously"
 	cont "told me so."
+	done
 
-	para "<PLAY_G>, let's go"
+LanceGetPasswordText3:
+	text "<PLAY_G>, let's go"
 	line "get the passwords."
 	done
 
@@ -597,7 +594,7 @@ TeamRocketBaseB3F_MapEvents:
 	object_event  5, 14, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, RaticateTailGrunt, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 23, 11, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerScientistRoss, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event 11, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerScientistMitch, EVENT_TEAM_ROCKET_BASE_POPULATION
-	object_event 24, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TeamRocketBaseB3FRocketScript, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event 23, 14, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TeamRocketBaseB3FRocketScript, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  5, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_TEAM_ROCKET_BASE
 	object_event  1, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB3FProtein, EVENT_TEAM_ROCKET_BASE_B3F_PROTEIN
 	object_event  3, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, TeamRocketBaseB3FXSpecial, EVENT_TEAM_ROCKET_BASE_B3F_X_SPECIAL

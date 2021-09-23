@@ -153,13 +153,15 @@ RocketBaseLancesSideScript:
 	end
 
 LanceHealsScript1:
-	turnobject PLAYER, UP
+	turnobject PLAYER, RIGHT
+	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseBossFFacesPlayerMovement
 	sjump LanceHealsCommon
 
 LanceHealsScript2:
 	turnobject PLAYER, RIGHT
 	turnobject TEAMROCKETBASEB2F_LANCE, LEFT
 LanceHealsCommon:
+	faceplayer
 	opentext
 	writetext LanceHealsText1
 	waitbutton
@@ -175,14 +177,7 @@ LanceHealsCommon:
 	closetext
 	setscene SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS
 	setevent EVENT_LANCE_HEALED_YOU_IN_TEAM_ROCKET_BASE
-	readvar VAR_FACING
-	ifequal RIGHT, .FacingRight
 	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesAfterHealMovement
-	disappear TEAMROCKETBASEB2F_LANCE
-	end
-
-.FacingRight:
-	applymovement TEAMROCKETBASEB2F_LANCE, RocketBaseLanceLeavesAfterHealRightMovement
 	disappear TEAMROCKETBASEB2F_LANCE
 	end
 
@@ -361,16 +356,6 @@ RocketBaseLanceLeavesAfterHealMovement:
 	step RIGHT
 	step RIGHT
 	step RIGHT
-	step RIGHT
-	step RIGHT
-	step_end
-
-RocketBaseLanceLeavesAfterHealRightMovement:
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
-	step RIGHT
 	step_end
 
 RocketBasePlayerApproachesBossFMovement:
@@ -398,6 +383,7 @@ RocketBaseGruntApproachesPlayerMovement:
 	big_step LEFT
 	big_step UP
 	big_step UP
+	big_step LEFT
 	big_step LEFT
 	big_step LEFT
 	step_end
@@ -437,7 +423,6 @@ RocketBaseGruntBattlesLanceMovement:
 	step_end
 
 RocketBaseGruntProtectsBossFMovement:
-	big_step LEFT
 	big_step UP
 	turn_head LEFT
 	step_end
@@ -445,11 +430,11 @@ RocketBaseGruntProtectsBossFMovement:
 RocketBaseLanceChecksPlayerMovement:
 	step RIGHT
 	step RIGHT
+	step UP
 	turn_head DOWN
 	step_end
 
 RocketBaseLanceApproachesMachineMovement:
-	step UP
 	step UP
 	step UP
 	step_end
@@ -476,7 +461,6 @@ RocketBaseLanceApproachesElectrodesMovement:
 	step RIGHT
 	step RIGHT
 	step RIGHT
-	step UP
 	step UP
 	step UP
 	step UP
@@ -516,6 +500,7 @@ RocketBaseLanceLeavesBaseMovement:
 	step LEFT
 	step LEFT
 	step LEFT
+	step LEFT
 	step_end
 
 RocketBasePlayerLeavesElectrodesMovement1:
@@ -527,7 +512,6 @@ RocketBasePlayerLeavesElectrodesMovement1:
 	step DOWN
 	step DOWN
 	step DOWN
-	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -543,7 +527,6 @@ RocketBasePlayerLeavesElectrodesMovement2:
 	step RIGHT
 	step RIGHT
 	step RIGHT
-	step RIGHT
 	step_end
 
 RocketBasePlayerLeavesElectrodesMovement3:
@@ -551,7 +534,6 @@ RocketBasePlayerLeavesElectrodesMovement3:
 	step RIGHT
 	step DOWN
 	step DOWN
-	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -918,7 +900,7 @@ TeamRocketBaseB2F_MapEvents:
 
 	def_coord_events
 	coord_event  5, 14, SCENE_DEFAULT, LanceHealsScript1
-	coord_event  4, 13, SCENE_DEFAULT, LanceHealsScript2
+	coord_event  5, 13, SCENE_DEFAULT, LanceHealsScript2
 	coord_event 14, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFLeft
 	coord_event 15, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFRight
 	coord_event 14, 12, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
@@ -955,7 +937,7 @@ TeamRocketBaseB2F_MapEvents:
 	def_object_events
 	object_event 20, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_GRUNT_WITH_EXECUTIVE
 	object_event 20, 16, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_EXECUTIVE
-	object_event  5, 13, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
+	object_event  7, 13, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_LANCE
 	object_event  9, 13, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEAM_ROCKET_BASE_B2F_DRAGONITE
 	object_event  7,  5, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode1, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_1
 	object_event  7,  7, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RocketElectrode2, EVENT_TEAM_ROCKET_BASE_B2F_ELECTRODE_2

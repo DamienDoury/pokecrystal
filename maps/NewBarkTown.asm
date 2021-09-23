@@ -66,7 +66,6 @@ NewBarkTown_TeacherStopsYouScene2:
 	closetext
 	turnobject PLAYER, RIGHT
 	applymovement NEWBARKTOWN_TEACHER, NewBarkTown_TeacherRunsToYouMovement2
-	turnobject PLAYER, UP
 	opentext
 	writetext Text_WhatDoYouThinkYoureDoing
 	waitbutton
@@ -153,20 +152,17 @@ NewBarkTown_TeacherRunsToYouMovement1:
 	step LEFT
 	step LEFT
 	step LEFT
-	step LEFT
 	step_end
 
 NewBarkTown_TeacherRunsToYouMovement2:
+	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
-	step LEFT
-	step LEFT
-	turn_head DOWN
+	turn_head LEFT
 	step_end
 
 NewBarkTown_TeacherBringsYouBackMovement1:
-	step RIGHT
 	step RIGHT
 	step RIGHT
 	step RIGHT
@@ -174,8 +170,7 @@ NewBarkTown_TeacherBringsYouBackMovement1:
 	step_end
 
 NewBarkTown_TeacherBringsYouBackMovement2:
-	step RIGHT
-	step RIGHT
+	step UP
 	step RIGHT
 	step RIGHT
 	step RIGHT

@@ -42,11 +42,13 @@ RuinsOfAlphOutside_MapScripts:
 	endcallback
 
 RuinsOfAlphOutsideScientistScene1:
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideStepDownMovement
 	turnobject RUINSOFALPHOUTSIDE_SCIENTIST, UP
 	turnobject PLAYER, DOWN
 	sjump RuinsOfAlphOutsideScientistSceneContinue
 
 RuinsOfAlphOutsideScientistScene2:
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideStepRightMovement
 	turnobject RUINSOFALPHOUTSIDE_SCIENTIST, LEFT
 	turnobject PLAYER, RIGHT
 	sjump RuinsOfAlphOutsideScientistSceneContinue
@@ -59,6 +61,21 @@ RuinsOfAlphOutsideScientistSceneContinue:
 	waitbutton
 	closetext
 	playmusic MUSIC_SHOW_ME_AROUND
+	readvar VAR_FACING
+	ifequal DOWN, .FacingDown
+	ifequal UP, .FacingUp
+	ifequal LEFT, .FacingLeft
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideStepLeftMovement
+	sjump .StartStroll
+.FacingUp:
+	applymovement PLAYER, RuinsOfAlphOutsideStepUpMovement
+	sjump .StartStroll
+.FacingDown:
+	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideStepUpMovement
+	sjump .StartStroll
+.FacingLeft:
+	applymovement PLAYER, RuinsOfAlphOutsideStepLeftMovement
+.StartStroll:
 	follow RUINSOFALPHOUTSIDE_SCIENTIST, PLAYER
 	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideScientistWalkToLabMovement
 	disappear RUINSOFALPHOUTSIDE_SCIENTIST
@@ -129,6 +146,22 @@ RuinsOfAlphSign:
 
 RuinsOfAlphResearchCenterSign:
 	jumptext RuinsOfAlphResearchCenterSignText
+
+RuinsOfAlphOutsideStepRightMovement:
+	step RIGHT
+	step_end
+
+RuinsOfAlphOutsideStepLeftMovement:
+	step LEFT
+	step_end
+
+RuinsOfAlphOutsideStepUpMovement:
+	step UP
+	step_end
+
+RuinsOfAlphOutsideStepDownMovement:
+	step DOWN
+	step_end
 
 RuinsOfAlphOutsideScientistWalkToLabMovement:
 	step RIGHT

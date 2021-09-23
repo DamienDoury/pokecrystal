@@ -73,6 +73,10 @@ MahoganyMart1FLanceUncoversStaircaseScript:
 	disappear MAHOGANYMART1F_DRAGONITE
 	pause 15
 	applymovement MAHOGANYMART1F_LANCE, MahoganyMart1FLanceApproachPlayerMovement
+	applymovement PLAYER, MahoganyMart1FPlayerApproachesLanceMovement
+	pause 15
+	turnobject MAHOGANYMART1F_LANCE, DOWN
+	pause 10
 	opentext
 	writetext MahoganyMart1FLanceRadioText
 	waitbutton
@@ -134,24 +138,29 @@ MahoganyMart1FPharmacistShovedAsideMovement:
 	step_end
 
 MahoganyMart1FLanceApproachPlayerMovement:
-	slow_step LEFT
-	turn_head DOWN
+	slow_step UP
+	step_end
+
+MahoganyMart1FPlayerApproachesLanceMovement:
+	step RIGHT
+	turn_head UP
 	step_end
 
 MahoganyMart1FLanceApproachPharmacistMovement:
-	slow_step RIGHT
-	slow_step UP
 	slow_step UP
 	step_end
 
 MahoganyMart1FLanceApproachHiddenStairsMovement:
 	slow_step UP
+	slow_step UP
 	slow_step RIGHT
 	slow_step RIGHT
+	slow_step RIGHT
+	turn_head DOWN
 	step_end
 
 MahoganyMart1FLanceGoDownStairsMovement:
-	slow_step RIGHT
+	slow_step DOWN
 	step_end
 
 MahoganyMart1FRageCandyBarText: ; unreferenced
