@@ -337,7 +337,7 @@ GoldenrodGameCornerAbraScript:
 	yesorno
 	iffalse .No
 	closetext
-	playsound SFX_WARP_TO
+	playsound SFX_WARP_FROM
 	special FadeOutPalettes
 	waitsfx
 	random 7

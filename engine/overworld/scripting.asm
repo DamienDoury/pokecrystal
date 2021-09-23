@@ -1012,9 +1012,17 @@ ApplyEventActionAppearDisappear:
 Script_follow:
 	call GetScriptByte
 	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, .obj1ok
+	ldh a, [hLastTalked]
+.obj1ok
 	ld b, a
 	call GetScriptByte
 	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, .obj2ok
+	ldh a, [hLastTalked]
+.obj2ok
 	ld c, a
 	farcall StartFollow
 	ret

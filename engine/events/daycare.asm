@@ -22,6 +22,8 @@
 	const DAYCARETEXT_COME_AGAIN
 	const DAYCARETEXT_RUMORS
 	const DAYCARETEXT_LOOKS_LIKE_VIRUS
+	const DAYCARETEXT_BAD_SHAPE
+	const DAYCARETEXT_HAS_COVID
 
 DayCareMan:
 	ld hl, wDayCareMan
@@ -54,6 +56,12 @@ DayCareMan:
 	jr .cancel
 
 .print_text
+	cp DAYCARETEXT_HAS_COVID
+	jr nz, .print_then_say_come_again
+	call PrintDayCareText
+	ret
+	
+.print_then_say_come_again:
 	call PrintDayCareText
 
 .cancel
@@ -93,6 +101,12 @@ DayCareLady:
 	jr .cancel
 
 .print_text
+	cp DAYCARETEXT_HAS_COVID
+	jr nz, .print_then_say_come_again
+	call PrintDayCareText
+	ret
+	
+.print_then_say_come_again:
 	call PrintDayCareText
 
 .cancel
@@ -116,7 +130,11 @@ DayCareManIntroText:
 	call YesNoBox
 	ret
 
+; Returns 42 to the script if the player is trying to give a pokemon that is infected by covid.
 DayCareAskDepositPokemon:
+	xor a ; FALSE
+	ld [wScriptVar], a ; Set the return value to zero/false.
+
 	ld a, [wPartyCount]
 	cp 2
 	jr c, .OnlyOneMon
@@ -142,6 +160,10 @@ DayCareAskDepositPokemon:
 	jr z, .Rumors
 	cp SANDSLASH
 	jr z, .Rumors
+	call CheckVirus
+	jr c, .HasCovid
+	and a
+	jr nz, .BadShape
 	farcall CheckCurPartyMonFainted
 	jr c, .OutOfUsableMons
 	ld hl, wPartyMon1Item
@@ -177,6 +199,19 @@ DayCareAskDepositPokemon:
 	scf
 	ret
 
+.BadShape:
+	ld a, DAYCARETEXT_BAD_SHAPE
+	scf
+	ret
+
+.HasCovid:
+	ld a, 42 
+	ld [wScriptVar], a ; Sets the return value to 42 for the script.
+
+	ld a, DAYCARETEXT_HAS_COVID
+	scf
+	ret
+
 .OnlyOneMon:
 	ld a, DAYCARETEXT_LAST_MON
 	scf
@@ -195,6 +230,58 @@ DayCareAskDepositPokemon:
 .DaycareDummyText: ; unreferenced
 	text_far _DaycareDummyText
 	text_end
+
+; Sets the carry if the pokemon currently has the covid (or incubating it), sets a=1 if pkmn is sick, sets a=0 otherwise.
+; destroys hl, de and a.
+CheckVirus:
+	ld hl, wPartyMon1PokerusStatus
+	ld a, [wCurPartyMon]
+	cp 0
+	jr z, .PkmnPkrusByteFound
+
+	ld de, PARTYMON_STRUCT_LENGTH
+
+.LoopParty
+	add hl, de
+	dec a
+	jr nz, .LoopParty
+
+.PkmnPkrusByteFound
+	ld a, [hl] ; the pokérus byte.
+	and POKERUS_TEST_MASK
+	jr nz, .HasBeenTested
+
+; Here, the pokemon hasn't been tested. Therefore its health status is either healthy or sick.
+	ld a, [hl] ; the pokérus byte.
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION
+	jr z, .IsHealthy
+	jr c, .IsHealthy
+
+	cp POKERUS_SYMPTOMS_START
+	jr z, .IsSick
+	jr nc, .IsHealthy
+	
+.IsSick:
+	xor a
+	ld a, 1
+	ret
+	
+.HasBeenTested:
+	ld a, [hl] ; the pokérus byte.
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION
+	jr z, .IsHealthy
+	jr nc, .HasCovid
+
+; The pkmn is immune.
+.IsHealthy:
+	xor a
+	ret
+
+.HasCovid:
+	scf
+	ret
 
 DayCare_DepositPokemonText:
 	ld a, DAYCARETEXT_DEPOSIT
@@ -321,6 +408,8 @@ PrintDayCareText:
 	dw .ComeAgainText ; 13
 	dw .RumorsText ; 14
 	dw .LooksLikeVirusText ; 15
+	dw .BadShapeText ; 16
+	dw .HasCovidText ; 17
 
 .DayCareManIntroText:
 	text_far _DayCareManIntroText
@@ -408,6 +497,14 @@ PrintDayCareText:
 
 .LooksLikeVirusText:
 	text_far _DayCare_LooksLikeVirusText
+	text_end
+
+.BadShapeText:
+	text_far _DayCare_BadShapeText
+	text_end
+
+.HasCovidText:
+	text_far _DayCare_HasCovidText
 	text_end
 
 DayCareManOutside:

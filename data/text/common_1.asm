@@ -1862,6 +1862,24 @@ _DayCare_LooksLikeVirusText::
 	line "#MON, sorry."
 	prompt
 
+_DayCare_BadShapeText::
+	text "Your #MON"
+	line "appears to be"
+	cont "sick. I can't"
+	cont "take care of it."
+	prompt
+
+_DayCare_HasCovidText::
+	text "Wait…"
+	
+	para "Your #MON is"
+	line "infected by the"
+	cont "virus?!?"
+
+	para "GET OUT OF"
+	line "MY HOUSE, NOW!"
+	done
+
 _NotYetText::
 	text "Not yet…"
 	done

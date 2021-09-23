@@ -50,8 +50,85 @@ DayCareManScript_Inside:
 
 .AlreadyHaveOddEgg:
 	special DayCareMan
+	ifequal 42, PlayerShowsInfectedPkmnToDaycareMan
 	waitbutton
 	closetext
+	end
+
+PlayerShowsInfectedPkmnToDaycareMan:
+	pause 30
+	closetext
+	showemote EMOTE_BOLT, LAST_TALKED, 10
+	readvar VAR_FACING
+	ifequal UP, .DayCareManStepDown
+	ifequal DOWN, .DayCareManStepUp
+	ifequal LEFT, .DayCareManStepRight
+	applymovementlasttalked DayCareStepLeftMovement
+	sjump DayCare_PlayerRunsAway
+	end
+
+.DayCareManStepDown:
+	applymovementlasttalked DayCareStepDownMovement
+	sjump DayCare_PlayerRunsAway
+
+.DayCareManStepUp:
+	applymovementlasttalked DayCareStepUpMovement
+	sjump DayCare_PlayerRunsAway
+
+.DayCareManStepRight:
+	applymovementlasttalked DayCareStepRightMovement
+	sjump DayCare_PlayerRunsAway
+
+DayCare_PlayerRunsAway:
+	follow PLAYER, LAST_TALKED
+	readvar VAR_XCOORD
+	ifequal 7, .DayCare_Path6
+	ifequal 2, .DayCareManColumn
+	ifequal 5, .DayCareLadyColumn
+	applymovement PLAYER, DayCarePlayerRunsAway1Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCareManColumn:
+	readvar VAR_YCOORD
+	ifequal 1, .DayCare_Path2
+	applymovement PLAYER, DayCarePlayerRunsAway3Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCare_Path2:
+	applymovement PLAYER, DayCarePlayerRunsAway2Movement
+	applymovement PLAYER, DayCarePlayerRunsAway3Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCare_Path3:
+	applymovement PLAYER, DayCarePlayerRunsAway3Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCareLadyColumn:
+	readvar VAR_YCOORD
+	ifequal 1, .DayCare_Path4
+	applymovement PLAYER, DayCarePlayerRunsAway5Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCare_Path4:
+	applymovement PLAYER, DayCarePlayerRunsAway2Movement
+	applymovement PLAYER, DayCarePlayerRunsAway5Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCare_Path5:
+	applymovement PLAYER, DayCarePlayerRunsAway5Movement
+	sjump PlayersGoesThroughDoor
+
+.DayCare_Path6:
+	applymovement PLAYER, DayCarePlayerRunsAway6Movement
+	applymovement PLAYER, DayCarePlayerRunsAway5Movement
+	sjump PlayersGoesThroughDoor
+
+PlayersGoesThroughDoor:
+	stopfollow
+	playsound SFX_EXIT_BUILDING
+	special FadeOutPalettes
+	waitsfx
+	warpfacing LEFT, ROUTE_34, 11, 15
 	end
 
 DayCareLadyScript:
@@ -60,6 +137,7 @@ DayCareLadyScript:
 	checkflag ENGINE_DAY_CARE_MAN_HAS_EGG
 	iftrue .HusbandWasLookingForYou
 	special DayCareLady
+	ifequal 42, PlayerShowsInfectedPkmnToDaycareMan
 	waitbutton
 	closetext
 	end
@@ -72,6 +150,58 @@ DayCareLadyScript:
 
 DayCareBookshelf:
 	jumpstd DifficultBookshelfScript
+
+DayCareStepUpMovement:
+	step UP
+	step_end
+
+DayCareStepDownMovement:
+	step DOWN
+	step_end
+
+DayCareStepLeftMovement:
+	step LEFT
+	step_end
+
+DayCareStepRightMovement:
+	step RIGHT
+	step_end
+
+DayCarePlayerRunsAway1Movement:
+	step DOWN
+	step DOWN
+	step DOWN
+	turn_head LEFT
+	step_end
+
+DayCarePlayerRunsAway2Movement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+
+DayCarePlayerRunsAway3Movement:
+	step DOWN
+	step LEFT
+	step LEFT
+	step_end
+
+DayCarePlayerRunsAway5Movement:
+	step DOWN
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+
+DayCarePlayerRunsAway6Movement:
+	step LEFT
+	step LEFT
+	step DOWN
+	step DOWN
+	step_end
 
 Text_GrampsLookingForYou:
 	text "Gramps was looking"
