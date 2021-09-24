@@ -23,6 +23,8 @@ DayCare_MapScripts:
 DayCareManScript_Inside:
 	faceplayer
 	opentext
+	checkflag ENGINE_PLAYER_SCARED_DAYCARE
+	iftrue .DayCareManScared
 	checkevent EVENT_GOT_ODD_EGG
 	iftrue .AlreadyHaveOddEgg
 	writetext DayCareManText_GiveOddEgg
@@ -50,13 +52,41 @@ DayCareManScript_Inside:
 
 .AlreadyHaveOddEgg:
 	special DayCareMan
-	ifequal 42, PlayerShowsInfectedPkmnToDaycareMan
+	ifequal 42, PlayerHasShownInfectedPkmnToDaycare
 	waitbutton
 	closetext
 	end
 
-PlayerShowsInfectedPkmnToDaycareMan:
-	pause 30
+.DayCareManScared:
+	writetext DayCare_ScaredManText
+	sjump PlayerHasShownInfectedPkmnToDaycare
+
+DayCareLadyScript:
+	faceplayer
+	opentext
+	checkflag ENGINE_PLAYER_SCARED_DAYCARE
+	iftrue .DayCareLadyScared
+	checkflag ENGINE_DAY_CARE_MAN_HAS_EGG
+	iftrue .HusbandWasLookingForYou
+	special DayCareLady
+	ifequal 42, PlayerHasShownInfectedPkmnToDaycare
+	waitbutton
+	closetext
+	end
+
+.HusbandWasLookingForYou:
+	writetext Text_GrampsLookingForYou
+	waitbutton
+	closetext
+	end
+
+.DayCareLadyScared:
+	writetext DayCare_ScaredLadyText
+	sjump PlayerHasShownInfectedPkmnToDaycare
+
+PlayerHasShownInfectedPkmnToDaycare:
+	setflag ENGINE_PLAYER_SCARED_DAYCARE
+	waitbutton
 	closetext
 	showemote EMOTE_BOLT, LAST_TALKED, 10
 	readvar VAR_FACING
@@ -129,23 +159,6 @@ PlayersGoesThroughDoor:
 	special FadeOutPalettes
 	waitsfx
 	warpfacing LEFT, ROUTE_34, 11, 15
-	end
-
-DayCareLadyScript:
-	faceplayer
-	opentext
-	checkflag ENGINE_DAY_CARE_MAN_HAS_EGG
-	iftrue .HusbandWasLookingForYou
-	special DayCareLady
-	ifequal 42, PlayerShowsInfectedPkmnToDaycareMan
-	waitbutton
-	closetext
-	end
-
-.HusbandWasLookingForYou:
-	writetext Text_GrampsLookingForYou
-	waitbutton
-	closetext
 	end
 
 DayCareBookshelf:
@@ -281,6 +294,22 @@ DayCareText_DescribeOddEgg:
 DayCareText_PartyFull:
 	text "You've no room for"
 	line "this."
+	done
+
+DayCare_ScaredManText:
+	text "Go away, you and"
+	line "your infected"
+	cont "#MON."
+	done
+
+DayCare_ScaredLadyText:
+	text "Are you trying to"
+	line "contaminate us??"
+
+	para "Don't come back"
+	line "until you are not"
+	cont "contagious"
+	cont "anymore."
 	done
 
 DayCare_MapEvents:
