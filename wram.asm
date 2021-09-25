@@ -2946,6 +2946,16 @@ wFarfetchdPosition:: db
 	ds 1
 
 ; map scene ids
+; Damien's note: the following bytes are used to store the scene ID, or scene state of some maps.
+; See "constants/scene_constants.asm".
+; The scene ID can either be used to launch a scene script when entering a map, or to mask the coord events of the map.
+; See "maps/*.asm"
+; A lot of those maps are only using a scene ID to launch a scene script, which could be avoided if the engine called a default scene script for maps that do not use a scene ID.
+; Also, 67 of the original 79 of those bytes are used to store a single bit, which is a lot of wasted WRAM.
+; We could use flags instead of bytes for those. For example, the engine could differentiate scene IDs that are above a certain value, and read and write a single bit for scene IDs above this value.
+; You can also notice that scenes that more than 2 scene IDs/states never go above 7 different values.
+; So we could also squeeze 2 scenes per byte to save 6 more bytes in the WRAM.
+; In total, by using 2 scenes per byte and flags, we could save 64 bytes of WRAM, not counting the use of a default scene script.
 wPokecenter2FSceneID::                            db
 wTradeCenterSceneID::                             db
 wColosseumSceneID::                               db
@@ -3025,8 +3035,8 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
-
-	ds 4
+wCharcoalKilnSceneID::							  db
+	ds 3
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
