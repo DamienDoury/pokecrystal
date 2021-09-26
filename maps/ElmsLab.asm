@@ -374,16 +374,12 @@ ElmAfterTheftScript:
 	closetext
 	applymovement ELMSLAB_ELM, ElmRunsTowardsPCMovement
 	turnobject PLAYER, LEFT
-	;special FadeOutMusic
 	musicfadeout MUSIC_NONE, 8
-	;playmusic MUSIC_NONE
 	opentext 
 	writetext ElmCovidAnnouncementText
 	waitbutton
 	closetext
 	musicfadeout MUSIC_PROF_ELM, 8
-	;playmapmusic
-	;special RestartMapMusic
 	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
 	opentext
 	writetext ElmWorksWithOakText

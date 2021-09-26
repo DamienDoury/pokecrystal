@@ -1,12 +1,67 @@
 	object_const_def
 	const CHARCOALKILN_BLACK_BELT
 	const CHARCOALKILN_YOUNGSTER
-	const CHARCOALKILN_MOLTRES
+	const CHARCOALKILN_FARFETCHD
 
 CharcoalKiln_MapScripts:
 	def_scene_scripts
+	scene_script .DummyScene0 		  	    	; SCENE_DEFAULT
+	scene_script .LockdownFirstDeclarationScene ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_SPRITES, .MoveCharcoalKilnApprentice
+
+.DummyScene0:
+	end
+
+.LockdownFirstDeclarationScene:
+	prioritysjump LockdownFirstDeclaration
+	end
+
+.MoveCharcoalKilnApprentice:
+	checkscene
+	iffalse .Skip ; if it is SCENE_DEFAULT, then skip.
+	moveobject CHARCOALKILN_YOUNGSTER, 0, 4
+	turnobject CHARCOALKILN_YOUNGSTER, RIGHT
+.Skip:
+	endcallback
+
+LockdownFirstDeclaration:
+	setscene SCENE_DEFAULT ; We don't want this script to execute in a loop, so we change the state of the scene.
+	turnobject CHARCOALKILN_YOUNGSTER, RIGHT
+	turnobject CHARCOALKILN_BLACK_BELT, DOWN
+	opentext
+	writetext CharcoalKiln_ThanksText
+	promptbutton
+	verbosegiveitem HM_CUT
+	setevent EVENT_GOT_HM01_CUT
+	writetext Text_CharcoalMasterOutro
+	waitbutton
+	closetext
+	showemote EMOTE_SHOCK, CHARCOALKILN_BLACK_BELT, 15
+	turnobject CHARCOALKILN_BLACK_BELT, UP
+	pause 15
+	opentext
+	writetext CharcoalKiln_SomethingsHappeningOnTVText
+	waitbutton
+	closetext
+	applymovement CHARCOALKILN_YOUNGSTER, CharcoalKiln_AssistantToTVText
+	applymovement PLAYER, CharcoalKiln_PlayerToTVText
+	musicfadeout MUSIC_NONE, 31
+	opentext
+	writetext CharcoalKiln_ProgramInterruptionText
+	promptbutton
+	farwritetext _FirstLockdownDeclarationText
+	waitbutton
+	musicfadeout MUSIC_AZALEA_TOWN, 4
+	closetext
+	turnobject CHARCOALKILN_YOUNGSTER, LEFT
+	applymovement PLAYER, CharcoalKiln_PlayerToCornerText
+	clearevent EVENT_LOCKDOWN_JUST_DECLARED
+	; master talks to player
+	; assistant talks as well
+	; end
+	end
 
 CharcoalKilnBoss:
 	faceplayer
@@ -74,6 +129,26 @@ CharcoalKilnBookshelf:
 
 CharcoalKilnRadio:
 	jumpstd Radio2Script
+
+CharcoalKiln_AssistantToTVText:
+	step RIGHT
+	step UP
+	step UP
+	step RIGHT
+	step RIGHT
+	turn_head UP
+	step_end
+
+CharcoalKiln_PlayerToTVText:
+	step LEFT
+	step UP
+	step UP
+	step_end
+
+CharcoalKiln_PlayerToCornerText:
+	slow_step UP
+	turn_head RIGHT
+	step_end
 
 CharcoalKilnBossText1:
 	text "All the SLOWPOKE"
@@ -144,6 +219,47 @@ CharcoalKilnApprenticeText3:
 
 FarfetchdText:
 	text "FARFETCH'D: Kwaa!"
+	done
+
+CharcoalKiln_ThanksText:
+	text "To thank you for"
+	line "helping us, I'd"
+	cont "like you to have"
+	cont "this."
+	done
+
+Text_CharcoalMasterOutro:
+	text "That's the CUT HM."
+	line "Teach that to a"
+
+	para "#MON to clear"
+	line "small trees."
+
+	para "Of course, you"
+	line "have to have the"
+
+	para "GYM BADGE from"
+	line "AZALEA to use it."
+	done
+
+CharcoalKiln_SomethingsHappeningOnTVText:
+	text "What's happening?"
+
+	para "An important"
+	line "announcement is"
+	cont "about to start on"
+	cont "TV. We should"
+	cont "watch it!"
+	done
+
+CharcoalKiln_ProgramInterruptionText:
+	text "“We interrupt"
+	line "your program for"
+	cont "an official"
+	cont "declaration.”"
+
+	para "…"
+
 	done
 
 CharcoalKiln_MapEvents:

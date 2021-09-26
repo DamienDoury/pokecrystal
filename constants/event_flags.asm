@@ -204,7 +204,8 @@
 	const EVENT_FOREST_IS_RESTLESS
 	const EVENT_ANSWERED_DRAGON_MASTER_QUIZ_WRONG
 	const EVENT_RED_BEATEN
-; Unused: next 5 events
+	const EVENT_LOCKDOWN_JUST_DECLARED
+; Unused: next 3 events
 
 	const_next 200
 ; Kanto story events

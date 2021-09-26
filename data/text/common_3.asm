@@ -1564,3 +1564,46 @@ _GymPowerRestrainerFirstExplanation::
 ;	cont "pillars at the "
 ;	cont "entrance?"
 	done
+
+_FirstLockdownDeclarationText::
+	text "INTERVENTION"
+
+	para "“Due to the rise"
+	line "in daily new cases"
+	cont "of contamination,"
+
+	para "starting tomorrow"
+	line "a lockdown will be"
+	cont "enforced."
+
+	para "#MON and people"
+	line "are not allowed"
+	cont "to leave home."
+
+	para "The only"
+	line "exceptions are:"
+
+	para "groceries, work,"
+	line "& medical reasons."
+
+	para "Each trip outside"
+	line "requires a"
+	cont "self-made written"
+	cont "attestation."
+
+	para "There will be"
+	line "police controls."
+
+	para "Illegal situations"
+	line "will be fined, and"
+	cont "you will be"
+	cont "reconducted home"
+	cont "or to the nearest"
+	cont "#MON center."
+
+	para "-"
+
+	para "Be responsible,"
+	line "save lives,"
+	cont "stay safe.”"
+	done

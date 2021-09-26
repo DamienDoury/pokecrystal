@@ -85,4 +85,5 @@ MapScenes::
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
 	scene_var GOLDENROD_GAME_CORNER,                       wRoute29SceneID ; We use another variable to save a byte, as we actually don't need to edit this value, and its value doesn't matter, whether it is 0 or 1.
+	scene_var CHARCOAL_KILN,                       		   wCharcoalKilnSceneID
 	db -1 ; end

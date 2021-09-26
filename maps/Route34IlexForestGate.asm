@@ -12,6 +12,7 @@ Route34IlexForestGate_MapScripts:
 
 .IsForestRestless:
 	clearevent EVENT_FIRST_LOCKDOWN_STARTED
+	setevent EVENT_LOCKDOWN_JUST_DECLARED
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iffalse .Normal
 	disappear ROUTE34ILEXFORESTGATE_TEACHER1

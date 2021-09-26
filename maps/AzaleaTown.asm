@@ -11,6 +11,11 @@
 	const AZALEATOWN_SILVER
 	const AZALEATOWN_AZALEA_ROCKET3
 	const AZALEATOWN_KURT_OUTSIDE
+	const AZALEATOWN_GRAMPS_MART_RUSH
+	const AZALEATOWN_TEACHER_MART_RUSH
+	const AZALEATOWN_YOUNGSTER_MART_RUSH
+	const AZALEATOWN_POKEFAN_MART_RUSH
+	const AZALEATOWN_APPRENTICE_MART_RUSH
 
 AzaleaTown_MapScripts:
 	def_scene_scripts
@@ -20,6 +25,7 @@ AzaleaTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .Flypoint
+	callback MAPCALLBACK_OBJECTS, .AzaleaHideCharacters
 
 .DummyScene0:
 	end
@@ -29,6 +35,15 @@ AzaleaTown_MapScripts:
 
 .DummyScene2:
 	end
+
+.AzaleaHideCharacters:
+	checkevent EVENT_LOCKDOWN_JUST_DECLARED
+	iftrue .NormalScene
+	moveobject AZALEATOWN_GRAMPS, 0, 0
+	moveobject AZALEATOWN_TEACHER, 0, 0
+	moveobject AZALEATOWN_YOUNGSTER, 0, 0
+.NormalScene:
+	endcallback
 
 .Flypoint:
 	setflag ENGINE_FLYPOINT_AZALEA
@@ -143,15 +158,6 @@ AzaleaTownSlowpokeScript:
 	closetext
 	end
 
-UnusedWoosterScript: ; unreferenced
-	faceplayer
-	opentext
-	writetext WoosterText
-	cry QUAGSIRE
-	waitbutton
-	closetext
-	end
-
 AzaleaTownCelebiScene:
 	applymovement PLAYER, AzaleaTownPlayerLeavesKurtsHouseMovement
 	opentext
@@ -209,6 +215,18 @@ WhiteApricornTree:
 
 AzaleaTownHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_AZALEA_TOWN_HIDDEN_FULL_HEAL
+
+AzaleaTownTeacherRush:
+	jumptext AzaleaTownTeacherRushText
+
+AzaleaTownGrampsRush:
+	jumptextfaceplayer AzaleaTownGrampsRushText
+
+AzaleaTownPokefanRush:
+	jumptext AzaleaTownPokefanRushText
+
+AzaleaTownApprenticeRush:
+	jumptextfaceplayer AzaleaTownApprenticeRushText
 
 AzaleaTownRivalBattleApproachMovement1:
 	step LEFT
@@ -380,10 +398,6 @@ AzaleaTownSlowpokeText2:
 	text "<……> <……>Yawn?"
 	done
 
-WoosterText:
-	text "WOOSTER: Gugyoo…"
-	done
-
 AzaleaTownKurtText1:
 	text "ILEX FOREST is"
 	line "restless!"
@@ -452,6 +466,40 @@ AzaleaTownIlexForestSignText:
 	line "gate."
 	done
 
+AzaleaTownTeacherRushText:
+	text "Let"
+	para "me"
+	para "IIIIIIN !"
+	done
+
+AzaleaTownGrampsRushText:
+	text "Do you think the"
+	line "young people would"
+	cont "give priority to"
+	cont "their elder in"
+	cont "this situation?"
+
+	para "Well,"
+	line "they don't."
+	done
+
+AzaleaTownPokefanRushText:
+	text "I'm not sure about"
+	line "social distancing."
+
+	para "Can I push people"
+	line "a little more?"
+	done
+
+AzaleaTownApprenticeRushText:
+	text "There is no way"
+	line "I will be able to"
+	cont "get into the"
+	cont "#MON MART"
+	cont "before it's too"
+	cont "late…"
+	done
+
 AzaleaTown_MapEvents:
 	db 0, 0 ; filler
 
@@ -494,3 +542,8 @@ AzaleaTown_MapEvents:
 	object_event 11, 10, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_AZALEA_TOWN
 	object_event 10, 16, SPRITE_AZALEA_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownRocket2Script, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  6,  5, SPRITE_KURT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownKurtScript, EVENT_AZALEA_TOWN_KURT
+	object_event 20,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownGrampsRush, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 22,  6, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownTeacherRush, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 21,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AzaleaTownTeacherRush, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 21,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownPokefanRush, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 22,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, AzaleaTownApprenticeRush, EVENT_LOCKDOWN_JUST_DECLARED

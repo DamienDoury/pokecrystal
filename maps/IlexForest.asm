@@ -349,10 +349,6 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
-	verbosegiveitem HM_CUT
-	setevent EVENT_GOT_HM01_CUT
-	writetext Text_CharcoalMasterOutro
-	waitbutton
 	closetext
 	setevent EVENT_ILEX_FOREST_FARFETCHD
 	setevent EVENT_ILEX_FOREST_APPRENTICE
@@ -360,6 +356,9 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_FARFETCH_D
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	clearevent EVENT_CHARCOAL_KILN_BOSS
+	setmapscene CHARCOAL_KILN, SCENE_FINISHED
+	special FadeOutPalettes
+	warpfacing UP, CHARCOAL_KILN, 2, 5
 	end
 
 .AlreadyGotCut:
@@ -790,22 +789,11 @@ Text_CharcoalMasterIntro:
 	para "Now, how can I"
 	line "thank you…"
 
-	para "I know! Here, take"
-	line "this."
-	done
+	para "I know! I have"
+	line "a gift for you at"
+	cont "my place."
 
-Text_CharcoalMasterOutro:
-	text "That's the CUT HM."
-	line "Teach that to a"
-
-	para "#MON to clear"
-	line "small trees."
-
-	para "Of course, you"
-	line "have to have the"
-
-	para "GYM BADGE from"
-	line "AZALEA to use it."
+	para "Come with me."
 	done
 
 Text_CharcoalMasterTalkAfter:

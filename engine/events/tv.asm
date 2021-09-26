@@ -9,8 +9,8 @@ TVShow:
 	ifgreater 4, .Phase3
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED
 	iftrue .Phase2
-	checkevent EVENT_GOT_HM01_CUT
-	iftrue .FirstLockdownDeclaration
+	checkevent EVENT_LOCKDOWN_JUST_DECLARED
+	iffalse .FirstLockdownDeclaration
 	sjump .Phase1
 	end
 
@@ -41,7 +41,7 @@ TVShow:
 	end
 
 .FirstLockdownDeclaration:
-	jumptext .FirstLockdownDeclarationText
+	farjumptext _FirstLockdownDeclarationText
 
 .Phase2:
 	readvar VAR_HOUR
@@ -1058,59 +1058,6 @@ TVShow:
 	cont "Champion.”"
 	done
 
-
-
-
-
-
-
-
-
-
-
-.FirstLockdownDeclarationText:
-	text "INTERVENTION"
-
-	para "“Due to the rise"
-	line "in daily new cases"
-	cont "of contamination,"
-
-	para "starting tomorrow"
-	line "a lockdown will be"
-	cont "declared for 2 days"
-	cont "of application."
-
-	para "#MON and people"
-	line "are not allowed"
-	cont "to leave home."
-
-	para "The only"
-	line "exceptions are:"
-
-	para "groceries, work,"
-	line "& medical reasons."
-
-	para "Each trip outside"
-	line "requires a"
-	cont "self-made written"
-	cont "attestation."
-
-	para "There will be"
-	line "police controls."
-
-	para "Illegal situations"
-	line "will be fined, and"
-	cont "you will be"
-	cont "reconducted home"
-	cont "or to the nearest"
-	cont "#MON center."
-
-	para " "
-
-	para "Be responsible,"
-	line "save lives,"
-	cont "stay safe.”"
-	done
 
 .TV_FirstCovidShow:
 	jumptext .TV_FirstCovidShowText
