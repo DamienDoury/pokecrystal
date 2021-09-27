@@ -214,6 +214,10 @@ endc
 	inc hl
 	ld [hl], LOW(MOM_MONEY)
 
+	; Default freedom state is "free".
+	ld hl, wCurFreedomState
+	ld [hl], 1 << FREE_F
+
 	call InitializeNPCNames
 
 	farcall InitDecorations

@@ -81,3 +81,9 @@ IncreaseResearchLevel::
 	add c
 	ld [hl], a
 	ret
+
+; Forces the first lockdown when leaving Ilex Forest.
+ForceLockdown::
+	ld hl, wCurFreedomState
+	ld [hl], 1 << LOCKDOWN_F
+	ret

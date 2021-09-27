@@ -80,7 +80,7 @@ CheckLockdownMask:
 	swap a
 	ld h, a
 	ld a, [wCurFreedomState]
-	cp h
+	and h
 	jr nz, .ok
 	ld a, -1
 	scf
