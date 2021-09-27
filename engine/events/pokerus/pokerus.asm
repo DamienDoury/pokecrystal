@@ -42,10 +42,10 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 
 
 .TrySpreadPokerus:
-	call Random
-	cp 255
-	;cp 33 percent + 1 ; Note: the odds are now managed later, so we shouldn't put a condition here.
-	jr nc, .potentialInfectionFromStranger ; 1/3 chance the virus won't try to spread.
+;	call Random
+;	cp 255
+;	;cp 33 percent + 1 ; Note: the odds are now managed later, so we shouldn't put a condition here.
+;	jr nc, .potentialInfectionFromStranger ; 1/3 chance the virus won't try to spread.
 
 	ld a, [wPartyCount]
 	cp 1
