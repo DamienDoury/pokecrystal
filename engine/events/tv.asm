@@ -9,8 +9,8 @@ TVShow:
 	ifgreater 4, .Phase3
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED
 	iftrue .Phase2
-	checkevent EVENT_LOCKDOWN_JUST_DECLARED
-	iffalse .FirstLockdownDeclaration
+	checkevent EVENT_GOT_HM01_CUT
+	iftrue .FirstLockdownDeclaration
 	sjump .Phase1
 	end
 

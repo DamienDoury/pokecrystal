@@ -476,8 +476,8 @@ AzaleaTownGrampsRushText:
 	text "Do you think the"
 	line "young people would"
 	cont "give priority to"
-	cont "their elder in"
-	cont "this situation?"
+	cont "the elder in this"
+	cont "situation?"
 
 	para "Well,"
 	line "they don't."

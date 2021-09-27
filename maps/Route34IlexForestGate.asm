@@ -11,7 +11,8 @@ Route34IlexForestGate_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .IsForestRestless
 
 .IsForestRestless:
-	clearevent EVENT_FIRST_LOCKDOWN_STARTED
+	setevent EVENT_FIRST_LOCKDOWN_STARTED
+	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	setevent EVENT_LOCKDOWN_JUST_DECLARED
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iffalse .Normal

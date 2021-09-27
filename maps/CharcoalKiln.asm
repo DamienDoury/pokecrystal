@@ -45,32 +45,59 @@ LockdownFirstDeclaration:
 	writetext CharcoalKiln_SomethingsHappeningOnTVText
 	waitbutton
 	closetext
-	applymovement CHARCOALKILN_YOUNGSTER, CharcoalKiln_AssistantToTVText
-	applymovement PLAYER, CharcoalKiln_PlayerToTVText
+	applymovement CHARCOALKILN_YOUNGSTER, CharcoalKiln_AssistantToTVMovement
+	applymovement PLAYER, CharcoalKiln_PlayerToTVMovement
 	musicfadeout MUSIC_NONE, 31
 	opentext
 	writetext CharcoalKiln_ProgramInterruptionText
 	promptbutton
 	farwritetext _FirstLockdownDeclarationText
 	waitbutton
-	musicfadeout MUSIC_AZALEA_TOWN, 4
 	closetext
+	pause 30
+	musicfadeout MUSIC_AZALEA_TOWN, 4
 	turnobject CHARCOALKILN_YOUNGSTER, LEFT
-	applymovement PLAYER, CharcoalKiln_PlayerToCornerText
+	applymovement PLAYER, CharcoalKiln_PlayerToCornerMovement
 	clearevent EVENT_LOCKDOWN_JUST_DECLARED
-	; master talks to player
-	; assistant talks as well
-	; end
+	pause 60
+	opentext
+	writetext CharcoalKiln_YoungsterReactionText
+	waitbutton
+	closetext
+	pause 30
+	showemote EMOTE_SHOCK, CHARCOALKILN_YOUNGSTER, 20
+	opentext 
+	writetext CharcoalKiln_YoungsterRushsMartText
+	waitbutton
+	closetext
+	applymovement CHARCOALKILN_YOUNGSTER, CharcoalKiln_ApprenticeRunsToMartMovement
+	turnobject PLAYER, DOWN
+	playsound SFX_EXIT_BUILDING
+	disappear CHARCOALKILN_YOUNGSTER
+	setevent EVENT_CHARCOAL_KILN_APPRENTICE
+	waitsfx
+	opentext 
+	writetext CharcoalKiln_MasterReactionText
+	waitbutton
+	closetext
 	end
 
 CharcoalKilnBoss:
 	faceplayer
 	opentext
+	checkevent EVENT_LOCKDOWN_JUST_DECLARED
+	iffalse .Panic
 	checkevent EVENT_GOT_HM01_CUT
 	iftrue .GotCut
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
 	writetext CharcoalKilnBossText1
+	waitbutton
+	closetext
+	end
+
+.Panic:
+	writetext CharcoalKilnBossPanicText
 	waitbutton
 	closetext
 	end
@@ -130,7 +157,7 @@ CharcoalKilnBookshelf:
 CharcoalKilnRadio:
 	jumpstd Radio2Script
 
-CharcoalKiln_AssistantToTVText:
+CharcoalKiln_AssistantToTVMovement:
 	step RIGHT
 	step UP
 	step UP
@@ -139,15 +166,27 @@ CharcoalKiln_AssistantToTVText:
 	turn_head UP
 	step_end
 
-CharcoalKiln_PlayerToTVText:
+CharcoalKiln_PlayerToTVMovement:
 	step LEFT
 	step UP
 	step UP
 	step_end
 
-CharcoalKiln_PlayerToCornerText:
+CharcoalKiln_PlayerToCornerMovement:
 	slow_step UP
 	turn_head RIGHT
+	step_end
+
+CharcoalKiln_ApprenticeRunsToMartMovement:
+	big_step RIGHT
+	big_step RIGHT
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	big_step LEFT
+	big_step LEFT
+	big_step DOWN
+	big_step DOWN
 	step_end
 
 CharcoalKilnBossText1:
@@ -260,6 +299,32 @@ CharcoalKiln_ProgramInterruptionText:
 
 	para "…"
 
+	done
+
+CharcoalKiln_YoungsterReactionText:
+	text "APPRENTICE: Well,"
+	line "that's something…"
+	done
+
+CharcoalKiln_YoungsterRushsMartText:
+	text "I gotta go to the"
+	line "#MON MART"
+	cont "before we can't!"
+	done
+
+CharcoalKiln_MasterReactionText:
+	text "How can we manage"
+	line "to stay inside?"
+
+	para "Should I join"
+	line "my family in"
+	cont "ECRUTEAK CITY?"
+	done
+
+CharcoalKilnBossPanicText:
+	text "How does the"
+	line "self-made written"
+	cont "attestation work?"
 	done
 
 CharcoalKiln_MapEvents:
