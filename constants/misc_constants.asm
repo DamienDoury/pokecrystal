@@ -71,13 +71,13 @@ POKERUS_SYMPTOMS_START EQU 13 ; days. The 13th day is included within the covid 
 ; On dit donc que si le bit est à 1, alors l'objet doit s'afficher. Il faudra quand même faire une repasse globale, pour les objets à activation temporaire.
 
 	const_def
-	const FREE_F		;0
-	const CURFEW_F		;1
-	const LOCKDOWN_F	;2
+	const FREE				;0
+	const VACCINE_PASSPORT	;1
+	const LOCKDOWN			;2
 
-;FREE 		EQU %100000 << FREE_F
-;CURFEW 		EQU %100000 << CURFEW_F
-;LOCKDOWN 	EQU %100000 << LOCKDOWN_F
+FREE_F 				EQU %100000 << FREE
+VACCINE_PASSPORT_F 	EQU %100000 << VACCINE_PASSPORT
+LOCKDOWN_F 			EQU %100000 << LOCKDOWN
 ;
 ;; Research level. They work as flags, as you may want to make a NPC appear at several levels, but not all, in order to make the landmark diverse.
 ;const_def
@@ -89,3 +89,7 @@ POKERUS_SYMPTOMS_START EQU 13 ; days. The 13th day is included within the covid 
 ;RESEARCH_1 	EQU %100000 << RESEARCH_1_F
 ;RESEARCH_2 	EQU %100000 << RESEARCH_2_F
 ;RESEARCH_3 	EQU %100000 << RESEARCH_3_F
+
+HIDE_FREE				EQU %11011111
+HIDE_VACCINE_PASSPORT	EQU %10111111
+HIDE_LOCKDOWN			EQU %01111111

@@ -216,7 +216,7 @@ endc
 
 	; Default freedom state is "free".
 	ld hl, wCurFreedomState
-	ld [hl], 1 << FREE_F
+	ld [hl], 1 << FREE
 
 	call InitializeNPCNames
 
