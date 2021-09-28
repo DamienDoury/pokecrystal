@@ -553,6 +553,7 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_PingPongWalkY        ; 1c
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -980,6 +981,14 @@ MovementFunction_ShakingGrass:
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
 	ret
 
+MovementFunction_PingPongWalkY: ; Damien.
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl]
+	rrca
+	rrca
+	jp _WalkContinue
+
 InitMovementField1dField1e:
 	ld hl, OBJECT_RANGE
 	add hl, bc
@@ -1032,6 +1041,47 @@ MovementFunction_ScreenShake:
 	ret z
 	add a
 	jr .loop
+
+_WalkContinue: ; Damien.
+	call InitStep
+	call CanObjectMoveInDirection
+	jr c, .new_duration
+	call UpdateTallGrassFlags
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STEP
+	ld hl, wCenteredObject
+	ldh a, [hMapObjectIndex]
+	cp [hl]
+	jr z, .centered
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_CONTINUE_WALK
+	ret
+
+.centered
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_PLAYER_WALK
+	ret
+
+.new_duration:
+	; turn back
+;	call _MovementSpinNextFacing
+;	call _MovementSpinNextFacing
+
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl]
+	add %00000100
+	and %00000100
+	ld [hl], a
+
+	call EndSpriteMovement
+	call CopyStandingCoordsTileToNextCoordsTile
+
+	
+	jr RandomStepDuration_Slow
 
 _RandomWalkContinue:
 	call InitStep
