@@ -1995,25 +1995,6 @@ GetMaxHP:
 	ld c, a
 	ret
 
-GetHalfHP: ; unreferenced
-	ld hl, wBattleMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyMonHP
-.ok
-	ld a, [hli]
-	ld b, a
-	ld a, [hli]
-	ld c, a
-	srl b
-	rr c
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
-	ret
-
 CheckUserHasEnoughHP:
 	ld hl, wBattleMonHP + 1
 	ldh a, [hBattleTurn]
@@ -5273,10 +5254,16 @@ TryPlayerSwitch:
 	ld d, a
 	ld a, [wCurPartyMon]
 	cp d
-	jr nz, .check_trapped
+	jr nz, .check_chuck
 	ld hl, BattleText_MonIsAlreadyOut
-	call StdBattleTextbox
-	jp BattleMenuPKMN_Loop
+	jr .battle_text
+
+.check_chuck
+	ld a, [wOtherTrainerClass]
+	cp CHUCK
+	jr nz, .check_trapped
+	ld hl, BattleText_SwitchingForbidden
+	jr .battle_text
 
 .check_trapped
 	ld a, [wPlayerWrapCount]
@@ -5288,6 +5275,8 @@ TryPlayerSwitch:
 
 .trapped
 	ld hl, BattleText_MonCantBeRecalled
+	
+.battle_text
 	call StdBattleTextbox
 	jp BattleMenuPKMN_Loop
 
@@ -6621,17 +6610,6 @@ CheckUnownLetter:
 
 INCLUDE "data/wild/unlocked_unowns.asm"
 
-SwapBattlerLevels: ; unreferenced
-	push bc
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	ld [wBattleMonLevel], a
-	ld a, b
-	ld [wEnemyMonLevel], a
-	pop bc
-	ret
-
 BattleWinSlideInEnemyTrainerFrontpic:
 	xor a
 	ld [wTempEnemyMonSpecies], a
@@ -6990,20 +6968,6 @@ _LoadBattleFontsHPBar:
 _LoadHPBar:
 	callfar LoadHPBar
 	ret
-
-LoadHPExpBarGFX: ; unreferenced
-	ld de, EnemyHPBarBorderGFX
-	ld hl, vTiles2 tile $6c
-	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp
-	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $73
-	lb bc, BANK(HPExpBarBorderGFX), 6
-	call Get1bpp
-	ld de, ExpBarGFX
-	ld hl, vTiles2 tile $55
-	lb bc, BANK(ExpBarGFX), 8
-	jp Get2bpp
 
 EmptyBattleTextbox:
 	ld hl, .empty
@@ -7988,10 +7952,6 @@ GoodComeBackText:
 	text_far _GoodComeBackText
 	text_end
 
-TextJump_ComeBack: ; unreferenced
-	ld hl, ComeBackText
-	ret
-
 ComeBackText:
 	text_far _ComeBackText
 	text_end
@@ -8252,10 +8212,6 @@ StartBattle:
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
-	ret
-
-CallDoBattle: ; unreferenced
-	call DoBattle
 	ret
 
 BattleIntro:

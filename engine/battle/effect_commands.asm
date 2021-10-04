@@ -665,7 +665,23 @@ BattleCommand_CheckObedience:
 
 
 
+	; Damien : when battling Morty, the player's pkmn sometimes gets scared (unless it's a Ghost or Dark type), which is like disobedience.
+	ld a, [wOtherTrainerClass]
+	cp MORTY
+	jr nz, .check_pkrus
+
+	call Random
+	and 1
+	cp 0
+	jr nc, .check_pkrus ; 50% chances of getting scared.
+
+	ld hl, ScaredText
+	jp .Print
+
+
+
 	; Damien : when the player has the Pokérus, it cannot obey all the time.
+.check_pkrus
 	ld a, MON_PKRUS
 	call BattlePartyAttr
 
@@ -1671,6 +1687,12 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
+	ret z
+
+	; We make struggle a perfect accuracy move as well.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp STRUGGLE
 	ret z
 
 	call .StatModifiers
@@ -5813,15 +5835,32 @@ INCLUDE "engine/battle/move_effects/mist.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
-BattleCommand_Recoil:
-; recoil
-
+BattleCommand_Struggle:
+; struggle
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .got_hp
 	ld hl, wEnemyMonMaxHP
 .got_hp
+	ld a, [hli]
+	ld [wCurDamage], a
+	ld a, [hl]
+	ld [wCurDamage + 1], a
+	dec hl
+	jr BattleCommand_Recoil_Got_HP
+
+BattleCommand_Recoil:
+; recoil
+
+	ld hl, wBattleMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, BattleCommand_Recoil_Got_HP
+	ld hl, wEnemyMonMaxHP
+; fallthrough
+
+BattleCommand_Recoil_Got_HP:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld d, a

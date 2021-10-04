@@ -313,6 +313,12 @@ BattleText_MonIsAlreadyOut:
 	line "is already out."
 	prompt
 
+BattleText_SwitchingForbidden:
+	text "Switching is"
+	line "forbidden during"
+	cont "this battle!"
+	prompt
+
 BattleText_MonCantBeRecalled:
 	text_ram wBattleMonNickname
 	text_start
@@ -383,6 +389,11 @@ FrozenSolidText:
 FlinchedText:
 	text "<USER>"
 	line "flinched!"
+	prompt
+
+ScaredText:
+	text "<USER> got"
+	line "scared."
 	prompt
 
 MustRechargeText:
