@@ -926,6 +926,22 @@ OHKOHit:
 	buildopponentrage
 	endmove
 
+Struggle:
+	checkobedience
+	usedmovetext
+	doturn
+	damagestats
+	damagecalc
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	struggle
+	checkfaint
+	buildopponentrage
+	endmove
+
 RecoilHit:
 	checkobedience
 	usedmovetext
