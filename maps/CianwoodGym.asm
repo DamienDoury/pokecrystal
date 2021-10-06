@@ -185,8 +185,25 @@ ChuckIntroText3:
 	para "do with #MON?"
 	line "That's true!"
 
-	para "Come on. We shall"
-	line "do battle!"
+	para "It's about one's"
+	line "own strength."
+
+	para "A strong trainer"
+	line "must understand"
+	cont "this. That's why"
+
+	para "we're going to"
+	line "fight one on one"
+	cont "style."
+
+	para "I forbid you from"
+	line "switching out."
+
+	para "We'll see how far"
+	line "you can push your"
+	cont "#MON…"
+
+	para "Let's do this!"
 	done
 
 ChuckLossText:
