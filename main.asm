@@ -44,6 +44,7 @@ INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/lockdown_wanted.asm"
+INCLUDE "engine/events/gym.asm"
 
 
 SECTION "bank4", ROMX

@@ -28,7 +28,7 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyBeforeText
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, GOLDENRODGYM_WHITNEY, 10
 	showemote EMOTE_QUESTION, GOLDENRODGYM_MILTANK, 10
@@ -36,8 +36,12 @@ GoldenrodGymWhitneyScript:
 	writetext GoldenrodGymPowerRestrainerExplanation
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	writetext WhitneySequelText
+	promptbutton
+	special CheckCuteParty
+	iffalse .PartyIsNotCute
+	writetext WhitneyValidsCutenessText
 	waitbutton
 	closetext
 	winlosstext WhitneyShouldntBeSoSeriousText, 0
@@ -56,6 +60,11 @@ GoldenrodGymWhitneyScript:
 	checkevent EVENT_MADE_WHITNEY_CRY
 	iffalse .StoppedCrying
 	writetext WhitneyYouMeanieText
+	waitbutton
+	closetext
+	end
+
+.PartyIsNotCute:
 	waitbutton
 	closetext
 	end
@@ -116,13 +125,11 @@ TrainerLassCarrie:
 
 WhitneyCriesScript:
 	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
-	applymovement GOLDENRODGYM_LASS2, BridgetWalksUpMovement
-	turnobject PLAYER, DOWN
+	turnobject PLAYER, RIGHT
 	opentext
 	writetext BridgetWhitneyCriesText
 	waitbutton
 	closetext
-	applymovement GOLDENRODGYM_LASS2, BridgetWalksAwayMovement
 	setscene SCENE_GOLDENRODGYM_NOTHING
 	clearevent EVENT_MADE_WHITNEY_CRY
 	end
@@ -185,21 +192,11 @@ GoldenrodGymStatue:
 	gettrainername STRING_BUFFER_4, WHITNEY, WHITNEY1
 	jumpstd GymStatue2Script
 
-BridgetWalksUpMovement:
-	step LEFT
-	turn_head UP
-	step_end
-
-BridgetWalksAwayMovement:
-	step RIGHT
-	turn_head LEFT
-	step_end
-
 GoldenrodGymMiltankScript:
 	opentext
 	writetext GoldenrodGymMiltankText
 	cry MILTANK
-	pause 1
+	pause 5
 	cry MILTANK
 	waitbutton
 	closetext
@@ -216,6 +213,29 @@ WhitneySequelText:
 
 	para "#MON are"
 	line "super-cute!"
+
+	para "My grand-parents"
+	line "run a DAY-CARE"
+	cont "service and"
+
+	para "I love playing"
+	line "with their lovely"
+	cont "baby #MON!"
+
+	para "I am here to test"
+	line "your ability with"
+	cont "cute #MON!"
+	
+	para "Let me check your"
+	line "party."
+
+	para "……"
+	line "……"
+	done
+
+WhitneyValidsCutenessText:
+	text "Oooh! Your team"
+	line "is so cuuuute--!"
 
 	para "You want to bat-"
 	line "tle? I'm warning"
@@ -415,7 +435,7 @@ GoldenrodGym_MapEvents:
 	warp_event  3, 17, GOLDENROD_CITY, 1
 
 	def_coord_events
-	coord_event  8,  5, SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING, WhitneyCriesScript
+	coord_event  8,  6, SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING, WhitneyCriesScript
 
 	def_bg_events
 	bg_event  1, 15, BGEVENT_READ, GoldenrodGymStatue
@@ -425,7 +445,7 @@ GoldenrodGym_MapEvents:
 	object_event  8,  3, SPRITE_WHITNEY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodGymWhitneyScript, -1
 	object_event  9,  3, SPRITE_MILTANK, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodGymMiltankScript, -1
 	object_event  9, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerLassCarrie, -1
-	object_event  9,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassBridget, -1
+	object_event 10,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassBridget, -1
 	object_event  0,  2, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautyVictoria, -1
 	object_event 19,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautySamantha, -1
 	object_event  5, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGymGuideScript, -1

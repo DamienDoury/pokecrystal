@@ -8,6 +8,17 @@ _EggPhotoText::
 	line "is worth more…"
 	done
 
+_MonNotCuteText::
+	text "Your @"
+	text_ram wStringBuffer1
+	text_start
+	line "is not cute."
+
+	para "Replace this"
+	line "#MON or I won't"
+	cont "challenge you."
+	done
+
 _NameRaterHelloText::
 	text "Hello, hello! I'm"
 	line "the NAME RATER."
