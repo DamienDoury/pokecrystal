@@ -13,6 +13,10 @@ OlivineGymJasmineScript:
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntro
+	promptbutton
+	readvar VAR_PARTYCOUNT
+	ifgreater 3, .TeamTooBig
+	writetext Jasmine_ValidatesTeamText
 	waitbutton
 	closetext
 	winlosstext Jasmine_BetterTrainer, 0
@@ -40,6 +44,12 @@ OlivineGymJasmineScript:
 	closetext
 	end
 
+.TeamTooBig:
+	writetext Jasmine_TeamTooBigText
+	waitbutton
+	closetext
+	end
+
 .GotIronTail:
 	writetext Jasmine_GoodLuck
 	waitbutton
@@ -59,6 +69,7 @@ OlivineGymActivateRockets:
 	jumpstd RadioTowerRocketsScript
 
 OlivineGymGuideScript:
+	clearevent EVENT_OLIVINE_GYM_JASMINE ; A virer, to remove, to delete, Damien.
 	faceplayer
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .OlivineGymGuideWinScript
@@ -107,14 +118,23 @@ Jasmine_SteelTypeIntro:
 	line "GYM LEADER. I use"
 	cont "the steel-type."
 
-	para "…Do you know about"
-	line "the steel-type?"
+	para "I will test you to"
+	line "see how well you"
 
-	para "It's a type that"
-	line "was only recently"
-	cont "discovered."
+	para "do when your team"
+	line "is outnumbered."
+	done
 
-	para "…Um… May I begin?"
+Jasmine_TeamTooBigText:
+	text "I allow a party of"
+	line "up to 3 #MON."
+
+	para "Go deposit some"
+	line "into a PC."
+	done
+
+Jasmine_ValidatesTeamText:
+	text "…Um… May I begin?"
 	done
 
 Jasmine_BetterTrainer:
