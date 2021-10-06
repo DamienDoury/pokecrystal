@@ -200,22 +200,20 @@ MortyIntroText:
 	para "secretly trained"
 	line "here all my life."
 
-	para "As a result, I can"
-	line "now see what"
-	cont "others cannot."
+	para "At this moment"
+	line "I want to see how"
+	cont "your #MON will"
+	cont "react to fear."
 
-	para "Just a bit more…"
+	para "Only GHOST and"
+	line "DARK type #MON"
+	cont "can keep calm in"
+	cont "this spooky GYM."
 
-	para "With a little"
-	line "more, I could see"
+	para "Let's see how"
+	line "powerful your"
+	cont "mind is."
 
-	para "a future in which"
-	line "I meet the #MON"
-	cont "of rainbow colors."
-
-	para "You're going to"
-	line "help me reach that"
-	cont "level!"
 	done
 
 MortyWinLossText:
