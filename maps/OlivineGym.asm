@@ -126,11 +126,11 @@ Jasmine_SteelTypeIntro:
 	done
 
 Jasmine_TeamTooBigText:
-	text "I allow a party of"
+	text "…You can have"
 	line "up to 3 #MON."
 
-	para "Go deposit some"
-	line "into a PC."
+	para "Please go deposit"
+	line "some into a PC."
 	done
 
 Jasmine_ValidatesTeamText:
