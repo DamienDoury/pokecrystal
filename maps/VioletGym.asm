@@ -171,8 +171,8 @@ ReceivedZephyrBadgeText:
 FalknerZephyrBadgeText:
 	text "ZEPHYRBADGE allows"
 	line "#MON to use"
-	cont "FLASH, if they"
-	cont "have it, anytime."
+	cont "CUT, if they have"
+	cont "it, anytime."
 
 	para "Here--take this"
 	line "too."

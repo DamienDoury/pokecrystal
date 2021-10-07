@@ -278,7 +278,8 @@ Text_CharcoalMasterOutro:
 	line "have to have the"
 
 	para "GYM BADGE from"
-	line "AZALEA to use it."
+	line "VIOLET CITY to"
+	cont "use it."
 	done
 
 CharcoalKiln_SomethingsHappeningOnTVText:
