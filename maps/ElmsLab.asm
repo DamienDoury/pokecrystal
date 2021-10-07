@@ -136,7 +136,7 @@ ElmCheckTogepiEgg:
 ElmCheckGotEggAgain:
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE ; why are we checking it again?
 	iftrue ElmWaitingEggHatchScript
-	checkflag ENGINE_ZEPHYRBADGE
+	checkevent EVENT_GOT_HM05_FLASH
 	iftrue ElmAideHasEggScript
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue ElmStudyingEggScript

@@ -42,6 +42,7 @@ TrainerGruntM1:
 	disappear SLOWPOKEWELLB1F_ROCKET2
 	disappear SLOWPOKEWELLB1F_ROCKET3
 	disappear SLOWPOKEWELLB1F_ROCKET_GIRL
+	setmapscene ROUTE_32, SCENE_ROUTE32_NOTHING ; useless as the player is forced to walk on a tile that already set this scene earlier. This is just a security.
 	pause 15
 	special FadeInQuickly
 	disappear SLOWPOKEWELLB1F_KURT
