@@ -1,3 +1,21 @@
+; Applies special effects to some gym battles.
+GymSpecialRules::
+	ld a, [wOtherTrainerClass]
+	cp BUGSY
+	jr nz, .check_pryce
+	ld hl, wPlayerScreens
+	set SCREENS_STICKY_WEB, [hl]
+	jr .exit
+
+.check_pryce
+.check_clair
+.check_brock
+.check_misty
+.check_jasmine
+.check_blue
+.exit
+	ret
+
 ; Check if all pokemons in the party are considered cute (non-evolved except if prior evolution is a baby pokemon, less than 1m/3"3' except for pink pkmn that can be up to 1.2m/3"11')
 CheckCuteParty::
 	ld a, 1

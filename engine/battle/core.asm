@@ -1,6 +1,7 @@
 ; Core components of the battle engine.
 
 DoBattle:
+	callfar GymSpecialRules
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
@@ -4223,6 +4224,9 @@ SpikesDamage:
 	ld bc, UpdateEnemyHUD
 .ok
 
+; Damien's addition: we add the STICKY_WEB effect here.
+	callfar StickyWebEffect
+
 	bit SCREENS_SPIKES, [hl]
 	ret z
 
@@ -5364,7 +5368,6 @@ BattleMonEntrance:
 	jr c, .ok
 	call RecallPlayerMon
 .ok
-
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox

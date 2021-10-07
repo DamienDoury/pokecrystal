@@ -286,6 +286,11 @@ BattleText_UserHurtBySpikes:
 	line "hurt by SPIKES!"
 	prompt
 
+BattleText_UserCaughtInStickyWeb:
+	text "<USER>'s caught"
+	line "in a STICKY WEB!"
+	prompt
+
 RecoveredUsingText:
 	text "<TARGET>"
 	line "recovered using a"
@@ -1109,6 +1114,11 @@ ShedLeechSeedText:
 BlewSpikesText:
 	text "<USER>"
 	line "blew away SPIKES!"
+	prompt
+
+RippedStickyWebText:
+	text "<USER> ripped"
+	line "off STICKY WEB!"
 	prompt
 
 DownpourText:

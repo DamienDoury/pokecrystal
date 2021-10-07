@@ -173,9 +173,17 @@ BugsyText_INeverLoseSequel:
 	para "the authority on"
 	line "bug #MON!"
 
-	para "Let me demonstrate"
-	line "what I've learned"
-	cont "from my studies."
+	para "You know, ILEX"
+	line "FOREST is full of"
+	cont "#MON webs."
+
+	para "An expert like me"
+	line "knows how to react"
+	cont "if my #MON"
+	cont "ever got stuck"
+	cont "into one!"
+
+	para "Will you?"
 	done
 
 AzaleaGymPowerRestrainerExplanation:
