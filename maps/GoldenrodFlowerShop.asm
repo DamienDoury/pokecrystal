@@ -16,8 +16,8 @@ FlowerShopTeacherScript:
 	iffalse .HaventMetFloria
 	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
 	iffalse .Lalala
-	checkflag ENGINE_PLAINBADGE
-	iffalse .NoPlainBadge
+	readvar VAR_BADGES
+	ifless 1, .NoPlainBadge
 	faceplayer
 	opentext
 	writetext GoldenrodFlowerShopTeacherHeresTheSquirtbottleText
@@ -111,8 +111,8 @@ GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText:
 	done
 
 GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
-	text "Oh, you're better"
-	line "than WHITNEY…"
+	text "Oh, you have a"
+	line "GYM BADGE…"
 
 	para "You'll be OK,"
 	line "then. Here's the"
@@ -137,16 +137,17 @@ GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
 	para "tree, she told me"
 	line "it's dangerous."
 
-	para "If I beat WHITNEY,"
-	line "I wonder if she'll"
-
-	para "lend me her water"
-	line "bottle…"
+	para "If I had a GYM"
+	line "BADGE, I wonder if"
+	
+	para "she'll lend me her"
+	line "water bottle…"
 	done
 
 GoldenrodFlowerShopFloriaYouBeatWhitneyText:
-	text "Wow, you beat"
-	line "WHITNEY? Cool!"
+	text "Wow, you have"
+	line "beaten a GYM"
+	cont "LEADER? Cool!"
 	done
 
 GoldenrodFlowerShopFloriaItReallyWasAMonText:

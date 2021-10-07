@@ -146,14 +146,14 @@ Text_ClairIsOut:
 	text "I am sorry."
 
 	para "CLAIR, our GYM"
-	line "LEADER, entered"
+	line "LEADER, went to"
 
-	para "the DRAGON'S DEN"
-	line "behind the GYM."
+	para "investigate the"
+	line "RADIO TOWER in"
 
-	para "I have no idea"
-	line "when our LEADER"
-	cont "will return."
+	para "GOLDENROD CITY"
+	line "under the orders"
+	cont "of LANCE."
 	done
 
 Text_ClairIsIn:

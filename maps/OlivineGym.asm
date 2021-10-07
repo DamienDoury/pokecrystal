@@ -12,8 +12,21 @@ OlivineGymJasmineScript:
 	opentext
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
-	writetext Jasmine_SteelTypeIntro
+	writetext Jasmine_SteelTypeIntroText
 	promptbutton
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, OLIVINEGYM_JASMINE, 20
+	opentext
+	writetext OlivineGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext Jasmine_SteelTypeIntroSequelText
+
 	readvar VAR_PARTYCOUNT
 	ifgreater 3, .TeamTooBig
 	writetext Jasmine_ValidatesTeamText
@@ -103,27 +116,33 @@ OlivineGymStatue:
 	gettrainername STRING_BUFFER_4, JASMINE, JASMINE1
 	jumpstd GymStatue2Script
 
-Jasmine_SteelTypeIntro:
+Jasmine_SteelTypeIntroText:
 	text "…Thank you for"
 	line "your help at the"
 	cont "LIGHTHOUSE…"
 
-	para "But this is dif-"
-	line "ferent. Please"
+	para "But this is"
+	line "different."
 
-	para "allow me to intro-"
-	line "duce myself."
+	para "Please allow me to"
+	line "introduce myself."
 
 	para "I am JASMINE, a"
 	line "GYM LEADER. I use"
 	cont "the steel-type."
+	done
 
-	para "I will test you to"
+Jasmine_SteelTypeIntroSequelText:
+	text "I will test you to"
 	line "see how well you"
 
 	para "do when your team"
 	line "is outnumbered."
 	done
+
+OlivineGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 Jasmine_TeamTooBigText:
 	text "…You can have"

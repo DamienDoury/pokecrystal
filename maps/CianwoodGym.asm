@@ -25,6 +25,19 @@ CianwoodGymChuckScript:
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, CIANWOODGYM_CHUCK, 20
+	opentext
+	writetext CianwoodGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext ChuckIntroSequelText
+
 	waitbutton
 	closetext
 	turnobject CIANWOODGYM_CHUCK, RIGHT
@@ -157,8 +170,10 @@ ChuckIntroText1:
 
 	para "So you've come"
 	line "this far!"
+	done
 
-	para "Let me tell you,"
+ChuckIntroSequelText:
+	text "Let me tell you,"
 	line "I'm tough!"
 
 	para "My #MON will"
@@ -174,6 +189,10 @@ ChuckIntroText2:
 
 	para "Oooarrgh!"
 	done
+
+CianwoodGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 ChuckIntroText3:
 	text "There! Scared now,"

@@ -20,14 +20,14 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_INeverLose
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, AZALEAGYM_BUGSY, 20
 	opentext
 	writetext AzaleaGymPowerRestrainerExplanation
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	writetext BugsyText_INeverLoseSequel
 	waitbutton
 	closetext

@@ -17,6 +17,18 @@ MahoganyGymPryceScript:
 	opentext
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
+	
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, MAHOGANYGYM_PRYCE, 20
+	opentext
+	writetext EcruteakGymPowerRestrainerExplanation
+	promptbutton
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+
 	writetext PryceText_Intro
 	waitbutton
 	closetext
@@ -177,6 +189,10 @@ PryceText_Intro:
 	para "shall demonstrate"
 	line "my power!"
 	done
+
+MahoganyGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 PryceText_Impressed:
 	text "Ah, I am impressed"

@@ -17,14 +17,14 @@ VioletGymFalknerScript:
 	writetext FalknerIntroText
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, VIOLETGYM_FALKNER, 20
 	opentext
 	writetext VioletGymPowerRestrainerExplanation
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	writetext FalknerIntroSequelText
 	waitbutton
 	closetext

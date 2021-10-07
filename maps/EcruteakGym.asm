@@ -27,6 +27,19 @@ EcruteakGymMortyScript:
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, ECRUTEAKGYM_MORTY, 20
+	opentext
+	writetext EcruteakGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext MortyIntroSequelText
+
 	waitbutton
 	closetext
 	winlosstext MortyWinLossText, 0
@@ -180,8 +193,10 @@ EcruteakGymGrampsSlowStepDownMovement:
 MortyIntroText:
 	text "Good of you to"
 	line "have come."
+	done
 
-	para "Here in ECRUTEAK,"
+MortyIntroSequelText:
+	text "Here in ECRUTEAK,"
 	line "#MON have been"
 	cont "revered."
 
@@ -215,6 +230,10 @@ MortyIntroText:
 	cont "mind is."
 
 	done
+
+EcruteakGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 MortyWinLossText:
 	text "I'm not good"
