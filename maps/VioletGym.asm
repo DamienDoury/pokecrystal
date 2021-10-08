@@ -26,6 +26,19 @@ VioletGymFalknerScript:
 .PowerRestrainerExplained
 	promptbutton
 	writetext FalknerIntroSequelText
+	promptbutton
+	
+	special CheckAllFlyingTypeParty
+	iftrue .ProceedToBattle
+
+; The player doesn't have an appropriate team.
+	writetext FalknerAllFlyingTypeText
+	waitbutton
+	closetext
+	end
+
+.ProceedToBattle:
+	writetext FalknerValidatesTeam
 	waitbutton
 	closetext
 	winlosstext FalknerWinLossText, 0
@@ -126,16 +139,42 @@ FalknerIntroText:
 	done
 
 FalknerIntroSequelText:
-	text "People say you can"
-	line "clip flying-type"
+	text "Have you ever felt"
+	line "the thrill of a"
 
-	para "#MON's wings"
-	line "with a jolt of"
-	cont "electricity…"
+	para "#MON battle on"
+	line "the cliff of a"
+	cont "high mountain?"	
+	done
 
-	para "I won't allow such"
-	line "insults to bird"
-	cont "#MON!"
+VioletGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
+FalknerAllFlyingTypeText:
+	text "In such environ-"
+	line "ment, only FLYING"
+
+	para "type #MON can"
+	line "be used."
+
+	para "This is this"
+	line "GYM's test."
+
+	para "Come back with an"
+	line "appropriate team"
+
+	para "if you want to"
+	line "challenge my"
+	
+	para "majestic bird"
+	line "#MON."
+	done
+
+FalknerValidatesTeam:
+	text "It is where"
+	line "FLYING #MON"
+	cont "truly shine."
 
 	para "I'll show you the"
 	line "real power of the"
@@ -143,10 +182,6 @@ FalknerIntroSequelText:
 	para "magnificent bird"
 	line "#MON!"
 	done
-
-VioletGymPowerRestrainerExplanation:
-	text_far _GymPowerRestrainerFirstExplanation
-	text_end
 
 FalknerWinLossText:
 	text "…Darn! My dad's"
