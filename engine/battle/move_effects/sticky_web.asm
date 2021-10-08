@@ -32,7 +32,7 @@ StickyWebEffect:
 	; Actual effect.
 	call BattleCommand_SwitchTurn
 	call ResetMiss
-	call BattleCommand_SpeedDown2
+	call BattleCommand_SpeedDown
 	call BattleCommand_StatDownMessage
 	call BattleCommand_SwitchTurn
 
