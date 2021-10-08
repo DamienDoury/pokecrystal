@@ -22,6 +22,7 @@ SetMenuMonIconColor:
 	ld a, [wd265]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
+	ld hl, wVirtualOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
 SetMenuMonIconColor_NoShiny:
@@ -34,6 +35,7 @@ SetMenuMonIconColor_NoShiny:
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
+	ld hl, wVirtualOAMSprite00Attributes
 	jr _ApplyMenuMonIconColor
 
 LoadPartyMenuMonIconColors:
@@ -47,12 +49,6 @@ LoadPartyMenuMonIconColors:
 	ld [wCurPartyMon], a
 	ld e, a
 	ld d, 0
-
-	ld hl, wPartyMon1Item
-	call GetPartyLocation
-	ld a, [hl]
-	ld [wCurIconMonHasItemOrMail], a
-
 	ld hl, wPartySpecies
 	add hl, de
 	ld a, [hl]
@@ -68,25 +64,7 @@ LoadPartyMenuMonIconColors:
 	ld e, a
 	add hl, de
 	pop af
-
-	ld de, 4
-	ld [hl], a ; top left
-	add hl, de
-	ld [hl], a ; top right
-	add hl, de
-	push hl
-	add hl, de
-	ld [hl], a ; bottom right
-	pop hl
-	ld d, a
-	ld a, [wCurIconMonHasItemOrMail]
-	and a
-	ld a, PAL_OW_RED ; item or mail color
-	jr nz, .ok
-	ld a, d
-.ok
-	ld [hl], a ; bottom left
-	jr _FinishMenuMonIconColor
+	; fallthrough
 
 _ApplyMenuMonIconColor:
 	ld c, 4
@@ -96,8 +74,7 @@ _ApplyMenuMonIconColor:
 	add hl, de
 	dec c
 	jr nz, .loop
-	; fallthrough
-_FinishMenuMonIconColor:
+
 	pop af
 	pop bc
 	pop de
