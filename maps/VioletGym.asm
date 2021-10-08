@@ -167,13 +167,20 @@ ReceivedZephyrBadgeText:
 	done
 
 FalknerZephyrBadgeText:
-	text "ZEPHYRBADGE allows"
-	line "#MON to use"
-	cont "CUT, if they have"
-	cont "it, anytime."
+;	text "ZEPHYRBADGE allows"
+;	line "#MON to use"
+;	cont "CUT, if they have"
+;	cont "it, anytime."
+;
+;	para "Here--take this"
+;	line "too."
 
-	para "Here--take this"
-	line "too."
+	text "ZEPHYRBADGE is a"
+	line "recognition of"
+	cont "your worth as a"
+	cont "trainer."
+
+	para "Here--take this."
 	done
 
 FalknerTMMudSlapText:
