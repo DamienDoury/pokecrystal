@@ -17,6 +17,9 @@ SaffronGymSabrinaScript:
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
 	writetext SabrinaIntroText
+	yesorno
+	iffalse .RefusedSabrinasChallenge
+	writetext SabrinaIntroSequelText
 	waitbutton
 	closetext
 	winlosstext SabrinaWinLossText, 0
@@ -34,6 +37,12 @@ SaffronGymSabrinaScript:
 	waitsfx
 	setflag ENGINE_MARSHBADGE
 	writetext SabrinaMarshBadgeText
+	waitbutton
+	closetext
+	end
+
+.RefusedSabrinasChallenge:
+	writetext SabrinaChallengeRefusedText
 	waitbutton
 	closetext
 	end
@@ -125,17 +134,42 @@ SabrinaIntroText:
 
 	para "I don't enjoy bat-"
 	line "tling, but it's my"
+	cont "duty as a LEADER."
 
-	para "duty as a LEADER"
-	line "to confer BADGES"
+	para "I like to teach"
+	line "trainers that"
 
-	para "on anyone who has"
-	line "proven him- or"
-	cont "herself worthy."
+	para "they can't always"
+	line "be victorious by"
+	cont "using brut force."
 
-	para "Since you wish it,"
+	para "Show me that you"
+	line "can win a battle"
+
+	para "with your greatest"
+	line "weapon: your mind."
+
+	para "You won't be able"
+	line "to use neither"
+	
+	para "PHYSICAL nor"
+	line "SPECIAL moves"
+	cont "against me."
+
+	para "Are you feeling"
+	line "ready?"
+	done
+
+SabrinaIntroSequelText:
+	text "Since you wish it,"
 	line "I will show you my"
 	cont "psychic powers!"
+	done
+
+SabrinaChallengeRefusedText:
+	text "I foresee that"
+	line "our paths will"
+	cont "cross again."
 	done
 
 SabrinaWinLossText:
@@ -180,17 +214,11 @@ SabrinaMarshBadgeText:
 	done
 
 SabrinaFightDoneText:
-	text "SABRINA: Your love"
-	line "for your #MON"
+	text "SABRINA: The power"
+	line "of your mind"
 
 	para "overwhelmed my"
 	line "psychic power…"
-
-	para "The power of love,"
-	line "I think, is also a"
-
-	para "kind of psychic"
-	line "power…"
 	done
 
 MediumRebeccaSeenText:
@@ -285,7 +313,7 @@ SaffronGymGuideText:
 
 SaffronGymGuideWinText:
 	text "That was another"
-	line "fantastic battle!"
+	line "FANTASTIC battle!"
 	done
 
 SaffronGym_MapEvents:
