@@ -16,10 +16,19 @@ GymSpecialRules::
 	cp CLAIR
 	jr nz, .check_brock
 
+	ld c, 0
 	call ExhaustStatusPP
+
 .check_brock
 .check_misty
-.check_jasmine
+.check_sabrina
+	ld a, [wOtherTrainerClass]
+	cp SABRINA
+	jr nz, .check_blue
+
+	ld c, 1
+	call ExhaustStatusPP
+
 .check_blue
 .exit
 	ret
@@ -161,6 +170,7 @@ MonNotCuteText:
 	text_end
 
 
+; If c equals 0, then it will deplete the Status moves PP, otherwise it will deplete the physical and special moves PP.
 ExhaustStatusPP:
 	ld a, 1
 	ld [wScriptVar], a ; Sets the return value as TRUE.
@@ -190,16 +200,29 @@ ExhaustStatusPP:
 	callfar GetMoveCategory
 	pop bc
 	pop hl
-	ldh a, [hRandomAdd]
 
-	and $ff ^ TYPE_MASK
 	inc hl
 	inc b
+
+	ld a, c
+	cp 0
+	ldh a, [hRandomAdd]
+	jr nz, .check_phy_or_spe_move
+
+; check_status_move
 	cp STATUS
 	jr nz, .next_move ; If the move is not a status move, we check the next move.
 
 	; At this point, we have found a status move.
+	jr .deplete_pp
 
+.check_phy_or_spe_move
+	cp STATUS
+	jr z, .next_move ; If the move is not a status move, we check the next move.
+
+	; At this point, we have found a physcial or special move.
+
+.deplete_pp
 	push hl
 	push de
 	ld de, OFFSET_FROM_MOVE_TO_PP

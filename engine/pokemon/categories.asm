@@ -37,10 +37,10 @@ GetMoveCategory:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
-	ldh [hRandomAdd], a
 
 ; Mask out the type
-;	and $ff ^ TYPE_MASK
+	and $ff ^ TYPE_MASK
+	ldh [hRandomAdd], a ; Store it for use with farcall that overrides the register a.
 	ret
 
 INCLUDE "data/types/category_names.asm"

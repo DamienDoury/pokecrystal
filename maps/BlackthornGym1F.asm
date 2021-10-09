@@ -34,6 +34,9 @@ BlackthornGymClairScript:
 	checkevent EVENT_BEAT_CLAIR
 	iftrue .FightDone
 	writetext ClairIntroText
+	yesorno
+	iffalse, .RefusesClairsChallenge
+	writetext ClairIntroSequelText
 	waitbutton
 	closetext
 	winlosstext ClairWinText, 0
@@ -53,6 +56,12 @@ BlackthornGymClairScript:
 	clearevent EVENT_MAHOGANY_MART_OWNERS
 	setevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
 	clearevent EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
+	end
+
+.RefusesClairsChallenge:
+	writetext RefusesClairsChallengeText
+	waitbutton
+	closetext
 	end
 
 .FightDone:
@@ -159,19 +168,20 @@ ClairIntroText:
 	para "#MON LEAGUE's"
 	line "ELITE FOUR."
 
+	para "Get ready for a"
+	line "brut force battle!"
+
+	para "Only PHYSICAL and"
+	line "SPECIAL moves are"
+	cont "allowed in this"
+	cont "battle."
+
 	para "Do you still want"
 	line "to take me on?"
+	done
 
-	para "Then get ready"
-	line "for a brut force"
-	cont "battle!"
-
-	para "STATUS moves are"
-	line "not allowed"
-	cont "against my mighty"
-	cont "dragons."
-
-	para "…Fine?"
+ClairIntroSequelText:
+	text "…Fine."
 	line "Let's do it!"
 
 	para "As a GYM LEADER,"
@@ -179,6 +189,14 @@ ClairIntroText:
 
 	para "power against any"
 	line "opponent!"
+	done
+
+RefusesClairsChallengeText:
+	text "Afraid of me"
+	line "I guess."
+
+	para "It is wise of"
+	line "you."
 	done
 
 ClairWinText:
