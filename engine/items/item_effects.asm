@@ -1944,9 +1944,26 @@ GetOneFifthMaxHP:
 	pop bc
 	ret
 
+GetOneFourthMaxHP:
+	push bc
+	ld a, MON_MAXHP
+	call GetPartyParamLocation
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	ld e, a
+	srl d
+	rr e
+	srl d
+	rr e
+	pop bc
+	ret
+
 GetHealingItemAmount:
 	push hl
 	ld a, [wCurItem]
+	cp GOLD_BERRY
+	jr z, .SitrusBerry
 	ld hl, HealingHPAmounts
 	ld d, a
 .next
@@ -1958,6 +1975,11 @@ GetHealingItemAmount:
 	inc hl
 	inc hl
 	jr .next
+
+.SitrusBerry:
+	call GetOneFourthMaxHP
+	pop hl
+	ret
 
 .NotFound:
 	scf
@@ -2477,9 +2499,9 @@ RestorePP:
 	cp MAX_ETHER
 	jr z, .restore_all
 
-	ld c, 5
-	cp MYSTERYBERRY
-	jr z, .restore_some
+;	ld c, 5 ; Commented out by Damien, so the Leppa Berry (ex-MysteryBerry) restores 10 PP.
+;	cp MYSTERYBERRY
+;	jr z, .restore_some
 
 	ld c, 10
 

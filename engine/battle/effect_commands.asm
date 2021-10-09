@@ -6778,6 +6778,24 @@ GetItemHeldEffect:
 	and a
 	ret z
 
+	; Damien's special case for the sitrus berry. Kinda ugly.
+	cp GOLD_BERRY
+	jr nz, .proceed_normally
+
+	push hl
+	push de
+	push af
+	callfar GetOneFourthMaxHP
+	ld c, e; No Pokemon can have more than 714 max HP, so a quarter of that will always fit within 1 byte. We can ignored the HP upper byte in register d.
+	pop af
+	pop de
+	pop hl
+	ld b, HELD_BERRY
+	ret
+
+.proceed_normally
+	; End of Damien's special case.
+
 	push hl
 	ld hl, ItemAttributes + ITEMATTR_EFFECT
 	dec a

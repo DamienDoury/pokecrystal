@@ -924,8 +924,8 @@ BerryDesc:
 	next "item. (10HP, HOLD)@"
 
 GoldBerryDesc:
-	db   "A self-restore"
-	next "item. (30HP, HOLD)@"
+	db   "Self-restores 25"
+	next "percent HP. (HOLD)@"
 
 SquirtBottleDesc:
 	db   "A bottle used for"
