@@ -219,6 +219,9 @@ SabrinaFightDoneText:
 
 	para "overwhelmed my"
 	line "psychic power…"
+
+	para "You showed me new"
+	line "paths…"
 	done
 
 MediumRebeccaSeenText:
