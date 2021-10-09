@@ -28,4 +28,19 @@ GetMoveCategoryName:
 	ld bc, MOVE_NAME_LENGTH
 	jp CopyBytes
 
+GetMoveCategory:
+; Copy the category of move a to a.
+	ldh a, [hRandomAdd]
+	dec a
+	ld bc, MOVE_LENGTH
+	ld hl, Moves + MOVE_TYPE
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	ldh [hRandomAdd], a
+
+; Mask out the type
+;	and $ff ^ TYPE_MASK
+	ret
+
 INCLUDE "data/types/category_names.asm"

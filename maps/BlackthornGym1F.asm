@@ -162,7 +162,16 @@ ClairIntroText:
 	para "Do you still want"
 	line "to take me on?"
 
-	para "…Fine."
+	para "Then get ready"
+	line "for a brut force"
+	cont "battle!"
+
+	para "STATUS moves are"
+	line "not allowed"
+	cont "against my mighty"
+	cont "dragons."
+
+	para "…Fine?"
 	line "Let's do it!"
 
 	para "As a GYM LEADER,"

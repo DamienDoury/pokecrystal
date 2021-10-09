@@ -1,14 +1,22 @@
+OFFSET_FROM_MOVE_TO_PP 		EQU 	20
+
 ; Applies special effects to some gym battles.
 GymSpecialRules::
 	ld a, [wOtherTrainerClass]
 	cp BUGSY
 	jr nz, .check_pryce
+
 	ld hl, wPlayerScreens
 	set SCREENS_STICKY_WEB, [hl]
 	jr .exit
 
 .check_pryce
 .check_clair
+	ld a, [wOtherTrainerClass]
+	cp CLAIR
+	jr nz, .check_brock
+
+	call ExhaustStatusPP
 .check_brock
 .check_misty
 .check_jasmine
@@ -151,5 +159,68 @@ CheckCuteParty::
 MonNotCuteText:
 	text_far _MonNotCuteText
 	text_end
+
+
+ExhaustStatusPP:
+	ld a, 1
+	ld [wScriptVar], a ; Sets the return value as TRUE.
+
+	ld hl, wPartyMon1Moves
+	ld de, PARTYMON_STRUCT_LENGTH
+	xor a
+	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
+
+.analyze_mon
+	ld b, 0 ; This represents the index of the move.
+	push hl
+
+.next_move
+	ld a, b
+	cp 4
+	jr z, .next_party_mon ; Once we have checked all four moves (index 0 to 3), we go to the next mon.
+
+	ld a, [hl] ; Retrieving the first move.
+	cp 0
+	jr z, .next_party_mon ; If this mon has no more moves, we move on to the next mon.
+
+	; Retrieving the move type attribute.
+	ldh [hRandomAdd], a
+	push hl
+	push bc
+	callfar GetMoveCategory
+	pop bc
+	pop hl
+	ldh a, [hRandomAdd]
+
+	and $ff ^ TYPE_MASK
+	inc hl
+	inc b
+	cp STATUS
+	jr nz, .next_move ; If the move is not a status move, we check the next move.
+
+	; At this point, we have found a status move.
+
+	push hl
+	push de
+	ld de, OFFSET_FROM_MOVE_TO_PP
+	add hl, de
+	ld [hl], 0 ; We exhaust the PP.
+	pop de
+	pop hl
+
+	jr .next_move
+
+.next_party_mon
+	pop hl
+	ld a, [wPartyCount]
+	ld b, a
+	ld a, [wCurPartyMon]
+	inc a
+	cp b
+	ret z ; We exit when we reach the last pkmn.
+
+	ld [wCurPartyMon], a
+	add hl, de
+	jr .analyze_mon
 
 INCLUDE "data/pokemon/cute.asm" ; Array of cute pokemons. Note: using an array is as fast and uses as much memory as coding the logic for a conditional check with the pokedex data.
