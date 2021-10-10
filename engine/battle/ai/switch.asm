@@ -183,12 +183,51 @@ CheckAbleToSwitch:
 	bit SUBSTATUS_PERISH, a
 	jr z, .no_perish
 
-;	ld a, [wEnemyPerishCount] ; Added by Damien, so that the AI switches as soon as it hears Perish Song (so the player can't trap the enemy).
-;	cp 1
-;	jr nz, .no_perish
+	; If the perish count is 1, we must switch now (or die).
+	ld a, [wEnemyPerishCount]
+	ld b, a
+	cp 1
+	jr z, .perish_insta_switch 
 
-	; Perish count is 1
+	; This function is called AFTER the player has switched out.
+	; The following algo below would be biased and would force the enemy to switch out when the player does.
+	; To prevent that, we give an even 50/50 chance for the enemy to switch out when the player does.
+	ld a, [wPlayerIsSwitching]
+	cp 1
+	jr nz, .perish_next_check ; If the player has not switched out, we go on to the next check.
 
+	; If the player switched out, 50% chances to switch out as well, and 50% chances to stay in.
+	call Random
+	cp 50 percent - 1
+	jr c, .no_perish ; 25% chances of not switching out.
+
+.perish_next_check
+	; If the player is not perished, and the enemy is, the enemy should switch out immediately.
+	ld a, [wPlayerSubStatus1]
+	bit SUBSTATUS_PERISH, a
+	jr z, .perish_insta_switch
+
+	; We compare the perish counters.
+	ld a, [wPlayerPerishCount]
+	cp b
+	jr z, .perish_75_25_switch 	; If the player's perish count is equal to the enemy's, we proceed to the next check.
+	jr c, .no_perish			; If the enemy has a smaller counter than the player, the enemy should switch now as he is in a bad position.
+	jr nc, .perish_insta_switch ; If the enemy has a higher counter, he is in a good position and should wait for the player's pkmn to die.
+
+.perish_75_25_switch
+	; If we have trapped the player, we wait for the last moment to switch out.
+	ld a, [wPlayerSubStatus5]
+	bit SUBSTATUS_CANT_RUN, a
+	jr nz, .no_perish 
+
+	; As soon as enemy hears the perish song, it has 75% of trying to switch out 
+	; to prevent the player from trapping the enemy (unless the player is trapped, see above).
+	; It also gives the enemy 25% chance to combo with Mean Look on the next turn (if it knows it) as it is greatly encouraged.
+	call Random
+	cp 25 percent - 1
+	jr c, .no_perish ; 25% chances of not switching out.
+
+.perish_insta_switch
 	call FindAliveEnemyMons
 	call FindEnemyMonsWithAtLeastQuarterMaxHP
 	call FindEnemyMonsThatResistPlayer

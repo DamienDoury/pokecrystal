@@ -1787,6 +1787,13 @@ AI_Smart_MeanLook:
 	and 1 << SUBSTATUS_PERISH | 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_NIGHTMARE
 	jr nz, .encourage
 
+; 80% chance to greatly encourage this move if the enemy has combo moves like Perish Song.
+	push hl
+	ld hl, .GoodMeanLookMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .encourage
+
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
 	push hl
 	callfar CheckPlayerMoveTypeMatchups
@@ -1806,6 +1813,11 @@ AI_Smart_MeanLook:
 	dec [hl]
 	dec [hl]
 	ret
+
+.GoodMeanLookMoves
+	db PERISH_SONG
+	db CURSE ; We should also check that the user is ghost type, but whatever.
+	db -1 ; end
 
 AICheckLastPlayerMon:
 	ld a, [wPartyCount]
@@ -2039,6 +2051,10 @@ AI_Smart_PerishSong:
 	callfar FindAliveEnemyMons
 	pop hl
 	jr c, .no
+
+	ld a, [wEnemySubStatus5] ; If the enemy is trapped, using Perish Song signs its death, so it should be greatly discouraged.
+	bit SUBSTATUS_CANT_RUN, a
+	jr nz, .no
 
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
