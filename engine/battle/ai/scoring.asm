@@ -2716,6 +2716,12 @@ AI_Smart_Solarbeam:
 	cp WEATHER_RAIN
 	ret nz
 
+	cp WEATHER_SANDSTORM
+	ret nz
+
+	cp WEATHER_HAIL
+	ret nz
+
 	call Random
 	cp 10 percent
 	ret c
