@@ -13,7 +13,6 @@ OlivineGymJasmineScript:
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
 	writetext Jasmine_SteelTypeIntroText
-	promptbutton
 
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
@@ -26,7 +25,7 @@ OlivineGymJasmineScript:
 .PowerRestrainerExplained
 	promptbutton
 	writetext Jasmine_SteelTypeIntroSequelText
-
+	promptbutton
 	readvar VAR_PARTYCOUNT
 	ifgreater 3, .TeamTooBig
 	writetext Jasmine_ValidatesTeamText
@@ -82,7 +81,6 @@ OlivineGymActivateRockets:
 	jumpstd RadioTowerRocketsScript
 
 OlivineGymGuideScript:
-	clearevent EVENT_OLIVINE_GYM_JASMINE ; A virer, to remove, to delete, Damien.
 	faceplayer
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .OlivineGymGuideWinScript
