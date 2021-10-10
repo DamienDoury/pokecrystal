@@ -183,9 +183,9 @@ CheckAbleToSwitch:
 	bit SUBSTATUS_PERISH, a
 	jr z, .no_perish
 
-	ld a, [wEnemyPerishCount]
-	cp 1
-	jr nz, .no_perish
+;	ld a, [wEnemyPerishCount] ; Added by Damien, so that the AI switches as soon as it hears Perish Song (so the player can't trap the enemy).
+;	cp 1
+;	jr nz, .no_perish
 
 	; Perish count is 1
 

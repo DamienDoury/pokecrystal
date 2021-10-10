@@ -1724,6 +1724,11 @@ AI_Smart_Conversion2:
 	ret
 
 AI_Smart_Disable:
+; 80% chance to greatly encourage this move if the player is Encored.
+	ld a, [wPlayerSubStatus5]
+	and 1 << SUBSTATUS_ENCORED
+	jr nz, .encourage
+
 	call AICompareSpeed
 	jr nc, .discourage
 
@@ -1739,6 +1744,14 @@ AI_Smart_Disable:
 	call Random
 	cp 39 percent + 1
 	ret c
+	dec [hl]
+	ret
+
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
 	dec [hl]
 	ret
 
@@ -1771,7 +1784,7 @@ AI_Smart_MeanLook:
 ; 80% chance to greatly encourage this move if the player is either
 ; in love, identified, stuck in Rollout, or has a Nightmare.
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_NIGHTMARE
+	and 1 << SUBSTATUS_PERISH | 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_NIGHTMARE
 	jr nz, .encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
@@ -1939,7 +1952,7 @@ AI_Smart_Protect:
 ; Encourage this move if the player has charged a two-turn move.
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
-	jr nz, .encourage
+	jr nz, .greatly_encourage
 
 ; Encourage this move if the player is affected by Toxic, Leech Seed, or Curse.
 	ld a, [wPlayerSubStatus5]
@@ -1964,6 +1977,12 @@ AI_Smart_Protect:
 	call AI_80_20
 	ret c
 
+	dec [hl]
+	ret
+
+.greatly_encourage
+	dec [hl]
+	dec [hl]
 	dec [hl]
 	ret
 
