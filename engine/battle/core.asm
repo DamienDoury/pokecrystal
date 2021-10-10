@@ -120,11 +120,15 @@ DoBattle:
 	jp BattleMenu
 
 StartAutomaticBattleWeather:
-	call GetAutomaticBattleWeather
+	callfar GetAutomaticBattleWeather
+	ldh a, [hFarByte]
 	and a
 	ret z
 ; get current AutomaticWeatherEffects entry
 	dec a
+; fallthrough
+
+ForceBattleWeather:
 	ld hl, AutomaticWeatherEffects
 	ld bc, 5 ; size of one entry
 	call AddNTimes
@@ -149,31 +153,7 @@ StartAutomaticBattleWeather:
 	call StdBattleTextbox ; uses hl
 	jp EmptyBattleTextbox
 
-GetAutomaticBattleWeather:
-	ld hl, AutomaticWeatherMaps
-	ld a, [wMapGroup]
-	ld b, a
-	ld a, [wMapNumber]
-	ld c, a
-.loop
-	ld a, [hli] ; group
-	and a
-	ret z ; end
-	cp b
-	jr nz, .wrong_group
-	ld a, [hli] ; map
-	cp c
-	jr nz, .wrong_map
-	ld a, [hl] ; weather
-	ret
-
-.wrong_group:
-	inc hl ; skip map
-.wrong_map
-	inc hl ; skip weather
-	jr .loop
-
-INCLUDE "data/battle/automatic_weather.asm"
+INCLUDE "data/battle/automatic_weather_anims.asm"
 
 WildFled_EnemyFled_LinkBattleCanceled:
 	call SafeLoadTempTilemapToTilemap
