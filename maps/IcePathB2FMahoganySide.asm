@@ -5,6 +5,7 @@
 	const ICEPATHB2FMAHOGANYSIDE_BOULDER4
 	const ICEPATHB2FMAHOGANYSIDE_POKE_BALL1
 	const ICEPATHB2FMAHOGANYSIDE_POKE_BALL2
+	const ICEPATHB2FMAHOGANYSIDE_POKE_BALL3
 
 IcePathB2FMahoganySide_MapScripts:
 	def_scene_scripts
@@ -20,6 +21,9 @@ IcePathB2FMahoganySideFullHeal:
 IcePathB2FMahoganySideMaxPotion:
 	itemball MAX_POTION
 
+IcePathB2FMahoganySideTMHail:
+	itemball TM_HAIL
+
 IcePathB2FMahoganySideHiddenCarbos:
 	hiddenitem CARBOS, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_HIDDEN_CARBOS
 
@@ -34,7 +38,7 @@ IcePathB2FMahoganySide_MapEvents:
 	def_warp_events
 	warp_event 17,  1, ICE_PATH_B1F, 2
 	warp_event  9, 11, ICE_PATH_B3F, 1
-	warp_event 11,  4, ICE_PATH_B1F, 3
+	warp_event 10,  3, ICE_PATH_B1F, 3
 	warp_event  4,  6, ICE_PATH_B1F, 4
 	warp_event  4, 12, ICE_PATH_B1F, 5
 	warp_event 12, 12, ICE_PATH_B1F, 6
@@ -51,3 +55,4 @@ IcePathB2FMahoganySide_MapEvents:
 	object_event 12, 13, SPRITE_BOULDER, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IcePathB2FMahoganySideBoulder, EVENT_BOULDER_IN_ICE_PATH_4A
 	object_event  8,  9, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IcePathB2FMahoganySideFullHeal, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_FULL_HEAL
 	object_event  0,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IcePathB2FMahoganySideMaxPotion, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_MAX_POTION
+	object_event 11, 13, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IcePathB2FMahoganySideTMHail, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_TM_HAIL

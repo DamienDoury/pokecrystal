@@ -165,6 +165,14 @@ JackRainDanceTriviaText:
 	line "than usual."
 	done
 
+JackHailTriviaText:
+	text "Did you know…?"
+
+	para "The ice types"
+	line "can't be hurt by"
+	cont "HAIL."
+	done
+
 JackHeardSomeGreatTipsText:
 	text "My friend heard"
 	line "some great tips."
