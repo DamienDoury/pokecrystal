@@ -4,23 +4,20 @@ OFFSET_FROM_MOVE_TO_PP 		EQU 	20
 GymSpecialRules::
 	ld a, [wOtherTrainerClass]
 	cp BUGSY
-	jr nz, .check_pryce
+	jr nz, .check_clair
 
 	ld hl, wPlayerScreens
 	set SCREENS_STICKY_WEB, [hl]
 	jr .exit
 
-.check_pryce
 .check_clair
 	ld a, [wOtherTrainerClass]
 	cp CLAIR
-	jr nz, .check_brock
+	jr nz, .check_sabrina
 
 	ld c, 0
 	call ExhaustStatusPP
 
-.check_brock
-.check_misty
 .check_sabrina
 	ld a, [wOtherTrainerClass]
 	cp SABRINA
