@@ -14,7 +14,9 @@ MahoganyGym_MapScripts:
 
 MahoganyGymPryceScript:
 	faceplayer
+	showemote EMOTE_SLEEP, MAHOGANYGYM_PRYCE, 60
 	opentext
+	writetext PryceSleepingText
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	
@@ -24,7 +26,7 @@ MahoganyGymPryceScript:
 	closetext
 	showemote EMOTE_QUESTION, MAHOGANYGYM_PRYCE, 20
 	opentext
-	writetext EcruteakGymPowerRestrainerExplanation
+	writetext MahoganyGymPowerRestrainerExplanation
 	promptbutton
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
@@ -158,6 +160,10 @@ MahoganyGymStatue:
 .Beaten:
 	gettrainername STRING_BUFFER_4, PRYCE, PRYCE1
 	jumpstd GymStatue2Script
+
+PryceSleepingText:
+	text "…"
+	done
 
 PryceText_Intro:
 	text "#MON have many"
