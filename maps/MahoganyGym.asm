@@ -176,21 +176,35 @@ PryceText_Intro:
 	line "and suffered much"
 	cont "in my life."
 
+	para "I have fought"
+	line "through many win-"
+	cont "ters, long before"
+	cont "you were born."
+
+	para "MAHOGANY TOWN"
+	line "stands at a high"
+	cont "altitude where"
+	cont "winters are harsh."
+
+	para "This GYM incor-"
+	line "porates powerful"
+	cont "snow cannons to"
+	
+	para "replicate the"
+	line "roughness of the"
+	cont "cold season."
+
+	para "The weak won't"
+	line "last more than"
+	cont "a few seconds in"
+	cont "these conditions."
+
 	para "Since I am your"
 	line "elder, let me show"
 	cont "you what I mean."
 
-	para "I have been with"
-	line "#MON since"
-
-	para "before you were"
-	line "born."
-
-	para "I do not lose"
-	line "easily."
-
 	para "I, PRYCE--the"
-	line "winter trainer--"
+	line "ICE master--"
 
 	para "shall demonstrate"
 	line "my power!"
