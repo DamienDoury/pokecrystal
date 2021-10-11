@@ -83,17 +83,22 @@ BrockIntroText:
 	para "I'm BROCK, the"
 	line "PEWTER GYM LEADER."
 
-	para "I'm an expert on"
-	line "rock-type #MON."
+	para "I was born & rai-"
+	line "sed in this rocky"
+	cont "mountain, and"
+	
+	para "became friend with"
+	line "ROCK type #MON."
 
-	para "My #MON are im-"
-	line "pervious to most"
+	para "They strive in"
+	line "this area because"
+	cont "sandstorms often"
+	cont "arise."
 
-	para "physical attacks."
-	line "You'll have a hard"
-
-	para "time inflicting"
-	line "any damage."
+	para "I will recognize"
+	line "your worth if you"
+	cont "can beat me under"
+	cont "this weather."
 
 	para "Come on!"
 	done
@@ -124,11 +129,8 @@ BrockBoulderBadgeText:
 	line "though I am a bit"
 	cont "upset."
 
-	para "That BOULDERBADGE"
-	line "will make your"
-
-	para "#MON even more"
-	line "powerful."
+	para "I'm gonna have to"
+	line "train harder."
 	done
 
 BrockFightDoneText:
