@@ -1798,6 +1798,9 @@ GymStatue1Script:
 	getcurlandmarkname STRING_BUFFER_3
 	opentext
 	farwritetext GymStatue_CityGymText
+	promptbutton
+	getchallengename
+	farwritetext GymStatue_ChallengeGymText
 	waitbutton
 	closetext
 	end
@@ -1806,6 +1809,9 @@ GymStatue2Script:
 	getcurlandmarkname STRING_BUFFER_3
 	opentext
 	farwritetext GymStatue_CityGymText
+	promptbutton
+	getchallengename
+	farwritetext GymStatue_ChallengeGymText
 	promptbutton
 	farwritetext GymStatue_WinningTrainersText
 	waitbutton

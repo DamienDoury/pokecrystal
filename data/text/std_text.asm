@@ -292,6 +292,13 @@ GymStatue_CityGymText:
 	line "#MON GYM"
 	done
 
+GymStatue_ChallengeGymText:
+	text "Challenge:"
+	line "@"
+	text_ram wStringBuffer3
+	text " "
+	done
+
 GymStatue_WinningTrainersText:
 	text "LEADER: @"
 	text_ram wStringBuffer4
