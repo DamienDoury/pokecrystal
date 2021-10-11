@@ -1635,14 +1635,7 @@ Script_getitemname:
 	jr GetStringBuffer
 
 Script_getchallengename:
-	push hl
-	push de
-	push bc
 	farcall GetChallengeName
-	pop bc
-	pop de
-	pop hl
-	xor a
 	ret
 
 Script_getcurlandmarkname:
