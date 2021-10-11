@@ -76,4 +76,36 @@ GetAutomaticBattleWeather::
 	inc hl ; skip weather
 	jr .loop
 
+WeatherMovesInSpecificGyms::
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_SUNNY_DAY
+	jr z, .check_gym_leader
+	cp EFFECT_RAIN_DANCE
+	jr z, .check_gym_leader
+	cp EFFECT_SANDSTORM
+	jr z, .check_gym_leader
+	cp EFFECT_HAIL
+	jr z, .check_gym_leader
+	ret
+
+.check_gym_leader
+	; At this point, we know we are using a weather move.
+
+	ld a, [wOtherTrainerClass]
+	cp BROCK
+	jr z, .miss
+	cp PRYCE
+	jr z, .miss
+	cp MISTY
+	jr z, .miss
+	cp BLAINE
+	jr z, .miss
+	ret
+
+.miss
+	ld a, 1
+	ld [wAttackMissed], a
+	ret
+
 INCLUDE "data/battle/weather_forecast.asm"

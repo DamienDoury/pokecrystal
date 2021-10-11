@@ -1538,6 +1538,8 @@ Sandstorm:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startsandstorm
 	endmove
 
@@ -1825,6 +1827,8 @@ RainDance:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startrain
 	endmove
 
@@ -1832,6 +1836,8 @@ SunnyDay:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startsun
 	endmove
 
@@ -2095,5 +2101,7 @@ Hail:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	starthail
 	endmove

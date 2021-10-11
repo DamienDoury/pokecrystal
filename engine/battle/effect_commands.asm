@@ -1662,6 +1662,11 @@ BattleCommand_DamageVariation:
 	ld [hl], a
 	ret
 
+BattleCommand_CheckRestrictedWeather:
+; checkrestrictedweather
+	callfar WeatherMovesInSpecificGyms ; Weather moves should miss in 4 weather restricted gyms.
+	ret
+	
 BattleCommand_CheckHit:
 ; checkhit
 
