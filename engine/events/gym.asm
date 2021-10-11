@@ -50,7 +50,12 @@ CheckAllFlyingTypeParty::
 	call GetBaseData
 	ld a, [wBaseType2] ; The flying type is always the secondary type.
 	cp FLYING
-	jr nz, .invalid_party_member
+	jr z, .next_party_mon
+
+	; Invalid party member.
+	xor a
+	ld [wScriptVar], a ; Set the return value as FALSE.
+	ret
 
 .next_party_mon
 	ld a, [wPartyCount]
@@ -63,11 +68,53 @@ CheckAllFlyingTypeParty::
 	ld [wCurPartyMon], a
 	add hl, de
 	jr .analyze_mon
+	
 
-.invalid_party_member
+
+
+
+; Returns true if all Pokémon from the party are Flying or Water type.
+CheckAllFlyingOrWaterTypeParty::
+	ld a, 1
+	ld [wScriptVar], a ; Sets the return value as TRUE.
+
+	ld hl, wPartyMon1Species
+	ld de, PARTYMON_STRUCT_LENGTH
+	xor a
+	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
+
+.analyze_mon
+	ld a, [hl] ; Retrieving the species.
+	ld [wCurSpecies], a
+	call GetBaseData
+	ld a, [wBaseType2] ; The flying type is always the secondary type.
+	cp FLYING
+	jr z, .next_party_mon
+
+	cp WATER
+	jr z, .next_party_mon
+
+	ld a, [wBaseType1]
+	cp WATER
+	jr z, .next_party_mon
+
+	; Invalid party member.
 	xor a
 	ld [wScriptVar], a ; Set the return value as FALSE.
 	ret
+
+.next_party_mon
+	ld a, [wPartyCount]
+	ld b, a
+	ld a, [wCurPartyMon]
+	inc a
+	cp b
+	ret z ; We exit when we reach the last pkmn.
+
+	ld [wCurPartyMon], a
+	add hl, de
+	jr .analyze_mon
+	
 
 
 

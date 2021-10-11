@@ -62,6 +62,19 @@ CeruleanGymMistyScript:
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
 	writetext MistyIntroText
+	promptbutton
+
+	special CheckAllFlyingOrWaterTypeParty
+	iftrue .ProceedToBattle
+
+; The player doesn't have an appropriate team.
+	writetext MistyOnlyWaterOrFlyingTypeText
+	waitbutton
+	closetext
+	end
+
+.ProceedToBattle:
+	writetext MistyValidatesTeamText
 	waitbutton
 	closetext
 	winlosstext MistyWinLossText, 0
@@ -246,12 +259,39 @@ MistyIntroText:
 	para "You may have a"
 	line "lot of JOHTO GYM"
 
-	para "BADGES, but you'd"
-	line "better not take me"
-	cont "too lightly."
+	para "BADGES, but in"
+	line "this GYM we play"
+	cont "by my rules."
 
-	para "My water-type"
-	line "#MON are tough!"
+	para "This pool repli-"
+	line "cates the rough"
+	cont "conditions of an"
+	cont "ocean storm I once"
+	cont "fought in."	
+	done
+
+MistyOnlyWaterOrFlyingTypeText:
+	text "Only WATER and"
+	line "FLYING #MON"
+
+	para "can endure such"
+	line "a storm. (cough)"
+
+	para "Your current team"
+	line "is not fit for"
+	cont "this challenge."
+
+	para "So go fix it,"
+	line "you pest! Quick!"
+	done
+
+MistyValidatesTeamText:
+	text "That'll show you"
+	line "the true power of"
+	cont "WATER #MON."
+
+	para "Let's see what"
+	line "you're made of!"
 	done
 
 MistyWinLossText:

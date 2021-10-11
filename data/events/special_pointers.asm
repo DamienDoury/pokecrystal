@@ -56,7 +56,7 @@ SpecialsPointers::
 	add_special SlotMachine
 	add_special CardFlip
 	add_special CheckCuteParty ; Damien
-	add_special ClearBGPalettesBufferScreen ; unused
+	add_special CheckAllFlyingOrWaterTypeParty ; Damien
 	add_special FadeOutPalettes
 	add_special BattleTowerFade
 	add_special FadeBlackQuickly
