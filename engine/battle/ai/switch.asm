@@ -21,14 +21,21 @@ CheckPlayerMoveTypeMatchups:
 	push hl
 	dec a
 	ld hl, Moves + MOVE_POWER
-	call GetMoveAttr
+	call GetMoveAttrBis
 	and a
 	jr z, .next
 
 	inc hl
-	call GetMoveByte
+	call GetMoveByteBis
 	ld hl, wEnemyMonType
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de ; Far calling CheckTypeMatchupFarcall. The a value will be gotten from [hFarByte].
+	pop de
+	
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1 ; 1.0 + 0.1
 	jr nc, .super_effective
@@ -73,7 +80,14 @@ CheckPlayerMoveTypeMatchups:
 	ld a, [wBattleMonType1]
 	ld b, a
 	ld hl, wEnemyMonType1
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
+
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1 ; 1.0 + 0.1
 	jr c, .ok
@@ -82,7 +96,15 @@ CheckPlayerMoveTypeMatchups:
 	ld a, [wBattleMonType2]
 	cp b
 	jr z, .ok2
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
+
+	
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1 ; 1.0 + 0.1
 	jr c, .ok2
@@ -114,14 +136,20 @@ CheckPlayerMoveTypeMatchups:
 	inc de
 	dec a
 	ld hl, Moves + MOVE_POWER
-	call GetMoveAttr
+	call GetMoveAttrBis
 	and a
 	jr z, .loop2
 
 	inc hl
-	call GetMoveByte
+	call GetMoveByteBis
 	ld hl, wBattleMonType1
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
 
 	ld a, [wTypeMatchup]
 	; immune
@@ -413,15 +441,23 @@ FindEnemyMonsImmuneToLastCounterMove:
 	ld a, [wLastPlayerCounterMove]
 	dec a
 	ld hl, Moves + MOVE_POWER
-	call GetMoveAttr
+	call GetMoveAttrBis
 	and a
 	jr z, .next
 
 	; and the Pokemon is immune to it...
 	inc hl
-	call GetMoveByte
+	call GetMoveByteBis
 	ld hl, wBaseType
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
+
+	
 	ld a, [wTypeMatchup]
 	and a
 	jr nz, .next
@@ -503,15 +539,21 @@ FindEnemyMonsWithASuperEffectiveMove:
 	; if move has no power: continue
 	dec a
 	ld hl, Moves + MOVE_POWER
-	call GetMoveAttr
+	call GetMoveAttrBis
 	and a
 	jr z, .nope
 
 	; check type matchups
 	inc hl
-	call GetMoveByte
+	call GetMoveByteBis
 	ld hl, wBattleMonType1
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
 
 	; if immune or not very effective: continue
 	ld a, [wTypeMatchup]
@@ -602,18 +644,25 @@ FindEnemyMonsThatResistPlayer:
 
 	dec a
 	ld hl, Moves + MOVE_POWER
-	call GetMoveAttr
+	call GetMoveAttrBis
 	and a
 	jr z, .skip_move
 
 	inc hl
-	call GetMoveByte
+	call GetMoveByteBis
 	jr .check_type
 
 .skip_move
 	ld a, [wBattleMonType1]
 	ld hl, wBaseType
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
+
 	ld a, [wTypeMatchup]
 	cp 10 + 1
 	jr nc, .dont_choose_mon
@@ -621,7 +670,14 @@ FindEnemyMonsThatResistPlayer:
 
 .check_type
 	ld hl, wBaseType
-	call CheckTypeMatchup
+	
+	ld [wTempByteValue], a
+	push de
+	ld de, CheckTypeMatchupFarcall
+	ld a, BANK(CheckTypeMatchupFarcall)
+	call FarCall_de
+	pop de
+
 	ld a, [wTypeMatchup]
 	cp EFFECTIVE + 1
 	jr nc, .dont_choose_mon
@@ -695,3 +751,16 @@ FindEnemyMonsWithAtLeastQuarterMaxHP:
 	and c
 	ld c, a
 	ret
+
+GetMoveAttrBis:
+; Assuming hl = Moves + x, return attribute x of move a.
+	push bc
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	call GetMoveByteBis
+	pop bc
+	ret
+
+GetMoveByteBis:
+	ld a, BANK(Moves)
+	jp GetFarByte

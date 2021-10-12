@@ -1516,6 +1516,12 @@ BattleCheckTypeMatchup:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar ; preserves hl, de, and bc
 	and TYPE_MASK
+	jr CheckTypeMatchup
+
+CheckTypeMatchupFarcall:: ; Needs to be called from Farcall_de to preserve hl.
+	ld a, [wTempByteValue]
+	; fallthrough
+
 CheckTypeMatchup:
 	push hl
 	push de
@@ -1599,8 +1605,6 @@ BattleCommand_ResetTypeMatchup:
 .reset
 	ld [wTypeMatchup], a
 	ret
-
-INCLUDE "engine/battle/ai/switch.asm"
 
 INCLUDE "data/types/type_matchups.asm"
 
@@ -5180,7 +5184,7 @@ BattleCommand_ForceSwitch:
 	jp .succeed
 
 .trainer
-	call FindAliveEnemyMons
+	callfar FindAliveEnemyMons
 	jr c, .switch_fail
 	ld a, [wEnemyGoesFirst]
 	and a
