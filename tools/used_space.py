@@ -14,7 +14,7 @@ from colorsys import hls_to_rgb
 from mapreader import MapReader
 
 def main():
-	mapfile = sys.argv[1] if len(sys.argv) >= 2 else 'pokecrystal.map'
+	mapfile = sys.argv[1] if len(sys.argv) >= 2 else 'pokecrystal11.map'
 	filename = sys.argv[2] if len(sys.argv) >= 3 else 'used_space.png'
 
 	num_banks = 0x80
