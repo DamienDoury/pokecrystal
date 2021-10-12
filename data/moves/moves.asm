@@ -98,7 +98,7 @@ Moves:
 	move FIRE_SPIN,    EFFECT_TRAP_TARGET,        15, FIRE,          	SPECIAL,	70, 15,   0
 	move THUNDERSHOCK, EFFECT_PARALYZE_HIT,       40, ELECTRIC,     	SPECIAL,	100, 30,  10
 	move THUNDERBOLT,  EFFECT_PARALYZE_HIT,       95, ELECTRIC,     	SPECIAL,	100, 15,  10
-	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,     	STATUS,		100, 20,   0
+	move THUNDER_WAVE, EFFECT_PARALYZE,            0, ELECTRIC,     	STATUS,		90, 20,   0
 	move THUNDER,      EFFECT_THUNDER,           120, ELECTRIC,      	SPECIAL,	70, 10,  30
 	move ROCK_THROW,   EFFECT_NORMAL_HIT,         50, ROCK,          	PHYSICAL,	90, 15,   0
 	move EARTHQUAKE,   EFFECT_EARTHQUAKE,        100, GROUND,       	PHYSICAL,	100, 10,   0
@@ -149,7 +149,7 @@ Moves:
 	move KINESIS,      EFFECT_ACCURACY_DOWN,       0, PSYCHIC_TYPE,  	STATUS,		80, 15,   0
 	move SOFTBOILED,   EFFECT_HEAL,                0, NORMAL,       	STATUS,		100, 10,   0
 	move HI_JUMP_KICK, EFFECT_JUMP_KICK,          85, FIGHTING,      	PHYSICAL,	90, 20,   0
-	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,        	STATUS,		75, 30,   0
+	move GLARE,        EFFECT_PARALYZE,            0, NORMAL,        	STATUS,		100, 30,   0
 	move DREAM_EATER,  EFFECT_DREAM_EATER,       100, PSYCHIC_TYPE, 	SPECIAL,	100, 15,   0
 	move POISON_GAS,   EFFECT_POISON,              0, POISON,        	STATUS,		55, 40,   0
 	move BARRAGE,      EFFECT_MULTI_HIT,          15, NORMAL,        	PHYSICAL,	85, 20,   0

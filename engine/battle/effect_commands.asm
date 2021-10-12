@@ -1438,6 +1438,16 @@ BattleCommand_Stab:
 	and %10000000
 	ld b, a
 ; If the target is immune to the move, treat it as a miss and calculate the damage as 0
+
+	; Glare exception: it can hit Ghost types.
+	push hl
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	pop hl
+	cp GLARE
+	jr z, .NotImmune
+	; End of Glare exception.
+
 	ld a, [hl]
 	and a
 	jr nz, .NotImmune
@@ -3847,27 +3857,47 @@ BattleCommand_SleepTarget:
 
 BattleCommand_PoisonTarget:
 ; poisontarget
+; Used for secondary effects moves (Sludge Bomb, etc.).
 
 	call CheckSubstituteOpp
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
 	ret nz
+
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckIfTargetIsPoisonType
+
+	ld a, POISON
+	call CheckOpponentType ; Can't poison a Poison-type
 	ret z
+
+	ld a, STEEL
+	call CheckOpponentType ; Can't poison a Steel-type
+	ret z
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_POISON
 	ret z
-	ld a, [wEffectFailed]
-	and a
-	ret nz
+
 	call SafeCheckSafeguard
 	ret nz
+
+	ld a, [wOtherTrainerClass] ; Janine's Pokémons always poison (and can never be poisonned as they all are Poison types). Damien.
+	cp JANINE
+	jr z, .dont_check_fail
+
+	ld a, [wEffectFailed] ; Can't get paralyzed if the secondary effect missed.
+	and a
+	ret nz
+
+.dont_check_fail
+	xor a
+	ld [wEffectFailed], a ; Cancel the fail.
 
 	call PoisonOpponent
 	ld de, ANIM_PSN
@@ -3882,13 +3912,19 @@ BattleCommand_PoisonTarget:
 
 BattleCommand_Poison:
 ; poison
+; Used for Status moves (Toxic, Poison Gas, etc.).
 
 	ld hl, DoesntAffectText
 	ld a, [wTypeModifier]
 	and $7f
 	jp z, .failed
 
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckOpponentType ; Can't poison a Poison-type
+	jp z, .failed
+
+	ld a, STEEL
+	call CheckOpponentType ; Can't poison a Steel-type
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -3902,6 +3938,7 @@ BattleCommand_Poison:
 	ld a, b
 	cp HELD_PREVENT_POISON
 	jr nz, .do_poison
+
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -3917,9 +3954,19 @@ BattleCommand_Poison:
 
 	call CheckSubstituteOpp
 	jr nz, .failed
+
+	ld a, [wOtherTrainerClass] ; Janine's Pokémons never miss their poison moves. Useful for Toxic. Damien.
+	cp JANINE
+	jr z, .dont_check_fail
+
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
+
+.dont_check_fail
+	xor a
+	ld [wAttackMissed], a ; Cancel the fail.
+
 	call .check_toxic
 	jr z, .toxic
 
@@ -3964,21 +4011,6 @@ BattleCommand_Poison:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_TOXIC
-	ret
-
-CheckIfTargetIsPoisonType:
-	ld de, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wBattleMonType1
-.ok
-	ld a, [de]
-	inc de
-	cp POISON
-	ret z
-	ld a, [de]
-	cp POISON
 	ret
 
 PoisonOpponent:
@@ -4099,24 +4131,32 @@ BattleCommand_BurnTarget:
 	ld [wNumHits], a
 	call CheckSubstituteOpp
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
+
 	jp nz, Defrost
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
+
+	ld a, FIRE
+	call CheckOpponentType ; Can't burn a Fire-type
 	ret z
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_BURN
 	ret z
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
+
 	call SafeCheckSafeguard
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set BRN, [hl]
@@ -4175,7 +4215,8 @@ BattleCommand_FreezeTarget:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
+	ld a, ICE
+	call CheckOpponentType ; Can't freeze an Ice-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4215,25 +4256,44 @@ BattleCommand_ParalyzeTarget:
 ; paralyzetarget
 
 	xor a
+
 	ld [wNumHits], a
-	call CheckSubstituteOpp
+	call CheckSubstituteOpp ; Can't get paralyzed behind a substitute.
 	ret nz
-	ld a, BATTLE_VARS_STATUS_OPP
+
+	ld a, BATTLE_VARS_STATUS_OPP ; Can't get paralyzed if the pkmn already has a status.
 	call GetBattleVarAddr
 	and a
 	ret nz
+
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call GetOpponentItem
+
+	ld a, ELECTRIC
+	call CheckOpponentType ; Can't paralyze an Electric-type
+	ret z
+
+	call GetOpponentItem ; Can't get paralyzed when holding an item that prevents it (note that no item has this effect).
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
 	ret z
-	ld a, [wEffectFailed]
+
+	call SafeCheckSafeguard ; Can't get paralyzed when Safeguard is active.
+	ret nz
+
+	ld a, [wOtherTrainerClass] ; Lt. Surge's Pokémons always paralyze (and can never be paralyzed as they all are electric types). Damien.
+	cp LT_SURGE
+	jr z, .dont_check_fail
+
+	ld a, [wEffectFailed] ; Can't get paralyzed if the secondary effect missed.
 	and a
 	ret nz
-	call SafeCheckSafeguard
-	ret nz
+
+.dont_check_fail
+	xor a
+	ld [wEffectFailed], a ; Cancel the fail.
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set PAR, [hl]
@@ -5823,8 +5883,10 @@ BattleCommand_TrapTarget:
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 	call BattleRandom
-	; trapped for 2-5 turns
-	and %11
+	; trapped for 4-5 turns
+	and %1
+	inc a
+	inc a
 	inc a
 	inc a
 	inc a
@@ -6051,13 +6113,26 @@ BattleCommand_Paralyze:
 	call GetBattleVar
 	bit PAR, a
 	jr nz, .paralyzed
+
+	ld a, BATTLE_VARS_MOVE_ANIM ; Exception for Glare that can paralyze Ghost types (even though they are immune to Normal type moves).
+	call GetBattleVar
+	cp GLARE
+	jr z, .skip_immunity_check
+
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect
+
+.skip_immunity_check
+	ld a, ELECTRIC
+	call CheckOpponentType ; Can't paralyze an Electric-type
+	jr z, .didnt_affect
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
 	jr nz, .no_item_protection
+
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -6070,11 +6145,14 @@ BattleCommand_Paralyze:
 	call GetBattleVarAddr
 	and a
 	jr nz, .failed
+
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
+
 	call CheckSubstituteOpp
 	jr nz, .failed
+
 	ld c, 30
 	call DelayFrames
 	call AnimateCurrentMove
@@ -6103,39 +6181,38 @@ BattleCommand_Paralyze:
 	call AnimateFailedMove
 	jp PrintDoesntAffect
 
-CheckMoveTypeMatchesTarget:
-; Compare move type to opponent type.
-; Return z if matching the opponent type,
-; unless the move is Normal (Tri Attack).
+CheckOpponentTypeFarcall::
+	ld a, [wTempByteValue]
+	; fallthrough
+
+CheckOpponentType: ; Fixes the tri-attack issue that could burn fire types and freeze ice types.
+; Returns z if the opponent has the type provided in a.
+; Destroys a.
 
 	push hl
+	push af
 
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .ok
+	jr z, .target_found
 	ld hl, wBattleMonType1
-.ok
 
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	and TYPE_MASK
-	cp NORMAL
-	jr z, .normal
+.target_found
+	pop af
 
-	cp [hl]
-	jr z, .return
+	cp [hl]		; Checking the first type.
+	jr z, .return_true
 
 	inc hl
-	cp [hl]
+	cp [hl]		; Checking the secondary type.
+	jr z, .return_true
 
-.return
-	pop hl
-	ret
+	; Return false.
+	xor a
+	cp 1
 
-.normal
-	ld a, 1
-	and a
+.return_true
 	pop hl
 	ret
 
@@ -6508,6 +6585,11 @@ BattleCommand_ArenaTrap:
 	bit SUBSTATUS_CANT_RUN, [hl]
 	jr nz, .failed
 
+; Doesn't work on Ghost-types.
+	ld a, GHOST
+	call CheckOpponentType ; Can't trap a Ghost-type
+	jr z, .doesnt_affect
+
 ; Otherwise trap the opponent.
 
 	set SUBSTATUS_CANT_RUN, [hl]
@@ -6518,6 +6600,13 @@ BattleCommand_ArenaTrap:
 .failed
 	call AnimateFailedMove
 	jp PrintButItFailed
+
+.doesnt_affect
+	ld hl, DoesntAffectText
+	push hl
+	call AnimateFailedMove
+	pop hl
+	jp StdBattleTextbox
 
 INCLUDE "engine/battle/move_effects/nightmare.asm"
 

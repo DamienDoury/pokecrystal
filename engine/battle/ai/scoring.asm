@@ -1014,7 +1014,7 @@ AI_Smart_TrapTarget:
 	jr nz, .encourage
 
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_NIGHTMARE
+	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_NIGHTMARE | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_PERISH
 	jr nz, .encourage
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
@@ -1768,6 +1768,13 @@ AI_Smart_Disable:
 	ret
 
 AI_Smart_MeanLook:
+	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp GHOST
+	jr nz, .player_is_no_ghost
+	call AIDiscourageMove ; We dismiss the use of Mean Look or Spider Web against a Ghost type because their are immune to it.
+	ret
+
+.player_is_no_ghost
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
