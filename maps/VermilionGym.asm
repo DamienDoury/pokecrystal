@@ -117,25 +117,26 @@ LtSurgeIntroText:
 	line "electric #MON,"
 	cont "I'm number one!"
 
-	para "You see, everyday"
-	line "I go to the"
-	cont "POWER PLANT to"
+	para "You see kiddo,"
+	line "everyday I walk up"
+	cont "to the POWER PLANT"
 
-	para "supercharge my"
-	line "#MON squad."
+	para "and supercharge"
+	line "my #MON squad."
 
 	para "It makes their"
 	line "ELECTRIC moves"
 	cont "stronger and"
 
 	para "causes PARALYSIS"
-	line "more often."
+	line "more frequently."
 
 	para "After all, “All"
 	line "is fair in war”,"
-	
-	para "and I'm gonna"
-	line "teach you, kiddo!"
+	cont "and you're 'bout"
+
+	para "to learn the"
+	line "hard way!"
 
 	done
 

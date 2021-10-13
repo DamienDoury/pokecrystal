@@ -113,16 +113,18 @@ CeladonGymStatue:
 ErikaBeforeBattleText:
 	text "ERIKA: Hello…"
 	line "Lovely weather,"
+	cont "isn't it?"
 
-	para "isn't it?"
-	line "It's so pleasant…"
+	para "It always feels"
+	line "like spring in"
+	cont "this climate cont-"
+	cont "rolled greenhouse…"
 
-	para "…I'm afraid I may"
-	line "doze off…"
+	para "…GRASS #MON are"
+	line "blooming all year"
 
-	para "My name is ERIKA."
-	line "I am the LEADER of"
-	cont "CELADON GYM."
+	para "round, a true"
+	line "heaven…"
 
 	para "…Oh? All the way"
 	line "from JOHTO, you"
@@ -134,8 +136,19 @@ ErikaBeforeBattleText:
 	para "that you wished to"
 	line "challenge me."
 
-	para "Very well, but I"
-	line "shall not lose."
+	para "My name is ERIKA."
+	line "I am the LEADER of"
+	cont "CELADON GYM."
+
+	para "My #MON friends"
+	line "grew up it this"
+	cont "garden. They are"
+	cont "a part of this"
+	cont "ecosystem…"
+
+	para "If you have aller-"
+	line "gies, you better"
+	cont "stay away…"
 	done
 
 ErikaBeatenText:
