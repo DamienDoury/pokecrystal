@@ -93,6 +93,7 @@ BurnHit:
 	checkfaint
 	buildopponentrage
 	burntarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 FreezeHit:
@@ -114,6 +115,7 @@ FreezeHit:
 	checkfaint
 	buildopponentrage
 	freezetarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 ParalyzeHit:
@@ -135,6 +137,7 @@ ParalyzeHit:
 	checkfaint
 	buildopponentrage
 	paralyzetarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 Selfdestruct:
@@ -577,6 +580,7 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	defensedown
 	statdownmessage
 	endmove
@@ -599,6 +603,7 @@ SpeedDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	speeddown
 	statdownmessage
 	endmove
@@ -643,6 +648,7 @@ SpecialDefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	specialdefensedown
 	statdownmessage
 	endmove
@@ -711,6 +717,7 @@ DefenseUpHit:
 	statupmessage
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 AttackUpHit:
@@ -733,6 +740,7 @@ AttackUpHit:
 	statupmessage
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 AllUpHit:
@@ -910,6 +918,7 @@ FlinchHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle. It adds the unintended effect to increase the odds of flinching of flinching move.
 	flinchtarget
 	endmove
 
@@ -926,6 +935,7 @@ OHKOHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; This has been added to activate the spore against the player in Erika's battle. It should have no other impact otherwise.
 	endmove
 
 Struggle:
@@ -942,6 +952,7 @@ Struggle:
 	struggle
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 RecoilHit:
@@ -1006,6 +1017,7 @@ ConfuseHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	confusetarget
 	endmove
 
@@ -1249,6 +1261,7 @@ TrapTarget:
 	checkfaint
 	buildopponentrage
 	traptarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 SuperFang:
@@ -1499,6 +1512,7 @@ FlameWheel:
 	defrost
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	burntarget
 	endmove
 
@@ -2006,6 +2020,7 @@ Stomp:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here. Doubles the flinch odds, not good.
 	flinchtarget
 	endmove
 

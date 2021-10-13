@@ -710,6 +710,13 @@ NotVeryEffectiveText:
 	line "effective…"
 	prompt
 
+ErikasSporesText:
+	text "<USER> got in"
+	line "contact with the"
+	cont "pollen on"
+	cont "<TARGET>…"
+	prompt
+
 TookDownWithItText:
 	text "<TARGET>"
 	line "took down with it,"

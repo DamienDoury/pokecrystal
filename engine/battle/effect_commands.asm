@@ -5645,13 +5645,16 @@ BattleCommand_HeldFlinch:
 	and a
 	ret nz
 
+	call CheckSubstituteOpp
+	ret nz
+
 	call GetUserItem
 	ld a, b
 	cp HELD_FLINCH
-	ret nz
+	jr nz, .check_erikas_spore
 
-	call CheckSubstituteOpp
-	ret nz
+	
+
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVarAddr
 	ld d, h
@@ -5664,6 +5667,64 @@ BattleCommand_HeldFlinch:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
+
+
+
+
+
+.check_erikas_spore
+	ldh a, [hBattleTurn]
+	and a
+	ret nz ; we return if it's not the player's turn.
+
+	ld hl, wPlayerMoveStructType
+	ld a, [hl]
+	and $ff ^ TYPE_MASK
+	cp PHYSICAL ; Only contact moves trigger the spores. As we don't have this info, we consider all physical moves as contact moves.
+	ret nz
+
+	; At this point, the player hit one of Erika's mon with a physical attack (there may be some exceptions, I haven't got through each physical move).
+	; We write a text that "Spores on the enemy <TARGET> made <USER> feel weird".
+	; and now we apply the effect.
+
+	ld hl, ErikasSporesText
+	call StdBattleTextbox
+
+	ld a, [hl]
+	and TYPE_MASK
+	cp GRASS 
+	jp z, PrintDidntAffect
+
+	call BattleCommand_SwitchTurn
+
+	ld a, GRASS
+	call CheckOpponentType ; We are checking the player's types as we have forced a turn switch.
+	jp nz, .no_immunity_to_powder ; Grass Pokémon are immune to powder effects.
+
+	call PrintDidntAffect
+	jr .spores_effect_end
+
+.no_immunity_to_powder
+	; We prepare the spore animation, and save the real one.
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	ld b, a ; We store the previous animation.
+	
+	ld a, SPORE
+	ld [wEnemyMoveStruct + MOVE_ANIM], a
+
+	push hl
+	call BattleCommand_SleepTarget
+	pop hl
+
+	ld a, b
+	ld [wEnemyMoveStruct + MOVE_ANIM], a
+.spores_effect_end
+	call BattleCommand_SwitchTurn
+
+
+
+
+
 	ret
 
 BattleCommand_OHKO:
