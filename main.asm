@@ -125,6 +125,7 @@ INCLUDE "engine/battle/returntobattle_useball.asm"
 INCLUDE "engine/battle/consume_held_item.asm"
 INCLUDE "data/moves/effects.asm"
 INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
+INCLUDE "engine/battle/ai/switch.asm"
 
 
 SECTION "bankA", ROMX
@@ -165,7 +166,6 @@ INCLUDE "engine/battle/ai/items.asm"
 INCLUDE "engine/battle/ai/scoring.asm"
 INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
-INCLUDE "engine/battle/ai/switch.asm"
 
 SECTION "Battle Core", ROMX
 

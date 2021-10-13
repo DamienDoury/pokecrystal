@@ -212,8 +212,7 @@ ChuckIntroText3:
 	cont "this. That's why"
 
 	para "we're going to"
-	line "fight one on one"
-	cont "style."
+	line "fight one on one."
 
 	para "I forbid you from"
 	line "switching out."
