@@ -117,12 +117,26 @@ LtSurgeIntroText:
 	line "electric #MON,"
 	cont "I'm number one!"
 
-	para "I've never lost on"
-	line "the battlefield."
+	para "You see, everyday"
+	line "I go to a nearby"
+	cont "power plant to"
 
-	para "I'll zap you just"
-	line "like I did my"
-	cont "enemies in war!"
+	para "supercharge my"
+	line "#MON squad."
+
+	para "It makes their"
+	line "ELECTRIC moves"
+	cont "stronger and"
+
+	para "causes PARALYSIS"
+	line "more often."
+
+	para "After all, “All"
+	line "is fair in war”,"
+	
+	para "and I'm gonna"
+	line "teach you, kiddo!"
+
 	done
 
 LtSurgeWinLossText:
