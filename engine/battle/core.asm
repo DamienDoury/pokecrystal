@@ -1775,6 +1775,9 @@ HandleWeather:
 	ret z
 
 	ld hl, wWeatherCount
+	ld a, [hl]
+	cp $ff
+	jr z, .continues ; If the weather count is 255, we do not decrease it so it can truly last forever.
 	dec [hl]
 	jr nz, .continues
 
