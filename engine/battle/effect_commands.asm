@@ -5713,7 +5713,24 @@ BattleCommand_HeldFlinch:
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 
 	push hl
+	call BattleRandom
+	cp 152
+	jr nc, .pollen_sleep
+	cp 76
+	jr nc, .pollen_paralyze
+
+	; pollen poison
+	call BattleCommand_PoisonTarget
+	jr .pollen_effect_chosen
+
+.pollen_sleep
 	call BattleCommand_SleepTarget
+	jr .pollen_effect_chosen
+
+.pollen_paralyze
+	call BattleCommand_ParalyzeTarget
+
+.pollen_effect_chosen
 	pop hl
 
 	ld a, b
