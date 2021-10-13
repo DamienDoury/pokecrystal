@@ -291,3 +291,73 @@ ExhaustStatusPP:
 	jr .analyze_mon
 
 INCLUDE "data/pokemon/cute.asm" ; Array of cute pokemons. Note: using an array is as fast and uses as much memory as coding the logic for a conditional check with the pokedex data.
+
+
+; Called from engine/battle/core.asm which is full.
+_HandleGrassyTerrain::
+	ld a, [wOtherTrainerClass]
+	cp ERIKA
+	ret nz ; Only works in the battle against Erika.
+
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .DoEnemyFirst
+	call SetPlayerTurn
+	call .do_it
+	call SetEnemyTurn
+	jp .do_it
+
+.DoEnemyFirst:
+	call SetEnemyTurn
+	call .do_it
+	call SetPlayerTurn
+.do_it
+	ld hl, wBattleMonHP
+	ld de, wBattleMonType2
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .got_mon
+	ld hl, wEnemyMonHP
+	ld de, wEnemyMonType2
+
+.got_mon
+; Don't affect Flying type Pokémons.
+	ld a, [de]
+	cp FLYING
+	ret z
+
+; Affect only Grass types.
+	ld a, [de]
+	cp GRASS
+	jr z, .check_invulnerable
+
+	dec de
+
+	ld a, [de]
+	cp GRASS
+	ret nz
+
+.check_invulnerable
+; Don't affect Pokémons in the semi-invulnerable turn of a move.
+; Note: the only 2 moves concerned in this gen are Fly and Dig.
+; No grass type Pokémon can learn Fly.
+; The only grass type Pokemon that can learn Dig is Parasect. We won't check for Dig, we can deal with that. Plus we can say there is Grass even underground!
+
+; Don't restore if we're already at max HP
+	ld a, [hli]
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [hli]
+	cp b
+	jr nz, .restore
+	ld a, [hl]
+	cp c
+	ret z
+
+.restore
+	farcall GetEighthMaxHP
+	farcall SwitchTurnCore
+	farcall RestoreHP
+	ld hl, BattleText_RecoveredWithGrassyTerrain
+	jp StdBattleTextbox

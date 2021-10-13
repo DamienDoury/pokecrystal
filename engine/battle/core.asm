@@ -329,6 +329,7 @@ HandleBetweenTurnEffects:
 	ret c
 
 .NoMoreFaintingConditions:
+	call HandleGrassyTerrain
 	call HandleLeftovers
 	call HandleMysteryberry
 	call HandleDefrost
@@ -1341,7 +1342,7 @@ HandleWrap:
 	call SwitchTurnCore
 
 .skip_anim
-	call GetSixteenthMaxHP
+	call GetEighthMaxHP
 	call SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 	jr .print_text
@@ -1356,6 +1357,10 @@ SwitchTurnCore:
 	ldh a, [hBattleTurn]
 	xor 1
 	ldh [hBattleTurn], a
+	ret
+
+HandleGrassyTerrain:
+	farcall _HandleGrassyTerrain
 	ret
 
 HandleLeftovers:

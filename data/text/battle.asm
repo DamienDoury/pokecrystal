@@ -104,6 +104,12 @@ BattleText_TargetRecoveredWithItem:
 	text "."
 	prompt
 
+BattleText_RecoveredWithGrassyTerrain:
+	text "<TARGET>"
+	line "recovered with"
+	cont "GRASSY TERRAIN."
+	prompt
+
 BattleText_UserRecoveredPPUsing:
 	text "<USER>"
 	line "recovered PP using"
