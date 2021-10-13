@@ -2979,6 +2979,10 @@ EnemyAttackDamage:
 	and a
 	ret z
 
+	push hl
+	farcall HandleLtSurgeBoost ; Surge has a 25% boost to its Electric type moves as part of its challenge.
+	pop hl
+
 	ld a, [hl]
 	cp SPECIAL
 	jr nc, .special

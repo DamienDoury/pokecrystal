@@ -361,3 +361,23 @@ _HandleGrassyTerrain::
 	farcall RestoreHP
 	ld hl, BattleText_RecoveredWithGrassyTerrain
 	jp StdBattleTextbox
+
+; Lt. Surge has a 25% boost to its damaging Electric type attacks, as part of its SUPERCHARGED challenge.
+; The power of the move is stored in d, and is for sure above 0.
+HandleLtSurgeBoost::
+	ld a, [wOtherTrainerClass]
+	cp LT_SURGE
+	ret nz
+
+	ld hl, wEnemyMoveStructType
+	ld a, [hl]
+	and TYPE_MASK
+	cp ELECTRIC
+	ret nz
+
+	ld a, d
+	srl a
+	srl a
+	add d
+	ld d, a
+	ret
