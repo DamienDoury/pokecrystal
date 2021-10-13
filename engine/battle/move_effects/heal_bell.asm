@@ -10,6 +10,10 @@ BattleCommand_HealBell:
 	jr z, .got_status
 	ld de, wOTPartyMon1Status
 .got_status
+	ld a, BATTLE_VARS_SUBSTATUS5 ; Resetting the Toxic status, so that the next poison or burn doesn't re-use and re-activate the toxic count.
+	call GetBattleVarAddr
+	res SUBSTATUS_TOXIC, [hl]
+
 	ld a, BATTLE_VARS_STATUS
 	call GetBattleVarAddr
 	xor a
