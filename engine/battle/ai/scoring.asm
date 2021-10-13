@@ -1000,12 +1000,12 @@ AI_Smart_Ohko:
 	ret
 
 AI_Smart_TrapTarget:
-; Bind, Wrap, Fire Spin, Clamp
+; Bind, Wrap, Fire Spin, Clamp, Whirlpool
 
-; 50% chance to discourage this move if the player is already trapped.
+; 50% chance to discourage this move if the player is already trapped for more than 1 turn.
 	ld a, [wPlayerWrapCount]
-	and a
-	jr nz, .discourage
+	cp 2
+	jr nc, .discourage_for_sure
 
 ; 50% chance to greatly encourage this move if player is either
 ; badly poisoned, in love, identified, stuck in Rollout, or has a Nightmare.
@@ -1017,6 +1017,13 @@ AI_Smart_TrapTarget:
 	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_NIGHTMARE | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_PERISH
 	jr nz, .encourage
 
+; 50% chance to greatly encourage this move if the user has a combo move like Perish Song or Curse.
+	push hl
+	ld hl, GoodMeanLookMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .encourage_for_sure
+
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
 	ld a, [wPlayerTurnsTaken]
 	and a
@@ -1026,6 +1033,7 @@ AI_Smart_TrapTarget:
 .discourage
 	call AI_50_50
 	ret c
+.discourage_for_sure
 	inc [hl]
 	ret
 
@@ -1035,60 +1043,12 @@ AI_Smart_TrapTarget:
 	call AI_50_50
 	ret c
 	dec [hl]
+.encourage_for_sure
 	dec [hl]
 	ret
 
 AI_Smart_RazorWind:
 AI_Smart_Unused2B:
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_PERISH, a
-	jr z, .no_perish_count
-
-	ld a, [wEnemyPerishCount]
-	cp 3
-	jr c, .discourage
-
-.no_perish_count
-	push hl
-	ld hl, wPlayerUsedMoves
-	ld c, NUM_MOVES
-
-.checkmove
-	ld a, [hli]
-	and a
-	jr z, .movesdone
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_PROTECT
-	jr z, .dismiss
-	dec c
-	jr nz, .checkmove
-
-.movesdone
-	pop hl
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.maybe_discourage
-	call Random
-	cp 79 percent - 1
-	ret c
-
-.discourage
-	inc [hl]
-	ret
-
-.dismiss
-	pop hl
-	ld a, [hl]
-	add 6
-	ld [hl], a
 	ret
 
 AI_Smart_Confuse:
@@ -1510,13 +1470,6 @@ AI_Smart_SleepTalk:
 AI_Smart_DefrostOpponent:
 ; Greatly encourage this move if enemy is frozen.
 ; No move has EFFECT_DEFROST_OPPONENT, so this layer is unused.
-
-	ld a, [wEnemyMonStatus]
-	and 1 << FRZ
-	ret z
-	dec [hl]
-	dec [hl]
-	dec [hl]
 	ret
 
 AI_Smart_Spite:
@@ -1574,9 +1527,6 @@ AI_Smart_Spite:
 	dec [hl]
 	dec [hl]
 	ret
-
-.dismiss ; unreferenced
-	jp AIDiscourageMove
 
 AI_Smart_DestinyBond:
 AI_Smart_Reversal:
@@ -1796,10 +1746,10 @@ AI_Smart_MeanLook:
 
 ; 80% chance to greatly encourage this move if the enemy has combo moves like Perish Song.
 	push hl
-	ld hl, .GoodMeanLookMoves
+	ld hl, GoodMeanLookMoves
 	call AIHasMoveInArray
 	pop hl
-	jr c, .encourage
+	jr c, .greatly_encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
 	push hl
@@ -1813,6 +1763,11 @@ AI_Smart_MeanLook:
 	inc [hl]
 	ret
 
+.greatly_encourage
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	; fallthrough
 .encourage
 	call AI_80_20
 	ret c
@@ -1821,7 +1776,7 @@ AI_Smart_MeanLook:
 	dec [hl]
 	ret
 
-.GoodMeanLookMoves
+GoodMeanLookMoves:
 	db PERISH_SONG
 	db CURSE ; We should also check that the user is ghost type, but whatever.
 	db -1 ; end
@@ -2059,14 +2014,26 @@ AI_Smart_PerishSong:
 	pop hl
 	jr c, .no
 
-	ld a, [wEnemySubStatus5] ; If the enemy is trapped, using Perish Song signs its death, so it should be greatly discouraged.
+	; If the player has only 1 Pokémon left, and the enemy (user) has several Pokémons left, we should encourage Perish Song a lot depending on the number of Pokémon left.
+	; If the enemy has at least 4 Pokémon left, then it's a sure win (unless there is a chain kill with Spikes or something similar).
+
+	ld a, [wEnemySubStatus5] ; If the enemy (user) is trapped, using Perish Song signs its death, so it should be greatly discouraged.
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .no
 
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
-	jr nz, .yes
+	jr nz, .encourage
 
+	ld a, [wBattleMonType1] ; Ghost is always the first type, so no need to check the second type.
+	cp GHOST 
+	jr z, .skip_binding_check ; A Ghost type can always escape, so we shouldn't encourage perish song against a binded Ghost type.
+
+	ld a, [wPlayerWrapCount]
+	cp 3
+	jr nc, .encourage
+
+.skip_binding_check
 	push hl
 	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
@@ -2079,6 +2046,11 @@ AI_Smart_PerishSong:
 
 	inc [hl]
 	ret
+
+.encourage
+	dec [hl]
+	dec [hl]
+	; fallthrough
 
 .yes
 	call AI_50_50

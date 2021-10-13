@@ -248,6 +248,13 @@ CheckAbleToSwitch:
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .no_perish 
 
+	; If we have binded the player for enough turns, we wait for the last moment to switch out.
+	ld a, [wPlayerPerishCount]
+	ld b, a
+	ld a, [wPlayerWrapCount]
+	cp b
+	jr nc, .no_perish
+
 	; As soon as enemy hears the perish song, it has 75% of trying to switch out 
 	; to prevent the player from trapping the enemy (unless the player is trapped, see above).
 	; It also gives the enemy 25% chance to combo with Mean Look on the next turn (if it knows it) as it is greatly encouraged.
