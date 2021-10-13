@@ -1126,7 +1126,17 @@ ResidualDamage:
 	ld b, h
 	ld c, l
 .did_toxic
+	ld a, [wOtherTrainerClass]
+	cp JANINE
+	jr nz, .do_damage
 
+	ld h, b
+	ld l, c
+	add hl, hl
+	ld b, h
+	ld c, l
+
+.do_damage
 	call SubtractHPFromUser
 .did_psn_brn
 
