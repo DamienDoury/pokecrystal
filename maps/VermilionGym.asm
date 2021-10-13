@@ -118,8 +118,8 @@ LtSurgeIntroText:
 	cont "I'm number one!"
 
 	para "You see, everyday"
-	line "I go to a nearby"
-	cont "power plant to"
+	line "I go to the"
+	cont "POWER PLANT to"
 
 	para "supercharge my"
 	line "#MON squad."
