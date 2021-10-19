@@ -5673,6 +5673,10 @@ BattleCommand_HeldFlinch:
 
 
 .check_erikas_spore
+	ld a, [wOtherTrainerClass]
+	cp ERIKA
+	ret nz
+
 	ldh a, [hBattleTurn]
 	and a
 	ret nz ; we return if it's not the player's turn.
