@@ -245,6 +245,23 @@ JanineText_DisappointYou:
 
 	para "JANINE of FUCHSIA"
 	line "GYM, that's me!"
+
+	para "I'm the master"
+	line "of POISON."
+
+	para "After years of my"
+	line "father's work, my"
+	cont "#MON have deve-"
+	cont "loped a special"
+	cont "poison that's more"
+	cont "potent than usual."
+
+	para "A single drop of"
+	line "it can be lethal."
+
+	para "I'm gonna let you"
+	line "have a taste of"
+	cont "it!"
 	done
 
 JanineText_ToughOne:
