@@ -3895,7 +3895,7 @@ BattleCommand_PoisonTarget:
 	cp JANINE
 	jr z, .dont_check_fail
 
-	ld a, [wEffectFailed] ; Can't get paralyzed if the secondary effect missed.
+	ld a, [wEffectFailed] ; Can't get poisoned if the secondary effect missed.
 	and a
 	ret nz
 

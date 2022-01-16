@@ -159,7 +159,7 @@ SeafoamGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, ROUTE_20, 1
+	warp_event  5,  5, CINNABAR_ISLAND, 2
 
 	def_coord_events
 
