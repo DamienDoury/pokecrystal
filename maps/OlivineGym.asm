@@ -4,8 +4,33 @@
 
 OlivineGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_JASMINE
+	iftrue .no_check
+	checkevent EVENT_OLIVINE_GYM_JASMINE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked OLIVINEGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp OLIVINE_CITY, 10, 11
+.no_check
+	end
 
 OlivineGymJasmineScript:
 	faceplayer

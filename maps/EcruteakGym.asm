@@ -10,12 +10,24 @@
 EcruteakGym_MapScripts:
 	def_scene_scripts
 	scene_script .ForcedToLeave ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
 
 .ForcedToLeave:
 	prioritysjump EcruteakGymClosed
+	end
+
+.TeamCheck:
+	checkevent EVENT_BEAT_MORTY
+	iftrue .no_check
+	setval DARK
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked ECRUTEAKGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp ECRUTEAK_CITY, 6, 27
+.no_check
 	end
 
 .DummyScene:

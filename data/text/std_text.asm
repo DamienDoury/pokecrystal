@@ -404,7 +404,7 @@ RegisteredNumber2Text:
 
 ClosedBusinessText:
 	text "There is a notice"
-	line "on the door:"
+	line "on the door…"
 
 	para "“Due to the"
 	line "sanitary crisis,"

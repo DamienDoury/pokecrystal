@@ -44,6 +44,9 @@ ViridianGymGuideScript:
 	writetext ViridianGymGuideText
 	waitbutton
 	closetext
+	turnobject VIRIDIANGYM_GYM_GUIDE, UP
+	pause 5
+	showemote EMOTE_HEART, VIRIDIANGYM_GYM_GUIDE, 20
 	end
 
 .ViridianGymGuideWinScript:
@@ -137,23 +140,40 @@ LeaderBlueEpilogueText:
 	done
 
 ViridianGymGuideText:
-	text "Yo, CHAMP in"
-	line "making!"
+	text "Yo, CHAMP!"
 
 	para "How's it going?"
 	line "Looks like you're"
 	cont "on a roll."
 
 	para "The GYM LEADER is"
-	line "a guy who battled"
+	line "the guy who was"
 
 	para "the CHAMPION three"
 	line "years ago."
 
-	para "He's no pushover."
+	para "And you know what?"
 
-	para "Give it everything"
-	line "you've got!"
+	para "All #MON types"
+	line "are allowed in"
+	cont "his GYM!"
+
+	para "That's unheard of,"
+	line "right?"
+
+	;para "That's the"
+	;line "challenge of"
+	;cont "VIRIDIAN's GYM:"
+	;
+	;para "tables are turned"
+	;line "and you're in for"
+	;cont "a surprise!"
+
+	para "BLUE fears no one"
+	line "and no #MON."
+
+	para "He's so cool!!"
+
 	done
 
 ViridianGymGuideWinText:
@@ -182,4 +202,4 @@ ViridianGym_MapEvents:
 
 	def_object_events
 	object_event  5,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
-	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE

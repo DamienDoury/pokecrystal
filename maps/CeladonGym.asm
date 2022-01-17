@@ -9,8 +9,37 @@
 
 CeladonGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_ERIKA
+	iftrue .no_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ICE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval BUG
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval POISON
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CELADONGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CELADON_CITY, 10, 29
+.no_check
+	end
 
 CeladonGymErikaScript:
 	faceplayer

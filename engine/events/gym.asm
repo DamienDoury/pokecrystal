@@ -135,7 +135,7 @@ CheckTypePresenceInParty::
 	ld [wCurSpecies], a
 	call GetBaseData
 
-	ld a, [wBaseType1] ; The flying type is always the secondary type.
+	ld a, [wBaseType1]
 	cp c
 	jr z, .invalid_party_member
 
@@ -156,13 +156,13 @@ CheckTypePresenceInParty::
 	jr .analyze_mon
 
 .invalid_party_member
-	xor a
-	ld [wScriptVar], a ; Set the return value as FALSE.
+	ld a, 1
+	ld [wScriptVar], a ; Sets the return value as TRUE.
 	ret
 
 .team_is_ok
-	ld a, 1
-	ld [wScriptVar], a ; Sets the return value as TRUE.
+	xor a
+	ld [wScriptVar], a ; Set the return value as FALSE.
 	ret
 
 

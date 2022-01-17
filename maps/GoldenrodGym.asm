@@ -9,12 +9,21 @@
 
 GoldenrodGym_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_GOLDENRODGYM_NOTHING
+	scene_script .TeamCheck ; SCENE_GOLDENRODGYM_NOTHING
 	scene_script .DummyScene1 ; SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING
 
 	def_callbacks
 
-.DummyScene0:
+.TeamCheck:
+	checkevent EVENT_BEAT_WHITNEY
+	iftrue .no_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked GOLDENRODGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp GOLDENROD_CITY, 24, 7
+.no_check
 	end
 
 .DummyScene1:

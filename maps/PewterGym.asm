@@ -5,8 +5,37 @@
 
 PewterGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_BROCK
+	iftrue .no_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval GRASS
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval WATER
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval STEEL
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked PEWTERGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp PEWTER_CITY, 16, 17
+.no_check
+	end
 
 PewterGymBrockScript:
 	faceplayer

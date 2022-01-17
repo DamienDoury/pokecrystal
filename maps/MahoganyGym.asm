@@ -9,8 +9,34 @@
 
 MahoganyGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked MAHOGANYGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp MAHOGANY_TOWN, 6, 13
+.no_check
+	end
 
 MahoganyGymPryceScript:
 	faceplayer

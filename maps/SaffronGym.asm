@@ -99,15 +99,17 @@ TrainerPsychicJared:
 
 SaffronGymGuideScript:
 	faceplayer
-	opentext
 	checkevent EVENT_BEAT_SABRINA
 	iftrue .SaffronGymGuideWinScript
+	showemote EMOTE_SHOCK, SAFFRONGYM_GYM_GUIDE, 15
+	opentext
 	writetext SaffronGymGuideText
 	waitbutton
 	closetext
 	end
 
 .SaffronGymGuideWinScript:
+	opentext
 	writetext SaffronGymGuideWinText
 	waitbutton
 	closetext
@@ -296,22 +298,31 @@ PsychicJaredAfterBattleText:
 	done
 
 SaffronGymGuideText:
-	text "Yo, CHAMP in"
-	line "making!"
+	text "Hello <PLAYER>…"
 
-	para "A trainer as"
-	line "skilled as you"
+	para "SABRINA told me"
+	line "you would be"
+	cont "coming today…"
 
-	para "doesn't need to be"
-	line "told how to deal"
+	para "It feels weird"
+	line "that it's actual-"
+	cont "ly happening!"
 
-	para "with psychic-type"
-	line "#MON, right?"
+	para "Normally GHOST and"
+	line "DARK types are"
+	cont "forbidden in this"
+	cont "GYM."
 
-	para "I expect great"
-	line "things from you!"
+	para "But SABRINA said"
+	line "that those are"
+	cont "allowed today…"
 
-	para "Good luck!"
+	para "Because she fore-"
+	line "saw her victory."
+
+	para "Are you sure you"
+	line "still want to"
+	cont "challenge her?"
 	done
 
 SaffronGymGuideWinText:

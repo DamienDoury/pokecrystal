@@ -1633,3 +1633,216 @@ _OakText5::
 	para "That's why I study"
 	line "#MON every day."
 	prompt
+
+GymGuideRefusesEntranceEndText::
+	text "Come back with an"
+	line "appropriate team."
+	done
+
+GGTCVioletText::
+	text "Yo CHAMP in"
+	line "making!"
+
+	para "This is JOHTO's"
+	line "FLYING type GYM."
+
+	para "You can't enter"
+	line "with ELECTRIC,"
+	cont "ICE or ROCK type"
+	
+	para "#MON, that's"
+	line "against the rules."
+
+	para "It wouldn't be fair"
+	line "battles, I'm sure"
+	cont "you understand."
+
+	done
+
+GGTCAzaText::
+	text "Yo CHAMP in"
+	line "making!"
+
+	para "No FIRE, FLYING"
+	line "or ROCK #MON"
+	cont "in here!"
+
+	para "They are a danger"
+	line "to this fragile"
+	cont "ecosystem."
+	done
+
+GGTCGoldText::
+	text "Yo CHAMP in"
+	line "making!"
+
+	para "I see you carry"
+	line "a FIGHTING type"
+	cont "#MON."
+
+	para "WHITNEY doesn't"
+	line "approve."
+	done
+
+GGTCEcruText::
+	text "Yo CHAMP in"
+	line "making!"
+
+	para "Even though GHOST"
+	line "types are allowed"
+	cont "in this place,"
+	cont "DARK types aren't."
+	done
+
+GGTCCianText::
+	text "WAIT RIGHT HERE!"
+
+	para "Who told you you"
+	line "could bring any"
+	cont "FLYING or"
+	cont "PSYCHIC #MON"
+	cont "in this GYM?"
+
+	para "We don't tolerate"
+	line "those here."
+
+	para "Go back out."
+	done
+
+GGTCOlivText::
+	text "Thanks for helping"
+	line "JASMINE earlier."
+
+	para "She is getting"
+	line "better."
+
+	para "I wish I could let"
+	line "you in with any"
+	cont "FIRE, FIGHTING or"
+	cont "GROUND #MON,"
+	cont "but you know, it"
+
+	para "wouldn't be a fair"
+	line "battle, I'm sure"
+	cont "you understand."
+	done
+
+GGTCMahoText::
+	text "Hello, CHAMP in"
+	line "making!"
+
+	para "FIRE, FIGHTING,"
+	line "ROCK and GROUND"
+	cont "type #MON are"
+	cont "dangerous for the"
+	cont "ICE in this GYM."
+
+	para "They cannot stay"
+	line "inside."
+	done
+
+GGTCBlackText::
+	text "Yo future CHAMP!"
+
+	para "What's that in"
+	line "your team?"
+
+	para "A DRAGON type"
+	line "would be accepted,"
+	
+	para "but an ICE type"
+	line "is cheating!"
+	done
+
+GGTCPewText ::
+	text "Yo actual CHAMP!"
+
+	para "You made it up"
+	line "here! Amazing!"
+
+	para "However, to enter"
+	line "this GYM, you"
+	cont "must dismiss any"
+	cont "WATER, GRASS,"
+	cont "FIGHTING, GROUND,"
+	cont "or STEEL #MON."
+
+	para "I agree, it is a"
+	line "long list, but"
+
+	para "you gotta respect"
+	line "rules, right?"
+	done
+
+GGTCCeruText::
+	text "Hey you!"
+
+	para "Why would you even"
+	line "bring any GRASS or"
+	cont "ELECTRIC type"
+	cont "in here?"
+
+	para "Don't you know"
+	line "the drill?"
+
+	para "Those are not"
+	line "suitable around"
+	cont "this pool."
+	done
+
+GGTCVermiText::
+	text "Yo CHAMP!"
+
+	para "You're far"
+	line "from JOHTO!"
+
+	para "Oh…"
+
+	para "You came with a"
+	line "GROUND #MON to"
+	cont "this ELECTRIC-"
+	cont "type GYM?"
+
+	para "You're better"
+	line "than that!"
+	done
+
+GGTCCelaText::
+	text "Hello dear,"
+	line "and welcome!"
+
+	para "I am sorry but"
+	line "FIRE, ICE, FLYING,"
+	
+	para "BUG and POISON"
+	line "type #MON"
+
+	para "cannot enter"
+	line "this place for"
+	cont "safety reasons."
+
+	para "(achii)"
+	done
+
+GGTCFuchText::
+	text "Yo CHAMP!"
+
+	para "Your party is not"
+	line "legal in this GYM."
+
+	para "Please remove any"
+	line "PSYCHIC or GROUND"
+	cont "types."
+	done
+
+GGTCSaffText::
+	text ""
+	done
+
+GGTCCinnaText::
+	text ""
+	done
+
+GGTCViriText::
+	text ""
+	done

@@ -8,12 +8,29 @@
 
 CeruleanGym_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_CERULEANGYM_NOTHING
+	scene_script .TeamCheck ; SCENE_CERULEANGYM_NOTHING
 	scene_script .GruntRunsOut ; SCENE_CERULEANGYM_GRUNT_RUNS_OUT
 
 	def_callbacks
 
-.DummyScene0:
+.TeamCheck:
+	checkevent EVENT_BEAT_MISTY
+	iftrue .no_check
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iftrue .no_check
+	setval GRASS
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ELECTRIC
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CERULEANGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CERULEAN_CITY, 30, 23
+.no_check
 	end
 
 .GruntRunsOut:

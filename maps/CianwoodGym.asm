@@ -10,15 +10,32 @@
 	const CIANWOODGYM_BOULDER4
 	const CIANWOODGYM_BOULDER5
 	const CIANWOODGYM_BOULDER6
-	const CIANWOODGYM_BOULDER7
-	const CIANWOODGYM_BOULDER8
-	const CIANWOODGYM_BOULDER9
 	const CIANWOODGYM_GYM_GUIDE
 
 CianwoodGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_CHUCK
+	iftrue .no_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval PSYCHIC_TYPE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CIANWOODGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CIANWOOD_CITY, 8, 43
+.no_check
+	end
 
 CianwoodGymChuckScript:
 	faceplayer

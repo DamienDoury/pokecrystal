@@ -7,8 +7,22 @@
 
 VermilionGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_LTSURGE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked VERMILIONGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp VERMILION_CITY, 10, 19
+.no_check
+	end
 
 VermilionGymSurgeScript:
 	faceplayer

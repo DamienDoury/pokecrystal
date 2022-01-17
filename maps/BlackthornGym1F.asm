@@ -7,9 +7,23 @@
 
 BlackthornGym1F_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .Boulders
+
+.TeamCheck:
+	checkevent EVENT_BEAT_CLAIR
+	iftrue .no_check
+	setval ICE
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked BLACKTHORNGYM1F_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp BLACKTHORN_CITY, 18, 11
+.no_check	
+	end
 
 .Boulders:
 	checkevent EVENT_BOULDER_IN_BLACKTHORN_GYM_1

@@ -37,7 +37,7 @@ Challenge_Ecruteak:    db "FACE FEAR@"
 Challenge_Cianwood:    db "ONE ON ONE@"						
 Challenge_Olivine:     db "OUTNUMBERED@"			
 Challenge_Mahogany:    db "HAIL@"											
-Challenge_Blackthorn:  db "BRUT FORCE@"						
+Challenge_Blackthorn:  db "BRUTE FORCE@"						
 
 ; Kanto
 Challenge_Pewter:      db "SANDSTORM@"									

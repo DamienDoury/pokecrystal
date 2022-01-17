@@ -9,8 +9,31 @@
 
 AzaleaGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_BUGSY
+	iftrue .no_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked AZALEAGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp AZALEA_TOWN, 10, 15
+.no_check
+	end
 
 AzaleaGymBugsyScript:
 	faceplayer
