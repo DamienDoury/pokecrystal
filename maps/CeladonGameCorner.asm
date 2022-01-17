@@ -90,8 +90,8 @@ CeladonGameCornerFisherScript:
 	turnobject LAST_TALKED, LEFT
 	end
 
-CeladonGymGuideScript:
-	jumptextfaceplayer CeladonGymGuideText
+CeladonGymGuideDudeScript:
+	jumptextfaceplayer CeladonGymGuideDudeText
 
 CeladonGameCornerGrampsScript:
 	faceplayer
@@ -254,7 +254,7 @@ else
 	done
 endc
 
-CeladonGymGuideText:
+CeladonGymGuideDudeText:
 	text "Hey! CHAMP in"
 	line "making!"
 
@@ -367,5 +367,5 @@ CeladonGameCorner_MapEvents:
 	object_event 17,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerTeacherScript, -1
 	object_event 11,  7, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFishingGuruScript, -1
 	object_event  8, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY | NITE, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFisherScript, -1
-	object_event 11,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1
+	object_event 11,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideDudeScript, -1
 	object_event  2,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerGrampsScript, -1

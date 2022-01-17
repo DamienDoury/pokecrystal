@@ -5,6 +5,7 @@
 	const CELADONGYM_BEAUTY
 	const CELADONGYM_TWIN1
 	const CELADONGYM_TWIN2
+	const CELADONGYM_GYM_GUIDE
 
 CeladonGym_MapScripts:
 	def_scene_scripts
@@ -102,6 +103,22 @@ TrainerTwinsJoAndZoe2:
 	closetext
 	end
 
+CeladonGymGuideScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ERIKA
+	iftrue .CeladonGymGuideWinScript
+	writetext CeladonGymGuideText
+	waitbutton
+	closetext
+	end
+
+.CeladonGymGuideWinScript:
+	writetext CeladonGymGuideWinText
+	waitbutton
+	closetext
+	end
+
 CeladonGymStatue:
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .Beaten
@@ -146,9 +163,7 @@ ErikaBeforeBattleText:
 	cont "a part of this"
 	cont "ecosystem…"
 
-	para "If you have aller-"
-	line "gies, you better"
-	cont "stay away…"
+	para "Shall we begin?"
 	done
 
 ErikaBeatenText:
@@ -278,6 +293,33 @@ TwinsJoAndZoe2AfterBattleText:
 	line "much stronger!"
 	done
 
+CeladonGymGuideText:
+	text "Welcome, CHAMP in"
+	line "making!"
+
+	para "(achii)"
+
+	para "This GYM is a"
+	line "greenhouse."
+
+	para "I can't take part" 
+	line "in battles because"
+	cont "I keep sneezing."
+
+	para "I'm allergic to"
+	line "pollen."
+
+	para "(achoo)"
+
+	para "Good luck to you!"
+	done
+
+CeladonGymGuideWinText:
+	text "You did…"
+	para "(ACHII)"
+	para "…!"
+	done
+
 CeladonGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -298,3 +340,4 @@ CeladonGym_MapEvents:
 	object_event  3,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBeautyJulia, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1
 	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe2, -1
+	object_event  7, 15, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1

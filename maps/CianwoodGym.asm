@@ -13,6 +13,7 @@
 	const CIANWOODGYM_BOULDER7
 	const CIANWOODGYM_BOULDER8
 	const CIANWOODGYM_BOULDER9
+	const CIANWOODGYM_GYM_GUIDE
 
 CianwoodGym_MapScripts:
 	def_scene_scripts
@@ -142,6 +143,22 @@ TrainerBlackbeltLung:
 	endifjustbattled
 	opentext
 	writetext BlackbeltLungAfterText
+	waitbutton
+	closetext
+	end
+
+CianwoodGymGuideScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_CHUCK
+	iftrue .CianwoodGymGuideWinScript
+	writetext CianwoodGymGuideText
+	waitbutton
+	closetext
+	end
+
+.CianwoodGymGuideWinScript:
+	writetext CianwoodGymGuideWinText
 	waitbutton
 	closetext
 	end
@@ -343,6 +360,29 @@ BlackbeltLungAfterText:
 	cont "shattered…"
 	done
 
+CianwoodGymGuideText:
+	text "Yo!"
+
+	para "This GYM is all"
+	line "about muscles."
+
+	para "Show us a good"
+	line "fight!"
+	done
+
+CianwoodGymGuideWinText:
+	text "What a fight!"
+	line "That was epic!"
+	
+	para "You showed us"
+	line "how it's done!"
+
+	para "Do you even lift"
+	line "bro?"
+
+	done
+
+
 CianwoodGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -368,3 +408,4 @@ CianwoodGym_MapEvents:
 	object_event  5,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  2,  1, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  6,  1, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
+	object_event  5, 14, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN,  0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymGuideScript, -1

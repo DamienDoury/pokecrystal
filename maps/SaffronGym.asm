@@ -325,7 +325,7 @@ SaffronGym_MapEvents:
 	def_warp_events
 	warp_event  8, 17, SAFFRON_CITY, 2
 	warp_event  9, 17, SAFFRON_CITY, 2
-	warp_event 11, 15, SAFFRON_GYM, 18
+	warp_event  9, 15, SAFFRON_GYM, 18
 	warp_event 19, 15, SAFFRON_GYM, 19
 	warp_event 19, 11, SAFFRON_GYM, 20
 	warp_event  1, 11, SAFFRON_GYM, 21
@@ -359,7 +359,7 @@ SaffronGym_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  8, 15, BGEVENT_READ, SaffronGymStatue
+	bg_event 10, 15, BGEVENT_READ, SaffronGymStatue
 
 	def_object_events
 	object_event  9,  8, SPRITE_SABRINA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronGymSabrinaScript, -1
@@ -367,4 +367,4 @@ SaffronGym_MapEvents:
 	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
 	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
 	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
-	object_event  9, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1
+	object_event 11, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1
