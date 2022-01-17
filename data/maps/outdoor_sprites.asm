@@ -821,7 +821,6 @@ AzaleaGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT ; non-walking version of SPRITE_KURT
-	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 GoldenrodGroupSprites:
@@ -837,6 +836,7 @@ GoldenrodGroupSprites:
 	db SPRITE_DAY_CARE_MON_1
 	db SPRITE_DAY_CARE_MON_2
 	db SPRITE_POKE_BALL
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 ; OlivineCity and Route40 are connected

@@ -6989,8 +6989,8 @@ ApplyStatLevelMultiplier:
 
 INCLUDE "data/battle/stat_multipliers_2.asm"
 
-BadgeStatBoosts: ; deleted by Damien.
-	ret
+;BadgeStatBoosts: ; deleted by Damien.
+;	ret
 
 BoostStat: ; not deleted by Damien, as we may use this one.
 ; Raise stat at hl by 1/8.
