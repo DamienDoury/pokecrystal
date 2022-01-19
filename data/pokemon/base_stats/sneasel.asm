@@ -1,6 +1,6 @@
 	db SNEASEL ; 215
 
-	db  55,  95,  55, 115,  35,  75
+	db  63, 108,  60, 120,  40,  80
 	;   hp  atk  def  spd  sat  sdf
 
 	db DARK, ICE ; type
