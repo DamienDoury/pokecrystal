@@ -41,14 +41,12 @@ LancesRoom_MapScripts:
 	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
 	end
 
+Script_ApproachLanceFromRight:
+	applymovement PLAYER, MovementData_ApproachLanceFromRight
+
 Script_ApproachLanceFromLeft:
 	special FadeOutMusic
-	applymovement PLAYER, MovementData_ApproachLanceFromLeft
-	sjump LancesRoomLanceScript
-
-Script_ApproachLanceFromRight:
-	special FadeOutMusic
-	applymovement PLAYER, MovementData_ApproachLanceFromRight
+	applymovement PLAYER, MovementData_PlayerPreparesForBattle
 LancesRoomLanceScript:
 	turnobject LANCESROOM_LANCE, LEFT
 	opentext
@@ -60,7 +58,6 @@ LancesRoomLanceScript:
 	writetext LanceBattleIntroEndText
 	waitbutton
 	closetext
-	applymovement PLAYER, MovementData_PlayerPreparesForBattle
 	winlosstext LanceBattleWinText, 0
 	setlasttalked LANCESROOM_LANCE
 	loadtrainer CHAMPION, LANCE
@@ -85,16 +82,17 @@ LancesRoomLanceScript:
 	turnobject PLAYER, DOWN
 	appear LANCESROOM_MARY
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryRushesIn
+	pause 10
 	opentext
 	writetext LancesRoomMaryOhNoOakText
 	waitbutton
 	closetext
 	appear LANCESROOM_OAK
-	applymovement LANCESROOM_OAK, LancesRoomMovementData_OakWalksIn
-	;follow LANCESROOM_MARY, LANCESROOM_OAK
+	applymovement LANCESROOM_OAK, LancesRoomMovementData_OakWalksInStart
+	follow LANCESROOM_MARY, LANCESROOM_OAK
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryYieldsToOak
-	;stopfollow
-	turnobject LANCESROOM_OAK, UP
+	stopfollow
+	applymovement LANCESROOM_OAK, LancesRoomMovementData_OakWalksInEnd
 	turnobject LANCESROOM_LANCE, LEFT
 	opentext
 	writetext LancesRoomOakCongratulationsText
@@ -116,6 +114,7 @@ LancesRoomLanceScript:
 	turnobject LANCESROOM_MARY, UP
 	turnobject LANCESROOM_OAK, UP
 	applymovement LANCESROOM_LANCE, LancesRoomMovementData_LanceLeadsPlayerToHallOfFame
+	pause 15
 	;stopfollow
 	playsound SFX_EXIT_BUILDING
 	disappear LANCESROOM_LANCE
@@ -131,7 +130,7 @@ LancesRoomLanceScript:
 	applymovement LANCESROOM_MARY, LancesRoomMovementData_MaryRunsBackAndForth
 	special FadeOutPalettes
 	pause 15
-	warpfacing UP, HALL_OF_FAME, 4, 13
+	warpfacing UP, HALL_OF_FAME, 5, 15
 	end
 
 LancesRoom_EnterMovement:
@@ -141,13 +140,8 @@ LancesRoom_EnterMovement:
 	step UP
 	step_end
 
-MovementData_ApproachLanceFromLeft:
-	step RIGHT
-	turn_head UP
-	step_end
-
 MovementData_ApproachLanceFromRight:
-	turn_head UP
+	step LEFT
 	step_end
 
 MovementData_LanceStepsBack:
@@ -161,7 +155,6 @@ MovementData_LanceStepsBack:
 MovementData_PlayerPreparesForBattle:
 	step UP
 	step LEFT
-	step LEFT
 	step UP
 	turn_head RIGHT
 	step_end
@@ -169,13 +162,17 @@ MovementData_PlayerPreparesForBattle:
 LancesRoomMovementData_MaryRushesIn:
 	big_step UP
 	big_step UP
+	big_step UP
 	turn_head DOWN
 	step_end
 
-LancesRoomMovementData_OakWalksIn:
+LancesRoomMovementData_OakWalksInStart:
 	step UP
 	step UP
-	step LEFT
+	step_end
+
+LancesRoomMovementData_OakWalksInEnd:
+	step UP
 	step_end
 
 LancesRoomMovementData_MaryYieldsToOak:
@@ -184,6 +181,7 @@ LancesRoomMovementData_MaryYieldsToOak:
 	step_end
 
 LancesRoomMovementData_MaryInterviewChampion:
+	big_step UP
 	big_step UP
 	turn_head LEFT
 	step_end
@@ -196,7 +194,7 @@ LancesRoomMovementData_LancePositionsSelfToGuidePlayerAway:
 	step_end
 
 LancesRoomMovementData_LanceLeadsPlayerToHallOfFame:
-	step UP
+	turn_head UP
 	step_end
 
 LancesRoomMovementData_PlayerExits:
@@ -363,8 +361,6 @@ LancesRoom_MapEvents:
 	def_warp_events
 	warp_event  4, 23, KARENS_ROOM, 3
 	warp_event  5, 23, KARENS_ROOM, 4
-	warp_event  4,  1, HALL_OF_FAME, 1
-	warp_event  5,  1, HALL_OF_FAME, 2
 
 	def_coord_events
 	coord_event  4,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachLanceFromLeft
@@ -374,5 +370,5 @@ LancesRoom_MapEvents:
 
 	def_object_events
 	object_event  5,  3, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LancesRoomLanceScript, -1
-	object_event  4,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
-	object_event  4,  7, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
+	object_event  4,  8, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
+	object_event  4,  8, SPRITE_OAK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_LANCES_ROOM_OAK_AND_MARY
