@@ -68,12 +68,6 @@ LeaderBlueBeforeText:
 	text "BLUE: Yo! Finally"
 	line "got here, huh?"
 
-	para "I wasn't in the"
-	line "mood at CINNABAR,"
-
-	para "but now I'm ready"
-	line "to battle you."
-
 	para "…"
 
 	para "You're telling me"
@@ -84,17 +78,34 @@ LeaderBlueBeforeText:
 	line "must be pretty"
 	cont "pathetic then."
 
-	para "Hey, don't worry"
-	line "about it."
+	para "I bet you already"
+	line "knew the GYM LEA-"
+	cont "DER's party before"
+	cont "the battle even"
+	cont "started! Tsk!"
 
-	para "I'll know if you"
-	line "are good or not by"
+	para "I would know. I"
+	line "was a simple trai-"
+	cont "ner like you not"
+	cont "long ago, y'know?"
 
-	para "battling you right"
-	line "now."
+	para "But now that I'm"
+	line "on the other side,"
+	cont "I'm not making"
+	cont "other GYM LEADERS'"
+	cont "stupid mistake."
 
-	para "Ready, JOHTO"
-	line "CHAMP?"
+	para "I've travelled a"
+	line "lot and captured"
+	cont "many strong"
+	cont "#MON."
+
+	para "No one can ever"
+	line "predict my game…"
+
+	para "Ready for a real"
+	line "challenge, JOHTO"
+	cont "CHAMP?"
 	done
 
 LeaderBlueWinText:
