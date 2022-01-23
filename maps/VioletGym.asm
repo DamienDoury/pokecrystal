@@ -6,8 +6,31 @@
 
 VioletGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_FALKNER
+	iftrue .no_check
+	setval ELECTRIC
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ICE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked VIOLETGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp VIOLET_CITY, 18, 17
+.no_check
+	end
 
 VioletGymFalknerScript:
 	faceplayer
@@ -17,15 +40,28 @@ VioletGymFalknerScript:
 	writetext FalknerIntroText
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, VIOLETGYM_FALKNER, 20
 	opentext
 	writetext VioletGymPowerRestrainerExplanation
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	writetext FalknerIntroSequelText
+	promptbutton
+	
+	special CheckAllFlyingTypeParty
+	iftrue .ProceedToBattle
+
+; The player doesn't have an appropriate team.
+	writetext FalknerAllFlyingTypeText
+	waitbutton
+	closetext
+	end
+
+.ProceedToBattle:
+	writetext FalknerValidatesTeam
 	waitbutton
 	closetext
 	winlosstext FalknerWinLossText, 0
@@ -45,8 +81,6 @@ VioletGymFalknerScript:
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
-	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOTHING
-	specialphonecall SPECIALCALL_ASSISTANT
 	writetext FalknerZephyrBadgeText
 	promptbutton
 	verbosegiveitem TM_MUD_SLAP
@@ -128,16 +162,42 @@ FalknerIntroText:
 	done
 
 FalknerIntroSequelText:
-	text "People say you can"
-	line "clip flying-type"
+	text "Have you ever felt"
+	line "the thrill of a"
 
-	para "#MON's wings"
-	line "with a jolt of"
-	cont "electricity…"
+	para "#MON battle on"
+	line "the cliff of a"
+	cont "high mountain?"	
+	done
 
-	para "I won't allow such"
-	line "insults to bird"
-	cont "#MON!"
+VioletGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
+FalknerAllFlyingTypeText:
+	text "In such environ-"
+	line "ment, only FLYING"
+
+	para "type #MON can"
+	line "be used."
+
+	para "This is this"
+	line "GYM's test."
+
+	para "Come back with an"
+	line "appropriate team"
+
+	para "if you want to"
+	line "challenge my"
+	
+	para "majestic bird"
+	line "#MON."
+	done
+
+FalknerValidatesTeam:
+	text "It is where"
+	line "FLYING #MON"
+	cont "truly shine."
 
 	para "I'll show you the"
 	line "real power of the"
@@ -145,10 +205,6 @@ FalknerIntroSequelText:
 	para "magnificent bird"
 	line "#MON!"
 	done
-
-VioletGymPowerRestrainerExplanation:
-	text_far _GymPowerRestrainerFirstExplanation
-	text_end
 
 FalknerWinLossText:
 	text "…Darn! My dad's"
@@ -169,13 +225,20 @@ ReceivedZephyrBadgeText:
 	done
 
 FalknerZephyrBadgeText:
-	text "ZEPHYRBADGE allows"
-	line "#MON to use"
-	cont "FLASH, if they"
-	cont "have it, anytime."
+;	text "ZEPHYRBADGE allows"
+;	line "#MON to use"
+;	cont "CUT, if they have"
+;	cont "it, anytime."
+;
+;	para "Here--take this"
+;	line "too."
 
-	para "Here--take this"
-	line "too."
+	text "ZEPHYRBADGE is a"
+	line "recognition of"
+	cont "your worth as a"
+	cont "trainer."
+
+	para "Here--take this."
 	done
 
 FalknerTMMudSlapText:

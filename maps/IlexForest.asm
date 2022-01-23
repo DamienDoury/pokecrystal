@@ -80,7 +80,7 @@ IlexForest_MapScripts:
 	endcallback
 
 .PositionTen:
-	moveobject ILEXFOREST_FARFETCHD, 6, 28
+	moveobject ILEXFOREST_FARFETCHD, 5, 28
 	appear ILEXFOREST_FARFETCHD
 	endcallback
 

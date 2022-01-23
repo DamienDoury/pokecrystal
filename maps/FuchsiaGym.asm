@@ -8,8 +8,28 @@
 
 FuchsiaGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_JANINE
+	iftrue .no_check
+	setval PSYCHIC_TYPE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked FUCHSIAGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp FUCHSIA_CITY, 8, 27
+.no_check
+	end
 
 FuchsiaGymJanineScript:
 	checkflag ENGINE_SOULBADGE
@@ -245,6 +265,23 @@ JanineText_DisappointYou:
 
 	para "JANINE of FUCHSIA"
 	line "GYM, that's me!"
+
+	para "I'm the master"
+	line "of POISON."
+
+	para "After years of my"
+	line "father's work, my"
+	cont "#MON have deve-"
+	cont "loped a special"
+	cont "poison that's more"
+	cont "potent than usual."
+
+	para "A single drop of"
+	line "it can be lethal."
+
+	para "I'm gonna let you"
+	line "have a taste of"
+	cont "it!"
 	done
 
 JanineText_ToughOne:

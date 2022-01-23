@@ -12,6 +12,17 @@ AI_SwitchOrTryItem:
 	farcall CheckEnemyLockedIn
 	ret nz
 
+	; Chuck is fair and plays one on one: he won't switch out.
+	ld a, [wOtherTrainerClass]
+	cp CHUCK
+	jr z, DontSwitch
+
+	; Ghost types can't be trapped.
+	ld a, GHOST
+	ld [wTempByteValue], a
+	farcall CheckOpponentTypeFarcall
+	jr z, .ghost_type_cant_be_trapped
+
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, DontSwitch
@@ -20,6 +31,7 @@ AI_SwitchOrTryItem:
 	and a
 	jr nz, DontSwitch
 
+.ghost_type_cant_be_trapped
 	; always load the first trainer class in wTrainerClass for Battle Tower trainers
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]

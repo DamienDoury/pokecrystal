@@ -193,6 +193,7 @@ AI_Types:
 	push de
 	push bc
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld d, a
 	ld hl, wEnemyMonMoves
 	ld b, NUM_MOVES + 1
@@ -207,6 +208,7 @@ AI_Types:
 
 	call AIGetEnemyMove
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	cp d
 	jr z, .checkmove2
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
@@ -387,6 +389,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SOLARBEAM,        AI_Smart_Solarbeam
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
+	dbw EFFECT_HAIL,             AI_Smart_Hail
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -997,12 +1000,12 @@ AI_Smart_Ohko:
 	ret
 
 AI_Smart_TrapTarget:
-; Bind, Wrap, Fire Spin, Clamp
+; Bind, Wrap, Fire Spin, Clamp, Whirlpool
 
-; 50% chance to discourage this move if the player is already trapped.
+; 50% chance to discourage this move if the player is already trapped for more than 1 turn.
 	ld a, [wPlayerWrapCount]
-	and a
-	jr nz, .discourage
+	cp 2
+	jr nc, .discourage_for_sure
 
 ; 50% chance to greatly encourage this move if player is either
 ; badly poisoned, in love, identified, stuck in Rollout, or has a Nightmare.
@@ -1011,8 +1014,15 @@ AI_Smart_TrapTarget:
 	jr nz, .encourage
 
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_NIGHTMARE
+	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_NIGHTMARE | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_PERISH
 	jr nz, .encourage
+
+; 50% chance to greatly encourage this move if the user has a combo move like Perish Song or Curse.
+	push hl
+	ld hl, GoodMeanLookMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .encourage_for_sure
 
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
 	ld a, [wPlayerTurnsTaken]
@@ -1023,6 +1033,7 @@ AI_Smart_TrapTarget:
 .discourage
 	call AI_50_50
 	ret c
+.discourage_for_sure
 	inc [hl]
 	ret
 
@@ -1032,60 +1043,12 @@ AI_Smart_TrapTarget:
 	call AI_50_50
 	ret c
 	dec [hl]
+.encourage_for_sure
 	dec [hl]
 	ret
 
 AI_Smart_RazorWind:
 AI_Smart_Unused2B:
-	ld a, [wEnemySubStatus1]
-	bit SUBSTATUS_PERISH, a
-	jr z, .no_perish_count
-
-	ld a, [wEnemyPerishCount]
-	cp 3
-	jr c, .discourage
-
-.no_perish_count
-	push hl
-	ld hl, wPlayerUsedMoves
-	ld c, NUM_MOVES
-
-.checkmove
-	ld a, [hli]
-	and a
-	jr z, .movesdone
-
-	call AIGetEnemyMove
-
-	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	cp EFFECT_PROTECT
-	jr z, .dismiss
-	dec c
-	jr nz, .checkmove
-
-.movesdone
-	pop hl
-	ld a, [wEnemySubStatus3]
-	bit SUBSTATUS_CONFUSED, a
-	jr nz, .maybe_discourage
-
-	call AICheckEnemyHalfHP
-	ret c
-
-.maybe_discourage
-	call Random
-	cp 79 percent - 1
-	ret c
-
-.discourage
-	inc [hl]
-	ret
-
-.dismiss
-	pop hl
-	ld a, [hl]
-	add 6
-	ld [hl], a
 	ret
 
 AI_Smart_Confuse:
@@ -1115,15 +1078,31 @@ AI_Smart_SpDefenseUp2:
 	jr nc, .discourage
 
 ; 80% chance to greatly encourage this move if
-; enemy's Special Defense level is lower than +2, and the player is of a special type.
+; enemy's Special Defense level is lower than +2, 
+; and the player's Pokémon is Special-oriented.
 	cp BASE_STAT_LEVEL + 2
 	ret nc
 
-	ld a, [wBattleMonType1]
-	cp SPECIAL
-	jr nc, .encourage
-	ld a, [wBattleMonType2]
-	cp SPECIAL
+	push hl
+; Get the pointer for the player's Pokémon's base Attack
+	ld a, [wBattleMonSpecies]
+	ld hl, BaseData + BASE_ATK
+	ld bc, BASE_DATA_SIZE
+	call AddNTimes
+; Get the Pokémon's base Attack
+	ld a, BANK(BaseData)
+	call GetFarByte
+	ld d, a
+; Get the pointer for the player's Pokémon's base Special Attack
+	ld bc, BASE_SAT - BASE_ATK
+	add hl, bc
+; Get the Pokémon's base Special Attack
+	ld a, BANK(BaseData)
+	call GetFarByte
+	pop hl
+; If its base Attack is greater than its base Special Attack,
+; don't encourage this move.
+	cp d
 	ret c
 
 .encourage
@@ -1409,6 +1388,7 @@ AI_Smart_Encore:
 
 	push hl
 	ld a, [wEnemyMoveStruct + MOVE_TYPE]
+	and TYPE_MASK
 	ld hl, wEnemyMonType1
 	predef CheckTypeMatchup
 
@@ -1490,13 +1470,6 @@ AI_Smart_SleepTalk:
 AI_Smart_DefrostOpponent:
 ; Greatly encourage this move if enemy is frozen.
 ; No move has EFFECT_DEFROST_OPPONENT, so this layer is unused.
-
-	ld a, [wEnemyMonStatus]
-	and 1 << FRZ
-	ret z
-	dec [hl]
-	dec [hl]
-	dec [hl]
 	ret
 
 AI_Smart_Spite:
@@ -1554,9 +1527,6 @@ AI_Smart_Spite:
 	dec [hl]
 	dec [hl]
 	ret
-
-.dismiss ; unreferenced
-	jp AIDiscourageMove
 
 AI_Smart_DestinyBond:
 AI_Smart_Reversal:
@@ -1704,6 +1674,11 @@ AI_Smart_Conversion2:
 	ret
 
 AI_Smart_Disable:
+; 80% chance to greatly encourage this move if the player is Encored.
+	ld a, [wPlayerSubStatus5]
+	and 1 << SUBSTATUS_ENCORED
+	jr nz, .encourage
+
 	call AICompareSpeed
 	jr nc, .discourage
 
@@ -1722,6 +1697,14 @@ AI_Smart_Disable:
 	dec [hl]
 	ret
 
+.encourage
+	call AI_80_20
+	ret c
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	ret
+
 .notencourage
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
@@ -1735,6 +1718,13 @@ AI_Smart_Disable:
 	ret
 
 AI_Smart_MeanLook:
+	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp GHOST
+	jr nz, .player_is_no_ghost
+	call AIDiscourageMove ; We dismiss the use of Mean Look or Spider Web against a Ghost type because their are immune to it.
+	ret
+
+.player_is_no_ghost
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
@@ -1743,8 +1733,7 @@ AI_Smart_MeanLook:
 	pop hl
 	jp z, AIDiscourageMove
 
-; 80% chance to greatly encourage this move if the player is badly poisoned (buggy).
-; Should check wPlayerSubStatus5 instead.
+; 80% chance to greatly encourage this move if the player is badly poisoned.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
 	jr nz, .encourage
@@ -1752,8 +1741,15 @@ AI_Smart_MeanLook:
 ; 80% chance to greatly encourage this move if the player is either
 ; in love, identified, stuck in Rollout, or has a Nightmare.
 	ld a, [wPlayerSubStatus1]
-	and 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_ROLLOUT | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_NIGHTMARE
+	and 1 << SUBSTATUS_PERISH | 1 << SUBSTATUS_IN_LOVE | 1 << SUBSTATUS_IDENTIFIED | 1 << SUBSTATUS_CURSE | 1 << SUBSTATUS_NIGHTMARE
 	jr nz, .encourage
+
+; 80% chance to greatly encourage this move if the enemy has combo moves like Perish Song.
+	push hl
+	ld hl, GoodMeanLookMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .greatly_encourage
 
 ; Otherwise, discourage this move unless the player only has not very effective moves against the enemy.
 	push hl
@@ -1767,6 +1763,11 @@ AI_Smart_MeanLook:
 	inc [hl]
 	ret
 
+.greatly_encourage
+	dec [hl]
+	dec [hl]
+	dec [hl]
+	; fallthrough
 .encourage
 	call AI_80_20
 	ret c
@@ -1774,6 +1775,11 @@ AI_Smart_MeanLook:
 	dec [hl]
 	dec [hl]
 	ret
+
+GoodMeanLookMoves:
+	db PERISH_SONG
+	db CURSE ; We should also check that the user is ghost type, but whatever.
+	db -1 ; end
 
 AICheckLastPlayerMon:
 	ld a, [wPartyCount]
@@ -1841,11 +1847,6 @@ AI_Smart_Curse:
 	ld a, [wBattleMonType1]
 	cp GHOST
 	jr z, .greatly_encourage
-	cp SPECIAL
-	ret nc
-	ld a, [wBattleMonType2]
-	cp SPECIAL
-	ret nc
 	call AI_80_20
 	ret c
 	dec [hl]
@@ -1925,7 +1926,7 @@ AI_Smart_Protect:
 ; Encourage this move if the player has charged a two-turn move.
 	ld a, [wPlayerSubStatus3]
 	bit SUBSTATUS_CHARGED, a
-	jr nz, .encourage
+	jr nz, .greatly_encourage
 
 ; Encourage this move if the player is affected by Toxic, Leech Seed, or Curse.
 	ld a, [wPlayerSubStatus5]
@@ -1950,6 +1951,12 @@ AI_Smart_Protect:
 	call AI_80_20
 	ret c
 
+	dec [hl]
+	ret
+
+.greatly_encourage
+	dec [hl]
+	dec [hl]
 	dec [hl]
 	ret
 
@@ -2007,10 +2014,26 @@ AI_Smart_PerishSong:
 	pop hl
 	jr c, .no
 
+	; If the player has only 1 Pokémon left, and the enemy (user) has several Pokémons left, we should encourage Perish Song a lot depending on the number of Pokémon left.
+	; If the enemy has at least 4 Pokémon left, then it's a sure win (unless there is a chain kill with Spikes or something similar).
+
+	ld a, [wEnemySubStatus5] ; If the enemy (user) is trapped, using Perish Song signs its death, so it should be greatly discouraged.
+	bit SUBSTATUS_CANT_RUN, a
+	jr nz, .no
+
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
-	jr nz, .yes
+	jr nz, .encourage
 
+	ld a, [wBattleMonType1] ; Ghost is always the first type, so no need to check the second type.
+	cp GHOST 
+	jr z, .skip_binding_check ; A Ghost type can always escape, so we shouldn't encourage perish song against a binded Ghost type.
+
+	ld a, [wPlayerWrapCount]
+	cp 3
+	jr nc, .encourage
+
+.skip_binding_check
 	push hl
 	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
@@ -2023,6 +2046,11 @@ AI_Smart_PerishSong:
 
 	inc [hl]
 	ret
+
+.encourage
+	dec [hl]
+	dec [hl]
+	; fallthrough
 
 .yes
 	call AI_50_50
@@ -2076,6 +2104,45 @@ AI_Smart_Sandstorm:
 	db ROCK
 	db GROUND
 	db STEEL
+	db -1 ; end
+
+AI_Smart_Hail:
+; Greatly discourage this move if the player is immune to Hail damage.
+	ld a, [wBattleMonType1]
+	cp ICE
+	jr z, .greatly_discourage
+
+	ld a, [wBattleMonType2]
+	cp ICE
+	jr z, .greatly_discourage
+
+; Discourage this move if player's HP is below 50%.
+	call AICheckPlayerHalfHP
+	jr nc, .discourage
+
+; Encourage move if AI has good Hail moves
+	push hl
+	ld hl, .GoodHailMoves
+	call AIHasMoveInArray
+	pop hl
+	jr c, .encourage
+
+; 50% chance to encourage this move otherwise.
+	call AI_50_50
+	ret c
+
+.encourage
+	dec [hl]
+	ret
+
+.greatly_discourage
+	inc [hl]
+.discourage
+	inc [hl]
+	ret
+
+.GoodHailMoves
+	db BLIZZARD
 	db -1 ; end
 
 AI_Smart_Endure:
@@ -2644,6 +2711,12 @@ AI_Smart_Solarbeam:
 	cp WEATHER_RAIN
 	ret nz
 
+	cp WEATHER_SANDSTORM
+	ret nz
+
+	cp WEATHER_HAIL
+	ret nz
+
 	call Random
 	cp 10 percent
 	ret c
@@ -3113,6 +3186,26 @@ AI_Status:
 	inc de
 	call AIGetEnemyMove
 
+; Check if the opponent is immune to powder/spore moves.      
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	push bc
+	push de
+	push hl
+	ld hl, PowderMoves
+	call IsInByteArray
+	pop hl
+	pop de
+	pop bc
+	jr nc, .normal_check
+
+	ld a, [wBattleMonType1]
+	cp GRASS
+	jr z, .immune
+	ld a, [wBattleMonType2]
+	cp GRASS
+	jr z, .immune
+
+.normal_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC
 	jr z, .poisonimmunity

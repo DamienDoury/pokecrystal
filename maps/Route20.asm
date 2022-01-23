@@ -103,18 +103,13 @@ SwimmermCameronAfterBattleText:
 	done
 
 CinnabarGymSignText:
-	text "What does this"
-	line "sign say?"
-
-	para "CINNABAR GYM"
-	line "LEADER: BLAINE"
+	text "SEAFOAM ISLANDS"
 	done
 
 Route20_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 38,  7, SEAFOAM_GYM, 1
 
 	def_coord_events
 

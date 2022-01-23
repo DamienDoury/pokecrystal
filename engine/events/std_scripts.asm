@@ -56,6 +56,8 @@ StdScripts::
 	add_stdscript PCScript
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
+	add_stdscript ClosedBusinessScript
+	add_stdscript GymGuideChecksPlayersTeamScript
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -1798,6 +1800,9 @@ GymStatue1Script:
 	getcurlandmarkname STRING_BUFFER_3
 	opentext
 	farwritetext GymStatue_CityGymText
+	promptbutton
+	getchallengename
+	farwritetext GymStatue_ChallengeGymText
 	waitbutton
 	closetext
 	end
@@ -1806,6 +1811,9 @@ GymStatue2Script:
 	getcurlandmarkname STRING_BUFFER_3
 	opentext
 	farwritetext GymStatue_CityGymText
+	promptbutton
+	getchallengename
+	farwritetext GymStatue_ChallengeGymText
 	promptbutton
 	farwritetext GymStatue_WinningTrainersText
 	waitbutton
@@ -1934,4 +1942,140 @@ Movement_ContestResults_WalkAfterWarp:
 	step RIGHT
 	step DOWN
 	turn_head UP
+	step_end
+
+ClosedBusinessScript:
+	farjumptext ClosedBusinessText
+
+GymGuideChecksPlayersTeamScript:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iffalse .continue
+	end
+
+.continue
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	pause 10
+
+	readvar VAR_MAPGROUP
+	ifequal GROUP_CIANWOOD_CITY, .cian
+
+	showemote EMOTE_SHOCK, LAST_TALKED, 15
+	applymovementlasttalked Movement_GymGuideStopsPlayers
+	opentext
+	readvar VAR_MAPGROUP
+	ifequal GROUP_VIOLET_CITY, .violet
+	ifequal GROUP_AZALEA_TOWN, .aza
+	ifequal GROUP_GOLDENROD_CITY, .gold
+	ifequal GROUP_ECRUTEAK_CITY, .ecru
+	ifequal GROUP_OLIVINE_CITY, .oliv
+	ifequal GROUP_MAHOGANY_TOWN, .maho
+	ifequal GROUP_BLACKTHORN_CITY, .black
+
+	ifequal GROUP_PEWTER_CITY, .pew
+	ifequal GROUP_CERULEAN_CITY, .ceru
+	ifequal GROUP_VERMILION_CITY, .vermi
+	ifequal GROUP_CELADON_CITY, .cela
+	ifequal GROUP_FUCHSIA_CITY, .fuch
+	ifequal GROUP_SAFFRON_CITY, .saff
+	ifequal GROUP_CINNABAR_ISLAND, .cinna
+	; Viridian City
+	farwritetext GGTCViriText ; GGTC stands for Gym Guide Team Check.
+	sjump GymGuideTextSequel
+
+.violet
+	farwritetext GGTCVioletText
+	sjump GymGuideTextSequel
+
+.aza
+	farwritetext GGTCAzaText
+	sjump GymGuideTextSequel
+
+.gold
+	farwritetext GGTCGoldText
+	sjump GymGuideTextSequel
+
+.ecru
+	farwritetext GGTCEcruText
+	sjump GymGuideTextSequel
+
+.cian
+	applymovementlasttalked Movement_CianwoodGymGuide
+	opentext
+	farwritetext GGTCCianText
+	waitbutton
+	closetext
+	applymovement PLAYER, Movement_PlayerLeavesBuilding
+	special FadeOutPalettes
+	playsound SFX_ENTER_DOOR
+	waitsfx
+	end
+
+.oliv
+	farwritetext GGTCOlivText
+	sjump GymGuideTextSequel
+
+.maho
+	farwritetext GGTCMahoText
+	sjump GymGuideTextSequel
+
+.black
+	farwritetext GGTCBlackText
+	sjump GymGuideTextSequel
+
+.pew
+	farwritetext GGTCPewText 
+	sjump GymGuideTextSequel
+
+.ceru
+	farwritetext GGTCCeruText
+	sjump GymGuideTextSequel
+
+.vermi
+	farwritetext GGTCVermiText
+	sjump GymGuideTextSequel
+
+.cela
+	farwritetext GGTCCelaText
+	sjump GymGuideTextSequel
+
+.fuch
+	farwritetext GGTCFuchText
+	sjump GymGuideTextSequel
+
+.saff
+	farwritetext GGTCSaffText
+	sjump GymGuideTextSequel
+
+.cinna
+	farwritetext GGTCCinnaText
+	sjump GymGuideTextSequel
+
+GymGuideTextSequel:
+	promptbutton
+	farwritetext GymGuideRefusesEntranceEndText
+	waitbutton
+	closetext
+	applymovement PLAYER, Movement_PlayerLeavesBuilding
+	special FadeOutPalettes
+	playsound SFX_ENTER_DOOR
+	waitsfx
+	end
+
+Movement_GymGuideStopsPlayers:
+	step DOWN
+	step LEFT
+	step LEFT
+	step UP
+	step LEFT
+	turn_head DOWN
+	step_end
+
+Movement_CianwoodGymGuide:
+	step LEFT
+	step DOWN
+	step_end
+
+Movement_PlayerLeavesBuilding:
+	turn_head DOWN
 	step_end

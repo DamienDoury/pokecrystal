@@ -1,6 +1,6 @@
 TVShow:
 	checkevent EVENT_RED_BEATEN
-	iftrue .Phase6
+	iffalse .Phase6
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue .Phase5
 	readvar VAR_BADGES
@@ -1014,9 +1014,9 @@ TVShow:
 	text "VACCINATION"
 
 	para "“Our vaccination"
-	line "level is now at"
-	cont "90 percent but"
-	cont "won't go above."
+	line "level is strug-"
+	cont "gling to go beyond"
+	cont "80 percent."
 
 	para "Indeed a lot of"
 	line "people are afraid"

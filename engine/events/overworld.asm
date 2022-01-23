@@ -130,17 +130,17 @@ CutFunction:
 	dw .FailCut
 
 .CheckAble:
-	ld de, ENGINE_HIVEBADGE
-	call CheckBadge
-	jr c, .nohivebadge
+;	ld de, ENGINE_ZEPHYRBADGE
+;	call CheckBadge
+;	jr c, .nozephyrbadge
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
 	ret
 
-.nohivebadge
-	ld a, $80
-	ret
+;.nozephyrbadge
+;	ld a, $80
+;	ret
 
 .nothingtocut
 	ld a, $2
@@ -279,9 +279,9 @@ FlashFunction:
 
 .CheckUseFlash:
 ; Flash
-	ld de, ENGINE_ZEPHYRBADGE
+	ld de, ENGINE_HIVEBADGE
 	farcall CheckBadge
-	jr c, .nozephyrbadge
+	jr c, .nohivebadge
 	push hl
 	farcall SpecialAerodactylChamber
 	pop hl
@@ -299,7 +299,7 @@ FlashFunction:
 	ld a, $80
 	ret
 
-.nozephyrbadge
+.nohivebadge
 	ld a, $80
 	ret
 
@@ -1767,9 +1767,9 @@ TryCutOW::
 	call CheckPartyMove
 	jr c, .cant_cut
 
-	ld de, ENGINE_HIVEBADGE
-	call CheckEngineFlag
-	jr c, .cant_cut
+;	ld de, ENGINE_ZEPHYRBADGE
+;	call CheckEngineFlag
+;	jr c, .cant_cut
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript

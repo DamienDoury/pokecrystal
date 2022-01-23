@@ -278,12 +278,13 @@ ENDM
 	add_tm FIRE_PUNCH   ; f0
 	add_tm FURY_CUTTER  ; f1
 	add_tm NIGHTMARE    ; f2
+	add_tm HAIL   		; f3
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
 ; Defines three constants:
-; - HM_\1: the item id, starting at $f3
-; - \1_TMNUM: the learnable TM/HM flag, starting at 51
+; - HM_\1: the item id, starting at $f4
+; - \1_TMNUM: the learnable TM/HM flag, starting at 52
 ; - HM##_MOVE: alias for the move id, equal to the value of \1
 ; The first usage also defines HM01 as the first TM item id.
 if !DEF(HM01)
@@ -302,13 +303,13 @@ PURGE HM_VALUE
 	add_tmnum \1
 ENDM
 
-	add_hm CUT          ; f3
-	add_hm FLY          ; f4
-	add_hm SURF         ; f5
-	add_hm STRENGTH     ; f6
-	add_hm FLASH        ; f7
-	add_hm WHIRLPOOL    ; f8
-	add_hm WATERFALL    ; f9
+	add_hm CUT          ; f4
+	add_hm FLY          ; f5
+	add_hm SURF         ; f6
+	add_hm STRENGTH     ; f7
+	add_hm FLASH        ; f8
+	add_hm WHIRLPOOL    ; f9
+	add_hm WATERFALL    ; fa
 NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO

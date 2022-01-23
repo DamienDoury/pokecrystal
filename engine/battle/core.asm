@@ -1,6 +1,7 @@
 ; Core components of the battle engine.
 
 DoBattle:
+	callfar GymSpecialRules
 	xor a
 	ld [wBattleParticipantsNotFainted], a
 	ld [wBattleParticipantsIncludingFainted], a
@@ -119,11 +120,15 @@ DoBattle:
 	jp BattleMenu
 
 StartAutomaticBattleWeather:
-	call GetAutomaticBattleWeather
+	callfar GetAutomaticBattleWeather
+	ldh a, [hFarByte]
 	and a
 	ret z
 ; get current AutomaticWeatherEffects entry
 	dec a
+; fallthrough
+
+ForceBattleWeather:
 	ld hl, AutomaticWeatherEffects
 	ld bc, 5 ; size of one entry
 	call AddNTimes
@@ -148,31 +153,7 @@ StartAutomaticBattleWeather:
 	call StdBattleTextbox ; uses hl
 	jp EmptyBattleTextbox
 
-GetAutomaticBattleWeather:
-	ld hl, AutomaticWeatherMaps
-	ld a, [wMapGroup]
-	ld b, a
-	ld a, [wMapNumber]
-	ld c, a
-.loop
-	ld a, [hli] ; group
-	and a
-	ret z ; end
-	cp b
-	jr nz, .wrong_group
-	ld a, [hli] ; map
-	cp c
-	jr nz, .wrong_map
-	ld a, [hl] ; weather
-	ret
-
-.wrong_group:
-	inc hl ; skip map
-.wrong_map
-	inc hl ; skip weather
-	jr .loop
-
-INCLUDE "data/battle/automatic_weather.asm"
+INCLUDE "data/battle/automatic_weather_anims.asm"
 
 WildFled_EnemyFled_LinkBattleCanceled:
 	call SafeLoadTempTilemapToTilemap
@@ -348,6 +329,7 @@ HandleBetweenTurnEffects:
 	ret c
 
 .NoMoreFaintingConditions:
+	call HandleGrassyTerrain
 	call HandleLeftovers
 	call HandleMysteryberry
 	call HandleDefrost
@@ -1145,7 +1127,17 @@ ResidualDamage:
 	ld b, h
 	ld c, l
 .did_toxic
+	ld a, [wOtherTrainerClass]
+	cp JANINE
+	jr nz, .do_damage
 
+	ld h, b
+	ld l, c
+	add hl, hl
+	ld b, h
+	ld c, l
+
+.do_damage
 	call SubtractHPFromUser
 .did_psn_brn
 
@@ -1350,7 +1342,7 @@ HandleWrap:
 	call SwitchTurnCore
 
 .skip_anim
-	call GetSixteenthMaxHP
+	call GetEighthMaxHP
 	call SubtractHPFromUser
 	ld hl, BattleText_UsersHurtByStringBuffer1
 	jr .print_text
@@ -1365,6 +1357,10 @@ SwitchTurnCore:
 	ldh a, [hBattleTurn]
 	xor 1
 	ldh [hBattleTurn], a
+	ret
+
+HandleGrassyTerrain:
+	farcall _HandleGrassyTerrain
 	ret
 
 HandleLeftovers:
@@ -1779,15 +1775,27 @@ HandleWeather:
 	ret z
 
 	ld hl, wWeatherCount
+	ld a, [hl]
+	cp $ff
+	jr z, .continues ; If the weather count is 255, we do not decrease it so it can truly last forever.
 	dec [hl]
-	jr z, .ended
+	jr nz, .continues
+
+; ended
+	ld hl, .WeatherEndedMessages
+	call .PrintWeatherMessage
+	xor a
+	ld [wBattleWeather], a
+	ret
+
+.continues
 
 	ld hl, .WeatherMessages
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
 	cp WEATHER_SANDSTORM
-	ret nz
+	jr nz, .check_hail
 
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
@@ -1844,12 +1852,58 @@ HandleWeather:
 	ld hl, SandstormHitsText
 	jp StdBattleTextbox
 
-.ended
-	ld hl, .WeatherEndedMessages
-	call .PrintWeatherMessage
+.check_hail
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
+	ret nz
+
+	ldh a, [hSerialConnectionStatus]
+	cp USING_EXTERNAL_CLOCK
+	jr z, .enemy_first_hail
+
+; player first
+	call SetPlayerTurn
+	call .HailDamage
+	call SetEnemyTurn
+	jr .HailDamage
+
+.enemy_first_hail
+	call SetEnemyTurn
+	call .HailDamage
+	call SetPlayerTurn
+
+.HailDamage:
+	ld a, BATTLE_VARS_SUBSTATUS3
+	call GetBattleVar
+	bit SUBSTATUS_UNDERGROUND, a
+	ret nz
+
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok1
+	ld hl, wEnemyMonType1
+.ok1
+	ld a, [hli]
+	cp ICE
+	ret z
+
+	ld a, [hl]
+	cp ICE
+	ret z
+
+	call SwitchTurnCore
 	xor a
-	ld [wBattleWeather], a
-	ret
+	ld [wNumHits], a
+	ld de, ANIM_IN_HAIL
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+
+	call GetEighthMaxHP
+	call SubtractHPFromUser
+
+	ld hl, PeltedByHailText
+	jp StdBattleTextbox
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]
@@ -1868,12 +1922,14 @@ HandleWeather:
 	dw BattleText_RainContinuesToFall
 	dw BattleText_TheSunlightIsStrong
 	dw BattleText_TheSandstormRages
+	dw BattleText_HailContinuesToFall
 
 .WeatherEndedMessages:
 ; entries correspond to WEATHER_* constants
 	dw BattleText_TheRainStopped
 	dw BattleText_TheSunlightFaded
 	dw BattleText_TheSandstormSubsided
+	dw BattleText_TheHailStopped
 
 SubtractHPFromTarget:
 	call SubtractHP
@@ -1993,25 +2049,6 @@ GetMaxHP:
 	ld a, [hl]
 	ld [wHPBuffer1], a
 	ld c, a
-	ret
-
-GetHalfHP: ; unreferenced
-	ld hl, wBattleMonHP
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wEnemyMonHP
-.ok
-	ld a, [hli]
-	ld b, a
-	ld a, [hli]
-	ld c, a
-	srl b
-	rr c
-	ld a, [hli]
-	ld [wHPBuffer1 + 1], a
-	ld a, [hl]
-	ld [wHPBuffer1], a
 	ret
 
 CheckUserHasEnoughHP:
@@ -4242,6 +4279,15 @@ SpikesDamage:
 	ld bc, UpdateEnemyHUD
 .ok
 
+; Damien's addition: we add the STICKY_WEB effect here.
+	push hl
+	push de
+	push bc
+	callfar StickyWebEffect
+	pop bc
+	pop de
+	pop hl
+
 	bit SCREENS_SPIKES, [hl]
 	ret z
 
@@ -5273,10 +5319,16 @@ TryPlayerSwitch:
 	ld d, a
 	ld a, [wCurPartyMon]
 	cp d
-	jr nz, .check_trapped
+	jr nz, .check_chuck
 	ld hl, BattleText_MonIsAlreadyOut
-	call StdBattleTextbox
-	jp BattleMenuPKMN_Loop
+	jr .battle_text
+
+.check_chuck
+	ld a, [wOtherTrainerClass]
+	cp CHUCK
+	jr nz, .check_trapped
+	ld hl, BattleText_SwitchingForbidden
+	jr .battle_text
 
 .check_trapped
 	ld a, [wPlayerWrapCount]
@@ -5288,6 +5340,8 @@ TryPlayerSwitch:
 
 .trapped
 	ld hl, BattleText_MonCantBeRecalled
+	
+.battle_text
 	call StdBattleTextbox
 	jp BattleMenuPKMN_Loop
 
@@ -5375,7 +5429,6 @@ BattleMonEntrance:
 	jr c, .ok
 	call RecallPlayerMon
 .ok
-
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
@@ -5810,17 +5863,17 @@ MoveInfoBox:
 	ld [wStringBuffer1], a
 	call .PrintPP
 
-	hlcoord 1, 9
-	ld de, .Type
-	call PlaceString
-
-	hlcoord 7, 11
-	ld [hl], "/"
-
 	callfar UpdateMoveData
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
-	hlcoord 2, 10
+	farcall GetMoveCategoryName
+	hlcoord 1, 10
+	ld de, wStringBuffer1
+	call PlaceString
+
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld b, a
+	hlcoord 1, 9
 	predef PrintMoveType
 
 .done
@@ -5828,8 +5881,6 @@ MoveInfoBox:
 
 .Disabled:
 	db "Disabled!@"
-.Type:
-	db "TYPE/@"
 
 .PrintPP:
 	hlcoord 5, 11
@@ -6621,17 +6672,6 @@ CheckUnownLetter:
 
 INCLUDE "data/wild/unlocked_unowns.asm"
 
-SwapBattlerLevels: ; unreferenced
-	push bc
-	ld a, [wBattleMonLevel]
-	ld b, a
-	ld a, [wEnemyMonLevel]
-	ld [wBattleMonLevel], a
-	ld a, b
-	ld [wEnemyMonLevel], a
-	pop bc
-	ret
-
 BattleWinSlideInEnemyTrainerFrontpic:
 	xor a
 	ld [wTempEnemyMonSpecies], a
@@ -6949,8 +6989,8 @@ ApplyStatLevelMultiplier:
 
 INCLUDE "data/battle/stat_multipliers_2.asm"
 
-BadgeStatBoosts: ; deleted by Damien.
-	ret
+;BadgeStatBoosts: ; deleted by Damien.
+;	ret
 
 BoostStat: ; not deleted by Damien, as we may use this one.
 ; Raise stat at hl by 1/8.
@@ -6990,20 +7030,6 @@ _LoadBattleFontsHPBar:
 _LoadHPBar:
 	callfar LoadHPBar
 	ret
-
-LoadHPExpBarGFX: ; unreferenced
-	ld de, EnemyHPBarBorderGFX
-	ld hl, vTiles2 tile $6c
-	lb bc, BANK(EnemyHPBarBorderGFX), 4
-	call Get1bpp
-	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $73
-	lb bc, BANK(HPExpBarBorderGFX), 6
-	call Get1bpp
-	ld de, ExpBarGFX
-	ld hl, vTiles2 tile $55
-	lb bc, BANK(ExpBarGFX), 8
-	jp Get2bpp
 
 EmptyBattleTextbox:
 	ld hl, .empty
@@ -7988,45 +8014,9 @@ GoodComeBackText:
 	text_far _GoodComeBackText
 	text_end
 
-TextJump_ComeBack: ; unreferenced
-	ld hl, ComeBackText
-	ret
-
 ComeBackText:
 	text_far _ComeBackText
 	text_end
-
-HandleSafariAngerEatingStatus: ; unreferenced
-	ld hl, wSafariMonEating
-	ld a, [hl]
-	and a
-	jr z, .angry
-	dec [hl]
-	ld hl, BattleText_WildMonIsEating
-	jr .finish
-
-.angry
-	dec hl
-	assert wSafariMonEating - 1 == wSafariMonAngerCount
-	ld a, [hl]
-	and a
-	ret z
-	dec [hl]
-	ld hl, BattleText_WildMonIsAngry
-	jr nz, .finish
-	push hl
-	ld a, [wEnemyMonSpecies]
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld a, [wBaseCatchRate]
-	ld [wEnemyMonCatchRate], a
-	pop hl
-
-.finish
-	push hl
-	call SafeLoadTempTilemapToTilemap
-	pop hl
-	jp StdBattleTextbox
 
 FillInExpBar:
 	push hl
@@ -8252,10 +8242,6 @@ StartBattle:
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
-	ret
-
-CallDoBattle: ; unreferenced
-	call DoBattle
 	ret
 
 BattleIntro:

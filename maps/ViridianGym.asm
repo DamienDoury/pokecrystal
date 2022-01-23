@@ -44,6 +44,9 @@ ViridianGymGuideScript:
 	writetext ViridianGymGuideText
 	waitbutton
 	closetext
+	turnobject VIRIDIANGYM_GYM_GUIDE, UP
+	pause 5
+	showemote EMOTE_HEART, VIRIDIANGYM_GYM_GUIDE, 20
 	end
 
 .ViridianGymGuideWinScript:
@@ -65,12 +68,6 @@ LeaderBlueBeforeText:
 	text "BLUE: Yo! Finally"
 	line "got here, huh?"
 
-	para "I wasn't in the"
-	line "mood at CINNABAR,"
-
-	para "but now I'm ready"
-	line "to battle you."
-
 	para "…"
 
 	para "You're telling me"
@@ -81,17 +78,34 @@ LeaderBlueBeforeText:
 	line "must be pretty"
 	cont "pathetic then."
 
-	para "Hey, don't worry"
-	line "about it."
+	para "I bet you already"
+	line "knew the GYM LEA-"
+	cont "DER's party before"
+	cont "the battle even"
+	cont "started! Tsk!"
 
-	para "I'll know if you"
-	line "are good or not by"
+	para "I would know. I"
+	line "was a simple trai-"
+	cont "ner like you not"
+	cont "long ago, y'know?"
 
-	para "battling you right"
-	line "now."
+	para "But now that I'm"
+	line "on the other side,"
+	cont "I'm not making"
+	cont "other GYM LEADERS'"
+	cont "stupid mistake."
 
-	para "Ready, JOHTO"
-	line "CHAMP?"
+	para "I've travelled a"
+	line "lot and captured"
+	cont "many strong"
+	cont "#MON."
+
+	para "No one can ever"
+	line "predict my game…"
+
+	para "Ready for a real"
+	line "challenge, JOHTO"
+	cont "CHAMP?"
 	done
 
 LeaderBlueWinText:
@@ -137,23 +151,40 @@ LeaderBlueEpilogueText:
 	done
 
 ViridianGymGuideText:
-	text "Yo, CHAMP in"
-	line "making!"
+	text "Yo, CHAMP!"
 
 	para "How's it going?"
 	line "Looks like you're"
 	cont "on a roll."
 
 	para "The GYM LEADER is"
-	line "a guy who battled"
+	line "the guy who was"
 
 	para "the CHAMPION three"
 	line "years ago."
 
-	para "He's no pushover."
+	para "And you know what?"
 
-	para "Give it everything"
-	line "you've got!"
+	para "All #MON types"
+	line "are allowed in"
+	cont "his GYM!"
+
+	para "That's unheard of,"
+	line "right?"
+
+	;para "That's the"
+	;line "challenge of"
+	;cont "VIRIDIAN's GYM:"
+	;
+	;para "tables are turned"
+	;line "and you're in for"
+	;cont "a surprise!"
+
+	para "BLUE fears no one"
+	line "and no #MON."
+
+	para "He's so cool!!"
+
 	done
 
 ViridianGymGuideWinText:
@@ -182,4 +213,4 @@ ViridianGym_MapEvents:
 
 	def_object_events
 	object_event  5,  3, SPRITE_BLUE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianGymBlueScript, EVENT_VIRIDIAN_GYM_BLUE
-	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE
+	object_event  7, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ViridianGymGuideScript, EVENT_VIRIDIAN_GYM_BLUE

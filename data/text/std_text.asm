@@ -292,6 +292,13 @@ GymStatue_CityGymText:
 	line "#MON GYM"
 	done
 
+GymStatue_ChallengeGymText:
+	text "Challenge:"
+	line "@"
+	text_ram wStringBuffer3
+	text " "
+	done
+
 GymStatue_WinningTrainersText:
 	text "LEADER: @"
 	text_ram wStringBuffer4
@@ -393,4 +400,18 @@ RegisteredNumber2Text:
 	line "@"
 	text_ram wStringBuffer3
 	text "'s number."
+	done
+
+ClosedBusinessText:
+	text "There is a notice"
+	line "on the door…"
+
+	para "“Due to the"
+	line "sanitary crisis,"
+
+	para "our establishment"
+	line "must remain closed"
+
+	para "until further"
+	line "notice.”"
 	done

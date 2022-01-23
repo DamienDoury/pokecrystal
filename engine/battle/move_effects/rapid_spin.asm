@@ -26,6 +26,14 @@ BattleCommand_ClearHazards:
 	call StdBattleTextbox
 	pop de
 .no_spikes
+	bit SCREENS_STICKY_WEB, [hl]
+	jr z, .no_sticky_web
+	res SCREENS_STICKY_WEB, [hl]
+	ld hl, RippedStickyWebText
+	push de
+	call StdBattleTextbox
+	pop de
+.no_sticky_web
 
 	ld a, [de]
 	and a

@@ -5,11 +5,41 @@
 	const CELADONGYM_BEAUTY
 	const CELADONGYM_TWIN1
 	const CELADONGYM_TWIN2
+	const CELADONGYM_GYM_GUIDE
 
 CeladonGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_ERIKA
+	iftrue .no_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ICE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval BUG
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval POISON
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CELADONGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CELADON_CITY, 10, 29
+.no_check
+	end
 
 CeladonGymErikaScript:
 	faceplayer
@@ -102,6 +132,22 @@ TrainerTwinsJoAndZoe2:
 	closetext
 	end
 
+CeladonGymGuideScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_ERIKA
+	iftrue .CeladonGymGuideWinScript
+	writetext CeladonGymGuideText
+	waitbutton
+	closetext
+	end
+
+.CeladonGymGuideWinScript:
+	writetext CeladonGymGuideWinText
+	waitbutton
+	closetext
+	end
+
 CeladonGymStatue:
 	checkflag ENGINE_RAINBOWBADGE
 	iftrue .Beaten
@@ -113,16 +159,18 @@ CeladonGymStatue:
 ErikaBeforeBattleText:
 	text "ERIKA: Hello…"
 	line "Lovely weather,"
+	cont "isn't it?"
 
-	para "isn't it?"
-	line "It's so pleasant…"
+	para "It always feels"
+	line "like spring in"
+	cont "this climate cont-"
+	cont "rolled greenhouse…"
 
-	para "…I'm afraid I may"
-	line "doze off…"
+	para "…GRASS #MON are"
+	line "blooming all year"
 
-	para "My name is ERIKA."
-	line "I am the LEADER of"
-	cont "CELADON GYM."
+	para "round, a true"
+	line "heaven…"
 
 	para "…Oh? All the way"
 	line "from JOHTO, you"
@@ -134,8 +182,17 @@ ErikaBeforeBattleText:
 	para "that you wished to"
 	line "challenge me."
 
-	para "Very well, but I"
-	line "shall not lose."
+	para "My name is ERIKA."
+	line "I am the LEADER of"
+	cont "CELADON GYM."
+
+	para "My #MON friends"
+	line "grew up it this"
+	cont "garden. They are"
+	cont "a part of this"
+	cont "ecosystem…"
+
+	para "Shall we begin?"
 	done
 
 ErikaBeatenText:
@@ -265,6 +322,33 @@ TwinsJoAndZoe2AfterBattleText:
 	line "much stronger!"
 	done
 
+CeladonGymGuideText:
+	text "Welcome, CHAMP in"
+	line "making!"
+
+	para "(achii)"
+
+	para "This GYM is a"
+	line "greenhouse."
+
+	para "I can't take part" 
+	line "in battles because"
+	cont "I keep sneezing."
+
+	para "I'm allergic to"
+	line "pollen."
+
+	para "(achoo)"
+
+	para "Good luck to you!"
+	done
+
+CeladonGymGuideWinText:
+	text "You did…"
+	para "(ACHII)"
+	para "…!"
+	done
+
 CeladonGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -285,3 +369,4 @@ CeladonGym_MapEvents:
 	object_event  3,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBeautyJulia, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1
 	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe2, -1
+	object_event  7, 15, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1

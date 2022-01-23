@@ -4,11 +4,11 @@
 
 SeafoamGym_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene
+	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
 
-.DummyScene:
+.DummyScene
 	end
 
 SeafoamGymBlaineScript:
@@ -17,8 +17,22 @@ SeafoamGymBlaineScript:
 	checkflag ENGINE_VOLCANOBADGE
 	iftrue .FightDone
 	writetext BlaineIntroText
+
+	setval WATER
+	special CheckTypePresenceInParty
+	iftrue .refuse_battle
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .refuse_battle
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .refuse_battle
+
+	promptbutton
+	writetext BlaineIntroEndText
 	waitbutton
 	closetext
+
 	winlosstext BlaineWinLossText, 0
 	loadtrainer BLAINE, BLAINE1
 	startbattle
@@ -33,6 +47,19 @@ SeafoamGymBlaineScript:
 	waitsfx
 	setflag ENGINE_VOLCANOBADGE
 	writetext BlaineAfterBattleText
+	waitbutton
+	closetext
+	end
+
+.refuse_battle:
+	waitbutton
+	closetext
+	showemote EMOTE_SHOCK, SEAFOAMGYM_BLAINE, 15
+	pause 5
+	opentext
+	writetext BlaineRefusesBattleText
+	promptbutton
+	farwritetext GymGuideRefusesEntranceEndText
 	waitbutton
 	closetext
 	end
@@ -63,29 +90,65 @@ SeafoamGymGuideScript:
 BlaineIntroText:
 	text "BLAINE: Waaah!"
 
-	para "My GYM in CINNABAR"
-	line "burned down."
+	para "The eruption may"
+	line "have burned down"
 
-	para "My fire-breathing"
-	line "#MON and I are"
+	para "my GYM, but it"
+	line "also made my"
 
-	para "homeless because"
-	line "of the volcano."
+	para "fiery will burn"
+	line "stronger!"
+
+	para "So I'm back in"
+	line "business as a GYM"
+	cont "LEADER, baby!"
+
+	para "What doesn't kill"
+	line "me makes me"
+	cont "stronger, which is"
+
+	para "why I decided to"
+	line "dominate this"
+
+	para "volcano by calling"
+	line "it home."
 
 	para "Waaah!"
 
-	para "But I'm back in"
-	line "business as a GYM"
+	para "The intense heat"
+	line "of the surrounding"
+	
+	para "lava is the per-"
+	line "fect playground"
 
-	para "LEADER here in"
-	line "this cave."
+	para "for my FIRE brea-"
+	line "thing #MON."
+	done
 
-	para "If you can beat"
-	line "me, I'll give you"
-	cont "a BADGE."
+BlaineIntroEndText:
+	text "I accept your"
+	line "challenge."
 
-	para "Ha! You'd better"
-	line "have BURN HEAL!"
+	para "Let this battle"
+	line "determine which"
+
+	para "one of us has the"
+	line "most ardent will"
+	cont "to win!"
+
+	para "Wah ah haha!"
+	done
+
+BlaineRefusesBattleText:
+	text "Someone should"
+	line "have had told you…"
+
+	para "You can't battle"
+	line "in my GYM with"
+
+	para "neither WATER,"
+	line "GROUND, nor ROCK"
+	cont "type #MON."
 	done
 
 BlaineWinLossText:
@@ -137,11 +200,17 @@ SeafoamGymGuideWinText:
 	para "know where to find"
 	line "you."
 
-	para "But, hey, you're"
-	line "plenty strong even"
+	para "The battle must've"
+	line "been intense!"
 
-	para "without my advice."
-	line "I knew you'd win!"
+	para "From the outside"
+	line "it felt like the"
+
+	para "volcano was about"
+	line "to erupt again!"
+
+	para "Oh boy did I"
+	line "miss something!"
 	done
 
 SeafoamGymGuideWinText2:
@@ -159,7 +228,7 @@ SeafoamGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, ROUTE_20, 1
+	warp_event  5,  5, CINNABAR_ISLAND, 2
 
 	def_coord_events
 

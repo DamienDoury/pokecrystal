@@ -4,15 +4,56 @@
 
 OlivineGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_JASMINE
+	iftrue .no_check
+	checkevent EVENT_OLIVINE_GYM_JASMINE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked OLIVINEGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp OLIVINE_CITY, 10, 11
+.no_check
+	end
 
 OlivineGymJasmineScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .FightDone
-	writetext Jasmine_SteelTypeIntro
+	writetext Jasmine_SteelTypeIntroText
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, OLIVINEGYM_JASMINE, 20
+	opentext
+	writetext OlivineGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext Jasmine_SteelTypeIntroSequelText
+	promptbutton
+	readvar VAR_PARTYCOUNT
+	ifgreater 3, .TeamTooBig
+	writetext Jasmine_ValidatesTeamText
 	waitbutton
 	closetext
 	winlosstext Jasmine_BetterTrainer, 0
@@ -36,6 +77,12 @@ OlivineGymJasmineScript:
 	iffalse .NoRoomForIronTail
 	setevent EVENT_GOT_TM23_IRON_TAIL
 	writetext Jasmine_IronTailSpeech
+	waitbutton
+	closetext
+	end
+
+.TeamTooBig:
+	writetext Jasmine_TeamTooBigText
 	waitbutton
 	closetext
 	end
@@ -92,29 +139,44 @@ OlivineGymStatue:
 	gettrainername STRING_BUFFER_4, JASMINE, JASMINE1
 	jumpstd GymStatue2Script
 
-Jasmine_SteelTypeIntro:
+Jasmine_SteelTypeIntroText:
 	text "…Thank you for"
 	line "your help at the"
 	cont "LIGHTHOUSE…"
 
-	para "But this is dif-"
-	line "ferent. Please"
+	para "But this is"
+	line "different."
 
-	para "allow me to intro-"
-	line "duce myself."
+	para "Please allow me to"
+	line "introduce myself."
 
 	para "I am JASMINE, a"
 	line "GYM LEADER. I use"
 	cont "the steel-type."
+	done
 
-	para "…Do you know about"
-	line "the steel-type?"
+Jasmine_SteelTypeIntroSequelText:
+	text "I will test you to"
+	line "see how well you"
 
-	para "It's a type that"
-	line "was only recently"
-	cont "discovered."
+	para "do when your team"
+	line "is outnumbered."
+	done
 
-	para "…Um… May I begin?"
+OlivineGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
+Jasmine_TeamTooBigText:
+	text "…You can have"
+	line "up to 3 #MON."
+
+	para "Please go deposit"
+	line "some into a PC."
+	done
+
+Jasmine_ValidatesTeamText:
+	text "…Um… May I begin?"
 	done
 
 Jasmine_BetterTrainer:

@@ -1075,4 +1075,9 @@ ifodd: MACRO
 	dw \1 ; pointer
 ENDM
 
+	const getchallengename_command ; $ac
+getchallengename: MACRO
+	db getchallengename_command
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value

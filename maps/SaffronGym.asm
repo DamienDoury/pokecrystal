@@ -17,6 +17,9 @@ SaffronGymSabrinaScript:
 	checkflag ENGINE_MARSHBADGE
 	iftrue .FightDone
 	writetext SabrinaIntroText
+	yesorno
+	iffalse .RefusedSabrinasChallenge
+	writetext SabrinaIntroSequelText
 	waitbutton
 	closetext
 	winlosstext SabrinaWinLossText, 0
@@ -34,6 +37,12 @@ SaffronGymSabrinaScript:
 	waitsfx
 	setflag ENGINE_MARSHBADGE
 	writetext SabrinaMarshBadgeText
+	waitbutton
+	closetext
+	end
+
+.RefusedSabrinasChallenge:
+	writetext SabrinaChallengeRefusedText
 	waitbutton
 	closetext
 	end
@@ -90,15 +99,17 @@ TrainerPsychicJared:
 
 SaffronGymGuideScript:
 	faceplayer
-	opentext
 	checkevent EVENT_BEAT_SABRINA
 	iftrue .SaffronGymGuideWinScript
+	showemote EMOTE_SHOCK, SAFFRONGYM_GYM_GUIDE, 15
+	opentext
 	writetext SaffronGymGuideText
 	waitbutton
 	closetext
 	end
 
 .SaffronGymGuideWinScript:
+	opentext
 	writetext SaffronGymGuideWinText
 	waitbutton
 	closetext
@@ -125,17 +136,42 @@ SabrinaIntroText:
 
 	para "I don't enjoy bat-"
 	line "tling, but it's my"
+	cont "duty as a LEADER."
 
-	para "duty as a LEADER"
-	line "to confer BADGES"
+	para "I like to teach"
+	line "trainers that"
 
-	para "on anyone who has"
-	line "proven him- or"
-	cont "herself worthy."
+	para "they can't always"
+	line "be victorious by"
+	cont "using brut force."
 
-	para "Since you wish it,"
+	para "Show me that you"
+	line "can win a battle"
+
+	para "with your greatest"
+	line "weapon: your mind."
+
+	para "You won't be able"
+	line "to use neither"
+	
+	para "PHYSICAL nor"
+	line "SPECIAL moves"
+	cont "against me."
+
+	para "Are you feeling"
+	line "ready?"
+	done
+
+SabrinaIntroSequelText:
+	text "Since you wish it,"
 	line "I will show you my"
 	cont "psychic powers!"
+	done
+
+SabrinaChallengeRefusedText:
+	text "I foresee that"
+	line "our paths will"
+	cont "cross again."
 	done
 
 SabrinaWinLossText:
@@ -180,17 +216,14 @@ SabrinaMarshBadgeText:
 	done
 
 SabrinaFightDoneText:
-	text "SABRINA: Your love"
-	line "for your #MON"
+	text "SABRINA: The power"
+	line "of your mind"
 
 	para "overwhelmed my"
 	line "psychic power…"
 
-	para "The power of love,"
-	line "I think, is also a"
-
-	para "kind of psychic"
-	line "power…"
+	para "You showed me new"
+	line "paths…"
 	done
 
 MediumRebeccaSeenText:
@@ -265,27 +298,36 @@ PsychicJaredAfterBattleText:
 	done
 
 SaffronGymGuideText:
-	text "Yo, CHAMP in"
-	line "making!"
+	text "Hello <PLAYER>…"
 
-	para "A trainer as"
-	line "skilled as you"
+	para "SABRINA told me"
+	line "you would be"
+	cont "coming today…"
 
-	para "doesn't need to be"
-	line "told how to deal"
+	para "It feels weird"
+	line "that it's actual-"
+	cont "ly happening!"
 
-	para "with psychic-type"
-	line "#MON, right?"
+	para "Normally GHOST and"
+	line "DARK types are"
+	cont "forbidden in this"
+	cont "GYM."
 
-	para "I expect great"
-	line "things from you!"
+	para "But SABRINA said"
+	line "that those are"
+	cont "allowed today…"
 
-	para "Good luck!"
+	para "Because she fore-"
+	line "saw her victory."
+
+	para "Are you sure you"
+	line "still want to"
+	cont "challenge her?"
 	done
 
 SaffronGymGuideWinText:
 	text "That was another"
-	line "fantastic battle!"
+	line "FANTASTIC battle!"
 	done
 
 SaffronGym_MapEvents:
@@ -294,41 +336,43 @@ SaffronGym_MapEvents:
 	def_warp_events
 	warp_event  8, 17, SAFFRON_CITY, 2
 	warp_event  9, 17, SAFFRON_CITY, 2
-	warp_event 11, 15, SAFFRON_GYM, 18
-	warp_event 19, 15, SAFFRON_GYM, 19
-	warp_event 19, 11, SAFFRON_GYM, 20
-	warp_event  1, 11, SAFFRON_GYM, 21
-	warp_event  5,  3, SAFFRON_GYM, 22
-	warp_event 11,  5, SAFFRON_GYM, 23
-	warp_event  1, 15, SAFFRON_GYM, 24
-	warp_event 19,  3, SAFFRON_GYM, 25
-	warp_event 15, 17, SAFFRON_GYM, 26
-	warp_event  5, 17, SAFFRON_GYM, 27
-	warp_event  5,  9, SAFFRON_GYM, 28
-	warp_event  9,  3, SAFFRON_GYM, 29
-	warp_event 15,  9, SAFFRON_GYM, 30
-	warp_event 15,  5, SAFFRON_GYM, 31
-	warp_event  1,  5, SAFFRON_GYM, 32
-	warp_event 19, 17, SAFFRON_GYM, 3
-	warp_event 19,  9, SAFFRON_GYM, 4
-	warp_event  1,  9, SAFFRON_GYM, 5
-	warp_event  5,  5, SAFFRON_GYM, 6
-	warp_event 11,  3, SAFFRON_GYM, 7
-	warp_event  1, 17, SAFFRON_GYM, 8
-	warp_event 19,  5, SAFFRON_GYM, 9
-	warp_event 15, 15, SAFFRON_GYM, 10
-	warp_event  5, 15, SAFFRON_GYM, 11
-	warp_event  5, 11, SAFFRON_GYM, 12
-	warp_event  9,  5, SAFFRON_GYM, 13
-	warp_event 15, 11, SAFFRON_GYM, 14
-	warp_event 15,  3, SAFFRON_GYM, 15
-	warp_event  1,  3, SAFFRON_GYM, 16
-	warp_event 11,  9, SAFFRON_GYM, 17
+	warp_event  9, 15, SAFFRON_GYM, 4
+	warp_event 15, 11, SAFFRON_GYM, 6
+	warp_event 15,  9, SAFFRON_GYM, 7
+	warp_event 19,  9, SAFFRON_GYM, 8
+	warp_event 19, 11, SAFFRON_GYM, 5
+	warp_event  1,  9, SAFFRON_GYM, 6
+	warp_event  5,  9, SAFFRON_GYM, 12
+	warp_event  1, 11, SAFFRON_GYM, 17
+	warp_event  5, 11, SAFFRON_GYM, 7
+	warp_event  1,  3, SAFFRON_GYM, 18
+	warp_event  5,  3, SAFFRON_GYM, 10
+	warp_event  1,  5, SAFFRON_GYM, 4
+	warp_event  5,  5, SAFFRON_GYM, 20
+	warp_event  1, 15, SAFFRON_GYM, 5
+	warp_event  5, 15, SAFFRON_GYM, 8
+	warp_event  1, 17, SAFFRON_GYM, 6
+	warp_event  5, 17, SAFFRON_GYM, 19
+	warp_event  9,  5, SAFFRON_GYM, 26
+	warp_event 11,  5, SAFFRON_GYM, 19
+	warp_event  9,  3, SAFFRON_GYM, 14
+	warp_event 11,  3, SAFFRON_GYM, 9
+	warp_event 19, 17, SAFFRON_GYM, 24
+	warp_event 15, 17, SAFFRON_GYM, 5
+	warp_event 15, 15, SAFFRON_GYM, 20
+	warp_event 19, 15, SAFFRON_GYM, 28
+	warp_event 15,  5, SAFFRON_GYM, 27
+	warp_event 19,  3, SAFFRON_GYM, 32
+	warp_event 19,  5, SAFFRON_GYM, 25
+	warp_event 15,  3, SAFFRON_GYM, 11
+	warp_event 11,  9, SAFFRON_GYM, 3
+
+	
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  8, 15, BGEVENT_READ, SaffronGymStatue
+	bg_event 10, 15, BGEVENT_READ, SaffronGymStatue
 
 	def_object_events
 	object_event  9,  8, SPRITE_SABRINA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronGymSabrinaScript, -1
@@ -336,4 +380,4 @@ SaffronGym_MapEvents:
 	object_event  3, 16, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPsychicFranklin, -1
 	object_event  3,  4, SPRITE_GRANNY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerMediumDoris, -1
 	object_event 17,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerPsychicJared, -1
-	object_event  9, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1
+	object_event 11, 15, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronGymGuideScript, -1

@@ -87,7 +87,7 @@ HiddenPowerDamage:
 ; Skip unused types
 	cp UNUSED_TYPES
 	jr c, .done
-	add SPECIAL - UNUSED_TYPES
+	add UNUSED_TYPES_END - UNUSED_TYPES
 
 .done
 
@@ -96,6 +96,7 @@ HiddenPowerDamage:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
 	pop af
+	or SPECIAL
 	ld [hl], a
 
 ; Get the rest of the damage formula variables

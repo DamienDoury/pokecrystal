@@ -7,8 +7,22 @@
 
 VermilionGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_LTSURGE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked VERMILIONGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp VERMILION_CITY, 10, 19
+.no_check
+	end
 
 VermilionGymSurgeScript:
 	faceplayer
@@ -117,12 +131,27 @@ LtSurgeIntroText:
 	line "electric #MON,"
 	cont "I'm number one!"
 
-	para "I've never lost on"
-	line "the battlefield."
+	para "You see kiddo,"
+	line "everyday I walk up"
+	cont "to the POWER PLANT"
 
-	para "I'll zap you just"
-	line "like I did my"
-	cont "enemies in war!"
+	para "and supercharge"
+	line "my #MON squad."
+
+	para "It makes their"
+	line "ELECTRIC moves"
+	cont "stronger and"
+
+	para "causes PARALYSIS"
+	line "more frequently."
+
+	para "After all, “All"
+	line "is fair in war”,"
+	cont "and you're 'bout"
+
+	para "to learn the"
+	line "hard way!"
+
 	done
 
 LtSurgeWinLossText:

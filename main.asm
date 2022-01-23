@@ -44,6 +44,8 @@ INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/lockdown_wanted.asm"
+INCLUDE "engine/events/gym.asm"
+INCLUDE "engine/battle/automatic_weather.asm"
 
 
 SECTION "bank4", ROMX
@@ -123,6 +125,7 @@ INCLUDE "engine/battle/returntobattle_useball.asm"
 INCLUDE "engine/battle/consume_held_item.asm"
 INCLUDE "data/moves/effects.asm"
 INCLUDE "engine/events/kurt_selectquantity_interpretjoypad.asm"
+INCLUDE "engine/battle/ai/switch.asm"
 
 
 SECTION "bankA", ROMX
@@ -163,7 +166,6 @@ INCLUDE "engine/battle/ai/items.asm"
 INCLUDE "engine/battle/ai/scoring.asm"
 INCLUDE "engine/battle/read_trainer_attributes.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
-
 
 SECTION "Battle Core", ROMX
 
@@ -251,6 +253,7 @@ INCLUDE "engine/events/basement_key.asm"
 INCLUDE "engine/events/sacred_ash.asm"
 INCLUDE "engine/pokemon/tempmon.asm"
 INCLUDE "engine/pokemon/types.asm"
+INCLUDE "engine/pokemon/categories.asm"
 INCLUDE "engine/battle/getgen1trainerclassname.asm"
 INCLUDE "engine/pokemon/mon_stats.asm"
 INCLUDE "engine/link/init_list.asm"

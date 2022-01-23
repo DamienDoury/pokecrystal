@@ -86,4 +86,19 @@ MapScenes::
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
 	scene_var GOLDENROD_GAME_CORNER,                       wRoute29SceneID ; We use another variable to save a byte, as we actually don't need to edit this value, and its value doesn't matter, whether it is 0 or 1.
 	scene_var CHARCOAL_KILN,                       		   wCharcoalKilnSceneID
+	
+	scene_var VIOLET_GYM,                       		   wRoute29SceneID
+	scene_var AZALEA_GYM,                       		   wRoute29SceneID
+	scene_var CIANWOOD_GYM,                       	       wRoute29SceneID
+	scene_var OLIVINE_GYM,                       		   wRoute29SceneID
+	scene_var MAHOGANY_GYM,                      		   wRoute29SceneID
+	scene_var BLACKTHORN_GYM_1F,                       	   wRoute29SceneID
+
+	scene_var PEWTER_GYM,                       	       wRoute29SceneID
+	scene_var VERMILION_GYM,                       	       wRoute29SceneID
+	scene_var CELADON_GYM,                       	       wRoute29SceneID
+	scene_var FUCHSIA_GYM,                       	       wRoute29SceneID
+	scene_var SAFFRON_GYM,                       	       wRoute29SceneID
+	scene_var SEAFOAM_GYM,                       	       wRoute29SceneID
+	scene_var VIRIDIAN_GYM,                       	       wRoute29SceneID
 	db -1 ; end

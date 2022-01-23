@@ -1551,18 +1551,25 @@ _GymPowerRestrainerFirstExplanation::
 	cont "need to use the"
 	cont "POWER RESTRAINER."
 
-	para "All right!" ; A virer. To delete. To remove.
-	
+	para "Also, each GYM"
+	line "LEADER sets some"
+	cont "special rules for"
+	cont "its battle,"
 
-;	para "Also, each GYM"
-;	line "leader sets some"
-;	cont "special rules for"
-;	cont "its battle."
-;
+	para "in order to"
+	line "find out how well"
+	cont "challengers handle"
+	cont "unexpected"
+	cont "situations."
+
 ;	para "Have you checked"
 ;	line "them on the"
 ;	cont "pillars at the "
 ;	cont "entrance?"
+
+	para "That's all."
+	line "Back to me." ; Damien.
+
 	done
 
 _FirstLockdownDeclarationText::

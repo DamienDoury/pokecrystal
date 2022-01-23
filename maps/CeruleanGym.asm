@@ -8,12 +8,29 @@
 
 CeruleanGym_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_CERULEANGYM_NOTHING
+	scene_script .TeamCheck ; SCENE_CERULEANGYM_NOTHING
 	scene_script .GruntRunsOut ; SCENE_CERULEANGYM_GRUNT_RUNS_OUT
 
 	def_callbacks
 
-.DummyScene0:
+.TeamCheck:
+	checkevent EVENT_BEAT_MISTY
+	iftrue .no_check
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iftrue .no_check
+	setval GRASS
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ELECTRIC
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CERULEANGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CERULEAN_CITY, 30, 23
+.no_check
 	end
 
 .GruntRunsOut:
@@ -62,6 +79,19 @@ CeruleanGymMistyScript:
 	checkflag ENGINE_CASCADEBADGE
 	iftrue .FightDone
 	writetext MistyIntroText
+	promptbutton
+
+	special CheckAllFlyingOrWaterTypeParty
+	iftrue .ProceedToBattle
+
+; The player doesn't have an appropriate team.
+	writetext MistyOnlyWaterOrFlyingTypeText
+	waitbutton
+	closetext
+	end
+
+.ProceedToBattle:
+	writetext MistyValidatesTeamText
 	waitbutton
 	closetext
 	winlosstext MistyWinLossText, 0
@@ -246,12 +276,39 @@ MistyIntroText:
 	para "You may have a"
 	line "lot of JOHTO GYM"
 
-	para "BADGES, but you'd"
-	line "better not take me"
-	cont "too lightly."
+	para "BADGES, but in"
+	line "this GYM we play"
+	cont "by my rules."
 
-	para "My water-type"
-	line "#MON are tough!"
+	para "This pool repli-"
+	line "cates the rough"
+	cont "conditions of an"
+	cont "ocean storm I once"
+	cont "fought in."	
+	done
+
+MistyOnlyWaterOrFlyingTypeText:
+	text "Only WATER and"
+	line "FLYING #MON"
+
+	para "can endure such"
+	line "a storm. (cough)"
+
+	para "Your current team"
+	line "is not fit for"
+	cont "this challenge."
+
+	para "So go fix it,"
+	line "you pest! Quick!"
+	done
+
+MistyValidatesTeamText:
+	text "That'll show you"
+	line "the true power of"
+	cont "WATER #MON."
+
+	para "Let's see what"
+	line "you're made of!"
 	done
 
 MistyWinLossText:

@@ -10,12 +10,24 @@
 EcruteakGym_MapScripts:
 	def_scene_scripts
 	scene_script .ForcedToLeave ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
 
 .ForcedToLeave:
 	prioritysjump EcruteakGymClosed
+	end
+
+.TeamCheck:
+	checkevent EVENT_BEAT_MORTY
+	iftrue .no_check
+	setval DARK
+	special CheckTypePresenceInParty
+	iffalse .no_check
+	setlasttalked ECRUTEAKGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp ECRUTEAK_CITY, 6, 27
+.no_check
 	end
 
 .DummyScene:
@@ -27,6 +39,19 @@ EcruteakGymMortyScript:
 	checkevent EVENT_BEAT_MORTY
 	iftrue .FightDone
 	writetext MortyIntroText
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, ECRUTEAKGYM_MORTY, 20
+	opentext
+	writetext EcruteakGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext MortyIntroSequelText
+
 	waitbutton
 	closetext
 	winlosstext MortyWinLossText, 0
@@ -180,8 +205,10 @@ EcruteakGymGrampsSlowStepDownMovement:
 MortyIntroText:
 	text "Good of you to"
 	line "have come."
+	done
 
-	para "Here in ECRUTEAK,"
+MortyIntroSequelText:
+	text "Here in ECRUTEAK,"
 	line "#MON have been"
 	cont "revered."
 
@@ -200,23 +227,25 @@ MortyIntroText:
 	para "secretly trained"
 	line "here all my life."
 
-	para "As a result, I can"
-	line "now see what"
-	cont "others cannot."
+	para "At this moment"
+	line "I want to see how"
+	cont "your #MON will"
+	cont "react to fear."
 
-	para "Just a bit more…"
+	para "Only GHOST and"
+	line "DARK type #MON"
+	cont "can keep calm in"
+	cont "this spooky GYM."
 
-	para "With a little"
-	line "more, I could see"
+	para "Let's see how"
+	line "powerful your"
+	cont "mind is."
 
-	para "a future in which"
-	line "I meet the #MON"
-	cont "of rainbow colors."
-
-	para "You're going to"
-	line "help me reach that"
-	cont "level!"
 	done
+
+EcruteakGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 MortyWinLossText:
 	text "I'm not good"
@@ -395,7 +424,6 @@ EcruteakGym_MapEvents:
 	warp_event  3,  4, ECRUTEAK_GYM, 3
 	warp_event  4,  4, ECRUTEAK_GYM, 3
 	warp_event  4,  5, ECRUTEAK_GYM, 3
-	warp_event  6,  7, ECRUTEAK_GYM, 3
 	warp_event  7,  4, ECRUTEAK_GYM, 3
 	warp_event  2,  6, ECRUTEAK_GYM, 3
 	warp_event  3,  6, ECRUTEAK_GYM, 3

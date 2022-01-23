@@ -9,14 +9,54 @@
 
 MahoganyGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
 
+.TeamCheck:
+	checkevent EVENT_BEAT_PRYCE
+	iftrue .no_check
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked MAHOGANYGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp MAHOGANY_TOWN, 6, 13
+.no_check
+	end
+
 MahoganyGymPryceScript:
 	faceplayer
+	showemote EMOTE_SLEEP, MAHOGANYGYM_PRYCE, 60
 	opentext
+	writetext PryceSleepingText
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
+	
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, MAHOGANYGYM_PRYCE, 20
+	opentext
+	writetext MahoganyGymPowerRestrainerExplanation
+	promptbutton
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+
 	writetext PryceText_Intro
 	waitbutton
 	closetext
@@ -147,6 +187,10 @@ MahoganyGymStatue:
 	gettrainername STRING_BUFFER_4, PRYCE, PRYCE1
 	jumpstd GymStatue2Script
 
+PryceSleepingText:
+	text "…"
+	done
+
 PryceText_Intro:
 	text "#MON have many"
 	line "experiences in"
@@ -158,25 +202,43 @@ PryceText_Intro:
 	line "and suffered much"
 	cont "in my life."
 
+	para "I have fought"
+	line "through many win-"
+	cont "ters, long before"
+	cont "you were born."
+
+	para "MAHOGANY TOWN"
+	line "stands at a high"
+	cont "altitude where"
+	cont "winters are harsh."
+
+	para "This GYM incor-"
+	line "porates powerful"
+	cont "snow cannons to"
+	
+	para "replicate the"
+	line "roughness of the"
+	cont "cold season."
+
+	para "The weak won't"
+	line "last more than"
+	cont "a few seconds in"
+	cont "these conditions."
+
 	para "Since I am your"
 	line "elder, let me show"
 	cont "you what I mean."
 
-	para "I have been with"
-	line "#MON since"
-
-	para "before you were"
-	line "born."
-
-	para "I do not lose"
-	line "easily."
-
 	para "I, PRYCE--the"
-	line "winter trainer--"
+	line "ICE master--"
 
 	para "shall demonstrate"
 	line "my power!"
 	done
+
+MahoganyGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
 
 PryceText_Impressed:
 	text "Ah, I am impressed"

@@ -9,8 +9,31 @@
 
 AzaleaGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_BUGSY
+	iftrue .no_check
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval ROCK
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked AZALEAGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp AZALEA_TOWN, 10, 15
+.no_check
+	end
 
 AzaleaGymBugsyScript:
 	faceplayer
@@ -20,14 +43,14 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_INeverLose
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, AZALEAGYM_BUGSY, 20
 	opentext
 	writetext AzaleaGymPowerRestrainerExplanation
 	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 .PowerRestrainerExplained
-	waitbutton
+	promptbutton
 	writetext BugsyText_INeverLoseSequel
 	waitbutton
 	closetext
@@ -173,9 +196,17 @@ BugsyText_INeverLoseSequel:
 	para "the authority on"
 	line "bug #MON!"
 
-	para "Let me demonstrate"
-	line "what I've learned"
-	cont "from my studies."
+	para "You know, ILEX"
+	line "FOREST is full of"
+	cont "#MON webs."
+
+	para "An expert like me"
+	line "knows how to react"
+	cont "if my #MON"
+	cont "ever got stuck"
+	cont "into one!"
+
+	para "Will you?"
 	done
 
 AzaleaGymPowerRestrainerExplanation:
@@ -211,7 +242,7 @@ BugsyText_HiveBadgeSpeech:
 	line "even traded ones."
 
 	para "#MON that know"
-	line "CUT will be able"
+	line "FLASH will be able"
 
 	para "to use it outside"
 	line "of battle too."

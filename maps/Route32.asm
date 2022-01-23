@@ -48,17 +48,17 @@ Route32CooltrainerMContinueScene:
 	opentext
 	checkevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
 	iftrue .GotMiracleSeed
-	checkflag ENGINE_ZEPHYRBADGE
-	iffalse .DontHaveZephyrBadge
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
 	iftrue .GiveMiracleSeed
-	writetext Route32CooltrainerMText_AideIsWaiting
+	checkevent EVENT_GOT_HM05_FLASH
+	iftrue .GotFlash
+	writetext Route32CooltrainerMText_UnusedSproutTower
 	waitbutton
 	closetext
 	end
 
-.GoToSproutTower: ; unreferenced
-	writetext Route32CooltrainerMText_UnusedSproutTower
+.GotFlash:
+	writetext Route32CooltrainerMText_AideIsWaiting
 	waitbutton
 	closetext
 	end
@@ -69,18 +69,20 @@ Route32CooltrainerMContinueScene:
 	verbosegiveitem MIRACLE_SEED
 	iffalse .BagFull
 	setevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
-	sjump .GotMiracleSeed
+	; fallthrough
+
+.GotMiracleSeed:
+	checkflag ENGINE_ZEPHYRBADGE
+	iffalse .DontHaveZephyrBadge
+	writetext Route32CooltrainerMText_ExperiencesShouldBeUseful
+	waitbutton
+.BagFull:
+	closetext
+	end
 
 .DontHaveZephyrBadge:
 	writetext Route32CooltrainerMText_VioletGym
 	waitbutton
-	closetext
-	end
-
-.GotMiracleSeed:
-	writetext Route32CooltrainerMText_ExperiencesShouldBeUseful
-	waitbutton
-.BagFull:
 	closetext
 	end
 
@@ -548,7 +550,8 @@ Route32CooltrainerMText_UnusedSproutTower:
 
 Route32CooltrainerMText_VioletGym:
 	text "Have you gone to"
-	line "the #MON GYM?"
+	line "VIOLET CITY's"
+	cont "#MON GYM?"
 
 	para "You can test your"
 	line "#MON and your-"
@@ -585,11 +588,9 @@ Route32CooltrainerMText_HaveThisSeed:
 	done
 
 Route32CooltrainerMText_ExperiencesShouldBeUseful:
-	text "Your experiences"
-	line "in VIOLET CITY"
-
-	para "should be useful"
-	line "for your journey."
+	text "I won't bother"
+	line "you anymore,"
+	cont "I promise."
 	done
 
 Text_MillionDollarSlowpokeTail:

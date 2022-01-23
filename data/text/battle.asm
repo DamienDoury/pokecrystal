@@ -84,6 +84,11 @@ SandstormHitsText:
 	line "<USER>!"
 	prompt
 
+PeltedByHailText:
+	text "<USER>"
+	line "is pelted by HAIL!"
+	prompt
+
 PerishCountText:
 	text "<USER>'s"
 	line "PERISH count is @"
@@ -97,6 +102,12 @@ BattleText_TargetRecoveredWithItem:
 	cont "@"
 	text_ram wStringBuffer1
 	text "."
+	prompt
+
+BattleText_RecoveredWithGrassyTerrain:
+	text "<TARGET>"
+	line "recovered with"
+	cont "GRASSY TERRAIN."
 	prompt
 
 BattleText_UserRecoveredPPUsing:
@@ -145,6 +156,11 @@ BattleText_TheSandstormRages:
 	line "rages."
 	prompt
 
+BattleText_HailContinuesToFall:
+	text "HAIL continues to"
+	line "fall."
+	prompt
+
 BattleText_TheRainStopped:
 	text "The rain stopped."
 	prompt
@@ -157,6 +173,10 @@ BattleText_TheSunlightFaded:
 BattleText_TheSandstormSubsided:
 	text "The SANDSTORM"
 	line "subsided."
+	prompt
+
+BattleText_TheHailStopped:
+	text "The HAIL stopped."
 	prompt
 
 BattleText_EnemyMonFainted:
@@ -286,6 +306,11 @@ BattleText_UserHurtBySpikes:
 	line "hurt by SPIKES!"
 	prompt
 
+BattleText_UserCaughtInStickyWeb:
+	text "<USER>'s caught"
+	line "in a STICKY WEB!"
+	prompt
+
 RecoveredUsingText:
 	text "<TARGET>"
 	line "recovered using a"
@@ -311,6 +336,12 @@ BattleText_MonIsAlreadyOut:
 	text_ram wBattleMonNickname
 	text_start
 	line "is already out."
+	prompt
+
+BattleText_SwitchingForbidden:
+	text "Switching is"
+	line "forbidden during"
+	cont "this battle!"
 	prompt
 
 BattleText_MonCantBeRecalled:
@@ -383,6 +414,11 @@ FrozenSolidText:
 FlinchedText:
 	text "<USER>"
 	line "flinched!"
+	prompt
+
+ScaredText:
+	text "<USER> got"
+	line "scared."
 	prompt
 
 MustRechargeText:
@@ -672,6 +708,13 @@ SuperEffectiveText:
 NotVeryEffectiveText:
 	text "It's not very"
 	line "effective…"
+	prompt
+
+ErikasSporesText:
+	text "<USER> got in"
+	line "contact with the"
+	cont "pollen on"
+	cont "<TARGET>…"
 	prompt
 
 TookDownWithItText:
@@ -1057,6 +1100,11 @@ SandstormBrewedText:
 	line "brewed!"
 	prompt
 
+ItStartedToHailText:
+	text "It started"
+	line "to HAIL!"
+	prompt
+
 BracedItselfText:
 	text "<USER>"
 	line "braced itself!"
@@ -1098,6 +1146,11 @@ ShedLeechSeedText:
 BlewSpikesText:
 	text "<USER>"
 	line "blew away SPIKES!"
+	prompt
+
+RippedStickyWebText:
+	text "<USER> ripped"
+	line "off STICKY WEB!"
 	prompt
 
 DownpourText:
@@ -1156,3 +1209,4 @@ BattleText_NoTimeLeftToday: ; unreferenced
 	text "There is no time"
 	line "left today!"
 	done
+

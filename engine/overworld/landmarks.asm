@@ -45,6 +45,31 @@ GetLandmarkName::
 
 INCLUDE "data/maps/landmarks.asm"
 
+GetChallengeName::
+; Copy the name of challenge from map group wMapGroup to wStringBuffer3.
+	ld a, [wMapGroup]
+	dec a ; Map group ID starts at 1, so we need to decrease it to find its index.
+	ld l, a
+	ld h, 0
+	add hl, hl ; The array is 2 bytes wide, so we need to double the value of "a" (now hl) to find the right index.
+	ld de, ChallengeNames
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	ld de, wStringBuffer3
+	ld c, 18
+.copy
+	ld a, [hli]
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .copy
+	ret
+
+INCLUDE "data/maps/gym_challenges.asm"
+
 RegionCheck:
 ; Checks if the player is in Kanto or Johto.
 ; If in Johto, returns 0 in e.

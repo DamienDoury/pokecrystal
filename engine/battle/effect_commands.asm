@@ -665,7 +665,23 @@ BattleCommand_CheckObedience:
 
 
 
+	; Damien : when battling Morty, the player's pkmn sometimes gets scared (unless it's a Ghost or Dark type), which is like disobedience.
+	ld a, [wOtherTrainerClass]
+	cp MORTY
+	jr nz, .check_pkrus
+
+	call Random
+	and 1
+	cp 0
+	jr nc, .check_pkrus ; 50% chances of getting scared.
+
+	ld hl, ScaredText
+	jp .Print
+
+
+
 	; Damien : when the player has the Pokérus, it cannot obey all the time.
+.check_pkrus
 	ld a, MON_PKRUS
 	call BattlePartyAttr
 
@@ -1342,6 +1358,7 @@ BattleCommand_Stab:
 .go
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
+	and TYPE_MASK
 	ld [wCurType], a
 
 	push hl
@@ -1351,12 +1368,6 @@ BattleCommand_Stab:
 	pop bc
 	pop de
 	pop hl
-
-	push de
-	push bc
-	farcall DoBadgeTypeBoosts
-	pop bc
-	pop de
 
 	ld a, [wCurType]
 	cp b
@@ -1389,6 +1400,7 @@ BattleCommand_Stab:
 .SkipStab:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	ld b, a
 	ld hl, TypeMatchups
 
@@ -1426,6 +1438,16 @@ BattleCommand_Stab:
 	and %10000000
 	ld b, a
 ; If the target is immune to the move, treat it as a miss and calculate the damage as 0
+
+	; Glare exception: it can hit Ghost types.
+	push hl
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	pop hl
+	cp GLARE
+	jr z, .NotImmune
+	; End of Glare exception.
+
 	ld a, [hl]
 	and a
 	jr nz, .NotImmune
@@ -1503,6 +1525,13 @@ BattleCheckTypeMatchup:
 .get_type
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar ; preserves hl, de, and bc
+	and TYPE_MASK
+	jr CheckTypeMatchup
+
+CheckTypeMatchupFarcall:: ; Needs to be called from Farcall_de to preserve hl.
+	ld a, [wTempByteValue]
+	; fallthrough
+
 CheckTypeMatchup:
 	push hl
 	push de
@@ -1587,8 +1616,6 @@ BattleCommand_ResetTypeMatchup:
 	ld [wTypeMatchup], a
 	ret
 
-INCLUDE "engine/battle/ai/switch.asm"
-
 INCLUDE "data/types/type_matchups.asm"
 
 BattleCommand_DamageVariation:
@@ -1643,6 +1670,11 @@ BattleCommand_DamageVariation:
 	ld [hl], a
 	ret
 
+BattleCommand_CheckRestrictedWeather:
+; checkrestrictedweather
+	callfar WeatherMovesInSpecificGyms ; Weather moves should miss in 4 weather restricted gyms.
+	ret
+	
 BattleCommand_CheckHit:
 ; checkhit
 
@@ -1664,6 +1696,9 @@ BattleCommand_CheckHit:
 	call .ThunderRain
 	ret z
 
+	call .BlizzardHail
+	ret z
+
 	call .XAccuracy
 	ret nz
 
@@ -1671,6 +1706,12 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_ALWAYS_HIT
+	ret z
+
+	; We make struggle a perfect accuracy move as well.
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	cp STRUGGLE
 	ret z
 
 	call .StatModifiers
@@ -1849,6 +1890,17 @@ BattleCommand_CheckHit:
 
 	ld a, [wBattleWeather]
 	cp WEATHER_RAIN
+	ret
+
+.BlizzardHail:
+; Return z if the current move always hits in hail, and it is hailing.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_BLIZZARD
+	ret nz
+
+	ld a, [wBattleWeather]
+	cp WEATHER_HAIL
 	ret
 
 .XAccuracy:
@@ -2714,6 +2766,8 @@ PlayerAttackDamage:
 	ld b, a
 	ld c, [hl]
 
+	farcall SandstormSpDefBoost
+
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
 	jr z, .specialcrit
@@ -2925,6 +2979,10 @@ EnemyAttackDamage:
 	and a
 	ret z
 
+	push hl
+	farcall HandleLtSurgeBoost ; Surge has a 25% boost to its Electric type moves as part of its challenge.
+	pop hl
+
 	ld a, [hl]
 	cp SPECIAL
 	jr nc, .special
@@ -2958,6 +3016,8 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+
+	farcall SandstormSpDefBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -3160,6 +3220,7 @@ ConfusionDamageCalc:
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	cp b
 	jr nz, .DoneItem
 
@@ -3800,27 +3861,47 @@ BattleCommand_SleepTarget:
 
 BattleCommand_PoisonTarget:
 ; poisontarget
+; Used for secondary effects moves (Sludge Bomb, etc.).
 
 	call CheckSubstituteOpp
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
 	ret nz
+
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckIfTargetIsPoisonType
+
+	ld a, POISON
+	call CheckOpponentType ; Can't poison a Poison-type
 	ret z
+
+	ld a, STEEL
+	call CheckOpponentType ; Can't poison a Steel-type
+	ret z
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_POISON
 	ret z
-	ld a, [wEffectFailed]
-	and a
-	ret nz
+
 	call SafeCheckSafeguard
 	ret nz
+
+	ld a, [wOtherTrainerClass] ; Janine's Pokémons always poison (and can never be poisonned as they all are Poison types). Damien.
+	cp JANINE
+	jr z, .dont_check_fail
+
+	ld a, [wEffectFailed] ; Can't get poisoned if the secondary effect missed.
+	and a
+	ret nz
+
+.dont_check_fail
+	xor a
+	ld [wEffectFailed], a ; Cancel the fail.
 
 	call PoisonOpponent
 	ld de, ANIM_PSN
@@ -3835,13 +3916,19 @@ BattleCommand_PoisonTarget:
 
 BattleCommand_Poison:
 ; poison
+; Used for Status moves (Toxic, Poison Gas, etc.).
 
 	ld hl, DoesntAffectText
 	ld a, [wTypeModifier]
 	and $7f
 	jp z, .failed
 
-	call CheckIfTargetIsPoisonType
+	ld a, POISON
+	call CheckOpponentType ; Can't poison a Poison-type
+	jp z, .failed
+
+	ld a, STEEL
+	call CheckOpponentType ; Can't poison a Steel-type
 	jp z, .failed
 
 	ld a, BATTLE_VARS_STATUS_OPP
@@ -3855,6 +3942,7 @@ BattleCommand_Poison:
 	ld a, b
 	cp HELD_PREVENT_POISON
 	jr nz, .do_poison
+
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -3870,9 +3958,19 @@ BattleCommand_Poison:
 
 	call CheckSubstituteOpp
 	jr nz, .failed
+
+	ld a, [wOtherTrainerClass] ; Janine's Pokémons never miss their poison moves. Useful for Toxic. Damien.
+	cp JANINE
+	jr z, .dont_check_fail
+
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
+
+.dont_check_fail
+	xor a
+	ld [wAttackMissed], a ; Cancel the fail.
+
 	call .check_toxic
 	jr z, .toxic
 
@@ -3917,21 +4015,6 @@ BattleCommand_Poison:
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
 	cp EFFECT_TOXIC
-	ret
-
-CheckIfTargetIsPoisonType:
-	ld de, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld de, wBattleMonType1
-.ok
-	ld a, [de]
-	inc de
-	cp POISON
-	ret z
-	ld a, [de]
-	cp POISON
 	ret
 
 PoisonOpponent:
@@ -4052,24 +4135,32 @@ BattleCommand_BurnTarget:
 	ld [wNumHits], a
 	call CheckSubstituteOpp
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
+
 	jp nz, Defrost
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't burn a Fire-type
+
+	ld a, FIRE
+	call CheckOpponentType ; Can't burn a Fire-type
 	ret z
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_BURN
 	ret z
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
+
 	call SafeCheckSafeguard
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set BRN, [hl]
@@ -4128,7 +4219,8 @@ BattleCommand_FreezeTarget:
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret z
-	call CheckMoveTypeMatchesTarget ; Don't freeze an Ice-type
+	ld a, ICE
+	call CheckOpponentType ; Can't freeze an Ice-type
 	ret z
 	call GetOpponentItem
 	ld a, b
@@ -4168,25 +4260,44 @@ BattleCommand_ParalyzeTarget:
 ; paralyzetarget
 
 	xor a
+
 	ld [wNumHits], a
-	call CheckSubstituteOpp
+	call CheckSubstituteOpp ; Can't get paralyzed behind a substitute.
 	ret nz
-	ld a, BATTLE_VARS_STATUS_OPP
+
+	ld a, BATTLE_VARS_STATUS_OPP ; Can't get paralyzed if the pkmn already has a status.
 	call GetBattleVarAddr
 	and a
 	ret nz
+
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
-	call GetOpponentItem
+
+	ld a, ELECTRIC
+	call CheckOpponentType ; Can't paralyze an Electric-type
+	ret z
+
+	call GetOpponentItem ; Can't get paralyzed when holding an item that prevents it (note that no item has this effect).
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
 	ret z
-	ld a, [wEffectFailed]
+
+	call SafeCheckSafeguard ; Can't get paralyzed when Safeguard is active.
+	ret nz
+
+	ld a, [wOtherTrainerClass] ; Lt. Surge's Pokémons always paralyze (and can never be paralyzed as they all are electric types). Damien.
+	cp LT_SURGE
+	jr z, .dont_check_fail
+
+	ld a, [wEffectFailed] ; Can't get paralyzed if the secondary effect missed.
 	and a
 	ret nz
-	call SafeCheckSafeguard
-	ret nz
+
+.dont_check_fail
+	xor a
+	ld [wEffectFailed], a ; Cancel the fail.
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set PAR, [hl]
@@ -4915,8 +5026,8 @@ CalcPlayerStats:
 	ld a, 5
 	call CalcBattleStats
 
-	ld hl, BadgeStatBoosts
-	call CallBattleCore
+	;ld hl, BadgeStatBoosts
+	;call CallBattleCore
 
 	call BattleCommand_SwitchTurn
 
@@ -5141,7 +5252,7 @@ BattleCommand_ForceSwitch:
 	jp .succeed
 
 .trainer
-	call FindAliveEnemyMons
+	callfar FindAliveEnemyMons
 	jr c, .switch_fail
 	ld a, [wEnemyGoesFirst]
 	and a
@@ -5534,13 +5645,16 @@ BattleCommand_HeldFlinch:
 	and a
 	ret nz
 
+	call CheckSubstituteOpp
+	ret nz
+
 	call GetUserItem
 	ld a, b
 	cp HELD_FLINCH
-	ret nz
+	jr nz, .check_erikas_spore
 
-	call CheckSubstituteOpp
-	ret nz
+	
+
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVarAddr
 	ld d, h
@@ -5553,6 +5667,85 @@ BattleCommand_HeldFlinch:
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVarAddr
 	set SUBSTATUS_FLINCHED, [hl]
+
+
+
+
+
+.check_erikas_spore
+	ld a, [wOtherTrainerClass]
+	cp ERIKA
+	ret nz
+
+	ldh a, [hBattleTurn]
+	and a
+	ret nz ; we return if it's not the player's turn.
+
+	ld hl, wPlayerMoveStructType
+	ld a, [hl]
+	and $ff ^ TYPE_MASK
+	cp PHYSICAL ; Only contact moves trigger the spores. As we don't have this info, we consider all physical moves as contact moves.
+	ret nz
+
+	; At this point, the player hit one of Erika's mon with a physical attack (there may be some exceptions, I haven't got through each physical move).
+	; We write a text that "Spores on the enemy <TARGET> made <USER> feel weird".
+	; and now we apply the effect.
+
+	ld hl, ErikasSporesText
+	call StdBattleTextbox
+
+	ld a, [hl]
+	and TYPE_MASK
+	cp GRASS 
+	jp z, PrintDidntAffect
+
+	call BattleCommand_SwitchTurn
+
+	ld a, GRASS
+	call CheckOpponentType ; We are checking the player's types as we have forced a turn switch.
+	jp nz, .no_immunity_to_powder ; Grass Pokémon are immune to powder effects.
+
+	call PrintDidntAffect
+	jr .spores_effect_end
+
+.no_immunity_to_powder
+	; We prepare the spore animation, and save the real one.
+	ld a, [wEnemyMoveStruct + MOVE_ANIM]
+	ld b, a ; We store the previous animation.
+	
+	ld a, SPORE
+	ld [wEnemyMoveStruct + MOVE_ANIM], a
+
+	push hl
+	call BattleRandom
+	cp 152
+	jr nc, .pollen_sleep
+	cp 76
+	jr nc, .pollen_paralyze
+
+	; pollen poison
+	call BattleCommand_PoisonTarget
+	jr .pollen_effect_chosen
+
+.pollen_sleep
+	call BattleCommand_SleepTarget
+	jr .pollen_effect_chosen
+
+.pollen_paralyze
+	call BattleCommand_ParalyzeTarget
+
+.pollen_effect_chosen
+	pop hl
+
+	ld a, b
+	ld [wEnemyMoveStruct + MOVE_ANIM], a
+.spores_effect_end
+	call BattleCommand_SwitchTurn
+
+
+
+
+
 	ret
 
 BattleCommand_OHKO:
@@ -5776,8 +5969,10 @@ BattleCommand_TrapTarget:
 	bit SUBSTATUS_SUBSTITUTE, a
 	ret nz
 	call BattleRandom
-	; trapped for 2-5 turns
-	and %11
+	; trapped for 4-5 turns
+	and %1
+	inc a
+	inc a
 	inc a
 	inc a
 	inc a
@@ -5813,15 +6008,32 @@ INCLUDE "engine/battle/move_effects/mist.asm"
 
 INCLUDE "engine/battle/move_effects/focus_energy.asm"
 
-BattleCommand_Recoil:
-; recoil
-
+BattleCommand_Struggle:
+; struggle
 	ld hl, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .got_hp
 	ld hl, wEnemyMonMaxHP
 .got_hp
+	ld a, [hli]
+	ld [wCurDamage], a
+	ld a, [hl]
+	ld [wCurDamage + 1], a
+	dec hl
+	jr BattleCommand_Recoil_Got_HP
+
+BattleCommand_Recoil:
+; recoil
+
+	ld hl, wBattleMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, BattleCommand_Recoil_Got_HP
+	ld hl, wEnemyMonMaxHP
+; fallthrough
+
+BattleCommand_Recoil_Got_HP:
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
 	ld d, a
@@ -5987,13 +6199,26 @@ BattleCommand_Paralyze:
 	call GetBattleVar
 	bit PAR, a
 	jr nz, .paralyzed
+
+	ld a, BATTLE_VARS_MOVE_ANIM ; Exception for Glare that can paralyze Ghost types (even though they are immune to Normal type moves).
+	call GetBattleVar
+	cp GLARE
+	jr z, .skip_immunity_check
+
 	ld a, [wTypeModifier]
 	and $7f
 	jr z, .didnt_affect
+
+.skip_immunity_check
+	ld a, ELECTRIC
+	call CheckOpponentType ; Can't paralyze an Electric-type
+	jr z, .didnt_affect
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_PARALYZE
 	jr nz, .no_item_protection
+
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
 	call GetItemName
@@ -6006,11 +6231,14 @@ BattleCommand_Paralyze:
 	call GetBattleVarAddr
 	and a
 	jr nz, .failed
+
 	ld a, [wAttackMissed]
 	and a
 	jr nz, .failed
+
 	call CheckSubstituteOpp
 	jr nz, .failed
+
 	ld c, 30
 	call DelayFrames
 	call AnimateCurrentMove
@@ -6039,38 +6267,38 @@ BattleCommand_Paralyze:
 	call AnimateFailedMove
 	jp PrintDoesntAffect
 
-CheckMoveTypeMatchesTarget:
-; Compare move type to opponent type.
-; Return z if matching the opponent type,
-; unless the move is Normal (Tri Attack).
+CheckOpponentTypeFarcall::
+	ld a, [wTempByteValue]
+	; fallthrough
+
+CheckOpponentType: ; Fixes the tri-attack issue that could burn fire types and freeze ice types.
+; Returns z if the opponent has the type provided in a.
+; Destroys a.
 
 	push hl
+	push af
 
 	ld hl, wEnemyMonType1
 	ldh a, [hBattleTurn]
 	and a
-	jr z, .ok
+	jr z, .target_found
 	ld hl, wBattleMonType1
-.ok
 
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVar
-	cp NORMAL
-	jr z, .normal
+.target_found
+	pop af
 
-	cp [hl]
-	jr z, .return
+	cp [hl]		; Checking the first type.
+	jr z, .return_true
 
 	inc hl
-	cp [hl]
+	cp [hl]		; Checking the secondary type.
+	jr z, .return_true
 
-.return
-	pop hl
-	ret
+	; Return false.
+	xor a
+	cp 1
 
-.normal
-	ld a, 1
-	and a
+.return_true
 	pop hl
 	ret
 
@@ -6443,6 +6671,11 @@ BattleCommand_ArenaTrap:
 	bit SUBSTATUS_CANT_RUN, [hl]
 	jr nz, .failed
 
+; Doesn't work on Ghost-types.
+	ld a, GHOST
+	call CheckOpponentType ; Can't trap a Ghost-type
+	jr z, .doesnt_affect
+
 ; Otherwise trap the opponent.
 
 	set SUBSTATUS_CANT_RUN, [hl]
@@ -6453,6 +6686,13 @@ BattleCommand_ArenaTrap:
 .failed
 	call AnimateFailedMove
 	jp PrintButItFailed
+
+.doesnt_affect
+	ld hl, DoesntAffectText
+	push hl
+	call AnimateFailedMove
+	pop hl
+	jp StdBattleTextbox
 
 INCLUDE "engine/battle/move_effects/nightmare.asm"
 
@@ -6494,6 +6734,8 @@ INCLUDE "engine/battle/move_effects/protect.asm"
 INCLUDE "engine/battle/move_effects/endure.asm"
 
 INCLUDE "engine/battle/move_effects/spikes.asm"
+
+INCLUDE "engine/battle/move_effects/sticky_web.asm"
 
 INCLUDE "engine/battle/move_effects/foresight.asm"
 
@@ -6610,7 +6852,7 @@ BattleCommand_TimeBasedHealContinue:
 	jr z, .Heal
 
 ; x2 in sun
-; /2 in rain/sandstorm
+; /2 in rain/sandstorm/hail
 	inc c
 	cp WEATHER_SUN
 	jr z, .Heal
@@ -6700,6 +6942,37 @@ INCLUDE "engine/battle/move_effects/future_sight.asm"
 
 INCLUDE "engine/battle/move_effects/thunder.asm"
 
+INCLUDE "engine/battle/move_effects/hail.asm"
+
+BattleCommand_CheckPowder:
+; Checks if the move is powder/spore-based and 
+; if the opponent is Grass-type
+	ld a, BATTLE_VARS_MOVE_ANIM
+	call GetBattleVar
+	ld hl, PowderMoves
+	call IsInByteArray
+	ret nc
+
+; If the opponent is Grass-type, the move fails.
+	ld hl, wEnemyMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .CheckGrassType
+	ld hl, wBattleMonType1
+
+.CheckGrassType:
+	ld a, [hli]
+	cp GRASS
+	jr z, .Immune
+	ld a, [hl]
+	cp GRASS
+	ret nz
+	; fallthrough
+.Immune:
+	ld a, 1
+	ld [wAttackMissed], a
+	ret
+
 CheckHiddenOpponent:
 	xor a
 	ret
@@ -6731,6 +7004,24 @@ GetItemHeldEffect:
 	ld a, b
 	and a
 	ret z
+
+	; Damien's special case for the sitrus berry. Kinda ugly.
+	cp GOLD_BERRY
+	jr nz, .proceed_normally
+
+	push hl
+	push de
+	push af
+	callfar GetOneFourthMaxHP
+	ld c, e; No Pokemon can have more than 714 max HP, so a quarter of that will always fit within 1 byte. We can ignored the HP upper byte in register d.
+	pop af
+	pop de
+	pop hl
+	ld b, HELD_BERRY
+	ret
+
+.proceed_normally
+	; End of Damien's special case.
 
 	push hl
 	ld hl, ItemAttributes + ITEMATTR_EFFECT

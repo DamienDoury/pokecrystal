@@ -236,6 +236,7 @@ ScriptCommandTable:
 	dw Script_checksave                  ; a9
 	dw Script_ifeven                  	 ; aa
 	dw Script_ifodd                  	 ; ab
+	dw Script_getchallengename        	 ; ac
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -1632,6 +1633,10 @@ Script_getitemname:
 	call GetItemName
 	ld de, wStringBuffer1
 	jr GetStringBuffer
+
+Script_getchallengename:
+	farcall GetChallengeName
+	ret
 
 Script_getcurlandmarkname:
 	ld a, [wMapGroup]

@@ -271,7 +271,8 @@
 	const EVENT_DANA_GAVE_THUNDERSTONE
 	const EVENT_TULLY_GAVE_WATER_STONE
 	const EVENT_TIFFANY_GAVE_PINK_BOW
-; Unused: next 339 events
+	const EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_TM_HAIL
+; Unused: next 338 events
 
 	const_next 600
 ; Kurt Apricorn events

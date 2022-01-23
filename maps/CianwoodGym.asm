@@ -10,14 +10,32 @@
 	const CIANWOODGYM_BOULDER4
 	const CIANWOODGYM_BOULDER5
 	const CIANWOODGYM_BOULDER6
-	const CIANWOODGYM_BOULDER7
-	const CIANWOODGYM_BOULDER8
-	const CIANWOODGYM_BOULDER9
+	const CIANWOODGYM_GYM_GUIDE
 
 CianwoodGym_MapScripts:
 	def_scene_scripts
+	scene_script .TeamCheck ; SCENE_DEFAULT
+	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+
+.TeamCheck:
+	checkevent EVENT_BEAT_CHUCK
+	iftrue .no_check
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	setval PSYCHIC_TYPE
+	special CheckTypePresenceInParty
+	iftrue .do_check
+	end
+
+.do_check
+	setlasttalked CIANWOODGYM_GYM_GUIDE
+	callstd GymGuideChecksPlayersTeamScript
+	warp CIANWOOD_CITY, 8, 43
+.no_check
+	end
 
 CianwoodGymChuckScript:
 	faceplayer
@@ -25,6 +43,19 @@ CianwoodGymChuckScript:
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .FightDone
 	writetext ChuckIntroText1
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, CIANWOODGYM_CHUCK, 20
+	opentext
+	writetext CianwoodGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext ChuckIntroSequelText
+
 	waitbutton
 	closetext
 	turnobject CIANWOODGYM_CHUCK, RIGHT
@@ -133,6 +164,22 @@ TrainerBlackbeltLung:
 	closetext
 	end
 
+CianwoodGymGuideScript:
+	faceplayer
+	opentext
+	checkevent EVENT_BEAT_CHUCK
+	iftrue .CianwoodGymGuideWinScript
+	writetext CianwoodGymGuideText
+	waitbutton
+	closetext
+	end
+
+.CianwoodGymGuideWinScript:
+	writetext CianwoodGymGuideWinText
+	waitbutton
+	closetext
+	end
+
 CianwoodGymBoulder:
 	jumpstd StrengthBoulderScript
 
@@ -157,8 +204,10 @@ ChuckIntroText1:
 
 	para "So you've come"
 	line "this far!"
+	done
 
-	para "Let me tell you,"
+ChuckIntroSequelText:
+	text "Let me tell you,"
 	line "I'm tough!"
 
 	para "My #MON will"
@@ -175,6 +224,10 @@ ChuckIntroText2:
 	para "Oooarrgh!"
 	done
 
+CianwoodGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
 ChuckIntroText3:
 	text "There! Scared now,"
 	line "are you?"
@@ -185,8 +238,24 @@ ChuckIntroText3:
 	para "do with #MON?"
 	line "That's true!"
 
-	para "Come on. We shall"
-	line "do battle!"
+	para "It's about one's"
+	line "own strength."
+
+	para "A strong trainer"
+	line "must understand"
+	cont "this. That's why"
+
+	para "we're going to"
+	line "fight one on one."
+
+	para "I forbid you from"
+	line "switching out."
+
+	para "We'll see how far"
+	line "you can push your"
+	cont "#MON…"
+
+	para "Let's do this!"
 	done
 
 ChuckLossText:
@@ -308,6 +377,29 @@ BlackbeltLungAfterText:
 	cont "shattered…"
 	done
 
+CianwoodGymGuideText:
+	text "Yo!"
+
+	para "This GYM is all"
+	line "about muscles."
+
+	para "Show us a good"
+	line "fight!"
+	done
+
+CianwoodGymGuideWinText:
+	text "What a fight!"
+	line "That was epic!"
+	
+	para "You showed us"
+	line "how it's done!"
+
+	para "Do you even lift"
+	line "bro?"
+
+	done
+
+
 CianwoodGym_MapEvents:
 	db 0, 0 ; filler
 
@@ -333,3 +425,4 @@ CianwoodGym_MapEvents:
 	object_event  5,  7, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  2,  1, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
 	object_event  6,  1, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymBoulder, -1
+	object_event  5, 14, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_DOWN,  0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodGymGuideScript, -1

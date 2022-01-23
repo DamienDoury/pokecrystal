@@ -27,6 +27,7 @@ DoSleep:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	checksafeguard
 	sleeptarget
 	endmove
@@ -92,6 +93,7 @@ BurnHit:
 	checkfaint
 	buildopponentrage
 	burntarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 FreezeHit:
@@ -113,6 +115,7 @@ FreezeHit:
 	checkfaint
 	buildopponentrage
 	freezetarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 ParalyzeHit:
@@ -134,6 +137,7 @@ ParalyzeHit:
 	checkfaint
 	buildopponentrage
 	paralyzetarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 Selfdestruct:
@@ -475,6 +479,7 @@ SpeedDown2:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	speeddown2
 	lowersub
 	statdownanim
@@ -575,6 +580,7 @@ DefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	defensedown
 	statdownmessage
 	endmove
@@ -597,6 +603,7 @@ SpeedDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	speeddown
 	statdownmessage
 	endmove
@@ -641,6 +648,7 @@ SpecialDefenseDownHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	specialdefensedown
 	statdownmessage
 	endmove
@@ -709,6 +717,7 @@ DefenseUpHit:
 	statupmessage
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 AttackUpHit:
@@ -731,6 +740,7 @@ AttackUpHit:
 	statupmessage
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 AllUpHit:
@@ -908,6 +918,7 @@ FlinchHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle. It adds the unintended effect to increase the odds of flinching of flinching move.
 	flinchtarget
 	endmove
 
@@ -924,6 +935,24 @@ OHKOHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; This has been added to activate the spore against the player in Erika's battle. It should have no other impact otherwise.
+	endmove
+
+Struggle:
+	checkobedience
+	usedmovetext
+	doturn
+	damagestats
+	damagecalc
+	damagevariation
+	checkhit
+	moveanim
+	failuretext
+	applydamage
+	struggle
+	checkfaint
+	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 RecoilHit:
@@ -988,6 +1017,7 @@ ConfuseHit:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	confusetarget
 	endmove
 
@@ -1039,6 +1069,7 @@ DoPoison:
 	usedmovetext
 	doturn
 	checkhit
+	checkpowder
 	stab
 	checksafeguard
 	poison
@@ -1050,6 +1081,7 @@ DoParalyze:
 	doturn
 	stab
 	checkhit
+	checkpowder
 	checksafeguard
 	paralyze
 	endmove
@@ -1229,6 +1261,7 @@ TrapTarget:
 	checkfaint
 	buildopponentrage
 	traptarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
 
 SuperFang:
@@ -1479,6 +1512,7 @@ FlameWheel:
 	defrost
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle.
 	burntarget
 	endmove
 
@@ -1522,6 +1556,8 @@ Sandstorm:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startsandstorm
 	endmove
 
@@ -1809,6 +1845,8 @@ RainDance:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startrain
 	endmove
 
@@ -1816,6 +1854,8 @@ SunnyDay:
 	checkobedience
 	usedmovetext
 	doturn
+	checkrestrictedweather
+	failuretext
 	startsun
 	endmove
 
@@ -1980,6 +2020,7 @@ Stomp:
 	supereffectivetext
 	checkfaint
 	buildopponentrage
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here. Doubles the flinch odds, not good.
 	flinchtarget
 	endmove
 
@@ -2073,4 +2114,13 @@ DefenseCurl:
 	raisesub
 	statupmessage
 	statupfailtext
+	endmove
+
+Hail:
+	checkobedience
+	usedmovetext
+	doturn
+	checkrestrictedweather
+	failuretext
+	starthail
 	endmove

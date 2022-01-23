@@ -1,6 +1,6 @@
 	db MAGMAR ; 126
 
-	db  65,  95,  57,  93, 100,  85
+	db  70,  95,  62,  93, 113,  90
 	;   hp  atk  def  spd  sat  sdf
 
 	db FIRE, FIRE ; type

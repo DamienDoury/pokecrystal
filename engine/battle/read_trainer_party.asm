@@ -77,8 +77,48 @@ ReadTrainerPartyPieces:
 	ld h, d
 	ld l, e
 
+	ld a, 0
+	ld [wTempByteValue], a
+
 .loop
 ; end?
+	; Special case for Blue.
+	ld a, [wOtherTrainerClass]
+	cp BLUE
+	jr nz, .not_blue
+
+	ld a, [wTempByteValue] ; wTempByteValue contains the number of Pokemon added to the party of OT.
+	cp 0
+	jr nz, .check_if_party_full
+
+	; At the first call, we add an offset to the starting point, so Blue's leading Pokémon isn't always the same.
+	call Random ; The leading Pokémon can be any of the first 8.
+	and 3
+
+	push bc
+	ld bc, 7 ; 7 is the length of the struct.
+	call AddNTimes
+	pop bc
+
+	ld a, [wTempByteValue]
+.check_if_party_full	
+	cp 6 ; Blue has a party of 6, but has more Pokémon in its database (for randomness).
+	ret z
+
+	; We increase the party counter.
+	inc a
+	ld [wTempByteValue], a
+
+	call Random
+	and 3 ; To simulate randomness, we increase hl by 1 to 4 Pokémon (struct length). We gave more than 6 Pokémons to Blue.
+	inc a
+
+	push bc
+	ld bc, 7 ; 7 is the length of the struct.
+	call AddNTimes
+	pop bc
+
+.not_blue
 	ld a, [hli]
 	cp -1
 	ret z
@@ -109,7 +149,7 @@ ReadTrainerPartyPieces:
 .lvl_determined
 	ld [wCurPartyLevel], a
 
-; species
+; species?
 	ld a, [hli]
 	ld [wCurPartySpecies], a
 

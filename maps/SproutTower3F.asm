@@ -79,6 +79,8 @@ SageLiScript:
 	verbosegiveitem HM_FLASH
 	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
+	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOTHING
+	specialphonecall SPECIALCALL_ASSISTANT
 	writetext SageLiFlashExplanationText
 	waitbutton
 	closetext
@@ -250,7 +252,8 @@ SageLiFlashExplanationText:
 	line "of battle, you"
 
 	para "need the BADGE"
-	line "from VIOLET's GYM."
+	line "from AZALEA's"
+	cont "GYM."
 	done
 
 SageLiAfterBattleText:
