@@ -832,6 +832,7 @@ GoldenrodGroupSprites:
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_ROCKET
 	db SPRITE_LASS
+	db SPRITE_JENNY
 	; 7 of max 9 walking sprites
 	db SPRITE_DAY_CARE_MON_1
 	db SPRITE_DAY_CARE_MON_2
