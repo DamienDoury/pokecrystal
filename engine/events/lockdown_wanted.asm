@@ -48,8 +48,11 @@ IncreaseResearchLevel::
 
 	ld a, [wOtherTrainerClass]
 	cp OFFICER
-	ret nz ; Only a won battle against an Officer can increase the research level.
+	ret c ; Only a won battle against an OFFICER (or SERGEANT or JENNY) can increase the research level.
+	cp SWAT
+	ret nc ; do not increase for SWAT (max wanted lvl already).
 
+;.is_the_police
 ;	ld a, [wFreedomState]
 ;	cp 1
 ;	ret z ; We only increase the research level during curfew and/or lockdown, not during a "freedom" period of time.

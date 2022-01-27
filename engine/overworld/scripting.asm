@@ -1147,6 +1147,19 @@ Script_loadtemptrainer:
 	ld a, (1 << 7) | 1
 	ld [wBattleScriptFlags], a
 	ld a, [wTempTrainerClass]
+	cp OFFICER
+	jr nz, .not_the_police
+
+	ld d, a
+	farcall GetCurrentResearchLevelAtLandmark
+	add d
+	ld [wOtherTrainerClass], a
+	ld a, 1 ; Loading the first trainer, as there is only 1 police trainer per class (with a random team).
+	ld [wOtherTrainerID], a
+
+	ret
+
+.not_the_police
 	ld [wOtherTrainerClass], a
 	ld a, [wTempTrainerID]
 	ld [wOtherTrainerID], a

@@ -68,5 +68,8 @@ BTTrainerClassGenders:
 	db MALE   ; RED
 	db MALE   ; BLUE
 	db MALE   ; OFFICER
+	db MALE   ; SERGEANT
+	db FEMALE ; JENNY
+	db MALE   ; SWAT
 	db FEMALE ; GRUNTF
 	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN

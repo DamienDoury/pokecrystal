@@ -58,6 +58,13 @@ _CheckTrainerBattle::
 	jr c, .next
 
 ; And hasn't already been beaten
+	ld hl, MAPOBJECT_SPRITE
+	add hl, de
+	ld a, [hl]
+	cp SPRITE_OFFICER ; Officers can be beaten indefinitely.
+	jr z, .skip_beaten_flag_check
+	cp SPRITE_JENNY
+	jr z, .skip_beaten_flag_check
 	push bc
 	push de
 	ld hl, MAPOBJECT_SCRIPT_POINTER
@@ -74,6 +81,7 @@ _CheckTrainerBattle::
 	pop de
 	pop bc
 	and a
+.skip_beaten_flag_check
 	jr z, .startbattle
 
 .next

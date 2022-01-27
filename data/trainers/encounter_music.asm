@@ -69,9 +69,9 @@ TrainerEncounterMusic::
 	db MUSIC_HIKER_ENCOUNTER       ; red
 	db MUSIC_RIVAL_ENCOUNTER       ; blue
 	db MUSIC_HIKER_ENCOUNTER       ; officer
+	db MUSIC_HIKER_ENCOUNTER       ; sergeant
+	db MUSIC_RIVAL_ENCOUNTER       ; jenny
+	db MUSIC_RIVAL_ENCOUNTER       ; swat
 	db MUSIC_ROCKET_ENCOUNTER      ; gruntf
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
 	assert_table_length NUM_TRAINER_CLASSES + 1
-	db MUSIC_HIKER_ENCOUNTER       ; unused
-	db MUSIC_HIKER_ENCOUNTER       ; unused
-	db MUSIC_HIKER_ENCOUNTER       ; unused

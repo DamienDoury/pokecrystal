@@ -3519,6 +3519,24 @@ OfficerGroup:
 	db 14, GROWLITHE
 	db -1 ; end
 
+SergeantGroup:
+	; OFFICER (1)
+	db "CLAUDIO@", TRAINERTYPE_NORMAL
+	db 25, GROWLITHE
+	db -1 ; end
+
+JennyGroup:
+	; OFFICER (1)
+	db "JENNY@", TRAINERTYPE_NORMAL
+	db 40, ARCANINE
+	db -1 ; end
+
+SwatGroup:
+	; OFFICER (1)
+	db "JORDAN@", TRAINERTYPE_NORMAL
+	db 60, ARCANINE
+	db -1 ; end
+
 GruntFGroup:
 	; GRUNTF (1)
 	db "GRUNT@", TRAINERTYPE_NORMAL

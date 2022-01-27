@@ -66,6 +66,9 @@ TrainerClassNames::
 	li "<PKMN> TRAINER"
 	li "LEADER"
 	li "OFFICER"
+	li "SERGEANT"
+	li "OFFICER"
+	li "SWAT"
 	li "ROCKET"
 	li "MYSTICALMAN"
 	assert_list_length NUM_TRAINER_CLASSES
