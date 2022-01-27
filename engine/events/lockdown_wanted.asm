@@ -37,6 +37,7 @@ GetCurrentResearchLevelAtLandmark::
 .masking
 	ld a, c
 	and $03
+	ld [wCurWantedLevel], a
 	ret
 
 ; Call this after a won battle against a policeman.

@@ -406,6 +406,21 @@ GetTrainerName::
 	jp CloseSRAM
 
 .not_cal2
+	ld a, [wOtherTrainerClass]
+	cp OFFICER
+	jr z, .is_the_police
+	cp SERGEANT
+	jr z, .is_the_police
+	cp SWAT
+	jr z, .is_the_police
+	jr .not_the_police
+
+.is_the_police
+	farcall GetRandomPoliceName
+	ld de, wStringBuffer1
+	ret
+
+.not_the_police
 	dec c
 	push bc
 	ld b, 0

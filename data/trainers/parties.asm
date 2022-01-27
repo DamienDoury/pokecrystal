@@ -3533,7 +3533,7 @@ JennyGroup:
 
 SwatGroup:
 	; OFFICER (1)
-	db "JORDAN@", TRAINERTYPE_NORMAL
+	db "???@", TRAINERTYPE_NORMAL
 	db 60, ARCANINE
 	db -1 ; end
 
