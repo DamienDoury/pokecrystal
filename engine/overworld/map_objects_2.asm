@@ -37,6 +37,36 @@ CheckObjectFlag:
 	ld a, [hl]
 	and a
 	jr z, .masked
+	cp SPRITE_OFFICER
+	jr nz, .go_on
+
+	ld a, [wCurWantedLevel]
+	cp 2 ; Jenny's wanted level.
+	jr z, .jenny
+
+	ld a, [wCurWantedLevel]
+	cp 3 ; SWAT's wanted level.
+	jr nz, .go_on
+
+; Turning the Officer sprite color to brown for the SWAT.
+; Note: the map_event object is stored in the order of object_event: MACRO
+	ld e, 7
+	ld d, 0
+	add hl, de
+	ld a, PAL_NPC_BROWN
+	swap a ; Swap the upper and lower nibbles.
+	ld d, a
+	ld a, [hl] ; We retrieve the byte that contains the palette (upper nibble) and the object_type (lower nibble).
+	and $0F ; We mask out the upper nibble
+	or d ; Now the palette has been edited
+	ld [hl], a ; We save the new palette.
+	jr .go_on
+
+.jenny
+	ld a, SPRITE_JENNY
+	ld [hl], a ; Updating the sprite.
+
+.go_on
 	ld hl, MAPOBJECT_EVENT_FLAG
 	add hl, bc
 	ld a, [hli]
