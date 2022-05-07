@@ -700,6 +700,17 @@ Script_trainerflagaction:
 	ld d, [hl]
 	call GetScriptByte
 	ld b, a
+	
+	; We prevent the police from getting their "beaten" flag ever set, so we can always fight them.
+	cp SET_FLAG
+	jr nz, .after_police_check
+	; Flag should be SET at this point.
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	ret z ; We prevent the flag from being ever set.
+.after_police_check
+	; If it's not the police then we set, check or reset the flag normally.
+
 	call EventFlagAction
 	ld a, c
 	and a
