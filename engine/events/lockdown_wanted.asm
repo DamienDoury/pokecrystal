@@ -40,7 +40,7 @@ GetCurrentResearchLevelAtLandmark::
 	ld [wCurWantedLevel], a
 	ret
 
-; Call this after a won battle against a policeman.
+; This is called after a won battle against a trainer.
 ; Destroys a, b, c and hl.
 IncreaseResearchLevel::
 	ld a, [wCurLandmark]
@@ -68,6 +68,7 @@ IncreaseResearchLevel::
 	ld c, a
 	ld a, b
 	ld b, %11111100 ; We now use b as the mask.
+	;call ForceLockdown ; TODO: à virer, juste pour tester sur la Route34.
 
 .offset
 	cp 0
@@ -84,6 +85,11 @@ IncreaseResearchLevel::
 	and b
 	add c
 	ld [hl], a
+
+	; Also, we first the leftmost bit of the wCurFreedomState byte to notify that we just increased the wanted level (used and erased by RefreshPolice in warp_connection.asm to reload the map).
+	ld a, [wCurFreedomState]
+	or %10000000
+	ld [wCurFreedomState], a
 	ret
 
 ; Forces the first lockdown when leaving Ilex Forest.

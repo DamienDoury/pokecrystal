@@ -169,7 +169,8 @@ MAPOBJECT_SCREEN_HEIGHT EQU (SCREEN_HEIGHT / 2) + 2
 	const SPRITEMOVEDATA_SWIM_WANDER          ; 24
 	const SPRITEMOVEDATA_PATROL_X	          ; 25
 	const SPRITEMOVEDATA_PATROL_Y	          ; 26
-	const SPRITEMOVEDATA_PATROL_CIRCLE        ; 27
+	const SPRITEMOVEDATA_PATROL_CIRCLE_LEFT   ; 27
+	const SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT  ; 28
 NUM_SPRITEMOVEDATA EQU const_value
 
 ; MapObjectMovementPattern.Pointers indexes (see engine/overworld/map_objects.asm)

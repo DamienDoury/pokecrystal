@@ -991,9 +991,10 @@ Script_disappear:
 	call GetScriptByte
 	call GetScriptObject
 	cp LAST_TALKED
-	jr nz, .ok
+	jr nz, Script_disappear_action
+Script_disappear_last_talked::
 	ldh a, [hLastTalked]
-.ok
+Script_disappear_action:
 	call DeleteObjectStruct
 	ldh a, [hMapObjectIndex]
 	ld b, 1 ; set
@@ -2229,10 +2230,6 @@ Script_warpcheck:
 	farcall EnableEvents
 	ret
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
-
 Script_newloadmap:
 	call GetScriptByte
 	ldh [hMapEntryMethod], a
@@ -2258,9 +2255,6 @@ Script_writeunusedbyte:
 	call GetScriptByte
 	ld [wUnusedScriptByte], a
 	ret
-
-UnusedClosetextScript: ; unreferenced
-	closetext
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2406,11 +2400,6 @@ Script_wait:
 Script_checksave:
 	farcall CheckSave
 	ld a, c
-	ld [wScriptVar], a
-	ret
-
-Script_checkver_duplicate: ; unreferenced
-	ld a, [.gs_version]
 	ld [wScriptVar], a
 	ret
 

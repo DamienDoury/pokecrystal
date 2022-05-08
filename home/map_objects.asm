@@ -271,8 +271,8 @@ CheckObjectTime::
 	and %00011111 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
 	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
 	jr nz, .check_hour
-	;ld hl, MAPOBJECT_TIMEOFDAY
-	;add hl, bc
+	;ld hl, MAPOBJECT_TIMEOFDAY ; Obsolete because of line below.
+	;add hl, bc ; Obsolete because of line below.
 	inc hl ; saving some cycles, as MAPOBJECT_TIMEOFDAY is the byte after MAPOBJECT_HOUR, and hl already contains the address of MAPOBJECT_HOUR.
 	ld a, [hl]
 	and %00011111 ; Damien: same as before: only the 5 first bits are used to store the time.
