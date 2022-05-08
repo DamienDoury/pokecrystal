@@ -543,11 +543,7 @@ IsObjectMovingOffEdgeOfScreen:
 	add hl, bc
 	ld a, [hl]
 	cp SPRITEMOVEDATA_PATROL_X ; We allow patrolling NPCs to go out of the map.
-	jr z, .nope
-	cp SPRITEMOVEDATA_PATROL_Y
-	jr z, .nope
-	cp SPRITEMOVEDATA_PATROL_CIRCLE ; This one may cause problems.
-	jr z, .nope
+	jr nc, .nope
 
 	ld hl, OBJECT_NEXT_MAP_X
 	add hl, bc
