@@ -85,15 +85,20 @@ ReadTrainerPartyPieces:
 	; Special case for Blue.
 	ld a, [wOtherTrainerClass]
 	cp BLUE
-	jr nz, .not_blue
+	jr c, .check_species
+	cp OFFICER
+	jr z, .check_species ; Special case for officers: they always only have a single Growlithe.
+	cp SWAT + 1
+	jr nc, .check_species
 
 	ld a, [wTempByteValue] ; wTempByteValue contains the number of Pokemon added to the party of OT.
 	cp 0
-	jr nz, .check_if_party_full
+	jr nz, .check_if_party_full ; When no Pokemon has been added to the party yet (meaning we're going to add the first one), we need to inc to add an offset to the first Pokémon of the team.
 
 	; At the first call, we add an offset to the starting point, so Blue's leading Pokémon isn't always the same.
 	call Random ; The leading Pokémon can be any of the first 8.
-	and 3
+	and 7
+	add 255
 
 	push bc
 	ld bc, 7 ; 7 is the length of the struct.
@@ -110,15 +115,18 @@ ReadTrainerPartyPieces:
 	ld [wTempByteValue], a
 
 	call Random
-	and 3 ; To simulate randomness, we increase hl by 1 to 4 Pokémon (struct length). We gave more than 6 Pokémons to Blue.
+	and 3 ; To simulate randomness, we increase hl by 1 to 3 Pokémon (struct length). We gave more than 6 Pokémons to Blue.
+	cp 3 ; If the result is already 3, we shouldn't inc it, otherwise it would give 4, which is out of our range.
+	jr z, .after_inc
 	inc a
 
+.after_inc
 	push bc
 	ld bc, 7 ; 7 is the length of the struct.
 	call AddNTimes
 	pop bc
 
-.not_blue
+.check_species
 	ld a, [hli]
 	cp -1
 	ret z
