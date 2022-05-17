@@ -952,8 +952,8 @@ NightmareDescription:
 	next "1/4 HP every turn.@"
 
 FlameWheelDescription:
-	db   "An attack that may"
-	next "cause a burn.@"
+	db   "Hurts enemy and"
+	next "increases SPEED.@"
 
 SnoreDescription:
 	db   "An attack useable"
