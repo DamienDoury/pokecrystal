@@ -1044,16 +1044,6 @@ LevelBallMultiplier:
 	ld b, $ff
 	ret
 
-; BallDodgedText and BallMissedText were used in Gen 1.
-
-BallDodgedText: ; unreferenced
-	text_far _BallDodgedText
-	text_end
-
-BallMissedText: ; unreferenced
-	text_far _BallMissedText
-	text_end
-
 BallBrokeFreeText:
 	text_far _BallBrokeFreeText
 	text_end

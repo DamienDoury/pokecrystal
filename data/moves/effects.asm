@@ -1503,17 +1503,18 @@ FlameWheel:
 	stab
 	damagevariation
 	checkhit
-	effectchance
+	;effectchance
 	moveanim
 	failuretext
 	applydamage
 	criticaltext
 	supereffectivetext
 	defrost
+	speedup
+	statupmessage
 	checkfaint
 	buildopponentrage
 	kingsrock ; Added for pollen in Erika's battle.
-	burntarget
 	endmove
 
 Curse:
