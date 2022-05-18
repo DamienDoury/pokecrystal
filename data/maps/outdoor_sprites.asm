@@ -762,13 +762,14 @@ FuchsiaGroupSprites:
 	db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_BIKER
-	db SPRITE_LAPRAS
-	; 7 of max 9 walking sprites
+	db SPRITE_SURF
+	; 8 of max 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
 	db SPRITE_JASMINE
 	db SPRITE_BOULDER
 	db SPRITE_ROCK
+	db SPRITE_BUG_CATCHER
 	db 0 ; end
 
 IndigoGroupSprites:

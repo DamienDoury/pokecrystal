@@ -58,7 +58,7 @@ CeruleanCityCooltrainerFScript:
 	writetext CeruleanCityCooltrainerFText2
 	waitbutton
 	closetext
-	pause 25 ; Damien
+	pause 30 ; Damien
 	showemote EMOTE_QUESTION, CERULEANCITY_SLOWBRO, 15
 	opentext
 	writetext CeruleanCitySlowbroText

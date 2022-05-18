@@ -314,6 +314,14 @@ SpriteMovementData::
 	db 0 ; flags2
 	db 0 ; palette flags
 
+; SPRITEMOVEDATA_SWIMPATROL_CIRCLE_LEFT
+	db SPRITEMOVEFN_CIRCLE_WALK ; movement function
+	db LEFT ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db SWIMMING ; palette flags
+
 ; SPRITEMOVEDATA_PATROL_CIRCLE_LEFT
 	db SPRITEMOVEFN_CIRCLE_WALK ; movement function
 	db LEFT ; facing
