@@ -272,7 +272,9 @@
 	const EVENT_TULLY_GAVE_WATER_STONE
 	const EVENT_TIFFANY_GAVE_PINK_BOW
 	const EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_TM_HAIL
-; Unused: next 338 events
+
+	const EVENT_AMPHY_BURIAL_DONE
+; Unused: next 337 events
 
 	const_next 600
 ; Kurt Apricorn events

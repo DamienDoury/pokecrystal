@@ -5,6 +5,9 @@
 	const ROUTE8_SUPER_NERD1
 	const ROUTE8_SUPER_NERD2
 	const ROUTE8_FRUIT_TREE
+	const ROUTE8_JASMINE
+	const ROUTE8_BURIAL_GUY1
+	const ROUTE8_BURIAL_GUY2
 
 Route8_MapScripts:
 	def_scene_scripts
@@ -72,8 +75,15 @@ Route8LockedDoor:
 Route8UndergroundPathSign:
 	jumptext Route8UndergroundPathSignText
 
+Route8JasmineScript:
+	jumptext Route8SilenceText
+
+Route8BurialGuyScript:
+	jumptextfaceplayer Route8BurialGuyText
+
 Route8FruitTree:
 	fruittree FRUITTREE_ROUTE_8
+
 
 BikerDwayneSeenText:
 	text "We're the KANTO"
@@ -170,6 +180,20 @@ Route8UndergroundPathSignText:
 	line "read…"
 	done
 
+Route8SilenceText:
+	text "…"
+	done
+
+Route8BurialGuyText:
+	text "Our group comes"
+	line "all the way from"
+
+	para "JOHTO for the"
+	line "funeral of our"
+
+	para "beloved #MON…"
+	done
+
 Route8_MapEvents:
 	db 0, 0 ; filler
 
@@ -190,3 +214,6 @@ Route8_MapEvents:
 	object_event 23,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSupernerdSam, -1
 	object_event 31, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerSupernerdTom, -1
 	object_event 33,  5, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route8FruitTree, -1
+	object_event 39,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route8JasmineScript, EVENT_AMPHY_BURIAL_DONE
+	object_event 37,  8, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route8JasmineScript, EVENT_AMPHY_BURIAL_DONE
+	object_event 35,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route8BurialGuyScript, EVENT_AMPHY_BURIAL_DONE

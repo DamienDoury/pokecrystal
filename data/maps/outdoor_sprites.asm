@@ -718,6 +718,8 @@ SaffronGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_SLOWBRO
 	db SPRITE_ROCKET
+	db SPRITE_JENNY
+	db SPRITE_SQUIRTLE
 	db 0 ; end
 
 VermilionGroupSprites:
@@ -760,9 +762,13 @@ FuchsiaGroupSprites:
 	db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_BIKER
+	db SPRITE_LAPRAS
 	; 7 of max 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_JASMINE
+	db SPRITE_BOULDER
+	db SPRITE_ROCK
 	db 0 ; end
 
 IndigoGroupSprites:

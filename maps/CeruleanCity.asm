@@ -5,6 +5,10 @@
 	const CERULEANCITY_COOLTRAINER_F
 	const CERULEANCITY_FISHER
 	const CERULEANCITY_YOUNGSTER
+	const CERULEANCITY_DETECTIVE
+	const CERULEANCITY_SQUIRTLE
+	const CERULEANCITY_DETECTIVE2
+	const CERULEANCITY_SQUIRTLE2
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
@@ -55,6 +59,7 @@ CeruleanCityCooltrainerFScript:
 	waitbutton
 	closetext
 	pause 25 ; Damien
+	showemote EMOTE_QUESTION, CERULEANCITY_SLOWBRO, 15
 	opentext
 	writetext CeruleanCitySlowbroText
 	cry SLOWBRO
@@ -81,6 +86,10 @@ CeruleanCityCooltrainerFScript:
 	turnobject CERULEANCITY_COOLTRAINER_F, RIGHT ; Damien
 	pause 1 ; Damien
 	turnobject CERULEANCITY_COOLTRAINER_F, DOWN ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, LEFT ; Damien
+	pause 1 ; Damien
+	turnobject CERULEANCITY_COOLTRAINER_F, UP ; Damien
 	opentext
 	writetext CeruleanCityCooltrainerFText3
 	waitbutton
@@ -141,6 +150,16 @@ CeruleanCityYoungsterScript:
 	waitbutton
 	closetext
 	end
+
+CeruleanCityDetectiveScript:
+	jumptextfaceplayer CeruleanCityDetectiveText
+
+CeruleanCityDetective2Script:
+	jumptextfaceplayer CeruleanCityDetective2Text
+
+CeruleanCitySquirtleScript:
+	cry SQUIRTLE
+	jumptextfaceplayer CeruleanCitySquirtleText
 
 CeruleanCitySign:
 	jumptext CeruleanCitySignText
@@ -292,7 +311,29 @@ CeruleanCapeSignText:
 	done
 
 CeruleanLockedDoorText:
-	text "It's locked…"
+	text "Bike shop"
+	line "For sale"
+	done
+
+CeruleanCityDetectiveText:
+	text "There's an ongoing"
+	line "investigation into"
+
+	para "the POWER PLANT"
+	line "incident."
+
+	para "I can't let"
+	line "anyone in or out."
+	done
+
+CeruleanCityDetective2Text:
+	text "We are looking for"
+	line "a thief."
+	done
+
+CeruleanCitySquirtleText:
+	text "SQUIRTLE: Squirt"
+	line "Squirtle!"
 	done
 
 CeruleanCity_MapEvents:
@@ -326,3 +367,7 @@ CeruleanCity_MapEvents:
 	object_event 21, 24, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeruleanCityCooltrainerFScript, -1
 	object_event 30, 26, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityFisherScript, -1
 	object_event  6, 12, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeruleanCityYoungsterScript, -1
+	object_event 34, 32, SPRITE_JENNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetectiveScript, EVENT_RETURNED_MACHINE_PART
+	object_event 35, 33, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_RETURNED_MACHINE_PART
+	object_event  7, 29, SPRITE_JENNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetective2Script, EVENT_RETURNED_MACHINE_PART
+	object_event  9, 28, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_RETURNED_MACHINE_PART
