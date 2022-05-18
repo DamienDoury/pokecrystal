@@ -1,5 +1,6 @@
 	object_const_def
-	const FUCHSIACITY_YOUNGSTER
+	const FUCHSIACITY_GRAMPS
+	const FUCHSIACITY_BLOCKER
 	const FUCHSIACITY_TEACHER
 	const FUCHSIACITY_STUPID
 	const FUCHSIACITY_LAPRAS
@@ -7,6 +8,8 @@
 	const FUCHSIACITY_FRUIT_TREE2
 	const FUCHSIACITY_BOULDER1
 	const FUCHSIACITY_BOULDER2
+	const FUCHSIACITY_BOULDER3
+	const FUCHSIACITY_BOULDER4
 	const FUCHSIACITY_POKEBALL
 	const FUCHSIACITY_ROCK1
 	const FUCHSIACITY_ROCK2
@@ -17,13 +20,62 @@ FuchsiaCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_OBJECTS, .FuchsiaSetup
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	endcallback
 
-FuchsiaCityYoungster:
-	jumptextfaceplayer FuchsiaCityYoungsterText
+.FuchsiaSetup:
+	checkevent EVENT_FUCHSIA_EXCAVATION_STARTED
+	iffalse .EndFuchsiaSetup
+	moveobject FUCHSIACITY_BLOCKER, 36, 22
+	turnobject FUCHSIACITY_BLOCKER, RIGHT
+.EndFuchsiaSetup:
+	endcallback
+
+FuchsiaCityGramps:
+	jumptextfaceplayer FuchsiaCityGrampsText
+
+FuchsiaCityBlocker:
+	faceplayer
+	checkevent EVENT_FUCHSIA_EXCAVATION_STARTED
+	iftrue .Quick
+	pause 10
+	showemote EMOTE_HAPPY, FUCHSIACITY_BLOCKER, 15 
+	opentext
+	writetext FuchsiaCityBlockerText
+	waitbutton
+	closetext
+	showemote EMOTE_QUESTION, FUCHSIACITY_BLOCKER, 15 
+	opentext
+	writetext FuchsiaCityBlockerText2
+	waitbutton
+	closetext
+	turnobject FUCHSIACITY_BLOCKER, DOWN
+	pause 15 
+	opentext
+	writetext FuchsiaCityBlockerText25
+	waitbutton
+	closetext
+	pause 60
+	showemote EMOTE_SHOCK, FUCHSIACITY_BLOCKER, 15 
+	faceplayer
+	opentext
+	writetext FuchsiaCityBlockerText3
+	waitbutton
+	closetext
+	showemote EMOTE_HAPPY, FUCHSIACITY_BLOCKER, 15 
+	applymovement FUCHSIACITY_BLOCKER, FuchsiaCity_StartExcavation
+	setevent EVENT_FUCHSIA_EXCAVATION_STARTED
+	turnobject PLAYER, DOWN
+.Quick:
+	opentext
+	writetext FuchsiaCityBlockerText4
+	waitbutton
+	closetext
+	turnobject FUCHSIACITY_BLOCKER, RIGHT
+	end
 
 FuchsiaCityTeacher:
 	jumptextfaceplayer FuchsiaCityTeacherText
@@ -112,7 +164,7 @@ FuchsiaCityToiletPaper:
 FuchsiaCityLemonade:
 	hiddenitem LEMONADE, EVENT_FUCHSIA_LEMONADE
 
-FuchsiaCityYoungsterText:
+FuchsiaCityGrampsText:
 	text "This town used to"
 	line "thrive but now"
 
@@ -155,6 +207,65 @@ FuchsiaCityYoungsterText:
 
 	para "brings in a few"
 	line "tourists like you."
+	done
+
+FuchsiaCityBlockerText:
+	text "Howdy trainer!"
+
+	para "Pleasure to see" 
+	line "you! We rarely"
+	cont "meet tourists in"
+	cont "this town."
+	done
+
+FuchsiaCityBlockerText2:
+	text "What? You want"
+	line "to go west?"
+	done
+
+FuchsiaCityBlockerText25:
+	text "Oh! Well, we"
+	line "haven't moved"
+	cont "those boulders"
+	
+	para "right after the"
+	line "eruption, then"
+	cont "the pandemic came…"
+	cont "and here they are."
+
+	para "This town is very"
+	line "calm. No one ever"
+	cont "complained about"
+	cont "those."
+	done
+
+FuchsiaCityBlockerText3:
+	text "You know what?"
+
+	para "I will do any-"
+	line "thing to make a"
+	cont "tourist happy!"
+
+	para "Moving those"
+	line "boulders could"
+	cont "help bringing in"
+	cont "more tourists as"
+	cont "well! Great idea!"
+	done
+
+FuchsiaCityBlockerText4:
+	text "The clearance"
+	line "shouldn't take"
+	cont "long."
+
+	para "Meanwhile, I'd"
+	line "recommend you go"
+	cont "challenge JANINE,"
+	cont "the GYM LEADER."
+
+	para "It's the best and"
+	line "only activity in"
+	cont "this town!"
 	done
 
 FuchsiaCityTeacherText:
@@ -258,6 +369,15 @@ FuchsiaEatenTreeText:
 	line "#MON…"
 	done
 
+FuchsiaCity_StartExcavation:
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step DOWN
+	turn_head RIGHT
+	step_end
+
 FuchsiaCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -299,15 +419,18 @@ FuchsiaCity_MapEvents:
 	bg_event 12, 15, BGEVENT_ITEM, FuchsiaCityLemonade
 
 	def_object_events
-	object_event 23, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityYoungster, -1
+	object_event 23, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityGramps, -1
+	object_event 37, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBlocker, EVENT_BEAT_JANINE
 	object_event 11, 15, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event 24,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityStupid, -1
 	object_event  8, 17, SPRITE_SURF, SPRITEMOVEDATA_SWIMPATROL_CIRCLE_LEFT, 3, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
 	object_event 36,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree2, -1
 	object_event 31, 27, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, -1
+	object_event 37, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
+	object_event 37, 22, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
 	object_event 18, 28, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, -1
 	object_event 25,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FuchsiaCityPokeball, EVENT_FUCSHIA_POKEBALL
 	object_event 28, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 26, 31, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
-	object_event 36, 23, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
+	object_event 33, 24, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1

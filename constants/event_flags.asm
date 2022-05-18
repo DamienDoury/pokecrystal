@@ -286,6 +286,7 @@
 	const EVENT_FOUND_FUCHSIA_MAX_ELIXER
 
 	const EVENT_AMPHY_BURIAL_DONE
+	const EVENT_FUCHSIA_EXCAVATION_STARTED
 ; Unused: next 325 events
 
 	const_next 600

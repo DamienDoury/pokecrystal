@@ -1,5 +1,6 @@
 	object_const_def
 	const ROUTE15FUCHSIAGATE_OFFICER
+	const ROUTE15FUCHSIAGATE_BLOCKER
 
 Route15FuchsiaGate_MapScripts:
 	def_scene_scripts
@@ -9,12 +10,46 @@ Route15FuchsiaGate_MapScripts:
 Route15FuchsiaGateOfficerScript:
 	jumptextfaceplayer Route15FuchsiaGateOfficerText
 
+Route15FuchsiaGateBlockerScript:
+	faceplayer
+	pause 10
+	showemote EMOTE_HAPPY, FUCHSIACITY_BLOCKER, 15
+	checkevent EVENT_FUCHSIA_EXCAVATION_STARTED
+	iftrue .HasSeenPlayerInFuchsia
+	jumptext Route15FuchsiaGateBlockerNewText
+.HasSeenPlayerInFuchsia:
+	jumptext Route15FuchsiaGateBlockerText
+
 Route15FuchsiaGateOfficerText:
 	text "You're working on"
 	line "a #DEX? That's"
 
 	para "really something."
 	line "Don't give up!"
+	done
+
+Route15FuchsiaGateBlockerNewText:
+	text "Howdy trainer!"
+
+	para "Don't rush!"
+	line "Come relax in our"
+	cont "beautiful FUCHSIA"
+	cont "CITY!"
+	done
+
+Route15FuchsiaGateBlockerText:
+	text "Hey friend!"
+
+	para "Clearing those"
+	line "boulders was more"
+	cont "exhausting than"
+	cont "I expected."
+
+	para "I'll be resting"
+	line "here, in hope of"
+	cont "seeing tourists"
+	cont "come visit our"
+	cont "beautiful town!"
 	done
 
 Route15FuchsiaGate_MapEvents:
@@ -32,3 +67,4 @@ Route15FuchsiaGate_MapEvents:
 
 	def_object_events
 	object_event  5,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route15FuchsiaGateOfficerScript, -1
+	object_event  1,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route15FuchsiaGateBlockerScript, -1
