@@ -1496,6 +1496,7 @@ Nightmare:
 FlameWheel:
 	checkobedience
 	usedmovetext
+	defrost
 	doturn
 	critical
 	damagestats
@@ -1509,7 +1510,6 @@ FlameWheel:
 	applydamage
 	criticaltext
 	supereffectivetext
-	defrost
 	speedup
 	statupmessage
 	checkfaint
