@@ -4154,13 +4154,18 @@ BattleCommand_BurnTarget:
 	cp HELD_PREVENT_BURN
 	ret z
 
+	call SafeCheckSafeguard
+	ret nz
+
+	ld a, [wOtherTrainerClass] ; Lt. Surge's Pokémons always paralyze (and can never be paralyzed as they all are electric types). Damien.
+	cp BLAINE
+	jr z, .dont_check_fail
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
 
-	call SafeCheckSafeguard
-	ret nz
-
+.dont_check_fail:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set BRN, [hl]
