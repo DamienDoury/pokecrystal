@@ -698,6 +698,8 @@ CinnabarGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_LASS
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected

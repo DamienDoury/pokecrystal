@@ -422,6 +422,26 @@ RestartMapMusic::
 	ret
 
 SpecialMapMusic::
+; Rave party music.
+
+	; check the area (must be cinnabar island).
+	ld a, [wMapGroup]
+	cp 6; CINNABAR
+	jr nz, .skip_rave_party
+	ld a, [wMapNumber]
+	cp 8 ; CINNABAR_ISLAND
+	jr nz, .skip_rave_party
+	
+	; check the event flag.
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .skip_rave_party	; false.
+	jr .rave_party 			; true.
+
+.skip_rave_party:
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .surf
@@ -438,6 +458,11 @@ SpecialMapMusic::
 
 .bike ; unreferenced
 	ld de, MUSIC_BICYCLE
+	scf
+	ret
+
+.rave_party
+	ld de, MUSIC_GAME_CORNER
 	scf
 	ret
 
