@@ -390,7 +390,7 @@ FuchsiaEatenTreeText:
 	para "The fruits appear"
 	line "to have been"
 
-	para "eaten by wild"
+	para "eaten by a wild"
 	line "#MON…"
 	done
 
