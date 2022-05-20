@@ -39,10 +39,21 @@ CinnabarIsland_MapScripts:
 	disappear CINNABARISLAND_SHY
 
 	readvar VAR_WEEKDAY
-	ifnotequal THURSDAY, .NoRaveForYou
-	checktime NITE
-	iffalse .NoRaveForYou
+	ifequal THURSDAY, .if_thursday
+	ifequal FRIDAY, .if_friday
+	endcallback
 
+.if_thursday:
+	readvar VAR_HOUR
+	ifgreater 20, .DoRaveParty
+	endcallback
+
+.if_friday:
+	readvar VAR_HOUR
+	ifless 4, .DoRaveParty
+	endcallback
+
+.DoRaveParty
 	setevent EVENT_CINNABAR_RAVE_PARTY
 	appear CINNABARISLAND_LOVER_F
 	appear CINNABARISLAND_LOVER_M
@@ -55,8 +66,6 @@ CinnabarIsland_MapScripts:
 	appear CINNABARISLAND_TEACHER
 	appear CINNABARISLAND_KID
 	appear CINNABARISLAND_SHY
-
-.NoRaveForYou:
 	endcallback
 
 CinnabarIslandBlue:
@@ -227,6 +236,15 @@ CinnabarIslandHiddenRareCandy:
 CinnabarIslandBlueTeleport:
 	teleport_from
 	step_end
+
+CinnabarSoda1:
+	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_1
+
+CinnabarSoda2:
+	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_2
+
+CinnabarSoda3:
+	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_3
 
 CinnabarSellerGo_Movement:
 	step LEFT
@@ -523,6 +541,9 @@ CinnabarIsland_MapEvents:
 	bg_event 12, 11, BGEVENT_READ, CinnabarIslandPokecenterSign
 	bg_event  7,  7, BGEVENT_READ, CinnabarIslandSign
 	bg_event  9,  1, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
+	bg_event  5,  6, BGEVENT_ITEM, CinnabarSoda2
+	bg_event  4, 11, BGEVENT_ITEM, CinnabarSoda1
+	bg_event 14, 12, BGEVENT_ITEM, CinnabarSoda3
 
 	def_object_events
 	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR

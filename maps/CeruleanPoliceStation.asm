@@ -9,7 +9,12 @@ CeruleanPoliceStation_MapScripts:
 	def_callbacks
 
 CeruleanPoliceStationFishingGuruScript:
+	checkevent EVENT_RETURNED_MACHINE_PART
+	iftrue .rave_notification
 	jumptextfaceplayer CeruleanPoliceStationFishingGuruText
+
+.rave_notification:
+	jumptextfaceplayer CeruleanPoliceStationRaveText
 
 CeruleanPoliceStationPokefanFScript:
 	jumptextfaceplayer CeruleanPoliceStationPokefanFText
@@ -30,6 +35,23 @@ CeruleanPoliceStationFishingGuruText:
 	para "I won't stand for"
 	line "it if he turns out"
 	cont "to be a thief."
+	done
+
+CeruleanPoliceStationRaveText:
+	text "Now that we're done"
+	line "with this thief,"
+
+	para "we have to deal"
+	line "with an illegal"
+	cont "rave."
+
+	para "We know it happ-"
+	line "ens in a desert"
+	cont "place at night."
+
+	para "But we are"
+	line "having a hard"
+	cont "time finding it."
 	done
 
 CeruleanPoliceStationPokefanFText:
