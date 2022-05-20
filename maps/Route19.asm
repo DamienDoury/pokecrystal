@@ -21,6 +21,7 @@ Route19_MapScripts:
 	changeblock 12,  8, $7a ; rock
 	changeblock  4,  8, $7a ; rock
 	changeblock 10, 10, $7a ; rock
+	changeblock  6,  8, $31 ; sand
 .Done:
 	endcallback
 
@@ -244,7 +245,9 @@ Route19Fisher2SequelText:
 
 Route19Fisher2Text_RocksCleared:
 	text "The roadwork is"
-	line "finally finished."
+	line "finally finished"
+	cont "and the workers"
+	cont "went home."
 
 	para "Now I can go"
 	line "fishing again."
@@ -285,5 +288,7 @@ Route19_MapEvents:
 	object_event  8, 23, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1
 	object_event  6,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1
-	object_event  9,  7, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, -1
-	object_event  8,  8, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, -1
+	object_event  9,  7, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  8,  8, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  7,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED

@@ -72,10 +72,16 @@ TrainerCamperJerry:
 
 .Script:
 	endifjustbattled
+	checkevent EVENT_BROCK_BACK_IN_GYM
+	iftrue .brock_location
 	opentext
 	writetext CamperJerryAfterBattleText
 	waitbutton
 	closetext
+	end
+
+.brock_location:
+	jumptextfaceplayer CamperJerryBrockLocationText
 	end
 
 PewterGymGuideScript:
@@ -206,6 +212,20 @@ CamperJerryAfterBattleText:
 	line "seriously."
 	done
 
+CamperJerryBrockLocationText:
+	text "BROCK went south"
+	line "to help with some"
+	cont "roadwork that was"
+	cont "taking forever."
+
+	para "He's been gone for"
+	line "quite some time."
+
+	para "You better go"
+	line "find him if you"
+	cont "want his BADGE."
+	done
+
 PewterGymGuideText:
 	text "Yo! CHAMP in"
 	line "making! You're"
@@ -251,6 +271,6 @@ PewterGym_MapEvents:
 	bg_event  6, 11, BGEVENT_READ, PewterGymStatue
 
 	def_object_events
-	object_event  5,  1, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterGymBrockScript, -1
+	object_event  5,  1, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterGymBrockScript, EVENT_BROCK_BACK_IN_GYM
 	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperJerry, -1
 	object_event  7, 11, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, PewterGymGuideScript, -1

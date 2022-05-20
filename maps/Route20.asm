@@ -11,6 +11,7 @@ Route20_MapScripts:
 
 .ClearRocks:
 	setevent EVENT_CINNABAR_ROCKS_CLEARED
+	clearevent EVENT_BROCK_BACK_IN_GYM
 	endcallback
 
 TrainerSwimmerfNicole:
