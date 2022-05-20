@@ -155,9 +155,6 @@ CinnabarIslandSickScript:
 	closetext
 	end
 
-CinnabarIslandGymSign:
-	jumptext CinnabarIslandGymSignText
-
 CinnabarIslandSign:
 	jumptext CinnabarIslandSignText
 
@@ -333,17 +330,6 @@ CinnabarIslandSickBetterText:
 	line "then let's"
 	cont "PAR-TAY!"
 	cont "(burp)!"
-	done
-
-CinnabarIslandGymSignText:
-	text "There's a notice"
-	line "here…"
-
-	para "CINNABAR GYM has"
-	line "relocated to SEA-"
-	cont "FOAM ISLANDS."
-
-	para "BLAINE"
 	done
 
 CinnabarIslandSignText:

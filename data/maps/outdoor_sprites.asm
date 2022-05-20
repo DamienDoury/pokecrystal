@@ -700,6 +700,8 @@ CinnabarGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_COOLTRAINER_M
 	db SPRITE_LASS
+	db SPRITE_BIG_ONIX
+	db SPRITE_BROCK
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected
