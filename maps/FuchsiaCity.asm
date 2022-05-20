@@ -132,7 +132,32 @@ FuchsiaCityFruitTree:
 	fruittree FRUITTREE_FUCHSIA_CITY
 
 FuchsiaCityFruitTree2:
-	jumptext FuchsiaEatenTreeText
+	opentext
+	writetext FuchsiaEatenTreeText
+	waitbutton
+	closetext
+	checktime MORN
+	iffalse .end
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .end
+	readvar VAR_WEEKDAY
+	ifequal TUESDAY, .end
+	ifequal THURSDAY, .end
+	ifequal SATURDAY, .end
+	ifequal SUNDAY, .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	opentext
+	writetext HiddenKangaskhanText
+	waitbutton
+	closetext
+	setlasttalked -1
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	loadwildmon KANGASKHAN, 40
+	startbattle
+	reloadmapafterbattle
+.end
+	end
 
 FuchsiaCityRareCandy:
 	hiddenitem RARE_CANDY, EVENT_FUCSHIA_RARE_CANDY
@@ -369,6 +394,12 @@ FuchsiaEatenTreeText:
 	line "#MON…"
 	done
 
+HiddenKangaskhanText:
+	text "Wow! The wild"
+	line "#MON was right"
+	cont "behind the tree!"
+	done
+
 FuchsiaCity_StartExcavation:
 	step LEFT
 	step DOWN
@@ -424,8 +455,8 @@ FuchsiaCity_MapEvents:
 	object_event 11, 15, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
 	object_event 24,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityStupid, -1
 	object_event  8, 17, SPRITE_SURF, SPRITEMOVEDATA_SWIMPATROL_CIRCLE_LEFT, 3, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FuchsiaCityTeacher, -1
-	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
-	object_event 36,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree2, -1
+	object_event 36,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree, -1
+	object_event  8,  1, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityFruitTree2, -1
 	object_event 31, 27, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, -1
 	object_event 37, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
 	object_event 37, 22, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
