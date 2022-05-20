@@ -103,7 +103,7 @@ CinnabarIslandSickScript:
 	iftrue .buy_silence
 
 	checkevent EVENT_CINNABAR_GAVE_WATER
-	iftrue .gave_water
+	iftrue .couldnt_take_max_revive
 
 	writetext CinnabarIslandSickText
 	waitbutton
@@ -111,6 +111,12 @@ CinnabarIslandSickScript:
 	iftrue .take_water
 	closetext
 	end
+
+.couldnt_take_max_revive:
+	faceplayer
+	writetext CinnabarIslandSickMaxReviveBisText
+	promptbutton
+	sjump .gave_water
 
 .take_water:
 	takeitem FRESH_WATER
@@ -276,8 +282,8 @@ CinnabarIslandSickWaterText:
 
 	para "Wouuh!"
 
-	para "I'm already"
-	line "feeling better."
+	para "I'm starting to"
+	line "feel better."
 
 	para "I was on"
 	line "the edge…"
