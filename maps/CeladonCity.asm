@@ -138,13 +138,13 @@ CeladonCityYoungster1Text:
 	done
 
 CeladonCityYoungster2Text:
-	text "They're holding an"
-	line "eating contest at"
+	text "This is the grand"
+	line "re-opening of"
 	cont "the restaurant."
 
-	para "Just watching them"
-	line "go at it makes me"
-	cont "feel bloated…"
+	para "It was closed"
+	line "during the"
+	cont "lockdown."
 	done
 
 CeladonCityTeacher2Text:
