@@ -294,7 +294,10 @@
 	const EVENT_CINNABAR_AMULET_COIN
 	const EVENT_CINNABAR_SWIM_CHEAT
 	const EVENT_BROCK_BACK_IN_GYM
-; Unused: next 318 events
+	const EVENT_CINNABAR_ORDERED_STUFF
+	const EVENT_CINNABAR_DELIVERED_STUFF
+	const EVENT_CINNABAR_TOSSED_STUFF
+; Unused: next 315 events
 
 	const_next 600
 ; Kurt Apricorn events

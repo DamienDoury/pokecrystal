@@ -161,6 +161,60 @@ CinnabarIslandSickScript:
 	closetext
 	end
 
+CinnabarBuyerScript:
+	checkevent EVENT_CINNABAR_TOSSED_STUFF
+	iftrue .regular_text
+	checkevent EVENT_CINNABAR_DELIVERED_STUFF
+	iftrue .help_get_rid
+	setevent EVENT_CINNABAR_ORDERED_STUFF
+	jumptextfaceplayer CinnabarGoFetchStuffText
+
+.help_get_rid:
+	opentext 
+	writetext CinnabarWrongOrderText
+	promptbutton
+	verbosegiveitem FRESH_WATER
+	iffalse .end
+	setevent EVENT_CINNABAR_TOSSED_STUFF
+.end:
+	closetext
+	end
+.regular_text:
+	jumptextfaceplayer CinnabarSyncText
+
+CinnabarSellerScript:
+	checkevent EVENT_CINNABAR_DELIVERED_STUFF
+	iftrue CinnabarIslandLovers
+	checkevent EVENT_CINNABAR_ORDERED_STUFF
+	iffalse CinnabarIslandLovers
+	opentext
+	writetext CinnabarBusyText
+	promptbutton
+	closetext
+	pause 10
+	faceplayer
+	opentext
+	writetext CinnabarDeliverStuffText
+	waitbutton
+	closetext
+	applymovement CINNABARISLAND_LOVER_M, CinnabarSellerGo_Movement
+	pause 40
+	applymovement CINNABARISLAND_LOVER_M, CinnabarSellerBack_Movement
+	faceplayer
+	opentext
+	writetext CinnabarThanksText
+	waitbutton
+	closetext
+	turnobject CINNABARISLAND_LOVER_M, RIGHT
+	setevent EVENT_CINNABAR_DELIVERED_STUFF
+	end
+
+CinnabarHydratedScript:
+	jumptextfaceplayer CinnabarHydratedText
+
+CinnabarSunriseScript:
+	jumptextfaceplayer CinnabarSunriseText
+
 CinnabarIslandSign:
 	jumptext CinnabarIslandSignText
 
@@ -172,6 +226,32 @@ CinnabarIslandHiddenRareCandy:
 
 CinnabarIslandBlueTeleport:
 	teleport_from
+	step_end
+
+CinnabarSellerGo_Movement:
+	step LEFT
+	step DOWN
+	step DOWN
+	step DOWN
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step DOWN
+	step DOWN
+	step DOWN
+	step_end
+
+CinnabarSellerBack_Movement:
+	step UP
+	step UP
+	step UP
+	step LEFT
+	step LEFT
+	step LEFT
+	step UP
+	step UP
+	step UP
+	step RIGHT
 	step_end
 
 CinnabarIslandBlueText:
@@ -264,9 +344,9 @@ CinnabarIslandSickText:
 	text "(burp)"
 
 	para "I'm not feeling"
-	line "well. Please"
-	cont "give me something"
-	cont "(burp) refreshing"
+	line "well. I need some-"
+	cont "thing refreshing"
+	cont "(burp)"
 	cont "to drink…"
 	done
 
@@ -345,6 +425,91 @@ CinnabarIslandSignText:
 	line "Burning Desire"
 	done
 
+CinnabarHydratedText:
+	text "Gotta stay"
+	line "hydrated"
+	cont "tee-hee!"
+	done
+
+CinnabarGoFetchStuffText:
+	text "Hey you!"
+	line "You see the guy"
+	cont "over there?"
+
+	para "My girl says he's"
+	line "got da good stuff."
+
+	para "Tell him to bring"
+	line "me some, would ya."
+	done
+
+CinnabarBusyText:
+	text "Yo, I'm busy"
+	line "can't you see?"
+	done
+
+CinnabarDeliverStuffText:
+	text "Wait. Who wants"
+	line "some you said?"
+
+	para "Ok, I'll go sell."
+	done
+
+CinnabarThanksText:
+	text "Thanks for the"
+	line "tip."
+	done
+
+CinnabarWrongOrderText:
+	text "What did I"
+	line "just buy?"
+
+	para "I've never seen"
+	line "this at a party"
+	cont "before."
+
+	para "No flavour."
+
+	para "I don't want it."
+	line "Help me get rid"
+	cont "of it."
+	done
+
+CinnabarSyncText:
+	text "Don't talk to me!"
+	line "Imma lose my sync!"
+	done
+
+CinnabarSingingText:
+	;text "Dis is ze rhythm"
+	;line "of da night,"
+	;cont "da night, oh yeah!"
+
+	text "You don't even"
+	line "know me,"
+
+	para "you say that I'm"
+	line "not livin' right?"
+
+	para "You don't"
+	line "understand me,"
+
+	para "so why do you"
+	line "judge mah life?"
+	done
+
+CinnabarSunriseText:
+	text "This place is per-"
+	line "fect, no one would"
+	cont "think of searching"
+	cont "here."
+
+	para "Let's have fun"
+	line "until the end"
+	cont "of the night!"
+	cont "(cough)"
+	done
+
 CinnabarIsland_MapEvents:
 	db 0, 0 ; filler
 
@@ -361,15 +526,15 @@ CinnabarIsland_MapEvents:
 
 	def_object_events
 	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
-	object_event  7,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarIslandLovers, 0
-	object_event  8,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandLovers, 0
+	object_event  8,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarIslandLovers, 0
+	object_event  7,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarSellerScript, 0
 	object_event 11,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
-	object_event 10, 16, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
-	object_event 12, 16, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
+	object_event 10, 16, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarHydratedScript, 0
+	object_event 12, 16, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarBuyerScript, 0
 	object_event  8,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_PATROL_X, 1, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
 	object_event  9,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_PATROL_X, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
 	object_event  4, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
 	object_event 14,  4, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SWIMPATROL_CIRCLE_LEFT, 0, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarIslandVolcanoSwimmingScript, 0
 	object_event  6, 13, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarIslandSickScript, 0
-	object_event  5,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
+	object_event  5,  6, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarSunriseScript, 0
 	object_event 15, 13, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
