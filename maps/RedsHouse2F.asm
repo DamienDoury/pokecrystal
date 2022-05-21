@@ -7,8 +7,44 @@ RedsHouse2F_MapScripts:
 	def_callbacks
 
 RedsHouse2FPikachuScript:
+	setval PIKACHU
+	special PlaySlowCry
+	pause 15
+	opentext
+	writetext RedsPikachuStaresText
+
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .partyfull
+
+	promptbutton
+	writetext RedsPikachuTakeText
+	yesorno
+	iffalse .close_text
+
+	givepoke PIKACHU, 100, LIGHT_BALL, TRUE, AdoptedPikachuName, AdoptedPikachuOTName
+	special MakeRedsPikachu
+
+	pause 45
 	cry PIKACHU
+	pause 15
+	setevent EVENT_REDS_PIKACHU_AVAILABLE
+	disappear REDSHOUSE2F_PIKACHU
+	pause 10
+	writetext RedsPikachuJoinsText
+	playsound SFX_GET_BADGE
+	waitsfx
+
+.partyfull:
+	waitbutton
+.close_text
+	closetext
 	end
+
+AdoptedPikachuName:
+	db "PIKACHU@"
+
+AdoptedPikachuOTName:
+	db "RED@"
 
 RedsHouse2FN64Script:
 	jumptext RedsHouse2FN64Text
@@ -30,6 +66,21 @@ RedsHouse2FPCText:
 	cont "in a long time…"
 	done
 
+RedsPikachuStaresText:
+	text "PIKACHU stares at"
+	line "you insistently."
+	done
+
+RedsPikachuTakeText:
+	text "Take him into"
+	line "your arms?"
+	done
+
+RedsPikachuJoinsText:
+	text "PIKACHU joins"
+	line "<PLAYER>'s party."
+	done
+
 RedsHouse2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -43,4 +94,4 @@ RedsHouse2F_MapEvents:
 	bg_event  0,  1, BGEVENT_READ, RedsHouse2FPCScript
 
 	def_object_events
-	object_event  1,  5, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_BG_YELLOW, OBJECTTYPE_SCRIPT, 0, RedsHouse2FPikachuScript, EVENT_RED_BEATEN
+	object_event  1,  5, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_BG_YELLOW, OBJECTTYPE_SCRIPT, 0, RedsHouse2FPikachuScript, EVENT_REDS_PIKACHU_AVAILABLE
