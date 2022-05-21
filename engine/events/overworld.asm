@@ -407,7 +407,13 @@ UsedSurfScript:
 
 	callasm .stubbed_fn
 
+	readmem wSurfingPlayerState
+	ifequal PLAYER_SURF_PIKA, .pika_surf
 	setval (PAL_NPC_BLUE << 4) ; Damien.
+	jump .apply_palette
+.pika_surf
+	setval (PAL_NPC_RED << 4) ; Damien.
+.apply_palette
 	special SetPlayerPalette ; The surfing Pikachu will be blue also, it doesn't matter much.
 
 	readmem wSurfingPlayerState
@@ -1677,7 +1683,7 @@ BikeFunction:
 	ld a, e
 	ld [wMapMusic], a
 	call PlayMusic
-	
+
 .quit_function:
 	ld a, $1
 	ret

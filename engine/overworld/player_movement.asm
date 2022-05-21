@@ -819,8 +819,10 @@ StopPlayerForEvent::
 ; Destroys a and d.
 ResetPlayerPalette::
 	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	ret nz ; If it's the girl, she can stay blue, which is the palette used while surfing.
 	ld d, (PAL_NPC_RED << 4)
+	bit 0, a
+	jr z, .is_male 
+	ld d, (PAL_NPC_BLUE << 4)
+.is_male
 	farcall _SetPlayerPalette ; Damien. Reset player sprite palette here.
 	ret
