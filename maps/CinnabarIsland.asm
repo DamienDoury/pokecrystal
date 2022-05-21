@@ -241,7 +241,7 @@ CinnabarSoda1:
 	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_1
 
 CinnabarSoda2:
-	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_2
+	hiddenitem BRIGHTPOWDER, EVENT_FOUND_CINNABAR_SODA_2
 
 CinnabarSoda3:
 	hiddenitem SODA_POP, EVENT_FOUND_CINNABAR_SODA_3
@@ -541,8 +541,8 @@ CinnabarIsland_MapEvents:
 	bg_event 12, 11, BGEVENT_READ, CinnabarIslandPokecenterSign
 	bg_event  7,  7, BGEVENT_READ, CinnabarIslandSign
 	bg_event  9,  1, BGEVENT_ITEM, CinnabarIslandHiddenRareCandy
-	bg_event  5,  6, BGEVENT_ITEM, CinnabarSoda2
-	bg_event  4, 11, BGEVENT_ITEM, CinnabarSoda1
+	bg_event  5,  6, BGEVENT_ITEM, CinnabarSoda1
+	bg_event  4, 11, BGEVENT_ITEM, CinnabarSoda2
 	bg_event 14, 12, BGEVENT_ITEM, CinnabarSoda3
 
 	def_object_events
