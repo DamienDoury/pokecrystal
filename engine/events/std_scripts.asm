@@ -175,7 +175,14 @@ PokecenterNurseScript:
 	iftrue .quick_pokerus_warning
 
 	farwritetext NursePokerusLongTextStart
+	checkevent EVENT_BEAT_ERIKA ; This is when we decide the vaccaination center opens. It may change later though.
+	iffalse .skip_vaccination_talk
+	promptbutton
+	farwritetext NursePokerusRecommendsVaccinationText
+
+.skip_vaccination_talk
 	waitbutton
+
 
 .quick_pokerus_warning
 	farwritetext NursePokerusEssentialText

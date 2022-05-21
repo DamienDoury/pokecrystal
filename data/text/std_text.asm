@@ -101,11 +101,21 @@ NursePokerusLongTextStart:
 
 	para "We don't know"
 	line "yet how to heal"
-	cont "this disease."
+	cont "the disease."
 
 	para "Your #MON"
 	line "should get better"
-	cont "within 7 days."
+	cont "within 5 days."
+	done
+
+NursePokerusRecommendsVaccinationText:
+	text "Once the symptoms"
+	line "are gone, you can"
+	cont "get your #MON"
+	cont "vaccinated at"
+	cont "SAFFRON CITY's"
+	cont "vaccination"
+	cont "center."
 	done
 
 NursePokerusEssentialText:
