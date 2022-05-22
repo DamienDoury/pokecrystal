@@ -59,6 +59,15 @@ ChangeBoxSaveGame:
 	pop de
 	ret
 
+QuickChangeBox::
+	call PauseGameLogic
+	call SaveBox
+	ld a, 12
+	ld [wCurBox], a
+	call LoadBox
+	call ResumeGameLogic
+	ret
+
 Link_SaveGame:
 	call AskOverwriteSaveFile
 	jr c, .refused
