@@ -2234,7 +2234,19 @@ _ChangeBox:
 	ldh [hBGMapMode], a
 	call BillsPC_PrintBoxName
 	call BillsPC_PlaceChooseABoxString
-	ld hl, _ChangeBox_MenuHeader
+
+	; We display either 12 boxes (Johto) or 13 (Kanto). The 14th box is reserved for the hospital.
+	ld hl, wVisitedSpawns
+	ld b, CHECK_FLAG
+	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
+	call FlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	ld hl, _ChangeBox_MenuHeader_12
+	jr z, .display_scroll_list	; false, the player hasn't reached Vermilion yet.
+	ld hl, _ChangeBox_MenuHeader_13
+	
+.display_scroll_list
 	call CopyMenuHeader
 	xor a
 	ld [wMenuScrollPosition], a
@@ -2261,7 +2273,7 @@ BillsPC_ClearTilemap:
 	call ByteFill
 	ret
 
-_ChangeBox_MenuHeader:
+_ChangeBox_MenuHeader_12:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 1, 5, 9, 12
 	dw .MenuData
@@ -2277,9 +2289,42 @@ _ChangeBox_MenuHeader:
 	dba BillsPC_PrintBoxCountAndCapacity
 
 .Boxes:
-	db NUM_BOXES
+	db NUM_BOXES - 2
 x = 1
-rept NUM_BOXES
+rept NUM_BOXES - 2
+	db x
+x = x + 1
+endr
+	db -1
+
+.PrintBoxNames:
+	push de
+	ld a, [wMenuSelection]
+	dec a
+	call GetBoxName
+	pop hl
+	call PlaceString
+	ret
+
+_ChangeBox_MenuHeader_13:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 1, 5, 9, 12
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db SCROLLINGMENU_CALL_FUNCTION3_NO_SWITCH | SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
+	db 4, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba .Boxes
+	dba .PrintBoxNames
+	dba NULL
+	dba BillsPC_PrintBoxCountAndCapacity
+
+.Boxes:
+	db NUM_BOXES - 1
+x = 1
+rept NUM_BOXES - 1
 	db x
 x = x + 1
 endr
