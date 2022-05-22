@@ -974,6 +974,11 @@ _PCWhatText::
 	text "What?"
 	done
 
+_PC404Text::
+	text "404: NOT FOUND."
+	line "Local mode only."
+	done
+
 _PCMonHoldingMailText::
 	text "There is a #MON"
 	line "holding MAIL."
