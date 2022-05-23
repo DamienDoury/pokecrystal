@@ -236,9 +236,11 @@ OlivinePortHiddenProtein:
 
 OlivinePortEnterFastShipMovement:
 	step DOWN
+	step DOWN
 	step_end
 
 OlivinePortLeaveFastShipMovement:
+	step UP
 	step UP
 	step_end
 

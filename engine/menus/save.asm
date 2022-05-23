@@ -59,7 +59,32 @@ ChangeBoxSaveGame:
 	pop de
 	ret
 
-QuickChangeBox::
+BoxLockAfterPowerOutage::
+	; This names "Box13" -> "[Local]".
+	ld hl, wBoxNames
+	ld bc, BOX_NAME_LENGTH
+	ld a, NUM_BOXES - 2
+	call AddNTimes
+
+	ld [hl], $9E
+	inc hl
+	ld [hl], $8B
+	inc hl
+	ld [hl], $AE
+	inc hl
+	ld [hl], $A2
+	inc hl
+	ld [hl], $A0
+	inc hl
+	ld [hl], $AB
+	inc hl
+	ld [hl], $9F
+	inc hl
+	ld [hl], $50
+	; End of Box13 dirty renaming.
+	; fallthrough
+
+QuickChangeBoxToBox12:
 	call PauseGameLogic
 	call SaveBox
 	ld a, 12

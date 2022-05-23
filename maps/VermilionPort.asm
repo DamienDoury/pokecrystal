@@ -197,9 +197,11 @@ VermilionPortHiddenIron:
 
 VermilionPortEnterFastShipMovement:
 	step DOWN
+	step DOWN
 	step_end
 
 VermilionPortLeaveFastShipMovement:
+	step UP
 	step UP
 	step_end
 

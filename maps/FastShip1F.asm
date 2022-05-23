@@ -64,6 +64,11 @@ FastShip1FSailor1Script:
 	writetext FastShip1FSailor1Text_InVermilion
 	waitbutton
 	closetext
+
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iftrue .GoOut ; If it's not the first trip, immediately go out.
+	special BoxLockAfterPowerOutage
+.GoOut
 	scall .LetThePlayerOut
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
@@ -125,7 +130,6 @@ WorriedGrandpaSceneLeft:
 	applymovement FASTSHIP1F_GENTLEMAN, FastShip1F_GrandpaRunsInMovement
 	playsound SFX_TACKLE
 	applymovement PLAYER, FastShip1F_PlayerHitByGrandpaMovement
-	applymovement FASTSHIP1F_GENTLEMAN, FastShip1F_GrandpaApproachesPlayerMovement
 	opentext
 	writetext FastShip1FGrandpaText
 	waitbutton
@@ -154,7 +158,7 @@ FastShip1F_SailorStepAsideDownMovement:
 FastShip1F_PlayerEntersShipMovement:
 	step DOWN
 	step DOWN
-	turn_head DOWN
+	step DOWN
 	step_end
 
 FastShip1F_GrandpaRunsInMovement:
@@ -162,10 +166,6 @@ FastShip1F_GrandpaRunsInMovement:
 	big_step RIGHT
 	big_step RIGHT
 	big_step RIGHT
-	step_end
-
-FastShip1F_GrandpaApproachesPlayerMovement:
-	step RIGHT
 	step_end
 
 FastShip1F_GrandpaRunsOutMovement:
@@ -187,15 +187,8 @@ FastShip1F_PlayerHitByGrandpaMovement:
 	turn_head LEFT
 	step_end
 
-FastShip1F_StepUpMovement: ; unreferenced
-	step UP
-	step_end
-
-FastShip1F_StepDownMovement: ; unreferenced
-	step DOWN
-	step_end
-
 FastShip1F_PlayerLeavesShipMovement:
+	step UP
 	step UP
 	step UP
 	step_end

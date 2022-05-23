@@ -185,3 +185,4 @@ SpecialsPointers::
 	add_special InitialClearDSTFlag
 	add_special UnusedDummySpecial ; unused
 	add_special MakeRedsPikachu
+	add_special BoxLockAfterPowerOutage
