@@ -22,6 +22,9 @@ FuchsiaGym_MapScripts:
 	setval GROUND
 	special CheckTypePresenceInParty
 	iftrue .do_check
+	setval STEEL
+	special CheckTypePresenceInParty
+	iftrue .do_check
 	end
 
 .do_check

@@ -28,6 +28,9 @@ CianwoodGym_MapScripts:
 	setval PSYCHIC_TYPE
 	special CheckTypePresenceInParty
 	iftrue .do_check
+	setval GHOST
+	special CheckTypePresenceInParty
+	iftrue .do_check
 	end
 
 .do_check

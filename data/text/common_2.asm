@@ -1704,8 +1704,8 @@ GGTCCianText::
 
 	para "Who told you you"
 	line "could bring any"
-	cont "FLYING or"
-	cont "PSYCHIC #MON"
+	cont "FLYING, PSYCHIC"
+	cont "or GHOST #MON"
 	cont "in this GYM?"
 
 	para "We don't tolerate"
@@ -1775,8 +1775,9 @@ GGTCPewText ::
 	para "I agree, it is a"
 	line "long list, but"
 
-	para "you gotta respect"
-	line "rules, right?"
+	para "I wasn't the one"
+	line "who came up"
+	cont "with it!"
 	done
 
 GGTCCeruText::
@@ -1836,8 +1837,8 @@ GGTCFuchText::
 	line "legal in this GYM."
 
 	para "Please remove any"
-	line "PSYCHIC or GROUND"
-	cont "types."
+	line "PSYCHIC, GROUND"
+	cont "or STEEL types."
 	done
 
 GGTCSaffText::
