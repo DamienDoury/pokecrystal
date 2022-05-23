@@ -201,6 +201,7 @@ CeruleanGymGruntRunsDownMovement:
 CeruleanGymGruntRunsOutMovement:
 	big_step RIGHT
 	big_step DOWN
+	big_step DOWN
 	step_end
 
 CeruleanGymGruntRunsIntoYouMovement:
@@ -211,7 +212,6 @@ CeruleanGymGruntRunsIntoYouMovement:
 	remove_fixed_facing
 	step_sleep 8
 	step_sleep 8
-	step DOWN
 	step DOWN
 	step_end
 

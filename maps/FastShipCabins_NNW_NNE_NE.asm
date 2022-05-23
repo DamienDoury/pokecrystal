@@ -261,8 +261,9 @@ BurglarCoreyAfterBattleText:
 	done
 
 FastShipJasmineText:
-	text "I'm not in the mood"
-	line "for a battle…"
+	text "JASMINE: I'm not"
+	line "in the mood for"
+	cont "a battle…"
 	done
 
 FastShipCabins_NNW_NNE_NE_MapEvents:

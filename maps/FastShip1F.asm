@@ -176,6 +176,7 @@ FastShip1F_GrandpaRunsOutMovement:
 	big_step RIGHT
 	big_step RIGHT
 	big_step RIGHT
+	big_step RIGHT
 	big_step DOWN
 	big_step DOWN
 	big_step DOWN
