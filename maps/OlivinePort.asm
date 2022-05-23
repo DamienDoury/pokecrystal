@@ -188,8 +188,6 @@ OlivinePortSailorAfterHOFScript:
 	end
 
 OlivinePortSailorBeforeHOFScript:
-	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
-	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	jumptextfaceplayer OlivinePortSailorBeforeHOFText
 
 OlivinePortFishingGuru1Script:
@@ -227,6 +225,9 @@ OlivinePortCooltrainerFScript:
 	closetext
 	turnobject OLIVINEPORT_COOLTRAINER_F, DOWN
 	end
+
+OlivinePortAttentionSeekerScript:
+	jumptextfaceplayer OlivinePortAttentionSeekerText
 
 OlivinePortHiddenProtein:
 	hiddenitem PROTEIN, EVENT_OLIVINE_PORT_HIDDEN_PROTEIN
@@ -358,6 +359,18 @@ OlivinePortSailorBeforeHOFText:
 	line "allowed in."
 	done
 
+OlivinePortAttentionSeekerText:
+	text "I'm not allowed"
+	line "to swim here."
+
+	para "I do it because"
+	line "I'm an attention"
+	cont "seeker."
+
+	para "Thanks for your"
+	line "attention!"
+	done
+
 OlivinePort_MapEvents:
 	db 0, 0 ; filler
 
@@ -379,3 +392,4 @@ OlivinePort_MapEvents:
 	object_event 13, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru2Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	object_event  4, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortYoungsterScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	object_event 11, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortCooltrainerFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	object_event  6, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortAttentionSeekerScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME

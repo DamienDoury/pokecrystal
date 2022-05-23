@@ -952,6 +952,7 @@ FastShipGroupSprites:
 	db SPRITE_HO_OH
 	db SPRITE_FAIRY
 	db SPRITE_ROCK
+	db SPRITE_SWIMMER_GUY
 	db 0 ; end
 
 CableClubGroupSprites:
