@@ -345,6 +345,7 @@ INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/TimeCapsule.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
+INCLUDE "maps/BillsBrothersHouse.asm" ; Damien. Original position is after maps/FuchsiaGym.asm, but "Map Scripts 18" is full.
 
 
 SECTION "Map Scripts 18", ROMX
@@ -361,7 +362,7 @@ INCLUDE "maps/MoveDeletersHouse.asm"
 INCLUDE "maps/FuchsiaMart.asm"
 INCLUDE "maps/SafariZoneMainOffice.asm"
 INCLUDE "maps/FuchsiaGym.asm"
-INCLUDE "maps/BillsBrothersHouse.asm"
+;INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/FuchsiaPokecenter1F.asm"
 INCLUDE "maps/FuchsiaPokecenter2FBeta.asm"
 INCLUDE "maps/SafariZoneWardensHome.asm"
