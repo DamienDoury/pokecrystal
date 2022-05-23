@@ -165,13 +165,8 @@ OlivinePortSailorAfterHOFScript:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	readvar VAR_FACING
-	ifequal RIGHT, .Right
 	applymovement PLAYER, OlivinePortApproachFastShipAfterHOFMovement
-	sjump OlivinePortSailorAtGangwayScript
-
-.Right:
-	applymovement PLAYER, OlivinePortApproachFastShipAfterHOFRightMovement
+	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
 	sjump OlivinePortSailorAtGangwayScript
 
 .NoTicket:
@@ -193,6 +188,8 @@ OlivinePortSailorAfterHOFScript:
 	end
 
 OlivinePortSailorBeforeHOFScript:
+	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
+	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	jumptextfaceplayer OlivinePortSailorBeforeHOFText
 
 OlivinePortFishingGuru1Script:
@@ -256,33 +253,10 @@ OlivinePortApproachFastShipFirstTimeMovement:
 	step DOWN
 	step DOWN
 	step DOWN
-	step DOWN
 	step_end
 
 OlivinePortApproachFastShipAfterHOFMovement:
-	step RIGHT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step_end
-
-OlivinePortApproachFastShipAfterHOFRightMovement:
-	step UP
-	step RIGHT
-	step RIGHT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
+	step LEFT
 	step_end
 
 OlivinePortSailorGetOnBoardText:

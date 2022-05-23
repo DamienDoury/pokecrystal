@@ -180,7 +180,8 @@ VermilionPortSailorScript:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	applymovement PLAYER, VermilionPortApproachFastShipRightMovement
+	applymovement PLAYER, VermilionPortApproachFastShipLeftMovement
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
 	sjump VermilionPortSailorAtGangwayScript
 
 .NoTicket:
@@ -234,12 +235,8 @@ VermilionPortApproachFastShipMovement:
 	step DOWN
 	step_end
 
-VermilionPortApproachFastShipRightMovement:
+VermilionPortApproachFastShipLeftMovement:
 	step LEFT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
 	step_end
 
 VermilionPortDepartingText:
