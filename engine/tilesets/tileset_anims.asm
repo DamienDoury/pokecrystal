@@ -308,7 +308,7 @@ TilesetAerodactylWordRoomAnim:
 TilesetJohtoWavesAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
-	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateShoreWaves
 	dw NULL,  AnimateWaterPalette
 	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
@@ -317,7 +317,7 @@ TilesetJohtoWavesAnim:
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
 	dw NULL,  WaitTileAnimation
-	dw NULL,  StandingTileFrame8
+	dw NULL,  StandingTileFrame
 	dw NULL,  DoneTileAnimation
 
 DoneTileAnimation:
@@ -716,6 +716,54 @@ AnimateFlowerTile:
 	INCBIN "gfx/tilesets/flower/dmg_2.2bpp"
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
+
+AnimateShoreWaves:
+; Save the stack pointer in bc for WriteTile to restore
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
+; A cycle of 8 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	and %1110 ; Every other frame as bit0 is ignored.
+	srl a ; Right shifting, so the animation index increases every frame.
+	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
+
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+
+	ld a, WAVE_TILES_AMOUNT ; There are 12 tiles that need to be animated.
+	ldh [hMultiplier], a
+
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld e, a
+	ldh a, [hProduct]
+	ld d, a
+	
+	ld hl, .ShoreWavesFrames
+	add hl, de 					; hl = .ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+
+; Write the tile graphic from hl (now sp) to tile $03 (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $22
+	ld a, 1 * WAVE_TILES_AMOUNT ; Or 8 * 12 - 1 ?
+	jp WriteTileX
+
+.ShoreWavesFrames:
+	INCBIN "gfx/tilesets/shore/shore.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore0.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore1.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore2.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore3.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore4.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore5.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore6.2bpp"
+;	INCBIN "gfx/tilesets/shore/shore7.2bpp"
+
+
 AnimateHouseTVTile:
 ; Input de points to the destination in VRAM, then the source tile frames
 
@@ -941,22 +989,61 @@ WriteTile:
 ; because it relocates the stack pointer to quickly
 ; copy data with a "pop slide".
 
+	ld a, (LEN_2BPP_TILE - 2) / 2
+	; fallthrough
+
 	pop de
 	ld [hl], e
 	inc hl
 	ld [hl], d
-rept (LEN_2BPP_TILE - 2) / 2
+	
+.loop
 	pop de
 	inc hl
 	ld [hl], e
 	inc hl
 	ld [hl], d
-endr
+	dec a
+	jr nz, .loop
+
 
 ; Restore the stack pointer from bc
 	ld h, b
 	ld l, c
 	ld sp, hl
+	ret
+
+WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be written in "a", which is a multiple of "(LEN_2BPP_TILE - 2) / 2 = 7" with LEN_2BPP_TILE being 16.
+; Write one tile from sp to hl.
+; The stack pointer has been saved in bc.
+
+; This function cannot be called, only jumped to,
+; because it relocates the stack pointer to quickly
+; copy data with a "pop slide".
+ 
+
+	pop de
+	ld [hl], e
+	inc hl
+	ld [hl], d
+	
+ld a, 95
+.loop
+	pop de
+	inc hl
+	ld [hl], e
+	inc hl
+	ld [hl], d
+
+	dec a
+	jr nz, .loop
+
+; Restore the stack pointer from bc
+	ld h, b
+	ld l, c
+	ld sp, hl
+
+	
 	ret
 
 AnimateWaterPalette:
