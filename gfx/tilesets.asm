@@ -337,3 +337,12 @@ INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
 
 TilesetAerodactylWordRoomMeta::
 INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+
+TilesetJohtoWavesGFX::
+INCBIN "gfx/tilesets/johto_waves.2bpp.lz"
+
+TilesetJohtoWavesMeta::
+INCBIN "data/tilesets/johto_waves_metatiles.bin"
+
+TilesetJohtoWavesColl::
+INCLUDE "data/tilesets/johto_waves_collision.asm"
