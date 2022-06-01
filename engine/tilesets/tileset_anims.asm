@@ -307,16 +307,16 @@ TilesetAerodactylWordRoomAnim:
 
 TilesetJohtoWavesAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
-	dw NULL,  WaitTileAnimation
-	dw NULL,  AnimateShoreWaves
+	dw NULL,  AnimateShoreWaves1OutOf4
+	dw NULL,  AnimateShoreWaves2OutOf4
+	dw NULL,  AnimateShoreWaves3OutOf4
+	dw NULL,  AnimateShoreWaves4OutOf4
 	dw NULL,  AnimateWaterPalette
-	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
-	dw NULL,  WaitTileAnimation
 	dw NULL,  StandingTileFrame
 	dw NULL,  DoneTileAnimation
 
@@ -717,12 +717,15 @@ AnimateFlowerTile:
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
 
-AnimateShoreWaves:
+AnimateShoreWaves1OutOf4:
 ; Save the stack pointer in bc for WriteTile to restore
 	
 
 ; A cycle of 8 frames, updating every other tick
 	ld a, [wTileAnimationTimer]
+	bit 0, a
+	ret nz
+
 	and %1110 ; Every other frame as bit0 is ignored.
 	srl a ; Right shifting, so the animation index increases every frame.
 	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
@@ -737,9 +740,16 @@ AnimateShoreWaves:
 
 	call Multiply
 	ldh a, [hProduct + 1]
-	ld e, a
+	ld l, a
 	ldh a, [hProduct]
-	ld d, a
+	ld h, a
+
+	ld e, 0 * 16
+	ld d, 0
+
+	add hl, de
+	ld e, l
+	ld d, h
 
 	ld hl, sp+0
 	ld b, h
@@ -751,7 +761,148 @@ AnimateShoreWaves:
 ; Write the tile graphic from hl (now sp) to tile $03 (now hl)
 	ld sp, hl
 	ld hl, vTiles2 tile $22
-	ld a, (LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 2) - 1 ; = (16 * 12 / 2) - 1 = 95.
+	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
+	jp WriteTileX
+
+AnimateShoreWaves2OutOf4:
+; Save the stack pointer in bc for WriteTile to restore
+	
+
+; A cycle of 8 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	bit 0, a
+	ret nz
+
+	and %1110 ; Every other frame as bit0 is ignored.
+	srl a ; Right shifting, so the animation index increases every frame.
+	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
+
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+
+	ld a, WAVE_TILES_AMOUNT ; There are 12 tiles that need to be animated.
+	ldh [hMultiplier], a
+
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld l, a
+	ldh a, [hProduct]
+	ld h, a
+
+	ld e, 3 * 16
+	ld d, 0
+
+	add hl, de
+	ld e, l
+	ld d, h
+
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	
+	ld hl, ShoreWavesFrames
+	add hl, de 					; hl = ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+
+; Write the tile graphic from hl (now sp) to tile $03 (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $25
+	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
+	jp WriteTileX
+
+AnimateShoreWaves3OutOf4:
+; Save the stack pointer in bc for WriteTile to restore
+	
+
+; A cycle of 8 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	bit 0, a
+	ret nz
+
+	and %1110 ; Every other frame as bit0 is ignored.
+	srl a ; Right shifting, so the animation index increases every frame.
+	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
+
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+
+	ld a, WAVE_TILES_AMOUNT ; There are 12 tiles that need to be animated.
+	ldh [hMultiplier], a
+
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld l, a
+	ldh a, [hProduct]
+	ld h, a
+
+	ld e, 6 * 16
+	ld d, 0
+
+	add hl, de
+	ld e, l
+	ld d, h
+
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	
+	ld hl, ShoreWavesFrames
+	add hl, de 					; hl = ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+
+; Write the tile graphic from hl (now sp) to tile $03 (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $28
+	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
+	jp WriteTileX
+
+AnimateShoreWaves4OutOf4:
+; Save the stack pointer in bc for WriteTile to restore
+	
+
+; A cycle of 8 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	bit 0, a
+	ret nz
+
+	and %1110 ; Every other frame as bit0 is ignored.
+	srl a ; Right shifting, so the animation index increases every frame.
+	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
+
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+
+	ld a, WAVE_TILES_AMOUNT ; There are 12 tiles that need to be animated.
+	ldh [hMultiplier], a
+
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld l, a
+	ldh a, [hProduct]
+	ld h, a
+
+	ld e, 9 * 16
+	ld d, 0
+
+	add hl, de
+	ld e, l
+	ld d, h
+
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+	
+	ld hl, ShoreWavesFrames
+	add hl, de 					; hl = ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+
+; Write the tile graphic from hl (now sp) to tile $03 (now hl)
+	ld sp, hl
+	ld hl, vTiles2 tile $2B
+	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
 	jp WriteTileX
 
 ShoreWavesFrames:
@@ -982,23 +1133,18 @@ WriteTile:
 ; because it relocates the stack pointer to quickly
 ; copy data with a "pop slide".
 
-	ld a, (LEN_2BPP_TILE - 2) / 2
-	; fallthrough
+	ld a, LEN_2BPP_TILE / 2
+	dec hl
 
-	pop de
-	ld [hl], e
-	inc hl
-	ld [hl], d
-	
 .loop
 	pop de
 	inc hl
 	ld [hl], e
 	inc hl
 	ld [hl], d
+
 	dec a
 	jr nz, .loop
-
 
 ; Restore the stack pointer from bc
 	ld h, b
@@ -1014,11 +1160,7 @@ WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be wr
 ; because it relocates the stack pointer to quickly
 ; copy data with a "pop slide".
  
-
-	pop de
-	ld [hl], e
-	inc hl
-	ld [hl], d
+	dec hl
 	
 .loop
 	pop de
@@ -1028,22 +1170,22 @@ WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be wr
 	ld [hl], d
 
 	
-
+	; Wait for VRAM to be writtable.
 	ld e, l
 	ld d, h
 
 	ld hl, $FF41 ;-STAT Register
 .wait1:           ; https://elrindel.github.io/specifications-gameboy#accessingvramandoam
 	bit 1, [hl]       ; Wait until Mode is -NOT- 0 or 1
-	jr nz, .wait1    ;/
+	jp nz, .wait1    ;/
 	
 	ld l, e
 	ld h, d
-
+	; Wait end.
 
 
 	dec a
-	jr nz, .loop
+	jp nz, .loop
 
 ; Restore the stack pointer from bc
 	ld h, b
