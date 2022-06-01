@@ -721,7 +721,7 @@ AnimateShoreWaves1OutOf4:
 	ld e, 0 * 16
 
 	ld hl, vTiles2 tile $22
-	ld c, l
+	ld d, l
 	
 	jr AnimateShoreWaves
 
@@ -729,7 +729,7 @@ AnimateShoreWaves2OutOf4:
 	ld e, 3 * 16
 
 	ld hl, vTiles2 tile $25
-	ld c, l
+	ld d, l
 	
 	jr AnimateShoreWaves
 
@@ -737,7 +737,7 @@ AnimateShoreWaves3OutOf4:
 	ld e, 6 * 16
 
 	ld hl, vTiles2 tile $28
-	ld c, l
+	ld d, l
 	
 	jr AnimateShoreWaves
 
@@ -745,7 +745,7 @@ AnimateShoreWaves4OutOf4:
 	ld e, 9 * 16
 	
 	ld hl, vTiles2 tile $2B
-	ld c, l
+	ld d, l
 	
 	jr AnimateShoreWaves
 
@@ -755,7 +755,7 @@ AnimateShoreWaves:
 	bit 0, a
 	ret nz
 
-;check_cherrygrove_group
+check_cherrygrove_group
 	; As this animation causes a visual glitch (blinking scanline on sprite that are on the top row of the screen), we deactivate the animation when not required.
 	ld a, [wMapGroup]
 	cp 26 ; CHERRYGROVE
@@ -789,37 +789,35 @@ AnimateShoreWaves:
 .do_animation:
 	ld a, [wTileAnimationTimer]
 	and %1110 ; Every other frame as bit0 is ignored.
-	srl a ; Right shifting, so the animation index increases every frame.
-	swap a ; x16, because a 2bpp tile is 16 bytes (8 * 8 pixels * 2 bits per color).
 
-	ldh [hMultiplicand], a
-	xor a
-	ldh [hMultiplicand + 1], a
-	ldh [hMultiplicand + 2], a
+	ld hl, .ShoreWavesOffsets
+	ld c, a
+	ld b, 0
+	add hl, bc
 
-	ld a, WAVE_TILES_AMOUNT ; There are 12 tiles that need to be animated.
-	ldh [hMultiplier], a
+	ld c, [hl]
+	inc hl
+	ld b, [hl]
 
-	call Multiply
-	ldh a, [hProduct + 1]
-	ld l, a
-	ldh a, [hProduct]
-	ld h, a
+	ld l, c
+	ld h, b
 
-	ld d, 0
-	add hl, de ; "e" comes from the caller function.
-	ld e, l
+	ld b, 0
+	ld c, e ; "e" comes from the caller function.
+	add hl, bc ; Final offset in ShoreWavesFrames.
+
+	ld a, d ; "d" comes from the caller function. We save it in A before DE gets used.
+
+	ld e, l ; Saving the final offset in DE.
 	ld d, h
-
-	ld a, c
 
 	; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
-	
+
 	ld hl, ShoreWavesFrames
-	add hl, de 					; hl = ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+	add hl, de
 
 ; Write the tile graphic from hl (now sp) to tile $03 (now hl)
 	ld sp, hl
@@ -827,6 +825,16 @@ AnimateShoreWaves:
 	ld l, a
 	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
 	jp WriteTileX
+
+.ShoreWavesOffsets:
+	dw 0
+	dw 192
+	dw 384
+	dw 576
+	dw 768
+	dw 960
+	dw 1152
+	dw 1344
 
 ShoreWavesFrames:
 	INCBIN "gfx/tilesets/shore/shore.2bpp"
