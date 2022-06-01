@@ -345,7 +345,7 @@ Route40_MapEvents:
 
 	def_bg_events
 	bg_event 14, 10, BGEVENT_READ, Route40Sign
-	bg_event  7,  8, BGEVENT_ITEM, Route40HiddenHyperPotion
+	bg_event  6,  9, BGEVENT_ITEM, Route40HiddenHyperPotion
 
 	def_object_events
 	object_event 14, 15, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerSwimmermSimon, -1
