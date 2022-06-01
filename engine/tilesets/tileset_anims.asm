@@ -719,9 +719,7 @@ AnimateFlowerTile:
 
 AnimateShoreWaves:
 ; Save the stack pointer in bc for WriteTile to restore
-	ld hl, sp+0
-	ld b, h
-	ld c, l
+	
 
 ; A cycle of 8 frames, updating every other tick
 	ld a, [wTileAnimationTimer]
@@ -742,27 +740,22 @@ AnimateShoreWaves:
 	ld e, a
 	ldh a, [hProduct]
 	ld d, a
+
+	ld hl, sp+0
+	ld b, h
+	ld c, l
 	
-	ld hl, .ShoreWavesFrames
-	add hl, de 					; hl = .ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
+	ld hl, ShoreWavesFrames
+	add hl, de 					; hl = ShoreWavesFrames + (a * 16) * WAVE_TILES_AMOUNT
 
 ; Write the tile graphic from hl (now sp) to tile $03 (now hl)
 	ld sp, hl
 	ld hl, vTiles2 tile $22
-	ld a, 1 * WAVE_TILES_AMOUNT ; Or 8 * 12 - 1 ?
+	ld a, (LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 2) - 1 ; = (16 * 12 / 2) - 1 = 95.
 	jp WriteTileX
 
-.ShoreWavesFrames:
+ShoreWavesFrames:
 	INCBIN "gfx/tilesets/shore/shore.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore0.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore1.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore2.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore3.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore4.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore5.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore6.2bpp"
-;	INCBIN "gfx/tilesets/shore/shore7.2bpp"
-
 
 AnimateHouseTVTile:
 ; Input de points to the destination in VRAM, then the source tile frames
@@ -1013,7 +1006,7 @@ WriteTile:
 	ld sp, hl
 	ret
 
-WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be written in "a", which is a multiple of "(LEN_2BPP_TILE - 2) / 2 = 7" with LEN_2BPP_TILE being 16.
+WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be written in "a", which is a multiple of "LEN_2BPP_TILE / 2" - 1 with LEN_2BPP_TILE being 16.
 ; Write one tile from sp to hl.
 ; The stack pointer has been saved in bc.
 
@@ -1027,13 +1020,27 @@ WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be wr
 	inc hl
 	ld [hl], d
 	
-ld a, 95
 .loop
 	pop de
 	inc hl
 	ld [hl], e
 	inc hl
 	ld [hl], d
+
+	
+
+	ld e, l
+	ld d, h
+
+	ld hl, $FF41 ;-STAT Register
+.wait1:           ; https://elrindel.github.io/specifications-gameboy#accessingvramandoam
+	bit 1, [hl]       ; Wait until Mode is -NOT- 0 or 1
+	jr nz, .wait1    ;/
+	
+	ld l, e
+	ld h, d
+
+
 
 	dec a
 	jr nz, .loop
