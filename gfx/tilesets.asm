@@ -346,3 +346,9 @@ INCBIN "data/tilesets/johto_waves_metatiles.bin"
 
 TilesetJohtoWavesColl::
 INCLUDE "data/tilesets/johto_waves_collision.asm"
+
+
+SECTION "Shore Waves Frames", ROMX
+
+TilesetShoreWavesFrames::
+INCBIN "gfx/tilesets/shore/shore.2bpp"

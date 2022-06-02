@@ -307,16 +307,16 @@ TilesetAerodactylWordRoomAnim:
 
 TilesetJohtoWavesAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
-	dw NULL,  AnimateShoreWaves1OutOf4
-	dw NULL,  AnimateShoreWaves2OutOf4
-	dw NULL,  AnimateShoreWaves3OutOf4
-	dw NULL,  AnimateShoreWaves4OutOf4
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
 	dw WhirlpoolFrames3, AnimateWhirlpoolTile
 	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw NULL,  AnimateShoreWaves
 	dw NULL,  StandingTileFrame
 	dw NULL,  DoneTileAnimation
 
@@ -717,114 +717,40 @@ AnimateFlowerTile:
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
 
-AnimateShoreWaves1OutOf4:
-	ld e, 0 * 16
-
-	ld hl, vTiles2 tile $22
-	ld d, l
-	
-	jr AnimateShoreWaves
-
-AnimateShoreWaves2OutOf4:
-	ld e, 3 * 16
-
-	ld hl, vTiles2 tile $25
-	ld d, l
-	
-	jr AnimateShoreWaves
-
-AnimateShoreWaves3OutOf4:
-	ld e, 6 * 16
-
-	ld hl, vTiles2 tile $28
-	ld d, l
-	
-	jr AnimateShoreWaves
-
-AnimateShoreWaves4OutOf4:
-	ld e, 9 * 16
-	
-	ld hl, vTiles2 tile $2B
-	ld d, l
-	
-	jr AnimateShoreWaves
-
 AnimateShoreWaves:
 	; A cycle of 8 frames, updating every other tick
 	ld a, [wTileAnimationTimer]
 	bit 0, a
 	ret nz
 
-check_cherrygrove_group
-	; As this animation causes a visual glitch (blinking scanline on sprite that are on the top row of the screen), we deactivate the animation when not required.
-	ld a, [wMapGroup]
-	cp 26 ; CHERRYGROVE
-	jr nz, .check_olivine_group
-	ld a, [wMapNumber]
-	cp 3 ; CHERRYGROVE_CITY
-	jr z, .do_animation
-
-.check_olivine_group
-	ld a, [wMapGroup]
-	cp 1 ; OLIVINE
-	jr nz, .check_cianwood_group
-	ld a, [wMapNumber]
-	cp 14 ; OLIVINE_CITY
-	jr z, .do_animation
-
-.check_cianwood_group
-	ld a, [wMapGroup]
-	cp 22 ; CIANWOOD
-	ret nz
-	ld a, [wMapNumber]
-	cp 1 ; ROUTE_40
-	jr z, .do_animation
-	cp 2 ; ROUTE_41
-	jr z, .do_animation
-	cp 3 ; CIANWOOD_CITY
-	jr z, .do_animation
-
-	ret
-
-.do_animation:
-	ld a, [wTileAnimationTimer]
 	and %1110 ; Every other frame as bit0 is ignored.
 
-	ld hl, .ShoreWavesOffsets
 	ld c, a
 	ld b, 0
+	ld hl, .ShoreWavesOffsets
 	add hl, bc
 
-	ld c, [hl]
+	ld e, [hl]
 	inc hl
-	ld b, [hl]
+	ld d, [hl]
 
-	ld l, c
-	ld h, b
-
-	ld b, 0
-	ld c, e ; "e" comes from the caller function.
-	add hl, bc ; Final offset in ShoreWavesFrames.
-
-	ld a, d ; "d" comes from the caller function. We save it in A before DE gets used.
-
-	ld e, l ; Saving the final offset in DE.
-	ld d, h
-
-	; Save the stack pointer in bc for WriteTile to restore
-	ld hl, sp+0
-	ld b, h
-	ld c, l
-
-	ld hl, ShoreWavesFrames
+	ld hl, TilesetShoreWavesFrames
 	add hl, de
 
-; Write the tile graphic from hl (now sp) to tile $03 (now hl)
-	ld sp, hl
-	ld h, $92 ; $92 is the upper byte of the position of the shore waves tiles in the RAM. We're missing a byte in the register to save this upper byte value, so I hardcoded this.
-	ld l, a
-	ld a, LEN_2BPP_TILE * WAVE_TILES_AMOUNT / 8 ; = (16 * 12 / 2) = 96.
-	jp WriteTileX
+	ld a, h
+	ldh [rHDMA1], a ; https://gbdev.io/pandocs/CGB_Registers.html?lcd-vram-dma-transfers#lcd-vram-dma-transfers
+	ld a, l
+	ldh [rHDMA2], a
+
+	ld hl, vTiles2 tile $22
+	ld a, h
+	ldh [rHDMA3], a
+	ld a, l
+	ldh [rHDMA4], a
+
+	ld a, WAVE_TILES_AMOUNT - 1
+	ldh [rHDMA5], a
+	ret
 
 .ShoreWavesOffsets:
 	dw 0
@@ -835,9 +761,6 @@ check_cherrygrove_group
 	dw 960
 	dw 1152
 	dw 1344
-
-ShoreWavesFrames:
-	INCBIN "gfx/tilesets/shore/shore.2bpp"
 
 AnimateHouseTVTile:
 ; Input de points to the destination in VRAM, then the source tile frames
@@ -1078,48 +1001,6 @@ WriteTile:
 	jr nz, .loop
 
 ; Restore the stack pointer from bc
-	ld h, b
-	ld l, c
-	ld sp, hl
-	ret
-
-WriteTileX: ; Same as WriteTile, but you can supply the number of tiles to be written in "a", which is a multiple of "LEN_2BPP_TILE / 2" - 1 with LEN_2BPP_TILE being 16.
-; Write one tile from sp to hl.
-; The stack pointer has been saved in bc.
-
-; This function cannot be called, only jumped to,
-; because it relocates the stack pointer to quickly
-; copy data with a "pop slide".
- 
-	dec hl
-	
-.loop
-	pop de
-	inc hl
-	ld [hl], e
-	inc hl
-	ld [hl], d
-
-	dec a
-	jp z, .end_writing ; This condition discards the last wait, that would have been useless.
-
-	; Wait for VRAM to be writtable.
-	ld e, l
-	ld d, h
-
-	ld hl, $FF41 ;-STAT Register
-.wait1:           ; https://elrindel.github.io/specifications-gameboy#accessingvramandoam
-	bit 1, [hl]       ; Wait until Mode is -NOT- 0 or 1
-	jp nz, .wait1    ;/
-	
-	ld l, e
-	ld h, d
-	; Wait end.
-
-	jp .loop
-
-; Restore the stack pointer from bc
-.end_writing
 	ld h, b
 	ld l, c
 	ld sp, hl
