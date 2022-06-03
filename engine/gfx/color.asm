@@ -1316,6 +1316,292 @@ GetPurpleMaps:
 	scf ; set carry flag.
 	ret
 
+_TimeOfDayPaletteSmoothing::
+; Don't update the palette on DMG
+	ldh a, [hCGB]
+	and a
+	ret z
+
+; Don't update a non-standard palette order
+	ldh a, [rBGP]
+	cp %11100100
+	ret nz
+
+; Update only once every 256 frames (~4,27 seconds).
+	ld a, [wTileAnimationTimer]
+	and a 
+	ret nz
+
+; Update only on outdoor maps.
+
+; Smoothing happens only 8 minutes before a time of day transition.
+	ldh a, [hMinutes]
+	cp 52
+	ret c
+
+; Ready for BGPD input
+	ld b, (1 << rBGPI_AUTO_INCREMENT) palette 0
+	ld a, b
+	ldh [rBGPI], a
+
+	ldh a, [rSVBK]
+	ld [wTimeOfDayPal + 4], a
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+; We get the address of the palette indexes, according to the current time of day.
+	ld hl, EnvironmentColorsPointers
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+
+	ld h, d
+	ld l, e
+
+	; Further refine by time of day
+	ld a, [wTimeOfDayPal]
+	ld a, [wMapTimeOfDay]
+	ld a, [wTimeOfDay]
+	ld a, [wCurTimeOfDay]
+	maskbits NUM_DAYTIMES
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de ; Now hl contains the address of the 8 indexes (1 byte each) of the current time of day palettes.
+
+	push hl ; We save the current palette index.
+
+
+; For each BG palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
+	ld c, 7 * 4 ; 7 palettes * 4 colors.
+.color_loop
+
+	ld a, [hl]
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+	ld a, 8
+	ldh [hMultiplier], a
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld e, a
+	ldh a, [hProduct]
+	ld d, a
+
+	ld hl, TilesetBGPalette
+	add hl, de ; We have the address of the high byte of the first color of the palette.
+
+
+	; We store the ratios of each palette in DE.
+	ldh a, [hMinutes] ; A has a value from 52 to 59.
+	ld d, a
+	ld a, 60
+	sbc d 
+	ld d, a ; D now contains a value between 8 and 1.
+	ld e, d ; Backup of the ratio D.
+
+
+
+	; We split this color on 3 separate bytes then apply their ratio, each color having a value from 0 to 31 * 8 = 248.
+	ld a, [hl]
+	and %11111
+	ld b, a
+	xor a
+
+.red_loop_1
+	add b
+	dec d
+	jr nz, .red_loop_1
+	ld [wTimeOfDayPal + 1], a ; Red.
+
+	ld a, [hl]
+	swap a
+	srl a
+	and %111
+	ld b, a
+
+	inc hl
+	ld a, [hl] ; We get the second (high) byte of the color.
+	and %11
+	swap a
+	srl a
+	add b
+
+	ld b, a
+	xor a
+	ld d, e
+.green_loop_1
+	add b
+	dec d
+	jr nz, .green_loop_1
+	ld [wTimeOfDayPal + 2], a ; Green.
+
+	ld a, [hl]
+	srl a
+	srl a
+	and %11111
+
+	ld b, a
+	xor a
+	ld d, e
+.blue_loop_1
+	add b
+	dec d
+	jr nz, .blue_loop_1
+	ld [wTimeOfDayPal + 3], a ; Blue.
+
+
+
+	ld a, 9
+	sbc e
+	ld e, a ; E now contains the opposite of D, ranging from 1 to 8. This represents the ratio of the next palette.
+
+
+
+
+	pop hl 	; We get back the address of the current time of day palette index.
+	push hl ; We save hl back in the stack.
+
+	; TO DO: use the right shift, as going from night to morning won't work (even though a few players would notice it, unless they play at 3:45 AM).
+	push de
+	ld d, 0
+	ld e, 8
+	add hl, de ; HL now contains the address of the index of the "next time of day" palette.
+
+	ld a, [hl]
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, TilesetBGPalette
+	add hl, de ; We have the address of the high byte of the first color of the palette.
+	pop de 
+
+	; We split this color in 3 separate bytes, apply their ratio, then add it to the previously stored color components.
+	ld a, [hl]
+	and %11111
+
+	ld b, a
+	xor a
+	ld d, e
+.red_loop_2
+	dec d
+	jr z, .end_red_loop_2
+	add b
+	jr .red_loop_2
+.end_red_loop_2
+
+	ld b, a
+	ld a, [wTimeOfDayPal + 1]
+	add b
+	srl a
+	srl a
+	srl a
+	ld [wTimeOfDayPal + 1], a ; This is the final lerped Red color.
+
+	ld a, [hl]
+	swap a
+	srl a
+	and %111
+	ld b, a ; We can afford to edit the value of C as we don't need it anymore.
+
+	inc hl
+	ld a, [hl]
+	and %11
+	swap a
+	srl a
+	add b
+
+	ld b, a
+	xor a
+	ld d, e
+.green_loop_2
+	dec d
+	jr z, .end_green_loop_2
+	add b
+	jr .green_loop_2
+.end_green_loop_2
+
+	ld b, a
+	ld a, [wTimeOfDayPal + 2]
+	add b
+	srl a
+	srl a
+	srl a
+	ld [wTimeOfDayPal + 2], a ; This is the final lerped Green color.
+
+	ld a, [hl]
+	srl a
+	srl a
+	and %11111
+
+	ld b, a
+	xor a
+	ld d, e
+.blue_loop_2
+	dec d
+	jr z, .end_blue_loop_2
+	add b
+	jr .blue_loop_2
+.end_blue_loop_2
+
+	ld b, a
+	ld a, [wTimeOfDayPal + 3]
+	add b
+	srl a
+	srl a
+	srl a
+	ld [wTimeOfDayPal + 3], a ; This is the final lerped Blue color.
+
+	; We now need to concatenate those 3 bytes (with a value ranging from 0 to 31) into 2 bytes.
+	ld a, [wTimeOfDayPal + 1]
+	ld b, a
+
+	ld a, [wTimeOfDayPal + 2]
+	and %111
+	swap a
+	sla a
+	add b
+
+	ldh [rBGPD], a ; Writing the first byte of the color into OAM.
+
+	ld a, [wTimeOfDayPal + 3]
+	sla a
+	sla a
+	ld b, a
+
+	ld a, [wTimeOfDayPal + 2]
+	sla a
+	swap a
+	and %11
+	add b
+
+	ldh [rBGPD], a ; Writing the second byte of the color into OAM.
+
+
+
+	; We can now move on to the next color.
+
+	pop hl 	; We get back the address of the current time of day palette index.
+	inc hl
+	push hl ; We save hl back in the stack.
+
+	dec c
+	jp nz, .color_loop
+
+	pop hl ; Balancing the stack.
+	ld a, 0
+	ld h, a
+	ld l, a
+
+	ld a, [wTimeOfDayPal + 4]
+	ldh [rSVBK], a
+	ret
+
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"
 

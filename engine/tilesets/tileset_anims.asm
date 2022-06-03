@@ -309,8 +309,8 @@ TilesetJohtoWavesAnim:
 	dw vTiles2 tile $14, AnimateWaterTile
 	dw NULL,  WaitTileAnimation
 	dw NULL,  WaitTileAnimation
-	dw NULL,  AnimateWaterPalette
-	dw NULL,  WaitTileAnimation
+	dw NULL,  TimeOfDayPaletteSmoothing
+	dw NULL,  AnimateWaterPalette ; Must come after TimeOfDayPaletteSmoothing, to override the flickering water color.
 	dw NULL,  AnimateFlowerTile
 	dw WhirlpoolFrames1, AnimateWhirlpoolTile
 	dw WhirlpoolFrames2, AnimateWhirlpoolTile
@@ -1068,6 +1068,20 @@ AnimateWaterPalette:
 	pop af
 	ldh [rSVBK], a
 	ret
+
+
+
+
+
+
+TimeOfDayPaletteSmoothing:
+	farcall _TimeOfDayPaletteSmoothing
+	ret
+
+
+
+
+
 
 FlickeringCaveEntrancePalette:
 ; Don't update the palette on DMG

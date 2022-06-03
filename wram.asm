@@ -2862,7 +2862,7 @@ wVariableSprites:: ds $100 - SPRITE_VARS
 wEnteredMapFromContinue:: db
 	ds 2
 wTimeOfDayPal:: db
-	ds 4
+	ds 4 ; used as wTimeOfDayPal + 1.
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
