@@ -305,6 +305,21 @@ TilesetAerodactylWordRoomAnim:
 	dw NULL,  WaitTileAnimation
 	dw NULL,  DoneTileAnimation
 
+TilesetJohtoWavesAnim:
+	dw vTiles2 tile $14, AnimateWaterTile
+	dw NULL,  WaitTileAnimation
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateWaterPalette
+	dw NULL,  WaitTileAnimation
+	dw NULL,  AnimateFlowerTile
+	dw WhirlpoolFrames1, AnimateWhirlpoolTile
+	dw WhirlpoolFrames2, AnimateWhirlpoolTile
+	dw WhirlpoolFrames3, AnimateWhirlpoolTile
+	dw WhirlpoolFrames4, AnimateWhirlpoolTile
+	dw NULL,  AnimateShoreWaves
+	dw NULL,  StandingTileFrame
+	dw NULL,  DoneTileAnimation
+
 DoneTileAnimation:
 ; Reset the animation command loop.
 	xor a
@@ -701,6 +716,52 @@ AnimateFlowerTile:
 	INCBIN "gfx/tilesets/flower/dmg_2.2bpp"
 	INCBIN "gfx/tilesets/flower/cgb_2.2bpp"
 
+
+AnimateShoreWaves:
+	; A cycle of 8 frames, updating every other tick
+	ld a, [wTileAnimationTimer]
+	bit 0, a
+	ret nz
+
+	and %1110 ; Every other frame as bit0 is ignored.
+
+	ld c, a
+	ld b, 0
+	ld hl, .ShoreWavesOffsets
+	add hl, bc
+
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+
+	ld hl, TilesetShoreWavesFrames
+	add hl, de
+
+	ld a, h
+	ldh [rHDMA1], a ; https://gbdev.io/pandocs/CGB_Registers.html?lcd-vram-dma-transfers#lcd-vram-dma-transfers
+	ld a, l
+	ldh [rHDMA2], a
+
+	ld hl, vTiles2 tile $22
+	ld a, h
+	ldh [rHDMA3], a
+	ld a, l
+	ldh [rHDMA4], a
+
+	ld a, WAVE_TILES_AMOUNT - 1
+	ldh [rHDMA5], a
+	ret
+
+.ShoreWavesOffsets:
+	dw 0
+	dw 192
+	dw 384
+	dw 576
+	dw 768
+	dw 960
+	dw 1152
+	dw 1344
+
 AnimateHouseTVTile:
 ; Input de points to the destination in VRAM, then the source tile frames
 
@@ -926,17 +987,18 @@ WriteTile:
 ; because it relocates the stack pointer to quickly
 ; copy data with a "pop slide".
 
+	ld a, LEN_2BPP_TILE / 2
+	dec hl
+
+.loop
 	pop de
+	inc hl
 	ld [hl], e
 	inc hl
 	ld [hl], d
-rept (LEN_2BPP_TILE - 2) / 2
-	pop de
-	inc hl
-	ld [hl], e
-	inc hl
-	ld [hl], d
-endr
+
+	dec a
+	jr nz, .loop
 
 ; Restore the stack pointer from bc
 	ld h, b

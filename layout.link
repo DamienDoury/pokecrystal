@@ -166,6 +166,8 @@ ROMX $3e
 	"bank3E"
 ROMX $3f
 	"bank3F"
+	align 4
+	"Shore Waves Frames"
 ROMX $40
 	"mobile40"
 ROMX $41
