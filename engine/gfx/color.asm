@@ -1371,12 +1371,10 @@ _TimeOfDayPaletteSmoothing::
 	ld d, 0
 	add hl, de ; Now hl contains the address of the 8 indexes (1 byte each) of the current time of day palettes.
 
-	push hl ; We save the current palette index.
-
-
 ; For each BG palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
-	ld c, 7 * 4 ; 7 palettes * 4 colors.
-.color_loop
+	ld c, 7 ; 7 palettes * 4 colors.
+.palette_loop
+	push hl ; We save the current palette index address.
 
 	ld a, [hl]
 	ldh [hMultiplicand], a
@@ -1394,7 +1392,42 @@ _TimeOfDayPaletteSmoothing::
 	ld hl, TilesetBGPalette
 	add hl, de ; We have the address of the high byte of the first color of the palette.
 
+	push bc
+	ld c, 1
+	call SinglePaletteTransition
+	pop bc
+	pop hl
 
+
+
+	; We can now move on to the next palette.
+	inc hl
+
+
+	dec c
+	jp nz, .palette_loop
+
+	ld a, [wTimeOfDayPal + 4]
+	ldh [rSVBK], a
+	ret
+
+
+
+
+
+
+
+
+
+
+
+
+SinglePaletteTransition:
+	; Fades a single palette between its current and its next time of day versions.
+	; hl must contain the address of the first color to fade in TilesetBGPalette (from bg_tiles.pal).
+	; c contains the offset between the 2 palettes to merge. Either 1 to add 64 bytes (morn to day, and day to nite), otherwise it will subtract 128 bytes (nite to morn).
+
+.palette_loop
 	; We store the ratios of each palette in DE.
 	ldh a, [hMinutes] ; A has a value from 52 to 59.
 	ld d, a
@@ -1461,24 +1494,27 @@ _TimeOfDayPaletteSmoothing::
 
 
 
+; We retrieve the offset to the next time of day palette.
+	push hl ; We save hl back in the stack, to retrieve it faster.
 
-	pop hl 	; We get back the address of the current time of day palette index.
-	push hl ; We save hl back in the stack.
-
-	; TO DO: use the right shift, as going from night to morning won't work (even though a few players would notice it, unless they play at 3:45 AM).
 	push de
+	ld a, c
+	cp 1
+	jr z, .add_63_bytes
+;subtract_127_bytes
+	ld e, 127
 	ld d, 0
-	ld e, 8
-	add hl, de ; HL now contains the address of the index of the "next time of day" palette.
+	;sbc hl, bc
+	jr .second_palette
+.add_63_bytes
+	ld e, 63
+	ld d, 0
+	add hl, de
 
-	ld a, [hl]
-	add a
-	add a
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, TilesetBGPalette
-	add hl, de ; We have the address of the high byte of the first color of the palette.
+
+	
+
+.second_palette
 	pop de 
 
 	; We split this color in 3 separate bytes, apply their ratio, then add it to the previously stored color components.
@@ -1584,23 +1620,29 @@ _TimeOfDayPaletteSmoothing::
 
 
 
-	; We can now move on to the next color.
-
+	; We retrieve the address of the first palette, and move it to its next color.
 	pop hl 	; We get back the address of the current time of day palette index.
 	inc hl
-	push hl ; We save hl back in the stack.
 
-	dec c
-	jp nz, .color_loop
 
-	pop hl ; Balancing the stack.
-	ld a, 0
-	ld h, a
-	ld l, a
+	; We leave this loop once we've reached the last color of the current palette.
+	; To check that, we know that the last nibble of the address of the palette must be a multiple of 8 + 1 (4 colors * 2 bytes per palette).
+	; This works with both BG and OBJ palettes.
+	ldh a, [rBGPI] ; AUTO_INCREMENT isn't applied when reading.
+	; Note: at this point, we should check the value of 
+	and $F
+	cp $0
+	ret z
+	cp $8
+	ret z
 
-	ld a, [wTimeOfDayPal + 4]
-	ldh [rSVBK], a
+	; We can now move on to the next color.
+	jp .palette_loop
 	ret
+
+
+
+
 
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"
