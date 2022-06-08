@@ -2860,14 +2860,13 @@ wObjectMasks:: ds NUM_OBJECTS
 wVariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: db
-	ds 2
 wTimeOfDayPal:: db
-	ds 4 ; used as wTimeOfDayPal + 1.
+	ds 6 ; used as wTimeOfDayPal + 1.
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
 
-	ds 1
+wMustRefreshPaletteNow:: db ; Damien
 
 wSecretID:: dw
 wStatusFlags::
@@ -3110,10 +3109,11 @@ wTimerEventStartDay:: db
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
-	ds 2
+wAddressStorage:: dw ; Damien.
 
 wLuckyNumberDayTimer:: dw
-	ds 2
+wLastPaletteTransitionMinute:: db ; Damien.
+	ds 1
 wSpecialPhoneCallID:: db
 	ds 3
 wBugContestStartTime:: ds 4 ; day, hour, min, sec

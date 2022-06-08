@@ -1,0 +1,19 @@
+010172D4 0Player gender (bit 0: 0=M, 1=F)
+01047FDE 01=free, 2=curfew, 4=lockdown
+013DF8DC 0Set covid of 1st active mon.
+0101B6D4 0Change weekday
+010CB7D4 1Change hour
+010034D9 0All badges Johto
+010035D9 0All badges Kanto
+01FFA5DC 0Fly to all cities 1/4
+01FFA6DC 0Fly to all cities 2/4
+01FFA7DC 0Fly to all cities 3/4
+0102D5D0 0Fly without badge
+0100FAC2 0Walk through anything 1
+0100FBC2 0Walk through anything 2
+0100FCC2 0Walk through anything 3
+0100FDC2 0Walk through anything 4
+0100FEC2 0Walk through anything 5
+0139DEDC 0Teach Surf 1st mon 1st move
+01FFA8DC 0Fly to all cities 4/4
+0100B8D4 1Change minute
