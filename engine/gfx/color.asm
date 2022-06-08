@@ -1329,32 +1329,30 @@ GetPurpleMaps:
 
 
 ; Damien
-/*
-Place this function in either:
-[YES] engine/tilesets/timeofday_pals.asm:_TimeOfDayPals::					
-	- called every frame (even when the start menu or a dialog is opened) by home/time_palettes.asm:TimeOfDayPals::.
-
-[YES] engine/gfx/color.asm:LoadMapPals:: 
-	- called when starting the game
-	- entering or leaving a building
-	- called when ending a battle
-	- closing a full screen menu.
-
-Now works correctly with:
-- the bike (select button)
-- battle transition
-- start menu
-- surfing
-- the poison animation
-- talking to NPCs and objects.
-- changing route
-- going out of a building
-- coming out of a battle
-- starting the game
-
-Still not called correctly from: 
-- probably when using warp (not tested).
-*/
+;Place this function in either:
+;[YES] engine/tilesets/timeofday_pals.asm:_TimeOfDayPals::					
+;	- called every frame (even when the start menu or a dialog is opened) by home/time_palettes.asm:TimeOfDayPals::.
+;
+;[YES] engine/gfx/color.asm:LoadMapPals:: 
+;	- called when starting the game
+;	- entering or leaving a building
+;	- called when ending a battle
+;	- closing a full screen menu.
+;
+;Now works correctly with:
+;- the bike (select button)
+;- battle transition
+;- start menu
+;- surfing
+;- the poison animation
+;- talking to NPCs and objects.
+;- changing route
+;- going out of a building
+;- coming out of a battle
+;- starting the game
+;
+;Still not called correctly from: 
+;- probably when using warp (not tested).
 
 ; Returns carry is a palette change has been made.
 _TimeOfDayPaletteSmoothing::
@@ -1414,11 +1412,6 @@ _ForceTimeOfDayPaletteSmoothing::
 	ldh a, [hTempBank]
 	ldh [rSVBK], a
 
-; Ready for BGPD input
-;	ld b, (1 << rBGPI_AUTO_INCREMENT) palette 0
-;	ld a, b
-;	ldh [rBGPI], a
-
 	ld hl, wBGPals1
 	ld a, h
 	ld [wAddressStorage], a
@@ -1477,14 +1470,6 @@ _ForceTimeOfDayPaletteSmoothing::
 
 	push hl ; We save the first palette index address.
 
-	; TODO: Do a special case for Roofs, using RoofPals:.
-;	ld a, d
-;	cp 7 - PAL_BG_ROOF
-;	jr nz, .skip_roof
-;; roof palette
-;	ld hl, 
-;
-;.skip_roof
 	ld a, [hl]
 	call FindPaletteFirstColorOffsetInDE
 	ld hl, TilesetBGPalette
@@ -1503,7 +1488,6 @@ _ForceTimeOfDayPaletteSmoothing::
 	ld b, a ; We have the address of the high byte of the first color of the second palette in BC.
 
 
-
 	call SinglePaletteTransition
 	pop bc
 	pop hl
@@ -1515,6 +1499,8 @@ _ForceTimeOfDayPaletteSmoothing::
 
 	dec d
 	jp nz, .palette_loop
+
+	call RoofPaletteOverride ; Special case for the Roofs.
 
 	pop af
 	ldh [rSVBK], a
@@ -1553,7 +1539,62 @@ FindPaletteFirstColorOffsetInDE:
 	ret
 
 
+RoofPaletteOverride:
+	ld a, [wAddressStorage]
+	ld h, a
+	ld a, [wAddressStorage + 1]
+	ld l, a
+	push hl
 
+rept 6
+	dec hl
+endr
+
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a ; The address contained in wAddressStorage has been decreased by 6 bytes, so we can edit the 2nd color of the previous palette.
+
+	ld a, [wMapGroup]
+	ld a, BANK(wMapGroup)
+	ld hl, wMapGroup
+	call GetFarWRAMByte
+	add a 
+	add a 
+	add a ; wMapGroup multiplied by 8. 26 * 8 = 208, still fits within 1 byte with enough room to create 5 new map groups.
+
+	ld e, a
+	ld d, 0
+
+	ld hl, RoofPals
+	add hl, de ; This is the address of the roof palette within the current map group.
+	ld b, h
+	ld c, l ; We copy hl into bc.
+
+	ld e, 4 ; We prepare the offset of our next addition.
+	ld d, 0
+
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr z, .is_night
+
+	ld a, c
+	add e
+	ld a, b
+	adc d
+	jr .source_determined
+.is_night
+	add hl, de
+
+.source_determined
+	call SinglePaletteTransition
+
+	pop hl
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+	ret
 
 
 
@@ -1745,22 +1786,13 @@ SinglePaletteTransition:
 	add b
 	ld d, a
 
-	; Wait for VRAM to be writtable.
-;	push hl
-;	ld hl, rSTAT ; STAT Register
-;.wait_vram:           ; https://elrindel.github.io/specifications-gameboy#accessingvramandoam
-;	bit 1, [hl]       ; Wait until Mode is -NOT- 0 or 1
-;	jr nz, .wait_vram  
-;	pop hl 
 
-
-	;ldh [rBGPD], a ; Writing the first byte of the color into OAM.
 	ld a, [wAddressStorage]
 	ld b, a
 	ld a, [wAddressStorage + 1]
 	ld c, a
 	ld a, d
-	ld [bc], a
+	ld [bc], a ; Writing the first byte.
 	inc bc
 	ld a, b
 	ld [wAddressStorage], a
@@ -1779,18 +1811,15 @@ SinglePaletteTransition:
 	add b
 	ld d, a
 
-	;ldh [rBGPD], a ; Writing the second byte of the color into OAM.
 	ld a, [wAddressStorage]
 	ld b, a
-	;ld a, [wAddressStorage + 1]
-	;ld c, a
 	ld a, d
-	ld [bc], a
+	ld [bc], a ; Writing the second byte.
 	inc bc
 	ld a, b
 	ld [wAddressStorage], a
 	ld a, c
-	ld [wAddressStorage + 1], a
+	ld [wAddressStorage + 1], a 
 
 
 
@@ -1820,6 +1849,19 @@ SinglePaletteTransition:
 	cp $8
 	jr z, .end_loop
 
+	; For the roof palette, we only need to treat the 2 middle colors of the palette, so we make a special case.
+	ld a, h
+	cp HIGH(RoofPals)
+	jp c, .palette_loop
+	ld a, HIGH(DiplomaPalettes) ; Palettes are separated by at least 256 bytes, so checking the high byte is enough.
+	cp h
+	jp c, .palette_loop
+
+	ld a, [wAddressStorage + 1]
+	and $F
+	cp $6
+	jr z, .end_loop
+
 	; We can now move on to the next color of this palette.
 	jp .palette_loop
 
@@ -1847,6 +1889,12 @@ INCLUDE "gfx/overworld/npc_sprites.pal"
 MapObjectPalsPurple::
 INCLUDE "gfx/overworld/npc_sprites_purple.pal"
 
+BetaPokerPals:
+INCLUDE "gfx/beta_poker/beta_poker.pal"
+
+SlotMachinePals:
+INCLUDE "gfx/slots/slots.pal"
+
 RoofPals:
 	table_width PAL_COLOR_SIZE * 2 * 2, RoofPals
 INCLUDE "gfx/tilesets/roofs.pal"
@@ -1872,9 +1920,3 @@ INCLUDE "gfx/pokegear/pokegear.pal"
 
 FemalePokegearPals:
 INCLUDE "gfx/pokegear/pokegear_f.pal"
-
-BetaPokerPals:
-INCLUDE "gfx/beta_poker/beta_poker.pal"
-
-SlotMachinePals:
-INCLUDE "gfx/slots/slots.pal"
