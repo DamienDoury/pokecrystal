@@ -1401,11 +1401,11 @@ _ForceTimeOfDayPaletteSmoothing::
 	and a
 	jp z, .return_false
 
-; Smoothing happens only 8 minutes before a time of day transition.
+; Smoothing happens only 32 minutes before a time of day transition (31 actually, as the minute 28 (60 - 32) returns the current time of day palette).
 	ldh a, [hMinutes] ; 0 <= hMinutes <= 59.
-	cp 60 ; Note: hMinutes cannot go above 59, unless you cheat by setting wStartMinute above 59.
+	cp 60 ; Note: hMinutes cannot go above 59, unless the player used an action replay cheatcode to set wStartMinute above 59.
 	jp nc, .return_false
-	cp 52
+	cp 28
 	jr nc, .end_checks
 	jp .return_false
 
@@ -1417,6 +1417,7 @@ _ForceTimeOfDayPaletteSmoothing::
 	ld a, BANK(wBGPals1)
 	ldh [rSVBK], a
 
+; #### BG PALETTES #### ;
 	ld hl, wBGPals1
 	ld a, h
 	ld [wAddressStorage], a
@@ -1729,26 +1730,24 @@ SinglePaletteTransition:
 	push bc ; As we will edit B, we want to save the address of the first color byte of the second palette.
 
 	; We store the ratios of each palette in DE.
-	ldh a, [hMinutes] ; A has a value from 52 to 59.
+	ldh a, [hMinutes] ; A has a value from 28 to 59.
 	ld d, a
 	ld a, 60
 	sub d 
-	ld d, a ; D now contains a value between 8 and 1.
+	ld d, a ; D now contains a value between 32 and 1.
 	ld e, d ; Backup of the ratio D.
 
 .palette_loop
 
 ; **** FIRST PALETTE ****
-	; We split this color on 3 separate bytes then apply their ratio, each color having a value from 0 to 31 * 8 = 248.
+	; We split this color on 3 separate bytes then apply their ratio.
 	ld a, [hl]
 	and %11111
-	ld b, a
-	xor a
 
-.red_loop_1
-	add b
-	dec d
-	jr nz, .red_loop_1
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 0], a ; Red.
+	ld a, c
 	ld [wTempColorMixer + 1], a ; Red.
 
 	ld a, [hl]
@@ -1764,13 +1763,10 @@ SinglePaletteTransition:
 	srl a
 	add b
 
-	ld b, a
-	xor a
-	ld d, e
-.green_loop_1
-	add b
-	dec d
-	jr nz, .green_loop_1
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 2], a ; Green.
+	ld a, c
 	ld [wTempColorMixer + 3], a ; Green.
 
 	ld a, [hl]
@@ -1778,20 +1774,17 @@ SinglePaletteTransition:
 	srl a
 	and %11111
 
-	ld b, a
-	xor a
-	ld d, e
-.blue_loop_1
-	add b
-	dec d
-	jr nz, .blue_loop_1
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 4], a ; Blue.
+	ld a, c
 	ld [wTempColorMixer + 5], a ; Blue.
 
 	;TimeOfDayPaletteSwap ; Getting the second palette ready.
 	; Computing the opposite of E.
-	ld a, 9
+	ld a, 33
 	sub e
-	ld e, a ; E now contains the opposite of D, ranging from 1 to 8. This represents the ratio of the next palette.
+	ld e, a ; E now contains the opposite of its previous value, ranging from 1 to 32. This represents the ratio of the next palette.
 
 	; We retrieve the offset to the next time of day palette.
 	pop bc
@@ -1809,23 +1802,9 @@ SinglePaletteTransition:
 	ld a, [hl]
 	and %11111
 
-	ld b, a
-	xor a
-	ld d, e
-.red_loop_2
-	dec d
-	jr z, .end_red_loop_2
-	add b
-	jr .red_loop_2
-.end_red_loop_2
-
-	ld b, a
-	ld a, [wTempColorMixer + 1]
-	add b
-	srl a
-	srl a
-	srl a
-	ld [wTempColorMixer + 1], a ; This is the final lerped Red color.
+	ld b, HIGH(wTempColorMixer + 1)
+	ld c, LOW(wTempColorMixer + 1)
+	call DestinationColorRatio
 
 	ld a, [hl]
 	swap a
@@ -1840,46 +1819,18 @@ SinglePaletteTransition:
 	srl a
 	add b
 
-	ld b, a
-	xor a
-	ld d, e
-.green_loop_2
-	dec d
-	jr z, .end_green_loop_2
-	add b
-	jr .green_loop_2
-.end_green_loop_2
-
-	ld b, a
-	ld a, [wTempColorMixer + 3]
-	add b
-	srl a
-	srl a
-	srl a
-	ld [wTempColorMixer + 3], a ; This is the final lerped Green color.
+	ld b, HIGH(wTempColorMixer + 3)
+	ld c, LOW(wTempColorMixer + 3)
+	call DestinationColorRatio
 
 	ld a, [hl]
 	srl a
 	srl a
 	and %11111
 
-	ld b, a
-	xor a
-	ld d, e
-.blue_loop_2
-	dec d
-	jr z, .end_blue_loop_2
-	add b
-	jr .blue_loop_2
-.end_blue_loop_2
-
-	ld b, a
-	ld a, [wTempColorMixer + 5]
-	add b
-	srl a
-	srl a
-	srl a
-	ld [wTempColorMixer + 5], a ; This is the final lerped Blue color.  
+	ld b, HIGH(wTempColorMixer + 5)
+	ld c, LOW(wTempColorMixer + 5)
+	call DestinationColorRatio
 
 
 ; **** CONCATENATION OF COLORS INTO 2 BYTES ****
@@ -1892,7 +1843,6 @@ SinglePaletteTransition:
 	sla a
 	add b
 	ld d, a
-
 
 	ld a, [wAddressStorage]
 	ld b, a
@@ -1930,13 +1880,11 @@ SinglePaletteTransition:
 
 
 
-
-; We get back the first time of day palette.
-	;TimeOfDayPaletteSwap
+; **** PREPARING FOR THE NEXT LOOP ****
 	; Computing the opposite of E.
-	ld a, 9
+	ld a, 33
 	sub e
-	ld e, a ; E now contains the opposite of D, ranging from 1 to 8. This represents the ratio of the next palette.
+	ld e, a ; E now contains the opposite its previous value, ranging from 32 to 1. This represents the ratio of the first palette.
 	ld d, e
 
 	; We retrieve the offset to the next time of day palette.
@@ -1975,6 +1923,84 @@ SinglePaletteTransition:
 .end_loop
 	pop bc ; Cleaning the stack. Also it returns at the updated addresses in the same order as when entering this function.
 	ret
+
+
+
+
+
+; Multiplies the color A by E, and stores the result in BC.
+; Input: the color in A, and the ratio (multiplier) in E.
+; Output: the multiplied color in BC.
+; Destroys D as well.
+OriginColorMultiplication:
+	ld d, e
+	ld b, 0
+	ld c, 0
+.color_multiplication_loop
+	push af
+	add c
+	ld c, a
+	ld a, b
+	adc 0
+	ld b, a
+	pop af
+	dec d
+	jr nz, .color_multiplication_loop
+	ret
+
+
+
+; Multiplies the color A by E-1, then adds it to the color stored in [BC-1] and [BC] before dividing it by 32, and finally storing it back into [BC-1] and [BC].
+; Input: color in A, ratio (multiplier) in E, address of the low byte of the color to mix it with in BC. Example: if the color is stored in wTempColorMixer + 0 and wTempColorMixer + 1, then BC must be wTempColorMixer + 1.
+; Output: final mixed color in [BC-1] and [BC].
+; Destroys A, BC and D.
+DestinationColorRatio:
+	push hl
+	ld d, e
+	ld h, 0 ; We use hl instead of bc here, because it allows add hl, hl as needed later, which is impossible with bc.
+	ld l, 0
+.color_multiplication_loop
+	dec d
+	jr z, .multiplication_end
+	push af
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	pop af
+	jr .color_multiplication_loop
+.multiplication_end
+
+	ld a, [bc]
+	dec bc
+	add l
+	ld l, a
+
+	ld a, [bc]
+	adc h
+	ld h, a ; HL now contains the undivided color component. It needs to be divided by 32 to be used in a palette.
+
+	; We divide by 32 (2^5).
+	xor a 
+	add hl, hl
+	rla
+	add hl, hl
+	rla
+	add hl, hl
+	rla
+	ld l, h
+	ld h, a
+	ld a, h
+  	ld [bc], a 
+  	inc bc
+  	ld a, l
+  	ld [bc], a 
+	pop hl
+	ret
+
+
+
 
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"
