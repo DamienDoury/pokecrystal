@@ -2861,7 +2861,7 @@ wVariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: db
 wTimeOfDayPal:: db
-	ds 6 ; used as wTimeOfDayPal + 1.
+wTempColorMixer:: ds 6 ; Damien
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db

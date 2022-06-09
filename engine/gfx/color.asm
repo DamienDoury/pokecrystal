@@ -1253,7 +1253,7 @@ LoadMapPals:
 
 .got_bg_pals
 	ld de, MapObjectPals
-	call GetPurpleMaps
+	call DoesCurrentMapUsesPurpleOWSprites
 	jr nc, .normal_sprite_palette
 	ld de, MapObjectPalsPurple
 .normal_sprite_palette:
@@ -1302,13 +1302,19 @@ endr
 	ret
 
 
+; Returns carry if the current map must use the purple palette.
+; Destroys a, bc and hl.
+DoesCurrentMapUsesPurpleOWSprites:
 
-GetPurpleMaps:
-	ld hl, PurpleMapList
-	ld a, [wMapGroup]
+	ld a, BANK(wMapGroup)
+	ld hl, wMapGroup
+	call GetFarWRAMByte
 	ld b, a
-	ld a, [wMapNumber]
+	ld a, BANK(wMapNumber)
+	ld hl, wMapNumber
+	call GetFarWRAMByte
 	ld c, a
+	ld hl, PurpleMapList
 .loop
 	ld a, [hli] ; group
 	and a ; unsets the carry flag.
@@ -1406,11 +1412,9 @@ _ForceTimeOfDayPaletteSmoothing::
 .end_checks
 	ld [wLastPaletteTransitionMinute], a
 
-	ld a, BANK(wBGPals1)
-	ldh [hTempBank], a
 	ldh a, [rSVBK]
 	push af
-	ldh a, [hTempBank]
+	ld a, BANK(wBGPals1)
 	ldh [rSVBK], a
 
 	ld hl, wBGPals1
@@ -1466,7 +1470,7 @@ _ForceTimeOfDayPaletteSmoothing::
 .second_palette_found ; stored in BC.
 ; For each BG palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
 	ld d, 7 ; 7 palettes.
-.palette_loop
+.bg_palette_loop
 	push de ; We save the loop counter.
 
 	push hl ; We save the first palette index address.
@@ -1499,9 +1503,106 @@ _ForceTimeOfDayPaletteSmoothing::
 	inc hl
 
 	dec d
-	jp nz, .palette_loop
+	jp nz, .bg_palette_loop
 
+
+; #### ROOF PALETTES #### ;
 	call RoofPaletteOverride ; Special case for the Roofs.
+
+
+
+
+
+
+
+
+; #### OBJ PALETTES #### ;
+	ld hl, wOBPals1
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+	ld hl, MapObjectPals + 2
+	push hl
+	call DoesCurrentMapUsesPurpleOWSprites
+	pop hl
+	jr nc, .not_purple
+; is purple map.
+	ld hl, MapObjectPalsPurple + 2
+
+.not_purple
+
+	; Further refine by time of day
+	xor a
+	ld a, [wTimeOfDay]
+	rrca
+	rrca ; This instruction and the previous one make a multiplication by 64 of a 1 byte number whose value is between 0 and 3. In only 2 cycles! Try to beat that!
+	ld e, a
+	ld d, 0
+	add hl, de ; Now hl contains the address of the second color of the first sprite palette.
+
+
+	ld b, h ; ld bc, hl
+	ld c, l
+
+	cp NITE_F * 64
+	jr nz, .still_not_night
+; night: equivalent of sub bc, 128
+	ld a, c
+	sub a, 128
+	ld c, a
+	ld a, b
+	sbc a, 0
+	ld b, a
+	jr .second_ob_palette_found
+
+.still_not_night; equivalent of add bc, 64
+	ld a, c
+	add a, 64
+	ld c, a
+	ld a, b
+	adc a, 0
+	ld b, a
+.second_ob_palette_found
+
+; For each OBJ palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
+	ld d, 8 ; 8 palettes.
+.ob_palette_loop
+	push de ; We save the loop counter.
+
+	ld a, [wAddressStorage]
+	ld d, a
+	ld a, [wAddressStorage + 1]
+	ld e, a
+	inc de
+	inc de 
+	ld a, d
+	ld [wAddressStorage], a
+	ld a, e
+	ld [wAddressStorage + 1], a ; Skip the first color of the palette, as it's not used.
+
+	call SinglePaletteTransition
+
+	inc hl
+	inc hl
+	inc bc
+	inc bc ; We skip the first color of the next palette.
+
+	pop de
+	dec d
+	jp nz, .ob_palette_loop
+
+
+
+
+
+
+
+
+
+
+
 
 	pop af
 	ldh [rSVBK], a
@@ -1511,7 +1612,7 @@ _ForceTimeOfDayPaletteSmoothing::
 	and a
 	jr z, .skip_instant_refresh
 
-	call ApplyPals ; Copy everything into wBGPals2 for display on the screen.
+	call ApplyPals ; Copy everything into wBGPals2 and wOBPals2 for display on the screen.
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a ; Turn on the flag that triggers the palette refresh on screen.
 
@@ -1560,7 +1661,6 @@ endr
 	ld a, l
 	ld [wAddressStorage + 1], a ; The address contained in wAddressStorage has been decreased by 6 bytes, so we can edit the 2nd color of the previous palette.
 
-	ld a, [wMapGroup]
 	ld a, BANK(wMapGroup)
 	ld hl, wMapGroup
 	call GetFarWRAMByte
@@ -1585,8 +1685,10 @@ endr
 
 	ld a, c
 	add e
+	ld c, a
 	ld a, b
 	adc d
+	ld b, a
 	jr .source_determined
 .is_night
 	add hl, de
@@ -1647,7 +1749,7 @@ SinglePaletteTransition:
 	add b
 	dec d
 	jr nz, .red_loop_1
-	ld [wTimeOfDayPal + 1], a ; Red.
+	ld [wTempColorMixer + 1], a ; Red.
 
 	ld a, [hl]
 	swap a
@@ -1669,7 +1771,7 @@ SinglePaletteTransition:
 	add b
 	dec d
 	jr nz, .green_loop_1
-	ld [wTimeOfDayPal + 2], a ; Green.
+	ld [wTempColorMixer + 3], a ; Green.
 
 	ld a, [hl]
 	srl a
@@ -1683,7 +1785,7 @@ SinglePaletteTransition:
 	add b
 	dec d
 	jr nz, .blue_loop_1
-	ld [wTimeOfDayPal + 3], a ; Blue.
+	ld [wTempColorMixer + 5], a ; Blue.
 
 	;TimeOfDayPaletteSwap ; Getting the second palette ready.
 	; Computing the opposite of E.
@@ -1718,12 +1820,12 @@ SinglePaletteTransition:
 .end_red_loop_2
 
 	ld b, a
-	ld a, [wTimeOfDayPal + 1]
+	ld a, [wTempColorMixer + 1]
 	add b
 	srl a
 	srl a
 	srl a
-	ld [wTimeOfDayPal + 1], a ; This is the final lerped Red color.
+	ld [wTempColorMixer + 1], a ; This is the final lerped Red color.
 
 	ld a, [hl]
 	swap a
@@ -1749,12 +1851,12 @@ SinglePaletteTransition:
 .end_green_loop_2
 
 	ld b, a
-	ld a, [wTimeOfDayPal + 2]
+	ld a, [wTempColorMixer + 3]
 	add b
 	srl a
 	srl a
 	srl a
-	ld [wTimeOfDayPal + 2], a ; This is the final lerped Green color.
+	ld [wTempColorMixer + 3], a ; This is the final lerped Green color.
 
 	ld a, [hl]
 	srl a
@@ -1772,19 +1874,19 @@ SinglePaletteTransition:
 .end_blue_loop_2
 
 	ld b, a
-	ld a, [wTimeOfDayPal + 3]
+	ld a, [wTempColorMixer + 5]
 	add b
 	srl a
 	srl a
 	srl a
-	ld [wTimeOfDayPal + 3], a ; This is the final lerped Blue color.  
+	ld [wTempColorMixer + 5], a ; This is the final lerped Blue color.  
 
 
 ; **** CONCATENATION OF COLORS INTO 2 BYTES ****
-	ld a, [wTimeOfDayPal + 1]
+	ld a, [wTempColorMixer + 1]
 	ld b, a
 
-	ld a, [wTimeOfDayPal + 2]
+	ld a, [wTempColorMixer + 3]
 	and %111
 	swap a
 	sla a
@@ -1804,12 +1906,12 @@ SinglePaletteTransition:
 	ld a, c
 	ld [wAddressStorage + 1], a
 
-	ld a, [wTimeOfDayPal + 3]
+	ld a, [wTempColorMixer + 5]
 	sla a
 	sla a
 	ld b, a
 
-	ld a, [wTimeOfDayPal + 2]
+	ld a, [wTempColorMixer + 3]
 	sla a
 	swap a
 	and %11
@@ -1871,7 +1973,7 @@ SinglePaletteTransition:
 	jp .palette_loop
 
 .end_loop
-	pop bc ; Cleaning the stack, so it returns at the same address as before entering this function.
+	pop bc ; Cleaning the stack. Also it returns at the updated addresses in the same order as when entering this function.
 	ret
 
 
