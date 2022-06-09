@@ -1252,9 +1252,6 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_bg_pals
-	ld a, FALSE
-	ld [wMustRefreshPaletteNow], a
-	call _ForceTimeOfDayPaletteSmoothing
 	ld de, MapObjectPals
 	call GetPurpleMaps
 	jr nc, .normal_sprite_palette
@@ -1277,6 +1274,11 @@ LoadMapPals:
 	cp ROUTE
 	ret nz
 .outside
+	ld a, FALSE
+	ld [wMustRefreshPaletteNow], a
+	call _ForceTimeOfDayPaletteSmoothing
+	ret c ; If the palette smoothing has been applied, then the roof pal has already been written so we skip the default roof palette.
+
 	ld a, [wMapGroup]
 	ld l, a
 	ld h, 0
@@ -1361,12 +1363,12 @@ _TimeOfDayPaletteSmoothing::
 	ld b, a
 	ldh a, [hMinutes]
 	cp b
-	ret z
+	jp z, _ForceTimeOfDayPaletteSmoothing.return_false
 
 ; Don't update a non-standard palette order
 	ldh a, [rBGP]
 	cp %11100100
-	ret nz
+	jp nz, _ForceTimeOfDayPaletteSmoothing.return_false
 
 	ld a, TRUE
 	ld [wMustRefreshPaletteNow], a
@@ -1376,7 +1378,7 @@ _ForceTimeOfDayPaletteSmoothing::
 ; Update only on outdoor maps.
 	ld a, [wMapTimeOfDay]
 	cp PALETTE_AUTO
-	ret nz
+	jp nz, .return_false
 
 ; Checking that the hour is right before a time of day change.
 	ldh a, [hHours]
@@ -1385,22 +1387,21 @@ _ForceTimeOfDayPaletteSmoothing::
 	cp DAY_HOUR - 1
 	jr z, .hour_is_adequate
 	cp MORN_HOUR - 1
-	ret nz
+	jp nz, .return_false
 .hour_is_adequate
 
 ; Don't update the palette on DMG
 	ldh a, [hCGB]
 	and a
-	ret z
+	jp z, .return_false
 
 ; Smoothing happens only 8 minutes before a time of day transition.
 	ldh a, [hMinutes] ; 0 <= hMinutes <= 59.
 	cp 60 ; Note: hMinutes cannot go above 59, unless you cheat by setting wStartMinute above 59.
-	ret nc
+	jp nc, .return_false
 	cp 52
 	jr nc, .end_checks
-	xor a ; Removing the carry, in order to return the right value.
-	ret
+	jp .return_false
 
 .end_checks
 	ld [wLastPaletteTransitionMinute], a
@@ -1520,6 +1521,10 @@ _ForceTimeOfDayPaletteSmoothing::
 	; TODO: Do a special case for purple map objects from PurpleMapList: using the palette MapObjectPalsPurple:
 	; Don't worry about maps from LoadSpecialMapPalette, as they all are indoor maps.
 	scf
+	ret
+
+.return_false
+	xor a
 	ret
 
 ; Input in A: the ID of the palette.
