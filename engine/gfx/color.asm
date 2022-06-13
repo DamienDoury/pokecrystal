@@ -1648,7 +1648,7 @@ FindPaletteFirstColorOffsetInDE:
 
 RoofPaletteOverride:
 	ld a, [wTimeOfDay]
-	cp MORN_F
+	cp MORN_F ; The Roof palette doesn't change from morn to day.
 	ret z
 
 	ld a, [wAddressStorage]
