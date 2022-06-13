@@ -1647,6 +1647,10 @@ FindPaletteFirstColorOffsetInDE:
 
 
 RoofPaletteOverride:
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	ret z
+
 	ld a, [wAddressStorage]
 	ld h, a
 	ld a, [wAddressStorage + 1]
