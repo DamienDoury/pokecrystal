@@ -111,6 +111,8 @@ Route20_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
+	warp_event 30,  5, SEAFOAM_W1F, 2
+	warp_event 38,  7, SEAFOAM_E1F, 2
 
 	def_coord_events
 

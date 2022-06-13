@@ -154,6 +154,9 @@ ENDM
 	map_const SAFARI_ZONE_FUCHSIA_GATE_BETA,                5,  4 ; 89
 	map_const SAFARI_ZONE_BETA,                            10, 18 ; 90
 	map_const VICTORY_ROAD,                                10, 36 ; 91
+	map_const SEAFOAM_W1F,			                       10, 18 ; 92
+	map_const SEAFOAM_E1F,			                       10, 18 ; 93
+	map_const SEAFOAM_B1F,			                       15,  9 ; 94
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -276,6 +279,7 @@ ENDM
 	map_const ILEX_FOREST_AZALEA_GATE,                      5,  4 ; 22
 	map_const ROUTE_34_ILEX_FOREST_GATE,                    5,  4 ; 23
 	map_const DAY_CARE,                                     5,  4 ; 24
+	map_const GOLDENROD_HOSPITAL_1F,                        9,  6 ; 25
 	endgroup
 
 	newgroup VERMILION                                            ; 12

@@ -657,7 +657,7 @@ GoldenrodCity_MapEvents:
 	warp_event  9,  5, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 8
 	warp_event 11, 29, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 5
 	warp_event 15, 27, GOLDENROD_POKECENTER_1F, 1
-	warp_event 33,  5, GOLDENROD_POKECENTER_1F, 1
+	warp_event 33,  5, GOLDENROD_HOSPITAL_1F, 1
 
 	def_coord_events
 

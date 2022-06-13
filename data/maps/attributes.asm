@@ -694,3 +694,7 @@ ENDM
 	map_attributes Route30BerryHouse, ROUTE_30_BERRY_HOUSE, $00, 0
 	map_attributes MrPokemonsHouse, MR_POKEMONS_HOUSE, $00, 0
 	map_attributes Route31VioletGate, ROUTE_31_VIOLET_GATE, $00, 0
+	map_attributes GoldenrodHospital1F, GOLDENROD_HOSPITAL_1F, $00, 0
+	map_attributes SeafoamW1F, SEAFOAM_W1F, $09, 0
+	map_attributes SeafoamE1F, SEAFOAM_E1F, $09, 0
+	map_attributes SeafoamB1F, SEAFOAM_B1F, $09, 0
