@@ -4,6 +4,9 @@
 	const CHERRYGROVECITY_TEACHER
 	const CHERRYGROVECITY_YOUNGSTER
 	const CHERRYGROVECITY_FISHER
+	const CHERRYGROVECITY_LOCKDOWN_NPC_1
+	const CHERRYGROVECITY_LOCKDOWN_NPC_2
+	const CHERRYGROVECITY_LOCKDOWN_NPC_3
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
@@ -240,6 +243,15 @@ MysticWaterGuy:
 .Exit:
 	closetext
 	end
+
+FirstInLineFirstLockdown:
+	jumptext FirstInLineFirstLockdownText
+
+MysticWaterGuyFirstLockdown:
+	jumptextfaceplayer MysticWaterGuyFirstLockdownText
+
+CooltrainerFirstLockdown:
+	jumptextfaceplayer CooltrainerFirstLockdownText
 
 CherrygroveCitySign:
 	jumptext CherrygroveCitySignText
@@ -561,6 +573,40 @@ MysticWaterGuyTextAfter:
 	line "for me, then."
 	done
 
+FirstInLineFirstLockdownText:
+	text "The declaration of"
+	line "the lockdown got"
+	cont "me hooked…"
+	done
+
+MysticWaterGuyFirstLockdownText:
+	text "I heard the news"
+	line "on the radio while"
+
+	para "fishing, and im-"
+	line "mediately rushed"
+
+	para "here."
+
+	para "I can't believe"
+	line "there is such a"
+	cont "long LINE!"
+
+	para "Get it?"
+	done
+
+CooltrainerFirstLockdownText:
+	text "Some supplies were"
+	line "already rare and"
+
+	para "expensive because"
+	line "of shortages."
+
+	para "After this sudden"
+	line "influx, it's going"
+	cont "to be chaotic…"
+	done
+
 CherrygroveCitySignText:
 	text "CHERRYGROVE CITY"
 
@@ -598,3 +644,6 @@ CherrygroveCity_MapEvents:
 	object_event 27, 12, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CherrygroveTeacherScript, -1
 	object_event 23,  7, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CherrygroveYoungsterScript, -1
 	object_event  7, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuy, -1
+	object_event 23,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FirstInLineFirstLockdown, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 22,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MysticWaterGuyFirstLockdown, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 24,  4, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CooltrainerFirstLockdown, EVENT_LOCKDOWN_JUST_DECLARED

@@ -201,11 +201,9 @@ PowerPlantOfficer1ApproachGymGuide2Movement:
 	step RIGHT
 	step RIGHT
 	step UP
-	step UP
 	step_end
 
 PowerPlantOfficer1ReturnToPostMovement:
-	step DOWN
 	step DOWN
 	step LEFT
 	step LEFT

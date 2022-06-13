@@ -4154,13 +4154,18 @@ BattleCommand_BurnTarget:
 	cp HELD_PREVENT_BURN
 	ret z
 
+	call SafeCheckSafeguard
+	ret nz
+
+	ld a, [wOtherTrainerClass] ; Blaine's Pokémons always burn (and can never be burnt as they all are fire types). Damien.
+	cp BLAINE
+	jr z, .dont_check_fail
+
 	ld a, [wEffectFailed]
 	and a
 	ret nz
 
-	call SafeCheckSafeguard
-	ret nz
-
+.dont_check_fail:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set BRN, [hl]
@@ -4209,28 +4214,50 @@ BattleCommand_FreezeTarget:
 	ld [wNumHits], a
 	call CheckSubstituteOpp
 	ret nz
+
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	and a
 	ret nz
+
 	ld a, [wTypeModifier]
 	and $7f
 	ret z
+
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret z
+
 	ld a, ICE
 	call CheckOpponentType ; Can't freeze an Ice-type
 	ret z
+
 	call GetOpponentItem
 	ld a, b
 	cp HELD_PREVENT_FREEZE
 	ret z
+
+	call SafeCheckSafeguard
+	ret nz
+
+; Damien: in the Ice Path, Ice moves that can freeze (only Powder Snow from Swinub, and maybe Jinx's Ice Punch) do it 100% of the time.
+; Also works on the players moves, so he can freeze the Zubats and Golbats (which are the only Pokémons that aren't Ice type).
+	ld a, [wMapGroup]
+	cp 3; DUNGEONS
+	jr nz, .skip_area_check
+	ld a, [wMapNumber]
+	cp 61 ;ICE_PATH_1F
+	jr c, .skip_area_check
+	cp 66; ICE_PATH_B3F + 1
+	jr nc, .skip_area_check
+	jr .apply_effect ; Skip the fail check if the area is between ICE_PATH_1F and ICE_PATH_B3F (5 areas).
+
+.skip_area_check:
 	ld a, [wEffectFailed]
 	and a
 	ret nz
-	call SafeCheckSafeguard
-	ret nz
+
+.apply_effect:
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVarAddr
 	set FRZ, [hl]

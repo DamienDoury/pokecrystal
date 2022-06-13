@@ -7,6 +7,10 @@
 	const VIOLETCITY_FRUIT_TREE
 	const VIOLETCITY_POKE_BALL1
 	const VIOLETCITY_POKE_BALL2
+	const VIOLETCITY_LOCKDOWN_NPC_1
+	const VIOLETCITY_LOCKDOWN_NPC_2
+	const VIOLETCITY_LOCKDOWN_NPC_3
+	const VIOLETCITY_LOCKDOWN_NPC_4
 
 VioletCity_MapScripts:
 	def_scene_scripts
@@ -78,6 +82,15 @@ VioletCityGrampsScript:
 
 VioletCityYoungsterScript:
 	jumptextfaceplayer VioletCityYoungsterText
+
+LockdownNPC1Script:
+	jumptextfaceplayer LockdownNPC1Text
+
+LockdownNPC3Script:
+	jumptextfaceplayer LockdownNPC3Text
+
+LockdownNPC4Script:
+	jumptextfaceplayer LockdownNPC4Text
 
 VioletCitySign:
 	jumptext VioletCitySignText
@@ -297,6 +310,30 @@ EarlsPokemonAcademySignText:
 	line "ACADEMY"
 	done
 
+LockdownNPC1Text:
+	text "Please go on line"
+	line "and wait for your"
+	cont "turn."
+	done
+
+LockdownNPC3Text:
+	text "I am glad every-"
+	line "one respects the"
+
+	para "queue, they have"
+	line "a good education."
+	done
+
+LockdownNPC4Text:
+	text "This queue is not"
+	line "getting shorter!"
+
+	para "I CAN'T STAND IT!"
+
+	para "I'm going to jump"
+	line "the queue soon!"
+	done
+
 VioletCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -331,3 +368,7 @@ VioletCity_MapEvents:
 	object_event 14, 29, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletCityFruitTree, -1
 	object_event  4,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityPPUp, EVENT_VIOLET_CITY_PP_UP
 	object_event 35,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityRareCandy, EVENT_VIOLET_CITY_RARE_CANDY
+	object_event  9, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LockdownNPC1Script, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event  9, 20, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LockdownNPC1Script, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 11, 20, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LockdownNPC3Script, EVENT_LOCKDOWN_JUST_DECLARED
+	object_event 13, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LockdownNPC4Script, EVENT_LOCKDOWN_JUST_DECLARED

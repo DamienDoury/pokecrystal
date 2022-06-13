@@ -9,6 +9,7 @@ UpdatePalsIfCGB::
 	ldh a, [hCGB]
 	and a
 	ret z
+	; fallthrough
 
 UpdateCGBPals::
 ; return carry if successful

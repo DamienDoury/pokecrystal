@@ -700,6 +700,17 @@ Script_trainerflagaction:
 	ld d, [hl]
 	call GetScriptByte
 	ld b, a
+	
+	; We prevent the police from getting their "beaten" flag ever set, so we can always fight them.
+	cp SET_FLAG
+	jr nz, .after_police_check
+	; Flag should be SET at this point.
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	ret z ; We prevent the flag from being ever set.
+.after_police_check
+	; If it's not the police then we set, check or reset the flag normally.
+
 	call EventFlagAction
 	ld a, c
 	and a
@@ -980,9 +991,10 @@ Script_disappear:
 	call GetScriptByte
 	call GetScriptObject
 	cp LAST_TALKED
-	jr nz, .ok
+	jr nz, Script_disappear_action
+Script_disappear_last_talked::
 	ldh a, [hLastTalked]
-.ok
+Script_disappear_action:
 	call DeleteObjectStruct
 	ldh a, [hMapObjectIndex]
 	ld b, 1 ; set
@@ -1147,6 +1159,19 @@ Script_loadtemptrainer:
 	ld a, (1 << 7) | 1
 	ld [wBattleScriptFlags], a
 	ld a, [wTempTrainerClass]
+	cp OFFICER
+	jr nz, .not_the_police
+
+	ld d, a
+	farcall GetCurrentResearchLevelAtLandmark
+	add d
+	ld [wOtherTrainerClass], a
+	ld a, 1 ; Loading the first trainer, as there is only 1 police trainer per class (with a random team).
+	ld [wOtherTrainerID], a
+
+	ret
+
+.not_the_police
 	ld [wOtherTrainerClass], a
 	ld a, [wTempTrainerID]
 	ld [wOtherTrainerID], a
@@ -2205,10 +2230,6 @@ Script_warpcheck:
 	farcall EnableEvents
 	ret
 
-Script_enableevents: ; unreferenced
-	farcall EnableEvents
-	ret
-
 Script_newloadmap:
 	call GetScriptByte
 	ldh [hMapEntryMethod], a
@@ -2234,9 +2255,6 @@ Script_writeunusedbyte:
 	call GetScriptByte
 	ld [wUnusedScriptByte], a
 	ret
-
-UnusedClosetextScript: ; unreferenced
-	closetext
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2382,11 +2400,6 @@ Script_wait:
 Script_checksave:
 	farcall CheckSave
 	ld a, c
-	ld [wScriptVar], a
-	ret
-
-Script_checkver_duplicate: ; unreferenced
-	ld a, [.gs_version]
 	ld [wScriptVar], a
 	ret
 

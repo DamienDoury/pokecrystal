@@ -366,6 +366,26 @@ PlayMapMusicBike::
 	push bc
 	push af
 
+	; during the rave party, we don't play the bike music!
+	ld a, [wMapGroup]
+	cp 6; CINNABAR
+	jr nz, .skip_rave_party
+	ld a, [wMapNumber]
+	cp 8 ; CINNABAR_ISLAND
+	jr nz, .skip_rave_party
+
+	; check the rave party event flag.
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .skip_rave_party	; false.
+	; true.
+	call PlayMapMusic
+	jr .quit_function
+
+.skip_rave_party
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
 	ld de, MUSIC_BICYCLE
@@ -384,6 +404,7 @@ PlayMapMusicBike::
 	ld [wMapMusic], a
 	call PlayMusic
 
+.quit_function
 	pop af
 	pop bc
 	pop de
@@ -422,6 +443,33 @@ RestartMapMusic::
 	ret
 
 SpecialMapMusic::
+; Rave party music.
+
+	; check the area (must be cinnabar island).
+	ld a, [wMapGroup]
+	cp 6; CINNABAR
+	jr nz, .skip_rave_party
+	ld a, [wMapNumber]
+	cp 8 ; CINNABAR_ISLAND
+	jr z, .further_rave_party_checks
+	cp 4 ; SEAFOAM_GYM
+	jr z, .further_rave_party_checks
+	cp 1 ; CINNABAR_POKECENTER_1F
+	jr z, .further_rave_party_checks
+	cp 2 ; CINNABAR_POKECENTER_2F_BETA
+	jr nz, .skip_rave_party
+	
+.further_rave_party_checks:
+	; check the event flag.
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .skip_rave_party	; false.
+	jr .rave_party 			; true.
+
+.skip_rave_party:
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .surf
@@ -436,8 +484,8 @@ SpecialMapMusic::
 	and a
 	ret
 
-.bike ; unreferenced
-	ld de, MUSIC_BICYCLE
+.rave_party
+	ld de, MUSIC_GAME_CORNER
 	scf
 	ret
 
@@ -465,40 +513,6 @@ GetMapMusic_MaybeSpecial::
 	call SpecialMapMusic
 	ret c
 	call GetMapMusic
-	ret
-
-PlaceBCDNumberSprite:: ; unreferenced
-; Places a BCD number at the upper center of the screen.
-	ld a, 4 * TILE_WIDTH
-	ld [wVirtualOAMSprite38YCoord], a
-	ld [wVirtualOAMSprite39YCoord], a
-	ld a, 10 * TILE_WIDTH
-	ld [wVirtualOAMSprite38XCoord], a
-	ld a, 11 * TILE_WIDTH
-	ld [wVirtualOAMSprite39XCoord], a
-	xor a
-	ld [wVirtualOAMSprite38Attributes], a
-	ld [wVirtualOAMSprite39Attributes], a
-	ld a, [wUnusedBCDNumber]
-	cp 100
-	jr nc, .max
-	add 1
-	daa
-	ld b, a
-	swap a
-	and $f
-	add "0"
-	ld [wVirtualOAMSprite38TileID], a
-	ld a, b
-	and $f
-	add "0"
-	ld [wVirtualOAMSprite39TileID], a
-	ret
-
-.max
-	ld a, "9"
-	ld [wVirtualOAMSprite38TileID], a
-	ld [wVirtualOAMSprite39TileID], a
 	ret
 
 CheckSFX::

@@ -89,41 +89,16 @@ EatathonContestPoster:
 	jumptext EatathonContestPosterText
 
 CeladonCafeTrashcan:
-	checkevent EVENT_FOUND_LEFTOVERS_IN_CELADON_CAFE
-	iftrue .TrashEmpty
-	giveitem LEFTOVERS
-	iffalse .PackFull
-	opentext
-	getitemname STRING_BUFFER_3, LEFTOVERS
-	writetext FoundLeftoversText
-	playsound SFX_ITEM
-	waitsfx
-	itemnotify
-	closetext
-	setevent EVENT_FOUND_LEFTOVERS_IN_CELADON_CAFE
+	jumptext FoundLeftoversText
 	end
-
-.PackFull:
-	opentext
-	getitemname STRING_BUFFER_3, LEFTOVERS
-	writetext FoundLeftoversText
-	promptbutton
-	writetext NoRoomForLeftoversText
-	waitbutton
-	closetext
-	end
-
-.TrashEmpty:
-	jumpstd TrashCanScript
 
 ChefText_Eatathon:
 	text "Hi!"
 
-	para "We're holding an"
-	line "eatathon contest."
+	para "We're full at the"
+	line "moment, please"
+	cont "wait outside."
 
-	para "We can't serve you"
-	line "right now. Sorry."
 	done
 
 Fisher1Text_Snarfle:
@@ -131,10 +106,17 @@ Fisher1Text_Snarfle:
 	done
 
 Fisher1Text_Concentration:
-	text "Don't talk to me!"
+	text "I can't cook so"
+	line "I've been eating"
+	cont "frozen meals dur-"
+	cont "ing the several"
+	cont "months of the"
+	cont "lockdown."
+	
+	para "I've been missing"
+	line "restaurants so"
+	cont "much!"
 
-	para "You'll break my"
-	line "concentration!"
 	done
 
 Fisher2Text_GulpChew:
@@ -142,11 +124,9 @@ Fisher2Text_GulpChew:
 	done
 
 Fisher2Text_Quantity:
-	text "I take quantity"
-	line "over quality!"
-
-	para "I'm happy when I'm"
-	line "full!"
+	text "Don't talk to me,"
+	line "I'm not wearing"
+	cont "a face mask!"
 	done
 
 Fisher3Text_MunchMunch:
@@ -154,10 +134,15 @@ Fisher3Text_MunchMunch:
 	done
 
 Fisher3Text_GoldenrodIsBest:
-	text "The food is good"
-	line "here, but GOLDEN-"
-	cont "ROD has the best"
-	cont "food anywhere."
+	text "I forgot that I"
+	line "lost the sense of"
+	cont "taste and smell…"
+
+	para "This is so"
+	line "frustrating!"
+
+	para "Eating was every-"
+	line "thing to me…"
 	done
 
 TeacherText_CrunchCrunch:
@@ -183,26 +168,68 @@ TeacherText_MoreChef:
 	done
 
 EatathonContestPosterText:
-	text "Eatathon Contest!"
-	line "No time limit!"
+	text "SANITARY RULES:"
 
-	para "A battle without"
-	line "end! The biggest"
+	para "- Wait in the"
+	line "entrance and wait"
+	cont "for your vacci-"
+	cont "nation pass check."
 
-	para "muncher gets it"
-	line "all for free!"
+	para "- Wear your face"
+	line "mask at all times"
+	cont "unless you are"
+	cont "seated."
+
+	para "- Wash your hands"
+	line "when entering."
+
+	para "- Tables have been"
+	line "spaced out. Do"
+	cont "not move them."
+
+	para "- We are allowed"
+	line "a fourth of our"
+	cont "maximum capacity."
+	cont "Sorry for the"
+	cont "inconvenience."
+
+	para "- Leave one seat"
+	line "free between you"
+	cont "and the next"
+	cont "person, and don't"
+	cont "seat in front of"
+	cont "someone else."
+	
+	para "- No paper menu:"
+	line "scan the code with" 
+	cont "your #GEAR to"
+	cont "access the digital"
+	cont "menu."
+
+	para "- After using the"
+	line "toilets, clean"
+	cont "everything with"
+	cont "the provided"
+	cont "cleaning wipes."
+
+	para "- Cash payment"
+	line "prohibited. Only"
+	cont "contactless pay-"
+	cont "ments accepted."
+
 	done
 
 FoundLeftoversText:
 	text "<PLAYER> found"
-	line "@"
-	text_ram wStringBuffer3
-	text "!"
-	done
+	line "NOTHING!"
 
-NoRoomForLeftoversText:
-	text "But <PLAYER> can't"
-	line "hold another item…"
+	para "This trashcan is"
+	line "super duper clean."
+
+	para "This restaurant"
+	line "looks to be very"
+	cont "serious about the"
+	cont "sanitary protocol."
 	done
 
 CeladonCafe_MapEvents:

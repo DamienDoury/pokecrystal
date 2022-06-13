@@ -78,18 +78,23 @@ POKERUS_SYMPTOMS_START EQU 13 ; days. The 13th day is included within the covid 
 FREE_F 				EQU %100000 << FREE
 VACCINE_PASSPORT_F 	EQU %100000 << VACCINE_PASSPORT
 LOCKDOWN_F 			EQU %100000 << LOCKDOWN
-;
-;; Research level. They work as flags, as you may want to make a NPC appear at several levels, but not all, in order to make the landmark diverse.
-;const_def
-;	const RESEARCH_1_F	;0
-;	const RESEARCH_2_F	;1
-;	const RESEARCH_3_F	;2
-;
-;RESEARCH_0  EQU 0
-;RESEARCH_1 	EQU %100000 << RESEARCH_1_F
-;RESEARCH_2 	EQU %100000 << RESEARCH_2_F
-;RESEARCH_3 	EQU %100000 << RESEARCH_3_F
+
+; Research level. They work as flags, as you may want to make a NPC appear at several levels, but not all, in order to make the landmark diverse.
+	const_def
+	const RESEARCH_0	;0
+	const RESEARCH_1	;1
+	const RESEARCH_2	;2
+	const RESEARCH_3	;3
+	const_next 7
+	const RESEARCH_ANY	;7
+
+RESEARCH_0_F   	EQU %00011111
+RESEARCH_1_F 	EQU %00111111
+RESEARCH_2_F 	EQU %01011111
+RESEARCH_3_F 	EQU %01111111
 
 HIDE_FREE				EQU %11011111
 HIDE_VACCINE_PASSPORT	EQU %10111111
 HIDE_LOCKDOWN			EQU %01111111
+
+WAVE_TILES_AMOUNT EQU 12

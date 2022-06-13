@@ -407,7 +407,13 @@ UsedSurfScript:
 
 	callasm .stubbed_fn
 
+	readmem wSurfingPlayerState
+	ifequal PLAYER_SURF_PIKA, .pika_surf
 	setval (PAL_NPC_BLUE << 4) ; Damien.
+	jump .apply_palette
+.pika_surf
+	setval (PAL_NPC_RED << 4) ; Damien.
+.apply_palette
 	special SetPlayerPalette ; The surfing Pikachu will be blue also, it doesn't matter much.
 
 	readmem wSurfingPlayerState
@@ -1642,6 +1648,31 @@ BikeFunction:
 	ld de, Script_GetOnBike_Register
 	call .CheckIfRegistered
 	call QueueScript
+
+
+
+
+	; From here down, the code is about starting the music of the bike.
+	; during the rave party, we don't play the bike music!
+	ld a, [wMapGroup]
+	cp 6; CINNABAR
+	jr nz, .skip_rave_party
+	ld a, [wMapNumber]
+	cp 8 ; CINNABAR_ISLAND
+	jr nz, .skip_rave_party
+
+	; check the rave party event flag.
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .skip_rave_party	; false.
+	jr .quit_function ; true.
+.skip_rave_party:
+
+
+
 	xor a
 	ld [wMusicFade], a
 	ld de, MUSIC_NONE
@@ -1652,6 +1683,8 @@ BikeFunction:
 	ld a, e
 	ld [wMapMusic], a
 	call PlayMusic
+
+.quit_function:
 	ld a, $1
 	ret
 

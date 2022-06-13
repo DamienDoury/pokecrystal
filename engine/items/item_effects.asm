@@ -166,9 +166,9 @@ ItemEffects:
 	dw RestorePPEffect     ; MYSTERYBERRY
 	dw NoEffect            ; DRAGON_SCALE
 	dw NoEffect            ; BERSERK_GENE
-	dw NoEffect            ; ITEM_99
-	dw NoEffect            ; ITEM_9A
-	dw NoEffect            ; ITEM_9B
+	dw NoEffect            ; HELIX_FOSSIL
+	dw NoEffect            ; DOME_FOSSIL
+	dw NoEffect            ; OLD_AMBER
 	dw SacredAshEffect     ; SACRED_ASH
 	dw PokeBallEffect      ; HEAVY_BALL
 	dw NoEffect            ; FLOWER_MAIL
@@ -1043,16 +1043,6 @@ LevelBallMultiplier:
 .max
 	ld b, $ff
 	ret
-
-; BallDodgedText and BallMissedText were used in Gen 1.
-
-BallDodgedText: ; unreferenced
-	text_far _BallDodgedText
-	text_end
-
-BallMissedText: ; unreferenced
-	text_far _BallMissedText
-	text_end
 
 BallBrokeFreeText:
 	text_far _BallBrokeFreeText

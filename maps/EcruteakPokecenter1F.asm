@@ -39,9 +39,6 @@ EcruteakPokecenter1F_MapScripts:
 	opentext
 	writetext EcruteakPokecenter1F_BillText1
 	promptbutton
-	sjump .PointlessJump
-
-.PointlessJump:
 	writetext EcruteakPokecenter1F_BillText2
 	waitbutton
 	closetext
@@ -94,7 +91,6 @@ EcruteakPokecenter1FBillMovement2:
 EcruteakPokecenter1FPlayerMovement1:
 	step UP
 	step UP
-	step UP
 	step_end
 
 EcruteakPokecenter1F_BillText1:
@@ -108,50 +104,34 @@ EcruteakPokecenter1F_BillText1:
 
 EcruteakPokecenter1F_BillText2:
 	text "I just finished"
-	line "adjustments on my"
-	cont "TIME CAPSULE."
+	line "a study on the"
+	cont "PSS, the #MON"
+	cont "Storage System."
 
-	para "You know that"
-	line "#MON can be"
-	cont "traded, right?"
+	para "I analyzed the"
+	line "behaviour of the"
+	cont "virus on stored"
+	cont "#MON."
 
-	para "My TIME CAPSULE"
-	line "was developed to"
+	para "I expected it"
+	line "could be a safe"
+	cont "quanrantine method"
+	cont "for #MON."
 
-	para "enable trades with"
-	line "the past."
+	para "Unfortunately, it"
+	line "is quite the"
+	cont "opposite."
 
-	para "But you can't send"
-	line "anything that"
+	para "It freezes the"
+	line "the virus, making"
+	cont "the infection last"
+	cont "forever inside"
+	cont "the PC…"
 
-	para "didn't exist in"
-	line "the past."
-
-	para "If you did, the PC"
-	line "in the past would"
-	cont "have a breakdown."
-
-	para "So you have to"
-	line "remove anything"
-
-	para "that wasn't around"
-	line "in the past."
-
-	para "Put simply, no"
-	line "sending new moves"
-
-	para "or new #MON in"
-	line "the TIME CAPSULE."
-
-	para "Don't you worry."
-	line "I'm done with the"
-	cont "adjustments."
-
-	para "Tomorrow, TIME"
-	line "CAPSULES will be"
-
-	para "running at all"
-	line "#MON CENTERS."
+	para "The only advantage"
+	line "is that it doesn't"
+	cont "spread inside the"
+	cont "PC."
 
 	para "I have to hurry on"
 	line "back to GOLDENROD"

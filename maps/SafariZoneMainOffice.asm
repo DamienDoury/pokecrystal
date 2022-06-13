@@ -3,6 +3,9 @@ SafariZoneMainOffice_MapScripts:
 
 	def_callbacks
 
+FuchsiaCityMaxElixer:
+	hiddenitem MAX_ELIXER, EVENT_FOUND_FUCHSIA_MAX_ELIXER
+
 SafariZoneMainOffice_MapEvents:
 	db 0, 0 ; filler
 
@@ -13,5 +16,6 @@ SafariZoneMainOffice_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  0,  3, BGEVENT_ITEM, FuchsiaCityMaxElixer
 
 	def_object_events

@@ -109,6 +109,11 @@ SSAquaMetalCoatAndDocking:
 	opentext
 	writetext SSAquaHasArrivedVermilionText
 	waitbutton
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iftrue .skip_power_outage_announcement
+	writetext SSAquaPowerOutageText
+	waitbutton
+.skip_power_outage_announcement:
 	setevent EVENT_FAST_SHIP_HAS_ARRIVED
 	setevent EVENT_FAST_SHIP_FOUND_GIRL
 	closetext
@@ -235,7 +240,7 @@ SSAquaGranddaughterEntersCabinMovement:
 	step_end
 
 SSAquaGrandpaApproachesPlayerMovement:
-	step DOWN
+	turn_head DOWN
 	step_end
 
 SSAquaCaptainExhaustingText:
@@ -460,6 +465,46 @@ SSAquaHasArrivedVermilionText:
 	cont "VERMILION CITY."
 	done
 
+SSAquaPowerOutageText:
+	text "We have a special"
+	line "announcement to"
+	cont "make…"
+
+	para "We've been informed"
+	line "of a massive power"
+	cont "outage in KANTO."
+
+	para "#MON CENTERS"
+	line "are functioning on"
+	cont "emergency power."
+
+	para "Their healing"
+	line "service is not"
+	cont "affected,"
+
+	para "but the PCs are"
+	line "working in a"
+	cont "limited capacity."
+
+	para "No one could tell"
+	line "us when this issue"
+	cont "will be solved."
+
+	para "As your captain,"
+	line "I'm advising you to"
+	cont "use the onboard PC"
+	
+	para "to make sure you"
+	line "have everything"
+	cont "you need before"
+
+	para "you leave the"
+	line "ship."
+
+	para "Have a nice stay"
+	line "in KANTO!"
+	done
+
 FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 	db 0, 0 ; filler
 
@@ -478,7 +523,7 @@ FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:
 
 	def_object_events
 	object_event  3, 25, SPRITE_CAPTAIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SSAquaCaptain, -1
-	object_event  2, 17, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SSAquaGrandpa, EVENT_FAST_SHIP_CABINS_SE_SSE_GENTLEMAN
+	object_event  1, 17, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SSAquaGrandpa, EVENT_FAST_SHIP_CABINS_SE_SSE_GENTLEMAN
 	object_event  3, 17, SPRITE_TWIN, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAquaGranddaughterAfter, EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_1
 	object_event  2, 25, SPRITE_TWIN, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SSAquaGranddaughterBefore, EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_2
 	object_event  5,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 5, TrainerPokefanmColin, EVENT_FAST_SHIP_PASSENGERS_FIRST_TRIP

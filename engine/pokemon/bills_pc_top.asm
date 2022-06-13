@@ -107,6 +107,9 @@ BillsPC_SeeYa:
 	ret
 
 BillsPC_MovePKMNMenu:
+	call IsPCPoweredUp
+	jr nc, .no_power	; If the PC isn't powered up (Kanto's power plant is down), the player can't switch boxes.
+
 	call LoadStandardMenuHeader
 	farcall IsAnyMonHoldingMail
 	jr nc, .no_mail
@@ -123,6 +126,7 @@ BillsPC_MovePKMNMenu:
 
 .quit
 	call CloseWindow
+.no_power
 	and a
 	ret
 
@@ -224,9 +228,48 @@ PCCantTakeText:
 	text_end
 
 BillsPC_ChangeBoxMenu:
+	call IsPCPoweredUp
+	jr nc, .prevent_box_change	; If the PC isn't powered up (Kanto's power plant is down), the player can't switch boxes.
 	farcall _ChangeBox
+.prevent_box_change
 	and a
 	ret
+
+
+IsPCPoweredUp:
+	; Checks the "change box lock" when the power plant is shutdown.
+	push hl
+	ld hl, wVisitedSpawns
+	ld b, CHECK_FLAG
+	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
+	call FlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .allow_box_change	; false, the player hasn't reached Vermilion yet.
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_RESTORED_POWER_TO_KANTO
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr nz, .allow_box_change	; true, the player has saved the power plant.
+
+; Prevent box change.
+	ld hl, .PC404Text
+	call PrintText
+	
+	pop hl
+	xor a	; returns false.
+	ret
+
+.allow_box_change
+	pop hl
+	scf 	; returns true.
+	ret
+
+.PC404Text:
+	text_far _PC404Text
+	text_end
 
 ClearPCItemScreen:
 	call DisableSpriteUpdates
@@ -260,124 +303,3 @@ CopyBoxmonToTempMon:
 	call CopyBytes
 	call CloseSRAM
 	ret
-
-LoadBoxMonListing: ; unreferenced
-	ld a, [wCurBox]
-	cp b
-	jr z, .same_box
-	ld a, b
-	ld hl, .BoxAddresses
-	ld bc, 3
-	call AddNTimes
-	ld a, [hli]
-	push af
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop af
-	jr .okay
-
-.same_box
-	ld a, BANK(sBoxCount)
-	ld hl, sBoxCount
-
-.okay
-	call OpenSRAM
-	ld a, [hl]
-	ld bc, sBoxMons - sBox
-	add hl, bc
-	ld b, a
-	ld c, $0
-	ld de, wBoxPartialData
-	ld a, b
-	and a
-	jr z, .empty_box
-.loop
-	push hl
-	push bc
-	ld a, c
-	ld bc, sBoxMon1Species - sBoxMons
-	add hl, bc
-	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
-	ld a, [hl]
-	ld [de], a
-	inc de
-	ld [wCurSpecies], a
-	call GetBaseData
-	pop bc
-	pop hl
-
-	push hl
-	push bc
-	ld a, c
-	ld bc, sBoxMonNicknames - sBoxMons
-	add hl, bc
-	call SkipNames
-	call CopyBytes
-	pop bc
-	pop hl
-
-	push hl
-	push bc
-	ld a, c
-	ld bc, MON_LEVEL
-	add hl, bc
-	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
-	ld a, [hl]
-	ld [de], a
-	inc de
-	pop bc
-	pop hl
-
-	push hl
-	push bc
-	ld a, c
-	ld bc, MON_DVS
-	add hl, bc
-	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
-	ld a, [hli]
-	and $f0
-	ld b, a
-	ld a, [hl]
-	and $f0
-	swap a
-	or b
-	ld b, a
-	ld a, [wBaseGender]
-	cp b
-	ld a, $1
-	jr c, .okay2
-	xor a
-.okay2
-	ld [de], a
-	inc de
-	pop bc
-	pop hl
-
-	inc c
-	dec b
-	jr nz, .loop
-.empty_box
-	call CloseSRAM
-	ret
-
-.BoxAddresses:
-	table_width 3, LoadBoxMonListing.BoxAddresses
-	dba sBox1
-	dba sBox2
-	dba sBox3
-	dba sBox4
-	dba sBox5
-	dba sBox6
-	dba sBox7
-	dba sBox8
-	dba sBox9
-	dba sBox10
-	dba sBox11
-	dba sBox12
-	dba sBox13
-	dba sBox14
-	assert_table_length NUM_BOXES

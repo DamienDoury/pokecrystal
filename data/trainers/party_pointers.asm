@@ -68,6 +68,9 @@ TrainerGroups:
 	dw RedGroup
 	dw BlueGroup
 	dw OfficerGroup
+	dw SergeantGroup
+	dw JennyGroup
+	dw SwatGroup
 	dw GruntFGroup
 	dw MysticalmanGroup
 	assert_table_length NUM_TRAINER_CLASSES

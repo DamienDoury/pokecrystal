@@ -65,7 +65,7 @@ GoldenrodDeptStoreB1FEther:
 	itemball ETHER
 
 GoldenrodDeptStoreB1FAmuletCoin:
-	itemball AMULET_COIN
+	itemball TOILET_PAPER
 
 GoldenrodDeptStoreB1FBurnHeal:
 	itemball BURN_HEAL

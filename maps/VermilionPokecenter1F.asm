@@ -29,7 +29,11 @@ VermilionPokecenter1FFishingGuruScript:
 	end
 
 VermilionPokecenter1FSailorScript:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iffalse .power_restored
 	jumptextfaceplayer VermilionPokecenter1FSailorText
+.power_restored
+	jumptextfaceplayer VermilionPokecenter1FSailorPowerOutageText
 
 VermilionPokecenter1FBugCatcherScript:
 	jumptextfaceplayer VermilionPokecenter1FBugCatcherText
@@ -63,6 +67,20 @@ VermilionPokecenter1FSailorText:
 
 	para "meet and battle"
 	line "trainers."
+	done
+
+VermilionPokecenter1FSailorPowerOutageText:
+	text "Oh fudge! The PC"
+	line "can't connect to"
+	cont "JOHTO!"
+
+	para "Now I'm stuck here"
+	line "without access to"
+	cont "my #MON…"
+
+	para "I should've"
+	line "listened to"
+	cont "the CAPTAIN!"
 	done
 
 VermilionPokecenter1FBugCatcherText:

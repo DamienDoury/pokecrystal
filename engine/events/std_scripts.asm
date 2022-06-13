@@ -175,7 +175,14 @@ PokecenterNurseScript:
 	iftrue .quick_pokerus_warning
 
 	farwritetext NursePokerusLongTextStart
+	checkevent EVENT_BEAT_ERIKA ; This is when we decide the vaccaination center opens. It may change later though.
+	iffalse .skip_vaccination_talk
+	promptbutton
+	farwritetext NursePokerusRecommendsVaccinationText
+
+.skip_vaccination_talk
 	waitbutton
+
 
 .quick_pokerus_warning
 	farwritetext NursePokerusEssentialText
@@ -630,6 +637,7 @@ InitializeEventsScript:
 	setevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
 	setevent EVENT_BATTLE_TOWER_OUTSIDE_SAILOR
 	setevent EVENT_RED_BEATEN
+	setevent EVENT_REDS_PIKACHU_AVAILABLE
 	setevent EVENT_LOCKDOWN_JUST_DECLARED
 	setevent EVENT_NON_ESSENTIAL_BUILDING
 	setflag ENGINE_ROCKET_SIGNAL_ON_CH20
@@ -656,6 +664,7 @@ InitializeEventsScript:
 	setevent EVENT_SAFFRON_TRAIN_STATION_POPULATION
 	setevent EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	setevent EVENT_INITIALIZED_EVENTS
+	setevent EVENT_BROCK_BACK_IN_GYM
 	endcallback
 
 AskNumber1MScript:

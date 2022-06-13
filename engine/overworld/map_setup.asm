@@ -75,7 +75,7 @@ SuspendMapAnims:
 	ldh [hMapAnims], a
 	ret
 
-LoadMapObjects:
+LoadMapObjects::
 	ld a, MAPCALLBACK_OBJECTS
 	call RunMapCallback
 	farcall LoadObjectMasks

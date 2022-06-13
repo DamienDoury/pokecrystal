@@ -2860,14 +2860,13 @@ wObjectMasks:: ds NUM_OBJECTS
 wVariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: db
-	ds 2
 wTimeOfDayPal:: db
-	ds 4
+wTempColorMixer:: ds 6 ; Damien
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
 
-	ds 1
+wMustRefreshPaletteNow:: db ; Damien
 
 wSecretID:: dw
 wStatusFlags::
@@ -2955,7 +2954,7 @@ wFarfetchdPosition:: db
 ; A lot of those maps are only using a scene ID to launch a scene script, which could be avoided if the engine called a default scene script for maps that do not use a scene ID.
 ; Also, 67 of the original 79 of those bytes are used to store a single bit, which is a lot of wasted WRAM.
 ; We could use flags instead of bytes for those. For example, the engine could differentiate scene IDs that are above a certain value, and read and write a single bit for scene IDs above this value.
-; You can also notice that scenes that more than 2 scene IDs/states never go above 7 different values.
+; You can also notice that scenes with more than 2 scene IDs/states never go above 7 different values.
 ; So we could also squeeze 2 scenes per byte to save 6 more bytes in the WRAM.
 ; In total, by using 2 scenes per byte and flags, we could save 64 bytes of WRAM, not counting the use of a default scene script.
 wPokecenter2FSceneID::                            db
@@ -3110,10 +3109,11 @@ wTimerEventStartDay:: db
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
-	ds 2
+wAddressStorage:: dw ; Damien.
 
 wLuckyNumberDayTimer:: dw
-	ds 2
+wLastPaletteTransitionMinute:: db ; Damien.
+	ds 1
 wSpecialPhoneCallID:: db
 	ds 3
 wBugContestStartTime:: ds 4 ; day, hour, min, sec

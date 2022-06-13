@@ -388,8 +388,26 @@ TrainerClassAttributes:
 
 ; Officer
 	db NO_ITEM, NO_ITEM ; items
-	db 10 ; base reward
+	db 0 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_STATUS
+	dw CONTEXT_USE | SWITCH_OFTEN
+
+; Sergeant
+	db NO_ITEM, NO_ITEM ; items
+	db 0 ; base reward
+	dw AI_BASIC | AI_TYPES | AI_OPPORTUNIST | AI_STATUS
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
+; Jenny
+	db FULL_RESTORE, FULL_RESTORE ; items
+	db 0 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS | AI_RISKY
+	dw CONTEXT_USE | SWITCH_SOMETIMES
+
+; SWAT
+	db FULL_RESTORE, FULL_RESTORE ; items
+	db 0 ; base reward
+	dw AI_BASIC | AI_SETUP | AI_SMART | AI_AGGRESSIVE | AI_OPPORTUNIST | AI_CAUTIOUS | AI_STATUS | AI_RISKY
 	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Gruntf

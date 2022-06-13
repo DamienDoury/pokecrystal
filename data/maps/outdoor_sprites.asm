@@ -698,6 +698,11 @@ CinnabarGroupSprites:
 	; max 9 of 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_COOLTRAINER_M
+	db SPRITE_LASS
+	db SPRITE_BIG_ONIX
+	db SPRITE_BROCK
+	db SPRITE_ROCK
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected
@@ -718,6 +723,8 @@ SaffronGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_SLOWBRO
 	db SPRITE_ROCKET
+	db SPRITE_JENNY
+	db SPRITE_SQUIRTLE
 	db 0 ; end
 
 VermilionGroupSprites:
@@ -760,9 +767,14 @@ FuchsiaGroupSprites:
 	db SPRITE_TEACHER
 	db SPRITE_SUPER_NERD
 	db SPRITE_BIKER
-	; 7 of max 9 walking sprites
+	db SPRITE_SURF
+	; 8 of max 9 walking sprites
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_JASMINE
+	db SPRITE_BOULDER
+	db SPRITE_ROCK
+	db SPRITE_BUG_CATCHER
 	db 0 ; end
 
 IndigoGroupSprites:
@@ -832,6 +844,7 @@ GoldenrodGroupSprites:
 	db SPRITE_COOLTRAINER_F
 	db SPRITE_ROCKET
 	db SPRITE_LASS
+	db SPRITE_JENNY
 	; 7 of max 9 walking sprites
 	db SPRITE_DAY_CARE_MON_1
 	db SPRITE_DAY_CARE_MON_2
@@ -939,6 +952,7 @@ FastShipGroupSprites:
 	db SPRITE_HO_OH
 	db SPRITE_FAIRY
 	db SPRITE_ROCK
+	db SPRITE_SWIMMER_GUY
 	db 0 ; end
 
 CableClubGroupSprites:

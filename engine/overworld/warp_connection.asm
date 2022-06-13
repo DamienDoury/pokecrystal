@@ -330,6 +330,26 @@ RefreshMapSprites:
 	ld [wPlayerSpriteSetupFlags], a
 	ret
 
+RefreshPolice: ; Note: this isn't called after a lost battle.
+	; Always make an officer disappear after a battle. TODO: I should also check that the player has won the battle.
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	ret nz
+	farcall Script_disappear_last_talked
+
+	; Refreshing the map when the wanted level has just increased.
+	ld a, [wCurFreedomState]
+	and %10000000
+	ret z
+	ld a, [wCurFreedomState]
+	and %01111111
+	ld [wCurFreedomState], a ; We reset the leftmost bit. It was only used to pass a message to this function.
+
+	; The following lines reset the map. Along with map_objects_2.asm:CheckObjectFlag, it allows for the update of the police NPCs' sprites.
+	farcall LoadMapAttributes
+	farcall LoadMapObjects
+	ret
+
 CheckMovingOffEdgeOfMap::
 	ld a, [wPlayerStepDirection]
 	cp STANDING

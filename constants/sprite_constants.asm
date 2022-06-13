@@ -69,39 +69,40 @@
 	const SPRITE_BLACK_BELT ; 41
 	const SPRITE_RECEPTIONIST ; 42
 	const SPRITE_OFFICER ; 43
-	const SPRITE_CAL ; 44 unused
-	const SPRITE_SLOWPOKE ; 45
-	const SPRITE_CAPTAIN ; 46
-	const SPRITE_BIG_LAPRAS ; 47
-	const SPRITE_GYM_GUIDE ; 48
-	const SPRITE_SAILOR ; 49
-	const SPRITE_BIKER ; 4a
-	const SPRITE_PHARMACIST ; 4b
-	const SPRITE_MONSTER ; 4c
-	const SPRITE_FAIRY ; 4d
-	const SPRITE_BIRD ; 4e
-	const SPRITE_DRAGON ; 4f
-	const SPRITE_BIG_ONIX ; 50
-	const SPRITE_N64 ; 51
-	const SPRITE_SUDOWOODO ; 52
-	const SPRITE_SURF ; 53
-	const SPRITE_POKE_BALL ; 54
-	const SPRITE_POKEDEX ; 55
-	const SPRITE_PAPER ; 56
-	const SPRITE_VIRTUAL_BOY ; 57
-	const SPRITE_INVISIBLE_WALL ; 58
-	const SPRITE_ROCK ; 59
-	const SPRITE_BOULDER ; 5a
-	const SPRITE_SNES ; 5b
-	const SPRITE_FAMICOM ; 5c
-	const SPRITE_FRUIT_TREE ; 5d
-	const SPRITE_GOLD_TROPHY ; 5e
-	const SPRITE_SILVER_TROPHY ; 5f
-	const SPRITE_KRIS ; 60
-	const SPRITE_KRIS_BIKE ; 61
-	const SPRITE_SUICUNE ; 62
-	const SPRITE_ENTEI ; 63
-	const SPRITE_RAIKOU ; 64
+	const SPRITE_JENNY ; 44
+	const SPRITE_CAL ; 45 unused
+	const SPRITE_SLOWPOKE ; 46
+	const SPRITE_CAPTAIN ; 47
+	const SPRITE_BIG_LAPRAS ; 48
+	const SPRITE_GYM_GUIDE ; 49
+	const SPRITE_SAILOR ; 4a
+	const SPRITE_BIKER ; 4b
+	const SPRITE_PHARMACIST ; 4c
+	const SPRITE_MONSTER ; 4d
+	const SPRITE_FAIRY ; 4e
+	const SPRITE_BIRD ; 4f
+	const SPRITE_DRAGON ; 50
+	const SPRITE_BIG_ONIX ; 51
+	const SPRITE_N64 ; 52
+	const SPRITE_SUDOWOODO ; 53
+	const SPRITE_SURF ; 54
+	const SPRITE_POKE_BALL ; 55
+	const SPRITE_POKEDEX ; 56
+	const SPRITE_PAPER ; 57
+	const SPRITE_VIRTUAL_BOY ; 58
+	const SPRITE_INVISIBLE_WALL ; 59
+	const SPRITE_ROCK ; 5a
+	const SPRITE_BOULDER ; 5b
+	const SPRITE_SNES ; 5c
+	const SPRITE_FAMICOM ; 5d
+	const SPRITE_FRUIT_TREE ; 5e
+	const SPRITE_GOLD_TROPHY ; 5f
+	const SPRITE_SILVER_TROPHY ; 60
+	const SPRITE_KRIS ; 61
+	const SPRITE_KRIS_BIKE ; 62
+	const SPRITE_SUICUNE ; 63
+	const SPRITE_ENTEI ; 64
+	const SPRITE_RAIKOU ; 65
 NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
@@ -167,6 +168,7 @@ SPRITE_POKEMON EQU const_value
 	const SPRITE_AMPHAROS ; b9
 	const SPRITE_SHUCKLE ; ba
 	const SPRITE_SLOWBRO ; bb
+	const SPRITE_DROWZEE ; bc
 NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 
 ; special GetMonSprite values (see engine/overworld/overworld.asm)

@@ -298,12 +298,44 @@ SpriteMovementData::
 	db 0 ; flags2
 	db SWIMMING ; palette flags
 
-	assert_table_length NUM_SPRITEMOVEDATA
+; SPRITEMOVEDATA_PATROL_X
+	db SPRITEMOVEFN_PINGPONG_WALK ; movement function
+	db RIGHT ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db 0 ; palette flags
 
-; unused
-	db SPRITEMOVEFN_00 ; movement function
+; SPRITEMOVEDATA_PATROL_Y
+	db SPRITEMOVEFN_PINGPONG_WALK ; movement function
 	db DOWN ; facing
 	db OBJECT_ACTION_STAND ; action
 	db 0 ; flags1
 	db 0 ; flags2
 	db 0 ; palette flags
+
+; SPRITEMOVEDATA_SWIMPATROL_CIRCLE_LEFT
+	db SPRITEMOVEFN_CIRCLE_WALK ; movement function
+	db LEFT ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db SWIMMING ; palette flags
+
+; SPRITEMOVEDATA_PATROL_CIRCLE_LEFT
+	db SPRITEMOVEFN_CIRCLE_WALK ; movement function
+	db LEFT ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db 0 ; palette flags
+
+; SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT
+	db SPRITEMOVEFN_CIRCLE_WALK ; movement function
+	db RIGHT ; facing
+	db OBJECT_ACTION_STAND ; action
+	db 0 ; flags1
+	db 0 ; flags2
+	db 0 ; palette flags
+
+	assert_table_length NUM_SPRITEMOVEDATA

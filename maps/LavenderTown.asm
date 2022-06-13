@@ -11,6 +11,7 @@ LavenderTown_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
+	setevent EVENT_AMPHY_BURIAL_DONE
 	setflag ENGINE_FLYPOINT_LAVENDER
 	endcallback
 

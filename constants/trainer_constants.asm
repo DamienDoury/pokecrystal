@@ -693,14 +693,23 @@ KRIS EQU __trainer_class__
 	const KEITH
 	const DIRK
 
-	trainerclass GRUNTF ; 42
+	trainerclass SERGEANT ; 42
+	const POLICE_2
+
+	trainerclass JENNY ; 43
+	const POLICE_3
+
+	trainerclass SWAT ; 44
+	const POLICE_4
+
+	trainerclass GRUNTF ; 45
 	const GRUNTF_1
 	const GRUNTF_2
 	const GRUNTF_3
 	const GRUNTF_4
 	const GRUNTF_5
 
-	trainerclass MYSTICALMAN ; 43
+	trainerclass MYSTICALMAN ; 46
 	const EUSINE
 
 NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

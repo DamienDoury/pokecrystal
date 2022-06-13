@@ -553,6 +553,8 @@ StepFunction_FromMovement:
 	dw MovementFunction_SpinCounterclockwise ; 19
 	dw MovementFunction_BoulderDust          ; 1a
 	dw MovementFunction_ShakingGrass         ; 1b
+	dw MovementFunction_PingPongWalk	     ; 1c
+	dw MovementFunction_CircleWalk	     	 ; 1d
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -979,6 +981,90 @@ MovementFunction_ShakingGrass:
 	add hl, bc
 	ld [hl], STEP_TYPE_TRACKING_OBJECT
 	ret
+
+MovementFunction_PingPongWalk: ; Damien.
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl] ; Note: facing direction is right=c; left=8; up=4; down=0. Meaning the last 0 zeros are always blank.
+	rrca
+	rrca
+	call InitStep
+	call CanObjectMoveInDirection
+	jr c, .new_duration
+	call UpdateTallGrassFlags
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STEP
+
+	ld a, $10
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], a
+
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_NPC_WALK
+	ret
+
+.new_duration:
+	; turn back
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl]
+	xor %00000100 ; Alternates the bit 3 between 0 and 1 each call, changing the value between 8 and C (left and right) or between 4 and 0 (up and down) whether the fourth bit is 1 or 0.
+	ld [hl], a
+
+	call EndSpriteMovement
+	call CopyStandingCoordsTileToNextCoordsTile
+
+	ld a, $01
+	jp _SetRandomStepDuration
+
+
+MovementFunction_CircleWalk: ; Damien.
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl] ; Note: facing direction is right=c; left=8; up=4; down=0. Meaning the last 0 zeros are always blank.
+	rrca
+	rrca
+	call InitStep
+	call CanObjectMoveInDirection
+	jr c, .new_duration
+	call UpdateTallGrassFlags
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STEP
+
+	ld a, $10
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], a
+
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_NPC_WALK
+	ret
+
+.new_duration:
+	; turn back
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl]
+	bit 3, a
+	jr nz, .inverse
+	add %00001000
+	jr .save_value
+.inverse
+	xor %00001100 ; 00 -> 10 -> 01 -> 11 (-> 00...) 
+.save_value
+	ld [hl], a
+
+	call EndSpriteMovement
+	call CopyStandingCoordsTileToNextCoordsTile
+
+	ld a, $01
+	jp _SetRandomStepDuration
+
 
 InitMovementField1dField1e:
 	ld hl, OBJECT_RANGE

@@ -1,30 +1,30 @@
 	object_const_def
 	const REDSHOUSE1F_REDS_MOM
+	const REDSHOUSE1F_REDS_MOM_PIKACHU
 
 RedsHouse1F_MapScripts:
 	def_scene_scripts
 	scene_script .DummyScene
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .RedsMomSetupCallback
 
 .DummyScene:
 	end
 
+.RedsMomSetupCallback:
+	disappear REDSHOUSE1F_REDS_MOM
+	checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	iffalse .end
+	appear REDSHOUSE1F_REDS_MOM
+.end:
+	endcallback
+
 RedsMom:
-	faceplayer
-	opentext
-	checkevent EVENT_MET_REDS_MOM
-	iftrue .MetAlready
-	writetext RedsMomText1
-	waitbutton
-	closetext
-	setevent EVENT_MET_REDS_MOM
-	end
-.MetAlready:
-	writetext RedsMomText2
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer RedsMomText1
+
+RedsMomPikachu:
+	jumptextfaceplayer RedsMomSawPikachuText
 
 RedsHouse1FTV:
 	jumptext RedsHouse1FTVText
@@ -50,20 +50,17 @@ RedsMomText1:
 
 	para "he's doing fine,"
 	line "but I do worry"
-	cont "about him."
+	cont "he could get hurt"
+	cont "or sick."
 	done
 
-RedsMomText2:
-	text "I worry about RED"
-	line "getting hurt or"
+RedsMomSawPikachuText:
+	text "My son's PIKACHU"
+	line "came back home."
 
-	para "sick, but he's a"
-	line "boy. I'm proud"
-
-	para "that he is doing"
-	line "what he wants to"
-
-	para "do."
+	para "He looks sick,"
+	line "I'm afraid to"
+	cont "touch him."
 	done
 
 RedsHouse1FTVText:
@@ -88,4 +85,5 @@ RedsHouse1F_MapEvents:
 	bg_event  2,  1, BGEVENT_READ, RedsHouse1FTV
 
 	def_object_events
-	object_event  5,  3, SPRITE_REDS_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsMom, -1
+	object_event  5,  3, SPRITE_REDS_MOM, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsMom, 0
+	object_event  7,  2, SPRITE_REDS_MOM, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsMomPikachu, EVENT_REDS_PIKACHU_AVAILABLE

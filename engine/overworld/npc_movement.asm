@@ -539,6 +539,12 @@ HasObjectReachedMovementLimit:
 	ret
 
 IsObjectMovingOffEdgeOfScreen:
+	ld hl, OBJECT_MOVEMENTTYPE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITEMOVEDATA_PATROL_X ; We allow patrolling NPCs to go out of the map.
+	jr nc, .nope
+
 	ld hl, OBJECT_NEXT_MAP_X
 	add hl, bc
 	ld a, [wXCoord]

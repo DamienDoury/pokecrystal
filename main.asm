@@ -46,6 +46,7 @@ INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/lockdown_wanted.asm"
 INCLUDE "engine/events/gym.asm"
 INCLUDE "engine/battle/automatic_weather.asm"
+INCLUDE "engine/events/reds_pikachu.asm"
 
 
 SECTION "bank4", ROMX

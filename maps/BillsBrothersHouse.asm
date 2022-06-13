@@ -11,7 +11,21 @@ BillsBrotherScript:
 	jumptextfaceplayer BillsBrotherText
 
 BillsBrothersHouseYoungsterScript:
-	jumptextfaceplayer BillsBrothersHouseYoungsterText
+	faceplayer
+	opentext
+	writetext BillsBrothersHouseYoungsterText
+	yesorno
+	iffalse, .end_dialog
+	writetext BillsBrothersHouseYoungsterStoryText
+	waitbutton
+	closetext
+	end
+
+.end_dialog:
+	writetext BillsBrothersHouseYoungsterOkText
+	waitbutton
+	closetext
+	end
 
 BillsBrotherText:
 	text "My grandpa is at "
@@ -20,9 +34,64 @@ BillsBrotherText:
 	done
 
 BillsBrothersHouseYoungsterText:
-	text "I saw these weird,"
-	line "slow #MON on"
-	cont "CYCLING ROAD."
+	text "Can I tell you an"
+	line "interesting story"
+	cont "about the PSS?"
+	done
+
+BillsBrothersHouseYoungsterOkText:
+	text "Then I won't."
+	done
+
+BillsBrothersHouseYoungsterStoryText:
+	text "The PC's local mode"
+	line "is actually the"
+	cont "original version"
+	cont "of the #MON"
+	cont "Storage System,"
+	
+	para "invented by my"
+	line "uncle, BILL."
+
+	para "#MON are stored"
+	line "locally in a PC,"
+	
+	para "and can be trans-"
+	line "ferred through"
+	cont "underground cables"
+	
+	para "that link KANTO's"
+	line "#MON CENTERS"
+	cont "together,"
+
+	para "kinda like old"
+	line "landline phones."
+	
+	para "When wireless"
+	line "technology came"
+	cont "and connected the"
+	cont "world together,"
+
+	para "BILL kept the his-"
+	line "torical version"
+	cont "as a failsafe."
+
+	para "If he hadn't done"
+	line "that, it would"
+	cont "have been chaos"
+	cont "with the POWER"
+	cont "PLANT outage."
+
+	para "New technology is"
+	line "amazing, but more"
+	cont "and more complex."
+	
+	para "When it fails, we"
+	line "are glad to rely"
+	cont "on old tech."
+
+	para "It's a great story,"
+	line "don't you think?"
 	done
 
 BillsBrothersHouse_MapEvents:

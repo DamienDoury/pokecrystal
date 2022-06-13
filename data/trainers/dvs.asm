@@ -36,7 +36,7 @@ TrainerClassDVs:
 	dn  9,  8,  8,  8 ; GENTLEMAN
 	dn  9,  8,  8,  8 ; SKIER
 	dn  6,  8,  8,  8 ; TEACHER
-	dn  7, 13,  8,  7 ; SABRINA
+	dn 15, 15, 15, 15 ; SABRINA
 	dn  9,  8,  8,  8 ; BUG_CATCHER
 	dn  9,  8,  8,  8 ; FISHER
 	dn  9,  8,  8,  8 ; SWIMMERM
@@ -65,8 +65,11 @@ TrainerClassDVs:
 	dn  6,  8, 10,  8 ; TWINS
 	dn  6, 13,  8,  8 ; POKEFANF
 	dn 15, 13, 13, 14 ; RED
-	dn  9, 13, 13, 13 ; BLUE
+	dn 15, 15, 15, 15 ; BLUE
 	dn  9,  8,  8,  8 ; OFFICER
+	dn  9, 10, 10, 10 ; SERGEANT
+	dn 12, 12, 12, 12 ; JENNY
+	dn 15, 15, 15, 15 ; SWAT
 	dn  7, 14, 10,  8 ; GRUNTF
 	dn  9,  8,  8,  8 ; MYSTICALMAN
 	assert_table_length NUM_TRAINER_CLASSES

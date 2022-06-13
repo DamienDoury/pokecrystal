@@ -21,6 +21,7 @@ Route19_MapScripts:
 	changeblock 12,  8, $7a ; rock
 	changeblock  4,  8, $7a ; rock
 	changeblock 10, 10, $7a ; rock
+	changeblock  6,  8, $31 ; sand
 .Done:
 	endcallback
 
@@ -90,6 +91,34 @@ Route19Fisher2Script:
 	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iftrue .RocksCleared
 	writetext Route19Fisher2Text
+	waitbutton
+	closetext
+	cry ONIX
+	
+	
+	showemote EMOTE_SHOCK, ROUTE19_FISHER2, 15 
+	turnobject ROUTE19_FISHER2, DOWN
+	turnobject PLAYER, DOWN
+	pause 10
+
+	playsound SFX_HEADBUTT
+	earthquake 10
+	waitsfx
+	pause 10
+
+	playsound SFX_STOMP
+	earthquake 10
+	waitsfx
+	pause 20
+
+	playsound SFX_STRENGTH
+	earthquake 80
+	waitsfx
+
+	pause 15
+
+	opentext
+	writetext Route19Fisher2SequelText
 	waitbutton
 	closetext
 	end
@@ -204,13 +233,21 @@ Route19Fisher1Text_RocksCleared:
 
 Route19Fisher2Text:
 	text "Who knows how long"
-	line "it would take to"
+	line "it will take to"
 	cont "move this boulder…"
+	done
+
+Route19Fisher2SequelText:
+	text "A few days with"
+	line "that ONIX at work"
+	cont "I would say."
 	done
 
 Route19Fisher2Text_RocksCleared:
 	text "The roadwork is"
-	line "finally finished."
+	line "finally finished"
+	cont "and the workers"
+	cont "went home."
 
 	para "Now I can go"
 	line "fishing again."
@@ -249,5 +286,9 @@ Route19_MapEvents:
 	object_event 13, 28, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermHarold, -1
 	object_event 11, 17, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermJerome, -1
 	object_event  8, 23, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1
-	object_event  9,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
+	object_event  6,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1
+	object_event  9,  7, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  8,  8, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  7,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED

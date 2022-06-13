@@ -13,6 +13,10 @@ UpdateTimeOfDayPal::
 _TimeOfDayPals::
 ; return carry if pals are changed
 
+; needs smooth transition between times of day?
+	farcall _TimeOfDayPaletteSmoothing
+	ret c
+
 ; forced pals?
 	ld hl, wTimeOfDayPalFlags
 	bit 7, [hl]

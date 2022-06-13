@@ -121,7 +121,6 @@ GetFrontpicPointer:
 	call AddNTimes
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -224,7 +223,6 @@ GetMonBackpic:
 	add hl, bc
 	ld a, d
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, d
@@ -242,15 +240,6 @@ GetMonBackpic:
 	call Get2bpp
 	pop af
 	ldh [rSVBK], a
-	ret
-
-FixPicBank:
-; This is a thing for some reason.
-
-PICS_FIX EQU $36
-EXPORT PICS_FIX
-
-	add PICS_FIX
 	ret
 
 GetTrainerPic:
@@ -274,7 +263,6 @@ GetTrainerPic:
 	push de
 	ld a, BANK(TrainerPicPointers)
 	call GetFarByte
-	call FixPicBank
 	push af
 	inc hl
 	ld a, BANK(TrainerPicPointers)

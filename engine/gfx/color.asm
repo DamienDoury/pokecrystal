@@ -1193,7 +1193,7 @@ INCLUDE "data/trainers/palettes.asm"
 
 LoadMapPals:
 	farcall LoadSpecialMapPalette
-	jr c, .got_pals
+	jr c, .got_bg_pals
 
 	; Which palette group is based on whether we're outside or inside
 	ld a, [wEnvironment]
@@ -1206,7 +1206,7 @@ LoadMapPals:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	; Futher refine by time of day
+	; Further refine by time of day
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	add a
@@ -1251,9 +1251,9 @@ LoadMapPals:
 	pop af
 	ldh [rSVBK], a
 
-.got_pals
+.got_bg_pals
 	ld de, MapObjectPals
-	call GetPurpleMaps
+	call DoesCurrentMapUsesPurpleOWSprites
 	jr nc, .normal_sprite_palette
 	ld de, MapObjectPalsPurple
 .normal_sprite_palette:
@@ -1274,6 +1274,11 @@ LoadMapPals:
 	cp ROUTE
 	ret nz
 .outside
+	ld a, FALSE
+	ld [wMustRefreshPaletteNow], a
+	call _ForceTimeOfDayPaletteSmoothing
+	ret c ; If the palette smoothing has been applied, then the roof pal has already been written so we skip the default roof palette.
+
 	ld a, [wMapGroup]
 	ld l, a
 	ld h, 0
@@ -1297,13 +1302,19 @@ endr
 	ret
 
 
+; Returns carry if the current map must use the purple palette.
+; Destroys a, bc and hl.
+DoesCurrentMapUsesPurpleOWSprites:
 
-GetPurpleMaps:
-	ld hl, PurpleMapList
-	ld a, [wMapGroup]
+	ld a, BANK(wMapGroup)
+	ld hl, wMapGroup
+	call GetFarWRAMByte
 	ld b, a
-	ld a, [wMapNumber]
+	ld a, BANK(wMapNumber)
+	ld hl, wMapNumber
+	call GetFarWRAMByte
 	ld c, a
+	ld hl, PurpleMapList
 .loop
 	ld a, [hli] ; group
 	and a ; unsets the carry flag.
@@ -1315,6 +1326,685 @@ GetPurpleMaps:
 	jr nz, .loop
 	scf ; set carry flag.
 	ret
+
+
+
+
+
+
+
+
+
+
+; Damien
+;Place this function in either:
+;[YES] engine/tilesets/timeofday_pals.asm:_TimeOfDayPals::					
+;	- called every frame (even when the start menu or a dialog is opened) by home/time_palettes.asm:TimeOfDayPals::.
+;
+;[YES] engine/gfx/color.asm:LoadMapPals:: 
+;	- called when starting the game
+;	- entering or leaving a building
+;	- called when ending a battle
+;	- closing a full screen menu.
+;
+;Now works correctly with:
+;- the bike (select button)
+;- battle transition
+;- start menu
+;- surfing
+;- the poison animation
+;- talking to NPCs and objects.
+;- changing route
+;- going out of a building
+;- coming out of a battle
+;- starting the game
+;
+;Still not called correctly from: 
+;- probably when using warp (not tested).
+
+; Returns carry is a palette change has been made.
+_TimeOfDayPaletteSmoothing::
+; Update once per minute.
+	ld a, [wLastPaletteTransitionMinute]
+	ld b, a
+	ldh a, [hMinutes]
+	cp b
+	jp z, _ForceTimeOfDayPaletteSmoothing.return_false
+
+; Don't update a non-standard palette order
+	ldh a, [rBGP]
+	cp %11100100
+	jp nz, _ForceTimeOfDayPaletteSmoothing.return_false
+
+	ld a, TRUE
+	ld [wMustRefreshPaletteNow], a
+	; fallthrough
+
+_ForceTimeOfDayPaletteSmoothing::
+; Update only on outdoor maps.
+	ld a, [wMapTimeOfDay]
+	cp PALETTE_AUTO
+	jp nz, .return_false
+
+; Checking that the hour is right before a time of day change.
+	ldh a, [hHours]
+	cp NITE_HOUR - 1
+	jr z, .hour_is_adequate
+	cp DAY_HOUR - 1
+	jr z, .hour_is_adequate
+	cp MORN_HOUR - 1
+	jp nz, .return_false
+.hour_is_adequate
+
+; Don't update the palette on DMG
+	ldh a, [hCGB]
+	and a
+	jp z, .return_false
+
+; Smoothing happens only 32 minutes before a time of day transition (31 actually, as the minute 28 (60 - 32) returns the current time of day palette).
+	ldh a, [hMinutes] ; 0 <= hMinutes <= 59.
+	cp 60 ; Note: hMinutes cannot go above 59, unless the player used an action replay cheatcode to set wStartMinute above 59.
+	jp nc, .return_false
+	cp 28
+	jr nc, .end_checks
+	jp .return_false
+
+.end_checks
+	ld [wLastPaletteTransitionMinute], a
+
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wBGPals1)
+	ldh [rSVBK], a
+
+; #### BG PALETTES #### ;
+	ld hl, wBGPals1
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+; We get the address of the palette indexes, according to the current time of day.
+	ld hl, EnvironmentColorsPointers
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+
+	ld h, d
+	ld l, e
+
+	; Further refine by time of day
+	push hl
+	farcall GetTimeOfDay
+	pop hl
+	ld a, [wTimeOfDay]
+	add a
+	add a
+	add a
+	ld e, a
+	ld d, 0
+	add hl, de ; Now hl contains the address of the 8 indexes (1 byte each) of the current time of day palettes.
+
+
+	ld b, h
+	ld c, l
+
+	cp NITE_F * 8
+	jr nz, .not_night
+; night: equivalent of sub bc, 16
+	ld a, c
+	sub a, 16
+	ld c, a
+	ld a, b
+	sbc a, 0
+	ld b, a
+	jr .second_palette_found
+
+.not_night; equivalent of add bc, 8
+	ld a, c
+	add a, 8
+	ld c, a
+	ld a, b
+	adc a, 0
+	ld b, a
+
+.second_palette_found ; stored in BC.
+; For each BG palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
+	ld d, 7 ; 7 palettes.
+.bg_palette_loop
+	push de ; We save the loop counter.
+
+	push hl ; We save the first palette index address.
+
+	ld a, [hl]
+	call FindPaletteFirstColorOffsetInDE
+	ld hl, TilesetBGPalette
+	add hl, de ; We have the address of the high byte of the first color of the first palette in HL.
+
+	push bc ; We save the second palette index address.
+	ld a, [bc]
+	call FindPaletteFirstColorOffsetInDE
+	ld bc, TilesetBGPalette
+	; equivalent of add bc, de (instruction not available on Game Boy Color).
+	ld a, c
+	add a, e
+	ld c, a
+	ld a, b
+	adc a, d
+	ld b, a ; We have the address of the high byte of the first color of the second palette in BC.
+
+
+	call SinglePaletteTransition
+	pop bc
+	pop hl
+	pop de
+
+	; We can now move on to the next palette.
+	inc bc
+	inc hl
+
+	dec d
+	jp nz, .bg_palette_loop
+
+
+; #### ROOF PALETTES #### ;
+	call RoofPaletteOverride ; Special case for the Roofs.
+
+
+
+
+
+
+
+
+; #### OBJ PALETTES #### ;
+	ld hl, wOBPals1
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+	ld hl, MapObjectPals + 2
+	push hl
+	call DoesCurrentMapUsesPurpleOWSprites
+	pop hl
+	jr nc, .not_purple
+; is purple map.
+	ld hl, MapObjectPalsPurple + 2
+
+.not_purple
+
+	; Further refine by time of day
+	xor a
+	ld a, [wTimeOfDay]
+	rrca
+	rrca ; This instruction and the previous one make a multiplication by 64 of a 1 byte number whose value is between 0 and 3. In only 2 cycles! Try to beat that!
+	ld e, a
+	ld d, 0
+	add hl, de ; Now hl contains the address of the second color of the first sprite palette.
+
+
+	ld b, h ; ld bc, hl
+	ld c, l
+
+	cp NITE_F * 64
+	jr nz, .still_not_night
+; night: equivalent of sub bc, 128
+	ld a, c
+	sub a, 128
+	ld c, a
+	ld a, b
+	sbc a, 0
+	ld b, a
+	jr .second_ob_palette_found
+
+.still_not_night; equivalent of add bc, 64
+	ld a, c
+	add a, 64
+	ld c, a
+	ld a, b
+	adc a, 0
+	ld b, a
+.second_ob_palette_found
+
+; For each OBJ palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
+	ld d, 8 ; 8 palettes.
+.ob_palette_loop
+	push de ; We save the loop counter.
+
+	ld a, [wAddressStorage]
+	ld d, a
+	ld a, [wAddressStorage + 1]
+	ld e, a
+	inc de
+	inc de 
+	ld a, d
+	ld [wAddressStorage], a
+	ld a, e
+	ld [wAddressStorage + 1], a ; Skip the first color of the palette, as it's not used.
+
+	call SinglePaletteTransition
+
+	inc hl
+	inc hl
+	inc bc
+	inc bc ; We skip the first color of the next palette.
+
+	pop de
+	dec d
+	jp nz, .ob_palette_loop
+
+
+
+
+
+
+
+
+
+
+
+
+	pop af
+	ldh [rSVBK], a
+
+	; If the palette fade was triggered naturally by the time (and not forced), we need to apply now.
+	ld a, [wMustRefreshPaletteNow]
+	and a
+	jr z, .skip_instant_refresh
+
+	call ApplyPals ; Copy everything into wBGPals2 and wOBPals2 for display on the screen.
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a ; Turn on the flag that triggers the palette refresh on screen.
+
+.skip_instant_refresh
+
+	; TODO: Do the same for map objects. Or not.
+	; TODO: Do a special case for purple map objects from PurpleMapList: using the palette MapObjectPalsPurple:
+	; Don't worry about maps from LoadSpecialMapPalette, as they all are indoor maps.
+	scf
+	ret
+
+.return_false
+	xor a
+	ret
+
+; Input in A: the ID of the palette.
+; Output in DE: offset from the address of TilesetBGPalette to the address of the first color of the palette ID given in input.
+FindPaletteFirstColorOffsetInDE:
+	ldh [hMultiplicand], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 2], a
+	ld a, 8
+	ldh [hMultiplier], a
+	call Multiply
+	ldh a, [hProduct + 1]
+	ld e, a
+	ldh a, [hProduct]
+	ld d, a
+	ret
+
+
+RoofPaletteOverride:
+	ld a, [wTimeOfDay]
+	cp MORN_F ; The Roof palette doesn't change from morn to day.
+	ret z
+
+	ld a, [wAddressStorage]
+	ld h, a
+	ld a, [wAddressStorage + 1]
+	ld l, a
+	push hl
+
+rept 6
+	dec hl
+endr
+
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a ; The address contained in wAddressStorage has been decreased by 6 bytes, so we can edit the 2nd color of the previous palette.
+
+	ld a, BANK(wMapGroup)
+	ld hl, wMapGroup
+	call GetFarWRAMByte
+	add a 
+	add a 
+	add a ; wMapGroup multiplied by 8. 26 * 8 = 208, still fits within 1 byte with enough room to create 5 new map groups.
+
+	ld e, a
+	ld d, 0
+
+	ld hl, RoofPals
+	add hl, de ; This is the address of the roof palette within the current map group.
+	ld b, h
+	ld c, l ; We copy hl into bc.
+
+	ld e, 4 ; We prepare the offset of our next addition.
+	ld d, 0
+
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr z, .is_night
+
+	ld a, c
+	add e
+	ld c, a
+	ld a, b
+	adc d
+	ld b, a
+	jr .source_determined
+.is_night
+	add hl, de
+
+.source_determined
+	call SinglePaletteTransition
+
+	pop hl
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+	ret
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SinglePaletteTransition:
+	; Fades a single palette between its current and its next time of day versions.
+	; hl must contain the address of the first color of the first palette to fade from (address of a color within bg_tiles.pal).
+	; bc must contain the address of the first color of the second palette to fade to (address of a color within bg_tiles.pal).
+	
+	push bc ; As we will edit B, we want to save the address of the first color byte of the second palette.
+
+	; We store the ratios of each palette in DE.
+	ldh a, [hMinutes] ; A has a value from 28 to 59.
+	ld d, a
+	ld a, 60
+	sub d 
+	ld d, a ; D now contains a value between 32 and 1.
+	ld e, d ; Backup of the ratio D.
+
+.palette_loop
+
+; **** FIRST PALETTE ****
+	; We split this color on 3 separate bytes then apply their ratio.
+	ld a, [hl]
+	and %11111
+
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 0], a ; Red.
+	ld a, c
+	ld [wTempColorMixer + 1], a ; Red.
+
+	ld a, [hl]
+	swap a
+	srl a
+	and %111
+	ld b, a
+
+	inc hl
+	ld a, [hl] ; We get the second (high) byte of the color.
+	and %11
+	swap a
+	srl a
+	add b
+
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 2], a ; Green.
+	ld a, c
+	ld [wTempColorMixer + 3], a ; Green.
+
+	ld a, [hl]
+	srl a
+	srl a
+	and %11111
+
+	call OriginColorMultiplication
+	ld a, b
+	ld [wTempColorMixer + 4], a ; Blue.
+	ld a, c
+	ld [wTempColorMixer + 5], a ; Blue.
+
+	;TimeOfDayPaletteSwap ; Getting the second palette ready.
+	; Computing the opposite of E.
+	ld a, 33
+	sub e
+	ld e, a ; E now contains the opposite of its previous value, ranging from 1 to 32. This represents the ratio of the next palette.
+
+	; We retrieve the offset to the next time of day palette.
+	pop bc
+	inc hl
+	push hl ; We save hl back in the stack, to retrieve it faster.
+	ld h, b
+	ld l, c
+
+
+
+	
+
+; **** SECOND PALETTE ****
+	; We split this color in 3 separate bytes, apply their ratio, then add it to the previously stored color components.
+	ld a, [hl]
+	and %11111
+
+	ld b, HIGH(wTempColorMixer + 1)
+	ld c, LOW(wTempColorMixer + 1)
+	call DestinationColorRatio
+
+	ld a, [hl]
+	swap a
+	srl a
+	and %111
+	ld b, a ; We can afford to edit the value of C as we don't need it anymore.
+
+	inc hl
+	ld a, [hl]
+	and %11
+	swap a
+	srl a
+	add b
+
+	ld b, HIGH(wTempColorMixer + 3)
+	ld c, LOW(wTempColorMixer + 3)
+	call DestinationColorRatio
+
+	ld a, [hl]
+	srl a
+	srl a
+	and %11111
+
+	ld b, HIGH(wTempColorMixer + 5)
+	ld c, LOW(wTempColorMixer + 5)
+	call DestinationColorRatio
+
+
+; **** CONCATENATION OF COLORS INTO 2 BYTES ****
+	ld a, [wTempColorMixer + 1]
+	ld b, a
+
+	ld a, [wTempColorMixer + 3]
+	and %111
+	swap a
+	sla a
+	add b
+	ld d, a
+
+	ld a, [wAddressStorage]
+	ld b, a
+	ld a, [wAddressStorage + 1]
+	ld c, a
+	ld a, d
+	ld [bc], a ; Writing the first byte.
+	inc bc
+	ld a, b
+	ld [wAddressStorage], a
+	ld a, c
+	ld [wAddressStorage + 1], a
+
+	ld a, [wTempColorMixer + 5]
+	sla a
+	sla a
+	ld b, a
+
+	ld a, [wTempColorMixer + 3]
+	sla a
+	swap a
+	and %11
+	add b
+	ld d, a
+
+	ld a, [wAddressStorage]
+	ld b, a
+	ld a, d
+	ld [bc], a ; Writing the second byte.
+	inc bc
+	ld a, b
+	ld [wAddressStorage], a
+	ld a, c
+	ld [wAddressStorage + 1], a 
+
+
+
+; **** PREPARING FOR THE NEXT LOOP ****
+	; Computing the opposite of E.
+	ld a, 33
+	sub e
+	ld e, a ; E now contains the opposite its previous value, ranging from 32 to 1. This represents the ratio of the first palette.
+	ld d, e
+
+	; We retrieve the offset to the next time of day palette.
+	pop bc
+	inc hl
+	push hl ; We save hl back in the stack, to retrieve it faster.
+	ld h, b
+	ld l, c
+
+	; We leave this loop once we've reached the last color of the current palette.
+	; To check that, we know that the last nibble of the address of the palette must be a multiple of 8 (4 colors * 2 bytes per palette).
+	; This works with both BG and OBJ palettes, as those are aligned in WRAM.
+	ld a, [wAddressStorage + 1]
+	and $F
+	cp $0
+	jr z, .end_loop
+	cp $8
+	jr z, .end_loop
+
+	; For the roof palette, we only need to treat the 2 middle colors of the palette, so we make a special case.
+	ld a, h
+	cp HIGH(RoofPals)
+	jp c, .palette_loop
+	ld a, HIGH(DiplomaPalettes) ; Palettes are separated by at least 256 bytes, so checking the high byte is enough.
+	cp h
+	jp c, .palette_loop
+
+	ld a, [wAddressStorage + 1]
+	and $F
+	cp $6
+	jr z, .end_loop
+
+	; We can now move on to the next color of this palette.
+	jp .palette_loop
+
+.end_loop
+	pop bc ; Cleaning the stack. Also it returns at the updated addresses in the same order as when entering this function.
+	ret
+
+
+
+
+
+; Multiplies the color A by E, and stores the result in BC.
+; Input: the color in A, and the ratio (multiplier) in E.
+; Output: the multiplied color in BC.
+; Destroys D as well.
+OriginColorMultiplication:
+	ld d, e
+	ld b, 0
+	ld c, 0
+.color_multiplication_loop
+	push af
+	add c
+	ld c, a
+	ld a, b
+	adc 0
+	ld b, a
+	pop af
+	dec d
+	jr nz, .color_multiplication_loop
+	ret
+
+
+
+; Multiplies the color A by E-1, then adds it to the color stored in [BC-1] and [BC] before dividing it by 32, and finally storing it back into [BC-1] and [BC].
+; Input: color in A, ratio (multiplier) in E, address of the low byte of the color to mix it with in BC. Example: if the color is stored in wTempColorMixer + 0 and wTempColorMixer + 1, then BC must be wTempColorMixer + 1.
+; Output: final mixed color in [BC-1] and [BC].
+; Destroys A, BC and D.
+DestinationColorRatio:
+	push hl
+	ld d, e
+	ld h, 0 ; We use hl instead of bc here, because it allows add hl, hl as needed later, which is impossible with bc.
+	ld l, 0
+.color_multiplication_loop
+	dec d
+	jr z, .multiplication_end
+	push af
+	add l
+	ld l, a
+	ld a, h
+	adc 0
+	ld h, a
+	pop af
+	jr .color_multiplication_loop
+.multiplication_end
+
+	ld a, [bc]
+	dec bc
+	add l
+	ld l, a
+
+	ld a, [bc]
+	adc h
+	ld h, a ; HL now contains the undivided color component. It needs to be divided by 32 to be used in a palette.
+
+	; We divide by 32 (2^5).
+	xor a 
+	add hl, hl
+	rla
+	add hl, hl
+	rla
+	add hl, hl
+	rla
+	ld l, h
+	ld h, a
+	ld a, h
+  	ld [bc], a 
+  	inc bc
+  	ld a, l
+  	ld [bc], a 
+	pop hl
+	ret
+
+
+
 
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"
@@ -1335,6 +2025,12 @@ INCLUDE "gfx/overworld/npc_sprites.pal"
 
 MapObjectPalsPurple::
 INCLUDE "gfx/overworld/npc_sprites_purple.pal"
+
+BetaPokerPals:
+INCLUDE "gfx/beta_poker/beta_poker.pal"
+
+SlotMachinePals:
+INCLUDE "gfx/slots/slots.pal"
 
 RoofPals:
 	table_width PAL_COLOR_SIZE * 2 * 2, RoofPals
@@ -1361,9 +2057,3 @@ INCLUDE "gfx/pokegear/pokegear.pal"
 
 FemalePokegearPals:
 INCLUDE "gfx/pokegear/pokegear_f.pal"
-
-BetaPokerPals:
-INCLUDE "gfx/beta_poker/beta_poker.pal"
-
-SlotMachinePals:
-INCLUDE "gfx/slots/slots.pal"

@@ -84,6 +84,8 @@ VermilionPortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iffalse VermilionPortNoPowerScript 
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -141,11 +143,26 @@ VermilionPortNotRidingMoveAwayScript:
 	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
 	end
 
+VermilionPortNoPowerNoMoveScript:
+	writetext VermilionPortPowerOutageText
+	waitbutton
+	closetext
+	end
+
+VermilionPortNoPowerScript:
+	writetext VermilionPortPowerOutageText
+	waitbutton
+	closetext
+	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
+	end
+
 VermilionPortSailorScript:
 	faceplayer
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue VermilionPortAlreadyRodeScript
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iffalse VermilionPortNoPowerNoMoveScript ; This counter-intuitive check means the opposite: the power hasn't been restored if the flag is set/true.
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -163,7 +180,8 @@ VermilionPortSailorScript:
 	waitbutton
 	closetext
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	applymovement PLAYER, VermilionPortApproachFastShipRightMovement
+	applymovement PLAYER, VermilionPortApproachFastShipLeftMovement
+	applymovement PLAYER, VermilionPortApproachFastShipMovement
 	sjump VermilionPortSailorAtGangwayScript
 
 .NoTicket:
@@ -197,9 +215,11 @@ VermilionPortHiddenIron:
 
 VermilionPortEnterFastShipMovement:
 	step DOWN
+	step DOWN
 	step_end
 
 VermilionPortLeaveFastShipMovement:
+	step UP
 	step UP
 	step_end
 
@@ -213,17 +233,10 @@ VermilionPortApproachFastShipMovement:
 	step DOWN
 	step DOWN
 	step DOWN
-	step DOWN
 	step_end
 
-VermilionPortApproachFastShipRightMovement:
-	step RIGHT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
+VermilionPortApproachFastShipLeftMovement:
+	step LEFT
 	step_end
 
 VermilionPortDepartingText:
@@ -294,6 +307,20 @@ VermilionPortSuperNerdText:
 	para "I hear many rare"
 	line "#MON live over"
 	cont "there."
+	done
+
+VermilionPortPowerOutageText:
+	text "Because of the"
+	line "power outage, the"
+	cont "signaling system"
+	cont "of the port is"
+	cont "down."
+
+	para "No boat can enter"
+	line "or leave the port."
+
+	para "Sorry for the"
+	line "inconvenience."
 	done
 
 VermilionPort_MapEvents:

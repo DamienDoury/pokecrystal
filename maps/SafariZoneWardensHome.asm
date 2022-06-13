@@ -1,5 +1,6 @@
 	object_const_def
 	const SAFARIZONEWARDENSHOME_LASS
+	const SAFARIZONEWARDENSHOME_NEIGHBOR
 
 SafariZoneWardensHome_MapScripts:
 	def_scene_scripts
@@ -21,6 +22,9 @@ WardensGranddaughter:
 	waitbutton
 	closetext
 	end
+
+WardensNeighbor:
+	jumptextfaceplayer WardenNeighborText
 
 WardenPhoto:
 	jumptext WardenPhotoText
@@ -58,6 +62,25 @@ WardensGranddaughterText2:
 	cont "is so stubborn…"
 	done
 
+WardenNeighborText:
+	text "I used to live"
+	line "next door, but"
+
+	para "the eruption des-"
+	line "troyed part of my"
+	cont "house."
+
+	para "This young lady is"
+	line "letting me live"
+	cont "in her grandpa's" 
+	
+	para "bedroom until"
+	line "my house gets"
+	cont "repaired."
+
+	para "Nice, hey!"
+	done
+
 WardenPhotoText:
 	text "It's a photo of a"
 	line "grinning old man"
@@ -91,3 +114,4 @@ SafariZoneWardensHome_MapEvents:
 
 	def_object_events
 	object_event  2,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensGranddaughter, -1
+	object_event  8,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensNeighbor, -1

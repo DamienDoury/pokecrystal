@@ -91,6 +91,31 @@ endc
 
 	ret
 
+GetRandomPoliceName::
+	ld c, BATTLETOWER_NUM_UNIQUE_TRAINERS
+	ld a, [wCurLandmark] ; Hash of the landmark, coord of the NPC, and research level, so the ID returned is random but always the same value for the same trainer.
+	call SimpleDivide    ; Divide a by c. Return quotient b and remainder a.
+	ld b, a
+	ld c, 16
+	ld a, [wCurWantedLevel]
+	call SimpleMultiply  ; Return a * c.
+	add b
+	ld b, a
+	ldh a, [hLastTalked]
+	add b
+	ld c, BATTLETOWER_NUM_UNIQUE_TRAINERS
+	call SimpleDivide
+
+	ld c, NAME_LENGTH
+	ld b, 0
+	ld hl, BattleTowerTrainers
+	call AddNTimes ; Add bc * a to hl.
+
+	ld de, wStringBuffer1
+	ld bc, NAME_LENGTH
+	call CopyBytes
+	ret
+
 LoadRandomBattleTowerMon:
 	ld c, BATTLETOWER_PARTY_LENGTH
 .loop
