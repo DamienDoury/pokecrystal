@@ -770,7 +770,7 @@ TVShow:
 	para "Her close friend"
 	line "Lorelei decided"
 	cont "to quit Elite 4"
-	cont "as a result."
+	cont "as a result.”"
 	cont "- reports #MON"
 	cont "League."
 	done
