@@ -309,17 +309,14 @@ ElmsLabHealingMachine:
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleHandWash
 	writetext WashHandsMaleText
-	promptbutton
-	closetext
 	sjump .HealEnd
 
 .FemaleHandWash:
 	writetext WashHandsFemaleText
-	promptbutton
-	closetext
-	sjump .HealEnd
 
 .HealEnd:
+	promptbutton
+	closetext
 	playsound SFX_2_BOOPS
 	pause 30
 	opentext
@@ -1045,16 +1042,12 @@ ElmPokeBallText:
 	done
 
 WashHandsMaleText:
-	text "<PLAYER> washes his"
-	line "hands with some"
-	cont "hand sanitizer."
-	done
+	text_far _PlayersPCSanitizerText
+	text_end
 
 WashHandsFemaleText:
-	text "<PLAYER> washes her"
-	line "hands with some"
-	cont "hand sanitizer."
-	done
+	text_far _PlayersPCSanitizerFemaleText
+	text_end
 
 ElmsLabHealingMachineText1:
 	text "I wonder what this"
