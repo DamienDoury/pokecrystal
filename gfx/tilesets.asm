@@ -352,3 +352,12 @@ SECTION "Shore Waves Frames", ROMX
 
 TilesetShoreWavesFrames::
 INCBIN "gfx/tilesets/shore/shore.2bpp"
+
+TilesetHospitalGFX::
+INCBIN "gfx/tilesets/hospital.2bpp.lz"
+
+TilesetHospitalMeta::
+INCBIN "data/tilesets/hospital_metatiles.bin"
+
+TilesetHospitalColl::
+INCLUDE "data/tilesets/hospital_collision.asm"

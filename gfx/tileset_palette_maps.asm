@@ -110,3 +110,6 @@ INCLUDE "gfx/tilesets/battle_tower_outside_palette_map.asm"
 
 TilesetJohtoWavesPalMap:
 INCLUDE "gfx/tilesets/johto_waves_palette_map.asm"
+
+TilesetHospitalPalMap:
+INCLUDE "gfx/tilesets/hospital_palette_map.asm"
