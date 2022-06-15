@@ -245,6 +245,8 @@ ListMovePP:
 	ld a, [wListMovesLineSpacing]
 	ld e, a
 	ld d, 0
+	cp SCREEN_WIDTH
+	jr z, .skip
 	ld a, $3e ; P
 	call .load_loop
 	ld a, b

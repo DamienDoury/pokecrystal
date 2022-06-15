@@ -580,8 +580,12 @@ LoadPinkPage:
 	predef DrawPlayerHP
 	hlcoord 8, 9
 	ld [hl], $41 ; right HP/exp bar end cap
-	ld de, .Status_Type
+	ld de, .Status
 	hlcoord 0, 12
+	call PlaceString
+
+	ld de, .Type
+	hlcoord 0, 15
 	call PlaceString
 
 
@@ -688,8 +692,118 @@ LoadPinkPage:
 	ld de, .OK_str
 	call PlaceString
 .done_status
-	hlcoord 1, 15
+	hlcoord 1, 16
 	predef PrintMonTypes
+	hlcoord 10, 8
+	ld de, SCREEN_WIDTH
+	ld b, 10
+	ld a, $31 ; vertical divider
+.vertical_divider
+	ld [hl], a
+	add hl, de
+	dec b
+	jr nz, .vertical_divider
+
+; stats
+	hlcoord 11, 8
+	ld bc, 6
+	predef PrintTempMonStats
+	ret
+
+.Status:
+	db "HEALTH/@"
+
+.Type
+	db "TYPE/@"
+
+.OK_str:
+	db "HEALTHY@"
+
+.IncubStr:
+	db "INCUB.@"
+
+.PkrsStr:
+	db "COVID@"
+
+.PkrsImmuneStr:
+	db "IMMUNE@"
+
+.PkrsSickStr:
+	db "SICK@"
+
+LoadGreenPage:
+	ld de, .Item
+	hlcoord 0, 8
+	call PlaceString
+
+	call .GetItemName
+	hlcoord 7, 8
+	call PlaceString
+
+	ld de, .Ability
+	hlcoord 0, 10
+	call PlaceString
+
+	ld de, .ThreeDashes
+	hlcoord 2, 11
+	call PlaceString
+
+	ld a, [wJohtoBadges]
+	cp 0
+	jr nz, .skip_details_tooltip ; Once the player has acquired at least 1 badge, we stop displaying this tooltip.
+	ld de, .DetailsPressA
+	hlcoord 1, 12
+	call PlaceString
+.skip_details_tooltip
+
+	ld de, .Move
+	hlcoord 0, 13
+	call PlaceString
+
+	ld hl, wTempMonMoves
+	ld de, wListMoves_MoveIndicesBuffer
+	ld bc, NUM_MOVES
+	call CopyBytes
+	hlcoord 2, 14
+	ld a, SCREEN_WIDTH * 1
+	ld [wListMovesLineSpacing], a
+	predef ListMoves
+	hlcoord 12, 14
+	ld a, SCREEN_WIDTH * 1
+	ld [wListMovesLineSpacing], a
+	predef ListMovePP
+	ret
+
+.GetItemName:
+	ld de, .ThreeDashes
+	ld a, [wTempMonItem]
+	and a
+	ret z
+	ld b, a
+	farcall TimeCapsule_ReplaceTeruSama
+	ld a, b
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	ret
+
+.Item:
+	db "ITEM/@"
+
+.Ability:
+	db "ABILITY/@"
+
+.Move:
+	db "MOVES/@"
+
+.ThreeDashes:
+	db "---@"
+
+.DetailsPressA:
+	db "→Details: press A←@"
+
+
+LoadBluePage:
+	call .PlaceOTInfo
 	hlcoord 9, 8
 	ld de, SCREEN_WIDTH
 	ld b, 10
@@ -699,6 +813,8 @@ LoadPinkPage:
 	add hl, de
 	dec b
 	jr nz, .vertical_divider
+
+	; Exp points
 	ld de, .ExpPointStr
 	hlcoord 10, 9
 	call PlaceString
@@ -773,103 +889,14 @@ LoadPinkPage:
 	ld [hl], a
 	ret
 
-.Status_Type:
-	db   "HEALTH/"
-	next "TYPE/@"
-
-.OK_str:
-	db "HEALTHY@"
-
-.ExpPointStr:
-	db "EXP POINTS@"
-
-.LevelUpStr:
-	db "LEVEL UP@"
-
-.ToStr:
-	db "TO@"
-
-.IncubStr:
-	db "INCUB.@"
-
-.PkrsStr:
-	db "COVID@"
-
-.PkrsImmuneStr:
-	db "IMMUNE@"
-
-.PkrsSickStr:
-	db "SICK@"
-
-LoadGreenPage:
-	ld de, .Item
-	hlcoord 0, 8
-	call PlaceString
-	call .GetItemName
-	hlcoord 8, 8
-	call PlaceString
-	ld de, .Move
-	hlcoord 0, 10
-	call PlaceString
-	ld hl, wTempMonMoves
-	ld de, wListMoves_MoveIndicesBuffer
-	ld bc, NUM_MOVES
-	call CopyBytes
-	hlcoord 8, 10
-	ld a, SCREEN_WIDTH * 2
-	ld [wListMovesLineSpacing], a
-	predef ListMoves
-	hlcoord 12, 11
-	ld a, SCREEN_WIDTH * 2
-	ld [wListMovesLineSpacing], a
-	predef ListMovePP
-	ret
-
-.GetItemName:
-	ld de, .ThreeDashes
-	ld a, [wTempMonItem]
-	and a
-	ret z
-	ld b, a
-	farcall TimeCapsule_ReplaceTeruSama
-	ld a, b
-	ld [wNamedObjectIndex], a
-	call GetItemName
-	ret
-
-.Item:
-	db "ITEM@"
-
-.ThreeDashes:
-	db "---@"
-
-.Move:
-	db "MOVE@"
-
-LoadBluePage:
-	call .PlaceOTInfo
-	hlcoord 10, 8
-	ld de, SCREEN_WIDTH
-	ld b, 10
-	ld a, $31 ; vertical divider
-.vertical_divider
-	ld [hl], a
-	add hl, de
-	dec b
-	jr nz, .vertical_divider
-	hlcoord 11, 8
-	ld bc, 6
-	predef PrintTempMonStats
-	ret
-
 .PlaceOTInfo:
 	ld de, IDNoString
-	hlcoord 0, 9
+	hlcoord 0, 14
 	call PlaceString
 	ld de, OTString
-	hlcoord 0, 12
+	hlcoord 0, 10
 	call PlaceString
-	hlcoord 2, 10
+	hlcoord 1, 15
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	ld de, wTempMonID
 	call PrintNum
@@ -877,7 +904,7 @@ LoadBluePage:
 	call GetNicknamenamePointer
 	call CopyNickname
 	farcall CorrectNickErrors
-	hlcoord 2, 13
+	hlcoord 1, 11
 	call PlaceString
 	ld a, [wTempMonCaughtGender]
 	and a
@@ -889,7 +916,7 @@ LoadBluePage:
 	jr z, .got_gender
 	ld a, "♀"
 .got_gender
-	hlcoord 9, 13
+	hlcoord 8, 11
 	ld [hl], a
 .done
 	ret
@@ -899,6 +926,15 @@ LoadBluePage:
 	dw wOTPartyMonOTs
 	dw sBoxMonOTs
 	dw wBufferMonOT
+
+.ExpPointStr:
+	db "EXP POINTS@"
+
+.LevelUpStr:
+	db "LEVEL UP@"
+
+.ToStr:
+	db "TO@"
 
 IDNoString:
 	db "<ID>№.@"
