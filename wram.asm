@@ -2861,7 +2861,15 @@ wVariableSprites:: ds $100 - SPRITE_VARS
 
 wEnteredMapFromContinue:: db
 wTimeOfDayPal:: db
+
+UNION ; My first union!
 wTempColorMixer:: ds 6 ; Damien
+NEXTU
+wStatsSubmenuOpened:: db
+wStatsSubmenuCursorCoords:: dw
+ds 3
+ENDU
+
 wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db

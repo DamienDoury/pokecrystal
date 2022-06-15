@@ -218,6 +218,7 @@ _CGB_StatsScreenHPPals:
 	call FarCopyWRAM
 	call WipeAttrmap
 
+_CGB_StatsScreenHPPals_Fast:
 	hlcoord 0, 0, wAttrmap
 	lb bc, 8, SCREEN_WIDTH
 	ld a, $1 ; mon palette

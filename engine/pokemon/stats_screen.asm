@@ -314,6 +314,10 @@ StatsScreen_GetJoypad:
 
 StatsScreen_JoypadAction:
 	push af
+	ld a, [wStatsSubmenuOpened]
+	cp 0
+	jr nz, .submenu_navigation ; If we are in the submenu.
+
 	ld a, [wStatsScreenFlags]
 	maskbits NUM_STAT_PAGES
 	ld c, a
@@ -350,11 +354,11 @@ StatsScreen_JoypadAction:
 	ld b, a
 	ld a, [wMonType]
 	and a
-	jr nz, .load_mon
+	jp nz, .load_mon
 	ld a, b
 	inc a
 	ld [wPartyMenuCursor], a
-	jr .load_mon
+	jp .load_mon
 
 .d_up
 	ld a, [wCurPartyMon]
@@ -373,8 +377,10 @@ StatsScreen_JoypadAction:
 
 .a_button
 	ld a, c
-	cp BLUE_PAGE ; last page
-	jr z, .b_button
+	cp GREEN_PAGE ; item/ability/moves page
+	jr z, .open_submenu
+	ret
+
 .d_right
 	inc c
 	ld a, BLUE_PAGE ; last page
@@ -390,6 +396,65 @@ StatsScreen_JoypadAction:
 	jr .set_page
 
 .done
+	ret
+
+.submenu_navigation
+	pop af
+	bit B_BUTTON_F, a
+	jp nz, .b_button_submenu
+	bit D_LEFT_F, a
+	jr nz, .d_left_submenu
+	bit D_RIGHT_F, a
+	jr nz, .d_right_submenu
+	bit A_BUTTON_F, a
+	jr nz, .a_button_submenu
+	bit D_UP_F, a
+	jr nz, .d_up_submenu
+	bit D_DOWN_F, a
+	jr nz, .d_down_submenu
+	ret
+
+.d_down_submenu
+.d_up_submenu
+.a_button_submenu ; Will be used to re-order moves.
+	ret
+
+.d_right_submenu
+	xor a
+	set D_RIGHT_F, a
+	jr .side_press
+
+.d_left_submenu
+	xor a
+	set D_LEFT_F, a
+.side_press
+	push af
+	call CloseSubMenu
+	pop af
+	call StatsScreen_JoypadAction
+	ret
+
+.b_button_submenu
+	call CloseSubMenu
+	ret
+
+
+
+
+
+.open_submenu
+	xor a
+	ldh [hBGMapMode], a
+	ld a, 1
+	ld [wStatsSubmenuOpened], a
+	hlcoord 0, 0
+	lb bc, 6, SCREEN_WIDTH - 2
+	call Textbox
+	call ApplyTilemap
+	;ld b, 0
+	;ld c, 0
+	;ld hl, AskQuantityThrowAwayTextBis
+	;call PlaceHLTextAtBC
 	ret
 
 .set_page
@@ -411,8 +476,39 @@ StatsScreen_JoypadAction:
 	call StatsScreen_SetJumptableIndex
 	ret
 
+ClearTopTiles:
+	hlcoord 0, 0
+	ld bc, SCREEN_WIDTH * 8
+	ld a, " "
+	call ByteFill
+	ret
+
+CloseSubMenu:
+	xor a
+	ld [wStatsSubmenuOpened], a
+
+	call ClearTopTiles
+
+	ld hl, wCurHPPal
+	call SetHPPal
+	ld b, SCGB_STATS_SCREEN_HP_PALS
+
+ 	farcall _CGB_StatsScreenHPPals_Fast
+
+	call StatsScreen_InitUpperHalf.Fast
+	ld hl, wStatsScreenFlags
+	set 4, [hl]
+	ld h, 4
+	call StatsScreen_SetJumptableIndex
+	ret
+
+AskQuantityThrowAwayTextBis:
+	text_far _NothingHereText
+	text_end
+
 StatsScreen_InitUpperHalf:
 	call .PlaceHPBar
+.Fast
 	xor a
 	ldh [hBGMapMode], a
 	ld a, [wBaseDexNo]
