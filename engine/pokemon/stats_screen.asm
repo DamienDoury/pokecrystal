@@ -298,7 +298,7 @@ StatsScreen_GetJoypad:
 	pop hl
 	ld a, [wMenuJoypad]
 	and D_DOWN | D_UP
-	jr nz, .set_carry
+	jr nz, .check_submenu
 	ld a, [wMenuJoypad]
 	jr .clear_carry
 
@@ -312,11 +312,17 @@ StatsScreen_GetJoypad:
 	scf
 	ret
 
+.check_submenu
+	ld a, [wStatsSubmenuOpened]
+	cp 0
+	jp z, .set_carry ; If we are NOT in the submenu, then we leave.
+	ld a, [wMenuJoypad]
+
 StatsScreen_JoypadAction:
 	push af
 	ld a, [wStatsSubmenuOpened]
 	cp 0
-	jr nz, .submenu_navigation ; If we are in the submenu.
+	jp nz, .submenu_navigation ; If we are in the submenu.
 
 	ld a, [wStatsScreenFlags]
 	maskbits NUM_STAT_PAGES
@@ -335,6 +341,11 @@ StatsScreen_JoypadAction:
 	bit D_DOWN_F, a
 	jr nz, .d_down
 	jr .done
+
+.b_button
+	ld h, 7
+	call StatsScreen_SetJumptableIndex
+	ret
 
 .d_down
 	ld a, [wMonType]
@@ -369,31 +380,31 @@ StatsScreen_JoypadAction:
 	ld b, a
 	ld a, [wMonType]
 	and a
-	jr nz, .load_mon
+	jp nz, .load_mon
 	ld a, b
 	inc a
 	ld [wPartyMenuCursor], a
-	jr .load_mon
+	jp .load_mon
 
 .a_button
 	ld a, c
 	cp GREEN_PAGE ; item/ability/moves page
-	jr z, .open_submenu
+	jp z, .open_submenu
 	ret
 
 .d_right
 	inc c
 	ld a, BLUE_PAGE ; last page
 	cp c
-	jr nc, .set_page
+	jp nc, .set_page
 	ld c, PINK_PAGE ; first page
-	jr .set_page
+	jp .set_page
 
 .d_left
 	dec c
-	jr nz, .set_page
+	jp nz, .set_page
 	ld c, BLUE_PAGE ; last page
-	jr .set_page
+	jp .set_page
 
 .done
 	ret
@@ -401,7 +412,7 @@ StatsScreen_JoypadAction:
 .submenu_navigation
 	pop af
 	bit B_BUTTON_F, a
-	jp nz, .b_button_submenu
+	jr nz, .b_button_submenu
 	bit D_LEFT_F, a
 	jr nz, .d_left_submenu
 	bit D_RIGHT_F, a
@@ -415,7 +426,50 @@ StatsScreen_JoypadAction:
 	ret
 
 .d_down_submenu
+	ld a, [wStatsSubmenuCursorIndex]
+	inc a
+	cp 6
+	jr c, .next_cursor_index_determined ; No overflow.
+	; The cursor is at index 6 or above. We set it back to zero.
+	xor a
+	jr .next_cursor_index_determined
+
 .d_up_submenu
+	ld a, [wStatsSubmenuCursorIndex]
+	dec a
+	cp $ff
+	jr nz, .next_cursor_index_determined ; No underflow.
+	; Underflow: setting the cursor back to its max index.
+	ld a, 5
+
+.next_cursor_index_determined
+	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
+	ld b, 0
+	add a
+	ld c, a
+	ld a, [wStatsSubmenuCursorCoords]
+	ld l, a
+	ld a, [wStatsSubmenuCursorCoords + 1]
+	ld h, a
+	ld [hl], " " ; Erasing the old arrow.
+
+.displaying_arrow
+	ld hl, .submenuCursorCoordinates
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	ld [wStatsSubmenuCursorCoords], a ; Saving the new coords (so we can quickly erase the inserted char later).
+	ld a, h
+	ld [wStatsSubmenuCursorCoords + 1], a
+
+	ld [hl], "▶" ; Displaying the new arrow.
+
+	; TODO: Here we need to refresh the description in the textbox.
+
+	ret
+
 .a_button_submenu ; Will be used to re-order moves.
 	ret
 
@@ -438,24 +492,30 @@ StatsScreen_JoypadAction:
 	call CloseSubMenu
 	ret
 
-
-
-
-
 .open_submenu
-	xor a
-	ldh [hBGMapMode], a
 	ld a, 1
 	ld [wStatsSubmenuOpened], a
+
+	xor a
+	ldh [hBGMapMode], a
+	
+	ld hl, wStatsScreenFlags
+	set 5, [hl] ; We update the state machine to prevent it from trying to animate the Pokémon.
+	res 6, [hl]
+	farcall PokeAnim_Finish ; We force stopping the animation.
+
 	hlcoord 0, 0
 	lb bc, 6, SCREEN_WIDTH - 2
 	call Textbox
 	call ApplyTilemap
-	;ld b, 0
-	;ld c, 0
-	;ld hl, AskQuantityThrowAwayTextBis
-	;call PlaceHLTextAtBC
-	ret
+
+	; Placing the cursor at the default position.
+	ld a, 2 ; Next cursor index.
+	ld [wStatsSubmenuCursorIndex], a
+	add a
+	ld c, a
+	ld b, 0
+	jp .displaying_arrow
 
 .set_page
 	ld a, [wStatsScreenFlags]
@@ -471,10 +531,13 @@ StatsScreen_JoypadAction:
 	call StatsScreen_SetJumptableIndex
 	ret
 
-.b_button
-	ld h, 7
-	call StatsScreen_SetJumptableIndex
-	ret
+.submenuCursorCoordinates
+	dw 8	* SCREEN_WIDTH + 6 + wTilemap ; Item
+	dw 11	* SCREEN_WIDTH + 1 + wTilemap ; Ability
+	dw 14	* SCREEN_WIDTH + 1 + wTilemap ; Move 1
+	dw 15	* SCREEN_WIDTH + 1 + wTilemap ; Move 2
+	dw 16	* SCREEN_WIDTH + 1 + wTilemap ; Move 3
+	dw 17	* SCREEN_WIDTH + 1 + wTilemap ; Move 4
 
 ClearTopTiles:
 	hlcoord 0, 0
@@ -493,18 +556,14 @@ CloseSubMenu:
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 
- 	farcall _CGB_StatsScreenHPPals_Fast
+ 	farcall _CGB_StatsScreenHPPals_Fast ; Sets the right attribute map (palettes) to the upper part.
 
-	call StatsScreen_InitUpperHalf.Fast
+	call StatsScreen_InitUpperHalf.Fast ; Sets the right tilemap (tiles) to the upper part.
 	ld hl, wStatsScreenFlags
-	set 4, [hl]
+	set 4, [hl] ; Tells the state machine to start animation.
 	ld h, 4
 	call StatsScreen_SetJumptableIndex
 	ret
-
-AskQuantityThrowAwayTextBis:
-	text_far _NothingHereText
-	text_end
 
 StatsScreen_InitUpperHalf:
 	call .PlaceHPBar
@@ -578,19 +637,6 @@ StatsScreen_InitUpperHalf:
 	dw wOTPartyMonNicknames
 	dw sBoxMonNicknames
 	dw wBufferMonNickname
-
-StatsScreen_PlaceVerticalDivider: ; unreferenced
-; The Japanese stats screen has a vertical divider.
-	hlcoord 7, 0
-	ld bc, SCREEN_WIDTH
-	ld d, SCREEN_HEIGHT
-.loop
-	ld a, $31 ; vertical divider
-	ld [hl], a
-	add hl, bc
-	dec d
-	jr nz, .loop
-	ret
 
 StatsScreen_PlaceHorizontalDivider:
 	hlcoord 0, 7

@@ -1672,6 +1672,9 @@ StatsScreenDPad:
 	jr .pressed_a_b_right_left
 
 .pressed_down_up
+	ld a, [wStatsSubmenuOpened]
+	cp 0
+	ret nz ; Damien: when the Stats submenu is opened, we don't want to change Pokémon by pressing up or down.
 	call _StatsScreenDPad
 	and a
 	jr z, .did_nothing

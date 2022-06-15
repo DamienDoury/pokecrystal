@@ -2866,8 +2866,9 @@ UNION ; My first union!
 wTempColorMixer:: ds 6 ; Damien
 NEXTU
 wStatsSubmenuOpened:: db
+wStatsSubmenuCursorIndex:: db
 wStatsSubmenuCursorCoords:: dw
-ds 3
+ds 2
 ENDU
 
 wTimeOfDayPalFlags:: db
