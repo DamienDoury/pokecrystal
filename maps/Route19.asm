@@ -21,7 +21,7 @@ Route19_MapScripts:
 	changeblock 12,  8, $7a ; rock
 	changeblock  4,  8, $7a ; rock
 	changeblock 10, 10, $7a ; rock
-	changeblock  6,  8, $31 ; sand
+	changeblock  6,  8, $5c ; ledge with path
 .Done:
 	endcallback
 
@@ -290,4 +290,4 @@ Route19_MapEvents:
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1
 	object_event  9,  7, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
 	object_event  8,  8, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
-	object_event  7,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED
