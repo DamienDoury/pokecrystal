@@ -2952,8 +2952,8 @@ wTradeFlags:: flag_array NUM_NPC_TRADES
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
+wGoldenrodHospitalCorridorNumber:: db
 
-	ds 1
 
 ; map scene ids
 ; Damien's note: the following bytes are used to store the scene ID, or scene state of some maps.
@@ -3046,11 +3046,9 @@ wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 wCharcoalKilnSceneID::							  db
-	ds 3
+wGoldenrodHospitalReceptionSceneID::			  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
-
-	ds 1
 
 wEventFlags:: flag_array NUM_EVENTS
 

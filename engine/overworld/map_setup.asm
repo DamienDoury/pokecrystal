@@ -198,3 +198,49 @@ ForceMapMusic:
 .notbiking
 	call TryRestartMapMusic
 	ret
+
+DynamicWarpPrevious::
+	ld a, [wPrevWarp]
+	ld [wNextWarp], a
+
+	ld a, [wPrevMapGroup]
+	ld [wNextMapGroup], a
+	
+	ld a, [wPrevMapNumber]
+	ld [wNextMapNumber], a
+	ret
+
+DynamicWarpScript::
+; Warp from the Hospital's corridor to the Hospital's reception.
+	; Only works when the player is in the Hospital's corridor.
+	ld a, [wMapGroup]
+	cp GROUP_GOLDENROD_HOSPITAL_CORRIDOR
+	jr nz, .end_check_1
+
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_HOSPITAL_CORRIDOR
+	jr nz, .end_check_1
+
+	; Now we're checking if the player took the bottom left warp from the corridor ID 1.
+	ld a, [wGoldenrodHospitalCorridorNumber]
+	cp 1
+	jr nz, .check_1_default_case
+
+	ld a, [wPrevWarp] ; The player comes from warp ID 1 or 2, are those are the only dynamic warps on this map.
+	add 6
+
+	; We change the warp destination to the Hospital's reception.
+	ld [wNextWarp], a
+	ld a, GROUP_GOLDENROD_HOSPITAL_1F
+	ld [wNextMapGroup], a
+	ld a, MAP_GOLDENROD_HOSPITAL_1F
+	ld [wNextMapNumber], a
+	jr .end_check_1
+
+.check_1_default_case
+	ld a, [wPrevWarp]
+	add 2 
+	ld [wNextWarp], a
+	
+.end_check_1
+	ret

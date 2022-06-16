@@ -22,3 +22,8 @@ NUM_MAPSETUP_SCRIPTS EQU const_value - $f1
 	const MAPCALLBACK_CMDQUEUE
 	const MAPCALLBACK_SPRITES
 	const MAPCALLBACK_NEWMAP
+
+; Dynamic warp constants
+	const_def 126
+	const DYNAMIC_WARP_PREVIOUS
+	const DYNAMIC_WARP_SCRIPT

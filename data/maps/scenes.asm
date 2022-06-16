@@ -101,4 +101,5 @@ MapScenes::
 	scene_var SAFFRON_GYM,                       	       wRoute29SceneID
 	scene_var SEAFOAM_GYM,                       	       wRoute29SceneID
 	scene_var VIRIDIAN_GYM,                       	       wRoute29SceneID
+	scene_var GOLDENROD_HOSPITAL_1F,               	       wGoldenrodHospitalReceptionSceneID
 	db -1 ; end

@@ -10,6 +10,8 @@ LoadSpecialMapPalette:
 	jr z, .house
 	cp TILESET_RADIO_TOWER
 	jr z, .radio_tower
+	cp TILESET_HOSPITAL
+	jr z, .radio_tower
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
 	jr .do_nothing

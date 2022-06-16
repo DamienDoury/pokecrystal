@@ -280,6 +280,10 @@ ENDM
 	map_const ROUTE_34_ILEX_FOREST_GATE,                    5,  4 ; 23
 	map_const DAY_CARE,                                     5,  4 ; 24
 	map_const GOLDENROD_HOSPITAL_1F,                       10,  5 ; 25
+	map_const GOLDENROD_HOSPITAL_OFFICE,                    3,  5 ; 26
+	map_const GOLDENROD_HOSPITAL_SECRET,                    2,  5 ; 27
+	map_const GOLDENROD_HOSPITAL_CORRIDOR,                 10,  6 ; 28
+	map_const GOLDENROD_HOSPITAL_ROOM,                		2,  5 ; 29
 	endgroup
 
 	newgroup VERMILION                                            ; 12

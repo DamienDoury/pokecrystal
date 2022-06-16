@@ -337,18 +337,49 @@ CopyWarpData::
 
 .skip
 	pop bc
+	push de ; The register D seems unused at this point, but I'm taking precautions.
+	ld d, 0
+
+	cp DYNAMIC_WARP_PREVIOUS ; Damien: At this point, register A contains the warp ID.
+	jr nz, .next_dynamic_warp_check
+	
+	push af
+	push bc
+	push hl
+	farcall DynamicWarpPrevious
+	pop hl
+	pop bc
+	pop af
+	jr .save_previous_warp
+
+.next_dynamic_warp_check
+	cp DYNAMIC_WARP_SCRIPT
+	jr nz, .proceed_normally
+	ld d, 1 ; This marks the warp as dynamic.
+
+.proceed_normally
 	ld [wNextWarp], a
 	ld a, [hli]
 	ld [wNextMapGroup], a
 	ld a, [hli]
 	ld [wNextMapNumber], a
 
+.save_previous_warp
 	ld a, c
 	ld [wPrevWarp], a
 	ld a, [wMapGroup]
 	ld [wPrevMapGroup], a
 	ld a, [wMapNumber]
 	ld [wPrevMapNumber], a
+
+	ld a, d
+	cp 1 ; Check if the warp is DYNAMIC_WARP_SCRIPT
+	jr nz, .end
+
+	farcall DynamicWarpScript
+
+.end
+	pop de
 	scf
 	ret
 

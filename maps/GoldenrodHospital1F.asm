@@ -15,24 +15,31 @@ GoldenrodHospital1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .EnterCallback
 
 .EnterCallback:
+	setval 0
+	writemem wGoldenrodHospitalCorridorNumber ; Resetting the corridor count.
 	readvar VAR_XCOORD
 	ifnotequal 5, .quit
 	readvar VAR_YCOORD
 	ifnotequal 9, .quit
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setscene SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS
 .quit:
 	endcallback
 
 GoldenrodHospitalNurse1Script:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue AskGelScript
+	checkevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	iffalse .GoldenrodHospitalTakeover
+	checkscene
+	ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, AskGelScript
 	jumptextfaceplayer GoldenrodHospitalNurse1Text
+
+.GoldenrodHospitalTakeover:
+	jumptext GoldenrodHospitalTakeoverNurse1Text
 
 AskGelScript:
 	jumptextfaceplayer GoldenrodHospitalAskGelText
 
 GoldenrodHospitalGelScript:
-	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setscene SCENE_GOLDENROD_HOSPITAL_DEFAULT
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleHandWash
@@ -86,6 +93,41 @@ GoldenrodHospitalGranny1Script:
 
 GoldenrodHospitalNursePatientScript:
 	jumptext GoldenrodHospitalNursePatientText
+
+GoldenrodHospitalRocketScript:
+	jumptext GoldenrodHospitalRocketText
+
+GoldenrodHospitalRocketCounterScript:
+	jumptext GoldenrodHospitalRocketCounterText
+
+GoldenrodHospital1FChiefNursePanel:
+	jumptext GoldenrodHospital1FChiefNursePanelText
+
+GoldenrodHospital1FScanner:	
+	opentext
+	checkflag ENGINE_PLAYER_IS_FEMALE
+	iftrue .FemaleScanner
+	writetext GoldenrodHospitalScannerMaleText
+	sjump .AfterScan
+
+.FemaleScanner:
+	writetext GoldenrodHospitalScannerFemaleText
+
+.AfterScan:
+	promptbutton
+	closetext
+	pause 15
+	playsound SFX_ELEVATOR_END
+	waitsfx
+	pause 5
+	opentext
+	writetext GoldenrodHospitalScanFailText
+	waitbutton
+	closetext
+	end
+
+GoldenrodHospitalLockScript:
+	jumptext GoldenrodHospitalLockText
 
 GoldenrodHospital_PlayerDownMovement:
 	slow_step DOWN
@@ -219,6 +261,51 @@ GoldenrodHospitalNursePatientText:
 	cont "are getting sick."
 	done
 
+GoldenrodHospitalRocketText:
+	text "Yeah, I'm sitting"
+	line "in a forbidden"
+	cont "seat."
+
+	para "SO WHAT?"
+
+	para "I'm a rebel,"
+	line "hehe!"
+	done
+
+GoldenrodHospitalRocketCounterText:
+	text "Mind your own"
+	line "business, I'm busy."
+	done
+
+GoldenrodHospitalTakeoverNurse1Text:
+	text "I… I'm sorry"
+	line "I can't help you"
+	cont "at the moment…"
+	done
+
+GoldenrodHospital1FChiefNursePanelText:
+	text " CHIEF NURSE JOY"
+	done
+
+GoldenrodHospitalScannerFemaleText:
+	text "<PLAYER> scans"
+	line "her TRAINER CARD."
+	done
+
+GoldenrodHospitalScannerMaleText:
+	text "<PLAYER> scans"
+	line "his TRAINER CARD."
+	done
+
+GoldenrodHospitalScanFailText:
+	text "FORBIDDEN"
+	done
+
+GoldenrodHospitalLockText:
+	text "This door is elec-"
+	line "tronically locked."
+	done
+
 GoldenrodHospital1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -227,21 +314,30 @@ GoldenrodHospital1F_MapEvents:
 	warp_event  5,  9, GOLDENROD_CITY, 16
 	warp_event  6,  9, GOLDENROD_CITY, 16
 	warp_event  7,  9, GOLDENROD_CITY, 16
+	warp_event  4,  0, GOLDENROD_HOSPITAL_SECRET, 1
+	warp_event  9,  0, GOLDENROD_HOSPITAL_OFFICE, 1
+	warp_event 19,  6, GOLDENROD_HOSPITAL_CORRIDOR, 1
+	warp_event 19,  7, GOLDENROD_HOSPITAL_CORRIDOR, 2
 
 	def_coord_events
 
 	def_bg_events
 	bg_event  8,  9, BGEVENT_READ, GoldenrodHospitalGelScript
+	bg_event  8,  0, BGEVENT_READ, GoldenrodHospital1FChiefNursePanel
+	bg_event  5,  0, BGEVENT_READ, GoldenrodHospital1FScanner
 
 	def_object_events
 	object_event  5,  5, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNurse1Script, -1
 	object_event  7,  5, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNurse1Script, -1
-	object_event 15,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalChansey1Script, -1
-	object_event  1,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalThankOakScript, -1
-	object_event 17,  1, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalPokefan1Script, -1
-	object_event 17,  1, SPRITE_NURSE, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNursePatientScript, -1
+	object_event 15,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalChansey1Script, EVENT_GOLDENROD_CITY_CIVILIANS
+	object_event  1,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalThankOakScript, EVENT_GOLDENROD_CITY_CIVILIANS
+	object_event 17,  1, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalPokefan1Script, EVENT_GOLDENROD_CITY_CIVILIANS
+	object_event 17,  1, SPRITE_NURSE, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNursePatientScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 14,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCoughScript, -1
 	object_event 16,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalGranny1Script, -1
-	object_event 12,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalTwin1Script, -1
+	object_event 12,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalTwin1Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 15,  1, SPRITE_KAREN, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalKarenScript, EVENT_ROUTE_36_SUDOWOODO
 	object_event 15,  1, SPRITE_PHARMACIST, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalBlackglassesScript, -1
+	object_event 13,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  6,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketCounterScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  4,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalLockScript, -1

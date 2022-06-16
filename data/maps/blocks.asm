@@ -985,5 +985,15 @@ GoldenrodDeptStoreRoof_Blocks:
 GoldenrodHospital1F_Blocks:
 	INCBIN "maps/GoldenrodHospital1F.blk"
 
+GoldenrodHospitalOffice_Blocks:
+	INCBIN "maps/GoldenrodHospitalOffice.blk"
+
+GoldenrodHospitalCorridor_Blocks:
+	INCBIN "maps/GoldenrodHospitalCorridor.blk"
+
+GoldenrodHospitalSecret_Blocks:
+GoldenrodHospitalRoom_Blocks:
+	INCBIN "maps/GoldenrodHospitalRoom.blk"
+
 SeafoamB1F_Blocks:
 	INCBIN "maps/SeafoamB1F.blk"
