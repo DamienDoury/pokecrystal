@@ -3,7 +3,13 @@
 SeafoamW1F_MapScripts:
 	def_scene_scripts
 
-	def_callbacks
+	def_callbacks 
+	callback MAPCALLBACK_OBJECTS, .ClearRocks
+
+.ClearRocks:
+	setevent EVENT_CINNABAR_ROCKS_CLEARED
+	clearevent EVENT_BROCK_BACK_IN_GYM
+	endcallback
 
 SeafoamW1F_MapEvents:
 	db 0, 0 ; filler
