@@ -139,7 +139,6 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_SWITCH,     SwitchPartyMons
 	dbw MONMENUITEM_ITEM,       GiveTakePartyMonItem
 	dbw MONMENUITEM_CANCEL,     CancelPokemonAction
-	dbw MONMENUITEM_MOVE,       ManagePokemonMoves
 	dbw MONMENUITEM_MAIL,       MonMailAction
 
 SwitchPartyMons:
