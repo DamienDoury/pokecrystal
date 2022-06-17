@@ -24,6 +24,7 @@ NUM_MAPSETUP_SCRIPTS EQU const_value - $f1
 	const MAPCALLBACK_NEWMAP
 
 ; Dynamic warp constants
-	const_def 126
-	const DYNAMIC_WARP_PREVIOUS
+	const_def 254
 	const DYNAMIC_WARP_SCRIPT
+	const DYNAMIC_WARP_PREVIOUS
+	

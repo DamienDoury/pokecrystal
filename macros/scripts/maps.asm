@@ -53,8 +53,13 @@ warp_event: MACRO
 ;\2: y: top to bottom, starts at 0
 ;\3: map id: from constants/map_constants.asm
 ;\4: warp destination: starts at 1
+if _NARG == 3 ; map_id is useless when using a DYNAMIC_WARP_*.
+	db \2, \1, \3
+	map_id NEW_BARK_TOWN ; ignoring map_id 
+else
 	db \2, \1, \4
 	map_id \3
+endc
 _NUM_WARP_EVENTS = _NUM_WARP_EVENTS + 1
 ENDM
 

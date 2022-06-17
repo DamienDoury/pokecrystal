@@ -2251,9 +2251,8 @@ wScrollingMenuListSize:: db
 wNextWarp:: db
 wNextMapGroup:: db
 wNextMapNumber:: db
-wPrevWarp:: db
-wPrevMapGroup:: db
-wPrevMapNumber:: db
+
+ds 3
 
 wPlayerBGMapOffsetX:: db ; used in FollowNotExact; unit is pixels
 wPlayerBGMapOffsetY:: db ; used in FollowNotExact; unit is pixels
@@ -3112,7 +3111,10 @@ wDailyFlags3:: db
 wSwarmFlags:: db
 	ds 1
 wTimerEventStartDay:: db
-	ds 3
+
+wPrevWarp:: db ; Moved here by Damien, so it can be saved.
+wPrevMapGroup:: db
+wPrevMapNumber:: db
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
