@@ -244,6 +244,12 @@ _CGB_StatsScreenHPPals_Fast:
 	ld a, $5 ; blue page palette
 	call FillBoxCGB
 
+	; Added for the "Details" tooltip.
+	hlcoord 1, 12, wAttrmap
+	lb bc, 1, 18
+	ld a, $6 ; palette number 6.
+	call FillBoxCGB
+
 	call ApplyAttrmap
 	call ApplyPals
 	ld a, TRUE

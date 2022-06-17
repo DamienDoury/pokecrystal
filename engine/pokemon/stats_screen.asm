@@ -504,10 +504,17 @@ StatsScreen_JoypadAction:
 	res 6, [hl]
 	farcall PokeAnim_Finish ; We force stopping the animation.
 
+	ld de, .HideDetailTooltip
+	hlcoord  1, 12
+	call PlaceString
+
 	hlcoord 0, 0
 	lb bc, 6, SCREEN_WIDTH - 2
 	call Textbox
 	call ApplyTilemap
+
+
+
 
 	; Placing the cursor at the default position.
 	ld a, 2 ; Next cursor index.
@@ -538,6 +545,9 @@ StatsScreen_JoypadAction:
 	dw 15	* SCREEN_WIDTH + 1 + wTilemap ; Move 2
 	dw 16	* SCREEN_WIDTH + 1 + wTilemap ; Move 3
 	dw 17	* SCREEN_WIDTH + 1 + wTilemap ; Move 4
+
+.HideDetailTooltip:
+	db "                  @"
 
 ClearTopTiles:
 	hlcoord 0, 0

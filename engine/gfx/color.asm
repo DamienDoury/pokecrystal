@@ -385,14 +385,37 @@ LoadStatsScreenPals:
 	ld a, [hli]
 	ld [wBGPals1 palette 0], a
 	ld [wBGPals1 palette 2], a
+	ld [wBGPals1 palette 6], a
+	ld a, 0
+	ld [wBGPals1 palette 6 color 3], a
 	ld a, [hl]
 	ld [wBGPals1 palette 0 + 1], a
 	ld [wBGPals1 palette 2 + 1], a
+	ld [wBGPals1 palette 6 + 1], a
+	ld a, 0
+	ld [wBGPals1 palette 6 color 3 + 1], a
+
+	; Special case for the green page.
+	ld a, l
+	cp LOW(StatsScreenPals + 3) ; We are checking if we are on the Green page.
+	jr nz, .end_loading
+
+	; If it's the Green page, we change the color of the tooltip's text (background has already been edited).
+	ld hl, DetailsTooltipTextColor
+	ld a, [hli]
+	ld [wBGPals1 palette 6 color 3], a
+	ld a, [hl]
+	ld [wBGPals1 palette 6 color 3 + 1], a
+
+.end_loading
 	pop af
 	ldh [rSVBK], a
 	call ApplyPals
 	ld a, $1
 	ret
+
+DetailsTooltipTextColor:
+	RGB 28, 31, 21
 
 LoadMailPalettes:
 	ld l, e
