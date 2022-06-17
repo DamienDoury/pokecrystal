@@ -541,9 +541,9 @@ StatsScreen_JoypadAction:
 
 ClearTopTiles:
 	hlcoord 0, 0
-	ld bc, SCREEN_WIDTH * 8
-	ld a, " "
-	call ByteFill
+	lb bc, 8, 20
+	;ld bc, SCREEN_WIDTH * 8
+	call ClearBox
 	ret
 
 CloseSubMenu:
@@ -941,7 +941,7 @@ LoadGreenPage:
 	db "---@"
 
 .DetailsPressA:
-	db "→Details: press A←@"
+	db "[Details: press A]@"
 
 
 LoadBluePage:
