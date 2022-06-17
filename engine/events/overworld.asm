@@ -1655,10 +1655,10 @@ BikeFunction:
 	; From here down, the code is about starting the music of the bike.
 	; during the rave party, we don't play the bike music!
 	ld a, [wMapGroup]
-	cp 6; CINNABAR
+	cp GROUP_CINNABAR_ISLAND
 	jr nz, .skip_rave_party
 	ld a, [wMapNumber]
-	cp 8 ; CINNABAR_ISLAND
+	cp MAP_CINNABAR_ISLAND
 	jr nz, .skip_rave_party
 
 	; check the rave party event flag.
