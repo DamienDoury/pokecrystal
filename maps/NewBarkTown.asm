@@ -148,6 +148,97 @@ NewBarkTownElmsLabSign:
 NewBarkTownElmsHouseSign:
 	jumptext NewBarkTownElmsHouseSignText
 
+; TO DELETE!
+CheatGuyScript: 
+	readvar VAR_PARTYCOUNT
+	ifless 1, .TalkAfterFirstMon
+	checkmoney YOUR_MONEY, 100000
+	iffalse .skip_money ; Prevents overflow.
+	givemoney YOUR_MONEY, 200000
+.skip_money 
+	setval $ff
+	writemem wJohtoBadges ; gives all Johto badges, so the player can use HMs.
+	writemem wVisitedSpawns
+	writemem wVisitedSpawns + 1
+	writemem wVisitedSpawns + 2
+	writemem wVisitedSpawns + 3
+	giveitem HM_CUT
+	giveitem HM_FLY
+	giveitem HM_SURF
+	giveitem HM_STRENGTH
+	giveitem HM_FLASH
+	giveitem HM_WHIRLPOOL
+	giveitem HM_WATERFALL
+	giveitem TM_HEADBUTT, 10
+	giveitem TM_ROCK_SMASH, 10
+	giveitem TM_PSYCH_UP, 10
+	giveitem TM_SUNNY_DAY, 10
+	giveitem TM_SWEET_SCENT, 10
+	giveitem TM_PROTECT, 10
+	giveitem TM_RAIN_DANCE, 10
+	giveitem TM_GIGA_DRAIN, 10
+	giveitem TM_DRAGONBREATH, 10
+	giveitem TM_EARTHQUAKE, 10
+	giveitem TM_DIG, 10
+	giveitem TM_PSYCHIC_M, 10
+	giveitem TM_SHADOW_BALL, 10
+	giveitem TM_ICE_PUNCH, 10
+	giveitem TM_SLUDGE_BOMB, 10
+	giveitem TM_SANDSTORM, 10
+	giveitem TM_FIRE_BLAST, 10
+	giveitem TM_THUNDERPUNCH, 10
+	giveitem TM_FIRE_PUNCH, 10
+	giveitem TM_HAIL, 10
+	giveitem MAX_REPEL, 99
+	giveitem ESCAPE_ROPE, 99
+	giveitem MAX_REVIVE, 99
+	giveitem FULL_RESTORE, 99
+	giveitem GOLD_BERRY, 99
+	giveitem MASTER_BALL, 99
+	giveitem RARE_CANDY, 99
+	giveitem RARE_CANDY, 99
+	giveitem RARE_CANDY, 99
+	giveitem SURF_MAIL, 10
+
+	opentext
+	readvar VAR_PARTYCOUNT
+	ifequal 6, .done
+	givepoke CHARIZARD, 100
+
+	readvar VAR_PARTYCOUNT
+	ifequal 6, .done
+	givepoke KINGDRA, 100
+
+	readvar VAR_PARTYCOUNT
+	ifequal 6, .done
+	givepoke MISDREAVUS, 100
+
+	readvar VAR_PARTYCOUNT
+	ifequal 6, .done
+	givepoke MACHAMP, 100
+
+	readvar VAR_PARTYCOUNT
+	ifequal 6, .done
+	givepoke SLOWBRO, 100
+
+.done
+	closetext
+	jumptextfaceplayer LetsCheatText
+
+.TalkAfterFirstMon	
+	jumptextfaceplayer CheatAfterFirstMonText
+
+LetsCheatText:
+	text "Let's CHEAT!"
+	done
+
+CheatAfterFirstMonText:
+	text "Talk to me after"
+	line "you get your"
+	cont "first #MON"
+	cont "to CHEAT!"
+	done
+
 NewBarkTown_TeacherRunsToYouMovement1:
 	step LEFT
 	step LEFT
@@ -314,3 +405,4 @@ NewBarkTown_MapEvents:
 	object_event  6,  8, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownTeacherScript, -1
 	object_event 12,  9, SPRITE_FISHER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, NewBarkTownFisherScript, -1
 	object_event  3,  2, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, NewBarkTownSilverScript, EVENT_RIVAL_NEW_BARK_TOWN
+	object_event 16,  6, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CheatGuyScript, -1
