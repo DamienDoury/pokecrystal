@@ -117,7 +117,7 @@ GoldenrodHospital1FScanner:
 	promptbutton
 	closetext
 	pause 15
-	playsound SFX_ELEVATOR_END
+	playsound SFX_WRONG; OK sound = SFX_ELEVATOR_END
 	waitsfx
 	pause 5
 	opentext

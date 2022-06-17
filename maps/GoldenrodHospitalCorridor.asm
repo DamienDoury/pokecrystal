@@ -86,28 +86,28 @@ GoldenrodHospitalCorridor_MapEvents:
 	warp_event 19,  2, GOLDENROD_HOSPITAL_CORRIDOR, 5
 	warp_event 19,  3, GOLDENROD_HOSPITAL_CORRIDOR, 6
 
-	warp_event  5,  0, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event  9,  0, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event 13,  0, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event 17,  0, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event  3,  0, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event  7,  0, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event 11,  0, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event 15,  0, GOLDENROD_HOSPITAL_ROOM, 1
 
-	warp_event  5,  8, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event  9,  8, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event 13,  8, GOLDENROD_HOSPITAL_ROOM, 1
-	warp_event 17,  8, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event  3,  8, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event  7,  8, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event 11,  8, GOLDENROD_HOSPITAL_ROOM, 1
+	warp_event 15,  8, GOLDENROD_HOSPITAL_ROOM, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event   4,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event   8,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event  12,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event  16,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  2,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  6,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 10,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 14,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
-	bg_event   4,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event   8,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event  12,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
-	bg_event  16,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  2,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  6,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 10,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 14,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
 	bg_event  0,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
 

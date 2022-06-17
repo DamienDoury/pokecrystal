@@ -9,8 +9,8 @@ GoldenrodHospitalSecret_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  9, GOLDENROD_HOSPITAL_1F, DYNAMIC_WARP_PREVIOUS ; Sends back to the reception.
-	warp_event  3,  9, GOLDENROD_HOSPITAL_1F, DYNAMIC_WARP_PREVIOUS ; Sends back to the reception.
+	warp_event  2,  9, DYNAMIC_WARP_PREVIOUS ; Sends back to the reception.
+	warp_event  3,  9, DYNAMIC_WARP_PREVIOUS ; Sends back to the reception.
 
 	def_coord_events
 
