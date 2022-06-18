@@ -11,7 +11,7 @@ LoadSpecialMapPalette:
 	cp TILESET_RADIO_TOWER
 	jr z, .radio_tower
 	cp TILESET_HOSPITAL
-	jr z, .radio_tower
+	jr z, .hospital
 	cp TILESET_MANSION
 	jr z, .mansion_mobile
 	jr .do_nothing
@@ -42,6 +42,11 @@ LoadSpecialMapPalette:
 
 .radio_tower
 	call LoadRadioTowerPalette
+	scf
+	ret
+
+.hospital
+	call LoadHospitalPalette
 	scf
 	ret
 
@@ -108,6 +113,17 @@ LoadRadioTowerPalette:
 
 RadioTowerPalette:
 INCLUDE "gfx/tilesets/radio_tower.pal"
+
+LoadHospitalPalette:
+	ld a, BANK(wBGPals1)
+	ld de, wBGPals1
+	ld hl, HospitalPalette
+	ld bc, 8 palettes
+	call FarCopyWRAM
+	ret
+
+HospitalPalette:
+INCLUDE "gfx/tilesets/hospital.pal"
 
 MansionPalette1:
 INCLUDE "gfx/tilesets/mansion_1.pal"
