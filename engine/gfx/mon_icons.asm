@@ -371,15 +371,14 @@ FlyFunction_GetMonIcon:
 	ld a, e
 	call GetIcon_a
 
-	; Applying the palette to the sprite.
+	; Editing the OBJ 0 palette so that the flying Pokémon has the right colors.
 	ld a, MON_DVS
 	call GetPartyParamLocation ; HL now points to the params of the curPartyMon, which is needed by GetMenuMonIconPalette.
 	call GetMenuMonIconPalette ; Returns in A the index of PartyMenuOBPals to use.
 	add a
 	add a
 	add a ; A x 8.
-	ld e, a
-
+	ld e, a ; SetFirstOBJPalette takes its offset parameter in E.
 	farcall SetFirstOBJPalette
 	ret
 
