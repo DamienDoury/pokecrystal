@@ -815,7 +815,6 @@ StopPlayerForEvent::
 
 ; Resets the regular palette of the player (red or blue).
 ; Call this function when the player ends surfing (by reaching ground, using escape rope, flying, black-out, etc.).
-; Therefore we assume the player is currently using the red palette.
 ; Destroys a and d.
 ResetPlayerPalette::
 	ld a, [wPlayerGender]

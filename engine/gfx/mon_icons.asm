@@ -370,6 +370,17 @@ FlyFunction_GetMonIcon:
 	pop de
 	ld a, e
 	call GetIcon_a
+
+	; Applying the palette to the sprite.
+	ld a, MON_DVS
+	call GetPartyParamLocation ; HL now points to the params of the curPartyMon, which is needed by GetMenuMonIconPalette.
+	call GetMenuMonIconPalette ; Returns in A the index of PartyMenuOBPals to use.
+	add a
+	add a
+	add a ; A x 8.
+	ld e, a
+
+	farcall SetFirstOBJPalette
 	ret
 
 GetMonIconDE: ; unreferenced
