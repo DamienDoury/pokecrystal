@@ -1556,39 +1556,7 @@ _ForceTimeOfDayPaletteSmoothing::
 	ld hl, MapObjectPalsPurple + 2
 
 .not_purple
-
-	; Further refine by time of day
-	xor a
-	ld a, [wTimeOfDay]
-	rrca
-	rrca ; This instruction and the previous one make a multiplication by 64 of a 1 byte number whose value is between 0 and 3. In only 2 cycles! Try to beat that!
-	ld e, a
-	ld d, 0
-	add hl, de ; Now hl contains the address of the second color of the first sprite palette.
-
-
-	ld b, h ; ld bc, hl
-	ld c, l
-
-	cp NITE_F * 64
-	jr nz, .still_not_night
-; night: equivalent of sub bc, 128
-	ld a, c
-	sub a, 128
-	ld c, a
-	ld a, b
-	sbc a, 0
-	ld b, a
-	jr .second_ob_palette_found
-
-.still_not_night; equivalent of add bc, 64
-	ld a, c
-	add a, 64
-	ld c, a
-	ld a, b
-	adc a, 0
-	ld b, a
-.second_ob_palette_found
+	call TimeOfDayNextOBJPalette ; Further refine by time of day
 
 ; For each OBJ palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
 	ld d, 8 ; 8 palettes.
@@ -1616,6 +1584,9 @@ _ForceTimeOfDayPaletteSmoothing::
 	pop de
 	dec d
 	jp nz, .ob_palette_loop
+
+	call HandleDayCareOutdoorPalettes
+
 
 
 
@@ -1652,6 +1623,9 @@ _ForceTimeOfDayPaletteSmoothing::
 	xor a
 	ret
 
+
+
+
 ; Input in A: the ID of the palette.
 ; Output in DE: offset from the address of TilesetBGPalette to the address of the first color of the palette ID given in input.
 FindPaletteFirstColorOffsetInDE:
@@ -1669,11 +1643,149 @@ FindPaletteFirstColorOffsetInDE:
 	ret
 
 
-RoofPaletteOverride:
-	ld a, [wTimeOfDay]
-	cp MORN_F ; The Roof palette doesn't change from morn to day.
-	ret z
 
+
+HandleDayCareOutdoorPalettes:
+	; Day Care special case: on Route 34, we change the palette so they match the Pokémon species outside the day care.
+	ld a, BANK(wMapGroup)
+	ld hl, wMapGroup
+	call GetFarWRAMByte
+	cp GROUP_ROUTE_34
+	ret nz
+	ld a, BANK(wMapNumber)
+	ld hl, wMapNumber
+	call GetFarWRAMByte
+	cp MAP_ROUTE_34
+	ret nz
+
+	ld a, BANK(wBreedMon1Species)
+	ld hl, wBreedMon1Species
+	call GetFarWRAMByte
+	cp 0
+	jr z, .day_care_mon_2
+	cp -1
+	jr z, .day_care_mon_2
+	ld [wCurPartySpecies], a
+
+	ld hl, wOBPals1 palette 6
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+	ld hl, wBreedMon1DVs ; HL now points to the params of the wBreedMon1, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	call GetPartyMenuMonTimeOfDayPalettes
+	call SinglePaletteTransition
+
+.day_care_mon_2
+	ld a, BANK(wBreedMon2Species)
+	ld hl, wBreedMon2Species
+	call GetFarWRAMByte
+	cp 0
+	ret z
+	cp -1
+	ret z
+	ld [wCurPartySpecies], a
+
+	ld hl, wOBPals1 palette 7
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+	ld hl, wBreedMon2DVs ; HL now points to the params of the wBreedMon2, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	call GetPartyMenuMonTimeOfDayPalettes
+	call SinglePaletteTransition
+
+	ret
+
+
+
+
+; Input: the breedmon DVs address in hl, set [wCurPartySpecies] to the desired mon.
+; Destroys de.
+; Output: the source color address in hl, and the destination color address in bc.
+GetPartyMenuMonTimeOfDayPalettes:
+	ld de, GetMenuMonIconPalette
+	ld a, BANK(GetMenuMonIconPalette)
+	call FarCall_de ; Returns in A the index of PartyMenuOBPals to use.
+	ldh a, [hFarByte]
+	add a
+	add a
+	add a ; A x 8.
+
+	ld e, a
+	ld d, 0
+	ld hl, PartyMenuOBPals
+	add hl, de
+
+	ld b, h
+	ld c, l
+
+	ld d, 0
+	ld e, 4 * 2 * 8
+
+; Getting the source and destination color addresses based on time of day.
+	ld a, [wTimeOfDay]
+	cp MORN_F
+	ret z
+	cp NITE_F
+	jr z, .is_night
+
+	ld a, c
+	add e
+	ld c, a
+	ld a, b
+	adc d
+	ld b, a
+	ret
+
+.is_night
+	add hl, de
+	ret
+
+
+
+
+; Input: hl must contain the address of the OBJ original palette (first color of the fade).
+; Output: the address of the OBJ destination palette (second color of the fade) in bc.
+; Destroys de and a.
+TimeOfDayNextOBJPalette:
+	ld a, [wTimeOfDay]
+	rrca
+	rrca ; This instruction and the previous one make a multiplication by 64 of a 1 byte number whose value is between 0 and 3. In only 2 cycles! Try to beat that!
+	ld e, a
+	ld d, 0
+	add hl, de ; Now hl contains the address of the second color of the first sprite palette.
+
+
+	ld b, h ; ld bc, hl
+	ld c, l
+
+	cp NITE_F * 64
+	jr nz, .not_night
+; night: equivalent of sub bc, 128
+	ld a, c
+	sub a, 128
+	ld c, a
+	ld a, b
+	sbc a, 0
+	ld b, a
+	ret
+
+.not_night; equivalent of add bc, 64
+	ld a, c
+	add a, 64
+	ld c, a
+	ld a, b
+	adc a, 0
+	ld b, a
+	ret
+
+
+
+
+RoofPaletteOverride:
 	ld a, [wAddressStorage]
 	ld h, a
 	ld a, [wAddressStorage + 1]
@@ -1708,6 +1820,8 @@ endr
 	ld d, 0
 
 	ld a, [wTimeOfDay]
+	cp MORN_F
+	jr z, .source_determined
 	cp NITE_F
 	jr z, .is_night
 
@@ -1751,8 +1865,10 @@ endr
 
 SinglePaletteTransition:
 	; Fades a single palette between its current and its next time of day versions.
-	; hl must contain the address of the first color of the first palette to fade from (address of a color within bg_tiles.pal).
-	; bc must contain the address of the first color of the second palette to fade to (address of a color within bg_tiles.pal).
+	; hl must contain the address of the first color of the first palette to fade from.
+	; bc must contain the address of the first color of the second palette to fade to.
+	; de are destroyed.
+	; [wAddressStorage] and [wAddressStorage + 1] must contains the address of where to write.
 	
 	push bc ; As we will edit B, we want to save the address of the first color byte of the second palette.
 

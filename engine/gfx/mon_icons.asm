@@ -81,7 +81,7 @@ _ApplyMenuMonIconColor:
 	pop hl
 	ret
 
-GetMenuMonIconPalette:
+GetMenuMonIconPalette::
 	ld c, l
 	ld b, h
 	farcall CheckShininess
@@ -101,6 +101,7 @@ GetMenuMonIconPalette_PredeterminedShininess:
 .shiny
 	and $f
 	ld l, a
+	ldh [hFarByte], a
 	ret
 
 LoadMenuMonIcon:
