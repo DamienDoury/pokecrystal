@@ -1322,6 +1322,8 @@ endr
 	ld bc, 4
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
+
+	call HandleDayCareOutdoorPalettes
 	ret
 
 
@@ -1358,32 +1360,6 @@ DoesCurrentMapUsesPurpleOWSprites:
 
 
 
-
-; Damien
-;Place this function in either:
-;[YES] engine/tilesets/timeofday_pals.asm:_TimeOfDayPals::					
-;	- called every frame (even when the start menu or a dialog is opened) by home/time_palettes.asm:TimeOfDayPals::.
-;
-;[YES] engine/gfx/color.asm:LoadMapPals:: 
-;	- called when starting the game
-;	- entering or leaving a building
-;	- called when ending a battle
-;	- closing a full screen menu.
-;
-;Now works correctly with:
-;- the bike (select button)
-;- battle transition
-;- start menu
-;- surfing
-;- the poison animation
-;- talking to NPCs and objects.
-;- changing route
-;- going out of a building
-;- coming out of a battle
-;- starting the game
-;
-;Still not called correctly from: 
-;- probably when using warp (not tested).
 
 ; Returns carry is a palette change has been made.
 _TimeOfDayPaletteSmoothing::
@@ -1585,16 +1561,7 @@ _ForceTimeOfDayPaletteSmoothing::
 	dec d
 	jp nz, .ob_palette_loop
 
-	call HandleDayCareOutdoorPalettes
-
-
-
-
-
-
-
-
-
+	call HandleDayCareOutdoorTransitionPalettes
 
 
 
@@ -1644,8 +1611,56 @@ FindPaletteFirstColorOffsetInDE:
 
 
 
-
 HandleDayCareOutdoorPalettes:
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_34
+	ret nz
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_34
+	ret nz
+
+	ld a, BANK(wBreedMon1Species)
+	ld hl, wBreedMon1Species
+	call GetFarWRAMByte
+	cp 0
+	jr z, .day_care_mon_2
+	cp -1
+	jr z, .day_care_mon_2
+	ld [wCurPartySpecies], a
+
+	ld hl, wBreedMon1DVs ; HL now points to the params of the wBreedMon1, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	call GetPartyMenuMonTimeOfDayPalettes
+
+	ld de, wOBPals1 palette 6
+	ld bc, 1 palettes
+ 	ld a, BANK(wOBPals1)
+ 	call FarCopyWRAM
+
+.day_care_mon_2
+	ld a, BANK(wBreedMon2Species)
+	ld hl, wBreedMon2Species
+	call GetFarWRAMByte
+	cp 0
+	ret z
+	cp -1
+	ret z
+	ld [wCurPartySpecies], a
+
+
+
+	ld hl, wBreedMon2DVs ; HL now points to the params of the wBreedMon2, which is needed by GetMenuMonIconPalette to determine if it's shiny.
+	call GetPartyMenuMonTimeOfDayPalettes ; Returns the palette in HL.
+
+	ld de, wOBPals1 palette 7
+	ld bc, 1 palettes
+ 	ld a, BANK(wOBPals1)
+ 	call FarCopyWRAM
+
+	ret
+
+
+
+HandleDayCareOutdoorTransitionPalettes:
 	; Day Care special case: on Route 34, we change the palette so they match the Pokémon species outside the day care.
 	ld a, BANK(wMapGroup)
 	ld hl, wMapGroup
