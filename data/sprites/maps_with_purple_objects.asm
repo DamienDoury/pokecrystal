@@ -9,4 +9,5 @@ ENDM
 	purple_map PEWTER_NIDORAN_SPEECH_HOUSE
 	purple_map DANCE_THEATRE
 	purple_map ROUTE_34_ILEX_FOREST_GATE
+	purple_map PLAYERS_HOUSE_2F
 	db 0 ; end
