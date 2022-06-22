@@ -3118,7 +3118,7 @@ wPrevMapNumber:: db
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
-wAddressStorage:: dw ; Damien.
+	ds 2
 
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.
@@ -3440,7 +3440,8 @@ wMagnetTrainHoldPosition:: db
 wMagnetTrainFinalPosition:: db
 wMagnetTrainPlayerSpriteInitX:: db
 
-	ds 106
+wAddressStorage:: dw ; Damien.
+	ds 104
 
 wLYOverridesBackup:: ds SCREEN_HEIGHT_PX
 wLYOverridesBackupEnd::

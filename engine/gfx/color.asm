@@ -1717,7 +1717,7 @@ HandleDayCareOutdoorTransitionPalettes:
 
 
 
-; Input: the breedmon DVs address in hl, set [wCurPartySpecies] to the desired mon.
+; Input: the mon DVs address in hl, set [wCurPartySpecies] to the desired mon.
 ; Destroys de.
 ; Output: the source color address in hl, and the destination color address in bc.
 GetPartyMenuMonTimeOfDayPalettes:
@@ -2157,6 +2157,53 @@ DestinationColorRatio:
 	pop hl
 	ret
 
+; Input: E must contain the offset of the selected palette from PartyMenuOBPals.
+SetFlyingMonPalette::
+	call IsTimeOfDayTransitioning
+	jr nc, .regular_palette_load
+
+; Fade mon palette
+	ldh a, [rSVBK]
+	push af
+	ld a, BANK(wPartyMon1DVs)
+	ldh [rSVBK], a
+
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
+	ld a, [wCurPartyMon]
+	call AddNTimes ; Add bc * a to hl.
+	call GetPartyMenuMonTimeOfDayPalettes ; Input: the mon DVs address in hl, set [wCurPartySpecies] to the desired mon. Output: the source color address in hl, and the destination color address in bc.
+	push hl
+
+	ld a, BANK(wOBPals1)
+	ldh [rSVBK], a
+
+	ld hl, wOBPals1
+	ld a, h
+	ld [wAddressStorage], a
+	ld a, l
+	ld [wAddressStorage + 1], a
+
+	pop hl
+	call SinglePaletteTransition
+
+	pop af
+	ldh [rSVBK], a
+
+	call ApplyPals
+    ld a, TRUE
+    ldh [hCGBPalUpdate], a ; Turn on the flag that triggers the palette refresh on screen.
+	ret
+
+.regular_palette_load
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr nz, SetFirstOBJPalette
+	ld a, 64
+	add e
+	ld e, a ; If it's NITE, we're using the night palette by adding 64 to the offset.
+
+	; fallthrough
 
 ; Input: E must contain the offset of the selected palette from PartyMenuOBPals.
 SetFirstOBJPalette::
@@ -2167,11 +2214,35 @@ SetFirstOBJPalette::
 	ld bc, 1 palettes
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
+ 	call ApplyPals
  	ld a, TRUE
  	ldh [hCGBPalUpdate], a
- 	call ApplyPals
  	ret
 
+ ; Returns carry if the time of day is currently transitioning (starts 32 minutes before next time of day).
+IsTimeOfDayTransitioning:
+	ldh a, [hHours]
+	cp NITE_HOUR - 1
+	jr z, .hour_is_adequate
+	cp DAY_HOUR - 1
+	jr z, .hour_is_adequate
+	cp MORN_HOUR - 1
+	jp nz, .return_false
+
+.hour_is_adequate
+; Smoothing happens only 32 minutes before a time of day transition (31 actually, as the minute 28 (60 - 32) returns the current time of day palette).
+	ldh a, [hMinutes] ; 0 <= hMinutes <= 59.
+	cp 60 ; Note: hMinutes cannot go above 59, unless the player used an action replay cheatcode to set wStartMinute above 59.
+	jp nc, .return_false
+	cp 28
+	jr nc, .return_true
+.return_false
+	xor a
+	ret
+
+.return_true
+	scf
+	ret
 
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"

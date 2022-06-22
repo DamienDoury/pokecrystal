@@ -380,7 +380,7 @@ FlyFunction_GetMonIcon:
 	add a
 	add a ; A x 8.
 	ld e, a ; SetFirstOBJPalette takes its offset parameter in E.
-	farcall SetFirstOBJPalette
+	farcall SetFlyingMonPalette
 	ret
 
 GetMonIconDE: ; unreferenced
