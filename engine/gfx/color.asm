@@ -1630,9 +1630,11 @@ HandleDayCareOutdoorPalettes:
 
 	ld hl, wBreedMon1DVs ; HL now points to the params of the wBreedMon1, which is needed by GetMenuMonIconPalette to determine if it's shiny.
 	call GetPartyMenuMonTimeOfDayPalettes
+	inc hl
+	inc hl
 
-	ld de, wOBPals1 palette 6
-	ld bc, 1 palettes
+	ld de, wOBPals1 palette 6 + 2
+	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
 
@@ -1646,13 +1648,13 @@ HandleDayCareOutdoorPalettes:
 	ret z
 	ld [wCurPartySpecies], a
 
-
-
 	ld hl, wBreedMon2DVs ; HL now points to the params of the wBreedMon2, which is needed by GetMenuMonIconPalette to determine if it's shiny.
 	call GetPartyMenuMonTimeOfDayPalettes ; Returns the palette in HL.
+	inc hl
+	inc hl
 
-	ld de, wOBPals1 palette 7
-	ld bc, 1 palettes
+	ld de, wOBPals1 palette 7 + 2
+	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
 
@@ -1682,7 +1684,7 @@ HandleDayCareOutdoorTransitionPalettes:
 	jr z, .day_care_mon_2
 	ld [wCurPartySpecies], a
 
-	ld hl, wOBPals1 palette 6
+	ld hl, wOBPals1 palette 6 + 2
 	ld a, h
 	ld [wAddressStorage], a
 	ld a, l
@@ -1690,6 +1692,10 @@ HandleDayCareOutdoorTransitionPalettes:
 
 	ld hl, wBreedMon1DVs ; HL now points to the params of the wBreedMon1, which is needed by GetMenuMonIconPalette to determine if it's shiny.
 	call GetPartyMenuMonTimeOfDayPalettes
+	inc hl
+	inc hl
+	inc bc
+	inc bc
 	call SinglePaletteTransition
 
 .day_care_mon_2
@@ -1702,7 +1708,7 @@ HandleDayCareOutdoorTransitionPalettes:
 	ret z
 	ld [wCurPartySpecies], a
 
-	ld hl, wOBPals1 palette 7
+	ld hl, wOBPals1 palette 7 + 2
 	ld a, h
 	ld [wAddressStorage], a
 	ld a, l
@@ -1710,6 +1716,10 @@ HandleDayCareOutdoorTransitionPalettes:
 
 	ld hl, wBreedMon2DVs ; HL now points to the params of the wBreedMon2, which is needed by GetMenuMonIconPalette to determine if it's shiny.
 	call GetPartyMenuMonTimeOfDayPalettes
+	inc hl
+	inc hl
+	inc bc
+	inc bc
 	call SinglePaletteTransition
 
 	ret
@@ -2066,10 +2076,23 @@ SinglePaletteTransition:
 	ld a, h
 	cp HIGH(RoofPals)
 	jp c, .palette_loop
+	jr nz, .checkGreater
+; Refine less check: if both high byte are equal, we need to check the low byte.
+	ld a, l
+	cp LOW(RoofPals)
+	jp c, .palette_loop
+
+.checkGreater
 	ld a, HIGH(DiplomaPalettes) ; Palettes are separated by at least 256 bytes, so checking the high byte is enough.
 	cp h
 	jp c, .palette_loop
+	jr nz, .isWithinRoofPalsRange
+; Refine greater check: if both high byte are equal, we need to check the low byte.
+	ld a, LOW(DiplomaPalettes)
+	cp l
+	jp c, .palette_loop
 
+.isWithinRoofPalsRange
 	ld a, [wAddressStorage + 1]
 	and $F
 	cp $6
@@ -2244,6 +2267,12 @@ IsTimeOfDayTransitioning:
 	scf
 	ret
 
+RefreshMapPals::
+	call LoadMapPals
+	call ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a ; Turn on the flag that triggers the palette refresh on screen.
+	ret
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"
 
