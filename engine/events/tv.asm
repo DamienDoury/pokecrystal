@@ -206,7 +206,7 @@ TVShow:
 	line "it will be"
 	cont "behind us.” -"
 
-	para "said the president"
+	para "said the leader"
 	line "of another region."
 	done
 
@@ -315,9 +315,11 @@ TVShow:
 	cont "against Kanto"
 	cont "natives."
 
-	para "5 assaults have"
-	line "since been"
-	cont "reported.”"
+	para "9 assaults against"
+	line "Kanto immigrants"
+	cont "have since been"
+	cont "reported in"
+	cont "Unova.”"
 	done
 
 
@@ -337,7 +339,7 @@ TVShow:
 
 	para "“With the lockdown"
 	line "now declared in"
-	cont "Johto,"
+	cont "JOHTO,"
 
 	para "only essential"
 	line "businesses are"
@@ -401,7 +403,7 @@ TVShow:
 
 	para "Pasta, wheat,"
 	line "#BALLs, and"
-	cont "toilet paper"
+	cont "TOILET PAPER"
 
 	para "are now the"
 	line "most prized"
@@ -512,7 +514,7 @@ TVShow:
 	line "sanitary"
 	cont "restrictions,"
 
-	para "The #MON League"
+	para "The #MON LEAGUE"
 	line "has given"
 	cont "1 billion ¥"
 
@@ -579,7 +581,7 @@ TVShow:
 	cont "death worldwide"
 	cont "has been crossed"
 	cont "today, and numbers"
-	cont "are only growing.”"
+	cont "keep increasing.”"
 	done
 
 .Phase3Even2:
@@ -660,8 +662,8 @@ TVShow:
 	cont "streaming companies"
 
 	para "have doubled their"
-	line "revenue in"
-	cont "the last month.”"
+	line "earnings in the"
+	cont "last quarter.”"
 	done
 
 
@@ -680,19 +682,19 @@ TVShow:
 
 	para "“#MON League"
 	line "announced today"
-	cont "that Champion Red"
+	cont "that CHAMPION RED"
 	cont "has been missing"
 	cont "for weeks."
 
 	para "He will be"
 	line "temporarily"
 	cont "replaced by"
-	cont "Elite 4 Lance."
+	cont "ELITE 4 LANCE."
 
 	para "As a result,"
-	line "Gym Leader Koga"
+	line "GYM LEADER KOGA"
 	cont "has been promoted"
-	cont "to Elite 4.”"
+	cont "to the ELITE 4.”"
 	done
 
 .Phase4Odd2:
@@ -713,7 +715,7 @@ TVShow:
 
 	para "They are now"
 	line "organizing illegal"
-	cont "rave parties in"
+	cont "dance parties in"
 	cont "remote areas,"
 
 	para "despite the"
@@ -726,11 +728,9 @@ TVShow:
 	cont "virus."
 
 	para "An illegal rave"
-	line "party in Jade"
-	cont "Forest was"
-	cont "recently shut"
-	cont "down by Viridian"
-	cont "City Police.”"
+	line "was recently shut"
+	cont "down by CERULEAN"
+	cont "CITY Police.”"
 	done
 
 .Phase4Odd3:
@@ -760,16 +760,16 @@ TVShow:
 .Phase4Even1Text:
 	text "OBITUARY"
 
-	para "“Oldest Elite 4"
-	line "member, Agatha,"
+	para "“Oldest ELITE 4"
+	line "member, AGATHA,"
 	cont "has passed away."
 
 	para "She caught COVID"
 	line "a few weeks ago.”"
 
 	para "Her close friend"
-	line "Lorelei decided"
-	cont "to quit Elite 4"
+	line "LORELEI decided"
+	cont "to quit ELITE 4"
 	cont "as a result.”"
 	cont "- reports #MON"
 	cont "League."
@@ -794,9 +794,8 @@ TVShow:
 	para "Indeed, undercover"
 	line "restaurants held"
 	cont "by famous Chefs"
-	cont "opened in large"
-	cont "private apartments"
-	cont "in Celadon City."
+	cont "opened in resi-"
+	cont "dential homes."
 
 	para "The price for a"
 	line "meal is 50 000¥"
@@ -883,7 +882,7 @@ TVShow:
 	line "appointment to get"
 	cont "vaccinated at the"
 	cont "Silph Co. center"
-	cont "in Saffron City.”"
+	cont "in SAFFRON CITY.”"
 	done
 
 
@@ -912,14 +911,14 @@ TVShow:
 .Phase5Even1Text:
 	text "PEOPLE"
 
-	para "“Kanto and Johto"
+	para "“KANTO and JOHTO"
 	line "may have a new"
-	cont "#MON Champion!"
+	cont "#MON CHAMPION!"
 
-	para "Champion Lance"
+	para "CHAMPION LANCE"
 	line "that replaces"
-	cont "Champion in title"
-	cont "Red,"
+	cont "CHAMPION in title"
+	cont "RED,"
 
 	para "has been defeated"
 	line "by #MON trainer"
@@ -928,7 +927,7 @@ TVShow:
 	para "It is unclear if"
 	line "<PLAYER> owns the"
 	cont "title, as the"
-	cont "Champion in title"
+	cont "CHAMPION in title"
 	cont "has not been"
 	cont "defeated.”"
 	done
@@ -1020,8 +1019,9 @@ TVShow:
 
 	para "Indeed a lot of"
 	line "people are afraid"
-	cont "to vaccinate them"
-	cont "or their #MON."
+	cont "to vaccinate"
+	cont "themselves or"
+	cont "their #MON."
 
 	para "These anti-vaxxers"
 	line "are putting at"
@@ -1046,16 +1046,16 @@ TVShow:
 .Phase6Even3Text:
 	text "OBITUARY"
 
-	para "“Beloved Champion"
-	line "Red that had been"
+	para "“Beloved CHAMPION"
+	line "RED that had been"
 	cont "missing for months"
 	cont "has succumbed to"
 	cont "the virus."
 
 	para "<PLAYER> who was"
-	line "co-champion is now"
+	line "co-CHAMPION is now"
 	cont "the official"
-	cont "Champion.”"
+	cont "CHAMPION.”"
 	done
 
 
