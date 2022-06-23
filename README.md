@@ -1,5 +1,12 @@
 # Pokémon Crystal [![Build Status][travis-badge]][travis]
 
+Great resources:
+
+https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7/
+
+https://gbdev.io/pandocs/CGB_Registers.html
+
+
 This is a disassembly of Pokémon Crystal.
 
 It builds the following ROMs:
