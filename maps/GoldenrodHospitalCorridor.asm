@@ -24,7 +24,7 @@ GoldenrodHospitalCorridor_MapScripts:
 	
 .UpdateTiles:
 	readmem wGoldenrodHospitalCorridorNumber
-	ifgreater 3, .LastCorridor
+	ifgreater HOSPITAL_CORRIDOR_LENGTH - 1, .LastCorridor
 	ifnotequal 1, .Done
 
 ;FirstCorridor
@@ -38,10 +38,14 @@ GoldenrodHospitalCorridor_MapScripts:
 	endcallback
 
 GoldenrodHospitalCorridorRoomNumberScript:	
-	jumptext GoldenrodHospitalCorridorRoomNumberText ; TODO: replace this by a script that tells the room number based on the corridor number and player coordinates.
+	special GetHospitalRoomNumber
+	getnum STRING_BUFFER_3
+	jumptext GoldenrodHospitalCorridorRoomNumberText
 
 GoldenrodHospitalCorridorRoomNumberText:
-	text "ROOM 1"
+	text "Room @"
+	text_ram wStringBuffer3
+	text_start
 	done
 
 GoldenrodHospitalCorridorGelScript:
@@ -100,14 +104,22 @@ GoldenrodHospitalCorridor_MapEvents:
 
 	def_bg_events
 	bg_event  2,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  3,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event  6,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  7,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event 10,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 11,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event 14,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 15,  0, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
 	bg_event  2,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  3,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event  6,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event  7,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event 10,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 11,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event 14,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
+	bg_event 15,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
 	bg_event  0,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
 

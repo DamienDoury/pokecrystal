@@ -3440,8 +3440,9 @@ wMagnetTrainHoldPosition:: db
 wMagnetTrainFinalPosition:: db
 wMagnetTrainPlayerSpriteInitX:: db
 
-wAddressStorage:: dw ; Damien.
 	ds 104
+
+wAddressStorage:: dw ; Damien.
 
 wLYOverridesBackup:: ds SCREEN_HEIGHT_PX
 wLYOverridesBackupEnd::

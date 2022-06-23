@@ -426,3 +426,59 @@ TrainerHouse:
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	ld [wScriptVar], a
 	jp CloseSRAM
+
+GetHospitalRoomNumber: ; Writes down the number of the hospital room in wScriptVar and in A.
+	ld de, 0
+
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_HOSPITAL_ROOM
+	jr z, .hospital_room
+
+	ld a, [wYCoord]
+	cp 5 ; Arbitrary value that represents about half the map height.
+	jr c, .corridor_top_row
+
+; corridor bottom row.
+	ld de, 4 * HOSPITAL_CORRIDOR_LENGTH
+
+.corridor_top_row
+	ld hl, 0
+	ld bc, 4 ; 4 rooms per corridor row.
+	ld a, [wGoldenrodHospitalCorridorNumber]
+	dec a
+	call AddNTimes
+	add hl, de
+
+	ld a, [wXCoord]
+	sub 2
+	srl a
+	srl a
+	add 1 ; NUMBER ONE
+	add l ; LETTER "L" (2 pixels difference, almost delete it because I thought it was a duplicate).
+	ld [wScriptVar], a
+	ret
+
+.hospital_room
+	ld a, [wPrevWarp]
+	sub 8
+	cp 5
+	jr c, .room_top_row
+
+; room bottom row.
+	ld de, 4 * HOSPITAL_CORRIDOR_LENGTH
+	sub 4
+	
+.room_top_row
+	push af
+
+	ld hl, 0
+	ld bc, 4 ; 4 rooms per corridor row.
+	ld a, [wGoldenrodHospitalCorridorNumber]
+	dec a
+	call AddNTimes
+	add hl, de
+
+	pop af
+	add l
+	ld [wScriptVar], a
+	ret
