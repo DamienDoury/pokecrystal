@@ -3046,14 +3046,15 @@ wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 wCharcoalKilnSceneID::							  db
 wGoldenrodHospitalReceptionSceneID::			  db
+wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
+
+	ds 1
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
 wEventFlags:: flag_array NUM_EVENTS
 
 wCurBox:: db
-
-	ds 2
 
 ; 8 chars + $50
 wBoxNames:: ds BOX_NAME_LENGTH * NUM_BOXES

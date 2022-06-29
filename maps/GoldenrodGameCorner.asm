@@ -363,11 +363,11 @@ GoldenrodGameCornerAbraScript:
 	end
 
 .AccidentWarpNorth:
-	warp ROUTE_35, 17, 15
+	warp ROUTE_35, 5, 15
 	end
 
 .AccidentWarpWest:
-	warp ROUTE_32, 4, 58
+	warp ROUTE_32, 4, 52
 	end
 
 .AccidentWarpSouth:

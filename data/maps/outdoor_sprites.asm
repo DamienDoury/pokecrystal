@@ -819,6 +819,7 @@ EcruteakGroupSprites:
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SUICUNE
+	db SPRITE_CATERPIE
 	db 0 ; end
 
 AzaleaGroupSprites:

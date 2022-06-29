@@ -250,6 +250,15 @@ TrainerOfficerDirk:
 	closetext
 	end
 
+Route35SaviourScript:
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 1
+	jumptextfaceplayer Route35SaviourText
+
+Route35CaterpieScript:
+	setval CATERPIE
+	special PlaySlowCry
+	end
+
 Route35Sign:
 	jumptext Route35SignText
 
@@ -445,6 +454,22 @@ Route35SignText:
 	text "ROUTE 35"
 	done
 
+Route35SaviourText:
+	text "This #MON is"
+	line "really sick and"
+	cont "needs immediate"
+	cont "care."
+
+	para "Go find CHIEF"
+	line "NURSE JOY and"
+	cont "bring her here"
+	cont "now!"
+
+	para "At this time, she"
+	line "must be at the"
+	cont "HOSPITAL."
+	done
+
 Route35_MapEvents:
 	db 0, 0 ; filler
 
@@ -471,3 +496,5 @@ Route35_MapEvents:
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
 	object_event  2, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
+	object_event  4, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35SaviourScript, EVENT_SICK_CATERPIE
+	object_event  3, 11, SPRITE_CATERPIE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35CaterpieScript, EVENT_SICK_CATERPIE
