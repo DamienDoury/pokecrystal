@@ -62,4 +62,5 @@ SpriteMons:
 	db SHUCKLE
 	db SLOWBRO
 	db DROWZEE
+	db CATERPIE
 	assert_table_length NUM_POKEMON_SPRITES
