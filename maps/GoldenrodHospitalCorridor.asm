@@ -10,8 +10,8 @@
 
 GoldenrodHospitalCorridor_MapScripts:
 	def_scene_scripts
-	scene_script HospitalCorridorUpdateNPCs ; SCENE_MAHOGANYMART1F_NOTHING
-	scene_script HospitalCorridorUpdateNPCs ; SCENE_MAHOGANYMART1F_NOTHING
+	scene_script HospitalCorridorUpdateNPCs ; 0
+	scene_script HospitalCorridorUpdateNPCs ; 1
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, UpdateCorridorBlocks

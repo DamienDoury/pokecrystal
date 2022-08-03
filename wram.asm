@@ -2500,7 +2500,11 @@ wBattleMode::
 ; 2: trainer battle
 	db
 
+UNION
 wTempWildMonSpecies:: db
+NEXTU
+wSickMonIsInThisRoom:: db
+ENDU
 
 wOtherTrainerClass::
 ; class (Youngster, Bug Catcher, etc.) of opposing trainer

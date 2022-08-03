@@ -427,7 +427,33 @@ TrainerHouse:
 	ld [wScriptVar], a
 	jp CloseSRAM
 
-GetHospitalRoomNumber: ; Writes down the number of the hospital room in wScriptVar and in A.
+GetHospitalRoomNumber:
+	farcall QuickChangeBoxToHospitalBox
+	ld a, BANK(sBoxCount)
+	call OpenSRAM
+	ld a, [sBoxCount]
+	call CloseSRAM
+	push af
+
+	ld a, FALSE
+	ld [wSickMonIsInThisRoom], a
+
+
+	call GetActualRoomNumber ; Now we check if the number -5 is above the number of sick Pokémon.
+	sub 5
+	ret c
+
+	ld b, a
+	pop af
+	cp b
+	ret c
+	ret z
+
+	ld a, TRUE
+	ld [wSickMonIsInThisRoom], a
+	ret
+
+GetActualRoomNumber: ; Writes down the number of the hospital room in wScriptVar and in A.
 	ld de, 0
 
 	ld a, [wMapNumber]

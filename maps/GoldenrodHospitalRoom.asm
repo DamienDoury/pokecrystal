@@ -1,16 +1,38 @@
 	object_const_def
+	const GOLDENROD_HOSPITAL_ROOM_SICK_PKMN
 
 GoldenrodHospitalRoom_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+	special GetHospitalRoomNumber
+	readmem wSickMonIsInThisRoom
+	iffalse .HideSickMon
+	special GetHospitalRoomNumber
+	;appear GOLDENROD_HOSPITAL_ROOM_SICK_PKMN
+	endcallback
+
+.HideSickMon:
+	disappear GOLDENROD_HOSPITAL_ROOM_SICK_PKMN
+	endcallback
 
 GoldenrodHospitalRoomMedicineScript:
 	jumptext GoldenrodHospitalRoomMedicineText
 
+GoldenrodHospitalRoomSickPkmnScript:
+	jumptext GoldenrodHospitalRoomSickPkmnText
+
 GoldenrodHospitalRoomMedicineText:
 	text "Lots of different"
 	line "medications."
+	done
+
+GoldenrodHospitalRoomSickPkmnText:
+	text "Your #MON hasn't"
+	line "recovered yet."
 	done
 
 GoldenrodHospitalRoom_MapEvents:
@@ -27,6 +49,7 @@ GoldenrodHospitalRoom_MapEvents:
 	bg_event  3,  3, BGEVENT_READ, GoldenrodHospitalRoomMedicineScript
 
 	def_object_events
+	object_event  0,  6, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRoomSickPkmnScript, 0
 
 ; 0: talk to guy on route 35 -> 1
 ; "This #MON is really sick and needs immediate care. Go find the CHIEF NURSE and bring her here now! At this time, she must be at the HOSPITAL."

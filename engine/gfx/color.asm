@@ -43,39 +43,6 @@ CheckShininess:
 	and a
 	ret
 
-Unused_CheckShininess:
-; Return carry if the DVs at hl are all 10 or higher.
-
-; Attack
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Defense
-	ld a, [hli]
-	and $f
-	cp 10
-	jr c, .not_shiny
-
-; Speed
-	ld a, [hl]
-	cp 10 << 4
-	jr c, .not_shiny
-
-; Special
-	ld a, [hl]
-	and $f
-	cp 10
-	jr c, .not_shiny
-
-; shiny
-	scf
-	ret
-
-.not_shiny
-	and a
-	ret
-
 SGB_ApplyCreditsPals: ; unreferenced
 	push de
 	push bc
@@ -1291,6 +1258,8 @@ LoadMapPals:
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
 
+	call HandleHospitalRoomPalette
+
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outside
@@ -1660,6 +1629,46 @@ HandleDayCareOutdoorPalettes:
 
 	ret
 
+HandleHospitalRoomPalette:
+	ld a, [wMapGroup]
+	cp GROUP_GOLDENROD_HOSPITAL_ROOM
+	ret nz
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_HOSPITAL_ROOM
+	ret nz
+
+	ld a, BANK(sBoxCount)
+	call OpenSRAM
+
+	ld hl, sBoxMon1DVs
+	ld bc, BOXMON_STRUCT_LENGTH
+
+	ld a, [wScriptVar] ; This contains the hospital room number.
+	sub 5
+	call AddNTimes
+
+	ld de, GetMenuMonIconPalette
+	ld a, BANK(GetMenuMonIconPalette) ; Input: wCurPartySpecies, DVs in hl. Output: palette ID in hFarByte, L and A.
+	call FarCall_de
+	ldh a, [hFarByte]
+	add a
+	add a
+	add a ; Multiply the index by 8 to find the offset of the palette within the array.
+
+	ld hl, PartyMenuOBPals
+	ld c, a
+	ld b, 0
+	add hl, bc
+
+	ld bc, 8
+
+	ld de, wOBPals1 palette 6
+
+	ld a, BANK(wOBPals1)
+ 	call FarCopyWRAM
+
+	call CloseSRAM
+	ret
 
 
 HandleDayCareOutdoorTransitionPalettes:
@@ -2272,6 +2281,34 @@ RefreshMapPals::
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a ; Turn on the flag that triggers the palette refresh on screen.
+	ret
+
+SetHospitalMonSpecies::
+	ld a, [wMapGroup]
+	cp GROUP_GOLDENROD_HOSPITAL_ROOM
+	ret nz
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_HOSPITAL_ROOM
+	ret nz
+
+	farcall QuickChangeBoxToHospitalBox
+	ld a, BANK(sBoxCount)
+	call OpenSRAM
+	ld hl, sBoxSpecies
+
+	ld a, [wScriptVar] ; This must contain the hospital room number.
+	sub 5
+	ld e, a
+	ld d, 0
+	add hl, de
+	ld a, [hl]
+	ld [wTempWildMonSpecies], a ; Used by GetMonSprite to display the right icon species.
+	ld [wCurPartySpecies], a ; Used by GetMenuMonIconPalette for the species palette.
+
+	; In order to not get overriden, the palette will be handled later in LoadMapPals.
+
+	call CloseSRAM
+	farcall QuickChangeBoxToPrevBox
 	ret
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"

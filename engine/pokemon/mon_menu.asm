@@ -418,7 +418,7 @@ GetPartyItemLocation:
 	pop af
 	ret
 
-ReceiveItemFromPokemon:
+ReceiveItemFromPokemon::
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems

@@ -206,6 +206,8 @@ GetMonSprite:
 	jr z, .BreedMon1
 	cp SPRITE_DAY_CARE_MON_2
 	jr z, .BreedMon2
+	cp SPRITE_HOSPITAL_MON
+	jr z, .HospitalMon
 	cp SPRITE_VARS
 	jr nc, .Variable
 	jr .Icon
@@ -229,6 +231,16 @@ GetMonSprite:
 
 .BreedMon2
 	ld a, [wBreedMon2Species]
+	jr .Mon
+
+.HospitalMon
+	; Load room number in A.
+	; Return (empty sprite) if room number is below 5 or above 24.
+	; Sub 5.
+	; Find species at index A in box 14, and store it into A.
+	ld a, [wScriptVar]
+	farcall SetHospitalMonSpecies
+	ld a, [wTempWildMonSpecies]
 
 .Mon:
 	ld e, a

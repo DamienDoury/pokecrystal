@@ -84,14 +84,40 @@ BoxLockAfterPowerOutage::
 	; End of Box13 dirty renaming.
 	; fallthrough
 
-QuickChangeBoxToBox12:
+QuickChangeBoxToBox13::
 	call PauseGameLogic
 	call SaveBox
-	ld a, 12
+
+	ld a, 12	; Box at index 12 represents Box 13.
 	ld [wCurBox], a
+	
 	call LoadBox
 	call ResumeGameLogic
 	ret
+
+QuickChangeBoxToHospitalBox::
+	call PauseGameLogic
+	call SaveBox
+
+	ld a, 13	; Box at index 13 represents Box 14.
+	ld [wCurBox], a
+	
+	call LoadBox
+	call ResumeGameLogic
+	ret
+
+QuickChangeBoxToPrevBox::
+	call PauseGameLogic
+	call SaveBox
+
+	ldh a, [hPrevBox]
+	ld [wCurBox], a
+	
+	call LoadBox
+	call ResumeGameLogic
+	ret
+
+
 
 Link_SaveGame:
 	call AskOverwriteSaveFile
