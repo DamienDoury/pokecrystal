@@ -1637,6 +1637,8 @@ HandleHospitalRoomPalette:
 	cp MAP_GOLDENROD_HOSPITAL_ROOM
 	ret nz
 
+	farcall QuickChangeBoxToHospitalBox
+
 	ld a, BANK(sBoxCount)
 	call OpenSRAM
 
@@ -1668,6 +1670,8 @@ HandleHospitalRoomPalette:
  	call FarCopyWRAM
 
 	call CloseSRAM
+
+	farcall QuickChangeBoxToPrevBox
 	ret
 
 
@@ -2291,6 +2295,10 @@ SetHospitalMonSpecies::
 	cp MAP_GOLDENROD_HOSPITAL_ROOM
 	ret nz
 
+	ld a, [wSickMonIsInThisRoom]
+	cp FALSE
+	ret z
+
 	farcall QuickChangeBoxToHospitalBox
 	ld a, BANK(sBoxCount)
 	call OpenSRAM
@@ -2306,6 +2314,17 @@ SetHospitalMonSpecies::
 	ld [wCurPartySpecies], a ; Used by GetMenuMonIconPalette for the species palette.
 
 	; In order to not get overriden, the palette will be handled later in LoadMapPals.
+
+	; Here we copy the nickname.
+	ld a, e ; Room number.
+	ld hl, sBoxMonNicknames
+	ld bc, MON_NAME_LENGTH
+	call AddNTimes ; HL now contains the first letter of the nickname.
+
+	ld d, h
+	ld e, l
+	ld hl, wStringBuffer5
+	call CopyName2
 
 	call CloseSRAM
 	farcall QuickChangeBoxToPrevBox

@@ -31,8 +31,14 @@ GoldenrodHospitalRoomMedicineText:
 	done
 
 GoldenrodHospitalRoomSickPkmnText:
-	text "Your #MON hasn't"
-	line "recovered yet."
+	text "Your @"
+	text_ram wStringBuffer5
+	text ""
+	line "is slowly"
+	cont "recovering."
+
+	para "It seems happy"
+	line "to see you."
 	done
 
 GoldenrodHospitalRoom_MapEvents:

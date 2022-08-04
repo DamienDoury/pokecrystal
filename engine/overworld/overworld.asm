@@ -238,9 +238,17 @@ GetMonSprite:
 	; Return (empty sprite) if room number is below 5 or above 24.
 	; Sub 5.
 	; Find species at index A in box 14, and store it into A.
+	ld a, [wSickMonIsInThisRoom]
+	cp FALSE
+	jr z, .EmptyHospitalMon
+
 	ld a, [wScriptVar]
 	farcall SetHospitalMonSpecies
 	ld a, [wTempWildMonSpecies]
+	jr .Mon
+
+.EmptyHospitalMon
+	ld a, 252 ; Egg by default (will be hidden).
 
 .Mon:
 	ld e, a
