@@ -484,28 +484,50 @@ AddTempmonToParty:
 
 SendGetMonIntoFromBox:
 ; Sents/Gets mon into/from Box depending on Parameter
-; wPokemonWithdrawDepositParameter == 0: get mon into Party
+; wPokemonWithdrawDepositParameter == 0: get mon from Box (into party).
 ; wPokemonWithdrawDepositParameter == 1: sent mon into Box
 ; wPokemonWithdrawDepositParameter == 2: get mon from DayCare
 ; wPokemonWithdrawDepositParameter == 3: put mon into DayCare
+; wPokemonWithdrawDepositParameter == 4: get mon from Hospital Box
+; wPokemonWithdrawDepositParameter == 5: put mon into Hospital Box
 
+
+; # START BLOCK
+	ld a, [wPokemonWithdrawDepositParameter]
+	cp HOSPITAL_WITHDRAW
+	jr c, .normalBoxBank
+	ld a, BANK(sHospitalBoxCount)
+	jr .predefinedBank
+
+.normalBoxBank
 	ld a, BANK(sBoxCount)
+.predefinedBank
 	call OpenSRAM
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp PC_WITHDRAW
 	jr z, .check_IfPartyIsFull
 	cp DAY_CARE_WITHDRAW
 	jr z, .check_IfPartyIsFull
+	cp HOSPITAL_WITHDRAW
+	jr z, .check_IfPartyIsFull
 	cp DAY_CARE_DEPOSIT
 	ld hl, wBreedMon1Species
-	jr z, .breedmon
+	jr z, .destinationDataFound
 
 	; we want to sent a mon into the Box
 	; so check if there's enough space
+	cp PC_DEPOSIT
+	jr z, .activeBox
+
+	ld hl, sHospitalBoxCount
+	jr .predefinedBox ; HOSPITAL_DEPOSIT
+
+.activeBox
 	ld hl, sBoxCount
+.predefinedBox
 	ld a, [hl]
 	cp MONS_PER_BOX
-	jr nz, .there_is_room
+	jr c, .there_is_room
 	jp CloseSRAM_And_SetCarryFlag
 
 .check_IfPartyIsFull
@@ -530,31 +552,53 @@ SendGetMonIntoFromBox:
 	ld [hli], a
 	ld [hl], $ff
 	ld a, [wPokemonWithdrawDepositParameter]
-	dec a
+	and 1
+	cp 0
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wPartyCount]
-	jr nz, .okay2
-	ld hl, sBoxMon1Species
-	ld bc, BOXMON_STRUCT_LENGTH
-	ld a, [sBoxCount]
+	jr z, .okay2 ; To reach this line, wPokemonWithdrawDepositParameter must be in mode 0, 1, 2, 4, or 5 (3 excluded). Mode number mod 2 are modes 0, 2, and 4. All those modes try to get a mon into the team.
 
-.okay2
+	ld bc, BOXMON_STRUCT_LENGTH ; This value is common to modes 1 and 5.
+	ld a, [wPokemonWithdrawDepositParameter]
+	cp HOSPITAL_DEPOSIT
+	jr z, .hospitalDeposit1 ; Mode 5 jumps to .hospitalDeposit1.
+
+	; At this point, we have eliminated modes 3, then 0, 2, 4, and finally 5. This that we are into mode 1.
+	ld hl, sBoxMon1Species
+	ld a, [sBoxCount]
+	jr .okay2
+
+.hospitalDeposit1
+	ld hl, sHospitalBoxMon1Species
+	ld a, [sHospitalBoxCount]
+
+.okay2 ; Here, we are trying to get a Pokemon into the party.
 	dec a ; wPartyCount - 1
 	call AddNTimes
 
-.breedmon
+; Here, hl points to the destination of the Pokémon.
+; Now we start looking for the source Pokémon data address.
+.destinationDataFound
 	push hl
 	ld e, l
 	ld d, h
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+
+	ld bc, BOXMON_STRUCT_LENGTH ; This value is common to modes 0, 2 and 4.
+
 	ld hl, sBoxMon1Species
-	ld bc, BOXMON_STRUCT_LENGTH
-	jr z, .okay3
+	cp PC_WITHDRAW
+	jr z, .okay3 ; If mode 0 (get mon from Box), jump to okay3.
+	
+	ld hl, sHospitalBoxMon1Species
+	cp HOSPITAL_WITHDRAW
+	jr z, .okay3 ; If mode 4 (get mon from Box), jump to okay3.
+
 	cp DAY_CARE_WITHDRAW
 	ld hl, wBreedMon1Species
 	jr z, .okay4
+
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 
@@ -564,17 +608,27 @@ SendGetMonIntoFromBox:
 
 .okay4
 	ld bc, BOXMON_STRUCT_LENGTH
-	call CopyBytes
+	call CopyBytes ; The Pokémon is TRANSFERED HERE!
+
 	ld a, [wPokemonWithdrawDepositParameter]
 	cp DAY_CARE_DEPOSIT
 	ld de, wBreedMon1OT
-	jr z, .okay5
-	dec a
-	ld hl, wPartyMonOTs
-	ld a, [wPartyCount]
-	jr nz, .okay6
+	jr z, .okay5 ; Mode 3 jumps to okay5.
+
+	cp PC_DEPOSIT
 	ld hl, sBoxMonOTs
 	ld a, [sBoxCount]
+	jr z, .okay6 ; Mode 1 jumps to okay6.
+
+	ld a, [wPokemonWithdrawDepositParameter]
+	cp HOSPITAL_DEPOSIT
+	ld hl, sHospitalBoxMonOTs
+	ld a, [sHospitalBoxCount]
+	jr z, .okay6  ; Mode 5 jumps to okay6.
+
+	ld hl, wPartyMonOTs
+	ld a, [wPartyCount]
+	jr z, .okay6  ; Modes 0, 2 and 4 jump to okay6.
 
 .okay6
 	dec a
@@ -582,15 +636,24 @@ SendGetMonIntoFromBox:
 	ld d, h
 	ld e, l
 
+; At this point, we have the destination address for OT name in de. 
+; We start looking for the source address of OT name.
 .okay5
-	ld hl, sBoxMonOTs
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+
+	ld hl, sBoxMonOTs
+	cp PC_WITHDRAW
 	jr z, .okay7
+
+	ld hl, sHospitalBoxMonOTs
+	cp HOSPITAL_WITHDRAW
+	jr z, .okay7
+
 	ld hl, wBreedMon1OT
 	cp DAY_CARE_WITHDRAW
 	jr z, .okay8
-	ld hl, wPartyMonOTs
+
+	ld hl, wPartyMonOTs ; Modes 1, 3 and 5 (deposit modes) fall through okay7.
 
 .okay7
 	ld a, [wCurPartyMon]
@@ -599,16 +662,25 @@ SendGetMonIntoFromBox:
 .okay8
 	ld bc, NAME_LENGTH
 	call CopyBytes
+
 	ld a, [wPokemonWithdrawDepositParameter]
-	cp DAY_CARE_DEPOSIT
 	ld de, wBreedMon1Nickname
-	jr z, .okay9
-	dec a
-	ld hl, wPartyMonNicknames
-	ld a, [wPartyCount]
-	jr nz, .okay10
+	cp DAY_CARE_DEPOSIT
+	jr z, .okay9 ; Mode 3 jumps to okay9.
+
+	cp PC_DEPOSIT
 	ld hl, sBoxMonNicknames
 	ld a, [sBoxCount]
+	jr z, .okay10 ; Mode 1 jumps to okay10.
+
+	ld a, [wPokemonWithdrawDepositParameter]
+	cp HOSPITAL_DEPOSIT
+	ld hl, sHospitalBoxMonNicknames
+	ld a, [sHospitalBoxCount]
+	jr z, .okay10 ; Mode 5 jumps to okay10.
+
+	ld hl, wPartyMonNicknames
+	ld a, [wPartyCount] ; Modes 0, 2 and 4 (withdraw modes) fall through okay10.	
 
 .okay10
 	dec a
@@ -617,14 +689,21 @@ SendGetMonIntoFromBox:
 	ld e, l
 
 .okay9
-	ld hl, sBoxMonNicknames
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+
+	ld hl, sBoxMonNicknames
+	cp PC_WITHDRAW
 	jr z, .okay11
+
+	ld hl, sHospitalBoxMonNicknames
+	cp HOSPITAL_WITHDRAW
+	jr z, .okay11
+
 	ld hl, wBreedMon1Nickname
 	cp DAY_CARE_WITHDRAW
 	jr z, .okay12
-	ld hl, wPartyMonNicknames
+
+	ld hl, wPartyMonNicknames ; Deposit modes (modes 1, 3, 5).
 
 .okay11
 	ld a, [wCurPartyMon]
@@ -637,13 +716,22 @@ SendGetMonIntoFromBox:
 
 	ld a, [wPokemonWithdrawDepositParameter]
 	cp PC_DEPOSIT
-	jr z, .took_out_of_box
+	jr z, .deposited_into_box
+	cp HOSPITAL_DEPOSIT
+	jr z, .deposited_into_box
 	cp DAY_CARE_DEPOSIT
 	jp z, .CloseSRAM_And_ClearCarryFlag
 
 	push hl
+	add 1
+	cp HOSPITAL_WITHDRAW + 1
+	jr z, .montype_is_determined ; wMonType will be HOSPITALMON
+
+	sub 1
 	srl a
 	add $2
+
+.montype_is_determined
 	ld [wMonType], a
 	predef CopyMonToTempMon
 	callfar CalcLevel
@@ -669,7 +757,9 @@ SendGetMonIntoFromBox:
 	pop bc
 
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	cp PC_WITHDRAW
+	jr nz, .CloseSRAM_And_ClearCarryFlag
+	cp HOSPITAL_WITHDRAW ; I'm unsure about this one. TODO: check this condition.
 	jr nz, .CloseSRAM_And_ClearCarryFlag
 	ld hl, MON_STATUS
 	add hl, bc
@@ -698,7 +788,7 @@ SendGetMonIntoFromBox:
 	ld [de], a
 	jr .CloseSRAM_And_ClearCarryFlag
 
-.took_out_of_box
+.deposited_into_box
 	ld a, [sBoxCount]
 	dec a
 	ld b, a
@@ -714,67 +804,71 @@ CloseSRAM_And_SetCarryFlag:
 	ret
 
 RestorePPOfDepositedPokemon:
-	ld a, b
-	ld hl, sBoxMons
-	ld bc, BOXMON_STRUCT_LENGTH
-	call AddNTimes
-	ld b, h
-	ld c, l
-	ld hl, MON_PP
-	add hl, bc
-	push hl
-	push bc
-	ld de, wTempMonPP
-	ld bc, NUM_MOVES
-	call CopyBytes
-	pop bc
-	ld hl, MON_MOVES
-	add hl, bc
-	push hl
-	ld de, wTempMonMoves
-	ld bc, NUM_MOVES
-	call CopyBytes
-	pop hl
-	pop de
-
-	ld a, [wMenuCursorY]
-	push af
-	ld a, [wMonType]
-	push af
-	ld b, 0
-.loop
-	ld a, [hli]
-	and a
-	jr z, .done
-	ld [wTempMonMoves], a
-	ld a, BOXMON
-	ld [wMonType], a
-	ld a, b
-	ld [wMenuCursorY], a
-	push bc
-	push hl
-	push de
-	farcall GetMaxPPOfMove
-	pop de
-	pop hl
-	ld a, [wTempPP]
-	ld b, a
-	ld a, [de]
-	and %11000000
-	add b
-	ld [de], a
-	pop bc
-	inc de
-	inc b
-	ld a, b
-	cp NUM_MOVES
-	jr c, .loop
-
-.done
-	pop af
-	ld [wMonType], a
-	pop af
-	ld [wMenuCursorY], a
+;	ld a, [wPokemonWithdrawDepositParameter]
+;	cp HOSPITAL_DEPOSIT
+;	ret nz ; Now, the PPs are restored only when a Pokémon goes to the hospital. The PC doesn't restore PPs anymore.
+;
+;	ld a, b
+;	ld hl, sHospitalBoxMons
+;	ld bc, BOXMON_STRUCT_LENGTH
+;	call AddNTimes
+;	ld b, h
+;	ld c, l
+;	ld hl, MON_PP
+;	add hl, bc
+;	push hl
+;	push bc
+;	ld de, wTempMonPP
+;	ld bc, NUM_MOVES
+;	call CopyBytes
+;	pop bc
+;	ld hl, MON_MOVES
+;	add hl, bc
+;	push hl
+;	ld de, wTempMonMoves
+;	ld bc, NUM_MOVES
+;	call CopyBytes
+;	pop hl
+;	pop de
+;
+;	ld a, [wMenuCursorY]
+;	push af
+;	ld a, [wMonType]
+;	push af
+;	ld b, 0
+;.loop
+;	ld a, [hli]
+;	and a
+;	jr z, .done
+;	ld [wTempMonMoves], a
+;	ld a, BOXMON
+;	ld [wMonType], a
+;	ld a, b
+;	ld [wMenuCursorY], a
+;	push bc
+;	push hl
+;	push de
+;	farcall GetMaxPPOfMove
+;	pop de
+;	pop hl
+;	ld a, [wTempPP]
+;	ld b, a
+;	ld a, [de]
+;	and %11000000
+;	add b
+;	ld [de], a
+;	pop bc
+;	inc de
+;	inc b
+;	ld a, b
+;	cp NUM_MOVES
+;	jr c, .loop
+;
+;.done
+;	pop af
+;	ld [wMonType], a
+;	pop af
+;	ld [wMenuCursorY], a
 	ret
 
 RetrieveMonFromDayCareMan:

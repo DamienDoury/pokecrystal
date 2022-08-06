@@ -62,13 +62,37 @@ FastShip1FSailor1Script:
 	checkevent EVENT_FAST_SHIP_DESTINATION_OLIVINE
 	iftrue ._Olivine
 	writetext FastShip1FSailor1Text_InVermilion
-	waitbutton
-	closetext
+
 
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iftrue .GoOut ; If it's not the first trip, immediately go out.
+
+	readmem wCurBox
+	ifequal 13, .GoOut ; In case the player shuts down the game and returns to this point, we don't want to make him/her save again.
+
+	promptbutton
+	writetext FastShip1FSailor1Text_NeedToSave
+	yesorno
+	iftrue .SwapToLocalBox
+
+	writetext FastShip1FSailor1Text_CantLetYouOut
+	waitbutton
+	closetext
+	end
+
+.SwapToLocalBox
+	writetext FastShip1FSailor1Text_Saving
+	setflag ENGINE_FLYPOINT_VERMILION
 	special BoxLockAfterPowerOutage
+	farwritetext _SavedTheGameText
+	playsound SFX_SAVE
+	waitsfx
+	wait 10
+	writetext FastShip1FSailor1Text_SeeYou
+
 .GoOut
+	waitbutton
+	closetext
 	scall .LetThePlayerOut
 	playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
@@ -275,6 +299,26 @@ FastShip1FSailor1Text_InVermilion:
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
+	done
+
+FastShip1FSailor1Text_NeedToSave:
+	text "You need to save"
+	line "the game before"
+	cont "leaving."
+	done
+
+FastShip1FSailor1Text_Saving:
+	text "Saving…"
+	done
+
+FastShip1FSailor1Text_CantLetYouOut:
+	text "Sorry I can't"
+	line "let you out."
+	done
+
+FastShip1FSailor1Text_SeeYou:
+	text "Have a nice stay"
+	line "in VERMILION CITY!"
 	done
 
 FastShip1F_MapEvents:

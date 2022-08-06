@@ -2224,6 +2224,8 @@ wPokemonWithdrawDepositParameter::
 ; 1: Put into PC
 ; 2: Take from Day-Care
 ; 3: Put into Day-Care
+; 4: Take from Hospital Box
+; 5: Put into Hospital Box
 	db
 
 wItemQuantityChange:: db

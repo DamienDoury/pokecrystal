@@ -149,6 +149,18 @@ _ResetWRAM:
 	call .InitList
 	call CloseSRAM
 
+	ld a, BANK(sHospitalBoxCount)
+	call OpenSRAM
+	ld hl, sHospitalBoxCount
+	call .InitList
+	call CloseSRAM
+
+	ld a, BANK(sHospitalBoxBackupCount)
+	call OpenSRAM
+	ld hl, sHospitalBoxBackupCount
+	call .InitList
+	call CloseSRAM
+
 	ld hl, wNumItems
 	call .InitList
 

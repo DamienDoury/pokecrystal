@@ -2,10 +2,8 @@ SECTION "Scratch", SRAM
 
 sScratch:: ds $60 tiles
 
-
-SECTION "SRAM Bank 0", SRAM
-
-sPartyMail::
+SECTION "Party Mail", SRAM ; 564 bytes.
+sPartyMail:: ; 47 x 6 = 282 bytes.
 	table_width MAIL_STRUCT_LENGTH, sPartyMail
 sPartyMon1Mail:: mailmsg sPartyMon1Mail
 sPartyMon2Mail:: mailmsg sPartyMon2Mail
@@ -15,7 +13,7 @@ sPartyMon5Mail:: mailmsg sPartyMon5Mail
 sPartyMon6Mail:: mailmsg sPartyMon6Mail
 	assert_table_length PARTY_LENGTH
 
-sPartyMailBackup::
+sPartyMailBackup:: ; 47 x 6 = 282 bytes.
 	table_width MAIL_STRUCT_LENGTH, sPartyMailBackup
 sPartyMon1MailBackup:: mailmsg sPartyMon1MailBackup
 sPartyMon2MailBackup:: mailmsg sPartyMon2MailBackup
@@ -25,8 +23,9 @@ sPartyMon5MailBackup:: mailmsg sPartyMon5MailBackup
 sPartyMon6MailBackup:: mailmsg sPartyMon6MailBackup
 	assert_table_length PARTY_LENGTH
 
+SECTION "Mailbox", SRAM ; 942 bytes.
 sMailboxCount:: db
-sMailboxes::
+sMailboxes:: ; 47 * 10 = 470 bytes.
 	table_width MAIL_STRUCT_LENGTH, sMailboxes
 sMailbox1::  mailmsg sMailbox1
 sMailbox2::  mailmsg sMailbox2
@@ -41,7 +40,7 @@ sMailbox10:: mailmsg sMailbox10
 	assert_table_length MAILBOX_CAPACITY
 
 sMailboxCountBackup:: db
-sMailboxesBackup::
+sMailboxesBackup:: ; 47 * 10 = 470 bytes.
 	table_width MAIL_STRUCT_LENGTH, sMailboxesBackup
 sMailbox1Backup::  mailmsg sMailbox1Backup
 sMailbox2Backup::  mailmsg sMailbox2Backup
@@ -55,20 +54,21 @@ sMailbox9Backup::  mailmsg sMailbox9Backup
 sMailbox10Backup:: mailmsg sMailbox10Backup
 	assert_table_length MAILBOX_CAPACITY
 
+SECTION "SRAM Bank 0", SRAM ; 137 bytes.
 sMysteryGiftData::
 sMysteryGiftItem:: db
 sMysteryGiftUnlocked:: db
 sBackupMysteryGiftItem:: db
 sNumDailyMysteryGiftPartnerIDs:: db
-sDailyMysteryGiftPartnerIDs:: ds MAX_MYSTERY_GIFT_PARTNERS * 2
-sMysteryGiftDecorationsReceived:: flag_array NUM_NON_TROPHY_DECOS
+sDailyMysteryGiftPartnerIDs:: ds MAX_MYSTERY_GIFT_PARTNERS * 2 ; 5 * 2 = 10 bytes.
+sMysteryGiftDecorationsReceived:: flag_array NUM_NON_TROPHY_DECOS ; 6 bytes?
 	ds 4
 sMysteryGiftTimer:: dw
 	ds 1
 sMysteryGiftTrainerHouseFlag:: db
-sMysteryGiftPartnerName:: ds NAME_LENGTH
+sMysteryGiftPartnerName:: ds NAME_LENGTH ; 11 bytes.
 sMysteryGiftUnusedFlag:: db
-sMysteryGiftTrainer:: ds wMysteryGiftTrainerEnd - wMysteryGiftTrainer
+sMysteryGiftTrainer:: ds wMysteryGiftTrainerEnd - wMysteryGiftTrainer ; 38 bytes.
 sBackupMysteryGiftItemEnd::
 
 	ds $30
@@ -78,6 +78,10 @@ sRTCStatusFlags:: db
 sLuckyNumberDay:: db
 sLuckyIDNumber::  dw
 
+SECTION "Hospital Box", SRAM
+
+sHospitalBox:: box sHospitalBox
+sHospitalBoxBackup:: box sHospitalBoxBackup
 
 SECTION "Backup Save", SRAM
 
@@ -91,7 +95,7 @@ sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
 sBackupGameDataEnd::
 
-	ds $18a
+;	ds $18a
 
 sBackupChecksum:: dw
 
@@ -120,7 +124,7 @@ sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
 sGameDataEnd::
 
-	ds $18a
+;	ds $18a
 
 sChecksum:: dw
 
@@ -134,14 +138,14 @@ sBox:: box sBox
 	ds $100
 
 
-SECTION "Link Battle Data", SRAM
+SECTION "Link Battle Data", SRAM ; 96 bytes.
 
 sLinkBattleStats::
 sLinkBattleWins::   dw
 sLinkBattleLosses:: dw
 sLinkBattleDraws::  dw
 
-sLinkBattleRecord::
+sLinkBattleRecord:: ; 18 * 5 = 90 bytes.
 	table_width LINK_BATTLE_RECORD_LENGTH, sLinkBattleRecord
 sLinkBattleRecord1:: link_battle_record sLinkBattleRecord1
 sLinkBattleRecord2:: link_battle_record sLinkBattleRecord2
@@ -154,7 +158,7 @@ sLinkBattleStatsEnd::
 
 SECTION "SRAM Hall of Fame", SRAM
 
-sHallOfFame::
+sHallOfFame:: ; 96 * 30 = 2880 bytes. Outch.
 	table_width HOF_LENGTH, sHallOfFame
 sHallOfFame01:: hall_of_fame sHallOfFame01
 sHallOfFame02:: hall_of_fame sHallOfFame02
@@ -190,7 +194,7 @@ sHallOfFame30:: hall_of_fame sHallOfFame30
 sHallOfFameEnd::
 
 
-SECTION "SRAM Crystal Data", SRAM
+SECTION "SRAM Crystal Data", SRAM ; 9 bytes lol.
 
 sMobileEventIndex:: db
 
@@ -199,7 +203,7 @@ sCrystalData:: ds wCrystalDataEnd - wCrystalData
 sMobileEventIndexBackup:: db
 
 
-SECTION "SRAM Battle Tower", SRAM
+SECTION "SRAM Battle Tower", SRAM ; 12 bytes.
 
 ; Battle Tower data must be in SRAM because you can save and leave between battles
 sBattleTowerChallengeState::
@@ -210,7 +214,7 @@ sBattleTowerChallengeState::
 sNrOfBeatenBattleTowerTrainers:: db
 sBTChoiceOfLevelGroup:: db
 ; Battle Tower trainers are saved here, so nobody appears more than once
-sBTTrainers:: ds BATTLETOWER_STREAK_LENGTH ; sbe48
+sBTTrainers:: ds BATTLETOWER_STREAK_LENGTH ; sbe48 ; 7 bytes.
 sBattleTowerSaveFileFlags:: db
 sBattleTowerReward:: db
 
@@ -246,8 +250,7 @@ sBox12:: box sBox12
 sBox13:: box sBox13
 sBox14:: box sBox14
 
-
-SECTION "SRAM Mobile 1", SRAM
+SECTION "SRAM Mobile 1", SRAM ; 1031 bytes.
 
 	ds $7
 
@@ -276,7 +279,6 @@ sMobileBattleTimer:: ds 3
 	ds $7fd
 
 s4_b000:: db
-
 
 SECTION "SRAM Mobile 2", SRAM
 

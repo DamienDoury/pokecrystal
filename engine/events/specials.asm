@@ -428,23 +428,23 @@ TrainerHouse:
 	jp CloseSRAM
 
 GetHospitalRoomNumber:
-	farcall QuickChangeBoxToHospitalBox
-	ld a, BANK(sBoxCount)
-	call OpenSRAM
-	ld a, [sBoxCount]
-	call CloseSRAM
-	push af
-
 	ld a, FALSE
 	ld [wSickMonIsInThisRoom], a
 
+	ld a, BANK(sHospitalBoxCount)
+	call OpenSRAM
+	ld a, [sHospitalBoxCount]
+	call CloseSRAM
+	ld c, a
 
+	push bc
 	call GetActualRoomNumber ; Now we check if the number -5 is above the number of sick Pokémon.
+	pop bc
 	sub 5
 	ret c
 
 	ld b, a
-	pop af
+	ld a, c
 	cp b
 	ret c
 	ret z

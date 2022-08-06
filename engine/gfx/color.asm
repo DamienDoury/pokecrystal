@@ -1637,12 +1637,10 @@ HandleHospitalRoomPalette:
 	cp MAP_GOLDENROD_HOSPITAL_ROOM
 	ret nz
 
-	farcall QuickChangeBoxToHospitalBox
-
-	ld a, BANK(sBoxCount)
+	ld a, BANK(sHospitalBoxMon1DVs)
 	call OpenSRAM
 
-	ld hl, sBoxMon1DVs
+	ld hl, sHospitalBoxMon1DVs
 	ld bc, BOXMON_STRUCT_LENGTH
 
 	ld a, [wScriptVar] ; This contains the hospital room number.
@@ -1670,8 +1668,6 @@ HandleHospitalRoomPalette:
  	call FarCopyWRAM
 
 	call CloseSRAM
-
-	farcall QuickChangeBoxToPrevBox
 	ret
 
 
@@ -2299,10 +2295,9 @@ SetHospitalMonSpecies::
 	cp FALSE
 	ret z
 
-	farcall QuickChangeBoxToHospitalBox
-	ld a, BANK(sBoxCount)
+	ld a, BANK(sHospitalBoxSpecies)
 	call OpenSRAM
-	ld hl, sBoxSpecies
+	ld hl, sHospitalBoxSpecies
 
 	ld a, [wScriptVar] ; This must contain the hospital room number.
 	sub 5
@@ -2317,7 +2312,7 @@ SetHospitalMonSpecies::
 
 	; Here we copy the nickname.
 	ld a, e ; Room number.
-	ld hl, sBoxMonNicknames
+	ld hl, sHospitalBoxMonNicknames
 	ld bc, MON_NAME_LENGTH
 	call AddNTimes ; HL now contains the first letter of the nickname.
 
@@ -2327,7 +2322,6 @@ SetHospitalMonSpecies::
 	call CopyName2
 
 	call CloseSRAM
-	farcall QuickChangeBoxToPrevBox
 	ret
 
 INCLUDE "data/sprites/maps_with_purple_objects.asm"

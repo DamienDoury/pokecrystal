@@ -15,11 +15,12 @@ AUTO_INPUT EQU $ff
 
 ; wMonType::
 	const_def
-	const PARTYMON   ; 0
-	const OTPARTYMON ; 1
-	const BOXMON     ; 2
-	const TEMPMON    ; 3
-	const WILDMON    ; 4
+	const PARTYMON    ; 0
+	const OTPARTYMON  ; 1
+	const BOXMON      ; 2
+	const TEMPMON     ; 3
+	const WILDMON     ; 4
+	const HOSPITALMON ; 5
 
 ; wGameTimerPaused::
 GAME_TIMER_PAUSED_F EQU 0
@@ -98,6 +99,8 @@ REMOVE_PARTY      EQU 0
 REMOVE_BOX        EQU 1
 DAY_CARE_WITHDRAW EQU 2
 DAY_CARE_DEPOSIT  EQU 3
+HOSPITAL_WITHDRAW EQU 4
+HOSPITAL_DEPOSIT  EQU 5
 
 ; wPlayerStepFlags::
 	const_def 4

@@ -1820,6 +1820,20 @@ DepositPokemon:
 	scf
 	ret
 
+; wCurPartyMon contains the pkmn to deposit.
+DepositPokemonSilent::
+	ld hl, wPartyMonNicknames
+	ld a, [wCurPartyMon]
+	call GetNickname
+	ld a, HOSPITAL_DEPOSIT
+	ld [wPokemonWithdrawDepositParameter], a
+	predef SendGetMonIntoFromBox
+	ret c
+	xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	farcall RemoveMonFromPartyOrBox
+	ret
+
 TryWithdrawPokemon:
 	ld a, [wBillsPC_CursorPosition]
 	ld hl, wBillsPC_ScrollPosition
@@ -2245,9 +2259,9 @@ _ChangeBox:
 	call FlagAction ; Returns the result of the check in c.
 	ld a, c
 	and a
-	ld hl, _ChangeBox_MenuHeader_12
-	jr z, .display_scroll_list	; false, the player hasn't reached Vermilion yet.
 	ld hl, _ChangeBox_MenuHeader_13
+	jr z, .display_scroll_list	; false, the player hasn't reached Vermilion yet.
+	ld hl, _ChangeBox_MenuHeader_14
 	
 .display_scroll_list
 	call CopyMenuHeader
@@ -2276,39 +2290,6 @@ BillsPC_ClearTilemap:
 	call ByteFill
 	ret
 
-_ChangeBox_MenuHeader_12:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 1, 5, 9, 12
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db SCROLLINGMENU_CALL_FUNCTION3_NO_SWITCH | SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
-	db 4, 0 ; rows, columns
-	db SCROLLINGMENU_ITEMS_NORMAL ; item format
-	dba .Boxes
-	dba .PrintBoxNames
-	dba NULL
-	dba BillsPC_PrintBoxCountAndCapacity
-
-.Boxes:
-	db NUM_BOXES - 2
-x = 1
-rept NUM_BOXES - 2
-	db x
-x = x + 1
-endr
-	db -1
-
-.PrintBoxNames:
-	push de
-	ld a, [wMenuSelection]
-	dec a
-	call GetBoxName
-	pop hl
-	call PlaceString
-	ret
-
 _ChangeBox_MenuHeader_13:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 1, 5, 9, 12
@@ -2328,6 +2309,39 @@ _ChangeBox_MenuHeader_13:
 	db NUM_BOXES - 1
 x = 1
 rept NUM_BOXES - 1
+	db x
+x = x + 1
+endr
+	db -1
+
+.PrintBoxNames:
+	push de
+	ld a, [wMenuSelection]
+	dec a
+	call GetBoxName
+	pop hl
+	call PlaceString
+	ret
+
+_ChangeBox_MenuHeader_14:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 1, 5, 9, 12
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db SCROLLINGMENU_CALL_FUNCTION3_NO_SWITCH | SCROLLINGMENU_ENABLE_FUNCTION3 ; flags
+	db 4, 0 ; rows, columns
+	db SCROLLINGMENU_ITEMS_NORMAL ; item format
+	dba .Boxes
+	dba .PrintBoxNames
+	dba NULL
+	dba BillsPC_PrintBoxCountAndCapacity
+
+.Boxes:
+	db NUM_BOXES
+x = 1
+rept NUM_BOXES
 	db x
 x = x + 1
 endr

@@ -14,11 +14,20 @@ CopyMonToTempMon:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	and a
 	jr z, .copywholestruct
+
 	ld hl, wOTPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	cp OTPARTYMON
 	jr z, .copywholestruct
+
 	ld bc, BOXMON_STRUCT_LENGTH
+	cp HOSPITALMON
+	jr nz, .normalboxmon
+
+	callfar CopyHospitalboxmonToTempMon
+	jr .done
+
+.normalboxmon
 	callfar CopyBoxmonToTempMon
 	jr .done
 
@@ -93,6 +102,8 @@ GetMonSpecies:
 	jr z, .otpartymon
 	cp BOXMON
 	jr z, .boxmon
+	cp HOSPITALMON
+	jr z, .hospitalboxmon
 	cp TEMPMON
 	jr z, .breedmon
 	; WILDMON
@@ -109,6 +120,14 @@ GetMonSpecies:
 	ld a, BANK(sBoxSpecies)
 	call OpenSRAM
 	ld hl, sBoxSpecies
+	call .done
+	call CloseSRAM
+	ret
+
+.hospitalboxmon
+	ld a, BANK(sHospitalBoxSpecies)
+	call OpenSRAM
+	ld hl, sHospitalBoxSpecies
 	call .done
 	call CloseSRAM
 	ret

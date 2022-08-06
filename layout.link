@@ -347,16 +347,19 @@ VRAM $01
 SRAM $00
 	"Scratch"
 	org $a600
-	"SRAM Bank 0"
-	org $b200
+	"Mailbox" ; 942 bytes.
+	"SRAM Bank 0" ; 137 bytes.
+	"Hospital Box" ; 1104 * 2 = 2208 bytes.
+	org $b300
 	"Backup Save"
 SRAM $01
-	"Save"
-	"Active Box"
-	"Link Battle Data"
-	"SRAM Hall of Fame"
-	"SRAM Crystal Data"
-	"SRAM Battle Tower"
+	"Save" ; 3270 + 394 = 3664 bytes.
+	"Active Box" ; 1104 bytes.
+	"Party Mail" ; 564 bytes.
+	"Link Battle Data" ; 96 bytes.
+	"SRAM Hall of Fame" ; 2880 bytes.
+	"SRAM Crystal Data" ; 9 bytes.
+	"SRAM Battle Tower" ; 12 bytes.
 SRAM $02
 	"Boxes 1-7"
 SRAM $03

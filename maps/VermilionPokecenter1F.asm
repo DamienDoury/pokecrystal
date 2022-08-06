@@ -70,9 +70,9 @@ VermilionPokecenter1FSailorText:
 	done
 
 VermilionPokecenter1FSailorPowerOutageText:
-	text "Oh fudge! The PC"
+	text "Oh fudge! BILL's PC"
 	line "can't connect to"
-	cont "JOHTO!"
+	cont "JOHTO's servers!"
 
 	para "Now I'm stuck here"
 	line "without access to"

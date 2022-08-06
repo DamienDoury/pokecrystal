@@ -4,7 +4,7 @@ flag_array: MACRO
 	ds ((\1) + 7) / 8
 ENDM
 
-box_struct: MACRO
+box_struct: MACRO ; 32 bytes.
 \1Species::        db
 \1Item::           db
 \1Moves::          ds NUM_MOVES
@@ -99,14 +99,14 @@ battle_struct: MACRO
 \1StructEnd::
 ENDM
 
-box: MACRO
+box: MACRO ; 1104 bytes.
 \1Count::        db
-\1Species::      ds MONS_PER_BOX + 1
+\1Species::      ds MONS_PER_BOX + 1 ; 21 bytes.
 \1Mons::
-\1Mon1::         box_struct \1Mon1
-\1Mon2::         ds BOXMON_STRUCT_LENGTH * (MONS_PER_BOX - 1)
-\1MonOTs::       ds NAME_LENGTH * MONS_PER_BOX
-\1MonNicknames:: ds MON_NAME_LENGTH * MONS_PER_BOX
+\1Mon1::         box_struct \1Mon1 ; 32 bytes.
+\1Mon2::         ds BOXMON_STRUCT_LENGTH * (MONS_PER_BOX - 1) ; 32 * 19 bytes = 608 bytes.
+\1MonOTs::       ds NAME_LENGTH * MONS_PER_BOX ; 11 * 20 = 220 bytes. Wasted memory? Shouldn't this be PLAYER_NAME_LENGTH instead of NAME_LENGTH?
+\1MonNicknames:: ds MON_NAME_LENGTH * MONS_PER_BOX ; 11 * 20 = 220 bytes.
 \1MonNicknamesEnd::
 \1End::
 	ds 2 ; padding
@@ -184,10 +184,10 @@ battle_tower_struct: MACRO
 \1TrainerEnd::
 ENDM
 
-mailmsg: MACRO
-\1Message::     ds MAIL_MSG_LENGTH
+mailmsg: MACRO ; 47 bytes.
+\1Message::     ds MAIL_MSG_LENGTH ; 32 bytes.
 \1MessageEnd::  db
-\1Author::      ds PLAYER_NAME_LENGTH
+\1Author::      ds PLAYER_NAME_LENGTH ; 8 bytes.
 \1Nationality:: dw
 \1AuthorID::    dw
 \1Species::     db
@@ -210,17 +210,17 @@ bugcontestwinner: MACRO
 \1Score::    dw
 ENDM
 
-hof_mon: MACRO
+hof_mon: MACRO ; 16 bytes.
 \1Species::  db
 \1ID::       dw
 \1DVs::      dw
 \1Level::    db
-\1Nickname:: ds MON_NAME_LENGTH - 1
+\1Nickname:: ds MON_NAME_LENGTH - 1 ; 11 - 1 = 10 bytes.
 \1End::
 ENDM
 
 hall_of_fame: MACRO
-\1WinCount:: db
+\1WinCount:: db ; 16 * 6 = 96 bytes.
 \1Mon1:: hof_mon \1Mon1
 \1Mon2:: hof_mon \1Mon2
 \1Mon3:: hof_mon \1Mon3
@@ -230,9 +230,9 @@ hall_of_fame: MACRO
 \1End:: db
 ENDM
 
-link_battle_record: MACRO
+link_battle_record: MACRO ; 18 bytes.
 \1ID::     dw
-\1Name::   ds NAME_LENGTH - 1
+\1Name::   ds NAME_LENGTH - 1 ; 11 - 1 = 10 bytes.
 \1Wins::   dw
 \1Losses:: dw
 \1Draws::  dw

@@ -303,3 +303,16 @@ CopyBoxmonToTempMon:
 	call CopyBytes
 	call CloseSRAM
 	ret
+
+CopyHospitalboxmonToTempMon:
+	ld a, [wCurPartyMon]
+	ld hl, sHospitalBoxMon1Species
+	ld bc, BOXMON_STRUCT_LENGTH
+	call AddNTimes
+	ld de, wTempMonSpecies
+	ld bc, BOXMON_STRUCT_LENGTH
+	ld a, BANK(sHospitalBoxMon1Species)
+	call OpenSRAM
+	call CopyBytes
+	call CloseSRAM
+	ret

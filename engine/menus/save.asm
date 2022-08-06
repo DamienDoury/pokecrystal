@@ -60,10 +60,10 @@ ChangeBoxSaveGame:
 	ret
 
 BoxLockAfterPowerOutage::
-	; This names "Box13" -> "[Local]".
+	; This names "Box14" -> "[Local]".
 	ld hl, wBoxNames
 	ld bc, BOX_NAME_LENGTH
-	ld a, NUM_BOXES - 2
+	ld a, NUM_BOXES - 1
 	call AddNTimes
 
 	ld [hl], $9E
@@ -81,21 +81,10 @@ BoxLockAfterPowerOutage::
 	ld [hl], $9F
 	inc hl
 	ld [hl], $50
-	; End of Box13 dirty renaming.
+	; End of Box14 dirty renaming.
 	; fallthrough
 
-QuickChangeBoxToBox13::
-	call PauseGameLogic
-	call SaveBox
-
-	ld a, 12	; Box at index 12 represents Box 13.
-	ld [wCurBox], a
-	
-	call LoadBox
-	call ResumeGameLogic
-	ret
-
-QuickChangeBoxToHospitalBox::
+;QuickChangeBoxToLOCALBox::
 	call PauseGameLogic
 	call SaveBox
 
@@ -104,17 +93,8 @@ QuickChangeBoxToHospitalBox::
 	
 	call LoadBox
 	call ResumeGameLogic
-	ret
 
-QuickChangeBoxToPrevBox::
-	call PauseGameLogic
-	call SaveBox
-
-	ldh a, [hPrevBox]
-	ld [wCurBox], a
-	
-	call LoadBox
-	call ResumeGameLogic
+	call SaveGameData
 	ret
 
 
@@ -299,6 +279,7 @@ SaveGameData:
 	call SavePlayerData
 	call SavePokemonData
 	call SaveBox
+	call SaveHospitalBoxBackup
 	call SaveChecksum
 	call ValidateBackupSave
 	call SaveBackupOptions
@@ -611,12 +592,31 @@ SaveBackupChecksum:
 	call CloseSRAM
 	ret
 
+SaveHospitalBoxBackup:
+	ld a, BANK(sHospitalBox) ; Must be in the same bank as sHospitalBoxBackup
+	call OpenSRAM
+	ld hl, sHospitalBox
+	ld de, sHospitalBoxBackup
+	ld bc, sHospitalBoxEnd - sHospitalBox
+	call CopyBytes
+	jp CloseSRAM
+
+RestoreHospitalBox: ; As both sHospitalBox and sHospitalBoxBackup must be in the same bank, we can make a direct copy and there's no need to use wBoxPartialData.
+	ld a, BANK(sHospitalBox) ; Must be in the same bank as sHospitalBoxBackup
+	call OpenSRAM
+	ld hl, sHospitalBoxBackup
+	ld de, sHospitalBox
+	ld bc, sHospitalBoxEnd - sHospitalBox
+	call CopyBytes
+	jp CloseSRAM
+
 TryLoadSaveFile:
 	call VerifyChecksum
 	jr nz, .backup
 	call LoadPlayerData
 	call LoadPokemonData
 	call LoadBox
+	call RestoreHospitalBox
 	farcall RestorePartyMonMail
 	farcall RestoreMobileEventIndex
 	farcall RestoreMysteryGift
@@ -634,6 +634,7 @@ TryLoadSaveFile:
 	call LoadBackupPlayerData
 	call LoadBackupPokemonData
 	call LoadBox
+	call RestoreHospitalBox
 	farcall RestorePartyMonMail
 	farcall RestoreMobileEventIndex
 	farcall RestoreMysteryGift

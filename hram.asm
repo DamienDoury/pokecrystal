@@ -32,11 +32,7 @@ hMapEntryMethod:: db
 
 hMenuReturn:: db
 
-UNION
 hUnusedByte:: db
-NEXTU
-hPrevBox:: db
-ENDU
 
 hJoypadReleased:: db
 hJoypadPressed::  db
