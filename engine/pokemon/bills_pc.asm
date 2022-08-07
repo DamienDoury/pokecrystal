@@ -857,7 +857,7 @@ MoveMonWithoutMail_DPad:
 	ld a, [hl]
 	and D_RIGHT
 	jr nz, BillsPC_PressRight
-	jr BillsPC_JoypadDidNothing
+	jp BillsPC_JoypadDidNothing
 
 MoveMonWithoutMail_DPad_2:
 	ld hl, hJoyLast
@@ -930,13 +930,39 @@ BillsPC_PressLeft:
 	jr BillsPC_LeftRightDidSomething
 
 .wrap_around
+	; We display either 13 boxes (Johto) or 14 (Kanto).
+	push hl
+	ld hl, wVisitedSpawns
+	ld b, CHECK_FLAG
+	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
+	call FlagAction ; Returns the result of the check in c.
+	pop hl
+	ld a, c
+	and a
+	ld [hl], NUM_BOXES - 1
+	jr z, BillsPC_LeftRightDidSomething	; false, the player hasn't reached Vermilion yet.
+	
 	ld [hl], NUM_BOXES
 	jr BillsPC_LeftRightDidSomething
 
 BillsPC_PressRight:
+	push hl
+	ld hl, wVisitedSpawns
+	ld b, CHECK_FLAG
+	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
+	call FlagAction ; Returns the result of the check in c.
+	pop hl
+	ld a, c
+	and a
+	ld b, NUM_BOXES - 1
+	jr z, .boxes_amount_determined	; false, the player hasn't reached Vermilion yet.
+	
+	ld b, NUM_BOXES
+
+.boxes_amount_determined
 	ld hl, wBillsPC_LoadedBox
 	ld a, [hl]
-	cp NUM_BOXES
+	cp b
 	jr z, .wrap_around
 	inc [hl]
 	jr BillsPC_LeftRightDidSomething
@@ -2252,7 +2278,7 @@ _ChangeBox:
 	call BillsPC_PrintBoxName
 	call BillsPC_PlaceChooseABoxString
 
-	; We display either 12 boxes (Johto) or 13 (Kanto). The 14th box is reserved for the hospital.
+	; We display either 13 boxes (Johto) or 14 (Kanto).
 	ld hl, wVisitedSpawns
 	ld b, CHECK_FLAG
 	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE

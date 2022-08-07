@@ -27,16 +27,12 @@ _BillsPC:
 	ld a, [hl]
 	push af
 	set NO_TEXT_SCROLL, [hl]
-	ld hl, .PCWhatText
+	ld hl, PCWhatText
 	call PrintText
 	pop af
 	ld [wOptions], a
 	call LoadFontsBattleExtra
 	ret
-
-.PCWhatText:
-	text_far _PCWhatText
-	text_end
 
 .LogOut:
 	call CloseSubmenu
@@ -105,6 +101,10 @@ _BillsPC:
 BillsPC_SeeYa:
 	scf
 	ret
+
+PCWhatText:
+	text_far _PCWhatText
+	text_end
 
 BillsPC_MovePKMNMenu:
 	call IsPCPoweredUp
@@ -257,6 +257,15 @@ IsPCPoweredUp:
 ; Prevent box change.
 	ld hl, .PC404Text
 	call PrintText
+
+	ld hl, wOptions
+	ld a, [hl]
+	push af
+	set NO_TEXT_SCROLL, [hl]
+	ld hl, PCWhatText
+	call PrintText
+	pop af
+	ld [wOptions], a
 	
 	pop hl
 	xor a	; returns false.
