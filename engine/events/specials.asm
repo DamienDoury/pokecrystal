@@ -312,6 +312,53 @@ CheckMildIllness: ; Only called by the nurse.
 
 CheckPokerus: ; Only called by the nurse.
 ; Check if a monster in your party has Pokerus (with a 2 or 3 bits strain).
+	ld a, 2 ; index of the Pokémon to store.
+	ld [wCurPartyMon], a
+
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld d, [hl]
+	farcall ItemIsMail
+	jr nc, .checkItem ; Not holding mail.
+
+; Is holding mail
+	ld a, [wCurPartyMon]
+	ld b, a
+	farcall SendMailToPC
+	; Display text.
+	jr nc, .deposit_mon_into_hospital_box ; Mailbox isn't full and the mail has been sent to the PC.
+
+; Mailbox is full
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld a, [hl]
+	ld [wCurItem], a
+	farcall ReceiveItemFromPokemon
+	; Display text.
+
+; Throw away the held mail (even if we couldn't store the mail into the bag, in which case it will be lost).
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	xor a
+	ld [hl], a
+	; Display text.
+
+.checkItem
+
+.deposit_mon_into_hospital_box
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	ld [wCurPartySpecies], a
+	farcall DepositPokemonSilent
+
 	farcall _CheckPokerus
 	jp ScriptReturnCarry
 
@@ -506,5 +553,13 @@ GetActualRoomNumber: ; Writes down the number of the hospital room in wScriptVar
 
 	pop af
 	add l
+	ld [wScriptVar], a
+	ret
+
+GetQuantityOfHospitalizedMons:
+	ld a, BANK(sHospitalBoxCount)
+	call OpenSRAM
+	ld a, [sHospitalBoxCount]
+	call CloseSRAM
 	ld [wScriptVar], a
 	ret

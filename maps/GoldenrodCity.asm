@@ -370,13 +370,13 @@ GoldenrodCityCooltrainerF2Text_GotRadioCard:
 	done
 
 GoldenrodCityYoungster2Text:
-	text "E-he-he-he…"
+	text "The hospital in"
+	line "the north of the"
+	cont "city has been"
+	cont "built in only"
+	cont "10 days!"
 
-	para "I got in trouble"
-	line "for playing in the"
-
-	para "basement of the"
-	line "DEPT.STORE."
+	para "Yo, it's crazy!"
 	done
 
 GoldenrodCityLassText:

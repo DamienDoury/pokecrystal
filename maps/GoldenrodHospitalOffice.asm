@@ -49,4 +49,4 @@ GoldenrodHospitalOffice_MapEvents:
 	bg_event  5,  2, BGEVENT_READ, GoldenrodHospitalBookshelfScript
 
 	def_object_events
-	object_event  3,  5, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalOfficeChiefScript, -1
+	object_event  3,  5, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalOfficeChiefScript, -1

@@ -187,3 +187,4 @@ SpecialsPointers::
 	add_special MakeRedsPikachu
 	add_special BoxLockAfterPowerOutage
 	add_special GetHospitalRoomNumber
+	add_special GetQuantityOfHospitalizedMons
