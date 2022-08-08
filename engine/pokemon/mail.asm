@@ -236,7 +236,7 @@ GivePokeMail::
 	ld [de], a
 	jp CloseSRAM
 
-BackupPartyMonMail:
+BackupMail:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	ld hl, sPartyMail
@@ -249,7 +249,7 @@ BackupPartyMonMail:
 	call CopyBytes
 	jp CloseSRAM
 
-RestorePartyMonMail:
+RestoreMail:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	ld hl, sPartyMailBackup
@@ -262,7 +262,7 @@ RestorePartyMonMail:
 	call CopyBytes
 	jp CloseSRAM
 
-DeletePartyMonMail:
+DeleteMail:
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	xor a

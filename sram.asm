@@ -135,7 +135,8 @@ SECTION "Active Box", SRAM
 
 sBox:: box sBox
 
-	ds $100
+;	ds $100
+	ds 8 ; Added by Damien to add a little padding, but less than the original ds 100.
 
 
 SECTION "Link Battle Data", SRAM ; 96 bytes.

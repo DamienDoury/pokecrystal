@@ -31,7 +31,7 @@ SaveAfterLinkTrade:
 	call SaveChecksum
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
-	farcall BackupPartyMonMail
+	farcall BackupMail
 	farcall SaveRTC
 	call ResumeGameLogic
 	ret
@@ -142,7 +142,7 @@ MoveMonWOMail_InsertMon_SaveGame:
 	call SaveBackupPlayerData
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
-	farcall BackupPartyMonMail
+	farcall BackupMail
 	farcall BackupMobileEventIndex
 	farcall SaveRTC
 	call LoadBox
@@ -287,7 +287,7 @@ SaveGameData:
 	call SaveBackupPokemonData
 	call SaveBackupChecksum
 	call UpdateStackTop
-	farcall BackupPartyMonMail
+	farcall BackupMail
 	farcall BackupMobileEventIndex
 	farcall SaveRTC
 	ld a, BANK(sBattleTowerChallengeState)
@@ -617,7 +617,7 @@ TryLoadSaveFile:
 	call LoadPokemonData
 	call LoadBox
 	call RestoreHospitalBox
-	farcall RestorePartyMonMail
+	farcall RestoreMail
 	farcall RestoreMobileEventIndex
 	farcall RestoreMysteryGift
 	call ValidateBackupSave
@@ -635,7 +635,7 @@ TryLoadSaveFile:
 	call LoadBackupPokemonData
 	call LoadBox
 	call RestoreHospitalBox
-	farcall RestorePartyMonMail
+	farcall RestoreMail
 	farcall RestoreMobileEventIndex
 	farcall RestoreMysteryGift
 	call ValidateSave
