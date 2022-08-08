@@ -1004,9 +1004,8 @@ ElmDirectionsText2:
 
 	para "It can heal their"
 	line "health points but"
-	cont "won't cure"
-	cont "diseases"
-	cont "unfortunately…"
+	cont "won't get rid of"
+	cont "viruses I'm afraid…"
 
 	para "Feel free to use"
 	line "it anytime, but"
