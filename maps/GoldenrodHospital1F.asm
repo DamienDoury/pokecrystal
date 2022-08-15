@@ -89,7 +89,7 @@ GoldenrodHospitalNurse2Script:
 
 	ifequal 1, .SingleMon
 
-	addval 5
+	addval 4
 	getnum STRING_BUFFER_3
 	writetext GoldenrodHospitalNurse2Text_Reside
 	sjump .CheckRecoveredMons
