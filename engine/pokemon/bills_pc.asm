@@ -1848,6 +1848,23 @@ DepositPokemon:
 
 ; wCurPartyMon contains the pkmn to deposit.
 DepositPokemonSilent::
+	ld a, BANK(sHospitalBox)
+	call OpenSRAM
+	ld a, [sHospitalBoxCount]
+	cp MONS_PER_BOX
+	call CloseSRAM ; Doesn't affect the carry flag.
+	jr c, .box_has_available_slots
+
+	; The box is full, so we need to release the oldest Pokémon.
+	ld a, [wCurPartyMon]
+	ld e, a
+	push de
+	farcall RemoveFirstMonFromHospitalBox
+	pop de
+	ld a, e
+	ld [wCurPartyMon], a
+
+.box_has_available_slots
 	ld hl, wPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call GetNickname

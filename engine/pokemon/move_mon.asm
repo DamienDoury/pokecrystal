@@ -1970,15 +1970,19 @@ _RetrieveFirstMonFromHospitalBox::
 	ld [wPokemonWithdrawDepositParameter], a
 	call SendGetMonIntoFromBox
 
-	; We remove the Pokemon from the box.
+	call RemoveFirstMonFromHospitalBox
+
+	; [NOPE] -> TODO: Add or sub happiness depending on how long the player took to withdraw this Pokémon from the hospital.
+
+	ret
+
+RemoveFirstMonFromHospitalBox::
+	; We remove the first Pokemon from the hospital box.
 	ld a, REMOVE_HOSPITAL
 	ld [wPokemonWithdrawDepositParameter], a
 	xor a 
 	ld [wCurPartyMon], a
 	call RemoveMonFromPartyOrBox
-
-	; TODO: Add or sub happiness depending on how long the player took to withdraw this Pokémon from the hospital.
-
 
 	; We shift the visit flags
 	ld hl, wHospitalVisitsToday + 2
@@ -1987,5 +1991,4 @@ _RetrieveFirstMonFromHospitalBox::
 	rr [hl]
 	dec hl
 	rr [hl]
-
 	ret
