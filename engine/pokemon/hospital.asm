@@ -301,9 +301,11 @@ PayVisit:
 	ld b, CHECK_FLAG
 	ld d, 0
 	;ld e, a
+	push hl
 	push de
 	call FlagAction ; Returns the result of the check in c.
 	pop de
+	pop hl
 	ld a, c
 	and a
 	jr nz, .no_gain ; This mon has already been visited today.
