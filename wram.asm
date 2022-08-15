@@ -2792,11 +2792,9 @@ wGameTimeMinutes:: db
 wGameTimeSeconds:: db
 wGameTimeFrames::  db
 
-	ds 2
+wHospitalVisitsToday:: flag_array MONS_PER_BOX ; 3 bytes, with the 4 upper bits unused.
 
 wCurDay:: db
-
-	ds 1
 
 wObjectFollow_Leader:: db
 wObjectFollow_Follower:: db
@@ -3131,7 +3129,7 @@ wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.
 	ds 1
 wSpecialPhoneCallID:: db
-	ds 3
+	ds 3 ; First byte used by wSpecialPhoneCallID
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wUnusedTwoDayTimerOn:: db
 wUnusedTwoDayTimer:: db

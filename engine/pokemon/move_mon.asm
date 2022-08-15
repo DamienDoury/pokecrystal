@@ -761,6 +761,8 @@ SendGetMonIntoFromBox:
 	jr nz, .CloseSRAM_And_ClearCarryFlag
 	cp HOSPITAL_WITHDRAW ; I'm unsure about this one. TODO: check this condition.
 	jr nz, .CloseSRAM_And_ClearCarryFlag
+
+.one_last_thing
 	ld hl, MON_STATUS
 	add hl, bc
 	xor a
@@ -1324,7 +1326,7 @@ RemoveMonFromPartyOrBox:
 	and a
 	jr z, .okay
 
-	ld a, BANK(sBoxCount)
+	ld a, BANK(sBoxCount) ; sHospitalBox is in the same bank now.
 	call OpenSRAM
 	ld hl, sBoxCount
 

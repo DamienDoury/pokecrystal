@@ -193,13 +193,14 @@ InitializeStartDay:
 	call CopyDayToHL
 	ret
 
-CheckPokerusTick::
+CheckPokerusTickAndHospitalVisits::
 	ld hl, wTimerEventStartDay
 	call CalcDaysSince
 	call GetDaysSince
 	and a
 	jr z, .done ; not even a day has passed since game start
 	ld b, a
+	farcall ResetHospitalVisits
 	farcall ApplyPokerusTick
 .done
 	xor a

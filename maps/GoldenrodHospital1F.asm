@@ -71,8 +71,8 @@ GoldenrodHospitalNurse2Script:
 
 	applymovement GOLDENROD_HOSPITAL_RECEPTIONIST1, Hospital_NurseWalksToPC
 	playsound SFX_BOOT_PC
-	pause 30
 	waitsfx
+	pause 30
 
 	applymovement GOLDENROD_HOSPITAL_RECEPTIONIST1, Hospital_NurseWalksBackFromPC
 	faceplayer
@@ -92,18 +92,80 @@ GoldenrodHospitalNurse2Script:
 	addval 5
 	getnum STRING_BUFFER_3
 	writetext GoldenrodHospitalNurse2Text_Reside
+	sjump .CheckRecoveredMons
+
+.SingleMon:
+	writetext GoldenrodHospitalNurse2Text_Room5Solo	
+
+.CheckRecoveredMons:
+	special CountHospitalMonsReadyToLeave2
+	ifequal 0, .End
+
+	promptbutton
+	writetext GoldenrodHospitalNurse2Text_GoodNews
+	promptbutton
+
+	readvar VAR_PARTYCOUNT
+	ifgreater 5, .PartyFullAtStart
+
+	writetext GoldenrodHospitalNurse2Text_AreYouReady
+	yesorno
+	iftrue, .PlayerAccepted
+	writetext GoldenrodHospitalNurse2Text_ComeBackSoon
+	sjump .End
+
+.PlayerAccepted
+	writetext GoldenrodHospitalNurse2Text_SignPapers
+	readvar VAR_FACING
+	ifequal LEFT, .InFrontOfPapers
+	
+	waitbutton
+	closetext
+	turnobject GOLDENROD_HOSPITAL_RECEPTIONIST1, RIGHT
+	pause 15
+ 	applymovement PLAYER, Hospital_PlayerWalksToPapers
+	pause 15
+	opentext
+	sjump .HasSignedPapers
+
+.InFrontOfPapers:
+	promptbutton
+
+.HasSignedPapers:
+	; At this point, the player must have at least 1 available spot in its party, and 1 mon in the hospital box.
+	special CountHospitalMonsReadyToLeave
+
+.Loop:
+	special RetrieveFirstMonFromHospitalBox
+
+	writetext GoldenrodHospitalNurse2Text_MonReadyToLeave
+	playsound SFX_KEY_ITEM
+	waitsfx
+	promptbutton	
+
+	addval $ff ;-1
+	ifgreater 0, .Loop
+
+	special CountHospitalMonsReadyToLeave2
+	ifgreater 0, .ComeBackLater
+
+	writetext GoldenrodHospitalNurse2Text_TakeCare
+	sjump .End
+
+.ComeBackLater:
+	writetext GoldenrodHospitalNurse2Text_PartyFull2
+	sjump .End
+
+.PartyFullAtStart:
+	writetext GoldenrodHospitalNurse2Text_PartyFull
+
+.End:
 	waitbutton
 	closetext
 	end
 
 .NoMon:
 	writetext GoldenrodHospitalNurse2Text_NoMon
-	waitbutton
-	closetext
-	end
-
-.SingleMon:
-	writetext GoldenrodHospitalNurse2Text_Room5Solo
 	waitbutton
 	closetext
 	end
@@ -234,8 +296,7 @@ GoldenrodHospitalAskGelText:
 
 GoldenrodHospitalCleanHandsText:
 	text "Thanks for washing"
-	line "your hands it is,"
-	cont "very important."
+	line "your hands."
 	done
 
 GoldenrodHospital1FThankOakText:
@@ -387,11 +448,11 @@ GoldenrodHospitalLockText:
 	done
 
 GoldenrodHospitalNurse2Text_Intro:
-	text "Hello trainer."
+	text "Hello trainer!"
 
-	para "Can I check if any"
-	line "#MON of yours"
-	cont "is in here?"
+	para "Let me check if"
+	line "any #MON of"
+	cont "yours is in here."
 
 	para "Show me your"
 	line "TRAINER CARD"
@@ -425,6 +486,60 @@ GoldenrodHospitalNurse2Text_Reside:
 	text "."
 	done
 
+GoldenrodHospitalNurse2Text_GoodNews:
+	text "Here is the"
+	line "good news!"
+
+	para "Some of your"
+	line "#MON have fully"
+	cont "recovered and are"
+	cont "ready to leave."
+	done
+
+GoldenrodHospitalNurse2Text_PartyFull:
+	text "Please make some"
+	line "room in your party"
+	cont "and come get them."
+	done
+
+GoldenrodHospitalNurse2Text_AreYouReady:
+	text "Can you take them"
+	line "away now?"
+	done
+
+GoldenrodHospitalNurse2Text_SignPapers:
+	text "Sign those papers"
+	line "and they're"
+	cont "good to go!"
+	done
+
+GoldenrodHospitalNurse2Text_MonReadyToLeave:
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer1
+	text " back!"
+	done
+
+GoldenrodHospitalNurse2Text_PartyFull2:
+	text "Make room in your"
+	line "party to get"
+	cont "the others."
+	done
+
+GoldenrodHospitalNurse2Text_ComeBackSoon:
+	text "Come back as soon"
+	line "as possible."
+	
+	para "We need to free"
+	line "rooms for other"
+	cont "patients."
+	done
+
+GoldenrodHospitalNurse2Text_TakeCare:
+	text "Take good care of"
+	line "them and yourself."
+	done
+
 Hospital_NurseWalksToPC:
 	slow_step UP
 	slow_step LEFT
@@ -436,6 +551,14 @@ Hospital_NurseWalksBackFromPC:
 	slow_step RIGHT
 	slow_step RIGHT
 	slow_step DOWN
+	step_end
+
+Hospital_PlayerWalksToPapers:
+	step RIGHT
+	step RIGHT
+	step UP
+	step UP
+	turn_head LEFT
 	step_end
 
 GoldenrodHospital1F_MapEvents:

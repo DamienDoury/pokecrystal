@@ -1234,8 +1234,6 @@ _NewDexDataText::
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
-
 _AskGiveNicknameText::
 	text "Give a nickname to"
 	line "@"
@@ -1280,8 +1278,6 @@ Text_PlayedPokeFlute::
 	line "# FLUTE.@"
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _BlueCardBalanceText::
 	text "You now have"
@@ -1613,4 +1609,59 @@ _FirstLockdownDeclarationText::
 	para "Be responsible,"
 	line "save lives,"
 	cont "stay safe.”"
+	done
+
+
+
+
+_HospitalVisitHappiness0Text::
+	text "Your @"
+	text_ram wStringBuffer1
+	text " is"
+	line "ignoring you…"
+	prompt
+
+_HospitalVisitHappiness1Text::
+	text "Your @"
+	text_ram wStringBuffer1
+	text ""
+	line "didn't expect you."
+	prompt
+
+_HospitalVisitHappiness2Text::
+	text "Your @"
+	text_ram wStringBuffer1
+	text " is"
+	line "glad to see you."
+	prompt
+
+_HospitalVisitHappiness3Text::
+	text "Your @"
+	text_ram wStringBuffer1
+	text " is"
+	line "happy to see you"
+	cont "once again!"
+	prompt
+
+
+
+
+_HospitalVisitDuration0Text::
+	text "It looks in per-"
+	line "fect shape and"
+	cont "ready to go out!"
+	done
+
+_HospitalVisitDuration1Text::
+	text "It appears to feel"
+	line "better and should"
+	cont "be able to leave"
+	cont "soon."
+	done
+
+_HospitalVisitDuration2Text::
+	text "Quite some time"
+	line "will be necessary"
+	cont "before it can"
+	cont "leave this room…"
 	done

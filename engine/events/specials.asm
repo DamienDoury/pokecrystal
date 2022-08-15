@@ -475,91 +475,25 @@ TrainerHouse:
 	jp CloseSRAM
 
 GetHospitalRoomNumber:
-	ld a, FALSE
-	ld [wSickMonIsInThisRoom], a
-
-	ld a, BANK(sHospitalBoxCount)
-	call OpenSRAM
-	ld a, [sHospitalBoxCount]
-	call CloseSRAM
-	ld c, a
-
-	push bc
-	call GetActualRoomNumber ; Now we check if the number -5 is above the number of sick Pokémon.
-	pop bc
-	sub 5
-	ret c
-
-	ld b, a
-	ld a, c
-	cp b
-	ret c
-	ret z
-
-	ld a, TRUE
-	ld [wSickMonIsInThisRoom], a
-	ret
-
-GetActualRoomNumber: ; Writes down the number of the hospital room in wScriptVar and in A.
-	ld de, 0
-
-	ld a, [wMapNumber]
-	cp MAP_GOLDENROD_HOSPITAL_ROOM
-	jr z, .hospital_room
-
-	ld a, [wYCoord]
-	cp 5 ; Arbitrary value that represents about half the map height.
-	jr c, .corridor_top_row
-
-; corridor bottom row.
-	ld de, 4 * HOSPITAL_CORRIDOR_LENGTH
-
-.corridor_top_row
-	ld hl, 0
-	ld bc, 4 ; 4 rooms per corridor row.
-	ld a, [wGoldenrodHospitalCorridorNumber]
-	dec a
-	call AddNTimes
-	add hl, de
-
-	ld a, [wXCoord]
-	sub 2
-	srl a
-	srl a
-	add 1 ; NUMBER ONE
-	add l ; LETTER "L" (2 pixels difference, almost delete it because I thought it was a duplicate).
-	ld [wScriptVar], a
-	ret
-
-.hospital_room
-	ld a, [wPrevWarp]
-	sub 8
-	cp 5
-	jr c, .room_top_row
-
-; room bottom row.
-	ld de, 4 * HOSPITAL_CORRIDOR_LENGTH
-	sub 4
-	
-.room_top_row
-	push af
-
-	ld hl, 0
-	ld bc, 4 ; 4 rooms per corridor row.
-	ld a, [wGoldenrodHospitalCorridorNumber]
-	dec a
-	call AddNTimes
-	add hl, de
-
-	pop af
-	add l
-	ld [wScriptVar], a
+	farcall _GetHospitalRoomNumber
 	ret
 
 GetQuantityOfHospitalizedMons:
-	ld a, BANK(sHospitalBoxCount)
-	call OpenSRAM
-	ld a, [sHospitalBoxCount]
-	call CloseSRAM
-	ld [wScriptVar], a
+	farcall _GetQuantityOfHospitalizedMons
+	ret
+
+CountHospitalMonsReadyToLeave:
+	farcall _CountHospitalMonsReadyToLeave
+	ret
+
+CountHospitalMonsReadyToLeave2:
+	farcall _CountHospitalMonsReadyToLeave2
+	ret
+
+RetrieveFirstMonFromHospitalBox:
+	farcall _RetrieveFirstMonFromHospitalBox
+	ret
+
+HospitalVisitHappinessGain:
+	farcall _HospitalVisit
 	ret

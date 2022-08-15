@@ -66,6 +66,11 @@ POKERUS_IMMUNITY_DURATION EQU 10 ; days. The 10th day is included within the imm
 POKERUS_SYMPTOMS_DURATION EQU 3 ; days
 POKERUS_SYMPTOMS_START EQU 13 ; days. The 13th day is included within the covid period.
 
+HOSPITALIZATION_DURATION EQU 3 ; Number of days a Pokémon stays in the Emergency Room.
+MAX_HAPPINESS_IN_HOSPITAL EQU 200
+LOST_HAPPINESS_WHEN_HOSPITALIZED EQU 128
+HAPPINESS_GAINED_WHEN_VISITED EQU 60
+
 ; Liberty flags
 ; Réflexion : de base, le byte hour et timeofday valent -1, soit tous les bits à 1. Si on a pas à changer ça, c'est cool. 
 ; On dit donc que si le bit est à 1, alors l'objet doit s'afficher. Il faudra quand même faire une repasse globale, pour les objets à activation temporaire.

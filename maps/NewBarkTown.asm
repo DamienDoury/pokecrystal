@@ -151,7 +151,7 @@ NewBarkTownElmsHouseSign:
 ; TO DELETE!
 CheatGuyScript: 
 	readvar VAR_PARTYCOUNT
-	ifless 1, .TalkAfterFirstMon
+	;ifless 1, .TalkAfterFirstMon
 	checkmoney YOUR_MONEY, 100000
 	iffalse .skip_money ; Prevents overflow.
 	givemoney YOUR_MONEY, 200000

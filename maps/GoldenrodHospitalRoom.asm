@@ -23,22 +23,15 @@ GoldenrodHospitalRoomMedicineScript:
 	jumptext GoldenrodHospitalRoomMedicineText
 
 GoldenrodHospitalRoomSickPkmnScript:
-	jumptext GoldenrodHospitalRoomSickPkmnText
+	opentext
+	special HospitalVisitHappinessGain
+	waitbutton
+	closetext
+	end
 
 GoldenrodHospitalRoomMedicineText:
 	text "Lots of different"
 	line "medications."
-	done
-
-GoldenrodHospitalRoomSickPkmnText:
-	text "Your @"
-	text_ram wStringBuffer5
-	text ""
-	line "is slowly"
-	cont "recovering."
-
-	para "It seems happy"
-	line "to see you."
 	done
 
 GoldenrodHospitalRoom_MapEvents:

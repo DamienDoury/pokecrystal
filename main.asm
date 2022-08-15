@@ -46,7 +46,6 @@ INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/lockdown_wanted.asm"
 INCLUDE "engine/events/gym.asm"
 INCLUDE "engine/battle/automatic_weather.asm"
-INCLUDE "engine/events/reds_pikachu.asm"
 
 
 SECTION "bank4", ROMX
@@ -73,6 +72,7 @@ INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
 INCLUDE "engine/pokemon/correct_party_errors.asm"
 INCLUDE "engine/math/get_square_root.asm"
+INCLUDE "engine/events/reds_pikachu.asm"
 
 
 SECTION "bank5", ROMX
@@ -92,6 +92,7 @@ INCLUDE "engine/events/daycare.asm"
 INCLUDE "engine/events/print_unown.asm"
 INCLUDE "engine/events/print_photo.asm"
 INCLUDE "engine/pokemon/breeding.asm"
+INCLUDE "engine/pokemon/hospital.asm"
 
 
 SECTION "Roofs", ROMX
@@ -421,6 +422,7 @@ INCLUDE "engine/phone/scripts/kenji.asm"
 INCLUDE "engine/phone/scripts/parry.asm"
 INCLUDE "engine/phone/scripts/erin.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
+INCLUDE "engine/phone/scripts/hospital.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
 
@@ -598,7 +600,7 @@ INCLUDE "data/phone/text/liz_caller.asm"
 INCLUDE "data/phone/text/anthony_caller.asm"
 INCLUDE "data/phone/text/todd_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
-
+INCLUDE "data/phone/text/hospital_caller.asm"
 
 SECTION "UpdateBattleHUDs", ROMX
 

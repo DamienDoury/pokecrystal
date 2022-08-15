@@ -1,22 +1,16 @@
+; Note: this is called after a basic pikachu had been added to the party.
 MakeRedsPikachu::
 	; First, we have to retrieve the last member of the party.
 	ld a, [wPartyCount]
 	ret z
 	dec a ; We need to sub 1 to the length of the array in order to get the last ID in the array.
-	ret z
+	;ret z ; Impossible.
 	ld [wCurPartyMon], a
 
 	; We get the first byte of its data structure in the memory.
 	ld hl, wPartyMon1Moves
-	ld de, PARTYMON_STRUCT_LENGTH
-
-.repeat_offset
-	cp 0
-	jr z, .offset_done
-	add hl, de
-	dec a
-	jr .repeat_offset
-.offset_done
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
 
 	; Finally, we can set all of its data, according to its data structure as described in constants/pokemon_data_constants.asm:PARTYMON_STRUCT_LENGTH.
 	; Starting with its first move.
@@ -58,7 +52,7 @@ MakeRedsPikachu::
 	ld [hl], $FF
 	inc hl
 	push hl
-	call UpdateStatsAfterItem ; The stats of the Pokémon need to be recalculated.
+	farcall UpdateStatsAfterItem ; The stats of the Pokémon need to be recalculated.
 	pop hl
 
 	; MON_PP

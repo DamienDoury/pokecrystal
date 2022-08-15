@@ -425,7 +425,7 @@ CheckTimeEvents:
 
 .do_daily
 	farcall CheckDailyResetTimer
-	farcall CheckPokerusTick
+	farcall CheckPokerusTickAndHospitalVisits
 	farcall CheckPhoneCall
 	ret c
 

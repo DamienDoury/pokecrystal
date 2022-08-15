@@ -1851,6 +1851,29 @@ DepositPokemonSilent::
 	ld hl, wPartyMonNicknames
 	ld a, [wCurPartyMon]
 	call GetNickname
+
+	; Set the hospital duration to 3 days.
+	ld a, MON_PKRUS
+	call GetPartyParamLocation ; HL now points to the PokerusStatus of the party mon at index wCurPartyMon.
+	ld a, [hl]
+	and POKERUS_INVERSED_DURATION_MASK ; We delete the duration.
+	add POKERUS_IMMUNITY_DURATION + HOSPITALIZATION_DURATION
+	ld [hl], a
+
+	; Lower the happiness of the Pokémon.
+	ld a, MON_HAPPINESS
+	call GetPartyParamLocation
+	ld a, [hl]
+	cp LOST_HAPPINESS_WHEN_HOSPITALIZED
+	ld b, LOST_HAPPINESS_WHEN_HOSPITALIZED
+	jr nc, .happiness_calculated
+
+	ld b, a ; The Pokémon will lose all its happiness all the way to 0.
+
+.happiness_calculated
+	sub b
+	ld [hl], a
+
 	ld a, HOSPITAL_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
 	predef SendGetMonIntoFromBox
@@ -1858,6 +1881,20 @@ DepositPokemonSilent::
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
 	farcall RemoveMonFromPartyOrBox
+
+	; Phone call check.
+	ld a, BANK(sHospitalBoxCount)
+	call OpenSRAM
+	ld a, [sHospitalBoxCount]
+	call CloseSRAM
+	cp MONS_PER_BOX - 3
+	ret c
+
+	; Phone call when hospital box is full.
+	ld a, SPECIALCALL_RELEASE_HOSPITAL
+	ld [wSpecialPhoneCallID], a
+	xor a
+	ld [wSpecialPhoneCallID + 1], a
 	ret
 
 TryWithdrawPokemon:

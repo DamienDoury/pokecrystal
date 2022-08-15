@@ -2311,15 +2311,9 @@ SetHospitalMonSpecies::
 	; In order to not get overriden, the palette will be handled later in LoadMapPals.
 
 	; Here we copy the nickname.
-	ld a, e ; Room number.
+	ld a, e ; Room number - 5 (= hospital box index).
 	ld hl, sHospitalBoxMonNicknames
-	ld bc, MON_NAME_LENGTH
-	call AddNTimes ; HL now contains the first letter of the nickname.
-
-	ld d, h
-	ld e, l
-	ld hl, wStringBuffer5
-	call CopyName2
+	call GetNickname
 
 	call CloseSRAM
 	ret
