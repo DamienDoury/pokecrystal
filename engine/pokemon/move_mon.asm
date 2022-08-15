@@ -483,7 +483,7 @@ AddTempmonToParty:
 	ret
 
 SendGetMonIntoFromBox:
-; Sents/Gets mon into/from Box depending on Parameter
+; Sends/Gets mon into/from Box depending on Parameter
 ; wPokemonWithdrawDepositParameter == 0: get mon from Box (into party).
 ; wPokemonWithdrawDepositParameter == 1: sent mon into Box
 ; wPokemonWithdrawDepositParameter == 2: get mon from DayCare
@@ -593,7 +593,7 @@ SendGetMonIntoFromBox:
 	
 	ld hl, sHospitalBoxMon1Species
 	cp HOSPITAL_WITHDRAW
-	jr z, .okay3 ; If mode 4 (get mon from Box), jump to okay3.
+	jr z, .okay3 ; If mode 4 (get mon from Box), jump to okay4. Note that we do not jump to okay3, as we always withdraw the first mon from the hospital bank.
 
 	cp DAY_CARE_WITHDRAW
 	ld hl, wBreedMon1Species
@@ -628,7 +628,7 @@ SendGetMonIntoFromBox:
 
 	ld hl, wPartyMonOTs
 	ld a, [wPartyCount]
-	jr z, .okay6  ; Modes 0, 2 and 4 jump to okay6.
+	; Modes 0, 2 and 4 jump fall through okay6.
 
 .okay6
 	dec a
@@ -758,9 +758,10 @@ SendGetMonIntoFromBox:
 
 	ld a, [wPokemonWithdrawDepositParameter]
 	cp PC_WITHDRAW
-	jr nz, .CloseSRAM_And_ClearCarryFlag
+	jr z, .one_last_thing
 	cp HOSPITAL_WITHDRAW ; I'm unsure about this one. TODO: check this condition.
-	jr nz, .CloseSRAM_And_ClearCarryFlag
+	jr z, .one_last_thing
+	jr .CloseSRAM_And_ClearCarryFlag
 
 .one_last_thing
 	ld hl, MON_STATUS
@@ -1323,17 +1324,23 @@ RemoveMonFromPartyOrBox:
 	ld hl, wPartyCount
 
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .okay
 
 	ld a, BANK(sBoxCount) ; sHospitalBox is in the same bank now.
 	call OpenSRAM
-	ld hl, sBoxCount
+
+	ld hl, sBoxCount ; sHospitalBox is in the same bank now.
+	ld a, [wPokemonWithdrawDepositParameter]
+	cp REMOVE_BOX
+	jr z, .okay
+
+	ld hl, sHospitalBoxCount
 
 .okay
 	ld a, [hl]
 	dec a
-	ld [hli], a
+	ld [hli], a ; Decrements the length of the list.
 	ld a, [wCurPartyMon]
 	ld c, a
 	ld b, 0
@@ -1347,13 +1354,17 @@ RemoveMonFromPartyOrBox:
 	ld [hli], a
 	inc a
 	jr nz, .loop
+
 	ld hl, wPartyMonOTs
 	ld d, PARTY_LENGTH - 1
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party
 	ld hl, sBoxMonOTs
 	ld d, MONS_PER_BOX - 1
+	cp REMOVE_BOX
+	jr z, .party
+	ld hl, sHospitalBoxMonOTs
 
 .party
 	; If this is the last mon in our party (box),
@@ -1374,30 +1385,40 @@ RemoveMonFromPartyOrBox:
 	add hl, bc
 	ld bc, wPartyMonNicknames
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party2
 	ld bc, sBoxMonNicknames
+	cp REMOVE_BOX
+	jr z, .party2
+	ld bc, sHospitalBoxMonNicknames
 .party2
 	call CopyDataUntil
 	; Shift the struct
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party4
 	ld hl, sBoxMons
 	ld bc, BOXMON_STRUCT_LENGTH
+	cp REMOVE_BOX
+	jr z, .party4
+	ld hl, sHospitalBoxMons
+
 .party4
 	ld a, [wCurPartyMon]
-	call AddNTimes
+	call AddNTimes ; At this point, HL points to the first byte of mon data.
 	ld d, h
 	ld e, l
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party5
 	ld bc, BOXMON_STRUCT_LENGTH
 	add hl, bc
 	ld bc, sBoxMonOTs
+	cp REMOVE_BOX
+	jr z, .copy
+	ld bc, sHospitalBoxMonOTs
 	jr .copy
 
 .party5
@@ -1409,9 +1430,12 @@ RemoveMonFromPartyOrBox:
 	; Shift the nicknames
 	ld hl, wPartyMonNicknames
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party6
 	ld hl, sBoxMonNicknames
+	cp REMOVE_BOX
+	jr z, .party6
+	ld hl, sHospitalBoxMonNicknames
 .party6
 	ld bc, MON_NAME_LENGTH
 	ld a, [wCurPartyMon]
@@ -1422,16 +1446,19 @@ RemoveMonFromPartyOrBox:
 	add hl, bc
 	ld bc, wPartyMonNicknamesEnd
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
+	and a ; cp REMOVE_PARTY
 	jr z, .party7
 	ld bc, sBoxMonNicknamesEnd
+	CP REMOVE_BOX
+	jr z, .party7
+	ld bc, sHospitalBoxMonNicknamesEnd
 .party7
 	call CopyDataUntil
 	; Mail time!
 .finish
 	ld a, [wPokemonWithdrawDepositParameter]
-	and a
-	jp nz, CloseSRAM
+	and a ; cp REMOVE_PARTY
+	jp nz, CloseSRAM ; If the mode is either REMOVE_BOX or REMOVE_HOSPITAL, this function ends here.
 	ld a, [wLinkMode]
 	and a
 	ret nz
@@ -1919,4 +1946,46 @@ InitNickname:
 	ld a, $4 ; ExitAllMenus is in bank 0; maybe it used to be in bank 4
 	ld hl, ExitAllMenus
 	rst FarCall
+	ret
+
+; Note this function is called only after we checked that there is at least 1 mon in this box.
+_RetrieveFirstMonFromHospitalBox::
+	ld a, BANK(sHospitalBoxCount)
+	call OpenSRAM
+
+	; We copy the nickname for display purpose.
+	xor a
+	ld hl, sHospitalBoxMonNicknames ; First mon nickname.
+	call GetNickname
+
+	ld a, [sHospitalBoxMon1Species]
+	ld [wCurPartySpecies], a
+
+	call CloseSRAM
+
+	; We withdraw the first mon in the hospital box.
+	xor a
+	ld [wCurPartyMon], a
+	ld a, HOSPITAL_WITHDRAW
+	ld [wPokemonWithdrawDepositParameter], a
+	call SendGetMonIntoFromBox
+
+	; We remove the Pokemon from the box.
+	ld a, REMOVE_HOSPITAL
+	ld [wPokemonWithdrawDepositParameter], a
+	xor a 
+	ld [wCurPartyMon], a
+	call RemoveMonFromPartyOrBox
+
+	; TODO: Add or sub happiness depending on how long the player took to withdraw this Pokémon from the hospital.
+
+
+	; We shift the visit flags
+	ld hl, wHospitalVisitsToday + 2
+	srl [hl]
+	dec hl
+	rr [hl]
+	dec hl
+	rr [hl]
+
 	ret
