@@ -76,6 +76,69 @@ NurseGoodbyeText:
 	line "again."
 	done
 
+NurseCriticallyIllText:
+	text "Oh my…"
+	line " "
+	
+	para "Your @"
+
+	text_ram wStringBuffer1
+	text_start
+
+	line "is critically ill"
+	cont "and needs imme-"
+	cont "diate care."
+
+	para "I must send it to"
+	line "the hospital right"
+	cont "now, before it's"
+	cont "too late."
+	done
+
+NurseCriticallyIllMail1Text:
+	text "The @"
+
+	text_ram wStringBuffer1
+	text " it"
+
+	line "was holding has"
+	cont "been sent to"
+	cont "your MAIL BOX."
+	done
+
+NurseCriticallyIllMail2Text:
+	text "I couldn't send its"
+	line "@"
+
+	text_ram wStringBuffer1
+	text " to the"
+
+	cont "PC so its message"
+	cont "has been lost."
+
+	para "You can have it"
+	line "back though."
+	done
+
+NurseCriticallyIllMail3Text:
+	text "Your MAIL BOX and"
+	line "your PACK are full"
+	cont "so I will keep the"
+	cont "@"
+
+	text_ram wStringBuffer1
+
+	text " your"
+	cont "#MON held."
+	done
+
+NurseCriticallyIll2Text:
+	text "You can go check"
+	line "on your #MON"
+	cont "at GOLDENROD"
+	cont "INTERNATIONAL"
+	cont "HOSPITAL."
+	done
 
 NurseMildIllnessText:
 	text "Some of your"
@@ -130,6 +193,25 @@ NursePokerusLongTextEnd:
 	text "Once cured, they"
 	line "should be immuned"
 	cont "for a long time."
+	done
+
+NurseAbandonedMonText:
+	text "Wait!!"
+
+	para "You no longer have"
+	line "a #MON and you"
+	cont "can't go out"
+	cont "without one!"
+
+	para "#MON CENTERs"
+	line "accommodate"
+	cont "abandoned #MON"
+	cont "waiting to be"
+	cont "rehomed with a"
+	cont "new trainer."
+
+	para "Please take care"
+	line "of this one."
 	done
 
 DifficultBookshelfText:

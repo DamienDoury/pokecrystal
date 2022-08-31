@@ -130,6 +130,40 @@ PokecenterNurseScript:
 	;iftrue .no
 	;checkflag ENGINE_CAUGHT_POKERUS
 	;iftrue .no
+
+	; Check if there is at least 1 critically ill Pokémon, and take it out of the team before we check for Covid and illnesses.
+	special SearchCriticallyIllMonInParty
+	ifequal -1, .noCriticallyIllMonInParty
+
+	;showemote EMOTE_SAD, LAST_TALKED, 20
+	opentext
+	farwritetext NurseCriticallyIllText
+	promptbutton
+
+	ifequal 0, .criticallyIllMonDirections
+	special GetItemNameFromIndex
+	ifequal 1, .mailText1
+	ifequal 2, .mailText2
+
+	farwritetext NurseCriticallyIllMail3Text
+	promptbutton
+	sjump .criticallyIllMonDirections
+
+.mailText1
+	farwritetext NurseCriticallyIllMail1Text
+	promptbutton
+	sjump .criticallyIllMonDirections
+
+.mailText2
+	farwritetext NurseCriticallyIllMail2Text
+	promptbutton
+
+.criticallyIllMonDirections
+	farwritetext NurseCriticallyIll2Text
+	waitbutton
+	closetext
+
+.noCriticallyIllMonInParty
 	special CheckMildIllness
 	iftrue .mildIllness
 	special CheckPokerus
@@ -162,7 +196,7 @@ PokecenterNurseScript:
 	;iftrue .pokerus_comcenter
 	;closetext
 	pause 20
-	showemote EMOTE_SHOCK, LAST_TALKED, 20 ; Damien
+	showemote EMOTE_SHOCK, LAST_TALKED, 20
 	pause 20
 	turnobject LAST_TALKED, DOWN
 	pause 20
@@ -197,14 +231,30 @@ PokecenterNurseScript:
 .pokerus_done
 	pause 20
 
-	;checkphonecall ; True if elm already called about pokerus ; Commented by Damien. To do: re-enable this line. The player will never get the phone call if he saves then reload before getting the call.
+	checkphonecall ; True if elm already called about pokerus ; Commented by Damien. To do: re-enable this line. The player will never get the phone call if he saves then reload before getting the call.
 	checkflag ENGINE_CAUGHT_POKERUS
 	iftrue .done
 	setflag ENGINE_CAUGHT_POKERUS
 	specialphonecall SPECIALCALL_POKERUS
 
 .done
-	farwritetext NurseGoodbyeText ; Damien
+	special GetPartyCountWithoutEggs
+	ifgreater 0, .teamNotEmpty
+
+	; At this point, the Pokémon that was sent to the hospital was the last mon of the player.
+	; Therefore, the player is left with no pkmn and can't play.
+	; We must give him one!
+
+	pause 20
+	showemote EMOTE_SHOCK, LAST_TALKED, 20
+	pause 20
+	farwritetext NurseAbandonedMonText
+	promptbutton
+
+	givepoke RATTATA, 10, NO_ITEM, TRUE, .giftPokeName, .giftPokeOTName
+
+.teamNotEmpty
+	farwritetext NurseGoodbyeText
 
 	turnobject LAST_TALKED, UP
 	pause 10
@@ -214,6 +264,12 @@ PokecenterNurseScript:
 	waitbutton
 	closetext ; Damien
 	end
+
+.giftPokeName:
+	db "@"
+
+.giftPokeOTName:
+	db "DAMIAN@"
 
 DifficultBookshelfScript:
 	farjumptext DifficultBookshelfText

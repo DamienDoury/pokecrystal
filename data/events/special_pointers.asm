@@ -192,3 +192,6 @@ SpecialsPointers::
 	add_special CountHospitalMonsReadyToLeave2
 	add_special RetrieveFirstMonFromHospitalBox
 	add_special HospitalVisitHappinessGain
+	add_special SearchCriticallyIllMonInParty
+	add_special GetItemNameFromIndex
+	add_special GetPartyCountWithoutEggs

@@ -13,7 +13,7 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	push hl
 	ld hl, wAllBattleParticipantsAfterVirusSpread
 	ld b, CHECK_FLAG
-	predef SmallFarFlagAction ; Check bit at index c in bit array hl, and returns state of the flag in c.
+	predef SmallFarFlagAction ; Check bit at index c in bit array hl, and returns state of the flag in c. D has been set to 0 by ld de, PARTYMON_STRUCT_LENGTH.
 	pop hl
 	ld a, c
 	and a

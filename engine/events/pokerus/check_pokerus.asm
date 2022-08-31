@@ -117,6 +117,56 @@ IsMildIllnessStrain:
 
 
 
+; Output in wCurPartyMon: the index of the first partyMon that is currently critically ill, or $ff is no pokémon is critically ill.
+_SearchCriticallyIllMonInParty::
+	ld a, -1
+	ld [wScriptVar], a
+	xor a
+	ld [wCurPartyMon], a
+	ld hl, wPartyMon1PokerusStatus
+	ld de, PARTYMON_STRUCT_LENGTH
+
+.loop
+
+	call WillBeCriticallyIll
+	jr nc, .next_mon
+
+	; Check the duration.
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+
+	cp POKERUS_IMMUNITY_DURATION
+	jr c, .next_mon
+
+	cp POKERUS_SYMPTOMS_START + 1
+	jr nc, .next_mon
+
+	push hl
+	call GetCurNickname ; Saves the infected mon nickname into wStringBuffer1.
+	pop hl
+	xor a
+	ld [wScriptVar], a
+	ld [wNamedObjectIndex], a
+
+
+	farcall SendMonToHospital
+
+	ret
+
+.next_mon
+	add hl, de
+	ld a, [wPartyCount]
+	ld b, a
+	ld a, [wCurPartyMon]
+	inc a
+	ld [wCurPartyMon], a
+	cp b
+	jr c, .loop
+
+	; Return false.
+	ld a, $ff
+	ld [wCurPartyMon], a
+	ret
 
 ; Destroys A.
 ; Input: the PokerusStatus byte address in HL.
@@ -124,6 +174,7 @@ IsMildIllnessStrain:
 ; Note: a Mon can become critically ill if it has all of the conditions below:
 ;	- DEF DV + SPECIAL DV is strictly less than 7 (odds: ~10.94%).
 ;	- it has covid (2 or 3 bits strain).
+; The covid remaining duration is ignored in this function.
 ; Now when the duration is gonna be within symptoms (below symptoms_start and above immunity_start) it will be critically ill.
 WillBeCriticallyIll:
 	push hl

@@ -346,3 +346,67 @@ ResetHospitalVisits::
 	ld [hli], a
 	ld [hl], a
 	ret
+
+; Input: the pokemon to send in [wCurPartyMon]
+SendMonToHospital::
+	; Check if a monster in your party has Pokerus (with a 2 or 3 bits strain).
+	;ld a, 2 ; index of the Pokémon to store.
+	;ld [wCurPartyMon], a
+
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld d, [hl]
+	push de
+	farcall ItemIsMail
+	pop de
+	jr nc, .checkItem ; Not holding mail.
+
+; Is holding mail
+	ld a, d
+	ld [wNamedObjectIndex], a
+	ld a, 1
+	ld [wScriptVar], a
+	ld a, [wCurPartyMon]
+	ld b, a
+	farcall SendMailToPC
+	; Display text.
+	jr nc, .deposit_mon_into_hospital_box ; Mailbox isn't full and the mail has been sent to the PC.
+
+; Mailbox is full
+	ld a, 3
+	ld [wScriptVar], a ; "3" means the mail has been thrown away.
+	ld hl, wPartyMon1Item
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld a, [hl]
+	ld [wCurItem], a
+	farcall ReceiveItemFromPokemon ; Returns carry if the item has safely been stored within the pack.
+	jr nc, .throw_away
+
+	ld a, 2
+	ld [wScriptVar], a ; "2" means the mail has been stored within the pack.
+
+; Throw away the held mail (even if we couldn't store the mail into the bag, in which case it will be lost).
+.throw_away
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	xor a
+	ld [hl], a
+	; Display text.
+
+.checkItem
+	; Actually, I decided that a pokemon would be sent to the hospital with its item.
+	
+.deposit_mon_into_hospital_box
+	ld a, [wCurPartyMon]
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	ld [wCurPartySpecies], a
+	farcall DepositPokemonSilent
+	ret
