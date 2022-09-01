@@ -1380,7 +1380,7 @@ JohtoGrassWildMons:
 	db 10, SNUBBULL
 	db 11, RATTATA
 	db 12, PIDGEY
-	db 10, ABRA
+	db 10, JIGGLYPUFF
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
@@ -1388,7 +1388,7 @@ JohtoGrassWildMons:
 	db 10, SNUBBULL
 	db 11, RATTATA
 	db 12, PIDGEY
-	db 10, ABRA
+	db 10, SNUBBULL
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
@@ -1396,7 +1396,7 @@ JohtoGrassWildMons:
 	db 12, DROWZEE
 	db 11, RATTATA
 	db 12, HOOTHOOT
-	db 10, ABRA
+	db 10, DROWZEE
 	db 12, JIGGLYPUFF
 	db 10, DITTO
 	db 10, DITTO
