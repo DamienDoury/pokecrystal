@@ -241,11 +241,11 @@ Porygon2Frontpic:    INCBIN "gfx/pokemon/porygon2/front.animated.2bpp.lz"
 SandshrewFrontpic:   INCBIN "gfx/pokemon/sandshrew/front.animated.2bpp.lz"
 NidoranFFrontpic:    INCBIN "gfx/pokemon/nidoran_f/front.animated.2bpp.lz"
 PidgeyFrontpic:      INCBIN "gfx/pokemon/pidgey/front.animated.2bpp.lz"
-ParasectBackpic:     INCBIN "gfx/pokemon/parasect/back.2bpp.lz"
 
 
 SECTION "Pics 10", ROMX
 
+ParasectBackpic:     INCBIN "gfx/pokemon/parasect/back.2bpp.lz"
 MisdreavusFrontpic:  INCBIN "gfx/pokemon/misdreavus/front.animated.2bpp.lz"
 HoundourFrontpic:    INCBIN "gfx/pokemon/houndour/front.animated.2bpp.lz"
 MankeyFrontpic:      INCBIN "gfx/pokemon/mankey/front.animated.2bpp.lz"
@@ -278,13 +278,13 @@ AlakazamBackpic:     INCBIN "gfx/pokemon/alakazam/back.2bpp.lz"
 AipomFrontpic:       INCBIN "gfx/pokemon/aipom/front.animated.2bpp.lz"
 AbraFrontpic:        INCBIN "gfx/pokemon/abra/front.animated.2bpp.lz"
 HitmontopBackpic:    INCBIN "gfx/pokemon/hitmontop/back.2bpp.lz"
-CloysterBackpic:     INCBIN "gfx/pokemon/cloyster/back.2bpp.lz"
-HoothootFrontpic:    INCBIN "gfx/pokemon/hoothoot/front.animated.2bpp.lz"
-UnownFBackpic:       INCBIN "gfx/pokemon/unown_f/back.2bpp.lz"
 
 
 SECTION "Pics 11", ROMX
 
+CloysterBackpic:     INCBIN "gfx/pokemon/cloyster/back.2bpp.lz"
+HoothootFrontpic:    INCBIN "gfx/pokemon/hoothoot/front.animated.2bpp.lz"
+UnownFBackpic:       INCBIN "gfx/pokemon/unown_f/back.2bpp.lz"
 DodrioBackpic:       INCBIN "gfx/pokemon/dodrio/back.2bpp.lz"
 ClefairyFrontpic:    INCBIN "gfx/pokemon/clefairy/front.animated.2bpp.lz"
 SlugmaFrontpic:      INCBIN "gfx/pokemon/slugma/front.animated.2bpp.lz"
@@ -319,14 +319,14 @@ QwilfishFrontpic:    INCBIN "gfx/pokemon/qwilfish/front.animated.2bpp.lz"
 SuicuneBackpic:      INCBIN "gfx/pokemon/suicune/back.2bpp.lz"
 SlowkingBackpic:     INCBIN "gfx/pokemon/slowking/back.2bpp.lz"
 ElekidBackpic:       INCBIN "gfx/pokemon/elekid/back.2bpp.lz"
-CelebiBackpic:       INCBIN "gfx/pokemon/celebi/back.2bpp.lz"
-KrabbyBackpic:       INCBIN "gfx/pokemon/krabby/back.2bpp.lz"
-BugCatcherPic:       INCBIN "gfx/trainers/bug_catcher.2bpp.lz"
-SnorlaxBackpic:      INCBIN "gfx/pokemon/snorlax/back.2bpp.lz"
 
 
 SECTION "Pics 12", ROMX
 
+CelebiBackpic:       INCBIN "gfx/pokemon/celebi/back.2bpp.lz"
+KrabbyBackpic:       INCBIN "gfx/pokemon/krabby/back.2bpp.lz"
+BugCatcherPic:       INCBIN "gfx/trainers/bug_catcher.2bpp.lz"
+SnorlaxBackpic:      INCBIN "gfx/pokemon/snorlax/back.2bpp.lz"
 VenusaurBackpic:     INCBIN "gfx/pokemon/venusaur/back.2bpp.lz"
 MoltresBackpic:      INCBIN "gfx/pokemon/moltres/back.2bpp.lz"
 SunfloraBackpic:     INCBIN "gfx/pokemon/sunflora/back.2bpp.lz"
@@ -363,15 +363,12 @@ GloomBackpic:        INCBIN "gfx/pokemon/gloom/back.2bpp.lz"
 MagcargoBackpic:     INCBIN "gfx/pokemon/magcargo/back.2bpp.lz"
 KabutopsBackpic:     INCBIN "gfx/pokemon/kabutops/back.2bpp.lz"
 BeedrillBackpic:     INCBIN "gfx/pokemon/beedrill/back.2bpp.lz"
-ArcanineBackpic:     INCBIN "gfx/pokemon/arcanine/back.2bpp.lz"
-FlareonBackpic:      INCBIN "gfx/pokemon/flareon/back.2bpp.lz"
-GoldeenBackpic:      INCBIN "gfx/pokemon/goldeen/back.2bpp.lz"
-BulbasaurFrontpic:   INCBIN "gfx/pokemon/bulbasaur/front.animated.2bpp.lz"
-StarmieBackpic:      INCBIN "gfx/pokemon/starmie/back.2bpp.lz"
 
 
 SECTION "Pics 13", ROMX
 
+BulbasaurFrontpic:   INCBIN "gfx/pokemon/bulbasaur/front.animated.2bpp.lz"
+StarmieBackpic:      INCBIN "gfx/pokemon/starmie/back.2bpp.lz"
 OmanyteBackpic:      INCBIN "gfx/pokemon/omanyte/back.2bpp.lz"
 PidgeyBackpic:       INCBIN "gfx/pokemon/pidgey/back.2bpp.lz"
 ScientistPic:        INCBIN "gfx/trainers/scientist.2bpp.lz"
@@ -413,8 +410,6 @@ SwimmermPic:         INCBIN "gfx/trainers/swimmer_m.2bpp.lz"
 SunkernFrontpic:     INCBIN "gfx/pokemon/sunkern/front.animated.2bpp.lz"
 NidorinoBackpic:     INCBIN "gfx/pokemon/nidorino/back.2bpp.lz"
 MysticalmanPic:      INCBIN "gfx/trainers/mysticalman.2bpp.lz"
-CooltrainerfPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
-ElectrodeFrontpic:   INCBIN "gfx/pokemon/electrode/front.animated.2bpp.lz"
 
 
 SECTION "Pics 14", ROMX
@@ -464,11 +459,11 @@ ClefairyBackpic:     INCBIN "gfx/pokemon/clefairy/back.2bpp.lz"
 VenonatBackpic:      INCBIN "gfx/pokemon/venonat/back.2bpp.lz"
 BellossomBackpic:    INCBIN "gfx/pokemon/bellossom/back.2bpp.lz"
 Rival1Pic:           INCBIN "gfx/trainers/rival1.2bpp.lz"
-SwinubBackpic:       INCBIN "gfx/pokemon/swinub/back.2bpp.lz"
 
 
 SECTION "Pics 15", ROMX
 
+SwinubBackpic:       INCBIN "gfx/pokemon/swinub/back.2bpp.lz"
 MewtwoBackpic:       INCBIN "gfx/pokemon/mewtwo/back.2bpp.lz"
 PokemonProfPic:      INCBIN "gfx/trainers/oak.2bpp.lz"
 CalPic:              INCBIN "gfx/trainers/cal.2bpp.lz"
@@ -516,8 +511,6 @@ WillPic:             INCBIN "gfx/trainers/will.2bpp.lz"
 SchoolboyPic:        INCBIN "gfx/trainers/schoolboy.2bpp.lz"
 MagnemiteFrontpic:   INCBIN "gfx/pokemon/magnemite/front.animated.2bpp.lz"
 ErikaPic:            INCBIN "gfx/trainers/erika.2bpp.lz"
-JaninePic:           INCBIN "gfx/trainers/janine.2bpp.lz"
-MagnemiteBackpic:    INCBIN "gfx/pokemon/magnemite/back.2bpp.lz"
 
 
 SECTION "Pics 16", ROMX
@@ -579,7 +572,6 @@ UnownHBackpic:       INCBIN "gfx/pokemon/unown_h/back.2bpp.lz"
 
 SECTION "Pics 17", ROMX
 
-ParasBackpic:        INCBIN "gfx/pokemon/paras/back.2bpp.lz"
 VaporeonBackpic:     INCBIN "gfx/pokemon/vaporeon/back.2bpp.lz"
 TentacoolBackpic:    INCBIN "gfx/pokemon/tentacool/back.2bpp.lz"
 ExecutivefPic:       INCBIN "gfx/trainers/executive_f.2bpp.lz"
@@ -708,6 +700,15 @@ UnownRBackpic:       INCBIN "gfx/pokemon/unown_r/back.2bpp.lz"
 
 SECTION "Pics 19", ROMX
 
+JaninePic:           INCBIN "gfx/trainers/janine.2bpp.lz"
+ParasBackpic:        INCBIN "gfx/pokemon/paras/back.2bpp.lz"
+CooltrainerfPic:     INCBIN "gfx/trainers/cooltrainer_f.2bpp.lz"
+ElectrodeFrontpic:   INCBIN "gfx/pokemon/electrode/front.animated.2bpp.lz"
+MagnemiteBackpic:    INCBIN "gfx/pokemon/magnemite/back.2bpp.lz"
+ArcanineBackpic:     INCBIN "gfx/pokemon/arcanine/back.2bpp.lz"
+FlareonBackpic:      INCBIN "gfx/pokemon/flareon/back.2bpp.lz"
+GoldeenBackpic:      INCBIN "gfx/pokemon/goldeen/back.2bpp.lz"
+NursePic:      		 INCBIN "gfx/trainers/nurse.2bpp.lz"
 JennyPic:      		 INCBIN "gfx/trainers/jenny.2bpp.lz"
 SergeantPic:   		 INCBIN "gfx/trainers/sergeant.2bpp.lz"
 SwatPic:      		 INCBIN "gfx/trainers/swat.2bpp.lz"
