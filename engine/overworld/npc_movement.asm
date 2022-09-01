@@ -305,8 +305,19 @@ CheckFacingObjectNPCExcluded::
 
 CheckFacingFarNPCOnly::
 	call GetFacingTileCoord
+	ld b, a
+	push bc
+	push de
+	call IsNPCAtCoord
+	pop de
+	pop bc
+	ld a, b
+	jr c, .return_false ; We return if an NPC stands between us and the targetted NPC.
+
 	call CheckSpeechBlockingTile ; If there is a tile that blocks the speech between the player and a NPC, we cancel the talk.
 	jr z, .can_talk
+
+.return_false
 	xor a
 	ret
 
