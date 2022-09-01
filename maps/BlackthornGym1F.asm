@@ -49,7 +49,7 @@ BlackthornGymClairScript:
 	iftrue .FightDone
 	writetext ClairIntroText
 	yesorno
-	iffalse, .RefusesClairsChallenge
+	iffalse .RefusesClairsChallenge
 	writetext ClairIntroSequelText
 	waitbutton
 	closetext

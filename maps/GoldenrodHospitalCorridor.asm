@@ -23,7 +23,7 @@ HospitalCorridorUpdateNPCs:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 
 	checkevent EVENT_GOLDENROD_CITY_CIVILIANS
-	iftrue, .Done
+	iftrue .Done
 
 	readmem wGoldenrodHospitalCorridorNumber
 	ifequal 1, .corridor1

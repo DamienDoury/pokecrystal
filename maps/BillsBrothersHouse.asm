@@ -15,7 +15,7 @@ BillsBrothersHouseYoungsterScript:
 	opentext
 	writetext BillsBrothersHouseYoungsterText
 	yesorno
-	iffalse, .end_dialog
+	iffalse .end_dialog
 	writetext BillsBrothersHouseYoungsterStoryText
 	waitbutton
 	closetext

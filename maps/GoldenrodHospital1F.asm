@@ -110,7 +110,7 @@ GoldenrodHospitalNurse2Script:
 
 	writetext GoldenrodHospitalNurse2Text_AreYouReady
 	yesorno
-	iftrue, .PlayerAccepted
+	iftrue .PlayerAccepted
 	writetext GoldenrodHospitalNurse2Text_ComeBackSoon
 	sjump .End
 
