@@ -1,5 +1,5 @@
 CuteMons:
-	table_width 1, CuteMons
+	table_width 1, CuteMons ; A Pokemon is cute if it is non-evolved (except if prior evolution is a baby pokemon) and less than 1m/3"3', except for pink pkmn that can be up to 1.2m/3"11').
 	db CHIKORITA
 	db CYNDAQUIL
 	db TOTODILE
@@ -99,4 +99,5 @@ CuteMons:
 	db LARVITAR
 	db MEW
 	db CELEBI
-	assert_table_length 99
+	db -1
+	assert_table_length 100

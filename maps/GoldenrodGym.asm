@@ -235,7 +235,7 @@ WhitneySequelText:
 	line "your ability with"
 	cont "cute #MON!"
 	
-	para "Let me check your"
+	para "Let me see your"
 	line "party."
 
 	para "……"
@@ -420,9 +420,24 @@ GoldenrodGymGuideText:
 	line "to normal-type"
 	cont "#MON trainers."
 
-	para "I recommend you"
-	line "use fighting-type"
+	para "WHITNEY only"
+	line "trains cute"
 	cont "#MON."
+
+	para "She considers a"
+	line "#MON cute if it"
+	cont "is unevolved, and"
+	cont "is up to 1 meter"
+	cont "or 3'3” feet tall."
+
+	para "She also has a"
+	line "thing for pink."
+
+	para "So she has a tole-"
+	line "rance for height"
+	cont "of up to 1.2 meter"
+	cont "or 3'11” feet for"
+	cont "pink #MON."
 	done
 
 GoldenrodGymGuideWinText:
