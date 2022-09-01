@@ -9,45 +9,7 @@ BillsFamilysHouse_MapScripts:
 	def_callbacks
 
 BillScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_EEVEE
-	iftrue .GotEevee
-	writetext BillTakeThisEeveeText
-	yesorno
-	iffalse .Refused
-	writetext BillImCountingOnYouText
-	promptbutton
-	waitsfx
-	readvar VAR_PARTYCOUNT
-	ifequal PARTY_LENGTH, .NoRoom
-	writetext ReceivedEeveeText
-	playsound SFX_CAUGHT_MON
-	waitsfx
-	givepoke EEVEE, 20
-	setevent EVENT_GOT_EEVEE
-	writetext BillEeveeMayEvolveText
-	waitbutton
-	closetext
-	end
-
-.NoRoom:
-	writetext BillPartyFullText
-	waitbutton
-	closetext
-	end
-
-.Refused:
-	writetext BillNoEeveeText
-	waitbutton
-	closetext
-	end
-
-.GotEevee:
-	writetext BillPopWontWorkText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BillTakeThisEeveeText
 
 BillsMomScript:
 	faceplayer
@@ -108,71 +70,23 @@ BillsHouseRadio:
 
 BillTakeThisEeveeText:
 	text "BILL: Hi, <PLAYER>!"
-	line "Do us a favor and"
-	cont "take this EEVEE."
+	line "Have you noticed"
+	cont "that the PSS"
+	cont "doesn't restore"
+	cont "the PP of your"
+	cont "#MON anymore?"
 
-	para "It came over when"
-	line "I was adjusting"
-	cont "the TIME CAPSULE."
+	para "It's a subroutine"
+	line "I had to shutdown"
+	cont "to prevent COVID"
+	cont "from spreading"
+	cont "within the PC."
 
-	para "Someone has to"
-	line "take care of it,"
-
-	para "but I don't like"
-	line "being outside."
-
-	para "Can I count on you"
-	line "to play with it,"
-	cont "<PLAYER>?"
-	done
-
-BillImCountingOnYouText:
-	text "BILL: I knew you'd"
-	line "come through!"
-
-	para "Way to go! You're"
-	line "the real deal!"
-
-	para "OK, I'm counting"
-	line "on you."
-
-	para "Take good care of"
-	line "it!"
-	done
-
-ReceivedEeveeText:
-	text "<PLAYER> received"
-	line "EEVEE!"
-	done
-
-BillEeveeMayEvolveText:
-	text "BILL: PROF.ELM"
-	line "claims EEVEE may"
-
-	para "evolve in new and"
-	line "unknown ways."
-	done
-
-BillPartyFullText:
-	text "Whoa, wait. You"
-	line "can't carry any"
-	cont "more #MON."
-	done
-
-BillNoEeveeText:
-	text "Oh… Now what to"
-	line "do?"
-	done
-
-BillPopWontWorkText:
-	text "BILL: My pop, he"
-	line "won't work. All he"
-
-	para "does is goof off"
-	line "all day long."
-
-	para "He's getting to be"
-	line "a real headache…"
+	para "I'm unsure of the" 
+	line "effectiveness of"
+	cont "this action, but"
+	cont "I don't want to"
+	cont "take any risk!"
 	done
 
 BillsMomText_BeforeEcruteak:
@@ -185,12 +99,6 @@ BillsMomText_BeforeEcruteak:
 
 	para "CENTER in ECRUTEAK"
 	line "CITY."
-
-	para "My husband went"
-	line "off to the GAME"
-
-	para "CORNER without"
-	line "being called…"
 	done
 
 BillsMomText_AfterEcruteak:

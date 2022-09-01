@@ -59,12 +59,11 @@ BillsBrothersHouseYoungsterStoryText:
 	para "and can be trans-"
 	line "ferred through"
 	cont "underground cables"
-	
-	para "that link KANTO's"
-	line "#MON CENTERS"
-	cont "together,"
+	cont "that link KANTO's"
+	cont "#MON CENTERS"
+	cont "together."
 
-	para "kinda like old"
+	para "Kinda like old"
 	line "landline phones."
 	
 	para "When wireless"

@@ -563,7 +563,7 @@ JohtoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons ILEX_FOREST
-	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	db 4 percent, 4 percent, 40 percent ; encounter rates: morn/day/nite
 	; morn
 	db 5, CATERPIE
 	db 5, WEEDLE
@@ -1377,29 +1377,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_34
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 10, SNUBBULL
-	db 11, RATTATA
-	db 12, PIDGEY
-	db 10, JIGGLYPUFF
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 10, SNUBBULL		; 30%
+	db 11, RATTATA		; 30%
+	db 12, PIDGEY		; 20%
+	db 10, JIGGLYPUFF	; 10%
+	db 12, JIGGLYPUFF	; 5%
+	db 10, DITTO		; 4%
+	db 10, DITTO		; 1%
 	; day
-	db 10, SNUBBULL
-	db 11, RATTATA
-	db 12, PIDGEY
-	db 10, SNUBBULL
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 10, PIDGEY		; 30%
+	db 11, RATTATA		; 30%
+	db 12, SNUBBULL		; 20%
+	db 10, SNUBBULL		; 10%
+	db 12, JIGGLYPUFF	; 5%
+	db 10, DITTO		; 4%
+	db 10, DITTO		; 1%
 	; nite
-	db 12, DROWZEE
-	db 11, RATTATA
-	db 12, HOOTHOOT
-	db 10, DROWZEE
-	db 12, JIGGLYPUFF
-	db 10, DITTO
-	db 10, DITTO
+	db 12, HOOTHOOT 	; 30%
+	db 11, RATTATA 		; 30%
+	db 12, DROWZEE		; 20%
+	db 10, DROWZEE		; 10%
+	db 12, JIGGLYPUFF	; 5%
+	db 10, DITTO		; 4%
+	db 10, DITTO		; 1%
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_35
@@ -1517,13 +1517,13 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_39
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 16, RATTATA
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, PIDGEOTTO
-	db 15, MILTANK
-	db 15, TAUROS
-	db 15, TAUROS
+	db 16, RATTATA		; 30%
+	db 16, RATICATE		; 30%
+	db 16, MAGNEMITE	; 20%
+	db 16, PIDGEOTTO	; 10%
+	db 15, MILTANK		; 5%
+	db 15, TAUROS		; 4%
+	db 15, TAUROS		; 1%
 	; day
 	db 16, RATTATA
 	db 16, RATICATE
@@ -1533,13 +1533,13 @@ JohtoGrassWildMons:
 	db 15, TAUROS
 	db 15, TAUROS
 	; nite
-	db 16, MEOWTH
-	db 16, RATICATE
-	db 16, MAGNEMITE
-	db 16, NOCTOWL
-	db 18, MEOWTH
-	db 18, MEOWTH
-	db 18, MEOWTH
+	db 16, MEOWTH		; 30% (total 30% + 5% + 5% = 40%)
+	db 16, RATICATE		; 30%
+	db 16, MAGNEMITE	; 20%
+	db 16, NOCTOWL		; 10%
+	db 18, MEOWTH		; 5%
+	db 18, MEOWTH		; 4%
+	db 18, MEOWTH		; 1%
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_42
