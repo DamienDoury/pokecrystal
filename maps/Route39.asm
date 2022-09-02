@@ -256,25 +256,29 @@ PokefanMDerekPikachuIsItText:
 	done
 
 PsychicNormanSeenText:
-	text "Let me see what"
-	line "your #MON are"
-	cont "capable of."
+	text "Wouldn't you like"
+	line "to let your #-"
+	cont "MON out, so it can"
+	cont "follow you around?"
 	done
 
 PsychicNormanBeatenText:
-	text "Ooh, your #MON"
-	line "have potential."
+	text "I want my #MON"
+	line "to follow me!"
 	done
 
 PsychicNormanAfterBattleText:
-	text "You know how #-"
-	line "MON have different"
-	cont "abilities?"
+	text "Trainers used to"
+	line "have their #MON"
+	cont "follow them around"
+	cont "when exploring."
 
-	para "People are like"
-	line "that too. Every-"
-	cont "one has different"
-	cont "potential."
+	para "Unfortunately, it"
+	line "has been forbidden"
+	cont "because of the"
+	cont "pandemic."
+
+	para "It's so sad…"
 	done
 
 PokefanfJaimeHopeItGetsDarkText:
