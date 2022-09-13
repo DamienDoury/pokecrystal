@@ -1602,7 +1602,7 @@ HandleDayCareOutdoorPalettes:
 	inc hl
 	inc hl
 
-	ld de, wOBPals1 palette 6 + 2
+	ld de, wOBPals1 palette 4 + 2
 	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
