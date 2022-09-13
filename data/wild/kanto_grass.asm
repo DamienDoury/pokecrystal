@@ -288,26 +288,26 @@ KantoGrassWildMons:
 	db 13, PIDGEY
 	db 13, SNUBBULL
 	db 15, PIDGEOTTO
-	db 12, ABRA
+	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 14, PIDGEY
+	db 14, SQUIRTLE
 	; day
 	db 13, PIDGEY
 	db 13, SNUBBULL
 	db 15, PIDGEOTTO
-	db 12, ABRA
+	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 14, PIDGEY
+	db 14, SQUIRTLE
 	; nite
 	db 13, HOOTHOOT
 	db 13, MEOWTH
 	db 15, NOCTOWL
-	db 12, ABRA
+	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
-	db 14, ABRA
-	db 14, ABRA
+	db 14, HOOTHOOT
+	db 14, SQUIRTLE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_6
@@ -346,24 +346,24 @@ KantoGrassWildMons:
 	db 18, SNUBBULL
 	db 18, RATICATE
 	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 16, GRIMER
+	db 16, GRIMER
 	; day
 	db 17, RATTATA
 	db 17, SPEAROW
 	db 18, SNUBBULL
 	db 18, RATICATE
 	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 16, GRIMER
+	db 16, GRIMER
 	; nite
 	db 17, MEOWTH
 	db 17, MURKROW
 	db 18, HOUNDOUR
 	db 18, PERSIAN
 	db 18, JIGGLYPUFF
-	db 16, ABRA
-	db 16, ABRA
+	db 16, GRIMER
+	db 16, GRIMER
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_8
@@ -371,27 +371,27 @@ KantoGrassWildMons:
 	; morn
 	db 17, SNUBBULL
 	db 19, PIDGEOTTO
-	db 16, ABRA
+	db 16, GROWLITHE
 	db 17, GROWLITHE
 	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 18, GROWLITHE
+	db 18, GROWLITHE
 	; day
 	db 17, SNUBBULL
 	db 19, PIDGEOTTO
-	db 16, ABRA
+	db 16, GROWLITHE
 	db 17, GROWLITHE
 	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 18, GROWLITHE
+	db 18, GROWLITHE
 	; nite
 	db 17, MEOWTH
 	db 20, NOCTOWL
-	db 16, ABRA
+	db 16, HAUNTER
 	db 17, HAUNTER
 	db 16, JIGGLYPUFF
-	db 18, KADABRA
-	db 18, KADABRA
+	db 18, HAUNTER
+	db 18, HAUNTER
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_9

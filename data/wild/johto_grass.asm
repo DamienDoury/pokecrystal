@@ -1408,25 +1408,25 @@ JohtoGrassWildMons:
 	db 12, SNUBBULL
 	db 14, PIDGEY
 	db 13, GROWLITHE
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
+	db 10, JIGGLYPUFF
+	db 12, DITTO
+	db 10, YANMA
 	db 12, YANMA
 	; day
 	db 12, SNUBBULL
 	db 14, PIDGEY
 	db 13, GROWLITHE
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
+	db 10, JIGGLYPUFF
+	db 12, DITTO
+	db 10, YANMA
 	db 12, YANMA
 	; nite
 	db 12, DROWZEE
 	db 14, HOOTHOOT
 	db 13, PSYDUCK
-	db 10, ABRA
-	db 12, JIGGLYPUFF
-	db 10, DITTO
+	db 10, JIGGLYPUFF
+	db 12, DITTO
+	db 10, YANMA
 	db 12, YANMA
 	end_grass_wildmons
 
