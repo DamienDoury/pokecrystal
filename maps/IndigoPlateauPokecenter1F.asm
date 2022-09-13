@@ -147,25 +147,7 @@ IndigoPlateauPokecenter1FCooltrainerMScript:
 	jumptextfaceplayer IndigoPlateauPokecenter1FCooltrainerMText
 
 TeleportGuyScript:
-	faceplayer
-	opentext
-	writetext TeleportGuyText1
-	yesorno
-	iffalse .No
-	writetext TeleportGuyYesText
-	waitbutton
-	closetext
-	playsound SFX_WARP_TO
-	special FadeOutPalettes
-	waitsfx
-	warp NEW_BARK_TOWN, 13, 6
-	end
-
-.No:
-	writetext TeleportGuyNoText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TeleportGuyText1
 
 AbraScript:
 	opentext
@@ -269,31 +251,18 @@ TeleportGuyText1:
 	text "Ah! You're chal-"
 	line "lenging the ELITE"
 
-	para "FOUR? Are you sure"
-	line "you're ready?"
+	para "FOUR? How nice!"
+	line "I used to offer"
 
-	para "If you need to"
-	line "train some more,"
+	para "a TELEPORT serv-"
+	line "ice but now it's"
 
-	para "my ABRA can help"
-	line "you."
+	para "forbidden because"
+	line "of the sanitary"
 
-	para "It can TELEPORT"
-	line "you home."
+	para "restrictions…"
 
-	para "Would you like to"
-	line "go home now?"
-	done
-
-TeleportGuyYesText:
-	text "OK, OK. Picture"
-	line "your house in your"
-	cont "mind…"
-	done
-
-TeleportGuyNoText:
-	text "OK, OK. The best"
-	line "of luck to you!"
+	para "I'm stuck here."
 	done
 
 AbraText:
