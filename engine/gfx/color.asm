@@ -382,7 +382,7 @@ LoadStatsScreenPals:
 	ret
 
 DetailsTooltipTextColor:
-	RGB 28, 31, 21
+	RGB 31, 31, 31
 
 LoadMailPalettes:
 	ld l, e

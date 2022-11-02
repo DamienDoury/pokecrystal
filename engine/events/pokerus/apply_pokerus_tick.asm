@@ -115,6 +115,7 @@ DecreaseHospitalMonsDuration:
 	call OpenSRAM
 	ld a, [sHospitalBoxCount]
 	ld c, a ; c as count.
+	and a ; Sets the z flag if a is zero.
 	jr z, .end
 
 	ld hl, sHospitalBoxMon1PokerusStatus
