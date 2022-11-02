@@ -7032,7 +7032,7 @@ GetItemHeldEffect:
 	and a
 	ret z
 
-	; Damien's special case for the sitrus berry. Kinda ugly.
+	; Damien's special case for the sitrus berry. Kinda ugly. I should this should be done in the item effect script.
 	cp GOLD_BERRY
 	jr nz, .proceed_normally
 

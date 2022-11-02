@@ -1257,12 +1257,6 @@ String_MoveType_Top:
 	db "┌────────┐@"
 String_MoveType_Bottom:
 	db "│        └@"
-String_MoveAtk:
-	db "ATK/@"
-String_MoveAcc:
-	db "ACC/@"
-String_MoveNoPower:
-	db "---@"
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow
@@ -1327,29 +1321,4 @@ PlaceMoveScreenRightArrow:
 .legal
 	hlcoord 18, 0
 	ld [hl], "▶"
-	ret
-
-ConvertToPercentage:
-	ld b, a
-	xor a, $FF
-	ld a, 100
-	ret z ; We can't add 1 to 255, so we make a shortcut for this case.
-
-	ld a, b
-	inc a
-	ld [hMultiplicand + 2], a
-	xor a
-	ld [hMultiplicand + 1], a
-	ld [hMultiplicand], a
-	ld a, 100
-	ld [hMultiplier], a
-	call Multiply
-
-	; The result of the multiplication is stored in the memory slots used for the dividend.
-	ld a, 255
-	ld [hDivisor], a
-	ld b, 4
-	call Divide
-
-	ld a, [hQuotient + 3]
 	ret

@@ -412,13 +412,13 @@ StatsScreen_JoypadAction:
 .submenu_navigation
 	pop af
 	bit B_BUTTON_F, a
-	jr nz, .b_button_submenu
+	jp nz, .b_button_submenu
 	bit D_LEFT_F, a
-	jr nz, .d_left_submenu
+	jp nz, .d_left_submenu
 	bit D_RIGHT_F, a
-	jr nz, .d_right_submenu
+	jp nz, .d_right_submenu
 	bit A_BUTTON_F, a
-	jr nz, .a_button_submenu
+	jp nz, .a_button_submenu
 	bit D_UP_F, a
 	jr nz, .d_up_submenu
 	bit D_DOWN_F, a
@@ -429,21 +429,31 @@ StatsScreen_JoypadAction:
 	ld a, [wStatsSubmenuCursorIndex]
 	inc a
 	cp 6
-	jr c, .next_cursor_index_determined ; No overflow.
+	jr c, .down_cursor_index_found ; No overflow.
 	; The cursor is at index 6 or above. We set it back to zero.
 	xor a
+	
+.down_cursor_index_found
+	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
+	call IsDetailSlotEmpty
+	jr z, .d_down_submenu ; As long as the next slot is empty, the cursor keeps moving down.
 	jr .next_cursor_index_determined
 
 .d_up_submenu
 	ld a, [wStatsSubmenuCursorIndex]
 	dec a
 	cp $ff
-	jr nz, .next_cursor_index_determined ; No underflow.
+	jr nz, .up_cursor_index_found ; No underflow.
 	; Underflow: setting the cursor back to its max index.
 	ld a, 5
 
-.next_cursor_index_determined
+.up_cursor_index_found
 	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
+	call IsDetailSlotEmpty
+	jr z, .d_up_submenu ; As long as the next slot is empty, the cursor keeps moving up.
+
+.next_cursor_index_determined
+	ld a, [wStatsSubmenuCursorIndex] ; Retrieving the next index.
 	ld b, 0
 	add a
 	ld c, a
@@ -454,6 +464,12 @@ StatsScreen_JoypadAction:
 	ld [hl], " " ; Erasing the old arrow.
 
 .displaying_arrow
+	hlcoord 1, 1
+	push bc
+	lb bc, 6, 18
+	call ClearBox ; Erasing the previous tooltip in the box.
+	pop bc
+
 	ld hl, .submenuCursorCoordinates
 	add hl, bc
 	ld a, [hli]
@@ -467,7 +483,29 @@ StatsScreen_JoypadAction:
 	ld [hl], "▶" ; Displaying the new arrow.
 
 	; TODO: Here we need to refresh the description in the textbox.
+	ld a, [wStatsSubmenuCursorIndex]
+	and a
+	jp z, .tooltip_item
+	
+	cp 1
+	jp z, .tooltip_ability
 
+;.tooltip_moves
+	call PrepareToPlaceMoveDataNew
+	ld a, [wCurSpecies]
+	and a
+	ret z
+
+	jp PlaceMoveDataNew
+
+.tooltip_item
+	ld a, [wTempMonItem]
+	and a
+	ret z
+
+	jp PlaceItemDetail
+
+.tooltip_ability
 	ret
 
 .a_button_submenu ; Will be used to re-order moves.
@@ -548,6 +586,19 @@ StatsScreen_JoypadAction:
 
 .HideDetailTooltip:
 	db "                  @"
+
+String_MoveAtk:
+	db "ATK/@"
+String_MoveAcc:
+	db "ACC/@"
+String_MoveNoPower:
+	db "---@"
+String_CantUseInBattle:
+	db "No use in battle.@"
+String_OneTimeUse:
+	db "Lost after use.@"
+String_PassiveEffect:
+	db "Passive effect.@"
 
 ClearTopTiles:
 	hlcoord 0, 0
@@ -1461,4 +1512,216 @@ CheckFaintedFrzSlp:
 
 .fainted_frz_slp
 	scf
+	ret
+
+PrepareToPlaceMoveDataNew:
+	ld hl, wPartyMon1Moves
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	ld a, [wStatsSubmenuCursorIndex]
+	sub 2
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	ld [wCurSpecies], a ; Here, wCurSpecies doesn't actually contain the species, but rather the index of the move in the moves db.
+	ret
+
+PlaceMoveDataNew:
+	xor a
+	ldh [hBGMapMode], a
+
+	hlcoord 12, 1
+	ld de, String_MoveAtk
+	call PlaceString
+
+	hlcoord 12, 2
+	ld de, String_MoveAcc
+	call PlaceString
+
+	ld a, [wCurSpecies]
+	ld b, a
+	farcall GetMoveCategoryName
+
+	hlcoord 1, 2
+	ld de, wStringBuffer1
+	call PlaceString
+
+	ld a, [wCurSpecies]
+	ld b, a
+	hlcoord 1, 1
+	predef PrintMoveType
+
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_POWER
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	hlcoord 16, 1
+	cp 2
+	jr c, .no_power
+
+	ld [wTextDecimalByte], a
+	ld de, wTextDecimalByte
+	lb bc, 1, 3
+	call PrintNum
+	jr .accuracy
+
+.no_power
+	ld de, String_MoveNoPower
+	call PlaceString
+
+.accuracy
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_EFFECT
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	cp EFFECT_ALWAYS_HIT
+	jr z, .perfect_accuracy
+
+	ld a, [wCurSpecies]
+	dec a
+	ld hl, Moves + MOVE_ACC
+	ld bc, MOVE_LENGTH
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	call ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
+	ld [wTextDecimalByte], a
+	ld de, wTextDecimalByte
+	lb bc, 1, 3
+	hlcoord 16, 2
+	call PrintNum
+	jr .description
+
+.perfect_accuracy
+	hlcoord 16, 2
+	ld de, String_MoveNoPower
+	call PlaceString
+
+.description
+	hlcoord 1, 4
+	predef PrintMoveDescription
+	ld a, $1
+	ldh [hBGMapMode], a
+	ret
+
+PlaceItemDetail:
+	ld [wCurSpecies], a
+	
+	xor a
+	ldh [hBGMapMode], a
+
+	decoord 1, 1
+	farcall PrintItemDescription
+
+	ld a, [wCurSpecies]
+	ld b, a
+	farcall GetItemHeldEffect
+	ld a, HELD_NONE
+	cp b
+	jr z, .cant_use_in_battle
+
+	; If the item is not HELD_NONE, we check if it has ITEMMENU_PARTY to determine if it is a consumable object (one time use).
+	call GetItemHelpAttr
+	and $0f
+	cp ITEMMENU_PARTY
+	jr z, .consumable
+
+;.passive_effect
+	ld de, String_PassiveEffect
+	jr .display_usability
+
+.consumable
+	ld de, String_OneTimeUse
+	jr .display_usability
+
+.cant_use_in_battle
+	ld de, String_CantUseInBattle
+
+.display_usability
+	hlcoord 1, 5
+	call PlaceString
+
+.item_end
+	ld a, $1
+	ldh [hBGMapMode], a
+	ret 
+
+ConvertToPercentage:
+	ld b, a
+	xor a, $FF
+	ld a, 100
+	ret z ; We can't add 1 to 255, so we make a shortcut for this case.
+
+	ld a, b
+	inc a
+	ld [hMultiplicand + 2], a
+	xor a
+	ld [hMultiplicand + 1], a
+	ld [hMultiplicand], a
+	ld a, 100
+	ld [hMultiplier], a
+	call Multiply
+
+	; The result of the multiplication is stored in the memory slots used for the dividend.
+	ld a, 255
+	ld [hDivisor], a
+	ld b, 4
+	call Divide
+
+	ld a, [hQuotient + 3]
+	ret
+
+; Sets the Z flag if the arrow is pointing towards an empty Detail slot.
+IsDetailSlotEmpty:
+	ld a, [wStatsSubmenuCursorIndex]
+	and a
+	jp z, .tooltip_item
+	
+	cp 1
+	jp z, .tooltip_ability
+
+;.tooltip_moves
+	call PrepareToPlaceMoveDataNew
+	ld a, [wCurSpecies]
+	and a
+	ret z
+
+	jr .slot_is_not_empty
+
+.tooltip_item
+	; We check if the current pkmn holds an item.
+	ld a, [wTempMonItem]
+	and a
+	ret z
+
+	jr .slot_is_not_empty
+
+.tooltip_ability
+	; At the moment, there are no abilities, so it always returns false.
+	xor a
+	ret
+
+.slot_is_not_empty
+	xor a
+	inc a ; Unsets Z flag. There is probably a better  way.
+	ret
+
+GetItemHelpAttr:
+	ld hl, ItemAttributes + ITEMATTR_HELP
+	ld a, [wCurSpecies]
+	dec a
+	ld c, a
+	ld b, 0
+	ld a, ITEMATTR_STRUCT_LENGTH
+	call AddNTimes
+	ld a, BANK(ItemAttributes)
+	call GetFarByte
 	ret
