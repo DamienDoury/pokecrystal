@@ -112,6 +112,16 @@ PokecenterNurseScript:
 	yesorno
 	iffalse .done
 
+	; TODO: one-time text when the PCR tests become available (VAR_BADGES >= 4).
+
+	readvar VAR_PARTYCOUNT ; TODO: create VAR_PARTYCOUNT_WITHOUTEGGS
+	getnum STRING_BUFFER_3
+	farwritetext NurseAskTestText
+	special PlaceMoneyTopRight
+	yesorno
+	; TODO: jumptable based on VAR_PARTYCOUNT_WITHOUTEGGS to manage checkmoney et takemoney.
+	; TODO: feedback text that validates the player's choice and saves it into a var (wTempColorMixer) to use it for later in the script.
+	
 	farwritetext NurseTakePokemonText
 	promptbutton
 	pause 10

@@ -54,6 +54,18 @@ NurseAskHealText:
 	line "#MON?"
 	done
 
+NurseAskTestText:
+	text "Should we perform"
+	line "a PCR test also?"
+
+	para "For @"
+	text_ram wStringBuffer3 
+	text " it costs"
+	line "¥@"
+	text_ram wStringBuffer3
+	text "00."
+	done
+
 NurseTakePokemonText:
 	text "OK, may I see your"
 	line "#MON?"
