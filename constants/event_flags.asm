@@ -137,7 +137,7 @@
 	const EVENT_TIN_TOWER_5F_HIDDEN_FULL_RESTORE
 	const EVENT_TIN_TOWER_5F_HIDDEN_CARBOS
 	const EVENT_BURNED_TOWER_1F_HIDDEN_ETHER
-	const_skip ; unused in Crystal
+	const EVENT_GOT_DAMIANS_CHARMANDER
 	const_skip ; unused in Crystal
 	const_skip ; unused in Crystal
 	const EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL

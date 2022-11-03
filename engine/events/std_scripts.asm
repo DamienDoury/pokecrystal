@@ -251,7 +251,60 @@ PokecenterNurseScript:
 	farwritetext NurseAbandonedMonText
 	promptbutton
 
-	givepoke RATTATA, 10, NO_ITEM, TRUE, .giftPokeName, .giftPokeOTName
+	farwritetext ManiaText_GotShuckle
+	playsound SFX_KEY_ITEM
+	waitsfx
+	promptbutton
+
+	checkevent EVENT_GOT_DAMIANS_CHARMANDER
+	iftrue .CharmanderAlreadyGotten
+	random 12
+	sjump .Jumptable
+
+.CharmanderAlreadyGotten:
+	random 11
+
+.Jumptable:
+	ifless 5,  .zero
+	ifequal 5, .zero
+	ifequal 6,  .six
+	ifequal 7,  .seven
+	ifequal 8,  .eight
+	ifequal 9,  .nine
+	ifequal 10, .ten
+
+	; Damian's Charmander.
+	setevent EVENT_GOT_DAMIANS_CHARMANDER
+	givepoke CHARMANDER, 7
+	setval CHARMANDER
+	writemem wTempColorMixer
+	givepokemail DamiansMail
+	sjump .teamNotEmpty
+
+.zero
+	givepoke RATTATA, 14
+	sjump .teamNotEmpty
+
+.six
+	givepoke ZUBAT, 13
+	sjump .teamNotEmpty
+
+.seven
+	givepoke KOFFING, 20
+	sjump .teamNotEmpty
+
+.eight
+	givepoke SENTRET, 14
+	sjump .teamNotEmpty
+
+.nine
+	givepoke PIDGEY, 16
+	sjump .teamNotEmpty
+
+.ten
+	givepoke MAGIKARP, 14
+	sjump .teamNotEmpty
+	
 
 .teamNotEmpty
 	farwritetext NurseGoodbyeText
@@ -265,11 +318,10 @@ PokecenterNurseScript:
 	closetext ; Damien
 	end
 
-.giftPokeName:
-	db "@"
-
-.giftPokeOTName:
-	db "DAMIAN@"
+DamiansMail:
+	db PORTRAITMAIL
+	db   "I'll come back"
+	next "for you later.@"
 
 DifficultBookshelfScript:
 	farjumptext DifficultBookshelfText

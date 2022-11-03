@@ -186,7 +186,7 @@ ManiaText_TakeCareOfShuckle:
 	line "SHUCKIE, please!"
 	done
 
-ManiaText_GotShuckle:
+ManiaText_GotShuckle::
 	text "<PLAYER> received a"
 	line "#MON."
 	done

@@ -211,13 +211,22 @@ GivePokeMail::
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	call CopyBytes
+
+	ld a, [wTempColorMixer] ; Damien: used as a temp var. It should not interfere with the outdoor palette transition between times of day, as all givepoke are called indoors.
+	cp CHARMANDER
+	ld hl, .DamianOTName
+	jr z, .copy_nickname
+	
 	pop af
 	push af
 	ld hl, wPartyMonOTs
 	ld bc, NAME_LENGTH
 	call AddNTimes
+
+.copy_nickname
 	ld bc, NAME_LENGTH - 1
 	call CopyBytes
+
 	pop af
 	ld hl, wPartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
@@ -235,6 +244,9 @@ GivePokeMail::
 	ld a, b
 	ld [de], a
 	jp CloseSRAM
+
+.DamianOTName
+	db "DAMIAN@"
 
 BackupMail:
 	ld a, BANK(sPartyMail)
