@@ -230,7 +230,7 @@ TVShow:
 
 	para "…"
 
-	para "The best to"
+	para "The best way to"
 	line "fight a virus"
 
 	para "is to punch it,"

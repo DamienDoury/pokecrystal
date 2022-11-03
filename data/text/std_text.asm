@@ -99,10 +99,10 @@ NurseCriticallyIllMail1Text:
 	text "The @"
 
 	text_ram wStringBuffer1
-	text " it"
+	text " "
 
-	line "was holding has"
-	cont "been sent to"
+	line "it was holding"
+	cont "has been sent to"
 	cont "your MAIL BOX."
 	done
 

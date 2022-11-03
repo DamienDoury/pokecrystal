@@ -60,7 +60,7 @@ _CheckPokerus:
 	ld c, 0
 
 .Check:
-	ld a, [hl] ; Retrieving the pokerus byte.
+	ld a, [hl] ; Retrieving the pokerus byte. Note: Eggs can't get Pokerus, as they can't be sent into battle.
 	and POKERUS_TEST_MASK
 	jr nz, .next ; No need to notify the player twice about the same Pokémon that already has the virus.
 
