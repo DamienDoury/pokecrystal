@@ -108,20 +108,97 @@ PokecenterNurseScript:
 	; only do this once
 	clearevent EVENT_WELCOMED_TO_POKECOM_CENTER
 
+	; We inform the player about PCR tests, once.
+	readvar VAR_BADGES
+	ifless 4, .pcr_presentation_skipped
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iftrue .pcr_presentation_skipped
+
+	setevent EVENT_PCR_TEST_PRESENTATION
+	farwritetext NursePCRArrivedText
+	waitbutton
+	closetext
+	pause 5
+	turnobject LAST_TALKED, UP
+	pause 15
+	turnobject LAST_TALKED, DOWN
+	pause 5
+	opentext
+
+.pcr_presentation_skipped
 	farwritetext NurseAskHealText
 	yesorno
-	iffalse .done
+	iffalse .bye
 
-	; TODO: one-time text when the PCR tests become available (VAR_BADGES >= 4).
-
-	readvar VAR_PARTYCOUNT ; TODO: create VAR_PARTYCOUNT_WITHOUTEGGS
+	special GetPartyCountWithoutEggs
 	getnum STRING_BUFFER_3
 	farwritetext NurseAskTestText
 	special PlaceMoneyTopRight
 	yesorno
-	; TODO: jumptable based on VAR_PARTYCOUNT_WITHOUTEGGS to manage checkmoney et takemoney.
-	; TODO: feedback text that validates the player's choice and saves it into a var (wTempColorMixer) to use it for later in the script.
+
+	loadmem wTempColorMixer, 0
+	iffalse .skip_pcr_test
+
+	special GetPartyCountWithoutEggs
+	ifequal 1, .hundred1
+	ifequal 2, .hundred2
+	ifequal 3, .hundred3
+	ifequal 4, .hundred4
+	ifequal 5, .hundred5
+	;.hundred6
+
+	checkmoney YOUR_MONEY, 600
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 600
+	sjump .paid
+
+.hundred1
+	checkmoney YOUR_MONEY, 100
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 100
+	sjump .paid
+
+.hundred2
+	checkmoney YOUR_MONEY, 200
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 200
+	sjump .paid
+
+.hundred3
+	checkmoney YOUR_MONEY, 300
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 300
+	sjump .paid
+
+.hundred4
+	checkmoney YOUR_MONEY, 400
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 400
+	sjump .paid
+
+.hundred5
+	checkmoney YOUR_MONEY, 500
+	ifequal HAVE_LESS, .notEnoughMoney
+	takemoney YOUR_MONEY, 500
+	sjump .paid	
+
+.paid
+	loadmem wTempColorMixer, 2
+	special PlaceMoneyTopRight
+	playsound SFX_TRANSACTION
+	pause 15
+	farwritetext NurseThanksText
+	promptbutton
 	
+	sjump .heal_start
+	
+.skip_pcr_test
+	closetext
+	opentext
+	farwritetext NurseHealOnlyText
+	promptbutton
+
+.heal_start
 	farwritetext NurseTakePokemonText
 	promptbutton
 	pause 10
@@ -134,7 +211,7 @@ PokecenterNurseScript:
 	setval HEALMACHINE_POKECENTER
 	special HealMachineAnim
 	pause 30
-	special RestartMapMusic
+
 
 	;checkphonecall ; elm already called about pokerus
 	;iftrue .no
@@ -144,6 +221,8 @@ PokecenterNurseScript:
 	; Check if there is at least 1 critically ill Pokémon, and take it out of the team before we check for Covid and illnesses.
 	special SearchCriticallyIllMonInParty
 	ifequal -1, .noCriticallyIllMonInParty
+
+	; A severe form of COVID has been found!
 
 	;showemote EMOTE_SAD, LAST_TALKED, 20
 	opentext
@@ -173,17 +252,42 @@ PokecenterNurseScript:
 	waitbutton
 	closetext
 
+	readmem wTempColorMixer
+	addval 1
+	writemem wTempColorMixer ; We add 1 to wTempColorMixer to indicate that we must change the text "All tests are negative" to "All other tests are negative".
+
 .noCriticallyIllMonInParty
+	special RestartMapMusic
+
+	special GetPartyCountWithoutEggs
+	ifequal 0, .skip_all_checks
+
+	; Only check mildillness and pokerus if the player paid for it!
+	readmem wTempColorMixer
+	ifless 2, .skip_all_checks
+	
 	special CheckMildIllness
 	iftrue .mildIllness
 	special CheckPokerus
 	iftrue .pokerus
 
-	pause 20
-	turnobject LAST_TALKED, DOWN
-	pause 20
 	opentext
-	sjump .done ; Damien
+	readmem wTempColorMixer
+	ifequal 3, .other_tests_negative
+	farwritetext NurseTestsNegativeText
+	sjump .end_other_tests_negative
+.other_tests_negative
+	farwritetext NurseOtherTestsNegativeText
+.end_other_tests_negative
+	waitbutton
+	closetext
+
+.skip_all_checks
+	pause 10
+	turnobject LAST_TALKED, DOWN
+	pause 10
+	opentext
+	sjump .done
 
 .mildIllness
 	pause 20
@@ -194,11 +298,19 @@ PokecenterNurseScript:
 	special CheckPokerus
 	iftrue .pokerus
 
-	pause 20
+	pause 10
 	turnobject LAST_TALKED, DOWN ; This code is a copy/paste from the code above. I should create a "function"
-	pause 20
+	pause 10
 	opentext
-	sjump .done ; Damien
+	readmem wTempColorMixer
+	ifequal 2, .tests_negative
+	farwritetext NurseOtherTestsNegativeText
+	sjump .end_tests_negative
+.tests_negative
+	farwritetext NurseTestsNegativeText
+.end_tests_negative
+	waitbutton
+	sjump .done
 
 .pokerus
 	; already cleared earlier in the script
@@ -227,7 +339,6 @@ PokecenterNurseScript:
 .skip_vaccination_talk
 	waitbutton
 
-
 .quick_pokerus_warning
 	farwritetext NursePokerusEssentialText
 	waitbutton
@@ -247,17 +358,38 @@ PokecenterNurseScript:
 	setflag ENGINE_CAUGHT_POKERUS
 	specialphonecall SPECIALCALL_POKERUS
 
-.done
+.done	
+	farwritetext NurseBallsDisinfectedText
+	promptbutton
+	sjump .bye
+
+.notEnoughMoney
+	farwritetext NurseNotEnoughMoneyText
+	promptbutton
+	closetext
+	opentext
+
+.bye
+	farwritetext NurseGoodbyeText
+	turnobject LAST_TALKED, UP
+	pause 15
+	turnobject LAST_TALKED, DOWN
+	pause 10 ; Damien
+
+	waitbutton
+	closetext ; Damien
+
 	special GetPartyCountWithoutEggs
-	ifgreater 0, .teamNotEmpty
+	ifgreater 0, .end
 
 	; At this point, the Pokémon that was sent to the hospital was the last mon of the player.
 	; Therefore, the player is left with no pkmn and can't play.
-	; We must give him one!
+	; We give him one!
 
 	pause 20
 	showemote EMOTE_SHOCK, LAST_TALKED, 20
-	pause 20
+	pause 5
+	opentext
 	farwritetext NurseAbandonedMonText
 	promptbutton
 
@@ -275,8 +407,7 @@ PokecenterNurseScript:
 	random 11
 
 .Jumptable:
-	ifless 5,  .zero
-	ifequal 5, .zero
+	ifless 6,  .zero
 	ifequal 6,  .six
 	ifequal 7,  .seven
 	ifequal 8,  .eight
@@ -289,43 +420,39 @@ PokecenterNurseScript:
 	setval CHARMANDER
 	writemem wTempColorMixer
 	givepokemail DamiansMail
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .zero
 	givepoke RATTATA, 14
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .six
 	givepoke ZUBAT, 13
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .seven
 	givepoke KOFFING, 20
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .eight
 	givepoke SENTRET, 14
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .nine
 	givepoke PIDGEY, 16
-	sjump .teamNotEmpty
+	sjump .good_care
 
 .ten
 	givepoke MAGIKARP, 14
-	sjump .teamNotEmpty
-	
 
-.teamNotEmpty
-	farwritetext NurseGoodbyeText
-
+.good_care
+	pause 5
 	turnobject LAST_TALKED, UP
-	pause 10
+	pause 15
 	turnobject LAST_TALKED, DOWN
-	pause 10 ; Damien
-
-	waitbutton
-	closetext ; Damien
+	pause 5
+	closetext
+.end
 	end
 
 DamiansMail:

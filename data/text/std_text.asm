@@ -66,8 +66,16 @@ NurseAskTestText:
 	text "00."
 	done
 
+NurseHealOnlyText:
+	text "OK, heal only."
+	done
+
+NurseThanksText:
+	text "Thank you."
+	done
+
 NurseTakePokemonText:
-	text "OK, may I see your"
+	text "May I see your"
 	line "#MON?"
 	done
 
@@ -79,13 +87,59 @@ NurseReturnPokemonText:
 	;line "fully healed."
 	done
 
-NurseGoodbyeText:
+NurseNotEnoughMoneyText:
+	text "I am sorry but you"
+	line "don't have enough"
+	cont "for the PCR test."
+	done
+
+NurseBallsDisinfectedText:
 	text "Your #BALLS"
 	line "have been"
 	cont "disinfected."
+	done
 
-	para "We hope to see you"
+NurseGoodbyeText:
+	text "We hope to see you"
 	line "again."
+	done
+
+NursePCRArrivedText:
+	text "We would like to"
+	line "inform you about"
+	cont "a new service in"
+	cont "#MON CENTERS."
+
+	para "PCR tests have"
+	line "arrived!"
+	
+	para "Their purpose is"
+	line "to determine if"
+	cont "your #MON are"
+	cont "currently infected"
+	cont "by the virus."
+
+	para "The results are" 
+	line "known instantly"
+	cont "and it costs only"
+	cont "¥100 per #MON."
+	
+	para "Trainers are ad-"
+	line "vised to frequent-"
+	cont "ly test their"
+	cont "party."
+
+	done
+
+NurseTestsNegativeText:
+	text "All PCR tests are"
+	line "negative."
+	done
+
+NurseOtherTestsNegativeText:
+	text "The other PCR"
+	line "tests are"
+	cont "negative."
 	done
 
 NurseCriticallyIllText:
@@ -105,6 +159,10 @@ NurseCriticallyIllText:
 	line "the hospital right"
 	cont "now, before it's"
 	cont "too late."
+
+	para "It looks like a"
+	line "severe form of"
+	cont "COVID…"
 	done
 
 NurseCriticallyIllMail1Text:
