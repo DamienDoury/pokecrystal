@@ -8,7 +8,11 @@ CherrygroveGymSpeechHouse_MapScripts:
 	def_callbacks
 
 CherrygroveGymSpeechHousePokefanMScript:
-	jumptextfaceplayer CherrygroveGymSpeechHousePokefanMText
+	readvar VAR_BADGES
+	ifless 4, .before_pcr
+	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM2Text
+.before_pcr
+	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM1Text
 
 CherrygroveGymSpeechHouseBugCatcherScript:
 	jumptextfaceplayer CherrygroveGymSpeechHouseBugCatcherText
@@ -16,18 +20,33 @@ CherrygroveGymSpeechHouseBugCatcherScript:
 CherrygroveGymSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-CherrygroveGymSpeechHousePokefanMText:
-	text "You're trying to"
-	line "see how good you"
+CherrygroveGymSpeechHousePokefanM1Text:
+	text "I'm not feeling"
+	line "well, I can't know"
+	cont "if I caught COVID!"
 
-	para "are as a #MON"
-	line "trainer?"
+	para "I've heard scien-"
+	line "tists are working"
+	cont "on a test to"
+	cont "detect the virus."
+	done
 
-	para "You better visit"
-	line "the #MON GYMS"
+CherrygroveGymSpeechHousePokefanM2Text:
+	text "PCR tests are a"
+	line "blessing!"
 
-	para "all over JOHTO and"
-	line "collect BADGES."
+	para "I do one everyday,"
+	line "just to make sure"
+	cont "I don't have COVID."
+
+	para "…"
+
+	para "Why are you"
+	line "looking at me"
+	cont "like this?"
+
+	para "Is my nose"
+	line "bleeding again?"
 	done
 
 CherrygroveGymSpeechHouseBugCatcherText:
