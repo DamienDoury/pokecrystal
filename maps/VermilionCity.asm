@@ -99,6 +99,9 @@ VermilionGymBadgeGuy:
 	closetext
 	end
 
+VermilionGymBlocker:
+	jumptextfaceplayer VermilionGymBlockerText
+
 VermilionCitySign:
 	jumptext VermilionCitySignText
 
@@ -273,6 +276,18 @@ VermilionCityPortSignText:
 	line "ENTRANCE"
 	done
 
+VermilionGymBlockerText:
+	text "LT.SURGE went to"
+	line "give a hand at the"
+	cont "POWER PLANT."
+
+	para "I've heard his"
+	line "#MON are provi-"
+	cont "ding enough elec-"
+	cont "tricity for a"
+	cont "whole town!"
+	done
+
 VermilionCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -307,3 +322,4 @@ VermilionCity_MapEvents:
 	object_event 14, 16, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionCitySuperNerdScript, -1
 	object_event 34,  8, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionSnorlax, EVENT_VERMILION_CITY_SNORLAX
 	object_event 31, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1
+	object_event 10, 20, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionGymBlocker, EVENT_RESTORED_POWER_TO_KANTO
