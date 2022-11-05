@@ -320,20 +320,26 @@ TinTower1FEusineSuicuneText:
 	text "EUSINE: Awesome!"
 	line "Too awesome, even!"
 
-	para "I've never seen a"
-	line "battle that great."
-
-	para "That was truly"
-	line "inspiring to see."
-
 	para "SUICUNE was tough,"
 	line "but you were even"
 
 	para "more incredible,"
 	line "<PLAYER>."
 
-	para "I heard SUICUNE's"
-	line "mystic power"
+	para "During your battle"
+	line "I've been able to"
+
+	para "sample SUICUNE's"
+	line "legendary water!"
+
+	para "We may be able to"
+	line "discover a vaccine"
+
+	para "thanks to your"
+	line "actions <PLAYER>."
+
+	para "Also, I heard SUI-"
+	line "CUNE's mystic power"
 
 	para "summons a rainbow-"
 	line "colored #MON."
@@ -344,12 +350,18 @@ TinTower1FEusineSuicuneText:
 	para "will cause that"
 	line "#MON to appear."
 
-	para "I'm going to study"
-	line "the legends more."
+	para "I must now hurry"
+	line "to the research"
 
-	para "Thanks for showing"
-	line "me that fantastic"
-	cont "battle."
+	para "facility in KANTO,"
+	line "to deliver this"
+
+	para "potentially life"
+	line "saving sample."
+
+	para "The whole world"
+	line "owes you a big"
+	cont "thank you."
 
 	para "Later, <PLAYER>!"
 	done

@@ -292,18 +292,19 @@ EusineSuicuneText:
 	line "SUICUNE running on"
 	cont "the waves."
 
-	para "SUICUNE is beau-"
-	line "tiful and grand."
+	para "SUICUNE's powers"
+	line "could help with"
 
-	para "And it races"
-	line "through towns and"
+	para "the research on"
+	line "the COVID vaccine."
 
-	para "roads at simply"
-	line "awesome speeds."
+	para "Obtaining some of"
+	line "its water could"
 
-	para "It's wonderful…"
+	para "save millions of"
+	line "lives."
 
-	para "I want to see"
+	para "If need to see"
 	line "SUICUNE up close…"
 
 	para "I've decided."

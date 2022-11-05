@@ -202,18 +202,23 @@ BurnedTowerB1FEusineText:
 	para "in front of my"
 	line "eyes!"
 
-	para "For ten years I"
-	line "chased SUICUNE,"
+	para "For months I"
+	line "chased it,"
 
 	para "and I finally got"
 	line "to see it."
 
-	para "I'm all choked up!"
+	para "Legends say that"
+	line "SUICUNE can purify"
+	
+	para "any kind of"
+	line "fouled water."
 
-	para "<PLAYER>, I owe"
-	line "this all to you!"
-
-	para "Thank you!"
+	para "Do you think its"
+	line "powers could get"
+	
+	para "rid of the virus"
+	line "that gives COVID?"
 
 	para "I heard that the"
 	line "legendary #MON"
