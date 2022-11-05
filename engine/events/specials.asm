@@ -458,7 +458,7 @@ GetItemNameFromIndex:
 	call GetItemName
 	ret
 
-GetPartyCountWithoutEggs:
+GetPartyCountWithoutEggs::
 	push hl
 	push de
 

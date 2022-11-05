@@ -9,14 +9,17 @@
 
 HealMachineAnim:
 	; If you have no Pokemon, don't change the buffer.  This can lead to some glitchy effects if you have no Pokemon.
-	ld a, [wPartyCount]
+	ld a, [wScriptVar]
+	ld b, a
+	farcall GetPartyCountWithoutEggs
+	ld a, [wScriptVar]
 	and a
 	ret z
 	; The location of the healing machine relative to the player is stored in wScriptVar.
 	; 0: Up and left (Pokemon Center)
 	; 1: Left (Elm's Lab)
 	; 2: Up (Hall of Fame)
-	ld a, [wScriptVar]
+	ld a, b ; b = original wScriptVar passed as a parameter (before GetPartyCountWithoutEggs changed it).
 	ld [wHealMachineAnimType], a
 	ldh a, [rOBP1]
 	ld [wHealMachineTempOBP1], a
@@ -102,7 +105,10 @@ ENDM
 	ld de, .HOF_OAM
 
 .LoadBallsOntoMachine:
-	ld a, [wPartyCount]
+	push hl
+	farcall GetPartyCountWithoutEggs
+	pop hl
+	ld a, [wScriptVar]
 	ld b, a
 .party_loop
 	call .PlaceHealingMachineTile
