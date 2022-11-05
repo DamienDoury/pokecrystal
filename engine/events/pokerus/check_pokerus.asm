@@ -135,7 +135,7 @@ _SearchCriticallyIllMonInParty::
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 
-	cp POKERUS_IMMUNITY_DURATION
+	cp POKERUS_IMMUNITY_DURATION + 1
 	jr c, .next_mon
 
 	cp POKERUS_SYMPTOMS_START + 1
