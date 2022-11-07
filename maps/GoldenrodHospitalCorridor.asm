@@ -10,51 +10,12 @@
 
 GoldenrodHospitalCorridor_MapScripts:
 	def_scene_scripts
-	scene_script HospitalCorridorUpdateNPCs ; 0
-	scene_script HospitalCorridorUpdateNPCs ; 1
 
 	def_callbacks
-	callback MAPCALLBACK_TILES, UpdateCorridorBlocks
-	callback MAPCALLBACK_OBJECTS, GoldenrodHospitalCorridorHideNPCs
+	callback MAPCALLBACK_TILES, .UpdateCorridorBlocks
+	callback MAPCALLBACK_OBJECTS, .UpdateCorridorNPCs
 
-HospitalCorridorUpdateNPCs:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
-	iftrue .Done
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
-
-	checkevent EVENT_GOLDENROD_CITY_CIVILIANS
-	iftrue .Done
-
-	readmem wGoldenrodHospitalCorridorNumber
-	ifequal 1, .corridor1
-	ifequal 2, .corridor2
-	ifequal 3, .corridor3
-	ifequal 4, .corridor4
-	sjump .Done
-
-.corridor1:
-	appear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1
-	appear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1
-	sjump .Done
-
-.corridor2:
-	appear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1
-	appear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1
-	sjump .Done
-
-.corridor3:
-	appear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1
-	appear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1
-	sjump .Done
-
-.corridor4:
-	appear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1
-	appear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2
-
-.Done:
-	end
-
-UpdateCorridorBlocks:
+.UpdateCorridorBlocks:
 	readvar VAR_XCOORD
 	ifequal 0, .FacingRight ; The player arrives at the left side of the corridor (he is also facing right).
 	ifequal 19, .FacingLeft
@@ -83,6 +44,76 @@ UpdateCorridorBlocks:
 	changeblock $12,  2, $2b ; plant
 	changeblock $12, $a, $2b ; plant
 .done:
+	endcallback
+
+.UpdateCorridorNPCs:
+	checkevent EVENT_GOLDENROD_CITY_CIVILIANS
+	iftrue .HideEveryone
+
+	readmem wGoldenrodHospitalCorridorNumber
+	ifequal 2, .corridor2
+	ifequal 3, .corridor3
+	ifequal 4, .corridor4
+
+.corridor1:
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1	; top
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1 	; bottom
+
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2
+	endcallback
+
+.corridor2:
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1		; top
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1		; bottom
+
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1
+	endcallback
+
+.corridor3:
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1		; top
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2	; bottom
+
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1
+	endcallback
+
+.corridor4:
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1	; top
+	;appear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1	; bottom
+
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1
+
+.EndThisCallback:
+	endcallback
+
+.HideEveryone:
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_FINDER1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_PSYCHICT1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_NURSE1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_GRANNY1
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_SCIENTIST2
+	disappear GOLDENROD_HOSPITAL_CORRIDOR_TWIN1
 	endcallback
 
 GoldenrodHospitalCorridorHideNPCs:
@@ -128,6 +159,9 @@ GoldenrodHospitalCorridorGelScript:
 GoldenrodHospitalCorridorNurse1Script:	
 	jumptextfaceplayer GoldenrodHospitalCorridorNurse1Text
 
+GoldenrodHospitalCorridorPokefan1Script:
+	jumptextfaceplayer GoldenrodHospitalCorridorPokefan1Text
+
 GoldenrodHospitalCorridorFinder1Script:
 	checkscene
 	ifequal 1, .tellAboutChiefNurse
@@ -165,6 +199,11 @@ GoldenrodHospitalCorridorNurse1Text:
 	para "But the armchairs"
 	line "are for patients"
 	cont "and visitors."
+	done
+
+GoldenrodHospitalCorridorPokefan1Text:
+	text "Hospitals are"
+	line "making me nervous."
 	done
 
 GoldenrodHospitalCorridorFinder1Text:
@@ -277,11 +316,11 @@ GoldenrodHospitalCorridor_MapEvents:
 	bg_event  0,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
 
 	def_object_events
-	object_event  7, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorFinder1Script, 0
-	object_event  9,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 3, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorWorriedScientist1Script, 0
-	object_event 13,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorPsychicT1Script, 0
-	object_event  4,  9, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorNurse1Script, 0
-	object_event 15, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 2, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorNurse1Script, 0
-	object_event  5,  9, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorGrannyScript, 0
-	object_event 19,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorSick1Script, 0
-	object_event  5,  3, SPRITE_TWIN, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorBathroomScript, 0
+	object_event  7, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorFinder1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  8,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 3, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorWorriedScientist1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event 13,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorPsychicT1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event 12,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorNurse1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	object_event 13, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorPokefan1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
+	object_event  5,  9, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorGrannyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	object_event 19,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorSick1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
+	object_event  5,  3, SPRITE_TWIN, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorBathroomScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
