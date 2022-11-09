@@ -5,6 +5,21 @@ GoldenrodHospitalOffice_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
+	ifnotequal 2, .skip_hospital_quest_step_inc
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 3
+.skip_hospital_quest_step_inc
+	checkevent EVENT_SICK_CATERPIE
+	iffalse .HideChiefNurse
+	appear GOLDENRODHOSPITALOFFICE_CHIEF
+	endcallback
+
+.HideChiefNurse:
+	disappear GOLDENRODHOSPITALOFFICE_CHIEF
+	endcallback
 
 GoldenrodHospitalOfficeChiefScript:
 	jumptextfaceplayer GoldenrodHospitalOfficeChiefText
@@ -49,4 +64,4 @@ GoldenrodHospitalOffice_MapEvents:
 	bg_event  5,  2, BGEVENT_READ, GoldenrodHospitalBookshelfScript
 
 	def_object_events
-	object_event  3,  5, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalOfficeChiefScript, -1
+	object_event  3,  5, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalOfficeChiefScript, 0

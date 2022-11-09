@@ -42,6 +42,21 @@ GoldenrodHospitalNurse1Script:
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 .CleanHands:
+	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
+	ifnotequal 1, .skip_inc_hospital_quest_step_1
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 2
+.skip_inc_hospital_quest_step_1
+	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
+	ifequal 0, .regulartext
+	ifgreater 1, .direct_to_office
+	jumptextfaceplayer GoldenrodHospitalNurse1Step1Text
+.direct_to_office
+	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
+	ifnotequal 3, .skip_hospital_quest_step_inc_3
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 4
+.skip_hospital_quest_step_inc_3
+	jumptextfaceplayer GoldenrodHospitalNurse1Step3Text
+.regulartext
 	jumptextfaceplayer GoldenrodHospitalNurse1Text
 
 GoldenrodHospitalTakeover:
@@ -218,6 +233,9 @@ GoldenrodHospitalBlackglassesScript:
 GoldenrodHospitalTwin1Script:
 	jumptextfaceplayer GoldenrodHospital1FTwin1Text
 
+GoldenrodHospitalDepressedScientistScript:
+	jumptextfaceplayer GoldenrodHospitalDepressedScientistText
+
 GoldenrodHospitalCoughScript:
 	jumptextfaceplayer GoldenrodHospital1FCoughText
 
@@ -279,6 +297,33 @@ GoldenrodHospital1FWashHandsFemaleText:
 
 GoldenrodHospitalNurse1Text:
 	text "Welcome!"
+	done
+
+	GoldenrodHospitalNurse1Step1Text:
+	text "CHIEF NURSE JOY?"
+	
+	para "I haven't seen"
+	line "her in a while."
+	
+	para "She must be in"
+	line "her office."
+	
+	para "That's the door"
+	line "behind me, next to"
+	cont "the waiting room."
+	done
+
+GoldenrodHospitalNurse1Step3Text:
+	text "If CHIEF NURSE JOY"
+	line "isn't in her office"
+
+	para "she must be doing"
+	line "her round in the"
+	cont "patient rooms."
+
+	para "It will be on your"
+	line "right, good luck"
+	cont "finding her."
 	done
 
 GoldenrodHospitalChanseySeriousText:
@@ -422,6 +467,34 @@ GoldenrodHospitalTakeoverNurse1Text:
 	text "I… I'm sorry"
 	line "I can't help you"
 	cont "at the moment…"
+	done
+
+GoldenrodHospitalDepressedScientistText:
+	text "Our acute beds use"
+	line "is at 100<PERCENT> of its"
+	cont "capacity, which is"
+	cont "reasonable."
+
+	para "How so?"
+
+	para "Some establish-"
+	line "ments are working"
+	cont "at up to 140<PERCENT> of"
+	cont "their capacity."
+
+	para "They added new"
+	line "beds in existing"
+	cont "rooms, and even in"
+	cont "corridors!"
+
+	para "Personel's working"
+	line "extra hours at an"
+	cont "increased pace."
+
+	para "If patients keep"
+	line "flowing in, our"
+	cont "organization will"
+	cont "end up collapsing."
 	done
 
 GoldenrodHospital1FChiefNursePanelText:
@@ -596,3 +669,4 @@ GoldenrodHospital1F_MapEvents:
 	object_event 13,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  6,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketCounterScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  4,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalLockScript, -1
+	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, %11100000 | MORN | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalDepressedScientistScript, EVENT_GOLDENROD_CITY_CIVILIANS

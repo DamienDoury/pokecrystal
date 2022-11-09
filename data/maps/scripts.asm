@@ -479,15 +479,18 @@ INCLUDE "maps/Route10South.asm"
 INCLUDE "maps/Route23.asm"
 INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/SilverCaveOutside.asm"
+INCLUDE "maps/Route10North.asm"
+
+INCLUDE "maps/GoldenrodHospital1F.asm"
+INCLUDE "maps/GoldenrodHospitalOffice.asm"
+INCLUDE "maps/GoldenrodHospitalSecret.asm"
+
+
 
 
 SECTION "Map Scripts 25", ROMX
 
-INCLUDE "maps/SilverCaveOutside.asm"
-INCLUDE "maps/Route10North.asm"
-INCLUDE "maps/GoldenrodHospital1F.asm"
-INCLUDE "maps/GoldenrodHospitalOffice.asm"
-INCLUDE "maps/GoldenrodHospitalSecret.asm"
 INCLUDE "maps/GoldenrodHospitalCorridor.asm"
 INCLUDE "maps/GoldenrodHospitalRoom.asm"
 INCLUDE "maps/SeafoamW1F.asm"

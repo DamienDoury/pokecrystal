@@ -70,39 +70,41 @@
 	const SPRITE_RECEPTIONIST ; 42
 	const SPRITE_OFFICER ; 43
 	const SPRITE_JENNY ; 44
-	const SPRITE_CAL ; 45 unused
-	const SPRITE_SLOWPOKE ; 46
-	const SPRITE_CAPTAIN ; 47
-	const SPRITE_BIG_LAPRAS ; 48
-	const SPRITE_GYM_GUIDE ; 49
-	const SPRITE_SAILOR ; 4a
-	const SPRITE_BIKER ; 4b
-	const SPRITE_PHARMACIST ; 4c
-	const SPRITE_MONSTER ; 4d
-	const SPRITE_FAIRY ; 4e
-	const SPRITE_BIRD ; 4f
-	const SPRITE_DRAGON ; 50
-	const SPRITE_BIG_ONIX ; 51
-	const SPRITE_N64 ; 52
-	const SPRITE_SUDOWOODO ; 53
-	const SPRITE_SURF ; 54
-	const SPRITE_POKE_BALL ; 55
-	const SPRITE_POKEDEX ; 56
-	const SPRITE_PAPER ; 57
-	const SPRITE_VIRTUAL_BOY ; 58
-	const SPRITE_INVISIBLE_WALL ; 59
-	const SPRITE_ROCK ; 5a
-	const SPRITE_BOULDER ; 5b
-	const SPRITE_SNES ; 5c
-	const SPRITE_FAMICOM ; 5d
-	const SPRITE_FRUIT_TREE ; 5e
-	const SPRITE_GOLD_TROPHY ; 5f
-	const SPRITE_SILVER_TROPHY ; 60
-	const SPRITE_KRIS ; 61
-	const SPRITE_KRIS_BIKE ; 62
-	const SPRITE_SUICUNE ; 63
-	const SPRITE_ENTEI ; 64
-	const SPRITE_RAIKOU ; 65
+	const SPRITE_AGATHA ; 45
+	const SPRITE_LORELEI ; 46
+	const SPRITE_CAL ; 47 unused
+	const SPRITE_SLOWPOKE ; 48
+	const SPRITE_CAPTAIN ; 49
+	const SPRITE_BIG_LAPRAS ; 4a
+	const SPRITE_GYM_GUIDE ; 4b
+	const SPRITE_SAILOR ; 4c
+	const SPRITE_BIKER ; 4d
+	const SPRITE_PHARMACIST ; 4e
+	const SPRITE_MONSTER ; 4f
+	const SPRITE_FAIRY ; 50
+	const SPRITE_BIRD ; 51
+	const SPRITE_DRAGON ; 52
+	const SPRITE_BIG_ONIX ; 53
+	const SPRITE_N64 ; 54
+	const SPRITE_SUDOWOODO ; 55
+	const SPRITE_SURF ; 56
+	const SPRITE_POKE_BALL ; 57
+	const SPRITE_POKEDEX ; 58
+	const SPRITE_PAPER ; 59
+	const SPRITE_VIRTUAL_BOY ; 5a
+	const SPRITE_INVISIBLE_WALL ; 5b
+	const SPRITE_ROCK ; 5c
+	const SPRITE_BOULDER ; 5d
+	const SPRITE_SNES ; 5e
+	const SPRITE_FAMICOM ; 5f
+	const SPRITE_FRUIT_TREE ; 60
+	const SPRITE_GOLD_TROPHY ; 61
+	const SPRITE_SILVER_TROPHY ; 62
+	const SPRITE_KRIS ; 63
+	const SPRITE_KRIS_BIKE ; 64
+	const SPRITE_SUICUNE ; 65
+	const SPRITE_ENTEI ; 66
+	const SPRITE_RAIKOU ; 67
 NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)
@@ -182,8 +184,8 @@ NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 	const_next $f0
 SPRITE_VARS EQU const_value
 	const SPRITE_CONSOLE ; f0
-	const SPRITE_DOLL_1 ; f1
-	const SPRITE_DOLL_2 ; f2
+	const SPRITE_DOLL_1 ; f1 ; Now also used for the hospital rooms' patient.
+	const SPRITE_DOLL_2 ; f2 
 	const SPRITE_BIG_DOLL ; f3
 	const SPRITE_WEIRD_TREE ; f4
 	const SPRITE_OLIVINE_RIVAL ; f5
@@ -194,4 +196,5 @@ SPRITE_VARS EQU const_value
 	const SPRITE_FUCHSIA_GYM_4 ; fa
 	const SPRITE_COPYCAT ; fb
 	const SPRITE_JANINE_IMPERSONATOR ; fc
-	const SPRITE_MISTYS_BOYFRIEND ; fd ; Damien
+	const SPRITE_HOSPITAL_HUMAN_PATIENT ; fd ; Damien
+	const SPRITE_HOSPITAL_VISITOR ; fe ; Damien

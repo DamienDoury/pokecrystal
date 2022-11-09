@@ -160,7 +160,11 @@ GoldenrodHospitalCorridorNurse1Script:
 	jumptextfaceplayer GoldenrodHospitalCorridorNurse1Text
 
 GoldenrodHospitalCorridorPokefan1Script:
-	jumptextfaceplayer GoldenrodHospitalCorridorPokefan1Text
+	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer GoldenrodHospitalPokefanMTrainerAfterBattleText
 
 GoldenrodHospitalCorridorFinder1Script:
 	checkscene
@@ -182,7 +186,11 @@ GoldenrodHospitalCorridorBathroomScript:
 	jumptextfaceplayer GoldenrodHospitalCorridorBathroomText
 
 GoldenrodHospitalCorridorPsychicT1Script:
-	jumptext GoldenrodHospitalCorridorPsychicT1Text
+	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_1, GoldenrodHospitalPsychicTrainerSeenText, GoldenrodHospitalPsychicTrainerBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer GoldenrodHospitalPsychicTrainerAfterBattleText
 
 GoldenrodHospitalCorridorWashHandsMaleText:
 	text_far _PlayersPCSanitizerText
@@ -199,11 +207,6 @@ GoldenrodHospitalCorridorNurse1Text:
 	para "But the armchairs"
 	line "are for patients"
 	cont "and visitors."
-	done
-
-GoldenrodHospitalCorridorPokefan1Text:
-	text "Hospitals are"
-	line "making me nervous."
 	done
 
 GoldenrodHospitalCorridorFinder1Text:
@@ -242,13 +245,26 @@ GoldenrodHospitalCorridorWorriedScientist1Text:
 	done
 
 GoldenrodHospitalCorridorBathroomText:
-	text "THERE'S NO"
+	text "WHERE'S THE"
 	line "BATHROOM?"
 
-	para "Where is it?"
+	para "PLEEEEEASE"
 	done
 
-GoldenrodHospitalCorridorPsychicT1Text:
+GoldenrodHospitalPsychicTrainerSeenText:
+	text "I've been waiting"
+	line "here forever…"
+
+	para "I'm losing my"
+	line "sanity…"
+	done
+
+GoldenrodHospitalPsychicTrainerBeatenText:
+	text "Waiting was less"
+	line "painful actually."
+	done
+
+GoldenrodHospitalPsychicTrainerAfterBattleText:	
 	text "Wait"
 
 	para "…"
@@ -265,6 +281,28 @@ GoldenrodHospitalCorridorPsychicT1Text:
 	line "ting, and it's"
 	cont "driving me insane…"
 	done
+
+GoldenrodHospitalPokefanMTrainerSeenText:
+	text "My wife isn't in"
+	line "this room anymore."
+	
+	para "Was she moved to"
+	line "another room?"
+
+	para "Did something bad"
+	line "happen?"
+	done
+
+GoldenrodHospitalPokefanMTrainerBeatenText:
+	text "I'll ask a nurse"
+	line "about my wife."
+	done
+
+GoldenrodHospitalPokefanMTrainerAfterBattleText:
+	text "Hospitals are"
+	line "making me nervous."
+	done
+
 
 GoldenrodHospitalCorridor_MapEvents:
 	db 0, 0 ; filler
@@ -318,9 +356,9 @@ GoldenrodHospitalCorridor_MapEvents:
 	def_object_events
 	object_event  7, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorFinder1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  8,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 3, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorWorriedScientist1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	object_event 13,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorPsychicT1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event 13,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalCorridorPsychicT1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	object_event 12,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorNurse1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
-	object_event 13, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorPokefan1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
+	object_event 13, 11, SPRITE_POKEFAN_M, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 1, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalCorridorPokefan1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
 	object_event  5,  9, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorGrannyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
 	object_event 19,  8, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorSick1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 	object_event  5,  3, SPRITE_TWIN, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorBathroomScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8

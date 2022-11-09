@@ -251,7 +251,10 @@ TrainerOfficerDirk:
 	end
 
 Route35SaviourScript:
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 1
+	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
+	ifequal 0, .skip_launch_hospital_quest
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 1 ; Launches the hospital quest.
+.skip_launch_hospital_quest
 	jumptextfaceplayer Route35SaviourText
 
 Route35CaterpieScript:
@@ -456,7 +459,7 @@ Route35SignText:
 
 Route35SaviourText:
 	text "This #MON is"
-	line "really sick and"
+	line "seriously ill and"
 	cont "needs immediate"
 	cont "care."
 
@@ -496,5 +499,5 @@ Route35_MapEvents:
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TrainerOfficerDirk, -1
 	object_event  2, 25, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35FruitTree, -1
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
-	object_event  4, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35SaviourScript, EVENT_SICK_CATERPIE
+	object_event  4, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35SaviourScript, EVENT_SICK_CATERPIE
 	object_event  3, 11, SPRITE_CATERPIE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35CaterpieScript, EVENT_SICK_CATERPIE
