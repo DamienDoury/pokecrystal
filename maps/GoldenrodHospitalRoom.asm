@@ -350,6 +350,8 @@ GoldenrodHospitalRoomHumanPatientScript:
 	special GetHospitalRoomNumber
 	ifequal  3,  .room3
 	ifequal  4,  .room4
+	ifequal  5,  .room5
+	ifequal  7,  .room7
 	ifequal 14, .room14
 	ifequal 17, .room17
 	ifequal 23, .room23
@@ -369,6 +371,18 @@ GoldenrodHospitalRoomHumanPatientScript:
 	closetext
 	pause 60
 	jumptext GoldenrodHospitalRoom4PatientPart2Text
+
+.room5:
+	jumptextfaceplayer GoldenrodHospitalRoom5PatientText
+
+.room7:
+	faceplayer
+	opentext 
+	writetext GoldenrodHospitalRoom7PatientText
+	waitbutton
+	closetext
+	turnobject GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT, LEFT
+	end
 
 .room14:
 	jumptext GoldenrodHospitalRoom14PatientText
@@ -395,9 +409,13 @@ GoldenrodHospitalRoomHumanPatientScript:
 
 GoldenrodHospitalRoomPokemonPatientScript:
 	special GetHospitalRoomNumber
-	ifequal  1,  .room1
-	ifequal  2,  .room2
-	ifequal 32,  .room32
+	ifequal  1, .room1
+	ifequal  2, .room2
+	ifequal  6, .room6
+	ifequal  8, .room8
+	ifequal 10, .room10
+	ifequal 13, .room13
+	ifequal 32, .room32
 
 	sjump GoldenrodHospitalRoomDefaultPatientScript
 
@@ -405,7 +423,6 @@ GoldenrodHospitalRoomPokemonPatientScript:
 	checkevent EVENT_SICK_CATERPIE
 	iftrue .caterpie
 
-	setevent EVENT_SICK_CATERPIE
 	setval ODDISH
 	special PlaySlowCry
 	waitsfx
@@ -422,7 +439,30 @@ GoldenrodHospitalRoomPokemonPatientScript:
 	special PlaySlowCry
 	waitsfx
 	jumptext GoldenrodHospitalRoom2PokemonPatientText
+
+.room6:
+	setval POLIWAG
+	special PlaySlowCry
+	waitsfx
+	jumptext GoldenrodHospitalRoom6PokemonPatientText
+
+.room8:
+	showemote EMOTE_SLEEP, GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT, 15
+	pause 15
+	jumptext GoldenrodHospitalRoom8PokemonPatientText
 	
+.room10:
+	setval ABRA
+	special PlaySlowCry
+	waitsfx
+	jumptext GoldenrodHospitalRoom10PokemonPatientText
+
+.room13:
+	setval MEOWTH
+	special PlaySlowCry
+	waitsfx
+	jumptext GoldenrodHospitalRoom13PokemonPatientText
+
 .room32:
 	setval MURKROW
 	special PlaySlowCry
@@ -437,7 +477,16 @@ GoldenrodHospitalRoomDefaultPatientScript:
 GoldenrodHospitalRoomVisitor1Script:
 	special GetHospitalRoomNumber
 	ifequal  1, .room1
-	ifequal 18, .room4
+	ifequal  2, .room2
+	ifequal  4, .room4
+	ifequal  5, .room5
+	ifequal  6, .room6
+	ifequal  7, .room7
+	ifequal 10, .room10
+	ifequal 13, .room13
+	ifequal 18, .room18
+	ifequal 21, .room21
+	ifequal 31, .room31
 	ifequal 29, .room29
 
 	end
@@ -445,12 +494,58 @@ GoldenrodHospitalRoomVisitor1Script:
 .room1:
 	jumptextfaceplayer GoldenrodHospitalRoom1BisVisitorText
 
+.room2:
+	jumptextfaceplayer GoldenrodHospitalRoom2VisitorText
+	
 .room4:
+	jumptextfaceplayer GoldenrodHospitalRoom4VisitorText
+
+.room5:
+	jumptextfaceplayer GoldenrodHospitalRoom5VisitorText
+
+.room6:
+	jumptextfaceplayer GoldenrodHospitalRoom6VisitorText
+
+.room7:
+	faceplayer
+	opentext
+	writetext GoldenrodHospitalRoom7VisitorText
+	waitbutton
+	closetext
+	turnobject GOLDENROD_HOSPITAL_ROOM_VISITOR1, RIGHT
+	end
+
+.room10:
+	faceplayer
+	opentext
+	writetext GoldenrodHospitalRoom10VisitorText
+	yesorno
+	iftrue .yes
+	jumptext GoldenrodHospitalRoom10VisitorNoText
+	
+.yes 
+	jumptext GoldenrodHospitalRoom10VisitorYesText
+	
+.room13:
+	jumptextfaceplayer GoldenrodHospitalRoom13VisitorText
+
+.room18:
+	jumptextfaceplayer GoldenrodHospitalRoom18VisitorText
+
+.room21:
+	jumptext GoldenrodHospitalRoom21VisitorText
 
 .room29:
 	jumptextfaceplayer GoldenrodHospitalRoom29VisitorText
 
-
+.room31:
+	faceplayer
+	opentext
+	writetext GoldenrodHospitalRoom31VisitorText
+	waitbutton
+	closetext
+	turnobject GOLDENROD_HOSPITAL_ROOM_VISITOR1, DOWN
+	end
 
 
 
@@ -706,6 +801,30 @@ GoldenrodHospitalRoom4PatientPart2Text:
 	line "(COUGH)"
 	done
 
+GoldenrodHospitalRoom5PatientText:
+	text "I am thankful to"
+	line "everyone in this"
+	cont "hospital for"
+	cont "saving my life."
+	
+	para "I hope I can free"
+	line "this bed quickly,"
+	cont "so a person or"
+	cont "#MON that needs"
+	cont "it more than I do"
+	cont "can have it."
+	done
+
+GoldenrodHospitalRoom7PatientText:
+	text "Those bed sheets"
+	line "must be full of"
+	cont "viruses."
+
+	para "They will be"
+	line "washed at 100"
+	cont "degrees Celsius."
+	done   
+
 GoldenrodHospitalRoom14PatientText:
 	text "My business isn't"
 	line "gonna run itself."
@@ -851,6 +970,38 @@ GoldenrodHospitalRoom2PokemonPatientText:
 	line "very bad shape."
 	done
 
+GoldenrodHospitalRoom6PokemonPatientText:
+	text "Poor POLIWAG seems"
+	line "to suffer…"
+	done
+
+GoldenrodHospitalRoom8PokemonPatientText:
+	text "For once, it's the"
+	line "JIGGLYPUFF that's"
+	cont "sleeping."
+	
+	para "How ironic."
+	done
+
+GoldenrodHospitalRoom10PokemonPatientText:
+	text "The ABRA could"
+	line "easily TELEPORT"
+	cont "away."
+	
+	para "But it doesn't."
+
+	para "Perhaps it knows"
+	line "that it's better"
+	cont "to stay in here."
+	done 
+
+GoldenrodHospitalRoom13PokemonPatientText:
+	text "We can tell this"
+	line "MEOWTH is sick"
+	cont "but it still"
+	cont "seems jolly."
+	done 
+
 GoldenrodHospitalRoom32PokemonPatientText:
 	text "Not looking good…"
 	done
@@ -869,6 +1020,150 @@ GoldenrodHospitalRoom1BisVisitorText:
 	para "CHIEF NURSE JOY"
 	line "told me it should"
 	cont "be fine."
+	done
+
+GoldenrodHospitalRoom2VisitorText:
+	text "When an infected"
+	line "person is talking"
+	cont "to a healthy"
+	cont "person, the odds"
+	cont "of transmitting"
+	cont "the virus are"
+	cont "above 90<PERCENT>."
+	
+	para "That's when the"
+	line "facemask shows"
+	cont "its strength."
+
+	para "If the healthy"
+	line "person wears one,"
+	cont "the odds of trans-"
+	cont "mission are down"
+	cont "to 70<PERCENT>."
+
+	para "Even better: if"
+	line "it's the infected"
+	cont "person that wears"
+	cont "it, the odds are"
+	cont "5<PERCENT>."
+
+	para "In the best case"
+	line "scenario, both"
+	cont "persons wear it,"
+	cont "which lowers the"
+	cont "odds to only 1.5<PERCENT>."
+
+	para "The virus cannot"
+	line "be transmitted"
+	cont "from a human to a"
+	cont "#MON though."
+	done
+
+GoldenrodHospitalRoom4VisitorText:
+	text "Viruses normally"
+	line "don't transmit from"
+	cont "#MON to Human."
+	
+	para "However, as COVID's"
+	line "virus is infecting"
+	cont "humans as well,"
+	
+	para "it must have"
+	line "mutated inside a"
+	cont "#MON in very"
+	cont "unique circum-"
+	cont "stances, then"
+	cont "jumped into a"
+	cont "human."
+	
+	para "That person would"
+	line "be our patient"
+	cont "zero."
+	done
+
+GoldenrodHospitalRoom5VisitorText:
+	text "We are taking"
+	line "good care of"
+	cont "this patient."
+	done
+
+GoldenrodHospitalRoom6VisitorText:
+	text "This #MON"
+	line "should survive."
+	
+	para "I'm watching"
+	line "over it."
+	done 
+	
+GoldenrodHospitalRoom7VisitorText:
+	text "I got to sanitize"
+	line "this room quickly"
+	cont "before the next"
+	cont "patient comes in."
+	done
+
+GoldenrodHospitalRoom10VisitorText:
+	text "I'm studying the"
+	line "effects of COVID."
+	
+	para "In the process,"
+	line "I learned a lot"
+	cont "about #MON"
+	cont "types."
+	
+	para "Would like to"
+	line "know?"
+	done
+
+GoldenrodHospitalRoom10VisitorYesText:
+	text "Insert text here." ; TODO.
+	done
+
+GoldenrodHospitalRoom10VisitorNoText:
+	text "Nevermind, you"
+	line "wouldn't understand"
+	cont "anyway."
+	done
+
+GoldenrodHospitalRoom13VisitorText:
+	text "I just love this"
+	line "#MON!"
+	
+	para "We are becoming"
+	line "friends!"
+	done
+
+GoldenrodHospitalRoom18VisitorText:
+	text "The virus cannot"
+	line "move through the"
+	cont "shell of a #-"
+	cont "BALL."
+	
+	para "It is a safe way"
+	line "of quarantine for"
+	cont "a #MON."
+	
+	para "I wish I could fit"
+	line "into a #BALL."
+	done
+
+GoldenrodHospitalRoom21VisitorText:
+	text "Checking on this"
+	line "patient…"
+
+	para "…"
+	
+	para "Vitals are OK."
+
+	para "…"
+	
+	para "… All good!"
+	done
+
+GoldenrodHospitalRoom31VisitorText:
+	text "My husband is"
+	line "delirious because"
+	cont "of the fever."
 	done
 
 GoldenrodHospitalRoom29VisitorText:
