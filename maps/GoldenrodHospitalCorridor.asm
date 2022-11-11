@@ -163,12 +163,21 @@ GoldenrodHospitalCorridorPokefan1Script:
 	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
 
 .Script:
+	checkscene 
+	ifequal 9, .advance_quest
 	endifjustbattled
+
+	ifgreater 9, .quest_afterbattle_text
 	jumptextfaceplayer GoldenrodHospitalPokefanMTrainerAfterBattleText
+
+.advance_quest:
+	setscene 10
+.quest_afterbattle_text:
+	jumptextfaceplayer GoldenrodHospitalCorridorPokefanMTrainerQuestText		
 
 GoldenrodHospitalCorridorFinder1Script:
 	checkscene
-	ifequal 1, .tellAboutChiefNurse
+	ifequal 10, .tellAboutChiefNurse
 	jumptextfaceplayer GoldenrodHospitalCorridorFinder1Text
 .tellAboutChiefNurse
 	jumptextfaceplayer GoldenrodHospitalCorridorFinder1ChiefNurseText
@@ -199,6 +208,9 @@ GoldenrodHospitalCorridorWashHandsMaleText:
 GoldenrodHospitalCorridorWashHandsFemaleText:
 	text_far _PlayersPCSanitizerFemaleText
 	text_end
+
+GoldenrodHospitalCorridorMaxElixer:
+	hiddenitem MAX_ELIXER, EVENT_GOLDENROD_HOSPITAL_CORRIDOR_MAX_ELIXER
 
 GoldenrodHospitalCorridorNurse1Text:
 	text "I'm exhausted. I"
@@ -303,6 +315,15 @@ GoldenrodHospitalPokefanMTrainerAfterBattleText:
 	line "making me nervous."
 	done
 
+GoldenrodHospitalCorridorPokefanMTrainerQuestText:
+	text "I just saw the"
+	line "CHIEF NURSE, yeah."
+
+	para "She was running"
+	line "left, straight"
+	cont "towards the lobby."
+	done
+
 
 GoldenrodHospitalCorridor_MapEvents:
 	db 0, 0 ; filler
@@ -352,6 +373,7 @@ GoldenrodHospitalCorridor_MapEvents:
 	bg_event 15,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
 	bg_event  0,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
+	bg_event 19,  7, BGEVENT_ITEM, GoldenrodHospitalCorridorMaxElixer
 
 	def_object_events
 	object_event  7, 10, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCorridorFinder1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

@@ -16,6 +16,10 @@
 	const GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE
 	const GOLDENROD_HOSPITAL_ROOM_LORELEI
 
+	; Items.
+	const GOLDENROD_HOSPITAL_ROOM_7_ITEM
+	const GOLDENROD_HOSPITAL_ROOM_15_ITEM
+
 GoldenrodHospitalRoom_MapScripts:
 	def_scene_scripts
 
@@ -23,6 +27,19 @@ GoldenrodHospitalRoom_MapScripts:
 	callback MAPCALLBACK_TILES, .EnterCallback
 
 .EnterCallback:
+	special GetHospitalRoomNumber
+	ifequal 7, .display_item_room_7
+	ifequal 15, .display_item_room_15
+	sjump .check_sick_mon
+
+.display_item_room_7:
+	moveobject GOLDENROD_HOSPITAL_ROOM_7_ITEM, 1, 3
+	sjump .check_sick_mon
+
+.display_item_room_15:
+	moveobject GOLDENROD_HOSPITAL_ROOM_15_ITEM, 3, 4
+
+.check_sick_mon:
 	special GetHospitalRoomNumber
 	readmem wSickMonIsInThisRoom
 	iffalse .HideSickMon
@@ -229,6 +246,13 @@ GoldenrodHospitalRoom_MapScripts:
 	disappear GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT
 
 	variablesprite SPRITE_HOSPITAL_VISITOR, SPRITE_SCIENTIST
+	checkscene
+	ifequal 10, .room18_quest
+	setval SPRITEMOVEDATA_STANDING_RIGHT
+	writemem wMap4ObjectMovement
+	sjump .SetSickMonID
+
+.room18_quest:
 	setval SPRITEMOVEDATA_STANDING_UP
 	writemem wMap4ObjectMovement
 
@@ -352,13 +376,18 @@ GoldenrodHospitalRoomHumanPatientScript:
 	ifequal  4,  .room4
 	ifequal  5,  .room5
 	ifequal  7,  .room7
+	ifequal  9,  .room9
+	ifequal 11, .room11
+	ifequal 12, .room12
 	ifequal 14, .room14
 	ifequal 17, .room17
+	ifequal 19, .room19
 	ifequal 23, .room23
 	ifequal 24, .room24
+	ifequal 27, .room27
 	ifequal 26, .room26
 	ifequal 29, .room29
-
+	
 	sjump GoldenrodHospitalRoomDefaultPatientScript
 
 .room3:
@@ -384,11 +413,31 @@ GoldenrodHospitalRoomHumanPatientScript:
 	turnobject GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT, LEFT
 	end
 
+.room9:
+	checkscene
+	ifequal 0, GoldenrodHospitalRoomDefaultPatientScript
+	jumptext GoldenrodHospitalRoom_Quest9Text
+
+.room11:
+	checkscene
+	ifequal 0, GoldenrodHospitalRoomDefaultPatientScript
+	jumptext GoldenrodHospitalRoom_Quest11Text
+
+.room12:
+	checkscene
+	ifnotequal 7, GoldenrodHospitalRoomDefaultPatientScript
+	jumptext GoldenrodHospitalRoom_Quest12Text
+
 .room14:
 	jumptext GoldenrodHospitalRoom14PatientText
 
 .room17:
 	jumptext GoldenrodHospitalRoom17PatientText
+
+.room19:
+	checkscene
+	ifequal 0, GoldenrodHospitalRoomDefaultPatientScript
+	jumptext GoldenrodHospitalRoom_Quest19Text
 
 .room23:
 	jumptext GoldenrodHospitalRoom23PatientText
@@ -399,6 +448,19 @@ GoldenrodHospitalRoomHumanPatientScript:
 .room26:
 	jumptext GoldenrodHospitalRoom26PatientText
 
+.room27:
+	checkscene
+	ifgreater 9, GoldenrodHospitalRoomDefaultPatientScript ; We don't want this guy to confuse us during the last quest step.
+	ifequal 7, .room27_advance_quest
+	ifgreater 7, .room27_quest_text
+
+	sjump GoldenrodHospitalRoomDefaultPatientScript
+
+.room27_advance_quest:
+	setscene 8
+.room27_quest_text:
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest27Text
+
 .room29:
 	checkflag ENGINE_FLYPOINT_MAHOGANY
 	iffalse .agatha
@@ -406,6 +468,11 @@ GoldenrodHospitalRoomHumanPatientScript:
 
 .agatha
 	jumptext GoldenrodHospitalLoreleiText
+
+
+
+
+
 
 GoldenrodHospitalRoomPokemonPatientScript:
 	special GetHospitalRoomNumber
@@ -469,6 +536,11 @@ GoldenrodHospitalRoomPokemonPatientScript:
 	waitsfx
 	jumptext GoldenrodHospitalRoom32PokemonPatientText
 
+
+
+
+
+
 GoldenrodHospitalRoomDefaultPatientScript:
 	showemote EMOTE_SLEEP, GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT, 15
 	showemote EMOTE_SLEEP, GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT, 15 ; One of those sprites has disappear, so one of the showemotes will behave as a "pause 15".
@@ -486,22 +558,33 @@ GoldenrodHospitalRoomVisitor1Script:
 	ifequal 13, .room13
 	ifequal 18, .room18
 	ifequal 21, .room21
-	ifequal 31, .room31
 	ifequal 29, .room29
-
+	ifequal 31, .room31
 	end
 	
 .room1:
 	jumptextfaceplayer GoldenrodHospitalRoom1BisVisitorText
 
 .room2:
+	checkscene
+	ifgreater 0, .room2_quest
 	jumptextfaceplayer GoldenrodHospitalRoom2VisitorText
+
+.room2_quest:
+	ifgreater 4, .room2_quest_text
+	setscene 5
+.room2_quest_text:
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
 	
 .room4:
 	jumptextfaceplayer GoldenrodHospitalRoom4VisitorText
 
 .room5:
+	checkscene
+	ifequal 5, .room5_quest
 	jumptextfaceplayer GoldenrodHospitalRoom5VisitorText
+.room5_quest:
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest5Text
 
 .room6:
 	jumptextfaceplayer GoldenrodHospitalRoom6VisitorText
@@ -520,16 +603,41 @@ GoldenrodHospitalRoomVisitor1Script:
 	opentext
 	writetext GoldenrodHospitalRoom10VisitorText
 	yesorno
-	iftrue .yes
+; Player chose "No".
+	iftrue .room10_yes
+	checkscene
+	ifequal 6, .room10_advance_quest
+	ifgreater 6, .room10_quest_text
+
 	jumptext GoldenrodHospitalRoom10VisitorNoText
+
+.room10_advance_quest:
+	setscene 7
+
+.room10_quest_text:
+	jumptext GoldenrodHospitalRoom_Quest10Text	
 	
-.yes 
+.room10_yes:
 	jumptext GoldenrodHospitalRoom10VisitorYesText
 	
 .room13:
+	checkscene
+	ifless 1, .default_room13
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest13Text
+
+.default_room13:
 	jumptextfaceplayer GoldenrodHospitalRoom13VisitorText
 
 .room18:
+	checkscene
+	ifequal 0, .default_room18
+	ifgreater 9, .default_room18
+	ifgreater 4, .room18_quest_text
+	setscene 5
+.room18_quest_text:
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
+
+.default_room18:
 	jumptextfaceplayer GoldenrodHospitalRoom18VisitorText
 
 .room21:
@@ -542,10 +650,25 @@ GoldenrodHospitalRoomVisitor1Script:
 	faceplayer
 	opentext
 	writetext GoldenrodHospitalRoom31VisitorText
+
+	checkscene
+	ifequal 8, .room31_advance_quest
+	ifgreater 8, .room31_quest
+	sjump .room31_default
+
+.room31_advance_quest:
+	setscene 9
+.room31_quest:
+	promptbutton
+	writetext GoldenrodHospitalRoom_Quest31Text
+
+.room31_default:
 	waitbutton
 	closetext
 	turnobject GOLDENROD_HOSPITAL_ROOM_VISITOR1, DOWN
 	end
+
+
 
 
 
@@ -568,8 +691,17 @@ GoldenrodHospitalRoomTrainerRoom8Script:
 	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_8, GoldenrodHospitalTrainerRoom8SeenText, GoldenrodHospitalTrainerRoom8BeatenText, 0, .Script
 
 .Script:
+	checkscene 
+	ifequal 5, .advance_quest
 	endifjustbattled
+
+	ifgreater 5, .quest_afterbattle_text
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom8AfterBattleText
+
+.advance_quest:
+	setscene 6
+.quest_afterbattle_text:
+	jumptextfaceplayer GoldenrodHospitalRoom_Quest8Text	
 
 GoldenrodHospitalRoomTrainerRoom17Script:
 	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_17, GoldenrodHospitalTrainerRoom17SeenText, GoldenrodHospitalTrainerRoom17BeatenText, 0, .Script
@@ -607,17 +739,51 @@ GoldenrodHospitalRoomTrainerRoom32Script:
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom32AfterBattleText
 
 GoldenrodHospitalRoomTrainerChiefNurseScript:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_CHIEF_NURSE, GoldenrodHospitalTrainerRoom1SeenText, GoldenrodHospitalTrainerRoom1BeatenText, 0, .Script
+	showemote EMOTE_QUESTION, GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE, 15
+	pause 5
+	faceplayer
 
-.Script:
-	endifjustbattled
-	jumptextfaceplayer GoldenrodHospitalTrainerRoom1AfterBattleText
+	opentext 
+	writetext GoldenrodHospitalRoomChiefNurseSeenText
+	waitbutton
+	closetext
+
+	winlosstext GoldenrodHospitalRoomChiefNurseBeatenText, 0
+	loadtrainer PICNICKER, KIM
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_HOSPITAL_CHIEF_NURSE
+	pause 3
+
+	opentext
+	writetext GoldenrodHospitalRoomChiefNurseAfterBattleText
+	waitbutton
+	closetext
+
+	;special FadeBlackQuickly
+	special FadeOutPalettes
+	disappear GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE
+	pause 5
+	playsound SFX_EXIT_BUILDING
+	waitsfx
+	setevent EVENT_SICK_CATERPIE
+	setscene 0
+	pause 5
+	;special FadeInQuickly
+	special FadeInPalettes
+	end
 
 GoldenrodHospitalRoomLoreleiScript:
 	jumptext GoldenrodHospitalLoreleiText
 
+GoldenrodHospitalRoom_ItemBall7Script:
+	itemball MAX_REVIVE
 
+GoldenrodHospitalRoom_ItemBall15Script:
+	itemball MAX_REVIVE
 
+GoldenrodHospitalRoomSuperPotion:
+	hiddenitem SUPER_POTION, EVENT_GOLDENROD_HOSPITAL_ROOM_SUPER_POTION
 
 
 
@@ -767,6 +933,65 @@ GoldenrodHospitalTrainerRoom32AfterBattleText:
 	text "Please don't bother"
 	line "my MURKROW."
 	done
+
+GoldenrodHospitalRoomChiefNurseSeenText:
+	text "WHAT?"
+
+	para "What do you want?"
+
+	para "I'm busy, talk"
+	line "quickly."
+
+	para " "
+
+	para " "
+	
+	para "Oh my word, I'm so"
+	line "stressed! I can't"
+	cont "take it anymore…"
+	
+	para "There's too much"
+	line "work on my plate."
+	
+	para "I'm about to"
+	line "burn out!!"
+	
+	para "I need to relax."
+	
+	para "I have an idea!"
+	line "Come here."
+	done
+
+GoldenrodHospitalRoomChiefNurseBeatenText:
+	text "Woooooo!"
+	done
+
+GoldenrodHospitalRoomChiefNurseAfterBattleText:
+	text "(deep breath)"
+	
+	para "Thanks for the"
+	line "battle."
+	
+	para "You calmed me"
+	line "down and I needed"
+	cont "it."
+	
+	para "Why did you want"
+	line "to see me?"
+
+	para "…"
+
+	para "A critically ill"
+	line "CATERPIE on"
+	cont "ROUTE 35?"
+
+	para "I need to hurry!"
+
+	para "Please come back"
+	line "later, if you"
+	cont "want to talk."
+	done
+
 
 
 
@@ -1062,7 +1287,7 @@ GoldenrodHospitalRoom2VisitorText:
 GoldenrodHospitalRoom4VisitorText:
 	text "Viruses normally"
 	line "don't transmit from"
-	cont "#MON to Human."
+	cont "#MON to human."
 	
 	para "However, as COVID's"
 	line "virus is infecting"
@@ -1103,20 +1328,51 @@ GoldenrodHospitalRoom7VisitorText:
 	done
 
 GoldenrodHospitalRoom10VisitorText:
-	text "I'm studying the"
-	line "effects of COVID."
-	
-	para "In the process,"
-	line "I learned a lot"
-	cont "about #MON"
-	cont "types."
-	
-	para "Would like to"
-	line "know?"
+	text "If you are not in"
+	line "a hurry, I would"
+	cont "like to tell you"
+	cont "about my research."
 	done
 
 GoldenrodHospitalRoom10VisitorYesText:
-	text "Insert text here." ; TODO.
+	text "While studying the"
+	line "effects of COVID,"
+
+	para "I learned a lot"
+	line "about #MON"
+	cont "types."
+
+	para "FIRE types can't"
+	line "be BURNT."
+
+	para "POISON and STEEL"
+	line "types can't be"
+	cont "POISONED."
+
+	para "ELECTRIC types"
+	line "can't be"
+	cont "PARALYZED."
+
+	para "GRASS types aren't"
+	line "affected by spore"
+	cont "based moves like"
+	cont "SLEEP POWDER."
+
+	para "ICE types can't"
+	line "be FROZEN."
+
+	para "ROCK types have"
+	line "their SPCL.DEF"
+	cont "increased under"
+	cont "SANDSTORM."
+	
+	para "Fascinating"
+	line "isn't it?"
+
+	para "I'm still making"
+	line "discoveries, so I"
+	cont "probably don't know"
+	cont "everything yet."
 	done
 
 GoldenrodHospitalRoom10VisitorNoText:
@@ -1203,6 +1459,148 @@ GoldenrodHospitalRoomMedicineText:
 	line "medications."
 	done
 
+
+
+
+
+
+
+
+; Quest speeches.
+GoldenrodHospitalRoom_Quest2And18Text:
+	text "When I last saw"
+	line "CHIEF NURSE JOY"
+	cont "today, she was"
+	cont "moving to the"
+	cont "next corridor"
+	cont "on the right."
+	done
+
+GoldenrodHospitalRoom_Quest5Text:
+	text "I can't tell you"
+	line "where the CHIEF"
+	cont "is, but I've heard"
+	cont "her talking in the"
+	cont "corridor a few"
+	cont "minutes ago."
+
+	para "Hopefully she is"
+	line "still around."
+	done
+
+GoldenrodHospitalRoom_Quest8Text:
+	text "I saw the CHIEF a"
+	line "few minutes ago."
+	
+	para "I crossed her in"
+	line "the corridor when"
+	cont "I was coming from"
+	cont "room 11."
+	done
+
+GoldenrodHospitalRoom_Quest9Text:
+	text "I'm sorry, I don't"
+	line "know where the"
+	cont "CHIEF NURSE is."
+
+	para "But we can chat"
+	line "if you'd like."
+
+	para "Please stay, I'm"
+	line "feeling so lonely…"
+	done
+
+GoldenrodHospitalRoom_Quest10Text:
+	text "In a hurry, huh?"
+
+	para "…"
+
+	para "Did I see the"
+	line "CHIEF NURSE today?"
+
+	para "Oh yes, excuse-me."
+	
+	para "She left a few"
+	line "minutes ago."
+
+	para "She went towards"
+	line "the other side"
+	cont "of this corridor."
+	done
+
+GoldenrodHospitalRoom_Quest11Text:
+	text "No, I haven't seen"
+	line "CHIEF NURSE JOY"
+	cont "today."
+	
+	para "I was just with"
+	line "a SCIENTIST that"
+	cont "left to take care"
+	cont "of a #MON in"
+	cont "room 8."
+	done
+
+GoldenrodHospitalRoom_Quest12Text:
+	text "(COUGH)"
+	line "(COUGH)"
+	
+	para "The other side of"
+	line "this corridor"
+	cont "would be from"
+	cont "room 25 to 28."
+	done
+
+GoldenrodHospitalRoom_Quest13Text:
+	text "No I am not"
+	line "CHIEF NURSE JOY"
+	cont "even though I've"
+	cont "been told that"
+	cont "we look alike."
+	
+	para "I have no idea"
+	line "where she is at"
+	cont "the moment."
+	done
+
+GoldenrodHospitalRoom_Quest19Text:
+	text "I have seen CHIEF"
+	line "NURSE JOY, but it"
+	cont "was last week."
+
+	para "(COUGH)"
+	line "(cough)"
+	done
+
+GoldenrodHospitalRoom_Quest27Text:
+	text "CHIEF NURSE JOY"
+	line "was taking care"
+	cont "of me when"
+	cont "suddenly"
+	
+	para "(cough)"
+	
+	para "…she had to go"
+	line "urgently in room"
+	cont "30-something."
+	done
+
+GoldenrodHospitalRoom_Quest31Text:
+	text "…"
+	
+	para "Oh yes indeed."
+	
+	para "CHIEF NURSE JOY"
+	line "was just here!"
+
+	para "She left a few"
+	line "seconds ago."
+	done
+
+
+	
+
+
+
 GoldenrodHospitalRoom_MapEvents:
 	db 0, 0 ; filler
 
@@ -1215,6 +1613,7 @@ GoldenrodHospitalRoom_MapEvents:
 	def_bg_events
 	bg_event  2,  3, BGEVENT_READ, GoldenrodHospitalRoomMedicineScript
 	bg_event  3,  3, BGEVENT_READ, GoldenrodHospitalRoomMedicineScript
+	bg_event  0,  8, BGEVENT_ITEM, GoldenrodHospitalRoomSuperPotion
 
 	def_object_events
 	object_event  0,  6, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRoomSickPkmnScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -1236,8 +1635,12 @@ GoldenrodHospitalRoom_MapEvents:
 	object_event 12, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom30Script, -1
 	object_event 12, 12, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom31Script, -1
 	object_event 12, 12, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, GoldenrodHospitalRoomTrainerRoom32Script, -1
-	object_event 12, 12, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerChiefNurseScript, -1
+	object_event 12, 12, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRoomTrainerChiefNurseScript, -1
 	object_event 12, 12, SPRITE_LORELEI, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRoomLoreleiScript, -1
+
+	; Items.
+	object_event 12, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GoldenrodHospitalRoom_ItemBall7Script, EVENT_GOLDENROD_HOSPITAL_ITEM_ROOM_7
+	object_event 12, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, GoldenrodHospitalRoom_ItemBall15Script, EVENT_GOLDENROD_HOSPITAL_ITEM_ROOM_15
 
 ; 0: talk to guy on route 35 -> 1
 ; "This #MON is really sick and needs immediate care. Go find the CHIEF NURSE and bring her here now! At this time, she must be at the HOSPITAL."

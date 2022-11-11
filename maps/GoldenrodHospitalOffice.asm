@@ -34,8 +34,9 @@ GoldenrodHospitalBookshelfScript:
 	jumpstd DifficultBookshelfScript
 	
 GoldenrodHospitalOfficeChiefText:
-	text "Perfect!"
-	line "Now we can talk!"
+	text "CHIEF NURSE JOY:"
+	line "Thanks for your"
+	cont "help earlier."
 	done
 
 GoldenrodHospitalOfficePrinterText:

@@ -43,19 +43,22 @@ GoldenrodHospitalNurse1Script:
 
 .CleanHands:
 	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
-	ifnotequal 1, .skip_inc_hospital_quest_step_1
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 2
-.skip_inc_hospital_quest_step_1
-	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
 	ifequal 0, .regulartext
-	ifgreater 1, .direct_to_office
+	ifequal 1, .quest1_advance
+	ifequal 2, .quest2_text
+	ifequal 3, .quest3_advance
+	ifgreater 3, .quest4_text
+
+.quest1_advance:
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 2
+.quest2_text:
 	jumptextfaceplayer GoldenrodHospitalNurse1Step1Text
-.direct_to_office
-	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
-	ifnotequal 3, .skip_hospital_quest_step_inc_3
+
+.quest3_advance:
 	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 4
-.skip_hospital_quest_step_inc_3
+.quest4_text
 	jumptextfaceplayer GoldenrodHospitalNurse1Step3Text
+
 .regulartext
 	jumptextfaceplayer GoldenrodHospitalNurse1Text
 
@@ -294,6 +297,9 @@ GoldenrodHospital1FWashHandsMaleText:
 GoldenrodHospital1FWashHandsFemaleText:
 	text_far _PlayersPCSanitizerFemaleText
 	text_end
+
+GoldenrodHospital1fMaxPotion:
+	hiddenitem MAX_POTION, EVENT_GOLDENROD_1F_CORRIDOR_MAX_POTION
 
 GoldenrodHospitalNurse1Text:
 	text "Welcome!"
@@ -653,6 +659,7 @@ GoldenrodHospital1F_MapEvents:
 	bg_event  8,  9, BGEVENT_READ, GoldenrodHospitalGelScript
 	bg_event  8,  0, BGEVENT_READ, GoldenrodHospital1FChiefNursePanel
 	bg_event  5,  0, BGEVENT_READ, GoldenrodHospital1FScanner
+	bg_event 15,  9, BGEVENT_ITEM, GoldenrodHospital1fMaxPotion
 
 	def_object_events
 	object_event  7,  5, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNurse2Script, -1
