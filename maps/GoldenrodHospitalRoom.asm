@@ -277,12 +277,21 @@ GoldenrodHospitalRoom_MapScripts:
 	sjump .SetSickMonID
 
 .room25:
+	disappear GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT
+	disappear GOLDENROD_HOSPITAL_ROOM_VISITOR1
+	
+	checkevent EVENT_SICK_GENTLEMAN_DIED
+	iffalse .room25_anton_alive
+
+	disappear GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT
+
+	sjump .SetSickMonID
+
+.room25_anton_alive:
 	variablesprite SPRITE_HOSPITAL_HUMAN_PATIENT, SPRITE_GENTLEMAN
 	setval PAL_NPC_RED << 4
 	writemem wMap3ObjectColor
 
-	disappear GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT
-	disappear GOLDENROD_HOSPITAL_ROOM_VISITOR1
 	sjump .SetSickMonID
 
 .room26:
@@ -383,6 +392,7 @@ GoldenrodHospitalRoomHumanPatientScript:
 	ifequal 17, .room17
 	ifequal 19, .room19
 	ifequal 23, .room23
+	ifequal 25, .room25
 	ifequal 24, .room24
 	ifequal 27, .room27
 	ifequal 26, .room26
@@ -442,6 +452,146 @@ GoldenrodHospitalRoomHumanPatientScript:
 .room23:
 	jumptext GoldenrodHospitalRoom23PatientText
 
+.room25:
+	checkevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
+	iftrue .room25_quest_ongoing
+
+	checkevent EVENT_SICK_GENTLEMAN_FIRST_MEETING
+	iffalse .room25_first_meeting
+
+	readmem wEventFlags + 199 ;(199 * 8 = 1592)
+	ifequal -1, .room25_start_quest ; If all flags have been set, then the player has visited the man every days of a week.
+
+; Happy to see you again!
+	opentext
+	writetext GoldenrodHospitalRoom25Patient_AlreadyMetText
+	promptbutton
+	sjump .room25_check_day
+
+.room25_first_meeting:
+	opentext
+	writetext GoldenrodHospitalRoom25Patient_FirstMeetingText
+	promptbutton
+	setevent EVENT_SICK_GENTLEMAN_FIRST_MEETING
+
+.room25_check_day:
+	readvar VAR_WEEKDAY
+	ifequal SUNDAY, .room25_sunday
+	ifequal MONDAY, .room25_monday
+	ifequal TUESDAY, .room25_tuesday
+	ifequal WEDNESDAY, .room25_wednesday
+	ifequal THURSDAY, .room25_thursday
+	ifequal FRIDAY, .room25_friday
+
+;.room25_saturday:
+	checkevent EVENT_SICK_GENTLEMAN_WATER_STONE
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem WATER_STONE
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_WATER_STONE
+	sjump .room25_come_back
+
+.room25_sunday:
+	checkevent EVENT_SICK_GENTLEMAN_THUNDER_STONE
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem THUNDERSTONE
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_THUNDER_STONE
+	sjump .room25_come_back
+
+.room25_monday:
+	checkevent EVENT_SICK_GENTLEMAN_RARE_CANDY
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem RARE_CANDY
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_RARE_CANDY
+	sjump .room25_come_back
+
+.room25_tuesday:
+	checkevent EVENT_SICK_GENTLEMAN_MAX_REVIVE
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem MAX_REVIVE
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_MAX_REVIVE
+	sjump .room25_come_back
+
+.room25_wednesday:
+	checkevent EVENT_SICK_GENTLEMAN_MAX_ETHER
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem MAX_ETHER
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_MAX_ETHER
+	sjump .room25_come_back
+
+.room25_thursday:
+	checkevent EVENT_SICK_GENTLEMAN_FIRE_STONE
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem FIRE_STONE
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_FIRE_STONE
+	sjump .room25_come_back
+
+.room25_friday:
+	checkevent EVENT_SICK_GENTLEMAN_LEAF_STONE
+	iftrue .room25_nothing_today
+	writetext GoldenrodHospitalRoom25Patient_TakeThisText
+	promptbutton
+	verbosegiveitem LEAF_STONE
+	iffalse .room25_bag_full
+	setevent EVENT_SICK_GENTLEMAN_LEAF_STONE
+	sjump .room25_come_back
+
+.room25_start_quest:
+	opentext 
+	writetext GoldenrodHospitalRoom25Patient_AlreadyMetText
+	promptbutton
+
+	readvar VAR_PARTYCOUNT
+	ifgreater PARTY_LENGTH - 1, .room25_party_full
+
+	writetext GoldenrodHospitalRoom25Patient_QuestStartText
+	promptbutton
+	farwritetext Route35GoldenrodGatePlayerReceivedAMonWithMailText
+	playsound SFX_KEY_ITEM
+	waitsfx
+	givepoke MEOWTH, 25, NO_ITEM, TRUE, GiftAntonMonName, GiftAntonMonOTName
+	setval 0	; See next comment.
+	writemem wTempColorMixer ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
+	givepokemail GiftAntonMonMail
+	setevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
+	sjump .room25_quest_ongoing
+
+.room25_nothing_today:
+	writetext GoldenrodHospitalRoom25Patient_NothingTodayText
+	promptbutton
+
+.room25_come_back:
+	writetext GoldenrodHospitalRoom25Patient_ComeBackText
+	waitbutton
+	closetext
+	end
+
+.room25_quest_ongoing:
+	jumptext GoldenrodHospitalRoom25Patient_DeliverMailText
+
+.room25_bag_full:
+	jumptext GoldenrodHospitalRoom25Patient_BagFullText
+
+.room25_party_full:
+	jumptext GoldenrodHospitalRoom25Patient_PartyFullText
+
 .room24:
 	jumptext GoldenrodHospitalRoom24PatientText
 
@@ -469,8 +619,16 @@ GoldenrodHospitalRoomHumanPatientScript:
 .agatha
 	jumptext GoldenrodHospitalLoreleiText
 
+GiftAntonMonName:
+	db "NYAN@"
 
+GiftAntonMonOTName:
+	db "ANTON@"
 
+GiftAntonMonMail:
+	db BLUESKY_MAIL
+	db   "I will always"
+	next "love you darling@"
 
 
 
@@ -1122,8 +1280,8 @@ GoldenrodHospitalRoom25Patient_FirstMeetingText:
 	line "that a young"
 	cont "person like you"
 	cont "takes the time to"
-	cont "visit an old"
-	cont "person."
+	cont "visit an old man."
+	done
 	
 GoldenrodHospitalRoom25Patient_AlreadyMetText:
 	text "I am happy to see"
@@ -1141,14 +1299,69 @@ GoldenrodHospitalRoom25Patient_TakeThisText:
 	done
 
 GoldenrodHospitalRoom25Patient_BagFullText:
-	text "Your bag is full."
-	line "That a good reason"
-	cont "to come visit me"
-	cont "again!"
+	text "You can't take it…"
+	line "This is a good"
+	cont "reason to come"
+	cont "visit me again"
+	cont "later!"
+	done
+
+GoldenrodHospitalRoom25Patient_PartyFullText:
+	text "I would like to"
+	line "entrust you with"
+	cont "a mission."
+	
+	para "But you need to"
+	line "make some room in"
+	cont "your party first."
+	
+	para "I will wait for"
+	line "you."
+	done
+
+GoldenrodHospitalRoom25Patient_NothingTodayText:
+	text "Unfortunately, I"
+	line "have nothing to"
+	cont "give you today."
 	done
 
 GoldenrodHospitalRoom25Patient_ComeBackText:
-	text "Come back anytime!"
+	text "Come back another"
+	line "day if you will!"
+	done
+
+GoldenrodHospitalRoom25Patient_QuestStartText:
+	text "I appreciate you."
+
+	para "I would like to"
+	line "ask you a favor,"
+	cont "if it is not"
+	cont "too much."
+
+	para "My wife hasn't"
+	line "visited me once"
+	cont "since I arrived"
+	cont "in this hospital."
+
+	para "I am not angry,"
+	line "I am… worried."
+
+	para "Take my #MON."
+	line "It is holding"
+	cont "a MAIL."
+	done
+
+GoldenrodHospitalRoom25Patient_DeliverMailText:
+	text "Please deliver the"
+	line "MAIL to my wife."
+
+	para "Tell her it comes"
+	line "from her husband,"
+	cont "ANTON."
+
+	para "She lives in"
+	line "SAFFRON CITY,"
+	cont "in KANTO."
 	done
 
 GoldenrodHospitalRoom26PatientText:

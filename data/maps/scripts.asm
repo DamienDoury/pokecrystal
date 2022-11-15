@@ -267,13 +267,13 @@ INCLUDE "maps/TinTower8F.asm"
 INCLUDE "maps/TinTower9F.asm"
 INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
+INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
+INCLUDE "maps/CeruleanPoliceStation.asm"
+INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 15", ROMX
 
-INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
-INCLUDE "maps/CeruleanPoliceStation.asm"
-INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/CeruleanPokecenter1F.asm"
 INCLUDE "maps/CeruleanPokecenter2FBeta.asm"
 INCLUDE "maps/CeruleanGym.asm"
