@@ -145,9 +145,14 @@ VaccinationCenterAllowedSeatScript:
     stopfollow
     disappear VACCINATION_CENTER_WAITRESS
     applymovement PLAYER, VaccinationCenter_UpMovement
-	special FadeOutPalettes
-    warpfacing UP, VACCINATION_CENTER_CORRIDOR, 12, 3
+    warpcheck
+	;autoinput .movement_data
+    ;special FadeOutPalettes
+    ;warpfacing UP, VACCINATION_CENTER_CORRIDOR, 12, 3
     end
+
+;.movement_data
+;	db D_UP,   5, -1
 
 VaccinationCenterForbiddenSeatScript:
 VaccinationCenterChanseyKicksYouScript:

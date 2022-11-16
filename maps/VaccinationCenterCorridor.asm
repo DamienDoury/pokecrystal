@@ -75,10 +75,11 @@ VaccinationCenterCorridor_MapScripts:
     closetext
 
     applymovement PLAYER, VaccinationCenterCorridor_FromChairToRoomMovement
-    playsound SFX_ENTER_DOOR
-	special FadeOutPalettes
-    waitsfx
-    warpfacing UP, VACCINATION_CENTER_ROOM, 1, 7
+    warpcheck
+    ;playsound SFX_ENTER_DOOR
+	;special FadeOutPalettes
+    ;waitsfx
+    ;warpfacing UP, VACCINATION_CENTER_ROOM, 1, 7
     end
 
 .GoToLobby:
@@ -89,12 +90,16 @@ VaccinationCenterCorridor_MapScripts:
     stopfollow
     applymovement VACCINATION_CENTER_CORRIDOR_WAITRESS, VaccinationCenterCorridor_HeadLeftMovement
     applymovement PLAYER, VaccinationCenter_DownMovement
-
+    ;autoinput .movement_data
+    ;warpcheck
     playsound SFX_EXIT_BUILDING
 	special FadeOutPalettes
     waitsfx
-    warp VACCINATION_CENTER_1F, 10, 0
+    warp VACCINATION_CENTER_1F, 10, 0 ; This warp will break the map music continuity, but whatever.
 	end
+
+;.movement_data
+;	db D_DOWN,   5, -1
 
 VaccinationCenterCorridor_HeadRightMovement:
     turn_head RIGHT
