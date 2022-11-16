@@ -702,3 +702,7 @@ ENDM
 	map_attributes SeafoamW1F, SEAFOAM_W1F, $09, 0
 	map_attributes SeafoamE1F, SEAFOAM_E1F, $09, 0
 	map_attributes SeafoamB1F, SEAFOAM_B1F, $09, 0
+	map_attributes VaccinationCenter1F, VACCINATION_CENTER_1F, $00, 0
+	map_attributes VaccinationCenterCorridor, VACCINATION_CENTER_CORRIDOR, $00, 0
+	map_attributes VaccinationCenterRoom, VACCINATION_CENTER_ROOM, $00, 0
+	map_attributes MrAntonsHouse, MR_ANTONS_HOUSE, $00, 0

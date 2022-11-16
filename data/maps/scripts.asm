@@ -270,6 +270,10 @@ INCLUDE "maps/BurnedTowerB1F.asm"
 INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/CeruleanPoliceStation.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
+INCLUDE "maps/VaccinationCenter1F.asm"
+INCLUDE "maps/VaccinationCenterCorridor.asm"
+INCLUDE "maps/VaccinationCenterRoom.asm"
+INCLUDE "maps/MrAntonsHouse.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -392,12 +396,12 @@ INCLUDE "maps/Route43MahoganyGate.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
-INCLUDE "maps/BluesHouse.asm"
 INCLUDE "maps/OaksLab.asm"
 
 
 SECTION "Map Scripts 20", ROMX
 
+INCLUDE "maps/BluesHouse.asm"
 INCLUDE "maps/CherrygroveCity.asm"
 INCLUDE "maps/Route35.asm"
 INCLUDE "maps/Route43.asm"

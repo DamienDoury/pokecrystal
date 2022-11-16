@@ -162,6 +162,7 @@ CherrygroveGymSpeechHouse_Blocks:
 GuideGentsHouse_Blocks:
 CherrygroveEvolutionSpeechHouse_Blocks:
 Route30BerryHouse_Blocks:
+MrAntonsHouse_Blocks:
 	INCBIN "maps/House1.blk"
 
 SafariZoneFuchsiaGateBeta_Blocks:
@@ -997,3 +998,12 @@ GoldenrodHospitalRoom_Blocks:
 
 SeafoamB1F_Blocks:
 	INCBIN "maps/SeafoamB1F.blk"
+
+VaccinationCenter1F_Blocks:
+	INCBIN "maps/VaccinationCenter1F.blk"
+
+VaccinationCenterCorridor_Blocks:
+	INCBIN "maps/VaccinationCenterCorridor.blk"
+
+VaccinationCenterRoom_Blocks:
+	INCBIN "maps/VaccinationCenterRoom.blk"

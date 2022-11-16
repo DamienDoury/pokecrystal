@@ -193,7 +193,7 @@ AskGelScript:
 	jumptextfaceplayer GoldenrodHospitalAskGelText
 
 GoldenrodHospitalGelScript:
-	setscene SCENE_GOLDENROD_HOSPITAL_DEFAULT
+	setmapscene GOLDENROD_HOSPITAL_1F, SCENE_GOLDENROD_HOSPITAL_DEFAULT
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleHandWash
@@ -648,8 +648,7 @@ GoldenrodHospital1F_MapEvents:
 	warp_event  5,  9, GOLDENROD_CITY, 16
 	warp_event  6,  9, GOLDENROD_CITY, 16
 	warp_event  7,  9, GOLDENROD_CITY, 16
-	warp_event  4,  0, GOLDENROD_HOSPITAL_SECRET, 1
-	warp_event  9,  0, GOLDENROD_HOSPITAL_OFFICE, 1
+	warp_event  5,  0, GOLDENROD_HOSPITAL_OFFICE, 1
 	warp_event 19,  6, GOLDENROD_HOSPITAL_CORRIDOR, 1
 	warp_event 19,  7, GOLDENROD_HOSPITAL_CORRIDOR, 2
 
@@ -657,8 +656,7 @@ GoldenrodHospital1F_MapEvents:
 
 	def_bg_events
 	bg_event  8,  9, BGEVENT_READ, GoldenrodHospitalGelScript
-	bg_event  8,  0, BGEVENT_READ, GoldenrodHospital1FChiefNursePanel
-	bg_event  5,  0, BGEVENT_READ, GoldenrodHospital1FScanner
+	bg_event  4,  0, BGEVENT_READ, GoldenrodHospital1FChiefNursePanel
 	bg_event 15,  9, BGEVENT_ITEM, GoldenrodHospital1fMaxPotion
 
 	def_object_events
@@ -675,5 +673,4 @@ GoldenrodHospital1F_MapEvents:
 	object_event 15,  1, SPRITE_PHARMACIST, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalBlackglassesScript, -1
 	object_event 13,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  6,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketCounterScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event  4,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalLockScript, -1
 	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, %11100000 | MORN | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalDepressedScientistScript, EVENT_GOLDENROD_CITY_CIVILIANS

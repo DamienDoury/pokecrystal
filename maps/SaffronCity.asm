@@ -96,6 +96,12 @@ SilphCoSign:
 MrPsychicsHouseSign:
 	jumptext MrPsychicsHouseSignText
 
+MrAntonsHouseSign:
+	jumptext MrAntonsHouseSignText
+
+VaccinationCenterSign:
+	jumptext VaccinationCenterSignText
+
 SaffronCityMagnetTrainStationSign:
 	jumptext SaffronCityMagnetTrainStationSignText
 
@@ -257,10 +263,20 @@ MrPsychicsHouseSignText:
 	line "HOUSE"
 	done
 
+MrAntonsHouseSignText:
+	text "MR.ANTON'S"
+	line "HOUSE"
+	done
+
 SaffronCityMagnetTrainStationSignText:
 	text "SAFFRON CITY"
 	line "MAGNET TRAIN"
 	cont "STATION"
+	done
+
+VaccinationCenterSignText:
+	text "SILPH CO."
+	line "VACCINATION CENTER"
 	done
 
 SaffronCity_MapEvents:
@@ -282,6 +298,8 @@ SaffronCity_MapEvents:
 	warp_event 17, 33, ROUTE_6_SAFFRON_GATE, 2
 	warp_event 39, 22, ROUTE_8_SAFFRON_GATE, 1
 	warp_event 39, 23, ROUTE_8_SAFFRON_GATE, 2
+	warp_event 37,  3, MR_ANTONS_HOUSE, 1
+	warp_event 27, 21, VACCINATION_CENTER_1F, 1
 
 	def_coord_events
 
@@ -294,6 +312,8 @@ SaffronCity_MapEvents:
 	bg_event 11,  5, BGEVENT_READ, SaffronCityMagnetTrainStationSign
 	bg_event 10, 29, BGEVENT_READ, SaffronCityPokecenterSign
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
+	bg_event 37,  5, BGEVENT_READ, MrAntonsHouseSign
+	bg_event 25, 21, BGEVENT_READ, VaccinationCenterSign
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1

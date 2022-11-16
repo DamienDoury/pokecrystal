@@ -909,6 +909,7 @@ InitializeEventsScript:
 	setevent EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	setevent EVENT_INITIALIZED_EVENTS
 	setevent EVENT_BROCK_BACK_IN_GYM
+	setevent EVENT_CROWD_IN_VACCINATION_CENTER
 	endcallback
 
 AskNumber1MScript:

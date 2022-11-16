@@ -347,6 +347,13 @@ ResetHospitalVisits::
 	ld [hl], a
 	ret
 
+ResetVaccinationAvailability::
+	; Reset the daily vaccination availability.
+	ld b, RESET_FLAG
+	ld de, EVENT_GOT_A_SHOT_TODAY
+	call EventFlagAction
+	ret
+
 ; Input: the pokemon to send in [wCurPartyMon]
 SendMonToHospital::
 	; Check if a monster in your party has Pokerus (with a 2 or 3 bits strain).

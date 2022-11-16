@@ -250,21 +250,21 @@ SilphCoNurse_InsistText:
 	line "letter, I may tell"
 	
 	para "you more about"
-	line "Mr ANTON."
+	line "MR.ANTON."
 	done
 
 SilphCoNurse_WrongMail:
-	text "That's not Mr"
+	text "That's not MR."
 	line "ANTON's writing."
 	done
 
 SilphCoNurse_ReadsText:
-	text "Let's see what Mr"
+	text "Let's see what MR."
 	line "ANTON has to say."
 
 	para "…"
 
-	para "Oh poor Mr ANTON!"
+	para "Oh poor MR.ANTON!"
 	
 	para "He's getting worse"
 	line "isn't he?"
@@ -277,7 +277,7 @@ SilphCoNurse_Reads2Text:
 	para "…"
 
 	para "You won't find"
-	line "Mr ANTON's wife."
+	line "MR.ANTON's wife."
 
 	para "She has passed "
 	line "away many years"
@@ -285,7 +285,7 @@ SilphCoNurse_Reads2Text:
 	
 	para "…"
 
-	para "Mr ANTON was"
+	para "MR.ANTON was"
 	line "diagnosed with"
 	cont "Alzheimer's"
 	cont "disease 5 years"
@@ -344,7 +344,7 @@ SilphCoNurse_NoRoomText:
 	cont "to make room in"
 	cont "your bag if you"
 	cont "wanna take every-"
-	cont "thing Mr ANTON"
+	cont "thing MR.ANTON"
 	cont "gave me."
 	done
 
@@ -373,11 +373,15 @@ SilphCoNurse_CandiesText:
 	line "MEOWTH helped him."
 
 	para "Anyway."
+
+	para "My break is over,"
+	line "I must get back"
+	cont "to work."
 	done
 
 SilphCoNurse_SayHiText:
 	text "Next time you see"
-	line "Mr ANTON, tell him"
+	line "MR.ANTON, tell him"
 	cont "his old nurse"
 	cont "says hi!"
 	done

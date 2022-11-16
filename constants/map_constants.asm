@@ -492,7 +492,11 @@ ENDM
 	map_const COPYCATS_HOUSE_2F,                            5,  3 ; 12
 	map_const ROUTE_5_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 13
 	map_const ROUTE_5_SAFFRON_GATE,                         5,  4 ; 14
-	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 15
+	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 15	
+	map_const VACCINATION_CENTER_1F,                        8,  4 ; 16
+	map_const VACCINATION_CENTER_CORRIDOR,                  8,  2 ; 17
+	map_const VACCINATION_CENTER_ROOM,                		2,  4 ; 18
+	map_const MR_ANTONS_HOUSE,                				4,  4 ; 19
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

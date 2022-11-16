@@ -254,9 +254,27 @@ PsychicFranklinBeatenText:
 	done
 
 PsychicFranklinAfterBattleText:
-	text "You made your soul"
-	line "stronger, not just"
-	cont "your abilities."
+	text "SABRINA's powers"
+	line "are terrifying."
+	
+	para "Her psychic aura"
+	line "radiates outside"
+	
+	para "the bounds of"
+	line "this building."
+	
+	para "I have frequent"
+	line "headaches when I'm"
+
+	para "here, and I feel"
+	line "better when I go"
+
+	para "far away from"
+	line "this GYM."
+
+	para "Oh man, I wouldn't"
+	line "want to live close"
+	cont "to this building."
 	done
 
 MediumDorisSeenText:

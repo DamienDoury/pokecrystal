@@ -104,4 +104,6 @@ MapScenes::
 	scene_var GOLDENROD_HOSPITAL_1F,               	       wGoldenrodHospitalReceptionSceneID
 	scene_var GOLDENROD_HOSPITAL_ROOM,               	   wGoldenrodHospitalCorridorsAndRoomsSceneID
 	scene_var GOLDENROD_HOSPITAL_CORRIDOR,                 wGoldenrodHospitalCorridorsAndRoomsSceneID
+	scene_var VACCINATION_CENTER_1F,					   wVaccinationCenterSceneID
+	scene_var VACCINATION_CENTER_CORRIDOR,				   wVaccinationCenterSceneID
 	db -1 ; end
