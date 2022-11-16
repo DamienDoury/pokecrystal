@@ -3051,8 +3051,9 @@ wMobileBattleRoomSceneID::                        db
 wCharcoalKilnSceneID::							  db
 wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
+wVaccinationCenterSceneID::	  					  db
 
-	ds 1
+	ds 0
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
