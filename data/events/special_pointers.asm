@@ -195,3 +195,4 @@ SpecialsPointers::
 	add_special SearchCriticallyIllMonInParty
 	add_special GetItemNameFromIndex
 	add_special GetPartyCountWithoutEggs
+	add_special SelectMonToVaccinate

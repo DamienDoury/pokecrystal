@@ -67,8 +67,7 @@ _CheckPokerus:
 	; We check if the Pokemon is sick.
 	ld a, [hl] ; Retrieving the pokerus byte.
 	and POKERUS_DURATION_MASK ; Note that we check the duration, and not the strain. The nurse cannot detect the Pokémon's immunity, only the presence of the virus. It works like a PCR test.
-	cp POKERUS_IMMUNITY_DURATION
-	jr z, .next ; If the pokemon is at exactly 10 days, he already is immune.
+	cp POKERUS_IMMUNITY_DURATION + 1
 	call nc, SetTestFlag ; Party has undeclared Pokérus.
 
 ; Next PartyMon

@@ -495,3 +495,94 @@ GetPartyCountWithoutEggs::
 	pop de
 	pop hl
 	ret
+
+SelectMonToVaccinate::
+	push bc
+	push de
+
+	farcall SelectMonFromParty
+	ld b, VACCINATION_CANCEL
+	jr c, .return
+
+	ld a, [wCurPartySpecies]
+	cp EGG
+	ld b, VACCINATION_IS_EGG
+	jr z, .return
+
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1PokerusStatus
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld d, [hl]
+
+	ld a, d
+	and POKERUS_INVERSED_DURATION_MASK
+	swap a
+	ld b, VACCINATION_NEVER_GOT_COVID
+	jr z, .return
+	cp 1
+	jr z, .got_1_or_2_shots
+
+	; At this point, we know the Pokémon has never been vaccinated, and that he had has a non-zero strain in its pokerus status.
+	; Which means it had or has COVID/sickness.
+
+	ld a, d
+	and POKERUS_DURATION_MASK
+	cp POKERUS_IMMUNITY_DURATION + 1
+	;ld b, VACCINATION_PREVIOUSLY_GOT_COVID
+	jr c, .doesnt_have_symptoms_at_the_moment
+
+	cp POKERUS_SYMPTOMS_START + 1
+	jr nc, .doesnt_have_symptoms_at_the_moment
+
+	; At this point, we determined that the Pokémon is currently sick (whether it's COVID or a mild illness).
+	ld b, VACCINATION_CURRENTLY_SICK
+	jr .return
+
+.doesnt_have_symptoms_at_the_moment
+
+	push de
+	ld de, IsMildIllnessStrain
+ 	ld a, BANK(IsMildIllnessStrain)
+ 	call FarCall_de
+ 	pop de
+
+	ld b, VACCINATION_NEVER_GOT_COVID ; Mild illnesses can only be caught until a Pokémon catches COVID. The Pokémon is then immune to mild illnesses for technical limitations. So we can infer that a Mon with a mild disease never got COVID.
+	jr c, .return
+
+	; There is only 1 last case to determine. If the Pokémon is currently incubating COVID, and has been tested positive, the Pokémon is considered sick by the doctor that vaccinates.
+
+	ld a, d
+	and POKERUS_TEST_MASK
+	ld b, VACCINATION_PREVIOUSLY_GOT_COVID ; If the test bit isn't set, and a COVID strain is present, and no symptoms are present, either the Mon had covid in the past, or is currently incubating or within the immunity period without knowing it.
+	jr z, .return
+
+	; At this point we know the test bit is set.
+
+	ld a, d
+	and POKERUS_DURATION_MASK
+	cp POKERUS_SYMPTOMS_START + 1
+	ld b, VACCINATION_CURRENTLY_SICK
+	jr nc, .return ; The Pokémon is incubating COVID, and has been tested positive, so the player knows it will have COVID. We consider the Pokémon sick.
+
+	; In this case, the Pokémon has the status "IMMUNE".
+	ld b, VACCINATION_PREVIOUSLY_GOT_COVID
+	jr .return
+
+.got_1_or_2_shots
+	ld a, d
+	and POKERUS_DURATION_MASK
+	cp 2
+	ld b, VACCINATION_GOT_FIRST_SHOT
+	jr c, .return
+
+	ld b, VACCINATION_FULLY_VACCINATED
+	; fallthrough
+
+.return
+	ld a, b
+	ld [wScriptVar], a
+
+	pop de
+	pop bc
+	ret
