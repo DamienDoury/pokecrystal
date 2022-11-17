@@ -50,7 +50,7 @@ VaccinationCenterCorridor_MapScripts:
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_MORN
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_DAY
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_NITE
-    
+
     follow VACCINATION_CENTER_CORRIDOR_WAITRESS, PLAYER
     applymovement VACCINATION_CENTER_CORRIDOR_WAITRESS, VaccinationCenterCorridor_ToRoomMovement
     stopfollow
@@ -98,7 +98,10 @@ VaccinationCenterCorridor_MapScripts:
     follow VACCINATION_CENTER_CORRIDOR_WAITRESS, PLAYER
     applymovement VACCINATION_CENTER_CORRIDOR_WAITRESS, VaccinationCenterCorridor_LeadTheWayOutMovement
     stopfollow
-    applymovement VACCINATION_CENTER_CORRIDOR_WAITRESS, VaccinationCenterCorridor_HeadLeftMovement
+    applymovement VACCINATION_CENTER_CORRIDOR_WAITRESS, VaccinationCenter_HeadDownMovement
+    setval SPRITEMOVEDATA_STANDING_DOWN
+    writemem wMap1ObjectMovement
+
     ;applymovement PLAYER, VaccinationCenter_DownMovement
     ;pause 5
     autoinput .movement_data
@@ -114,10 +117,6 @@ VaccinationCenterCorridor_MapScripts:
 
 VaccinationCenterCorridor_HeadRightMovement:
     turn_head RIGHT
-    step_end
-
-VaccinationCenterCorridor_HeadLeftMovement:
-    turn_head LEFT
     step_end
 
 VaccinationCenterCorridor_ToRoomMovement:
@@ -156,6 +155,10 @@ VaccinationCenterCorridor_FromChairToRoomMovement:
     step LEFT
     step UP
     step UP
+    step_end
+
+VaccinationCenterCorridor_FixFacingMovement:
+    fix_facing
     step_end
 
 VaccinationCenterCorridor_WaitHereText:
