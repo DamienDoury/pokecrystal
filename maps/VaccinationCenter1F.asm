@@ -38,6 +38,9 @@ VaccinationCenterReceptionistScript:
     checkevent EVENT_CROWD_IN_VACCINATION_CENTER
     iftrue .in_construction 
 
+    checkscene
+    ifequal 2, .your_turn
+
     checkmapscene GOLDENROD_HOSPITAL_1F
     ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, .AskGelScript
 
@@ -73,6 +76,9 @@ VaccinationCenterReceptionistScript:
 
 .refused:
     jumptext VaccinationCenterRefusedText
+
+.your_turn:
+    jumptext VaccinationCenterYourTurnText
 
 VaccinationCenterGelScript:
     farsjump GoldenrodHospitalGelScript
@@ -112,14 +118,14 @@ VaccinationCenterDynamicWalkScript:
 VaccinationCenterAllowedSeatScript:
     applymovement PLAYER, VaccinationCenter_HeadDownMovement
 
-    setval 0
-.pause_loop ; Acts as a pause, without freezing animations.
+    random 8 ; Random waiting time!
+.pause_loop ; Acts as a pause, without freezing Chansey's animations.
     pause 7
     applymovement VACCINATION_CENTER_CHANSEY, VaccinationCenter_HeadUpMovement 
     pause 7
     applymovement VACCINATION_CENTER_CHANSEY, VaccinationCenter_HeadDownMovement
     addval 1
-    ifless 9, .pause_loop
+    ifless 12, .pause_loop
     setval 0
 
     playsound SFX_ENTER_DOOR
@@ -132,13 +138,27 @@ VaccinationCenterAllowedSeatScript:
     waitbutton
     closetext
 
-    scall VaccinationCenterDynamicWalkScript
+    moveobject VACCINATION_CENTER_WAITRESS, 10, 1
 
+    setscene 2
+    end
+
+VaccinationCenterGoToOffice:
+    ;scall VaccinationCenterDynamicWalkScript
+    applymovement PLAYER, VaccinationCenter_HeadUpMovement
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_NurseScansCardStartMovement
     pause 5
     playsound SFX_ELEVATOR_END
     waitsfx
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_LeftMovement
+    applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_HeadUpMovement
+
+    readvar VAR_YCOORD
+    ifless 3, .move_on
+
+    applymovement PLAYER, VaccinationCenter_UpMovement
+
+.move_on
     follow VACCINATION_CENTER_WAITRESS, PLAYER
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_UpMovement
     playsound SFX_ENTER_DOOR
@@ -298,6 +318,12 @@ VaccinationCenterRefusedText:
     cont "someone else."
     done
 
+VaccinationCenterYourTurnText:
+    text "It's your turn!"
+    line "You'll miss it if"
+    cont "you don't go now!"
+    done
+
 VaccinationCenterForbiddenSeatText:
     text "It is not allowed"
     line "to sit here."
@@ -334,6 +360,8 @@ VaccinationCenter1F_MapEvents:
 	coord_event 12,  3, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
 	coord_event  8,  3, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
 
+	coord_event 10,  2, 2, VaccinationCenterGoToOffice
+    
     def_bg_events
 	bg_event  4,  7, BGEVENT_READ, VaccinationCenterGelScript
 	bg_event 11,  0, BGEVENT_READ, VaccinationCenter1FScanner
@@ -342,7 +370,7 @@ VaccinationCenter1F_MapEvents:
     def_object_events
 	object_event  3,  3, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterReceptionistScript, -1
 	object_event 11,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterChanseyScript, -1
-	object_event 10,  0, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterChanseyScript, 0
+	object_event 10,  0, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterGoToOffice, 0
 
 	object_event  15,  1, SPRITE_GRAMPS, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
 	object_event  14,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
