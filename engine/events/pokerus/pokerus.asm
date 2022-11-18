@@ -152,6 +152,16 @@ SpreadPokerusFromOpponents:
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
 	ret z
 
+	; Can't get the virus from trainers in Celadon Gym, as everyone is vaccinated.
+	ld a, [wMapGroup]
+	cp GROUP_CELADON_GYM
+	jr nz, .roll_dice
+
+	ld a, [wMapNumber]
+	cp MAP_CELADON_GYM
+	ret z
+
+.roll_dice
 	call Random
 	cp 4 ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
 	ret nc ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed).
