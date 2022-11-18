@@ -196,3 +196,4 @@ SpecialsPointers::
 	add_special GetItemNameFromIndex
 	add_special GetPartyCountWithoutEggs
 	add_special SelectMonToVaccinate
+	add_special IsWholeTeamVaccinated

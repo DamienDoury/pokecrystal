@@ -586,3 +586,31 @@ SelectMonToVaccinate::
 	pop de
 	pop bc
 	ret
+
+; Output: 0/FALSE in wScriptVar if at least 1 mon in the party is not vaccinated, 1/TRUE otherwise.
+IsWholeTeamVaccinated::
+	xor a
+	ld [wScriptVar], a ; FALSE.
+
+	ld a, [wPartyCount]
+	and a
+	ret z ; Don't waste time on an empty party.
+	ld c, a
+
+	ld hl, wPartyMon1PokerusStatus
+	ld de, PARTYMON_STRUCT_LENGTH
+
+.loop
+	ld a, [hl]
+	and POKERUS_INVERSED_DURATION_MASK
+	cp POKERUS_TEST_MASK
+	ret nz
+
+; next_mon
+	add hl, de
+	dec c
+	jr nz, .loop
+
+	ld a, 1
+	ld [wScriptVar], a ; TRUE.
+	ret

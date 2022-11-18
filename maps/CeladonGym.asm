@@ -33,6 +33,9 @@ CeladonGym_MapScripts:
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
+	special IsWholeTeamVaccinated
+	iffalse .not_fully_vaccinated
+
 	setval FIRE
 	special CheckTypePresenceInParty
 	iftrue .do_check
@@ -49,6 +52,17 @@ CeladonGym_MapScripts:
 	special CheckTypePresenceInParty
 	iftrue .do_check
 	end
+
+.not_fully_vaccinated
+	setlasttalked CELADONGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideNotVaccinatedText
+	waitbutton
+	closetext
+	
+	sjump .player_leaves
 
 .egg_found
 	setlasttalked CELADONGYM_GYM_GUIDE
@@ -418,6 +432,28 @@ CeladonGymGuideClosedText:
 	cont "ready quite soon."
 
 	para "See you later!"
+	done
+
+_GymGuideNotVaccinatedText:
+	text "Hello dear!"
+
+	para "ERIKA demands that"
+	line "all #MON be"
+	
+	para "vaccinated to"
+	line "enter this GYM."
+
+	para "I cannot allow you"
+	line "in, I'm sorry."
+
+	para "You will find the"
+	line "VACCINATION"
+	
+	para "CENTER in SAFFRON"
+	line "CITY."
+
+	para "Take care my"
+	line "friend!"
 	done
 
 CeladonGym_MapEvents:
