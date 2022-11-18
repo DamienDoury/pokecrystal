@@ -1737,7 +1737,7 @@ GGTCMahoText::
 	line "making!"
 
 	para "FIRE, FIGHTING,"
-	line "ROCK and GROUND"
+	line "ROCK and STEEL"
 	cont "type #MON are"
 	cont "dangerous for the"
 	cont "ICE in this GYM."

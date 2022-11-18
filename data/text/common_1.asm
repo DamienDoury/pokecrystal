@@ -1939,3 +1939,12 @@ _PrestoAllDoneText::
 	text "Presto! All done."
 	line "Come again, OK?"
 	done
+
+_GymGuideEggText::
+	text "EGGS are not"
+	line "allowed in a GYM."
+
+	para "We never know"
+	line "what could hatch"
+	cont "from it."
+	done

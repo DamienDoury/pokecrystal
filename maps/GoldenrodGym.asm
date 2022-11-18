@@ -17,11 +17,33 @@ GoldenrodGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_WHITNEY
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval FIGHTING
 	special CheckTypePresenceInParty
-	iffalse .no_check
+	iftrue .do_check
+	end
+
+.egg_found
 	setlasttalked GOLDENRODGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
+.do_check
+	setlasttalked GOLDENRODGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp GOLDENROD_CITY, 24, 7
 .no_check
 	end

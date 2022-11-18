@@ -15,11 +15,33 @@ VermilionGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_LTSURGE
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval GROUND
 	special CheckTypePresenceInParty
-	iffalse .no_check
+	iftrue .do_check
+	end
+	
+.egg_found
 	setlasttalked VERMILIONGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
+.do_check
+	setlasttalked VERMILIONGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp VERMILION_CITY, 10, 19
 .no_check
 	end

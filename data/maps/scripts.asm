@@ -327,6 +327,7 @@ INCLUDE "maps/CharcoalKiln.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
+INCLUDE "maps/FuchsiaGym.asm"
 
 
 SECTION "Map Scripts 17", ROMX
@@ -365,8 +366,6 @@ INCLUDE "maps/BlackthornPokecenter1F.asm"
 INCLUDE "maps/MoveDeletersHouse.asm"
 INCLUDE "maps/FuchsiaMart.asm"
 INCLUDE "maps/SafariZoneMainOffice.asm"
-INCLUDE "maps/FuchsiaGym.asm"
-;INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/FuchsiaPokecenter1F.asm"
 INCLUDE "maps/FuchsiaPokecenter2FBeta.asm"
 INCLUDE "maps/SafariZoneWardensHome.asm"

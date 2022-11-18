@@ -22,6 +22,11 @@ CianwoodGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_CHUCK
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval FLYING
 	special CheckTypePresenceInParty
 	iftrue .do_check
@@ -33,9 +38,24 @@ CianwoodGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked CIANWOODGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	writetext CianwoodGymGuideEggText
+	waitbutton
+	closetext
+	
+	sjump .player_leaves
+
 .do_check
 	setlasttalked CIANWOODGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp CIANWOOD_CITY, 8, 43
 .no_check
 	end
@@ -402,6 +422,19 @@ CianwoodGymGuideWinText:
 
 	done
 
+CianwoodGymGuideEggText:
+	text "HEY YO!"
+	
+	para "What are you gon'"
+	line "do with an EGG in"
+	cont "this GYM?"
+
+	para "An omelette"
+	line "du fromage?"
+
+	para "Get out of my"
+	line "sight, you clown."
+	done
 
 CianwoodGym_MapEvents:
 	db 0, 0 ; filler

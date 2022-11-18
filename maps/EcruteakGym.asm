@@ -21,11 +21,33 @@ EcruteakGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_MORTY
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval DARK
 	special CheckTypePresenceInParty
-	iffalse .no_check
+	iftrue .do_check
+	end
+
+.egg_found
 	setlasttalked ECRUTEAKGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
+.do_check
+	setlasttalked ECRUTEAKGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp ECRUTEAK_CITY, 6, 27
 .no_check
 	end

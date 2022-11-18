@@ -17,7 +17,12 @@ MahoganyGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .no_check
-	setval GROUND
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
+	setval STEEL
 	special CheckTypePresenceInParty
 	iftrue .do_check
 	setval FIRE
@@ -31,9 +36,22 @@ MahoganyGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked MAHOGANYGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
 .do_check
 	setlasttalked MAHOGANYGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp MAHOGANY_TOWN, 6, 13
 .no_check
 	end

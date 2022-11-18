@@ -16,11 +16,33 @@ BlackthornGym1F_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_CLAIR
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval ICE
 	special CheckTypePresenceInParty
-	iffalse .no_check
+	iftrue .do_check
+	end
+	
+.egg_found
 	setlasttalked BLACKTHORNGYM1F_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
+.do_check
+	setlasttalked BLACKTHORNGYM1F_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves	
+	callstd GymGuidePlayerLeavesScript
 	warp BLACKTHORN_CITY, 18, 11
 .no_check	
 	end

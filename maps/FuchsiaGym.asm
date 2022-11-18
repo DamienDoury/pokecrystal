@@ -16,6 +16,11 @@ FuchsiaGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_JANINE
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval PSYCHIC_TYPE
 	special CheckTypePresenceInParty
 	iftrue .do_check
@@ -27,9 +32,23 @@ FuchsiaGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked FUCHSIAGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
 .do_check
 	setlasttalked FUCHSIAGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp FUCHSIA_CITY, 8, 27
 .no_check
 	end

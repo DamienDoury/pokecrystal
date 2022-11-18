@@ -17,6 +17,11 @@ AzaleaGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_BUGSY
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval FIRE
 	special CheckTypePresenceInParty
 	iftrue .do_check
@@ -28,9 +33,23 @@ AzaleaGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked AZALEAGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
 .do_check
 	setlasttalked AZALEAGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp AZALEA_TOWN, 10, 15
 .no_check
 	end

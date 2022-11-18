@@ -57,7 +57,10 @@ StdScripts::
 	add_stdscript GameCornerCoinVendorScript
 	add_stdscript HappinessCheckScript
 	add_stdscript ClosedBusinessScript
+	add_stdscript GymGuideWalksTowardsPlayerScript
 	add_stdscript GymGuideChecksPlayersTeamScript
+	add_stdscript GymGuideTextSequel
+	add_stdscript GymGuidePlayerLeavesScript
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -2201,7 +2204,7 @@ Movement_ContestResults_WalkAfterWarp:
 ClosedBusinessScript:
 	farjumptext ClosedBusinessText
 
-GymGuideChecksPlayersTeamScript:
+GymGuideWalksTowardsPlayerScript:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iffalse .continue
 	end
@@ -2216,6 +2219,16 @@ GymGuideChecksPlayersTeamScript:
 
 	showemote EMOTE_SHOCK, LAST_TALKED, 15
 	applymovementlasttalked Movement_GymGuideStopsPlayers
+	end
+
+.cian 
+	applymovementlasttalked Movement_CianwoodGymGuide
+	end
+
+GymGuideChecksPlayersTeamScript:
+	readvar VAR_MAPGROUP
+	ifequal GROUP_CIANWOOD_CITY, .cian
+	
 	opentext
 	readvar VAR_MAPGROUP
 	ifequal GROUP_VIOLET_CITY, .violet
@@ -2254,15 +2267,14 @@ GymGuideChecksPlayersTeamScript:
 	sjump GymGuideTextSequel
 
 .cian
-	applymovementlasttalked Movement_CianwoodGymGuide
 	opentext
 	farwritetext GGTCCianText
 	waitbutton
 	closetext
-	applymovement PLAYER, Movement_PlayerLeavesBuilding
-	special FadeOutPalettes
-	playsound SFX_ENTER_DOOR
-	waitsfx
+	;applymovement PLAYER, Movement_PlayerLeavesBuilding
+	;special FadeOutPalettes
+	;playsound SFX_ENTER_DOOR
+	;waitsfx
 	end
 
 .oliv
@@ -2303,13 +2315,15 @@ GymGuideChecksPlayersTeamScript:
 
 .cinna
 	farwritetext GGTCCinnaText
-	sjump GymGuideTextSequel
 
 GymGuideTextSequel:
 	promptbutton
 	farwritetext GymGuideRefusesEntranceEndText
 	waitbutton
 	closetext
+	end
+
+GymGuidePlayerLeavesScript:
 	applymovement PLAYER, Movement_PlayerLeavesBuilding
 	special FadeOutPalettes
 	playsound SFX_ENTER_DOOR

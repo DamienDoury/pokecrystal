@@ -326,7 +326,7 @@ SaffronGymGuideText:
 	line "that it's actual-"
 	cont "ly happening!"
 
-	para "Normally GHOST and"
+	para "Usually GHOST and"
 	line "DARK types are"
 	cont "forbidden in this"
 	cont "GYM."

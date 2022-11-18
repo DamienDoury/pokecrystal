@@ -13,10 +13,26 @@ CeladonGym_MapScripts:
 	scene_script .TeamCheck ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesCallback
+
+.TilesCallback:
+	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
+	iffalse .end
+	moveobject CELADONGYM_GYM_GUIDE, 4, 14
+.end
+	endcallback
 
 .TeamCheck:
 	checkevent EVENT_BEAT_ERIKA
 	iftrue .no_check
+
+	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
+	iftrue .is_closed
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	setval FIRE
 	special CheckTypePresenceInParty
 	iftrue .do_check
@@ -34,9 +50,33 @@ CeladonGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked CELADONGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
+.is_closed
+	setlasttalked CELADONGYM_GYM_GUIDE
+	
+	opentext
+	writetext CeladonGymGuideClosedText
+	waitbutton
+	closetext
+	
+	sjump .player_leaves
+
 .do_check
 	setlasttalked CELADONGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp CELADON_CITY, 10, 29
 .no_check
 	end
@@ -347,6 +387,37 @@ CeladonGymGuideWinText:
 	text "You did…"
 	para "(ACHII)"
 	para "…!"
+	done
+
+CeladonGymGuideClosedText:
+	text "Hello sweet"
+	line "trainer!"
+
+	para "I am sorry but"
+	line "ERIKA decided to"
+
+	para "close this GYM"
+	line "until a vaccine"
+
+	para "for #MON has"
+	line "been made"
+	cont "available."
+
+	para "…"
+	line "(achii)"
+
+	para "She wants to "
+	line "preserve this"
+	
+	para "wonderful GYM and"
+	line "the health of its"
+	cont "trainers."
+
+	para "Hopefully the"
+	line "vaccine should be"
+	cont "ready quite soon."
+
+	para "See you later!"
 	done
 
 CeladonGym_MapEvents:

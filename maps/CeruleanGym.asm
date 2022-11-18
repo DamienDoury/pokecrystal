@@ -16,6 +16,11 @@ CeruleanGym_MapScripts:
 .TeamCheck:
 	checkevent EVENT_BEAT_MISTY
 	iftrue .no_check
+
+	setval EGG
+	special FindPartyMonThatSpecies
+	iftrue .egg_found
+
 	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
 	iftrue .no_check
 	setval GRASS
@@ -26,9 +31,23 @@ CeruleanGym_MapScripts:
 	iftrue .do_check
 	end
 
+.egg_found
+	setlasttalked CERULEANGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
+	
+	opentext
+	farwritetext _GymGuideEggText
+	callstd GymGuideTextSequel
+	
+	sjump .player_leaves
+
 .do_check
 	setlasttalked CERULEANGYM_GYM_GUIDE
+	callstd GymGuideWalksTowardsPlayerScript
 	callstd GymGuideChecksPlayersTeamScript
+
+.player_leaves
+	callstd GymGuidePlayerLeavesScript
 	warp CERULEAN_CITY, 30, 23
 .no_check
 	end
