@@ -231,6 +231,8 @@ if DEF(_DEBUG)
 endc
 
 StatsScreen_LoadPage:
+	xor a
+	ld [wStatsSubmenuOpened], a ; Submenu must be closed when the page is first loaded.
 	call StatsScreen_LoadGFX
 	ld hl, wStatsScreenFlags
 	res 4, [hl]

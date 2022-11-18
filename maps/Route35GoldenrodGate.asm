@@ -30,7 +30,7 @@ RandyScript:
 	waitsfx
 	givepoke SPEAROW, 10, NO_ITEM, TRUE, GiftSpearowName, GiftSpearowOTName
 	setval 0	; See next comment.
-	writemem wTempColorMixer ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
+	writemem wTempByteValue ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
 	givepokemail GiftSpearowMail
 	setevent EVENT_GOT_KENYA
 .alreadyhavekenya

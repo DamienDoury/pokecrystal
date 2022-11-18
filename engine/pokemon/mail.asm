@@ -212,7 +212,7 @@ GivePokeMail::
 	call OpenSRAM
 	call CopyBytes
 
-	ld a, [wTempColorMixer] ; Damien: used as a temp var. It should not interfere with the outdoor palette transition between times of day, as all givepoke are called indoors.
+	ld a, [wTempByteValue] ; Damien: used as a temp var. It should not interfere with the outdoor palette transition between times of day, as all givepoke are called indoors.
 	cp CHARMANDER
 	ld hl, .DamianOTName
 	jr z, .copy_nickname

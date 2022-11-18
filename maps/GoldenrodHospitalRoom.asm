@@ -568,7 +568,7 @@ GoldenrodHospitalRoomHumanPatientScript:
 	waitsfx
 	givepoke MEOWTH, 25, NO_ITEM, TRUE, GiftAntonMonName, GiftAntonMonOTName
 	setval 0	; See next comment.
-	writemem wTempColorMixer ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
+	writemem wTempByteValue ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
 	givepokemail GiftAntonMonMail
 	setevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
 	sjump .room25_quest_ongoing

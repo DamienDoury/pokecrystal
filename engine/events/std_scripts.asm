@@ -418,7 +418,7 @@ PokecenterNurseScript:
 	setevent EVENT_GOT_DAMIANS_CHARMANDER
 	givepoke CHARMANDER, 7
 	setval CHARMANDER
-	writemem wTempColorMixer
+	writemem wTempByteValue
 	givepokemail DamiansMail
 	sjump .good_care
 
