@@ -17,7 +17,7 @@ ApplyPokerusTick:
 	; We check if the Pokemon is vaccinated.
 	ld a, [hl]
 	and POKERUS_STRAIN_MASK | POKERUS_TEST_MASK
-	cp POKERUS_VACCINE_STRAIN | POKERUS_TEST_MASK 
+	cp POKERUS_TEST_MASK 
 	jr z, .nextMon ; If the Pokémon is vaccinated, we don't decrease its immunity duration.
 
 	

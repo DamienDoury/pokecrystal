@@ -824,7 +824,7 @@ LoadPinkPage:
 	; Status displayed will be either Covid, Incub. or Immune. Also, the Vaccinated icon can be displayed.
 	ld a, b
 	and POKERUS_STRAIN_MASK
-	cp POKERUS_VACCINE_STRAIN
+	cp 0
 	jr nz, .VaccineCaseTreated ; If the strain is not equal to the one of a vaccinated Pokemon, then it is not vaccinated.
 
 	; At this point, we also know that the strain is strictly equal to the one of the vaccine. We conclude that this Pokémon is vaccinated.
