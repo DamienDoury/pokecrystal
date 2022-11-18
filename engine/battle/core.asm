@@ -7,6 +7,13 @@ DoBattle:
 	ld [wBattleParticipantsIncludingFainted], a
 	ld [wAllBattleParticipants], a
 	ld [wAllBattleParticipantsAfterVirusSpread], a
+	ld [wAllBattleParticipantsAfterVirusSpread_ListLength], a
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 0], a ; Useless.
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 1], a ; Useless.
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 2], a ; Useless.
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 3], a ; Useless.
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 4], a ; Useless.
+	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 5], a ; Useless.
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	inc a
@@ -120,40 +127,15 @@ DoBattle:
 	jp BattleMenu
 
 StartAutomaticBattleWeather:
-	callfar GetAutomaticBattleWeather
-	ldh a, [hFarByte]
-	and a
+	push de
+	ld de, _StartAutomaticBattleWeather
+	ld a, BANK(_StartAutomaticBattleWeather)
+	call FarCall_de ; We're using FarCall_de because we need the HL output for StdBattleTextbox.
+	pop de
 	ret z
-; get current AutomaticWeatherEffects entry
-	dec a
-; fallthrough
 
-ForceBattleWeather:
-	ld hl, AutomaticWeatherEffects
-	ld bc, 5 ; size of one entry
-	call AddNTimes
-; [wBattleWeather] = weather
-	ld a, [hli]
-	ld [wBattleWeather], a
-; de = animation
-	ld a, [hli]
-	ld e, a
-	ld a, [hli]
-	ld d, a
-; hl = text pointer
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-; start weather for 255 turns
-	ld a, 255
-	ld [wWeatherCount], a
-	push hl
-	call Call_PlayBattleAnim ; uses de
-	pop hl
 	call StdBattleTextbox ; uses hl
 	jp EmptyBattleTextbox
-
-INCLUDE "data/battle/automatic_weather_anims.asm"
 
 WildFled_EnemyFled_LinkBattleCanceled:
 	call SafeLoadTempTilemapToTilemap
@@ -3365,32 +3347,28 @@ AddBattleParticipant:
 	predef SmallFarFlagAction
 	pop bc
 
-	ld a, [wAllBattleParticipantsAfterVirusSpread]
+	ld a, [wAllBattleParticipantsAfterVirusSpread_ListLength]
 	and a
-	call nz, InfectedOrPotentiallyInfected ; If the flag wAllBattleParticipantsAfterVirusSpread is not 0, that means a Pokémon with the virus has been on the battlefield. So we add the current mon to the list.
+	call nz, InfectedOrPotentiallyInfected ; If the flag array wAllBattleParticipantsAfterVirusSpread is not 0, that means a Pokémon with the virus has been on the battlefield. So we add the current mon to the list as a potentially infected mon.
 
 
 	ld hl, wPartyMon1PokerusStatus
-	ld a, [wCurBattleMon]
+	ld a, c ; "c" was [wCurBattleMon]
 	push bc
 	call GetPartyLocation
 	pop bc
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
-	cp POKERUS_IMMUNITY_DURATION
-	jr z, .not_infected ; if it is exactly 10 days left, the pokemon is immune and not contagious anymore.
-	call nc, InfectedOrPotentiallyInfected ; If this Pokémon is infected, we add it to the list. This is the list the list gets "opened" to non-infected mons added thanks to the previous check.
+	cp POKERUS_IMMUNITY_DURATION + 1
+	call nc, InfectedOrPotentiallyInfected ; If this Pokémon is infected, we add it to the list. This is the list that gets "opened" to non-infected mons added thanks to the previous check.
 
 .not_infected
 	ld hl, wBattleParticipantsIncludingFainted
 	predef_jump SmallFarFlagAction
 
 InfectedOrPotentiallyInfected:
-	ld hl, wAllBattleParticipantsAfterVirusSpread ; This flag retains the list of the Pokémons that showed up on the battlefield, after a contamined Pokémon was on it.
-	push bc
-	predef SmallFarFlagAction
-	pop bc
-	ret
+	farcall AddPartyMonIndexToChronologicalList
+	ret 
 
 FindMonInOTPartyToSwitchIntoBattle:
 	ld b, -1
@@ -4003,6 +3981,7 @@ TryToRunAwayFromBattle:
 	call StdBattleTextbox
 	call WaitSFX
 	call LoadTilemapToTempTilemap
+	farcall SpreadPokerusFromAllies
 	scf
 	ret
 

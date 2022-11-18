@@ -2617,7 +2617,12 @@ NEXTU
 wOTPartyData::
 wOTPlayerName:: ds NAME_LENGTH
 wOTPlayerID:: dw
-	ds 8
+
+wAllBattleParticipantsAfterVirusSpread_ListLength:: db
+wAllBattleParticipantsAfterVirusSpread_ChronologicalList:: ds 6 ; This could be shortened to 3 bytes, but using 6 is easier, and the space would be wasted otherwise.
+
+	ds 1
+
 wOTPartyCount::   db
 wOTPartySpecies:: ds PARTY_LENGTH
 wOTPartyEnd::     db ; older code doesn't check PartyCount

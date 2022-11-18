@@ -37,7 +37,7 @@ _CheckMildIllness: ; Called only by CheckPokerus in engine/events/specials.asm, 
 
 
 
-CureIllness:
+CureIllness: ; Only the strain is saved. Duration is set to 0, and test bit as well.
 	ld c, 1 ; We save the fact that a pokémon has been cured.
 	ld a, [hl]
 	and POKERUS_STRAIN_MASK ; Note: the test flag is also unset, which is required.

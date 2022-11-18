@@ -43,7 +43,7 @@ ApplyPokerusTick:
 
 	jr c, .manageCriticallyIllMon
 
-	; If the Pokemon just got naturally cured of a "simple disease" (by getting into the immunity duration), we grant him no immunity.
+	; If the Pokemon just got naturally cured of a "simple disease" (by getting into the immunity duration), we grant him no immunity. YEEES! I just thought of doing that again! The past version of me already did it!
 	push de
 	ld de, IsMildIllnessStrain
  	ld a, BANK(IsMildIllnessStrain)
@@ -54,9 +54,8 @@ ApplyPokerusTick:
 	
 	ld a, d ; We get back the new pokerus byte.
 	and POKERUS_DURATION_MASK
-	cp POKERUS_IMMUNITY_DURATION
+	cp POKERUS_IMMUNITY_DURATION + 1
 	ld a, d
-	jr z, .remove_immunity_duration ; Should be its first day of immunity, but a mild illness procures no immunity after it is cured.
 	jr nc, .reset_test_bit_if_needed
 
 .remove_immunity_duration

@@ -1,123 +1,145 @@
 GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	call ConvertBerriesToBerryJuice
+	call SpreadPokerusFromAllies ; Up to 1 Pokémon can be contaminated from its allies.
+	call SpreadPokerusFromOpponents ; Up to 1 Pokémon from the opponent, which makes a maximum of 2 new contaminated Pokémons per battle.
+	; The spread from opponents comes after the one from allies, otherwise we could go from 0 to 2 infected mons in a single battle.
+	ret
+
+
+
+
+SpreadPokerusFromAllies:
+	ld a, [wAllBattleParticipantsAfterVirusSpread_ListLength] ; Note: this is 1 above the last index, as it's a length.
+	cp 2
+	ret c ; No time to waste if a single Pokemon has been sent into battle.
+
+	dec a
+	ld d, a ; Saving the current index into D.
+
+.battle_participants_loop
+	ld a, d
+	ld hl, wAllBattleParticipantsAfterVirusSpread_ChronologicalList
+	ld bc, 1
+	call AddNTimes ; Add bc * a to hl. HL now points to the current index within the list.
+
+	ld a, [hl] ; Retrieves the party index.
 	ld hl, wPartyMon1PokerusStatus
-	ld de, PARTYMON_STRUCT_LENGTH
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes ; Add bc * a to hl.
 
-	; Récupération du premier Pokémon de l'équipe (index 0)
-	xor a
-	ld [wCurPartyMon], a
-
-; We look for a contagious Pokémon to spread the virus.
-.loop_contaminated
-	ld c, a
-	push hl
-	ld hl, wAllBattleParticipantsAfterVirusSpread
-	ld b, CHECK_FLAG
-	predef SmallFarFlagAction ; Check bit at index c in bit array hl, and returns state of the flag in c. D has been set to 0 by ld de, PARTYMON_STRUCT_LENGTH.
-	pop hl
-	ld a, c
-	and a
-	jp z, .next_mon_contaminated ; This Pokémon didn't go into battle, so it shall not be contaminated.
-
-	; We may have found a contagious Pokémon that has been into battle. We need to run additional tests to check if he is really contagious.
-	ld a, [hl]
+	; A Pokémon with an active immune protection (duration > 0) can't be infected by another disease.
+	ld a, [hl] ; PokerusStatus byte.
 	and POKERUS_DURATION_MASK
-	cp POKERUS_IMMUNITY_DURATION ; Note that a vaccinated Pokémon has a duration of 1: this test discards them.
-	jp z,  .TrySpreadPokerus ; starting 10 days left, you are immune and can't transmit the virus.
-	jp nc, .TrySpreadPokerus ; If your virus duration left is above the immunity duration, then this Pokémon is indeed contagious. He will now try to spread its virus.
-	; Note: as we "jumped" instead of "called", this means we are leaving this script. Therefore, only the contagious pokémon with the lowest index in the team can try to spread its virus. It is not ideal.
+	jr nz, .next_mon
 
-.next_mon_contaminated
-	ld a, [wPartyCount]
-	ld b, a
-	ld a, [wCurPartyMon]
-	inc a
-	cp b
-	jr z, .potentialInfectionFromStranger
-	ld [wCurPartyMon], a
-	add hl, de
-	jr .loop_contaminated
-
-
-
-
-.TrySpreadPokerus:
-;	call Random
-;	cp 255
-;	;cp 33 percent + 1 ; Note: the odds are now managed later, so we shouldn't put a condition here.
-;	jr nc, .potentialInfectionFromStranger ; 1/3 chance the virus won't try to spread.
-
-	ld a, [wPartyCount]
-	cp 1
-	jr z, .potentialInfectionFromStranger ; only one mon, nothing to do
-
-	ld c, [hl] ; We save the original strain to try to duplicate it.
-
-	ld hl, wPartyMon1PokerusStatus
-	xor a
-	ld [wCurPartyMon], a
-
-; We look for a healthy Pokémon to contaminate. The contaminated Pokémon will try to infect' em all!
-.loop_healthy
-	push bc
-	ld c, a
-	push hl
-	ld hl, wAllBattleParticipantsAfterVirusSpread ; We only look for non-contamined Pokémon that came on the battlefield AFTER a contamined Pokémon has been on it.
-	ld b, CHECK_FLAG
-	predef SmallFarFlagAction ; Check bit at index c in bit array hl, and returns state of the flag in c.
+	; The Pokémon is vulnerable to a virus, so we check all other mons that could have transmitted one.
+	push de ; Preserves the index.
+	push hl ; Nothing needs to be preserved here, and it's an easy access to this pokémon's pokerus byte if you "pop hl, push hl" within DetermineIfThisPokemonGotContaminedByAllies.
+	call DetermineIfThisPokemonGotContaminedByAllies
 	pop hl
-	ld a, c
-	pop bc
-	and a
-	jp z, .next_mon_healthy ; This Pokémon didn't go into battle, so it shall not be contaminated.
+	pop de
+
+	ret nz ; If Z is unset, it means a Pokemon has been infected. Only 1 Pokemon per battle can be infected from its allies (so the virus doesn't get out of control).
+
+.next_mon
+	; Preparing for the next mon check.
+	dec d
+	ret z ; No need to check the first mon of the chronological list, as it is necessarily a contagious (infected within incubating or symptoms period) mon. So it can't be infected twice.
+
+	jr .battle_participants_loop
 
 
-	; If this Pokémon went into battle, let's check if it has been infected by another party member.
-	ld a, [hl]
-	and POKERUS_DURATION_MASK ; Note: vaccinated Pokémons keep a duration of 1, so this check discards them.
-	jr nz, .next_mon_healthy
 
+
+; Input: D=list index of the original mon, HL=PokerusStatus of the original mon.
+; Output: Z set/TRUE: no pokemon has been infected. Z unset/FALSE: a Pokémon was infected.
+; Goes through all allies that have been sent into battle before this pokemon.
+DetermineIfThisPokemonGotContaminedByAllies:
+	ld c, FALSE
 	ld a, [hl]
 	and POKERUS_STRAIN_MASK
-	cp c ; We compare the strains.
-	jr nz, .infectMon ; A Pokemon can't be infected twice in a row by the same strain. This is some kind of immunity, to allow the player to breath a little if she/he can't handle the spread.
+	ld e, a ; Saving the original strain to later compare against other ones.
+	jr z, .next_mon
 
+	call IsMildIllnessStrain
+	jr c, .next_mon
 
-.next_mon_healthy
-	ld a, [wPartyCount]
-	ld b, a
-	ld a, [wCurPartyMon]
-	inc a
-	cp b
-	jp z, .potentialInfectionFromStranger ; When we reach the last Pokémon, we are done with this check and go on to the next one as we only allow 1 infected Pokémon from the team to contaminate its allies (otherwise the contamination would go too fast).
-	ld [wCurPartyMon], a
-	ld de, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
-	add hl, de
-	jr .loop_healthy
+	ld c, TRUE 
 
-.infectMon ; Infection coming from another Pokémon of the team.
-	ld a, c ; c contains the Pkrs byte from the Pokémon that is the source of the contamination.
+	; C is TRUE if the original Pokemon is immune to mild illnesses. 
+	; Pokémon that caught COVID in the past are immune to mild illnesses because we need to keep a trace of previous COVID infections...
+	; ...for the purpose of calculating the number of shots required when doing the vaccination.
 
-	and POKERUS_DURATION_MASK ; A virus a just considered a "disease" (with a lower transmision rate) until it is tested and declared as the Pokérus.
-	cp POKERUS_SYMPTOMS_START ; It has already been checked that the source Pokémon is not immune yet.
-	ld a, 51; 20% of 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 32% of no contamination (68% odds of 1+ new contamination).
-	jr c, .runDices ; If the source Pokémon is still within its incubation stage, it is less contagious.
-	jr z, .runDices ; less or equal to POKERUS_SYMPTOMS_START.
-	sub 43 ; 3% of 256, which brings the odds at 8 = 51 - 43 = 3% * 256. In a battle with 1 contaminated and 5 healthy, this makes an average of 85% of no contamination (15% odds of 1+ new contamination).
+.next_mon
+	dec d
+	ld a, d ; A now contains the list index.
+	cp -1
+	ret z
 
-.runDices
-	ld b, a
-	call Random
-	cp b
-	jr nc, .next_mon_healthy ; The contamination failed.
+; Retrieving the previous battle participant party index.
 
-	; The contamination happens here.
+	ld hl, wAllBattleParticipantsAfterVirusSpread_ChronologicalList
+	push bc
+	ld bc, 1
+	call AddNTimes ; Add bc * a to hl.
+	pop bc
+
+	ld a, [hl] ; Retrieves the party index from the list.
+	ld hl, wPartyMon1PokerusStatus
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes ; Add bc * a to hl.
+	pop bc 
+
+; Checking if the previous battle participant is contagious.
+	ld a, [hl] ; Pokerus byte from selected party member.
+	and POKERUS_DURATION_MASK
+	cp POKERUS_SYMPTOMS_START + 1 ; A pokemon is only contagious during the incubation and symptoms phases.
+	jr c, .next_mon 
+
+	; At the this point, a Pokémon that is contagious has been sent into battle prior to the Pokémon we are checking.
+	; So the mon we're checking might have been infected!
+
+; Checking if the previous battle participant is contagious of a mild illness.
+	call IsMildIllnessStrain
+	jr nc, .pokemon_can_be_infected ; If the cur mon has covid, it can infect everyone no matter their previous disease.
+
+	; The previously sent Pokémon had a mild illness.
 	ld a, c
-	and POKERUS_STRAIN_MASK ; 
+	cp TRUE
+	jr z, .next_mon ; Our original pokémon cannot be infected by a mild illness, so we move on to the next mon.
 
-	call AddDurationToStrain
-	jr .next_mon_healthy ; Let's go try to contaminate the next exposed Pokémon!
+.pokemon_can_be_infected
+; Checking if the original mon is immune to the disease of the previous	battle participant
+	ld a, [hl] ; Pokerus byte from selected party member.
+	and POKERUS_STRAIN_MASK
+	ld b, a ; Saving the strain that could become the source of infection.
+	cp e ; We compare the strains.
+	jr z, .next_mon ; A Pokemon can't be infected twice in a row by the same strain. This is some kind of long-term immunity, to allow the player to breath a little if she/he can't handle the spread.
 
+	; Now the only chance for the Pokémon to avoid the contamination, is to make a good dice roll.
+
+; Checking the luck of the original Pokémon...
+	call Random
+	cp 64 ; 64/256 odds of getting infected by this mon, or 25%.
+	jr nc, .next_mon ; Lucky Pokémon, he just avoided the infection!
+
+	; Some maths:
+	; If a Pokémon has been sent after all other infected party members, it'll have 5 checks.
+	; Its odds of getting through the infection are ((256-64))/256)^5 = 23.7%.
+	; In other words, this mon has 76.3% odds of getting infected per battle, if sent after all 5 other infected party members.
+
+	; If sent 6th, but only the first mon was infected, the odds of getting infected are 25% for this last mon only.
+	; The combined odds of any mon from the team getting infected are (1-(64/256))^5 = 76.3% of 1 of the 5 mons getting infected.
+
+	pop de ; pops the PC of the return function (needs to be re-added after, or return will fail).
+	pop hl ; HL now contains the original pokemon's PokerusStatus byte.
+	push hl
+	push de ; adds the return pointer back into the stack.
+	call InfectMon ; The Pokémon has been infected!
+
+	rla ; Unsetting the Z flag. Signifies that a Pokémon has been infected.
+	ret
 
 
 
@@ -125,19 +147,17 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 ; If we haven't been to Goldenrod City at least once,
 ; prevent the contraction of Pokerus.
 ; Now we check if the enemy Pokémon has contaminated us.
-.potentialInfectionFromStranger
+SpreadPokerusFromOpponents:
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
 	ret z
 
 	call Random
-	;ldh a, [hRandomAdd]
-	;and a
-	;ret nz
-	ldh a, [hRandomSub]
-	cp 4
-	ret nc ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256.
+	cp 4 ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
+	ret nc ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed).
+	; fallthrough
 
+ForceSpreadPokerusFromOpponents:
 	ld a, [wPartyCount]
 	ld b, a
 
@@ -156,12 +176,31 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 
 	ld a, c
 	and a
-	jp z, .next ; This Pokémon didn't go into battle, so it shall not be contaminated.
+	jp z, .next ; This Pokémon didn't go into battle, so it shall not be contaminated. This also discards eggs.
 
 	; If the Pokémon went into battle, it may have been contaminated.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK ; Note: vaccinated Pokémons keep a duration of 1, so this check discards them.
-	jr z, .generateNewContamination
+	jr nz, .next
+
+	; At this point, we know we are going to contaminate this Pokémon.
+	; We now have to determine if it should be contaminated with a random, or covid only strain.
+
+	; Only 1 Pokémon can be infected by this function. So up to 1 Pokémon per battle.
+	; It will always be the Pokémon with the lowest party index, which should be 0 (first Pokémon).
+	; This is efficient for spreading the virus into the party thereafter.
+
+	ld a, [hl] ; Note: No need to mask the strain, as this pokemon's duration is supposed to be 0, and therefore its test bit must be set to 0 as well.
+	and a
+	jr z, .randomStrain
+
+	call IsMildIllnessStrain
+	jr c, .randomStrain
+
+	jr InfectMonWithCovidStrain
+
+.randomStrain
+	jr InfectMonWithRandomStrain
 
 .next
 	ld a, [wPartyCount]
@@ -170,42 +209,58 @@ GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	inc a
 	cp b
 	ret z; End 1 of this script page. Perhaps we should go back to.loop_contamined instead, so that other contagious Pokémon can try to spread their own virus.
+	
 	ld [wCurPartyMon], a
 	ld de, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
 	add hl, de
 	jr .loop
 
-.generateNewContamination ; Infection coming from a stranger Pokémon. Simultaneously sample the strain and duration
-	; New strain generation
-	ld a, 5
-	call RandomRange ; will return a value between 0 and 4 (included) in the a register.
-	add 3 ; 5 different strains exist. 1 with 1 symptom, 3 with 2 symptoms, and 1 with all 3 symptoms.
-
-	ld a, 7 ; A virer. Gives the strongest version of the disease, with all 3 symptoms.
-
-	sla a ; bits shift 1 slots to the left.
-	swap a ; 1 swap = 4 x rlca ; There is probably a faster or better way to do that...
-
-	cp [hl]
-	jr z, .generateNewContamination ; If the generated strain is the same as the previous one of the Pokémon, we generate a new one, because a Pokémon can't be affected twice by the same strain. This may cause an infinite loop, but it is highly unprobable.
 
 
-	call AddDurationToStrain
+
+; Input: HL=pokerus byte to edit/infect.
+InfectMonWithCovidStrain:
+	ld a, 4
+	call RandomRange ; returns value between 0 and 3 (both included) in the A register.
+	add 4 ; Value is now between 4 and 7 (both included).
+
+	cp 4 ; 4 is 100 in binary, which is a 1 symptom strain, which translate to a mild disease. We don't want it.
+	jr nz, .skip_strain_adjustment
+	dec a
+.skip_strain_adjustment
+
+	swap a
+	rla ; C <- [7 <- 0] <- 0 ; C is always 0 in this case (after a swap). 1 byte, 1 cycle.
 	
-	ret ; End 2 of this script page.
+	cp [hl] ; No need to mask the strain of [hl], as if a Pokemon can get infected, its duration and test bit must be 0.
+	jr z, InfectMonWithCovidStrain ; If the generated strain is the same as the previous one of the Pokémon, we generate a new one, because a Pokémon can't be affected twice by the same strain. This may cause an infinite loop, but it is highly unprobable.
+	ld b, a
+	jr InfectMon
 
+; Input: HL=pokerus byte to edit/infect.
+InfectMonWithRandomStrain:
+	ld a, 7
+	call RandomRange ; returns value between 0 and 6 (both included) in the A register.
+	inc a ; Value is now between 1 and 7 (both included).
 
+	swap a
+	rla ; C <- [7 <- 0] <- 0 ; C is always 0 in this case (after a swap). 1 byte, 1 cycle.
+	
+	cp [hl] ; No need to mask the strain of [hl], as if a Pokemon can get infected, its duration and test bit must be 0.
+	jr z, InfectMonWithRandomStrain ; If the generated strain is the same as the previous one of the Pokémon, we generate a new one, because a Pokémon can't be affected twice by the same strain. This may cause an infinite loop, but it is highly unprobable.
+	ld b, a
+	; fallthrough
 
-
-
-; Takes the strain in the a register, adds the sickness duration, then save the byte into [hl].
-; Destroys the a register.
-AddDurationToStrain:
-	ld b, a ; We store the strain in b.
+; Input: HL=pokerus byte to edit/infect. B=strain to copy (test bit must be 0).
+; No specific output.
+; Note: the test bit isn't addressed here. 
+; If a Pokémon gets infected, it means that its duration must be 0, and therefore its test bit must be 0/unset.
+InfectMon:
 	call RandomSicknessDuration
 	add b
 	ld [hl], a
 	ret
+	
 
 ; Returns a duration in the a register.
 RandomSicknessDuration:
@@ -216,7 +271,6 @@ RandomSicknessDuration:
 
 	; We add the symptoms period as well as the immunity period.
 	add POKERUS_SYMPTOMS_START
-
 	ret
 
 
@@ -260,4 +314,37 @@ ConvertBerriesToBerryJuice:
 	ld [hl], a
 	pop hl
 	pop af
+	ret
+
+
+
+
+AddPartyMonIndexToChronologicalList::
+	ld hl, wAllBattleParticipantsAfterVirusSpread ; This flag retains the list of the Pokémons that showed up on the battlefield, after a contamined Pokémon was on it.
+	push bc
+	ld b, CHECK_FLAG
+	predef SmallFarFlagAction ; The result is given in C.
+	ld a, c
+	and a
+	pop bc
+	ret nz ; If the flag was already set, it means this Pokémon is already in the list. We don't want to include it as a duplicate.
+
+	; Otherwise, we add the Pokémon to the flag array. 
+	push bc
+	predef SmallFarFlagAction ; B contains SET_FLAG, and C contains [wCurBattleMon] because of the previous pop bc.
+	pop bc
+
+	; And now we add it to the chronological list.
+	push de ; I don't know if de must be preserved, so I do it to be safe.
+	ld hl, wAllBattleParticipantsAfterVirusSpread_ListLength
+	ld a, [hl]
+	ld e, a
+	ld d, 0
+	inc [hl]
+	ld hl, wAllBattleParticipantsAfterVirusSpread_ChronologicalList
+	add hl, de ; hl now contains the first empty index of the list.
+
+	ld a, c
+	ld [hl], a ; The pokemon party index has been added to the chronological list!
+	pop de
 	ret
