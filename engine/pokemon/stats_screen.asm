@@ -831,6 +831,13 @@ LoadPinkPage:
 	hlcoord 8, 12
 	ld [hl], "<VC>"
 	ld a, b
+	
+	and POKERUS_DURATION_MASK
+	cp 2
+	jr c, .VaccineCaseTreated
+
+	hlcoord 9, 12
+	ld [hl], "<VC>" ; We display a second syringe.
 
 .VaccineCaseTreated
 	ld a, b
