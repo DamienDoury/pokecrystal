@@ -118,9 +118,9 @@ INCLUDE "maps/CeladonGameCornerPrizeRoom.asm"
 INCLUDE "maps/CeladonGym.asm"
 INCLUDE "maps/CeladonCafe.asm"
 INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
-INCLUDE "maps/Route16Gate.asm"
+INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Gate.
 INCLUDE "maps/Route7SaffronGate.asm"
-INCLUDE "maps/Route17Route18Gate.asm"
+INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
 
 
 SECTION "Map Scripts 8", ROMX

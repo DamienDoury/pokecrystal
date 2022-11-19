@@ -20,18 +20,33 @@ Route16GateBicycleCheck:
 
 .NoBicycle:
 	showemote EMOTE_SHOCK, ROUTE16GATE_OFFICER, 15
-	turnobject PLAYER, UP
+
 	opentext
+	readvar VAR_FACING
+	ifequal RIGHT, .take_back_rental
+
+	turnobject PLAYER, UP
 	writetext Route16GateCannotPassText
 	waitbutton
 	closetext
-	applymovement PLAYER, Route16GateCannotPassMovement
+
+	loadvar VAR_MOVEMENT, PLAYER_BIKE
+	special UpdatePlayerSprite
+	
+	applymovement PLAYER, Route17Route18Gate_LeftMovement
 	end
 
-Route16GateCannotPassMovement:
-	step RIGHT
-	turn_head LEFT
-	step_end
+.take_back_rental:
+	turnobject PLAYER, UP
+	writetext Route17Route18GateGetRentalBackText
+	waitbutton
+	closetext
+
+	loadvar VAR_MOVEMENT, PLAYER_NORMAL
+	special UpdatePlayerSprite
+
+	applymovement PLAYER, Route17Route18Gate_RightMovement
+	end
 
 Route16GateOfficerText:
 	text "CYCLING ROAD"
@@ -56,6 +71,8 @@ Route16GateCannotPassText:
 
 	para "ROAD without a"
 	line "BICYCLE."
+
+	para "I'll lend you one."
 	done
 
 Route16Gate_MapEvents:

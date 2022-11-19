@@ -20,17 +20,41 @@ Route17Route18GateBicycleCheck:
 
 .NoBicycle:
 	showemote EMOTE_SHOCK, ROUTE17ROUTE18GATE_OFFICER, 15
-	turnobject PLAYER, UP
+
 	opentext
+
+	readvar VAR_FACING
+	ifequal RIGHT, .take_back_rental
+
+	turnobject PLAYER, UP
 	writetext Route17Route18GateCannotPassText
 	waitbutton
 	closetext
-	applymovement PLAYER, Route17Route18GateCannotPassMovement
+
+	loadvar VAR_MOVEMENT, PLAYER_BIKE
+	special UpdatePlayerSprite
+	
+	applymovement PLAYER, Route17Route18Gate_LeftMovement
 	end
 
-Route17Route18GateCannotPassMovement:
+.take_back_rental:
+	turnobject PLAYER, UP
+	writetext Route17Route18GateGetRentalBackText
+	waitbutton
+	closetext
+
+	loadvar VAR_MOVEMENT, PLAYER_NORMAL
+	special UpdatePlayerSprite
+
+	applymovement PLAYER, Route17Route18Gate_RightMovement
+	end
+
+Route17Route18Gate_LeftMovement:
+	step LEFT
+	step_end
+
+Route17Route18Gate_RightMovement:
 	step RIGHT
-	turn_head LEFT
 	step_end
 
 Route17Route18GateOfficerText:
@@ -38,15 +62,24 @@ Route17Route18GateOfficerText:
 	line "Uphill Starts Here"
 	done
 
+Route17Route18GateGetRentalBackText:
+	text "I'll take this"
+	line "rental BICYCLE"
+	cont "back, thank you!"
+	done
+
 Route17Route18GateCannotPassText:
 	text "Hang on! Don't you"
 	line "have a BICYCLE?"
 
 	para "The CYCLING ROAD"
-	line "is beyond here."
+	line "is beyond here"
 
-	para "You have to have a"
-	line "BICYCLE to go on."
+	para "and you'll need"
+	line "a BICYCLE."
+
+	para "I'll give you a"
+	line "rental for free."
 	done
 
 Route17Route18Gate_MapEvents:
