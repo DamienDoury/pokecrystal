@@ -37,6 +37,16 @@ LavRadioTower1FGentlemanScript:
 	getstring STRING_BUFFER_4, .expncardname
 	scall .receiveitem
 	setflag ENGINE_EXPN_CARD
+
+	checkflag ENGINE_RADIO_CARD
+	iftrue .GotExpnCard
+
+	writetext LavRadioTower1FGentlemanText_GiveRadioCard
+	promptbutton
+	getstring STRING_BUFFER_4, .RadioCardText
+	scall .receiveitem
+	setflag ENGINE_RADIO_CARD
+
 .GotExpnCard:
 	writetext LavRadioTower1FGentlemanText_GotExpnCard
 	waitbutton
@@ -49,6 +59,9 @@ LavRadioTower1FGentlemanScript:
 
 .expncardname
 	db "EXPN CARD@"
+
+.RadioCardText:
+	db "RADIO CARD@"
 
 LavRadioTower1FSuperNerd2Script:
 	faceplayer
@@ -143,6 +156,15 @@ LavRadioTower1FGentlemanText_ReturnedMachinePart:
 
 	para "Please take this"
 	line "as my thanks."
+	done
+
+LavRadioTower1FGentlemanText_GiveRadioCard:
+	text "Your #GEAR"
+	line "doesn't have the"
+	cont "radio?"
+
+	para "Then you get"
+	line "two for one!"
 	done
 
 LavRadioTower1FGentlemanText_GotExpnCard:
