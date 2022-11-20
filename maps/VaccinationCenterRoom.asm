@@ -5,10 +5,6 @@ VaccinationCenterRoom_MapScripts:
     def_scene_scripts
 
     def_callbacks
-    callback MAPCALLBACK_OBJECTS, .EnterCallback
-
-.EnterCallback:
-    endcallback
 
 VaccinationCenterRoomVaccineScript:
     faceplayer
