@@ -2734,8 +2734,21 @@ AI_Smart_Solarbeam:
 	ret
 
 AI_Smart_Thunder:
-; 90% chance to discourage this move when it's sunny.
+; 90% chance to discourage this move when it's sunny or hail
+	ld a, [wOtherTrainerClass]
+	cp RED
+	jr nz, .not_red
 
+	; Special case for Red's Pikachu: Thunder is 100% highly discouraged if Rain is not active.
+	ld a, [wBattleWeather]
+	cp WEATHER_RAIN
+	ret z
+
+	inc [hl]
+	inc [hl]
+	ret
+
+.not_red
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	ret nz
