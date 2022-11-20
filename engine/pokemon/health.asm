@@ -104,19 +104,6 @@ ComputeHPBarPixels:
 	ret
 
 AnimateHPBar:
-	ld a, [wWhichHPBar]
-	cp 0
-	jr nz, .animate
-
-	ld a, [wOtherTrainerClass]
-	cp RED
-	jr nz, .animate
-
-	ld c, 30
-	call DelayFrames ; Input: C = Number of frames.
-	ret
-
-.animate
 	call WaitBGMap
 	call _AnimateHPBar
 	call WaitBGMap

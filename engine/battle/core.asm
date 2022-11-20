@@ -4864,10 +4864,6 @@ UpdateEnemyHUD::
 	ret
 
 DrawEnemyHUD:
-	ld a, [wOtherTrainerClass]
-	cp RED
-	ret z
-
 	xor a
 	ldh [hBGMapMode], a
 
@@ -9344,14 +9340,9 @@ BattleStartMessage:
 	;ld hl, WildPokemonAppearedText
 
 .PlaceBattleStartText:
-	ld a, [wOtherTrainerClass]
-	cp RED
-	jr z, .SkipTrainerBattleHUD
-
 	push hl
 	farcall BattleStart_TrainerHuds
 	pop hl
-.SkipTrainerBattleHUD
 	call StdBattleTextbox
 
 	call IsMobileBattle2
