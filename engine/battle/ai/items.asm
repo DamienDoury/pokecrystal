@@ -601,12 +601,12 @@ EnemyUsedPotion:
 
 EnemyUsedSuperPotion:
 	ld a, SUPER_POTION
-	ld b, 50
+	ld b, 60
 	jr EnemyPotionContinue
 
 EnemyUsedHyperPotion:
 	ld a, HYPER_POTION
-	ld b, 200
+	ld b, 120
 
 EnemyPotionContinue:
 	ld [wCurEnemyItem], a
