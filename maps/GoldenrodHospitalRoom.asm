@@ -1346,9 +1346,9 @@ GoldenrodHospitalRoom25Patient_QuestStartText:
 	para "I am not angry,"
 	line "I am… worried."
 
-	para "Take my #MON."
-	line "It is holding"
-	cont "a MAIL."
+	para "Take my #MON"
+	line "with its MAIL"
+	cont "to her."
 	done
 
 GoldenrodHospitalRoom25Patient_DeliverMailText:

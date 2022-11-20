@@ -155,14 +155,14 @@ NurseCriticallyIllText:
 	cont "and needs imme-"
 	cont "diate care."
 
+	para "It looks like a"
+	line "severe form of"
+	cont "COVID…"
+
 	para "I must send it to"
 	line "the hospital right"
 	cont "now, before it's"
 	cont "too late."
-
-	para "It looks like a"
-	line "severe form of"
-	cont "COVID…"
 	done
 
 NurseCriticallyIllMail1Text:
