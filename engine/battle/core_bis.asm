@@ -1,3 +1,30 @@
+ExitBattle:
+	call .HandleEndOfBattle
+	farcall CleanUpBattleRAM
+	ret
+
+.HandleEndOfBattle:
+	ld a, [wLinkMode]
+	and a
+	jr z, .not_linked
+	farcall ShowLinkBattleParticipantsAfterEnd
+	ld c, 150
+	call DelayFrames
+	farcall DisplayLinkBattleResult
+	ret
+
+.not_linked
+	ld a, [wBattleResult]
+	and $f
+	ret nz
+	farcall CheckPayDay
+	farcall IncreaseResearchLevel
+	xor a
+	ld [wForceEvolution], a
+	predef EvolveAfterBattle
+	farcall GivePokerusAndConvertBerries
+	ret
+	
 _StartAutomaticBattleWeather::
 	callfar GetAutomaticBattleWeather
 	ldh a, [hFarByte]

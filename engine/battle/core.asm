@@ -8279,7 +8279,7 @@ StartBattle:
 	push af
 	call BattleIntro
 	call DoBattle
-	call ExitBattle
+	farcall ExitBattle
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
@@ -8503,33 +8503,6 @@ FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
 	pop bc
 	dec b
 	jr nz, .clear
-	ret
-
-ExitBattle:
-	call .HandleEndOfBattle
-	call CleanUpBattleRAM
-	ret
-
-.HandleEndOfBattle:
-	ld a, [wLinkMode]
-	and a
-	jr z, .not_linked
-	call ShowLinkBattleParticipantsAfterEnd
-	ld c, 150
-	call DelayFrames
-	call DisplayLinkBattleResult
-	ret
-
-.not_linked
-	ld a, [wBattleResult]
-	and $f
-	ret nz
-	call CheckPayDay
-	xor a
-	farcall IncreaseResearchLevel
-	ld [wForceEvolution], a
-	predef EvolveAfterBattle
-	farcall GivePokerusAndConvertBerries
 	ret
 	
 CleanUpBattleRAM:
