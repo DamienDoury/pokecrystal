@@ -8287,6 +8287,7 @@ StartBattle:
 
 BattleIntro:
 	farcall StubbedTrainerRankings_Battles ; mobile
+	farcall ForceBattleAnimationStart
 	call LoadTrainerOrWildMonPic
 	xor a
 	ld [wTempBattleMonSpecies], a

@@ -1709,7 +1709,7 @@ wOBP1:: db
 
 wNumHits:: db
 
-	ds 1
+wOptionsBackup:: db ; Used during Red's battle, to force the activation of the battle animations.
 
 wOptions::
 ; bit 0-2: number of frames to delay when printing text

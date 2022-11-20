@@ -1,4 +1,5 @@
 ExitBattle:
+	call ForceBattleAnimationEnd
 	call .HandleEndOfBattle
 	farcall CleanUpBattleRAM
 	ret
@@ -67,3 +68,33 @@ _StartAutomaticBattleWeather::
 	ret
 
 INCLUDE "data/battle/automatic_weather_anims.asm"
+
+ForceBattleAnimationStart::
+	ld a, [wBattleType]
+	cp BATTLETYPE_SHINY
+	jr z, .force_animations
+
+	ld a, [wOtherTrainerClass]
+	cp RED
+	ret nz
+
+.force_animations
+	ld a, [wOptions]
+	ld [wOptionsBackup], a
+	res BATTLE_SCENE, a
+	ld [wOptions], a
+	ret
+
+ForceBattleAnimationEnd::
+	ld a, [wBattleType]
+	cp BATTLETYPE_SHINY
+	jr z, .restore_animation_options
+
+	ld a, [wOtherTrainerClass]
+	cp RED
+	ret nz
+
+.restore_animation_options
+	ld a, [wOptionsBackup]
+	ld [wOptions], a
+	ret
