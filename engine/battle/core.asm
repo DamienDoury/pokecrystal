@@ -8,12 +8,6 @@ DoBattle:
 	ld [wAllBattleParticipants], a
 	ld [wAllBattleParticipantsAfterVirusSpread], a
 	ld [wAllBattleParticipantsAfterVirusSpread_ListLength], a
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 0], a ; Useless.
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 1], a ; Useless.
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 2], a ; Useless.
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 3], a ; Useless.
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 4], a ; Useless.
-	;ld [wAllBattleParticipantsAfterVirusSpread_ChronologicalList + 5], a ; Useless.
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	inc a
@@ -3977,9 +3971,9 @@ TryToRunAwayFromBattle:
 	call WaitPlaySFX
 	pop de
 	call WaitSFX
-	ld hl, BattleText_GotAwaySafely
-	call StdBattleTextbox
-	call WaitSFX
+	;ld hl, BattleText_GotAwaySafely
+	;call StdBattleTextbox
+	;call WaitSFX
 	call LoadTilemapToTempTilemap
 	farcall SpreadPokerusFromAllies
 	scf
@@ -9342,7 +9336,8 @@ BattleStartMessage:
 	ld hl, WildCelebiAppearedText
 	cp BATTLETYPE_CELEBI
 	jr z, .PlaceBattleStartText
-	ld hl, WildPokemonAppearedText
+	ret ; Added to gain time at the start of battles.
+	;ld hl, WildPokemonAppearedText
 
 .PlaceBattleStartText:
 	push hl
