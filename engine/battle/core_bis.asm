@@ -26,9 +26,16 @@ _StartAutomaticBattleWeather::
 ; start weather for 255 turns
 	ld a, 255
 	ld [wWeatherCount], a
+
+	push hl
+	farcall CheckBattleScene
+	pop hl
+	jr c, .end
+
 	push hl
 	farcall Call_PlayBattleAnim ; uses de
 	pop hl
+.end
 	rla ; Unsets Z flag, fastest instruction I could find to do this. Z flag is the return value of this function.
 	ret
 

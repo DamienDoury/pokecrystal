@@ -1770,9 +1770,40 @@ HandleWeather:
 	call .PrintWeatherMessage
 
 	ld a, [wBattleWeather]
-	cp WEATHER_SANDSTORM
-	jr nz, .check_hail
+	
+	cp WEATHER_HAIL
+	jp z, .do_hail
 
+	cp WEATHER_SANDSTORM
+	jr z, .do_sandstorm
+
+	farcall CheckBattleScene
+	ret c
+
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jr z, .do_sun
+
+	cp WEATHER_RAIN
+	jr z, .do_rain
+	ret
+
+.do_sun
+	ld de, SUNNY_DAY
+	jr .passive_weather_end
+
+.do_rain
+	ld de, RAIN_DANCE
+
+.passive_weather_end
+	call SwitchTurnCore
+	xor a
+	ld [wNumHits], a
+	call Call_PlayBattleAnim
+	call SwitchTurnCore
+	ret
+
+.do_sandstorm
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .enemy_first
@@ -1819,8 +1850,14 @@ HandleWeather:
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
+	;push hl
+	farcall CheckBattleScene
+	;pop hl
+	jr c, .no_sandstorm_anim
+
 	ld de, ANIM_IN_SANDSTORM
 	call Call_PlayBattleAnim
+.no_sandstorm_anim
 	call SwitchTurnCore
 	call GetEighthMaxHP
 	call SubtractHPFromUser
@@ -1828,11 +1865,7 @@ HandleWeather:
 	ld hl, SandstormHitsText
 	jp StdBattleTextbox
 
-.check_hail
-	ld a, [wBattleWeather]
-	cp WEATHER_HAIL
-	ret nz
-
+.do_hail
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .enemy_first_hail
@@ -1871,8 +1904,15 @@ HandleWeather:
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
+
+	;push hl
+	farcall CheckBattleScene
+	;pop hl
+	jr c, .no_hail_anim
+	
 	ld de, ANIM_IN_HAIL
 	call Call_PlayBattleAnim
+.no_hail_anim
 	call SwitchTurnCore
 
 	call GetEighthMaxHP
