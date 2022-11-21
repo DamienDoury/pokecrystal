@@ -152,7 +152,7 @@ FuchsiaCityFruitTree2:
 	waitbutton
 	closetext
 	setlasttalked -1
-	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	loadwildmon KANGASKHAN, 40
 	startbattle
 	reloadmapafterbattle

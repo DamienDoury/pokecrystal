@@ -98,7 +98,6 @@ SetTestFlag:
 ; Output: true/carry if it is a indeed a mild illness, false/no carry otherwise.
 ; Destroys no other register than A.
 IsMildIllnessStrain:
-	xor a
 	ld a, [hl] ; Retrieving the pokerus byte.
 	and POKERUS_STRAIN_MASK ; Note that we check the duration, and not the strain. The nurse cannot detect the Pokémon's immunity, only the presence of the virus. It works like a PCR test.
 	ret z ; Returns false when strain is 0.
