@@ -1686,7 +1686,7 @@ wJoypadDisable::
 ; bit 7: ongoing sgb data transfer
 	db
 
-	ds 1
+wBattlePokerusSeed:: db ; Seed 000 is no Pokérus, otherwise the wild Pokémon will spread Pokérus at the end of the battle, and will have it itself if caught.
 
 wInBattleTowerBattle::
 ; 0 not in BattleTower-Battle

@@ -53,8 +53,6 @@ ExitBattle:
 	ret
 
 .HandleEndOfBattle:
-	xor a
-	ld [wAssaultBattle], a
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
@@ -74,6 +72,9 @@ ExitBattle:
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
+	xor a
+	ld [wAssaultBattle], a
+	ld [wBattlePokerusSeed], a
 	ret
 	
 
@@ -412,7 +413,55 @@ BattleStartMessage:
 
 	ret
 
-DetermineAssault::
+DeterMineAssaultAndPokerusSeed::
+	ld a, [wBattlePokerusSeed]
+	cp TRUE
+	jr z, .generate_seed ; If the seed is 1, it is an invalid seed. This value if used to force a covid battle. Note that a seed is set to 0 after each battle.
+
+	xor a
+	ld [wBattlePokerusSeed], a ; Reset the seed, in case it's dirty.
+
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
+	jr z, DetermineAssault
+
+	; Can't get the virus from trainers in Celadon Gym, as everyone is vaccinated.
+	ld a, [wMapGroup]
+	cp GROUP_CELADON_GYM
+	jr nz, .next_checks
+
+	ld a, [wMapNumber]
+	cp MAP_CELADON_GYM
+	jr z, DetermineAssault
+
+.next_checks
+	ld a, [wBattleType]
+	cp BATTLETYPE_NORMAL
+	jr z, .roll_dice
+	cp BATTLETYPE_FISH
+	jr z, .roll_dice
+	cp BATTLETYPE_TREE
+	jr z, .roll_dice
+	cp BATTLETYPE_TRAP
+	jr z, .roll_dice
+	jr DetermineAssault
+
+	; Covid can only be gotten by one of those battle types. BATTLETYPE_NORMAL includes trainers and wild Pokémons.
+.roll_dice
+	call Random
+	cp 4 ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
+	jr nc, DetermineAssault ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed immediately).
+
+.generate_seed
+	ld hl, wBattlePokerusSeed
+
+	push de
+	ld de, InfectMonWithRandomStrain
+	ld a, BANK(InfectMonWithRandomStrain)
+	call FarCall_de ; Far calling CheckTypeMatchupFarcall. The a value will be gotten from [hFarByte].
+	pop de
+
+DetermineAssault:
 	ld a, FALSE
 	ld [wAssaultBattle], a
 
@@ -439,3 +488,4 @@ DetermineAssault::
 	ld a, TRUE
 	ld [wAssaultBattle], a
 	ret
+

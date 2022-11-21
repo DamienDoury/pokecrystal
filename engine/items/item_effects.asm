@@ -538,7 +538,7 @@ PokeBallEffect:
 
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
-	jr z, .SendToPC
+	jp z, .SendToPC
 
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -547,6 +547,21 @@ PokeBallEffect:
 	predef TryAddMonToParty
 
 	farcall SetCaughtData
+	
+	ld a, [wBattlePokerusSeed]
+	and a
+	jr z, .SkipPokerusToParty
+	
+	ld a, [wPartyCount]
+	dec a
+	ld hl, wPartyMon1PokerusStatus
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+
+	ld a, [wBattlePokerusSeed]
+	ld [hl], a
+
+.SkipPokerusToParty
 
 	ld a, [wCurItem]
 	cp FRIEND_BALL
@@ -613,6 +628,13 @@ PokeBallEffect:
 	ld hl, wBattleResult
 	set BATTLERESULT_BOX_FULL, [hl]
 .BoxNotFullYet:
+	ld a, [wBattlePokerusSeed]
+	and a
+	jr z, .SkipPokerusToPC
+
+	ld [sBoxMon1PokerusStatus], a
+
+.SkipPokerusToPC
 	ld a, [wCurItem]
 	cp FRIEND_BALL
 	jr nz, .SkipBoxMonFriendBall

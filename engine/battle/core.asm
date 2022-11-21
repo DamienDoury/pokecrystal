@@ -114,7 +114,7 @@ DoBattle:
 	call SpikesDamage
 
 .not_linked_2
-	farcall DetermineAssault
+	farcall DeterMineAssaultAndPokerusSeed
 	call StartAutomaticBattleWeather
 	jp BattleTurn
 

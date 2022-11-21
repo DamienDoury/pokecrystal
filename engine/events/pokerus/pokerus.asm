@@ -144,30 +144,25 @@ DetermineIfThisPokemonGotContaminedByAllies:
 
 
 
-; If we haven't been to Goldenrod City at least once,
-; prevent the contraction of Pokerus.
-; Now we check if the enemy Pokémon has contaminated us.
+
 SpreadPokerusFromOpponents:
-	ld hl, wStatusFlags2
-	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
-	ret z
+	ld a, [wPlayerTurnsTaken]
+	ld d, a
+	ld a, [wEnemyTurnsTaken]
+	add d
+	ret z ; The player can't get covid if he/she runs away immediately, or catches the Pokémon at first try. Getting assaulted may give it, which it what we expect.
 
-	; Can't get the virus from trainers in Celadon Gym, as everyone is vaccinated.
-	ld a, [wMapGroup]
-	cp GROUP_CELADON_GYM
-	jr nz, .roll_dice
+	ld hl, wBattlePokerusSeed
+	ld a, [hl]
+	and a
+	ret z ; If the battle seed is zero, then we can exit.
 
-	ld a, [wMapNumber]
-	cp MAP_CELADON_GYM
-	ret z
+	call IsMildIllnessStrain
+	ld d, FALSE
+	jr nc, .strain_identified
+	ld d, TRUE ; If D is true, then the battle seed is a mild illness.
 
-.roll_dice
-	call Random
-	cp 4 ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
-	ret nc ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed).
-	; fallthrough
-
-ForceSpreadPokerusFromOpponents:
+.strain_identified
 	ld a, [wPartyCount]
 	ld b, a
 
@@ -177,7 +172,7 @@ ForceSpreadPokerusFromOpponents:
 
 ; We look for a healthy Pokémon to be contaminated by a stranger Pokémon.
 .loop
-	ld c, a
+	ld c, a ; C contains the party index.
 	push hl
 	ld hl, wAllBattleParticipants ; We test all Pokémons that have been on the battlefield, as this infection comes from an enemy Pokémon (we don't know which enemy Pokémon).
 	ld b, CHECK_FLAG
@@ -190,27 +185,34 @@ ForceSpreadPokerusFromOpponents:
 
 	; If the Pokémon went into battle, it may have been contaminated.
 	ld a, [hl]
-	and POKERUS_DURATION_MASK ; Note: vaccinated Pokémons keep a duration of 1, so this check discards them.
+	and POKERUS_DURATION_MASK 
 	jr nz, .next
 
-	; At this point, we know we are going to contaminate this Pokémon.
-	; We now have to determine if it should be contaminated with a random, or covid only strain.
+	; If the battle strain is the same as the Pokémon's previous strain, then it is immune to it indefinitely.
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK 
+	ld e, a
 
-	; Only 1 Pokémon can be infected by this function. So up to 1 Pokémon per battle.
-	; It will always be the Pokémon with the lowest party index, which should be 0 (first Pokémon).
-	; This is efficient for spreading the virus into the party thereafter.
+	ld a, [wBattlePokerusSeed]
+	and POKERUS_STRAIN_MASK
+	cp e
+	jr z, .next ; Both strains are identical, so the Pokémon is immune.
 
-	ld a, [hl] ; Note: No need to mask the strain, as this pokemon's duration is supposed to be 0, and therefore its test bit must be set to 0 as well.
+	ld a, d
 	and a
-	jr z, .randomStrain
+	jr z, .do_infect ; If the battle strain is not a mild disease, it means it's a covid strain. Then it can infect any Pokémon, no matter what virus it caught in the past.
+
+	; From here on, we know the battle strain is a mild illness, and not everyone can catch it: Pokémon that had Covid in the past are immune to mild illnesses.
+
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK 
+	jr z, .do_infect ; If the Pokémon has never been sick, then it can catch this mild disease.
 
 	call IsMildIllnessStrain
-	jr c, .randomStrain
+	jr c, .do_infect ; If the Pokémon had a mild illness in the past, it can catch this mild illness.
 
-	jr InfectMonWithCovidStrain
-
-.randomStrain
-	jr InfectMonWithRandomStrain
+	; At this point, we know the Pokémon has a covid strain and is trying to get infected by a mild disease, which is not possible.
+	; So we skip this Pokémon and go to the next one.
 
 .next
 	ld a, [wPartyCount]
@@ -218,14 +220,19 @@ ForceSpreadPokerusFromOpponents:
 	ld a, [wCurPartyMon]
 	inc a
 	cp b
-	ret z; End 1 of this script page. Perhaps we should go back to.loop_contamined instead, so that other contagious Pokémon can try to spread their own virus.
+	ret z
 	
 	ld [wCurPartyMon], a
-	ld de, PARTYMON_STRUCT_LENGTH ; de should not be touched, but I'm not sure about SmallFarFlagAction.
+	push de
+	ld de, PARTYMON_STRUCT_LENGTH
 	add hl, de
+	pop de
 	jr .loop
 
-
+.do_infect
+	ld a, [wBattlePokerusSeed]
+	ld [hl], a
+	ret
 
 
 ; Input: HL=pokerus byte to edit/infect.
