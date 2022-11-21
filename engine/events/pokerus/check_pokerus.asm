@@ -176,7 +176,14 @@ _SearchCriticallyIllMonInParty::
 ; Now when the duration is gonna be within symptoms (below symptoms_start and above immunity_start) it will be critically ill.
 WillBeCriticallyIll:
 	push hl
+	push de
 	push bc
+	
+	push hl
+	farcall IsStuckInKanto
+	pop hl
+	jr c, .kanto_no_power
+
 	ld bc, $ffff + $0001 - (MON_PKRUS - MON_DVS)
 	add hl, bc ; This does "sub hl, MON_PKRUS - MON_DVS".
 
@@ -188,9 +195,37 @@ WillBeCriticallyIll:
 	add b
 	sub 7
 	pop bc
+	pop de
 	pop hl
 	ret nc
 
 	call IsMildIllnessStrain
 	ccf ; Note: we need to invert the result (carry) of IsMildIllnessStrain.
 	ret
+
+.kanto_no_power
+	ld bc, MON_CAUGHTLOCATION - MON_PKRUS
+	add hl, bc
+
+	ld a, [hl]
+	and CAUGHT_LOCATION_MASK
+	cp KANTO_LANDMARK
+	jr c, .return_true ; Returns true (the Pokémon was caught in Johto, and therefore should become critically ill).
+
+	cp LANDMARK_FAST_SHIP
+	jr nc, .return_true
+
+;.return_false
+	pop bc
+	pop de
+	pop hl
+	xor a
+	ret
+
+.return_true
+	pop bc
+	pop de
+	pop hl
+	scf
+	ret
+	

@@ -406,6 +406,8 @@ SendMonToHospital::
 
 .checkItem
 	; Actually, I decided that a pokemon would be sent to the hospital with its item.
+	; That prevents error handling, like a full bag or full PC.
+	; Perhaps we should make the item recoverable at the hospital?
 	
 .deposit_mon_into_hospital_box
 	ld a, [wCurPartyMon]

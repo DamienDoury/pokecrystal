@@ -235,10 +235,40 @@ BillsPC_ChangeBoxMenu:
 	and a
 	ret
 
+; Destroys all registers: af, bc, de, hl.
+; Input: none.
+; Returns carry if the player is stuck in Kanto before the power plant is repaired.
+IsStuckInKanto::
+	ld hl, wVisitedSpawns
+	ld b, CHECK_FLAG
+	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
+	call FlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .is_free	; false, the player hasn't reached Vermilion yet.
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_RESTORED_POWER_TO_KANTO
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+
+	jr nz, .is_free	; true, the player has saved the power plant.
+
+	scf ; Return true.
+	ret
+
+.is_free
+	xor a ; Return false.
+	ret
+
 
 IsPCPoweredUp:
 	; Checks the "change box lock" when the power plant is shutdown.
 	push hl
+	call IsStuckInKanto
+	jr nc, .allow_box_change
+
 	ld hl, wVisitedSpawns
 	ld b, CHECK_FLAG
 	ld de, ENGINE_FLYPOINT_VERMILION - ENGINE_FLYPOINT_PLAYERS_HOUSE
