@@ -5,7 +5,7 @@ auto_weather_effect: MACRO
 	dw \2 ; animation
 	dw \3 ; text
 ENDM
-	auto_weather_effect WEATHER_SUN, SUNNY_DAY, SunGotBrightText
-	auto_weather_effect WEATHER_RAIN, RAIN_DANCE, DownpourText
-	auto_weather_effect WEATHER_SANDSTORM, ANIM_IN_SANDSTORM, SandstormBrewedText
-	auto_weather_effect WEATHER_HAIL, ANIM_IN_HAIL, ItStartedToHailText
+	auto_weather_effect WEATHER_SUN, SUNNY_DAY, BattleText_TheSunlightIsStrong
+	auto_weather_effect WEATHER_RAIN, RAIN_DANCE, BattleText_RainContinuesToFall
+	auto_weather_effect WEATHER_SANDSTORM, ANIM_IN_SANDSTORM, BattleText_TheSandstormRages
+	auto_weather_effect WEATHER_HAIL, ANIM_IN_HAIL, BattleText_HailContinuesToFall
