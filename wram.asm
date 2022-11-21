@@ -1693,7 +1693,7 @@ wInBattleTowerBattle::
 ; 1 BattleTower-Battle
 	db
 
-	ds 1
+wAssaultBattle:: db
 
 wFXAnimID:: dw
 
@@ -1709,7 +1709,7 @@ wOBP1:: db
 
 wNumHits:: db
 
-wOptionsBackup:: db ; Used during Red's battle, to force the activation of the battle animations.
+wOptionsBackup:: db ; Used during Red's battle and shiny battles, to force the activation of the battle animations.
 
 wOptions::
 ; bit 0-2: number of frames to delay when printing text

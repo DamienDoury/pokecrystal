@@ -53,6 +53,8 @@ ExitBattle:
 	ret
 
 .HandleEndOfBattle:
+	xor a
+	ld [wAssaultBattle], a
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
@@ -120,6 +122,18 @@ _StartAutomaticBattleWeather::
 	ld a, 255
 	ld [wWeatherCount], a
 
+	ld a, [wAssaultBattle]
+	cp TRUE
+	jp nz, .check_battle_scene_option
+
+	ld a, [wPlayerTurnsTaken]
+	cp 0
+	jr nz, .check_battle_scene_option 
+
+	; If it is the first turn of an assault, we don't display the weather to make the assault quick and surprising.
+	jr .end
+
+.check_battle_scene_option
 	push hl
 	farcall CheckBattleScene
 	pop hl
@@ -396,4 +410,32 @@ BattleStartMessage:
 	ld c, $2 ; start
 	farcall Mobile_PrintOpponentBattleMessage
 
+	ret
+
+DetermineAssault::
+	ld a, FALSE
+	ld [wAssaultBattle], a
+
+	ld a, [wBattleType]
+	cp BATTLETYPE_SHINY
+	jr z, .forceAssault ; The Red Gyarados always assaults the player! Cause it's angry!
+
+	cp BATTLETYPE_NORMAL
+	ret nz ; Assault can only triggers with regular wild battles (not even fishing).
+	
+	ld de, ENGINE_FLYPOINT_AZALEA
+	farcall CheckEngineFlag ; Returns the result of the check in c.
+	ret c ; Assaults start once the player reached Azalea.
+
+	ld a, [wBattleMode]
+	cp WILD_BATTLE
+	ret nz ; Assaults only happen in wild battles.
+
+	call BattleRandom
+	cp 26
+	ret nc ; ~1/10 odds of getting assaulted.
+
+.forceAssault
+	ld a, TRUE
+	ld [wAssaultBattle], a
 	ret

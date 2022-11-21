@@ -114,6 +114,7 @@ DoBattle:
 	call SpikesDamage
 
 .not_linked_2
+	farcall DetermineAssault
 	call StartAutomaticBattleWeather
 	jp BattleTurn
 
@@ -127,6 +128,10 @@ StartAutomaticBattleWeather:
 	call FarCall_de ; We're using FarCall_de because we need the HL output for StdBattleTextbox.
 	pop de
 	ret z
+
+	ld a, [wAssaultBattle]
+	cp TRUE
+	jp z, EmptyBattleTextbox ; Skip the first weather text when assaulted.
 
 	call StdBattleTextbox ; uses hl
 	jp EmptyBattleTextbox
@@ -205,6 +210,26 @@ BattleTurn:
 
 	call CheckPlayerLockedIn
 	jr c, .skip_iteration
+
+	ld a, [wAssaultBattle]
+	cp TRUE
+	jr nz, .loop1
+
+	ld a, [wEnemyTurnsTaken]
+	cp 0
+	jr nz, .loop1
+
+	xor a
+	ld [wCurEnemyMoveNum], a
+	
+	ld a, [wEnemyMonMoves]
+	ld [wCurEnemyMove], a
+
+	ld a, $ff
+	ld [wCurPlayerMove], a
+
+	jr .assault
+	
 .loop1
 	call BattleMenu
 	jr c, .quit
@@ -223,6 +248,7 @@ BattleTurn:
 
 	call DetermineMoveOrder
 	jr c, .false
+.assault
 	call Battle_EnemyFirst
 	jr .proceed
 .false
@@ -930,6 +956,20 @@ Battle_EnemyFirst:
 	ld a, [wForcedSwitch]
 	and a
 	ret nz
+
+	ld a, [wAssaultBattle]
+	cp TRUE
+	jp nz, .assault_case_treated
+
+	ld a, [wPlayerTurnsTaken]
+	cp 0
+	jr nz, .assault_case_treated
+
+	; Assault notification
+	ld hl, WildPokemonAssaultText
+	call StdBattleTextbox
+
+.assault_case_treated
 	call HasPlayerFainted
 	jp z, HandlePlayerMonFaint
 	call HasEnemyFainted

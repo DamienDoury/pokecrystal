@@ -1210,3 +1210,9 @@ BattleText_NoTimeLeftToday: ; unreferenced
 	line "left today!"
 	done
 
+WildPokemonAssaultText:
+	text "Wild @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "assaulted you!"
+	prompt
