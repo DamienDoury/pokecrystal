@@ -453,10 +453,18 @@ DeterMineAssaultAndPokerusSeed::
 	jr nc, DetermineAssault ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed immediately).
 
 .generate_seed
-	ld hl, wBattlePokerusSeed
-
 	push de
+	call IsInJohto
+	cp KANTO_REGION
+	jr z, .kanto_seed
+
 	ld de, InfectMonWithRandomStrain
+	jr .start_generation
+
+.kanto_seed
+	ld de, InfectMonWithCovidStrain ; In Kanto, no mild illnesses: only COVID to make the game harder.
+.start_generation
+	ld hl, wBattlePokerusSeed
 	ld a, BANK(InfectMonWithRandomStrain)
 	call FarCall_de ; Far calling CheckTypeMatchupFarcall. The a value will be gotten from [hFarByte].
 	pop de
