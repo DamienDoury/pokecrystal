@@ -1632,11 +1632,29 @@ HandleDayCareOutdoorPalettes:
 HandleHospitalRoomPalette:
 	ld a, [wMapGroup]
 	cp GROUP_GOLDENROD_HOSPITAL_ROOM
-	ret nz
+	jr nz, .vaccination_center_check
 	ld a, [wMapNumber]
 	cp MAP_GOLDENROD_HOSPITAL_ROOM
+	jr nz, .vaccination_center_check
+	jr .hospital
+
+.vaccination_center_check
+	ld a, [wMapGroup]
+	cp GROUP_VACCINATION_CENTER_ROOM
+	ret nz
+	ld a, [wMapNumber]
+	cp MAP_VACCINATION_CENTER_ROOM
 	ret nz
 
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+
+	jr .skip_automated_species_selection
+
+
+.hospital
 	ld a, BANK(sHospitalBoxMon1DVs)
 	call OpenSRAM
 
@@ -1647,6 +1665,7 @@ HandleHospitalRoomPalette:
 	sub 5
 	call AddNTimes
 
+.skip_automated_species_selection
 	ld de, GetMenuMonIconPalette
 	ld a, BANK(GetMenuMonIconPalette) ; Input: wCurPartySpecies, DVs in hl. Output: palette ID in hFarByte, L and A.
 	call FarCall_de

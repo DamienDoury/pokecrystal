@@ -238,6 +238,10 @@ GetMonSprite:
 	cp FALSE
 	jr z, .EmptyHospitalMon
 
+	cp 2 ; Vaccination center.
+	ld a, [wCurPartySpecies]
+	jr z, .Mon
+
 	ld a, [wScriptVar]
 	farcall SetHospitalMonSpecies
 	ld a, [wTempWildMonSpecies]

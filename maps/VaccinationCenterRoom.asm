@@ -1,10 +1,18 @@
     object_const_def
     const VACCINATION_CENTER_VACCINE
+    const VACCINATION_CENTER_MON
 
 VaccinationCenterRoom_MapScripts:
     def_scene_scripts
 
     def_callbacks
+    callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+    disappear VACCINATION_CENTER_MON
+    setval 2
+    writemem wSickMonIsInThisRoom
+    endcallback
 
 VaccinationCenterRoomVaccineScript:
     faceplayer
@@ -86,6 +94,11 @@ VaccinationCenterRoomVaccineScript:
     ; Animation: Scientist walks forwards then back backwards, while always facing the pokemon.
     ; Script: vaccination script that edits the PokerusStatus byte.
     special Vaccinate
+
+    setval 0
+    writemem wSickMonIsInThisRoom
+
+    appear VACCINATION_CENTER_MON
     ; Text: bye.
 
 .must_leave:
@@ -311,3 +324,4 @@ VaccinationCenterRoom_MapEvents:
 
     def_object_events
 	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, -1
+    object_event  0,  4, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
