@@ -13,19 +13,65 @@ MahoganyRedGyaradosSpeechHouseBlackBeltScript:
 MahoganyRedGyaradosSpeechHouseTeacherScript:
 	faceplayer
 	opentext
-	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
-	iftrue .RocketsInRadioTower
+
+	checkevent EVENT_SCALPER_MET
+	iftrue .already_met
+
 	writetext MahoganyRedGyaradosSpeechHouseTeacherText
+	promptbutton
+	setevent EVENT_SCALPER_MET
+	sjump .give
+
+.already_met
+	checkflag ENGINE_SCALPER
+	iffalse .giveaway_available
+
+	writetext MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText
 	waitbutton
 	closetext
 	end
 
-.RocketsInRadioTower:
-	writetext MahoganyRedGyaradosSpeechHouseTeacherText_RocketsInRadioTower
+.giveaway_available
+	checkevent EVENT_RED_BEATEN
+	iftrue .red_not_beaten
+
+	checkevent EVENT_SCALPER_GAVE_GPU
+	iftrue .red_not_beaten ; The GPU can be obtained only once.
+
+	writetext MahoganyRedGyaradosSpeechHouse_ScalperFanText
+	promptbutton
+
+	verbosegiveitem TOILET_PAPER, 12
+	iffalse .full
+
+	writetext MahoganyRedGyaradosSpeechHouse_ScalperPackText
+	waitbutton
+
+	closetext
+
+	setevent EVENT_SCALPER_GAVE_GPU
+	setflag ENGINE_SCALPER
+	end
+
+.red_not_beaten
+	writetext MahoganyRedGyaradosSpeechHouse_ScalperGiveText
+	promptbutton
+
+.give
+	verbosegiveitem GREAT_BALL
+	iffalse .full
+
+	closetext
+
+	setflag ENGINE_SCALPER
+	end
+
+.full
+	writetext MahoganyRedGyaradosSpeechHouse_ScalperFullText
 	waitbutton
 	closetext
 	end
-
+	
 MahoganyRedGyaradosSpeechHouseUnusedBookshelf1: ; unreferenced
 	jumpstd PictureBookshelfScript
 
@@ -45,17 +91,86 @@ MahoganyRedGyaradosSpeechHouseBlackBeltText:
 	done
 
 MahoganyRedGyaradosSpeechHouseTeacherText:
-	text "My favorite radio"
-	line "program? I'd say"
-	cont "#MON MUSIC."
+	text "When COVID-19 was"
+	line "first announced,"
+
+	para "I rushed the MART"
+	line "before everyone"
+	cont "else and I bought"
+
+	para "everything I could"
+	line "find."
+
+	para "I thought I would"
+	line "be able to resell"
+	cont "at a profit."
+
+	para "In the end…"
+
+	para "…I made a lot of"
+	line "money, not gonna"
+	cont "lie!"
+
+	para "But now I feel"
+	line "bad about it."
+
+	para "I called myself"
+	line "a ninja, but"
+
+	para "young people call"
+	line "me a scalper."
+
+	para "So I decided to"
+	line "give away the"
+	cont "rest of my stock."
+
+	para "Here's a little"
+	line "something for you."
 	done
 
-MahoganyRedGyaradosSpeechHouseTeacherText_RocketsInRadioTower:
-	text "I've been hearing"
-	line "laughter on the"
+MahoganyRedGyaradosSpeechHouse_ScalperGiveText:
+	text "SCALPER: Here's a"
+	line "little something."
+	done
 
-	para "radio…"
-	line "It's creepy."
+MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText:
+	text "SCALPER: Hey! I'm"
+	line "not gonna give you"
+	cont "everything I got!"
+
+	para "You'll get more"
+	line "another day,"
+	cont "maybe."
+	done
+
+	MahoganyRedGyaradosSpeechHouse_ScalperFanText:
+	text "SCALPER: Hey!"
+	line "I know you!"
+
+	para "You're the #MON"
+	line "MASTER!!"
+
+	para "You can have an"
+	line "item from my"
+	cont "secret stock."
+	done
+
+MahoganyRedGyaradosSpeechHouse_ScalperPackText:
+	text "SCALPER: A"
+	line "pristine 12-pack"
+	cont "for you my friend!"
+
+	para "Super rare,"
+	line "worth gold."
+	done
+
+MahoganyRedGyaradosSpeechHouse_ScalperFullText:
+	text "I see my bag is"
+	line "not the only one"
+	cont "to be full!"
+
+	para "Are you a"
+	line "scalper like me?"
 	done
 
 MahoganyRedGyaradosSpeechHouse_MapEvents:

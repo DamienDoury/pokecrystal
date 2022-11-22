@@ -125,7 +125,7 @@ EngineFlags:
 
 	engine_flag wDailyFlags3, DAILYFLAGS3_TOOK_DRINK_FROM_FRIDGE_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_PLAYER_SCARED_DAYCARE_F
-	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_2_F
+	engine_flag wDailyFlags3, DAILYFLAGS3_SCALPER_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_3_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_4_F
 	engine_flag wDailyFlags3, DAILYFLAGS3_UNUSED_5_F

@@ -550,7 +550,9 @@
 	const EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	const EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	const EVENT_WATCHED_INITIAL_TV
-; Unused: next 165 events
+	const EVENT_SCALPER_MET
+	const EVENT_SCALPER_GAVE_GPU
+; Unused: next 163 events
 
 	const_next 1000
 ; Trainer flags
