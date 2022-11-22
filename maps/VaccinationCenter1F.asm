@@ -148,7 +148,7 @@ VaccinationCenterGoToOffice:
     applymovement PLAYER, VaccinationCenter_HeadUpMovement
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_NurseScansCardStartMovement
     pause 5
-    playsound SFX_ELEVATOR_END
+    playsound SFX_PUSH_BUTTON ;SFX_ELEVATOR_END
     waitsfx
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_LeftMovement
     applymovement VACCINATION_CENTER_WAITRESS, VaccinationCenter_HeadUpMovement

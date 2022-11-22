@@ -87,19 +87,61 @@ VaccinationCenterRoomVaccineScript:
 .got_first_shot:
     writetext VaccinationCenterRoom_PrevShotText
     promptbutton
-    sjump .proceed
 
-.proceed:
-    ; Animation: Pokemon out of its ball.
-    ; Animation: Scientist walks forwards then back backwards, while always facing the pokemon.
-    ; Script: vaccination script that edits the PokerusStatus byte.
+.proceed:  
+    writetext VaccinationCenterRoom_BedText
+    waitbutton
+    closetext
+
+    applymovement VACCINATION_CENTER_VACCINE, VaccinationCenterRoom_FetchVaccineMovement
+    readvar VAR_YCOORD
+    ifgreater 4, .player_is_below
+;.player_is_above
+    applymovement PLAYER, VaccinationCenterRoom_DownDownMovement
+    sjump .release_mon_on_bed
+
+.player_is_below:
+    applymovement PLAYER, VaccinationCenterRoom_UpUpMovement
+
+.release_mon_on_bed
+    applymovement PLAYER, VaccinationCenterRoom_HeadLeftMovement
+    playsound SFX_BALL_POOF
+    waitsfx
+    appear VACCINATION_CENTER_MON
+    pause 10
+    
+
+    applymovement PLAYER, VaccinationCenterRoom_DownDownMovement
+    applymovement PLAYER, VaccinationCenter_HeadUpMovement
+
+    applymovement VACCINATION_CENTER_VACCINE, VaccinationCenterRoom_ComeBackFromVaccineMovement
+
+    opentext 
+    writetext VaccinationCenterRoom_InjectionText
+    waitbutton 
+    closetext
+
+    pause 15
+
+    special PlayCurMonCry
+    waitsfx
+    pause 20
+
     special Vaccinate
 
-    setval 0
-    writemem wSickMonIsInThisRoom
+    applymovement VACCINATION_CENTER_VACCINE, VaccinationCenter_HeadDownMovement
+    opentext 
+    writetext VaccinationCenterRoom_DoneText
+    promptbutton 
 
-    appear VACCINATION_CENTER_MON
-    ; Text: bye.
+    waitsfx
+    playsound SFX_BALL_POOF
+    pause 2
+    disappear VACCINATION_CENTER_MON
+    waitsfx
+
+    setval 0
+    writemem wSickMonIsInThisRoom ; Security, to make sure it doesn't mess something else.
 
 .must_leave:
     setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
@@ -107,6 +149,31 @@ VaccinationCenterRoomVaccineScript:
     waitbutton
     closetext
     end
+
+VaccinationCenterRoom_FetchVaccineMovement:
+    step UP
+    step LEFT
+    step UP
+    step_end
+
+VaccinationCenterRoom_UpUpMovement:
+    step UP
+    step UP
+    step_end
+
+VaccinationCenterRoom_DownDownMovement:
+    step DOWN
+    step DOWN
+    step_end
+
+VaccinationCenterRoom_ComeBackFromVaccineMovement:
+    step RIGHT
+    step DOWN
+    step DOWN
+
+VaccinationCenterRoom_HeadLeftMovement:
+    turn_head LEFT
+    step_end
 
 VaccinationCenterRoom_IntroText:
     text "<PLAYER> is"
@@ -282,6 +349,12 @@ VaccinationCenterRoom_MustLeaveText:
     line "is waiting."
     done
 
+VaccinationCenterRoom_BedText:
+    text "Please put your"
+    line "#MON on the"
+    cont "bed."
+    done
+
 VaccinationCenterRoom_InjectionText:
     text "I'm proceeding to"
     line "the injection."
@@ -297,11 +370,9 @@ VaccinationCenterRoom_DoneText:
     text "Done!"
 
     para "I've updated the"
-
-    para "STATUS of your"
-    line "#MON to"
-    cont "reflect its"
-    cont "vaccination"
+    line "STATUS of your"
+    cont "#MON to reflect"
+    cont "its vaccination"
     cont "state."
 
     para "Thanks for doing"
