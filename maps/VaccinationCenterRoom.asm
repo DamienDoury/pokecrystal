@@ -85,6 +85,7 @@ VaccinationCenterRoomVaccineScript:
     ; Animation: Pokemon out of its ball.
     ; Animation: Scientist walks forwards then back backwards, while always facing the pokemon.
     ; Script: vaccination script that edits the PokerusStatus byte.
+    special Vaccinate
     ; Text: bye.
 
 .must_leave:
@@ -194,8 +195,9 @@ VaccinationCenterRoom_PrevCovidText:
     cont "past."
 
     para "Then this shot"
-    line "will be the only"
-    cont "one it needs."
+    line "first shot will"
+    cont "act as the second"
+    cont "dose."
     
     para "No need for a 2nd"
     line "shot later."

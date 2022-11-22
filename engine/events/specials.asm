@@ -496,6 +496,7 @@ GetPartyCountWithoutEggs::
 	pop hl
 	ret
 
+; Output: the vaccination status in [wScriptVar], and the selected mon in [wCurPartyMon].
 SelectMonToVaccinate::
 	push bc
 	push de
@@ -613,4 +614,8 @@ IsWholeTeamVaccinated::
 
 	ld a, 1
 	ld [wScriptVar], a ; TRUE.
+	ret
+
+Vaccinate::
+	farcall _Vaccinate
 	ret

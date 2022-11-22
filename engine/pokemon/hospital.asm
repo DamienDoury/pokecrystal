@@ -419,3 +419,33 @@ SendMonToHospital::
 	ld [wCurPartySpecies], a
 	farcall DepositPokemonSilent
 	ret
+
+; Input: wCurPartyMon.
+_Vaccinate:
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1PokerusStatus
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+
+	ld a, POKERUS_FIRST_SHOT_SIGNATURE
+	cp [hl]
+	jr z, .inject_second_shot
+
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK
+	ld a, POKERUS_FIRST_SHOT_SIGNATURE
+	jr z, .inject_first_shot
+
+	ld de, IsMildIllnessStrain
+ 	ld a, BANK(IsMildIllnessStrain)
+ 	call FarCall_de
+	ld a, POKERUS_FIRST_SHOT_SIGNATURE
+	jr c, .inject_first_shot
+
+	; A Pokémon that had covid treats this shot as the second dose.
+	
+.inject_second_shot
+	inc a ; Second shot/dose.
+.inject_first_shot
+	ld [hl], a
+	ret
