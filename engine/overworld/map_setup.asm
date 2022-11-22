@@ -227,7 +227,7 @@ DynamicWarpScript::
 	jr nz, .check_1_default_case
 
 	ld a, [wPrevWarp] ; The player comes from warp ID 1 or 2, are those are the only dynamic warps on this map.
-	add 6
+	add 5
 
 	; We change the warp destination to the Hospital's reception.
 	ld [wNextWarp], a
