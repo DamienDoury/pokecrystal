@@ -552,7 +552,9 @@
 	const EVENT_WATCHED_INITIAL_TV
 	const EVENT_SCALPER_MET
 	const EVENT_SCALPER_GAVE_GPU
-; Unused: next 163 events
+	const EVENT_PLAYER_VACCINATED_ONCE
+	const EVENT_PLAYER_VACCINATED_TWICE
+; Unused: next 161 events
 
 	const_next 1000
 ; Trainer flags

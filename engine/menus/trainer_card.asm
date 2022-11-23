@@ -274,6 +274,24 @@ TrainerCard_PrintTopHalfOfCard:
 	ld a, 5 ; vTiles2 $05 and $06 are blank, no matter of the player is male or female.
 	ldh [hGraphicStartTile], a
 	predef PlaceGraphic
+
+	; Player's vaccination state display.
+	ld de, EVENT_PLAYER_VACCINATED_ONCE
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ret z
+
+	hlcoord 13, 4
+	ld [hl], "<VC>"
+
+	ld de, EVENT_PLAYER_VACCINATED_TWICE
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ret z
+
+	hlcoord 12, 4
+	ld [hl], "<VC>"
+
 	ret
 
 .Name_Money:
