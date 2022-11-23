@@ -1,14 +1,3 @@
-BetaLoadPlayerTrainerClass: ; unreferenced
-	ld c, CAL
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .got_class
-	ld c, KAREN ; not KRIS?
-.got_class
-	ld a, c
-	ld [wTrainerClass], a
-	ret
-
 MovePlayerPicRight:
 	hlcoord 6, 4
 	ld de, 1
@@ -121,15 +110,25 @@ GetCardPic:
 	ld bc, $23 tiles
 	ld a, BANK(ChrisPic) ; aka BANK(KrisCardPic)
 	call FarCopyBytes
+
 	ld hl, TrainerCardGFX
 	ld de, vTiles2 tile $23
 	ld bc, 6 tiles
 	ld a, BANK(TrainerCardGFX)
 	call FarCopyBytes
+
+	ld hl, TrainerCardAdditionsGFX
+	ld de, vTiles2 tile $00
+	ld bc, 2 tiles
+	ld a, BANK(TrainerCardAdditionsGFX)
+	call FarCopyBytes
 	ret
 
 TrainerCardGFX:
-INCBIN "gfx/trainer_card/trainer_card.2bpp"
+	INCBIN "gfx/trainer_card/trainer_card.2bpp"
+
+TrainerCardAdditionsGFX:
+	INCBIN "gfx/trainer_card/trainer_card_additions.2bpp"
 
 GetPlayerBackpic:
 	ld a, [wPlayerGender]

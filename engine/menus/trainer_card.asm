@@ -260,9 +260,18 @@ TrainerCard_PrintTopHalfOfCard:
 	hlcoord 1, 3
 	ld de, .HorizontalDivider
 	call TrainerCardSetup_PlaceTilemapString
+	
+	; Player's picture.
 	hlcoord 14, 1
 	lb bc, 5, 7
 	xor a
+	ldh [hGraphicStartTile], a
+	predef PlaceGraphic
+
+	; Hiding the first 2 tiles (vertically) of the picture.
+	hlcoord 14, 1
+	lb bc, 1, 2
+	ld a, 5 ; vTiles2 $05 and $06 are blank, no matter of the player is male or female.
 	ldh [hGraphicStartTile], a
 	predef PlaceGraphic
 	ret
@@ -308,19 +317,28 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	db   "#DEX"
 	next "PLAY TIME@"
 
-.Unused: ; unreferenced
-	db "@"
-
 .Badges:
 	db "  BADGES▶@"
 
 .StatusTilemap:
-	db $29, $2a, $2b, $2c, $2d, -1
+	db $29, $2a, $2b, $2c, $2d, $01, -1
 
 TrainerCard_Page2_3_InitObjectsAndStrings:
 	push hl
-	hlcoord 2, 8
+	hlcoord 1, 8
+	
+	ld a, [wJumptableIndex]
+	cp 2
 	ld de, .BadgesTilemap
+	jr nz, .display_page
+
+	ld a, [wKantoBadges]
+	and a
+	jr z, .display_page
+
+	ld de, .BadgesTilemapKantoBadges
+
+.display_page
 	call TrainerCardSetup_PlaceTilemapString
 	hlcoord 2, 10
 	ld a, $29
@@ -349,7 +367,10 @@ endr
 	ret
 
 .BadgesTilemap:
-	db $79, $7a, $7b, $7c, $7d, -1 ; "BADGES"
+	db $00, $79, $7a, $7b, $7c, $7d, -1 ; "◄BADGES"
+
+.BadgesTilemapKantoBadges:
+	db $00, $79, $7a, $7b, $7c, $7d, $01, -1 ; "◄BADGES►"
 
 TrainerCardSetup_PlaceTilemapString:
 .loop
@@ -378,6 +399,7 @@ TrainerCard_InitBorder:
 	dec e
 	jr nz, .loop2
 
+	; Top-right corner.
 	ld a, $1c
 	ld [hli], a
 	ld a, $23
