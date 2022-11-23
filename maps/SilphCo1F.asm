@@ -79,7 +79,7 @@ SilphCoNurseScript:
 
 	disappear SILPHCO1F_NURSE
 	playsound SFX_ENTER_DOOR
-	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_Out
+	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_In
 	waitsfx
 
 	playsound SFX_ELEVATOR
@@ -87,7 +87,7 @@ SilphCoNurseScript:
 	waitsfx
 
 	
-	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_In
+	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_Out
 	
 	pause 5
 	moveobject SILPHCO1F_NURSE, 13, 0
@@ -154,8 +154,8 @@ SilphCoNurseMovement_In1:
 	step_end
 
 SilphCoOfficerMovement_CallElevator:
-	step RIGHT
-	turn_head LEFT
+	step LEFT
+	turn_head UP
 	step_end
 
 SilphCoNurseMovement_In2:
@@ -392,6 +392,7 @@ SilphCo1F_MapEvents:
 	def_warp_events
 	warp_event  2,  7, SAFFRON_CITY, 7
 	warp_event  3,  7, SAFFRON_CITY, 7
+	warp_event  13, 0, SILPHCO_ELEVATOR, 2
 
 	def_coord_events
 

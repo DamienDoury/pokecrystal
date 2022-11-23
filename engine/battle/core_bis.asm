@@ -448,8 +448,17 @@ DeterMineAssaultAndPokerusSeed::
 
 	; Covid can only be gotten by one of those battle types. BATTLETYPE_NORMAL includes trainers and wild Pokémons.
 .roll_dice
+	call IsInJohto
+	cp JOHTO_REGION
+	ld a, 4
+	jr z, .odds_calculated
+
+	add a ; Doubles the odds in Kanto.
+	
+.odds_calculated
+	ld b, a
 	call Random
-	cp 4 ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
+	cp b ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
 	jr nc, DetermineAssault ; Original: 3/65536 chance (00 00, 00 01 or 00 02 to proceed with the infection check). Now: 4/256 per battle (unless the player fleed immediately).
 
 .generate_seed

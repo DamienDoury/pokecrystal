@@ -497,6 +497,8 @@ INCLUDE "maps/GoldenrodHospitalSecret.asm"
 SECTION "Map Scripts 25", ROMX
 
 INCLUDE "maps/GoldenrodHospitalCorridor.asm"
+INCLUDE "maps/SilphCoElevator.asm"
+INCLUDE "maps/SilphCoResearch.asm"
 
 
 SECTION "Map Scripts 26", ROMX

@@ -706,3 +706,5 @@ ENDM
 	map_attributes VaccinationCenterCorridor, VACCINATION_CENTER_CORRIDOR, $00, 0
 	map_attributes VaccinationCenterRoom, VACCINATION_CENTER_ROOM, $00, 0
 	map_attributes MrAntonsHouse, MR_ANTONS_HOUSE, $00, 0
+	map_attributes SilphCoElevator, SILPHCO_ELEVATOR, $00, 0
+	map_attributes SilphCoResearch, SILPHCO_RESEARCH, $00, 0

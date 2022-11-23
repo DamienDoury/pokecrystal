@@ -497,6 +497,8 @@ ENDM
 	map_const VACCINATION_CENTER_CORRIDOR,                  8,  2 ; 17
 	map_const VACCINATION_CENTER_ROOM,                		2,  4 ; 18
 	map_const MR_ANTONS_HOUSE,                				4,  4 ; 19
+	map_const SILPHCO_ELEVATOR,                				1,  2 ; 20
+	map_const SILPHCO_RESEARCH,                				8,  4 ; 21
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

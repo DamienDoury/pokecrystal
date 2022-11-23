@@ -1007,3 +1007,9 @@ VaccinationCenterCorridor_Blocks:
 
 VaccinationCenterRoom_Blocks:
 	INCBIN "maps/VaccinationCenterRoom.blk"
+
+SilphCoElevator_Blocks:
+	INCBIN "maps/SilphCoElevator.blk"
+
+SilphCoResearch_Blocks:
+	INCBIN "maps/SilphCoResearch.blk"
