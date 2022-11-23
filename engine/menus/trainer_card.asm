@@ -162,9 +162,14 @@ TrainerCard_Page2_Joypad:
 	ld a, [hl]
 	and D_LEFT
 	jr nz, .pressed_left
-	ld a, [wKantoBadges]
-	and a
-	jr nz, .has_kanto_badges
+
+	ld de, ENGINE_FLYPOINT_VERMILION
+	push hl
+	farcall CheckEngineFlag ; Returns the result of the check in the carry.
+	pop hl
+	jr nc, .has_kanto_badges
+
+
 	ld a, [hl]
 	and A_BUTTON
 	jr nz, .Quit
@@ -350,9 +355,13 @@ TrainerCard_Page2_3_InitObjectsAndStrings:
 	ld de, .BadgesTilemap
 	jr nz, .display_page
 
-	ld a, [wKantoBadges]
-	and a
-	jr z, .display_page
+	push de
+	ld de, ENGINE_FLYPOINT_VERMILION
+	push hl
+	farcall CheckEngineFlag ; Returns the result of the check in the carry.
+	pop hl
+	pop de
+	jr c, .display_page
 
 	ld de, .BadgesTilemapKantoBadges
 
