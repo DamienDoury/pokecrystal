@@ -150,6 +150,9 @@ VaccinationCenterRoomVaccineScript:
     closetext
     end
 
+VaccinationCenterRoom_VialsScript:
+	jumptext VaccinationCenterRoom_VialsText
+
 VaccinationCenterRoom_FetchVaccineMovement:
     step UP
     step LEFT
@@ -380,6 +383,11 @@ VaccinationCenterRoom_DoneText:
     cont "COVID!"
     done
 
+VaccinationCenterRoom_VialsText:
+    text "Tons of refrige-"
+    line "rated vials."
+    done
+
 
 VaccinationCenterRoom_MapEvents:
     db 0, 0 ; filler
@@ -391,8 +399,10 @@ VaccinationCenterRoom_MapEvents:
     def_coord_events
 
     def_bg_events
+	bg_event  0,  1, BGEVENT_READ, VaccinationCenterRoom_VialsScript
+	bg_event  1,  1, BGEVENT_READ, VaccinationCenterRoom_VialsScript
 
 
     def_object_events
 	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, -1
-    object_event  0,  4, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event  0,  4, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
