@@ -111,7 +111,6 @@ SECTION "bank9", ROMX
 INCLUDE "data/text_buffers.asm"
 INCLUDE "engine/menus/menu.asm"
 INCLUDE "engine/items/update_item_description.asm"
-INCLUDE "engine/events/pokepic.asm"
 INCLUDE "engine/overworld/map_objects_2.asm"
 INCLUDE "engine/menus/scrolling_menu.asm"
 INCLUDE "engine/items/switch_items.asm"
@@ -133,6 +132,7 @@ INCLUDE "engine/battle/ai/switch.asm"
 
 SECTION "bankA", ROMX
 
+INCLUDE "engine/events/pokepic.asm"
 INCLUDE "engine/link/link.asm"
 INCLUDE "engine/overworld/wildmons.asm"
 INCLUDE "engine/battle/link_result.asm"

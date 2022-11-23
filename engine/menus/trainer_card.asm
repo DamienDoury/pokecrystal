@@ -311,19 +311,52 @@ TrainerCard_PrintTopHalfOfCard:
 	db $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $26, -1 ; ____________>
 
 TrainerCard_Page1_PrintDexCaught_GameTime:
+	ld b, CHECK_FLAG
+	ld de, EVENT_RED_BEATEN
+	call EventFlagAction
+	jr nz, .next_check
+
 	hlcoord 2, 10
+	ld de, .UndisputedString
+	call PlaceString
+
+	ld de, .MasterUndisputedString
+	jr .done_with_trainer_state
+
+.next_check
+	ld b, CHECK_FLAG
+	ld de, EVENT_BEAT_ELITE_FOUR
+	call EventFlagAction
+	ld de, .MasterString
+	jr nz, .done_with_trainer_state
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_A_POKEMON_FROM_ELM
+	call EventFlagAction
+	ld de, .TrainerString
+	jr nz, .done_with_trainer_state
+
+	ld de, .SpaceString
+
+.done_with_trainer_state
+	hlcoord 2, 11
+	call PlaceString
+
+	hlcoord 2, 13
 	ld de, .Dex_PlayTime
 	call PlaceString
-	hlcoord 10, 15
-	ld de, .Badges
-	call PlaceString
+
+	;hlcoord 10, 15
+	;ld de, .Badges
+	;call PlaceString
 	ld hl, wPokedexCaught
 	ld b, wEndPokedexCaught - wPokedexCaught
 	call CountSetBits
 	ld de, wNumSetBits
-	hlcoord 15, 10
+	hlcoord 15, 13
 	lb bc, 1, 3
 	call PrintNum
+	
 	call TrainerCard_Page1_PrintGameTime
 	hlcoord 2, 8
 	ld de, .StatusTilemap
@@ -331,8 +364,8 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_POKEDEX_F, a
 	ret nz
-	hlcoord 1, 9
-	lb bc, 2, 17
+	hlcoord 1, 13
+	lb bc, 1, 17
 	call ClearBox
 	ret
 
@@ -340,8 +373,20 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	db   "#DEX"
 	next "PLAY TIME@"
 
-.Badges:
-	db "  BADGES▶@"
+.SpaceString:
+	db   " @"
+
+.TrainerString:
+	db   "#MON TRAINER@"
+
+.MasterString:
+	db   "LEAGUE CHAMPION@"
+
+.MasterUndisputedString:
+	db   " LEAGUE CHAMPION@"
+
+.UndisputedString:
+	db   "UNDISPUTED@"
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, $01, -1
@@ -504,7 +549,7 @@ TrainerCard_Page2_3_PlaceLeadersFaces:
 	ret
 
 TrainerCard_Page1_PrintGameTime:
-	hlcoord 11, 12
+	hlcoord 11, 15
 	ld de, wGameTimeHours
 	lb bc, 2, 4
 	call PrintNum
@@ -515,7 +560,7 @@ TrainerCard_Page1_PrintGameTime:
 	ldh a, [hVBlankCounter]
 	and $1f
 	ret nz
-	hlcoord 15, 12
+	hlcoord 15, 15
 	ld a, [hl]
 	xor " " ^ $2e ; alternate between space and small colon ($2e) tiles
 	ld [hl], a
