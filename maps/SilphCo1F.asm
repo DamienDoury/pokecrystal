@@ -145,6 +145,9 @@ SilphCoNurseScript:
 .default:
 	jumptextfaceplayer SilphCoNurseDefaultText
 
+SilphCo1F_ElevatorButton:
+    jumpstd ElevatorButtonScript
+
 SilphCoNurseMovement_In1:
 	slow_step DOWN
 	step RIGHT
@@ -397,6 +400,7 @@ SilphCo1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 12,  0, BGEVENT_READ, SilphCo1F_ElevatorButton
 
 	def_object_events
 	object_event  4,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoReceptionistScript, -1

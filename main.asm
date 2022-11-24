@@ -728,6 +728,10 @@ SECTION "Crystal Events", ROMX
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
 
+SECTION "Vaccination Research Center", ROMX
+
+INCLUDE "engine/pokemon/vaccine_research_center.asm"
+
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]
 

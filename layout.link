@@ -274,7 +274,8 @@ ROMX $6b
 	"Map Scripts 24"
 ROMX $6c
 	"Phone Text 2"
-	"Map Scripts 25"
+	"Map Scripts 25" ; Must stay with vaccine_research_center.asm, currently in "Vaccination Research Center".
+	"Vaccination Research Center" ; Must stay with SilphCoResearch.asm, currently in "Map Scripts 25".
 ROMX $6d
 	"Special Phone Text"
 ROMX $6e

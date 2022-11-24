@@ -24,7 +24,7 @@ SilphCoElevatorScript:
 SilphCoElevatorElevatorData:
 	db 2 ; floors
 	elevfloor FLOOR_1F, 3, SILPH_CO_1F
-	elevfloor FLOOR_9F, 1, SILPHCO_RESEARCH
+	elevfloor FLOOR_11F, 1, SILPHCO_RESEARCH
 	db -1 ; end
 
 SilphCoElevator_MapEvents:

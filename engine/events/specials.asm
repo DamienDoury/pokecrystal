@@ -619,3 +619,11 @@ IsWholeTeamVaccinated::
 Vaccinate::
 	farcall _Vaccinate
 	ret
+
+LoadSilphCoPokemonMoves::
+	farcall _DisplaySilphCoPokemonMoves
+	ret
+
+SilphCo_SetMonAttributes::
+	farcall _SilphCo_SetMonAttributes
+	ret

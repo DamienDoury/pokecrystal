@@ -198,3 +198,5 @@ SpecialsPointers::
 	add_special SelectMonToVaccinate
 	add_special Vaccinate
 	add_special IsWholeTeamVaccinated
+	add_special LoadSilphCoPokemonMoves
+	add_special SilphCo_SetMonAttributes
