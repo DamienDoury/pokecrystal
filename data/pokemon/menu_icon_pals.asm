@@ -106,8 +106,8 @@ MonMenuIconPals:
 	icon_pals RED, BLUE ; KINGLER
 	icon_pals RED, BLUE ; VOLTORB
 	icon_pals RED, BLUE ; ELECTRODE
-	icon_pals PINK, TEAL ; EXEGGCUTE
-	icon_pals BROWN, TEAL ; EXEGGUTOR
+	icon_pals PINK, GREEN ; EXEGGCUTE
+	icon_pals BROWN, GREEN ; EXEGGUTOR
 	icon_pals BROWN, TEAL ; CUBONE
 	icon_pals BROWN, TEAL ; MAROWAK
 	icon_pals BROWN, GREEN ; HITMONLEE
