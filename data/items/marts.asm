@@ -313,7 +313,7 @@ MartCeladon2F2:
 	db -1 ; end
 
 MartCeladon3F:
-	db 5 ; # items
+	db 6 ; # items
 	db TM_HIDDEN_POWER
 	db TM_PROTECT
 	db TM_SUNNY_DAY

@@ -104,7 +104,7 @@ ItemNames::
 	li "BLACKGLASSES"
 	li "SLOWPOKETAIL"
 	li "PINK BOW"
-	li "STICK"
+	li "LEEK"
 	li "SMOKE BALL"
 	li "NEVERMELTICE"
 	li "MAGNET"
