@@ -40,16 +40,6 @@ Route10South_Blocks:
 	INCBIN "maps/Route10South.blk"
 
 Pokecenter2F_Blocks:
-CinnabarPokecenter2FBeta_Blocks:
-CeruleanPokecenter2FBeta_Blocks:
-Route10Pokecenter2FBeta_Blocks:
-VermilionPokecenter2FBeta_Blocks:
-PewterPokecenter2FBeta_Blocks:
-FuchsiaPokecenter2FBeta_Blocks:
-LavenderPokecenter2FBeta_Blocks:
-CeladonPokecenter2FBeta_Blocks:
-ViridianPokecenter2FBeta_Blocks:
-SaffronPokecenter2FBeta_Blocks:
 	INCBIN "maps/Pokecenter2F.blk"
 
 Route41_Blocks:
@@ -113,7 +103,6 @@ Route38_Blocks:
 	INCBIN "maps/Route38.blk"
 
 OlivineTimsHouse_Blocks:
-OlivineHouseBeta_Blocks:
 OlivinePunishmentSpeechHouse_Blocks:
 OlivineGoodRodHouse_Blocks:
 Route39Farmhouse_Blocks:
@@ -976,9 +965,6 @@ BattleTowerElevator_Blocks:
 
 BattleTowerOutside_Blocks:
 	INCBIN "maps/BattleTowerOutside.blk"
-
-BetaBlank_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaBlank.blk"
 
 GoldenrodDeptStoreRoof_Blocks:
 	INCBIN "maps/GoldenrodDeptStoreRoof.blk"
