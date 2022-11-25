@@ -314,7 +314,8 @@
 	const EVENT_MRMIME_POKEBALL_IN_SILPHCO
 	const EVENT_LICKITUNG_POKEBALL_IN_SILPHCO
 	const EVENT_EXEGGCUTE_POKEBALL_IN_SILPHCO
-; Unused: next 303 events
+	const EVENT_SILPHCO_SCIENTIST_MET
+; Unused: next 302 events
 
 	const_next 600
 ; Kurt Apricorn events

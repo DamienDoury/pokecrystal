@@ -2,11 +2,17 @@
 	const SILPHCO1F_RECEPTIONIST
 	const SILPHCO1F_OFFICER
 	const SILPHCO1F_NURSE
+	const SILPHCO1F_SCIENTIST
 
 SilphCo1F_MapScripts:
 	def_scene_scripts
 
-	def_callbacks
+	def_callbacks 
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+	disappear SILPHCO1F_SCIENTIST
+	endcallback
 
 SilphCoReceptionistScript:
 	jumptextfaceplayer SilphCoReceptionistText
@@ -18,12 +24,64 @@ SilphCoOfficerScript:
 	iftrue .GotUpGrade
 	writetext SilphCoOfficerText
 	promptbutton
-	verbosegiveitem UP_GRADE
+	verbosegiveitem RARE_CANDY
 	iffalse .NoRoom
 	setevent EVENT_GOT_UP_GRADE
 .GotUpGrade:
 	writetext SilphCoOfficerText_GotUpGrade
 	waitbutton
+	closetext
+
+	playsound SFX_ELEVATOR_END
+	waitsfx
+
+	showemote EMOTE_SHOCK, SILPHCO1F_OFFICER, 15
+	pause 5
+	appear SILPHCO1F_SCIENTIST
+	pause 5
+	follow SILPHCO1F_OFFICER, SILPHCO1F_SCIENTIST
+	applymovement SILPHCO1F_OFFICER, SilphCoNurseMovement_Out2
+	stopfollow
+	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_CallElevator
+
+	setlasttalked SILPHCO1F_SCIENTIST
+	pause 30
+	faceplayer
+	pause 10
+	showemote EMOTE_SHOCK, SILPHCO1F_SCIENTIST, 15
+
+	opentext
+	writetext SilphCoScientist_HiText
+	waitbutton
+	closetext
+
+	applymovement SILPHCO1F_SCIENTIST, SilphCo_HeadUpMovement
+
+	showemote EMOTE_SHOCK, SILPHCO1F_OFFICER, 10
+
+	readvar VAR_FACING
+	ifequal LEFT, .leftfacing
+	ifequal RIGHT, .rightfacing
+; up facing:
+	applymovement PLAYER, SilphCo_UpMovement
+	sjump .follow_scientist
+
+.leftfacing
+	applymovement PLAYER, SilphCo_LeftMovement
+	sjump .follow_scientist 
+
+.rightfacing
+	applymovement PLAYER, SilphCo_RightMovement	
+
+.follow_scientist
+	follow SILPHCO1F_SCIENTIST, PLAYER
+	applymovement SILPHCO1F_SCIENTIST, SilphCo_UpMovement
+	stopfollow
+	disappear SILPHCO1F_SCIENTIST
+	applymovement PLAYER, SilphCo_UpMovement
+	warpcheck
+	end
+
 .NoRoom:
 	closetext
 	end
@@ -194,6 +252,22 @@ SilphCoNurseMovement_Out3:
 	turn_head DOWN
 	step_end
 
+SilphCo_HeadUpMovement:
+	turn_head UP
+	step_end
+
+SilphCo_UpMovement:
+	step UP
+	step_end
+
+SilphCo_LeftMovement:
+	step LEFT
+	step_end
+
+SilphCo_RightMovement:
+	step RIGHT
+	step_end
+
 ReceivedAntonMailText:
 	db   "I will always"
 	next "love you darling@"
@@ -217,11 +291,7 @@ SilphCoOfficerText:
 	done
 
 SilphCoOfficerText_GotUpGrade:
-	text "It's SILPH CO.'s"
-	line "latest product."
-
-	para "It's not for sale"
-	line "anywhere yet."
+	text "Now please leave."
 	done
 
 SilphCoNurseDefaultText:
@@ -389,6 +459,23 @@ SilphCoNurse_SayHiText:
 	cont "says hi!"
 	done
 
+SilphCoScientist_HiText:
+	text "Are you <PLAYER>,"
+	line "the LEAGUE"
+	cont "CHAMPION?"
+
+	para "Your surprise"
+	line "visit comes at the"
+	
+	para "perfect time: we"
+	line "could use the help"
+
+	para "of an experienced"
+	line "trainer like you."
+
+	para "Please follow me."
+	done
+
 SilphCo1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -406,3 +493,4 @@ SilphCo1F_MapEvents:
 	object_event  4,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoReceptionistScript, -1
 	object_event 13,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SilphCoOfficerScript, -1
 	object_event 10,  2, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, SilphCoNurseScript, EVENT_SICK_GENTLEMAN_DIED
+	object_event 13,  0, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoReceptionistScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4

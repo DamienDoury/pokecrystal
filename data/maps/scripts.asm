@@ -270,6 +270,8 @@ INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
 INCLUDE "maps/MrAntonsHouse.asm"
+INCLUDE "maps/CeruleanPokecenter1F.asm"
+INCLUDE "maps/Route10Pokecenter1F.asm"
 
 
 SECTION "Map Scripts 15", ROMX

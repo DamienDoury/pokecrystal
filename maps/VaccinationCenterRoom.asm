@@ -404,5 +404,5 @@ VaccinationCenterRoom_MapEvents:
 
 
     def_object_events
-	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, -1
+	object_event  1,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, -1
 	object_event  0,  4, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, VaccinationCenterRoomVaccineScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
