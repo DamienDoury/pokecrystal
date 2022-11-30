@@ -11,7 +11,10 @@ SilphCoElevator_MapScripts:
     callback MAPCALLBACK_TILES, .EnterCallback
 
 .EnterCallback:
+    checkevent EVENT_SILPHCO_SCIENTIST_MET
+    iftrue .EndCallback
     moveobject SILPHCOELEVATOR_SCIENTIST, 1, 2
+.EndCallback
     endcallback
 
 .Scene:
@@ -55,7 +58,6 @@ SilphCoElevator_MapScripts:
     end
 
 .no_scene:
-    disappear SILPHCOELEVATOR_SCIENTIST
     end
 
 .movement_data

@@ -627,3 +627,23 @@ LoadSilphCoPokemonMoves::
 SilphCo_SetMonAttributes::
 	farcall _SilphCo_SetMonAttributes
 	ret
+
+SilphCo_GetTestSubjectProgress::
+	farcall _SilphCo_GetTestSubjectProgress
+	ret
+
+SilphCo_GetTestSubjectHappiness::
+	farcall _SilphCo_GetTestSubjectHappiness
+	ret
+
+SilphCo_GetTestSubjectLevel::
+	farcall _SilphCo_GetTestSubjectLevel
+	ret
+
+SilphCo_TestSubjectRemovedFromParty::
+	farcall _SilphCo_TestSubjectRemovedFromParty
+	ret
+
+SilphCo_PlayerGetsPropertyOfTestSubject::
+	farcall _SilphCo_PlayerGetsPropertyOfTestSubject
+	ret

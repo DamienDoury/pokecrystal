@@ -102,3 +102,5 @@ HIDE_LOCKDOWN			EQU %01111111
 WAVE_TILES_AMOUNT EQU 12
 
 HOSPITAL_CORRIDOR_LENGTH EQU 4
+
+TEST_SUBJECT_DEFAULT_STAT_EXP EQU $64 ; $6400 is 25600, which is the max value after which Protein and other booster items will stop working.

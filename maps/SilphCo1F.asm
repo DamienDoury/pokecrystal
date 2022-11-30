@@ -12,6 +12,13 @@ SilphCo1F_MapScripts:
 
 .EnterCallback:
 	disappear SILPHCO1F_SCIENTIST
+
+	checkevent EVENT_SILPHCO_SCIENTIST_MET
+	iftrue .move_officer
+	endcallback
+
+.move_officer:
+	moveobject SILPHCO1F_OFFICER, 14, 1
 	endcallback
 
 SilphCoReceptionistScript:
@@ -20,14 +27,13 @@ SilphCoReceptionistScript:
 SilphCoOfficerScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_UP_GRADE
-	iftrue .GotUpGrade
+	checkevent EVENT_SILPHCO_SCIENTIST_MET
+	iftrue .AccessAllowed
+	
 	writetext SilphCoOfficerText
 	promptbutton
 	verbosegiveitem RARE_CANDY
 	iffalse .NoRoom
-	setevent EVENT_GOT_UP_GRADE
-.GotUpGrade:
 	writetext SilphCoOfficerText_GotUpGrade
 	waitbutton
 	closetext
@@ -82,6 +88,10 @@ SilphCoOfficerScript:
 	warpcheck
 	end
 
+.AccessAllowed:
+	getitemname STRING_BUFFER_3, SILPH_BADGE
+	writetext SilphCoOfficer_OkayText
+	waitbutton
 .NoRoom:
 	closetext
 	end
@@ -113,7 +123,7 @@ SilphCoNurseScript:
 	ifequal POKEMAIL_NO_MAIL, .NoMail
 	ifequal POKEMAIL_LAST_MON, .LastMon
 
-	opentext
+	;opentext
 	writetext SilphCoNurse_ReadsText
 	waitbutton
 	closetext
@@ -126,7 +136,10 @@ SilphCoNurseScript:
 	waitbutton
 	closetext
 
-	; anim start
+	checkevent EVENT_SILPHCO_SCIENTIST_MET
+	iftrue .alternate_anim
+
+	; default anim start
 	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_In1
 	applymovement SILPHCO1F_OFFICER, SilphCoOfficerMovement_CallElevator
 	pause 5
@@ -155,8 +168,37 @@ SilphCoNurseScript:
 	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_Out3
 	pause 2
 	moveobject SILPHCO1F_NURSE, 10, 2
+	sjump .after_anim
 	; end of anim
 
+
+.alternate_anim
+	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_In1
+	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_In2
+
+	disappear SILPHCO1F_NURSE
+	playsound SFX_ENTER_DOOR
+
+	pause 15
+
+	waitsfx
+
+	playsound SFX_ELEVATOR
+
+	waitsfx
+	
+	pause 15
+	moveobject SILPHCO1F_NURSE, 13, 0
+	appear SILPHCO1F_NURSE
+	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_Out1
+	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_Out2
+	applymovement SILPHCO1F_NURSE, SilphCoNurseMovement_Out3
+	pause 2
+	moveobject SILPHCO1F_NURSE, 10, 2
+
+
+
+.after_anim
 	setevent EVENT_ANTONS_NURSE_DID_LONG_SPEECH	
 
 .skip_speech:
@@ -471,6 +513,17 @@ SilphCoScientist_HiText:
 	line "trainer like you."
 
 	para "Please follow me."
+	done
+
+SilphCoOfficer_OkayText:
+	text "May I see your"
+	line "@"
+	text_ram wStringBuffer3
+	text "?"
+
+	para "…"
+
+	para "You shall pass."
 	done
 
 SilphCo1F_MapEvents:

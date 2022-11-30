@@ -200,3 +200,8 @@ SpecialsPointers::
 	add_special IsWholeTeamVaccinated
 	add_special LoadSilphCoPokemonMoves
 	add_special SilphCo_SetMonAttributes
+	add_special SilphCo_GetTestSubjectProgress
+	add_special SilphCo_GetTestSubjectHappiness
+	add_special SilphCo_GetTestSubjectLevel
+	add_special SilphCo_TestSubjectRemovedFromParty
+	add_special SilphCo_PlayerGetsPropertyOfTestSubject

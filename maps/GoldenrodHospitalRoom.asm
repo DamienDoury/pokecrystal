@@ -283,15 +283,13 @@ GoldenrodHospitalRoom_MapScripts:
 	checkevent EVENT_SICK_GENTLEMAN_DIED
 	iffalse .room25_anton_alive
 
-	disappear GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT
-
+	variablesprite SPRITE_HOSPITAL_HUMAN_PATIENT, SPRITE_YOUNGSTER
 	sjump .SetSickMonID
 
 .room25_anton_alive:
 	variablesprite SPRITE_HOSPITAL_HUMAN_PATIENT, SPRITE_GENTLEMAN
 	setval PAL_NPC_RED << 4
 	writemem wMap3ObjectColor
-
 	sjump .SetSickMonID
 
 .room26:
@@ -453,6 +451,8 @@ GoldenrodHospitalRoomHumanPatientScript:
 	jumptext GoldenrodHospitalRoom23PatientText
 
 .room25:
+	checkevent EVENT_SICK_GENTLEMAN_DIED
+	iftrue .room25_iz_ded
 	checkevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
 	iftrue .room25_quest_ongoing
 
@@ -582,6 +582,9 @@ GoldenrodHospitalRoomHumanPatientScript:
 	waitbutton
 	closetext
 	end
+
+.room25_iz_ded:
+	jumptext GoldenrodHospitalRoom25Patient_IzDedText
 
 .room25_quest_ongoing:
 	jumptext GoldenrodHospitalRoom25Patient_DeliverMailText
@@ -1362,6 +1365,25 @@ GoldenrodHospitalRoom25Patient_DeliverMailText:
 	para "She lives in"
 	line "SAFFRON CITY,"
 	cont "in KANTO."
+	done
+
+GoldenrodHospitalRoom25Patient_IzDedText:
+	text "(COUGH)"
+
+	para "I am sorry, but"
+	line "the previous"
+	cont "patient passed"
+	cont "away."
+
+	para "(COUGH)"
+
+	para "It is sad but at"
+	line "the same time it"
+	cont "allowed me to get"
+	cont "his room, which"
+	cont "may save my life."
+
+	para "(COUGH)"
 	done
 
 GoldenrodHospitalRoom26PatientText:

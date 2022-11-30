@@ -46,7 +46,7 @@ SilphCoResearch_MapScripts:
     applymovement SILPHCORESEARCH_SCIENTIST1, SilphCoResearch_GiveItemMovement
 
     opentext
-    verbosegiveitem RARE_CANDY
+    verbosegiveitem SILPH_BADGE
     closetext
 
     applymovement SILPHCORESEARCH_SCIENTIST1, SilphCoResearch_RespectDistanceMovement
@@ -209,6 +209,124 @@ SilphCoClickedPokeball:
     end
 
 SilphCoResearchScientist1Script:
+	faceplayer
+
+	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
+	iffalse .vaccine_is_available
+
+; checking progress of the quest to find a vaccine.
+	opentext 
+	writetext SilphCoResearchScientist1_QuestIntro_Text
+	promptbutton
+
+	special SilphCo_GetTestSubjectProgress
+	ifequal 0, .not_in_party
+
+	writetext SilphCoResearchScientist1_Case2_Text
+	promptbutton
+
+	ifequal $a, .long_way_to_go
+	ifequal $b, .almost_there
+	ifequal $c, .training_finished
+
+	; Unmanaged case.
+	writetext SilphCoResearchScientist1_ConfusedText
+	waitbutton
+	closetext
+	end
+	
+.vaccine_is_available
+	jumptextfaceplayer SilphCoResearchScientist1_AfterQuest_Text
+
+.not_in_party
+	writetext SilphCoResearchScientist1_Case1_Text
+	waitbutton
+	closetext
+	end
+
+.long_way_to_go
+	writetext SilphCoResearchScientist1_Case1A2A_Text
+	sjump .check_level
+
+.almost_there
+	writetext SilphCoResearchScientist1_Case1B2B_Text
+
+.check_level
+	special SilphCo_GetTestSubjectLevel
+	ifgreater 29, .explain_training_purpose
+	waitbutton
+	closetext
+	end
+
+.explain_training_purpose
+	promptbutton
+	writetext SilphCoResearchScientist1_ExplainTraining_Text
+	waitbutton
+	closetext
+	end
+
+.training_finished
+	writetext SilphCoResearchScientist1_Case1C_Text
+	waitbutton
+	closetext
+	
+	opentext
+	writetext SilphCoResearchScientist1_HandedOver_Text
+	waitbutton
+	closetext
+
+	pause 5
+
+	applymovement SILPHCORESEARCH_SCIENTIST1, SilphCoResearch_HeadUpMovement
+
+	pause 5
+	playsound SFX_BOOT_PC
+	pause 90
+	waitsfx
+
+	faceplayer
+	pause 5
+	opentext
+	writetext SilphCoResearchScientist1_CaseDone_Text
+	promptbutton
+	writetext SilphCoResearchScientist1_AfterQuest_Text
+	waitbutton
+	closetext
+
+	clearevent EVENT_CROWD_IN_VACCINATION_CENTER
+
+	; Either the happiness of the Pokémon is high and the player gets to keep it.
+	; In this case, the trainer ID and trainer name of the #mon will be changed to those of the player.
+	; Or the happiness is not high enough, and we remove the Pokémon from the player's party.
+	special SilphCo_GetTestSubjectHappiness
+	ifgreater 100, .keep_mon
+
+; The test subject is removed from the player's party.
+	special SilphCo_TestSubjectRemovedFromParty
+	end
+	
+.keep_mon
+	showemote EMOTE_QUESTION, SILPHCORESEARCH_SCIENTIST1, 15
+	special SilphCo_PlayerGetsPropertyOfTestSubject ; Also places the Pokémon name in wStringBuffer1.
+
+	opentext
+	writetext SilphCoResearchScientist1_KeepMon_Text
+	waitbutton
+	closetext
+
+	opentext
+	writetext SilphCoResearchScientist1_GotBack_Text
+	playsound SFX_KEY_ITEM
+	waitbutton
+	waitsfx
+	closetext
+
+	jumptext SilphCoResearchScientist1_ThankService_Text
+
+
+
+
+
 
 SilphCoResearchScientist2Script:
     jumptextfaceplayer SilphCoResearchScientist2_Text
@@ -276,6 +394,10 @@ SilphCoResearch_RespectDistanceMovement:
     slow_step RIGHT
     remove_fixed_facing
     step_end 
+
+SilphCoResearch_HeadUpMovement:
+    turn_head UP
+    step_end
 
 SilphCo_LookPokeballText:
     text "It contains a"
@@ -354,56 +476,56 @@ SilphCoResearchScientist1_HiText:
     para "facilities devoted"
     line "to finding a"
 
-;   para "#RUS vaccine"
-;   line "for all #MON."
-;   
-;   para "We are currently"
-;   line "field testing"
-;   cont "our solution."
-;   
-;   para "This phase is tak-"
-;   line "ing a lot of time"
-;   
-;   para "because we are"
-;   line "checking each"
-;   
-;   para "#MON species"
-;   line "one by one."
-;   
-;   para "That's why we need"
-;   line "trainers like you."
-;   
-;   para "There are many"
-;   line "#BALL in this"
-;   cont "office."
-;   
-;   para "They all contain"
-;   line "a voluntary test"
-;   
-;   para "subject that has"
-;   line "been injected with"
-;   
-;   para "our prototype of"
-;   line "the vaccine."
-;   
-;   para "I want you to"
-;   line "pick 1 #BALL."
-;   
-;   para "Go train and do"
-;   line "battles with the"
-;   cont "chosen #MON."
-;   
-;   para "Then return it"
-;   line "back, so we can"
-;   
-;   para "analyze the"
-;   line "effects of the"
-;   
-;   para "vaccine on its"
-;   line "health."
-;   
-;   para "Oh, I almost"
-;   line "forgot!"
+    para "#RUS vaccine"
+    line "for all #MON."
+    
+    para "We are currently"
+    line "field testing"
+    cont "our solution."
+    
+    para "This phase is tak-"
+    line "ing a lot of time"
+    
+    para "because we are"
+    line "checking each"
+    
+    para "#MON species"
+    line "one by one."
+    
+    para "That's why we need"
+    line "trainers like you."
+    
+    para "There are many"
+    line "#BALL in this"
+    cont "office."
+    
+    para "They all contain"
+    line "a voluntary test"
+    
+    para "subject that has"
+    line "been injected with"
+    
+    para "our prototype of"
+    line "the vaccine."
+    
+    para "I want you to"
+    line "pick 1 #BALL."
+    
+    para "Go train and do"
+    line "battles with the"
+    cont "chosen #MON."
+    
+    para "Then return it"
+    line "back, so we can"
+    
+    para "analyze the"
+    line "effects of the"
+    
+    para "vaccine on its"
+    line "health."
+    
+    para "Oh, I almost"
+    line "forgot!"
 
     para "You're gonna"
     line "need this."
@@ -431,21 +553,169 @@ SilphCoResearchScientist1_PassText:
     cont "fine!"
     done
 
-    ;case 1) How is our test subject #MON doing? 
-    ;case 2) I see the test subject #MON is doing good.
-
-    ;case 1A) et 2A) That wouldn't be not enough data to analyze. Come back after training it way more.
-    ;case 1B) et 2B) A little more training with you, and we should have enough data to analyze.
-    ;case 1C) That should be enough data gathered, please bring it back.
-    ;case 2C) Give it to me, I'll go check the results right now.
-
-    ; This concludes the testing phase! Since we reached a success rate above 80% several weeks ago, we started mass production and distribution of this vaccine.
-    ; With the power of a single call, I will now notify hierarchy and start saving thousands of lifes.
-    ; -I'm feeling so powerful in this instant!-
-    ; Our vaccination center is located right of this building and should open in a moment.
-    ; We couldn't have done it without your help, LEAGUE CHAMPION.
 
 
+; Case 1: the trainer doesn't have the test subject Pokémon in its party.
+; Case 2: the trainer does.
+
+; Case A: The trainer has done less than or equal to half the required amount of battles.
+; Case B: The trainer has done more than half, but less than 100%.
+; Case C: The trainer has done >= 100%.
+
+SilphCoResearchScientist1_QuestIntro_Text:
+	text "How is our test"
+	line "subject #MON"
+	cont "doing?"
+	done
+
+SilphCoResearchScientist1_Case1_Text:
+	text "Please bring it"
+	line "here so I can"
+	
+	para "check on the"
+	line "effects of the"
+	
+	para "vaccine on its"
+	line "health."
+	done
+
+SilphCoResearchScientist1_Case2_Text:	
+    text "I see the test"
+	line "subject #MON"
+	cont "is doing good."
+	done
+	
+SilphCoResearchScientist1_Case1A2A_Text:
+	text "However I need"
+	line "much more data"
+	cont "to analyze."
+	
+	para "Come back after"
+	line "training it way"
+	cont "more."
+	done
+
+SilphCoResearchScientist1_Case1B2B_Text:
+    text "A little more"
+	line "training with you,"
+
+	para "and we should have"
+	line "enough data for"
+	cont "reliable results."
+	done
+
+SilphCoResearchScientist1_ExplainTraining_Text:
+	text "And by training"
+	line "I mean battles."
+
+	para "We need the test"
+	line "subject to get"
+
+	para "exposed to the"
+	line "virus to see the"
+
+	para "effects of the"
+	line "vaccine."
+
+	para "Using RARE CANDIES"
+	line "and other doping"
+	cont "items won't help."
+	done
+
+SilphCoResearchScientist1_Case1C_Text:
+    text "You've trained"
+	line "it a lot!"
+	
+	para "That should be"
+	line "enough data."
+
+    para "Give it to me,"
+	line "I will check"
+	
+	para "the results right"
+	line "now."
+	done
+
+SilphCoResearchScientist1_HandedOver_Text:
+	text "<PLAYER> handed"
+	line "over the #MON."
+	done
+
+SilphCoResearchScientist1_CaseDone_Text:
+	text "Results are as"
+	line "good as we"
+	cont "expected!"
+
+	para "This concludes the"
+	line "testing phase!"
+	
+	para "Since we reached"
+	line "a success rate"
+
+	para "above 80<PERCENT> several"
+	line "weeks ago,"
+	
+	para "we started mass"
+	line "production and"
+	
+	para "distribution of"
+	line "this vaccine."
+
+	para "With the power of"
+	line "a single call,"
+	
+	para "I will now notify"
+	line "hierarchy and"
+	
+	para "start saving thou-"
+	line "sands of lives."
+
+    para "-I'm feeling so"
+	line "powerful in this"
+	cont "instant!-"
+	done
+
+SilphCoResearchScientist1_AfterQuest_Text:
+    text "Our vaccination"
+	line "center is located"
+	
+	para "to the right of"
+	line "this building."
+
+	para "We couldn't have"
+	line "done it without"
+	
+	para "your help,"
+	line "LEAGUE CHAMPION."
+	done
+
+SilphCoResearchScientist1_KeepMon_Text:
+	text "The test subject"
+	line "#MON feels"
+	
+	para "attached to you"
+	line "and would like to"
+	cont "stay with you."
+
+	para "I see no problem"
+	line "with that."
+	done
+
+SilphCoResearchScientist1_GotBack_Text:
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer1
+	text " back!"
+	done
+
+SilphCoResearchScientist1_ThankService_Text:
+	text "Thank you for your"
+	line "service, dear"
+	cont "@"
+	text_ram wStringBuffer1
+	text "."
+	done
+	
 
 
 
@@ -473,9 +743,9 @@ SilphCoResearchScientist4_Text:
     text "Our research shows"
     line "that the virus"
 
-    para "that gives COVID is"
-    line "a modified version"
-    cont "of the #RUS."
+    para "that gives COVID"
+    line "is a mutated ver-"
+    cont "sion of #RUS."
     done
 
 SilphCoResearchScientist5_Text:
@@ -487,9 +757,16 @@ SilphCoResearchScientist5_Text:
     line "making it ready"
     
     para "for mass produc-"
-    line "tion is a huge"
-    cont "challenge."
+    line "tion as well as"
+	
+	para "affordable is a"
+    line "huge challenge."
     done
+
+SilphCoResearchScientist1_ConfusedText:
+	text "I'm sorry"
+	line "I'm confused."
+	done
 
 SilphCoResearch_MapEvents:
     db 0, 0 ; filler

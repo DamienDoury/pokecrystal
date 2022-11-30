@@ -92,15 +92,30 @@ _SilphCo_SetMonAttributes:
     ld h, d
     ld l, e
 
-    ld a, $4d
+    ld a, [wPlayerID]
+    cpl
     ld [hli], a
-    ld [hl], $fa ; Trainer ID.
+    ld a, [wPlayerID + 1]
+    cpl
+    ld [hl], a ; Trainer ID.
     pop de
     
     ld h, d
     ld l, e
-    ld de, MON_DVS - MON_MOVES
+    ld de, MON_STAT_EXP - MON_MOVES
     add hl, de
+
+    ld a, TEST_SUBJECT_DEFAULT_STAT_EXP
+    ld [hli], a ; HPExp
+    inc hl 
+    ld [hli], a ; AtkExp
+    inc hl 
+    ld [hli], a ; DefExp
+    inc hl 
+    ld [hli], a ; SpdExp / Speed.
+    inc hl 
+    ld [hli], a ; SpcExp / Special Attack only, Special Defense is ignored when gaining stat exp.
+    inc hl ; We have reached DVs.
 
     ld a, ATKDEFDV_SHINY
     ld [hli], a
@@ -126,3 +141,152 @@ _SilphCo_SetMonAttributes:
 
 SilphCo_TrainerName:
     db $92, $88, $8B, $8F, $87, $50
+
+; Input: none.
+; Output: [wScriptVar]: 0 if the mon is not within the party, $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.
+_SilphCo_GetTestSubjectProgress::
+    call SilphCoFindTestSubjectInParty
+    jr c, CheckTestSubjectProgress
+
+    xor a
+    ld [wScriptVar], a ; Return value of FALSE: the test subject wasn't found in the party.
+    ret
+
+; Input: none.
+; Output: FALSE if non-carry, TRUE if carry and HL = wPartyMon1 + MON_ID + 1 of the found test-subject Pokémon.
+SilphCoFindTestSubjectInParty:
+    ld a, [wPlayerID]
+    ;cpl
+    ld b, a
+    ld a, [wPlayerID + 1]
+    ;cpl
+    ld c, a ; BC contains the Trainer ID of Silph Co, the one we are looking for.
+
+    ld a, [wPartyCount]
+    ld d, a
+    ld hl, wPartyMon1ID
+
+.party_loop
+    ld a, [hli]
+    and b
+    jr nz, .next
+
+    ld a, [hl]
+    and c
+    jr nz, .next
+
+    ; We have found the right ID!
+    ; There is 1 chance out of 2^16 that another player could have the right ID and trade with the player.
+    ; We consider this an edge case, and won't fix the issue.
+    ; Even it the bug occured, it would be a very minor issue, unless when speedruning. However, trading is forbidden while speedrunning.
+    ; Same opinion if the trainer has more than 1 test subject in its team.
+
+    ld a, [wPartyCount]
+    sub d
+    ld [wCurPartyMon], a
+    scf ; Return TRUE.
+    ret
+
+.next
+    dec hl
+    dec d
+    ret z ; Return FALSE. We quit once we have reached the last mon in the party.
+
+    push de
+    ld de, PARTYMON_STRUCT_LENGTH
+    add hl, de
+    pop de
+    jr .party_loop
+
+; Input: HL= "wPartyMonID + 1" of the Pokémon to check.
+; Output: In [wScriptVar]: $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.
+CheckTestSubjectProgress:
+    ld de, MON_STAT_EXP - MON_ID - 1
+    add hl, de
+
+    ld b, 5
+    xor a
+
+.stat_exp_loop
+    add [hl]
+    sub TEST_SUBJECT_DEFAULT_STAT_EXP
+    jr c, .return_max
+
+    inc hl
+    inc hl ; We inc HL twice, as we only check the high-weight byte.
+    dec b
+    jr nz, .stat_exp_loop
+
+    ; Checking the total value.
+    ; We consider the average value of a Pokémon's stat is 70 (around Saffron City), which makes an average total base stats of 420 (~Raticate).
+    ; We want the player to do 30 battles on average, which represents a gain of 30*70=2100 = $834 per stat exp.
+    ; There are 5 stat exp, which makes a total of 5 * $834 = $2904 rounded down to $2900.
+
+    cp $29
+    jr nc, .return_max
+
+    cp $1E ; ~= $29 * 73.5%
+    jr c, .long_way_to_go
+
+    ; almost done with the training
+    ld a, $b
+    jr .return
+
+.long_way_to_go
+    ld a, $a
+    jr .return
+
+.return_max
+    ld a, $c
+.return
+    ld [wScriptVar], a
+    ret
+
+; Input: none.
+; Output: [wScriptVar] = happiness/friendship of the test subject.
+_SilphCo_GetTestSubjectHappiness::
+    call SilphCoFindTestSubjectInParty ; Must always return true, as it is only called in scripts when the pokémon has been found in the party before.
+    ld de, MON_HAPPINESS - MON_ID - 1
+    jr ReturnTestSubjectParam
+
+; Input: HL = wPartyMon1 + MON_ID + 1 of the found test-subject Pokémon.
+; Output: [wScriptVar] = happiness/friendship of the test subject.
+_SilphCo_GetTestSubjectLevel:
+    call SilphCoFindTestSubjectInParty
+    ld de, MON_LEVEL- MON_ID - 1    
+    ; fallthrough
+
+ReturnTestSubjectParam:
+    add hl, de
+    ld a, [hl]
+    ld [wScriptVar], a
+    ret
+
+_SilphCo_TestSubjectRemovedFromParty::
+    call SilphCoFindTestSubjectInParty ; Must always return true, as it is only called in scripts when the pokémon has been found in the party before.
+    xor a ; REMOVE_PARTY
+	ld [wPokemonWithdrawDepositParameter], a
+	farcall RemoveMonFromPartyOrBox
+    ret
+
+_SilphCo_PlayerGetsPropertyOfTestSubject::
+    call SilphCoFindTestSubjectInParty ; Must always return true, as it is only called in scripts when the pokémon has been found in the party before.
+    
+    ; Setting the test subject trainer ID to the one of the player.
+    dec hl
+    ld a, [wPlayerID]
+    ld [hli], a
+    ld a, [wPlayerID + 1]
+    ld [hl], a
+
+    ; Setting the test subject trainer name to the one of the player.
+    ld hl, wPartyMonOTs
+    ld a, [wCurPartyMon]
+    call SkipNames
+
+    ld de, wPlayerName
+    call CopyName2 ; Copies the name from de to hl
+
+    ; Copying the name if the test subject into wStringBuffer1.
+    call GetCurNickname
+    ret
