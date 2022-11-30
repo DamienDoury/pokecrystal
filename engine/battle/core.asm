@@ -7218,6 +7218,7 @@ GiveExperiencePoints:
 .stat_exp_loop
 	inc hl
 	ld a, [de]
+	add a
 	add [hl]
 	ld [de], a
 	jr nc, .no_carry_stat_exp
@@ -7229,16 +7230,17 @@ GiveExperiencePoints:
 	inc de
 
 .no_carry_stat_exp
-	push hl
-	push bc
-	ld a, MON_PKRUS
-	call GetPartyParamLocation
-	ld a, [hl]
-	and a
-	pop bc
-	pop hl
-	jr z, .stat_exp_awarded
+	;push hl
+	;push bc
+	;ld a, MON_PKRUS
+	;call GetPartyParamLocation
+	;ld a, [hl]
+	;and a
+	;pop bc
+	;pop hl
+	;jr z, .stat_exp_awarded
 	ld a, [de]
+	add a
 	add [hl]
 	ld [de], a
 	jr nc, .stat_exp_awarded
