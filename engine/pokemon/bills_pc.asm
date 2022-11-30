@@ -185,6 +185,8 @@ BillsPCDepositFuncRelease:
 	jr c, BillsPCDepositFuncCancel
 	call BillsPC_IsMonAnEgg
 	jr c, BillsPCDepositFuncCancel
+	call BillsPC_IsSilphCoProperty
+	jr c, BillsPCDepositFuncCancel
 	ld a, [wMenuCursorY]
 	push af
 	ld de, PCString_ReleasePKMN
@@ -440,6 +442,8 @@ BillsPC_Withdraw:
 	ld a, [wMenuCursorY]
 	push af
 	call BillsPC_IsMonAnEgg
+	jr c, .FailedRelease
+	call BillsPC_IsSilphCoProperty
 	jr c, .FailedRelease
 	ld de, PCString_ReleasePKMN
 	call BillsPC_PlaceString
@@ -1666,6 +1670,8 @@ BillsPC_IsMonAnEgg:
 
 .egg
 	ld de, PCString_NoReleasingEGGS
+
+ReleaseRefusalNotification:
 	call BillsPC_PlaceString
 	ld de, SFX_WRONG
 	call WaitPlaySFX
@@ -1674,6 +1680,15 @@ BillsPC_IsMonAnEgg:
 	call DelayFrames
 	scf
 	ret
+
+BillsPC_IsSilphCoProperty:
+	farcall IsTestSubjectForSure
+	ret nc
+
+	; Place refusal text here.
+	; Get inspiration from the .egg code above.
+	ld de, PCString_SilphCoProperty
+	jr ReleaseRefusalNotification
 
 BillsPC_StatsScreen:
 	call LowVolume
@@ -2322,6 +2337,7 @@ PCString_Non: db "Non.@" ; unreferenced
 PCString_BoxFull: db "The BOX is full.@"
 PCString_PartyFull: db "The party's full!@"
 PCString_NoReleasingEGGS: db "No releasing EGGS!@"
+PCString_SilphCoProperty: db "SILPH's property!@"
 
 _ChangeBox:
 	call LoadStandardMenuHeader

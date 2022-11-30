@@ -146,7 +146,7 @@ SilphCo_TrainerName:
 ; Output: [wScriptVar]: 0 if the mon is not within the party, $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.
 _SilphCo_GetTestSubjectProgress::
     call SilphCoFindTestSubjectInParty
-    jr c, CheckTestSubjectProgress
+    jp c, CheckTestSubjectProgress
 
     xor a
     ld [wScriptVar], a ; Return value of FALSE: the test subject wasn't found in the party.
@@ -197,6 +197,101 @@ SilphCoFindTestSubjectInParty:
     add hl, de
     pop de
     jr .party_loop
+
+
+; Input: none.
+; Output: c if the OT ID and OT Name of the selected mon are those of Silph Co. Returns nc otherwise.
+IsTestSubjectForSure::
+    ld a, [wPlayerID]
+    ld b, a
+    ld a, [wPlayerID + 1]
+    ld c, a ; BC contains the Trainer ID of Silph Co, the one we are looking for.
+
+    ld a, [wBillsPC_CursorPosition]
+	ld hl, wBillsPC_ScrollPosition
+	add [hl]
+	ld [wCurPartyMon], a
+
+	ld a, [wBillsPC_LoadedBox]
+	and a
+	jr z, .party
+
+;.loaded_box
+    ld hl, sBoxMon1ID
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, BOXMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, BANK(sBoxMon1ID)
+    call OpenSRAM
+
+    ld a, [hli]
+    and b
+    jr nz, .close_sram_then_return_false
+
+    ld a, [hl]
+    and c
+    jr nz, .close_sram_then_return_false
+
+    call CloseSRAM
+    
+    ; We have found the right ID, now we need to check the Original Trainer name.
+
+    ld hl, sBoxMonOTs
+    ld a, [wCurPartyMon]
+    call SkipNames
+
+    ld de, SilphCo_TrainerName
+    ld c, 6
+
+    ld a, BANK(sBoxMonOTs)
+    call OpenSRAM
+    call CompareBytes ; Compare c bytes at de and hl. Return z if they all match.
+    call CloseSRAM
+    jr nz, .return_false
+
+    jr .return_true
+    
+.party
+    ld hl, wPartyMon1ID
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, PARTYMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, [hli]
+    and b
+    jr nz, .return_false
+
+    ld a, [hl]
+    and c
+    jr nz, .return_false
+
+    ; We have found the right ID, now we need to check the Original Trainer name.
+
+    ld hl, wPartyMonOTs
+    ld a, [wCurPartyMon]
+    call SkipNames
+
+    ld de, SilphCo_TrainerName
+    ld c, 6
+
+    call CompareBytes ; Compare c bytes at de and hl. Return z if they all match.
+    jr nz, .return_false
+
+.return_true
+    scf
+    ret
+
+.close_sram_then_return_false
+    call CloseSRAM
+.return_false
+    xor a
+    ret
+
 
 ; Input: HL= "wPartyMonID + 1" of the Pokémon to check.
 ; Output: In [wScriptVar]: $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.

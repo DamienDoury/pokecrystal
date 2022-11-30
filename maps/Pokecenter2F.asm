@@ -74,6 +74,14 @@ LinkReceptionistScript_Trade:
 	writetext Text_TradeReceptionistIntro
 	yesorno
 	iffalse .Cancel
+	special SilphCo_GetTestSubjectProgress
+	ifequal FALSE, .NoMobile
+
+	writetext Text_TradeReceptionistSilphCo
+	waitbutton
+	closetext
+	end
+
 	special Mobile_DummyReturnFalse ; always returns false
 	iffalse .NoMobile
 	writetext Text_TradeReceptionistMobile
@@ -307,6 +315,16 @@ LinkReceptionistScript_TimeCapsule:
 	writetext Text_TimeCapsuleReceptionistIntro
 	yesorno
 	iffalse .Cancel
+
+	special SilphCo_GetTestSubjectProgress
+	ifequal FALSE, .CompatibilityChecks
+
+	writetext Text_TradeReceptionistSilphCo
+	waitbutton
+	closetext
+	end
+
+.CompatibilityChecks
 	special CheckTimeCapsuleCompatibility
 	ifequal $1, .MonTooNew
 	ifequal $2, .MonMoveTooNew
@@ -839,6 +857,18 @@ Text_TradeReceptionistIntro:
 
 	para "Would you like to"
 	line "trade?"
+	done
+
+Text_TradeReceptionistSilphCo:
+	text "You have a #MON"
+	line "that is SILPH CO's"
+	cont "property in your"
+	cont "party."
+	
+	para "You are not"
+	line "allowed to enter"
+	cont "with a #MON"
+	cont "you do not own."
 	done
 
 Text_TimeCapsuleReceptionistIntro:
