@@ -140,7 +140,7 @@ SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:
 
 SaffronMagnetTrainStationOfficerRightThisWayText:
 	text "May I see your"
-	line "rail PASS, please?"
+	line "RAIL PASS, please?"
 
 	para "OK. Right this"
 	line "way, please."
@@ -204,7 +204,7 @@ SaffronMagnetTrainStationTeacherText:
 
 SaffronMagnetTrainStationLassText:
 	text "Hi. Do you have a"
-	line "rail PASS? I have"
+	line "RAIL PASS? I have"
 
 	para "one. All the peo-"
 	line "ple in SAFFRON who"

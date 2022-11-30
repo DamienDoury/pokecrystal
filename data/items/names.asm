@@ -133,7 +133,7 @@ ItemNames::
 	li "STARDUST"
 	li "STAR PIECE"
 	li "BASEMENT KEY"
-	li "TRAIN PASS"
+	li "RAIL PASS"
 	li "SILPH PASS"
 	li "TERU-SAMA"
 	li "TERU-SAMA"
