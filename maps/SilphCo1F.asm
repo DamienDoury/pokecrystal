@@ -114,9 +114,6 @@ SilphCoNurseScript:
 	ifequal POKEMAIL_LAST_MON, .LastMon
 
 	opentext
-	farwritetext Text_Route31HandOverMailMon
-	promptbutton
-
 	writetext SilphCoNurse_ReadsText
 	waitbutton
 	closetext

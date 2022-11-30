@@ -186,8 +186,6 @@ Route31MailRecipientScript:
 	ifequal POKEMAIL_NO_MAIL, .NoMail
 	ifequal POKEMAIL_LAST_MON, .LastMon
 	; POKEMAIL_CORRECT
-	writetext Text_Route31HandOverMailMon
-	promptbutton
 	writetext Text_Route31ReadingMail
 	promptbutton
 	setevent EVENT_GAVE_KENYA
@@ -302,12 +300,6 @@ Text_Route31SleepyManGotMail:
 
 	para "What's that? You"
 	line "have MAIL for me?"
-	done
-
-Text_Route31HandOverMailMon:
-	text "<PLAYER> handed"
-	line "over the #MON"
-	cont "holding the MAIL."
 	done
 
 Text_Route31ReadingMail:

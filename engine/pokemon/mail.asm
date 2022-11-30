@@ -171,9 +171,9 @@ CheckPokeMail::
 	farcall CheckCurPartyMonFainted
 	ld a, POKEMAIL_LAST_MON
 	jr c, .close_sram_return
-	xor a ; REMOVE_PARTY
-	ld [wPokemonWithdrawDepositParameter], a
-	farcall RemoveMonFromPartyOrBox
+	;xor a ; REMOVE_PARTY
+	;ld [wPokemonWithdrawDepositParameter], a
+	;farcall RemoveMonFromPartyOrBox
 	ld a, POKEMAIL_CORRECT
 
 .close_sram_return
