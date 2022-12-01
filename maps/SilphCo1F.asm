@@ -27,6 +27,8 @@ SilphCoReceptionistScript:
 SilphCoOfficerScript:
 	faceplayer
 	opentext
+	checkevent EVENT_FOUGHT_SUICUNE
+	iffalse .SuicuneNotFought
 	checkevent EVENT_SILPHCO_SCIENTIST_MET
 	iftrue .AccessAllowed
 	
@@ -87,6 +89,11 @@ SilphCoOfficerScript:
 	applymovement PLAYER, SilphCo_UpMovement
 	warpcheck
 	end
+
+.SuicuneNotFought:
+	writetext SilphCoOfficer_SuicuneText
+	waitbutton
+	sjump .NoRoom
 
 .AccessAllowed:
 	getitemname STRING_BUFFER_3, SILPH_BADGE
@@ -515,6 +522,13 @@ SilphCoScientist_HiText:
 	para "Please follow me."
 	done
 
+SilphCoOfficer_SuicuneText:
+	text "Reseachers are"
+	line "trying to find a"
+	cont "vaccine in this"
+	cont "building."
+	done
+	
 SilphCoOfficer_OkayText:
 	text "May I see your"
 	line "@"
