@@ -1293,8 +1293,26 @@ RareCandyEffect:
 	ld [wCurPartyLevel], a
 	push de
 	ld d, a
-	farcall CalcExpAtLevel
+	cp MAX_LEVEL
+	jr z, .end_exp_boost
 
+	inc d ; we add one more level...
+	farcall CalcExpAtLevel
+	;...then we sub 1 exp from it.
+	ldh a, [hMultiplicand + 2]
+	sbc 1
+	ldh [hMultiplicand + 2], a
+	ldh a, [hMultiplicand + 1]
+	sbc 0
+	ldh [hMultiplicand + 1], a
+	ldh a, [hMultiplicand + 0]
+	sbc 0
+	ldh [hMultiplicand + 0], a
+	jr .apply_exp
+
+.end_exp_boost
+	farcall CalcExpAtLevel
+.apply_exp
 	pop de
 	ld a, MON_EXP
 	call GetPartyParamLocation

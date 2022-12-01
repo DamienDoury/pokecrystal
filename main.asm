@@ -25,6 +25,7 @@ INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/predef.asm"
 INCLUDE "engine/gfx/color.asm"
+INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 
 
 SECTION "bank3", ROMX
@@ -42,7 +43,6 @@ INCLUDE "engine/pokemon/bills_pc_top.asm"
 INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/lockdown_wanted.asm"
 INCLUDE "engine/events/gym.asm"
