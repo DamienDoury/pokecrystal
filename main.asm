@@ -167,7 +167,6 @@ SECTION "Enemy Trainers", ROMX
 INCLUDE "engine/battle/ai/items.asm"
 INCLUDE "engine/battle/ai/scoring.asm"
 INCLUDE "engine/battle/read_trainer_attributes.asm"
-INCLUDE "engine/battle/read_trainer_party.asm"
 
 SECTION "Battle Core", ROMX
 
@@ -711,6 +710,7 @@ endc
 SECTION "Battle Tower Text", ROMX
 
 INCLUDE "data/battle_tower/trainer_text.asm"
+INCLUDE "engine/battle/read_trainer_party.asm"
 
 
 SECTION "Battle Tower Trainer Data", ROMX

@@ -458,14 +458,6 @@ CopyTrainerName:
 	pop de
 	ret
 
-IncompleteCopyNameFunction: ; unreferenced
-; Copy of CopyTrainerName but without "call CopyBytes"
-	ld de, wStringBuffer1
-	push de
-	ld bc, NAME_LENGTH
-	pop de
-	ret
-
 ; This function sets the carry flag if this trainer class must adapt
 ; the level of its Pokemon to the player.
 ; Destroys a (and the flags).
