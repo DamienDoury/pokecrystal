@@ -961,8 +961,8 @@ Battle_EnemyFirst:
 	cp TRUE
 	jp nz, .assault_case_treated
 
-	ld a, [wPlayerTurnsTaken]
-	cp 0
+	ld a, [wEnemyTurnsTaken]
+	cp 1
 	jr nz, .assault_case_treated
 
 	; Assault notification
