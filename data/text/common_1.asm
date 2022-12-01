@@ -1789,7 +1789,7 @@ _YourMonHasGrownText::
 	para "If you want your"
 	line "#MON back, it"
 	cont "will cost ¥@"
-	text_decimal wStringBuffer2 + 2, 3, 4
+	text_decimal wStringBuffer2 + 2, 3, 5
 	text "."
 	done
 
@@ -1815,7 +1815,7 @@ _BackAlreadyText::
 
 	para "If you want your"
 	line "#MON back, it"
-	cont "will cost ¥100."
+	cont "will cost ¥200."
 	done
 
 _HaveNoRoomText::

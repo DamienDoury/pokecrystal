@@ -359,10 +359,10 @@ GetPriceToRetrieveBreedmon:
 	ld bc, NAME_LENGTH
 	call CopyBytes
 	ld hl, 0
-	ld bc, 100
+	ld bc, 200
 	ld a, [wStringBuffer2 + 1]
 	call AddNTimes
-	ld de, 100
+	ld de, 200
 	add hl, de
 	xor a
 	ld [wStringBuffer2 + 2], a
