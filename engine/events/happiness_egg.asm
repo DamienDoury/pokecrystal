@@ -150,8 +150,16 @@ DayCareStep::
 	cp MAX_LEVEL
 	jr nc, .day_care_lady
 	ld hl, wBreedMon1Exp + 2 ; exp
-	inc [hl]
-	jr nz, .day_care_lady
+	srl a
+	srl a
+	srl a ; We divide the level by 8. This formula is great because it scales better with level, but still provides diminishing return, as the exp gained grows slower than the exp required to gain a level.
+	jr nz, .man_exp_rate_found
+	ld a, 1 ; MAX(a, 1). The minimum exp gain rate is 1.
+.man_exp_rate_found
+	adc 1 ; Rounding of the last division and also adds 1, so that the minimum value is 2.
+	add [hl]
+	ld [hl], a
+	jr nc, .day_care_lady
 	dec hl
 	inc [hl]
 	jr nz, .day_care_lady
@@ -172,8 +180,16 @@ DayCareStep::
 	cp MAX_LEVEL
 	jr nc, .check_egg
 	ld hl, wBreedMon2Exp + 2 ; exp
-	inc [hl]
-	jr nz, .check_egg
+	srl a
+	srl a
+	srl a
+	jr nz, .lady_exp_rate_found
+	ld a, 1
+.lady_exp_rate_found
+	adc 1
+	add [hl]
+	ld [hl], a
+	jr nc, .check_egg
 	dec hl
 	inc [hl]
 	jr nz, .check_egg
