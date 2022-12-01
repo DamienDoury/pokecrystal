@@ -105,7 +105,7 @@ _SilphCo_SetMonAttributes:
     ld de, MON_STAT_EXP - MON_MOVES
     add hl, de
 
-    ld a, TEST_SUBJECT_DEFAULT_STAT_EXP
+    ld a, VITAMIN_STAT_EXP_CAP
     ld [hli], a ; HPExp
     inc hl 
     ld [hli], a ; AtkExp
@@ -236,7 +236,7 @@ IsTestSubjectForSure::
     jr nz, .close_sram_then_return_false
 
     call CloseSRAM
-    
+
     ; We have found the right ID, now we need to check the Original Trainer name.
 
     ld hl, sBoxMonOTs
@@ -304,7 +304,7 @@ CheckTestSubjectProgress:
 
 .stat_exp_loop
     add [hl]
-    sub TEST_SUBJECT_DEFAULT_STAT_EXP
+    sub VITAMIN_STAT_EXP_CAP
     jr c, .return_max
 
     inc hl

@@ -1171,10 +1171,10 @@ VitaminEffect:
 
 	add hl, bc
 	ld a, [hl]
-	cp 100
+	cp VITAMIN_STAT_EXP_CAP
 	jr nc, NoEffectMessage
 
-	add 10
+	add VITAMIN_STAT_EXP_CAP / 2 ; Now, only 2 vitamins are necessary to reach the cap, instead of the original 10.
 	ld [hl], a
 	call UpdateStatsAfterItem
 
