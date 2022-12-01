@@ -866,7 +866,7 @@ CountStep:
 	; decrease the hatch counter of all your eggs until you reach the first
 	; one that is ready to hatch.
 	ld a, [wStepCount]
-	cp $80
+	and $40 - 1
 	jr nz, .skip_egg
 
 	farcall DoEggStep
