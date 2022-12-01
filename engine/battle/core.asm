@@ -832,6 +832,10 @@ HandleEncore:
 	jp StdBattleTextbox
 
 TryEnemyFlee:
+	ld a, [wAssaultBattle] ; It would make no sense to assault the player just to flee. Note that this won't affect Legendary cats/dogs, as they can't assault the player.
+	cp TRUE
+	jr z, .Stay
+
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .Stay
