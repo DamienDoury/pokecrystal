@@ -1533,7 +1533,7 @@ _GymPowerRestrainerFirstExplanation::
 	para "It enables our"
 	line "#MON to lower"
 	cont "their level by up"
-	cont "to 30."
+	cont "to 40."
 	
 	para "I will adjust the"
 	line "level of my team"

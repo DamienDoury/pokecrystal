@@ -145,8 +145,8 @@ ReadTrainerPartyPieces:
 	jr c, .lvl_determined
 	jr z, .lvl_determined ; If both levels are the same, we take a shortcut.
 
-	sub 30 ; The "power restrainer" can lower the level of a gym leader by 30 levels maximum.
-	; No need to check if the level underflows, as we set the levels by hand and they all are above 31.
+	sub 40 ; The "power restrainer" can lower the level of a gym leader by 40 levels maximum.
+	; No need to check if the level underflows, as we set the levels by hand and they all are above 41.
 	; Here we have the enemy lowest possible level in a, and the highest level of the player in b.
 	cp b
 	jr nc, .lvl_determined
