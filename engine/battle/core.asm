@@ -7334,6 +7334,7 @@ GiveExperiencePoints:
 
 	ldh [hMultiplicand + 2], a
 	ld a, [wEnemyMonLevel]
+	add a
 	ldh [hMultiplier], a
 	call Multiply
 	ld a, 7
