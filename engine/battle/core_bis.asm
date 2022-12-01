@@ -498,8 +498,8 @@ DetermineAssault:
 	ret nz ; Assaults only happen in wild battles.
 
 	call BattleRandom
-	cp 26
-	ret nc ; ~1/10 odds of getting assaulted.
+	cp 51
+	ret nc ; ~1/5 odds of getting assaulted.
 
 .forceAssault
 	ld a, TRUE
