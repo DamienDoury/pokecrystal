@@ -1090,6 +1090,8 @@ SkyAttack:
 	checkcharge
 	checkobedience
 	doturn
+	speedup
+	statupmessage
 	charge
 	usedmovetext
 	critical
