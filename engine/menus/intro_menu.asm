@@ -316,6 +316,7 @@ InitializeNPCNames:
 
 InitializeWorld:
 	call ShrinkPlayer
+	call Continue_DisplayYear
 	farcall SpawnPlayer
 	farcall _InitializeStartDay
 	ret
@@ -368,15 +369,10 @@ Continue:
 	jr .FailToLoad
 
 .Check2Pass:
-	ld a, $8
-	ld [wMusicFade], a
-	ld a, LOW(MUSIC_NONE)
-	ld [wMusicFadeID], a
-	ld a, HIGH(MUSIC_NONE)
-	ld [wMusicFadeID + 1], a
+	call MusicFadeOut
+	call CloseWindow
 	call ClearBGPalettes
 	call Continue_MobileAdapterMenu
-	call CloseWindow
 	call ClearTilemap
 	ld c, 20
 	call DelayFrames
@@ -404,10 +400,31 @@ SpawnAfterRed:
 	ld [wDefaultSpawnpoint], a
 
 PostCreditsSpawn:
+	call MusicFadeOut
+	;call ClearTilemap
+	call ClearScreen
+	;call WaitBGMap
+	ld b, SCGB_TRAINER_CARD
+	call GetSGBLayout
+	call SetPalettes
+	call WaitBGMap
+	call DelayFrame 
+	ld de, ENGINE_DISPLAY_YEAR_AT_START
+	farcall CheckEngineFlag
+	call nc, Continue_DisplayYear
 	xor a
 	ld [wSpawnAfterChampion], a
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
+	ret
+
+MusicFadeOut:
+	ld a, $8
+	ld [wMusicFade], a
+	ld a, LOW(MUSIC_NONE)
+	ld [wMusicFadeID], a
+	ld a, HIGH(MUSIC_NONE)
+	ld [wMusicFadeID + 1], a
 	ret
 
 Continue_MobileAdapterMenu:
@@ -867,6 +884,7 @@ ShrinkPlayer:
 
 	call RotateThreePalettesRight
 	call ClearTilemap
+	call ClearSprites
 	ret
 
 Intro_RotatePalettesLeftFrontpic:
@@ -1373,3 +1391,61 @@ GameInit::
 	ldh [hWY], a
 	call WaitBGMap
 	jp IntroSequence
+
+Continue_DisplayYear:
+	ld c, 35
+	call DelayFrames
+
+	ld b, RESET_FLAG
+	ld de, ENGINE_DISPLAY_YEAR_AT_START
+	farcall EngineFlagAction
+	
+	hlcoord 6, 7
+	ld de, .January
+	call PlaceString
+
+	ld hl, .TwentyTwenty
+	ld de, wStringBuffer1
+	ld bc, 5
+	call CopyBytes
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_BEAT_ELITE_FOUR ; True when the Elite 4 has been beaten.
+	call EventFlagAction ; NOTE: at this point, the flag is neither set nor unset when starting a new game. I hope its default value in memory is 0, and that when loading a new game, the value is not the one of the previous save.
+
+	jr z, .year_found
+
+	ld hl, wStringBuffer1 + 3
+	inc [hl]
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_RED_BEATEN ; False when Red has been beaten.
+	call EventFlagAction
+
+	jr nz, .year_found
+
+	ld hl, wStringBuffer1 + 3
+	inc [hl]	
+
+.year_found
+	hlcoord 8, 9
+	ld de, wStringBuffer1
+	call PlaceString
+
+	farcall FadeInPalettes
+
+	ld c, 150
+	call DelayFrames
+
+	farcall FadeOutPalettes
+
+	ld c, 35
+	call DelayFrames
+
+	ret
+
+.January:
+	db "January@"
+
+.TwentyTwenty
+	db "2020@"

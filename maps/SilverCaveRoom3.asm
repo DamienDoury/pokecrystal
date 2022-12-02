@@ -41,6 +41,7 @@ Red:
 	closetext
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
+	setflag ENGINE_DISPLAY_YEAR_AT_START
 	clearevent EVENT_RED_BEATEN
 	setevent EVENT_RED_IN_MT_SILVER
 	clearevent EVENT_REDS_PIKACHU_AVAILABLE

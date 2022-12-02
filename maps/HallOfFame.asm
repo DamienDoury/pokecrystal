@@ -40,6 +40,7 @@ HallOfFame_MapScripts:
 	special HealParty
 	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
 	iftrue .SkipPhoneCall
+	setflag ENGINE_DISPLAY_YEAR_AT_START
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
 	halloffame

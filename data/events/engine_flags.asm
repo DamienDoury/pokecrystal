@@ -13,6 +13,7 @@ EngineFlags:
 	engine_flag wPokegearFlags, POKEGEAR_MAP_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_PHONE_CARD_F
 	engine_flag wPokegearFlags, POKEGEAR_EXPN_CARD_F
+	engine_flag wPokegearFlags, DISPLAY_YEAR_AT_START_F
 	engine_flag wPokegearFlags, POKEGEAR_OBTAINED_F
 
 	; day-care
