@@ -63,6 +63,7 @@ TrainerClassNames::
 	li "KIMONO GIRL"
 	li "TWINS"
 	li "#FAN"
+	li "NURSE"
 	li "<PKMN> TRAINER"
 	li "LEADER"
 	li "OFFICER"

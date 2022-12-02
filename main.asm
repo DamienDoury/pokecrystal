@@ -25,7 +25,6 @@ INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/predef.asm"
 INCLUDE "engine/gfx/color.asm"
-INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 
 
 SECTION "bank3", ROMX
@@ -711,7 +710,7 @@ SECTION "Battle Tower Text", ROMX
 
 INCLUDE "data/battle_tower/trainer_text.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
-
+INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 
 SECTION "Battle Tower Trainer Data", ROMX
 

@@ -41,5 +41,6 @@ FemaleTrainers:
 	db KIMONO_GIRL
 	db POKEFANF
 	db COOLTRAINERF
+	db NURSE
 	db JENNY
 .End

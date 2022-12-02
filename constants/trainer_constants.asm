@@ -684,33 +684,36 @@ KRIS EQU __trainer_class__
 	const GEORGIA
 	const JAIME
 
-	trainerclass RED ; 3f
+	trainerclass NURSE ; 3f
+	const CHIEF
+
+	trainerclass RED ; 40
 	const RED1
 
-	trainerclass BLUE ; 40
+	trainerclass BLUE ; 41
 	const BLUE1
 
-	trainerclass OFFICER ; 41
+	trainerclass OFFICER ; 42
 	const KEITH
 	const DIRK
 
-	trainerclass SERGEANT ; 42
+	trainerclass SERGEANT ; 43
 	const POLICE_2
 
-	trainerclass JENNY ; 43
+	trainerclass JENNY ; 44
 	const POLICE_3
 
-	trainerclass SWAT ; 44
+	trainerclass SWAT ; 45
 	const POLICE_4
 
-	trainerclass GRUNTF ; 45
+	trainerclass GRUNTF ; 46
 	const GRUNTF_1
 	const GRUNTF_2
 	const GRUNTF_3
 	const GRUNTF_4
 	const GRUNTF_5
 
-	trainerclass MYSTICALMAN ; 46
+	trainerclass MYSTICALMAN ; 47
 	const EUSINE
 
 NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

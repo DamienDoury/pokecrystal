@@ -910,7 +910,7 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	closetext
 
 	winlosstext GoldenrodHospitalRoomChiefNurseBeatenText, 0
-	loadtrainer PICNICKER, KIM
+	loadtrainer NURSE, CHIEF
 	startbattle
 	reloadmapafterbattle
 	setevent EVENT_BEAT_HOSPITAL_CHIEF_NURSE

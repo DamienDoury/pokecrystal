@@ -373,6 +373,12 @@ TrainerClassAttributes:
 	db 20 ; base reward
 	dw AI_BASIC | AI_TYPES | AI_SMART | AI_STATUS
 	dw CONTEXT_USE | SWITCH_SOMETIMES
+	
+; Nurse
+	db NO_ITEM, NO_ITEM ; items
+	db 20 ; base reward
+	dw AI_BASIC | AI_TYPES | AI_AGGRESSIVE | AI_CAUTIOUS | AI_STATUS
+	dw CONTEXT_USE | SWITCH_SOMETIMES
 
 ; Red
 	db FULL_RESTORE, FULL_RESTORE ; items
