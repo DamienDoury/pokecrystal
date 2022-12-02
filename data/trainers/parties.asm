@@ -36,7 +36,7 @@ BugsyGroup:
 	db 52, BEEDRILL,     RAGE, TWINEEDLE, PURSUIT, FOCUS_ENERGY
 	db 52, SHUCKLE,     ROCK_THROW, WRAP, SAFEGUARD, PROTECT
 	db 52, YANMA,     QUICK_ATTACK, SONICBOOM, WING_ATTACK, REVERSAL
-	db 56, SCYTHER,    SWORDS_DANCE, BATON_PASS, FURY_CUTTER, WING_ATTACK
+	db 56, SCYTHER,    SWORDS_DANCE, BATON_PASS, FURY_CUTTER, NO_MOVE
 	db -1 ; end
 
 MortyGroup:
@@ -345,6 +345,19 @@ ScientistGroup:
 	db "RICH@", TRAINERTYPE_MOVES
 	db 30, PORYGON,    CONVERSION, CONVERSION2, RECOVER, TRI_ATTACK
 	db -1 ; end
+
+	; SCIENTIST (6)
+	db "EROID@", TRAINERTYPE_NORMAL
+	db 24, MACHOKE
+	db -1 ; end
+
+	; SCIENTIST (7)
+	db "ADRIONE@", TRAINERTYPE_NORMAL
+	db 20, PORYGON
+	db 22, ZUBAT
+	db 24, GOLBAT
+	db -1 ; end
+
 
 ErikaGroup:
 	; ERIKA (1)
@@ -1477,6 +1490,12 @@ GentlemanGroup:
 	db 20, NOCTOWL
 	db -1 ; end
 
+	; GENTLEMAN (6)
+	db "SUM TING@", TRAINERTYPE_MOVES
+	db 25, FEAROW, 		FLY, PURSUIT, SONICBOOM, SCARY_FACE
+	db 25, ELECTRODE,	SELFDESTRUCT, NO_MOVE, NO_MOVE, NO_MOVE
+	db -1 ; end
+
 SkierGroup:
 	; SKIER (1)
 	db "ROXANNE@", TRAINERTYPE_NORMAL
@@ -2314,6 +2333,14 @@ GuitaristGroup:
 	db 32, MAGNEMITE
 	db -1 ; end
 
+	; GUITARIST (3)
+	db "JIMI@", TRAINERTYPE_NORMAL
+	db 20, ELEKID
+	db 22, SUNKERN
+	db 24, GRIMER
+	db 26, LICKITUNG
+	db -1 ; end
+
 HikerGroup:
 	; HIKER (1)
 	db "ANTHONY@", TRAINERTYPE_NORMAL
@@ -2459,6 +2486,13 @@ HikerGroup:
 	db 34, MACHOKE,    KARATE_CHOP, VITAL_THROW, HEADBUTT, DIG
 	db -1 ; end
 
+	; HIKER (22)
+	db "MEREDITH@", TRAINERTYPE_NORMAL
+	db 23, SANDSHREW
+	db 23, ZUBAT
+	db 23, GOLBAT
+	db -1 ; end
+
 BikerGroup:
 	; BIKER (1)
 	db "BENNY@", TRAINERTYPE_NORMAL
@@ -2598,6 +2632,13 @@ FirebreatherGroup:
 	db 28, KOFFING
 	db -1 ; end
 
+	; FIREBREATHER (9)
+	db "HUGO@", TRAINERTYPE_NORMAL
+	db 20, MAGBY
+	db 20, LICKITUNG
+	db 22, HOUNDOUR
+	db -1 ; end
+
 JugglerGroup:
 	; JUGGLER (1)
 	db "IRWIN@", TRAINERTYPE_NORMAL
@@ -2644,6 +2685,16 @@ JugglerGroup:
 	db 22, VOLTORB
 	db 26, VOLTORB
 	db 30, ELECTRODE
+	db -1 ; end
+
+	; JUGGLER (7)
+	db "BOZO@", TRAINERTYPE_NORMAL
+	db 22, VOLTORB
+	db 22, SWINUB
+	db 22, PINECO
+	db 22, JIGGLYPUFF
+	db 22, NATU
+	db 22, SUNKERN
 	db -1 ; end
 
 BlackbeltGroup:
@@ -2702,6 +2753,20 @@ BlackbeltGroup:
 	db 30, MACHOKE
 	db 32, MACHOKE
 	db 34, MACHOKE
+	db -1 ; end
+
+	; BLACKBELT_T (10)
+	db "STRIK@", TRAINERTYPE_NORMAL
+	db 24, HITMONLEE
+	db 25, MACHOKE
+	db 26, MACHAMP
+	db -1 ; end
+
+	; BLACKBELT_T (11)
+	db "YOUAK@", TRAINERTYPE_NORMAL
+	db 30, SNORLAX
+	db 31, HITMONCHAN
+	db 32, MACHAMP
 	db -1 ; end
 
 ExecutiveMGroup:
@@ -2804,6 +2869,11 @@ PsychicGroup:
 	db "RODNEY@", TRAINERTYPE_NORMAL
 	db 29, DROWZEE
 	db 33, HYPNO
+	db -1 ; end
+
+	; PSYCHIC_T (13)
+	db "GODOT@", TRAINERTYPE_NORMAL
+	db 26, HYPNO
 	db -1 ; end
 
 PicnickerGroup:
@@ -3467,6 +3537,16 @@ PokefanFGroup:
 	; POKEFANF (6)
 	db "JAIME@", TRAINERTYPE_ITEM
 	db 16, MEOWTH,     BERRY
+	db -1 ; end
+
+	; POKEFANF (7)
+	db "BERTHA@", TRAINERTYPE_ITEM
+	db 18, IGGLYBUFF,  GOLD_BERRY
+	db 18, CLEFFA,     MOOMOO_MILK
+	db 18, PICHU,      BERRY
+	db 18, SMOOCHUM,   BERRY
+	db 18, ELEKID,     BERRY
+	db 18, MAGBY,      BERRY
 	db -1 ; end
 
 NurseGroup:

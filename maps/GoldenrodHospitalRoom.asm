@@ -256,7 +256,7 @@ GoldenrodHospitalRoom_MapScripts:
 	setval SPRITEMOVEDATA_STANDING_UP
 	writemem wMap4ObjectMovement
 
-	moveobject GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE, 2, 5
+	moveobject GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE, 2, 4
 	sjump .SetSickMonID
 
 .room21:
@@ -835,21 +835,21 @@ GoldenrodHospitalRoomVisitor1Script:
 
 ; Trainers.
 GoldenrodHospitalRoomTrainerRoom1Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_1, GoldenrodHospitalTrainerRoom1SeenText, GoldenrodHospitalTrainerRoom1BeatenText, 0, .Script
+	trainer SCIENTIST, EROID, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_1, GoldenrodHospitalTrainerRoom1SeenText, GoldenrodHospitalTrainerRoom1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom1AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom3Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_3, GoldenrodHospitalTrainerRoom3SeenText, GoldenrodHospitalTrainerRoom3BeatenText, 0, .Script
+	trainer FIREBREATHER, HUGO, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_3, GoldenrodHospitalTrainerRoom3SeenText, GoldenrodHospitalTrainerRoom3BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom3AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom8Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_8, GoldenrodHospitalTrainerRoom8SeenText, GoldenrodHospitalTrainerRoom8BeatenText, 0, .Script
+	trainer SCIENTIST, ADRIAN, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_8, GoldenrodHospitalTrainerRoom8SeenText, GoldenrodHospitalTrainerRoom8BeatenText, 0, .Script
 
 .Script:
 	checkscene 
@@ -865,35 +865,35 @@ GoldenrodHospitalRoomTrainerRoom8Script:
 	jumptextfaceplayer GoldenrodHospitalRoom_Quest8Text	
 
 GoldenrodHospitalRoomTrainerRoom17Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_17, GoldenrodHospitalTrainerRoom17SeenText, GoldenrodHospitalTrainerRoom17BeatenText, 0, .Script
+	trainer JUGGLER, BOZO, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_17, GoldenrodHospitalTrainerRoom17SeenText, GoldenrodHospitalTrainerRoom17BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom17AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom26Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_26, GoldenrodHospitalTrainerRoom26SeenText, GoldenrodHospitalTrainerRoom26BeatenText, 0, .Script
+	trainer BLACKBELT_T, STRIK, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_26, GoldenrodHospitalTrainerRoom26SeenText, GoldenrodHospitalTrainerRoom26BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom26AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom30Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_30, GoldenrodHospitalTrainerRoom30SeenText, GoldenrodHospitalTrainerRoom30BeatenText, 0, .Script
+	trainer POKEFANF, BERTHA, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_30, GoldenrodHospitalTrainerRoom30SeenText, GoldenrodHospitalTrainerRoom30BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom30AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom31Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_31, GoldenrodHospitalTrainerRoom31SeenText, GoldenrodHospitalTrainerRoom31BeatenText, 0, .Script
+	trainer GENTLEMAN, SUM_TING, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_31, GoldenrodHospitalTrainerRoom31SeenText, GoldenrodHospitalTrainerRoom31BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom31AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom32Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_32, GoldenrodHospitalTrainerRoom32SeenText, GoldenrodHospitalTrainerRoom32BeatenText, 0, .Script
+	trainer GUITARIST, JIMI, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_32, GoldenrodHospitalTrainerRoom32SeenText, GoldenrodHospitalTrainerRoom32BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
@@ -1103,9 +1103,9 @@ GoldenrodHospitalRoomChiefNurseSeenText:
 	para "I'm busy, talk"
 	line "quickly."
 
-	para " "
+	para "…"
 
-	para " "
+	para "…"
 	
 	para "Oh my word, I'm so"
 	line "stressed! I can't"

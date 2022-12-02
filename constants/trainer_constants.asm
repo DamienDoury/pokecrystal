@@ -107,6 +107,8 @@ KRIS EQU __trainer_class__
 	const JED
 	const MARC
 	const RICH
+	const EROID
+	const ADRIAN
 
 	trainerclass ERIKA ; 15
 	const ERIKA1
@@ -316,6 +318,7 @@ KRIS EQU __trainer_class__
 	const GREGORY
 	const VIRGIL
 	const ALFRED
+	const SUM_TING
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -463,6 +466,7 @@ KRIS EQU __trainer_class__
 	trainerclass GUITARIST ; 2b
 	const CLYDE
 	const VINCENT
+	const JIMI
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1
@@ -487,6 +491,7 @@ KRIS EQU __trainer_class__
 	const PARRY3
 	const ANTHONY4
 	const ANTHONY5
+	const MEREDITH
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY
@@ -516,6 +521,7 @@ KRIS EQU __trainer_class__
 	const WALT
 	const RAY
 	const LYLE
+	const HUGO
 
 	trainerclass JUGGLER ; 31
 	const IRWIN1
@@ -524,6 +530,7 @@ KRIS EQU __trainer_class__
 	const IRWIN2
 	const IRWIN3
 	const IRWIN4
+	const BOZO
 
 	trainerclass BLACKBELT_T ; 32
 	const KENJI1
@@ -535,6 +542,8 @@ KRIS EQU __trainer_class__
 	const LUNG
 	const KENJI3
 	const WAI
+	const STRIK
+	const YOUAK
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
@@ -555,6 +564,7 @@ KRIS EQU __trainer_class__
 	const GILBERT
 	const JARED
 	const RODNEY
+	const GODOT
 
 	trainerclass PICNICKER ; 35
 	const LIZ1
@@ -683,6 +693,7 @@ KRIS EQU __trainer_class__
 	const BEVERLY3
 	const GEORGIA
 	const JAIME
+	const BERTHA
 
 	trainerclass NURSE ; 3f
 	const CHIEF

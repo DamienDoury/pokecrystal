@@ -1,8 +1,8 @@
 	object_const_def
 	const CELADONCAFE_SUPER_NERD
-	const CELADONCAFE_FISHER1
 	const CELADONCAFE_FISHER2
 	const CELADONCAFE_FISHER3
+	const CELADONCAFE_YOUAK
 	const CELADONCAFE_TEACHER
 
 CeladonCafe_MapScripts:
@@ -18,7 +18,7 @@ CeladonCafeChef:
 	closetext
 	end
 
-CeladonCafeFisher1:
+CeladonCafeFisher3:
 	opentext
 	writetext Fisher1Text_Snarfle
 	waitbutton
@@ -28,23 +28,42 @@ CeladonCafeFisher1:
 	writetext Fisher1Text_Concentration
 	waitbutton
 	closetext
-	turnobject CELADONCAFE_FISHER1, LEFT
+	turnobject CELADONCAFE_FISHER3, RIGHT
 	end
 
-CeladonCafeFisher2:
+CeladonCafeYouakScript:
 	opentext
 	writetext Fisher2Text_GulpChew
 	waitbutton
 	closetext
 	faceplayer
+
+	checkevent EVENT_BEAT_YOUAK
+	iftrue .afterbattletext
+
+	opentext
+	writetext Fisher2Text_Eating
+	waitbutton
+	closetext
+
+	winlosstext Fisher2Text_Loss, 0
+	loadtrainer BLACKBELT_T, YOUAK
+	startbattle
+	reloadmapafterbattle
+	setevent EVENT_BEAT_YOUAK
+	pause 3
+	turnobject CELADONCAFE_YOUAK, RIGHT
+	end
+
+.afterbattletext
 	opentext
 	writetext Fisher2Text_Quantity
 	waitbutton
 	closetext
-	turnobject CELADONCAFE_FISHER2, RIGHT
+	turnobject CELADONCAFE_YOUAK, RIGHT
 	end
 
-CeladonCafeFisher3:
+CeladonCafeFisher2:
 	opentext
 	writetext Fisher3Text_MunchMunch
 	waitbutton
@@ -54,7 +73,7 @@ CeladonCafeFisher3:
 	writetext Fisher3Text_GoldenrodIsBest
 	waitbutton
 	closetext
-	turnobject CELADONCAFE_FISHER3, RIGHT
+	turnobject CELADONCAFE_FISHER2, LEFT
 	end
 
 CeladonCafeTeacher:
@@ -123,10 +142,20 @@ Fisher2Text_GulpChew:
 	text "…Gulp… Chew…"
 	done
 
+Fisher2Text_Eating:
+	text "CAN'T YOU SEE"
+	line "I'M BUSY EATING?"
+	done
+
+Fisher2Text_Loss:
+	text "I'll get one more"
+	line "dessert please."
+	done
+
 Fisher2Text_Quantity:
 	text "Don't talk to me,"
 	line "I'm not wearing"
-	cont "a face mask!"
+	cont "my face mask!"
 	done
 
 Fisher3Text_MunchMunch:
@@ -247,7 +276,7 @@ CeladonCafe_MapEvents:
 
 	def_object_events
 	object_event  9,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonCafeChef, -1
-	object_event  4,  6, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher1, -1
-	object_event  1,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher2, -1
-	object_event  1,  2, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher3, -1
+	object_event  4,  6, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher2, -1
+	object_event  1,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher3, -1
+	object_event  1,  2, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCafeYouakScript, -1
 	object_event  4,  3, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCafeTeacher, -1

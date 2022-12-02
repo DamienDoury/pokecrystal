@@ -160,7 +160,7 @@ GoldenrodHospitalCorridorNurse1Script:
 	jumptextfaceplayer GoldenrodHospitalCorridorNurse1Text
 
 GoldenrodHospitalCorridorPokefan1Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
+	trainer HIKER, MEREDITH, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
 
 .Script:
 	checkscene 
@@ -195,7 +195,7 @@ GoldenrodHospitalCorridorBathroomScript:
 	jumptextfaceplayer GoldenrodHospitalCorridorBathroomText
 
 GoldenrodHospitalCorridorPsychicT1Script:
-	trainer PICNICKER, KIM, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_1, GoldenrodHospitalPsychicTrainerSeenText, GoldenrodHospitalPsychicTrainerBeatenText, 0, .Script
+	trainer PSYCHIC_T, GODOT, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_1, GoldenrodHospitalPsychicTrainerSeenText, GoldenrodHospitalPsychicTrainerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
