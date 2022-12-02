@@ -355,8 +355,8 @@ Continue:
 	call DisplaySaveInfoOnContinue
 	ld a, $1
 	ldh [hBGMapMode], a
-	ld c, 20
-	call DelayFrames
+	;ld c, 2
+	;call DelayFrames
 	call ConfirmContinue
 	jr nc, .Check1Pass
 	call CloseWindow
@@ -374,8 +374,8 @@ Continue:
 	call ClearBGPalettes
 	call Continue_MobileAdapterMenu
 	call ClearTilemap
-	ld c, 20
-	call DelayFrames
+	;ld c, 2
+	;call DelayFrames
 	farcall JumpRoamMons
 	farcall CopyMysteryGiftReceivedDecorationsToPC
 	farcall ClockContinue

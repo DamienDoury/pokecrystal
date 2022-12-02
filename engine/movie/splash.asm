@@ -26,8 +26,17 @@ SplashScreen:
 ; Draw copyright screen
 	callfar Copyright
 	call WaitBGMap
-	ld c, 100
-	call DelayFrames
+	ld b, 100
+.joy_loop_1
+	call JoyTextDelay
+	ldh a, [hJoyLast]
+	and BUTTONS
+	jr nz, .pressed_button_1
+	call DelayFrame
+	dec b
+	jr nz, .joy_loop_1
+
+.pressed_button_1
 	call ClearTilemap
 
 ; Stop here if not in GBC mode
