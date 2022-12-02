@@ -525,10 +525,28 @@ SilphCoScientist_HiText:
 SilphCoOfficer_SuicuneText:
 	text "Reseachers are"
 	line "trying to find a"
-	cont "vaccine in this"
+	cont "vaccine for"
+	cont "#MON, in this"
 	cont "building."
-	done
 	
+	para "But they aren't"
+	line "making progress."
+
+	para "Scientists come"
+	line "from far away to"
+	cont "try and help."
+
+	para "A weird man came"
+	line "the other day and"
+	cont "said he knew of a"
+	cont "mythical #MON"
+	cont "that could help"
+	cont "with the research."
+	
+	para "I had to kick"
+	line "him out."
+	done
+
 SilphCoOfficer_OkayText:
 	text "May I see your"
 	line "@"

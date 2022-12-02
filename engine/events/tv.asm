@@ -1,8 +1,8 @@
 TVShow:
 	checkevent EVENT_RED_BEATEN
 	iffalse .Phase6
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .Phase5
+	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
+	iffalse .Phase5
 	readvar VAR_BADGES
 	ifgreater 6, .Phase4
 	readvar VAR_BADGES
@@ -881,7 +881,8 @@ TVShow:
 	para "Take an"
 	line "appointment to get"
 	cont "vaccinated at the"
-	cont "Silph Co. center"
+	cont "SILPH CO. VACCINA-"
+	cont "TION CENTER"
 	cont "in SAFFRON CITY.”"
 	done
 
@@ -1015,7 +1016,8 @@ TVShow:
 	para "“Our vaccination"
 	line "level is strug-"
 	cont "gling to go beyond"
-	cont "80 percent."
+	cont "80 percent of the"
+	cont "population."
 
 	para "Indeed a lot of"
 	line "people are afraid"

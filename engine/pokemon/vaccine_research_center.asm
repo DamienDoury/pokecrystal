@@ -315,12 +315,13 @@ CheckTestSubjectProgress:
     ; Checking the total value.
     ; We consider the average value of a Pokémon's stat is 70 (around Saffron City), which makes an average total base stats of 420 (~Raticate).
     ; We want the player to do 30 battles on average, which represents a gain of 30*70=2100 = $834 per stat exp.
-    ; There are 5 stat exp, which makes a total of 5 * $834 = $2904 rounded down to $2900.
+    ; Now that we have doubled the Stat Exp gain, it doubles our result to $834*2 = $1068
+    ; There are 5 stat exp, which makes a total of 5 * $1068 = $5208 rounded down to $5200.
 
-    cp $29
+    cp $52
     jr nc, .return_max
 
-    cp $1E ; ~= $29 * 73.5%
+    cp $3D ; ~= $29 * 74.4%
     jr c, .long_way_to_go
 
     ; almost done with the training
