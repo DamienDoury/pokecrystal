@@ -1148,6 +1148,9 @@ GoldenrodHospitalRoomChiefNurseAfterBattleText:
 
 	para "I need to hurry!"
 
+	para "Give me your"
+	line "phone number."
+
 	para "Please come back"
 	line "later, if you"
 	cont "want to talk."

@@ -92,7 +92,9 @@ ElmsLab_MapScripts:
 ProfElmScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
+	;checkevent EVENT_REDS_PIKACHU_AVAILABLE
+
+	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue ElmGiveTicketScript
@@ -466,11 +468,37 @@ ElmGiveMasterBallScript:
 	end
 
 ElmGiveTicketScript:
-	writetext ElmGiveTicketText1
+	writetext ElmGiveVaccineText1
 	promptbutton
-	verbosegiveitem S_S_TICKET
-	setevent EVENT_GOT_SS_TICKET_FROM_ELM
-	writetext ElmGiveTicketText2
+	closetext
+
+	pause 3
+	applymovement ELMSLAB_ELM, ElmsLab_SlowStepUpMovement
+	applymovement PLAYER, ElmsLab_HeadUpMovement
+	pause 3
+	opentext
+	writetext ElmGiveVaccineText2
+	promptbutton
+	closetext
+
+	
+	applymovement ELMSLAB_ELM, ElmsLab_SlowStepDownMovement
+	pause 3
+	faceplayer
+	pause 3
+	faceobject PLAYER, ELMSLAB_ELM
+	opentext
+	writetext ElmGiveVaccineText3
+	promptbutton
+
+	applymovement ELMSLAB_ELM, ElmsLab_HeadUpMovement
+	writetext ElmGiveVaccineText4
+	promptbutton
+
+	faceobject ELMSLAB_ELM, PLAYER
+	writetext ElmGiveVaccineText5
+	setevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
+	setevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
 	waitbutton
 	closetext
 	end
@@ -767,6 +795,7 @@ ElmsLab_ElmToDefaultPositionMovement2:
 
 AfterCyndaquilDownMovement:
 	step DOWN
+ElmsLab_HeadUpMovement:
 	turn_head UP
 	step_end
 
@@ -786,6 +815,14 @@ AfterChikoritaMovement:
 	step LEFT
 	step LEFT
 	turn_head UP
+	step_end
+
+ElmsLab_SlowStepUpMovement:
+	slow_step UP
+	step_end
+
+ElmsLab_SlowStepDownMovement:
+	slow_step DOWN
 	step_end
 
 ElmText_Intro:
@@ -1135,7 +1172,7 @@ ElmListenRadioText:
 	done
 
 ElmCovidAnnouncementText:
-	text "MARY: today PROF."
+	text "MARY: Today PROF."
 	line "OAK you have"
 	cont "something very"
 	cont "important to tell"
@@ -1408,20 +1445,116 @@ ElmGiveMasterBallText2:
 	line "can, <PLAY_G>!"
 	done
 
-ElmGiveTicketText1:
+ElmGiveVaccineText1:
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
+	para "First of all,"
+	line "congratulations"
+
+	para "on becoming the"
+	line "LEAGUE CHAMPION!"
+
 	para "I called because I"
-	line "have something for"
-	cont "you."
+	line "have amazing news"
+	cont "for you my friend."
 
-	para "See? It's an"
-	line "S.S.TICKET."
+	para "A vaccine for hu-"
+	line "mans has finally"
+	
+	para "been found and"
+	line "successfully"
+	
+	para "passed all verif-"
+	line "ications to be"
+	
+	para "made available"
+	line "to the public!!"
 
-	para "Now you can catch"
-	line "#MON in KANTO."
+	para "Never in history"
+	line "had a vaccine"
+	
+	para "been created so"
+	line "quickly!"
 	done
+
+ElmGiveVaccineText2:
+	text "For this reason,"
+	line "a lot of people"
+	
+	para "are mistrustful"
+	line "because they think"
+	
+	para "it hasn't been"
+	line "tested thourougly."
+	done
+
+ElmGiveVaccineText3:
+	text "This is where you"
+	line "play a part."
+
+	para "Authorities want"
+	line "people to trust"
+
+	para "the vaccine and"
+	line "get vaccinated."
+
+	para "One of their"
+	line "actions is to"
+
+	para "have celebrities"
+	line "get vaccinated,"
+
+	para "so people follow"
+	line "their lead."
+
+	para "And now that you"
+	line "are the CHAMPION,"
+
+	para "people are looking"
+	line "up to you."
+	done
+
+ElmGiveVaccineText4:
+	text "CHIEF NURSE JOY"
+	line "is ready to give"
+
+	para "you a shot as we"
+	line "speak."
+	done
+
+ElmGiveVaccineText5:
+	text "As someone that"
+	line "helped with the"
+
+	para "research on the"
+	line "vaccine, I can"
+
+	para "tell you that the"
+	line "vaccine is safe."
+
+	para "Safer than not"
+	line "getting vaccina-"
+	cont "ted anyway."
+	
+	para "This is the best"
+	line "action you can do"
+
+	para "to help erradicate"
+	line "this virus."
+
+	para "I would advise you"
+	line "to seize this"
+	cont "opportunity."
+
+	para "But I would under-"
+	line "stand if you don't."
+
+	para "In any case, don't"
+	line "forget to help me"
+	cont "find patient zero!"
+	done
+
 
 ElmGiveTicketText2:
 	text "The ship departs"

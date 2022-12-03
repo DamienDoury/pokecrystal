@@ -15,6 +15,8 @@ OaksLab_MapScripts:
 Oak:
 	faceplayer
 	opentext
+	checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	iffalse .GetPikachu
 	checkevent EVENT_OPENED_MT_SILVER
 	iftrue .CheckPokedex
 	checkevent EVENT_TALKED_TO_OAK_IN_KANTO
@@ -33,6 +35,12 @@ Oak:
 	waitbutton
 	special ProfOaksPCBoot
 	writetext OakLabGoodbyeText
+	waitbutton
+	closetext
+	end
+
+.GetPikachu:
+	writetext OakLabPikachuText
 	waitbutton
 	closetext
 	end
@@ -182,6 +190,31 @@ OakYesKantoBadgesText:
 
 	para "Keep trying hard,"
 	line "<PLAY_G>!"
+	done
+
+OakLabPikachuText:
+	text "OAK: Oh hi"
+	line "<PLAYER>!"
+	
+	para "I've heard about"
+	line "RED on TV. I'm sad"
+	cont "about what"
+	cont "happened to him."
+	
+	para "I've seen his mom"
+	line "recently."
+	
+	para "I don't know if"
+	line "she has heard the"
+	cont "news, but she"
+	cont "seemed worried."
+	
+	para "I don't have the"
+	line "heart to go talk"
+	cont "to her."
+
+	para "You should go"
+	line "check on her."
 	done
 
 OaksAssistant1Text:

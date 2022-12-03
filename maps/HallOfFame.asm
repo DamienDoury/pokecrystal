@@ -38,7 +38,7 @@ HallOfFame_MapScripts:
 	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
 	special HealParty
-	checkevent EVENT_GOT_SS_TICKET_FROM_ELM
+	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue .SkipPhoneCall
 	setflag ENGINE_DISPLAY_YEAR_AT_START
 	specialphonecall SPECIALCALL_SSTICKET

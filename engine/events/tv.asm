@@ -187,7 +187,16 @@ TVShow:
 	cont "outside on the"
 	cont "same day of the"
 	cont "week."
-	;cont "Are non-binary people allowed to go outside everyday or are they locked inside all the time?"
+
+	para "This makes we"
+	line "wonder…"
+
+	para "Are non-binary"
+	line "people allowed to"
+	cont "go outside every-"
+	cont "day or are they"
+	cont "locked inside all"
+	cont "the time?"
 	done
 
 .Phase1Odd2:
@@ -230,11 +239,14 @@ TVShow:
 
 	para "…"
 
-	para "The best way to"
-	line "fight a virus"
-
-	para "is to punch it,"
-	line "right?"
+	para "This president"
+	line "must also think"
+	
+	para "that the best way"
+	line "to fight a virus"
+	
+	para "is to punch it in"
+	line "the face."
 	done
 
 .Phase1Even1:
@@ -402,7 +414,8 @@ TVShow:
 	line "shortages."
 
 	para "Pasta, wheat,"
-	line "#BALLs, and"
+	line "#BALLs, wet"
+	cont "wipes and"
 	cont "TOILET PAPER"
 
 	para "are now the"
@@ -701,36 +714,27 @@ TVShow:
 	jumptext .Phase4Odd2Text
 
 .Phase4Odd2Text:
-	text "AFFAIRS"
+	text "SOCIETY"
 
-	para "“Not a good time"
-	line "to be young."
+	para "“Remember your old"
+	line "#MON Trading"
+	cont "Card collection?"
 
-	para "Because of closed"
-	line "schools and social"
-	cont "life down,"
+	para "You may be sitting"
+	line "on a pile of gold!"
 
-	para "young people are"
-	line "desperate."
+	para "The price of those"
+	line "cards has been"
+	cont "increasing"
+	cont "steadily over the"
+	cont "years, and since"
+	cont "the beginning of"
+	cont "the pandemic"
 
-	para "They are now"
-	line "organizing illegal"
-	cont "dance parties in"
-	cont "remote areas,"
-
-	para "despite the"
-	line "sanitary"
-	cont "restrictions"
-
-	para "and the risk of"
-	line "catching and"
-	cont "spreading the"
-	cont "virus."
-
-	para "An illegal rave"
-	line "was recently shut"
-	cont "down by CERULEAN"
-	cont "CITY Police.”"
+	para "the price of some"
+	line "rare cards has"
+	cont "been multiplied"
+	cont "by 10 or more.”"
 	done
 
 .Phase4Odd3:
@@ -841,27 +845,36 @@ TVShow:
 	jumptext .Phase5Odd1Text
 
 .Phase5Odd1Text:
-	text "SOCIETY"
+	text "AFFAIRS"
 
-	para "“Remember your old"
-	line "#MON Trading"
-	cont "Card collection?"
+	para "“Not a good time"
+	line "to be young."
 
-	para "You may be sitting"
-	line "on a pile of gold!"
+	para "Because of closed"
+	line "schools and social"
+	cont "life down,"
 
-	para "The price of those"
-	line "cards has been"
-	cont "increasing"
-	cont "steadily over the"
-	cont "years, and since"
-	cont "the beginning of"
-	cont "the pandemic"
+	para "young people are"
+	line "desperate."
 
-	para "the price of some"
-	line "rare cards has"
-	cont "been multiplied"
-	cont "by 10 or more.”"
+	para "They are now"
+	line "organizing illegal"
+	cont "dance parties in"
+	cont "remote areas,"
+
+	para "despite the"
+	line "sanitary"
+	cont "restrictions"
+
+	para "and the risk of"
+	line "catching and"
+	cont "spreading the"
+	cont "virus."
+
+	para "An illegal rave"
+	line "was recently shut"
+	cont "down by CERULEAN"
+	cont "CITY Police.”"
 	done
 
 .Phase5Odd2:

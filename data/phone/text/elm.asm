@@ -216,6 +216,17 @@ ElmPhoneGiftText:
 	para "See you later!"
 	done
 
+ElmPhoneSomethingToTellText:
+	text "Hello, <PLAY_G>?"
+
+	para "There is something"
+	line "important I need"
+	cont "to tell you."
+	
+	para "Come see me in"
+	line "my LAB, will you?"
+	done
+
 ElmPhoneGotAholdOfSomethingNeatText:
 	text "Hello, <PLAY_G>?"
 	line "How's it going?"

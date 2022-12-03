@@ -31,10 +31,17 @@ ViridianGymBlueScript:
 	end
 
 .FightDone:
+	checkevent EVENT_RED_BEATEN
+	iffalse .RedBeaten
 	writetext LeaderBlueEpilogueText
+	.end:
 	waitbutton
 	closetext
 	end
+
+.RedBeaten:
+	writetext LeaderBlueRivalText
+	sjump .end
 
 ViridianGymGuideScript:
 	faceplayer
@@ -148,6 +155,18 @@ LeaderBlueEpilogueText:
 	para "You'd better not"
 	line "lose until I beat"
 	cont "you. Got it?"
+	done
+
+LeaderBlueRivalText:
+	text "BLUE: Now that RED"
+	line "is gone, I have"
+	cont "no rival."
+
+	para "I don't know how"
+	line "to feel about it."
+
+	para "I'll have to find"
+	line "a new purpose…"
 	done
 
 ViridianGymGuideText:
