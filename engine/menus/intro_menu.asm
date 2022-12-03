@@ -401,9 +401,7 @@ SpawnAfterRed:
 
 PostCreditsSpawn:
 	call MusicFadeOut
-	;call ClearTilemap
 	call ClearScreen
-	;call WaitBGMap
 	ld b, SCGB_TRAINER_CARD
 	call GetSGBLayout
 	call SetPalettes

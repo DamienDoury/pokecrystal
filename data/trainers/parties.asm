@@ -2490,7 +2490,7 @@ HikerGroup:
 	db "MEREDITH@", TRAINERTYPE_NORMAL
 	db 23, SANDSHREW
 	db 23, ZUBAT
-	db 23, GOLBAT
+	db 23, MAGNEMITE
 	db -1 ; end
 
 BikerGroup:
