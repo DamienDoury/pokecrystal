@@ -104,6 +104,7 @@ MapScenes::
 	scene_var GOLDENROD_HOSPITAL_1F,               	       wGoldenrodHospitalReceptionSceneID
 	scene_var GOLDENROD_HOSPITAL_ROOM,               	   wGoldenrodHospitalCorridorsAndRoomsSceneID
 	scene_var GOLDENROD_HOSPITAL_CORRIDOR,                 wGoldenrodHospitalCorridorsAndRoomsSceneID
+	scene_var GOLDENROD_HOSPITAL_OFFICE,                   wRoute29SceneID
 	scene_var VACCINATION_CENTER_1F,					   wVaccinationCenterSceneID
 	scene_var VACCINATION_CENTER_CORRIDOR,				   wVaccinationCenterSceneID
 	scene_var SILPHCO_ELEVATOR,				   			   wRoute29SceneID
