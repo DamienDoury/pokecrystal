@@ -1555,22 +1555,6 @@ ElmGiveVaccineText5:
 	cont "find patient zero!"
 	done
 
-
-ElmGiveTicketText2:
-	text "The ship departs"
-	line "from OLIVINE CITY."
-
-	para "But you knew that"
-	line "already, <PLAY_G>."
-
-	para "After all, you've"
-	line "traveled all over"
-	cont "with your #MON."
-
-	para "Give my regards to"
-	line "PROF.OAK in KANTO!"
-	done
-
 AideText_GiveYouPotion:
 	text "<PLAY_G>, I want"
 	line "you to put this on"
