@@ -7375,7 +7375,7 @@ GiveExperiencePoints:
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp LUCKY_EGG
-	call z, BoostExp
+	call z, DoubleExp
 
 	ldh a, [hQuotient + 3] ; XP to display is being stored within the string buffer.
 	ld [wStringBuffer2 + 1], a
@@ -7710,6 +7710,26 @@ BoostExp:
 	ldh [hProduct + 3], a
 	ldh a, [hProduct + 2]
 	adc b
+	ldh [hProduct + 2], a
+	pop bc
+	ret
+
+DoubleExp:
+; Multiply experience by 1.5x
+	push bc
+; load experience value
+	ldh a, [hProduct + 2]
+	ld b, a
+	ldh a, [hProduct + 3]
+	ld c, a
+
+; double it
+	sla b
+	rl c
+
+	ld a, c
+	ldh [hProduct + 3], a
+	ld a, b
 	ldh [hProduct + 2], a
 	pop bc
 	ret
