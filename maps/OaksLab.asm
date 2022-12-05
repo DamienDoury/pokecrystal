@@ -197,9 +197,11 @@ OakLabPikachuText:
 	line "<PLAYER>!"
 	
 	para "I've heard about"
-	line "RED on TV. I'm sad"
-	cont "about what"
-	cont "happened to him."
+	line "RED on TV. I'm so"
+	cont "sad about what"
+	cont "happened to him…"
+
+	para "…"
 	
 	para "I've seen his mom"
 	line "recently."
@@ -213,8 +215,8 @@ OakLabPikachuText:
 	line "heart to go talk"
 	cont "to her."
 
-	para "You should go"
-	line "check on her."
+	para "Perhaps you could"
+	line "do it for me."
 	done
 
 OaksAssistant1Text:

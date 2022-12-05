@@ -216,6 +216,14 @@ ElmPhoneGiftText:
 	para "See you later!"
 	done
 
+ElmPhoneQuickCallText:
+	text "Hey <PLAYER>."
+	line "We have to talk."
+
+	para "You know where"
+	line "to find me."
+	done
+
 ElmPhoneSomethingToTellText:
 	text "Hello, <PLAY_G>?"
 

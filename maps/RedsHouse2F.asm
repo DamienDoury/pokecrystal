@@ -31,7 +31,7 @@ RedsHouse2FPikachuScript:
 	disappear REDSHOUSE2F_PIKACHU
 	pause 10
 	writetext RedsPikachuJoinsText
-	playsound SFX_GET_BADGE
+	playsound SFX_CAUGHT_MON
 	waitsfx
 
 .partyfull:
@@ -69,10 +69,15 @@ RedsHouse2FPCText:
 RedsPikachuStaresText:
 	text "PIKACHU stares at"
 	line "you insistently."
+
+	para "It looks in bad"
+	line "health, you should"
+	cont "do something"
+	cont "about it."
 	done
 
 RedsPikachuTakeText:
-	text "Take him into"
+	text "Take it into"
 	line "your arms?"
 	done
 

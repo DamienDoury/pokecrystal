@@ -92,8 +92,10 @@ ElmsLab_MapScripts:
 ProfElmScript:
 	faceplayer
 	opentext
-	;checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	checkevent EVENT_RED_BEATEN
+	iffalse ElmRedBeaten
 
+ProfElmScript_Back:
 	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue ElmCheckMasterBall
 	checkevent EVENT_BEAT_ELITE_FOUR
@@ -503,6 +505,60 @@ ElmGiveTicketScript:
 	closetext
 	end
 
+ElmRedBeaten:
+	checkevent EVENT_ELM_MISSION_COMPLETE_SPEECH
+	iffalse .finalSpeech
+
+	checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	iffalse .ElmPikachu
+
+	sjump ProfElmScript_Back
+
+.finalSpeech:
+	setevent EVENT_ELM_MISSION_COMPLETE_SPEECH
+	writetext ElmFoundPatientZeroText1
+	promptbutton
+	closetext 
+
+	readvar VAR_XCOORD
+	ifless 4, .playerWalksDown
+
+; player walks left
+	applymovement PLAYER, AfterTotodileMovement
+	sjump .elmSitsOnTable
+
+.playerWalksDown:
+	applymovement PLAYER, ElmsLab_StepDownTwiceThenHeadUp
+
+.elmSitsOnTable:
+	applymovement ELMSLAB_ELM, ElmsLab_StepLeftTwiceThenHeadDown
+	moveobject ELMSLAB_ELM, 3, 2
+
+	opentext
+	writetext ElmFoundPatientZeroText2
+	promptbutton
+
+	pause 30
+
+	checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	iftrue .SkipComfortOak
+
+	writetext ElmComfortOakText
+	promptbutton
+
+.SkipComfortOak
+	writetext ElmFoundPatientZeroText3
+	waitbutton
+	playsound SFX_GET_BADGE
+	waitsfx
+	pause 10
+	closetext
+	end
+
+.ElmPikachu:
+	writetext ElmComfortOakText
+	sjump ElmsLab_EndText
+	
 ElmJumpBackScript1:
 	closetext
 	readvar VAR_FACING
@@ -613,6 +669,7 @@ ElmsAideScript:
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
 	writetext AideText_AlwaysBusy
+ElmsLab_EndText:
 	waitbutton
 	closetext
 	end
@@ -758,6 +815,12 @@ AideWalksLeft2:
 	turn_head DOWN
 	step_end
 
+ElmsLab_StepLeftTwiceThenHeadDown:
+	step LEFT
+	step LEFT
+	turn_head DOWN
+	step_end
+
 ElmJumpUpMovement:
 	fix_facing
 	big_step UP
@@ -793,6 +856,8 @@ ElmsLab_ElmToDefaultPositionMovement2:
 	turn_head DOWN
 	step_end
 
+ElmsLab_StepDownTwiceThenHeadUp:
+	step DOWN
 AfterCyndaquilDownMovement:
 	step DOWN
 ElmsLab_HeadUpMovement:
@@ -1553,6 +1618,181 @@ ElmGiveVaccineText5:
 	para "In any case, don't"
 	line "forget to help me"
 	cont "find patient zero!"
+	done
+
+ElmFoundPatientZeroText1:
+	text "Hello <PLAYER>."
+	para "We've got a lot"
+	line "to talk about."
+	
+	para "So please sit."
+	done
+
+ElmFoundPatientZeroText2:
+	text "Two years ago"
+	line "I sent you on"
+	cont "a mission."
+
+	para "It looks like"
+	line "you finally "
+	cont "completed it…"
+
+
+	para "You've found"
+	line "the patient zero."
+
+	para "…"
+
+	para "I am both"
+	line "glad and sad."
+
+	para "I didn't wish for"
+	line "it to end in those"
+	cont "circumstances."
+
+	para "A sample of RED's"
+	line "blood has been"
+	cont "analyzed."
+
+	para "He had a strain of"
+	line "the virus that,"
+	
+	para "based on its"
+	line "mutations,"
+	
+	para "we assume to be"
+	line "the ancestor of"
+	
+	para "the virus we"
+	line "all know."
+
+	para "This hypothesis is"
+	line "further strength-"
+	cont "ened by other"
+	cont "facts."
+
+	para "A lot of the early"
+	line "sick people that"
+	
+	para "have been found"
+	line "infected by COVID,"
+	
+	para "like AGATHA"
+	line "or MISTY,"
+	
+	para "were close"
+	line "relatives of him."
+
+	para "With the help of"
+	line "contact tracing"
+	cont "and data analysis,"
+	
+	para "we also discovered"
+	line "that COVID first"
+	cont "spread in KANTO"
+	cont "cities,"
+	
+	para "where RED had been"
+	line "seen a few days"
+	cont "before."
+
+	para "RED finding out"
+	line "about his disease"
+	
+	para "could also explain"
+	line "why he abandonned"
+	
+	para "his job as the"
+	line "LEAGUE CHAMPION."
+
+	para "We can't tell for"
+	line "sure if RED was"
+	cont "patient zero,"
+	
+	para "but it is the"
+	line "closest answer"
+	cont "we'll get I guess."
+
+	para "…"
+
+	para "Two years ago, I"
+	line "thought finding"
+	
+	para "patient zero would"
+	line "bring an answer to"
+	cont "all my questions."
+
+	para "In the end, there"
+	line "are still many"
+	cont "questions."
+
+	para "How and where did"
+	line "RED get COVID in"
+	cont "the first place?"
+
+	para "In what circum-"
+	line "stances did"
+	cont "#RUS mutate?"
+
+	para "We'll never be"
+	line "able to ask RED"
+	cont "now that he…"
+
+	para "…" 
+	done
+
+ElmComfortOakText:
+	text "Poor PROF.OAK."
+
+	para "RED was his"
+	line "protege, they"
+	cont "were very close."
+
+	para "You should visit"
+	line "his lab in PALLET"
+	cont "TOWN to comfort"
+	cont "him."
+
+	para "…"
+	done
+
+ElmFoundPatientZeroText3:
+	text "You've done so"
+	line "much, <PLAYER>."
+
+	para "Helping me in my"
+	line "research…"
+
+	para "Supporting CHIEF"
+	line "NURSE JOY when"
+	cont "she was about to"
+	cont "burn out…"
+
+	para "Your interview"
+	line "with MARY that"
+	cont "lead thousands of"
+	cont "citizens towards"
+	cont "vaccination…"
+
+	para "Obtaining SUICUNE's"
+	line "water sample that"
+	cont "was the key to the"
+	cont "#MON vaccine…"
+
+	para "Then, taking part"
+	line "in this vaccine's"
+	cont "testing…"
+
+	para "You are probably"
+	line "the most important"
+	cont "person in the war"
+	cont "against COVID."
+
+	para "I consider your"
+	line "mission done."
+
+	para "Thank you"
+	line "for everything!"
 	done
 
 AideText_GiveYouPotion:

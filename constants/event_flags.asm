@@ -563,7 +563,8 @@
 	const EVENT_SCALPER_GAVE_GPU
 	const EVENT_PLAYER_VACCINATED_ONCE
 	const EVENT_PLAYER_VACCINATED_TWICE
-; Unused: next 161 events
+	const EVENT_ELM_MISSION_COMPLETE_SPEECH
+; Unused: next 160 events
 
 	const_next 1000
 ; Trainer flags

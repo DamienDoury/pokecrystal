@@ -55,6 +55,7 @@ INCLUDE "maps/RadioTower1F.asm"
 INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
+INCLUDE "maps/Route34.asm"
 
 
 SECTION "Map Scripts 4", ROMX
@@ -144,16 +145,15 @@ INCLUDE "maps/VermilionPortPassage.asm"
 INCLUDE "maps/MountMoonSquare.asm"
 INCLUDE "maps/MountMoonGiftShop.asm"
 INCLUDE "maps/TinTowerRoof.asm"
+INCLUDE "maps/PlayersNeighborsHouse.asm"
+INCLUDE "maps/ElmsHouse.asm"
 
 
 SECTION "Map Scripts 9", ROMX
 
-INCLUDE "maps/Route34.asm"
 INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
-INCLUDE "maps/PlayersNeighborsHouse.asm"
-INCLUDE "maps/ElmsHouse.asm"
 
 
 SECTION "Map Scripts 10", ROMX
