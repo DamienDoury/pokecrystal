@@ -492,7 +492,6 @@ ENDM
 	const writeunusedbyte_command ; $4a
 writeunusedbyte: MACRO
 	db writeunusedbyte_command
-	db \1 ; byte
 ENDM
 
 	const farwritetext_command ; $4b

@@ -2252,7 +2252,7 @@ Script_refreshscreen:
 	ret
 
 Script_writeunusedbyte:
-	call GetScriptByte
+	ld a, [wScriptVar]
 	ld [wUnusedScriptByte], a
 	ret
 

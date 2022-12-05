@@ -71,7 +71,7 @@ GoldenrodHospitalOffice_MapScripts:
 	promptbutton
 	closetext
 
-	pause 10
+	pause 15
 
 	warpsound
 	pause 2
@@ -151,10 +151,15 @@ GoldenrodHospitalOffice_MapScripts:
 
 	writetext GoldenrodHospitalOffice_ItwIntroText
 	yesorno
+
+	setval 0
+	writeunusedbyte
+
 	writetext GoldenrodHospitalOffice_Itw1Text
 	yesorno
 	iffalse .itw1bad
 
+	scall GoldenrodHospitalOffice_IncPoints
 	scall GoldenrodHospitalOffice_IncPoints
 	writetext GoldenrodHospitalOffice_Itw1GoodText
 	sjump .itw2
@@ -260,20 +265,118 @@ GoldenrodHospitalOffice_MapScripts:
 	waitbutton
 	closetext
 
+	musicfadeout MUSIC_GOLDENROD_CITY, 8
+
+	pause 30
+
 	; Do the interview while you get vaccinated.
 	; At the end of the interview, you get the SS AQUA TICKET from CHIEF NURSE JOY.
 	; 
 	; 1 dummy question: "How are you doing today? YES/NO"
-	; 3 real questions that determine the price you'll get from Mary. 
-	; 0 or 1 point = nothing; 
-	; 2 points = 5 Ultra Ball; 
-	; 3 points = 5 HP_UP.
-	; 4 points = 8 PP_MAX.
+	; 4 real questions that determine the price you'll get from Mary. 
+	; 0-1 point = nothing;. bad
+	; 2-3 points = 1 Ultra Ball. so-so
+	; 4 points = 5 Ultra Ball. ok
+	; 5 points = 5 HP_UP. went well
+	; 6 points = 12 PP_UP. amazing
 
-	;special RestartMapMusic
-	musicfadeout MUSIC_GOLDENROD_CITY, 8
+	applymovement GOLDENRODHOSPITALOFFICE_CHIEF, GoldenrodHospitalOffice_HeadDownMovement
 
-	pause 60
+	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_StepDownTwiceMovement
+
+	follow GOLDENRODHOSPITALOFFICE_MARY_ASSISTANT, GOLDENRODHOSPITALOFFICE_MARY
+	applymovement GOLDENRODHOSPITALOFFICE_MARY_ASSISTANT, GoldenrodHospitalOffice_StepDownTwiceMovement
+	stopfollow
+
+	warpsound
+	disappear GOLDENRODHOSPITALOFFICE_MARY_ASSISTANT
+	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_HeadRightMovement
+
+	applymovement GOLDENRODHOSPITALOFFICE_CHIEF_ASSISTANT, GoldenrodHospitalOffice_StepRightMovement
+	follow GOLDENRODHOSPITALOFFICE_CHIEF_ASSISTANT, PLAYER
+	applymovement GOLDENRODHOSPITALOFFICE_CHIEF_ASSISTANT, GoldenrodHospitalOffice_ChiefAssistantOutMovement
+	stopfollow
+
+	warpsound
+	disappear GOLDENRODHOSPITALOFFICE_CHIEF_ASSISTANT
+
+	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_HeadRightMovement
+	applymovement PLAYER, GoldenrodHospitalOffice_HeadLeftMovement
+
+	readmem wUnusedScriptByte
+	ifless 2, .resultNothing
+	ifless 4, .resultSoSo
+	ifequal 4, .resultOk
+	ifequal 5, .resultWell
+
+;.resultAmazing ; Max points
+	opentext
+	writetext GoldenrodHospitalOffice_ResultAmazingText
+	promptbutton
+	verbosegiveitem PP_UP, 12
+	writetext GoldenrodHospitalOffice_PackOf8Text
+	waitbutton
+	closetext
+	pause 3
+	showemote EMOTE_HEART, GOLDENRODHOSPITALOFFICE_MARY, 30
+	sjump .resultEnd
+
+.resultNothing
+	showemote EMOTE_SAD, GOLDENRODHOSPITALOFFICE_MARY, 15
+	opentext
+	writetext GoldenrodHospitalOffice_ResultBadText
+	pause 30
+	closetext
+	sjump .resultEnd
+
+.resultSoSo
+	opentext
+	writetext GoldenrodHospitalOffice_ResultSoSoText
+	promptbutton
+	verbosegiveitem ULTRA_BALL
+	closetext
+	sjump .resultEnd
+
+.resultOk
+	showemote EMOTE_HAPPY, GOLDENRODHOSPITALOFFICE_MARY, 15
+	opentext
+	writetext GoldenrodHospitalOffice_ResultOkText
+	promptbutton
+	verbosegiveitem ULTRA_BALL, 5
+	writetext GoldenrodHospitalOffice_PackOf5Text
+	promptbutton
+	writetext GoldenrodHospitalOffice_CatchYouLaterText
+	waitbutton
+	closetext
+	sjump .resultEnd
+
+.resultWell
+	showemote EMOTE_HAPPY, GOLDENRODHOSPITALOFFICE_MARY, 30
+	opentext
+	writetext GoldenrodHospitalOffice_ResultWellText
+	promptbutton
+	verbosegiveitem HP_UP, 5
+	writetext GoldenrodHospitalOffice_PackOf5Text
+	promptbutton
+	writetext GoldenrodHospitalOffice_CatchYouLaterText
+	waitbutton
+	closetext
+
+.resultEnd
+	pause 5
+
+	setval 0
+	writeunusedbyte
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+
+	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_DownRightStepMovement
+	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_HeadDownMovement
+	applymovement PLAYER, GoldenrodHospitalOffice_HeadDownMovement
+	warpsound
+	disappear GOLDENRODHOSPITALOFFICE_MARY
+
+
+
 
 .end:
 	end
@@ -304,13 +407,18 @@ GoldenrodHospitalOffice_MapScripts:
 	endcallback
 
 GoldenrodHospitalOffice_IncPoints:
-	readmem wTempByteValue
+	readmem wUnusedScriptByte
 	addval 1
-	writemem wTempByteValue
+	writeunusedbyte
 	end
 
 GoldenrodHospitalOfficeChiefScript:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	iftrue .thanksForVaccine
 	jumptextfaceplayer GoldenrodHospitalOfficeChiefText
+
+.thanksForVaccine
+	jumptextfaceplayer GoldenrodHospitalOffice_ThanksVaccineText
 
 GoldenrodHospitalOfficePrinterScript:
 	jumptext GoldenrodHospitalOfficePrinterText
@@ -329,10 +437,6 @@ GoldenrodHospitalOffice_WalkToDeskMovement:
 
 GoldenrodHospitalOffice_HeadUpMovement:
 	turn_head UP
-	step_end
-
-GoldenrodHospitalOffice_StepRightMovement:
-	step RIGHT
 	step_end
 
 GoldenrodHospitalOffice_ChiefAssistantToDeskMovement:
@@ -375,10 +479,6 @@ GoldenrodHospitalOffice_HeadDownMovement:
 	turn_head DOWN
 	step_end
 
-GoldenrodHospitalOffice_StepDownMovement:
-	step DOWN
-	step_end
-
 GoldenrodHospitalOffice_MaryInPlaceMovement:
 	step LEFT
 	step UP
@@ -389,6 +489,30 @@ GoldenrodHospitalOffice_HeadRightMovement:
 
 GoldenrodHospitalOffice_StepLeftMovement:
 	step LEFT
+	step_end
+
+GoldenrodHospitalOffice_MaryAfterItwMovement:
+	step DOWN
+GoldenrodHospitalOffice_DownRightStepMovement:
+	step DOWN
+GoldenrodHospitalOffice_StepRightMovement:
+	step RIGHT
+	step_end
+
+GoldenrodHospitalOffice_ChiefAssistantOutMovement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+
+GoldenrodHospitalOffice_StepDownTwiceMovement:
+	step DOWN
+GoldenrodHospitalOffice_StepDownMovement:
+	step DOWN
 	step_end
 
 GoldenrodHospitalOfficeChiefText:
@@ -443,9 +567,9 @@ GoldenrodHospitalOffice_AfterPhoneCallsText:
 	done
 
 GoldenrodHospitalOffice_AfterPhoneCalls2Text:
-	text "ELM has told you"
-	line "about the inter-"
-	cont "view, right?"
+	text "PROF.ELM has told"
+	line "you about the"
+	cont "interview, right?"
 	done
 
 GoldenrodHospitalOffice_MaryIntroText:
@@ -584,8 +708,8 @@ GoldenrodHospitalOffice_Itw2Nurse3Text:
 	cont "transmission."
 
 	para "Getting a shot is"
-	line "the way to"
-	cont "retrieve our"
+	line "the way of"
+	cont "retrieving our"
 	cont "lives from before"
 	cont "the pandemic."
 
@@ -676,15 +800,131 @@ GoldenrodHospitalOffice_ItwEndText:
 	para "Back to you, Tom."
 	done
 
-	;"What was that <PLAYER>?"
-	;"I waited so long for this interview, perhaps my expectations were too high."
+GoldenrodHospitalOffice_ResultBadText:
+	text "What was that"
+	line "<PLAYER>?"
 
-	;"The interview went well."
+	para "You replied to my"
+	line "questions like"
+	cont "they were jokes"
+	cont "and sent very bad"
+	cont "signals."
 
-	;"This interview was amazing!"
-	;"First answer aside, you were so inspiring!"
-	;"I'm so happy we finally could do it!"
+	para "This interview"
+	line "made me"
+	cont "uncomfortable."
+	done
 
+GoldenrodHospitalOffice_ResultSoSoText:
+	text "This interview"
+	line "could have gone"
+	cont "better."
+
+	para "I am a little"
+	line "disappointed."
+
+	para "You didn't show"
+	line "yourself in your"
+	cont "best light."
+
+	para "Anyway, take this"
+	line "for your time."
+	done
+
+GoldenrodHospitalOffice_ResultOkText:
+	text "The interview was"
+	line "ok!"
+
+	para "Thanks again for"
+	line "doing this."
+
+	para "Please take this"
+	line "for your time."
+	done
+
+GoldenrodHospitalOffice_ResultWellText:
+	text "The interview went"
+	line "well, I'm glad we"
+	cont "finally did it!"
+
+	para "I'm sure you have"
+	line "convinced a lot"
+	cont "of people to get"
+	cont "vaccinated, that's"
+	cont "good!"
+
+	para "We would like you"
+	line "to take this."
+	done
+
+GoldenrodHospitalOffice_ResultAmazingText:
+	text "<PLAYER>."
+
+	para "This interview was"
+	line "amazing!"
+
+	para "Best interview I"
+	line "have ever done!"
+
+	para "Your first answer"
+	line "didn't make sense."
+
+	para "But once you got"
+	line "the hang of"
+	cont "yourself,"
+
+	para "you seemed so"
+	line "perfect!"
+
+	para "I'm sure lots of"
+	line "people will want"
+	cont "to get vaccinated"
+	cont "thanks to you!"
+
+	para "You may have saved"
+	line "a lot of lives"
+	cont "today!"
+
+	para "Please accept this"
+	line "present as a"
+	cont "token of my"
+	cont "appreciation."
+	done
+
+GoldenrodHospitalOffice_PackOf5Text:
+	text "It's a pack of 5."
+	
+	para "We give those"
+	line "away in BUENA's"
+	cont "PASSWORD show,"
+	cont "so we have plenty"
+	cont "of these."
+	done
+
+GoldenrodHospitalOffice_PackOf8Text:
+	text "It's a pack of 12."
+
+	para "Those are very"
+	line "hard to find."
+	
+	para "I hope this is"
+	line "enough for your"
+	cont "time."
+
+	para "I'm looking forward"
+	line "to interviewing"
+	cont "you again!"
+	done
+
+GoldenrodHospitalOffice_CatchYouLaterText:
+	text "Catch you later."
+	done
+
+GoldenrodHospitalOffice_ThanksVaccineText:
+	text "CHIEF NURSE JOY:"
+	line "Thanks for showing"
+	cont "the example!"
+	done
 
 GoldenrodHospitalOffice_MapEvents:
 	db 0, 0 ; filler
