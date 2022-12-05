@@ -564,7 +564,8 @@
 	const EVENT_PLAYER_VACCINATED_ONCE
 	const EVENT_PLAYER_VACCINATED_TWICE
 	const EVENT_ELM_MISSION_COMPLETE_SPEECH
-; Unused: next 160 events
+	const EVENT_GOT_LUCKY_EGG
+; Unused: next 159 events
 
 	const_next 1000
 ; Trainer flags

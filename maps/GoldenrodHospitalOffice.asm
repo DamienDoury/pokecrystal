@@ -413,12 +413,26 @@ GoldenrodHospitalOffice_IncPoints:
 	end
 
 GoldenrodHospitalOfficeChiefScript:
+	faceplayer
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
 	iftrue .thanksForVaccine
-	jumptextfaceplayer GoldenrodHospitalOfficeChiefText
+
+	checkevent EVENT_GOT_LUCKY_EGG
+	iffalse .giveLuckyEgg
+
+	jumptext GoldenrodHospitalOfficeChiefText
+
+.giveLuckyEgg
+	opentext
+	writetext GoldenrodHospitalOfficeChiefLuckyEggText
+	promptbutton
+	verbosegiveitem LUCKY_EGG
+	setevent EVENT_GOT_LUCKY_EGG
+	closetext
+	end
 
 .thanksForVaccine
-	jumptextfaceplayer GoldenrodHospitalOffice_ThanksVaccineText
+	jumptext GoldenrodHospitalOffice_ThanksVaccineText
 
 GoldenrodHospitalOfficePrinterScript:
 	jumptext GoldenrodHospitalOfficePrinterText
@@ -517,8 +531,19 @@ GoldenrodHospitalOffice_StepDownMovement:
 
 GoldenrodHospitalOfficeChiefText:
 	text "CHIEF NURSE JOY:"
-	line "Thanks for your"
-	cont "help earlier."
+	line "I can't afford to"
+	cont "take a break with"
+	cont "all the new"
+	cont "patients arriving"
+	cont "every day."
+	done
+
+GoldenrodHospitalOfficeChiefLuckyEggText:
+	text "CHIEF NURSE JOY:"
+	line "I didn't properly"
+	cont "thank you for"
+	cont "helping me relax"
+	cont "last time."
 	done
 
 GoldenrodHospitalOfficePrinterText:
