@@ -1631,6 +1631,9 @@ PlaceItemDetail:
 	ld a, [wCurSpecies]
 	ld b, a
 	farcall GetItemHeldEffect
+	ld a, HELD_PASSIVE
+	cp b
+	jr z, .passive_effect
 	ld a, HELD_NONE
 	cp b
 	jr z, .cant_use_in_battle
@@ -1641,7 +1644,7 @@ PlaceItemDetail:
 	cp ITEMMENU_PARTY
 	jr z, .consumable
 
-;.passive_effect
+.passive_effect
 	ld de, String_PassiveEffect
 	jr .display_usability
 

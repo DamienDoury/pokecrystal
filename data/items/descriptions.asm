@@ -747,8 +747,8 @@ HardStoneDesc:
 	next "type moves. (HOLD)@"
 
 LuckyEggDesc:
-	db   "Doubles EXP. pts"
-	next "from battles.@"
+	db   "x2 EXP. pts from"
+	next "battles. (HOLD)@"
 
 CardKeyDesc:
 	db   "Opens shutters in"
