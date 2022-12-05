@@ -1020,38 +1020,6 @@ wLinkPlayerPartyMon6Nickname:: ds MON_NAME_LENGTH
 	assert_table_length PARTY_LENGTH
 
 NEXTU
-; time capsule party data
-wTimeCapsulePlayerData::
-	table_width REDMON_STRUCT_LENGTH, wTimeCapsulePlayerData
-wTimeCapsulePartyMon1:: red_party_struct wTimeCapsulePartyMon1
-wTimeCapsulePartyMon2:: red_party_struct wTimeCapsulePartyMon2
-wTimeCapsulePartyMon3:: red_party_struct wTimeCapsulePartyMon3
-wTimeCapsulePartyMon4:: red_party_struct wTimeCapsulePartyMon4
-wTimeCapsulePartyMon5:: red_party_struct wTimeCapsulePartyMon5
-wTimeCapsulePartyMon6:: red_party_struct wTimeCapsulePartyMon6
-	assert_table_length PARTY_LENGTH
-
-wTimeCapsulePartyMonOTs::
-	table_width NAME_LENGTH, wTimeCapsulePartyMonOTs
-wTimeCapsulePartyMon1OT:: ds NAME_LENGTH
-wTimeCapsulePartyMon2OT:: ds NAME_LENGTH
-wTimeCapsulePartyMon3OT:: ds NAME_LENGTH
-wTimeCapsulePartyMon4OT:: ds NAME_LENGTH
-wTimeCapsulePartyMon5OT:: ds NAME_LENGTH
-wTimeCapsulePartyMon6OT:: ds NAME_LENGTH
-	assert_table_length PARTY_LENGTH
-
-wTimeCapsulePartyMonNicknames::
-	table_width MON_NAME_LENGTH, wTimeCapsulePartyMonNicknames
-wTimeCapsulePartyMon1Nickname:: ds MON_NAME_LENGTH
-wTimeCapsulePartyMon2Nickname:: ds MON_NAME_LENGTH
-wTimeCapsulePartyMon3Nickname:: ds MON_NAME_LENGTH
-wTimeCapsulePartyMon4Nickname:: ds MON_NAME_LENGTH
-wTimeCapsulePartyMon5Nickname:: ds MON_NAME_LENGTH
-wTimeCapsulePartyMon6Nickname:: ds MON_NAME_LENGTH
-	assert_table_length PARTY_LENGTH
-
-NEXTU
 ; link patch lists
 wLinkPatchList1:: ds SERIAL_PATCH_LIST_LENGTH
 wLinkPatchList2:: ds SERIAL_PATCH_LIST_LENGTH
@@ -2977,7 +2945,6 @@ wGoldenrodHospitalCorridorNumber:: db
 wPokecenter2FSceneID::                            db
 wTradeCenterSceneID::                             db
 wColosseumSceneID::                               db
-wTimeCapsuleSceneID::                             db
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db
@@ -3058,7 +3025,7 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 0
+	ds 1
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 

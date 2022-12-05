@@ -339,7 +339,6 @@ INCLUDE "maps/Route6UndergroundPathEntrance.asm"
 INCLUDE "maps/Pokecenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
-INCLUDE "maps/TimeCapsule.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
 INCLUDE "maps/BillsBrothersHouse.asm" ; Damien. Original position is after maps/FuchsiaGym.asm, but "Map Scripts 18" is full.

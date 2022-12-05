@@ -1,4 +1,4 @@
-; These functions seem to be related to backwards compatibility
+; These functions have nothing to do with the time capsule.
 
 ValidateOTTrademon:
 	ld a, [wCurOTTradePartyMon]
@@ -26,37 +26,7 @@ ValidateOTTrademon:
 	ld a, [hl]
 	cp MAX_LEVEL + 1
 	jr nc, .abnormal
-	ld a, [wLinkMode]
-	cp LINK_TIMECAPSULE
-	jr nz, .normal
-	ld hl, wOTPartySpecies
-	ld a, [wCurOTTradePartyMon]
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
 
-	; Magnemite and Magneton's types changed
-	; from Electric to Electric/Steel.
-	cp MAGNEMITE
-	jr z, .normal
-	cp MAGNETON
-	jr z, .normal
-
-	ld [wCurSpecies], a
-	call GetBaseData
-	ld hl, wLinkOTPartyMonTypes
-	add hl, bc
-	add hl, bc
-	ld a, [wBaseType1]
-	cp [hl]
-	jr nz, .abnormal
-	inc hl
-	ld a, [wBaseType2]
-	cp [hl]
-	jr nz, .abnormal
-
-.normal
 	and a
 	ret
 
@@ -140,5 +110,3 @@ PlaceTradePartnerNamesAndParty:
 	pop bc
 	inc c
 	jr .loop
-
-INCLUDE "data/pokemon/gen1_base_special.asm"

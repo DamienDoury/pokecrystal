@@ -13,13 +13,13 @@ EcruteakPokecenter1F_MapScripts:
 	def_callbacks
 
 .MeetBill:
-	prioritysjump .BillActivatesTimeCapsule
+	prioritysjump .MeetBillScript
 	end
 
 .DummyScene:
 	end
 
-.BillActivatesTimeCapsule:
+.MeetBillScript:
 	pause 30
 	playsound SFX_EXIT_BUILDING
 	appear ECRUTEAKPOKECENTER1F_BILL
@@ -47,7 +47,6 @@ EcruteakPokecenter1F_MapScripts:
 	playsound SFX_EXIT_BUILDING
 	disappear ECRUTEAKPOKECENTER1F_BILL
 	clearevent EVENT_MET_BILL
-	setflag ENGINE_TIME_CAPSULE
 	setscene SCENE_FINISHED
 	waitsfx
 	end
