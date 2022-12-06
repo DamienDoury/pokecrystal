@@ -67,7 +67,7 @@ MAIL_STRUCT_LENGTH EQU $2f ; mailmsg struct
 	const HELD_PASSIVE
 	const HELD_5
 	const HELD_RESTORE_PP
-	const_skip
+	const HELD_CONSUMABLE
 	const HELD_CLEANSE_TAG
 
 	const_next 10
@@ -130,6 +130,6 @@ MAIL_STRUCT_LENGTH EQU $2f ; mailmsg struct
 	const HELD_QUICK_CLAW
 	const HELD_FLINCH
 	const HELD_AMULET_COIN
-	const HELD_BRIGHTPOWDER
+	const_skip
 	const_skip
 	const HELD_FOCUS_BAND

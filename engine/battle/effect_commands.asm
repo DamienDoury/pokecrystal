@@ -1727,8 +1727,8 @@ BattleCommand_CheckHit:
 .BrightPowder:
 	push bc
 	call GetOpponentItem
-	ld a, b
-	cp HELD_BRIGHTPOWDER
+	ld a, [hl]
+	cp BRIGHTPOWDER
 	ld a, c ; % miss
 	pop bc
 	jr nz, .skip_brightpowder

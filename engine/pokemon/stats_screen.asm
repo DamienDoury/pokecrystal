@@ -1634,6 +1634,11 @@ PlaceItemDetail:
 	ld a, HELD_PASSIVE
 	cp b
 	jr z, .passive_effect
+
+	ld a, HELD_CONSUMABLE
+	cp b
+	jr z, .consumable
+
 	ld a, HELD_NONE
 	cp b
 	jr z, .cant_use_in_battle
