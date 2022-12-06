@@ -555,12 +555,12 @@ GoldLeafDesc:
 	next "colored leaf.@"
 
 SoftSandDesc:
-	db   "Powers up ground-"
-	next "type moves. (HOLD)@"
+	db   "GROUND moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 SharpBeakDesc:
-	db   "Powers up flying-"
-	next "type moves. (HOLD)@"
+	db   "FLYING moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 PrzCureBerryDesc:
 	db   "A self-cure for"
@@ -575,8 +575,8 @@ IceBerryDesc:
 	next "burn. (HOLD)@"
 
 PoisonBarbDesc:
-	db   "Powers up poison-"
-	next "type moves. (HOLD)@"
+	db   "POISON moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 KingsRockDesc:
 	db   "May make the foe"
@@ -602,8 +602,8 @@ BigMushroomDesc:
 	next "Sell high.@"
 
 SilverPowderDesc:
-	db   "Powers up bug-type"
-	next "moves. (HOLD)@"
+	db   "BUG moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 BluApricornDesc:
 	db   "A blue APRICORN.@"
@@ -626,12 +626,12 @@ CleanseTagDesc:
 	next "#MON. (HOLD)@"
 
 MysticWaterDesc:
-	db   "Powers up water-"
-	next "type moves. (HOLD)@"
+	db   "WATER moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 TwistedSpoonDesc:
-	db   "Powers up psychic-"
-	next "type moves. (HOLD)@"
+	db   "PSYCHIC moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 WhtApricornDesc:
 	db   "A white APRICORN.@"
@@ -652,16 +652,16 @@ PnkApricornDesc:
 	next "@"
 
 BlackGlassesDesc:
-	db   "Powers up dark-"
-	next "type moves. (HOLD)@"
+	db   "DARK moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 SlowpokeTailDesc:
 	db   "Very tasty. Sell"
 	next "high.@"
 
 PinkBowDesc:
-	db   "Powers up normal-"
-	next "type moves. (HOLD)@"
+	db   "NORMAL moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 StickDesc:
 	db   "Ups FARFETCH'D"
@@ -672,12 +672,12 @@ SmokeBallDesc:
 	next "#MON. (HOLD)@"
 
 NeverMeltIceDesc:
-	db   "Powers up ice-type"
-	next "moves. (HOLD)@"
+	db   "ICE moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 MagnetDesc:
-	db   "Boosts electric-"
-	next "type moves. (HOLD)@"
+	db   "ELECTRIC moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 MiracleBerryDesc:
 	db   "Cures all status"
@@ -696,8 +696,8 @@ EverStoneDesc:
 	next "(HOLD)@"
 
 SpellTagDesc:
-	db   "Powers up ghost-"
-	next "type moves. (HOLD)@"
+	db   "GHOST moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 RageCandyBarDesc:
 	db   "Restores #MON"
@@ -712,8 +712,8 @@ BlueCardDesc:
 	next "points.@"
 
 MiracleSeedDesc:
-	db   "Powers up grass-"
-	next "type moves. (HOLD)@"
+	db   "GRASS moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 ThickClubDesc:
 	db   "Doubles MAROWAK &"
@@ -743,8 +743,8 @@ RevivalHerbDesc:
 	next "#MON. Bitter.@"
 
 HardStoneDesc:
-	db   "Powers up rock-"
-	next "type moves. (HOLD)@"
+	db   "ROCK moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 LuckyEggDesc:
 	db   "Doubles EXP. from"
@@ -792,8 +792,8 @@ TeruSama11Desc:
 	db   "?@"
 
 CharcoalDesc:
-	db   "Powers up fire-"
-	next "type moves. (HOLD)@"
+	db   "FIRE moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 BerryJuiceDesc:
 	db   "Restores #MON"
@@ -810,12 +810,12 @@ TeruSama13Desc:
 	db   "?@"
 
 MetalCoatDesc:
-	db   "Powers up steel-"
-	next "type moves. (HOLD)@"
+	db   "STEEL moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 DragonFangDesc:
-	db   "Powers up dragon-"
-	next "type moves. (HOLD)@"
+	db   "DRAGON moves 20<PERCENT>"
+	next "stronger. (HOLD)@"
 
 TeruSama14Desc:
 	db   "?@"
@@ -913,8 +913,8 @@ SunStoneDesc:
 	next "kinds of #MON.@"
 
 PolkadotBowDesc:
-	db   "Powers up normal-"
-	next "type moves. (HOLD)@"
+	db   "NORMAL moves 20<PERCENT>"
+	next "stringer. (HOLD)@"
 
 TeruSama22Desc:
 	db   "?@"
