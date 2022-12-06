@@ -24,9 +24,20 @@ SpreadPokerusFromAllies:
 	call AddNTimes ; Add bc * a to hl. HL now points to the current index within the list.
 
 	ld a, [hl] ; Retrieves the party index.
-	ld hl, wPartyMon1PokerusStatus
+	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes ; Add bc * a to hl.
+
+	ld a, [hli] ; Species.
+	cp SUICUNE
+	jr z, .next_mon ; Suicune is the only Pokémon immune to covid.
+
+	ld a, [hl] ; Item
+	cp POKEMASK
+	jr z, .next_mon ; Pokémask immunes to getting covid.
+
+	ld bc, MON_PKRUS - MON_ITEM
+	add hl, bc
 
 	; A Pokémon with an active immune protection (duration > 0) can't be infected by another disease.
 	ld a, [hl] ; PokerusStatus byte.
@@ -86,10 +97,19 @@ DetermineIfThisPokemonGotContaminedByAllies:
 	pop bc
 
 	ld a, [hl] ; Retrieves the party index from the list.
-	ld hl, wPartyMon1PokerusStatus
+	ld hl, wPartyMon1Item
 	push bc
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes ; Add bc * a to hl.
+	pop bc 
+
+	ld a, [hl]
+	cp POKEMASK
+	jr z, .next_mon ; Pokémask immunes to spreading covid.
+
+	push bc
+	ld bc, MON_PKRUS - MON_ITEM
+	add hl, bc
 	pop bc 
 
 ; Checking if the previous battle participant is contagious.
@@ -152,6 +172,7 @@ SpreadPokerusFromOpponents:
 	ld a, [wEnemyTurnsTaken]
 	add d
 	ret z ; The player can't get covid if he/she runs away immediately, or catches the Pokémon at first try. Getting assaulted may give it, which it what we expect.
+	; Note that this previous check is only useful for a first-turn catch, as this function is not currently called when running away.
 
 	ld hl, wBattlePokerusSeed
 	ld a, [hl]
@@ -167,12 +188,13 @@ SpreadPokerusFromOpponents:
 	ld a, [wPartyCount]
 	ld b, a
 
-	ld hl, wPartyMon1PokerusStatus
+	ld hl, wPartyMon1Species
 	xor a
 	ld [wCurPartyMon], a
 
 ; We look for a healthy Pokémon to be contaminated by a stranger Pokémon.
 .loop
+	push hl
 	ld c, a ; C contains the party index.
 	push hl
 	ld hl, wAllBattleParticipants ; We test all Pokémons that have been on the battlefield, as this infection comes from an enemy Pokémon (we don't know which enemy Pokémon).
@@ -185,6 +207,19 @@ SpreadPokerusFromOpponents:
 	jp z, .next ; This Pokémon didn't go into battle, so it shall not be contaminated. This also discards eggs.
 
 	; If the Pokémon went into battle, it may have been contaminated.
+	ld a, [hli] ; Species.
+	cp SUICUNE
+	jr z, .next ; Suicune is immune to covid.
+
+	ld a, [hl] ; Item.
+	cp POKEMASK
+	jr z, .next ; Pokémask immunes to covid.
+
+	push bc
+	ld bc, MON_PKRUS - MON_ITEM
+	add hl, bc
+	pop bc
+
 	ld a, [hl]
 	and POKERUS_DURATION_MASK 
 	jr nz, .next
@@ -216,6 +251,7 @@ SpreadPokerusFromOpponents:
 	; So we skip this Pokémon and go to the next one.
 
 .next
+	pop hl
 	ld a, [wPartyCount]
 	ld b, a
 	ld a, [wCurPartyMon]
@@ -233,6 +269,7 @@ SpreadPokerusFromOpponents:
 .do_infect
 	ld a, [wBattlePokerusSeed]
 	ld [hl], a
+	pop hl ; We do this to balance the stack.
 	ret
 
 

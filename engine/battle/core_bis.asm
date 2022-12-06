@@ -416,7 +416,7 @@ BattleStartMessage:
 DeterMineAssaultAndPokerusSeed::
 	ld a, [wBattlePokerusSeed]
 	cp TRUE
-	jr z, .generate_seed ; If the seed is 1, it is an invalid seed. This value if used to force a covid battle. Note that a seed is set to 0 after each battle.
+	jr z, .generate_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
 
 	xor a
 	ld [wBattlePokerusSeed], a ; Reset the seed, in case it's dirty.
