@@ -17,13 +17,11 @@ SaffronMagnetTrainStationOfficerScript:
 	faceplayer
 	opentext
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .MagnetTrainToGoldenrod
-	writetext SaffronMagnetTrainStationOfficerTrainIsntOperatingText
-	waitbutton
-	closetext
-	end
+	iffalse .NoPower
 
-.MagnetTrainToGoldenrod:
+	readvar VAR_BADGES
+	ifless 12, .TourismIssue
+
 	writetext SaffronMagnetTrainStationOfficerAreYouComingOnBoardText
 	yesorno
 	iffalse .DecidedNotToRide
@@ -40,6 +38,18 @@ SaffronMagnetTrainStationOfficerScript:
 	newloadmap MAPSETUP_TRAIN
 	applymovement PLAYER, .MovementBoardTheTrain
 	wait 20
+	end
+	end
+
+.TourismIssue:
+	farwritetext LackOfTourismText
+	sjump .TextEnd
+	
+.NoPower:
+	writetext SaffronMagnetTrainStationOfficerTrainIsntOperatingText
+.TextEnd:
+	waitbutton
+	closetext
 	end
 
 .MovementBoardTheTrain:
@@ -126,8 +136,9 @@ SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 
 SaffronMagnetTrainStationOfficerTrainIsntOperatingText:
 	text "I'm sorry, but the"
-	line "MAGNET TRAIN isn't"
-	cont "operating now."
+	line "MAGNET TRAIN can't"
+	cont "operate without"
+	cont "power."
 	done
 
 SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:

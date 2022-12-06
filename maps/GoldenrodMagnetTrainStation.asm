@@ -15,13 +15,11 @@ GoldenrodMagnetTrainStationOfficerScript:
 	faceplayer
 	opentext
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
-	iftrue .MagnetTrainToSaffron
-	writetext GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText
-	waitbutton
-	closetext
-	end
+	iffalse .NoPower
 
-.MagnetTrainToSaffron:
+	readvar VAR_BADGES
+	ifless 12, .TourismIssue
+
 	writetext GoldenrodMagnetTrainStationOfficerAreYouComingAboardText
 	yesorno
 	iffalse .DecidedNotToRide
@@ -38,6 +36,17 @@ GoldenrodMagnetTrainStationOfficerScript:
 	newloadmap MAPSETUP_TRAIN
 	applymovement PLAYER, .MovementBoardTheTrain
 	wait 20
+	end
+	
+.TourismIssue:
+	farwritetext LackOfTourismText
+	sjump .TextEnd
+
+.NoPower:
+	writetext GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText
+.TextEnd:
+	waitbutton
+	closetext
 	end
 
 .MovementBoardTheTrain:

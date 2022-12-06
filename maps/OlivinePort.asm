@@ -147,6 +147,10 @@ OlivinePortSailorAfterHOFScript:
 	iftrue OlivinePortAlreadyRodeScript
 	checkevent EVENT_FAST_SHIP_FIRST_TIME
 	iffalse .FirstTime
+
+	readvar VAR_BADGES
+	ifless 12, .TourismIssue
+
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, .NextShipMonday
 	ifequal SATURDAY, .NextShipMonday
@@ -169,8 +173,13 @@ OlivinePortSailorAfterHOFScript:
 	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
 	sjump OlivinePortSailorAtGangwayScript
 
+.TourismIssue:
+	farwritetext LackOfTourismText
+	sjump .TextEnd
+
 .NoTicket:
 	writetext OlivinePortNoTicketText
+.TextEnd:
 	waitbutton
 	closetext
 	end

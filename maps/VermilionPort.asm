@@ -86,6 +86,10 @@ VermilionPortWalkUpToShipScript:
 	opentext
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalse VermilionPortNoPowerScript 
+	
+	readvar VAR_BADGES
+	ifless 12, TourismIssue
+	
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -130,6 +134,18 @@ VermilionPortWalkUpToShipScript:
 .skip:
 	end
 
+TourismIssue:
+	writetext LackOfTourismText
+	waitbutton
+	closetext
+	sjump VermilionPortPlayerPushedAway
+
+TourismIssueNoMove:
+	writetext LackOfTourismText
+	waitbutton
+	closetext
+	end
+
 VermilionPortNotRidingScript:
 	writetext VermilionPortComeAgainText
 	waitbutton
@@ -140,6 +156,7 @@ VermilionPortNotRidingMoveAwayScript:
 	writetext VermilionPortComeAgainText
 	waitbutton
 	closetext
+VermilionPortPlayerPushedAway:
 	applymovement PLAYER, VermilionPortCannotEnterFastShipMovement
 	end
 
@@ -163,6 +180,8 @@ VermilionPortSailorScript:
 	iftrue VermilionPortAlreadyRodeScript
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalse VermilionPortNoPowerNoMoveScript ; This counter-intuitive check means the opposite: the power hasn't been restored if the flag is set/true.
+	readvar VAR_BADGES
+	ifless 12, TourismIssueNoMove
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .NextShipWednesday
 	ifequal TUESDAY, .NextShipWednesday
@@ -274,6 +293,27 @@ VermilionPortSSTicketText:
 
 	para "That's it."
 	line "Thank you!"
+	done
+
+LackOfTourismText:
+	text "With the pandemic"
+	line "and the recent"
+	cont "power outage,"
+
+	para "tourism is at an"
+	line "all time low in"
+	cont "KANTO."
+
+	para "We are currently"
+	line "shutdown because"
+	cont "we don't have"
+	cont "enough passengers"
+	cont "for a trip,"
+	cont "I'm sorry."
+
+	para "We expect to"
+	line "resume service"
+	cont "soon-ish."
 	done
 
 VermilionPortNoTicketText:
