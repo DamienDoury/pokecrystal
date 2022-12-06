@@ -178,7 +178,7 @@ ItemNames::
 	li "TERU-SAMA"
 	li "PARK BALL"
 	li "RAINBOW WING"
-	li "TERU-SAMA"
+	li "#MASK"
 	li "BRICK PIECE"
 	li "SURF MAIL"
 	li "LITEBLUEMAIL"
