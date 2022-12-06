@@ -374,8 +374,8 @@ CarbosDesc:
 	next "one #MON.@"
 
 LuckyPunchDesc:
-	db   "Ups critical hit"
-	next "ratio of CHANSEY.@"
+	db   "Ups CRIT. odds of"
+	next "CHANSEY. (HOLD)@"
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
@@ -519,8 +519,8 @@ RedScaleDesc:
 	next "red GYARADOS.@"
 
 SecretPotionDesc:
-	db   "Fully heals any"
-	next "#MON.@"
+	db   "Should heal"
+	next "COVID.@"
 
 SSTicketDesc:
 	db   "A ticket for the"
@@ -664,8 +664,8 @@ PinkBowDesc:
 	next "type moves. (HOLD)@"
 
 StickDesc:
-	db   "An ordinary stick."
-	next "Sell low.@"
+	db   "Ups FARFETCH'D"
+	next "CRIT. odds. (HOLD)@"
 
 SmokeBallDesc:
 	db   "Escape from wild"
@@ -716,8 +716,8 @@ MiracleSeedDesc:
 	next "type moves. (HOLD)@"
 
 ThickClubDesc:
-	db   "A bone of some"
-	next "sort. Sell low.@"
+	db   "Doubles MAROWAK &"
+	next "CUBONE ATK. (HOLD)@"
 
 FocusBandDesc:
 	db   "May prevent faint-"
@@ -747,7 +747,7 @@ HardStoneDesc:
 	next "type moves. (HOLD)@"
 
 LuckyEggDesc:
-	db   "x2 EXP. pts from"
+	db   "Doubles EXP. from"
 	next "battles. (HOLD)@"
 
 CardKeyDesc:
@@ -885,8 +885,8 @@ TeruSama21Desc:
 	db   "?@"
 
 LightBallDesc:
-	db   "An odd, electrical"
-	next "orb. (HOLD)@"
+	db   "Doubles PIKACHU"
+	next "SP.ATK. (HOLD)@"
 
 FriendBallDesc:
 	db   "A BALL that makes"
