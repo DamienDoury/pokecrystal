@@ -65,6 +65,8 @@ ElmPhoneCallerScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_ROBBED, .disaster
 	ifequal SPECIALCALL_ASSISTANT, .assistant
+	ifequal SPECIALCALL_POKEMASK_BEFORE, .go_get_pokemask
+	ifequal SPECIALCALL_POKEMASK_AFTER, .pokemask_description
 	ifequal SPECIALCALL_WEIRDBROADCAST, .rocket
 	ifequal SPECIALCALL_SSTICKET, .something_important
 	ifequal SPECIALCALL_MASTERBALL, .gift
@@ -84,6 +86,16 @@ ElmPhoneCallerScript:
 	specialphonecall SPECIALCALL_NONE
 	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
 	setevent EVENT_ELMS_AIDE_IN_LAB
+	end
+
+.go_get_pokemask
+	farwritetext ElmPhonePokemaskBeforeText
+	specialphonecall SPECIALCALL_NONE
+	end
+
+.pokemask_description
+	farwritetext ElmPhonePokemaskAfterText
+	specialphonecall SPECIALCALL_NONE
 	end
 
 .rocket

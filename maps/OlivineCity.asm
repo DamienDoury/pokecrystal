@@ -20,6 +20,11 @@ OlivineCity_MapScripts:
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_OLIVINE
+	checkevent EVENT_POKEMASK_CALL_RECEIVED
+	iftrue .end
+	setevent EVENT_POKEMASK_CALL_RECEIVED
+	specialphonecall SPECIALCALL_POKEMASK_BEFORE
+.end
 	endcallback
 
 OlivineCityRivalSceneTop:
@@ -288,6 +293,7 @@ OlivineCity_MapEvents:
 	warp_event 13, 21, OLIVINE_POKECENTER_1F, 1
 	warp_event 10, 11, OLIVINE_GYM, 1
 	warp_event 25, 11, OLIVINE_TIMS_HOUSE, 1
+	warp_event  0,  0, OLIVINE_POKECENTER_1F, 1 ; inaccessible
 	warp_event 29, 11, OLIVINE_PUNISHMENT_SPEECH_HOUSE, 1
 	warp_event 13, 15, OLIVINE_GOOD_ROD_HOUSE, 1
 	warp_event  7, 21, OLIVINE_CAFE, 1

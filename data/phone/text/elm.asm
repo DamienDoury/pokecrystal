@@ -177,6 +177,88 @@ ElmPhoneEggAssistantText:
 	line "him?"
 	done
 
+ElmPhonePokemaskBeforeText:
+	text "<PLAY_G>!"
+	line "Doing good?"
+
+	para "You've just rea-"
+	line "ched OLIVINE CITY?"
+
+	para "What a"
+	line "coincidence!"
+
+	para "I'm calling because"
+	line "I've been waiting"
+	
+	para "for a delivery"
+	line "from SILPH CO."
+
+	para "You know, the big"
+	line "company based in"
+	cont "KANTO?"
+
+	para "Apparently my"
+	line "parcel is being"
+	
+	para "held by the"
+	line "customs in"
+	cont "OLIVINE PORT."
+
+	para "Since you're there"
+	line "could you grab it"
+	cont "for me?"
+
+	para "See you soon!"
+	done
+
+ElmPhonePokemaskAfterText:
+	text "Hi <PLAY_G>, it's"
+	line "me again."
+
+	para "I just received a"
+	line "text confirming"
+	cont "you got the"
+	cont "package."
+
+	para "This item is"
+	line "called a #MASK."
+
+	para "It's a prototype"
+	line "from SILPH CO."
+
+	para "that cost millions"
+	line "to develop."
+
+	para "It is a high-tech"
+	line "face mask that"
+	cont "uses a smart-"
+	cont "fabric that folds"
+	cont "like an origami,"
+	
+	para "to fit itself onto"
+	line "the mouth and nose"
+	cont "of any #MON!"
+
+	para "The fabric is self"
+	line "cleaning as well."
+
+	para "I've been assigned"
+	line "to test it on the"
+	cont "field."
+
+	para "As I'm stuck in my"
+	line "lab, you guessed"
+	cont "it, I was going"
+	cont "to give it to you."
+
+	para "It's very expensive"
+	line "and fragile, so"
+	cont "be cautious."
+
+	para "Gotta go. Thanks"
+	line "for your help!"
+	done
+
 ElmPhoneRadioTowerRocketTakeoverText:
 	text "<PLAY_G>, how are"
 	line "things going?"
