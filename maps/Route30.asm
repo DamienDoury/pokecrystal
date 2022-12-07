@@ -235,14 +235,18 @@ Route30HiddenPotion:
 
 Route30_JoeysRattataAttacksMovement:
 	fix_facing
+	set_sliding
 	big_step UP
 	big_step DOWN
+	remove_sliding
 	step_end
 
 Route30_MikeysRattataAttacksMovement:
 	fix_facing
+	set_sliding
 	big_step DOWN
 	big_step UP
+	remove_sliding
 	step_end
 
 Text_UseTackle:
