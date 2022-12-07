@@ -176,7 +176,7 @@ ItemDescriptions:
 	dw BerryDesc
 	dw GoldBerryDesc
 	dw SquirtBottleDesc
-	dw TeruSama24Desc
+	dw WorkVisaDesc
 	dw ParkBallDesc
 	dw RainbowWingDesc
 	dw PokemaskDesc
@@ -939,6 +939,10 @@ PokemaskDesc:
 	db   "Blocks viruses."
 	next "(HOLD)@"
 
+WorkVisaDesc:
+	db   "Allows legal"
+	next "entrance in KANTO.@"
+	
 ParkBallDesc:
 	db   "The Bug-Catching"
 	next "Contest BALL.@"
@@ -946,9 +950,6 @@ ParkBallDesc:
 RainbowWingDesc:
 	db   "A mystical feather"
 	next "of rainbow colors.@"
-
-TeruSama24Desc:
-	db   "?@"
 
 BrickPieceDesc:
 	db   "A rare chunk of"
