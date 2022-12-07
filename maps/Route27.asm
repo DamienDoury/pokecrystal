@@ -8,6 +8,7 @@
 	const ROUTE27_POKE_BALL1
 	const ROUTE27_POKE_BALL2
 	const ROUTE27_FISHER
+	const ROUTE27_FISHER_2
 
 Route27_MapScripts:
 	def_scene_scripts
@@ -22,29 +23,78 @@ Route27_MapScripts:
 .DummyScene1:
 	end
 
-FirstStepIntoKantoLeftScene:
-	turnobject ROUTE27_FISHER, LEFT
-	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepLeftTwiceMovement
-	sjump FirstStepIntoKantoScene_Continue
+FirstStepIntoKantoScene:
+	setlasttalked ROUTE27_FISHER
+	faceplayer
+	
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .alreadyWarned
 
-FirstStepIntoKantoRightScene:
-	turnobject ROUTE27_FISHER, LEFT
+	scall Route27StepBackIfNeeded
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
-	applymovement ROUTE27_FISHER, Route27FisherStepLeftOnceMovement
-FirstStepIntoKantoScene_Continue:
-	turnobject PLAYER, RIGHT
+	faceobject PLAYER, ROUTE27_FISHER
+
 	opentext
-	writetext Route27FisherHeyText
-	promptbutton
+	checkevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
+	iftrue .SkipKantoTalk
 	writetext Route27FisherText
+	promptbutton
+.SkipKantoTalk
+	writetext Route27BorderClosedText
 	waitbutton
 	closetext
-	setscene SCENE_FINISHED
+
+	setevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
+
+	checkitem WORK_VISA
+	iffalse .end
+
+	pause 2
+	showemote EMOTE_QUESTION, ROUTE27_FISHER, 15
+
+	opentext 
+	writetext Route27BorderLetterText
+	promptbutton
+	writetext Route27EntranceText
+	waitbutton
+	closetext
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	applymovement ROUTE27_FISHER_2, Route27_AllowEntranceIntoKantoMovement
+	moveobject ROUTE27_FISHER_2, 20, 12
+.end
+	end
+
+.alreadyWarned:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue .end
+	random 6
+	ifnotequal FALSE, .end
+	scall Route27StepBackIfNeeded
+	jumptextfaceplayer Route27BorderArrestText
+
+Route27StepBackIfNeeded:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	iftrue .dontStepBack
+
+	readvar VAR_XCOORD
+	ifnotequal 22, .dontStepBack
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	applymovement ROUTE27_FISHER, Route27_SocialDistancingMovement
+	moveobject ROUTE27_FISHER, 20, 10
+.dontStepBack
 	end
 
 Route27FisherScript:
-	jumptextfaceplayer Route27FisherText
+	checkitem WORK_VISA
+	iffalse .blockPassage
+	jumptextfaceplayer Route27EntranceText
+
+.blockPassage
+	jumptextfaceplayer Route27BorderArrestText
 
 TrainerPsychicGilbert:
 	trainer PSYCHIC_T, GILBERT, EVENT_BEAT_PSYCHIC_GILBERT, PsychicGilbertSeenText, PsychicGilbertBeatenText, 0, .Script
@@ -287,29 +337,60 @@ Route27TMSolarbeam:
 Route27RareCandy:
 	itemball RARE_CANDY
 
-Route27FisherStepLeftTwiceMovement:
-	step LEFT
-	step LEFT
+Route27_AllowEntranceIntoKantoMovement:
+	turn_head UP
+	fix_facing
+	step DOWN
 	step_end
 
-Route27FisherStepLeftOnceMovement:
+Route27_SocialDistancingMovement:
+	turn_head RIGHT
+	fix_facing
 	step LEFT
 	step_end
-
-Route27FisherHeyText:
-	text "Hey!"
-	done
 
 Route27FisherText:
-	text "Do you know what"
+	text "Hey!"
+
+	para "Do you know what"
 	line "you just did?"
 
-	para "You've taken your"
-	line "first step into"
-	cont "KANTO."
+	para "You've stepped"
+	line "foot in KANTO."
 
 	para "Check your #-"
 	line "GEAR MAP and see."
+	done
+
+Route27BorderClosedText:
+	text "The border is"
+	line "closed because"
+	cont "of the pandemic."
+
+	para "You must go back"
+	line "were you came"
+	cont "from."
+	done
+
+Route27BorderLetterText:
+	text "Is that a WORK"
+	line "VISA?"
+	cont "Let me see it."
+
+	para "…"
+
+	para "Everything looks"
+	line "in order."
+	done
+
+Route27EntranceText:	
+	text "You may cross"
+	line "the border." 
+	done
+
+Route27BorderArrestText:
+	text "Turn back before"
+	line "we arrest you."
 	done
 
 CooltrainermBlakeSeenText:
@@ -456,8 +537,11 @@ Route27_MapEvents:
 	warp_event 36,  5, TOHJO_FALLS, 2
 
 	def_coord_events
-	coord_event 18, 10, SCENE_DEFAULT, FirstStepIntoKantoLeftScene
-	coord_event 19, 10, SCENE_DEFAULT, FirstStepIntoKantoRightScene
+	coord_event 18, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
+	coord_event 19, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
+	coord_event 23, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
+	coord_event 22, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
+	coord_event 23, 11, SCENE_DEFAULT, FirstStepIntoKantoScene
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign
@@ -471,4 +555,5 @@ Route27_MapEvents:
 	object_event 58, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperJose2, -1
 	object_event 60, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27TMSolarbeam, EVENT_ROUTE_27_TM_SOLARBEAM
 	object_event 53, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27RareCandy, EVENT_ROUTE_27_RARE_CANDY
-	object_event 21, 10, SPRITE_OFFICER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 3, Route27FisherScript, -1
+	object_event 21, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route27FisherScript, -1
+	object_event 20, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route27FisherScript, -1
