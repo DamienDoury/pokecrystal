@@ -1124,7 +1124,8 @@
 	const EVENT_POKEMASK_CALL_RECEIVED
 	const EVENT_PLAYER_GOT_POKEMASK
 	const EVENT_PLAYER_STEP_FOOT_IN_KANTO
-; Unused: next 90 events	
+	const ROUTE_27_PP_UP
+; Unused: next 89 events	
 
 	const_next 1592
 	const EVENT_SICK_GENTLEMAN_FIRST_MEETING

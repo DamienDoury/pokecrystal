@@ -25,7 +25,6 @@ Route27_MapScripts:
 
 FirstStepIntoKantoScene:
 	setlasttalked ROUTE27_FISHER
-	faceplayer
 	
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .alreadyWarned
@@ -35,6 +34,7 @@ FirstStepIntoKantoScene:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	showemote EMOTE_SHOCK, ROUTE27_FISHER, 15
 	faceobject PLAYER, ROUTE27_FISHER
+	faceplayer
 
 	opentext
 	checkevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
@@ -47,6 +47,7 @@ FirstStepIntoKantoScene:
 	closetext
 
 	setevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 
 	checkitem WORK_VISA
 	iffalse .end
@@ -62,18 +63,32 @@ FirstStepIntoKantoScene:
 	closetext
 
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	applymovement ROUTE27_FISHER, Route27_HeadDownMovement
+	setval SPRITEMOVEDATA_STANDING_DOWN
+	writemem wMap9ObjectMovement
 	applymovement ROUTE27_FISHER_2, Route27_AllowEntranceIntoKantoMovement
-	moveobject ROUTE27_FISHER_2, 20, 12
+	setval SPRITEMOVEDATA_STANDING_UP
+	writemem wMap10ObjectMovement
+	moveobject ROUTE27_FISHER_2, 21, 12
 .end
 	end
 
 .alreadyWarned:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	iftrue .end
-	random 6
+
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4 ; Prevents the warning from being displayed twice in a row.
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	iftrue .end
+
+	random 4
 	ifnotequal FALSE, .end
 	scall Route27StepBackIfNeeded
-	jumptextfaceplayer Route27BorderArrestText
+	faceobject PLAYER, ROUTE27_FISHER
+	faceobject ROUTE27_FISHER_2, PLAYER
+	faceplayer
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	jumptext Route27BorderArrestText
 
 Route27StepBackIfNeeded:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -89,12 +104,19 @@ Route27StepBackIfNeeded:
 	end
 
 Route27FisherScript:
+	faceplayer
 	checkitem WORK_VISA
 	iffalse .blockPassage
-	jumptextfaceplayer Route27EntranceText
+	
+	opentext
+	writetext Route27EntranceText
+	waitbutton
+	closetext
+	applymovement ROUTE27_FISHER, Route27_HeadDownMovement
+	end
 
 .blockPassage
-	jumptextfaceplayer Route27BorderArrestText
+	jumptext Route27BorderArrestText
 
 TrainerPsychicGilbert:
 	trainer PSYCHIC_T, GILBERT, EVENT_BEAT_PSYCHIC_GILBERT, PsychicGilbertSeenText, PsychicGilbertBeatenText, 0, .Script
@@ -331,11 +353,18 @@ TrainerCooltrainerfMegan:
 TohjoFallsSign:
 	jumptext TohjoFallsSignText
 
+Route27PPUp:
+	hiddenitem PP_UP, ROUTE_27_PP_UP
+
 Route27TMSolarbeam:
 	itemball TM_SOLARBEAM
 
 Route27RareCandy:
 	itemball RARE_CANDY
+
+Route27_HeadDownMovement:
+	turn_head DOWN
+	step_end
 
 Route27_AllowEntranceIntoKantoMovement:
 	turn_head UP
@@ -367,9 +396,8 @@ Route27BorderClosedText:
 	line "closed because"
 	cont "of the pandemic."
 
-	para "You must go back"
-	line "were you came"
-	cont "from."
+	para "You must turn"
+	line "back."
 	done
 
 Route27BorderLetterText:
@@ -389,8 +417,9 @@ Route27EntranceText:
 	done
 
 Route27BorderArrestText:
-	text "Turn back before"
-	line "we arrest you."
+	text "Go back were you"
+	line "came from, before"
+	cont "we arrest you."
 	done
 
 CooltrainermBlakeSeenText:
@@ -545,6 +574,7 @@ Route27_MapEvents:
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign
+	bg_event 21, 13, BGEVENT_ITEM, Route27PPUp
 
 	def_object_events
 	object_event 48,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainermBlake, -1
@@ -556,4 +586,4 @@ Route27_MapEvents:
 	object_event 60, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27TMSolarbeam, EVENT_ROUTE_27_TM_SOLARBEAM
 	object_event 53, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route27RareCandy, EVENT_ROUTE_27_RARE_CANDY
 	object_event 21, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route27FisherScript, -1
-	object_event 20, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route27FisherScript, -1
+	object_event 21, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route27FisherScript, -1
