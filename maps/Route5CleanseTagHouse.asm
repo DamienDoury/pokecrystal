@@ -8,21 +8,7 @@ Route5CleanseTagHouse_MapScripts:
 	def_callbacks
 
 Route5CleanseTagHouseGrannyScript:
-	faceplayer
-	opentext
-	checkevent EVENT_GOT_CLEANSE_TAG
-	iftrue .GotCleanseTag
-	writetext Route5CleanseTagHouseGrannyText1
-	promptbutton
-	verbosegiveitem CLEANSE_TAG
-	iffalse .NoRoom
-	setevent EVENT_GOT_CLEANSE_TAG
-.GotCleanseTag:
-	writetext Route5CleanseTagHouseGrannyText2
-	waitbutton
-.NoRoom:
-	closetext
-	end
+	jumptextfaceplayer Route5CleanseTagHouseGrannyText1
 
 Route5CleanseTagHouseTeacherScript:
 	jumptextfaceplayer Route5CleanseTagHouseTeacherText
@@ -39,12 +25,6 @@ Route5CleanseTagHouseGrannyText1:
 
 	para "Take this to ward"
 	line "it off!"
-	done
-
-Route5CleanseTagHouseGrannyText2:
-	text "You were in mortal"
-	line "danger, but you"
-	cont "are protected now."
 	done
 
 Route5CleanseTagHouseTeacherText:
