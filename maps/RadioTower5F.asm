@@ -169,11 +169,10 @@ RadioTower5FDirectorWalksIn:
 	step DOWN
 	step DOWN
 	step DOWN
-	step LEFT
+	turn_head LEFT
 	step_end
 
 RadioTower5FDirectorWalksOut:
-	step RIGHT
 	step UP
 	step UP
 	step UP

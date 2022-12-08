@@ -11,6 +11,16 @@ IcePathB2FMahoganySide_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+
+.EnterCallback:
+	checkevent EVENT_ICE_PATH_EXPLORED
+	iftrue .end
+
+	setevent EVENT_ICE_PATH_EXPLORED
+	farscall CheckRocketsActivation
+.end
+	endcallback
 
 IcePathB2FMahoganySideBoulder:
 	jumptext IcePathB2FMahoganySideBoulderText

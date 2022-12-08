@@ -86,8 +86,7 @@ OlivineGymJasmineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MINERALBADGE
-	readvar VAR_BADGES
-	scall OlivineGymActivateRockets
+	scall CheckWorkVisaCall
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
@@ -114,9 +113,33 @@ OlivineGymJasmineScript:
 	closetext
 	end
 
-OlivineGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
+CheckWorkVisaCall:
+	readvar VAR_BADGES
+	ifequal 8, .WorkVisaCall
+	end
+
+.WorkVisaCall:
+	specialphonecall SPECIALCALL_MASTERBALL
+	end 
+	
+CheckRocketsActivation:
+	loadmem wTempByteValue, 0
+	checkevent EVENT_ICE_PATH_EXPLORED ; This event is set only once, when Ice Path B2F Mahogany side has been reached.
+	iffalse .skipAdd1
+	loadmem wTempByteValue, 1
+.skipAdd1
+	checkevent EVENT_JASMINE_RETURNED_TO_GYM ; This event is set only once, when Amphy's mission is done.
+	iffalse .skipAdd2 
+
+	readmem wTempByteValue
+	addval 1
+	writemem wTempByteValue
+
+.skipAdd2
+	readmem wTempByteValue
+	loadmem wTempByteValue, 0
+	ifequal 2, .RadioTowerRockets
+	ifequal 1, .GoldenrodRockets
 	end
 
 .GoldenrodRockets:

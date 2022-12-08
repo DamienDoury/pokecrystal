@@ -112,8 +112,7 @@ GoldenrodGymWhitneyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_PLAINBADGE
-	readvar VAR_BADGES
-	scall GoldenrodGymActivateRockets
+	farscall CheckWorkVisaCall
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton
@@ -131,17 +130,6 @@ GoldenrodGymWhitneyScript:
 .NoRoomForAttract:
 	closetext
 	end
-
-GoldenrodGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
-	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerLassCarrie:
 	trainer LASS, CARRIE, EVENT_BEAT_LASS_CARRIE, LassCarrieSeenText, LassCarrieBeatenText, 0, .Script

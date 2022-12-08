@@ -86,6 +86,7 @@ OlivineLighthouseJasmine:
 	applymovement OLIVINELIGHTHOUSE6F_JASMINE, OlivineLighthouseJasmineLeavesUpMovement
 	disappear OLIVINELIGHTHOUSE6F_JASMINE
 	pause 30
+	farscall CheckRocketsActivation
 	;special RestartMapMusic
 	end
 

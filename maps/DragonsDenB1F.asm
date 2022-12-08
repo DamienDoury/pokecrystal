@@ -63,7 +63,7 @@ DragonsDenB1F_ClairScene:
 	setevent EVENT_GOT_TM24_DRAGONBREATH
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
-	writetext ClairText_WhatsTheMatterDragonDen
+	farwritetext BlackthornGymClairText_League
 	waitbutton
 	closetext
 	sjump .FinishClair
@@ -241,39 +241,6 @@ ClairText_NoRoom:
 
 	para "room, then come"
 	line "see me there."
-	done
-
-ClairText_WhatsTheMatterDragonDen:
-	text "CLAIR: What's the"
-	line "matter? Aren't you"
-
-	para "going on to the"
-	line "#MON LEAGUE?"
-
-	para "Do you know how to"
-	line "get there?"
-
-	para "From here, go to"
-	line "NEW BARK TOWN."
-
-	para "Then SURF east to"
-	line "#MON LEAGUE."
-
-	para "The route there is"
-	line "very tough."
-
-	para "Don't you dare"
-	line "lose at the #-"
-	cont "MON LEAGUE!"
-
-	para "If you do, I'll"
-	line "feel even worse"
-
-	para "about having lost"
-	line "to you!"
-
-	para "Give it everything"
-	line "you've got."
 	done
 
 DragonShrineSignpostText:

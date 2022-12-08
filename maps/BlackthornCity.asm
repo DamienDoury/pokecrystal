@@ -1,6 +1,6 @@
 	object_const_def
-	const BLACKTHORNCITY_SUPER_NERD1
-	const BLACKTHORNCITY_SUPER_NERD2
+	;const BLACKTHORNCITY_SUPER_NERD1
+	;const BLACKTHORNCITY_SUPER_NERD2
 	const BLACKTHORNCITY_GRAMPS1
 	const BLACKTHORNCITY_GRAMPS2
 	const BLACKTHORNCITY_BLACK_BELT
@@ -30,29 +30,29 @@ BlackthornCity_MapScripts:
 	appear BLACKTHORNCITY_SANTOS
 	endcallback
 
-BlackthornSuperNerdScript:
-	faceplayer
-	opentext
-	checkevent EVENT_BEAT_CLAIR
-	iftrue .BeatClair
-	checkevent EVENT_CLEARED_RADIO_TOWER
-	iftrue .ClearedRadioTower
-	writetext Text_ClairIsOut
-	waitbutton
-	closetext
-	end
-
-.ClearedRadioTower:
-	writetext Text_ClairIsIn
-	waitbutton
-	closetext
-	end
-
-.BeatClair:
-	writetext Text_ClairIsBeaten
-	waitbutton
-	closetext
-	end
+;BlackthornSuperNerdScript:
+;	faceplayer
+;	opentext
+;	checkevent EVENT_BEAT_CLAIR
+;	iftrue .BeatClair
+;	checkevent EVENT_CLEARED_RADIO_TOWER
+;	iftrue .ClearedRadioTower
+;	writetext Text_ClairIsOut
+;	waitbutton
+;	closetext
+;	end
+;
+;.ClearedRadioTower:
+;	writetext Text_ClairIsIn
+;	waitbutton
+;	closetext
+;	end
+;
+;.BeatClair:
+;	writetext Text_ClairIsBeaten
+;	waitbutton
+;	closetext
+;	end
 
 BlackthornGramps1Script:
 	jumptextfaceplayer BlackthornGrampsRefusesEntryText
@@ -142,44 +142,44 @@ BlackthornCityPokecenterSign:
 BlackthornCityMartSign:
 	jumpstd MartSignScript
 
-Text_ClairIsOut:
-	text "I am sorry."
-
-	para "CLAIR, our GYM"
-	line "LEADER, went to"
-
-	para "investigate the"
-	line "RADIO TOWER in"
-
-	para "GOLDENROD CITY"
-	line "under the orders"
-	cont "of LANCE."
-	done
-
-Text_ClairIsIn:
-	text "CLAIR, our GYM"
-	line "LEADER, is waiting"
-	cont "for you."
-
-	para "However, it would"
-	line "be impossible for"
-
-	para "a run-of-the-mill"
-	line "trainer to win."
-	done
-
-Text_ClairIsBeaten:
-	text "You defeated"
-	line "CLAIR?"
-
-	para "That's amazing!"
-
-	para "I've never heard"
-	line "of her losing to"
-
-	para "anyone other than"
-	line "LANCE."
-	done
+;Text_ClairIsOut:
+;	text "I am sorry."
+;
+;	para "CLAIR, our GYM"
+;	line "LEADER, went to"
+;
+;	para "investigate the"
+;	line "RADIO TOWER in"
+;
+;	para "GOLDENROD CITY"
+;	line "under the orders"
+;	cont "of LANCE."
+;	done
+;
+;Text_ClairIsIn:
+;	text "CLAIR, our GYM"
+;	line "LEADER, is waiting"
+;	cont "for you."
+;
+;	para "However, it would"
+;	line "be impossible for"
+;
+;	para "a run-of-the-mill"
+;	line "trainer to win."
+;	done
+;
+;Text_ClairIsBeaten:
+;	text "You defeated"
+;	line "CLAIR?"
+;
+;	para "That's amazing!"
+;
+;	para "I've never heard"
+;	line "of her losing to"
+;
+;	para "anyone other than"
+;	line "LANCE."
+;	done
 
 BlackthornGrampsRefusesEntryText:
 	text "No. Only chosen"
@@ -335,8 +335,8 @@ BlackthornCity_MapEvents:
 	bg_event 22, 29, BGEVENT_READ, BlackthornCityPokecenterSign
 
 	def_object_events
-	object_event 18, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_BLOCKS_GYM
-	object_event 19, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_DOES_NOT_BLOCK_GYM
+	;object_event 18, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_BLOCKS_GYM
+	;object_event 19, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_DOES_NOT_BLOCK_GYM
 	object_event 20,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps1Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
 	object_event 21,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps2Script, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
 	object_event 24, 31, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlackthornBlackBeltScript, -1

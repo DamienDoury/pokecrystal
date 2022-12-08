@@ -101,7 +101,7 @@ ProfElmScript_Back:
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iftrue ElmGiveTicketScript
 ElmCheckMasterBall:
-	checkevent EVENT_GOT_MASTER_BALL_FROM_ELM
+	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
 	iftrue ElmCheckEverstone
 	checkflag ENGINE_RISINGBADGE
 	iftrue ElmGiveMasterBallScript
@@ -460,9 +460,9 @@ ElmScript_NoRoomForEverstone:
 ElmGiveMasterBallScript:
 	writetext ElmGiveMasterBallText1
 	promptbutton
-	verbosegiveitem MASTER_BALL
+	verbosegiveitem WORK_VISA
 	iffalse .notdone
-	setevent EVENT_GOT_MASTER_BALL_FROM_ELM
+	setevent EVENT_GOT_WORK_VISA_FROM_ELM
 	writetext ElmGiveMasterBallText2
 	waitbutton
 .notdone
@@ -1478,36 +1478,73 @@ AideText_AfterTheft:
 	done
 
 ElmGiveMasterBallText1:
-	text "ELM: Hi, <PLAY_G>!"
-	line "Thanks to you, my"
+	text "ELM: The rumors"
+	line "say that you won"
+	
+	para "all badges from"
+	line "JOHTO, is it true?"
 
-	para "research is going"
-	line "great!"
+	para "I am very"
+	line "impressed!"
 
-	para "Take this as a"
-	line "token of my"
-	cont "appreciation."
+	para "However, as the"
+	line "border between"
+	
+	para "JOHTO and KANTO"
+	line "is closed,"
+	
+	para "the #MON LEAGUE"
+	line "is out of reach."
+
+	para "Look, you've helped"
+	line "me a lot in my"
+	cont "research."
+	
+	para "Now it's my turn"
+	line "to help you."
+
+	para "My status as a"
+	line "virology resear-"
+	cont "cher currently"
+	cont "gives me special"
+	cont "benefits."
+
+	para "So I took advan-"
+	line "tage of it and"
+	cont "got you this."
 	done
 
 ElmGiveMasterBallText2:
-	text "The MASTER BALL is"
-	line "the best!"
+	text "Those are only"
+	line "given to very"
+	cont "selected people."
 
-	para "It's the ultimate"
-	line "BALL! It'll catch"
+	para "It's a permit to"
+	line "legally cross"
+	
+	para "KANTO's border as a"
+	line "member of my team."
 
-	para "any #MON with-"
-	line "out fail."
+	para "Perhaps you'll find"
+	line "patient zero in"
+	cont "KANTO, who knows?"
 
-	para "It's given only to"
-	line "recognized #MON"
-	cont "researchers."
+	para "And if you"
+	line "accidentally stop"
+	cont "by the #MON"
+	cont "LEAGUE…"
+	
+	para "That's none of my"
+	line "business, hehe!"
 
-	para "I think you can"
-	line "make much better"
+	para "Closest access"
+	line "to KANTO's border"
 
-	para "use of it than I"
-	line "can, <PLAY_G>!"
+	para "is East of this"
+	line "town."
+
+	para "I wish you"
+	line "good luck!"
 	done
 
 ElmGiveVaccineText1:

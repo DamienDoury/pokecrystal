@@ -207,10 +207,9 @@ ClairIntroText:
 	para "Get ready for a"
 	line "brut force battle!"
 
-	para "Only PHYSICAL and"
-	line "SPECIAL moves are"
-	cont "allowed in this"
-	cont "battle."
+	para "STATUS moves are"
+	line "forbidden in"
+	cont "this battle."
 
 	para "Do you still want"
 	line "to take me on?"
@@ -246,12 +245,6 @@ ClairWinText:
 ClairText_GoToDragonsDen:
 	text "I won't admit"
 	line "this."
-
-	para "I may have lost,"
-	line "but you're still"
-
-	para "not ready for the"
-	line "#MON LEAGUE."
 
 	para "I know. You should"
 	line "take the dragon"
@@ -316,34 +309,9 @@ BlackthornGymClairText_BagFull:
 	done
 
 BlackthornGymClairText_League:
-	text "What's the matter?"
-
-	para "Aren't you headed"
-	line "to the #MON"
-	cont "LEAGUE?"
-
-	para "Don't you know"
-	line "where it is?"
-
-	para "From here, go to"
-	line "NEW BARK TOWN."
-
-	para "Then SURF east."
-	line "The route there is"
-	cont "very tough."
-
-	para "Don't you dare"
-	line "lose at the #-"
-	cont "MON LEAGUE!"
-
-	para "If you do, I'll"
-	line "feel even worse"
-
-	para "about having lost"
-	line "to you!"
-
-	para "Give it every-"
-	line "thing you've got."
+	text "I'm so mad about"
+	line "having lost"
+	cont "to you!"
 	done
 
 CooltrainermPaulSeenText:

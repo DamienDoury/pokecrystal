@@ -178,8 +178,8 @@ MomPhoneLectureText:
 	cont "you… I have bad"
 	cont "news."
 
-	para "I got a phone call"
-	line "from my employer."
+	para "My employer just"
+	line "called me."
 
 	para "Because of the"
 	line "sanitary situation"

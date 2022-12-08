@@ -93,8 +93,7 @@ VioletGymFalknerScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_ZEPHYRBADGE
-	readvar VAR_BADGES
-	scall VioletGymActivateRockets
+	farscall CheckWorkVisaCall
 .FightDone:
 	checkevent EVENT_GOT_TM31_MUD_SLAP
 	iftrue .SpeechAfterTM
@@ -116,17 +115,6 @@ VioletGymFalknerScript:
 .NoRoomForMudSlap:
 	closetext
 	end
-
-VioletGymActivateRockets:
-	ifequal 7, .RadioTowerRockets
-	ifequal 6, .GoldenrodRockets
-	end
-
-.GoldenrodRockets:
-	jumpstd GoldenrodRocketsScript
-
-.RadioTowerRockets:
-	jumpstd RadioTowerRocketsScript
 
 TrainerBirdKeeperRod:
 	trainer BIRD_KEEPER, ROD, EVENT_BEAT_BIRD_KEEPER_ROD, BirdKeeperRodSeenText, BirdKeeperRodBeatenText, 0, .Script

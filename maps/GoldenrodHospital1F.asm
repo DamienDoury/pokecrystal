@@ -257,6 +257,9 @@ GoldenrodHospitalRocketScript:
 GoldenrodHospitalRocketCounterScript:
 	jumptext GoldenrodHospitalRocketCounterText
 
+GoldenrodHospitalRocket3Script:
+	jumptextfaceplayer GoldenrodHospitalRocket3Text
+
 GoldenrodHospital1FChiefNursePanel:
 	jumptext GoldenrodHospital1FChiefNursePanelText
 
@@ -469,6 +472,11 @@ GoldenrodHospitalRocketCounterText:
 	line "business, I'm busy."
 	done
 
+GoldenrodHospitalRocket3Text:
+	text "Finally we own"
+	line "the RADIO TOWER!"
+	done
+
 GoldenrodHospitalTakeoverNurse1Text:
 	text "I… I'm sorry"
 	line "I can't help you"
@@ -666,11 +674,12 @@ GoldenrodHospital1F_MapEvents:
 	object_event  1,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalThankOakScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 17,  1, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalPokefan1Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 17,  1, SPRITE_NURSE, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalNursePatientScript, EVENT_GOLDENROD_CITY_CIVILIANS
-	object_event 14,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCoughScript, -1
-	object_event 16,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalGranny1Script, -1
+	object_event 14,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalCoughScript, EVENT_GOLDENROD_CITY_CIVILIANS
+	object_event 16,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalGranny1Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 12,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalTwin1Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 15,  1, SPRITE_KAREN, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalKarenScript, EVENT_ROUTE_36_SUDOWOODO
-	object_event 15,  1, SPRITE_PHARMACIST, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalBlackglassesScript, -1
+	object_event 15,  1, SPRITE_PHARMACIST, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalBlackglassesScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 13,  3, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  6,  4, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocketCounterScript, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	object_event  5,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event  5,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, %11100000 | MORN | NITE, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHospitalDepressedScientistScript, EVENT_GOLDENROD_CITY_CIVILIANS
