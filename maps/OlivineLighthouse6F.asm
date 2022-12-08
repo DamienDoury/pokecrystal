@@ -80,13 +80,13 @@ OlivineLighthouseJasmine:
 	closetext
 	setevent EVENT_JASMINE_RETURNED_TO_GYM
 	clearevent EVENT_OLIVINE_GYM_JASMINE
+	farscall CheckRocketsActivation
 	readvar VAR_FACING
 	ifequal DOWN, .FacingDown
 	ifequal RIGHT, .FacingRight
 	applymovement OLIVINELIGHTHOUSE6F_JASMINE, OlivineLighthouseJasmineLeavesUpMovement
 	disappear OLIVINELIGHTHOUSE6F_JASMINE
 	pause 30
-	farscall CheckRocketsActivation
 	;special RestartMapMusic
 	end
 
