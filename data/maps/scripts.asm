@@ -95,6 +95,7 @@ INCLUDE "maps/TeamRocketBaseB1F.asm"
 INCLUDE "maps/TeamRocketBaseB2F.asm"
 INCLUDE "maps/TeamRocketBaseB3F.asm"
 INCLUDE "maps/IlexForest.asm"
+INCLUDE "maps/CeladonCafe.asm"
 
 
 SECTION "Map Scripts 7", ROMX
@@ -116,7 +117,6 @@ INCLUDE "maps/CeladonPokecenter1F.asm"
 INCLUDE "maps/CeladonGameCorner.asm"
 INCLUDE "maps/CeladonGameCornerPrizeRoom.asm"
 INCLUDE "maps/CeladonGym.asm"
-INCLUDE "maps/CeladonCafe.asm"
 INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Gate.
 INCLUDE "maps/Route7SaffronGate.asm"

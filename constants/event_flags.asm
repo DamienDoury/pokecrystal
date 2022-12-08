@@ -1552,8 +1552,10 @@
 	const EVENT_BATTLE_TOWER_OUTSIDE_SAILOR
 	const EVENT_SICK_CATERPIE
 	const EVENT_BEAT_YOUAK
+	const EVENT_GOT_MASTERBALL
+	const EVENT_MET_OAK_IN_SAFFRON
 
-; Unused: next 46 events
+; Unused: next 44 events
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800

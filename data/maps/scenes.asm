@@ -108,4 +108,5 @@ MapScenes::
 	scene_var VACCINATION_CENTER_CORRIDOR,				   wVaccinationCenterSceneID
 	scene_var SILPHCO_ELEVATOR,				   			   wRoute29SceneID
 	scene_var SILPHCO_RESEARCH,				   			   wRoute29SceneID
+	scene_var ROUTE_7_SAFFRON_GATE,						   wRoute29SceneID
 	db -1 ; end

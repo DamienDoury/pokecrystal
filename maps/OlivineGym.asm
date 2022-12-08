@@ -119,7 +119,7 @@ CheckWorkVisaCall:
 	end
 
 .WorkVisaCall:
-	specialphonecall SPECIALCALL_MASTERBALL
+	specialphonecall SPECIALCALL_WORK_VISA
 	end 
 	
 CheckRocketsActivation:
