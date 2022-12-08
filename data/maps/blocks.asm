@@ -367,6 +367,7 @@ EcruteakLugiaSpeechHouse_Blocks:
 EcruteakItemfinderHouse_Blocks:
 VioletNicknameSpeechHouse_Blocks:
 VioletKylesHouse_Blocks:
+EcruteakFaunaHouse_Blocks:
 	INCBIN "maps/House2.blk"
 
 BetaUnionCave_Blocks: ; unreferenced
