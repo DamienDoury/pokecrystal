@@ -1125,7 +1125,8 @@
 	const EVENT_PLAYER_GOT_POKEMASK
 	const EVENT_PLAYER_STEP_FOOT_IN_KANTO
 	const ROUTE_27_PP_UP
-; Unused: next 89 events	
+	const GOLDENROD_BIKE_SHOP_CLOSED
+; Unused: next 88 events	
 
 	const_next 1592
 	const EVENT_SICK_GENTLEMAN_FIRST_MEETING

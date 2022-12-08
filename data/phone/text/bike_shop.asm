@@ -1,19 +1,28 @@
 BikeShopPhoneCallerText:
-	text "Hi, <PLAY_G>!"
-	line "Our BICYCLE sales"
+	text "Hi, <PLAY_G>."
 
-	para "have gone through"
-	line "the roof!"
+	para "The pandemic is"
+	line "lasting longer"
+	cont "than I wish…"
 
-	para "We owe it all to"
-	line "your advertising"
+	para "With people"
+	line "staying home,"
+	
+	para "I haven't sold"
+	line "a single item"
+	cont "in a while."
 
-	para "by riding around"
-	line "on our BICYCLE."
+	para "Advertising was"
+	line "a bad idea."
 
-	para "As our way of say-"
-	line "ing thanks, please"
+	para "I filed for"
+	line "bankruptcy,"
+	
+	para "and I've closed"
+	line "down the shop."
 
-	para "keep that BICYCLE."
-	line "Thanks again!"
+	para "You can keep"
+	line "the BICYCLE."
+
+	para "Thanks anyway."
 	done

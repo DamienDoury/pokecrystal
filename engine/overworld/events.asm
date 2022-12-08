@@ -1307,6 +1307,24 @@ DoBikeStep::
 	ld [wSpecialPhoneCallID + 1], a
 	ld hl, wStatusFlags2
 	res STATUSFLAGS2_BIKE_SHOP_CALL_F, [hl]
+
+	; If we are in Goldenrod, we immediately close down the shop.
+	ld a, [wMapGroup]
+	cp GROUP_GOLDENROD_CITY
+	jr nz, .returnCarry
+
+	ld a, [wMapNumber]
+	cp MAP_GOLDENROD_CITY
+	jr nz, .returnCarry
+
+	; Make the door appear.
+	ld a, 18 ; GOLDENRODCITY_BIKESHOP_DOOR - 1
+	call UnmaskCopyMapObjectStruct
+	ldh a, [hMapObjectIndex]
+	ld b, 0 ; clear
+	call ApplyEventActionAppearDisappear
+
+.returnCarry
 	scf
 	ret
 
