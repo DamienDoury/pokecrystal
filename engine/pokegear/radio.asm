@@ -118,6 +118,11 @@ RadioJumptable:
 	dw PokedexShow6      ; $55
 	dw PokedexShow7      ; $56
 	dw PokedexShow8      ; $57
+; More Team Rocket
+	dw RocketRadio11	 ; $58
+	dw RocketRadio12	 ; $59
+	dw RocketRadio13	 ; $5a
+	dw RocketRadio14	 ; $5b
 	assert_table_length NUM_RADIO_SEGMENTS
 
 PrintRadioLine:
@@ -1361,6 +1366,26 @@ RocketRadio9:
 
 RocketRadio10:
 	ld hl, RocketRadioText10
+	ld a, ROCKET_RADIO_11
+	jp NextRadioLine
+
+RocketRadio11:
+	ld hl, RocketRadioText11
+	ld a, ROCKET_RADIO_12
+	jp NextRadioLine
+
+RocketRadio12:
+	ld hl, RocketRadioText12
+	ld a, ROCKET_RADIO_13
+	jp NextRadioLine
+
+RocketRadio13:
+	ld hl, RocketRadioText13
+	ld a, ROCKET_RADIO_14
+	jp NextRadioLine
+
+RocketRadio14:
+	ld hl, RocketRadioText14
 	ld a, ROCKET_RADIO
 	jp NextRadioLine
 
@@ -1402,6 +1427,22 @@ RocketRadioText9:
 
 RocketRadioText10:
 	text_far _RocketRadioText10
+	text_end
+
+RocketRadioText11:
+	text_far _RocketRadioText11
+	text_end
+	
+RocketRadioText12:
+	text_far _RocketRadioText12
+	text_end
+	
+RocketRadioText13:
+	text_far _RocketRadioText13
+	text_end
+	
+RocketRadioText14:
+	text_far _RocketRadioText14
 	text_end
 
 PokeFluteRadio:

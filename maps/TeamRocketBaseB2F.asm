@@ -619,10 +619,10 @@ RocketBaseBossRetreatText:
 	line "ger plans."
 
 	para "You'll come to"
-	line "appreciate TEAM"
+	line "understand TEAM"
 
 	para "ROCKET's true"
-	line "power soon enough."
+	line "goal soon enough."
 
 	para "Enjoy yourself"
 	line "while you can…"
@@ -698,9 +698,6 @@ RocketBaseLanceElectrodeDoneText:
 	line "signal has finally"
 	cont "stopped."
 
-	para "The LAKE should be"
-	line "back to normal."
-
 	para "You're the hero!"
 	line "Let me thank you"
 
@@ -713,11 +710,6 @@ RocketBaseLanceElectrodeDoneText:
 	para "I found it here,"
 	line "but I don't have"
 	cont "any need for it."
-	done
-
-RocketBaseReceivedHM06Text: ; unreferenced
-	text "<PLAYER> received"
-	line "HM06."
 	done
 
 RocketBaseLanceWhirlpoolText:

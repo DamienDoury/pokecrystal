@@ -953,8 +953,6 @@ _PnP_Text5::
 	text_ram wStringBuffer1
 	text_end
 
-	text_end ; unreferenced
-
 _RocketRadioText1::
 	text_start
 	line "… …Ahem, we are"
@@ -967,51 +965,71 @@ _RocketRadioText2::
 
 _RocketRadioText3::
 	text_start
-	line "After three years"
+	line "Listen people!"
 	done
 
 _RocketRadioText4::
 	text_start
-	line "of preparation, we"
+	line "The government is"
 	done
 
 _RocketRadioText5::
 	text_start
-	line "have risen again"
+	line "controlling y'all!"
 	done
 
 _RocketRadioText6::
 	text_start
-	line "from the ashes!"
+	line "Stop staying home"
 	done
 
 _RocketRadioText7::
 	text_start
-	line "GIOVANNI! @"
-	text_pause
-	text "Can you"
+	line "and wearing face"
 	done
 
 _RocketRadioText8::
 	text_start
-	line "hear?@"
+	line "masks! @"
 	text_pause
-	text " We did it!"
+	text "Get your"
 	done
 
 _RocketRadioText9::
 	text_start
-	line "@"
-	text_pause
-	text "Where is our boss?"
+	line "freedom back!"
 	done
 
 _RocketRadioText10::
 	text_start
-	line "@"
+	line "REVOLTE! @"
 	text_pause
-	text "Is he listening?"
+	text "STOP"
 	done
+
+_RocketRadioText11::
+	text_start
+	line "SUBMITTING!"
+	done
+
+_RocketRadioText12::
+	text_start
+	line "COVID is a lie!"
+	done
+
+_RocketRadioText13::
+	text_start
+	line "Go out and find"
+	done
+
+_RocketRadioText14::
+	text_start
+	line "out for yourself!"
+	done
+
+	
+	
+	
 
 _BuenaRadioText1::
 	text_start

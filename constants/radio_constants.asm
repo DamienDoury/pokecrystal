@@ -94,6 +94,10 @@ NUM_RADIO_CHANNELS EQU const_value
 	const POKEDEX_SHOW_6         ; 55
 	const POKEDEX_SHOW_7         ; 56
 	const POKEDEX_SHOW_8         ; 57
+	const ROCKET_RADIO_11		 ; 58
+	const ROCKET_RADIO_12		 ; 59
+	const ROCKET_RADIO_13		 ; 5a
+	const ROCKET_RADIO_14		 ; 5b
 NUM_RADIO_SEGMENTS EQU const_value
 
 ; PlayRadioStationPointers indexes (see engine/pokegear/pokegear.asm)

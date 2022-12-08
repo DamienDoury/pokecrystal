@@ -309,11 +309,11 @@ TeamRocketOathText:
 	para "Steal #MON for"
 	line "profit!"
 
-	para "Exploit #MON"
-	line "for profit!"
+	para "Fight for"
+	line "freedom!"
 
-	para "All #MON exist"
-	line "for the glory of"
+	para "The world"
+	line "belongs to"
 	cont "TEAM ROCKET!"
 	done
 
