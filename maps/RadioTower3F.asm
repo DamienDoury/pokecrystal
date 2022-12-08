@@ -24,7 +24,12 @@ RadioTower3F_MapScripts:
 	endcallback
 
 RadioTower3FSuperNerdScript:
+	checkevent EVENT_GOT_CLEAR_BELL
+	iftrue .TeamRocketOpinion
 	jumptextfaceplayer RadioTower3FSuperNerdText
+
+.TeamRocketOpinion
+	jumptextfaceplayer RadioTower3FSuperNerdTROpinionText
 
 RadioTower3FGymGuideScript:
 	faceplayer
@@ -165,16 +170,33 @@ RadioTower3FSuperNerdText:
 	line "200 kinds."
 	done
 
+RadioTower3FSuperNerdTROpinionText:
+	text "I kinda understand"
+	line "TEAM ROCKET's point"
+	cont "of view."
+
+	para "I can't stand"
+	line "wearing a face"
+	cont "mask. Has its"
+	cont "effectiveness"
+	cont "even been proven?"
+	done
+
 RadioTower3FGymGuideText_Rockets:
-	text "To trainers, #-"
-	line "MON are their"
-	cont "beloved partners."
+	text "COVID infects more"
+	line "people and #MON"
+	cont "every second,"
 
-	para "It's terrible how"
-	line "TEAM ROCKET is"
+	para "and some are"
+	line "dying from it."
 
-	para "trying to control"
-	line "#MON."
+	para "It would be"
+	line "terrible if people"
+	cont "agreed with"
+	cont "TEAM ROCKET's"
+	cont "ideology and start"
+	cont "bypassing sanitary"
+	cont "measures."
 	done
 
 RadioTower3FGymGuideText:
@@ -251,20 +273,28 @@ GruntM7AfterBattleText:
 
 GruntM8SeenText:
 	text "It feels great"
-	line "ordering #MON"
-	cont "to commit crimes."
+	line "to explore the"
+
+	para "world outside the"
+	line "four walls of my"
+	cont "apartment."
+
+	para "No one will ever"
+	line "take my freedom."
 	done
 
 GruntM8BeatenText:
-	text "You're kidding!"
+	text "I chose to loose"
+	line "because I'm free!"
 	done
 
 GruntM8AfterBattleText:
-	text "I feel lousy over"
-	line "losing!"
+	text "Please don't use"
+	line "any more of your"
+	cont "freedom to beat"
+	cont "me up."
 
-	para "Darn it! I hate"
-	line "useless #MON!"
+	para "I submit!"
 	done
 
 GruntM9SeenText:

@@ -4,6 +4,7 @@
 	const RADIOTOWER5F_ROCKET_GIRL
 	const RADIOTOWER5F_ROCKER
 	const RADIOTOWER5F_POKE_BALL
+	const RADIOTOWER5F_BASEMENT_KEY
 
 RadioTower5F_MapScripts:
 	def_scene_scripts
@@ -42,8 +43,7 @@ FakeDirectorScript:
 	reloadmapafterbattle
 	opentext
 	writetext FakeDirectorTextAfter
-	promptbutton
-	verbosegiveitem BASEMENT_KEY
+	waitbutton
 	closetext
 	setscene SCENE_RADIOTOWER5F_ROCKET_BOSS
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_3
@@ -82,6 +82,10 @@ RadioTower5FRocketBossScene:
 	turnobject RADIOTOWER5F_ROCKET, RIGHT
 	opentext
 	writetext RadioTower5FRocketBossBeforeText
+	yesorno
+	iftrue .SkipBattle
+
+	writetext RadioTower5FRocketBossStartBattleText
 	waitbutton
 	closetext
 	winlosstext RadioTower5FRocketBossWinText, 0
@@ -116,7 +120,7 @@ RadioTower5FRocketBossScene:
 	moveobject RADIOTOWER5F_DIRECTOR, 12, 0
 	appear RADIOTOWER5F_DIRECTOR
 	applymovement RADIOTOWER5F_DIRECTOR, RadioTower5FDirectorWalksIn
-	turnobject PLAYER, RIGHT
+	applymovement PLAYER, RadioTower5FPlayerStepsBackMovement
 	opentext
 	writetext RadioTower5FDirectorThankYouText
 	promptbutton
@@ -136,12 +140,24 @@ RadioTower5FRocketBossScene:
 	disappear RADIOTOWER5F_DIRECTOR
 	end
 
+.SkipBattle:
+	writetext RadioTower5FRocketBossSkipBattleText
+	waitbutton
+	closetext
+	turnobject RADIOTOWER5F_ROCKET, LEFT
+	applymovement PLAYER, RadioTower5FPlayerSkipsBattleMovement
+	; We don't stop the music.
+	end
+
 Ben:
 	jumptextfaceplayer BenText
 
 RadioTower5FUltraBall:
 	itemball ULTRA_BALL
 
+RadioTower5FBasementKey:
+	itemball BASEMENT_KEY
+	
 RadioTower5FDirectorsOfficeSign:
 	jumptext RadioTower5FDirectorsOfficeSignText
 
@@ -155,7 +171,6 @@ FakeDirectorMovement:
 	step LEFT
 	step LEFT
 	step LEFT
-	step UP
 	step UP
 	step_end
 
@@ -186,7 +201,16 @@ RadioTower5FDirectorWalksOut:
 
 RadioTower5FPlayerTwoStepsLeftMovement:
 	step LEFT
+	step_end
+
+RadioTower5FPlayerSkipsBattleMovement:
+	step RIGHT
+	step UP
+	step_end
+
+RadioTower5FPlayerStepsBackMovement:
 	step LEFT
+	turn_head RIGHT
 	step_end
 
 FakeDirectorTextBefore1:
@@ -260,7 +284,7 @@ Executivef1AfterBattleText:
 	line "won't appreciate"
 
 	para "the magnificence"
-	line "of TEAM ROCKET."
+	line "of our cause."
 
 	para "That's too bad."
 	line "I really admire"
@@ -277,34 +301,89 @@ RadioTower5FRocketBossBeforeText:
 	para "We intend to take"
 	line "over this RADIO"
 
-	para "STATION and an-"
-	line "nounce our come-"
-	cont "back."
+	para "STATION to wake"
+	line "people up."
 
-	para "That should bring"
-	line "our boss GIOVANNI"
+	para "The population is"
+	line "brainwashed by"
+	cont "radio & TV shows."
 
-	para "back from his solo"
-	line "training."
+	para "It is all"
+	line "propaganda!"
 
-	para "We are going to"
-	line "regain our former"
-	cont "glory."
+	para "TEAM ROCKET is the"
+	line "counter-power"
+	cont "people deserve."
 
-	para "I won't allow you"
-	line "to interfere with"
-	cont "our plans."
+	para "Have you ever"
+	line "seen a #MON"
+	cont "die of COVID?"
+	cont "I don't."
+
+	para "I've never worn a"
+	line "face mask myself,"
+
+	para "yet I never got"
+	line "sick. How do you"
+	cont "explain it?"
+
+	para "And now they are"
+	line "announcing that a"
+	
+	para "vaccine will be"
+	line "found before the"
+	cont "end of the year."
+
+	para "Never in history"
+	line "had a vaccine be"
+	cont "found so quickly."
+
+	para "What are they"
+	line "going to inject"
+
+	para "into people's"
+	line "bodies? Nothing"
+
+	para "safe, I can tell"
+	line "you that much."
+
+	para "Come on! Think"
+	line "for yourself!"
+
+	para "…"
+
+	para "Don't you see the"
+	line "truth in my"
+	cont "arguments?"
+	done
+
+RadioTower5FRocketBossStartBattleText:
+	text "Then I can't let"
+	line "you to interfere"
+	cont "with our plan."
+	done
+
+RadioTower5FRocketBossSkipBattleText:
+	text "Then leave and"
+	line "let me do what I"
+	cont "came for."
+
+	para "I will open"
+	line "people's eyes"
+
+	para "and start a"
+	line "revolution!"
 	done
 
 RadioTower5FRocketBossWinText:
-	text "No! Forgive me,"
-	line "GIOVANNI!"
+	text "Nooo! Forgive me,"
+	line "JOHTO people!"
 	done
 
 RadioTower5FRocketBossAfterText:
 	text "How could this be?"
 
-	para "Our dreams have"
+	para "Our objective has"
 	line "come to naught."
 
 	para "I wasn't up to the"
@@ -312,9 +391,12 @@ RadioTower5FRocketBossAfterText:
 
 	para "Like GIOVANNI did"
 	line "before me, I will"
+	
+	para "put TEAM ROCKET"
+	line "to sleep, so we"
 
-	para "disband TEAM"
-	line "ROCKET here today."
+	para "can come back"
+	line "stronger later." 
 
 	para "Farewell."
 	done
@@ -441,3 +523,4 @@ RadioTower5F_MapEvents:
 	object_event 17,  2, SPRITE_ROCKET_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerExecutivef1, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 13,  5, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Ben, EVENT_RADIO_TOWER_CIVILIANS_AFTER
 	object_event  8,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RadioTower5FUltraBall, EVENT_RADIO_TOWER_5F_ULTRA_BALL
+	object_event  5,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, RadioTower5FBasementKey, EVENT_GOT_BASEMENT_KEY

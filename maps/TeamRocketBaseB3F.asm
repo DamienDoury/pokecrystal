@@ -382,37 +382,49 @@ RocketBaseRivalText:
 
 ExecutiveM4BeforeText:
 	text "What? Who are you?"
-	line "This is the office"
+	line "You're wearing a"
+	cont "facemask…"
 
-	para "of our leader,"
-	line "GIOVANNI."
+	para "So you're part of"
+	line "the brainwashed"
+	cont "normies…"
 
-	para "Since disbanding"
-	line "TEAM ROCKET three"
+	para "When the so-called"
+	line "pandemic started,"
 
-	para "years ago, he has"
-	line "been in training."
+	para "with a simple"
+	line "broadcast,"
 
-	para "But we're certain"
-	line "he will be back"
+	para "the government"
+	line "managed to lock up"
+	cont "everyone at home."
 
-	para "some day to assume"
-	line "command again."
+	para "And everyone"
+	line "obeyed…"
 
-	para "That's why we're"
-	line "standing guard."
+	para "With the pretext"
+	line "of this invisible"
+	cont "enemy, they took"
+	cont "over our liberty."
 
-	para "I won't let any-"
-	line "one disturb this"
-	cont "place!"
+	para "And then they"
+	line "deployed the"
+	cont "police around"
+
+	para "every corner of"
+	line "this region,"
+
+	para "maintaining us"
+	line "under control"
+	cont "with fear."
+
+	para "TEAM ROCKET can't"
+	line "let this go on…"
 	done
 
 ExecutiveM4BeatenText:
 	text "I… I couldn't do a"
 	line "thing…"
-
-	para "GIOVANNI, please"
-	line "forgive me…"
 	done
 
 ExecutiveM4AfterText:
@@ -507,11 +519,7 @@ ScientistRossBeatenText:
 	done
 
 ScientistRossAfterBattleText:
-	text "A radio signal"
-	line "that drives #-"
-	cont "MON mad…"
-
-	para "My experiment is a"
+	text "My experiment is a"
 	line "complete success."
 
 	para "My promotion is"

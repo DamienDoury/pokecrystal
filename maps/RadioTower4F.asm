@@ -149,12 +149,9 @@ RadioTowerMeowthText:
 	done
 
 GruntM10SeenText:
-	text "You plan to rescue"
-	line "the DIRECTOR?"
-
-	para "That won't be pos-"
-	line "sible because I'm"
-	cont "going to beat you!"
+	text "I believe COVID"
+	line "is a lie from"
+	cont "the government."
 	done
 
 GruntM10BeatenText:
@@ -166,52 +163,50 @@ GruntM10AfterBattleText:
 	line "it! I was beaten!"
 	done
 
-Executivem2SeenText:
-	text "Stop! I'm known as"
-	line "the TEAM ROCKET"
-	cont "fortress!"
-
-	para "You're not taking"
-	line "another step!"
-	done
-
-Executivem2BeatenText:
-	text "The fortress came"
-	line "down!"
-	done
-
-Executivem2AfterBattleText:
-	text "You've earned my"
-	line "respect, so here's"
-	cont "some advice."
-
-	para "It's not too late."
-	line "You can still turn"
-	cont "back."
-	done
-
 GruntF4SeenText:
-	text "Don't I think"
-	line "#MON are cute?"
-
-	para "I'll think my"
-	line "#MON are cute--"
-
-	para "after they beat"
-	line "yours!"
+	text "Living in lockdown"
+	line "is not an accep-"
+	cont "table way of"
+	cont "living!"
 	done
 
 GruntF4BeatenText:
-	text "Oh, no! They're so"
-	line "useless!"
+	text "I should run home!"
 	done
 
 GruntF4AfterBattleText:
-	text "I love my"
-	line "beautiful self!"
+	text "People are getting"
+	line "crazy when locked"
+	cont "up home."
 
-	para "Who cares about"
-	line "#MON?"
+	para "I say being locked"
+	line "up can cause more"
+	cont "damage than COVID."
+	done
+
+Executivem2SeenText:
+
+	text "The lockdowns and"
+	line "curfews will"
+
+	para "destroy our"
+	line "economy."
+	done
+
+Executivem2BeatenText:
+	text "Please don't take"
+	line "my money!"
+	done
+
+Executivem2AfterBattleText:
+	text "The dip in our"
+	line "economy will cause"
+
+	para "more damage to our"
+	line "society than the"
+	cont "disease itself."
+	
+	para "Wanna bet?"
 	done
 
 ScientistRichSeenText:
@@ -231,8 +226,10 @@ ScientistRichBeatenText:
 
 ScientistRichAfterBattleText:
 	text "Do you honestly"
-	line "believe you can"
-	cont "stop TEAM ROCKET?"
+	line "believe the"
+	
+	para "government is"
+	line "trying to save us?"
 	done
 
 RadioTower4FProductionSignText:

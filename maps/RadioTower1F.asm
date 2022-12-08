@@ -425,14 +425,11 @@ GruntM3SeenText:
 	line "taken over the"
 	cont "RADIO TOWER!"
 
-	para "Now everyone will"
-	line "get to experience"
+	para "Now we will put"
+	line "an end to this"
 
-	para "the true terror of"
-	line "TEAM ROCKET!"
-
-	para "We'll show you"
-	line "how scary we are!"
+	para "miserable way of"
+	line "life!"
 	done
 
 GruntM3BeatenText:

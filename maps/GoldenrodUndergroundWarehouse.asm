@@ -96,46 +96,44 @@ GoldenrodUndergroundWarehouseUltraBall:
 	itemball ULTRA_BALL
 
 GruntM24SeenText:
-	text "How did you get"
-	line "this far?"
+	text "An intruder?"
 
-	para "I guess it can't"
-	line "be helped. I'll"
-	cont "dispose of you."
+	para "Why would you"
+	line "oppose our cause?"
 	done
 
 GruntM24BeatenText:
-	text "I got disposed of…"
+	text "I can't understand"
+	line "you."
 	done
 
 GruntM24AfterBattleText:
-	text "TEAM ROCKET will"
-	line "keep going, wait-"
-	cont "ing for the return"
-	cont "of GIOVANNI."
+	text "Opposing TEAM"
+	line "ROCKET's cause is"
+	cont "being the enemy"
+	cont "of liberty."
 
 	para "We'll do whatever"
 	line "it takes."
 	done
 
 GruntM14SeenText:
-	text "You're not going"
-	line "any farther!"
+	text "We're here to free"
+	line "the people!"
 
-	para "I don't show mercy"
-	line "to my enemies, not"
-	cont "even brats!"
+	para "And we abducted"
+	line "the DIRECTOR."
 	done
 
 GruntM14BeatenText:
-	text "Blast it!"
+	text "Wait, I'm"
+	line "confused…"
 	done
 
 GruntM14AfterBattleText:
-	text "I lost…"
-
-	para "Please forgive me,"
-	line "GIOVANNI!"
+	text "Wait, are we"
+	line "capturing people"
+	cont "or freeing them?"
 	done
 
 GruntM15SeenText:
@@ -192,20 +190,14 @@ DirectorAfterText:
 	para "they control the"
 	line "transmitter."
 
-	para "They may even be"
-	line "able to control"
-
-	para "#MON using a"
-	line "special signal!"
-
 	para "You're the only"
 	line "one I can call on."
 
 	para "Please save the"
 	line "RADIO TOWER…"
 
-	para "And all the #-"
-	line "MON nationwide!"
+	para "And all the people"
+	line "nationwide!"
 	done
 
 GoldenrodUndergroundWarehouse_MapEvents:

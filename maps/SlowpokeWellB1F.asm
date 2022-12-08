@@ -254,11 +254,11 @@ GruntM29AfterBattleText:
 	para "Everything we do"
 	line "is for profit."
 
-	para "That's right!"
-	line "We're TEAM ROCKET,"
+	para "Times are rough"
+	line "and TEAM ROCKET"
 
-	para "and we'll do any-"
-	line "thing for money!"
+	para "needs the money"
+	line "for bigger plans!"
 	done
 
 GruntM1SeenText:

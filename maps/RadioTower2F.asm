@@ -18,11 +18,13 @@ RadioTower2F_MapScripts:
 
 	def_callbacks
 
-RadioTower2FUnusedDummyScene: ; unreferenced
-	end
-
 RadioTower2FSuperNerdScript:
+	checkevent EVENT_GOT_CLEAR_BELL
+	iftrue .TeamRocketOpinion
 	jumptextfaceplayer RadioTower2FSuperNerdText
+
+.TeamRocketOpinion
+	jumptextfaceplayer RadioTower2FSuperNerdTROpinionText
 
 RadioTower2FTeacherScript:
 	faceplayer
@@ -349,6 +351,28 @@ RadioTower2FSuperNerdText:
 	cont "where. Tune in!"
 	done
 
+RadioTower2FSuperNerdTROpinionText:
+	text "I think TEAM"
+	line "ROCKET's message"
+	
+	para "doesn't make any"
+	line "sense whatsoever."
+
+	para "You just have to"
+	line "visit GOLDENROD"
+	
+	para "HOSPITAL to see"
+	line "that COVID-19 is"
+	cont "real and kills."
+
+	para "I want to save"
+	line "lives so I respect"
+	
+	para "sanitary measures"
+	line "as well as social"
+	cont "distancing."
+	done
+
 RadioTower2FTeacherText:
 	text "Lullabies on the"
 	line "radio may make"
@@ -389,32 +413,29 @@ RadioTower2FBlackBelt2Text:
 	done
 
 GruntM4SeenText:
-	text "Three years ago,"
-	line "TEAM ROCKET was"
-	cont "forced to disband."
+	text "The vaccine they"
+	line "are working on"
+	
+	para "contains 5G cells"
+	line "in order to take"
 
-	para "But we're making a"
-	line "comeback here!"
+	para "control of our"
+	line "brain."
 	done
 
 GruntM4BeatenText:
-	text "Gwah! Don't get"
-	line "cute!"
+	text "Gah! You destroyed"
+	line "my brain!"
 	done
 
 GruntM4AfterBattleText:
 	text "We won't let you"
-	line "ruin our plans"
-	cont "for our comeback!"
+	line "ruin our plans!"
 	done
 
 GruntM5SeenText:
-	text "We're TEAM ROCKET,"
-	line "the exploiters of"
-	cont "#MON!"
-
-	para "We love being"
-	line "evil! Scared?"
+	text "We won't let the"
+	line "government win!"
 	done
 
 GruntM5BeatenText:
@@ -423,14 +444,16 @@ GruntM5BeatenText:
 	done
 
 GruntM5AfterBattleText:
-	text "We're not always"
-	line "evil. We just do"
-	cont "whatever we like."
+	text "We should all"
+	line "just do whatever"
+	cont "we like."
 	done
 
 GruntM6SeenText:
-	text "Hey, hey! Keep out"
-	line "of our way!"
+	text "Don't give up your"
+	line "freedom because of"
+	cont "a little flu"
+	cont "outbreak!"
 	done
 
 GruntM6BeatenText:
