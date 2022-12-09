@@ -2304,14 +2304,16 @@ UpdateBattleStateAndExperienceAfterEnemyFaint:
 	ld hl, wEnemyDamageTaken
 	ld [hli], a
 	ld [hl], a
+	ld a, [wEnemyTurnsTaken]
+	push af
 	call NewEnemyMonStatus
+	pop af
+	ld [wEnemyTurnsTaken], a
 	call BreakAttraction
 	ld a, [wBattleMode]
 	dec a
-	jr z, .wild2
-	jr .trainer
+	jr nz, .trainer
 
-.wild2
 	call StopDangerSound
 	ld a, $1
 	ld [wBattleLowHealthAlarm], a
