@@ -414,6 +414,18 @@ BattleStartMessage:
 	ret
 
 DeterMineAssaultAndPokerusSeed::
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	jr nz, .normal_area
+
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	jr c, .normal_area
+
+	jp CeruleanCaveInfection
+
+.normal_area
+	
 	ld a, [wBattlePokerusSeed]
 	cp TRUE
 	jr z, .generate_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
@@ -497,6 +509,7 @@ DetermineAssault:
 	cp WILD_BATTLE
 	ret nz ; Assaults only happen in wild battles.
 
+.regularOdds
 	call BattleRandom
 	cp 51
 	ret nc ; ~1/5 odds of getting assaulted.
@@ -506,3 +519,13 @@ DetermineAssault:
 	ld [wAssaultBattle], a
 	ret
 
+CeruleanCaveInfection: 
+	; Covid duration of 14 days (incubation).
+	ld a, POKERUS_SYMPTOMS_START + 1
+
+	; Fixed strain (Mewtwo contaminated all Pokémon).
+	add POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK 
+	ld [wBattlePokerusSeed], a
+
+	; Always aggressive.
+	jr DetermineAssault.forceAssault

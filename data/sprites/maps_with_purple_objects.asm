@@ -10,4 +10,5 @@ ENDM
 	purple_map DANCE_THEATRE
 	purple_map ROUTE_34_ILEX_FOREST_GATE
 	purple_map PLAYERS_HOUSE_2F
+	purple_map CERULEAN_CAVE_B3F
 	db 0 ; end

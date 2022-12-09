@@ -2045,10 +2045,11 @@ MewtwoEvosAttacks:
 	db 33, PSYCH_UP
 	db 44, FUTURE_SIGHT
 	db 55, MIST
-	db 66, PSYCHIC_M
-	db 77, AMNESIA
+	db 66, AMNESIA
+	db 77, PSYCHIC_M
 	db 88, RECOVER
 	db 99, SAFEGUARD
+	db 100, SEISMIC_TOSS
 	db 0 ; no more level-up moves
 
 MewEvosAttacks:

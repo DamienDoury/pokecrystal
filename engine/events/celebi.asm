@@ -312,3 +312,15 @@ CheckCaughtCelebi:
 
 .done
 	ret
+
+CheckCaughtMewtwo:
+	xor a ; FALSE
+	ld [wScriptVar], a
+	
+	ld a, [wBattleResult]
+	bit BATTLERESULT_CAUGHT_MEWTWO, a
+	ret z ; Returns false.
+
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret ; Returns true.

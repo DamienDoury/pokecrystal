@@ -535,7 +535,14 @@ PokeBallEffect:
 	ld hl, wBattleResult
 	set BATTLERESULT_CAUGHT_CELEBI, [hl]
 .not_celebi
+	ld a, [wTempSpecies]
+	cp MEWTWO
+	jr nz, .not_mewtwo
 
+	ld hl, wBattleResult
+	set BATTLERESULT_CAUGHT_MEWTWO, [hl]
+
+.not_mewtwo
 	ld a, [wPartyCount]
 	cp PARTY_LENGTH
 	jp z, .SendToPC

@@ -201,3 +201,4 @@ SpecialsPointers::
 	add_special SilphCo_GetTestSubjectLevel
 	add_special SilphCo_TestSubjectRemovedFromParty
 	add_special SilphCo_PlayerGetsPropertyOfTestSubject
+	add_special CheckCaughtMewtwo

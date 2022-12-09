@@ -35,7 +35,7 @@ KantoGrassWildMons:
 	; morn
 	db 6, ZUBAT
 	db 8, GEODUDE
-	db 8, SANDSHREW
+	db 8, PARAS
 	db 12, PARAS
 	db 10, GEODUDE
 	db 8, CLEFAIRY
@@ -43,7 +43,7 @@ KantoGrassWildMons:
 	; day
 	db 6, ZUBAT
 	db 8, GEODUDE
-	db 8, SANDSHREW
+	db 8, PARAS
 	db 12, PARAS
 	db 10, GEODUDE
 	db 8, CLEFAIRY
@@ -121,7 +121,7 @@ KantoGrassWildMons:
 	db 32, RHYHORN
 	db 33, ONIX
 	db 34, GOLBAT
-	db 35, SANDSLASH
+	db 35, MAGNETON
 	db 35, RHYDON
 	db 35, RHYDON
 	; day
@@ -129,7 +129,7 @@ KantoGrassWildMons:
 	db 32, RHYHORN
 	db 33, ONIX
 	db 34, GOLBAT
-	db 35, SANDSLASH
+	db 35, RHYHORN
 	db 35, RHYDON
 	db 35, RHYDON
 	; nite
@@ -233,17 +233,17 @@ KantoGrassWildMons:
 	db 5, RATTATA
 	db 8, EKANS
 	db 10, RATICATE
+	db 10, EKANS
 	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 10, ARBOK
 	; day
 	db 5, SPEAROW
 	db 5, RATTATA
 	db 8, EKANS
 	db 10, RATICATE
+	db 10, EKANS
 	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 10, ARBOK
 	; nite
 	db 5, RATTATA
 	db 10, RATTATA
@@ -261,17 +261,17 @@ KantoGrassWildMons:
 	db 5, RATTATA
 	db 8, EKANS
 	db 10, RATICATE
+	db 10, EKANS
 	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 10, ARBOK
 	; day
 	db 5, SPEAROW
 	db 5, RATTATA
 	db 8, EKANS
 	db 10, RATICATE
+	db 10, EKANS
 	db 10, ARBOK
-	db 10, SANDSHREW
-	db 10, SANDSHREW
+	db 10, ARBOK
 	; nite
 	db 5, RATTATA
 	db 10, RATTATA
@@ -762,7 +762,7 @@ KantoGrassWildMons:
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 28, DODUO
-	db 28, SANDSLASH
+	db 28, PONYTA
 	db 32, PONYTA
 	db 30, RATICATE
 	db 30, DODUO
@@ -770,7 +770,7 @@ KantoGrassWildMons:
 	db 30, ARBOK
 	; day
 	db 28, DODUO
-	db 28, SANDSLASH
+	db 28, RATICATE
 	db 32, PONYTA
 	db 30, RATICATE
 	db 30, DODUO
@@ -840,6 +840,90 @@ KantoGrassWildMons:
 	db 42, GOLBAT
 	db 42, GOLBAT
 	db 42, GOLBAT
+	end_grass_wildmons
+
+	def_grass_wildmons CERULEAN_CAVE_B1F
+	db 12 percent, 12 percent, 12 percent ; encounter rates: morn/day/nite
+	; morn
+	db 66, MACHOKE
+	db 70, PARASECT
+	db 73, KADABRA
+	db 72, ARBOK
+	db 72, HYPNO
+	db 69, CHANSEY
+	db 71, CHANSEY
+	; day
+	db 68, GRAVELER
+	db 72, PARASECT
+	db 68, KADABRA
+	db 74, GLOOM
+	db 70, SANDSLASH
+	db 71, HYPNO
+	db 70, HYPNO
+	; nite
+	db 71, HAUNTER
+	db 69, PARASECT
+	db 70, ONIX
+	db 72, GOLBAT
+	db 74, SANDSLASH
+	db 70, MAROWAK
+	db 68, MAROWAK
+	end_grass_wildmons
+
+	def_grass_wildmons CERULEAN_CAVE_B2F
+	db 8 percent, 8 percent, 8 percent ; encounter rates: morn/day/nite
+	; morn
+	db 70, SANDSLASH
+	db 72, PARASECT
+	db 75, KADABRA
+	db 74, MAGNETON
+	db 74, SANDSLASH
+	db 24, SANDSHREW
+	db 22, SANDSHREW
+	; day
+	db 70, SANDSLASH
+	db 74, PARASECT
+	db 70, KADABRA
+	db 76, RHYDON
+	db 72, SANDSLASH
+	db 23, SANDSHREW
+	db 20, SANDSHREW
+	; nite
+	db 73, SANDSLASH
+	db 71, PARASECT
+	db 72, KADABRA
+	db 74, GOLBAT
+	db 76, SANDSLASH
+	db 26, SANDSHREW
+	db 18, SANDSHREW
+	end_grass_wildmons
+
+	def_grass_wildmons CERULEAN_CAVE_B3F
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 73, SANDSLASH
+	db 75, PARASECT
+	db 78, ELECTRODE
+	db 77, MAGNETON
+	db 77, LICKITUNG
+	db 77, LICKITUNG
+	db 75, DITTO
+	; day
+	db 73, ELECTRODE
+	db 75, PARASECT
+	db 73, KADABRA
+	db 79, RHYDON
+	db 75, SANDSLASH
+	db 76, SANDSLASH
+	db 73, DITTO
+	; nite
+	db 76, SANDSLASH
+	db 74, PARASECT
+	db 75, KINGLER
+	db 77, RHYDON
+	db 79, VENOMOTH
+	db 79, VENOMOTH
+	db 78, DITTO
 	end_grass_wildmons
 
 	db -1 ; end
