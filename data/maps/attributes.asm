@@ -697,3 +697,7 @@ ENDM
 	map_attributes SilphCoElevator, SILPHCO_ELEVATOR, $00, 0
 	map_attributes SilphCoResearch, SILPHCO_RESEARCH, $00, 0
 	map_attributes EcruteakFaunaHouse, ECRUTEAK_FAUNA_HOUSE, $00, 0
+	map_attributes CeruleanCaveEntrance, CERULEAN_CAVE_ENTRANCE, $09, 0
+	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $09, 0
+	map_attributes CeruleanCaveB2F, CERULEAN_CAVE_B2F, $09, 0
+	map_attributes CeruleanCaveB3F, CERULEAN_CAVE_B3F, $09, 0

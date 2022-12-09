@@ -999,3 +999,15 @@ SilphCoElevator_Blocks:
 
 SilphCoResearch_Blocks:
 	INCBIN "maps/SilphCoResearch.blk"
+
+CeruleanCaveEntrance_Blocks:
+	INCBIN "maps/CeruleanCaveEntrance.blk"
+	
+CeruleanCaveB1F_Blocks:
+	INCBIN "maps/CeruleanCaveB1F.blk"
+
+CeruleanCaveB2F_Blocks:
+	INCBIN "maps/CeruleanCaveB2F.blk"
+
+CeruleanCaveB3F_Blocks:
+	INCBIN "maps/CeruleanCaveB3F.blk"

@@ -17,6 +17,10 @@ INCLUDE "maps/GoldenrodDeptStore6F.asm"
 INCLUDE "maps/GoldenrodDeptStoreElevator.asm"
 INCLUDE "maps/GoldenrodDeptStoreRoof.asm"
 INCLUDE "maps/GoldenrodGameCorner.asm"
+INCLUDE "maps/CeruleanCaveEntrance.asm"
+INCLUDE "maps/CeruleanCaveB1F.asm"
+INCLUDE "maps/CeruleanCaveB2F.asm"
+INCLUDE "maps/CeruleanCaveB3F.asm"
 
 
 SECTION "Map Scripts 2", ROMX
@@ -269,10 +273,8 @@ INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
-INCLUDE "maps/MrAntonsHouse.asm"
 INCLUDE "maps/CeruleanPokecenter1F.asm"
 INCLUDE "maps/Route10Pokecenter1F.asm"
-INCLUDE "maps/EcruteakFaunaHouse.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -326,6 +328,8 @@ INCLUDE "maps/FuchsiaGym.asm"
 
 SECTION "Map Scripts 17", ROMX
 
+INCLUDE "maps/EcruteakFaunaHouse.asm"
+INCLUDE "maps/MrAntonsHouse.asm"
 INCLUDE "maps/MahoganyTown.asm"
 INCLUDE "maps/Route32.asm"
 INCLUDE "maps/VermilionFishingSpeechHouse.asm"

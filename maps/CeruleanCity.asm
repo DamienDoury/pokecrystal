@@ -151,6 +151,46 @@ CeruleanCityYoungsterScript:
 	closetext
 	end
 
+AshPikachuLeadsToCeruleanCave:
+	readvar VAR_FACING
+	ifnotequal DOWN, .quit
+
+	checkevent EVENT_RED_BEATEN ; False after you beat Red.
+	iftrue .quit
+
+	readmem wPlayerState
+	ifnotequal PLAYER_SURF_PIKA, .quit
+
+	showemote EMOTE_SHOCK, PLAYER, 15
+	opentext
+	writetext PikachuRecognizesThisPlace
+	yesorno
+	closetext
+	iftrue .lead
+.quit
+	end
+
+.lead:
+	applymovement PLAYER, WayToCeruleanCaveMovement
+	opentext
+	writetext PikachuDragsYouUnderWater
+	pause 45
+	closetext
+
+	; fade screen
+	;warpsound
+	special FadeOutPalettes
+	pause 15
+
+	; Escape rope setting.
+	loadmem wDigWarpNumber, 7
+	loadmem wDigMapGroup, GROUP_CERULEAN_CITY
+	loadmem wDigMapNumber, MAP_CERULEAN_CITY
+
+	warp CERULEAN_CAVE_ENTRANCE, 15, 15
+	; warp
+	end
+
 CeruleanCityDetectiveScript:
 	jumptextfaceplayer CeruleanCityDetectiveText
 
@@ -187,6 +227,19 @@ CeruleanCityMartSign:
 
 CeruleanCityHiddenBerserkGene:
 	hiddenitem BERSERK_GENE, EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY
+
+WayToCeruleanCaveMovement:
+	step DOWN
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
+	turn_head UP
+	step_end
 
 CeruleanCityCooltrainerMText1:
 	text "KANTO's POWER"
@@ -258,6 +311,21 @@ CeruleanCityYoungsterText1:
 
 	para "horribly powerful"
 	line "#MON in it."
+
+	para "Only LEAGUE CHAMP-"
+	line "IONS and their"
+	cont "#MON were"
+	cont "permitted to"
+	cont "explore it."
+
+	para "It collapsed the"
+	line "day after CINNA-"
+	cont "BAR's volcano"
+	cont "erupted."
+	
+	para "Yet, I've seen a"
+	line "trainer finding"
+	cont "its way in."
 	done
 
 CeruleanCityYoungsterText2:
@@ -336,6 +404,19 @@ CeruleanCitySquirtleText:
 	line "Squirtle!"
 	done
 
+PikachuRecognizesThisPlace:
+	text "PIKACHU recognizes"
+	line "this place."
+
+	para "Let it lead"
+	line "the way?"
+	done
+
+PikachuDragsYouUnderWater:
+	text "PIKACHU drags you"
+	line "under water."
+	done
+
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -346,8 +427,11 @@ CeruleanCity_MapEvents:
 	warp_event 19, 21, CERULEAN_POKECENTER_1F, 1
 	warp_event 30, 23, CERULEAN_GYM, 1
 	warp_event 25, 29, CERULEAN_MART, 2
+	warp_event  0, 14, CERULEAN_CAVE_ENTRANCE, 1
 
 	def_coord_events
+	coord_event  4,  9, SCENE_DEFAULT, AshPikachuLeadsToCeruleanCave
+	coord_event  4,  9, SCENE_FINISHED, AshPikachuLeadsToCeruleanCave
 
 	def_bg_events
 	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign
