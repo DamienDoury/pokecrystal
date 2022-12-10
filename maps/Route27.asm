@@ -42,11 +42,15 @@ FirstStepIntoKantoScene:
 	writetext Route27FisherText
 	promptbutton
 .SkipKantoTalk
+	setevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
+
+	checkevent EVENT_PLAYER_VACCINATED_ONCE
+	iftrue .allowPassage
+
 	writetext Route27BorderClosedText
 	waitbutton
 	closetext
 
-	setevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 
 	checkitem WORK_VISA
@@ -59,6 +63,7 @@ FirstStepIntoKantoScene:
 	writetext Route27BorderLetterText
 	promptbutton
 	writetext Route27EntranceText
+.openBorder
 	waitbutton
 	closetext
 
@@ -90,6 +95,10 @@ FirstStepIntoKantoScene:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 	jumptext Route27BorderArrestText
 
+.allowPassage:
+	writetext Route27_VaccinationPassText
+	sjump .openBorder
+
 Route27StepBackIfNeeded:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	iftrue .dontStepBack
@@ -105,9 +114,13 @@ Route27StepBackIfNeeded:
 
 Route27FisherScript:
 	faceplayer
+	checkevent EVENT_PLAYER_VACCINATED_ONCE
+	iftrue .allowPassage
+
 	checkitem WORK_VISA
 	iffalse .blockPassage
 	
+.allowPassage
 	opentext
 	writetext Route27EntranceText
 	waitbutton
@@ -420,6 +433,17 @@ Route27BorderArrestText:
 	text "Go back were you"
 	line "came from, before"
 	cont "we arrest you."
+	done
+
+Route27_VaccinationPassText:
+	text "Please show your"
+	line "TRAINER CARD."
+
+	para "…"
+	
+	para "I see you're"
+	line "vaccinated, you"
+	cont "can go through."
 	done
 
 CooltrainermBlakeSeenText:
