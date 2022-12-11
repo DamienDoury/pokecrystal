@@ -58,7 +58,7 @@ LockdownFirstDeclaration:
 	musicfadeout MUSIC_AZALEA_TOWN, 4
 	turnobject CHARCOALKILN_YOUNGSTER, LEFT
 	applymovement PLAYER, CharcoalKiln_PlayerToCornerMovement
-	clearevent EVENT_LOCKDOWN_JUST_DECLARED
+	clearevent EVENT_LOCKDOWN_MART_RUSH
 	pause 60
 	opentext
 	writetext CharcoalKiln_YoungsterReactionText
@@ -85,7 +85,7 @@ LockdownFirstDeclaration:
 CharcoalKilnBoss:
 	faceplayer
 	opentext
-	checkevent EVENT_LOCKDOWN_JUST_DECLARED
+	checkevent EVENT_LOCKDOWN_MART_RUSH
 	iffalse .Panic
 	checkevent EVENT_GOT_HM01_CUT
 	iftrue .GotCut

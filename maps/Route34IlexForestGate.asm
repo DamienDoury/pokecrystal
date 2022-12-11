@@ -11,9 +11,9 @@ Route34IlexForestGate_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .IsForestRestless
 
 .IsForestRestless:
-	checkevent EVENT_LOCKDOWN_JUST_DECLARED
+	checkevent EVENT_LOCKDOWN_MART_RUSH
 	iftrue .CelebiEvent
-	setevent EVENT_LOCKDOWN_JUST_DECLARED
+	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
 	setevent EVENT_FIRST_LOCKDOWN_STARTED
 	special ForceLockdown
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
