@@ -129,7 +129,7 @@ TinTower1F_MapScripts:
 	setevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_NOTHING
 	setscene SCENE_FINISHED
-	clearevent EVENT_SET_WHEN_FOUGHT_HO_OH
+	clearevent EVENT_EUSINE_IN_CELADON
 	reloadmapafterbattle
 	pause 20
 	applymovement PLAYER, TinTower1FPlayerStandsBackMovement

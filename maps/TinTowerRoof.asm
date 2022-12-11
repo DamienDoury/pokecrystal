@@ -35,7 +35,10 @@ TinTowerHoOh:
 	startbattle
 	disappear TINTOWERROOF_HO_OH
 	reloadmapafterbattle
-	setevent EVENT_SET_WHEN_FOUGHT_HO_OH
+	checkevent EVENT_GOT_MASTERBALL
+	iffalse .end
+	setevent EVENT_EUSINE_IN_CELADON
+.end
 	end
 
 HoOhText:
