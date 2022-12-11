@@ -25,34 +25,7 @@ GoldenrodDeptStore5F_MapScripts:
 GoldenrodDeptStore5FClerkScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM02_HEADBUTT
-	iftrue .headbutt
-	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue .onlyrocksmash
-	sjump .neither
-
-.headbutt
-	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue .both
-	sjump .onlyheadbutt
-
-.neither
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_1
-	closetext
-	end
-
-.onlyheadbutt
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_2
-	closetext
-	end
-
-.onlyrocksmash
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_3
-	closetext
-	end
-
-.both
-	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F_4
+	pokemart MARTTYPE_STANDARD, MART_GOLDENROD_5F
 	closetext
 	end
 
@@ -72,24 +45,31 @@ GoldenrodDeptStore5FReceptionistScript:
 
 .VeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText
+	checkitem TM_RETURN
+	iftrue .EndText
+	promptbutton
+	writetext GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel
 	promptbutton
 	verbosegiveitem TM_RETURN
-	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
 	end
 
 .SomewhatHappy:
 	writetext GoldenrodDeptStore5FReceptionistItsAdorableText
+.EndText
 	waitbutton
 	closetext
 	end
 
 .NotVeryHappy:
 	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText
+	checkitem TM_FRUSTRATION
+	iftrue .EndText
+	promptbutton
+	writetext GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel
 	promptbutton
 	verbosegiveitem TM_FRUSTRATION
-	iffalse .Done
 	setflag ENGINE_GOLDENROD_DEPT_STORE_TM27_RETURN
 	closetext
 	end
@@ -146,8 +126,10 @@ GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText:
 GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
 	text "It's very attached"
 	line "to you."
+	done
 
-	para "This move should"
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel:
+	text "This move should"
 	line "be perfect for a"
 	cont "pair like you."
 	done
@@ -160,9 +142,12 @@ GoldenrodDeptStore5FReceptionistItsAdorableText:
 	done
 
 GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
-	text "It looks evil. How"
-	line "about this TM for"
-	cont "it?"
+	text "It looks evil."
+	done
+	
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel:
+	text "How about this"
+	cont "TM for it?"
 	done
 
 GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:

@@ -48,11 +48,15 @@ CeladonDeptStore3FDirectory:
 	jumptext CeladonDeptStore3FDirectoryText
 
 CeladonDeptStore3FYoungsterText:
-	text "I can't decide"
-	line "which #MON I"
+	text "It feels great"
+	line "to be vaccinated"
 
-	para "should use this TM"
-	line "on…"
+	para "and be allowed to"
+	line "do shopping!"
+
+	para "I wish my girl-"
+	line "friend would get"
+	cont "vaccinated too…"
 	done
 
 CeladonDeptStore3FGameboyKid1Text:
