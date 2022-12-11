@@ -339,7 +339,6 @@ DoPlayerMovement::
 	ret
 
 .ExitWater:
-	call ResetPlayerPalette
 	call .GetOutOfWater
 	call PlayMapMusic
 	ld a, STEP_WALK
@@ -811,17 +810,4 @@ StopPlayerForEvent::
 	ld [hl], a
 	ld a, 0
 	ld [wPlayerTurningDirection], a
-	ret
-
-; Resets the regular palette of the player (red or blue).
-; Call this function when the player ends surfing (by reaching ground, using escape rope, flying, black-out, etc.).
-; Destroys a and d.
-ResetPlayerPalette::
-	ld a, [wPlayerGender]
-	ld d, (PAL_NPC_RED << 4)
-	bit 0, a
-	jr z, .is_male 
-	ld d, (PAL_NPC_BLUE << 4)
-.is_male
-	farcall _SetPlayerPalette ; Damien. Reset player sprite palette here.
 	ret

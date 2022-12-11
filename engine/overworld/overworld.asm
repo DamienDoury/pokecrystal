@@ -13,6 +13,27 @@ _UpdatePlayerSprite::
 	ld a, [wUsedSprites + 1]
 	ldh [hUsedSpriteTile], a
 	call GetUsedSprite
+
+	; Setting the right color. Must be called after GetPlayerSprite, because it can change wPlayerState.
+	ld a, [wPlayerState]
+	cp PLAYER_SURF_PIKA
+	jr z, .red
+
+	cp PLAYER_SURF
+	jr z, .blue
+
+	ld a, [wPlayerGender]
+	bit PLAYERGENDER_FEMALE_F, a
+	jr z, .red
+
+.blue
+	ld d, (PAL_NPC_BLUE << 4) ; Damien.
+	jr .apply_palette
+
+.red
+	ld d, (PAL_NPC_RED << 4) ; Damien.
+.apply_palette
+	farcall _SetPlayerPalette
 	ret
 
 _RefreshSprites: ; mobile

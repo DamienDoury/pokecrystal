@@ -408,15 +408,6 @@ UsedSurfScript:
 	callasm .stubbed_fn
 
 	readmem wSurfingPlayerState
-	ifequal PLAYER_SURF_PIKA, .pika_surf
-	setval (PAL_NPC_BLUE << 4) ; Damien.
-	jump .apply_palette
-.pika_surf
-	setval (PAL_NPC_RED << 4) ; Damien.
-.apply_palette
-	special SetPlayerPalette ; The surfing Pikachu will be blue also, it doesn't matter much.
-
-	readmem wSurfingPlayerState
 	writevar VAR_MOVEMENT
 
 	special UpdatePlayerSprite
@@ -453,8 +444,10 @@ GetSurfType:
 	ld a, [hl]
 	cp PIKACHU
 	ld a, PLAYER_SURF_PIKA
+	ld d, a ; Also stores the result in D for farcall compatibility.
 	ret z
 	ld a, PLAYER_SURF
+	ld d, a ; Also stores the result in D for farcall compatibility.
 	ret
 
 CheckDirection:
@@ -865,7 +858,6 @@ EscapeRopeOrDig:
 	applymovement PLAYER, .DigOut
 	farscall Script_AbortBugContest
 	special WarpToSpawnPoint
-	callasm ResetPlayerPalette ; Damien.
 	loadvar VAR_MOVEMENT, PLAYER_NORMAL
 	newloadmap MAPSETUP_DOOR
 	playsound SFX_WARP_FROM
