@@ -373,8 +373,10 @@ FlyFunction_GetMonIcon:
 	call GetIcon_a
 
 	; Editing the OBJ 0 palette so that the flying Pokémon has the right colors.
+	ld a, [wTempIconSpecies]
+	ld [wCurPartySpecies], a ; We must do this, because the day care overrides this value. wCurPartySpecies is needed by GetMenuMonIconPalette.
 	ld a, MON_DVS
-	call GetPartyParamLocation ; HL now points to the params of the curPartyMon, which is needed by GetMenuMonIconPalette.
+	call GetPartyParamLocation ; HL now points to the params of the wCurPartyMon, which is needed by GetMenuMonIconPalette.
 	call GetMenuMonIconPalette ; Returns in A the index of PartyMenuOBPals to use.
 	add a
 	add a
