@@ -317,7 +317,10 @@
 	const EVENT_EXEGGCUTE_POKEBALL_IN_SILPHCO
 	const EVENT_SILPHCO_SCIENTIST_MET
 	const EVENT_CAUGHT_MEWTWO
-; Unused: next 301 events
+	const EVENT_CAUGHT_RAIKOU
+	const EVENT_CAUGHT_ENTEI
+	const EVENT_CAUGHT_SUICUNE
+; Unused: next 298 events
 
 	const_next 600
 ; Kurt Apricorn events

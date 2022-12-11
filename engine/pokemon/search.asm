@@ -3,22 +3,20 @@ BeastsCheck:
 ; They must exist in either party, PC or daycare and have the player's OT and ID.
 ; Return the result in wScriptVar.
 
-	ld a, RAIKOU
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
+	ld b, CHECK_FLAG
+	ld de, EVENT_CAUGHT_RAIKOU
+	call EventFlagAction
+	jr z, .notexist
 
-	ld a, ENTEI
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
+	ld de, EVENT_CAUGHT_ENTEI
+	call EventFlagAction
+	jr z, .notexist
 
-	ld a, SUICUNE
-	ld [wScriptVar], a
-	call CheckOwnMonAnywhere
-	jr nc, .notexist
+	ld de, EVENT_CAUGHT_SUICUNE
+	call EventFlagAction
+	jr z, .notexist
 
-	; they exist
+	; Player caught all beasts.
 	ld a, 1
 	ld [wScriptVar], a
 	ret

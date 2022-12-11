@@ -72,6 +72,7 @@ ExitBattle:
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
+	call CheckCaughtBeast
 	xor a
 	ld [wAssaultBattle], a
 	ld [wBattlePokerusSeed], a
@@ -529,3 +530,34 @@ CeruleanCaveInfection:
 
 	; Always aggressive.
 	jr DetermineAssault.forceAssault
+
+CheckCaughtBeast:
+	ld a, [wEnemyMonSpecies]
+	cp RAIKOU
+	jr z, .check
+	cp ENTEI
+	jr z, .check
+	cp SUICUNE
+	jr z, .check
+	ret
+
+.check
+	ld [wScriptVar], a
+	farcall CheckOwnMonAnywhere
+	push af
+	xor a
+	ld [wScriptVar], a
+	pop af
+	ret nc
+
+	ld a, [wEnemyMonSpecies]
+	sub RAIKOU
+	add LOW(EVENT_CAUGHT_RAIKOU)
+	ld e, a
+	ld a, 0
+	adc HIGH(EVENT_CAUGHT_RAIKOU)
+	ld d, a
+
+	ld b, SET_FLAG
+	call EventFlagAction
+	ret
