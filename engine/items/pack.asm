@@ -1619,6 +1619,9 @@ DrawPocketName:
 	dec d
 	jr nz, .loop
 
+	farcall RefreshPackTabsColors
+	farcall ApplyAttrmap
+
 	; Draw the box.
 	ld a, [wCurPocket]
 	; * 15

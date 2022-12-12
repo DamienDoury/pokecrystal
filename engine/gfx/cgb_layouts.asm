@@ -330,28 +330,6 @@ _CGB_BillsPC:
 	ldh [hCGBPalUpdate], a
 	ret
 
-_CGB_Unknown: ; unreferenced
-	ld hl, BillsPCOrangePalette
-	call LoadHLPaletteIntoDE
-	jr .GotPalette
-
-.GetMonPalette: ; unreferenced
-	ld bc, wTempMonDVs
-	call GetPlayerOrMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-.GotPalette:
-	call WipeAttrmap
-	hlcoord 1, 1, wAttrmap
-	lb bc, 7, 7
-	ld a, $1
-	call FillBoxCGB
-	call InitPartyMenuOBPals
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
-	ret
-
 BillsPCOrangePalette:
 INCLUDE "gfx/pc/orange.pal"
 
@@ -892,14 +870,9 @@ _CGB_PackPals:
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 	call WipeAttrmap
-	hlcoord 0, 0, wAttrmap
-	lb bc, 1, 10
-	ld a, $1
-	call FillBoxCGB
-	hlcoord 10, 0, wAttrmap
-	lb bc, 1, 10
-	ld a, $2
-	call FillBoxCGB
+
+	call RefreshPackTabsColors
+
 	hlcoord 7, 2, wAttrmap
 	lb bc, 9, 1
 	ld a, $3
@@ -923,6 +896,109 @@ INCLUDE "gfx/pack/pack.pal"
 
 .KrisPackPals:
 INCLUDE "gfx/pack/pack_f.pal"
+
+RefreshPackTabsColors::
+	ld a, [wCurPocket]
+	ld e, a
+	ld d, 0
+	ld hl, .menu_id
+	add hl, de
+	ld d, [hl] ; D stores the ID of the menu.
+	ld e, 0
+
+
+	hlcoord 3, 0, wAttrmap
+	hlcoord 0, 0, wAttrmap
+
+	ld a, e
+	cp d
+	call z, .displayArrow
+
+	; Items tab.
+	lb bc, 1, 3
+	ld a, $1
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; Meds tab.
+	lb bc, 1, 3
+	ld a, $1
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; Balls tab.
+	lb bc, 1, 3
+	ld a, $1
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; TM/HM tab.
+	lb bc, 1, 4
+	ld a, $2
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; Berries tab.
+	lb bc, 1, 4
+	ld a, $2
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; Key tab.
+	lb bc, 1, 2
+	ld a, $2
+	call FillBoxCGB
+
+	; Text at the bottom.
+	hlcoord 0, 12, wAttrmap
+	ld bc, $78
+	ld a, $0
+	call ByteFill
+	ret
+
+.displayArrow
+	; Arrow.
+	lb bc, 1, 1
+	ld a, $4
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	inc hl
+	ret
+
+.incHL
+	ld b, 0
+	add hl, bc
+
+	inc e
+	ld a, e
+	cp d
+	call z, .displayArrow
+	ret
+
+.menu_id:
+	db 0 ; ITEM_POCKET     ; 0
+	db 2 ; BALL_POCKET     ; 1
+	db 5 ; KEY_ITEM_POCKET ; 2
+	db 3 ; TM_HM_POCKET    ; 3
+	db 1 ; MED_POCKET      ; 4
+	db 4 ; BERRIES_POCKET  ; 5
 
 _CGB_Pokepic:
 	call _CGB_MapPals
