@@ -722,10 +722,12 @@ BattlePack:
 	dw .KeyItemsPocketMenu ;  6
 	dw .InitTMHMPocket     ;  7
 	dw .TMHMPocketMenu     ;  8
-	dw .MedPocketMenu	   ;  9
-	dw .BerryPocketMenu	   ; 10
-	dw Pack_QuitNoScript   ; 11
-	dw Pack_QuitRunScript  ; 12
+	dw .InitMedPocket  	   ;  9
+	dw .MedPocketMenu	   ; 10
+	dw .InitBerryPocket	   ; 11
+	dw .BerryPocketMenu	   ; 12
+	dw Pack_QuitNoScript   ; 13
+	dw Pack_QuitRunScript  ; 14
 
 .InitGFX:
 	xor a
@@ -836,7 +838,7 @@ BattlePack:
 	ld [wBallsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
-	ld b, PACKSTATE_INITBALLSPOCKET ; left
+	ld b, PACKSTATE_INITMEDPOCKET ; left
 	ld c, PACKSTATE_INITTMHMPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
@@ -1762,7 +1764,7 @@ PC_Mart_MedPocketMenuHeader:
 	db STATICMENU_ENABLE_SELECT | STATICMENU_ENABLE_LEFT_RIGHT | STATICMENU_ENABLE_START | STATICMENU_WRAP ; flags
 	db 5, 8 ; rows, columns
 	db SCROLLINGMENU_ITEMS_QUANTITY ; item format
-	dbw 0, wNumBerries
+	dbw 0, wNumMeds
 	dba PlaceMenuItemName
 	dba PlaceMenuItemQuantity
 	dba UpdateItemDescription
