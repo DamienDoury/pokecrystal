@@ -15,8 +15,8 @@
 ; wMomSavingMoney
 	const ENGINE_MOM_SAVING_MONEY
 	const ENGINE_MOM_ACTIVE
-; wUnusedTwoDayTimerOn
-	const ENGINE_UNUSED_TWO_DAY_TIMER_ON
+; used to be wUnusedTwoDayTimerOn
+	const_skip
 ; wStatusFlags
 	const ENGINE_POKEDEX
 	const ENGINE_UNOWN_DEX

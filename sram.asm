@@ -95,7 +95,7 @@ sBackupCurMapData::  ds wCurMapDataEnd - wCurMapData
 sBackupPokemonData:: ds wPokemonDataEnd - wPokemonData
 sBackupGameDataEnd::
 
-;	ds $18a
+;	ds $185
 
 sBackupChecksum:: dw
 
@@ -124,7 +124,7 @@ sCurMapData::  ds wCurMapDataEnd - wCurMapData
 sPokemonData:: ds wPokemonDataEnd - wPokemonData
 sGameDataEnd::
 
-;	ds $18a
+;	ds $185
 
 sChecksum:: dw
 

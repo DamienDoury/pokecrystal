@@ -7,7 +7,6 @@ ResetMapBufferEventFlags::
 ResetBikeFlags::
 	xor a
 	ld hl, wBikeFlags
-	ld [hli], a
 	ld [hl], a
 	ret
 

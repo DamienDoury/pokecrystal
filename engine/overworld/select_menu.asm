@@ -32,6 +32,8 @@ CheckRegisteredItem:
 	dw .CheckBall
 	dw .CheckKeyItem
 	dw .CheckTMHM
+	dw .CheckMed
+	dw .CheckBerry
 
 .CheckItem:
 	ld hl, wNumItems
@@ -60,6 +62,7 @@ CheckRegisteredItem:
 
 .CheckBall:
 	ld hl, wNumBalls
+.StandardCheck:
 	call .CheckRegisteredNo
 	jr nc, .NoRegisteredItem
 	inc hl
@@ -73,6 +76,14 @@ CheckRegisteredItem:
 
 .CheckTMHM:
 	jr .NoRegisteredItem
+
+.CheckMed:
+	ld hl, wNumMeds
+	jr .StandardCheck
+
+.CheckBerry:
+	ld hl, wNumBerries
+	jr .StandardCheck
 
 .NoRegisteredItem:
 	xor a

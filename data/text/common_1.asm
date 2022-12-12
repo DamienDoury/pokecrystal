@@ -523,8 +523,6 @@ _OPT_OakText1::
 	text_ram wMonOrItemNameBuffer
 	text_end
 
-	text_end ; unreferenced
-
 _OPT_OakText2::
 	text_start
 	line "may be seen around"

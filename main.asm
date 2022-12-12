@@ -56,7 +56,6 @@ INCLUDE "engine/items/tmhm2.asm"
 INCLUDE "engine/menus/naming_screen.asm"
 INCLUDE "engine/events/misc_scripts.asm"
 INCLUDE "engine/events/heal_machine_anim.asm"
-INCLUDE "engine/events/whiteout.asm"
 INCLUDE "engine/events/forced_movement.asm"
 INCLUDE "engine/events/itemfinder.asm"
 INCLUDE "engine/menus/start_menu.asm"
@@ -70,9 +69,6 @@ INCLUDE "engine/events/std_collision.asm"
 INCLUDE "engine/events/bug_contest/judging.asm"
 INCLUDE "engine/events/pokerus/apply_pokerus_tick.asm"
 INCLUDE "engine/events/bug_contest/contest_2.asm"
-INCLUDE "engine/pokemon/correct_party_errors.asm"
-INCLUDE "engine/math/get_square_root.asm"
-INCLUDE "engine/events/reds_pikachu.asm"
 
 
 SECTION "bank5", ROMX
@@ -93,6 +89,9 @@ INCLUDE "engine/events/print_unown.asm"
 INCLUDE "engine/events/print_photo.asm"
 INCLUDE "engine/pokemon/breeding.asm"
 INCLUDE "engine/pokemon/hospital.asm"
+INCLUDE "engine/events/reds_pikachu.asm"
+INCLUDE "engine/events/whiteout.asm"
+INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "Roofs", ROMX

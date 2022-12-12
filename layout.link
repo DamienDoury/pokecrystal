@@ -354,7 +354,7 @@ SRAM $00
 	org $b300
 	"Backup Save"
 SRAM $01
-	"Save" ; 3270 + 394 = 3664 bytes.
+	"Save" ; 3413 + 389 = 3664 bytes.
 	"SRAM Bank 0" ; 137 bytes.
 	"Party Mail" ; 564 bytes.
 	"Mailbox" ; 942 bytes.

@@ -1962,8 +1962,6 @@ Script_checkcellnum:
 Script_specialphonecall:
 	call GetScriptByte
 	ld [wSpecialPhoneCallID], a
-	call GetScriptByte
-	ld [wSpecialPhoneCallID + 1], a
 	ret
 
 Script_checkphonecall:

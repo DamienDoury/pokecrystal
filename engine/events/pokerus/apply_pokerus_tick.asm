@@ -150,8 +150,6 @@ DecreaseHospitalMonsDuration:
 
 	ld a, SPECIALCALL_RECOVER_HOSPITAL
 	ld [wSpecialPhoneCallID], a
-	xor a
-	ld [wSpecialPhoneCallID + 1], a
 
 .phone_call_managed
 	ld a, [hl]

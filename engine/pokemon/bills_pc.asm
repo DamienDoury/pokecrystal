@@ -1925,8 +1925,6 @@ DepositPokemonSilent::
 	; Phone call when hospital box is full.
 	ld a, SPECIALCALL_RELEASE_HOSPITAL
 	ld [wSpecialPhoneCallID], a
-	xor a
-	ld [wSpecialPhoneCallID + 1], a
 	ret
 
 TryWithdrawPokemon:

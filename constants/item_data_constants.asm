@@ -17,6 +17,8 @@ ITEMATTR_STRUCT_LENGTH EQU _RS
 	const KEY_ITEM ; 2
 	const BALL     ; 3
 	const TM_HM    ; 4
+	const MED      ; 5
+	const BERRIES  ; 6
 NUM_ITEM_TYPES EQU const_value - 1
 
 ; item menu types
@@ -43,11 +45,15 @@ CANT_TOSS   EQU 1 << CANT_TOSS_F
 	const BALL_POCKET     ; 1
 	const KEY_ITEM_POCKET ; 2
 	const TM_HM_POCKET    ; 3
+	const MED_POCKET      ; 4
+	const BERRIES_POCKET  ; 5
 NUM_POCKETS EQU const_value
 
-MAX_ITEMS     EQU 20
+MAX_ITEMS     EQU 25
 MAX_BALLS     EQU 12
 MAX_KEY_ITEMS EQU 25
+MAX_MEDS      EQU 20
+MAX_BERRIES   EQU 18
 MAX_PC_ITEMS  EQU 50
 
 MAX_ITEM_STACK EQU 99

@@ -1303,8 +1303,6 @@ DoBikeStep::
 	; Queue the call.
 	ld a, SPECIALCALL_BIKESHOP
 	ld [wSpecialPhoneCallID], a
-	xor a
-	ld [wSpecialPhoneCallID + 1], a
 	ld hl, wStatusFlags2
 	res STATUSFLAGS2_BIKE_SHOP_CALL_F, [hl]
 

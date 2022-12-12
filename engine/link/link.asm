@@ -274,11 +274,6 @@ Gen2ToGen2LinkComms:
 	ld bc, wOTPartyDataEnd - wOTPartyMons
 	call CopyBytes
 
-	ld a, LOW(wOTPartyMonOTs)
-	ld [wUnusedNamesPointer], a
-	ld a, HIGH(wOTPartyMonOTs)
-	ld [wUnusedNamesPointer + 1], a
-
 	ld de, MUSIC_NONE
 	call PlayMusic
 	ldh a, [hSerialConnectionStatus]

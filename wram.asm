@@ -552,9 +552,12 @@ wCurEnemyMoveNum:: db
 wEnemyHPAtTimeOfPlayerSwitch:: dw
 wPayDayMoney:: ds 3
 
-wSafariMonAngerCount:: db ; unreferenced
-wSafariMonEating:: db
 	ds 1
+
+wSafariMonEating:: db
+
+	ds 1
+	
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db
 
@@ -1733,9 +1736,7 @@ UNION
 wBufferMonNickname:: ds MON_NAME_LENGTH
 wBufferMonOT:: ds NAME_LENGTH
 wBufferMon:: party_struct wBufferMon
-	ds 8
-wMonOrItemNameBuffer:: ds NAME_LENGTH
-	ds NAME_LENGTH
+wMonOrItemNameBuffer:: ds ITEM_NAME_LENGTH + 1
 
 NEXTU
 ; poke seer
@@ -1813,8 +1814,6 @@ NEXTU
 ; movement buffer data
 wMovementBufferCount:: db
 wMovementBufferObject:: db
-wUnusedMovementBufferBank:: db
-wUnusedMovementBufferPointer:: dw
 wMovementBuffer:: ds 55
 
 NEXTU
@@ -2074,7 +2073,7 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-	ds 23
+	ds 7
 ENDU
 
 wTMHMMoveNameBackup:: ds MOVE_NAME_LENGTH
@@ -2087,8 +2086,6 @@ wStringBuffer5:: ds STRING_BUFFER_LENGTH
 
 wBattleMenuCursorPosition:: db
 
-	ds 1
-
 wCurBattleMon:: db
 wCurMoveNum:: db
 
@@ -2100,13 +2097,16 @@ wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
 wBallsPocketCursor::    db
 wTMHMPocketCursor::     db
+wMedPocketCursor::     	db
+wBerryPocketCursor::    db
 
 wPCItemsScrollPosition::        db
-	ds 1
 wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
 wTMHMPocketScrollPosition::     db
+wMedPocketScrollPosition::     	db
+wBerryPocketScrollPosition::  	db
 
 wSwitchMon::
 wSwitchItem::
@@ -2148,12 +2148,12 @@ wUsingItemWithSelect:: db
 UNION
 ; mart data
 wCurMartCount:: db
-wCurMartItems:: ds 15
+wCurMartItems:: ds 12 ; ds 15
 
 NEXTU
 ; elevator data
 wCurElevatorCount:: db
-wCurElevatorFloors:: ds 15
+wCurElevatorFloors:: ds 12 ; ds 15
 
 NEXTU
 ; mailbox data
@@ -2164,7 +2164,6 @@ wMailboxItems:: ds MAILBOX_CAPACITY
 ENDU
 
 wListPointer:: dw
-wUnusedNamesPointer:: dw
 
 wItemAttributesPointer:: dw
 
@@ -2215,14 +2214,10 @@ wCurPartyLevel:: db
 
 wScrollingMenuListSize:: db
 
-	ds 1
-
 ; used when following a map warp
 wNextWarp:: db
 wNextMapGroup:: db
 wNextMapNumber:: db
-
-ds 3
 
 wPlayerBGMapOffsetX:: db ; used in FollowNotExact; unit is pixels
 wPlayerBGMapOffsetY:: db ; used in FollowNotExact; unit is pixels
@@ -2282,7 +2277,7 @@ wTilesetBlocksAddress:: dw
 wTilesetCollisionBank:: db
 wTilesetCollisionAddress:: dw
 wTilesetAnim:: dw ; bank 3f
-	ds 2 ; unused
+	ds 2 ; used as a filler, so wTileset uses TILESET_LENGTH bytes.
 wTilesetPalettes:: dw ; bank 3f
 wTilesetEnd::
 	assert wTilesetEnd - wTileset == TILESET_LENGTH
@@ -2530,8 +2525,6 @@ wCurBaseDataEnd::
 
 wCurDamage:: dw
 
-	ds 2
-
 wMornEncounterRate::  db
 wDayEncounterRate::   db
 wNiteEncounterRate::  db
@@ -2566,21 +2559,19 @@ wMonTriedToEvolve:: db
 
 wTimeOfDay:: db
 
-	ds 1
-
 
 SECTION "Enemy Party", WRAMX
 
-UNION
+UNION ; 8 bytes.
 wPokedexShowPointerAddr:: dw
 wPokedexShowPointerBank:: db
 	ds 3
 wd271:: dw ; mobile
 
-NEXTU
-wUnusedEggHatchFlag:: db
+NEXTU ; 1 byte.
+	ds 1
 
-NEXTU
+NEXTU ; 28 bytes.
 ; enemy party
 wOTPartyData::
 wOTPlayerName:: ds NAME_LENGTH
@@ -2588,8 +2579,6 @@ wOTPlayerID:: dw
 
 wAllBattleParticipantsAfterVirusSpread_ListLength:: db
 wAllBattleParticipantsAfterVirusSpread_ChronologicalList:: ds 6 ; This could be shortened to 3 bytes, but using 6 is easier, and the space would be wasted otherwise.
-
-	ds 1
 
 wOTPartyCount::   db
 wOTPartySpecies:: ds PARTY_LENGTH
@@ -2634,14 +2623,14 @@ NEXTU
 wDudeNumItems:: db
 wDudeItems:: ds 2 * 4 + 1
 
+wDudeNumMeds::
+wDudeNumBerries::
 wDudeNumKeyItems:: db
 wDudeKeyItems:: ds 18 + 1
 
 wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
 ENDU
-
-	ds 4
 
 wd430:: ; mobile
 wBattleAction:: db
@@ -2653,7 +2642,7 @@ wMapEventStatus:: db
 wScriptFlags::
 ; bit 3: priority jump
 	db
-	ds 1
+
 wScriptFlags2::
 ; bit 0: count steps
 ; bit 1: coord events
@@ -2669,7 +2658,6 @@ wScriptPos:: dw
 
 wScriptStackSize:: db
 wScriptStack:: ds 3 * 5
-	ds 1
 wScriptDelay:: db
 
 wPriorityScriptBank::
@@ -2678,14 +2666,11 @@ wScriptTextBank::
 wPriorityScriptAddr::
 wScriptTextAddr::
 	dw
-	ds 1
 wWildEncounterCooldown:: db
 
 wXYComparePointer:: dw
-	ds 4
 
 wBattleScriptFlags:: db
-	ds 1
 wPlayerSpriteSetupFlags::
 ; bit 7: if set, cancel wPlayerAction
 ; bit 6: RefreshMapSprites doesn't reload player sprite
@@ -2698,22 +2683,14 @@ wMapReentryScriptQueueFlag:: db
 wMapReentryScriptBank:: db
 wMapReentryScriptAddress:: dw
 
-	ds 4
-
 wTimeCyclesSinceLastCall:: db
 wReceiveCallDelay_MinsRemaining:: db
 wReceiveCallDelay_StartTime:: ds 3
 
-	ds 3
-
 wBugContestMinsRemaining:: db
 wBugContestSecsRemaining:: db
 
-	ds 2
-
 wMapStatusEnd::
-
-	ds 2
 
 wCrystalData::
 wPlayerGender::
@@ -2731,6 +2708,12 @@ wCrystalDataEnd::
 
 wd479:: ds 2
 
+
+
+;####################################################################################################################################################################
+;####################################################################################################################################################################
+;####################################################################################################################################################################
+;####################################################################################################################################################################
 wGameData::
 wPlayerData::
 wPlayerID:: dw
@@ -2751,8 +2734,6 @@ wStartMinute:: db
 wStartSecond:: db
 
 wRTC:: ds 4
-
-	ds 4
 
 wDST::
 ; bit 7: dst
@@ -2793,8 +2774,6 @@ wObject12Struct:: object_struct wObject12
 	assert_table_length NUM_OBJECT_STRUCTS
 
 wCmdQueue:: ds CMDQUEUE_CAPACITY * CMDQUEUE_ENTRY_SIZE
-
-	ds 6
 
 wMapObjects::
 	table_width MAPOBJECT_LENGTH, wMapObjects
@@ -2903,6 +2882,12 @@ wKeyItems:: ds MAX_KEY_ITEMS + 1
 wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 
+wNumMeds:: db
+wMeds:: ds MAX_MEDS * 2 + 1
+
+wNumBerries:: db
+wBerries:: ds MAX_BERRIES * 2 + 1
+
 wNumPCItems:: db
 wPCItems:: ds MAX_PC_ITEMS * 2 + 1
 
@@ -2915,16 +2900,13 @@ wPokegearFlags::
 	db
 wRadioTuningKnob:: db
 wLastDexMode:: db
-	ds 1
 wWhichRegisteredItem:: db
 wRegisteredItem:: db
 
 wPlayerState:: db
 
 wHallOfFameCount:: db
-	ds 1
 wTradeFlags:: flag_array NUM_NPC_TRADES
-	ds 1
 wMooMooBerries:: db
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
@@ -3025,8 +3007,6 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 1
-
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
 wEventFlags:: flag_array NUM_EVENTS
@@ -3040,14 +3020,11 @@ wCelebiEvent::
 ; bit 2: forest is restless
 	db
 
-	ds 1
-
 wBikeFlags::
 ; bit 0: using strength
 ; bit 1: always on bike
 ; bit 2: downhill
 	db
-	ds 1 ; cleared along with wBikeFlags by ResetBikeFlags
 
 wCurMapSceneScriptPointer:: dw
 
@@ -3064,8 +3041,6 @@ wCurMapSceneScriptCount:: db
 wCurMapSceneScriptsPointer:: dw
 wCurMapCallbackCount:: db
 wCurMapCallbacksPointer:: dw
-
-	ds 2
 
 ; Sprite id of each decoration
 wDecoBed::           db
@@ -3087,7 +3062,7 @@ wDailyFlags1:: db
 wDailyFlags2:: db
 wDailyFlags3:: db
 wSwarmFlags:: db
-	ds 1
+	ds 1 ; Daily flag. It gets erased.
 wTimerEventStartDay:: db
 
 wPrevWarp:: db ; Moved here by Damien, so it can be saved.
@@ -3100,14 +3075,8 @@ wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.
-	ds 1
 wSpecialPhoneCallID:: db
-	ds 3 ; First byte used by wSpecialPhoneCallID
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
-wUnusedTwoDayTimerOn:: db
-wUnusedTwoDayTimer:: db
-wUnusedTwoDayTimerStartDate:: db
-	ds 4
 wMobileOrCable_LastSelection:: db
 wdc41:: ds 1
 wdc42:: ds 8
@@ -3123,21 +3092,15 @@ wPlayerMonSelection:: ds 3
 wdc5f:: db
 wdc60:: db
 
-	ds 1
-
 wStepCount:: db
 wPoisonStepCount:: db
-	ds 2
 wHappinessStepCount:: db
-	ds 1
 
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
-
-	ds 1
 
 wLuckyNumberShowFlag:: db
 wRepelType:: db
@@ -3162,8 +3125,6 @@ wDigMapNumber::  db
 wBackupWarpNumber:: db
 wBackupMapGroup::   db
 wBackupMapNumber::  db
-
-;	ds 3
 
 wLastSpawnMapGroup:: db
 wLastSpawnMapNumber:: db
@@ -3284,6 +3245,10 @@ wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
 wPokemonDataEnd::
 wGameDataEnd::
+;####################################################################################################################################################################
+;####################################################################################################################################################################
+;####################################################################################################################################################################
+;####################################################################################################################################################################
 
 
 SECTION "Pic Animations", WRAMX
