@@ -120,10 +120,12 @@ CianwoodCityPokefanM:
 	jumptextfaceplayer CianwoodCityPokefanMText
 
 CianwoodCityLass:
+	checkevent EVENT_JASMINE_RETURNED_TO_GYM
+	iftrue .PharmacistRanAway
 	jumptextfaceplayer CianwoodCityLassText
 
-CianwoodCityUnusedScript: ; unreferenced
-	jumptextfaceplayer CianwoodCityUnusedText
+.PharmacistRanAway
+	jumptextfaceplayer PharmacistRanAwayText
 
 CianwoodCitySign:
 	jumptext CianwoodCitySignText
@@ -239,14 +241,6 @@ ChucksWifeChubbyText:
 	cont "little chubby."
 	done
 
-CianwoodCityYoungsterText:
-	text "If you use FLY,"
-	line "you can get back"
-
-	para "to OLIVINE in-"
-	line "stantly."
-	done
-
 CianwoodCityPokefanMText:
 	text "Boulders to the"
 	line "north of town can"
@@ -268,7 +262,16 @@ CianwoodCityLassText:
 	line "MON."
 	done
 
-CianwoodCityUnusedText:
+PharmacistRanAwayText:
+	text "We used to have"
+	line "a pharmacist."
+
+	para "But he suddenly"
+	line "left without a"
+	cont "word. Shady dude."
+	done
+
+CianwoodCityYoungsterText:
 	text "There are several"
 	line "islands between"
 	cont "here and OLIVINE."

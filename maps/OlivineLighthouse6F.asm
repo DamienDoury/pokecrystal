@@ -113,14 +113,10 @@ OlivineLighthouseJasmine:
 	closetext
 	end
 
-.Unused: ; unreferenced
-	end
-
 OlivineLighthouseAmphy:
 	;faceplayer
 	opentext
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
-	iftrue .HealthyNow
 	writetext AmphyPalPalooText
 	setval AMPHAROS
 	special PlaySlowCry
@@ -128,17 +124,6 @@ OlivineLighthouseAmphy:
 	writetext AmphyBreathingLaboredText
 	waitbutton
 	closetext
-	end
-
-.HealthyNow:
-	writetext AmphyPaluPaluluText
-	cry AMPHAROS
-	waitbutton
-	closetext
-	special FadeOutPalettes
-	special FadeInPalettes
-	special FadeOutPalettes
-	special FadeInPalettes
 	end
 
 OlivineLighthouse6FSuperPotion:
@@ -265,11 +250,6 @@ AmphyPalPalooText:
 AmphyBreathingLaboredText:
 	text "Its breathing is"
 	line "terribly labored…"
-	done
-
-AmphyPaluPaluluText:
-	text "AMPHY: Palu!"
-	line "Palulu!"
 	done
 
 OlivineLighthouse6F_MapEvents:
