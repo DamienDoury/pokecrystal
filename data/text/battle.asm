@@ -328,8 +328,12 @@ BattleText_UsersStringBuffer1Activated:
 	prompt
 
 BattleText_ItemsCantBeUsedHere:
-	text "Items can't be"
-	line "used here."
+	text "Items aren't fair"
+	line "in a trainer"
+	cont "battle."
+
+	para "Win with skill,"
+	line "not money!"
 	prompt
 
 BattleText_MonIsAlreadyOut:
