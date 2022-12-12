@@ -176,15 +176,15 @@ StartMenu::
 
 .Items:
 ; entries correspond to STARTMENUITEM_* constants
-	dw StartMenu_Pokedex,  .PokedexString,  .PokedexDesc
-	dw StartMenu_Pokemon,  .PartyString,    .PartyDesc
-	dw StartMenu_Pack,     .PackString,     .PackDesc
-	dw StartMenu_Status,   .StatusString,   .StatusDesc
-	dw StartMenu_Save,     .SaveString,     .SaveDesc
-	dw StartMenu_Option,   .OptionString,   .OptionDesc
-	dw StartMenu_Exit,     .ExitString,     .ExitDesc
-	dw StartMenu_Pokegear, .PokegearString, .PokegearDesc
-	dw StartMenu_Quit,     .QuitString,     .QuitDesc
+	dw StartMenu_Pokedex,  .PokedexString,  .PokedexString
+	dw StartMenu_Pokemon,  .PartyString,    .PokedexString
+	dw StartMenu_Pack,     .PackString,     .PokedexString
+	dw StartMenu_Status,   .StatusString,   .PokedexString
+	dw StartMenu_Save,     .SaveString,     .PokedexString
+	dw StartMenu_Option,   .OptionString,   .PokedexString
+	dw StartMenu_Exit,     .ExitString,     .PokedexString
+	dw StartMenu_Pokegear, .PokegearString, .PokedexString
+	dw StartMenu_Quit,     .QuitString,     .PokedexString
 
 .PokedexString:  db "#DEX@"
 .PartyString:    db "#MON@"
@@ -195,42 +195,6 @@ StartMenu::
 .ExitString:     db "EXIT@"
 .PokegearString: db "<POKE>GEAR@"
 .QuitString:     db "QUIT@"
-
-.PokedexDesc:
-	db   "#MON"
-	next "database@"
-
-.PartyDesc:
-	db   "Party <PKMN>"
-	next "status@"
-
-.PackDesc:
-	db   "Contains"
-	next "items@"
-
-.PokegearDesc:
-	db   "Trainer's"
-	next "key device@"
-
-.StatusDesc:
-	db   "Your own"
-	next "status@"
-
-.SaveDesc:
-	db   "Save your"
-	next "progress@"
-
-.OptionDesc:
-	db   "Change"
-	next "settings@"
-
-.ExitDesc:
-	db   "Close this"
-	next "menu@"
-
-.QuitDesc:
-	db   "Quit and"
-	next "be judged.@"
 
 .OpenMenu:
 	ld a, [wMenuSelection]

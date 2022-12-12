@@ -1,6 +1,6 @@
 DefaultOptions:
 ; wOptions: med text speed
-	db TEXT_DELAY_MED
+	db TEXT_DELAY_MED | 1 << BATTLE_SHIFT
 ; wSaveFileExists: no
 	db FALSE
 ; wTextboxFrame: frame 1
@@ -10,7 +10,7 @@ DefaultOptions:
 ; wGBPrinterBrightness: normal
 	db GBPRINTER_NORMAL
 ; wOptions2: menu account on
-	db 1 << MENU_ACCOUNT
+	db FALSE
 
 	db $00
 	db $00
