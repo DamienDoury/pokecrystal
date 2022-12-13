@@ -1065,11 +1065,11 @@ DepositSellPack:
 .Jumptable:
 ; entries correspond to *_POCKET constants
 	dw .ItemsPocket
-	dw .BallsPocket
-	dw .KeyItemsPocket
-	dw .TMHMPocket
 	dw .MedPocket
+	dw .BallsPocket
+	dw .TMHMPocket
 	dw .BerryPocket
+	dw .KeyItemsPocket
 
 .ItemsPocket:
 	xor a ; ITEM_POCKET
