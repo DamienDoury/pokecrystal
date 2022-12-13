@@ -20,6 +20,9 @@ VioletMartGrannyScript:
 VioletMartCooltrainerMScript:
 	jumptextfaceplayer VioletMartCooltrainerMText
 
+VioletMartShelfItem1Script:
+	shelfitem 10, POKE_BALL, 2000
+
 VioletMartGrannyText:
 	text "When you first"
 	line "catch a #MON,"
@@ -61,3 +64,4 @@ VioletMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletMartClerkScript, -1
 	object_event  7,  6, SPRITE_GRANNY, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletMartGrannyScript, -1
 	object_event  5,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VioletMartCooltrainerMScript, -1
+	object_event 11,  6, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletMartShelfItem1Script, EVENT_MART_VIOLET_MISSED

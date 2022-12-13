@@ -12,12 +12,15 @@ Route34IlexForestGate_MapScripts:
 
 .IsForestRestless:
 	checkevent EVENT_LOCKDOWN_MART_RUSH
-	iftrue .CelebiEvent
+	iftrue .CheckCelebiEvent
 	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
 	setevent EVENT_FIRST_LOCKDOWN_STARTED
+	clearevent EVENT_MART_CHERRYGROVE_MISSED
+	clearevent EVENT_MART_VIOLET_MISSED
+	clearevent EVENT_MART_AZALEA_MISSED
 	special ForceLockdown
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
-.CelebiEvent:
+.CheckCelebiEvent:
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iffalse .Normal
 	disappear ROUTE34ILEXFORESTGATE_TEACHER1

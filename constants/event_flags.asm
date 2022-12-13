@@ -570,7 +570,20 @@
 	const EVENT_PLAYER_VACCINATED_TWICE
 	const EVENT_ELM_MISSION_COMPLETE_SPEECH
 	const EVENT_GOT_LUCKY_EGG
-; Unused: next 159 events
+
+	; Mart missed items.
+	const EVENT_MART_CHERRYGROVE_MISSED ; Only appear once the first lockdown started. ; 4 MAX_REPEL S 2800.
+	const EVENT_MART_VIOLET_MISSED ; Only appear once the first lockdown started. ; 10 POKE_BALL S 2000.
+	const EVENT_MART_AZALEA_MISSED ; Only appear once the first lockdown started. ; 1 TOILET_PAPER 150.
+
+	const EVENT_MART_GOLDENROD_2F_MISSED ; Only accessible during curfew or freedom. ; 16 ULTRA_BALL S 17280.
+	const EVENT_MART_GOLDENROD_4F_1_MISSED ; Only accessible during curfew or freedom. ; 10 SUPER_REPEL S 4500.
+	const EVENT_MART_GOLDENROD_4F_2_MISSED ; Only accessible during curfew or freedom. ; 10 ELIXER S 27000.
+
+	const EVENT_MART_ECRUTEAK_MISSED ; 1 ULTRA_BALL 1200
+	const EVENT_MART_OLIVINE_MISSED ; 1 REVIVE 1500
+	const EVENT_MART_BLACKTHORN_MISSED ; 6 FULL_HEAL S 3600
+; Unused: next 150 events
 
 	const_next 1000
 ; Trainer flags

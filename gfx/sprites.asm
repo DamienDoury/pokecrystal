@@ -44,8 +44,8 @@ TeacherSpriteGFX::             INCBIN "gfx/sprites/teacher.2bpp"
 BeautySpriteGFX::              INCBIN "gfx/sprites/beauty.2bpp"
 SuperNerdSpriteGFX::           INCBIN "gfx/sprites/super_nerd.2bpp"
 RockerSpriteGFX::              INCBIN "gfx/sprites/rocker.2bpp"
-
-
+    
+    
 SECTION "Sprites 2", ROMX
 
 PokefanMSpriteGFX::            INCBIN "gfx/sprites/pokefan_m.2bpp"
@@ -107,3 +107,6 @@ KrisBikeSpriteGFX::            INCBIN "gfx/sprites/kris_bike.2bpp"
 SuicuneSpriteGFX::             INCBIN "gfx/sprites/suicune.2bpp"
 EnteiSpriteGFX::               INCBIN "gfx/sprites/entei.2bpp"
 RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
+
+SECTION "Sprites 3", ROMX
+ShineSpriteGFX::	           INCBIN "gfx/sprites/shine.2bpp"

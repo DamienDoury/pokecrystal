@@ -1964,3 +1964,32 @@ _GymGuideEggText::
 	line "what could hatch"
 	cont "from it."
 	done
+
+_MissedItemText::
+	text "Hey! There's a"
+	line "lone item in the"
+	cont "back of the shelf!"
+	prompt
+
+_MissedItemSingle::
+	text "It's a single"
+	line "@"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+
+_MissedItemBundle::
+	text "It's a pack of"
+	line "@"
+	text_ram wStringBuffer2
+	text " @"
+	text_ram wStringBuffer1
+	text "S."
+	prompt
+
+_MissedItemPrice::
+	text "The price is only"
+	line "@"
+	text_ram wStringBuffer3
+	text "! Buy it?"
+	done

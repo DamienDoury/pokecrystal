@@ -905,3 +905,137 @@ MartTextbox:
 	call JoyWaitAorB
 	call ExitMenu
 	ret
+
+ShelfItemDisplay::
+	push bc
+	call OpenText
+	ld hl, .MissedItemText
+	call PrintText
+	pop bc
+
+	; Get item name.
+	ld a, b
+	ld [wCurSpecies], a
+	ld a, ITEM_NAME
+	ld [wNamedObjectType], a
+	call GetName
+	
+	; Get item batch price into text format.
+	push bc
+	ld hl, wStringBuffer3
+	ld a, "@"
+	ld bc, 8
+	call ByteFill ; fill bc bytes with the value of a, starting at hl
+	
+	ld hl, wStringBuffer3
+	ld de, wStringBuffer2
+	lb bc, 2 | 1 << 6 | 1 << 5, 6 ; Bit 5 is for money symbol, and bit 6 for left-alignment.
+	call PrintNum
+	pop bc
+
+	ld a, c
+	cp 2
+	jr c, .singleItem
+
+	ld hl, .MissedItemBundle
+
+	; Get item quantity into text format.
+	cp 10
+	jr c, .singleDigit
+
+; Two digits, with value < 20.
+	ld a, "@" ; EOL.
+	ld [wStringBuffer2 + 2], a
+	ld a, "1"
+	ld [wStringBuffer2 + 0], a
+	ld a, c
+	sub 10
+	add "0"
+	ld [wStringBuffer2 + 1], a
+	jr .displayItemNameAndQuantity
+
+.singleDigit
+	ld a, "@" ; EOL.
+	ld [wStringBuffer2 + 1], a
+	ld a, c
+	add "0"
+	ld [wStringBuffer2], a
+	jr .displayItemNameAndQuantity
+
+.singleItem
+	ld hl, .MissedItemSingle
+
+.displayItemNameAndQuantity
+	push bc
+	call PrintText
+
+	ld hl, .MissedItemPrice
+	call PrintText
+
+	farcall PlaceMoneyTopRight
+
+	call YesNoBox
+	ld a, FALSE
+	pop bc
+	jr c, .end
+
+;.yes
+	call GiveItemToPlayer
+	jr nc, .full
+
+	ld de, wMoney
+	ld bc, hMoneyTemp
+	farcall CompareMoney
+	jr c, .notEnoughMoney
+
+	farcall TakeMoney
+	farcall Script_disappear_last_talked
+	farcall PlaceMoneyTopRight
+
+	ld de, SFX_TRANSACTION ; $22
+	call PlaySFX
+	call WaitSFX
+	farcall Script_itemnotify
+	jr .end
+
+.notEnoughMoney
+	ld hl, MartNoMoneyText
+	jr .errorText
+.full 
+	ld hl, MartPackFullText
+.errorText
+	call PrintText
+	call WaitButton
+.end
+	call CloseText
+	farcall Script_end
+	ret
+
+.MissedItemText:
+	text_far _MissedItemText
+	text_end
+
+.MissedItemSingle:
+	text_far _MissedItemSingle
+	text_end
+
+.MissedItemBundle:
+	text_far _MissedItemBundle
+	text_end
+
+.MissedItemPrice:
+	text_far _MissedItemPrice
+	text_end
+
+; Input: B = item ID, C = item quantity.
+; Output: nc is pack is full.
+GiveItemToPlayer::
+	ld a, b
+	ld [wCurItem], a
+	ld a, c
+	ld [wItemQuantityChange], a
+	ld hl, wNumItems
+	;ld [hl], a
+	call ReceiveItem
+	ret
+	

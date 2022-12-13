@@ -68,7 +68,6 @@ IncreaseResearchLevel::
 	ld c, a
 	ld a, b
 	ld b, %11111100 ; We now use b as the mask.
-	;call ForceLockdown ; TODO: à virer, juste pour tester sur la Route34.
 
 .offset
 	cp 0

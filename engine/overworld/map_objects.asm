@@ -555,6 +555,8 @@ StepFunction_FromMovement:
 	dw MovementFunction_ShakingGrass         ; 1b
 	dw MovementFunction_PingPongWalk	     ; 1c
 	dw MovementFunction_CircleWalk	     	 ; 1d
+	dw MovementFunction_Shine       		 ; 1e
+
 	assert_table_length NUM_SPRITEMOVEFN
 
 MovementFunction_Null:
@@ -803,6 +805,13 @@ MovementFunction_SpinClockwise:
 	dw _MovementSpinRepeat
 	dw _MovementSpinTurnRight
 
+MovementFunction_Shine:
+	call ObjectMovementByte_AnonJumptable
+.anon_dw
+	dw _MovementShineInit
+	dw _MovementShineRepeat
+	dw _MovementShine
+
 _MovementSpinInit:
 	call EndSpriteMovement
 	call ObjectMovementByte_IncAnonJumptableIndex
@@ -812,10 +821,36 @@ _MovementSpinRepeat:
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], OBJECT_ACTION_STAND
-	ld hl, OBJECT_RANGE
+	ld a, $10
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	ld [hl], a
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_SLEEP
+	call ObjectMovementByte_IncAnonJumptableIndex
+	ret
+
+_MovementShineInit:
+	call EndSpriteMovement
+	call ObjectMovementByte_IncAnonJumptableIndex
+	; fallthrough
+
+_MovementShineRepeat:
+	ld hl, OBJECT_ACTION
+	add hl, bc
+	ld [hl], OBJECT_ACTION_STAND
+
+	ld hl, OBJECT_FACING
 	add hl, bc
 	ld a, [hl]
-	ld a, $10
+	and %00001100
+	cp OW_LEFT
+	ld a, $80
+	jr z, .long_pause
+	
+	ld a, $2
+.long_pause
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], a
@@ -844,6 +879,17 @@ _MovementSpinTurnRight:
 .facings_clockwise:
 	db OW_LEFT
 	db OW_RIGHT
+	db OW_UP
+	db OW_DOWN
+
+_MovementShine:
+	ld de, .facings
+	call _MovementSpinNextFacing
+	jr MovementFunction_Shine
+
+.facings:
+	db OW_LEFT
+	db OW_DOWN
 	db OW_UP
 	db OW_DOWN
 

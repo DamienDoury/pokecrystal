@@ -1079,4 +1079,12 @@ getchallengename: MACRO
 	db getchallengename_command
 ENDM
 
+	const shelfitem_command ; $ad
+shelfitem: MACRO
+	db shelfitem_command
+	db \1 ; quantity
+	db \2 ; object id
+	dw \3 ; total price
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value

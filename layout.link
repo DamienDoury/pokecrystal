@@ -142,6 +142,7 @@ ROMX $34
 	"Pic Animations 1"
 ROMX $35
 	"Pic Animations 2"
+	"Sprites 3"
 ROMX $36
 	"Font Inversed"
 	"Pic Animations 3"

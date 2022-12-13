@@ -20,6 +20,9 @@ EcruteakMartSuperNerdScript:
 EcruteakMartGrannyScript:
 	jumptextfaceplayer EcruteakMartGrannyText
 
+EcruteakMartShelfItem1Script:
+	shelfitem 1, ULTRA_BALL, 1200
+
 EcruteakMartSuperNerdText:
 	text "My EEVEE evolved"
 	line "into an ESPEON."
@@ -58,3 +61,4 @@ EcruteakMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartClerkScript, -1
 	object_event  5,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakMartSuperNerdScript, -1
 	object_event  6,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartGrannyScript, -1
+	object_event  1,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartShelfItem1Script, EVENT_MART_ECRUTEAK_MISSED

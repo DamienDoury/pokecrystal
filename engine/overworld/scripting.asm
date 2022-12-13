@@ -237,6 +237,7 @@ ScriptCommandTable:
 	dw Script_ifeven                  	 ; aa
 	dw Script_ifodd                  	 ; ab
 	dw Script_getchallengename        	 ; ac
+	dw Script_shelfitem					 ; ad
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -515,7 +516,7 @@ Script_verbosegiveitemvar:
 	ld de, GiveItemScript
 	jp ScriptCall
 
-Script_itemnotify:
+Script_itemnotify::
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PutItemInPocketText)
@@ -1663,6 +1664,26 @@ Script_getchallengename:
 	farcall GetChallengeName
 	ret
 
+Script_shelfitem:
+	call GetScriptByte
+	ld c, a ; Quantity
+	call GetScriptByte
+	ld b, a ; Item ID
+
+	; Price
+	xor a
+	ld [wStringBuffer2 + 2], a
+	ldh [hMoneyTemp + 0], a
+	call GetScriptByte
+	ld [wStringBuffer2 + 1], a
+	ldh [hMoneyTemp + 2], a
+	call GetScriptByte
+	ld [wStringBuffer2 + 0], a
+	ldh [hMoneyTemp + 1], a
+
+	farcall ShelfItemDisplay
+	ret
+
 Script_getcurlandmarkname:
 	ld a, [wMapGroup]
 	ld b, a
@@ -1686,7 +1707,7 @@ Script_gettrainername:
 	call GetScriptByte
 	ld b, a
 	farcall GetTrainerName
-	jr GetStringBuffer
+	jp GetStringBuffer
 
 Script_getname:
 	call GetScriptByte
@@ -2298,7 +2319,7 @@ Script_stopandsjump:
 	call StopScript
 	jp Script_sjump
 
-Script_end:
+Script_end::
 	call ExitScriptSubroutine
 	jr c, .resume
 	ret

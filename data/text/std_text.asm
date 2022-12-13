@@ -329,6 +329,11 @@ MerchandiseShelfText:
 	line "merchandise!"
 	done
 
+MerchandiseGoneText:
+	text "Everything of"
+	line "interest is gone…"
+	done
+
 LookTownMapText:
 	text "It's the TOWN MAP."
 	done

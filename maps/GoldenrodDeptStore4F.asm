@@ -37,6 +37,12 @@ GoldenrodDeptStore4FDirectory:
 GoldenrodDeptStore4FElevatorButton:
 	jumpstd ElevatorButtonScript
 
+GoldenrodDeptStore4FShelfItem1Script:
+	shelfitem 10, SUPER_REPEL, 4500
+
+GoldenrodDeptStore4FShelfItem2Script:
+	shelfitem 10, ELIXER, 27000
+
 GoldenrodDeptStore4FCooltrainerMText:
 	text "Hey. I love strong"
 	line "#MON."
@@ -94,3 +100,5 @@ GoldenrodDeptStore4F_MapEvents:
 	object_event 11,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore4FCooltrainerMScript, -1
 	object_event  7,  2, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore4FBugCatcherScript, -1
 	object_event  5,  1, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore4FGameboyKidScript, -1
+	object_event  2,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore4FShelfItem1Script, EVENT_MART_GOLDENROD_4F_1_MISSED
+	object_event  8,  1, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore4FShelfItem2Script, EVENT_MART_GOLDENROD_4F_2_MISSED

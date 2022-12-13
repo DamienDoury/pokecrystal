@@ -479,7 +479,12 @@ IncenseBurnerScript:
 	farjumptext IncenseBurnerText
 
 MerchandiseShelfScript:
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iftrue .MerchandisesGone
 	farjumptext MerchandiseShelfText
+
+.MerchandisesGone
+	farjumptext MerchandiseGoneText
 
 TownMapScript:
 	opentext
@@ -912,6 +917,9 @@ InitializeEventsScript:
 	setevent EVENT_INITIALIZED_EVENTS
 	setevent EVENT_BROCK_BACK_IN_GYM
 	setevent EVENT_CROWD_IN_VACCINATION_CENTER
+	setevent EVENT_MART_CHERRYGROVE_MISSED
+	setevent EVENT_MART_VIOLET_MISSED
+	setevent EVENT_MART_AZALEA_MISSED
 	endcallback
 
 AskNumber1MScript:
