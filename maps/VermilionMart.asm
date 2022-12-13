@@ -20,6 +20,9 @@ VermilionMartSuperNerdScript:
 VermilionMartBeautyScript:
 	jumptextfaceplayer VermilionMartBeautyText
 
+VermilionMartShelfItem1Script:
+	shelfitem 3, ESCAPE_ROPE, 1650
+
 VermilionMartSuperNerdText:
 	text "TEAM ROCKET is no"
 	line "longer in KANTO."
@@ -49,3 +52,4 @@ VermilionMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMartClerkScript, -1
 	object_event  5,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionMartSuperNerdScript, -1
 	object_event  8,  6, SPRITE_BEAUTY, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VermilionMartBeautyScript, -1
+	object_event  6,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionMartShelfItem1Script, EVENT_MART_VERMILION_MISSED

@@ -20,6 +20,12 @@ LavenderMartPokefanMScript:
 LavenderMartRockerScript:
 	jumptextfaceplayer LavenderMartRockerText
 
+LavenderMartShelfItem1Script:
+	shelfitem 1, THICK_CLUB, 4900
+
+LavenderMartShelfItem2Script:
+	shelfitem 1, REVIVAL_HERB, 4000
+
 LavenderMartPokefanMText:
 	text "REPEL is a neces-"
 	line "sity if you are"
@@ -60,3 +66,5 @@ LavenderMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavenderMartClerkScript, -1
 	object_event  6,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LavenderMartPokefanMScript, -1
 	object_event  9,  2, SPRITE_ROCKER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavenderMartRockerScript, -1
+	object_event  6,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavenderMartShelfItem1Script, EVENT_MART_LAVENDER_1_MISSED
+	object_event 11,  4, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavenderMartShelfItem2Script, EVENT_MART_LAVENDER_2_MISSED

@@ -19,6 +19,15 @@ MountMoonGiftShopClerkScript:
 MountMoonGiftShopLassScript:
 	jumptextfaceplayer MountMoonGiftShopLassText
 
+MountMoonGiftShopShelfItem1Script:
+	shelfitem 1, SCOPE_LENS, 4900
+
+MountMoonGiftShopShelfItem2Script:
+	shelfitem 1, METAL_COAT, 4900
+
+MountMoonGiftShopShelfItem3Script:
+	shelfitem 3, MAX_ELIXER, 13500
+
 MountMoonGiftShopLassText:
 	text "When the sun goes"
 	line "down, CLEFAIRY"
@@ -41,3 +50,6 @@ MountMoonGiftShop_MapEvents:
 	object_event  1,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, DAY, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopClerkScript, -1
 	object_event  1,  6, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopLassScript, -1
 	object_event  5,  4, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, DAY, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopLassScript, -1
+	object_event  1,  4, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopShelfItem1Script, EVENT_MART_MTMOON_1_MISSED
+	object_event  0,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopShelfItem2Script, EVENT_MART_MTMOON_2_MISSED
+	object_event  6,  4, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonGiftShopShelfItem3Script, EVENT_MART_MTMOON_3_MISSED

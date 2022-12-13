@@ -35,6 +35,9 @@ CeladonDeptStore2FDirectory:
 CeladonDeptStore2FElevatorButton:
 	jumpstd ElevatorButtonScript
 
+CeladonDeptStore2FShelfItem1Script:
+	shelfitem 16, POKE_BALL, 2880
+
 CeladonDeptStore2FPokefanMText:
 	text "I just recently"
 	line "became a trainer."
@@ -85,3 +88,4 @@ CeladonDeptStore2F_MapEvents:
 	object_event 14,  5, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore2FClerk2Script, -1
 	object_event  5,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore2FPokefanMScript, -1
 	object_event  6,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore2FYoungsterScript, -1
+	object_event  4,  1, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore2FShelfItem1Script, EVENT_MART_CELADON_2F_MISSED

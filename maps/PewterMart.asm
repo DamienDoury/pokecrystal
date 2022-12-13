@@ -20,6 +20,9 @@ PewterMartYoungsterScript:
 PewterMartSuperNerdScript:
 	jumptextfaceplayer PewterMartSuperNerdText
 
+PewterMartShelfItem1Script:
+	shelfitem 1, MAX_REPEL, 700
+
 PewterMartYoungsterText:
 	text "Hi! Check out my"
 	line "GYARADOS!"
@@ -58,3 +61,4 @@ PewterMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterMartClerkScript, -1
 	object_event  9,  2, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterMartYoungsterScript, -1
 	object_event  6,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterMartSuperNerdScript, -1
+	object_event  5,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterMartShelfItem1Script, EVENT_MART_PEWTER_MISSED
