@@ -118,6 +118,18 @@ FuchsiaOldSign1:
 FuchsiaOldSign2:
 	jumptext FuchsiaOldSign2Text
 
+FuchsiaOldSign3:
+	jumptext FuchsiaOldSign3Text
+
+FuchsiaOldSign4:
+	jumptext FuchsiaOldSign4Text
+
+FuchsiaOldSign5:
+	jumptext FuchsiaOldSign5Text
+
+FuchsiaOldSign6:
+	jumptext FuchsiaOldSign6Text
+
 FuchsiaCityBoulderScript:
 	jumpstd StrengthBoulderScript
 
@@ -158,6 +170,9 @@ FuchsiaCityFruitTree2:
 .end
 	end
 
+SafariZoneDoorScript:
+	farwritetext GoldenrodUndergroundTheDoorsLockedText
+	
 FuchsiaCityRareCandy:
 	hiddenitem RARE_CANDY, EVENT_FUCSHIA_RARE_CANDY
 
@@ -382,6 +397,35 @@ FuchsiaOldSign2Text:
 	line "all up to chance."
 	done
 
+FuchsiaOldSign3Text:
+	text "Name: SLOWPOKE"
+	para "Friendly and very"
+	line "slow moving."
+	done
+	
+FuchsiaOldSign4Text:
+	text "Name: KANGASKHAN"
+	para "A maternal #MON"
+	line "that raises its"
+	cont "young in a pouch"
+	cont "on its belly."
+	done
+		
+FuchsiaOldSign5Text:
+	text "…was resurrected"
+	line "from a fossil."
+
+	para "Top part of the"
+	line "sign has faded"
+	cont "out to the sun."
+	done
+
+FuchsiaOldSign6Text:
+	text "Name: LAPRAS"
+	para "A.K.A. the king"
+	line "of the seas."
+	done
+
 FuchsiaEatenTreeText:
 	text "It's a fruit-"
 	line "bearing tree."
@@ -390,7 +434,10 @@ FuchsiaEatenTreeText:
 	line "to have been"
 
 	para "eaten by a wild"
-	line "#MON…"
+	line "#MON."
+	
+	para "The bite marks"
+	line "are still fresh…"
 	done
 
 HiddenKangaskhanText:
@@ -423,6 +470,9 @@ FuchsiaCity_MapEvents:
 	warp_event 37, 23, ROUTE_15_FUCHSIA_GATE, 2
 	warp_event  7, 35, ROUTE_19_FUCHSIA_GATE, 1
 	warp_event  8, 35, ROUTE_19_FUCHSIA_GATE, 2
+	warp_event 31, 24, WARDENS_NEIGHBOR_HOUSE, 3
+	warp_event 27, 24, SAFARI_ZONE_WARDENS_HOME, 3
+	warp_event 31, 27, WARDENS_NEIGHBOR_HOUSE, 1
 
 	def_coord_events
 
@@ -432,21 +482,25 @@ FuchsiaCity_MapEvents:
 	bg_event 25, 15, BGEVENT_READ, SafariZoneOfficeSign
 	bg_event 27, 29, BGEVENT_READ, WardensHomeSign
 	bg_event 17,  5, BGEVENT_READ, SafariZoneClosedSign
-	bg_event 13, 15, BGEVENT_READ, NoLitteringSign
+	bg_event 17, 15, BGEVENT_READ, NoLitteringSign
 	bg_event 20, 27, BGEVENT_READ, FuchsiaCityPokecenterSign
 	bg_event  6, 13, BGEVENT_READ, FuchsiaCityMartSign
 	bg_event 27,  7, BGEVENT_READ, FuchsiaOldSign1
 	bg_event 33,  7, BGEVENT_READ, FuchsiaOldSign2
 	bg_event 22, 18, BGEVENT_ITEM, FuchsiaCityRareCandy
 	bg_event 13, 34, BGEVENT_ITEM, FuchsiaCityStardust
-	bg_event 28, 14, BGEVENT_ITEM, FuchsiaCityKingsRock
-	bg_event  8,  5, BGEVENT_ITEM, FuchsiaCityHelixFossil
-	bg_event 31,  4, BGEVENT_ITEM, FuchsiaCityLuckyPunch
-	bg_event 27, 14, BGEVENT_ITEM, FuchsiaCitySlowpokeTail
+	bg_event 29, 12, BGEVENT_ITEM, FuchsiaCityKingsRock
+	bg_event  6,  5, BGEVENT_ITEM, FuchsiaCityHelixFossil
+	bg_event 31,  5, BGEVENT_ITEM, FuchsiaCityLuckyPunch
+	bg_event 28, 12, BGEVENT_ITEM, FuchsiaCitySlowpokeTail
 	bg_event 20, 32, BGEVENT_ITEM, FuchsiaCityBurnHeal
-	bg_event 11,  4, BGEVENT_ITEM, FuchsiaCityLeftovers
-	bg_event 37, 33, BGEVENT_ITEM, FuchsiaCityToiletPaper
-	bg_event 12, 15, BGEVENT_ITEM, FuchsiaCityLemonade
+	bg_event  9,  4, BGEVENT_ITEM, FuchsiaCityLeftovers
+	bg_event 18, 15, BGEVENT_ITEM, FuchsiaCityToiletPaper
+	bg_event 16, 15, BGEVENT_ITEM, FuchsiaCityLemonade
+	bg_event 31, 13, BGEVENT_READ, FuchsiaOldSign3
+	bg_event 13,  7, BGEVENT_READ, FuchsiaOldSign4
+	bg_event  7,  7, BGEVENT_READ, FuchsiaOldSign5
+	bg_event 13, 15, BGEVENT_READ, FuchsiaOldSign6
 
 	def_object_events
 	object_event 23, 18, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, FuchsiaCityGramps, -1
@@ -460,6 +514,7 @@ FuchsiaCity_MapEvents:
 	object_event 37, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
 	object_event 37, 22, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
 	object_event 25,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FuchsiaCityPokeball, EVENT_FUCSHIA_POKEBALL
-	object_event 28, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
+	object_event 29, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 26, 31, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 33, 24, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
+	object_event 18,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneDoorScript, -1

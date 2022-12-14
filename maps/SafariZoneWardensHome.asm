@@ -66,9 +66,19 @@ WardenNeighborText:
 	text "I used to live"
 	line "next door, but"
 
-	para "the eruption des-"
-	line "troyed part of my"
-	cont "house."
+	para "the eruption shot"
+	line "a boulder that is"
+	cont "blocking the front"
+	cont "door of my house."
+
+	para "Luckily, my house"
+	line "has a backdoor"
+	cont "that I can use"
+	cont "whenever I need"
+	cont "my stuff."
+
+	para "Just like the one"
+	line "in this house."
 
 	para "This young lady is"
 	line "letting me live"
@@ -103,6 +113,7 @@ SafariZoneWardensHome_MapEvents:
 	def_warp_events
 	warp_event  2,  7, FUCHSIA_CITY, 6
 	warp_event  3,  7, FUCHSIA_CITY, 6
+	warp_event  3,  0, FUCHSIA_CITY, 13
 
 	def_coord_events
 

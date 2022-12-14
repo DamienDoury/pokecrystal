@@ -789,8 +789,13 @@ PowerPlant_Blocks:
 	INCBIN "maps/PowerPlant.blk"
 
 PokemonFanClub_Blocks:
-SafariZoneWardensHome_Blocks:
 	INCBIN "maps/PokemonFanClub.blk"
+
+SafariZoneWardensHome_Blocks:
+	INCBIN "maps/WardensHouse.blk"
+
+WardensNeighborHouse_Blocks:
+	INCBIN "maps/WardensNeighborHouse.blk"
 
 FightingDojo_Blocks:
 	INCBIN "maps/FightingDojo.blk"

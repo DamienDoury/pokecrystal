@@ -360,6 +360,7 @@ ENDM
 	map_const FUCHSIA_POKECENTER_1F,                        5,  4 ; 10
 	map_const SAFARI_ZONE_WARDENS_HOME,                     5,  4 ; 11
 	map_const ROUTE_15_FUCHSIA_GATE,                        5,  4 ; 12
+	map_const WARDENS_NEIGHBOR_HOUSE,                       4,  4 ; 13
 	endgroup
 
 	newgroup LAVENDER                                             ; 18
