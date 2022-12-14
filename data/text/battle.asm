@@ -332,7 +332,7 @@ BattleText_ItemsCantBeUsedHere:
 	line "in a trainer"
 	cont "battle."
 
-	para "Win with skill,"
+	para "Fight with skill,"
 	line "not money!"
 	prompt
 
@@ -421,8 +421,13 @@ FlinchedText:
 	prompt
 
 ScaredText:
+	text "<USER> couldn't"
+	line "see and missed."
+	prompt
+
+Scared2Text:
 	text "<USER> got"
-	line "scared."
+	line "scared and missed."
 	prompt
 
 MustRechargeText:

@@ -242,10 +242,11 @@ MortyIntroSequelText:
 	cont "your #MON will"
 	cont "react to fear."
 
-	para "Only GHOST and"
-	line "DARK type #MON"
-	cont "can keep calm in"
-	cont "this spooky GYM."
+	para "Only GHOST type"
+	line "#MON can see"
+	cont "through the dark-"
+	cont "ness of this"
+	cont "spooky GYM."
 
 	para "Let's see how"
 	line "powerful your"

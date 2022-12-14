@@ -665,17 +665,28 @@ BattleCommand_CheckObedience:
 
 
 
-	; Damien : when battling Morty, the player's pkmn sometimes gets scared (unless it's a Ghost or Dark type), which is like disobedience.
+	; Damien : when battling Morty, the player's pkmn sometimes get scared (unless it's a Ghost or Dark type), which is like disobedience.
 	ld a, [wOtherTrainerClass]
 	cp MORTY
 	jr nz, .check_pkrus
 
-	call Random
-	and 1
-	cp 0
-	jr nc, .check_pkrus ; 50% chances of getting scared.
+	ld a, [wBattleMonType1]
+	cp GHOST
+	jr z, .check_pkrus
+
+	ld a, [wBattleMonType2]
+	cp GHOST
+	jr z, .check_pkrus
+
+	call BattleRandom
+	and %11
+	cp 2
+	jr c, .check_pkrus ; 50% chances of getting scared.
 
 	ld hl, ScaredText
+	jp z, .Print
+	
+	ld hl, Scared2Text
 	jp .Print
 
 
