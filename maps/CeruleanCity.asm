@@ -187,7 +187,7 @@ AshPikachuLeadsToCeruleanCave:
 	loadmem wDigMapGroup, GROUP_CERULEAN_CITY
 	loadmem wDigMapNumber, MAP_CERULEAN_CITY
 
-	warp CERULEAN_CAVE_ENTRANCE, 15, 15
+	warp CERULEAN_CAVE_ENTRANCE, 5, 15
 	; warp
 	end
 

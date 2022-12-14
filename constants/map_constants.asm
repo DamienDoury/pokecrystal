@@ -156,7 +156,7 @@ ENDM
 	map_const SEAFOAM_W1F,			                       10, 18 ; 92
 	map_const SEAFOAM_E1F,			                       10, 18 ; 93
 	map_const SEAFOAM_B1F,			                       15,  9 ; 94
-	map_const CERULEAN_CAVE_ENTRANCE,			            7,  9 ; 95
+	map_const CERULEAN_CAVE_ENTRANCE,			            5,  9 ; 95
 	map_const CERULEAN_CAVE_B1F,			               17, 11 ; 96
 	map_const CERULEAN_CAVE_B2F,			               17, 11 ; 97
 	map_const CERULEAN_CAVE_B3F,			               18, 11 ; 98

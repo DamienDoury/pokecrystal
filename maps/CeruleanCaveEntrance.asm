@@ -42,13 +42,13 @@ CeruleanCaveEntrance_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7,  3, CERULEAN_CAVE_B1F, 1
+	warp_event  5,  1, CERULEAN_CAVE_B1F, 1
 
 	def_coord_events
-	coord_event  7, 15, SCENE_DEFAULT, CeruleanCaveEntrance_ExitScript
-	coord_event  7, 15, SCENE_FINISHED, CeruleanCaveEntrance_ExitScript
+	coord_event  5, 15, SCENE_DEFAULT, CeruleanCaveEntrance_ExitScript
+	coord_event  5, 15, SCENE_FINISHED, CeruleanCaveEntrance_ExitScript
 
 	def_bg_events
-	bg_event  6,  6, BGEVENT_READ, CeruleanCaveMail
+	bg_event  4,  4, BGEVENT_READ, CeruleanCaveMail
 
 	def_object_events
