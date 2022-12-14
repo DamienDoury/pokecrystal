@@ -3,6 +3,13 @@ SafariZoneFuchsiaGateBeta_MapScripts:
 
 	def_callbacks
 
+SafariGateEmployeeScript:
+	jumptextfaceplayer SafariGateEmployeeText
+
+SafariGateEmployeeText:
+	text "Oh, hi boss!"
+	done
+
 SafariZoneFuchsiaGateBeta_MapEvents:
 	db 0, 0 ; filler
 
@@ -17,3 +24,5 @@ SafariZoneFuchsiaGateBeta_MapEvents:
 	def_bg_events
 
 	def_object_events
+	object_event 0,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SafariGateEmployeeScript, EVENT_SAFARI_PARK_EMPLOYEES
+

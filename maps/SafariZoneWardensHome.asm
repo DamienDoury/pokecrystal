@@ -1,18 +1,29 @@
 	object_const_def
 	const SAFARIZONEWARDENSHOME_LASS
 	const SAFARIZONEWARDENSHOME_NEIGHBOR
+	const SAFARIZONEWARDENSHOME_DOCUMENT
 
 SafariZoneWardensHome_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+	checkevent EVENT_SAFARI_PARK_EMPLOYEES
+	iftrue .end
+
+	scall WardensHouse_DisplayDocument
+
+.end
+	endcallback
 
 WardensGranddaughter:
 	faceplayer
 	opentext
 
 	checkevent EVENT_GOT_SAFARI_KEY_2
-	iftrue .DefaultText
+	iftrue .CheckBuyPark
 
 	checkevent EVENT_GOT_SAFARI_KEY_1
 	iftrue .CheckIfNeedSecondKey
@@ -89,6 +100,85 @@ WardensGranddaughter:
 	writetext SafariZoneTrustText
 	sjump .WaitButton
 
+.RefusalText
+	writetext WardensGranddaughter_RefusalText
+	sjump .WaitButton
+
+.CheckBuyPark
+	checkevent EVENT_RED_BEATEN
+	iftrue .DefaultText
+
+	checkitem SAFARI_KEY
+	iftrue .DefaultText
+
+	writetext WardensGranddaughter_ForSaleText
+	yesorno
+	iffalse .RefusalText
+
+	checkmoney YOUR_MONEY, 999999
+	ifequal HAVE_LESS, .NotEnough
+
+	; Deal accepted.
+	playsound SFX_TRANSACTION
+	takemoney YOUR_MONEY, 999999
+	waitsfx
+	closetext
+
+	pause 3
+	applymovement SAFARIZONEWARDENSHOME_LASS, WardensHome_SignMovement
+	pause 3
+	scall WardensHouse_DisplayDocument
+	pause 10
+
+	opentext
+	writetext WardensGranddaughter_SignText
+	waitbutton
+	closetext
+
+	readvar VAR_YCOORD
+	ifequal 4, .move_right
+	ifequal 6, .last_step
+
+; y = 2
+	applymovement PLAYER, WardensHouse_PlayerDownMovement
+	sjump .down
+
+.move_right
+	applymovement PLAYER, WardensHouse_PlayerRightMovement
+.down
+	applymovement PLAYER, WardensHouse_PlayerRight2Movement
+.last_step
+	applymovement PLAYER, WardensHouse_PlayerLastStepMovement
+
+	pause 15
+
+	opentext
+	writetext WardensGranddaughter_OwnText
+	playsound SFX_CAUGHT_MON
+	pause 30
+	waitbutton
+	waitsfx
+	closetext
+
+	pause 8
+	
+	opentext
+	writetext WardensGranddaughter_PlansText
+	waitbutton
+	closetext
+
+	turnobject PLAYER, DOWN
+	applymovement SAFARIZONEWARDENSHOME_LASS, WardensHouse_OutMovement
+	warpsound
+	disappear SAFARIZONEWARDENSHOME_LASS
+	appear SAFARIZONEWARDENSHOME_DOCUMENT
+	waitsfx
+	end
+
+.NotEnough
+	writetext WardensGranddaughter_NotEnoughText
+	sjump .WaitButton
+
 WardensNeighbor:
 	checkevent EVENT_WARDENS_NEIGHBOR_BOULDER_CLEARED
 	iftrue .DefaultText ; The boulder has not been cleared yet.
@@ -113,6 +203,10 @@ WardensNeighborGoesHomeScript:
 	waitsfx
 	end
 
+WardensHouse_DisplayDocument:
+	changeblock  2,  4, $34 ; Displays a books with a pencil.
+	end
+
 WardenPhoto:
 	jumptext WardenPhotoText
 
@@ -121,6 +215,9 @@ SafariZonePhoto:
 
 WardensHomeBookshelf:
 	jumpstd PictureBookshelfScript
+
+WardensHouseLegalDocument:
+	jumptext SafariZoneOwnerText
 
 NeighborGoesHomeMovement:
 	slow_step LEFT
@@ -133,6 +230,37 @@ NeighborGoesHomeMovement:
 	turn_head DOWN
 	step_end
 
+WardensHome_SignMovement:
+	slow_step DOWN
+	turn_head RIGHT
+	step_end
+
+WardensHouse_OutMovement:
+	slow_step DOWN
+	slow_step DOWN
+	step_end
+
+WardensHouse_PlayerDownMovement:
+	step LEFT
+	step DOWN
+	step DOWN
+	step_end
+
+WardensHouse_PlayerRightMovement:
+	step RIGHT
+	step_end
+
+WardensHouse_PlayerRight2Movement:
+	step DOWN
+	step DOWN
+	step RIGHT
+	step_end
+
+WardensHouse_PlayerLastStepMovement:
+	step RIGHT
+	turn_head UP
+	step_end
+	
 WardensNeighbor_LadyGoHome1Text:
 	text "You were able to"
 	line "move the neighbor's"
@@ -224,6 +352,64 @@ WardensGranddaughterText:
 	cont "like that."
 	done
 
+WardensGranddaughter_ForSaleText:
+	text "Tourists haven't"
+	line "come back to"
+	cont "FUCHSIA CITY,"
+	
+	para "so no one wants"
+	line "to buy the"
+	cont "SAFARI ZONE."
+	
+	para "I'm selling it"
+	line "for ¥999999."
+	
+	para "It is very cheap"
+	line "for a business!"
+
+	para "Would you be"
+	line "interested in"
+	cont "buying it?"
+	done
+
+WardensGranddaughter_NotEnoughText:
+	text "Oh dear, you don't"
+	line "have enough."
+	done
+
+WardensGranddaughter_RefusalText:
+	text "You've been there"
+	line "several times,"
+	
+	para "I thought you"
+	line "liked it…"
+	done
+
+WardensGranddaughter_SignText:
+	text "Sign here, and"
+	line "it's yours."
+	done
+
+WardensGranddaughter_OwnText:
+	text "<PLAYER> owns"
+	line "the SAFARI ZONE!"
+	done
+
+WardensGranddaughter_PlansText:
+	text "I have thought"
+	line "about it, and I"
+	
+	para "want to do like"
+	line "my grandfather."
+
+	para "That's why I'm"
+	line "leaving town."
+
+	para "Good luck"
+	line "with your new"
+	cont "acquisition!"
+	done
+
 WardenNeighborText:
 	text "I used to live"
 	line "next door, but"
@@ -265,6 +451,14 @@ SafariZonePhotoText:
 	line "frolicking in it."
 	done
 
+SafariZoneOwnerText:
+	text "“This document"
+	line "certifies that"
+	cont "<PLAYER> is the"
+	cont "legal owner of"
+	cont "the SAFARI ZONE.”"
+	done
+
 SafariZoneWardensHome_MapEvents:
 	db 0, 0 ; filler
 
@@ -282,5 +476,6 @@ SafariZoneWardensHome_MapEvents:
 	bg_event  9,  0, BGEVENT_READ, SafariZonePhoto
 
 	def_object_events
-	object_event  2,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensGranddaughter, -1
+	object_event  2,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensGranddaughter, EVENT_BOUGHT_SAFARI_PARK
 	object_event  2,  2, SPRITE_FISHING_GURU, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, WardensNeighbor, EVENT_WARDENS_NEIGHBOR_AT_NEIGHBORS
+	object_event  3,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WardensHouseLegalDocument, EVENT_SAFARI_PARK_EMPLOYEES

@@ -103,7 +103,12 @@ WardensHomeSign:
 	jumptext WardensHomeSignText
 
 SafariZoneClosedSign:
+	checkevent EVENT_BOUGHT_SAFARI_PARK
+	iftrue .opened
 	jumptext SafariZoneClosedSignText
+
+.opened
+	jumptext SafariZoneOpenedSignText
 
 NoLitteringSign:
 	jumptext NoLitteringSignText
@@ -394,6 +399,11 @@ WardensHomeSignText:
 SafariZoneClosedSignText:
 	text "SAFARI ZONE"
 	para "FOR SALE"
+	done
+
+SafariZoneOpenedSignText:
+	text "SAFARI ZONE"
+	para "Now opened!"
 	done
 
 NoLitteringSignText:
