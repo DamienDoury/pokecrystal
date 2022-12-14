@@ -40,7 +40,7 @@ GoldenrodDeptStore2FElevatorButton:
 	jumpstd ElevatorButtonScript
 
 GoldenrodDeptStore2FShelfItem1Script:
-	shelfitem 16, ULTRA_BALL, 17280
+	shelfitem 16, ULTRA_BALL, 15360
 
 GoldenrodDeptStore2FUnusedText1: ; unreferenced
 	text "We intend to sell"

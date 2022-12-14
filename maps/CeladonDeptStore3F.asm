@@ -48,7 +48,7 @@ CeladonDeptStore3FDirectory:
 	jumptext CeladonDeptStore3FDirectoryText
 
 CeladonDeptStore3FShelfItem1Script:
-	shelfitem 8, CALCIUM, 70560
+	shelfitem 8, CALCIUM, 62720
 
 CeladonDeptStore3FYoungsterText:
 	text "It feels great"

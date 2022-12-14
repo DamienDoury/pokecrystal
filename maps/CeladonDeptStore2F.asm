@@ -36,7 +36,7 @@ CeladonDeptStore2FElevatorButton:
 	jumpstd ElevatorButtonScript
 
 CeladonDeptStore2FShelfItem1Script:
-	shelfitem 16, POKE_BALL, 2880
+	shelfitem 16, POKE_BALL, 2560
 
 CeladonDeptStore2FPokefanMText:
 	text "I just recently"

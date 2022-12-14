@@ -576,9 +576,9 @@
 	const EVENT_MART_VIOLET_MISSED ; Only appear once the first lockdown started. ; 10 POKE_BALL S 2000.
 	const EVENT_MART_AZALEA_MISSED ; Only appear once the first lockdown started. ; 1 TOILET_PAPER 150.
 
-	const EVENT_MART_GOLDENROD_2F_MISSED ; Only accessible during curfew or freedom. ; 16 ULTRA_BALL S 17280.
-	const EVENT_MART_GOLDENROD_4F_1_MISSED ; Only accessible during curfew or freedom. ; 10 SUPER_REPEL S 4500.
-	const EVENT_MART_GOLDENROD_4F_2_MISSED ; Only accessible during curfew or freedom. ; 10 ELIXER S 27000.
+	const EVENT_MART_GOLDENROD_2F_MISSED ; Only accessible during curfew or freedom. ; 16 ULTRA_BALL S 15360.
+	const EVENT_MART_GOLDENROD_4F_1_MISSED ; Only accessible during curfew or freedom. ; 10 SUPER_REPEL S 4000.
+	const EVENT_MART_GOLDENROD_4F_2_MISSED ; Only accessible during curfew or freedom. ; 10 ELIXER S 24000.
 
 	const EVENT_MART_ECRUTEAK_MISSED ; 1 ULTRA_BALL 1200
 	const EVENT_MART_OLIVINE_MISSED ; 1 REVIVE 1500
@@ -587,8 +587,8 @@
 	const EVENT_MART_VERMILION_MISSED ; 3 escape ropes 1650
 	const EVENT_MART_SAFFRON_MISSED ; 1 PP_UP 9800
 	
-	const EVENT_MART_CELADON_2F_MISSED ; 16 Pokeball S 2880
-	const EVENT_MART_CELADON_3F_MISSED ; 8 calcium S 70560
+	const EVENT_MART_CELADON_2F_MISSED ; 16 Pokeball S 2560
+	const EVENT_MART_CELADON_3F_MISSED ; 8 calcium S 62720
 
 	const EVENT_MART_PEWTER_MISSED ; 1, MAX_REPEL, 700
 	const EVENT_MART_VIRIDIAN_MISSED ; 8, REPEL S, 2800

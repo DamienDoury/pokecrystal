@@ -38,10 +38,10 @@ GoldenrodDeptStore4FElevatorButton:
 	jumpstd ElevatorButtonScript
 
 GoldenrodDeptStore4FShelfItem1Script:
-	shelfitem 10, SUPER_REPEL, 4500
+	shelfitem 10, SUPER_REPEL, 4000
 
 GoldenrodDeptStore4FShelfItem2Script:
-	shelfitem 10, ELIXER, 27000
+	shelfitem 10, ELIXER, 24000
 
 GoldenrodDeptStore4FCooltrainerMText:
 	text "Hey. I love strong"
