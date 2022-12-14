@@ -609,9 +609,11 @@
 	const EVENT_WARDENS_NEIGHBOR_BACK_INTO_HOUSE
 	const EVENT_GOT_SAFARI_KEY_1
 	const EVENT_GOT_SAFARI_KEY_2
+	const EVENT_BOUGHT_SAFARI_PARK
+	const EVENT_SAFARI_PARK_EMPLOYEES
 
 
-; Unused: next 131 events
+; Unused: next 129 events
 
 	const_next 1000
 ; Trainer flags

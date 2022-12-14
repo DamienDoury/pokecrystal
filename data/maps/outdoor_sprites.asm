@@ -775,6 +775,7 @@ FuchsiaGroupSprites:
 	db SPRITE_BOULDER
 	db SPRITE_ROCK
 	db SPRITE_BUG_CATCHER
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 IndigoGroupSprites:

@@ -13,6 +13,8 @@
 	const FUCHSIACITY_ROCK1
 	const FUCHSIACITY_ROCK2
 	const FUCHSIACITY_ROCK3
+	const FUCHSIACITY_DOOR_BOULDER_CLEARED
+	const FUCHSIACITY_SAFARI_GATE
 
 FuchsiaCity_MapScripts:
 	def_scene_scripts
@@ -171,7 +173,27 @@ FuchsiaCityFruitTree2:
 	end
 
 SafariZoneDoorScript:
-	farwritetext GoldenrodUndergroundTheDoorsLockedText
+	checkitem SAFARI_KEY
+	iftrue .UseKey
+	
+	farjumptext GoldenrodUndergroundTheDoorsLockedText
+
+.UseKey
+	disappear FUCHSIACITY_SAFARI_GATE
+	moveobject FUCHSIACITY_SAFARI_GATE, 17,  2
+	appear FUCHSIACITY_SAFARI_GATE
+	takeitem SAFARI_KEY
+
+	opentext
+	writetext FuchsiaCity_KeyBrokeText
+	promptbutton
+	waitsfx
+	playsound SFX_ENTER_DOOR
+	waitsfx
+	writetext DoorUnlockedText
+	waitbutton
+	closetext
+	end
 	
 FuchsiaCityRareCandy:
 	hiddenitem RARE_CANDY, EVENT_FUCSHIA_RARE_CANDY
@@ -370,12 +392,8 @@ WardensHomeSignText:
 	done
 
 SafariZoneClosedSignText:
-	text "The WARDEN is"
-	line "traveling abroad."
-
-	para "Therefore, the"
-	line "SAFARI ZONE is"
-	cont "closed."
+	text "SAFARI ZONE"
+	para "FOR SALE"
 	done
 
 NoLitteringSignText:
@@ -444,6 +462,16 @@ HiddenKangaskhanText:
 	text "Wow! The wild"
 	line "#MON was right"
 	cont "behind the tree!"
+	done
+
+FuchsiaCity_KeyBrokeText:
+	text "<PLAYER> used the"
+	line "SAFARI KEY."
+	cont "… and it broke."
+	done
+	
+DoorUnlockedText:
+	text "The door unlocked."
 	done
 
 FuchsiaCity_StartExcavation:
@@ -517,5 +545,5 @@ FuchsiaCity_MapEvents:
 	object_event 29, 12, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 26, 31, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 33, 24, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
-	object_event 18,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneDoorScript, -1
 	object_event 32, 28, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_WARDENS_NEIGHBOR_BOULDER_CLEARED
+	object_event 18,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneDoorScript, EVENT_BOUGHT_SAFARI_PARK

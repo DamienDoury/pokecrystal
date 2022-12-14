@@ -9,6 +9,8 @@ SafariZoneBeta_MapEvents:
 	def_warp_events
 	warp_event  9, 23, SAFARI_ZONE_FUCHSIA_GATE_BETA, 1
 	warp_event 10, 23, SAFARI_ZONE_FUCHSIA_GATE_BETA, 2
+	warp_event  8, 23, SAFARI_ZONE_FUCHSIA_GATE_BETA, 1
+	warp_event 11, 23, SAFARI_ZONE_FUCHSIA_GATE_BETA, 2
 
 	def_coord_events
 
