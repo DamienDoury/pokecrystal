@@ -1530,7 +1530,6 @@ wTradeDialog::
 	db
 wFrameCounter2::
 wPrinterQueueLength::
-wUnusedSGB1eColorOffset::
 	db
 wUnusedTradeAnimPlayEvolutionMusic:: db
 
@@ -2719,10 +2718,10 @@ wPlayerData::
 wPlayerID:: dw
 
 wPlayerName:: ds NAME_LENGTH
-wMomsName::   ds NAME_LENGTH
+wMomsName::   ds NAME_LENGTH ; unused
 wRivalName::  ds NAME_LENGTH
-wRedsName::   ds NAME_LENGTH
-wGreensName:: ds NAME_LENGTH
+wRedsName::   ds NAME_LENGTH ; unused
+wGreensName:: ds NAME_LENGTH ; unused
 
 wSavedAtLeastOnce:: db
 wSpawnAfterChampion:: db

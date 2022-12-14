@@ -217,7 +217,7 @@ SwimmermJeromeAfterBattleText:
 Route19Fisher1Text:
 	text "Sorry. This road"
 	line "is closed for"
-	cont "construction."
+	cont "roadwork."
 
 	para "If you want to get"
 	line "to CINNABAR, you'd"
@@ -234,7 +234,8 @@ Route19Fisher1Text_RocksCleared:
 Route19Fisher2Text:
 	text "Who knows how long"
 	line "it will take to"
-	cont "move this boulder…"
+	cont "clear these"
+	cont "boulders…"
 	done
 
 Route19Fisher2SequelText:

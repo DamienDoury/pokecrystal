@@ -9,7 +9,6 @@
 	const FUCHSIACITY_BOULDER1
 	const FUCHSIACITY_BOULDER2
 	const FUCHSIACITY_BOULDER3
-	const FUCHSIACITY_BOULDER4
 	const FUCHSIACITY_POKEBALL
 	const FUCHSIACITY_ROCK1
 	const FUCHSIACITY_ROCK2
@@ -245,7 +244,7 @@ FuchsiaCityBlockerText:
 
 FuchsiaCityBlockerText2:
 	text "What? You want"
-	line "to go west?"
+	line "to go east?"
 	done
 
 FuchsiaCityBlockerText25:
@@ -460,7 +459,6 @@ FuchsiaCity_MapEvents:
 	object_event 31, 27, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, -1
 	object_event 37, 23, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
 	object_event 37, 22, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, EVENT_BEAT_JANINE
-	object_event 18, 28, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityBoulderScript, -1
 	object_event 25,  6, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, FuchsiaCityPokeball, EVENT_FUCSHIA_POKEBALL
 	object_event 28, 14, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
 	object_event 26, 31, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FuchsiaCityRockScript, -1
