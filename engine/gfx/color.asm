@@ -235,36 +235,6 @@ LoadNthMiddleBGPal:
 	call LoadPalette_White_Col1_Col2_Black
 	ret
 
-LoadBetaPokerPalettes: ; unreferenced
-	ldh a, [hCGB]
-	and a
-	jr nz, .cgb
-	ld hl, wBetaPokerSGBPals
-	jp PushSGBPals
-
-.cgb
-	ld a, [wBetaPokerSGBCol]
-	ld c, a
-	ld a, [wBetaPokerSGBRow]
-	hlcoord 0, 0, wAttrmap
-	ld de, SCREEN_WIDTH
-.loop
-	and a
-	jr z, .done
-	add hl, de
-	dec a
-	jr .loop
-
-.done
-	ld b, 0
-	add hl, bc
-	lb bc, 6, 4
-	ld a, [wBetaPokerSGBAttr]
-	and $3
-	call FillBoxCGB
-	call CopyTilemapAtOnce
-	ret
-
 ApplyMonOrTrainerPals:
 	call CheckCGB
 	ret z
@@ -704,51 +674,8 @@ GetMonPalettePointer:
 	call _GetMonPalettePointer
 	ret
 
-CGBCopyBattleObjectPals: ; unreferenced
-; dummied out
-	ret
-	call CheckCGB
-	ret z
-	ld hl, BattleObjectPals
-	ld a, (1 << rOBPI_AUTO_INCREMENT) | $10
-	ldh [rOBPI], a
-	ld c, 6 palettes
-.loop
-	ld a, [hli]
-	ldh [rOBPD], a
-	dec c
-	jr nz, .loop
-	ld hl, BattleObjectPals
-	ld de, wOBPals1 palette 2
-	ld bc, 2 palettes
-	ld a, BANK(wOBPals1)
-	call FarCopyWRAM
-	ret
-
 BattleObjectPals:
 INCLUDE "gfx/battle_anims/battle_anims.pal"
-
-CGBCopyTwoPredefObjectPals: ; unreferenced
-	call CheckCGB
-	ret z
-	ld a, (1 << rOBPI_AUTO_INCREMENT) | $10
-	ldh [rOBPI], a
-	ld a, PREDEFPAL_TRADE_TUBE
-	call GetPredefPal
-	call .PushPalette
-	ld a, PREDEFPAL_RB_GREENMON
-	call GetPredefPal
-	call .PushPalette
-	ret
-
-.PushPalette:
-	ld c, 1 palettes
-.loop
-	ld a, [hli]
-	ldh [rOBPD], a
-	dec c
-	jr nz, .loop
-	ret
 
 _GetMonPalettePointer:
 	ld l, a
@@ -940,20 +867,6 @@ _InitSGBBorderPals:
 	dw DataSndPacket6
 	dw DataSndPacket7
 	dw DataSndPacket8
-
-UpdateSGBBorder: ; unreferenced
-	di
-	xor a
-	ldh [rJOYP], a
-	ld hl, MaskEnFreezePacket
-	call _PushSGBPals
-	call PushSGBBorder
-	call SGBDelayCycles
-	call SGB_ClearVRAM
-	ld hl, MaskEnCancelPacket
-	call _PushSGBPals
-	ei
-	ret
 
 PushSGBBorder:
 	call .LoadSGBBorderPointers
@@ -1242,11 +1155,9 @@ LoadMapPals:
 	ldh [rSVBK], a
 
 .got_bg_pals
-	ld de, MapObjectPals
-	call DoesCurrentMapUsesPurpleOWSprites
-	jr nc, .normal_sprite_palette
-	ld de, MapObjectPalsPurple
-.normal_sprite_palette:
+	call GetCustomMapObjectsPalette
+	ld d, h
+	ld e, l
 	ld a, [wTimeOfDayPal]
 	maskbits NUM_DAYTIMES
 	ld bc, 8 palettes
@@ -1296,10 +1207,10 @@ endr
 	ret
 
 
-; Returns carry if the current map must use the purple palette.
-; Destroys a, bc and hl.
-DoesCurrentMapUsesPurpleOWSprites:
-
+; Input: none.
+; Output: HL = address of the OBJ pal to use.
+; Destroys a and bc.
+GetCustomMapObjectsPalette:
 	ld a, BANK(wMapGroup)
 	ld hl, wMapGroup
 	call GetFarWRAMByte
@@ -1308,22 +1219,34 @@ DoesCurrentMapUsesPurpleOWSprites:
 	ld hl, wMapNumber
 	call GetFarWRAMByte
 	ld c, a
-	ld hl, PurpleMapList
+	ld hl, CustomOBJPalMapList
 .loop
 	ld a, [hli] ; group
-	and a ; unsets the carry flag.
-	ret z ; end.
+	and a
+	jr z, .return_default_pal
+
 	cp b
 	ld a, [hli] ; map
-	jr nz, .loop
+	jr nz, .next
 	cp c
-	jr nz, .loop
-	scf ; set carry flag.
+	jr z, .return_custom_pal
+
+.next
+	inc hl 
+	inc hl
+	jr .loop
+
+.return_default_pal
+	ld hl, MapObjectPals
 	ret
 
-
-
-
+.return_custom_pal
+	ld a, [hli]
+	ld b, a
+	ld a, [hl]
+	ld h, a
+	ld l, b
+	ret
 
 
 
@@ -1492,15 +1415,9 @@ _ForceTimeOfDayPaletteSmoothing::
 	ld a, l
 	ld [wAddressStorage + 1], a
 
-	ld hl, MapObjectPals + 2
-	push hl
-	call DoesCurrentMapUsesPurpleOWSprites
-	pop hl
-	jr nc, .not_purple
-; is purple map.
-	ld hl, MapObjectPalsPurple + 2
-
-.not_purple
+	call GetCustomMapObjectsPalette
+	inc hl
+	inc hl
 	call TimeOfDayNextOBJPalette ; Further refine by time of day
 
 ; For each OBJ palette, get the current palette and the next time of day palette, then lerp the colors, then apply it.
@@ -2337,7 +2254,7 @@ SetHospitalMonSpecies::
 	call CloseSRAM
 	ret
 
-INCLUDE "data/sprites/maps_with_purple_objects.asm"
+INCLUDE "data/sprites/maps_with_custom_obj_pals.asm"
 
 INCLUDE "data/maps/environment_colors.asm"
 
@@ -2356,8 +2273,11 @@ INCLUDE "gfx/overworld/npc_sprites.pal"
 MapObjectPalsPurple::
 INCLUDE "gfx/overworld/npc_sprites_purple.pal"
 
-BetaPokerPals:
-INCLUDE "gfx/beta_poker/beta_poker.pal"
+MapObjectsPalRoute19::
+INCLUDE "gfx/overworld/npc_sprites_route_19.pal"
+
+MapObjectsPalVermilion::
+INCLUDE "gfx/overworld/npc_sprites_vermilion.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"
@@ -2372,9 +2292,6 @@ INCLUDE "gfx/diploma/diploma.pal"
 
 PartyMenuOBPals:
 INCLUDE "gfx/stats/party_menu_ob.pal"
-
-UnusedBattleObjectPals: ; unreferenced
-INCLUDE "gfx/battle_anims/unused_battle_anims.pal"
 
 UnusedGSTitleBGPals:
 INCLUDE "gfx/title/unused_gs_bg.pal"

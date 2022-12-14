@@ -43,11 +43,9 @@ CGBLayoutJumptable:
 	dw _CGB_PartyMenu
 	dw _CGB_Evolution
 	dw _CGB_GSTitleScreen
-	dw _CGB_Unused0D
 	dw _CGB_MoveList
 	dw _CGB_BetaPikachuMinigame
 	dw _CGB_PokedexSearchOption
-	dw _CGB_BetaPoker
 	dw _CGB_Pokepic
 	dw _CGB_MagnetTrain
 	dw _CGB_PackPals
@@ -61,7 +59,6 @@ CGBLayoutJumptable:
 	dw _CGB_TradeTube
 	dw _CGB_TrainerOrMonFrontpicPals
 	dw _CGB_MysteryGift
-	dw _CGB_Unused1E
 	assert_table_length NUM_SCGB_LAYOUTS
 
 _CGB_BattleGrayscale:
@@ -480,17 +477,6 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	call WipeAttrmap
 	ret
 
-_CGB_BetaPoker:
-	ld hl, BetaPokerPals
-	ld de, wBGPals1
-	ld bc, 5 palettes
-	ld a, BANK(wBGPals1)
-	call FarCopyWRAM
-	call ApplyPals
-	call WipeAttrmap
-	call ApplyAttrmap
-	ret
-
 _CGB_Diploma:
 	ld hl, DiplomaPalettes
 	ld de, wBGPals1
@@ -569,13 +555,6 @@ _CGB_GSTitleScreen:
 	call ApplyPals
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
-	ret
-
-_CGB_Unused0D:
-	ld hl, PalPacket_Diploma + 1
-	call CopyFourPalettes
-	call WipeAttrmap
-	call ApplyAttrmap
 	ret
 
 _CGB_UnownPuzzle:
@@ -1080,15 +1059,6 @@ _CGB_PlayerOrMonFrontpicPals:
 	call WipeAttrmap
 	call ApplyAttrmap
 	call ApplyPals
-	ret
-
-_CGB_Unused1E:
-	ld de, wBGPals1
-	ld a, [wCurPartySpecies]
-	call GetMonPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	call WipeAttrmap
-	call ApplyAttrmap
 	ret
 
 _CGB_TradeTube:
