@@ -2963,7 +2963,6 @@ wEcruteakTinTowerEntranceSceneID::                db
 wWiseTriosRoomSceneID::                           db
 wEcruteakPokecenter1FSceneID::                    db
 wEcruteakGymSceneID::                             db
-wMahoganyTownSceneID::                            db
 wRoute42SceneID::                                 db
 wCianwoodCitySceneID::                            db
 wBattleTower1FSceneID::                           db
@@ -3007,6 +3006,8 @@ wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
+
+	ds 1
 
 wEventFlags:: flag_array NUM_EVENTS
 
