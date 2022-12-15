@@ -163,16 +163,6 @@ MahoganyMart1FLanceGoDownStairsMovement:
 	slow_step DOWN
 	step_end
 
-MahoganyMart1FRageCandyBarText: ; unreferenced
-	text "Hello, kiddo!"
-
-	para "How would you like"
-	line "some RAGECANDYBAR?"
-
-	para "It's the thing to"
-	line "eat in MAHOGANY!"
-	done
-
 MahoganyMart1FPharmacistText_LanceEntered:
 	text "Arrgh… You found"
 	line "the secret stair-"
@@ -184,11 +174,15 @@ MahoganyMart1FBlackBeltText:
 	line "ment worked like a"
 	cont "charm."
 
-	para "MAGIKARP are just"
-	line "worthless, but"
+	para "The signal is"
+	line "emitting"
 
-	para "GYARADOS are big"
-	line "moneymakers."
+	para "over a great"
+	line "distance!"
+
+	para "The MAGIKARP side-"
+	line "issue is no"
+	cont "big deal."
 	done
 
 MahoganyMart1FBlackBeltText_LanceEntered:

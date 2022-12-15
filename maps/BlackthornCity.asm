@@ -63,7 +63,7 @@ BlackthornGramps2Script:
 BlackthornBlackBeltScript:
 	faceplayer
 	opentext
-	checkevent EVENT_CLEARED_RADIO_TOWER
+	checkevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	iftrue .ClearedRadioTower
 	writetext BlackBeltText_WeirdRadio
 	waitbutton

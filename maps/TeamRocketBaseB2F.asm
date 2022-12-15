@@ -805,18 +805,16 @@ GruntM18BeatenText:
 	done
 
 GruntM18AfterBattleText:
-	text "I got wiped out on"
-	line "the last mission"
-	cont "by a kid too."
+	text "The MAGIKARPS"
+	line "evolving because"
 
-	para "When we were ab-"
-	line "ducting #MON,"
+	para "of the signal"
+	line "wasn't our"
+	cont "intention."
 
-	para "this kid with long"
-	line "red hair and mean-"
-
-	para "looking eyes just"
-	line "creamed me…"
+	para "It brought"
+	line "attention to us,"
+	cont "which is a bummer."
 	done
 
 GruntM19SeenText:

@@ -519,20 +519,29 @@ ScientistRossBeatenText:
 	done
 
 ScientistRossAfterBattleText:
-	text "My experiment is a"
-	line "complete success."
+	text "All right, I"
+	line "actually got fired"
+	cont "from SILPH CO."
 
-	para "My promotion is"
-	line "assured. This loss"
+	para "And now I can't"
+	line "configure this"
+	
+	para "transmitter to"
+	line "decode voice"
+	cont "signals."
 
-	para "means absolutely"
-	line "nothing."
+	para "It's emitting this"
+	line "garbage noise,"
+	cont "I can't stand it!"
 	done
 
 ScientistMitchSeenText:
 	text "I don't care that"
 	line "#MON are hurt"
 	cont "by our experiment."
+
+	para "It's a side-"
+	line "product."
 	done
 
 ScientistMitchBeatenText:
