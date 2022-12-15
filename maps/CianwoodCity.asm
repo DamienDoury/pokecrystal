@@ -200,11 +200,7 @@ ChucksWifeEasierToFlyText:
 	done
 
 ChucksWifeBeatChuckText:
-	text "But you can't use"
-	line "FLY without this"
-	cont "city's GYM BADGE."
-
-	para "If you beat the"
+	text "If you beat the"
 	line "GYM LEADER here,"
 	cont "come see me."
 
@@ -216,7 +212,8 @@ ChucksWifeGiveHMText:
 	text "That's CIANWOOD's"
 	line "GYM BADGE!"
 
-	para "Then you should"
+	para "As our tradition"
+	line "obliges, please"
 	line "take this HM."
 	done
 
@@ -229,6 +226,27 @@ ChucksWifeFlySpeechText:
 
 	para "to anywhere you "
 	line "have visited."
+
+	para "However, as you"
+	line "know, it is"
+	
+	para "currently forbid-"
+	line "den to travel by"
+	cont "the air."
+
+	para "If you or your"
+	line "#MON are sick,"
+
+	para "you could bring"
+	line "the virus to far"
+	cont "away places."
+
+	para "You may get"
+	line "arrested for"
+	cont "using FLY."
+
+	para "Use it at you"
+	line "own risks."
 	done
 
 ChucksWifeChubbyText:

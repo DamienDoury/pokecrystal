@@ -305,11 +305,9 @@ PlayerReceivedPlainBadgeText:
 	done
 
 WhitneyPlainBadgeText:
-	text "PLAINBADGE lets"
-	line "your #MON use"
-
-	para "STRENGTH outside"
-	line "of battle."
+	text "PLAINBADGE isn't"
+	line "given to a lot"
+	cont "trainers."
 	done
 
 WhitneyPlainBadgeText2:

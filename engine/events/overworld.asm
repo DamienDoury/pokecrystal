@@ -61,6 +61,40 @@ CheckBadge:
 	text_far _BadgeRequiredText
 	text_end
 
+; Input: A = the ID of the HM item.
+CheckHM:
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .return_nc
+
+	ld hl, .HMRequiredText
+	call MenuTextboxBackup ; push text to queue
+	scf
+	ret
+
+.return_nc
+	xor a
+	ret
+
+.HMRequiredText:
+	text_far _HMRequiredText
+	text_end
+
+; Input: A = the ID of the HM item.
+CheckHMSilent:
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr c, .return_nc
+
+	scf
+	ret
+
+.return_nc
+	xor a
+	ret
+
 CheckPartyMove:
 ; Check if a monster in your party has move d.
 
@@ -130,17 +164,18 @@ CutFunction:
 	dw .FailCut
 
 .CheckAble:
-;	ld de, ENGINE_ZEPHYRBADGE
-;	call CheckBadge
-;	jr c, .nozephyrbadge
+	ld a, HM_CUT
+	call CheckHM
+	jr c, .notOwned
+
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 	ld a, $1
 	ret
 
-;.nozephyrbadge
-;	ld a, $80
-;	ret
+.notOwned
+	ld a, $80
+	ret
 
 .nothingtocut
 	ld a, $2
@@ -279,9 +314,10 @@ FlashFunction:
 
 .CheckUseFlash:
 ; Flash
-	ld de, ENGINE_HIVEBADGE
-	farcall CheckBadge
-	jr c, .nohivebadge
+	ld a, HM_FLASH
+	call CheckHM
+	jr c, .notOwned
+
 	push hl
 	farcall SpecialAerodactylChamber
 	pop hl
@@ -299,7 +335,7 @@ FlashFunction:
 	ld a, $80
 	ret
 
-.nohivebadge
+.notOwned
 	ld a, $80
 	ret
 
@@ -345,9 +381,10 @@ SurfFunction:
 	dw .AlreadySurfing
 
 .TrySurf:
-	ld de, ENGINE_FOGBADGE
-	call CheckBadge
-	jr c, .nofogbadge
+	ld a, HM_SURF
+	call CheckHM
+	jr c, .notOwned
+
 	ld hl, wBikeFlags
 	bit BIKEFLAGS_ALWAYS_ON_BIKE_F, [hl]
 	jr nz, .cannotsurf
@@ -366,7 +403,7 @@ SurfFunction:
 	jr c, .cannotsurf
 	ld a, $1
 	ret
-.nofogbadge
+.notOwned
 	ld a, $80
 	ret
 .alreadyfail
@@ -502,8 +539,8 @@ TrySurfOW::
 	call CheckDirection
 	jr c, .quit
 
-	ld de, ENGINE_FOGBADGE
-	call CheckEngineFlag
+	ld a, HM_SURF
+	call CheckHMSilent
 	jr c, .quit
 
 	ld d, SURF
@@ -558,9 +595,10 @@ FlyFunction:
 
 .TryFly:
 ; Fly
-	ld de, ENGINE_STORMBADGE
-	call CheckBadge
-	jr c, .nostormbadge
+	ld a, HM_FLY
+	call CheckHM
+	jr c, .notOwned
+
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
@@ -583,7 +621,7 @@ FlyFunction:
 	ld a, $1
 	ret
 
-.nostormbadge
+.notOwned
 	ld a, $82
 	ret
 
@@ -639,10 +677,11 @@ WaterfallFunction:
 
 .TryWaterfall:
 ; Waterfall
-	ld de, ENGINE_RISINGBADGE
-	farcall CheckBadge
+	ld a, HM_WATERFALL
+	call CheckHM
 	ld a, $80
 	ret c
+
 	call CheckMapCanWaterfall
 	jr c, .failed
 	ld hl, Script_WaterfallFromMenu
@@ -709,8 +748,8 @@ TryWaterfallOW::
 	ld d, WATERFALL
 	call CheckPartyMove
 	jr c, .failed
-	ld de, ENGINE_RISINGBADGE
-	call CheckEngineFlag
+	ld a, HM_WATERFALL
+	call CheckHMSilent
 	jr c, .failed
 	call CheckMapCanWaterfall
 	jr c, .failed
@@ -965,16 +1004,11 @@ StrengthFunction:
 
 .TryStrength:
 ; Strength
-	ld de, ENGINE_PLAINBADGE
-	call CheckBadge
-	jr c, .Failed
-	jr .UseStrength
-
-.Failed:
+	ld a, HM_STRENGTH
+	call CheckHM
 	ld a, $80
-	ret
+	ret c
 
-.UseStrength:
 	ld hl, Script_StrengthFromMenu
 	call QueueScript
 	ld a, $81
@@ -1052,8 +1086,8 @@ TryStrengthOW:
 	call CheckPartyMove
 	jr c, .nope
 
-	ld de, ENGINE_PLAINBADGE
-	call CheckEngineFlag
+	ld a, HM_STRENGTH
+	call CheckHMSilent
 	jr c, .nope
 
 	ld hl, wBikeFlags
@@ -1091,9 +1125,10 @@ WhirlpoolFunction:
 	dw .FailWhirlpool
 
 .TryWhirlpool:
-	ld de, ENGINE_GLACIERBADGE
-	call CheckBadge
-	jr c, .noglacierbadge
+	ld a, HM_WHIRLPOOL
+	call CheckHM
+	jr c, .notOwned
+
 	call TryWhirlpoolMenu
 	jr c, .failed
 	ld a, $1
@@ -1103,7 +1138,7 @@ WhirlpoolFunction:
 	ld a, $2
 	ret
 
-.noglacierbadge
+.notOwned
 	ld a, $80
 	ret
 
@@ -1185,8 +1220,8 @@ TryWhirlpoolOW::
 	ld d, WHIRLPOOL
 	call CheckPartyMove
 	jr c, .failed
-	ld de, ENGINE_GLACIERBADGE
-	call CheckEngineFlag
+	ld a, HM_WHIRLPOOL
+	call CheckHMSilent
 	jr c, .failed
 	call TryWhirlpoolMenu
 	jr c, .failed
@@ -1785,9 +1820,9 @@ TryCutOW::
 	call CheckPartyMove
 	jr c, .cant_cut
 
-;	ld de, ENGINE_ZEPHYRBADGE
-;	call CheckEngineFlag
-;	jr c, .cant_cut
+	ld a, HM_CUT
+	call CheckHMSilent
+	jr c, .cant_cut
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript

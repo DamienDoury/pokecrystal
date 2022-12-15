@@ -275,14 +275,11 @@ Text_ReceivedFogBadge:
 	done
 
 MortyText_FogBadgeSpeech:
-	text "By having FOG-"
-	line "BADGE,"
+	text "By obtaining FOG-"
+	line "BADGE, you proved"
 
-	para "Also, #MON that"
-	line "know SURF will be"
-
-	para "able to use that"
-	line "move anytime."
+	para "nothing can"
+	line "scare you."
 	done
 
 MortyText_FogBadgeSpeech2:

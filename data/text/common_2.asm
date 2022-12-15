@@ -314,6 +314,11 @@ _NameCardLinkCommErrorText::
 	line "error."
 	prompt
 
+_HMRequiredText::
+	text "Sorry! You must"
+	line "own the HM."
+	prompt
+
 _BadgeRequiredText::
 	text "Sorry! A new BADGE"
 	line "is required."

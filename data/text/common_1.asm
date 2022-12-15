@@ -1300,11 +1300,6 @@ _TradingMonForOTMonText::
 
 ; Mobile Adapter End
 
-_ObtainedTheVoltorbBadgeText:: ; unreferenced
-	text "Obtained the"
-	line "VOLTORBBADGE!"
-	done
-
 _AskFloorElevatorText::
 	text "Which floor?"
 	done

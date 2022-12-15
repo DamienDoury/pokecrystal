@@ -804,10 +804,9 @@ PicnickerLiz1AfterText:
 	done
 
 BirdKeeperPeterSeenText:
-	text "That BADGE! It's"
-	line "from VIOLET CITY!"
-
-	para "You beat FALKNER?"
+	text "Have you beaten"
+	line "FALKNER from"
+	cont "VIOLET CITY?"
 	done
 
 BirdKeeperPeterBeatenText:

@@ -287,11 +287,11 @@ GetStormBadgeText:
 	done
 
 ChuckExplainBadgeText:
-	text "STORMBADGE lets"
-	para "your #MON use"
+	text "STORMBADGE is"
+	line "only given to"
 
-	para "FLY when you're"
-	line "not in a battle."
+	para "the toughest"
+	line "of trainers."
 	done
 
 ChuckExplainBadgeText2:

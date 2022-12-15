@@ -269,11 +269,9 @@ Text_ReceivedGlacierBadge:
 	done
 
 PryceText_GlacierBadgeSpeech:
-	text "That BADGE lets"
-	line "your #MON use"
-	cont "WHIRLPOOL to get"
-	cont "across real"
-	cont "whirlpools."
+	text "This BADGE got"
+	line "you prepared for"
+	cont "the ICE PATH."
 	done
 
 PryceText_GlacierBadgeSpeech2:

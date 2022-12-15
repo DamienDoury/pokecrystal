@@ -91,10 +91,8 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
 	setevent EVENT_BEAT_BUG_CATCHER_AL
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
-	writetext BugsyText_HiveBadgeSpeech
-	promptbutton
 	scall NewBadgeObedienceNotification
-	writetext BugsyText_HiveBadgeSpeech2
+	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_FURY_CUTTER
 	iffalse .NoRoomForFuryCutter
@@ -276,18 +274,6 @@ Text_ReceivedHiveBadge:
 	done
 
 BugsyText_HiveBadgeSpeech:
-	text "Do you know the"
-	line "benefits of HIVE-"
-	cont "BADGE?"
-
-	para "#MON that know"
-	line "FLASH will be able"
-
-	para "to use it outside"
-	line "of battle too."
-	done
-
-BugsyText_HiveBadgeSpeech2:
 	text "Here, I also want"
 	line "you to have this."
 	done

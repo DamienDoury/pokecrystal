@@ -248,12 +248,18 @@ SageLiFlashExplanationText:
 	line "even the darkest"
 	cont "of all places."
 
-	para "But to use it out"
-	line "of battle, you"
+	para "You can use it"
+	line "right away."
+	
+	para "No BADGE is"
+	line "required to"
+	cont "use HMs."
 
-	para "need the BADGE"
-	line "from AZALEA's"
-	cont "GYM."
+	para "You only need to"
+	line "carry the HM,"
+
+	para "and teach it"
+	line "to a #MON."
 	done
 
 SageLiAfterBattleText:
