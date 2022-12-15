@@ -93,6 +93,9 @@ AzaleaGymBugsyScript:
 	setevent EVENT_BEAT_BUG_CATCHER_JOSH
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
+	scall NewBadgeObedienceNotification
+	writetext BugsyText_HiveBadgeSpeech2
+	promptbutton
 	verbosegiveitem TM_FURY_CUTTER
 	iffalse .NoRoomForFuryCutter
 	setevent EVENT_GOT_TM49_FURY_CUTTER
@@ -188,6 +191,41 @@ AzaleaGymStatue:
 	gettrainername STRING_BUFFER_4, BUGSY, BUGSY1
 	jumpstd GymStatue2Script
 
+NewBadgeObedienceNotification:
+	readvar VAR_BADGES
+	ifequal 8, .obey100
+	ifequal 7, .obey60
+	ifequal 5, .obey50
+	ifequal 3, .obey40
+	ifequal 1, .obey30
+	end
+
+.obey100
+	farwritetext Obey100
+	promptbutton
+	end
+
+.obey60
+	farwritetext Obey60
+	promptbutton
+	end
+
+.obey50
+	farwritetext Obey50
+	promptbutton
+	end
+
+.obey40
+	farwritetext Obey40
+	promptbutton
+	end
+
+.obey30
+	writetext Obey30
+	promptbutton
+	end
+
+
 BugsyText_INeverLose:
 	text "I'm BUGSY!"
 	line "I never lose when"
@@ -242,20 +280,24 @@ BugsyText_HiveBadgeSpeech:
 	line "benefits of HIVE-"
 	cont "BADGE?"
 
-	para "If you have it,"
-	line "#MON up to L30"
-
-	para "will obey you,"
-	line "even traded ones."
-
 	para "#MON that know"
 	line "FLASH will be able"
 
 	para "to use it outside"
 	line "of battle too."
+	done
 
-	para "Here, I also want"
+BugsyText_HiveBadgeSpeech2:
+	text "Here, I also want"
 	line "you to have this."
+	done
+
+Obey30:
+	text "With this first"
+	line "badge in hand,"
+	
+	para "#MON up to L30"
+	line "will obey you."
 	done
 
 BugsyText_FuryCutterSpeech:

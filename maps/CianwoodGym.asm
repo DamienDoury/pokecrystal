@@ -116,6 +116,9 @@ CianwoodGymChuckScript:
 	setevent EVENT_BEAT_BLACKBELT_LUNG
 	writetext ChuckExplainBadgeText
 	promptbutton
+	farscall NewBadgeObedienceNotification
+	writetext ChuckExplainBadgeText2
+	promptbutton
 	verbosegiveitem TM_DYNAMICPUNCH
 	iffalse .BagFull
 	setevent EVENT_GOT_TM01_DYNAMICPUNCH
@@ -284,20 +287,33 @@ GetStormBadgeText:
 	done
 
 ChuckExplainBadgeText:
-	text "STORMBADGE makes"
-	line "all #MON up to"
+	text "STORMBADGE lets"
+	para "your #MON use"
 
-	para "L70 obey, even"
-	line "traded ones."
+	para "FLY when you're"
+	line "not in a battle."
+	done
 
-	para "It also lets your"
-	line "#MON use FLY"
-
-	para "when you're not in"
-	line "a battle."
-
-	para "Here, take this"
+ChuckExplainBadgeText2:
+	text "Here, take this"
 	line "too!"
+	done
+
+Obey40:
+	text "This third badge"
+	line "lets all #MON"
+
+	para "up to L40 obey,"
+	line "even traded ones."
+	done
+
+Obey60:
+	text "The seventh badge"
+	line "you just earned"
+	cont "make #MON obey"
+	
+	para "as long as they"
+	line "are under L60."
 	done
 
 ChuckExplainTMText:

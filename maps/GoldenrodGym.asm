@@ -116,6 +116,9 @@ GoldenrodGymWhitneyScript:
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton
+	farscall NewBadgeObedienceNotification
+	writetext WhitneyPlainBadgeText2
+	promptbutton
 	verbosegiveitem TM_ATTRACT
 	iffalse .NoRoomForAttract
 	setevent EVENT_GOT_TM45_ATTRACT
@@ -307,8 +310,10 @@ WhitneyPlainBadgeText:
 
 	para "STRENGTH outside"
 	line "of battle."
+	done
 
-	para "Oh, you can have"
+WhitneyPlainBadgeText2:
+	text "Oh, you can have"
 	line "this too!"
 	done
 

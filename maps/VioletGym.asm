@@ -101,6 +101,9 @@ VioletGymFalknerScript:
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
 	writetext FalknerZephyrBadgeText
 	promptbutton
+	farscall NewBadgeObedienceNotification
+	writetext FalknerZephyrBadgeText2
+	promptbutton
 	verbosegiveitem TM_MUD_SLAP
 	iffalse .NoRoomForMudSlap
 	setevent EVENT_GOT_TM31_MUD_SLAP
@@ -244,8 +247,10 @@ FalknerZephyrBadgeText:
 	line "recognition of"
 	cont "your worth as a"
 	cont "trainer."
+	end
 
-	para "Here--take this."
+FalknerZephyrBadgeText2:
+	text "Here--take this."
 	done
 
 FalknerTMMudSlapText:

@@ -99,6 +99,9 @@ MahoganyGymPryceScript:
 	setevent EVENT_BEAT_BOARDER_DOUGLAS
 	writetext PryceText_GlacierBadgeSpeech
 	promptbutton
+	farscall NewBadgeObedienceNotification
+	writetext PryceText_GlacierBadgeSpeech2
+	promptbutton
 	verbosegiveitem TM_ICY_WIND
 	iffalse MahoganyGym_NoRoomForIcyWind
 	setevent EVENT_GOT_TM16_ICY_WIND
@@ -271,8 +274,10 @@ PryceText_GlacierBadgeSpeech:
 	cont "WHIRLPOOL to get"
 	cont "across real"
 	cont "whirlpools."
+	done
 
-	para "And this… This is"
+PryceText_GlacierBadgeSpeech2:
+	text "And this… This is"
 	line "a gift from me!"
 	done
 

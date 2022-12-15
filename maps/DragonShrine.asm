@@ -167,6 +167,7 @@ DragonShrine_MapScripts:
 	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
 	writetext DragonShrinePlayerReceivedRisingBadgeText
 	promptbutton
+	farscall NewBadgeObedienceNotification
 	writetext DragonShrineRisingBadgeExplanationText
 	waitbutton
 	closetext
@@ -640,13 +641,16 @@ DragonShrineRisingBadgeExplanationText:
 	para "#MON to use the"
 	line "move for climbing"
 	cont "waterfalls."
+	done
 
-	para "Also, all #MON"
-	line "will recognize you"
-
+Obey100:
+	text "With this last"
+	line "badge, all #MON"
+	cont "will recognize you"
+	
 	para "as a trainer and"
 	line "obey your every"
-
+	
 	para "command without"
 	line "question."
 	done

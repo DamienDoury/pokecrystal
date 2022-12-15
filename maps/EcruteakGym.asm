@@ -99,6 +99,9 @@ EcruteakGymMortyScript:
 	setevent EVENT_BEAT_MEDIUM_GRACE
 	writetext MortyText_FogBadgeSpeech
 	promptbutton
+	farscall NewBadgeObedienceNotification
+	writetext MortyText_FogBadgeSpeech2
+	promptbutton
 	verbosegiveitem TM_SHADOW_BALL
 	iffalse .NoRoomForShadowBall
 	setevent EVENT_GOT_TM30_SHADOW_BALL
@@ -273,19 +276,26 @@ Text_ReceivedFogBadge:
 
 MortyText_FogBadgeSpeech:
 	text "By having FOG-"
-	line "BADGE, #MON up"
-
-	para "to L50 will obey"
-	line "you."
+	line "BADGE,"
 
 	para "Also, #MON that"
 	line "know SURF will be"
 
 	para "able to use that"
 	line "move anytime."
+	done
 
-	para "I want you to have"
+MortyText_FogBadgeSpeech2:
+	text "I want you to have"
 	line "this too."
+	done
+
+Obey50:
+	text "Traded #MON up"
+	line "to L50 will obey"
+	
+	para "you with this"
+	line "fifth badge."
 	done
 
 MortyText_ShadowBallSpeech:
