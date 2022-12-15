@@ -319,6 +319,11 @@ _HMRequiredText::
 	line "own the HM."
 	prompt
 
+_CantDepositText::
+	text "Can't deposit"
+	line "this item."
+	prompt
+
 _BadgeRequiredText::
 	text "Sorry! A new BADGE"
 	line "is required."
