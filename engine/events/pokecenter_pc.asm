@@ -487,18 +487,17 @@ PlayerDepositItemMenu:
 	text_end
 
 .TryDepositItem:
-	ld a, [wSpriteUpdatesEnabled]
-	push af
-	ld a, FALSE
-	ld [wSpriteUpdatesEnabled], a
 	farcall CheckItemPocket
 	ld a, [wItemAttributeValue]
 	cp KEY_ITEM
 	jr z, .CantDeposit
-	
 	cp TM_HM
 	jr z, .CantDeposit
 
+	ld a, [wSpriteUpdatesEnabled]
+	push af
+	ld a, FALSE
+	ld [wSpriteUpdatesEnabled], a
 	farcall CheckItemMenu
 	ld a, [wItemAttributeValue]
 	ld hl, .dw
@@ -510,7 +509,6 @@ PlayerDepositItemMenu:
 .CantDeposit
 	ld hl, .CantDepositText
 	call MenuTextboxBackup ; push text to queue
-	pop af
 	ret
 
 .CantDepositText
