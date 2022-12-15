@@ -26,6 +26,7 @@ Tilesets::
 	tileset TilesetLab
 	tileset TilesetFacility
 	tileset TilesetMart
+	tileset TilesetMartRushed
 	tileset TilesetMansion
 	tileset TilesetGameCorner
 	tileset TilesetEliteFourRoom

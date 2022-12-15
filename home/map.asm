@@ -1383,7 +1383,36 @@ LoadTilesetGFX::
 	ld l, a
 	ld a, [wTilesetBank]
 	ld e, a
+	cp BANK(TilesetMartGFX)
+	jr nz, .tileset_determined
 
+	ld a, l
+	cp LOW(TilesetMartGFX)
+	jr nz, .tileset_determined
+
+	ld a, h
+	cp HIGH(TilesetMartGFX)
+	jr nz, .tileset_determined
+
+	; check event
+	push de
+	push hl
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call EventFlagAction
+	pop hl
+	pop de
+	jr z, .tileset_determined
+
+	; Loads the "rushed" mart tileset.
+	ld a, HIGH(TilesetMartRushedGFX)
+	ld h, a
+	ld a, LOW(TilesetMartRushedGFX)
+	ld l, a
+	ld a, BANK(TilesetMartRushedGFX)
+	ld e, a
+
+.tileset_determined
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressScratch)

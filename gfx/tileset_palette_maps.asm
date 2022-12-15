@@ -40,6 +40,7 @@ TilesetFacilityPalMap:
 INCLUDE "gfx/tilesets/facility_palette_map.asm"
 
 TilesetMartPalMap:
+TilesetMartRushedPalMap:
 INCLUDE "gfx/tilesets/mart_palette_map.asm"
 
 TilesetMansionPalMap:

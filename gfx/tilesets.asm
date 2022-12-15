@@ -121,11 +121,16 @@ INCLUDE "data/tilesets/lab_collision.asm"
 TilesetMartGFX::
 INCBIN "gfx/tilesets/mart.2bpp.lz"
 
+TilesetMartRushedMeta::
 TilesetMartMeta::
 INCBIN "data/tilesets/mart_metatiles.bin"
 
+TilesetMartRushedColl::
 TilesetMartColl::
 INCLUDE "data/tilesets/mart_collision.asm"
+
+TilesetMartRushedGFX::
+INCBIN "gfx/tilesets/mart_rushed.2bpp.lz"
 
 TilesetGameCornerGFX::
 INCBIN "gfx/tilesets/game_corner.2bpp.lz"
@@ -135,15 +140,6 @@ INCBIN "data/tilesets/game_corner_metatiles.bin"
 
 TilesetGameCornerColl::
 INCLUDE "data/tilesets/game_corner_collision.asm"
-
-TilesetTrainStationGFX::
-INCBIN "gfx/tilesets/train_station.2bpp.lz"
-
-TilesetTrainStationMeta::
-INCBIN "data/tilesets/train_station_metatiles.bin"
-
-TilesetTrainStationColl::
-INCLUDE "data/tilesets/train_station_collision.asm"
 
 TilesetForestMeta::
 INCBIN "data/tilesets/forest_metatiles.bin"
@@ -361,3 +357,12 @@ INCBIN "data/tilesets/hospital_metatiles.bin"
 
 TilesetHospitalColl::
 INCLUDE "data/tilesets/hospital_collision.asm"
+
+TilesetTrainStationGFX::
+INCBIN "gfx/tilesets/train_station.2bpp.lz"
+
+TilesetTrainStationMeta::
+INCBIN "data/tilesets/train_station_metatiles.bin"
+
+TilesetTrainStationColl::
+INCLUDE "data/tilesets/train_station_collision.asm"

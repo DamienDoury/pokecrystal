@@ -283,6 +283,7 @@ TilesetGateAnim:
 TilesetLabAnim:
 TilesetFacilityAnim:
 TilesetMartAnim:
+TilesetMartRushedAnim:
 TilesetMansionAnim:
 TilesetGameCornerAnim:
 TilesetTraditionalHouseAnim:

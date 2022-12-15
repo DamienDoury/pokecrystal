@@ -12,32 +12,33 @@
 	const TILESET_LAB                  ; 0a
 	const TILESET_FACILITY             ; 0b
 	const TILESET_MART                 ; 0c
-	const TILESET_MANSION              ; 0d
-	const TILESET_GAME_CORNER          ; 0e
-	const TILESET_ELITE_FOUR_ROOM      ; 0f
-	const TILESET_TRADITIONAL_HOUSE    ; 10
-	const TILESET_TRAIN_STATION        ; 11
-	const TILESET_CHAMPIONS_ROOM       ; 12
-	const TILESET_LIGHTHOUSE           ; 13
-	const TILESET_PLAYERS_ROOM         ; 14
-	const TILESET_POKECOM_CENTER       ; 15
-	const TILESET_BATTLE_TOWER_INSIDE  ; 16
-	const TILESET_TOWER                ; 17
-	const TILESET_CAVE                 ; 18
-	const TILESET_PARK                 ; 19
-	const TILESET_RUINS_OF_ALPH        ; 1a
-	const TILESET_RADIO_TOWER          ; 1b
-	const TILESET_UNDERGROUND          ; 1c
-	const TILESET_ICE_PATH             ; 1d
-	const TILESET_DARK_CAVE            ; 1e
-	const TILESET_FOREST               ; 1f
-	const TILESET_BETA_WORD_ROOM       ; 20
-	const TILESET_HO_OH_WORD_ROOM      ; 21
-	const TILESET_KABUTO_WORD_ROOM     ; 22
-	const TILESET_OMANYTE_WORD_ROOM    ; 23
-	const TILESET_AERODACTYL_WORD_ROOM ; 24
-	const TILESET_JOHTO_WAVES 		   ; 25
-	const TILESET_HOSPITAL 		   	   ; 26
+	const TILESET_MART_RUSHED          ; 0d
+	const TILESET_MANSION              ; 0e
+	const TILESET_GAME_CORNER          ; 0f
+	const TILESET_ELITE_FOUR_ROOM      ; 10
+	const TILESET_TRADITIONAL_HOUSE    ; 11
+	const TILESET_TRAIN_STATION        ; 12
+	const TILESET_CHAMPIONS_ROOM       ; 13
+	const TILESET_LIGHTHOUSE           ; 14
+	const TILESET_PLAYERS_ROOM         ; 15
+	const TILESET_POKECOM_CENTER       ; 16
+	const TILESET_BATTLE_TOWER_INSIDE  ; 17
+	const TILESET_TOWER                ; 18
+	const TILESET_CAVE                 ; 19
+	const TILESET_PARK                 ; 1a
+	const TILESET_RUINS_OF_ALPH        ; 1b
+	const TILESET_RADIO_TOWER          ; 1c
+	const TILESET_UNDERGROUND          ; 1d
+	const TILESET_ICE_PATH             ; 1e
+	const TILESET_DARK_CAVE            ; 1f
+	const TILESET_FOREST               ; 20
+	const TILESET_BETA_WORD_ROOM       ; 21
+	const TILESET_HO_OH_WORD_ROOM      ; 22
+	const TILESET_KABUTO_WORD_ROOM     ; 23
+	const TILESET_OMANYTE_WORD_ROOM    ; 24
+	const TILESET_AERODACTYL_WORD_ROOM ; 25
+	const TILESET_JOHTO_WAVES 		   ; 26
+	const TILESET_HOSPITAL 		   	   ; 27
 NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size
