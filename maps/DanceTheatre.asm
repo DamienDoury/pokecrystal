@@ -69,13 +69,13 @@ TrainerKimonoGirlMiki:
 	closetext
 	end
 
-DanceTheaterSurfGuy:
+DanceTheaterWhirlpoolGuy:
 	faceplayer
 	opentext
-	writetext SurfGuyNeverLeftAScratchText
+	writetext WhirlpoolGuyNeverLeftAScratchText
 	promptbutton
-	checkevent EVENT_GOT_HM03_SURF
-	iftrue SurfGuyAlreadyGaveSurf
+	checkevent EVENT_GOT_HM06_WHIRLPOOL
+	iftrue WhirlpoolGuyAlreadyGaveWhirlpool
 	checkevent EVENT_BEAT_KIMONO_GIRL_NAOKO
 	iffalse .KimonoGirlsUndefeated
 	checkevent EVENT_BEAT_KIMONO_GIRL_SAYO
@@ -86,34 +86,34 @@ DanceTheaterSurfGuy:
 	iffalse .KimonoGirlsUndefeated
 	checkevent EVENT_BEAT_KIMONO_GIRL_MIKI
 	iffalse .KimonoGirlsUndefeated
-	sjump .GetSurf
+	sjump .GetWhirlpool
 
 .KimonoGirlsUndefeated:
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .PlayerIsFemale
-	writetext SurfGuyLadGiftText
+	writetext WhirlpoolGuyLadGiftText
 	waitbutton
 	closetext
 	end
 
 .PlayerIsFemale:
-	writetext SurfGuyLassieGiftText
+	writetext WhirlpoolGuyLassieGiftText
 	waitbutton
 	closetext
 	end
 
-.GetSurf:
-	writetext SurfGuyLikeADanceText
+.GetWhirlpool:
+	writetext WhirlpoolGuyLikeADanceText
 	promptbutton
-	verbosegiveitem HM_SURF
-	setevent EVENT_GOT_HM03_SURF
-	writetext SurfGuySurfExplanationText
+	verbosegiveitem HM_WHIRLPOOL
+	setevent EVENT_GOT_HM06_WHIRLPOOL
+	writetext WhirlpoolGuyWhirlpoolExplanationText
 	waitbutton
 	closetext
 	end
 
-SurfGuyAlreadyGaveSurf:
-	writetext SurfGuyElegantKimonoGirlsText
+WhirlpoolGuyAlreadyGaveWhirlpool:
+	writetext WhirlpoolGuyElegantKimonoGirlsText
 	waitbutton
 	closetext
 	end
@@ -233,7 +233,7 @@ KimonoGirlMikiAfterBattleText:
 	line "spirits up too."
 	done
 
-SurfGuyNeverLeftAScratchText:
+WhirlpoolGuyNeverLeftAScratchText:
 	text "Not only are the"
 	line "KIMONO GIRLS great"
 
@@ -248,7 +248,7 @@ SurfGuyNeverLeftAScratchText:
 	line "scratch…"
 	done
 
-SurfGuyLadGiftText:
+WhirlpoolGuyLadGiftText:
 	text "Lad! If you can"
 	line "defeat all the"
 
@@ -256,7 +256,7 @@ SurfGuyLadGiftText:
 	line "give you a gift."
 	done
 
-SurfGuyLassieGiftText:
+WhirlpoolGuyLassieGiftText:
 	text "Lassie, if you can"
 	line "defeat all the"
 
@@ -264,7 +264,7 @@ SurfGuyLassieGiftText:
 	line "give you a gift."
 	done
 
-SurfGuyLikeADanceText:
+WhirlpoolGuyLikeADanceText:
 	text "The way you bat-"
 	line "tled, it was like"
 	cont "watching a dance."
@@ -277,15 +277,17 @@ SurfGuyLikeADanceText:
 	cont "--take it!"
 	done
 
-SurfGuySurfExplanationText:
-	text "That's SURF."
+WhirlpoolGuyWhirlpoolExplanationText:
+	text "That's WHIRLPOOL."
 
 	para "It's a move that"
-	line "lets #MON swim"
-	cont "across water."
+	line "whirls and twirls"
+	
+	para "just like the"
+	line "KIMONO GIRLS."
 	done
 
-SurfGuyElegantKimonoGirlsText:
+WhirlpoolGuyElegantKimonoGirlsText:
 	text "I wish my #MON"
 	line "were as elegant as"
 	cont "the KIMONO GIRLS…"
@@ -300,14 +302,9 @@ DanceTheatreCooltrainerMText:
 	text "That man's always"
 	line "with his RHYDON."
 
-	para "Says he wants a"
-	line "#MON that can"
-	cont "SURF and dance."
-
-	para "Is he trying to"
-	line "make a synchro-"
-	cont "nized swimming"
-	cont "#MON?"
+	para "Says he wishes his"
+	line "#MON could"
+	cont "dance."
 	done
 
 DanceTheatreGrannyText:
@@ -354,7 +351,7 @@ DanceTheatre_MapEvents:
 	object_event  6,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlZuki, -1
 	object_event  9,  1, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlKuni, -1
 	object_event 11,  2, SPRITE_KIMONO_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerKimonoGirlMiki, -1
-	object_event  7, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterSurfGuy, -1
+	object_event  7, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheaterWhirlpoolGuy, -1
 	object_event  6,  8, SPRITE_RHYDON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, DanceTheaterRhydon, -1
 	object_event 10, 10, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DanceTheatreCooltrainerMScript, -1
 	object_event  3,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DanceTheatreGrannyScript, -1

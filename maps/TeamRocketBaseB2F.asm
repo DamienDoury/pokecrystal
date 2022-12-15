@@ -280,9 +280,9 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
 	promptbutton
-	verbosegiveitem HM_WHIRLPOOL
-	setevent EVENT_GOT_HM06_WHIRLPOOL
-	writetext RocketBaseLanceWhirlpoolText
+	verbosegiveitem HM_STRENGTH
+	setevent EVENT_GOT_HM04_STRENGTH
+	writetext RocketBaseLanceStrengthText
 	waitbutton
 	closetext
 	turnobject TEAMROCKETBASEB2F_LANCE, DOWN
@@ -706,27 +706,18 @@ RocketBaseLanceElectrodeDoneText:
 
 	para "Oh, yes. You"
 	line "should take this."
-
-	para "I found it here,"
-	line "but I don't have"
-	cont "any need for it."
 	done
 
-RocketBaseLanceWhirlpoolText:
-	text "That's WHIRLPOOL."
+RocketBaseLanceStrengthText:
+	text "That's STRENGTH."
 	line "Teach it to a"
 
-	para "#MON to get"
-	line "across wild water."
+	para "#MON to push"
+	line "boulders around."
 
-	para "But keep this in"
-	line "mind."
-
-	para "You can use that"
-	line "out of battle only"
-
-	para "with the BADGE"
-	line "from MAHOGANY GYM."
+	para "It may come handy"
+	line "for an adventurer"
+	cont "like you."
 	done
 
 RocketBaseLanceMonMasterText:

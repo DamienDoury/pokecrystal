@@ -17,9 +17,19 @@ OlivineLighthouseJasmine:
 	iftrue .ExplainedSickness
 	writetext JasmineCianwoodPharmacyText
 	promptbutton
-	setevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS
 .ExplainedSickness:
 	writetext JasmineGetSomeMedicineText
+	checkevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS
+	iftrue .SkipSurf
+
+	setevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS
+	promptbutton
+	writetext JasmineOverTheSeaText
+	promptbutton
+	verbosegiveitem HM_SURF
+	writetext JasminePleaseHelpText
+
+.SkipSurf:
 	waitbutton
 	closetext
 	end
@@ -177,9 +187,6 @@ JasmineCianwoodPharmacyText:
 	para "wonderful PHARMACY"
 	line "in CIANWOOD…"
 
-	para "But that's across"
-	line "the sea…"
-
 	para "And I can't leave"
 	line "AMPHY unattended…"
 	done
@@ -188,6 +195,18 @@ JasmineGetSomeMedicineText:
 	text "…May I ask you to"
 	line "get some medicine"
 	cont "for me? Please?"
+	done
+
+JasmineOverTheSeaText:
+	text "But that's across"
+	line "the sea…"
+
+	para "You will need"
+	line "this…"
+	done
+
+JasminePleaseHelpText:
+	text "…I need your help."
 	done
 
 JasmineCureAmphyText:
