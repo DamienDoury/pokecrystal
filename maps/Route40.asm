@@ -278,12 +278,6 @@ Route40StandingYoungsterText:
 
 	para "have gathered"
 	line "there already."
-
-	para "But since you have"
-	line "so many BADGES,"
-
-	para "you shouldn't do"
-	line "badly at all."
 	done
 
 MeetMonicaText:

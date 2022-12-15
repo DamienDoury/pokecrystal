@@ -435,13 +435,7 @@ CooltrainermAllenBeatenText:
 	done
 
 CooltrainermAllenAfterBattleText:
-	text "Wow. You have a"
-	line "lot of BADGES."
-
-	para "No wonder you're"
-	line "so tough."
-
-	para "I wonder if"
+	text "I wonder if"
 	line "ECRUTEAK GYM's"
 
 	para "MORTY is still in"

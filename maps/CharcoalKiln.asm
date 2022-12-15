@@ -273,13 +273,6 @@ Text_CharcoalMasterOutro:
 
 	para "#MON to clear"
 	line "small trees."
-
-;	para "Of course, you"
-;	line "have to have the"
-;
-;	para "GYM BADGE from"
-;	line "VIOLET CITY to"
-;	cont "use it."
 	done
 
 CharcoalKiln_SomethingsHappeningOnTVText:

@@ -214,7 +214,7 @@ ChucksWifeGiveHMText:
 
 	para "As our tradition"
 	line "obliges, please"
-	line "take this HM."
+	cont "take this HM."
 	done
 
 ChucksWifeFlySpeechText:

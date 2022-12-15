@@ -273,17 +273,17 @@ Text_ReceivedHiveBadge:
 	line "HIVEBADGE."
 	done
 
-BugsyText_HiveBadgeSpeech:
-	text "Here, I also want"
-	line "you to have this."
-	done
-
 Obey30:
 	text "With this first"
 	line "badge in hand,"
 	
 	para "#MON up to L30"
 	line "will obey you."
+	done
+
+BugsyText_HiveBadgeSpeech:
+	text "Here, I also want"
+	line "you to have this."
 	done
 
 BugsyText_FuryCutterSpeech:
