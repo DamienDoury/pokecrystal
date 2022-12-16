@@ -83,6 +83,9 @@ INCLUDE "engine/events/pokecenter_pc.asm"
 INCLUDE "engine/items/mart.asm"
 INCLUDE "engine/events/money.asm"
 INCLUDE "data/items/marts.asm"
+INCLUDE "data/items/marts0.asm" ; Must stay in the same bank as marts.asm.
+INCLUDE "data/items/marts1.asm" ; Must stay in the same bank as marts.asm.
+INCLUDE "data/items/marts2.asm" ; Must stay in the same bank as marts.asm.
 INCLUDE "engine/events/mom.asm"
 INCLUDE "engine/events/daycare.asm"
 INCLUDE "engine/events/print_unown.asm"

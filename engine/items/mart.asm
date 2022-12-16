@@ -113,6 +113,9 @@ LoadMartPointer:
 	ret
 
 GetMart:
+	xor a ; ld a, FALSE
+	ld [wShortageInCurrentMart], a
+
 	ld a, e
 	cp NUM_MARTS
 	jr c, .IsAMart
@@ -121,7 +124,48 @@ GetMart:
 	ret
 
 .IsAMart:
+	push bc
+	push de
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call EventFlagAction
+	pop de
+	pop bc
+	jr z, .before_mart_rush
+
+	ld a, TRUE
+	ld [wShortageInCurrentMart], a
+
+	ld a, [wCurDay] ; Between [1; 7].
+	and $7
+	dec a
+	cp 3
+	jr c, .modulo_calculation_done
+
+	sub 3
+	cp 3
+	jr c, .modulo_calculation_done
+
+	sub 3
+
+.modulo_calculation_done
+	; A is between [0; 2].
+	ld hl, Marts0
+	and a
+	jr z, .mart_chosen
+
+	ld hl, Marts1
+	cp 1
+	jr z, .mart_chosen
+
+	ld hl, Marts2
+	jr .mart_chosen
+
+.before_mart_rush
 	ld hl, Marts
+
+.mart_chosen
+	ld a, e
 	add hl, de
 	add hl, de
 	ld e, [hl]
@@ -162,7 +206,26 @@ StandardMart:
 
 .HowMayIHelpYou:
 	call LoadStandardMenuHeader
+
+	ld a, [wShortageInCurrentMart]
+	cp FALSE
 	ld hl, MartWelcomeText
+	jr z, .welcome_message_found
+
+	push de
+	call Random
+	and %11
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, MartShortageWelcomeTextList
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop de
+
+.welcome_message_found
 	call PrintText
 	ld a, STANDARDMART_TOPMENU
 	ret
@@ -203,14 +266,30 @@ StandardMart:
 
 .Quit:
 	call ExitMenu
+
+	ld a, [wShortageInCurrentMart]
+	cp FALSE
 	ld hl, MartComeAgainText
+	jr z, .quit_message_found
+
+	ld hl, MartComeAnotherDayText
+
+.quit_message_found
 	call MartTextbox
 	ld a, STANDARDMART_EXIT
 	ret
 
 .AnythingElse:
 	call LoadStandardMenuHeader
+
+	ld a, [wShortageInCurrentMart]
+	cp FALSE
 	ld hl, MartAskMoreText
+	jr z, .anything_else_message_found
+
+	ld hl, MartAllIHaveLeftText
+
+.anything_else_message_found
 	call PrintText
 	ld a, STANDARDMART_TOPMENU
 	ret
@@ -764,16 +843,6 @@ SellMenu:
 	and a
 	ret
 
-.NothingToSell: ; unreferenced
-	ld hl, .NothingToSellText
-	call MenuTextboxBackup
-	and a
-	ret
-
-.NothingToSellText:
-	text_far _NothingToSellText
-	text_end
-
 .TryToSellItem:
 	farcall CheckItemMenu
 	ld a, [wItemAttributeValue]
@@ -846,11 +915,34 @@ MartSellPriceText:
 	text_far _MartSellPriceText
 	text_end
 
-UnusedDummyString: ; unreferenced
-	db "！ダミー！@" ; "!Dummy!"
-
 MartWelcomeText:
 	text_far _MartWelcomeText
+	text_end
+
+MartShortageWelcomeTextList:
+	dw MartDoMyBestText1
+	dw MartDoMyBestText2
+	dw MartDoMyBestText3
+	dw MartDoMyBestText4
+
+MartDoMyBestText1:
+	text_far _MartDoMyBest1Text
+	text_end
+
+MartDoMyBestText2:
+	text_far _MartDoMyBest2Text
+	text_end
+
+MartDoMyBestText3:
+	text_far _MartDoMyBest3Text
+	text_end
+
+MartDoMyBestText4:
+	text_far _MartDoMyBest4Text
+	text_end
+
+MartAllIHaveLeftText:
+	text_far _MartAllIHaveLeftText
 	text_end
 
 MenuHeader_BuySell:
@@ -884,6 +976,10 @@ MartCantBuyText:
 
 MartComeAgainText:
 	text_far _MartComeAgainText
+	text_end
+
+MartComeAnotherDayText:
+	text_far _MartComeAnotherDayText
 	text_end
 
 MartAskMoreText:

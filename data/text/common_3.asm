@@ -614,11 +614,6 @@ _PharmacyComeAgainText::
 	line "See you around."
 	done
 
-_NothingToSellText::
-	text "You don't have"
-	line "anything to sell."
-	prompt
-
 _MartSellHowManyText::
 	text "How many?"
 	done
@@ -637,6 +632,26 @@ _MartWelcomeText::
 	line "help you?"
 	done
 
+_MartDoMyBest1Text::
+	text "I'll help you as"
+	line "much as I can."
+	done
+
+_MartDoMyBest2Text::
+	text "Let's hope I have"
+	line "what you need."
+	done
+
+_MartDoMyBest3Text::
+	text "I'll do my best"
+	line "to serve you."
+	done
+
+_MartDoMyBest4Text::
+	text "Welcome to my"
+	line "almost-empty shop!"
+	done
+	
 _MartThanksText::
 	text "Here you are."
 	line "Thank you!"
@@ -661,9 +676,19 @@ _MartComeAgainText::
 	text "Please come again!"
 	done
 
+_MartComeAnotherDayText::
+	text "I restock every-"
+	line "day, come again!"
+	done
+
 _MartAskMoreText::
 	text "Can I do anything"
 	line "else for you?"
+	done
+
+_MartAllIHaveLeftText::
+	text "It's all I got left"
+	line "with the shortage."
 	done
 
 _MartBoughtText::

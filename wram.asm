@@ -2629,6 +2629,8 @@ wDudeKeyItems:: ds 18 + 1
 
 wDudeNumBalls:: db
 wDudeBalls:: ds 2 * 4 + 1
+
+wShortageInCurrentMart:: db
 ENDU
 
 wd430:: ; mobile
@@ -2720,7 +2722,10 @@ wPlayerID:: dw
 wPlayerName:: ds NAME_LENGTH
 wRivalName::  ds NAME_LENGTH
 
-	ds 33
+	ds 17
+	
+wMartsStock:: ds (NUM_MARTS + 1) / 2
+wMartsStockEnd::
 
 wSavedAtLeastOnce:: db
 wSpawnAfterChampion:: db
@@ -2886,8 +2891,8 @@ wMeds:: ds MAX_MEDS * 2 + 1
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
-wNumPCItems:: db
-wPCItems:: ds MAX_PC_ITEMS * 2 + 1
+wNumPCItems:: db ; à virer. To Remove. To delete.
+wPCItems:: ds MAX_PC_ITEMS * 2 + 1 ; à virer. To Remove. To delete.
 
 wPokegearFlags::
 ; bit 0: map
