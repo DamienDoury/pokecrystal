@@ -331,8 +331,8 @@ RefreshMapSprites:
 	ret
 
 RefreshPolice: ; Note: this isn't called after a lost battle.
-	; Always make an officer disappear after a battle. TODO: I should also check that the player has won the battle.
-	ld a, [wTempTrainerClass]
+	; Always make an officer disappear after a battle.
+	ld a, [wTrainerClass]
 	cp OFFICER
 	ret nz
 	farcall Script_disappear_last_talked
