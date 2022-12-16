@@ -198,14 +198,10 @@ CheckStringForErrors:
 	jr c, .Fail
 	cp "<ROUTE>"
 	jr c, .NextChar
-	cp "<GREEN>" + 1
-	jr c, .Fail
 	cp "<ENEMY>"
 	jr c, .NextChar
 	cp "<ENEMY>" + 1
 	jr c, .Fail
-	cp "<MOM>"
-	jr c, .NextChar
 
 .Fail:
 	scf
@@ -245,14 +241,10 @@ CheckStringForErrors_IgnoreTerminator:
 	jr c, .end
 	cp "<ROUTE>"
 	jr c, .next
-	cp "<GREEN>" + 1
-	jr c, .end
 	cp "<ENEMY>"
 	jr c, .next
 	cp "<ENEMY>" + 1
 	jr c, .end
-	cp "<MOM>"
-	jr c, .next
 
 .end
 	scf

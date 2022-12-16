@@ -2718,10 +2718,9 @@ wPlayerData::
 wPlayerID:: dw
 
 wPlayerName:: ds NAME_LENGTH
-wMomsName::   ds NAME_LENGTH ; unused
 wRivalName::  ds NAME_LENGTH
-wRedsName::   ds NAME_LENGTH ; unused
-wGreensName:: ds NAME_LENGTH ; unused
+
+	ds 33
 
 wSavedAtLeastOnce:: db
 wSpawnAfterChampion:: db

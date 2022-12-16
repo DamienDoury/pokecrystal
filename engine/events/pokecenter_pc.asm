@@ -304,9 +304,9 @@ PlayersPCMenuData:
 	dw PlayerLogOffMenu,       .LogOff
 	dw PlayerLogOffMenu,       .TurnOff
 
-.WithdrawItem: db "WITHDRAW ITEM@"
-.DepositItem:  db "DEPOSIT ITEM@"
-.TossItem:     db "TOSS ITEM@"
+;.WithdrawItem: db "WITHDRAW ITEM@"
+;.DepositItem:  db "DEPOSIT ITEM@"
+;.TossItem:     db "TOSS ITEM@"
 .MailBox:      db "MAIL BOX@"
 .Decoration:   db "DECORATION@"
 .TurnOff:      db "TURN OFF@"
