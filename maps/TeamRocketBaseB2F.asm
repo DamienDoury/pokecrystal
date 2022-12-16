@@ -811,9 +811,9 @@ GruntM18AfterBattleText:
 	line "wasn't our"
 	cont "intention."
 
-	para "It brought"
-	line "attention to us,"
-	cont "which is a bummer."
+	para "It drew attention"
+	line "to us, which is"
+	cont "a bummer."
 	done
 
 GruntM19SeenText:
