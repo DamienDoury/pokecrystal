@@ -386,6 +386,18 @@ PlayMapMusicBike::
 	jr .quit_function
 
 .skip_rave_party
+	; We don't play the bike music in cerulean cave.
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	jr nz, .skip_cerulean_cave
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	jr c, .skip_cerulean_cave
+
+	call PlayMapMusic
+	jr .quit_function ; true.
+
+.skip_cerulean_cave
 	xor a
 	ld [wDontPlayMapMusicOnReload], a
 	ld de, MUSIC_BICYCLE
@@ -447,16 +459,20 @@ SpecialMapMusic::
 
 	; check the area (must be cinnabar island).
 	ld a, [wMapGroup]
-	cp 6; CINNABAR
-	jr nz, .skip_rave_party
+	cp GROUP_POKECENTER_2F
+	jr z, .pokecenter_2f_special_check
+
+	cp GROUP_CINNABAR_ISLAND
 	ld a, [wMapNumber]
-	cp 8 ; CINNABAR_ISLAND
+	jr nz, .skip_rave_party
+
+	cp MAP_CINNABAR_ISLAND
 	jr z, .further_rave_party_checks
-	cp 4 ; SEAFOAM_GYM
+
+	cp MAP_SEAFOAM_GYM 
 	jr z, .further_rave_party_checks
-	cp 1 ; CINNABAR_POKECENTER_1F
-	jr z, .further_rave_party_checks
-	cp 2 ; CINNABAR_POKECENTER_2F_BETA
+
+	cp MAP_CINNABAR_POKECENTER_1F
 	jr nz, .skip_rave_party
 	
 .further_rave_party_checks:
@@ -469,7 +485,17 @@ SpecialMapMusic::
 	jr z, .skip_rave_party	; false.
 	jr .rave_party 			; true.
 
-.skip_rave_party:
+.skip_rave_party: ; At this point, A contains [wMapNumber].
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	jr c, .skip_cerulean_cave
+
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	jr nz, .skip_cerulean_cave
+
+	jr .no
+
+.skip_cerulean_cave:
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .surf
@@ -508,6 +534,17 @@ SpecialMapMusic::
 	ld de, MUSIC_BUG_CATCHING_CONTEST_RANKING
 	scf
 	ret
+
+.pokecenter_2f_special_check
+	; Specific checks for Pokécenter 2F, as this map is handled differently.
+	ld a, [wBackupMapGroup]
+	cp GROUP_CINNABAR_ISLAND
+	jr nz, .skip_rave_party
+
+	ld a, [wMapNumber]
+	cp MAP_POKECENTER_2F
+	jr nz, .skip_rave_party
+	jr .further_rave_party_checks
 
 GetMapMusic_MaybeSpecial::
 	call SpecialMapMusic

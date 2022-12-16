@@ -1643,10 +1643,6 @@ RodNothingText:
 	text_far _RodNothingText
 	text_end
 
-UnusedNothingHereText: ; unreferenced
-	text_far _UnusedNothingHereText
-	text_end
-
 BikeFunction:
 	call .TryBike
 	and $7f
@@ -1655,7 +1651,7 @@ BikeFunction:
 
 .TryBike:
 	call .CheckEnvironment
-	jr c, .CannotUseBike
+	jp c, .CannotUseBike
 	ld a, [wPlayerState]
 	cp PLAYER_NORMAL
 	jr z, .GetOnBike
@@ -1691,8 +1687,17 @@ BikeFunction:
 	jr .quit_function ; true.
 .skip_rave_party:
 
+	; We don't play the bike music in cerulean cave if Mewtwo hasn't been caught yet.
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	jr nz, .skip_cerulean_cave
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	jr c, .skip_cerulean_cave ; false
 
+	jr .quit_function ; true.
 
+.skip_cerulean_cave:
 	xor a
 	ld [wMusicFade], a
 	ld de, MUSIC_NONE
