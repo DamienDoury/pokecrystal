@@ -148,9 +148,9 @@ PC_CheckPartyForPokemon:
 
 	; PlayersPCMenuData.PlayersPCMenuPointers indexes
 	const_def
-	const PLAYERSPCITEM_WITHDRAW_ITEM ; 0
-	const PLAYERSPCITEM_DEPOSIT_ITEM  ; 1
-	const PLAYERSPCITEM_TOSS_ITEM     ; 2
+	;const PLAYERSPCITEM_WITHDRAW_ITEM ; 0
+	;const PLAYERSPCITEM_DEPOSIT_ITEM  ; 1
+	;const PLAYERSPCITEM_TOSS_ITEM     ; 2
 	const PLAYERSPCITEM_MAIL_BOX      ; 3
 	const PLAYERSPCITEM_DECORATION    ; 4
 	const PLAYERSPCITEM_TURN_OFF      ; 5
@@ -296,9 +296,9 @@ PlayersPCMenuData:
 
 .PlayersPCMenuPointers:
 ; entries correspond to PLAYERSPCITEM_* constants
-	dw PlayerWithdrawItemMenu, .WithdrawItem
-	dw PlayerDepositItemMenu,  .DepositItem
-	dw PlayerTossItemMenu,     .TossItem
+	;dw PlayerWithdrawItemMenu, .WithdrawItem
+	;dw PlayerDepositItemMenu,  .DepositItem
+	;dw PlayerTossItemMenu,     .TossItem
 	dw PlayerMailBoxMenu,      .MailBox
 	dw PlayerDecorationMenu,   .Decoration
 	dw PlayerLogOffMenu,       .LogOff
@@ -316,19 +316,19 @@ PlayersPCMenuData:
 ; entries correspond to PLAYERSPC_* constants
 
 	; PLAYERSPC_NORMAL
-	db 5
-	db PLAYERSPCITEM_WITHDRAW_ITEM
-	db PLAYERSPCITEM_DEPOSIT_ITEM
-	db PLAYERSPCITEM_TOSS_ITEM
+	db 2
+	;db PLAYERSPCITEM_WITHDRAW_ITEM
+	;db PLAYERSPCITEM_DEPOSIT_ITEM
+	;db PLAYERSPCITEM_TOSS_ITEM
 	db PLAYERSPCITEM_MAIL_BOX
 	db PLAYERSPCITEM_TURN_OFF
 	db -1 ; end
 
 	; PLAYERSPC_HOUSE
-	db 6
-	db PLAYERSPCITEM_WITHDRAW_ITEM
-	db PLAYERSPCITEM_DEPOSIT_ITEM
-	db PLAYERSPCITEM_TOSS_ITEM
+	db 3
+	;db PLAYERSPCITEM_WITHDRAW_ITEM
+	;db PLAYERSPCITEM_DEPOSIT_ITEM
+	;db PLAYERSPCITEM_TOSS_ITEM
 	db PLAYERSPCITEM_MAIL_BOX
 	db PLAYERSPCITEM_DECORATION
 	db PLAYERSPCITEM_LOG_OFF
