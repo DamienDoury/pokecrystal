@@ -157,7 +157,6 @@ CheatGuyScript:
 	givemoney YOUR_MONEY, 200000
 .skip_money 
 	setval $ff
-	writemem wJohtoBadges ; gives all Johto badges, so the player can use HMs.
 	writemem wVisitedSpawns
 	writemem wVisitedSpawns + 1
 	writemem wVisitedSpawns + 2
@@ -199,6 +198,10 @@ CheatGuyScript:
 	giveitem RARE_CANDY, 99
 	giveitem RARE_CANDY, 99
 	giveitem SURF_MAIL, 10
+	giveitem BICYCLE, 1
+	giveitem SUPER_ROD, 1
+	giveitem EXP_SHARE, 10
+	giveitem HELIX_FOSSIL, 3
 
 	opentext
 	readvar VAR_PARTYCOUNT
@@ -220,6 +223,17 @@ CheatGuyScript:
 	readvar VAR_PARTYCOUNT
 	ifequal 6, .done
 	givepoke SLOWBRO, 100
+
+	loadmem wPartyMon1Moves, FLY
+	loadmem wPartyMon2Moves, SURF
+	loadmem wWhichRegisteredItem, $80 + 1
+	loadmem wRegisteredItem, BICYCLE
+
+	setflag ENGINE_RADIO_CARD
+	setflag ENGINE_MAP_CARD
+	setflag ENGINE_PHONE_CARD
+	setflag ENGINE_EXPN_CARD
+	setflag ENGINE_POKEGEAR
 
 .done
 	closetext
