@@ -109,7 +109,6 @@ LoadMartPointer:
 	xor a ; STANDARDMART_HOWMAYIHELPYOU
 	ld [wMartJumptableIndex], a
 	ld [wBargainShopFlags], a
-	ld [wFacingDirection], a
 	ret
 
 GetMart:
@@ -117,6 +116,7 @@ GetMart:
 	ld [wShortageInCurrentMart], a
 
 	ld a, e
+	ld [wCurrentMartID], a
 	cp NUM_MARTS
 	jr c, .IsAMart
 	ld b, BANK(DefaultMart)
@@ -565,22 +565,21 @@ BuyMenuLoop:
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .set_carry
-	cp A_BUTTON
-	jr z, .useless_pointer
-
-.useless_pointer
 	call MartAskPurchaseQuantity
 	jr c, .cancel
 	call MartConfirmPurchase
 	jr c, .cancel
 	ld de, wMoney
 	ld bc, hMoneyTemp
-	ld a, 3 ; useless load
 	call CompareMoney
 	jr c, .insufficient_funds
 	ld hl, wNumItems
 	call ReceiveItem
 	jr nc, .insufficient_bag_space
+
+	ld b, TRUE
+	call CheckAndUpdateStock
+	
 	ld a, [wMartItemID]
 	ld e, a
 	ld d, 0
@@ -628,6 +627,22 @@ StandardMartAskPurchaseQuantity:
 	ret
 
 MartConfirmPurchase:
+	;push bc
+	;push de
+	;push hl
+	ld b, FALSE
+	call CheckAndUpdateStock
+	;pop hl
+	;pop de
+	;pop bc
+	jr nc, .EnoughInStock
+
+	ld hl, MartShortageText
+	call PrintText
+	scf ; Returns transaction failure.
+	ret
+
+.EnoughInStock
 	predef PartyMonItemName
 	ld a, MARTTEXT_COSTS_THIS_MUCH
 	call LoadBuyMenuText
@@ -990,6 +1005,10 @@ MartBoughtText:
 	text_far _MartBoughtText
 	text_end
 
+MartShortageText:
+	text_far _MartShortageText
+	text_end
+
 PlayTransactionSound:
 	call WaitSFX
 	ld de, SFX_TRANSACTION
@@ -1134,4 +1153,88 @@ GiveItemToPlayer::
 	;ld [hl], a
 	call ReceiveItem
 	ret
-	
+
+
+
+
+; Input: if B=TRUE, then the stock will be updated. [wShortageInCurrentMart], [[wCurrentMartID] and [wItemQuantityChange] need to be set.
+; Output: Carry if not enough articles in stock to complete the transaction. nc otherwise. Returns the stock (number of available articles) in A.
+; Globbers DE and HL.
+CheckAndUpdateStock:
+	ld a, [wShortageInCurrentMart]
+	cp FALSE
+	jr z, .return_true_infinite ; Infinite stocks before the market rush.
+
+	ld a, [wCurrentMartID]
+	cp NUM_MARTS
+	jr nc, .return_false ; This is not a mart, so we return false.
+
+	srl a ; Divides A by 2, then floor the result.
+	push af
+	ld e, a
+	ld d, 0
+	ld hl, wMartsStock
+	add hl, de
+	ld d, [hl]
+	pop af
+	ld e, FALSE ; Means no swap is needed.
+	jr nc, .no_swap_read
+
+	swap d
+	ld e, TRUE ; Means a swap has been done.
+
+.no_swap_read
+	ld a, d
+	and $f ; We only keep the lowest nybble.
+
+	push hl ; Stacking the address of the current stock.
+	ld hl, wItemQuantityChange
+	sub [hl]
+	pop hl
+	jr c, .return_false ; We have enough articles in stock.
+
+	push af ; Stacking the return value and its nc flag.
+	ld a, b
+	cp TRUE
+	jr nz, .return_true_quantity
+
+	; We need to save the new stock.
+	ld a, d
+	and $f0 ; We erase the lower nybble and keep the upper one.
+	ld d, a
+	pop af 	; Temporarily retrieve our return value.
+	push af	; Storing our return value once again.
+	or d
+	ld d, a
+	ld a, e
+	cp FALSE
+	jr z, .no_swap_write
+
+	swap d
+
+.no_swap_write
+	ld a, d
+	ld [hl], a ; We write the new stock.
+.return_true_quantity
+	pop af
+	ret ; Returns true (nc), and quantity left in A.
+
+.return_false
+	xor a ; Set A to 0 (we will set the flag, don't worry).
+	scf
+	ret
+
+.return_true_infinite
+	xor a ; Unsets carry flag. We will set the quantity in A, don't worry.
+	ld a, $ff
+	ret
+
+
+
+
+RestockMarts::
+	ld a, 10 | 10 << 4; The player can purchase up to 10 items per shop per day. Shortage! There are 2 shops per byte.
+	ld bc, (NUM_MARTS + 1) / 2
+	ld hl, wMartsStock
+	call ByteFill ; fill bc bytes with the value of a, starting at hl
+	ret

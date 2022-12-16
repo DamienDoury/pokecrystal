@@ -2024,6 +2024,7 @@ wMartPointerBank:: db
 wMartPointer:: dw
 wMartJumptableIndex:: db
 wBargainShopFlags:: db
+wCurrentMartID:: db
 
 NEXTU
 ; player movement data
@@ -2725,7 +2726,6 @@ wRivalName::  ds NAME_LENGTH
 	ds 17
 	
 wMartsStock:: ds (NUM_MARTS + 1) / 2
-wMartsStockEnd::
 
 wSavedAtLeastOnce:: db
 wSpawnAfterChampion:: db

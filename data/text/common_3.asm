@@ -667,6 +667,11 @@ _MartPackFullText::
 	line "any more items."
 	done
 
+_MartShortageText::
+	text "I don't have this"
+	line "many articles."
+	prompt
+
 _MartCantBuyText::
 	text "Sorry, I can't buy"
 	line "that from you."
