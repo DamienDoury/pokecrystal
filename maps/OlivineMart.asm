@@ -2,6 +2,7 @@
 	const OLIVINEMART_CLERK
 	const OLIVINEMART_COOLTRAINER_F
 	const OLIVINEMART_LASS
+	const OLIVINEMART_TWIN
 
 OlivineMart_MapScripts:
 	def_scene_scripts
@@ -19,6 +20,15 @@ OlivineMartCooltrainerFScript:
 
 OlivineMartLassScript:
 	jumptextfaceplayer OlivineMartLassText
+
+OlivineMartTwinScript:
+	faceplayer
+	opentext
+	writetext OlivineMartYoungsterText
+	waitbutton
+	closetext
+	turnobject OLIVINEMART_TWIN, UP
+	end
 
 OlivineMartShelfItem1Script:
 	shelfitem 1, REVIVE, 1500
@@ -46,6 +56,19 @@ OlivineMartLassText:
 	line "It's a secret!"
 	done
 
+OlivineMartYoungsterText:
+	text "A friend of mine"
+	line "managed to find a"
+	
+	para "missed item in"
+	line "the back of those"
+	cont "empty shelves."
+	
+	para "It still had the"
+	line "old price tag,"
+	cont "a true bargain!"
+	done
+
 OlivineMart_MapEvents:
 	db 0, 0 ; filler
 
@@ -61,4 +84,5 @@ OlivineMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineMartClerkScript, -1
 	object_event  6,  2, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, OlivineMartCooltrainerFScript, -1
 	object_event  1,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineMartLassScript, -1
+	object_event  8,  6, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, OlivineMartTwinScript, -1
 	object_event 11,  4, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineMartShelfItem1Script, EVENT_MART_OLIVINE_MISSED

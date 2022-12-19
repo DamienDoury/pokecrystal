@@ -38,13 +38,32 @@ BlackthornMartCooltrainerMText:
 	done
 
 BlackthornMartBlackBeltText:
-	text "MAX REPEL keeps"
-	line "weak #MON away"
-	cont "from you."
+	text "They say the"
+	line "inflation might"
 
-	para "It's the longest"
-	line "lasting of the"
-	cont "REPEL sprays."
+	para "only be getting"
+	line "worse."
+
+	para "Because of the"
+	line "pandemic, prod-"
+	
+	para "uction lines have"
+	line "been disrupted"
+	cont "worldwide."
+
+	para "There a shortages"
+	line "all around the"
+	
+	para "globe, and prices"
+	line "have gone up"
+
+	para "because of"
+	line "high demand and"
+	cont "low supply."
+
+	para "It may take years"
+	line "before we go back"
+	cont "to stable prices."
 	done
 
 BlackthornMart_MapEvents:

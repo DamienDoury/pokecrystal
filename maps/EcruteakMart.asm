@@ -20,6 +20,9 @@ EcruteakMartSuperNerdScript:
 EcruteakMartGrannyScript:
 	jumptextfaceplayer EcruteakMartGrannyText
 
+EcruteakMartCooltrainerFScript:
+	jumptextfaceplayer EcruteakMartCooltrainerFText
+
 EcruteakMartShelfItem1Script:
 	shelfitem 1, ULTRA_BALL, 1200
 
@@ -46,6 +49,26 @@ EcruteakMartGrannyText:
 	line "right up."
 	done
 
+EcruteakMartCooltrainerFText:
+	text "I can't believe it!"
+	
+	para "I'm going from"
+	line "mart to mart,"
+
+	para "and when I manage"
+	line "to find some #"
+
+	para "BALLS, then their"
+	line "price has gone up!"
+
+	para "It's driving me"
+	line "crazy not to find"
+	
+	para "any at the regular"
+	line "price!"
+	done
+
+
 EcruteakMart_MapEvents:
 	db 0, 0 ; filler
 
@@ -61,4 +84,5 @@ EcruteakMart_MapEvents:
 	object_event  1,  3, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartClerkScript, -1
 	object_event  5,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakMartSuperNerdScript, -1
 	object_event  6,  6, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartGrannyScript, -1
+	object_event  8,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, EcruteakMartCooltrainerFScript, -1
 	object_event  1,  5, SPRITE_SHINE, SPRITEMOVEDATA_SHINE, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakMartShelfItem1Script, EVENT_MART_ECRUTEAK_MISSED
