@@ -908,6 +908,25 @@ DoRepelStep:
 	and a
 	ret z
 
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	ld a, [wRepelEffect]
+	jr nz, .normal_area
+
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	ld a, [wRepelEffect]
+	jr c, .normal_area
+
+	sub 4
+	jr z, .underflow_protection
+	jr c, .underflow_protection
+	jr .normal_area
+
+.underflow_protection
+	ld a, 1
+
+.normal_area
 	dec a
 	ld [wRepelEffect], a
 	ret nz
