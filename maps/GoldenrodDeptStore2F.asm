@@ -44,8 +44,8 @@ GoldenrodDeptStore2FShelfItem1Script:
 
 GoldenrodDeptStore2FYoungsterText:
 	text "#GEAR can store"
-	line "up to ten phone"
-	cont "numbers."
+	line "up to twenty"
+	cont "phone numbers."
 
 	para "It's hard to de-"
 	line "cide which numbers"

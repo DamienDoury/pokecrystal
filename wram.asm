@@ -2723,7 +2723,7 @@ wPlayerID:: dw
 wPlayerName:: ds NAME_LENGTH
 wRivalName::  ds NAME_LENGTH
 
-	ds 17
+	ds 7
 	
 wMartsStock:: ds (NUM_MARTS + 1) / 2
 
