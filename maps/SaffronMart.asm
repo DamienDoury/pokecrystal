@@ -30,12 +30,12 @@ SaffronMartCooltrainerMText:
 	done
 
 SaffronMartCooltrainerFText:
-	text "I want to become"
-	line "stronger, but I'm"
-	cont "not good yet…"
+	text "I hope the infla-"
+	line "tion will soon"
+	cont "stop and revert."
 
-	para "Could you show me"
-	line "how sometime?"
+	para "Because my salary"
+	line "isn't inflating…"
 	done
 
 SaffronMart_MapEvents:

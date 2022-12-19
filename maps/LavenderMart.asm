@@ -33,11 +33,14 @@ LavenderMartPokefanMText:
 	para "going to explore a"
 	line "cave."
 
-	para "Even though I like"
-	line "exploring, I still"
+	para "Though they have"
+	line "been hard to find"
 
-	para "haven't made it to"
-	line "all the caves."
+	para "since the mart"
+	line "rush that followed"
+	
+	para "the first lockdown"
+	line "declaration."
 	done
 
 LavenderMartRockerText:

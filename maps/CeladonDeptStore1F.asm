@@ -40,8 +40,8 @@ CeladonDeptStore1FGentlemanText:
 	line "in GOLDENROD CITY."
 
 	para "They were both"
-	line "renovated at the"
-	cont "same time."
+	line "renovated during"
+	cont "the quarantine."
 	done
 
 CeladonDeptStore1FTeacherText:

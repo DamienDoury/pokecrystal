@@ -15,7 +15,13 @@ FuchsiaMartClerkScript:
 	end
 
 FuchsiaMartFisherScript:
+	checkevent EVENT_BOUGHT_SAFARI_PARK
+	iftrue .BoughtSafari
+
 	jumptextfaceplayer FuchsiaMartFisherText
+
+.BoughtSafari
+	jumptextfaceplayer FuchsiaMartFisherText2
 
 FuchsiaMartCooltrainerFScript:
 	jumptextfaceplayer FuchsiaMartCooltrainerFText
@@ -29,6 +35,14 @@ FuchsiaMartFisherText:
 
 	para "ZONE souvenirs,"
 	line "but it's closed…"
+	done
+
+FuchsiaMartFisherText2:
+	text "Wow! You're the new"
+	line "SAFARI ZONE owner!"
+
+	para "Thank you so much"
+	line "for re-opening it!"
 	done
 
 FuchsiaMartCooltrainerFText:

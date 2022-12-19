@@ -42,25 +42,6 @@ GoldenrodDeptStore2FElevatorButton:
 GoldenrodDeptStore2FShelfItem1Script:
 	shelfitem 16, ULTRA_BALL, 15360
 
-GoldenrodDeptStore2FUnusedText1: ; unreferenced
-	text "We intend to sell"
-	line "items for #MON"
-	cont "to hold."
-
-	para "This is a free"
-	line "gift. Have a #-"
-	cont "MON hold it."
-	done
-
-GoldenrodDeptStore2FUnusedText2: ; unreferenced
-	text "By giving #MON"
-	line "items to hold, I"
-
-	para "bet trainers will"
-	line "develop new battle"
-	cont "techniques."
-	done
-
 GoldenrodDeptStore2FYoungsterText:
 	text "#GEAR can store"
 	line "up to ten phone"
@@ -72,23 +53,24 @@ GoldenrodDeptStore2FYoungsterText:
 	done
 
 GoldenrodDeptStore2FCooltrainerFText:
-	text "I got my ABRA at"
+	text "I got my new TM at"
 	line "the GAME CORNER."
 
-	para "Now it's my best"
-	line "partner."
+	para "I mean, before"
+	line "it closed."
 	done
 
 GoldenrodDeptStore2FGentlemanText:
-	text "This DEPT.STORE"
-	line "makes me realize"
+	text "“COVID.”"
+	line "“Pandemic.”"
+	
+	para "It's the only"
+	line "subject of every"
 
-	para "that GOLDENROD is"
-	line "a big city."
+	para "conversation"
+	line "these days."
 
-	para "The selection here"
-	line "is unmatched any-"
-	cont "where else."
+	para "Give me a break."
 	done
 
 GoldenrodDeptStore2FDirectoryText:

@@ -149,37 +149,12 @@ CeladonCityYoungster2Text:
 
 CeladonCityTeacher2Text:
 	text "CELADON DEPT.STORE"
-	line "has the biggest"
+	line "just recently"
+	cont "fully re-opened."
 
-	para "and best selection"
-	line "of merchandise."
-
-	para "If you can't get"
-	line "it there, you"
-
-	para "can't get it any-"
-	line "where."
-
-	para "Gee… I sound like"
-	line "a sales clerk."
-	done
-
-CeladonCityLassText_Mobile: ; unreferenced
-	text "I love being"
-	line "surrounded by tall"
-	cont "buildings!"
-
-	para "Isn't it true that"
-	line "GOLDENROD #MON"
-
-	para "CENTER was made"
-	line "much, much bigger?"
-
-	para "That is so neat!"
-	line "I wish we had a"
-
-	para "place like that in"
-	line "KANTO…"
+	para "Though entry is"
+	line "conditioned on"
+	cont "being vaccinated."
 	done
 
 CeladonCityLassText:

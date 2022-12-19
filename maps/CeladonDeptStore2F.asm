@@ -42,12 +42,12 @@ CeladonDeptStore2FPokefanMText:
 	text "I just recently"
 	line "became a trainer."
 
-	para "My son encouraged"
-	line "me to do it."
+	para "I almost lost my"
+	line "life to COVID."
 
-	para "I'm impressed by"
-	line "the selection of"
-	cont "convenient items."
+	para "My son encouraged"
+	line "me to live my"
+	cont "childhood dream!"
 	done
 
 CeladonDeptStore2FYoungsterText:

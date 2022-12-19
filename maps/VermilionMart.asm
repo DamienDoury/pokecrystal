@@ -32,9 +32,19 @@ VermilionMartSuperNerdText:
 	done
 
 VermilionMartBeautyText:
-	text "I'm thinking about"
+	text "I'm dreaming about"
 	line "going shopping in"
-	cont "SAFFRON."
+	cont "CELADON."
+
+	para "But with the shor-"
+	line "tage there isn't"
+	cont "much to shop for."
+
+	para "And with the in-"
+	line "flation you can't"
+	cont "shop for long."
+
+	para "Sigh…"
 	done
 
 VermilionMart_MapEvents:

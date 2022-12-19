@@ -33,20 +33,28 @@ GoldenrodDeptStore1FReceptionistText:
 	done
 
 GoldenrodDeptStore1FGentlemanText:
-	text "The DEPT.STORE"
-	line "has a decent se-"
-	cont "lection."
+	text "I just saw someone"
+	line "carrying an item"
 
-	para "But some items"
-	line "are only available"
+	para "that you can only"
+	line "get as a prize"
 
-	para "as GAME CORNER"
-	line "prizes."
+	para "from the GAME"
+	line "CORNER."
+
+	para "How is it"
+	line "possible?"
+
+	para "The GAME CORNER"
+	line "has been closed"
+	
+	para "since the lockdown"
+	line "has been declared…"
 	done
 
 GoldenrodDeptStore1FPokefanFText:
 	text "I'm raring to shop"
-	line "again today!"
+	line "again someday…"
 	done
 
 GoldenrodDeptStore1FBugCatcherText:

@@ -89,7 +89,9 @@ CeladonDeptStore3FGameboyKid2Text:
 
 CeladonDeptStore3FSuperNerdText:
 	text "The TM SHOP sells"
-	line "some rare moves."
+	line "some rare moves…"
+	cont "…when their stock"
+	cont "isn't empty."
 	done
 
 CeladonDeptStore3FDirectoryText:

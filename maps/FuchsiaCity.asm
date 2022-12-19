@@ -349,15 +349,15 @@ FuchsiaCityTeacherText:
 	done
 
 FuchsiaCityStupidText:
-	text "That item ball in"
+	text "That # BALL in"
 	line "there is really a"
 	cont "#MON."
 	done
 
 FuchsiaCityStupidSurprisedText:
-	text "The item ball was"
+	text "The # BALL was"
 	line "actually…"
-	cont "an item ball?"
+	cont "an # BALL?"
 
 	para "Could the #MON"
 	line "ZOO have displayed"
