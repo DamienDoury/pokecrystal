@@ -26,8 +26,8 @@ InflatedPrices:
 	inflated_price 1680, 2400 ; HYPER_POTION
 	inflated_price 980, 1400 ; SUPER_POTION
 	inflated_price 420, 600 ; POTION
-	inflated_price 825, 1380 ; ESCAPE_ROPE
-	inflated_price 525, 880 ; REPEL
+	inflated_price 820, 1380 ; ESCAPE_ROPE
+	inflated_price 520, 880 ; REPEL
 	inflated_price 4500, 4500 ; MAX_ELIXER
 	inflated_price 2800, 3500 ; FIRE_STONE
 	inflated_price 2800, 3500 ; THUNDERSTONE

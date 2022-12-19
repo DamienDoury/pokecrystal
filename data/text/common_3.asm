@@ -696,6 +696,30 @@ _MartAllIHaveLeftText::
 	line "with the shortage."
 	done
 
+_MartLastItemText::
+	text "This was the last"
+	line "of my items."
+	done
+
+_MartEmptyStock1Text::
+	text "I got nothing else"
+	line "to sell today."
+	prompt
+
+_MartEmptyStock2Text::
+	text "My stock is empty."
+	prompt
+
+_MartEmptyStock3Text::
+	text "You bought every-"
+	line "thing I had!"
+	prompt
+
+_MartEmptyStock4Text::
+	text "Come tomorrow,"
+	line "after I restock."
+	prompt
+
 _MartBoughtText::
 	text "Got ¥@"
 	text_decimal hMoneyTemp, 3, 6

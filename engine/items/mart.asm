@@ -414,6 +414,12 @@ ReadMart:
 INCLUDE "data/items/bargain_shop.asm"
 
 BuyMenu:
+	ld a, 1
+	ld [wItemQuantityChange], a
+	ld b, FALSE
+	call CheckAndUpdateStock ; We check if it was the last of the stock.
+	jr c, .no_items_in_stock
+
 	call FadeToMenu
 	farcall BlankScreen
 	xor a
@@ -425,6 +431,48 @@ BuyMenu:
 	jr nc, .loop
 	call CloseSubmenu
 	ret
+
+.no_items_in_stock
+	push de ; Text round robin.
+	ld hl, wItemQuantity ; If the player's can't buy, then this byte is unused. 
+	inc [hl]
+	ld a, [hl]
+	and %11
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, MartEmptyStockTextList
+	add hl, de
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	pop de
+
+	call PrintText
+	call SpeechTextbox
+	ret
+
+MartEmptyStockTextList:
+	dw MartEmptyStock1Text
+	dw MartEmptyStock2Text
+	dw MartEmptyStock3Text
+	dw MartEmptyStock4Text
+
+MartEmptyStock1Text:
+	text_far _MartEmptyStock1Text
+	text_end
+
+MartEmptyStock2Text:
+	text_far _MartEmptyStock2Text
+	text_end
+
+MartEmptyStock3Text:
+	text_far _MartEmptyStock3Text
+	text_end
+
+MartEmptyStock4Text:
+	text_far _MartEmptyStock4Text
+	text_end
 
 LoadBuyMenuText:
 ; load text from a nested table
@@ -578,7 +626,7 @@ BuyMenuLoop:
 	jr nc, .insufficient_bag_space
 
 	ld b, TRUE
-	call CheckAndUpdateStock
+	call CheckAndUpdateStock ; We check if the transaction can complete.
 	
 	ld a, [wMartItemID]
 	ld e, a
@@ -590,9 +638,22 @@ BuyMenuLoop:
 	ld de, wMoney
 	ld bc, hMoneyTemp
 	call TakeMoney
+
 	ld a, MARTTEXT_HERE_YOU_GO
 	call LoadBuyMenuText
 	call JoyWaitAorB
+
+	ld a, 1
+	ld [wItemQuantityChange], a
+	ld b, FALSE
+	call CheckAndUpdateStock ; We check if it was the last of the stock.
+	jr nc, .cancel ; We stay in the buying menu if the seller's stock is not empty.
+
+; The player just emptied the stock.
+	ld hl, MartLastItemText
+	call PrintText
+	call JoyWaitAorB
+	jr .set_carry ; Quits the buying menu.
 
 .cancel
 	call SpeechTextbox
@@ -1009,6 +1070,10 @@ MartShortageText:
 	text_far _MartShortageText
 	text_end
 
+MartLastItemText:
+	text_far _MartLastItemText
+	text_end
+
 PlayTransactionSound:
 	call WaitSFX
 	ld de, SFX_TRANSACTION
@@ -1157,7 +1222,7 @@ GiveItemToPlayer::
 
 
 
-; Input: if B=TRUE, then the stock will be updated. [wShortageInCurrentMart], [[wCurrentMartID] and [wItemQuantityChange] need to be set.
+; Input: if B=TRUE, then the stock will be updated. [wShortageInCurrentMart], [wCurrentMartID] and [wItemQuantityChange] need to be set.
 ; Output: Carry if not enough articles in stock to complete the transaction. nc otherwise. Returns the stock (number of available articles) in A.
 ; Globbers DE and HL.
 CheckAndUpdateStock:
