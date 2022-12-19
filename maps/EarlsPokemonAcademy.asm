@@ -250,13 +250,51 @@ EarlsPokemonAcademyGameboyKid2Text:
 	done
 
 EarlsPokemonAcademyYoungster2Text:
-	text "A #MON holding"
-	line "a BERRY will heal"
-	cont "itself in battle."
+	text "During a battle,"
+	line "a #MON can heal"
+	
+	para "itself with the"
+	line "the item it is"
+	
+	para "holding. Like a"
+	line "BERRY for example."
 
 	para "Many other items"
 	line "can be held by"
-	cont "#MON…"
+	cont "your #MON."
+
+	para "You can also use"
+	line "items from your"
+	cont "PACK to heal them."
+
+	para "But a trainer isn't"
+	line "allowed to use"
+
+	para "items from the"
+	line "PACK when facing"
+	cont "an other trainer."
+
+	para "It wouldn't be"
+	line "fair."
+
+	para "What would you"
+	line "think if you were"
+	
+	para "facing a rich"
+	line "GENTLEMAN, that"
+	
+	para "kept healing its"
+	line "#MON with MAX"
+	cont "REVIVES?"
+
+	para "The winner of a"
+	line "trainer battle"
+	
+	para "should be deter-"
+	line "mined by skill,"
+	cont "not wealth."
+
+	para "…"
 
 	para "It sure is tough"
 	line "taking notes…"
