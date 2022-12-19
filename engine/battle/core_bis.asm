@@ -528,6 +528,10 @@ CeruleanCaveInfection:
 	add POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK 
 	ld [wBattlePokerusSeed], a
 
+	; Forbid running away.
+	ld a, BATTLETYPE_TRAP
+	ld [wBattleType], a
+
 	; Always aggressive.
 	jr DetermineAssault.forceAssault
 
