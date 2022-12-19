@@ -715,6 +715,7 @@ INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 SECTION "Battle Tower Trainer Data", ROMX
 
 INCLUDE "data/battle_tower/unknown.asm"
+INCLUDE "data/items/inflated_prices.asm"
 
 
 SECTION "Mobile News Data", ROMX

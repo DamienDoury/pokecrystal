@@ -11,6 +11,9 @@ ITEMATTR_POCKET      rb
 ITEMATTR_HELP        rb
 ITEMATTR_STRUCT_LENGTH EQU _RS
 
+; inflated_price struct members (see data/items/inflated_prices.asm)
+INFLATED_PRICE_STRUCT_LENGTH EQU 4
+
 ; item types
 	const_def 1
 	const ITEM     ; 1

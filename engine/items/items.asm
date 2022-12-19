@@ -614,16 +614,58 @@ ItemAttr_ReturnCarry:
 	scf
 	ret
 
+; Return the price of wCurItem in DE.
 GetItemPrice:
-; Return the price of wCurItem in de.
 	push hl
 	push bc
+	jr .get_inflated_price 
+
+.revert_to_regular_price
 	ld a, ITEMATTR_PRICE_LO
 	call GetItemAttr
 	ld e, a
 	ld a, ITEMATTR_PRICE_HI
 	call GetItemAttr
 	ld d, a
+	
+.return
 	pop bc
 	pop hl
 	ret
+
+.get_inflated_price
+	ld a, [wCurItem]
+	cp X_SPECIAL + 1
+	jr nc, .revert_to_regular_price ; Inflation only applies to items whose ID is up to X_SPECIAL.
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_BEAT_ELITE_FOUR
+	call EventFlagAction
+	jr nz, .second_inflation
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call EventFlagAction
+	jr nz, .first_inflation
+
+	jr .revert_to_regular_price ; No inflation at the start of the game.
+
+.second_inflation
+	ld hl, InflatedPrices + 2
+	jr .inflation_applied
+
+.first_inflation
+	ld hl, InflatedPrices
+.inflation_applied
+	ld a, [wCurItem]
+	dec a
+	ld bc, INFLATED_PRICE_STRUCT_LENGTH
+	call AddNTimes
+	
+	ld a, BANK(InflatedPrices)
+	call GetFarWord ; Returns price in HL.
+
+	ld d, h
+	ld e, l
+
+	jr .return

@@ -987,21 +987,6 @@ _PCMonHoldingMailText::
 	line "MAIL."
 	prompt
 
-_PCNoSingleMonText::
-	text "You don't have a"
-	line "single #MON!"
-	prompt
-
-_PCCantDepositLastMonText::
-	text "You can't deposit"
-	line "your last #MON!"
-	prompt
-
-_PCCantTakeText::
-	text "You can't take any"
-	line "more #MON."
-	prompt
-
 _ContestCaughtMonText::
 	text "Caught @"
 	text_ram wStringBuffer1

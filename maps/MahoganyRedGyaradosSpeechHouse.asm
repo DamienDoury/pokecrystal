@@ -41,7 +41,7 @@ MahoganyRedGyaradosSpeechHouseTeacherScript:
 	writetext MahoganyRedGyaradosSpeechHouse_ScalperFanText
 	promptbutton
 
-	verbosegiveitem TOILET_PAPER, 12
+	verbosegiveitem TOILET_PAPER, 24
 	iffalse .full
 
 	writetext MahoganyRedGyaradosSpeechHouse_ScalperPackText
@@ -157,7 +157,7 @@ MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText:
 
 MahoganyRedGyaradosSpeechHouse_ScalperPackText:
 	text "SCALPER: A"
-	line "pristine 12-pack"
+	line "pristine 24-pack"
 	cont "for you my friend!"
 
 	para "Super rare,"
