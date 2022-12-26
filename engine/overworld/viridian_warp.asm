@@ -7,23 +7,36 @@ ViridianWarp::
 	cp MAP_VIRIDIAN_FOREST
 	ret nz
 
-	ld hl, wPlayerStandingMapY
-	ld a, [hld] ; Y coord.
-	cp 7 + 4
-	jr nz, .next_check
+	ld hl, wYCoord
+	ld a, [hli] ; Y coord.
+	cp 7
+	ret nz
+	;jr nz, .next_check
 
 	ld a, [hl] ; X coord.
-	cp 0 + 4
-	jr nz, .next_check
+	srl a
+	cp 0
+	jr z, .warp_shift_right
 
 	; At this point, we know the player is standing on the warp tile.
 
+.next_check
+	cp 8
+	jr z, .warp_shift_left
+
+	ret
+
+.warp_shift_left
+	ld a, [hl] ; X coord.
+	sub 16
+	jr .warp_shift
+
+.warp_shift_right
+	ld a, [hl]
 	add 16
-	;ld [hl], a ; Warp. Insufisiant.
-	sub 4
+
+.warp_shift
 	ld [wXCoord], a
 	farcall RefreshPlayerCoords
 	farcall GetMapScreenCoords
-
-.next_check
 	ret

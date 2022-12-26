@@ -38,27 +38,27 @@
 	tilecoll WALL, WALL, WALL, WALL ; 25
 	tilecoll WALL, WALL, WALL, WALL ; 26
 	tilecoll WALL, WALL, WALL, WALL ; 27
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 28
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 29
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2a
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2b
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2c
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2d
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2e
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2f
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 30
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 31
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 32
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 33
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 34
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 35
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 36
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 37
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 38
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 39
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3a
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3b
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3c
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3d
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3e
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3f
+	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 28
+	tilecoll WARP_CARPET_UP, WARP_CARPET_UP, FLOOR, FLOOR ; 29
+	tilecoll HOP_RIGHT, WALL, HOP_RIGHT, WALL ; 2a
+	tilecoll , , ,  ; 2b
+	tilecoll , , ,  ; 2c
+	tilecoll , , ,  ; 2d
+	tilecoll , , ,  ; 2e
+	tilecoll , , ,  ; 2f
+	tilecoll , , ,  ; 30
+	tilecoll , , ,  ; 31
+	tilecoll , , ,  ; 32
+	tilecoll , , ,  ; 33
+	tilecoll , , ,  ; 34
+	tilecoll , , ,  ; 35
+	tilecoll , , ,  ; 36
+	tilecoll , , ,  ; 37
+	tilecoll , , ,  ; 38
+	tilecoll , , ,  ; 39
+	tilecoll , , ,  ; 3a
+	tilecoll , , ,  ; 3b
+	tilecoll , , ,  ; 3c
+	tilecoll , , ,  ; 3d
+	tilecoll , , ,  ; 3e
+	tilecoll , , ,  ; 3f
