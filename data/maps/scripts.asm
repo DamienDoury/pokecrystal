@@ -72,6 +72,7 @@ INCLUDE "maps/PokecomCenterAdminOfficeMobile.asm"
 INCLUDE "maps/IlexForestAzaleaGate.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
+INCLUDE "maps/ViridianForest.asm"
 
 
 SECTION "Map Scripts 5", ROMX
