@@ -277,6 +277,8 @@ CheckTileEvent:
 	call CheckWarpTile
 	jr c, .warp_tile
 
+	farcall ViridianWarp
+
 .connections_disabled
 	call CheckCoordEventScriptFlag
 	jr z, .coord_events_disabled
