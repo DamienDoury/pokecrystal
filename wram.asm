@@ -3349,7 +3349,11 @@ w3_d8a2:: ds 1
 w3_d8a3:: ds 1
 ENDU
 
-	ds $1c0
+wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
+wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
+
+	ds $1b4
+
 
 w3_dc00:: ds SCREEN_WIDTH * SCREEN_HEIGHT
 UNION
