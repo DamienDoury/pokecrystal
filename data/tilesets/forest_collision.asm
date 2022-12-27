@@ -41,24 +41,24 @@
 	tilecoll FLOOR, FLOOR, WARP_CARPET_DOWN, WARP_CARPET_DOWN ; 28
 	tilecoll WARP_CARPET_UP, WARP_CARPET_UP, FLOOR, FLOOR ; 29
 	tilecoll HOP_RIGHT, WALL, HOP_RIGHT, WALL ; 2a
-	tilecoll , , ,  ; 2b
-	tilecoll , , ,  ; 2c
-	tilecoll , , ,  ; 2d
-	tilecoll , , ,  ; 2e
-	tilecoll , , ,  ; 2f
-	tilecoll , , ,  ; 30
-	tilecoll , , ,  ; 31
-	tilecoll , , ,  ; 32
-	tilecoll , , ,  ; 33
-	tilecoll , , ,  ; 34
-	tilecoll , , ,  ; 35
-	tilecoll , , ,  ; 36
-	tilecoll , , ,  ; 37
-	tilecoll , , ,  ; 38
-	tilecoll , , ,  ; 39
-	tilecoll , , ,  ; 3a
-	tilecoll , , ,  ; 3b
-	tilecoll , , ,  ; 3c
-	tilecoll , , ,  ; 3d
-	tilecoll , , ,  ; 3e
-	tilecoll , , ,  ; 3f
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 2b
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 2c
+	tilecoll WALL, WALL, WALL, WALL ; 2d
+	tilecoll WALL, FLOOR, WALL, FLOOR ; 2e
+	tilecoll WALL, WALL, WALL, WALL ; 2f
+	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 30
+	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 31
+	tilecoll WALL, WALL, WALL, WALL ; 32
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 33
+	tilecoll WALL, WALL, WALL, WALL ; 34
+	tilecoll WALL, WALL, WALL, WALL ; 35
+	tilecoll WALL, WALL, WALL, WALL ; 36
+	tilecoll WALL, WALL, WALL, WALL ; 37
+	tilecoll WALL, WALL, WALL, WALL ; 38
+	tilecoll WALL, WALL, WALL, WALL ; 39
+	tilecoll WALL, WALL, WALL, WALL ; 3a
+	tilecoll WALL, WALL, WALL, WALL ; 3b
+	tilecoll WALL, WALL, WALL, WALL ; 3c
+	tilecoll WALL, WALL, WALL, WALL ; 3d
+	tilecoll WALL, WALL, WALL, WALL ; 3e
+	tilecoll WALL, WALL, WALL, WALL ; 3f
