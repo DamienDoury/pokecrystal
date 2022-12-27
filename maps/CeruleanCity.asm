@@ -16,8 +16,11 @@ CeruleanCity_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
-.FlyPoint:
+.FlyPoint:	
+	readvar VAR_YCOORD
+	ifgreater 30, .end
 	setflag ENGINE_FLYPOINT_CERULEAN
+.end
 	endcallback
 
 CeruleanCityCooltrainerMScript:
