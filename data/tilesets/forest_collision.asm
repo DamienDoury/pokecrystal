@@ -48,7 +48,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 2f
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 30
 	tilecoll WALL, FLOOR, FLOOR, FLOOR ; 31
-	tilecoll WALL, WALL, WALL, WALL ; 32
+	tilecoll FLOOR, FLOOR, HOP_DOWN, FLOOR ; 32
 	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 33
 	tilecoll WALL, WALL, WALL, WALL ; 34
 	tilecoll WALL, WALL, WALL, WALL ; 35
