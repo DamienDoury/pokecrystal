@@ -905,7 +905,7 @@ CountStep:
 
 DoRepelStep:
 	ld a, [wRepelEffect]
-	and a
+	and a ; Sets carry to zero, no matter what.
 	ret z
 
 	ld a, [wMapGroup]
@@ -927,7 +927,8 @@ DoRepelStep:
 	ld a, 1
 
 .normal_area
-	dec a
+	and a ; We need to reset the carry flag, because we edited it, and it needs to be zero if we return at this point.
+	dec a ; The "dec" instruction doesn't touch the carry flag, which feels weird.
 	ld [wRepelEffect], a
 	ret nz
 
