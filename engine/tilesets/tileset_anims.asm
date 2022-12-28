@@ -523,7 +523,7 @@ ForestTreeLeftAnimation:
 	ld c, l
 
 ; Only animate this during the Celebi event
-	ld a, [wCelebiEvent]
+	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation
 	ld hl, ForestTreeLeftFrames
@@ -566,7 +566,7 @@ ForestTreeRightAnimation:
 	ld c, l
 
 ; Only animate this during the Celebi event
-	ld a, [wCelebiEvent]
+	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation
 	ld hl, ForestTreeRightFrames
@@ -605,7 +605,7 @@ ForestTreeLeftAnimation2:
 	ld c, l
 
 ; Only animate this during the Celebi event
-	ld a, [wCelebiEvent]
+	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation
 	ld hl, ForestTreeLeftFrames
@@ -643,7 +643,7 @@ ForestTreeRightAnimation2:
 	ld c, l
 
 ; Only animate this during the Celebi event
-	ld a, [wCelebiEvent]
+	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation
 	ld hl, ForestTreeRightFrames

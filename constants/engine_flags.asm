@@ -129,7 +129,7 @@
 	const ENGINE_62
 ; wPlayerGender
 	const ENGINE_PLAYER_IS_FEMALE
-; wCelebiEvent
+; wPokegearFlags bis
 	const ENGINE_FOREST_IS_RESTLESS
 ; wDailyRematchFlags
 	const ENGINE_JACK_READY_FOR_REMATCH

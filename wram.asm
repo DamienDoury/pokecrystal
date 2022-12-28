@@ -3004,7 +3004,7 @@ wVaccinationCenterSceneID::	  					  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
-	ds 1
+	ds 2
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -3012,10 +3012,6 @@ wCurBox:: db
 
 ; 8 chars + $50
 wBoxNames:: ds BOX_NAME_LENGTH * NUM_BOXES
-
-wCelebiEvent::
-; bit 2: forest is restless
-	db
 
 wBikeFlags::
 ; bit 0: using strength
