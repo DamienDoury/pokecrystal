@@ -202,3 +202,4 @@ SpecialsPointers::
 	add_special SilphCo_TestSubjectRemovedFromParty
 	add_special SilphCo_PlayerGetsPropertyOfTestSubject
 	add_special CheckCaughtMewtwo
+	add_special ShuffleAllViridianWarps

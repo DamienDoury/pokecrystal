@@ -1,9 +1,25 @@
 	object_const_def
+	const VIRIDIAN_FOREST_TREE_1
+	const VIRIDIAN_FOREST_TREE_2
+	const VIRIDIAN_FOREST_TREE_3
+	const VIRIDIAN_FOREST_TREE_4
+	const VIRIDIAN_FOREST_TREE_5
+	const VIRIDIAN_FOREST_TREE_6
+	const VIRIDIAN_FOREST_BALL_1
+	const VIRIDIAN_FOREST_BALL_2
+	const VIRIDIAN_FOREST_BALL_3
+	const VIRIDIAN_FOREST_BALL_4
+	const VIRIDIAN_FOREST_GS_BALL
 
 ViridianForest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+	special ShuffleAllViridianWarps
+	endcallback
 
 ViridianForestDireHit:
 	itemball DIRE_HIT
@@ -14,6 +30,15 @@ ViridianForestMaxPotion:
 
 ViridianForestFruitTree1:
 	fruittree FRUITTREE_ROUTE_42_1
+
+ViridianGSBall:
+	; cutscene of Celebi flying away.
+	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
+	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	opentext
+	verbosegiveitem GS_BALL
+	closetext
+	end
 
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
@@ -102,14 +127,14 @@ ViridianForest_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 41, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
+	object_event 40, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event 27, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event 25, 34, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event 40, 17, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
+	object_event 41, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event 13, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event  1, 37, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
 	object_event  1, 45, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestDireHit, EVENT_ROUTE_2_DIRE_HIT
 	object_event 12, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_ROUTE_2_MAX_POTION
-	object_event 33, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
-	object_event 33, 33, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
-	object_event  2, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
+	object_event 41, 46, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
+	object_event 22, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
+	object_event  2, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER

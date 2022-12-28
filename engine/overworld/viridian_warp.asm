@@ -7,8 +7,6 @@ ViridianWarp::
 	cp MAP_VIRIDIAN_FOREST
 	ret nz
 
-	call .SetRandomPairs
-
 	ld a, [wPlayerFacing]
 	and %1100
 	cp OW_DOWN
@@ -19,13 +17,6 @@ ViridianWarp::
 	jr z, .CheckLeftWarp
 	jr .CheckRightWarp
 
-
-.SetRandomPairs:
-	ld hl, ViridianWarpPairs
-	ld bc, VIRIDIAN_VERTICAL_WARP_COUNT + VIRIDIAN_HORIZONTAL_WARP_COUNT
-	ld de, wViridianVerticalWarpPair
-	call CopyBytes
-	ret
 
 
 
@@ -256,6 +247,107 @@ ApplySeamlessWarp:
 	farcall GetMapScreenCoords
 	ret
 
+
+
+
+
+
+ShuffleAllViridianWarps::
+	call PrepopulateViridianWarps
+
+	ld hl, wViridianVerticalWarpPair
+	ld b, VIRIDIAN_VERTICAL_WARP_COUNT - 1
+	ld d, 0
+	call ShuffleViridianWarps
+
+	ld hl, wViridianHorizontalWarpPair
+	ld b, VIRIDIAN_HORIZONTAL_WARP_COUNT - 1
+	ld d, VIRIDIAN_VERTICAL_WARP_COUNT
+	call ShuffleViridianWarps
+	ret
+
+
+
+
+PrepopulateViridianWarps:
+	ld b, VIRIDIAN_VERTICAL_WARP_COUNT
+	ld c, 0
+	ld hl, wViridianVerticalWarpPair
+	ld a, c
+
+.loop
+	call Modulo
+	ld [hli], a
+
+	inc c
+	ld a, c
+	cp VIRIDIAN_VERTICAL_WARP_COUNT + VIRIDIAN_HORIZONTAL_WARP_COUNT
+	ret z
+	jr .loop
+
+; Input: HL = first entry of the array. The array must be sorted. B = array length - 1 (= last index). D = start index for the rand generator.
+; Output: HL array shuffled. No value can be the same it was.
+ShuffleViridianWarps:
+	ld a, b
+	call GetFixedRand
+	inc a
+	call SwapArrayEntries
+	inc hl
+	inc d
+	dec b
+	jr nz, ShuffleViridianWarps
+	ret
+
+; Input: HL = first entry. A = index offset from HL entry.
+; Output: In-memory values swapped.
+SwapArrayEntries:
+	push bc
+	push de
+	ld c, [hl]
+	ld e, a
+	ld d, 0
+	push hl
+	add hl, de
+	ld e, [hl]
+	ld [hl], c
+	pop hl
+	ld [hl], e
+	pop de
+	pop bc
+	ret
+
+; Gets a random value based on the player ID, first 2 chars of the player name, and first 2 chars of the rival name.
+; Input: D = the offset for the rand seed (< 12). B = the modulo. Note: the value before modulo is lower than 16 (it's a nybble).
+GetFixedRand:
+	push de
+	push hl
+
+	ld hl, wPlayerID
+	ld a, d
+	cp 8
+	jr c, .hlDetermined
+
+	ld hl, wRivalName
+	sub 8
+.hlDetermined
+	srl a
+	ld e, a
+	ld d, 0
+	push af ; Saving the carry from srl.
+	add hl, de
+	pop af
+	ld a, [hl]
+	jr nc, .nybbleDetermined
+
+	swap a
+.nybbleDetermined
+	and $f ; Masking the lower nybble.
+	call Modulo
+
+	pop hl
+	pop de
+	ret
+
 ViridianVerticalWarpsList:
 	db 0, 3
 	db 9, 3
@@ -271,6 +363,3 @@ ViridianHorizontalWarpsList:
 	db 7, 14
 	db 4, 17
 	db 4, 23
-
-ViridianWarpPairs:
-	db 2, 7, 6, 5, 1, 0, 3, 4, 1, 2, 3, 0

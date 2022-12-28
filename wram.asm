@@ -2723,7 +2723,7 @@ wPlayerID:: dw
 wPlayerName:: ds NAME_LENGTH
 wRivalName::  ds NAME_LENGTH
 
-	ds 7
+	ds 5
 	
 wMartsStock:: ds (NUM_MARTS + 1) / 2
 
@@ -2908,13 +2908,6 @@ wRegisteredItem:: db
 
 wPlayerState:: db
 
-wHallOfFameCount:: db
-wTradeFlags:: flag_array NUM_NPC_TRADES
-wMooMooBerries:: db
-wUndergroundSwitchPositions:: db
-wFarfetchdPosition:: db
-wGoldenrodHospitalCorridorNumber:: db
-
 
 ; map scene ids
 ; Damien's note: the following bytes are used to store the scene ID, or scene state of some maps.
@@ -3080,7 +3073,6 @@ wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.
 wSpecialPhoneCallID:: db
-wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wMobileOrCable_LastSelection:: db
 wdc41:: ds 1
 wdc42:: ds 8
@@ -3099,10 +3091,26 @@ wdc60:: db
 wStepCount:: db
 wPoisonStepCount:: db
 wHappinessStepCount:: db
+wHallOfFameCount:: db
+wTradeFlags:: flag_array NUM_NPC_TRADES
+wMooMooBerries:: db
 
+; Map specific vars.
+UNION ; 12 bytes.
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
+wBugContestStartTime:: ds 4 ; day, hour, min, sec
+wUndergroundSwitchPositions:: db
+wFarfetchdPosition:: db
+wGoldenrodHospitalCorridorNumber:: db
+
+	ds 2
+
+NEXTU ; 12 bytes.
+wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
+wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
+ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
 
@@ -3349,10 +3357,7 @@ w3_d8a2:: ds 1
 w3_d8a3:: ds 1
 ENDU
 
-wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
-wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
-
-	ds $1b4
+	ds $1c0
 
 
 w3_dc00:: ds SCREEN_WIDTH * SCREEN_HEIGHT
