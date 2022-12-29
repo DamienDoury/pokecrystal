@@ -23,7 +23,6 @@ INCLUDE "engine/predef.asm"
 SECTION "bank2", ROMX
 
 INCLUDE "engine/overworld/player_object.asm"
-INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/gfx/color.asm"
 
 
@@ -73,6 +72,7 @@ INCLUDE "engine/events/bug_contest/contest_2.asm"
 
 SECTION "bank5", ROMX
 
+INCLUDE "engine/math/sine.asm"
 INCLUDE "engine/rtc/rtc.asm"
 INCLUDE "engine/overworld/overworld.asm"
 INCLUDE "engine/overworld/tile_events.asm"

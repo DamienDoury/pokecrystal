@@ -13,4 +13,5 @@ ENDM
 	custom_map_objects_pals ROUTE_34_ILEX_FOREST_GATE, MapObjectPalsPurple
 	custom_map_objects_pals PLAYERS_HOUSE_2F, MapObjectPalsPurple
 	custom_map_objects_pals CERULEAN_CAVE_B3F, MapObjectPalsPurple
+	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall
 	db 0 ; end
