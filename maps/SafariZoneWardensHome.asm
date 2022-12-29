@@ -313,7 +313,8 @@ GiveFirstSafariKeyAfterText:
 	cont "employee keys."
 
 	para "They are so old"
-	line "they often break."
+	line "and rusty that"
+	cont "they often break."
 	done
 
 SafariZoneTrustText:

@@ -4,6 +4,11 @@ CeruleanCaveEntrance_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+
+.EnterCallback:
+	setevent EVENT_ENTERED_CERULEAN_CAVE
+	endcallback
 
 CeruleanCaveEntrance_ExitScript:
 	opentext

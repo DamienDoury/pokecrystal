@@ -613,8 +613,11 @@
 	const EVENT_BOUGHT_SAFARI_PARK
 	const EVENT_SAFARI_PARK_EMPLOYEES
 
+	const EVENT_ENTERED_SAFARI_ZONE
+	const EVENT_ENTERED_CERULEAN_CAVE
 
-; Unused: next 129 events
+
+; Unused: next 128 events
 
 	const_next 1000
 ; Trainer flags
