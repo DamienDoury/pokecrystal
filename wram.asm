@@ -3064,7 +3064,7 @@ wPrevMapNumber:: db
 
 wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
 
-	ds 2
+	ds 1
 
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.

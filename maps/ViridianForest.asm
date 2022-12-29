@@ -29,7 +29,22 @@ ViridianForestMaxPotion:
 	itemball MAX_POTION
 
 ViridianForestFruitTree1:
-	fruittree FRUITTREE_ROUTE_42_1
+	fruittree FRUITTREE_VIRIDIAN_FOREST_1
+
+ViridianForestFruitTree2:
+	fruittree FRUITTREE_VIRIDIAN_FOREST_2
+
+ViridianForestFruitTree3:
+	fruittree FRUITTREE_VIRIDIAN_FOREST_3
+
+ViridianForestFruitTree4:
+	fruittree FRUITTREE_VIRIDIAN_FOREST_4
+
+ViridianForestFruitTree5:
+	fruittree FRUITTREE_VIRIDIAN_FOREST_5
+
+ViridianForestFruitTree6:
+	fruittree FRUITTREE_VIRIDIAN_FOREST_6
 
 ViridianGSBall:
 	; cutscene of Celebi flying away.
@@ -40,15 +55,34 @@ ViridianGSBall:
 	closetext
 	end
 
+ViridianForestLostKidScript:
+	jumptextfaceplayer ViridianForestLostKidText
+
+ViridianForestLostKidText:
+	text "Please help!"
+	
+	para "I've been lost"
+	line "for days."
+
+	para "It's like the"
+	line "forest is moving…"
+
+	para "I'm surviving"
+	line "off berries."
+
+	para "Find what's wrong"
+	line "with the forest!"
+	done
+
 ViridianForest_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  0,  0, VIRIDIAN_CITY, 1
-	warp_event  1,  0, VIRIDIAN_CITY, 1
+	warp_event  0,  0, ROUTE_2, 6
+	warp_event  1,  0, ROUTE_2, 7
 
-	warp_event 25, 53, VIRIDIAN_CITY, 1
-	warp_event 24, 53, VIRIDIAN_CITY, 1
+	warp_event 24, 53, ROUTE_2, 8
+	warp_event 25, 53, ROUTE_2, 9
 
 ;	warp_event 15, 29, VIRIDIAN_CITY, 1
 ;	warp_event 14, 28, VIRIDIAN_CITY, 1
@@ -128,13 +162,15 @@ ViridianForest_MapEvents:
 
 	def_object_events
 	object_event 40, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event 27, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event 25, 34, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event 41, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event 13, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
-	object_event  1, 37, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
+	object_event 27, 13, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree2, -1
+	object_event 25, 34, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree3, -1
+	object_event 41, 17, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree4, -1
+	object_event 13, 12, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree5, -1
+	object_event  1, 37, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree6, -1
 	object_event  1, 45, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestDireHit, EVENT_ROUTE_2_DIRE_HIT
 	object_event 12, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_ROUTE_2_MAX_POTION
 	object_event 41, 46, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
 	object_event 22, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
 	object_event  2, 20, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	object_event  2, 22, SPRITE_CATERPIE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event 22, 34, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianForestLostKidScript, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
