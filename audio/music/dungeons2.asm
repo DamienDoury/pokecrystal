@@ -309,14 +309,15 @@ Music_Dungeon2_Ch3::
 	sound_ret
 
 Music_Dungeon2_Ch4::
+	toggle_noise 1
 	drum_speed 12
 .mainloop:
-	drum_note 12, 4
-	drum_note 13, 4
-	drum_note 12, 4
-	drum_note 10, 4
-	drum_note 12, 4
-	drum_note 13, 4
-	drum_note 11, 4
-	drum_note 9, 4
+	drum_note 5, 4
+	drum_note 6, 4
+	drum_note 5, 4
+	drum_note 3, 4
+	drum_note 5, 4
+	drum_note 6, 4
+	drum_note 4, 4
+	drum_note 2, 4
 	sound_loop 0, .mainloop
