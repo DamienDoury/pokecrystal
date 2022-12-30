@@ -655,6 +655,19 @@ PokegearMap_ContinueMap:
 	ret
 
 Map_PressUp_SkipHiddenLandmarks:
+	cp LANDMARK_HOSPITAL - 1
+	jr nz, .not_hospital
+
+	push de
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call CheckMapEventFlag
+	pop de
+	jr nz, .not_hospital
+
+	inc [hl]
+	ret
+
+.not_hospital
 	cp LANDMARK_SAFARI_ZONE - 1
 	jr nz, .not_safari
 
@@ -665,6 +678,7 @@ Map_PressUp_SkipHiddenLandmarks:
 	jr nz, .not_safari
 
 	inc [hl]
+	ret
 
 .not_safari
 	cp LANDMARK_CERULEAN_CAVE - 1
@@ -680,6 +694,19 @@ Map_PressUp_SkipHiddenLandmarks:
 	ret
 
 Map_PressDown_SkipHiddenLandmarks:
+	cp LANDMARK_HOSPITAL + 1
+	jr nz, .not_hospital
+
+	push de
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call CheckMapEventFlag
+	pop de
+	jr nz, .not_hospital
+
+	dec [hl]
+	ret
+
+.not_hospital
 	cp LANDMARK_SAFARI_ZONE + 1
 	jr nz, .not_safari
 
@@ -690,6 +717,7 @@ Map_PressDown_SkipHiddenLandmarks:
 	jr nz, .not_safari
 
 	dec [hl]
+	ret
 
 .not_safari
 	cp LANDMARK_CERULEAN_CAVE + 1

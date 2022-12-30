@@ -25,6 +25,7 @@ Landmarks:
 	landmark  52, 112, Route34Name
 	landmark  52,  92, GoldenrodCityName
 	landmark  50,  92, RadioTowerName
+	landmark  54,  92, HospitalName
 	landmark  52,  76, Route35Name
 	landmark  52,  60, NationalParkName
 	landmark  64,  60, Route36Name
@@ -126,6 +127,7 @@ RuinsOfAlphName:     db "RUINS¯OF ALPH@"
 UnionCaveName:       db "UNION CAVE@"
 SlowpokeWellName:    db "SLOWPOKE¯WELL@"
 RadioTowerName:      db "RADIO TOWER@"
+HospitalName:		 db "NATIONAL¯HOSPITAL@"
 PowerPlantName:      db "POWER PLANT@"
 NationalParkName:    db "NATIONAL¯PARK@"
 TinTowerName:        db "TIN TOWER@"
