@@ -42,6 +42,9 @@ CutTreeBlockPointers:
 .forest:
 ; facing block, replacement block, animation
 	db $0f, $17, 0
+	db $38, $39, 0
+	db $3a, $3b, 0
+	; We do not allow cutting grass, as it causes map loading issues with the seamless warp function.
 	db -1 ; end
 
 
