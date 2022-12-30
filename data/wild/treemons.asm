@@ -8,6 +8,7 @@ TreeMons:
 	dw TreeMonSet_Kanto
 	dw TreeMonSet_Lake
 	dw TreeMonSet_Forest
+	dw TreeMonSet_Viridian
 	dw TreeMonSet_Rock
 	assert_table_length NUM_TREEMON_SETS
 	dw TreeMonSet_City ; unused
@@ -124,6 +125,20 @@ TreeMonSet_Forest:
 	db  5, METAPOD,    10
 	db  5, KAKUNA,     10
 	db -1
+
+TreeMonSet_Viridian:
+	; common
+		db 45, WEEDLE,     10
+		db 45, CATERPIE,   10
+		db  5, PIKACHU,    10
+		db  5, BULBASAUR,  10
+		db -1
+	; rare
+		db 35, METAPOD,    10
+		db 35, KAKUNA,     10
+		db 15, PIKACHU,    10
+		db 15, BULBASAUR,  10
+		db -1
 
 TreeMonSet_Rock:
 	db 90, KRABBY,     15
