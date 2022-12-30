@@ -59,9 +59,9 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_MT_MOON           ; 36
 	const LANDMARK_ROUTE_4           ; 37
 	const LANDMARK_CERULEAN_CITY     ; 38
-	const LANDMARK_ROUTE_24          ; 39
-	const LANDMARK_ROUTE_25          ; 3a
-	const LANDMARK_CERULEAN_CAVE   	 ; 3b
+	const LANDMARK_CERULEAN_CAVE   	 ; 39
+	const LANDMARK_ROUTE_24          ; 3a
+	const LANDMARK_ROUTE_25          ; 3b
 	const LANDMARK_ROUTE_5           ; 3c
 	const LANDMARK_UNDERGROUND_PATH  ; 3d
 	const LANDMARK_ROUTE_6           ; 3e
@@ -85,8 +85,8 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_16          ; 50
 	const LANDMARK_ROUTE_17          ; 51
 	const LANDMARK_ROUTE_18          ; 52
-	const LANDMARK_FUCHSIA_CITY      ; 53
-	const LANDMARK_SAFARI_ZONE   	 ; 54
+	const LANDMARK_SAFARI_ZONE   	 ; 53
+	const LANDMARK_FUCHSIA_CITY      ; 54
 	const LANDMARK_ROUTE_19          ; 55
 	const LANDMARK_ROUTE_20          ; 56
 	const LANDMARK_SEAFOAM_ISLANDS   ; 57

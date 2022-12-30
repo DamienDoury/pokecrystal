@@ -65,9 +65,9 @@ Landmarks:
 	landmark  76,  52, MtMoonName
 	landmark  88,  52, Route4Name
 	landmark 100,  52, CeruleanCityName
+	landmark  92,  44, CeruleanCaveName
 	landmark 100,  44, Route24Name
 	landmark 108,  36, Route25Name
-	landmark  92,  44, CeruleanCaveName
 	landmark 100,  60, Route5Name
 	landmark 108,  76, UndergroundName
 	landmark 100,  76, Route6Name
@@ -91,8 +91,8 @@ Landmarks:
 	landmark  68,  68, Route16Name
 	landmark  68,  92, Route17Name
 	landmark  80, 116, Route18Name
+	landmark  92, 108, SafariZoneName
 	landmark  92, 116, FuchsiaCityName
-	landmark  92, 104, SafariZoneName
 	landmark  92, 128, Route19Name
 	landmark  76, 132, Route20Name
 	landmark  68, 132, SeafoamIslandsName

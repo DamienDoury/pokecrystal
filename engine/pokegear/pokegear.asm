@@ -628,6 +628,7 @@ PokegearMap_ContinueMap:
 	dec a
 	ld [hl], a
 .wrap_around_up
+	call Map_PressUp_SkipHiddenLandmarks
 	inc [hl]
 	jr .done_dpad
 
@@ -640,6 +641,7 @@ PokegearMap_ContinueMap:
 	inc a
 	ld [hl], a
 .wrap_around_down
+	call Map_PressDown_SkipHiddenLandmarks
 	dec [hl]
 .done_dpad
 	ld a, [wPokegearMapCursorLandmark]
@@ -650,6 +652,71 @@ PokegearMap_ContinueMap:
 	ld b, a
 	ld a, [wPokegearMapCursorLandmark]
 	call PokegearMap_UpdateCursorPosition
+	ret
+
+Map_PressUp_SkipHiddenLandmarks:
+	cp LANDMARK_SAFARI_ZONE - 1
+	jr nz, .not_safari
+
+	push de
+	ld de, EVENT_ENTERED_SAFARI_ZONE
+	call CheckMapEventFlag
+	pop de
+	jr nz, .not_safari
+
+	inc [hl]
+
+.not_safari
+	cp LANDMARK_CERULEAN_CAVE - 1
+	ret nz
+
+	push de
+	ld de, EVENT_ENTERED_CERULEAN_CAVE
+	call CheckMapEventFlag
+	pop de
+	ret nz
+
+	inc [hl]
+	ret
+
+Map_PressDown_SkipHiddenLandmarks:
+	cp LANDMARK_SAFARI_ZONE + 1
+	jr nz, .not_safari
+
+	push de
+	ld de, EVENT_ENTERED_SAFARI_ZONE
+	call CheckMapEventFlag
+	pop de
+	jr nz, .not_safari
+
+	dec [hl]
+
+.not_safari
+	cp LANDMARK_CERULEAN_CAVE + 1
+	ret nz
+
+	push de
+	ld de, EVENT_ENTERED_CERULEAN_CAVE
+	call CheckMapEventFlag
+	pop de
+	ret nz
+
+	dec [hl]
+	ret
+
+CheckMapEventFlag:
+	push bc
+	push hl
+	ld b, a
+	push bc
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, c
+	and a
+	pop bc
+	ld a, b
+	pop hl
+	pop bc
 	ret
 
 PokegearMap_InitPlayerIcon:
@@ -1861,6 +1928,7 @@ _TownMap:
 	ld [hl], a
 
 .okay
+	call Map_PressUp_SkipHiddenLandmarks
 	inc [hl]
 	jr .next
 
@@ -1874,6 +1942,7 @@ _TownMap:
 	ld [hl], a
 
 .okay2
+	call Map_PressDown_SkipHiddenLandmarks
 	dec [hl]
 
 .next
@@ -2646,10 +2715,51 @@ FillTownMap:
 	ld a, [de]
 	cp -1
 	ret z
-	ld a, [de]
+
+	call DynamicMapTile
+	
 	ld [hli], a
 	inc de
 	jr .loop
+
+DynamicMapTile:
+	ld a, e
+	cp LOW(KantoMap + $d * SCREEN_WIDTH + $b)
+	jr nz, .not_safari_zone
+
+	ld a, d
+	cp HIGH(KantoMap + $d * SCREEN_WIDTH + $b)
+	jr nz, .not_safari_zone
+
+	push de
+	ld de, EVENT_ENTERED_SAFARI_ZONE
+	call CheckMapEventFlag
+	pop de
+	jr z, .not_safari_zone
+
+	ld a, $f
+	ret
+
+.not_safari_zone
+	ld a, e
+	cp LOW(KantoMap + $5 * SCREEN_WIDTH + $b)
+	ld a, [de]
+	ret nz
+
+	ld a, d
+	cp HIGH(KantoMap + $5 * SCREEN_WIDTH + $b)
+	ld a, [de]
+	ret nz
+
+	push de
+	ld de, EVENT_ENTERED_CERULEAN_CAVE
+	call CheckMapEventFlag
+	pop de
+	ld a, [de]
+	ret z
+
+	ld a, $f
+	ret
 
 TownMapPals:
 ; Assign palettes based on tile ids
