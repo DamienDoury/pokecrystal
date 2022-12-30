@@ -349,17 +349,17 @@ GetFixedRand:
 	ret
 
 ViridianVerticalWarpsList:
-	db 0, 3
-	db 9, 3
-	db 16, 13
-	db 20, 13
-	db 8, 20
-	db 12, 20
-	db 16, 7
-	db 16, 19
+	db 0, 5
+	db 9, 5
+	db 16, 15
+	db 20, 15
+	db 8, 22
+	db 12, 22
+	db 16, 9
+	db 16, 21
 
 ViridianHorizontalWarpsList:
-	db 16, 0
-	db 7, 14
-	db 4, 17
-	db 4, 23
+	db 16, 2
+	db 7, 16
+	db 4, 19
+	db 4, 25
