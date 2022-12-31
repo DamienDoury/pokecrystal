@@ -32,14 +32,14 @@ PowerPlantGuardPhoneScript:
 	writetext PowerPlantOfficer1CeruleanShadyCharacterText
 	waitbutton
 	closetext
-	turnobject POWERPLANT_OFFICER1, LEFT
-	turnobject PLAYER, RIGHT
+	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ReturnToPostMovement
+	turnobject PLAYER, DOWN
 	opentext
 	writetext PowerPlantOfficer1CouldIAskForYourCooperationText
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
-	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ReturnToPostMovement
+	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ReturnToPostFinalMovement
 	setscene SCENE_POWERPLANT_NOTHING
 	end
 
@@ -84,20 +84,7 @@ PowerPlantGymGuide1Script:
 	end
 
 PowerPlantGymGuide2Script:
-	faceplayer
-	opentext
-	checkevent EVENT_RETURNED_MACHINE_PART
-	iftrue .ReturnedMachinePart
-	writetext PowerPlantGymGuide2PowerPlantUpAndRunningText
-	waitbutton
-	closetext
-	end
-
-.ReturnedMachinePart:
-	writetext PowerPlantGymGuide2GeneratorIsRunningAgainText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PowerPlantGymGuide2PowerPlantUpAndRunningText
 
 PowerPlantOfficer2Script:
 	faceplayer
@@ -206,6 +193,10 @@ PowerPlantOfficer1ApproachGymGuide2Movement:
 PowerPlantOfficer1ReturnToPostMovement:
 	step DOWN
 	step LEFT
+	turn_head UP
+	step_end
+
+PowerPlantOfficer1ReturnToPostFinalMovement:
 	step LEFT
 	turn_head DOWN
 	step_end
@@ -265,16 +256,18 @@ PowerPlantGymGuide2PowerPlantUpAndRunningText:
 	line "had been abandoned"
 	cont "in the past."
 
-	para "We got it back up"
-	line "and running to"
+	para "A mythical #MON"
+	line "that is the incar-"
+	cont "nation of thunder"
+	cont "took it over."
 
-	para "provide power to"
-	line "the MAGNET TRAIN."
-	done
+	para "A trainer named"
+	line "RED cast the"
+	cont "creature out"
+	cont "3 years ago."
 
-PowerPlantGymGuide2GeneratorIsRunningAgainText:
-	text "The generator's"
-	line "running again!"
+	para "Now we can"
+	line "operate again."
 	done
 
 PowerPlantOfficer2ManagerHasBeenSadAndFuriousText:
