@@ -19,13 +19,24 @@ PewterCityCooltrainerFScript:
 	jumptextfaceplayer PewterCityCooltrainerFText
 
 PewterCityBugCatcherScript:
+	checkevent EVENT_GOT_SILVER_WING
+	iftrue .GotSilverWing
+
+	jumptextfaceplayer PewterCityBugCatcherJustSavedText
+
+.GotSilverWing
 	jumptextfaceplayer PewterCityBugCatcherText
 
 PewterCityGrampsScript:
 	faceplayer
-	opentext
 	checkevent EVENT_GOT_SILVER_WING
 	iftrue .GotSilverWing
+	checkevent EVENT_FOUGHT_ZAPDOS
+	iftrue .GiveSilverWing
+	jumptext PewterCityGrampsLostGrandKidText
+
+.GiveSilverWing:
+	opentext
 	writetext PewterCityGrampsText
 	promptbutton
 	verbosegiveitem SILVER_WING
@@ -34,10 +45,7 @@ PewterCityGrampsScript:
 	end
 
 .GotSilverWing:
-	writetext PewterCityGrampsText_GotSilverWing
-	waitbutton
-	closetext
-	end
+	jumptext PewterCityGrampsText_GotSilverWing
 
 PewterCitySign:
 	jumptext PewterCitySignText
@@ -74,19 +82,63 @@ PewterCityCooltrainerFText:
 	line "rock-type #MON."
 	done
 
+PewterCityBugCatcherJustSavedText:
+	text "Thank you for"
+	line "“fixing” the"
+	cont "forest."
+
+	para "I really thought I"
+	line "was going to live"
+	cont "there forever…"
+
+	para "My grandpa wants"
+	line "to thank you."
+
+	para "He's walking around"
+	line "in the city."
+	done
+
 PewterCityBugCatcherText:
 	text "At night, CLEFAIRY"
 	line "come out to play"
 	cont "at MT.MOON."
 
-	para "But not every"
+	para "Though not every"
 	line "night."
+
+	para "But I won't go."
+	line "I'm afraid to get"
+	cont "lost once again."
+	done
+
+PewterCityGrampsLostGrandKidText:
+	text "My grand-kid went"
+	line "picking berries"
+	cont "in VIRIDIAN FOREST"
+	cont "and never came"
+	cont "back…"
+
+	para "You! You are a"
+	line "trainer!"
+
+	para "Please go search"
+	line "my grand-kid,"
+	cont "I'm begging you!"
 	done
 
 PewterCityGrampsText:
-	text "Ah, you came all"
-	line "the way out here"
-	cont "from JOHTO?"
+	text "Ah, you're the one"
+	line "that solved the"
+	cont "forest's mystery."
+
+	para "Thanks to you, my"
+	line "grand-kid made it"
+	cont "out alive."
+
+	para "Going into these"
+	line "dangerous woods"
+	cont "was very heroic"
+	cont "of you."
 
 	para "That brings back"
 	line "memories. When I"
@@ -94,24 +146,37 @@ PewterCityGrampsText:
 	para "was young, I went"
 	line "to JOHTO to train."
 
-	para "You remind me so"
-	line "much of what I was"
-
-	para "like as a young"
-	line "man."
-
 	para "Here. I want you"
 	line "to have this item"
 	cont "I found in JOHTO."
 	done
 
 PewterCityGrampsText_GotSilverWing:
-	text "Going to new, un-"
-	line "known places and"
-	cont "seeing new people…"
+	text "When you were into"
+	line "VIRIDIAN FOREST,"
 
-	para "Those are the joys"
-	line "of travel."
+	para "I could see the"
+	line "mythical thunder"
+
+	para "#MON dive into"
+	line "the forest from"
+	
+	para "the sky, then this"
+	line "other fairy-like"
+	
+	para "#MON flew out"
+	line "of the forest"
+	cont "to the west."
+
+	para "Was the first one"
+	line "keeping the other"
+	cont "captive?"
+	
+	para "Or did the first"
+	line "one come to prot-"
+	cont "ect the other one?"
+
+	para "It's hard to tell…"
 	done
 
 PewterCitySignText:
@@ -173,7 +238,7 @@ PewterCity_MapEvents:
 
 	def_object_events
 	object_event 19, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, PewterCityCooltrainerFScript, -1
-	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, -1
+	object_event 14, 29, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PewterCityBugCatcherScript, EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
 	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
