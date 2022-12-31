@@ -617,9 +617,10 @@
 	const EVENT_ENTERED_CERULEAN_CAVE
 	const EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	const EVENT_FOUGHT_ZAPDOS
+	const EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 
 
-; Unused: next 128 events
+; Unused: next 127 events
 
 	const_next 1000
 ; Trainer flags

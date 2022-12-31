@@ -110,4 +110,5 @@ MapScenes::
 	scene_var ROUTE_7_SAFFRON_GATE,						   wRoute29SceneID
 	scene_var CERULEAN_CITY,						  	   wRoute29SceneID
 	scene_var CERULEAN_CAVE_ENTRANCE,					   wRoute29SceneID
+	scene_var ROUTE_2,					   				   wRoute29SceneID
 	db -1 ; end

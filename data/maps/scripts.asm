@@ -404,6 +404,7 @@ INCLUDE "maps/Route44.asm"
 INCLUDE "maps/Route45.asm"
 INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
+INCLUDE "maps/Route1.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -464,7 +465,6 @@ INCLUDE "maps/SeafoamGym.asm"
 SECTION "Map Scripts 24", ROMX
 
 INCLUDE "maps/Route2.asm"
-INCLUDE "maps/Route1.asm"
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route18.asm"

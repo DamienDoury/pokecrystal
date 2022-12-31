@@ -55,6 +55,7 @@ ViridianGSBall:
 	; cutscene of Celebi flying away.
 	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
 	setevent EVENT_FOUGHT_ZAPDOS
+	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 	clearevent EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	opentext
