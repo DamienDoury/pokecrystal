@@ -60,6 +60,18 @@ ViridianGSBall:
 ViridianForestLostKidScript:
 	jumptextfaceplayer ViridianForestLostKidText
 
+ViridianForestHiddenMaxEther:
+	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
+
+ViridianForestHiddenFullHeal:
+	hiddenitem FULL_HEAL, EVENT_ROUTE_2_HIDDEN_FULL_HEAL
+
+ViridianForestHiddenFullRestore:
+	hiddenitem FULL_RESTORE, EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
+
+ViridianForestHiddenRevive:
+	hiddenitem REVIVE, EVENT_ROUTE_2_HIDDEN_REVIVE
+
 ViridianForestLostKidText:
 	text "Please help!"
 	
@@ -161,6 +173,10 @@ ViridianForest_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 22, 24, BGEVENT_ITEM, ViridianForestHiddenMaxEther
+	bg_event 10, 11, BGEVENT_ITEM, ViridianForestHiddenFullHeal
+	bg_event 39, 50, BGEVENT_ITEM, ViridianForestHiddenFullRestore
+	bg_event 39, 18, BGEVENT_ITEM, ViridianForestHiddenRevive
 
 	def_object_events
 	object_event 40, 17, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
@@ -171,7 +187,7 @@ ViridianForest_MapEvents:
 	object_event  1, 41, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree6, -1
 	object_event  1, 49, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestDireHit, EVENT_ROUTE_2_DIRE_HIT
 	object_event 12, 27, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_ROUTE_2_MAX_POTION
-	object_event 41, 50, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
+	object_event 25, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
 	object_event 22, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
 	object_event  2, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	object_event  2, 26, SPRITE_CATERPIE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

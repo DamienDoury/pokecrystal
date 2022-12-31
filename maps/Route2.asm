@@ -64,18 +64,6 @@ Route2Carbos:
 Route2Elixer:
 	itemball ELIXER
 
-Route2HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
-
-Route2HiddenFullHeal:
-	hiddenitem FULL_HEAL, EVENT_ROUTE_2_HIDDEN_FULL_HEAL
-
-Route2HiddenFullRestore:
-	hiddenitem FULL_RESTORE, EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
-
-Route2HiddenRevive:
-	hiddenitem REVIVE, EVENT_ROUTE_2_HIDDEN_REVIVE
-
 BugCatcherRobSeenText:
 	text "My bug #MON are"
 	line "tough. Prepare to"
@@ -161,10 +149,6 @@ Route2_MapEvents:
 	def_bg_events
 	bg_event 11, 51, BGEVENT_READ, Route2Sign
 	bg_event 15,  9, BGEVENT_READ, Route2DiglettsCaveSign
-	bg_event  0, 20, BGEVENT_ITEM, Route2HiddenMaxEther
-	bg_event  1, 21, BGEVENT_ITEM, Route2HiddenFullHeal
-	bg_event  0, 21, BGEVENT_ITEM, Route2HiddenFullRestore
-	bg_event  1, 20, BGEVENT_ITEM, Route2HiddenRevive
 
 	def_object_events
 	object_event 14, 45, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerBugCatcherRob, -1
