@@ -37,7 +37,7 @@ MapScenes::
 	scene_var AZALEA_TOWN,                                 wAzaleaTownSceneID
 	scene_var GOLDENROD_GYM,                               wGoldenrodGymSceneID
 	scene_var GOLDENROD_MAGNET_TRAIN_STATION,              wGoldenrodMagnetTrainStationSceneID
-	scene_var GOLDENROD_POKECENTER_1F,                     wGoldenrodPokecenter1FSceneID
+	;scene_var GOLDENROD_POKECENTER_1F,                     wGoldenrodPokecenter1FSceneID ; removed
 	scene_var OLIVINE_CITY,                                wOlivineCitySceneID
 	scene_var ROUTE_34,                                    wRoute34SceneID ; unused
 	scene_var ROUTE_34_ILEX_FOREST_GATE,                   wRoute34IlexForestGateSceneID ; unused

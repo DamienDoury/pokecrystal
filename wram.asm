@@ -2952,7 +2952,6 @@ wRoute36NationalParkGateSceneID::                 db
 wAzaleaTownSceneID::                              db
 wGoldenrodGymSceneID::                            db
 wGoldenrodMagnetTrainStationSceneID::             db
-wGoldenrodPokecenter1FSceneID::                   db
 wOlivineCitySceneID::                             db
 wRoute34SceneID::                                 db
 wRoute34IlexForestGateSceneID::                   db
@@ -3004,7 +3003,7 @@ wVaccinationCenterSceneID::	  					  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
-	ds 2
+	ds 3
 
 wEventFlags:: flag_array NUM_EVENTS
 
