@@ -24,9 +24,14 @@ ViridianForest_MapScripts:
 ViridianForestDireHit:
 	itemball DIRE_HIT
 
-ViridianForestAntidote:
 ViridianForestMaxPotion:
 	itemball MAX_POTION
+
+ViridianForestRevivalHerb:
+	itemball REVIVAL_HERB
+
+ViridianForestAntidote:
+	itemball ANTIDOTE
 
 ViridianForestFruitTree1:
 	fruittree FRUITTREE_VIRIDIAN_FOREST_1
@@ -176,7 +181,7 @@ ViridianForest_MapEvents:
 	bg_event 22, 24, BGEVENT_ITEM, ViridianForestHiddenMaxEther
 	bg_event 10, 11, BGEVENT_ITEM, ViridianForestHiddenFullHeal
 	bg_event 39, 50, BGEVENT_ITEM, ViridianForestHiddenFullRestore
-	bg_event 39, 18, BGEVENT_ITEM, ViridianForestHiddenRevive
+	bg_event 40, 18, BGEVENT_ITEM, ViridianForestHiddenRevive
 
 	def_object_events
 	object_event 40, 17, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree1, -1
@@ -185,10 +190,10 @@ ViridianForest_MapEvents:
 	object_event 41, 21, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree4, -1
 	object_event 13, 16, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree5, -1
 	object_event  1, 41, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ViridianForestFruitTree6, -1
-	object_event  1, 49, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestDireHit, EVENT_ROUTE_2_DIRE_HIT
-	object_event 12, 27, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_ROUTE_2_MAX_POTION
-	object_event 25, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
-	object_event 22, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_ROUTE_2_MAX_POTION
+	object_event  1, 49, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestDireHit, EVENT_VIRIDIAN_FOREST_DIRE_HIT
+	object_event 12, 27, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestMaxPotion, EVENT_VIRIDIAN_FOREST_MAX_POTION
+	object_event 25, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestRevivalHerb, EVENT_VIRIDIAN_FOREST_REVIVAL_HERB
+	object_event 22, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_VIRIDIAN_FOREST_ANTIDOTE
 	object_event  2, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	object_event  2, 26, SPRITE_CATERPIE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event 22, 38, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianForestLostKidScript, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER

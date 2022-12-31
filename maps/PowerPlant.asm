@@ -264,7 +264,7 @@ PowerPlantGymGuide2PowerPlantUpAndRunningText:
 	para "A trainer named"
 	line "RED cast the"
 	cont "creature out"
-	cont "3 years ago."
+	cont "4 years ago."
 
 	para "Now we can"
 	line "operate again."
