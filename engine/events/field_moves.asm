@@ -330,6 +330,38 @@ FlyFromAnim:
 	ld [wVramState], a
 	ret
 
+ZapdosFlyToAnim:
+	call DelayFrame
+	ld a, [wVramState]
+	push af
+	xor a
+	ld [wVramState], a
+	call FlyFunction_InitZapdosGFX
+	depixel 29, 10, 0, 0
+	ld a, SPRITE_ANIM_INDEX_RED_WALK
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], FIELDMOVE_FLY
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_SEQ_FLY_TO_ZAPDOS
+	ld hl, SPRITEANIMSTRUCT_VAR4
+	add hl, bc
+	ld [hl], 11 * 8
+	ld a, 118
+	ld [wFrameCounter], a
+.loop
+	ld a, [wJumptableIndex]
+	bit 7, a
+	jr nz, FlyToAnim.exit
+	ld a, 8 * SPRITEOAMSTRUCT_LENGTH
+	ld [wCurSpriteOAMAddr], a
+	callfar DoNextFrameForAllSprites
+	call FlyFunction_FrameTimer
+	call DelayFrame
+	jr .loop
+
 FlyToAnim:
 	call DelayFrame
 	ld a, [wVramState]
@@ -398,6 +430,20 @@ FlyFunction_InitGFX:
 	ld d, 0
 	add hl, de
 	ld a, [hl]
+	ld [wTempIconSpecies], a
+	ld e, FIELDMOVE_FLY
+	farcall FlyFunction_GetMonIcon
+	xor a
+	ld [wJumptableIndex], a
+	ret
+
+FlyFunction_InitZapdosGFX:
+	callfar ClearSpriteAnims
+	ld de, CutGrassGFX
+	ld hl, vTiles0 tile FIELDMOVE_GRASS
+	lb bc, BANK(CutGrassGFX), 4
+	call Request2bpp
+	ld a, 145
 	ld [wTempIconSpecies], a
 	ld e, FIELDMOVE_FLY
 	farcall FlyFunction_GetMonIcon
