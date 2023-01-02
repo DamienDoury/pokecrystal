@@ -517,17 +517,23 @@ AnimateWaterTile:
 	INCBIN "gfx/tilesets/water/water.2bpp"
 
 ForestTreeLeftAnimation:
+; Only animate this during the Celebi event.
+	ld a, [wMapGroup]
+	cp GROUP_ILEX_FOREST
+	ret nz
+
+	ld a, [wMapNumber]
+	cp MAP_ILEX_FOREST
+	ret nz
+
+	ld a, [wPokegearFlags]
+	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
+	ret z
+
 ; Save the stack pointer in bc for WriteTile to restore
 	ld hl, sp+0
 	ld b, h
 	ld c, l
-
-; Only animate this during the Celebi event
-	ld a, [wPokegearFlags]
-	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
-	ld hl, ForestTreeLeftFrames
-	jr .got_frames
 
 .do_animation
 ; A cycle of 2 frames, updating every tick
@@ -560,11 +566,6 @@ ForestTreeRightFrames:
 	INCBIN "gfx/tilesets/forest-tree/4.2bpp"
 
 ForestTreeRightAnimation:
-; Save the stack pointer in bc for WriteTile to restore
-	ld hl, sp+0
-	ld b, h
-	ld c, l
-
 ; Only animate this during the Celebi event and Viridian Forest event.
 	ld a, [wMapGroup]
 	cp GROUP_VIRIDIAN_FOREST
@@ -574,23 +575,32 @@ ForestTreeRightAnimation:
 	cp MAP_VIRIDIAN_FOREST
 	jr nz, .check_ilex
 
-	push bc
 	ld b, CHECK_FLAG
 	ld de, EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	call EventFlagAction
 	ld a, c
-	pop bc
 	and a
 	jp nz, .do_animation
 
 .check_ilex
+	ld a, [wMapGroup]
+	cp GROUP_ILEX_FOREST
+	ret nz
+
+	ld a, [wMapNumber]
+	cp MAP_ILEX_FOREST
+	ret nz
+
 	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
-	ld hl, ForestTreeRightFrames
-	jr .got_frames
+	ret z
 
+; Save the stack pointer in bc for WriteTile to restore
 .do_animation
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
 ; A cycle of 2 frames, updating every tick
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
@@ -617,11 +627,6 @@ ForestTreeRightAnimation:
 	jp WriteTile
 
 ForestTreeLeftAnimation2:
-; Save the stack pointer in bc for WriteTile to restore
-	ld hl, sp+0
-	ld b, h
-	ld c, l
-
 ; Only animate this during the Celebi event and Viridian Forest event.
 	ld a, [wMapGroup]
 	cp GROUP_VIRIDIAN_FOREST
@@ -631,23 +636,32 @@ ForestTreeLeftAnimation2:
 	cp MAP_VIRIDIAN_FOREST
 	jr nz, .check_ilex
 
-	push bc
 	ld b, CHECK_FLAG
 	ld de, EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	call EventFlagAction
 	ld a, c
-	pop bc
 	and a
 	jp nz, .do_animation
 
 .check_ilex
+	ld a, [wMapGroup]
+	cp GROUP_ILEX_FOREST
+	ret nz
+
+	ld a, [wMapNumber]
+	cp MAP_ILEX_FOREST
+	ret nz
+
 	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
-	ld hl, ForestTreeLeftFrames
-	jr .got_frames
+	ret z
 
+; Save the stack pointer in bc for WriteTile to restore
 .do_animation
+	ld hl, sp+0
+	ld b, h
+	ld c, l
+
 ; A cycle of 2 frames, updating every tick
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
@@ -673,19 +687,25 @@ ForestTreeLeftAnimation2:
 	jp WriteTile
 
 ForestTreeRightAnimation2:
+; Only animate this during the Celebi event.
+	ld a, [wMapGroup]
+	cp GROUP_ILEX_FOREST
+	ret nz
+
+	ld a, [wMapNumber]
+	cp MAP_ILEX_FOREST
+	ret nz
+
+	ld a, [wPokegearFlags]
+	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
+	ret z
+
 ; Save the stack pointer in bc for WriteTile to restore
+.do_animation
 	ld hl, sp+0
 	ld b, h
 	ld c, l
 
-; Only animate this during the Celebi event
-	ld a, [wPokegearFlags]
-	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
-	jr nz, .do_animation
-	ld hl, ForestTreeRightFrames
-	jr .got_frames
-
-.do_animation
 ; A cycle of 2 frames, updating every tick
 	ld a, [wTileAnimationTimer]
 	call GetForestTreeFrame
