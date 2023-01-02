@@ -29,9 +29,29 @@ GetAutomaticBattleWeather::
 .blaine
 	ld a, [wOtherTrainerClass]
 	cp BLAINE
-	jr nz, .check_landmarks
+	jr nz, .check_viridian_forest
 
 	ld a, AUTOMATIC_SUN
+	jr .weather_found
+
+.check_viridian_forest
+	ld a, [wMapGroup]
+	cp GROUP_VIRIDIAN_FOREST
+	jr nz, .check_landmarks
+
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_FOREST
+	jr nz, .check_landmarks
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FOUGHT_ZAPDOS
+	call EventFlagAction
+	ld a, c
+	and a
+	jr nz, .check_landmarks
+
+	; Rain in Viridian Forest until Zapdos has been beaten.
+	ld a, AUTOMATIC_RAIN
 	jr .weather_found
 
 .check_landmarks
