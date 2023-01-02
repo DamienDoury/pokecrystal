@@ -206,16 +206,16 @@ KantoGrassWildMons:
 	db 5, PIDGEY
 	db 7, BUTTERFREE
 	db 7, LEDIAN
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 4, KAKUNA
+	db 4, METAPOD
 	; day
 	db 3, CATERPIE
 	db 3, PIDGEY
 	db 5, PIDGEY
 	db 7, BUTTERFREE
 	db 7, PIDGEOTTO
-	db 4, PIKACHU
-	db 4, PIKACHU
+	db 12, BEEDRILL
+	db 12, BEEDRILL
 	; nite
 	db 3, HOOTHOOT
 	db 3, SPINARAK
@@ -224,6 +224,34 @@ KantoGrassWildMons:
 	db 7, ARIADOS
 	db 4, NOCTOWL
 	db 4, NOCTOWL
+	end_grass_wildmons
+
+	def_grass_wildmons VIRIDIAN_FOREST
+	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	; morn
+	db 4, CATERPIE			; 30%		
+	db 4, WEEDLE			; 30%
+	db 7, METAPOD			; 20%
+	db 7, KAKUNA			; 10%
+	db 12, BEEDRILL			; 5%
+	db 5, BULBASAUR			; 4%
+	db 18, PIDGEOTTO		; 1%
+	; day			
+	db 4, WEEDLE			
+	db 4, CATERPIE			
+	db 7, KAKUNA			
+	db 7, METAPOD			
+	db 12, BEEDRILL			
+	db 4, PIKACHU		
+	db 5, BULBASAUR			
+	; nite			
+	db 4, CATERPIE			
+	db 4, WEEDLE			
+	db 7, METAPOD			
+	db 7, KAKUNA			
+	db 12, BUTTERFREE			
+	db 12, BUTTERFREE			
+	db 4, PIKACHU			
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_3
