@@ -492,6 +492,10 @@ DeterMineAssaultAndPokerusSeed::
 	pop de
 
 DetermineAssault:
+	ld a, [wAssaultBattle]
+	cp $ff
+	jr z, .forceAssault
+
 	ld a, FALSE
 	ld [wAssaultBattle], a
 

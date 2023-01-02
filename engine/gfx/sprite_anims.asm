@@ -716,7 +716,6 @@ AnimSeq_FlyToZapdos:
 	ret z
 
 	inc [hl]
-	inc [hl]
 
 	ld hl, SPRITEANIMSTRUCT_VAR4
 	add hl, bc
@@ -724,7 +723,7 @@ AnimSeq_FlyToZapdos:
 	ld d, a
 	and a
 	jr z, AnimSeq_FlyTo.stay
-	sub $2
+	sub $1
 	ld [hl], a
 	jr AnimSeq_FlyTo.stay
 

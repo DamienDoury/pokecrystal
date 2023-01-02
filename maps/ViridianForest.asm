@@ -17,11 +17,20 @@ ViridianForest_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_TILES, .EnterCallback
+	callback MAPCALLBACK_OBJECTS, .EnterCallback
 
 .EnterCallback:
-	disappear VIRIDIAN_FOREST_ZAPDOS
 	special ShuffleAllViridianWarps
+
+	checkevent EVENT_FOUGHT_ZAPDOS
+	iftrue .ZapdosDisappears
+	checkevent EVENT_ZAPDOS_APPEARED
+	iffalse .ZapdosDisappears
+	appear VIRIDIAN_FOREST_ZAPDOS
+	endcallback
+
+.ZapdosDisappears:
+	disappear VIRIDIAN_FOREST_ZAPDOS
 	endcallback
 
 ViridianForestDireHit:
@@ -54,20 +63,33 @@ ViridianForestFruitTree5:
 ViridianForestFruitTree6:
 	fruittree FRUITTREE_VIRIDIAN_FOREST_6
 
-ViridianForest_ZapdosEncounter:
+ViridianForest_ZapdosAppears:
+	checkevent EVENT_ZAPDOS_APPEARED
+	iftrue ViridianForest_ZapdosAssaultsPlayer
+	cry ZAPDOS
+	showemote EMOTE_SHOCK, PLAYER, 15
+	pause 15
+	special ZapdosFlyToAnim
+	appear VIRIDIAN_FOREST_ZAPDOS
+	setevent EVENT_ZAPDOS_APPEARED
+	applymovement PLAYER, ViridianForest_PlayerStepsBackMovement
+	end
+
+ViridianForest_ZapdosAssaultsPlayer:
 	checkevent EVENT_FOUGHT_ZAPDOS
 	iftrue .end
 	cry ZAPDOS
-	special ZapdosFlyToAnim
-	appear VIRIDIAN_FOREST_ZAPDOS
+	loadmem wAssaultBattle, $ff
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon ZAPDOS, 75
 	startbattle
+	ifequal LOSE, .NotBeaten
 	setevent EVENT_FOUGHT_ZAPDOS
 	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 	clearevent EVENT_VIRIDIAN_FOREST_GUY_SAVED
 	disappear VIRIDIAN_FOREST_LOST_KID
 	disappear VIRIDIAN_FOREST_ZAPDOS
+.NotBeaten:
 	reloadmapafterbattle
 	; celebi flying out animation.
 	; ends forest moving.
@@ -96,6 +118,12 @@ ViridianForestHiddenFullRestore:
 
 ViridianForestHiddenRevive:
 	hiddenitem REVIVE, EVENT_ROUTE_2_HIDDEN_REVIVE
+
+ViridianForest_PlayerStepsBackMovement:
+	fix_facing
+	step DOWN
+	remove_fixed_facing
+	step_end
 
 ViridianForestLostKidText:
 	text "Please help!"
@@ -196,7 +224,7 @@ ViridianForest_MapEvents:
 ;	warp_event 14, 29, VIRIDIAN_CITY, 1
 
 	def_coord_events
-	coord_event  2, 27, SCENE_DEFAULT, ViridianForest_ZapdosEncounter
+	coord_event  2, 27, SCENE_DEFAULT, ViridianForest_ZapdosAppears
 
 	def_bg_events
 	bg_event 22, 24, BGEVENT_ITEM, ViridianForestHiddenMaxEther
@@ -217,4 +245,4 @@ ViridianForest_MapEvents:
 	object_event 22, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_VIRIDIAN_FOREST_ANTIDOTE
 	object_event  2, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	object_event 22, 38, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianForestLostKidScript, EVENT_FOUGHT_ZAPDOS
-	object_event  2, 26, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event  2, 26, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianForest_ZapdosAssaultsPlayer, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
