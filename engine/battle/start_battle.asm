@@ -79,7 +79,7 @@ PlayBattleMusic:
 
 	cp MOLTRES
 	jp z, .done
-	
+
 	cp MEWTWO
 	ld de, MUSIC_ROCKET_BATTLE
 	jp z, .done	
@@ -102,6 +102,10 @@ PlayBattleMusic:
 	jr .done
 
 .kantowild
+	ld de, MUSIC_KANTO_WILD_BATTLE_RBY
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr nz, .done
 	ld de, MUSIC_KANTO_WILD_BATTLE
 	jr .done
 
