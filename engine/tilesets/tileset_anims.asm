@@ -565,7 +565,25 @@ ForestTreeRightAnimation:
 	ld b, h
 	ld c, l
 
-; Only animate this during the Celebi event
+; Only animate this during the Celebi event and Viridian Forest event.
+	ld a, [wMapGroup]
+	cp GROUP_VIRIDIAN_FOREST
+	jr nz, .check_ilex
+
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_FOREST
+	jr nz, .check_ilex
+
+	push bc
+	ld b, CHECK_FLAG
+	ld de, EVENT_VIRIDIAN_FOREST_GUY_SAVED
+	call EventFlagAction
+	ld a, c
+	pop bc
+	and a
+	jp nz, .do_animation
+
+.check_ilex
 	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation
@@ -604,7 +622,25 @@ ForestTreeLeftAnimation2:
 	ld b, h
 	ld c, l
 
-; Only animate this during the Celebi event
+; Only animate this during the Celebi event and Viridian Forest event.
+	ld a, [wMapGroup]
+	cp GROUP_VIRIDIAN_FOREST
+	jr nz, .check_ilex
+
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_FOREST
+	jr nz, .check_ilex
+
+	push bc
+	ld b, CHECK_FLAG
+	ld de, EVENT_VIRIDIAN_FOREST_GUY_SAVED
+	call EventFlagAction
+	ld a, c
+	pop bc
+	and a
+	jp nz, .do_animation
+
+.check_ilex
 	ld a, [wPokegearFlags]
 	bit CELEBIEVENT_FOREST_IS_RESTLESS_F, a
 	jr nz, .do_animation

@@ -84,18 +84,39 @@ ViridianForest_ZapdosAssaultsPlayer:
 	loadwildmon ZAPDOS, 75
 	startbattle
 	ifequal LOSE, .NotBeaten
-	setevent EVENT_FOUGHT_ZAPDOS
+	dontrestartmapmusic
 	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	disappear VIRIDIAN_FOREST_LOST_KID ; also does setevent EVENT_FOUGHT_ZAPDOS.
+	disappear VIRIDIAN_FOREST_ZAPDOS ; also does setevent EVENT_FOUGHT_ZAPDOS.
+	reloadmapafterbattle
+	pause 15
+	
+	cry CELEBI
+	waitsfx
+	pause 3
+	playsound SFX_BALL_POOF
+    waitsfx
+	special CelebiFlyAwayAnim
+
+	pause 40
 	clearevent EVENT_VIRIDIAN_FOREST_GUY_SAVED
-	disappear VIRIDIAN_FOREST_LOST_KID
-	disappear VIRIDIAN_FOREST_ZAPDOS
+	pause 60
+
+	opentext
+	writetext ViridianForest_PeacefulText
+	waitbutton
+	closetext
+
+	playmapmusic
+
+	; rain end.
+	end
+	
 .NotBeaten:
 	reloadmapafterbattle
-	; celebi flying out animation.
-	; ends forest moving.
 .end
 	end
-
+	
 ViridianGSBall:
 	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
 	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
@@ -139,6 +160,11 @@ ViridianForestLostKidText:
 
 	para "Find what's wrong"
 	line "with the forest!"
+	done
+
+ViridianForest_PeacefulText:
+	text "The forest is"
+	line "at peace."
 	done
 
 ViridianForest_MapEvents:

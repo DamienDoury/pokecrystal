@@ -59,18 +59,30 @@ PlayBattleMusic:
 	call MaxVolume
 
 	ld a, [wBattleType]
-	cp BATTLETYPE_SUICUNE
-	ld de, MUSIC_SUICUNE_BATTLE
-	jp z, .done
-	cp BATTLETYPE_ROAMING
-	jp z, .done
 	cp BATTLETYPE_SHINY
 	ld de, MUSIC_KANTO_GYM_LEADER_BATTLE
 	jp z, .done
+
+	cp BATTLETYPE_SUICUNE
+	ld de, MUSIC_SUICUNE_BATTLE
+	jp z, .done
+
+	cp BATTLETYPE_ROAMING
+	jp z, .done
+
 	ld a, [wTempEnemyMonSpecies]
+	cp ARTICUNO
+	jp z, .done
+
+	cp ZAPDOS
+	jp z, .done
+
+	cp MOLTRES
+	jp z, .done
+	
 	cp MEWTWO
 	ld de, MUSIC_ROCKET_BATTLE
-	jp z, .done
+	jp z, .done	
 
 	; Are we fighting a trainer?
 	ld a, [wOtherTrainerClass]

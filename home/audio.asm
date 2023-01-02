@@ -460,7 +460,7 @@ SpecialMapMusic::
 	; check the area (must be cinnabar island).
 	ld a, [wMapGroup]
 	cp GROUP_POKECENTER_2F
-	jr z, .pokecenter_2f_special_check
+	jp z, .pokecenter_2f_special_check
 
 	cp GROUP_CINNABAR_ISLAND
 	ld a, [wMapNumber]
@@ -496,6 +496,24 @@ SpecialMapMusic::
 	jr .no
 
 .skip_cerulean_cave:
+	ld a, [wMapGroup]
+	cp GROUP_VIRIDIAN_FOREST
+	jr c, .skip_viridian_forest
+
+	ld a, [wMapNumber]
+	cp MAP_VIRIDIAN_FOREST
+	jr nz, .skip_viridian_forest
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FOUGHT_ZAPDOS
+	call EventFlagAction ; Returns the result of the check in c.
+	ld a, c
+	and a
+	jr z, .skip_viridian_forest
+
+	jr .viridian_forest
+
+.skip_viridian_forest:
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .surf
@@ -512,6 +530,11 @@ SpecialMapMusic::
 
 .rave_party
 	ld de, MUSIC_GAME_CORNER
+	scf
+	ret
+
+.viridian_forest
+	ld de, MUSIC_ROUTE_2
 	scf
 	ret
 
@@ -544,7 +567,7 @@ SpecialMapMusic::
 	ld a, [wMapNumber]
 	cp MAP_POKECENTER_2F
 	jr nz, .skip_rave_party
-	jr .further_rave_party_checks
+	jp .further_rave_party_checks
 
 GetMapMusic_MaybeSpecial::
 	call SpecialMapMusic

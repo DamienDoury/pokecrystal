@@ -7,6 +7,13 @@ ViridianWarp::
 	cp MAP_VIRIDIAN_FOREST
 	ret nz
 
+	ld b, CHECK_FLAG
+	ld de, EVENT_FOUGHT_ZAPDOS
+	call EventFlagAction
+	ld a, c
+	and a
+	ret nz
+
 	ld a, [wPlayerFacing]
 	and %1100
 	cp OW_DOWN
