@@ -72,6 +72,7 @@ INCLUDE "maps/PokecomCenterAdminOfficeMobile.asm"
 INCLUDE "maps/IlexForestAzaleaGate.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
+INCLUDE "maps/ViridianForest.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -317,8 +318,6 @@ INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
 INCLUDE "maps/DragonsDen1F.asm"
 INCLUDE "maps/DragonsDenB1F.asm"
 INCLUDE "maps/DragonShrine.asm"
-INCLUDE "maps/TohjoFalls.asm"
-INCLUDE "maps/AzaleaPokecenter1F.asm"
 INCLUDE "maps/CharcoalKiln.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/KurtsHouse.asm"
@@ -328,6 +327,8 @@ INCLUDE "maps/FuchsiaGym.asm"
 
 SECTION "Map Scripts 17", ROMX
 
+INCLUDE "maps/AzaleaPokecenter1F.asm"
+INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/EcruteakFaunaHouse.asm"
 INCLUDE "maps/MrAntonsHouse.asm"
 INCLUDE "maps/MahoganyTown.asm"
@@ -403,6 +404,7 @@ INCLUDE "maps/Route44.asm"
 INCLUDE "maps/Route45.asm"
 INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
+INCLUDE "maps/Route1.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -463,7 +465,6 @@ INCLUDE "maps/SeafoamGym.asm"
 SECTION "Map Scripts 24", ROMX
 
 INCLUDE "maps/Route2.asm"
-INCLUDE "maps/Route1.asm"
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route18.asm"

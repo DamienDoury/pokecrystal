@@ -4,9 +4,8 @@
 	const ROUTE2_BUG_CATCHER3
 	const ROUTE2_POKE_BALL1
 	const ROUTE2_POKE_BALL2
-	const ROUTE2_POKE_BALL3
-	const ROUTE2_POKE_BALL4
-	const ROUTE2_FRUIT_TREE
+	const ROUTE2_WARNING_TOP
+	const ROUTE2_WARNING_BOT
 
 Route2_MapScripts:
 	def_scene_scripts
@@ -46,6 +45,60 @@ TrainerBugCatcherDoug:
 	closetext
 	end
 
+Route2WarningTopLeft:
+	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	iftrue .end
+	showemote EMOTE_SHOCK, ROUTE2_WARNING_TOP, 15
+	faceobject PLAYER, ROUTE2_WARNING_TOP
+	applymovement ROUTE2_WARNING_TOP, Route2LeftStepMovement
+	sjump Route2WarningTopScript
+.end
+	end
+
+Route2WarningTopRight:
+	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	iftrue Route2WarningTopLeft.end
+	showemote EMOTE_SHOCK, ROUTE2_WARNING_TOP, 15
+	faceobject PLAYER, ROUTE2_WARNING_TOP
+	pause 10
+	
+Route2WarningTopScript:
+	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	faceplayer
+	opentext
+	writetext Route2WarningTopText
+	sjump Route2WarningTopEndScript
+
+Route2WarningTopEndScript:
+	promptbutton
+	writetext Route2WarningTextEnd
+	waitbutton
+	closetext
+	end
+
+Route2WarningBotLeft:
+	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	iftrue .end
+	showemote EMOTE_SHOCK, ROUTE2_WARNING_BOT, 15
+	faceobject PLAYER, ROUTE2_WARNING_BOT
+	applymovement ROUTE2_WARNING_BOT, Route2LeftStepMovement
+	sjump Route2WarningBotScript
+.end
+	end
+
+Route2WarningBotRight:
+	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	iftrue Route2WarningBotLeft.end
+	showemote EMOTE_SHOCK, ROUTE2_WARNING_BOT, 15
+	faceobject PLAYER, ROUTE2_WARNING_BOT
+
+Route2WarningBotScript:
+	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	faceplayer 
+	opentext
+	writetext Route2WarningBotText
+	sjump Route2WarningTopEndScript
+
 Route2Sign:
 	jumptext Route2SignText
 
@@ -64,20 +117,48 @@ Route2Carbos:
 Route2Elixer:
 	itemball ELIXER
 
-Route2FruitTree:
-	fruittree FRUITTREE_ROUTE_2
+Route2LeftStepMovement:
+	step LEFT
+	step_end
 
-Route2HiddenMaxEther:
-	hiddenitem MAX_ETHER, EVENT_ROUTE_2_HIDDEN_MAX_ETHER
+Route2WarningTopText:
+	text "You shouldn't go"
+	line "into VIRIDIAN"
+	cont "FOREST."
+	
+	para "A kid got lost"
+	line "already."
 
-Route2HiddenFullHeal:
-	hiddenitem FULL_HEAL, EVENT_ROUTE_2_HIDDEN_FULL_HEAL
+	para "Oh…"
+	
+	para "You're the LEAGUE"
+	line "CHAMPION!"
 
-Route2HiddenFullRestore:
-	hiddenitem FULL_RESTORE, EVENT_ROUTE_2_HIDDEN_FULL_RESTORE
+	para "I guess I can't"
+	line "stop you."
+	done
+	
+Route2WarningBotText:
+	text "Please don't go"
+	line "into VIRIDIAN"
+	cont "FOREST."
 
-Route2HiddenRevive:
-	hiddenitem REVIVE, EVENT_ROUTE_2_HIDDEN_REVIVE
+	para "The forest looks"
+	line "alive, it's dange-"
+	cont "rous out there."
+	done
+	
+Route2WarningTextEnd:
+	text "At least follow my"
+	line "advice, and bring"
+	
+	para "a #MON that"
+	line "knows FLY or"
+	
+	para "TELEPORT so you"
+	line "can safely escape"
+	cont "those woods."
+	done
 
 BugCatcherRobSeenText:
 	text "My bug #MON are"
@@ -96,11 +177,10 @@ BugCatcherRobAfterBattleText:
 	done
 
 BugCatcherEdSeenText:
-	text "If you walk in"
-	line "tall grass wearing"
+	text "Boo!"
 
-	para "shorts, do you get"
-	line "nicks and cuts?"
+	para "I'm the spirit from"
+	line "VIRIDIAN FOREST!"
 	done
 
 BugCatcherEdBeatenText:
@@ -108,14 +188,22 @@ BugCatcherEdBeatenText:
 	done
 
 BugCatcherEdAfterBattleText:
-	text "They'll really"
-	line "sting when you"
-	cont "take a bath."
+	text "In the past, I"
+	line "hunted BUGS in"
+	cont "VIRIDIAN FOREST."
+	
+	para "Now mom won't"
+	line "allow me."
 	done
 
 BugCatcherDougSeenText:
-	text "Why don't girls"
-	line "like bug #MON?"
+	text "I used to wander"
+	line "into VIRIDIAN"
+	cont "FOREST."
+
+	para "Since it grew back"
+	line "up, I'm afraid"
+	cont "to go."
 	done
 
 BugCatcherDougBeatenText:
@@ -123,14 +211,23 @@ BugCatcherDougBeatenText:
 	done
 
 BugCatcherDougAfterBattleText:
-	text "Bug #MON squish"
-	line "like plush toys"
+	text "VIRIDIAN FOREST"
+	line "had been cut down"
+	
+	para "3 years ago to"
+	line "ease travel bet-"
+	
+	para "ween VIRIDIAN and"
+	line "PEWTER cities."
 
-	para "when you squeeze"
-	line "their bellies."
+	para "Seeing it"
+	line "saddened me."
 
-	para "I love how they"
-	line "feel!"
+	para "But shortly after,"
+	line "the forest grew"
+	
+	para "back up at a super"
+	line "natural speed."
 	done
 
 Route2SignText:
@@ -148,28 +245,32 @@ Route2_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 15, 15, ROUTE_2_NUGGET_HOUSE, 1
-	warp_event 15, 31, ROUTE_2_GATE, 3
-	warp_event 16, 27, ROUTE_2_GATE, 1
-	warp_event 17, 27, ROUTE_2_GATE, 2
-	warp_event 12,  7, DIGLETTS_CAVE, 3
+	warp_event 19, 15, ROUTE_2_NUGGET_HOUSE, 1
+	warp_event 19, 31, ROUTE_2_GATE, 3
+	warp_event 20, 27, ROUTE_2_GATE, 1
+	warp_event 21, 27, ROUTE_2_GATE, 2
+	warp_event 16,  7, DIGLETTS_CAVE, 3
+
+	warp_event  6, 16, VIRIDIAN_FOREST, 1
+	warp_event  7, 16, VIRIDIAN_FOREST, 2
+	warp_event  8, 27, VIRIDIAN_FOREST, 3
+	warp_event  9, 27, VIRIDIAN_FOREST, 4
 
 	def_coord_events
+	coord_event  6,  9, SCENE_DEFAULT, Route2WarningTopLeft
+	coord_event  7,  9, SCENE_DEFAULT, Route2WarningTopRight
+	coord_event  8, 33, SCENE_DEFAULT, Route2WarningBotLeft
+	coord_event  9, 33, SCENE_DEFAULT, Route2WarningBotRight
 
 	def_bg_events
-	bg_event  7, 51, BGEVENT_READ, Route2Sign
-	bg_event 11,  9, BGEVENT_READ, Route2DiglettsCaveSign
-	bg_event  7, 23, BGEVENT_ITEM, Route2HiddenMaxEther
-	bg_event  4, 14, BGEVENT_ITEM, Route2HiddenFullHeal
-	bg_event  4, 27, BGEVENT_ITEM, Route2HiddenFullRestore
-	bg_event 11, 30, BGEVENT_ITEM, Route2HiddenRevive
+	bg_event 11, 51, BGEVENT_READ, Route2Sign
+	bg_event 15,  9, BGEVENT_READ, Route2DiglettsCaveSign
 
 	def_object_events
-	object_event 10, 45, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerBugCatcherRob, -1
-	object_event  6,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherEd, -1
-	object_event  0, 40, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherDoug, -1
-	object_event  0, 29, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2DireHit, EVENT_ROUTE_2_DIRE_HIT
-	object_event  2, 23, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2MaxPotion, EVENT_ROUTE_2_MAX_POTION
-	object_event 19,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Carbos, EVENT_ROUTE_2_CARBOS
-	object_event 14, 50, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Elixer, EVENT_ROUTE_2_ELIXER
-	object_event 10, 14, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route2FruitTree, -1
+	object_event 14, 45, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerBugCatcherRob, -1
+	object_event 10,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherEd, -1
+	object_event  4, 40, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherDoug, -1
+	object_event 23,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Carbos, EVENT_ROUTE_2_CARBOS
+	object_event 18, 50, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route2Elixer, EVENT_ROUTE_2_ELIXER
+	object_event  7, 11, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route2WarningTopScript, EVENT_FOUGHT_ZAPDOS
+	object_event  9, 31, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route2WarningBotScript, EVENT_FOUGHT_ZAPDOS

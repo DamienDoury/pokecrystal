@@ -229,15 +229,15 @@ ENDM
 	connection east, Route45, ROUTE_45, -36
 
 	map_attributes PewterCity, PEWTER_CITY, $0f, SOUTH | EAST
-	connection south, Route2, ROUTE_2, 5
+	connection south, Route2, ROUTE_2, 3
 	connection east, Route3, ROUTE_3, 5
 
 	map_attributes Route2, ROUTE_2, $0f, NORTH | SOUTH
-	connection north, PewterCity, PEWTER_CITY, -5
-	connection south, ViridianCity, VIRIDIAN_CITY, -5
+	connection north, PewterCity, PEWTER_CITY, -3
+	connection south, ViridianCity, VIRIDIAN_CITY, -3
 
 	map_attributes ViridianCity, VIRIDIAN_CITY, $0f, NORTH | SOUTH | WEST
-	connection north, Route2, ROUTE_2, 5
+	connection north, Route2, ROUTE_2, 3
 	connection south, Route1, ROUTE_1, 10
 	connection west, Route22, ROUTE_22, 4
 
@@ -702,3 +702,4 @@ ENDM
 	map_attributes CeruleanCaveB1F, CERULEAN_CAVE_B1F, $09, 0
 	map_attributes CeruleanCaveB2F, CERULEAN_CAVE_B2F, $09, 0
 	map_attributes CeruleanCaveB3F, CERULEAN_CAVE_B3F, $09, 0
+	map_attributes ViridianForest, VIRIDIAN_FOREST, $00, 0

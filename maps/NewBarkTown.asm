@@ -235,6 +235,9 @@ CheatGuyScript:
 	setflag ENGINE_EXPN_CARD
 	setflag ENGINE_POKEGEAR
 
+	clearevent EVENT_RED_BEATEN
+	clearevent EVENT_REDS_PIKACHU_AVAILABLE
+
 .done
 	closetext
 	jumptextfaceplayer LetsCheatText

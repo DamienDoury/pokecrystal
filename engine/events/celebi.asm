@@ -313,6 +313,69 @@ CheckCaughtCelebi:
 .done
 	ret
 
+
+
+
+
+
+
+
+CelebiFlyAwayAnim::
+	call DelayFrame
+	ld a, [wVramState]
+	push af
+	xor a
+	ld [wVramState], a
+	call LoadCelebiGFX
+	depixel 6, 10, 4, 0
+	ld a, SPRITE_ANIM_INDEX_CELEBI
+	call InitSpriteAnimStruct
+	ld hl, SPRITEANIMSTRUCT_TILE_ID
+	add hl, bc
+	ld [hl], FIELDMOVE_FLY
+	ld hl, SPRITEANIMSTRUCT_ANIM_SEQ_ID
+	add hl, bc
+	ld [hl], SPRITE_ANIM_SEQ_FLY_FROM
+	ld hl, SPRITEANIMSTRUCT_VAR2
+	add hl, bc
+	ld [hl], $10
+	ld a, 128
+	ld [wFrameCounter], a
+.loop
+	ld a, [wJumptableIndex]
+	bit 7, a
+	jr nz, .exit
+
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld a, [hl]
+	and a
+	jr z, .exit
+
+	push bc
+	ld a, 8 * SPRITEOAMSTRUCT_LENGTH
+	ld [wCurSpriteOAMAddr], a
+	callfar DoNextFrameForAllSprites
+	call FlyFunction_FrameTimer
+	call DelayFrame
+	pop bc
+	jr .loop
+
+.exit
+	pop af
+	ld [wVramState], a
+
+	; Despawn leaves and celebi.
+	ld hl, wVirtualOAMSprite08
+	ld bc, wVirtualOAMEnd - wVirtualOAMSprite08
+	xor a
+	call ByteFill
+	ret
+
+
+
+
+
 CheckCaughtMewtwo:
 	xor a ; FALSE
 	ld [wScriptVar], a

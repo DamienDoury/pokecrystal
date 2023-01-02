@@ -2279,6 +2279,9 @@ INCLUDE "gfx/overworld/npc_sprites_route_19.pal"
 MapObjectsPalVermilion::
 INCLUDE "gfx/overworld/npc_sprites_vermilion.pal"
 
+MapObjectPalsGSBall::
+INCLUDE "gfx/overworld/viridian_forest.pal"
+
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"
 

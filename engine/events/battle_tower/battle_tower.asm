@@ -866,7 +866,6 @@ BattleTowerAction:
 	dw LoadBattleTowerLevelGroup
 	dw BattleTower_CheckSaveFileExistsAndIsYours
 	dw Function1708b1
-	dw CheckMobileEventIndex
 	dw Function1708c8
 	dw Function1708f0
 	dw BattleTowerAction_EggTicket
@@ -1174,14 +1173,6 @@ Function1708b1: ; BattleTowerAction $0a
 	xor a
 	ld [wMusicFade], a
 	call MaxVolume
-	ret
-
-CheckMobileEventIndex: ; BattleTowerAction $0b something to do with GS Ball
-	ld a, BANK(sMobileEventIndex)
-	call OpenSRAM
-	ld a, [sMobileEventIndex]
-	ld [wScriptVar], a
-	call CloseSRAM
 	ret
 
 Function1708c8: ; BattleTowerAction $0c

@@ -24,6 +24,5 @@ Route10North_MapEvents:
 
 	def_bg_events
 	bg_event  5, 11, BGEVENT_READ, PowerPlantSign
-	bg_event 12,  1, BGEVENT_READ, Route10PokecenterSign
 
 	def_object_events

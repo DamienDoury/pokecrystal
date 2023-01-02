@@ -49,6 +49,7 @@ DoAnimFrame:
 	dw AnimSeq_IntroUnown
 	dw AnimSeq_IntroUnownF
 	dw AnimSeq_IntroSuicuneAway
+	dw AnimSeq_FlyToZapdos
 	assert_table_length NUM_SPRITE_ANIM_SEQS
 
 AnimSeq_Null:
@@ -707,6 +708,25 @@ AnimSeq_FlyLeaf:
 	call DeinitializeSprite
 	ret
 
+AnimSeq_FlyToZapdos:
+	ld hl, SPRITEANIMSTRUCT_YCOORD
+	add hl, bc
+	ld a, [hl]
+	cp 8 * 8 + 4
+	ret z
+
+	inc [hl]
+
+	ld hl, SPRITEANIMSTRUCT_VAR4
+	add hl, bc
+	ld a, [hl]
+	ld d, a
+	and a
+	jr z, AnimSeq_FlyTo.stay
+	sub $1
+	ld [hl], a
+	jr AnimSeq_FlyTo.stay
+
 AnimSeq_FlyTo:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
 	add hl, bc
@@ -714,8 +734,6 @@ AnimSeq_FlyTo:
 	cp 10 * 8 + 4
 	ret z
 
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
 	inc [hl]
 	inc [hl]
 

@@ -38,27 +38,24 @@
 	tilecoll WALL, WALL, WALL, WALL ; 25
 	tilecoll WALL, WALL, WALL, WALL ; 26
 	tilecoll WALL, WALL, WALL, WALL ; 27
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 28
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 29
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2a
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2b
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2c
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2d
+	tilecoll WARP_CARPET_DOWN, WARP_CARPET_DOWN, WALL, WALL ; 28
+	tilecoll WALL, WALL, WARP_CARPET_UP, WARP_CARPET_UP ; 29
+	tilecoll HOP_RIGHT, WALL, HOP_RIGHT, WALL ; 2a
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 2b
+	tilecoll FLOOR, WALL, FLOOR, WALL ; 2c
+	tilecoll WALL, WALL, WALL, WALL ; 2d
 	tilecoll WALL, FLOOR, WALL, FLOOR ; 2e
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 2f
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 30
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 31
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 32
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 33
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 34
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 35
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 36
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 37
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 38
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 39
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3a
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3b
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3c
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3d
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3e
-	tilecoll WALL, FLOOR, WALL, FLOOR ; 3f
+	tilecoll WALL, WALL, WALL, WALL ; 2f
+	tilecoll FLOOR, HOP_RIGHT, FLOOR, FLOOR ; 30
+	tilecoll WALL, HOP_LEFT, HOP_UP, FLOOR ; 31
+	tilecoll FLOOR, FLOOR, HOP_DOWN, FLOOR ; 32
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 33
+	tilecoll WALL, WALL, WALL, WALL ; 34
+	tilecoll WALL, WALL, WALL, WALL ; 35
+	tilecoll WALL, WALL, WALL, WALL ; 36
+	tilecoll HOP_DOWN, HOP_DOWN, WALL, WALL ; 37
+	tilecoll FLOOR, FLOOR, WALL, CUT_TREE ; 38
+	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 39
+	tilecoll CUT_TREE, WALL, FLOOR, HEADBUTT_TREE ; 3a
+	tilecoll FLOOR, WALL, FLOOR, HEADBUTT_TREE ; 3b
+	tilecoll TALL_GRASS, TALL_GRASS, TALL_GRASS, TALL_GRASS ; 3c

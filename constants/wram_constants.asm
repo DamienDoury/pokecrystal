@@ -250,7 +250,8 @@ NUM_BADGES EQU NUM_JOHTO_BADGES + NUM_KANTO_BADGES
 	const POKEGEAR_PHONE_CARD_F ; 2
 	const POKEGEAR_EXPN_CARD_F  ; 3
 	const DISPLAY_YEAR_AT_START_F ; 4 -> very hacky, but at least I'm using unused space.
-	const_skip 2
+	const CELEBIEVENT_FOREST_IS_RESTLESS_F ; 5 -> saves 1 byte in WRAM 1.
+	const_skip
 	const POKEGEAR_OBTAINED_F   ; 7
 
 ; wWhichRegisteredItem::
@@ -263,9 +264,6 @@ PLAYER_BIKE      EQU 1
 PLAYER_SKATE     EQU 2
 PLAYER_SURF      EQU 4
 PLAYER_SURF_PIKA EQU 8
-
-; wCelebiEvent::
-CELEBIEVENT_FOREST_IS_RESTLESS_F EQU 2
 
 ; wBikeFlags::
 	const_def

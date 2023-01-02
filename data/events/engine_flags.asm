@@ -140,7 +140,7 @@ EngineFlags:
 
 	engine_flag wPlayerGender, PLAYERGENDER_FEMALE_F
 
-	engine_flag wCelebiEvent, CELEBIEVENT_FOREST_IS_RESTLESS_F
+	engine_flag wPokegearFlags, CELEBIEVENT_FOREST_IS_RESTLESS_F
 
 	; rematches
 	engine_flag wDailyRematchFlags,  0 ; jack

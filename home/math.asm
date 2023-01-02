@@ -56,3 +56,11 @@ SubtractAbsolute:: ; unreferenced
 	add 1
 	scf
 	ret
+
+; Returns A mod B.
+Modulo::
+.loop
+	sub b
+	cp b
+	jr nc, .loop
+	ret
