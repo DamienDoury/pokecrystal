@@ -330,7 +330,7 @@ FlyFromAnim:
 	ld [wVramState], a
 	ret
 
-ZapdosFlyToAnim:
+ZapdosFlyToAnim::
 	call DelayFrame
 	ld a, [wVramState]
 	push af
@@ -354,13 +354,24 @@ ZapdosFlyToAnim:
 .loop
 	ld a, [wJumptableIndex]
 	bit 7, a
-	jr nz, FlyToAnim.exit
+	jr nz, .exit
 	ld a, 8 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
 	call FlyFunction_FrameTimer
 	call DelayFrame
 	jr .loop
+
+.exit
+	pop af
+	ld [wVramState], a
+
+	; Despawn leaves.
+	ld hl, wVirtualOAMSprite12
+	ld bc, wVirtualOAMEnd - wVirtualOAMSprite12
+	xor a
+	call ByteFill
+	ret
 
 FlyToAnim:
 	call DelayFrame
@@ -397,10 +408,8 @@ FlyToAnim:
 .exit
 	pop af
 	ld [wVramState], a
-	call .RestorePlayerSprite_DespawnLeaves
-	ret
 
-.RestorePlayerSprite_DespawnLeaves:
+;.RestorePlayerSprite_DespawnLeaves:
 	ld hl, wVirtualOAMSprite00TileID
 	xor a
 	ld c, 4

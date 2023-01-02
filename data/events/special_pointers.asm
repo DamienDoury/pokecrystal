@@ -203,3 +203,4 @@ SpecialsPointers::
 	add_special SilphCo_PlayerGetsPropertyOfTestSubject
 	add_special CheckCaughtMewtwo
 	add_special ShuffleAllViridianWarps
+	add_special ZapdosFlyToAnim

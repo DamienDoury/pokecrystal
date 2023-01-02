@@ -7,9 +7,6 @@ ViridianWarp::
 	cp MAP_VIRIDIAN_FOREST
 	ret nz
 
-	call CheckZapdosTrigger
-	ret c
-
 	ld a, [wPlayerFacing]
 	and %1100
 	cp OW_DOWN
@@ -350,58 +347,6 @@ GetFixedRand:
 	pop hl
 	pop de
 	ret
-
-CheckZapdosTrigger:
-	ld b, CHECK_FLAG
-	ld de, EVENT_FOUGHT_ZAPDOS
-	call EventFlagAction
-	ld a, c
-	and a ; Unsets the carry flag.
-	ret nz ; Returns false (nc).
-
-	ld a, [wYCoord]
-	cp 27
-	jr nz, .return_false
-
-	ld a, [wXCoord]
-	cp 2
-	jr nz, .return_false
-
-	farcall ZapdosFlyToAnim
-	;call GetMapScriptsBank
-	;ld a, $18
-	;ld hl, $7549
-	;call CallScript
-
-	;ld a, $49
-	;ld [wCurCoordEventScriptAddr + 0], a
-	;ld a, $75
-	;ld [wCurCoordEventScriptAddr + 1], a
-
-	;ld hl, wCurCoordEventScriptAddr
-	;ld a, [hli]
-	;ld h, [hl]
-	;ld l, a
-	;call GetMapScriptsBank
-	;call CallScript
-
-	;CallScript		
-	;CallMapScript
-
-	scf
-	ret
-
-.return_false
-	xor a
-	ret
-
-ViridianForest_ZapdosEncounter:
-	jumptext OkBoomer
-	end
-
-OkBoomer:
-	text "OK zoomer"
-	done
 
 
 ViridianVerticalWarpsList:

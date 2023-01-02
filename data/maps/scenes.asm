@@ -111,4 +111,5 @@ MapScenes::
 	scene_var CERULEAN_CITY,						  	   wRoute29SceneID
 	scene_var CERULEAN_CAVE_ENTRANCE,					   wRoute29SceneID
 	scene_var ROUTE_2,					   				   wRoute29SceneID
+	scene_var VIRIDIAN_FOREST,					   		   wRoute29SceneID
 	db -1 ; end

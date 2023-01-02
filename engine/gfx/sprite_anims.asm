@@ -735,8 +735,6 @@ AnimSeq_FlyTo:
 	cp 10 * 8 + 4
 	ret z
 
-	ld hl, SPRITEANIMSTRUCT_YCOORD
-	add hl, bc
 	inc [hl]
 	inc [hl]
 

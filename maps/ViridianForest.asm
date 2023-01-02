@@ -11,6 +11,7 @@
 	const VIRIDIAN_FOREST_BALL_4
 	const VIRIDIAN_FOREST_GS_BALL
 	const VIRIDIAN_FOREST_LOST_KID
+	const VIRIDIAN_FOREST_ZAPDOS
 
 ViridianForest_MapScripts:
 	def_scene_scripts
@@ -19,6 +20,7 @@ ViridianForest_MapScripts:
 	callback MAPCALLBACK_TILES, .EnterCallback
 
 .EnterCallback:
+	disappear VIRIDIAN_FOREST_ZAPDOS
 	special ShuffleAllViridianWarps
 	endcallback
 
@@ -52,14 +54,29 @@ ViridianForestFruitTree5:
 ViridianForestFruitTree6:
 	fruittree FRUITTREE_VIRIDIAN_FOREST_6
 
-ViridianGSBall:
-	; cutscene of Celebi flying away.
-	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
+ViridianForest_ZapdosEncounter:
+	checkevent EVENT_FOUGHT_ZAPDOS
+	iftrue .end
+	cry ZAPDOS
+	special ZapdosFlyToAnim
+	appear VIRIDIAN_FOREST_ZAPDOS
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	loadwildmon ZAPDOS, 75
+	startbattle
 	setevent EVENT_FOUGHT_ZAPDOS
 	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 	clearevent EVENT_VIRIDIAN_FOREST_GUY_SAVED
-	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	disappear VIRIDIAN_FOREST_LOST_KID
+	disappear VIRIDIAN_FOREST_ZAPDOS
+	reloadmapafterbattle
+	; celebi flying out animation.
+	; ends forest moving.
+.end
+	end
+
+ViridianGSBall:
+	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
+	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	opentext
 	verbosegiveitem GS_BALL
 	closetext
@@ -179,6 +196,7 @@ ViridianForest_MapEvents:
 ;	warp_event 14, 29, VIRIDIAN_CITY, 1
 
 	def_coord_events
+	coord_event  2, 27, SCENE_DEFAULT, ViridianForest_ZapdosEncounter
 
 	def_bg_events
 	bg_event 22, 24, BGEVENT_ITEM, ViridianForestHiddenMaxEther
@@ -199,3 +217,4 @@ ViridianForest_MapEvents:
 	object_event 22, 25, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, ViridianForestAntidote, EVENT_VIRIDIAN_FOREST_ANTIDOTE
 	object_event  2, 24, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, ViridianGSBall, EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
 	object_event 22, 38, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianForestLostKidScript, EVENT_FOUGHT_ZAPDOS
+	object_event  2, 26, SPRITE_ZAPDOS, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
