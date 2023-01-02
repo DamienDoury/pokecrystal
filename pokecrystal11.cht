@@ -1,19 +1,17 @@
-011AB8D4 0Change minute
-0100A5DC 0Fly to all cities 4/4
-0113DEDC 0Teach Surf 1st mon 1st move
-0100FEC2 0Walk through anything 5
-0100FDC2 0Walk through anything 4
-0100FCC2 0Walk through anything 3
-0100FBC2 0Walk through anything 2
-0100FAC2 0Walk through anything 1
-0102D5D0 0Fly without badge
-0100A4DC 0Fly to all cities 3/4
-0100A3DC 0Fly to all cities 2/4
-0100A2DC 0Fly to all cities 1/4
-01FF35D9 0All badges Kanto
-01FF34D9 0All badges Johto
-0104B7D4 0Change hour
-0106B6D4 0Change weekday
-01ADF5DC 0Set covid of 1st active mon.
-01047FDE 01=free, 2=curfew, 4=lockdown
-010172D4 0Player gender (bit 0: 0=M, 1=F)
+011A80D4 0Change minute
+0100ACDC 0Fly to all cities 4/4
+0100FEC2 1Walk through anything 5
+0100FDC2 1Walk through anything 4
+0100FCC2 1Walk through anything 3
+0100FBC2 1Walk through anything 2
+0100FAC2 1Walk through anything 1
+0100ABDC 0Fly to all cities 3/4
+0100AADC 0Fly to all cities 2/4
+0100A9DC 0Fly to all cities 1/4
+01FFF3D8 0All badges Kanto
+01FFF2D8 0All badges Johto
+01097FD4 1Change hour
+01007ED4 1Change weekday
+01ADFCDC 0Set covid of 1st active mon.
+010484DE 01=free, 2=curfew, 4=lockdown
+010146D4 0Player gender (bit 0: 0=M, 1=F)
