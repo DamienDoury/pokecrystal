@@ -366,7 +366,6 @@ INCLUDE "maps/SafariZoneMainOffice.asm"
 INCLUDE "maps/FuchsiaPokecenter1F.asm"
 INCLUDE "maps/SafariZoneWardensHome.asm"
 INCLUDE "maps/WardensNeighborHouse.asm"
-INCLUDE "maps/CherrygroveMart.asm"
 INCLUDE "maps/CherrygrovePokecenter1F.asm"
 INCLUDE "maps/CherrygroveGymSpeechHouse.asm"
 INCLUDE "maps/GuideGentsHouse.asm"
@@ -377,6 +376,7 @@ INCLUDE "maps/MrPokemonsHouse.asm"
 
 SECTION "Map Scripts 19", ROMX
 
+INCLUDE "maps/CherrygroveMart.asm"
 INCLUDE "maps/Route15FuchsiaGate.asm"
 INCLUDE "maps/Route31VioletGate.asm"
 INCLUDE "maps/AzaleaTown.asm"

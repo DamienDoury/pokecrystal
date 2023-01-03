@@ -909,15 +909,24 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	waitbutton
 	closetext
 
-	winlosstext GoldenrodHospitalRoomChiefNurseBeatenText, 0
+	winlosstext GoldenrodHospitalRoomChiefNurseBeatenText, GoldenrodHospitalRoomChiefNurseLoseText
 	loadtrainer NURSE, CHIEF
+	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+
+	reloadmap
 	setevent EVENT_BEAT_HOSPITAL_CHIEF_NURSE
 	pause 3
 
 	opentext
 	writetext GoldenrodHospitalRoomChiefNurseAfterBattleText
+	waitbutton
+	closetext
+
+	farscall FadeBlackAndHealParty
+
+	opentext
+	writetext GoldenrodHospitalRoomChiefNurseAfterBattleText2
 	waitbutton
 	closetext
 
@@ -1127,6 +1136,11 @@ GoldenrodHospitalRoomChiefNurseBeatenText:
 	text "Woooooo!"
 	done
 
+GoldenrodHospitalRoomChiefNurseLoseText:
+	text "Sorry for hurting"
+	line "your #MON…"
+	done
+
 GoldenrodHospitalRoomChiefNurseAfterBattleText:
 	text "(deep breath)"
 	
@@ -1136,8 +1150,13 @@ GoldenrodHospitalRoomChiefNurseAfterBattleText:
 	para "You calmed me"
 	line "down and I needed"
 	cont "it."
-	
-	para "Why did you want"
+
+	para "Allow me to heal"
+	line "your #MON."
+	done
+
+GoldenrodHospitalRoomChiefNurseAfterBattleText2:
+	text "Why did you want"
 	line "to see me?"
 
 	para "…"

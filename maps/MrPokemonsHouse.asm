@@ -107,14 +107,9 @@ MrPokemonsHouse_OakScript:
 	writetext MrPokemonsHouse_MrPokemonHealText
 	waitbutton
 	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
-	playmusic MUSIC_HEAL
-	special StubbedTrainerRankings_Healings
-	special HealParty
-	pause 60
-	special FadeInQuickly
-	special RestartMapMusic
+
+	scall FadeBlackAndHealParty
+
 	opentext
 	writetext MrPokemonText_ImDependingOnYou
 	waitbutton
@@ -140,6 +135,17 @@ MrPokemonsHouse_OakScript:
 
 .RivalTakesCyndaquil:
 	setevent EVENT_CYNDAQUIL_POKEBALL_IN_ELMS_LAB
+	end
+
+FadeBlackAndHealParty::
+	special FadeBlackQuickly
+	special ReloadSpritesNoPalettes
+	playmusic MUSIC_HEAL
+	special StubbedTrainerRankings_Healings
+	special HealParty
+	pause 60
+	special FadeInQuickly
+	special RestartMapMusic
 	end
 
 MrPokemonsHouse_ForeignMagazines:
