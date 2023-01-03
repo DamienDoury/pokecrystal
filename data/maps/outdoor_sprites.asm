@@ -704,6 +704,7 @@ CinnabarGroupSprites:
 	db SPRITE_BROCK
 	db SPRITE_ROCK
 	db SPRITE_ZAPDOS
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 ; CeruleanCity and Route5 are connected
@@ -726,6 +727,7 @@ SaffronGroupSprites:
 	db SPRITE_ROCKET
 	db SPRITE_JENNY
 	db SPRITE_SQUIRTLE
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 VermilionGroupSprites:
@@ -823,6 +825,7 @@ EcruteakGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SUICUNE
 	db SPRITE_CATERPIE
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 AzaleaGroupSprites:
@@ -837,6 +840,7 @@ AzaleaGroupSprites:
 	db SPRITE_FRUIT_TREE
 	db SPRITE_SLOWPOKE
 	db SPRITE_KURT ; non-walking version of SPRITE_KURT
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 GoldenrodGroupSprites:
@@ -875,6 +879,7 @@ CianwoodGroupSprites:
 	db SPRITE_ROCK
 	db SPRITE_YOUNGSTER ; non-walking version of SPRITE_YOUNGSTER
 	db SPRITE_SUICUNE
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 MahoganyGroupSprites:
@@ -922,6 +927,7 @@ BlackthornGroupSprites:
 	; 8 of max 9 walking sprites
 	db SPRITE_FRUIT_TREE
 	db SPRITE_POKE_BALL
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 SilverGroupSprites:

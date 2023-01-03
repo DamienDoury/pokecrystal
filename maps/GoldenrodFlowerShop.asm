@@ -24,6 +24,7 @@ FlowerShopTeacherScript:
 	promptbutton
 	verbosegiveitem SQUIRTBOTTLE
 	setevent EVENT_GOT_SQUIRTBOTTLE
+	clearevent EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
 	closetext
 	setevent EVENT_FLORIA_AT_SUDOWOODO
 	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
@@ -72,15 +73,6 @@ FlowerShopFloriaScript:
 	waitbutton
 	closetext
 	end
-
-FlowerShopShelf1: ; unreferenced
-	jumpstd PictureBookshelfScript
-
-FlowerShopShelf2: ; unreferenced
-	jumpstd MagazineBookshelfScript
-
-FlowerShopRadio: ; unreferenced
-	jumpstd Radio2Script
 
 GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
 	text "Have you seen that"

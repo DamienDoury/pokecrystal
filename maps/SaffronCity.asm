@@ -111,6 +111,9 @@ SaffronCityPokecenterSign:
 SaffronCityMartSign:
 	jumpstd MartSignScript
 
+SaffronCity_DoorScript:
+	jumptext SaffronCity_DojoDoorText
+
 SaffronCityLass1Text:
 	text "A little girl who"
 	line "is an expert at"
@@ -279,6 +282,16 @@ VaccinationCenterSignText:
 	line "VACCINATION CENTER"
 	done
 
+SaffronCity_DojoDoorText:
+	text "Yet another notice"
+	line "on the door…"
+
+	para "The FIGHTING DOJO"
+	line "has shutdown its"
+	cont "activity because"
+	cont "of the pandemic."
+	done
+
 SaffronCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -324,3 +337,4 @@ SaffronCity_MapEvents:
 	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, -1
 	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, -1
 	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, -1
+	object_event 26,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCity_DoorScript, -1

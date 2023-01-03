@@ -349,6 +349,12 @@ Route36TrainerTips2:
 Route36FruitTree:
 	fruittree FRUITTREE_ROUTE_36
 
+Route36_DoorScript:
+	jumptextfaceplayer Route36_Lockdown1Text
+
+Route36_Door2Script:
+	jumptextfaceplayer Route36_Lockdown2Text
+
 SudowoodoShakeMovement:
 	tree_shake
 	step_end
@@ -642,6 +648,24 @@ Route36TrainerTips2Text:
 	line "landmarks."
 	done
 
+Route36_Lockdown1Text:
+	text "The NATIONAL PARK"
+	line "is closed because"
+	cont "of the sanitary"
+	cont "restrictions."
+	done
+
+Route36_Lockdown2Text:
+	text "Hey! You!"
+
+	para "You should be"
+	line "quarantined"
+	cont "right now!"
+
+	para "Get lost before"
+	line "I arrest you!"
+	done
+
 Route36_MapEvents:
 	db 0, 0 ; filler
 
@@ -671,3 +695,5 @@ Route36_MapEvents:
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
+	object_event 18,  8, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
+	object_event 18,  9, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_Door2Script, -1

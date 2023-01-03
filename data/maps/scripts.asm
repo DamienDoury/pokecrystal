@@ -420,13 +420,13 @@ INCLUDE "maps/Route14.asm"
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/PewterGym.asm"
-INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/PewterPokecenter1F.asm"
-INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 22", ROMX
 
+INCLUDE "maps/PewterMart.asm"
+INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/EcruteakCity.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/Route26.asm"

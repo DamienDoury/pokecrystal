@@ -358,9 +358,9 @@ CeruleanBikeShopSignText:
 	text "There's a notice"
 	line "here…"
 
-	para "The BIKE SHOP has"
-	line "moved to GOLDENROD"
-	cont "CITY in JOHTO…"
+	para "The BIKE SHOP"
+	line "has filed for"
+	cont "bankruptcy."
 	done
 
 CeruleanPoliceSignText:
@@ -382,8 +382,8 @@ CeruleanCapeSignText:
 	done
 
 CeruleanLockedDoorText:
-	text "Bike shop"
-	line "For sale"
+	text "A heavy chain"
+	line "seals the door."
 	done
 
 CeruleanCityDetectiveText:

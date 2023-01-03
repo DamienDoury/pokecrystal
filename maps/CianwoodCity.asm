@@ -114,18 +114,35 @@ CianwoodCityChucksWife:
 	end
 
 CianwoodCityYoungster:
+	readmem wCurFreedomState
+	ifequal 4, .lockdown
 	jumptextfaceplayer CianwoodCityYoungsterText
 
+.lockdown
+	jumptextfaceplayer Cianwood_NoPoliceControlsText
+
 CianwoodCityPokefanM:
+	readmem wCurFreedomState
+	ifequal 4, .lockdown
 	jumptextfaceplayer CianwoodCityPokefanMText
+
+.lockdown
+	jumptextfaceplayer Cianwood_FreshAirText
 
 CianwoodCityLass:
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
 	iftrue .PharmacistRanAway
+
+	readmem wCurFreedomState
+	ifequal 4, .lockdown
+
 	jumptextfaceplayer CianwoodCityLassText
 
 .PharmacistRanAway
 	jumptextfaceplayer PharmacistRanAwayText
+
+.lockdown
+	jumptextfaceplayer Cianwood_NoFaceMaskText
 
 CianwoodCitySign:
 	jumptext CianwoodCitySignText
@@ -153,6 +170,9 @@ CianwoodCityHiddenRevive:
 
 CianwoodCityHiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_CIANWOOD_CITY_HIDDEN_MAX_ETHER
+
+CianwoodCity_SchoolDoorScript:
+	jumpstd ClosedBusinessScript
 
 CianwoodCitySuicuneApproachMovement:
 	set_sliding
@@ -401,6 +421,41 @@ CianwoodPhotoStudioSignText:
 CianwoodPokeSeerSignText:
 	text "THE # SEER"
 	line "AHEAD"
+	done
+
+Cianwood_NoFaceMaskText:
+	text "I won't wear"
+	line "a facemask."
+
+	para "I've never seen"
+	line "COVID, and I don't"
+	cont "believe in it."
+	done
+
+Cianwood_NoPoliceControlsText:
+	text "The police doesn't"
+	line "bother control-"
+	cont "ling such a "
+	cont "remote area."
+
+	para "So people of this"
+	line "town keep going"
+	cont "out even though"
+	cont "it's forbidden."
+	done
+
+Cianwood_FreshAirText:
+	text "The fresh air"
+	line "feels good!"
+
+	para "When I think that"
+	line "everyone else is"
+	
+	para "currently locked"
+	line "inside, I'm"
+	cont "feeling lucky."
+
+	para "(cough)"
 	done
 
 CianwoodCity_MapEvents:

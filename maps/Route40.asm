@@ -10,7 +10,6 @@
 	const ROUTE40_MONICA
 	const ROUTE40_POKEFAN_M
 	const ROUTE40_LASS2
-	const ROUTE40_STANDING_YOUNGSTER
 
 Route40_MapScripts:
 	def_scene_scripts
@@ -19,7 +18,6 @@ Route40_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .MonicaCallback
 
 .MonicaCallback:
-	clearevent EVENT_BATTLE_TOWER_OUTSIDE_SAILOR
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .MonicaAppears
 	disappear ROUTE40_MONICA
@@ -87,9 +85,6 @@ Route40PokefanMScript:
 Route40Lass2Script:
 	jumptextfaceplayer Route40Lass2Text
 
-Route40StandingYoungsterScript:
-	jumptextfaceplayer Route40StandingYoungsterText
-
 MonicaScript:
 	faceplayer
 	opentext
@@ -135,30 +130,8 @@ Route40Rock:
 Route40HiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ROUTE_40_HIDDEN_HYPER_POTION
 
-Route40_StepRightUp6Movement: ; unreferenced
-	step RIGHT
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	step_end
-
-Route40_StepUp5Movement: ; unreferenced
-	step UP
-	step UP
-	step UP
-	step UP
-	step UP
-	step_end
-
-Route40_StepUp4Movement: ; unreferenced
-	step UP
-	step UP
-	step UP
-	step UP
-	step_end
+Route40_DoorScript:
+	jumpstd ClosedBusinessScript
 
 SwimmermSimonSeenText:
 	text "You have to warm"
@@ -269,17 +242,6 @@ Route40Lass2Text:
 	cont "from a big city."
 	done
 
-Route40StandingYoungsterText:
-	text "Have you gone to"
-	line "the BATTLE TOWER?"
-
-	para "I think a lot of"
-	line "tough trainers"
-
-	para "have gathered"
-	line "there already."
-	done
-
 MeetMonicaText:
 	text "MONICA: Glad to"
 	line "meet you. I'm"
@@ -349,8 +311,8 @@ Route40_MapEvents:
 	object_event  7, 11, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
 	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
 	object_event  7,  8, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Rock, -1
-	object_event 11, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Lass1Script, -1
-	object_event  8, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MonicaScript, EVENT_ROUTE_40_MONICA_OF_MONDAY
-	object_event  7,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40PokefanMScript, -1
-	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route40Lass2Script, -1
-	object_event 16,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route40StandingYoungsterScript, EVENT_BATTLE_TOWER_OUTSIDE_SAILOR
+	object_event 11, 13, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40Lass1Script, -1
+	object_event  8, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, MonicaScript, EVENT_ROUTE_40_MONICA_OF_MONDAY
+	object_event  7,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40PokefanMScript, -1
+	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route40Lass2Script, -1
+	object_event  9,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40_DoorScript, -1

@@ -74,6 +74,9 @@ PewterCityFruitTree1:
 PewterCityFruitTree2:
 	fruittree FRUITTREE_PEWTER_CITY_2
 
+PewterCity_DoorScript:
+	jumptext PewterMuseumHeavyChainText
+
 PewterCityCooltrainerFText:
 	text "Have you visited"
 	line "PEWTER GYM?"
@@ -198,8 +201,14 @@ PewterMuseumSignText:
 	line "here…"
 
 	para "PEWTER MUSEUM OF"
-	line "SCIENCE is closed"
-	cont "for renovations…"
+	line "SCIENCE has filed"
+	cont "for bankruptcy."
+	done
+
+PewterMuseumHeavyChainText:
+	text "A heavy chain"
+	line "keeps the door"
+	cont "locked."
 	done
 
 PewterCityMtMoonGiftShopSignText:
@@ -242,3 +251,5 @@ PewterCity_MapEvents:
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
 	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
+	object_event 14,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_DoorScript, -1
+	object_event 19,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_DoorScript, -1
