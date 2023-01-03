@@ -90,8 +90,8 @@ MonMenuIconPals:
 	icon_pals BROWN, GREEN ; FARFETCH_D
 	icon_pals BROWN, RED ; DODUO
 	icon_pals BROWN, RED ; DODRIO
-	icon_pals BLUE, GREY ; SEEL
-	icon_pals BLUE, GREY ; DEWGONG
+	icon_pals BLUE, GRAY ; SEEL
+	icon_pals BLUE, GRAY ; DEWGONG
 	icon_pals PURPLE, GREEN ; GRIMER
 	icon_pals PURPLE, GREEN ; MUK
 	icon_pals PURPLE, RED ; SHELLDER
@@ -131,7 +131,7 @@ MonMenuIconPals:
 	icon_pals RED, PURPLE ; JYNX
 	icon_pals RED, BROWN ; ELECTABUZZ
 	icon_pals RED, PURPLE ; MAGMAR
-	icon_pals BROWN, GREY ; PINSIR
+	icon_pals BROWN, GRAY ; PINSIR
 	icon_pals BROWN, RED ; TAUROS
 	icon_pals RED, BROWN ; MAGIKARP
 	icon_pals BLUE, RED ; GYARADOS
