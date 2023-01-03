@@ -53,7 +53,7 @@ CatchTutorial::
 	ret
 
 .LoadDudeData:
-	ld hl, wDudeNumItems
+	ld hl, wDudeNumMeds
 	ld [hl], 1
 	inc hl
 	ld [hl], POTION
@@ -61,7 +61,7 @@ CatchTutorial::
 	ld [hl], 1
 	inc hl
 	ld [hl], -1
-	ld hl, wDudeNumKeyItems
+	ld hl, wDudeNumItems
 	ld [hl], 0
 	inc hl
 	ld [hl], -1
