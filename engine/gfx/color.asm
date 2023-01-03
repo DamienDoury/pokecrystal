@@ -1508,9 +1508,7 @@ HandleDayCareOutdoorPalettes:
 	ld a, BANK(wBreedMon1Species)
 	ld hl, wBreedMon1Species
 	call GetFarWRAMByte
-	cp 0
-	jr z, .day_care_mon_2
-	cp -1
+	and a
 	jr z, .day_care_mon_2
 	ld [wCurPartySpecies], a
 
@@ -1519,7 +1517,7 @@ HandleDayCareOutdoorPalettes:
 	inc hl
 	inc hl
 
-	ld de, wOBPals1 palette 4 + 2
+	ld de, wOBPals1 palette PAL_OW_PINK + 2
 	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
@@ -1528,9 +1526,7 @@ HandleDayCareOutdoorPalettes:
 	ld a, BANK(wBreedMon2Species)
 	ld hl, wBreedMon2Species
 	call GetFarWRAMByte
-	cp 0
-	ret z
-	cp -1
+	and a
 	ret z
 	ld [wCurPartySpecies], a
 
@@ -1539,7 +1535,7 @@ HandleDayCareOutdoorPalettes:
 	inc hl
 	inc hl
 
-	ld de, wOBPals1 palette 7 + 2
+	ld de, wOBPals1 palette PAL_OW_ROCK + 2
 	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
