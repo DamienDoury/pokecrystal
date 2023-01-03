@@ -219,11 +219,7 @@ BattleTurn:
 	cp 0
 	jr nz, .loop1
 
-	xor a
-	ld [wCurEnemyMoveNum], a
-	
-	ld a, [wEnemyMonMoves]
-	ld [wCurEnemyMove], a
+	farcall SelectRandomMove
 
 	ld a, $ff
 	ld [wCurPlayerMove], a

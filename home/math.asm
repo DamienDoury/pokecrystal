@@ -59,8 +59,7 @@ SubtractAbsolute:: ; unreferenced
 
 ; Returns A mod B.
 Modulo::
-.loop
 	sub b
 	cp b
-	jr nc, .loop
+	jr nc, Modulo
 	ret

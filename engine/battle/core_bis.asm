@@ -569,3 +569,31 @@ CheckCaughtBeast:
 	ld b, SET_FLAG
 	call EventFlagAction
 	ret
+
+SelectRandomMove::
+	ld hl, wEnemyMonMoves + 1
+	ld b, 0
+
+.count_loop
+	inc b
+	ld a, b
+	cp 4
+	jr z, .end_loop
+	ld a, [hli]
+	and a
+	jr nz, .count_loop
+
+.end_loop
+	call Random
+	and NUM_MOVES - 1
+	call Modulo
+
+	ld [wCurEnemyMoveNum], a
+
+	ld hl, wEnemyMonMoves
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl]
+	ld [wCurEnemyMove], a
+	ret
