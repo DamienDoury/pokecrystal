@@ -141,11 +141,11 @@ INCBIN "data/tilesets/game_corner_metatiles.bin"
 TilesetGameCornerColl::
 INCLUDE "data/tilesets/game_corner_collision.asm"
 
-TilesetForestMeta::
-INCBIN "data/tilesets/forest_metatiles.bin"
-
 
 SECTION "Tileset Data 4", ROMX
+
+TilesetForestMeta::
+INCBIN "data/tilesets/forest_metatiles.bin"
 
 TilesetEliteFourRoomGFX::
 INCBIN "gfx/tilesets/elite_four_room.2bpp.lz"

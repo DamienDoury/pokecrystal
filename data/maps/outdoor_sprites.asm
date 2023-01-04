@@ -844,16 +844,21 @@ AzaleaGroupSprites:
 	db 0 ; end
 
 GoldenrodGroupSprites:
-; Route34, GoldenrodCity
+; Route34, GoldenrodCity, GoldenrodDeptStoreRoof
 	db SPRITE_GRAMPS
 	db SPRITE_YOUNGSTER
-	db SPRITE_OFFICER
 	db SPRITE_POKEFAN_M
 	db SPRITE_COOLTRAINER_F
-	db SPRITE_ROCKET
 	db SPRITE_LASS
+	db SPRITE_TEACHER
+	db SPRITE_BUG_CATCHER
+	db SPRITE_OFFICER
 	db SPRITE_JENNY
-	; 7 of max 9 walking sprites
+	; 9 of max 9 walking sprites
+	db SPRITE_ROCKET
+	db SPRITE_CLERK
+	db SPRITE_FISHER
+	db SPRITE_SUPER_NERD
 	db SPRITE_DAY_CARE_MON_1
 	db SPRITE_DAY_CARE_MON_2
 	db SPRITE_POKE_BALL

@@ -273,7 +273,7 @@ ENDM
 	map_const GOLDENROD_DEPT_STORE_5F,                      8,  4 ; 15
 	map_const GOLDENROD_DEPT_STORE_6F,                      8,  4 ; 16
 	map_const GOLDENROD_DEPT_STORE_ELEVATOR,                2,  2 ; 17
-	map_const GOLDENROD_DEPT_STORE_ROOF,                    8,  4 ; 18
+	map_const GOLDENROD_DEPT_STORE_ROOF,                    8,  6 ; 18
 	map_const GOLDENROD_GAME_CORNER,                       10,  7 ; 19
 	map_const GOLDENROD_POKECENTER_1F,                      5,  4 ; 20
 	map_const POKECOM_CENTER_ADMIN_OFFICE_MOBILE,          16, 16 ; 21
@@ -409,7 +409,7 @@ ENDM
 	map_const CELADON_MANSION_1F,                           4,  5 ; 12
 	map_const CELADON_MANSION_2F,                           4,  5 ; 13
 	map_const CELADON_MANSION_3F,                           4,  5 ; 14
-	map_const CELADON_MANSION_ROOF,                         4,  5 ; 15
+	map_const CELADON_MANSION_ROOF,                         4,  7 ; 15
 	map_const CELADON_MANSION_ROOF_HOUSE,                   4,  4 ; 16
 	map_const CELADON_POKECENTER_1F,                        5,  4 ; 17
 	map_const CELADON_GAME_CORNER,                         10,  7 ; 18

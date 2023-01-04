@@ -51,6 +51,10 @@ LoadSpecialMapPalette:
 	ret
 
 .mansion_mobile
+	ld a, [wMapNumber]
+	cp MAP_CELADON_MANSION_ROOF
+	ret z
+	
 	call LoadMansionPalette
 	scf
 	ret

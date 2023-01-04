@@ -81,13 +81,22 @@ GoldenrodDeptStoreRoofBugCatcherScript:
 	jumptextfaceplayer GoldenrodDeptStoreRoofBugCatcherText
 
 Binoculars1:
+	readvar VAR_TIMEOFDAY
+	ifequal NITE_F, BinocularsNight
 	jumptext Binoculars1Text
 
 Binoculars2:
+	readvar VAR_TIMEOFDAY
+	ifequal NITE_F, BinocularsNight
 	jumptext Binoculars2Text
 
 Binoculars3:
+	readvar VAR_TIMEOFDAY
+	ifequal NITE_F, BinocularsNight
 	jumptext Binoculars3Text
+
+BinocularsNight:
+	jumptext BinocularsNightText
 
 PokeDollVendingMachine:
 	jumptext PokeDollVendingMachineText
@@ -187,6 +196,11 @@ Binoculars2Text:
 	cont "right now!"
 	done
 
+BinocularsNightText:
+	text "It's too dark"
+	line "to see anything…"
+	done
+
 Binoculars3Text:
 	text "A FISHER caught a"
 	line "lot of MAGIKARP…"
@@ -227,9 +241,9 @@ GoldenrodDeptStoreRoof_MapEvents:
 
 	def_object_events
 	object_event  1,  4, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofClerkScript, EVENT_GOLDENROD_SALE_OFF
-	object_event 10,  3, SPRITE_POKEFAN_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_FREE, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofPokefanFScript, -1
+	object_event 10,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_FREE, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofPokefanFScript, -1
 	object_event  2,  1, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofFisherScript, -1
-	object_event  3,  4, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofTwinScript, EVENT_GOLDENROD_SALE_ON
+	object_event  3,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofTwinScript, EVENT_GOLDENROD_SALE_ON
 	object_event 14,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofSuperNerdScript, EVENT_GOLDENROD_SALE_ON
 	object_event  7,  0, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofPokefanMScript, EVENT_GOLDENROD_SALE_OFF
 	object_event  5,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStoreRoofTeacherScript, EVENT_GOLDENROD_SALE_OFF
