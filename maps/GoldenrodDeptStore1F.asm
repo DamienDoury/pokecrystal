@@ -19,9 +19,6 @@ DeptStoreEnterLockdownCheck:
 	readmem wCurFreedomState
 	ifnotequal 4, .end
 
-	readvar VAR_YCOORD
-	ifgreater 2, .end
-
 	readvar VAR_XCOORD
 	ifless 15, .end
 
@@ -31,13 +28,8 @@ DeptStoreEnterLockdownCheck:
 	end
 
 DeptStore_PlayerStepsDown:
-	;jumptext GoldenrodDeptStore1FReceptionistText
-	;autoinput .movement_data
 	applymovement PLAYER, DeptStore_StepDownMovement
 	end
-
-.movement_data
-	db D_DOWN, 16, D_DOWN, 16, -1
 
 GoldenrodDeptStore1FReceptionistScript:
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistText

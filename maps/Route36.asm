@@ -11,16 +11,27 @@
 
 Route36_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_ROUTE36_NOTHING
-	scene_script .DummyScene1 ; SCENE_ROUTE36_SUICUNE
+	scene_script .Route36_GateClosedCheck ; SCENE_ROUTE36_NOTHING
+	scene_script .Route36_GateClosedCheck ; SCENE_ROUTE36_SUICUNE
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .ArthurCallback
 
-.DummyScene0:
-	end
+.Route36_GateClosedCheck:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .end
 
-.DummyScene1:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	readmem wCurFreedomState
+	ifnotequal 4, .end
+
+	readvar VAR_XCOORD
+	ifnotequal 18, .end
+
+	prioritysjump Route36_PlayerStepsRight
+
+.end
 	end
 
 .ArthurCallback:
@@ -32,6 +43,10 @@ Route36_MapScripts:
 .ArthurAppears:
 	appear ROUTE36_ARTHUR
 	endcallback
+
+Route36_PlayerStepsRight:
+	applymovement PLAYER, Route36_StepRightMovement
+	end
 
 Route36SuicuneScript:
 	showemote EMOTE_SHOCK, PLAYER, 15
@@ -349,11 +364,14 @@ Route36TrainerTips2:
 Route36FruitTree:
 	fruittree FRUITTREE_ROUTE_36
 
-Route36_DoorScript:
-	jumptextfaceplayer Route36_Lockdown1Text
+;Route36_DoorScript:
+;	jumptextfaceplayer Route36_Lockdown1Text
+;
+;Route36_Door2Script:
+;	jumptextfaceplayer Route36_Lockdown2Text
 
-Route36_Door2Script:
-	jumptextfaceplayer Route36_Lockdown2Text
+Route36_DoorScript:
+	jumpstd ClosedBusinessScript
 
 SudowoodoShakeMovement:
 	tree_shake
@@ -397,6 +415,10 @@ Route36SuicuneMovement:
 	fast_jump_step RIGHT
 	fast_jump_step RIGHT
 	remove_sliding
+	step_end
+
+Route36_StepRightMovement:
+	step RIGHT
 	step_end
 
 UseSquirtbottleText:
@@ -648,23 +670,23 @@ Route36TrainerTips2Text:
 	line "landmarks."
 	done
 
-Route36_Lockdown1Text:
-	text "The NATIONAL PARK"
-	line "is closed because"
-	cont "of the sanitary"
-	cont "restrictions."
-	done
-
-Route36_Lockdown2Text:
-	text "Hey! You!"
-
-	para "You should be"
-	line "quarantined"
-	cont "right now!"
-
-	para "Get lost before"
-	line "I arrest you!"
-	done
+;Route36_Lockdown1Text:
+;	text "The NATIONAL PARK"
+;	line "is closed because"
+;	cont "of the sanitary"
+;	cont "restrictions."
+;	done
+;
+;Route36_Lockdown2Text:
+;	text "Hey! You!"
+;
+;	para "You should be"
+;	line "quarantined"
+;	cont "right now!"
+;
+;	para "Get lost before"
+;	line "I arrest you!"
+;	done
 
 Route36_MapEvents:
 	db 0, 0 ; filler
@@ -695,5 +717,7 @@ Route36_MapEvents:
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
 	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
-	object_event 18,  8, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
-	object_event 18,  9, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_Door2Script, -1
+	object_event 18,  8, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
+	object_event 18,  9, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
+	;object_event 18,  8, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
+	;object_event 18,  9, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36_Door2Script, -1
