@@ -5,7 +5,13 @@ GoldenrodDeptStoreElevator_MapScripts:
 
 GoldenrodDeptStoreElevatorScript:
 	opentext
+	readmem wCurFreedomState
+	ifequal 4, .lockdown
 	elevator GoldenrodDeptStoreElevatorData
+	sjump .data_found
+.lockdown
+	elevator GoldenrodDeptStoreElevatorLockdownData
+.data_found
 	closetext
 	iffalse .Done
 	pause 5
@@ -49,6 +55,13 @@ GoldenrodDeptStoreElevatorData:
 	elevfloor FLOOR_3F,  3, GOLDENROD_DEPT_STORE_3F
 	elevfloor FLOOR_4F,  3, GOLDENROD_DEPT_STORE_4F
 	elevfloor FLOOR_5F,  3, GOLDENROD_DEPT_STORE_5F
+	elevfloor FLOOR_6F,  2, GOLDENROD_DEPT_STORE_6F
+	db -1 ; end
+
+GoldenrodDeptStoreElevatorLockdownData:
+	db 3 ; floors
+	elevfloor FLOOR_B1F, 2, GOLDENROD_DEPT_STORE_B1F
+	elevfloor FLOOR_1F,  4, GOLDENROD_DEPT_STORE_1F
 	elevfloor FLOOR_6F,  2, GOLDENROD_DEPT_STORE_6F
 	db -1 ; end
 

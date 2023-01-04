@@ -98,14 +98,15 @@
 	const SPRITE_BOULDER ; 5e
 	const SPRITE_SNES ; 5f
 	const SPRITE_FAMICOM ; 60
-	const SPRITE_FRUIT_TREE ; 61
-	const SPRITE_GOLD_TROPHY ; 62
-	const SPRITE_SILVER_TROPHY ; 63
-	const SPRITE_KRIS ; 64
-	const SPRITE_KRIS_BIKE ; 65
-	const SPRITE_SUICUNE ; 66
-	const SPRITE_ENTEI ; 67
-	const SPRITE_RAIKOU ; 68
+	const SPRITE_CONE ; 61
+	const SPRITE_FRUIT_TREE ; 62
+	const SPRITE_GOLD_TROPHY ; 63
+	const SPRITE_SILVER_TROPHY ; 64
+	const SPRITE_KRIS ; 65
+	const SPRITE_KRIS_BIKE ; 66
+	const SPRITE_SUICUNE ; 67
+	const SPRITE_ENTEI ; 68
+	const SPRITE_RAIKOU ; 69
 NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

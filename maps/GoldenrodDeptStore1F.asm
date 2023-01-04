@@ -6,8 +6,38 @@
 
 GoldenrodDeptStore1F_MapScripts:
 	def_scene_scripts
+	scene_script DeptStoreEnterLockdownCheck ; SCENE_DEFAULT
 
 	def_callbacks
+
+DeptStoreEnterLockdownCheck:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	readmem wCurFreedomState
+	ifnotequal 4, .end
+
+	readvar VAR_YCOORD
+	ifgreater 2, .end
+
+	readvar VAR_XCOORD
+	ifless 15, .end
+
+	prioritysjump DeptStore_PlayerStepsDown
+
+.end
+	end
+
+DeptStore_PlayerStepsDown:
+	;jumptext GoldenrodDeptStore1FReceptionistText
+	;autoinput .movement_data
+	applymovement PLAYER, DeptStore_StepDownMovement
+	end
+
+.movement_data
+	db D_DOWN, 16, D_DOWN, 16, -1
 
 GoldenrodDeptStore1FReceptionistScript:
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistText
@@ -26,6 +56,14 @@ GoldenrodDeptStore1FDirectory:
 
 GoldenrodDeptStore1FElevatorButton:
 	jumpstd ElevatorButtonScript
+
+GoldenrodDeptStore_Lockdown:
+	jumptext DeptStore_FloorClosedText
+
+DeptStore_StepDownMovement:
+	step DOWN
+	step DOWN
+	step_end
 
 GoldenrodDeptStore1FReceptionistText:
 	text "Welcome to GOLDEN-"
@@ -84,6 +122,14 @@ GoldenrodDeptStore1FDirectoryText:
 	para "ROOFTOP LOOKOUT"
 	done
 
+DeptStore_FloorClosedText:
+	text "“The DEPT.STORE"
+	line "is not allowed to"
+	cont "open because of"
+	cont "the sanitary"
+	cont "restrictions.”"
+	done
+
 GoldenrodDeptStore1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -102,5 +148,6 @@ GoldenrodDeptStore1F_MapEvents:
 	def_object_events
 	object_event 10,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FReceptionistScript, -1
 	object_event  5,  4, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FPokefanFScript, -1
-	object_event  5,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FBugCatcherScript, -1
-	object_event 11,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FGentlemanScript, -1
+	object_event  5,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FBugCatcherScript, -1
+	object_event 11,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FGentlemanScript, -1
+	object_event 15,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore_Lockdown, -1

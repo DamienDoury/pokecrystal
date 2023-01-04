@@ -8,6 +8,7 @@ GOLDENRODDEPTSTORE6F_LEMONADE_PRICE    EQU 350
 
 GoldenrodDeptStore6F_MapScripts:
 	def_scene_scripts
+	scene_script DeptStoreEnterLockdownCheck ; SCENE_DEFAULT
 
 	def_callbacks
 
@@ -168,5 +169,6 @@ GoldenrodDeptStore6F_MapEvents:
 	bg_event 11,  1, BGEVENT_UP, GoldenrodVendingMachine
 
 	def_object_events
-	object_event 10,  2, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore6FLassScript, -1
+	object_event 10,  2, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore6FLassScript, -1
 	object_event  8,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore6FSuperNerdScript, -1
+	object_event 15,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore_Lockdown, -1

@@ -110,3 +110,4 @@ RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
 
 SECTION "Sprites 3", ROMX
 ShineSpriteGFX::	           INCBIN "gfx/sprites/shine.2bpp"
+ConeSpriteGFX::                INCBIN "gfx/sprites/cone.2bpp"
