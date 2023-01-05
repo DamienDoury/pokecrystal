@@ -75,6 +75,7 @@ LockdownFirstDeclaration:
 	playsound SFX_EXIT_BUILDING
 	disappear CHARCOALKILN_YOUNGSTER
 	setevent EVENT_CHARCOAL_KILN_APPRENTICE
+	specialphonecall SPECIALCALL_LOCKDOWN_ANNOUNCEMENT
 	waitsfx
 	opentext 
 	writetext CharcoalKiln_MasterReactionText

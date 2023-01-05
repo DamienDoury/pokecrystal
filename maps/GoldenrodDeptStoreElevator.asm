@@ -6,7 +6,7 @@ GoldenrodDeptStoreElevator_MapScripts:
 GoldenrodDeptStoreElevatorScript:
 	opentext
 	readmem wCurFreedomState
-	ifequal 4, .lockdown
+	ifequal 1 << LOCKDOWN, .lockdown
 	elevator GoldenrodDeptStoreElevatorData
 	sjump .data_found
 .lockdown

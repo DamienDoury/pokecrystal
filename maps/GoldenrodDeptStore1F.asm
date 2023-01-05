@@ -17,7 +17,7 @@ DeptStoreEnterLockdownCheck:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	readmem wCurFreedomState
-	ifnotequal 4, .end
+	ifnotequal 1 << LOCKDOWN, .end
 
 	readvar VAR_XCOORD
 	ifless 15, .end

@@ -10,6 +10,17 @@ Route12_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .CheckMomCall
+	
+.CheckMomCall:
+	checkevent EVENT_MOM_CALLED_ABOUT_VACCINATION_PASS
+	iftrue .end
+
+	setevent EVENT_MOM_CALLED_ABOUT_VACCINATION_PASS
+	specialphonecall SPECIALCALL_VACCINE_PASSPORT
+
+.end
+	endcallback
 
 TrainerFisherKyle:
 	trainer FISHER, KYLE, EVENT_BEAT_FISHER_KYLE, FisherKyleSeenText, FisherKyleBeatenText, 0, .Script

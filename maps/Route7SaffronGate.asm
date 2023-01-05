@@ -100,6 +100,26 @@ Route7SaffronGate_OakGreetingsText:
 	cont "with the current"
 	cont "outage."
 
+	para "You have already"
+	line "noticed we do"
+	cont "things differently"
+	cont "in here."
+
+	para "For example, we're"
+	line "done with lock-"
+	cont "downs and curfews"
+	
+	para "and moved to the"
+	line "VACCINE PASSPORT."
+
+	para "This allows busi-"
+	line "nesses to re-open"
+	cont "to vaccinated"
+	cont "people."
+
+	para "But I'm getting"
+	line "carried away."
+
 	para "I was on my way to"
 	line "the SILPH CO."
 	cont "building in"

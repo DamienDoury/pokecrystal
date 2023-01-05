@@ -18,7 +18,7 @@ GoldenrodDeptStore4FClerkScript:
 
 GoldenrodDeptStore4FCooltrainerMScript:
 	readmem wCurFreedomState
-	ifequal 4, .lockdown
+	ifequal 1 << LOCKDOWN, .lockdown
 	jumptextfaceplayer GoldenrodDeptStore4FCooltrainerMText
 	
 .lockdown

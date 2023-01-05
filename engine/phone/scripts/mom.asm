@@ -143,3 +143,13 @@ MomCurfewStartedScript:
 	specialphonecall SPECIALCALL_NONE
 	farwritetext MomCurfewStartedText
 	end
+
+MomLockdownDeclaredScript:
+	specialphonecall SPECIALCALL_NONE
+	farwritetext MomLockdownStartedText
+	end
+
+MomVaccinePassportScript:
+	specialphonecall SPECIALCALL_NONE
+	farwritetext MomVaccinePassportText
+	end

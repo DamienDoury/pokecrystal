@@ -247,3 +247,65 @@ MomCurfewStartedText:
 	para "Wherever you are,"
 	line "be safe."
 	done
+
+
+MomLockdownStartedText:
+	text "<PLAYER>! You've"
+	line "heard the news…"
+
+	para "Don't be scared,"
+	line "it's gonna be"
+	cont "all right."
+
+	para "You cannot stay on"
+	line "the road, you will"
+	cont "get arrested."
+
+	para "You should come"
+	line "home so we can"
+	cont "spend the lock-"
+	cont "down together."
+
+	para "Will you?"
+
+	para "Whatever you do,"
+	line "you know you have"
+	cont "my full support."
+
+	para "Love you."
+	done
+
+MomVaccinePassportText:
+	text "Hi sweetie!"
+	line "It's been a while!"
+
+	para "I hope KANTO is"
+	line "living up to your"
+	cont "expectations."
+
+	para "As you are abroad"
+	line "you probably"
+	cont "missed the news…"
+
+	para "We are finally"
+	line "done with the"
+	cont "curfew!"
+
+	para "We're moving on to"
+	line "a VACCINE PASSPORT"
+	cont "just like they do"
+	cont "in KANTO."
+
+	para "I hope it'll allow"
+	line "me to find a new"
+	cont "job soon."
+	
+	para "A job with a"
+	line "noble purpose."
+
+	para "I also hope this"
+	line "will allow you to"
+	cont "visit me soon!"
+
+	para "Bye!"
+	done

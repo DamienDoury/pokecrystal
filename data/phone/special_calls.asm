@@ -17,8 +17,10 @@ SpecialPhoneCallList:
 	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_ELM,      ElmPhoneCallerScript
 	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_BIKESHOP, BikeShopPhoneCallerScript
 	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_MOM,      MomPhoneLectureScript
+	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_MOM,      MomLockdownDeclaredScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_MOM,      MomCurfewStartedScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_ELM,      ElmPhoneCallerScript
+	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_MOM,      MomVaccinePassportScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_HOSPITAL, HospitalCallerScript
 	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_HOSPITAL, HospitalCallerScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_ELM, 	   ElmPhoneCallerScript

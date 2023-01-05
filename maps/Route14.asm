@@ -66,8 +66,11 @@ PokefanmCarterAfterBattleText:
 	text "SQUIRTLE, CHARMAN-"
 	line "DER and BULBASAUR…"
 
-	para "I think that's a"
-	line "well-balanced mix."
+	para "I found them"
+	line "around in KANTO."
+
+	para "But they're"
+	line "very rare!"
 	done
 
 BirdKeeperRoySeenText:

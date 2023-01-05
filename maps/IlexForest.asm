@@ -390,11 +390,11 @@ TrainerBugCatcherWayne:
 .Script:
 	endifjustbattled
 	readmem wCurFreedomState
-	ifnotequal 1, .no_freedom
+	ifnotequal 1 << FREE, .no_freedom
 	jumptextfaceplayer BugCatcherWayneAfterBattleText
 
 .no_freedom
-	ifequal 2, .vaccination_pass
+	ifequal 1 << VACCINE_PASSPORT, .vaccination_pass
 	checkevent EVENT_FIRST_CURFEW_STARTED
 	iftrue .curfew
 ; lockdown

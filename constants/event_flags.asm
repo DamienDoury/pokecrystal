@@ -1615,7 +1615,9 @@
 	const EVENT_VIRIDIAN_FOREST_REVIVAL_HERB
 	const EVENT_VIRIDIAN_FOREST_ANTIDOTE
 
-; Unused: next 42 events
+	const EVENT_MOM_CALLED_ABOUT_VACCINATION_PASS
+
+; Unused: next 41 events
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800

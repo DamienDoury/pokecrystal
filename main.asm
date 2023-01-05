@@ -630,6 +630,8 @@ INCLUDE "data/phone/text/joey_overworld.asm"
 INCLUDE "data/phone/text/wade_overworld.asm"
 INCLUDE "data/phone/text/ralph_overworld.asm"
 INCLUDE "data/phone/text/liz_overworld.asm"
+INCLUDE "data/phone/text/erin_callee.asm"
+INCLUDE "data/phone/text/unused.asm"
 
 
 SECTION "Special Phone Text", ROMX
@@ -665,8 +667,6 @@ INCLUDE "data/phone/text/vance_callee.asm"
 INCLUDE "data/phone/text/wilton_callee.asm"
 INCLUDE "data/phone/text/kenji_callee.asm"
 INCLUDE "data/phone/text/parry_callee.asm"
-INCLUDE "data/phone/text/erin_callee.asm"
-INCLUDE "data/phone/text/unused.asm"
 
 
 SECTION "Miscellaneous Text", ROMX
