@@ -82,6 +82,7 @@ FastShip1FSailor1Script:
 
 .SwapToLocalBox
 	writetext FastShip1FSailor1Text_Saving
+	loadmem wCurFreedomState, 1 << VACCINE_PASSPORT
 	setflag ENGINE_FLYPOINT_VERMILION
 	special BoxLockAfterPowerOutage
 	farwritetext _SavedTheGameText
