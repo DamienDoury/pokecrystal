@@ -112,7 +112,6 @@ GoldenrodGymWhitneyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_PLAINBADGE
-	farscall CheckWorkVisaCall
 .GotPlainBadge:
 	writetext WhitneyPlainBadgeText
 	promptbutton

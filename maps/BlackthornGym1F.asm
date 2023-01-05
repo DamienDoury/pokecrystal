@@ -70,6 +70,19 @@ BlackthornGymClairScript:
 	checkevent EVENT_BEAT_CLAIR
 	iftrue .FightDone
 	writetext ClairIntroText
+
+	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+	iftrue .PowerRestrainerExplained
+	promptbutton
+	closetext
+	showemote EMOTE_QUESTION, BLACKTHORNGYM1F_CLAIR, 20
+	opentext
+	writetext BlackthornGymPowerRestrainerExplanation
+	setevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
+.PowerRestrainerExplained
+	promptbutton
+	writetext ClairIntroTextSequel
+
 	yesorno
 	iffalse .RefusesClairsChallenge
 	writetext ClairIntroSequelText
@@ -192,13 +205,19 @@ BlackthornGymStatue:
 	gettrainername STRING_BUFFER_4, CLAIR, CLAIR1
 	jumpstd GymStatue2Script
 
+BlackthornGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+	
 ClairIntroText:
 	text "I am CLAIR."
 
 	para "The world's best"
 	line "dragon master."
+	done
 
-	para "I can hold my own"
+ClairIntroTextSequel:
+	text "I can hold my own"
 	line "against even the"
 
 	para "#MON LEAGUE's"

@@ -389,11 +389,22 @@ TrainerBugCatcherWayne:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BugCatcherWayneAfterBattleText
-	waitbutton
-	closetext
-	end
+	readmem wCurFreedomState
+	ifnotequal 1, .no_freedom
+	jumptextfaceplayer BugCatcherWayneAfterBattleText
+
+.no_freedom
+	ifequal 2, .vaccination_pass
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iftrue .curfew
+; lockdown
+	jumptextfaceplayer BugCatcherWayneAfterBattleLockdownText
+
+.vaccination_pass
+	jumptextfaceplayer BugCatcherWayneAfterBattleVaccinationPassText
+
+.curfew
+	jumptextfaceplayer BugCatcherWayneAfterBattleCurfewText
 
 IlexForestLassScript:
 	jumptextfaceplayer Text_IlexForestLass
@@ -418,9 +429,6 @@ IlexForestHiddenSuperPotion:
 
 IlexForestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_ILEX_FOREST_HIDDEN_FULL_HEAL
-
-IlexForestBoulder: ; unreferenced
-	jumpstd StrengthBoulderScript
 
 IlexForestSignpost:
 	jumptext IlexForestSignpostText
@@ -922,6 +930,43 @@ BugCatcherWayneAfterBattleText:
 	cont "places too."
 	done
 
+BugCatcherWayneAfterBattleLockdownText:
+	text "I can't stand being"
+	line "stuck within four"
+	cont "walls."
+	
+	para "So here I am, out"
+	line "for a sip of"
+	cont "fresh air,"
+	
+	para "far away from"
+	line "the police."
+	done
+
+BugCatcherWayneAfterBattleCurfewText:
+	text "I couldn't get"
+	line "home before"
+	cont "curfew…"
+	
+	para "So I'm spending"
+	line "the night in the"
+	cont "woods, hidden"
+	cont "from the police."
+	done
+
+	
+BugCatcherWayneAfterBattleVaccinationPassText:
+	text "I don't want to"
+	line "get vaccinated."
+	
+	para "A stroll in the"
+	line "woods is pretty"
+	
+	para "much the only"
+	line "legal activity"
+	cont "I can do."
+	done
+
 IlexForest_MapEvents:
 	db 0, 0 ; filler
 
@@ -943,7 +988,7 @@ IlexForest_MapEvents:
 	object_event 14, 31, SPRITE_FARFETCH_D, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, IlexForestFarfetchdScript, EVENT_ILEX_FOREST_FARFETCHD
 	object_event  6, 28, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalApprenticeScript, EVENT_ILEX_FOREST_APPRENTICE
 	object_event  4, 28, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestCharcoalMasterScript, EVENT_ILEX_FOREST_CHARCOAL_MASTER
-	object_event 15, 14, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1
+	object_event 15, 14, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, IlexForestHeadbuttGuyScript, -1
 	object_event 20, 32, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, IlexForestRevive, EVENT_ILEX_FOREST_REVIVE
 	object_event  8, 29, SPRITE_KURT, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_ILEX_FOREST_KURT
 	object_event  3, 24, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, IlexForestLassScript, EVENT_ILEX_FOREST_LASS

@@ -14,10 +14,6 @@ FlowerShopTeacherScript:
 	iftrue .GotSquirtbottle
 	checkevent EVENT_MET_FLORIA
 	iffalse .HaventMetFloria
-	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	iffalse .Lalala
-	readvar VAR_BADGES
-	ifless 1, .NoPlainBadge
 	faceplayer
 	opentext
 	writetext GoldenrodFlowerShopTeacherHeresTheSquirtbottleText
@@ -26,8 +22,6 @@ FlowerShopTeacherScript:
 	setevent EVENT_GOT_SQUIRTBOTTLE
 	clearevent EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
 	closetext
-	setevent EVENT_FLORIA_AT_SUDOWOODO
-	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
 	end
 
 .Lalala:
@@ -40,9 +34,6 @@ FlowerShopTeacherScript:
 
 .GotSquirtbottle:
 	jumptextfaceplayer GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
-
-.NoPlainBadge:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText
 
 .HaventMetFloria:
 	jumptextfaceplayer GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
@@ -57,9 +48,6 @@ FlowerShopFloriaScript:
 	writetext GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText
 	waitbutton
 	closetext
-	setevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	setevent EVENT_FLORIA_AT_FLOWER_SHOP
-	clearevent EVENT_FLORIA_AT_SUDOWOODO
 	end
 
 .GotSquirtbottle:
@@ -87,59 +75,53 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
 	para "and went to see"
 	line "it…"
 
-	para "I'm worried… Isn't"
-	line "it dangerous?"
-	done
+	para "I'm worried…"
 
-GoldenrodFlowerShopTeacherAskWantToBorrowWaterBottleText:
-	text "Do you want to"
-	line "borrow the water"
-
-	para "bottle too?"
-	line "I don't want you"
-
-	para "doing anything"
-	line "dangerous with it."
+	para "Because of the"
+	line "lockdown she"
+	cont "should be home"
+	cont "by now…"
 	done
 
 GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
-	text "Oh, you have a"
-	line "GYM BADGE…"
+	text "Now that sis is"
+	line "back, I can"
+	cont "close the shop."
 
-	para "You'll be OK,"
-	line "then. Here's the"
-	cont "SQUIRTBOTTLE!"
+	para "It's already past"
+	line "time, we could"
+	cont "get into trouble."
+
+	para "I won't need the"
+	line "SQUIRTBOTTLE any-"
+	cont "more I guess."
+	cont "You can have it!"
 	done
 
 GoldenrodFlowerShopTeacherDontDoAnythingDangerousText:
-	text "Don't do anything"
-	line "too dangerous!"
+	text "Shouldn't you be"
+	line "home with your"
+	cont "parents?"
 	done
 
 GoldenrodFlowerShopTeacherLalalaHavePlentyOfWaterText:
-	text "Lalala lalalala."
-	line "Have plenty of"
-	cont "water, my lovely!"
+	text "All my plants died"
+	line "during the lock-"
+	cont "down, I'm sad."
 	done
 
 GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
-	text "When I told my sis"
-	line "about the jiggly"
+	text "I saw the police"
+	line "on the way here."
 
-	para "tree, she told me"
-	line "it's dangerous."
-
-	para "If I had a GYM"
-	line "BADGE, I wonder if"
-	
-	para "she'll lend me her"
-	line "water bottle…"
+	para "I'm lucky they"
+	line "didn't see me!"
 	done
 
 GoldenrodFlowerShopFloriaYouBeatWhitneyText:
-	text "Wow, you have"
-	line "beaten a GYM"
-	cont "LEADER? Cool!"
+	text "You got my sister's"
+	line "SQUIRTBOTTLE?"
+	cont "I'm jealous!"
 	done
 
 GoldenrodFlowerShopFloriaItReallyWasAMonText:

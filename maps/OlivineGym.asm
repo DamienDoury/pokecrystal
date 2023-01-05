@@ -86,7 +86,6 @@ OlivineGymJasmineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MINERALBADGE
-	scall CheckWorkVisaCall
 .FightDone:
 	checkevent EVENT_GOT_TM23_IRON_TAIL
 	iftrue .GotIronTail
@@ -113,15 +112,6 @@ OlivineGymJasmineScript:
 .NoRoomForIronTail:
 	closetext
 	end
-
-CheckWorkVisaCall:
-	readvar VAR_BADGES
-	ifequal 8, .WorkVisaCall
-	end
-
-.WorkVisaCall:
-	specialphonecall SPECIALCALL_WORK_VISA
-	end 
 	
 CheckRocketsActivation:
 	loadmem wTempByteValue, 0

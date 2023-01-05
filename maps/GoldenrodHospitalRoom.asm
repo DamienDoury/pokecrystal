@@ -937,10 +937,34 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	playsound SFX_EXIT_BUILDING
 	waitsfx
 	setevent EVENT_SICK_CATERPIE
+	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
+	setevent EVENT_FIRST_LOCKDOWN_STARTED
+	clearevent EVENT_MART_CHERRYGROVE_MISSED
+	clearevent EVENT_MART_VIOLET_MISSED
+	clearevent EVENT_MART_AZALEA_MISSED
+	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
+	loadmem wCurFreedomState, 1 << LOCKDOWN
 	setscene 0
 	pause 5
 	;special FadeInQuickly
 	special FadeInPalettes
+
+	pause 5
+
+	opentext
+	writetext GoldenrodHospitalAnnounceLockdownText
+	waitbutton
+	closetext
+
+	showemote EMOTE_QUESTION, PLAYER, 15
+
+	applymovement PLAYER, GoldenrodHospitalRoom_AnnounceLockdownMovement
+	pause 5
+
+	opentext
+	writetext GoldenrodHospitalAnnounceLockdown2Text
+	waitbutton
+	closetext
 	end
 
 GoldenrodHospitalRoomLoreleiScript:
@@ -955,8 +979,11 @@ GoldenrodHospitalRoom_ItemBall15Script:
 GoldenrodHospitalRoomSuperPotion:
 	hiddenitem SUPER_POTION, EVENT_GOLDENROD_HOSPITAL_ROOM_SUPER_POTION
 
-
-
+GoldenrodHospitalRoom_AnnounceLockdownMovement:
+	step RIGHT
+	step RIGHT
+	turn_head DOWN
+	step_end
 
 GoldenrodHospitalTrainerRoom1SeenText:
 	text "I'm on my break."
@@ -1853,7 +1880,20 @@ GoldenrodHospitalRoom_Quest31Text:
 	line "seconds ago."
 	done
 
+GoldenrodHospitalAnnounceLockdownText:
+	text "Hey you."
+	done
 
+GoldenrodHospitalAnnounceLockdown2Text:
+	text "You have nothing"
+	line "to do here."
+
+	para "Lockdown has"
+	line "started."
+
+	para "Go home or I'll"
+	line "call security."
+	done
 	
 
 

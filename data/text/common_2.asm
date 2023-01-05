@@ -324,11 +324,6 @@ _CantDepositText::
 	line "this item."
 	prompt
 
-_BadgeRequiredText::
-	text "Sorry! A new BADGE"
-	line "is required."
-	prompt
-
 _CantUseItemText::
 	text "Can't use that"
 	line "here."

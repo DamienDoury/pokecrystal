@@ -83,7 +83,6 @@ AzaleaGymBugsyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_HIVEBADGE
-	farscall CheckWorkVisaCall
 .FightDone:
 	checkevent EVENT_GOT_TM49_FURY_CUTTER
 	iftrue .GotFuryCutter
@@ -199,6 +198,8 @@ NewBadgeObedienceNotification:
 	end
 
 .obey100
+	specialphonecall SPECIALCALL_WORK_VISA
+
 	farwritetext Obey100
 	promptbutton
 	end
@@ -209,6 +210,10 @@ NewBadgeObedienceNotification:
 	end
 
 .obey50
+	setevent EVENT_FIRST_CURFEW_STARTED
+	specialphonecall SPECIALCALL_CURFEW_STARTED
+	loadmem wCurFreedomState, 1 << VACCINE_PASSPORT
+
 	farwritetext Obey50
 	promptbutton
 	end

@@ -42,7 +42,6 @@ INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
-INCLUDE "engine/events/lockdown_wanted.asm"
 INCLUDE "engine/events/gym.asm"
 INCLUDE "engine/battle/automatic_weather.asm"
 
@@ -188,6 +187,7 @@ INCLUDE "engine/events/fruit_trees.asm"
 INCLUDE "engine/battle/ai/move.asm"
 INCLUDE "engine/pokedex/pokedex_2.asm"
 INCLUDE "engine/pokemon/mail.asm"
+INCLUDE "engine/events/lockdown_wanted.asm"
 
 
 SECTION "Crystal Features 1", ROMX
