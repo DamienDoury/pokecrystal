@@ -75,7 +75,6 @@ SpecialsPointers::
 	add_special CheckTypePresenceInParty ; Damien
 	add_special FindPartyMonThatSpecies
 	add_special FindPartyMonThatSpeciesYourTrainerID
-	add_special ForceLockdown ; Damien
 	add_special DayCareMon1
 	add_special DayCareMon2
 	add_special SelectRandomBugContestContestants

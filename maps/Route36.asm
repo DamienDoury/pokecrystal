@@ -114,28 +114,13 @@ DidntCatchSudowoodo:
 Route36FloriaScript:
 	faceplayer
 	opentext
-	checkevent EVENT_TALKED_TO_FLORIA_AT_FLOWER_SHOP
-	iftrue .SecondTimeTalking
 	setevent EVENT_MET_FLORIA
 	writetext FloriaText1
 	waitbutton
 	closetext
 	clearevent EVENT_FLORIA_AT_FLOWER_SHOP
-	readvar VAR_FACING
-	ifequal UP, .Up
-	applymovement ROUTE36_FLORIA, FloriaMovement1
+	applymovement ROUTE36_FLORIA, FloriaMovement
 	disappear ROUTE36_FLORIA
-	end
-
-.Up:
-	applymovement ROUTE36_FLORIA, FloriaMovement2
-	disappear ROUTE36_FLORIA
-	end
-
-.SecondTimeTalking:
-	writetext FloriaText2
-	waitbutton
-	closetext
 	end
 
 Route36RockSmashGuyScript:
@@ -382,21 +367,10 @@ WeirdTreeMovement_Flee:
 	fast_jump_step UP
 	step_end
 
-FloriaMovement1:
-	step DOWN
-	step DOWN
+FloriaMovement:
 	step DOWN
 	step LEFT
 	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
-	step_end
-
-FloriaMovement2:
-	step LEFT
-	step DOWN
 	step DOWN
 	step DOWN
 	step LEFT
@@ -461,23 +435,12 @@ FloriaText1:
 	para "disguise if you"
 	line "soaked it!"
 
-	para "I know! I'll tell"
-	line "my sis and borrow"
-	cont "her water bottle!"
-	done
+	para "Wait what?"
 
-FloriaText2:
-	text "When I told my sis"
-	line "about the jiggly"
+	para "The lockdown has"
+	line "started already?"
 
-	para "tree, she said"
-	line "it's dangerous."
-
-	para "If I beat WHITNEY,"
-	line "I wonder if she'll"
-
-	para "lend me her water"
-	line "bottle…"
+	para "I should get home."
 	done
 
 RockSmashGuyText1:
@@ -714,8 +677,8 @@ Route36_MapEvents:
 	object_event 51,  8, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36LassScript, -1
 	object_event 44,  9, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36RockSmashGuyScript, -1
 	object_event 21,  4, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route36FruitTree, -1
-	object_event 33, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_FLORIA_AT_SUDOWOODO
 	object_event 46,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, ArthurScript, EVENT_ROUTE_36_ARTHUR_OF_THURSDAY
+	object_event 35, 12, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route36FloriaScript, EVENT_MET_FLORIA
 	object_event 21,  6, SPRITE_SUICUNE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_SAW_SUICUNE_ON_ROUTE_36
 	object_event 18,  8, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1
 	object_event 18,  9, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Route36_DoorScript, -1

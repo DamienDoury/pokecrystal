@@ -218,3 +218,32 @@ MomPhoneLectureText:
 
 	para "Is it ok?"
 	done
+
+MomCurfewStartedText:
+	text "Hi, <PLAYER>. They"
+	line "just announced"
+
+	para "great news on TV,"
+	line "you need to know!"
+
+	para "The quarantine at"
+	line "home has been"
+	
+	para "effective, and the"
+	line "restrictions can"
+	cont "be relaxed."
+
+	para "From now on, the"
+	line "new rule is the"
+	cont "curfew."
+
+	para "You can go out"
+	line "during the day,"
+	
+	para "but no one is"
+	line "allowed out"
+	cont "after dark."
+
+	para "Wherever you are,"
+	line "be safe."
+	done
