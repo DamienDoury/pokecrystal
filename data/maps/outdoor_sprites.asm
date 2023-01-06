@@ -756,6 +756,7 @@ CeladonGroupSprites:
 	db SPRITE_POLIWHIRL
 	db SPRITE_POKE_BALL
 	db SPRITE_FRUIT_TREE
+	db SPRITE_INVISIBLE_WALL
 	db 0 ; end
 
 ; Route12 and Route13 are connected

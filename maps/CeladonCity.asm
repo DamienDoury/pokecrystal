@@ -30,6 +30,9 @@ CeladonCityPoliwrath:
 	closetext
 	end
 
+CeladonCity_CasinoDoorScript:
+	jumptext CeladonCity_CasinoDoorText
+
 CeladonCityTeacher1Script:
 	jumptextfaceplayer CeladonCityTeacher1Text
 
@@ -219,6 +222,18 @@ CeladonCityTrainerTipsText:
 	cont "STORE!"
 	done
 
+CeladonCity_CasinoDoorText:
+	text "“Our entertainment"
+	line "establishement is"
+	cont "not yet allowed"
+	cont "to re-open."
+	
+	para "We are looking"
+	line "forward to seeing"
+	cont "you at CELADON"
+	cont "GAME CORNER!”"
+	done
+
 CeladonCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -255,3 +270,5 @@ CeladonCity_MapEvents:
 	object_event 24, 33, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityYoungster2Script, -1
 	object_event  6, 14, SPRITE_TEACHER, SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCityTeacher2Script, -1
 	object_event  7, 22, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonCityLassScript, -1
+	object_event 18, 19, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCity_CasinoDoorScript, EVENT_RED_IN_MT_SILVER
+	object_event 23, 19, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCity_CasinoDoorScript, EVENT_RED_IN_MT_SILVER
