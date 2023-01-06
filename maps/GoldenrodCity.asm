@@ -230,6 +230,18 @@ GoldenrodCityRocket5Script:
 GoldenrodCityRocket6Script:
 	jumptextfaceplayer GoldenrodCityRocket6Text
 
+GoldenrodCityMarketRush1Script:
+	jumptext GoldenrodCityMarketRush1Text
+
+GoldenrodCityMarketRush2Script:
+	jumptext GoldenrodCityMarketRush2Text
+
+GoldenrodCityMarketRush3Script:
+	jumptext GoldenrodCityMarketRush3Text
+
+GoldenrodCityMarketRush4Script:
+	jumptext GoldenrodCityMarketRush4Text
+
 GoldenrodCityStationSign:
 	jumptext GoldenrodCityStationSignText
 
@@ -261,6 +273,7 @@ GoldenrodCityUndergroundSignSouth:
 	jumptext GoldenrodCityUndergroundSignSouthText
 
 GoldenrodCityPokecenterSign:
+	clearevent EVENT_LOCKDOWN_MART_RUSH
 	jumpstd PokecenterSignScript
 
 GoldenrodCityFlowerShopSign:
@@ -634,6 +647,34 @@ GetLostText:
 	text "Get lost kiddo…"
 	done
 
+GoldenrodCityMarketRush1Text:
+	text "We need TOILET"
+	line "PAPER!"
+	
+	para "Who knows how long"
+	line "the lockdown will"
+	cont "be enforced?"
+
+	para "Let's get dozens"
+	line "of rolls!"
+	done
+
+GoldenrodCityMarketRush2Text:
+	text "Mom I'm scared,"
+	line "I wanna go home."
+	done
+
+GoldenrodCityMarketRush3Text:
+	text "People say the"
+	line "DEPT.STORE is al-"
+	cont "most out of goods."
+	done
+
+GoldenrodCityMarketRush4Text:
+	text "I want to shop"
+	line "once last…"
+	done
+
 GoldenrodCityMoveTutorMoveText:
 	text_start
 	done
@@ -697,3 +738,7 @@ GoldenrodCity_MapEvents:
 	object_event 29, 29, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodBikeShopDoorScript, GOLDENROD_BIKE_SHOP_CLOSED
 	object_event 29,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
 	object_event 15,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, -1
+	object_event 24, 28, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush1Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event 25, 28, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush2Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event 24, 29, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush3Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event 23, 30, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush4Script, EVENT_LOCKDOWN_MART_RUSH
