@@ -100,8 +100,12 @@ OlivineCity_ToGoScript:
 	checkflag ENGINE_OLIVINE_CAFE
 	iftrue .AlreadyBought
 
+	readmem wCurFreedomState
+	ifnotequal 1 << LOCKDOWN, .skip_lockdown_curfew_text
 	writetext OlivineCity_ToGoText
 	promptbutton
+
+.skip_lockdown_curfew_text
 	special GetOlivineCafeSalad
 	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
 	writetext OlivineCity_TodaysSpecialText
