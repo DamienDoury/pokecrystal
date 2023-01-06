@@ -504,7 +504,7 @@ DetermineAssault:
 	jr z, .forceAssault ; The Red Gyarados always assaults the player! Cause it's angry!
 
 	cp BATTLETYPE_NORMAL
-	ret nz ; Assault can only triggers with regular wild battles (not even fishing).
+	ret nz ; Assault can only trigger with regular wild battles (not even fishing).
 	
 	ld de, ENGINE_FLYPOINT_AZALEA
 	farcall CheckEngineFlag ; Returns the result of the check in c.
@@ -513,6 +513,14 @@ DetermineAssault:
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
 	ret nz ; Assaults only happen in wild battles.
+
+	ld a, [wMapGroup]
+	cp GROUP_NATIONAL_PARK
+	jr nz, .regularOdds
+
+	ld a, [wMapNumber]
+	cp MAP_NATIONAL_PARK
+	ret z ; No assaults in the National Park.
 
 .regularOdds
 	call BattleRandom

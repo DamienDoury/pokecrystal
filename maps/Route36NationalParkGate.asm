@@ -139,6 +139,8 @@ Route36NationalParkGate_MapScripts:
 	end
 
 Route36OfficerScriptContest:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .lockdown
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, _ContestNotOn
 	ifequal MONDAY, _ContestNotOn
@@ -177,6 +179,10 @@ Route36OfficerScriptContest:
 	special SelectRandomBugContestContestants
 	warpfacing LEFT, NATIONAL_PARK_BUG_CONTEST, 33, 18
 	end
+
+.lockdown
+	faceplayer
+	farjumptext NationalParkLockdownText
 
 .LeaveMonsWithOfficer:
 	readvar VAR_PARTYCOUNT
@@ -290,6 +296,8 @@ _ContestNotOn:
 	jumptextfaceplayer Route36NationalParkGateOfficer1SomeMonOnlySeenInParkText
 
 Route36NationalParkGateOfficerScript:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, Route36OfficerScriptContest.lockdown
 	faceplayer
 	opentext
 	checkflag ENGINE_DAILY_BUG_CONTEST
@@ -863,7 +871,7 @@ Route36NationalParkGate_MapEvents:
 	bg_event  6,  0, BGEVENT_READ, BugCatchingContestExplanationSign
 
 	def_object_events
-	object_event  0,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36OfficerScriptContest, EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
+	object_event  0,  2, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route36OfficerScriptContest, EVENT_ROUTE_36_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
 	object_event  2,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant1BScript, EVENT_BUG_CATCHING_CONTESTANT_1B
 	object_event  4,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant2BScript, EVENT_BUG_CATCHING_CONTESTANT_2B
 	object_event  2,  6, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BugCatchingContestant3BScript, EVENT_BUG_CATCHING_CONTESTANT_3B

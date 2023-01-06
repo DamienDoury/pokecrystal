@@ -41,12 +41,15 @@ Route35NationalParkGate_MapScripts:
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue .BugContestIsRunning
 	disappear ROUTE35NATIONALPARKGATE_OFFICER1
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .EveryoneDisappears
 	appear ROUTE35NATIONALPARKGATE_YOUNGSTER
 	appear ROUTE35NATIONALPARKGATE_OFFICER2
 	endcallback
 
 .SetContestOfficer:
 	appear ROUTE35NATIONALPARKGATE_OFFICER1
+.EveryoneDisappears
 	disappear ROUTE35NATIONALPARKGATE_YOUNGSTER
 	disappear ROUTE35NATIONALPARKGATE_OFFICER2
 	endcallback
@@ -78,6 +81,8 @@ Route35NationalParkGate_MapScripts:
 	end
 
 Route35OfficerScriptContest:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, NationalParkLockdownMessage
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, Route35NationalParkGate_NoContestToday
 	ifequal MONDAY, Route35NationalParkGate_NoContestToday
@@ -114,6 +119,9 @@ Route35NationalParkGate_OkayToProceed:
 	special SelectRandomBugContestContestants
 	warpfacing UP, NATIONAL_PARK_BUG_CONTEST, 10, 47
 	end
+
+NationalParkLockdownMessage:
+	jumptextfaceplayer NationalParkLockdownText
 
 Route35NationalParkGate_EnterContest:
 	readvar VAR_FACING
@@ -188,6 +196,8 @@ Route35NationalParkGate_NoContestToday:
 	jumptextfaceplayer Route35NationalParkGateOfficer1WeHoldContestsText
 
 Route35NationalParkGateOfficerScript:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, NationalParkLockdownMessage
 	faceplayer
 	opentext
 	checkflag ENGINE_DAILY_BUG_CONTEST
@@ -435,6 +445,14 @@ BugCatchingContestExplanationText:
 	line "the contest."
 	done
 
+NationalParkLockdownText:
+	text "How did you sneak"
+	line "up in here?"
+	
+	para "It's past curfew,"
+	line "go home!"
+	done
+
 Route35NationalParkGate_MapEvents:
 	db 0, 0 ; filler
 
@@ -450,6 +468,6 @@ Route35NationalParkGate_MapEvents:
 	bg_event  5,  0, BGEVENT_READ, BugCatchingContestExplanationSign
 
 	def_object_events
-	object_event  2,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35OfficerScriptContest, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
+	object_event  1,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35OfficerScriptContest, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_CONTEST_DAY
 	object_event  6,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route35NationalParkGateYoungsterScript, EVENT_ROUTE_35_NATIONAL_PARK_GATE_YOUNGSTER
-	object_event  0,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35NationalParkGateOfficerScript, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
+	object_event  0,  3, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35NationalParkGateOfficerScript, EVENT_ROUTE_35_NATIONAL_PARK_GATE_OFFICER_NOT_CONTEST_DAY
