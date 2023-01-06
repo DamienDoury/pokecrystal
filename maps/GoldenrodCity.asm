@@ -273,7 +273,6 @@ GoldenrodCityUndergroundSignSouth:
 	jumptext GoldenrodCityUndergroundSignSouthText
 
 GoldenrodCityPokecenterSign:
-	clearevent EVENT_LOCKDOWN_MART_RUSH
 	jumpstd PokecenterSignScript
 
 GoldenrodCityFlowerShopSign:
@@ -290,7 +289,7 @@ GoldenrodBikeShopDoorScript:
 
 GoldenrodCityBeaterScript:
 	opentext
-	checkevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	checkevent EVENT_GOLDENROD_BEATER
 	iftrue .GetLost
 	writetext BeaterText1
 	yesorno
@@ -305,7 +304,7 @@ GoldenrodCityBeaterScript:
 	writetext BeaterText3
 	waitbutton
 	closetext
-	setevent EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
+	setevent EVENT_GOLDENROD_BEATER
 	clearevent EVENT_GOLDENROD_ILLEGAL_CASINO
 	end
 
@@ -524,11 +523,6 @@ GoldenrodCityUndergroundSignSouthText:
 	line "ENTRANCE"
 	done
 
-GoldenrodCityPokeComCenterSignText: ; unreferenced
-	text "For Mobile Tips!"
-	line "#COM CENTER"
-	done
-
 GoldenrodCityFlowerShopSignText:
 	text "Blooming Beautiful"
 	line "FLOWER SHOP"
@@ -692,7 +686,7 @@ GoldenrodCity_MapEvents:
 	warp_event 33,  9, GOLDENROD_PP_SPEECH_HOUSE, 1
 	warp_event 15,  7, GOLDENROD_NAME_RATER, 1
 	warp_event 24, 27, GOLDENROD_DEPT_STORE_1F, 1
-	warp_event 14, 21, GOLDENROD_GAME_CORNER, 1
+	warp_event 14, 21, GOLDENROD_GAME_CORNER, 2
 	warp_event  5, 15, RADIO_TOWER_1F, 1
 	warp_event 19,  1, ROUTE_35_GOLDENROD_GATE, 3
 	warp_event  9,  5, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 8
@@ -733,8 +727,8 @@ GoldenrodCity_MapEvents:
 	object_event 29,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 31, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 12, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
-	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_UNDERGROUND_COIN_CASE
-	object_event 14, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, -1
+	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_BEATER
+	object_event 14, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, EVENT_RED_IN_MT_SILVER
 	object_event 29, 29, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodBikeShopDoorScript, GOLDENROD_BIKE_SHOP_CLOSED
 	object_event 29,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
 	object_event 15,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, -1

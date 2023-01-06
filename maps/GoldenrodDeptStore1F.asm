@@ -35,7 +35,12 @@ GoldenrodDeptStore1FReceptionistScript:
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistText
 
 GoldenrodDeptStore1FGentlemanScript:
+	checkevent EVENT_RED_BEATEN
+	iffalse .redBeaten
 	jumptextfaceplayer GoldenrodDeptStore1FGentlemanText
+
+.redBeaten
+	jumptextfaceplayer GoldenrodDeptStore1FGentlemanGameCornerText
 
 GoldenrodDeptStore1FPokefanFScript:
 	jumptextfaceplayer GoldenrodDeptStore1FPokefanFText
@@ -80,6 +85,17 @@ GoldenrodDeptStore1FGentlemanText:
 	
 	para "since the lockdown"
 	line "has been declared…"
+	done
+
+GoldenrodDeptStore1FGentlemanGameCornerText:
+	text "The GAME CORNER is"
+	line "offering a free"
+	
+	para "COIN CASE along"
+	line "with 50 COINS to"
+
+	para "celebrate their"
+	line "grand re-opening!"
 	done
 
 GoldenrodDeptStore1FPokefanFText:

@@ -28,7 +28,12 @@ GoldenrodDeptStore2FYoungsterScript:
 	jumptextfaceplayer GoldenrodDeptStore2FYoungsterText
 
 GoldenrodDeptStore2FCooltrainerFScript:
+	checkevent EVENT_RED_BEATEN
+	iffalse .RedBeaten
 	jumptextfaceplayer GoldenrodDeptStore2FCooltrainerFText
+
+.RedBeaten
+	jumptextfaceplayer GoldenrodDeptStore2FCooltrainerFGameCornerText
 
 GoldenrodDeptStore2FGentlemanScript:
 	jumptextfaceplayer GoldenrodDeptStore2FGentlemanText
@@ -58,6 +63,12 @@ GoldenrodDeptStore2FCooltrainerFText:
 
 	para "I mean, before"
 	line "it closed."
+	done
+
+GoldenrodDeptStore2FCooltrainerFGameCornerText:
+	text "The GAME CORNER"
+	line "has legally re-"
+	cont "opened, hurray!"
 	done
 
 GoldenrodDeptStore2FGentlemanText:
