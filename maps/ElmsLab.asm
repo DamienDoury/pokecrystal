@@ -13,7 +13,6 @@ ElmsLab_MapScripts:
 	scene_script .DummyScene2 ; SCENE_ELMSLAB_NOTHING
 	scene_script .DummyScene3 ; SCENE_ELMSLAB_MEET_OFFICER
 	scene_script .DummyScene4 ; SCENE_ELMSLAB_UNUSED
-	scene_script .DummyScene5 ; SCENE_ELMSLAB_AIDE_GIVES_POTION
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveElmCallback
@@ -32,9 +31,6 @@ ElmsLab_MapScripts:
 	end
 
 .DummyScene4:
-	end
-
-.DummyScene5:
 	end
 
 .MoveElmCallback:
@@ -283,7 +279,7 @@ ElmDirectionsScript:
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
-	setscene SCENE_ELMSLAB_AIDE_GIVES_POTION
+	setscene SCENE_ELMSLAB_NOTHING
 	setmapscene NEW_BARK_TOWN, SCENE_FINISHED
 	end
 
@@ -597,34 +593,6 @@ ElmJumpRightScript:
 	opentext
 	end
 
-AideScript_WalkPotion1:
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
-	turnobject PLAYER, LEFT
-	scall AideScript_GivePotion
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
-	turnobject PLAYER, DOWN
-	end
-
-AideScript_WalkPotion2:
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
-	turnobject PLAYER, LEFT
-	scall AideScript_GivePotion
-	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
-	turnobject PLAYER, DOWN
-	end
-
-AideScript_GivePotion:
-	opentext
-	setflag ENGINE_WEARING_FACE_MASK
-	writetext AideText_GiveYouPotion
-	playsound SFX_ITEM
-	waitsfx
-	writetext AideText_AlwaysBusy
-	waitbutton
-	closetext
-	setscene SCENE_ELMSLAB_NOTHING
-	end
-
 AideScript_WalkBalls1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, LEFT
@@ -642,15 +610,22 @@ AideScript_WalkBalls2:
 	end
 
 AideScript_GiveYouBalls:
+	; Pokéballs.
 	opentext
 	writetext AideText_GiveYouBalls
 	promptbutton
 	getitemname STRING_BUFFER_4, POKE_BALL
 	scall AideScript_ReceiveTheBalls
 	giveitem POKE_BALL, 5
-	writetext AideText_ExplainBalls
-	promptbutton
 	itemnotify
+
+	; Face mask.
+	writetext AideText_GiveYouFaceMask
+	setflag ENGINE_WEARING_FACE_MASK
+	playsound SFX_ITEM
+	waitsfx
+	writetext AideText_BetterSafeThanSorry
+	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
 	end
@@ -664,24 +639,26 @@ ElmsAideScript:
 	opentext
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
 	iftrue AideScript_AfterTheft
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue AideScript_ExplainBalls
 	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
+	checkflag ENGINE_WEARING_FACE_MASK
+	iftrue AideScript_BetterSafeThanSorry
 	writetext AideText_AlwaysBusy
 ElmsLab_EndText:
 	waitbutton
 	closetext
 	end
 
-AideScript_TheftTestimony:
-	writetext AideText_TheftTestimony
+AideScript_BetterSafeThanSorry:
+	writetext AideText_BetterSafeThanSorry
 	waitbutton
 	closetext
 	end
 
-AideScript_ExplainBalls:
-	writetext AideText_ExplainBalls
+AideScript_TheftTestimony:
+	writetext AideText_TheftTestimony
+	promptbutton
+	writetext AideText_AfterTheft
 	waitbutton
 	closetext
 	end
@@ -1832,16 +1809,21 @@ ElmFoundPatientZeroText3:
 	line "for everything!"
 	done
 
-AideText_GiveYouPotion:
-	text "<PLAY_G>, I want"
-	line "you to put this on"
-	cont "for your errand."
+AideText_GiveYouFaceMask:
+	text "I also want you"
+	line "to put this on."
 
 	para "<PLAYER> puts on"
 	line "a FACE MASK!"
 	done
 
 AideText_AlwaysBusy:
+	text "Have you heard"
+	line "about the virus"
+	cont "on TV?"
+	done
+
+AideText_BetterSafeThanSorry:
 	text "Better safe than"
 	line "sorry."
 
@@ -1862,18 +1844,6 @@ AideText_TheftTestimony:
 	para "It's unbelievable"
 	line "that anyone would"
 	cont "do that!"
-
-	para "…sigh… That"
-	line "stolen #MON."
-
-	para "I wonder how it's"
-	line "doing."
-
-	para "They say a #MON"
-	line "raised by a bad"
-
-	para "person turns bad"
-	line "itself."
 	done
 
 AideText_GiveYouBalls:
@@ -1881,16 +1851,6 @@ AideText_GiveYouBalls:
 
 	para "Use these on your"
 	line "#DEX quest!"
-	done
-
-AideText_ExplainBalls:
-	text "To add to your"
-	line "#DEX, you have"
-	cont "to catch #MON."
-
-	para "Throw # BALLS"
-	line "at wild #MON"
-	cont "to get them."
 	done
 
 ElmsLabOfficerText1:
@@ -1959,8 +1919,6 @@ ElmsLab_MapEvents:
 	coord_event  5,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
 	coord_event  4,  5, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript
 	coord_event  5,  5, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript2
-	coord_event  4,  8, SCENE_ELMSLAB_AIDE_GIVES_POTION, AideScript_WalkPotion1
-	coord_event  5,  8, SCENE_ELMSLAB_AIDE_GIVES_POTION, AideScript_WalkPotion2
 	coord_event  4,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls1
 	coord_event  5,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls2
 

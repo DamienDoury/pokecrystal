@@ -9102,8 +9102,8 @@ GetTrainerBackpic:
 
 .Chris:
 ; It's a boy.
-	ld b, BANK(ChrisBackpic)
-	ld hl, ChrisBackpic
+	farcall GetChrisBackpic
+	ret
 
 .Decompress:
 	ld de, vTiles2 tile $31

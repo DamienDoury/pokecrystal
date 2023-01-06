@@ -140,6 +140,9 @@ INCLUDE "engine/battle/link_result.asm"
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
 
+ChrisUnmaskedBackpic:
+INCBIN "gfx/player/chris_back_unmasked.2bpp.lz"
+
 DudeBackpic:
 INCBIN "gfx/battle/dude.2bpp.lz"
 

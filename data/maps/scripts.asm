@@ -405,6 +405,7 @@ INCLUDE "maps/Route45.asm"
 INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
 INCLUDE "maps/Route1.asm"
+INCLUDE "maps/PewterMart.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -425,7 +426,6 @@ INCLUDE "maps/PewterPokecenter1F.asm"
 
 SECTION "Map Scripts 22", ROMX
 
-INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/EcruteakCity.asm"
 INCLUDE "maps/BlackthornCity.asm"
@@ -442,6 +442,7 @@ INCLUDE "maps/Route21.asm"
 INCLUDE "maps/Route23.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/CinnabarPokecenter1F.asm"
 
 
 SECTION "Map Scripts 23", ROMX
@@ -457,7 +458,6 @@ INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/Route15.asm"
 INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
-INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/SeafoamGym.asm"
 

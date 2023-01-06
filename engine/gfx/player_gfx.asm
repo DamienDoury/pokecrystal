@@ -138,7 +138,13 @@ GetPlayerBackpic:
 	ret
 
 GetChrisBackpic:
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_WEARING_FACE_MASK_F, a
 	ld hl, ChrisBackpic
+	jr nz, .with_mask
+	ld hl, ChrisUnmaskedBackpic
+
+.with_mask
 	ld b, BANK(ChrisBackpic)
 	ld de, vTiles2 tile $31
 	ld c, 7 * 7
@@ -225,7 +231,13 @@ INCBIN "gfx/player/kris.2bpp"
 
 GetKrisBackpic:
 ; Kris's backpic is uncompressed.
+	ld a, [wStatusFlags2]
+	bit STATUSFLAGS2_WEARING_FACE_MASK_F, a
 	ld de, KrisBackpic
+	jr nz, .with_mask
+	ld de, KrisUnmaskedBackpic
+
+.with_mask
 	ld hl, vTiles2 tile $31
 	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
 	call Get2bpp
@@ -233,3 +245,6 @@ GetKrisBackpic:
 
 KrisBackpic:
 INCBIN "gfx/player/kris_back.2bpp"
+
+KrisUnmaskedBackpic:
+INCBIN "gfx/player/kris_back_unmasked.2bpp"
