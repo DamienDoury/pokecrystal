@@ -94,6 +94,91 @@ OlivineCityStandingYoungsterScript:
 	closetext
 	end
 
+OlivineCity_ToGoScript:
+	faceplayer
+	opentext
+	checkflag ENGINE_OLIVINE_CAFE
+	iftrue .AlreadyBought
+
+	writetext OlivineCity_ToGoText
+	promptbutton
+	special GetOlivineCafeSalad
+	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
+	writetext OlivineCity_TodaysSpecialText
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .Refused
+	checkmoney YOUR_MONEY, 500
+	ifequal HAVE_LESS, .NotEnoughMoney
+
+
+	takemoney YOUR_MONEY, 500
+	playsound SFX_TRANSACTION
+	special PlaceMoneyTopRight
+	waitsfx
+	writetext OlivineCity_ThanksText
+	promptbutton
+	closetext
+	
+	setflag ENGINE_OLIVINE_CAFE ; daily flag.
+	opentext
+
+	readmem wOlivineCafeBerry1
+	giveitem ITEM_FROM_MEM
+	writetext OlivineCity_Berry1Text
+	iffalse .CantCarry
+	playsound SFX_ITEM
+	promptbutton
+	waitsfx
+
+	readmem wOlivineCafeBerry2
+	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
+	giveitem ITEM_FROM_MEM
+	writetext OlivineCity_Berry2Text
+	iffalse .CantCarry
+	playsound SFX_ITEM
+	promptbutton
+	waitsfx
+
+	readmem wOlivineCafeBerry3
+	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
+	giveitem ITEM_FROM_MEM
+	writetext OlivineCity_Berry3Text
+	iffalse .CantCarry
+	playsound SFX_ITEM
+	promptbutton
+	waitsfx
+
+	getitemname STRING_BUFFER_3, BERRY_JUICE
+	writetext OlivineCity_BerryDrinkText
+
+	giveitem BERRY_JUICE
+	iffalse .CantCarry
+	playsound SFX_ITEM
+	waitsfx
+
+.EndText
+	waitbutton
+	closetext
+	end
+
+.AlreadyBought
+	writetext OlivineCity_AlreadyBoughtText
+	sjump .EndText
+
+.Refused
+	writetext OlivineCity_RefusedSaladText
+	sjump .EndText
+
+.NotEnoughMoney
+	writetext OlivineCity_NotEnoughMoneyText
+	sjump .EndText
+
+.CantCarry
+	promptbutton
+	writetext OlivineCity_CantCarryText
+	sjump .EndText
+
 OlivineCitySailor2Script:
 	jumptextfaceplayer OlivineCitySailor2Text
 
@@ -289,6 +374,88 @@ OlivineCityBattleTowerSignText:
 	line "Opening Now!"
 	done
 
+OlivineCity_ToGoText:
+	text "Our CAFE if not"
+	line "allowed to host"
+	cont "sitted customers,"
+	
+	para "but we are allo-"
+	line "wed to offer"
+	cont "to-go meals."
+	done
+
+OlivineCity_TodaysSpecialText:
+	text "Today's special is"
+	line "the @"
+	text_ram wStringBuffer3
+	text ""
+	cont "salad for ¥500."
+	cont "Want one?"
+	done
+
+OlivineCity_AlreadyBoughtText:
+	text "Come back tomorrow"
+	line "for a new special!"
+	done
+
+OlivineCity_RefusedSaladText:
+	text "No problem."
+
+	para "Perhaps tomorrow's"
+	line "special will be"
+	cont "at your taste."
+	done
+
+OlivineCity_ThanksText:
+	text "Thank you!"
+	line "Enjoy!"
+	done
+
+OlivineCity_NotEnoughMoneyText:
+	text "You don't have"
+	line "¥500."
+	done
+
+OlivineCity_CantCarryText:
+	text "Whoops, you can't"
+	line "carry this, your"
+	cont "pack is full!"
+
+	para "Not my responsibi-"
+	line "lity, no refund!"
+	done
+
+OlivineCity_Berry1Text:
+	text "<PLAYER> got"
+	line "@"
+	text_ram wStringBuffer1
+	text ""
+	done
+
+OlivineCity_Berry2Text:
+	text "topped with"
+	line "@"
+	text_ram wStringBuffer3
+	text ""
+	done
+
+OlivineCity_Berry3Text:
+	text "and @"
+	text_ram wStringBuffer3
+	text ""
+	line "on the side."
+	done
+
+OlivineCity_BerryDrinkText:
+	text "And here is"
+	line "the drink."
+
+	para "<PLAYER> is handed"
+	line "a @"
+	text_ram wStringBuffer3
+	text "."
+	done
+
 OlivineCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -323,4 +490,5 @@ OlivineCity_MapEvents:
 	object_event 20, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineCityStandingYoungsterScript, -1
 	object_event 17, 21, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor2Script, -1
 	object_event 10, 11, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_OLIVINE_CITY
-	object_event  7, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_DoorScript, -1
+	object_event  7, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_DoorScript, -1
+	object_event  7, 22, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_ToGoScript, EVENT_FIRST_CURFEW_STARTED

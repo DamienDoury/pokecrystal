@@ -92,3 +92,40 @@ IncreaseResearchLevel::
 	ret
 
 HideLockdownExclusionList:
+	;map_id CHERRYGROVE_CITY ; If the Gramps shows, it's no big deal as his house is opened during the lockdown.
+	map_id VIOLET_CITY ; Prevents Earl from entering the closed Academy.
+	map_id RUINS_OF_ALPH_OUTSIDE
+	map_id GOLDENROD_DEPT_STORE_2F
+	map_id GOLDENROD_DEPT_STORE_3F
+	map_id GOLDENROD_DEPT_STORE_4F
+	map_id GOLDENROD_DEPT_STORE_5F
+	map_id NATIONAL_PARK
+	db -1, -1
+
+GetOlivineCafeSalad:
+	ld a, [wCurDay]
+	ld b, 7
+	call Modulo
+	ld c, a
+	ld b, 0
+	ld hl, OlivineCafeBerries
+	add hl, bc
+	ld a, [hli]
+	ld [wScriptVar], a
+	ld [wOlivineCafeBerry1], a
+	ld a, [hli]
+	ld [wOlivineCafeBerry2], a
+	ld a, [hli]
+	ld [wOlivineCafeBerry3], a
+	ret
+
+OlivineCafeBerries:
+	db PSNCUREBERRY
+	db BURNT_BERRY
+	db GOLD_BERRY
+	db PRZCUREBERRY
+	db MINT_BERRY
+	db MYSTERYBERRY
+	db BITTER_BERRY
+	db PSNCUREBERRY
+	db BURNT_BERRY

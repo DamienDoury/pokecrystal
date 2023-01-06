@@ -3100,11 +3100,13 @@ wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 wGoldenrodHospitalCorridorNumber:: db
 
-	ds 2
-
 NEXTU ; 12 bytes.
 wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
 wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
+NEXTU
+wOlivineCafeBerry1:: db
+wOlivineCafeBerry2:: db
+wOlivineCafeBerry3:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

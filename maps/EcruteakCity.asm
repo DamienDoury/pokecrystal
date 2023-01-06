@@ -6,12 +6,35 @@
 	const ECRUTEAKCITY_FISHER
 	const ECRUTEAKCITY_YOUNGSTER
 	const ECRUTEAKCITY_GRAMPS3
+	const ECRUTEAKCITY_DELIVERY_GUY
 
 EcruteakCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .MoveDeliveryGuy
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+
+.MoveDeliveryGuy:
+	random 4
+	ifequal 0, .zero
+	ifequal 1, .one
+	ifequal 2, .two
+
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 14, 22
+	endcallback
+
+.zero
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 7, 18
+	endcallback
+
+.one
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 22, 22
+	endcallback
+
+.two
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 28, 28
+	endcallback
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_ECRUTEAK
@@ -60,6 +83,15 @@ EcruteakCityFisherScript:
 	waitbutton
 	closetext
 	end
+
+EcruteakCity_DeliveryGuyScript:
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iftrue .curfew
+	
+	jumptextfaceplayer DeliveryGuy_LockdownText
+
+.curfew
+	jumptextfaceplayer DeliveryGuy_CurfewText
 
 EcruteakCityYoungsterScript:
 	jumptextfaceplayer EcruteakCityYoungsterText
@@ -239,6 +271,33 @@ BurnedTowerSignText:
 	line "as it is unsafe."
 	done
 
+DeliveryGuy_LockdownText:
+	text "Everyone is qua-"
+	line "rantined at home…"
+
+	para "and yet I've never"
+	line "had so much work"
+	cont "outdoors!"
+
+	para "I spend all day"
+	line "delivering OLIVINE"
+	cont "CAFE's salads."
+
+	para "I leave them at"
+	line "door front, and I"
+	
+	para "only accept wire-"
+	line "less payments."
+	done
+
+DeliveryGuy_CurfewText:
+	text "Gotta go fast!"
+
+	para "Or I won't be done"
+	line "with my deliveries"
+	cont "before curfew."
+	done
+
 EcruteakCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -280,5 +339,6 @@ EcruteakCity_MapEvents:
 	object_event  9, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityFisherScript, -1
 	object_event 10, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakCityYoungsterScript, -1
 	object_event  3,  7, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps3Script, EVENT_ECRUTEAK_CITY_GRAMPS
+	object_event 13, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, (%11100000 & HIDE_FREE & HIDE_VACCINE_PASS) | 5, %11100000 | 17, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DeliveryGuyScript, -1
 	object_event 23, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DoorScript, -1
 	object_event 18, 11, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DoorScript, -1

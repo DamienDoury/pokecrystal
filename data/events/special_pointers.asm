@@ -204,3 +204,4 @@ SpecialsPointers::
 	add_special ShuffleAllViridianWarps
 	add_special ZapdosFlyToAnim
 	add_special CelebiFlyAwayAnim
+	add_special GetOlivineCafeSalad

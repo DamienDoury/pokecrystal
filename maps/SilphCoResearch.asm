@@ -63,7 +63,7 @@ SilphCoResearch_MapScripts:
 .no_scene
     end
 
-SilphCo_PokeballContentAccorded:
+IsVowel:
     readmem wStringBuffer3
     ifequal $80, .vowel
     ifequal $84, .vowel
@@ -71,6 +71,17 @@ SilphCo_PokeballContentAccorded:
     ifequal $8e, .vowel
     ifequal $94, .vowel
     ifequal $98, .vowel
+
+    setval FALSE
+    end
+
+.vowel
+    setval TRUE
+    end
+
+SilphCo_PokeballContentAccorded:
+    scall IsVowel
+    iftrue .vowel
 
     writetext SilphCo_LookPokeballText
     end
