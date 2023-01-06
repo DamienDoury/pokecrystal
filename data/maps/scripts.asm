@@ -249,6 +249,7 @@ INCLUDE "maps/BrunosRoom.asm"
 INCLUDE "maps/KarensRoom.asm"
 INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
+INCLUDE "maps/BlackthornCity.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -347,7 +348,7 @@ INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
-INCLUDE "maps/BillsBrothersHouse.asm" ; Damien. Original position is after maps/FuchsiaGym.asm, but "Map Scripts 18" is full.
+INCLUDE "maps/BillsBrothersHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX
@@ -406,6 +407,7 @@ INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/PewterMart.asm"
+INCLUDE "maps/Route28SteelWingHouse.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -422,13 +424,12 @@ INCLUDE "maps/Route7.asm"
 INCLUDE "maps/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/PewterGym.asm"
 INCLUDE "maps/PewterPokecenter1F.asm"
+INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 22", ROMX
 
-INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/EcruteakCity.asm"
-INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/Route26.asm"
 INCLUDE "maps/Route28.asm"
 INCLUDE "maps/Route31.asm"
@@ -441,7 +442,6 @@ INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/Route23.asm"
 INCLUDE "maps/Route24.asm"
-INCLUDE "maps/Route28SteelWingHouse.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 
 

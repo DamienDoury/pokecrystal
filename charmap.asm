@@ -171,6 +171,7 @@
 	charmap "'t",        $d5
 	charmap "'v",        $d6
 
+	charmap "*", 		 $dc
 	charmap "<PERCENT>", $dd
 	charmap "<VC>",      $de
 	charmap "←",         $df

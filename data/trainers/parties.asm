@@ -447,6 +447,13 @@ YoungsterGroup:
 	db 37, RATICATE,   HYPER_BEAM, QUICK_ATTACK, HYPER_FANG, PURSUIT
 	db -1 ; end
 
+	; YOUNGSTER (15)
+	db "TIMMY@", TRAINERTYPE_NORMAL
+	db 37, SANDSLASH
+	db 35, RAICHU
+	db 35, RATICATE
+	db -1 ; end
+
 SchoolboyGroup:
 	; SCHOOLBOY (1)
 	db "JACK@", TRAINERTYPE_NORMAL
@@ -822,6 +829,28 @@ LassGroup:
 	db "DANA@", TRAINERTYPE_MOVES
 	db 36, AMPHAROS,   SWIFT, THUNDERPUNCH, THUNDER_WAVE, COTTON_SPORE
 	db 36, GOLDUCK,    DISABLE, SURF, PSYCHIC_M, SCREECH
+	db -1 ; end
+
+	; LASS (18)
+	db "ALI@", TRAINERTYPE_NORMAL
+	db 31, GOLDUCK
+	db 32, QUAGSIRE
+	db 33, MANTINE
+	db 34, AZUMARILL
+	db 35, LAPRAS
+	db -1 ; end
+
+	; LASS (19)
+	db "RELI@", TRAINERTYPE_NORMAL
+	db 33, MEOWTH
+	db 34, MILTANK
+	db 35, WIGGLYTUFF
+	db 36, PERSIAN
+	db -1 ; end
+
+	; LASS (20)
+	db "SUMMER@", TRAINERTYPE_MOVES
+	db 70, ELECTRODE, EXPLOSION, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 JanineGroup:
@@ -1677,6 +1706,18 @@ BugCatcherGroup:
 	db "WAYNE@", TRAINERTYPE_NORMAL
 	db  8, LEDYBA
 	db 10, PARAS
+	db -1 ; end
+
+	; BUG_CATCHER (20)
+	db "CALE@", TRAINERTYPE_NORMAL
+	db 37, VENONAT
+	db 35, EKANS
+	db 35, PARASECT
+	db -1 ; end
+
+	; BUG_CATCHER (21)
+	db "OLLY@", TRAINERTYPE_MOVES
+	db 70, ELECTRODE, EXPLOSION, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 FisherGroup:
@@ -3172,6 +3213,19 @@ CamperGroup:
 	db 30, FEAROW
 	db 30, PRIMEAPE
 	db 30, TAUROS
+	db -1 ; end
+
+	; CAMPER (23)
+	db "KEVIN@", TRAINERTYPE_NORMAL
+	db 41, GLOOM
+	db 45, ARCANINE
+	db -1 ; end
+
+	; CAMPER (23)
+	db "SHANE@", TRAINERTYPE_NORMAL
+	db 37, FEAROW
+	db 37, PIDGEOT
+	db 37, CROBAT
 	db -1 ; end
 
 ExecutiveFGroup:

@@ -270,11 +270,32 @@ CeruleanCityCooltrainerMText2:
 	done
 
 CeruleanCitySuperNerdText:
-	text "The CAPE in the"
-	line "north is a good"
+;	text "The CAPE in the"
+;	line "north is a good"
+;
+;	para "place for dates."
+;	line "Girls like it!"
+;	done
 
-	para "place for dates."
-	line "Girls like it!"
+	text "The kids up north"
+	line "used to play"
+	cont "together."
+	
+	para "The bridge has"
+	line "been named after"
+	cont "their challenge:"
+	cont "the NUGGET BRIDGE."
+
+	para "Then one day,"
+	line "they moved down"
+	cont "the bridge and"
+	cont "started fighting"
+	cont "each other…"
+
+	para "Every single day…"
+
+	para "We know call it"
+	line "the SHAME BRIDGE."
 	done
 
 CeruleanCitySlowbroText:

@@ -1,5 +1,6 @@
 	object_const_def
 	const ROUTE24_ROCKET
+	const ROUTE24_EMPTY
 
 Route24_MapScripts:
 	def_scene_scripts
@@ -33,6 +34,71 @@ Route24RocketScript:
 	special FadeInQuickly
 	playmapmusic
 	end
+
+Route24Empty:
+	disappear ROUTE24_EMPTY
+	playsound SFX_ITEM
+	waitsfx
+	jumptext Route24EmptyText
+
+Route24_Trainer1:
+	end
+
+Route24_TrainerCale:
+	trainer BUG_CATCHER, CALE, EVENT_BEAT_NUGGET_BRIDGE_CALE, Route24Trainer1SeenText, Route24Trainer1BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer1SeenText
+
+Route24_TrainerAli:
+	trainer LASS, ALI, EVENT_BEAT_NUGGET_BRIDGE_ALI, Route24Trainer2SeenText, Route24Trainer2BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer2SeenText
+
+Route24_TrainerTimmy:
+	trainer YOUNGSTER, TIMMY, EVENT_BEAT_NUGGET_BRIDGE_TIMMY, Route24Trainer3SeenText, Route24Trainer3BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer3SeenText
+
+Route24_TrainerReli:
+	trainer LASS, RELI, EVENT_BEAT_NUGGET_BRIDGE_RELI, Route24Trainer4SeenText, Route24Trainer4BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer4SeenText
+
+Route24_TrainerKevin:
+	trainer CAMPER, KEVIN_BIS, EVENT_BEAT_NUGGET_BRIDGE_KEVIN, Route24Trainer5SeenText, Route24Trainer5BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer2SeenText
+
+Route24_TrainerShane:
+	trainer CAMPER, SHANE_BIS, EVENT_BEAT_NUGGET_BRIDGE_SHANE, Route24Trainer6SeenText, Route24Trainer6BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer6SeenText
+
+Route24_TrainerOlly:
+	trainer BUG_CATCHER, OLLY, EVENT_BEAT_NUGGET_BRIDGE_OLLY, Route24Trainer7SeenText, Route24Trainer7BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer7SeenText
+
+Route24_TrainerSummer:
+	trainer LASS, SUMMER, EVENT_BEAT_NUGGET_BRIDGE_SUMMER, Route24Trainer8SeenText, Route24Trainer8BeatenText, 0, .Script
+.Script:
+	endifjustbattled
+	jumptextfaceplayer Route24Trainer8SeenText
+
+Route24HiddenItem:
+	hiddenitem PP_UP, EVENT_ROUTE_24_HIDDEN_ITEM
+
+Route24EmptyText:
+	text "What the… ?"
+	para "It's empty…"
+	done
 
 Route24RocketSeenText:
 	text "Hey, kid! Me am a"
@@ -116,6 +182,147 @@ Route24RocketDisappearsText:
 	cont "from, me?"
 	done
 
+
+; Couple 1)
+Route24Trainer1SeenText:
+	text "Forcing me to get"
+	line "vaccinated goes"
+	cont "against my right"
+	cont "for freedom!"
+	done
+
+Route24Trainer1BeatenText:
+	text "I'm not telling you"
+	line "to not get"
+	cont "vaccinated, so"
+	
+	para "don't tell me to"
+	line "get vaccinated!"
+	done
+
+Route24Trainer2SeenText:
+	text "Getting vaccinated"
+	line "is not a right."
+
+	para "It's a duty!"
+	done
+
+Route24Trainer2BeatenText:
+	text "This pandemic won't"
+	line "stop by itself,"
+	
+	para "we need to act"
+	line "as a group!"
+	done
+	
+; Couple 2)
+Route24Trainer3SeenText:
+	text "You got vaccinated"
+	line "several times"
+	cont "already,"
+	
+	para "why won't you get"
+	line "vaccinated this"
+	cont "time?"
+	done
+
+Route24Trainer3BeatenText:
+	text "If our health"
+	line "researchers say"
+	
+	para "the vaccine is"
+	line "safe, then it is!"
+	
+	para "They are more"
+	line "qualified than"
+	cont "you and I!"
+	done
+
+Route24Trainer4SeenText:
+	text "This vaccine has"
+	line "not been tested"
+	cont "thoroughly enough!"
+	
+	para "It could be"
+	line "dangerous in"
+	cont "the long term!"
+	done
+	
+Route24Trainer4BeatenText:
+	text "How could this"
+	line "vaccine get appro-"
+	cont "ved within months"
+	
+	para "when it takes"
+	line "5 to 10 years"
+	cont "for the others?"
+	done
+
+; Couple 3)
+Route24Trainer5SeenText:
+	text "Studies show the"
+	line "vaccine has high"
+	cont "odds of giving you"
+	cont "a dangerous side"
+	cont "effect!"
+	done
+
+Route24Trainer5BeatenText:
+	text "I'd rather take my"
+	line "chances to escape"
+	cont "the virus,"
+	
+	para "than injecting"
+	line "something poten-"
+	cont "tially dangerous"
+	cont "into my body."
+	done
+
+Route24Trainer6SeenText:
+	text "It's not getting"
+	line "vaccinated that"
+	cont "is dangerous!"
+	done
+
+Route24Trainer6BeatenText:
+	text "Not getting vacci-"
+	line "nated puts your-"
+	cont "self at risk, and"
+	cont "helps the virus"
+	cont "spread!"
+
+	para "Spreading the"
+	line "virus makes you"
+	cont "a killer!"
+	done
+
+; Couple 4)
+Route24Trainer7SeenText:
+	text "We should kill"
+	line "people that refuse"
+
+	para "the vaccine and"
+	line "spread the virus."
+	done
+
+Route24Trainer7BeatenText:
+	text "You f*cking"
+	line "dumbsh*t!"
+	done
+
+Route24Trainer8SeenText:
+	text "I hope your"
+	line "vaccine gives"
+	
+	para "you cancer, you"
+	line "f*cking nazi!"
+	done
+
+Route24Trainer8BeatenText:
+	text "Yeah right"
+	line "f*ck you!"
+	done
+
 Route24_MapEvents:
 	db 0, 0 ; filler
 
@@ -124,6 +331,20 @@ Route24_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 13, 14, BGEVENT_ITEM, Route24HiddenItem
 
 	def_object_events
 	object_event  8,  7, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route24RocketScript, EVENT_ROUTE_24_ROCKET
+	object_event 12, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route24Empty, EVENT_ROUTE_24_EMPTY
+	
+	object_event 11,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerCale, -1
+	object_event 13,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerAli, -1
+	
+	object_event 11,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerTimmy, -1
+	object_event 13,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerReli, -1
+	
+	object_event 11,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerKevin, -1
+	object_event 13,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerShane, -1
+	
+	object_event 11, 10, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerOlly, -1
+	object_event 13, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerSummer, -1

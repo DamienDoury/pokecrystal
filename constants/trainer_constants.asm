@@ -128,6 +128,7 @@ KRIS EQU __trainer_class__
 	const JASON
 	const JOEY4
 	const JOEY5
+	const TIMMY
 
 	trainerclass SCHOOLBOY ; 17
 	const JACK1
@@ -194,6 +195,9 @@ KRIS EQU __trainer_class__
 	const DANA3
 	const DANA4
 	const DANA5
+	const ALI
+	const RELI
+	const SUMMER
 
 	trainerclass JANINE ; 1a
 	const JANINE1
@@ -352,6 +356,8 @@ KRIS EQU __trainer_class__
 	const ARNIE4
 	const ARNIE5
 	const WAYNE
+	const CALE
+	const OLLY
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -617,6 +623,8 @@ KRIS EQU __trainer_class__
 	const TODD4
 	const TODD5
 	const QUENTIN
+	const KEVIN_BIS
+	const SHANE_BIS
 
 	trainerclass EXECUTIVEF ; 37
 	const EXECUTIVEF_1
