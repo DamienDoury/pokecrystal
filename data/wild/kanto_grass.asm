@@ -954,4 +954,32 @@ KantoGrassWildMons:
 	db 78, DITTO
 	end_grass_wildmons
 
+	def_grass_wildmons SAFARI_ZONE_BETA
+	db 8 percent, 8 percent, 8 percent ; encounter rates: morn/day/nite
+	; morn
+	db 33, EXEGGCUTE
+	db 35, CHANSEY
+	db 38, RHYHORN
+	db 37, DODUO
+	db 28, NIDORAN_M
+	db 37, TANGELA
+	db 35, DITTO
+	; day
+	db 33, TAUROS
+	db 35, RHYHORN
+	db 33, NIDORINO
+	db 39, NIDORINA
+	db 35, DODUO
+	db 42, GIRAFARIG
+	db 45, DODRIO
+	; nite
+	db 36, VENONAT
+	db 34, PARAS
+	db 28, NIDORAN_F
+	db 37, RHYHORN
+	db 42, PARASECT
+	db 45, VENOMOTH
+	db 40, KANGASKHAN
+	end_grass_wildmons
+
 	db -1 ; end

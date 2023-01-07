@@ -184,4 +184,11 @@ KantoWaterWildMons:
 	db 75, SEADRA
 	end_water_wildmons
 
+	def_water_wildmons SAFARI_ZONE_BETA
+	db 4 percent ; encounter rate
+	db 18, DRATINI
+	db 16, PSYDUCK
+	db 40, LAPRAS
+	end_water_wildmons
+
 	db -1 ; end
