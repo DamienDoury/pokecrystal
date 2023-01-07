@@ -1,6 +1,13 @@
 	object_const_def
 	const ROUTE24_ROCKET
-	const ROUTE24_EMPTY
+	const ROUTE24_TRAINER1
+	const ROUTE24_TRAINER2
+	const ROUTE24_TRAINER3
+	const ROUTE24_TRAINER4
+	const ROUTE24_TRAINER5
+	const ROUTE24_TRAINER6
+	const ROUTE24_TRAINER7
+	const ROUTE24_TRAINER8
 
 Route24_MapScripts:
 	def_scene_scripts
@@ -35,70 +42,166 @@ Route24RocketScript:
 	playmapmusic
 	end
 
-Route24Empty:
-	disappear ROUTE24_EMPTY
-	playsound SFX_ITEM
-	waitsfx
-	jumptext Route24EmptyText
-
-Route24_Trainer1:
-	end
-
 Route24_TrainerCale:
 	trainer BUG_CATCHER, CALE, EVENT_BEAT_NUGGET_BRIDGE_CALE, Route24Trainer1SeenText, Route24Trainer1BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer1SeenText
+	sjump Route24Couple1Anim
 
 Route24_TrainerAli:
 	trainer LASS, ALI, EVENT_BEAT_NUGGET_BRIDGE_ALI, Route24Trainer2SeenText, Route24Trainer2BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer2SeenText
+	sjump Route24Couple1Anim
 
 Route24_TrainerTimmy:
 	trainer YOUNGSTER, TIMMY, EVENT_BEAT_NUGGET_BRIDGE_TIMMY, Route24Trainer3SeenText, Route24Trainer3BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer3SeenText
+	sjump Route24Couple2Anim
 
 Route24_TrainerReli:
 	trainer LASS, RELI, EVENT_BEAT_NUGGET_BRIDGE_RELI, Route24Trainer4SeenText, Route24Trainer4BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer4SeenText
+	sjump Route24Couple2Anim
 
 Route24_TrainerKevin:
 	trainer CAMPER, KEVIN_BIS, EVENT_BEAT_NUGGET_BRIDGE_KEVIN, Route24Trainer5SeenText, Route24Trainer5BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer2SeenText
+	sjump Route24Couple3Anim
 
 Route24_TrainerShane:
 	trainer CAMPER, SHANE_BIS, EVENT_BEAT_NUGGET_BRIDGE_SHANE, Route24Trainer6SeenText, Route24Trainer6BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer6SeenText
+	sjump Route24Couple3Anim
 
 Route24_TrainerOlly:
 	trainer BUG_CATCHER, OLLY, EVENT_BEAT_NUGGET_BRIDGE_OLLY, Route24Trainer7SeenText, Route24Trainer7BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer7SeenText
+	sjump Route24Couple4Anim
 
 Route24_TrainerSummer:
 	trainer LASS, SUMMER, EVENT_BEAT_NUGGET_BRIDGE_SUMMER, Route24Trainer8SeenText, Route24Trainer8BeatenText, 0, .Script
 .Script:
 	endifjustbattled
-	jumptextfaceplayer Route24Trainer8SeenText
+	sjump Route24Couple4Anim
 
-Route24HiddenItem:
-	hiddenitem PP_UP, EVENT_ROUTE_24_HIDDEN_ITEM
+Route24HiddenPPUp:
+	hiddenitem PP_UP, EVENT_ROUTE_24_HIDDEN_PP_UP
 
-Route24EmptyText:
-	text "What the… ?"
-	para "It's empty…"
-	done
+Route24HiddenHPUp:
+	hiddenitem HP_UP, EVENT_ROUTE_24_HIDDEN_HP_UP
+
+Route24HiddenToiletPaper:
+	hiddenitem TOILET_PAPER, EVENT_ROUTE_24_HIDDEN_TOILET_PAPER
+
+Route24Couple1Anim:
+	turnobject ROUTE24_TRAINER1, RIGHT
+	turnobject ROUTE24_TRAINER2, LEFT
+	showemote EMOTE_SAD, ROUTE24_TRAINER1, 15
+	opentext
+	writetext Route24Trainer1SeenText
+	waitbutton
+	closetext
+
+	showemote EMOTE_SAD, ROUTE24_TRAINER2, 15
+	opentext
+	writetext Route24Trainer2SeenText
+	waitbutton
+	closetext
+	showemote EMOTE_SAD, ROUTE24_TRAINER1, 15
+	showemote EMOTE_SAD, ROUTE24_TRAINER2, 15
+	end
+
+Route24Couple2Anim:
+	turnobject ROUTE24_TRAINER3, RIGHT
+	turnobject ROUTE24_TRAINER4, LEFT
+	applymovement ROUTE24_TRAINER3, Route24StompRightMovement
+	opentext
+	writetext Route24Trainer3SeenText
+	waitbutton
+	closetext
+
+	applymovement ROUTE24_TRAINER4, Route24StompLeftMovement
+	opentext
+	writetext Route24Trainer4SeenText
+	waitbutton
+	closetext
+	end
+
+Route24Couple3Anim:
+	turnobject ROUTE24_TRAINER5, RIGHT
+	turnobject ROUTE24_TRAINER6, LEFT
+	applymovement ROUTE24_TRAINER5, Route24StompRightMovement
+	opentext
+	writetext Route24Trainer5SeenText
+	waitbutton
+	closetext
+
+	applymovement ROUTE24_TRAINER6, Route24StompLeftMovement
+	opentext
+	writetext Route24Trainer6SeenText
+	waitbutton
+	closetext
+	end
+
+Route24Couple4Anim:
+	turnobject ROUTE24_TRAINER7, RIGHT
+	turnobject ROUTE24_TRAINER8, LEFT
+	showemote EMOTE_SAD, ROUTE24_TRAINER7, 15
+	opentext
+	writetext Route24Trainer7SeenText
+	waitbutton
+	closetext
+	showemote EMOTE_SAD, ROUTE24_TRAINER8, 15
+	opentext
+	writetext Route24Trainer8SeenText
+	waitbutton
+	closetext
+	
+	playsound SFX_TACKLE
+	applymovement ROUTE24_TRAINER7, Route24FightRightMovement
+	
+	playsound SFX_HEADBUTT
+	applymovement ROUTE24_TRAINER8, Route24FightLeftMovement
+	
+	playsound SFX_HEADBUTT
+	applymovement ROUTE24_TRAINER7, Route24FightRightMovement
+	
+	playsound SFX_TACKLE
+	applymovement ROUTE24_TRAINER8, Route24FightLeftMovement
+	end
+
+
+Route24StompLeftMovement:
+	turn_step LEFT
+	step_bump
+	step_end
+
+Route24StompRightMovement:
+	turn_step RIGHT
+	step_bump
+	step_end
+
+Route24FightLeftMovement:
+	fix_facing
+	big_step LEFT
+	big_step RIGHT
+	remove_fixed_facing
+	step_end
+
+Route24FightRightMovement:
+	fix_facing
+	set_sliding
+	big_step RIGHT
+	big_step LEFT
+	remove_sliding
+	remove_fixed_facing
+	step_end
 
 Route24RocketSeenText:
 	text "Hey, kid! Me am a"
@@ -187,8 +290,8 @@ Route24RocketDisappearsText:
 Route24Trainer1SeenText:
 	text "Forcing me to get"
 	line "vaccinated goes"
-	cont "against my right"
-	cont "for freedom!"
+	cont "against my"
+	cont "freedom!"
 	done
 
 Route24Trainer1BeatenText:
@@ -331,11 +434,12 @@ Route24_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 13, 14, BGEVENT_ITEM, Route24HiddenItem
+	bg_event 11, 14, BGEVENT_ITEM, Route24HiddenPPUp
+	bg_event 12, 13, BGEVENT_ITEM, Route24HiddenToiletPaper
+	bg_event 14, 15, BGEVENT_ITEM, Route24HiddenHPUp
 
 	def_object_events
 	object_event  8,  7, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route24RocketScript, EVENT_ROUTE_24_ROCKET
-	object_event 12, 12, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route24Empty, EVENT_ROUTE_24_EMPTY
 	
 	object_event 11,  5, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerCale, -1
 	object_event 13,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerAli, -1
@@ -346,5 +450,5 @@ Route24_MapEvents:
 	object_event 11,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerKevin, -1
 	object_event 13,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerShane, -1
 	
-	object_event 11, 10, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerOlly, -1
-	object_event 13, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerSummer, -1
+	object_event 11, 11, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, Route24_TrainerOlly, -1
+	object_event 13, 11, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 2, Route24_TrainerSummer, -1
