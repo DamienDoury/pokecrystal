@@ -4,22 +4,47 @@
 	const RUINSOFALPHOUTSIDE_FISHER
 	const RUINSOFALPHOUTSIDE_YOUNGSTER2
 	const RUINSOFALPHOUTSIDE_YOUNGSTER3
+	const RUINSOFALPHOUTSIDE_CONE1
+	const RUINSOFALPHOUTSIDE_CONE2
 
 RuinsOfAlphOutside_MapScripts:
 	def_scene_scripts
 	scene_script .DummyScene0 ; SCENE_RUINSOFALPHOUTSIDE_NOTHING
-	scene_script .DummyScene1 ; SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX
+	scene_script .DummyScene0 ; SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .ScientistCallback
 
 .DummyScene0:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .ConesDisappear
+
+	checkevent EVENT_RED_IN_MT_SILVER
+	iftrue .ConesDisappear
+
+	appear RUINSOFALPHOUTSIDE_CONE1
+	appear RUINSOFALPHOUTSIDE_CONE2
+
+	readvar VAR_XCOORD
+	ifnotequal 10, .end
+
+	prioritysjump RuinsOfAlph_PlayerStepsDown
+.end
 	end
 
-.DummyScene1:
+.ConesDisappear:
+	disappear RUINSOFALPHOUTSIDE_CONE1
+	disappear RUINSOFALPHOUTSIDE_CONE2
 	end
 
 .ScientistCallback:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .NoScientist
 	checkflag ENGINE_UNOWN_DEX
 	iftrue .NoScientist
 	checkevent EVENT_MADE_UNOWN_APPEAR_IN_RUINS
@@ -40,6 +65,10 @@ RuinsOfAlphOutside_MapScripts:
 	disappear RUINSOFALPHOUTSIDE_SCIENTIST
 	setscene SCENE_RUINSOFALPHOUTSIDE_NOTHING
 	endcallback
+
+RuinsOfAlph_PlayerStepsDown:
+	applymovement PLAYER, RuinsOfAlphOutsideStepDown2Movement
+	end
 
 RuinsOfAlphOutsideScientistScene1:
 	applymovement RUINSOFALPHOUTSIDE_SCIENTIST, RuinsOfAlphOutsideStepDownMovement
@@ -127,6 +156,12 @@ TrainerPsychicNathan:
 	closetext
 	end
 
+RuinsOfAlphDoorScript:
+	jumptext RuinsOfAlphDoorText
+
+RuinsOfAlphConeScript:
+	jumptext RuinsOfAlphConeText
+
 RuinsOfAlphOutsideMysteryChamberSign:
 	jumptext RuinsOfAlphOutsideMysteryChamberSignText
 
@@ -148,6 +183,8 @@ RuinsOfAlphOutsideStepUpMovement:
 	step UP
 	step_end
 
+RuinsOfAlphOutsideStepDown2Movement:
+	step DOWN
 RuinsOfAlphOutsideStepDownMovement:
 	step DOWN
 	step_end
@@ -231,17 +268,9 @@ RuinsOfAlphResearchCenterSignText:
 	done
 
 RuinsOfAlphOutsideFisherText1:
-	text "While exploring"
-	line "the RUINS, we"
-
-	para "suddenly noticed"
-	line "an odd presence."
-
-	para "We all got scared"
-	line "and ran away."
-
-	para "You should be"
-	line "careful too."
+	text "There is an odd"
+	line "presence surroun-"
+	cont "ding this area."
 	done
 
 RuinsOfAlphOutsideFisherText2:
@@ -267,6 +296,26 @@ RuinsOfAlphOutsideYoungster2Text:
 
 	para "I'm decoding this"
 	line "message!"
+	done
+
+RuinsOfAlphDoorText:
+	text "Our RESEARCH"
+	line "CENTER has not"
+	
+	para "been deemed"
+	line "essential."
+	
+	para "How insulting for"
+	line "science!"
+
+	para "We must stay"
+	line "closed for now."
+	done
+
+RuinsOfAlphConeText:
+	text "RUINS OF ALPH"
+	line "are closed to"
+	cont "the public."
 	done
 
 RuinsOfAlphOutside_MapEvents:
@@ -296,7 +345,10 @@ RuinsOfAlphOutside_MapEvents:
 
 	def_object_events
 	object_event  4, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_TRAINER, 1, TrainerPsychicNathan, -1
-	object_event 11, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistScript, EVENT_RUINS_OF_ALPH_OUTSIDE_SCIENTIST
+	object_event 11, 15, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideScientistScript, EVENT_RUINS_OF_ALPH_OUTSIDE_SCIENTIST
 	object_event 13, 17, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideFisherScript, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_FISHER
 	object_event 14, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideYoungster1Script, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
 	object_event 12,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphOutsideYoungster2Script, EVENT_RUINS_OF_ALPH_OUTSIDE_TOURIST_YOUNGSTERS
+	object_event 10, 14, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphConeScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event 14,  8, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphConeScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event 17, 11, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, RuinsOfAlphDoorScript, -1
