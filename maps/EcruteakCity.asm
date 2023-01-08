@@ -120,6 +120,15 @@ EcruteakCityMartSign:
 EcruteakCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION
 
+EcruteakCityHiddenSitrusBerry:
+	hiddenitem GOLD_BERRY, EVENT_ECRUTEAK_CITY_HIDDEN_SITRUS_BERRY
+	
+EcruteakCityHiddenLeppaBerry:
+	hiddenitem MYSTERYBERRY, EVENT_ECRUTEAK_CITY_HIDDEN_LEPPA_BERRY
+
+EcruteakCityHiddenBerryJuice:
+	hiddenitem BERRY_JUICE, EVENT_ECRUTEAK_CITY_HIDDEN_BERRY_JUICE
+
 EcruteakCity_DoorScript:
 	jumpstd ClosedBusinessScript
 
@@ -330,6 +339,10 @@ EcruteakCity_MapEvents:
 	bg_event 24, 27, BGEVENT_READ, EcruteakCityPokecenterSign
 	bg_event 30, 21, BGEVENT_READ, EcruteakCityMartSign
 	bg_event 23, 14, BGEVENT_ITEM, EcruteakCityHiddenHyperPotion
+	bg_event  5, 22, BGEVENT_ITEM, EcruteakCityHiddenSitrusBerry
+	bg_event 29, 28, BGEVENT_ITEM, EcruteakCityHiddenLeppaBerry
+	bg_event 13, 28, BGEVENT_ITEM, EcruteakCityHiddenBerryJuice
+
 
 	def_object_events
 	object_event 18, 15, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps1Script, -1
