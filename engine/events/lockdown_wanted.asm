@@ -91,17 +91,6 @@ IncreaseResearchLevel::
 	ld [wCurFreedomState], a
 	ret
 
-HideLockdownExclusionList:
-	;map_id CHERRYGROVE_CITY ; If the Gramps shows, it's no big deal as his house is opened during the lockdown.
-	map_id VIOLET_CITY ; Prevents Earl from entering the closed Academy.
-	map_id RUINS_OF_ALPH_OUTSIDE
-	map_id GOLDENROD_DEPT_STORE_2F
-	map_id GOLDENROD_DEPT_STORE_3F
-	map_id GOLDENROD_DEPT_STORE_4F
-	map_id GOLDENROD_DEPT_STORE_5F
-	map_id NATIONAL_PARK
-	db -1, -1
-
 GetOlivineCafeSalad:
 	ld a, [wCurDay]
 	ld b, 7
@@ -129,3 +118,29 @@ OlivineCafeBerries:
 	db BITTER_BERRY
 	db PSNCUREBERRY
 	db BURNT_BERRY
+
+ApplyCurfewStateBasedOnTime::
+	ld de, ENGINE_FLYPOINT_VERMILION ; Curfew stops once the player reaches Vermilion.
+	farcall CheckEngineFlag
+	ret nc ; If the flag is set, we don't edit the freedom state.
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_CURFEW_STARTED
+	call EventFlagAction
+	ld a, c
+	and a
+	ret z ; If the curfew hasn't started yet, we return.
+
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jr z, .curfew
+
+; .freedom
+	ld a, 1 << FREE
+	ld [wCurFreedomState], a
+	ret
+
+.curfew
+	ld a, 1 << LOCKDOWN
+	ld [wCurFreedomState], a
+	ret

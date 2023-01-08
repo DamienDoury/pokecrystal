@@ -125,8 +125,7 @@ MapSetupScript_ReloadMap:
 	mapsetup ClearBGPalettes
 	mapsetup DisableLCD
 	mapsetup InitSound
-	;mapsetup LoadMapAttributes
-	mapsetup RefreshPolice ; Perhaps after RefreshMapSprites? Damien.
+	mapsetup RefreshPolice ; Damien.
 	mapsetup LoadBlockData
 	mapsetup LoadConnectionBlockData
 	mapsetup LoadMapGraphics

@@ -408,6 +408,7 @@ CheckUnknownMap:: ; unreferenced
 	ret
 
 LoadMapAttributes::
+	farcall ApplyCurfewStateBasedOnTime
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts
