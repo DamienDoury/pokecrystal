@@ -334,7 +334,9 @@ RefreshPolice: ; Note: this isn't called after a lost battle.
 	; Always make an officer disappear after a battle.
 	ld a, [wTrainerClass]
 	cp OFFICER
-	ret nz
+	ret c
+	cp SWAT + 1
+	ret nc
 	farcall Script_disappear_last_talked
 
 	; Refreshing the map when the wanted level has just increased.

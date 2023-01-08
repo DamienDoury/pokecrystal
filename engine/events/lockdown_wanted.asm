@@ -65,6 +65,7 @@ IncreaseResearchLevel::
 	jr c, .no_overflow
 	ld a, 3
 .no_overflow
+	ld [wCurWantedLevel], a
 	ld c, a
 	ld a, b
 	ld b, %11111100 ; We now use b as the mask.
