@@ -44,16 +44,22 @@ CheckObjectFlag:
 	cp 2 ; Jenny's wanted level.
 	jr z, .jenny
 
+	cp 1 ; Sergeant's wanted level.
+	ld a, PAL_NPC_RED
+	jr z, .sergeant
+
 	ld a, [wCurWantedLevel]
 	cp 3 ; SWAT's wanted level.
 	jr nz, .go_on
 
-; Turning the Officer sprite color to brown for the SWAT.
+	ld a, PAL_NPC_BROWN
+
+; Turning the Officer sprite color to brown for the SWAT or red for the Sergeant.
 ; Note: the map_event object is stored in the order of object_event: MACRO
+.sergeant
 	ld e, 7
 	ld d, 0
 	add hl, de
-	ld a, PAL_NPC_BROWN
 	swap a ; Swap the upper and lower nibbles.
 	ld d, a
 	ld a, [hl] ; We retrieve the byte that contains the palette (upper nibble) and the object_type (lower nibble).
