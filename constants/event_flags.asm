@@ -324,7 +324,9 @@
 	const EVENT_ECRUTEAK_CITY_HIDDEN_SITRUS_BERRY
 	const EVENT_ECRUTEAK_CITY_HIDDEN_LEPPA_BERRY
 	const EVENT_ECRUTEAK_CITY_HIDDEN_BERRY_JUICE
-; Unused: next 295 events
+
+	const EVENT_BEAT_POLICE
+; Unused: next 294 events
 
 	const_next 600
 ; Kurt Apricorn events
