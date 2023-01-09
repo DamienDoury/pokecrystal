@@ -340,12 +340,12 @@ RefreshPolice: ; Note: this isn't called after a lost battle.
 	farcall Script_disappear_last_talked
 
 	; Refreshing the map when the wanted level has just increased.
-	ld a, [wCurFreedomState]
+	ld a, [wCurWantedLevel]
 	and %10000000
 	ret z
-	ld a, [wCurFreedomState]
+	ld a, [wCurWantedLevel]
 	and %01111111
-	ld [wCurFreedomState], a ; We reset the leftmost bit. It was only used to pass a message to this function.
+	ld [wCurWantedLevel], a ; We reset the leftmost bit. It was only used to pass a message to this function.
 
 	; The following lines reset the map. Along with map_objects_2.asm:CheckObjectFlag, it allows for the update of the police NPCs' sprites.
 	farcall LoadMapAttributes

@@ -87,9 +87,9 @@ IncreaseResearchLevel::
 	ld [hl], a
 
 	; Also, we first the leftmost bit of the wCurFreedomState byte to notify that we just increased the wanted level (used and erased by RefreshPolice in warp_connection.asm to reload the map).
-	ld a, [wCurFreedomState]
+	ld a, [wCurWantedLevel]
 	or %10000000
-	ld [wCurFreedomState], a
+	ld [wCurWantedLevel], a
 	ret
 
 GetOlivineCafeSalad:
