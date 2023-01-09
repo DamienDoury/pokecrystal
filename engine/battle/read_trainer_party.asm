@@ -96,9 +96,22 @@ ReadTrainerPartyPieces:
 	jr nz, .check_if_party_full ; When no Pokemon has been added to the party yet (meaning we're going to add the first one), we need to inc to add an offset to the first Pokémon of the team.
 
 	; At the first call, we add an offset to the starting point, so Blue's leading Pokémon isn't always the same.
-	call Random ; The leading Pokémon can be any of the first 8.
+	ld a, [wOtherTrainerClass]
+	cp BLUE
+	jr nz, .is_the_police
+
+	call Random ; The leading Pokémon can be any of the first 8. We will then add 0~3, which makes any of the first 11 mons (index 0 to 10) in the pool the potential party leader.
+	jr .seed_calculated
+
+.is_the_police
+	push hl
+	farcall GetRandomPoliceSeed
+	pop hl
+	ldh a, [hDivisor]
+
+.seed_calculated
+	ld [wScriptVar], a
 	and 7
-	add 255
 
 	push bc
 	ld bc, 7 ; 7 is the length of the struct.
@@ -113,18 +126,32 @@ ReadTrainerPartyPieces:
 	; We increase the party counter.
 	inc a
 	ld [wTempByteValue], a
+	add 2 ; The first rand used the first 3 bits, we want to skip those by starting at a minimum value of 3 (after the previous "inc a" and "add a").
+	
+	ld b, 7
+	call Modulo
+	ld b, a ; B contains the offset.
+	and a
+	ld a, [wScriptVar]
+	jr z, .rand_offset_calculated
+	
+.rand_offset_loop
+	srl a
+	dec b
+	jr nz, .rand_offset_loop
 
-	call Random
-	and 3 ; To simulate randomness, we increase hl by 1 to 3 Pokémon (struct length). We gave more than 6 Pokémons to Blue.
+.rand_offset_calculated
+	;call Random
+	and 3 ; To simulate randomness, we increase hl by 1 to 3 Pokémon (struct length). We gave 30 Pokémons in Blue's pool. Note that reading a pokémon incs by one, which makes the pool index increase from 1+1=2 to 3+1=4 every loop.
 	cp 3 ; If the result is already 3, we shouldn't inc it, otherwise it would give 4, which is out of our range.
 	jr z, .after_inc
-	inc a
+	inc a ; We want the min value to be 1, as we grouped mons by pair in the pool, in order to make their moveset vary.
 
 .after_inc
-	push bc
+	;push bc
 	ld bc, 7 ; 7 is the length of the struct.
 	call AddNTimes
-	pop bc
+	;pop bc
 
 .check_species
 	ld a, [hli]

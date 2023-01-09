@@ -91,20 +91,42 @@ endc
 
 	ret
 
-GetRandomPoliceName::
-	ld c, BATTLETOWER_NUM_UNIQUE_TRAINERS
-	ld a, [wCurLandmark] ; Hash of the landmark, coord of the NPC, and research level, so the ID returned is random but always the same value for the same trainer.
-	call SimpleDivide    ; Divide a by c. Return quotient b and remainder a.
-	ld b, a
-	ld c, 16
+; Hash of the landmark, map index of the object_event/NPC, and research level, so the ID returned is random but always the same value for the same trainer.
+; Input: wCurLandmark, wCurWantedLevel and hLastTalked.
+; Output: the random value in A (with copy in hDivisor for farcalls).
+GetRandomPoliceSeed::
+	push bc
+	push hl
+	ld a, [wCurLandmark] ; Value between 0 and 2f (47) (in Johto), with indoors landmarks being unused, because the police only controls outdoors areas.
+	ld hl, 0
+	ld bc, 20 ; There can be up to about 20 different names per landmark (as Jenny doesn't use a name). This prevents name collision between 2 consecutive landmarks.
+	call AddNTimes
+
 	ld a, [wCurWantedLevel]
-	call SimpleMultiply  ; Return a * c.
-	add b
+	cp 4
+	jr c, .no_overflow
+
+	ld a, 3 ; Jenny has no name, so we skip her.
+
+.no_overflow
 	ld b, a
-	ldh a, [hLastTalked]
+	add a
+	add a
+	add b ; A * 5. Up to 5 names at level 0, 5 names at level 1, and 10 names at level for. This multiplication prevents collision between wanted levels on the same map.
+	add l 
+	ld b, a
+	ldh a, [hLastTalked] ; Unique index per police NPC. Prevents collision between police NPCs of the same wanted level on the same map. 
 	add b
+	ldh [hDivisor], a ; We also return the result in hDivisor for farcall compatibility.
+	
+	pop hl
+	pop bc
+	ret
+
+GetRandomPoliceName::
+	call GetRandomPoliceSeed
 	ld c, BATTLETOWER_NUM_UNIQUE_TRAINERS
-	call SimpleDivide
+	call SimpleDivide ; Divide a by c. Return quotient b and remainder a.
 
 	ld c, NAME_LENGTH
 	ld b, 0
