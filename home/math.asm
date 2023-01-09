@@ -59,7 +59,7 @@ SubtractAbsolute:: ; unreferenced
 
 ; Returns A mod B.
 Modulo::
-	sub b
 	cp b
-	jr nc, Modulo
-	ret
+	ret c
+	sub b
+	jr Modulo
