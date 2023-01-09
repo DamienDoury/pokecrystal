@@ -125,17 +125,19 @@ GetRandomPoliceSeed::
 
 GetRandomPoliceName::
 	call GetRandomPoliceSeed
-	ld c, BATTLETOWER_NUM_UNIQUE_TRAINERS
-	call SimpleDivide ; Divide a by c. Return quotient b and remainder a.
+	ld b, NUM_POLICE_NAMES
+	call Modulo
 
-	ld c, NAME_LENGTH
+	ld c, POLICE_NAME_LENGTH
 	ld b, 0
-	ld hl, BattleTowerTrainers
+	ld hl, PoliceTrainers
 	call AddNTimes ; Add bc * a to hl.
 
 	ld de, wStringBuffer1
-	ld bc, NAME_LENGTH
+	ld bc, POLICE_NAME_LENGTH
 	call CopyBytes
+	ld a, "@"
+	ld [de], a
 	ret
 
 LoadRandomBattleTowerMon:

@@ -4,6 +4,7 @@ INCLUDE "constants.asm"
 SECTION "Text 1", ROMX
 
 INCLUDE "data/text/common_1.asm"
+INCLUDE "data/text/police_text.asm"
 
 
 SECTION "Text 2", ROMX
