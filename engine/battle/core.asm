@@ -2570,6 +2570,10 @@ WinTrainerBattle:
 	call PrintWinLossText
 .skip_win_loss_text
 
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	ret z
+
 	jp .give_money
 
 .mobile
