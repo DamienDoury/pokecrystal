@@ -61,10 +61,15 @@ PickedFruitTree:
 ResetFruitTrees:
 	xor a
 	ld hl, wFruitTreeFlags
+
+	push bc
+	ld b, (NUM_FRUIT_TREES + 7) >> 3
+.loop
 	ld [hli], a
-	ld [hli], a
-	ld [hli], a
-	ld [hl], a
+	dec b
+	jr nz, .loop
+	pop bc
+
 	ld hl, wDailyFlags1
 	set DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
 	ret
