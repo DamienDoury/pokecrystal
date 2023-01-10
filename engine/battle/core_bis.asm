@@ -67,7 +67,6 @@ ExitBattle:
 	and $f
 	ret nz
 	farcall CheckPayDay
-	farcall IncreaseResearchLevel
 	xor a
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle

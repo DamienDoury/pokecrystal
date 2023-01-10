@@ -94,6 +94,42 @@ IncreaseResearchLevel::
 	ld [wCurWantedLevel], a
 	ret
 
+ResetResearchLevelInCurrentLandmark::
+	ld a, [wCurLandmark]
+	cp KANTO_LANDMARK + 1
+	ret nc
+
+	ld a, [wOtherTrainerClass]
+	cp OFFICER
+	ret c ; Only a won battle against an OFFICER (or SERGEANT or JENNY) can increase the research level.
+	cp SWAT + 1
+	ret nc ; do not increase for SWAT (max wanted lvl already).
+
+	call GetCurrentResearchLevelAtLandmark
+
+	xor a
+	ld [wCurWantedLevel], a
+	ld c, a
+	ld a, b
+	ld b, %11111100 ; We now use b as the mask.
+
+.offset
+	cp 0
+	jr z, .write_level
+	dec a
+	sla c
+	sla c ; We shift by 1 landmark.
+	rlc b
+	rlc b ; We also shift the mask by 1 landmark (2 bits).
+	jr .offset
+
+.write_level
+	ld a, [hl]
+	and b
+	add c
+	ld [hl], a
+	ret
+
 GetOlivineCafeSalad:
 	ld a, [wCurDay]
 	ld b, 7
@@ -155,6 +191,10 @@ DisplayRandomPoliceSeenText::
 	jr DisplayRandomPoliceBattleText
 
 DisplayRandomPoliceBeatenText::
+	ld a, [wCurWantedLevel]
+	and %10000000
+	jr nz, DisplayPoliceBackupText
+
 	farcall GetRandomPoliceSeed
 	ldh a, [hDivisor]
 	ld c, a
@@ -174,5 +214,13 @@ DisplayRandomPoliceBattleText:
 
 	ld b, BANK(PoliceSeenTextPool)
 	call MapTextbox
-	;call WaitButton
+	ret
+
+DisplayPoliceBackupText:
+	ld a, BANK(PoliceSeenTextPool)
+	call GetFarWord ; retrieve a word from a:hl, and return it in hl.
+
+	ld hl, PoliceBeatenBackupText
+	ld b, BANK(PoliceBeatenBackupText)
+	call MapTextbox
 	ret

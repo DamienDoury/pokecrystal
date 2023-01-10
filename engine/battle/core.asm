@@ -2564,6 +2564,8 @@ WinTrainerBattle:
 	predef HealParty
 .skip_heal
 
+	farcall IncreaseResearchLevel
+
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
 	jr nz, .skip_win_loss_text
@@ -3102,7 +3104,7 @@ LostBattle:
 
 	ld c, 40
 	call DelayFrames
-
+	
 	ld a, [wDebugFlags]
 	bit DEBUG_BATTLE_F, a
 	jr nz, .skip_win_loss_text
@@ -3132,6 +3134,8 @@ LostBattle:
 	ld a, [wLinkMode]
 	and a
 	jr nz, .LostLinkBattle
+
+	farcall ResetResearchLevelInCurrentLandmark
 
 ; Grayscale
 	ld b, SCGB_BATTLE_GRAYSCALE
