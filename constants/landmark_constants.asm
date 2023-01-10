@@ -103,7 +103,8 @@ KANTO_LANDMARK EQU const_value
 	const LANDMARK_ROUTE_28          ; 62
 	const LANDMARK_FAST_SHIP         ; 63
 NUM_LANDMARKS EQU const_value
-NUM_LANDMARKS_QUARTER EQU (const_value + 3) >> 2 ; Rounded up.
+
+NUM_LANDMARKS_QUARTER EQU (KANTO_LANDMARK + 3) >> 2 ; Rounded up.
 
 ; used in CaughtData
 	const_def $7f, -1

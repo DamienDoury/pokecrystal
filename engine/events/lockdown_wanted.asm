@@ -10,11 +10,11 @@ GetCurrentResearchLevelAtLandmark::
 	ld c, a
 	call GetWorldMapLocation
 	ld [wCurLandmark], a
+	cp KANTO_LANDMARK + 1
+	ld c, 0
+	jr nc, .masking
 
-	cp $FF
-	ret z
 	ld c, a
-
 	srl c
 	srl c ; We divide the landmark ID by four, and floor the result, to know in which byte the wanted level is stored.
 	ld b, 0
@@ -44,8 +44,10 @@ GetCurrentResearchLevelAtLandmark::
 ; Destroys a, b, c and hl.
 IncreaseResearchLevel::
 	ld a, [wCurLandmark]
-	cp $FF
-	ret z
+	cp KANTO_LANDMARK + 1
+	ret nc
+
+	call GetCurrentResearchLevelAtLandmark
 
 	ld a, [wOtherTrainerClass]
 	cp OFFICER

@@ -3255,6 +3255,8 @@ wBestMagikarpLengthFeet:: db
 wBestMagikarpLengthInches:: db
 wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
+	ds 15 ; Available saved memory. 
+
 wPokemonDataEnd::
 wGameDataEnd::
 ;####################################################################################################################################################################
