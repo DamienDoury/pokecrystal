@@ -8,13 +8,31 @@ OverworldWhiteoutScript::
 
 Script_Whiteout:
 	writetext .WhitedOutText
+	callasm HalveMoney
+	getmoney STRING_BUFFER_3, YOUR_MONEY ; Note: the value displayed has 50% of being wrong by 1, but whatever.
+
+	readmem wTempTrainerClass
+	ifequal 0, .wild
+	ifequal OFFICER, .police
+
+; regular trainer battle
+	writetext .SurrendMoneyText
+	sjump .defeat_type_displayed
+
+.police
+	writetext .FinedText
+	sjump .defeat_type_displayed
+
+.wild 
+	writetext .LostMoneyText
+
+.defeat_type_displayed
 	waitbutton
 	special FadeOutPalettes
 	pause 40
 	special HealParty
 	checkflag ENGINE_BUG_CONTEST_TIMER
 	iftrue .bug_contest
-	callasm HalveMoney
 	callasm GetWhiteoutSpawn
 	farscall Script_AbortBugContest
 	special WarpToSpawnPoint
@@ -24,8 +42,21 @@ Script_Whiteout:
 .bug_contest
 	jumpstd BugContestResultsWarpScript
 
+
 .WhitedOutText:
 	text_far _WhitedOutText
+	text_end
+
+.FinedText:
+	text_far _FinedText
+	text_end
+
+.LostMoneyText:
+	text_far _LostMoneyText
+	text_end
+
+.SurrendMoneyText:
+	text_far _SurrendMoneyText
 	text_end
 
 OverworldBGMap:

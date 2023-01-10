@@ -557,10 +557,40 @@ _CantCarryItemText::
 
 _WhitedOutText::
 	text "<PLAYER> is out of"
-	line "useable #MON!"
+	line "useable #MON…"
+	prompt
+
+_LostMoneyText::
+	text "<PLAYER> dropped"
+	line "¥@"
+	text_ram wStringBuffer3
+	text " in panic…"
 
 	para "<PLAYER> whited"
 	line "out!"
+	done
+
+_SurrendMoneyText::
+	text "<PLAYER> gave"
+	line "¥@"
+	text_ram wStringBuffer3
+	text " to the"
+	cont "winner."
+
+	para "<PLAYER> is"
+	line "overwhelmed by"
+	cont "the defeat!"
+	done
+	
+_FinedText::
+	text "<PLAYER> is fined"
+	line "¥@"
+	text_ram wStringBuffer3
+	text "."
+
+	para "<PLAYER> is"
+	line "escorted to a"
+	cont "#MON CENTER."
 	done
 
 _ItemfinderItemNearbyText::
