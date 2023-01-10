@@ -680,7 +680,16 @@ Script_trainertext:
 	ld l, a
 	ld a, [wSeenTrainerBank]
 	ld b, a
+	
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	jr z, .is_the_police
+	
 	call MapTextbox
+	ret
+
+.is_the_police
+	farcall DisplayRandomPoliceSeenText
 	ret
 
 Script_scripttalkafter:

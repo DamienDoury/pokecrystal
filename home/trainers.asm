@@ -204,12 +204,10 @@ FacingPlayerDistance::
 	ret
 
 PrintWinLossText::
-	ld a, [wBattleType]
-	cp BATTLETYPE_CANLOSE
-	; code was probably dummied out here
-	jr .canlose
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	jr z, .is_the_police
 
-.canlose
 	ld a, [wBattleResult]
 	ld hl, wWinTextPointer
 	and $f ; WIN?
@@ -222,6 +220,12 @@ PrintWinLossText::
 	ld l, a
 	call GetMapScriptsBank
 	call FarPrintText
+	call WaitBGMap
+	call WaitPressAorB_BlinkCursor
+	ret
+
+.is_the_police
+	farcall DisplayRandomPoliceBeatenText
 	call WaitBGMap
 	call WaitPressAorB_BlinkCursor
 	ret

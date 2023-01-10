@@ -147,3 +147,32 @@ ApplyCurfewStateBasedOnTime::
 	ld a, 1 << LOCKDOWN
 	ld [wCurFreedomState], a
 	ret
+
+DisplayRandomPoliceSeenText::
+	farcall GetRandomPoliceSeed
+	ldh a, [hDivisor]
+	ld hl, PoliceSeenTextPool
+	jr DisplayRandomPoliceBattleText
+
+DisplayRandomPoliceBeatenText::
+	farcall GetRandomPoliceSeed
+	ldh a, [hDivisor]
+	ld c, a
+	swap a
+	xor c
+	ld hl, PoliceBeatenTextPool
+
+DisplayRandomPoliceBattleText:
+	and $f
+	add a
+	ld c, a
+	ld b, 0
+	add hl, bc
+
+	ld a, BANK(PoliceSeenTextPool)
+	call GetFarWord ; retrieve a word from a:hl, and return it in hl.
+
+	ld b, BANK(PoliceSeenTextPool)
+	call MapTextbox
+	;call WaitButton
+	ret
