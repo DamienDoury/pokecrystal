@@ -164,6 +164,13 @@ ResetResearchLevelInCurrentLandmark::
 	ld [hl], a
 	ret
 
+ResetAllResearchLevels::
+	ld hl, wWantedLevelPerLandmark
+	ld bc, NUM_LANDMARKS_QUARTER + 1 ; We add 1 to also reset wCurWantedLevel.
+	xor a
+	call ByteFill ; fill bc bytes with the value of a, starting at hl
+	ret
+
 GetOlivineCafeSalad:
 	ld a, [wCurDay]
 	ld b, 7
@@ -211,6 +218,8 @@ ApplyCurfewStateBasedOnTime::
 ; .freedom
 	ld a, 1 << FREE
 	ld [wCurFreedomState], a
+
+	call ResetAllResearchLevels
 	ret
 
 .curfew

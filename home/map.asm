@@ -399,14 +399,6 @@ CheckIndoorMap::
 	cp GATE
 	ret
 
-CheckUnknownMap:: ; unreferenced
-	cp INDOOR
-	ret z
-	cp GATE
-	ret z
-	cp ENVIRONMENT_5
-	ret
-
 LoadMapAttributes::
 	farcall ApplyCurfewStateBasedOnTime
 	call CopyMapPartialAndAttributes
