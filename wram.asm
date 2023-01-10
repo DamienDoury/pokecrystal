@@ -1730,11 +1730,14 @@ wBetaTitleSequenceOpeningType::
 
 wDefaultSpawnpoint:: db
 
-UNION
+UNION ; 92 bytes.
 ; mon buffer
 wBufferMonNickname:: ds MON_NAME_LENGTH
 wBufferMonOT:: ds NAME_LENGTH
 wBufferMon:: party_struct wBufferMon
+
+	ds 8 ; Important padding: don't delete.
+
 wMonOrItemNameBuffer:: ds ITEM_NAME_LENGTH + 1
 
 NEXTU
@@ -2073,7 +2076,7 @@ wPoisonStepPartyFlags:: ds PARTY_LENGTH
 wPoisonStepDataEnd::
 ENDU
 
-	ds 7
+	ds 9
 ENDU
 
 wTMHMMoveNameBackup:: ds MOVE_NAME_LENGTH
