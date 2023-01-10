@@ -55,21 +55,15 @@ IncreaseResearchLevel::
 	cp SWAT
 	ret nc ; do not increase for SWAT (max wanted lvl already).
 
-;.is_the_police
-;	ld a, [wFreedomState]
-;	cp 1
-;	ret z ; We only increase the research level during curfew and/or lockdown, not during a "freedom" period of time.
+	call ShouldResearchLevelBeIncreased
+	ret c
 
-	call GetCurrentResearchLevelAtLandmark
-; level_increase
+	; level_increase
+	ld a, [wCurWantedLevel]
 	inc a
-	cp 3
-	jr c, .no_overflow
-	ld a, 3
-.no_overflow
 	ld [wCurWantedLevel], a
 	ld c, a
-	ld a, b
+	ld a, b ; B is retrieved from GetCurrentResearchLevelAtLandmark.
 	ld b, %11111100 ; We now use b as the mask.
 
 .offset
@@ -83,7 +77,7 @@ IncreaseResearchLevel::
 	jr .offset
 
 .write_level
-	ld a, [hl]
+	ld a, [hl] ; HL is retrieved from GetCurrentResearchLevelAtLandmark.
 	and b
 	add c
 	ld [hl], a
@@ -92,6 +86,46 @@ IncreaseResearchLevel::
 	ld a, [wCurWantedLevel]
 	or %10000000
 	ld [wCurWantedLevel], a
+	ret
+
+; Output: Carry if it should be increased. nc otherwise.
+ShouldResearchLevelBeIncreased::
+	ld a, [wCurWantedLevel]
+	and a
+	ret z ; Returns true. Backup is always called at level 0.
+
+	cp 3
+	jr z, .return_false ; Backup can never be called at level 3.
+	
+	cp 2
+	jr z, .level2
+
+;.level1 ; If the wanted level is 1, there is 75% odds that backup will be called.
+	push hl
+	farcall GetRandomPoliceSeed
+	pop hl
+	ldh a, [hDivisor]
+	and %00011000
+	jr nz, .return_true
+	jr .return_false
+	
+.level2 ; The odds are 50% at level 2.
+	push hl
+	farcall GetRandomPoliceSeed
+	pop hl
+	ldh a, [hDivisor]
+	and %00011000
+	jr z, .return_true
+	cp %00011000
+	jr z, .return_true
+	; fallthrough
+
+.return_false
+	scf
+	ret
+
+.return_true
+	xor a
 	ret
 
 ResetResearchLevelInCurrentLandmark::
