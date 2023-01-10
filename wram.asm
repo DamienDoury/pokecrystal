@@ -3317,7 +3317,8 @@ w3_d090:: ds $70
 
 w3_d100::
 wBT_OTTrainer:: battle_tower_struct wBT_OT
-	ds $20
+	ds $1f
+wMustResetWantedLevels:: db
 wBT_TrainerTextIndex:: db
 	ds 1
 w3_d202:: battle_tower_struct w3_d202

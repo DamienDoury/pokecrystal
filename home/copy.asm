@@ -116,3 +116,17 @@ GetFarWRAMByte::
 	ldh [rSVBK], a
 	ldh a, [hFarByte]
 	ret
+
+; Input: value to write in hWriteByte.
+; Output: none.
+WriteFarWRAMByte::
+	ldh [hTempBank], a
+	ldh a, [rSVBK]
+	push af
+	ldh a, [hTempBank]
+	ldh [rSVBK], a
+	ldh a, [hWriteByte]
+	ld [hl], a
+	pop af
+	ldh [rSVBK], a
+	ret

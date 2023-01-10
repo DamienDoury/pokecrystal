@@ -32,7 +32,7 @@ hMapEntryMethod:: db
 
 hMenuReturn:: db
 
-hUnusedByte:: db
+hWriteByte:: db
 
 hJoypadReleased:: db
 hJoypadPressed::  db

@@ -203,6 +203,7 @@ CheckPokerusTickAndHospitalVisits::
 	farcall ApplyPokerusTick
 	farcall ResetVaccinationAvailability
 	farcall RestockMarts
+	farcall ResetWantedLevelsTheNextDay
 .done
 	xor a
 	ret

@@ -400,7 +400,8 @@ CheckIndoorMap::
 	ret
 
 LoadMapAttributes::
-	farcall ApplyCurfewStateBasedOnTime
+	farcall CheckResetWantedLevels ; Resets the wanted level during the lockdowns and curfews, even during the same curfew night.
+	farcall ApplyCurfewStateBasedOnTime ; Set the curfew based on time, and resets the wanted level during curfew mornings and days.
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts

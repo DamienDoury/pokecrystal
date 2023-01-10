@@ -267,3 +267,28 @@ DisplayPoliceBackupText:
 	ld b, BANK(PoliceBeatenBackupText)
 	call MapTextbox
 	ret
+
+ResetWantedLevelsTheNextDay::
+	; Note: the wanted level will reset twice per night during the curfew, but it is acceptable.
+
+	ld a, 1
+	ldh [hWriteByte], a
+	ld a, BANK(wMustResetWantedLevels)
+	ld hl, wMustResetWantedLevels
+	call WriteFarWRAMByte	
+	ret
+
+CheckResetWantedLevels::
+	ld a, BANK(wMustResetWantedLevels)
+	ld hl, wMustResetWantedLevels
+	call GetFarWRAMByte
+	and a
+	ret z
+
+	xor a
+	ldh [hWriteByte], a
+	ld a, BANK(wMustResetWantedLevels)
+	ld hl, wMustResetWantedLevels
+	call WriteFarWRAMByte
+
+	jp ResetAllResearchLevels
