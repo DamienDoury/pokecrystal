@@ -127,7 +127,15 @@ CeruleanGymMistyScript:
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
 .FightDone:
+	checkevent EVENT_RED_BEATEN
+	iffalse .RedBeaten
 	writetext MistyFightDoneText
+	sjump .EndText
+
+.RedBeaten
+	writetext MistyRedDeadText
+
+.EndText
 	waitbutton
 	closetext
 	end
@@ -352,11 +360,40 @@ MistyFightDoneText:
 	cont "ers in JOHTO? Like"
 	cont "you, I mean."
 
+	para "(cough)"
+
 	para "I'm going to"
 	line "travel one day, so"
 
 	para "I can battle some"
 	line "skilled trainers."
+	done
+
+MistyRedDeadText:
+	text "MISTY: (weeping)"
+	line "Poor him…"
+	cont "…I'm sure it's his"
+	cont "SANDSLASH that"
+	cont "gave it to him…"
+
+	para "The one he caught"
+	line "in this cave…"
+
+	para "I thought the"
+	line "entrance had"
+	cont "collapsed under"
+	cont "water…"
+	
+	para "…yet he and his"
+	line "#MON found a"
+	cont "way in…"
+
+	para "(weeping)"
+
+	para "I wish I knew"
+	line "where the entrance"
+	cont "is, so I could"
+	cont "condemn it…"
 	done
 
 SwimmerfDianaSeenText:
