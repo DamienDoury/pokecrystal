@@ -425,76 +425,6 @@ LoadSpriteGFX:
 	ld a, l
 	ret
 
-;SortUsedSprites:
-; Bubble-sort sprites by type.
-
-; Run backwards through wUsedSprites to find the last one.
-; Commented by Damien
-;	ld c, SPRITE_GFX_LIST_CAPACITY
-;	ld de, wUsedSprites + (SPRITE_GFX_LIST_CAPACITY - 1) * 2
-;.FindLastSprite:
-;	ld a, [de]
-;	and a
-;	jr nz, .FoundLastSprite
-;	dec de
-;	dec de
-;	dec c
-;	jr nz, .FindLastSprite
-;.FoundLastSprite:
-;	dec c
-;	jr z, .quit
-;
-;; If the length of the current sprite is
-;; higher than a later one, swap them.
-;
-;	inc de
-;	ld hl, wUsedSprites + 1
-;
-;.CheckSprite:
-;	push bc
-;	push de
-;	push hl
-;
-;.CheckFollowing:
-;	ld a, [de]
-;	cp [hl]
-;	jr nc, .loop
-;
-;; Swap the two sprites.
-;
-;	ld b, a
-;	ld a, [hl]
-;	ld [hl], b
-;	ld [de], a
-;	dec de
-;	dec hl
-;	ld a, [de]
-;	ld b, a
-;	ld a, [hl]
-;	ld [hl], b
-;	ld [de], a
-;	inc de
-;	inc hl
-;
-;; Keep doing this until everything's in order.
-;
-;.loop
-;	dec de
-;	dec de
-;	dec c
-;	jr nz, .CheckFollowing
-;
-;	pop hl
-;	inc hl
-;	inc hl
-;	pop de
-;	pop bc
-;	dec c
-;	jr nz, .CheckSprite
-;
-;.quit
-;	ret
-
 ArrangeUsedSprites:
 ; Get the length of each sprite and space them out in VRAM.
 ; Crystal introduces a second table in VRAM bank 0.
@@ -631,7 +561,7 @@ GetUsedSprites:
 	;bit 7, a
 	;jr z, .dont_set
 
-	cp 2 * SPRITE_GFX_LIST_CAPACITY
+	cp $40
 	jr c, .dont_set
 
 	ld a, [wSpriteFlags]
@@ -653,10 +583,6 @@ GetUsedSprites:
 GetUsedSprite:
 	ldh a, [hUsedSpriteIndex]
 	call SafeGetSprite
-	;push af
-	;ld a, l
-	;ldh [hWriteByte], a
-	;pop af
 	call .GetTileAddr
 	push hl
 	push de
@@ -680,17 +606,12 @@ endr
 	pop hl ; HL contains the tile address in VRAM (target for the copy).
 
 	ld a, [wSpriteFlags]
-	bit 5, a
-	jr nz, .done
 	bit 6, a
 	jr nz, .done
 
 	ldh a, [hUsedSpriteIndex]
 	call _DoesSpriteHaveFacings
 	jr c, .done
-	;ldh a, [hWriteByte]
-	;cp WALKING_SPRITE
-	;jr nz, .done
 
 	push bc
 	ld bc, 12 tiles
@@ -706,7 +627,6 @@ endr
 	ldh a, [hUsedSpriteTile]
 	add a
 	add a
-	;and $7f
 	ld l, a
 	ld h, 0
 rept 4
