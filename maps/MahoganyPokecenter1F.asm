@@ -21,6 +21,9 @@ MahoganyPokecenter1FYoungsterScript:
 MahoganyPokecenter1FCooltrainerFScript:
 	jumptextfaceplayer MahoganyPokecenter1FCooltrainerFText
 
+MahoganyPokecenter1FRocketScript:
+	jumptextfaceplayer MahoganyPokecenter1FRocketText
+
 MahoganyPokecenter1FPokefanMText:
 	text "What's this? TEAM"
 	line "ROCKET has come"
@@ -51,6 +54,21 @@ MahoganyPokecenter1FCooltrainerFText:
 	cont "more slowly."
 	done
 
+MahoganyPokecenter1FRocketText:
+	text "Hear it from"
+	line "someone that has"
+
+	para "experience with"
+	line "the police:"
+
+	para "if they are after"
+	line "you, hide for a"
+	cont "about day."
+	
+	para "Then they'll"
+	line "forget about you."
+	done
+
 MahoganyPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -68,3 +86,4 @@ MahoganyPokecenter1F_MapEvents:
 	object_event  7,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_VACCINE_PASS, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MahoganyPokecenter1FPokefanMScript, -1
 	object_event  1,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MahoganyPokecenter1FYoungsterScript, -1
 	object_event  2,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyPokecenter1FCooltrainerFScript, -1
+	object_event  9,  6, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyPokecenter1FRocketScript, EVENT_TEAM_ROCKET_BASE_POPULATION

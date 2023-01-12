@@ -198,10 +198,8 @@ Route24FightLeftMovement:
 
 Route24FightRightMovement:
 	fix_facing
-	set_sliding
 	big_step RIGHT
 	big_step LEFT
-	remove_sliding
 	remove_fixed_facing
 	step_end
 

@@ -202,6 +202,8 @@ GoldenrodCityGrampsScript:
 	jumptextfaceplayer GoldenrodCityGrampsText
 
 GoldenrodCityRocketScoutScript:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .lockdown
 	opentext
 	writetext GoldenrodCityRocketScoutText1
 	promptbutton
@@ -211,6 +213,9 @@ GoldenrodCityRocketScoutScript:
 	closetext
 	turnobject GOLDENRODCITY_ROCKETSCOUT, UP
 	end
+
+.lockdown
+	jumptextfaceplayer GoldenrodCityRocketScoutLockdownText
 
 GoldenrodCityRocket1Script:
 	jumptextfaceplayer GoldenrodCityRocket1Text
@@ -416,6 +421,18 @@ GoldenrodCityRocketScoutText1:
 GoldenrodCityRocketScoutText2:
 	text "What do you want,"
 	line "you pest? Scram!"
+	done
+
+GoldenrodCityRocketScoutLockdownText:
+	text "Going outside"
+	line "against the law…"
+
+	para "You're a little"
+	line "outlaw, eh?"
+
+	para "You should join"
+	line "TEAM ROCKET! We've"
+	cont "got big plans!"
 	done
 
 GoldenrodCityRocket1Text:
@@ -719,7 +736,7 @@ GoldenrodCity_MapEvents:
 	object_event 19, 17, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodCityYoungster2Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 17, 10, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodCityLassScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 11, 27, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityGrampsScript, EVENT_GOLDENROD_CITY_CIVILIANS
-	object_event  4, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocketScoutScript, EVENT_GOLDENROD_CITY_ROCKET_SCOUT
+	object_event  4, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocketScoutScript, EVENT_GOLDENROD_CITY_ROCKET_SCOUT
 	object_event 28, 20, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket1Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	object_event  8, 15, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket2Script, EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	object_event 16, 23, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket3Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
