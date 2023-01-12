@@ -412,7 +412,7 @@ wBattleMon:: battle_struct wBattleMon
 	ds 2
 
 wWildMon:: db
-	ds 1
+wPreventTrainerBattles:: db ; A VIRER, TO DELETE, TO REMOVE!! Damien
 
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
