@@ -93,7 +93,6 @@ INCLUDE "engine/pokemon/breeding.asm"
 INCLUDE "engine/pokemon/hospital.asm"
 INCLUDE "engine/events/reds_pikachu.asm"
 INCLUDE "engine/events/whiteout.asm"
-INCLUDE "engine/math/get_square_root.asm"
 
 
 SECTION "Roofs", ROMX
@@ -104,6 +103,8 @@ INCLUDE "engine/tilesets/mapgroup_roofs.asm"
 SECTION "Clock Reset", ROMX
 
 INCLUDE "engine/rtc/restart_clock.asm"
+INCLUDE "engine/math/get_square_root.asm"
+
 
 
 SECTION "bank9", ROMX

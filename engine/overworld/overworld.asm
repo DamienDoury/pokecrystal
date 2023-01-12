@@ -149,18 +149,25 @@ AddOutdoorSprites:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	;ld c, MAX_OUTDOOR_SPRITES ; Damien
+	ld bc, wUsedSprites + 1
+	
+	ld a, WALKING_SPRITE
+	ld [bc], a
+	inc bc 
 .loop
-	;push bc ; Damien
 	ld a, [hli]
-	and a ; added by Damien
-	ret z ; added by Damien
-	call AddSpriteGFX
-	;pop bc ; Damien
-	;dec c ; Damien
-	;jr nz, .loop ; Damien
-	;ret ; Damien
-	jr .loop ; Damien
+	and a
+	ret z
+
+	ld [bc], a
+	inc bc
+
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+
+	;call AddSpriteGFX
+	jr .loop
 
 LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
@@ -346,8 +353,13 @@ _GetSpritePalette::
 	ret
 
 LoadAndSortSprites:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, .outdoor
+	
 	call LoadSpriteGFX
-	;call SortUsedSprites ; Damien
+
+.outdoor
 	call ArrangeUsedSprites
 	ret
 
@@ -413,76 +425,6 @@ LoadSpriteGFX:
 	ld a, l
 	ret
 
-;SortUsedSprites:
-; Bubble-sort sprites by type.
-
-; Run backwards through wUsedSprites to find the last one.
-; Commented by Damien
-;	ld c, SPRITE_GFX_LIST_CAPACITY
-;	ld de, wUsedSprites + (SPRITE_GFX_LIST_CAPACITY - 1) * 2
-;.FindLastSprite:
-;	ld a, [de]
-;	and a
-;	jr nz, .FoundLastSprite
-;	dec de
-;	dec de
-;	dec c
-;	jr nz, .FindLastSprite
-;.FoundLastSprite:
-;	dec c
-;	jr z, .quit
-;
-;; If the length of the current sprite is
-;; higher than a later one, swap them.
-;
-;	inc de
-;	ld hl, wUsedSprites + 1
-;
-;.CheckSprite:
-;	push bc
-;	push de
-;	push hl
-;
-;.CheckFollowing:
-;	ld a, [de]
-;	cp [hl]
-;	jr nc, .loop
-;
-;; Swap the two sprites.
-;
-;	ld b, a
-;	ld a, [hl]
-;	ld [hl], b
-;	ld [de], a
-;	dec de
-;	dec hl
-;	ld a, [de]
-;	ld b, a
-;	ld a, [hl]
-;	ld [hl], b
-;	ld [de], a
-;	inc de
-;	inc hl
-;
-;; Keep doing this until everything's in order.
-;
-;.loop
-;	dec de
-;	dec de
-;	dec c
-;	jr nz, .CheckFollowing
-;
-;	pop hl
-;	inc hl
-;	inc hl
-;	pop de
-;	pop bc
-;	dec c
-;	jr nz, .CheckSprite
-;
-;.quit
-;	ret
-
 ArrangeUsedSprites:
 ; Get the length of each sprite and space them out in VRAM.
 ; Crystal introduces a second table in VRAM bank 0.
@@ -497,11 +439,11 @@ ArrangeUsedSprites:
 	jr z, .quit
 
 	ld a, [hl]
-	call GetSpriteLength
+	call .GetSpriteLength
 
 ; Spill over into the second table after $80 tiles.
 	add b
-	cp $80
+	cp $20
 	jr z, .loop
 	jr nc, .SecondTable
 
@@ -516,7 +458,7 @@ ArrangeUsedSprites:
 
 .SecondTable:
 ; The second tile table starts at tile $80.
-	ld b, $80
+	ld b, $20
 	dec hl
 .SecondTableLength:
 ; Keep going until the end of the list.
@@ -525,11 +467,12 @@ ArrangeUsedSprites:
 	jr z, .quit
 
 	ld a, [hl]
-	call GetSpriteLength
+	call .GetSpriteLength
 
 ; There are only two tables, so don't go any further than that.
 	add b
-	jr c, .quit
+	cp $40 - (8 >> 4) ; NOTE: the last 8 tiles are reserved to Emotes.
+	jr nc, .ThirdTable
 
 	ld [hl], b
 	ld b, a
@@ -538,28 +481,64 @@ ArrangeUsedSprites:
 	dec c
 	jr nz, .SecondTableLength
 
+.ThirdTable:
+; The third tile table starts at tile $00, but in VRAM 0 instead of VRAM 1 for the 2 previous tables.
+	ld b, $40
+	dec hl
+.ThirdTableLength:
+; Keep going until the end of the list.
+	ld a, [hli]
+	and a
+	jr z, .quit
+
+	ld a, [hl]
+	call .GetSpriteLength
+
+; Spill over into the second table after $80 tiles.
+	add b
+	cp $60
+	jr nc, .quit
+
+	ld [hl], b
+	inc hl
+	ld b, a
+
+; Assumes the next table will be reached before c hits 0.
+	dec c
+	jr nz, .ThirdTableLength
+	
 .quit
 	ret
 
-GetSpriteLength:
+.GetSpriteLength:
 ; Return the length of sprite type a in tiles.
 
 	cp WALKING_SPRITE
-	jr z, .AnyDirection
+	jr z, .Walking
 	cp STANDING_SPRITE
 	jr z, .AnyDirection
+	cp POKEMON_SPRITE
+	jr z, .Pokemon
 	cp STILL_SPRITE
 	jr z, .OneDirection
 
-	ld a, 12
-	ret
+	; Default case?
+	; fallthrough
 
 .AnyDirection:
-	ld a, 12
+	ld a, 12 / 4
+	ret
+
+.Pokemon:
+	ld a, 8 / 4
+	ret
+
+.Walking:
+	ld a, 24 / 4
 	ret
 
 .OneDirection:
-	ld a, 4
+	ld a, 4 / 4
 	ret
 
 GetUsedSprites:
@@ -579,8 +558,11 @@ GetUsedSprites:
 	ld a, [hli]
 	ldh [hUsedSpriteTile], a
 
-	bit 7, a
-	jr z, .dont_set
+	;bit 7, a
+	;jr z, .dont_set
+
+	cp $40
+	jr c, .dont_set
 
 	ld a, [wSpriteFlags]
 	set 5, a ; load VBank0
@@ -601,7 +583,6 @@ GetUsedSprites:
 GetUsedSprite:
 	ldh a, [hUsedSpriteIndex]
 	call SafeGetSprite
-	ldh a, [hUsedSpriteTile]
 	call .GetTileAddr
 	push hl
 	push de
@@ -613,20 +594,18 @@ GetUsedSprite:
 
 .skip
 	pop bc
-	ld l, c
+	ld l, c ; Gets the Length attribute of the overworld_sprite struct.
 	ld h, $0
 rept 4
 	add hl, hl
 endr
-	pop de
+	pop de ; Retrieves the GFX pointer attribute from the overworld_sprite struct.
 	add hl, de
 	ld d, h
-	ld e, l
-	pop hl
+	ld e, l ; DE contains the number of bytes to copy.
+	pop hl ; HL contains the tile address in VRAM (target for the copy).
 
 	ld a, [wSpriteFlags]
-	bit 5, a
-	jr nz, .done
 	bit 6, a
 	jr nz, .done
 
@@ -634,9 +613,10 @@ endr
 	call _DoesSpriteHaveFacings
 	jr c, .done
 
-	ld a, h
-	add HIGH(vTiles1 - vTiles0)
-	ld h, a
+	push bc
+	ld bc, 12 tiles
+	add hl, bc
+	pop bc
 	call .CopyToVram
 
 .done
@@ -644,7 +624,9 @@ endr
 
 .GetTileAddr:
 ; Return the address of tile (a) in (hl).
-	and $7f
+	ldh a, [hUsedSpriteTile]
+	add a
+	add a
 	ld l, a
 	ld h, 0
 rept 4
