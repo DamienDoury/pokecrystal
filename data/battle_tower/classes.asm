@@ -105,6 +105,8 @@ PoliceTrainers:
 	db "McCLANE"
 	db "MICHAEL"
 	db "MATTHEW"
+	db "KEITH@@"
+	db "DIRK@@@"
 	db "JOSHUA@"
 	db "JACOB@@"
 	db "ANDREW@"
