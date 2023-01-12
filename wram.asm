@@ -2238,7 +2238,7 @@ wUsedSprites:: ds SPRITE_GFX_LIST_CAPACITY * 2
 wUsedSpritesEnd::
 
 NEXTU
-	ds 31
+	ds SPRITE_GFX_LIST_CAPACITY - 1
 wd173:: db ; related to command queue type 3
 ENDU
 
