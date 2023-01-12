@@ -281,7 +281,6 @@ ROMX $6d
 	"Special Phone Text"
 ROMX $6e
 	"Pokedex Entries 065-128"
-	"Map Scripts 26"
 ROMX $6f
 	"Text 1"
 ROMX $70
@@ -301,6 +300,8 @@ ROMX $77
 ROMX $78
 	"Debug Room"
 	"Tileset Data 8"
+ROMX $79
+	"Map Scripts 26"
 ROMX $7b
 	"Battle Tower Text"
 ROMX $7c
