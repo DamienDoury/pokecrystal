@@ -329,7 +329,7 @@ VaccinationCenterForbiddenSeatText:
     line "to sit here."
 
     para "Social distancing"
-    line "wasn't respected."
+    line "isn't respected."
     done
 
 VaccinationCenterCallText:
