@@ -105,7 +105,7 @@ ShouldResearchLevelBeIncreased::
 	farcall GetRandomPoliceSeed
 	pop hl
 	ldh a, [hDivisor]
-	and %00011000
+	and %00000011
 	jr nz, .return_true
 	jr .return_false
 	
@@ -114,9 +114,9 @@ ShouldResearchLevelBeIncreased::
 	farcall GetRandomPoliceSeed
 	pop hl
 	ldh a, [hDivisor]
-	and %00011000
+	and %00000011
 	jr z, .return_true
-	cp %00011000
+	cp %00000011
 	jr z, .return_true
 	; fallthrough
 
