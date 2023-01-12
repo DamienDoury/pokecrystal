@@ -1,8 +1,20 @@
 	object_const_def
-	const ROUTE34_POLICE_1
-	const ROUTE34_POLICE_2
-	const ROUTE34_POLICE_3
-	const ROUTE34_POLICE_4
+	const ROUTE34_POLICE_1_1
+	const ROUTE34_POLICE_1_2
+	const ROUTE34_POLICE_1_3
+	const ROUTE34_POLICE_2_1
+	const ROUTE34_POLICE_2_2
+	const ROUTE34_POLICE_2_3
+	const ROUTE34_POLICE_2_4
+	const ROUTE34_POLICE_3_1
+	const ROUTE34_POLICE_3_2
+	const ROUTE34_POLICE_3_3
+	const ROUTE34_POLICE_3_4
+	const ROUTE34_POLICE_4_1
+	const ROUTE34_POLICE_4_2
+	const ROUTE34_POLICE_4_3
+	const ROUTE34_POLICE_4_4
+	
 	const ROUTE34_YOUNGSTER1
 	const ROUTE34_YOUNGSTER2
 	const ROUTE34_YOUNGSTER3
@@ -393,8 +405,7 @@ TrainerCooltrainerfJenn:
 	end
 
 Route34_TrainerOfficer:
-	trainer OFFICER, POLICE_2, EVENT_BEAT_POLICE, CooltrainerfJennSeenText, CooltrainerfJennBeatenText, 0, .Script
-
+	trainer OFFICER, POLICE_2, EVENT_BEAT_POLICE, -1, -1, 0, .Script
 .Script:
 	end
 
