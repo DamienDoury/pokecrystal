@@ -1138,6 +1138,11 @@ ObjectEventText::
 	text_far _ObjectEventText
 	text_end
 
+PoliceTrainer::
+	trainer OFFICER, POLICE_2, EVENT_BEAT_POLICE, -1, -1, 0, .Script
+.Script:
+	end
+
 BGEvent:: ; unreferenced
 	jumptext BGEventText
 
