@@ -422,7 +422,6 @@ INCLUDE "maps/Route13.asm"
 INCLUDE "maps/Route14.asm"
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/PewterNidoranSpeechHouse.asm"
-INCLUDE "maps/PewterGym.asm"
 
 
 SECTION "Map Scripts 22", ROMX
@@ -499,3 +498,4 @@ INCLUDE "maps/PewterPokecenter1F.asm"
 INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/Route12.asm"
 INCLUDE "maps/Route15.asm"
+INCLUDE "maps/PewterGym.asm"
