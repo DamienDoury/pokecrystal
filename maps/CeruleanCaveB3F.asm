@@ -21,15 +21,16 @@ CeruleanCaveMewtwoScript:
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100
 	startbattle
-	reloadmapafterbattle
 	special CheckCaughtMewtwo
 	iffalse .DidntCatchMewtwo
-
+	
 	disappear CERULEAN_CAVE_MEWTWO
 	setevent EVENT_CAUGHT_MEWTWO
+	reloadmapafterbattle
 	end
 
 .DidntCatchMewtwo:
+	reloadmapafterbattle
 	playsound SFX_WARP_TO
 	waitsfx
 	disappear CERULEAN_CAVE_MEWTWO
@@ -54,4 +55,4 @@ CeruleanCaveB3F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 29, 15, SPRITE_MEWTWO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CeruleanCaveMewtwoScript, EVENT_CAUGHT_MEWTWO
+	object_event 28, 15, SPRITE_MEWTWO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CeruleanCaveMewtwoScript, EVENT_CAUGHT_MEWTWO
