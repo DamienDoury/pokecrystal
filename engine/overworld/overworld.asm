@@ -285,7 +285,7 @@ GetMonSprite:
 
 	farcall LoadOverworldMonIcon
 
-	ld l, WALKING_SPRITE
+	ld l, POKEMON_SPRITE
 	ld h, 0
 	scf
 	ret
