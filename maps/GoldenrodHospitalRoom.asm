@@ -942,9 +942,6 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	clearevent EVENT_MART_CHERRYGROVE_MISSED
 	clearevent EVENT_MART_VIOLET_MISSED
 	clearevent EVENT_MART_AZALEA_MISSED
-	clearevent EVENT_MART_GOLDENROD_2F_MISSED
-	clearevent EVENT_MART_GOLDENROD_4F_1_MISSED
-	clearevent EVENT_MART_GOLDENROD_4F_2_MISSED
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	loadmem wCurFreedomState, 1 << LOCKDOWN
 	setscene 0
