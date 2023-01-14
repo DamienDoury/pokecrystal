@@ -1172,9 +1172,9 @@ Script_loadtemptrainer:
 	cp OFFICER
 	jr nz, .not_the_police
 
-	ld d, a
-	farcall GetCurrentResearchLevelAtLandmark
-	add d
+	ld a, [wCurWantedLevel]
+	and $3 ; Just in case.
+	add OFFICER
 	ld [wOtherTrainerClass], a
 	ld a, 1 ; Loading the first trainer, as there is only 1 police trainer per class (with a random team).
 	ld [wOtherTrainerID], a
