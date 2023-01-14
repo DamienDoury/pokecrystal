@@ -17,7 +17,7 @@ PoliceSeenTextPool::
 	dw PoliceSeenText16
 
 PoliceSeenText1::
-	text "I see you!"
+	text "I can see you."
 	done
 
 PoliceSeenText2::

@@ -189,9 +189,7 @@ InitEnemy:
 	ld a, [wOtherTrainerClass]
 	and a
 	jr nz, InitEnemyTrainer ; trainer
-	;jp InitEnemyWildmon ; wild
 
-;InitEnemyWildmon:
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
 	farcall StubbedTrainerRankings_WildBattles
@@ -428,7 +426,9 @@ DeterMineAssaultAndPokerusSeed::
 	
 	ld a, [wBattlePokerusSeed]
 	cp TRUE
-	jr z, .generate_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
+	push de ; We don't care about the values of DE for this push. We use it to balance the stack if we jump to ".kanto_seed" that does a "pop de".
+	jr z, .kanto_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
+	pop de ; We balance the stack.
 
 	xor a
 	ld [wBattlePokerusSeed], a ; Reset the seed, in case it's dirty.
@@ -536,7 +536,7 @@ CeruleanCaveInfection:
 	ld a, POKERUS_SYMPTOMS_START + 1
 
 	; Fixed strain (Mewtwo contaminated all Pokémon).
-	add POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK 
+	add POKERUS_ALPHA_STRAIN 
 	ld [wBattlePokerusSeed], a
 
 	; Forbid running away.

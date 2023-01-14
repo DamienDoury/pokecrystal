@@ -70,7 +70,7 @@ MakeRedsPikachu::
 
 	; MON_PKRUS
 	; Note: we need to give 2 symptoms for the disease to be considered as covid. Otherwise it would be cured as a mild illness by the nurse.
-	ld [hl], POKERUS_XP_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK | 11 ; We say the Pikachu has been infected by the XP variant (useless as level 100), and is currently sick and checked. He hasn't been vaccinated.
+	ld [hl], POKERUS_ALPHA_STRAIN | (POKERUS_SYMPTOMS_START - 1) ; We say the Pikachu has been infected by the XP variant (useless as level 100), and is currently sick and checked. He hasn't been vaccinated.
 	inc hl
 
 	; MON_CAUGHTDATA
