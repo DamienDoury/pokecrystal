@@ -2,13 +2,22 @@
 ; If the lower nybble reaches zero, the immunity ends.
 ; Input: number of "days since" in B (B is always > 0).
 ApplyPokerusTick:
-	ld hl, wPartyMon1PokerusStatus ; wPartyMon1 + MON_PKRS
+	;ld hl, wPartyMon1PokerusStatus ; wPartyMon1 + MON_PKRS
+	ld hl, wPartyMon1Species
 	ld a, [wPartyCount]
 	and a
 	ret z ; make sure it's not wasting time on an empty party
 	ld c, a
 
 .loop
+	ld a, [hl]
+	push af
+	ld de, MON_PKRUS - MON_SPECIES
+	add hl, de
+	pop af
+	cp MEWTWO ; Mewtwo is unaffected by COVID, we can transmit it. So we make lock into its original incubation state.
+	jr z, .nextMon
+
 	; We check if the Pokemon is still sick or still immune.
 	ld a, [hl]
 	and POKERUS_DURATION_MASK ; lower 4 bits is the number of days remaining
@@ -76,7 +85,7 @@ ApplyPokerusTick:
 	ld [hl], a
 
 .nextMon
-	ld de, PARTYMON_STRUCT_LENGTH
+	ld de, PARTYMON_STRUCT_LENGTH - MON_PKRUS
 	add hl, de
 	dec c
 	jr nz, .loop

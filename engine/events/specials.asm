@@ -502,6 +502,10 @@ SelectMonToVaccinate::
 	call AddNTimes
 	ld d, [hl]
 
+	ld a, [wCurPartySpecies]
+	cp MEWTWO
+	jr z, .mewtwo
+
 	ld a, d
 	and POKERUS_INVERSED_DURATION_MASK
 	swap a
@@ -563,6 +567,7 @@ SelectMonToVaccinate::
 	ld b, VACCINATION_GOT_FIRST_SHOT
 	jr c, .return
 
+.fully_vaccinated
 	ld b, VACCINATION_FULLY_VACCINATED
 	; fallthrough
 
@@ -573,6 +578,14 @@ SelectMonToVaccinate::
 	pop de
 	pop bc
 	ret
+
+.mewtwo
+	ld a, d
+	cp POKERUS_SECOND_SHOT_SIGNATURE
+	jr z, .fully_vaccinated
+
+	ld b, VACCINATION_PREVIOUSLY_GOT_COVID
+	jr .return
 
 ; Output: 0/FALSE in wScriptVar if at least 1 mon in the party is not vaccinated, 1/TRUE otherwise.
 IsWholeTeamVaccinated::

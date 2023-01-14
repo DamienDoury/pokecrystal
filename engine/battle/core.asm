@@ -6795,6 +6795,10 @@ BattleWinSlideInEnemyTrainerFrontpic:
 	ret
 
 ApplyPokerusWeaknessSymptom: ; Damien
+	ld a, [wCurSpecies]
+	cp MEWTWO
+	ret z ; Mewtwo is asymptomatic: it isn't affected by the symptoms.
+
 	ld a, MON_PKRUS
 	call GetPartyParamLocation
 	ld a, [hl]
