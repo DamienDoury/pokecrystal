@@ -6333,6 +6333,17 @@ LoadEnemyMon:
 	jr .UpdateDVs
 
 .NotRoaming:
+	ld a, [wEnemyMonSpecies]
+	cp MEWTWO
+	ld a, [wBattleType]
+	jr nz, .CheckShiny
+
+	; Mewtwo always gets perfect DVs.
+	ld b, $ff ; $ea
+	ld c, $ff ; $aa
+	jr .UpdateDVs
+
+.CheckShiny:
 ; Register a contains wBattleType
 
 ; Forced shiny battle type
