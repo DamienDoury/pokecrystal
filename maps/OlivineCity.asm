@@ -379,7 +379,7 @@ OlivineCityBattleTowerSignText:
 	done
 
 OlivineCity_ToGoText:
-	text "Our CAFE if not"
+	text "Our CAFE is not"
 	line "allowed to host"
 	cont "sitted customers,"
 	

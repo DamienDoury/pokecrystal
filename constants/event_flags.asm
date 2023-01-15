@@ -1636,8 +1636,9 @@
 	const EVENT_BEAT_NUGGET_BRIDGE_SUMMER
 	const EVENT_CERULEAN_BRIDGE_ITEM
 	const EVENT_GOT_COVID_ON_ROUTE_39
+	const EVENT_GOT_COVID_ON_ROUTE_42
 
-; Unused: next 29 events
+; Unused: next 28 events
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800
