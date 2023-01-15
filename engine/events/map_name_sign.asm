@@ -155,6 +155,34 @@ PlaceMapNameCenterAlign:
 	add hl, bc
 	ld de, wStringBuffer1
 	call PlaceString
+
+	ld a, [wCurFreedomState]
+	cp 1 << LOCKDOWN
+	ret nz
+
+	ld a, [wCurWantedLevel]
+	and $3
+	ret z
+
+	hlcoord SCREEN_WIDTH - 4, 1
+	ld b, 3
+
+.full_stars_loop
+	ld [hl], "<FULL_STAR>"
+	inc hl
+	dec b
+	dec a
+	jr nz, .full_stars_loop
+
+	ld a, b
+	and a
+	ret z
+
+.empty_stars_loop
+	ld [hl], "<EMPTY_STAR>"
+	inc hl
+	dec a
+	jr nz, .empty_stars_loop
 	ret
 
 .GetNameLength:

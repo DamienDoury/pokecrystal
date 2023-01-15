@@ -171,6 +171,8 @@
 	charmap "'t",        $d5
 	charmap "'v",        $d6
 
+	charmap "<EMPTY_STAR>", $da
+	charmap "<FULL_STAR>",  $db
 	charmap "*", 		 $dc
 	charmap "<PERCENT>", $dd
 	charmap "<VC>",      $de
