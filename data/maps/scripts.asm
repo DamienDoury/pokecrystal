@@ -406,7 +406,6 @@ INCLUDE "maps/Route45.asm"
 INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
 INCLUDE "maps/Route1.asm"
-INCLUDE "maps/PewterMart.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -499,3 +498,4 @@ INCLUDE "maps/Route12.asm"
 INCLUDE "maps/Route15.asm"
 INCLUDE "maps/PewterGym.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/PewterMart.asm"

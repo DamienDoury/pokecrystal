@@ -55,9 +55,14 @@ IncreaseResearchLevel::
 	cp SWAT
 	ret nc ; do not increase for SWAT (max wanted lvl already).
 
+	ld a, [wCurLandmark]
+	cp LANDMARK_ROUTE_45
+	jr nc, .force_increase ; We force the level increase in the last roads.
+
 	call ShouldResearchLevelBeIncreased
 	ret c
 
+.force_increase
 	; level_increase
 	ld a, [wCurWantedLevel]
 	inc a
