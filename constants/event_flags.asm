@@ -1637,8 +1637,11 @@
 	const EVENT_CERULEAN_BRIDGE_ITEM
 	const EVENT_GOT_COVID_ON_ROUTE_39
 	const EVENT_GOT_COVID_ON_ROUTE_42
+	const EVENT_ROUTE_46_MAX_REVIVE
+	const EVENT_ROUTE_46_HIDDEN_CARBOS
+	const EVENT_ROUTE_46_HIDDEN_PP_UP
 
-; Unused: next 28 events
+; Unused: next 27 events
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800
