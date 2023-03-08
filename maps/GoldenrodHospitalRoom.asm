@@ -951,6 +951,8 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 
 	pause 5
 
+	turnobject GOLDENROD_HOSPITAL_ROOM_VISITOR1, UP
+
 	opentext
 	writetext GoldenrodHospitalAnnounceLockdownText
 	waitbutton

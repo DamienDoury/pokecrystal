@@ -449,3 +449,78 @@ _Vaccinate:
 .inject_first_shot
 	ld [hl], a
 	ret
+
+; Input: none.
+; Output: either a const like VARIANT_TELLING_CANCEL, or the strain in wScriptVar.
+TellCovidVariant:
+	push bc
+	push de
+	
+	farcall SelectMonFromParty
+	ld b, VARIANT_TELLING_CANCEL
+	jr c, .return
+
+	ld a, [wCurPartyMon]
+	ld hl, wPartyMon1PokerusStatus
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+	ld b, VARIANT_TELLING_NEVER_GOT_COVID_OR_TOO_LONG_AGO
+
+	ld a, [hl] ; 2 cycles.
+	and POKERUS_TEST_MASK
+	jr z, .return
+
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+	jr z, .return
+
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK
+	ld b, VARIANT_TELLING_IS_VACCINATED
+	jr z, .return
+
+	ld de, IsMildIllnessStrain
+	ld a, BANK(IsMildIllnessStrain)
+	call FarCall_de
+	ld b, VARIANT_TELLING_NEVER_GOT_COVID_OR_TOO_LONG_AGO
+	jr c, .return
+
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK
+
+	ld de, .alpha
+	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK
+	jr z, .copy
+
+	ld de, .delta
+	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_XP_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK
+	jr z, .copy
+
+	ld de, .omicronBAtwo
+	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_XP_DISEASE_MASK
+	jr z, .copy
+
+	ld de, .omicronBAfive
+.copy
+	call CopyName1
+	ld b, VARIANT_TELLING_TELL
+
+.return
+	ld a, b
+	ld [wScriptVar], a
+
+	pop de
+	pop bc
+	ret
+
+.alpha
+	db "ALPHA@"
+
+.delta
+	db "DELTA@"
+
+.omicronBAtwo
+	db "BA.2@"
+
+.omicronBAfive
+	db "BA.5@"

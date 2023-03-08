@@ -420,6 +420,38 @@ GoldenrodHospitalOfficeChiefScript:
 	checkevent EVENT_GOT_LUCKY_EGG
 	iffalse .giveLuckyEgg
 
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .cantTakeABreak
+
+	opentext
+	writetext GoldenrodHospitalOffice_AskVariantText
+	promptbutton
+	special TellCovidVariant
+	ifequal VARIANT_TELLING_CANCEL, .visiting
+	ifequal VARIANT_TELLING_NEVER_GOT_COVID_OR_TOO_LONG_AGO, .tooOld
+	ifequal VARIANT_TELLING_IS_VACCINATED, .vaccinated
+
+	; wScriptVar = VARIANT_TELLING_TELL
+	writetext GoldenrodHospitalOffice_TellVariantText
+
+.waitbutton
+	waitbutton
+	closetext
+	end
+
+.visiting
+	writetext GoldenrodHospitalOffice_VisitingText
+	sjump .waitbutton
+
+.tooOld
+	writetext GoldenrodHospitalOffice_TooOldText
+	sjump .waitbutton
+	
+.vaccinated
+	writetext GoldenrodHospitalOffice_VaccinatedText
+	sjump .waitbutton
+
+.cantTakeABreak
 	jumptext GoldenrodHospitalOfficeChiefText
 
 .giveLuckyEgg
@@ -428,6 +460,8 @@ GoldenrodHospitalOfficeChiefScript:
 	promptbutton
 	verbosegiveitem LUCKY_EGG
 	setevent EVENT_GOT_LUCKY_EGG
+	writetext GoldenrodHospitalOfficeChiefLuckyEggSequelText
+	waitbutton
 	closetext
 	end
 
@@ -538,12 +572,76 @@ GoldenrodHospitalOfficeChiefText:
 	cont "every day."
 	done
 
+GoldenrodHospitalOffice_AskVariantText:
+	text "CHIEF NURSE JOY:"
+	line "Hey <PLAYER>!"
+
+	para "I can tell you"
+	line "which variant any"
+
+	para "#MON had last"
+	line "time it did a"
+	cont "PCR test."
+	done
+
+GoldenrodHospitalOffice_VisitingText:
+	text "CHIEF NURSE JOY:"
+	line "Patients are often"
+	cont "sad and lonely."
+
+	para "Visiting them ma-"
+	line "kes them happier."
+	done
+
+GoldenrodHospitalOffice_TooOldText:
+	text "CHIEF NURSE JOY:"
+	line "I can't tell for"
+	cont "this one."
+
+	para "Either this"
+	line "#MON never got"
+	cont "tested for COVID,"
+	
+	para "or the test was"
+	line "done too long ago."
+	done
+
+GoldenrodHospitalOffice_VaccinatedText:
+	text "CHIEF NURSE JOY:"
+	line "I see this #MON"
+	cont "got vaccinated,"
+	cont "congratulations!"
+	done
+
+GoldenrodHospitalOffice_TellVariantText:
+	text "CHIEF NURSE JOY:"
+	line "Last time this"
+
+	para "#MON got tested"
+	line "it had the"
+	cont "@"
+
+	text_ram wStringBuffer2
+	text " variant."
+
+	para "Keep testing"
+	line "your party!"
+	done
+
 GoldenrodHospitalOfficeChiefLuckyEggText:
 	text "CHIEF NURSE JOY:"
 	line "I didn't properly"
 	cont "thank you for"
 	cont "helping me relax"
 	cont "last time."
+	done
+
+GoldenrodHospitalOfficeChiefLuckyEggSequelText:
+	text "A #MON that"
+	line "holds this grows"
+
+	para "twice as fast!"
+	line "Use it wisely!"
 	done
 
 GoldenrodHospitalOfficePrinterText:

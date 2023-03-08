@@ -205,3 +205,4 @@ SpecialsPointers::
 	add_special ZapdosFlyToAnim
 	add_special CelebiFlyAwayAnim
 	add_special GetOlivineCafeSalad
+	add_special TellCovidVariant
