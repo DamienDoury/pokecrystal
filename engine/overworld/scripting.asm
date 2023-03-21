@@ -1906,6 +1906,43 @@ LoadMoneyAmountToMem:
 	call GetScriptByte
 	ld [bc], a
 	pop bc
+
+	; If the amount of money is -1, it means we need to retrieve the amount of money from [wScriptVar] * 100.
+	push bc
+	cp $ff
+	jr nz, .end
+
+	ld a, [bc]
+	cp $ff
+	jr nz, .end
+
+	inc bc
+	ld a, [bc]
+	cp $ff
+	jr nz, .end
+
+	; The amount of money was indeed -1.
+	pop bc
+	push bc
+	ld a, [wScriptVar]
+	ldh [hMultiplier], a
+	ld a, 100
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand + 0], a
+	call Multiply
+	ldh a, [hQuotient + 1]
+	ld [bc], a
+	inc bc
+	ldh a, [hQuotient + 2]
+	ld [bc], a
+	inc bc
+	ldh a, [hQuotient + 3]
+	ld [bc], a
+
+.end
+	pop bc
 	ret
 
 Script_givecoins:
@@ -1921,7 +1958,7 @@ Script_takecoins:
 Script_checkcoins:
 	call LoadCoinAmountToMem
 	farcall CheckCoins
-	jr CompareMoneyAction
+	jp CompareMoneyAction
 
 LoadCoinAmountToMem:
 	call GetScriptByte

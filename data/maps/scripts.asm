@@ -250,6 +250,7 @@ INCLUDE "maps/KarensRoom.asm"
 INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/BlackthornCity.asm"
+INCLUDE "maps/EcruteakFaunaHouse.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -330,7 +331,7 @@ SECTION "Map Scripts 17", ROMX
 
 INCLUDE "maps/AzaleaPokecenter1F.asm"
 INCLUDE "maps/TohjoFalls.asm"
-INCLUDE "maps/EcruteakFaunaHouse.asm"
+INCLUDE "maps/EcruteakPoliceStation.asm"
 INCLUDE "maps/MrAntonsHouse.asm"
 INCLUDE "maps/MahoganyTown.asm"
 INCLUDE "maps/Route32.asm"

@@ -645,6 +645,7 @@ FlyFunction:
 	callasm FlyToAnim
 	special WaitSFX
 	callasm .ReturnFromFly
+	farscall ArrestPlayerForTravellingScript
 	end
 
 .ReturnFromFly:
@@ -972,6 +973,7 @@ TeleportFunction:
 	newloadmap MAPSETUP_TELEPORT
 	playsound SFX_WARP_FROM
 	applymovement PLAYER, .TeleportTo
+	farscall ArrestPlayerForTravellingScript
 	end
 
 .TeleportFrom:

@@ -703,3 +703,4 @@ ENDM
 	map_attributes CeruleanCaveB2F, CERULEAN_CAVE_B2F, $09, 0
 	map_attributes CeruleanCaveB3F, CERULEAN_CAVE_B3F, $09, 0
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $00, 0
+	map_attributes EcruteakPoliceStation, ECRUTEAK_POLICE_STATION, $00, 0

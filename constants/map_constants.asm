@@ -173,6 +173,7 @@ ENDM
 	map_const ECRUTEAK_ITEMFINDER_HOUSE,                    4,  4 ;  8
 	map_const ECRUTEAK_CITY,                               20, 18 ;  9
 	map_const ECRUTEAK_FAUNA_HOUSE,                         4,  4 ;  10
+	map_const ECRUTEAK_POLICE_STATION,                      5,  5 ;  11
 	endgroup
 
 	newgroup BLACKTHORN                                           ;  5

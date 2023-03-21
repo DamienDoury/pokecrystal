@@ -1019,3 +1019,6 @@ CeruleanCaveB3F_Blocks:
 
 ViridianForest_Blocks:
 	INCBIN "maps/ViridianForest.blk"
+
+EcruteakPoliceStation_Blocks:
+	INCBIN "maps/EcruteakPoliceStation.blk"

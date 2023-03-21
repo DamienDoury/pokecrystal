@@ -297,3 +297,174 @@ CheckResetWantedLevels::
 	call WriteFarWRAMByte
 
 	jp ResetAllResearchLevels
+
+ArrestPlayerForTravellingScript::
+	readmem wMap1ObjectStructID
+	ifequal $ff, .end
+
+	;readmem wMap1ObjectSprite
+	;ifnotequal SPRITE_OFFICER, .end
+
+	;readmem wMap1ObjectColor
+	;ifnotequal PAL_NPC_RED, .end
+
+	loadmem wLandmarkSignTimer, 0 ; Hiding the Landmark Sign.
+	turnobject 2, DOWN
+	pause 10
+	turnobject 2, LEFT
+	showemote EMOTE_SHOCK, 2, 15 ; Shows emote over the policeman's head.
+	turnobject PLAYER, RIGHT
+
+	opentext
+	readmem wTravelViolationFine
+	ifgreater 0, .not_the_first_time
+	writetext TravelBanWarningText
+	sjump .continue
+
+.not_the_first_time
+	writetext TravelBanArrestText
+.continue
+	waitbutton
+	closetext
+
+	applymovement 2, .stepLeftMovement
+	special FadeOutPalettes
+	special ClearBGPalettes
+	special FadeOutMusic
+	pause 20
+	playsound SFX_ENTER_DOOR
+	waitsfx
+	pause 30
+	warpfacing RIGHT, ECRUTEAK_POLICE_STATION, 7, 5
+	special FadeInPalettes
+
+	pause 10
+	opentext
+	special PlaceMoneyTopRight
+
+	loadmem wCurLandmark, -1 ; Making the map act as a GATE for the purpose of the Landmark Sign.
+
+	readmem wTravelViolationFine
+	ifgreater 0, .pay_fine
+
+	loadmem wTravelViolationFine, 10
+	writetext TravelFineText1
+	waitbutton
+	closetext	
+.end
+	end
+
+.pay_fine
+	checkmoney YOUR_MONEY, $ffffff ; This is only used to call LoadMoneyAmountToMem which updates hMoneyTemp.
+	writetext TravelFineText1Bis
+	promptbutton
+	readmem wTravelViolationFine
+	takemoney YOUR_MONEY, $ffffff
+	waitsfx
+	playsound SFX_TRANSACTION
+	pause 15
+	special PlaceMoneyTopRight
+	pause 5
+	writetext TravelFineText2
+	waitbutton
+	closetext
+
+	;pause 3
+	;turnobject PLAYER, DOWN
+
+	; Increasing the fine for next time the player gets caught.
+	readmem wTravelViolationFine
+	ifgreater 249, .save_fine
+	ifgreater 49, .high_increase
+; low_increase:
+	addval 20
+	sjump .save_fine
+
+.high_increase
+	addval 50
+.save_fine
+	writemem wTravelViolationFine
+	end
+
+.stepLeftMovement:
+	step LEFT
+	step_end
+
+TravelBanWarningText:
+	text "Ha! Caught you"
+	line "red handed!"
+
+	para "You've violated"
+	line "the travel"
+	cont "restriction."
+
+	para "…"
+
+	para "You must have"
+	line "heard about it…"
+	cont "don't you?"
+	
+	para "Are you living"
+	line "under a rock?"
+
+	para "…"
+
+	para "I'm taking you to"
+	line "the police station"
+	cont "anyway."
+
+	para "We must conduct a"
+	line "PCR test to check"
+	cont "that you are not"
+	cont "bringing the virus"
+	cont "from afar."
+	done
+
+TravelBanArrestText:
+	text "STOP RIGHT HERE!"
+
+	para "You have been"
+	line "caught violating"
+	cont "the travel ban."
+
+	para "You are under"
+	line "arrest."
+
+	para "I'm taking you"
+	line "with me."
+	done
+
+TravelFineText1:
+	text "OFFICER: I've never"
+	line "seen you here."
+
+	para "I'll let it slide"
+	line "for this time."
+
+	para "Consider this your"
+	line "warning call."
+
+	para "Next time I see"
+	line "you, it's a fine."
+	done
+
+TravelFineText1Bis:
+	text "OFFICER: Hey I've"
+	line "seen you already!"
+	
+	para "It's not the first"
+	line "time you violate"
+	cont "the travel ban…"
+
+	para "Your fine will be"
+	line "¥@"
+	text_decimal hMoneyTemp, 3, 6
+	text "."
+	done
+
+TravelFineText2:
+	text "Your PCR test"
+	line "is negative."
+
+	para "You're free to go."
+	done

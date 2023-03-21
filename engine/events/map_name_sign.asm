@@ -1,13 +1,11 @@
 MAP_NAME_SIGN_START EQU $60
 
 InitMapNameSign::
+	call .CheckPoliceStationMap
+	ret z
+
 	xor a
 	ldh [hBGMapMode], a
-	farcall .inefficient_farcall ; this is a waste of 6 ROM bytes and 6 stack bytes
-	ret
-
-; should have just been a fallthrough
-.inefficient_farcall
 	ld a, [wMapGroup]
 	ld b, a
 	ld a, [wMapNumber]
@@ -96,6 +94,14 @@ InitMapNameSign::
 	cp MAP_ROUTE_35_NATIONAL_PARK_GATE
 	ret z
 	cp MAP_ROUTE_36_NATIONAL_PARK_GATE
+	ret
+
+.CheckPoliceStationMap:
+	ld a, [wMapGroup]
+	cp GROUP_ECRUTEAK_POLICE_STATION
+	ret nz
+	ld a, [wMapNumber]
+	cp MAP_ECRUTEAK_POLICE_STATION
 	ret
 
 PlaceMapNameSign::

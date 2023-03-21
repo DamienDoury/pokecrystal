@@ -117,6 +117,9 @@ EcruteakCityPokecenterSign:
 EcruteakCityMartSign:
 	jumpstd MartSignScript
 
+EcruteakCityPoliceStationSign:
+	jumptext EcruteakCityPoliceStationSignText
+
 EcruteakCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_ECRUTEAK_CITY_HIDDEN_HYPER_POTION
 
@@ -280,6 +283,11 @@ BurnedTowerSignText:
 	line "as it is unsafe."
 	done
 
+EcruteakCityPoliceStationSignText:
+	text "ECRUTEAK CITY"
+	line "POLICE STATION"
+	done
+
 DeliveryGuy_LockdownText:
 	text "Everyone is qua-"
 	line "rantined at home…"
@@ -327,6 +335,7 @@ EcruteakCity_MapEvents:
 	warp_event  0, 18, ROUTE_38_ECRUTEAK_GATE, 3
 	warp_event  0, 19, ROUTE_38_ECRUTEAK_GATE, 4
 	warp_event 29, 27, ECRUTEAK_FAUNA_HOUSE, 1
+	warp_event 13, 11, ECRUTEAK_POLICE_STATION, 1
 
 	def_coord_events
 
@@ -342,7 +351,7 @@ EcruteakCity_MapEvents:
 	bg_event  5, 22, BGEVENT_ITEM, EcruteakCityHiddenSitrusBerry
 	bg_event 29, 28, BGEVENT_ITEM, EcruteakCityHiddenLeppaBerry
 	bg_event 13, 28, BGEVENT_ITEM, EcruteakCityHiddenBerryJuice
-
+	bg_event 11, 11, BGEVENT_READ, EcruteakCityPoliceStationSign
 
 	def_object_events
 	object_event 18, 15, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps1Script, -1
@@ -352,6 +361,6 @@ EcruteakCity_MapEvents:
 	object_event  9, 22, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityFisherScript, -1
 	object_event 10, 14, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakCityYoungsterScript, -1
 	object_event  3,  7, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCityGramps3Script, EVENT_ECRUTEAK_CITY_GRAMPS
-	object_event 13, 12, SPRITE_BIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, (%11100000 & HIDE_FREE & HIDE_VACCINE_PASS) | 5, %11100000 | 17, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DeliveryGuyScript, -1
+	object_event 10, 12, SPRITE_BIKER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, (%11100000 & HIDE_FREE & HIDE_VACCINE_PASS) | 5, %11100000 | 17, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DeliveryGuyScript, -1
 	object_event 23, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DoorScript, -1
 	object_event 18, 11, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakCity_DoorScript, -1
