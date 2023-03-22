@@ -298,18 +298,40 @@ CheckResetWantedLevels::
 
 	jp ResetAllResearchLevels
 
+TravelControllerChatScript::
+	readmem wMap1ObjectTimeOfDay ; Note: the travel controller must always be the first map_object in its map!
+	ifequal %11100000 | DAY | NITE, .morning_pause
+	ifequal %11100000 | MORN | NITE, .day_pause
+	ifequal %11100000 | MORN | DAY, .night_pause
+	ifequal %11100000 | MORN, .morning_only
+	; ifequal -1 -> always
+	; Default.
+.always
+	jumptextfaceplayer TravelControllerAlwaysText
+
+.morning_pause
+	jumptextfaceplayer TravelControllerMorningPauseText
+
+.day_pause
+	jumptextfaceplayer TravelControllerDayPauseText
+
+.night_pause
+	jumptextfaceplayer TravelControllerNightPauseText
+
+.morning_only
+	jumptextfaceplayer TravelControllerMorningOnlyText
+
 ArrestPlayerForTravellingScript::
 	readmem wMap1ObjectStructID
 	ifequal $ff, .end
 
-	;readmem wMap1ObjectSprite
-	;ifnotequal SPRITE_OFFICER, .end
+	readmem wMap1ObjectScript
+	ifnotequal LOW(TravelController), .end
 
-	;readmem wMap1ObjectColor
-	;ifnotequal PAL_NPC_RED, .end
+	readmem wMap1ObjectScript + 1
+	ifnotequal HIGH(TravelController), .end
 
 	loadmem wLandmarkSignTimer, 0 ; Hiding the Landmark Sign.
-	turnobject 2, DOWN
 	pause 10
 	turnobject 2, LEFT
 	showemote EMOTE_SHOCK, 2, 15 ; Shows emote over the policeman's head.
@@ -449,12 +471,12 @@ TravelFineText1:
 	done
 
 TravelFineText1Bis:
-	text "OFFICER: Hey I've"
-	line "seen you already!"
+	text "OFFICER: The file"
+	line "says that it's not"
 	
-	para "It's not the first"
-	line "time you violate"
-	cont "the travel ban…"
+	para "the first time you"
+	line "violate the travel"
+	cont "restriction…"
 
 	para "Your fine will be"
 	line "¥@"
@@ -464,7 +486,69 @@ TravelFineText1Bis:
 
 TravelFineText2:
 	text "Your PCR test"
-	line "is negative."
+	line "was negative."
 
 	para "You're free to go."
+	done
+
+TravelControllerAlwaysText:
+	text "Don't mind me."
+	line "I'm here to enforce"
+	cont "the travel ban."
+
+	para "I only arrest"
+	line "trainers that use"
+	cont "FLY or TELEPORT."
+	done
+
+TravelControllerMorningOnlyText:
+	text "This town's in the"
+	line "middle of nowhere!"
+
+	para "I make sure that"
+	line "people respect the"
+	cont "travel restriction"
+	
+	para "but as no one"
+	line "comes here anyway,"
+	cont "I only work half"
+	cont "of the day."
+	done
+	
+TravelControllerMorningPauseText:
+	text "I'm a long-distance"
+	line "travel controller,"
+	cont "and I need coffee."
+
+	para "I'm working so many"
+	line "hours that it's"
+	cont "hard to wake up"
+	cont "every morning…"
+	done
+
+TravelControllerDayPauseText:
+	text "Have you heard"
+	line "about the travel"
+	cont "restriction?"
+
+	para "I'm staying here"
+	line "all night long"
+	cont "until late morning"
+	
+	para "to make sure"
+	line "people respect it."
+	done
+
+TravelControllerNightPauseText:
+	text "I search for"
+	line "trainers that use"
+	cont "FLY or TELEPORT"
+	cont "despite the ban."
+
+	para "My secret for"
+	line "staying vigilant"
+	cont "all day long?"
+	
+	para "A good night's"
+	line "sleep!"
 	done

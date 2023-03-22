@@ -1144,6 +1144,9 @@ PoliceTrainer::
 .Script:
 	end
 
+TravelController::
+	farsjump TravelControllerChatScript
+
 BGEvent:: ; unreferenced
 	jumptext BGEventText
 
