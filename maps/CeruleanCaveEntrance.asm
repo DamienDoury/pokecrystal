@@ -21,7 +21,7 @@ CeruleanCaveEntrance_ExitScript:
 .go_out
 	special FadeBlackQuickly
 	pause 15
-	warp CERULEAN_CITY, 0, 14
+	warp CERULEAN_CITY, 2, 14
 	end
 
 CeruleanCaveMail:
