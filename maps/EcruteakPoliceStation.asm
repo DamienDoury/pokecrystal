@@ -116,11 +116,38 @@ EcruteakPoliceStationPrisonerText:
 	done
 
 EcruteakPoliceStationPrisoner2Text:
-	text "I swear I was out"
-	line "for an emergency!"
+	text "Let me tell you"
+	line "my story."
 
-	para "They don't want"
-	line "to hear it!"
+	para "I was going to the"
+	line "MART to do groce-"
+	cont "ries and got cont-"
+	cont "rolled by the"
+	cont "police."
+
+	para "I showed them my"
+	line "self-made attesta-"
+	cont "tion: everything"
+	cont "was in order."
+
+	para "Then they asked me"
+	line "where I live, and"
+	cont "their answer was"
+	cont "that the #MART"
+	cont "I was going to"
+	cont "wasn't the closest"
+	cont "one to my house."
+
+	para "I told them that"
+	line "the closest one"
+	cont "was in short"
+	cont "supply, but they"
+	cont "didn't wanna hear"
+	cont "it and I got"
+	cont "arrested!"
+
+	para "Can you believe"
+	line "believe it??"
 	done
 
 EcruteakPoliceStationBurnOutText:

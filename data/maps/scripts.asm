@@ -341,8 +341,6 @@ INCLUDE "maps/VermilionMagnetTrainSpeechHouse.asm"
 INCLUDE "maps/VermilionMart.asm"
 INCLUDE "maps/VermilionDiglettsCaveSpeechHouse.asm"
 INCLUDE "maps/VermilionGym.asm"
-INCLUDE "maps/Route6SaffronGate.asm"
-INCLUDE "maps/Route6UndergroundPathEntrance.asm"
 INCLUDE "maps/Pokecenter2F.asm"
 INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
@@ -407,6 +405,7 @@ INCLUDE "maps/Route45.asm"
 INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
 INCLUDE "maps/Route1.asm"
+INCLUDE "maps/Route6UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -438,6 +437,7 @@ INCLUDE "maps/Route21.asm"
 INCLUDE "maps/Route23.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
+INCLUDE "maps/Route6SaffronGate.asm"
 
 
 SECTION "Map Scripts 23", ROMX
