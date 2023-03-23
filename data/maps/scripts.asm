@@ -296,7 +296,6 @@ INCLUDE "maps/CopycatsHouse2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 INCLUDE "maps/Route5SaffronGate.asm"
 INCLUDE "maps/Route5CleanseTagHouse.asm"
-INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 16", ROMX
@@ -394,6 +393,7 @@ INCLUDE "maps/Route43MahoganyGate.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
+INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 20", ROMX

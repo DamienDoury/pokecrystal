@@ -110,7 +110,6 @@ MahoganyRedGyaradosSpeechHouse_Blocks:
 BlackthornDragonSpeechHouse_Blocks:
 BlackthornEmysHouse_Blocks:
 MoveDeletersHouse_Blocks:
-CeruleanGymBadgeSpeechHouse_Blocks:
 CeruleanTradeSpeechHouse_Blocks:
 BillsHouse_Blocks:
 CharcoalKiln_Blocks:
@@ -793,6 +792,7 @@ PokemonFanClub_Blocks:
 SafariZoneWardensHome_Blocks:
 	INCBIN "maps/WardensHouse.blk"
 
+CeruleanGymBadgeSpeechHouse_Blocks:
 WardensNeighborHouse_Blocks:
 	INCBIN "maps/WardensNeighborHouse.blk"
 
