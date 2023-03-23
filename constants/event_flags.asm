@@ -1640,8 +1640,9 @@
 	const EVENT_ROUTE_46_MAX_REVIVE
 	const EVENT_ROUTE_46_HIDDEN_CARBOS
 	const EVENT_ROUTE_46_HIDDEN_PP_UP
-
-; Unused: next 27 events
+	const EVENT_ROUTE_4_CARBOS
+	const EVENT_ROUTE_4_HIDDEN_PP_UP
+; Unused: next 25 events
 
 	const_next 2048
 NUM_EVENTS EQU const_value ; 800
