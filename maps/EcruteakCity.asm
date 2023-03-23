@@ -30,11 +30,11 @@ EcruteakCity_MapScripts:
 	endcallback
 
 .one
-	moveobject ECRUTEAKCITY_DELIVERY_GUY, 22, 22
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 21, 22
 	endcallback
 
 .two
-	moveobject ECRUTEAKCITY_DELIVERY_GUY, 28, 28
+	moveobject ECRUTEAKCITY_DELIVERY_GUY, 27, 28
 	endcallback
 
 .FlyPoint:
