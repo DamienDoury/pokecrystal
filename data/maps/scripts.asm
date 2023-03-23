@@ -270,7 +270,6 @@ INCLUDE "maps/TinTower8F.asm"
 INCLUDE "maps/TinTower9F.asm"
 INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
-INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/CeruleanPoliceStation.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/VaccinationCenter1F.asm"
@@ -297,6 +296,7 @@ INCLUDE "maps/CopycatsHouse2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 INCLUDE "maps/Route5SaffronGate.asm"
 INCLUDE "maps/Route5CleanseTagHouse.asm"
+INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 16", ROMX

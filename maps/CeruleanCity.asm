@@ -455,6 +455,7 @@ CeruleanCity_MapEvents:
 	warp_event 30, 23, CERULEAN_GYM, 1
 	warp_event 25, 29, CERULEAN_MART, 2
 	warp_event  2, 14, CERULEAN_CAVE_ENTRANCE, 1
+	warp_event 29, 13, CERULEAN_POLICE_STATION, 3
 
 	def_coord_events
 	coord_event  6,  9, SCENE_DEFAULT, AshPikachuLeadsToCeruleanCave

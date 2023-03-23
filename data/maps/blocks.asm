@@ -111,7 +111,6 @@ BlackthornDragonSpeechHouse_Blocks:
 BlackthornEmysHouse_Blocks:
 MoveDeletersHouse_Blocks:
 CeruleanGymBadgeSpeechHouse_Blocks:
-CeruleanPoliceStation_Blocks:
 CeruleanTradeSpeechHouse_Blocks:
 BillsHouse_Blocks:
 CharcoalKiln_Blocks:
@@ -1020,6 +1019,7 @@ CeruleanCaveB3F_Blocks:
 ViridianForest_Blocks:
 	INCBIN "maps/ViridianForest.blk"
 
+CeruleanPoliceStation_Blocks:
 EcruteakPoliceStation_Blocks:
 	INCBIN "maps/EcruteakPoliceStation.blk"
 
