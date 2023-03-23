@@ -215,6 +215,7 @@ ENDM
 	map_const ROUTE_24,                                    10,  9 ; 13
 	map_const ROUTE_25,                                    30,  9 ; 14
 	map_const CERULEAN_CITY,                               20, 18 ; 15
+	map_const ROUTE_4_TUNNEL,                              11,  8 ; 16
 	endgroup
 
 	newgroup AZALEA                                               ;  8

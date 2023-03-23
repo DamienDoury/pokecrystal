@@ -2,7 +2,13 @@
 	const ROUTE4_YOUNGSTER
 	const ROUTE4_LASS1
 	const ROUTE4_LASS2
-	const ROUTE4_POKE_BALL
+	const ROUTE4_HIKER
+	const ROUTE4_POKE_BALL1
+	const ROUTE4_POKE_BALL2
+	const ROUTE4_ROCK1
+	const ROUTE4_ROCK2
+	const ROUTE4_BOULDER1
+	const ROUTE4_BOULDER2
 
 Route4_MapScripts:
 	def_scene_scripts
@@ -38,6 +44,17 @@ TrainerPicnickerSharon:
 	endifjustbattled
 	opentext
 	writetext PicnickerSharonAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerHikerSammy:
+	trainer HIKER, SAMMY, EVENT_BEAT_HIKER_SAMMY, HikerSammySeenText, HikerSammyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext HikerSammyAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -123,6 +140,33 @@ PicnickerSharonAfterBattleText:
 	line "some more…"
 	done
 
+HikerSammySeenText:
+	text "Hello fellow"
+	line "HIKER!"
+	done
+
+HikerSammyBeatenText:
+	text "I had a pebble in"
+	line "my shoe. Not fair."
+	done
+
+HikerSammyAfterBattleText:
+	text "Have you met the"
+	line "crazy man that"
+	cont "dug this cave?"
+
+	para "His work is"
+	line "pointless."
+
+	para "The cave sank."
+	
+	para "He better try"
+	line "by the water."
+
+	para "It's what the"
+	line "rumor suggests."
+	done
+
 MtMoonSquareSignText:
 	text "MT.MOON SQUARE"
 
@@ -135,6 +179,8 @@ Route4_MapEvents:
 
 	def_warp_events
 	warp_event  2,  5, MOUNT_MOON, 2
+	warp_event 22,  1, ROUTE_4_TUNNEL, 1
+	warp_event 36,  3, ROUTE_4_TUNNEL, 2
 
 	def_coord_events
 
@@ -147,6 +193,7 @@ Route4_MapEvents:
 	object_event 17,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperHank, -1
 	object_event  9,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerPicnickerHope, -1
 	object_event 21,  6, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerPicnickerSharon, -1
+	object_event 29,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerSammy, -1
 	object_event 26,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4HPUp, EVENT_ROUTE_4_HP_UP
 	object_event 29,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route4Carbos, EVENT_ROUTE_4_CARBOS
 	object_event 34,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route4Rock, -1

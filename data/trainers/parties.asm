@@ -2534,6 +2534,15 @@ HikerGroup:
 	db 23, MAGNEMITE
 	db -1 ; end
 
+	; HIKER (23)
+	db "SAMMY@", TRAINERTYPE_NORMAL
+	db 50, SANDSLASH
+	db 52, PRIMEAPE
+	db 54, DUGTRIO
+	db 56, ONIX
+	db 58, STEELIX
+	db -1 ; end
+
 BikerGroup:
 	; BIKER (1)
 	db "BENNY@", TRAINERTYPE_NORMAL
@@ -2808,6 +2817,14 @@ BlackbeltGroup:
 	db 30, SNORLAX
 	db 31, HITMONCHAN
 	db 32, MACHAMP
+	db -1 ; end
+
+	; BLACKBELT_T (12)
+	db "ICARUS@", TRAINERTYPE_NORMAL
+	db 50, DUGTRIO
+	db 50, MACHAMP
+	db 50, DUGTRIO
+	db 50, MACHAMP
 	db -1 ; end
 
 ExecutiveMGroup:

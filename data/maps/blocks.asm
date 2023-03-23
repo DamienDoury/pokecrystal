@@ -1022,3 +1022,6 @@ ViridianForest_Blocks:
 
 EcruteakPoliceStation_Blocks:
 	INCBIN "maps/EcruteakPoliceStation.blk"
+
+Route4Tunnel_Blocks:
+	INCBIN "maps/Route4Tunnel.blk"

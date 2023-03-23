@@ -277,7 +277,6 @@ INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
 INCLUDE "maps/CeruleanPokecenter1F.asm"
-INCLUDE "maps/Route10Pokecenter1F.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -329,6 +328,7 @@ INCLUDE "maps/FuchsiaGym.asm"
 
 SECTION "Map Scripts 17", ROMX
 
+INCLUDE "maps/Route10Pokecenter1F.asm"
 INCLUDE "maps/AzaleaPokecenter1F.asm"
 INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/EcruteakPoliceStation.asm"
@@ -458,7 +458,6 @@ INCLUDE "maps/SeafoamGym.asm"
 
 SECTION "Map Scripts 24", ROMX
 
-INCLUDE "maps/Route2.asm"
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route18.asm"
@@ -500,3 +499,5 @@ INCLUDE "maps/PewterGym.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
 INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/LavenderTown.asm"
+INCLUDE "maps/Route4Tunnel.asm"
+INCLUDE "maps/Route2.asm"

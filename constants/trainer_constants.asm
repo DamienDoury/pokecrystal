@@ -498,6 +498,7 @@ KRIS EQU __trainer_class__
 	const ANTHONY4
 	const ANTHONY5
 	const MEREDITH
+	const SAMMY
 
 	trainerclass BIKER ; 2d
 	const BIKER_BENNY
@@ -550,6 +551,7 @@ KRIS EQU __trainer_class__
 	const WAI
 	const STRIK
 	const YOUAK
+	const ICARUS
 
 	trainerclass EXECUTIVEM ; 33
 	const EXECUTIVEM_1
