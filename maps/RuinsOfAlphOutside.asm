@@ -13,6 +13,7 @@ RuinsOfAlphOutside_MapScripts:
 	scene_script .DummyScene0 ; SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesLoad
 	callback MAPCALLBACK_OBJECTS, .ScientistCallback
 
 .DummyScene0:
@@ -22,13 +23,10 @@ RuinsOfAlphOutside_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED
-	iffalse .ConesDisappear
+	iffalse .end
 
 	checkevent EVENT_RED_IN_MT_SILVER
-	iftrue .ConesDisappear
-
-	appear RUINSOFALPHOUTSIDE_CONE1
-	appear RUINSOFALPHOUTSIDE_CONE2
+	iftrue .end
 
 	readvar VAR_XCOORD
 	ifnotequal 10, .end
@@ -37,12 +35,17 @@ RuinsOfAlphOutside_MapScripts:
 .end
 	end
 
-.ConesDisappear:
-	disappear RUINSOFALPHOUTSIDE_CONE1
-	disappear RUINSOFALPHOUTSIDE_CONE2
-	end
-
 .ScientistCallback:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .Scientist
+
+	checkevent EVENT_RED_IN_MT_SILVER
+	iftrue .Scientist
+
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+
+.Scientist
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .NoScientist
 	checkflag ENGINE_UNOWN_DEX
@@ -64,6 +67,17 @@ RuinsOfAlphOutside_MapScripts:
 .NoScientist:
 	disappear RUINSOFALPHOUTSIDE_SCIENTIST
 	setscene SCENE_RUINSOFALPHOUTSIDE_NOTHING
+	endcallback
+
+.TilesLoad:
+	; Research Center
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock 16, 10, $30
+
+.EndTilesCallback
 	endcallback
 
 RuinsOfAlph_PlayerStepsDown:
