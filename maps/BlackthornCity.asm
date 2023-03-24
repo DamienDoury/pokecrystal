@@ -15,10 +15,22 @@ BlackthornCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 	callback MAPCALLBACK_OBJECTS, .Santos
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_BLACKTHORN
+	endcallback
+
+.TilesLoad:
+	; Move Deleter's House
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock  8, 30, $30
+
+.EndTilesCallback
 	endcallback
 
 .Santos:
