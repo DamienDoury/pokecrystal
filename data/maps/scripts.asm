@@ -391,7 +391,6 @@ INCLUDE "maps/Route43MahoganyGate.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
-INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 20", ROMX
@@ -420,7 +419,7 @@ INCLUDE "maps/Route13.asm"
 INCLUDE "maps/Route14.asm"
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/PewterNidoranSpeechHouse.asm"
-
+INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 
 SECTION "Map Scripts 22", ROMX
 

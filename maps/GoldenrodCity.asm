@@ -30,11 +30,59 @@ GoldenrodCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 	callback MAPCALLBACK_OBJECTS, .MoveTutor
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_GOLDENROD
 	setflag ENGINE_REACHED_GOLDENROD
+	endcallback
+
+.TilesLoad:
+	; Casino
+	checkevent EVENT_RED_IN_MT_SILVER
+	iftrue .BikeShop
+	; If Red is still in Mt Silver, we close the casino.
+	changeblock 14, 20, $34
+	changeblock 16, 20, $37
+
+.BikeShop
+	checkevent GOLDENROD_BIKE_SHOP_CLOSED
+	iftrue .FlowerShop
+
+	changeblock 28, 28, $38
+	changeblock 30, 28, $39
+
+.FlowerShop
+	checkevent EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
+	iftrue .NameRater
+
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .NameRater
+
+	changeblock 28,  4, $2b
+
+.NameRater
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .DeptStore
+	ifequal 1 << VACCINE_PASSPORT, .DeptStore
+
+	changeblock 14,  6, $38
+	changeblock 16,  6, $39
+
+.DeptStore
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock 22, 22, $30
+	changeblock 24, 22, $31
+	changeblock 26, 22, $32
+	changeblock 22, 24, $30
+	changeblock 24, 24, $31
+	changeblock 26, 24, $32
+
+.EndTilesCallback
 	endcallback
 
 .MoveTutor:
