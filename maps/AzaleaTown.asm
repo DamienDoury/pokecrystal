@@ -26,6 +26,7 @@ AzaleaTown_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .Flypoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 	callback MAPCALLBACK_OBJECTS, .AzaleaHideCharacters
 
 .DummyScene0:
@@ -48,6 +49,24 @@ AzaleaTown_MapScripts:
 
 .Flypoint:
 	setflag ENGINE_FLYPOINT_AZALEA
+	endcallback
+
+.TilesLoad:
+	; Kurt's House
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .CharcoalKiln
+	ifequal 1 << VACCINE_PASSPORT, .CharcoalKiln
+
+	changeblock  8,  4, $2b
+
+.CharcoalKiln
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock 20, 12, $2b
+
+.EndTilesCallback
 	endcallback
 
 AzaleaTownRivalBattleScene1:
