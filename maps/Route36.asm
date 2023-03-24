@@ -34,6 +34,7 @@ Route36_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .ArthurCallback
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .Route36_GateClosedCheck:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -60,6 +61,18 @@ Route36_MapScripts:
 
 .ArthurAppears:
 	appear ROUTE36_ARTHUR
+	endcallback
+
+.TilesLoad:
+	; National Park - East Entrance.
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock 14,  8, $77
+	changeblock 16,  8, $5f
+
+.EndTilesCallback
 	endcallback
 
 Route36_PlayerStepsRight:

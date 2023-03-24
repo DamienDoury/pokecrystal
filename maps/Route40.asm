@@ -16,6 +16,7 @@ Route40_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .MonicaCallback
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .MonicaCallback:
 	readvar VAR_WEEKDAY
@@ -25,6 +26,17 @@ Route40_MapScripts:
 
 .MonicaAppears:
 	appear ROUTE40_MONICA
+	endcallback
+
+.TilesLoad:
+	; Battle Tower.
+	checkevent EVENT_RETURNED_MACHINE_PART
+	iftrue .EndTilesCallback
+
+	changeblock  8,  4, $12
+	changeblock 10,  4, $33
+
+.EndTilesCallback
 	endcallback
 
 TrainerSwimmerfElaine:
@@ -315,4 +327,4 @@ Route40_MapEvents:
 	object_event  8, 10, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, MonicaScript, EVENT_ROUTE_40_MONICA_OF_MONDAY
 	object_event  7,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40PokefanMScript, -1
 	object_event 13,  4, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route40Lass2Script, -1
-	object_event  9,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40_DoorScript, -1
+	object_event  9,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route40_DoorScript, EVENT_RETURNED_MACHINE_PART

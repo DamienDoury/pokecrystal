@@ -29,6 +29,19 @@ Route35_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesLoad
+	
+.TilesLoad:
+	; National Park - South Entrance.
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	changeblock  2,  4, $38
+	changeblock  4,  4, $5f
+
+.EndTilesCallback
+	endcallback
 
 TrainerBirdKeeperBryan:
 	trainer BIRD_KEEPER, BRYAN, EVENT_BEAT_BIRD_KEEPER_BRYAN, BirdKeeperBryanSeenText, BirdKeeperBryanBeatenText, 0, .Script
