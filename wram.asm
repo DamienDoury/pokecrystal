@@ -2838,7 +2838,7 @@ wTimeOfDayPalFlags:: db
 wTimeOfDayPalset:: db
 wCurTimeOfDay:: db
 
-wMustRefreshPaletteNow:: db ; Damien
+wMustRefreshPaletteNow:: db
 
 wSecretID:: dw
 wStatusFlags::

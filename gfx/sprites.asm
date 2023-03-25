@@ -112,3 +112,4 @@ SECTION "Sprites 3", ROMX
 ShineSpriteGFX::	           INCBIN "gfx/sprites/shine.2bpp"
 ConeSpriteGFX::                INCBIN "gfx/sprites/cone.2bpp"
 SquirtleSquadSpriteGFX::       INCBIN "gfx/sprites/cool_squirtle.2bpp"
+OldAmberSpriteGFX::            INCBIN "gfx/sprites/old_amber.2bpp"

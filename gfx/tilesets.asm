@@ -366,3 +366,12 @@ INCBIN "data/tilesets/train_station_metatiles.bin"
 
 TilesetTrainStationColl::
 INCLUDE "data/tilesets/train_station_collision.asm"
+
+TilesetMuseumGFX::
+INCBIN "gfx/tilesets/museum.2bpp.lz"
+
+TilesetMuseumMeta::
+INCBIN "data/tilesets/museum_metatiles.bin"
+
+TilesetMuseumColl::
+INCLUDE "data/tilesets/museum_collision.asm"

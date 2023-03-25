@@ -872,9 +872,10 @@ TVShow:
 	cont "virus."
 
 	para "An illegal rave"
-	line "was recently shut"
+	line "in PEWTER MUSEUM"
+	cont "was recently shut"
 	cont "down by CERULEAN"
-	cont "CITY Police.”"
+	cont "CITY POLICE.”"
 	done
 
 .Phase5Odd2:

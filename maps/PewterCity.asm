@@ -4,6 +4,8 @@
 	const PEWTERCITY_GRAMPS
 	const PEWTERCITY_FRUIT_TREE1
 	const PEWTERCITY_FRUIT_TREE2
+	const PEWTERCITY_MUSEUM_DOOR
+	const PEWTERCITY_MUSEUM_BACKDOOR
 
 PewterCity_MapScripts:
 	def_scene_scripts
@@ -19,7 +21,7 @@ PewterCityCooltrainerFScript:
 	jumptextfaceplayer PewterCityCooltrainerFText
 
 PewterCityBugCatcherScript:
-	checkevent EVENT_GOT_SILVER_WING
+	checkitem SILVER_WING
 	iftrue .GotSilverWing
 
 	jumptextfaceplayer PewterCityBugCatcherJustSavedText
@@ -29,23 +31,25 @@ PewterCityBugCatcherScript:
 
 PewterCityGrampsScript:
 	faceplayer
-	checkevent EVENT_GOT_SILVER_WING
-	iftrue .GotSilverWing
+	giveitem PADLOCK_KEY
+	checkitem PADLOCK_KEY
+	iftrue .GotPadlockKey
 	checkevent EVENT_FOUGHT_ZAPDOS
-	iftrue .GiveSilverWing
+	iftrue .GivePadlockKey
 	jumptext PewterCityGrampsLostGrandKidText
 
-.GiveSilverWing:
+.GivePadlockKey:
 	opentext
 	writetext PewterCityGrampsText
 	promptbutton
-	verbosegiveitem SILVER_WING
-	setevent EVENT_GOT_SILVER_WING
+	verbosegiveitem PADLOCK_KEY
+	;verbosegiveitem SILVER_WING
+	;setevent EVENT_GOT_SILVER_WING
 	closetext
 	end
 
-.GotSilverWing:
-	jumptext PewterCityGrampsText_GotSilverWing
+.GotPadlockKey:
+	jumptext PewterCityGrampsText_GotPadlockKey
 
 PewterCitySign:
 	jumptext PewterCitySignText
@@ -74,15 +78,47 @@ PewterCityFruitTree1:
 PewterCityFruitTree2:
 	fruittree FRUITTREE_PEWTER_CITY_2
 
-PewterCity_DoorScript:
-	jumptext PewterMuseumHeavyChainText
+PewterCity_Door1Script:
+	opentext
+	writetext PewterMuseumHeavyChainText
+	checkitem PADLOCK_KEY
+	iffalse .end
+
+	promptbutton
+	writetext PewterMuseumKeyDoesntFitText
+.end
+	waitbutton
+	closetext
+	end
+
+PewterCity_Door2Script:
+	opentext
+	writetext PewterMuseumHeavyChainText
+	checkitem PADLOCK_KEY
+	iffalse .end
+
+	promptbutton
+	waitsfx
+	playsound SFX_ENTER_DOOR
+	waitsfx
+	disappear PEWTERCITY_MUSEUM_BACKDOOR
+	writetext PewterMuseumKeySuccessText
+.end
+	waitbutton
+	closetext
+	end
 
 PewterCityCooltrainerFText:
-	text "Have you visited"
-	line "PEWTER GYM?"
+	text "Young people had"
+	line "organized an il-"
+	cont "legal party in our"
+	cont "beloved MUSEUM."
+	
+	para "How disrespectful!"
 
-	para "The LEADER uses"
-	line "rock-type #MON."
+	para "Now the doors have"
+	line "been locked with"
+	cont "chains."
 	done
 
 PewterCityBugCatcherJustSavedText:
@@ -138,23 +174,25 @@ PewterCityGrampsText:
 	line "grand-kid made it"
 	cont "out alive."
 
-	para "Going into these"
-	line "dangerous woods"
-	cont "was very heroic"
-	cont "of you."
+	para "I am in debt to"
+	line "you. How can I"
+	cont "repay you?"
 
-	para "That brings back"
-	line "memories. When I"
+	para "I know!"
 
-	para "was young, I went"
-	line "to JOHTO to train."
+	para "People loved the"
+	line "MUSEUM OF SCIENCE."
 
-	para "Here. I want you"
-	line "to have this item"
-	cont "I found in JOHTO."
+	para "I am the one who"
+	line "locked it down."
+	
+	para "Take my spare key."
+	line "I trust you to"
+	cont "close the place"
+	cont "when you leave."
 	done
 
-PewterCityGrampsText_GotSilverWing:
+PewterCityGrampsText_GotPadlockKey:
 	text "When you were into"
 	line "VIRIDIAN FOREST,"
 
@@ -200,15 +238,35 @@ PewterMuseumSignText:
 	text "There's a notice"
 	line "here…"
 
-	para "PEWTER MUSEUM OF"
-	line "SCIENCE has filed"
-	cont "for bankruptcy."
+	para "We are sorry to"
+	line "inform you that"
+	
+	para "due to the lack of"
+	line "customers during"
+	
+	para "the lockdowns,"
+	line "PEWTER MUSEUM OF"
+
+	para "SCIENCE has filed"
+	line "for bankruptcy."
 	done
 
 PewterMuseumHeavyChainText:
 	text "A heavy chain"
 	line "keeps the door"
 	cont "locked."
+	done
+
+PewterMuseumKeyDoesntFitText:
+	text "The PADLOCK KEY"
+	line "doesn't fit into"
+	cont "the padlock."
+	done
+
+PewterMuseumKeySuccessText:
+	text "The PADLOCK KEY"
+	line "unlocked the"
+	cont "chain."
 	done
 
 PewterCityMtMoonGiftShopSignText:
@@ -233,6 +291,7 @@ PewterCity_MapEvents:
 	warp_event 23, 17, PEWTER_MART, 2
 	warp_event 13, 25, PEWTER_POKECENTER_1F, 1
 	warp_event  7, 29, PEWTER_SNOOZE_SPEECH_HOUSE, 1
+	warp_event 19,  5, PEWTER_MUSEUM_1F, 1
 
 	def_coord_events
 
@@ -251,5 +310,5 @@ PewterCity_MapEvents:
 	object_event 29, 17, SPRITE_GRAMPS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterCityGrampsScript, -1
 	object_event 32,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree1, -1
 	object_event 30,  3, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCityFruitTree2, -1
-	object_event 14,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_DoorScript, -1
-	object_event 19,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_DoorScript, -1
+	object_event 14,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_Door1Script, -1
+	object_event 19,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterCity_Door2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

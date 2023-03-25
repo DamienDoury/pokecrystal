@@ -495,6 +495,10 @@ DetermineAssault:
 	cp $ff
 	jr z, .forceAssault
 
+	ld a, [wAssaultBattle]
+	cp $fe ; Forces no assault.
+	jr z, .noAssault
+
 	ld a, FALSE
 	ld [wAssaultBattle], a
 
@@ -531,6 +535,11 @@ DetermineAssault:
 	ld [wAssaultBattle], a
 	ret
 
+.noAssault
+	ld a, FALSE
+	ld [wAssaultBattle], a
+	ret
+	
 CeruleanCaveInfection: 
 	; Covid duration of 14 days (incubation).
 	ld a, POKERUS_SYMPTOMS_START + 1

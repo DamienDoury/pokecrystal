@@ -53,4 +53,5 @@ Tilesets::
 	tileset TilesetAerodactylWordRoom
 	tileset TilesetJohtoWaves
 	tileset TilesetHospital
+	tileset TilesetMuseum
 	assert_table_length NUM_TILESETS + 1

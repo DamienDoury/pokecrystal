@@ -39,6 +39,7 @@
 	const TILESET_AERODACTYL_WORD_ROOM ; 25
 	const TILESET_JOHTO_WAVES 		   ; 26
 	const TILESET_HOSPITAL 		   	   ; 27
+	const TILESET_MUSEUM		   	   ; 28
 NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

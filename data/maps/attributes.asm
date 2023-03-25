@@ -705,3 +705,5 @@ ENDM
 	map_attributes ViridianForest, VIRIDIAN_FOREST, $00, 0
 	map_attributes EcruteakPoliceStation, ECRUTEAK_POLICE_STATION, $00, 0
 	map_attributes Route4Tunnel, ROUTE_4_TUNNEL, $09, 0
+	map_attributes PewterMuseum1F, PEWTER_MUSEUM_1F, $00, 0
+	map_attributes PewterMuseum2F, PEWTER_MUSEUM_2F, $00, 0

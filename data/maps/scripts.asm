@@ -420,6 +420,8 @@ INCLUDE "maps/Route14.asm"
 INCLUDE "maps/Route7.asm"
 INCLUDE "maps/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
+INCLUDE "maps/PewterMuseum1F.asm"
+INCLUDE "maps/PewterMuseum2F.asm"
 
 SECTION "Map Scripts 22", ROMX
 
