@@ -351,8 +351,7 @@ VioletCity_ClosedSchoolText:
 
 	para "But don't rejoice"
 	line "too soon, kids."
-	cont "It's not a"
-	cont "holiday!"
+	cont "It's not a holiday!"
 
 	para "School is now"
 	line "remote: we will do"

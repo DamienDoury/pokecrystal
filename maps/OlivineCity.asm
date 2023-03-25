@@ -11,6 +11,7 @@ OlivineCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .DummyScene0:
 	end
@@ -25,6 +26,21 @@ OlivineCity_MapScripts:
 	setevent EVENT_POKEMASK_CALL_RECEIVED
 	specialphonecall SPECIALCALL_POKEMASK_BEFORE
 .end
+	endcallback
+
+.TilesLoad:
+	; Olivine Cafe.
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndTilesCallback
+	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
+
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iffalse .EndTilesCallback
+
+	changeblock  6, 20, $37
+	changeblock  8, 20, $3b
+
+.EndTilesCallback
 	endcallback
 
 OlivineCityRivalSceneTop:
