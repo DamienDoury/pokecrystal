@@ -1399,7 +1399,7 @@ _ForceTimeOfDayPaletteSmoothing::
 
 
 ; #### ROOF PALETTES #### ;
-	call RoofPaletteOverride ; Special case for the Roofs.
+	call RoofPaletteOverride ; Special case for the Roofs. Note: this causes issues with the only CAVE map that uses it: Pewter Museum.
 
 
 
@@ -1752,6 +1752,14 @@ TimeOfDayNextOBJPalette:
 
 
 RoofPaletteOverride:
+	push hl
+	ld a, BANK(wEnvironment)
+	ld hl, wEnvironment
+	call GetFarWRAMByte
+	pop hl
+	call CheckIndoorMap
+	ret z
+
 	ld a, [wAddressStorage]
 	ld h, a
 	ld a, [wAddressStorage + 1]
