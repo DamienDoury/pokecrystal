@@ -31,7 +31,7 @@ PewterCityBugCatcherScript:
 
 PewterCityGrampsScript:
 	faceplayer
-	giveitem PADLOCK_KEY
+	;giveitem PADLOCK_KEY
 	checkitem PADLOCK_KEY
 	iftrue .GotPadlockKey
 	checkevent EVENT_FOUGHT_ZAPDOS
@@ -178,7 +178,7 @@ PewterCityGrampsText:
 	line "you. How can I"
 	cont "repay you?"
 
-	para "I know!"
+	para "Oh, I know!"
 
 	para "People loved the"
 	line "MUSEUM OF SCIENCE."

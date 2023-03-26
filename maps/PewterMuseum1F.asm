@@ -6,22 +6,23 @@ PewterMuseum1F_MapScripts:
 
 	def_callbacks
 
+PewterMuseum1FHelix:
+	refreshscreen
+	pokepic OMANYTE
+	waitbutton
+	closepokepic
+	
+	opentext
+	writetext PewterMuseum1FHelixText
+	promptbutton
+	closetext
+	end
+
 PewterMuseum1FSilverWing:
 	hiddenitem SILVER_WING, EVENT_PEWTER_MUSEUM_HIDDEN_SILVER_WING
 
 PewterMuseum1FHole:
 	jumptext PewterMuseum1FHoleText
-
-PewterMuseum1FHelix:
-	opentext
-	writetext PewterMuseum1FHelixText
-	promptbutton
-	closetext
-	refreshscreen
-	pokepic 137
-	waitbutton
-	closepokepic
-	end
 
 PewterMuseum1FBrokenGlass:
 	jumptext PewterMuseum1FBrokenGlassText
@@ -32,11 +33,11 @@ PewterMuseum1FCounter:
 PewterMuseum1FStool:
 	jumptext PewterMuseum1FStoolText
 
-PewterMuseum1FBooks:
-	jumptext PewterMuseum1FBooksText
-
 PewterMuseum1FDNA:
 	jumptext PewterMuseum1FDNAText
+	
+PewterMuseum1FBooks:
+	jumptext PewterMuseum1FBooksText
 
 PewterMuseum1FHoleText:
 	text "A #MON made a"
@@ -120,4 +121,4 @@ PewterMuseum1FBooksText:
 	
 
 	def_object_events
-	;object_event  5,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterSnoozeSpeechHouseGrampsScript, -1
+	;object_event  2,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, PewterMuseum1FHelix, -1
