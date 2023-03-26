@@ -109,6 +109,8 @@
 	const SPRITE_RAIKOU ; 69
 	const SPRITE_SQUIRTLE_SQUAD ; 6a
 	const SPRITE_OLD_AMBER ; 6b
+	const SPRITE_MEWTWO_OW_TOP ; 6c
+	const SPRITE_MEWTWO_OW_BOTTOM ; 6d
 NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

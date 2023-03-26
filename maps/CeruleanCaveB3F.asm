@@ -1,5 +1,6 @@
 	object_const_def
-	const CERULEAN_CAVE_MEWTWO
+	const CERULEAN_CAVE_MEWTWO_TOP
+	const CERULEAN_CAVE_MEWTWO_BOTTOM
 
 CeruleanCaveB3F_MapScripts:
 	def_scene_scripts
@@ -24,7 +25,8 @@ CeruleanCaveMewtwoScript:
 	special CheckCaughtMewtwo
 	iffalse .DidntCatchMewtwo
 	
-	disappear CERULEAN_CAVE_MEWTWO
+	disappear CERULEAN_CAVE_MEWTWO_TOP
+	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
 	setevent EVENT_CAUGHT_MEWTWO
 	reloadmapafterbattle
 	end
@@ -33,9 +35,12 @@ CeruleanCaveMewtwoScript:
 	reloadmapafterbattle
 	playsound SFX_WARP_TO
 	waitsfx
-	disappear CERULEAN_CAVE_MEWTWO
-	moveobject CERULEAN_CAVE_MEWTWO, 29, 0
-	appear CERULEAN_CAVE_MEWTWO
+	disappear CERULEAN_CAVE_MEWTWO_TOP
+	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
+	moveobject CERULEAN_CAVE_MEWTWO_TOP, 38, 0
+	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 38, 1
+	appear CERULEAN_CAVE_MEWTWO_TOP
+	appear CERULEAN_CAVE_MEWTWO_BOTTOM
 	jumptext MewtwoTeleportedAwayText
 
 MewtwoTeleportedAwayText:
@@ -55,4 +60,6 @@ CeruleanCaveB3F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 28, 15, SPRITE_MEWTWO, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CeruleanCaveMewtwoScript, EVENT_CAUGHT_MEWTWO
+	object_event 28, 14, SPRITE_MEWTWO_OW_TOP, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveMewtwoScript, EVENT_CAUGHT_MEWTWO
+	object_event 28, 15, SPRITE_MEWTWO_OW_BOTTOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeruleanCaveMewtwoScript, EVENT_CAUGHT_MEWTWO
+
