@@ -923,6 +923,11 @@ DoRepelStep:
 	ld a, [wRepelEffect]
 	jr c, .normal_area
 
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_B3F + 1
+	ld a, [wRepelEffect]
+	jr nc, .normal_area
+
 	sub 4
 	jr z, .underflow_protection
 	jr c, .underflow_protection
