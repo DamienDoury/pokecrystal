@@ -1988,3 +1988,133 @@ _MissedItemPrice::
 	text_ram wStringBuffer3
 	text "! Buy it?"
 	done
+
+
+; Mewtwo dialogs in Cerulean Cave.
+
+; B1F, in order. Theme = asking politely to leave.
+; Shortest path = 121 steps.
+
+_MewtwoB1FText1::
+	text "I can feel your"
+	line "presence."
+	done
+	
+_MewtwoB1FText2::
+	text "The outside world"
+	line "is not allowed in"
+	cont "here."
+	
+	para "Go back where"
+	line "you came from."
+	done
+	
+_MewtwoB1FText3::
+	text "I know why you"
+	line "came."
+	
+	para "You will only"
+	line "find regret."
+	done
+	
+_MewtwoB1FText4::
+	text "Leave this place"
+	line "at once."
+	
+	para "You have been"
+	line "warned."
+	done
+	
+; B2F, in order. Theme = big reveals. Beginning threats.
+; Shortest path = 73 steps.
+_MewtwoB2FText1::
+	text "I made this place"
+	line "collapse so I"
+	cont "could be"
+	cont "contained."
+
+	para "No one should come"
+	line "in or go out of"
+	cont "this place."
+	done
+
+_MewtwoB2FText2::
+	text "The poor #MON"
+	line "of this cave…"
+	
+	para "I am responsible"
+	line "for what is"
+	cont "happening to them."
+
+	para "But I can't let"
+	line "them out of here."
+
+	para "It would only"
+	line "cause more"
+	cont "suffering."
+	
+	para "My creators left"
+	line "me no choice."
+	done
+
+_MewtwoB2FText3::
+	text "I sent the avatar"
+	line "of fire to unleash"
+	cont "the volcano's power"
+	cont "and destroy their"
+	cont "laboratory."
+
+	para "Don't force me to"
+	line "destroy you."
+	done
+
+_MewtwoB2FText4::
+	text "Another one came"
+	line "before you."
+	
+	para "He brought doom"
+	line "on himself."
+
+	para "Don't make the"
+	line "same mistake."
+	done
+	
+; B3F, random. Theme = discouraging fight with threats. Trying to be convincing by showing good intentions.
+; Shortest path = 123 steps.
+_MewtwoB3FText1::
+	text "Don't approach me,"
+	line "I am dangerous."
+	done
+
+_MewtwoB3FText2::
+	text "They built me as a"
+	line "weapon of mass"
+	cont "destruction."
+	
+	para "I just want peace."
+	line "Leave me."
+	done
+
+_MewtwoB3FText3::
+	text "I don't want to"
+	line "fight you."
+	
+	para "It's for your own"
+	line "protection."
+	done
+
+_MewtwoB3FText4::
+	text "If you keep going"
+	line "forward, there"
+	
+	para "will be no way"
+	line "out for you."
+	done
+
+_MewtwoB3FText5::
+	text "Why don't you"
+	line "listen to me?"
+	
+	para "I will show you"
+	line "fear."
+	done

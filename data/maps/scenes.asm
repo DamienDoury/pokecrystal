@@ -114,4 +114,6 @@ MapScenes::
 	scene_var VIRIDIAN_FOREST,					   		   wRoute29SceneID
 	scene_var GOLDENROD_DEPT_STORE_1F,					   wRoute29SceneID
 	scene_var GOLDENROD_DEPT_STORE_6F,					   wRoute29SceneID
+	scene_var CERULEAN_CAVE_B1F,					   	   wRoute29SceneID
+	scene_var CERULEAN_CAVE_B2F,					   	   wRoute29SceneID
 	db -1 ; end

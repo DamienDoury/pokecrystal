@@ -5,6 +5,83 @@ CeruleanCaveB1F_MapScripts:
 
 	def_callbacks
 
+CeruleanCaveB1F_MewtwoTelepathy1:
+	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_1
+	iftrue .end
+	
+	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_1
+
+	opentext
+	farwritetext _MewtwoB1FText1
+	waitbutton
+	closetext
+
+	showemote EMOTE_SHOCK, PLAYER, 15
+	applymovement PLAYER, CeruleanCave_LookAroundMovement
+	jumptext CeruleanCave_SomeoneAroundText
+.end
+	end
+
+CeruleanCaveB1F_MewtwoTelepathy2:
+	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_2
+	iftrue .end
+	
+	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_2
+
+	opentext
+	farwritetext _MewtwoB1FText2
+	waitbutton
+	closetext
+
+	showemote EMOTE_QUESTION, PLAYER, 15
+	jumptext CeruleanCave_VoiceInHeadText
+.end
+	end
+
+CeruleanCaveB1F_MewtwoTelepathy3:
+	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_3
+	iftrue .end
+	
+	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_3
+	farjumptext _MewtwoB1FText3
+.end
+	end
+
+CeruleanCaveB1F_MewtwoTelepathy4:
+	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_4
+	iftrue .end
+	
+	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_4
+	farjumptext _MewtwoB1FText4
+.end
+	end
+
+CeruleanCave_LookAroundMovement:
+	turn_step DOWN
+	step_sleep 3
+	turn_step RIGHT
+	step_sleep 3
+	turn_step DOWN
+	step_sleep 3
+	turn_step RIGHT
+	step_sleep 3
+	step_end
+
+CeruleanCave_SomeoneAroundText:
+	text "You just heard a"
+	line "voice."
+
+	para "You may not"
+	line "be alone."
+	done
+
+CeruleanCave_VoiceInHeadText:
+	text "The voice seems"
+	line "to be coming from"
+	
+	para "…inside of"
+	line "your head?"
+	done
 
 CeruleanCaveB1F_MapEvents:
 	db 0, 0 ; filler
@@ -20,6 +97,10 @@ CeruleanCaveB1F_MapEvents:
 	warp_event  2,  9, CERULEAN_CAVE_B3F, 2 ; hole
 
 	def_coord_events
+	coord_event 27, 12, SCENE_DEFAULT, CeruleanCaveB1F_MewtwoTelepathy1
+	coord_event 10,  9, SCENE_DEFAULT, CeruleanCaveB1F_MewtwoTelepathy2
+	coord_event 13, 16, SCENE_DEFAULT, CeruleanCaveB1F_MewtwoTelepathy3
+	coord_event 16, 12, SCENE_DEFAULT, CeruleanCaveB1F_MewtwoTelepathy4
 
 	def_bg_events
 
