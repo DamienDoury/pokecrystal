@@ -471,7 +471,7 @@ ArrangeUsedSprites:
 
 ; There are only two tables, so don't go any further than that.
 	add b
-	cp $40 - (8 >> 4) ; NOTE: the last 8 tiles are reserved to Emotes.
+	cp $41 - (8 / 4) ; NOTE: the last 8 tiles are reserved to Emotes.
 	jr nc, .ThirdTable
 
 	ld [hl], b
@@ -496,7 +496,7 @@ ArrangeUsedSprites:
 
 ; Spill over into the second table after $80 tiles.
 	add b
-	cp $60
+	cp $61
 	jr nc, .quit
 
 	ld [hl], b
