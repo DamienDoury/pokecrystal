@@ -1087,4 +1087,21 @@ shelfitem: MACRO
 	dw \3 ; total price
 ENDM
 
+	const openredtext_command ; $ae
+openredtext: MACRO
+	db openredtext_command
+ENDM
+
+	const writeredtext_command ; $af
+writeredtext: MACRO
+	db writeredtext_command
+	dw \1 ; text_pointer
+ENDM
+
+	const farwriteredtext_command ; $b0
+farwriteredtext: MACRO
+	db farwriteredtext_command
+	dba \1
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value

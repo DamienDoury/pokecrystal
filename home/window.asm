@@ -44,19 +44,25 @@ CloseText::
 	ret
 
 OpenText::
-	call ClearWindowData
-	ldh a, [hROMBank]
-	push af
-	ld a, BANK(ReanchorBGMap_NoOAMUpdate) ; aka BANK(LoadFonts_NoOAMUpdate)
-	rst Bankswitch
-
-	call ReanchorBGMap_NoOAMUpdate ; clear bgmap
+	call OpenTextPre
 	call SpeechTextbox
-	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap
-	call LoadFonts_NoOAMUpdate ; load font
-	pop af
-	rst Bankswitch
+	call OpenTextPost
+	ret
 
+OpenRedText::
+	call OpenTextPre
+	call SpeechTextboxRed
+	call OpenTextPost
+	ret
+
+OpenTextPre:
+	call ClearWindowData
+	farcall ReanchorBGMap_NoOAMUpdate ; clear bgmap
+	ret
+
+OpenTextPost:
+	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap
+	farcall LoadFonts_NoOAMUpdate ; load font
 	ret
 
 _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::

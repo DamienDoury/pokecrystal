@@ -1068,6 +1068,28 @@ MapTextbox::
 	rst Bankswitch
 	ret
 
+MapTextboxRed::
+	ldh a, [hROMBank]
+	push af
+
+	ld a, b
+	rst Bankswitch
+
+	push hl
+	call SpeechTextboxRed
+	call SafeUpdateSprites
+	ld a, 1
+	ldh [hOAMUpdate], a
+	call ApplyTilemap
+	pop hl
+	call PrintTextboxText
+	xor a
+	ldh [hOAMUpdate], a
+
+	pop af
+	rst Bankswitch
+	ret
+
 Call_a_de::
 ; Call a:de.
 

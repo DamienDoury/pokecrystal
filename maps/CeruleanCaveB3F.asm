@@ -12,6 +12,10 @@ CeruleanCaveB3F_MapScripts:
 	checkevent EVENT_CAUGHT_MEWTWO
 	iftrue .end
 
+	loadmem wCeruleanCaveB3FStepCount, 30
+	loadmem wCeruleanCaveB3FMessageIndex, 0
+	loadmem wCeruleanCaveB3FTeleportIndex, 0
+
 .end
 	endcallback
 
@@ -19,6 +23,8 @@ CeruleanCaveMewtwoScript:
 	cry MEWTWO
 	waitsfx
 	pause 30
+	loadmem wCeruleanCaveB3FMewtwoRetreat, FALSE
+	loadmem wCeruleanCaveB3FStepCount, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100
 	startbattle

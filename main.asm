@@ -736,6 +736,7 @@ SECTION "Vaccination Research Center", ROMX
 
 INCLUDE "engine/pokemon/vaccine_research_center.asm"
 INCLUDE "engine/overworld/viridian_warp.asm"
+INCLUDE "engine/overworld/cerulean_telepathy.asm"
 
 
 SECTION "Stadium 2 Checksums", ROMX[$7DE0], BANK[$7F]

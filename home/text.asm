@@ -19,6 +19,12 @@ FillBoxWithByte::
 	jr nz, .row
 	ret
 
+ClearScreen::
+	ld a, PAL_BG_TEXT
+	hlcoord 0, 0, wAttrmap
+	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	call ByteFill
+
 ClearTilemap::
 ; Fill wTilemap with blank tiles.
 
@@ -32,24 +38,6 @@ ClearTilemap::
 	bit rLCDC_ENABLE, a
 	ret z
 	jp WaitBGMap
-
-ClearScreen::
-	ld a, PAL_BG_TEXT
-	hlcoord 0, 0, wAttrmap
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
-	jr ClearTilemap
-
-Textbox::
-; Draw a text box at hl with room for b lines of c characters each.
-; Places a border around the textbox, then switches the palette to the
-; text black-and-white scheme.
-	push bc
-	push hl
-	call TextboxBorder
-	pop hl
-	pop bc
-	jr TextboxPalette
 
 TextboxBorder::
 	; Top
@@ -97,15 +85,45 @@ TextboxBorder::
 	jr nz, .loop
 	ret
 
-TextboxPalette::
-; Fill text box width c height b at hl with pal 7
+SpeechTextboxRed::
+	hlcoord TEXTBOX_X, TEXTBOX_Y
+	ld b, TEXTBOX_INNERH
+	ld c, TEXTBOX_INNERW
+	
+	push bc
+	push hl
+	call TextboxBorder
+	pop hl
+	pop bc
+	ld a, PAL_BG_RED
+	jr TextboxCustomPalette
+
+SpeechTextbox::
+; Standard textbox.
+	hlcoord TEXTBOX_X, TEXTBOX_Y
+	ld b, TEXTBOX_INNERH
+	ld c, TEXTBOX_INNERW
+
+Textbox::
+; Draw a text box at hl with room for b lines of c characters each.
+; Places a border around the textbox, then switches the palette to the
+; text black-and-white scheme.
+	push bc
+	push hl
+	call TextboxBorder
+	pop hl
+	pop bc
+
+TextboxPalette:: ; Fill text box width c height b at hl with pal 7
+	ld a, PAL_BG_TEXT
+
+TextboxCustomPalette:: ; Fill text box width c height b at hl with pal given in A.
 	ld de, wAttrmap - wTilemap
 	add hl, de
 	inc b
 	inc b
 	inc c
 	inc c
-	ld a, PAL_BG_TEXT
 .col
 	push bc
 	push hl
@@ -120,13 +138,6 @@ TextboxPalette::
 	dec b
 	jr nz, .col
 	ret
-
-SpeechTextbox::
-; Standard textbox.
-	hlcoord TEXTBOX_X, TEXTBOX_Y
-	ld b, TEXTBOX_INNERH
-	ld c, TEXTBOX_INNERW
-	jp Textbox
 
 GameFreakText:: ; unreferenced
 	text "ゲームフりーク！" ; "GAMEFREAK!"

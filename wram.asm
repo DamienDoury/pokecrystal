@@ -3108,6 +3108,13 @@ wGoldenrodHospitalCorridorNumber:: db
 NEXTU ; 12 bytes.
 wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
 wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
+
+NEXTU
+wCeruleanCaveB3FStepCount:: db
+wCeruleanCaveB3FMessageIndex:: db
+wCeruleanCaveB3FTeleportIndex:: db
+wCeruleanCaveB3FDidMewtwoRetreat:: db
+
 NEXTU
 wOlivineCafeBerry1:: db
 wOlivineCafeBerry2:: db

@@ -238,6 +238,9 @@ ScriptCommandTable:
 	dw Script_ifodd                  	 ; ab
 	dw Script_getchallengename        	 ; ac
 	dw Script_shelfitem					 ; ad
+	dw Script_openredtext				 ; ae
+	dw Script_writeredtext				 ; af
+	dw Script_farwriteredtext			 ; b0
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -330,24 +333,37 @@ Script_farjumptext:
 	ld hl, JumpTextScript
 	jp ScriptJump
 
-Script_writetext:
-	call GetScriptByte
-	ld l, a
-	call GetScriptByte
-	ld h, a
+Script_writeredtext:
 	ld a, [wScriptBank]
 	ld b, a
-	call MapTextbox
+	jr Script_redtext
+
+Script_farwriteredtext:
+	call GetScriptByte
+	ld b, a
+Script_redtext:
+	call GetScriptWordInHL
+	call MapTextboxRed
 	ret
+
+Script_writetext:
+	ld a, [wScriptBank]
+	ld b, a
+	jr Script_text
 
 Script_farwritetext:
 	call GetScriptByte
 	ld b, a
+Script_text:
+	call GetScriptWordInHL
+	call MapTextbox
+	ret
+
+GetScriptWordInHL:
 	call GetScriptByte
 	ld l, a
 	call GetScriptByte
 	ld h, a
-	call MapTextbox
 	ret
 
 Script_repeattext:
@@ -2309,6 +2325,10 @@ Script_reloadend:
 
 Script_opentext:
 	call OpenText
+	ret
+
+Script_openredtext:
+	call OpenRedText
 	ret
 
 Script_refreshscreen:

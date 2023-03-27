@@ -1998,10 +1998,8 @@ _MissedItemPrice::
 _MewtwoB1FText1::
 	text "I can feel your"
 	line "presence."
-	done
-	
-_MewtwoB1FText2::
-	text "The outside world"
+
+	para "The outside world"
 	line "is not allowed in"
 	cont "here."
 	
@@ -2009,20 +2007,28 @@ _MewtwoB1FText2::
 	line "you came from."
 	done
 	
-_MewtwoB1FText3::
+_MewtwoB1FText2::
 	text "I know why you"
 	line "came."
 	
 	para "You will only"
-	line "find regret."
+	line "find regrets."
 	done
 	
-_MewtwoB1FText4::
+_MewtwoB1FText3::
 	text "Leave this place"
 	line "at once."
 	
 	para "You have been"
 	line "warned."
+	done
+
+_MewtwoB1FText4::
+	text "If you keep going"
+	line "forward, there"
+	
+	para "will be no way"
+	line "out for you."
 	done
 	
 ; B2F, in order. Theme = big reveals. Beginning threats.
@@ -2087,6 +2093,22 @@ _MewtwoB3FText1::
 	done
 
 _MewtwoB3FText2::
+	text "I don't want to"
+	line "fight you."
+	
+	para "For your own"
+	line "protection."
+	done
+
+_MewtwoB3FText3::
+	text "Why don't you"
+	line "listen to me?"
+	
+	para "I will show you"
+	line "no mercy."
+	done
+
+_MewtwoB3FText4::
 	text "They built me as a"
 	line "weapon of mass"
 	cont "destruction."
@@ -2095,26 +2117,37 @@ _MewtwoB3FText2::
 	line "Leave me."
 	done
 
-_MewtwoB3FText3::
-	text "I don't want to"
-	line "fight you."
-	
-	para "It's for your own"
-	line "protection."
-	done
-
-_MewtwoB3FText4::
-	text "If you keep going"
-	line "forward, there"
-	
-	para "will be no way"
-	line "out for you."
-	done
-
 _MewtwoB3FText5::
-	text "Why don't you"
-	line "listen to me?"
-	
-	para "I will show you"
-	line "fear."
+	text "Stop chasing me."
+
+	para "You will forever"
+	line "regret it."
+	done
+
+_MewtwoB3FText6::
+	text "I will be your"
+	line "end, and you will"
+	cont "become the end of"
+	cont "species."
+
+	para "This is my curse."
+	done
+
+_MewtwoB3FText7::
+	text "Go out of this"
+	line "cave. Now."
+
+	para "Don't make your"
+	line "#MON suffer."
+	done
+
+_MewtwoB3FText8::
+	text "Tame your primal"
+	line "instincts, human."
+
+	para "For you own good."
+
+	para "Your greed for"
+	line "power will be"
+	cont "your downfall."
 	done

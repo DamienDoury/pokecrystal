@@ -10,7 +10,10 @@ CeruleanCaveB2F_MewtwoTelepathy1:
 	iftrue .end
 	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_1
-	farjumptext _MewtwoB2FText1
+	openredtext
+	farwriteredtext _MewtwoB2FText1
+	waitbutton
+	closetext
 .end
 	end
 
@@ -19,7 +22,10 @@ CeruleanCaveB2F_MewtwoTelepathy2:
 	iftrue .end
 	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_2
-	farjumptext _MewtwoB2FText2
+	openredtext
+	farwriteredtext _MewtwoB2FText2
+	waitbutton
+	closetext
 .end
 	end
 
@@ -28,7 +34,10 @@ CeruleanCaveB2F_MewtwoTelepathy3:
 	iftrue .end
 	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_3
-	farjumptext _MewtwoB2FText3
+	openredtext
+	farwriteredtext _MewtwoB2FText3
+	waitbutton
+	closetext
 .end
 	end
 
@@ -37,7 +46,10 @@ CeruleanCaveB2F_MewtwoTelepathy4:
 	iftrue .end
 	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_4
-	farjumptext _MewtwoB2FText4
+	openredtext
+	farwriteredtext _MewtwoB2FText4
+	waitbutton
+	closetext
 .end
 	end
 
@@ -58,7 +70,7 @@ CeruleanCaveB2F_MapEvents:
 	coord_event 15,  9, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy1
 	coord_event 21, 13, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy2
 	coord_event 24,  6, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy3
-	coord_event  4,  6, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy4
+	coord_event  6,  7, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy4
 
 	def_bg_events
 
