@@ -23,7 +23,7 @@ CeruleanCaveMewtwoScript:
 	cry MEWTWO
 	waitsfx
 	pause 30
-	loadmem wCeruleanCaveB3FMewtwoRetreat, FALSE
+	loadmem wCeruleanCaveB3FDidMewtwoRetreat, FALSE
 	loadmem wCeruleanCaveB3FStepCount, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100
