@@ -1692,6 +1692,9 @@ BattleCommand_CheckRestrictedWeather:
 BattleCommand_CheckHit:
 ; checkhit
 
+	call .LockOn
+	ret nz
+
 	call .DreamEater
 	jp z, .Miss
 
@@ -1700,9 +1703,6 @@ BattleCommand_CheckHit:
 
 	call .DrainSub
 	jp z, .Miss
-
-	call .LockOn
-	ret nz
 
 	call .FlyDigMoves
 	jp nz, .Miss
@@ -7046,7 +7046,7 @@ GetOpponentItem:
 	ld hl, wBattleMonItem
 .go
 	ld b, [hl]
-	jp GetItemHeldEffect
+	; fallthrough.
 
 GetItemHeldEffect:
 ; Return the effect of item b in bc.
