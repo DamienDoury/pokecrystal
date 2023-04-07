@@ -3819,6 +3819,7 @@ endr
 	ld [wEnemyTurnsTaken], a
 	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
+	res SUBSTATUS_LOCK_ON, [hl]
 	ret
 
 ResetEnemyStatLevels:
@@ -4305,6 +4306,7 @@ endr
 	ld [wPlayerTurnsTaken], a
 	ld hl, wEnemySubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
+	res SUBSTATUS_LOCK_ON, [hl]
 	ret
 
 BreakAttraction:
