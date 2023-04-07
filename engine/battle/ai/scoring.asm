@@ -1913,6 +1913,11 @@ AI_Smart_Protect:
 	and a
 	jr nz, .greatly_discourage
 
+; Encourage this move if the enemy is locked on.
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_LOCK_ON, a
+	jr nz, .encourage
+
 ; Discourage this move if the player is locked on.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
