@@ -7053,24 +7053,42 @@ GetItemHeldEffect:
 	and a
 	ret z
 
-	; Damien's special case for the sitrus berry. Kinda ugly. I should this should be done in the item effect script.
+	; Special case for the Gold/Sitrus Berry.
 	cp GOLD_BERRY
-	jr nz, .proceed_normally
+	jr nz, .regular_item
 
 	push hl
 	push de
 	push af
-	callfar GetOneFourthMaxHP
-	ld c, e; No Pokemon can have more than 714 max HP, so a quarter of that will always fit within 1 byte. We can ignored the HP upper byte in register d.
+	; Get the proper HP address (either yours or the enemie's).
+	ld hl, wEnemyMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .hp_found
+
+	ld hl, wBattleMonMaxHP
+.hp_found
+	; Retrieves the actual HP value from its address in memory.
+	ld a, [hli]
+	ld d, a
+	ld a, [hl]
+	ld e, a
+
+	; Divide by 4, and floor the result.
+	srl d
+	rr e
+	srl d
+	rr e
+
+	ld c, e ; Return value. Note that no Pokemon can have more than 714 max HP, so a quarter of that will always fit within 1 byte. We can ignore the HP upper byte in register d.
 	pop af
 	pop de
 	pop hl
 	ld b, HELD_BERRY
 	ret
 
-.proceed_normally
-	; End of Damien's special case.
-
+.regular_item
+	; End of special case for the Gold/Sitrus Berry.
 	push hl
 	ld hl, ItemAttributes + ITEMATTR_EFFECT
 	dec a
