@@ -634,7 +634,7 @@ TVShow:
 	cont "importantly,"
 
 	para "it would kill"
-	line "nearly 10% of"
+	line "nearly 10<PERCENT> of"
 	cont "our population."
 
 	para "That is why the"
@@ -1008,7 +1008,7 @@ TVShow:
 	cont "were unrealistic"
 
 	para "but we should"
-	line "reach 99% of"
+	line "reach 99<PERCENT> of"
 	cont "vaccination"
 
 	para "before the end of"
@@ -1030,7 +1030,7 @@ TVShow:
 	para "“Our vaccination"
 	line "level is strug-"
 	cont "gling to go beyond"
-	cont "80 percent of the"
+	cont "80<PERCENT> of the total"
 	cont "population."
 
 	para "Indeed a lot of"
