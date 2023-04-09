@@ -36,9 +36,6 @@ MainMenu:
 	call MainMenu_GetWhichMenu
 	ld [wWhichIndexSet], a
 	call MainMenu_PrintCurrentTimeAndDay
-	ld de, .Disclaimer
-	hlcoord 1, 12
-	call PlaceString
 	ld hl, .MenuHeader
 	call LoadMenuHeader
 	call MainMenuJoypadLoop
@@ -77,9 +74,6 @@ MainMenu:
 if DEF(_DEBUG)
 	db "DEBUG ROOM@"
 endc
-
-.Disclaimer
-	db "Unofficial fangame@"
 
 .Jumptable:
 ; entries correspond to MAINMENUITEM_* constants

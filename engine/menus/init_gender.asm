@@ -20,6 +20,22 @@ InitCrystalData:
 
 INCLUDE "mobile/mobile_12.asm"
 
+DisclaimerScreen:
+	ld de, .Disclaimer
+	hlcoord 0, 7
+	call PlaceString
+	ld c, 240
+	call DelayFrames
+	farcall FadeOutPalettes
+	ret
+
+.Disclaimer
+	db "    This fangame<LF>"
+	db "<LF>"
+	db "     is not an<LF>"
+	db "<LF>"
+	db "   official game.@"
+
 InitGender:
 	call InitGenderScreen
 	call LoadGenderScreenPal
