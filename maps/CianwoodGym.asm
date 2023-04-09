@@ -339,22 +339,22 @@ ChuckAfterText:
 	done
 
 BlackbeltYoshiSeenText:
-	text "My #MON and I"
-	line "are bound togeth-"
-	cont "er by friendship."
-
-	para "Our bond will"
-	line "never be broken!"
+	text "Do you know what"
+	line "toughness is?"
 	done
 
 BlackbeltYoshiBeatenText:
-	text "This isn't real!"
+	text "Toughness is the"
+	line "Delta variant."
 	done
 
 BlackbeltYoshiAfterText:
-	text "You seem to have a"
-	line "strong bond with"
-	cont "your #MON too!"
+	text "A remote family"
+	line "member of mine got"
+	cont "the Delta variant."
+
+	para "It's the harshest"
+	line "of all variants."
 	done
 
 BlackbeltLaoSeenText:
@@ -367,9 +367,16 @@ BlackbeltLaoBeatenText:
 	done
 
 BlackbeltLaoAfterText:
-	text "Fighting #MON"
-	line "are afraid of psy-"
-	cont "chics…"
+	text "I'm afraid of the"
+	line "Omicron BA.2"
+	cont "variant."
+	
+	para "It's not as harsh"
+	line "as the Alpha or"
+	cont "Delta variants,"
+	
+	para "but it's way more"
+	line "contagious."
 	done
 
 BlackbeltNobSeenText:

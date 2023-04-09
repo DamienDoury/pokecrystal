@@ -17,9 +17,11 @@ OlivineLighthouse1FSailorText:
 	text "People train at"
 	line "this LIGHTHOUSE."
 
-	para "It's not easy to"
-	line "climb because of"
-	cont "all the trainers."
+	para "Most of them work"
+	line "here, but some"
+	cont "people just snuck"
+	cont "in here to avoid"
+	cont "the lockdown."
 	done
 
 OlivineLighthouse1FPokefanFText:

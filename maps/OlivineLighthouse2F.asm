@@ -159,25 +159,25 @@ SailorHueyUnusedText: ; unreferenced
 	done
 
 GentlemanAlfredSeenText:
-	text "Hm? This is no"
-	line "place for playing."
+	text "Did you know that"
+	line "there are several"
+	cont "variants of COVID?"
 	done
 
 GentlemanAlfredBeatenText:
-	text "Ah! I can see that"
-	line "you're serious."
+	text "I can see you're"
+	line "knowledgeable."
 	done
 
 GentlemanAlfredAfterBattleText:
-	text "Up top is a #-"
-	line "MON that keeps the"
-	cont "LIGHTHOUSE lit."
+	text "I personally know"
+	line "CHIEF NURSE JOY."
 
-	para "But I hear that"
-	line "it's sick now and"
-
-	para "can't be cured by"
-	line "ordinary medicine."
+	para "She was able to"
+	line "tell me which"
+	cont "variant of COVID"
+	cont "my dear #MON"
+	cont "caught last time."
 	done
 
 SailorHueyGiveProteinText:

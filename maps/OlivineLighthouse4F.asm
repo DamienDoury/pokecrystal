@@ -67,16 +67,20 @@ LassConnie1BeatenText:
 	done
 
 LassConnie1AfterBattleText:
-	text "Right. Anybody"
-	line "would be worried"
-	cont "if his or her own"
-	cont "#MON were hurt."
+	text "Did you know that"
+	line "the number of"
+	cont "abandonned #MON"
+	cont "has risen since"
+	cont "start of the"
+	cont "pandemic?"
 
-	para "I'll pray for the"
-	line "#MON here, so"
+	para "It's a NURSE that"
+	line "works at a #MON"
+	cont "CENTER that"
+	cont "told me."
 
-	para "JASMINE can come"
-	line "back to the GYM."
+	para "She takes most"
+	line "of them in."
 	done
 
 OlivineLighthouse4F_MapEvents:

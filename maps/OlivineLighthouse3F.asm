@@ -81,15 +81,21 @@ SailorTerrellBeatenText:
 	done
 
 SailorTerrellAfterBattleText:
-	text "Every time I come"
-	line "back to OLIVINE, I"
-	cont "visit the GYM."
+	text "I once had no"
+	line "choice but to"
+	cont "abandon my"
+	cont "partner #MON."
+	
+	para "I was out of"
+	line "money… PCR tests"
+	cont "cost a lot over"
+	cont "the long run."
 
-	para "The GYM LEADER's"
-	line "#MON type has"
+	para "I ain't proud"
+	line "about it."
 
-	para "changed without me"
-	line "noticing."
+	para "I hope she's with a"
+	line "good trainer now."
 	done
 
 GentlemanPrestonSeenText:
