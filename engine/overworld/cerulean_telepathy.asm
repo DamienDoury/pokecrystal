@@ -92,3 +92,16 @@ MewtwoB3FText7:
 MewtwoB3FText8:
 	text_far _MewtwoB3FText8
 	text_end
+
+ComputeMewtwoTeleportIndex:
+	ld a, 3
+	call RandomRange ; Generates a random number that is either 0, 1, or 2.
+	inc a
+	push bc
+	ld b, a
+	ld a, [wCeruleanCaveB3FTeleportIndex]
+	add b
+	pop bc
+	and %11
+	ld [wCeruleanCaveB3FTeleportIndex], a
+	ret

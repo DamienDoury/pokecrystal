@@ -842,6 +842,10 @@ TryEnemyFlee:
 	dec a
 	jr nz, .Stay ; You can't flee from a trainer battle.
 	
+	ld a, [wEnemyMonStatus]
+	and 1 << FRZ | SLP
+	jr nz, .Stay
+	
 	ld a, [wEnemyMonSpecies]
 	cp MEWTWO
 	jr z, .MewtwoBattle
@@ -856,10 +860,6 @@ TryEnemyFlee:
 
 	ld a, [wEnemyWrapCount]
 	and a
-	jr nz, .Stay
-
-	ld a, [wEnemyMonStatus]
-	and 1 << FRZ | SLP
 	jr nz, .Stay
 
 	ld a, [wTempEnemyMonSpecies]
@@ -923,19 +923,6 @@ TryEnemyFlee:
 	jr .Flee
 
 INCLUDE "data/wild/flee_mons.asm"
-
-ComputeMewtwoTeleportIndex:
-	ld a, 3
-	call RandomRange ; Generates a random number that is either 0, 1, or 2.
-	inc a
-	push bc
-	ld b, a
-	ld a, [wCeruleanCaveB3FTeleportIndex]
-	add b
-	pop bc
-	and %11
-	ld [wCeruleanCaveB3FTeleportIndex], a
-	ret
 	
 CompareMovePriority:
 ; Compare the priority of the player and enemy's moves.
