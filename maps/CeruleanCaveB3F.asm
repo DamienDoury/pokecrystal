@@ -20,6 +20,9 @@ CeruleanCaveB3F_MapScripts:
 	endcallback
 
 CeruleanCaveMewtwoScript:
+	readvar VAR_FACING
+	ifequal DOWN, .end
+
 	cry MEWTWO
 	waitsfx
 	pause 30
@@ -35,6 +38,7 @@ CeruleanCaveMewtwoScript:
 	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
 	setevent EVENT_CAUGHT_MEWTWO
 	reloadmapafterbattle
+.end
 	end
 
 .DidntCatchMewtwo:
