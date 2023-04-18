@@ -47,6 +47,13 @@ BattleText_WildFled:
 	line "fled!"
 	prompt
 
+BattleText_MewtwoFled:
+	text "Wild @"
+	text_ram wEnemyMonNickname
+	text_start
+	line "is glowing."
+	prompt
+
 BattleText_EnemyFled:
 	text "Enemy @"
 	text_ram wEnemyMonNickname

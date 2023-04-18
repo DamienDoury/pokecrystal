@@ -2127,8 +2127,8 @@ _MewtwoB3FText5::
 _MewtwoB3FText6::
 	text "I will be your"
 	line "end, and you will"
-	cont "become the end of"
-	cont "species."
+	cont "be the end of"
+	cont "yours species."
 
 	para "This is my curse."
 	done

@@ -206,3 +206,4 @@ SpecialsPointers::
 	add_special CelebiFlyAwayAnim
 	add_special GetOlivineCafeSalad
 	add_special TellCovidVariant
+	add_special ComputeMewtwoTeleportIndex

@@ -26,7 +26,6 @@ CeruleanCaveMewtwoScript:
 	cry MEWTWO
 	waitsfx
 	pause 30
-	loadmem wCeruleanCaveB3FDidMewtwoRetreat, FALSE
 	loadmem wCeruleanCaveB3FStepCount, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100
@@ -47,8 +46,33 @@ CeruleanCaveMewtwoScript:
 	waitsfx
 	disappear CERULEAN_CAVE_MEWTWO_TOP
 	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
-	moveobject CERULEAN_CAVE_MEWTWO_TOP, 38, 0
-	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 38, 1
+
+	special ComputeMewtwoTeleportIndex
+	readmem wCeruleanCaveB3FTeleportIndex
+	ifequal 1, .teleportIndex1
+	ifequal 2, .teleportIndex2
+	ifequal 3, .teleportIndex3
+
+;.teleportIndex0
+	moveobject CERULEAN_CAVE_MEWTWO_TOP, 28, 14
+	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 28, 15
+	sjump .appear
+
+.teleportIndex1
+	moveobject CERULEAN_CAVE_MEWTWO_TOP, 11, 8
+	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 11, 9
+	sjump .appear
+
+.teleportIndex2
+	moveobject CERULEAN_CAVE_MEWTWO_TOP, 21, 2
+	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 21, 3
+	sjump .appear
+
+.teleportIndex3
+	moveobject CERULEAN_CAVE_MEWTWO_TOP, 4, 2
+	moveobject CERULEAN_CAVE_MEWTWO_BOTTOM, 4, 3
+
+.appear
 	appear CERULEAN_CAVE_MEWTWO_TOP
 	appear CERULEAN_CAVE_MEWTWO_BOTTOM
 	jumptext MewtwoTeleportedAwayText

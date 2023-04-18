@@ -142,9 +142,19 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	and BATTLERESULT_BITMASK
 	add DRAW
 	ld [wBattleResult], a
+	ld a, [wEnemyMonSpecies]
+	cp MEWTWO
+	jr z, .mewtwo
+
+	ld hl, BattleText_WildFled
+	jr .species_found
+
+.mewtwo
+	ld hl, BattleText_MewtwoFled
+
+.species_found
 	ld a, [wLinkMode]
 	and a
-	ld hl, BattleText_WildFled
 	jr z, .print_text
 
 	ld a, [wBattleResult]
@@ -828,13 +838,17 @@ HandleEncore:
 	jp StdBattleTextbox
 
 TryEnemyFlee:
+	ld a, [wBattleMode]
+	dec a
+	jr nz, .Stay ; You can't flee from a trainer battle.
+	
+	ld a, [wEnemyMonSpecies]
+	cp MEWTWO
+	jr z, .MewtwoBattle
+
 	ld a, [wAssaultBattle] ; It would make no sense to assault the player just to flee. Note that this won't affect Legendary cats/dogs, as they can't assault the player.
 	cp TRUE
 	jr z, .Stay
-
-	ld a, [wBattleMode]
-	dec a
-	jr nz, .Stay
 
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
@@ -885,8 +899,44 @@ TryEnemyFlee:
 	scf
 	ret
 
+.MewtwoBattle:
+	ld a, [wEnemyTurnsTaken]
+	cp 10
+	jr c, .Stay
+
+	ld a, [wEnemyMonHP]
+	and a
+	jr nz, .Stay ; If Mewtwo has too much HP, it stays on the field.
+
+	ld a, [wEnemyMonHP + 1]
+	cp 177
+	jr nc, .Stay ; If Mewtwo has more than half its max HP, it stays in battle.
+
+	push bc
+	call BattleRandom
+	ld b, a
+	ld a, [wEnemyMonHP + 1]
+	cp b
+	pop bc
+	jr nc, .Stay ; The less HP Mewtwo has, the higher the chances of fleeing.
+
+	jr .Flee
+
 INCLUDE "data/wild/flee_mons.asm"
 
+ComputeMewtwoTeleportIndex:
+	ld a, 3
+	call RandomRange ; Generates a random number that is either 0, 1, or 2.
+	inc a
+	push bc
+	ld b, a
+	ld a, [wCeruleanCaveB3FTeleportIndex]
+	add b
+	pop bc
+	and %11
+	ld [wCeruleanCaveB3FTeleportIndex], a
+	ret
+	
 CompareMovePriority:
 ; Compare the priority of the player and enemy's moves.
 ; Return carry if the player goes first, or z if they match.

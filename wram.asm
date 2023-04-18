@@ -3113,7 +3113,6 @@ NEXTU
 wCeruleanCaveB3FStepCount:: db
 wCeruleanCaveB3FMessageIndex:: db
 wCeruleanCaveB3FTeleportIndex:: db
-wCeruleanCaveB3FDidMewtwoRetreat:: db
 
 NEXTU
 wOlivineCafeBerry1:: db
