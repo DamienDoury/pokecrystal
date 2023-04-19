@@ -8,6 +8,13 @@ SeafoamB6F_MapScripts:
 
 
 SeafoamB6FMoltres:
+	cry MOLTRES
+	loadmem wAssaultBattle, $ff
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	loadwildmon MOLTRES, 75
+	startbattle
+	disappear SEAFOAMB6F_MOLTRES
+	reloadmapafterbattle
 	end
 
 SeafoamB6F_MapEvents:
@@ -25,4 +32,4 @@ SeafoamB6F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5, 11, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB6FMoltres, -1
+	object_event  5, 11, SPRITE_MOLTRES, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB6FMoltres, EVENT_FOUGHT_MOLTRES

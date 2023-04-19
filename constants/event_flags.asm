@@ -652,9 +652,10 @@
 	const EVENT_FOUGHT_ZAPDOS
 	const EVENT_ZAPDOS_APPEARED
 	const EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
+	const EVENT_FOUGHT_MOLTRES
+	const EVENT_FOUGHT_ARTICUNO
 
-
-; Unused: next 127 events
+; Unused: next 124 events
 
 	const_next 1000
 ; Trainer flags
