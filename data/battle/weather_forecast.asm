@@ -38,4 +38,6 @@ ENDM
 	auto_weather_map ROUTE_25, 				MORN | NITE,	AUTOMATIC_RAIN 
 	auto_weather_map ROUTE_3, 				MORN | DAY,		AUTOMATIC_SANDSTORM
 	auto_weather_map ROUTE_9, 				NITE,			AUTOMATIC_SANDSTORM
+	auto_weather_map SEAFOAM_B5F, 			ANYTIME,		AUTOMATIC_SUN
+	auto_weather_map SEAFOAM_B6F, 			ANYTIME,		AUTOMATIC_SUN
 	db 0 ; end
