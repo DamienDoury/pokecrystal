@@ -70,7 +70,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 45
 	tilecoll WALL, WALL, WALL, WALL ; 46
 	tilecoll WALL, WALL, WALL, WALL ; 47
-	tilecoll FLOOR, WALL, WALL, FLOOR ; 48
+	tilecoll UP_WALL, UP_WALL, WALL, FLOOR ; 48
 	tilecoll WALL, WALL, WALL, WALL ; 49
 	tilecoll WALL, WALL, WALL, WALL ; 4a
 	tilecoll WALL, WALL, WALL, WALL ; 4b

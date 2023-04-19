@@ -52,8 +52,8 @@ SeafoamB5F_MapEvents:
 	warp_event 25,  9, SEAFOAM_B4F, 3
 	warp_event 33, 17, SEAFOAM_B6F, 1
 
-	warp_event 35, 11, SEAFOAM_B5F, 5
-	warp_event 33,  3, SEAFOAM_B5F, 6
+	warp_event 35, 13, SEAFOAM_B5F, 5
+	warp_event 33,  5, SEAFOAM_B5F, 6
 	warp_event  5, 11, SEAFOAM_B5F, 1
 	warp_event  3,  3, SEAFOAM_B5F, 4
 
