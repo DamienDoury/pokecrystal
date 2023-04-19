@@ -989,6 +989,24 @@ GoldenrodHospitalRoom_Blocks:
 SeafoamB1F_Blocks:
 	INCBIN "maps/SeafoamB1F.blk"
 
+SeafoamB2F_Blocks:
+	INCBIN "maps/SeafoamB2F.blk"
+
+SeafoamB3F_Blocks:
+	INCBIN "maps/SeafoamB3F.blk"
+
+SeafoamB4F_Blocks:
+	INCBIN "maps/SeafoamB4F.blk"
+
+SeafoamB5F_Blocks:
+	INCBIN "maps/SeafoamB5F.blk"
+
+SeafoamGymB1F_Blocks:
+SeafoamGymB2F_Blocks:
+SeafoamGymB3F_Blocks:
+SeafoamB6F_Blocks:
+	INCBIN "maps/SeafoamB6F.blk"
+
 VaccinationCenter1F_Blocks:
 	INCBIN "maps/VaccinationCenter1F.blk"
 

@@ -77,15 +77,6 @@ INCBIN "data/tilesets/players_house_metatiles.bin"
 TilesetPlayersHouseColl::
 INCLUDE "data/tilesets/players_house_collision.asm"
 
-TilesetMansionGFX::
-INCBIN "gfx/tilesets/mansion.2bpp.lz"
-
-TilesetMansionMeta::
-INCBIN "data/tilesets/mansion_metatiles.bin"
-
-TilesetMansionColl::
-INCLUDE "data/tilesets/mansion_collision.asm"
-
 TilesetCaveGFX::
 INCBIN "gfx/tilesets/cave.2bpp.lz"
 
@@ -318,6 +309,15 @@ INCBIN "data/tilesets/ruins_of_alph_metatiles.bin"
 
 TilesetRuinsOfAlphColl::
 INCLUDE "data/tilesets/ruins_of_alph_collision.asm"
+
+TilesetMansionGFX::
+INCBIN "gfx/tilesets/mansion.2bpp.lz"
+
+TilesetMansionMeta::
+INCBIN "data/tilesets/mansion_metatiles.bin"
+
+TilesetMansionColl::
+INCLUDE "data/tilesets/mansion_collision.asm"
 
 
 SECTION "Tileset Data 8", ROMX

@@ -156,10 +156,15 @@ ENDM
 	map_const SEAFOAM_W1F,			                       10, 18 ; 92
 	map_const SEAFOAM_E1F,			                       10, 18 ; 93
 	map_const SEAFOAM_B1F,			                       15,  9 ; 94
-	map_const CERULEAN_CAVE_ENTRANCE,			            5,  9 ; 95
-	map_const CERULEAN_CAVE_B1F,			               17, 11 ; 96
-	map_const CERULEAN_CAVE_B2F,			               17, 11 ; 97
-	map_const CERULEAN_CAVE_B3F,			               18, 11 ; 98
+	map_const SEAFOAM_B2F,			                       15,  9 ; 95
+	map_const SEAFOAM_B3F,			                        7,  6 ; 96
+	map_const SEAFOAM_B4F,			                       11,  6 ; 97
+	map_const SEAFOAM_B5F,			                       15,  9 ; 98
+	map_const SEAFOAM_B6F,			                       10, 10 ; 99
+	map_const CERULEAN_CAVE_ENTRANCE,			            5,  9 ; 100
+	map_const CERULEAN_CAVE_B1F,			               17, 11 ; 101
+	map_const CERULEAN_CAVE_B2F,			               17, 11 ; 102
+	map_const CERULEAN_CAVE_B3F,			               18, 11 ; 103
 	endgroup
 
 	newgroup ECRUTEAK                                             ;  4
@@ -192,11 +197,14 @@ ENDM
 	newgroup CINNABAR                                             ;  6
 	map_const CINNABAR_POKECENTER_1F,                       5,  4 ;  1
 	map_const ROUTE_19_FUCHSIA_GATE,                        5,  4 ;  2
-	map_const SEAFOAM_GYM,                                  5,  4 ;  3
+	map_const SEAFOAM_GYM,                                 12,  8 ;  3
 	map_const ROUTE_19,                                    10, 18 ;  4
 	map_const ROUTE_20,                                    30,  9 ;  5
 	map_const ROUTE_21,                                    10, 18 ;  6
 	map_const CINNABAR_ISLAND,                             10,  9 ;  7
+	map_const SEAFOAM_GYM_B1F,                             10, 10 ;  8
+	map_const SEAFOAM_GYM_B2F,                             10, 10 ;  9
+	map_const SEAFOAM_GYM_B3F,                             10, 10 ;  10
 	endgroup
 
 	newgroup CERULEAN                                             ;  7

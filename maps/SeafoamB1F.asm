@@ -19,6 +19,12 @@ SeafoamB1F_MapEvents:
 	def_warp_events
 	warp_event  7, 15, SEAFOAM_W1F, 1
 	warp_event 25, 15, SEAFOAM_E1F, 1
+	warp_event  7,  7, SEAFOAM_B2F, 1
+	warp_event 19, 15, SEAFOAM_B2F, 2
+	warp_event 25,  5, SEAFOAM_B2F, 3
+	warp_event 14,  9, SEAFOAM_B2F, 6
+	warp_event 22,  7, SEAFOAM_B2F, 7
+
 
 	def_coord_events
 

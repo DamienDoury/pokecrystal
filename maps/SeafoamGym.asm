@@ -166,7 +166,7 @@ BlaineIntroEndText:
 
 BlaineRefusesBattleText:
 	text "Someone should"
-	line "have had told you…"
+	line "have told you…"
 
 	para "You can't battle"
 	line "in my GYM with"
@@ -174,6 +174,17 @@ BlaineRefusesBattleText:
 	para "neither WATER,"
 	line "GROUND, nor ROCK"
 	cont "type #MON."
+
+	para "You need SURF to"
+	line "reach me, and yet"
+	
+	para "you can't use a"
+	line "WATER #MON."
+
+	para "This is it!!"
+	
+	para "This'll be my"
+	line "new riddle!"
 	done
 
 BlaineWinLossText:
@@ -253,12 +264,13 @@ SeafoamGym_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  5,  5, CINNABAR_ISLAND, 2
+	warp_event  5, 13, CINNABAR_ISLAND, 2
+	warp_event 11,  3, SEAFOAM_GYM_B1F, 1
 
 	def_coord_events
 
 	def_bg_events
 
 	def_object_events
-	object_event  5,  2, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, EVENT_CINNABAR_RAVE_PARTY
-	object_event  6,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, EVENT_SEAFOAM_GYM_GYM_GUIDE
+	object_event 19,  7, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, EVENT_CINNABAR_RAVE_PARTY
+	object_event  6, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, EVENT_SEAFOAM_GYM_GYM_GUIDE

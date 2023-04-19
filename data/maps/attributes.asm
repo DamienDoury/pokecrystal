@@ -691,6 +691,11 @@ ENDM
 	map_attributes SeafoamW1F, SEAFOAM_W1F, $09, 0
 	map_attributes SeafoamE1F, SEAFOAM_E1F, $09, 0
 	map_attributes SeafoamB1F, SEAFOAM_B1F, $09, 0
+	map_attributes SeafoamB2F, SEAFOAM_B2F, $09, 0
+	map_attributes SeafoamB3F, SEAFOAM_B3F, $09, 0
+	map_attributes SeafoamB4F, SEAFOAM_B4F, $09, 0
+	map_attributes SeafoamB5F, SEAFOAM_B5F, $09, 0
+	map_attributes SeafoamB6F, SEAFOAM_B6F, $09, 0
 	map_attributes VaccinationCenter1F, VACCINATION_CENTER_1F, $00, 0
 	map_attributes VaccinationCenterCorridor, VACCINATION_CENTER_CORRIDOR, $00, 0
 	map_attributes VaccinationCenterRoom, VACCINATION_CENTER_ROOM, $00, 0
@@ -707,3 +712,6 @@ ENDM
 	map_attributes Route4Tunnel, ROUTE_4_TUNNEL, $09, 0
 	map_attributes PewterMuseum1F, PEWTER_MUSEUM_1F, $00, 0
 	map_attributes PewterMuseum2F, PEWTER_MUSEUM_2F, $00, 0
+	map_attributes SeafoamGymB1F, SEAFOAM_GYM_B1F, $09, 0
+	map_attributes SeafoamGymB2F, SEAFOAM_GYM_B2F, $09, 0
+	map_attributes SeafoamGymB3F, SEAFOAM_GYM_B3F, $09, 0
