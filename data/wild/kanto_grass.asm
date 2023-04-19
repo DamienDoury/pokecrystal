@@ -229,7 +229,7 @@ KantoGrassWildMons:
 	def_grass_wildmons VIRIDIAN_FOREST
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 4, CATERPIE			; 30%		
+	db 4, CATERPIE			; 30%
 	db 4, WEEDLE			; 30%
 	db 7, METAPOD			; 20%
 	db 7, KAKUNA			; 10%
@@ -319,7 +319,7 @@ KantoGrassWildMons:
 	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
 	db 14, PIDGEY
-	db 14, SQUIRTLE
+	db 14, PIDGEY
 	; day
 	db 13, PIDGEY
 	db 13, SNUBBULL
@@ -327,7 +327,7 @@ KantoGrassWildMons:
 	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
 	db 14, PIDGEY
-	db 14, SQUIRTLE
+	db 14, PIDGEY
 	; nite
 	db 13, HOOTHOOT
 	db 13, MEOWTH
@@ -335,7 +335,7 @@ KantoGrassWildMons:
 	db 12, JIGGLYPUFF
 	db 14, JIGGLYPUFF
 	db 14, HOOTHOOT
-	db 14, SQUIRTLE
+	db 14, HOOTHOOT
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_6
@@ -980,6 +980,146 @@ KantoGrassWildMons:
 	db 42, PARASECT
 	db 45, VENOMOTH
 	db 40, KANGASKHAN
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B1F
+	db 8 percent, 8 percent, 8 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, SEEL			; 30%
+	db 27, SHELLDER		; 30%
+	db 26, KRABBY		; 20%
+	db 30, PSYDUCK		; 10%
+	db 28, PSYDUCK		; 5%
+	db 34, KINGLER		; 4%
+	db 36, GOLDUCK		; 1%
+	; day
+	db 28, PSYDUCK
+	db 28, SHELLDER
+	db 31, SEEL
+	db 37, CLOYSTER
+	db 40, SLOWBRO
+	db 40, DEWGONG
+	db 42, DEWGONG
+	; nite
+	db 28, STARYU
+	db 28, KRABBY
+	db 30, ZUBAT
+	db 26, SEEL
+	db 36, KINGLER
+	db 36, STARMIE
+	db 38, STARMIE
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B2F
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, SEEL			; 30%
+	db 33, SHELLDER		; 30%
+	db 32, KRABBY		; 20%
+	db 36, PSYDUCK		; 10%
+	db 34, PSYDUCK		; 5%
+	db 40, KINGLER		; 4%
+	db 42, GOLDUCK		; 1%
+	; day
+	db 34, PSYDUCK
+	db 34, SHELLDER
+	db 37, SEEL
+	db 43, CLOYSTER
+	db 46, SLOWBRO
+	db 46, DEWGONG
+	db 48, DEWGONG
+	; nite
+	db 34, STARYU
+	db 34, KRABBY
+	db 36, ZUBAT
+	db 32, SEEL
+	db 42, KINGLER
+	db 42, STARMIE
+	db 44, STARMIE
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B3F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, SEEL			; 30%
+	db 27, SHELLDER		; 30%
+	db 26, KRABBY		; 20%
+	db 30, PSYDUCK		; 10%
+	db 28, PSYDUCK		; 5%
+	db 34, KINGLER		; 4%
+	db 36, GOLDUCK		; 1%
+	; day
+	db 28, PSYDUCK
+	db 28, SHELLDER
+	db 31, SEEL
+	db 37, CLOYSTER
+	db 40, SLOWBRO
+	db 40, DEWGONG
+	db 42, DEWGONG
+	; nite
+	db 28, STARYU
+	db 28, KRABBY
+	db 30, ZUBAT
+	db 26, SEEL
+	db 36, KINGLER
+	db 36, STARMIE
+	db 38, STARMIE
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B4F
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, MAGMAR		; 30%
+	db 27, VULPIX		; 30%
+	db 26, SLUGMA		; 20%
+	db 30, GROWLITHE	; 10%
+	db 28, HOUNDOUR		; 5%
+	db 34, NINETALES	; 4%
+	db 36, NINETALES	; 1%
+	; day
+	db 28, SLUGMA
+	db 28, VULPIX
+	db 37, MAGCARGO
+	db 37, MAGMAR
+	db 32, VULPIX
+	db 40, ARCANINE
+	db 42, ARCANINE
+	; nite
+	db 28, MAGMAR
+	db 28, GROWLITHE
+	db 30, VULPIX
+	db 26, SLUGMA
+	db 36, NINETALES
+	db 36, HOUNDOOM
+	db 38, HOUNDOOM
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B5F
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, MAGMAR		; 30%
+	db 33, VULPIX		; 30%
+	db 32, SLUGMA		; 20%
+	db 36, GROWLITHE	; 10%
+	db 34, HOUNDOUR		; 5%
+	db 8, CHARMANDER	; 4%
+	db 30, CHARMELEON	; 1%
+	; day
+	db 34, SLUGMA
+	db 34, VULPIX
+	db 43, MAGCARGO
+	db 43, MAGMAR
+	db 38, VULPIX
+	db 46, ARCANINE
+	db 13, CHARMANDER
+	; nite
+	db 32, MAGMAR
+	db 34, GROWLITHE
+	db 36, VULPIX
+	db 32, SLUGMA
+	db 47, NINETALES
+	db 44, HOUNDOOM
+	db 10, CHARMANDER
 	end_grass_wildmons
 
 	db -1 ; end

@@ -191,4 +191,11 @@ KantoWaterWildMons:
 	db 40, LAPRAS
 	end_water_wildmons
 
+	def_water_wildmons SEAFOAM_B2F
+	db 4 percent ; encounter rate
+	db 28, STARYU
+	db 28, SEEL
+	db 28, HORSEA
+	end_water_wildmons
+
 	db -1 ; end
