@@ -340,7 +340,12 @@
 	const EVENT_CERULEAN_CAVE_B2F_TEXT_2
 	const EVENT_CERULEAN_CAVE_B2F_TEXT_3
 	const EVENT_CERULEAN_CAVE_B2F_TEXT_4
-; Unused: next 283 events
+
+	const EVENT_VOLCANO_FOSSIL
+	const EVENT_VOLCANO_CHARCOAL
+	const EVENT_SEAFOAM_ESCAPE_ROPE
+	const EVENT_SEAFOAM_WATER_STONE
+; Unused: next 279 events
 
 	const_next 600
 ; Kurt Apricorn events
