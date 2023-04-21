@@ -331,9 +331,6 @@ MenuTextbox::
 	pop hl
 	jp PrintText
 
-Menu_DummyFunction:: ; unreferenced
-	ret
-
 LoadMenuTextbox::
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -836,12 +833,5 @@ InterpretBattleMenu::
 	ldh a, [hROMBank]
 	ld [wMenuData_2DMenuItemStringsBank], a
 	farcall _InterpretBattleMenu
-	ld a, [wMenuCursorPosition]
-	ret
-
-InterpretMobileMenu:: ; unreferenced
-	ldh a, [hROMBank]
-	ld [wMenuData_2DMenuItemStringsBank], a
-	farcall _InterpretMobileMenu
 	ld a, [wMenuCursorPosition]
 	ret
