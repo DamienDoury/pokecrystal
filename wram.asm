@@ -3118,6 +3118,15 @@ NEXTU
 wOlivineCafeBerry1:: db
 wOlivineCafeBerry2:: db
 wOlivineCafeBerry3:: db
+
+NEXTU
+wSokobanPlacedStonesCount:: db ; Used in Seafoam Islands / Cinnabar Volcano.
+wSokobanTargetsCount:: db
+wSokobanTargetsXStart:: db
+wSokobanTargetsXEnd:: db
+wSokobanTargetsYStart:: db
+wSokobanTargetsYEnd:: db
+wSokobanSuccessScript:: dw
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

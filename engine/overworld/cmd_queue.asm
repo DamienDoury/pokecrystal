@@ -33,14 +33,6 @@ HandleCmdQueue::
 	jr nz, .loop
 	ret
 
-GetNthCmdQueueEntry: ; unreferenced
-	ld hl, wCmdQueue
-	ld bc, CMDQUEUE_ENTRY_SIZE
-	call AddNTimes
-	ld b, h
-	ld c, l
-	ret
-
 WriteCmdQueue::
 	push bc
 	push de
@@ -133,6 +125,7 @@ HandleQueuedCommand:
 	dba CmdQueue_StoneTable
 	dba CmdQueue_Type3
 	dba CmdQueue_Type4
+	dba CmdQueue_Sokoban
 
 CmdQueues_AnonJumptable:
 	ld hl, CMDQUEUE_05
@@ -299,4 +292,66 @@ CmdQueue_StoneTable:
 
 .fall_down_hole
 	pop af
+	ret
+
+CmdQueue_Sokoban:
+	call .init_sokoban_params
+
+	ld de, wPlayerStruct
+	ld a, NUM_OBJECT_STRUCTS
+.loop
+	push af
+
+	ld hl, OBJECT_SPRITE
+	add hl, de
+	ld a, [hl]
+	and a
+	jr z, .next
+
+	ld hl, OBJECT_MOVEMENTTYPE
+	add hl, de
+	ld a, [hl]
+	cp SPRITEMOVEDATA_STRENGTH_BOULDER
+	jr nz, .next
+
+	ld hl, OBJECT_DIRECTION_WALKING
+	add hl, de
+	ld a, [hl]
+	cp STANDING
+	jr nz, .next
+
+	call CheckSokobanStone
+	jr c, .sokoban_solved
+
+.next
+	ld hl, OBJECT_LENGTH
+	add hl, de
+	ld d, h
+	ld e, l
+
+	pop af
+	dec a
+	jr nz, .loop
+	ret
+
+.sokoban_solved
+	pop af
+	ret
+
+.init_sokoban_params
+	xor a
+	ld [wSokobanPlacedStonesCount], a
+
+	ld hl, CMDQUEUE_ADDR
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	push bc
+	ld a, [wMapScriptsBank]
+	ld bc, 7
+	ld de, wSokobanTargetsCount
+	call FarCopyBytes
+	pop bc
 	ret

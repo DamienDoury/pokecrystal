@@ -156,7 +156,7 @@ ENDM
 	map_const SEAFOAM_W1F,			                       10, 18 ; 92
 	map_const SEAFOAM_E1F,			                       10, 18 ; 93
 	map_const SEAFOAM_B1F,			                       15,  9 ; 94
-	map_const SEAFOAM_B2F,			                       15,  9 ; 95
+	map_const SEAFOAM_B2F,			                       15, 10 ; 95
 	map_const SEAFOAM_B3F,			                        7,  6 ; 96
 	map_const SEAFOAM_B4F,			                        9,  5 ; 97
 	map_const SEAFOAM_B5F,			                       19, 10 ; 98

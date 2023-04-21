@@ -63,7 +63,7 @@ SeafoamB1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  7, 15, SEAFOAM_W1F, 1
+	warp_event  6, 15, SEAFOAM_W1F, 1
 	warp_event 25, 15, SEAFOAM_E1F, 1
 	warp_event  7,  7, SEAFOAM_B2F, 1
 	warp_event 19, 15, SEAFOAM_B2F, 2
