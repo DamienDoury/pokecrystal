@@ -5,7 +5,17 @@ SeafoamB6F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
 
+.EnterCallback
+	checkevent EVENT_BOULDER_IN_SEAFOAM_B6F_ALL
+	iftrue .DontCollapse
+
+	changeblock  4, 10, $4f
+	changeblock  4, 12, $4f
+
+.DontCollapse
+	endcallback
 
 SeafoamB6FMoltres:
 	cry MOLTRES
@@ -21,11 +31,10 @@ SeafoamB6F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 15, SEAFOAM_B5F, 2
+	warp_event 17,  3, SEAFOAM_B5F, 2
 	warp_event  5,  3, SEAFOAM_GYM_B3F, 2
-
-	; Pit arrival.
-	warp_event  5, 15, SEAFOAM_B6F, 1
+	warp_event 19, 11, SEAFOAM_B6F, 1 ; Pit arrival.
+	warp_event  5, 14, SEAFOAM_B6F, 1 ; Pit arrival.
 
 	def_coord_events
 

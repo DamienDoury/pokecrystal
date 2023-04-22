@@ -45,7 +45,7 @@ SeafoamB2F_MapScripts:
 	clearevent EVENT_BOULDER_IN_SEAFOAM_B3F_2
 
 .BoulderDone
-	pause 30
+	pause 5
 	scall .BoulderFallsThrough
 	opentext
 	writetext SeafoamB2FBoulderFellThroughText

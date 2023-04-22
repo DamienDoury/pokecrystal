@@ -998,12 +998,12 @@ SeafoamB3F_Blocks:
 SeafoamB4F_Blocks:
 	INCBIN "maps/SeafoamB4F.blk"
 
-SeafoamB5F_Blocks:
-	INCBIN "maps/SeafoamB5F.blk"
-
 SeafoamGymB1F_Blocks:
 SeafoamGymB2F_Blocks:
 SeafoamGymB3F_Blocks:
+SeafoamB5F_Blocks:
+	INCBIN "maps/SeafoamB5F.blk"
+
 SeafoamB6F_Blocks:
 	INCBIN "maps/SeafoamB6F.blk"
 

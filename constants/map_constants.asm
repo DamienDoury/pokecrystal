@@ -158,9 +158,9 @@ ENDM
 	map_const SEAFOAM_B1F,			                       15,  9 ; 94
 	map_const SEAFOAM_B2F,			                       15, 10 ; 95
 	map_const SEAFOAM_B3F,			                        7,  6 ; 96
-	map_const SEAFOAM_B4F,			                        9,  5 ; 97
-	map_const SEAFOAM_B5F,			                       19, 10 ; 98
-	map_const SEAFOAM_B6F,			                       10, 10 ; 99
+	map_const SEAFOAM_B4F,			                        8,  7 ; 97
+	map_const SEAFOAM_B5F,			                       18, 10 ; 98
+	map_const SEAFOAM_B6F,			                       11, 10 ; 99
 	map_const CERULEAN_CAVE_ENTRANCE,			            5,  9 ; 100
 	map_const CERULEAN_CAVE_B1F,			               17, 11 ; 101
 	map_const CERULEAN_CAVE_B2F,			               17, 11 ; 102
@@ -202,9 +202,9 @@ ENDM
 	map_const ROUTE_20,                                    30,  9 ;  5
 	map_const ROUTE_21,                                    10, 18 ;  6
 	map_const CINNABAR_ISLAND,                             10,  9 ;  7
-	map_const SEAFOAM_GYM_B1F,                             10, 10 ;  8
-	map_const SEAFOAM_GYM_B2F,                             10, 10 ;  9
-	map_const SEAFOAM_GYM_B3F,                             10, 10 ;  10
+	map_const SEAFOAM_GYM_B1F,                             18, 10 ;  8
+	map_const SEAFOAM_GYM_B2F,                             18, 10 ;  9
+	map_const SEAFOAM_GYM_B3F,                             18, 10 ;  10
 	endgroup
 
 	newgroup CERULEAN                                             ;  7

@@ -3,13 +3,24 @@
 	const SEAFOAMB3F_BOULDER2
 	const SEAFOAMB3F_BOULDER3
 
+
 SeafoamB3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_CMDQUEUE, .SetUpStoneTable
+	callback MAPCALLBACK_TILES, .EnterCallback
+	callback MAPCALLBACK_CMDQUEUE, .SetUpSokoban
 
-.SetUpStoneTable:
+.EnterCallback
+	checkevent EVENT_BOULDER_IN_SEAFOAM_B3F_3
+	iffalse .DontCollapse
+
+	scall .DisplayGroundHole
+	
+.DontCollapse
+	endcallback
+
+.SetUpSokoban:
 	writecmdqueue .CommandQueue
 	endcallback
 
@@ -20,18 +31,22 @@ SeafoamB3F_MapScripts:
 	sokobanparams 3, 7, 9, 5, 5, .Solved
 
 .Solved:
-	;pause 30
-	changeblock  6,  4, $5e
-	changeblock  8,  4, $5f
+	pause 5
+	scall .DisplayGroundHole
+	refreshscreen
 	disappear SEAFOAMB3F_BOULDER1
 	disappear SEAFOAMB3F_BOULDER2
 	disappear SEAFOAMB3F_BOULDER3
-	clearevent EVENT_BOULDER_IN_SEAFOAM_B4F_ALL
 	scall .BoulderFallsThrough
 	opentext
-	writetext SeafoamB3FGroundCollapsedText
+	farwritetext _WeakGroundCollapsedText
 	waitbutton
 	closetext
+	end
+
+.DisplayGroundHole
+	changeblock  6,  4, $5e
+	changeblock  8,  4, $5f
 	end
 
 .BoulderFallsThrough:
@@ -42,20 +57,8 @@ SeafoamB3F_MapScripts:
 SeafoamB3FItem:
 	itemball ESCAPE_ROPE
 
-SeafoamB3FGroundCollapsedText:
-	text "The ground collap-"
-	line "collapsed under"
-	cont "the weight of"
-	cont "the boulders."
-	done
-
-
-
-
-
-
 SeafoamB3FWeakGround:
-	checkevent EVENT_RED_BEATEN
+	checkevent EVENT_BOULDER_IN_SEAFOAM_B3F_3
 	iftrue .collapsed
 	farjumptext _WeakGroundText
 
@@ -74,7 +77,7 @@ SeafoamB3F_MapEvents:
 	warp_event  3,  3, SEAFOAM_B4F, 1
 	warp_event  7,  5, SEAFOAM_B4F, 2
 	warp_event  7,  3, SEAFOAM_B2F, 1
-	warp_event  9,  5, SEAFOAM_B4F, 2
+	warp_event  9,  5, SEAFOAM_B4F, 4
 
 	def_coord_events
 

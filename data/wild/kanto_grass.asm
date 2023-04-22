@@ -1119,6 +1119,34 @@ KantoGrassWildMons:
 	db 32, SLUGMA
 	db 47, NINETALES
 	db 44, HOUNDOOM
+	db 10, CYNDAQUIL
+	end_grass_wildmons
+
+	def_grass_wildmons SEAFOAM_B6F
+	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
+	; morn
+	db 36, MAGMAR		; 30%
+	db 33, VULPIX		; 30%
+	db 32, SLUGMA		; 20%
+	db 36, GROWLITHE	; 10%
+	db 34, HOUNDOUR		; 5%
+	db 8, CYNDAQUIL	; 4%
+	db 30, QUILAVA	; 1%
+	; day
+	db 34, SLUGMA
+	db 34, VULPIX
+	db 43, MAGCARGO
+	db 43, MAGMAR
+	db 38, VULPIX
+	db 46, ARCANINE
+	db 13, CYNDAQUIL
+	; nite
+	db 32, MAGMAR
+	db 34, GROWLITHE
+	db 36, VULPIX
+	db 32, SLUGMA
+	db 47, NINETALES
+	db 44, HOUNDOOM
 	db 10, CHARMANDER
 	end_grass_wildmons
 
