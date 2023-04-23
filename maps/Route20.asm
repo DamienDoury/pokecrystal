@@ -111,7 +111,7 @@ Route20_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 37, 11, BGEVENT_READ, CinnabarGymSign
+	bg_event 39,  9, BGEVENT_READ, CinnabarGymSign
 
 	def_object_events
 	object_event 52,  8, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfNicole, -1

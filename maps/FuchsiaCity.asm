@@ -21,11 +21,23 @@ FuchsiaCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TurnOffLights
 	callback MAPCALLBACK_OBJECTS, .FuchsiaSetup
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_FUCHSIA
 	endcallback
+	
+.TurnOffLights
+	checkevent EVENT_GOT_SAFARI_KEY_1
+	iftrue .EndFuchsiaSetup
+
+	; Turns off the lights of the safari area.
+	changeblock 16,  2, $70
+	changeblock 18,  2, $4b
+	changeblock 20,  2, $33
+
+	sjump .EndFuchsiaSetup
 
 .FuchsiaSetup:
 	checkevent EVENT_FUCHSIA_EXCAVATION_STARTED

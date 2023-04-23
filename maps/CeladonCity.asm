@@ -14,9 +14,24 @@ CeladonCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TurnOffLights
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CELADON
+	endcallback
+
+.TurnOffLights
+	checkevent EVENT_RED_IN_MT_SILVER
+	iftrue .EndCallback
+
+	; Turns off the lights of the game corner.
+	changeblock 16, 18, $70
+	changeblock 18, 18, $4b
+	changeblock 20, 18, $33
+	changeblock 22, 18, $9
+	changeblock 24, 18, $33
+
+.EndCallback
 	endcallback
 
 CeladonCityFisherScript:

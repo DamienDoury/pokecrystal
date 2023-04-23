@@ -23,12 +23,12 @@
 	RGB 03,04,08, 00,00,00 ; nite
 
 ; group 6 (Cinnabar)
-	RGB 31,10,00, 18,06,00 ; morn/day
-	RGB 18,05,09, 17,08,07 ; nite
+	RGB 18,19,31, 13,12,31 ; morn/day
+	RGB 10,09,20, 04,03,14 ; nite
 
 ; group 7 (Cerulean)
-	RGB 17,27,31, 05,15,31 ; morn/day
-	RGB 07,08,22, 07,07,16 ; nite
+	RGB 18,19,31, 13,12,31 ; morn/day
+	RGB 10,09,20, 04,03,14 ; nite
 
 ; group 8 (Azalea)
 	RGB 22,20,10, 17,14,03 ; morn/day

@@ -5,6 +5,22 @@ Route5_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TurnOffLights
+
+.TurnOffLights
+	changeblock 12, 20, $68
+	changeblock 14, 20, $7f
+	changeblock 16, 20, $69
+
+	checkevent EVENT_RETURNED_MACHINE_PART
+	iftrue .EndCallback
+
+	; Turns off the underground path lights.
+	changeblock 16, 14, $60
+	changeblock 18, 14, $26
+
+.EndCallback
+	endcallback
 
 Route5PokefanMScript:
 	jumptextfaceplayer Route5PokefanMText
@@ -53,4 +69,4 @@ Route5_MapEvents:
 	bg_event 10, 11, BGEVENT_READ, HouseForSaleSign
 
 	def_object_events
-	object_event 17, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_ROUTE_5_6_POKEFAN_M_BLOCKS_UNDERGROUND_PATH
+	object_event 17, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_RETURNED_MACHINE_PART

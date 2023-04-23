@@ -40,6 +40,7 @@
 	const TILESET_JOHTO_WAVES 		   ; 26
 	const TILESET_HOSPITAL 		   	   ; 27
 	const TILESET_MUSEUM		   	   ; 28
+	const TILESET_KANTO_WAVES		   ; 29
 NUM_TILESETS EQU const_value - 1
 
 ; wTileset struct size

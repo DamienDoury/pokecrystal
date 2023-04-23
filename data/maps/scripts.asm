@@ -377,7 +377,6 @@ SECTION "Map Scripts 19", ROMX
 
 INCLUDE "maps/CherrygroveMart.asm"
 INCLUDE "maps/Route15FuchsiaGate.asm"
-INCLUDE "maps/Route31VioletGate.asm"
 INCLUDE "maps/AzaleaTown.asm"
 INCLUDE "maps/GoldenrodCity.asm"
 INCLUDE "maps/SaffronCity.asm"
@@ -455,6 +454,7 @@ INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/SeafoamGym.asm"
 INCLUDE "maps/Route23.asm"
+INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 24", ROMX

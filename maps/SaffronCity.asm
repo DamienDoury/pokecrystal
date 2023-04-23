@@ -156,18 +156,29 @@ SaffronCityPokefanMText_ReturnedMachinePart:
 	done
 
 SaffronCityCooltrainerMText:
-	text "I went to the GYM,"
-	line "raring for battles"
-	cont "against trainers…"
+	text "The quarantine in"
+	line "a big city like"
+	cont "this one was"
+	cont "the worst."
 
-	para "It turns out, I"
-	line "stumbled into the"
+	para "People mostly live"
+	line "in small flats."
+	
+	para "As a result, many"
+	line "people moved out"
+	
+	para "from SAFFRON CITY"
+	line "to settle in the"
+	cont "countryside."
 
-	para "unused GYM next"
-	line "door."
+	para "With the rise of"
+	line "remote work, it's"
+	cont "easier than ever."
 
-	para "Boy, I was pretty"
-	line "embarrassed."
+	para "It's also quick to"
+	line "come to the office"
+	cont "thanks to the"
+	cont "MAGNET TRAIN."
 	done
 
 SaffronCityCooltrainerFText:

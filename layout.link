@@ -173,6 +173,7 @@ ROMX $40
 	"mobile40"
 ROMX $41
 	"bank41"
+	"Tileset Data 10"
 ROMX $42
 	"mobile42"
 	"Intro Logo"
