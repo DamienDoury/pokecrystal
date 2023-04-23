@@ -205,6 +205,8 @@ ENDM
 	map_const SEAFOAM_GYM_B1F,                             18, 10 ;  8
 	map_const SEAFOAM_GYM_B2F,                             18, 10 ;  9
 	map_const SEAFOAM_GYM_B3F,                             18, 10 ;  10
+	map_const SEAFOAM_GYM_B4F,                             18, 10 ;  11
+	map_const SEAFOAM_GYM_B5F,                             18, 10 ;  12
 	endgroup
 
 	newgroup CERULEAN                                             ;  7

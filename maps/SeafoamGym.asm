@@ -1,6 +1,8 @@
 	object_const_def
 	const SEAFOAMGYM_BLAINE
 	const SEAFOAMGYM_GYM_GUIDE
+	const SEAFOAMGYM_BOULDER
+	const SEAFOAMGYM_ITEM
 
 SeafoamGym_MapScripts:
 	def_scene_scripts
@@ -111,6 +113,12 @@ SeafoamGymGuideScript:
 	waitbutton
 	closetext
 	end
+
+SeafoamGymItem:
+	itemball FIRE_STONE
+
+SeafoamGymBoulder:
+	jumpstd StrengthBoulderScript
 
 BlaineIntroText:
 	text "BLAINE: Waaah!"
@@ -274,3 +282,5 @@ SeafoamGym_MapEvents:
 	def_object_events
 	object_event 19,  7, SPRITE_BLAINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SeafoamGymBlaineScript, EVENT_CINNABAR_RAVE_PARTY
 	object_event  6, 13, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SeafoamGymGuideScript, EVENT_SEAFOAM_GYM_GYM_GUIDE
+	object_event 10,  6, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamGymBoulder, -1
+	object_event 10,  3, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SeafoamGymItem, EVENT_VOLCANO_FIRE_STONE

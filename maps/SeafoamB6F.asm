@@ -32,7 +32,7 @@ SeafoamB6F_MapEvents:
 
 	def_warp_events
 	warp_event 17,  3, SEAFOAM_B5F, 2
-	warp_event  5,  3, SEAFOAM_GYM_B3F, 2
+	warp_event  5,  3, SEAFOAM_GYM_B5F, 2
 	warp_event 19, 11, SEAFOAM_B6F, 1 ; Pit arrival.
 	warp_event  5, 14, SEAFOAM_B6F, 1 ; Pit arrival.
 

@@ -715,3 +715,5 @@ ENDM
 	map_attributes SeafoamGymB1F, SEAFOAM_GYM_B1F, $09, 0
 	map_attributes SeafoamGymB2F, SEAFOAM_GYM_B2F, $09, 0
 	map_attributes SeafoamGymB3F, SEAFOAM_GYM_B3F, $09, 0
+	map_attributes SeafoamGymB4F, SEAFOAM_GYM_B4F, $09, 0
+	map_attributes SeafoamGymB5F, SEAFOAM_GYM_B5F, $09, 0

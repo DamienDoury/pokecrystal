@@ -1,16 +1,16 @@
 	object_const_def
 
-SeafoamGymB3F_MapScripts:
+SeafoamGymB4F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
 
-SeafoamGymB3F_MapEvents:
+SeafoamGymB4F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  2,  2, SEAFOAM_GYM_B2F, 2
-	warp_event  3,  3, SEAFOAM_GYM_B4F, 1
+	warp_event  2,  2, SEAFOAM_GYM_B3F, 2
+	warp_event  3,  3, SEAFOAM_GYM_B5F, 1
 
 	def_coord_events
 

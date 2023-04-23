@@ -1001,6 +1001,8 @@ SeafoamB4F_Blocks:
 SeafoamGymB1F_Blocks:
 SeafoamGymB2F_Blocks:
 SeafoamGymB3F_Blocks:
+SeafoamGymB4F_Blocks:
+SeafoamGymB5F_Blocks:
 SeafoamB5F_Blocks:
 	INCBIN "maps/SeafoamB5F.blk"
 
