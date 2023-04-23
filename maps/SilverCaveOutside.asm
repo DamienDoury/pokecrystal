@@ -1,3 +1,6 @@
+	object_const_def
+	const MTSILVER_ARTICUNO
+
 SilverCaveOutside_MapScripts:
 	def_scene_scripts
 
@@ -8,13 +11,22 @@ SilverCaveOutside_MapScripts:
 	setflag ENGINE_FLYPOINT_SILVER_CAVE
 	endcallback
 
+MtSilverArticuno:
+	cry ARTICUNO
+	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
+	loadwildmon ARTICUNO, 75
+	startbattle
+	disappear MTSILVER_ARTICUNO
+	reloadmapafterbattle
+	end
+
 MtSilverPokecenterSign:
 	jumpstd PokecenterSignScript
 
 MtSilverSign:
 	jumptext MtSilverSignText
 
-SilverCaveOutsideHiddenFullRestore:
+MtSilverHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE
 
 MtSilverSignText:
@@ -33,6 +45,7 @@ SilverCaveOutside_MapEvents:
 	def_bg_events
 	bg_event 24, 19, BGEVENT_READ, MtSilverPokecenterSign
 	bg_event 17, 13, BGEVENT_READ, MtSilverSign
-	bg_event  9, 25, BGEVENT_ITEM, SilverCaveOutsideHiddenFullRestore
+	bg_event  9, 25, BGEVENT_ITEM, MtSilverHiddenFullRestore
 
 	def_object_events
+	object_event  9, 25, SPRITE_ARTICUNO, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MtSilverArticuno, EVENT_FOUGHT_ARTICUNO

@@ -68,9 +68,17 @@ SwimmerfNikkiBeatenText:
 	done
 
 SwimmerfNikkiAfterBattleText:
-	text "I have to watch"
-	line "out for blemishes"
-	cont "caused by the sun."
+	text "The day CINNABAR's"
+	line "volcano erupted,"
+
+	para "I saw a majestic"
+	line "blue bird #MON"
+
+	para "fly over my head"
+	line "in a straight line"
+	
+	para "coming from"
+	line "SEAFOAM ISLANDS."
 	done
 
 FisherArnoldSeenText:
