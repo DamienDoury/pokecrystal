@@ -54,4 +54,5 @@ Tilesets::
 	tileset TilesetJohtoWaves
 	tileset TilesetHospital
 	tileset TilesetMuseum
+	tileset TilesetKantoWaves
 	assert_table_length NUM_TILESETS + 1

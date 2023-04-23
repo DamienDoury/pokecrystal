@@ -375,3 +375,15 @@ INCBIN "data/tilesets/museum_metatiles.bin"
 
 TilesetMuseumColl::
 INCLUDE "data/tilesets/museum_collision.asm"
+
+
+SECTION "Tileset Data 10", ROMX
+
+TilesetKantoWavesGFX:: ; Needs to be aligned.
+INCBIN "gfx/tilesets/kanto_waves.2bpp.lz"
+
+TilesetKantoWavesMeta::
+INCBIN "data/tilesets/kanto_waves_metatiles.bin"
+
+TilesetKantoWavesColl::
+INCLUDE "data/tilesets/kanto_waves_collision.asm"
