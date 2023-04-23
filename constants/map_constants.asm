@@ -395,7 +395,7 @@ ENDM
 
 	newgroup SILVER                                               ; 19
 	map_const ROUTE_28,                                    20,  9 ;  1
-	map_const SILVER_CAVE_OUTSIDE,                         20, 18 ;  2
+	map_const SILVER_CAVE_OUTSIDE,                         20, 14 ;  2
 	map_const SILVER_CAVE_POKECENTER_1F,                    5,  4 ;  3
 	map_const ROUTE_28_STEEL_WING_HOUSE,                    4,  4 ;  4
 	endgroup

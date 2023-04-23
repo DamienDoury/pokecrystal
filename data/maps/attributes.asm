@@ -142,7 +142,7 @@ ENDM
 	connection west, Route44, ROUTE_44, 9
 
 	map_attributes SilverCaveOutside, SILVER_CAVE_OUTSIDE, $2c, EAST
-	connection east, Route28, ROUTE_28, 9
+	connection east, Route28, ROUTE_28, 5
 
 	map_attributes Route26, ROUTE_26, $05, WEST
 	connection west, Route27, ROUTE_27, 45
@@ -152,7 +152,7 @@ ENDM
 	connection east, Route26, ROUTE_26, -45
 
 	map_attributes Route28, ROUTE_28, $2c, WEST
-	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -9
+	connection west, SilverCaveOutside, SILVER_CAVE_OUTSIDE, -5
 
 	map_attributes Route29, ROUTE_29, $05, NORTH | WEST | EAST
 	connection north, Route46, ROUTE_46, 10
