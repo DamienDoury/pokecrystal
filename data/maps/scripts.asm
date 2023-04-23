@@ -435,7 +435,6 @@ INCLUDE "maps/Route41.asm"
 INCLUDE "maps/Route33.asm"
 INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
-INCLUDE "maps/Route23.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/Route6SaffronGate.asm"
@@ -455,6 +454,7 @@ INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/SeafoamGym.asm"
+INCLUDE "maps/Route23.asm"
 
 
 SECTION "Map Scripts 24", ROMX
