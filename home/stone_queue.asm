@@ -136,3 +136,109 @@ HandleStoneQueue::
 .yes
 	scf
 	ret
+
+
+
+
+
+
+
+
+CheckSokobanStone::
+	ldh a, [hROMBank]
+	push af
+
+	call SwitchToMapScriptsBank
+	call .CheckPlacement
+
+	pop bc
+	ld a, b
+	rst Bankswitch
+	ret
+
+.CheckPlacement:
+	ld hl, OBJECT_MAP_OBJECT_INDEX
+	add hl, de
+	ld a, [hl]
+	cp $ff
+	jr z, .nope
+
+	call .IsStoneOnWeakGround
+	jr nc, .nope
+
+	; At this point, we know the stone is correctly placed.
+	ld a, [wSokobanPlacedStonesCount]
+	inc a
+	ld [wSokobanPlacedStonesCount], a
+	
+	push bc
+	ld b, a
+	ld a, [wSokobanTargetsCount]
+	cp b
+	pop bc
+
+	jr nz, .nope
+
+	inc hl
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	
+	call CallMapScript
+	farcall EnableScriptMode
+	scf
+	ret
+
+.nope
+	and a
+	ret
+
+.IsStoneOnWeakGround:
+	push bc
+
+	ld hl, OBJECT_NEXT_MAP_X
+	add hl, de
+	ld a, [hl]
+	sub 4
+	ld b, a
+
+	ld hl, OBJECT_NEXT_MAP_Y
+	add hl, de
+	ld a, [hl]
+	sub 4
+	ld c, a
+
+	call .CheckOnWeakGround
+
+	pop bc
+	ret
+
+; Inputs:
+; B = X coord of the current stone.
+; C = Y coord of the current stone.
+;
+; Output:
+; Carry is true (== if the stone is on weak ground).
+.CheckOnWeakGround
+	ld a, b
+	ld hl, wSokobanTargetsXStart
+	cp [hl]
+	jr c, .nope
+
+	dec a
+	inc hl
+	cp [hl]
+	jr nc, .nope
+
+	ld a, c ; Loading the Y coord of the stone.
+	inc hl
+	cp [hl]
+	jr c, .nope
+
+	dec a
+	inc hl
+	cp [hl]
+	jr nc, .nope
+
+	scf ; Returns true.
+	ret

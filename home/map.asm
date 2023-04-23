@@ -1169,20 +1169,6 @@ PoliceTrainer::
 TravelController::
 	farsjump TravelControllerChatScript
 
-BGEvent:: ; unreferenced
-	jumptext BGEventText
-
-BGEventText::
-	text_far _BGEventText
-	text_end
-
-CoordinatesEvent:: ; unreferenced
-	jumptext CoordinatesEventText
-
-CoordinatesEventText::
-	text_far _CoordinatesEventText
-	text_end
-
 CheckObjectMask::
 	ldh a, [hMapObjectIndex]
 	ld e, a
@@ -2250,9 +2236,6 @@ GetMapEnvironment::
 	pop bc
 	pop de
 	pop hl
-	ret
-
-Map_DummyFunction:: ; unreferenced
 	ret
 
 GetAnyMapEnvironment::

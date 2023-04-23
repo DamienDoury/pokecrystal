@@ -502,3 +502,18 @@ INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/LavenderTown.asm"
 INCLUDE "maps/Route4Tunnel.asm"
 INCLUDE "maps/Route2.asm"
+
+
+SECTION "Map Scripts 27", ROMX
+
+INCLUDE "maps/SeafoamB2F.asm"
+INCLUDE "maps/SeafoamB3F.asm"
+INCLUDE "maps/SeafoamB4F.asm"
+INCLUDE "maps/SeafoamB5F.asm"
+INCLUDE "maps/SeafoamB6F.asm"
+
+INCLUDE "maps/SeafoamGymB1F.asm"
+INCLUDE "maps/SeafoamGymB2F.asm"
+INCLUDE "maps/SeafoamGymB3F.asm"
+INCLUDE "maps/SeafoamGymB4F.asm"
+INCLUDE "maps/SeafoamGymB5F.asm"

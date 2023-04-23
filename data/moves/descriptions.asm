@@ -784,7 +784,7 @@ SwiftDescription:
 	next "never misses.@"
 
 SkullBashDescription:
-	db   "1st turn: Prepare"
+	db   "1st turn: Def. up"
 	next "2nd turn: Attack@"
 
 SpikeCannonDescription:
@@ -836,7 +836,7 @@ LovelyKissDescription:
 	next "to fall asleep.@"
 
 SkyAttackDescription:
-	db   "1st turn: Prepare"
+	db   "1st turn: Speed up"
 	next "2nd turn: Attack@"
 
 TransformDescription:

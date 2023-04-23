@@ -2151,3 +2151,17 @@ _MewtwoB3FText8::
 	line "power will be"
 	cont "your downfall."
 	done
+
+_WeakGroundText::
+	text "The ground's weak."
+	para "Enough weight over"
+	line "it will make it"
+	cont "collapse."
+	done
+
+_WeakGroundCollapsedText::
+	text "The weak ground"
+	line "collapsed under"
+	cont "the weight of"
+	cont "the boulders."
+	done

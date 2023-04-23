@@ -191,7 +191,7 @@ MomPhoneLectureText:
 	line "I work for to"
 	
 	para "shutdown and"
-	line "lay off me."
+	line "lay me off."
 
 	para "…"
 

@@ -46,7 +46,7 @@ IcePathB1F_MapScripts:
 	sjump .FinishBoulder
 
 .FinishBoulder:
-	pause 30
+	pause 5
 	scall .BoulderFallsThrough
 	opentext
 	writetext IcePathBoulderFellThroughText

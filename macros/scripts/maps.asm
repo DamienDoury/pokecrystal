@@ -199,3 +199,15 @@ stonetable: MACRO
 ;\3: script pointer
 	dbbw \1, \2, \3
 ENDM
+
+sokobanparams: MACRO
+;\1: amount of targets
+;\2: targets X start coord
+;\3: targets X end coord
+;\4: targets Y start coord
+;\5: targets Y end coord
+;\6: script pointer
+	db \1, \2, \3, \4, \5
+	dw \6
+ENDM
+	

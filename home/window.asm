@@ -97,7 +97,3 @@ SafeUpdateSprites::
 	pop af
 	ldh [hOAMUpdate], a
 	ret
-
-SetCarryFlag:: ; unreferenced
-	scf
-	ret

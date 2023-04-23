@@ -124,24 +124,6 @@ String_114228:
 String_114232:
 	db "=?ISO-2022-JP?B?", 0
 
-Function114243::
-	ld a, SRAM_ENABLE
-	ld [MBC3SRamEnable], a
-	ldh a, [hSRAMBank]
-	push af ; if [$dc02] == 0, this is popped to pc.
-	push de
-	ld a, [$dc02]
-	add a
-	ld e, a
-	ld d, 0
-	ld hl, Jumptable_114165
-	add hl, de
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
-	pop de
-	jp hl
-
 Function11425c:
 	ld [$dc02], a
 	pop af

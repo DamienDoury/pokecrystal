@@ -40,7 +40,7 @@ BlackthornGym2F_MapScripts:
 	sjump .Fall
 
 .Fall:
-	pause 30
+	pause 5
 	scall .FX
 	opentext
 	writetext BlackthornGym2FBoulderFellText

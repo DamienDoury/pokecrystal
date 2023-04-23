@@ -139,10 +139,6 @@ TextboxCustomPalette:: ; Fill text box width c height b at hl with pal given in 
 	jr nz, .col
 	ret
 
-GameFreakText:: ; unreferenced
-	text "ゲームフりーク！" ; "GAMEFREAK!"
-	done
-
 RadioTerminator::
 	ld hl, .stop
 	ret
@@ -187,10 +183,6 @@ PlaceNextChar::
 	ld c, l
 	pop hl
 	ret
-
-DummyChar:: ; unreferenced
-	pop de
-	; fallthrough
 
 NextChar::
 	inc de
@@ -254,14 +246,7 @@ ENDM
 	dict "<PLAY_G>",  PlaceGenderedPlayerName
 	dict "ﾟ",         .place ; should be .diacritic
 	dict "ﾞ",         .place ; should be .diacritic
-	jr .not_diacritic
 
-.diacritic ; unreferenced
-	ld b, a
-	call Diacritic
-	jp NextChar
-
-.not_diacritic
 	cp FIRST_REGULAR_TEXT_CHAR
 	jr nc, .place
 ; dakuten or handakuten
@@ -278,7 +263,6 @@ ENDM
 	add "か" - "が"
 .place_dakuten
 	ld b, "ﾞ" ; dakuten
-	call Diacritic
 	jr .place
 
 .handakuten
@@ -292,7 +276,6 @@ ENDM
 	add "は" - "ぱ"
 .place_handakuten
 	ld b, "ﾟ" ; handakuten
-	call Diacritic
 
 .place
 	ld [hli], a
@@ -629,9 +612,6 @@ Text_WaitBGMap::
 	pop af
 	ldh [hOAMUpdate], a
 	pop bc
-	ret
-
-Diacritic::
 	ret
 
 LoadBlinkingCursor::
