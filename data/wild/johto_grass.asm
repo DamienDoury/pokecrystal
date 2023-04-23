@@ -344,10 +344,10 @@ JohtoGrassWildMons:
 	db 12, NIDORAN_M
 	db 12, NIDORAN_F
 	db 14, LEDYBA
-	db 13, PIDGEY
-	db 10, CATERPIE
+	db 13, CATERPIE
 	db 10, WEEDLE
-	db 10, WEEDLE
+	db 7, CHIKORITA
+	db 11, CHIKORITA
 	; day
 	db 12, NIDORAN_F
 	db 12, NIDORAN_M
@@ -355,7 +355,7 @@ JohtoGrassWildMons:
 	db 13, PIDGEY
 	db 10, CATERPIE
 	db 10, WEEDLE
-	db 10, WEEDLE
+	db 7, CHIKORITA
 	; nite
 	db 12, PSYDUCK
 	db 13, HOOTHOOT

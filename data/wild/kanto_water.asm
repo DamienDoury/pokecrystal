@@ -188,7 +188,7 @@ KantoWaterWildMons:
 	db 4 percent ; encounter rate
 	db 18, DRATINI
 	db 16, PSYDUCK
-	db 40, LAPRAS
+	db 10, TOTODILE
 	end_water_wildmons
 
 	def_water_wildmons SEAFOAM_B2F

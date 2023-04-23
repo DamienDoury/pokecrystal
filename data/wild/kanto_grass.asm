@@ -250,7 +250,7 @@ KantoGrassWildMons:
 	db 7, METAPOD			
 	db 7, KAKUNA			
 	db 12, BUTTERFREE			
-	db 12, BUTTERFREE			
+	db 12, PIKACHU			
 	db 4, PIKACHU			
 	end_grass_wildmons
 
@@ -979,7 +979,7 @@ KantoGrassWildMons:
 	db 37, RHYHORN
 	db 42, PARASECT
 	db 45, VENOMOTH
-	db 40, KANGASKHAN
+	db 30, CROCONAW
 	end_grass_wildmons
 
 	def_grass_wildmons SEAFOAM_B1F
