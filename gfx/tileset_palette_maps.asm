@@ -10,10 +10,8 @@ ENDM
 
 
 TilesetKantoPalMap:
-INCLUDE "gfx/tilesets/kanto_palette_map.asm"
-
 TilesetKantoWavesPalMap:
-INCLUDE "gfx/tilesets/kanto_waves_palette_map.asm"
+INCLUDE "gfx/tilesets/kanto_palette_map.asm"
 
 Tileset0PalMap:
 TilesetJohtoPalMap:

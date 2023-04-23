@@ -9,6 +9,7 @@ ENDM
 SECTION "Tileset Data 1", ROMX
 
 TilesetKantoGFX::
+TilesetKantoWavesGFX:: ; Needs to be aligned.
 INCBIN "gfx/tilesets/kanto.2bpp.lz"
 
 TilesetKantoMeta::
@@ -376,14 +377,11 @@ INCBIN "data/tilesets/museum_metatiles.bin"
 TilesetMuseumColl::
 INCLUDE "data/tilesets/museum_collision.asm"
 
-
-SECTION "Tileset Data 10", ROMX
-
-TilesetKantoWavesGFX:: ; Needs to be aligned.
-INCBIN "gfx/tilesets/kanto_waves.2bpp.lz"
-
 TilesetKantoWavesMeta::
 INCBIN "data/tilesets/kanto_waves_metatiles.bin"
+
+
+SECTION "Tileset Data 10", ROMX
 
 TilesetKantoWavesColl::
 INCLUDE "data/tilesets/kanto_waves_collision.asm"
