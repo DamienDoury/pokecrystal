@@ -31,25 +31,25 @@ PewterCityBugCatcherScript:
 
 PewterCityGrampsScript:
 	faceplayer
-	;giveitem PADLOCK_KEY
-	checkitem PADLOCK_KEY
-	iftrue .GotPadlockKey
+	;giveitem MUSEUM_KEY
+	checkitem MUSEUM_KEY
+	iftrue .GotMuseumKey
 	checkevent EVENT_FOUGHT_ZAPDOS
-	iftrue .GivePadlockKey
+	iftrue .GiveMuseumKey
 	jumptext PewterCityGrampsLostGrandKidText
 
-.GivePadlockKey:
+.GiveMuseumKey:
 	opentext
 	writetext PewterCityGrampsText
 	promptbutton
-	verbosegiveitem PADLOCK_KEY
+	verbosegiveitem MUSEUM_KEY
 	;verbosegiveitem SILVER_WING
 	;setevent EVENT_GOT_SILVER_WING
 	closetext
 	end
 
-.GotPadlockKey:
-	jumptext PewterCityGrampsText_GotPadlockKey
+.GotMuseumKey:
+	jumptext PewterCityGrampsText_GotMuseumKey
 
 PewterCitySign:
 	jumptext PewterCitySignText
@@ -81,7 +81,7 @@ PewterCityFruitTree2:
 PewterCity_Door1Script:
 	opentext
 	writetext PewterMuseumHeavyChainText
-	checkitem PADLOCK_KEY
+	checkitem MUSEUM_KEY
 	iffalse .end
 
 	promptbutton
@@ -94,7 +94,7 @@ PewterCity_Door1Script:
 PewterCity_Door2Script:
 	opentext
 	writetext PewterMuseumHeavyChainText
-	checkitem PADLOCK_KEY
+	checkitem MUSEUM_KEY
 	iffalse .end
 
 	promptbutton
@@ -192,7 +192,7 @@ PewterCityGrampsText:
 	cont "when you leave."
 	done
 
-PewterCityGrampsText_GotPadlockKey:
+PewterCityGrampsText_GotMuseumKey:
 	text "When you were into"
 	line "VIRIDIAN FOREST,"
 

@@ -90,7 +90,7 @@ ItemDescriptions:
 	dw BigMushroomDesc
 	dw SilverPowderDesc
 	dw BluApricornDesc
-	dw PadlockKeyDesc
+	dw MuseumKeyDesc
 	dw AmuletCoinDesc
 	dw YlwApricornDesc
 	dw GrnApricornDesc
@@ -608,7 +608,7 @@ SilverPowderDesc:
 BluApricornDesc:
 	db   "A blue APRICORN.@"
 
-PadlockKeyDesc:
+MuseumKeyDesc:
 	db   "Opens PEWTER"
 	next "MUSEUM.@"
 
