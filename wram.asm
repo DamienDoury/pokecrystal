@@ -3127,6 +3127,12 @@ wSokobanTargetsXEnd:: db
 wSokobanTargetsYStart:: db
 wSokobanTargetsYEnd:: db
 wSokobanSuccessScript:: dw
+
+NEXTU
+wRevivedFossil:: db	; Used in SilphCoResearch.asm.
+wFossilItem:: db
+wNewStarterSpecies:: db
+wNewStarterMovesIndex:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

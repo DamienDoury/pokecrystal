@@ -275,7 +275,6 @@ ROMX $6a
 ROMX $6b
 	"Map Scripts 24"
 ROMX $6c
-	"Phone Text 2"
 	"Map Scripts 25" ; Must stay with vaccine_research_center.asm, currently in "Vaccination Research Center".
 	"Vaccination Research Center" ; Must stay with SilphCoResearch.asm, currently in "Map Scripts 25".
 ROMX $6d
@@ -294,6 +293,7 @@ ROMX $73
 	"Pokedex Entries 129-192"
 ROMX $74
 	"Pokedex Entries 193-251"
+	"Phone Text 2"
 ROMX $77
 	"bank77"
 	"Tileset Data 7"

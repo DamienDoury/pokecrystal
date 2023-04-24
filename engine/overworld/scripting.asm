@@ -1844,10 +1844,14 @@ Script_giveitem:
 	ret
 
 Script_takeitem:
+	call GetScriptByte
+	cp ITEM_FROM_MEM
+	jr nz, .ok
+	ld a, [wScriptVar]
+.ok
+	ld [wCurItem], a
 	xor a
 	ld [wScriptVar], a
-	call GetScriptByte
-	ld [wCurItem], a
 	call GetScriptByte
 	ld [wItemQuantityChange], a
 	ld a, -1
@@ -2060,6 +2064,12 @@ Script_checkphonecall:
 
 Script_givepoke:
 	call GetScriptByte
+	cp $ff
+	jr nz, .species_determined
+
+	ld a, [wScriptVar]
+
+.species_determined
 	ld [wCurPartySpecies], a
 	call GetScriptByte
 	ld [wCurPartyLevel], a

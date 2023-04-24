@@ -6,6 +6,11 @@
     const SILPHCORESEARCH_POKEBALL_EXEGGCUTE
     const SILPHCORESEARCH_POKEBALL_UP_GRADE
     const SILPHCORESEARCH_SCIENTIST1
+    const SILPHCORESEARCH_SCIENTIST2
+    const SILPHCORESEARCH_SCIENTIST3
+    const SILPHCORESEARCH_SCIENTIST4
+    const SILPHCORESEARCH_SCIENTIST5
+    const SILPHCORESEARCH_SCIENTIST6
 
 SilphCoResearch_MapScripts:
     def_scene_scripts
@@ -16,6 +21,7 @@ SilphCoResearch_MapScripts:
     callback MAPCALLBACK_TILES, .EnterCallback
 
 .EnterCallback:
+    loadmem wNewStarterSpecies, 0
     checkevent EVENT_SILPHCO_SCIENTIST_MET
     iftrue .end
     moveobject SILPHCORESEARCH_SCIENTIST1, 13, 1
@@ -93,7 +99,6 @@ SilphCo_PokeballContentAccorded:
 SilphCo_LookPokeballScript:
     opentext 
     scall SilphCo_PokeballContentAccorded
-    loadmem wTempByteValue, 0
     waitbutton
     closetext
     end
@@ -122,37 +127,33 @@ SilphCoExeggcutePokeBallScript:
 
 SilphCoClickedPokeball:
     getmonname STRING_BUFFER_3, USE_SCRIPT_VAR
-    writemem wTempByteValue ; Backup the species.
+    writemem wNewStarterSpecies ; Backup the species.
     checkevent EVENT_GOT_POKEMON_FROM_SILPHCO
     iftrue SilphCo_LookPokeballScript
 
-    readmem wTempByteValue ; Retrieve the species.
     refreshscreen
+    readmem wNewStarterSpecies ; Retrieve the species.
 	pokepic USE_SCRIPT_VAR
 	cry USE_SCRIPT_VAR
 	waitbutton
 	closepokepic
 	opentext
-    writemem wTempByteValue ; Backup the species.
-    scall SilphCo_PokeballContentAccorded ;writetext SilphCo_LookPokeballText
-    readmem wTempByteValue ; Retrieve the species.
+    scall SilphCo_PokeballContentAccorded
     promptbutton
 
     writetext SilphCo_LevelText
     promptbutton
 
-    loadmem wTempByteValue, 0
+    loadmem wNewStarterMovesIndex, 0
     special LoadSilphCoPokemonMoves
     writetext SilphCo_Moves12Text
     promptbutton
 
-    loadmem wTempByteValue, 2
+    loadmem wNewStarterMovesIndex, 2
     special LoadSilphCoPokemonMoves
     writetext SilphCo_Moves34Text
     promptbutton
     writetext SilphCo_WannaTakeItText
-
-    writemem wTempByteValue ; Backup the species.
     yesorno
     iftrue .getmon
     closetext
@@ -167,7 +168,7 @@ SilphCoClickedPokeball:
 	waitsfx
 	promptbutton
 
-    readmem wTempByteValue
+    readmem wNewStarterSpecies
     ifequal PORYGON, .porygon
     ifequal FARFETCH_D, .farfetchd
     ifequal MR__MIME, .mrmime
@@ -209,7 +210,6 @@ SilphCoClickedPokeball:
     special SilphCo_SetMonAttributes
     
 .end
-    loadmem wTempByteValue, 0
     closetext
     end
 
@@ -354,6 +354,121 @@ SilphCoResearchScientist5Script:
 SilphCoResearchScientist1:
     jumptextfaceplayer SilphCoResearchScientist1Text
 
+SilphCoResearchScientist6Script:
+    faceplayer
+    opentext
+    writetext SilphCoResearchScientist6IntroText
+    checkitem DOME_FOSSIL
+    iftrue .dome
+    checkitem HELIX_FOSSIL
+    iftrue .helix
+    checkitem OLD_AMBER
+    iftrue .amber
+.wait_and_close_text
+    waitbutton
+    closetext
+    end
+
+.dome
+    setval DOME_FOSSIL
+    loadmem wFossilItem, DOME_FOSSIL
+    loadmem wRevivedFossil, KABUTO
+    sjump .fossil_chosen
+
+.helix
+    setval HELIX_FOSSIL
+    loadmem wFossilItem, HELIX_FOSSIL
+    loadmem wRevivedFossil, OMANYTE
+    sjump .fossil_chosen
+
+.amber
+    setval OLD_AMBER
+    loadmem wFossilItem, OLD_AMBER
+    loadmem wRevivedFossil, AERODACTYL
+
+.fossil_chosen
+    promptbutton
+    getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
+
+    scall IsVowel
+    iftrue .vowel
+
+    writetext SilphCoResearchScientist6AskReviveText
+    sjump .request_sequel
+
+.vowel
+    writetext SilphCoResearchScientist6AskReviveVowelText
+.request_sequel
+    promptbutton
+    writetext SilphCoResearchScientist6AskReviveSequelText
+    yesorno
+    iftrue .check_party_room
+    writetext SilphCoResearchScientist6SadText
+    sjump .wait_and_close_text
+
+.check_party_room
+    readvar VAR_PARTYCOUNT
+    ifless PARTY_LENGTH, .enough_room
+
+    writetext SilphCoResearchScientist6NotEnoughRoomText
+    sjump .wait_and_close_text
+
+.enough_room
+    readmem wFossilItem
+    takeitem ITEM_FROM_MEM, 1
+    writetext SilphCoResearchScientist6WaitText
+    waitbutton
+    closetext
+
+    ; animation
+    applymovement SILPHCORESEARCH_SCIENTIST6, SilphCoResearch_ToElevatorMovement
+    moveobject SILPHCORESEARCH_SCIENTIST6, 13, 0
+    playsound SFX_ENTER_DOOR
+    disappear SILPHCORESEARCH_SCIENTIST6
+
+    readvar VAR_YCOORD
+    ifequal 2, .from_left
+
+    applymovement PLAYER, SilphCoResearch_SitOnSofaFromBottomMovement
+    sjump .seated
+
+.from_left
+    applymovement PLAYER, SilphCoResearch_SitOnSofaFromLeftMovement
+
+.seated
+    applymovement PLAYER, SilphCoResearch_SitOnSofaMovement
+
+    pause 60
+
+    playsound SFX_ELEVATOR_END
+    pause 10
+    applymovement PLAYER, SilphCoResearch_MeetReviverScientistMovement
+    appear SILPHCORESEARCH_SCIENTIST6
+    applymovement SILPHCORESEARCH_SCIENTIST6, SilphCoResearch_StepDownMovement
+
+    opentext
+    writetext SilphCoResearchScientist6SuccessText
+    waitbutton
+    closetext
+
+    applymovement SILPHCORESEARCH_SCIENTIST6, SilphCoResearch_StepDownMovement
+    readmem wRevivedFossil
+    opentext
+    playsound SFX_CAUGHT_MON
+    getmonname STRING_BUFFER_3, USE_SCRIPT_VAR
+    writetext SilphCoResearchScientist6GetMonText
+    waitsfx
+    givepoke -1, 20
+    writetext SilphCoResearchScientist6ThanksText
+    waitbutton
+    closetext
+
+    ; animation
+    applymovement SILPHCORESEARCH_SCIENTIST6, SilphCoResearch_GoToDeskAfterFollowMovement
+    moveobject SILPHCORESEARCH_SCIENTIST6, 14, 2
+    end
+
+
 SilphCoResearch_ElevatorButton:
     jumpstd ElevatorButtonScript
 
@@ -380,6 +495,7 @@ SilphCoResearch_GoToDeskMovement:
     step DOWN
     step DOWN
     step DOWN
+SilphCoResearch_SitOnSofaFromLeftMovement:
     step RIGHT
     step RIGHT
     step_end
@@ -408,6 +524,31 @@ SilphCoResearch_RespectDistanceMovement:
 
 SilphCoResearch_HeadUpMovement:
     turn_head UP
+    step_end
+
+SilphCoResearch_ToElevatorMovement:
+    step LEFT
+SilphCoResearch_SitOnSofaFromBottomMovement:
+    step UP
+    step UP
+    step_end
+
+SilphCoResearch_SitOnSofaMovement:
+    turn_head DOWN
+    fix_facing
+    step UP
+    remove_fixed_facing
+    step_end
+
+SilphCoResearch_MeetReviverScientistMovement:
+    step DOWN
+    step DOWN
+    step LEFT
+    turn_head UP
+    step_end
+
+SilphCoResearch_StepDownMovement:
+    step DOWN
     step_end
 
 SilphCo_LookPokeballText:
@@ -779,6 +920,88 @@ SilphCoResearchScientist1_ConfusedText:
 	line "I'm confused."
 	done
 
+
+
+
+SilphCoResearchScientist6IntroText:
+    text "I was transfered"
+    line "here because I'm"
+    cont "an expert on DNA."
+
+    para "But my field is"
+    line "prehistoric #-"
+    cont "MON DNA!"
+
+    para "I'm no help with"
+    line "the research on"
+    cont "this mRNA vaccine!"
+
+    para "I wish I had a"
+    line "fossil to play"
+    cont "with…"
+    done
+
+SilphCoResearchScientist6AskReviveText:
+    text "Is that a"
+    line "@"
+    text_ram wStringBuffer3
+    text " you"
+    cont "have here?"
+    done
+
+SilphCoResearchScientist6AskReviveVowelText:
+    text "Is that an"
+    line "@"
+    text_ram wStringBuffer3
+    text " you"
+    cont "have here?"
+    done
+
+SilphCoResearchScientist6AskReviveSequelText:
+    text "I'd be happy to"
+    line "try to revive it!"
+
+    para "Can I have it?"
+    done
+
+SilphCoResearchScientist6SadText:
+    text "This task would"
+    line "have given me"
+    cont "purpose…"
+    done
+
+SilphCoResearchScientist6NotEnoughRoomText:
+    text "Before I try any-"
+    line "thing, you gotta"
+    cont "make some room"
+    cont "in your party."
+    done
+
+SilphCoResearchScientist6WaitText:
+    text "My equipment is"
+    line "upstairs, please"
+    cont "wait here."
+    done
+
+SilphCoResearchScientist6SuccessText:
+    text "I succeeded!"
+    line "Yeah baby!"
+    done
+
+SilphCoResearchScientist6GetMonText:
+	text "<PLAYER> received"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+	done
+
+SilphCoResearchScientist6ThanksText:
+    text "You made my day!"
+    line "Please come back"
+    cont "if you ever find"
+    cont "something else."
+    done
+
 SilphCoResearch_MapEvents:
     db 0, 0 ; filler
 
@@ -802,5 +1025,6 @@ SilphCoResearch_MapEvents:
 	object_event  1,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist2Script, -1
 	object_event 14,  7, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist3Script, -1
 	object_event  3,  5, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist4Script, -1
-	object_event 15,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist5Script, -1
+	object_event  6,  1, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist5Script, -1
+	object_event 14,  2, SPRITE_SCIENTIST, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SilphCoResearchScientist6Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
     

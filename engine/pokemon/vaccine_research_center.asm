@@ -16,7 +16,7 @@ SilphCo_ExeggcuteMoves:
 _DisplaySilphCoPokemonMoves::
     ld b, FALSE
 _LoadSilphCoPokemonMoves: ; Returns the moveset pointer in HL.
-    ld a, [wScriptVar]
+    ld a, [wNewStarterSpecies]
     cp PORYGON
     ld hl, SilphCo_PorygonMoves
     jr z, .loadmoves
@@ -37,7 +37,7 @@ _LoadSilphCoPokemonMoves: ; Returns the moveset pointer in HL.
 
 .loadmoves
     ; First move.
-    ld a, [wTempByteValue]
+    ld a, [wNewStarterMovesIndex]
     ld e, a
     ld d, 0
     add hl, de
