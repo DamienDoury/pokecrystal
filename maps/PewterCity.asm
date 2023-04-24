@@ -258,13 +258,13 @@ PewterMuseumHeavyChainText:
 	done
 
 PewterMuseumKeyDoesntFitText:
-	text "The PADLOCK KEY"
+	text "The MUSEUM KEY"
 	line "doesn't fit into"
 	cont "the padlock."
 	done
 
 PewterMuseumKeySuccessText:
-	text "The PADLOCK KEY"
+	text "The MUSEUM KEY"
 	line "unlocked the"
 	cont "chain."
 	done

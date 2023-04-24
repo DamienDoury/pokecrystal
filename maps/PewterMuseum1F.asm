@@ -39,6 +39,9 @@ PewterMuseum1FDNA:
 PewterMuseum1FBooks:
 	jumptext PewterMuseum1FBooksText
 
+PewterMuseum1FClosedDoor:
+	jumptext PewterMuseum1FClosedDoorText
+
 PewterMuseum1FHoleText:
 	text "A #MON made a"
 	line "hole in the wall."
@@ -92,6 +95,11 @@ PewterMuseum1FBooksText:
 	line "missing."
 	done
 
+PewterMuseum1FClosedDoorText:
+	text "The door is closed"
+	line "from the outside."
+	done
+
 	PewterMuseum1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -118,6 +126,10 @@ PewterMuseum1FBooksText:
 	bg_event 17,  1, BGEVENT_READ, PewterMuseum1FBooks
 	bg_event 18,  1, BGEVENT_READ, PewterMuseum1FBooks
 	bg_event 19,  1, BGEVENT_READ, PewterMuseum1FBooks
+	bg_event 11,  7, BGEVENT_READ, PewterMuseum1FClosedDoor
+	bg_event 10,  7, BGEVENT_READ, PewterMuseum1FClosedDoor
+	bg_event 11,  8, BGEVENT_READ, PewterMuseum1FClosedDoor
+	bg_event 10,  8, BGEVENT_READ, PewterMuseum1FClosedDoor
 	
 
 	def_object_events

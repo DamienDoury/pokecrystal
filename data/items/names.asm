@@ -89,7 +89,7 @@ ItemNames::
 	li "BIG MUSHROOM"
 	li "SILVERPOWDER"
 	li "BLU APRICORN"
-	li "PADLOCK KEY"
+	li "MUSEUM KEY"
 	li "AMULET COIN"
 	li "YLW APRICORN"
 	li "GRN APRICORN"
