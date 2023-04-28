@@ -448,6 +448,9 @@ GoldenrodCityYoungster2Text:
 	cont "built in only"
 	cont "10 days!"
 
+	para "And it has a capa-"
+	line "city of 1000 beds!"
+
 	para "Yo, it's crazy!"
 	done
 

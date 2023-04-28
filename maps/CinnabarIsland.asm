@@ -97,7 +97,7 @@ CinnabarIslandSickScript:
 	writetext CinnabarIslandSickText
 	waitbutton
 	checkitem FRESH_WATER
-	iftrue .take_water
+	iftrue .offer_water
 	closetext
 	end
 
@@ -106,6 +106,11 @@ CinnabarIslandSickScript:
 	writetext CinnabarIslandSickMaxReviveBisText
 	promptbutton
 	sjump .gave_water
+
+.offer_water:
+	writetext CinnabarIslandAskWaterText
+	yesorno
+	iffalse .close_text
 
 .take_water:
 	takeitem FRESH_WATER
@@ -141,6 +146,7 @@ CinnabarIslandSickScript:
 .make_room_max_revive:
 	writetext CinnabarIslandSickMakeRoomText
 	waitbutton
+.close_text
 	closetext
 	end
 
@@ -348,6 +354,11 @@ CinnabarIslandSickText:
 	cont "to drink…"
 	done
 
+CinnabarIslandAskWaterText:
+	text "Offer FRESH"
+	line "WATER?"
+	done
+
 CinnabarIslandGiveWaterText:
 	text "<PLAYER> gives"
 	line "FRESH WATER."
@@ -528,7 +539,7 @@ CinnabarIsland_MapEvents:
 	def_object_events
 	object_event  9,  6, SPRITE_BLUE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarIslandBlue, EVENT_BLUE_IN_CINNABAR
 	object_event  8,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarIslandLovers, 0
-	object_event  7,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarSellerScript, 0
+	object_event  7,  8, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarSellerScript, 0
 	object_event 11,  8, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarIslandPartyScript, 0
 	object_event 10, 16, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarHydratedScript, 0
 	object_event 12, 16, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarBuyerScript, 0
