@@ -337,7 +337,7 @@ ENDM
 
 	newgroup FAST_SHIP                                            ; 15
 	map_const OLIVINE_PORT,                                10, 18 ;  1
-	map_const VERMILION_PORT,                              10, 18 ;  2
+	map_const VERMILION_PORT,                              12, 14 ;  2
 	map_const FAST_SHIP_1F,                                16,  9 ;  3
 	map_const FAST_SHIP_CABINS_NNW_NNE_NE,                  4, 16 ;  4
 	map_const FAST_SHIP_CABINS_SW_SSW_NW,                   4, 16 ;  5

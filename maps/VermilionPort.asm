@@ -2,6 +2,8 @@
 	const VERMILIONPORT_SAILOR1
 	const VERMILIONPORT_SAILOR2
 	const VERMILIONPORT_SUPER_NERD
+	const VERMILIONPORT_SAILOR_TEMP
+	const VERMILIONPORT_CAPTAIN
 
 VermilionPort_MapScripts:
 	def_scene_scripts
@@ -15,15 +17,34 @@ VermilionPort_MapScripts:
 	end
 
 .LeaveFastShip:
+	checkflag ENGINE_FLYPOINT_SAFFRON
+	iffalse .FirstTime
+
 	prioritysjump .LeaveFastShipScript
 	end
 
+.FirstTime
+	prioritysjump .LeaveFastShipFirstTimeScript
+	end
+
 .FlyPoint:
+	disappear VERMILIONPORT_CAPTAIN
 	setflag ENGINE_FLYPOINT_VERMILION
 	endcallback
 
+.LeaveFastShipFirstTimeScript:
+	appear VERMILIONPORT_CAPTAIN
+	follow PLAYER, VERMILIONPORT_CAPTAIN
+	applymovement PLAYER, VermilionPortLeaveFastShipLongMovement
+	applymovement PLAYER, VermilionPortHeadDownMovement
+	stopfollow
+	moveobject VERMILIONPORT_CAPTAIN, 5, 14
+	scall VermilionPortCaptainScript
+	sjump .DoEvents
+
 .LeaveFastShipScript:
 	applymovement PLAYER, VermilionPortLeaveFastShipMovement
+.DoEvents:
 	appear VERMILIONPORT_SAILOR1
 	setscene SCENE_DEFAULT
 	setevent EVENT_FAST_SHIP_CABINS_SE_SSE_CAPTAINS_CABIN_TWIN_1
@@ -229,6 +250,12 @@ VermilionPortSuperNerdScript:
 	closetext
 	end
 
+VermilionPortTempSailorScript:
+	jumptextfaceplayer VermilionPortTempSailorText
+
+VermilionPortCaptainScript:
+	jumptextfaceplayer VermilionPortCaptainText
+
 VermilionPortHiddenIron:
 	hiddenitem IRON, EVENT_VERMILION_PORT_HIDDEN_IRON
 
@@ -237,9 +264,17 @@ VermilionPortEnterFastShipMovement:
 	step DOWN
 	step_end
 
+VermilionPortLeaveFastShipLongMovement:
+	step UP
+	step UP
+	step UP
 VermilionPortLeaveFastShipMovement:
 	step UP
 	step UP
+	step_end
+
+VermilionPortHeadDownMovement:
+	turn_head DOWN
 	step_end
 
 VermilionPortCannotEnterFastShipMovement:
@@ -349,6 +384,16 @@ VermilionPortSuperNerdText:
 	cont "there."
 	done
 
+VermilionPortTempSailorText:
+	text "I was supposed"
+	line "to embark on"
+	cont "the next ship."
+	
+	para "I guess I'm gonna"
+	line "be stuck here"
+	cont "for a while…"
+	done
+
 VermilionPortPowerOutageText:
 	text "Because of the"
 	line "power outage, the"
@@ -363,20 +408,37 @@ VermilionPortPowerOutageText:
 	line "inconvenience."
 	done
 
+VermilionPortCaptainText:
+	text "The signaling"
+	line "system of the"
+	cont "port is down"
+	cont "because of the"
+	cont "power outage."
+
+	para "The ship can't"
+	line "leave the port."
+
+	para "I'll take the"
+	line "opportunity to"
+	cont "go see my family."
+	done
+
 VermilionPort_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  9,  5, VERMILION_PORT_PASSAGE, 5
-	warp_event  7, 17, FAST_SHIP_1F, 1
+	warp_event  7,  5, VERMILION_PORT_PASSAGE, 5
+	warp_event  5, 19, FAST_SHIP_1F, 1
 
 	def_coord_events
-	coord_event  7, 11, SCENE_DEFAULT, VermilionPortWalkUpToShipScript
+	coord_event  5, 13, SCENE_DEFAULT, VermilionPortWalkUpToShipScript
 
 	def_bg_events
-	bg_event 16, 13, BGEVENT_ITEM, VermilionPortHiddenIron
+	bg_event 17,  8, BGEVENT_ITEM, VermilionPortHiddenIron
 
 	def_object_events
-	object_event  7, 17, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
-	object_event  6, 11, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
-	object_event 11, 11, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
+	object_event  5, 19, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorAtGangwayScript, EVENT_VERMILION_PORT_SAILOR_AT_GANGWAY
+	object_event  4, 13, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSailorScript, -1
+	object_event  9, 13, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
+	object_event  9, 12, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortTempSailorScript, EVENT_RETURNED_MACHINE_PART
+	object_event  5, 19, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortCaptainScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
