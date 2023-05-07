@@ -249,7 +249,7 @@ PokeBallEffect:
 	ld a, [wCurItem]
 	cp MASTER_BALL
 	jp z, .catch_without_fail
-	ld a, [wCurItem]
+	;ld a, [wCurItem] ; Useless.
 	ld c, a
 	ld hl, BallMultiplierFunctionTable
 
@@ -277,106 +277,217 @@ PokeBallEffect:
 	ld a, b
 	jp z, .skip_hp_calc
 
-	ld a, b
-	ldh [hMultiplicand + 2], a
+	;ld a, b ; Useless.
+	ldh [hMultiplicand + 2], a ; Stores the modified catch rate (after ball multiplier).
 
 	ld hl, wEnemyMonHP
-	ld b, [hl]
+	ld b, [hl] ; [HP], high byte.
 	inc hl
-	ld c, [hl]
+	ld c, [hl] ; [HP + 1], low byte.
 	inc hl
-	ld d, [hl]
+	ld d, [hl] ; [MaxHP], high byte.
 	inc hl
-	ld e, [hl]
+	ld e, [hl] ; [MaxHP + 1], low byte.
+
+	; Current HP -= 1.
+	ld a, c
+	sub 1
+	ld c, a
+	ld a, b
+	sbc 0
+	ld b, a
+
+	; Max HP -= 1.
+	ld a, e
+	sub 1
+	ld e, a
+	ld a, d
+	sbc 0
+	ld d, a
+
+	; Current HP * 2.
 	sla c
 	rl b
 
+	; Max HP * 3.
 	ld h, d
 	ld l, e
 	add hl, de
 	add hl, de
 	ld d, h
 	ld e, l
+	
+; While Max HP's value is bigger than 1 byte, we divide it and HP by 2.
+	call .reduce_hp_to_one_byte
+	jr .one_byte_values
+
+.reduce_hp_to_one_byte
 	ld a, d
 	and a
-	jr z, .okay_1
+	ret z
 
 	srl d
 	rr e
-	srl d
-	rr e
 	srl b
 	rr c
-	srl b
-	rr c
+
+	jr .reduce_hp_to_one_byte
+
+.one_byte_values
+	; We subtract HP from Max HP.
+	ld a, e
+	sub c
+	ld c, a
+
+	; We now square both values (fits within 2 bytes).
+	ldh a, [hMultiplicand + 2] ; Backup the modified catch rate (after ball effect).
+	ld l, a
 
 	ld a, c
-	and a
-	jr nz, .okay_1
-	ld c, $1
-.okay_1
-	ld b, e
+	ldh [hMultiplicand + 2], a
+	ldh [hMultiplier], a
+	xor a
+	ldh [hDividend + 0], a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	call Multiply ; HP squared.	
+	ldh a, [hProduct + 3]
+	ld c, a
+	ldh a, [hProduct + 2]
+	ld b, a
 
-	push bc
-	ld a, b
-	sub c
+	ld a, e
+	ldh [hMultiplicand + 2], a
+	ldh [hMultiplier], a
+	xor a
+	ldh [hDividend + 0], a
+	ldh [hMultiplicand + 0], a
+	ldh [hMultiplicand + 1], a
+	call Multiply ; HP squared.	
+	ldh a, [hProduct + 3]
+	ld e, a
+	ldh a, [hProduct + 2]
+	ld d, a
+
+	call .reduce_hp_to_one_byte
+
+	ld a, l ; Retrieving the modified catch rate (after ball effect).
+	ldh [hMultiplicand + 2], a
+
+	ld a, c ; C represents (MaxHP - CurHP)².
 	ldh [hMultiplier], a
 	xor a
 	ldh [hDividend + 0], a
 	ldh [hMultiplicand + 0], a
 	ldh [hMultiplicand + 1], a
 	call Multiply
-	pop bc
 
-	ld a, b
+	ld a, e ; E represents MaxHP².
 	ldh [hDivisor], a
-	ld b, 4
+	ld b, 4 ; Tells Divide to work with 4 bytes.
 	call Divide
 
 	ldh a, [hQuotient + 3]
 	and a
-	jr nz, .statuscheck
-	ld a, 1
-.statuscheck
+	jr nz, .stats_level_check
+
+	ld a, 0 ; Min modified catch rate is 0.
+
+.stats_level_check
+	ld b, a ; Backup the current catch rate.
+
+	xor a
+	ld d, 7
+	ld e, NUM_BATTLE_STATS
+	ld hl, wEnemyStatLevels
+
+.stats_level_check_loop
+	add [hl]
+	inc hl
+	sub d ; Twice as fast as doing "sub 7".
+
+	dec e
+	jr nz, .stats_level_check_loop
+
+	and a
+	jr z, .add_total_stat_boost
+
+	bit 7, a ; Checking if the total stat boost is positive or negative. Note that the value is reversed at this point: a positive value means positive stat boost, which should reduce the catch rate, and therefore be subtracted.
+	jr z, .sub_total_stat_boost
+
+.add_total_stat_boost
+	; We get the opposite of A. Because a negative total stat boost should increase the catch rate.
+	cpl
+	inc a
+
+	add b
+	jr c, .catch_without_fail ; In case the catch rate is above the maximum of 255, it's a sure catch. No need to check for the other parameters, as nothing can reduce the catch rate after the current check.
+	jr .one_hp_check
+
+.sub_total_stat_boost
+	cp b
+	jr nc, .floor_catch_rate
+
+	ld c, a
+	ld a, b
+	sub c
+	jr .one_hp_check
+
+.floor_catch_rate
+	ld a, 0
+
+.one_hp_check
 	ld b, a
+	ld hl, wEnemyMonHP
+	ld a, [hli] ; [HP], high byte.
+	and a
+	jr nz, .slp_frz_status_check
+	ld a, [hl] ; [HP + 1], low byte.
+	cp 1
+	jr nz, .slp_frz_status_check
+
+	; 6 bonus points of catch rate if the wild pokemon is at exactly 1 HP left.
+	ld a, 6
+	add b
+	jr c, .catch_without_fail
+	ld b, a
+
+.slp_frz_status_check
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP
-	ld c, 10
-	jr nz, .addstatus
+	ld a, b
+	jr z, .par_psn_brn_status_check
+
+	; x2.5
+	srl a
+	add b
+	jr c, .catch_without_fail
+
+	add b
+	jr c, .catch_without_fail
+
+	jr .skip_hp_calc
+
+.par_psn_brn_status_check
 	ld a, [wEnemyMonStatus]
 	and a
-	ld c, 5
-	jr nz, .addstatus
-	ld c, 0
-.addstatus
 	ld a, b
-	add c
-	jr nc, .max_1
-	ld a, $ff
-.max_1
-	ld d, a
-	push de
-	ld a, [wBattleMonItem]
-	ld b, a
-	farcall GetItemHeldEffect
-	ld a, b
-	cp HELD_CATCH_CHANCE
-	pop de
-	ld a, d
-	jr nz, .max_2
-	add c
-	jr nc, .max_2
-	ld a, $ff
-.max_2
+	jr z, .skip_hp_calc
+
+	; x1.5
+	srl a
+	add b
+	jr c, .catch_without_fail
 
 .skip_hp_calc
 	ld b, a
 	ld [wFinalCatchRate], a
-	call Random
-
-	cp b
-	ld a, 0
+	cp $ff
 	jr z, .catch_without_fail
+
+	call Random
+	cp b	
+	ld a, 0
 	jr nc, .fail_to_catch
 
 .catch_without_fail
