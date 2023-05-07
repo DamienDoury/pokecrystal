@@ -294,10 +294,10 @@ EarlsPokemonAcademyYoungster2Text:
 	line "mined by skill,"
 	cont "not wealth."
 
-	para "…"
+	;para "…"
 
-	para "It sure is tough"
-	line "taking notes…"
+	;para "It sure is tough"
+	;line "taking notes…"
 	done
 
 AcademyBlackboardText:
@@ -415,62 +415,69 @@ AcademyNotebookText:
 	text "It's this kid's"
 	line "notebook…"
 
-	para "Catch #MON"
-	line "using # BALLS."
+	para "Before throwing a"
+	line "# BALL, weaken"
+	cont "the target first."
 
-	para "Up to six can be"
-	line "in your party."
+	para "The pandemic makes"
+	line "wild #MON agi-"
+	cont "tated and harder"
+	cont "to catch."
+
+	para "Ideally, leave the"
+	line "target at 1 HP."
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText1:
-	text "Before throwing a"
-	line "# BALL, weaken"
-	cont "the target first."
+	text "Paralyzing or"
+	line "freezing a #MON"
+	cont "multiplies your"
+	cont "odds of success."
 
-	para "A poisoned or"
-	line "burned #MON is"
-	cont "easier to catch."
+	para "Some statuses are"
+	line "more effective"
+	cont "than others."
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText2:
-	text "Some moves may"
-	line "cause confusion."
+	text "Lowering a #MON"
+	line "stats also helps."
 
-	para "Confusion may make"
-	line "a #MON attack"
-	cont "itself."
+	para "It's particularly"
+	line "useful with in-"
+	cont "flexible species."
 
-	para "Leaving battle"
-	line "clears up any"
-	cont "confusion."
+	para "Combining this"
+	line "with a status"
+	cont "ailment can be"
+	cont "very efficient."
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText3:
-	text "People who catch"
-	line "and use #MON"
+	text "Once your party"
+	line "reaches the limit"
+	cont "of 6 #MON,"
 
-	para "in battle are"
-	line "#MON trainers."
+	para "further captures"
+	line "are sent in a BOX"
+	cont "in the PC."
 
-	para "They are expected"
-	line "to visit #MON"
+	para "Once the BOX is"
+	line "filled with 20"
+	cont "#MON, you can't"
+	cont "capture anymore."
 
-	para "GYMS and defeat"
-	line "other trainers."
+	para "Don't forget to"
+	line "switches boxes."
 
 	para "The next page"
 	line "is… Blank!"
-
-	para "Boy: E-he-he…"
-
-	para "I haven't written"
-	line "anymore…"
 	done
 
 AcademyStickerMachineText:

@@ -1958,9 +1958,9 @@ ArticunoEvosAttacks:
 	db 25, AGILITY
 	db 37, MIND_READER
 	db 49, ICE_BEAM
-	db 50, HAIL
 	db 61, REFLECT
 	db 73, BLIZZARD
+	db 85, HAIL
 	db 0 ; no more level-up moves
 
 ZapdosEvosAttacks:
