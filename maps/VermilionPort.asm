@@ -4,6 +4,8 @@
 	const VERMILIONPORT_SUPER_NERD
 	const VERMILIONPORT_SAILOR_TEMP
 	const VERMILIONPORT_CAPTAIN
+	const VERMILIONPORT_TRUCK1
+	const VERMILIONPORT_TRUCK2
 
 VermilionPort_MapScripts:
 	def_scene_scripts
@@ -250,6 +252,28 @@ VermilionPortSuperNerdScript:
 	closetext
 	end
 
+VermilionPortTruckScript:
+	opentext
+	writetext VermilionPortTruck1Text
+	waitbutton
+	closetext
+	pause 45
+	showemote EMOTE_SHOCK, PLAYER, 15
+	opentext
+	writetext VermilionPortTruck2Text
+	waitbutton
+	closetext
+	pause 15
+	cry MEW
+
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
+	loadwildmon MEW, 40
+	startbattle
+	disappear VERMILIONPORT_TRUCK1
+	disappear VERMILIONPORT_TRUCK2
+	reloadmapafterbattle
+	end
+
 VermilionPortTempSailorScript:
 	jumptextfaceplayer VermilionPortTempSailorText
 
@@ -423,6 +447,15 @@ VermilionPortCaptainText:
 	cont "go see my family."
 	done
 
+VermilionPortTruck1Text:
+	text "There's nothing"
+	line "under the truck."
+	done
+
+VermilionPortTruck2Text:
+	text "Wait…"
+	done
+
 VermilionPort_MapEvents:
 	db 0, 0 ; filler
 
@@ -442,3 +475,5 @@ VermilionPort_MapEvents:
 	object_event  9, 13, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortSuperNerdScript, -1
 	object_event  9, 12, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortTempSailorScript, EVENT_RETURNED_MACHINE_PART
 	object_event  5, 19, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortCaptainScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event 18, 15, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortTruckScript, EVENT_FOUGHT_MEW
+	object_event 19, 15, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionPortTruckScript, EVENT_FOUGHT_MEW
