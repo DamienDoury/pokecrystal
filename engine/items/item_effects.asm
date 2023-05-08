@@ -495,7 +495,7 @@ PokeBallEffect:
 
 .fail_to_catch
 	ld [wWildMon], a
-	ld c, 20
+	ld c, 10
 	call DelayFrames
 
 	ld a, [wCurItem]

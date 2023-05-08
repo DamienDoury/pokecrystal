@@ -31,7 +31,7 @@ _ScrollingMenu::
 	call ScrollingMenu_InitDisplay
 	ld a, 1
 	ldh [hBGMapMode], a
-	ld c, 3
+	ld c, 1
 	call DelayFrames
 	xor a
 	ldh [hBGMapMode], a
