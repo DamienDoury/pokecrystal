@@ -154,8 +154,8 @@ BattleText_RainContinuesToFall:
 	prompt
 
 BattleText_TheSunlightIsStrong:
-	text "The sunlight is"
-	line "strong."
+	text "The heat is"
+	line "intense."
 	prompt
 
 BattleText_TheSandstormRages:
