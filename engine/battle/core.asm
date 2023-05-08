@@ -2494,8 +2494,9 @@ FaintEnemyPokemon:
 	hlcoord 1, 0
 	lb bc, 4, 10
 	call ClearBox
-	ld hl, BattleText_EnemyMonFainted
-	jp StdBattleTextbox
+	;ld hl, BattleText_EnemyMonFainted
+	;jp StdBattleTextbox
+	ret
 
 CheckEnemyTrainerDefeated:
 	ld a, [wOTPartyCount]
@@ -3354,7 +3355,7 @@ EnemySwitch:
 	call OfferSwitch
 	push af
 	call ClearEnemyMonBox
-	call ShowBattleTextEnemySentOut
+	;call ShowBattleTextEnemySentOut
 	call ShowSetEnemyMonAndSendOutAnimation
 	pop af
 	ret c
@@ -3379,7 +3380,7 @@ EnemySwitch_SetMode:
 	ld a, 1
 	ld [wEnemyIsSwitching], a
 	call ClearEnemyMonBox
-	call ShowBattleTextEnemySentOut
+	;call ShowBattleTextEnemySentOut
 	jp ShowSetEnemyMonAndSendOutAnimation
 
 CheckWhetherSwitchmonIsPredetermined:
@@ -4472,7 +4473,9 @@ PursuitSwitch:
 	call PlaySFX
 	call WaitSFX
 	call EnemyMonFaintedAnimation
-	ld hl, BattleText_EnemyMonFainted
+	;ld hl, BattleText_EnemyMonFainted
+	scf
+	ret
 
 .done_fainted
 	call StdBattleTextbox
