@@ -676,9 +676,6 @@ DayCare_InitBreeding:
 	cp 150
 	jr c, .loop
 	ld [wStepsToEgg], a
-	jp .UselessJump
-
-.UselessJump:
 	xor a
 	ld hl, wEggMon
 	ld bc, BOXMON_STRUCT_LENGTH
@@ -775,62 +772,98 @@ DayCare_InitBreeding:
 	ld [hli], a
 	dec b
 	jr nz, .loop2
+
 	ld hl, wEggMonDVs
-	call Random
-	ld [hli], a
-	ld [wTempMonDVs], a
-	call Random
-	ld [hld], a
-	ld [wTempMonDVs + 1], a
-	ld de, wBreedMon1DVs
-	ld a, [wBreedMon1Species]
-	cp DITTO
-	jr z, .GotDVs
-	ld de, wBreedMon2DVs
-	ld a, [wBreedMon2Species]
-	cp DITTO
-	jr z, .GotDVs
-	ld a, TEMPMON
-	ld [wMonType], a
-	push hl
-	farcall GetGender
-	pop hl
-	ld de, wBreedMon1DVs
-	ld bc, wBreedMon2DVs
-	jr c, .SkipDVs
-	jr z, .ParentCheck2
-	ld a, [wBreedMotherOrNonDitto]
-	and a
-	jr z, .GotDVs
-	ld d, b
-	ld e, c
-	jr .GotDVs
-
-.ParentCheck2:
-	ld a, [wBreedMotherOrNonDitto]
-	and a
-	jr nz, .GotDVs
-	ld d, b
-	ld e, c
-
-.GotDVs:
-	ld a, [de]
-	inc de
+	ld a, [wBreedMon1DVs]
 	and $f
 	ld b, a
-	ld a, [hl]
-	and $f0
-	add b
-	ld [hli], a
-	ld a, [de]
-	and $7
-	ld b, a
-	ld a, [hl]
-	and $f8
-	add b
+
+	ld a, [wBreedMon2DVs]
+	and $f
+	cp b
+	jr nc, .gotDefDV
+
+	ld a, b
+
+.gotDefDV
 	ld [hl], a
 
-.SkipDVs:
+	ld a, [wBreedMon1DVs]
+	and $f0
+	ld b, a
+
+	ld a, [wBreedMon2DVs]
+	and $f0
+	cp b
+	jr nc, .gotAtkDV
+
+	ld a, b
+
+.gotAtkDV
+	or [hl]
+	ld [hli], a
+
+	ld a, [wBreedMon1DVs + 1]
+	and $f
+	ld b, a
+
+	ld a, [wBreedMon2DVs + 1]
+	and $f
+	cp b
+	jr nc, .gotSpecialDV
+
+	ld a, b
+
+.gotSpecialDV
+	ld [hl], a
+
+	ld a, [wBreedMon1DVs + 1]
+	and $f0
+	ld b, a
+
+	ld a, [wBreedMon2DVs + 1]
+	and $f0
+	cp b
+	jr nc, .gotSpeedDV
+
+	ld a, b
+
+.gotSpeedDV
+	or [hl]
+	ld [hl], a
+
+; After selecting the highest DVs of both parents, we roll one at random.
+	ld hl, wEggMonDVs
+
+	call Random
+	bit 1, a
+	jr z, .dv_byte_selected
+
+	inc hl
+
+.dv_byte_selected
+	ld c, a
+	bit 0, a
+	ld a, [hl]
+	jr z, .dv_nybble_selected
+	
+	swap a
+
+.dv_nybble_selected
+	and $f0
+	ld b, a
+
+	call Random
+	and $f
+	or b
+
+	bit 0, c
+	jr z, .dv_nybble_edited
+
+	swap a
+
+.dv_nybble_edited
+	ld [hl], a
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH
