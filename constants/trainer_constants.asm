@@ -176,6 +176,7 @@ KRIS EQU __trainer_class__
 	const JOSE3
 	const VANCE2
 	const VANCE3
+	const BOBBY
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -358,6 +359,7 @@ KRIS EQU __trainer_class__
 	const WAYNE
 	const CALE
 	const OLLY
+	const JEROME
 
 	trainerclass FISHER ; 25
 	const JUSTIN
@@ -400,7 +402,7 @@ KRIS EQU __trainer_class__
 	const DARYL
 	const WALTER
 	const TONY
-	const JEROME
+	const FLAVIEN
 	const TUCKER
 	const RICK
 	const CAMERON
@@ -510,6 +512,7 @@ KRIS EQU __trainer_class__
 	const RILEY
 	const JOEL
 	const GLENN
+	const HUSQ
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
@@ -518,6 +521,7 @@ KRIS EQU __trainer_class__
 	const DUNCAN
 	const EDDIE
 	const COREY
+	const BONES
 
 	trainerclass FIREBREATHER ; 30
 	const OTIS

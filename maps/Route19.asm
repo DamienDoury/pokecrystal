@@ -47,13 +47,13 @@ TrainerSwimmermHarold:
 	closetext
 	end
 
-TrainerSwimmermJerome:
-	trainer SWIMMERM, JEROME, EVENT_BEAT_SWIMMERM_JEROME, SwimmermJeromeSeenText, SwimmermJeromeBeatenText, 0, .Script
+TrainerSwimmermFlavien:
+	trainer SWIMMERM, FLAVIEN, EVENT_BEAT_SWIMMERM_FLAVIEN, SwimmermFlavienSeenText, SwimmermFlavienBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
 	opentext
-	writetext SwimmermJeromeAfterBattleText
+	writetext SwimmermFlavienAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -194,7 +194,7 @@ SwimmerfDawnAfterBattleText:
 	para "is! What a wimp!"
 	done
 
-SwimmermJeromeSeenText:
+SwimmermFlavienSeenText:
 	text "Swimming?"
 	line "I'm lousy at it."
 
@@ -203,12 +203,12 @@ SwimmermJeromeSeenText:
 	cont "shallow waters."
 	done
 
-SwimmermJeromeBeatenText:
+SwimmermFlavienBeatenText:
 	text "I thought I could"
 	line "win."
 	done
 
-SwimmermJeromeAfterBattleText:
+SwimmermFlavienAfterBattleText:
 	text "I might be bad at"
 	line "swimming, but I"
 	cont "love the sea."
@@ -285,7 +285,7 @@ Route19_MapEvents:
 	def_object_events
 	object_event  9, 23, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, TrainerSwimmerfDawn, -1
 	object_event 13, 28, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermHarold, -1
-	object_event 11, 17, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermJerome, -1
+	object_event 11, 17, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermFlavien, -1
 	object_event  8, 23, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerSwimmermTucker, -1
 	object_event  6,  5, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 1, Route19Fisher1Script, -1
 	object_event 11,  5, SPRITE_FISHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 1, Route19Fisher2Script, -1

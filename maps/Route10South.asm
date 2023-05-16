@@ -6,11 +6,24 @@ Route10South_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+
+.EnterCallback:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_10
+	iftrue .end
+
+	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid from enemy during the next battle, wherever that battle happens.
+
+.end
+	endcallback
 
 TrainerHikerJim:
 	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_10
+
 	endifjustbattled
 	opentext
 	writetext HikerJimAfterBattleText
@@ -22,6 +35,9 @@ TrainerPokefanmRobert:
 	trainer POKEFANM, ROBERT, EVENT_BEAT_POKEFANM_ROBERT, PokefanmRobertSeenText, PokefanmRobertBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_10
+
 	endifjustbattled
 	opentext
 	writetext PokefanmRobertAfterBattleText

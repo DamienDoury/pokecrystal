@@ -1,5 +1,6 @@
 	object_const_def
 	const MOUNTMOON_SILVER
+	const MOUNTMOON_BURGLAR
 
 MountMoon_MapScripts:
 	def_scene_scripts
@@ -67,6 +68,17 @@ MountMoon_MapScripts:
 	setscene SCENE_FINISHED
 	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
 	playmapmusic
+	end
+
+TrainerBurglarBones:
+	trainer BURGLAR, BONES, EVENT_BEAT_BURGLAR_BONES, BurglarBonesSeenText, BurglarBonesBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext BurglarBonesAfterBattleText
+	waitbutton
+	closetext
 	end
 
 MountMoonSilverMovementBefore:
@@ -158,6 +170,29 @@ MountMoonSilverTextLoss:
 	cont "greatest trainer."
 	done
 
+BurglarBonesSeenText:
+	text "My shovel and I"
+	line "came for the rare"
+	cont "stones!"
+	done
+
+BurglarBonesBeatenText:
+	text "All right, let's"
+	line "stop playing."
+	done
+
+BurglarBonesAfterBattleText:
+	text "I didn't find any"
+	line "rare stones here."
+	
+	para "I need to find"
+	line "another way to"
+	cont "make money…"
+	
+	para "Perhaps I could"
+	line "become a cook?"
+	done
+
 MountMoon_MapEvents:
 	db 0, 0 ; filler
 
@@ -177,3 +212,4 @@ MountMoon_MapEvents:
 
 	def_object_events
 	object_event  7,  3, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_RIVAL
+	object_event 12,  4, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerBurglarBones, -1
