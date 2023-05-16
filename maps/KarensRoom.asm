@@ -7,6 +7,7 @@ KarensRoom_MapScripts:
 	scene_script .DummyScene ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 	callback MAPCALLBACK_TILES, .KarensRoomDoors
 
 .LockDoor:
@@ -15,6 +16,15 @@ KarensRoom_MapScripts:
 
 .DummyScene:
 	end
+
+.EnterCallback:
+	readvar VAR_BADGES
+	ifgreater 13, .NoCovid
+
+	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid from enemy during the battle.
+
+.NoCovid
+	endcallback
 
 .KarensRoomDoors:
 	checkevent EVENT_KARENS_ROOM_ENTRANCE_CLOSED
@@ -51,6 +61,7 @@ KarenScript_Battle:
 	winlosstext KarenScript_KarenBeatenText, 0
 	loadtrainer KAREN, KAREN1
 	startbattle
+	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KAREN
 	opentext
