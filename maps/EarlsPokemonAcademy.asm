@@ -415,6 +415,10 @@ AcademyNotebookText:
 	text "It's this kid's"
 	line "notebook…"
 
+	para "It's almost impos-"
+	line "sible to catch a"
+	cont "healthy #MON."
+
 	para "Before throwing a"
 	line "# BALL, weaken"
 	cont "the target first."
@@ -465,7 +469,7 @@ AcademyNotebookText3:
 	cont "of 6 #MON,"
 
 	para "further captures"
-	line "are sent in a BOX"
+	line "are sent to a BOX"
 	cont "in the PC."
 
 	para "Once the BOX is"
@@ -473,8 +477,11 @@ AcademyNotebookText3:
 	cont "#MON, you can't"
 	cont "capture anymore."
 
-	para "Don't forget to"
-	line "switches boxes."
+	para "A good trainer"
+	line "always switches"
+	cont "to an empty BOX"
+	cont "before going on"
+	cont "an adventure."
 
 	para "The next page"
 	line "is… Blank!"

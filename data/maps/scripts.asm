@@ -80,7 +80,6 @@ SECTION "Map Scripts 5", ROMX
 INCLUDE "maps/Route11.asm"
 INCLUDE "maps/VioletMart.asm"
 INCLUDE "maps/VioletGym.asm"
-INCLUDE "maps/EarlsPokemonAcademy.asm"
 INCLUDE "maps/VioletNicknameSpeechHouse.asm"
 INCLUDE "maps/VioletPokecenter1F.asm"
 INCLUDE "maps/VioletKylesHouse.asm"
@@ -487,6 +486,7 @@ SECTION "Map Scripts 25", ROMX
 INCLUDE "maps/GoldenrodHospitalCorridor.asm"
 INCLUDE "maps/SilphCoElevator.asm"
 INCLUDE "maps/SilphCoResearch.asm"
+INCLUDE "maps/EarlsPokemonAcademy.asm"
 
 
 SECTION "Map Scripts 26", ROMX
