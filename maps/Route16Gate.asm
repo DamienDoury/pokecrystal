@@ -25,6 +25,7 @@ Route16GateBicycleCheck:
 	readvar VAR_FACING
 	ifequal RIGHT, .take_back_rental
 
+	clearflag ENGINE_BIKE_SHOP_CALL_ENABLED
 	turnobject PLAYER, UP
 	writetext Route16GateCannotPassText
 	waitbutton
