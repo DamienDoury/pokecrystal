@@ -19,9 +19,11 @@ Red:
 	writetext RedSeenText
 	waitbutton
 	closetext
+	loadmem wBattlePokerusSeed, TRUE
 	winlosstext RedWinLossText, RedWinLossText
 	loadtrainer RED, RED1
 	startbattle
+	loadmem wBattlePokerusSeed, FALSE
 	dontrestartmapmusic
 	appear SILVERCAVEROOM3_PIKACHU
 	reloadmapafterbattle
