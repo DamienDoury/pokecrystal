@@ -469,9 +469,27 @@ YoungsterIanBeatenText:
 	done
 
 YoungsterIanAfterText:
-	text "I'm trying hard so"
-	line "I can be the star"
-	cont "in my class."
+	text "Did you know that"
+	line "a child #MON"
+	
+	para "is almost always"
+	line "stronger than"
+	cont "its parents?"
+	
+	para "It's because it"
+	line "inherits from the"
+	
+	para "best traits of"
+	line "its parents!"
+	
+	para "But there's always"
+	line "a slight bit of"
+	
+	para "randomness in the"
+	line "breeding process."
+
+	para "The old man at the"
+	line "DAY-CARE told me."
 	done
 
 CamperTodd1SeenText:
