@@ -40,12 +40,6 @@ GetCurTreeFruit:
 	ld [wCurFruit], a
 	ret
 
-TryResetFruitTrees:
-	ld hl, wDailyFlags1
-	bit DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
-	ret nz
-	jp ResetFruitTrees
-
 CheckFruitTree:
 	ld b, 2
 	call GetFruitTreeFlag
@@ -53,10 +47,11 @@ CheckFruitTree:
 	ld [wScriptVar], a
 	ret
 
-PickedFruitTree:
-	farcall StubbedTrainerRankings_FruitPicked
-	ld b, 1
-	jp GetFruitTreeFlag
+TryResetFruitTrees:
+	ld hl, wDailyFlags1
+	bit DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
+	ret nz
+	; fallthrough.
 
 ResetFruitTrees:
 	xor a
@@ -73,6 +68,11 @@ ResetFruitTrees:
 	ld hl, wDailyFlags1
 	set DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
 	ret
+
+PickedFruitTree:
+	farcall StubbedTrainerRankings_FruitPicked
+	ld b, 1
+	; fallthrough.
 
 GetFruitTreeFlag:
 	push hl
