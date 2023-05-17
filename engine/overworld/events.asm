@@ -869,9 +869,20 @@ CountStep:
 .skip_happiness
 	farcall CeruleanCaveB3FStep
 
-	; Every 256 steps, offset from the happiness incrementor by 128 steps,
-	; decrease the hatch counter of all your eggs until you reach the first
-	; one that is ready to hatch.
+	; Every 128 steps, increase wActivePlaytimePoints by one.
+	ld a, [wStepCount]
+	and $80 - 1
+	jr nz, .check_egg
+
+	ld hl, wActivePlaytimePoints
+	inc [hl]
+	jr nz, .check_egg
+
+	farcall ResetDailyCovidEvents
+
+.check_egg
+	; Every 64 steps, decrease the hatch counter of all your eggs
+	; until you reach the first one that is ready to hatch.
 	ld a, [wStepCount]
 	and $40 - 1
 	jr nz, .skip_egg

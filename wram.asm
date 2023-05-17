@@ -3008,7 +3008,7 @@ wVaccinationCenterSceneID::	  					  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
-	ds 3
+	ds 2
 
 wEventFlags:: flag_array NUM_EVENTS
 
@@ -3058,8 +3058,7 @@ wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
 wDailyFlags3:: db
-wSwarmFlags:: db
-	ds 1 ; Daily flag. It gets erased.
+wSwarmFlags:: ds 2
 wTimerEventStartDay:: db
 
 wPrevWarp:: db ; Moved here by Damien, so it can be saved.
@@ -3088,6 +3087,7 @@ wPlayerMonSelection:: ds 3
 wdc5f:: db
 wdc60:: db
 
+wActivePlaytimePoints:: db ; Used to quickly reset some daily events, so that hardcore players don't have to wait for several days until things happen.
 wStepCount:: db
 wPoisonStepCount:: db
 wHappinessStepCount:: db

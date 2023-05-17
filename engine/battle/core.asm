@@ -8397,61 +8397,37 @@ StartBattle:
 	push af
 	farcall BattleIntro
 	call DoBattle
+	call IncActivePlaytimePoints
 	farcall ExitBattle
 	pop af
 	ld [wTimeOfDayPal], a
 	scf
 	ret
 
-FillEnemyMovesFromMoveIndicesBuffer: ; unreferenced
-	ld hl, wEnemyMonMoves
-	ld de, wListMoves_MoveIndicesBuffer
-	ld b, NUM_MOVES
-.loop
-	ld a, [de]
-	inc de
-	ld [hli], a
+
+IncActivePlaytimePoints:
+	call .do_inc ; 1 point for any kind of battle.
+	
+	ld a, [wOtherTrainerClass]
 	and a
-	jr z, .clearpp
+	call nz, .do_inc ; 1 bonus point for trainer battles.
 
-	push bc
+	ld a, [wBattleResult]
+	bit BATTLERESULT_CAUGHT_POKEMON, a
+	ret z
+
+	; 1 bonus point for captures.
+
+.do_inc
 	push hl
+	ld hl, wActivePlaytimePoints
+	inc [hl]
+	jr nz, .no_day_increase
 
-	push hl
-	dec a
-	ld hl, Moves + MOVE_PP
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
+	farcall ResetDailyCovidEvents
+	
+.no_day_increase
 	pop hl
-
-	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
-	add hl, bc
-	ld [hl], a
-
-	pop hl
-	pop bc
-
-	dec b
-	jr nz, .loop
-	ret
-
-.clear
-	xor a
-	ld [hli], a
-
-.clearpp
-	push bc
-	push hl
-	ld bc, wEnemyMonPP - (wEnemyMonMoves + 1)
-	add hl, bc
-	xor a
-	ld [hl], a
-	pop hl
-	pop bc
-	dec b
-	jr nz, .clear
 	ret
 	
 CleanUpBattleRAM:

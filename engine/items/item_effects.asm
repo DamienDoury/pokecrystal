@@ -534,6 +534,9 @@ PokeBallEffect:
 	jp z, .shake_and_break_free
 
 .caught
+	ld hl, wBattleResult
+	set BATTLERESULT_CAUGHT_POKEMON, [hl]
+	
 	ld hl, wEnemyMonStatus
 	ld a, [hli]
 	push af

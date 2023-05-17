@@ -64,7 +64,7 @@ ExitBattle:
 
 .not_linked
 	ld a, [wBattleResult]
-	and $f
+	and $ff ^ BATTLERESULT_BITMASK
 	ret nz
 	farcall CheckPayDay
 	xor a

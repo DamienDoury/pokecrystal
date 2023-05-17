@@ -204,6 +204,8 @@ CheckPokerusTickAndHospitalVisits::
 	farcall ResetVaccinationAvailability
 	farcall RestockMarts
 	farcall ResetWantedLevelsTheNextDay
+	xor a
+	ld [wActivePlaytimePoints], a ; We don't want this to happen twice in a short period of time.
 .done
 	xor a
 	ret
@@ -412,4 +414,20 @@ CopyDayHourMinToHL:
 	ld [hli], a
 	ldh a, [hMinutes]
 	ld [hli], a
+	ret
+
+; Covid takes days to spread.
+; Hardcore players that play for a whole day at once will miss most of the Covid features.
+; For example, the player could get all badges in 1 day while its Pokémon is still in incubation state.
+; -------------------------
+; For this reason, we accelerate covid-related features based on "active" play time.
+; This function should be called every 2.5 hours on average, for a player that rushes the content.
+; As it is based on "active" play time, players will have a harder time abusing this feature to take advantage of it.
+ResetDailyCovidEvents::
+	ld b, 1 ; 1 day has passed. Parameter used by the following functions.
+	farcall ResetHospitalVisits
+	farcall ApplyPokerusTick ; Also calls DecreaseHospitalMonsDuration.
+	farcall ResetVaccinationAvailability
+	farcall RestockMarts
+	farcall ResetFruitTrees ; This is not exactly covid related, but it's my present to the player!
 	ret
