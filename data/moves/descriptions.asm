@@ -464,8 +464,8 @@ SonicboomDescription:
 	next "20HP damage.@"
 
 DisableDescription:
-	db   "Disables the foe's"
-	next "most recent move.@"
+	db   "Disables foe's last"
+	next "move for 4 turns.@"
 
 AcidDescription:
 	db   "An attack that may"
