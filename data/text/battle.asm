@@ -51,7 +51,7 @@ BattleText_MewtwoFled:
 	text "Wild @"
 	text_ram wEnemyMonNickname
 	text_start
-	line "is glowing."
+	line "is growing uneasy…"
 	prompt
 
 BattleText_EnemyFled:
@@ -390,8 +390,6 @@ BattleText_StringBuffer1GrewToLevel:
 	text "!@"
 	sound_dex_fanfare_50_79
 	text_end
-
-	text_end ; unreferenced
 
 BattleText_WildMonIsEating:
 	text "Wild @"
