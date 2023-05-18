@@ -73,14 +73,14 @@ SwitchOften:
 	jr nz, .not_20
 	call Random
 	cp 79 percent - 1
-.not_20
 	jr c, TrySwitch
 	ret ; DontSwitch
+.not_20 ; Perish song!
 
 	; $30
-	call Random
-	cp 4 percent
-	jp c, DontSwitch
+	;call Random
+	;cp 4 percent
+	;jp c, DontSwitch
 
 	jr TrySwitch
 
@@ -102,9 +102,9 @@ SwitchRarely: ; No trainer uses this tier.
 	jr nz, .not_20
 	call Random
 	cp 12 percent
-.not_20
 	jr c, TrySwitch
 	ret ; DontSwitch
+.not_20 ; Perish song!
 
 	; $30
 	call Random
@@ -131,14 +131,14 @@ SwitchSometimes:
 	jr nz, .not_20
 	call Random
 	cp 50 percent + 1
-.not_20
 	jr c, TrySwitch
 	ret ; DontSwitch
+.not_20 ; Perish song!
 
 	; $30
-	call Random
-	cp 20 percent - 1
-	jp c, DontSwitch
+	;call Random
+	;cp 20 percent - 1
+	;ret c ; DontSwitch
 
 TrySwitch:
 	ld a, [wEnemySwitchMonParam]
