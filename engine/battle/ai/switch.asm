@@ -201,6 +201,8 @@ CheckPlayerMoveTypeMatchups:
 	ld [wEnemyAISwitchScore], a
 	ret
 
+; Checks if the player is able to switch, then pre-selects the best mon to send out in the lower nybble of wEnemySwitchMonParam. 
+; High nybble of wEnemySwitchMonParam is used for the odds.
 CheckAbleToSwitch:
 	xor a
 	ld [wEnemySwitchMonParam], a

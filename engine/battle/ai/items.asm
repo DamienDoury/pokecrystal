@@ -1,5 +1,4 @@
 AI_SwitchDecision:
-AI_SwitchOrTryItem:
 	and a
 
 	ld a, [wBattleMode]
@@ -16,7 +15,7 @@ AI_SwitchOrTryItem:
 	; Chuck is fair and plays one on one: he won't switch out.
 	ld a, [wOtherTrainerClass]
 	cp CHUCK
-	jr z, DontSwitch
+	ret z ; DontSwitch
 
 	; Ghost types can't be trapped.
 	ld a, [wEnemyMonType1]
@@ -29,15 +28,13 @@ AI_SwitchOrTryItem:
 
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
-	jr nz, DontSwitch
+	ret nz ; DontSwitch
 
 	ld a, [wEnemyWrapCount]
 	and a
-	jr nz, DontSwitch
+	ret nz ; DontSwitch
 
 .ghost_types_cant_be_trapped_by_opponent_moves
-	; Here we should check for the perish trap to force a switch is necessary.
-	
 	; always load the first trainer class in wTrainerClass for Battle Tower trainers
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]
@@ -56,119 +53,100 @@ AI_SwitchOrTryItem:
 	jp nz, SwitchRarely
 	bit SWITCH_SOMETIMES_F, [hl]
 	jp nz, SwitchSometimes
-	; fallthrough
-
-DontSwitch:
-	;call AI_TryItem
 	ret
 
 SwitchOften:
 	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
-	jp z, DontSwitch
+	ret z ; DontSwitch
 
 	cp $10
 	jr nz, .not_10
 	call Random
 	cp 50 percent + 1
-	jr c, .switch
-	jp DontSwitch
+	jp c, TrySwitch
+	ret ; DontSwitch
 .not_10
 
 	cp $20
 	jr nz, .not_20
 	call Random
 	cp 79 percent - 1
-	jr c, .switch
-	jp DontSwitch
 .not_20
+	jr c, TrySwitch
+	ret ; DontSwitch
 
 	; $30
 	call Random
 	cp 4 percent
 	jp c, DontSwitch
 
-.switch
-	ld a, [wEnemySwitchMonParam]
-	and $f
-	inc a
-	; In register 'a' is the number (1-6) of the mon to switch to
-	ld [wEnemySwitchMonIndex], a
-	jp AI_TrySwitch
+	jr TrySwitch
 
-SwitchRarely:
+SwitchRarely: ; No trainer uses this tier.
 	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
-	jp z, DontSwitch
+	ret z ; DontSwitch
 
 	cp $10
 	jr nz, .not_10
 	call Random
 	cp 8 percent
-	jr c, .switch
-	jp DontSwitch
+	jr c, TrySwitch
+	ret ; DontSwitch
 .not_10
 
 	cp $20
 	jr nz, .not_20
 	call Random
 	cp 12 percent
-	jr c, .switch
-	jp DontSwitch
 .not_20
+	jr c, TrySwitch
+	ret ; DontSwitch
 
 	; $30
 	call Random
 	cp 79 percent - 1
-	jp c, DontSwitch
+	ret c ; DontSwitch
 
-.switch
-	ld a, [wEnemySwitchMonParam]
-	and $f
-	inc a
-	ld [wEnemySwitchMonIndex], a
-	jp AI_TrySwitch
+	jr TrySwitch
 
 SwitchSometimes:
 	callfar CheckAbleToSwitch
 	ld a, [wEnemySwitchMonParam]
 	and $f0
-	jp z, DontSwitch
+	ret z ; DontSwitch
 
 	cp $10
 	jr nz, .not_10
 	call Random
 	cp 20 percent - 1
-	jr c, .switch
-	jp DontSwitch
+	jr c, TrySwitch
+	ret ; DontSwitch
 .not_10
 
 	cp $20
 	jr nz, .not_20
 	call Random
 	cp 50 percent + 1
-	jr c, .switch
-	jp DontSwitch
 .not_20
+	jr c, TrySwitch
+	ret ; DontSwitch
 
 	; $30
 	call Random
 	cp 20 percent - 1
 	jp c, DontSwitch
 
-.switch
+TrySwitch:
 	ld a, [wEnemySwitchMonParam]
 	and $f
 	inc a
+	; In register 'a' is the number (1-6) of the mon to switch to
 	ld [wEnemySwitchMonIndex], a
 	jp AI_TrySwitch
-
-CheckSubstatusCantRun: ; unreferenced
-	ld a, [wEnemySubStatus5]
-	bit SUBSTATUS_CANT_RUN, a
-	ret
 
 ; Input: all registers ABCDEHL are ignored.
 AI_TryItem:
