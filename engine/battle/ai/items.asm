@@ -183,7 +183,7 @@ AI_TryItem:
 	or b
 	ret z
 
-	call .IsHighestLevel
+	call .IsHighestLevelAmongAlivePokemons
 	ret nc
 
 	ld a, [wTrainerClass]
@@ -257,21 +257,37 @@ AI_TryItem:
 	scf
 	ret
 
-.IsHighestLevel:
+.IsHighestLevelAmongAlivePokemons:
 	ld a, [wOTPartyCount]
 	ld d, a
 	ld e, 0
-	ld hl, wOTPartyMon1Level
+	ld hl, wOTPartyMon1HP
 	ld bc, PARTYMON_STRUCT_LENGTH
-.next
+.highest_level_loop
+	push bc
+	ld b, [hl]
+	inc hl
+	ld a, [hld]
+	or b
+	pop bc
+
+	jr z, .next ; If the Pokemon has fainted, we don't account for it in the search of the highest level in the party.
+
+	dec hl
+	dec hl
+	dec hl ; HL now points to the level.
 	ld a, [hl]
+	inc hl
+	inc hl
+	inc hl ; HL now points back to the HP.
+
 	cp e
-	jr c, .ok
+	jr c, .next
 	ld e, a
-.ok
+.next
 	add hl, bc
 	dec d
-	jr nz, .next
+	jr nz, .highest_level_loop
 
 	ld a, [wCurOTMon]
 	ld hl, wOTPartyMon1Level
