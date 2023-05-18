@@ -1,3 +1,4 @@
+AI_SwitchDecision:
 AI_SwitchOrTryItem:
 	and a
 
@@ -18,10 +19,13 @@ AI_SwitchOrTryItem:
 	jr z, DontSwitch
 
 	; Ghost types can't be trapped.
-	ld a, GHOST
-	ld [wTempByteValue], a
-	farcall CheckOpponentTypeFarcall
-	jr z, .ghost_type_cant_be_trapped
+	ld a, [wEnemyMonType1]
+	cp GHOST
+	jr z, .ghost_types_cant_be_trapped_by_opponent_moves
+
+	ld a, [wEnemyMonType2]
+	cp GHOST
+	jr z, .ghost_types_cant_be_trapped_by_opponent_moves
 
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
@@ -31,7 +35,9 @@ AI_SwitchOrTryItem:
 	and a
 	jr nz, DontSwitch
 
-.ghost_type_cant_be_trapped
+.ghost_types_cant_be_trapped_by_opponent_moves
+	; Here we should check for the perish trap to force a switch is necessary.
+	
 	; always load the first trainer class in wTrainerClass for Battle Tower trainers
 	ld hl, TrainerClassAttributes + TRNATTR_AI_ITEM_SWITCH
 	ld a, [wInBattleTowerBattle]
@@ -53,7 +59,7 @@ AI_SwitchOrTryItem:
 	; fallthrough
 
 DontSwitch:
-	call AI_TryItem
+	;call AI_TryItem
 	ret
 
 SwitchOften:
@@ -164,6 +170,7 @@ CheckSubstatusCantRun: ; unreferenced
 	bit SUBSTATUS_CANT_RUN, a
 	ret
 
+; Input: all registers ABCDEHL are ignored.
 AI_TryItem:
 	; items are not allowed in the Battle Tower
 	ld a, [wInBattleTowerBattle]
@@ -680,14 +687,21 @@ AI_TrySwitch:
 
 	ld a, d
 	cp 2
-	jp nc, AI_Switch
+	;jp nc, .AI_Switch
+	jp nc, .decideToSwitch
 	and a
 	ret
 
-AI_Switch:
+.decideToSwitch
 	ld a, $1
 	ld [wEnemyIsSwitching], a
 	ld [wEnemyGoesFirst], a
+	ret
+
+AI_Switch:
+	;ld a, $1
+	;ld [wEnemyIsSwitching], a
+	;ld [wEnemyGoesFirst], a
 	ld hl, wEnemySubStatus4
 	res SUBSTATUS_RAGE, [hl]
 	xor a

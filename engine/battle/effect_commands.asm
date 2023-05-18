@@ -6307,10 +6307,6 @@ BattleCommand_Paralyze:
 	call AnimateFailedMove
 	jp PrintDoesntAffect
 
-CheckOpponentTypeFarcall::
-	ld a, [wTempByteValue]
-	; fallthrough
-
 CheckOpponentType: ; Fixes the tri-attack issue that could burn fire types and freeze ice types.
 ; Returns z if the opponent has the type provided in a.
 ; Destroys a.

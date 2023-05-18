@@ -2022,23 +2022,23 @@ AI_Smart_PerishSong:
 	; If the player has only 1 Pokémon left, and the enemy (user) has several Pokémons left, we should encourage Perish Song a lot depending on the number of Pokémon left.
 	; If the enemy has at least 4 Pokémon left, then it's a sure win (unless there is a chain kill with Spikes or something similar).
 
-	ld a, [wEnemySubStatus5] ; If the enemy (user) is trapped, using Perish Song signs its death, so it should be greatly discouraged.
+	ld a, [wPlayerSubStatus5] ; If the enemy (user) is trapped, using Perish Song signs its death, so it should be greatly discouraged.
 	bit SUBSTATUS_CANT_RUN, a
 	jr nz, .no
 
-	ld a, [wPlayerSubStatus5]
-	bit SUBSTATUS_CANT_RUN, a
-	jr nz, .encourage
-
 	ld a, [wBattleMonType1] ; Ghost is always the first type, so no need to check the second type.
 	cp GHOST 
-	jr z, .skip_binding_check ; A Ghost type can always escape, so we shouldn't encourage perish song against a binded Ghost type.
+	jr z, .skip_trap_check ; A Ghost type can always escape, so we shouldn't encourage perish song against a binded Ghost type.
+
+	ld a, [wEnemySubStatus5] ; If we have trapped the opponent, we encourage using Perish Song.
+	bit SUBSTATUS_CANT_RUN, a
+	jr nz, .encourage
 
 	ld a, [wPlayerWrapCount]
 	cp 3
 	jr nc, .encourage
 
-.skip_binding_check
+.skip_trap_check
 	push hl
 	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]

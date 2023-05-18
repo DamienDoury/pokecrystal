@@ -209,6 +209,7 @@ BattleTurn:
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
 	farcall AIChooseMove
+	farcall AI_SwitchDecision
 
 	call IsMobileBattle
 	jr nz, .not_disconnected
@@ -985,7 +986,7 @@ Battle_EnemyFirst:
 	call SetEnemyTurn
 	ld a, $1
 	ld [wEnemyGoesFirst], a
-	callfar AI_SwitchOrTryItem
+	call SwitchAsPlannedOrTryUsingItem
 	jr c, .switch_item
 	call EnemyTurn_EndOpponentProtectEndureDestinyBond
 	call CheckMobileBattleError
@@ -1039,7 +1040,7 @@ Battle_PlayerFirst:
 	xor a
 	ld [wEnemyGoesFirst], a
 	call SetEnemyTurn
-	callfar AI_SwitchOrTryItem
+	call SwitchAsPlannedOrTryUsingItem
 	push af
 	call PlayerTurn_EndOpponentProtectEndureDestinyBond
 	pop bc
@@ -1082,6 +1083,19 @@ Battle_PlayerFirst:
 	call RefreshBattleHuds
 	xor a ; BATTLEPLAYERACTION_USEMOVE
 	ld [wBattlePlayerAction], a
+	ret
+
+SwitchAsPlannedOrTryUsingItem:
+	ld a, [wEnemyIsSwitching]
+	and a
+	jr z, .try_item
+	
+	; Switching, as decided earlier this turn.
+	callfar AI_Switch
+	ret
+
+.try_item
+	callfar AI_TryItem
 	ret
 
 PlayerTurn_EndOpponentProtectEndureDestinyBond:
