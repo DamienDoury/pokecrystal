@@ -43,29 +43,6 @@ CheckShininess:
 	and a
 	ret
 
-SGB_ApplyCreditsPals: ; unreferenced
-	push de
-	push bc
-	ld hl, PalPacket_Pal01
-	ld de, wSGBPals
-	ld bc, PALPACKET_LENGTH
-	call CopyBytes
-	pop bc
-	pop de
-	ld a, c
-	ld [wSGBPals + 3], a
-	ld a, b
-	ld [wSGBPals + 4], a
-	ld a, e
-	ld [wSGBPals + 5], a
-	ld a, d
-	ld [wSGBPals + 6], a
-	ld hl, wSGBPals
-	call PushSGBPals
-	ld hl, BlkPacket_AllPal0
-	call PushSGBPals
-	ret
-
 InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu + 1
 	call CopyFourPalettes
@@ -1171,6 +1148,19 @@ LoadMapPals:
 
 	call HandleHospitalRoomPalette
 
+	; Exception: Pewter Museum of Science, which is an indoor map that still uses palette transition.
+	ld a, [wMapGroup]
+	cp GROUP_PEWTER_MUSEUM_1F
+	jr nz, .environment_check
+
+	ld a, [wMapNumber]
+	cp MAP_PEWTER_MUSEUM_1F
+	jr z, .outside
+
+	cp MAP_PEWTER_MUSEUM_2F
+	jr z, .outside
+
+.environment_check
 	ld a, [wEnvironment]
 	cp TOWN
 	jr z, .outside
