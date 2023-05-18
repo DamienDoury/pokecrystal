@@ -1911,12 +1911,64 @@ AI_Smart_Protect:
 ; Greatly discourage this move if the enemy already used Protect.
 	ld a, [wEnemyProtectCount]
 	and a
-	jr nz, .greatly_discourage
+	jp nz, .greatly_discourage
 
+; Greatly discourage this move if the player is recharging, after using Hyperbeam on the last turn for example.
+	ld a, [wPlayerSubStatus4]
+	bit SUBSTATUS_RECHARGE, a
+	jp nz, .greatly_discourage
+
+; Greatly encourage during a Perish Trap.
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_CANT_RUN, a
+	jr nz, .continue_perish_trap_check
+
+	ld a, [wPlayerWrapCount]
+	push bc
+	ld b, a
+	ld a, [wPlayerPerishCount]
+	cp b
+	pop bc
+
+	jr z, .continue_perish_trap_check
+	jr nc, .skip_perish_trap ; If the number of wrap counts if not enough to lasts until the perish song ends, it is not a valid trap therefore we skip the next trap checks.
+
+.continue_perish_trap_check
+	ld a, [wPlayerPerishCount]
+	and a
+	jr z, .skip_perish_trap ; If the number of perish turns is zero, there's no perish trap.
+
+	push bc
+	ld b, a
+	ld a, [wEnemyPerishCount]
+	cp b
+	pop bc
+	jr c, .skip_perish_trap
+
+	ld a, [wBattleMonType1]
+	cp GHOST
+	jr z, .skip_perish_trap
+
+	ld a, [wBattleMonType2]
+	cp GHOST
+	jr z, .skip_perish_trap
+
+	; Protect can be used either when there are 3 or 2 turns left of Perish Song (the Pokémon must switch out when 1 turn is left).
+	; We don't always want the Pokémon to use Protect on turn 3, as it would be predictable and could be counter-acted.
+	; So we give it a 50% chance to be used on turn 3, and if not used, 100% chance of being used on turn 2.
+	; It doesn't matter is the turn 2 is predictable, as at this point, the player doesn't have any way to live through it.
+	ld a, [wPlayerPerishCount]
+	cp 2
+	jr z, .greatly_encourage ; 100% chance on turn 2.
+
+	call AI_50_50
+	jr c, .greatly_encourage ; 50% chance on turn 3.
+
+.skip_perish_trap
 ; Encourage this move if the enemy is locked on.
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
-	jr nz, .encourage
+	jr nz, .greatly_encourage
 
 ; Discourage this move if the player is locked on.
 	ld a, [wPlayerSubStatus5]
@@ -1936,14 +1988,41 @@ AI_Smart_Protect:
 ; Encourage this move if the player is affected by Toxic, Leech Seed, or Curse.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TOXIC, a
-	jr nz, .encourage
+	jr z, .next1
+
+	dec [hl]
+.next1
 	ld a, [wPlayerSubStatus4]
 	bit SUBSTATUS_LEECH_SEED, a
-	jr nz, .encourage
+	jr z, .next2
+
+	dec [hl]
+.next2
 	ld a, [wPlayerSubStatus1]
 	bit SUBSTATUS_CURSE, a
-	jr nz, .encourage
+	jr z, .next3
 
+	dec [hl]
+.next3
+	ld a, [wEnemySubStatus5]
+	bit SUBSTATUS_TOXIC, a
+	jr z, .next4
+
+	inc [hl]
+	inc [hl]
+.next4
+	ld a, [wEnemySubStatus4]
+	bit SUBSTATUS_LEECH_SEED, a
+	jr z, .next5
+
+	inc [hl]
+.next5
+	ld a, [wEnemySubStatus1]
+	bit SUBSTATUS_CURSE, a
+	jr z, .next6
+
+	inc [hl]
+.next6
 ; Discourage this move if the player's Rollout count is not boosted enough.
 	bit SUBSTATUS_ROLLOUT, a
 	jr z, .discourage

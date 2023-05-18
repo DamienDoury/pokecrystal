@@ -211,7 +211,7 @@ CheckAbleToSwitch:
 
 	ld a, [wEnemySubStatus1]
 	bit SUBSTATUS_PERISH, a
-	jr z, .no_perish
+	jr z, .no_perish_switch
 
 	; If the perish count is 1, we must switch now (or die).
 	ld a, [wEnemyPerishCount]
@@ -228,28 +228,28 @@ CheckAbleToSwitch:
 	ld a, [wPlayerPerishCount]
 	cp b
 	jr z, .perish_75_25_switch 	; If the player's perish count is equal to the enemy's, we proceed to the next check.
-	jr c, .no_perish			; If the enemy has a higher counter, he is in a good position and should wait for the player's pkmn to die.
+	jr c, .no_perish_switch			; If the enemy has a higher counter, he is in a good position and should wait for the player's pkmn to die.
 	jr nc, .perish_insta_switch ; If the enemy has a smaller counter than the player, the enemy should switch now as he is in a bad position.
 
 .perish_75_25_switch
 	; If we have trapped the player, we wait for the last moment to switch out.
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
-	jr nz, .no_perish 
+	jr nz, .no_perish_switch 
 
 	; If we have binded the player for enough turns, we wait for the last moment to switch out.
 	ld a, [wPlayerPerishCount]
 	ld b, a
 	ld a, [wPlayerWrapCount]
 	cp b
-	jr nc, .no_perish
+	jr nc, .no_perish_switch
 
 	; As soon as enemy hears the perish song, it has 75% of trying to switch out 
 	; to prevent the player from trapping the enemy (unless the player is trapped, see above).
 	; It also gives the enemy 25% chance to combo with Mean Look on the next turn (if it knows it) as it is greatly encouraged.
 	call Random
 	cp 25 percent - 1
-	jr c, .no_perish ; 25% chances of not switching out.
+	jr c, .no_perish_switch ; 25% chances of not switching out.
 
 .perish_insta_switch
 	call FindAliveEnemyMons
@@ -282,7 +282,7 @@ CheckAbleToSwitch:
 	ld [wEnemySwitchMonParam], a
 	ret
 
-.no_perish
+.no_perish_switch
 	call CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp 11
