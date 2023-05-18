@@ -11,7 +11,7 @@ Script_Whiteout:
 	callasm HalveMoney
 	getmoney STRING_BUFFER_3, YOUR_MONEY ; Note: the value displayed has 50% of being wrong by 1, but whatever.
 
-	readmem wTempTrainerClass
+	readmem wTrainerClass
 	ifequal 0, .wild
 	ifequal OFFICER, .police
 
