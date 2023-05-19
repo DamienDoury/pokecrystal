@@ -479,9 +479,9 @@ PowerPlantVermilionGymGuidePowerRestoredText:
 	done
 
 PowerPlantSurgeText:
-	text "SURGE: Do it!"
+	text "SURGE: DO IT!"
 
-	para "Just do it!"
+	para "JUST DO IT!!"
 	done
 
 PowerPlantSurgeMissionCompletedText:

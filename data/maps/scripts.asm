@@ -89,6 +89,7 @@ INCLUDE "maps/Route35GoldenrodGate.asm"
 INCLUDE "maps/Route35NationalParkGate.asm"
 INCLUDE "maps/Route36RuinsOfAlphGate.asm"
 INCLUDE "maps/Route36NationalParkGate.asm"
+INCLUDE "maps/LavRadioTower1F.asm"
 
 
 SECTION "Map Scripts 6", ROMX
@@ -100,6 +101,7 @@ INCLUDE "maps/TeamRocketBaseB2F.asm"
 INCLUDE "maps/TeamRocketBaseB3F.asm"
 INCLUDE "maps/IlexForest.asm"
 INCLUDE "maps/CeladonCafe.asm"
+INCLUDE "maps/Route12SuperRodHouse.asm"
 
 
 SECTION "Map Scripts 7", ROMX
@@ -126,6 +128,7 @@ INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Ga
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
 INCLUDE "maps/Route5SaffronGate.asm"
+INCLUDE "maps/Route8SaffronGate.asm"
 
 
 SECTION "Map Scripts 8", ROMX
@@ -187,9 +190,6 @@ INCLUDE "maps/LavenderSpeechHouse.asm"
 INCLUDE "maps/LavenderNameRater.asm"
 INCLUDE "maps/LavenderMart.asm"
 INCLUDE "maps/SoulHouse.asm"
-INCLUDE "maps/LavRadioTower1F.asm"
-INCLUDE "maps/Route8SaffronGate.asm"
-INCLUDE "maps/Route12SuperRodHouse.asm"
 
 
 SECTION "Map Scripts 11", ROMX

@@ -927,6 +927,7 @@ InitializeEventsScript:
 	setevent EVENT_BOULDER_IN_SEAFOAM_B3F_1
 	setevent EVENT_BOULDER_IN_SEAFOAM_B3F_2
 	setevent EVENT_BOULDER_IN_SEAFOAM_B6F_ALL
+	setevent EVENT_JASMINE_AT_FUJIS
 	endcallback
 
 AskNumber1MScript:
