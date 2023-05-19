@@ -13,7 +13,7 @@ SilverCaveOutside_MapScripts:
 
 MtSilverArticuno:
 	cry ARTICUNO
-	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
+	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon ARTICUNO, 75
 	startbattle
 	disappear MTSILVER_ARTICUNO
