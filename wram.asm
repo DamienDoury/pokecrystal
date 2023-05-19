@@ -3133,6 +3133,10 @@ wRevivedFossil:: db	; Used in SilphCoResearch.asm.
 wFossilItem:: db
 wNewStarterSpecies:: db
 wNewStarterMovesIndex:: db
+
+NEXTU ; Power plant.
+wPowerPlantMoveSFX:: db
+wPowerPlantEarthquakeDuration:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

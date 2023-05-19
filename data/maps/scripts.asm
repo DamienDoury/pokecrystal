@@ -125,6 +125,7 @@ INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Gate.
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
+INCLUDE "maps/Route5SaffronGate.asm"
 
 
 SECTION "Map Scripts 8", ROMX
@@ -210,6 +211,7 @@ INCLUDE "maps/ViridianPokecenter1F.asm"
 INCLUDE "maps/Route2NuggetHouse.asm"
 INCLUDE "maps/Route2Gate.asm"
 INCLUDE "maps/VictoryRoadGate.asm"
+INCLUDE "maps/Route5CleanseTagHouse.asm"
 
 
 SECTION "Map Scripts 12", ROMX
@@ -294,8 +296,6 @@ INCLUDE "maps/SilphCo1F.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
-INCLUDE "maps/Route5SaffronGate.asm"
-INCLUDE "maps/Route5CleanseTagHouse.asm"
 
 
 SECTION "Map Scripts 16", ROMX

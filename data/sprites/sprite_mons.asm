@@ -66,4 +66,8 @@ SpriteMons:
 	db MEWTWO
 	db ZAPDOS
 	db SANDSHREW
+	db RAICHU
+	db ELECTABUZZ
+	db MAGNETON
+	db JOLTEON
 	assert_table_length NUM_POKEMON_SPRITES

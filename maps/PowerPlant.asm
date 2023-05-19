@@ -6,6 +6,8 @@
 	const POWERPLANT_GYM_GUIDE3
 	const POWERPLANT_MANAGER
 	const POWERPLANT_FOREST
+	const POWERPLANT_VERMILION_GYM_GUIDE
+	const POWERPLANT_SURGE
 
 PowerPlant_MapScripts:
 	def_scene_scripts
@@ -150,6 +152,7 @@ PowerPlantManager:
 	setevent EVENT_RETURNED_MACHINE_PART
 	clearevent EVENT_SAFFRON_TRAIN_STATION_POPULATION
 	setevent EVENT_ROUTE_24_ROCKET
+	setevent EVENT_JASMINE_AT_FUJIS
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	clearevent EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN
 .ReturnedMachinePart:
@@ -180,6 +183,75 @@ Forest:
 	closetext
 	end
 
+PowerPlantVermilionGymGuideScript:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iftrue .power_restored
+	jumptextfaceplayer PowerPlantVermilionGymGuideText
+
+.power_restored
+	jumptextfaceplayer PowerPlantVermilionGymGuidePowerRestoredText
+
+PowerPlantSurgeScript:
+	checkevent EVENT_RESTORED_POWER_TO_KANTO
+	iffalse .do_it
+
+	jumptextfaceplayer PowerPlantSurgeMissionCompletedText
+
+.do_it
+	applymovement POWERPLANT_SURGE, PowerPlantStompLeftMovement
+	opentext
+	writetext PowerPlantSurgeText
+	waitbutton
+	closetext
+	pause 5
+
+PowerPlantRaichu:
+	setval RAICHU
+	loadmem wPowerPlantMoveSFX, SFX_THUNDERSHOCK
+	loadmem wPowerPlantEarthquakeDuration, 42
+	sjump PowerPlantThunderAnim
+
+PowerPlantElectrode:
+	setval ELECTRODE
+	loadmem wPowerPlantMoveSFX, SFX_THUNDER
+	loadmem wPowerPlantEarthquakeDuration, 36
+	sjump PowerPlantThunderAnim
+
+PowerPlantMagneton:
+	setval MAGNETON
+	loadmem wPowerPlantMoveSFX, SFX_ZAP_CANNON
+	loadmem wPowerPlantEarthquakeDuration, 16
+	sjump PowerPlantThunderAnim
+
+PowerPlantElectabuzz:
+	setval ELECTABUZZ
+	loadmem wPowerPlantMoveSFX, SFX_THUNDER
+	loadmem wPowerPlantEarthquakeDuration, 36
+	sjump PowerPlantThunderAnim
+
+PowerPlantJolteon:
+	setval JOLTEON
+	loadmem wPowerPlantMoveSFX, SFX_THUNDERSHOCK
+	loadmem wPowerPlantEarthquakeDuration, 42
+
+PowerPlantThunderAnim:
+	getmonname STRING_BUFFER_3, USE_SCRIPT_VAR
+	opentext
+	writetext PowerPlantPokemonShoutText
+	cry USE_SCRIPT_VAR
+	waitsfx
+	pause 5
+	closetext
+
+	pause 5
+
+	readmem wPowerPlantMoveSFX
+	playsound SFX_FROM_MEM
+	readmem wPowerPlantEarthquakeDuration
+	earthquake USE_SCRIPT_VAR
+	waitsfx
+	end
+
 PowerPlantBookshelf:
 	jumpstd DifficultBookshelfScript
 
@@ -198,6 +270,11 @@ PowerPlantOfficer1ReturnToPostMovement:
 PowerPlantOfficer1ReturnToPostFinalMovement:
 	step LEFT
 	turn_head DOWN
+	step_end
+
+PowerPlantStompLeftMovement:
+	turn_step LEFT
+	step_bump
 	step_end
 
 PowerPlantOfficer1AThiefBrokeInText:
@@ -376,6 +453,52 @@ PowerPlantManagerMyBelovedGeneratorText:
 	line "electricity out!"
 	done
 
+PowerPlantVermilionGymGuideText:
+	text "Yo CHAMP!"
+
+	para "LT.SURGE is our"
+	line "saviour."
+
+	para "His #MON squad"
+	line "is strong enough"
+	
+	para "to provide emer-"
+	line "gency power for"
+	cont "all of KANTO!"
+	done
+
+PowerPlantVermilionGymGuidePowerRestoredText:
+	text "Yo CHAMP!"
+
+	para "You did an amazing"
+	line "job here!"
+
+	para "I guess we'll see"
+	line "you at VERMILION"
+	cont "GYM."
+	done
+
+PowerPlantSurgeText:
+	text "SURGE: Do it!"
+
+	para "Just do it!"
+	done
+
+PowerPlantSurgeMissionCompletedText:
+	text "SURGE: So it's over"
+	line "hey?"
+	
+	para "Mission completed,"
+	line "gotta get back"
+	cont "to base camp."
+	done
+
+PowerPlantPokemonShoutText:
+	text "@"
+	text_ram wStringBuffer3
+	text ": !!!"
+	done
+
 PowerPlant_MapEvents:
 	db 0, 0 ; filler
 
@@ -398,3 +521,10 @@ PowerPlant_MapEvents:
 	object_event  7,  2, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantGymGuide4Script, -1
 	object_event 14, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantManager, -1
 	object_event  5,  5, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Forest, -1
+	object_event 19, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PowerPlantVermilionGymGuideScript, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 15, 16, SPRITE_SURGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PowerPlantSurgeScript, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 14, 16, SPRITE_RAICHU, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantRaichu, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 17, 10, SPRITE_ELECTRODE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantElectrode, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 13,  4, SPRITE_MAGNETON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_SILVER, OBJECTTYPE_SCRIPT, 0, PowerPlantMagneton, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 16,  4, SPRITE_ELECTABUZZ, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PowerPlantElectabuzz, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 12, 10, SPRITE_JOLTEON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PowerPlantJolteon, EVENT_RESTORED_POWER_TO_KANTO
