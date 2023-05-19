@@ -847,19 +847,19 @@ JohtoGrassWildMons:
 	; morn
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
-	db 24, KRABBY
+	db 22, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 28, OCTILLERY
+	db 28, OCTILLERY
 	; day
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 28, OCTILLERY
+	db 28, OCTILLERY
 	; nite
 	db 22, KRABBY
 	db 23, ZUBAT
@@ -875,19 +875,19 @@ JohtoGrassWildMons:
 	; morn
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; day
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; nite
 	db 22, KRABBY
 	db 23, ZUBAT
@@ -903,19 +903,19 @@ JohtoGrassWildMons:
 	; morn
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; day
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; nite
 	db 22, KRABBY
 	db 23, ZUBAT
@@ -931,19 +931,19 @@ JohtoGrassWildMons:
 	; morn
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; day
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; nite
 	db 22, KRABBY
 	db 23, ZUBAT
@@ -959,19 +959,19 @@ JohtoGrassWildMons:
 	; morn
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; day
 	db 22, KRABBY
 	db 23, ZUBAT
-	db 22, SEEL
 	db 24, KRABBY
 	db 25, GOLBAT
-	db 24, SEEL
-	db 24, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; nite
 	db 22, KRABBY
 	db 23, ZUBAT
@@ -987,19 +987,19 @@ JohtoGrassWildMons:
 	; morn
 	db 23, KRABBY
 	db 24, ZUBAT
-	db 23, SEEL
 	db 25, KRABBY
 	db 26, GOLBAT
-	db 25, SEEL
-	db 25, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; day
 	db 23, KRABBY
 	db 24, ZUBAT
-	db 23, SEEL
 	db 25, KRABBY
 	db 26, GOLBAT
-	db 25, SEEL
-	db 25, SEEL
+	db 28, OCTILLERY
+	db 30, OCTILLERY
+	db 32, OCTILLERY
 	; nite
 	db 23, KRABBY
 	db 24, ZUBAT
@@ -1015,18 +1015,18 @@ JohtoGrassWildMons:
 	; morn
 	db 24, KRABBY
 	db 25, ZUBAT
-	db 24, SEEL
+	db 30, OCTILLERY
 	db 26, KRABBY
 	db 27, GOLBAT
-	db 26, SEEL
+	db 34, OCTILLERY
 	db 10, TOTODILE
 	; day
 	db 24, KRABBY
 	db 25, ZUBAT
-	db 24, SEEL
+	db 30, OCTILLERY
 	db 26, KRABBY
 	db 27, GOLBAT
-	db 26, SEEL
+	db 34, OCTILLERY
 	db 10, TOTODILE
 	; nite
 	db 24, KRABBY
@@ -1043,7 +1043,7 @@ JohtoGrassWildMons:
 	; morn
 	db 25, KRABBY
 	db 26, ZUBAT
-	db 25, SEEL
+	db 30, OCTILLERY
 	db 27, KRABBY
 	db 28, GOLBAT
 	db 12, TOTODILE
@@ -1051,7 +1051,7 @@ JohtoGrassWildMons:
 	; day
 	db 25, KRABBY
 	db 26, ZUBAT
-	db 25, SEEL
+	db 30, OCTILLERY
 	db 27, KRABBY
 	db 28, GOLBAT
 	db 12, TOTODILE
@@ -1489,25 +1489,25 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_38
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 16, RATTATA
-	db 16, RATICATE
-	db 16, MAGNEMITE
+	db 16, SENTRET
+	db 18, FURRET
+	db 16, SENTRET
 	db 16, PIDGEOTTO
 	db 13, TAUROS
-	db 13, MILTANK
+	db 13, MAREEP
 	db 13, MILTANK
 	; day
-	db 16, RATTATA
-	db 16, RATICATE
-	db 16, MAGNEMITE
+	db 16, SENTRET
+	db 18, FURRET
+	db 16, SENTRET
 	db 16, PIDGEOTTO
 	db 13, TAUROS
 	db 13, MILTANK
-	db 13, MILTANK
+	db 13, MAREEP
 	; nite
 	db 16, MEOWTH
-	db 16, RATICATE
-	db 16, MAGNEMITE
+	db 16, FURRET
+	db 16, FURRET
 	db 16, NOCTOWL
 	db 16, MEOWTH
 	db 16, MEOWTH
@@ -1517,17 +1517,17 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_39
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 16, RATTATA		; 30%
+	db 16, MAREEP		; 30%
 	db 16, RATICATE		; 30%
-	db 16, MAGNEMITE	; 20%
+	db 18, FLAAFY		; 20%
 	db 16, PIDGEOTTO	; 10%
-	db 15, MILTANK		; 5%
+	db 19, FLAAFY		; 5%
 	db 15, TAUROS		; 4%
-	db 15, TAUROS		; 1%
+	db 19, MILTANK		; 1%
 	; day
 	db 16, RATTATA
 	db 16, RATICATE
-	db 16, MAGNEMITE
+	db 18, FURRET
 	db 16, PIDGEOTTO
 	db 15, MILTANK
 	db 15, TAUROS
@@ -1535,7 +1535,7 @@ JohtoGrassWildMons:
 	; nite
 	db 16, MEOWTH		; 30% (total 30% + 5% + 5% = 40%)
 	db 16, RATICATE		; 30%
-	db 16, MAGNEMITE	; 20%
+	db 18, FURRET		; 20%
 	db 16, NOCTOWL		; 10%
 	db 18, MEOWTH		; 5%
 	db 18, MEOWTH		; 4%
@@ -1577,7 +1577,7 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 16, FARFETCH_D
 	db 15, FURRET
-	db 17, RATICATE
+	db 17, MANKEY
 	db 17, FURRET
 	db 17, FURRET
 	; day
@@ -1585,15 +1585,15 @@ JohtoGrassWildMons:
 	db 16, PIDGEOTTO
 	db 16, FARFETCH_D
 	db 15, FURRET
-	db 17, RATICATE
+	db 17, MANKEY
 	db 17, FURRET
 	db 17, FURRET
 	; nite
 	db 15, VENONAT
 	db 16, NOCTOWL
-	db 16, RATICATE
+	db 16, MANKEY
 	db 17, VENONAT
-	db 17, RATICATE
+	db 17, MANKEY
 	db 17, VENOMOTH
 	db 17, VENOMOTH
 	end_grass_wildmons

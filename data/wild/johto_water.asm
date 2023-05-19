@@ -76,21 +76,21 @@ JohtoWaterWildMons:
 	db 4 percent ; encounter rate
 	db 20, TENTACOOL
 	db 15, HORSEA
-	db 20, TENTACRUEL
+	db 15, REMORAID
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_B2F
 	db 4 percent ; encounter rate
 	db 15, HORSEA
-	db 20, HORSEA
+	db 15, REMORAID
 	db 20, CROCONAW
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 4 percent ; encounter rate
-	db 20, HORSEA
-	db 20, TENTACRUEL
-	db 20, SEADRA
+	db 25, HORSEA
+	db 32, SEADRA
+	db 21, REMORAID
 	end_water_wildmons
 
 	def_water_wildmons SILVER_CAVE_ROOM_2
