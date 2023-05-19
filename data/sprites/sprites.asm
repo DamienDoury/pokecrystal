@@ -75,7 +75,7 @@ OverworldSprites:
 	overworld_sprite ReceptionistSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite OfficerSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite JennySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
-	overworld_sprite AgathaSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
+	overworld_sprite AgathaSpriteGFX, 4, STILL_SPRITE, PAL_OW_SILVER
 	overworld_sprite LoreleiSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite CalSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite SlowpokeSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
