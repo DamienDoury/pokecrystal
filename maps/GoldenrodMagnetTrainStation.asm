@@ -95,6 +95,7 @@ GoldenrodMagnetTrainStationPlayerApproachAndEnterTrainMovement:
 	step UP
 	step UP
 	step UP
+	step UP
 	step LEFT
 	step LEFT
 	step LEFT
@@ -105,6 +106,7 @@ GoldenrodMagnetTrainStationPlayerApproachAndEnterTrainMovement:
 GoldenrodMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	step LEFT
 	step LEFT
+	step DOWN
 	step DOWN
 	step DOWN
 	step DOWN

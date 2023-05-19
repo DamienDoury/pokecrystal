@@ -117,6 +117,7 @@ SaffronMagnetTrainStationPlayerApproachAndEnterTrainMovement:
 	step UP
 	step UP
 	step UP
+	step UP
 	step LEFT
 	step LEFT
 	step LEFT
@@ -127,6 +128,7 @@ SaffronMagnetTrainStationPlayerApproachAndEnterTrainMovement:
 SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	step LEFT
 	step LEFT
+	step DOWN
 	step DOWN
 	step DOWN
 	step DOWN
