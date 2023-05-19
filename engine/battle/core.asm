@@ -3955,6 +3955,14 @@ TryToRunAwayFromBattle:
 	dec a
 	jp nz, .cant_run_from_trainer
 
+	ld a, [wBattleMonType1]
+	cp GHOST
+	jp z, .can_escape
+
+	ld a, [wBattleMonType2]
+	cp GHOST
+	jp z, .can_escape
+
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_CANT_RUN, a
 	jp nz, .cant_escape
