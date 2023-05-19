@@ -1024,6 +1024,15 @@ AI_Smart_TrapTarget:
 	pop hl
 	jr c, .encourage_for_sure
 
+; Discourage if the player can't be trapped.
+	ld a, [wBattleMonType1]
+	cp GHOST
+	call z, .discourage_for_sure
+
+	ld a, [wBattleMonType2]
+	cp GHOST
+	call z, .discourage_for_sure
+
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
 	ld a, [wPlayerTurnsTaken]
 	and a
