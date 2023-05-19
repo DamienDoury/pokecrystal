@@ -1519,9 +1519,9 @@ JohtoGrassWildMons:
 	; morn
 	db 16, MAREEP		; 30%
 	db 16, RATICATE		; 30%
-	db 18, FLAAFY		; 20%
+	db 18, FLAAFFY		; 20%
 	db 16, PIDGEOTTO	; 10%
-	db 19, FLAAFY		; 5%
+	db 19, FLAAFFY		; 5%
 	db 15, TAUROS		; 4%
 	db 19, MILTANK		; 1%
 	; day
