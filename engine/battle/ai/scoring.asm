@@ -1029,10 +1029,6 @@ AI_Smart_TrapTarget:
 	cp GHOST
 	call z, .discourage_for_sure
 
-	ld a, [wBattleMonType2]
-	cp GHOST
-	call z, .discourage_for_sure
-
 ; Else, 50% chance to greatly encourage this move if it's the player's Pokemon first turn.
 	ld a, [wPlayerTurnsTaken]
 	and a
