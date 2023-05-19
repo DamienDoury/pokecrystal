@@ -1,4 +1,7 @@
 MagnetTrain:
+	ld a, PALETTE_AUTO
+	ld [wMapTimeOfDay], a
+	
 	ld a, [wScriptVar]
 	and a
 	jr nz, .ToGoldenrod
