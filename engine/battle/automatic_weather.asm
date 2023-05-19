@@ -129,35 +129,3 @@ WeatherMovesInSpecificGyms::
 	ret
 
 INCLUDE "data/battle/weather_forecast.asm"
-
-; Note: this is not the ideal place to put this function. I just want to save space in effect_commands.asm, even though I just saved almost 11 KB from it B-)
-; Also this function can be converted to farcall with no modification.
-SandstormSpDefBoost::
-; First, check if Sandstorm is active.
-	ld a, [wBattleWeather]
-	cp WEATHER_SANDSTORM
-	ret nz
-
-; Then, check the opponent's types.
-	ld hl, wEnemyMonType1
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ok
-	ld hl, wBattleMonType1
-.ok
-	ld a, [hli]
-	cp ROCK
-	jr z, .start_boost
-	ld a, [hl]
-	cp ROCK
-	ret nz
-
-.start_boost
-	ld h, b
-	ld l, c
-	srl b
-	rr c
-	add hl, bc
-	ld b, h
-	ld c, l
-	ret

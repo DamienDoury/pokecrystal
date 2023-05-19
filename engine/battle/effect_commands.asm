@@ -2749,6 +2749,8 @@ PlayerAttackDamage:
 	ld b, a
 	ld c, [hl]
 
+	farcall HailDefBoost
+
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
 	jr z, .physicalcrit
@@ -3002,6 +3004,8 @@ EnemyAttackDamage:
 	ld a, [hli]
 	ld b, a
 	ld c, [hl]
+
+	farcall HailDefBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
