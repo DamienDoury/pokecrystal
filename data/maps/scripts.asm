@@ -250,6 +250,7 @@ INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/EcruteakFaunaHouse.asm"
+INCLUDE "maps/Route2.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -421,6 +422,7 @@ INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/PewterMuseum1F.asm"
 INCLUDE "maps/PewterMuseum2F.asm"
 
+
 SECTION "Map Scripts 22", ROMX
 
 INCLUDE "maps/EcruteakCity.asm"
@@ -501,7 +503,6 @@ INCLUDE "maps/Route28SteelWingHouse.asm"
 INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/LavenderTown.asm"
 INCLUDE "maps/Route4Tunnel.asm"
-INCLUDE "maps/Route2.asm"
 
 
 SECTION "Map Scripts 27", ROMX

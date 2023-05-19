@@ -1639,17 +1639,30 @@ GoldenrodHospitalRoom10VisitorYesText:
 	line "can't be"
 	cont "PARALYZED."
 
+	para "GHOST types can't"
+	line "be trapped."
+
 	para "GRASS types aren't"
 	line "affected by spore"
 	cont "based moves like"
 	cont "SLEEP POWDER."
 
 	para "ICE types can't"
-	line "be FROZEN."
+	line "be FROZEN. Their"
+	cont "DEF is increased"
+	cont "by 50<PERCENT> under HAIL,"
+	cont "and they're immune"
+	cont "to its damage."
 
 	para "ROCK types have"
 	line "their SPCL.DEF"
-	cont "increased under"
+	cont "increased by 50<PERCENT>"
+	cont "under SANDSTORM."
+
+	para "Along with GROUND"
+	line "and STEEL types,"
+	cont "they receive no"
+	cont "damage from the"
 	cont "SANDSTORM."
 	
 	para "Fascinating"
