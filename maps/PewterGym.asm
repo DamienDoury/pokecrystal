@@ -246,14 +246,12 @@ CamperJerryBrockLocationText:
 	done
 
 PewterGymGuideText:
-	text "Yo! CHAMP in"
-	line "making! You're"
+	text "Yo CHAMP! You're"
+	line "really rocking."
 
-	para "really rocking."
-	line "Are you battling"
-
-	para "the GYM LEADERS of"
-	line "KANTO?"
+	para "Are you battling"
+	line "the GYM LEADERS of"
+	cont "KANTO?"
 
 	para "They're strong and"
 	line "dedicated people,"

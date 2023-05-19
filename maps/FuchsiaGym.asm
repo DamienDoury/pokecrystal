@@ -417,8 +417,7 @@ CamperBarryAfterText:
 	done
 
 FuchsiaGymGuideText:
-	text "Yo, CHAMP in"
-	line "making!"
+	text "Yo, CHAMP!"
 
 	para "Whoops! Take a"
 	line "good look around"

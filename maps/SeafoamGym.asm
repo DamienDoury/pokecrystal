@@ -238,11 +238,11 @@ SeafoamGymGuideWinText:
 
 	para "Sorry, sorry!"
 
-	para "CINNABAR GYM was"
-	line "gone, so I didn't"
+	para "The old CINNABAR"
+	line "GYM was gone, so"
 
-	para "know where to find"
-	line "you."
+	para "I didn't know where"
+	line "to find you."
 
 	para "The battle must've"
 	line "been intense!"

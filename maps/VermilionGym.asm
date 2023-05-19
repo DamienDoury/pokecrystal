@@ -154,11 +154,12 @@ LtSurgeIntroText:
 	cont "I'm number one!"
 
 	para "You see kiddo,"
-	line "everyday I jog up"
-	cont "to the POWER PLANT"
-
-	para "and supercharge"
-	line "my #MON squad."
+	line "that training I"
+	cont "just got at the"
+	
+	para "POWER PLANT super-"
+	line "charged my #MON"
+	cont "squad!"
 
 	para "It makes their"
 	line "ELECTRIC moves"
@@ -272,8 +273,7 @@ JugglerHortonAfterBattleText:
 	done
 
 VermilionGymGuideText:
-	text "Yo! CHAMP in"
-	line "making!"
+	text "Yo CHAMP!"
 
 	para "You lucked out"
 	line "this time."

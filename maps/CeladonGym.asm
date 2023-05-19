@@ -377,8 +377,7 @@ TwinsJoAndZoe2AfterBattleText:
 	done
 
 CeladonGymGuideText:
-	text "Welcome, CHAMP in"
-	line "making!"
+	text "Welcome, CHAMP!"
 
 	para "(achii)"
 
