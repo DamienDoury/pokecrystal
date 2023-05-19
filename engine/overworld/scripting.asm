@@ -1157,6 +1157,11 @@ Script_earthquake:
 	ld bc, EarthquakeMovement.End - EarthquakeMovement
 	call CopyBytes
 	call GetScriptByte
+	cp USE_SCRIPT_VAR
+	jr nz, .ok
+
+	ld a, [wScriptVar]
+.ok
 	ld [wEarthquakeMovementDataBuffer + 1], a
 	and %00111111
 	ld [wEarthquakeMovementDataBuffer + 3], a
