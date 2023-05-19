@@ -809,6 +809,11 @@ Script_musicfadeout:
 
 Script_playsound:
 	call GetScriptByte
+	cp -1
+	jr nz, .sfx_found
+
+	ld a, [wScriptVar]
+.sfx_found
 	ld e, a
 	call GetScriptByte
 	ld d, a
