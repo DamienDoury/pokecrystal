@@ -9,6 +9,7 @@
 	const CINNABARPOKECENTER1F_DANCER
 	const CINNABARPOKECENTER1F_DANCER2
 	const CINNABARPOKECENTER1F_SERIOUS
+	const CINNABARPOKECENTER1F_CONE
 
 CinnabarPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -65,6 +66,9 @@ CinnabarPokecenterDancerScript:
 
 CinnabarPokecenterSeriousScript:
 	jumptextfaceplayer CinnabarPokecenterSeriousText
+
+CinnabarPokecenterConeScript:
+	jumptext WetFloorText
 
 CinnabarPokecenterDJScript:
 	faceplayer
@@ -129,6 +133,10 @@ CinnabarPokecenterDJText2:
 	para "  DROP THE BASS"
 	done
 
+WetFloorText:
+	text "Wet floor"
+	done
+
 CinnabarPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -152,3 +160,4 @@ CinnabarPokecenter1F_MapEvents:
 	object_event  2,  1, SPRITE_BEAUTY, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterDancerScript, 0
 	object_event  1,  1, SPRITE_ROCKER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterDancerScript, 0
 	object_event  0,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterSeriousScript, 0
+	object_event  8,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterConeScript, 0

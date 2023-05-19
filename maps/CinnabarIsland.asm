@@ -85,7 +85,7 @@ CinnabarIslandVolcanoSwimmingScript:
 
 CinnabarIslandSickScript:
 	opentext
-	checkevent EVENT_CINNABAR_AMULET_COIN
+	checkevent EVENT_PICKED_UP_FOCUS_BAND
 	iftrue .ready_to_party
 
 	checkevent EVENT_CINNABAR_MAX_REVIVE
@@ -130,11 +130,9 @@ CinnabarIslandSickScript:
 	faceplayer
 	writetext CinnabarIslandSickBuySilenceText
 	promptbutton
-	writetext CinnabarIslandSickBuySilenceBisText
-	promptbutton
-	verbosegiveitem AMULET_COIN
+	verbosegiveitem FOCUS_BAND
 	iffalse .make_room_amulet
-	setevent EVENT_CINNABAR_AMULET_COIN
+	setevent EVENT_PICKED_UP_FOCUS_BAND
 
 .ready_to_party:
 	faceplayer
@@ -369,10 +367,10 @@ CinnabarIslandSickWaterText:
 
 	para "…"
 
-	para "Wouuh!"
+	para "Woooo!"
 
-	para "I'm starting to"
-	line "feel better."
+	para "I'm feeling better"
+	line "already."
 
 	para "I was on"
 	line "the edge…"
@@ -396,28 +394,17 @@ CinnabarIslandSickMakeRoomText:
 
 CinnabarIslandSickMakeRoom2Text:
 	text "You can't take it?"
-	
-	para "I won't trust you"
-	line "until you take it."
-
-	para "Come back later."
+	line "Come back swiftly."
 	done
 
 CinnabarIslandSickBuySilenceText:
-	text "By the way…"
+	text "I think I held out"
+	line "thanks to my"
+	cont "FOCUS BAND."
 
-	para "Don't you EVER"
-	line "tell ANYONE that"
-	cont "I've been in such"
-	cont "a shape."
-	done
-
-CinnabarIslandSickBuySilenceBisText:
-	text "I would like to"
-	line "buy your silence."
-
-	para "Take this as"
-	line "your payment."
+	para "Now it's your turn"
+	line "to take advantage"
+	cont "of it!"
 	done
 
 CinnabarIslandSickBetterText:

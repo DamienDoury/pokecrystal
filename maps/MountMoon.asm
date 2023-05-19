@@ -77,6 +77,24 @@ TrainerBurglarBones:
 	endifjustbattled
 	opentext
 	writetext BurglarBonesAfterBattleText
+
+	checkevent EVENT_MOUNT_MOON_AMULET_COIN
+	iftrue .EndDialog
+
+	promptbutton
+	writetext BurglarBonesGivesLootText
+	promptbutton
+	verbosegiveitem AMULET_COIN
+	iffalse .make_room_amulet
+	setevent EVENT_MOUNT_MOON_AMULET_COIN
+
+	writetext BurglarBonesOriginText
+	sjump .EndDialog
+
+.make_room_amulet:
+	writetext BurglarBonesLightenPackText
+
+.EndDialog
 	waitbutton
 	closetext
 	end
@@ -191,6 +209,31 @@ BurglarBonesAfterBattleText:
 	
 	para "Perhaps I could"
 	line "become a cook?"
+	done
+
+BurglarBonesGivesLootText:
+	text "Yes! This is a"
+	line "great plan!"
+
+	para "I should get rid"
+	line "of my loot then."
+	done
+
+BurglarBonesLightenPackText:
+	text "Go lighten your"
+	line "pack, before I"
+	cont "do it for you."
+	done
+
+BurglarBonesOriginText:
+	text "Got it in GOLDEN-"
+	line "ROD UNDERGROUND"
+	cont "WAREHOUSE."
+	
+	para "Now I need to"
+	line "figure out how"
+	cont "to cook. Where"
+	cont "do I start?"
 	done
 
 MountMoon_MapEvents:
