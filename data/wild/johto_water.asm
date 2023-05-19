@@ -83,7 +83,7 @@ JohtoWaterWildMons:
 	db 4 percent ; encounter rate
 	db 15, HORSEA
 	db 20, HORSEA
-	db 20, TENTACRUEL
+	db 20, CROCONAW
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_LUGIA_CHAMBER

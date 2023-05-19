@@ -186,9 +186,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons SAFARI_ZONE_BETA
 	db 4 percent ; encounter rate
-	db 18, DRATINI
+	db 18, WOOPER
 	db 16, PSYDUCK
-	db 10, TOTODILE
+	db 20, STARMIE
 	end_water_wildmons
 
 	def_water_wildmons SEAFOAM_B2F

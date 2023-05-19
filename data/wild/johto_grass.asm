@@ -206,24 +206,24 @@ JohtoGrassWildMons:
 	db 22, RATTATA
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	; day
 	db 20, RATTATA
 	db 21, RATTATA
 	db 22, RATTATA
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	; nite
 	db 20, GASTLY
 	db 21, GASTLY
 	db 22, GASTLY
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	end_grass_wildmons
 
 	def_grass_wildmons TIN_TOWER_8F
@@ -234,24 +234,24 @@ JohtoGrassWildMons:
 	db 22, RATTATA
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	; day
 	db 20, RATTATA
 	db 21, RATTATA
 	db 22, RATTATA
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	; nite
 	db 20, GASTLY
 	db 21, GASTLY
 	db 22, GASTLY
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	end_grass_wildmons
 
 	def_grass_wildmons TIN_TOWER_9F
@@ -261,25 +261,25 @@ JohtoGrassWildMons:
 	db 21, RATTATA
 	db 22, RATTATA
 	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 23, GROWLITHE
+	db 12, CYNDAQUIL
+	db 12, CYNDAQUIL
 	; day
 	db 20, RATTATA
 	db 21, RATTATA
 	db 22, RATTATA
 	db 22, RATTATA
-	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 23, GROWLITHE
+	db 24, CYNDAQUIL
+	db 12, CYNDAQUIL
 	; nite
 	db 20, GASTLY
 	db 21, GASTLY
 	db 22, GASTLY
 	db 22, RATTATA
 	db 23, RATTATA
-	db 24, RATTATA
-	db 24, RATTATA
+	db 24, GROWLITHE
+	db 12, CYNDAQUIL
 	end_grass_wildmons
 
 	def_grass_wildmons BURNED_TOWER_1F
@@ -1019,7 +1019,7 @@ JohtoGrassWildMons:
 	db 26, KRABBY
 	db 27, GOLBAT
 	db 26, SEEL
-	db 26, SEEL
+	db 10, TOTODILE
 	; day
 	db 24, KRABBY
 	db 25, ZUBAT
@@ -1027,7 +1027,7 @@ JohtoGrassWildMons:
 	db 26, KRABBY
 	db 27, GOLBAT
 	db 26, SEEL
-	db 26, SEEL
+	db 10, TOTODILE
 	; nite
 	db 24, KRABBY
 	db 25, ZUBAT
@@ -1035,7 +1035,7 @@ JohtoGrassWildMons:
 	db 26, KRABBY
 	db 27, GOLBAT
 	db 26, GOLBAT
-	db 26, GOLBAT
+	db 10, TOTODILE
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
@@ -1046,24 +1046,24 @@ JohtoGrassWildMons:
 	db 25, SEEL
 	db 27, KRABBY
 	db 28, GOLBAT
-	db 27, SEEL
-	db 27, SEEL
+	db 12, TOTODILE
+	db 12, TOTODILE
 	; day
 	db 25, KRABBY
 	db 26, ZUBAT
 	db 25, SEEL
 	db 27, KRABBY
 	db 28, GOLBAT
-	db 27, SEEL
-	db 27, SEEL
+	db 12, TOTODILE
+	db 12, TOTODILE
 	; nite
 	db 25, KRABBY
 	db 26, ZUBAT
 	db 25, KRABBY
 	db 27, KRABBY
 	db 28, GOLBAT
-	db 27, GOLBAT
-	db 27, GOLBAT
+	db 12, TOTODILE
+	db 12, TOTODILE
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_ROOM_1

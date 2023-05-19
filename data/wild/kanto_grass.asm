@@ -979,7 +979,7 @@ KantoGrassWildMons:
 	db 37, RHYHORN
 	db 42, PARASECT
 	db 45, VENOMOTH
-	db 30, CROCONAW
+	db 40, KANGASKHAN
 	end_grass_wildmons
 
 	def_grass_wildmons SEAFOAM_B1F
@@ -1119,7 +1119,7 @@ KantoGrassWildMons:
 	db 32, SLUGMA
 	db 47, NINETALES
 	db 44, HOUNDOOM
-	db 10, CYNDAQUIL
+	db 10, CHARMANDER
 	end_grass_wildmons
 
 	def_grass_wildmons SEAFOAM_B6F
@@ -1130,8 +1130,8 @@ KantoGrassWildMons:
 	db 32, SLUGMA		; 20%
 	db 36, GROWLITHE	; 10%
 	db 34, HOUNDOUR		; 5%
-	db 8, CYNDAQUIL	; 4%
-	db 30, QUILAVA	; 1%
+	db 8, CHARMANDER	; 4%
+	db 30, CHARMELEON	; 1%
 	; day
 	db 34, SLUGMA
 	db 34, VULPIX
@@ -1139,7 +1139,7 @@ KantoGrassWildMons:
 	db 43, MAGMAR
 	db 38, VULPIX
 	db 46, ARCANINE
-	db 13, CYNDAQUIL
+	db 13, CHARMANDER
 	; nite
 	db 32, MAGMAR
 	db 34, GROWLITHE
