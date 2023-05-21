@@ -295,6 +295,32 @@ ChooseWildEncounter:
 	ld a, [hli]
 	ld b, a
 ; If the Pokemon is encountered by surfing, we need to give the levels some variety.
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_36
+	jr nz, .check_on_water
+
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_36
+	jr nz, .check_on_water
+
+	push bc
+	push de
+	push hl
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	call EventFlagAction
+	ld a, c
+	and a
+	pop hl
+	pop de
+	pop bc
+	jr z, .check_on_water
+
+	ld a, b
+	add 10 ; Special case for Route 36, because it loops and the trainer may find underleveled or overleveled Pokémons.
+	ld b, a 
+
+.check_on_water
 	call CheckOnWater
 	jr nz, .ok
 ; Check if we buff the wild mon, and by how much.
