@@ -1324,7 +1324,7 @@ JohtoGrassWildMons:
 	db 7, POLIWAG
 	db 8, HOPPIP
 	db 10, FARFETCH_D
-	db 9, POLSKIPLOOMIWAG
+	db 9, SKIPLOOM
 	db 10, SKIPLOOM
 	db 10, WOOPER
 	db 10, WOOPER
@@ -1545,29 +1545,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_42
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 13, EKANS
-	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
-	db 15, ARBOK
-	db 16, FEAROW
-	db 16, FEAROW
+	db 22, EKANS
+	db 23, PIDGEY
+	db 24, ARBOK
+	db 24, PIDGEOTTO
+	db 25, POLIWHIRL
+	db 26, POLIWHIRL
+	db 26, MANKEY
 	; day
-	db 13, EKANS
-	db 14, SPEAROW
-	db 15, RATTATA
-	db 16, RATICATE
-	db 15, ARBOK
-	db 16, FEAROW
-	db 16, FEAROW
+	db 22, EKANS
+	db 23, PIDGEY
+	db 24, ARBOK
+	db 25, PIDGEOTTO
+	db 25, AZUMARILL
+	db 26, AZUMARILL
+	db 26, MANKEY
 	; nite
-	db 13, RATTATA
-	db 14, ZUBAT
-	db 15, RATICATE
-	db 16, GOLBAT
-	db 15, MARILL
-	db 16, GOLBAT
-	db 16, GOLBAT
+	db 22, PIDGEY
+	db 23, ZUBAT
+	db 24, PIDGEOTTO
+	db 24, GOLBAT
+	db 25, POLIWHIRL
+	db 26, POLIWHIRL
+	db 26, MANKEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_43
@@ -1578,16 +1578,16 @@ JohtoGrassWildMons:
 	db 25, AIPOM
 	db 27, PRIMEAPE
 	db 25, SMEARGLE
-	db 27, PIDGEOTTO
-	db 27, PIDGEOTTO
+	db 27, PIDGEOT
+	db 27, PIDGEOT
 	; day
 	db 25, MANKEY
 	db 25, AIPOM
 	db 26, SMEARGLE
 	db 27, PRIMEAPE
-	db 27, PIDGEOTTO
-	db 27, PIDGEOTTO
-	db 27, PIDGEOTTO
+	db 27, PIDGEOT
+	db 27, PIDGEOT
+	db 27, PIDGEOT
 	; nite
 	db 25, AIPOM
 	db 26, POLIWRATH
