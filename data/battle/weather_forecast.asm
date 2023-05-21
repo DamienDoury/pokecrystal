@@ -12,7 +12,7 @@ auto_weather_map: MACRO
 	db \3 ; AUTOMATIC_* weather index
 ENDM
 	; Johto
-	auto_weather_map TIN_TOWER_ROOF, 		ANYTIME, 		AUTOMATIC_SUN ; Note: only Ho-Oh can be battled here.
+	auto_weather_map TIN_TOWER_ROOF, 		MORN | DAY, 	AUTOMATIC_SUN ; Note: only Ho-Oh can be battled here.
 	auto_weather_map ROUTE_43, 				NITE,			AUTOMATIC_RAIN 
 	auto_weather_map LAKE_OF_RAGE, 			ANYTIME,		AUTOMATIC_RAIN 
 	auto_weather_map ROUTE_41, 				ANYTIME,		AUTOMATIC_RAIN 
@@ -26,7 +26,7 @@ ENDM
 
 	; Kanto 
 	auto_weather_map ROUTE_28, 				NITE | MORN,	AUTOMATIC_HAIL 
-	auto_weather_map ROUTE_26, 				NITE,			AUTOMATIC_HAIL 
+	;auto_weather_map ROUTE_26, 				NITE,			AUTOMATIC_HAIL 
 	auto_weather_map ROUTE_11, 				MORN,			AUTOMATIC_SUN 	
 	auto_weather_map VERMILION_CITY, 		MORN | DAY,		AUTOMATIC_SUN 	
 	auto_weather_map ROUTE_6, 				DAY,			AUTOMATIC_SUN 	
