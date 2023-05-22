@@ -303,21 +303,13 @@ ChooseWildEncounter:
 	cp MAP_ROUTE_36
 	jr nz, .check_on_water
 
-	push bc
-	push de
-	push hl
-	ld b, CHECK_FLAG
-	ld de, EVENT_FIRST_LOCKDOWN_STARTED
-	call EventFlagAction
-	ld a, c
-	and a
-	pop hl
-	pop de
-	pop bc
-	jr z, .check_on_water
+	ld a, [wXCoord]
+	cp 33
+	jr nc, .check_on_water
 
+	; National Park side.
 	ld a, b
-	add 10 ; Special case for Route 36, because it loops and the trainer may find underleveled or overleveled Pokémons.
+	add 10 ; Special case for Route 36.
 	ld b, a 
 
 .check_on_water
