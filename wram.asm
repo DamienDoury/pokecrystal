@@ -3008,8 +3008,6 @@ wVaccinationCenterSceneID::	  					  db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
-	ds 2
-
 wEventFlags:: flag_array NUM_EVENTS
 
 wCurBox:: db
@@ -3058,16 +3056,14 @@ wDailyResetTimer:: dw
 wDailyFlags1:: db
 wDailyFlags2:: db
 wDailyFlags3:: db
-wSwarmFlags:: ds 2
+wSwarmFlags:: ds 2 ; Second byte could be used. It's only used by a mobile function.
 wTimerEventStartDay:: db
 
 wPrevWarp:: db ; Moved here by Damien, so it can be saved.
 wPrevMapGroup:: db
 wPrevMapNumber:: db
 
-wFruitTreeFlags:: flag_array NUM_FRUIT_TREES
-
-	ds 1
+wFruitTreeFlags:: flag_array NUM_FRUIT_TREES * 2 ; Takes 9 bytes for the current $24 trees.
 
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.

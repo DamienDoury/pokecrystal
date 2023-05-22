@@ -277,7 +277,7 @@ PLAYER_SURF_PIKA EQU 8
 	const DAILYFLAGS1_BUG_CONTEST_F                   ; 1
 	const DAILYFLAGS1_FISH_SWARM_F                    ; 2
 	const DAILYFLAGS1_UNUSED_F                  	  ; 3 unused
-	const DAILYFLAGS1_ALL_FRUIT_TREES_F               ; 4
+	const DAILYFLAGS1_UNUSED_2_F	                  ; 4
 	const DAILYFLAGS1_GOT_SHUCKIE_TODAY_F             ; 5
 	const DAILYFLAGS1_GOLDENROD_UNDERGROUND_BARGAIN_F ; 6
 	const DAILYFLAGS1_TRAINER_HOUSE_F                 ; 7

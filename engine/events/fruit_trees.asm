@@ -5,19 +5,21 @@ FruitTreeScript::
 	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
 	writetext FruitBearingTreeText
 	promptbutton
-	callasm TryResetFruitTrees
-	callasm CheckFruitTree
-	iffalse .fruit
+	callasm CountFruitsInTree
+	ifgreater 0, .fruit
 	writetext NothingHereText
 	waitbutton
 	sjump .end
 
 .fruit
+	writemem wItemQuantityChange
+	getnum STRING_BUFFER_4
 	writetext HeyItsFruitText
 	readmem wCurFruit
-	giveitem ITEM_FROM_MEM
+	giveitem ITEM_FROM_MEM, ITEM_QUANTITY_FROM_MEM
 	iffalse .packisfull
 	promptbutton
+	
 	writetext ObtainedFruitText
 	callasm PickedFruitTree
 	specialsound
@@ -40,51 +42,105 @@ GetCurTreeFruit:
 	ld [wCurFruit], a
 	ret
 
-CheckFruitTree:
-	ld b, 2
-	call GetFruitTreeFlag
-	ld a, c
+CountFruitsInTree:
+	ld a, [wCurFruitTree]
+	dec a
+	push bc
+	ld c, 4
+	call SimpleDivide ; Divide a by c. Return quotient b and remainder a.
+	ld c, b
+	ld b, 0
+	ld hl, wFruitTreeFlags
+	add hl, bc
+
+	ld b, [hl]
+	and a
+.loop
+	jr z, .mask_ok
+
+	srl b
+	srl b
+	dec a
+	jr .loop
+
+.mask_ok
+	ld a, b
+	and %11
 	ld [wScriptVar], a
+	pop bc
 	ret
 
-TryResetFruitTrees:
-	ld hl, wDailyFlags1
-	bit DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
-	ret nz
-	; fallthrough.
+GrowBerries::
+	ld a, b
+	cp 4
+	jr c, .loop
+	
+	ld a, 3
+.loop
+	and a
+	ret z
+	push af
+	call GrowOneBerryInAllTrees
+	pop af
+	dec a
+	jr .loop
 
-ResetFruitTrees:
-	xor a
+GrowOneBerryInAllTrees::
 	ld hl, wFruitTreeFlags
 
 	push bc
-	ld b, (NUM_FRUIT_TREES + 7) >> 3
+	push de
+	ld b, ((NUM_FRUIT_TREES * 2) + 7) / 8
 .loop
+	ld a, [hl]
+	ld e, a
+	and %01010101
+	ld d, a
+
+	ld a, e
+	srl a
+	and %01010101
+	and d
+	cpl
+	and %01010101
+	add e
 	ld [hli], a
+
 	dec b
 	jr nz, .loop
-	pop bc
 
-	ld hl, wDailyFlags1
-	set DAILYFLAGS1_ALL_FRUIT_TREES_F, [hl]
+	pop de
+	pop bc
 	ret
 
 PickedFruitTree:
 	farcall StubbedTrainerRankings_FruitPicked
-	ld b, 1
-	; fallthrough.
-
-GetFruitTreeFlag:
-	push hl
-	push de
+	
 	ld a, [wCurFruitTree]
 	dec a
-	ld e, a
-	ld d, 0
+	push bc
+	ld c, 4
+	call SimpleDivide ; Divide a by c. Return quotient b and remainder a.
+	ld c, b
+	ld b, 0
 	ld hl, wFruitTreeFlags
-	call FlagAction
-	pop de
-	pop hl
+	add hl, bc
+
+	ld b, $ff - %11
+	and a
+.loop
+	jr z, .mask_ok
+
+	rlc b
+	rlc b
+	dec a
+	jr .loop
+
+.mask_ok
+	ld a, [hl]
+	and b
+	ld [hl], a
+	pop bc
 	ret
 
 GetFruitTreeItem:

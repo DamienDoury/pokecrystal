@@ -199,6 +199,7 @@ CheckPokerusTickAndHospitalVisits::
 	and a
 	jr z, .done ; not even a day has passed since game start
 	ld b, a
+	farcall GrowBerries
 	farcall ResetHospitalVisits
 	farcall ApplyPokerusTick
 	farcall ResetVaccinationAvailability
@@ -429,5 +430,5 @@ ResetDailyCovidEvents::
 	farcall ApplyPokerusTick ; Also calls DecreaseHospitalMonsDuration.
 	farcall ResetVaccinationAvailability
 	farcall RestockMarts
-	farcall ResetFruitTrees ; This is not exactly covid related, but it's my present to the player!
+	farcall GrowOneBerryInAllTrees ; This is not exactly covid related, but it's my present to the player!
 	ret

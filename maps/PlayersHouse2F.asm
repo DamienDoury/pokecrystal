@@ -17,6 +17,7 @@ PlayersHouse2F_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInitialization
+	callasm GrowOneBerryInAllTrees
 	jumpstd InitializeEventsScript
 	endcallback
 

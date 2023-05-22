@@ -1836,12 +1836,17 @@ Script_checkpokemail:
 Script_giveitem:
 	call GetScriptByte
 	cp ITEM_FROM_MEM
-	jr nz, .ok
+	jr nz, .item_id_retrieved
+
 	ld a, [wScriptVar]
-.ok
+.item_id_retrieved
 	ld [wCurItem], a
 	call GetScriptByte
+	cp ITEM_QUANTITY_FROM_MEM
+	jr z, .item_quantity_retrieved
+
 	ld [wItemQuantityChange], a
+.item_quantity_retrieved
 	ld hl, wNumItems
 	call ReceiveItem
 	jr nc, .full
