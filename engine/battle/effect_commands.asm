@@ -1767,14 +1767,7 @@ BattleCommand_CheckHit:
 	ret
 
 .Miss:
-; Keep the damage value intact if we're using (Hi) Jump Kick.
-	ld a, BATTLE_VARS_MOVE_EFFECT
-	call GetBattleVar
-	cp EFFECT_JUMP_KICK
-	jr z, .Missed
 	call ResetDamage
-
-.Missed:
 	ld a, 1
 	ld [wAttackMissed], a
 	ret
@@ -2407,13 +2400,25 @@ GetFailureResultText:
 	and $7f
 	ret z
 
+	ld hl, wEnemyMonMaxHP
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .max_hp_based_damage
+
+	ld hl, wBattleMonMaxHP
+
+.max_hp_based_damage
+	ld a, [hli]
+	ld [wCurDamage], a
+	ld a, [hl]
+	ld [wCurDamage + 1], a
 	ld hl, wCurDamage
 	ld a, [hli]
 	ld b, [hl]
-rept 3
+;rept 3 ; Changing the fall damage from (Hi) Jump Kick from 1/8 to 1/2.
 	srl a
 	rr b
-endr
+;endr
 	ld [hl], b
 	dec hl
 	ld [hli], a
