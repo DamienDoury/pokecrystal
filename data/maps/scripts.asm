@@ -371,6 +371,7 @@ INCLUDE "maps/GuideGentsHouse.asm"
 INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
 INCLUDE "maps/MrPokemonsHouse.asm"
+INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 19", ROMX
@@ -404,6 +405,7 @@ INCLUDE "maps/Route19.asm"
 INCLUDE "maps/Route25.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/Route6UndergroundPathEntrance.asm"
+INCLUDE "maps/Route23.asm"
 
 
 SECTION "Map Scripts 21", ROMX
@@ -454,8 +456,6 @@ INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/SeafoamGym.asm"
-INCLUDE "maps/Route23.asm"
-INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 24", ROMX

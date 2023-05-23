@@ -99,6 +99,16 @@ VermilionGymBadgeGuy:
 	closetext
 	end
 
+VermilionSnorlaxGuy:
+	faceplayer
+	checkevent EVENT_VERMILION_CITY_SNORLAX
+	iftrue .snorlaxBeaten
+
+	jumptext VermilionSnorlaxGuyBeforeBattleText
+
+.snorlaxBeaten
+	jumptext VermilionSnorlaxGuyAfterBattleText
+
 VermilionGymBlocker:
 	jumptextfaceplayer VermilionGymBlockerText
 
@@ -288,6 +298,28 @@ VermilionGymBlockerText:
 	cont "whole town!"
 	done
 
+VermilionSnorlaxGuyBeforeBattleText:
+	text "This SNORLAX has"
+	line "been laying here"
+	cont "for months."
+
+	para "Exhaustion is one"
+	line "of the symptoms"
+	cont "of COVID…"
+
+	para "I'm too afraid"
+	line "to approach it."
+	done
+
+VermilionSnorlaxGuyAfterBattleText:
+	text "So in the end the"
+	line "SNORLAX was just"
+	cont "being lazy?"
+	
+	para "That makes sense"
+	line "I guess."
+	done
+
 VermilionCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -323,3 +355,4 @@ VermilionCity_MapEvents:
 	object_event 34,  8, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, VermilionSnorlax, EVENT_VERMILION_CITY_SNORLAX
 	object_event 31, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VermilionGymBadgeGuy, -1
 	object_event 10, 20, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionGymBlocker, EVENT_RESTORED_POWER_TO_KANTO
+	object_event 35, 14, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VermilionSnorlaxGuy, -1
