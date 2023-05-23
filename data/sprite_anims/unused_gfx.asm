@@ -3,8 +3,8 @@ UnusedSpriteAnimGFX:
 	; # tiles, gfx bank, gfx pointer
 	; (all pointers were dummied out to .DeletedGFX)
 	dbbw 128, $01, .DeletedGFX ; SPRITE_ANIM_DICT_DEFAULT
-	dbbw 128, $01, .DeletedGFX ; unused
-	dbbw 128, $01, .DeletedGFX ; unused
+	dbbw 128, $01, .DeletedGFX ; SPRITE_ANIM_DICT_GS_INTRO
+	dbbw 128, $01, .DeletedGFX ; SPRITE_ANIM_DICT_GS_INTRO_2
 	dbbw 128, $01, .DeletedGFX ; unused
 	dbbw  16, $37, .DeletedGFX ; unused
 	dbbw  16, $11, .DeletedGFX ; SPRITE_ANIM_DICT_TEXT_CURSOR

@@ -409,6 +409,15 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 
 wBattleMon:: battle_struct wBattleMon
 
+	ds 4
+wIntroJumptableIndex:: db
+wIntroBGMapPointer:: dw
+wIntroTilemapPointer:: dw
+wIntroTilesPointer:: dw
+wIntroFrameCounter1:: db
+wIntroFrameCounter2:: db
+wIntroSpriteStateFlag:: db
+	
 	ds 2
 
 wWildMon:: db
@@ -3413,7 +3422,8 @@ wOBPals2:: ds 8 palettes
 wLYOverrides:: ds SCREEN_HEIGHT_PX
 wLYOverridesEnd::
 
-	ds 1
+wLYOverrides2:: ds SCREEN_HEIGHT_PX
+wLYOverrides2End::
 
 wMagnetTrain:: ; used only for BANK(wMagnetTrain)
 wMagnetTrainDirection:: db
@@ -3421,8 +3431,6 @@ wMagnetTrainInitPosition:: db
 wMagnetTrainHoldPosition:: db
 wMagnetTrainFinalPosition:: db
 wMagnetTrainPlayerSpriteInitX:: db
-
-	ds 104
 
 wAddressStorage:: dw ; Damien.
 
