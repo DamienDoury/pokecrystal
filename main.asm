@@ -331,7 +331,7 @@ INCLUDE "engine/battle/battle_transition.asm"
 INCLUDE "engine/events/field_moves.asm"
 INCLUDE "engine/events/magnet_train.asm"
 INCLUDE "engine/battle/battlestart_copytilemapatonce.asm"
-;INCLUDE "engine/gfx/sprites.asm"
+INCLUDE "engine/gfx/sprites.asm"
 INCLUDE "engine/gfx/mon_icons.asm"
 
 
@@ -732,11 +732,6 @@ SECTION "Crystal Events", ROMX
 
 INCLUDE "engine/events/battle_tower/load_trainer.asm"
 INCLUDE "engine/events/odd_egg.asm"
-
-
-SECTION "Gfx Sprites", ROMX
-
-INCLUDE "engine/gfx/sprites.asm"
 
 
 SECTION "Vaccination Research Center", ROMX
