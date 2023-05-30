@@ -359,4 +359,5 @@ NUM_SPRITE_ANIM_FRAMESETS EQU const_value
 	const SPRITE_ANIM_OAMSET_GAMEFREAK_LOGO_11           ; 8b
 	const SPRITE_ANIM_OAMSET_PARTY_MON_1                 ; 8c
 	const SPRITE_ANIM_OAMSET_PARTY_MON_2                 ; 8d
+	const SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_4           ; 8e
 NUM_SPRITE_ANIM_OAMSETS EQU const_value
