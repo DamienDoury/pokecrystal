@@ -181,7 +181,8 @@
 	charmap "<PK>",      $e1
 	charmap "<MN>",      $e2
 	charmap "-",         $e3
-
+	charmap "<HASHTAG>", $e4
+	charmap "<AT>",      $e5
 	charmap "?",         $e6
 	charmap "!",         $e7
 	charmap ".",         $e8
