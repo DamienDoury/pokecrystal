@@ -14,7 +14,7 @@ CreditsScript:
 	db CREDITS_WAIT, 1
 
 ; Update the banner.
-	db CREDITS_SCENE, 0 ; Pichu
+	db CREDITS_SCENE, 0 ; Bellossom
 
 	db             DIRECTOR, 2
 	db       SATOSHI_TAJIRI, 4
@@ -187,7 +187,7 @@ CreditsScript:
 	db CREDITS_WAIT, 1
 
 ; Update the banner.
-	db CREDITS_SCENE, 3 ; Igglybuff
+	db CREDITS_SCENE, 3 ; Togepi
 
 	db     US_VERSION_STAFF, 2
 
@@ -271,7 +271,7 @@ CreditsScript:
 	db CREDITS_WAIT, 1
 
 ; Update the banner.
-	db CREDITS_SCENE, 3
+	db CREDITS_SCENE, 4 ; igglybuff
 
 	db     ROM_HACKING, 2
 
@@ -300,13 +300,17 @@ CreditsScript:
 
 	db CREDITS_WAIT, 11
 
+	db      CREDITS_EMPTY, 0
+
+	db CREDITS_WAIT, 1
+
 	db          COPYRIGHT, 1
 
 	db CREDITS_WAIT, 11
 
 	db      CREDITS_EMPTY, 0
 
-	db CREDITS_WAIT, 3
+	db CREDITS_WAIT, 2
 
 ; Display "The End" graphic.
 	db CREDITS_THEEND

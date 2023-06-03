@@ -223,11 +223,11 @@ CreditsStringsPointers:
 
 .Romhacking:		  db "    ROM HACKING@"
 .Disassembly		  db "    DISASSEMBLY@"
-.Pret		  		  db "        PRET@"
+.Pret		  		  db "  github.com/pret@"
 .Programming		  db "    PROGRAMMING@"
 .DamienDoury:		  db "    DAMIEN DOURY@"
 .Darkshade:			  db "     DARKSHADE@"
-.TriteHexagon:		  db "    TRITEHEXAGON@"
+.TriteHexagon:		  db "   <AT>TriteHexagon@"
 .Empty:				  db "@"
 
 .Copyright:
