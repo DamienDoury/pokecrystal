@@ -82,11 +82,7 @@ StringOptions:
 	db "        :<LF>"
 	db "FRAME<LF>"
 	db "        :TYPE<LF>"
-	db "CANCEL<LF>"
-	db "<LF>"
-	db "<LF>"
-	db "<LF>"
-	db "     version 0.5b@"
+	db "CANCEL@"
 
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
