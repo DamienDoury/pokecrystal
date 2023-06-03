@@ -1340,14 +1340,9 @@ ENDM
 Copyright:
 	call ClearTilemap
 
-	ld de, CopyrightRomhackGFX
-	ld hl, vTiles1 tile $01
-	lb bc, BANK(CopyrightRomhackGFX), 12
-	call Request2bpp
-
 	ld de, CopyrightGFX
-	ld hl, vTiles2 tile $60
-	lb bc, BANK(CopyrightGFX), 29
+	ld hl, vTiles1 tile $00
+	lb bc, BANK(CopyrightGFX), 41
 	call Request2bpp
 
 	hlcoord 2, 6
@@ -1356,20 +1351,20 @@ Copyright:
 
 CopyrightString:
 	; ©1995-2001 Nintendo
-	db   $60, $61, $62, $63, $64, $65, $66
-	db   $67, $68, $69, $6a, $6b, $6c
+	db   $80, $81, $82, $83, $84, $85, $86
+	db   $87, $88, $89, $8a, $8b, $8c
 
 	; ©1995-2001 Creatures inc.
-	next $60, $61, $62, $63, $64, $65, $66
-	db   $6d, $6e, $6f, $70, $71, $72, $7a, $7b, $7c
+	next $80, $81, $82, $83, $84, $85, $86
+	db   $8d, $8e, $8f, $90, $91, $92, $9a, $9b, $9c
 
 	; ©1995-2001 GAME FREAK inc.
-	next $60, $61, $62, $63, $64, $65, $66
-	db   $73, $74, $75, $76, $77, $78, $79, $7a, $7b, $7c
+	next $80, $81, $82, $83, $84, $85, $86
+	db   $93, $94, $95, $96, $97, $98, $99, $9a, $9b, $9c
 
 	; ©2021-2023 Heykinox
-	next $60, $01, $02, $03, $04, $05, $06
-	db   $07, $08, $09, $0a, $0b, $0c
+	next $80, $9d, $9e, $9f, $a0, $a1, $a2
+	db   $a3, $a4, $a5, $a6, $a7, $a8
 
 	db "@"
 

@@ -42,7 +42,7 @@ Credits::
 
 	ld de, CopyrightGFX
 	ld hl, vTiles2 tile $60
-	lb bc, BANK(CopyrightGFX), 30
+	lb bc, BANK(CopyrightGFX), 29
 	call Request2bpp
 
 	ld de, TheEndGFX
@@ -100,7 +100,8 @@ Credits::
 	jr .execution_loop
 
 .exit_credits
-	call ClearBGPalettes
+	call ClearBGPalettes ; Fading would be more aesthetic.
+	call LoadStandardFont ; The new copyright breaks the font vram. We need to load it back.
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hBGMapAddress], a
@@ -262,7 +263,7 @@ ParseCredits:
 	cp CREDITS_END
 	jp z, .end
 	cp CREDITS_WAIT
-	jr z, .wait
+	jp z, .wait
 	cp CREDITS_SCENE
 	jr z, .scene
 	cp CREDITS_CLEAR
@@ -301,7 +302,16 @@ ParseCredits:
 	jr .print
 
 .copyright
-	hlcoord 2, 6
+	push bc
+	push de
+	ld de, CopyrightGFX + 29 * 64 / 4
+	ld hl, vTiles1 tile 29
+	lb bc, BANK(CopyrightGFX), 12
+	call Request2bpp
+	pop de
+	pop bc
+
+	hlcoord 2, 5
 	jr .print
 
 .staff
