@@ -31,6 +31,9 @@ HallOfFame::
 	call AnimateHallOfFame
 	pop af
 	ld b, a
+	ld a, [wHallOfFameCount]
+	cp 2
+	ret nc
 	farcall Credits
 	ret
 

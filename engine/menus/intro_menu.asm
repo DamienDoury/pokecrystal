@@ -399,7 +399,10 @@ PostCreditsSpawn:
 	call DelayFrame 
 	ld de, ENGINE_DISPLAY_YEAR_AT_START
 	farcall CheckEngineFlag
+	push af
 	call nc, Continue_DisplayYear
+	pop af
+	call c, ClearPalettes
 	xor a
 	ld [wSpawnAfterChampion], a
 	ld a, MAPSETUP_WARP

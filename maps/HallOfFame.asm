@@ -40,6 +40,8 @@ HallOfFame_MapScripts:
 	special HealParty
 	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue .SkipPhoneCall
+	readmem wHallOfFameCount
+	ifgreater 0, .SkipPhoneCall
 	setflag ENGINE_DISPLAY_YEAR_AT_START
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:
