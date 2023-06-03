@@ -1339,12 +1339,18 @@ ENDM
 
 Copyright:
 	call ClearTilemap
-	call LoadFontsExtra
+
+	ld de, CopyrightRomhackGFX
+	ld hl, vTiles1 tile $01
+	lb bc, BANK(CopyrightRomhackGFX), 12
+	call Request2bpp
+
 	ld de, CopyrightGFX
 	ld hl, vTiles2 tile $60
-	lb bc, BANK(CopyrightGFX), 30
+	lb bc, BANK(CopyrightGFX), 29
 	call Request2bpp
-	hlcoord 2, 7
+
+	hlcoord 2, 6
 	ld de, CopyrightString
 	jp PlaceString
 
@@ -1355,11 +1361,15 @@ CopyrightString:
 
 	; ©1995-2001 Creatures inc.
 	next $60, $61, $62, $63, $64, $65, $66
-	db   $6d, $6e, $6f, $70, $71, $72, $73, $7c, $7d
+	db   $6d, $6e, $6f, $70, $71, $72, $7a, $7b, $7c
 
 	; ©1995-2001 GAME FREAK inc.
 	next $60, $61, $62, $63, $64, $65, $66
-	db   $74, $75, $76, $77, $78, $79, $7a, $7b, $7c, $7d
+	db   $73, $74, $75, $76, $77, $78, $79, $7a, $7b, $7c
+
+	; ©2021-2023 Heykinox
+	next $60, $01, $02, $03, $04, $05, $06
+	db   $07, $08, $09, $0a, $0b, $0c
 
 	db "@"
 
