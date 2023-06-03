@@ -103,6 +103,14 @@
 	const US_COORDINATION
 	const TEXT_TRANSLATION
 	const PAAD_TESTING
+	const ROM_HACKING
+	const DISASSEMBLY
+	const PRET
+	const PROGRAMMING
+	const DAMIEN_DOURY
+	const DARKSHADE
+	const TRITEHEXAGON
+	const CREDITS_EMPTY
 NUM_CREDITS_STRINGS EQU const_value
 
 ; CreditsScript indexes (see data/credits_script.asm)

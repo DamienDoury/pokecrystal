@@ -217,7 +217,7 @@ Credits_LYOverride:
 	ld [wCreditsLYOverride], a
 	ld hl, wLYOverrides + $1f
 	call .Fill
-	ld hl, wLYOverrides + $87
+	ld hl, wLYOverrides + $67
 	call .Fill
 	jp Credits_Next
 
@@ -250,7 +250,7 @@ ParseCredits:
 	xor a
 	ldh [hBGMapMode], a
 	hlcoord 0, 5
-	ld bc, SCREEN_WIDTH * 12
+	ld bc, SCREEN_WIDTH * 8
 	ld a, " "
 	call ByteFill
 
@@ -320,7 +320,7 @@ ParseCredits:
 .print
 ; Print strings spaced every two lines.
 	call .get
-	ld bc, SCREEN_WIDTH * 2
+	ld bc, SCREEN_WIDTH
 	call AddNTimes
 	call PlaceString
 	jr .loop
@@ -415,21 +415,22 @@ ConstructCreditsTilemap:
 	ld a, $c
 	ldh [hBGMapAddress], a
 
+	; Draw the default background on the whole screen (ends up entirely overwritten).
 	ld a, $28
 	hlcoord 0, 0
 	ld bc, SCREEN_HEIGHT * SCREEN_WIDTH
 	call ByteFill
 
 	ld a, $7f
-	hlcoord 0, 4
-	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
+	hlcoord 0, 5
+	ld bc, (SCREEN_HEIGHT - 5 * 2) * SCREEN_WIDTH
 	call ByteFill
 
 	hlcoord 0, 4
 	ld a, $24
 	call DrawCreditsBorder
 
-	hlcoord 0, 17
+	hlcoord 0, 13
 	ld a, $20
 	call DrawCreditsBorder
 
@@ -448,9 +449,14 @@ ConstructCreditsTilemap:
 	ld a, $2
 	call ByteFill
 
-	hlcoord 0, 17, wAttrmap
+	hlcoord 0, 13, wAttrmap
 	ld bc, SCREEN_WIDTH
 	ld a, $1
+	call ByteFill
+
+	hlcoord 0, 14, wAttrmap
+	ld bc, 4 * SCREEN_WIDTH
+	xor a
 	call ByteFill
 
 	call WaitBGMap2
@@ -458,6 +464,10 @@ ConstructCreditsTilemap:
 	ldh [hBGMapMode], a
 	ldh [hBGMapAddress], a
 	hlcoord 0, 0
+	call .InitTopPortion
+
+	xor a
+	hlcoord 0, 14
 	call .InitTopPortion
 	call WaitBGMap2
 	ret
@@ -604,9 +614,9 @@ Credits_LoadBorderGFX:
 
 Credits_TheEnd:
 	ld a, $40
-	hlcoord 6, 9
+	hlcoord 6, 8
 	call .Load
-	hlcoord 6, 10
+	hlcoord 6, 9
 .Load:
 	ld c, 8
 .loop

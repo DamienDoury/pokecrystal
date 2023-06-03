@@ -104,6 +104,14 @@ CreditsStringsPointers:
 	dw .UsCoordination
 	dw .TextTranslation
 	dw .PaadTesting
+	dw .Romhacking
+	dw .Disassembly
+	dw .Pret
+	dw .Programming
+	dw .DamienDoury
+	dw .Darkshade
+	dw .TriteHexagon
+	dw .Empty
 	assert_table_length NUM_CREDITS_STRINGS
 
 .SatoshiTajiri:       db "   SATOSHI TAJIRI@"         ; "たじり　さとし@"
@@ -212,6 +220,15 @@ CreditsStringsPointers:
 .UsCoordination:      db "  US COORDINATION@"
 .TextTranslation:     db "  TEXT TRANSLATION@"
 .PaadTesting:         db "    PAAD TESTING@"
+
+.Romhacking:		  db "    ROM HACKING@"
+.Disassembly		  db "    DISASSEMBLY@"
+.Pret		  		  db "        PRET@"
+.Programming		  db "    PROGRAMMING@"
+.DamienDoury:		  db "    DAMIEN DOURY@"
+.Darkshade:			  db "     DARKSHADE@"
+.TriteHexagon:		  db "    TRITEHEXAGON@"
+.Empty:				  db "@"
 
 .Copyright:
 	;     ©  1  9  9  5 - 2  0  0  1   N  i  n  t  e  n  d  o
