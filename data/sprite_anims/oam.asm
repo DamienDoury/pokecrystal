@@ -16,13 +16,13 @@ SpriteAnimOAMData:
 	dbw $60, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_3
 	dbw $0c, .OAMData_GSIntroNote              ; SPRITE_ANIM_OAMSET_GS_INTRO_NOTE
 	dbw $0d, .OAMData_1x1_Palette0             ; SPRITE_ANIM_OAMSET_GS_INTRO_INVISIBLE_NOTE
-	dbw $00, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_1
-	dbw $04, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_2
-	dbw $08, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_3
-	dbw $40, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_1
-	dbw $44, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_2
-	dbw $48, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_3
-	dbw $4c, .OAMData_GSIntroJigglypuffPikachu ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_4
+	dbw $00, .OAMData_GSIntroJigglypuff        ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_1
+	dbw $04, .OAMData_GSIntroJigglypuff        ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_2
+	dbw $08, .OAMData_GSIntroJigglypuff        ; SPRITE_ANIM_OAMSET_GS_INTRO_JIGGLYPUFF_3
+	dbw $40, .OAMData_GSIntroPikachu           ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_1
+	dbw $44, .OAMData_GSIntroPikachu           ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_2
+	dbw $48, .OAMData_GSIntroPikachu           ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_3
+	dbw $4c, .OAMData_GSIntroPikachu           ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_4
 	dbw $80, .OAMData_GSIntroPikachuTail       ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_TAIL_1
 	dbw $85, .OAMData_GSIntroPikachuTail       ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_TAIL_2
 	dbw $8a, .OAMData_GSIntroPikachuTail       ; SPRITE_ANIM_OAMSET_GS_INTRO_PIKACHU_TAIL_3
@@ -263,7 +263,7 @@ SpriteAnimOAMData:
 	dbsprite -1,  0,  4,  4, $21, 0
 	dbsprite  0,  0,  4,  4, $22, 0
 
-.OAMData_GSIntroJigglypuffPikachu:
+.OAMData_GSIntroJigglypuff:
 	db 16
 	dbsprite -2, -2,  0,  0, $00, 0
 	dbsprite -1, -2,  0,  0, $01, 0
@@ -281,6 +281,25 @@ SpriteAnimOAMData:
 	dbsprite -1,  1,  0,  0, $31, 0
 	dbsprite  0,  1,  0,  0, $32, 0
 	dbsprite  1,  1,  0,  0, $33, 0
+
+.OAMData_GSIntroPikachu:
+	db 16
+	dbsprite -2, -2,  0,  0, $00, 2
+	dbsprite -1, -2,  0,  0, $01, 2
+	dbsprite  0, -2,  0,  0, $02, 2
+	dbsprite  1, -2,  0,  0, $03, 2
+	dbsprite -2, -1,  0,  0, $10, 2
+	dbsprite -1, -1,  0,  0, $11, 2
+	dbsprite  0, -1,  0,  0, $12, 2
+	dbsprite  1, -1,  0,  0, $13, 2
+	dbsprite -2,  0,  0,  0, $20, 2
+	dbsprite -1,  0,  0,  0, $21, 2
+	dbsprite  0,  0,  0,  0, $22, 2
+	dbsprite  1,  0,  0,  0, $23, 2
+	dbsprite -2,  1,  0,  0, $30, 2
+	dbsprite -1,  1,  0,  0, $31, 2
+	dbsprite  0,  1,  0,  0, $32, 2
+	dbsprite  1,  1,  0,  0, $33, 2
 
 .OAMData_GSIntroStarter:
 	db 25
@@ -401,7 +420,7 @@ SpriteAnimOAMData:
 .OAMData_GSIntroMagikarp:
 	db 6
 	dbsprite -2, -1,  4,  0, $00, 1
-	dbsprite -1, -1,  4,  0, $01, 1
+	dbsprite -1, -1,  4,  0, $01, 2
 	dbsprite  0, -1,  4,  0, $02, 1
 	dbsprite -2,  0,  4,  0, $10, 1
 	dbsprite -1,  0,  4,  0, $11, 1
@@ -414,24 +433,24 @@ SpriteAnimOAMData:
 	dbsprite -1, -3,  0,  0, $02, 0
 	dbsprite  0, -3,  0,  0, $03, 0
 	dbsprite -3, -2,  0,  0, $10, 0
-	dbsprite -2, -2,  0,  0, $11, 0
+	dbsprite -2, -2,  0,  0, $11, 4
 	dbsprite -1, -2,  0,  0, $12, 0
 	dbsprite  0, -2,  0,  0, $13, 0
 	dbsprite -3, -1,  0,  0, $20, 0
 	dbsprite -2, -1,  0,  0, $21, 0
-	dbsprite -1, -1,  0,  0, $22, 0
-	dbsprite  0, -1,  0,  0, $23, 0
-	dbsprite  1, -1,  0,  0, $24, 0
+	dbsprite -1, -1,  0,  0, $22, 3
+	dbsprite  0, -1,  0,  0, $23, 3
+	dbsprite  1, -1,  0,  0, $24, 3
 	dbsprite -3,  0,  0,  0, $30, 0 | PRIORITY
 	dbsprite -2,  0,  0,  0, $31, 0 | PRIORITY
-	dbsprite -1,  0,  0,  0, $32, 0 | PRIORITY
-	dbsprite  0,  0,  0,  0, $33, 0 | PRIORITY
-	dbsprite  1,  0,  0,  0, $34, 0 | PRIORITY
+	dbsprite -1,  0,  0,  0, $32, 3 | PRIORITY
+	dbsprite  0,  0,  0,  0, $33, 3 | PRIORITY
+	dbsprite  1,  0,  0,  0, $34, 3 | PRIORITY
 	dbsprite -3,  1,  0,  0, $40, 0 | PRIORITY
 	dbsprite -2,  1,  0,  0, $41, 0 | PRIORITY
-	dbsprite -1,  1,  0,  0, $42, 0 | PRIORITY
-	dbsprite  0,  1,  0,  0, $43, 0 | PRIORITY
-	dbsprite  1,  1,  0,  0, $44, 0 | PRIORITY
+	dbsprite -1,  1,  0,  0, $42, 3 | PRIORITY
+	dbsprite  0,  1,  0,  0, $43, 3 | PRIORITY
+	dbsprite  1,  1,  0,  0, $44, 3 | PRIORITY
 	dbsprite  2,  1,  0,  0, $45, 0 | PRIORITY
 	dbsprite -2,  2,  0,  0, $51, 0 | PRIORITY
 	dbsprite -1,  2,  0,  0, $52, 0 | PRIORITY
@@ -446,11 +465,11 @@ SpriteAnimOAMData:
 
 .OAMData_GSIntroPikachuTail:
 	db 5
-	dbsprite  3, -2,  0,  0, $00, 0
-	dbsprite  4, -2,  0,  0, $01, 0
-	dbsprite  2, -1,  0,  0, $02, 0
-	dbsprite  3, -1,  0,  0, $03, 0
-	dbsprite  2,  0,  0,  0, $04, 0
+	dbsprite  3, -2,  0,  0, $00, 2
+	dbsprite  4, -2,  0,  0, $01, 2
+	dbsprite  2, -1,  0,  0, $02, 2
+	dbsprite  3, -1,  0,  0, $03, 2
+	dbsprite  2,  0,  0,  0, $04, 2
 
 .OAMData_Leaf:
 	db 1

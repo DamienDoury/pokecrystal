@@ -77,7 +77,7 @@ SGB_ApplyPartyMenuHPPals:
 	ld [hl], e
 	ret
 
-Intro_LoadMagikarpPalettes: ; unreferenced
+Intro_LoadMagikarpPalettes:
 	call CheckCGB
 	ret z
 
@@ -105,7 +105,7 @@ INCLUDE "gfx/intro/gs_magikarp_bg.pal"
 .MagikarpOBPal:
 INCLUDE "gfx/intro/gs_magikarp_ob.pal"
 
-Intro_LoadAllPal0: ; unreferenced
+Intro_LoadAllPal0:
 	call CheckCGB
 	ret nz
 	ldh a, [hSGB]
