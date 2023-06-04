@@ -447,6 +447,13 @@ StatsScreen_JoypadAction:
 	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
 	call IsDetailSlotEmpty
 	jr z, .d_down_submenu ; As long as the next slot is empty, the cursor keeps moving down.
+
+	ld a, [wStatsSubmenuCursorIndex]
+	ld b, a
+	ld a, [wStatsSwapMovesSourceCursorIndex]
+	cp b
+	jr z, .d_down_submenu
+
 	jr .next_cursor_index_determined
 
 .d_up_submenu
@@ -475,6 +482,12 @@ StatsScreen_JoypadAction:
 .up_cursor_index_found
 	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
 	call IsDetailSlotEmpty
+	jr z, .d_up_submenu
+
+	ld a, [wStatsSubmenuCursorIndex]
+	ld b, a
+	ld a, [wStatsSwapMovesSourceCursorIndex]
+	cp b
 	jr z, .d_up_submenu ; As long as the next slot is empty, the cursor keeps moving up.
 
 .next_cursor_index_determined
@@ -563,20 +576,48 @@ StatsScreen_JoypadAction:
 
 	; At this point, the user pressed A to select the destination for the swap.
 	; We must check if it is a valid swap.
+
+	;ld a, [wStatsSubmenuCursorIndex]
+	;ld b, a
+	ld a, [wStatsSwapMovesSourceCursorIndex]
+	;cp b
+	;jr z, .b_button_submenu
+
+	; Do the swap here.
+	sub 2
+	ld [wSwappingMove], a
+
+	call SwapMoves
 	
-	ret
+	xor a
+	ld [wSwappingMove], a
+	jr .b_button_submenu
 
 .start_swapping_first_check
-	ld a, [wBillsPC_LoadedBox]
-	and a ; party.
+	ld a, [wBattleMode]
+	and a
 	jr z, .start_swapping_second_check
 
+	; If we are in a battle, we can't swap the moves of the CurBattleMon. 
+	; Because if may cause issue with disabled moves and transformed mons.
+	; And I'm too lazy to use the content of ".not_swapping_disabled_move".
+	ld a, [wCurPartyMon]
+	ld b, a
+	ld a, [wCurBattleMon]
+	cp b
+	jr z, .prevent_swapping
+
+.start_swapping_second_check
+	ld a, [wBillsPC_LoadedBox]
+	and a ; party.
+	jr z, .start_swapping_third_check
+
 	cp 15 ; current box.
-	jr z, .start_swapping_second_check
+	jr z, .start_swapping_third_check
 
 	jr .prevent_swapping
 
-.start_swapping_second_check
+.start_swapping_third_check
 	; Checking if the Pokémon has at least 2 moves.
 	ld a, 2
 	call IsDetailSlotEmpty
@@ -600,9 +641,17 @@ StatsScreen_JoypadAction:
 	ld a, [wStatsSubmenuCursorIndex]
 	ld [wStatsSwapMovesSourceCursorIndex], a
 
+	cp 2
 	ld a, 2
+	jr nz, .default_target_move_select
+
+	inc a
+
+.default_target_move_select
 	ld [wStatsSubmenuCursorIndex], a
-	ld bc, 4
+	ld b, 0
+	add a
+	ld c, a
 	jp .displaying_arrow
 	ret
 
@@ -622,8 +671,24 @@ StatsScreen_JoypadAction:
 	ret
 
 .b_button_submenu
-	call CloseSubMenu
-	ret
+	ld a, [wStatsSubmenuOpened]
+	cp 2
+	jp nz, CloseSubMenu
+
+	; Go back to the first submenu.
+	ld a, 1
+	ld [wStatsSubmenuOpened], a
+
+	call .EraseSubmenuHollowArrow
+
+	ld a, -1
+	ld [wStatsSwapMovesSourceCursorIndex], a
+
+	ld a, [wStatsSubmenuCursorIndex]
+	add a
+	ld b, 0
+	ld c, a
+	jp .displaying_arrow
 
 .open_submenu
 	ld a, 1
@@ -682,6 +747,87 @@ StatsScreen_JoypadAction:
 
 .HideDetailTooltip:
 	db "                  @"
+
+.EraseSubmenuHollowArrow:
+	ld a, [wStatsSwapMovesSourceCursorIndex] ; Retrieving the next index.
+	add a
+	ld c, a
+	ld b, 0
+	ld hl, .submenuCursorCoordinates
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ld [hl], " " ; Erasing the old arrow.
+	ret
+
+SwapMoves:
+	ld hl, wPartyMon1Moves
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	push hl
+	call .swap_bytes
+	pop hl
+	ld bc, wPartyMon1PP - wPartyMon1Moves
+	add hl, bc
+	call .swap_bytes
+	ld a, [wBattleMode]
+	jr z, .swap_moves
+	ld hl, wBattleMonMoves
+	ld bc, wBattleMonStructEnd - wBattleMon
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	push hl
+	call .swap_bytes
+	pop hl
+	ld bc, wBattleMonPP - wBattleMonMoves
+	add hl, bc
+	call .swap_bytes
+
+.swap_moves
+	ld de, SFX_SWITCH_POKEMON
+	call PlaySFX
+	
+	hlcoord 2, 14
+	ld bc, SCREEN_WIDTH
+	ld a, [wStatsSubmenuCursorIndex]
+	sub 2
+	call AddNTimes
+	lb bc, 1, 18
+	call ClearBox
+
+	hlcoord 2, 14
+	ld bc, SCREEN_WIDTH
+	ld a, [wSwappingMove]
+	call AddNTimes
+	lb bc, 1, 18
+	call ClearBox
+
+	predef CopyMonToTempMon
+	call LoadGreenPage.display_moves
+	ret
+
+.swap_bytes
+	push hl
+	ld a, [wStatsSubmenuCursorIndex]
+	sub 2
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	ld a, [wSwappingMove]
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [de]
+	ld b, [hl]
+	ld [hl], a
+	ld a, b
+	ld [de], a
+	ret
 
 String_MoveAtk:
 	db "ATK/@"
@@ -1066,6 +1212,7 @@ LoadGreenPage:
 	hlcoord 0, 13
 	call PlaceString
 
+.display_moves
 	ld hl, wTempMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
 	ld bc, NUM_MOVES
