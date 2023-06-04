@@ -28,6 +28,8 @@ StartMenu::
 	call LoadMenuHeader
 	call .SetUpMenuItems
 	ld a, [wBattleMenuCursorPosition]
+	and a
+	call z, AEqualsTwo
 	ld [wMenuCursorPosition], a
 	call .DrawMenuAccount
 	call DrawVariableLengthMenuBox
@@ -364,6 +366,10 @@ endr
 	ret
 .contest
 	farcall StartMenu_PrintBugContestStatus
+	ret
+
+AEqualsTwo:
+	ld a, 2
 	ret
 
 StartMenu_Exit:
