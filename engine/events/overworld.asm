@@ -653,6 +653,8 @@ FlyFunction:
 	call DelayFrame
 	call UpdatePlayerSprite
     farcall RefreshMapPals
+	xor a
+	ld [wLoadedFontSet], a
 	farcall LoadOverworldFont
 	ret
 

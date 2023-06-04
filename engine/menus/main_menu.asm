@@ -360,6 +360,7 @@ MainMenu_PrintCurrentTimeAndDay:
 
 ClearTilemapEtc:
 	xor a
+	ld [wLoadedFontSet], a
 	ldh [hMapAnims], a
 	call ClearTilemap
 	call LoadFontsExtra

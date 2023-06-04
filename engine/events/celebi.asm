@@ -52,6 +52,7 @@ CelebiShrineEvent:
 	ld [wVramState], a
 	call .RestorePlayerSprite_DespawnLeaves
 	call CelebiEvent_SetBattleType
+	call ForceLoadStandardFont
 	ret
 
 .RestorePlayerSprite_DespawnLeaves:
@@ -370,6 +371,7 @@ CelebiFlyAwayAnim::
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite08
 	xor a
 	call ByteFill
+	call ForceLoadStandardFont
 	ret
 
 

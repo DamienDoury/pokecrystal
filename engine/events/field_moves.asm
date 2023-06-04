@@ -212,6 +212,9 @@ Cut_WaitAnimSFX:
 .finished
 	ld hl, wJumptableIndex
 	set 7, [hl]
+	xor a
+	ld [wLoadedFontSet], a
+	farcall LoadOverworldFont
 	ret
 
 Cut_SpawnLeaf:
@@ -371,6 +374,8 @@ ZapdosFlyToAnim::
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite12
 	xor a
 	call ByteFill
+
+	farcall ForceLoadOverworldFont
 	ret
 
 FlyToAnim:

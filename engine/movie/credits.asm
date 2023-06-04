@@ -101,7 +101,7 @@ Credits::
 
 .exit_credits
 	call ClearBGPalettes ; Fading would be more aesthetic.
-	call LoadStandardFont ; The new copyright breaks the font vram. We need to load it back.
+	call ForceLoadStandardFont ; The new copyright breaks the font vram. We need to load it back.
 	xor a
 	ldh [hLCDCPointer], a
 	ldh [hBGMapAddress], a

@@ -38,6 +38,7 @@ InitMapNameSign::
 	jr z, .dont_do_map_sign
 
 ; Display for 60 frames
+	farcall LoadOverworldFont
 	ld a, 60
 	ld [wLandmarkSignTimer], a
 	call LoadMapNameSignGFX
