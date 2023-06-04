@@ -1075,7 +1075,7 @@ Intro_LoadTotodilePalette:
 Intro_LoadCharizardPalette:
 	ldh a, [hCGB]
 	and a
-	ld c, CYNDAQUIL
+	ld c, SCYTHER ;SKIPLOOM ;SPINARAK ;BAYLEEF ;CHIKORITA ;SUNFLORA ; Fire breathing palette.
 	jr nz, .got_mon
 	ld c, CHARIZARD
 .got_mon
