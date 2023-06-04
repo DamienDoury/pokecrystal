@@ -2841,7 +2841,8 @@ NEXTU
 wStatsSubmenuOpened:: db
 wStatsSubmenuCursorIndex:: db
 wStatsSubmenuCursorCoords:: dw
-ds 2
+wStatsSwapMovesSourceCursorIndex:: db
+	ds 1
 ENDU
 
 wTimeOfDayPalFlags:: db

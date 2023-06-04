@@ -249,7 +249,7 @@ MonStatsJoypad:
 	ret
 
 .next
-	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT
 	jp StatsScreen_JoypadAction
 
 StatsScreenWaitCry:
@@ -425,6 +425,8 @@ StatsScreen_JoypadAction:
 	jr nz, .d_up_submenu
 	bit D_DOWN_F, a
 	jr nz, .d_down_submenu
+	bit SELECT_F, a
+	jp nz, .a_button_submenu
 	ret
 
 .d_down_submenu
@@ -432,8 +434,14 @@ StatsScreen_JoypadAction:
 	inc a
 	cp 6
 	jr c, .down_cursor_index_found ; No overflow.
+
 	; The cursor is at index 6 or above. We set it back to zero.
-	xor a
+	ld a, [wStatsSubmenuOpened]
+	cp 2
+	ld a, 0
+	jr nz, .down_cursor_index_found
+	
+	ld a, 2 ; When swapping, we loop back to the first move. Will cause infinite loop when only 1 move exists.
 	
 .down_cursor_index_found
 	ld [wStatsSubmenuCursorIndex], a ; Saving the next index.
@@ -444,8 +452,23 @@ StatsScreen_JoypadAction:
 .d_up_submenu
 	ld a, [wStatsSubmenuCursorIndex]
 	dec a
+	ld b, a
+
+	ld a, [wStatsSubmenuOpened]
+	cp 2
+	ld a, b
+	jr nz, .d_up_submenu_no_swap
+
+	cp 1 ; Ability slot: we are out of the moves range! It's an underflow when swapping moves!
+	jr z, .d_up_submenu_underflow
+
+	; No underflow fallthrough.
+
+.d_up_submenu_no_swap
 	cp $ff
 	jr nz, .up_cursor_index_found ; No underflow.
+
+.d_up_submenu_underflow
 	; Underflow: setting the cursor back to its max index.
 	ld a, 5
 
@@ -470,8 +493,26 @@ StatsScreen_JoypadAction:
 	push bc
 	lb bc, 6, 18
 	call ClearBox ; Erasing the previous tooltip in the box.
-	pop bc
 
+	ld a, [wStatsSubmenuOpened]
+	cp 2
+	jr nz, .hollow_arrow_done
+
+	ld a, [wStatsSwapMovesSourceCursorIndex]
+	add a
+	ld c, a
+	ld b, 0
+
+	ld hl, .submenuCursorCoordinates
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	ld [hl], "▷" ; Displaying the hollow arrow. Note: it will be erased once, when the player leaves the move swap menu.
+
+.hollow_arrow_done
+	pop bc
 	ld hl, .submenuCursorCoordinates
 	add hl, bc
 	ld a, [hli]
@@ -484,7 +525,7 @@ StatsScreen_JoypadAction:
 
 	ld [hl], "▶" ; Displaying the new arrow.
 
-	; TODO: Here we need to refresh the description in the textbox.
+	; We refresh the description in the textbox.
 	ld a, [wStatsSubmenuCursorIndex]
 	and a
 	jp z, .tooltip_item
@@ -510,7 +551,59 @@ StatsScreen_JoypadAction:
 .tooltip_ability
 	ret
 
-.a_button_submenu ; Will be used to re-order moves.
+.a_button_submenu ; Swapping moves.
+	; TODO: interact with the item.
+	ld a, [wStatsSubmenuCursorIndex]
+	cp 2
+	ret c ; TODO: interact with the item.
+
+	ld a, [wStatsSubmenuOpened]
+	cp 1
+	jr z, .start_swapping_first_check
+
+	; At this point, the user pressed A to select the destination for the swap.
+	; We must check if it is a valid swap.
+	
+	ret
+
+.start_swapping_first_check
+	ld a, [wBillsPC_LoadedBox]
+	and a ; party.
+	jr z, .start_swapping_second_check
+
+	cp 15 ; current box.
+	jr z, .start_swapping_second_check
+
+	jr .prevent_swapping
+
+.start_swapping_second_check
+	; Checking if the Pokémon has at least 2 moves.
+	ld a, 2
+	call IsDetailSlotEmpty
+	jr z, .prevent_swapping
+
+	ld a, 3
+	call IsDetailSlotEmpty
+	jr nz, .start_swapping_ok
+
+.prevent_swapping
+	call WaitSFX
+	ld de, SFX_WRONG
+	call PlaySFX
+	call WaitSFX
+	ret
+
+.start_swapping_ok
+	ld a, 2
+	ld [wStatsSubmenuOpened], a
+	
+	ld a, [wStatsSubmenuCursorIndex]
+	ld [wStatsSwapMovesSourceCursorIndex], a
+
+	ld a, 2
+	ld [wStatsSubmenuCursorIndex], a
+	ld bc, 4
+	jp .displaying_arrow
 	ret
 
 .d_right_submenu
@@ -536,6 +629,9 @@ StatsScreen_JoypadAction:
 	ld a, 1
 	ld [wStatsSubmenuOpened], a
 
+	ld a, -1
+	ld [wStatsSwapMovesSourceCursorIndex], a
+
 	xor a
 	ldh [hBGMapMode], a
 	
@@ -559,9 +655,7 @@ StatsScreen_JoypadAction:
 	; Placing the cursor at the default position.
 	ld a, 2 ; Next cursor index.
 	ld [wStatsSubmenuCursorIndex], a
-	add a
-	ld c, a
-	ld b, 0
+	ld bc, 4
 	jp .displaying_arrow
 
 .set_page
@@ -1521,12 +1615,15 @@ CheckFaintedFrzSlp:
 	scf
 	ret
 
+; Input: A = the index of the move, wCurPartyMon set to the desired mon. Doesn't work in the PC.
 PrepareToPlaceMoveDataNew:
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
+	push af
 	ld a, [wCurPartyMon]
 	call AddNTimes
-	ld a, [wStatsSubmenuCursorIndex]
+	pop af
+	;ld a, [wStatsSubmenuCursorIndex]
 	sub 2
 	ld c, a
 	ld b, 0
@@ -1696,7 +1793,7 @@ ConvertToPercentage:
 
 ; Sets the Z flag if the arrow is pointing towards an empty Detail slot.
 IsDetailSlotEmpty:
-	ld a, [wStatsSubmenuCursorIndex]
+	;ld a, [wStatsSubmenuCursorIndex]
 	and a
 	jp z, .tooltip_item
 	
