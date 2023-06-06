@@ -291,6 +291,11 @@ StatsScreen_GetJoypad:
 	ld a, [wMonType]
 	cp TEMPMON
 	jr nz, .not_tempmon
+	
+	ld a, [wStatsSubmenuOpened]
+	cp 0
+	jr nz, .not_tempmon
+	
 	push hl
 	push de
 	push bc
@@ -300,7 +305,7 @@ StatsScreen_GetJoypad:
 	pop hl
 	ld a, [wMenuJoypad]
 	and D_DOWN | D_UP
-	jr nz, .check_submenu
+	jr nz, .set_carry
 	ld a, [wMenuJoypad]
 	jr .clear_carry
 
@@ -313,12 +318,6 @@ StatsScreen_GetJoypad:
 .set_carry
 	scf
 	ret
-
-.check_submenu
-	ld a, [wStatsSubmenuOpened]
-	cp 0
-	jp z, .set_carry ; If we are NOT in the submenu, then we leave.
-	ld a, [wMenuJoypad]
 
 StatsScreen_JoypadAction:
 	push af
@@ -548,7 +547,6 @@ StatsScreen_JoypadAction:
 
 ;.tooltip_moves
 	call PrepareToPlaceMoveDataNew
-	ld a, [wCurSpecies]
 	and a
 	ret z
 
@@ -576,12 +574,7 @@ StatsScreen_JoypadAction:
 
 	; At this point, the user pressed A to select the destination for the swap.
 	; We must check if it is a valid swap.
-
-	;ld a, [wStatsSubmenuCursorIndex]
-	;ld b, a
 	ld a, [wStatsSwapMovesSourceCursorIndex]
-	;cp b
-	;jr z, .b_button_submenu
 
 	; Do the swap here.
 	sub 2
@@ -613,6 +606,14 @@ StatsScreen_JoypadAction:
 	jr z, .start_swapping_third_check
 
 	cp 15 ; current box.
+	jr z, .start_swapping_third_check
+
+	; When we are moving boxes, wBillsPC_LoadedBox doesn't display 15, but the actual number of the loaded box.
+	dec a
+	push hl
+	ld hl, wCurBox
+	cp [hl]
+	pop hl
 	jr z, .start_swapping_third_check
 
 	jr .prevent_swapping
@@ -764,6 +765,17 @@ StatsScreen_JoypadAction:
 SwapMoves:
 	ld hl, wPartyMon1Moves
 	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wBillsPC_LoadedBox]
+	and a
+	jr z, .params_loaded
+
+	ld hl, sBoxMon1Moves
+	ld bc, BOXMON_STRUCT_LENGTH
+
+	ld a, BANK(sBox)
+	call OpenSRAM
+
+.params_loaded
 	ld a, [wCurPartyMon]
 	call AddNTimes
 	push hl
@@ -773,7 +785,9 @@ SwapMoves:
 	add hl, bc
 	call .swap_bytes
 	ld a, [wBattleMode]
+	and a
 	jr z, .swap_moves
+
 	ld hl, wBattleMonMoves
 	ld bc, wBattleMonStructEnd - wBattleMon
 	ld a, [wCurPartyMon]
@@ -804,9 +818,19 @@ SwapMoves:
 	lb bc, 1, 18
 	call ClearBox
 
+	ld a, [wBillsPC_LoadedBox]
+	cp 0
+	jr z, .end_swapping
+
+	call CloseSRAM
+	farcall CopyBoxmonToTempMon
+	jp LoadGreenPage.display_moves
+
+.end_swapping
+	ld a, PARTYMON
+	ld [wMonType], a ; Forcing the mon type to PARTYMON, because the Deposit mode of the PC sets it to TEMPMON.
 	predef CopyMonToTempMon
-	call LoadGreenPage.display_moves
-	ret
+	jp LoadGreenPage.display_moves
 
 .swap_bytes
 	push hl
@@ -1762,21 +1786,16 @@ CheckFaintedFrzSlp:
 	scf
 	ret
 
-; Input: A = the index of the move, wCurPartyMon set to the desired mon. Doesn't work in the PC.
+; Input: A = the index of the cursor position, wTempMon contains the data (moves) of the selected Pokémon, wCurPartyMon set to the desired mon.
+; Output: the ID of the move in [wCurSpecies] and A.
 PrepareToPlaceMoveDataNew:
-	ld hl, wPartyMon1Moves
-	ld bc, PARTYMON_STRUCT_LENGTH
-	push af
-	ld a, [wCurPartyMon]
-	call AddNTimes
-	pop af
-	;ld a, [wStatsSubmenuCursorIndex]
+	ld hl, wTempMonMoves
 	sub 2
 	ld c, a
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	ld [wCurSpecies], a ; Here, wCurSpecies doesn't actually contain the species, but rather the index of the move in the moves db.
+	ld [wCurSpecies], a
 	ret
 
 PlaceMoveDataNew:
@@ -1940,7 +1959,6 @@ ConvertToPercentage:
 
 ; Sets the Z flag if the arrow is pointing towards an empty Detail slot.
 IsDetailSlotEmpty:
-	;ld a, [wStatsSubmenuCursorIndex]
 	and a
 	jp z, .tooltip_item
 	
@@ -1949,7 +1967,6 @@ IsDetailSlotEmpty:
 
 ;.tooltip_moves
 	call PrepareToPlaceMoveDataNew
-	ld a, [wCurSpecies]
 	and a
 	ret z
 
