@@ -302,38 +302,38 @@ KantoGrassWildMons:
 	db 20, ARBOK
 	; nite
 	db 15, RATTATA
-	db 14, RATTATA
-	db 14, RATICATE
+	db 16, POLIWHIRL
 	db 16, SPEAROW
-	db 15, RATTATA
-	db 16, CLEFAIRY
-	db 16, CLEFAIRY
+	db 14, RATTATA
+	db 15, POLIWHIRL
+	db 18, RATICATE
+	db 18, RATICATE
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_5
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 23, WEEPINBELL
-	db 23, SNUBBULL
-	db 25, PIDGEOTTO
+	db 23, PSYDUCK
 	db 22, JIGGLYPUFF
+	db 25, PSYDUCK
 	db 24, JIGGLYPUFF
-	db 24, PIDGEY
-	db 24, PIDGEY
+	db 24, SLOWPOKE
+	db 24, SLOWPOKE
 	; day
 	db 23, WEEPINBELL
-	db 23, PIDGEOTTO
 	db 25, JIGGLYPUFF
-	db 22, JIGGLYPUFF
+	db 23, PSYDUCK
 	db 24, PSYDUCK
-	db 24, PIDGEY
-	db 24, PIDGEY
+	db 22, JIGGLYPUFF
+	db 24, SLOWPOKE
+	db 24, SLOWPOKE
 	; nite
 	db 23, PSYDUCK
-	db 23, MEOWTH
-	db 25, NOCTOWL
+	db 23, SLOWPOKE
 	db 22, JIGGLYPUFF
-	db 24, JIGGLYPUFF
+	db 25, PSYDUCK
+	db 24, WIGGLYTUFF
 	db 24, PSYDUCK
 	db 24, PSYDUCK
 	end_grass_wildmons
