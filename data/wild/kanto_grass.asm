@@ -511,83 +511,83 @@ KantoGrassWildMons:
 	; morn
 	db 33, NIDORINO
 	db 33, NIDORINA
-	db 35, PIDGEOTTO
-	db 35, HOPPIP
-	db 37, HOPPIP
-	db 37, HOPPIP
-	db 35, CHANSEY
+	db 35, PIDGEOT
+	db 35, PONYTA
+	db 37, JUMPLUFF
+	db 37, YANMA
+	db 38, CHANSEY
 	; day
 	db 33, NIDORINO
 	db 33, NIDORINA
-	db 35, PIDGEOTTO
-	db 35, HOPPIP
-	db 37, HOPPIP
-	db 37, HOPPIP
-	db 35, CHANSEY
+	db 35, PIDGEOT
+	db 35, PONYTA
+	db 37, DODUO
+	db 37, YANMA
+	db 38, CHANSEY
 	; nite
-	db 33, VENONAT
-	db 33, QUAGSIRE
-	db 35, NOCTOWL
-	db 35, VENOMOTH
-	db 35, QUAGSIRE
-	db 35, QUAGSIRE
-	db 35, CHANSEY
+	db 33, NIDORINO
+	db 33, NIDORINA
+	db 35, DODUO
+	db 35, PONYTA
+	db 35, JUMPLUFF
+	db 35, JUMPLUFF
+	db 38, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_14
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, NIDORINO
-	db 26, NIDORINA
-	db 28, PIDGEOTTO
-	db 28, HOPPIP
-	db 30, SKIPLOOM
-	db 30, SKIPLOOM
-	db 28, CHANSEY
+	db 36, NIDORINO
+	db 38, PIDGEOT
+	db 36, NIDORINA
+	db 38, TAUROS
+	db 40, PONYTA
+	db 40, MILTANK
+	db 38, CHANSEY
 	; day
-	db 26, NIDORINO
-	db 26, NIDORINA
-	db 28, PIDGEOTTO
-	db 28, HOPPIP
-	db 30, SKIPLOOM
-	db 30, SKIPLOOM
-	db 28, CHANSEY
+	db 38, PIDGEOT
+	db 36, NIDORINA
+	db 36, NIDORINO
+	db 38, TAUROS
+	db 40, DODUO
+	db 40, MILTANK
+	db 38, CHANSEY
 	; nite
-	db 26, VENONAT
-	db 26, QUAGSIRE
-	db 28, NOCTOWL
-	db 28, VENOMOTH
-	db 28, QUAGSIRE
-	db 28, QUAGSIRE
-	db 28, CHANSEY
+	db 36, NIDORINO
+	db 36, NIDORINA
+	db 38, DODUO
+	db 38, TAUROS
+	db 38, DODRIO
+	db 38, DODRIO
+	db 38, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_15
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, NIDORINO
-	db 23, NIDORINA
-	db 25, PIDGEOTTO
-	db 25, HOPPIP
-	db 27, HOPPIP
-	db 27, HOPPIP
-	db 25, CHANSEY
+	db 39, TAUROS
+	db 37, PONYTA
+	db 39, NIDORINO
+	db 39, NIDORINA
+	db 41, DONPHAN
+	db 41, RAPIDASH
+	db 38, CHANSEY
 	; day
-	db 23, NIDORINO
-	db 23, NIDORINA
-	db 25, PIDGEOTTO
-	db 25, HOPPIP
-	db 27, HOPPIP
-	db 27, HOPPIP
-	db 25, CHANSEY
+	db 39, TAUROS
+	db 39, PONYTA
+	db 39, NIDORINA
+	db 39, NIDORINO
+	db 41, DODRIO
+	db 41, RAPIDASH
+	db 38, CHANSEY
 	; nite
-	db 23, VENONAT
-	db 23, QUAGSIRE
-	db 25, NOCTOWL
-	db 25, VENOMOTH
-	db 25, QUAGSIRE
-	db 25, QUAGSIRE
-	db 25, CHANSEY
+	db 39, PIDGEOT
+	db 37, DODUO
+	db 37, PONYTA
+	db 39, DODRIO
+	db 39, PIDGEOT
+	db 41, DONPHAN
+	db 38, CHANSEY
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_16
