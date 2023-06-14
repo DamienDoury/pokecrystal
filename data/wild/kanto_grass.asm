@@ -593,85 +593,85 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_16
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, GRIMER
-	db 27, FEAROW
-	db 28, GRIMER
-	db 29, FEAROW
-	db 29, FEAROW
-	db 30, MUK
-	db 30, MUK
+	db 29, MEOWTH
+	db 30, RATICATE
+	db 30, GRIMER
+	db 32, PERSIAN
+	db 30, DITTO
+	db 31, DITTO
+	db 34, DITTO
 	; day
-	db 26, GRIMER
-	db 27, FEAROW
-	db 28, GRIMER
-	db 29, FEAROW
-	db 29, SLUGMA
-	db 30, MUK
-	db 30, MUK
+	db 29, MEOWTH
+	db 30, RATICATE
+	db 30, GRIMER
+	db 32, PERSIAN
+	db 30, DITTO
+	db 31, DITTO
+	db 34, DITTO
 	; nite
-	db 26, GRIMER
-	db 27, GRIMER
-	db 28, GRIMER
-	db 29, MURKROW
-	db 29, MURKROW
-	db 30, MUK
-	db 30, MUK
+	db 29, MEOWTH
+	db 30, RATICATE
+	db 30, GRIMER
+	db 32, PERSIAN
+	db 30, DITTO
+	db 31, DITTO
+	db 34, DITTO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_17
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 30, FEAROW
-	db 29, GRIMER
-	db 31, GRIMER
-	db 32, FEAROW
+	db 32, SMOGO
+	db 34, GRIMER
+	db 33, GROWLITHE
+	db 33, SMOGO
 	db 33, GRIMER
-	db 33, MUK
-	db 33, MUK
+	db 35, MUK
+	db 35, MUK
 	; day
-	db 30, FEAROW
-	db 29, SLUGMA
-	db 29, GRIMER
-	db 32, FEAROW
-	db 32, SLUGMA
-	db 33, MUK
-	db 33, MUK
-	; nite
-	db 30, GRIMER
-	db 29, GRIMER
-	db 31, GRIMER
-	db 32, GRIMER
+	db 33, SMOGO
+	db 33, SMOGO
 	db 33, GRIMER
-	db 33, MUK
-	db 33, MUK
+	db 32, GROWLITHE
+	db 32, GROWLITHE
+	db 36, SMOGOGO
+	db 36, SMOGOGO
+	; nite
+	db 31, NIDORAN_F
+	db 31, NIDORAN_M
+	db 33, GRIMER
+	db 32, GRIMER
+	db 33, GROWLITHE
+	db 35, MUK
+	db 35, MUK
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_18
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, GRIMER
-	db 27, FEAROW
-	db 28, GRIMER
-	db 29, FEAROW
-	db 29, FEAROW
-	db 30, MUK
-	db 30, MUK
+	db 34, GLOOM
+	db 34, FEAROW
+	db 34, SLOWPOKE
+	db 34, LICKITUNG
+	db 34, GLOOM
+	db 31, SMOGO
+	db 31, SMOGO
 	; day
-	db 26, GRIMER
-	db 27, FEAROW
-	db 28, GRIMER
-	db 29, FEAROW
-	db 29, SLUGMA
-	db 30, MUK
-	db 30, MUK
+	db 34, GLOOM
+	db 34, FEAROW
+	db 34, GLOOM
+	db 34, LICKITUNG
+	db 34, SLOWPOKE
+	db 31, SMOGO
+	db 31, SMOGO
 	; nite
-	db 26, GRIMER
-	db 27, GRIMER
-	db 28, GRIMER
-	db 29, GRIMER
-	db 29, GRIMER
-	db 30, MUK
-	db 30, MUK
+	db 34, GLOOM
+	db 34, GLOOM
+	db 34, SLOWPOKE
+	db 34, LICKITUNG
+	db 34, LICKITUNG
+	db 37, FEAROW
+	db 37, FEAROW
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_21
