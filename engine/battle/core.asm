@@ -6723,7 +6723,7 @@ LoadEnemyMon:
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-
+	call ApplyStatusEffectOnEnemyStats ; Fixes the BRN and PRZ effect on stats that didn't work on switched Pokémons.
 	ret
 
 CheckSleepingTreeMon:
