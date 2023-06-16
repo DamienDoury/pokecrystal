@@ -18,9 +18,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons ROUTE_4
 	db 4 percent ; encounter rate
-	db 10, GOLDEEN
-	db 5, GOLDEEN
-	db 10, SEAKING
+	db 20, STARYU
+	db 22, GOLDEEN
+	db 28, STARMIE
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_6
@@ -88,15 +88,15 @@ KantoWaterWildMons:
 
 	def_water_wildmons ROUTE_24
 	db 4 percent ; encounter rate
-	db 10, GOLDEEN
-	db 5, GOLDEEN
-	db 10, SEAKING
+	db 20, STARYU
+	db 22, GOLDEEN
+	db 28, STARMIE
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_25
 	db 2 percent ; encounter rate
-	db 10, GOLDEEN
-	db 5, GOLDEEN
+	db 22, GOLDEEN
+	db 28, STARMIE
 	db 5, SQUIRTLE
 	end_water_wildmons
 
@@ -137,9 +137,9 @@ KantoWaterWildMons:
 
 	def_water_wildmons CERULEAN_CITY
 	db 4 percent ; encounter rate
-	db 10, GOLDEEN
-	db 5, GOLDEEN
-	db 10, SEAKING
+	db 20, STARYU
+	db 22, GOLDEEN
+	db 28, STARMIE
 	end_water_wildmons
 
 	def_water_wildmons VERMILION_CITY
