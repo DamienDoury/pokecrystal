@@ -843,31 +843,31 @@ KantoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_28
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 15 percent, 15 percent, 15 percent ; encounter rates: morn/day/nite
 	; morn
-	db 39, TANGELA
-	db 37, PONYTA
-	db 40, RAPIDASH
-	db 42, GLIGAR
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 49, SKARMORY
+	db 47, GLIGAR
+	db 50, PUPITAR
+	db 52, ARIADOS
+	db 51, TAUROS
+	db 53, PILOSWINE
+	db 53, DELIBIRD
 	; day
-	db 39, TANGELA
-	db 37, PONYTA
-	db 40, RAPIDASH
-	db 42, GLIGAR
-	db 41, DODUO
-	db 43, DODRIO
-	db 43, DODRIO
+	db 49, SKARMORY
+	db 47, PILOSWINE
+	db 50, PUPITAR
+	db 52, GLIGAR
+	db 51, RAPIDASH
+	db 53, PILOSWINE
+	db 53, DELIBIRD
 	; nite
-	db 39, TANGELA
-	db 40, POLIWHIRL
-	db 40, GOLBAT
-	db 40, POLIWHIRL
-	db 42, GOLBAT
-	db 42, GOLBAT
-	db 42, GOLBAT
+	db 49, ARIADOS
+	db 50, NOCTOWL
+	db 50, PUPITAR
+	db 50, PILOSWINE
+	db 52, URSARING
+	db 52, URSARING
+	db 52, HYPNO
 	end_grass_wildmons
 
 	def_grass_wildmons CERULEAN_CAVE_B1F

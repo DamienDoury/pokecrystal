@@ -11,247 +11,247 @@ JohtoWaterWildMons:
 
 	def_water_wildmons UNION_CAVE_1F
 	db 2 percent ; encounter rate
-	db 15, WOOPER
+	db 9, WOOPER
+	db 11, WOOPER
 	db 20, QUAGSIRE
-	db 15, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B1F
 	db 2 percent ; encounter rate
-	db 15, WOOPER
+	db 9, WOOPER
+	db 11, WOOPER
 	db 20, QUAGSIRE
-	db 15, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons UNION_CAVE_B2F
 	db 4 percent ; encounter rate
-	db 15, TENTACOOL
-	db 20, QUAGSIRE
-	db 20, TENTACRUEL
+	db 24, QUAGSIRE
+	db 26, QUAGSIRE
+	db 28, QUAGSIRE
 	end_water_wildmons
 
 	def_water_wildmons SLOWPOKE_WELL_B1F
 	db 2 percent ; encounter rate
-	db 15, SLOWPOKE
-	db 20, SLOWPOKE
 	db 10, SLOWPOKE
+	db 12, SLOWPOKE
+	db 14, SLOWPOKE
 	end_water_wildmons
 
 	def_water_wildmons SLOWPOKE_WELL_B2F
 	db 2 percent ; encounter rate
-	db 15, SLOWPOKE
-	db 20, SLOWPOKE
-	db 20, SLOWBRO
+	db 24, SLOWPOKE
+	db 26, SLOWPOKE
+	db 28, SLOWPOKE
 	end_water_wildmons
 
 	def_water_wildmons ILEX_FOREST
 	db 2 percent ; encounter rate
-	db 15, PSYDUCK
-	db 10, PSYDUCK
-	db 15, GOLDUCK
+	db 12, PSYDUCK
+	db 14, PSYDUCK
+	db 16, PSYDUCK
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_1F_OUTSIDE
 	db 4 percent ; encounter rate
-	db 15, GOLDEEN
+	db 20, GOLDEEN
 	db 20, MARILL
-	db 20, SEAKING
+	db 25, GOLDEEN
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_2F_INSIDE
 	db 2 percent ; encounter rate
-	db 20, GOLDEEN
-	db 25, MARILL
-	db 25, SEAKING
+	db 40, SEAKING
+	db 42, AZUMARILL
+	db 44, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons MOUNT_MORTAR_B1F
 	db 2 percent ; encounter rate
-	db 15, GOLDEEN
-	db 20, MARILL
-	db 20, SEAKING
+	db 25, GOLDEEN
+	db 25, MARILL
+	db 28, GOLDEEN
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_SW
 	db 4 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, HORSEA
-	db 15, REMORAID
+	db 30, HORSEA
+	db 35, SEADRA
+	db 40, OCTILLERY
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_B2F
 	db 4 percent ; encounter rate
-	db 15, HORSEA
-	db 15, REMORAID
-	db 20, CROCONAW
+	db 35, SEADRA
+	db 40, OCTILLERY
+	db 30, CROCONAW
 	end_water_wildmons
 
 	def_water_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 4 percent ; encounter rate
-	db 25, HORSEA
-	db 32, SEADRA
-	db 21, REMORAID
+	db 30, HORSEA
+	db 42, SEADRA
+	db 45, SEADRA
 	end_water_wildmons
 
 	def_water_wildmons SILVER_CAVE_ROOM_2
 	db 2 percent ; encounter rate
-	db 35, SEAKING
-	db 35, GOLDUCK
-	db 35, GOLDEEN
+	db 63, SEAKING
+	db 63, GOLDUCK
+	db 63, GYARADOS
 	end_water_wildmons
 
 	def_water_wildmons DARK_CAVE_VIOLET_ENTRANCE
 	db 2 percent ; encounter rate
-	db 15, MAGIKARP
-	db 10, MAGIKARP
-	db 5, MAGIKARP
+	db 4, MAGIKARP
+	db 6, MAGIKARP
+	db 8, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
 	db 2 percent ; encounter rate
-	db 15, MAGIKARP
-	db 10, MAGIKARP
-	db 5, MAGIKARP
+	db 24, MAGIKARP
+	db 26, MAGIKARP
+	db 28, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons DRAGONS_DEN_B1F
 	db 4 percent ; encounter rate
-	db 15, MAGIKARP
-	db 10, MAGIKARP
-	db 10, DRATINI
+	db 27, MAGIKARP
+	db 32, GYARADOS
+	db 27, DRATINI
 	end_water_wildmons
 
 	def_water_wildmons OLIVINE_PORT
 	db 2 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 24, QWILFISH
+	db 24, REMORAID
+	db 26, QWILFISH
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_30
 	db 2 percent ; encounter rate
-	db 20, POLIWAG
-	db 15, POLIWAG
-	db 20, POLIWHIRL
+	db 5, POLIWAG
+	db 6, POLIWAG
+	db 7, POLIWAG
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_31
 	db 2 percent ; encounter rate
-	db 20, POLIWAG
-	db 15, POLIWAG
-	db 20, POLIWHIRL
+	db 5, POLIWAG
+	db 6, POLIWAG
+	db 7, POLIWAG
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_32
 	db 6 percent ; encounter rate
-	db 15, TENTACOOL
-	db 20, QUAGSIRE
-	db 20, TENTACRUEL
+	db  8, REMORAID
+	db 10, WOOPER
+	db 12, WOOPER
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_34
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 14, QWILFISH
+	db 14, REMORAID
+	db 16, REMORAID
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_35
 	db 4 percent ; encounter rate
-	db 20, PSYDUCK
-	db 15, PSYDUCK
-	db 20, GOLDUCK
+	db 14, PSYDUCK
+	db 16, PSYDUCK
+	db 18, PSYDUCK
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_40
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 22, REMORAID
+	db 26, QWILFISH
+	db 25, CHINCHOU
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_41
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 20, TENTACRUEL
-	db 20, MANTINE
+	db 23, REMORAID
+	db 24, CHINCHOU
+	db 27, MANTINE
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_42
 	db 4 percent ; encounter rate
-	db 20, GOLDEEN
-	db 15, GOLDEEN
-	db 20, SEAKING
+	db 22, MAGIKARP
+	db 22, GOLDEEN
+	db 26, SEAKING
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_43
 	db 2 percent ; encounter rate
-	db 20, MAGIKARP
-	db 15, MAGIKARP
-	db 10, MAGIKARP
+	db 23, MAGIKARP
+	db 25, MAGIKARP
+	db 27, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_44
 	db 2 percent ; encounter rate
-	db 25, POLIWAG
-	db 20, POLIWAG
+	db 22, POLIWAG
 	db 25, POLIWHIRL
+	db 28, POLIWHIRL
 	end_water_wildmons
 
 	def_water_wildmons ROUTE_45
 	db 2 percent ; encounter rate
-	db 20, MAGIKARP
-	db 15, MAGIKARP
-	db 5, MAGIKARP
+	db 32, POLIWHIRL
+	db 34, POLIWHIRL
+	db 36, POLIWRATH
 	end_water_wildmons
 
 	def_water_wildmons NEW_BARK_TOWN
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 28, GOLDEEN
+	db 28, REMORAID
+	db 28, MAGIKARP
 	end_water_wildmons
 
 	def_water_wildmons CHERRYGROVE_CITY
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 5, REMORAID
+	db 6, POLIWAG
+	db 6, QWILFISH
 	end_water_wildmons
 
 	def_water_wildmons VIOLET_CITY
 	db 2 percent ; encounter rate
-	db 20, POLIWAG
-	db 15, POLIWAG
-	db 20, POLIWHIRL
+	db 10, GOLDEEN
+	db 10, GOLDEEN
+	db 10, GOLDEEN
 	end_water_wildmons
 
 	def_water_wildmons CIANWOOD_CITY
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 22, REMORAID
+	db 26, CORSOLA
+	db 25, CHINCHOU
 	end_water_wildmons
 
 	def_water_wildmons OLIVINE_CITY
 	db 6 percent ; encounter rate
-	db 20, TENTACOOL
-	db 15, TENTACOOL
-	db 20, TENTACRUEL
+	db 20, REMORAID
+	db 23, QWILFISH
+	db 23, CHINCHOU
 	end_water_wildmons
 
 	def_water_wildmons ECRUTEAK_CITY
 	db 2 percent ; encounter rate
-	db 20, POLIWAG
-	db 15, POLIWAG
-	db 20, POLIWHIRL
+	db 20, GOLDEEN
+	db 20, GOLDEEN
+	db 20, GOLDEEN
 	end_water_wildmons
 
 	def_water_wildmons LAKE_OF_RAGE
-	db 6 percent ; encounter rate
-	db 15, MAGIKARP
-	db 10, MAGIKARP
-	db 15, GYARADOS
+	db 8 percent ; encounter rate
+	db 29, GYARADOS
+	db 31, GYARADOS
+	db 33, GYARADOS
 	end_water_wildmons
 
 	def_water_wildmons BLACKTHORN_CITY
@@ -263,9 +263,9 @@ JohtoWaterWildMons:
 
 	def_water_wildmons SILVER_CAVE_OUTSIDE
 	db 2 percent ; encounter rate
-	db 35, POLIWHIRL
-	db 40, POLIWHIRL
-	db 35, POLIWAG
+	db 52, GOLDUCK
+	db 52, DEWGONG
+	db 52, SEAKING
 	end_water_wildmons
 
 	db -1 ; end

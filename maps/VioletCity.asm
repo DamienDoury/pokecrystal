@@ -245,8 +245,8 @@ Text_HereTeacherIAm:
 
 VioletCityLassText:
 	text "Ghosts are rumored"
-	line "to appear in"
-	cont "SPROUT TOWER."
+	line "to appear in the"
+	cont "BURNED TOWER."
 
 	para "They said normal-"
 	line "type #MON moves"

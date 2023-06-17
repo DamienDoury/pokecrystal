@@ -25,7 +25,6 @@ ENDM
 	auto_weather_map SILVER_CAVE_OUTSIDE, 	ANYTIME,		AUTOMATIC_HAIL
 
 	; Kanto 
-	auto_weather_map ROUTE_28, 				NITE | MORN,	AUTOMATIC_HAIL 
 	;auto_weather_map ROUTE_26, 				NITE,			AUTOMATIC_HAIL 
 	auto_weather_map ROUTE_11, 				MORN,			AUTOMATIC_SUN 	
 	auto_weather_map VERMILION_CITY, 		MORN | DAY,		AUTOMATIC_SUN 	

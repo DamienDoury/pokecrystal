@@ -1622,8 +1622,8 @@ JohtoGrassWildMons:
 	db 24, WEEPINBELL
 	db 26, WEEPINBELL
 	db 27, LICKITUNG
-	db 27, SKARMORY
-	db 27, SKARMORY
+	db 27, DELIBIRD
+	db 27, DELIBIRD
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_45
@@ -1683,12 +1683,12 @@ JohtoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons SILVER_CAVE_OUTSIDE
-	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
+	db 15 percent, 15 percent, 15 percent ; encounter rates: morn/day/nite
 	; morn
 	db 53, PUPITAR
 	db 54, SKARMORY
 	db 54, GRAVELER
-	db 54, DELIBIRD
+	db 54, PILOSWINE
 	db 55, DRAGONITE
 	db 55, TYRANITAR
 	db 55, TYRANITAR
@@ -1696,13 +1696,13 @@ JohtoGrassWildMons:
 	db 53, PUPITAR
 	db 54, SKARMORY
 	db 54, GRAVELER
-	db 52, DELIBIRD
+	db 52, PILOSWINE
 	db 55, DRAGONITE
 	db 55, TYRANITAR
 	db 55, TYRANITAR
 	; nite
 	db 54, SNEASEL
-	db 54, DELIBIRD
+	db 54, PILOSWINE
 	db 54, URSARING
 	db 56, URSARING
 	db 52, GRAVELER
