@@ -6752,6 +6752,8 @@ CheckSleepingTreeMon:
 	ret c
 
 .NotSleeping:
+	ld a, $ff ; Force assault. Won't work is the mon is sleeping.
+	ld [wAssaultBattle], a
 	and a
 	ret
 

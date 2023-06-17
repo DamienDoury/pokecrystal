@@ -424,7 +424,6 @@ DeterMineAssaultAndPokerusSeed::
 	jp CeruleanCaveInfection
 
 .normal_area
-	
 	ld a, [wBattlePokerusSeed]
 	cp TRUE
 	push de ; We don't care about the values of DE for this push. We use it to balance the stack if we jump to ".kanto_seed" that does a "pop de".
@@ -492,6 +491,10 @@ DeterMineAssaultAndPokerusSeed::
 	pop de
 
 DetermineAssault:
+	ld a, [wEnemyMonStatus]
+	and SLP
+	jr nz, .noAssault
+
 	ld a, [wAssaultBattle]
 	cp $ff
 	jr z, .forceAssault

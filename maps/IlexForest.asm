@@ -830,6 +830,10 @@ Text_HeadbuttOutro:
 	line "HEADBUTT. Some-"
 	cont "times, sleeping"
 	cont "#MON fall out."
+
+	para "If nothing falls"
+	line "out, try another"
+	cont "tree."
 	done
 
 Text_IlexForestLass:

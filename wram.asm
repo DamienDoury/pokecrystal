@@ -2412,11 +2412,6 @@ wKurtApricornCount:: db
 wKurtApricornItems:: ds 10
 
 NEXTU
-; tree mons
-wTreeMonCoordScore:: db
-wTreeMonOTIDScore::  db
-
-NEXTU
 ; restart clock
 wRestartClockCurDivision::   db
 wRestartClockPrevDivision::  db

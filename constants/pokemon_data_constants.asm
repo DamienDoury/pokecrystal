@@ -174,25 +174,10 @@ FISHGROUP_DATA_LENGTH EQU 1 + 2 * 3
 
 NUM_ROAMMON_MAPS EQU 16 ; RoamMaps table size (see data/wild/roammon_maps.asm)
 
-; treemon sets
-; TreeMons indexes (see data/wild/treemons.asm)
-	const_def
-	const TREEMON_SET_CITY
-	const TREEMON_SET_CANYON
-	const TREEMON_SET_TOWN
-	const TREEMON_SET_ROUTE
-	const TREEMON_SET_KANTO
-	const TREEMON_SET_LAKE
-	const TREEMON_SET_FOREST
-	const TREEMON_SET_VIRIDIAN
-	const TREEMON_SET_ROCK
-NUM_TREEMON_SETS EQU const_value
-
 ; treemon scores
 	const_def
 	const TREEMON_SCORE_BAD  ; 0
 	const TREEMON_SCORE_GOOD ; 1
-	const TREEMON_SCORE_RARE ; 2
 
 ; ChangeHappiness arguments (see data/events/happiness_changes.asm)
 	const_def 1

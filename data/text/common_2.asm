@@ -472,7 +472,8 @@ _UseHeadbuttText::
 	prompt
 
 _HeadbuttNothingText::
-	text "Nope. Nothing…"
+	text "Nope. Nothing"
+	line "in this tree…"
 	done
 
 _AskHeadbuttText::
