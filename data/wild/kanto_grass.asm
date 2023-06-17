@@ -33,141 +33,141 @@ KantoGrassWildMons:
 	def_grass_wildmons MOUNT_MOON
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 6, ZUBAT
-	db 8, GEODUDE
-	db 8, PARAS
+	db 15, ZUBAT
+	db 17, GEODUDE
+	db 17, PARAS
 	db 12, PARAS
-	db 10, GEODUDE
-	db 8, CLEFAIRY
-	db 8, CLEFAIRY
+	db 12, GEODUDE
+	db 17, CLEFAIRY
+	db 17, CLEFAIRY
 	; day
-	db 6, ZUBAT
-	db 8, GEODUDE
-	db 8, PARAS
+	db 15, ZUBAT
+	db 17, GEODUDE
+	db 17, PARAS
 	db 12, PARAS
-	db 10, GEODUDE
-	db 8, CLEFAIRY
-	db 8, CLEFAIRY
+	db 12, GEODUDE
+	db 17, CLEFAIRY
+	db 17, CLEFAIRY
 	; nite
-	db 6, ZUBAT
-	db 8, GEODUDE
-	db 8, CLEFAIRY
-	db 12, PARAS
-	db 10, GEODUDE
-	db 12, CLEFAIRY
-	db 12, CLEFAIRY
+	db 15, ZUBAT
+	db 17, GEODUDE
+	db 17, CLEFAIRY
+	db 17, PARAS
+	db 19, GEODUDE
+	db 19, CLEFAIRY
+	db 19, CLEFAIRY
 	end_grass_wildmons
 
 	def_grass_wildmons ROCK_TUNNEL_1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 10, CUBONE
-	db 11, GEODUDE
-	db 12, MACHOP
-	db 12, ZUBAT
-	db 15, MACHOKE
-	db 12, MAROWAK
-	db 12, MAROWAK
+	db 21, CUBONE
+	db 21, GEODUDE
+	db 22, MACHOP
+	db 22, ZUBAT
+	db 25, MACHOKE
+	db 28, MAROWAK
+	db 28, MAROWAK
 	; day
-	db 10, CUBONE
-	db 11, GEODUDE
-	db 12, MACHOP
-	db 12, ZUBAT
-	db 15, MACHOKE
-	db 12, MAROWAK
-	db 12, MAROWAK
+	db 21, CUBONE
+	db 21, GEODUDE
+	db 22, MACHOP
+	db 22, ZUBAT
+	db 25, MACHOKE
+	db 28, MAROWAK
+	db 28, MAROWAK
 	; nite
-	db 12, ZUBAT
-	db 11, GEODUDE
-	db 12, GEODUDE
-	db 17, HAUNTER
-	db 15, ZUBAT
-	db 15, ZUBAT
-	db 15, ZUBAT
+	db 22, ZUBAT
+	db 21, GEODUDE
+	db 22, GEODUDE
+	db 25, ZUBAT
+	db 27, HAUNTER
+	db 25, ZUBAT
+	db 25, ZUBAT
 	end_grass_wildmons
 
 	def_grass_wildmons ROCK_TUNNEL_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 12, CUBONE
-	db 14, GEODUDE
-	db 16, ONIX
-	db 12, ZUBAT
-	db 15, MAROWAK
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 25, CUBONE
+	db 27, GRAVELER
+	db 29, ONIX
+	db 25, ZUBAT
+	db 28, MAROWAK
+	db 28, GOLBAT
+	db 28, GOLBAT
 	; day
-	db 12, CUBONE
-	db 14, GEODUDE
-	db 16, ONIX
-	db 12, ZUBAT
-	db 15, MAROWAK
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 25, CUBONE
+	db 27, GRAVELER
+	db 29, ONIX
+	db 25, ZUBAT
+	db 28, MAROWAK
+	db 28, GOLBAT
+	db 28, GOLBAT
 	; nite
-	db 12, ZUBAT
-	db 14, GEODUDE
-	db 16, ONIX
-	db 15, ZUBAT
-	db 15, HAUNTER
-	db 15, GOLBAT
-	db 15, GOLBAT
+	db 25, ZUBAT
+	db 27, GRAVELER
+	db 29, ONIX
+	db 25, ZUBAT
+	db 28, HAUNTER
+	db 28, GOLBAT
+	db 28, GOLBAT
 	end_grass_wildmons
 
 	def_grass_wildmons VICTORY_ROAD
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, GRAVELER
-	db 32, RHYHORN
-	db 33, ONIX
-	db 34, GOLBAT
-	db 35, MAGNETON
-	db 35, RHYDON
-	db 35, RHYDON
+	db 44, GRAVELER
+	db 42, RHYHORN
+	db 43, ONIX
+	db 44, GOLBAT
+	db 45, MAGNETON
+	db 45, RHYDON
+	db 45, RHYDON
 	; day
-	db 34, GRAVELER
-	db 32, RHYHORN
-	db 33, ONIX
-	db 34, GOLBAT
-	db 35, RHYHORN
-	db 35, RHYDON
-	db 35, RHYDON
+	db 44, GRAVELER
+	db 42, RHYHORN
+	db 43, ONIX
+	db 44, GOLBAT
+	db 45, RHYHORN
+	db 45, RHYDON
+	db 45, RHYDON
 	; nite
-	db 34, GOLBAT
-	db 34, GRAVELER
-	db 32, ONIX
-	db 36, GRAVELER
-	db 38, GRAVELER
-	db 40, GRAVELER
-	db 40, GRAVELER
+	db 44, GOLBAT
+	db 44, GRAVELER
+	db 42, ONIX
+	db 46, GRAVELER
+	db 48, GRAVELER
+	db 50, GRAVELER
+	db 50, GRAVELER
 	end_grass_wildmons
 
 	def_grass_wildmons TOHJO_FALLS
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 35, ZUBAT
+	db 35, URSARING
+	db 37, GOLBAT
+	db 33, SLOWPOKE
+	db 26, TEDDIURSA
+	db 37, SLOWBRO
+	db 37, SLOWBRO
 	; day
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 35, ZUBAT
+	db 35, URSARING
+	db 37, GOLBAT
+	db 33, SLOWPOKE
+	db 26, TEDDIURSA
+	db 37, SLOWBRO
+	db 37, SLOWBRO
 	; nite
-	db 22, ZUBAT
-	db 22, RATICATE
-	db 24, GOLBAT
-	db 21, SLOWPOKE
-	db 20, RATTATA
-	db 23, SLOWPOKE
-	db 23, SLOWPOKE
+	db 35, ZUBAT
+	db 35, URSARING
+	db 37, GOLBAT
+	db 33, SLOWPOKE
+	db 26, TEDDIURSA
+	db 37, SLOWBRO
+	db 37, SLOWBRO
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_1
@@ -621,21 +621,21 @@ KantoGrassWildMons:
 	def_grass_wildmons ROUTE_17
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, SMOGO
+	db 32, KOFFING
 	db 34, GRIMER
 	db 33, GROWLITHE
-	db 33, SMOGO
+	db 33, KOFFING
 	db 33, GRIMER
 	db 35, MUK
 	db 35, MUK
 	; day
-	db 33, SMOGO
-	db 33, SMOGO
+	db 33, KOFFING
+	db 33, KOFFING
 	db 33, GRIMER
 	db 32, GROWLITHE
 	db 32, GROWLITHE
-	db 36, SMOGOGO
-	db 36, SMOGOGO
+	db 36, WEEZING
+	db 36, WEEZING
 	; nite
 	db 31, NIDORAN_F
 	db 31, NIDORAN_M
@@ -654,16 +654,16 @@ KantoGrassWildMons:
 	db 34, SLOWPOKE
 	db 34, LICKITUNG
 	db 34, GLOOM
-	db 31, SMOGO
-	db 31, SMOGO
+	db 31, KOFFING
+	db 31, KOFFING
 	; day
 	db 34, GLOOM
 	db 34, FEAROW
 	db 34, GLOOM
 	db 34, LICKITUNG
 	db 34, SLOWPOKE
-	db 31, SMOGO
-	db 31, SMOGO
+	db 31, KOFFING
+	db 31, KOFFING
 	; nite
 	db 34, GLOOM
 	db 34, GLOOM

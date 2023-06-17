@@ -1430,7 +1430,7 @@ JohtoGrassWildMons:
 	db 16, YANMA
 	end_grass_wildmons
 
-	def_grass_wildmons ROUTE_36
+	def_grass_wildmons ROUTE_36 ; Special route: the mons get their level increased by 10, when on Goldenrod's side of the road.
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
 	db 6, LEDYBA
