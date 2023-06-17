@@ -1100,25 +1100,6 @@ ExitLinkCommunications:
 	ldh [rSC], a
 	ret
 
-GSPlaceTradeScreenFooter: ; unreferenced
-; Fill the screen footer with pattern tile
-	hlcoord 0, 16
-	ld a, $7e
-	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
-; Clear out area for cancel string
-	hlcoord 1, 16
-	ld a, " "
-	ld bc, SCREEN_WIDTH - 2
-	call ByteFill
-; Place the string
-	hlcoord 2, 16
-	ld de, .CancelString
-	jp PlaceString
-
-.CancelString:
-	db "CANCEL@"
-
 LinkTradePlaceArrow:
 ; Indicates which pokemon the other player has selected to trade
 	ld a, [wOtherPlayerLinkMode]
@@ -1535,18 +1516,6 @@ SetTradeRoomBGPals:
 	call SetPalettes
 	ret
 
-PlaceTradeScreenTextbox: ; unreferenced
-	hlcoord 0, 0
-	ld b, 6
-	ld c, 18
-	call LinkTextboxAtHL
-	hlcoord 0, 8
-	ld b, 6
-	ld c, 18
-	call LinkTextboxAtHL
-	farcall PlaceTradePartnerNamesAndParty
-	ret
-
 INCLUDE "engine/movie/trade_animation.asm"
 
 WaitForOtherPlayerToExit:
@@ -1939,19 +1908,4 @@ CableClubCheckWhichChris:
 
 .yes
 	ld [wScriptVar], a
-	ret
-
-GSLinkCommsBorderGFX: ; unreferenced
-INCBIN "gfx/trade/unused_gs_border_tiles.2bpp"
-
-CheckSRAM0Flag: ; unreferenced
-; input: hl = unknown flag array in "SRAM Bank 0"
-	ld a, BANK("SRAM Bank 0")
-	call OpenSRAM
-	ld d, 0
-	ld b, CHECK_FLAG
-	predef SmallFarFlagAction
-	call CloseSRAM
-	ld a, c
-	and a
 	ret

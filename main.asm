@@ -134,10 +134,9 @@ INCLUDE "engine/battle/ai/switch.asm"
 
 SECTION "bankA", ROMX
 
-INCLUDE "engine/events/pokepic.asm"
-INCLUDE "engine/link/link.asm"
+INCLUDE "engine/link/link.asm" ; Must stay with link_result.asm
 INCLUDE "engine/overworld/wildmons.asm"
-INCLUDE "engine/battle/link_result.asm"
+INCLUDE "engine/battle/link_result.asm" ; Must stay with link.asm
 
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
@@ -160,6 +159,7 @@ INCLUDE "engine/items/tmhm.asm"
 INCLUDE "engine/pokemon/print_move_description.asm"
 INCLUDE "engine/battle/start_battle.asm"
 INCLUDE "engine/gfx/place_graphic.asm"
+INCLUDE "engine/events/pokepic.asm"
 
 
 SECTION "Effect Commands", ROMX
