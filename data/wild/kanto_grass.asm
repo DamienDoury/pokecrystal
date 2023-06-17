@@ -819,7 +819,7 @@ KantoGrassWildMons:
 	; morn
 	db 38, FURRET
 	db 38, GLIGAR
-	db 40, RATICATE
+	db 40, FURRET
 	db 40, FURRET
 	db 42, RAPIDASH
 	db 40, FLAAFFY
@@ -827,7 +827,7 @@ KantoGrassWildMons:
 	; day
 	db 38, FURRET
 	db 38, GLIGAR
-	db 40, RATICATE
+	db 40, FURRET
 	db 40, FURRET
 	db 42, RAPIDASH
 	db 40, FLAAFFY
@@ -835,7 +835,7 @@ KantoGrassWildMons:
 	; nite
 	db 38, QUAGSIRE
 	db 38, NOCTOWL
-	db 40, RATICATE
+	db 40, FURRET
 	db 40, QUAGSIRE
 	db 41, NOCTOWL
 	db 41, NOCTOWL
@@ -1002,7 +1002,7 @@ KantoGrassWildMons:
 	db 42, DEWGONG
 	; nite
 	db 28, STARYU
-	db 28, KRABBY
+	db 28, KINGLER
 	db 30, ZUBAT
 	db 26, SEEL
 	db 36, KINGLER
@@ -1015,7 +1015,7 @@ KantoGrassWildMons:
 	; morn
 	db 36, SEEL			; 30%
 	db 33, SHELLDER		; 30%
-	db 32, KRABBY		; 20%
+	db 32, KINGLER		; 20%
 	db 36, PSYDUCK		; 10%
 	db 34, PSYDUCK		; 5%
 	db 40, KINGLER		; 4%
@@ -1030,7 +1030,7 @@ KantoGrassWildMons:
 	db 48, DEWGONG
 	; nite
 	db 34, STARYU
-	db 34, KRABBY
+	db 34, KINGLER
 	db 36, ZUBAT
 	db 32, SEEL
 	db 42, KINGLER
@@ -1058,7 +1058,7 @@ KantoGrassWildMons:
 	db 42, DEWGONG
 	; nite
 	db 28, STARYU
-	db 28, KRABBY
+	db 28, KINGLER
 	db 30, ZUBAT
 	db 26, SEEL
 	db 36, KINGLER

@@ -845,26 +845,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_NW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 38, OCTILLERY
 	db 38, OCTILLERY
 	; day
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 38, OCTILLERY
 	db 38, OCTILLERY
 	; nite
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 34, GOLBAT
 	db 34, GOLBAT
@@ -873,26 +873,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_NE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; day
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; nite
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 34, GOLBAT
 	db 34, GOLBAT
@@ -901,26 +901,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_SW
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; day
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; nite
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 34, GOLBAT
 	db 34, GOLBAT
@@ -929,26 +929,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_CAVE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; day
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; nite
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 34, GOLBAT
 	db 34, GOLBAT
@@ -957,26 +957,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_SE
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; day
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; nite
-	db 32, KRABBY
-	db 33, ZUBAT
-	db 32, KRABBY
-	db 34, KRABBY
+	db 32, KINGLER
+	db 33, GOLBAT
+	db 32, KINGLER
+	db 34, KINGLER
 	db 35, GOLBAT
 	db 34, GOLBAT
 	db 34, GOLBAT
@@ -985,26 +985,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_B1F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 33, KRABBY
-	db 34, ZUBAT
-	db 35, KRABBY
+	db 33, KINGLER
+	db 34, GOLBAT
+	db 35, KINGLER
 	db 36, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; day
-	db 33, KRABBY
-	db 34, ZUBAT
-	db 35, KRABBY
+	db 33, KINGLER
+	db 34, GOLBAT
+	db 35, KINGLER
 	db 36, GOLBAT
 	db 38, OCTILLERY
 	db 40, OCTILLERY
 	db 42, OCTILLERY
 	; nite
-	db 33, KRABBY
-	db 34, ZUBAT
-	db 33, KRABBY
-	db 35, KRABBY
+	db 33, KINGLER
+	db 34, GOLBAT
+	db 33, KINGLER
+	db 35, KINGLER
 	db 36, GOLBAT
 	db 35, GOLBAT
 	db 35, GOLBAT
@@ -1013,26 +1013,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_B2F
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 34, KRABBY
-	db 35, ZUBAT
+	db 34, KINGLER
+	db 35, GOLBAT
 	db 40, OCTILLERY
-	db 36, KRABBY
+	db 36, KINGLER
 	db 37, GOLBAT
 	db 42, OCTILLERY
 	db 10, TOTODILE
 	; day
-	db 34, KRABBY
-	db 35, ZUBAT
+	db 34, KINGLER
+	db 35, GOLBAT
 	db 40, OCTILLERY
-	db 36, KRABBY
+	db 36, KINGLER
 	db 37, GOLBAT
 	db 42, OCTILLERY
 	db 10, TOTODILE
 	; nite
-	db 34, KRABBY
-	db 35, ZUBAT
-	db 34, KRABBY
-	db 36, KRABBY
+	db 34, KINGLER
+	db 35, GOLBAT
+	db 34, KINGLER
+	db 36, KINGLER
 	db 37, GOLBAT
 	db 36, GOLBAT
 	db 10, TOTODILE
@@ -1041,26 +1041,26 @@ JohtoGrassWildMons:
 	def_grass_wildmons WHIRL_ISLAND_LUGIA_CHAMBER
 	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
 	; morn
-	db 35, KRABBY
-	db 36, ZUBAT
+	db 35, KINGLER
+	db 36, GOLBAT
 	db 40, OCTILLERY
-	db 37, KRABBY
+	db 37, KINGLER
 	db 38, GOLBAT
 	db 12, TOTODILE
 	db 12, TOTODILE
 	; day
-	db 35, KRABBY
-	db 36, ZUBAT
+	db 35, KINGLER
+	db 36, GOLBAT
 	db 40, OCTILLERY
-	db 37, KRABBY
+	db 37, KINGLER
 	db 38, GOLBAT
 	db 12, TOTODILE
 	db 12, TOTODILE
 	; nite
-	db 35, KRABBY
-	db 36, ZUBAT
-	db 35, KRABBY
-	db 37, KRABBY
+	db 35, KINGLER
+	db 36, GOLBAT
+	db 35, KINGLER
+	db 37, KINGLER
 	db 38, GOLBAT
 	db 12, TOTODILE
 	db 12, TOTODILE
