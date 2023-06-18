@@ -107,35 +107,31 @@ CeladonCityPoliwrathText:
 	done
 
 CeladonCityTeacher1Text:
-if DEF(_CRYSTAL_AU)
-	text "I lost at the"
-	line "machines."
-	done
-else
-	text "I lost at the slot"
-	line "machines again…"
+	text "My forehead is"
+	line "sore…"
 
-	para "We girls also play"
-	line "the slots now."
+	para "I tried to"
+	line "HEADBUTT a small"
+	cont "tree over there."
 
-	para "You should check"
-	line "them out too."
+	para "A #MON fell"
+	line "from it!"
+
+	para "Next time I'll"
+	line "teach HEADBUTT to"
+
+	para "one of my #MON,"
+	line "so I don't have"
+	cont "to do it myself."
 	done
-endc
 
 CeladonCityGramps1Text:
-	text "GRIMER have been"
-	line "appearing lately."
+	text "Where did all"
+	line "those GRIMER"
+	cont "come from?"
 
-	para "See that pond out"
-	line "in front of the"
-
-	para "house? GRIMER live"
-	line "there now."
-
-	para "Where did they"
-	line "come from? This is"
-	cont "a serious problem…"
+	para "This is a serious"
+	line "problem…"
 	done
 
 CeladonCityGramps2Text:
