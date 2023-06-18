@@ -53,7 +53,7 @@ TreeMonMaps:
 	treemon_map ROUTE_12,                  SHUCKLE,	    29
 	treemon_map ROUTE_13,                  TEDDIURSA,	31
 	treemon_map ROUTE_14,                  JUMPLUFF,	36
-	treemon_map ROUTE_15,                  YANMA,		37
+	treemon_map ROUTE_15,                  FARFETCH_D,	37
 	db -1
 
 RockMonMaps:
