@@ -6751,9 +6751,9 @@ CheckSleepingTreeMon:
 ; If it's a match, the opponent is asleep
 	ret c
 
-.NotSleeping:
 	ld a, $ff ; Force assault. Won't work is the mon is sleeping.
 	ld [wAssaultBattle], a
+.NotSleeping:
 	and a
 	ret
 

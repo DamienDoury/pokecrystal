@@ -23,13 +23,21 @@ BlindingFlash:
 
 ShakeHeadbuttTree:
 	farcall ClearSpriteAnims
-	ld de, CutGrassGFX
-	ld hl, vTiles0 tile FIELDMOVE_GRASS
-	lb bc, BANK(CutGrassGFX), 4
-	call Request2bpp
-	ld de, HeadbuttTreeGFX
+	ld de, HeadbuttTreeGFX ; shake frames
+
+	ld a, [wMapTileset]
+	cp TILESET_KANTO
+	jr z, .kanto
+
+	cp TILESET_KANTO_WAVES
+	jr nz, .replacement_tile_determined
+
+.kanto
+	ld de, HeadbuttTreeKantoGFX ; shake frames
+
+.replacement_tile_determined
 	ld hl, vTiles0 tile FIELDMOVE_TREE
-	lb bc, BANK(HeadbuttTreeGFX), 8
+	lb bc, BANK(HeadbuttTreeGFX), 8 ; HeadbuttTreeKantoGFX is in the same bank (the current one).
 	call Request2bpp
 	call Cut_Headbutt_GetPixelFacing
 	ld a, SPRITE_ANIM_INDEX_HEADBUTT
@@ -76,7 +84,10 @@ ShakeHeadbuttTree:
 	ret
 
 HeadbuttTreeGFX:
-INCBIN "gfx/overworld/headbutt_tree.2bpp"
+	INCBIN "gfx/overworld/headbutt_tree.2bpp"
+
+HeadbuttTreeKantoGFX:
+	INCBIN "gfx/overworld/headbutt_tree_kanto.2bpp"
 
 HideHeadbuttTree:
 	xor a
@@ -92,7 +103,18 @@ HideHeadbuttTree:
 	ld h, [hl]
 	ld l, a
 
+	ld a, [wMapTileset]
+	cp TILESET_KANTO
+	jr z, .kanto
+
+	cp TILESET_KANTO_WAVES
 	ld a, $05 ; grass block
+	jr nz, .replacement_tile_determined
+
+.kanto
+	ld a, $1e ; grass block
+
+.replacement_tile_determined
 	ld [hli], a
 	ld [hld], a
 	ld bc, SCREEN_WIDTH

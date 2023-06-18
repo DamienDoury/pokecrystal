@@ -8,11 +8,15 @@ AsleepTreeMonsNite:
 	db KAKUNA
 	db BEEDRILL
 	db SPEAROW
+	db FEAROW
 	db EKANS
+	db ABRA
 	db EXEGGCUTE
 	db SENTRET
 	db FURRET
 	db LEDYBA
+	db BELLOSSOM
+	db MARILL
 	db SKIPLOOM
 	db JUMPLUFF
 	db AIPOM
@@ -20,6 +24,7 @@ AsleepTreeMonsNite:
 
 AsleepTreeMonsDay:
 	db VENONAT
+	db ABRA
 	db HOOTHOOT
 	db NOCTOWL
 	db SPINARAK
@@ -31,6 +36,7 @@ AsleepTreeMonsDay:
 
 AsleepTreeMonsMorn:
 	db RATTATA
+	db ABRA
 	db VENONAT
 	db HOOTHOOT
 	db NOCTOWL

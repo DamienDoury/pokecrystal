@@ -5,9 +5,7 @@ treemon_map: MACRO
 ENDM
 
 TreeMonMaps:
-	treemon_map ROUTE_26,                  ARIADOS,		40
-	treemon_map ROUTE_27,                  FORRETRESS,	42
-	treemon_map ROUTE_28,                  FORRETRESS,	50
+	; Johto.
 	treemon_map ROUTE_29,                  RATTATA,		2
 	treemon_map ROUTE_30,                  GLIGAR,		4
 	treemon_map ROUTE_31,                  JIGGLYPUFF,	5
@@ -29,12 +27,43 @@ TreeMonMaps:
 	treemon_map LAKE_OF_RAGE,              AIPOM,		30
 	treemon_map SILVER_CAVE_OUTSIDE,       FORRETRESS,	55
 	treemon_map ILEX_FOREST,               PINECO,		12
+
+	; Kanto.
+	treemon_map ROUTE_26,                  ARIADOS,		40
+	treemon_map ROUTE_27,                  FORRETRESS,	42
+	treemon_map ROUTE_28,                  FORRETRESS,	50
+	treemon_map ROUTE_1,           		   SENTRET,		2
+	treemon_map VIRIDIAN_CITY,             HOOTHOOT,	4
+	treemon_map ROUTE_2,           		   LEDYBA,	    4
 	treemon_map VIRIDIAN_FOREST,           PIKACHU,		5
+	treemon_map PEWTER_CITY,           	   GEODUDE,		5
+	treemon_map ROUTE_3,           		   GLIGAR,		6
+	treemon_map ROUTE_4,           		   EKANS,		15
+	treemon_map CERULEAN_CITY,             POLIWAG,		16
+	treemon_map ROUTE_25,                  ABRA,		18
+	treemon_map ROUTE_9,                   FEAROW,		23
+	treemon_map ROUTE_8,                   ARIADOS,		26
+	treemon_map ROUTE_11,                  BELLOSSOM,	24
+	treemon_map VERMILION_CITY,            MARILL,		21
+	treemon_map ROUTE_7,                   GRIMER,		26
+	treemon_map CELADON_CITY,              MURKROW,		28
+	treemon_map ROUTE_16,                  SPEAROW,		28
+	treemon_map ROUTE_18,                  AIPOM,		31
+	treemon_map FUCHSIA_CITY,              MANKEY,		24
+	treemon_map ROUTE_12,                  SHUCKLE,	    29
+	treemon_map ROUTE_13,                  TEDDIURSA,	31
+	treemon_map ROUTE_14,                  JUMPLUFF,	36
+	treemon_map ROUTE_15,                  YANMA,		37
 	db -1
 
 RockMonMaps:
+	; Johto.
 	treemon_map CIANWOOD_CITY,             KRABBY,		24
 	treemon_map ROUTE_40,                  KRABBY,		23
 	treemon_map DARK_CAVE_VIOLET_ENTRANCE, KRABBY,		4
 	treemon_map SLOWPOKE_WELL_B1F,         KRABBY,		11
+
+	; Kanto.
+	treemon_map FUCHSIA_CITY,              MAGCARGO,	37
+
 	db -1
