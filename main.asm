@@ -135,8 +135,9 @@ INCLUDE "engine/battle/ai/switch.asm"
 SECTION "bankA", ROMX
 
 INCLUDE "engine/link/link.asm" ; Must stay with link_result.asm
-INCLUDE "engine/overworld/wildmons.asm"
 INCLUDE "engine/battle/link_result.asm" ; Must stay with link.asm
+INCLUDE "engine/events/treemons.asm" ; Must stay with wildmons.asm
+INCLUDE "engine/overworld/wildmons.asm" ; Must stay with treemons.asm
 
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
@@ -385,7 +386,6 @@ SECTION "bank2E", ROMX
 
 INCLUDE "engine/events/map_name_sign.asm"
 INCLUDE "engine/events/checkforhiddenitems.asm"
-INCLUDE "engine/events/treemons.asm"
 INCLUDE "engine/events/fishing_gfx.asm"
 INCLUDE "engine/pokegear/radio.asm"
 INCLUDE "engine/pokemon/mail_2.asm"

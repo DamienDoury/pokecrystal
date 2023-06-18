@@ -1538,8 +1538,8 @@ JohtoGrassWildMons:
 	db 25, TAUROS		; 30%
 	db 23, PONYTA		; 10%
 	db 25, PONYTA		; 5%
-	db 26, URSARING		; 4%
-	db 26, URSARING		; 1%
+	db 26, TEDDIURSA	; 4%
+	db 26, TEDDIURSA	; 1%
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_42

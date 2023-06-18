@@ -107,10 +107,10 @@ FishGroups:
 	db  35 percent,     STARYU,   20
 	db  70 percent,     STARYU,   20
 	db  90 percent + 1, STARYU,   20
-	db 100 percent,     STARYU 	  20
+	db 100 percent,     STARYU,	  20
 .Qwilfish_Swarm_Super:
 	db  40 percent,     STARYU,   40
-	db  70 percent,     STARYU    40
+	db  70 percent,     STARYU,   40
 	db  90 percent + 1, STARYU,   40
 	db 100 percent,     time_group 11
 
