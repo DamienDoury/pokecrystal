@@ -2585,6 +2585,28 @@ Pokedex_GetArea:
 	ld a, [de]
 	and a
 	jr z, .done_nest
+
+	cp LANDMARK_CERULEAN_CAVE
+	jr nz, .not_cerulean_cave
+
+	push de
+	ld de, EVENT_ENTERED_CERULEAN_CAVE
+	call CheckMapEventFlag
+	pop de
+	jr z, .nestnext
+
+.not_cerulean_cave
+	ld a, [de]
+	cp LANDMARK_SAFARI_ZONE
+	jr nz, .nestcoords
+
+	push de
+	ld de, EVENT_ENTERED_SAFARI_ZONE
+	call CheckMapEventFlag
+	pop de
+	jr z, .nestnext
+
+.nestcoords
 	push de
 	ld e, a
 	push hl
@@ -2603,6 +2625,7 @@ Pokedex_GetArea:
 	ld [hli], a ; attributes
 	; next
 	pop de
+.nestnext
 	inc de
 	jr .nestloop
 
