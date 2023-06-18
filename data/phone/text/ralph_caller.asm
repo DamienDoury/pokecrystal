@@ -126,7 +126,7 @@ RalphHurryText:
 
 	para "Aren't you coming"
 	line "over to fish for"
-	cont "QWILFISH?"
+	cont "STARYU?"
 
 	para "I'm on ROUTE 32,"
 	line "so hurry up!"

@@ -100,19 +100,19 @@ FishGroups:
 	db 100 percent,     DRAGONAIR,  40
 
 .Qwilfish_Swarm_Old:
-	db  70 percent + 1, MAGIKARP,   5
-	db  85 percent + 1, MAGIKARP,   5
-	db 100 percent,     QWILFISH,   5
+	db  70 percent + 1, STARYU,   5
+	db  85 percent + 1, STARYU,   5
+	db 100 percent,     STARYU,   5
 .Qwilfish_Swarm_Good:
-	db  35 percent,     MAGIKARP,   20
-	db  70 percent,     QWILFISH,   20
-	db  90 percent + 1, QWILFISH,   20
+	db  35 percent,     STARYU,   20
+	db  70 percent,     STARYU,   20
+	db  90 percent + 1, STARYU,   20
 	db 100 percent,     time_group 10
 .Qwilfish_Swarm_Super:
-	db  40 percent,     QWILFISH,   40
+	db  40 percent,     STARYU,   40
 	db  70 percent,     time_group 11
-	db  90 percent + 1, QWILFISH,   40
-	db 100 percent,     QWILFISH,   40
+	db  90 percent + 1, STARYU,   40
+	db 100 percent,     STARYU,   40
 
 .Remoraid_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   10
