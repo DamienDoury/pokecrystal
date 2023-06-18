@@ -107,12 +107,12 @@ FishGroups:
 	db  35 percent,     STARYU,   20
 	db  70 percent,     STARYU,   20
 	db  90 percent + 1, STARYU,   20
-	db 100 percent,     time_group 10
+	db 100 percent,     STARYU 	  20
 .Qwilfish_Swarm_Super:
 	db  40 percent,     STARYU,   40
-	db  70 percent,     time_group 11
+	db  70 percent,     STARYU    40
 	db  90 percent + 1, STARYU,   40
-	db 100 percent,     STARYU,   40
+	db 100 percent,     time_group 11
 
 .Remoraid_Swarm_Old:
 	db  70 percent + 1, MAGIKARP,   10
@@ -220,7 +220,7 @@ TimeFishGroups:
 	db DRATINI,    20,  DRATINI,    20 ; 8
 	db DRATINI,    40,  DRATINI,    40 ; 9
 	db QWILFISH,   20,  QWILFISH,   20 ; 10
-	db QWILFISH,   40,  QWILFISH,   40 ; 11
+	db STARYU,     40,  STARMIE,    45 ; 11
 	db REMORAID,   20,  REMORAID,   20 ; 12
 	db REMORAID,   40,  REMORAID,   40 ; 13
 	db GYARADOS,   20,  GYARADOS,   20 ; 14
