@@ -2465,8 +2465,13 @@ Pokedex_GetArea:
 	call SetPalettes
 	xor a
 	ldh [hBGMapMode], a
-	xor a ; JOHTO_REGION
-	call .GetAndPlaceNest
+	farcall RegionCheck ; Johto = 0 in e, otherwise 1 in e.
+	ld a, e
+	and a
+	push af
+	call nz, .right
+	pop af
+	call z, .GetAndPlaceNest
 .loop
 	call JoyTextDelay
 	ld hl, hJoyPressed
