@@ -5,7 +5,14 @@ TreeMonEncounter:
 	ld [wTempWildMonSpecies], a
 	ld [wCurPartyLevel], a
 
-	ld hl, TreeMonMaps
+	farcall RegionCheck ; Johto = 0 in e, otherwise 1 in e.
+	ld a, e
+	and a
+	ld hl, TreeMonJohtoMaps
+	jr z, .region_determined
+
+	ld hl, TreeMonKantoMaps
+.region_determined
 	call GetTreeMonSet
 	jr nc, .no_battle
 
@@ -35,7 +42,14 @@ RockMonEncounter:
 	ld [wTempWildMonSpecies], a
 	ld [wCurPartyLevel], a
 
-	ld hl, RockMonMaps
+	farcall RegionCheck ; Johto = 0 in e, otherwise 1 in e.
+	ld a, e
+	and a
+	ld hl, RockMonJohtoMaps
+	jr z, .region_determined
+
+	ld hl, RockMonKantoMaps
+.region_determined
 	call GetTreeMonSet
 	jr nc, .no_battle
 

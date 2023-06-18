@@ -41,16 +41,23 @@ FindNest:
 	call .FindGrass
 	ld hl, JohtoWaterWildMons
 	call .FindWater
+	ld hl, TreeMonJohtoMaps
+	call .FindTrees
+	ld hl, RockMonJohtoMaps
+	call .FindTrees
 	call .RoamMon1
-	call .RoamMon2
-	ret
+	jp .RoamMon2
 
 .kanto
 	decoord 0, 0
 	ld hl, KantoGrassWildMons
 	call .FindGrass
 	ld hl, KantoWaterWildMons
-	jp .FindWater
+	call .FindWater
+	ld hl, TreeMonKantoMaps
+	call .FindTrees
+	ld hl, RockMonKantoMaps
+	jp .FindTrees
 
 .FindGrass:
 	ld a, [hl]
@@ -97,6 +104,30 @@ FindNest:
 	ld bc, WATER_WILDDATA_LENGTH
 	add hl, bc
 	jr .FindWater
+
+.FindTrees:
+	ld a, [hli]
+	cp -1
+	ret z
+
+	ld b, a
+	ld a, [hli]
+	ld c, a
+	ld a, [wNamedObjectIndex]
+	cp [hl]
+	jr nz, .next_tree
+
+	push hl
+	call .AppendNest
+	pop hl
+	jr nc, .next_tree
+	ld [de], a
+	inc de
+
+.next_tree
+	inc hl
+	inc hl
+	jr .FindTrees
 
 .SearchMapForMon:
 	inc hl

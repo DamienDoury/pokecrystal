@@ -4,8 +4,7 @@ treemon_map: MACRO
 	db \3 ; level
 ENDM
 
-TreeMonMaps:
-	; Johto.
+TreeMonJohtoMaps:
 	treemon_map ROUTE_29,                  RATTATA,		2
 	treemon_map ROUTE_30,                  GLIGAR,		4
 	treemon_map ROUTE_31,                  JIGGLYPUFF,	5
@@ -25,10 +24,11 @@ TreeMonMaps:
 	treemon_map ECRUTEAK_CITY,             FURRET,		21
 	treemon_map MAHOGANY_TOWN,             SNEASEL,		25
 	treemon_map LAKE_OF_RAGE,              AIPOM,		30
-	treemon_map SILVER_CAVE_OUTSIDE,       FORRETRESS,	55
 	treemon_map ILEX_FOREST,               PINECO,		12
+	treemon_map SILVER_CAVE_OUTSIDE,       FORRETRESS,	55
+	db -1
 
-	; Kanto.
+TreeMonKantoMaps:
 	treemon_map ROUTE_26,                  ARIADOS,		40
 	treemon_map ROUTE_27,                  FORRETRESS,	42
 	treemon_map ROUTE_28,                  FORRETRESS,	50
@@ -56,14 +56,13 @@ TreeMonMaps:
 	treemon_map ROUTE_15,                  FARFETCH_D,	37
 	db -1
 
-RockMonMaps:
-	; Johto.
+RockMonJohtoMaps:
 	treemon_map CIANWOOD_CITY,             KRABBY,		24
 	treemon_map ROUTE_40,                  KRABBY,		23
 	treemon_map DARK_CAVE_VIOLET_ENTRANCE, KRABBY,		4
 	treemon_map SLOWPOKE_WELL_B1F,         KRABBY,		11
+	db -1
 
-	; Kanto.
+RockMonKantoMaps:
 	treemon_map FUCHSIA_CITY,              MAGCARGO,	37
-
 	db -1
