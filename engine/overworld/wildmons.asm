@@ -9,8 +9,9 @@ LoadWildMonData:
 	jr .done_copy
 
 .copy
+	; HL points to the map_id of the encounter list.
 	inc hl
-	inc hl
+	inc hl ; Skip the map_id (2 bytes).
 	ld de, wMornEncounterRate
 	ld bc, 3
 	call CopyBytes
@@ -283,6 +284,7 @@ ApplyCleanseTagEffectOnEncounterRate::
 ChooseWildEncounter:
 	call LoadWildMonDataPointer
 	jp nc, .nowildbattle
+
 	call CheckEncounterRoamMon
 	jp c, .startwildbattle
 
@@ -291,22 +293,24 @@ ChooseWildEncounter:
 	inc hl
 	call CheckOnWater
 	ld de, WaterMonProbTable
-	jr z, .watermon
+	jr z, .prob_table_chosen_and_hl_points_to_first_mon
+
 	inc hl
 	inc hl
+;	call CheckOnRarePatch ; This increases HL until all rare patches have been scanned, and returns carry if the player is standing in one.
+;	ld de, GrassMonProbTableRare
+;	jr c, .prob_table_determined
+;
+	ld de, GrassMonProbTableRegular
+;.prob_table_determined
 	ld a, [wTimeOfDay]
 	ld bc, NUM_GRASSMON * 2
 	call AddNTimes
-	ld de, GrassMonProbTable
 
-.watermon
+.prob_table_chosen_and_hl_points_to_first_mon
 ; hl contains the pointer to the wild mon data, let's save that to the stack
 	push hl
-.randomloop
 	call Random
-	cp 100
-	jr nc, .randomloop
-	inc a ; 1 <= a <= 100
 	ld b, a
 	ld h, d
 	ld l, e
@@ -325,7 +329,8 @@ ChooseWildEncounter:
 	add hl, bc ; this selects our mon
 	ld a, [hli]
 	ld b, a
-; If the Pokemon is encountered by surfing, we need to give the levels some variety.
+
+; Route 36 special case: as it loops, we need to adjust the level, based on the side of the road.
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_36
 	jr nz, .check_on_water
@@ -343,6 +348,7 @@ ChooseWildEncounter:
 	add 10 ; Special case for Route 36.
 	ld b, a 
 
+; If the Pokemon is encountered by surfing, we need to give the levels some variety.
 .check_on_water
 	call CheckOnWater
 	jr nz, .ok
@@ -392,6 +398,59 @@ ChooseWildEncounter:
 	xor a
 	ret
 
+CheckOnRarePatch:
+	push bc
+	ld a, [wXCoord]
+	inc a ; We "INC A", so we don't have to do 2 checks to perform ">=".
+	ld c, a
+	ld a, [wYCoord]
+	inc a ; We "INC A", so we don't have to do 2 checks to perform ">=".
+	ld b, a
+
+.rare_patch_scan_loop
+	ld a, [hli]
+	cp -1
+	jr z, .return_false
+
+	cp c ; Check X min.
+	jr nc, .next3
+
+	ld a, [hli]
+	inc a ; We "INC A" to counter balance the previous one, so we don't have to do 2 checks to perform "<=".
+	cp c ; Check X max.
+	jr c, .next2
+
+	ld a, [hli]
+	cp c ; Check Y min.
+	jr nc, .next1
+
+	ld a, [hli]
+	inc a ; We "INC A" to counter balance the previous one, so we don't have to do 2 checks to perform "<=".
+	cp c ; Check Y max.
+	jr c, .rare_patch_scan_loop
+
+.return_true
+	ld a, [hli] ; Keep increasing HL until all rare patches have been scanned.
+	cp -1
+	jr nz, .return_true
+	
+	pop bc
+	scf
+	ret 
+
+.next3
+	inc hl
+.next2
+	inc hl
+.next1
+	inc hl
+	jr .rare_patch_scan_loop
+
+.return_false
+	pop bc
+	xor a
+	ret
+
 INCLUDE "data/wild/probabilities.asm"
 
 CheckRepelEffect::
@@ -429,6 +488,7 @@ LoadWildMonDataPointer:
 	call CheckOnWater
 	jr z, _WaterWildmonLookup
 
+; Output: HL = start of the wildmon list (byte 1 of map_id), carry if there are wild mons in the grass of this map.
 _GrassWildmonLookup:
 	ld hl, SwarmGrassWildMons
 	ld bc, GRASS_WILDDATA_LENGTH
@@ -498,10 +558,6 @@ _NoSwarmWildmon:
 	and a
 	ret
 
-_NormalWildmonOK:
-	call CopyCurrMapDE
-	jr LookUpWildmonsForMapDE
-
 CopyCurrMapDE:
 	ld a, [wMapGroup]
 	ld d, a
@@ -509,15 +565,20 @@ CopyCurrMapDE:
 	ld e, a
 	ret
 
+_NormalWildmonOK:
+	call CopyCurrMapDE
+
 LookUpWildmonsForMapDE:
 .loop
 	push hl
 	ld a, [hl]
 	inc a
-	jr z, .nope
+	jr z, .nope ; End of map lists is determined by a -1.
+
 	ld a, d
 	cp [hl]
 	jr nz, .next
+
 	inc hl
 	ld a, e
 	cp [hl]
