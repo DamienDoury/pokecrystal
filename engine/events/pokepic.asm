@@ -1,4 +1,6 @@
 Pokepic::
+	xor a
+	ld [wLoadedFontSet], a
 	ld hl, PokepicMenuHeader
 	call CopyMenuHeader
 	call MenuBox
