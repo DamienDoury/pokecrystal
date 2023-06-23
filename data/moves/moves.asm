@@ -34,7 +34,7 @@ Moves:
 	move FLY,          EFFECT_FLY,                70, FLYING,        	PHYSICAL,	95, 15,   0
 	move BIND,         EFFECT_TRAP_TARGET,        15, NORMAL,        	PHYSICAL,	75, 20,   0
 	move SLAM,         EFFECT_NORMAL_HIT,         80, NORMAL,        	PHYSICAL,	75, 20,   0
-	move VINE_WHIP,    EFFECT_NORMAL_HIT,         35, GRASS,        	PHYSICAL,	100, 10,   0
+	move VINE_WHIP,    EFFECT_NORMAL_HIT,         45, GRASS,        	PHYSICAL,	100, 25,   0
 	move STOMP,        EFFECT_STOMP,              65, NORMAL,       	PHYSICAL,	100, 20,  30
 	move DOUBLE_KICK,  EFFECT_DOUBLE_HIT,         30, FIGHTING,     	PHYSICAL,	100, 30,   0
 	move MEGA_KICK,    EFFECT_NORMAL_HIT,        120, NORMAL,        	PHYSICAL,	75,  5,   0
@@ -190,7 +190,7 @@ Moves:
 	move FLAIL,        EFFECT_REVERSAL,            1, NORMAL,       	PHYSICAL,	100, 15,   0
 	move CONVERSION2,  EFFECT_CONVERSION2,         0, NORMAL,       	STATUS,		100, 30,   0
 	move AEROBLAST,    EFFECT_NORMAL_HIT,        100, FLYING,        	SPECIAL,	95,  5,   0
-	move COTTON_SPORE, EFFECT_SPEED_DOWN_2,        0, GRASS,         	STATUS,		85, 40,   0
+	move COTTON_SPORE, EFFECT_SPEED_DOWN_2,        0, GRASS,         	STATUS,		100, 40,   0
 	move REVERSAL,     EFFECT_REVERSAL,            1, FIGHTING,     	PHYSICAL,	100, 15,   0
 	move SPITE,        EFFECT_SPITE,               0, GHOST,        	STATUS,		100, 10,   0
 	move POWDER_SNOW,  EFFECT_FREEZE_HIT,         40, ICE,          	SPECIAL,	100, 25,  10
