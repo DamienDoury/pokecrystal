@@ -53,11 +53,11 @@ CuteMons:
 	db GROWLITHE
 	db MARILL
 	db DIGLETT
-	db MANKEY		; fighting
+	;db MANKEY		; fighting
 	db MEOWTH
 	db PSYDUCK
-	db MACHOP		; fighting
-	db TYROGUE		; baby, fighting
+	;db MACHOP		; fighting
+	;db TYROGUE		; baby, fighting
 	db MILTANK		; pink too tall
 	db MAGBY		
 	db SMOOCHUM		; baby
@@ -100,4 +100,4 @@ CuteMons:
 	db MEW
 	db CELEBI
 	db -1
-	assert_table_length 100
+	

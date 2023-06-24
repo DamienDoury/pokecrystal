@@ -11,6 +11,10 @@ PewterGym_MapScripts:
 	def_callbacks
 
 .TeamCheck:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .no_check
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	
 	checkevent EVENT_BEAT_BROCK
 	iftrue .no_check
 

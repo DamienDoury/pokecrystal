@@ -10,6 +10,10 @@ OlivineGym_MapScripts:
 	def_callbacks
 
 .TeamCheck:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .no_check
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	
 	checkevent EVENT_BEAT_JASMINE
 	iftrue .no_check
 
