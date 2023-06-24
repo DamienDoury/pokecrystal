@@ -286,18 +286,6 @@ UpdateTimeRemaining:
 	scf
 	ret
 
-GetSecondsSinceIfLessThan60: ; unreferenced
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wMinutesSince]
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wSecondsSince]
-	ret
-
 GetMinutesSinceIfLessThan60:
 	ld a, [wDaysSince]
 	and a
@@ -306,13 +294,6 @@ GetMinutesSinceIfLessThan60:
 	and a
 	jr nz, GetTimeElapsed_ExceedsUnitLimit
 	ld a, [wMinutesSince]
-	ret
-
-GetHoursSinceIfLessThan24: ; unreferenced
-	ld a, [wDaysSince]
-	and a
-	jr nz, GetTimeElapsed_ExceedsUnitLimit
-	ld a, [wHoursSince]
 	ret
 
 GetDaysSince:
@@ -326,11 +307,6 @@ GetTimeElapsed_ExceedsUnitLimit:
 CalcDaysSince:
 	xor a
 	jr _CalcDaysSince
-
-CalcHoursDaysSince: ; unreferenced
-	inc hl
-	xor a
-	jr _CalcHoursDaysSince
 
 CalcMinsHoursDaysSince:
 	inc hl
@@ -425,6 +401,16 @@ CopyDayHourMinToHL:
 ; This function should be called every 2.5 hours on average, for a player that rushes the content.
 ; As it is based on "active" play time, players will have a harder time abusing this feature to take advantage of it.
 ResetDailyCovidEvents::
+	ldh a, [hHours]
+	cp 23
+	ret z ; No daily events refresh at 11 pm, because it's too close to the natural refresh that occurs at midnight.
+	
+	call OpenText
+	ld hl, .notification
+	call PrintText
+	call WaitButton
+	call CloseText
+	
 	ld b, 1 ; 1 day has passed. Parameter used by the following functions.
 	farcall ResetHospitalVisits
 	farcall ApplyPokerusTick ; Also calls DecreaseHospitalMonsDuration.
@@ -432,3 +418,7 @@ ResetDailyCovidEvents::
 	farcall RestockMarts
 	farcall GrowOneBerryInAllTrees ; This is not exactly covid related, but it's my present to the player!
 	ret
+
+.notification:
+	text_far _DailyEventRefreshNotificationText
+	text_end

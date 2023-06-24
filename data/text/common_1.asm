@@ -2167,3 +2167,11 @@ _WeakGroundCollapsedText::
 	cont "the weight of"
 	cont "the boulders."
 	done
+
+_DailyEventRefreshNotificationText::
+	text "▶ You have played"
+	line "a lot today."
+
+	para "Some daily events"
+	line "got refreshed."
+	done
