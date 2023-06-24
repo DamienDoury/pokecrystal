@@ -109,4 +109,7 @@ Music:
 	dba Music_MobileCenter
 	dba Music_Dungeon2
 	dba Music_KantoWildBattleRBY
+	dba Music_EncounterPsychic
+	dba Music_GymLeaderUnova
+	dba Music_CinnabarIslandGBS
 	assert_table_length NUM_MUSIC_SONGS

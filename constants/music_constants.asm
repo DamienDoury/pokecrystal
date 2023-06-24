@@ -107,6 +107,9 @@
 	const MUSIC_MOBILE_CENTER                ; 66
 	const MUSIC_VIRIDIAN_FOREST              ; 67
 	const MUSIC_KANTO_WILD_BATTLE_RBY        ; 68
+	const MUSIC_HIGH_OFFICER_ENCOUNTER       ; 69
+	const MUSIC_HIGH_OFFICER_BATTLE     	 ; 6a
+	const MUSIC_CINNABAR_ISLAND     	 	 ; 6b
 NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)

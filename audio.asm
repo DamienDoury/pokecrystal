@@ -131,6 +131,12 @@ INCLUDE "audio/music/dungeons2.asm" ; Viridian Forest.
 INCLUDE "audio/music/wildbattle.asm" ; From RBY.
 
 
+SECTION "Songs 6", ROMX
+INCLUDE "audio/music/encounterPsychic.asm"
+INCLUDE "audio/music/gymLeaderUnova.asm"
+INCLUDE "audio/music/cinnabarislandGBS.asm"
+
+
 SECTION "Extra Songs 1", ROMX
 
 INCLUDE "audio/music/credits.asm"

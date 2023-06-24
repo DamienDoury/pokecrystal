@@ -97,7 +97,7 @@ PlayBattleMusic:
 	ld de, MUSIC_JOHTO_WILD_BATTLE
 	ld a, [wTimeOfDay]
 	cp NITE_F
-	jr nz, .done
+	jp nz, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
 	jr .done
 
@@ -157,8 +157,20 @@ PlayBattleMusic:
 	jr nz, .kantotrainer
 
 .johtotrainer
+	ld de, MUSIC_HIGH_OFFICER_BATTLE
+
+	push af
+	ld a, [wOtherTrainerClass]
+	cp JENNY
+	jr z, .johto_trainer_high_officer
+
+	cp SWAT
+	jr z, .johto_trainer_high_officer
+
 	ld de, MUSIC_JOHTO_TRAINER_BATTLE
-	jr .done
+.johto_trainer_high_officer
+	pop af
+	jr .done	
 
 .kantotrainer
 	ld de, MUSIC_KANTO_TRAINER_BATTLE
