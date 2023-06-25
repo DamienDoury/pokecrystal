@@ -116,4 +116,6 @@ Music:
 	dba Music_DefeatedWildMonRBY
 	dba Music_DefeatedTrainerRBY
 	dba Music_TrainerBattleRBY
+	dba Music_CeruleanCityGBS
+	dba Music_Safari
 	assert_table_length NUM_MUSIC_SONGS

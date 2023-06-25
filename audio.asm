@@ -139,6 +139,8 @@ INCLUDE "audio/music/kantoWildBattleFRLG.asm"
 INCLUDE "audio/music/wildpokemonvictoryRBY.asm"
 INCLUDE "audio/music/trainervictoryRBY.asm"
 INCLUDE "audio/music/trainerbattleRBY.asm"
+INCLUDE "audio/music/ceruleanfuchsia.asm"
+INCLUDE "audio/music/safari.asm"
 
 
 SECTION "Extra Songs 1", ROMX

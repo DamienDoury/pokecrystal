@@ -114,6 +114,8 @@
 	const MUSIC_WILD_VICTORY_RBY			 ; 6d
 	const MUSIC_TRAINER_VICTORY_RBY			 ; 6e
 	const MUSIC_TRAINER_BATTLE_RBY			 ; 6f
+	const MUSIC_CERULEAN_FUCHSIA			 ; 70
+	const MUSIC_SAFARI			 			 ; 71
 NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)
