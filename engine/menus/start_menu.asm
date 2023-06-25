@@ -369,6 +369,10 @@ endr
 	ret
 
 AEqualsTwo:
+	call CheckReceivedDex
+	ld a, 1
+	ret z
+	
 	ld a, 2
 	ret
 
