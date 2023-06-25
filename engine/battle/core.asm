@@ -2798,7 +2798,14 @@ PlayVictoryMusic:
 	ld de, MUSIC_NONE
 	call PlayMusic
 	call DelayFrame
+
+	call IsInJohto
+	cp KANTO_REGION
+	ld de, MUSIC_WILD_VICTORY_RBY
+	jr z, .wild_victory_music_determined
+
 	ld de, MUSIC_WILD_VICTORY
+.wild_victory_music_determined
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .trainer_victory
@@ -2819,8 +2826,13 @@ PlayVictoryMusic:
 	ld de, MUSIC_GYM_VICTORY
 	farcall IsGymLeader
 	jr c, .play_music
-	ld de, MUSIC_TRAINER_VICTORY
 
+	ld de, MUSIC_TRAINER_VICTORY_RBY
+	call IsInJohto
+	cp KANTO_REGION
+	jr z, .play_music
+	
+	ld de, MUSIC_TRAINER_VICTORY
 .play_music
 	call PlayMusic
 

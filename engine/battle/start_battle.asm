@@ -99,14 +99,20 @@ PlayBattleMusic:
 	cp NITE_F
 	jp nz, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
-	jr .done
+	jp .done
 
 .kantowild
+	ld a, [wEnvironment]
+	cp CAVE
 	ld de, MUSIC_KANTO_WILD_BATTLE_RBY
+	jp z, .done
+
+	ld de, MUSIC_KANTO_WILD_BATTLE
 	ld a, [wTimeOfDay]
 	cp NITE_F
-	jr nz, .done
-	ld de, MUSIC_KANTO_WILD_BATTLE
+	jr z, .done
+
+	ld de, MUSIC_KANTO_WILD_BATTLE_FRLG
 	jr .done
 
 .trainermusic
@@ -174,7 +180,11 @@ PlayBattleMusic:
 
 .kantotrainer
 	ld de, MUSIC_KANTO_TRAINER_BATTLE
-
+	ld a, [wTimeOfDay]
+	cp NITE_F
+	jp z, .done
+	
+	ld de, MUSIC_TRAINER_BATTLE_RBY
 .done
 	call PlayMusic
 

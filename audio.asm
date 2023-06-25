@@ -135,6 +135,10 @@ SECTION "Songs 6", ROMX
 INCLUDE "audio/music/encounterPsychic.asm"
 INCLUDE "audio/music/gymLeaderUnova.asm"
 INCLUDE "audio/music/cinnabarislandGBS.asm"
+INCLUDE "audio/music/kantoWildBattleFRLG.asm"
+INCLUDE "audio/music/wildpokemonvictoryRBY.asm"
+INCLUDE "audio/music/trainervictoryRBY.asm"
+INCLUDE "audio/music/trainerbattleRBY.asm"
 
 
 SECTION "Extra Songs 1", ROMX

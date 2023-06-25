@@ -110,6 +110,10 @@
 	const MUSIC_HIGH_OFFICER_ENCOUNTER       ; 69
 	const MUSIC_HIGH_OFFICER_BATTLE     	 ; 6a
 	const MUSIC_CINNABAR_ISLAND     	 	 ; 6b
+	const MUSIC_KANTO_WILD_BATTLE_FRLG		 ; 6c
+	const MUSIC_WILD_VICTORY_RBY			 ; 6d
+	const MUSIC_TRAINER_VICTORY_RBY			 ; 6e
+	const MUSIC_TRAINER_BATTLE_RBY			 ; 6f
 NUM_MUSIC_SONGS EQU const_value
 
 ; GetMapMusic picks music for this value (see home/map.asm)

@@ -112,4 +112,8 @@ Music:
 	dba Music_EncounterPsychic
 	dba Music_GymLeaderUnova
 	dba Music_CinnabarIslandGBS
+	dba Music_KantoWildBattleFRLG
+	dba Music_DefeatedWildMonRBY
+	dba Music_DefeatedTrainerRBY
+	dba Music_TrainerBattleRBY
 	assert_table_length NUM_MUSIC_SONGS
