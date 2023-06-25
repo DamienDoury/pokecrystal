@@ -1,4 +1,7 @@
 MagnetTrain:
+	xor a
+	ld [wWalkingAbuseGuard], a
+	
 	ld a, PALETTE_AUTO
 	ld [wMapTimeOfDay], a
 	

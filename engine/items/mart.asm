@@ -643,6 +643,9 @@ BuyMenuLoop:
 	call LoadBuyMenuText
 	call JoyWaitAorB
 
+	xor a
+	ld [wWalkingAbuseGuard], a
+
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld b, FALSE
@@ -977,6 +980,8 @@ SellMenu:
 	call PlayTransactionSound
 	farcall PlaceMoneyBottomLeft
 	call JoyWaitAorB
+	xor a
+	ld [wWalkingAbuseGuard], a
 
 .declined
 	call ExitMenu

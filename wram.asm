@@ -3284,7 +3284,8 @@ wBestMagikarpLengthFeet:: db
 wBestMagikarpLengthInches:: db
 wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
-	ds 15 ; Available saved memory. 
+wWalkingAbuseGuard:: db ; Counts the number of steps since the last player "useful action", and disables some step counting features when the player walks too much.
+	ds 14 ; Available saved memory. 
 
 wPokemonDataEnd::
 wGameDataEnd::

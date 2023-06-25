@@ -861,24 +861,38 @@ CountStep:
 	inc [hl]
 	ld hl, wStepCount
 	inc [hl]
-	; Every 256 steps, increase the happiness of all your Pokemon.
-	jr nz, .skip_happiness
-
-	farcall StepHappiness
-
-.skip_happiness
+	
 	farcall CeruleanCaveB3FStep
 
+	ld hl, wWalkingAbuseGuard
+	ld a, $ff
+	cp [hl]
+	jr z, .check_egg
+	
+	ld a, [wStepCount]
+	and $4 - 1
+	jr nz, .skip_walking_abuse_guard_inc
+	
+	inc [hl]
+
+.skip_walking_abuse_guard_inc
 	; Every 128 steps, increase wActivePlaytimePoints by one.
 	ld a, [wStepCount]
 	and $80 - 1
-	jr nz, .check_egg
+	jr nz, .day_care_step
 
+	; Every 128 steps, increase the happiness of all your Pokemon.
+	farcall StepHappiness
+	
 	ld hl, wActivePlaytimePoints
 	inc [hl]
-	jr nz, .check_egg
+	jr nz, .day_care_step
 
 	farcall ResetDailyCovidEvents
+
+.day_care_step
+	; Increase the EXP of (both) DayCare Pokemon.
+	farcall DayCareStep
 
 .check_egg
 	; Every 64 steps, decrease the hatch counter of all your eggs
@@ -891,9 +905,6 @@ CountStep:
 	jr nz, .hatch
 
 .skip_egg
-	; Increase the EXP of (both) DayCare Pokemon by 1.
-	farcall DayCareStep
-
 	; Every 4 steps, deal damage to all poisoned Pokemon.
 	ld hl, wPoisonStepCount
 	ld a, [hl]

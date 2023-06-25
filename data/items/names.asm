@@ -129,7 +129,7 @@ ItemNames::
 	li "CARD KEY"
 	li "MACHINE PART"
 	li "EGG TICKET"
-	li "LOST ITEM"
+	li "LOST DOLL"
 	li "STARDUST"
 	li "STAR PIECE"
 	li "BASEMENT KEY"

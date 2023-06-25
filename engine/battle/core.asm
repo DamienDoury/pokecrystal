@@ -10,6 +10,7 @@ DoBattle:
 	ld [wAllBattleParticipantsAfterVirusSpread_ListLength], a
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
+	ld [wWalkingAbuseGuard], a
 	inc a
 	ld [wBattleHasJustStarted], a
 	ld hl, wOTPartyMon1HP

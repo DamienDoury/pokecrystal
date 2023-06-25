@@ -24,6 +24,7 @@ FruitTreeScript::
 	callasm PickedFruitTree
 	specialsound
 	itemnotify
+	loadmem wWalkingAbuseGuard, 0
 	sjump .end
 
 .packisfull
