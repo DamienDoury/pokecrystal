@@ -2445,9 +2445,7 @@ Pokedex_LoadGFX:
 	ret
 
 Pokedex_LoadInvertedFont:
-	call ForceLoadStandardFont
-	xor a
-	ld [wLoadedFontSet], a
+	call LoadStandardFont
 	ld hl, vTiles1
 	ld bc, $80 tiles
 

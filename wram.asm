@@ -146,8 +146,7 @@ wUnusedScriptByte:: db
 
 wMapTimeOfDay:: db
 
-wLoadedFontSet:: db ; Either FONT_REGULAR or FONT_OVERWORLD.
-	ds 2
+	ds 3
 
 wPrinterConnectionOpen:: db
 wPrinterOpcode:: db

@@ -99,15 +99,7 @@ UpdatePlayerSprite::
 	ret
 
 LoadStandardFont::
-	ld a, [wLoadedFontSet]
-	cp FONT_REGULAR
-	ret z
-
-ForceLoadStandardFont::
 	farcall _LoadStandardFont
-
-	ld a, FONT_REGULAR
-	ld [wLoadedFontSet], a
 	ret
 
 LoadFontsBattleExtra::
@@ -116,6 +108,10 @@ LoadFontsBattleExtra::
 
 LoadFontsExtra::
 	farcall _LoadFontsExtra1
+	farcall _LoadFontsExtra2
+	ret
+
+LoadFontsExtra2: ; unreferenced
 	farcall _LoadFontsExtra2
 	ret
 

@@ -22,8 +22,6 @@ _CardFlip:
 	call DelayFrame
 	call DisableLCD
 	call LoadStandardFont
-	xor a
-	ld [wLoadedFontSet], a
 	call LoadFontsExtra
 
 	ld hl, CardFlipLZ01

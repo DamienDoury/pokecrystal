@@ -3,7 +3,6 @@ BattleIntro:
 	farcall ForceBattleAnimationStart
 	call LoadTrainerOrWildMonPic
 	xor a
-	ld [wLoadedFontSet], a
 	ld [wTempBattleMonSpecies], a
 	ld [wBattleMenuCursorPosition], a
 	xor a
