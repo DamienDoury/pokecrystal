@@ -1,4 +1,4 @@
-; Returns the level in D.
+; Computes the level based on the exp, and returns the level in D.
 ; You need to copy the mon to wTempMon first.
 CalcLevel:
 	ld a, [wTempMonSpecies]

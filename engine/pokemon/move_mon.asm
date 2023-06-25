@@ -887,7 +887,8 @@ RetrieveMonFromDayCareMan:
 	ld [wCurPartyLevel], a
 	xor a
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RetrieveBreedmon
+	ld hl, wBreedMon1Exp
+	jr RetrieveBreedmon
 
 RetrieveMonFromDayCareLady:
 	ld a, [wBreedMon2Species]
@@ -902,9 +903,13 @@ RetrieveMonFromDayCareLady:
 	ld [wCurPartyLevel], a
 	ld a, PC_DEPOSIT
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RetrieveBreedmon ; pointless
+	ld hl, wBreedMon2Exp
 
 RetrieveBreedmon:
+	ld de, wTempMonExp
+	ld bc, 3
+	call CopyBytes
+
 	ld hl, wPartyCount
 	ld a, [hl]
 	cp PARTY_LENGTH
@@ -986,10 +991,27 @@ RetrieveBreedmon:
 	ld [wCurPartyMon], a
 	farcall HealPartyMon
 	ld a, [wCurPartyLevel]
+	cp MAX_LEVEL
+	jr z, .prevent_exp_overflow
+
+	pop bc
+	ld hl, MON_EXP
+	add hl, bc
+	ld d, h
+	ld e, l
+
+	ld hl, wTempMonExp
+	ld bc, 3
+	call CopyBytes
+
+	and a
+	ret
+
+.prevent_exp_overflow
 	ld d, a
 	callfar CalcExpAtLevel
 	pop bc
-	ld hl, $8
+	ld hl, MON_EXP
 	add hl, bc
 	ldh a, [hMultiplicand]
 	ld [hli], a
