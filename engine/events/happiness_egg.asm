@@ -149,14 +149,13 @@ DayCareStep::
 	ld a, [wBreedMon1Level] ; level
 	cp MAX_LEVEL
 	jr nc, .day_care_lady
-	ld hl, wBreedMon1Exp + 2 ; exp
-	srl a
-	srl a
-	srl a ; We divide the level by 8. This formula is great because it scales better with level, but still provides diminishing return, as the exp gained grows slower than the exp required to gain a level.
-	jr nz, .man_exp_rate_found
-	ld a, 1 ; MAX(a, 1). The minimum exp gain rate is 1.
-.man_exp_rate_found
-	adc 1 ; Rounding of the last division and also adds 1, so that the minimum value is 2.
+
+	ld hl, wBreedMon1Exp
+	; We divide the cur XP by 4096, and take the square root.
+	; This formula is great because it scales better with level, but still provides diminishing return, as the exp gained grows slower than the exp required to gain a level.
+	call DivideBy4096ThenSqrtThenAdd1
+	ld hl, wBreedMon1Exp + 2 ; ld hl, n16 is 4 cycles faster than doing push hl + pop hl, but takes 1 more byte or ROM memory.
+
 	add [hl]
 	ld [hl], a
 	jr nc, .day_care_lady
@@ -175,18 +174,13 @@ DayCareStep::
 	ld a, [wDayCareLady]
 	bit DAYCARELADY_HAS_MON_F, a
 	jr z, .check_egg
+	
+	ld hl, wBreedMon2Exp
+	; We divide the cur XP by 4096, and take the square root.
+	; This formula is great because it scales better with level, but still provides diminishing return, as the exp gained grows slower than the exp required to gain a level.
+	call DivideBy4096ThenSqrtThenAdd1
+	ld hl, wBreedMon2Exp + 2 ; ld hl, n16 is 4 cycles faster than doing push hl + pop hl, but takes 1 more byte or ROM memory.
 
-	ld a, [wBreedMon2Level] ; level
-	cp MAX_LEVEL
-	jr nc, .check_egg
-	ld hl, wBreedMon2Exp + 2 ; exp
-	srl a
-	srl a
-	srl a
-	jr nz, .lady_exp_rate_found
-	ld a, 1
-.lady_exp_rate_found
-	adc 1
 	add [hl]
 	ld [hl], a
 	jr nc, .check_egg
@@ -236,4 +230,29 @@ DayCareStep::
 	ld hl, wDayCareMan
 	res DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
 	set DAYCAREMAN_HAS_EGG_F, [hl]
+	ret
+
+; Input: HL = First byte (high weight) of Exp from party_struct.
+; Output: the result in A.
+DivideBy4096ThenSqrtThenAdd1:
+	; We divide the current XP by 4096 -> 16 * 256 -> $10 * $100: shift by 1 nybble to the right, and drop the last byte.
+	ld a, [hli]
+	swap a
+	ld e, a
+	and $f
+	ld d, a
+
+	ld a, e
+	and $f0
+	ld e, a
+
+	ld a, [hl]
+	swap a
+	and $f
+	or e
+	ld e, a ; The max XP of a Pokémon is 1 640 000, therefore max xp / 4096 = $190 or 400 (decimal) at most. Sqrt will be fast to find (20 loops at most).
+
+	farcall GetSquareRoot ; Result in B.
+	ld a, b
+	inc a ; Minimum XP gain is 1, so it's always faster or equal to the vanilla day care.
 	ret
