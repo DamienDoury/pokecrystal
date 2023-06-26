@@ -1797,6 +1797,9 @@ _YourMonHasGrownText::
 	para "By level, it's"
 	line "grown by @"
 	text_decimal wStringBuffer2 + 1, 1, 3
+	text " and"
+	cont "is now level @"
+	text_decimal wStringBuffer2 + 5, 1, 3
 	text "."
 
 	para "If you want your"

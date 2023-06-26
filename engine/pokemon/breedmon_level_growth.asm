@@ -5,12 +5,7 @@ GetBreedMon1LevelGrowth:
 	call CopyBytes
 	callfar CalcLevel
 	ld a, [wBreedMon1Level]
-	ld b, a
-	ld a, d
-	ld e, a
-	sub b
-	ld d, a
-	ret
+	jr GetBreedMon2LevelGrowth.end
 
 GetBreedMon2LevelGrowth:
 	ld hl, wBreedMon2
@@ -19,9 +14,12 @@ GetBreedMon2LevelGrowth:
 	call CopyBytes
 	callfar CalcLevel
 	ld a, [wBreedMon2Level]
+.end
 	ld b, a
 	ld a, d
 	ld e, a
+	ld hl, wStringBuffer2 + 5
+	ld [hl], a
 	sub b
 	ld d, a
 	ret
