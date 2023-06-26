@@ -356,7 +356,7 @@ CelebiFlyAwayAnim::
 	ld a, 8 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
-	call FlyFunction_FrameTimer
+	callfar FlyFunction_FrameTimer
 	call DelayFrame
 	pop bc
 	jr .loop
