@@ -1,4 +1,5 @@
 ; Computes the level based on the exp, and returns the level in D.
+; Automatically retrieves the level growth category.
 ; You need to copy the mon to wTempMon first.
 CalcLevel:
 	ld a, [wTempMonSpecies]
@@ -32,6 +33,8 @@ CalcLevel:
 	dec d
 	ret
 
+; Input: D = level, wBaseGrowthRate must be set accordingly.
+; Output: XP in [hQuotient + 1], +2 and +3.
 CalcExpAtLevel:
 ; (a/b)*n**3 + c*n**2 + d*n - e
 	ld a, d

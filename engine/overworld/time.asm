@@ -199,6 +199,7 @@ CheckPokerusTickAndHospitalVisits::
 	and a
 	jr z, .done ; not even a day has passed since game start
 	ld b, a
+	farcall DayCareXPBonus
 	farcall GrowBerries
 	farcall ResetHospitalVisits
 	farcall ApplyPokerusTick

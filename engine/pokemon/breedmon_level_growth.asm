@@ -1,3 +1,4 @@
+; Output: B = level when deposited, E = cur level, D = gained levels.
 GetBreedMon1LevelGrowth:
 	ld hl, wBreedMon1
 	ld de, wTempMon

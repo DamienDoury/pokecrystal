@@ -888,3 +888,73 @@ DayCare_InitBreeding:
 
 .String_EGG:
 	db "EGG@"
+
+; Input: number of days since last save in B.
+; Increases the level of the Pokémons at the daycare by 1 for every day the player hasn't played, starting at day 2.
+DayCareXPBonus::
+	ld a, b
+	cp 2
+	ret c ; If the number of days is 0 or 1, we don't increase the level. We increase it starting day 2.
+
+	dec a
+
+	push bc
+	push de
+	ld b, a
+
+	ld hl, wDayCareMan
+	bit DAYCAREMAN_HAS_MON_F, [hl]
+	jr z, .dayCareLady
+
+	push bc
+	farcall GetBreedMon1LevelGrowth
+	pop bc
+
+	ld hl, wBreedMon1Exp
+	call .DayCareDailyLevelInc
+
+.dayCareLady
+	ld hl, wDayCareLady
+	bit DAYCARELADY_HAS_MON_F, [hl]
+	jr z, .end
+
+	push bc
+	farcall GetBreedMon2LevelGrowth
+	pop bc
+
+	ld hl, wBreedMon2Exp
+	call .DayCareDailyLevelInc
+
+.end
+	pop de
+	pop bc
+	ret
+
+.DayCareDailyLevelInc
+	ld a, e ; The cur level of the Pokémon.
+	cp MAX_LEVEL
+	ret z
+
+	add b ; We inc the level by the number of days spent without playing - 1.
+	jr c, .cap_level ; The total level exceeded 255.
+	
+	cp MAX_LEVEL
+	jr c, .no_level_overflow
+
+.cap_level
+	ld a, MAX_LEVEL
+
+.no_level_overflow
+	ld d, a
+
+	push hl
+	farcall CalcExpAtLevel
+	pop hl
+
+	ldh a, [hProduct + 1]
+	ld [hli], a
+	ldh a, [hProduct + 2]
+	ld [hli], a
+	ldh a, [hProduct + 3]
+	ld [hl], a
+	ret
