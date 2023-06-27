@@ -445,17 +445,18 @@ YoungsterSamuelSeenText:
 	done
 
 YoungsterSamuelBeatenText:
-	text "Beaten by a"
-	line "passing stranger!"
+	text "The DAY-CARE wasn't"
+	line "a good training…"
 	done
 
 YoungsterSamuelAfterText:
-	text "I'm going to train"
-	line "even harder."
-
-	para "After all, I'm"
-	line "trying to become"
-	cont "a GYM LEADER."
+	text "WHITNEY told me"
+	line "that a high level"
+	cont "#MON gains"
+	
+	para "more exp. at the"
+	line "DAY-CARE than a"
+	cont "low level one."
 	done
 
 YoungsterIanSeenText:
@@ -554,12 +555,14 @@ PokefanmBrandonBeatenText:
 	done
 
 PokefanmBrandonAfterText:
-	text "My #MON knew"
-	line "moves I didn't"
-	cont "know it had."
+	text "I left my #MON"
+	line "at the DAY-CARE"
+	cont "for one week and"
+	cont "waited."
 
-	para "That confounded me"
-	line "to no end!"
+	para "When I got it"
+	line "back, it had"
+	cont "gained 6 levels!"
 	done
 
 CooltrainerfIreneSeenText:
