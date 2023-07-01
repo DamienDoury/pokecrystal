@@ -6,14 +6,12 @@
 
 GoldenrodHospitalOffice_MapScripts:
 	def_scene_scripts
-	scene_script .Scene0
-	scene_script .Scene1
+	scene_script .Scene0 ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .EnterCallback
 
 .Scene0:
-.Scene1:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
 	iftrue .end
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
@@ -394,7 +392,7 @@ GoldenrodHospitalOffice_MapScripts:
 	disappear GOLDENRODHOSPITALOFFICE_MARY
 
 	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
-	ifnotequal 2, .skip_hospital_quest_step_inc
+	ifnotequal SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_2, .skip_hospital_quest_step_inc
 	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_3
 .skip_hospital_quest_step_inc
 	checkevent EVENT_SICK_CATERPIE

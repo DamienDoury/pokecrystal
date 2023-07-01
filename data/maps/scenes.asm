@@ -77,38 +77,11 @@ MapScenes::
 	scene_var MOUNT_MOON_SQUARE,                           wMountMoonSquareSceneID
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
-	scene_var GOLDENROD_GAME_CORNER,                       wRoute29SceneID ; We use another variable to save a byte, as we actually don't need to edit this value, and its value doesn't matter, whether it is 0 or 1.
 	scene_var CHARCOAL_KILN,                       		   wCharcoalKilnSceneID
 	
-	scene_var VIOLET_GYM,                       		   wRoute29SceneID
-	scene_var AZALEA_GYM,                       		   wRoute29SceneID
-	scene_var CIANWOOD_GYM,                       	       wRoute29SceneID
-	scene_var OLIVINE_GYM,                       		   wRoute29SceneID
-	scene_var MAHOGANY_GYM,                      		   wRoute29SceneID
-	scene_var BLACKTHORN_GYM_1F,                       	   wRoute29SceneID
-
-	scene_var PEWTER_GYM,                       	       wRoute29SceneID
-	scene_var VERMILION_GYM,                       	       wRoute29SceneID
-	scene_var CELADON_GYM,                       	       wRoute29SceneID
-	scene_var FUCHSIA_GYM,                       	       wRoute29SceneID
-	scene_var SAFFRON_GYM,                       	       wRoute29SceneID
-	scene_var SEAFOAM_GYM,                       	       wRoute29SceneID
-	scene_var VIRIDIAN_GYM,                       	       wRoute29SceneID
 	scene_var GOLDENROD_HOSPITAL_1F,               	       wGoldenrodHospitalReceptionSceneID
 	scene_var GOLDENROD_HOSPITAL_ROOM,               	   wGoldenrodHospitalCorridorsAndRoomsSceneID ; 11 values
 	scene_var GOLDENROD_HOSPITAL_CORRIDOR,                 wGoldenrodHospitalCorridorsAndRoomsSceneID ; 11 values
-	scene_var GOLDENROD_HOSPITAL_OFFICE,                   wRoute29SceneID
 	scene_var VACCINATION_CENTER_1F,					   wVaccinationCenterSceneID ; 3 values
 	scene_var VACCINATION_CENTER_CORRIDOR,				   wVaccinationCenterSceneID ; 3 values
-	scene_var SILPHCO_ELEVATOR,				   			   wRoute29SceneID
-	scene_var SILPHCO_RESEARCH,				   			   wRoute29SceneID
-	scene_var ROUTE_7_SAFFRON_GATE,						   wRoute29SceneID
-	scene_var CERULEAN_CITY,						  	   wRoute29SceneID
-	scene_var CERULEAN_CAVE_ENTRANCE,					   wRoute29SceneID
-	scene_var ROUTE_2,					   				   wRoute29SceneID
-	scene_var VIRIDIAN_FOREST,					   		   wRoute29SceneID
-	scene_var GOLDENROD_DEPT_STORE_1F,					   wRoute29SceneID
-	scene_var GOLDENROD_DEPT_STORE_6F,					   wRoute29SceneID
-	scene_var CERULEAN_CAVE_B1F,					   	   wRoute29SceneID
-	scene_var CERULEAN_CAVE_B2F,					   	   wRoute29SceneID
 	db -1 ; end

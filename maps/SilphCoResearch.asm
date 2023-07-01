@@ -14,8 +14,7 @@
 
 SilphCoResearch_MapScripts:
     def_scene_scripts
-    scene_script .Scene ; SCENE_DEFAULT  / 0
-    scene_script .Scene ; SCENE_FINISHED / 1
+    scene_script .Scene ; SCENE_ALWAYS
 
     def_callbacks
     callback MAPCALLBACK_TILES, .EnterCallback

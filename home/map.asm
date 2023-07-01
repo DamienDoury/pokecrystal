@@ -17,7 +17,7 @@ CheckScenes::
 	or h
 	ld a, [hl]
 	jr nz, .scene_exists
-	ld a, -1
+	ld a, SCENE_ALWAYS
 
 .scene_exists
 	pop hl
@@ -1957,7 +1957,7 @@ CheckCurrentMapCoordEvents::
 	ld a, [hli]
 	cp b
 	jr z, .got_id
-	cp -1
+	cp SCENE_ALWAYS ; -1
 	jr nz, .next
 
 .got_id
