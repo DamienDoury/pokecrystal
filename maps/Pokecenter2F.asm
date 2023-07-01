@@ -303,7 +303,6 @@ Script_LeftCableTradeCenter:
 	special WaitForOtherPlayerToExit
 	scall Script_WalkOutOfLinkTradeRoom
 	setscene SCENE_DEFAULT
-	setmapscene TRADE_CENTER, SCENE_DEFAULT
 	end
 
 Script_LeftMobileTradeRoom:

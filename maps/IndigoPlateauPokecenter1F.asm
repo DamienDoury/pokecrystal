@@ -17,12 +17,6 @@ IndigoPlateauPokecenter1F_MapScripts:
 	end
 
 .PrepareElite4:
-	setmapscene WILLS_ROOM, SCENE_DEFAULT
-	setmapscene KOGAS_ROOM, SCENE_DEFAULT
-	setmapscene BRUNOS_ROOM, SCENE_DEFAULT
-	setmapscene KARENS_ROOM, SCENE_DEFAULT
-	setmapscene LANCES_ROOM, SCENE_DEFAULT
-	setmapscene HALL_OF_FAME, SCENE_DEFAULT
 	clearevent EVENT_WILLS_ROOM_ENTRANCE_CLOSED
 	clearevent EVENT_WILLS_ROOM_EXIT_OPEN
 	clearevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED

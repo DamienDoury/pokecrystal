@@ -4,17 +4,18 @@
 
 TradeCenter_MapScripts:
 	def_scene_scripts
-	scene_script .InitializeTradeCenter ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .InitializeTradeCenter ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .SetWhichChris
 
 .InitializeTradeCenter:
-	prioritysjump .InitializeAndPreparePokecenter2F
-	end
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 
-.DummyScene:
+	prioritysjump .InitializeAndPreparePokecenter2F
+.end
 	end
 
 .SetWhichChris:
@@ -30,7 +31,6 @@ TradeCenter_MapScripts:
 	endcallback
 
 .InitializeAndPreparePokecenter2F:
-	setscene SCENE_FINISHED
 	setmapscene POKECENTER_2F, SCENE_POKECENTER2F_LEAVE_TRADE_CENTER
 	end
 
@@ -38,18 +38,6 @@ TradeCenterConsoleScript:
 	special TradeCenter
 	newloadmap MAPSETUP_LINKRETURN
 	end
-
-TradeCenterFriendScript: ; unreferenced
-	opentext
-	writetext TradeCenterFriendReadyText
-	waitbutton
-	closetext
-	end
-
-TradeCenterFriendReadyText:
-	text "Your friend is"
-	line "ready."
-	done
 
 TradeCenter_MapEvents:
 	db 0, 0 ; filler

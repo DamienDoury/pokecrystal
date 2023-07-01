@@ -14,16 +14,8 @@
 
 Route25_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_ROUTE25_NOTHING
-	scene_script .DummyScene1 ; SCENE_ROUTE25_MISTYS_DATE
 
 	def_callbacks
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 Route25MistyDate1Script:
 	showemote EMOTE_HEART, ROUTE25_MISTY, 40 ; Damien

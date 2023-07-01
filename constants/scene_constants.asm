@@ -32,10 +32,6 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_ROUTE25_NOTHING     ; 0
 	const SCENE_ROUTE25_MISTYS_DATE ; 1
 
-; wLancesRoomSceneID
-	const_def 1
-	const SCENE_LANCESROOM_APPROACH_LANCE ; 1
-
 ; wElmsLabSceneID
 	const_def 1
 	const SCENE_ELMSLAB_CANT_LEAVE            ; 1
@@ -43,11 +39,6 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_ELMSLAB_MEET_OFFICER          ; 3
 	const SCENE_ELMSLAB_UNUSED                ; 4
 	const SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS ; 5
-
-; wRoute29SceneID
-	const_def
-	const SCENE_ROUTE29_NOTHING        ; 0
-	const SCENE_ROUTE29_CATCH_TUTORIAL ; 1
 
 ; wCherrygroveCitySceneID
 	const_def

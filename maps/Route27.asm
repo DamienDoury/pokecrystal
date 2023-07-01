@@ -12,16 +12,8 @@
 
 Route27_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 FirstStepIntoKantoScene:
 	setlasttalked ROUTE27_FISHER
@@ -590,11 +582,11 @@ Route27_MapEvents:
 	warp_event 36,  5, TOHJO_FALLS, 2
 
 	def_coord_events
-	coord_event 18, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
-	coord_event 19, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
-	coord_event 23, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
-	coord_event 22, 10, SCENE_DEFAULT, FirstStepIntoKantoScene
-	coord_event 23, 11, SCENE_DEFAULT, FirstStepIntoKantoScene
+	coord_event 18, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 19, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 23, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 22, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 23, 11, SCENE_ALWAYS, FirstStepIntoKantoScene
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign

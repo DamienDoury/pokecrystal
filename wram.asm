@@ -2931,7 +2931,6 @@ wPlayerState:: db
 ; So we could also squeeze 2 scenes per byte to save 6 more bytes in the WRAM.
 ; In total, by using 2 scenes per byte and flags, we could save 64 bytes of saved WRAM, not counting the use of a default scene script.
 wPokecenter2FSceneID::                            db
-wTradeCenterSceneID::                             db
 wColosseumSceneID::                               db
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
@@ -2942,17 +2941,7 @@ wSaffronMagnetTrainStationSceneID::               db
 wRoute16GateSceneID::                             db
 wRoute17Route18GateSceneID::                      db
 wIndigoPlateauPokecenter1FSceneID::               db
-wWillsRoomSceneID::                               db
-wKogasRoomSceneID::                               db
-wBrunosRoomSceneID::                              db
-wKarensRoomSceneID::                              db
-wLancesRoomSceneID::                              db
-wHallOfFameSceneID::                              db
-wRoute27SceneID::                                 db
-wNewBarkTownSceneID::                             db
 wElmsLabSceneID::                                 db
-wPlayersHouse1FSceneID::                          db
-wRoute29SceneID::                                 db
 wCherrygroveCitySceneID::                         db
 wMrPokemonsHouseSceneID::                         db
 wRoute32SceneID::                                 db
@@ -3007,7 +2996,7 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 4
+	ds 15
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
