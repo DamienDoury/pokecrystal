@@ -1,16 +1,15 @@
 GOLDENRODGAMECORNER_TM25_COINS EQU 5500
 GOLDENRODGAMECORNER_TM14_COINS EQU 5500
 GOLDENRODGAMECORNER_TM38_COINS EQU 5500
-GOLDENRODGAMECORNER_ABRA_COINS      EQU 600
-GOLDENRODGAMECORNER_CUBONE_COINS    EQU 800
-GOLDENRODGAMECORNER_WOBBUFFET_COINS EQU 1500
+GOLDENRODGAMECORNER_CUBONE_COINS    EQU 600
+GOLDENRODGAMECORNER_ABRA_COINS      EQU 800
+GOLDENRODGAMECORNER_DITTO_COINS 	EQU 1500
 
 	object_const_def
 	const GOLDENRODGAMECORNER_CLERK
 	const GOLDENRODGAMECORNER_RECEPTIONIST1
 	const GOLDENRODGAMECORNER_RECEPTIONIST2
 	const GOLDENRODGAMECORNER_PHARMACIST1
-	const GOLDENRODGAMECORNER_PHARMACIST2
 	const GOLDENRODGAMECORNER_POKEFAN_M1
 	const GOLDENRODGAMECORNER_COOLTRAINER_M
 	const GOLDENRODGAMECORNER_POKEFAN_F
@@ -29,15 +28,30 @@ GoldenrodGameCorner_MapScripts:
 	callback MAPCALLBACK_TILES, .SetTiles
 	callback MAPCALLBACK_OBJECTS, .MoveTutor
 
+	
 .DummyScene0:
-	end
-
 .DummyScene1:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	readvar VAR_XCOORD
+	ifnotequal 16, .end
+	readvar VAR_YCOORD
+	ifnotequal 8, .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+
+	turnobject GOLDENRODGAMECORNER_COOLTRAINER_M, RIGHT
+	showemote EMOTE_SHOCK, GOLDENRODGAMECORNER_COOLTRAINER_M, 15
+	turnobject PLAYER, LEFT
+	sjump GoldenrodGameCornerCooltrainerMScript
+.end
 	end
 
 .SetTiles:
 	checkevent EVENT_RED_BEATEN
-	iftrue .end 
+	iftrue .endcallback 
 	
 	; The casino goes back to normal after Red has been beaten.
 	changeblock  2,  0, $2b
@@ -45,11 +59,10 @@ GoldenrodGameCorner_MapScripts:
 	changeblock  2,  2, $09
 	changeblock  2, 12, $0c
 
-.end
+.endcallback
 	endcallback
 
 .MoveTutor:
-	setscene SCENE_DEFAULT
 	checkevent EVENT_BEAT_ELITE_FOUR
 	iffalse .finish
 	checkitem COIN_CASE
@@ -244,8 +257,8 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	loadmenu .MenuHeader
 	verticalmenu
 	closewindow
-	ifequal 1, .Abra
-	ifequal 2, .Cubone
+	ifequal 1, .Cubone
+	ifequal 2, .Abra
 	ifequal 3, .Wobbuffet
 	sjump GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 
@@ -263,7 +276,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	waitbutton
 	setval ABRA
 	special GameCornerPrizeMonCheckDex
-	givepoke ABRA, 5
+	givepoke ABRA, 10
 	takecoins GOLDENRODGAMECORNER_ABRA_COINS
 	sjump .loop
 
@@ -281,26 +294,26 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	waitbutton
 	setval CUBONE
 	special GameCornerPrizeMonCheckDex
-	givepoke CUBONE, 15
+	givepoke CUBONE, 10
 	takecoins GOLDENRODGAMECORNER_CUBONE_COINS
 	sjump .loop
 
 .Wobbuffet:
-	checkcoins GOLDENRODGAMECORNER_WOBBUFFET_COINS
+	checkcoins GOLDENRODGAMECORNER_DITTO_COINS
 	ifequal HAVE_LESS, GoldenrodGameCornerPrizeVendor_NotEnoughCoinsScript
 	readvar VAR_PARTYCOUNT
 	ifequal PARTY_LENGTH, GoldenrodGameCornerPrizeMonVendor_NoRoomForPrizeScript
-	getmonname STRING_BUFFER_3, WOBBUFFET
+	getmonname STRING_BUFFER_3, DITTO
 	scall GoldenrodGameCornerPrizeVendor_ConfirmPurchaseScript
 	iffalse GoldenrodGameCornerPrizeVendor_CancelPurchaseScript
 	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodGameCornerPrizeVendorHereYouGoText
 	waitbutton
-	setval WOBBUFFET
+	setval DITTO
 	special GameCornerPrizeMonCheckDex
-	givepoke WOBBUFFET, 15
-	takecoins GOLDENRODGAMECORNER_WOBBUFFET_COINS
+	givepoke DITTO, 10
+	takecoins GOLDENRODGAMECORNER_DITTO_COINS
 	sjump .loop
 
 .MenuHeader:
@@ -312,9 +325,9 @@ GoldenrodGameCornerPrizeMonVendorScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
-	db "ABRA        100@"
-	db "CUBONE      800@"
-	db "WOBBUFFET  1500@"
+	db "CUBONE      600@"
+	db "ABRA        800@"
+	db "DITTO      1500@"
 	db "CANCEL@"
 
 GoldenrodGameCornerPharmacistScript:
@@ -338,7 +351,14 @@ GoldenrodGameCornerPokefanM1Script:
 GoldenrodGameCornerCooltrainerMScript:
 	faceplayer
 	opentext
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	iftrue .casino_illegal
 	writetext GoldenrodGameCornerCooltrainerMText
+	sjump .text_sequel
+
+.casino_illegal
+	writetext GoldenrodGameCornerCooltrainerMAbraText
+.text_sequel
 	waitbutton
 	closetext
 	turnobject GOLDENRODGAMECORNER_COOLTRAINER_M, LEFT
@@ -395,7 +415,7 @@ GoldenrodGameCornerAbraScript:
 	end
 
 .FailWarp:
-	warp GOLDENROD_GAME_CORNER, 12, 3
+	warp GOLDENROD_GAME_CORNER, 16, 8
 	end
 
 .GoodEnoughWarp1:
@@ -595,6 +615,21 @@ else
 	done
 endc
 
+GoldenrodGameCornerCooltrainerMAbraText:
+	text "Did you just get"
+	line "teleported here?"
+	
+	para "The ABRA's getting"
+	line "exhausted."
+	
+	para "Using its TELEPORT"
+	line "is gambling your"
+	cont "life."
+	
+	para "You should"
+	line "try again!"
+	done
+
 GoldenrodGameCornerCooltrainerFText:
 	text "I won't quit until"
 	line "I win!"
@@ -670,8 +705,7 @@ GoldenrodGameCorner_MapEvents:
 	warp_event  3, 13, GOLDENROD_CITY, 10
 
 	def_coord_events
-	coord_event  2,  2, SCENE_DEFAULT,  GoldenrodGameCornerGreetingsScript
-	coord_event  2,  2, SCENE_FINISHED, GoldenrodGameCornerGreetingsScript
+	coord_event  2,  2, SCENE_ALWAYS,  GoldenrodGameCornerGreetingsScript
 
 	def_bg_events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript

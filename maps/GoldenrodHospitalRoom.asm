@@ -943,6 +943,7 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	clearevent EVENT_MART_VIOLET_MISSED
 	clearevent EVENT_MART_AZALEA_MISSED
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
+	clearevent EVENT_GOLDENROD_BEATER
 	loadmem wCurFreedomState, 1 << LOCKDOWN
 	setscene 0
 	pause 5

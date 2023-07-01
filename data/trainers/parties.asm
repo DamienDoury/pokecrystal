@@ -3474,6 +3474,7 @@ CamperGroup:
 	; CAMPER (1)
 	db "ROLAND@", TRAINERTYPE_NORMAL
 	db  9, NIDORAN_M
+	db  10, MURKROW
 	db -1 ; end
 
 	; CAMPER (2)

@@ -439,16 +439,16 @@ DoorKeeperScript:
 	writetext DoorKeeperCheckTeamText
 	yesorno
 	iffalse .RefuseTeamCheck
-	checkpoke KOFFING
+	checkpoke MURKROW
 	iffalse .FakeCompliments
-	checkpoke GASTLY
+	checkpoke ZUBAT
 	iffalse .FakeCompliments
 	readvar VAR_PARTYCOUNT
 	ifgreater 2, .FakeCompliments
 	writetext CheckPassText
 	yesorno
 	iffalse .GoGetIt
-	checkmoney YOUR_MONEY, 6000
+	checkmoney YOUR_MONEY, 3000
 	ifequal HAVE_LESS, .NotEnoughMoney
 	special PlaceMoneyTopRight
 	writetext MoneyCheckPassText
@@ -797,7 +797,7 @@ RefuseMoneyCheckText:
 NotEnoughMoneyCheckText:
 	text "…"
 
-	para "We said 6000¥"
+	para "We said 3000¥"
 	line "or more…"
 
 	para "…"

@@ -684,7 +684,7 @@ BeaterText2:
 	line "colleague."
 
 	para "You show him a"
-	line "KOFFING & a GASTLY"
+	line "MURKROW & a ZUBAT"
 	cont "so he knows I sent"
 	cont "you."
 
@@ -694,7 +694,7 @@ BeaterText2:
 	cont "that's the code."
 
 	para "Bring some cash."
-	line "¥6000 at least."
+	line "¥3000 at least."
 
 	para "Got it?"
 	done
@@ -704,8 +704,8 @@ BeaterText2Bis:
 	line "after nightfall."
 
 	para "Bring only"
-	line "KOFFING & GASTLY"
-	cont "and ¥6000 cash."
+	line "MURKROW & ZUBAT"
+	cont "and ¥3000 cash."
 	done
 
 BeaterText3:
