@@ -6,7 +6,6 @@ Colosseum_MapScripts:
 	def_scene_scripts
 	scene_script .InitializeColosseum ; SCENE_DEFAULT
 	scene_script .DummyScene1 ; SCENE_FINISHED
-	scene_script .DummyScene2 ; unused
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .SetWhichChris
@@ -17,9 +16,6 @@ Colosseum_MapScripts:
 	end
 
 .DummyScene1:
-	end
-
-.DummyScene2:
 	end
 
 .SetWhichChris:

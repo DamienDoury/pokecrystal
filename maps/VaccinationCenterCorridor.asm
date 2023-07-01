@@ -8,8 +8,8 @@
 
 VaccinationCenterCorridor_MapScripts:
     def_scene_scripts
-    scene_script .GoToRoom ; SCENE_DEFAULT
-	scene_script .GoToLobby ; SCENE_FINISHED
+    scene_script .GoToRoom ; SCENE_VACCINATION_CENTER_CORRIDOR_GO_TO_ROOM
+	scene_script .GoToLobby ; SCENE_VACCINATION_CENTER_CORRIDOR_GO_TO_LOBBY
 
     def_callbacks
     callback MAPCALLBACK_TILES, .TilesCallback
@@ -37,16 +37,19 @@ VaccinationCenterCorridor_MapScripts:
 	ifequal 0, .go_to_lobby
 
 ;.go_to_seat
-    setscene SCENE_DEFAULT
+    setscene SCENE_VACCINATION_CENTER_CORRIDOR_GO_TO_ROOM
     endcallback 
     
 .go_to_lobby:
-    setscene SCENE_FINISHED
+    setscene SCENE_VACCINATION_CENTER_CORRIDOR_GO_TO_LOBBY
     moveobject VACCINATION_CENTER_CORRIDOR_WAITRESS, 1, 2
     endcallback
 
 .GoToRoom:
-    setscene 2
+    checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+    iftrue .end
+    setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_MORN
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_DAY
     disappear VACCINATION_CENTER_CORRIDOR_NEXT_PATIENT_NITE
@@ -89,10 +92,14 @@ VaccinationCenterCorridor_MapScripts:
 	;special FadeOutPalettes
     ;waitsfx
     ;warpfacing UP, VACCINATION_CENTER_ROOM, 1, 7
+.end
     end
 
 .GoToLobby:
-    setscene 2
+    checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+    iftrue .end
+    setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+
     ;appear EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
     applymovement PLAYER, VaccinationCenter_DownMovement
     follow VACCINATION_CENTER_CORRIDOR_WAITRESS, PLAYER

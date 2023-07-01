@@ -44,11 +44,7 @@ Route32_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .Frieda
 
 .DummyScene0:
-	end
-
 .DummyScene1:
-	end
-
 .DummyScene2:
 	end
 

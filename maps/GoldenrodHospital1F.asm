@@ -50,12 +50,12 @@ GoldenrodHospitalNurse1Script:
 	ifgreater 3, .quest4_text
 
 .quest1_advance:
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 2
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_2
 .quest2_text:
 	jumptextfaceplayer GoldenrodHospitalNurse1Step1Text
 
 .quest3_advance:
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 4
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_4
 .quest4_text
 	jumptextfaceplayer GoldenrodHospitalNurse1Step3Text
 

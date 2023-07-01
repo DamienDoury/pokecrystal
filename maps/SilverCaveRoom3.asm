@@ -4,13 +4,13 @@
 
 SilverCaveRoom3_MapScripts:
 	def_scene_scripts
-	scene_script .MeetRed ; SCENE_DEFAULT
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .HidePikachu
 
-.MeetRed:
+.HidePikachu:
 	disappear SILVERCAVEROOM3_PIKACHU
-	end
+	endcallback
 
 Red:
 	special FadeOutMusic
@@ -95,4 +95,4 @@ SilverCaveRoom3_MapEvents:
 
 	def_object_events
 	object_event  9,  8, SPRITE_RED, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Red, EVENT_RED_IN_MT_SILVER
-	object_event 10,  8, SPRITE_PIKACHU, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_BG_YELLOW, OBJECTTYPE_SCRIPT, 0, -1, EVENT_RED_IN_MT_SILVER
+	object_event 10,  8, SPRITE_PIKACHU, SPRITEMOVEDATA_STILL, 1, 1, -1, -1, PAL_BG_YELLOW, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2

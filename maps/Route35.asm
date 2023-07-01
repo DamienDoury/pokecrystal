@@ -249,7 +249,7 @@ TrainerFirebreatherWalt:
 Route35SaviourScript:
 	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
 	ifnotequal 0, .skip_launch_hospital_quest
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 1 ; Launches the hospital quest.
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_1 ; Launches the hospital quest.
 .skip_launch_hospital_quest
 	jumptextfaceplayer Route35SaviourText
 

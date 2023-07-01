@@ -45,6 +45,11 @@ GetCurrentMapSceneID::
 	xor a
 	ret
 
+; In vanilla, this function is called 4 times by the battle_tower (twice in the mobile scripts), 
+; and once by Script_checkmapscene and by Script_setmapscene.
+; Also once by the function GetCurrentMapSceneID above.
+; The latter is the only one that exploits the carry as a return value.
+
 GetMapSceneID::
 ; Searches the scene_var table for the map group and number loaded in bc, and returns the wram pointer in de.
 ; If the map is not in the scene_var table, returns carry.

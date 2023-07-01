@@ -395,7 +395,7 @@ GoldenrodHospitalOffice_MapScripts:
 
 	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR
 	ifnotequal 2, .skip_hospital_quest_step_inc
-	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, 3
+	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_3
 .skip_hospital_quest_step_inc
 	checkevent EVENT_SICK_CATERPIE
 	iffalse .HideChiefNurse
