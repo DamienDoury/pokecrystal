@@ -133,6 +133,9 @@ PokecenterNurseScript:
 	yesorno
 	iffalse .bye
 
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .heal_start
+
 	special GetPartyCountWithoutEggs
 	getnum STRING_BUFFER_3
 	farwritetext NurseAskTestText
@@ -361,7 +364,9 @@ PokecenterNurseScript:
 	setflag ENGINE_CAUGHT_POKERUS
 	specialphonecall SPECIALCALL_POKERUS
 
-.done	
+.done
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .bye
 	farwritetext NurseBallsDisinfectedText
 	promptbutton
 	sjump .bye
