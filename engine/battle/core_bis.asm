@@ -293,8 +293,7 @@ IsGymLeader:
 IsGymLeaderCommon:
 	push de
 	ld a, [wOtherTrainerClass]
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop de
 	ret
 

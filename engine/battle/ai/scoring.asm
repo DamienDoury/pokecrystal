@@ -42,8 +42,7 @@ AI_Basic:
 	push de
 	push bc
 	ld hl, StatusOnlyEffects
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 
 	pop bc
 	pop de
@@ -745,8 +744,7 @@ AI_Smart_MirrorMove:
 .usedmove
 	push hl
 	ld hl, UsefulMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop hl
 
 ; ...do nothing if he didn't use a useful move.
@@ -1295,8 +1293,7 @@ AI_Smart_Mimic:
 	ld a, [wLastPlayerCounterMove]
 	push hl
 	ld hl, UsefulMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 
 	pop hl
 	ret nc
@@ -1410,8 +1407,7 @@ AI_Smart_Encore:
 	push hl
 	ld a, [wLastPlayerCounterMove]
 	ld hl, EncoreMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop hl
 	jr nc, .discourage
 
@@ -1690,8 +1686,7 @@ AI_Smart_Disable:
 	push hl
 	ld a, [wLastPlayerCounterMove]
 	ld hl, UsefulMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 
 	pop hl
 	jr nc, .notencourage
@@ -2159,16 +2154,14 @@ AI_Smart_Sandstorm:
 	ld a, [wBattleMonType1]
 	push hl
 	ld hl, .SandstormImmuneTypes
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop hl
 	jr c, .greatly_discourage
 
 	ld a, [wBattleMonType2]
 	push hl
 	ld hl, .SandstormImmuneTypes
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop hl
 	jr c, .greatly_discourage
 
@@ -3085,8 +3078,7 @@ AI_Opportunist:
 	push de
 	push bc
 	ld hl, StallMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 
 	pop bc
 	pop de
@@ -3193,8 +3185,7 @@ AI_Aggressive:
 	push bc
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	ld hl, RecklessMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 	pop bc
 	pop de
 	pop hl
@@ -3213,9 +3204,8 @@ AIDamageCalc:
 	ld a, 1
 	ldh [hBattleTurn], a
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	ld de, 1
 	ld hl, ConstantDamageEffects
-	call IsInArray
+	call IsInByteArray
 	jr nc, .notconstant
 	callfar BattleCommand_ConstantDamage
 	ret
@@ -3252,8 +3242,7 @@ AI_Cautious:
 	push de
 	push bc
 	ld hl, ResidualMoves
-	ld de, 1
-	call IsInArray
+	call IsInByteArray
 
 	pop bc
 	pop de
@@ -3380,9 +3369,8 @@ AI_Risky:
 
 ; Don't use risky moves at max hp.
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
-	ld de, 1
 	ld hl, RiskyEffects
-	call IsInArray
+	call IsInByteArray
 	jr nc, .checkko
 
 	call AICheckEnemyMaxHP

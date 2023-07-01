@@ -865,9 +865,8 @@ TryEnemyFlee:
 	jr nz, .Stay
 
 	ld a, [wTempEnemyMonSpecies]
-	ld de, 1
 	ld hl, AlwaysFleeMons
-	call IsInArray
+	call IsInByteArray
 	jr c, .Flee
 
 	call BattleRandom
@@ -877,9 +876,8 @@ TryEnemyFlee:
 
 	push bc
 	ld a, [wTempEnemyMonSpecies]
-	ld de, 1
 	ld hl, OftenFleeMons
-	call IsInArray
+	call IsInByteArray
 	pop bc
 	jr c, .Flee
 
@@ -888,9 +886,8 @@ TryEnemyFlee:
 	jr nc, .Stay
 
 	ld a, [wTempEnemyMonSpecies]
-	ld de, 1
 	ld hl, SometimesFleeMons
-	call IsInArray
+	call IsInByteArray
 	jr c, .Flee
 
 .Stay:
@@ -6759,8 +6756,7 @@ CheckSleepingTreeMon:
 
 .Check:
 	ld a, [wTempEnemyMonSpecies]
-	ld de, 1 ; length of species id
-	call IsInArray
+	call IsInByteArray
 ; If it's a match, the opponent is asleep
 	ret c
 
@@ -6794,9 +6790,8 @@ CheckUnownLetter:
 
 	push de
 	ld a, [wUnownLetter]
-	ld de, 1
 	push bc
-	call IsInArray
+	call IsInByteArray
 	pop bc
 	pop de
 
