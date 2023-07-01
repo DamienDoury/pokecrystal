@@ -107,7 +107,7 @@ NUM_PLAYER_EVENTS EQU const_value
 NUM_PLAYER_MOVEMENTS EQU const_value
 
 ; script data sizes (see macros/scripts/maps.asm)
-SCENE_SCRIPT_SIZE EQU  4 ; scene_script
+SCENE_SCRIPT_SIZE EQU  2 ; scene_script
 CALLBACK_SIZE     EQU  3 ; callback
 WARP_EVENT_SIZE   EQU  5 ; warp_event
 COORD_EVENT_SIZE  EQU  8 ; coord_event

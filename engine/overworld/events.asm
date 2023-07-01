@@ -368,15 +368,15 @@ RunSceneScript:
 	cp c
 	jr nc, .nope
 
+	add a ; There should not be more than $7f scene IDs per map, otherwise this will overflow. We have a safe margin.
 	ld e, a
 .ok
 	ld d, 0
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-rept SCENE_SCRIPT_SIZE
 	add hl, de
-endr
+
 	call GetMapScriptsBank
 	call GetFarWord
 	call GetMapScriptsBank
