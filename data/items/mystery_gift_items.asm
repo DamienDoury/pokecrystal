@@ -37,3 +37,46 @@ MysteryGiftItems:
 	db BLUESKY_MAIL
 	db MIRAGE_MAIL
 .End
+
+
+;FALLBACK_PP2GS_ITEM EQU BERRY
+;
+;PokemonPikachu2GSMysteryGiftItems:	; 37 bytes.
+;	db GOLD_BERRY 			; 100 watts, BERRY in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db POKE_BALL 			; 200 watts, BITTER_BERRY in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db EON_MAIL 			; 50 watts, EON_MAIL in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db MAX_ELIXER 			; 600 watts, MIRACLEBERRY in vanilla.
+;	db MAX_REVIVE 			; 700 watts, GOLD_BERRY in vanilla.
+;	db PP_UP				; 900 watts, REVIVE in vanilla.
+;	db GREAT_BALL			; 300 watts, GREAT_BALL in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db ULTRA_BALL			; 400 watts, MAX_REPEL in vanilla. 
+;	db RARE_CANDY			; 800 watts, ELIXER in vanilla.
+;	db MAX_REPEL			; 500 watts, ETHER in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+;	db MASTER_BALL			; 999 watts, RARE_CANDY in vanilla.
+;	db FALLBACK_PP2GS_ITEM
+;	db FALLBACK_PP2GS_ITEM
+; No need for a -1 here.

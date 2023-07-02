@@ -121,7 +121,11 @@ DoMysteryGift:
 	ld a, [wMysteryGiftPartnerWhichItem]
 	ld c, a
 	farcall MysteryGiftGetItem
+; The following solution takes 46 bytes of ROM.
+	ld a, [wMysteryGiftGameVersion]			; 3 bytes
+	cp POKEMON_PIKACHU_2_VERSION			; 2 bytes
 	ld a, c
+	call z, PokemonPikachu2GSItemConversion	; 3 bytes. Then 17 bytes for the function, and 21 bytes for the array.
 	ld [sBackupMysteryGiftItem], a
 	ld [wNamedObjectIndex], a
 	call CloseSRAM
@@ -1883,3 +1887,33 @@ INCBIN "gfx/mystery_gift/card_trade.2bpp"
 
 CardTradeSpriteGFX:
 INCBIN "gfx/mystery_gift/card_sprite.2bpp"
+
+
+PokemonPikachu2GSItemConversion:			; 17 bytes for the function.
+	ld e, a									; 1 byte
+	push de									; 1 byte
+	ld de, 2								; 3 bytes
+	ld hl, .PokemonPikachu2GSNewGiftTable	; 3 bytes
+	call IsInArray							; 3 bytes
+	pop de									; 1 byte
+	ld a, e									; 1 byte
+	ret nc ; Returns the original item, if we couldn't find it in our list. 1 byte
+
+	inc hl									; 1 byte
+	ld a, [hl]								; 1 byte
+	ret										; 1 byte
+
+.PokemonPikachu2GSNewGiftTable:				; 21 bytes for the array (10 x 2 + 1).
+	; vanilla item,		replacement item
+	db EON_MAIL,		EON_MAIL		;  50 watts
+	db BERRY,			GOLD_BERRY		; 100 watts
+	db BITTER_BERRY,	POKE_BALL		; 200 watts
+	db GREAT_BALL,		GREAT_BALL		; 300 watts
+	db MAX_REPEL,		ULTRA_BALL		; 400 watts
+	db ETHER,			MAX_REPEL		; 500 watts
+	db MIRACLEBERRY,	MAX_ELIXER		; 600 watts
+	db GOLD_BERRY,		MAX_REVIVE		; 700 watts
+	db ELIXER,			RARE_CANDY		; 800 watts
+	db REVIVE,			PP_UP			; 900 watts
+	db RARE_CANDY,		MASTER_BALL		; 999 watts
+	db -1

@@ -125,7 +125,15 @@ MysteryGiftGetItem:
 	ld a, c
 	cp MysteryGiftItems.End - MysteryGiftItems
 	jr nc, MysteryGiftFallbackItem
+	
+; The following solution takes 48 bytes of ROM (including the array).
+;	ld a, [wMysteryGiftGameVersion]				; 3 bytes
+;	cp POKEMON_PIKACHU_2_VERSION				; 2 bytes
+;	ld hl, PokemonPikachu2GSMysteryGiftItems	; 3 bytes. The array is 37 bytes.
+;	jr z, .item_list_determined					; 3 bytes
+
 	ld hl, MysteryGiftItems
+;.item_list_determined							; 0 byte
 	ld b, 0
 	add hl, bc
 	ld c, [hl]
