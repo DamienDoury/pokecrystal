@@ -9,8 +9,7 @@
 
 GoldenrodGym_MapScripts:
 	def_scene_scripts
-	scene_script .TeamCheck ; SCENE_GOLDENRODGYM_NOTHING
-	scene_script .TeamCheck ; SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING
+	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
 
@@ -52,9 +51,6 @@ GoldenrodGym_MapScripts:
 .no_check
 	end
 
-.DummyScene1:
-	end
-
 GoldenrodGymWhitneyScript:
 	faceplayer
 	checkevent EVENT_BEAT_WHITNEY
@@ -85,7 +81,6 @@ GoldenrodGymWhitneyScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_WHITNEY
 	setevent EVENT_MADE_WHITNEY_CRY
-	setscene SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING
 	setevent EVENT_BEAT_BEAUTY_VICTORIA
 	setevent EVENT_BEAT_BEAUTY_SAMANTHA
 	setevent EVENT_BEAT_LASS_CARRIE
@@ -149,14 +144,17 @@ TrainerLassCarrie:
 	end
 
 WhitneyCriesScript:
+	checkevent EVENT_MADE_WHITNEY_CRY
+	iffalse .end
+
 	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext BridgetWhitneyCriesText
 	waitbutton
 	closetext
-	setscene SCENE_GOLDENRODGYM_NOTHING
 	clearevent EVENT_MADE_WHITNEY_CRY
+.end
 	end
 
 TrainerLassBridget:
@@ -475,7 +473,7 @@ GoldenrodGym_MapEvents:
 	warp_event  3, 17, GOLDENROD_CITY, 1
 
 	def_coord_events
-	coord_event  8,  6, SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING, WhitneyCriesScript
+	coord_event  8,  6, SCENE_ALWAYS, WhitneyCriesScript
 
 	def_bg_events
 	bg_event  1, 15, BGEVENT_READ, GoldenrodGymStatue

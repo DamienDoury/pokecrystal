@@ -2935,27 +2935,12 @@ wColosseumSceneID::                               db
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db
-wTrainerHouseB1FSceneID::                         db
-wVictoryRoadGateSceneID::                         db
-wSaffronMagnetTrainStationSceneID::               db
-wRoute16GateSceneID::                             db
-wRoute17Route18GateSceneID::                      db
-wIndigoPlateauPokecenter1FSceneID::               db
 wElmsLabSceneID::                                 db
-wCherrygroveCitySceneID::                         db
-wMrPokemonsHouseSceneID::                         db
 wRoute32SceneID::                                 db
 wRoute35NationalParkGateSceneID::                 db
 wRoute36SceneID::                                 db
 wRoute36NationalParkGateSceneID::                 db
 wAzaleaTownSceneID::                              db
-wGoldenrodGymSceneID::                            db
-wGoldenrodMagnetTrainStationSceneID::             db
-wOlivineCitySceneID::                             db
-wEcruteakTinTowerEntranceSceneID::                db
-wWiseTriosRoomSceneID::                           db
-wEcruteakPokecenter1FSceneID::                    db
-wEcruteakGymSceneID::                             db
 wRoute42SceneID::                                 db
 wCianwoodCitySceneID::                            db
 wBattleTower1FSceneID::                           db
@@ -2996,7 +2981,7 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 15
+	ds 30
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 

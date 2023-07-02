@@ -4,12 +4,8 @@
 
 GoldenrodMagnetTrainStation_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
-
-.DummyScene:
-	end
 
 GoldenrodMagnetTrainStationOfficerScript:
 	faceplayer
@@ -183,7 +179,7 @@ GoldenrodMagnetTrainStation_MapEvents:
 	warp_event 11,  5, SAFFRON_MAGNET_TRAIN_STATION, 3
 
 	def_coord_events
-	coord_event 11,  6, SCENE_DEFAULT, Script_ArriveFromSaffron
+	coord_event 11,  6, SCENE_ALWAYS, Script_ArriveFromSaffron
 
 	def_bg_events
 

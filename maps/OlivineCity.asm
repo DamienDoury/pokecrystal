@@ -9,18 +9,10 @@
 
 OlivineCity_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 	callback MAPCALLBACK_TILES, .TilesLoad
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_OLIVINE
@@ -47,6 +39,9 @@ OlivineCity_MapScripts:
 	endcallback
 
 OlivineCityRivalSceneTop:
+	checkevent EVENT_MET_RIVAL_IN_OLIVINE
+	iftrue OlivineCityRivalSceneBottom.end
+
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -63,14 +58,12 @@ OlivineCityRivalSceneTop:
 	applymovement PLAYER, OlivineCityPlayerStepsAsideTopMovement
 	turnobject PLAYER, RIGHT
 	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalLeavesTopMovement
-	setscene SCENE_FINISHED
-	disappear OLIVINECITY_OLIVINE_RIVAL
-	special RestartMapMusic
-	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SWIMMER_GUY
-	special LoadUsedSpritesGFX
-	end
+	sjump OlivineCityRivalSceneBottom.outro
 
 OlivineCityRivalSceneBottom:
+	checkevent EVENT_MET_RIVAL_IN_OLIVINE
+	iftrue .end
+	
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -87,11 +80,13 @@ OlivineCityRivalSceneBottom:
 	applymovement PLAYER, OlivineCityPlayerStepsAsideBottomMovement
 	turnobject PLAYER, RIGHT
 	applymovement OLIVINECITY_OLIVINE_RIVAL, OlivineCityRivalLeavesBottomMovement
+.outro
+	setevent EVENT_MET_RIVAL_IN_OLIVINE
 	disappear OLIVINECITY_OLIVINE_RIVAL
-	setscene SCENE_FINISHED
 	special RestartMapMusic
 	variablesprite SPRITE_OLIVINE_RIVAL, SPRITE_SWIMMER_GUY
 	special LoadUsedSpritesGFX
+.end
 	end
 
 OlivineCitySailor1Script:
@@ -496,8 +491,8 @@ OlivineCity_MapEvents:
 	warp_event 20, 27, OLIVINE_PORT_PASSAGE, 2
 
 	def_coord_events
-	coord_event 13, 12, SCENE_DEFAULT, OlivineCityRivalSceneTop
-	coord_event 13, 13, SCENE_DEFAULT, OlivineCityRivalSceneBottom
+	coord_event 13, 12, SCENE_ALWAYS, OlivineCityRivalSceneTop
+	coord_event 13, 13, SCENE_ALWAYS, OlivineCityRivalSceneBottom
 
 	def_bg_events
 	bg_event 17, 11, BGEVENT_READ, OlivineCitySign

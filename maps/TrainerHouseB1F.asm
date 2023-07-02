@@ -4,12 +4,8 @@
 
 TrainerHouseB1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
-
-.DummyScene:
-	end
 
 TrainerHouseReceptionistScript:
 	turnobject PLAYER, UP
@@ -174,7 +170,7 @@ TrainerHouseB1F_MapEvents:
 	warp_event  9,  4, TRAINER_HOUSE_1F, 3
 
 	def_coord_events
-	coord_event  7,  3, SCENE_DEFAULT, TrainerHouseReceptionistScript
+	coord_event  7,  3, SCENE_ALWAYS, TrainerHouseReceptionistScript
 
 	def_bg_events
 

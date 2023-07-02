@@ -40,11 +40,6 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_ELMSLAB_UNUSED                ; 4
 	const SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS ; 5
 
-; wCherrygroveCitySceneID
-	const_def
-	const SCENE_CHERRYGROVECITY_NOTHING    ; 0
-	const SCENE_CHERRYGROVECITY_MEET_RIVAL ; 1
-
 ; wRoute32SceneID
 	const_def 1
 	const SCENE_ROUTE32_OFFER_SLOWPOKETAIL ; 1
@@ -72,11 +67,6 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_AZALEATOWN_NOTHING              ; 0
 	const SCENE_AZALEATOWN_RIVAL_BATTLE         ; 1
 	const SCENE_AZALEATOWN_KURT_RETURNS_GS_BALL ; 2
-
-; wGoldenrodGymSceneID
-	const_def
-	const SCENE_GOLDENRODGYM_NOTHING              ; 0
-	const SCENE_GOLDENRODGYM_WHITNEY_STOPS_CRYING ; 1
 
 ; wRoute42SceneID
 	const_def

@@ -8,17 +8,9 @@
 
 WiseTriosRoom_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .WiseTrioCallback
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .WiseTrioCallback:
 	checkevent EVENT_FOUGHT_SUICUNE
@@ -51,6 +43,9 @@ WiseTriosRoomSage3Script:
 	jumptextfaceplayer WiseTriosRoomSage3Text
 
 WiseTriosRoom_CannotEnterTinTowerScript:
+	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
+	iftrue .end
+	
 	turnobject WISETRIOSROOM_SAGE3, UP
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
@@ -64,6 +59,7 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	waitbutton
 	closetext
 	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
+.end
 	end
 
 TrainerSageGaku:
@@ -101,7 +97,6 @@ TrainerSageKoji:
 	waitbutton
 	closetext
 	setevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
-	setscene SCENE_FINISHED
 	end
 
 .KojiAllowsPassage:
@@ -349,7 +344,7 @@ WiseTriosRoom_MapEvents:
 	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
 
 	def_coord_events
-	coord_event  7,  4, SCENE_DEFAULT, WiseTriosRoom_CannotEnterTinTowerScript
+	coord_event  7,  4, SCENE_ALWAYS, WiseTriosRoom_CannotEnterTinTowerScript
 
 	def_bg_events
 

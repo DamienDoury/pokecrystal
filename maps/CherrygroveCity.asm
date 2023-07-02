@@ -11,17 +11,9 @@
 
 CherrygroveCity_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_CHERRYGROVECITY_NOTHING
-	scene_script .DummyScene1 ; SCENE_CHERRYGROVECITY_MEET_RIVAL
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CHERRYGROVE
@@ -121,8 +113,14 @@ CherrygroveCityGuideGent:
 	end
 
 CherrygroveSilverSceneSouth:
+	checkevent EVENT_CHERRYGROVECITY_MEET_RIVAL
+	iffalse CherrygroveSilverSceneNorth.end
+
 	moveobject CHERRYGROVECITY_SILVER, 39, 7
 CherrygroveSilverSceneNorth:
+	checkevent EVENT_CHERRYGROVECITY_MEET_RIVAL
+	iffalse .end
+	
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -191,9 +189,10 @@ CherrygroveSilverSceneNorth:
 	turnobject PLAYER, LEFT
 	applymovement CHERRYGROVECITY_SILVER, CherrygroveCity_RivalExitsStageLeft
 	disappear CHERRYGROVECITY_SILVER
-	setscene SCENE_CHERRYGROVECITY_NOTHING
+	clearevent EVENT_CHERRYGROVECITY_MEET_RIVAL
 	special HealParty
 	playmapmusic
+.end
 	end
 
 CherrygroveTeacherScript:
@@ -625,8 +624,8 @@ CherrygroveCity_MapEvents:
 	warp_event 31, 11, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
 
 	def_coord_events
-	coord_event 33,  6, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
-	coord_event 33,  7, SCENE_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
+	coord_event 33,  6, SCENE_ALWAYS, CherrygroveSilverSceneNorth
+	coord_event 33,  7, SCENE_ALWAYS, CherrygroveSilverSceneSouth
 
 	def_bg_events
 	bg_event 30,  8, BGEVENT_READ, CherrygroveCitySign

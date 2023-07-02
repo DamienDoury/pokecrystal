@@ -6,17 +6,9 @@
 
 EcruteakTinTowerEntrance_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .InitializeSages
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .InitializeSages:
 	checkevent EVENT_FOUGHT_SUICUNE
@@ -28,13 +20,13 @@ EcruteakTinTowerEntrance_MapScripts:
 	endcallback
 
 .BlockTower:
-	clearevent EVENT_RANG_CLEAR_BELL_1
-	setevent EVENT_RANG_CLEAR_BELL_2
+	clearevent EVENT_TINTOWER_SAGE_LEFT
+	setevent EVENT_TINTOWER_SAGE_RIGHT
 	setevent EVENT_ECRUTEAK_TIN_TOWER_ENTRANCE_WANDERING_SAGE
 	checkitem CLEAR_BELL
-	iftrue .NoClearBell
-	setscene SCENE_DEFAULT
-.NoClearBell:
+	iftrue .GotClearBell
+	clearevent EVENT_RANG_CLEAR_BELL ; This doesn't get reset when the player carries the Clear Bell.
+.GotClearBell:
 	endcallback
 
 .DontBlockTower:
@@ -42,23 +34,31 @@ EcruteakTinTowerEntrance_MapScripts:
 	endcallback
 
 EcruteakTinTowerEntranceSageBlocksLeft:
-	checkevent EVENT_RANG_CLEAR_BELL_2
+	checkevent EVENT_RANG_CLEAR_BELL
+	iftrue .end
+
+	checkevent EVENT_TINTOWER_SAGE_RIGHT
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE2, EcruteakTinTowerEntranceSageBlocksLeftMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE1, 4, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE1
 	pause 5
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE2
+.end
 	end
 
 EcruteakTinTowerEntranceSageBlocksRight:
-	checkevent EVENT_RANG_CLEAR_BELL_1
+	checkevent EVENT_RANG_CLEAR_BELL
+	iftrue .end
+
+	checkevent EVENT_TINTOWER_SAGE_LEFT
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE1, EcruteakTinTowerEntranceSageBlocksRightMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE2, 5, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE2
 	pause 5
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE1
+.end
 	end
 
 EcruteakTinTowerEntranceAlreadyBlocked:
@@ -98,9 +98,9 @@ EcruteakTinTowerEntranceSageScript:
 	writetext EcruteakTinTowerEntranceSageText_HearsClearBell
 	waitbutton
 	closetext
-	setscene SCENE_FINISHED
-	setevent EVENT_RANG_CLEAR_BELL_2
-	clearevent EVENT_RANG_CLEAR_BELL_1
+	setevent EVENT_RANG_CLEAR_BELL
+	setevent EVENT_TINTOWER_SAGE_RIGHT
+	clearevent EVENT_TINTOWER_SAGE_LEFT
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	end
 
@@ -286,13 +286,13 @@ EcruteakTinTowerEntrance_MapEvents:
 	warp_event 17,  3, WISE_TRIOS_ROOM, 3
 
 	def_coord_events
-	coord_event  4,  7, SCENE_DEFAULT, EcruteakTinTowerEntranceSageBlocksLeft
-	coord_event  5,  7, SCENE_DEFAULT, EcruteakTinTowerEntranceSageBlocksRight
+	coord_event  4,  7, SCENE_ALWAYS, EcruteakTinTowerEntranceSageBlocksLeft
+	coord_event  5,  7, SCENE_ALWAYS, EcruteakTinTowerEntranceSageBlocksRight
 
 	def_bg_events
 
 	def_object_events
-	object_event  4,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_RANG_CLEAR_BELL_1
-	object_event  5,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_RANG_CLEAR_BELL_2
+	object_event  4,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_TINTOWER_SAGE_LEFT
+	object_event  5,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_TINTOWER_SAGE_RIGHT
 	object_event  6,  9, SPRITE_SAGE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceWanderingSageScript, EVENT_ECRUTEAK_TIN_TOWER_ENTRANCE_WANDERING_SAGE
 	object_event  3, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceGrampsScript, EVENT_ECRUTEAK_TIN_TOWER_ENTRANCE_WANDERING_SAGE

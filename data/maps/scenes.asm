@@ -10,27 +10,12 @@ MapScenes::
 	scene_var POWER_PLANT,                                 wPowerPlantSceneID
 	scene_var CERULEAN_GYM,                                wCeruleanGymSceneID
 	scene_var ROUTE_25,                                    wRoute25SceneID
-	scene_var TRAINER_HOUSE_B1F,                           wTrainerHouseB1FSceneID
-	scene_var VICTORY_ROAD_GATE,                           wVictoryRoadGateSceneID
-	scene_var SAFFRON_MAGNET_TRAIN_STATION,                wSaffronMagnetTrainStationSceneID
-	scene_var ROUTE_16_GATE,                               wRoute16GateSceneID
-	scene_var ROUTE_17_ROUTE_18_GATE,                      wRoute17Route18GateSceneID
-	scene_var INDIGO_PLATEAU_POKECENTER_1F,                wIndigoPlateauPokecenter1FSceneID
 	scene_var ELMS_LAB,                                    wElmsLabSceneID ; 6 values
-	scene_var CHERRYGROVE_CITY,                            wCherrygroveCitySceneID
-	scene_var MR_POKEMONS_HOUSE,                           wMrPokemonsHouseSceneID
 	scene_var ROUTE_32,                                    wRoute32SceneID ; 3 values
 	scene_var ROUTE_35_NATIONAL_PARK_GATE,                 wRoute35NationalParkGateSceneID ; 3 values
 	scene_var ROUTE_36,                                    wRoute36SceneID
 	scene_var ROUTE_36_NATIONAL_PARK_GATE,                 wRoute36NationalParkGateSceneID ; 3 values
 	scene_var AZALEA_TOWN,                                 wAzaleaTownSceneID ; 3 values
-	scene_var GOLDENROD_GYM,                               wGoldenrodGymSceneID
-	scene_var GOLDENROD_MAGNET_TRAIN_STATION,              wGoldenrodMagnetTrainStationSceneID
-	scene_var OLIVINE_CITY,                                wOlivineCitySceneID
-	scene_var ECRUTEAK_TIN_TOWER_ENTRANCE,                 wEcruteakTinTowerEntranceSceneID
-	scene_var WISE_TRIOS_ROOM,                             wWiseTriosRoomSceneID
-	scene_var ECRUTEAK_POKECENTER_1F,                      wEcruteakPokecenter1FSceneID
-	scene_var ECRUTEAK_GYM,                                wEcruteakGymSceneID
 	scene_var ROUTE_42,                                    wRoute42SceneID
 	scene_var CIANWOOD_CITY,                               wCianwoodCitySceneID
 	scene_var BATTLE_TOWER_1F,                             wBattleTower1FSceneID

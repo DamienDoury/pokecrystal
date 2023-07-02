@@ -7,13 +7,15 @@
 
 EcruteakPokecenter1F_MapScripts:
 	def_scene_scripts
-	scene_script .MeetBill ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .MeetBill ; SCENE_ALWAYS
 
 	def_callbacks
 
 .MeetBill:
+	checkevent EVENT_MET_BILL
+	iffalse .end
 	prioritysjump .MeetBillScript
+.end
 	end
 
 .DummyScene:
@@ -47,7 +49,6 @@ EcruteakPokecenter1F_MapScripts:
 	playsound SFX_EXIT_BUILDING
 	disappear ECRUTEAKPOKECENTER1F_BILL
 	clearevent EVENT_MET_BILL
-	setscene SCENE_FINISHED
 	waitsfx
 	end
 
