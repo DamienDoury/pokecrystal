@@ -91,6 +91,7 @@ EcruteakGymMortyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_FOGBADGE
+	setevent EVENT_RANG_CLEAR_BELL ; This and the 2 following lines will make the Sage take blocks the Tin Tower Entrance permanently IF the player carries the Clear Bell the next time it enters the Tin Tower Entrance. This is vanilla behaviour.
 	setevent EVENT_TINTOWER_SAGE_LEFT
 	setevent EVENT_TINTOWER_SAGE_RIGHT
 .FightDone:
