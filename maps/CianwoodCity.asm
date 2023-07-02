@@ -345,7 +345,7 @@ EusineSuicuneText:
 	para "save millions of"
 	line "lives."
 
-	para "If need to see"
+	para "I need to see"
 	line "SUICUNE up close…"
 
 	para "I've decided."
