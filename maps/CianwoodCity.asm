@@ -14,17 +14,9 @@
 
 CianwoodCity_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_CIANWOODCITY_NOTHING
-	scene_script .DummyScene1 ; SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPointAndSuicune
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .FlyPointAndSuicune:
 	checkevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM

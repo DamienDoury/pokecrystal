@@ -9,18 +9,13 @@
 
 SproutTower3F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
-
 SproutTower3FRivalScene:
+	checkevent EVENT_RIVAL_SPROUT_TOWER
+	iftrue .end
+
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -54,11 +49,11 @@ SproutTower3FRivalScene:
 	playsound SFX_WARP_TO
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
-	disappear SPROUTTOWER3F_SILVER
+	disappear SPROUTTOWER3F_SILVER ; Also sets EVENT_RIVAL_SPROUT_TOWER, which end the event.
 	waitsfx
 	special FadeInQuickly
-	setscene SCENE_FINISHED
 	special RestartMapMusic
+.end
 	end
 
 SageLiScript:
@@ -343,7 +338,7 @@ SproutTower3F_MapEvents:
 	warp_event 10, 14, SPROUT_TOWER_2F, 4
 
 	def_coord_events
-	coord_event 11,  9, SCENE_DEFAULT, SproutTower3FRivalScene
+	coord_event 11,  9, SCENE_ALWAYS, SproutTower3FRivalScene
 
 	def_bg_events
 	bg_event  8,  1, BGEVENT_READ, SproutTower3FStatue
