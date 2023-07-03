@@ -59,7 +59,7 @@ SpriteAnimOAMData:
 	dbw $13, .OAMData_TradeTubeBulge           ; SPRITE_ANIM_OAMSET_TRADE_TUBE_BULGE_2
 	dbw $00, .OAMData_RedWalk                  ; SPRITE_ANIM_OAMSET_TRADEMON_ICON_1
 	dbw $04, .OAMData_RedWalk                  ; SPRITE_ANIM_OAMSET_TRADEMON_ICON_2
-	dbw $10, .OAMData_TradePoofBubble          ; SPRITE_ANIM_OAMSET_TRADEMON_BUBBLE
+	dbw $10, .OAMData_TradeBubble         	   ; SPRITE_ANIM_OAMSET_TRADEMON_BUBBLE
 	dbw $00, .OAMData_MagnetTrainRed           ; SPRITE_ANIM_OAMSET_EVOLUTION_BALL_OF_LIGHT_1
 	dbw $04, .OAMData_1x1_Palette0             ; SPRITE_ANIM_OAMSET_EVOLUTION_BALL_OF_LIGHT_2
 	dbw $00, .OAMData_RadioTuningKnob          ; SPRITE_ANIM_OAMSET_RADIO_TUNING_KNOB
@@ -211,6 +211,25 @@ SpriteAnimOAMData:
 	dbsprite  1,  0,  0,  0, $02, 0 | X_FLIP | Y_FLIP
 	dbsprite  0,  1,  0,  0, $01, 0 | X_FLIP | Y_FLIP
 	dbsprite  1,  1,  0,  0, $00, 0 | X_FLIP | Y_FLIP
+
+.OAMData_TradeBubble:
+	db 16
+	dbsprite -2, -2,  0,  0, $00, 5
+	dbsprite -1, -2,  0,  0, $01, 5
+	dbsprite -2, -1,  0,  0, $02, 5
+	dbsprite -1, -1,  0,  0, $03, 5
+	dbsprite  0, -2,  0,  0, $01, 5 | X_FLIP
+	dbsprite  1, -2,  0,  0, $00, 5 | X_FLIP
+	dbsprite  0, -1,  0,  0, $03, 5 | X_FLIP
+	dbsprite  1, -1,  0,  0, $02, 5 | X_FLIP
+	dbsprite -2,  0,  0,  0, $02, 5 | Y_FLIP
+	dbsprite -1,  0,  0,  0, $03, 5 | Y_FLIP
+	dbsprite -2,  1,  0,  0, $00, 5 | Y_FLIP
+	dbsprite -1,  1,  0,  0, $01, 5 | Y_FLIP
+	dbsprite  0,  0,  0,  0, $03, 5 | X_FLIP | Y_FLIP
+	dbsprite  1,  0,  0,  0, $02, 5 | X_FLIP | Y_FLIP
+	dbsprite  0,  1,  0,  0, $01, 5 | X_FLIP | Y_FLIP
+	dbsprite  1,  1,  0,  0, $00, 5 | X_FLIP | Y_FLIP
 
 .OAMData_GSIntroBigFireball:
 	db 36

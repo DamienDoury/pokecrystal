@@ -313,6 +313,13 @@ TradeAnim_End:
 	ret
 
 TradeAnim_TubeToOT1:
+	ld a, [wPlayerTrademonSpecies]
+	ld [wTempMonSpecies], a
+	ld a, [wPlayerTrademonDVs]
+	ld [wTempMonDVs], a
+	ld a, [wPlayerTrademonDVs + 1]
+	ld [wTempMonDVs + 1], a
+	
 	ld a, TRADEANIM_RIGHT_ARROW
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
 	ld a, [wLinkTradeSendmonSpecies]
@@ -323,6 +330,13 @@ TradeAnim_TubeToOT1:
 	jr TradeAnim_InitTubeAnim
 
 TradeAnim_TubeToPlayer1:
+	ld a, [wOTTrademonSpecies]
+	ld [wTempMonSpecies], a
+	ld a, [wOTTrademonDVs]
+	ld [wTempMonDVs], a
+	ld a, [wOTTrademonDVs + 1]
+	ld [wTempMonDVs + 1], a
+
 	ld a, TRADEANIM_LEFT_ARROW
 	call TradeAnim_PlaceTrademonStatsOnTubeAnim
 	ld a, [wLinkTradeGetmonSpecies]
@@ -381,6 +395,29 @@ TradeAnim_InitTubeAnim:
 	call DmgToCgbBGPals
 	ld a, %11010000
 	call DmgToCgbObjPal0
+
+	push bc
+	push de
+	push hl
+	ld a, [wCurPartySpecies]
+	push af
+	ld a, [wTempMonSpecies]
+	ld [wCurPartySpecies], a
+	ld hl, wTempMonDVs
+	ld de, GetMenuMonIconPalette
+	ld a, BANK(GetMenuMonIconPalette)
+	call FarCall_de ; Returns in A the index of PartyMenuOBPals to use.
+	ldh a, [hFarByte]
+	add a
+	add a
+	add a ; A x 8.
+	ld e, a ; SetFirstOBJPalette takes its offset parameter in E.
+	farcall SetFirstOBJPalette
+	pop af
+	ld [wCurPartySpecies], a
+	pop hl
+	pop de
+	pop bc
 
 	call TradeAnim_IncrementJumptableIndex
 	ld a, 92
