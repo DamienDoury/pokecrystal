@@ -67,6 +67,42 @@ NPCTrade::
 	call ReturnToMapWithSpeechTextbox
 	ret
 
+NPCTradeBack::
+; Select givemon from party
+	ld b, PARTYMENUACTION_GIVE_MON
+	farcall SelectTradeOrDayCareMon
+	ld a, TRADE_DIALOG_CANCEL
+	jr c, .done
+
+	ld hl, NPCTradeCableText
+	call PrintText
+
+	call DoTradebackTrade
+	call .TradeAnimation
+
+	call RestartMapMusic
+	ret
+
+.done
+	;ld a, TRADE_DIALOG_COMPLETE
+	;call PrintText
+	ret
+
+.TradeAnimation:
+	call DisableSpriteUpdates
+	predef TradeAnimation
+
+	ld a, 1
+	ld [wLinkMode], a ; Spoofing the link mode value.
+
+	callfar EvolvePokemon
+
+	xor a
+	ld [wLinkMode], a ; Resetting the link mode value.
+
+	call ReturnToMapWithSpeechTextbox
+	ret
+
 CheckTradeGender:
 	xor a
 	ld [wMonType], a
@@ -110,6 +146,66 @@ Trade_GetDialog:
 	ld a, [hl]
 	ld [wTradeDialog], a
 	ret
+
+DoTradebackTrade:	
+	ld a, [wCurPartySpecies]
+	ld [wPlayerTrademonSpecies], a
+
+	ld de, wPlayerTrademonSpeciesName
+	call GetTradeMonName
+	call CopyTradeName
+
+	ld hl, wPartyMonNicknames
+	ld bc, MON_NAME_LENGTH
+	call Trade_GetAttributeOfCurrentPartymon
+	ld hl, wOTTrademonNickname
+	call CopyTradeName
+
+	ld hl, wPlayerName
+	ld de, wPlayerTrademonSenderName
+	ld bc, NAME_LENGTH
+	call CopyTradeName
+
+	ld hl, wPartyMonOTs
+	ld bc, NAME_LENGTH
+	call Trade_GetAttributeOfCurrentPartymon
+	ld de, wPlayerTrademonOTName
+	call CopyTradeName
+
+	ld hl, wPartyMon1DVs
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call Trade_GetAttributeOfCurrentPartymon
+	ld de, wPlayerTrademonDVs
+	call Trade_CopyTwoBytes
+
+	ld hl, wPartyMon1ID
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call Trade_GetAttributeOfCurrentPartymon
+	ld de, wPlayerTrademonID
+	call Trade_CopyTwoBytes
+
+	ld hl, wPartyMon1Species
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call Trade_GetAttributeOfCurrentPartymon
+	ld b, h
+	ld c, l
+	farcall GetCaughtGender
+	ld a, c
+	ld [wPlayerTrademonCaughtData], a
+
+	ld hl, wPlayerTrademon
+	ld de, wOTTrademon
+	ld bc, wPlayerTrademonEnd - wPlayerTrademon
+	call CopyBytes
+
+	ld hl, .TradebackGuyName
+	ld de, wOTTrademonSenderName
+	ld bc, PLAYER_NAME_LENGTH
+	call CopyBytes
+	ret
+
+.TradebackGuyName
+	db "MICKEY@@"
 
 DoNPCTrade:
 	ld e, NPCTRADE_GIVEMON

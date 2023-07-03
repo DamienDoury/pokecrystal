@@ -241,6 +241,7 @@ ScriptCommandTable:
 	dw Script_openredtext				 ; ae
 	dw Script_writeredtext				 ; af
 	dw Script_farwriteredtext			 ; b0
+	dw Script_tradeback					 ; b1
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -624,6 +625,10 @@ Script_trade:
 	call GetScriptByte
 	ld e, a
 	farcall NPCTrade
+	ret
+
+Script_tradeback:
+	farcall NPCTradeBack
 	ret
 
 Script_phonecall:

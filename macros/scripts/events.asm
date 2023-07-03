@@ -1104,4 +1104,9 @@ farwriteredtext: MACRO
 	dba \1
 ENDM
 
+	const tradeback_command ; $b1
+tradeback: MACRO
+	db tradeback_command
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value
