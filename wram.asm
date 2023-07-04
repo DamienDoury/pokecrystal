@@ -3138,6 +3138,9 @@ wNewStarterMovesIndex:: db
 NEXTU ; Power plant.
 wPowerPlantMoveSFX:: db
 wPowerPlantEarthquakeDuration:: db
+
+NEXTU ; Tradeback Guy: either Earl's Academy/School, or his parents' house in Ecruteak.
+wTradeGuyItemPayment:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
@@ -3284,7 +3287,8 @@ wBestMagikarpLengthInches:: db
 wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
 wWalkingAbuseGuard:: db ; Counts the number of steps since the last player "useful action", and disables some step counting features when the player walks too much.
-	ds 14 ; Available saved memory. 
+wTradebackSuccessfulTradesCount:: db ; Number of trades with the tradeback guy.
+	ds 13 ; Available saved memory. 
 
 wPokemonDataEnd::
 wGameDataEnd::

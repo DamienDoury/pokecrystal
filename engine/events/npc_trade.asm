@@ -71,7 +71,8 @@ NPCTradeBack::
 ; Select givemon from party
 	ld b, PARTYMENUACTION_GIVE_MON
 	farcall SelectTradeOrDayCareMon
-	ld a, TRADE_DIALOG_CANCEL
+	ld a, $ff
+	ld [wScriptVar], a
 	jr c, .done
 
 	ld hl, NPCTradeCableText
@@ -84,8 +85,6 @@ NPCTradeBack::
 	ret
 
 .done
-	;ld a, TRADE_DIALOG_COMPLETE
-	;call PrintText
 	ret
 
 .TradeAnimation:
@@ -95,7 +94,14 @@ NPCTradeBack::
 	ld a, 1
 	ld [wLinkMode], a ; Spoofing the link mode value.
 
+	ld a, [wCurPartySpecies]
+	push af
 	callfar EvolvePokemon
+	pop af
+	ld b, a
+	ld a, [wCurPartySpecies]
+	sub b
+	ld [wScriptVar], a ; Zero if the Pokémon didn't evolve.
 
 	xor a
 	ld [wLinkMode], a ; Resetting the link mode value.
@@ -205,7 +211,7 @@ DoTradebackTrade:
 	ret
 
 .TradebackGuyName
-	db "MICKEY@@"
+	db "ROBIN@@@"
 
 DoNPCTrade:
 	ld e, NPCTRADE_GIVEMON

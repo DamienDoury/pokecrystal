@@ -1884,10 +1884,15 @@ Script_takeitem:
 	ret
 
 Script_checkitem:
+	call GetScriptByte
+	cp USE_SCRIPT_VAR
+	jr nz, .hardcoded_item
+
+	ld a, [wScriptVar]
+.hardcoded_item
+	ld [wCurItem], a
 	xor a
 	ld [wScriptVar], a
-	call GetScriptByte
-	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
 	ret nc

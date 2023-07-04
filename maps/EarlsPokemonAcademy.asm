@@ -44,8 +44,90 @@ EarlsPokemonAcademyGameboyKid1Script:
 	opentext
 	writetext EarlsPokemonAcademyGameboyKid1Text
 	waitbutton
-	closetext
+	scall TradebackGuyScript
 	turnobject EARLSPOKEMONACADEMY_GAMEBOY_KID1, DOWN
+	end
+
+TradebackGuyScript:
+	; Needs to have an opentext.
+	farwritetext _TradebackGuyIntroText
+	yesorno
+	iffalse .refused
+
+	farwritetext _TradebackGuyConfusedText
+	promptbutton
+	readmem wTradebackSuccessfulTradesCount
+	ifgreater 6, .ultraball
+	ifgreater 3, .greatball
+;.pokeball
+	setval POKE_BALL
+	sjump .payment_determined
+
+.greatball
+	setval GREAT_BALL
+	sjump .payment_determined
+
+.ultraball
+	setval ULTRA_BALL
+.payment_determined
+	writemem wTradeGuyItemPayment
+	getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
+	farwritetext _TradebackGuyDealText
+	yesorno
+	iffalse .doesnt_want_to_pay
+
+	readmem wTradeGuyItemPayment
+	checkitem USE_SCRIPT_VAR
+	iffalse .doesnt_have_item
+
+	readmem wTradeGuyItemPayment
+	takeitem ITEM_FROM_MEM, 1
+	closetext
+
+	opentext
+	farwritetext _TradebackPlayerGivesItemText
+	waitbutton
+	closetext
+
+	opentext
+	farwritetext _TradebackGuyDealOkText
+	waitbutton
+
+	tradeback
+	ifequal $ff, .player_cancelled
+	ifequal 0, .no_evo
+
+	readmem wTradebackSuccessfulTradesCount
+	ifgreater 254, .no_inc
+
+	addval 1
+	writemem wTradebackSuccessfulTradesCount
+
+.no_inc
+	farwritetext _TradebackGuyDealEvoText
+	sjump .waitbutton
+
+.player_cancelled
+	farwritetext _TradebackGuyKeepPaymentText
+	sjump .waitbutton
+	
+.no_evo
+	farwritetext _TradebackGuyDealNoEvoText
+	sjump .waitbutton
+
+.doesnt_have_item
+	farwritetext _TradebackGuyDontHaveItemText
+	sjump .waitbutton
+
+.doesnt_want_to_pay
+	farwritetext _TradebackGuyDealBrokenText
+	sjump .waitbutton
+
+.refused
+	farwritetext _TradebackGuyAnotherTimeText
+.waitbutton
+	waitbutton
+	closetext
 	end
 
 EarlsPokemonAcademyGameboyKid2Script:
@@ -137,9 +219,6 @@ AcademyNotebook:
 .Done:
 	closetext
 	end
-
-AcademyStickerMachine: ; unreferenced
-	jumptext AcademyStickerMachineText
 
 AcademyBookshelf:
 	jumpstd DifficultBookshelfScript
@@ -238,15 +317,16 @@ EarlsPokemonAcademyYoungster1Text:
 	done
 
 EarlsPokemonAcademyGameboyKid1Text:
-	text "I traded my best"
-	line "#MON to the"
-	cont "guy beside me."
+	text "ROBIN: I traded my"
+	line "best #MON to"
+	cont "MICKEY beside me."
 	done
 
 EarlsPokemonAcademyGameboyKid2Text:
-	text "Huh? The #MON I"
-	line "just got is hold-"
-	cont "ing something!"
+	text "MICKEY: Huh? The"
+	line "#MON ROBIN sent"
+	cont "is holding some-"
+	cont "thing!"
 	done
 
 EarlsPokemonAcademyYoungster2Text:
@@ -485,13 +565,6 @@ AcademyNotebookText3:
 
 	para "The next page"
 	line "is… Blank!"
-	done
-
-AcademyStickerMachineText:
-	text "This super machine"
-	line "prints data out as"
-
-	para "stickers!"
 	done
 
 EarlsPokemonAcademy_MapEvents:

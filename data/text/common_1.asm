@@ -2178,3 +2178,91 @@ _DailyEventRefreshNotificationText::
 	para "Some daily events"
 	line "got refreshed."
 	done
+
+_TradebackGuyIntroText::
+	text "Hey wanna trade"
+	line "with me?"
+
+	para "Sent me a #MON,"
+	line "and I'll sent it"
+	cont "right back at ya'."
+	done
+
+_TradebackGuyAnotherTimeText::
+	text "Maybe another day."
+	done
+
+_TradebackGuyConfusedText::
+	text "Oh… really? Lit!"
+
+	para "… I mean… I'm"
+	line "making you a favor"
+	cont "and I think I"
+	cont "deserve a…"
+
+	para "Let me think."
+	done
+
+_TradebackGuyDealText::
+	text "I want a"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+
+	para "Give me one, and"
+	line "we have a deal."
+	done
+
+_TradebackGuyDealBrokenText::
+	text "Shoot! I should've"
+	line "asked for some-"
+	cont "thing cheaper."
+	done
+
+_TradebackGuyDontHaveItemText::
+	text "But you don't"
+	line "have one!"
+
+	para "I thought you were"
+	line "a real trainer…"
+	done
+
+_TradebackPlayerGivesItemText::
+	text "<PLAYER> gives 1"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+	done
+
+_TradebackGuyDealOkText::
+	text "For real, I can"
+	line "have it?"
+	cont "Thank you!"
+
+	para "Let's do it then!"
+	done
+
+_TradebackGuyKeepPaymentText::
+	text "Changed your"
+	line "mind?"
+
+	para "Your problem!"
+
+	para "I keep the gift"
+	line "you made me."
+	done
+
+_TradebackGuyDealNoEvoText::
+	text "It didn't evolve."
+	line "Boring."
+	done
+
+_TradebackGuyDealEvoText::
+	text "Wow!"
+	line "This evolution"
+	cont "was the bomb!"
+
+	para "I can't wait to"
+	line "tell MICKEY"
+	cont "about it!"
+	done
