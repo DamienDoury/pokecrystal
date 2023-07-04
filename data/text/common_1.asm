@@ -2193,7 +2193,8 @@ _TradebackGuyAnotherTimeText::
 	done
 
 _TradebackGuyConfusedText::
-	text "Oh… really? Lit!"
+	text "Oh… really?"
+	line "Phat!"
 
 	para "… I mean… I'm"
 	line "making you a favor"
