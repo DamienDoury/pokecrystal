@@ -2183,8 +2183,8 @@ _TradebackGuyIntroText::
 	text "Hey wanna trade"
 	line "with me?"
 
-	para "Sent me a #MON,"
-	line "and I'll sent it"
+	para "Send me a #MON,"
+	line "and I'll send it"
 	cont "right back at ya'."
 	done
 
@@ -2200,6 +2200,8 @@ _TradebackGuyConfusedText::
 	line "making you a favor"
 	cont "and I think I"
 	cont "deserve a…"
+
+	para "Uh…"
 
 	para "Let me think."
 	done
