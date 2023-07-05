@@ -103,7 +103,7 @@ PlayersNeighborsHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PlayersNeighborsHouseBookshelfScript
 	bg_event  1,  1, BGEVENT_READ, PlayersNeighborsHouseBookshelfScript
-	bg_event  7,  1, BGEVENT_READ, PlayersNeighborsHouseRadioScript
+	bg_event  2,  1, BGEVENT_READ, PlayersNeighborsHouseRadioScript
 
 	def_object_events
 	object_event  2,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, PlayersNeighborsDaughterScript, -1

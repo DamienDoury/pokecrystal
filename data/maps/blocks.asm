@@ -106,14 +106,8 @@ OlivineTimsHouse_Blocks:
 OlivinePunishmentSpeechHouse_Blocks:
 OlivineGoodRodHouse_Blocks:
 Route39Farmhouse_Blocks:
-MahoganyRedGyaradosSpeechHouse_Blocks:
-BlackthornDragonSpeechHouse_Blocks:
-BlackthornEmysHouse_Blocks:
-MoveDeletersHouse_Blocks:
 CeruleanTradeSpeechHouse_Blocks:
 BillsHouse_Blocks:
-CharcoalKiln_Blocks:
-LakeOfRageHiddenPowerHouse_Blocks:
 LakeOfRageMagikarpHouse_Blocks:
 GoldenrodHappinessRater_Blocks:
 BillsFamilysHouse_Blocks:
@@ -139,7 +133,6 @@ CianwoodLugiaSpeechHouse_Blocks:
 PokeSeersHouse_Blocks:
 ViridianNicknameSpeechHouse_Blocks:
 Route2NuggetHouse_Blocks:
-PlayersNeighborsHouse_Blocks:
 Route26HealHouse_Blocks:
 DayOfWeekSiblingsHouse_Blocks:
 Route27SandstormHouse_Blocks:
@@ -361,16 +354,22 @@ Colosseum_Blocks:
 TradeCenter_Blocks:
 	INCBIN "maps/TradeCenter.blk"
 
-EcruteakLugiaSpeechHouse_Blocks:
-EcruteakItemfinderHouse_Blocks:
 VioletNicknameSpeechHouse_Blocks:
 VioletKylesHouse_Blocks:
+EcruteakLugiaSpeechHouse_Blocks:
+EcruteakItemfinderHouse_Blocks:
 EcruteakFaunaHouse_Blocks:
 EcruteakRemoteWorkHouse_Blocks:
+MahoganyRedGyaradosSpeechHouse_Blocks:
+LakeOfRageHiddenPowerHouse_Blocks:
 	INCBIN "maps/House2.blk"
 
-BetaUnionCave_Blocks: ; unreferenced
-	INCBIN "maps/unused/BetaUnionCave.blk"
+PlayersNeighborsHouse_Blocks:
+CharcoalKiln_Blocks:
+BlackthornDragonSpeechHouse_Blocks:
+BlackthornEmysHouse_Blocks:
+MoveDeletersHouse_Blocks:
+	INCBIN "maps/House3.blk"
 
 UnionCaveB1F_Blocks:
 	INCBIN "maps/UnionCaveB1F.blk"
