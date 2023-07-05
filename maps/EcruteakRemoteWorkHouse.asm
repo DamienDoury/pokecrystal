@@ -1,4 +1,5 @@
 	object_const_def
+	const ECRUTEAKREMOTEWORKHOUSE_MOTHER
 	const ECRUTEAKREMOTEWORKHOUSE_SCIENTIST
 	const ECRUTEAKREMOTEWORKHOUSE_MICKEY
 	const ECRUTEAKREMOTEWORKHOUSE_COMPUTER1
@@ -20,6 +21,13 @@ EcruteakRemoteWorkHouse_MapScripts:
 	changeblock  2,  2, $3a
 .end
 	endcallback
+
+EcruteakRemoteWorkHouse_MotherScript:
+	ifequal 1 << LOCKDOWN, .lockdown
+
+	jumptextfaceplayer EcruteakRemoteWorkHouse_MotherAloneText
+.lockdown
+	jumptextfaceplayer EcruteakRemoteWorkHouse_MotherHappyText
 
 EcruteakRemoteWorkHouse_ScientistScript:
 	faceplayer
@@ -48,6 +56,21 @@ EcruteakRemoteWorkHouse_Computer2Script:
 EcruteakRemoteWorkHouse_Radio:
 	jumpstd Radio1Script
 
+EcruteakRemoteWorkHouse_MotherAloneText:
+	text "This house feels"
+	line "empty without my"
+	cont "two men…"
+	done
+
+EcruteakRemoteWorkHouse_MotherHappyText:
+	text "The stay-at-home"
+	line "order allows me to"
+	cont "see my two men."
+	
+	para "It makes me"
+	line "joyful!"
+	done
+
 EcruteakRemoteWorkHouse_ScientistText:
 	text "I can't wait to"
 	line "back on the field!"
@@ -67,7 +90,7 @@ EcruteakRemoteWorkHouse_MickeyText:
 EcruteakRemoteWorkHouse_Computer2Text:
 	text "It's a text editor."
 
-	para "“-Research notes-"
+	para "-Research notes-"
 	
 	para "The writings in"
 	line "the main chamber"
@@ -80,7 +103,7 @@ EcruteakRemoteWorkHouse_Computer2Text:
 	cont "others."
 	
 	para "No one understands"
-	line "what it's about!”"
+	line "what it's about!"
 	done
 
 EcruteakRemoteWorkHouse_MapEvents:
@@ -95,6 +118,7 @@ EcruteakRemoteWorkHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
+	object_event  5,  1, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_MotherScript, -1
 	object_event  5,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_ScientistScript, -1
 	object_event  2,  3, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_MickeyScript, -1
 	object_event  3,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_Computer1Script, -1

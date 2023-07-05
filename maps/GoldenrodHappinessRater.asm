@@ -7,6 +7,15 @@ GoldenrodHappinessRater_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesLoad
+
+.TilesLoad
+	readmem wCurFreedomState
+	ifnotequal 1 << LOCKDOWN, .end
+
+	changeblock  4,  2, $35
+.end
+	endcallback
 
 GoldenrodHappinessRaterTeacherScript:
 	faceplayer
@@ -58,10 +67,24 @@ GoldenrodHappinessRaterTeacherScript:
 	end
 
 GoldenrodHappinessRaterPokefanMScript:
-	jumptextfaceplayer GoldenrodHappinessRaterPokefanMText
+	faceplayer
+	ifequal 1 << LOCKDOWN, .lockdown
+
+	jumptext GoldenrodHappinessRaterPokefanMText
+.lockdown
+	faceplayer
+	opentext
+	writetext GoldenrodHappinessRaterPokefanMCatFilterText
+	waitbutton
+	closetext
+	turnobject GOLDENRODHAPPINESSRATER_POKEFAN_M, LEFT
+	end
 
 GoldenrodHappinessRaterTwinScript:
 	jumptextfaceplayer GoldenrodHappinessRaterTwinText
+
+GoldenrodHappinessRaterComputer1Script:
+	jumptext GoldenrodHappinessRaterComputer1Text
 
 HappinessRatersHouseBookshelf:
 	jumpstd DifficultBookshelfScript
@@ -128,6 +151,19 @@ GoldenrodHappinessRaterPokefanMText:
 	cont "like me much…"
 	done
 
+GoldenrodHappinessRaterPokefanMCatFilterText:
+	text "I'm not a MEOWTH!"
+	done
+
+GoldenrodHappinessRaterComputer1Text:
+	text "This man is on a"
+	line "virtual hearing"
+	cont "with a judge."
+
+	para "He has… a MEOWTH"
+	line "filter turned on."
+	done
+
 GoldenrodHappinessRaterTwinText:
 	text "When I use an item"
 	line "on my #MON, it"
@@ -152,3 +188,5 @@ GoldenrodHappinessRater_MapEvents:
 	object_event  2,  4, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterTeacherScript, -1
 	object_event  5,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterPokefanMScript, -1
 	object_event  5,  6, SPRITE_TWIN, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterTwinScript, -1
+	object_event  4,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterComputer1Script, -1
+	
