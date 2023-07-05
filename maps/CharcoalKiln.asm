@@ -10,6 +10,7 @@ CharcoalKiln_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_SPRITES, .MoveCharcoalKilnApprentice
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .DummyScene0:
 	end
@@ -24,6 +25,11 @@ CharcoalKiln_MapScripts:
 	moveobject CHARCOALKILN_YOUNGSTER, 0, 4
 	turnobject CHARCOALKILN_YOUNGSTER, RIGHT
 .Skip:
+	endcallback
+
+.TilesLoad
+	changeblock  2,  0, $30
+	changeblock  6,  0, $1b
 	endcallback
 
 LockdownFirstDeclaration:
@@ -334,7 +340,8 @@ CharcoalKiln_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, CharcoalKilnBookshelf
 	bg_event  1,  1, BGEVENT_READ, CharcoalKilnBookshelf
-	bg_event  7,  1, BGEVENT_READ, CharcoalKilnRadio
+	bg_event  6,  1, BGEVENT_READ, CharcoalKilnBookshelf
+	bg_event  7,  1, BGEVENT_READ, CharcoalKilnBookshelf
 
 	def_object_events
 	object_event  2,  3, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharcoalKilnBoss, EVENT_CHARCOAL_KILN_BOSS
