@@ -4,16 +4,16 @@
 
 MrPokemonsHouse_MapScripts:
 	def_scene_scripts
-	scene_script .MeetMrPokemon ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .MeetMrPokemon ; SCENE_ALWAYS
 
 	def_callbacks
 
 .MeetMrPokemon:
-	prioritysjump .MrPokemonEvent
-	end
+	checkevent EVENT_MR_POKEMONS_HOUSE_OAK
+	iftrue .end
 
-.DummyScene:
+	prioritysjump .MrPokemonEvent
+.end
 	end
 
 .MrPokemonEvent:
@@ -98,7 +98,7 @@ MrPokemonsHouse_OakScript:
 	turnobject PLAYER, DOWN
 	applymovement MRPOKEMONSHOUSE_OAK, MrPokemonsHouse_OakExits
 	playsound SFX_EXIT_BUILDING
-	disappear MRPOKEMONSHOUSE_OAK
+	disappear MRPOKEMONSHOUSE_OAK ; Also sets EVENT_MR_POKEMONS_HOUSE_OAK.
 	waitsfx
 	special RestartMapMusic
 	pause 15
@@ -117,8 +117,7 @@ MrPokemonsHouse_OakScript:
 	setevent EVENT_RIVAL_NEW_BARK_TOWN
 	setevent EVENT_PLAYERS_HOUSE_1F_NEIGHBOR
 	clearevent EVENT_PLAYERS_NEIGHBORS_HOUSE_NEIGHBOR
-	setscene SCENE_FINISHED
-	setmapscene CHERRYGROVE_CITY, SCENE_CHERRYGROVECITY_MEET_RIVAL
+	setevent EVENT_CHERRYGROVECITY_MEET_RIVAL
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_MEET_OFFICER
 	specialphonecall SPECIALCALL_ROBBED
 	clearevent EVENT_COP_IN_ELMS_LAB

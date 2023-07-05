@@ -21,8 +21,7 @@ GOLDENRODGAMECORNER_DITTO_COINS 	EQU 1500
 
 GoldenrodGameCorner_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
+	scene_script .DummyScene0 ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .SetTiles
@@ -30,7 +29,6 @@ GoldenrodGameCorner_MapScripts:
 
 	
 .DummyScene0:
-.DummyScene1:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .end
 

@@ -50,8 +50,7 @@ CeruleanCaveEntrance_MapEvents:
 	warp_event  5,  1, CERULEAN_CAVE_B1F, 1
 
 	def_coord_events
-	coord_event  5, 15, SCENE_DEFAULT, CeruleanCaveEntrance_ExitScript
-	coord_event  5, 15, SCENE_FINISHED, CeruleanCaveEntrance_ExitScript
+	coord_event  5, 15, SCENE_ALWAYS, CeruleanCaveEntrance_ExitScript
 
 	def_bg_events
 	bg_event  4,  4, BGEVENT_READ, CeruleanCaveMail

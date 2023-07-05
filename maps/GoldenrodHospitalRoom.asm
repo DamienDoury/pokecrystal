@@ -610,7 +610,7 @@ GoldenrodHospitalRoomHumanPatientScript:
 	sjump GoldenrodHospitalRoomDefaultPatientScript
 
 .room27_advance_quest:
-	setscene 8
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_8
 .room27_quest_text:
 	jumptextfaceplayer GoldenrodHospitalRoom_Quest27Text
 
@@ -733,7 +733,7 @@ GoldenrodHospitalRoomVisitor1Script:
 
 .room2_quest:
 	ifgreater 4, .room2_quest_text
-	setscene 5
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_5
 .room2_quest_text:
 	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
 	
@@ -773,7 +773,7 @@ GoldenrodHospitalRoomVisitor1Script:
 	jumptext GoldenrodHospitalRoom10VisitorNoText
 
 .room10_advance_quest:
-	setscene 7
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_7
 
 .room10_quest_text:
 	jumptext GoldenrodHospitalRoom_Quest10Text	
@@ -794,7 +794,7 @@ GoldenrodHospitalRoomVisitor1Script:
 	ifequal 0, .default_room18
 	ifgreater 9, .default_room18
 	ifgreater 4, .room18_quest_text
-	setscene 5
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_5
 .room18_quest_text:
 	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
 
@@ -818,7 +818,7 @@ GoldenrodHospitalRoomVisitor1Script:
 	sjump .room31_default
 
 .room31_advance_quest:
-	setscene 9
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_9
 .room31_quest:
 	promptbutton
 	writetext GoldenrodHospitalRoom_Quest31Text
@@ -860,7 +860,7 @@ GoldenrodHospitalRoomTrainerRoom8Script:
 	jumptextfaceplayer GoldenrodHospitalTrainerRoom8AfterBattleText
 
 .advance_quest:
-	setscene 6
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_6
 .quest_afterbattle_text:
 	jumptextfaceplayer GoldenrodHospitalRoom_Quest8Text	
 
@@ -945,7 +945,7 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	clearevent EVENT_GOLDENROD_BEATER
 	loadmem wCurFreedomState, 1 << LOCKDOWN
-	setscene 0
+	setscene SCENE_GOLDENROD_HOSPITAL_NO_SEARCH
 	pause 5
 	;special FadeInQuickly
 	special FadeInPalettes

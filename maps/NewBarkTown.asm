@@ -5,17 +5,9 @@
 
 NewBarkTown_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_NEW_BARK
@@ -35,6 +27,9 @@ FakeSilverScript:
 	end
 
 NewBarkTown_TeacherStopsYouScene1:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .end
+
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -55,9 +50,13 @@ NewBarkTown_TeacherStopsYouScene1:
 	waitbutton
 	closetext
 	special RestartMapMusic
+.end
 	end
 
 NewBarkTown_TeacherStopsYouScene2:
+	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
+	iftrue .end
+
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -78,6 +77,7 @@ NewBarkTown_TeacherStopsYouScene2:
 	waitbutton
 	closetext
 	special RestartMapMusic
+.end
 	end
 
 NewBarkTownTeacherScript:
@@ -413,8 +413,8 @@ NewBarkTown_MapEvents:
 	warp_event 11, 13, ELMS_HOUSE, 1
 
 	def_coord_events
-	coord_event  1,  8, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene1
-	coord_event  1,  9, SCENE_DEFAULT, NewBarkTown_TeacherStopsYouScene2
+	coord_event  1,  8, SCENE_ALWAYS, NewBarkTown_TeacherStopsYouScene1
+	coord_event  1,  9, SCENE_ALWAYS, NewBarkTown_TeacherStopsYouScene2
 
 	def_bg_events
 	bg_event  8,  8, BGEVENT_READ, NewBarkTownSign

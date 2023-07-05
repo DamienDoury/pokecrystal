@@ -19,7 +19,6 @@ ENDM
 scene_script: MACRO
 ;\1: script pointer
 	dw \1
-	dw 0 ; filler
 _NUM_SCENE_SCRIPTS = _NUM_SCENE_SCRIPTS + 1
 ENDM
 

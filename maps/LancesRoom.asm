@@ -5,17 +5,18 @@
 
 LancesRoom_MapScripts:
 	def_scene_scripts
-	scene_script .LockDoor ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_LANCESROOM_APPROACH_LANCE
+	scene_script .LockDoor ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .LancesRoomDoors
 
 .LockDoor:
-	prioritysjump .LancesDoorLocksBehindYou
-	end
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 
-.DummyScene:
+	prioritysjump .LancesDoorLocksBehindYou
+.end
 	end
 
 .LancesRoomDoors:
@@ -37,7 +38,6 @@ LancesRoom_MapScripts:
 	changeblock 4, 22, $34 ; wall
 	reloadmappart
 	closetext
-	setscene SCENE_LANCESROOM_APPROACH_LANCE
 	setevent EVENT_LANCES_ROOM_ENTRANCE_CLOSED
 	end
 
@@ -363,8 +363,8 @@ LancesRoom_MapEvents:
 	warp_event  5, 23, KARENS_ROOM, 4
 
 	def_coord_events
-	coord_event  4,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachLanceFromLeft
-	coord_event  5,  5, SCENE_LANCESROOM_APPROACH_LANCE, Script_ApproachLanceFromRight
+	coord_event  4,  5, SCENE_ALWAYS, Script_ApproachLanceFromLeft
+	coord_event  5,  5, SCENE_ALWAYS, Script_ApproachLanceFromRight
 
 	def_bg_events
 

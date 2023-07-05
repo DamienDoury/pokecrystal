@@ -17,7 +17,7 @@ CheckScenes::
 	or h
 	ld a, [hl]
 	jr nz, .scene_exists
-	ld a, -1
+	ld a, SCENE_ALWAYS
 
 .scene_exists
 	pop hl
@@ -44,6 +44,11 @@ GetCurrentMapSceneID::
 	ld [wCurMapSceneScriptPointer + 1], a
 	xor a
 	ret
+
+; In vanilla, this function is called 4 times by the battle_tower (twice in the mobile scripts), 
+; and once by Script_checkmapscene and by Script_setmapscene.
+; Also once by the function GetCurrentMapSceneID above.
+; The latter is the only one that exploits the carry as a return value.
 
 GetMapSceneID::
 ; Searches the scene_var table for the map group and number loaded in bc, and returns the wram pointer in de.
@@ -1952,7 +1957,7 @@ CheckCurrentMapCoordEvents::
 	ld a, [hli]
 	cp b
 	jr z, .got_id
-	cp -1
+	cp SCENE_ALWAYS ; -1
 	jr nz, .next
 
 .got_id

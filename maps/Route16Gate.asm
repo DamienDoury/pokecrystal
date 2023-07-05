@@ -3,12 +3,8 @@
 
 Route16Gate_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
-
-.DummyScene:
-	end
 
 Route16GateOfficerScript:
 	jumptextfaceplayer Route16GateOfficerText
@@ -86,8 +82,8 @@ Route16Gate_MapEvents:
 	warp_event  9,  5, ROUTE_16, 3
 
 	def_coord_events
-	coord_event  5,  4, SCENE_DEFAULT, Route16GateBicycleCheck
-	coord_event  5,  5, SCENE_DEFAULT, Route16GateBicycleCheck
+	coord_event  5,  4, SCENE_ALWAYS, Route16GateBicycleCheck
+	coord_event  5,  5, SCENE_ALWAYS, Route16GateBicycleCheck
 
 	def_bg_events
 

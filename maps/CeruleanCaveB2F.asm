@@ -67,10 +67,10 @@ CeruleanCaveB2F_MapEvents:
 	warp_event  5,  5, CERULEAN_CAVE_B1F, 7
 
 	def_coord_events
-	coord_event 15,  9, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy1
-	coord_event 21, 13, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy2
-	coord_event 24,  6, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy3
-	coord_event  6,  7, SCENE_DEFAULT, CeruleanCaveB2F_MewtwoTelepathy4
+	coord_event 15,  9, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy1
+	coord_event 21, 13, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy2
+	coord_event 24,  6, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy3
+	coord_event  6,  7, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy4
 
 	def_bg_events
 

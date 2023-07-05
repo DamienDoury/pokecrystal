@@ -171,7 +171,7 @@ GoldenrodHospitalCorridorPokefan1Script:
 	jumptextfaceplayer GoldenrodHospitalPokefanMTrainerAfterBattleText
 
 .advance_quest:
-	setscene 10
+	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_10
 .quest_afterbattle_text:
 	jumptextfaceplayer GoldenrodHospitalCorridorPokefanMTrainerQuestText		
 

@@ -33,11 +33,6 @@ EnableEvents::
 	ld [wScriptFlags2], a
 	ret
 
-CheckBit5_ScriptFlags2:
-	ld hl, wScriptFlags2
-	bit 5, [hl]
-	ret
-
 EnableWildEncounters:
 	ld hl, wScriptFlags2
 	set 4, [hl]
@@ -208,8 +203,6 @@ PlayerEvents:
 	and a
 	ret nz
 
-	call Dummy_CheckScriptFlags2Bit5 ; This is a waste of time
-
 	call CheckTrainerBattle_GetPlayerEvent
 	jr c, .ok
 
@@ -360,12 +353,6 @@ SetMinTwoStepWildEncounterCooldown:
 	ld [wWildEncounterCooldown], a
 	ret
 
-Dummy_CheckScriptFlags2Bit5:
-	call CheckBit5_ScriptFlags2
-	ret z
-	call SetXYCompareFlags
-	ret
-
 RunSceneScript:
 	ld a, [wCurMapSceneScriptCount]
 	and a
@@ -373,18 +360,22 @@ RunSceneScript:
 
 	ld c, a
 	call CheckScenes
+	ld hl, wCurMapSceneScriptsPointer
+	ld e, 0
+	cp SCENE_ALWAYS
+	jr z, .ok
+	
 	cp c
 	jr nc, .nope
 
+	add a ; There should not be more than $7f scene IDs per map, otherwise this will overflow. We have a safe margin.
 	ld e, a
+.ok
 	ld d, 0
-	ld hl, wCurMapSceneScriptsPointer
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-rept SCENE_SCRIPT_SIZE
 	add hl, de
-endr
 
 	call GetMapScriptsBank
 	call GetFarWord

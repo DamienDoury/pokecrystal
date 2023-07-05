@@ -3,8 +3,7 @@
 
 KarensRoom_MapScripts:
 	def_scene_scripts
-	scene_script .LockDoor ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .LockDoor ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .EnterCallback
@@ -12,9 +11,6 @@ KarensRoom_MapScripts:
 
 .LockDoor:
 	prioritysjump .KarensDoorLocksBehindYou
-	end
-
-.DummyScene:
 	end
 
 .EnterCallback:
@@ -45,7 +41,6 @@ KarensRoom_MapScripts:
 	changeblock 4, 14, $2a ; wall
 	reloadmappart
 	closetext
-	setscene SCENE_FINISHED
 	setevent EVENT_KARENS_ROOM_ENTRANCE_CLOSED
 	waitsfx
 	end

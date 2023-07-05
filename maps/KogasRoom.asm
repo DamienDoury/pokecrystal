@@ -3,17 +3,18 @@
 
 KogasRoom_MapScripts:
 	def_scene_scripts
-	scene_script .LockDoor ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .LockDoor ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .KogasRoomDoors
 
 .LockDoor:
-	prioritysjump .KogasDoorLocksBehindYou
-	end
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 
-.DummyScene:
+	prioritysjump .KogasDoorLocksBehindYou
+.end
 	end
 
 .KogasRoomDoors:
@@ -35,7 +36,6 @@ KogasRoom_MapScripts:
 	changeblock 4, 14, $2a ; wall
 	reloadmappart
 	closetext
-	setscene SCENE_FINISHED
 	setevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED
 	waitsfx
 	end

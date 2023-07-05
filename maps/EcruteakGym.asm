@@ -9,20 +9,23 @@
 
 EcruteakGym_MapScripts:
 	def_scene_scripts
-	scene_script .ForcedToLeave ; SCENE_DEFAULT
-	scene_script .TeamCheck ; SCENE_FINISHED
+	scene_script .Scene ; SCENE_ALWAYS
 
 	def_callbacks
+
+.Scene:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+
+	checkevent EVENT_RELEASED_THE_BEASTS
+	iftrue .TeamCheck
 
 .ForcedToLeave:
 	prioritysjump EcruteakGymClosed
 	end
 
-.TeamCheck:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	iftrue .no_check
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	
+.TeamCheck:	
 	checkevent EVENT_BEAT_MORTY
 	iftrue .no_check
 
@@ -54,9 +57,7 @@ EcruteakGym_MapScripts:
 	callstd GymGuidePlayerLeavesScript
 	warp ECRUTEAK_CITY, 6, 27
 .no_check
-	end
-
-.DummyScene:
+.end
 	end
 
 EcruteakGymMortyScript:
@@ -90,9 +91,9 @@ EcruteakGymMortyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_FOGBADGE
-	setmapscene ECRUTEAK_TIN_TOWER_ENTRANCE, SCENE_FINISHED
-	setevent EVENT_RANG_CLEAR_BELL_1
-	setevent EVENT_RANG_CLEAR_BELL_2
+	setevent EVENT_RANG_CLEAR_BELL ; This and the 2 following lines will make the Sage take blocks the Tin Tower Entrance permanently IF the player carries the Clear Bell the next time it enters the Tin Tower Entrance. This is vanilla behaviour.
+	setevent EVENT_TINTOWER_SAGE_LEFT
+	setevent EVENT_TINTOWER_SAGE_RIGHT
 .FightDone:
 	checkevent EVENT_GOT_TM30_SHADOW_BALL
 	iftrue .GotShadowBall

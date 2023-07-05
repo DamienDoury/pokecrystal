@@ -6,13 +6,9 @@
 
 SeafoamGym_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .RaveParty
-
-.DummyScene
-	end
 
 .RaveParty:
 	clearevent EVENT_CINNABAR_RAVE_PARTY

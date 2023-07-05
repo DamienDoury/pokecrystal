@@ -8,8 +8,7 @@
 
 FuchsiaGym_MapScripts:
 	def_scene_scripts
-	scene_script .TeamCheck ; SCENE_DEFAULT
-	scene_script .TeamCheck ; SCENE_FINISHED
+	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
 

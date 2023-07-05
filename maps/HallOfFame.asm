@@ -3,16 +3,17 @@
 
 HallOfFame_MapScripts:
 	def_scene_scripts
-	scene_script .EnterHallOfFame ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .EnterHallOfFame ; SCENE_ALWAYS
 
 	def_callbacks
 
 .EnterHallOfFame:
-	prioritysjump .EnterHallOfFameScript
-	end
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 
-.DummyScene:
+	prioritysjump .EnterHallOfFameScript
+.end
 	end
 
 .EnterHallOfFameScript:
@@ -27,7 +28,6 @@ HallOfFame_MapScripts:
 	closetext
 	turnobject HALLOFFAME_LANCE, UP
 	applymovement PLAYER, HallOfFame_SlowlyApproachMachine
-	setscene SCENE_FINISHED
 	pause 15
 	setval HEALMACHINE_HALL_OF_FAME
 	special HealMachineAnim
@@ -36,7 +36,6 @@ HallOfFame_MapScripts:
 	setevent EVENT_RIVAL_SPROUT_TOWER
 	setevent EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	clearevent EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	setmapscene SPROUT_TOWER_3F, SCENE_FINISHED
 	special HealParty
 	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue .SkipPhoneCall

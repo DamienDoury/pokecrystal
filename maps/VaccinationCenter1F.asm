@@ -6,7 +6,7 @@
 VaccinationCenter1F_MapScripts:
     def_scene_scripts
     scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene0 ; SCENE_FINISHED
+	scene_script .DummyScene0 ; SCENE_VACCINATION_CENTER_FIND_SEAT
 
     def_callbacks
     callback MAPCALLBACK_OBJECTS, .EnterCallback
@@ -39,13 +39,13 @@ VaccinationCenterReceptionistScript:
     iftrue .in_construction 
 
     checkscene
-    ifequal 2, .your_turn
+    ifequal SCENE_VACCINATION_CENTER_YOUR_TURN, .your_turn
 
     checkmapscene GOLDENROD_HOSPITAL_1F
     ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, .AskGelScript
 
 .CleanHands:
-    checkscene SCENE_FINISHED
+    checkscene SCENE_VACCINATION_CENTER_FIND_SEAT
     iftrue .accepted
 
     opentext 
@@ -60,7 +60,7 @@ VaccinationCenterReceptionistScript:
     yesorno
     iffalse .refused
 
-    setscene SCENE_FINISHED
+    setscene SCENE_VACCINATION_CENTER_FIND_SEAT
 .accepted:
     jumptext VaccinationCenterAcceptedText
 
@@ -140,7 +140,7 @@ VaccinationCenterAllowedSeatScript:
 
     moveobject VACCINATION_CENTER_WAITRESS, 10, 1
 
-    setscene 2
+    setscene SCENE_VACCINATION_CENTER_YOUR_TURN
     end
 
 VaccinationCenterGoToOffice:
@@ -346,19 +346,19 @@ VaccinationCenter1F_MapEvents:
 	warp_event 10,  0, VACCINATION_CENTER_CORRIDOR, 1
 
     def_coord_events
-	coord_event  9,  3, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event 13,  3, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event 15,  3, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event 14,  1, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event 12,  1, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event  7,  3, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event  8,  1, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
-	coord_event  6,  1, SCENE_FINISHED, VaccinationCenterForbiddenSeatScript
+	coord_event  9,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 13,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 15,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 14,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 12,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  7,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  8,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  6,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
 
-	coord_event  9,  1, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
-	coord_event 13,  1, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
-	coord_event 12,  3, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
-	coord_event  8,  3, SCENE_FINISHED, VaccinationCenterAllowedSeatScript
+	coord_event  9,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event 13,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event 12,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event  8,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
 
 	coord_event 10,  2, 2, VaccinationCenterGoToOffice
     

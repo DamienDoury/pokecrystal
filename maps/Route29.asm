@@ -26,17 +26,9 @@
 
 Route29_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_ROUTE29_NOTHING
-	scene_script .DummyScene1 ; SCENE_ROUTE29_CATCH_TUTORIAL
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .Tuscany
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .Tuscany:
 	checkflag ENGINE_ZEPHYRBADGE
@@ -53,43 +45,42 @@ Route29_MapScripts:
 	endcallback
 
 Route29Tutorial1:
+	checkevent EVENT_CATCHING_TUTORIAL_AVAILABLE
+	iffalse Route29Tutorial2.end
+	clearevent EVENT_CATCHING_TUTORIAL_AVAILABLE
+
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	showemote EMOTE_SHOCK, ROUTE29_COOLTRAINER_M1, 15
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1a
 	turnobject PLAYER, LEFT
-	setevent EVENT_DUDE_TALKED_TO_YOU
 	opentext
 	writetext CatchingTutorialIntroText
 	yesorno
 	iffalse Script_RefusedTutorial1
+
 	closetext
 	follow ROUTE29_COOLTRAINER_M1, PLAYER
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1b
-	stopfollow
-	loadwildmon RATTATA, 5
-	catchtutorial BATTLETYPE_TUTORIAL
-	turnobject ROUTE29_COOLTRAINER_M1, UP
-	opentext
-	writetext CatchingTutorialDebriefText
-	waitbutton
-	closetext
-	setscene SCENE_ROUTE29_NOTHING
-	setevent EVENT_LEARNED_TO_CATCH_POKEMON
-	end
+	sjump Route29Tutorial2.tuto_end
 
 Route29Tutorial2:
+	checkevent EVENT_CATCHING_TUTORIAL_AVAILABLE
+	iffalse .end
+	clearevent EVENT_CATCHING_TUTORIAL_AVAILABLE
+	
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	showemote EMOTE_SHOCK, ROUTE29_COOLTRAINER_M1, 15
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2a
 	turnobject PLAYER, LEFT
-	setevent EVENT_DUDE_TALKED_TO_YOU
 	opentext
 	writetext CatchingTutorialIntroText
 	yesorno
 	iffalse Script_RefusedTutorial2
+	
 	closetext
 	follow ROUTE29_COOLTRAINER_M1, PLAYER
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2b
+.tuto_end
 	stopfollow
 	loadwildmon RATTATA, 5
 	catchtutorial BATTLETYPE_TUTORIAL
@@ -98,8 +89,8 @@ Route29Tutorial2:
 	writetext CatchingTutorialDebriefText
 	waitbutton
 	closetext
-	setscene SCENE_ROUTE29_NOTHING
 	setevent EVENT_LEARNED_TO_CATCH_POKEMON
+.end
 	end
 
 Script_RefusedTutorial1:
@@ -107,7 +98,6 @@ Script_RefusedTutorial1:
 	waitbutton
 	closetext
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1b
-	setscene SCENE_ROUTE29_NOTHING
 	end
 
 Script_RefusedTutorial2:
@@ -115,7 +105,6 @@ Script_RefusedTutorial2:
 	waitbutton
 	closetext
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2b
-	setscene SCENE_ROUTE29_NOTHING
 	end
 
 CatchingTutorialDudeScript:
@@ -431,8 +420,8 @@ Route29_MapEvents:
 	warp_event 27,  1, ROUTE_29_ROUTE_46_GATE, 3
 
 	def_coord_events
-	coord_event 53,  8, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial1
-	coord_event 53,  9, SCENE_ROUTE29_CATCH_TUTORIAL, Route29Tutorial2
+	coord_event 53,  8, SCENE_ALWAYS, Route29Tutorial1
+	coord_event 53,  9, SCENE_ALWAYS, Route29Tutorial2
 
 	def_bg_events
 	bg_event 51,  7, BGEVENT_READ, Route29Sign1

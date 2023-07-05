@@ -459,8 +459,7 @@ CeruleanCity_MapEvents:
 	warp_event  9, 13, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 3
 
 	def_coord_events
-	coord_event  6,  9, SCENE_DEFAULT, AshPikachuLeadsToCeruleanCave
-	coord_event  6,  9, SCENE_FINISHED, AshPikachuLeadsToCeruleanCave
+	coord_event  6,  9, SCENE_ALWAYS, AshPikachuLeadsToCeruleanCave
 
 	def_bg_events
 	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign

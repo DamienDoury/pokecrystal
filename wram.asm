@@ -2931,54 +2931,23 @@ wPlayerState:: db
 ; So we could also squeeze 2 scenes per byte to save 6 more bytes in the WRAM.
 ; In total, by using 2 scenes per byte and flags, we could save 64 bytes of saved WRAM, not counting the use of a default scene script.
 wPokecenter2FSceneID::                            db
-wTradeCenterSceneID::                             db
 wColosseumSceneID::                               db
 wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db
-wTrainerHouseB1FSceneID::                         db
-wVictoryRoadGateSceneID::                         db
-wSaffronMagnetTrainStationSceneID::               db
-wRoute16GateSceneID::                             db
-wRoute17Route18GateSceneID::                      db
-wIndigoPlateauPokecenter1FSceneID::               db
-wWillsRoomSceneID::                               db
-wKogasRoomSceneID::                               db
-wBrunosRoomSceneID::                              db
-wKarensRoomSceneID::                              db
-wLancesRoomSceneID::                              db
-wHallOfFameSceneID::                              db
-wRoute27SceneID::                                 db
-wNewBarkTownSceneID::                             db
 wElmsLabSceneID::                                 db
-wPlayersHouse1FSceneID::                          db
-wRoute29SceneID::                                 db
-wCherrygroveCitySceneID::                         db
-wMrPokemonsHouseSceneID::                         db
 wRoute32SceneID::                                 db
 wRoute35NationalParkGateSceneID::                 db
 wRoute36SceneID::                                 db
 wRoute36NationalParkGateSceneID::                 db
 wAzaleaTownSceneID::                              db
-wGoldenrodGymSceneID::                            db
-wGoldenrodMagnetTrainStationSceneID::             db
-wOlivineCitySceneID::                             db
-wRoute34SceneID::                                 db
-wRoute34IlexForestGateSceneID::                   db
-wEcruteakTinTowerEntranceSceneID::                db
-wWiseTriosRoomSceneID::                           db
-wEcruteakPokecenter1FSceneID::                    db
-wEcruteakGymSceneID::                             db
 wRoute42SceneID::                                 db
 wCianwoodCitySceneID::                            db
 wBattleTower1FSceneID::                           db
 wBattleTowerBattleRoomSceneID::                   db
 wBattleTowerElevatorSceneID::                     db
 wBattleTowerHallwaySceneID::                      db
-wBattleTowerOutsideSceneID::                      db
-wRoute43GateSceneID::                             db
 wMountMoonSceneID::                               db
-wSproutTower3FSceneID::                           db
 wTinTower1FSceneID::                              db
 wBurnedTower1FSceneID::                           db
 wBurnedTowerB1FSceneID::                          db
@@ -2995,7 +2964,6 @@ wTeamRocketBaseB1FSceneID::                       db
 wTeamRocketBaseB2FSceneID::                       db
 wTeamRocketBaseB3FSceneID::                       db
 wGoldenrodUndergroundSwitchRoomEntrancesSceneID:: db
-wSilverCaveRoom3SceneID::                         db
 wVictoryRoadSceneID::                             db
 wDragonsDenB1FSceneID::                           db
 wDragonShrineSceneID::                            db
@@ -3010,6 +2978,8 @@ wCharcoalKilnSceneID::							  db
 wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
+
+	ds 32
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 

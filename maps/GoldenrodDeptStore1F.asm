@@ -6,7 +6,7 @@
 
 GoldenrodDeptStore1F_MapScripts:
 	def_scene_scripts
-	scene_script DeptStoreEnterLockdownCheck ; SCENE_DEFAULT
+	scene_script DeptStoreEnterLockdownCheck ; SCENE_ALWAYS
 
 	def_callbacks
 

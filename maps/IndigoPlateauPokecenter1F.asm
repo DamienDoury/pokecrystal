@@ -8,21 +8,11 @@
 
 IndigoPlateauPokecenter1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene ; SCENE_DEFAULT
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .PrepareElite4
 
-.DummyScene:
-	end
-
 .PrepareElite4:
-	setmapscene WILLS_ROOM, SCENE_DEFAULT
-	setmapscene KOGAS_ROOM, SCENE_DEFAULT
-	setmapscene BRUNOS_ROOM, SCENE_DEFAULT
-	setmapscene KARENS_ROOM, SCENE_DEFAULT
-	setmapscene LANCES_ROOM, SCENE_DEFAULT
-	setmapscene HALL_OF_FAME, SCENE_DEFAULT
 	clearevent EVENT_WILLS_ROOM_ENTRANCE_CLOSED
 	clearevent EVENT_WILLS_ROOM_EXIT_OPEN
 	clearevent EVENT_KOGAS_ROOM_ENTRANCE_CLOSED
@@ -128,7 +118,6 @@ PlateauRivalPostBattle:
 	turnobject PLAYER, DOWN
 	applymovement INDIGOPLATEAUPOKECENTER1F_SILVER, PlateauRivalLeavesMovement
 	disappear INDIGOPLATEAUPOKECENTER1F_SILVER
-	setscene SCENE_DEFAULT
 	playmapmusic
 	setflag ENGINE_INDIGO_PLATEAU_RIVAL_FIGHT
 PlateauRivalScriptDone:
@@ -279,8 +268,8 @@ IndigoPlateauPokecenter1F_MapEvents:
 	warp_event 14,  3, WILLS_ROOM, 1
 
 	def_coord_events
-	coord_event 16,  4, SCENE_DEFAULT, PlateauRivalBattle1
-	coord_event 17,  4, SCENE_DEFAULT, PlateauRivalBattle2
+	coord_event 16,  4, SCENE_ALWAYS, PlateauRivalBattle1
+	coord_event 17,  4, SCENE_ALWAYS, PlateauRivalBattle2
 
 	def_bg_events
 

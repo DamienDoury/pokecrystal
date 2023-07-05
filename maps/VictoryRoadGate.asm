@@ -5,18 +5,13 @@
 
 VictoryRoadGate_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
-
 VictoryRoadGateBadgeCheckScene:
+	checkevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
+	iftrue VictoryRoadGateBadgeCheckScript.end
+
 	turnobject PLAYER, LEFT
 	sjump VictoryRoadGateBadgeCheckScript
 
@@ -38,7 +33,8 @@ VictoryRoadGateBadgeCheckScript:
 	writetext VictoryRoadGateEightBadgesText
 	waitbutton
 	closetext
-	setscene SCENE_FINISHED
+	setevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
+.end
 	end
 
 VictoryRoadGateLeftBlackBeltScript:
@@ -109,7 +105,7 @@ VictoryRoadGate_MapEvents:
 	warp_event  2,  7, ROUTE_28, 2
 
 	def_coord_events
-	coord_event 10, 11, SCENE_DEFAULT, VictoryRoadGateBadgeCheckScene
+	coord_event 10, 11, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
 
 	def_bg_events
 
