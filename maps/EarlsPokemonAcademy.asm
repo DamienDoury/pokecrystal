@@ -495,7 +495,7 @@ AcademyNotebookText:
 	text "It's this kid's"
 	line "notebook…"
 
-	para "It's almost impos-"
+	para "“It's almost impos-"
 	line "sible to catch a"
 	cont "healthy #MON."
 
@@ -509,27 +509,28 @@ AcademyNotebookText:
 	cont "to catch."
 
 	para "Ideally, leave the"
-	line "target at 1 HP."
+	line "target at 1 HP.”"
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText1:
-	text "Paralyzing or"
+	text "“Paralyzing or"
 	line "freezing a #MON"
 	cont "multiplies your"
 	cont "odds of success."
 
 	para "Some statuses are"
 	line "more effective"
-	cont "than others."
+	cont "than others.”"
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText2:
-	text "Lowering a #MON"
-	line "stats also helps."
+	text "“Lowering a"
+	line "#MON's stats"
+	cont "also helps."
 
 	para "It's particularly"
 	line "useful with in-"
@@ -538,13 +539,13 @@ AcademyNotebookText2:
 	para "Combining this"
 	line "with a status"
 	cont "ailment can be"
-	cont "very efficient."
+	cont "very efficient.”"
 
 	para "Keep reading?"
 	done
 
 AcademyNotebookText3:
-	text "Once your party"
+	text "“Once your party"
 	line "reaches the limit"
 	cont "of 6 #MON,"
 
@@ -561,7 +562,7 @@ AcademyNotebookText3:
 	line "always switches"
 	cont "to an empty BOX"
 	cont "before going on"
-	cont "an adventure."
+	cont "an adventure.”"
 
 	para "The next page"
 	line "is… Blank!"

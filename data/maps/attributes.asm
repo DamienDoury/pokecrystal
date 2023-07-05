@@ -717,3 +717,4 @@ ENDM
 	map_attributes SeafoamGymB3F, SEAFOAM_GYM_B3F, $09, 0
 	map_attributes SeafoamGymB4F, SEAFOAM_GYM_B4F, $09, 0
 	map_attributes SeafoamGymB5F, SEAFOAM_GYM_B5F, $09, 0
+	map_attributes EcruteakRemoteWorkHouse, ECRUTEAK_REMOTE_WORK_HOUSE, $00, 0

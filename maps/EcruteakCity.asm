@@ -339,6 +339,7 @@ EcruteakCity_MapEvents:
 	warp_event  0, 19, ROUTE_38_ECRUTEAK_GATE, 4
 	warp_event 29, 27, ECRUTEAK_FAUNA_HOUSE, 1
 	warp_event 13, 11, ECRUTEAK_POLICE_STATION, 1
+	warp_event 13, 17, ECRUTEAK_REMOTE_WORK_HOUSE, 1
 
 	def_coord_events
 
