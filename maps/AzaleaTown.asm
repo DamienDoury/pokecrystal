@@ -517,12 +517,12 @@ AzaleaTownPokefanRushText:
 	done
 
 AzaleaTownApprenticeRushText:
-	text "There is no way"
-	line "I will be able to"
-	cont "get into the"
-	cont "#MON MART"
-	cont "before it's too"
-	cont "late…"
+	text "APPRENTICE: There"
+	line "is no way I will"
+	cont "be able to get"
+	cont "into the #MON"
+	cont "MART before it's"
+	cont "too late…"
 	done
 
 AzaleaTown_MapEvents:

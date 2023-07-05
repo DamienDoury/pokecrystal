@@ -235,16 +235,18 @@ CharcoalKilnBossText3:
 	done
 
 CharcoalKilnApprenticeText1:
-	text "Where have all the"
-	line "SLOWPOKE gone?"
+	text "APPRENTICE: Where"
+	line "have all the"
+	cont "SLOWPOKE gone?"
 
 	para "Are they out play-"
 	line "ing somewhere?"
 	done
 
 CharcoalKilnApprenticeText2:
-	text "I'm sorry--I for-"
-	line "got to thank you."
+	text "APPRENTICE: I'm"
+	line "sorry--I forgot"
+	cont "to thank you."
 
 	para "This is CHARCOAL"
 	line "that I made."
@@ -255,8 +257,9 @@ CharcoalKilnApprenticeText2:
 	done
 
 CharcoalKilnApprenticeText3:
-	text "The SLOWPOKE came"
-	line "back, and you even"
+	text "APPRENTICE: The"
+	line "SLOWPOKE came"
+	cont "back, and you even"
 	cont "found FARFETCH'D."
 
 	para "You're the cool-"
@@ -345,5 +348,5 @@ CharcoalKiln_MapEvents:
 
 	def_object_events
 	object_event  2,  3, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharcoalKilnBoss, EVENT_CHARCOAL_KILN_BOSS
-	object_event  5,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharcoalKilnApprentice, EVENT_CHARCOAL_KILN_APPRENTICE
+	object_event  5,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CharcoalKilnApprentice, EVENT_CHARCOAL_KILN_APPRENTICE
 	object_event  5,  6, SPRITE_FARFETCH_D, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CharcoalKilnFarfetchd, EVENT_CHARCOAL_KILN_FARFETCH_D
