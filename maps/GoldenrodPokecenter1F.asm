@@ -22,6 +22,10 @@ GoldenrodPokecenter1FLassScript:
 GoldenrodPokecenter1FPokefanF:
 	faceplayer
 	opentext
+
+	checkflag ENGINE_EON_MAIL
+	iftrue .Tomorrow
+
 	writetext GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText
 	waitbutton
 	writetext GoldenrodPokecenter1FAskGiveAwayAnEonMailText
@@ -36,9 +40,9 @@ GoldenrodPokecenter1FPokefanF:
 	verbosegiveitem REVIVE
 	iffalse .NoRoom
 	writetext GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText
-	waitbutton
-	closetext
-	end
+	promptbutton
+	setflag ENGINE_EON_MAIL
+	sjump .Tomorrow
 
 .NoEonMail:
 	writetext GoldenrodPokecenter1FPokefanFTooBadText
@@ -46,9 +50,15 @@ GoldenrodPokecenter1FPokefanF:
 	closetext
 	end
 
+.Tomorrow
+	writetext GoldenrodPokecenter1FPokefanFDaughterTomorrowText
+	sjump .WaitButton
+
 .NoRoom:
 	giveitem EON_MAIL
 	writetext GoldenrodPokecenter1FPokefanFAnotherTimeThenText
+
+.WaitButton
 	waitbutton
 	closetext
 	end
@@ -671,6 +681,14 @@ GoldenrodPokecenter1FPokefanFThisIsForYouText:
 GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText:
 	text "My daughter will"
 	line "be delighted!"
+	done
+
+GoldenrodPokecenter1FPokefanFDaughterTomorrowText:
+	text "Meet me here"
+	line "another day,"
+	
+	para "my daughter may"
+	line "want some more."
 	done
 
 GoldenrodPokecenter1FPokefanFTooBadText:
