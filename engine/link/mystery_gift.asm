@@ -1903,9 +1903,10 @@ PokemonPikachu2GSItemConversion:			; 17 bytes for the function.
 	ld a, [hl]								; 1 byte
 	ret										; 1 byte
 
+; https://projectpokemon.org/home/forums/topic/43930-mystery-gift-reverse-engineering-of-ir-protocol/
 .PokemonPikachu2GSNewGiftTable:				; 21 bytes for the array (10 x 2 + 1).
 	; vanilla item,		replacement item
-	db EON_MAIL,		EON_MAIL		;  50 watts
+	db EON_MAIL,		EON_MAIL		;   0 watt
 	db BERRY,			GOLD_BERRY		; 100 watts
 	db BITTER_BERRY,	POKE_BALL		; 200 watts
 	db GREAT_BALL,		GREAT_BALL		; 300 watts

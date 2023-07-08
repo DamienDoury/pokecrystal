@@ -55,7 +55,7 @@ MysteryGiftItems:
 ;	db FALLBACK_PP2GS_ITEM
 ;	db FALLBACK_PP2GS_ITEM
 ;	db FALLBACK_PP2GS_ITEM
-;	db EON_MAIL 			; 50 watts, EON_MAIL in vanilla.
+;	db EON_MAIL 			; 0 watt, EON_MAIL in vanilla.
 ;	db FALLBACK_PP2GS_ITEM
 ;	db FALLBACK_PP2GS_ITEM
 ;	db MAX_ELIXER 			; 600 watts, MIRACLEBERRY in vanilla.
