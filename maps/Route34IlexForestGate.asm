@@ -92,14 +92,9 @@ Route34IlexForestGateTeacherReturnsMovement:
 	step_end
 
 Route34IlexForestGateTeacherText:
-	text "Oh, honey. You're"
-	line "making a #DEX?"
-
-	para "It must be hard if"
-	line "#MON won't"
-
-	para "appear. Try using"
-	line "this TM."
+	text "Oh honey, can you"
+	line "please get rid of"
+	cont "this for me?"
 	done
 
 Route34IlexForestGateTeacher_GotSweetScent:
@@ -108,8 +103,18 @@ Route34IlexForestGateTeacher_GotSweetScent:
 	para "Use it wherever"
 	line "#MON appear."
 
-	para "#MON will be"
+	para "They will be"
 	line "enticed by it."
+
+	para "But this copy"
+	line "is broken."
+
+	para "My BUTTERFREE uses"
+	line "it often, and I"
+	
+	para "haven't been able"
+	line "to smell it"
+	cont "recently."
 	done
 
 Route34IlexForestGateTeacher_ForestIsRestless:
