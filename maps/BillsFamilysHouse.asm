@@ -7,6 +7,15 @@ BillsFamilysHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesLoad
+
+.TilesLoad
+	checkevent EVENT_MET_BILL
+	iftrue .HaventMetBill
+
+	changeblock  2,  2, $36
+.HaventMetBill
+	endcallback
 
 BillScript:
 	jumptextfaceplayer BillTakeThisEeveeText
@@ -58,6 +67,9 @@ BillsSisterScript:
 	writetext BillsSisterPhoneFullText
 	promptbutton
 	sjump .Refused
+
+BillsComputerScript:
+	jumptext BillsComputerText
 
 BillsHouseBookshelf1:
 	jumpstd PictureBookshelfScript
@@ -148,6 +160,31 @@ BillsSisterStorageSystemText:
 	line "system."
 	done
 
+BillsComputerText:
+	text "ld a, [hl]"
+	line "ld e, a"
+	
+	cont "and <PERCENT>01010101"
+	cont "ld d, a"
+	
+	cont "ld a, e"
+	cont "srl a"
+	
+	cont "and <PERCENT>01010101"
+	cont "and d"
+	
+	cont "cpl"
+	cont "and <PERCENT>01010101"
+	
+	cont "add e"
+	cont "ld [hli], a"
+	
+	cont "…"
+
+	para "What are those"
+	line "alien writings?"
+	done
+
 BillsFamilysHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -166,3 +203,4 @@ BillsFamilysHouse_MapEvents:
 	object_event  2,  3, SPRITE_BILL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BillScript, EVENT_MET_BILL
 	object_event  5,  3, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BillsMomScript, -1
 	object_event  5,  4, SPRITE_TWIN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BillsSisterScript, -1
+	object_event  3,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BillsComputerScript, EVENT_MET_BILL
