@@ -322,8 +322,8 @@ TravelControllerChatScript::
 	jumptextfaceplayer TravelControllerMorningOnlyText
 
 ArrestPlayerForTravellingScript::
-	readmem wPreventTrainerBattles ; IMPORTANT: A VIRER, TO DELETE, TO REMOVE, Damien.
-	ifequal $1, .end
+	;readmem wPreventTrainerBattles ; IMPORTANT: A VIRER, TO DELETE, TO REMOVE, Damien.
+	;ifequal $1, .end
 
 	readmem wMap1ObjectStructID
 	ifequal $ff, .end

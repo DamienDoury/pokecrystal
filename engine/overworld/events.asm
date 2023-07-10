@@ -250,9 +250,9 @@ CheckTrainerBattle_GetPlayerEvent:
 	call CheckTrainerBattle
 	jr nc, .nope
 
-	ld a, [wPreventTrainerBattles]
-	cp TRUE
-	jr z, .nope
+	;ld a, [wPreventTrainerBattles]
+	;cp TRUE
+	;jr z, .nope
 
 	ld a, PLAYEREVENT_SEENBYTRAINER
 	scf
