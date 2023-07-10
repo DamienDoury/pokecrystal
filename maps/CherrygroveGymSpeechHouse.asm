@@ -8,17 +8,43 @@ CherrygroveGymSpeechHouse_MapScripts:
 	def_callbacks
 
 CherrygroveGymSpeechHousePokefanMScript:
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .beforeLockdown
+
 	readvar VAR_BADGES
 	ifless 4, .before_pcr
+
 	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM2Text
 .before_pcr
 	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM1Text
+.beforeLockdown
+	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM0Text
 
 CherrygroveGymSpeechHouseBugCatcherScript:
 	jumptextfaceplayer CherrygroveGymSpeechHouseBugCatcherText
 
 CherrygroveGymSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
+
+CherrygroveGymSpeechHousePokefanM0Text:
+	text "A new virus we"
+	line "should be scared"
+	cont "of? Let me laugh!"
+	
+	para "In the past decade"
+	line "only, medias tried"
+	
+	para "to scare the popu-"
+	line "lation with the"
+	
+	para "H1N1 epidemic, the"
+	line "Ebola epidemic,"
+	cont "and some more."
+
+	para "It always turned"
+	line "out to be a damp"
+	cont "squib."
+	done
 
 CherrygroveGymSpeechHousePokefanM1Text:
 	text "I'm not feeling"

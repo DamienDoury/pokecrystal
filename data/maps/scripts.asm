@@ -347,6 +347,7 @@ INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
 INCLUDE "maps/BillsBrothersHouse.asm"
+INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX
@@ -368,7 +369,6 @@ INCLUDE "maps/WardensNeighborHouse.asm"
 INCLUDE "maps/CherrygrovePokecenter1F.asm"
 INCLUDE "maps/CherrygroveGymSpeechHouse.asm"
 INCLUDE "maps/GuideGentsHouse.asm"
-INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
 INCLUDE "maps/MrPokemonsHouse.asm"
 INCLUDE "maps/Route31VioletGate.asm"

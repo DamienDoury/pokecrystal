@@ -154,24 +154,25 @@ HikerDanielAfterBattleText:
 	done
 
 FirebreatherBillSeenText:
-	text "ZUBAT's SUPERSONIC"
-	line "keeps confusing"
-	cont "my #MON."
-
-	para "I'm seriously"
-	line "upset about that!"
+	text "Rumour has it that"
+	line "there will be an"
+	cont "important announ-"
+	cont "cement on TV about"
+	cont "the epidemic soon."
 	done
 
 FirebreatherBillBeatenText:
-	text "I flamed out!"
+	text "Gotta go watch the"
+	line "news on TV!"
 	done
 
 FirebreatherBillAfterBattleText:
-	text "On weekends, you"
-	line "can hear strange"
+	text "Some people say"
+	line "that a lockdown"
+	cont "could be announced"
 
-	para "roars from deep in"
-	line "the cave."
+	para "… I believe it's"
+	line "impossible."
 	done
 
 FirebreatherRaySeenText:
@@ -215,7 +216,7 @@ UnionCave1F_MapEvents:
 	object_event  4, 21, SPRITE_SUPER_NERD, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacLarry, -1
 	object_event 11,  8, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerHikerRussell, -1
 	object_event 15, 27, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerFirebreatherRay, -1
-	object_event 14, 19, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerFirebreatherBill, -1
+	object_event 14, 18, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerFirebreatherBill, -1
 	object_event 17, 21, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCave1FGreatBall, EVENT_UNION_CAVE_1F_GREAT_BALL
 	object_event  4,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCave1FXAttack, EVENT_UNION_CAVE_1F_X_ATTACK
 	object_event  4, 17, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, UnionCave1FPotion, EVENT_UNION_CAVE_1F_POTION

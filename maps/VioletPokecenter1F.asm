@@ -32,6 +32,14 @@ VioletPokecenter1F_ElmsAideScript:
 	clearevent EVENT_TOGEPI_HATCHED
 	setmapscene ROUTE_32, SCENE_ROUTE32_OFFER_SLOWPOKETAIL
 	writetext VioletPokecenterElmsAideGiveEggText
+
+	readvar VAR_BADGES
+	ifgreater 0, .Leave
+
+	promptbutton
+	writetext VioletPokecenterElmsAideSkipGymText
+
+.Leave
 	waitbutton
 	closetext
 	readvar VAR_FACING
@@ -137,6 +145,32 @@ VioletPokecenterElmsAideGiveEggText:
 	line "ELM when that EGG"
 	cont "hatches, it will"
 	cont "make him happy!"
+	done
+
+VioletPokecenterElmsAideSkipGymText:
+	text "Now that you have"
+	line "triumphed over the"
+	cont "SPROUT TOWER, you"
+	
+	para "may want to chal-"
+	line "lenge this city's"
+	cont "GYM LEADER, right?"
+	
+	para "Here is a personal"
+	line "advice: don't spend"
+	cont "too much time on"
+	cont "it."
+	
+	para "If you can't beat"
+	line "FALKNER, just move"
+	cont "on to the next"
+	cont "town."
+	
+	para "Remember you're on"
+	line "a mission for"
+	cont "PROF.ELM."
+
+	para "I'll see you later."
 	done
 
 VioletCityElmsAideFullPartyText:
