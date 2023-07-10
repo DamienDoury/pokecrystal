@@ -31,6 +31,9 @@ EcruteakItemfinderGuy:
 	closetext
 	end
 
+EcruteakItemfinderGirl:
+	jumptextfaceplayer EcruteakItemfinderGirlText
+
 EcruteakHistoryBook:
 	opentext
 	writetext EcruteakHistoryBookText
@@ -110,6 +113,17 @@ EcruteakItemfinderToEachHisOwnText:
 	line "own, I suppose…"
 	done
 
+EcruteakItemfinderGirlText:
+	text "My brother lives"
+	line "in AZALEA TOWN"
+	cont "with his trusty"
+	cont "FARFETCH'D."
+
+
+	para "I hope they"
+	line "are ok…"
+	done
+
 EcruteakHistoryBookText:
 	text "HISTORY OF"
 	line "ECRUTEAK"
@@ -175,3 +189,4 @@ EcruteakItemfinderHouse_MapEvents:
 	def_object_events
 	object_event  2,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakItemfinderGuy, -1
 	object_event  3,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakHistoryBook, -1
+	object_event  4,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, EcruteakItemfinderGirl, -1
