@@ -588,12 +588,6 @@ Route32CooltrainerMText_HaveThisSeed:
 	para "gave them around"
 	line "VIOLET CITY."
 
-	para "The training at"
-	line "the GYM must have"
-
-	para "been especially"
-	line "helpful."
-
 	para "As a souvenir of"
 	line "VIOLET CITY, take"
 	cont "this."

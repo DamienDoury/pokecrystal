@@ -27,13 +27,11 @@ AzaleaPokecenter1FPokefanFScript:
 
 AzaleaPokecenter1FGentlemanText:
 	text "Do your #MON"
-	line "know HM moves?"
+	line "know TM moves?"
 
 	para "Those moves can"
-	line "be used even if"
-
-	para "your #MON has"
-	line "fainted."
+	line "be taught inde-"
+	cont "finitely."
 	done
 
 AzaleaPokecenter1FFishingGuruText:

@@ -63,6 +63,11 @@ EcruteakFaunaHouse_Person2Text:
 	cont "some species in"
 	cont "places they didn't"
 	cont "use to live in."
+
+	para "Also, the pandemic"
+	line "makes wild #MON"
+	cont "agitated and"
+	cont "harder to catch."
 	done
 
 EcruteakFaunaHouse_Person3Text:

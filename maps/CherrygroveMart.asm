@@ -61,8 +61,8 @@ CherrygroveMartYoungsterText:
 	text "When I was walking"
 	line "in the grass, a"
 
-	para "bug #MON poi-"
-	line "soned my #MON!"
+	para "#MON poisoned"
+	line "my #MON!"
 
 	para "I just kept going,"
 	line "but then my"

@@ -215,7 +215,7 @@ TVShow:
 	line "it will be"
 	cont "behind us.” -"
 
-	para "said the leader"
+	para "says the leader"
 	line "of another region."
 	done
 

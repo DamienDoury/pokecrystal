@@ -503,11 +503,6 @@ AcademyNotebookText:
 	line "# BALL, weaken"
 	cont "the target first."
 
-	para "The pandemic makes"
-	line "wild #MON agi-"
-	cont "tated and harder"
-	cont "to catch."
-
 	para "Ideally, leave the"
 	line "target at 1 HP.”"
 

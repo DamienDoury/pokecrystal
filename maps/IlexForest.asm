@@ -706,11 +706,11 @@ MovementData_Farfetched_Pos9_Pos8_Right:
 MovementData_Farfetched_Pos9_Pos8_Down:
 	big_step LEFT
 	big_step LEFT
-	fix_facing
+	
 	jump_step RIGHT
 	step_sleep 8
 	step_sleep 8
-	remove_fixed_facing
+	
 	big_step RIGHT
 	big_step RIGHT
 	big_step RIGHT
