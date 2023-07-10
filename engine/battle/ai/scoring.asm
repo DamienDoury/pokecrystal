@@ -2404,12 +2404,23 @@ AI_Smart_BatonPass:
 ; Consider player's type(s) if its moves are unknown.
 
 	push hl
+	callfar FindAliveEnemyMons
+	pop hl
+	jr c, .no
+
+	push hl
 	callfar CheckPlayerMoveTypeMatchups
 	ld a, [wEnemyAISwitchScore]
 	cp BASE_AI_SWITCH_SCORE
 	pop hl
 	ret c
 	inc [hl]
+	ret
+
+.no
+	ld a, [hl]
+	add 5
+	ld [hl], a
 	ret
 
 AI_Smart_Pursuit:
