@@ -48,7 +48,7 @@ EcruteakRemoteWorkHouse_MickeyScript:
 	end
 
 EcruteakRemoteWorkHouse_Computer1Script:
-	farsjump VioletKylesHouseComputer2Script
+	farsjump VioletNicknameSpeechHouseComputer1Script
 
 EcruteakRemoteWorkHouse_Computer2Script:
 	jumptextfaceplayer EcruteakRemoteWorkHouse_Computer2Text
@@ -85,6 +85,11 @@ EcruteakRemoteWorkHouse_MickeyText:
 	line "isn't long enough"
 	cont "to reach his house"
 	cont "in VIOLET CITY!"
+
+	para "Anyway, today's"
+	line "lesson is interes-"
+	cont "ting! Check it out"
+	cont "on my screen."
 	done
 
 EcruteakRemoteWorkHouse_Computer2Text:

@@ -143,8 +143,12 @@ EarlsPokemonAcademyYoungster2Script:
 	jumptextfaceplayer EarlsPokemonAcademyYoungster2Text
 
 AcademyBlackboard:
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse AcademyStatusLesson
+
 	opentext
 	writetext AcademyBlackboardText
+;.CovidLesson
 .Loop:
 	loadmenu .BlackboardMenuHeader
 	_2dmenu
@@ -201,6 +205,67 @@ AcademyBlackboard:
 	db "INCUB.@"
 	db "COVID@"
 	db "IMMUNE@"
+	db "QUIT@"
+
+AcademyStatusLesson:
+	opentext
+	writetext AcademyBlackboardStatusText
+.Loop:
+	loadmenu .BlackboardMenuHeader
+	_2dmenu
+	closewindow
+	ifequal 1, .Poison
+	ifequal 2, .Paralysis
+	ifequal 3, .Sleep
+	ifequal 4, .Burn
+	ifequal 5, .Freeze
+	closetext
+	end
+
+.Poison:
+	writetext AcademyPoisonText
+	waitbutton
+	sjump .Loop
+
+.Paralysis:
+	writetext AcademyParalysisText
+	waitbutton
+	sjump .Loop
+
+.Sleep:
+	writetext AcademySleepText
+	waitbutton
+	sjump .Loop
+
+.Burn:
+	writetext AcademyBurnText
+	waitbutton
+	sjump .Loop
+
+.Freeze:
+	writetext AcademyFreezeText
+	waitbutton
+	sjump .Loop
+
+.BlackboardMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, 11, 8
+	dw .MenuData
+	db 1 ; default option
+
+.MenuData:
+	db STATICMENU_CURSOR ; flags
+	dn 3, 2 ; rows, columns
+	db 5 ; spacing
+	dba .Text
+	dbw BANK(@), NULL
+
+.Text:
+	db "PSN@"
+	db "PAR@"
+	db "SLP@"
+	db "BRN@"
+	db "FRZ@"
 	db "QUIT@"
 
 AcademyNotebook:
@@ -561,6 +626,78 @@ AcademyNotebookText3:
 
 	para "The next page"
 	line "is… Blank!"
+	done
+
+AcademyBlackboardStatusText:
+	text "The blackboard"
+	line "describes #MON"
+
+	para "status changes in"
+	line "battle."
+	done
+
+AcademyPoisonText:
+	text "If poisoned, a"
+	line "#MON steadily"
+	cont "loses HP."
+
+	para "Poison lingers"
+	line "after the battle,"
+
+	para "and HP is lost as"
+	line "you walk."
+
+	para "To cure it, use an"
+	line "ANTIDOTE."
+	done
+
+AcademyParalysisText:
+	text "Paralysis reduces"
+	line "speed and may"
+	cont "prevent movement."
+
+	para "It remains after"
+	line "battle, so use"
+	cont "a PARLYZ HEAL."
+	done
+
+AcademySleepText:
+	text "If asleep, your"
+	line "#MON can't make"
+	cont "a move."
+
+	para "A sleeping #MON"
+	line "doesn't wake up"
+	cont "after battle."
+
+	para "Wake it up with"
+	line "an AWAKENING."
+	done
+
+AcademyBurnText:
+	text "A burn steadily"
+	line "consumes HP."
+
+	para "It also reduces"
+	line "attack power."
+
+	para "A burn lingers"
+	line "after battle."
+
+	para "Use a BURN HEAL as"
+	line "the cure."
+	done
+
+AcademyFreezeText:
+	text "If your #MON is"
+	line "frozen, it can't"
+	cont "do a thing."
+
+	para "It remains frozen"
+	line "after battle."
+
+	para "Thaw it out with"
+	line "an ICE HEAL."
 	done
 
 EarlsPokemonAcademy_MapEvents:

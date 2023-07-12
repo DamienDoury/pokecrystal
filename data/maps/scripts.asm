@@ -60,7 +60,7 @@ INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
 INCLUDE "maps/Route34.asm"
-INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
+
 
 SECTION "Map Scripts 4", ROMX
 
@@ -73,6 +73,7 @@ INCLUDE "maps/IlexForestAzaleaGate.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/ViridianForest.asm"
+INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
 
 
 SECTION "Map Scripts 5", ROMX
