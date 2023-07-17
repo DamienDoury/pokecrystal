@@ -1376,8 +1376,8 @@ GoldenrodHospitalRoom25Patient_PartyFullText:
 
 GoldenrodHospitalRoom25Patient_NothingTodayText:
 	text "Unfortunately, I"
-	line "have nothing to"
-	cont "give you today."
+	line "have nothing else"
+	cont "to give you today."
 	done
 
 GoldenrodHospitalRoom25Patient_ComeBackText:
