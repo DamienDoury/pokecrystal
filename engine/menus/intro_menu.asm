@@ -59,6 +59,7 @@ Option:
 	ret
 
 NewGame:
+if !DEF(_CRYSTAL_BETA)
 	xor a
 	ld [wDebugFlags], a
 	call ResetWRAM
@@ -77,6 +78,7 @@ NewGame:
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
 	jp FinishContinueFunction
+endc
 
 AreYouABoyOrAreYouAGirl:
 	farcall Mobile_AlwaysReturnNotCarry ; mobile

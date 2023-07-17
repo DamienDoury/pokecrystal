@@ -250,9 +250,11 @@ CheckTrainerBattle_GetPlayerEvent:
 	call CheckTrainerBattle
 	jr nc, .nope
 
-	;ld a, [wPreventTrainerBattles]
-	;cp TRUE
-	;jr z, .nope
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	ld a, [wPreventTrainerBattles]
+	cp TRUE
+	jr z, .nope
+endc
 
 	ld a, PLAYEREVENT_SEENBYTRAINER
 	scf

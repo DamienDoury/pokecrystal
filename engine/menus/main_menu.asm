@@ -368,7 +368,9 @@ ClearTilemapEtc:
 	ret
 
 MainMenu_NewGame:
+if !DEF(_CRYSTAL_BETA)
 	farcall NewGame
+endc
 	ret
 
 MainMenu_Option:

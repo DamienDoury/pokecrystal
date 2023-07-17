@@ -421,8 +421,11 @@ wIntroSpriteStateFlag:: db
 	ds 2
 
 wWildMon:: db
-wPreventTrainerBattles:: db ; A VIRER, TO DELETE, TO REMOVE!! Damien
-
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	ds 1
+else
+wPreventTrainerBattles:: db
+endc
 wEnemyTrainerItem1:: db
 wEnemyTrainerItem2:: db
 wEnemyTrainerBaseReward:: db

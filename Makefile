@@ -22,6 +22,8 @@ pokecrystal11_obj       := $(rom_obj:.o=11.o)
 pokecrystal_au_obj      := $(rom_obj:.o=_au.o)
 pokecrystal_debug_obj   := $(rom_obj:.o=_debug.o)
 pokecrystal11_debug_obj := $(rom_obj:.o=11_debug.o)
+pokecrystal11_beta_obj  := $(rom_obj:.o=11_beta.o)
+pokecrystal11_release_obj  := $(rom_obj:.o=11_release.o)
 
 
 ### Build tools
@@ -53,13 +55,15 @@ crystal11:       pokecrystal11.gbc
 crystal_au:      pokecrystal_au.gbc
 crystal_debug:   pokecrystal_debug.gbc
 crystal11_debug: pokecrystal11_debug.gbc
+crystal11_beta:  pokecrystal11_beta.gbc
+crystal11_release: pokecrystal11_release.gbc
 
 clean: tidy
 	find gfx \( -name "*.[12]bpp" -o -name "*.lz" -o -name "*.gbcpal" -o -name "*.sgb.tilemap" \) -delete
 	find gfx/pokemon -mindepth 1 ! -path "gfx/pokemon/unown/*" \( -name "bitmask.asm" -o -name "frames.asm" -o -name "front.animated.tilemap" -o -name "front.dimensions" \) -delete
 
 tidy:
-	rm -f $(roms) $(pokecrystal_obj) $(pokecrystal11_obj) $(pokecrystal_au_obj) $(pokecrystal_debug_obj) $(pokecrystal11_debug_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym) rgbdscheck.o
+	rm -f $(roms) $(pokecrystal_obj) $(pokecrystal11_obj) $(pokecrystal_au_obj) $(pokecrystal_debug_obj) $(pokecrystal11_debug_obj) $(pokecrystal11_beta_obj) $(pokecrystal11_release_obj) $(roms:.gbc=.map) $(roms:.gbc=.sym) rgbdscheck.o
 	$(MAKE) clean -C tools/
 
 compare: $(roms)
@@ -80,6 +84,8 @@ $(pokecrystal11_obj):       RGBASMFLAGS += -D _CRYSTAL11
 $(pokecrystal_au_obj):      RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL_AU
 $(pokecrystal_debug_obj):   RGBASMFLAGS += -D _DEBUG
 $(pokecrystal11_debug_obj): RGBASMFLAGS += -D _CRYSTAL11 -D _DEBUG
+$(pokecrystal11_beta_obj):    RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL_BETA
+$(pokecrystal11_release_obj): RGBASMFLAGS += -D _CRYSTAL11 -D _CRYSTAL_RELEASE
 
 rgbdscheck.o: rgbdscheck.asm
 	$(RGBASM) -o $@ $<
@@ -104,6 +110,8 @@ $(foreach obj, $(pokecrystal11_obj), $(eval $(call DEP,$(obj),$(obj:11.o=.asm)))
 $(foreach obj, $(pokecrystal_au_obj), $(eval $(call DEP,$(obj),$(obj:_au.o=.asm))))
 $(foreach obj, $(pokecrystal_debug_obj), $(eval $(call DEP,$(obj),$(obj:_debug.o=.asm))))
 $(foreach obj, $(pokecrystal11_debug_obj), $(eval $(call DEP,$(obj),$(obj:11_debug.o=.asm))))
+$(foreach obj, $(pokecrystal11_beta_obj), $(eval $(call DEP,$(obj),$(obj:11_beta.o=.asm))))
+$(foreach obj, $(pokecrystal11_release_obj), $(eval $(call DEP,$(obj),$(obj:11_release.o=.asm))))
 
 endif
 
@@ -113,12 +121,16 @@ pokecrystal11_opt       = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 
 pokecrystal_au_opt      = -Cjv -t PM_CRYSTAL -i BYTU -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
 pokecrystal_debug_opt   = -Cjv -t PM_CRYSTAL -i BYTE -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
 pokecrystal11_debug_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_beta_opt  = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_release_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
 
 pokecrystal_base         = us
 pokecrystal11_base       = us
 pokecrystal_au_base      = us
 pokecrystal_debug_base   = dbg
 pokecrystal11_debug_base = dbg
+pokecrystal11_beta_base  = us
+pokecrystal11_release_base = us
 
 %.gbc: $$(%_obj) layout.link
 	$(RGBLINK) -n $*.sym -m $*.map -l layout.link -o $@ $(filter %.o,$^)
