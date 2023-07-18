@@ -5,12 +5,31 @@ GOLDENRODDEPTSTORE6F_LEMONADE_PRICE    EQU 350
 	object_const_def
 	const GOLDENRODDEPTSTORE6F_LASS
 	const GOLDENRODDEPTSTORE6F_SUPER_NERD
+	const GOLDENRODDEPTSTORE6F_CARRIE
+	const GOLDENRODDEPTSTORE6F_CONE
 
 GoldenrodDeptStore6F_MapScripts:
 	def_scene_scripts
 	scene_script DeptStoreEnterLockdownCheck ; SCENE_ALWAYS
 
 	def_callbacks
+
+Carrie:
+	faceplayer
+	opentext
+	special GameboyCheck
+	ifnotequal GBCHECK_CGB, .NotGBC ; This is a dummy check from Gold/Silver
+	writetext GoldenrodDeptStore5FCarrieMysteryGiftExplanationText
+	waitbutton
+	closetext
+	special UnlockMysteryGift
+	end
+
+.NotGBC:
+	writetext GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText
+	waitbutton
+	closetext
+	end
 
 GoldenrodVendingMachine:
 	opentext
@@ -150,6 +169,20 @@ GoldenrodDeptStore6FDirectoryText:
 	para "6F TRANQUIL SQUARE"
 	done
 
+GoldenrodDeptStore5FCarrieMysteryGiftExplanationText:
+	text "MYSTERY GIFT."
+
+	para "With just a"
+	line "little beep, you"
+	cont "get a gift."
+	done
+
+GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText:
+	text "The MYSTERY GIFT"
+	line "option requires a"
+	cont "Game Boy Color."
+	done
+
 GoldenrodDeptStore6F_MapEvents:
 	db 0, 0 ; filler
 
@@ -171,4 +204,5 @@ GoldenrodDeptStore6F_MapEvents:
 	def_object_events
 	object_event 10,  2, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore6FLassScript, -1
 	object_event  8,  2, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore6FSuperNerdScript, -1
+	object_event  6,  1, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Carrie, -1
 	object_event 15,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore_Lockdown, -1

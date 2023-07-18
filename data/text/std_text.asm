@@ -206,8 +206,7 @@ NurseCriticallyIll2Text:
 	text "You can go check"
 	line "on your #MON"
 	cont "at GOLDENROD"
-	cont "INTERNATIONAL"
-	cont "HOSPITAL."
+	cont "NATIONAL HOSPITAL."
 	done
 
 NurseMildIllnessText:
