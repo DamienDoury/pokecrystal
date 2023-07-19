@@ -23,6 +23,7 @@ EcruteakRemoteWorkHouse_MapScripts:
 	endcallback
 
 EcruteakRemoteWorkHouse_MotherScript:
+	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 
 	jumptextfaceplayer EcruteakRemoteWorkHouse_MotherAloneText
