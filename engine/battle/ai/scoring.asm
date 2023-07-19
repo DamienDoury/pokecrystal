@@ -1194,10 +1194,15 @@ AI_Smart_SpeedDownHit:
 	ret
 
 AI_Smart_Substitute:
-; Dismiss this move if enemy's HP is below 50%.
-
-	call AICheckEnemyHalfHP
+	; Dismiss this move if a sub is already up.
+	ld a, [wEnemySubStatus4]
+	and 1 << SUBSTATUS_SUBSTITUTE
+	ret nz
+	
+	; Dismiss this move if enemy's HP is below 25%.
+	call AICheckEnemyQuarterHP
 	ret c
+
 	jp AIDiscourageMove
 
 AI_Smart_HyperBeam:
