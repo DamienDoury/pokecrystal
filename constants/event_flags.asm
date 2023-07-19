@@ -358,7 +358,8 @@
 	const EVENT_BOULDER_IN_SEAFOAM_B6F_ALL
 
 	const EVENT_MET_RIVAL_IN_OLIVINE
-; Unused: next 268 events
+	const EVENT_LAKE_OF_RAGE_RARE_CANDY
+; Unused: next 267 events
 
 	const_next 600
 ; Kurt Apricorn events

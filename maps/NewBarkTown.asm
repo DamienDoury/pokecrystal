@@ -186,6 +186,7 @@ CheatGuyScript:
 	giveitem TM_SANDSTORM, 10
 	giveitem TM_FIRE_BLAST, 10
 	giveitem TM_THUNDERPUNCH, 10
+	giveitem TM_FALSE_SWIPE, 10
 	giveitem TM_FIRE_PUNCH, 10
 	giveitem TM_HAIL, 10
 	giveitem MAX_REPEL, 99
