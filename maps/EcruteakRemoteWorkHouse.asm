@@ -73,7 +73,7 @@ EcruteakRemoteWorkHouse_MotherHappyText:
 	done
 
 EcruteakRemoteWorkHouse_ScientistText:
-	text "I can't wait to"
+	text "I can't wait to be"
 	line "back on the field!"
 	done
 
