@@ -121,8 +121,8 @@ EcruteakPoliceStationPrisoner2Text:
 
 	para "I was going to the"
 	line "MART to do groce-"
-	cont "ries and got cont-"
-	cont "rolled by the"
+	cont "ries and got con-"
+	cont "trolled by the"
 	cont "police."
 
 	para "I showed them my"
@@ -147,7 +147,7 @@ EcruteakPoliceStationPrisoner2Text:
 	cont "arrested!"
 
 	para "Can you believe"
-	line "believe it??"
+	line "it??"
 	done
 
 EcruteakPoliceStationBurnOutText:

@@ -438,15 +438,15 @@ TeruSama3Desc:
 
 FreshWaterDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 30.@"
 
 SodaPopDesc:
 	db   "Restores #MON"
-	next "HP by 60.@"
+	next "HP by 50.@"
 
 LemonadeDesc:
 	db   "Restores #MON"
-	next "HP by 80.@"
+	next "HP by 70.@"
 
 XAttackDesc:
 	db   "Raises ATTACK."

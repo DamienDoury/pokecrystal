@@ -319,7 +319,7 @@ RuinsOfAlphDoorText:
 	para "been deemed"
 	line "essential."
 	
-	para "How insulting for"
+	para "What an insult to"
 	line "science!"
 
 	para "We must stay"
