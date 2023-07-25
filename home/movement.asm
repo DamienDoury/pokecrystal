@@ -55,6 +55,10 @@ ComputePathToWalkToPlayer::
 .got_x_distance
 	cp 0 						; added by Damien.
 	jr z, .noXDistanceDecrease 	; added by Damien.
+	
+	call CheckSocialDistancingRespect
+	jr c, .noXDistanceDecrease
+
 	dec a 						; added by Damien. We subtract 1 to the distance, so the NPC stays at a safe distance from the player.
 .noXDistanceDecrease 			; added by Damien.
 	ld d, a
@@ -69,6 +73,10 @@ ComputePathToWalkToPlayer::
 .got_y_distance
 	cp 0 						; added by Damien.
 	jr z, .noYDistanceDecrease 	; added by Damien.
+	
+	call CheckSocialDistancingRespect
+	jr c, .noYDistanceDecrease
+
 	dec a 						; added by Damien. We subtract 1 to the distance, so the NPC stays at a safe distance from the player.
 .noYDistanceDecrease 			; added by Damien.
 	ld e, a
@@ -127,3 +135,28 @@ ComputePathToWalkToPlayer::
 	big_step UP
 	big_step LEFT
 	big_step RIGHT
+
+; Output: carry if social distancing is not respected by the trainer class in wTempTrainerClass.
+CheckSocialDistancingRespect:
+	push hl
+	push de
+	push bc
+	ld d, a
+	push de
+	ld a, [wTempTrainerClass]
+	ld hl, .disrespectfulTrainerClasses
+	call IsInByteArray
+	pop de
+	ld a, d
+	pop bc
+	pop de
+	pop hl
+	ret
+
+; Team Rocket does not respect the social distancing!
+.disrespectfulTrainerClasses:
+	db GRUNTM
+	db GRUNTF
+	db EXECUTIVEM
+	db EXECUTIVEF
+	db -1
