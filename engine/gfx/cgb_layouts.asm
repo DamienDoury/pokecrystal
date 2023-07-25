@@ -483,6 +483,12 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	ld a, PREDEFPAL_GS_INTRO_JIGGLYPUFF_PIKACHU_OB
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
+
+	ld de, wOBPals1 palette 5
+	ld a, PREDEFPAL_GS_INTRO_PIKACHU_STRIPES
+	call GetPredefPal
+	call LoadHLPaletteIntoDE
+
 	call WipeAttrmap
 	ret
 
