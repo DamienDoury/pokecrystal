@@ -7822,7 +7822,7 @@ BoostExp:
 	ret
 
 DoubleExp:
-; Multiply experience by 1.5x
+; Multiply experience by 2x
 	push bc
 ; load experience value
 	ldh a, [hProduct + 2]
@@ -7831,8 +7831,8 @@ DoubleExp:
 	ld c, a
 
 ; double it
-	sla b
-	rl c
+	sla c
+	rl b
 
 	ld a, c
 	ldh [hProduct + 3], a
