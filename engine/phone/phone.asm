@@ -109,6 +109,10 @@ BrokenPlaceFarString:
 CheckPhoneCall::
 ; Check if the phone is ringing in the overworld.
 
+	ld a, [wCurFreedomState]
+	cp 1 << LOCKDOWN ; No random phone calls during the lockdown, as everyone is supposed to be home. Only special phone calls are allowed.
+	ret nz
+
 	call CheckStandingOnEntrance
 	jr z, .no_call
 
