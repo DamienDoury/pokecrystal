@@ -340,6 +340,11 @@ BattleStartMessage:
 
 	farcall Battle_GetTrainerName
 
+	ld a, [wTempTrainerClass]
+	cp OFFICER
+	ld hl, WantsToApprehendText
+	jr z, .PlaceBattleStartText
+
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
 

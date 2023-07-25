@@ -40,6 +40,12 @@ WantsToBattleText::
 	line "wants to battle!"
 	prompt
 
+WantsToApprehendText::
+	text "<ENEMY>"
+	line "wants to arrest"
+	cont "you!"
+	prompt
+
 BattleText_WildFled:
 	text "Wild @"
 	text_ram wEnemyMonNickname
