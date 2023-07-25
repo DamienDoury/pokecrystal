@@ -5139,10 +5139,6 @@ DrawEnemyHUD:
 	ld b, 0
 	call DrawBattleHPBar
 
-	ld a, [wBattleMode]
-	dec a
-	ret z
-
 	push de
 	farcall ShowOTTrainerMonsRemaining
 	pop de

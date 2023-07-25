@@ -27,7 +27,11 @@ ShowPlayerMonsRemaining:
 	ld [wPlaceBallsDirection], a
 	jp LoadTrainerHudOAM
 
-ShowOTTrainerMonsRemaining:
+ShowOTTrainerMonsRemaining::
+	ld a, [wBattleMode]
+	dec a
+	ret z
+
 	ld hl, wOTPartyMon1HP
 	ld de, wOTPartyCount
 	call StageBallTilesData

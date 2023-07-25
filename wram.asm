@@ -1849,6 +1849,9 @@ NEXTU
 wPlaceBallsDirection:: db
 wTrainerHUDTiles:: ds 4
 
+; battle HUD
+wBattleHUDTiles:: ds PARTY_LENGTH ; Damien: this may cause sneaky bugs, because I haven't checked the validity of this memory location, so I don't know if it's shared with something else that is used at the same time. The union is too big to be checked.
+
 NEXTU
 ; mobile participant nicknames
 	ds 4
@@ -2327,10 +2330,6 @@ NEXTU
 ; switch AI
 wEnemyEffectivenessVsPlayerMons:: flag_array PARTY_LENGTH
 wPlayerEffectivenessVsEnemyMons:: flag_array PARTY_LENGTH
-
-NEXTU
-; battle HUD
-wBattleHUDTiles:: ds PARTY_LENGTH
 
 NEXTU
 ; thrown ball data
