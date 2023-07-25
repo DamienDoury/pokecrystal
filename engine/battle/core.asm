@@ -2224,7 +2224,7 @@ UpdateHPBar:
 	and a
 	ld a, 1
 	jr z, .ok
-	hlcoord 2, 2
+	hlcoord 1, 2
 	xor a
 .ok
 	push bc
@@ -2306,8 +2306,8 @@ DoubleSwitch:
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	call PlayerPartyMonEntrance
 	ld a, $1
@@ -2503,8 +2503,8 @@ FaintEnemyPokemon:
 	call EnemyMonFaintedAnimation
 	ld de, SFX_FAINT
 	call PlaySFX
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	;ld hl, BattleText_EnemyMonFainted
 	;jp StdBattleTextbox
@@ -3797,8 +3797,8 @@ ClearEnemyMonBox:
 	ldh [hBGMapMode], a
 	call ExitMenu
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 5, 11
 	call ClearBox
 	call WaitBGMap
 	jp FinishBattleAnim
@@ -4626,7 +4626,7 @@ HandleHPHealingItem:
 	ldh a, [hBattleTurn]
 	ld [wWhichHPBar], a
 	and a
-	hlcoord 2, 2
+	hlcoord 1, 2
 	jr z, .got_hp_bar_coords
 	hlcoord 10, 9
 
@@ -4938,7 +4938,6 @@ CheckDanger:
 PrintPlayerHUD:
 	ld de, wBattleMonNickname
 	hlcoord 10, 7
-	call Battle_DummyFunction
 	call PlaceString
 
 	push bc
@@ -5013,11 +5012,11 @@ DrawEnemyHUD:
 	xor a
 	ldh [hBGMapMode], a
 
-	hlcoord 1, 0
-	lb bc, 4, 11
+	hlcoord 0, 0
+	lb bc, 5, 11
 	call ClearBox
 
-	farcall DrawEnemyHUDBorder
+	farcall DrawEnemyHUDCaptureIcon
 
 	ld a, [wTempEnemyMonSpecies]
 	ld [wCurSpecies], a
@@ -5025,7 +5024,6 @@ DrawEnemyHUD:
 	call GetBaseData
 	ld de, wEnemyMonNickname
 	hlcoord 1, 0
-	call Battle_DummyFunction
 	call PlaceString
 	ld h, b
 	ld l, c
@@ -5054,7 +5052,7 @@ DrawEnemyHUD:
 	ld a, "♀"
 
 .got_gender
-	hlcoord 9, 1
+	hlcoord 8, 1
 	ld [hl], a
 
 	hlcoord 1, 1
@@ -5072,7 +5070,7 @@ DrawEnemyHUD:
 .print_level
 	ld a, [wEnemyMonLevel]
 	ld [wTempMonLevel], a
-	hlcoord 6, 1
+	hlcoord 5, 1
 	call PrintLevel
 .skip_level
 
@@ -5137,9 +5135,17 @@ DrawEnemyHUD:
 .draw_bar
 	xor a
 	ld [wWhichHPBar], a
-	hlcoord 2, 2
+	hlcoord 1, 2
 	ld b, 0
 	call DrawBattleHPBar
+
+	ld a, [wBattleMode]
+	dec a
+	ret z
+
+	push de
+	farcall ShowOTTrainerMonsRemaining
+	pop de
 	ret
 
 UpdateEnemyHPPal:
@@ -5154,10 +5160,6 @@ UpdateHPPal:
 	cp b
 	ret z
 	jp FinishBattleAnim
-
-Battle_DummyFunction:
-; called before placing either battler's nickname in the HUD
-	ret
 
 BattleMenu:
 	xor a

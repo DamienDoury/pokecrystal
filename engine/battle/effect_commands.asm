@@ -3669,7 +3669,7 @@ endc
 	ld a, [hl]
 	ld [wHPBuffer3], a
 
-	hlcoord 2, 2
+	hlcoord 1, 2
 	xor a
 	ld [wWhichHPBar], a
 	predef AnimateHPBar
@@ -4140,7 +4140,7 @@ SapHealth:
 	hlcoord 10, 9
 	ld a, $1
 	jr z, .hp_bar
-	hlcoord 2, 2
+	hlcoord 1, 2
 	xor a
 .hp_bar
 	ld [wWhichHPBar], a
@@ -5310,8 +5310,8 @@ BattleCommand_ForceSwitch:
 	call AnimateCurrentMove
 	ld c, $14
 	call DelayFrames
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	ld c, 20
 	call DelayFrames
@@ -6127,7 +6127,7 @@ BattleCommand_Recoil_Got_HP:
 	and a
 	ld a, 1
 	jr z, .animate_hp_bar
-	hlcoord 2, 2
+	hlcoord 1, 2
 	xor a
 .animate_hp_bar
 	ld [wWhichHPBar], a

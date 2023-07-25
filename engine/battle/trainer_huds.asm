@@ -1,17 +1,17 @@
 BattleStart_TrainerHuds:
 	ld a, $e4
 	ldh [rOBP0], a
-	call LoadBallIconGFX
 	call ShowPlayerMonsRemaining
 	ld a, [wBattleMode]
 	dec a
 	ret z
+	call DrawEnemyHUDBorder
 	jp ShowOTTrainerMonsRemaining
 
 EnemySwitch_TrainerHud:
 	ld a, $e4
 	ldh [rOBP0], a
-	call LoadBallIconGFX
+	call DrawEnemyHUDBorder
 	jp ShowOTTrainerMonsRemaining
 
 ShowPlayerMonsRemaining:
@@ -19,29 +19,24 @@ ShowPlayerMonsRemaining:
 	ld hl, wPartyMon1HP
 	ld de, wPartyCount
 	call StageBallTilesData
-	; ldpixel wPlaceBallsX, 12, 12
-	ld a, 12 * 8
+	ld a, 11
 	ld hl, wPlaceBallsX
 	ld [hli], a
-	ld [hl], a
-	ld a, 8
+	ld [hl], 10 ; wPlaceBallsY
+	ld a, 1
 	ld [wPlaceBallsDirection], a
-	ld hl, wVirtualOAMSprite00
 	jp LoadTrainerHudOAM
 
 ShowOTTrainerMonsRemaining:
-	call DrawEnemyHUDBorder
 	ld hl, wOTPartyMon1HP
 	ld de, wOTPartyCount
 	call StageBallTilesData
-	; ldpixel wPlaceBallsX, 9, 4
 	ld hl, wPlaceBallsX
-	ld a, 9 * 8
+	ld a, 8
 	ld [hli], a
-	ld [hl], 4 * 8
-	ld a, -8
+	ld [hl], 3
+	ld a, -1
 	ld [wPlaceBallsDirection], a
-	ld hl, wVirtualOAMSprite00 + PARTY_LENGTH * SPRITEOAMSTRUCT_LENGTH
 	jp LoadTrainerHudOAM
 
 StageBallTilesData:
@@ -49,7 +44,7 @@ StageBallTilesData:
 	push af
 	ld de, wBattleHUDTiles
 	ld c, PARTY_LENGTH
-	ld a, $34 ; empty slot
+	ld a, $71 ; empty slot
 .loop1
 	ld [de], a
 	inc de
@@ -73,7 +68,7 @@ StageBallTilesData:
 	jr nz, .got_hp
 	ld a, [hl]
 	and a
-	ld b, $33 ; fainted
+	ld b, $70 ; fainted
 	jr z, .fainted
 
 .got_hp
@@ -82,9 +77,9 @@ StageBallTilesData:
 	dec hl
 	ld a, [hl]
 	and a
-	ld b, $32 ; statused
+	ld b, $5f ; statused
 	jr nz, .load
-	dec b ; normal
+	dec b ; $5e -> normal
 	jr .load
 
 .fainted
@@ -136,18 +131,9 @@ DrawEnemyHUDBorder:
 	ld de, wTrainerHUDTiles
 	ld bc, .tiles_end - .tiles
 	call CopyBytes
-	hlcoord 1, 2
+	hlcoord 1, 3
 	ld de, 1 ; start on left
 	call PlaceHUDBorderTiles
-	ld a, [wBattleMode]
-	dec a
-	ret nz
-	ld a, [wTempEnemyMonSpecies]
-	dec a
-	call CheckCaughtMon
-	ret z
-	hlcoord 1, 1
-	ld [hl], $5d
 	ret
 
 .tiles
@@ -156,6 +142,20 @@ DrawEnemyHUDBorder:
 	db $78 ; bottom right
 	db $76 ; bottom side
 .tiles_end
+
+DrawEnemyHUDCaptureIcon:
+	ld a, [wBattleMode]
+	dec a
+	ret nz
+	
+	ld a, [wTempEnemyMonSpecies]
+	dec a
+	call CheckCaughtMon
+	ret z
+	
+	hlcoord 0, 0
+	ld [hl], $5d
+	ret
 
 PlaceHUDBorderTiles:
 	ld a, [wTrainerHUDTiles + 0]
@@ -182,50 +182,61 @@ LinkBattle_TrainerHuds:
 	ld de, wPartyCount
 	call StageBallTilesData
 	ld hl, wPlaceBallsX
-	ld a, 10 * 8
+	ld a, 10
 	ld [hli], a
-	ld [hl], 8 * 8
-	ld a, 8
+	ld [hl], 8
+	ld a, 1
 	ld [wPlaceBallsDirection], a
-	ld hl, wVirtualOAMSprite00
 	call LoadTrainerHudOAM
 
 	ld hl, wOTPartyMon1HP
 	ld de, wOTPartyCount
 	call StageBallTilesData
 	ld hl, wPlaceBallsX
-	ld a, 10 * 8
+	ld a, 10
 	ld [hli], a
-	ld [hl], 13 * 8
-	ld hl, wVirtualOAMSprite00 + PARTY_LENGTH * SPRITEOAMSTRUCT_LENGTH
-	jp LoadTrainerHudOAM
+	ld [hl], 13
+	; fallthrough
 
 LoadTrainerHudOAM:
+	ld a, [wPlaceBallsY]
+	hlcoord 0, 0
+	ld bc, SCREEN_WIDTH
+	call AddNTimes
+	ld a, [wPlaceBallsX]
+	ld c, a
+	ld b, 0
+	add hl, bc ; hlcoord = [wPlaceBallsX], [wPlaceBallsY]
 	ld de, wBattleHUDTiles
 	ld c, PARTY_LENGTH
-.loop
-	ld a, [wPlaceBallsY]
-	ld [hli], a ; y
-	ld a, [wPlaceBallsX]
-	ld [hli], a ; x
-	ld a, [de]
-	ld [hli], a ; tile id
-	ld a, PAL_BATTLE_OB_YELLOW
-	ld [hli], a ; attributes
-	ld a, [wPlaceBallsX]
-	ld b, a
 	ld a, [wPlaceBallsDirection]
-	add b
-	ld [wPlaceBallsX], a
+	cp 1
+	jr z, .loop_left_to_right
+.loop_right_to_left
+	ld a, [de]
+	ld [hld], a ; tile id
 	inc de
 	dec c
-	jr nz, .loop
+	jr nz, .loop_right_to_left
+	ret
+
+.loop_left_to_right
+	ld a, [de]
+	ld [hli], a ; tile id
+	inc de
+	dec c
+	jr nz, .loop_left_to_right
 	ret
 
 LoadBallIconGFX:
 	ld de, .gfx
-	ld hl, vTiles0 tile $31
-	lb bc, BANK(LoadBallIconGFX), 4
+	ld hl, vTiles2 tile $5e
+	lb bc, BANK(LoadBallIconGFX), 2
+	call Get2bppViaHDMA
+
+	ld de, .gfx + 2 * 8 * 8 / 4
+	ld hl, vTiles2 tile $70
+	lb bc, BANK(LoadBallIconGFX), 2
 	call Get2bppViaHDMA
 	ret
 

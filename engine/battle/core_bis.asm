@@ -28,10 +28,9 @@ BattleIntro:
 	hlcoord 9, 7
 	lb bc, 5, 11
 	call ClearBox
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 5, 11
 	call ClearBox
-	call ClearSprites
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
 	jr nz, .skip_enemy_hud_update

@@ -114,36 +114,6 @@ Intro_LoadAllPal0:
 	ld hl, BlkPacket_AllPal0
 	jp PushSGBPals
 
-Intro_LoadBetaIntroVenusaurPalettes: ; unreferenced
-	call CheckCGB
-	jr nz, .cgb
-	ldh a, [hSGB]
-	and a
-	ret z
-	ld hl, PalPacket_BetaIntroVenusaur
-	jp PushSGBPals
-
-.cgb
-	ld de, wOBPals1
-	ld a, PREDEFPAL_BETA_INTRO_VENUSAUR
-	call GetPredefPal
-	jp LoadHLPaletteIntoDE
-
-Intro_LoadPackPalettes: ; unreferenced
-	call CheckCGB
-	jr nz, .cgb
-	ldh a, [hSGB]
-	and a
-	ret z
-	ld hl, PalPacket_Pack
-	jp PushSGBPals
-
-.cgb
-	ld de, wOBPals1
-	ld a, PREDEFPAL_PACK
-	call GetPredefPal
-	jp LoadHLPaletteIntoDE
-
 Intro_LoadMonPalette:
 	call CheckCGB
 	jr nz, .cgb
@@ -1070,6 +1040,9 @@ INCLUDE "gfx/battle/exp_bar.pal"
 INCLUDE "data/pokemon/palettes.asm"
 
 INCLUDE "data/trainers/palettes.asm"
+
+PartyBallPalette:
+INCLUDE "gfx/battle/party_ball.pal"
 
 LoadMapPals:
 	farcall LoadSpecialMapPalette

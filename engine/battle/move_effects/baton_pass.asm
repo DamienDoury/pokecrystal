@@ -26,8 +26,8 @@ BattleCommand_BatonPass:
 	farcall _LoadBattleFontsHPBar
 	call CloseWindow
 	call ClearSprites
-	hlcoord 1, 0
-	lb bc, 4, 10
+	hlcoord 0, 0
+	lb bc, 4, 11
 	call ClearBox
 	ld b, SCGB_BATTLE_COLORS
 	call GetSGBLayout

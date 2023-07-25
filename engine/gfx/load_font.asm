@@ -116,6 +116,7 @@ LoadHPBar:
 	ld hl, vTiles2 tile $5e
 	lb bc, BANK(MobilePhoneTilesGFX), 2
 	call Get2bppViaHDMA
+	farcall LoadBallIconGFX
 	ret
 
 StatsScreen_LoadFont:
