@@ -207,7 +207,7 @@ VaccinationCenterRoom_InfoText:
     line "administer"
     cont "1 shot today."
 
-    para "If you #MON"
+    para "If your #MON"
     line "already caught"
     cont "COVID-19 in the"
     cont "past, only 1 shot"

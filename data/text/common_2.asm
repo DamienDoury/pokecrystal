@@ -1686,6 +1686,11 @@ GGTCAzaText::
 	para "They are a danger"
 	line "to this fragile"
 	cont "ecosystem."
+
+	para "Only BUGSY is"
+	line "allowed to carry"
+	cont "those, as he is"
+	cont "an expert."
 	done
 
 GGTCGoldText::
@@ -1741,6 +1746,10 @@ GGTCOlivText::
 	para "wouldn't be a fair"
 	line "battle, I'm sure"
 	cont "you understand."
+
+	para "JASMINE only makes"
+	line "an exception for"
+	cont "her own STEELIX."
 	done
 
 GGTCMahoText::
@@ -1789,6 +1798,13 @@ GGTCPewText ::
 	para "I wasn't the one"
 	line "who came up"
 	cont "with it!"
+
+	para "That was BROCK."
+	
+	para "And oh boy, he"
+	line "sure doesn't"
+	cont "follow his"
+	cont "own rules…"
 	done
 
 GGTCCeruText::
@@ -1802,9 +1818,15 @@ GGTCCeruText::
 	para "Don't you know"
 	line "the drill?"
 
+	para "Because MISTY uses"
+	line "an ELECTRIC type"
+	cont "doesn't mean you"
+	cont "can as well!"
+
 	para "Those are not"
 	line "suitable around"
 	cont "this pool."
+	
 	done
 
 GGTCVermiText::
@@ -1839,6 +1861,11 @@ GGTCCelaText::
 	cont "safety reasons."
 
 	para "(achii)"
+
+	para "Except for the 3"
+	line "rescued by ERIKA."
+
+	para "(achii)"
 	done
 
 GGTCFuchText::
@@ -1850,6 +1877,14 @@ GGTCFuchText::
 	para "Please remove any"
 	line "PSYCHIC, GROUND"
 	cont "or STEEL types."
+
+	para "I know it's frus-"
+	line "trating, so I'm"
+	cont "giving you a free"
+
+	para "tip--JANINE breaks"
+	line "this rule for 1 of"
+	cont "her #MON."
 	done
 
 GGTCSaffText::

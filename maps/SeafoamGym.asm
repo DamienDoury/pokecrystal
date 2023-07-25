@@ -179,6 +179,14 @@ BlaineRefusesBattleText:
 	line "GROUND, nor ROCK"
 	cont "type #MON."
 
+	para "Only I am allowed"
+	line "to use those."
+
+	para "GYM LEADER's"
+	line "privilege!"
+
+	para "Wait…"
+
 	para "You need SURF to"
 	line "reach me, and yet"
 	
