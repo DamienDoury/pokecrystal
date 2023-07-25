@@ -1478,6 +1478,13 @@ HandleLeftovers:
 	jp StdBattleTextbox
 
 HandleMysteryberry:
+	ld a, [wOtherTrainerClass]
+	cp CLAIR ; The player could cheat by restoring PP of disabled moves against Clair.
+	ret z
+	
+	cp SABRINA ; The player could cheat by restoring restore PP of disabled moves against Sabrina.
+	ret z
+
 	ldh a, [hSerialConnectionStatus]
 	cp USING_EXTERNAL_CLOCK
 	jr z, .DoEnemyFirst
