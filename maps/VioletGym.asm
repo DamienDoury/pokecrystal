@@ -241,7 +241,7 @@ FalknerZephyrBadgeText:
 	line "recognition of"
 	cont "your worth as a"
 	cont "trainer."
-	end
+	done
 
 FalknerZephyrBadgeText2:
 	text "Here--take this."
