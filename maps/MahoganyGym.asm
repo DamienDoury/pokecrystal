@@ -203,7 +203,12 @@ PryceSleepingText:
 	done
 
 PryceText_Intro:
-	text "#MON have many"
+	text "Uh?"
+
+	para "…"
+	line "I'm awake…"
+	
+	para "#MON have many"
 	line "experiences in"
 
 	para "their lives, just "
