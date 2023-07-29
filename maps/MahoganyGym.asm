@@ -64,12 +64,12 @@ MahoganyGymPryceScript:
 	showemote EMOTE_SLEEP, MAHOGANYGYM_PRYCE, 60
 	opentext
 	writetext PryceSleepingText
+	promptbutton
 	checkevent EVENT_BEAT_PRYCE
 	iftrue .FightDone
 	
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
-	promptbutton
 	closetext
 	showemote EMOTE_QUESTION, MAHOGANYGYM_PRYCE, 20
 	opentext
@@ -200,15 +200,15 @@ MahoganyGymStatue:
 
 PryceSleepingText:
 	text "…"
+
+	para "Uh?"
+
+	para "I'm awake…"
+	line "…"
 	done
 
 PryceText_Intro:
-	text "Uh?"
-
-	para "…"
-	line "I'm awake…"
-	
-	para "#MON have many"
+	text "#MON have many"
 	line "experiences in"
 
 	para "their lives, just "
