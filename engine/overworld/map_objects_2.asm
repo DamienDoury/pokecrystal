@@ -37,8 +37,24 @@ CheckObjectFlag:
 	ld a, [hl]
 	and a
 	jr z, .masked
+
 	cp SPRITE_OFFICER
 	jr nz, .go_on
+
+	;push bc
+	;push hl
+	;ld bc, MAPOBJECT_COLOR - MAPOBJECT_SPRITE
+	;add hl, bc
+	;ld a, [hl]
+	;swap a
+	;and $f
+	;cp PAL_NPC_BLUE
+	;pop hl
+	;pop bc
+
+	ld a, [wEnvironment]
+	cp ROUTE
+	jr nz, .go_on ; Police controls only take place on Routes.
 
 	ld a, [wCurWantedLevel]
 	cp 2 ; Jenny's wanted level.
@@ -57,7 +73,7 @@ CheckObjectFlag:
 ; Turning the Officer sprite color to brown for the SWAT or red for the Sergeant.
 ; Note: the map_event object is stored in the order of object_event: MACRO
 .sergeant
-	ld e, 7
+	ld e, MAPOBJECT_COLOR - MAPOBJECT_SPRITE
 	ld d, 0
 	add hl, de
 	swap a ; Swap the upper and lower nibbles.
