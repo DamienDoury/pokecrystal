@@ -8,20 +8,39 @@ OlivineLighthouse1F_MapScripts:
 	def_callbacks
 
 OlivineLighthouse1FSailorScript:
-	jumptextfaceplayer OlivineLighthouse1FSailorText
+	checkflag ENGINE_FLYPOINT_VERMILION
+	iftrue .after_vaccine_pass
+	jumptextfaceplayer OlivineLighthouse1FSailorLockdownText
+
+.after_vaccine_pass
+	jumptextfaceplayer OlivineLighthouse1FSailorFreedomText
 
 OlivineLighthouse1FPokefanFScript:
 	jumptextfaceplayer OlivineLighthouse1FPokefanFText
 
-OlivineLighthouse1FSailorText:
-	text "People train at"
-	line "this LIGHTHOUSE."
+OlivineLighthouse1FSailorLockdownText:
+	text "Most people in"
+	line "this place work"
+	cont "here."
 
-	para "Most of them work"
-	line "here, but some"
-	cont "people just snuck"
-	cont "in here to avoid"
-	cont "the lockdown."
+	para "But some of them"
+	line "snuck in here to"
+	cont "escape the stay-"
+	cont "at-home order."
+
+	para "I bet this is how"
+	line "AMPHY got sick."
+	done
+
+OlivineLighthouse1FSailorFreedomText:
+	text "Some people used"
+	line "to sneak in here"
+	cont "to avoid the stay-"
+	cont "at-home order."
+
+	para "I hold them res-"
+	line "ponsible for what"
+	cont "happened to AMPHY."
 	done
 
 OlivineLighthouse1FPokefanFText:

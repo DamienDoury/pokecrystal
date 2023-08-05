@@ -71,7 +71,7 @@ LassConnie1AfterBattleText:
 	line "the number of"
 	cont "abandonned #MON"
 	cont "has risen since"
-	cont "start of the"
+	cont "the start of the"
 	cont "pandemic?"
 
 	para "It's a NURSE that"

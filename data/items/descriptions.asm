@@ -556,11 +556,11 @@ GoldLeafDesc:
 
 SoftSandDesc:
 	db   "GROUND moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 SharpBeakDesc:
 	db   "FLYING moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 PrzCureBerryDesc:
 	db   "A self-cure for"
@@ -576,7 +576,7 @@ IceBerryDesc:
 
 PoisonBarbDesc:
 	db   "POISON moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 KingsRockDesc:
 	db   "May make the foe"
@@ -603,7 +603,7 @@ BigMushroomDesc:
 
 SilverPowderDesc:
 	db   "BUG moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 BluApricornDesc:
 	db   "A blue APRICORN.@"
@@ -628,18 +628,18 @@ CleanseTagDesc:
 
 MysticWaterDesc:
 	db   "WATER moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 TwistedSpoonDesc:
 	db   "PSYCHIC moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 WhtApricornDesc:
 	db   "A white APRICORN.@"
 
 BlackbeltDesc:
 	db   "FIGHTING moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 BlkApricornDesc:
 	db   "A black APRICORN."
@@ -654,7 +654,7 @@ PnkApricornDesc:
 
 BlackGlassesDesc:
 	db   "DARK moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 SlowpokeTailDesc:
 	db   "Very tasty. Sell"
@@ -662,7 +662,7 @@ SlowpokeTailDesc:
 
 PinkBowDesc:
 	db   "NORMAL moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 StickDesc:
 	db   "Ups FARFETCH'D"
@@ -674,11 +674,11 @@ SmokeBallDesc:
 
 NeverMeltIceDesc:
 	db   "ICE moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 MagnetDesc:
 	db   "ELECTRIC moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 MiracleBerryDesc:
 	db   "Cures all status"
@@ -698,7 +698,7 @@ EverStoneDesc:
 
 SpellTagDesc:
 	db   "GHOST moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 RageCandyBarDesc:
 	db   "Restores #MON"
@@ -714,7 +714,7 @@ BlueCardDesc:
 
 MiracleSeedDesc:
 	db   "GRASS moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 ThickClubDesc:
 	db   "Doubles MAROWAK &"
@@ -746,7 +746,7 @@ RevivalHerbDesc:
 
 HardStoneDesc:
 	db   "ROCK moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 LuckyEggDesc:
 	db   "Doubles EXP. from"
@@ -795,7 +795,7 @@ TeruSama11Desc:
 
 CharcoalDesc:
 	db   "FIRE moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 BerryJuiceDesc:
 	db   "Restores #MON"
@@ -813,11 +813,11 @@ TeruSama13Desc:
 
 MetalCoatDesc:
 	db   "STEEL moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 DragonFangDesc:
 	db   "DRAGON moves are"
-	next "20<PERCENT> stronger. (HOLD)@"
+	next "20<PERCENT> stronger.@"
 
 TeruSama14Desc:
 	db   "?@"
@@ -880,8 +880,8 @@ LureBallDesc:
 	next "hooked by a ROD.@"
 
 FastBallDesc:
-	db   "A BALL for catch-"
-	next "ing fast #MON.@"
+	db   "A BALL for fleeing"
+	next "#MON.@"
 
 TeruSama21Desc:
 	db   "?@"
@@ -915,8 +915,8 @@ SunStoneDesc:
 	next "kinds of #MON.@"
 
 PolkadotBowDesc:
-	db   "NORMAL moves 20<PERCENT>"
-	next "stringer. (HOLD)@"
+	db   "NORMAL moves are"
+	next "20<PERCENT> stronger.@"
 
 TeruSama22Desc:
 	db   "?@"

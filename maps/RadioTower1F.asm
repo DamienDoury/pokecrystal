@@ -363,11 +363,8 @@ RadioTower1FRadioCardWomanQuestion5Text:
 	line "Here's the final"
 	cont "question:"
 
-	para "Do GOLDENROD GAME"
-	line "CORNER's slots"
-
-	para "have CHARMANDER"
-	line "on their reels?"
+	para "Can NIDORINA be"
+	line "male only?"
 	done
 
 RadioTower1FRadioCardWomanYouWinText:

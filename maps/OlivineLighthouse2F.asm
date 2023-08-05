@@ -14,6 +14,18 @@ TrainerGentlemanAlfred:
 	endifjustbattled
 	opentext
 	writetext GentlemanAlfredAfterBattleText
+	promptbutton
+
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iftrue .AfterPCRHasBeenIntroduced
+
+	writetext GentlemanAlfredAfterBattleBeforePCRText
+	sjump .CloseText
+
+.AfterPCRHasBeenIntroduced
+	writetext GentlemanAlfredAfterBattleAfterPCRText
+
+.CloseText:
 	waitbutton
 	closetext
 	end
@@ -150,14 +162,6 @@ SailorHueyBeatenText:
 	line "I lose!"
 	done
 
-SailorHueyUnusedText: ; unreferenced
-	text "What power!"
-	line "How would you like"
-
-	para "to sail the seas"
-	line "with me?"
-	done
-
 GentlemanAlfredSeenText:
 	text "Did you know that"
 	line "there are several"
@@ -170,7 +174,7 @@ GentlemanAlfredBeatenText:
 	done
 
 GentlemanAlfredAfterBattleText:
-	text "I personally know"
+	text "I am a friend of"
 	line "CHIEF NURSE JOY."
 
 	para "She was able to"
@@ -178,6 +182,26 @@ GentlemanAlfredAfterBattleText:
 	cont "variant of COVID"
 	cont "my dear #MON"
 	cont "caught last time."
+	done
+
+GentlemanAlfredAfterBattleBeforePCRText:
+	text "She used a proto-"
+	line "type test that"
+	cont "should soon be"
+	cont "available to the"
+	cont "masses."
+	done
+
+GentlemanAlfredAfterBattleAfterPCRText:
+	text "You are a friend"
+	line "of her as well?"
+
+	para "Then if your"
+	line "#MON has done"
+	cont "a PCR test,"
+	
+	para "you should ask"
+	line "her."
 	done
 
 SailorHueyGiveProteinText:

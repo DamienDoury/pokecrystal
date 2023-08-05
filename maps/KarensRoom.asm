@@ -10,7 +10,12 @@ KarensRoom_MapScripts:
 	callback MAPCALLBACK_TILES, .KarensRoomDoors
 
 .LockDoor:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+
 	prioritysjump .KarensDoorLocksBehindYou
+.end
 	end
 
 .EnterCallback:
@@ -85,48 +90,40 @@ KarensRoom_EnterMovement:
 	step_end
 
 KarenScript_KarenBeforeText:
-	text "I am KAREN of the"
-	line "ELITE FOUR."
+	text "My name is KAREN."
 
-	para "You're <PLAYER>?"
-	line "How amusing."
+	para "Because of COVID,"
+	line "my grandmother is"
+	cont "now one with her"
+	cont "GHOST #MON."
 
-	para "I love dark-type"
-	line "#MON."
+	para "I've been chosen to"
+	line "carry on her duty"
+	cont "and her memory as"
+	cont "a member of the"
+	cont "ELITE FOUR."
 
-	para "I find their wild,"
-	line "tough image to be"
+	para "You think you know"
+	line "suffering?"
 
-	para "so appealing. And"
-	line "they're so strong."
-
-	para "Think you can take"
-	line "them? Just try to"
-	cont "entertain me."
-
-	para "Let's go."
+	para "My #MON and I"
+	line "will show you the"
+	cont "darkness of"
+	cont "despair."
 	done
 
 KarenScript_KarenBeatenText:
-	text "Well, aren't you"
-	line "good. I like that"
+	text "You have a solid"
+	line "mind. I like that"
 	cont "in a trainer."
 	done
 
 KarenScript_KarenDefeatText:
-	text "Strong #MON."
+	text "You have a good"
+	line "heart, and you"
 
-	para "Weak #MON."
-
-	para "That is only the"
-	line "selfish perception"
-	cont "of people."
-
-	para "Truly skilled"
-	line "trainers should"
-
-	para "try to win with"
-	line "their favorites."
+	para "aren't afraid to"
+	line "face reality."
 
 	para "I like your style."
 	line "You understand"

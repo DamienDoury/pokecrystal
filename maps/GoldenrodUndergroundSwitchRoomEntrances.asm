@@ -112,7 +112,22 @@ GoldenrodUndergroundSwitchRoomEntrances_MapScripts:
 	endcallback
 
 GoldenrodUndergroundSwitchRoomEntrancesSuperNerdScript:
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .before_lockdown
+	
+	checkevent EVENT_GOLDENROD_ILLEGAL_CASINO
+	iffalse .illegal_casino
+
+	checkevent EVENT_GOLDENROD_BEATER
+	iffalse .illegal_casino
+
 	jumptextfaceplayer GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText
+
+.illegal_casino:
+	jumptextfaceplayer GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText
+
+.before_lockdown:
+	jumptextfaceplayer GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText
 
 GoldenrodUndergroundSwitchRoomEntrancesTeacherScript:
 	jumptextfaceplayer GoldenrodUndergroundSwitchRoomEntrances_TeacherText
@@ -747,6 +762,40 @@ UndergroundSilverLossText:
 	para "And I'm going to"
 	line "grind that LANCE"
 	cont "under my heels."
+	done
+
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText:
+	text "I've seen a sus-"
+	line "picious man down"
+	cont "the underground."
+
+	para "Something is up,"
+	line "I can tell."
+
+	para "You'd better be"
+	line "careful."
+	done
+
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText:
+	text "Have you noticed a"
+	line "shady dude lurking"
+	cont "around the East"
+	cont "part of the city"
+	cont "in the morning?"
+	
+	para "I've seen him talk"
+	line "to another sketchy"
+	cont "guy down there."
+
+	para "Meanwhile, the"
+	line "police is busy"
+	cont "chasing everyone"
+	cont "whose face mask"
+	cont "doesn't properly"
+	cont "cover their nose…"
+	
+	para "You'd better be"
+	line "careful."
 	done
 
 GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText:

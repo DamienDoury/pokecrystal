@@ -575,55 +575,57 @@ GoldenrodHospitalOffice_AskVariantText:
 	line "Hey <PLAYER>!"
 
 	para "I can tell you"
-	line "which variant any"
+	line "which variant your"
 
 	para "#MON had last"
 	line "time it did a"
 	cont "PCR test."
+
+	para "For which #MON"
+	line "would you like"
+	cont "to know?"
 	done
 
 GoldenrodHospitalOffice_VisitingText:
-	text "CHIEF NURSE JOY:"
-	line "Patients are often"
-	cont "sad and lonely."
+	text "Patients are often"
+	line "sad and lonely."
 
 	para "Visiting them ma-"
 	line "kes them happier."
 	done
 
 GoldenrodHospitalOffice_TooOldText:
-	text "CHIEF NURSE JOY:"
-	line "I can't tell for"
-	cont "this one."
+	text "I can't tell for"
+	line "this one."
 
 	para "Either this"
 	line "#MON never got"
-	cont "tested for COVID,"
+	
+	para "tested positive"
+	line "for COVID,"
 	
 	para "or the test was"
 	line "done too long ago."
 	done
 
 GoldenrodHospitalOffice_VaccinatedText:
-	text "CHIEF NURSE JOY:"
-	line "I see this #MON"
-	cont "got vaccinated,"
+	text "I see this #MON"
+	line "got vaccinated,"
 	cont "congratulations!"
 	done
 
 GoldenrodHospitalOffice_TellVariantText:
-	text "CHIEF NURSE JOY:"
-	line "Last time this"
+	text "Last time this"
+	line "#MON got tested"
 
-	para "#MON got tested"
-	line "it had the"
-	cont "@"
+	para "it had the"
+	line "@"
 
 	text_ram wStringBuffer2
 	text " variant."
 
 	para "Keep testing"
-	line "your party!"
+	line "your #MON!"
 	done
 
 GoldenrodHospitalOfficeChiefLuckyEggText:

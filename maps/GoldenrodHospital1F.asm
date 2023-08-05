@@ -306,6 +306,23 @@ GoldenrodHospital1fMaxPotion:
 
 GoldenrodHospitalNurse1Text:
 	text "Welcome!"
+
+	para "Please understand"
+	line "that if you have a"
+	cont "sick #MON, we"
+	cont "cannot take it in."
+
+	para "We have a limited"
+	line "number of rooms,"
+	cont "and can't take"
+	cont "everyone in."
+
+	para "Only nurses at"
+	line "#MON CENTERS"
+	cont "are habilitated"
+	cont "to determine if a"
+	cont "#MON needs to"
+	cont "be sent here."
 	done
 
 	GoldenrodHospitalNurse1Step1Text:

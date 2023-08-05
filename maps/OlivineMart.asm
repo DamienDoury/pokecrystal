@@ -58,15 +58,19 @@ OlivineMartLassText:
 
 OlivineMartYoungsterText:
 	text "A friend of mine"
-	line "managed to find a"
+	line "managed to find an"
 	
-	para "missed item in"
-	line "the back of those"
-	cont "empty shelves."
+	para "item in the back"
+	line "of those empty"
+	cont "shelves."
 	
-	para "It still had the"
-	line "old price tag,"
-	cont "a true bargain!"
+	para "It must have been"
+	line "missed during the"
+	cont "mart rush, because"
+
+	para "it still had the"
+	line "old price tag."
+	cont "A true bargain!"
 	done
 
 OlivineMart_MapEvents:

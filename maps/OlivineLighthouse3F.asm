@@ -86,13 +86,13 @@ SailorTerrellAfterBattleText:
 	cont "abandon my"
 	cont "partner #MON."
 	
-	para "I was out of"
-	line "money… PCR tests"
-	cont "cost a lot over"
-	cont "the long run."
+	para "Money was tight,"
+	line "and I couldn't"
+	cont "properly take"
+	cont "care of her…"
 
-	para "I ain't proud"
-	line "about it."
+	para "It was a kind and"
+	line "strong decision."
 
 	para "I hope she's with a"
 	line "good trainer now."

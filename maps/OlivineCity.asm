@@ -421,7 +421,7 @@ OlivineCity_RefusedSaladText:
 
 	para "Perhaps tomorrow's"
 	line "special will be"
-	cont "at your taste."
+	cont "to your liking."
 	done
 
 OlivineCity_ThanksText:

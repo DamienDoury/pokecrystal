@@ -303,10 +303,10 @@ ChuckExplainBadgeText2:
 
 Obey40:
 	text "This third badge"
-	line "lets all #MON"
+	line "lets all traded"
 
-	para "up to L40 obey,"
-	line "even traded ones."
+	para "#MON up to L40"
+	line "obey."
 	done
 
 Obey60:
