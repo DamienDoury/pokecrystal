@@ -32,7 +32,12 @@ DeptStore_PlayerStepsDown:
 	end
 
 GoldenrodDeptStore1FReceptionistScript:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .lockdown
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistText
+
+.lockdown
+	jumptextfaceplayer GoldenrodDeptStore1FReceptionistClosedText
 
 GoldenrodDeptStore1FGentlemanScript:
 	checkevent EVENT_RED_BEATEN
@@ -65,6 +70,14 @@ DeptStore_StepDownMovement:
 GoldenrodDeptStore1FReceptionistText:
 	text "Welcome to GOLDEN-"
 	line "ROD DEPT.STORE."
+	done
+
+GoldenrodDeptStore1FReceptionistClosedText:
+	text "The DEPT.STORE"
+	line "is closed, but it"
+	cont "is allowed to"
+	cont "access the roof"
+	cont "area."
 	done
 
 GoldenrodDeptStore1FGentlemanText:
