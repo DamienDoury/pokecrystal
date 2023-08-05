@@ -31,6 +31,7 @@ OlivinePunishmentSpeechHouseDadLockdown:
 	end
 
 OlivinePunishmentSpeechHouseDaughter:
+	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 
 	jumptextfaceplayer OlivinePunishmentSpeechHouseDaughterText
