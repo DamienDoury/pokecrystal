@@ -163,26 +163,70 @@ AcademyBlackboard:
 
 .Healthy:
 	writetext AcademyHealthyText
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .HealthyEnd
+
+	promptbutton
+	writetext AcademyHealthyPCRText
+
+.HealthyEnd
 	waitbutton
 	sjump .Loop
 
 .Sick:
 	writetext AcademySickText
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .SickEnd
+
+	promptbutton
+	writetext AcademySickSequelText
+
+.SickEnd
 	waitbutton
 	sjump .Loop
 
 .Incub:
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .IncubNext
+	
+	writetext AcademyIncubStartText
+	promptbutton
+
+.IncubNext:
 	writetext AcademyIncubText
 	waitbutton
 	sjump .Loop
 
 .Covid:
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .CovidNext
+	
+	writetext AcademyIncubStartText
+	promptbutton
+
+.CovidNext:
 	writetext AcademyCovidText
+	promptbutton
+	writetext AcademyCovidEndText
 	waitbutton
 	sjump .Loop
 
 .Immune:
 	writetext AcademyImmuneText
+	promptbutton
+
+	checkevent EVENT_BEAT_ELITE_FOUR 
+	iftrue .ImmuneStudies
+
+	writetext AcademyImmuneBeforeStudiesText
+	sjump .ImmuneEnd
+
+.ImmuneStudies
+	writetext AcademyImmuneStudiesText
+
+.ImmuneEnd:
+	promptbutton
+	writetext AcademyImmuneSequelText
 	waitbutton
 	sjump .Loop
 
@@ -454,44 +498,64 @@ AcademyBlackboardText:
 	cont "about the virus."
 	done
 
-AcademyBlackboardText2: ; unreferenced
-	text "Read which topic?"
+AcademyHealthyText:
+	text "The subject is in"
+	line "good shape."
+	
+	para "The health status"
+	line "of a #MON can"
+	cont "be found on its"
+	cont "STATS screen."
 	done
 
-AcademyHealthyText:
-	text "The #MON is in"
-	line "good shape."
-	cont "Nothing to report."
+AcademyHealthyPCRText:
+	text "It is automati-"
+	line "cally updated"
+	cont "after each"
+	cont "PCR test."
 	done
 
 AcademySickText:
 	text "Symptoms of a"
-	line "disease. Better"
-	cont "keep the #MON"
+	line "disease."
+	
+	para "It may be COVID,"
+	line "or another known"
+	cont "disease."
+	
+	para "Better keep"
+	line "the subject"
 	cont "quarantined to"
 	cont "prevent spreading."
+	done
 
-	para "Test the #MON"
-	line "at a #MON"
-	cont "CENTER to find out"
-	cont "if it's a disease"
-	cont "that they can"
-	cont "cure, or if it is"
-	cont "COVID."
+AcademySickSequelText:
+	text "The subject should"
+	line "do a PCR test at a"
+	cont "#MON CENTER to"
+	cont "find out if it"
+	cont "has COVID."
+
+	para "If detected, known"
+	line "diseases can be"
+	cont "cured by the"
+	cont "healing machine."
+	done
+
+AcademyIncubStartText:
+	text "The subject has"
+	line "been tested"
+	cont "positive to COVID."
 	done
 
 AcademyIncubText:
-	text "The #MON has"
-	line "been tested"
-	cont "positive to COVID."
-
-	para "The incubation is"
+	text "The incubation is"
 	line "phase 1/3 of the"
 	cont "infection by the"
 	cont "virus."
 
 	para "During this phase"
-	line "the #MON won't"
+	line "the subject won't"
 	cont "have any disease"
 	cont "symptom."
 
@@ -500,32 +564,43 @@ AcademyIncubText:
 	cont "and should be kept"
 	cont "quarantined."
 
-	para "The next phase is"
+	para "This phase lasts"
+	line "4 to 5 days for"
+	cont "a human,"
+	cont "and 1 to 2 days"
+	cont "for a #MON."
+	done
+
+AcademyIncubEndText:
+	text "The next phase is"
 	line "the appearance"
 	cont "of symptoms."
 	done
 
 AcademyCovidText:
-	text "The #MON has"
-	line "been tested"
-	cont "positive to COVID."
-
-	para "The disease is"
+	text "The disease is"
 	line "phase 2/3 of the"
 	cont "infection by the"
 	cont "virus."
 
-	para "The #MON will"
+	para "The subject will"
 	line "have symptoms"
 	cont "of a disease."
 
-	para "We don't know"
-	line "exactly what those"
-	cont "symptoms are, and"
-	cont "how long they"
-	cont "last."
+	para "The experienced"
+	line "symptoms vary"
+	cont "between human and"
+	cont "#MON."
+	done
 
-	para "Keep the #MON"
+AcademyCovidEndText:
+	text "This phase lasts"
+	line "5 to 14 days for"
+	cont "a human,"
+	cont "and 3 days for"
+	cont "a #MON."
+	
+	para "Keep the subject"
 	line "quarantined to"
 	cont "prevent spreading"
 	cont "of the virus, and"
@@ -534,7 +609,7 @@ AcademyCovidText:
 	done
 
 AcademyImmuneText:
-	text "The #MON has"
+	text "The subject has"
 	line "recovered from"
 	cont "COVID."
 
@@ -542,14 +617,28 @@ AcademyImmuneText:
 	line "phase 3/3 of the"
 	cont "infection by the"
 	cont "virus."
+	done
 
-	para "This phase should"
+AcademyImmuneBeforeStudiesText:
+	text "This phase should"
 	line "last a long time."
+	done
 
-	para "Meanwhile, the"
-	line "#MON can"
-	cont "neither catch nor"
-	cont "spread the virus."
+AcademyImmuneStudiesText:
+	text "This phase lasts"
+	line "at least 6 months"
+	cont "for a human,"
+	cont "and 10 days for"
+	cont "a #MON."
+	done
+	
+AcademyImmuneSequelText:
+	text "Meanwhile, the"
+	line "odds of the"
+	cont "subject catching"
+	cont "or spreading the"
+	cont "virus are"
+	cont "extremely low."
 
 	para "At this point,"
 	line "the quarantine"
@@ -712,8 +801,10 @@ EarlsPokemonAcademy_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, AcademyBookshelf
 	bg_event  1,  1, BGEVENT_READ, AcademyBookshelf
+	bg_event  2,  0, BGEVENT_READ, AcademyBlackboard
 	bg_event  3,  0, BGEVENT_READ, AcademyBlackboard
 	bg_event  4,  0, BGEVENT_READ, AcademyBlackboard
+	bg_event  5,  0, BGEVENT_READ, AcademyBlackboard
 
 	def_object_events
 	object_event  4,  2, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AcademyEarl, EVENT_EARLS_ACADEMY_EARL
