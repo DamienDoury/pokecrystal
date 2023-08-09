@@ -368,6 +368,8 @@ Continue:
 	call ClearTilemap
 	;ld c, 2
 	;call DelayFrames
+
+.Go:
 	farcall JumpRoamMons
 	farcall CopyMysteryGiftReceivedDecorationsToPC
 	farcall ClockContinue
@@ -1388,9 +1390,24 @@ GameInit::
 	ld a, $90
 	ldh [hWY], a
 	call WaitBGMap
-	jp IntroSequence
+
+	ld a, [wSaveFileExists]
+	and a
+	jp z, IntroSequence
+
+	ld a, [wOptions]
+	bit FAST_BOOT, a
+	jp z, IntroSequence
+
+	; Fast boot.
+	farcall TryLoadSaveFile
+	jp c, IntroSequence ; If loading failed.
+
+	farcall _LoadData
+	jp Continue.Go
 
 Continue_DisplayYear:
+	call LoadStandardFont
 	ld c, 35
 	call DelayFrames
 

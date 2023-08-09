@@ -4,9 +4,10 @@
 	const OPT_BATTLE_SCENE ; 1
 	const OPT_SOUND        ; 2
 	const OPT_PRINT        ; 3
-	const OPT_FRAME        ; 4
-	const OPT_CANCEL       ; 5
-NUM_OPTIONS EQU const_value    ; 6
+	const OPT_FAST_BOOT    ; 4
+	const OPT_FRAME        ; 5
+	const OPT_CANCEL       ; 7
+NUM_OPTIONS EQU const_value    ; 8
 
 _Option:
 	ld hl, hInMenu
@@ -80,6 +81,8 @@ StringOptions:
 	db "        :<LF>"
 	db "PRINT<LF>"
 	db "        :<LF>"
+	db "FAST BOOT<LF>"
+	db "        :<LF>"
 	db "FRAME<LF>"
 	db "        :TYPE<LF>"
 	db "CANCEL@"
@@ -93,6 +96,7 @@ GetOptionPointer:
 	dw Options_BattleScene
 	dw Options_Sound
 	dw Options_Print
+	dw Options_FastBoot
 	dw Options_Frame
 	dw Options_Cancel
 
@@ -205,12 +209,12 @@ Options_BattleScene:
 
 .ToggleOn:
 	res BATTLE_SCENE, [hl]
-	ld de, .On
+	ld de, OnText
 	jr .Display
 
 .ToggleOff:
 	set BATTLE_SCENE, [hl]
-	ld de, .Off
+	ld de, OffText
 
 .Display:
 	hlcoord 11, 5
@@ -218,8 +222,44 @@ Options_BattleScene:
 	and a
 	ret
 
-.On:  db "ON @"
-.Off: db "OFF@"
+OnText:  db "ON @"
+OffText: db "OFF@"
+
+Options_FastBoot:
+	ld hl, wOptions
+	ldh a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .NonePressed
+	bit FAST_BOOT, [hl]
+	jr nz, .ToggleOff
+	jr .ToggleOn
+
+.LeftPressed:
+	bit FAST_BOOT, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
+
+.NonePressed:
+	bit FAST_BOOT, [hl]
+	jr z, .ToggleOff
+	jr .ToggleOn
+
+.ToggleOff:
+	res FAST_BOOT, [hl]
+	ld de, OffText
+	jr .Display
+
+.ToggleOn:
+	set FAST_BOOT, [hl]
+	ld de, OnText
+
+.Display:
+	hlcoord 11, 11
+	call PlaceString
+	and a
+	ret
 
 Options_Sound:
 	ld hl, wOptions
@@ -368,9 +408,6 @@ GetPrinterSetting:
 	lb de, GBPRINTER_DARKER, GBPRINTER_LIGHTEST
 	ret
 
-.Off: db "OFF@"
-.On:  db "ON @"
-
 Options_Frame:
 	ld hl, wTextboxFrame
 	ldh a, [hJoyPressed]
@@ -395,7 +432,7 @@ Options_Frame:
 	ld [hl], a
 UpdateFrame:
 	ld a, [wTextboxFrame]
-	hlcoord 16, 11 ; where on the screen the number is drawn
+	hlcoord 16, 13 ; where on the screen the number is drawn
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
