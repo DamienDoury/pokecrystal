@@ -705,141 +705,141 @@ JohtoGrassWildMons:
 	def_grass_wildmons ICE_PATH_1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 23, SWINUB
-	db 26, SWINUB
-	db 26, SWINUB
+	db 24, SWINUB
 	db 27, SWINUB
-	db 28, SWINUB
+	db 27, SWINUB
 	db 26, SWINUB
-	db 26, PILOSWINE
+	db 29, SWINUB
+	db 28, SWINUB
+	db 28, PILOSWINE
 	; day
 	db 25, SWINUB
-	db 26, SWINUB
-	db 26, SWINUB
 	db 27, SWINUB
-	db 28, SWINUB
+	db 27, SWINUB
 	db 26, SWINUB
-	db 26, PILOSWINE
+	db 29, SWINUB
+	db 28, SWINUB
+	db 28, PILOSWINE
 	; nite
 	db 25, DELIBIRD
-	db 26, ZUBAT
-	db 26, GOLBAT
-	db 27, DELIBIRD
+	db 27, ZUBAT
+	db 27, GOLBAT
+	db 26, DELIBIRD
+	db 29, GOLBAT
 	db 28, GOLBAT
-	db 26, GOLBAT
-	db 26, GOLBAT
+	db 28, GOLBAT
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_B1F
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 26, SWINUB
-	db 27, DELIBIRD
-	db 27, DELIBIRD
-	db 28, SWINUB
-	db 29, SWINUB
-	db 27, PILOSWINE
-	db 26, JYNX
-	; day
-	db 26, SWINUB
-	db 27, ZUBAT
-	db 27, DELIBIRD
-	db 28, SWINUB
-	db 29, DELIBIRD
-	db 27, PILOSWINE
-	db 26, JYNX
-	; nite
-	db 26, DELIBIRD
-	db 27, ZUBAT
-	db 27, GOLBAT
+	db 27, SWINUB
 	db 28, DELIBIRD
-	db 29, GOLBAT
-	db 27, GOLBAT
-	db 26, SNEASEL
+	db 28, DELIBIRD
+	db 29, SWINUB
+	db 30, SWINUB
+	db 28, PILOSWINE
+	db 27, JYNX
+	; day
+	db 27, SWINUB
+	db 28, ZUBAT
+	db 28, DELIBIRD
+	db 29, SWINUB
+	db 30, DELIBIRD
+	db 28, PILOSWINE
+	db 27, JYNX
+	; nite
+	db 27, DELIBIRD
+	db 28, ZUBAT
+	db 28, GOLBAT
+	db 29, DELIBIRD
+	db 30, GOLBAT
+	db 28, GOLBAT
+	db 27, SNEASEL
 	end_grass_wildmons
 
 	def_grass_wildmons ICE_PATH_B2F_MAHOGANY_SIDE
 	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
 	; morn
-	db 27, SWINUB
-	db 28, DELIBIRD
-	db 28, DELIBIRD
 	db 28, SWINUB
-	db 30, PILOSWINE
-	db 27, JYNX
-	db 28, JYNX
-	; day
-	db 27, SWINUB
-	db 28, DELIBIRD
-	db 28, DELIBIRD
+	db 29, DELIBIRD
+	db 29, DELIBIRD
 	db 29, SWINUB
-	db 30, PILOSWINE
-	db 27, JYNX
+	db 31, PILOSWINE
 	db 28, JYNX
-	; nite
-	db 27, DELIBIRD
-	db 28, ZUBAT
-	db 28, GOLBAT
-	db 29, DELIBIRD
-	db 30, GOLBAT
-	db 27, SNEASEL
-	db 28, SNEASEL
-	end_grass_wildmons
-
-	def_grass_wildmons ICE_PATH_B2F_BLACKTHORN_SIDE
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
-	; morn
-	db 27, SWINUB
-	db 28, DELIBIRD
-	db 28, DELIBIRD
-	db 28, SWINUB
-	db 30, PILOSWINE
-	db 27, JYNX
-	db 28, JYNX
-	; day
-	db 27, SWINUB
-	db 28, DELIBIRD
-	db 28, DELIBIRD
-	db 29, SWINUB
-	db 30, PILOSWINE
-	db 27, JYNX
-	db 28, JYNX
-	; nite
-	db 27, DELIBIRD
-	db 28, ZUBAT
-	db 28, GOLBAT
-	db 29, DELIBIRD
-	db 30, GOLBAT
-	db 27, SNEASEL
-	db 28, SNEASEL
-	end_grass_wildmons
-
-	def_grass_wildmons ICE_PATH_B3F
-	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
-	; morn
-	db 28, SWINUB
-	db 29, DELIBIRD
-	db 29, DELIBIRD
-	db 30, PILOSWINE
-	db 27, JYNX
-	db 28, JYNX
-	db 30, JYNX
+	db 29, JYNX
 	; day
 	db 28, SWINUB
 	db 29, DELIBIRD
 	db 29, DELIBIRD
-	db 30, PILOSWINE
-	db 27, JYNX
+	db 30, SWINUB
+	db 31, PILOSWINE
 	db 28, JYNX
-	db 30, JYNX
+	db 29, JYNX
 	; nite
 	db 28, DELIBIRD
 	db 29, ZUBAT
 	db 29, GOLBAT
 	db 30, DELIBIRD
-	db 27, SNEASEL
+	db 31, GOLBAT
 	db 28, SNEASEL
+	db 29, SNEASEL
+	end_grass_wildmons
+
+	def_grass_wildmons ICE_PATH_B2F_BLACKTHORN_SIDE
+	db 2 percent, 2 percent, 2 percent ; encounter rates: morn/day/nite
+	; morn
+	db 29, SWINUB
+	db 30, DELIBIRD
+	db 30, DELIBIRD
+	db 30, SWINUB
+	db 32, PILOSWINE
+	db 29, JYNX
+	db 30, JYNX
+	; day
+	db 29, SWINUB
+	db 30, DELIBIRD
+	db 30, DELIBIRD
+	db 31, SWINUB
+	db 32, PILOSWINE
+	db 29, JYNX
+	db 30, JYNX
+	; nite
+	db 29, DELIBIRD
+	db 30, ZUBAT
+	db 30, GOLBAT
+	db 31, DELIBIRD
+	db 32, GOLBAT
+	db 29, SNEASEL
 	db 30, SNEASEL
+	end_grass_wildmons
+
+	def_grass_wildmons ICE_PATH_B3F
+	db 6 percent, 6 percent, 6 percent ; encounter rates: morn/day/nite
+	; morn
+	db 30, SWINUB
+	db 31, DELIBIRD
+	db 30, DELIBIRD
+	db 32, PILOSWINE
+	db 30, JYNX
+	db 31, JYNX
+	db 32, JYNX
+	; day
+	db 30, SWINUB
+	db 31, DELIBIRD
+	db 30, DELIBIRD
+	db 32, PILOSWINE
+	db 30, JYNX
+	db 31, JYNX
+	db 32, JYNX
+	; nite
+	db 30, DELIBIRD
+	db 31, ZUBAT
+	db 31, GOLBAT
+	db 32, DELIBIRD
+	db 30, SNEASEL
+	db 31, SNEASEL
+	db 32, SNEASEL
 	end_grass_wildmons
 
 	def_grass_wildmons WHIRL_ISLAND_NW
@@ -1209,29 +1209,29 @@ JohtoGrassWildMons:
 	def_grass_wildmons DARK_CAVE_BLACKTHORN_ENTRANCE
 	db 4 percent, 4 percent, 4 percent ; encounter rates: morn/day/nite
 	; morn
-	db 29, GEODUDE
-	db 29, ZUBAT
-	db 31, GRAVELER
-	db 31, WOBBUFFET
-	db 26, WOBBUFFET
-	db 31, GOLBAT
-	db 29, ZUBAT
-	; day
-	db 29, GEODUDE
-	db 29, ZUBAT
-	db 31, GRAVELER
-	db 31, WOBBUFFET
+	db 31, GEODUDE
+	db 31, ZUBAT
+	db 33, GRAVELER
+	db 33, WOBBUFFET
 	db 30, WOBBUFFET
-	db 29, ZUBAT
-	db 29, ZUBAT
+	db 33, GOLBAT
+	db 31, ZUBAT
+	; day
+	db 31, GEODUDE
+	db 31, ZUBAT
+	db 33, GRAVELER
+	db 33, WOBBUFFET
+	db 32, WOBBUFFET
+	db 31, ZUBAT
+	db 31, ZUBAT
 	; nite
-	db 29, GEODUDE
-	db 29, ZUBAT
-	db 31, GRAVELER
-	db 26, WOBBUFFET
-	db 31, WOBBUFFET
-	db 29, GOLBAT
-	db 29, GOLBAT
+	db 31, GEODUDE
+	db 31, ZUBAT
+	db 33, GRAVELER
+	db 30, WOBBUFFET
+	db 33, WOBBUFFET
+	db 31, GOLBAT
+	db 31, GOLBAT
 	end_grass_wildmons
 
 	def_grass_wildmons ROUTE_29
@@ -1629,27 +1629,27 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_45
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 33, GEODUDE
-	db 34, GRAVELER
-	db 35, GLIGAR
-	db 36, DONPHAN
+	db 32, GEODUDE
+	db 33, GRAVELER
+	db 34, GLIGAR
+	db 35, DONPHAN
 	db 26, PHANPY
 	db 26, LARVITAR
 	db 26, LARVITAR
 	; day
-	db 35, DONPHAN
-	db 36, GRAVELER
-	db 35, GLIGAR
-	db 35, GEODUDE
-	db 36, SKARMORY
+	db 34, DONPHAN
+	db 35, GRAVELER
+	db 34, GLIGAR
+	db 34, GEODUDE
+	db 35, SKARMORY
 	db 26, LARVITAR
 	db 26, LARVITAR
 	; nite
-	db 34, GLIGAR
-	db 34, GRAVELER
+	db 33, GLIGAR
+	db 33, GRAVELER
 	db 34, RHYHORN
-	db 36, RHYHORN
-	db 36, SKARMORY
+	db 35, RHYHORN
+	db 35, SKARMORY
 	db 26, LARVITAR
 	db 26, LARVITAR
 	end_grass_wildmons
