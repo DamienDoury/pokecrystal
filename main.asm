@@ -428,6 +428,7 @@ INCLUDE "engine/phone/scripts/parry.asm"
 INCLUDE "engine/phone/scripts/erin.asm"
 INCLUDE "engine/phone/scripts/generic_callee.asm"
 INCLUDE "engine/phone/scripts/hospital.asm"
+INCLUDE "engine/phone/scripts/creator.asm"
 INCLUDE "engine/events/trainer_scripts.asm"
 
 
@@ -605,6 +606,7 @@ INCLUDE "data/phone/text/anthony_caller.asm"
 INCLUDE "data/phone/text/todd_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
 INCLUDE "data/phone/text/hospital_caller.asm"
+INCLUDE "data/phone/text/creator_caller.asm"
 
 SECTION "UpdateBattleHUDs", ROMX
 

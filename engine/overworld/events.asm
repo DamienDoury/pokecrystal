@@ -881,7 +881,7 @@ CountStep:
 	inc [hl]
 	jr nz, .day_care_step
 
-	farcall ResetDailyCovidEvents
+	farcall TriggerDailyEventResetSpecialCall
 
 .day_care_step
 	; Increase the EXP of (both) DayCare Pokemon.
