@@ -18,6 +18,7 @@ SweetScentFromMenu:
 	randomwildmon
 	startbattle
 	reloadmapafterbattle
+	callasm CheckSpecialPhoneCall
 	end
 
 .BugCatchingContest:
