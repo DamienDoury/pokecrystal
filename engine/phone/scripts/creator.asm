@@ -1,0 +1,6 @@
+CreatorCallerScript:
+CreatorCalleeScript:
+	farwritetext CreatorPhoneText
+	callasm ResetDailyCovidEvents
+	specialphonecall SPECIALCALL_NONE
+	end

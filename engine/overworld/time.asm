@@ -401,17 +401,16 @@ CopyDayHourMinToHL:
 ; For this reason, we accelerate covid-related features based on "active" play time.
 ; This function should be called every 2.5 hours on average, for a player that rushes the content.
 ; As it is based on "active" play time, players will have a harder time abusing this feature to take advantage of it.
-ResetDailyCovidEvents::
+TriggerDailyEventResetSpecialCall::
 	ldh a, [hHours]
 	cp 23
 	ret z ; No daily events refresh at 11 pm, because it's too close to the natural refresh that occurs at midnight.
 	
-	call OpenText
-	ld hl, .notification
-	call PrintText
-	call WaitButton
-	call CloseText
-	
+	ld a, SPECIALCALL_DAILY_EVENTS_RESET
+	ld [wSpecialPhoneCallID], a
+	ret
+
+ResetDailyCovidEvents::
 	ld b, 1 ; 1 day has passed. Parameter used by the following functions.
 	farcall ResetHospitalVisits
 	farcall ApplyPokerusTick ; Also calls DecreaseHospitalMonsDuration.
@@ -419,7 +418,3 @@ ResetDailyCovidEvents::
 	farcall RestockMarts
 	farcall GrowOneBerryInAllTrees ; This is not exactly covid related, but it's my present to the player!
 	ret
-
-.notification:
-	text_far _DailyEventRefreshNotificationText
-	text_end

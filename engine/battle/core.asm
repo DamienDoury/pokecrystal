@@ -8469,7 +8469,7 @@ IncActivePlaytimePoints:
 	inc [hl]
 	jr nz, .no_day_increase
 
-	farcall ResetDailyCovidEvents
+	farcall TriggerDailyEventResetSpecialCall
 	
 .no_day_increase
 	pop hl
