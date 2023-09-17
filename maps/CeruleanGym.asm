@@ -12,26 +12,34 @@ CeruleanGym_MapScripts:
 	scene_script .GruntRunsOut ; SCENE_CERULEANGYM_GRUNT_RUNS_OUT
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .TeamCheck:
+	checkevent EVENT_BEAT_MISTY
+	iftrue .no_check
+
+	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
+	iftrue .no_check
+
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall CeruleanGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .no_check
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	
-	checkevent EVENT_BEAT_MISTY
-	iftrue .no_check
 
 	setval EGG
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
-	checkevent EVENT_TRAINERS_IN_CERULEAN_GYM
-	iftrue .no_check
-	setval GRASS
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval ELECTRIC
-	special CheckTypePresenceInParty
+	scall CeruleanGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 
@@ -94,6 +102,24 @@ CeruleanGym_MapScripts:
 	pause 15
 	turnobject PLAYER, DOWN
 	pause 15
+	end
+
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	endcallback
+
+CeruleanGymCheckForbiddenTypes:
+	setval GRASS
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval ELECTRIC
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
 	end
 
 CeruleanGymMistyScript:

@@ -8,33 +8,31 @@ PewterGym_MapScripts:
 	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .TeamCheck:
+	checkevent EVENT_BEAT_BROCK
+	iftrue .no_check
+
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall PewterGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .no_check
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	
-	checkevent EVENT_BEAT_BROCK
-	iftrue .no_check
 
 	setval EGG
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
-	setval FIGHTING
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval GRASS
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval WATER
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval GROUND
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval STEEL
-	special CheckTypePresenceInParty
+	scall PewterGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 
@@ -57,6 +55,33 @@ PewterGym_MapScripts:
 	callstd GymGuidePlayerLeavesScript
 	warp PEWTER_CITY, 16, 17
 .no_check
+	end
+
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	endcallback
+
+PewterGymCheckForbiddenTypes:
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval GRASS
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval WATER
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval STEEL
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
 	end
 
 PewterGymBrockScript:

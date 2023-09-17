@@ -7,14 +7,25 @@ OlivineGym_MapScripts:
 	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .TeamCheck:
+	checkevent EVENT_BEAT_JASMINE
+	iftrue .no_check
+
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall OlivineGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .no_check
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	
-	checkevent EVENT_BEAT_JASMINE
-	iftrue .no_check
 
 	checkevent EVENT_OLIVINE_GYM_JASMINE
 	iftrue .no_check
@@ -23,14 +34,7 @@ OlivineGym_MapScripts:
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
-	setval GROUND
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval FIRE
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval FIGHTING
-	special CheckTypePresenceInParty
+	scall OlivineGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 
@@ -53,6 +57,27 @@ OlivineGym_MapScripts:
 	callstd GymGuidePlayerLeavesScript
 	warp OLIVINE_CITY, 10, 11
 .no_check
+	end
+
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	endcallback
+
+OlivineGymCheckForbiddenTypes:
+	setval GROUND
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval FIGHTING
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
 	end
 
 OlivineGymJasmineScript:

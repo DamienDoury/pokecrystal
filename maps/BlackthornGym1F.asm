@@ -10,22 +10,32 @@ BlackthornGym1F_MapScripts:
 	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 	callback MAPCALLBACK_TILES, .Boulders
 
 .TeamCheck:
+	checkevent EVENT_BEAT_CLAIR
+	iftrue .no_check
+	
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall BlackthornGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .no_check
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-	
-	checkevent EVENT_BEAT_CLAIR
-	iftrue .no_check
 
 	setval EGG
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
-	setval ICE
-	special CheckTypePresenceInParty
+	scall BlackthornGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 	
@@ -64,6 +74,21 @@ BlackthornGym1F_MapScripts:
 	changeblock 8, 6, $3b ; fallen boulder 2
 .skip3
 	endcallback
+
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	endcallback
+
+BlackthornGymCheckForbiddenTypes:
+	setval ICE
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
+	end
 
 BlackthornGymClairScript:
 	faceplayer

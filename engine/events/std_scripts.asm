@@ -61,6 +61,7 @@ StdScripts::
 	add_stdscript GymGuideChecksPlayersTeamScript
 	add_stdscript GymGuideTextSequel
 	add_stdscript GymGuidePlayerLeavesScript
+	add_stdscript GymKickPlayerOutAfterEvolution
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -2350,6 +2351,11 @@ GymGuidePlayerLeavesScript:
 	playsound SFX_ENTER_DOOR
 	waitsfx
 	end
+
+GymKickPlayerOutAfterEvolution:
+	playsound SFX_ELEVATOR_END
+	waitsfx 
+	farjumptext GymKickPlayerOutAfterEvolutionText
 
 Movement_GymGuideStopsPlayers:
 	step DOWN

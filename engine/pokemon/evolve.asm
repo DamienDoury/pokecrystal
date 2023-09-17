@@ -226,6 +226,10 @@ EvolveAfterBattle_MasterLoop:
 	ld hl, CongratulationsYourPokemonText
 	call PrintText
 
+	ld b, SET_FLAG
+	ld de, EVENT_POKEMON_JUST_EVOLVED
+	call EventFlagAction
+
 	pop hl
 
 	ld a, [hl]

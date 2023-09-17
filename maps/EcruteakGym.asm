@@ -12,8 +12,22 @@ EcruteakGym_MapScripts:
 	scene_script .Scene ; SCENE_ALWAYS
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .Scene:
+	checkevent EVENT_BEAT_MORTY
+	iftrue .end
+
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall EcruteakGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .end
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
@@ -25,16 +39,12 @@ EcruteakGym_MapScripts:
 	prioritysjump EcruteakGymClosed
 	end
 
-.TeamCheck:	
-	checkevent EVENT_BEAT_MORTY
-	iftrue .no_check
-
+.TeamCheck:
 	setval EGG
 	special FindPartyMonThatSpecies
 	iftrue .egg_found
 
-	setval DARK
-	special CheckTypePresenceInParty
+	scall EcruteakGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 
@@ -56,8 +66,22 @@ EcruteakGym_MapScripts:
 .player_leaves
 	callstd GymGuidePlayerLeavesScript
 	warp ECRUTEAK_CITY, 6, 27
-.no_check
 .end
+	end
+
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	endcallback
+
+EcruteakGymCheckForbiddenTypes:
+	setval DARK
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
 	end
 
 EcruteakGymMortyScript:

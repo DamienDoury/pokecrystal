@@ -12,9 +12,11 @@ CeladonGym_MapScripts:
 	scene_script .TeamCheck ; SCENE_ALWAYS
 
 	def_callbacks
-	callback MAPCALLBACK_TILES, .TilesCallback
+	callback MAPCALLBACK_TILES, .EnterCallback
 
-.TilesCallback:
+.EnterCallback:
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	
 	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
 	iffalse .end
 	moveobject CELADONGYM_GYM_GUIDE, 4, 14
@@ -22,12 +24,22 @@ CeladonGym_MapScripts:
 	endcallback
 
 .TeamCheck:
+	checkevent EVENT_BEAT_ERIKA
+	iftrue .no_check
+	
+	checkevent EVENT_POKEMON_JUST_EVOLVED
+	iffalse .enter_check
+	clearevent EVENT_POKEMON_JUST_EVOLVED
+	scall CeladonGymCheckForbiddenTypes
+	iffalse .enter_check
+
+	callstd GymKickPlayerOutAfterEvolution
+	sjump .player_leaves
+
+.enter_check
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .no_check
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
-
-	checkevent EVENT_BEAT_ERIKA
-	iftrue .no_check
 
 	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
 	iftrue .is_closed
@@ -39,20 +51,7 @@ CeladonGym_MapScripts:
 	special IsWholeTeamVaccinated
 	iffalse .not_fully_vaccinated
 
-	setval FIRE
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval ICE
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval BUG
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval POISON
-	special CheckTypePresenceInParty
-	iftrue .do_check
-	setval FLYING
-	special CheckTypePresenceInParty
+	scall CeladonGymCheckForbiddenTypes
 	iftrue .do_check
 	end
 
@@ -96,6 +95,29 @@ CeladonGym_MapScripts:
 	callstd GymGuidePlayerLeavesScript
 	warp CELADON_CITY, 10, 29
 .no_check
+	end
+
+CeladonGymCheckForbiddenTypes:
+	setval FIRE
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval ICE
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval BUG
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval POISON
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+	setval FLYING
+	special CheckTypePresenceInParty
+	iftrue .forbidden
+
+	setval FALSE
+	end
+
+.forbidden
 	end
 
 CeladonGymErikaScript:

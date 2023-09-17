@@ -239,11 +239,11 @@ INCLUDE "maps/BattleTowerBattleRoom.asm"
 INCLUDE "maps/BattleTowerElevator.asm"
 INCLUDE "maps/BattleTowerHallway.asm"
 INCLUDE "maps/Route40BattleTowerGate.asm"
-INCLUDE "maps/BattleTowerOutside.asm"
 
 
 SECTION "Map Scripts 13", ROMX
 
+INCLUDE "maps/BattleTowerOutside.asm"
 INCLUDE "maps/IndigoPlateauPokecenter1F.asm"
 INCLUDE "maps/WillsRoom.asm"
 INCLUDE "maps/KogasRoom.asm"
@@ -296,7 +296,6 @@ INCLUDE "maps/SaffronMagnetTrainStation.asm"
 INCLUDE "maps/SilphCo1F.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
-INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 16", ROMX
@@ -423,6 +422,7 @@ INCLUDE "maps/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/PewterMuseum1F.asm"
 INCLUDE "maps/PewterMuseum2F.asm"
+INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 22", ROMX

@@ -1655,6 +1655,18 @@ GymGuideRefusesEntranceEndText::
 	line "appropriate team."
 	done
 
+GymKickPlayerOutAfterEvolutionText::
+	text "We have seen a"
+	line "#MON evolve"
+	cont "into a type"
+	cont "forbidden into"
+	cont "this GYM."
+	
+	para "Its trainer is"
+	line "asked to leave"
+	cont "now."
+	done
+
 GGTCVioletText::
 	text "Yo CHAMP in"
 	line "making!"
