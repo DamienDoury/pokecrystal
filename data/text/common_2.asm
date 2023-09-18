@@ -1656,9 +1656,9 @@ GymGuideRefusesEntranceEndText::
 	done
 
 GymKickPlayerOutAfterEvolutionText::
-	text "We have seen a"
-	line "#MON evolve"
-	cont "into a type"
+	text "PA system: We have"
+	line "seen a #MON"
+	cont "evolve into a type"
 	cont "forbidden into"
 	cont "this GYM."
 	

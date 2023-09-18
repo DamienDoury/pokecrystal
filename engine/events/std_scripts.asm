@@ -2355,7 +2355,12 @@ GymGuidePlayerLeavesScript:
 GymKickPlayerOutAfterEvolution:
 	playsound SFX_ELEVATOR_END
 	waitsfx 
-	farjumptext GymKickPlayerOutAfterEvolutionText
+	opentext
+	farwritetext GymKickPlayerOutAfterEvolutionText
+	promptbutton
+	closetext
+	callasm ClearJoypad
+	end
 
 Movement_GymGuideStopsPlayers:
 	step DOWN
