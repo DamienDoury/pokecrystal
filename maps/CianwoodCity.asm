@@ -41,6 +41,7 @@ CianwoodCitySuicuneAndEusine:
 	pause 15
 	playsound SFX_WARP_FROM
 	applymovement CIANWOODCITY_SUICUNE, CianwoodCitySuicuneDepartMovement
+	turnobject PLAYER, RIGHT
 	disappear CIANWOODCITY_SUICUNE
 	pause 10
 	setscene SCENE_CIANWOODCITY_NOTHING
@@ -67,6 +68,7 @@ CianwoodCitySuicuneAndEusine:
 	writetext EusineAfterText
 	waitbutton
 	closetext
+	turnobject PLAYER, DOWN
 	applymovement CIANWOODCITY_EUSINE, CianwoodCityEusineDepartMovement
 	disappear CIANWOODCITY_EUSINE
 	pause 20
@@ -187,11 +189,22 @@ CianwoodCityEusineApproachMovement:
 	step UP
 	step UP
 	step UP
+	step RIGHT
+	step RIGHT
 	step UP
+	step UP
+	turn_head RIGHT
+	step_sleep 8
+	step_sleep 8
+	step_sleep 8
+	turn_head LEFT
 	step_end
 
 CianwoodCityEusineDepartMovement:
 	step DOWN
+	step DOWN
+	step LEFT
+	step LEFT
 	step DOWN
 	step DOWN
 	step DOWN
