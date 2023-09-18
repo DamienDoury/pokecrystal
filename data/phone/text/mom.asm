@@ -220,10 +220,10 @@ MomPhoneLectureText:
 	done
 
 MomCurfewStartedText:
-	text "Hi, <PLAYER>. They"
+	text "Hi, <PLAYER>! They"
 	line "just announced"
 
-	para "great news on TV,"
+	para "great news on TV…"
 	line "you need to know!"
 
 	para "The quarantine at"
@@ -231,18 +231,28 @@ MomCurfewStartedText:
 	
 	para "effective, and the"
 	line "restrictions can"
-	cont "be relaxed."
+	cont "be relaxed!"
 
 	para "From now on, the"
 	line "new rule is the"
 	cont "curfew."
 
-	para "You can go out"
-	line "during the day,"
+	para "People are allowed"
+	line "to go out during"
+	cont "the day, but"
 	
-	para "but no one is"
+	para "no one is"
 	line "allowed out"
 	cont "after dark."
+
+	para "Some establish-"
+	line "ments will re-open"
+	cont "during the day"
+	cont "as well!"
+
+	para "Long-distance"
+	line "travel is still"
+	cont "banned though."
 
 	para "Wherever you are,"
 	line "be safe."

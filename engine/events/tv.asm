@@ -264,7 +264,7 @@ TVShow:
 	para "You know, it is"
 	line "very hard to put"
 
-	para "on a facemask as"
+	para "on a face mask as"
 	line "it requires"
 
 	para "medical technical"
@@ -292,10 +292,10 @@ TVShow:
 
 	para "Is this"
 	line "spokeperson"
-	cont "thinking we are"
+	cont "calling us"
 	cont "stupid?"
 
-	;cont " A facemask is just a piece of paper with 2 elastics: what's so complicated about it? It blocks viruses from going in and out your mouth and nose: what's so dangerous about it? Does this person think we are stupid? Please fire this spokeperson."
+	;cont " A face mask is just a piece of paper with 2 elastics: what's so complicated about it? It blocks viruses from going in and out your mouth and nose: what's so dangerous about it? Does this person think we are stupid? Please fire this spokeperson."
 	done
 
 .Phase1Even2:

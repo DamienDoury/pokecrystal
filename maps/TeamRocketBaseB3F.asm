@@ -383,7 +383,7 @@ RocketBaseRivalText:
 ExecutiveM4BeforeText:
 	text "What? Who are you?"
 	line "You're wearing a"
-	cont "facemask…"
+	cont "face mask…"
 
 	para "So you're part of"
 	line "the brainwashed"

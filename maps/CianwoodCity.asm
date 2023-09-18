@@ -417,7 +417,7 @@ CianwoodPokeSeerSignText:
 
 Cianwood_NoFaceMaskText:
 	text "I won't wear"
-	line "a facemask."
+	line "a face mask."
 
 	para "I've never seen"
 	line "COVID, and I don't"

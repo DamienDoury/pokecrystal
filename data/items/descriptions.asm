@@ -320,11 +320,11 @@ MaxPotionDesc:
 
 HyperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 200.@"
+	next "HP by 120.@"
 
 SuperPotionDesc:
 	db   "Restores #MON"
-	next "HP by 50.@"
+	next "HP by 60.@"
 
 PotionDesc:
 	db   "Restores #MON"
@@ -730,11 +730,11 @@ SafariKeyDesc:
 
 EnergyPowderDesc:
 	db   "Restores #MON"
-	next "HP by 50. Bitter.@"
+	next "HP by 60. Bitter.@"
 
 EnergyRootDesc:
 	db   "Restores #MON"
-	next "HP by 200. Bitter.@"
+	next "HP by 120. Bitter.@"
 
 HealPowderDesc:
 	db   "Cures all status"

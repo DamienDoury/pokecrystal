@@ -1312,7 +1312,7 @@ GoldenrodHospitalRoom24PatientText:
 	cont "population by"
 	cont "arresting people"
 	cont "that do not wear"
-	cont "a facemask."
+	cont "a face mask."
 
 	para "In the end…"
 
@@ -1544,7 +1544,7 @@ GoldenrodHospitalRoom2VisitorText:
 	cont "above 90<PERCENT>."
 	
 	para "That's when the"
-	line "facemask shows"
+	line "face mask shows"
 	cont "its strength."
 
 	para "If the healthy"
