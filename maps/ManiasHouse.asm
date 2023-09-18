@@ -23,6 +23,7 @@ ManiaScript:
 	writetext ManiaText_TakeCareOfShuckle
 	promptbutton
 	writetext ManiaText_GotShuckle
+	waitbutton
 	disappear MANIASHOUSE_SHUCKIE_BEFORE
 	playsound SFX_KEY_ITEM
 	waitsfx
