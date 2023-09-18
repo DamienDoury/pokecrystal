@@ -211,8 +211,8 @@ JasminePleaseHelpText:
 
 JasmineCureAmphyText:
 	text "JASMINE: …Will"
-	line "that medicine cure"
-	cont "AMPHY?"
+	line "the CHLOROQUINE"
+	cont "cure AMPHY?"
 	done
 
 PlayerHandedSecretpotionText:

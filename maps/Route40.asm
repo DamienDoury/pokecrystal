@@ -244,10 +244,13 @@ Route40PokefanMText_Mobile:
 
 Route40Lass2Text:
 	text "I came to OLIVINE"
-	line "by ship to see the"
-
-	para "sights and soak up"
-	line "the atmosphere."
+	line "by ship the day"
+	cont "before the lock-"
+	cont "down was enforced,"
+	
+	para "to see the sights"
+	line "and soak up the"
+	cont "atmosphere."
 
 	para "Being a port, it"
 	line "feels so different"

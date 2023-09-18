@@ -423,6 +423,7 @@ INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/PewterMuseum1F.asm"
 INCLUDE "maps/PewterMuseum2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
+INCLUDE "maps/Route6SaffronGate.asm"
 
 
 SECTION "Map Scripts 22", ROMX
@@ -439,7 +440,6 @@ INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
-INCLUDE "maps/Route6SaffronGate.asm"
 
 
 SECTION "Map Scripts 23", ROMX

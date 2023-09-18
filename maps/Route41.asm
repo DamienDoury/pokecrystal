@@ -317,7 +317,7 @@ SwimmerfKaraAfterBattleText:
 	done
 
 SwimmerfWendySeenText:
-	text "At night, STARYU"
+	text "At night, CHINCHOU"
 	line "gather near the"
 	cont "water's surface."
 	done
@@ -328,7 +328,7 @@ SwimmerfWendyBeatenText:
 
 SwimmerfWendyAfterBattleText:
 	text "The clusters of"
-	line "STARYU light up"
+	line "CHINCHOU light up"
 	cont "at the same time."
 
 	para "It's so beautiful,"
