@@ -91,35 +91,22 @@ LockdownFirstDeclaration:
 
 CharcoalKilnBoss:
 	faceplayer
-	opentext
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iftrue .Curfew
 	checkevent EVENT_LOCKDOWN_MART_RUSH
 	iffalse .Panic
-	checkevent EVENT_GOT_HM01_CUT
-	iftrue .GotCut
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
-	writetext CharcoalKilnBossText1
-	waitbutton
-	closetext
-	end
+	jumptext CharcoalKilnBossText1
+
+.Curfew:
+	jumptext CharcoalKilnBossCurfewText
 
 .Panic:
-	writetext CharcoalKilnBossPanicText
-	waitbutton
-	closetext
-	end
+	jumptext CharcoalKilnBossPanicText
 
 .SavedSlowpoke:
-	writetext CharcoalKilnBossText2
-	waitbutton
-	closetext
-	end
-
-.GotCut:
-	writetext CharcoalKilnBossText3
-	waitbutton
-	closetext
-	end
+	jumptext CharcoalKilnBossText2
 
 CharcoalKilnApprentice:
 	faceplayer
@@ -222,16 +209,14 @@ CharcoalKilnBossText2:
 	line "is that lazy guy?"
 	done
 
-CharcoalKilnBossText3:
-	text "You chased off"
-	line "TEAM ROCKET and"
+CharcoalKilnBossCurfewText:
+	text "I've visited my"
+	line "family in"
+	cont "ECRUTEAK CITY."
 
-	para "went to ILEX"
-	line "FOREST alone?"
-
-	para "That takes guts!"
-	line "I like that. Come"
-	cont "train with us."
+	para "I missed them so"
+	line "much during the"
+	cont "lockdown!"
 	done
 
 CharcoalKilnApprenticeText1:

@@ -19,6 +19,7 @@ VioletKylesHouse_MapScripts:
 	changeblock  2,  2, $3a
 	changeblock  4,  2, $3b
 	changeblock  4,  4, $3f
+	changeblock  0,  6, $3c
 .end
 	endcallback
 
@@ -74,7 +75,7 @@ VioletKylesHouseTradebackGuyText:
 
 VioletKylesHouseComputer1Text:
 	text "The web browser"
-	line "has about 30 tabs"
+	line "has 30 open tabs"
 	cont "of Bulbapedia"
 	cont "articles."
 	done

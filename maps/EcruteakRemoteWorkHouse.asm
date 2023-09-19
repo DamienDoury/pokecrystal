@@ -14,11 +14,14 @@ EcruteakRemoteWorkHouse_MapScripts:
 .TilesLoad
 	changeblock  4,  2, $3b
 	changeblock  4,  4, $3f
+	changeblock  0,  6, $3c
+	changeblock  6,  6, $05
 
 	readmem wCurFreedomState
 	ifnotequal 1 << LOCKDOWN, .end
 
 	changeblock  2,  2, $3a
+	changeblock  6,  6, $2b
 .end
 	endcallback
 

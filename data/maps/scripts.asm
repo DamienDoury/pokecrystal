@@ -323,13 +323,13 @@ INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
 INCLUDE "maps/FuchsiaGym.asm"
+INCLUDE "maps/TohjoFalls.asm"
 
 
 SECTION "Map Scripts 17", ROMX
 
 INCLUDE "maps/Route10Pokecenter1F.asm"
 INCLUDE "maps/AzaleaPokecenter1F.asm"
-INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/EcruteakPoliceStation.asm"
 INCLUDE "maps/MrAntonsHouse.asm"
 INCLUDE "maps/MahoganyTown.asm"

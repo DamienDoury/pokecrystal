@@ -107,9 +107,10 @@ EcruteakPoliceStationBriefingText4:
 	done
 
 EcruteakPoliceStationPrisonerText:
-	text "I should have"
-	line "worn my face"
-	cont "mask!"
+	text "I should've worn"
+	line "my face mask"
+	cont "properly, not"
+	cont "under the chin."
 
 	para "I'm in deep"
 	line "trouble now!"

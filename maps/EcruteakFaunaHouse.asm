@@ -7,6 +7,11 @@ EcruteakFaunaHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .TilesLoad
+
+.TilesLoad
+	changeblock  0,  6, $3c
+	endcallback
 
 EcruteakFaunaHouse_Person1Script:
 	jumptextfaceplayer EcruteakFaunaHouse_Person1Text

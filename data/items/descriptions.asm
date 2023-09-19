@@ -359,19 +359,19 @@ TeruSama2Desc:
 
 HPUpDesc:
 	db   "Raises the HP of"
-	next "one #MON.@"
+	next "a #MON a lot.@"
 
 ProteinDesc:
 	db   "Raises ATTACK of"
-	next "one #MON.@"
+	next "a #MON a lot.@"
 
 IronDesc:
 	db   "Raises DEFENSE of"
-	next "one #MON.@"
+	next "a #MON a lot.@"
 
 CarbosDesc:
 	db   "Raises SPEED of"
-	next "one #MON.@"
+	next "a #MON a lot.@"
 
 LuckyPunchDesc:
 	db   "Ups CRIT. odds of"
@@ -379,7 +379,7 @@ LuckyPunchDesc:
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
-	next "of one #MON.@"
+	next "a #MON a lot.@"
 
 RareCandyDesc:
 	db   "Raises level of a"

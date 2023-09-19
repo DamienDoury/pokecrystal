@@ -19,6 +19,7 @@ VioletNicknameSpeechHouse_MapScripts:
 
 	changeblock  4,  2, $3b
 	changeblock  4,  4, $3f
+	changeblock  0,  6, $3c
 .end
 	endcallback
 
