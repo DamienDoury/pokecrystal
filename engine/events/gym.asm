@@ -8,7 +8,7 @@ GymSpecialRules::
 
 	ld hl, wPlayerScreens
 	set SCREENS_STICKY_WEB, [hl]
-	jr .exit
+	ret
 
 .check_clair
 	ld a, [wOtherTrainerClass]
@@ -16,19 +16,22 @@ GymSpecialRules::
 	jr nz, .check_sabrina
 
 	ld c, 0
-	call ExhaustStatusPP
+	jp ExhaustMovesPP
 
 .check_sabrina
 	ld a, [wOtherTrainerClass]
 	cp SABRINA
-	jr nz, .check_blue
+	jr nz, .check_chuck
 
 	ld c, 1
-	call ExhaustStatusPP
+	jp ExhaustMovesPP
 
-.check_blue
-.exit
-	ret
+.check_chuck
+	ld a, [wOtherTrainerClass]
+	cp CHUCK
+	ret nz
+
+	jp ExhaustBatonPassPP
 
 
 
@@ -211,7 +214,7 @@ MonNotCuteText:
 
 
 ; If c equals 0, then it will deplete the Status moves PP, otherwise it will deplete the physical and special moves PP.
-ExhaustStatusPP:
+ExhaustMovesPP:
 	ld a, 1
 	ld [wScriptVar], a ; Sets the return value as TRUE.
 
@@ -260,7 +263,63 @@ ExhaustStatusPP:
 	cp STATUS
 	jr z, .next_move ; If the move is not a status move, we check the next move.
 
-	; At this point, we have found a physcial or special move.
+	; At this point, we have found a physical or special move.
+
+.deplete_pp
+	push hl
+	push de
+	ld de, OFFSET_FROM_MOVE_TO_PP
+	add hl, de
+	ld [hl], 0 ; We exhaust the PP.
+	pop de
+	pop hl
+
+	jr .next_move
+
+.next_party_mon
+	pop hl
+	ld a, [wPartyCount]
+	ld b, a
+	ld a, [wCurPartyMon]
+	inc a
+	cp b
+	ret z ; We exit when we reach the last pkmn.
+
+	ld [wCurPartyMon], a
+	add hl, de
+	jr .analyze_mon
+
+
+
+ExhaustBatonPassPP:
+	ld a, 1
+	ld [wScriptVar], a ; Sets the return value as TRUE.
+
+	ld hl, wPartyMon1Moves
+	ld de, PARTYMON_STRUCT_LENGTH
+	xor a
+	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
+
+.analyze_mon
+	ld b, 0 ; This represents the index of the move.
+	push hl
+
+.next_move
+	ld a, b
+	cp 4
+	jr z, .next_party_mon ; Once we have checked all four moves (index 0 to 3), we go to the next mon.
+
+	ld a, [hl] ; Retrieving the first move.
+	cp 0
+	jr z, .next_party_mon ; If this mon has no more moves, we move on to the next mon.
+
+	inc hl
+	inc b
+	
+	cp BATON_PASS
+	jr nz, .next_move ; If the move is not Baton Pass, we check the next move.
+
+	; At this point, we have found baton Pass.
 
 .deplete_pp
 	push hl
