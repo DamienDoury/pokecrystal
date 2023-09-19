@@ -441,7 +441,7 @@ ENDM
 	map_const ROUTE_41,                                    25, 27 ;  2
 	map_const CIANWOOD_CITY,                               15, 27 ;  3
 	map_const MANIAS_HOUSE,                                 4,  4 ;  4
-	map_const CIANWOOD_GYM,                                 5,  9 ;  5
+	map_const CIANWOOD_GYM,                                 5, 10 ;  5
 	map_const CIANWOOD_POKECENTER_1F,                       5,  4 ;  6
 	map_const CIANWOOD_PHARMACY,                            4,  4 ;  7
 	map_const CIANWOOD_PHOTO_STUDIO,                        4,  4 ;  8
