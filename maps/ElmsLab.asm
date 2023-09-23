@@ -934,7 +934,7 @@ ElmText_AllRighty:
 	para "…"
 	para "…"
 	para "NOW GET OUT YOU"
-	line "SON OF A B"
+	line "MOTHERFUC"
 	done
 
 ElmText_ResearchAmbitions:
