@@ -2,26 +2,7 @@ SplashScreen:
 ; Play the copyright screen and GameFreak Presents sequence.
 ; Return carry if user cancels animation by pressing a button.
 
-; Reinitialize everything
-	ld de, MUSIC_NONE
-	call PlayMusic
-	call ClearBGPalettes
-	call ClearTilemap
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ldh [hJoyDown], a
-	ldh [hSCX], a
-	ldh [hSCY], a
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	call WaitBGMap
-	ld b, SCGB_GAMEFREAK_LOGO
-	call GetSGBLayout
-	call SetPalettes
-	ld c, 10
-	call DelayFrames
+	call ReinitializeEverything
 
 ; Draw copyright screen
 	callfar Copyright
@@ -38,9 +19,6 @@ SplashScreen:
 
 .pressed_button_1
 	call ClearTilemap
-
-; Stop here if not in GBC mode
-	farcall GBCOnlyScreen
 
 ; Play GameFreak logo animation
 	call GameFreakPresentsInit
@@ -356,3 +334,26 @@ INCLUDE "gfx/splash/ditto_fade.pal"
 GameFreakLogoGFX:
 INCBIN "gfx/splash/gamefreak_presents.1bpp"
 INCBIN "gfx/splash/gamefreak_logo.1bpp"
+
+ReinitializeEverything::
+	ld de, MUSIC_NONE
+	call PlayMusic
+	call ClearBGPalettes
+	call ClearTilemap
+	ld a, HIGH(vBGMap0)
+	ldh [hBGMapAddress + 1], a
+	xor a ; LOW(vBGMap0)
+	ldh [hBGMapAddress], a
+	ldh [hJoyDown], a
+	ldh [hSCX], a
+	ldh [hSCY], a
+	ld a, SCREEN_HEIGHT_PX
+	ldh [hWY], a
+	call WaitBGMap
+	ld b, SCGB_GAMEFREAK_LOGO
+	call GetSGBLayout
+	call SetPalettes
+	ld c, 10
+	call DelayFrames
+	call JoyTextDelay
+	ret

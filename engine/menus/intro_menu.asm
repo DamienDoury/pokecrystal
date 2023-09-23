@@ -9,9 +9,6 @@ Intro_MainMenu:
 	farcall MainMenu
 	jp StartTitleScreen
 
-IntroMenu_DummyFunction: ; unreferenced
-	ret
-
 PrintDayOfWeek:
 	push de
 	ld hl, .Days
@@ -1390,6 +1387,9 @@ GameInit::
 	ld a, $90
 	ldh [hWY], a
 	call WaitBGMap
+
+	; Stop here if not in GBC mode
+	farcall GBCOnlyScreen
 
 	ld a, [wSaveFileExists]
 	and a

@@ -3,6 +3,8 @@ GBCOnlyScreen:
 	and a
 	ret nz
 
+	farcall ReinitializeEverything
+
 	ld de, MUSIC_NONE
 	call PlayMusic
 
