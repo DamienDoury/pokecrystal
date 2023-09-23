@@ -184,7 +184,7 @@ SpecialsPointers::
 	add_special GetHospitalRoomNumber
 	add_special GetQuantityOfHospitalizedMons
 	add_special CountHospitalMonsReadyToLeave
-	add_special CountHospitalMonsReadyToLeave2
+	add_special IsFirstHospitalMonReadyToLeave
 	add_special RetrieveFirstMonFromHospitalBox
 	add_special HospitalVisitHappinessGain
 	add_special SearchCriticallyIllMonInParty

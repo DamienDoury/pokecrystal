@@ -116,7 +116,7 @@ GoldenrodHospitalNurse2Script:
 	writetext GoldenrodHospitalNurse2Text_Room5Solo	
 
 .CheckRecoveredMons:
-	special CountHospitalMonsReadyToLeave2
+	special IsFirstHospitalMonReadyToLeave
 	ifequal 0, .End
 
 	promptbutton
@@ -164,7 +164,7 @@ GoldenrodHospitalNurse2Script:
 	addval $ff ;-1
 	ifgreater 0, .Loop
 
-	special CountHospitalMonsReadyToLeave2
+	special IsFirstHospitalMonReadyToLeave
 	ifgreater 0, .ComeBackLater
 
 	writetext GoldenrodHospitalNurse2Text_TakeCare

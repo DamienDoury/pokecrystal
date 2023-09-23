@@ -16,6 +16,6 @@ NonTrainerCallerNames:
 .bill:     db "BILL:@"
 .elm:      db "PROF.ELM:@"
 .bikeshop: db "BIKE SHOP:@"
-.hospital: db "NURSE JOY:<LF>      HOSPITAL@"
+.hospital: db "CHIEF NURSE JOY:<LF>      HOSPITAL@"
 .creator:  db "HIDDEN NUMBER:@"
 .buena:    db "BUENA:<LF>   DISC JOCKEY@"

@@ -155,8 +155,13 @@ DecreaseHospitalMonsDuration:
 
 	; At this point, the Pokémon has symptoms the last day the player played, and is now immune.
 	; So the Pokémon recovered, and is ready to leave the hospital.
-	; We notify the player with a phone call.
 
+	; As this is a low priority call that can happens once a day, we don't want to set it if there's already another special call planned.
+	ld a, [wSpecialPhoneCallID]
+	and a
+	jr nz, .phone_call_managed
+	
+	; We notify the player with a phone call.
 	ld a, SPECIALCALL_RECOVER_HOSPITAL
 	ld [wSpecialPhoneCallID], a
 

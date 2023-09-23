@@ -88,6 +88,7 @@ _GetQuantityOfHospitalizedMons::
 	ld [wScriptVar], a
 	ret
 
+; Output: In wScriptVar, the number of Pokémon ready to leave the hospital.
 _CountHospitalMonsReadyToLeave::
 	ld hl, sHospitalBoxMon1PokerusStatus
 	ld de, BOXMON_STRUCT_LENGTH
@@ -134,7 +135,8 @@ _CountHospitalMonsReadyToLeave::
 	call CloseSRAM
 	ret
 
-_CountHospitalMonsReadyToLeave2::
+; Output: In wScriptVar, returns TRUE if the first Pokémon of the HospitalBox is ready to leave.
+_IsFirstHospitalMonReadyToLeave::
 	xor a
 	ld [wScriptVar], a
 
@@ -151,7 +153,7 @@ _CountHospitalMonsReadyToLeave2::
 	cp POKERUS_IMMUNITY_DURATION + 1
 	jr nc, .end ; This Pokémon is not ready to leave, and Pokémon leave in chronological order (queue). Therefore, we can leave the loop as soon as a Pokémon is wrong.
 
-	ld a ,1
+	ld a, TRUE
 	ld [wScriptVar], a
 
 .end

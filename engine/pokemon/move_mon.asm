@@ -1994,8 +1994,29 @@ _RetrieveFirstMonFromHospitalBox::
 
 	call RemoveFirstMonFromHospitalBox
 
-	; [NOPE] -> TODO: Add or sub happiness depending on how long the player took to withdraw this Pokémon from the hospital.
+	ld a, [wScriptVar] ; We preserve wScriptVar.
+	ld h, a
+	push hl
+	farcall _IsFirstHospitalMonReadyToLeave
+	pop hl
+	ld a, [wScriptVar]
+	ld l, a
+	ld a, h
+	ld [wScriptVar], a
 
+	ld a, l
+	and a
+	ret nz
+
+	; All Pokémons have been retrieved from the hospital box.
+	; So we remove the SPECIALCALL_RECOVER_HOSPITAL if it is the current programmed special call.
+
+	ld a, [wSpecialPhoneCallID]
+	cp SPECIALCALL_RECOVER_HOSPITAL
+	ret nz
+
+	xor a
+	ld [wSpecialPhoneCallID], a
 	ret
 
 RemoveFirstMonFromHospitalBox::

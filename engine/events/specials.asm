@@ -428,8 +428,8 @@ CountHospitalMonsReadyToLeave:
 	farcall _CountHospitalMonsReadyToLeave
 	ret
 
-CountHospitalMonsReadyToLeave2:
-	farcall _CountHospitalMonsReadyToLeave2
+IsFirstHospitalMonReadyToLeave:
+	farcall _IsFirstHospitalMonReadyToLeave
 	ret
 
 RetrieveFirstMonFromHospitalBox:
