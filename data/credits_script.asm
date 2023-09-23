@@ -83,63 +83,63 @@ CreditsScript:
 	db       ASUKA_IWASHITA, 4
 	db     TETSUYA_WATANABE, 5
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db         CREDIT_MUSIC, 0
 	db       JUNICHI_MASUDA, 2
 	db        MORIKAZU_AOKI, 3
 	db          GO_ICHINOSE, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db CREDIT_SOUND_EFFECTS, 0
 	db        MORIKAZU_AOKI, 2
 	db       JUNICHI_MASUDA, 3
 	db     TETSUYA_WATANABE, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db          GAME_DESIGN, 0
 	db       JUNICHI_MASUDA, 2
 	db     SHIGEKI_MORIMOTO, 3
 	db        KOHJI_NISHINO, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db          GAME_DESIGN, 0
 	db         TETSUJI_OOTA, 2
 	db          HITOMI_SATO, 3
 	db     KENJI_MATSUSHIMA, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db        GAME_SCENARIO, 1
 	db       JUNICHI_MASUDA, 3
 	db        KOHJI_NISHINO, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db        GAME_SCENARIO, 1
 	db  TOSHINOBU_MATSUMIYA, 3
 	db     KENJI_MATSUSHIMA, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db         POKEDEX_TEXT, 2
 	db  TOSHINOBU_MATSUMIYA, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db     TOOL_PROGRAMMING, 1
 	db       SOUSUKE_TAMADA, 3
 	db        TAKENORI_OOTA, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db    PARAMETRIC_DESIGN, 2
 	db        KOHJI_NISHINO, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 ; Clear the banner.
 	db CREDITS_CLEAR
@@ -251,14 +251,14 @@ CreditsScript:
 	db        GAKUZI_NOMOTO, 4
 	db           AI_MASHIMA, 5
 	
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 	
 	db       SPECIAL_THANKS, 0
 	db      KUNIMI_KAWAMURA, 2
 	db    MIKIHIRO_ISHIKAWA, 3
 	db   HIDEYUKI_HASHIMOTO, 4
 
-	db CREDITS_WAIT, 11
+	db CREDITS_WAIT, 10
 
 	db   EXECUTIVE_PRODUCER, 2
 	db     HIROSHI_YAMAUCHI, 4
@@ -297,6 +297,12 @@ CreditsScript:
 
 	db       CREDIT_MUSIC, 1
 	db       TRITEHEXAGON, 3
+
+	db CREDITS_WAIT, 11
+
+	db    PRODUCT_TESTING, 1
+	db       DAMIEN_DOURY, 3
+	db             VOLOGT, 4
 
 	db CREDITS_WAIT, 11
 

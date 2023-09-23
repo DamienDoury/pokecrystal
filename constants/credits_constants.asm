@@ -110,6 +110,7 @@
 	const DAMIEN_DOURY
 	const DARKSHADE
 	const TRITEHEXAGON
+	const VOLOGT
 	const CREDITS_EMPTY
 NUM_CREDITS_STRINGS EQU const_value
 

@@ -111,6 +111,7 @@ CreditsStringsPointers:
 	dw .DamienDoury
 	dw .Darkshade
 	dw .TriteHexagon
+	dw .VoloGT
 	dw .Empty
 	assert_table_length NUM_CREDITS_STRINGS
 
@@ -228,6 +229,7 @@ CreditsStringsPointers:
 .DamienDoury:		  db "    DAMIEN DOURY@"
 .Darkshade:			  db "     DARKSHADE@"
 .TriteHexagon:		  db "   <AT>TriteHexagon@"
+.VoloGT:		 	  db "  ANDRIY SKOVORODA@"
 .Empty:				  db "@"
 
 .Copyright:
