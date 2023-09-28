@@ -99,8 +99,8 @@ ProfElmScript_Back:
 ElmCheckMasterBall:
 	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
 	iftrue ElmCheckEverstone
-	checkflag ENGINE_RISINGBADGE
-	iftrue ElmGiveMasterBallScript
+	readvar VAR_BADGES
+	ifgreater 7, ElmGiveMasterBallScript
 ElmCheckEverstone:
 	checkevent EVENT_GOT_EVERSTONE_FROM_ELM
 	iftrue ElmScript_CallYou
@@ -1493,7 +1493,7 @@ ElmGiveMasterBallText1:
 ElmGiveMasterBallText2:
 	text "Those are only"
 	line "given to very"
-	cont "selected people."
+	cont "select people."
 
 	para "It's a permit to"
 	line "legally cross"
