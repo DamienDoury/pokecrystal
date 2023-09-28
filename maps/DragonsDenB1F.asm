@@ -192,11 +192,9 @@ MovementDragonsDen_ClairWalksToYou:
 	slow_step RIGHT
 	slow_step RIGHT
 	slow_step RIGHT
-	slow_step RIGHT
 	step_end
 
 MovementDragonsDen_ClairWalksAway:
-	slow_step LEFT
 	slow_step LEFT
 	slow_step LEFT
 	slow_step LEFT
