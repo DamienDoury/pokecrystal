@@ -225,9 +225,20 @@ ClairText_DescribeDragonbreathDragonDen:
 	line "have anything to"
 	cont "do with my breath."
 
-	para "If you don't want"
-	line "it, you don't have"
-	cont "to take it."
+	para "We're keeping"
+	line "social distance"
+	cont "and we're both"
+	cont "wearing a face"
+	cont "mask anyway."
+	
+	para "It's not like you"
+	line "can smell it…"
+	cont "right?"
+
+	para "Look, if you don't"
+	line "want the TM, you"
+	cont "don't have to take"
+	cont "it."
 	done
 
 ClairText_NoRoom:
