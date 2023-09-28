@@ -1492,8 +1492,8 @@ ElmGiveMasterBallText1:
 
 ElmGiveMasterBallText2:
 	text "Those are only"
-	line "given to very"
-	cont "select people."
+	line "given to a"
+	cont "select few."
 
 	para "It's a permit to"
 	line "legally cross"
