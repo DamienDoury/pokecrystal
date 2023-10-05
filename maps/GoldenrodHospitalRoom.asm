@@ -939,6 +939,7 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	setevent EVENT_SICK_CATERPIE
 	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
 	setevent EVENT_FIRST_LOCKDOWN_STARTED
+	clearevent EVENT_TRAVEL_CONTROL
 	clearevent EVENT_MART_CHERRYGROVE_MISSED
 	clearevent EVENT_MART_VIOLET_MISSED
 	clearevent EVENT_MART_AZALEA_MISSED

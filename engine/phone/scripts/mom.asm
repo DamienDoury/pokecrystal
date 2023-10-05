@@ -151,5 +151,6 @@ MomLockdownDeclaredScript:
 
 MomVaccinePassportScript:
 	specialphonecall SPECIALCALL_NONE
+	setevent EVENT_TRAVEL_CONTROL
 	farwritetext MomVaccinePassportText
 	end
