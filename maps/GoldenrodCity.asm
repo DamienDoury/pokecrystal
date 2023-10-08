@@ -36,6 +36,15 @@ GoldenrodCity_MapScripts:
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_GOLDENROD
 	setflag ENGINE_REACHED_GOLDENROD
+	
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	checkevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
+	iffalse .EndTilesCallback ; When Goldenrod's invasion is happening, the travel controller is absent.
+	
+	checkevent EVENT_TRAVEL_CONTROL
+	iftrue .EndTilesCallback ; Outside of the travel control period, the travel controller is absent.
+
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	endcallback
 
 .TilesLoad:
@@ -787,7 +796,7 @@ GoldenrodCity_MapEvents:
 	bg_event 34,  5, BGEVENT_READ, GoldenrodHospitalSign
 
 	def_object_events
-	object_event 17, 28, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | DAY | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_GOLDENROD_CITY_CIVILIANS
+	object_event 17, 28, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | DAY | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  7, 18, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityPokefanMScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 30, 17, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityYoungster1Script, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 12, 16, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodCityCooltrainerF1Script, EVENT_GOLDENROD_CITY_CIVILIANS
