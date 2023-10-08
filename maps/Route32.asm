@@ -560,8 +560,9 @@ Route32CooltrainerMText_UnusedSproutTower:
 	line "to train there."
 
 	para "That's basic for"
-	line "trainers. Go to"
-	cont "SPROUT TOWER!"
+	line "trainers. Go meet"
+	cont "SAGE LI in SPROUT"
+	cont "TOWER!"
 	done
 
 Route32CooltrainerMText_VioletGym:
