@@ -165,8 +165,12 @@ ReadTrainerPartyPieces:
 	push de
 	push hl
 
-	call IsInJohto
 	ld hl, wBadges ; Johto badges.
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_27 ; Special case for the path to the victory road (Route 26 & 27), which should be considered from Johto for the purpose of the level curve.
+	jr z, .region_determined
+
+	call IsInJohto
 	and a
 	jr z, .region_determined
 
