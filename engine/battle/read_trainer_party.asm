@@ -159,10 +159,39 @@ ReadTrainerPartyPieces:
 	ret z
 
 ; level
-	ld c, a ; We store the real level of the pkmn in b, for backup.
+	ld b, a ; We store the original level of the pkmn in B, for backup.
+
+	push bc
+	push de
+	push hl
+
+	call IsInJohto
+	ld hl, wBadges ; Johto badges.
+	ld b, 2
+	ld de, CountSetBits
+	ld a, BANK(CountSetBits) ; Returns the number of badges from this region in C.
+	call FarCall_de
+
+	ld a, 3 ; Trainers Pokémons gain 3 levels per badges from the same region.
+	call SimpleMultiply ; Performs A*C, and returns the result in A.
+
+	pop hl
+	pop de
+	pop bc
+	
+	add b ; We add the level increase to the original level.
+	cp MAX_LEVEL + 1
+	jr c, .level_capped
+
+	ld a, MAX_LEVEL
+.level_capped
+	ld c, a ; We store the increased level of the pkmn in C, for backup.
+
 	call IsFairTrainer ; Note that this is unoptimized, as it is called once per loop, but could be done once per trainer.
-	ld a, c
+	ld a, c ; We retrieve the badge-increased level.
 	jr nc, .lvl_determined ; If the current trainer does not match the class, it uses its fixed lvl.
+	
+	ld c, b ; We retrieve the original level.
 	call GetPlayerHighestLevel ; Note that this is unoptimized, as it is called once per loop, but could be done once per trainer.
 
 	ld b, a
