@@ -167,7 +167,12 @@ ReadTrainerPartyPieces:
 
 	call IsInJohto
 	ld hl, wBadges ; Johto badges.
-	ld b, 2
+	and a
+	jr z, .region_determined
+
+	inc hl ; Kanto badges.
+.region_determined
+	ld b, 1
 	ld de, CountSetBits
 	ld a, BANK(CountSetBits) ; Returns the number of badges from this region in C.
 	call FarCall_de
