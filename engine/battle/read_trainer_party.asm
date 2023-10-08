@@ -85,11 +85,11 @@ ReadTrainerPartyPieces:
 	; Special case for Blue.
 	ld a, [wOtherTrainerClass]
 	cp BLUE
-	jr c, .check_species
+	jr c, .check_level
 	cp OFFICER
-	jr z, .check_species ; Special case for officers: they always only have a single Growlithe.
+	jr z, .check_level ; Special case for officers: they always only have a single Growlithe.
 	cp SWAT + 1
-	jr nc, .check_species
+	jr nc, .check_level
 
 	ld a, [wTempByteValue] ; wTempByteValue contains the number of Pokemon added to the party of OT.
 	cp 0
@@ -153,7 +153,7 @@ ReadTrainerPartyPieces:
 	call AddNTimes
 	;pop bc
 
-.check_species
+.check_level
 	ld a, [hli]
 	cp -1
 	ret z
@@ -162,7 +162,6 @@ ReadTrainerPartyPieces:
 	ld b, a ; We store the original level of the pkmn in B, for backup.
 
 	push bc
-	push de
 	push hl
 
 	ld hl, wBadges ; Johto badges.
@@ -177,15 +176,12 @@ ReadTrainerPartyPieces:
 	inc hl ; Kanto badges.
 .region_determined
 	ld b, 1
-	ld de, CountSetBits
-	ld a, BANK(CountSetBits) ; Returns the number of badges from this region in C.
-	call FarCall_de
+	call CountSetBits ; Returns the number of badges from this region in C.
 
 	ld a, 3 ; Trainers Pokémons gain 3 levels per badges from the same region.
 	call SimpleMultiply ; Performs A*C, and returns the result in A.
 
 	pop hl
-	pop de
 	pop bc
 	
 	add b ; We add the level increase to the original level.
@@ -591,7 +587,6 @@ IsFairTrainer:
 ; Destroys the flags.
 GetPlayerHighestLevel:
 	push bc
-	push de
 	push hl
 
 	ld hl, wPartyMon1Level
@@ -614,7 +609,6 @@ GetPlayerHighestLevel:
 
 	ld a, c ; We return the highest level in a.
 	pop hl ; Restoring dem values.
-	pop de
 	pop bc
 	ret
 

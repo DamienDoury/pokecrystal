@@ -24,7 +24,6 @@ StageDataForMysteryGift:
 	call CountSetBits
 	pop de
 	pop bc
-	ld a, [wNumSetBits]
 	ld [de], a
 	inc de ; wMysteryGiftStaging+15
 	call CloseSRAM

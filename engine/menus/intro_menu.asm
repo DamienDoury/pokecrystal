@@ -620,7 +620,8 @@ Continue_DisplayBadgeCount:
 	ld b, 2
 	call CountSetBits
 	pop hl
-	ld de, wNumSetBits
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	lb bc, 1, 2
 	jp PrintNum
 
@@ -637,7 +638,8 @@ else
 endc
 	call CountSetBits
 	pop hl
-	ld de, wNumSetBits
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	lb bc, 1, 3
 	jp PrintNum
 

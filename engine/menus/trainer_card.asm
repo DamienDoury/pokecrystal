@@ -352,7 +352,8 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ld hl, wPokedexCaught
 	ld b, wEndPokedexCaught - wPokedexCaught
 	call CountSetBits
-	ld de, wNumSetBits
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	hlcoord 15, 13
 	lb bc, 1, 3
 	call PrintNum

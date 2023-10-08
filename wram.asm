@@ -2546,7 +2546,6 @@ wBattleHasJustStarted:: db
 wNamedObjectIndex::
 wTextDecimalByte::
 wTempByteValue::
-wNumSetBits::
 wTypeMatchup::
 wCurType::
 wTempSpecies::

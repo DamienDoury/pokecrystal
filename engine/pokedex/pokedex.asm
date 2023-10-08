@@ -1085,7 +1085,8 @@ Pokedex_DrawMainScreenBG:
 	ld hl, wPokedexSeen
 	ld b, wEndPokedexSeen - wPokedexSeen
 	call CountSetBits
-	ld de, wNumSetBits
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	hlcoord 5, 12
 	lb bc, 1, 3
 	call PrintNum
@@ -1095,7 +1096,8 @@ Pokedex_DrawMainScreenBG:
 	ld hl, wPokedexCaught
 	ld b, wEndPokedexCaught - wPokedexCaught
 	call CountSetBits
-	ld de, wNumSetBits
+	ld [wTempByteValue], a
+	ld de, wTempByteValue
 	hlcoord 5, 15
 	lb bc, 1, 3
 	call PrintNum

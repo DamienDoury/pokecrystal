@@ -750,7 +750,6 @@ BattleCommand_CheckObedience:
 	ld hl, wBadges
 	ld b, 2
 	call CountSetBits
-	ld a, [wNumSetBits]
 
 	; all badges
 	ld b, MAX_LEVEL + 1
