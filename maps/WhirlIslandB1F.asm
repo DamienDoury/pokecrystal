@@ -5,6 +5,7 @@
 	const WHIRLISLANDB1F_POKE_BALL4
 	const WHIRLISLANDB1F_POKE_BALL5
 	const WHIRLISLANDB1F_BOULDER
+	const WHIRLISLANDB1F_POKE_BALL6
 
 WhirlIslandB1F_MapScripts:
 	def_scene_scripts
@@ -25,6 +26,10 @@ WhirlIslandB1FNugget:
 
 WhirlIslandB1FEscapeRope:
 	itemball ESCAPE_ROPE
+
+WhirlIslandB1FHMWaterfall:
+	itemball HM_WATERFALL
+
 
 WhirlIslandB1FBoulder:
 	jumpstd StrengthBoulderScript
@@ -66,3 +71,4 @@ WhirlIslandB1F_MapEvents:
 	object_event 17,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FNugget, EVENT_WHIRL_ISLAND_B1F_NUGGET
 	object_event 19, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FEscapeRope, EVENT_WHIRL_ISLAND_B1F_ESCAPE_ROPE
 	object_event 23, 26, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhirlIslandB1FBoulder, -1
+	object_event 19,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FHMWaterfall, EVENT_GOT_HM07_WATERFALL
