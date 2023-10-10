@@ -279,6 +279,7 @@ INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
 INCLUDE "maps/CeruleanPokecenter1F.asm"
+INCLUDE "maps/TohjoFalls.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -296,7 +297,6 @@ INCLUDE "maps/SaffronMagnetTrainStation.asm"
 INCLUDE "maps/SilphCo1F.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
-INCLUDE "maps/TohjoFalls.asm"
 
 
 SECTION "Map Scripts 16", ROMX
