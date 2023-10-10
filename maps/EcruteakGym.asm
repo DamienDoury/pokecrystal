@@ -32,7 +32,7 @@ EcruteakGym_MapScripts:
 	iftrue .end
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 
-	checkevent EVENT_RELEASED_THE_BEASTS
+	checkevent EVENT_BURNED_TOWER_MORTY
 	iftrue .TeamCheck
 
 .ForcedToLeave:

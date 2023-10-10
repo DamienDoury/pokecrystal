@@ -67,10 +67,16 @@ EcruteakTinTowerEntranceAlreadyBlocked:
 EcruteakTinTowerEntranceSageScript:
 	faceplayer
 	opentext
+	checkflag ENGINE_FOGBADGE
+	iffalse .BlockPassage_NoFogBadge
+
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .CheckForClearBell
+
 	checkflag ENGINE_FOGBADGE
 	iftrue .BlockPassage_GotFogBadge
+
+.BlockPassage_NoFogBadge:
 	writetext EcruteakTinTowerEntranceSageText
 	waitbutton
 	closetext

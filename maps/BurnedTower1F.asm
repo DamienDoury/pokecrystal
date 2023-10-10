@@ -29,7 +29,7 @@ BurnedTower1F_MapScripts:
 	iftrue .KeepHoleOpen
 	changeblock 10, 8, $32 ; floor
 .KeepHoleOpen:
-	checkevent EVENT_RELEASED_THE_BEASTS
+	checkevent EVENT_BURNED_TOWER_1F_EUSINE
 	iftrue .HideBasement
 	changeblock 6, 14, $09 ; ladder
 .HideBasement:

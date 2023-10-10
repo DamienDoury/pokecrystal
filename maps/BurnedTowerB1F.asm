@@ -11,26 +11,21 @@
 
 BurnedTowerB1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .LadderCallback
 
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
-
 .LadderCallback:
-	checkevent EVENT_RELEASED_THE_BEASTS
-	iftrue .HideLadder
+	checkevent EVENT_BURNED_TOWER_1F_EUSINE
+	iftrue .ShowLadder
 	changeblock 6, 14, $02 ; floor
-.HideLadder:
+.ShowLadder:
 	endcallback
 
 ReleaseTheBeasts:
+	checkevent EVENT_BURNED_TOWER_1F_EUSINE
+	iftrue .end
+
 	playmusic MUSIC_NONE
 	pause 30
 	appear BURNEDTOWERB1F_RAIKOU1
@@ -80,10 +75,6 @@ ReleaseTheBeasts:
 	waitsfx
 	special RestartMapMusic
 	setscene SCENE_FINISHED
-	setevent EVENT_RELEASED_THE_BEASTS
-	special InitRoamMons
-	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
-	clearevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
 	setevent EVENT_ECRUTEAK_GYM_GRAMPS
 	clearevent EVENT_ECRUTEAK_CITY_GRAMPS
 	setevent EVENT_BURNED_TOWER_MORTY
@@ -94,14 +85,26 @@ ReleaseTheBeasts:
 	reloadmappart
 	closetext
 	setscene SCENE_FINISHED
+.end
 	end
 
 BurnedTowerB1FEusine:
 	faceplayer
 	opentext
 	writetext BurnedTowerB1FEusineText
+	promptbutton
+
+	verbosegiveitem HM_SURF
+
+	writetext BurnedTowerB1FEusineTextSequel
 	waitbutton
 	closetext
+
+	setevent EVENT_RELEASED_THE_BEASTS
+	special InitRoamMons
+	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
+	clearevent EVENT_SAW_SUICUNE_AT_CIANWOOD_CITY
+	
 	readvar VAR_FACING
 	ifequal UP, .Movement2
 	applymovement BURNEDTOWERB1F_EUSINE, BurnedTowerB1FEusineMovement1
@@ -219,17 +222,19 @@ BurnedTowerB1FEusineText:
 	para "rid of the virus"
 	line "that gives COVID?"
 
-	para "I heard that the"
-	line "legendary #MON"
+	para "SUICUNE also has"
+	line "the faculty to"
+	
+	para "walk on water."
+	line "In order to track"
+	
+	para "it, this HM will"
+	line "be essential."
+	done
 
-	para "of ECRUTEAK test"
-	line "chosen humans by"
-
-	para "allowing them to"
-	line "get close."
-
-	para "I'm going to track"
-	line "SUICUNE."
+BurnedTowerB1FEusineTextSequel:
+	text "I'm going to track"
+	line "SUICUNE as well."
 
 	para "<PLAYER>, let's"
 	line "meet again!"
@@ -249,7 +254,7 @@ BurnedTowerB1F_MapEvents:
 	warp_event  7, 15, BURNED_TOWER_1F, 14
 
 	def_coord_events
-	coord_event 10,  6, SCENE_DEFAULT, ReleaseTheBeasts
+	coord_event 10,  6, SCENE_ALWAYS, ReleaseTheBeasts
 
 	def_bg_events
 

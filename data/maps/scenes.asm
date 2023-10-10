@@ -25,7 +25,6 @@ MapScenes::
 	scene_var MOUNT_MOON,                                  wMountMoonSceneID
 	scene_var TIN_TOWER_1F,                                wTinTower1FSceneID
 	scene_var BURNED_TOWER_1F,                             wBurnedTower1FSceneID ; 3 values
-	scene_var BURNED_TOWER_B1F,                            wBurnedTowerB1FSceneID
 	scene_var RADIO_TOWER_5F,                              wRadioTower5FSceneID
 	scene_var RUINS_OF_ALPH_OUTSIDE,                       wRuinsOfAlphOutsideSceneID
 	scene_var RUINS_OF_ALPH_RESEARCH_CENTER,               wRuinsOfAlphResearchCenterSceneID

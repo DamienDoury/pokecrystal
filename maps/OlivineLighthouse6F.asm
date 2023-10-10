@@ -24,9 +24,6 @@ OlivineLighthouseJasmine:
 
 	setevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS
 	promptbutton
-	writetext JasmineOverTheSeaText
-	promptbutton
-	verbosegiveitem HM_SURF
 	writetext JasminePleaseHelpText
 
 .SkipSurf:
@@ -195,14 +192,6 @@ JasmineGetSomeMedicineText:
 	text "…May I ask you to"
 	line "get some medicine"
 	cont "for me? Please?"
-	done
-
-JasmineOverTheSeaText:
-	text "But that's across"
-	line "the sea…"
-
-	para "You will need"
-	line "this…"
 	done
 
 JasminePleaseHelpText:
