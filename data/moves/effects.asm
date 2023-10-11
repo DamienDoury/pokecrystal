@@ -2127,3 +2127,26 @@ Hail:
 	failuretext
 	starthail
 	endmove
+
+BodySlam:
+	checkobedience
+	usedmovetext
+	doturn
+	critical
+	damagestats
+	damagecalc
+	stab
+	damagevariation
+	doubleminimizedamage
+	checkhit
+	effectchance
+	moveanim
+	failuretext
+	applydamage
+	criticaltext
+	supereffectivetext
+	checkfaint
+	buildopponentrage
+	paralyzetarget
+	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
+	endmove

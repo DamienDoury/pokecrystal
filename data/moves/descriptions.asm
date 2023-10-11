@@ -356,8 +356,8 @@ VineWhipDescription:
 	next "slender vines.@"
 
 StompDescription:
-	db   "An attack that may"
-	next "cause flinching.@"
+	db   "30<PERCENT> flinch, ×2 dmg"
+	next "against minimized.@"
 
 DoubleKickDescription:
 	db   "A double kicking"
@@ -400,8 +400,8 @@ TackleDescription:
 	next "attack.@"
 
 BodySlamDescription:
-	db   "An attack that may"
-	next "cause paralysis.@"
+	db   "30<PERCENT> PAR, ×2 dmg"
+	next "against minimized.@"
 
 WrapDescription:
 	db   "Squeezes the foe"
@@ -692,8 +692,8 @@ HardenDescription:
 	next "DEFENSE.@"
 
 MinimizeDescription:
-	db   "Heightens evasive-"
-	next "ness.@"
+	db   "Highly heightens"
+	next "evasiveness.@"
 
 SmokescreenDescription:
 	db   "Lowers the foe's"

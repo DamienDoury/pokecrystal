@@ -46,7 +46,7 @@ Moves:
 	move FURY_ATTACK,  EFFECT_MULTI_HIT,          15, NORMAL,        	PHYSICAL,	85, 20,   0
 	move HORN_DRILL,   EFFECT_OHKO,                1, NORMAL,        	PHYSICAL,	30,  5,   0
 	move TACKLE,       EFFECT_NORMAL_HIT,         40, NORMAL,        	PHYSICAL,	100, 35,   0
-	move BODY_SLAM,    EFFECT_PARALYZE_HIT,       85, NORMAL,       	PHYSICAL,	100, 15,  30
+	move BODY_SLAM,    EFFECT_BODY_SLAM,   	      85, NORMAL,       	PHYSICAL,	100, 15,  30
 	move WRAP,         EFFECT_TRAP_TARGET,        15, NORMAL,        	PHYSICAL,	90, 20,   0
 	move TAKE_DOWN,    EFFECT_RECOIL_HIT,         90, NORMAL,        	PHYSICAL,	85, 20,   0
 	move THRASH,       EFFECT_RAMPAGE,           120, NORMAL,       	PHYSICAL,	100, 10,   0
@@ -119,7 +119,7 @@ Moves:
 	move DOUBLE_TEAM,  EFFECT_EVASION_UP,          0, NORMAL,       	STATUS,		100, 15,   0
 	move RECOVER,      EFFECT_HEAL,                0, NORMAL,       	STATUS,		100, 20,   0
 	move HARDEN,       EFFECT_DEFENSE_UP,          0, NORMAL,       	STATUS,		100, 30,   0
-	move MINIMIZE,     EFFECT_EVASION_UP,          0, NORMAL,       	STATUS,		100, 20,   0
+	move MINIMIZE,     EFFECT_EVASION_UP_2,        0, NORMAL,       	STATUS,		100, 10,   0
 	move SMOKESCREEN,  EFFECT_ACCURACY_DOWN,       0, NORMAL,       	STATUS,		100, 20,   0
 	move CONFUSE_RAY,  EFFECT_CONFUSE,             0, GHOST,        	STATUS,		100, 10,   0
 	move WITHDRAW,     EFFECT_DEFENSE_UP,          0, WATER,        	STATUS,		100, 40,   0
