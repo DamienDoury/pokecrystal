@@ -185,22 +185,9 @@ _ComeBackText::
 	text " come"
 	line "back!"
 	done
-
-_BootedTMText::
-	text "Booted up a TM."
-	prompt
-
-_BootedHMText::
-	text "Booted up an HM."
-	prompt
-
+	
 _ContainedMoveText::
-	text "It contained"
-	line "@"
-	text_ram wStringBuffer2
-	text "."
-
-	para "Teach @"
+	text "Teach @"
 	text_ram wStringBuffer2
 	text_start
 	line "to a #MON?"

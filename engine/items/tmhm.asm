@@ -54,13 +54,6 @@ AskTeachTMHM:
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	call CopyName1
-	ld hl, BootedTMText ; Booted up a TM
-	ld a, [wCurItem]
-	cp HM01
-	jr c, .TM
-	ld hl, BootedHMText ; Booted up an HM
-.TM:
-	call PrintText
 	ld hl, ContainedMoveText
 	call PrintText
 	call YesNoBox
@@ -164,14 +157,6 @@ TeachTMHM:
 .learned_move
 	scf
 	ret
-
-BootedTMText:
-	text_far _BootedTMText
-	text_end
-
-BootedHMText:
-	text_far _BootedHMText
-	text_end
 
 ContainedMoveText:
 	text_far _ContainedMoveText

@@ -142,64 +142,7 @@ Pack:
 	ld c, PACKSTATE_INITBERRYPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	farcall _CheckTossableItem
-	ld a, [wItemAttributeValue]
-	and a
-	jr nz, .use_quit
-	ld hl, .MenuHeader2
-	ld de, .Jumptable2
-	jr .load_jump
 
-.use_quit
-	ld hl, .MenuHeader1
-	ld de, .Jumptable1
-.load_jump
-	push de
-	call LoadMenuHeader
-	call VerticalMenu
-	call ExitMenu
-	pop hl
-	ret c
-	ld a, [wMenuCursorY]
-	dec a
-	call Pack_GetJumptablePointer
-	jp hl
-
-.MenuHeader1:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 13, 7, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData_1
-	db 1 ; default option
-
-.MenuData_1:
-	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
-	db 2 ; items
-	db "USE@"
-	db "QUIT@"
-
-.Jumptable1:
-	dw .UseItem
-	dw QuitItemSubmenu
-
-.MenuHeader2:
-	db MENU_BACKUP_TILES ; flags
-	menu_coords 13, 5, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
-	dw .MenuData_2
-	db 1 ; default option
-
-.MenuData_2:
-	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
-	db 3 ; items
-	db "USE@"
-	db "GIVE@"
-	db "QUIT@"
-
-.Jumptable2:
-	dw .UseItem
-	dw GiveItem
-	dw QuitItemSubmenu
-
-.UseItem:
 	farcall AskTeachTMHM
 	ret c
 	farcall ChooseMonToLearnTMHM
