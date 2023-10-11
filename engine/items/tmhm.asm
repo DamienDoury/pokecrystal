@@ -133,7 +133,11 @@ TeachTMHM:
 	callfar KnowsMove
 	jr c, .nope
 
+	ld a, TRUE
+	ld [wIsLearningTMHM], a
 	predef LearnMove
+	ld a, FALSE
+	ld [wIsLearningTMHM], a
 	ld a, b
 	and a
 	jr z, .nope

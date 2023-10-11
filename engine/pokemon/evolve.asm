@@ -465,6 +465,8 @@ LearnLevelMoves:
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	call CopyName1
+	ld a, FALSE
+	ld [wIsLearningTMHM], a
 	predef LearnMove
 	pop hl
 	jr .find_move

@@ -386,25 +386,34 @@ BlackbeltYoshiAfterText:
 	done
 
 BlackbeltLaoSeenText:
-	text "We martial artists"
-	line "fear nothing!"
+	text "If using a TM"
+	line "replenished PPs,"
+	
+	para "I would be able to"
+	line "fight all day!"
 	done
 
 BlackbeltLaoBeatenText:
-	text "That's shocking!"
+	text "Enough for today."
 	done
 
 BlackbeltLaoAfterText:
-	text "I'm afraid of the"
-	line "Omicron BA.2"
-	cont "variant."
+	text "Can you imagine"
+	line "having 2 TMs and"
 	
-	para "It's not as harsh"
-	line "as the Alpha or"
-	cont "Delta variants,"
+	para "teaching those to"
+	line "your #MON in a"
+	cont "loop?"
+
+	para "You would end up"
+	line "with an infinite"
 	
-	para "but it's way more"
-	line "contagious."
+	para "sustain of PP if"
+	line "they were"
+	cont "replenished."
+
+	para "That would be"
+	line "overpowered."
 	done
 
 BlackbeltNobSeenText:

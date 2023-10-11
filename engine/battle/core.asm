@@ -4079,8 +4079,6 @@ TryToRunAwayFromBattle:
 
 .print_inescapable_text
 	call StdBattleTextbox
-	ld a, TRUE
-	ld [wFailedToFlee], a
 	call LoadTilemapToTempTilemap
 	and a
 	ret
@@ -5616,8 +5614,6 @@ BattleMenu_Run:
 	ld hl, wBattleMonSpeed
 	ld de, wEnemyMonSpeed
 	call TryToRunAwayFromBattle
-	ld a, FALSE
-	ld [wFailedToFlee], a
 	ret c
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
@@ -8484,7 +8480,6 @@ CleanUpBattleRAM:
 	ld [wAttackMissed], a
 	ld [wTempWildMonSpecies], a
 	ld [wOtherTrainerClass], a
-	ld [wFailedToFlee], a
 	ld [wNumFleeAttempts], a
 	ld [wForcedSwitch], a
 	ld [wPartyMenuCursor], a

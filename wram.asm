@@ -2561,7 +2561,7 @@ wUsePPUp::
 wd265:: ; mobile
 	db
 
-wFailedToFlee:: db
+wIsLearningTMHM:: db
 wNumFleeAttempts:: db
 wMonTriedToEvolve:: db
 

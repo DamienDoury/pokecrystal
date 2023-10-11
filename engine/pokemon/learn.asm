@@ -57,6 +57,15 @@ LearnMove:
 	pop hl
 
 .learn
+	ld a, [hl]
+	and a
+	jr nz, .overriding_existing_move
+
+	ld a, [wIsLearningTMHM]
+	or %10
+	ld [wIsLearningTMHM], a
+
+.overriding_existing_move
 	ld a, [wPutativeTMHMMove]
 	ld [hl], a
 	ld bc, MON_PP - MON_MOVES
@@ -73,7 +82,27 @@ LearnMove:
 	pop de
 	pop hl
 
+	ld b, a
+	ld a, [wIsLearningTMHM]
+	and %10
+	ld a, b
+	jr nz, .replenish_pp
+
+	ld a, [wIsLearningTMHM]
+	and TRUE
+	ld a, b
+	jr z, .replenish_pp
+
+	; If the Pokémon is learning a move from a TM/HM, we do not replenish PP to avoid the infinite PP exploit (as TMs can now be used infinitely).
+	cp [hl]
+	jr nc, .skip_pp_replenish
+
+.replenish_pp
 	ld [hl], a
+
+.skip_pp_replenish
+	ld a, FALSE
+	ld [wIsLearningTMHM], a
 
 	ld a, [wBattleMode]
 	and a
@@ -89,6 +118,7 @@ LearnMove:
 	bit SUBSTATUS_TRANSFORMED, a
 	jp nz, .learned
 
+	; The following only applies to a transformed Pokémon.
 	ld h, d
 	ld l, e
 	ld de, wBattleMonMoves

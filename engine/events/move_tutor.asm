@@ -79,6 +79,8 @@ CheckCanLearnMoveTutorMove:
 	callfar KnowsMove
 	jr c, .didnt_learn
 
+	ld a, FALSE
+	ld [wIsLearningTMHM], a
 	predef LearnMove
 	ld a, b
 	and a
