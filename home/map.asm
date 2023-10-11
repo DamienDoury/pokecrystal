@@ -1463,6 +1463,8 @@ LoadTilesetGFX::
 	ld a, [wMapTileset]
 	cp TILESET_JOHTO
 	jr z, .load_roof
+	cp TILESET_JOHTO_WAVES
+	jr z, .load_roof
 	cp TILESET_JOHTO_MODERN
 	jr z, .load_roof
 	cp TILESET_BATTLE_TOWER_OUTSIDE
