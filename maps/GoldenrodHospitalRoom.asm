@@ -564,8 +564,10 @@ GoldenrodHospitalRoomHumanPatientScript:
 	writetext GoldenrodHospitalRoom25Patient_QuestStartText
 	promptbutton
 	farwritetext Route35GoldenrodGatePlayerReceivedAMonWithMailText
+	waitsfx
 	playsound SFX_KEY_ITEM
 	waitsfx
+	promptbutton
 	givepoke MEOWTH, 25, NO_ITEM, TRUE, GiftAntonMonName, GiftAntonMonOTName
 	setval 0	; See next comment.
 	writemem wTempByteValue ; This has been added (along with the prev line) to prevent the OT name written on the mail to be "DAMIAN".
