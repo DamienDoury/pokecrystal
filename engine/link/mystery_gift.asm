@@ -65,31 +65,40 @@ DoMysteryGift:
 	ld de, .MysteryGiftCanceledText ; Link has been canceled
 	cp MG_CANCELED
 	jp z, .LinkCanceled
+	
 	cp MG_OKAY
 	jp nz, .CommunicationError
-	ld a, [wMysteryGiftGameVersion]
-	cp POKEMON_PIKACHU_2_VERSION
-	jr z, .skip_checks
+	
 	call .CheckAlreadyGotFiveGiftsToday
 	ld hl, .MysteryGiftFiveADayText ; Only 5 gifts a day
 	jp nc, .PrintTextAndExit
+	
+	ld a, [wMysteryGiftGameVersion]
+	cp POKEMON_PIKACHU_2_VERSION
+	jr z, .skip_checks
+
 	call .CheckAlreadyGotAGiftFromThatPerson
 	ld hl, .MysteryGiftOneADayText ; Only one gift a day per person
 	jp c, .PrintTextAndExit
+
 .skip_checks
 	ld a, [wMysteryGiftPlayerBackupItem]
 	and a
 	jp nz, .GiftWaiting
+
 	ld a, [wMysteryGiftPartnerBackupItem]
 	and a
 	jp nz, .FriendNotReady
+
 	ld a, [wMysteryGiftGameVersion]
 	cp POKEMON_PIKACHU_2_VERSION
 	jr z, .skip_append_save
+
 	call .AddMysteryGiftPartnerID
 	ld a, [wMysteryGiftGameVersion]
 	cp RESERVED_GAME_VERSION
 	jr z, .skip_append_save
+
 	call .SaveMysteryGiftTrainerName
 	farcall RestoreMobileEventIndex
 	farcall StubbedTrainerRankings_MysteryGift
@@ -98,6 +107,7 @@ DoMysteryGift:
 	ld a, [wMysteryGiftPartnerSentDeco]
 	and a
 	jr z, .SentItem
+
 ; sent decoration
 	ld a, [wMysteryGiftPartnerWhichDeco]
 	ld c, a
@@ -106,6 +116,7 @@ DoMysteryGift:
 	call CheckAndSetMysteryGiftDecorationAlreadyReceived
 	pop bc
 	jr nz, .SentItem
+	
 ; keep the decoration if it wasn't already received
 	callfar GetDecorationName_c
 	ld h, d
