@@ -2951,6 +2951,7 @@ wBattleTowerHallwaySceneID::                      db
 wMountMoonSceneID::                               db
 wTinTower1FSceneID::                              db
 wBurnedTower1FSceneID::                           db
+	ds 1
 wRadioTower5FSceneID::                            db
 wRuinsOfAlphOutsideSceneID::                      db
 wRuinsOfAlphResearchCenterSceneID::               db
@@ -2979,7 +2980,7 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 33
+	ds 32
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
