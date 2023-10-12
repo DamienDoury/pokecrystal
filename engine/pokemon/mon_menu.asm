@@ -797,6 +797,7 @@ ChooseMoveToDelete:
 	push af
 	set NO_TEXT_SCROLL, [hl]
 	call LoadFontsBattleExtra
+	callfar InitPartyMenuPalettes
 	call .ChooseMoveToDelete
 	pop bc
 	ld a, b
@@ -1183,10 +1184,10 @@ PlaceMoveData:
 	ld de, String_MoveType_Bottom
 	call PlaceString
 	hlcoord 12, 12
-	ld de, String_MoveAtk
+	ld de, .string_MoveAtk
 	call PlaceString
 	hlcoord 12, 13
-	ld de, String_MoveAcc
+	ld de, .string_MoveAcc
 	call PlaceString
 	ld a, [wCurSpecies]
 	ld b, a
@@ -1203,6 +1204,7 @@ PlaceMoveData:
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
 	call AddNTimes
+	push hl
 	ld a, BANK(Moves)
 	call GetFarByte
 	hlcoord 16, 12
@@ -1215,29 +1217,34 @@ PlaceMoveData:
 	call PrintNum
 	jr .accuracy
 
+.string_MoveAtk
+	db "ATK/@"
+.string_MoveAcc
+	db "ACC/@"
+.string_MoveNoPower:
+	db "---@"
+
 .no_power
-	ld de, String_MoveNoPower
+	ld de, .string_MoveNoPower
 	call PlaceString
 	
 .accuracy
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_EFFECT
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	pop hl
+	push hl
+	dec hl
 	ld a, BANK(Moves)
 	call GetFarByte
 	cp EFFECT_ALWAYS_HIT
+	pop hl
 	jr z, .perfect_accuracy
 
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_ACC
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	inc hl
+	inc hl
 	ld a, BANK(Moves)
 	call GetFarByte
-	call ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
+	ld b, a
+	farcall ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
+	ldh a, [hQuotient + 3]
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
 	lb bc, 1, 3
@@ -1247,7 +1254,7 @@ PlaceMoveData:
 
 .perfect_accuracy
 	hlcoord 16, 13
-	ld de, String_MoveNoPower
+	ld de, .string_MoveNoPower
 	call PlaceString
 
 .description

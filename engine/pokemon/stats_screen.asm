@@ -1862,6 +1862,7 @@ PlaceMoveDataNew:
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
+	ld b, a
 	call ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
@@ -1932,29 +1933,32 @@ PlaceItemDetail:
 	ldh [hBGMapMode], a
 	ret 
 
-ConvertToPercentage:
-	ld b, a
+; Input: B = percentage to convert.
+; Output: converted percentage in A and [hQuotient + 3].
+ConvertToPercentage::
+	ld a, b
 	xor a, $FF
 	ld a, 100
+	ldh [hQuotient + 3], a
 	ret z ; We can't add 1 to 255, so we make a shortcut for this case.
 
 	ld a, b
 	inc a
-	ld [hMultiplicand + 2], a
+	ldh [hMultiplicand + 2], a
 	xor a
-	ld [hMultiplicand + 1], a
-	ld [hMultiplicand], a
+	ldh [hMultiplicand + 1], a
+	ldh [hMultiplicand], a
 	ld a, 100
-	ld [hMultiplier], a
+	ldh [hMultiplier], a
 	call Multiply
 
 	; The result of the multiplication is stored in the memory slots used for the dividend.
 	ld a, 255
-	ld [hDivisor], a
+	ldh [hDivisor], a
 	ld b, 4
 	call Divide
 
-	ld a, [hQuotient + 3]
+	ldh a, [hQuotient + 3]
 	ret
 
 ; Sets the Z flag if the arrow is pointing towards an empty Detail slot.
