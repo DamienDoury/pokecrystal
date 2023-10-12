@@ -175,8 +175,8 @@ AI_TryItem:
 .loop
 	ld de, wEnemyTrainerItem1
 	ld a, [hl]
-	and a
-	inc a
+	and a ; Resets the carry.
+	inc a ; Doesn't touch the carry: only touches the Z flag.
 	ret z
 
 	ld a, [de]
@@ -187,7 +187,6 @@ AI_TryItem:
 	cp [hl]
 	jr z, .has_item
 
-	dec de
 	inc hl
 	inc hl
 	inc hl
