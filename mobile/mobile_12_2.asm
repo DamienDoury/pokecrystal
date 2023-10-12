@@ -802,6 +802,7 @@ Function4ad56:
 	ret
 
 Function4ad60:
+	farcall ManagePokemonMoves
 	ret
 
 Function4ad67: ; unreferenced

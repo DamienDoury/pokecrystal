@@ -852,6 +852,228 @@ DeleteMoveScreen2DMenuData:
 	dn 2, 0 ; cursor offset
 	db D_UP | D_DOWN | A_BUTTON | B_BUTTON ; accepted buttons
 
+ManagePokemonMoves:
+	ld a, [wCurPartySpecies]
+	cp EGG
+	jr z, .egg
+	ld hl, wOptions
+	ld a, [hl]
+	push af
+	set NO_TEXT_SCROLL, [hl]
+	call MoveScreenLoop
+	pop af
+	ld [wOptions], a
+	call ClearBGPalettes
+
+.egg
+	ld a, $0
+	ret
+
+MoveScreenLoop:
+	ld a, [wCurPartyMon]
+	inc a
+	ld [wPartyMenuCursor], a
+	call SetUpMoveScreenBG
+	call PlaceMoveScreenArrows
+	ld de, MoveScreen2DMenuData
+	call Load2DMenuData
+.loop
+	call SetUpMoveList
+	ld hl, w2DMenuFlags1
+	set 6, [hl]
+	jr .skip_joy
+
+.joy_loop
+	call ScrollingMenuJoypad
+	bit 1, a
+	jp nz, .b_button
+	bit 0, a
+	jp nz, .a_button
+	bit 4, a
+	jp nz, .d_right
+	bit 5, a
+	jp nz, .d_left
+
+.skip_joy
+	call PrepareToPlaceMoveData
+	ld a, [wSwappingMove]
+	and a
+	jr nz, .moving_move
+	call PlaceMoveData
+	jp .joy_loop
+
+.moving_move
+	ld a, " "
+	hlcoord 1, 11
+	ld bc, 8
+	call ByteFill
+	hlcoord 1, 12
+	lb bc, 5, SCREEN_WIDTH - 2
+	call ClearBox
+	hlcoord 1, 12
+	ld de, String_MoveWhere
+	call PlaceString
+	jp .joy_loop
+.b_button
+	call PlayClickSFX
+	call WaitSFX
+	ld a, [wSwappingMove]
+	and a
+	jp z, .exit
+
+	ld a, [wSwappingMove]
+	ld [wMenuCursorY], a
+	xor a
+	ld [wSwappingMove], a
+	hlcoord 1, 2
+	lb bc, 8, SCREEN_WIDTH - 2
+	call ClearBox
+	jp .loop
+
+.d_right
+	ld a, [wSwappingMove]
+	and a
+	jp nz, .joy_loop
+
+	ld a, [wCurPartyMon]
+	ld b, a
+	push bc
+	call .cycle_right
+	pop bc
+	ld a, [wCurPartyMon]
+	cp b
+	jp z, .joy_loop
+	jp MoveScreenLoop
+
+.d_left
+	ld a, [wSwappingMove]
+	and a
+	jp nz, .joy_loop
+	ld a, [wCurPartyMon]
+	ld b, a
+	push bc
+	call .cycle_left
+	pop bc
+	ld a, [wCurPartyMon]
+	cp b
+	jp z, .joy_loop
+	jp MoveScreenLoop
+
+.cycle_right
+	ld a, [wCurPartyMon]
+	inc a
+	ld [wCurPartyMon], a
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	cp -1
+	jr z, .cycle_left
+	cp EGG
+	ret nz
+	jr .cycle_right
+
+.cycle_left
+	ld a, [wCurPartyMon]
+	and a
+	ret z
+.cycle_left_loop
+	ld a, [wCurPartyMon]
+	dec a
+	ld [wCurPartyMon], a
+	ld c, a
+	ld b, 0
+	ld hl, wPartySpecies
+	add hl, bc
+	ld a, [hl]
+	cp EGG
+	ret nz
+	ld a, [wCurPartyMon]
+	and a
+	jr z, .cycle_right
+	jr .cycle_left_loop
+
+.a_button
+	call PlayClickSFX
+	call WaitSFX
+	ld a, [wSwappingMove]
+	and a
+	jr nz, .place_move
+	ld a, [wMenuCursorY]
+	ld [wSwappingMove], a
+	call PlaceHollowCursor
+	jp .moving_move
+
+.place_move
+	ld hl, wPartyMon1Moves
+	ld bc, PARTYMON_STRUCT_LENGTH
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	push hl
+	call .copy_move
+	pop hl
+	ld bc, wPartyMon1PP - wPartyMon1Moves
+	add hl, bc
+	call .copy_move
+	ld a, [wBattleMode]
+	jr z, .swap_moves
+	ld hl, wBattleMonMoves
+	ld bc, wBattleMonStructEnd - wBattleMon
+	ld a, [wCurPartyMon]
+	call AddNTimes
+	push hl
+	call .copy_move
+	pop hl
+	ld bc, wBattleMonPP - wBattleMonMoves
+	add hl, bc
+	call .copy_move
+
+.swap_moves
+	ld de, SFX_SWITCH_POKEMON
+	call PlaySFX
+	call WaitSFX
+	ld de, SFX_SWITCH_POKEMON
+	call PlaySFX
+	call WaitSFX
+	hlcoord 1, 2
+	lb bc, 8, 18
+	call ClearBox
+	hlcoord 10, 10
+	lb bc, 1, 9
+	call ClearBox
+	jp .loop
+
+.copy_move
+	push hl
+	ld a, [wMenuCursorY]
+	dec a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld d, h
+	ld e, l
+	pop hl
+	ld a, [wSwappingMove]
+	dec a
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [de]
+	ld b, [hl]
+	ld [hl], a
+	ld a, b
+	ld [de], a
+	ret
+
+.exit
+	xor a
+	ld [wSwappingMove], a
+	ld hl, w2DMenuFlags1
+	res 6, [hl]
+	call ClearSprites
+	jp ClearTilemap
+
 MoveScreen2DMenuData:
 	db 3, 1 ; cursor start y, x
 	db 3, 1 ; rows, columns
