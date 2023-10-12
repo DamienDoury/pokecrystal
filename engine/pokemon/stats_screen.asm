@@ -1828,6 +1828,7 @@ PlaceMoveDataNew:
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
 	call AddNTimes
+	push hl
 	ld a, BANK(Moves)
 	call GetFarByte
 	hlcoord 16, 1
@@ -1845,21 +1846,17 @@ PlaceMoveDataNew:
 	call PlaceString
 
 .accuracy
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_EFFECT
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	pop hl
+	push hl
+	dec hl
 	ld a, BANK(Moves)
 	call GetFarByte
 	cp EFFECT_ALWAYS_HIT
+	pop hl
 	jr z, .perfect_accuracy
 
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_ACC
-	ld bc, MOVE_LENGTH
-	call AddNTimes
+	inc hl
+	inc hl
 	ld a, BANK(Moves)
 	call GetFarByte
 	ld b, a
