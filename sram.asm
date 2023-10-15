@@ -1,6 +1,12 @@
 SECTION "Scratch", SRAM
 
+UNION
 sScratch:: ds $60 tiles
+
+NEXTU
+sEnemyFrontpicTileCount:: db
+sPaddedEnemyFrontpic:: ds 7 * 7 tiles
+ENDU
 
 SECTION "Party Mail", SRAM ; 564 bytes.
 sPartyMail:: ; 47 x 6 = 282 bytes.
