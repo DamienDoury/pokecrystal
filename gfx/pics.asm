@@ -198,9 +198,6 @@ GloomFrontpic:       INCBIN "gfx/pokemon/gloom/front.animated.2bpp.lz"
 FlaaffyFrontpic:     INCBIN "gfx/pokemon/flaaffy/front.animated.2bpp.lz"
 IvysaurFrontpic:     INCBIN "gfx/pokemon/ivysaur/front.animated.2bpp.lz"
 FurretFrontpic:      INCBIN "gfx/pokemon/furret/front.animated.2bpp.lz"
-CyndaquilFrontpic:   INCBIN "gfx/pokemon/cyndaquil/front.animated.2bpp.lz"
-HitmonchanFrontpic:  INCBIN "gfx/pokemon/hitmonchan/front.animated.2bpp.lz"
-QuagsireFrontpic:    INCBIN "gfx/pokemon/quagsire/front.animated.2bpp.lz"
 
 
 SECTION "Pics 9", ROMX
@@ -718,6 +715,9 @@ TogeticFrontpic:     INCBIN "gfx/pokemon/togetic/front.animated.2bpp.lz"
 KangaskhanBackpic:   INCBIN "gfx/pokemon/kangaskhan/back.2bpp.lz"
 GligarFrontpic:      INCBIN "gfx/pokemon/gligar/front.animated.2bpp.lz"
 DunsparceFrontpic:   INCBIN "gfx/pokemon/dunsparce/front.animated.2bpp.lz"
+CyndaquilFrontpic:   INCBIN "gfx/pokemon/cyndaquil/front.animated.2bpp.lz"
+HitmonchanFrontpic:  INCBIN "gfx/pokemon/hitmonchan/front.animated.2bpp.lz"
+QuagsireFrontpic:    INCBIN "gfx/pokemon/quagsire/front.animated.2bpp.lz"
 
 ; Sections "Pics 20" to "Pics 24" are not used for any graphics,
 ; but entries for their banks exist in FixPicBank (see engine/gfx/load_pics.asm).
