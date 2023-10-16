@@ -110,6 +110,7 @@ CreditsStringsPointers:
 	dw .Programming
 	dw .DamienDoury
 	dw .Darkshade
+	dw .SourApple
 	dw .TriteHexagon
 	dw .VoloGT
 	dw .Empty
@@ -228,6 +229,7 @@ CreditsStringsPointers:
 .Programming		  db "    PROGRAMMING@"
 .DamienDoury:		  db "    DAMIEN DOURY@"
 .Darkshade:			  db "     DARKSHADE@"
+.SourApple:			  db "     SOUR APPLE@"
 .TriteHexagon:		  db "   <AT>TriteHexagon@"
 .VoloGT:		 	  db "  ANDRIY SKOVORODA@"
 .Empty:				  db "@"

@@ -289,8 +289,9 @@ CreditsScript:
 
 	db CREDITS_WAIT, 11
 
-	db    GRAPHICS_DESIGN, 1
-	db          DARKSHADE, 3
+	db    GRAPHICS_DESIGN, 0
+	db          DARKSHADE, 2
+	db 			SOURAPPLE, 3
 	db       DAMIEN_DOURY, 4
 
 	db CREDITS_WAIT, 11
