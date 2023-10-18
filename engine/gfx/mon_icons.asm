@@ -19,7 +19,7 @@ SetMenuMonIconColor:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
 	call GetMenuMonIconPalette
 	ld hl, wVirtualOAMSprite00Attributes
@@ -31,7 +31,7 @@ SetMenuMonIconColor_NoShiny:
 	push bc
 	push af
 
-	ld a, [wd265]
+	ld a, [wTempIconSpecies]
 	ld [wCurPartySpecies], a
 	and a
 	call GetMenuMonIconPalette_PredeterminedShininess
@@ -307,7 +307,14 @@ SetPartyMonIconAnimSpeed:
 	db $80 ; HP_RED
 
 NamingScreen_InitAnimatedMonIcon:
+	ld a, MON_DVS
+	call GetPartyParamLocation
+	ld a, [wMonType]
+	and a ; PARTYMON
+	jr z, .dvs_address_determined
+
 	ld hl, wTempMonDVs
+.dvs_address_determined
 	call SetMenuMonIconColor
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
