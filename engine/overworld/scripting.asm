@@ -1259,6 +1259,7 @@ Script_reloadmapafterbattle:
 	and $ff ^ BATTLERESULT_BITMASK
 	cp LOSE
 	jr nz, .notblackedout
+	
 	ld b, BANK(Script_BattleWhiteout)
 	ld hl, Script_BattleWhiteout
 	jp ScriptJump
@@ -1266,18 +1267,19 @@ Script_reloadmapafterbattle:
 .notblackedout
 	bit 0, d
 	jr z, .was_wild
+
 	farcall MomTriesToBuySomething
-	jr .done
+	jr Script_reloadmap
 
 .was_wild
 	ld a, [wBattleResult]
 	bit BATTLERESULT_BOX_FULL, a
-	jr z, .done
+	jr z, Script_reloadmap
+
 	ld b, BANK(Script_SpecialBillCall)
 	ld de, Script_SpecialBillCall
 	farcall LoadScriptBDE
-.done
-	jp Script_reloadmap
+	; fallthrough
 
 Script_reloadmap:
 	xor a

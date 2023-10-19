@@ -310,7 +310,7 @@ NamingScreen_InitAnimatedMonIcon:
 	ld a, MON_DVS
 	call GetPartyParamLocation
 	ld a, [wMonType]
-	and a ; PARTYMON
+	and a ; Check if [wMonType] is PARTYMON.
 	jr z, .dvs_address_determined
 
 	ld hl, wTempMonDVs
