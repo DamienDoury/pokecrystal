@@ -661,7 +661,15 @@
 	const EVENT_FOUGHT_MOLTRES
 	const EVENT_FOUGHT_ARTICUNO
 
-; Unused: next 124 events
+; Unused: next 92 events
+
+	const_next 1000 - 32
+	const EVENT_MOM_BOUGHT_ITEM_1
+	; Up to 15 more items.
+
+	const_next 1000 - 16
+	const EVENT_MOM_DELIVERED_ITEM_1
+	; Up to 15 more items.
 
 	const_next 1000
 ; Trainer flags

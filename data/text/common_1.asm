@@ -357,31 +357,64 @@ _MomHiHowAreYouText::
 	prompt
 
 _MomFoundAnItemText::
-	text "I found a useful"
-	line "item on sale"
-	cont "while shopping, so"
-	prompt
+	text "While doing groce-"
+	line "ries, I found a"
+	
+	para "lost item at the"
+	line "back of a shelf."
+	
+	para "It was a pack of"
 
-_MomBoughtWithYourMoneyText::
-	text "I bought it with"
-	line "your money. Sorry!"
+	line "@"
+	text_decimal wStringBuffer2, 1, 1
+	text " @"
+	text_ram wStringBuffer1
+	text ""
+
+	cont "for ¥@"
+	text_decimal wStringBuffer3, 3, 5
+	text "."
+
+	para "It's a rare deal,"
+	line "so I bought it"
+	
+	para "with your money &"
+	line "sent it to you."
 	prompt
 
 _MomItsInPCText::
-	text "It's in your PC."
-	line "You'll like it!"
+	text "The delivery guy"
+	line "will be waiting"
+	
+	para "for you at the"
+	line "second floor of"
+	cont "a #CENTER."
 	done
 
-_MomFoundADollText::
-	text "While shopping"
-	line "today, I saw this"
-	cont "adorable doll, so"
+_MomReceivedItemFromNeighborText::
+	text "The neighbor gave"
+	line "me @"
+	text_decimal wStringBuffer2, 1, 1
+	text " @"
+	text_ram wStringBuffer1
+	text "."
 	prompt
 
-_MomItsInYourRoomText::
-	text "It's in your room."
-	line "You'll love it!"
-	done
+_MomWontNeedText::
+	text "She said she won't"
+	line "need it now that"
+	cont "we're stuck home."
+	prompt
+
+_MomDontHaveAUseText::
+	text "I don't have"
+	line "a use for it."
+	prompt
+
+_MomShippedText::
+	text "So I shipped it"
+	line "to you."
+	prompt
 
 _MonWasSentToText::
 	text_ram wPlayerTrademonSpeciesName

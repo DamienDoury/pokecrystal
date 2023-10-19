@@ -3025,7 +3025,7 @@ wDecoBigDoll::       db
 
 ; Items bought from Mom
 wWhichMomItem:: db
-wWhichMomItemSet:: db
+	ds 1
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
