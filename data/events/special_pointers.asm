@@ -207,3 +207,4 @@ SpecialsPointers::
 	add_special GetOlivineCafeSalad
 	add_special TellCovidVariant
 	add_special ComputeMewtwoTeleportIndex
+	add_special MoveReminder
