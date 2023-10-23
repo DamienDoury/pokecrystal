@@ -1179,101 +1179,13 @@ PrepareToPlaceMoveData:
 PlaceMoveData:
 	xor a
 	ldh [hBGMapMode], a
-	;hlcoord 0, 10
-	;ld de, String_MoveType_Top
-	;call PlaceString
-	;hlcoord 0, 11
-	;ld de, String_MoveType_Bottom
-	;call PlaceString
-	hlcoord 12, 11
-	ld de, .string_MoveAtk
-	call PlaceString
 
-	hlcoord 12, 12
-	ld de, .string_MoveAcc
-	call PlaceString
-
-	ld a, [wCurSpecies]
-	ld b, a
-	farcall GetMoveCategoryName
-	hlcoord 1, 12
-	ld de, wStringBuffer1
-	call PlaceString
-
-	ld a, [wCurSpecies]
-	ld b, a
 	hlcoord 1, 11
-	predef PrintMoveType
+	predef PrintMoveFullDescription
 
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_POWER
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	push hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	hlcoord 16, 11
-	cp 2
-	jr c, .no_power
-
-	ld [wTextDecimalByte], a
-	ld de, wTextDecimalByte
-	lb bc, 1, 3
-	call PrintNum
-	jr .accuracy
-
-.string_MoveAtk
-	db "POW/@"
-.string_MoveAcc
-	db "ACC/@"
-.string_MoveNoPower:
-	db "---@"
-
-.no_power
-	ld de, .string_MoveNoPower
-	call PlaceString
-	
-.accuracy
-	pop hl
-	push hl
-	dec hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	cp EFFECT_ALWAYS_HIT
-	pop hl
-	jr z, .perfect_accuracy
-
-	inc hl
-	inc hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	ld b, a
-	farcall ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
-	ldh a, [hQuotient + 3]
-	ld [wTextDecimalByte], a
-	ld de, wTextDecimalByte
-	lb bc, 1, 3
-	hlcoord 16, 12
-	call PrintNum
-	jr .description
-
-.perfect_accuracy
-	hlcoord 16, 12
-	ld de, .string_MoveNoPower
-	call PlaceString
-
-.description
-	hlcoord 1, 14
-	predef PrintMoveDescription
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
-
-String_MoveType_Top:
-	db "┌────────┐@"
-String_MoveType_Bottom:
-	db "│        └@"
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow

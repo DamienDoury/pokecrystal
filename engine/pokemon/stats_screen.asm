@@ -1802,80 +1802,9 @@ PlaceMoveDataNew:
 	xor a
 	ldh [hBGMapMode], a
 
-	hlcoord 12, 1
-	ld de, String_MoveAtk
-	call PlaceString
-
-	hlcoord 12, 2
-	ld de, String_MoveAcc
-	call PlaceString
-
-	ld a, [wCurSpecies]
-	ld b, a
-	farcall GetMoveCategoryName
-
-	hlcoord 1, 2
-	ld de, wStringBuffer1
-	call PlaceString
-
-	ld a, [wCurSpecies]
-	ld b, a
 	hlcoord 1, 1
-	predef PrintMoveType
+	predef PrintMoveFullDescription
 
-	ld a, [wCurSpecies]
-	dec a
-	ld hl, Moves + MOVE_POWER
-	ld bc, MOVE_LENGTH
-	call AddNTimes
-	push hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	hlcoord 16, 1
-	cp 2
-	jr c, .no_power
-
-	ld [wTextDecimalByte], a
-	ld de, wTextDecimalByte
-	lb bc, 1, 3
-	call PrintNum
-	jr .accuracy
-
-.no_power
-	ld de, String_MoveNoPower
-	call PlaceString
-
-.accuracy
-	pop hl
-	push hl
-	dec hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	cp EFFECT_ALWAYS_HIT
-	pop hl
-	jr z, .perfect_accuracy
-
-	inc hl
-	inc hl
-	ld a, BANK(Moves)
-	call GetFarByte
-	ld b, a
-	call ConvertToPercentage ; We convert the 0;255 value given in a to a percentage returned in a.
-	ld [wTextDecimalByte], a
-	ld de, wTextDecimalByte
-	lb bc, 1, 3
-	hlcoord 16, 2
-	call PrintNum
-	jr .description
-
-.perfect_accuracy
-	hlcoord 16, 2
-	ld de, String_MoveNoPower
-	call PlaceString
-
-.description
-	hlcoord 1, 4
-	predef PrintMoveDescription
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret
@@ -1929,34 +1858,6 @@ PlaceItemDetail:
 	ld a, $1
 	ldh [hBGMapMode], a
 	ret 
-
-; Input: B = percentage to convert.
-; Output: converted percentage in A and [hQuotient + 3].
-ConvertToPercentage::
-	ld a, b
-	xor a, $FF
-	ld a, 100
-	ldh [hQuotient + 3], a
-	ret z ; We can't add 1 to 255, so we make a shortcut for this case.
-
-	ld a, b
-	inc a
-	ldh [hMultiplicand + 2], a
-	xor a
-	ldh [hMultiplicand + 1], a
-	ldh [hMultiplicand], a
-	ld a, 100
-	ldh [hMultiplier], a
-	call Multiply
-
-	; The result of the multiplication is stored in the memory slots used for the dividend.
-	ld a, 255
-	ldh [hDivisor], a
-	ld b, 4
-	call Divide
-
-	ldh a, [hQuotient + 3]
-	ret
 
 ; Sets the Z flag if the arrow is pointing towards an empty Detail slot.
 IsDetailSlotEmpty:

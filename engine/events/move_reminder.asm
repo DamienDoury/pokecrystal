@@ -232,6 +232,17 @@ ChooseMoveToLearn:
 	call UpdateSprites
 	ld hl, .MenuDataHeader
 	call CopyMenuHeader
+
+	hlcoord 0, 0
+	ld b, 14
+	ld c, 18
+	call Textbox
+
+	hlcoord 0, 10
+	ld b, 6
+	ld c, 18
+	call Textbox
+
 	xor a
 	ld [wMenuCursorPosition], a
 	ld [wMenuScrollPosition], a
@@ -252,13 +263,13 @@ ChooseMoveToLearn:
 .MenuDataHeader:
 	db $40 ; flags
 	db 1, 1 ; start coords
-	db 11, 19 ; end coords
+	db 9, 18 ; end coords
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db $30 ; pointers
-	db 5, SCREEN_WIDTH + 2 ; rows, columns
+	db 4, SCREEN_WIDTH + 2 ; rows, columns
 	db 1 ; horizontal spacing
 	dbw 0, wd002
 	dba .PrintMoveName
@@ -275,158 +286,22 @@ ChooseMoveToLearn:
 	ret
 
 .PrintDetails
-ld hl, wStringBuffer1
-	ld bc, wStringBuffer2 - wStringBuffer1
-	ld a, " "
-	call ByteFill
-	ld a, [wMenuSelection]
-	inc a
-	ret z
-	dec a
-	push de
-	dec a
-
-if DEF(PSS)
-	ld bc, MOVE_LENGTH
-	ld hl, Moves + MOVE_CATEGORY
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	and CATEGORY_MASK
-	; bc = a * 4
-	ld c, a
-	add a
-	add a
-	ld b, 0
-	ld c, a
-	ld hl, .Types
-	add hl, bc
-	ld d, h
-	ld e, l
-	ld hl, wStringBuffer1
-	ld bc, 3
-	call PlaceString
-	ld hl, wStringBuffer1 + 3
-	ld [hl], "/"
-
-	ld a, [wMenuSelection]
-	dec a
-endc
-
-	ld bc, MOVE_LENGTH
-	ld hl, Moves + MOVE_TYPE
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	ld [wd265], a
-	; bc = a * 4
-	ld c, a
-	add a
-	add a
-	ld b, 0
-	ld c, a
-	ld hl, .Types
-	add hl, bc
-	ld d, h
-	ld e, l
-	ld hl, wStringBuffer1 + 4
-	ld bc, 3
-	call PlaceString
-	ld hl, wStringBuffer1 + 7
-	ld [hl], "/"
-
-	ld a, [wMenuSelection]
-	dec a
-	
-	ld bc, MOVE_LENGTH
-	ld hl, Moves + MOVE_POWER
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	ld hl, wStringBuffer1 + 8
-	and a
-	jr z, .no_power
-	ld [wBuffer1], a
-	ld de, wBuffer1
-	lb bc, 1, 3
-	call PrintNum
-	jr .got_power
-.no_power
-	ld de, .ThreeDashes
-	ld bc, 3
-	call PlaceString
-.got_power
-	ld hl, wStringBuffer1 + 8 + 3
-	ld [hl], "/"
-
-	ld a, [wMenuSelection]
-	dec a
-
-;print PP (works)
-	ld a, [wMenuSelection]
-	dec a
-	ld bc, MOVE_LENGTH
-	ld hl, Moves + MOVE_PP
-	call AddNTimes
-	ld a, BANK(Moves)
-	call GetFarByte
-	ld [wBuffer1], a
-	ld hl, wStringBuffer1 + 12
-	ld de, wBuffer1
-	lb bc, 1, 2
-	call PrintNum
-	ld hl, wStringBuffer1 + 14
-	ld [hl], "@"
-
-	pop hl
-	ld de, wStringBuffer1
-	jp PlaceString
-	
-.ThreeDashes
-	db "---@"
-	
-.Types
-	db "NRM@"
-	db "FGT@"
-	db "FLY@"
-	db "PSN@"
-	db "GRD@"
-	db "RCK@"
-	db "BRD@"
-	db "BUG@"
-	db "GHT@"
-	db "STL@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "NRM@"
-	db "???@"
-	db "FIR@"
-	db "WTR@"
-	db "GRS@"
-	db "ELC@"
-	db "PSY@"
-	db "ICE@"
-	db "DRG@"
-	db "DRK@"
-	db "FAR@"
+	ret
 
 .PrintMoveDesc
 	push de
-	call SpeechTextbox
+	hlcoord 1, 11
+	lb bc, 6, 18
+	call ClearBox
+
 	ld a, [wMenuSelection]
 	inc a
 	pop de
 	ret z
 	dec a
 	ld [wCurSpecies], a
-	hlcoord 1, 14
-	predef PrintMoveDescription
+	hlcoord 1, 11
+	predef PrintMoveFullDescription
 	ret
 
 
