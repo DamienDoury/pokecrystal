@@ -854,7 +854,7 @@ SwapMoves:
 	ret
 
 String_MoveAtk:
-	db "ATK/@"
+	db "POW/@"
 String_MoveAcc:
 	db "ACC/@"
 String_MoveNoPower:
