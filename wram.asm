@@ -3112,6 +3112,9 @@ wPowerPlantEarthquakeDuration:: db
 
 NEXTU ; Tradeback Guy: either Earl's Academy/School, or his parents' house in Ecruteak.
 wTradeGuyItemPayment:: db
+
+NEXTU ; Move reminders.
+wBuffer1:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
