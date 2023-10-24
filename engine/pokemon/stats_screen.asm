@@ -853,12 +853,6 @@ SwapMoves:
 	ld [de], a
 	ret
 
-String_MoveAtk:
-	db "POW/@"
-String_MoveAcc:
-	db "ACC/@"
-String_MoveNoPower:
-	db "---@"
 String_CantUseInBattle:
 	db "No use in battle.@"
 String_OneTimeUse:
