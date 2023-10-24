@@ -232,6 +232,8 @@ ChooseMoveToLearn:
 	call UpdateSprites
 	ld hl, .MenuDataHeader
 	call CopyMenuHeader
+	farcall LoadFontLevelSymbol
+	farcall LoadStatsScreenPageTilesGFX
 
 	hlcoord 0, 0
 	ld b, 14
@@ -242,6 +244,30 @@ ChooseMoveToLearn:
 	ld b, 6
 	ld c, 18
 	call Textbox
+
+	ld hl, wPartyMonNicknames
+	ld a, [wCurPartyMon]
+	call GetNickname
+
+	call CountChars
+	srl a
+	ld b, a
+	ld a, 7
+	sbc b
+	ld b, 0
+	ld c, a
+	hlcoord 0, 0
+	add hl, bc
+	ld [hl], " "
+	inc hl
+	call PlaceString
+	push bc
+	farcall CopyMonToTempMon
+	pop hl
+	ld [hl], " "
+	inc hl
+	call PrintLevel
+	ld [hl], " "
 
 	xor a
 	ld [wMenuCursorPosition], a
@@ -286,6 +312,27 @@ ChooseMoveToLearn:
 	ret
 
 .PrintDetails
+	push de
+	ld a, [wMenuSelection]
+	dec a
+	ld bc, MOVE_LENGTH
+	ld hl, Moves + MOVE_PP
+	call AddNTimes
+	ld a, BANK(Moves)
+	call GetFarByte
+	ld [wBuffer1], a
+
+	pop hl
+	ld bc, $ffff - SCREEN_WIDTH + 11
+	add hl, bc
+
+	ld de, wBuffer1
+	lb bc, 1, 2
+	call PrintNum
+
+	ld a, $3e ; P
+	ld [hli], a
+	ld [hl], a
 	ret
 
 .PrintMoveDesc
