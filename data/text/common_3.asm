@@ -1708,8 +1708,9 @@ _HospitalVisitDuration2Text::
 
 	
 _MoveReminderIntro::
-    text "Hi, I'm the Move"
-    line "Reminder!"
+    text "Don't you know me?"
+	line "I'm the MOVE"
+    cont "REMINDER!"
 
     para "I can teach your"
     line "#MON a move it"
@@ -1717,26 +1718,19 @@ _MoveReminderIntro::
     para "has learned pre-"
     line "viously."
 
-	para "Are you"
-    line "interested?"
+	para "For the service,"
+	line "I charge ¥500."
+	cont "Deal?"
     done
-/*
-_MoveReminderPrompt::
-    text "Are you"
-    line "interested?"
-    done
-*/
+
 _MoveReminderWhichMon::
-    text "Which #MON"
-    next "would you like"
-    cont "to remember a"
-    cont "move?"
+    text "Show me the"
+	line "#MON!"
     done
 
 _MoveReminderWhichMove::
-    text "Which move would"
-    next "you like to"
-    cont "remember?"
+    text "Which move should"
+    next "it relearn?"
     done
 
 _MoveReminderCancel::
@@ -1744,18 +1738,20 @@ _MoveReminderCancel::
     done
 
 _MoveReminderEgg::
-    text "Hey! What am I"
-    line "supposed to teach"
-    cont "an EGG?"
+    text "What am I"
+    line "supposed to do"
+    cont "with an EGG?"
     done
-/*
+
 _MoveReminderNoPay::
-    text "Hm. Come back with"
-    line "more money and I"
-    cont "can teach a move"
-    cont "to your #MON."
+    text "Hm. You don't"
+	line "have enough."
+    
+	para "Next time you come"
+	line "remember to bring"
+	cont "in some money."
     done
-*/
+
 _MoveReminderNoMon::
     text "You don't have a"
     line "#MON that can"
@@ -1765,5 +1761,14 @@ _MoveReminderNoMon::
 _MoveReminderNoMoves::
     text "There are no moves"
     line "for this #MON"
-    cont "to learn."
+    cont "to remember."
+    done
+
+_MoveReminderTakeMoney::
+    text "Pleasure doing"
+	line "business with you!"
+	done
+
+_MoveReminderThanks::
+    text "I won't forget it!"
     done

@@ -6,42 +6,37 @@
 MoveReminder:
 	ld hl, Text_MoveReminderIntro
 	call PrintText
+	farcall PlaceMoneyTopRight
 	call YesNoBox
 	jp c, .cancel
-/*
-	call JoyWaitAorB
 
 	ld hl, .cost_to_relearn
 	ld de, hMoneyTemp
 	ld bc, 3
 	call CopyBytes
+
 	ld bc, hMoneyTemp
 	ld de, wMoney
 	farcall CompareMoney
 	jp c, .not_enough_money
 
-	ld hl, Text_MoveReminderPrompt
-	call PrintText
-	call YesNoBox
-	jp c, .cancel
-*/
 	ld hl, Text_MoveReminderWhichMon
 	call PrintText
 	call JoyWaitAorB
 
 	ld b, $6
 	farcall SelectMonFromParty
-	jr c, .cancel
+	jp c, .cancel
 
 	ld a, [wCurPartySpecies]
 	cp EGG
-	jr z, .egg
+	jp z, .egg
 
 	call IsAPokemon
-	jr c, .no_mon
+	jp c, .no_mon
 
 	call GetRemindableMoves
-	jr z, .no_moves
+	jp z, .no_moves
 
 	ld hl, Text_MoveReminderWhichMove
 	call PrintText
@@ -69,16 +64,31 @@ MoveReminder:
 	and a
 	jr z, .choose_move
 
-;	ld hl, .cost_to_relearn
-;	ld de, hMoneyTemp
-;	ld bc, 3
-;	call CopyBytes
-;	ld bc, hMoneyTemp
-;	ld de, wMoney
-;	farcall TakeMoney
+	call ReturnToMapWithSpeechTextbox
+	farcall PlaceMoneyTopRight
+	ld hl, .cost_to_relearn
+	ld de, hMoneyTemp
+	ld bc, 3
+	call CopyBytes
+
+	ld hl, Text_MoveReminderTakeMoney
+	call PrintText
+	call PromptButton
+	call WaitSFX
+
+	ld bc, hMoneyTemp
+	ld de, wMoney
+	farcall TakeMoney
+
+	farcall PlaceMoneyTopRight
+
 	ld de, SFX_TRANSACTION
 	call PlaySFX
 	call WaitSFX
+
+	ld hl, Text_MoveReminderThanks
+	call PrintText
+	ret
 
 .skip_learn
 	call ReturnToMapWithSpeechTextbox
@@ -92,10 +102,10 @@ MoveReminder:
 	call PrintText
 	ret
 
-;.not_enough_money
-;	ld hl, Text_MoveReminderNoGoldLeaf
-;	call PrintText
-;	ret
+.not_enough_money
+	ld hl, Text_MoveReminderNotEnough
+	call PrintText
+	ret
 
 .no_mon
 	ld hl, Text_MoveReminderNoMon
@@ -107,8 +117,8 @@ MoveReminder:
 	call PrintText
 	ret
 
-;.cost_to_relearn
-;	dt 500
+.cost_to_relearn
+	dt 500
 
 GetRemindableMoves:
 ; Get moves remindable by CurPartyMon
@@ -371,10 +381,6 @@ ChooseMoveToLearn:
 Text_MoveReminderIntro:
 	text_far _MoveReminderIntro
 	text_end
-
-;Text_MoveReminderPrompt:
-;	text_far _MoveReminderPrompt
-;	text_end
 	
 Text_MoveReminderWhichMon:
 	text_far _MoveReminderWhichMon
@@ -392,9 +398,9 @@ Text_MoveReminderEgg:
 	text_far _MoveReminderEgg
 	text_end
 
-;Text_MoveReminderNoGoldLeaf:
-;	text_far _MoveReminderNoPay
-;	text_end
+Text_MoveReminderNotEnough:
+	text_far _MoveReminderNoPay
+	text_end
 
 Text_MoveReminderNoMon:
 	text_far _MoveReminderNoMon
@@ -402,4 +408,12 @@ Text_MoveReminderNoMon:
 	
 Text_MoveReminderNoMoves:
 	text_far _MoveReminderNoMoves
+	text_end
+
+Text_MoveReminderTakeMoney:
+	text_far _MoveReminderTakeMoney
+	text_end
+
+Text_MoveReminderThanks:
+	text_far _MoveReminderThanks
 	text_end
