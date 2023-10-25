@@ -423,7 +423,7 @@ ENDM
 	map_const CELADON_MANSION_1F,                           4,  5 ; 12
 	map_const CELADON_MANSION_2F,                           4,  5 ; 13
 	map_const CELADON_MANSION_3F,                           4,  5 ; 14
-	map_const CELADON_MANSION_ROOF,                         4,  7 ; 15
+	map_const CELADON_MANSION_ROOF,                         9,  9 ; 15
 	map_const CELADON_MANSION_ROOF_HOUSE,                   4,  4 ; 16
 	map_const CELADON_POKECENTER_1F,                        5,  4 ; 17
 	map_const CELADON_GAME_CORNER,                         10,  7 ; 18
