@@ -2532,7 +2532,12 @@ wBaseTMHM:: flag_array NUM_TM_HM_TUTOR
 wCurBaseDataEnd::
 	assert wCurBaseDataEnd - wCurBaseData == BASE_DATA_SIZE
 
+UNION
 wCurDamage:: dw
+NEXTU
+wOWTempByte1:: db
+wOWTempByte2:: db
+ENDU
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db

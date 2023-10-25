@@ -47,8 +47,14 @@ MoveReminder:
 	call PrintText
 	call JoyWaitAorB
 
+	call SetupRemindableMovesList
+
+.choose_move
 	call ChooseMoveToLearn
 	jr c, .skip_learn
+
+	ld a, [wMenuCursorY] ; Allows to go back to the previous selection on cancelation.
+	ld [wOWTempByte1], a
 
 	ld a, [wMenuSelection]
 	ld [wd265], a
@@ -61,7 +67,7 @@ MoveReminder:
 	predef LearnMove
 	ld a, b
 	and a
-	jr z, .skip_learn
+	jr z, .choose_move
 
 ;	ld hl, .cost_to_relearn
 ;	ld de, hMoneyTemp
@@ -224,16 +230,28 @@ CheckPokemonAlreadyKnowsMove:
 	scf
 	ret
 
-ChooseMoveToLearn:
-	; Number of items stored in wd002
-	; List of items stored in wd002 + 1
+SetupRemindableMovesList:
 	call FadeToMenu
 	farcall BlankScreen
 	call UpdateSprites
-	ld hl, .MenuDataHeader
-	call CopyMenuHeader
+
 	farcall LoadFontLevelSymbol
 	farcall LoadStatsScreenPageTilesGFX
+
+	xor a
+	ld [wMenuCursorPosition], a
+	ld [wMenuScrollPosition], a
+	ld [wOWTempByte1], a
+	ret
+
+ChooseMoveToLearn:
+	; Number of items stored in wd002
+	; List of items stored in wd002 + 1
+		
+	ld hl, .MenuDataHeader
+	call CopyMenuHeader
+	ld a, [wOWTempByte1]
+	ld [wMenuCursorPosition], a
 
 	hlcoord 0, 0
 	ld b, 14
@@ -269,14 +287,13 @@ ChooseMoveToLearn:
 	call PrintLevel
 	ld [hl], " "
 
-	xor a
-	ld [wMenuCursorPosition], a
-	ld [wMenuScrollPosition], a
 	call ScrollingMenu
 	call SpeechTextbox
+
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
 	jr z, .carry
+	
 	ld a, [wMenuSelection]
 	ld [wPutativeTMHMMove], a
 	and a
@@ -287,7 +304,7 @@ ChooseMoveToLearn:
 	ret
 
 .MenuDataHeader:
-	db $40 ; flags
+	db SCROLLINGMENU_DISPLAY_ARROWS ; flags
 	db 1, 1 ; start coords
 	db 9, 18 ; end coords
 	dw .MenuData
@@ -350,7 +367,6 @@ ChooseMoveToLearn:
 	hlcoord 1, 11
 	predef PrintMoveFullDescription
 	ret
-
 
 Text_MoveReminderIntro:
 	text_far _MoveReminderIntro
