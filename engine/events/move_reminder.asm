@@ -59,7 +59,11 @@ MoveReminder:
 	ld bc, wStringBuffer2 - wStringBuffer1
 	call CopyBytes
 	ld b, 0
+	ld a, TRUE
+	ld [wIsLearningTMHM], a
 	predef LearnMove
+	ld a, FALSE
+	ld [wIsLearningTMHM], a
 	ld a, b
 	and a
 	jr z, .choose_move

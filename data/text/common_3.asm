@@ -1014,6 +1014,18 @@ _AskForgetMoveText::
 	text "?"
 	done
 
+_AskForgetMoveLongText::
+	text_ram wMonOrItemNameBuffer
+	text " is"
+	line "trying to learn"
+	cont "@"
+	text_ram wStringBuffer2
+	text "."
+	
+	para "Delete a move to"
+	line "make room for it?"
+	done
+
 Text_MoveForgetCount::
 	text "1, 2 and…@"
 	text_pause
