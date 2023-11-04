@@ -1,23 +1,31 @@
-NUM_MOM_ITEMS_1 EQUS "((MomItems_1.End - MomItems_1) / 8)"
 NUM_MOM_ITEMS_2 EQUS "((MomItems_2.End - MomItems_2) / 8)"
-
-	const_def 1
-	const MOM_ITEM
-	const MOM_DOLL
 
 MomTriesToBuySomething::
 	ld a, [wMapReentryScriptQueueFlag]
 	and a
 	ret nz
+
 	call GetMapPhoneService
 	and a
 	ret nz
-	xor a
-	ld [wWhichMomItemSet], a
+
+	ld de, ENGINE_MOM_SAVING_MONEY
+	ld b, CHECK_FLAG
+	farcall EngineFlagAction
+	ld a, c
+	and a
+	ret z ; Mom doesn't buy items if you don't send her money.
+
+	ld a, [wSpecialPhoneCallID]
+	and a
+	ret nz ; We avoid overriding another important call. Can be in competition with SPECIALCALL_DAILY_EVENTS_RESET.
+	
 	call CheckBalance_MomItem2
 	ret nc
+
 	call Mom_GiveItemOrDoll
 	ret nc
+
 	ld b, BANK(.Script)
 	ld de, .Script
 	farcall LoadScriptBDE
@@ -31,12 +39,8 @@ MomTriesToBuySomething::
 .ASMFunction:
 	call MomBuysItem_DeductFunds
 	call Mom_GetScriptPointer
-	ld a, [wWhichMomItemSet]
-	and a
-	jr nz, .ok
 	ld hl, wWhichMomItem
 	inc [hl]
-.ok
 	ld a, PHONE_MOM
 	ld [wCurCaller], a
 	ld bc, wCallerContact
@@ -59,6 +63,7 @@ CheckBalance_MomItem2:
 	ld a, [wWhichMomItem]
 	cp NUM_MOM_ITEMS_2
 	jr nc, .nope
+
 	call GetItemFromMom
 	ld a, [hli]
 	ldh [hMoneyTemp], a
@@ -72,45 +77,11 @@ CheckBalance_MomItem2:
 	jr nc, .have_enough_money
 
 .nope
-	jr .check_have_2300
-
-.have_enough_money
-	scf
-	ret
-
-.check_have_2300
-	ld hl, hMoneyTemp
-	ld [hl], HIGH(MOM_MONEY >> 8)
-	inc hl
-	ld [hl], HIGH(MOM_MONEY) ; mid
-	inc hl
-	ld [hl], LOW(MOM_MONEY)
-.loop
-	ld de, wMomItemTriggerBalance
-	ld bc, wMomsMoney
-	farcall CompareMoney
-	jr z, .exact
-	jr nc, .less_than
-	call .AddMoney
-	jr .loop
-
-.less_than
 	xor a
 	ret
 
-.exact
-	call .AddMoney
-	ld a, NUM_MOM_ITEMS_1
-	call RandomRange
-	inc a
-	ld [wWhichMomItemSet], a
+.have_enough_money
 	scf
-	ret
-
-.AddMoney:
-	ld de, wMomItemTriggerBalance
-	ld bc, hMoneyTemp
-	farcall AddMoney
 	ret
 
 MomBuysItem_DeductFunds:
@@ -130,19 +101,8 @@ MomBuysItem_DeductFunds:
 
 Mom_GiveItemOrDoll:
 	call GetItemFromMom
-	ld de, 6 ; item type
+	ld de, 7 ; item ID.
 	add hl, de
-	ld a, [hli]
-	cp MOM_ITEM
-	jr z, .not_doll
-	ld a, [hl]
-	ld c, a
-	ld b, 1
-	farcall DecorationFlagAction_c
-	scf
-	ret
-
-.not_doll
 	ld a, [hl]
 	ld [wCurItem], a
 	ld a, 1
@@ -153,47 +113,79 @@ Mom_GiveItemOrDoll:
 
 Mom_GetScriptPointer:
 	call GetItemFromMom
-	ld de, 6 ; item type
+	
+	push hl
+	ld de, 7 ; item ID.
 	add hl, de
+	ld a, [hl]
+	ld [wNamedObjectIndex], a
+	call GetItemName
+	pop hl
+
+	push hl
+	ld de, 6 ; item type / item quantity.
+	add hl, de
+	ld a, [hl]
+	ld [wStringBuffer2], a
+	pop hl
+
+	ld de, 3 ; item cost.
+	add hl, de
+	push hl
+	ld de, wStringBuffer3
+	ld bc, 3
+	call CopyBytes
+	pop hl
+
+	;ld de, 3 ; item cost.
+	;add hl, de
+	ld de, .ShoppingDealScript
+rept 3 ; Read the 3 bytes of the price.
 	ld a, [hli]
-	ld de, .ItemScript
-	cp MOM_ITEM
-	ret z
-	ld de, .DollScript
+	and a
+	ret nz
+endr
+	; At this point, check if lockdowns and curfews have been lifted.
+	ld b, CHECK_FLAG
+	ld de, EVENT_MOM_CALLED_ABOUT_VACCINATION_PASS
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .restrictions_apply
+
+	ld de, .NeighborDonationAfterRestrictionsScript
 	ret
 
-.ItemScript:
+.restrictions_apply
+	ld de, .NeighborDonationDuringRestrictionsScript
+	ret
+
+.ShoppingDealScript:
 	writetext MomHiHowAreYouText
 	writetext MomFoundAnItemText
-	writetext MomBoughtWithYourMoneyText
 	writetext MomItsInPCText
 	end
 
-.DollScript:
+.NeighborDonationDuringRestrictionsScript:
 	writetext MomHiHowAreYouText
-	writetext MomFoundADollText
-	writetext MomBoughtWithYourMoneyText
-	writetext MomItsInYourRoomText
+	writetext MomReceivedItemFromNeighborText
+	writetext MomWontNeedText
+	writetext MomShippedText
+	writetext MomItsInPCText
+	end
+
+.NeighborDonationAfterRestrictionsScript:
+	writetext MomHiHowAreYouText
+	writetext MomReceivedItemFromNeighborText
+	writetext MomDontHaveAUseText
+	writetext MomShippedText
+	writetext MomItsInPCText
 	end
 
 GetItemFromMom:
-	ld a, [wWhichMomItemSet]
-	and a
-	jr z, .zero
-	dec a
-	ld de, MomItems_1
-	jr .GetFromList1
-
-.zero
 	ld a, [wWhichMomItem]
-	cp NUM_MOM_ITEMS_2
-	jr c, .ok
-	xor a
-
-.ok
 	ld de, MomItems_2
 
-.GetFromList1:
 	ld l, a
 	ld h, 0
 rept 3 ; multiply hl by 8
@@ -212,28 +204,25 @@ MomFoundAnItemText:
 	text_far _MomFoundAnItemText
 	text_end
 
-MomBoughtWithYourMoneyText:
-	text_far _MomBoughtWithYourMoneyText
-	text_end
-
 MomItsInPCText:
 	text_far _MomItsInPCText
 	text_end
 
-MomFoundADollText:
-	text_far _MomFoundADollText
+MomReceivedItemFromNeighborText:
+	text_far _MomReceivedItemFromNeighborText
 	text_end
 
-MomItsInYourRoomText:
-	text_far _MomItsInYourRoomText
+MomWontNeedText:
+	text_far _MomWontNeedText
 	text_end
 
+MomDontHaveAUseText:
+	text_far _MomDontHaveAUseText
+	text_end
 
-DummyPredef3A_DummyData: ; unreferenced
-	db 0
+MomShippedText:
+	text_far _MomShippedText
+	text_end
 
 DummyPredef3A:
-	ret
-
-DummyPredef3A_DummyFunction: ; unreferenced
 	ret

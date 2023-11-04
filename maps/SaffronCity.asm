@@ -338,6 +338,7 @@ SaffronCity_MapEvents:
 	bg_event 26, 11, BGEVENT_READ, SaffronCityMartSign
 	bg_event 37,  5, BGEVENT_READ, MrAntonsHouseSign
 	bg_event 25, 21, BGEVENT_READ, VaccinationCenterSign
+	bg_event 26,  3, BGEVENT_READ, SaffronCity_DoorScript
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1
@@ -348,4 +349,3 @@ SaffronCity_MapEvents:
 	object_event 15, 19, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster1Script, -1
 	object_event 35, 22, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityYoungster2Script, -1
 	object_event 19,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronCityLass2Script, -1
-	object_event 26,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronCity_DoorScript, -1

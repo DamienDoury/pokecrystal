@@ -2532,7 +2532,12 @@ wBaseTMHM:: flag_array NUM_TM_HM_TUTOR
 wCurBaseDataEnd::
 	assert wCurBaseDataEnd - wCurBaseData == BASE_DATA_SIZE
 
+UNION
 wCurDamage:: dw
+NEXTU
+wOWTempByte1:: db
+wOWTempByte2:: db
+ENDU
 
 wMornEncounterRate::  db
 wDayEncounterRate::   db
@@ -3025,7 +3030,7 @@ wDecoBigDoll::       db
 
 ; Items bought from Mom
 wWhichMomItem:: db
-wWhichMomItemSet:: db
+	ds 1
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
@@ -3112,6 +3117,9 @@ wPowerPlantEarthquakeDuration:: db
 
 NEXTU ; Tradeback Guy: either Earl's Academy/School, or his parents' house in Ecruteak.
 wTradeGuyItemPayment:: db
+
+NEXTU ; Move reminders.
+wBuffer1:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

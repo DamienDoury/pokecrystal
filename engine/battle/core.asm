@@ -5948,7 +5948,7 @@ MoveInfoBox:
 
 	hlcoord 0, 8
 	ld b, 3
-	ld c, 9
+	ld c, 8
 	call Textbox
 	call MobileTextBorder
 
@@ -6014,15 +6014,10 @@ MoveInfoBox:
 	ret
 
 .Disabled:
-	db "Disabled!@"
+	db "Disabled@"
 
 .PrintPP:
-	hlcoord 5, 11
-	ld a, [wLinkMode] ; What's the point of this check?
-	cp LINK_MOBILE
-	jr c, .ok
-	hlcoord 5, 11
-.ok
+	hlcoord 4, 11
 	push hl
 	ld de, wStringBuffer1
 	lb bc, 1, 2

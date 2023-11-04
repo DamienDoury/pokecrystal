@@ -171,6 +171,22 @@ SetUpTextbox::
 	pop hl
 	ret
 
+CountChars::
+	push bc
+	push de
+	ld b, $ff
+.loop
+	inc b
+	ld a, [de]
+	inc de
+	cp "@"
+	jr nz, .loop
+
+	ld a, b
+	pop de
+	pop bc
+	ret
+
 PlaceString::
 	push hl
 	; fallthrough

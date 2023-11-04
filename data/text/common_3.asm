@@ -1014,6 +1014,18 @@ _AskForgetMoveText::
 	text "?"
 	done
 
+_AskForgetMoveLongText::
+	text_ram wMonOrItemNameBuffer
+	text " is"
+	line "trying to learn"
+	cont "@"
+	text_ram wStringBuffer2
+	text "."
+	
+	para "Delete a move to"
+	line "make room for it?"
+	done
+
 Text_MoveForgetCount::
 	text "1, 2 and…@"
 	text_pause
@@ -1703,3 +1715,72 @@ _HospitalVisitDuration2Text::
 	cont "before it can"
 	cont "leave this room…"
 	done
+
+
+
+	
+_MoveReminderIntro::
+    text "Don't you know me?"
+	line "I'm the MOVE"
+    cont "REMINDER!"
+
+    para "I can teach your"
+    line "#MON a move it"
+
+    para "has learned pre-"
+    line "viously."
+
+	para "For the service,"
+	line "I charge ¥500."
+	cont "Deal?"
+    done
+
+_MoveReminderWhichMon::
+    text "Show me the"
+	line "#MON!"
+    done
+
+_MoveReminderWhichMove::
+    text "Which move should"
+    next "it relearn?"
+    done
+
+_MoveReminderCancel::
+    text "Come back anytime."
+    done
+
+_MoveReminderEgg::
+    text "What am I"
+    line "supposed to do"
+    cont "with an EGG?"
+    done
+
+_MoveReminderNoPay::
+    text "Hm. You don't"
+	line "have enough."
+    
+	para "Next time you come"
+	line "remember to bring"
+	cont "in some money."
+    done
+
+_MoveReminderNoMon::
+    text "You don't have a"
+    line "#MON that can"
+    cont "remember a move."
+    done
+
+_MoveReminderNoMoves::
+    text "There are no moves"
+    line "for this #MON"
+    cont "to remember."
+    done
+
+_MoveReminderTakeMoney::
+    text "Pleasure doing"
+	line "business with you!"
+	done
+
+_MoveReminderThanks::
+    text "I won't forget it!"
+    done

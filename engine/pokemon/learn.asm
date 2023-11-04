@@ -150,7 +150,17 @@ LearnMove:
 
 ForgetMove:
 	push hl
+	ld a, [wIsLearningTMHM]
+	and %100
+	jr nz, .long_text
+
 	ld hl, AskForgetMoveText
+	jr .display_text
+
+.long_text
+	ld hl, AskForgetMoveLongText
+
+.display_text
 	call PrintText
 	call YesNoBox
 	pop hl
@@ -248,6 +258,10 @@ DidNotLearnMoveText:
 
 AskForgetMoveText:
 	text_far _AskForgetMoveText
+	text_end
+
+AskForgetMoveLongText:
+	text_far _AskForgetMoveLongText
 	text_end
 
 Text_1_2_and_Poof:

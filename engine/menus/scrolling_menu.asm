@@ -224,14 +224,15 @@ InitScrollingMenuCursor:
 	inc a
 	cp c
 	jr nc, .skip
+
 	ld a, [wMenuData_ScrollingMenuHeight]
 	ld c, a
 	ld a, [wScrollingMenuListSize]
 	inc a
 	sub c
 	jr nc, .store
-	xor a
 
+	xor a
 .store
 	ld [wMenuScrollPosition], a
 

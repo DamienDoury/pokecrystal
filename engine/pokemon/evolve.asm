@@ -465,7 +465,7 @@ LearnLevelMoves:
 	ld [wNamedObjectIndex], a
 	call GetMoveName
 	call CopyName1
-	ld a, FALSE
+	ld a, FALSE | %100 ; When learning a move from gaining a level or evolving, we display the full text and restore PP.
 	ld [wIsLearningTMHM], a
 	predef LearnMove
 	pop hl

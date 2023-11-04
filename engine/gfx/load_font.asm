@@ -64,12 +64,19 @@ _LoadFontsExtra2::
 	call Get2bppViaHDMA
 	ret
 
+LoadFontLevelSymbol::
+	ld de, FontBattleExtra + 14 tiles ; "<DO>"
+	ld hl, vTiles2 tile $6e
+	lb bc, BANK(FontBattleExtra), 1
+	call Get2bppViaHDMA
+	ret
+
 _LoadFontsBattleExtra::
 	ld de, FontBattleExtra
 	ld hl, vTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), 25
 	call Get2bppViaHDMA
-	jr LoadFrame
+	; fallthrough
 
 LoadFrame:
 	ld a, [wTextboxFrame]
@@ -98,6 +105,7 @@ LoadBattleFontsHPBar:
 	lb bc, BANK(FontBattleExtra), 3 ; "<DO>" to "『"
 	call Get2bppViaHDMA
 	call LoadFrame
+	; fallthrough
 
 LoadHPBar:
 	ld de, EnemyHPBarBorderGFX
