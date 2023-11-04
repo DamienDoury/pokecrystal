@@ -8,47 +8,82 @@ GoldenrodFlowerShop_MapScripts:
 	def_callbacks
 
 FlowerShopTeacherScript:
+	opentext
 	checkevent EVENT_FOUGHT_SUDOWOODO
 	iftrue .Lalala
-	checkevent EVENT_GOT_SQUIRTBOTTLE
+	faceplayer
+	checkitem SQUIRTBOTTLE
 	iftrue .GotSquirtbottle
 	checkevent EVENT_MET_FLORIA
 	iffalse .HaventMetFloria
-	faceplayer
-	opentext
+
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .CloseShopText
+
 	writetext GoldenrodFlowerShopTeacherHeresTheSquirtbottleText
+	sjump .GiveBottle
+
+.CloseShopText:
+	writetext GoldenrodFlowerShopTeacherCloseShopText
+
+.GiveBottle:
 	promptbutton
 	verbosegiveitem SQUIRTBOTTLE
-	setevent EVENT_GOT_SQUIRTBOTTLE
-	clearevent EVENT_GOT_SQUIRTBOTTLE_INVERSE_FLAG
 	closetext
 	end
 
 .Lalala:
 	turnobject GOLDENRODFLOWERSHOP_TEACHER, LEFT
-	opentext
 	writetext GoldenrodFlowerShopTeacherLalalaHavePlentyOfWaterText
 	waitbutton
 	closetext
 	end
 
 .GotSquirtbottle:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .GoHomeText
+	ifequal 1 << CURFEW, .GoHomeText
+
+	writetext GoldenrodFlowerShopTeacherDontDoAnythingDangerousText
+	sjump .EndText
+
+.GoHomeText:
+	writetext GoldenrodFlowerShopTeacherGoHomeText
+	sjump .EndText
 
 .HaventMetFloria:
-	jumptextfaceplayer GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
+	writetext GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text
+	readmem wCurFreedomState
+	ifequal 1 << FREE, .EndText
+	ifequal 1 << VACCINE_PASSPORT, .EndText	
+
+	promptbutton
+	writetext GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText
+
+.EndText:
+	waitbutton
+	closetext
+	end
 
 FlowerShopFloriaScript:
 	faceplayer
 	opentext
+
 	checkevent EVENT_FOUGHT_SUDOWOODO
 	iftrue .FoughtSudowoodo
-	checkevent EVENT_GOT_SQUIRTBOTTLE
+
+	checkitem SQUIRTBOTTLE
 	iftrue .GotSquirtbottle
+
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .PoliceText
+
 	writetext GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText
-	waitbutton
-	closetext
-	end
+	sjump FlowerShopTeacherScript.EndText
+
+.PoliceText:
+	writetext GoldenrodFlowerShopFloriaPoliceText
+	sjump FlowerShopTeacherScript.EndText
 
 .GotSquirtbottle:
 	writetext GoldenrodFlowerShopFloriaYouBeatWhitneyText
@@ -74,16 +109,32 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
 
 	para "and went to see"
 	line "it…"
+	done
 
-	para "I'm worried…"
+GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText:
+	text "I'm worried…"
 
 	para "Because of the"
-	line "lockdown she"
-	cont "should be home"
-	cont "by now…"
+	line "stay-at-home order"
+	
+	para "she should be"
+	line "here by now…"
 	done
 
 GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
+	text "Do you want to"
+	line "borrow the water"
+	cont "bottle too?"
+
+	para "You have several"
+	line "GYM BADGES, you"
+	cont "must be strong."
+
+	para "You are worthy"
+	line "of my bottle."
+	done
+
+GoldenrodFlowerShopTeacherCloseShopText:
 	text "Now that sis is"
 	line "back, I can"
 	cont "close the shop."
@@ -99,6 +150,12 @@ GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
 	done
 
 GoldenrodFlowerShopTeacherDontDoAnythingDangerousText:
+	text "Don't do anything"
+	line "dangerous with"
+	cont "the SQUIRTBOTTLE!"
+	done
+
+GoldenrodFlowerShopTeacherGoHomeText:
 	text "Shouldn't you be"
 	line "home with your"
 	cont "parents?"
@@ -111,6 +168,16 @@ GoldenrodFlowerShopTeacherLalalaHavePlentyOfWaterText:
 	done
 
 GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
+	text "Sis doesn't want"
+	line "to lend me her"
+	cont "bottle."
+
+	para "She says I'm not"
+	line "strong enough to"
+	cont "carry it."
+	done
+
+GoldenrodFlowerShopFloriaPoliceText:
 	text "I saw the police"
 	line "on the way here."
 
@@ -141,5 +208,5 @@ GoldenrodFlowerShop_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  2,  4, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, FlowerShopTeacherScript, -1
-	object_event  5,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FlowerShopFloriaScript, EVENT_FLORIA_AT_FLOWER_SHOP
+	object_event  2,  4, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, FlowerShopTeacherScript, -1
+	object_event  5,  6, SPRITE_LASS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, FlowerShopFloriaScript, EVENT_FLORIA_AT_FLOWER_SHOP

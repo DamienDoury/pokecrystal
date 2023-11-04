@@ -268,23 +268,23 @@ CheckObjectTime::
 	ld hl, MAPOBJECT_HOUR
 	add hl, bc
 	ld a, [hl]
-	and %00011111 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
-	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
+	and $0f ; We only need to read the rightmost 4 bits, as the top 4 are used for the lockdown mask. As the time is now stored on 4 bits, it can't store the full 24 hours of a day.
+	cp $0f ; This special value is used to represent "no masking".
 	jr nz, .check_hour
-	;ld hl, MAPOBJECT_TIMEOFDAY ; Obsolete because of line below.
-	;add hl, bc ; Obsolete because of line below.
+	
 	inc hl ; saving some cycles, as MAPOBJECT_TIMEOFDAY is the byte after MAPOBJECT_HOUR, and hl already contains the address of MAPOBJECT_HOUR.
-	ld a, [hl]
-	and %00011111 ; Damien: same as before: only the 5 first bits are used to store the time.
-	cp %00011111 ; The original "cp -1" needs to be adapted for the new "lockdown" masking.
+	ld a, [hl] ; Reading MAPOBJECT_TIMEOFDAY.
+	and %00011111 ; The wanted level mask is stored on only 3 bits.
+	cp %00011111
 	jr z, .timeofday_always
+	
 	ld hl, .TimesOfDay
 	ld a, [wTimeOfDay]
 	add l
 	ld l, a
 	jr nc, .ok
-	inc h
 
+	inc h
 .ok
 	ld d, [hl]
 	ld hl, MAPOBJECT_TIMEOFDAY
@@ -309,12 +309,9 @@ CheckObjectTime::
 	db NITE
 
 .check_hour
-	;ld hl, MAPOBJECT_HOUR
-	;add hl, bc
+	add START_HOUR_FILTER_OFFSET
 	ld d, a ; Retrieving the already masked value, and saving some cycles.
-	;ld hl, MAPOBJECT_TIMEOFDAY
-	;add hl, bc
-	inc hl ; Saving some cycles.
+	inc hl ; HL now points to MAPOBJECT_TIMEOFDAY.
 	ld a, [hl]
 	and %00011111
 	ld e, a

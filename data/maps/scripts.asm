@@ -347,7 +347,6 @@ INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
 INCLUDE "maps/BillsBrothersHouse.asm"
-INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX
@@ -440,6 +439,7 @@ INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
+INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 
 
 SECTION "Map Scripts 23", ROMX

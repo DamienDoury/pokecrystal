@@ -228,7 +228,7 @@ ApplyCurfewStateBasedOnTime::
 	ret
 
 .curfew
-	ld a, 1 << LOCKDOWN
+	ld a, 1 << CURFEW
 	ld [wCurFreedomState], a
 	ret
 

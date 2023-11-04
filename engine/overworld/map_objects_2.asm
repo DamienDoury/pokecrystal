@@ -127,18 +127,19 @@ CheckLockdownMask:
 	ld hl, MAPOBJECT_HOUR
 	add hl, bc
 	ld a, [hl]
-	and %11100000 ; Damien: we only need to read the rightmost 5 bits for a 24 hours time (<= 31), and we use the last 3 bits for the "law condition" or "lockdown condition".
-	srl a
+	and $f0
+	; 5 bits are required to store a 24 hours time.
+	; However, as we now need 4 bytes for the lockdown mask, we are left with only 4 bytes for the hour (0-15h).
+	; Because of that, we add 4 to the start hour to have a start hour range from 4 to 18 (19th hour can't be used because %11111 is reserved as a special value).
 	swap a
 	ld h, a
 	ld a, [wCurFreedomState]
 	and h
-	jr nz, .lockdown_flag_matches_freedom_state
-	jr .return_false
+	jr z, .return_false
 
-.lockdown_flag_matches_freedom_state
-	cp 1 << LOCKDOWN ; If [wCurFreedomState] is LOCKDOWN, we need to further refine by wanted level.
-	jr nz, .return_true ; As the freedom flag of the object do match the current freedom state, then we should return true. However, if it's a lockdown, then we need further refinement.
+;.lockdown_flag_matches_freedom_state
+	and (1 << LOCKDOWN) | (1 << CURFEW) ; If [wCurFreedomState] is LOCKDOWN or CURFEW, we need to further refine by wanted level.
+	jr z, .return_true ; As the freedom flag of the object do match the current freedom state, then we should return true. However, if it's a lockdown, then we need further refinement.
 	
 	; ***** WANTED LEVEL FILTER *****
 	ld hl, MAPOBJECT_TIMEOFDAY
