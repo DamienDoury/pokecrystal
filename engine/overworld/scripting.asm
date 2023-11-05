@@ -480,15 +480,29 @@ Script_verbosegiveitem:
 	ld de, wStringBuffer4 + STRLEN("TM##")
 	call AppendTMHMMoveName
 	ld b, BANK(GiveItemScript)
+
+	ld a, [wItemQuantityChange]
+	and $fe
+	jr z, .SingleItem
+
+	ld de, GiveMultipleItemScript
+	jp ScriptCall
+
+.SingleItem:
 	ld de, GiveItemScript
 	jp ScriptCall
 
-GiveItemScript_DummyFunction:
-	ret
+GiveMultipleItemScript:
+	writetext .ReceivedMultipleItemText
+	sjump GiveItemScript.GoOn
+
+.ReceivedMultipleItemText
+	text_far _ReceivedMultipleItemText
+	text_end
 
 GiveItemScript:
-	callasm GiveItemScript_DummyFunction
 	writetext .ReceivedItemText
+.GoOn
 	iffalse .Full
 	waitsfx
 	specialsound

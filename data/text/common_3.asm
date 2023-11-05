@@ -242,6 +242,15 @@ _ReceivedItemText::
 	text "."
 	done
 
+_ReceivedMultipleItemText::
+	text "<PLAYER> received"
+	line "@"
+	text_decimal wItemQuantityChange, 1, 2
+	text " @"
+	text_ram wStringBuffer4
+	text "."
+	done
+
 _PutItemInPocketText::
 	text "<PLAYER> put the"
 	line "@"

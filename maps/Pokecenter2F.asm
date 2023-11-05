@@ -18,6 +18,7 @@ Pokecenter2F_MapScripts:
 	special CheckMysteryGift
 	ifequal $0, .Scene0Done
 	clearevent EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; Notifies that a Mystery Gift must be delivered.
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	iftrue .Scene0Done
 	prioritysjump Pokecenter2F_AppearMysteryGiftDeliveryGuy
@@ -428,15 +429,48 @@ Pokecenter2FOfficerScript:
 	opentext
 	checkevent EVENT_MYSTERY_GIFT_DELIVERY_GUY
 	iftrue .AlreadyGotGift
+
 	writetext Text_MysteryGiftDeliveryGuy_Intro
-	yesorno
-	iffalse .RefusedGift
-	writetext Text_MysteryGiftDeliveryGuy_HereYouGo
 	promptbutton
+
+	readmem wWhichMomItem
+	ifless $10, .MysteryGiftCheck
+
+	writetext Text_MysteryGiftDeliveryGuy_MomDeliveryIntro
+	promptbutton
+
+.CheckMomDelivery: ; Check gifts from Mom, and delivers the first one from the list.
+	special FindNextDeliveryFromMom
+	verbosegiveitem ITEM_FROM_MEM, ITEM_QUANTITY_FROM_MEM
+	iffalse .BagIsFull
+
+	readmem wWhichMomItem
+	addval $f0 ; Subtracts 1 to the number of items to be delivered. Doesn't affect the lower nybble.
+	writemem wWhichMomItem
+	ifless $10, .EndMomDelivery
+
+	writetext Text_MysteryGiftDeliveryGuy_NextMomPackage
+	promptbutton
+	sjump .CheckMomDelivery
+
+.EndMomDelivery:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iffalse .EndDelivery
+
+	writetext Text_MysteryGiftDeliveryGuy_AlsoHave
+	promptbutton
+	sjump .MysteryGiftCheckAfterText
+	
+.MysteryGiftCheck:
+	writetext Text_MysteryGiftDeliveryGuy_IHaveSomething
+	promptbutton
+.MysteryGiftCheckAfterText:
 	waitsfx
 	special GetMysteryGiftItem
 	iffalse .BagIsFull
 	itemnotify
+.EndDelivery:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	setevent EVENT_MYSTERY_GIFT_DELIVERY_GUY
 .AlreadyGotGift:
 	writetext Text_MysteryGiftDeliveryGuy_Outro
@@ -446,12 +480,6 @@ Pokecenter2FOfficerScript:
 
 .BagIsFull:
 	writetext Text_MysteryGiftDeliveryGuy_NoRoom
-	waitbutton
-	closetext
-	end
-
-.RefusedGift:
-	writetext Text_MysteryGiftDeliveryGuy_SaidNo
 	waitbutton
 	closetext
 	end
@@ -727,13 +755,28 @@ Text_BattleRoomClosed:
 Text_MysteryGiftDeliveryGuy_Intro:
 	text "Hello! You're"
 	line "<PLAYER>, right?"
-
-	para "I have some-"
-	line "thing for you."
 	done
 
-Text_MysteryGiftDeliveryGuy_HereYouGo:
-	text "Here you go!"
+Text_MysteryGiftDeliveryGuy_MomDeliveryIntro:
+	text "Your mom delivered"
+	line "this!"
+	done
+
+Text_MysteryGiftDeliveryGuy_NextMomPackage:
+	text "And also this…"
+	done
+
+Text_MysteryGiftDeliveryGuy_IHaveSomething:
+	text "I have a package"
+	line "for you."
+
+	para "Here you go!"
+	done
+
+Text_MysteryGiftDeliveryGuy_AlsoHave:
+	text "And I also have"
+	line "this package for"
+	cont "you. Here you go!"
 	done
 
 Text_MysteryGiftDeliveryGuy_Outro:
@@ -750,14 +793,6 @@ Text_MysteryGiftDeliveryGuy_NoRoom:
 
 	para "across the country"
 	line "to pick it up."
-	done
-
-Text_MysteryGiftDeliveryGuy_SaidNo:
-	text "I need to deliver"
-	line "this to you!"
-	
-	para "I won't leave until"
-	line "you take it."
 	done
 
 Text_OhPleaseWait:

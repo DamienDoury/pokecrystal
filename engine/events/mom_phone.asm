@@ -1,6 +1,12 @@
-NUM_MOM_ITEMS_2 EQUS "((MomItems_2.End - MomItems_2) / 8)"
+NUM_MOM_ITEMS EQUS "((MomItems.End - MomItems) / 8)"
+assert NUM_MOM_ITEMS == $f
 
 MomTriesToBuySomething::
+	ld a, [wWhichMomItem]
+	and $f
+	cp $f ; Mom can buy a maximum of 15 different items (1 nybble).
+	ret z
+	
 	ld a, [wMapReentryScriptQueueFlag]
 	and a
 	ret nz
@@ -20,10 +26,7 @@ MomTriesToBuySomething::
 	and a
 	ret nz ; We avoid overriding another important call. Can be in competition with SPECIALCALL_DAILY_EVENTS_RESET.
 	
-	call CheckBalance_MomItem2
-	ret nc
-
-	call Mom_GiveItemOrDoll
+	call CheckBalance_MomItem
 	ret nc
 
 	ld b, BANK(.Script)
@@ -39,8 +42,17 @@ MomTriesToBuySomething::
 .ASMFunction:
 	call MomBuysItem_DeductFunds
 	call Mom_GetScriptPointer
-	ld hl, wWhichMomItem
-	inc [hl]
+	ld a, [wWhichMomItem]
+	add $11 ; We add 1 to the last gift index (low nybble), and 1 to the number of gift to deliver to the player (high nybble).
+	ld [wWhichMomItem], a
+
+	; We activate the delivery guy at the 2nd floor of Pokécenters.
+	push de
+	ld b, RESET_FLAG
+	ld de, EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	call EventFlagAction
+	pop de
+
 	ld a, PHONE_MOM
 	ld [wCurCaller], a
 	ld bc, wCallerContact
@@ -59,11 +71,7 @@ MomTriesToBuySomething::
 	ld [hl], a
 	ret
 
-CheckBalance_MomItem2:
-	ld a, [wWhichMomItem]
-	cp NUM_MOM_ITEMS_2
-	jr nc, .nope
-
+CheckBalance_MomItem:
 	call GetItemFromMom
 	ld a, [hli]
 	ldh [hMoneyTemp], a
@@ -76,7 +84,7 @@ CheckBalance_MomItem2:
 	farcall CompareMoney
 	jr nc, .have_enough_money
 
-.nope
+;.nope
 	xor a
 	ret
 
@@ -97,18 +105,6 @@ MomBuysItem_DeductFunds:
 	ld de, wMomsMoney
 	ld bc, hMoneyTemp
 	farcall TakeMoney
-	ret
-
-Mom_GiveItemOrDoll:
-	call GetItemFromMom
-	ld de, 7 ; item ID.
-	add hl, de
-	ld a, [hl]
-	ld [wCurItem], a
-	ld a, 1
-	ld [wItemQuantityChange], a
-	ld hl, wNumPCItems
-	call ReceiveItem
 	ret
 
 Mom_GetScriptPointer:
@@ -184,7 +180,8 @@ endr
 
 GetItemFromMom:
 	ld a, [wWhichMomItem]
-	ld de, MomItems_2
+	and $f
+	ld de, MomItems
 
 	ld l, a
 	ld h, 0
@@ -225,4 +222,41 @@ MomShippedText:
 	text_end
 
 DummyPredef3A:
+	ret
+
+FindNextDeliveryFromMom:
+	push de
+	push hl
+	ld a, [wWhichMomItem]
+	ld d, a
+	swap a
+	and $f
+	ld e, a ; Store the number of items to be delivered in E.
+	ld a, d
+	and $f ; A contains the index of Mom item.
+	sub e  ; A now contains the index (from the MomItems list) of the item to give.
+
+	ld l, a
+	ld h, 0
+rept 3 ; multiply hl by 8
+	add hl, hl
+endr
+	ld de, MomItems
+	add hl, de
+
+	push hl
+	ld de, 7
+	add hl, de
+	ld a, [hl] ; A contains the item ID to deliver.
+	pop hl
+
+	ld [wScriptVar], a ; Will be used in verbosegiveitemvar.
+
+	ld de, 6
+	add hl, de
+	ld a, [hl] ; A contains the item quantity to deliver.
+	ld [wItemQuantityChange], a
+
+	pop de
+	pop hl
 	ret
