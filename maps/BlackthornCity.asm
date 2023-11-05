@@ -71,6 +71,7 @@ BlackthornCity_MapScripts:
 BlackthornGramps1Script:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer BlackthornGrampsRefusesEntryText
 
 .lockdown

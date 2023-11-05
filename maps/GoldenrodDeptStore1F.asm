@@ -15,7 +15,8 @@ DeptStoreEnterLockdownCheck:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	readvar VAR_XCOORD
 	ifless 15, .end
@@ -32,6 +33,7 @@ DeptStore_PlayerStepsDown:
 GoldenrodDeptStore1FReceptionistScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistText
 
 .lockdown

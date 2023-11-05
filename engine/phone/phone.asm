@@ -110,7 +110,7 @@ CheckPhoneCall::
 ; Check if the phone is ringing in the overworld.
 
 	ld a, [wCurFreedomState]
-	and 1 << LOCKDOWN ; No random phone calls during the lockdown, as everyone is supposed to be home. Only special phone calls are allowed.
+	and (1 << LOCKDOWN) | (1 << CURFEW) ; No random phone calls during the lockdown, as everyone is supposed to be home. Only special phone calls are allowed.
 	ret nz
 
 	call CheckStandingOnEntrance

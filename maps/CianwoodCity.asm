@@ -110,6 +110,7 @@ CianwoodCityChucksWife:
 CianwoodCityYoungster:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer CianwoodCityYoungsterText
 
 .lockdown
@@ -118,6 +119,7 @@ CianwoodCityYoungster:
 CianwoodCityPokefanM:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer CianwoodCityPokefanMText
 
 .lockdown
@@ -129,6 +131,7 @@ CianwoodCityLass:
 
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 
 	jumptextfaceplayer CianwoodCityLassText
 

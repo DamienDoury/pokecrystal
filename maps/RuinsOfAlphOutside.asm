@@ -48,6 +48,7 @@ RuinsOfAlphOutside_MapScripts:
 .Scientist
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .NoScientist
+	ifequal 1 << CURFEW, .NoScientist
 	checkflag ENGINE_UNOWN_DEX
 	iftrue .NoScientist
 	checkevent EVENT_MADE_UNOWN_APPEAR_IN_RUINS

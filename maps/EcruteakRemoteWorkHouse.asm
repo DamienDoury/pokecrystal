@@ -18,7 +18,8 @@ EcruteakRemoteWorkHouse_MapScripts:
 	changeblock  6,  6, $05
 
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	changeblock  2,  2, $3a
 	changeblock  6,  6, $2b
@@ -28,6 +29,7 @@ EcruteakRemoteWorkHouse_MapScripts:
 EcruteakRemoteWorkHouse_MotherScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 
 	jumptextfaceplayer EcruteakRemoteWorkHouse_MotherAloneText
 .lockdown

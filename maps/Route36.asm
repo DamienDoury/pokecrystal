@@ -43,7 +43,8 @@ Route36_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	readvar VAR_XCOORD
 	ifnotequal 18, .end

@@ -12,7 +12,8 @@ OlivinePunishmentSpeechHouse_MapScripts:
 
 .TilesLoad
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	changeblock  4,  2, $35
 .end
@@ -25,6 +26,14 @@ OlivinePunishmentSpeechHouseDadLockdown:
 	faceplayer
 	opentext
 	writetext OlivinePunishmentSpeechHouseDadLockdownText
+
+	readmem wCurFreedomState
+	ifnotequal 1 << CURFEW, .skip_curfew_text
+
+	writetext OlivinePunishmentSpeechHouseDadCurfewText
+	promptbutton
+
+.skip_curfew_text
 	waitbutton
 	closetext
 	turnobject OLIVINEPUNISHMENTSPEECHHOUSE_POKEFAN_M_LOCKDOWN, RIGHT
@@ -33,6 +42,7 @@ OlivinePunishmentSpeechHouseDadLockdown:
 OlivinePunishmentSpeechHouseDaughter:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 
 	jumptextfaceplayer OlivinePunishmentSpeechHouseDaughterText
 .lockdown
@@ -65,6 +75,20 @@ OlivinePunishmentSpeechHouseDadLockdownText:
 	para "I'm ordering two"
 	line "salads from"
 	cont "OLIVINE CAFE."
+	done
+	
+OlivinePunishmentSpeechHouseDadCurfewText:
+	text "…But wait, it's"
+	line "already past"
+	cont "curfew!"
+
+	para "What are we"
+	line "going to eat?"
+
+	para "I'm afraid…"
+	line "I'm afraid we won't"
+	cont "make it through"
+	cont "the night!"
 	done
 
 OlivinePunishmentSpeechHouseDaughterText:

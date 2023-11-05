@@ -13,7 +13,8 @@ CianwoodLugiaSpeechHouse_MapScripts:
 
 .TilesLoad
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	changeblock  4,  2, $35
 .end
@@ -34,6 +35,7 @@ CianwoodLugiaSpeechHouseTeacherLockdownScript:
 CianwoodLugiaSpeechHouseLassScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer CianwoodLugiaSpeechHouseLassText
 
 .lockdown
@@ -42,6 +44,7 @@ CianwoodLugiaSpeechHouseLassScript:
 CianwoodLugiaSpeechHouseTwinScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	jumptextfaceplayer CianwoodLugiaSpeechHouseTwinText
 
 .lockdown
@@ -93,7 +96,7 @@ CianwoodLugiaSpeechHouseLassLockdownText:
 
 	para "This is the true"
 	line "definition of a"
-	cont "lockdown."
+	cont "quarantine."
 	done
 
 CianwoodLugiaSpeechHouseTwinText:

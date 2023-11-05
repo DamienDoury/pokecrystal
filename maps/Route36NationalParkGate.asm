@@ -141,6 +141,7 @@ Route36NationalParkGate_MapScripts:
 Route36OfficerScriptContest:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, _ContestNotOn
 	ifequal MONDAY, _ContestNotOn
@@ -298,6 +299,7 @@ _ContestNotOn:
 Route36NationalParkGateOfficerScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, Route36OfficerScriptContest.lockdown
+	ifequal 1 << CURFEW, Route36OfficerScriptContest.lockdown
 	faceplayer
 	opentext
 	checkflag ENGINE_DAILY_BUG_CONTEST

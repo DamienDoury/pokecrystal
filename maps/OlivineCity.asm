@@ -115,7 +115,8 @@ OlivineCity_ToGoScript:
 	iftrue .AlreadyBought
 
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .skip_lockdown_curfew_text
+	ifequal 1 << FREE, .skip_lockdown_curfew_text
+	ifequal 1 << VACCINE_PASSPORT, .skip_lockdown_curfew_text
 	writetext OlivineCity_ToGoText
 	promptbutton
 
@@ -510,4 +511,4 @@ OlivineCity_MapEvents:
 	object_event 17, 21, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor2Script, -1
 	object_event 10, 11, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_OLIVINE_CITY
 	object_event  7, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_DoorScript, -1
-	object_event  7, 22, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_ToGoScript, EVENT_FIRST_CURFEW_STARTED
+	object_event  7, 22, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_ToGoScript, EVENT_FIRST_CURFEW_STARTED

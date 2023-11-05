@@ -11,7 +11,8 @@ GoldenrodHappinessRater_MapScripts:
 
 .TilesLoad
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	changeblock  4,  2, $35
 .end
@@ -70,6 +71,7 @@ GoldenrodHappinessRaterPokefanMScript:
 	faceplayer
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 
 	jumptext GoldenrodHappinessRaterPokefanMText
 .lockdown

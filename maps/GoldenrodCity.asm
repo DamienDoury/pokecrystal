@@ -269,6 +269,7 @@ GoldenrodCityGrampsScript:
 GoldenrodCityRocketScoutScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .lockdown
 	opentext
 	writetext GoldenrodCityRocketScoutText1
 	promptbutton

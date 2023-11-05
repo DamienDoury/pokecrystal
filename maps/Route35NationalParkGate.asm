@@ -43,6 +43,7 @@ Route35NationalParkGate_MapScripts:
 	disappear ROUTE35NATIONALPARKGATE_OFFICER1
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .EveryoneDisappears
+	ifequal 1 << CURFEW, .EveryoneDisappears
 	appear ROUTE35NATIONALPARKGATE_YOUNGSTER
 	appear ROUTE35NATIONALPARKGATE_OFFICER2
 	endcallback
@@ -83,6 +84,7 @@ Route35NationalParkGate_MapScripts:
 Route35OfficerScriptContest:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, NationalParkLockdownMessage
+	ifequal 1 << CURFEW, NationalParkLockdownMessage
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, Route35NationalParkGate_NoContestToday
 	ifequal MONDAY, Route35NationalParkGate_NoContestToday
@@ -198,6 +200,7 @@ Route35NationalParkGate_NoContestToday:
 Route35NationalParkGateOfficerScript:
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, NationalParkLockdownMessage
+	ifequal 1 << CURFEW, NationalParkLockdownMessage
 	faceplayer
 	opentext
 	checkflag ENGINE_DAILY_BUG_CONTEST

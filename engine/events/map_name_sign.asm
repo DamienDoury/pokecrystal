@@ -163,8 +163,8 @@ PlaceMapNameCenterAlign:
 	call PlaceString
 
 	ld a, [wCurFreedomState]
-	cp 1 << LOCKDOWN
-	ret nz
+	and (1 << LOCKDOWN) | (1 << CURFEW)
+	ret z
 
 	ld a, [wCurWantedLevel]
 	and $3

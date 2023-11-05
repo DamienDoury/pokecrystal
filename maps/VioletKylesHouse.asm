@@ -14,7 +14,8 @@ VioletKylesHouse_MapScripts:
 
 .TilesLoad
 	readmem wCurFreedomState
-	ifnotequal 1 << LOCKDOWN, .end
+	ifequal 1 << FREE, .end
+	ifequal 1 << VACCINE_PASSPORT, .end
 
 	changeblock  2,  2, $3a
 	changeblock  4,  2, $3b
