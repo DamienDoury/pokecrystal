@@ -1342,7 +1342,7 @@ ElmMissionAcceptedText:
 	line "NEW BARK TOWN"
 	cont "make sure to say"
 	cont "good bye to your"
-	cont "Mom."
+	cont "mom."
 	done
 
 ElmStudyingEggText:

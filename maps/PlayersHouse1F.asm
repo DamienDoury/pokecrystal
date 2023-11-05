@@ -633,7 +633,7 @@ PlayersHouse1FStoveText:
 
 PlayersHouse1FSinkText:
 	text "The sink is spot-"
-	line "less. Mom likes it"
+	line "less. MOM likes it"
 	cont "clean."
 	done
 

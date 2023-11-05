@@ -83,7 +83,7 @@ CianwoodLugiaSpeechHouseLassText:
 CianwoodLugiaSpeechHouseLassLockdownText:
 	text "“The air from the"
 	line "sea will be good"
-	cont "for you” said Mom."
+	cont "for you” said mom."
 
 	para "I know no one"
 	line "around, and I can't"

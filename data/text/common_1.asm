@@ -1677,7 +1677,7 @@ _MomSaveMoneyText::
 	done
 
 _MomHaventSavedThatMuchText::
-	text "Mom doesn't have"
+	text "MOM doesn't have"
 	line "that much."
 	prompt
 
