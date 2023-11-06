@@ -110,7 +110,7 @@ NUM_PLAYER_MOVEMENTS EQU const_value
 SCENE_SCRIPT_SIZE EQU  2 ; scene_script
 CALLBACK_SIZE     EQU  3 ; callback
 WARP_EVENT_SIZE   EQU  5 ; warp_event
-COORD_EVENT_SIZE  EQU  8 ; coord_event
+COORD_EVENT_SIZE  EQU  5 ; coord_event
 BG_EVENT_SIZE     EQU  5 ; bg_event
 OBJECT_EVENT_SIZE EQU 13 ; object_event
 

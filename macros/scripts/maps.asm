@@ -77,9 +77,7 @@ coord_event: MACRO
 ;\3: scene id: a SCENE_* constant; controlled by setscene/setmapscene
 ;\4: script pointer
 	db \3, \2, \1
-	db 0 ; filler
 	dw \4
-	dw 0 ; filler
 _NUM_COORD_EVENTS = _NUM_COORD_EVENTS + 1
 ENDM
 
