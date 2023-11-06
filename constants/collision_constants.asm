@@ -76,7 +76,7 @@ COLL_DOOR_79           EQU $79 ; unused
 COLL_STAIRCASE         EQU $7a
 COLL_CAVE              EQU $7b
 COLL_WARP_PANEL        EQU $7c
-COLL_DOOR_7D           EQU $7d ; unused
+COLL_CLOSED_DOOR       EQU $7d
 COLL_WARP_CARPET_RIGHT EQU $7e
 COLL_WARP_7F           EQU $7f ; unused
 COLL_COUNTER           EQU $90

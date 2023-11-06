@@ -126,7 +126,7 @@ TileCollisionTable::
 	db LAND_TILE         ; COLL_STAIRCASE
 	db LAND_TILE         ; COLL_CAVE
 	db LAND_TILE         ; COLL_WARP_PANEL
-	db LAND_TILE         ; COLL_DOOR_7D
+	db WALL_TILE         ; COLL_CLOSED_DOOR
 	db LAND_TILE         ; COLL_WARP_CARPET_RIGHT
 	db LAND_TILE         ; COLL_WARP_7F
 	db WALL_TILE         ; 80

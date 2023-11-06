@@ -49,7 +49,7 @@ CheckWarpFacingDown:
 	db COLL_CAVE_74
 	db COLL_WARP_PANEL
 	db COLL_DOOR_75
-	db COLL_DOOR_7D
+	db COLL_CLOSED_DOOR
 	db -1
 
 CheckGrassCollision::
@@ -59,7 +59,6 @@ CheckGrassCollision::
 	ret
 
 .blocks
-	db COLL_CUT_08
 	db COLL_TALL_GRASS
 	db COLL_LONG_GRASS
 	db COLL_CUT_28

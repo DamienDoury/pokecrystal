@@ -16,7 +16,7 @@
 	tilecoll WALL, WALL, WALL, WALL ; 0f
 	tilecoll WALL, WALL, WALL, WALL ; 10
 	tilecoll WALL, WALL, WALL, WALL ; 11
-	tilecoll WALL, WALL, WALL, WALL ; 12
+	tilecoll WALL, WALL, WALL, CLOSED_DOOR ; 12
 	tilecoll WALL, WALL, WALL, WALL ; 13
 	tilecoll WALL, WALL, WALL, DOOR ; 14
 	tilecoll WALL, WALL, WALL, WALL ; 15
@@ -53,7 +53,7 @@
 	tilecoll BUOY, WATER, BUOY, WATER ; 34
 	tilecoll WATER, WATER, WATER, WATER ; 35
 	tilecoll WATER, BUOY, WATER, BUOY ; 36
-	tilecoll WALL, WALL, WALL, WALL ; 37
+	tilecoll WALL, WALL, WALL, CLOSED_DOOR ; 37
 	tilecoll BUOY, WATER, BUOY, BUOY ; 38
 	tilecoll WATER, WATER, BUOY, BUOY ; 39
 	tilecoll WATER, BUOY, BUOY, BUOY ; 3a

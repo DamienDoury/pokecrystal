@@ -201,7 +201,7 @@ DoPlayerMovement::
 	ld a, c
 	cp COLL_DOOR
 	jr z, .down
-	cp COLL_DOOR_79
+	cp COLL_CLOSED_DOOR
 	jr z, .down
 	cp COLL_STAIRCASE
 	jr z, .down
