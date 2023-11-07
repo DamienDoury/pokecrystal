@@ -45,10 +45,7 @@ Route29_MapScripts:
 	endcallback
 
 Route29Tutorial1:
-	checkevent EVENT_CATCHING_TUTORIAL_AVAILABLE
-	iffalse Route29Tutorial2.end
 	clearevent EVENT_CATCHING_TUTORIAL_AVAILABLE
-
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	showemote EMOTE_SHOCK, ROUTE29_COOLTRAINER_M1, 15
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData1a
@@ -64,10 +61,7 @@ Route29Tutorial1:
 	sjump Route29Tutorial2.tuto_end
 
 Route29Tutorial2:
-	checkevent EVENT_CATCHING_TUTORIAL_AVAILABLE
-	iffalse .end
 	clearevent EVENT_CATCHING_TUTORIAL_AVAILABLE
-	
 	turnobject ROUTE29_COOLTRAINER_M1, UP
 	showemote EMOTE_SHOCK, ROUTE29_COOLTRAINER_M1, 15
 	applymovement ROUTE29_COOLTRAINER_M1, DudeMovementData2a
@@ -90,7 +84,6 @@ Route29Tutorial2:
 	waitbutton
 	closetext
 	setevent EVENT_LEARNED_TO_CATCH_POKEMON
-.end
 	end
 
 Script_RefusedTutorial1:
@@ -420,8 +413,8 @@ Route29_MapEvents:
 	warp_event 27,  1, ROUTE_29_ROUTE_46_GATE, 3
 
 	def_coord_events
-	coord_event 53,  8, SCENE_ALWAYS, Route29Tutorial1
-	coord_event 53,  9, SCENE_ALWAYS, Route29Tutorial2
+	coord_event 53,  8, CE_EVENT_FLAG_SET, EVENT_CATCHING_TUTORIAL_AVAILABLE, Route29Tutorial1
+	coord_event 53,  9, CE_EVENT_FLAG_SET, EVENT_CATCHING_TUTORIAL_AVAILABLE, Route29Tutorial2
 
 	def_bg_events
 	bg_event 51,  7, BGEVENT_READ, Route29Sign1

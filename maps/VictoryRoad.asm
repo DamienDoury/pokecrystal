@@ -252,8 +252,8 @@ VictoryRoad_MapEvents:
 	warp_event 13,  5, ROUTE_23, 3
 
 	def_coord_events
-	coord_event 12,  8, SCENE_DEFAULT, VictoryRoadRivalLeft
-	coord_event 13,  8, SCENE_DEFAULT, VictoryRoadRivalRight
+	coord_event 12,  8, CE_SCENE_ID, SCENE_DEFAULT, VictoryRoadRivalLeft
+	coord_event 13,  8, CE_SCENE_ID, SCENE_DEFAULT, VictoryRoadRivalRight
 
 	def_bg_events
 	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenMaxPotion

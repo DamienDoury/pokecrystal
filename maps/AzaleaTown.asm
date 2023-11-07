@@ -532,9 +532,9 @@ AzaleaTown_MapEvents:
 	warp_event  2, 11, ILEX_FOREST_AZALEA_GATE, 4
 
 	def_coord_events
-	coord_event  5, 10, SCENE_AZALEATOWN_RIVAL_BATTLE, AzaleaTownRivalBattleScene1
-	coord_event  5, 11, SCENE_AZALEATOWN_RIVAL_BATTLE, AzaleaTownRivalBattleScene2
-	coord_event  9,  6, SCENE_AZALEATOWN_KURT_RETURNS_GS_BALL, AzaleaTownCelebiScene
+	coord_event  5, 10, CE_SCENE_ID, SCENE_AZALEATOWN_RIVAL_BATTLE, AzaleaTownRivalBattleScene1
+	coord_event  5, 11, CE_SCENE_ID, SCENE_AZALEATOWN_RIVAL_BATTLE, AzaleaTownRivalBattleScene2
+	coord_event  9,  6, CE_SCENE_ID, SCENE_AZALEATOWN_KURT_RETURNS_GS_BALL, AzaleaTownCelebiScene
 
 	def_bg_events
 	bg_event 19,  9, BGEVENT_READ, AzaleaTownSign

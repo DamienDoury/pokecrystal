@@ -689,8 +689,8 @@ Route36_MapEvents:
 	warp_event 48, 13, ROUTE_36_RUINS_OF_ALPH_GATE, 2
 
 	def_coord_events
-	coord_event 20,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
-	coord_event 22,  7, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
+	coord_event 20,  7, CE_SCENE_ID, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
+	coord_event 22,  7, CE_SCENE_ID, SCENE_ROUTE36_SUICUNE, Route36SuicuneScript
 
 	def_bg_events
 	bg_event 29,  1, BGEVENT_READ, Route36TrainerTips2

@@ -295,7 +295,7 @@ BurnedTower1F_MapEvents:
 	warp_event  7, 15, BURNED_TOWER_B1F, 6 ; inaccessible, left over from G/S
 
 	def_coord_events
-	coord_event 11,  9, SCENE_BURNEDTOWER1F_RIVAL_BATTLE, BurnedTowerRivalBattleScript
+	coord_event 11,  9, CE_EVENT_FLAG_CLEARED, EVENT_RIVAL_BURNED_TOWER, BurnedTowerRivalBattleScript
 
 	def_bg_events
 	bg_event  8,  7, BGEVENT_ITEM, BurnedTower1FHiddenEther

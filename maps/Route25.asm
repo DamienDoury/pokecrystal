@@ -432,8 +432,8 @@ Route25_MapEvents:
 	warp_event 47,  5, BILLS_HOUSE, 1
 
 	def_coord_events
-	coord_event 42,  6, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate1Script
-	coord_event 42,  7, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate2Script
+	coord_event 42,  6, CE_SCENE_ID, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate1Script
+	coord_event 42,  7, CE_SCENE_ID, SCENE_ROUTE25_MISTYS_DATE, Route25MistyDate2Script
 
 	def_bg_events
 	bg_event 45,  5, BGEVENT_READ, BillsHouseSign

@@ -346,21 +346,21 @@ VaccinationCenter1F_MapEvents:
 	warp_event 10,  0, VACCINATION_CENTER_CORRIDOR, 1
 
     def_coord_events
-	coord_event  9,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event 13,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event 15,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event 14,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event 12,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event  7,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event  8,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
-	coord_event  6,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  9,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 13,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 15,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 14,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event 12,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  7,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  8,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
+	coord_event  6,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterForbiddenSeatScript
 
-	coord_event  9,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
-	coord_event 13,  1, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
-	coord_event 12,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
-	coord_event  8,  3, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event  9,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event 13,  1, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event 12,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
+	coord_event  8,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
 
-	coord_event 10,  2, 2, VaccinationCenterGoToOffice
+	coord_event 10,  2, CE_SCENE_ID, 2, VaccinationCenterGoToOffice
     
     def_bg_events
 	bg_event  4,  7, BGEVENT_READ, VaccinationCenterGelScript

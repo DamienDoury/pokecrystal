@@ -176,8 +176,8 @@ Route7SaffronGate_MapEvents:
 	warp_event  9,  5, SAFFRON_CITY, 11
 
 	def_coord_events
-	coord_event  7,  5, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
-	coord_event  7,  4, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
+	coord_event  7,  5, CE_SCENE_ID, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
+	coord_event  7,  4, CE_SCENE_ID, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
 
 	def_bg_events
 

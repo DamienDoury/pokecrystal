@@ -18,6 +18,7 @@ INCLUDE "engine/events/shuckle.asm"
 INCLUDE "engine/events/haircut.asm"
 INCLUDE "engine/battle/core_bis.asm"
 INCLUDE "engine/predef.asm"
+INCLUDE "engine/overworld/extended_map_events.asm"
 
 
 SECTION "bank2", ROMX

@@ -703,7 +703,7 @@ GoldenrodGameCorner_MapEvents:
 	warp_event  3, 13, GOLDENROD_CITY, 10
 
 	def_coord_events
-	coord_event  2,  2, SCENE_ALWAYS,  GoldenrodGameCornerGreetingsScript
+	coord_event  2,  2, CE_SCENE_ID, SCENE_ALWAYS,  GoldenrodGameCornerGreetingsScript
 
 	def_bg_events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript

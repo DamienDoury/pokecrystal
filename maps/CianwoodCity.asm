@@ -479,7 +479,7 @@ CianwoodCity_MapEvents:
 	warp_event  5, 17, POKE_SEERS_HOUSE, 1
 
 	def_coord_events
-	coord_event 11, 16, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE, CianwoodCitySuicuneAndEusine
+	coord_event 11, 16, CE_SCENE_ID, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE, CianwoodCitySuicuneAndEusine
 
 	def_bg_events
 	bg_event 20, 34, BGEVENT_READ, CianwoodCitySign

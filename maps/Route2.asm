@@ -257,10 +257,10 @@ Route2_MapEvents:
 	warp_event  9, 27, VIRIDIAN_FOREST, 4
 
 	def_coord_events
-	coord_event  6,  9, SCENE_ALWAYS, Route2WarningTopLeft
-	coord_event  7,  9, SCENE_ALWAYS, Route2WarningTopRight
-	coord_event  8, 33, SCENE_ALWAYS, Route2WarningBotLeft
-	coord_event  9, 33, SCENE_ALWAYS, Route2WarningBotRight
+	coord_event  6,  9, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningTopLeft
+	coord_event  7,  9, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningTopRight
+	coord_event  8, 33, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningBotLeft
+	coord_event  9, 33, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningBotRight
 
 	def_bg_events
 	bg_event 11, 51, BGEVENT_READ, Route2Sign

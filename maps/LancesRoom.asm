@@ -363,8 +363,8 @@ LancesRoom_MapEvents:
 	warp_event  5, 23, KARENS_ROOM, 4
 
 	def_coord_events
-	coord_event  4,  5, SCENE_ALWAYS, Script_ApproachLanceFromLeft
-	coord_event  5,  5, SCENE_ALWAYS, Script_ApproachLanceFromRight
+	coord_event  4,  5, CE_SCENE_ID, SCENE_ALWAYS, Script_ApproachLanceFromLeft
+	coord_event  5,  5, CE_SCENE_ID, SCENE_ALWAYS, Script_ApproachLanceFromRight
 
 	def_bg_events
 

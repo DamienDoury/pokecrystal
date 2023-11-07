@@ -72,12 +72,26 @@ _NUM_COORD_EVENTS = 0
 ENDM
 
 coord_event: MACRO
+; Three params means there is no condition to this coord_event: it must always be played.
 ;\1: x: left to right, starts at 0
 ;\2: y: top to bottom, starts at 0
-;\3: scene id: a SCENE_* constant; controlled by setscene/setmapscene
-;\4: script pointer
-	db \3, \2, \1
-	dw \4
+;\3: script pointer
+if _NARG == 3
+	db \1 + 4, \2 + 4
+	db CE_ALWAYS
+	db 0
+	dw \3
+else
+; Five params = conditionnal coord_event.
+;\1: x: left to right, starts at 0
+;\2: y: top to bottom, starts at 0
+;\3: coord event type (must fit within a nibble)
+;\4: id: a SCENE_* constant (controlled by setscene/setmapscene), of event flag, or item ID
+;\5: script pointer
+	db \1 + 4, \2 + 4
+	dw (LOW(\3) & $f) | (HIGH(\4) << 4) | (LOW(\4) << 8)
+	dw \5
+endc
 _NUM_COORD_EVENTS = _NUM_COORD_EVENTS + 1
 ENDM
 

@@ -931,10 +931,10 @@ Route32_MapEvents:
 	warp_event  6, 79, UNION_CAVE_1F, 4
 
 	def_coord_events
-	coord_event 18,  6, SCENE_DEFAULT, Route32CooltrainerMStopsYouLeftScene
-	coord_event 19,  6, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
-	coord_event  6, 70, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailTopScript
-	coord_event  6, 71, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
+	coord_event 18,  6, CE_SCENE_ID, SCENE_DEFAULT, Route32CooltrainerMStopsYouLeftScene
+	coord_event 19,  6, CE_SCENE_ID, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
+	coord_event  6, 70, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailTopScript
+	coord_event  6, 71, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
 
 	def_bg_events
 	bg_event 13,  5, BGEVENT_READ, Route32Sign

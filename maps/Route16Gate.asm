@@ -82,8 +82,8 @@ Route16Gate_MapEvents:
 	warp_event  9,  5, ROUTE_16, 3
 
 	def_coord_events
-	coord_event  5,  4, SCENE_ALWAYS, Route16GateBicycleCheck
-	coord_event  5,  5, SCENE_ALWAYS, Route16GateBicycleCheck
+	coord_event  5,  4, CE_SCENE_ID, SCENE_ALWAYS, Route16GateBicycleCheck
+	coord_event  5,  5, CE_SCENE_ID, SCENE_ALWAYS, Route16GateBicycleCheck
 
 	def_bg_events
 

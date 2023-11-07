@@ -80,4 +80,3 @@ PredefPointers::
 	add_predef Unused_HOF_AnimateAlignedFrontpic
 	add_predef HOF_AnimateFrontpic
 	add_predef PrintMoveFullDescription
-	dbw -1, DummyEndPredef ; pointless

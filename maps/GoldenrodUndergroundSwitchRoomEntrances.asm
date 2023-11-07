@@ -993,8 +993,8 @@ GoldenrodUndergroundSwitchRoomEntrances_MapEvents:
 	warp_event 21, 29, GOLDENROD_CITY, 13
 
 	def_coord_events
-	coord_event 19,  4, SCENE_DEFAULT, UndergroundSilverScene1
-	coord_event 19,  5, SCENE_DEFAULT, UndergroundSilverScene2
+	coord_event 19,  4, CE_SCENE_ID, SCENE_DEFAULT, UndergroundSilverScene1
+	coord_event 19,  5, CE_SCENE_ID, SCENE_DEFAULT, UndergroundSilverScene2
 
 	def_bg_events
 	bg_event 16,  1, BGEVENT_READ, Switch1Script

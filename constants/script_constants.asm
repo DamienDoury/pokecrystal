@@ -110,9 +110,22 @@ NUM_PLAYER_MOVEMENTS EQU const_value
 SCENE_SCRIPT_SIZE EQU  2 ; scene_script
 CALLBACK_SIZE     EQU  3 ; callback
 WARP_EVENT_SIZE   EQU  5 ; warp_event
-COORD_EVENT_SIZE  EQU  5 ; coord_event
+COORD_EVENT_SIZE  EQU  6 ; coord_event
 BG_EVENT_SIZE     EQU  5 ; bg_event
 OBJECT_EVENT_SIZE EQU 13 ; object_event
+
+; coord_event types
+; See CheckCurrentMapCoordEvents in home/map.asm
+	const_def
+	const CE_SCENE_ID
+	const CE_EVENT_FLAG_CLEARED
+	const CE_EVENT_FLAG_SET
+	const CE_GOT_ITEM
+
+	const_next 15
+	const CE_ALWAYS
+NUM_COORD_EVENT_TYPES EQU const_value
+assert NUM_COORD_EVENT_TYPES - 1 <= $f
 
 ; bg_event types
 ; BGEventJumptable indexes (see engine/overworld/events.asm)

@@ -387,7 +387,7 @@ DragonsDenB1F_MapEvents:
 	warp_event 19, 29, DRAGON_SHRINE, 1
 
 	def_coord_events
-	coord_event 19, 30, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM, DragonsDenB1F_ClairScene
+	coord_event 19, 30, CE_SCENE_ID, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM, DragonsDenB1F_ClairScene
 
 	def_bg_events
 	bg_event 18, 24, BGEVENT_READ, DragonShrineSignpost

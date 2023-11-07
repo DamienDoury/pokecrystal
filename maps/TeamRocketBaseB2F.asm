@@ -870,15 +870,15 @@ TeamRocketBaseB2F_MapEvents:
 	warp_event 27, 14, TEAM_ROCKET_BASE_B3F, 4
 
 	def_coord_events
-	coord_event  5, 14, SCENE_DEFAULT, LanceHealsScript1
-	coord_event  5, 13, SCENE_DEFAULT, LanceHealsScript2
-	coord_event 14, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFLeft
-	coord_event 15, 11, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFRight
-	coord_event 14, 12, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
-	coord_event 15, 12, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
-	coord_event 12,  3, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
-	coord_event 12, 10, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
-	coord_event 12, 11, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
+	coord_event  5, 14, CE_SCENE_ID, SCENE_DEFAULT, LanceHealsScript1
+	coord_event  5, 13, CE_SCENE_ID, SCENE_DEFAULT, LanceHealsScript2
+	coord_event 14, 11, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFLeft
+	coord_event 15, 11, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ROCKET_BOSS, RocketBaseBossFRight
+	coord_event 14, 12, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
+	coord_event 15, 12, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseCantLeaveScript
+	coord_event 12,  3, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
+	coord_event 12, 10, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
+	coord_event 12, 11, CE_SCENE_ID, SCENE_TEAMROCKETBASEB2F_ELECTRODES, RocketBaseLancesSideScript
 
 	def_bg_events
 	bg_event 14, 12, BGEVENT_IFNOTSET, TeamRocketBaseB2FLockedDoor

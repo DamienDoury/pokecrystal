@@ -34,31 +34,23 @@ EcruteakTinTowerEntrance_MapScripts:
 	endcallback
 
 EcruteakTinTowerEntranceSageBlocksLeft:
-	checkevent EVENT_RANG_CLEAR_BELL
-	iftrue .end
-
 	checkevent EVENT_TINTOWER_SAGE_RIGHT
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE2, EcruteakTinTowerEntranceSageBlocksLeftMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE1, 4, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE1
-	pause 5
+	pause 1
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE2
-.end
 	end
 
 EcruteakTinTowerEntranceSageBlocksRight:
-	checkevent EVENT_RANG_CLEAR_BELL
-	iftrue .end
-
 	checkevent EVENT_TINTOWER_SAGE_LEFT
 	iftrue EcruteakTinTowerEntranceAlreadyBlocked
 	applymovement ECRUTEAKTINTOWERENTRANCE_SAGE1, EcruteakTinTowerEntranceSageBlocksRightMovement
 	moveobject ECRUTEAKTINTOWERENTRANCE_SAGE2, 5, 6
 	appear ECRUTEAKTINTOWERENTRANCE_SAGE2
-	pause 5
+	pause 1
 	disappear ECRUTEAKTINTOWERENTRANCE_SAGE1
-.end
 	end
 
 EcruteakTinTowerEntranceAlreadyBlocked:
@@ -292,8 +284,8 @@ EcruteakTinTowerEntrance_MapEvents:
 	warp_event 17,  3, WISE_TRIOS_ROOM, 3
 
 	def_coord_events
-	coord_event  4,  7, SCENE_ALWAYS, EcruteakTinTowerEntranceSageBlocksLeft
-	coord_event  5,  7, SCENE_ALWAYS, EcruteakTinTowerEntranceSageBlocksRight
+	coord_event  4,  7, CE_EVENT_FLAG_CLEARED, EVENT_RANG_CLEAR_BELL, EcruteakTinTowerEntranceSageBlocksLeft
+	coord_event  5,  7, CE_EVENT_FLAG_CLEARED, EVENT_RANG_CLEAR_BELL, EcruteakTinTowerEntranceSageBlocksRight
 
 	def_bg_events
 

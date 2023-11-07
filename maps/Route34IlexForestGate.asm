@@ -153,7 +153,7 @@ Route34IlexForestGate_MapEvents:
 	warp_event  5,  7, ILEX_FOREST, 1
 
 	def_coord_events
-	coord_event  4,  7, SCENE_ALWAYS, Route34IlexForestGateCelebiEvent
+	coord_event  4,  7, CE_SCENE_ID, SCENE_ALWAYS, Route34IlexForestGateCelebiEvent
 
 	def_bg_events
 

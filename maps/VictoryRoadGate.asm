@@ -105,7 +105,7 @@ VictoryRoadGate_MapEvents:
 	warp_event  2,  7, ROUTE_28, 2
 
 	def_coord_events
-	coord_event 10, 11, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
+	coord_event 10, 11, CE_SCENE_ID, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
 
 	def_bg_events
 

@@ -139,7 +139,7 @@ MountMoonSquare_MapEvents:
 	warp_event 13,  7, MOUNT_MOON_GIFT_SHOP, 1
 
 	def_coord_events
-	coord_event  7, 11, SCENE_DEFAULT, ClefairyDance
+	coord_event  7, 11, CE_SCENE_ID, SCENE_DEFAULT, ClefairyDance
 
 	def_bg_events
 	bg_event  7,  7, BGEVENT_ITEM, MountMoonSquareHiddenMoonStone

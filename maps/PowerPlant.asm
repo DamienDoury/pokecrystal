@@ -499,7 +499,7 @@ PowerPlant_MapEvents:
 	warp_event  3, 17, ROUTE_10_NORTH, 2
 
 	def_coord_events
-	coord_event  5, 12, SCENE_POWERPLANT_GUARD_GETS_PHONE_CALL, PowerPlantGuardPhoneScript
+	coord_event  5, 12, CE_SCENE_ID, SCENE_POWERPLANT_GUARD_GETS_PHONE_CALL, PowerPlantGuardPhoneScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PowerPlantBookshelf

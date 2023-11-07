@@ -344,7 +344,7 @@ WiseTriosRoom_MapEvents:
 	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
 
 	def_coord_events
-	coord_event  7,  4, SCENE_ALWAYS, WiseTriosRoom_CannotEnterTinTowerScript
+	coord_event  7,  4, CE_SCENE_ID, SCENE_ALWAYS, WiseTriosRoom_CannotEnterTinTowerScript
 
 	def_bg_events
 

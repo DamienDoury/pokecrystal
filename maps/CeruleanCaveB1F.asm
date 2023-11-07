@@ -6,11 +6,7 @@ CeruleanCaveB1F_MapScripts:
 	def_callbacks
 
 CeruleanCaveB1F_MewtwoTelepathy1:
-	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_1
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_1
-
 	openredtext
 	farwriteredtext _MewtwoB1FText1
 	waitbutton
@@ -19,15 +15,10 @@ CeruleanCaveB1F_MewtwoTelepathy1:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CeruleanCave_LookAroundMovement
 	jumptext CeruleanCave_SomeoneAroundText
-.end
 	end
 
 CeruleanCaveB1F_MewtwoTelepathy2:
-	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_2
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_2
-
 	openredtext
 	farwriteredtext _MewtwoB1FText2
 	waitbutton
@@ -35,31 +26,22 @@ CeruleanCaveB1F_MewtwoTelepathy2:
 
 	showemote EMOTE_QUESTION, PLAYER, 15
 	jumptext CeruleanCave_VoiceInHeadText
-.end
 	end
 
 CeruleanCaveB1F_MewtwoTelepathy3:
-	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_3
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_3
 	openredtext
 	farwriteredtext _MewtwoB1FText3
 	waitbutton
 	closetext
-.end
 	end
 
-CeruleanCaveB1F_MewtwoTelepathy4:
-	checkevent EVENT_CERULEAN_CAVE_B1F_TEXT_4
-	iftrue .end
-	
+CeruleanCaveB1F_MewtwoTelepathy4:	
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_4
 	openredtext
 	farwriteredtext _MewtwoB1FText4
 	waitbutton
 	closetext
-.end
 	end
 
 CeruleanCave_LookAroundMovement:
@@ -103,10 +85,10 @@ CeruleanCaveB1F_MapEvents:
 	warp_event  2,  9, CERULEAN_CAVE_B3F, 2 ; hole
 
 	def_coord_events
-	coord_event 10,  9, SCENE_ALWAYS, CeruleanCaveB1F_MewtwoTelepathy1
-	coord_event 13, 16, SCENE_ALWAYS, CeruleanCaveB1F_MewtwoTelepathy2
-	coord_event 16, 12, SCENE_ALWAYS, CeruleanCaveB1F_MewtwoTelepathy3
-	coord_event  3,  8, SCENE_ALWAYS, CeruleanCaveB1F_MewtwoTelepathy4
+	coord_event 10,  9, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B1F_TEXT_1, CeruleanCaveB1F_MewtwoTelepathy1
+	coord_event 13, 16, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B1F_TEXT_2, CeruleanCaveB1F_MewtwoTelepathy2
+	coord_event 16, 12, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B1F_TEXT_3, CeruleanCaveB1F_MewtwoTelepathy3
+	coord_event  3,  8, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B1F_TEXT_4, CeruleanCaveB1F_MewtwoTelepathy4
 
 	def_bg_events
 

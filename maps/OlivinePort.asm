@@ -388,7 +388,7 @@ OlivinePort_MapEvents:
 	warp_event  7, 23, FAST_SHIP_1F, 1
 
 	def_coord_events
-	coord_event  7, 15, SCENE_DEFAULT, OlivinePortWalkUpToShipScript
+	coord_event  7, 15, CE_SCENE_ID, SCENE_DEFAULT, OlivinePortWalkUpToShipScript
 
 	def_bg_events
 	bg_event  1, 22, BGEVENT_ITEM, OlivinePortHiddenProtein

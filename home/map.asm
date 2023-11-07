@@ -1926,6 +1926,7 @@ CheckCurrentMapCoordEvents::
 	ld a, [wCurMapCoordEventCount]
 	and a
 	ret z
+
 ; Copy the coord event count into c.
 	ld c, a
 	ldh a, [hROMBank]
@@ -1938,38 +1939,38 @@ CheckCurrentMapCoordEvents::
 	ret
 
 .CoordEventCheck:
-; Checks to see if you are standing on a coord event.  If yes, copies the event to wCurCoordEvent and sets carry.
+; Checks to see if you are standing on a coord event.
+; If yes, copies the event to wCurCoordEvent and sets carry.
+
+; Load your current coordinates into de.  This will be used to check if your position is in the coord event table for the current map.
+	ld hl, wPlayerStandingMapX
+	ld a, [hli]
+	ld d, a
+	ld e, [hl] ; wPlayerStandingMapY
+
 	ld hl, wCurMapCoordEventsPointer
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-; Load the active scene ID into b
-	call CheckScenes
-	ld b, a
-; Load your current coordinates into de.  This will be used to check if your position is in the coord event table for the current map.
-	ld a, [wPlayerStandingMapX]
-	sub 4
-	ld d, a
-	ld a, [wPlayerStandingMapY]
-	sub 4
-	ld e, a
 
 .loop
 	push hl
 	ld a, [hli]
-	cp b
-	jr z, .got_id
-	cp SCENE_ALWAYS ; -1
+	cp d ; Check if X coord matches.
+	jr nz, .next
+	
+	ld a, [hli]
+	cp e ; Check if Y coord matches.
 	jr nz, .next
 
-.got_id
 	ld a, [hli]
-	cp e
-	jr nz, .next
-	ld a, [hl]
-	cp d
-	jr nz, .next
-	jr .copy_coord_event
+	ld d, a
+	ld e, [hl]
+	farcall CheckCoordEventType
+	jr c, .copy_coord_event
+
+	pop hl
+	jr .return_no_event
 
 .next
 	pop hl
@@ -1982,6 +1983,8 @@ CheckCurrentMapCoordEvents::
 .nocarry
 	dec c
 	jr nz, .loop
+
+.return_no_event
 	xor a
 	ret
 
@@ -2372,11 +2375,4 @@ LoadMapTileset::
 
 	pop bc
 	pop hl
-	ret
-
-DummyEndPredef::
-; Unused function at the end of PredefPointers.
-rept 16
-	nop
-endr
 	ret

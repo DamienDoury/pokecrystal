@@ -27,9 +27,6 @@ FakeSilverScript:
 	end
 
 NewBarkTown_TeacherStopsYouScene1:
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue .end
-
 	playmusic MUSIC_MOM
 	turnobject NEWBARKTOWN_TEACHER, LEFT
 	opentext
@@ -50,7 +47,6 @@ NewBarkTown_TeacherStopsYouScene1:
 	waitbutton
 	closetext
 	special RestartMapMusic
-.end
 	end
 
 NewBarkTown_TeacherStopsYouScene2:
@@ -414,8 +410,8 @@ NewBarkTown_MapEvents:
 	warp_event 11, 13, ELMS_HOUSE, 1
 
 	def_coord_events
-	coord_event  1,  8, SCENE_ALWAYS, NewBarkTown_TeacherStopsYouScene1
-	coord_event  1,  9, SCENE_ALWAYS, NewBarkTown_TeacherStopsYouScene2
+	coord_event  1,  8, CE_EVENT_FLAG_CLEARED, EVENT_GOT_A_POKEMON_FROM_ELM, NewBarkTown_TeacherStopsYouScene1
+	coord_event  1,  9, CE_EVENT_FLAG_CLEARED, EVENT_GOT_A_POKEMON_FROM_ELM, NewBarkTown_TeacherStopsYouScene2
 
 	def_bg_events
 	bg_event  8,  8, BGEVENT_READ, NewBarkTownSign

@@ -499,7 +499,7 @@ GoldenrodGym_MapEvents:
 	warp_event  3, 17, GOLDENROD_CITY, 1
 
 	def_coord_events
-	coord_event  8,  6, SCENE_ALWAYS, WhitneyCriesScript
+	coord_event  8,  6, CE_SCENE_ID, SCENE_ALWAYS, WhitneyCriesScript
 
 	def_bg_events
 	bg_event  1, 15, BGEVENT_READ, GoldenrodGymStatue

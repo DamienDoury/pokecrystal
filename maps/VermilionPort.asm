@@ -464,7 +464,7 @@ VermilionPort_MapEvents:
 	warp_event  5, 19, FAST_SHIP_1F, 1
 
 	def_coord_events
-	coord_event  5, 13, SCENE_DEFAULT, VermilionPortWalkUpToShipScript
+	coord_event  5, 13, CE_SCENE_ID, SCENE_DEFAULT, VermilionPortWalkUpToShipScript
 
 	def_bg_events
 	bg_event 17,  8, BGEVENT_ITEM, VermilionPortHiddenIron

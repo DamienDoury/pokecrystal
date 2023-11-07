@@ -454,8 +454,8 @@ FastShipB1F_MapEvents:
 	warp_event 31, 13, FAST_SHIP_1F, 12
 
 	def_coord_events
-	coord_event 30,  7, SCENE_DEFAULT, FastShipB1FSailorBlocksLeft
-	coord_event 31,  7, SCENE_DEFAULT, FastShipB1FSailorBlocksRight
+	coord_event 30,  7, CE_SCENE_ID, SCENE_DEFAULT, FastShipB1FSailorBlocksLeft
+	coord_event 31,  7, CE_SCENE_ID, SCENE_DEFAULT, FastShipB1FSailorBlocksRight
 
 	def_bg_events
 	bg_event 27,  9, BGEVENT_READ, FastShipB1FTrashcan

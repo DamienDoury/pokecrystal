@@ -6,51 +6,35 @@ CeruleanCaveB2F_MapScripts:
 	def_callbacks
 
 CeruleanCaveB2F_MewtwoTelepathy1:
-	checkevent EVENT_CERULEAN_CAVE_B2F_TEXT_1
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_1
 	openredtext
 	farwriteredtext _MewtwoB2FText1
 	waitbutton
 	closetext
-.end
 	end
 
 CeruleanCaveB2F_MewtwoTelepathy2:
-	checkevent EVENT_CERULEAN_CAVE_B2F_TEXT_2
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_2
 	openredtext
 	farwriteredtext _MewtwoB2FText2
 	waitbutton
 	closetext
-.end
 	end
 
 CeruleanCaveB2F_MewtwoTelepathy3:
-	checkevent EVENT_CERULEAN_CAVE_B2F_TEXT_3
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_3
 	openredtext
 	farwriteredtext _MewtwoB2FText3
 	waitbutton
 	closetext
-.end
 	end
 
 CeruleanCaveB2F_MewtwoTelepathy4:
-	checkevent EVENT_CERULEAN_CAVE_B2F_TEXT_4
-	iftrue .end
-	
 	setevent EVENT_CERULEAN_CAVE_B2F_TEXT_4
 	openredtext
 	farwriteredtext _MewtwoB2FText4
 	waitbutton
 	closetext
-.end
 	end
 
 
@@ -67,10 +51,10 @@ CeruleanCaveB2F_MapEvents:
 	warp_event  5,  5, CERULEAN_CAVE_B1F, 7
 
 	def_coord_events
-	coord_event 15,  9, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy1
-	coord_event 21, 13, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy2
-	coord_event 24,  6, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy3
-	coord_event  6,  7, SCENE_ALWAYS, CeruleanCaveB2F_MewtwoTelepathy4
+	coord_event 15,  9, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B2F_TEXT_1, CeruleanCaveB2F_MewtwoTelepathy1
+	coord_event 21, 13, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B2F_TEXT_2, CeruleanCaveB2F_MewtwoTelepathy2
+	coord_event 24,  6, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B2F_TEXT_3, CeruleanCaveB2F_MewtwoTelepathy3
+	coord_event  6,  7, CE_EVENT_FLAG_CLEARED, EVENT_CERULEAN_CAVE_B2F_TEXT_4, CeruleanCaveB2F_MewtwoTelepathy4
 
 	def_bg_events
 

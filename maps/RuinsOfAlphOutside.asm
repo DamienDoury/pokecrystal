@@ -350,8 +350,8 @@ RuinsOfAlphOutside_MapEvents:
 	warp_event 13, 21, ROUTE_32_RUINS_OF_ALPH_GATE, 2
 
 	def_coord_events
-	coord_event 11, 14, SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX, RuinsOfAlphOutsideScientistScene1
-	coord_event 10, 15, SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX, RuinsOfAlphOutsideScientistScene2
+	coord_event 11, 14, CE_SCENE_ID, SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX, RuinsOfAlphOutsideScientistScene1
+	coord_event 10, 15, CE_SCENE_ID, SCENE_RUINSOFALPHOUTSIDE_GET_UNOWN_DEX, RuinsOfAlphOutsideScientistScene2
 
 	def_bg_events
 	bg_event 16,  8, BGEVENT_READ, RuinsOfAlphOutsideMysteryChamberSign

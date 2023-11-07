@@ -179,7 +179,7 @@ GoldenrodMagnetTrainStation_MapEvents:
 	warp_event 11,  5, SAFFRON_MAGNET_TRAIN_STATION, 3
 
 	def_coord_events
-	coord_event 11,  6, SCENE_ALWAYS, Script_ArriveFromSaffron
+	coord_event 11,  6, CE_SCENE_ID, SCENE_ALWAYS, Script_ArriveFromSaffron
 
 	def_bg_events
 

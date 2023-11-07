@@ -508,8 +508,8 @@ RadioTower5F_MapEvents:
 	warp_event 12,  0, RADIO_TOWER_4F, 3
 
 	def_coord_events
-	coord_event  0,  3, SCENE_DEFAULT, FakeDirectorScript
-	coord_event 16,  5, SCENE_RADIOTOWER5F_ROCKET_BOSS, RadioTower5FRocketBossScene
+	coord_event  0,  3, CE_SCENE_ID, SCENE_DEFAULT, FakeDirectorScript
+	coord_event 16,  5, CE_SCENE_ID, SCENE_RADIOTOWER5F_ROCKET_BOSS, RadioTower5FRocketBossScene
 
 	def_bg_events
 	bg_event  3,  0, BGEVENT_READ, RadioTower5FDirectorsOfficeSign

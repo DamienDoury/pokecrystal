@@ -587,9 +587,9 @@ TeamRocketBaseB3F_MapEvents:
 	warp_event 27, 14, TEAM_ROCKET_BASE_B2F, 5
 
 	def_coord_events
-	coord_event 10,  8, SCENE_TEAMROCKETBASEB3F_ROCKET_BOSS, RocketBaseBossLeft
-	coord_event 11,  8, SCENE_TEAMROCKETBASEB3F_ROCKET_BOSS, RocketBaseBossRight
-	coord_event  8, 10, SCENE_TEAMROCKETBASEB3F_RIVAL_ENCOUNTER, RocketBaseRival
+	coord_event 10,  8, CE_SCENE_ID, SCENE_TEAMROCKETBASEB3F_ROCKET_BOSS, RocketBaseBossLeft
+	coord_event 11,  8, CE_SCENE_ID, SCENE_TEAMROCKETBASEB3F_ROCKET_BOSS, RocketBaseBossRight
+	coord_event  8, 10, CE_SCENE_ID, SCENE_TEAMROCKETBASEB3F_RIVAL_ENCOUNTER, RocketBaseRival
 
 	def_bg_events
 	bg_event 10,  9, BGEVENT_IFNOTSET, TeamRocketBaseB3FLockedDoor

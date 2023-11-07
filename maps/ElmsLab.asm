@@ -1914,12 +1914,12 @@ ElmsLab_MapEvents:
 	warp_event  5, 11, NEW_BARK_TOWN, 1
 
 	def_coord_events
-	coord_event  4,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
-	coord_event  5,  6, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
-	coord_event  4,  5, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript
-	coord_event  5,  5, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript2
-	coord_event  4,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls1
-	coord_event  5,  8, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls2
+	coord_event  4,  6, CE_SCENE_ID, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
+	coord_event  5,  6, CE_SCENE_ID, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
+	coord_event  4,  5, CE_SCENE_ID, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript
+	coord_event  5,  5, CE_SCENE_ID, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript2
+	coord_event  4,  8, CE_SCENE_ID, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls1
+	coord_event  5,  8, CE_SCENE_ID, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls2
 
 	def_bg_events
 	bg_event  2,  1, BGEVENT_READ, ElmsLabHealingMachine

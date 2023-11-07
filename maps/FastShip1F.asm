@@ -340,8 +340,8 @@ FastShip1F_MapEvents:
 	warp_event 30, 14, FAST_SHIP_B1F, 2
 
 	def_coord_events
-	coord_event 24,  6, SCENE_FASTSHIP1F_MEET_GRANDPA, WorriedGrandpaSceneLeft
-	coord_event 25,  6, SCENE_FASTSHIP1F_MEET_GRANDPA, WorriedGrandpaSceneRight
+	coord_event 24,  6, CE_SCENE_ID, SCENE_FASTSHIP1F_MEET_GRANDPA, WorriedGrandpaSceneLeft
+	coord_event 25,  6, CE_SCENE_ID, SCENE_FASTSHIP1F_MEET_GRANDPA, WorriedGrandpaSceneRight
 
 	def_bg_events
 

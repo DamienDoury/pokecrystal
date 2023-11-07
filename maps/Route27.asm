@@ -582,11 +582,11 @@ Route27_MapEvents:
 	warp_event 36,  5, TOHJO_FALLS, 2
 
 	def_coord_events
-	coord_event 18, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
-	coord_event 19, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
-	coord_event 23, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
-	coord_event 22, 10, SCENE_ALWAYS, FirstStepIntoKantoScene
-	coord_event 23, 11, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 18, 10, CE_SCENE_ID, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 19, 10, CE_SCENE_ID, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 23, 10, CE_SCENE_ID, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 22, 10, CE_SCENE_ID, SCENE_ALWAYS, FirstStepIntoKantoScene
+	coord_event 23, 11, CE_SCENE_ID, SCENE_ALWAYS, FirstStepIntoKantoScene
 
 	def_bg_events
 	bg_event 25,  7, BGEVENT_READ, TohjoFallsSign

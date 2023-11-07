@@ -2021,9 +2021,9 @@ wElevatorDataEnd::
 NEXTU
 ; coord event data
 wCurCoordEvent::
-wCurCoordEventSceneID:: db
-wCurCoordEventMapY:: db
 wCurCoordEventMapX:: db
+wCurCoordEventMapY:: db
+wCurCoordEventCondition:: dw
 wCurCoordEventScriptAddr:: dw
 
 NEXTU

@@ -492,8 +492,8 @@ OlivineCity_MapEvents:
 	warp_event 20, 27, OLIVINE_PORT_PASSAGE, 2
 
 	def_coord_events
-	coord_event 13, 12, SCENE_ALWAYS, OlivineCityRivalSceneTop
-	coord_event 13, 13, SCENE_ALWAYS, OlivineCityRivalSceneBottom
+	coord_event 13, 12, CE_SCENE_ID, SCENE_ALWAYS, OlivineCityRivalSceneTop
+	coord_event 13, 13, CE_SCENE_ID, SCENE_ALWAYS, OlivineCityRivalSceneBottom
 
 	def_bg_events
 	bg_event 17, 11, BGEVENT_READ, OlivineCitySign

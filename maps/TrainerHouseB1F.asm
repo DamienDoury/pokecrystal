@@ -170,7 +170,7 @@ TrainerHouseB1F_MapEvents:
 	warp_event  9,  4, TRAINER_HOUSE_1F, 3
 
 	def_coord_events
-	coord_event  7,  3, SCENE_ALWAYS, TrainerHouseReceptionistScript
+	coord_event  7,  3, CE_SCENE_ID, SCENE_ALWAYS, TrainerHouseReceptionistScript
 
 	def_bg_events
 

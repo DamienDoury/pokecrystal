@@ -113,14 +113,8 @@ CherrygroveCityGuideGent:
 	end
 
 CherrygroveSilverSceneSouth:
-	checkevent EVENT_CHERRYGROVECITY_MEET_RIVAL
-	iffalse CherrygroveSilverSceneNorth.end
-
 	moveobject CHERRYGROVECITY_SILVER, 39, 7
 CherrygroveSilverSceneNorth:
-	checkevent EVENT_CHERRYGROVECITY_MEET_RIVAL
-	iffalse .end
-	
 	turnobject PLAYER, RIGHT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -192,7 +186,6 @@ CherrygroveSilverSceneNorth:
 	clearevent EVENT_CHERRYGROVECITY_MEET_RIVAL
 	special HealParty
 	playmapmusic
-.end
 	end
 
 CherrygroveTeacherScript:
@@ -624,8 +617,8 @@ CherrygroveCity_MapEvents:
 	warp_event 31, 11, CHERRYGROVE_EVOLUTION_SPEECH_HOUSE, 1
 
 	def_coord_events
-	coord_event 33,  6, SCENE_ALWAYS, CherrygroveSilverSceneNorth
-	coord_event 33,  7, SCENE_ALWAYS, CherrygroveSilverSceneSouth
+	coord_event 33,  6, CE_EVENT_FLAG_SET, EVENT_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneNorth
+	coord_event 33,  7, CE_EVENT_FLAG_SET, EVENT_CHERRYGROVECITY_MEET_RIVAL, CherrygroveSilverSceneSouth
 
 	def_bg_events
 	bg_event 30,  8, BGEVENT_READ, CherrygroveCitySign

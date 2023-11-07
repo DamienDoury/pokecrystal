@@ -23,9 +23,7 @@ BurnedTowerB1F_MapScripts:
 	endcallback
 
 ReleaseTheBeasts:
-	checkevent EVENT_BURNED_TOWER_1F_EUSINE
-	iftrue .end
-
+	clearevent EVENT_RED_BEATEN
 	playmusic MUSIC_NONE
 	pause 30
 	appear BURNEDTOWERB1F_RAIKOU1
@@ -85,7 +83,6 @@ ReleaseTheBeasts:
 	reloadmappart
 	closetext
 	setscene SCENE_FINISHED
-.end
 	end
 
 BurnedTowerB1FEusine:
@@ -254,7 +251,7 @@ BurnedTowerB1F_MapEvents:
 	warp_event  7, 15, BURNED_TOWER_1F, 14
 
 	def_coord_events
-	coord_event 10,  6, SCENE_ALWAYS, ReleaseTheBeasts
+	coord_event 10,  6, CE_EVENT_FLAG_CLEARED, EVENT_BURNED_TOWER_1F_EUSINE, ReleaseTheBeasts
 
 	def_bg_events
 
