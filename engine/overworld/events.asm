@@ -624,6 +624,7 @@ BGEventJumptable:
 	dw .ifnotset
 	dw .itemifset
 	dw .copy
+	dw .closeddoor
 	assert_table_length NUM_BGEVENTS
 
 .up:
@@ -701,6 +702,11 @@ BGEventJumptable:
 	call CallScript
 	scf
 	ret
+
+.closeddoor:
+	call GetFacingTileCoord
+	cp COLL_CLOSED_DOOR
+	jr z, .read
 
 .dontread:
 	xor a

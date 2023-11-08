@@ -139,6 +139,7 @@ assert NUM_COORD_EVENT_TYPES - 1 <= $f
 	const BGEVENT_IFNOTSET
 	const BGEVENT_ITEM
 	const BGEVENT_COPY
+	const BGEVENT_CLOSED_DOOR
 NUM_BGEVENTS EQU const_value
 
 ; object_event types
