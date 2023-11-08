@@ -372,17 +372,15 @@ BlackbeltYoshiSeenText:
 	done
 
 BlackbeltYoshiBeatenText:
-	text "Toughness is the"
-	line "Delta variant."
+	text "Toughness is not"
+	line "being afraid."
 	done
 
 BlackbeltYoshiAfterText:
-	text "A remote family"
-	line "member of mine got"
-	cont "the Delta variant."
-
-	para "It's the harshest"
-	line "of all variants."
+	text "I'm not afraid of"
+	line "COVID!"
+	
+	para "I'm super tough!"
 	done
 
 BlackbeltLaoSeenText:
