@@ -430,12 +430,12 @@ TwinsAmyandmay2SeenText:
 	done
 
 TwinsAmyandmay2BeatenText:
-	text "AMY & MAY: Oh,"
+	text "MAY & AMY: Oh,"
 	line "double goodness!"
 	done
 
 TwinsAmyandmay2AfterBattleText:
-	text "MAY: Our bug #-"
+	text "MAY: Our BUG #-"
 	line "MON lost! Oh, what"
 	cont "a shame."
 	done

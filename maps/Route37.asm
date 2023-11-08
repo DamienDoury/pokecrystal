@@ -150,7 +150,7 @@ TwinsAnnandanne2SeenText:
 	done
 
 TwinsAnnandanne2BeatenText:
-	text "ANN & ANNE: Nnn… A"
+	text "ANNE & ANN: Nnn… A"
 	line "little too strong."
 	done
 
