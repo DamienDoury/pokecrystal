@@ -6,6 +6,18 @@ IcePathB3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+
+.EnterCallback:
+	clearevent EVENT_MAHOGANY_MART_OWNERS ; The player can only reach Ice Path B3F once they have Strength, which is obtained after clearing the Rocket hideout. Therefore, there is no sequence break.
+
+	checkevent EVENT_ICE_PATH_EXPLORED
+	iftrue .end
+
+	setevent EVENT_ICE_PATH_EXPLORED
+	farscall CheckRocketsActivation
+.end
+	endcallback
 
 IcePathB3FNevermeltice:
 	itemball NEVERMELTICE

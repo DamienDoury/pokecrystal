@@ -143,7 +143,7 @@ OlivineGymJasmineScript:
 	
 CheckRocketsActivation:
 	loadmem wTempByteValue, 0
-	checkevent EVENT_ICE_PATH_EXPLORED ; This event is set only once, when Ice Path B2F Mahogany side has been reached.
+	checkevent EVENT_ICE_PATH_EXPLORED ; This event is set only once, when Ice Path B3F has been reached.
 	iffalse .skipAdd1
 	loadmem wTempByteValue, 1
 .skipAdd1
