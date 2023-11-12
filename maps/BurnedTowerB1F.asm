@@ -23,7 +23,6 @@ BurnedTowerB1F_MapScripts:
 	endcallback
 
 ReleaseTheBeasts:
-	clearevent EVENT_RED_BEATEN
 	playmusic MUSIC_NONE
 	pause 30
 	appear BURNEDTOWERB1F_RAIKOU1
