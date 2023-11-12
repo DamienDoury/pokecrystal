@@ -4,7 +4,6 @@
 	const OLIVINECITY_STANDING_YOUNGSTER
 	const OLIVINECITY_SAILOR2
 	const OLIVINECITY_OLIVINE_RIVAL
-	const OLIVINECITY_CAFE_DOOR
 	const OLIVINECITY_TAKEAWAY_SELLER
 
 OlivineCity_MapScripts:
@@ -24,14 +23,16 @@ OlivineCity_MapScripts:
 	endcallback
 
 .TilesLoad:
-	; Olivine Cafe.
 	readmem wCurFreedomState
 	ifequal 1 << FREE, .EndTilesCallback
 	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
 
+	changeblock 18, 16, $37 ; Mart.
+
 	checkevent EVENT_FIRST_CURFEW_STARTED
 	iffalse .EndTilesCallback
 
+	; Olivine Cafe. The door stays open during lockdown: as it is guarded by the owner no one can enter the cafe.
 	changeblock  6, 20, $37
 	changeblock  8, 20, $3b
 
@@ -223,7 +224,7 @@ OlivineCityMartSign:
 	jumpstd MartSignScript
 
 OlivineCity_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 OlivineCityRivalApproachesTopMovement:
 	step DOWN
@@ -503,6 +504,8 @@ OlivineCity_MapEvents:
 	bg_event  3, 23, BGEVENT_READ, OlivineCityBattleTowerSign
 	bg_event 14, 21, BGEVENT_READ, OlivineCityPokecenterSign
 	bg_event 20, 17, BGEVENT_READ, OlivineCityMartSign
+	bg_event  7, 21, BGEVENT_CLOSED_DOOR, OlivineCity_DoorScript ; Cafe.
+	bg_event 19, 17, BGEVENT_CLOSED_DOOR, OlivineCity_DoorScript ; Mart.
 
 	def_object_events
 	object_event 15, 22, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | DAY | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL
@@ -510,5 +513,4 @@ OlivineCity_MapEvents:
 	object_event 20, 13, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineCityStandingYoungsterScript, -1
 	object_event 17, 21, SPRITE_SAILOR, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCitySailor2Script, -1
 	object_event 10, 11, SPRITE_OLIVINE_RIVAL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_RIVAL_OLIVINE_CITY
-	object_event  7, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_DoorScript, -1
 	object_event  7, 22, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivineCity_ToGoScript, EVENT_FIRST_CURFEW_STARTED

@@ -167,8 +167,7 @@ wPlayerMovement:: db
 
 	ds 2
 
-wMovementObject::
-	db
+wMovementObject:: db
 wMovementDataBank:: db
 wMovementDataAddress:: dw
 wIndexedMovement2Pointer:: dw

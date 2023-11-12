@@ -1375,12 +1375,29 @@ DoBikeStep::
 	cp MAP_GOLDENROD_CITY
 	jr nz, .returnCarry
 
-	; Make the door appear.
-	ld a, 18 ; GOLDENRODCITY_BIKESHOP_DOOR - 1
-	call UnmaskCopyMapObjectStruct
-	ldh a, [hMapObjectIndex]
-	ld b, 0 ; clear
-	call ApplyEventActionAppearDisappear
+	; Make the BikeShop door appear instantly.
+	; Ex GOLDENRODCITY_BIKESHOP_DOOR
+	; changeblock 28, 28, $38
+	lb de, 28 + 4, 28 + 4
+	call GetBlockLocation
+	call GetScriptByte
+	ld a, $38
+	ld [hl], a
+	;call BufferScreen
+
+	; changeblock 30, 28, $39
+	lb de, 30 + 4, 28 + 4
+	call GetBlockLocation
+	call GetScriptByte
+	ld a, $39
+	ld [hl], a
+	call BufferScreen
+
+	;ld a, 18 ; GOLDENRODCITY_BIKESHOP_DOOR - 1
+	;call UnmaskCopyMapObjectStruct
+	;ldh a, [hMapObjectIndex]
+	;ld b, RESET_FLAG
+	;call ApplyEventActionAppearDisappear
 
 .returnCarry
 	scf

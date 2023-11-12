@@ -386,14 +386,8 @@ Route36TrainerTips2:
 Route36FruitTree:
 	fruittree FRUITTREE_ROUTE_36
 
-;Route36_DoorScript:
-;	jumptextfaceplayer Route36_Lockdown1Text
-;
-;Route36_Door2Script:
-;	jumptextfaceplayer Route36_Lockdown2Text
-
 Route36_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 SudowoodoShakeMovement:
 	tree_shake

@@ -2294,3 +2294,28 @@ _TradebackGuyDealEvoText::
 	line "tell MICKEY"
 	cont "about it!"
 	done
+
+ClosedBusinessText::
+	text "There is a notice"
+	line "on the door…"
+
+	para "“Due to the"
+	line "sanitary crisis,"
+
+	para "our establishment"
+	line "must remain closed"
+
+	para "until further"
+	line "notice.”"
+	done
+
+ClosedBusinessCurfewText::
+	text "There is a notice"
+	line "on the door…"
+
+	para "“Our establishment"
+	line "will reopen tomor-"
+
+	para "row morning, after"
+	line "the curfew.”"
+	done

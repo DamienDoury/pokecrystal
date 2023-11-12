@@ -387,8 +387,6 @@ INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
-INCLUDE "maps/RedsHouse1F.asm"
-INCLUDE "maps/RedsHouse2F.asm"
 
 
 SECTION "Map Scripts 20", ROMX
@@ -455,7 +453,6 @@ INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
-INCLUDE "maps/SeafoamGym.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -518,3 +515,7 @@ INCLUDE "maps/SeafoamGymB2F.asm"
 INCLUDE "maps/SeafoamGymB3F.asm"
 INCLUDE "maps/SeafoamGymB4F.asm"
 INCLUDE "maps/SeafoamGymB5F.asm"
+INCLUDE "maps/SeafoamGym.asm"
+
+INCLUDE "maps/RedsHouse1F.asm"
+INCLUDE "maps/RedsHouse2F.asm"

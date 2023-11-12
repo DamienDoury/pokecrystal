@@ -17,8 +17,6 @@
 	const AZALEATOWN_YOUNGSTER_MART_RUSH
 	const AZALEATOWN_POKEFAN_MART_RUSH
 	const AZALEATOWN_APPRENTICE_MART_RUSH
-	const AZALEATOWN_KURTS_DOOR
-	const AZALEATOWN_CHARCOALKILN_DOOR
 
 AzaleaTown_MapScripts:
 	def_scene_scripts
@@ -60,6 +58,9 @@ AzaleaTown_MapScripts:
 
 	changeblock  8,  4, $2b ; Kurt's House.
 	changeblock 20, 12, $2b ; Charcoal Kiln.
+
+	ifnotequal 1 << CURFEW, .EndTilesCallback
+	changeblock 20, 4, $38 ; TODO: WRONG BLOCK, FIX THIS!
 
 .EndTilesCallback
 	endcallback
@@ -244,7 +245,7 @@ AzaleaTownApprenticeRush:
 	jumptextfaceplayer AzaleaTownApprenticeRushText
 
 AzaleaTown_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 AzaleaTownRivalBattleApproachMovement1:
 	step LEFT
@@ -546,6 +547,9 @@ AzaleaTown_MapEvents:
 	bg_event 22,  5, BGEVENT_READ, AzaleaTownMartSign
 	bg_event  3,  9, BGEVENT_READ, AzaleaTownIlextForestSign
 	bg_event 31,  6, BGEVENT_ITEM, AzaleaTownHiddenFullHeal
+	bg_event  9,  5, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
+	bg_event 21, 13, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
+	bg_event 15,  5, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
 
 	def_object_events
 	object_event 17, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | MORN, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL
@@ -566,5 +570,4 @@ AzaleaTown_MapEvents:
 	object_event 21,  6, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, AzaleaTownTeacherRush, EVENT_LOCKDOWN_MART_RUSH
 	object_event 21,  7, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTownPokefanRush, EVENT_LOCKDOWN_MART_RUSH
 	object_event 22,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, AzaleaTownApprenticeRush, EVENT_LOCKDOWN_MART_RUSH
-	object_event  9,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTown_DoorScript, -1
-	object_event 21, 13, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, AzaleaTown_DoorScript, -1
+	

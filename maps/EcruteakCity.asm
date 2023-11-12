@@ -15,9 +15,15 @@ EcruteakCity_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_TILES, .MoveDeliveryGuy
+	callback MAPCALLBACK_TILES, .MoveDeliveryGuyAndCloseMart
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
+.MoveDeliveryGuyAndCloseMart:
+	readmem wCurFreedomState
+	ifnotequal 1 << CURFEW, .MoveDeliveryGuy
+
+	changeblock 28, 20, $38 ; Mart.
+	
 .MoveDeliveryGuy:
 	random 4
 	ifequal 0, .zero
@@ -136,7 +142,7 @@ EcruteakCityHiddenBerryJuice:
 	hiddenitem BERRY_JUICE, EVENT_ECRUTEAK_CITY_HIDDEN_BERRY_JUICE
 
 EcruteakCity_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 EcruteakCityGramps1Text:
 	text "ECRUTEAK used to"
@@ -356,6 +362,7 @@ EcruteakCity_MapEvents:
 	bg_event 29, 28, BGEVENT_ITEM, EcruteakCityHiddenLeppaBerry
 	bg_event 13, 28, BGEVENT_ITEM, EcruteakCityHiddenBerryJuice
 	bg_event 11, 11, BGEVENT_READ, EcruteakCityPoliceStationSign
+	bg_event 29, 21, BGEVENT_CLOSED_DOOR, EcruteakCity_DoorScript
 
 	def_object_events
 	object_event 25, 28, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL

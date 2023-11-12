@@ -1,7 +1,5 @@
 	object_const_def
 	const BLACKTHORNCITY_TRAVEL_CONTROLLER
-	;const BLACKTHORNCITY_SUPER_NERD1
-	;const BLACKTHORNCITY_SUPER_NERD2
 	const BLACKTHORNCITY_GRAMPS1
 	const BLACKTHORNCITY_GRAMPS2
 	const BLACKTHORNCITY_BLACK_BELT
@@ -9,7 +7,7 @@
 	const BLACKTHORNCITY_YOUNGSTER1
 	const BLACKTHORNCITY_SANTOS
 	const BLACKTHORNCITY_COOLTRAINER_F2
-	const BLACKTHORNCITY_MOVEDELETER_DOOR
+	;const BLACKTHORNCITY_MOVEDELETER_DOOR
 
 BlackthornCity_MapScripts:
 	def_scene_scripts
@@ -29,7 +27,9 @@ BlackthornCity_MapScripts:
 	ifequal 1 << FREE, .EndTilesCallback
 	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
 
-	changeblock  8, 30, $30
+	changeblock  8, 30, $30 ; Move deleter's house.
+	changeblock 14, 28, $38 ; Mart.
+	reloadmap
 
 .EndTilesCallback
 	endcallback
@@ -43,30 +43,6 @@ BlackthornCity_MapScripts:
 .SantosAppears:
 	appear BLACKTHORNCITY_SANTOS
 	endcallback
-
-;BlackthornSuperNerdScript:
-;	faceplayer
-;	opentext
-;	checkevent EVENT_BEAT_CLAIR
-;	iftrue .BeatClair
-;	checkevent EVENT_CLEARED_RADIO_TOWER
-;	iftrue .ClearedRadioTower
-;	writetext Text_ClairIsOut
-;	waitbutton
-;	closetext
-;	end
-;
-;.ClearedRadioTower:
-;	writetext Text_ClairIsIn
-;	waitbutton
-;	closetext
-;	end
-;
-;.BeatClair:
-;	writetext Text_ClairIsBeaten
-;	waitbutton
-;	closetext
-;	end
 
 BlackthornGramps1Script:
 	readmem wCurFreedomState
@@ -163,46 +139,7 @@ BlackthornCityMartSign:
 	jumpstd MartSignScript
 
 BlackthornCity_DoorScript:
-	jumpstd ClosedBusinessScript
-
-;Text_ClairIsOut:
-;	text "I am sorry."
-;
-;	para "CLAIR, our GYM"
-;	line "LEADER, went to"
-;
-;	para "investigate the"
-;	line "RADIO TOWER in"
-;
-;	para "GOLDENROD CITY"
-;	line "under the orders"
-;	cont "of LANCE."
-;	done
-;
-;Text_ClairIsIn:
-;	text "CLAIR, our GYM"
-;	line "LEADER, is waiting"
-;	cont "for you."
-;
-;	para "However, it would"
-;	line "be impossible for"
-;
-;	para "a run-of-the-mill"
-;	line "trainer to win."
-;	done
-;
-;Text_ClairIsBeaten:
-;	text "You defeated"
-;	line "CLAIR?"
-;
-;	para "That's amazing!"
-;
-;	para "I've never heard"
-;	line "of her losing to"
-;
-;	para "anyone other than"
-;	line "LANCE."
-;	done
+	jumpstd LockdownCurfewClosedDoor
 
 BlackthornGrampsRefusesEntryText:
 	text "No. Only chosen"
@@ -362,11 +299,11 @@ BlackthornCity_MapEvents:
 	bg_event  5, 25, BGEVENT_READ, BlackthornCityTrainerTips
 	bg_event 16, 29, BGEVENT_READ, BlackthornCityMartSign
 	bg_event 22, 29, BGEVENT_READ, BlackthornCityPokecenterSign
+	bg_event  9, 31, BGEVENT_CLOSED_DOOR, BlackthornCity_DoorScript
+	bg_event 15, 29, BGEVENT_CLOSED_DOOR, BlackthornCity_DoorScript
 
 	def_object_events
 	object_event 23, 30, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | MORN | DAY, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL
-	;object_event 18, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_BLOCKS_GYM
-	;object_event 19, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornSuperNerdScript, EVENT_BLACKTHORN_CITY_SUPER_NERD_DOES_NOT_BLOCK_GYM
 	object_event 20,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps1Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
 	object_event 21,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps2Script, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
 	object_event 24, 31, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlackthornBlackBeltScript, -1
@@ -374,4 +311,4 @@ BlackthornCity_MapEvents:
 	object_event 13, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornYoungsterScript, -1
 	object_event 22, 20, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, SantosScript, EVENT_BLACKTHORN_CITY_SANTOS_OF_SATURDAY
 	object_event 35, 19, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BlackthornCooltrainerF2Script, -1
-	object_event  9, 31, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornCity_DoorScript, -1
+	;object_event  9, 31, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornCity_DoorScript, -1

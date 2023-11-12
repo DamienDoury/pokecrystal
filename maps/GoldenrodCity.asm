@@ -16,10 +16,6 @@
 	const GOLDENRODCITY_ROCKET6
 	const GOLDENRODCITY_MOVETUTOR
 	const GOLDENRODCITY_BEATER
-	const GOLDENRODCITY_CASINO_DOOR
-	const GOLDENRODCITY_BIKESHOP_DOOR ; Don't move this one! Its value is hardcoded in a function.
-	const GOLDENRODCITY_FLOWERSHOP_DOOR
-	const GOLDENRODCITY_NAMERATER_DOOR
 	const GOLDENRODCITY_MARTRUSH_1
 	const GOLDENRODCITY_MARTRUSH_2
 	const GOLDENRODCITY_MARTRUSH_3
@@ -352,8 +348,23 @@ GoldenrodCityFlowerShopSign:
 GoldenrodHospitalSign:
 	jumptext GoldenrodHospitalSignText
 
+GoldenrodFlowerShopDoorScript:
+GoldenrodNameRaterDoorScript:
+	jumpstd LockdownCurfewClosedDoor
+
 GoldenrodCasinoDoorScript:
 	jumpstd ClosedBusinessScript
+
+GoldenrodCasinoWindowScript:
+	conditional_event EVENT_RED_BEATEN, .Script
+
+.Script:
+	checkitem COIN_CASE
+	iftrue .found_hidden_casino
+
+	jumptext GoldenrodCasinoWindowText
+.found_hidden_casino
+	jumptext GoldenrodCasinoWindowKnownSecretText
 
 GoldenrodBikeShopDoorScript:
 	farjumptext CeruleanLockedDoorText
@@ -677,6 +688,29 @@ GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText:
 	line "enough coins here…"
 	done
 
+GoldenrodCasinoWindowText:
+	text "The GAME CORNER"
+	line "forgot to turn"
+	
+	para "off the lights"
+	line "before closing."
+
+	para "Someone's gonna get"
+	line "a spicy electri-"
+	cont "city bill!"
+	done
+
+GoldenrodCasinoWindowKnownSecretText:
+	text "The GAME CORNER"
+	line "forgot to pull the"
+	
+	para "curtains on some"
+	line "of the windows."
+
+	para "Better to keep"
+	line "it a secret."
+	done
+
 BeaterText1:
 	text "Hey kid."
 
@@ -796,6 +830,12 @@ GoldenrodCity_MapEvents:
 	bg_event 16, 27, BGEVENT_UP, GoldenrodCityPokecenterSign
 	bg_event 30,  6, BGEVENT_READ, GoldenrodCityFlowerShopSign
 	bg_event 34,  5, BGEVENT_READ, GoldenrodHospitalSign
+	bg_event 14, 21, BGEVENT_CLOSED_DOOR, GoldenrodCasinoDoorScript
+	bg_event 29, 29, BGEVENT_CLOSED_DOOR, GoldenrodBikeShopDoorScript
+	bg_event 29,  5, BGEVENT_CLOSED_DOOR, GoldenrodFlowerShopDoorScript
+	bg_event 15,  7, BGEVENT_CLOSED_DOOR, GoldenrodNameRaterDoorScript
+	bg_event 12, 21, BGEVENT_IFSET, GoldenrodCasinoWindowScript
+	bg_event 13, 21, BGEVENT_IFSET, GoldenrodCasinoWindowScript
 
 	def_object_events
 	object_event 17, 28, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | DAY | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -815,10 +855,6 @@ GoldenrodCity_MapEvents:
 	object_event 31, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 12, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
 	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_BEATER
-	object_event 14, 21, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, EVENT_RED_IN_MT_SILVER
-	object_event 29, 29, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodBikeShopDoorScript, GOLDENROD_BIKE_SHOP_CLOSED
-	object_event 29,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	object_event 15,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCasinoDoorScript, -1
 	object_event 24, 28, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush1Script, EVENT_LOCKDOWN_MART_RUSH
 	object_event 25, 28, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush2Script, EVENT_LOCKDOWN_MART_RUSH
 	object_event 24, 29, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush3Script, EVENT_LOCKDOWN_MART_RUSH

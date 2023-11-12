@@ -24,6 +24,8 @@
 	const ROUTE35_SUPER_NERD
 	const ROUTE35_FRUIT_TREE
 	const ROUTE35_POKE_BALL
+	const ROUTE35_SAVIOUR_OFFICER
+	const ROUTE35_SICK_CATERPIE
 
 Route35_MapScripts:
 	def_scene_scripts
@@ -262,7 +264,7 @@ Route35Sign:
 	jumptext Route35SignText
 
 Route35_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 Route35TMRollout:
 	itemball TM_ROLLOUT
@@ -459,6 +461,7 @@ Route35_MapEvents:
 	def_bg_events
 	bg_event  1,  7, BGEVENT_READ, Route35Sign
 	bg_event 11, 31, BGEVENT_READ, Route35Sign
+	bg_event  3,  5, BGEVENT_CLOSED_DOOR, Route35_DoorScript
 
 	def_object_events
 	object_event  5,  6, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 3, PoliceTrainer, -1
@@ -491,4 +494,3 @@ Route35_MapEvents:
 	object_event 13, 16, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route35TMRollout, EVENT_ROUTE_35_TM_ROLLOUT
 	object_event  4, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35SaviourScript, EVENT_SICK_CATERPIE
 	object_event  3, 11, SPRITE_CATERPIE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route35CaterpieScript, EVENT_SICK_CATERPIE
-	object_event  3,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, Route35_DoorScript, -1

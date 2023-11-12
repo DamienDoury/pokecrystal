@@ -640,7 +640,6 @@ INCLUDE "data/phone/text/wade_overworld.asm"
 INCLUDE "data/phone/text/ralph_overworld.asm"
 INCLUDE "data/phone/text/liz_overworld.asm"
 INCLUDE "data/phone/text/erin_callee.asm"
-INCLUDE "data/phone/text/unused.asm"
 
 
 SECTION "Special Phone Text", ROMX

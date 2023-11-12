@@ -21,9 +21,19 @@ VioletCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_VIOLET
+	endcallback
+
+.TilesLoad:
+	readmem wCurFreedomState
+	ifnotequal 1 << CURFEW, .EndTilesCallback
+
+	changeblock  8, 16, $38
+
+.EndTilesCallback
 	endcallback
 
 VioletCityEarlScript:
@@ -33,9 +43,7 @@ VioletCityEarlScript:
 	writetext Text_EarlAsksIfYouBeatFalkner
 	yesorno
 	iffalse .FollowEarl
-	sjump .PointlessJump
 
-.PointlessJump:
 	writetext Text_VeryNiceIndeed
 	waitbutton
 	closetext
@@ -130,11 +138,19 @@ VioletCityHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_VIOLET_CITY_HIDDEN_HYPER_POTION
 
 VioletCity_DoorScript:
-	jumpstd ClosedBusinessScript
+	jumpstd LockdownCurfewClosedDoor
 
 VioletCity_SchoolDoorScript:
-	jumptext VioletCity_ClosedSchoolText
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .curfew
+	end
 
+.lockdown
+	jumptext VioletCity_ClosedSchoolText
+.curfew
+	farjumptext ClosedBusinessCurfewText
+	
 VioletCity_PlayerWalksUpMovement:
 	big_step UP
 	step_end
@@ -389,6 +405,7 @@ VioletCity_MapEvents:
 	bg_event 32, 25, BGEVENT_READ, VioletCityPokecenterSign
 	bg_event 10, 17, BGEVENT_READ, VioletCityMartSign
 	bg_event 37, 14, BGEVENT_ITEM, VioletCityHiddenHyperPotion
+	bg_event  9, 17, BGEVENT_CLOSED_DOOR, VioletCity_DoorScript
 
 	def_object_events
 	object_event 33, 26, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | MORN | DAY, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL

@@ -14,9 +14,19 @@ CherrygroveCity_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
+	callback MAPCALLBACK_TILES, .TilesLoad
 
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_CHERRYGROVE
+	endcallback
+
+.TilesLoad:
+	readmem wCurFreedomState
+	ifnotequal 1 << CURFEW, .EndTilesCallback
+
+	changeblock 22,  2, $37
+
+.EndTilesCallback
 	endcallback
 
 CherrygroveCityGuideGent:
@@ -236,6 +246,9 @@ MysticWaterGuy:
 .Exit:
 	closetext
 	end
+
+Cherrygrove_DoorScript:
+	jumpstd LockdownCurfewClosedDoor
 
 FirstInLineFirstLockdown:
 	jumptext FirstInLineFirstLockdownText
@@ -625,6 +638,7 @@ CherrygroveCity_MapEvents:
 	bg_event 23,  9, BGEVENT_READ, GuideGentsHouseSign
 	bg_event 24,  3, BGEVENT_READ, CherrygroveCityMartSign
 	bg_event 30,  3, BGEVENT_READ, CherrygroveCityPokecenterSign
+	bg_event 23,  3, BGEVENT_CLOSED_DOOR, Cherrygrove_DoorScript
 
 	def_object_events
 	object_event 31,  4, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL

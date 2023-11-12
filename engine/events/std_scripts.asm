@@ -62,6 +62,7 @@ StdScripts::
 	add_stdscript GymGuideTextSequel
 	add_stdscript GymGuidePlayerLeavesScript
 	add_stdscript GymKickPlayerOutAfterEvolution
+	add_stdscript LockdownCurfewClosedDoor
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -550,6 +551,17 @@ PokecenterSignScript:
 
 MartSignScript:
 	farjumptext MartSignText
+
+LockdownCurfewClosedDoor:
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .lockdown
+	ifequal 1 << CURFEW, .curfew
+	end
+
+.lockdown
+	farjumptext ClosedBusinessText
+.curfew
+	farjumptext ClosedBusinessCurfewText
 
 DayToTextScript:
 	readvar VAR_WEEKDAY
