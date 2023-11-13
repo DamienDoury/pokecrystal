@@ -702,10 +702,11 @@ GoldenrodCasinoWindowText:
 
 GoldenrodCasinoWindowKnownSecretText:
 	text "The GAME CORNER"
-	line "forgot to pull the"
+	line "forgot to close"
 	
-	para "curtains on some"
-	line "of the windows."
+	para "some curtains"
+	line "while operating"
+	cont "secretly."
 
 	para "Better to keep"
 	line "it a secret."

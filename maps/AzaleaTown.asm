@@ -60,7 +60,7 @@ AzaleaTown_MapScripts:
 	changeblock 20, 12, $2b ; Charcoal Kiln.
 
 	ifnotequal 1 << CURFEW, .EndTilesCallback
-	changeblock 20, 4, $38 ; TODO: WRONG BLOCK, FIX THIS!
+	changeblock 20,  4, $3f ; Mart.
 
 .EndTilesCallback
 	endcallback
@@ -549,7 +549,7 @@ AzaleaTown_MapEvents:
 	bg_event 31,  6, BGEVENT_ITEM, AzaleaTownHiddenFullHeal
 	bg_event  9,  5, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
 	bg_event 21, 13, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
-	bg_event 15,  5, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
+	bg_event 21,  5, BGEVENT_CLOSED_DOOR, AzaleaTown_DoorScript
 
 	def_object_events
 	object_event 17, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | MORN, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL
