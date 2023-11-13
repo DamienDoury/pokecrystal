@@ -80,8 +80,6 @@ GoldenrodGameCorner_MapScripts:
 	endcallback
 
 GoldenrodGameCornerGreetingsScript:
-	checkitem COIN_CASE
-	iftrue .HasCoinCase
 	playsound SFX_HIT_END_OF_EXP_BAR
 	showemote EMOTE_SHOCK, GOLDENRODGAMECORNER_CLERK, 10
 	pause 15
@@ -94,8 +92,6 @@ GoldenrodGameCornerGreetingsScript:
 	waitbutton
 	turnobject GOLDENRODGAMECORNER_CLERK, DOWN
 	closetext
-
-.HasCoinCase:
 	end
 
 GiveCoinCase:
@@ -703,7 +699,7 @@ GoldenrodGameCorner_MapEvents:
 	warp_event  3, 13, GOLDENROD_CITY, 10
 
 	def_coord_events
-	coord_event  2,  2, CE_SCENE_ID, SCENE_ALWAYS,  GoldenrodGameCornerGreetingsScript
+	coord_event  2,  2, CE_MISSING_ITEM, COIN_CASE,  GoldenrodGameCornerGreetingsScript
 
 	def_bg_events
 	bg_event  6,  6, BGEVENT_READ, GoldenrodGameCornerSlotsMachineScript

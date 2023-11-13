@@ -18,6 +18,9 @@ CheckCoordEventType::
 	cp CE_GOT_ITEM
 	jr z, .ce_got_item
 
+	cp CE_MISSING_ITEM
+	jr z, .ce_missing_item
+
 	jr .return_no_event ; Unmanaged cases are dumped.
 
 .ce_event_set
@@ -54,13 +57,24 @@ CheckCoordEventType::
 	jr z, .return_true
 	jr .return_no_event
 
+.ce_missing_item
+	ld b, FALSE
+	push bc
+	jr .ce_item
+
 .ce_got_item
+	ld b, TRUE
+	push bc
+.ce_item
 	ld a, e
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
-	jr c, .return_true
-	jr .return_no_event
+	ld a, TRUE
+	jr c, .binary_result
+
+	xor a
+	jr .binary_result
 
 .return_true
 	scf

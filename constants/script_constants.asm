@@ -121,6 +121,7 @@ OBJECT_EVENT_SIZE EQU 13 ; object_event
 	const CE_EVENT_FLAG_CLEARED
 	const CE_EVENT_FLAG_SET
 	const CE_GOT_ITEM
+	const CE_MISSING_ITEM
 
 	const_next 15
 	const CE_ALWAYS
