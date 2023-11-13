@@ -13,13 +13,14 @@ Route34IlexForestGate_MapScripts:
 .IsForestRestless:
 	checkevent EVENT_FOREST_IS_RESTLESS
 	iffalse .Normal
-	disappear ROUTE34ILEXFORESTGATE_TEACHER1
-	appear ROUTE34ILEXFORESTGATE_TEACHER2
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 	endcallback
 
 .Normal:
-	disappear ROUTE34ILEXFORESTGATE_TEACHER2
-	appear ROUTE34ILEXFORESTGATE_TEACHER1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	endcallback
 
 Route34IlexForestGateCelebiEvent:
@@ -119,7 +120,8 @@ Route34IlexForestGateTeacher_GotSweetScent:
 
 Route34IlexForestGateTeacher_ForestIsRestless:
 	text "Something's wrong"
-	line "in ILEX FOREST…"
+	line "in ILEX FOREST,"
+	cont "I can smell it…"
 
 	para "You should stay"
 	line "away right now."
@@ -158,7 +160,7 @@ Route34IlexForestGate_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  9,  3, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateTeacherScript, EVENT_ROUTE_34_ILEX_FOREST_GATE_TEACHER_BEHIND_COUNTER
+	object_event  9,  3, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  9,  4, SPRITE_BUTTERFREE, SPRITEMOVEDATA_POKEMON, 0, 0, HIDE_CURFEW, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateButterfreeScript, -1
 	object_event  3,  4, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateLassScript, EVENT_ROUTE_34_ILEX_FOREST_GATE_LASS
-	object_event  5,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateTeacherScript, EVENT_ROUTE_34_ILEX_FOREST_GATE_TEACHER_IN_WALKWAY
+	object_event  5,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route34IlexForestGateTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4

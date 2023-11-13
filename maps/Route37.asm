@@ -26,11 +26,11 @@ Route37_MapScripts:
 .Sunny:
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, .SunnyAppears
-	disappear ROUTE37_SUNNY
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE37_SUNNY
 	endcallback
 
 .SunnyAppears:
-	appear ROUTE37_SUNNY
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE37_SUNNY
 	endcallback
 
 TrainerTwinsAnnandanne1:

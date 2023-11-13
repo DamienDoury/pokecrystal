@@ -51,11 +51,11 @@ Route32_MapScripts:
 .Frieda:
 	readvar VAR_WEEKDAY
 	ifequal FRIDAY, .FriedaAppears
-	disappear ROUTE32_FRIEDA
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE32_FRIEDA
 	endcallback
 
 .FriedaAppears:
-	appear ROUTE32_FRIEDA
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE32_FRIEDA
 	endcallback
 
 Route32CooltrainerMScript:

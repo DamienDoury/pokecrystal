@@ -37,11 +37,11 @@ BlackthornCity_MapScripts:
 .Santos:
 	readvar VAR_WEEKDAY
 	ifequal SATURDAY, .SantosAppears
-	disappear BLACKTHORNCITY_SANTOS
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; BLACKTHORNCITY_SANTOS
 	endcallback
 
 .SantosAppears:
-	appear BLACKTHORNCITY_SANTOS
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; BLACKTHORNCITY_SANTOS
 	endcallback
 
 BlackthornGramps1Script:

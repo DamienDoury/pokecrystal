@@ -35,13 +35,13 @@ Route29_MapScripts:
 	iftrue .DoesTuscanyAppear
 
 .TuscanyDisappears:
-	disappear ROUTE29_TUSCANY
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	endcallback
 
 .DoesTuscanyAppear:
 	readvar VAR_WEEKDAY
 	ifnotequal TUESDAY, .TuscanyDisappears
-	appear ROUTE29_TUSCANY
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	endcallback
 
 Route29Tutorial1:

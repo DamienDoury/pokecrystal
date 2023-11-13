@@ -21,11 +21,11 @@ Route40_MapScripts:
 .MonicaCallback:
 	readvar VAR_WEEKDAY
 	ifequal MONDAY, .MonicaAppears
-	disappear ROUTE40_MONICA
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE40_MONICA
 	endcallback
 
 .MonicaAppears:
-	appear ROUTE40_MONICA
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE40_MONICA
 	endcallback
 
 .TilesLoad:

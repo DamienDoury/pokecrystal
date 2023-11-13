@@ -57,11 +57,11 @@ Route36_MapScripts:
 .ArthurCallback:
 	readvar VAR_WEEKDAY
 	ifequal THURSDAY, .ArthurAppears
-	disappear ROUTE36_ARTHUR
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; ROUTE36_ARTHUR
 	endcallback
 
 .ArthurAppears:
-	appear ROUTE36_ARTHUR
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; ROUTE36_ARTHUR
 	endcallback
 
 .TilesLoad:

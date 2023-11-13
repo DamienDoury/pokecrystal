@@ -39,11 +39,11 @@ LakeOfRage_MapScripts:
 .Wesley:
 	readvar VAR_WEEKDAY
 	ifequal WEDNESDAY, .WesleyAppears
-	disappear LAKEOFRAGE_WESLEY
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; LAKEOFRAGE_WESLEY
 	endcallback
 
 .WesleyAppears:
-	appear LAKEOFRAGE_WESLEY
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; LAKEOFRAGE_WESLEY
 	endcallback
 
 LakeOfRageLanceScript:
