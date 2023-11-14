@@ -379,7 +379,7 @@ LuckyPunchDesc:
 
 CalciumDesc:
 	db   "Ups SPECIAL stats"
-	next "a #MON a lot.@"
+	next "a lot.@"
 
 RareCandyDesc:
 	db   "Raises level of a"
