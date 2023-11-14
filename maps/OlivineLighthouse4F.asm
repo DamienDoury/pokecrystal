@@ -6,6 +6,16 @@ OlivineLighthouse4F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	
+.EnterCallback:
+	readmem wFreedomStateWhenEntered
+	ifnotequal 1 << CURFEW, .EndCallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+.EndCallback:
+	endcallback
 
 TrainerLassConnie:
 	trainer LASS, CONNIE1, EVENT_BEAT_LASS_CONNIE, LassConnie1SeenText, LassConnie1BeatenText, 0, .Script
@@ -103,5 +113,5 @@ OlivineLighthouse4F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  7, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorKent, -1
-	object_event 11,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassConnie, -1
+	object_event  7, 14, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerSailorKent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 11,  2, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerLassConnie, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

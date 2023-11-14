@@ -7,6 +7,20 @@ OlivineLighthouse6F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	
+.EnterCallback:
+	checkevent EVENT_OLIVINE_LIGHTHOUSE_JASMINE
+	iftrue .HideJasmine
+
+	readmem wFreedomStateWhenEntered
+	ifnotequal 1 << CURFEW, .EndCallback
+
+.HideJasmine
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+.EndCallback:
+	endcallback
 
 OlivineLighthouseJasmine:
 	faceplayer
@@ -273,6 +287,6 @@ OlivineLighthouse6F_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
+	object_event  8,  8, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseJasmine, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  9,  8, SPRITE_AMPHAROS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, OlivineLighthouseAmphy, EVENT_OLIVINE_LIGHTHOUSE_JASMINE
 	object_event  3,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse6FSuperPotion, EVENT_OLIVINE_LIGHTHOUSE_6F_SUPER_POTION
