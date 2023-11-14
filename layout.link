@@ -301,11 +301,12 @@ ROMX $77
 ROMX $78
 	"Debug Room"
 	"Tileset Data 8"
-ROMX $79
 	"Map Scripts 26"
-ROMX $7a
+ROMX $79
 	"Map Scripts 27"
+ROMX $7a
 	"Songs 6"
+	"Map Scripts 28"
 ROMX $7b
 	"Battle Tower Text"
 ROMX $7c

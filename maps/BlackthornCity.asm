@@ -11,14 +11,48 @@
 
 BlackthornCity_MapScripts:
 	def_scene_scripts
+	scene_script .AppearFromDragonShrine ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 	callback MAPCALLBACK_TILES, .TilesLoad
 	callback MAPCALLBACK_OBJECTS, .Santos
 
+.AppearFromDragonShrine:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iffalse .end
+
+	; The player when out of the Dragon's Den while the Gramps is blocking the entrance.
+	; So we play an animation to avoid the overlap.
+	
+	prioritysjump DragonsDenCutscene
+.end
+	end
+
 .FlyPoint:
 	setflag ENGINE_FLYPOINT_BLACKTHORN
+
+	readvar VAR_YCOORD
+	ifgreater 4, .EndCallback
+
+	checkevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
+	iftrue .EndCallback
+
+	readmem wCurFreedomState
+	ifequal 1 << CURFEW, .EndCallback
+
+	; The player when out of the Dragon's Den while the Gramps is blocking the entrance.
+	; So we play an animation to avoid the overlap.
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	moveobject BLACKTHORNCITY_GRAMPS1, 21, 2
+	
+.EndCallback
 	endcallback
 
 .TilesLoad:
@@ -44,7 +78,17 @@ BlackthornCity_MapScripts:
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; BLACKTHORNCITY_SANTOS
 	endcallback
 
+DragonsDenCutscene:
+	applymovement PLAYER, BlackthornCity_StepDownMovement
+	follow PLAYER, BLACKTHORNCITY_GRAMPS1
+	applymovement PLAYER, BlackthornCity_StepDownMovement
+	stopfollow
+	end
+
 BlackthornGramps1Script:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue .violated_dragons_den
+
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
@@ -52,6 +96,9 @@ BlackthornGramps1Script:
 
 .lockdown
 	jumptextfaceplayer BlackthornGrampsLockdownText
+
+.violated_dragons_den
+	jumptextfaceplayer BlackthornGrampsViolationText
 
 BlackthornGramps2Script:
 	jumptextfaceplayer BlackthornGrampsGrantsEntryText
@@ -141,6 +188,10 @@ BlackthornCityMartSign:
 BlackthornCity_DoorScript:
 	jumpstd LockdownCurfewClosedDoor
 
+BlackthornCity_StepDownMovement:
+	step DOWN
+	step_end
+
 BlackthornGrampsRefusesEntryText:
 	text "No. Only chosen"
 	line "trainers may train"
@@ -153,6 +204,15 @@ BlackthornGrampsLockdownText:
 	text "I know I shouldn't"
 	line "be out. But nei-"
 	cont "ther should you."
+
+	para "I'm following"
+	line "CLAIR's order."
+	done
+
+BlackthornGrampsViolationText:
+	text "How dared you"
+	line "enter this sacred"
+	cont "place uninvited!"
 	done
 
 BlackthornGrampsGrantsEntryText:
@@ -304,8 +364,8 @@ BlackthornCity_MapEvents:
 
 	def_object_events
 	object_event 23, 30, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, %11100000 | MORN | DAY, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TravelController, EVENT_TRAVEL_CONTROL
-	object_event 20,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps1Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
-	object_event 21,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps2Script, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
+	object_event 20,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps1Script, EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
+	object_event 22,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornGramps2Script, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
 	object_event 24, 31, SPRITE_BLACK_BELT, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BlackthornBlackBeltScript, -1
 	object_event  9, 25, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BlackthornCooltrainerF1Script, -1
 	object_event 13, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornYoungsterScript, -1

@@ -253,7 +253,6 @@ INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/EcruteakFaunaHouse.asm"
-INCLUDE "maps/Route2.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -320,7 +319,6 @@ INCLUDE "maps/DragonsDen1F.asm"
 INCLUDE "maps/DragonsDenB1F.asm"
 INCLUDE "maps/DragonShrine.asm"
 INCLUDE "maps/CharcoalKiln.asm"
-INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
 INCLUDE "maps/FuchsiaGym.asm"
@@ -471,10 +469,6 @@ INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/Route10North.asm"
 
-INCLUDE "maps/SeafoamW1F.asm"
-INCLUDE "maps/SeafoamE1F.asm"
-INCLUDE "maps/SeafoamB1F.asm"
-
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/GoldenrodHospitalSecret.asm"
@@ -486,23 +480,30 @@ INCLUDE "maps/GoldenrodHospitalCorridor.asm"
 INCLUDE "maps/SilphCoElevator.asm"
 INCLUDE "maps/SilphCoResearch.asm"
 INCLUDE "maps/EarlsPokemonAcademy.asm"
+INCLUDE "maps/AzaleaMart.asm"
+INCLUDE "maps/RedsHouse1F.asm"
+INCLUDE "maps/RedsHouse2F.asm"
 
 
 SECTION "Map Scripts 26", ROMX
 
-INCLUDE "maps/GoldenrodHospitalRoom.asm"
-INCLUDE "maps/PewterPokecenter1F.asm"
-INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
+INCLUDE "maps/Route2.asm"
+INCLUDE "maps/Route4Tunnel.asm"
 INCLUDE "maps/Route12.asm"
 INCLUDE "maps/Route15.asm"
 INCLUDE "maps/PewterGym.asm"
-INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/PewterPokecenter1F.asm"
+INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/LavenderTown.asm"
-INCLUDE "maps/Route4Tunnel.asm"
+INCLUDE "maps/Route28SteelWingHouse.asm"
 
 
 SECTION "Map Scripts 27", ROMX
+
+INCLUDE "maps/SeafoamW1F.asm"
+INCLUDE "maps/SeafoamE1F.asm"
+INCLUDE "maps/SeafoamB1F.asm"
 
 INCLUDE "maps/SeafoamB2F.asm"
 INCLUDE "maps/SeafoamB3F.asm"
@@ -517,5 +518,7 @@ INCLUDE "maps/SeafoamGymB4F.asm"
 INCLUDE "maps/SeafoamGymB5F.asm"
 INCLUDE "maps/SeafoamGym.asm"
 
-INCLUDE "maps/RedsHouse1F.asm"
-INCLUDE "maps/RedsHouse2F.asm"
+INCLUDE "maps/GoldenrodHospitalRoom.asm"
+
+
+SECTION "Map Scripts 28", ROMX

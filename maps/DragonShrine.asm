@@ -10,13 +10,27 @@ DragonShrine_MapScripts:
 	scene_script .DummyScene ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .DragonShrineTest:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iftrue .end
+
 	prioritysjump .DragonShrineTestScript
+.end
 	end
 
 .DummyScene:
 	end
+
+.EnterCallback:
+	readmem wFreedomStateWhenEntered
+	ifnotequal 1 << CURFEW, .EndCallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+
+.EndCallback:
+	endcallback
 
 .DragonShrineTestScript:
 	applymovement PLAYER, DragonShrinePlayerWalkInMovement
@@ -650,7 +664,7 @@ DragonShrine_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  1, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	object_event  2,  5, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	object_event  7,  5, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder3Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  5,  1, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	object_event  2,  5, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	object_event  7,  5, SPRITE_ELDER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, DragonShrineElder3Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	object_event  3,  9, SPRITE_CLAIR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_DRAGON_SHRINE_CLAIR

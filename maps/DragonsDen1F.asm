@@ -2,6 +2,16 @@ DragonsDen1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	
+.EnterCallback:
+	readvar VAR_YCOORD
+	ifnotequal 5, .EndCallback
+
+	readmem wCurFreedomState
+	writemem wFreedomStateWhenEntered
+.EndCallback:
+	endcallback
 
 DragonsDen1F_MapEvents:
 	db 0, 0 ; filler

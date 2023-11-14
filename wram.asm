@@ -3084,12 +3084,12 @@ NEXTU ; 12 bytes.
 wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
 wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
 
-NEXTU
+NEXTU ; Cerulean Cave.
 wCeruleanCaveB3FStepCount:: db
 wCeruleanCaveB3FMessageIndex:: db
 wCeruleanCaveB3FTeleportIndex:: db
 
-NEXTU
+NEXTU ; Olivine City.
 wOlivineCafeBerry1:: db
 wOlivineCafeBerry2:: db
 wOlivineCafeBerry3:: db
@@ -3115,6 +3115,9 @@ wPowerPlantEarthquakeDuration:: db
 
 NEXTU ; Tradeback Guy: either Earl's Academy/School, or his parents' house in Ecruteak.
 wTradeGuyItemPayment:: db
+
+NEXTU ; Dragons Den, Dragon Shrine, Olivine Lighthouse.
+wFreedomStateWhenEntered:: db
 
 NEXTU ; Move reminders.
 wBuffer1:: db
