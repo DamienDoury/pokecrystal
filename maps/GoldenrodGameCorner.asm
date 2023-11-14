@@ -430,6 +430,9 @@ GoldenrodGameCornerAbraScript:
 	end
 
 .AccidentWarpSouth:
+	loadmem wDigWarpNumber, 1 ; Sets the Escape Rope and Dig destination.
+	loadmem wDigMapGroup, GROUP_ROUTE_34
+	loadmem wDigMapNumber, MAP_ROUTE_34
 	warp ILEX_FOREST, 26, 22
 	end
 
