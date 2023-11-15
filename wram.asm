@@ -3116,7 +3116,7 @@ wPowerPlantEarthquakeDuration:: db
 NEXTU ; Tradeback Guy: either Earl's Academy/School, or his parents' house in Ecruteak.
 wTradeGuyItemPayment:: db
 
-NEXTU ; Dragons Den, Dragon Shrine, Olivine Lighthouse.
+NEXTU ; Sprout Tower, Dragons Den, Dragon Shrine, Olivine Lighthouse.
 wFreedomStateWhenEntered:: db
 
 NEXTU ; Move reminders.

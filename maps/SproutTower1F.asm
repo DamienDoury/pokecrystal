@@ -10,6 +10,23 @@ SproutTower1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	
+.EnterCallback:
+	readvar VAR_YCOORD
+	ifnotequal 15, .CheckCurfewWhenEntered
+
+	readmem wCurFreedomState
+	writemem wFreedomStateWhenEntered
+
+.CheckCurfewWhenEntered
+	readmem wFreedomStateWhenEntered
+	ifnotequal 1 << CURFEW, .EndCallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+.EndCallback:
+	endcallback
 
 SproutTower1FSage1Script:
 	jumptextfaceplayer SproutTower1FSage1Text
@@ -117,9 +134,9 @@ SproutTower1F_MapEvents:
 	bg_event 12, 15, BGEVENT_READ, SproutTower1FStatue
 
 	def_object_events
-	object_event  7,  4, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage1Script, -1
-	object_event  6,  7, SPRITE_SAGE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage2Script, -1
-	object_event 11, 12, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FGrannyScript, -1
-	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, -1
-	object_event  3,  5, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageChow, -1
+	object_event  7,  4, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  6,  7, SPRITE_SAGE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 11, 12, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FGrannyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  3,  5, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageChow, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event 16,  7, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower1FParlyzHeal, EVENT_SPROUT_TOWER_1F_PARLYZ_HEAL

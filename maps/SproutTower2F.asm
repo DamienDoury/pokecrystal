@@ -7,6 +7,16 @@ SproutTower2F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	
+.EnterCallback:
+	readmem wFreedomStateWhenEntered
+	ifnotequal 1 << CURFEW, .EndCallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+.EndCallback:
+	endcallback
 
 TrainerSageNico:
 	trainer SAGE, NICO, EVENT_BEAT_SAGE_NICO, SageNicoSeenText, SageNicoBeatenText, 0, .Script
@@ -97,6 +107,6 @@ SproutTower2F_MapEvents:
 	bg_event 12, 15, BGEVENT_READ, SproutTower2FStatue
 
 	def_object_events
-	object_event 12,  3, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageNico, -1
-	object_event  9, 14, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSageEdmond, -1
+	object_event 12,  3, SPRITE_SAGE, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerSageNico, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  9, 14, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerSageEdmond, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  3,  1, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, SproutTower2FXAccuracy, EVENT_SPROUT_TOWER_2F_X_ACCURACY
