@@ -63,7 +63,6 @@ BlackthornCity_MapScripts:
 
 	changeblock  8, 30, $30 ; Move deleter's house.
 	changeblock 14, 28, $38 ; Mart.
-	reloadmap
 
 .EndTilesCallback
 	endcallback
