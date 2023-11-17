@@ -10,8 +10,6 @@ ElmPhoneCalleeScript:
 .next
 	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
 	iftrue .eggunhatched
-	checkevent EVENT_ELMS_AIDE_IN_LAB
-	iftrue .assistant
 	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
 	iftrue .checkingegg
 	checkevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
@@ -31,10 +29,6 @@ ElmPhoneCalleeScript:
 
 .checkingegg
 	farwritetext ElmPhoneCheckingTheEggText
-	end
-
-.assistant
-	farwritetext ElmPhoneAssistantText
 	end
 
 .eggunhatched
@@ -64,7 +58,6 @@ ElmPhoneCalleeScript:
 ElmPhoneCallerScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_ROBBED, .disaster
-	ifequal SPECIALCALL_ASSISTANT, .assistant
 	ifequal SPECIALCALL_POKEMASK_BEFORE, .go_get_pokemask
 	ifequal SPECIALCALL_POKEMASK_AFTER, .pokemask_description
 	ifequal SPECIALCALL_WEIRDBROADCAST, .rocket
@@ -79,13 +72,6 @@ ElmPhoneCallerScript:
 	farwritetext ElmPhoneDisasterText
 	specialphonecall SPECIALCALL_NONE
 	setevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
-	end
-
-.assistant
-	farwritetext ElmPhoneEggAssistantText
-	specialphonecall SPECIALCALL_NONE
-	clearevent EVENT_ELMS_AIDE_IN_VIOLET_POKEMON_CENTER
-	setevent EVENT_ELMS_AIDE_IN_LAB
 	end
 
 .go_get_pokemask

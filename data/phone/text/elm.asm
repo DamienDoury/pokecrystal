@@ -38,16 +38,6 @@ ElmPhoneCheckingTheEggText:
 	cont "you brought me."
 	done
 
-ElmPhoneAssistantText:
-	text "Hello, <PLAY_G>?"
-
-	para "Did you see my"
-	line "assistant? He's at"
-
-	para "the #MON CENTER"
-	line "in VIOLET CITY."
-	done
-
 ElmPhoneHowIsTheEggText:
 	text "Hello, <PLAY_G>?"
 
@@ -159,23 +149,23 @@ ElmPhoneDisasterText:
 	line "here now!"
 	done
 
-ElmPhoneEggAssistantText:
-	text "Hello, <PLAY_G>? I"
-	line "want to thank you"
-
-	para "for helping my"
-	line "research."
-
-	para "My assistant is at"
-	line "the #MON CENTER"
-
-	para "in VIOLET CITY"
-	line "with a present"
-	cont "for you!"
-
-	para "Could you talk to"
-	line "him?"
-	done
+;ElmPhoneEggAssistantText:
+;	text "Hello, <PLAY_G>? I"
+;	line "want to thank you"
+;
+;	para "for helping my"
+;	line "research."
+;
+;	para "My assistant is at"
+;	line "the #MON CENTER"
+;
+;	para "in VIOLET CITY"
+;	line "with a present"
+;	cont "for you!"
+;
+;	para "Could you talk to"
+;	line "him?"
+;	done
 
 ElmPhonePokemaskBeforeText:
 	text "<PLAY_G>!"

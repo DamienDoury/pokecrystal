@@ -15,6 +15,7 @@
 	const VIOLETCITY_BELLSPROUTTOWER_DOOR
 	const VIOLETCITY_SCHOOL_DOOR
 	const VIOLETCITY_FALSE_SWIPE_ITEMBALL
+	const VIOLETCITY_ELMS_AIDE
 
 VioletCity_MapScripts:
 	def_scene_scripts
@@ -24,6 +25,7 @@ VioletCity_MapScripts:
 	callback MAPCALLBACK_TILES, .TilesLoad
 
 .FlyPoint:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	setflag ENGINE_FLYPOINT_VIOLET
 	endcallback
 
@@ -150,7 +152,115 @@ VioletCity_SchoolDoorScript:
 	jumptext VioletCity_ClosedSchoolText
 .curfew
 	farjumptext ClosedBusinessCurfewText
+
+VioletElmsAideCallsPlayer:
+	opentext
+	writetext VioletCityElmsAide_CallText
+	waitbutton
+	closetext
+	showemote EMOTE_SHOCK, PLAYER, 15
+	end
+
+VioletElmsAideRunningTop1Script:
+	scall VioletElmsAideCallsPlayer
+	turnobject PLAYER, RIGHT
+	moveobject VIOLETCITY_ELMS_AIDE, 6, 8
+	sjump VioletElmsAideHorizontalRun
+
+VioletElmsAideRunningTop2Script:
+	scall VioletElmsAideCallsPlayer
+	turnobject PLAYER, RIGHT
+	moveobject VIOLETCITY_ELMS_AIDE, 6, 9
+VioletElmsAideHorizontalRun:
+	appear VIOLETCITY_ELMS_AIDE
+	applymovement VIOLETCITY_ELMS_AIDE, VioletCityElmsAideLeft
+	sjump VioletElmsAideSpeech
+
+VioletElmsAideRunningBottom1Script:
+	scall VioletElmsAideCallsPlayer
+	turnobject PLAYER, LEFT
+	moveobject VIOLETCITY_ELMS_AIDE, 12, 26
+	sjump VioletElmsAideVerticalRun
+
+VioletElmsAideRunningBottom2Script:
+	scall VioletElmsAideCallsPlayer
+	turnobject PLAYER, LEFT
+	moveobject VIOLETCITY_ELMS_AIDE, 13, 26
+VioletElmsAideVerticalRun:
+	appear VIOLETCITY_ELMS_AIDE
+	applymovement VIOLETCITY_ELMS_AIDE, VioletCityElmsAideDown
 	
+VioletElmsAideSpeech:
+	setevent EVENT_ELMS_AIDE_IN_VIOLET
+	opentext
+	
+	checkevent EVENT_BEAT_FALKNER
+	iftrue .FalknerBeaten
+
+; Falkner hasn't been beaten.
+	checkevent EVENT_BEAT_SAGE_LI
+	iftrue .SproutBeaten
+
+; Sprout Tower hasn't been beaten.
+	checkevent EVENT_BEAT_BIRD_KEEPER_ROD
+	iffalse .NothingBeaten
+
+	writetext VioletCityElmsAide_FailedAgainstFalknerText
+	sjump .DiscourageFalknerFight
+
+.NothingBeaten:
+	writetext VioletCityElmsAide_NothingBeatenText
+	sjump .DiscourageFalknerFight
+
+.SproutBeaten:
+	writetext VioletCityElmsAide_SproutBeatenText
+	promptbutton
+
+	checkevent EVENT_BEAT_BIRD_KEEPER_ROD
+	iftrue .Surprised
+
+	writetext VioletCityElmsAide_OnlySproutBeatenText
+	sjump .DiscourageFalknerFight
+
+.Surprised:
+	writetext VioletCityElmsAide_SurprisedText
+	sjump .DiscourageFalknerFight
+
+.FalknerBeaten:
+	writetext VioletCityElmsAide_FalknerBeatenText
+
+	checkevent EVENT_BEAT_SAGE_LI
+	iftrue VioletElmsAideDelivery
+
+	promptbutton
+	writetext VioletCityElmsAide_VisitSproutTowerText
+	sjump VioletElmsAideDelivery
+
+.DiscourageFalknerFight:
+	promptbutton
+	writetext VioletCityElmsAide_DontBeatFalknerText
+
+VioletElmsAideDelivery:
+	promptbutton
+	writetext VioletCityElmsAide_GiveThingText
+	promptbutton
+	writetext VioletCityElmsAide_ByeText
+	waitbutton
+	closetext
+	
+	readvar VAR_YCOORD
+	ifgreater 15, .VerticalWalk
+
+;.HorizontalWalk:
+	applymovement VIOLETCITY_ELMS_AIDE, VioletCityElmsAideRight
+	disappear VIOLETCITY_ELMS_AIDE
+	end
+	
+.VerticalWalk:
+	applymovement VIOLETCITY_ELMS_AIDE, VioletCityElmsAideUp
+	disappear VIOLETCITY_ELMS_AIDE
+	end
+
 VioletCity_PlayerWalksUpMovement:
 	big_step UP
 	step_end
@@ -220,6 +330,11 @@ VioletCityFollowEarl_MovementData:
 	big_step UP
 	step_end
 
+VioletCityElmsAideUp:
+	step UP
+	step UP
+	step UP
+	step UP
 VioletCityFinishFollowEarl_MovementData:
 	step UP
 	step_end
@@ -239,6 +354,31 @@ VioletCitySpinningEarl_MovementData:
 	turn_head RIGHT
 	turn_head DOWN
 	step_end
+
+VioletCityElmsAideRight:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+
+VioletCityElmsAideLeft:
+	big_step LEFT
+	big_step LEFT
+	big_step LEFT
+	big_step LEFT
+	step_end
+
+VioletCityElmsAideDown:
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	turn_head RIGHT
+	step_end
+
 
 Text_EarlAsksIfYouBeatFalkner:
 	text "Hello!"
@@ -381,6 +521,106 @@ VioletCity_ClosedSchoolText:
 	done
 
 
+
+
+
+
+VioletCityElmsAide_CallText:
+	text "<PLAYER>!"
+	done
+
+VioletCityElmsAide_NothingBeatenText:
+	text "Already leaving"
+	line "VIOLET CITY?"
+
+	para "You're moving fast!"
+
+	para "Most people would"
+	line "challenge FALKNER."
+	done
+
+VioletCityElmsAide_FailedAgainstFalknerText:
+	text "You couldn't beat"
+	line "FALKNER, hey?"
+
+	para "Don't even worry"
+	line "about it."
+	done
+
+VioletCityElmsAide_FalknerBeatenText:
+	text "You have beaten"
+	line "FALKNER, that's…"
+	cont "That's impressive!"
+	done
+
+VioletCityElmsAide_VisitSproutTowerText:
+	text "You could make"
+	line "short work of"
+	
+	para "the SPROUT TOWER,"
+	line "that's for sure!"
+	done
+	
+VioletCityElmsAide_SproutBeatenText:
+	text "There you were!"
+	
+	para "Now that you have"
+	line "triumphed over the"
+	cont "SPROUT TOWER,"
+	done
+
+VioletCityElmsAide_OnlySproutBeatenText:
+	text "you may want to"
+	line "challenge this"
+	cont "city's GYM LEADER."
+	done
+
+VioletCityElmsAide_SurprisedText:
+	text "I'm surprised you"
+	line "haven't taken"
+	cont "FALKNER down."
+	done
+
+
+
+	
+	
+VioletCityElmsAide_DontBeatFalknerText:
+	text "Here is a personal"
+	line "advice: don't spend"
+	cont "too much time on"
+	cont "him."
+	
+	para "If you can't beat"
+	line "FALKNER, just move"
+	cont "on to the next"
+	cont "town."
+	
+	para "Don't forget you're"
+	line "on a mission for"
+	cont "PROF.ELM."
+	done
+
+VioletCityElmsAide_GiveThingText:
+	text "I was sent after"
+	line "you to equip"
+	cont "you with this."
+	done
+
+VioletCityElmsAide_ByeText:	
+	text "Better safe"
+	line "than sorry."
+
+	para "I got to go back"
+	line "to the lab."
+
+	para "Take care."
+	done
+
+
+
+
+
 VioletCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -396,6 +636,10 @@ VioletCity_MapEvents:
 	warp_event 39, 25, ROUTE_31_VIOLET_GATE, 2
 
 	def_coord_events
+	coord_event  0,  8, CE_EVENT_FLAG_CLEARED, EVENT_ELMS_AIDE_IN_VIOLET, VioletElmsAideRunningTop1Script
+	coord_event  0,  9, CE_EVENT_FLAG_CLEARED, EVENT_ELMS_AIDE_IN_VIOLET, VioletElmsAideRunningTop2Script
+	coord_event 14, 31, CE_EVENT_FLAG_CLEARED, EVENT_ELMS_AIDE_IN_VIOLET, VioletElmsAideRunningBottom1Script
+	coord_event 15, 31, CE_EVENT_FLAG_CLEARED, EVENT_ELMS_AIDE_IN_VIOLET, VioletElmsAideRunningBottom2Script
 
 	def_bg_events
 	bg_event 24, 20, BGEVENT_READ, VioletCitySign
@@ -424,3 +668,4 @@ VioletCity_MapEvents:
 	object_event 23,  5, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletCity_DoorScript, -1
 	object_event 30, 17, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, VioletCity_SchoolDoorScript, -1
 	object_event 37, 15, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, VioletCityTMFalseSwipe, EVENT_LAKE_OF_RAGE_TM_DETECT
+	object_event  0, 30, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
