@@ -665,11 +665,13 @@ MovementFunction_Strength:
 	ld a, [hl]
 	call CheckPitTile
 	jr z, .on_pit
+
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
 	bit OBJ_FLAGS2_2, [hl]
 	res OBJ_FLAGS2_2, [hl]
 	jr z, .ok
+
 	ld hl, OBJECT_RANGE
 	add hl, bc
 	ld a, [hl]
@@ -678,6 +680,10 @@ MovementFunction_Strength:
 	call InitStep
 	call CanObjectMoveInDirection
 	jr c, .ok2
+
+	call WillObjectBumpIntoLadder
+	jr nc, .ok2
+
 	ld de, SFX_STRENGTH
 	call PlaySFX
 	call SpawnStrengthBoulderDust
@@ -701,6 +707,17 @@ MovementFunction_Strength:
 	ld hl, OBJECT_DIRECTION_WALKING
 	add hl, bc
 	ld [hl], STANDING
+	ret
+
+; Used by boulders.
+WillObjectBumpIntoLadder:
+	ld hl, OBJECT_NEXT_TILE
+	add hl, bc
+	ld a, [hl]
+	cp COLL_LADDER
+	ret z
+
+	scf
 	ret
 
 MovementFunction_FollowNotExact:
