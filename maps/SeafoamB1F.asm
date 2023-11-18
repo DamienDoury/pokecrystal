@@ -38,7 +38,7 @@ SeafoamB1F_MapScripts:
 	pause 5
 	scall .BoulderFallsThrough
 	opentext
-	writetext SeafoamB1FBoulderFellThroughText
+	farwritetext IcePathBoulderFellThroughText
 	waitbutton
 	closetext
 	end
@@ -53,11 +53,6 @@ SeafoamB1FItem:
 
 SeafoamB1FBoulder:
 	jumpstd StrengthBoulderScript
-
-SeafoamB1FBoulderFellThroughText:
-	text "The boulder fell"
-	line "through."
-	done
 
 SeafoamB1F_MapEvents:
 	db 0, 0 ; filler

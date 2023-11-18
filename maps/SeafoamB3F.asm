@@ -37,6 +37,7 @@ SeafoamB3F_MapScripts:
 	disappear SEAFOAMB3F_BOULDER1
 	disappear SEAFOAMB3F_BOULDER2
 	disappear SEAFOAMB3F_BOULDER3
+	setevent EVENT_BOULDER_IN_SEAFOAM_B3F_3
 	scall .BoulderFallsThrough
 	opentext
 	farwritetext _WeakGroundCollapsedText
@@ -78,6 +79,7 @@ SeafoamB3F_MapEvents:
 	warp_event  7,  5, SEAFOAM_B4F, 2
 	warp_event  7,  3, SEAFOAM_B2F, 1
 	warp_event  9,  5, SEAFOAM_B4F, 4
+	warp_event  5,  2, SEAFOAM_B2F, 9
 
 	def_coord_events
 
@@ -89,4 +91,4 @@ SeafoamB3F_MapEvents:
 	def_object_events
 	object_event  6,  3, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB3FBoulder, EVENT_BOULDER_IN_SEAFOAM_B3F_1
 	object_event  8,  3, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB3FBoulder, EVENT_BOULDER_IN_SEAFOAM_B3F_2
-	object_event  6,  4, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB3FBoulder, EVENT_BOULDER_IN_SEAFOAM_B3F_3
+	object_event  6,  4, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SeafoamB3FBoulder, EVENT_BOULDER_IN_SEAFOAM_B3F_1

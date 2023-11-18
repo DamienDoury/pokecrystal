@@ -99,6 +99,11 @@ SwimmermCameronAfterBattleText:
 
 CinnabarGymSignText:
 	text "SEAFOAM ISLANDS"
+
+	para "DANGER OF"
+	line "COLLAPSE"
+
+	para "DO NOT ENTER"
 	done
 
 Route20_MapEvents:

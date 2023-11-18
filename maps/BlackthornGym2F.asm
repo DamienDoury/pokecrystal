@@ -43,7 +43,7 @@ BlackthornGym2F_MapScripts:
 	pause 5
 	scall .FX
 	opentext
-	writetext BlackthornGym2FBoulderFellText
+	farwritetext IcePathBoulderFellThroughText
 	waitbutton
 	closetext
 	end
@@ -116,11 +116,6 @@ CooltrainerfFranBeatenText:
 CooltrainerfFranAfterBattleText:
 	text "Uh-oh… CLAIR is"
 	line "going to be mad…"
-	done
-
-BlackthornGym2FBoulderFellText:
-	text "The boulder fell"
-	line "through!"
 	done
 
 BlackthornGym2F_MapEvents:
