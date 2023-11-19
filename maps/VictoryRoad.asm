@@ -55,6 +55,7 @@ VictoryRoadRivalNext:
 	writetext VictoryRoadRivalBeforeText
 	waitbutton
 	closetext
+	setevent EVENT_RIVAL_SPROUT_TOWER
 	setevent EVENT_RIVAL_VICTORY_ROAD
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .GotTotodile
