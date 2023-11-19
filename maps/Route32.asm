@@ -36,17 +36,9 @@
 
 Route32_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_ROUTE32_OFFER_SLOWPOKETAIL
-	scene_script .DummyScene2 ; SCENE_ROUTE32_NOTHING
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .Frieda
-
-.DummyScene0:
-.DummyScene1:
-.DummyScene2:
-	end
 
 .Frieda:
 	readvar VAR_WEEKDAY
@@ -62,9 +54,9 @@ Route32_MapScripts:
 	faceplayer
 	end
 
-Route32CooltrainerMStopsYouLeftScene:
+Route32CooltrainerMStopsYouLeftScript:
 	applymovement ROUTE32_COOLTRAINER_M, Route32_OneStepLeftMovement
-Route32CooltrainerMStopsYouScene:
+Route32CooltrainerMStopsYouScript:
 	setlasttalked ROUTE32_COOLTRAINER_M
 Route32CooltrainerMScript:
 	faceplayer
@@ -120,9 +112,9 @@ Route32WannaBuyASlowpokeTailScript:
 	sjump _OfferToSellSlowpokeTail
 
 SlowpokeTailSalesmanScript:
+	setevent EVENT_ROUTE_32_SLOWPOKE_TAIL
 	faceplayer
 _OfferToSellSlowpokeTail:
-	setscene SCENE_ROUTE32_NOTHING
 	opentext
 	writetext Text_MillionDollarSlowpokeTail
 	yesorno
@@ -517,7 +509,7 @@ Route32CooltrainerMText_YouNerd:
 
 	para "Are you afraid of"
 	line "the propaganda"
-	cont "they show on TV?"
+	cont "they spread on TV?"
 
 	para "Hahahaha!"
 	line "YOU NERD!"
@@ -526,51 +518,18 @@ Route32CooltrainerMText_YouNerd:
 	line "my friends!"
 	done
 
-Route32CooltrainerMText_VioletGym:
-	text "Have you gone to"
-	line "VIOLET CITY's"
-	cont "#MON GYM?"
-
-	para "You can test your"
-	line "#MON and your-"
-	cont "self there."
-
-	para "It's a rite of"
-	line "passage for all"
-	cont "trainers!"
-	done
-
-Route32CooltrainerMText_HaveThisSeed:
-	text "You have some good"
-	line "#MON there."
-
-	para "It must be from"
-	line "the training you"
-
-	para "gave them around"
-	line "VIOLET CITY."
-
-	para "As a souvenir of"
-	line "VIOLET CITY, take"
-	cont "this."
-
-	para "It increases the"
-	line "power of grass-"
-	cont "type moves."
-	done
-
-Route32CooltrainerMText_ExperiencesShouldBeUseful:
-	text "I won't bother"
-	line "you anymore,"
-	cont "I promise."
-	done
-
 Text_MillionDollarSlowpokeTail:
-	text "How would you like"
-	line "to have this"
+	text "Haven't you heard"
+	line "on TV?"
 
-	para "tasty, nutritious"
-	line "SLOWPOKETAIL?"
+	para "It's the end of"
+	line "the world!"
+
+	para "You better taste"
+	line "some SLOWPOKETAIL"
+	
+	para "before it's"
+	line "too late."
 
 	para "For you right now,"
 	line "just ¥1,000,000!"
@@ -585,8 +544,8 @@ Text_ThoughtKidsWereLoaded:
 	done
 
 Text_RefusedToBuySlowpokeTail:
-	text "You don't want it?"
-	line "Then scram. Shoo!"
+	text "I gotta work on my"
+	line "selling pitch…"
 	done
 
 FisherJustinSeenText:
@@ -892,10 +851,10 @@ Route32_MapEvents:
 	warp_event  6, 79, UNION_CAVE_1F, 4
 
 	def_coord_events
-	coord_event 18, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouLeftScene
-	coord_event 19, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouScene
-	coord_event  6, 70, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailTopScript
-	coord_event  6, 71, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
+	coord_event 18, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouLeftScript
+	coord_event 19, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouScript
+	coord_event  6, 70, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_32_SLOWPOKE_TAIL, Route32WannaBuyASlowpokeTailTopScript
+	coord_event  6, 71, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_32_SLOWPOKE_TAIL, Route32WannaBuyASlowpokeTailScript
 
 	def_bg_events
 	bg_event 13,  5, BGEVENT_READ, Route32Sign

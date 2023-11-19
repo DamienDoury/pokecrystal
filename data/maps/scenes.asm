@@ -11,7 +11,6 @@ MapScenes::
 	scene_var CERULEAN_GYM,                                wCeruleanGymSceneID
 	scene_var ROUTE_25,                                    wRoute25SceneID
 	scene_var ELMS_LAB,                                    wElmsLabSceneID ; 6 values
-	scene_var ROUTE_32,                                    wRoute32SceneID ; 3 values
 	scene_var ROUTE_35_NATIONAL_PARK_GATE,                 wRoute35NationalParkGateSceneID ; 3 values
 	scene_var ROUTE_36,                                    wRoute36SceneID
 	scene_var ROUTE_36_NATIONAL_PARK_GATE,                 wRoute36NationalParkGateSceneID ; 3 values

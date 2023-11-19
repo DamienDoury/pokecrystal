@@ -2940,7 +2940,7 @@ wPowerPlantSceneID::                              db
 wCeruleanGymSceneID::                             db
 wRoute25SceneID::                                 db
 wElmsLabSceneID::                                 db
-wRoute32SceneID::                                 db
+	ds 1
 wRoute35NationalParkGateSceneID::                 db
 wRoute36SceneID::                                 db
 wRoute36NationalParkGateSceneID::                 db

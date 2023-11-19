@@ -194,6 +194,9 @@ VioletElmsAideVerticalRun:
 VioletElmsAideSpeech:
 	setevent EVENT_ELMS_AIDE_IN_VIOLET
 	opentext
+
+	writetext VioletCityElmsAide_ProfElmSentMeText
+	promptbutton
 	
 	checkevent EVENT_BEAT_FALKNER
 	iftrue .FalknerBeaten
@@ -530,6 +533,11 @@ VioletCityElmsAide_CallText:
 	text "<PLAYER>!"
 	done
 
+VioletCityElmsAide_ProfElmSentMeText:
+	text "PROF.ELM sent me"
+	line "after you."
+	done
+
 VioletCityElmsAide_NothingBeatenText:
 	text "Already leaving"
 	line "VIOLET CITY?"
@@ -563,7 +571,7 @@ VioletCityElmsAide_VisitSproutTowerText:
 	done
 	
 VioletCityElmsAide_SproutBeatenText:
-	text "There you were!"
+	text "Finally found you!"
 	
 	para "Now that you have"
 	line "triumphed over the"
@@ -609,11 +617,15 @@ VioletCityElmsAide_GiveThingText:
 	done
 
 VioletCityElmsAide_ByeText:	
-	text "Better safe"
-	line "than sorry."
+	text "Acting early with"
+	line "strong measures is"
+	
+	para "the only way to"
+	line "prevent an"
+	cont "epidemic."
 
-	para "I got to go back"
-	line "to the lab."
+	para "I must go back"
+	line "to the lab now."
 
 	para "Take care."
 	done

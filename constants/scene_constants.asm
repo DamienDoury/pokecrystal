@@ -40,11 +40,6 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_ELMSLAB_UNUSED                ; 4
 	const SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS ; 5
 
-; wRoute32SceneID
-	const_def 1
-	const SCENE_ROUTE32_OFFER_SLOWPOKETAIL ; 1
-	const SCENE_ROUTE32_NOTHING            ; 2
-
 ; wRoute35NationalParkGateSceneID
 	const_def
 	const SCENE_ROUTE35NATIONALPARKGATE_NOTHING             ; 0
