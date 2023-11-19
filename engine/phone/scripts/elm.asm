@@ -1,20 +1,17 @@
 ElmPhoneCalleeScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_POKERUS, .pokerus
-	checkevent EVENT_SHOWED_TOGEPI_TO_ELM
+	; Add a call to suggest getting vaccinated after the Elite 4.
+	; Add a call to question about finding patient zero in Kanto.
+	; Add a call that suggest speaking to Oak after Red dies.
+	; Add a call at the very end that thanks the player for helping.
+	checkevent EVENT_ELMS_AIDE_IN_VIOLET
 	iftrue .discovery
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iffalse .next
-	checkevent EVENT_TOGEPI_HATCHED
-	iftrue .egghatched
-.next
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iftrue .eggunhatched
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue .checkingegg
+	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
+	iftrue .thanks_sample
 	checkevent EVENT_ELM_CALLED_ABOUT_STOLEN_POKEMON
 	iftrue .stolen
-	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
+	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
 	iftrue .sawmrpokemon
 	farwritetext ElmPhoneHealYourMonText
 	end
@@ -27,27 +24,18 @@ ElmPhoneCalleeScript:
 	farwritetext ElmPhonePokemonStolenText
 	end
 
-.checkingegg
-	farwritetext ElmPhoneCheckingTheEggText
-	end
-
-.eggunhatched
-	farwritetext ElmPhoneHowIsTheEggText
-	end
-
-.egghatched
-	farwritetext ElmPhoneEggHatchedText
-	setevent EVENT_TOLD_ELM_ABOUT_TOGEPI_OVER_THE_PHONE
+.thanks_sample
+	farwritetext ElmPhoneThanksSampleText
 	end
 
 .discovery
 	random 2
 	ifequal 0, .nextdiscovery
-	farwritetext ElmPhoneDiscoveredHatchTimeText
+	farwritetext ElmPhonePokerusMutationText
 	end
 
 .nextdiscovery
-	farwritetext ElmPhoneInvestigatingEggMovesText
+	farwritetext ElmPhoneBallsPermeableToVirusText
 	end
 
 .pokerus

@@ -64,7 +64,7 @@ Script_BattleRoomClosed:
 	end
 
 LinkReceptionistScript_Trade:
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
 	iffalse Script_TradeCenterClosed
 	opentext
 	writetext Text_TradeReceptionistIntro
@@ -174,7 +174,7 @@ BattleTradeMobile_WalkIn:
 	end
 
 LinkReceptionistScript_Battle:
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
 	iffalse Script_BattleRoomClosed
 	opentext
 	writetext Text_BattleReceptionistIntro

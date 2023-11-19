@@ -28,7 +28,7 @@ ElmPhonePokemonStolenText:
 	line "do that?"
 	done
 
-ElmPhoneCheckingTheEggText:
+ElmPhoneThanksSampleText:
 	text "Hello, <PLAY_G>?"
 
 	para "I'm making a lot"
@@ -38,29 +38,7 @@ ElmPhoneCheckingTheEggText:
 	cont "you brought me."
 	done
 
-ElmPhoneHowIsTheEggText:
-	text "Hello, <PLAY_G>?"
-
-	para "How's the EGG? Has"
-	line "anything changed?"
-
-	para "If anything hap-"
-	line "pens, please call."
-	done
-
-ElmPhoneEggHatchedText:
-	text "Hello, <PLAY_G>?"
-	line "How is the EGG?"
-
-	para "What? It hatched?"
-	line "Wow! What kind of"
-	cont "#MON is it?"
-
-	para "Please come show"
-	line "me now!"
-	done
-
-ElmPhoneDiscoveredHatchTimeText:
+ElmPhonePokerusMutationText:
 	text "Hello, <PLAY_G>?"
 
 	para "I just made a new"
@@ -74,7 +52,7 @@ ElmPhoneDiscoveredHatchTimeText:
 	cont "#MON virus."
 	done
 
-ElmPhoneInvestigatingEggMovesText:
+ElmPhoneBallsPermeableToVirusText:
 	text "Hello, <PLAY_G>?"
 
 	para "I studied the"
@@ -148,24 +126,6 @@ ElmPhoneDisasterText:
 	para "Please get back"
 	line "here now!"
 	done
-
-;ElmPhoneEggAssistantText:
-;	text "Hello, <PLAY_G>? I"
-;	line "want to thank you"
-;
-;	para "for helping my"
-;	line "research."
-;
-;	para "My assistant is at"
-;	line "the #MON CENTER"
-;
-;	para "in VIOLET CITY"
-;	line "with a present"
-;	cont "for you!"
-;
-;	para "Could you talk to"
-;	line "him?"
-;	done
 
 ElmPhonePokemaskBeforeText:
 	text "<PLAY_G>!"

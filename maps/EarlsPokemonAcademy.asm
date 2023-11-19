@@ -16,24 +16,63 @@ AcademyEarl:
 	faceplayer
 	opentext
 	writetext AcademyEarlIntroText
+	promptbutton
+
+	checkevent EVENT_GOT_TOGEPI_EGG
+	iffalse .GiveTogepiEgg
+
+	writetext AcademyEarlIntroText2
 	yesorno
 	iffalse .Part1
+
 	writetext AcademyEarlTeachHowToWinText
 	yesorno
 	iffalse .Done
+
 .Part1:
 	writetext AcademyEarlTeachMoreText
 	yesorno
 	iffalse .Done
+	
 	writetext AcademyEarlTeachHowToRaiseWellText
-	waitbutton
-	closetext
-	end
+	sjump .TextEnd
 
 .Done:
 	writetext AcademyEarlNoMoreToTeachText
+	sjump .TextEnd
+
+.GiveTogepiEgg:
+	writetext AcademyEarlGiveEggText
+	yesorno
+	iffalse .RefusedEgg
+
+	readvar VAR_PARTYCOUNT
+	ifequal PARTY_LENGTH, .PartyFull
+
+	giveegg TOGEPI, EGG_LEVEL
+	getstring STRING_BUFFER_4, .EggName
+	scall .GiveEgg
+	setevent EVENT_GOT_TOGEPI_EGG
+
+	writetext AcademyEarlAfterEggText
+	sjump .TextEnd
+
+.EggName:
+	db "EGG@"
+
+.GiveEgg:
+	jumpstd ReceiveTogepiEggScript
+	
+.RefusedEgg:
+	writetext AcademyEarlRefusedEggText
+	sjump .TextEnd
+
+.PartyFull:
+	writetext AcademyEarlPartyFullText
+.TextEnd
 	waitbutton
 	closetext
+	applymovement EARLSPOKEMONACADEMY_EARL, AcademyEarlSpinMovement
 	end
 
 EarlsPokemonAcademyYoungster1Script:
@@ -352,12 +391,14 @@ AcademyEarlIntroText:
 
 	para "Wonderful are"
 	line "#MON, yes!"
-
+	
 	para "Teach you I will"
 	line "to be a better"
 	cont "trainer!"
+	done
 
-	para "What you want to"
+AcademyEarlIntroText2:
+	text "What you want to"
 	line "know? Want to be"
 	cont "a winner is you?"
 	done
@@ -412,6 +453,47 @@ AcademyEarlNoMoreToTeachText:
 
 	para "Good to #MON"
 	line "you must be!"
+	done
+
+AcademyEarlGiveEggText:
+	text "Each pupil I give"
+	line "an EGG!"
+	
+	para "Good first partner"
+	line "it is to learn"
+	cont "#MON!"
+
+	para "I give you one?"
+	done
+
+AcademyEarlRefusedEggText:
+	text "Learn step after"
+	line "step is important!"
+
+	para "Come take the egg"
+	line "later you can!"
+	done
+
+AcademyEarlPartyFullText:
+	text "First lesson I"
+	line "teach: 6 #MON"
+	
+	para "is maximum you can"
+	line "have on you."
+	
+	para "EGG count as #-"
+	line "MON! Deposit in"
+
+	para "PC at #CENTER"
+	line "you must!"
+	done
+
+AcademyEarlAfterEggText:
+	text "Keep EGG with you"
+	line "until it hatch."
+
+	para "Will become a good"
+	line "friend, me trust!"
 	done
 
 EarlsPokemonAcademyYoungster1Text:

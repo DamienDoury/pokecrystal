@@ -80,74 +80,51 @@ ElmsLab_MapScripts:
 	turnobject PLAYER, RIGHT
 	opentext
 	writetext ElmText_ChooseAPokemon
-	waitbutton
 	setscene SCENE_ELMSLAB_CANT_LEAVE
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 ProfElmScript:
 	faceplayer
 	opentext
+	
 	checkevent EVENT_RED_BEATEN
-	iffalse ElmRedBeaten
+	iftrue ElmRedNotBeaten ; Inversed flag: EVENT_RED_BEATEN is false when Red has been beaten.
 
-ProfElmScript_Back:
+	checkevent EVENT_ELM_MISSION_COMPLETE_SPEECH
+	iffalse ElmFinalSpeech
+
+	checkevent EVENT_REDS_PIKACHU_AVAILABLE
+	iffalse ElmPikachu
+
+ElmRedNotBeaten:
 	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
-	iftrue ElmCheckMasterBall
+	iftrue ElmCheckWorkVisa
+
 	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue ElmGiveTicketScript
-ElmCheckMasterBall:
+	iftrue ElmEncouragesPlayerToGetVaccinatedScript
+
+ElmCheckWorkVisa:
 	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
-	iftrue ElmCheckEverstone
+	iftrue ElmBeforeWorkVisa
+
 	readvar VAR_BADGES
-	ifgreater 7, ElmGiveMasterBallScript
-ElmCheckEverstone:
-	checkevent EVENT_GOT_EVERSTONE_FROM_ELM
-	iftrue ElmScript_CallYou
-	checkevent EVENT_SHOWED_TOGEPI_TO_ELM
-	iftrue ElmGiveEverstoneScript
-	checkevent EVENT_TOLD_ELM_ABOUT_TOGEPI_OVER_THE_PHONE
-	iffalse ElmCheckTogepiEgg
-	setval TOGEPI
-	special FindPartyMonThatSpeciesYourTrainerID
-	iftrue ShowElmTogepiScript
-	setval TOGETIC
-	special FindPartyMonThatSpeciesYourTrainerID
-	iftrue ShowElmTogepiScript
-	writetext ElmThoughtEggHatchedText
-	waitbutton
-	closetext
-	end
+	ifgreater 7, ElmGiveWorkVisaScript
 
-ElmEggHatchedScript:
-	setval TOGEPI
-	special FindPartyMonThatSpeciesYourTrainerID
-	iftrue ShowElmTogepiScript
-	setval TOGETIC
-	special FindPartyMonThatSpeciesYourTrainerID
-	iftrue ShowElmTogepiScript
-	sjump ElmCheckGotEggAgain
+ElmBeforeWorkVisa:
+	;checkevent EVENT_GOT_EVERSTONE_FROM_ELM
+	;iftrue ElmScript_CallYou
 
-ElmCheckTogepiEgg:
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iffalse ElmCheckGotEggAgain
-	checkevent EVENT_TOGEPI_HATCHED
-	iftrue ElmEggHatchedScript
-ElmCheckGotEggAgain:
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE ; why are we checking it again?
-	iftrue ElmWaitingEggHatchScript
-	checkevent EVENT_GOT_HM05_FLASH
-	iftrue ElmAideHasEggScript
-	checkevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
-	iftrue ElmStudyingEggScript
-	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
+	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
+	iftrue ElmFindPatientZeroScript
+
+	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
 	iftrue ElmAfterTheftScript
+
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue ElmDescribesMrPokemonScript
+	
 	writetext ElmText_LetYourMonBattleIt
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 LabTryToLeaveScript:
 	turnobject ELMSLAB_ELM, DOWN
@@ -250,9 +227,7 @@ ChikoritaPokeBallScript:
 
 DidntChooseStarterScript:
 	writetext DidntChooseStarterText
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 ElmDirectionsScript:
 	turnobject PLAYER, UP
@@ -284,25 +259,19 @@ ElmDirectionsScript:
 
 ElmDescribesMrPokemonScript:
 	writetext ElmDescribesMrPokemonText
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 LookAtElmPokeBallScript:
 	opentext
 	writetext ElmPokeBallText
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 ElmsLabHealingMachine:
 	opentext
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .CanHeal
 	writetext ElmsLabHealingMachineText1
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
 .CanHeal:
 	checkflag ENGINE_PLAYER_IS_FEMALE
@@ -336,15 +305,10 @@ ElmsLabHealingMachine_HealParty:
 	closetext
 	end
 
-ElmAfterTheftDoneScript:
-	waitbutton
-	closetext
-	end
-
 ElmAfterTheftScript:
 	writetext ElmAfterTheftText1
 	checkitem MYSTERY_EGG
-	iffalse ElmAfterTheftDoneScript
+	iffalse ElmsLab_EndText
 	promptbutton
 	writetext ElmAfterTheftText2
 	waitbutton
@@ -385,7 +349,7 @@ ElmAfterTheftScript:
 	turnobject PLAYER, UP
 	applymovement ELMSLAB_ELM, ElmsLab_ElmToDefaultPositionMovement2
 	opentext
-	setevent EVENT_GAVE_MYSTERY_EGG_TO_ELM
+	setevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
 	setflag ENGINE_MAIN_MENU_MOBILE_CHOICES
 	setevent EVENT_CATCHING_TUTORIAL_AVAILABLE
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
@@ -401,70 +365,43 @@ ElmAfterTheftScript:
 
 .ElmMissionAccepted:
 	writetext ElmMissionAcceptedText
-	waitbutton
-	closetext
-	end
+	sjump ElmsLab_EndText
 
-ElmStudyingEggScript:
-	writetext ElmStudyingEggText
-	waitbutton
-	closetext
-	end
+ElmFindPatientZeroScript:
+	writetext ElmFindPatientZeroText
+	sjump ElmsLab_EndText
 
-ElmAideHasEggScript:
-	writetext ElmAideHasEggText
-	waitbutton
-	closetext
-	end
+;ElmGiveEverstoneScript:
+;	writetext ElmGiveEverstoneText1
+;	promptbutton
+;	verbosegiveitem EVERSTONE
+;	iffalse ElmScript_NoRoomForEverstone
+;	writetext ElmGiveEverstoneText2
+;	waitbutton
+;	closetext
+;	setevent EVENT_GOT_EVERSTONE_FROM_ELM
+;	end
+;
+;ElmScript_CallYou:
+;	writetext ElmText_CallYou
+;	waitbutton
+;ElmScript_NoRoomForEverstone:
+;	closetext
+;	end
 
-ElmWaitingEggHatchScript:
-	writetext ElmWaitingEggHatchText
-	waitbutton
-	closetext
-	end
-
-ShowElmTogepiScript:
-	writetext ShowElmTogepiText1
-	waitbutton
-	closetext
-	showemote EMOTE_SHOCK, ELMSLAB_ELM, 15
-	setevent EVENT_SHOWED_TOGEPI_TO_ELM
-	opentext
-	writetext ShowElmTogepiText2
-	promptbutton
-	writetext ShowElmTogepiText3
-	promptbutton
-ElmGiveEverstoneScript:
-	writetext ElmGiveEverstoneText1
-	promptbutton
-	verbosegiveitem EVERSTONE
-	iffalse ElmScript_NoRoomForEverstone
-	writetext ElmGiveEverstoneText2
-	waitbutton
-	closetext
-	setevent EVENT_GOT_EVERSTONE_FROM_ELM
-	end
-
-ElmScript_CallYou:
-	writetext ElmText_CallYou
-	waitbutton
-ElmScript_NoRoomForEverstone:
-	closetext
-	end
-
-ElmGiveMasterBallScript:
-	writetext ElmGiveMasterBallText1
+ElmGiveWorkVisaScript:
+	writetext ElmGiveWorkVisaText1
 	promptbutton
 	verbosegiveitem WORK_VISA
 	iffalse .notdone
 	setevent EVENT_GOT_WORK_VISA_FROM_ELM
-	writetext ElmGiveMasterBallText2
+	writetext ElmGiveWorkVisaText2
 	waitbutton
 .notdone
 	closetext
 	end
 
-ElmGiveTicketScript:
+ElmEncouragesPlayerToGetVaccinatedScript:
 	writetext ElmGiveVaccineText1
 	promptbutton
 	closetext
@@ -500,16 +437,7 @@ ElmGiveTicketScript:
 	closetext
 	end
 
-ElmRedBeaten:
-	checkevent EVENT_ELM_MISSION_COMPLETE_SPEECH
-	iffalse .finalSpeech
-
-	checkevent EVENT_REDS_PIKACHU_AVAILABLE
-	iffalse .ElmPikachu
-
-	sjump ProfElmScript_Back
-
-.finalSpeech:
+ElmFinalSpeech:
 	setevent EVENT_ELM_MISSION_COMPLETE_SPEECH
 	writetext ElmFoundPatientZeroText1
 	promptbutton
@@ -550,7 +478,7 @@ ElmRedBeaten:
 	closetext
 	end
 
-.ElmPikachu:
+ElmPikachu:
 	writetext ElmComfortOakText
 	sjump ElmsLab_EndText
 	
@@ -636,9 +564,8 @@ AideScript_ReceiveTheBalls:
 ElmsAideScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iftrue AideScript_AfterTheft
-	checkevent EVENT_GOT_MYSTERY_EGG_FROM_MR_POKEMON
+;	;iftrue AideScript_AfterTheft
+	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
 	iftrue AideScript_TheftTestimony
 	checkflag ENGINE_WEARING_FACE_MASK
 	iftrue AideScript_BetterSafeThanSorry
@@ -840,20 +767,11 @@ ElmsLab_HeadUpMovement:
 	turn_head UP
 	step_end
 
-AfterCyndaquilMovement:
-	step LEFT
-	turn_head UP
-	step_end
-
-AfterTotodileMovement:
-	step LEFT
-	step LEFT
-	turn_head UP
-	step_end
-
 AfterChikoritaMovement:
 	step LEFT
+AfterTotodileMovement:
 	step LEFT
+AfterCyndaquilMovement:
 	step LEFT
 	turn_head UP
 	step_end
@@ -934,7 +852,7 @@ ElmText_AllRighty:
 	para "…"
 	para "…"
 	para "NOW GET OUT YOU"
-	line "MOTHERFUC"
+	line "LITTLE SHI"
 	done
 
 ElmText_ResearchAmbitions:
@@ -1107,9 +1025,9 @@ ElmDescribesMrPokemonText:
 	line "everywhere and"
 	cont "finds rarities."
 
-	para "Too bad they're"
-	line "just rare and"
-	cont "not very useful…"
+	para "Go fetch this"
+	line "PARCEL he got"
+	cont "for me, will you?"
 	done
 
 ElmPokeBallText:
@@ -1345,99 +1263,47 @@ ElmMissionAcceptedText:
 	cont "mom."
 	done
 
-ElmStudyingEggText:
-	text "ELM: Don't give"
-	line "up! Find patient"
-	cont "zero!"
+ElmFindPatientZeroText:
+	text "ELM: Don't give up!"
+	line "Find patient zero!"
 	done
 
-ElmAideHasEggText:
-	text "ELM: <PLAY_G>?"
-	line "Didn't you meet my"
-	cont "assistant?"
-
-	para "He should have met"
-	line "you with a gift"
-
-	para "at VIOLET CITY's"
-	line "#MON CENTER."
-
-	para "You must have just"
-	line "missed him. Try to"
-	cont "catch him there."
-	done
-
-ElmWaitingEggHatchText:
-	text "ELM: Hey, has that"
-	line "EGG changed any?"
-	done
-
-ElmThoughtEggHatchedText:
-	text "<PLAY_G>? I thought"
-	line "the EGG hatched."
-
-	para "Where is the"
-	line "#MON?"
-	done
-
-ShowElmTogepiText1:
-	text "ELM: <PLAY_G>, you"
-	line "look great!"
-	done
-
-ShowElmTogepiText2:
-	text "What?"
-	line "That #MON!?!"
-	done
-
-ShowElmTogepiText3:
-	text "The EGG hatched!"
-	line "I'm so happy you"
-	cont "have a new friend!"
-
-	para "Take good care"
-	line "of TOGEPI! I hope"
-	cont "it will be a good"
-	cont "help in your"
-	cont "journey."
-	done
-
-ElmGiveEverstoneText1:
-	text "Thanks, <PLAY_G>!"
-	line "You're helping"
-
-	para "a lot with the"
-	line "research on COVID."
-
-	para "I want you to have"
-	line "this as a token of"
-	cont "our appreciation."
-	done
-
-ElmGiveEverstoneText2:
-	text "That's an"
-	line "EVERSTONE."
-
-	para "Some species of"
-	line "#MON evolve"
-
-	para "when they grow to"
-	line "certain levels."
-
-	para "A #MON holding"
-	line "the EVERSTONE"
-	cont "won't evolve."
-
-	para "Give it to a #-"
-	line "MON you don't want"
-	cont "to evolve."
-	done
-
-ElmText_CallYou:
-	text "ELM: <PLAY_G>, I'll"
-	line "call you if any-"
-	cont "thing comes up."
-	done
+;ElmGiveEverstoneText1:
+;	text "Thanks, <PLAY_G>!"
+;	line "You're helping"
+;
+;	para "a lot with the"
+;	line "research on COVID."
+;
+;	para "I want you to have"
+;	line "this as a token of"
+;	cont "our appreciation."
+;	done
+;
+;ElmGiveEverstoneText2:
+;	text "That's an"
+;	line "EVERSTONE."
+;
+;	para "Some species of"
+;	line "#MON evolve"
+;
+;	para "when they grow to"
+;	line "certain levels."
+;
+;	para "A #MON holding"
+;	line "the EVERSTONE"
+;	cont "won't evolve."
+;
+;	para "Give it to a #-"
+;	line "MON you don't want"
+;	cont "to evolve."
+;	done
+;
+;ElmText_CallYou:
+;	text "ELM: <PLAY_G>, I'll"
+;	line "call you if any-"
+;	cont "thing comes up."
+;	done
 
 AideText_AfterTheft:
 	text "…sigh… That"
@@ -1453,7 +1319,7 @@ AideText_AfterTheft:
 	line "itself."
 	done
 
-ElmGiveMasterBallText1:
+ElmGiveWorkVisaText1:
 	text "ELM: The rumors"
 	line "say that you won"
 	
@@ -1490,7 +1356,7 @@ ElmGiveMasterBallText1:
 	cont "got you this."
 	done
 
-ElmGiveMasterBallText2:
+ElmGiveWorkVisaText2:
 	text "Those are only"
 	line "given to a"
 	cont "select few."
