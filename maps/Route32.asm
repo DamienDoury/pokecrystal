@@ -58,70 +58,40 @@ Route32_MapScripts:
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; ROUTE32_FRIEDA
 	endcallback
 
-Route32CooltrainerMScript:
+
 	faceplayer
-Route32CooltrainerMContinueScene:
-	opentext
-	checkevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
-	iftrue .GotMiracleSeed
-	checkevent EVENT_GOT_TOGEPI_EGG_FROM_ELMS_AIDE
-	iftrue .GiveMiracleSeed
-	checkevent EVENT_GOT_HM05_FLASH
-	iftrue .GotFlash
-	writetext Route32CooltrainerMText_UnusedSproutTower
-	waitbutton
-	closetext
-	end
-
-.GotFlash:
-	writetext Route32CooltrainerMText_AideIsWaiting
-	waitbutton
-	closetext
-	end
-
-.GiveMiracleSeed:
-	writetext Route32CooltrainerMText_HaveThisSeed
-	promptbutton
-	verbosegiveitem MIRACLE_SEED
-	iffalse .BagFull
-	setevent EVENT_GOT_MIRACLE_SEED_IN_ROUTE_32
-	; fallthrough
-
-.GotMiracleSeed:
-	checkflag ENGINE_ZEPHYRBADGE
-	iffalse .DontHaveZephyrBadge
-	writetext Route32CooltrainerMText_ExperiencesShouldBeUseful
-	waitbutton
-.BagFull:
-	closetext
-	end
-
-.DontHaveZephyrBadge:
-	writetext Route32CooltrainerMText_VioletGym
-	waitbutton
-	closetext
 	end
 
 Route32CooltrainerMStopsYouLeftScene:
 	applymovement ROUTE32_COOLTRAINER_M, Route32_OneStepLeftMovement
-
 Route32CooltrainerMStopsYouScene:
-	turnobject ROUTE32_COOLTRAINER_M, UP
-	turnobject PLAYER, DOWN
+	setlasttalked ROUTE32_COOLTRAINER_M
+Route32CooltrainerMScript:
+	faceplayer
 	opentext
-	writetext Route32CooltrainerMText_WhatsTheHurry
+	writetext Route32CooltrainerMText_WaitUp
 	waitbutton
 	closetext
-	follow PLAYER, ROUTE32_COOLTRAINER_M
-	applymovement PLAYER, Movement_Route32CooltrainerMPushesYouBackToViolet
-	stopfollow
-	turnobject PLAYER, DOWN
-	scall Route32CooltrainerMContinueScene
-	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset1
-	readvar VAR_XCOORD
-	ifgreater 18, .Route32_EndMovement
-	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMReset2
+	pause 2
+	faceobject PLAYER, ROUTE32_COOLTRAINER_M
+	pause 2
+	opentext
+	writetext Route32CooltrainerMText_YouNerd
+	waitbutton
+	closetext
+
+	readvar VAR_YCOORD
+	ifless 10, .player_talked_to_guy
+
+	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMWalkUp3
+	sjump .Route32_EndMovement
+
+.player_talked_to_guy:
+	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMLeftThenWalkUp3
+	applymovement ROUTE32_COOLTRAINER_M, Movement_Route32CooltrainerMLeft4
+
 .Route32_EndMovement:
+	disappear ROUTE32_COOLTRAINER_M
 	end
 
 Route32RoarTMGuyScript:
@@ -142,7 +112,7 @@ Route32RoarTMGuyScript:
 	end
 
 Route32WannaBuyASlowpokeTailTopScript:
-	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMPushesYouBackToViolet
+	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMWalkUp3
 
 Route32WannaBuyASlowpokeTailScript:
 	turnobject ROUTE32_FISHER4, DOWN
@@ -518,51 +488,42 @@ Route32_OneStepLeftMovement:
 	step LEFT
 	step_end
 
-Movement_Route32CooltrainerMPushesYouBackToViolet:
+Movement_Route32CooltrainerMLeftThenWalkUp3:
+	step LEFT
+Movement_Route32CooltrainerMWalkUp3:
 	step UP
+	step UP
+	step UP
+	step_end
+
+Movement_Route32CooltrainerMLeft4:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
 	step_end
 
 Movement_Route32CooltrainerMReset1:
 	step DOWN
 	step_end
 
-Movement_Route32CooltrainerMReset2:
-	step RIGHT
-	step_end
-
-Route32CooltrainerMText_WhatsTheHurry:
+Route32CooltrainerMText_WaitUp:
 	text "Wait up!"
-	line "What's the hurry?"
 	done
 
-Route32CooltrainerMText_AideIsWaiting:
-	text "<PLAYER>, right?"
-	line "Some guy wearing"
+Route32CooltrainerMText_YouNerd:
+	text "You are wearing"
+	line "a face mask!"
 
-	para "glasses was look-"
-	line "ing for you."
+	para "Are you afraid of"
+	line "the propaganda"
+	cont "they show on TV?"
 
-	para "See for yourself."
-	line "He's waiting for"
+	para "Hahahaha!"
+	line "YOU NERD!"
 
-	para "you at the #MON"
-	line "CENTER."
-	done
-
-Route32CooltrainerMText_UnusedSproutTower:
-	text "Have you gone to"
-	line "SPROUT TOWER?"
-
-	para "If you ever visit"
-	line "VIOLET CITY, "
-
-	para "they'll expect you"
-	line "to train there."
-
-	para "That's basic for"
-	line "trainers. Go meet"
-	cont "SAGE LI in SPROUT"
-	cont "TOWER!"
+	para "I gotta go tell"
+	line "my friends!"
 	done
 
 Route32CooltrainerMText_VioletGym:
@@ -931,8 +892,8 @@ Route32_MapEvents:
 	warp_event  6, 79, UNION_CAVE_1F, 4
 
 	def_coord_events
-	coord_event 18,  6, CE_SCENE_ID, SCENE_DEFAULT, Route32CooltrainerMStopsYouLeftScene
-	coord_event 19,  6, CE_SCENE_ID, SCENE_DEFAULT, Route32CooltrainerMStopsYouScene
+	coord_event 18, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouLeftScene
+	coord_event 19, 10, CE_EVENT_FLAG_CLEARED, EVENT_GOT_MOCKED_ON_ROUTE_32, Route32CooltrainerMStopsYouScene
 	coord_event  6, 70, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailTopScript
 	coord_event  6, 71, CE_SCENE_ID, SCENE_ROUTE32_OFFER_SLOWPOKETAIL, Route32WannaBuyASlowpokeTailScript
 
@@ -972,7 +933,7 @@ Route32_MapEvents:
 	object_event  4, 63, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerYoungsterGordon, -1
 	object_event  3, 45, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerCamperRoland, -1
 	object_event 10, 30, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerLiz1, -1
-	object_event 19,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32CooltrainerMScript, -1
+	object_event 19,  8, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, Route32CooltrainerMScript, EVENT_GOT_MOCKED_ON_ROUTE_32
 	object_event 11, 82, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperPeter, -1
 	object_event  6, 69, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SlowpokeTailSalesmanScript, EVENT_SLOWPOKE_WELL_ROCKETS
 	object_event  6, 53, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route32GreatBall, EVENT_ROUTE_32_GREAT_BALL

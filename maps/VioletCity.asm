@@ -178,17 +178,18 @@ VioletElmsAideHorizontalRun:
 
 VioletElmsAideRunningBottom1Script:
 	scall VioletElmsAideCallsPlayer
-	turnobject PLAYER, LEFT
+	turnobject PLAYER, UP
 	moveobject VIOLETCITY_ELMS_AIDE, 12, 26
 	sjump VioletElmsAideVerticalRun
 
 VioletElmsAideRunningBottom2Script:
 	scall VioletElmsAideCallsPlayer
-	turnobject PLAYER, LEFT
+	turnobject PLAYER, UP
 	moveobject VIOLETCITY_ELMS_AIDE, 13, 26
 VioletElmsAideVerticalRun:
 	appear VIOLETCITY_ELMS_AIDE
 	applymovement VIOLETCITY_ELMS_AIDE, VioletCityElmsAideDown
+	turnobject PLAYER, LEFT
 	
 VioletElmsAideSpeech:
 	setevent EVENT_ELMS_AIDE_IN_VIOLET
