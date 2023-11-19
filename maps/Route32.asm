@@ -509,8 +509,13 @@ Route32CooltrainerMText_YouNerd:
 
 	para "Are you afraid of"
 	line "the propaganda"
-	cont "they spread on TV?"
 
+	para "they spread in"
+	line "the news?"
+
+	para "Hahaha!"
+	line "You're so gullible!"
+	
 	para "Hahahaha!"
 	line "YOU NERD!"
 
