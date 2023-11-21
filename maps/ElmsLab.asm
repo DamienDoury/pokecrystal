@@ -96,6 +96,10 @@ ProfElmScript:
 	checkevent EVENT_REDS_PIKACHU_AVAILABLE
 	iffalse ElmPikachu
 
+	; Final Elm text.
+	writetext ElmFinalText
+	sjump ElmsLab_EndText
+
 ElmRedNotBeaten:
 	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue ElmCheckWorkVisa
@@ -111,9 +115,30 @@ ElmCheckWorkVisa:
 	ifgreater 7, ElmGiveWorkVisaScript
 
 ElmBeforeWorkVisa:
-	;checkevent EVENT_GOT_EVERSTONE_FROM_ELM
-	;iftrue ElmScript_CallYou
+	checkevent EVENT_LOCKDOWN_MART_RUSH
+	iffalse ElmMartRush
 
+	readmem wCurFreedomState
+	ifequal 1 << VACCINE_PASSPORT, ElmVaccinePassport
+
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse ElmBeforeFirstLockdown
+
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iffalse ElmBeforeFirstCurfew
+
+	readmem wCurFreedomState
+	ifnotequal 1 << FREE, ElmBeforeFirstCurfew
+
+	writetext ElmCurfewDayVisitText
+	sjump ElmsLab_EndText
+
+ElmBeforeFirstCurfew:
+	readmem wCurFreedomState
+	ifequal 1 << CURFEW, ElmIllegalToBeHere
+	ifequal 1 << LOCKDOWN, ElmIllegalToBeHere
+
+ElmBeforeFirstLockdown:
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
 	iftrue ElmFindPatientZeroScript
 
@@ -124,6 +149,20 @@ ElmBeforeWorkVisa:
 	iftrue ElmDescribesMrPokemonScript
 	
 	writetext ElmText_LetYourMonBattleIt
+	sjump ElmsLab_EndText
+
+ElmMartRush:
+	writetext ElmLockdownAnnouncementText
+	sjump ElmsLab_EndText
+
+ElmIllegalToBeHere:
+	showemote EMOTE_QUESTION, ELMSLAB_ELM, 15
+	pause 2
+	writetext ElmLockdownCurfewVisitText
+	sjump ElmsLab_EndText
+
+ElmVaccinePassport:
+	writetext ElmVaccinePassportText
 	sjump ElmsLab_EndText
 
 LabTryToLeaveScript:
@@ -371,24 +410,6 @@ ElmFindPatientZeroScript:
 	writetext ElmFindPatientZeroText
 	sjump ElmsLab_EndText
 
-;ElmGiveEverstoneScript:
-;	writetext ElmGiveEverstoneText1
-;	promptbutton
-;	verbosegiveitem EVERSTONE
-;	iffalse ElmScript_NoRoomForEverstone
-;	writetext ElmGiveEverstoneText2
-;	waitbutton
-;	closetext
-;	setevent EVENT_GOT_EVERSTONE_FROM_ELM
-;	end
-;
-;ElmScript_CallYou:
-;	writetext ElmText_CallYou
-;	waitbutton
-;ElmScript_NoRoomForEverstone:
-;	closetext
-;	end
-
 ElmGiveWorkVisaScript:
 	writetext ElmGiveWorkVisaText1
 	promptbutton
@@ -402,6 +423,9 @@ ElmGiveWorkVisaScript:
 	end
 
 ElmEncouragesPlayerToGetVaccinatedScript:
+	checkevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
+	iftrue ElmCheckWorkVisa ; We're going back.
+
 	writetext ElmGiveVaccineText1
 	promptbutton
 	closetext
@@ -1268,42 +1292,111 @@ ElmFindPatientZeroText:
 	line "Find patient zero!"
 	done
 
-;ElmGiveEverstoneText1:
-;	text "Thanks, <PLAY_G>!"
-;	line "You're helping"
-;
-;	para "a lot with the"
-;	line "research on COVID."
-;
-;	para "I want you to have"
-;	line "this as a token of"
-;	cont "our appreciation."
-;	done
-;
-;ElmGiveEverstoneText2:
-;	text "That's an"
-;	line "EVERSTONE."
-;
-;	para "Some species of"
-;	line "#MON evolve"
-;
-;	para "when they grow to"
-;	line "certain levels."
-;
-;	para "A #MON holding"
-;	line "the EVERSTONE"
-;	cont "won't evolve."
-;
-;	para "Give it to a #-"
-;	line "MON you don't want"
-;	cont "to evolve."
-;	done
-;
-;ElmText_CallYou:
-;	text "ELM: <PLAY_G>, I'll"
-;	line "call you if any-"
-;	cont "thing comes up."
-;	done
+ElmLockdownAnnouncementText:
+	text "ELM: Everyone"
+	line "is panicking"
+	cont "right now…"
+
+	para "The lockdown may"
+	line "feel like a harsh"
+
+	para "measure, but it's"
+	line "the single most"
+
+	para "effective one"
+	line "we know of…"
+
+	para "It is necessary."
+
+	para "Otherwise our"
+	line "healthcare system"
+
+	para "will get saturated"
+	line "within a few days."
+	done
+
+ElmLockdownCurfewVisitText:
+	text "ELM: <PLAYER>?"
+
+	para "It's illegal for"
+	line "you to be here!"
+
+	para "You should be home"
+	line "with your mom."
+
+	para "In the current"
+	line "situation, I can't"
+
+	para "ask you to search"
+	line "for patient zero."
+
+	para "But I can't stop"
+	line "you either…"
+
+	para "Just be careful."
+	done
+
+ElmVaccinePassportText:
+	text "ELM: With the"
+	line "widespread use of"
+
+	para "the VACCINE PASS-"
+	line "PORT, the pandemic"
+	
+	para "sure looks close"
+	line "to its end."
+
+	para "But we must not"
+	line "reduce our efforts"
+
+	para "until this virus"
+	line "has been totally"
+	cont "eradicated."
+	done
+
+ElmCurfewDayVisitText:
+	text "ELM: Welcome back"
+	line "<PLAYER>!"
+	
+	para "With the curfew in"
+	line "place, you can"
+	
+	para "freely roam the"
+	line "outside world"
+	
+	para "once again, this"
+	line "is nice."
+
+	para "But don't lower"
+	line "your guard!"
+
+	para "The virus keeps"
+	line "spreading and"
+	
+	para "this situation"
+	line "could backfire!"
+
+	para "Though I must"
+	line "admit that the"
+	
+	para "lockdown has taken"
+	line "a toll on people's"
+
+	para "mental health. So"
+	line "maybe the curfew"
+
+	para "is an acceptable"
+	line "compromise."
+	done
+
+ElmFinalText:
+	text "ELM: Mission"
+	line "succeeded!"
+
+	para "Thank you for"
+	line "your help against"
+	cont "COVID-19!"
+	done
 
 AideText_AfterTheft:
 	text "…sigh… That"

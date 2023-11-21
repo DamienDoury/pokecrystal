@@ -782,7 +782,7 @@ GoldenrodCityMarketRush2Text:
 GoldenrodCityMarketRush3Text:
 	text "People say the"
 	line "DEPT.STORE is al-"
-	cont "most out of goods."
+	cont "most out of goods…"
 	done
 
 GoldenrodCityMarketRush4Text:

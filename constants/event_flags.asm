@@ -93,7 +93,7 @@
 	const EVENT_GOT_TM50_NIGHTMARE
 	const_skip
 	const_skip
-	const EVENT_GOT_EVERSTONE_FROM_ELM
+	const_skip
 	const EVENT_GOT_QUICK_CLAW
 	const EVENT_GOT_TM10_HIDDEN_POWER
 	const EVENT_GOT_TM36_SLUDGE_BOMB
