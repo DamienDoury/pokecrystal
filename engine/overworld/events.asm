@@ -523,13 +523,12 @@ InteractWithObj:
 	ld a, [hl]
 	and %00001111
 
-; Bug: If IsInArray returns nc, data at bc will be executed as code.
 	push bc
 	ld de, 3
 	ld hl, ObjectEventTypeArray
 	call IsInArray
-	jr nc, .nope
 	pop bc
+	jr nc, .nope
 
 	inc hl
 	ld a, [hli]
@@ -538,7 +537,6 @@ InteractWithObj:
 	jp hl
 
 .nope
-	; pop bc
 	xor a
 	ret
 
