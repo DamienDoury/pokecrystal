@@ -145,10 +145,7 @@ ElmBeforeFirstLockdown:
 	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
 	iftrue ElmAfterTheftScript
 
-	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
-	iftrue ElmDescribesMrPokemonScript
-	
-	writetext ElmText_LetYourMonBattleIt
+	writetext ElmDescribesMrPokemonText
 	sjump ElmsLab_EndText
 
 ElmMartRush:
@@ -294,11 +291,7 @@ ElmDirectionsScript:
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
 	setscene SCENE_ELMSLAB_NOTHING
-	end
-
-ElmDescribesMrPokemonScript:
-	writetext ElmDescribesMrPokemonText
-	sjump ElmsLab_EndText
+	end	
 
 LookAtElmPokeBallScript:
 	opentext
@@ -943,12 +936,6 @@ ElmText_ChooseAPokemon:
 	cont "partner, <PLAY_G>."
 
 	para "Go on. Pick one!"
-	done
-
-ElmText_LetYourMonBattleIt:
-	text "If a wild #MON"
-	line "appears, let your"
-	cont "#MON battle it!"
 	done
 
 LabWhereGoingText:
