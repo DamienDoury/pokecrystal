@@ -279,3 +279,48 @@ ElmPhoneGotAholdOfSomethingNeatText:
 
 	para "See you later!"
 	done
+
+ElmPhoneHospital1Text:
+	text "Hello <PLAY_G>."
+	line "You are close by"
+
+	para "GOLDENROD NATIONAL"
+	line "HOSPITAL?"
+	
+	para "It is my colleague"
+	line "and good friend"
+	
+	para "CHIEF NURSE JOY"
+	line "who runs it!"
+
+	para "In a way, she's"
+	line "taking care of"
+	
+	para "#MON just like"
+	line "her parents do at"
+	
+	para "the DAY CARE, but"
+	line "at a larger scale."
+
+	para "Her daughter didn't"
+	line "follow the same"
+	
+	para "path, but she's got"
+	line "the same taste in"
+	
+	para "#MON as her"
+	line "mother haha!"
+	done
+
+ElmPhoneHospital2Text:
+	text "Anyway, if patient"
+	line "zero was in her"
+	
+	para "hospital, she"
+	line "would've told me."
+	done
+
+ElmPhoneSayHiToHerText:
+	text "Say hi to her for"
+	line "me, will you?"
+	done

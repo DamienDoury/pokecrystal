@@ -5,6 +5,15 @@ ElmPhoneCalleeScript:
 	; Add a call to question about finding patient zero in Kanto.
 	; Add a call that suggest speaking to Oak after Red dies.
 	; Add a call at the very end that thanks the player for helping.
+	readmem wMapGroup
+	ifnotequal GROUP_GOLDENROD_CITY, .next_checks
+
+	readmem wMapNumber
+	ifnotequal MAP_GOLDENROD_CITY, .next_checks
+
+	sjump .hospital
+
+.next_checks
 	checkevent EVENT_ELMS_AIDE_IN_VIOLET
 	iftrue .discovery
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
@@ -41,6 +50,20 @@ ElmPhoneCalleeScript:
 .pokerus
 	farwritetext ElmPhoneDiscoveredPokerusText
 	specialphonecall SPECIALCALL_NONE
+	end
+
+.hospital
+	farwritetext ElmPhoneHospital1Text
+	promptbutton
+
+	checkevent EVENT_RED_BEATEN
+	iffalse .hospital_end
+
+	farwritetext ElmPhoneHospital2Text
+	promptbutton
+
+.hospital_end
+	farwritetext ElmPhoneSayHiToHerText
 	end
 
 ElmPhoneCallerScript:
