@@ -98,6 +98,8 @@ ProfElmScript:
 
 	; Final Elm text.
 	writetext ElmFinalText
+	promptbutton
+	writetext ElmFinalText2
 	sjump ElmsLab_EndText
 
 ElmRedNotBeaten:
@@ -1379,8 +1381,10 @@ ElmCurfewDayVisitText:
 ElmFinalText:
 	text "ELM: Mission"
 	line "succeeded!"
+	done
 
-	para "Thank you for"
+ElmFinalText2::
+	text "Thank you for"
 	line "your help against"
 	cont "COVID-19!"
 	done

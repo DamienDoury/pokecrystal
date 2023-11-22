@@ -1,10 +1,6 @@
 ElmPhoneCalleeScript:
 	readvar VAR_SPECIALPHONECALL
 	ifequal SPECIALCALL_POKERUS, .pokerus
-	; Add a call to suggest getting vaccinated after the Elite 4.
-	; Add a call to question about finding patient zero in Kanto.
-	; Add a call that suggest speaking to Oak after Red dies.
-	; Add a call at the very end that thanks the player for helping.
 	readmem wMapGroup
 	ifnotequal GROUP_GOLDENROD_CITY, .next_checks
 
@@ -14,6 +10,36 @@ ElmPhoneCalleeScript:
 	sjump .hospital
 
 .next_checks
+	checkevent EVENT_RED_BEATEN
+	iftrue .before_red_beaten
+
+	checkevent EVENT_ELM_MISSION_COMPLETE_SPEECH
+	iftrue .final_call
+
+	farwritetext ElmPhoneMeetMeText
+	end
+
+.before_red_beaten
+	checkevent EVENT_MET_OAK_IN_SAFFRON
+	iffalse .before_kanto
+
+	farwritetext ElmPhoneKantoText
+	end
+
+.before_kanto
+	checkevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
+	iftrue .encourage_first_shot
+
+	readvar VAR_BADGES
+	ifnotequal 8, .not_8_badges
+
+	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
+	iftrue .not_8_badges
+
+	farwritetext ElmPhoneMeetMeText
+	end
+
+.not_8_badges
 	checkevent EVENT_ELMS_AIDE_IN_VIOLET
 	iftrue .discovery
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
@@ -52,6 +78,10 @@ ElmPhoneCalleeScript:
 	specialphonecall SPECIALCALL_NONE
 	end
 
+.encourage_first_shot
+	farwritetext ElmPhoneEncourageFirstShotText
+	end
+
 .hospital
 	farwritetext ElmPhoneHospital1Text
 	promptbutton
@@ -64,6 +94,10 @@ ElmPhoneCalleeScript:
 
 .hospital_end
 	farwritetext ElmPhoneSayHiToHerText
+	end
+
+.final_call:
+	farwritetext ElmFinalText2
 	end
 
 ElmPhoneCallerScript:

@@ -295,7 +295,7 @@ INCLUDE "data/phone/text/vance_caller.asm"
 INCLUDE "data/phone/text/wilton_caller.asm"
 INCLUDE "data/phone/text/kenji_caller.asm"
 INCLUDE "data/phone/text/parry_caller.asm"
-INCLUDE "data/phone/text/erin_caller.asm"
+INCLUDE "data/phone/text/elm.asm"
 
 
 SECTION "bank20", ROMX
@@ -609,6 +609,8 @@ INCLUDE "data/phone/text/todd_caller.asm"
 INCLUDE "data/phone/text/gina_caller.asm"
 INCLUDE "data/phone/text/hospital_caller.asm"
 INCLUDE "data/phone/text/creator_caller.asm"
+INCLUDE "data/phone/text/erin_caller.asm"
+
 
 SECTION "UpdateBattleHUDs", ROMX
 
@@ -646,7 +648,6 @@ SECTION "Special Phone Text", ROMX
 
 INCLUDE "data/phone/text/mom.asm"
 INCLUDE "data/phone/text/bill.asm"
-INCLUDE "data/phone/text/elm.asm"
 INCLUDE "data/phone/text/jack_callee.asm"
 INCLUDE "data/phone/text/beverly_callee.asm"
 INCLUDE "data/phone/text/huey_callee.asm"

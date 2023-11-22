@@ -324,3 +324,38 @@ ElmPhoneSayHiToHerText:
 	text "Say hi to her for"
 	line "me, will you?"
 	done
+
+ElmPhoneMeetMeText:
+	text "Hello, <PLAY_G>."
+
+	para "Come meet me"
+	line "at the lab."
+	done
+
+ElmPhoneEncourageFirstShotText:
+	text "Hi <PLAYER>!"
+	line "Have you decided"
+
+	para "if you want to get"
+	line "vaccinated by"
+
+	para "CHIEF NURSE JOY?"
+	line "Let me know."
+	done
+
+ElmPhoneKantoText:
+	text "Oh hi <PLAYER>!"
+	
+	para "PROF.OAK said you"
+	line "arrived in KANTO."
+
+	para "It matters less"
+	line "and less, but…"
+
+	para "Any luck finding"
+	line "patient zero over"
+
+	para "there? I'm still"
+	line "curious. Keep me"
+	cont "informed!"
+	done
