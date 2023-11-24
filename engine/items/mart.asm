@@ -207,12 +207,27 @@ StandardMart:
 .HowMayIHelpYou:
 	call LoadStandardMenuHeader
 
+	push de
+	ld b, CHECK_FLAG
+	ld de, EVENT_EXPLAIN_SHORTAGE_MECHANICS
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .shortage_explanation_skipped
+
+	ld b, RESET_FLAG
+	ld de, EVENT_EXPLAIN_SHORTAGE_MECHANICS
+	call EventFlagAction
+
+	ld hl, ShortageExplanationText
+	jr .welcome_message_found
+
+.shortage_explanation_skipped
 	ld a, [wShortageInCurrentMart]
 	cp FALSE
 	ld hl, MartWelcomeText
 	jr z, .welcome_message_found
 
-	push de
 	call Random
 	and %11
 	add a
@@ -223,9 +238,9 @@ StandardMart:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	pop de
-
+	
 .welcome_message_found
+	pop de
 	call PrintText
 	ld a, STANDARDMART_TOPMENU
 	ret
@@ -998,6 +1013,10 @@ MartSellPriceText:
 
 MartWelcomeText:
 	text_far _MartWelcomeText
+	text_end
+
+ShortageExplanationText:
+	text_far _ShortageExplanationText
 	text_end
 
 MartShortageWelcomeTextList:

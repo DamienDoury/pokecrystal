@@ -633,6 +633,43 @@ _MartWelcomeText::
 	line "help you?"
 	done
 
+_ShortageExplanationText::
+	text "Hello, dear"
+	line "customer!"
+
+	para "As you can tell by"
+	line "the look of my"
+
+	para "shelves, there is"
+	line "a significant"
+	cont "shortage."
+
+	para "The sudden rush"
+	line "of customers,"
+	
+	para "the closure of"
+	line "the borders,"
+	
+	para "and the decrease"
+	line "of the workforce"
+	cont "all lead to this."
+
+	para "If you don't find"
+	line "what you want here"
+	
+	para "you can try an-"
+	line "other #MART,"
+	
+	para "or come back"
+	line "tomorrow as I may"
+
+	para "get a new"
+	line "delivery."
+
+	para "Let's see if I have"
+	line "anything you need."
+	done
+
 _MartDoMyBest1Text::
 	text "I'll help you as"
 	line "much as I can."

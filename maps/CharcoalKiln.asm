@@ -65,6 +65,7 @@ LockdownFirstDeclaration:
 	turnobject CHARCOALKILN_YOUNGSTER, LEFT
 	applymovement PLAYER, CharcoalKiln_PlayerToCornerMovement
 	clearevent EVENT_LOCKDOWN_MART_RUSH
+	setevent EVENT_EXPLAIN_SHORTAGE_MECHANICS
 	pause 60
 	opentext
 	writetext CharcoalKiln_YoungsterReactionText

@@ -226,6 +226,7 @@ NewBadgeObedienceNotification:
 	end
 
 .obey100
+	clearevent EVENT_EXPLAIN_SHORTAGE_MECHANICS
 	specialphonecall SPECIALCALL_WORK_VISA
 
 	farwritetext Obey100
