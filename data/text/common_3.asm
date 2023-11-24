@@ -654,6 +654,10 @@ _ShortageExplanationText::
 	line "of the workforce"
 	cont "all lead to this."
 
+	para "My supply is limi-"
+	line "ted and prices"
+	cont "have gone up."
+
 	para "If you don't find"
 	line "what you want here"
 	
@@ -754,7 +758,7 @@ _MartEmptyStock3Text::
 	prompt
 
 _MartEmptyStock4Text::
-	text "Come tomorrow,"
+	text "Come back tomorrow"
 	line "after I restock."
 	prompt
 
