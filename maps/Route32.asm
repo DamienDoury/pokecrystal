@@ -112,9 +112,9 @@ Route32WannaBuyASlowpokeTailScript:
 	sjump _OfferToSellSlowpokeTail
 
 SlowpokeTailSalesmanScript:
-	setevent EVENT_ROUTE_32_SLOWPOKE_TAIL
 	faceplayer
 _OfferToSellSlowpokeTail:
+	setevent EVENT_ROUTE_32_SLOWPOKE_TAIL
 	opentext
 	writetext Text_MillionDollarSlowpokeTail
 	yesorno
