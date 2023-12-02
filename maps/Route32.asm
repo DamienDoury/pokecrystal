@@ -480,19 +480,16 @@ Route32_OneStepLeftMovement:
 	step LEFT
 	step_end
 
+Movement_Route32CooltrainerMLeft4:
+	step UP
+	step LEFT
+	step LEFT
 Movement_Route32CooltrainerMLeftThenWalkUp3:
 	step LEFT
 Movement_Route32CooltrainerMWalkUp3:
 	step UP
 	step UP
 	step UP
-	step_end
-
-Movement_Route32CooltrainerMLeft4:
-	step LEFT
-	step LEFT
-	step LEFT
-	step LEFT
 	step_end
 
 Movement_Route32CooltrainerMReset1:

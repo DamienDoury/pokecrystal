@@ -246,7 +246,12 @@ VioletElmsAideSpeech:
 
 VioletElmsAideDelivery:
 	promptbutton
-	writetext VioletCityElmsAide_GiveThingText
+	writetext VioletCityElmsAide_GiveMaskText
+
+	setflag ENGINE_WEARING_FACE_MASK
+	playsound SFX_ITEM
+	waitsfx
+
 	promptbutton
 	writetext VioletCityElmsAide_ByeText
 	waitbutton
@@ -610,10 +615,15 @@ VioletCityElmsAide_DontBeatFalknerText:
 	cont "PROF.ELM."
 	done
 
-VioletCityElmsAide_GiveThingText:
+VioletCityElmsAide_GiveMaskText:
 	text "I was sent after"
-	line "you to equip"
-	cont "you with this."
+	line "you, because ELM"
+	
+	para "wants you to wear"
+	line "this from now on."
+
+	para "<PLAYER> put on"
+	line "a FACE MASK!"
 	done
 
 VioletCityElmsAide_ByeText:	
