@@ -7315,7 +7315,7 @@ GiveExperiencePoints:
 	jp z, .next_mon ; didn't take part in the battle.
 
 ; give stat exp
-	ld hl, MON_STAT_EXP + 1
+	ld hl, MON_STAT_EXP
 	add hl, bc
 	ld d, h
 	ld e, l
@@ -7324,50 +7324,36 @@ GiveExperiencePoints:
 	ld c, NUM_EXP_STATS
 .stat_exp_loop
 	inc hl
+	push bc
+
+	push hl
+	ld l, [hl]
+	ld h, 0
+	add hl, hl ; Doubles the gained Stat Exp.
 	ld a, [de]
-	add a
-	add [hl]
+	ld b, a
+	inc de
+	ld a, [de]
+	ld c, a
+	add hl, bc ; 16 bits addition, for easier carry management.
+	ld b, h
+	ld a, l
+	pop hl
+
+	jr nc, .award_stat_exp
+
+	ld a, $ff ; Max out the Stat Exp.
+	ld b, a   ; Max out the Stat Exp.
+
+.award_stat_exp
 	ld [de], a
-	jr nc, .no_carry_stat_exp
 	dec de
-	ld a, [de]
-	inc a
-	jr z, .stat_exp_maxed_out
+	ld a, b
 	ld [de], a
 	inc de
+	inc de ; DE is now pointing onto the next Stat Exp.
 
-.no_carry_stat_exp
-	;push hl
-	;push bc
-	;ld a, MON_PKRUS
-	;call GetPartyParamLocation
-	;ld a, [hl]
-	;and a
-	;pop bc
-	;pop hl
-	;jr z, .stat_exp_awarded
-	ld a, [de]
-	add a
-	add [hl]
-	ld [de], a
-	jr nc, .stat_exp_awarded
-	dec de
-	ld a, [de]
-	inc a
-	jr z, .stat_exp_maxed_out
-	ld [de], a
-	inc de
-	jr .stat_exp_awarded
-
-.stat_exp_maxed_out
-	ld a, $ff
-	ld [de], a
-	inc de
-	ld [de], a
-
-.stat_exp_awarded
-	inc de
-	inc de
+	pop bc
 	dec c
 	jr nz, .stat_exp_loop	
 
