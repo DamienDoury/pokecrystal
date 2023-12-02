@@ -63,7 +63,7 @@ PrintMoveFullDescription:
 	ld a, BANK(Moves)
 	call GetFarByte
 	cp EFFECT_ALWAYS_HIT
-	jr z, .perfect_accuracy
+	jr nc, .perfect_accuracy
 
 	inc hl
 	inc hl
