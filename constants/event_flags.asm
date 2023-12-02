@@ -91,7 +91,7 @@
 	const EVENT_GAVE_KENYA
 	const EVENT_GOT_HP_UP_FROM_RANDY
 	const EVENT_GOT_TM50_NIGHTMARE
-	const_skip
+	const EVENT_GOT_HAND_SANITIZER
 	const_skip
 	const_skip
 	const EVENT_GOT_QUICK_CLAW

@@ -15,6 +15,15 @@
 PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_HAND_SANITIZER
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .clean_hands
+
+
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .male_text
@@ -28,10 +37,10 @@ PokemonCenterPC:
 .display_sanitizer_text
 	call PC_DisplayText
 	call PC_PlaySanitizerSound
-	push bc
 	ld c, 75
 	call DelayFrames
-	pop bc
+
+.clean_hands
 	call PC_PlayBootSound
 	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText

@@ -4,24 +4,20 @@ CeladonMansion2F_MapScripts:
 	def_callbacks
 
 CeladonMansion2FComputer:
+	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleHandWash
-	writetext CeladonMansionWashHandsMaleText
-	promptbutton
-	closetext
+	farwritetext _PlayersPCSanitizerText
 	sjump .boops
 
 .FemaleHandWash:
-	writetext WashHandsFemaleText
-	promptbutton
-	closetext
+	farwritetext _PlayersPCSanitizerFemaleText
 
 .boops:
 	waitsfx
 	playsound SFX_2_BOOPS
 	waitsfx
 	pause 10
-	opentext
 	writetext CeladonMansion2FComputerText
 	waitbutton
 	closetext
@@ -31,14 +27,6 @@ CeladonMansion2FMeetingRoomSign:
 
 CeladonMansion2FBookshelf:
 	jumpstd DifficultBookshelfScript
-
-CeladonMansionWashHandsMaleText:
-	text_far _PlayersPCSanitizerText
-	text_end
-
-CeladonMansionWashHandsFemaleText:
-	text_far _PlayersPCSanitizerFemaleText
-	text_end
 
 CeladonMansion2FComputerText:
 	text "<PLAYER> turned on"

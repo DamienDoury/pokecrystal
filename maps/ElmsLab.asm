@@ -304,24 +304,30 @@ ElmsLabHealingMachine:
 	opentext
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .CanHeal
+
 	writetext ElmsLabHealingMachineText1
 	sjump ElmsLab_EndText
 
 .CanHeal:
+	checkevent EVENT_GOT_HAND_SANITIZER
+	iffalse .HandsAreClean
+
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleHandWash
-	writetext WashHandsMaleText
-	sjump .HealEnd
+
+	farwritetext _PlayersPCSanitizerText
+	sjump .CleaningSound
 
 .FemaleHandWash:
-	writetext WashHandsFemaleText
+	farwritetext _PlayersPCSanitizerFemaleText
 
-.HealEnd:
-	promptbutton
-	closetext
+.CleaningSound:
+	waitsfx
 	playsound SFX_2_BOOPS
-	pause 30
-	opentext
+	waitsfx
+	pause 10
+
+.HandsAreClean:
 	writetext ElmsLabHealingMachineText2
 	yesorno
 	iftrue ElmsLabHealingMachine_HealParty
@@ -565,11 +571,12 @@ AideScript_GiveYouBalls:
 	giveitem POKE_BALL, 5
 	itemnotify
 
-	; Face mask.
-	writetext AideText_GiveYouFaceMask
-	setflag ENGINE_WEARING_FACE_MASK
+	; Hand sanitizer.
+	writetext AideText_GiveYouHandSanitizer
+	setevent EVENT_GOT_HAND_SANITIZER
 	playsound SFX_ITEM
 	waitsfx
+
 	writetext AideText_BetterSafeThanSorry
 	waitbutton
 	closetext
@@ -1017,10 +1024,7 @@ ElmDirectionsText2:
 	cont "viruses I'm afraid…"
 
 	para "Feel free to use"
-	line "it anytime, but"
-	cont "please, wash your"
-	cont "hands before"
-	cont "using it."
+	line "it anytime."
 	done
 
 ElmDirectionsText3:
@@ -1048,14 +1052,6 @@ ElmPokeBallText:
 	line "#MON caught by"
 	cont "PROF.ELM."
 	done
-
-WashHandsMaleText:
-	text_far _PlayersPCSanitizerText
-	text_end
-
-WashHandsFemaleText:
-	text_far _PlayersPCSanitizerFemaleText
-	text_end
 
 ElmsLabHealingMachineText1:
 	text "I wonder what this"
@@ -1758,12 +1754,13 @@ ElmFoundPatientZeroText3:
 	line "for everything!"
 	done
 
-AideText_GiveYouFaceMask:
-	text "I also want you"
-	line "to put this on."
+AideText_GiveYouHandSanitizer:
+	text "I also want you to"
+	line "keep clean hands"
+	cont "at all times."
 
-	para "<PLAYER> puts on"
-	line "a FACE MASK!"
+	para "<PLAYER> got some"
+	line "HAND SANITIZER!"
 	done
 
 AideText_AlwaysBusy:
