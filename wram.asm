@@ -2983,7 +2983,10 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 32
+	ds 30
+
+wJohtoAddLevel:: db
+wKantoAddLevel:: db
 
 ; fight counts have all been removed by Damien (28 bytes spared) thanks to the tutorials.
 
