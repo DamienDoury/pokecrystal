@@ -164,7 +164,7 @@ ReadTrainerPartyPieces:
 	push bc
 	push hl
 
-	ld hl, wBadges ; Johto badges.
+	ld hl, wJohtoAddLevel
 	ld a, [wMapGroup]
 	cp GROUP_ROUTE_27 ; Special case for the path to the victory road (Route 26 & 27), which should be considered from Johto for the purpose of the level curve.
 	jr z, .region_determined
@@ -173,13 +173,9 @@ ReadTrainerPartyPieces:
 	and a
 	jr z, .region_determined
 
-	inc hl ; Kanto badges.
+	inc hl ; wKantoAddLevel.
 .region_determined
-	ld b, 1
-	call CountSetBits ; Returns the number of badges from this region in C.
-
-	ld a, 3 ; Trainers Pokémons gain 3 levels per badges from the same region.
-	call SimpleMultiply ; Performs A*C, and returns the result in A.
+	ld a, [hl]
 
 	pop hl
 	pop bc
