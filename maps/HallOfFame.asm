@@ -41,6 +41,7 @@ HallOfFame_MapScripts:
 	iftrue .SkipPhoneCall
 	readmem wHallOfFameCount
 	ifgreater 0, .SkipPhoneCall
+	loadmem wJohtoAddLevel, 24
 	setflag ENGINE_DISPLAY_YEAR_AT_START
 	specialphonecall SPECIALCALL_SSTICKET
 .SkipPhoneCall:

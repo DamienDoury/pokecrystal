@@ -17,8 +17,10 @@ MountMortarB1FKiyoScript:
 	opentext
 	checkevent EVENT_GOT_TYROGUE_FROM_KIYO
 	iftrue .GotTyrogue
+
 	checkevent EVENT_BEAT_BLACKBELT_KIYO
 	iftrue .BeatKiyo
+
 	writetext MountMortarB1FKiyoIntroText
 	waitbutton
 	closetext
@@ -28,6 +30,14 @@ MountMortarB1FKiyoScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BLACKBELT_KIYO
 	opentext
+
+	readmem wHallOfFameCount
+	ifgreater 0, .BeatKiyo
+
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+
 .BeatKiyo:
 	writetext MountMortarB1FTyrogueRewardText
 	promptbutton

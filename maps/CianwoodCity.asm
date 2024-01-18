@@ -19,11 +19,19 @@ CianwoodCity_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .FlyPointAndSuicune
 
 .FlyPointAndSuicune:
+	checkflag ENGINE_FLYPOINT_CIANWOOD
+	iftrue .FlyPointSequel
+
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+
+	setflag ENGINE_FLYPOINT_CIANWOOD
+.FlyPointSequel
 	checkevent EVENT_MANIA_TOOK_SHUCKIE_OR_LET_YOU_KEEP_HIM
 	iftrue .continue
 	setevent EVENT_GAVE_SHUCKIE_BACK
-.continue
-	setflag ENGINE_FLYPOINT_CIANWOOD
+.continue	
 	setevent EVENT_EUSINE_IN_BURNED_TOWER
 	checkevent EVENT_FOUGHT_EUSINE
 	iffalse .Done

@@ -315,6 +315,18 @@ Route45MaxPotion:
 Route45HiddenPpUp:
 	hiddenitem PP_UP, EVENT_ROUTE_45_HIDDEN_PP_UP
 
+Route45LevelIncrease:
+	setevent EVENT_ROUTE_45_LVL_INCREASE
+
+	readmem wHallOfFameCount
+	ifgreater 0, .end
+
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.end
+	end
+
 HikerErikSeenText:
 	text "Be prepared for"
 	line "anything!"
@@ -530,6 +542,10 @@ Route45_MapEvents:
 	warp_event  2,  3, DARK_CAVE_BLACKTHORN_ENTRANCE, 1
 
 	def_coord_events
+	coord_event  4, 74, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_45_LVL_INCREASE, Route45LevelIncrease
+	coord_event  5, 74, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_45_LVL_INCREASE, Route45LevelIncrease
+	coord_event 10, 82, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_45_LVL_INCREASE, Route45LevelIncrease
+	coord_event 11, 82, CE_EVENT_FLAG_CLEARED, EVENT_ROUTE_45_LVL_INCREASE, Route45LevelIncrease
 
 	def_bg_events
 	bg_event 10,  2, BGEVENT_READ, Route45Sign

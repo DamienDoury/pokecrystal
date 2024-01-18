@@ -14,6 +14,14 @@ OlivineCity_MapScripts:
 	callback MAPCALLBACK_TILES, .TilesLoad
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_OLIVINE
+	iftrue .FlyPointSequel
+
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+
+.FlyPointSequel
 	setflag ENGINE_FLYPOINT_OLIVINE
 	checkevent EVENT_POKEMASK_CALL_RECEIVED
 	iftrue .end

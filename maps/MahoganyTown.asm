@@ -12,7 +12,14 @@ MahoganyTown_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_MAHOGANY
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_MAHOGANY
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.endcallback
 	endcallback
 
 MahoganyTownGrampsScript:

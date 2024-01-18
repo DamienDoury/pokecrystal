@@ -103,6 +103,11 @@ RadioTower5FRocketBossScene:
 	disappear RADIOTOWER5F_ROCKET_GIRL
 	pause 15
 	special FadeInQuickly
+	
+	readmem wJohtoAddLevel
+	addval 2
+	writemem wJohtoAddLevel
+
 	setevent EVENT_GOLDENROD_ILLEGAL_CASINO
 	setevent EVENT_GOLDENROD_BEATER
 	setevent EVENT_BEAT_ROCKET_EXECUTIVEM_1

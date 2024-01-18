@@ -661,7 +661,9 @@
 	const EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 	const EVENT_FOUGHT_MOLTRES
 	const EVENT_FOUGHT_ARTICUNO
-; Unused: next 124 events
+
+	const EVENT_ROUTE_45_LVL_INCREASE
+; Unused: next 123 events
 
 	const_next 1000
 ; Trainer flags

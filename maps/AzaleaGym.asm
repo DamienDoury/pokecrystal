@@ -218,11 +218,19 @@ AzaleaGymStatue:
 
 NewBadgeObedienceNotification:
 	readvar VAR_BADGES
+	ifgreater 8, .end
+	
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+
+	readvar VAR_BADGES
 	ifequal 8, .obey100
 	ifequal 7, .obey60
 	ifequal 5, .obey50
 	ifequal 3, .obey40
 	ifequal 1, .obey30
+.end
 	end
 
 .obey100

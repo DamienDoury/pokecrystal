@@ -33,7 +33,14 @@ LakeOfRage_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .Wesley
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_LAKE_OF_RAGE
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_LAKE_OF_RAGE
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.endcallback
 	endcallback
 
 .Wesley:

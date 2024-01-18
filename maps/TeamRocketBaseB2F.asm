@@ -280,6 +280,11 @@ RocketBaseElectrodeScript:
 	opentext
 	writetext RocketBaseLanceElectrodeDoneText
 	promptbutton
+
+	readmem wJohtoAddLevel
+	addval 2
+	writemem wJohtoAddLevel
+
 	verbosegiveitem HM_STRENGTH
 	setevent EVENT_GOT_HM04_STRENGTH
 	writetext RocketBaseLanceStrengthText

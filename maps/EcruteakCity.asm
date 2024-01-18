@@ -46,7 +46,14 @@ EcruteakCity_MapScripts:
 	endcallback
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_ECRUTEAK
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_ECRUTEAK
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.endcallback
 	endcallback
 
 EcruteakCityGramps1Script:

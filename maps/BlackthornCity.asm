@@ -35,8 +35,14 @@ BlackthornCity_MapScripts:
 	end
 
 .FlyPoint:
-	setflag ENGINE_FLYPOINT_BLACKTHORN
+	checkflag ENGINE_FLYPOINT_BLACKTHORN
+	iftrue .FlyPointSequel
 
+	setflag ENGINE_FLYPOINT_BLACKTHORN
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.FlyPointSequel
 	readvar VAR_YCOORD
 	ifgreater 4, .EndCallback
 

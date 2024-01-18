@@ -40,6 +40,10 @@ OlivineLighthouseJasmine:
 	promptbutton
 	writetext JasminePleaseHelpText
 
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+
 .SkipSurf:
 	waitbutton
 	closetext

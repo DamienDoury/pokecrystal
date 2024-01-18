@@ -5,7 +5,14 @@ Route23_MapScripts:
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_INDIGO_PLATEAU
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_INDIGO_PLATEAU
+	readmem wJohtoAddLevel
+	addval 1
+	writemem wJohtoAddLevel
+.endcallback
 	endcallback
 
 IndigoPlateauSign:
