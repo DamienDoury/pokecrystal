@@ -104,7 +104,7 @@ Route32RoarTMGuyScript:
 	end
 
 Route32WannaBuyASlowpokeTailTopScript:
-	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMWalkUp3
+	applymovement ROUTE32_FISHER4, Movement_Route32CooltrainerMWalkUp
 
 Route32WannaBuyASlowpokeTailScript:
 	turnobject ROUTE32_FISHER4, DOWN
@@ -489,6 +489,7 @@ Movement_Route32CooltrainerMLeftThenWalkUp3:
 Movement_Route32CooltrainerMWalkUp3:
 	step UP
 	step UP
+Movement_Route32CooltrainerMWalkUp:
 	step UP
 	step_end
 
