@@ -208,10 +208,9 @@ GentlemanAlfredAfterBattleAfterPCRText:
 
 	para "Then if your"
 	line "#MON has done"
-	cont "a PCR test,"
-	
-	para "you should ask"
-	line "her."
+
+	para "a PCR test, you"
+	line "could ask her."
 	done
 
 SailorHueyGiveProteinText:

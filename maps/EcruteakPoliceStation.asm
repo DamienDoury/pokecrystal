@@ -87,9 +87,8 @@ EcruteakPoliceStationOutfitText:
 	done
 
 EcruteakPoliceStationBriefingText1:
-	text "We've got so"
-	line "much to do"
-	cont "these days…"
+	text "We've got so much"
+	line "to do these days…"
 	done
 
 EcruteakPoliceStationBriefingText2:
