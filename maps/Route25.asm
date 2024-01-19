@@ -17,11 +17,19 @@ Route25_MapScripts:
 
 	def_callbacks
 
-Route25MistyDate1Script:
+Route25MistyDateStartScript:
 	showemote EMOTE_HEART, ROUTE25_MISTY, 40 ; Damien
 	pause 15 ; Damien
 	showemote EMOTE_SHOCK, ROUTE25_RED, 15 ; Damien
 	turnobject ROUTE25_MISTY, DOWN
+
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+	end
+
+Route25MistyDate1Script:
+	scall Route25MistyDateStartScript
 	applymovement ROUTE25_RED, Route25MistysDateLeavesMovement1 ; Damien
 	disappear ROUTE25_RED ; Damien
 	pause 20 ; Damien
@@ -46,10 +54,7 @@ Route25MistyDate1Script:
 	end
 
 Route25MistyDate2Script:
-	showemote EMOTE_HEART, ROUTE25_MISTY, 40 ; Damien
-	pause 15 ; Damien
-	showemote EMOTE_SHOCK, ROUTE25_RED, 15 ; Damien
-	turnobject ROUTE25_MISTY, DOWN
+	scall Route25MistyDateStartScript
 	applymovement ROUTE25_RED, Route25MistysDateLeavesMovement2 ; Damien
 	disappear ROUTE25_RED ; Damien
 	pause 15 ; Damien
@@ -188,12 +193,9 @@ Route25Protein:
 Route25HiddenPotion:
 	hiddenitem POTION, EVENT_ROUTE_25_HIDDEN_POTION
 
-Route25MistysDateLeavesMovement1:
-	big_step DOWN
-	step_end
-
 Route25MistysDateLeavesMovement2:
 	big_step DOWN
+Route25MistysDateLeavesMovement1:
 	big_step DOWN
 	step_end
 

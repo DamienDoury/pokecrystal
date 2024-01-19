@@ -25,6 +25,7 @@ SeafoamB6FMoltres:
 	startbattle
 	disappear SEAFOAMB6F_MOLTRES
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	end
 
 SeafoamB6F_MapEvents:

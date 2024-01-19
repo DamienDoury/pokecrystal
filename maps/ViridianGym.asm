@@ -19,6 +19,7 @@ ViridianGymBlueScript:
 	loadtrainer BLUE, BLUE1
 	startbattle
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_BLUE
 	opentext
 	writetext Text_ReceivedEarthBadge

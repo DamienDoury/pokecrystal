@@ -67,6 +67,7 @@ MountMoon_MapScripts:
 	disappear MOUNTMOON_SILVER
 	setscene SCENE_FINISHED
 	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
+	farscall AugmentKantoDifficultyLevel
 	playmapmusic
 	end
 

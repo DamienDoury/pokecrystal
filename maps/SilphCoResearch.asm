@@ -276,6 +276,10 @@ SilphCoResearchScientist1Script:
 	end
 
 .training_finished
+    readmem wKantoAddLevel
+	addval 2
+	writemem wKantoAddLevel
+
 	writetext SilphCoResearchScientist1_Case1C_Text
 	waitbutton
 	closetext

@@ -149,6 +149,7 @@ CeruleanGymMistyScript:
 	startbattle
 	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA

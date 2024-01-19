@@ -12,7 +12,15 @@ LavenderTown_MapScripts:
 
 .FlyPoint:
 	setevent EVENT_AMPHY_BURIAL_CEREMONY_IN_PROGRESS
+	
+	checkflag ENGINE_FLYPOINT_LAVENDER
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_LAVENDER
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+.endcallback
 	endcallback
 
 LavenderTownPokefanMScript:

@@ -87,8 +87,19 @@ Route24_TrainerOlly:
 Route24_TrainerSummer:
 	trainer LASS, SUMMER, EVENT_BEAT_NUGGET_BRIDGE_SUMMER, Route24Trainer8SeenText, Route24Trainer8BeatenText, 0, .Script
 .Script:
-	endifjustbattled
-	sjump Route24Couple4Anim
+	readmem wRunningTrainerBattleScript
+	ifequal 0, Route24Couple4Anim
+	; fallthrough.
+
+AugmentKantoDifficultyLevel::
+	checkevent EVENT_RED_BEATEN
+	iffalse .end
+
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+.end
+	end
 
 Route24HiddenPPUp:
 	hiddenitem PP_UP, EVENT_ROUTE_24_HIDDEN_PP_UP

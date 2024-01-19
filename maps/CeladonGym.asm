@@ -132,6 +132,7 @@ CeladonGymErikaScript:
 	loadtrainer ERIKA, ERIKA1
 	startbattle
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_ERIKA
 	setevent EVENT_BEAT_LASS_MICHELLE
 	setevent EVENT_BEAT_PICNICKER_TANYA

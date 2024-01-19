@@ -36,6 +36,7 @@ CeruleanCaveMewtwoScript:
 	disappear CERULEAN_CAVE_MEWTWO_TOP
 	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
 	setevent EVENT_CAUGHT_MEWTWO
+	loadmem wKantoAddLevel, 24
 	reloadmapafterbattle
 .end
 	end

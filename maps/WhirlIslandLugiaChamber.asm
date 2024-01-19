@@ -35,6 +35,7 @@ Lugia:
 	startbattle
 	disappear WHIRLISLANDLUGIACHAMBER_LUGIA
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	end
 
 LugiaText:

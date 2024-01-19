@@ -26,7 +26,14 @@ FuchsiaCity_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .FuchsiaSetup
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_FUCHSIA
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_FUCHSIA
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+.endcallback
 	endcallback
 	
 .TurnOffLights

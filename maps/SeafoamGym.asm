@@ -63,6 +63,7 @@ SeafoamGymBlaineScript:
 	appear SEAFOAMGYM_GYM_GUIDE
 .ReturnAfterBattle:
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_BLAINE
 	opentext
 	writetext ReceivedVolcanoBadgeText

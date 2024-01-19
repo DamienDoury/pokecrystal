@@ -21,7 +21,14 @@ CinnabarIsland_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .FlyPoint:
+	checkflag ENGINE_FLYPOINT_CINNABAR
+	iftrue .endcallback
+
 	setflag ENGINE_FLYPOINT_CINNABAR
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+.endcallback
 	endcallback
 
 .RaveParty:

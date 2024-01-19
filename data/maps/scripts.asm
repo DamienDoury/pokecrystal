@@ -321,7 +321,6 @@ INCLUDE "maps/CharcoalKiln.asm"
 INCLUDE "maps/KurtsHouse.asm"
 INCLUDE "maps/AzaleaGym.asm"
 INCLUDE "maps/FuchsiaGym.asm"
-INCLUDE "maps/TohjoFalls.asm"
 
 
 SECTION "Map Scripts 17", ROMX
@@ -373,6 +372,7 @@ INCLUDE "maps/Route31VioletGate.asm"
 
 SECTION "Map Scripts 19", ROMX
 
+INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/CherrygroveMart.asm"
 INCLUDE "maps/Route15FuchsiaGate.asm"
 INCLUDE "maps/AzaleaTown.asm"

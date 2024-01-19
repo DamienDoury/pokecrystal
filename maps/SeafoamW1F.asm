@@ -11,8 +11,16 @@ SeafoamW1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .ClearRocks
 
 .ClearRocks:
-	setevent EVENT_CINNABAR_ROCKS_CLEARED
 	clearevent EVENT_BROCK_BACK_IN_GYM
+
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iftrue .endcallback
+
+	setevent EVENT_CINNABAR_ROCKS_CLEARED
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
+.endcallback
 	endcallback
 
 SeafoamW1FBoulder:

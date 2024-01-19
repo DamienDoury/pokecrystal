@@ -94,6 +94,7 @@ FuchsiaGymJanineScript:
 	loadtrainer JANINE, JANINE1
 	startbattle
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_JANINE
 	setevent EVENT_BEAT_LASS_ALICE
 	setevent EVENT_BEAT_LASS_LINDA

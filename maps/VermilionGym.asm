@@ -86,6 +86,7 @@ VermilionGymSurgeScript:
 	loadtrainer LT_SURGE, LT_SURGE1
 	startbattle
 	reloadmapafterbattle
+	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_LTSURGE
 	setevent EVENT_BEAT_GENTLEMAN_GREGORY
 	setevent EVENT_BEAT_GUITARIST_VINCENT

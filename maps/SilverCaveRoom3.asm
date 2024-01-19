@@ -29,6 +29,7 @@ Red:
 	reloadmapafterbattle
 	special FadeOutMusic
 	turnobject SILVERCAVEROOM3_RED, DOWN
+	loadmem wKantoAddLevel, 22
 	opentext
 	writetext RedLeavesText
 	waitbutton

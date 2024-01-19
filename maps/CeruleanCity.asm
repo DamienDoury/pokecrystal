@@ -19,7 +19,14 @@ CeruleanCity_MapScripts:
 .FlyPoint:	
 	readvar VAR_YCOORD
 	ifgreater 30, .end
+	
+	checkflag ENGINE_FLYPOINT_CERULEAN
+	iftrue .end
+
 	setflag ENGINE_FLYPOINT_CERULEAN
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
 .end
 	endcallback
 
