@@ -391,24 +391,19 @@ BeautyValerieAfterBattleText:
 	done
 
 SailorHarrySeenText:
-	text "I've been over-"
-	line "seas, so I know"
-
-	para "about all sorts of"
-	line "#MON!"
+	text "WOOPER is love."
+	line "WOOPER is life."
 	done
 
 SailorHarryBeatenText:
-	text "Your skill is"
-	line "world class!"
+	text "The Woop fell."
+	line "I'm devastated."
 	done
 
 SailorHarryAfterBattleText:
-	text "All kinds of peo-"
-	line "ple around the"
-
-	para "world live happily"
-	line "with #MON."
+	text "Remember this tip:"
+	line "WOOPER is the"
+	cont "best #MON."
 	done
 
 BeautyOliviaSeenText:
