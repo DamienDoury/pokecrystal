@@ -10,6 +10,7 @@ OlivinePokecenter1F_MapScripts:
 	def_callbacks
 
 OlivinePokecenter1FNurseScript:
+	clearevent EVENT_RED_BEATEN
 	jumpstd PokecenterNurseScript
 
 OlivinePokecenter1FFishingGuruScript:

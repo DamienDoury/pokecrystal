@@ -108,6 +108,9 @@ Script_WalkToBattleTowerElevator:
 	setmapscene BATTLE_TOWER_HALLWAY, SCENE_DEFAULT
 	follow BATTLETOWER1F_RECEPTIONIST, PLAYER
 	applymovement BATTLETOWER1F_RECEPTIONIST, MovementData_BattleTower1FWalkToElevator
+	stopfollow
+	disappear BATTLETOWER1F_RECEPTIONIST
+	applymovement PLAYER, MovementData_BattleTower1FPlayerWalksToElevator
 	setval BATTLETOWERACTION_0A
 	special BattleTowerAction
 	warpsound
@@ -268,12 +271,29 @@ MovementData_BattleTower1FWalkToElevator:
 	step UP
 	step UP
 	step UP
+MovementData_BattleTower1FPlayerWalksToElevator:
 MovementData_BattleTowerHallwayPlayerEntersBattleRoom:
 	step UP
 	step_end
 
-MovementData_BattleTowerElevatorExitElevator:
+MovementData_BattleTowerElevatorReceptionistExitsElevator:
 	step DOWN
+	step LEFT
+	turn_head DOWN
+	step_end
+
+MovementData_BattleTowerHallwayRightRooms:
+	step RIGHT
+	step RIGHT
+	step UP
+	step UP
+	step_end
+
+MovementData_BattleTowerHallwayLeftRooms:
+	step LEFT
+	step LEFT
+	step UP
+	step UP
 	step_end
 
 MovementData_BattleTowerHallwayWalkTo1020Room:
@@ -281,8 +301,6 @@ MovementData_BattleTowerHallwayWalkTo1020Room:
 	step RIGHT
 MovementData_BattleTowerHallwayWalkTo3040Room:
 	step RIGHT
-	step RIGHT
-	step UP
 	step RIGHT
 	turn_head LEFT
 	step_end
@@ -296,21 +314,21 @@ MovementData_BattleTowerHallwayWalkTo7080Room:
 MovementData_BattleTowerHallwayWalkTo5060Room:
 	step LEFT
 	step LEFT
-	step UP
-	step LEFT
 	turn_head RIGHT
 	step_end
 
 MovementData_BattleTowerBattleRoomPlayerWalksIn:
 	step UP
 	step UP
-	step UP
+	step LEFT
 	step UP
 	turn_head RIGHT
 	step_end
 
 MovementData_BattleTowerBattleRoomOpponentWalksIn:
 	slow_step DOWN
+	slow_step DOWN
+	slow_step RIGHT
 	slow_step DOWN
 	slow_step DOWN
 	turn_head LEFT
@@ -336,6 +354,10 @@ MovementData_BattleTowerBattleRoomReceptionistWalksAway:
 	slow_step LEFT
 	slow_step LEFT
 	turn_head RIGHT
+	step_end
+
+MovementData_BattleTowerElevatorPlayerExitsElevator:
+	step DOWN
 	step_end
 
 MovementData_BattleTowerBattleRoomPlayerTurnsToFaceReceptionist:

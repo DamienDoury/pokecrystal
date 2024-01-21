@@ -85,14 +85,14 @@ Script_DontSaveAndEndTheSession:
 	special BattleTowerAction
 	closetext
 	special FadeOutPalettes
-	warpfacing UP, BATTLE_TOWER_1F, 7, 7
+	warpfacing UP, BATTLE_TOWER_1F, 7, 8
 	opentext
 	sjump Script_BattleTowerHopeToServeYouAgain
 
 Script_FailedBattleTowerChallenge:
 	pause 60
 	special BattleTowerFade
-	warpfacing UP, BATTLE_TOWER_1F, 7, 7
+	warpfacing UP, BATTLE_TOWER_1F, 7, 8
 	setval BATTLETOWERACTION_CHALLENGECANCELED
 	special BattleTowerAction
 	opentext
@@ -104,37 +104,11 @@ Script_FailedBattleTowerChallenge:
 Script_BeatenAllTrainers:
 	pause 60
 	special BattleTowerFade
-	warpfacing UP, BATTLE_TOWER_1F, 7, 7
+	warpfacing UP, BATTLE_TOWER_1F, 7, 8
 Script_BeatenAllTrainers2:
 	opentext
 	writetext Text_CongratulationsYouveBeatenAllTheTrainers
 	sjump Script_GivePlayerHisPrize
-
-Script_TooMuchTimeElapsedNoRegister: ; unreferenced
-	setval BATTLETOWERACTION_CHALLENGECANCELED
-	special BattleTowerAction
-	opentext
-	writetext Text_TooMuchTimeElapsedNoRegister
-	waitbutton
-	closetext
-	end
-
-Script_ChallengeCanceled: ; unreferenced
-	setval BATTLETOWERACTION_CHALLENGECANCELED
-	special BattleTowerAction
-	setval BATTLETOWERACTION_06
-	special BattleTowerAction
-	opentext
-	writetext Text_ThanksForVisiting
-	writetext Text_WeHopeToServeYouAgain
-	waitbutton
-	closetext
-	end
-
-Text_ReturnedAfterSave_Mobile: ; unreferenced
-	text "You'll be returned"
-	line "after you SAVE."
-	done
 
 BattleTowerBattleRoom_MapEvents:
 	db 0, 0 ; filler

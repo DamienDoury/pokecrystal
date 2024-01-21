@@ -15,29 +15,21 @@ BattleTowerElevator_MapScripts:
 	end
 
 .RideElevator:
-	follow BATTLETOWERELEVATOR_RECEPTIONIST, PLAYER
-	applymovement BATTLETOWERELEVATOR_RECEPTIONIST, MovementData_BattleTowerElevatorReceptionistWalksIn
 	applymovement PLAYER, MovementData_BattleTowerElevatorPlayerWalksIn
 	setval BATTLETOWERACTION_0A
 	special BattleTowerAction
 	playsound SFX_ELEVATOR
 	earthquake 60
 	waitsfx
-	follow BATTLETOWERELEVATOR_RECEPTIONIST, PLAYER
-	applymovement BATTLETOWERELEVATOR_RECEPTIONIST, MovementData_BattleTowerElevatorExitElevator
-	stopfollow
+	applymovement BATTLETOWERELEVATOR_RECEPTIONIST, MovementData_BattleTowerElevatorReceptionistExitsElevator
 	warpsound
 	disappear BATTLETOWERELEVATOR_RECEPTIONIST
-	applymovement PLAYER, MovementData_BattleTowerElevatorExitElevator
+	applymovement PLAYER, MovementData_BattleTowerElevatorPlayerExitsElevator
 	warpcheck
 	end
 
-MovementData_BattleTowerElevatorReceptionistWalksIn:
-	step RIGHT
-	turn_head DOWN
-	step_end
-
 MovementData_BattleTowerElevatorPlayerWalksIn:
+	step UP
 	turn_head DOWN
 	step_end
 
@@ -53,4 +45,4 @@ BattleTowerElevator_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  1,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MovementData_BattleTowerElevatorReceptionistWalksIn, -1
+	object_event  3,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1

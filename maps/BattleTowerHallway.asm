@@ -15,7 +15,6 @@ BattleTowerHallway_MapScripts:
 	end
 
 .ChooseBattleRoom:
-	follow BATTLETOWERHALLWAY_RECEPTIONIST, PLAYER
 	callasm .asm_load_battle_room
 	sjump .WalkToChosenBattleRoom
 
@@ -36,6 +35,17 @@ BattleTowerHallway_MapScripts:
 ; at least it should look like that
 ; because all warps lead to the same room
 .WalkToChosenBattleRoom:
+	ifgreater 4, .LeftRooms
+
+	applymovement BATTLETOWERHALLWAY_RECEPTIONIST, MovementData_BattleTowerHallwayRightRooms
+	sjump .RoomList
+
+.LeftRooms:
+	applymovement BATTLETOWERHALLWAY_RECEPTIONIST, MovementData_BattleTowerHallwayLeftRooms
+
+.RoomList:
+	follow BATTLETOWERHALLWAY_RECEPTIONIST, PLAYER
+
 	ifequal 3, .L30L40
 	ifequal 4, .L30L40
 	ifequal 5, .L50L60
@@ -90,4 +100,4 @@ BattleTowerHallway_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event 11,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BattleTowerHallway_MapEvents, -1
+	object_event 11,  3, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BattleTowerHallway_MapEvents, -1
