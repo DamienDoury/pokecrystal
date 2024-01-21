@@ -215,6 +215,7 @@ TilesetGateColl::
 INCLUDE "data/tilesets/gate_collision.asm"
 
 TilesetJohtoModernGFX::
+TilesetBattleTowerOutsideGFX::
 INCBIN "gfx/tilesets/johto_modern.2bpp.lz"
 
 TilesetJohtoModernMeta::
@@ -384,6 +385,3 @@ SECTION "Tileset Data 10", ROMX
 
 TilesetKantoWavesColl::
 INCLUDE "data/tilesets/kanto_waves_collision.asm"
-
-TilesetBattleTowerOutsideGFX::
-INCBIN "gfx/tilesets/battle_tower_outside.2bpp.lz"

@@ -372,7 +372,7 @@ GoldenrodHospitalCorridor_MapEvents:
 	bg_event 14,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 	bg_event 15,  8, BGEVENT_READ, GoldenrodHospitalCorridorRoomNumberScript
 
-	bg_event  0,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
+	bg_event  1,  9, BGEVENT_READ, GoldenrodHospitalCorridorGelScript
 	bg_event 19,  7, BGEVENT_ITEM, GoldenrodHospitalCorridorMaxElixer
 
 	def_object_events

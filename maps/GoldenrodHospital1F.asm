@@ -543,7 +543,7 @@ GoldenrodHospitalScannerMaleText:
 	done
 
 GoldenrodHospitalScanFailText:
-	text "FORBIDDEN"
+	text "RESTRICTED"
 	done
 
 GoldenrodHospitalLockText:
@@ -669,10 +669,8 @@ GoldenrodHospital1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event  4,  9, GOLDENROD_CITY, 16
 	warp_event  5,  9, GOLDENROD_CITY, 16
 	warp_event  6,  9, GOLDENROD_CITY, 16
-	warp_event  7,  9, GOLDENROD_CITY, 16
 	warp_event  5,  0, GOLDENROD_HOSPITAL_OFFICE, 1
 	warp_event 19,  6, GOLDENROD_HOSPITAL_CORRIDOR, 1
 	warp_event 19,  7, GOLDENROD_HOSPITAL_CORRIDOR, 2
@@ -680,7 +678,7 @@ GoldenrodHospital1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  8,  9, BGEVENT_READ, GoldenrodHospitalGelScript
+	bg_event  7,  8, BGEVENT_READ, GoldenrodHospitalGelScript
 	bg_event  4,  0, BGEVENT_READ, GoldenrodHospital1FChiefNursePanel
 	bg_event 15,  9, BGEVENT_ITEM, GoldenrodHospital1fMaxPotion
 

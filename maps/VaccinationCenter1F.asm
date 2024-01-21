@@ -341,8 +341,8 @@ VaccinationCenter1F_MapEvents:
     db 0, 0 ; filler
 
     def_warp_events
-	warp_event  2,  7, SAFFRON_CITY, 17
 	warp_event  3,  7, SAFFRON_CITY, 17
+	warp_event  4,  7, SAFFRON_CITY, 17
 	warp_event 10,  0, VACCINATION_CENTER_CORRIDOR, 1
 
     def_coord_events
@@ -363,7 +363,7 @@ VaccinationCenter1F_MapEvents:
 	coord_event 10,  2, CE_SCENE_ID, 2, VaccinationCenterGoToOffice
     
     def_bg_events
-	bg_event  4,  7, BGEVENT_READ, VaccinationCenterGelScript
+	bg_event  5,  6, BGEVENT_READ, VaccinationCenterGelScript
 	bg_event 11,  0, BGEVENT_READ, VaccinationCenter1FScanner
 	bg_event 10,  0, BGEVENT_READ, VaccinationCenterLockScript
 
