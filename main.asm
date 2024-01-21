@@ -717,9 +717,8 @@ endc
 
 SECTION "Battle Tower Text", ROMX
 
-INCLUDE "data/battle_tower/trainer_text.asm"
 INCLUDE "engine/battle/read_trainer_party.asm"
-INCLUDE "engine/battle_anims/pokeball_wobble.asm"
+
 
 SECTION "Battle Tower Trainer Data", ROMX
 
@@ -730,6 +729,8 @@ INCLUDE "data/items/inflated_prices.asm"
 SECTION "Mobile News Data", ROMX
 
 INCLUDE "mobile/news/news.asm"
+INCLUDE "data/battle_tower/trainer_text.asm"
+INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 
 
 SECTION "Crystal Events", ROMX
