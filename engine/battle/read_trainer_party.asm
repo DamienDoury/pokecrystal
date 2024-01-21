@@ -571,7 +571,15 @@ IsFairTrainer:
 	cp CHAMPION
 	jr z, .yes
 
-; no
+	; Karate Master / Kiyo Blackbelt.
+	cp BLACKBELT_T
+	jr nz, .no
+
+	ld a, [wOtherTrainerID]
+	cp KIYO
+	jr z, .yes
+
+.no
 	xor a ; Resets the carry flag.
 	ret
 

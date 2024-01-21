@@ -94,6 +94,9 @@ MountMortarB1FKiyoIntroText:
 	para "You!"
 	line "Battle with me!"
 
+	para "I will use my"
+	line "POWER RESTRAINER."
+
 	para "Hwaaarggh!"
 	done
 
