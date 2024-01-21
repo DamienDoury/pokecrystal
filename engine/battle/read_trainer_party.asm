@@ -571,6 +571,10 @@ IsFairTrainer:
 	cp CHAMPION
 	jr z, .yes
 
+	; Cal (Viridian Trainer Club).
+	cp CAL
+	jr z, .yes
+
 	; Karate Master / Kiyo Blackbelt.
 	cp BLACKBELT_T
 	jr nz, .no
