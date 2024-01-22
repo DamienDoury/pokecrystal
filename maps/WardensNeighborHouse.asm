@@ -8,7 +8,7 @@ WardensNeighborHouse_MapScripts:
 	callback MAPCALLBACK_TILES, .EnterCallback
 
 .EnterCallback:
-	checkevent EVENT_WARDENS_NEIGHBOR_BACK_INTO_HOUSE
+	checkevent EVENT_WARDENS_NEIGHBOR_BOULDER_CLEARED
 	iffalse .OpenFrontDoor
 	endcallback
 

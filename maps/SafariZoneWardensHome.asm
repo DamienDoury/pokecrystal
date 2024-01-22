@@ -105,11 +105,8 @@ WardensGranddaughter:
 	sjump .WaitButton
 
 .CheckBuyPark
-	checkevent EVENT_RED_BEATEN
-	iftrue .DefaultText
-
 	checkitem SAFARI_KEY
-	iftrue .DefaultText
+	iftrue .ThankfulText
 
 	writetext WardensGranddaughter_ForSaleText
 	yesorno
@@ -354,12 +351,16 @@ WardensGranddaughterText:
 	done
 
 WardensGranddaughter_ForSaleText:
-	text "Tourists haven't"
+	text "Hey! You seem to"
+	line "enjoy the SAFARI"
+	cont "ZONE, right?"
+	
+	para "Tourists haven't"
 	line "come back to"
 	cont "FUCHSIA CITY,"
 	
-	para "so no one wants"
-	line "to buy the"
+	para "so I want to"
+	line "get rid of the"
 	cont "SAFARI ZONE."
 	
 	para "I'm selling it"
@@ -367,6 +368,9 @@ WardensGranddaughter_ForSaleText:
 	
 	para "It is very cheap"
 	line "for a business!"
+
+	para "You could have it"
+	line "all for yourself!"
 
 	para "Would you be"
 	line "interested in"
