@@ -199,10 +199,10 @@ TeacherText_MoreChef:
 EatathonContestPosterText:
 	text "SANITARY RULES:"
 
-	para "- Wait in the"
-	line "entrance and wait"
-	cont "for your vacci-"
-	cont "nation pass check."
+	para "- Line up outside"
+	line "and wait for your"
+	cont "vaccination pass"
+	cont "to be checked."
 
 	para "- Wear your face"
 	line "mask at all times"
