@@ -110,6 +110,7 @@ RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
 SECTION "Sprites 3", ROMX
 ShineSpriteGFX::	           INCBIN "gfx/sprites/shine.2bpp"
 ConeSpriteGFX::                INCBIN "gfx/sprites/cone.2bpp"
+SubstituteSpriteGFX::          INCBIN "gfx/sprites/substitute.2bpp"
 SquirtleSquadSpriteGFX::       INCBIN "gfx/sprites/cool_squirtle.2bpp"
 OldAmberSpriteGFX::            INCBIN "gfx/sprites/old_amber.2bpp"
 MewtwoOwTopSpriteGFX::         INCBIN "gfx/sprites/mewtwo_ow_top.2bpp"
