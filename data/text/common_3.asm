@@ -1694,6 +1694,9 @@ _FirstLockdownDeclarationText::
 	cont "self-made written"
 	cont "attestation."
 
+	para "Wearing a face"
+	line "mask is mandatory."
+
 	para "There will be"
 	line "police controls."
 
