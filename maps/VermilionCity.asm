@@ -57,6 +57,9 @@ VermilionSnorlax:
 	startbattle
 	disappear VERMILIONCITY_BIG_SNORLAX
 	setevent EVENT_FOUGHT_SNORLAX
+	readmem wKantoAddLevel
+	addval 1
+	writemem wKantoAddLevel
 	reloadmapafterbattle
 	end
 
