@@ -2393,13 +2393,25 @@ FlyMap:
 	ld c, SPAWN_INDIGO
 	call HasVisitedSpawn
 	and a
+	ld c, FLY_INDIGO
+	jr nz, .KantoAllowed
+
+; Second region check.
+	ld c, SPAWN_VERMILION
+	call HasVisitedSpawn
+	and a
 	jr z, .NoKanto
+
+	ld c, FLY_VERMILION
+
+.KantoAllowed
 ; Kanto's map is only loaded if we've visited Indigo Plateau
 	ld a, KANTO_FLYPOINT ; first Kanto flypoint
 	ld [wStartFlypoint], a
 	ld a, NUM_FLYPOINTS - 1 ; last Kanto flypoint
 	ld [wEndFlypoint], a
-	ld [wTownMapPlayerIconLandmark], a ; last one is default (Indigo Plateau)
+	ld a, c ; Retrieving the default Flypoint in Kanto (Indigo disabled to prevent the player from escaping).
+	ld [wTownMapPlayerIconLandmark], a ; Default flypoint.
 ; Fill out the map
 	call FillKantoMap
 	call .MapHud

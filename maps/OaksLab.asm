@@ -49,6 +49,7 @@ Oak:
 	writetext OakOpenMtSilverText
 	promptbutton
 	setevent EVENT_OPENED_MT_SILVER
+	setflag ENGINE_FLYPOINT_INDIGO_PLATEAU ; We allow the player to fly to the Indigo Plateau once again.
 	;setevent EVENT_RED_BEATEN
 	;clearevent EVENT_RED_IN_MT_SILVER ; Now Red will be available only once for battle.
 	sjump .CheckPokedex

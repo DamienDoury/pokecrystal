@@ -84,6 +84,7 @@ FastShip1FSailor1Script:
 	writetext FastShip1FSailor1Text_Saving
 	loadmem wCurFreedomState, 1 << VACCINE_PASSPORT
 	setflag ENGINE_FLYPOINT_VERMILION
+	clearflag ENGINE_FLYPOINT_INDIGO_PLATEAU ; We don't want the player to leave Kanto. This is an ugly method.
 	special BoxLockAfterPowerOutage
 	farwritetext _SavedTheGameText
 	playsound SFX_SAVE
