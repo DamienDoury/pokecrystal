@@ -441,10 +441,6 @@ VermilionPortCaptainText:
 
 	para "The ship can't"
 	line "leave the port."
-
-	para "I'll take the"
-	line "opportunity to"
-	cont "go see my family."
 	done
 
 VermilionPortTruck1Text:
