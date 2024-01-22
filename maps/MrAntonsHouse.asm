@@ -4,8 +4,87 @@ MrAntonsHouse_MapScripts:
     def_scene_scripts
 
     def_callbacks
+    callback MAPCALLBACK_TILES, .EnterCallback
 
-MrAnstonHouseRareCandy:
+.EnterCallback:
+	changeblock  2,  0, $03 ; Regular wall.
+	endcallback
+
+MrAntonsHouseCandyFactory:
+    opentext
+    checkevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
+    iftrue .knowledge
+    writetext MrAntonsHouseCandyFactoryText
+    sjump .sequel
+
+.knowledge
+    writetext MrAntonsHouseCandyFactoryKnowledgeText
+.sequel
+    promptbutton
+    writetext MrAntonsHouseCandyFactorySequelText
+.end
+    waitbutton
+    closetext
+    end
+
+MrAntonsHouseNursePicture:
+    opentext
+    checkevent EVENT_SICK_GENTLEMAN_QUEST_ONGOING
+    iftrue .knowledge
+    writetext MrAntonsHouseNursePictureText
+    sjump .sequel
+
+.knowledge
+    writetext MrAntonsHouseNursePictureKnowledgeText
+.sequel
+    promptbutton
+    writetext MrAntonsHouseNursePictureSequelText
+    sjump MrAntonsHouseCandyFactory.end
+
+MrAntonsHouseCandyFactoryText:
+    text "A picture of a man"
+    line "in his 30s in a"
+    cont "candy factory."
+    done
+
+MrAntonsHouseCandyFactorySequelText: 
+    text "Looks like this"
+    line "famous movie."
+
+    para "He is with a pink-"
+    line "haired woman wear-"
+    cont "ing a white gown."
+
+    para "They are both of"
+    line "the same age."
+    done
+
+MrAntonsHouseCandyFactoryKnowledgeText:
+    text "A picture of a"
+    line "younger MR.ANTON"
+    cont "in a giant candy"
+    cont "factory."
+    done
+
+MrAntonsHouseNursePictureText:
+    text "A picture of an"
+    line "old man wearing a"
+    cont "top hat next to a"
+    done
+    
+MrAntonsHouseNursePictureSequelText:
+    text "pink-haired young-"
+    line "er woman wearing"
+    cont "a white uniform."
+    done
+
+MrAntonsHouseNursePictureKnowledgeText:
+    text "A recent picture"
+    line "of MR.ANTON"
+    cont "sitting next to a"
+    done
+
+MrAntonsHouseRareCandy:
     hiddenitem RARE_CANDY, EVENT_MR_ANTONS_HOUSE_RARE_CANDY
 
     MrAntonsHouse_MapEvents:
@@ -18,6 +97,8 @@ MrAnstonHouseRareCandy:
     def_coord_events
 
     def_bg_events
-	bg_event  7,  7, BGEVENT_ITEM, MrAnstonHouseRareCandy
+	bg_event  9,  7, BGEVENT_ITEM, MrAntonsHouseRareCandy
+	bg_event  7,  0, BGEVENT_READ, MrAntonsHouseCandyFactory
+	bg_event  9,  0, BGEVENT_READ, MrAntonsHouseNursePicture
 
     def_object_events

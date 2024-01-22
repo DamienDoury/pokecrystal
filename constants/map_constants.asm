@@ -505,7 +505,7 @@ ENDM
 	map_const VACCINATION_CENTER_1F,                        8,  4 ; 15
 	map_const VACCINATION_CENTER_CORRIDOR,                  8,  2 ; 16
 	map_const VACCINATION_CENTER_ROOM,                		2,  4 ; 17
-	map_const MR_ANTONS_HOUSE,                				4,  4 ; 18
+	map_const MR_ANTONS_HOUSE,                				5,  4 ; 18
 	map_const SILPHCO_ELEVATOR,                				1,  2 ; 19
 	map_const SILPHCO_RESEARCH,                				8,  4 ; 20
 	endgroup

@@ -142,7 +142,6 @@ CherrygroveGymSpeechHouse_Blocks:
 GuideGentsHouse_Blocks:
 CherrygroveEvolutionSpeechHouse_Blocks:
 Route30BerryHouse_Blocks:
-MrAntonsHouse_Blocks:
 	INCBIN "maps/House1.blk"
 
 SafariZoneFuchsiaGateBeta_Blocks:
@@ -788,6 +787,7 @@ PowerPlant_Blocks:
 PokemonFanClub_Blocks:
 	INCBIN "maps/PokemonFanClub.blk"
 
+MrAntonsHouse_Blocks:
 SafariZoneWardensHome_Blocks:
 	INCBIN "maps/WardensHouse.blk"
 
