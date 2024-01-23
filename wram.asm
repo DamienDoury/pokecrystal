@@ -2865,7 +2865,7 @@ wStatusFlags2::
 ; bit 0: rockets
 ; bit 1: safari game (unused)
 ; bit 2: bug contest timer
-; bit 3: unused
+; bit 3: trainer card possession
 ; bit 4: bike shop call
 ; bit 5: can use sweet scent
 ; bit 6: reached goldenrod

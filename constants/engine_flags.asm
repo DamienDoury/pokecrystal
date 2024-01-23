@@ -94,7 +94,7 @@
 ; wLuckyNumberShowFlag
 	const ENGINE_LUCKY_NUMBER_SHOW
 ; wStatusFlags2
-	const ENGINE_4F
+	const ENGINE_TRAINER_CARD
 ; wDailyFlags1
 	const ENGINE_KURT_MAKING_BALLS
 	const ENGINE_DAILY_BUG_CONTEST

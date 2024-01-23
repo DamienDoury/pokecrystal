@@ -298,6 +298,20 @@ CheckResetWantedLevels::
 
 	jp ResetAllResearchLevels
 
+VaccinePassportControllerChatScript::
+	jumptextfaceplayer .dialog
+
+.dialog
+	text "I scan TRAINER"
+	line "CARDS to check for"
+	cont "VACCINE PASSPORTS."
+
+	para "Only fully vacci-"
+	line "nated people wear-"
+	cont "ing a face mask"
+	cont "are allowed in."
+	done
+
 TravelControllerChatScript::
 	readmem wMap1ObjectTimeOfDay ; Note: the travel controller must always be the first map_object in its map!
 	ifequal %11100000 | DAY | NITE, .morning_pause

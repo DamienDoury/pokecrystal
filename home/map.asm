@@ -1174,6 +1174,9 @@ PoliceTrainer::
 TravelController::
 	farsjump TravelControllerChatScript
 
+VaccinePassportController::
+	farsjump VaccinePassportControllerChatScript
+
 CheckObjectMask::
 	ldh a, [hMapObjectIndex]
 	ld e, a

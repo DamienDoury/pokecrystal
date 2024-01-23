@@ -286,8 +286,12 @@ endr
 	call .AppendMenuList
 .no_pokegear
 
+	ld hl, wStatusFlags2
+	bit STATUSFLAGS2_TRAINER_CARD, [hl]
+	jr z, .no_trainer_card
 	ld a, STARTMENUITEM_STATUS
 	call .AppendMenuList
+.no_trainer_card
 
 	ld a, [wLinkMode]
 	and a

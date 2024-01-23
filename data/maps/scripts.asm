@@ -367,7 +367,6 @@ INCLUDE "maps/CherrygroveGymSpeechHouse.asm"
 INCLUDE "maps/GuideGentsHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
 INCLUDE "maps/MrPokemonsHouse.asm"
-INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 19", ROMX
@@ -385,6 +384,7 @@ INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
+INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 20", ROMX

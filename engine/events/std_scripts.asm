@@ -63,6 +63,7 @@ StdScripts::
 	add_stdscript GymGuidePlayerLeavesScript
 	add_stdscript GymKickPlayerOutAfterEvolution
 	add_stdscript LockdownCurfewClosedDoor
+	add_stdscript VaccinePassCheckpoint
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -944,6 +945,7 @@ InitializeEventsScript:
 	setevent EVENT_BOULDER_IN_SEAFOAM_B6F_ALL
 	setevent EVENT_JASMINE_AT_FUJIS
 	setevent EVENT_TRAVEL_CONTROL
+	setflag ENGINE_TRAINER_CARD
 	endcallback
 
 AskNumber1MScript:
@@ -2388,3 +2390,58 @@ Movement_CianwoodGymGuide:
 Movement_PlayerLeavesBuilding:
 	turn_head DOWN
 	step_end
+
+VaccinePassCheckpoint:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	iffalse .check_passport
+.end
+	end
+
+.check_passport:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+
+	readmem wCurFreedomState
+	ifnotequal 1 << VACCINE_PASSPORT, .end
+
+	prioritysjump .ScanVaccinePassport
+	end
+
+.ScanVaccinePassport:
+
+	pause 3
+	playsound SFX_STOP_SLOT
+	pause 10
+
+	checkflag ENGINE_TRAINER_CARD
+	iftrue .end
+
+	; No vaccine passport.
+	waitsfx
+	pause 3
+	playsound SFX_WRONG; OK sound = SFX_ELEVATOR_END
+	waitsfx
+	pause 5
+	showemote EMOTE_SHOCK, 3, 20
+	pause 3
+	faceobject PLAYER, 3
+	opentext
+	writetext .NoVaccinePassText
+	waitbutton
+	closetext
+
+	turnobject PLAYER, DOWN
+	pause 7
+	farsjump PlayerMovesDownThroughDoor
+
+.NoVaccinePassText:
+	text "My scanner doesn't"
+	line "detect the VACCINE"
+	cont "PASSPORT on your"
+	cont "TRAINER CARD."
+
+	para "Could you please"
+	line "show it to me?"
+
+	para "No? Then you can't"
+	line "come in, sorry."
+	done
