@@ -60,6 +60,12 @@ GoldenrodUndergroundSwitchRoomEntrances_MapScripts:
 	end
 
 .UpdateDoorPositions:
+	readvar VAR_YCOORD
+	ifless 28, .dept_store_checkpoint_done
+
+	loadmem wAvoidedControlCheckpoint, AVOIDED_DEPT_STORE_PASSPORT_CONTROL_CHECKPOINT
+
+.dept_store_checkpoint_done
 	checkevent EVENT_SWITCH_4
 	iffalse .false4
 	doorstate 1, OPEN1

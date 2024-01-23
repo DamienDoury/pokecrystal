@@ -3082,6 +3082,7 @@ wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db
 wGoldenrodHospitalCorridorNumber:: db
+wAvoidedControlCheckpoint:: db ; Goldenrod Dept Store - Vaccine Passport checks.
 
 NEXTU ; 12 bytes.
 wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT

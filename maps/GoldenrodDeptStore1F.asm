@@ -1,6 +1,9 @@
 	object_const_def
 	const GOLDENRODDEPTSTORE1F_RECEPTIONIST
+	const GOLDENRODDEPTSTORE1F_VP_CONTROLLER
 	const GOLDENRODDEPTSTORE1F_GENTLEMAN
+
+AVOIDED_DEPT_STORE_PASSPORT_CONTROL_CHECKPOINT EQU $42
 
 GoldenrodDeptStore1F_MapScripts:
 	def_scene_scripts
@@ -10,25 +13,45 @@ GoldenrodDeptStore1F_MapScripts:
 
 DeptStoreEnterLockdownCheck:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .end
+	iftrue .vaccine_passport_check
 
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	readmem wCurFreedomState
-	ifequal 1 << FREE, .end
-	ifequal 1 << VACCINE_PASSPORT, .end
+	ifequal 1 << FREE, .vaccine_passport_check
+	ifequal 1 << VACCINE_PASSPORT, .vaccine_passport_check
 
 	readvar VAR_XCOORD
-	ifless 15, .end
+	ifless 15, .vaccine_passport_check
 
 	prioritysjump DeptStore_PlayerStepsDown
 
+.vaccine_passport_check
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	
+	readvar VAR_YCOORD
+	ifless 6, .end
+
+	loadmem wAvoidedControlCheckpoint, 0 ; The player went through the security check.
+	jumpstd VaccinePassCheckpoint
 .end
 	end
 
 DeptStore_PlayerStepsDown:
 	applymovement PLAYER, DeptStore_StepDownMovement
 	end
+
+GoldenrodDeptStore_VaccinePassportController:
+	readmem wAvoidedControlCheckpoint
+	ifequal AVOIDED_DEPT_STORE_PASSPORT_CONTROL_CHECKPOINT, .confused
+
+	sjump VaccinePassportController
+
+.confused
+	jumptextfaceplayer GoldenrodDeptStore_VaccinePassportControllerConfused
 
 GoldenrodDeptStore1FReceptionistScript:
 	readmem wCurFreedomState
@@ -131,6 +154,21 @@ DeptStore_FloorClosedText:
 	cont "restrictions.”"
 	done
 
+GoldenrodDeptStore_VaccinePassportControllerConfused:
+	text "I don't recall"
+	line "scanning your"
+	cont "VACCINE PASSPORT."
+
+	para "…"
+
+	para "But it would be"
+	line "rude of me to"
+	cont "ask you twice."
+
+	para "Enjoy shopping at"
+	line "the DEPT.STORE!"
+	done
+
 GoldenrodDeptStore1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -148,5 +186,6 @@ GoldenrodDeptStore1F_MapEvents:
 
 	def_object_events
 	object_event 10,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FReceptionistScript, -1
+	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore_VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event 11,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore1FGentlemanScript, -1
 	object_event 15,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, GoldenrodDeptStore_Lockdown, -1
