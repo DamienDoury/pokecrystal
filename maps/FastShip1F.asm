@@ -83,6 +83,8 @@ FastShip1FSailor1Script:
 .SwapToLocalBox
 	writetext FastShip1FSailor1Text_Saving
 	loadmem wCurFreedomState, 1 << VACCINE_PASSPORT
+	clearevent GOLDENROD_BIKE_SHOP_CLOSED ; The "stay-at-home order" message in the call from the Bike Shop owner would make no sense during the vaccine pass era and after.
+	setevent EVENT_GOLDENROD_ILLEGAL_CASINO ; We prevent the player from illegally entering the casino while the vaccine passport controller is already in the casino.
 	setflag ENGINE_FLYPOINT_VERMILION
 	clearflag ENGINE_FLYPOINT_INDIGO_PLATEAU ; We don't want the player to leave Kanto. This is an ugly method.
 	special BoxLockAfterPowerOutage

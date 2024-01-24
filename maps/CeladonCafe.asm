@@ -1,5 +1,6 @@
 	object_const_def
 	const CELADONCAFE_SUPER_NERD
+	const CELADONCAFE_VP_CONTROLLER
 	const CELADONCAFE_FISHER2
 	const CELADONCAFE_FISHER3
 	const CELADONCAFE_YOUAK
@@ -7,8 +8,12 @@
 
 CeladonCafe_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 CeladonCafeChef:
 	faceplayer
@@ -276,6 +281,7 @@ CeladonCafe_MapEvents:
 
 	def_object_events
 	object_event  9,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CeladonCafeChef, -1
+	object_event  8,  7, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  4,  6, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher2, -1
 	object_event  1,  7, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonCafeFisher3, -1
 	object_event  1,  2, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonCafeYouakScript, -1

@@ -2392,13 +2392,13 @@ Movement_PlayerLeavesBuilding:
 	step_end
 
 VaccinePassCheckpoint:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 	iffalse .check_passport
 .end
 	end
 
 .check_passport:
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 
 	readmem wCurFreedomState
 	ifnotequal 1 << VACCINE_PASSPORT, .end
@@ -2407,6 +2407,7 @@ VaccinePassCheckpoint:
 	end
 
 .ScanVaccinePassport:
+	faceobject 3, PLAYER ; Vaccine Passport Controller NPC must always be at the 2nd slot in the object_events list.
 
 	pause 3
 	playsound SFX_STOP_SLOT

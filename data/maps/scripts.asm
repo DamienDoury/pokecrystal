@@ -103,6 +103,7 @@ INCLUDE "maps/TeamRocketBaseB3F.asm"
 INCLUDE "maps/IlexForest.asm"
 INCLUDE "maps/CeladonCafe.asm"
 INCLUDE "maps/Route12SuperRodHouse.asm"
+INCLUDE "maps/Route8SaffronGate.asm"
 
 
 SECTION "Map Scripts 7", ROMX
@@ -129,7 +130,6 @@ INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Ga
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
 INCLUDE "maps/Route5SaffronGate.asm"
-INCLUDE "maps/Route8SaffronGate.asm"
 
 
 SECTION "Map Scripts 8", ROMX

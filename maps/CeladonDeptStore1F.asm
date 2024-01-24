@@ -1,12 +1,17 @@
 	object_const_def
 	const CELADONDEPTSTORE1F_RECEPTIONIST
+	const CELADONDEPTSTORE1F_VP_CONTROLLER
 	const CELADONDEPTSTORE1F_GENTLEMAN
 	const CELADONDEPTSTORE1F_TEACHER
 
 CeladonDeptStore1F_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 CeladonDeptStore1FReceptionistScript:
 	jumptextfaceplayer CeladonDeptStore1FReceptionistText
@@ -88,5 +93,6 @@ CeladonDeptStore1F_MapEvents:
 
 	def_object_events
 	object_event 10,  1, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore1FReceptionistScript, -1
+	object_event  7,  5, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event 11,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore1FGentlemanScript, -1
 	object_event  5,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonDeptStore1FTeacherScript, -1

@@ -1,13 +1,18 @@
 	object_const_def
 	const SAFFRONMAGNETTRAINSTATION_OFFICER
+	const SAFFRONMAGNETTRAINSTATION_VP_CONTROLLER
 	const SAFFRONMAGNETTRAINSTATION_GYM_GUIDE
 	const SAFFRONMAGNETTRAINSTATION_TEACHER
 	const SAFFRONMAGNETTRAINSTATION_LASS
 
 SaffronMagnetTrainStation_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 SaffronMagnetTrainStationOfficerScript:
 	faceplayer
@@ -238,6 +243,7 @@ SaffronMagnetTrainStation_MapEvents:
 
 	def_object_events
 	object_event  9,  9, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronMagnetTrainStationOfficerScript, -1
+	object_event  7, 17, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event 10, 14, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronMagnetTrainStationGymGuideScript, -1
 	object_event  6, 11, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SaffronMagnetTrainStationTeacherScript, EVENT_SAFFRON_TRAIN_STATION_POPULATION
 	object_event  6, 10, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, SaffronMagnetTrainStationLassScript, EVENT_SAFFRON_TRAIN_STATION_POPULATION

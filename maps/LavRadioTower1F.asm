@@ -1,5 +1,6 @@
 	object_const_def
 	const LAVRADIOTOWER1F_RECEPTIONIST
+	const LAVRADIOTOWER1F_VP_CONTROLLER
 	const LAVRADIOTOWER1F_OFFICER
 	const LAVRADIOTOWER1F_SUPER_NERD1
 	const LAVRADIOTOWER1F_GENTLEMAN
@@ -7,8 +8,12 @@
 
 LavRadioTower1F_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 LavRadioTower1FReceptionistScript:
 	jumptextfaceplayer LavRadioTower1FReceptionistText
@@ -256,6 +261,7 @@ LavRadioTower1F_MapEvents:
 
 	def_object_events
 	object_event  6,  6, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavRadioTower1FReceptionistScript, -1
+	object_event  0,  7, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event 15,  1, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, LavRadioTower1FOfficerScript, -1
 	object_event  1,  3, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LavRadioTower1FSuperNerd1Script, -1
 	object_event  9,  1, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, LavRadioTower1FGentlemanScript, -1

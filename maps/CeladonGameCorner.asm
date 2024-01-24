@@ -1,5 +1,6 @@
 	object_const_def
 	const CELADONGAMECORNER_CLERK
+	const CELADONGAMECORNER_VP_CONTROLLER
 	const CELADONGAMECORNER_RECEPTIONIST
 	const CELADONGAMECORNER_POKEFAN_M
 	const CELADONGAMECORNER_TEACHER
@@ -11,8 +12,12 @@
 
 CeladonGameCorner_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 CeladonGameCornerClerkScript:
 	jumpstd GameCornerCoinVendorScript
@@ -357,6 +362,7 @@ CeladonGameCorner_MapEvents:
 
 	def_object_events
 	object_event  5,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerClerkScript, -1
+	object_event 12, 13, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  3,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerReceptionistScript, -1
 	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerPokefanMScript, -1
 	object_event 17,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerTeacherScript, -1

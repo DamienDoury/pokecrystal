@@ -836,10 +836,10 @@ GoldenrodHospitalOffice_Itw2Nurse3Text:
 	cont "lives from before"
 	cont "the pandemic."
 
-	para "I will now add"
-	line "the VACCINE PASS-"
-	cont "PORT to <PLAYER>'s"
-	cont "TRAINER CARD."
+	para "I will now upgrade"
+	line "<PLAYER>'s TRAINER"
+	cont "CARD with a"
+	cont "VACCINE PASSPORT."
 	
 	para "It gives the"
 	line "legal right to"

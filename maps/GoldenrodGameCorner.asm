@@ -7,6 +7,7 @@ GOLDENRODGAMECORNER_DITTO_COINS 	EQU 1600
 
 	object_const_def
 	const GOLDENRODGAMECORNER_CLERK
+	const GOLDENRODGAMECORNER_VP_CONTROLLER
 	const GOLDENRODGAMECORNER_RECEPTIONIST1
 	const GOLDENRODGAMECORNER_RECEPTIONIST2
 	const GOLDENRODGAMECORNER_PHARMACIST1
@@ -30,13 +31,13 @@ GoldenrodGameCorner_MapScripts:
 	
 .DummyScene0:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .end
+	iftrue .vaccine_passport_check
 
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	readvar VAR_XCOORD
-	ifnotequal 16, .end
+	ifnotequal 16, .vaccine_passport_check
 	readvar VAR_YCOORD
-	ifnotequal 8, .end
+	ifnotequal 8, .vaccine_passport_check
 
 	; Cutscene when the player gets wrongly teleported.
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -45,6 +46,16 @@ GoldenrodGameCorner_MapScripts:
 	showemote EMOTE_SHOCK, GOLDENRODGAMECORNER_COOLTRAINER_M, 15
 	turnobject PLAYER, LEFT
 	sjump GoldenrodGameCornerCooltrainerMScript
+
+.vaccine_passport_check
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	
+	readvar VAR_YCOORD
+	ifless 12, .end
+	jumpstd VaccinePassCheckpoint
 .end
 	end
 
@@ -622,7 +633,9 @@ GoldenrodGameCornerCooltrainerMAbraText:
 	
 	para "Using its TELEPORT"
 	line "is gambling your"
-	cont "life."
+	cont "life, you could"
+	cont "end up stuck"
+	cont "within a wall."
 	
 	para "You should"
 	line "try again!"
@@ -740,6 +753,7 @@ GoldenrodGameCorner_MapEvents:
 
 	def_object_events
 	object_event  4,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerCoinVendorScript, -1
+	object_event  4, 13, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event 16,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerTMVendorScript, -1
 	object_event 18,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPrizeMonVendorScript, -1
 	object_event  8,  7, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY | NITE, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPharmacistScript, -1

@@ -7,12 +7,17 @@ CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS EQU 8888
 
 	object_const_def
 	const CELADONGAMECORNERPRIZEROOM_GENTLEMAN
+	const CELADONGAMECORNERPRIZEROOM_VP_CONTROLLER
 	const CELADONGAMECORNERPRIZEROOM_PHARMACIST
 
 CeladonGameCornerPrizeRoom_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 CeladonGameCornerPrizeRoomGentlemanScript:
 	jumptextfaceplayer CeladonGameCornerPrizeRoomGentlemanText
@@ -300,4 +305,5 @@ CeladonGameCornerPrizeRoom_MapEvents:
 
 	def_object_events
 	object_event  0,  2, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerPrizeRoomGentlemanScript, -1
+	object_event  0,  5, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  4,  4, SPRITE_PHARMACIST, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerPrizeRoomPharmacistScript, -1

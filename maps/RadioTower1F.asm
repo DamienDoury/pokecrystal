@@ -1,5 +1,6 @@
 	object_const_def
 	const RADIOTOWER1F_RECEPTIONIST
+	const RADIOTOWER1F_VP_CONTROLLER
 	const RADIOTOWER1F_LASS
 	const RADIOTOWER1F_YOUNGSTER
 	const RADIOTOWER1F_ROCKET
@@ -8,8 +9,25 @@
 
 RadioTower1F_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
+	
+	readvar VAR_YCOORD
+	ifless 6, .end
+
+	checkevent EVENT_GOLDENROD_CITY_CIVILIANS
+	iftrue .end
+
+	jumpstd VaccinePassCheckpoint
+.end
+	end
 
 RadioTower1FReceptionistScript:
 	faceplayer
@@ -480,6 +498,7 @@ RadioTower1F_MapEvents:
 
 	def_object_events
 	object_event  5,  6, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RadioTower1FReceptionistScript, -1
+	object_event  0,  7, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, EVENT_GOLDENROD_CITY_CIVILIANS ; Should always be at the second spot in the list.
 	object_event 16,  4, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, RadioTower1FLassScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 15,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, RadioTower1FYoungsterScript, EVENT_GOLDENROD_CITY_CIVILIANS
 	object_event 14,  1, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerGruntM3, EVENT_RADIO_TOWER_ROCKET_TAKEOVER

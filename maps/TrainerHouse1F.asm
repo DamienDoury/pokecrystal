@@ -1,14 +1,18 @@
 	object_const_def
-	const TRAINERHOUSE1F_RECEPTIONIST
 	const TRAINERHOUSE1F_COOLTRAINER_M
+	const TRAINERHOUSE1F_RECEPTIONIST ; Is the Vaccine Passport controller as well.
 	const TRAINERHOUSE1F_COOLTRAINER_F
 	const TRAINERHOUSE1F_YOUNGSTER
 	const TRAINERHOUSE1F_GENTLEMAN
 
 TrainerHouse1F_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
+
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 TrainerHouse1FReceptionistScript:
 	jumptextfaceplayer TrainerHouse1FReceptionistText
@@ -151,8 +155,8 @@ TrainerHouse1F_MapEvents:
 	bg_event  7, 10, BGEVENT_READ, TrainerHouseIllegibleBook
 
 	def_object_events
-	object_event  0, 11, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FReceptionistScript, -1
 	object_event  7, 11, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FCooltrainerMScript, -1
+	object_event  0, 11, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FReceptionistScript, -1
 	object_event  6,  2, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FCooltrainerFScript, -1
 	object_event  4,  8, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FYoungsterScript, -1
 	object_event  2,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TrainerHouse1FGentlemanScript, -1

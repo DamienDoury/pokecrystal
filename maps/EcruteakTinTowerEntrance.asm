@@ -1,15 +1,20 @@
 	object_const_def
 	const ECRUTEAKTINTOWERENTRANCE_SAGE1
+	const ECRUTEAKTINTOWERENTRANCE_VP_CONTROLLER
 	const ECRUTEAKTINTOWERENTRANCE_SAGE2
 	const ECRUTEAKTINTOWERENTRANCE_SAGE3
 	const ECRUTEAKTINTOWERENTRANCE_GRAMPS
 
 EcruteakTinTowerEntrance_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .InitializeSages
 
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
+	
 .InitializeSages:
 	checkevent EVENT_FOUGHT_SUICUNE
 	iftrue .DontBlockTower
@@ -291,6 +296,7 @@ EcruteakTinTowerEntrance_MapEvents:
 
 	def_object_events
 	object_event  4,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_TINTOWER_SAGE_LEFT
+	object_event  4, 14, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  5,  6, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceSageScript, EVENT_TINTOWER_SAGE_RIGHT
 	object_event  6,  9, SPRITE_SAGE, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceWanderingSageScript, EVENT_ECRUTEAK_TIN_TOWER_ENTRANCE_WANDERING_SAGE
 	object_event  3, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakTinTowerEntranceGrampsScript, EVENT_ECRUTEAK_TIN_TOWER_ENTRANCE_WANDERING_SAGE

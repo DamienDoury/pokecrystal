@@ -1,5 +1,6 @@
 	object_const_def
 	const MAHOGANYMART1F_PHARMACIST
+	const MAHOGANYMART1F_VP_CONTROLLER
 	const MAHOGANYMART1F_BLACK_BELT
 	const MAHOGANYMART1F_LANCE
 	const MAHOGANYMART1F_DRAGONITE
@@ -7,14 +8,14 @@
 
 MahoganyMart1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_MAHOGANYMART1F_NOTHING
+	scene_script .VaccinePassport ; SCENE_MAHOGANYMART1F_NOTHING
 	scene_script .LanceUncoversStaircase ; SCENE_MAHOGANYMART1F_LANCE_UNCOVERS_STAIRS
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .MahoganyMart1FStaircase
 
-.DummyScene0:
-	end
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
 
 .LanceUncoversStaircase:
 	prioritysjump MahoganyMart1FLanceUncoversStaircaseScript
@@ -235,6 +236,7 @@ MahoganyMart1F_MapEvents:
 
 	def_object_events
 	object_event  4,  3, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyMart1FPharmacistScript, EVENT_TEAM_ROCKET_BASE_POPULATION
+	object_event  5,  7, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  1,  6, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyMart1FBlackBeltScript, EVENT_TEAM_ROCKET_BASE_POPULATION
 	object_event  4,  6, SPRITE_LANCE, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE
 	object_event  3,  6, SPRITE_DRAGON, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MAHOGANY_MART_LANCE_AND_DRAGONITE

@@ -1,5 +1,6 @@
 	object_const_def
 	const SPROUTTOWER1F_SAGE1
+	const SPROUTTOWER1F_VP_CONTROLLER
 	const SPROUTTOWER1F_SAGE2
 	const SPROUTTOWER1F_GRANNY
 	const SPROUTTOWER1F_TEACHER
@@ -8,10 +9,14 @@
 
 SproutTower1F_MapScripts:
 	def_scene_scripts
+	scene_script .VaccinePassport ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .EnterCallback
 	
+.VaccinePassport:
+	jumpstd VaccinePassCheckpoint
+
 .EnterCallback:
 	readvar VAR_YCOORD
 	ifnotequal 15, .CheckCurfewWhenEntered
@@ -135,6 +140,7 @@ SproutTower1F_MapEvents:
 
 	def_object_events
 	object_event  7,  4, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage1Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  9, 13, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  6,  7, SPRITE_SAGE, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SproutTower1FSage2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event 11, 12, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FGrannyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  9,  9, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SproutTower1FTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

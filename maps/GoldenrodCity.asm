@@ -325,7 +325,12 @@ GoldenrodCitySign:
 	jumptext GoldenrodCitySignText
 
 GoldenrodCityBikeShopSign:
+	checkevent GOLDENROD_BIKE_SHOP_CLOSED
+	iffalse .closed
 	jumptext GoldenrodCityBikeShopSignText
+
+.closed
+	farjumptext CeruleanBikeShopSignText
 
 GoldenrodCityGameCornerSign:
 	jumptext GoldenrodCityGameCornerSignText
