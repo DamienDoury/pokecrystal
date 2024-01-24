@@ -64,6 +64,7 @@ StdScripts::
 	add_stdscript GymKickPlayerOutAfterEvolution
 	add_stdscript LockdownCurfewClosedDoor
 	add_stdscript VaccinePassCheckpoint
+	add_stdscript IsVaccinePassportValid
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -2391,6 +2392,38 @@ Movement_PlayerLeavesBuilding:
 	turn_head DOWN
 	step_end
 
+IsVaccinePassportValid::
+	readmem wCurFreedomState
+	ifnotequal 1 << VACCINE_PASSPORT, .yes
+	
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .no_trainer_card
+
+	checkevent EVENT_PLAYER_VACCINATED_ONCE
+	iffalse .not_vaccinated
+
+	checkevent EVENT_SECOND_SHOT_REQUIRED
+	iffalse .yes
+
+	checkevent EVENT_PLAYER_VACCINATED_TWICE
+	iffalse .no_booster
+
+.yes
+	setval 0
+	end
+
+.no_trainer_card
+	setval 1
+	end
+
+.not_vaccinated
+	setval 2
+	end
+
+.no_booster
+	setval 3
+	end
+
 VaccinePassCheckpoint:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 	iffalse .check_passport
@@ -2413,20 +2446,30 @@ VaccinePassCheckpoint:
 	playsound SFX_STOP_SLOT
 	pause 10
 
-	checkflag ENGINE_TRAINER_CARD
-	iftrue .end
+	scall IsVaccinePassportValid
+	ifequal 0, .end
 
 	; No vaccine passport.
 	waitsfx
 	pause 3
-	playsound SFX_WRONG; OK sound = SFX_ELEVATOR_END
+	playsound SFX_WRONG
 	waitsfx
 	pause 5
 	showemote EMOTE_SHOCK, 3, 20
 	pause 3
 	faceobject PLAYER, 3
 	opentext
+
+	scall IsVaccinePassportValid
+	ifequal 3, .BoosterRequired
+
 	writetext .NoVaccinePassText
+	sjump .CutsceneEnd
+
+.BoosterRequired:
+	writetext .BoosterRequiredText
+
+.CutsceneEnd:
 	waitbutton
 	closetext
 
@@ -2445,4 +2488,19 @@ VaccinePassCheckpoint:
 
 	para "No? Then you can't"
 	line "come in, sorry."
+	done
+
+.BoosterRequiredText:
+	text "Your TRAINER CARD"
+	line "indicates you were"
+	cont "vaccinated only"
+	cont "once."
+
+	para "A booster shot is"
+	line "now required for"
+	cont "the VACCINE PASS-"
+	cont "PORT to be valid."
+
+	para "I can't let you"
+	line "enter without it."
 	done

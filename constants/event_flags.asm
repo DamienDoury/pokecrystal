@@ -663,7 +663,9 @@
 	const EVENT_FOUGHT_ARTICUNO
 
 	const EVENT_ROUTE_45_LVL_INCREASE
-; Unused: next 123 events
+	const EVENT_SECOND_SHOT_REQUIRED
+
+; Unused: next 122 events
 
 	const_next 1000
 ; Trainer flags
