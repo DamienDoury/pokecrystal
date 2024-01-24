@@ -19,13 +19,13 @@ ViridianGymBlueScript:
 	loadtrainer BLUE, BLUE1
 	startbattle
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_BLUE
 	opentext
 	writetext Text_ReceivedEarthBadge
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_EARTHBADGE
+	farscall GotNewKantoBadge
 	writetext LeaderBlueAfterText
 	waitbutton
 	closetext

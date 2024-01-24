@@ -94,7 +94,6 @@ FuchsiaGymJanineScript:
 	loadtrainer JANINE, JANINE1
 	startbattle
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_JANINE
 	setevent EVENT_BEAT_LASS_ALICE
 	setevent EVENT_BEAT_LASS_LINDA
@@ -110,6 +109,7 @@ FuchsiaGymJanineScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_SOULBADGE
+	farscall GotNewKantoBadge
 	sjump .AfterBattle
 .FightDone:
 	faceplayer

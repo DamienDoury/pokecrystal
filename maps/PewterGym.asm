@@ -98,12 +98,12 @@ PewterGymBrockScript:
 	reloadmapafterbattle
 	setevent EVENT_BEAT_BROCK
 	setevent EVENT_BEAT_CAMPER_JERRY
-	farscall AugmentKantoDifficultyLevel
 	opentext
 	writetext ReceivedBoulderBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_BOULDERBADGE
+	farscall GotNewKantoBadge
 	writetext BrockBoulderBadgeText
 	waitbutton
 	closetext

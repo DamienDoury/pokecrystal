@@ -149,7 +149,6 @@ CeruleanGymMistyScript:
 	startbattle
 	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA
@@ -159,6 +158,7 @@ CeruleanGymMistyScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_CASCADEBADGE
+	farscall GotNewKantoBadge
 .FightDone:
 	checkevent EVENT_RED_BEATEN
 	iffalse .RedBeaten

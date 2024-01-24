@@ -86,7 +86,6 @@ VermilionGymSurgeScript:
 	loadtrainer LT_SURGE, LT_SURGE1
 	startbattle
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_LTSURGE
 	setevent EVENT_BEAT_GENTLEMAN_GREGORY
 	setevent EVENT_BEAT_GUITARIST_VINCENT
@@ -96,6 +95,7 @@ VermilionGymSurgeScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_THUNDERBADGE
+	farscall GotNewKantoBadge
 	writetext LtSurgeThunderBadgeText
 	waitbutton
 	closetext

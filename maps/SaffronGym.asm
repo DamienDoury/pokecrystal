@@ -26,7 +26,6 @@ SaffronGymSabrinaScript:
 	loadtrainer SABRINA, SABRINA1
 	startbattle
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_SABRINA
 	setevent EVENT_BEAT_MEDIUM_REBECCA
 	setevent EVENT_BEAT_MEDIUM_DORIS
@@ -37,6 +36,7 @@ SaffronGymSabrinaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_MARSHBADGE
+	farscall GotNewKantoBadge
 	writetext SabrinaMarshBadgeText
 	waitbutton
 	closetext

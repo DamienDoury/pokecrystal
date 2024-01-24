@@ -43,3 +43,36 @@ HospitalPhoneReleaseText:
 	para "I gotta go, please"
 	line "come quickly!"
 	done
+
+HospitalSecondShotAvailableText:
+	text "Hi CHAMP!"
+	line "Here's a heads up."
+
+	para "New studies have"
+	line "shown that a"
+
+	para "single vaccine"
+	line "dose doesn't"
+
+	para "provide long"
+	line "term protection."
+
+	para "Soon, a booster"
+	line "dose will be"
+	cont "required."
+
+	para "If you don't take"
+	line "it, your VACCINE"
+	
+	para "PASSPORT will be"
+	line "considered expired"
+	cont "and invalidated."
+
+	para "I'm ready to do"
+	line "the injection."
+
+	para "No media this"
+	line "time, I promise!"
+
+	para "Come see me soon!"
+	done

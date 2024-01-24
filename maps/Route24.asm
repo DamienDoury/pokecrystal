@@ -101,6 +101,23 @@ AugmentKantoDifficultyLevel::
 .end
 	end
 
+GotNewKantoBadge::
+	scall AugmentKantoDifficultyLevel
+
+	readvar VAR_BADGES
+	ifequal 14, .fourteen
+	ifequal 15, .fifteen
+	end
+
+.fourteen
+	specialphonecall SPECIALCALL_BOOSTER_SHOT_AVAILABLE ; Chief Nurse Joy Special Call.
+	end
+
+.fifteen
+	setevent EVENT_SECOND_SHOT_REQUIRED
+	end
+
+
 Route24HiddenPPUp:
 	hiddenitem PP_UP, EVENT_ROUTE_24_HIDDEN_PP_UP
 

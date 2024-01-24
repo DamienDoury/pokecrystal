@@ -136,7 +136,6 @@ CeladonGymErikaScript:
 	loadtrainer ERIKA, ERIKA1
 	startbattle
 	reloadmapafterbattle
-	farscall AugmentKantoDifficultyLevel
 	setevent EVENT_BEAT_ERIKA
 	setevent EVENT_BEAT_LASS_MICHELLE
 	setevent EVENT_BEAT_PICNICKER_TANYA
@@ -147,6 +146,7 @@ CeladonGymErikaScript:
 	playsound SFX_GET_BADGE
 	waitsfx
 	setflag ENGINE_RAINBOWBADGE
+	farscall GotNewKantoBadge
 .FightDone:
 	checkevent EVENT_GOT_TM19_GIGA_DRAIN
 	iftrue .GotGigaDrain
