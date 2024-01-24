@@ -65,6 +65,7 @@ StdScripts::
 	add_stdscript LockdownCurfewClosedDoor
 	add_stdscript VaccinePassCheckpoint
 	add_stdscript IsVaccinePassportValid
+	add_stdscript VaccinePassCheckpointCeladonGym
 
 PokecenterNurseScript:
 ; EVENT_WELCOMED_TO_POKECOM_CENTER is never set
@@ -2423,6 +2424,11 @@ IsVaccinePassportValid::
 .no_booster
 	setval 3
 	end
+
+VaccinePassCheckpointCeladonGym:
+	setlasttalked 3
+	scall GymGuideWalksTowardsPlayerScript
+	sjump VaccinePassCheckpoint.ScanVaccinePassport
 
 VaccinePassCheckpoint:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7

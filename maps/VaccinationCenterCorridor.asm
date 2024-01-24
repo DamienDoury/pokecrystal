@@ -112,6 +112,7 @@ VaccinationCenterCorridor_MapScripts:
     ;applymovement PLAYER, VaccinationCenter_DownMovement
     ;pause 5
 PlayerMovesDownThroughDoor::
+    loadmem wPlayerNextMovement, 0
     autoinput .movement_data
     ;warpcheck
     ;playsound SFX_EXIT_BUILDING

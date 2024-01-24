@@ -1,11 +1,11 @@
 	object_const_def
 	const CELADONGYM_ERIKA
+	const CELADONGYM_GYM_GUIDE
 	const CELADONGYM_LASS1
 	const CELADONGYM_LASS2
 	const CELADONGYM_BEAUTY
 	const CELADONGYM_TWIN1
 	const CELADONGYM_TWIN2
-	const CELADONGYM_GYM_GUIDE
 
 CeladonGym_MapScripts:
 	def_scene_scripts
@@ -49,13 +49,17 @@ CeladonGym_MapScripts:
 	iftrue .egg_found
 
 	special IsWholeTeamVaccinated
-	iffalse .not_fully_vaccinated
+	iffalse .team_not_fully_vaccinated
 
 	scall CeladonGymCheckForbiddenTypes
 	iftrue .do_check
-	end
 
-.not_fully_vaccinated
+	callstd IsVaccinePassportValid
+	ifequal 0, .no_check
+
+	jumpstd VaccinePassCheckpointCeladonGym
+
+.team_not_fully_vaccinated
 	setlasttalked CELADONGYM_GYM_GUIDE
 	callstd GymGuideWalksTowardsPlayerScript
 	
@@ -496,9 +500,9 @@ CeladonGym_MapEvents:
 
 	def_object_events
 	object_event  5,  3, SPRITE_ERIKA, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGymErikaScript, -1
+	object_event  7, 15, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1
 	object_event  7,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerLassMichelle, -1
 	object_event  2,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerTanya, -1
 	object_event  3,  5, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 2, TrainerBeautyJulia, -1
 	object_event  4, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe1, -1
 	object_event  5, 10, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 1, TrainerTwinsJoAndZoe2, -1
-	object_event  7, 15, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideScript, -1
