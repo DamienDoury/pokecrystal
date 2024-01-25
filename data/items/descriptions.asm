@@ -942,8 +942,8 @@ PokemaskDesc:
 	next "(HOLD)@"
 
 WorkVisaDesc:
-	db   "Allows legal"
-	next "entrance in KANTO.@"
+	db   "Legal entry in"
+	next "KANTO before 2021.@"
 	
 ParkBallDesc:
 	db   "The Bug-Catching"

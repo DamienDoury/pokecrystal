@@ -36,9 +36,13 @@ FirstStepIntoKantoScene:
 .SkipKantoTalk
 	setevent EVENT_PLAYER_STEP_FOOT_IN_KANTO
 
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .SkipVaccinePassportCheck
+
 	checkevent EVENT_PLAYER_VACCINATED_ONCE
 	iftrue .allowPassage
 
+.SkipVaccinePassportCheck
 	writetext Route27BorderClosedText
 	waitbutton
 	closetext
@@ -47,6 +51,9 @@ FirstStepIntoKantoScene:
 
 	checkitem WORK_VISA
 	iffalse .end
+
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue Route27FisherScript.visaExpired
 
 	pause 2
 	showemote EMOTE_QUESTION, ROUTE27_FISHER, 15
@@ -106,11 +113,19 @@ Route27StepBackIfNeeded:
 
 Route27FisherScript:
 	faceplayer
+
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .skipVaccinePassportCheck
+
 	checkevent EVENT_PLAYER_VACCINATED_ONCE
 	iftrue .allowPassage
 
+.skipVaccinePassportCheck
 	checkitem WORK_VISA
 	iffalse .blockPassage
+
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .visaExpired
 	
 .allowPassage
 	opentext
@@ -122,6 +137,9 @@ Route27FisherScript:
 
 .blockPassage
 	jumptext Route27BorderArrestText
+
+.visaExpired
+	jumptext Route27VisaExpiredText
 
 TrainerPsychicGilbert:
 	trainer PSYCHIC_T, GILBERT, EVENT_BEAT_PSYCHIC_GILBERT, PsychicGilbertSeenText, PsychicGilbertBeatenText, 0, .Script
@@ -425,6 +443,12 @@ Route27BorderArrestText:
 	text "Go back were you"
 	line "came from, before"
 	cont "we arrest you."
+	done
+
+Route27VisaExpiredText:
+	text "Your WORK VISA is"
+	line "expired. I won't"
+	cont "let you through."
 	done
 
 Route27_VaccinationPassText:

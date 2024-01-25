@@ -87,6 +87,9 @@ GoldenrodHospitalNurse2Script:
 	waitbutton
 	closetext
 
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .NoTrainerCard
+
 	applymovement GOLDENROD_HOSPITAL_RECEPTIONIST1, Hospital_NurseWalksToPC
 	playsound SFX_BOOT_PC
 	waitsfx
@@ -111,6 +114,9 @@ GoldenrodHospitalNurse2Script:
 	getnum STRING_BUFFER_3
 	writetext GoldenrodHospitalNurse2Text_Reside
 	sjump .CheckRecoveredMons
+
+.NoTrainerCard:
+	jumptext GoldenrodHospitalNurse2Text_NoTrainerCard
 
 .SingleMon:
 	writetext GoldenrodHospitalNurse2Text_Room5Solo	
@@ -264,6 +270,9 @@ GoldenrodHospital1FChiefNursePanel:
 	jumptext GoldenrodHospital1FChiefNursePanelText
 
 GoldenrodHospital1FScanner:	
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .NoTrainerCard
+
 	opentext
 	checkflag ENGINE_PLAYER_IS_FEMALE
 	iftrue .FemaleScanner
@@ -285,6 +294,9 @@ GoldenrodHospital1FScanner:
 	waitbutton
 	closetext
 	end
+
+.NoTrainerCard:
+	jumptext GoldenrodHospitalScanDescriptionText
 
 GoldenrodHospitalLockScript:
 	jumptext GoldenrodHospitalLockText
@@ -546,6 +558,14 @@ GoldenrodHospitalScanFailText:
 	text "RESTRICTED"
 	done
 
+GoldenrodHospitalScanDescriptionText:
+	text "It's a TRAINER"
+	line "CARD reader."
+
+	para "Unfortunately you"
+	line "don't have yours."
+	done
+
 GoldenrodHospitalLockText:
 	text "This door is elec-"
 	line "tronically locked."
@@ -561,6 +581,13 @@ GoldenrodHospitalNurse2Text_Intro:
 	para "Show me your"
 	line "TRAINER CARD"
 	cont "please."
+	done
+
+GoldenrodHospitalNurse2Text_NoTrainerCard:
+	text "You don't have it?"
+
+	para "I can't help you"
+	line "without it."
 	done
 
 GoldenrodHospitalNurse2Text_NoMon:
