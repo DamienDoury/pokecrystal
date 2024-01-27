@@ -99,7 +99,7 @@ NurseBallsDisinfectedText:
 	cont "disinfected."
 	done
 
-NurseGoodbyeText:
+NurseGoodbyeText::
 	text "We hope to see you"
 	line "again."
 	done

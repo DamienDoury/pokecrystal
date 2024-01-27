@@ -72,6 +72,132 @@ OlivinePortAlreadyRodeScript:
 	closetext
 	end
 
+OlivinePortBoardingCheck:
+	readvar VAR_MAPNUMBER
+	ifequal MAP_VERMILION_PORT, .Kanto
+
+	checkevent EVENT_FAST_SHIP_FIRST_TIME
+	iffalse .DayOK
+
+	readvar VAR_WEEKDAY
+	ifequal SUNDAY, .NextShipMonday
+	ifequal SATURDAY, .NextShipMonday
+	ifequal TUESDAY, .NextShipFriday
+	ifequal WEDNESDAY, .NextShipFriday
+	ifequal THURSDAY, .NextShipFriday
+	sjump .DayOK
+
+.Kanto:
+	readvar VAR_WEEKDAY
+	ifequal MONDAY, .NextShipWednesday
+	ifequal TUESDAY, .NextShipWednesday
+	ifequal THURSDAY, .NextShipSunday
+	ifequal FRIDAY, .NextShipSunday
+	ifequal SATURDAY, .NextShipSunday
+
+.DayOK:
+	writetext OlivinePortAskBoardText
+	yesorno
+	iffalse .NotRidingScript
+
+	writetext OlivinePortAskTicketText
+	promptbutton
+	checkitem S_S_TICKET
+	iffalse .NoTicket
+
+	writetext OlivinePortFlashTicketText
+
+.VaccinePassportCheckStart: ; Used by Train Station agents.
+	readmem wCurFreedomState
+	ifnotequal 1 << VACCINE_PASSPORT, .SkipVaccinePassportCheck
+
+	promptbutton
+	writetext OlivinePortAskPassportText
+	promptbutton
+
+	callstd IsVaccinePassportValid
+	ifequal 1, .NoTrainerCard
+
+	writetext OlivinePortShowPassportText
+	promptbutton
+	
+	ifequal 2, .PassportInvalid
+	ifequal 3, .NoBooster
+
+	writetext OlivinePortFlashPassportText
+
+.SkipVaccinePassportCheck
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; When set, prevents the player from being checked again when boarding a ship. No effect in Train Stations.
+
+	readvar VAR_MAPGROUP
+	ifnotequal GROUP_OLIVINE_PORT, .SkipClosingText ; GROUP_OLIVINE_PORT is the same as GROUP_VERMILION_PORT, but does contain any train station.
+
+	waitbutton
+	closetext
+.SkipClosingText
+	setval TRUE ; The player can board the transport.
+	end
+
+.NotRidingScript:
+	farwritetext NurseGoodbyeText
+	sjump .TextEndCantEnter
+
+.NoTicket:
+	writetext OlivinePortNoTicketText
+	sjump .TextEndCantEnter
+
+.NoTrainerCard:
+	writetext OlivinePortCantShowPassportText
+	promptbutton
+	writetext OlivinePortPassportInvalidText
+	sjump .TextEndCantEnter
+
+.PassportInvalid:
+	writetext OlivinePortPassportInvalidText
+	sjump .TextEndCantEnter
+
+.NoBooster:
+	writetext OlivinePortPassportNoBoosterText
+	sjump .TextEndCantEnter
+
+.NextShipMonday:
+	writetext OlivinePortMondayShipText
+	sjump .TextEndCantEnter
+
+.NextShipWednesday:
+	writetext OlivinePortWednesdayShipText
+	sjump .TextEndCantEnter
+
+.NextShipFriday:
+	writetext OlivinePortFridayShipText
+	sjump .TextEndCantEnter
+
+.NextShipSunday:
+	writetext OlivinePortSundayShipText
+	sjump .TextEndCantEnter
+
+.TextEndCantEnter
+	waitbutton
+	closetext
+
+	readvar VAR_MAPGROUP
+	ifnotequal GROUP_OLIVINE_PORT, .DontMove ; GROUP_OLIVINE_PORT is the same as GROUP_VERMILION_PORT, but does contain any train station.
+
+	readvar VAR_XCOORD
+	ifnotequal 7, .DontMove
+
+	readvar VAR_YCOORD
+	ifnotequal 15, .DontMove
+	
+	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
+.DontMove
+	setval FALSE ; The player is not allowed to board the ship.
+	end
+
+
+
+
+
 OlivinePortWalkUpToShipScript:
 	turnobject OLIVINEPORT_SAILOR3, RIGHT
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -80,64 +206,14 @@ OlivinePortWalkUpToShipScript:
 	iftrue .skip
 	turnobject PLAYER, LEFT
 	opentext
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstTime
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
-.FirstTime:
-	writetext OlivinePortAskBoardText
-	yesorno
-	iffalse OlivinePortNotRidingMoveAwayScript
-	writetext OlivinePortAskTicketText
-	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
-	writetext OlivinePortFlashTicketText
-	waitbutton
-	closetext
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	
+	scall OlivinePortBoardingCheck
+	iffalse .skip
+
 	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
 	sjump OlivinePortSailorAtGangwayScript
 
-.NoTicket:
-	writetext OlivinePortNoTicketText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
-	end
-
 .skip:
-	end
-
-OlivinePortNotRidingScript:
-	writetext OlivinePortComeAgainText
-	waitbutton
-	closetext
-	end
-
-OlivinePortNotRidingMoveAwayScript:
-	writetext OlivinePortComeAgainText
-	waitbutton
-	closetext
-	applymovement PLAYER, OlivinePortCannotEnterFastShipMovement
 	end
 
 OlivinePortSailorAfterHOFScript:
@@ -145,55 +221,15 @@ OlivinePortSailorAfterHOFScript:
 	opentext
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue OlivinePortAlreadyRodeScript
-	checkevent EVENT_FAST_SHIP_FIRST_TIME
-	iffalse .FirstTime
 
-	readvar VAR_BADGES
-	ifless 12, .TourismIssue
+	scall OlivinePortBoardingCheck
+	iffalse .skip
 
-	readvar VAR_WEEKDAY
-	ifequal SUNDAY, .NextShipMonday
-	ifequal SATURDAY, .NextShipMonday
-	ifequal TUESDAY, .NextShipFriday
-	ifequal WEDNESDAY, .NextShipFriday
-	ifequal THURSDAY, .NextShipFriday
-.FirstTime:
-	writetext OlivinePortAskBoardText
-	yesorno
-	iffalse OlivinePortNotRidingScript
-	writetext OlivinePortAskTicketText
-	promptbutton
-	checkitem S_S_TICKET
-	iffalse .NoTicket
-	writetext OlivinePortFlashTicketText
-	waitbutton
-	closetext
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	applymovement PLAYER, OlivinePortApproachFastShipAfterHOFMovement
 	applymovement PLAYER, OlivinePortApproachFastShipFirstTimeMovement
 	sjump OlivinePortSailorAtGangwayScript
 
-.TourismIssue:
-	farwritetext LackOfTourismText
-	sjump .TextEnd
-
-.NoTicket:
-	writetext OlivinePortNoTicketText
-.TextEnd:
-	waitbutton
-	closetext
-	end
-
-.NextShipMonday:
-	writetext OlivinePortMondayShipText
-	waitbutton
-	closetext
-	end
-
-.NextShipFriday:
-	writetext OlivinePortFridayShipText
-	waitbutton
-	closetext
+.skip
 	end
 
 OlivinePortSailorBeforeHOFScript:
@@ -293,17 +329,23 @@ OlivinePortAskTicketText:
 	line "S.S.TICKET?"
 	done
 
-OlivinePortComeAgainText:
-	text "We hope to see you"
-	line "again!"
-	done
-
 OlivinePortFlashTicketText:
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET."
 
 	para "That's it."
 	line "Thank you!"
+	done
+
+OlivinePortAskPassportText:
+	text "I also need to see"
+	line "your TRAINER CARD."
+	done
+
+OlivinePortFlashPassportText:
+	text "Everything is in"
+	line "order. You can"
+	cont "go on!"
 	done
 
 OlivinePortNoTicketText:
@@ -320,14 +362,57 @@ OlivinePortNoTicketText:
 	line "S.S.TICKET."
 	done
 
+OlivinePortCantShowPassportText:
+	text "<PLAYER> tried to"
+	line "show the TRAINER"
+	cont "CARD…"
+
+	para "…But doesn't"
+	line "have it!"
+	done
+
+OlivinePortShowPassportText:
+	text "<PLAYER> flashed"
+	line "the TRAINER CARD."
+	done
+
+OlivinePortPassportInvalidText:
+	text "Sorry!"
+	
+	para "You need to show"
+	line "a TRAINER CARD"
+
+	para "with a valid "
+	line "VACCINE PASSPORT."
+	done
+
+OlivinePortPassportNoBoosterText:
+	text "Sorry!"
+	line "Your VACCINE PASS-"
+	cont "PORT is expired."
+
+	para "A booster dose is"
+	line "now required."
+	done
+
 OlivinePortMondayShipText:
 	text "The FAST SHIP will"
 	line "sail next Monday."
 	done
 
+OlivinePortWednesdayShipText:
+	text "The FAST SHIP will"
+	line "sail on Wednesday."
+	done
+
 OlivinePortFridayShipText:
 	text "The FAST SHIP will"
 	line "sail next Friday."
+	done
+
+OlivinePortSundayShipText:
+	text "The FAST SHIP will"
+	line "sail next Sunday."
 	done
 
 OlivinePortFishingGuru1Text:
@@ -396,9 +481,9 @@ OlivinePort_MapEvents:
 	def_object_events
 	object_event  7, 23, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorAtGangwayScript, EVENT_OLIVINE_PORT_SAILOR_AT_GANGWAY
 	object_event  7, 15, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorBeforeHOFScript, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
-	object_event  6, 15, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorAfterHOFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	object_event  4, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru1Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
+	object_event  5, 15, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortSailorAfterHOFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	object_event  3, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru1Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
 	object_event 13, 14, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortFishingGuru2Script, EVENT_OLIVINE_PORT_SPRITES_BEFORE_HALL_OF_FAME
-	object_event  4, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortYoungsterScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	object_event  3, 15, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortYoungsterScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
 	object_event 11, 15, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortCooltrainerFScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
-	object_event  6, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortAttentionSeekerScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
+	object_event  5, 13, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePortAttentionSeekerScript, EVENT_OLIVINE_PORT_SPRITES_AFTER_HALL_OF_FAME
