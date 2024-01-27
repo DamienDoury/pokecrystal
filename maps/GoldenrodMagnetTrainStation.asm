@@ -13,17 +13,23 @@ GoldenrodMagnetTrainStationOfficerScript:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalse .NoPower
 
-	readvar VAR_BADGES
-	ifless 12, .TourismIssue
-
 	writetext GoldenrodMagnetTrainStationOfficerAreYouComingAboardText
 	yesorno
 	iffalse .DecidedNotToRide
+
 	checkitem PASS
 	iffalse .PassNotInBag
+
+	writetext GoldenrodMagnetTrainStationOfficerShowRailPassText
+	
+	farscall OlivinePortBoardingCheck.VaccinePassportCheckStart
+	iffalse .skip ; When the previous script returns false, it also closes the text.
+
+	promptbutton
 	writetext GoldenrodMagnetTrainStationOfficerRightThisWayText
 	waitbutton
 	closetext
+
 	applymovement GOLDENRODMAGNETTRAINSTATION_OFFICER, GoldenrodMagnetTrainStationOfficerApproachTrainDoorMovement
 	applymovement PLAYER, GoldenrodMagnetTrainStationPlayerApproachAndEnterTrainMovement
 	setval FALSE
@@ -32,15 +38,11 @@ GoldenrodMagnetTrainStationOfficerScript:
 	newloadmap MAPSETUP_TRAIN
 	applymovement PLAYER, .MovementBoardTheTrain
 	wait 20
+.skip
 	end
-	
-.TourismIssue:
-	farwritetext LackOfTourismText
-	sjump .TextEnd
 
 .NoPower:
 	writetext GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText
-.TextEnd:
 	waitbutton
 	closetext
 	end
@@ -56,7 +58,7 @@ GoldenrodMagnetTrainStationOfficerScript:
 	end
 
 .DecidedNotToRide:
-	writetext GoldenrodMagnetTrainStationOfficerHopeToSeeYouAgainText
+	farwritetext NurseGoodbyeText
 	waitbutton
 	closetext
 	end
@@ -67,6 +69,8 @@ Script_ArriveFromSaffron:
 	applymovement GOLDENRODMAGNETTRAINSTATION_OFFICER, GoldenrodMagnetTrainStationOfficerReturnToBoardingGateMovement
 	opentext
 	writetext GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText
+	promptbutton
+	farwritetext NurseGoodbyeText
 	waitbutton
 	closetext
 	end
@@ -129,12 +133,18 @@ GoldenrodMagnetTrainStationOfficerAreYouComingAboardText:
 	line "aboard?"
 	done
 
-GoldenrodMagnetTrainStationOfficerRightThisWayText:
+GoldenrodMagnetTrainStationOfficerShowRailPassText:
 	text "May I see your"
 	line "RAIL PASS, please?"
 
-	para "OK. Right this"
-	line "way, please."
+	para "…"
+
+	para "Looks good to me."
+	done
+	
+GoldenrodMagnetTrainStationOfficerRightThisWayText:
+	text "Right this way,"
+	line "please."
 	done
 
 GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText:
@@ -142,17 +152,9 @@ GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText:
 	line "have a RAIL PASS."
 	done
 
-GoldenrodMagnetTrainStationOfficerHopeToSeeYouAgainText:
-	text "We hope to see you"
-	line "again!"
-	done
-
 GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText:
 	text "We have arrived in"
 	line "GOLDENROD."
-
-	para "We hope to see you"
-	line "again."
 	done
 
 GoldenrodMagnetTrainStationGentlemanText:

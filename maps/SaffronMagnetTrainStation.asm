@@ -15,17 +15,23 @@ SaffronMagnetTrainStationOfficerScript:
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalse .NoPower
 
-	readvar VAR_BADGES
-	ifless 12, .TourismIssue
-
 	writetext SaffronMagnetTrainStationOfficerAreYouComingOnBoardText
 	yesorno
 	iffalse .DecidedNotToRide
+
 	checkitem PASS
 	iffalse .PassNotInBag
-	writetext SaffronMagnetTrainStationOfficerRightThisWayText
+
+	farwritetext GoldenrodMagnetTrainStationOfficerShowRailPassText
+
+	farscall OlivinePortBoardingCheck.VaccinePassportCheckStart
+	iffalse .skip ; When the previous script returns false, it also closes the text.
+
+	promptbutton
+	farwritetext GoldenrodMagnetTrainStationOfficerRightThisWayText
 	waitbutton
 	closetext
+
 	applymovement SAFFRONMAGNETTRAINSTATION_OFFICER, SaffronMagnetTrainStationOfficerApproachTrainDoorMovement
 	applymovement PLAYER, SaffronMagnetTrainStationPlayerApproachAndEnterTrainMovement
 	setval TRUE
@@ -34,16 +40,11 @@ SaffronMagnetTrainStationOfficerScript:
 	newloadmap MAPSETUP_TRAIN
 	applymovement PLAYER, .MovementBoardTheTrain
 	wait 20
+.skip
 	end
-	end
-
-.TourismIssue:
-	farwritetext LackOfTourismText
-	sjump .TextEnd
 	
 .NoPower:
 	writetext SaffronMagnetTrainStationOfficerTrainIsntOperatingText
-.TextEnd:
 	waitbutton
 	closetext
 	end
@@ -53,13 +54,13 @@ SaffronMagnetTrainStationOfficerScript:
 	step_end
 
 .PassNotInBag:
-	writetext SaffronMagnetTrainStationOfficerYouDontHaveAPassText
+	farwritetext GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText
 	waitbutton
 	closetext
 	end
 
 .DecidedNotToRide:
-	writetext SaffronMagnetTrainStationOfficerHopeToSeeYouAgainText
+	farwritetext NurseGoodbyeText
 	waitbutton
 	closetext
 	end
@@ -70,6 +71,8 @@ Script_ArriveFromGoldenrod:
 	applymovement SAFFRONMAGNETTRAINSTATION_OFFICER, SaffronMagnetTrainStationOfficerReturnToBoardingGateMovement
 	opentext
 	writetext SaffronMagnetTrainStationOfficerArrivedInSaffronText
+	promptbutton
+	farwritetext NurseGoodbyeText
 	waitbutton
 	closetext
 	end
@@ -147,30 +150,9 @@ SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:
 	line "board?"
 	done
 
-SaffronMagnetTrainStationOfficerRightThisWayText:
-	text "May I see your"
-	line "RAIL PASS, please?"
-
-	para "OK. Right this"
-	line "way, please."
-	done
-
-SaffronMagnetTrainStationOfficerYouDontHaveAPassText:
-	text "Sorry, but you"
-	line "don't have a PASS."
-	done
-
-SaffronMagnetTrainStationOfficerHopeToSeeYouAgainText:
-	text "We hope to see you"
-	line "again."
-	done
-
 SaffronMagnetTrainStationOfficerArrivedInSaffronText:
 	text "We have arrived in"
 	line "SAFFRON."
-
-	para "We hope to see you"
-	line "again."
 	done
 
 SaffronMagnetTrainStationGymGuideText:
