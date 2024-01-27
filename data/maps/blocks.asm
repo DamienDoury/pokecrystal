@@ -981,7 +981,6 @@ GoldenrodHospitalOffice_Blocks:
 GoldenrodHospitalCorridor_Blocks:
 	INCBIN "maps/GoldenrodHospitalCorridor.blk"
 
-GoldenrodHospitalSecret_Blocks:
 GoldenrodHospitalRoom_Blocks:
 	INCBIN "maps/GoldenrodHospitalRoom.blk"
 

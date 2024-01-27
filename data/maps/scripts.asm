@@ -471,7 +471,6 @@ INCLUDE "maps/Route10North.asm"
 
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
-INCLUDE "maps/GoldenrodHospitalSecret.asm"
 
 
 SECTION "Map Scripts 25", ROMX
