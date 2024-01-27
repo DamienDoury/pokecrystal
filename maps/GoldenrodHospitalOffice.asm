@@ -16,19 +16,69 @@ GoldenrodHospitalOffice_MapScripts:
 	iftrue .end
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_5
 
+	checkevent EVENT_PLAYER_CAN_GET_ITS_SECOND_SHOT
+	iffalse .checkFirstShot
+
+	prioritysjump .PlayerBoosterScene
+	end
+
+.checkFirstShot:
 	checkevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
 	iffalse .end
 
 	prioritysjump .PlayerVaccinationScene
 	end
 
-.PlayerVaccinationScene:
+.PlayerWalksToDeskAndSurprisesChiefNurseJoy:
 	applymovement PLAYER, GoldenrodHospitalOffice_WalkToDeskMovement
 	showemote EMOTE_SHOCK, GOLDENRODHOSPITALOFFICE_CHIEF, 15
 	setlasttalked GOLDENRODHOSPITALOFFICE_CHIEF
 	faceplayer
 	pause 5
 	opentext
+	end
+
+.PlayerBoosterScene:
+	scall .PlayerWalksToDeskAndSurprisesChiefNurseJoy
+	writetext GoldenrodHospitalOffice_AskForBoosterText
+	yesorno
+	iffalse .RefusedBooster
+
+	checkflag ENGINE_TRAINER_CARD
+	iffalse .NoTrainerCard
+
+	writetext GoldenrodHospitalOffice_ComeNextToMeText
+	scall .end_text
+
+	applymovement PLAYER, GoldenrodHospitalOffice_GoGetBoosterMovement
+
+	faceplayer
+	pause 45
+
+	opentext
+	writetext GoldenrodHospitalOffice_GotBoosterDoseText
+	playsound SFX_CAUGHT_MON
+	setevent EVENT_PLAYER_VACCINATED_TWICE
+	clearevent EVENT_PLAYER_CAN_GET_ITS_SECOND_SHOT
+	waitbutton
+	waitsfx
+	closetext
+	pause 3
+
+	opentext
+	writetext GoldenrodHospitalOffice_SecondVaccinePassportUpdateText
+	sjump .end_text
+
+.NoTrainerCard:
+	writetext GoldenrodHospitalOffice_NoTrainerCardText
+	sjump .end_text
+	
+.RefusedBooster:
+	writetext GoldenrodHospitalOffice_RefusedBoosterText
+	sjump .end_text
+
+.PlayerVaccinationScene:
+	scall .PlayerWalksToDeskAndSurprisesChiefNurseJoy
 	writetext GoldenrodHospitalOffice_ComingForVaccineText
 	yesorno
 	iffalse .got_ahead
@@ -62,7 +112,7 @@ GoldenrodHospitalOffice_MapScripts:
 	promptbutton
 	closetext
 
-	pause 30
+	pause 35
 
 	opentext
 	writetext GoldenrodHospitalOffice_AfterPhoneCalls2Text
@@ -77,6 +127,7 @@ GoldenrodHospitalOffice_MapScripts:
 	pause 2
 	appear GOLDENRODHOSPITALOFFICE_MARY
 	waitsfx
+
 
 	
 
@@ -114,6 +165,8 @@ GoldenrodHospitalOffice_MapScripts:
 	applymovement GOLDENRODHOSPITALOFFICE_CHIEF_ASSISTANT, GoldenrodHospitalOffice_HeadDownMovement
 	opentext
 	writetext GoldenrodHospitalOffice_VaccineArrivesText
+	promptbutton
+	writetext GoldenrodHospitalOffice_ComeNextToMeText
 	promptbutton
 	closetext
 
@@ -561,6 +614,18 @@ GoldenrodHospitalOffice_StepDownMovement:
 	step DOWN
 	step_end
 
+GoldenrodHospitalOffice_GoGetBoosterMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step UP
+	step UP
+	step UP
+	step RIGHT
+	step RIGHT
+	step DOWN
+	step_end
+
 GoldenrodHospitalOfficeChiefText:
 	text "CHIEF NURSE JOY:"
 	line "I can't afford to"
@@ -572,13 +637,13 @@ GoldenrodHospitalOfficeChiefText:
 
 GoldenrodHospitalOffice_AskVariantText:
 	text "CHIEF NURSE JOY:"
-	line "Hey <PLAYER>!"
+	line "Hey <PLAYER>,"
 
 	para "I can tell you"
 	line "which variant your"
 
 	para "#MON had last"
-	line "time it did a"
+	line "time they did a"
 	cont "PCR test."
 
 	para "For which #MON"
@@ -588,7 +653,7 @@ GoldenrodHospitalOffice_AskVariantText:
 
 GoldenrodHospitalOffice_VisitingText:
 	text "Patients are often"
-	line "sad and lonely."
+	line "lonely."
 
 	para "Visiting them ma-"
 	line "kes them happier."
@@ -668,7 +733,7 @@ GoldenrodHospitalOffice_NotComingForVaccineText:
 	done
 
 GoldenrodHospitalOffice_PhoneCallsText:
-	text "Amazing! I have"
+	text "Amazing! I need"
 	line "to make a few"
 	cont "phone calls."
 	done
@@ -710,8 +775,10 @@ GoldenrodHospitalOffice_VaccineArrivesText:
 	line "You should start"
 	cont "rolling, we're"
 	cont "ready."
+	done
 
-	para "Come next to me"
+GoldenrodHospitalOffice_ComeNextToMeText:
+	text "Come next to me"
 	line "<PLAYER>."
 	done
 
@@ -755,7 +822,7 @@ GoldenrodHospitalOffice_Itw1Text:
 	cont "the ELITE 4."
 
 	para "The battles were"
-	line "fierces!"
+	line "fierce!"
 
 	para "Are you proud of"
 	line "your #MON?"
@@ -813,7 +880,7 @@ GoldenrodHospitalOffice_Itw2Nurse2Text:
 
 	para "I'd like to talk"
 	line "into the micro-"
-	cont "phone."
+	cont "phone please."
 	done
 
 GoldenrodHospitalOffice_Itw2Nurse3Text:
@@ -828,7 +895,7 @@ GoldenrodHospitalOffice_Itw2Nurse3Text:
 	cont "required to"
 	cont "further reduce the"
 	cont "the risk of"
-	cont "transmission."
+	cont "contamination."
 
 	para "Getting a shot is"
 	line "the way of"
@@ -877,10 +944,10 @@ GoldenrodHospitalOffice_Itw3GoodText:
 
 GoldenrodHospitalOffice_Itw3BadText:
 	text "MARY: Ahah, good"
-	line "joke! People know"
-	cont "you must be tough"
-	cont "to become the"
-	cont "CHAMPION."
+	line "joke! A little"
+	cont "needle wouldn't"
+	cont "hurt our though"
+	cont "LEAGUE CHAMPION!"
 	done
 
 GoldenrodHospitalOffice_Itw4Text:
@@ -1015,9 +1082,7 @@ GoldenrodHospitalOffice_ResultAmazingText:
 	done
 
 GoldenrodHospitalOffice_PackOf5Text:
-	text "It's a pack of 5."
-	
-	para "We give those"
+	text "We give those"
 	line "away in BUENA's"
 	cont "PASSWORD show,"
 	cont "so we have plenty"
@@ -1025,9 +1090,7 @@ GoldenrodHospitalOffice_PackOf5Text:
 	done
 
 GoldenrodHospitalOffice_PackOf8Text:
-	text "It's a pack of 12."
-
-	para "Those are very"
+	text "Those are very"
 	line "hard to find."
 	
 	para "I hope this is"
@@ -1047,6 +1110,55 @@ GoldenrodHospitalOffice_ThanksVaccineText:
 	text "CHIEF NURSE JOY:"
 	line "Thanks for showing"
 	cont "the example!"
+	done
+
+GoldenrodHospitalOffice_AskForBoosterText:
+	text "CHIEF NURSE JOY:"
+	line "Nice to see you!"
+
+	para "It has been long"
+	line "enough since you"
+	
+	para "got your last"
+	line "vaccine dose."
+
+	para "Ready to get"
+	line "your booster?"
+	done
+
+GoldenrodHospitalOffice_RefusedBoosterText:
+	text "You are free to"
+	line "not take it."
+	
+	para "But your VACCINE"
+	line "PASSPORT will be"
+	cont "invalidated."
+	done
+
+GoldenrodHospitalOffice_NoTrainerCardText:
+	text "Wait, you don't"
+	line "have your TRAINER"
+	cont "CARD?"
+	
+	para "I need it to up-"
+	line "date your VACCINE"
+	cont "PASSPORT."
+	
+	para "Come back with it."
+	done
+
+GoldenrodHospitalOffice_GotBoosterDoseText:
+	text "<PLAYER> got a"
+	line "booster dose!"
+	done
+
+GoldenrodHospitalOffice_SecondVaccinePassportUpdateText:
+	text "Let me update the"
+	line "VACCINE PASSPORT"
+	cont "on your TRAINER"
+	cont "CARD."
+
+	para "We're done!"
 	done
 
 GoldenrodHospitalOffice_MapEvents:

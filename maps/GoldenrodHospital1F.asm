@@ -29,6 +29,7 @@ GoldenrodHospitalNurse1Script:
 	faceplayer
 	checkevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	iffalse GoldenrodHospitalTakeover
+
 	checkscene
 	ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, AskGelScript
 
@@ -52,15 +53,24 @@ GoldenrodHospitalNurse1Script:
 .quest1_advance:
 	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_2
 .quest2_text:
-	jumptextfaceplayer GoldenrodHospitalNurse1Step1Text
+	jumptext GoldenrodHospitalNurse1Step1Text
 
 .quest3_advance:
 	setmapscene GOLDENROD_HOSPITAL_CORRIDOR, SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_4
 .quest4_text
-	jumptextfaceplayer GoldenrodHospitalNurse1Step3Text
+	jumptext GoldenrodHospitalNurse1Step3Text
 
 .regulartext
-	jumptextfaceplayer GoldenrodHospitalNurse1Text
+	checkevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
+	iftrue .chief_waiting
+
+	checkevent EVENT_PLAYER_CAN_GET_ITS_SECOND_SHOT
+	iftrue .chief_waiting
+
+	jumptext GoldenrodHospitalNurse1Text
+
+.chief_waiting
+	jumptext GoldenrodHospitalChiefWaitingText
 
 GoldenrodHospitalTakeover:
 	jumptext GoldenrodHospitalTakeoverNurse1Text
@@ -322,7 +332,7 @@ GoldenrodHospitalNurse1Text:
 	para "Please understand"
 	line "that if you have a"
 	cont "sick #MON, we"
-	cont "cannot take it in."
+	cont "can't take it in."
 
 	para "We have a limited"
 	line "number of rooms,"
@@ -337,7 +347,7 @@ GoldenrodHospitalNurse1Text:
 	cont "be sent here."
 	done
 
-	GoldenrodHospitalNurse1Step1Text:
+GoldenrodHospitalNurse1Step1Text:
 	text "CHIEF NURSE JOY?"
 	
 	para "I haven't seen"
@@ -360,8 +370,31 @@ GoldenrodHospitalNurse1Step3Text:
 	cont "patient rooms."
 
 	para "It will be on your"
-	line "right, good luck"
+	line "right."
+	
+	para "She's moving fast,"
+	line "so I advise you"
+
+	para "to speak to every-"
+	line "one several times."
+	
+	para "Because they didn't"
+	line "see her earlier"
+
+	para "doesn't mean they"
+	line "didn't see her"
+	cont "thereafter."
+	
+	para "Good luck"
 	cont "finding her."
+	done
+
+GoldenrodHospitalChiefWaitingText:
+	text "Welcome!"
+
+	para "The CHIEF is"
+	line "waiting for you"
+	cont "in her office."
 	done
 
 GoldenrodHospitalChanseySeriousText:
