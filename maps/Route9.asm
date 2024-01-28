@@ -5,6 +5,8 @@
 	const ROUTE9_LASS2
 	const ROUTE9_POKEFAN_M1
 	const ROUTE9_POKEFAN_M2
+	const ROUTE9_COOLTRAINER_F
+	const ROUTE9_COOLTRAINER_M
 
 Route9_MapScripts:
 	def_scene_scripts
