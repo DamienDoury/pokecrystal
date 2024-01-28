@@ -79,6 +79,7 @@ CeruleanGym_MapScripts:
 	closetext
 	showemote EMOTE_SHOCK, CERULEANGYM_ROCKET, 15
 	applymovement CERULEANGYM_ROCKET, CeruleanGymGruntBacksAwayMovement
+	clearflag ENGINE_TRAINER_CARD
 	opentext
 	writetext CeruleanGymGruntBigMistakeText
 	waitbutton
@@ -102,7 +103,10 @@ CeruleanGym_MapScripts:
 	pause 15
 	turnobject PLAYER, DOWN
 	pause 15
-	end
+
+	showemote EMOTE_QUESTION, PLAYER, 20
+	pause 15
+	jumptext CeruleanGymTrainerCardGoneText
 
 .EnterCallback:
 	clearevent EVENT_POKEMON_JUST_EVOLVED
@@ -259,9 +263,13 @@ CeruleanGymGruntRunsDownMovement:
 	step_end
 
 CeruleanGymGruntRunsOutMovement:
+	big_step DOWN
 	big_step RIGHT
 	big_step DOWN
-	big_step DOWN
+	turn_head LEFT
+	step_sleep 8
+	turn_head DOWN
+	step_sleep 8
 	step_end
 
 CeruleanGymGruntRunsIntoYouMovement:
@@ -503,6 +511,13 @@ CeruleanGymGuideWinText:
 	para "As always, that"
 	line "was one heck of a"
 	cont "great battle!"
+	done
+
+CeruleanGymTrainerCardGoneText:
+	text "What?!"
+
+	para "Your TRAINER CARD"
+	line "is gone…"
 	done
 
 CeruleanGym_MapEvents:
