@@ -50,7 +50,8 @@ INCLUDE "maps/OlivineLighthouse2F.asm"
 INCLUDE "maps/OlivineLighthouse3F.asm"
 INCLUDE "maps/OlivineLighthouse4F.asm"
 INCLUDE "maps/PlayersNeighborsHouse.asm"
-
+INCLUDE "maps/Route6SaffronGate.asm"
+INCLUDE "maps/SilverCaveOutside.asm"
 
 SECTION "Map Scripts 3", ROMX
 
@@ -163,7 +164,7 @@ SECTION "Map Scripts 9", ROMX
 INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
-
+INCLUDE "maps/Route4.asm"
 
 SECTION "Map Scripts 10", ROMX
 
@@ -253,6 +254,8 @@ INCLUDE "maps/LancesRoom.asm"
 INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/EcruteakFaunaHouse.asm"
+INCLUDE "maps/CeruleanPokecenter1F.asm"
+INCLUDE "maps/Route5.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -277,7 +280,6 @@ INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
-INCLUDE "maps/CeruleanPokecenter1F.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -419,8 +421,6 @@ INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/PewterMuseum1F.asm"
 INCLUDE "maps/PewterMuseum2F.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
-INCLUDE "maps/Route6SaffronGate.asm"
-INCLUDE "maps/SilverCaveOutside.asm"
 
 
 SECTION "Map Scripts 22", ROMX
@@ -458,20 +458,16 @@ INCLUDE "maps/Route10South.asm"
 
 SECTION "Map Scripts 24", ROMX
 
-INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/CinnabarIsland.asm"
 INCLUDE "maps/Route18.asm"
 INCLUDE "maps/Route17.asm"
 INCLUDE "maps/Route16.asm"
-INCLUDE "maps/Route6.asm"
-INCLUDE "maps/Route5.asm"
 INCLUDE "maps/Route3.asm"
-INCLUDE "maps/Route4.asm"
 INCLUDE "maps/SilverCavePokecenter1F.asm"
-
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
-
+INCLUDE "maps/Route6.asm"
+INCLUDE "maps/PalletTown.asm"
 
 SECTION "Map Scripts 25", ROMX
 

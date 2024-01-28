@@ -9,9 +9,17 @@ CeruleanPoliceStation_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .EnterCallback
+
+.EnterCallback:
+	checkevent EVENT_ROCKET_THIEF_CAUGHT
+	iftrue .end
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+.end
+	endcallback
 
 CeruleanPoliceStationFishingGuruScript:
-	checkevent EVENT_RETURNED_MACHINE_PART
+	checkevent EVENT_ROCKET_THIEF_CAUGHT
 	iftrue .rave_notification
 	jumptextfaceplayer CeruleanPoliceStationFishingGuruText
 
@@ -51,13 +59,13 @@ CeruleanCoolSquirtle:
 	end
 
 CeruleanPoliceStationRaver:
-	checkevent EVENT_RETURNED_MACHINE_PART
+	checkevent EVENT_ROCKET_THIEF_CAUGHT
 	iffalse CeruleanPoliceCell
 	
 	jumptext CeruleanPoliceStationRaverText
 
 CeruleanPoliceRocketCell:
-	checkevent EVENT_RETURNED_MACHINE_PART
+	checkevent EVENT_ROCKET_THIEF_CAUGHT
 	iffalse CeruleanPoliceCell
 	
 	jumptext CeruleanRocketPrisonerText
@@ -148,7 +156,7 @@ CeruleanRocketPrisonerText:
 	para "There's a ROCKET"
 	line "GRUNT swearing"
 	cont "with a thick"
-	cont "accent."
+	cont "foreign accent."
 	done
 
 CeruleanPoliceStationSignText:
@@ -176,6 +184,6 @@ CeruleanPoliceStation_MapEvents:
 	def_object_events
 	object_event  6,  3, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanPoliceStationFishingGuruScript, -1
 	object_event  9,  6, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanPoliceStationPokefanFScript, -1
-	object_event  3,  2, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanPoliceStationJennyScript, EVENT_SAFFRON_TRAIN_STATION_POPULATION
+	object_event  3,  2, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanPoliceStationJennyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  9,  5, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanDiglett, -1
 	object_event  1,  2, SPRITE_SQUIRTLE_SQUAD, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCoolSquirtle, -1

@@ -9,6 +9,15 @@
 	const CERULEANCITY_SQUIRTLE
 	const CERULEANCITY_DETECTIVE2
 	const CERULEANCITY_SQUIRTLE2
+	const CERULEANCITY_YOUNGSTER2
+	const CERULEANCITY_YOUNGSTER3
+	const CERULEANCITY_BUGCATCHER
+	const CERULEANCITY_LASS
+	const CERULEANCITY_ITEM
+	const CERULEANCITY_DETECTIVE3
+	const CERULEANCITY_SQUIRTLE3
+	const CERULEANCITY_ROCKET
+	const CERULEANCITY_DETECTIVE4
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
@@ -128,11 +137,20 @@ CeruleanCityFisherScript:
 CeruleanCityYoungsterScript:
 	faceplayer
 	opentext
+	checkevent EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
+	iffalse .Rocket
+
 	writetext CeruleanCityYoungsterText1
 	waitbutton
 	closetext
 	checkevent EVENT_FOUND_BERSERK_GENE_IN_CERULEAN_CITY
 	iffalse .BerserkGenePingsItemfinder
+	end
+
+.Rocket
+	writetext CeruleanCityYoungsterTextRocket
+	waitbutton
+	closetext
 	end
 
 .BerserkGenePingsItemfinder:
@@ -201,11 +219,49 @@ AshPikachuLeadsToCeruleanCave:
 	; warp
 	end
 
+CeruleanCityRocketScript:
+	opentext
+	writetext CeruleanCityRocketText1
+	waitbutton
+	closetext
+
+	showemote EMOTE_SHOCK, CERULEANCITY_ROCKET, 15
+	faceplayer
+	pause 20
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee1Movement
+
+	readmem wOverworldMapBlocks + 220
+	ifnotequal $35, .tree_is_already_cut
+
+	pause 5
+	changeblock 18, 10, $4c
+	reloadmappart
+	playsound SFX_PLACE_PUZZLE_PIECE_DOWN
+	pause 10
+.tree_is_already_cut
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee2Movement
+	pause 30
+	moveobject CERULEANCITY_DETECTIVE4, 20, 4
+	appear CERULEANCITY_DETECTIVE4 ; also does clearevent EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
+	follow CERULEANCITY_ROCKET, CERULEANCITY_DETECTIVE4
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee3Movement
+	stopfollow
+	disappear CERULEANCITY_ROCKET
+
+	disappear CERULEANCITY_DETECTIVE4
+	moveobject CERULEANCITY_DETECTIVE4, 20, 17
+	appear CERULEANCITY_DETECTIVE4
+	end
+
 CeruleanCityDetectiveScript:
 	jumptextfaceplayer CeruleanCityDetectiveText
 
 CeruleanCityDetective2Script:
 	jumptextfaceplayer CeruleanCityDetective2Text
+
+CeruleanCitySawThiefScript:
+	applymovementlasttalked CeruleanCityStompLeftMovement
+	jumptext CeruleanCitySawThiefText
 
 CeruleanCitySquirtleScript:
 	cry SQUIRTLE
@@ -252,6 +308,30 @@ WayToCeruleanCaveMovement:
 	step LEFT
 	step LEFT
 	turn_head UP
+	step_end
+
+CeruleanCityRocketFlee1Movement:
+	big_step DOWN
+	turn_head RIGHT
+	step_end
+
+CeruleanCityRocketFlee2Movement:
+	big_step RIGHT
+	big_step RIGHT
+rept 6
+	big_step UP
+endr
+	step_end
+
+CeruleanCityRocketFlee3Movement:
+rept 12
+	big_step DOWN
+endr	
+	step_end
+
+CeruleanCityStompLeftMovement:
+	turn_step LEFT
+	step_bump
 	step_end
 
 CeruleanCityCooltrainerMText1:
@@ -369,6 +449,12 @@ CeruleanCityYoungsterText2:
 	line "responding…"
 	done
 
+CeruleanCityYoungsterTextRocket:
+	text "What is this dude"
+	line "doing in my gar-"
+	cont "den? Get him out!"
+	done
+
 CeruleanCitySignText:
 	text "CERULEAN CITY"
 
@@ -433,6 +519,13 @@ CeruleanCityDetective2Text:
 	line "a thief."
 	done
 
+CeruleanCitySawThiefText:
+	text "I saw the thief!"
+	
+	para "He fled to the"
+	line "west, get him!"
+	done
+
 CeruleanCitySquirtleText:
 	text "SQUIRTLE: Squirt"
 	line "Squirtle!"
@@ -449,6 +542,12 @@ PikachuRecognizesThisPlace:
 PikachuDragsYouUnderWater:
 	text "PIKACHU drags you"
 	line "under water."
+	done
+
+CeruleanCityRocketText1:
+	text "…MACHINE PART safe"
+	line "in GYM pool, no"
+	cont "worry…"
 	done
 
 CeruleanCity_MapEvents:
@@ -489,8 +588,8 @@ CeruleanCity_MapEvents:
 	
 	object_event 34, 32, SPRITE_JENNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetectiveScript, EVENT_RETURNED_MACHINE_PART
 	object_event 35, 33, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_RETURNED_MACHINE_PART
-	object_event  7, 29, SPRITE_JENNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetective2Script, EVENT_RETURNED_MACHINE_PART
-	object_event  9, 28, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_RETURNED_MACHINE_PART
+	object_event  7, 29, SPRITE_JENNY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetective2Script, EVENT_ROCKET_THIEF_CAUGHT
+	object_event  9, 28, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_ROCKET_THIEF_CAUGHT
 	
 	object_event 23, -5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 2, ObjectEvent, -1
 	object_event 25, -5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 2, ObjectEvent, -1
@@ -499,3 +598,9 @@ CeruleanCity_MapEvents:
 	object_event 25, -3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 2, ObjectEvent, -1
 
 	object_event 24,  0, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, CeruleanCityBridgeItem, EVENT_CERULEAN_BRIDGE_ITEM
+	
+	object_event 31, 24, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySawThiefScript, EVENT_CERULEAN_HOUSE_ROCKET
+	object_event 26, 25, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_CERULEAN_HOUSE_ROCKET
+
+	object_event 18,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityRocketScript, EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
+	object_event 20, 17, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySawThiefScript, EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
