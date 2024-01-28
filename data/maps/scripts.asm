@@ -385,6 +385,7 @@ INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/Route31VioletGate.asm"
+INCLUDE "maps/Route19FuchsiaGate.asm"
 
 
 SECTION "Map Scripts 20", ROMX
@@ -451,7 +452,6 @@ INCLUDE "maps/ViridianCity.asm"
 INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
-INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route10South.asm"
 

@@ -77,6 +77,28 @@ TrainerHikerSidney:
 	closetext
 	end
 
+TrainerCooltrainerFMaria:
+	trainer COOLTRAINERF, MARIA, EVENT_BEAT_COOLTRAINERF_MARIA, CooltrainerFMariaSeenText, CooltrainerFMariaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerFMariaAfterBattleText
+	waitbutton
+	closetext
+	end
+
+TrainerCooltrainerMFred:
+	trainer COOLTRAINERM, FRED, EVENT_BEAT_COOLTRAINERM_FRED, CooltrainerMFredSeenText, CooltrainerMFredBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	opentext
+	writetext CooltrainerMFredAfterBattleText
+	waitbutton
+	closetext
+	end
+
 Route9Sign:
 	jumptext Route9SignText
 
@@ -196,6 +218,40 @@ HikerSidneyAfterBattleText:
 	cont "river."
 	done
 
+CooltrainerFMariaSeenText:
+	text "It's a good place"
+	line "to do some"
+	cont "exercise."
+	done
+
+CooltrainerFMariaBeatenText:
+	text "Mamma mia!"
+	done
+
+CooltrainerFMariaAfterBattleText:
+	text "In the morning,"
+	line "some rare #MON"
+	cont "exercise here."
+	done
+
+CooltrainerMFredSeenText:
+	text "I run in here"
+	line "everyday."
+	done
+
+CooltrainerMFredBeatenText:
+	text "I was looking at"
+	line "my girlfriend…"
+	done
+
+CooltrainerMFredAfterBattleText:
+	text "Some FIGHTING"
+	line "TYPE #MON keep"
+	cont "smashing the rocks"
+	cont "which remodels the"
+	cont "surroundings."
+	done
+
 Route9SignText:
 	text "ROUTE 9"
 
@@ -212,13 +268,15 @@ Route9_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event 15,  7, BGEVENT_READ, Route9Sign
+	bg_event 29,  5, BGEVENT_READ, Route9Sign
 	bg_event 41, 15, BGEVENT_ITEM, Route9HiddenEther
 
 	def_object_events
-	object_event 23, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerCamperDean, -1
-	object_event 39,  8, SPRITE_LASS, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerHeidi, -1
-	object_event 11,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperSid, -1
-	object_event 12, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 1, TrainerPicnickerEdna, -1
-	object_event 28,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerTim, -1
-	object_event 36, 15, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerSidney, -1
+	object_event 23, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperDean, -1
+	object_event 40,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerHeidi, -1
+	object_event 10,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperSid, -1
+	object_event  8, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerEdna, -1
+	object_event 37,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerTim, -1
+	object_event 37, 14, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerSidney, -1
+	object_event 29,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFMaria, -1
+	object_event 33,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMFred, -1
