@@ -4,27 +4,65 @@
 
 MountMoon_MapScripts:
 	def_scene_scripts
-	scene_script .RivalEncounter ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .EnterCallback
 
-.RivalEncounter:
-	prioritysjump .RivalBattle
-	end
+.EnterCallback:
+	checkevent EVENT_MT_MOON_RIVAL
+	iftrue .EndCallback
 
-.DummyScene:
-	end
+	readvar VAR_XCOORD
+	ifgreater 4, .SkipMapVarReset
 
-.RivalBattle:
-	turnobject PLAYER, RIGHT
+	loadmem wRivalSpokeToPlayer, FALSE
+.SkipMapVarReset:
+	readmem wRivalSpokeToPlayer ; Limits the rival cutscene to happens only once per play session in Mount Moon.
+	ifequal TRUE, .EndCallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Activates the coord event (rival cutscene).
+.EndCallback:
+	endcallback
+
+MountMoonRivalSurpriseScript:
+	faceobject PLAYER, MOUNTMOON_SILVER
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
 	pause 15
-	applymovement MOUNTMOON_SILVER, MountMoonSilverMovementBefore
 	playmusic MUSIC_RIVAL_ENCOUNTER
+	end
+
+MountMoonMeetRivalFromTop:
+	scall MountMoonRivalSurpriseScript
+	applymovement PLAYER, MountMoonSilverNoNameIdeaMovement
+	sjump MountMoonMeetRival
+
+MountMoonMeetRivalFromLeft2:
+	scall MountMoonRivalSurpriseScript
+	applymovement PLAYER, MountMoonSilverStepLeftMovement
+	sjump MountMoonMeetRival
+
+MountMoonMeetRivalFromLeft:
+	scall MountMoonRivalSurpriseScript
+MountMoonMeetRival:
+	setlasttalked MOUNTMOON_SILVER
+	turnobject PLAYER, RIGHT
+MountMoonRivalBattle:
+	faceplayer
 	opentext
+	
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Hopefully this doesn't override the result of the previous checkevent.
+	ifequal FALSE, .GetMoreBadges
+
 	writetext MountMoonSilverTextBefore
+	promptbutton
+
+	readvar VAR_BADGES
+	ifless 12, .RefuseFight
+
+	writetext MountMoonSilverTextStartBattle
+
 	waitbutton
 	closetext
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
@@ -65,10 +103,23 @@ MountMoon_MapScripts:
 	closetext
 	applymovement MOUNTMOON_SILVER, MountMoonSilverMovementAfter
 	disappear MOUNTMOON_SILVER
-	setscene SCENE_FINISHED
 	setevent EVENT_BEAT_RIVAL_IN_MT_MOON
 	farscall AugmentKantoDifficultyLevel
-	playmapmusic
+.FadeOutMusic:
+	musicfadeout MUSIC_MT_MOON, 8
+	end
+
+.RefuseFight:
+	writetext MountMoonSilverTextMadeProgress
+	promptbutton
+.GetMoreBadges:
+	writetext MountMoonSilverTextRefuseFight
+	waitbutton
+	closetext
+
+	readmem wRivalSpokeToPlayer
+	loadmem wRivalSpokeToPlayer, TRUE
+	iffalse .FadeOutMusic
 	end
 
 TrainerBurglarBones:
@@ -100,19 +151,26 @@ TrainerBurglarBones:
 	closetext
 	end
 
-MountMoonSilverMovementBefore:
+MountMoonSilverMovementAfter:
+	step UP
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
 	step LEFT
 	step LEFT
 	step LEFT
 	step_end
 
-MountMoonSilverMovementAfter:
-	step RIGHT
-	step RIGHT
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
+MountMoonSilverStepLeftMovement:
+	fix_facing
+	slow_step LEFT
+	remove_fixed_facing
+	step_end
+
+MountMoonSilverNoNameIdeaMovement:
+	step LEFT
+	step LEFT
 	step DOWN
 	step_end
 
@@ -128,8 +186,30 @@ MountMoonSilverTextBefore:
 	para "about what I was"
 	line "lacking with my"
 	cont "#MON…"
+	done
 
-	para "And we came up"
+MountMoonSilverTextMadeProgress:
+	text "Since then, we"
+	line "have made great"
+	cont "progress!"
+
+	para "We won 4 badges"
+	line "from this region."
+
+	para "But apparently"
+	line "you don't…"
+	done
+
+MountMoonSilverTextRefuseFight:
+	text "I want us to fight"
+	line "on equal terms."
+
+	para "Go win more"
+	line "badges."
+	done
+
+MountMoonSilverTextStartBattle:
+	text "And we came up"
 	line "with an answer."
 
 	para "<PLAYER>, now we'll"
@@ -168,11 +248,14 @@ MountMoonSilverTextAfter:
 
 	para "…Listen, <PLAYER>."
 
-	para "One of these days"
-	line "I'm going to prove"
+	para "I'll keep training"
+	line "in JOHTO and I'll"
 
-	para "how good I am by"
-	line "beating you."
+	para "try to take on"
+	line "the ELITE 4."
+
+	para "This is where you"
+	line "will find me."
 	done
 
 MountMoonSilverTextLoss:
@@ -251,9 +334,12 @@ MountMoon_MapEvents:
 	warp_event 25, 13, MOUNT_MOON, 4
 
 	def_coord_events
+	coord_event 15, 14, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, MountMoonMeetRivalFromTop
+	coord_event 14, 15, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, MountMoonMeetRivalFromLeft2
+	coord_event 13, 15, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, MountMoonMeetRivalFromLeft
 
 	def_bg_events
 
 	def_object_events
-	object_event  7,  3, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_MT_MOON_RIVAL
+	object_event 15, 15, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MountMoonRivalBattle, EVENT_MT_MOON_RIVAL
 	object_event 12,  4, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerBurglarBones, -1

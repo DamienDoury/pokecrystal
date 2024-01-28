@@ -2951,7 +2951,7 @@ wBattleTower1FSceneID::                           db
 wBattleTowerBattleRoomSceneID::                   db
 wBattleTowerElevatorSceneID::                     db
 wBattleTowerHallwaySceneID::                      db
-wMountMoonSceneID::                               db
+	ds 1
 wTinTower1FSceneID::                              db
 wBurnedTower1FSceneID::                           db
 	ds 1
@@ -3125,6 +3125,9 @@ wFreedomStateWhenEntered:: db
 
 NEXTU ; Move reminders.
 wBuffer1:: db
+
+NEXTU ; MountMoon, MountMoonSquare (rival).
+wRivalSpokeToPlayer:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
