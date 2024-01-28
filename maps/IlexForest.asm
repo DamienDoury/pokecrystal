@@ -31,6 +31,11 @@ IlexForest_MapScripts:
 	ifequal  8, .PositionEight
 	ifequal  9, .PositionNine
 	ifequal 10, .PositionTen
+
+	; As wFarfetchdPosition is now part of a UNION, it may be clobbered.
+	loadmem wFarfetchdPosition, 1
+	sjump .PositionOne
+
 .Static:
 	endcallback
 
