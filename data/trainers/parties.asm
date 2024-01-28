@@ -1579,6 +1579,13 @@ BeautyGroup:
 	db 29, CORSOLA
 	db -1 ; end
 
+	; BEAUTY (18)
+	db "JOSIE@", TRAINERTYPE_NORMAL
+	db 32, MARILL
+	db 32, YANMA
+	db 32, NATU
+	db -1 ; end
+
 PokemaniacGroup:
 	; POKEMANIAC (1)
 	db "LARRY@", TRAINERTYPE_NORMAL
@@ -4006,6 +4013,11 @@ PokefanMGroup:
 	; POKEFANM (14)
 	db "ALLAN@", TRAINERTYPE_ITEM
 	db 35, TEDDIURSA,  BERRY
+	db -1 ; end
+
+	; POKEFANM (15)
+	db "FRANCIS@", TRAINERTYPE_ITEM
+	db 35, SWINUB,  BERRY
 	db -1 ; end
 
 KimonoGirlGroup:

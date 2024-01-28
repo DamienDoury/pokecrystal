@@ -269,6 +269,7 @@ KRIS EQU __trainer_class__
 	const THERESA
 	const VALERIE
 	const OLIVIA
+	const JOSIE
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
@@ -682,6 +683,7 @@ KRIS EQU __trainer_class__
 	const ALEX
 	const REX
 	const ALLAN
+	const FRANCIS
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO_UNUSED
