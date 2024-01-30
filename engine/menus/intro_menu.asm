@@ -1417,37 +1417,21 @@ Continue_DisplayYear:
 	ld de, ENGINE_DISPLAY_YEAR_AT_START
 	farcall EngineFlagAction
 	
+	ld a, [wYearMonth]
+	and $f
+	cp 2 ; March month.
+	ld de, .MarchText
+	jr z, .display_month
+
+	ld de, .JanuaryText
+.display_month
 	hlcoord 6, 7
-	ld de, .January
 	call PlaceString
 
-	ld hl, .TwentyTwenty
-	ld de, wStringBuffer1
-	ld bc, 5
-	call CopyBytes
-
-	ld b, CHECK_FLAG
-	ld de, EVENT_BEAT_ELITE_FOUR ; True when the Elite 4 has been beaten.
-	call EventFlagAction ; NOTE: at this point, the flag is neither set nor unset when starting a new game. I hope its default value in memory is 0, and that when loading a new game, the value is not the one of the previous save.
-
-	jr z, .year_found
-
-	ld hl, wStringBuffer1 + 3
-	inc [hl]
-
-	ld b, CHECK_FLAG
-	ld de, EVENT_RED_BEATEN ; False when Red has been beaten.
-	call EventFlagAction
-
-	jr nz, .year_found
-
-	ld hl, wStringBuffer1 + 3
-	inc [hl]	
-
-.year_found
 	hlcoord 8, 9
-	ld de, wStringBuffer1
-	call PlaceString
+	ld de, InitPokegearTilemap.display_year
+	ld a, BANK(InitPokegearTilemap)
+	call FarCall_de
 
 	farcall FadeInPalettes
 
@@ -1461,8 +1445,8 @@ Continue_DisplayYear:
 
 	ret
 
-.January:
+.JanuaryText:
 	db "January@"
 
-.TwentyTwenty
-	db "2020@"
+.MarchText:
+	db " March@"

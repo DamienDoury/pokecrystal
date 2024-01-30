@@ -240,7 +240,7 @@ Pokegear_InitJumptableIndices:
 	ld [wPokegearCard], a
 	ret
 
-InitPokegearTilemap:
+InitPokegearTilemap::
 	xor a
 	ldh [hBGMapMode], a
 	hlcoord 0, 0
@@ -339,15 +339,7 @@ InitPokegearTilemap:
 	call PlaceString
 
 	hlcoord 11, 7
-	ld de, .year
-	call PlaceString
-
-	hlcoord 14, 7
-	ld a, [wYearMonth]
-	swap a
-	and $3
-	add $f6
-	ld [hl], a
+	call .display_year
 
 	ld de, EVENT_POKEGEAR_CONTACT_TRACING_MODULE
 	ld b, CHECK_FLAG
@@ -377,6 +369,19 @@ InitPokegearTilemap:
 	hlcoord 0, 12
 	lb bc, 4, 18
 	call Pokegear_UpdateClock
+	ret
+
+.display_year
+	ld de, .year
+	call PlaceString
+
+	ld h, b
+	ld l, c
+	ld a, [wYearMonth]
+	swap a
+	and $3
+	add $f6
+	ld [hl], a
 	ret
 
 .switch
