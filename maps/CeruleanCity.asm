@@ -384,7 +384,7 @@ CeruleanCitySuperNerdText:
 
 	para "Every single day…"
 
-	para "We know call it"
+	para "We now call it"
 	line "the SHAME BRIDGE."
 	done
 

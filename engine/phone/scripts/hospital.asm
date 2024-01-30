@@ -57,8 +57,10 @@ HospitalCallerScript:
 	para "the app will trace"
 	line "back the user's"
 	cont "journey to find"
-	cont "with whom they've"
-	cont "been in contact."
+	
+	para "the other users"
+	line "they've been in"
+	cont "contact with."
 
 	para "Those people can"
 	line "then be notified."
@@ -66,9 +68,9 @@ HospitalCallerScript:
 	para "This is called"
 	line "CONTACT TRACING."
 
-	para "The more people"
-	line "use it, the more"
-	cont "effective."
+	para "It becomes more"
+	line "effective as it"
+	cont "gets more use."
 
 	para "You should get"
 	line "this CARD."

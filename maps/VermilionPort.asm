@@ -38,9 +38,9 @@ VermilionPort_MapScripts:
 	appear VERMILIONPORT_CAPTAIN
 	follow PLAYER, VERMILIONPORT_CAPTAIN
 	applymovement PLAYER, VermilionPortLeaveFastShipLongMovement
-	applymovement PLAYER, VermilionPortHeadDownMovement
 	stopfollow
-	moveobject VERMILIONPORT_CAPTAIN, 5, 14
+	applymovement PLAYER, VermilionPortHeadDownMovement
+	moveobject VERMILIONPORT_CAPTAIN, 7, 17
 	scall VermilionPortCaptainScript
 	sjump .DoEvents
 
@@ -204,6 +204,7 @@ VermilionPortLeaveFastShipMovement:
 	step_end
 
 VermilionPortHeadDownMovement:
+	step UP
 	turn_head DOWN
 	step_end
 

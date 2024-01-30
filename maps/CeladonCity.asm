@@ -64,6 +64,12 @@ CeladonCityYoungster2Script:
 	jumptextfaceplayer CeladonCityYoungster2Text
 
 CeladonCityTeacher2Script:
+	readmem wCurFreedomState
+	ifequal 1 << VACCINE_PASSPORT, .vaccine_passport
+
+	jumptextfaceplayer CeladonCityTeacher2TextBis
+
+.vaccine_passport
 	jumptextfaceplayer CeladonCityTeacher2Text
 
 CeladonCityLassScript:
@@ -169,6 +175,12 @@ CeladonCityTeacher2Text:
 	para "Though entry is"
 	line "conditioned on"
 	cont "being vaccinated."
+	done
+
+CeladonCityTeacher2TextBis:
+	text "I'll never get"
+	line "vaccinated. It's"
+	cont "my choice."
 	done
 
 CeladonCityLassText:

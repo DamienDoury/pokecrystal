@@ -22,9 +22,6 @@ Route5CleanseTagHouseGrannyText1:
 	para "I sense a sinister"
 	line "shadow hovering"
 	cont "over you."
-
-	para "Take this to ward"
-	line "it off!"
 	done
 
 Route5CleanseTagHouseTeacherText:

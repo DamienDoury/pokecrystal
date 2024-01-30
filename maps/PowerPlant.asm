@@ -22,6 +22,7 @@ PowerPlantGuardPhoneScript:
 	applymovement POWERPLANT_OFFICER1, PowerPlantOfficer1ApproachGymGuide2Movement
 	turnobject POWERPLANT_GYM_GUIDE1, DOWN
 	turnobject POWERPLANT_GYM_GUIDE2, DOWN
+	turnobject PLAYER, RIGHT
 	opentext
 	writetext PowerPlantOfficer1CeruleanShadyCharacterText
 	waitbutton

@@ -92,7 +92,7 @@ VermilionGymBadgeGuy:
 .AllBadges:
 	writetext VermilionCityBadgeGuyAllBadgesText
 	promptbutton
-	verbosegiveitem HP_UP
+	verbosegiveitem PP_UP, 10
 	iffalse .Done
 	setevent EVENT_GOT_HP_UP_FROM_VERMILION_GUY
 .AlreadyGotItem:

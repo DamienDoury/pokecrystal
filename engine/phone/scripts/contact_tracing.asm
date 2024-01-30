@@ -10,9 +10,8 @@ ContactTracingCallerScript:
 
 	para "A trainer you"
 	line "recently battled"
-	cont "with, has been"
-	cont "tested positive"
-	cont "to COVID."
+	cont "has been tested"
+	cont "positive to COVID."
 	
 	para "You and your #-"
 	line "MON must begin a"

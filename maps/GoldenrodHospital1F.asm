@@ -386,7 +386,7 @@ GoldenrodHospitalNurse1Step3Text:
 	cont "thereafter."
 	
 	para "Good luck"
-	cont "finding her."
+	line "finding her."
 	done
 
 GoldenrodHospitalChiefWaitingText:
