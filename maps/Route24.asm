@@ -76,6 +76,14 @@ GotNewKantoBadge::
 	scall AugmentKantoDifficultyLevel
 
 	readvar VAR_BADGES
+	ifequal 10, .skip_month_elapsing
+
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
+
+.skip_month_elapsing
+	readvar VAR_BADGES
 	ifequal 14, .fourteen
 	ifequal 15, .fifteen
 	end

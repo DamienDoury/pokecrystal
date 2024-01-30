@@ -146,6 +146,9 @@ PowerPlantManager:
 	setevent EVENT_JASMINE_AT_FUJIS
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	clearevent EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 .ReturnedMachinePart:
 	checkevent EVENT_GOT_TM07_ZAP_CANNON
 	iftrue .GotZapCannon

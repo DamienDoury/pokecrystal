@@ -20,6 +20,10 @@ LavenderTown_MapScripts:
 	readmem wKantoAddLevel
 	addval 1
 	writemem wKantoAddLevel
+	
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 .endcallback
 	endcallback
 

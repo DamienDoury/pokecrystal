@@ -307,6 +307,10 @@ SilphCoResearchScientist1Script:
 	waitbutton
 	closetext
 
+    readmem wYearMonth
+	addval 1
+	writemem wYearMonth
+
 	clearevent EVENT_CROWD_IN_VACCINATION_CENTER
 
 	; Either the happiness of the Pokémon is high and the player gets to keep it.
