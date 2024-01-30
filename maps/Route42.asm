@@ -28,26 +28,25 @@ Route42_MapScripts:
 	scene_script .DummyScene1 ; SCENE_ROUTE42_SUICUNE
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
-.EnterCallback:
+.DummyScene0:
+.DummyScene1:
 	checkevent EVENT_GOT_COVID_ON_ROUTE_42
 	iftrue .end
 
 	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid from enemy during the next battle, wherever that battle happens.
 
 .end
-	endcallback
-
-.DummyScene0:
-	end
-
-.DummyScene1:
 	end
 
 Route42_PoliceTrainer:
 	trainer OFFICER, POLICE_2, EVENT_BEAT_POLICE, -1, -1, 0, .Script
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_42
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	end
@@ -361,7 +360,6 @@ Route42_MapEvents:
 	bg_event 16, 11, BGEVENT_ITEM, Route42HiddenMaxPotion
 
 	def_object_events
-	object_event 42, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
 	object_event 42, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
 	object_event 47, 12, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
 	object_event  8,  6, SPRITE_OFFICER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 3, Route42_PoliceTrainer, -1
