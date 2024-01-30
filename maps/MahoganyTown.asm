@@ -19,6 +19,7 @@ MahoganyTown_MapScripts:
 	readmem wJohtoAddLevel
 	addval 1
 	writemem wJohtoAddLevel
+	specialphonecall SPECIALCALL_CONTACT_TRACING_AVAILABLE
 .endcallback
 	endcallback
 

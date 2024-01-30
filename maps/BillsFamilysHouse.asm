@@ -18,7 +18,39 @@ BillsFamilysHouse_MapScripts:
 	endcallback
 
 BillScript:
-	jumptextfaceplayer BillTakeThisEeveeText
+	faceplayer
+	checkevent EVENT_CONTACT_TRACING_MODULE_AVAILABLE
+	iftrue .askForCard
+
+	jumptext BillTakeThisEeveeText
+
+.askForCard
+	opentext
+	writetext BillAskForCardText
+	yesorno
+	iffalse .refused
+
+	writetext BillAllYouHadToSayText
+	promptbutton
+	getstring STRING_BUFFER_4, .contactTracingCardText
+	callstd ReceiveItemScript
+	writetext BillAutomaticText
+	waitbutton
+
+	setevent EVENT_POKEGEAR_CONTACT_TRACING_MODULE
+	clearevent EVENT_CONTACT_TRACING_MODULE_AVAILABLE
+	clearevent EVENT_CONTACT_TRACING_NOTIFICATION ; The device couldn't receive notifications before it was installed.
+	sjump .endText
+
+.refused
+	writetext BillPrivacyConcernsText
+	waitbutton
+.endText
+	closetext
+	end
+
+.contactTracingCardText
+	db "CONTACT TRACING@"
 
 BillsMomScript:
 	faceplayer
@@ -183,6 +215,33 @@ BillsComputerText:
 
 	para "What are those"
 	line "alien writings?"
+	done
+
+BillAskForCardText:
+	text "BILL: Yo <PLAYER>!"
+
+	para "Are you coming to"
+	line "get a CONTACT"
+	cont "TRACING CARD?"
+	done
+
+BillAllYouHadToSayText:
+	text "It's all you"
+	line "had to say."
+	done
+
+BillPrivacyConcernsText:
+	text "Is it a privacy"
+	line "concern?"
+
+	para "All the data is"
+	line "anonymized, don't"
+	cont "worry about it."
+	done
+
+BillAutomaticText:
+	text "No manual needed."
+	line "It's all automated!"
 	done
 
 BillsFamilysHouse_MapEvents:

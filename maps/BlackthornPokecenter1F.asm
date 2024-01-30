@@ -22,17 +22,19 @@ BlackthornPokecenter1FCooltrainerMScript:
 	jumpstd HappinessCheckScript
 
 BlackthornPokecenter1FGentlemanText:
-	text "Deep inside far-"
-	line "off INDIGO PLATEAU"
+	text "My CONTACT TRACING"
+	line "CARD feels great!"
 
-	para "is the #MON"
-	line "LEAGUE."
+	para "But unfortunately"
+	line "it won't notify me"
 
-	para "I hear the best"
-	line "trainers gather"
+	para "if I get contami-"
+	line "nated by a wild"
+	cont "#MON."
 
-	para "there from around"
-	line "the country."
+	para "I wish wild #-"
+	line "MON all had a"
+	cont "#GEAR."
 	done
 
 BlackthornPokecenter1FTwinText:

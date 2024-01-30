@@ -843,15 +843,15 @@ CountStep:
 	; Don't count steps in link communication rooms.
 	ld a, [wLinkMode]
 	and a
-	jr nz, .done
+	jp nz, .done
 
 	; If there is a special phone call, don't count the step.
 	farcall CheckSpecialPhoneCall
-	jr c, .doscript
+	jp c, .doscript
 
 	; If Repel wore off, don't count the step.
 	call DoRepelStep
-	jr c, .doscript
+	jp c, .doscript
 
 	; Count the step for poison and total steps
 	ld hl, wPoisonStepCount
@@ -873,6 +873,29 @@ CountStep:
 	inc [hl]
 
 .skip_walking_abuse_guard_inc
+	ld a, [wStepCount]
+	cp 42 ; 1 check every 256 steps.
+	jr nz, .skip_contact_tracing
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_CONTACT_TRACING_NOTIFICATION
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .skip_contact_tracing
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_POKEGEAR_CONTACT_TRACING_MODULE
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .skip_contact_tracing
+
+	; At this point, the test is validated. We should inform the player.
+	ld a, SPECIALCALL_CONTACT_TRACING_NOTIFICATION
+	ld [wSpecialPhoneCallID], a ; The event flag will be reset by the call script.
+
+.skip_contact_tracing
 	; Every 128 steps, increase wActivePlaytimePoints by one.
 	ld a, [wStepCount]
 	and $80 - 1

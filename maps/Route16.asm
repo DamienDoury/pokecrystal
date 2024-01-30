@@ -29,6 +29,11 @@ TrainerBikerHusq:
 	trainer BIKER, HUSQ, EVENT_BEAT_BIKER_HUSQ, BikerHusqSeenText, BikerHusqBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_16
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 
@@ -43,6 +48,11 @@ TrainerBugCatcherJerome:
 	trainer BUG_CATCHER, JEROME, EVENT_BEAT_BUG_CATCHER_JEROME, BugCatcherJeromeSeenText, BugCatcherJeromeBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_16
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 

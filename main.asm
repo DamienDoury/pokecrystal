@@ -361,6 +361,7 @@ INCLUDE "engine/phone/scripts/hangups_2.asm"
 INCLUDE "engine/phone/scripts/reminders_2.asm"
 INCLUDE "engine/phone/scripts/bike_shop.asm"
 INCLUDE "engine/phone/scripts/buena.asm"
+INCLUDE "engine/phone/scripts/contact_tracing.asm"
 
 
 SECTION "Phone Text", ROMX

@@ -51,6 +51,11 @@ TrainerPokefanmDerek:
 	trainer POKEFANM, DEREK1, EVENT_BEAT_POKEFANM_DEREK, PokefanmDerekSeenText, PokefanmDerekBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_39
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 
@@ -133,6 +138,11 @@ TrainerPokefanfRuth:
 	trainer POKEFANF, RUTH, EVENT_BEAT_POKEFANF_RUTH, PokefanfRuthSeenText, PokefanfRuthBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_39
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 
@@ -147,6 +157,11 @@ TrainerSailorEugene:
 	trainer SAILOR, EUGENE, EVENT_BEAT_SAILOR_EUGENE, SailorEugeneSeenText, SailorEugeneBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_39
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
@@ -160,6 +175,11 @@ TrainerPsychicNorman:
 	trainer PSYCHIC_T, NORMAN, EVENT_BEAT_PSYCHIC_NORMAN, PsychicNormanSeenText, PsychicNormanBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_39
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
@@ -202,6 +222,11 @@ TrainerPokefanfJaime:
 Route39_PoliceTrainer:
 	trainer OFFICER, POLICE_2, EVENT_BEAT_POLICE, -1, -1, 0, .Script
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_39
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	end

@@ -67,6 +67,11 @@ TrainerFisherTully:
 	trainer FISHER, TULLY1, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_42
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	loadvar VAR_CALLERID, PHONE_FISHER_TULLY
@@ -183,6 +188,11 @@ TrainerPokemaniacShane:
 	trainer POKEMANIAC, SHANE, EVENT_BEAT_POKEMANIAC_SHANE, PokemaniacShaneSeenText, PokemaniacShaneBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_42
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
@@ -196,6 +206,11 @@ TrainerHikerBenjamin:
 	trainer HIKER, BENJAMIN, EVENT_BEAT_HIKER_BENJAMIN, HikerBenjaminSeenText, HikerBenjaminBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_42
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled

@@ -21,6 +21,11 @@ TrainerHikerJim:
 	trainer HIKER, JIM, EVENT_BEAT_HIKER_JIM, HikerJimSeenText, HikerJimBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_10
+	iftrue .NoNotification
+
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_10
 
@@ -35,6 +40,11 @@ TrainerPokefanmRobert:
 	trainer POKEFANM, ROBERT, EVENT_BEAT_POKEFANM_ROBERT, PokefanmRobertSeenText, PokefanmRobertBeatenText, 0, .Script
 
 .Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_10
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_10
 

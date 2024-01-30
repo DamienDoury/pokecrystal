@@ -18,6 +18,7 @@ PhoneContacts:
 	phone TRAINER_NONE, PHONECONTACT_ELM,      ELMS_LAB,                  ANYTIME, ElmPhoneCalleeScript,     0,       ElmPhoneCallerScript
 	phone TRAINER_NONE, PHONECONTACT_HOSPITAL, N_A, 					  ANYTIME, HospitalCalleeScript,   	 ANYTIME, HospitalCallerScript
 	phone TRAINER_NONE, PHONECONTACT_CREATOR,  N_A, 					  ANYTIME, CreatorCalleeScript,   	 ANYTIME, CreatorCallerScript
+	phone TRAINER_NONE, PHONECONTACT_TRACING,  N_A, 					  ANYTIME, ContactTracingCalleeScript, ANYTIME, ContactTracingCallerScript
 	phone SCHOOLBOY,    JACK1,                 NATIONAL_PARK,             ANYTIME, JackPhoneCalleeScript,    ANYTIME, JackPhoneCallerScript
 	phone POKEFANF,     BEVERLY1,              NATIONAL_PARK,             ANYTIME, BeverlyPhoneCalleeScript, ANYTIME, BeverlyPhoneCallerScript
 	phone SAILOR,       HUEY1,                 OLIVINE_LIGHTHOUSE_2F,     ANYTIME, HueyPhoneCalleeScript,    ANYTIME, HueyPhoneCallerScript

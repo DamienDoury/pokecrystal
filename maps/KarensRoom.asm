@@ -19,8 +19,8 @@ KarensRoom_MapScripts:
 	end
 
 .EnterCallback:
-	readvar VAR_BADGES
-	ifgreater 13, .NoCovid
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .NoCovid
 
 	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid from enemy during the battle.
 
@@ -64,6 +64,11 @@ KarenScript_Battle:
 	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KAREN
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iftrue .NoNotification
+
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
 	opentext
 	writetext KarenScript_KarenDefeatText
 	waitbutton

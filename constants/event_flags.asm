@@ -363,7 +363,8 @@
 
 	const EVENT_CONTACT_TRACING_MODULE_AVAILABLE
 	const EVENT_POKEGEAR_CONTACT_TRACING_MODULE
-; Unused: next 264 events
+	const EVENT_CONTACT_TRACING_NOTIFICATION
+; Unused: next 263 events
 
 	const_next 600
 ; Kurt Apricorn events

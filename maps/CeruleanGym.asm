@@ -157,6 +157,7 @@ CeruleanGymMistyScript:
 	setevent EVENT_BEAT_SWIMMERF_DIANA
 	setevent EVENT_BEAT_SWIMMERF_BRIANA
 	setevent EVENT_BEAT_SWIMMERM_PARKER
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 	opentext
 	writetext ReceivedCascadeBadgeText
 	playsound SFX_GET_BADGE

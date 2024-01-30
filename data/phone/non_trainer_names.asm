@@ -8,6 +8,7 @@ NonTrainerCallerNames:
 	dw .elm
 	dw .hospital
 	dw .creator
+	dw .tracing
 	dw .buena
 	assert_table_length NUM_NONTRAINER_PHONECONTACTS + 1
 
@@ -18,4 +19,5 @@ NonTrainerCallerNames:
 .bikeshop: db "BIKE SHOP:@"
 .hospital: db "CHIEF NURSE JOY:<LF>      HOSPITAL@"
 .creator:  db "HIDDEN NUMBER:@"
+.tracing:  db "CONTACT TRACING:@"
 .buena:    db "BUENA:<LF>   DISC JOCKEY@"

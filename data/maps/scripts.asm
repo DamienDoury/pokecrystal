@@ -7,7 +7,6 @@ INCLUDE "maps/BillsFamilysHouse.asm"
 INCLUDE "maps/GoldenrodMagnetTrainStation.asm"
 INCLUDE "maps/GoldenrodFlowerShop.asm"
 INCLUDE "maps/GoldenrodPPSpeechHouse.asm"
-INCLUDE "maps/GoldenrodNameRater.asm"
 INCLUDE "maps/GoldenrodDeptStore1F.asm"
 INCLUDE "maps/GoldenrodDeptStore2F.asm"
 INCLUDE "maps/GoldenrodDeptStore3F.asm"
@@ -52,6 +51,8 @@ INCLUDE "maps/OlivineLighthouse4F.asm"
 INCLUDE "maps/PlayersNeighborsHouse.asm"
 INCLUDE "maps/Route6SaffronGate.asm"
 INCLUDE "maps/SilverCaveOutside.asm"
+INCLUDE "maps/GoldenrodNameRater.asm"
+
 
 SECTION "Map Scripts 3", ROMX
 
@@ -76,6 +77,7 @@ INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/ViridianForest.asm"
 INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
+INCLUDE "maps/Route37.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -165,6 +167,7 @@ INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
 INCLUDE "maps/Route4.asm"
+
 
 SECTION "Map Scripts 10", ROMX
 
@@ -445,7 +448,6 @@ SECTION "Map Scripts 23", ROMX
 INCLUDE "maps/NewBarkTown.asm"
 INCLUDE "maps/VioletCity.asm"
 INCLUDE "maps/OlivineCity.asm"
-INCLUDE "maps/Route37.asm"
 INCLUDE "maps/Route42.asm"
 INCLUDE "maps/Route46.asm"
 INCLUDE "maps/ViridianCity.asm"
