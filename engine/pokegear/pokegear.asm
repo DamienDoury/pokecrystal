@@ -410,9 +410,9 @@ InitPokegearTilemap::
 .February
 	db " Feb.@"
 .March
-	db " Mar.@"
+	db " March@"
 .April
-	db " Apr.@"
+	db " April@"
 .May
 	db " May@"
 .June
