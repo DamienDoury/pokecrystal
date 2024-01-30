@@ -620,9 +620,10 @@ Pokegear_UpdateClock:
 	ldh a, [hMinutes]
 	ld c, a
 	ldh a, [hHours]
+	add 11
 	ld b, 12
 	call Modulo
-	cp 10
+	cp 9
 	ldh a, [hHours]
 	ld b, a
 	decoord 6, 11
