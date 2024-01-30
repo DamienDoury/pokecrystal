@@ -46,6 +46,7 @@ Red:
 	special ReloadSpritesNoPalettes
 	specialphonecall SPECIALCALL_MISSION_COMPLETE
 	setflag ENGINE_DISPLAY_YEAR_AT_START
+	loadmem wYearMonth, $20 ; January 2022.
 	clearevent EVENT_RED_BEATEN
 	setevent EVENT_GOLDENROD_BEATER
 	setevent EVENT_RED_IN_MT_SILVER
