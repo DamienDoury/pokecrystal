@@ -91,7 +91,7 @@ MahoganyGymPryceScript:
 	writetext PryceSleepingText
 	promptbutton
 	checkevent EVENT_BEAT_PRYCE
-	iftrue .FightDone
+	iftrue PryceScript_Defeat
 	
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
 	iftrue .PowerRestrainerExplained
@@ -115,9 +115,10 @@ MahoganyGymPryceScript:
 	writetext Text_ReceivedGlacierBadge
 	playsound SFX_GET_BADGE
 	waitsfx
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 	setflag ENGINE_GLACIERBADGE
-.FightDone:
-	checkevent EVENT_GOT_TM16_ICY_WIND
 	iftrue PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
@@ -130,8 +131,6 @@ MahoganyGymPryceScript:
 	writetext PryceText_GlacierBadgeSpeech2
 	promptbutton
 	verbosegiveitem TM_ICY_WIND
-	iffalse MahoganyGym_NoRoomForIcyWind
-	setevent EVENT_GOT_TM16_ICY_WIND
 	writetext PryceText_IcyWindSpeech
 	waitbutton
 	closetext
@@ -140,7 +139,6 @@ MahoganyGymPryceScript:
 PryceScript_Defeat:
 	writetext PryceText_CherishYourPokemon
 	waitbutton
-MahoganyGym_NoRoomForIcyWind:
 	closetext
 	end
 

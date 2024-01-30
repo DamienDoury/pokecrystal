@@ -84,7 +84,7 @@ OlivineGymJasmineScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_JASMINE
-	iftrue .FightDone
+	iftrue .GotIronTail
 	writetext Jasmine_SteelTypeIntroText
 
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
@@ -113,16 +113,14 @@ OlivineGymJasmineScript:
 	writetext Text_ReceivedMineralBadge
 	playsound SFX_GET_BADGE
 	waitsfx
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 	setflag ENGINE_MINERALBADGE
-.FightDone:
-	checkevent EVENT_GOT_TM23_IRON_TAIL
-	iftrue .GotIronTail
 	farscall NewBadgeObedienceNotification
 	writetext Jasmine_BadgeSpeech
 	promptbutton
 	verbosegiveitem TM_IRON_TAIL
-	iffalse .NoRoomForIronTail
-	setevent EVENT_GOT_TM23_IRON_TAIL
 	writetext Jasmine_IronTailSpeech
 	waitbutton
 	closetext
@@ -137,7 +135,6 @@ OlivineGymJasmineScript:
 .GotIronTail:
 	writetext Jasmine_GoodLuck
 	waitbutton
-.NoRoomForIronTail:
 	closetext
 	end
 	

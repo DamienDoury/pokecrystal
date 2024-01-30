@@ -88,7 +88,7 @@ EcruteakGymMortyScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_MORTY
-	iftrue .FightDone
+	iftrue .GotShadowBall
 	writetext MortyIntroText
 
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
@@ -114,13 +114,13 @@ EcruteakGymMortyScript:
 	writetext Text_ReceivedFogBadge
 	playsound SFX_GET_BADGE
 	waitsfx
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 	setflag ENGINE_FOGBADGE
 	setevent EVENT_RANG_CLEAR_BELL ; This and the 2 following lines will make the Sage take blocks the Tin Tower Entrance permanently IF the player carries the Clear Bell the next time it enters the Tin Tower Entrance. This is vanilla behaviour.
 	setevent EVENT_TINTOWER_SAGE_LEFT
 	setevent EVENT_TINTOWER_SAGE_RIGHT
-.FightDone:
-	checkevent EVENT_GOT_TM30_SHADOW_BALL
-	iftrue .GotShadowBall
 	setevent EVENT_BEAT_SAGE_JEFFREY
 	setevent EVENT_BEAT_SAGE_PING
 	setevent EVENT_BEAT_MEDIUM_MARTHA
@@ -131,8 +131,6 @@ EcruteakGymMortyScript:
 	writetext MortyText_FogBadgeSpeech2
 	promptbutton
 	verbosegiveitem TM_SHADOW_BALL
-	iffalse .NoRoomForShadowBall
-	setevent EVENT_GOT_TM30_SHADOW_BALL
 	writetext MortyText_ShadowBallSpeech
 	waitbutton
 	closetext
@@ -141,7 +139,6 @@ EcruteakGymMortyScript:
 .GotShadowBall:
 	writetext MortyFightDoneText
 	waitbutton
-.NoRoomForShadowBall:
 	closetext
 	end
 

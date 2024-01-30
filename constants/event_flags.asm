@@ -13,11 +13,11 @@
 ; Johto Gym Leader TM gifts
 	const EVENT_GOT_TM31_MUD_SLAP
 	const EVENT_GOT_TM49_FURY_CUTTER
-	const EVENT_GOT_TM01_DYNAMICPUNCH
+	const_skip
 	const EVENT_GOT_TM45_ATTRACT
-	const EVENT_GOT_TM30_SHADOW_BALL
-	const EVENT_GOT_TM23_IRON_TAIL
-	const EVENT_GOT_TM16_ICY_WIND
+	const_skip
+	const_skip
+	const_skip
 	const EVENT_GOT_TM24_DRAGONBREATH
 ; HMs (EVENT_GOT_HM07_WATERFALL is with the Johto itemballs)
 	const EVENT_GOT_HM01_CUT

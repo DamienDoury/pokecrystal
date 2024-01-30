@@ -92,7 +92,7 @@ CianwoodGymChuckScript:
 	faceplayer
 	opentext
 	checkevent EVENT_BEAT_CHUCK
-	iftrue .FightDone
+	iftrue .AlreadyGotTM
 	writetext ChuckIntroText1
 
 	checkevent EVENT_GYM_POWER_RESTRAINER_EXPLAINED
@@ -133,10 +133,10 @@ CianwoodGymChuckScript:
 	writetext GetStormBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 	setflag ENGINE_STORMBADGE
-.FightDone:
-	checkevent EVENT_GOT_TM01_DYNAMICPUNCH
-	iftrue .AlreadyGotTM
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
 	setevent EVENT_BEAT_BLACKBELT_NOB
@@ -147,8 +147,6 @@ CianwoodGymChuckScript:
 	writetext ChuckExplainBadgeText2
 	promptbutton
 	verbosegiveitem TM_DYNAMICPUNCH
-	iffalse .BagFull
-	setevent EVENT_GOT_TM01_DYNAMICPUNCH
 	writetext ChuckExplainTMText
 	waitbutton
 	closetext
@@ -157,7 +155,6 @@ CianwoodGymChuckScript:
 .AlreadyGotTM:
 	writetext ChuckAfterText
 	waitbutton
-.BagFull:
 	closetext
 	end
 

@@ -106,6 +106,9 @@ MahoganyMart1FLanceUncoversStaircaseScript:
 	disappear MAHOGANYMART1F_LANCE
 	setscene SCENE_MAHOGANYMART1F_NOTHING
 	waitsfx
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
 	end
 
 MahoganyMart1FGrannyScript:

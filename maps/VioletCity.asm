@@ -26,7 +26,13 @@ VioletCity_MapScripts:
 
 .FlyPoint:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	checkflag ENGINE_FLYPOINT_VIOLET
+	iftrue .FlyPointDone
+
+	loadmem wYearMonth, 1
 	setflag ENGINE_FLYPOINT_VIOLET
+.FlyPointDone
 	endcallback
 
 .TilesLoad:

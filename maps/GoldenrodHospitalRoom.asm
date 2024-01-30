@@ -938,6 +938,7 @@ GoldenrodHospitalRoomTrainerChiefNurseScript:
 	pause 5
 	playsound SFX_EXIT_BUILDING
 	waitsfx
+	loadmem wYearMonth, 3
 	setevent EVENT_SICK_CATERPIE
 	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
 	setevent EVENT_FIRST_LOCKDOWN_STARTED

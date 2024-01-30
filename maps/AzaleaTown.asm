@@ -48,7 +48,12 @@ AzaleaTown_MapScripts:
 	endcallback
 
 .Flypoint:
+	checkflag ENGINE_FLYPOINT_AZALEA
+	iftrue .FlyPointDone
+
+	loadmem wYearMonth, 2
 	setflag ENGINE_FLYPOINT_AZALEA
+.FlyPointDone
 	endcallback
 
 .TilesLoad:
