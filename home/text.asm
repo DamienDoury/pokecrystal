@@ -171,6 +171,8 @@ SetUpTextbox::
 	pop hl
 	ret
 
+; Input: string at address DE.
+; Output: number of chars of the string in A.
 CountChars::
 	push bc
 	push de
@@ -1009,9 +1011,17 @@ TextCommand_STRINGBUFFER::
 
 TextCommand_DAY::
 ; print the day of the week
-	call GetWeekday
 	push hl
 	push bc
+	call GetWeekDayStringAddress
+	pop hl
+	call PlaceString
+	pop hl
+	ret
+
+; Output: string address of the current weekday in DE and HL.
+GetWeekDayStringAddress::
+	call GetWeekday
 	ld c, a
 	ld b, 0
 	ld hl, .Days
@@ -1022,13 +1032,6 @@ TextCommand_DAY::
 	ld l, a
 	ld d, h
 	ld e, l
-	pop hl
-	call PlaceString
-	ld h, b
-	ld l, c
-	ld de, .Day
-	call PlaceString
-	pop hl
 	ret
 
 .Days:
@@ -1040,11 +1043,10 @@ TextCommand_DAY::
 	dw .Fri
 	dw .Satur
 
-.Sun:    db "SUN@"
-.Mon:    db "MON@"
-.Tues:   db "TUES@"
-.Wednes: db "WEDNES@"
-.Thurs:  db "THURS@"
-.Fri:    db "FRI@"
-.Satur:  db "SATUR@"
-.Day:    db "DAY@"
+.Sun:    db "SUNDAY@"
+.Mon:    db "MONDAY@"
+.Tues:   db "TUESDAY@"
+.Wednes: db "WEDNESDAY@"
+.Thurs:  db "THURSDAY@"
+.Fri:    db "FRIDAY@"
+.Satur:  db "SATURDAY@"

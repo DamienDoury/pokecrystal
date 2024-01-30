@@ -35,6 +35,9 @@ PokeGear:
 	ldh [hInMenu], a
 	ld a, [wVramState]
 	push af
+
+	callfar InitPartyMenuPalettes
+
 	xor a
 	ld [wVramState], a
 	call .InitTilemap
@@ -310,17 +313,117 @@ InitPokegearTilemap:
 .Clock:
 	ld de, ClockTilemapRLE
 	call Pokegear_LoadTilemapRLE
-	hlcoord 12, 1
+
+	hlcoord 18, 1
 	ld de, .switch
 	call PlaceString
+
+	ld a, [wYearMonth]
+	and $f
+	cp 13
+	jr c, .monthCapped
+
+	ld a, 0
+.monthCapped
+	add a 
+	ld hl, .months
+	ld e, a
+	ld d, 0
+	add hl, de
+
+	ld e, [hl]
+	inc hl
+	ld d, [hl]
+
+	hlcoord 4, 7
+	call PlaceString
+
+	hlcoord 11, 7
+	ld de, .year
+	call PlaceString
+
+	hlcoord 14, 7
+	ld a, [wYearMonth]
+	swap a
+	and $3
+	add $f6
+	ld [hl], a
+
+	ld de, EVENT_POKEGEAR_CONTACT_TRACING_MODULE
+	ld b, CHECK_FLAG
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .skip_contact_tracing
+
+	hlcoord 0, 15
+	ld bc, SCREEN_WIDTH * 3
+	ld a, $7f
+	call ByteFill
+
+	hlcoord 0, 15
+	ld a, $30
+	ld [hl], a
+
+	hlcoord 19, 15
+	ld a, $31
+	ld [hl], a
+
+	hlcoord 1, 16
+	ld de, .contactTracing
+	call PlaceString
+
+.skip_contact_tracing
 	hlcoord 0, 12
 	lb bc, 4, 18
-	call Textbox
 	call Pokegear_UpdateClock
 	ret
 
 .switch
-	db " SWITCH▶@"
+	db "▶@"
+.year
+	db "202@"
+.contactTracing
+	db "CONTACT TRACING ON@"
+
+.months
+	dw .January
+	dw .February
+	dw .March
+	dw .April
+	dw .May
+	dw .June
+	dw .July
+	dw .August
+	dw .September
+	dw .October
+	dw .November
+	dw .December
+
+.January
+	db " Jan.@"
+.February
+	db " Feb.@"
+.March
+	db " Mar.@"
+.April
+	db " Apr.@"
+.May
+	db " May@"
+.June
+	db " June@"
+.July
+	db " July@"
+.August
+	db " Aug.@"
+.September
+	db " Sept.@"
+.October
+	db " Oct.@"
+.November
+	db " Nov.@"
+.December
+	db " Dec.@"
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -452,8 +555,6 @@ PokegearJumptable:
 
 PokegearClock_Init:
 	call InitPokegearTilemap
-	ld hl, PokegearPressButtonText
-	call PrintText
 	ld hl, wJumptableIndex
 	inc [hl]
 	call ExitPokegearRadio_HandleMusic
@@ -507,26 +608,42 @@ PokegearClock_Joypad:
 	ret
 
 Pokegear_UpdateClock:
-	hlcoord 3, 5
-	lb bc, 5, 14
+	hlcoord 3, 9
+	lb bc, 3, 14
 	call ClearBox
-	ldh a, [hHours]
-	ld b, a
+
 	ldh a, [hMinutes]
 	ld c, a
-	decoord 6, 8
+	ldh a, [hHours]
+	ld b, 12
+	call Modulo
+	cp 10
+	ldh a, [hHours]
+	ld b, a
+	decoord 6, 11
+	jr c, .offsetTime
+
+	inc de
+.offsetTime
 	farcall PrintHoursMins
-	ld hl, .GearTodayText
-	bccoord 6, 6
-	call PlaceHLTextAtBC
+
+	call GetWeekDayStringAddress
+	call CountChars
+	ld c, a
+	srl c
+	ld a, 10
+	sbc c
+	ld c, a
+	ld b, 0
+	hlcoord 0, 9
+	add hl, bc
+	call PlaceString
+
+	hlcoord 5, 11
+	ld a, [wTimeOfDay]
+	add $1d
+	ld [hl], a
 	ret
-
-	db "ごぜん@"
-	db "ごご@"
-
-.GearTodayText:
-	text_far _GearTodayText
-	text_end
 
 PokegearMap_CheckRegion:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -2970,133 +3087,133 @@ INCBIN "gfx/pokegear/dexmap_nest_icon.2bpp"
 FlyMapLabelBorderGFX:
 INCBIN "gfx/pokegear/flymap_label_border.1bpp"
 
-EntireFlyMap: ; unreferenced
-; Similar to _FlyMap, but scrolls through the entire
-; Flypoints data of both regions. A debug function?
-	xor a
-	ld [wTownMapPlayerIconLandmark], a
-	call ClearBGPalettes
-	call ClearTilemap
-	call ClearSprites
-	ld hl, hInMenu
-	ld a, [hl]
-	push af
-	ld [hl], $1
-	xor a
-	ldh [hBGMapMode], a
-	farcall ClearSpriteAnims
-	call LoadTownMapGFX
-	ld de, FlyMapLabelBorderGFX
-	ld hl, vTiles2 tile $30
-	lb bc, BANK(FlyMapLabelBorderGFX), 6
-	call Request1bpp
-	call FillKantoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0, vBGMap1
-	call TownMapBGUpdate
-	call FillJohtoMap
-	call TownMapBubble
-	call TownMapPals
-	hlbgcoord 0, 0
-	call TownMapBGUpdate
-	call TownMapMon
-	ld a, c
-	ld [wTownMapCursorCoordinates], a
-	ld a, b
-	ld [wTownMapCursorCoordinates + 1], a
-	ld b, SCGB_POKEGEAR_PALS
-	call GetSGBLayout
-	call SetPalettes
-.loop
-	call JoyTextDelay
-	ld hl, hJoyPressed
-	ld a, [hl]
-	and B_BUTTON
-	jr nz, .pressedB
-	ld a, [hl]
-	and A_BUTTON
-	jr nz, .pressedA
-	call .HandleDPad
-	call GetMapCursorCoordinates
-	farcall PlaySpriteAnimations
-	call DelayFrame
-	jr .loop
-
-.pressedB
-	ld a, -1
-	jr .exit
-
-.pressedA
-	ld a, [wTownMapPlayerIconLandmark]
-	ld l, a
-	ld h, 0
-	add hl, hl
-	ld de, Flypoints + 1
-	add hl, de
-	ld a, [hl]
-.exit
-	ld [wTownMapPlayerIconLandmark], a
-	pop af
-	ldh [hInMenu], a
-	call ClearBGPalettes
-	ld a, SCREEN_HEIGHT_PX
-	ldh [hWY], a
-	xor a ; LOW(vBGMap0)
-	ldh [hBGMapAddress], a
-	ld a, HIGH(vBGMap0)
-	ldh [hBGMapAddress + 1], a
-	ld a, [wTownMapPlayerIconLandmark]
-	ld e, a
-	ret
-
-.HandleDPad:
-	ld hl, hJoyLast
-	ld a, [hl]
-	and D_DOWN | D_RIGHT
-	jr nz, .ScrollNext
-	ld a, [hl]
-	and D_UP | D_LEFT
-	jr nz, .ScrollPrev
-	ret
-
-.ScrollNext:
-	ld hl, wTownMapPlayerIconLandmark
-	ld a, [hl]
-	cp NUM_FLYPOINTS - 1
-	jr c, .NotAtEndYet
-	ld [hl], -1
-.NotAtEndYet:
-	inc [hl]
-	jr .FillMap
-
-.ScrollPrev:
-	ld hl, wTownMapPlayerIconLandmark
-	ld a, [hl]
-	and a
-	jr nz, .NotAtStartYet
-	ld [hl], NUM_FLYPOINTS
-.NotAtStartYet:
-	dec [hl]
-.FillMap:
-	ld a, [wTownMapPlayerIconLandmark]
-	cp KANTO_FLYPOINT
-	jr c, .InJohto
-	call FillKantoMap
-	xor a
-	ld b, HIGH(vBGMap1)
-	jr .Finally
-
-.InJohto:
-	call FillJohtoMap
-	ld a, SCREEN_HEIGHT_PX
-	ld b, HIGH(vBGMap0)
-.Finally:
-	ldh [hWY], a
-	ld a, b
-	ldh [hBGMapAddress + 1], a
-	call TownMapBubble
-	call WaitBGMap
-	xor a
-	ldh [hBGMapMode], a
-	ret
+;EntireFlyMap: ; unreferenced
+;; Similar to _FlyMap, but scrolls through the entire
+;; Flypoints data of both regions. A debug function?
+;	xor a
+;	ld [wTownMapPlayerIconLandmark], a
+;	call ClearBGPalettes
+;	call ClearTilemap
+;	call ClearSprites
+;	ld hl, hInMenu
+;	ld a, [hl]
+;	push af
+;	ld [hl], $1
+;	xor a
+;	ldh [hBGMapMode], a
+;	farcall ClearSpriteAnims
+;	call LoadTownMapGFX
+;	ld de, FlyMapLabelBorderGFX
+;	ld hl, vTiles2 tile $30
+;	lb bc, BANK(FlyMapLabelBorderGFX), 6
+;	call Request1bpp
+;	call FillKantoMap
+;	call TownMapBubble
+;	call TownMapPals
+;	hlbgcoord 0, 0, vBGMap1
+;	call TownMapBGUpdate
+;	call FillJohtoMap
+;	call TownMapBubble
+;	call TownMapPals
+;	hlbgcoord 0, 0
+;	call TownMapBGUpdate
+;	call TownMapMon
+;	ld a, c
+;	ld [wTownMapCursorCoordinates], a
+;	ld a, b
+;	ld [wTownMapCursorCoordinates + 1], a
+;	ld b, SCGB_POKEGEAR_PALS
+;	call GetSGBLayout
+;	call SetPalettes
+;.loop
+;	call JoyTextDelay
+;	ld hl, hJoyPressed
+;	ld a, [hl]
+;	and B_BUTTON
+;	jr nz, .pressedB
+;	ld a, [hl]
+;	and A_BUTTON
+;	jr nz, .pressedA
+;	call .HandleDPad
+;	call GetMapCursorCoordinates
+;	farcall PlaySpriteAnimations
+;	call DelayFrame
+;	jr .loop
+;
+;.pressedB
+;	ld a, -1
+;	jr .exit
+;
+;.pressedA
+;	ld a, [wTownMapPlayerIconLandmark]
+;	ld l, a
+;	ld h, 0
+;	add hl, hl
+;	ld de, Flypoints + 1
+;	add hl, de
+;	ld a, [hl]
+;.exit
+;	ld [wTownMapPlayerIconLandmark], a
+;	pop af
+;	ldh [hInMenu], a
+;	call ClearBGPalettes
+;	ld a, SCREEN_HEIGHT_PX
+;	ldh [hWY], a
+;	xor a ; LOW(vBGMap0)
+;	ldh [hBGMapAddress], a
+;	ld a, HIGH(vBGMap0)
+;	ldh [hBGMapAddress + 1], a
+;	ld a, [wTownMapPlayerIconLandmark]
+;	ld e, a
+;	ret
+;
+;.HandleDPad:
+;	ld hl, hJoyLast
+;	ld a, [hl]
+;	and D_DOWN | D_RIGHT
+;	jr nz, .ScrollNext
+;	ld a, [hl]
+;	and D_UP | D_LEFT
+;	jr nz, .ScrollPrev
+;	ret
+;
+;.ScrollNext:
+;	ld hl, wTownMapPlayerIconLandmark
+;	ld a, [hl]
+;	cp NUM_FLYPOINTS - 1
+;	jr c, .NotAtEndYet
+;	ld [hl], -1
+;.NotAtEndYet:
+;	inc [hl]
+;	jr .FillMap
+;
+;.ScrollPrev:
+;	ld hl, wTownMapPlayerIconLandmark
+;	ld a, [hl]
+;	and a
+;	jr nz, .NotAtStartYet
+;	ld [hl], NUM_FLYPOINTS
+;.NotAtStartYet:
+;	dec [hl]
+;.FillMap:
+;	ld a, [wTownMapPlayerIconLandmark]
+;	cp KANTO_FLYPOINT
+;	jr c, .InJohto
+;	call FillKantoMap
+;	xor a
+;	ld b, HIGH(vBGMap1)
+;	jr .Finally
+;
+;.InJohto:
+;	call FillJohtoMap
+;	ld a, SCREEN_HEIGHT_PX
+;	ld b, HIGH(vBGMap0)
+;.Finally:
+;	ldh [hWY], a
+;	ld a, b
+;	ldh [hBGMapAddress + 1], a
+;	call TownMapBubble
+;	call WaitBGMap
+;	xor a
+;	ldh [hBGMapMode], a
+;	ret

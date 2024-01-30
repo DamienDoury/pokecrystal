@@ -1138,12 +1138,6 @@ _CardFlipDarnText::
 	text "Darn…"
 	done
 
-_GearTodayText::
-	text_today
-	text_end
-
-	text_end ; unreferenced
-
 _GearEllipseText::
 	text "<……>"
 	done

@@ -2983,7 +2983,9 @@ wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db
 
-	ds 30
+	ds 29
+
+wYearMonth:: db ; Upper nibble = year, lower nibble = month.
 
 wJohtoAddLevel:: db
 wKantoAddLevel:: db

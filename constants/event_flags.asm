@@ -360,7 +360,10 @@
 
 	const EVENT_MET_RIVAL_IN_OLIVINE
 	const EVENT_LAKE_OF_RAGE_RARE_CANDY
-; Unused: next 266 events
+
+	const EVENT_CONTACT_TRACING_MODULE_AVAILABLE
+	const EVENT_POKEGEAR_CONTACT_TRACING_MODULE
+; Unused: next 264 events
 
 	const_next 600
 ; Kurt Apricorn events

@@ -5,6 +5,7 @@
 	const PAL_TOWNMAP_CITY     ; 3
 	const PAL_TOWNMAP_POI      ; 4
 	const PAL_TOWNMAP_POI_MTN  ; 5
+	const PAL_TOWNMAP_TIME_DAY ; 6
 
 townmappals: MACRO
 rept _NARG / 2
@@ -17,9 +18,9 @@ ENDM
 	townmappals EARTH,    EARTH,    EARTH,    MOUNTAIN, MOUNTAIN, MOUNTAIN, BORDER,   BORDER
 	townmappals EARTH,    EARTH,    CITY,     EARTH,    POI,      POI_MTN,  POI,      POI_MTN
 	townmappals EARTH,    EARTH,    EARTH,    MOUNTAIN, MOUNTAIN, MOUNTAIN, BORDER,   BORDER
-	townmappals EARTH,    EARTH,    BORDER,   EARTH,    EARTH,    BORDER,   BORDER,   BORDER
+	townmappals EARTH,    EARTH,    BORDER,   EARTH,    EARTH,    TIME_DAY, TIME_DAY, TIME_DAY
 	townmappals EARTH,    EARTH,    EARTH,    MOUNTAIN, MOUNTAIN, MOUNTAIN, BORDER,   BORDER
-	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER
+	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   TIME_DAY, BORDER
 ; gfx/pokegear/pokegear.png
 	townmappals BORDER,   BORDER,   BORDER,   BORDER,   POI,      POI,      POI,      BORDER
 	townmappals BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER,   BORDER
