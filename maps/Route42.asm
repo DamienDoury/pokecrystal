@@ -68,6 +68,8 @@ TrainerFisherTully:
 	trainer FISHER, TULLY1, EVENT_BEAT_FISHER_TULLY, FisherTullySeenText, FisherTullyBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	loadvar VAR_CALLERID, PHONE_FISHER_TULLY
 	endifjustbattled
 	opentext
@@ -182,6 +184,8 @@ TrainerPokemaniacShane:
 	trainer POKEMANIAC, SHANE, EVENT_BEAT_POKEMANIAC_SHANE, PokemaniacShaneSeenText, PokemaniacShaneBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
 	opentext
 	writetext PokemaniacShaneAfterBattleText
@@ -193,6 +197,7 @@ TrainerHikerBenjamin:
 	trainer HIKER, BENJAMIN, EVENT_BEAT_HIKER_BENJAMIN, HikerBenjaminSeenText, HikerBenjaminBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
 	opentext
@@ -357,6 +362,7 @@ Route42_MapEvents:
 
 	def_object_events
 	object_event 42, 10, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
+	object_event 42, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
 	object_event 47, 12, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 4, Route42_PoliceTrainer, -1
 	object_event  8,  6, SPRITE_OFFICER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, RESEARCH_0_MASK, 0, OBJECTTYPE_TRAINER, 3, Route42_PoliceTrainer, -1
 	

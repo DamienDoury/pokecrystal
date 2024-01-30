@@ -147,6 +147,8 @@ TrainerSailorEugene:
 	trainer SAILOR, EUGENE, EVENT_BEAT_SAILOR_EUGENE, SailorEugeneSeenText, SailorEugeneBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
 	opentext
 	writetext SailorEugeneAfterBattleText
@@ -158,6 +160,8 @@ TrainerPsychicNorman:
 	trainer PSYCHIC_T, NORMAN, EVENT_BEAT_PSYCHIC_NORMAN, PsychicNormanSeenText, PsychicNormanBeatenText, 0, .Script
 
 .Script:
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
 	opentext
 	writetext PsychicNormanAfterBattleText
