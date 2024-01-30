@@ -2,6 +2,8 @@
 	const ROUTE6_POKEFAN_M1
 	const ROUTE6_POKEFAN_M2
 	const ROUTE6_POKEFAN_M3
+	const ROUTE6_POKEFAN_FRANCIS
+	const ROUTE6_BEAUTY_JOSIE
 
 Route6_MapScripts:
 	def_scene_scripts
@@ -42,11 +44,69 @@ TrainerPokefanmAllan:
 	closetext
 	end
 
-TrainerPokefanmFrancis:
-	trainer POKEFANM, FRANCIS, EVENT_BEAT_POKEFANM_FRANCIS, PokefanmFrancisSeenText, PokefanmFrancisBeatenText, 0, .Script
+PokefanFrancisShock:
+	setlasttalked ROUTE6_POKEFAN_FRANCIS
+	encountermusic
+	showemote EMOTE_SHOCK, LAST_TALKED, 30
+	end
 
-.Script:
-	endifjustbattled
+PokefanFrancisSeenLeftmost:
+	scall PokefanFrancisShock
+	applymovement ROUTE6_POKEFAN_FRANCIS, Route6RightMovement
+	writeobjectxy LAST_TALKED
+	sjump PokefanFrancisSeenLeft.StartBattle
+
+PokefanFrancisSeenLeft:
+	scall PokefanFrancisShock
+.StartBattle:
+	faceobject PLAYER, LAST_TALKED
+	sjump TrainerPokefanmFrancis.StartBattle
+
+TrainerPokefanmFrancis:
+	faceplayer
+	faceobject PLAYER, LAST_TALKED
+	checkevent EVENT_BEAT_POKEFANM_FRANCIS
+	iftrue .AfterBattle
+	
+	encountermusic
+.StartBattle:
+	loadmem wBattlePokerusSeed, TRUE
+	opentext
+	writetext PokefanmFrancisSeenText
+	waitbutton
+	closetext
+
+	readvar VAR_XCOORD
+	ifless 3, .WalkLeft
+	ifgreater 5, .WalkRight
+
+	readvar VAR_YCOORD
+	ifgreater 5, .WalkDown
+
+	sjump .AtDestination
+
+.WalkDown:
+	applymovement ROUTE6_POKEFAN_FRANCIS, Route6DownMovement
+	sjump .AtDestination
+
+.WalkLeft:
+	applymovement ROUTE6_POKEFAN_FRANCIS, Route6LeftMovement
+	sjump .AtDestination
+
+.WalkRight:
+	applymovement ROUTE6_POKEFAN_FRANCIS, Route6RightMovement
+
+.AtDestination:
+	winlosstext PokefanmFrancisBeatenText, 0
+	loadtrainer POKEFANM, FRANCIS
+	startbattle
+	reloadmapafterbattle
+	loadmem wBattlePokerusSeed, FALSE
+	setevent EVENT_BEAT_POKEFANM_FRANCIS
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+	end
+
+.AfterBattle:
 	opentext
 	writetext PokefanmFrancisAfterBattleText
 	waitbutton
@@ -69,6 +129,18 @@ Route6PokefanMScript:
 
 Route6UndergroundPathSign:
 	jumptext Route6UndergroundPathSignText
+
+Route6DownMovement:
+	step DOWN
+	step_end
+
+Route6LeftMovement:
+	step LEFT
+	step_end
+
+Route6RightMovement:
+	step RIGHT
+	step_end
 
 Route6PokefanMText:
 	text "The road is closed"
@@ -193,6 +265,9 @@ Route6_MapEvents:
 	warp_event  6,  1, ROUTE_6_SAFFRON_GATE, 3
 
 	def_coord_events
+	coord_event  5,  4, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_POKEFANM_FRANCIS, PokefanFrancisSeenLeft
+	coord_event  6,  4, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_POKEFANM_FRANCIS, PokefanFrancisSeenLeft
+	coord_event  7,  4, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_POKEFANM_FRANCIS, PokefanFrancisSeenLeftmost
 
 	def_bg_events
 	bg_event 19,  5, BGEVENT_READ, Route6UndergroundPathSign
@@ -201,5 +276,5 @@ Route6_MapEvents:
 	object_event 17,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_RETURNED_MACHINE_PART
 	object_event  9, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
 	object_event 10, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
-	object_event  4,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerPokefanmFrancis, -1
+	object_event  4,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 3, TrainerPokefanmFrancis, -1
 	object_event  8,  9, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, TrainerBeautyJosie, -1
