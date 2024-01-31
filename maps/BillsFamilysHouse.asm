@@ -40,6 +40,7 @@ BillScript:
 	setevent EVENT_POKEGEAR_CONTACT_TRACING_MODULE
 	clearevent EVENT_CONTACT_TRACING_MODULE_AVAILABLE
 	clearevent EVENT_CONTACT_TRACING_NOTIFICATION ; The device couldn't receive notifications before it was installed.
+	clearevent EVENT_CONTACT_TRACING_NOTIFICATION_DISPLAY ; The device couldn't receive notifications before it was installed.
 	sjump .endText
 
 .refused

@@ -1,11 +1,19 @@
 ContactTracingCalleeScript:
 ContactTracingCallerScript:
-	writetext .ContactTracingNotificationText
 	specialphonecall SPECIALCALL_NONE
-	clearevent EVENT_CONTACT_TRACING_NOTIFICATION
+	writetext .ContactTracingNotificationText1
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .skip_pcr
+
+	promptbutton
+	writetext .ContactTracingNotificationText2
+
+.skip_pcr
+	promptbutton
+	writetext .ContactTracingNotificationText3
 	end
 
-.ContactTracingNotificationText:
+.ContactTracingNotificationText1:
 	text "Hello <PLAYER>."
 
 	para "A trainer you"
@@ -19,12 +27,16 @@ ContactTracingCallerScript:
 	
 	para "Watch out for"
 	line "symptoms."
+	done
 	
-	para "If any doubt, do a"
+.ContactTracingNotificationText2:
+	text "If any doubt, do a"
 	line "PCR test as soon"
 	cont "as possible."
+	done
 	
-	para "We wish you"
+.ContactTracingNotificationText3:
+	text "We wish you"
 	line "good health."
 	done
 	

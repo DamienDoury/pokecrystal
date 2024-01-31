@@ -874,9 +874,25 @@ CountStep:
 
 .skip_walking_abuse_guard_inc
 	ld a, [wStepCount]
-	cp 42 ; 1 check every 256 steps.
+	cp 42 ; 1 check every 256 steps. Step 42 shouldn't overlap with any other check.
 	jr nz, .skip_contact_tracing
 
+	ld b, CHECK_FLAG
+	ld de, EVENT_CONTACT_TRACING_NOTIFICATION_DISPLAY
+	call EventFlagAction
+	ld a, c
+	and a
+	jr z, .skip_notification_display
+
+	; Player receives phone call as a notification.
+	ld a, SPECIALCALL_CONTACT_TRACING_NOTIFICATION
+	ld [wSpecialPhoneCallID], a
+
+	ld b, RESET_FLAG
+	ld de, EVENT_CONTACT_TRACING_NOTIFICATION_DISPLAY
+	call EventFlagAction
+
+.skip_notification_display
 	ld b, CHECK_FLAG
 	ld de, EVENT_CONTACT_TRACING_NOTIFICATION
 	call EventFlagAction
@@ -891,10 +907,16 @@ CountStep:
 	and a
 	jr z, .skip_contact_tracing
 
-	; At this point, the test is validated. We should inform the player.
-	ld a, SPECIALCALL_CONTACT_TRACING_NOTIFICATION
-	ld [wSpecialPhoneCallID], a ; The event flag will be reset by the call script.
+	; We move the current flag to the next one, in order to delay the notification.
+	; Average of 128 + 256 = 384 steps before notification.
+	ld b, SET_FLAG
+	ld de, EVENT_CONTACT_TRACING_NOTIFICATION_DISPLAY
+	call EventFlagAction
 
+	ld b, RESET_FLAG
+	ld de, EVENT_CONTACT_TRACING_NOTIFICATION
+	call EventFlagAction
+	
 .skip_contact_tracing
 	; Every 128 steps, increase wActivePlaytimePoints by one.
 	ld a, [wStepCount]
