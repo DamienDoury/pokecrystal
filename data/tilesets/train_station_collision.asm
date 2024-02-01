@@ -1,5 +1,5 @@
 	tilecoll FF, FF, FF, FF ; 00
-	tilecoll UP_WALL, UP_WALL, FLOOR, FLOOR ; 01
+	tilecoll UP_RIGHT_WALL, UP_RIGHT_WALL, FLOOR, FLOOR ; 01
 	tilecoll UP_WALL, FLOOR, UP_WALL, FLOOR ; 02
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 03
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 04
