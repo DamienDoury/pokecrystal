@@ -60,10 +60,10 @@ GoldenrodGameCorner_MapScripts:
 	end
 
 .SetTiles:
-	checkevent EVENT_RED_BEATEN
-	iftrue .endcallback 
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iffalse .endcallback 
 	
-	; The casino goes back to normal after Red has been beaten.
+	; The casino goes back to normal after it legally reopened.
 	changeblock  2,  0, $2b
 	changeblock  0,  2, $09
 	changeblock  2,  2, $09
@@ -392,12 +392,12 @@ GoldenrodGameCornerGentlemanScript:
 	end
 
 GoldenrodGameCornerPokefanM2Script:
-	checkevent EVENT_RED_BEATEN
-	iffalse .red_beaten
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iftrue .legally_open
 
 	jumptextfaceplayer GoldenrodGameCornerPokefanM2Text
 
-.red_beaten
+.legally_open
 	jumptextfaceplayer GoldenrodGameCornerPokefanM2LegalText
 
 GoldenrodGameCornerAbraScript:
@@ -764,6 +764,6 @@ GoldenrodGameCorner_MapEvents:
 	object_event  5, 10, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerGentlemanScript, -1
 	object_event  2,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerPokefanM2Script, -1
 	object_event 17, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorInsideScript, EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
-	object_event  2,  7, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerAbraScript, EVENT_RED_IN_MT_SILVER
-	object_event  2, 14, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerFrontDoorLockScript, EVENT_RED_IN_MT_SILVER
-	object_event  3, 14, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerFrontDoorLockScript, EVENT_RED_IN_MT_SILVER
+	object_event  2,  7, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerAbraScript, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  2, 14, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerFrontDoorLockScript, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event  3, 14, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodGameCornerFrontDoorLockScript, EVENT_CINNABAR_ROCKS_CLEARED

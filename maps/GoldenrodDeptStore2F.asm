@@ -28,11 +28,11 @@ GoldenrodDeptStore2FYoungsterScript:
 	jumptextfaceplayer GoldenrodDeptStore2FYoungsterText
 
 GoldenrodDeptStore2FCooltrainerFScript:
-	checkevent EVENT_RED_BEATEN
-	iffalse .RedBeaten
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iftrue .casino_reopened
 	jumptextfaceplayer GoldenrodDeptStore2FCooltrainerFText
 
-.RedBeaten
+.casino_reopened
 	jumptextfaceplayer GoldenrodDeptStore2FCooltrainerFGameCornerText
 
 GoldenrodDeptStore2FGentlemanScript:

@@ -63,11 +63,11 @@ GoldenrodDeptStore1FReceptionistScript:
 	jumptextfaceplayer GoldenrodDeptStore1FReceptionistClosedText
 
 GoldenrodDeptStore1FGentlemanScript:
-	checkevent EVENT_RED_BEATEN
-	iffalse .redBeaten
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iftrue .casino_reopened
 	jumptextfaceplayer GoldenrodDeptStore1FGentlemanText
 
-.redBeaten
+.casino_reopened
 	jumptextfaceplayer GoldenrodDeptStore1FGentlemanGameCornerText
 
 GoldenrodDeptStore1FDirectory:
@@ -98,14 +98,12 @@ GoldenrodDeptStore1FReceptionistClosedText:
 	done
 
 GoldenrodDeptStore1FGentlemanText:
-	text "I just saw someone"
-	line "carrying an item"
+	text "I just saw a girl"
+	line "carrying a TM that"
 
-	para "that you can only"
-	line "get as a prize"
-
-	para "from the GAME"
-	line "CORNER."
+	para "you can only get"
+	line "as a prize from"
+	cont "the GAME CORNER."
 
 	para "How is it"
 	line "possible?"

@@ -45,9 +45,9 @@ GoldenrodCity_MapScripts:
 
 .TilesLoad:
 	; Casino
-	checkevent EVENT_RED_IN_MT_SILVER
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iftrue .BikeShop
-	; If Red is still in Mt Silver, we close the casino.
+
 	changeblock 14, 20, $34
 	changeblock 16, 20, $37
 
@@ -361,7 +361,7 @@ GoldenrodCasinoDoorScript:
 	jumpstd ClosedBusinessScript
 
 GoldenrodCasinoWindowScript:
-	conditional_event EVENT_RED_BEATEN, .Script
+	conditional_event EVENT_BROCK_BACK_IN_GYM, .Script ; Opposite of EVENT_CINNABAR_ROCKS_CLEARED.
 
 .Script:
 	checkitem COIN_CASE
