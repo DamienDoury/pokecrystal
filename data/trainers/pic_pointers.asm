@@ -75,3 +75,49 @@ TrainerPicPointers::
 	dba GruntfPic
 	dba MysticalmanPic
 	assert_table_length NUM_TRAINER_CLASSES
+
+; Those are the only trainers that can be found before all trainer wear a face mask.
+; It happens when the first lockdown declaration occurs (EVENT_GOT_HM01_CUT).
+TrainerPicPointersNoMask::
+; entries correspond to trainer classes minus 21 (see constants/trainer_constants.asm)
+	table_width 3, TrainerPicPointersNoMask
+	dba YoungsterPicNoMask ;;;;
+	dba SchoolboyPic
+	dba BirdKeeperPicNoMask ;;;;
+	dba LassPic
+	dba JaninePic
+	dba CooltrainermPic
+	dba CooltrainerfPic
+	dba BeautyPic
+	dba PokemaniacPic
+	dba GruntmPic
+	dba GentlemanPic
+	dba SkierPic
+	dba TeacherPic
+	dba SabrinaPic
+	dba BugCatcherPicNoMask ;;;;
+	dba FisherPicNoMask ;;;;
+	dba SwimmermPic
+	dba SwimmerfPic
+	dba SailorPic
+	dba SuperNerdPic
+	dba Rival2Pic
+	dba GuitaristPic
+	dba HikerPicNoMask ;;;;
+	dba BikerPic
+	dba BlainePic
+	dba BurglarPic
+	dba FirebreatherPicNoMask ;;;;
+	dba JugglerPic
+	dba BlackbeltTPic
+	dba ExecutivemPic
+	dba PsychicTPic
+	dba PicnickerPicNoMask ;;;;
+	dba CamperPicNoMask ;;;;
+	dba ExecutivefPic
+	dba SagePicNoMask ;;;;
+	dba MediumPic
+	dba BoarderPic
+	dba PokefanmPic
+	dba KimonoGirlPic
+	dba TwinsPicNoMask ;;;;

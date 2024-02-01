@@ -306,9 +306,41 @@ GetTrainerPic:
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
+
+	; Early trainers do not wear a face mask.
+	push de
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_HM01_CUT ; Set during the first lockdown declaration. After this event, all trainers wear a face mask.
+	call EventFlagAction
+	pop de
+	ld a, c
+	and a
+	jr nz, .WearFaceMask
+
+	ld a, [wTrainerClass]
+	cp YOUNGSTER
+	jr c, .WearFaceMask
+
+	cp TWINS + 1
+	jr nc, .WearFaceMask
+
+	ldh a, [hLastTalked]
+	cp 2
+	jr z, .WearFaceMask ; Triggers with Violet Gym BirdKeeper Rod, Azalea Gym BugCatcher Al, Sprout Tower 3F Sage Jin, Union Cave Pokemaniac Larry (only has a sprite wearing a mask anyway).
+
+	cp 17
+	jr z, .WearFaceMask ; Triggers with Route 30 Youngster Mikey, Route 32 Fisher Justin.
+
+	ld a, [wTrainerClass]
+	sub 22
+	ld hl, TrainerPicPointersNoMask
+	jr .PictureSetDetermined
+
+.WearFaceMask
 	ld hl, TrainerPicPointers
 	ld a, [wTrainerClass]
 	dec a
+.PictureSetDetermined
 	ld bc, 3
 	call AddNTimes
 	ldh a, [rSVBK]

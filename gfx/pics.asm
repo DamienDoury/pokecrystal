@@ -724,6 +724,17 @@ ForretressFrontpic:  INCBIN "gfx/pokemon/forretress/front.animated.2bpp.lz"
 UnownHBackpic:       INCBIN "gfx/pokemon/unown_h/back.2bpp.lz"
 RaichuFrontpic:      INCBIN "gfx/pokemon/raichu/front.animated.2bpp.lz"
 
+YoungsterPicNoMask:    INCBIN "gfx/trainers/youngster_no_mask.2bpp.lz"
+BirdKeeperPicNoMask:   INCBIN "gfx/trainers/bird_keeper_no_mask.2bpp.lz"
+BugCatcherPicNoMask:   INCBIN "gfx/trainers/bug_catcher_no_mask.2bpp.lz"
+FisherPicNoMask:       INCBIN "gfx/trainers/fisher_no_mask.2bpp.lz"
+HikerPicNoMask:        INCBIN "gfx/trainers/hiker_no_mask.2bpp.lz"
+FirebreatherPicNoMask: INCBIN "gfx/trainers/firebreather_no_mask.2bpp.lz"
+PicnickerPicNoMask:    INCBIN "gfx/trainers/picnicker_no_mask.2bpp.lz"
+CamperPicNoMask:       INCBIN "gfx/trainers/camper_no_mask.2bpp.lz"
+SagePicNoMask:         INCBIN "gfx/trainers/sage_no_mask.2bpp.lz"
+TwinsPicNoMask:        INCBIN "gfx/trainers/twins_no_mask.2bpp.lz"
+
 SECTION "Pics 21", ROMX
 
 SECTION "Pics 22", ROMX
