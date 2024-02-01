@@ -88,6 +88,25 @@ WriteObjectXY::
 	call CheckObjectVisibility
 	ret c
 
+	; Doesn't apply to trainers on the move.
+	push bc
+	ldh a, [hMapObjectIndex]
+	call GetMapObject
+	ld hl, MAPOBJECT_MOVEMENT
+	add hl, bc
+	pop bc
+
+	ld a, [hl]
+	cp SPRITEMOVEDATA_WANDER
+	ret z
+	cp SPRITEMOVEDATA_WALK_UP_DOWN
+	ret z
+	cp SPRITEMOVEDATA_WALK_LEFT_RIGHT
+	ret z
+	cp SPRITEMOVEDATA_SWIM_WANDER
+	ret nc
+
+	; Do the thing.
 	ld hl, OBJECT_NEXT_MAP_X
 	add hl, bc
 	ld d, [hl]
