@@ -19,10 +19,50 @@ PewterPokecenter1FTeacherScript:
 PewterJigglypuff:
 	opentext
 	writetext PewterJigglypuffText
-	cry JIGGLYPUFF
-	waitbutton
+	playmusic MUSIC_JIGGLYPUFF_SONG
+	applymovement PEWTERPOKECENTER1F_JIGGLYPUFF, JigglypuffDanceMovement
+	applymovement PEWTERPOKECENTER1F_JIGGLYPUFF, JigglypuffDanceMovement
+	applymovement PEWTERPOKECENTER1F_JIGGLYPUFF, JigglypuffDanceMovement
+	applymovement PEWTERPOKECENTER1F_JIGGLYPUFF, JigglypuffDanceLastMovement
 	closetext
+	loadmem wMap3ObjectMovement, SPRITEMOVEDATA_STANDING_UP ; PEWTERPOKECENTER1F_JIGGLYPUFF
+	musicfadeout MUSIC_POKEMON_CENTER, 16
+	showemote EMOTE_SLEEP, PLAYER, 75
+	pause 5
+	showemote EMOTE_SAD, PEWTERPOKECENTER1F_JIGGLYPUFF, 30
+	pause 10
+	showemote EMOTE_QUESTION, PLAYER, 10
+
+; Make all party mons sleep, unless they already have a status ailment, or if they have fainted.
+FOR N, 1, PARTY_LENGTH + 1
+	readmem wPartyMon{d:N}Status
+	ifnotequal 0, .mon_{d:N}
+
+	readmem wPartyMon{d:N}HP
+	ifnotequal 0, .do_mon_{d:N}
+
+	readmem wPartyMon{d:N}HP + 1
+	ifequal 0, .mon_{d:N}
+
+.do_mon_{d:N}
+	loadmem wPartyMon{d:N}Status, SLP
+.mon_{d:N}
+endr
 	end
+
+JigglypuffDanceMovement:
+	turn_head DOWN
+	step_sleep 30
+	turn_head UP
+	step_sleep 20
+	step_end
+
+JigglypuffDanceLastMovement:
+	turn_head DOWN
+	step_sleep 60
+	turn_head UP
+	step_sleep 40
+	step_end
 
 PewterPokecenter1FBugCatcherScript:
 	jumptextfaceplayer PewterPokecenter1FBugCatcherText
