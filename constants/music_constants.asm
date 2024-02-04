@@ -108,14 +108,15 @@
 	const MUSIC_VIRIDIAN_FOREST              ; 67
 	const MUSIC_KANTO_WILD_BATTLE_RBY        ; 68
 	const MUSIC_HIGH_OFFICER_ENCOUNTER       ; 69
-	const MUSIC_HIGH_OFFICER_BATTLE     	 ; 6a
-	const MUSIC_CINNABAR_ISLAND     	 	 ; 6b
-	const MUSIC_KANTO_WILD_BATTLE_FRLG		 ; 6c
-	const MUSIC_WILD_VICTORY_RBY			 ; 6d
-	const MUSIC_TRAINER_VICTORY_RBY			 ; 6e
-	const MUSIC_TRAINER_BATTLE_RBY			 ; 6f
-	const MUSIC_CERULEAN_FUCHSIA			 ; 70
-	const MUSIC_SAFARI			 			 ; 71
+	const MUSIC_HIGH_OFFICER_BATTLE          ; 6a
+	const MUSIC_CINNABAR_ISLAND              ; 6b
+	const MUSIC_KANTO_WILD_BATTLE_FRLG       ; 6c
+	const MUSIC_WILD_VICTORY_RBY             ; 6d
+	const MUSIC_TRAINER_VICTORY_RBY          ; 6e
+	const MUSIC_TRAINER_BATTLE_RBY           ; 6f
+	const MUSIC_CERULEAN_FUCHSIA             ; 70
+	const MUSIC_SAFARI                       ; 71
+	const MUSIC_JIGGLYPUFF_SONG              ; 72
 NUM_MUSIC_SONGS EQU const_value
 
 ;GetMapMusic picks music for these values (see home/map.asm)

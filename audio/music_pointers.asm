@@ -118,4 +118,5 @@ Music:
 	dba Music_TrainerBattleRBY
 	dba Music_CeruleanCityGBS
 	dba Music_Safari
+	dba Music_JigglypuffSong
 	assert_table_length NUM_MUSIC_SONGS
