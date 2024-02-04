@@ -217,6 +217,8 @@ CeruleanGymGuideScript:
 	checkevent EVENT_BEAT_MISTY
 	iftrue .CeruleanGymGuideWinScript
 	writetext CeruleanGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end

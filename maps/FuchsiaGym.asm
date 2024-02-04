@@ -270,6 +270,8 @@ FuchsiaGymGuideScript:
 	checkevent EVENT_BEAT_JANINE
 	iftrue .FuchsiaGymGuideWinScript
 	writetext FuchsiaGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end

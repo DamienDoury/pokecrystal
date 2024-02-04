@@ -50,6 +50,8 @@ ViridianGymGuideScript:
 	checkevent EVENT_BEAT_BLUE
 	iftrue .ViridianGymGuideWinScript
 	writetext ViridianGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	turnobject VIRIDIANGYM_GYM_GUIDE, UP

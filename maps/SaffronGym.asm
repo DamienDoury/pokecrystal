@@ -105,6 +105,8 @@ SaffronGymGuideScript:
 	showemote EMOTE_SHOCK, SAFFRONGYM_GYM_GUIDE, 15
 	opentext
 	writetext SaffronGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end

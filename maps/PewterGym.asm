@@ -138,6 +138,8 @@ PewterGymGuideScript:
 	checkevent EVENT_BEAT_BROCK
 	iftrue .PewterGymGuideWinScript
 	writetext PewterGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end

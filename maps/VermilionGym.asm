@@ -146,6 +146,8 @@ VermilionGymGuideScript:
 	checkevent EVENT_BEAT_LTSURGE
 	iftrue .VermilionGymGuideWinScript
 	writetext VermilionGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end

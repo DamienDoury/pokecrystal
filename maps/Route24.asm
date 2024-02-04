@@ -73,6 +73,8 @@ AugmentKantoDifficultyLevel::
 	end
 
 GotNewKantoBadge::
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	scall GotBadgeNoTrainerCard
 	scall AugmentKantoDifficultyLevel
 
 	readvar VAR_BADGES
@@ -95,6 +97,33 @@ GotNewKantoBadge::
 .fifteen
 	setevent EVENT_SECOND_SHOT_REQUIRED
 	end
+
+GotBadgeNoTrainerCard:
+	checkflag ENGINE_TRAINER_CARD
+	iftrue .end
+
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iffalse .skip_front_promptbutton
+
+	promptbutton
+.skip_front_promptbutton
+	writetext .text
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue .end
+
+	promptbutton
+.end
+	end
+
+.text
+	text "Oh, you don't have"
+	line "your TRAINER CARD?"
+
+	para "Don't worry, it'll"
+	line "be updated with"
+	cont "this BADGE once"
+	cont "you get it back."
+	done
 
 
 Route24HiddenPPUp:

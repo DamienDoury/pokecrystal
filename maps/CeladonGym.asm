@@ -128,7 +128,7 @@ CeladonGymErikaScript:
 	faceplayer
 	opentext
 	checkflag ENGINE_RAINBOWBADGE
-	iftrue .FightDone
+	iftrue .GotGigaDrain
 	writetext ErikaBeforeBattleText
 	waitbutton
 	closetext
@@ -147,14 +147,9 @@ CeladonGymErikaScript:
 	waitsfx
 	setflag ENGINE_RAINBOWBADGE
 	farscall GotNewKantoBadge
-.FightDone:
-	checkevent EVENT_GOT_TM19_GIGA_DRAIN
-	iftrue .GotGigaDrain
 	writetext ErikaExplainTMText
 	promptbutton
 	verbosegiveitem TM_GIGA_DRAIN
-	iffalse .GotGigaDrain
-	setevent EVENT_GOT_TM19_GIGA_DRAIN
 .GotGigaDrain:
 	writetext ErikaAfterBattleText
 	waitbutton
@@ -222,6 +217,8 @@ CeladonGymGuideScript:
 	checkevent EVENT_BEAT_ERIKA
 	iftrue .CeladonGymGuideWinScript
 	writetext CeladonGymGuideText
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	farscall GotBadgeNoTrainerCard
 	waitbutton
 	closetext
 	end
