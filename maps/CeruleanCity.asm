@@ -18,6 +18,8 @@
 	const CERULEANCITY_SQUIRTLE3
 	const CERULEANCITY_ROCKET
 	const CERULEANCITY_DETECTIVE4
+	const CERULEANCITY_DETECTIVE5
+	const CERULEANCITY_SQUIRTLE4
 
 CeruleanCity_MapScripts:
 	def_scene_scripts
@@ -25,7 +27,19 @@ CeruleanCity_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .FlyPoint
 
-.FlyPoint:	
+.FlyPoint:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+	checkevent EVENT_CERULEAN_HOUSE_ROCKET
+	iffalse .ShowNorthJenny
+
+	checkevent EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
+	iftrue .JennyConditionalDisplayDone
+
+.ShowNorthJenny:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+
+.JennyConditionalDisplayDone:
 	readvar VAR_YCOORD
 	ifgreater 30, .end
 	
@@ -247,7 +261,8 @@ CeruleanCityRocketScript:
 	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee3Movement
 	stopfollow
 	disappear CERULEANCITY_ROCKET
-
+	disappear CERULEANCITY_DETECTIVE5
+	disappear CERULEANCITY_SQUIRTLE4
 	disappear CERULEANCITY_DETECTIVE4
 	moveobject CERULEANCITY_DETECTIVE4, 20, 17
 	appear CERULEANCITY_DETECTIVE4
@@ -604,3 +619,7 @@ CeruleanCity_MapEvents:
 
 	object_event 18,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityRocketScript, EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
 	object_event 20, 17, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySawThiefScript, EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
+
+	object_event 20, -1, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetective2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 21,  0, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	
