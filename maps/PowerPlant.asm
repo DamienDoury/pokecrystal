@@ -143,10 +143,9 @@ PowerPlantManager:
 	promptbutton
 	takeitem MACHINE_PART
 	setevent EVENT_RETURNED_MACHINE_PART
-	clearevent EVENT_SAFFRON_TRAIN_STATION_POPULATION
+	clearevent EVENT_TRAIN_STATION_POPULATION
 	setevent EVENT_JASMINE_AT_FUJIS
 	setevent EVENT_RESTORED_POWER_TO_KANTO
-	clearevent EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN
 	readmem wYearMonth
 	addval 1
 	writemem wYearMonth

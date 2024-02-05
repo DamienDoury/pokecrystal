@@ -78,6 +78,9 @@ Script_ArriveFromSaffron:
 GoldenrodMagnetTrainStationGentlemanScript:
 	jumptextfaceplayer GoldenrodMagnetTrainStationGentlemanText
 
+GoldenrodMagnetTrainStationTwinScript:
+	jumptextfaceplayer GoldenrodMagnetTrainStationTwinText
+
 GoldenrodMagnetTrainStationOfficerApproachTrainDoorMovement:
 	step UP
 	step UP
@@ -171,6 +174,15 @@ GoldenrodMagnetTrainStationGentlemanText:
 	cont "to KANTO."
 	done
 
+GoldenrodMagnetTrainStationTwinText:
+	text "Being vaccinated"
+	line "sounds nice."
+
+	para "I wish I was."
+	line "But my parents"
+	cont "forbids me."
+	done
+
 GoldenrodMagnetTrainStation_MapEvents:
 	db 0, 0 ; filler
 
@@ -187,4 +199,5 @@ GoldenrodMagnetTrainStation_MapEvents:
 
 	def_object_events
 	object_event  9,  9, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodMagnetTrainStationOfficerScript, -1
-	object_event 11, 14, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 2, 2, HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodMagnetTrainStationGentlemanScript, EVENT_GOLDENROD_TRAIN_STATION_GENTLEMAN
+	object_event 11, 14, SPRITE_GENTLEMAN, SPRITEMOVEDATA_WANDER, 2, 2, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodMagnetTrainStationGentlemanScript, EVENT_TRAIN_STATION_POPULATION
+	object_event  6, 12, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodMagnetTrainStationTwinScript, EVENT_TRAIN_STATION_POPULATION
