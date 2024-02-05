@@ -585,6 +585,56 @@ _CGB_UnownPuzzle:
 	call ApplyAttrmap
 	ret
 
+_CGB_TrainerCardBorderAndTrainerPicPals:
+	; The 5 following lines shouldn't be part of this function, but this saves 5 lines of code.
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	ld a, PREDEFPAL_CGB_BADGE
+	call GetPredefPal
+	call LoadHLPaletteIntoDE
+
+	; fill screen with opposite-gender palette for the card border
+	ld b, CHECK_FLAG
+	push de
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	pop de
+	hlcoord 0, 0, wAttrmap
+	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
+	ld a, $2 ; Pal BG 2 for the fake trainer card.
+	jr nz, .got_gender
+
+	ld a, [wPlayerGender]
+	and a
+	ld a, $1 ; kris
+	jr z, .got_gender
+	ld a, $0 ; chris
+.got_gender
+	push af
+	call ByteFill ; Doesn't clobber A.
+	; fill trainer sprite area with same-gender palette
+	hlcoord 14, 1, wAttrmap
+	lb bc, 7, 5
+	inc a
+	and 1 ; Burglar will use the blue palette.
+	call FillBoxCGB ; Doesn't clobber A.
+	; top-right corner still uses the border's palette
+	hlcoord 18, 1, wAttrmap
+	pop af
+	ld [hl], a
+
+	; The 2 following lines shouldn't be part of this function, but this saves 2 lines of code.
+	hlcoord 3, 10, wAttrmap
+	lb bc, 3, 3
+	ret
+
+_CGB_TrainerCardPalsEnd:
+	call ApplyAttrmap
+	call ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
 _CGB_TrainerCard:
 	ld de, wBGPals1
 	xor a ; CHRIS
@@ -593,7 +643,7 @@ _CGB_TrainerCard:
 	ld a, FALKNER ; KRIS
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, BUGSY
+	ld a, JASMINE
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, WHITNEY
@@ -605,46 +655,17 @@ _CGB_TrainerCard:
 	ld a, CHUCK
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
-	ld a, JASMINE
+	ld a, BUGSY
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, PRYCE
-	call GetTrainerPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	ld a, PREDEFPAL_CGB_BADGE
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
-
-	; fill screen with opposite-gender palette for the card border
-	hlcoord 0, 0, wAttrmap
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, [wPlayerGender]
-	and a
-	ld a, $1 ; kris
-	jr z, .got_gender
-	ld a, $0 ; chris
-.got_gender
-	call ByteFill
-	; fill trainer sprite area with same-gender palette
-	hlcoord 14, 1, wAttrmap
-	lb bc, 7, 5
-	ld a, [wPlayerGender]
-	and a
-	ld a, $0 ; chris
-	jr z, .got_gender2
-	ld a, $1 ; kris
-.got_gender2
-	call FillBoxCGB
-	; top-right corner still uses the border's palette
-	hlcoord 18, 1, wAttrmap
-	ld [hl], $1
-	hlcoord 3, 10, wAttrmap
-	lb bc, 3, 3
+	call _CGB_TrainerCardBorderAndTrainerPicPals
+	
 	ld a, $1 ; falkner
 	call FillBoxCGB
 	hlcoord 7, 10, wAttrmap
 	lb bc, 3, 3
-	ld a, $2 ; bugsy
+	ld a, $6 ; bugsy
 	call FillBoxCGB
 	hlcoord 11, 10, wAttrmap
 	lb bc, 3, 3
@@ -660,7 +681,7 @@ _CGB_TrainerCard:
 	call FillBoxCGB
 	hlcoord 7, 13, wAttrmap
 	lb bc, 3, 3
-	ld a, $6 ; jasmine
+	ld a, $2 ; jasmine
 	call FillBoxCGB
 	hlcoord 11, 13, wAttrmap
 	lb bc, 3, 3
@@ -682,13 +703,7 @@ _CGB_TrainerCard:
 	inc c
 .got_gender4
 	ld a, c
-	hlcoord 18, 1, wAttrmap
-	ld [hl], a
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
-	ret
+	jp _CGB_TrainerCardPalsEnd
 
 _CGB_TrainerCardKanto:
 	ld de, wBGPals1
@@ -714,34 +729,8 @@ _CGB_TrainerCardKanto:
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, BLUE
-	call GetTrainerPalettePointer
-	call LoadPalette_White_Col1_Col2_Black
-	ld a, PREDEFPAL_CGB_BADGE
-	call GetPredefPal
-	call LoadHLPaletteIntoDE
+	call _CGB_TrainerCardBorderAndTrainerPicPals
 
-	; fill screen with opposite-gender palette for the card border
-	hlcoord 0, 0, wAttrmap
-	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	ld a, [wPlayerGender]
-	and a
-	ld a, $1 ; kris
-	jr z, .got_gender
-	ld a, $0 ; chris
-.got_gender
-	call ByteFill
-	; fill trainer sprite area with same-gender palette
-	hlcoord 14, 1, wAttrmap
-	lb bc, 7, 5
-	ld a, [wPlayerGender]
-	and a
-	ld a, $0 ; chris
-	jr z, .got_gender2
-	ld a, $1 ; kris
-.got_gender2
-	call FillBoxCGB
-	hlcoord 3, 10, wAttrmap
-	lb bc, 3, 3
 	ld a, $2 ; brock
 	call FillBoxCGB
 	hlcoord 7, 10, wAttrmap
@@ -779,13 +768,7 @@ _CGB_TrainerCardKanto:
 	jr z, .got_gender3
 	ld a, $0 ; Chris (M)
 .got_gender3
-	hlcoord 18, 1, wAttrmap
-	ld [hl], a
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
-	ret
+	jp _CGB_TrainerCardPalsEnd
 
 _CGB_MoveList:
 	ld de, wBGPals1

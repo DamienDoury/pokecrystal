@@ -96,7 +96,20 @@ FirstStepIntoKantoScene:
 
 .allowPassage:
 	writetext Route27_VaccinationPassText
+	promptbutton
+	checkevent EVENT_GOT_FAKE_ID
+	iftrue .fakeID
+
+	writetext Route27_VaccinationPassValidText
 	sjump .openBorder
+
+.fakeID
+	clearevent EVENT_GOT_FAKE_ID
+	clearflag ENGINE_TRAINER_CARD
+	writetext Route27_FakeIDText
+	waitbutton
+	closetext
+	end
 
 Route27StepBackIfNeeded:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
@@ -456,10 +469,27 @@ Route27_VaccinationPassText:
 	line "TRAINER CARD."
 
 	para "…"
+	done
 	
-	para "I see you're"
+Route27_VaccinationPassValidText:
+	text "I see you're"
 	line "vaccinated, you"
 	cont "can go through."
+	done
+
+Route27_FakeIDText:
+	text "Hey! It's a fake"
+	line "TRAINER CARD!"
+
+	para "Is it a joke?"
+
+	para "It's such a bad"
+	line "fake! You won't"
+	cont "fool anyone with"
+	cont "it."
+
+	para "I'm keeping it."
+	line "Now get lost."
 	done
 
 CooltrainermBlakeSeenText:

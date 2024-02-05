@@ -247,6 +247,7 @@ gfx/player/kris.2bpp: rgbgfx += -h
 gfx/player/kris_unmasked.2bpp: rgbgfx += -h
 gfx/player/kris_back.2bpp: rgbgfx += -h
 gfx/player/kris_back_unmasked.2bpp: rgbgfx += -h
+gfx/player/burglar_trainer_card.2bpp: rgbgfx += -h
 
 gfx/sprites/substitute.2bpp: rgbgfx += -h
 gfx/trainer_card/leaders.2bpp: tools/gfx += --trim-whitespace

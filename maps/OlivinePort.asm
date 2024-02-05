@@ -120,7 +120,11 @@ OlivinePortBoardingCheck:
 
 	writetext OlivinePortShowPassportText
 	promptbutton
+
+	checkevent EVENT_GOT_FAKE_ID
+	iftrue .FakeID
 	
+	callstd IsVaccinePassportValid
 	ifequal 2, .PassportInvalid
 	ifequal 3, .NoBooster
 
@@ -137,6 +141,10 @@ OlivinePortBoardingCheck:
 .SkipClosingText
 	setval TRUE ; The player can board the transport.
 	end
+
+.FakeID:
+	writetext OlivinePortFakeIDText
+	sjump .TextEndCantEnter
 
 .NotRidingScript:
 	farwritetext NurseGoodbyeText
@@ -340,6 +348,15 @@ OlivinePortFlashTicketText:
 OlivinePortAskPassportText:
 	text "I also need to see"
 	line "your TRAINER CARD."
+	done
+
+OlivinePortFakeIDText:
+	text "What? It's the pic-"
+	line "ture of someone"
+	cont "else on the CARD!"
+
+	para "Run away before I"
+	line "call the police!"
 	done
 
 OlivinePortFlashPassportText:

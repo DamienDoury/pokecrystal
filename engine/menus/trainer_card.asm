@@ -251,13 +251,33 @@ TrainerCard_PrintTopHalfOfCard:
 	hlcoord 2, 4
 	ld de, .ID_No
 	call TrainerCardSetup_PlaceTilemapString
+	
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	ld a, c
+	and a
 	hlcoord 7, 2
+	jr nz, .fake_id
+	
 	ld de, wPlayerName
 	call PlaceString
+	
 	hlcoord 5, 4
 	ld de, wPlayerID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
+	jr .name_and_trainer_id_displayed
+
+.fake_id
+	ld de, .FakeTrainerName
+	call PlaceString
+
+	hlcoord 5, 4
+	ld de, .FakeTrainerID
+	call PlaceString
+
+.name_and_trainer_id_displayed
 	hlcoord 7, 6
 	ld de, wMoney
 	lb bc, PRINTNUM_MONEY | 3, 6
@@ -276,18 +296,25 @@ TrainerCard_PrintTopHalfOfCard:
 	; Hiding the first 2 tiles (vertically) of the picture.
 	hlcoord 14, 1
 	lb bc, 1, 2
-	ld a, 5 ; vTiles2 $05 and $06 are blank, no matter of the player is male or female.
+	ld a, 5 ; vTiles2 $05 and $06 are blank, no matter if the player is male or female.
 	ldh [hGraphicStartTile], a
 	predef PlaceGraphic
 
 	; Player's vaccination state display.
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	jr z, .not_fake_id
+
+	jr .DisplayFirstVaccine
+	
+.not_fake_id
 	ld de, EVENT_PLAYER_VACCINATED_ONCE
 	ld b, CHECK_FLAG
 	call EventFlagAction
 	ret z
 
-	hlcoord 13, 4
-	ld [hl], "<VC>"
+	call .DisplayFirstVaccine
 
 	ld de, EVENT_PLAYER_VACCINATED_TWICE
 	ld b, CHECK_FLAG
@@ -296,8 +323,18 @@ TrainerCard_PrintTopHalfOfCard:
 
 	hlcoord 12, 4
 	ld [hl], "<VC>"
-
 	ret
+
+.DisplayFirstVaccine
+	hlcoord 13, 4
+	ld [hl], "<VC>"
+	ret
+
+.FakeTrainerName:
+	db FAKE_ID_SELLER_NAME
+
+.FakeTrainerID:
+	db "69420@"
 
 .Name_Money:
 	db   "NAME/"
@@ -311,6 +348,11 @@ TrainerCard_PrintTopHalfOfCard:
 	db $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $25, $26, -1 ; ____________>
 
 TrainerCard_Page1_PrintDexCaught_GameTime:
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	jr nz, .pokemon_trainer
+
 	ld b, CHECK_FLAG
 	ld de, EVENT_RED_BEATEN
 	call EventFlagAction
@@ -333,6 +375,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ld b, CHECK_FLAG
 	ld de, EVENT_GOT_A_POKEMON_FROM_ELM
 	call EventFlagAction
+.pokemon_trainer
 	ld de, .TrainerString
 	jr nz, .done_with_trainer_state
 

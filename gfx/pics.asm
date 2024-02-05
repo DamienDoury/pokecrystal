@@ -734,6 +734,8 @@ PicnickerPicNoMask:    INCBIN "gfx/trainers/picnicker_no_mask.2bpp.lz"
 CamperPicNoMask:       INCBIN "gfx/trainers/camper_no_mask.2bpp.lz"
 SagePicNoMask:         INCBIN "gfx/trainers/sage_no_mask.2bpp.lz"
 TwinsPicNoMask:        INCBIN "gfx/trainers/twins_no_mask.2bpp.lz"
+BurglarIDPic::         INCBIN "gfx/player/burglar_trainer_card.2bpp"
+
 
 SECTION "Pics 21", ROMX
 

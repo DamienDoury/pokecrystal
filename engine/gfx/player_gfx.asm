@@ -84,6 +84,12 @@ GetPlayerIcon:
 
 GetCardPic:
 	; If the player is deep enough into the story and is now wearing a mask, we must display it.
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	ld a, c
+	and a
+	jr nz, .fake_id
 
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_WEARING_FACE_MASK_F, a
@@ -96,6 +102,11 @@ GetCardPic:
 	ld hl, KrisPicUnmasked
 	jr .got_pic
 
+.fake_id
+	ld hl, BurglarIDPic
+	ld a, BANK(BurglarIDPic)
+	jr .got_pic_and_bank
+
 .with_mask
 	ld hl, ChrisPic
 	ld a, [wPlayerGender]
@@ -104,11 +115,12 @@ GetCardPic:
 	ld hl, KrisPic
 	
 .got_pic
-	ld de, 112 ; We are using the 7 tiles * 7 tiles pic in stead of the default 5*7. So we need to start reading 7 tiles ahead. 7 tiles * 64 pixels / 4 (pixels / byte) = 112.
+	ld a, BANK(ChrisPic) ; aka BANK(KrisCardPic)
+.got_pic_and_bank
+	ld de, 112 ; We are using the 7 tiles * 7 tiles pic instead of the default 5*7. So we need to start reading 7 tiles ahead. 7 tiles * 64 pixels / 4 (pixels / byte) = 112.
 	add hl, de
 	ld de, vTiles2 tile $00
 	ld bc, $23 tiles
-	ld a, BANK(ChrisPic) ; aka BANK(KrisCardPic)
 	call FarCopyBytes
 
 	ld hl, TrainerCardGFX

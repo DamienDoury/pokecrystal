@@ -47,6 +47,9 @@ GoldenrodHospitalOffice_MapScripts:
 	checkflag ENGINE_TRAINER_CARD
 	iffalse .NoTrainerCard
 
+	checkevent EVENT_GOT_FAKE_ID
+	iftrue .FakeID
+
 	writetext GoldenrodHospitalOffice_ComeNextToMeText
 	scall .end_text
 
@@ -67,6 +70,10 @@ GoldenrodHospitalOffice_MapScripts:
 
 	opentext
 	writetext GoldenrodHospitalOffice_SecondVaccinePassportUpdateText
+	sjump .end_text
+
+.FakeID:
+	writetext GoldenrodHospitalOffice_FakeIDText
 	sjump .end_text
 
 .NoTrainerCard:
@@ -1145,6 +1152,17 @@ GoldenrodHospitalOffice_NoTrainerCardText:
 	cont "PASSPORT."
 	
 	para "Come back with it."
+	done
+
+GoldenrodHospitalOffice_FakeIDText:
+	text "Uh… whose TRAINER"
+	line "CARD is this?"
+
+	para "You may have taken"
+	line "someone else's."
+
+	para "Come back with"
+	line "yours."
 	done
 
 GoldenrodHospitalOffice_GotBoosterDoseText:

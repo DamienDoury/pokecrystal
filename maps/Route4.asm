@@ -169,6 +169,8 @@ Route4RocketNorth:
 .PlayerRetrievesTrainerCard
 	playsound SFX_CAUGHT_MON
 	setflag ENGINE_TRAINER_CARD
+	clearevent EVENT_GOT_FAKE_ID
+	setevent EVENT_BURGLAR_EDDY_LEFT
 	waitbutton
 	waitsfx
 

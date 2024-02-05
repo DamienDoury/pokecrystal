@@ -1,14 +1,15 @@
 ; StartMenu.Items indexes
 	const_def
-	const STARTMENUITEM_POKEDEX  ; 0
-	const STARTMENUITEM_POKEMON  ; 1
-	const STARTMENUITEM_PACK     ; 2
-	const STARTMENUITEM_STATUS   ; 3
-	const STARTMENUITEM_SAVE     ; 4
-	const STARTMENUITEM_OPTION   ; 5
-	const STARTMENUITEM_EXIT     ; 6
-	const STARTMENUITEM_POKEGEAR ; 7
-	const STARTMENUITEM_QUIT     ; 8
+	const STARTMENUITEM_POKEDEX     ; 0
+	const STARTMENUITEM_POKEMON     ; 1
+	const STARTMENUITEM_PACK        ; 2
+	const STARTMENUITEM_STATUS      ; 3
+	const STARTMENUITEM_FAKE_STATUS ; 4
+	const STARTMENUITEM_SAVE        ; 5
+	const STARTMENUITEM_OPTION      ; 6
+	const STARTMENUITEM_EXIT        ; 7
+	const STARTMENUITEM_POKEGEAR    ; 8
+	const STARTMENUITEM_QUIT        ; 9
 
 StartMenu::
 	call ClearWindowData
@@ -176,27 +177,31 @@ StartMenu::
 	dw .MenuString
 	dw .Items
 
+DEF FAKE_ID_SELLER_NAME EQUS "\"EDDY@\""
+
 .Items:
 ; entries correspond to STARTMENUITEM_* constants
-	dw StartMenu_Pokedex,  .PokedexString,  .PokedexString
-	dw StartMenu_Pokemon,  .PartyString,    .PokedexString
-	dw StartMenu_Pack,     .PackString,     .PokedexString
-	dw StartMenu_Status,   .StatusString,   .PokedexString
-	dw StartMenu_Save,     .SaveString,     .PokedexString
-	dw StartMenu_Option,   .OptionString,   .PokedexString
-	dw StartMenu_Exit,     .ExitString,     .PokedexString
-	dw StartMenu_Pokegear, .PokegearString, .PokedexString
-	dw StartMenu_Quit,     .QuitString,     .PokedexString
+	dw StartMenu_Pokedex,  .PokedexString,    .PokedexString
+	dw StartMenu_Pokemon,  .PartyString,      .PokedexString
+	dw StartMenu_Pack,     .PackString,       .PokedexString
+	dw StartMenu_Status,   .StatusString,     .PokedexString
+	dw StartMenu_Status,   .FakeStatusString, .PokedexString
+	dw StartMenu_Save,     .SaveString,       .PokedexString
+	dw StartMenu_Option,   .OptionString,     .PokedexString
+	dw StartMenu_Exit,     .ExitString,       .PokedexString
+	dw StartMenu_Pokegear, .PokegearString,   .PokedexString
+	dw StartMenu_Quit,     .QuitString,       .PokedexString
 
-.PokedexString:  db "#DEX@"
-.PartyString:    db "#MON@"
-.PackString:     db "PACK@"
-.StatusString:   db "<PLAYER>@"
-.SaveString:     db "SAVE@"
-.OptionString:   db "OPTION@"
-.ExitString:     db "EXIT@"
-.PokegearString: db "<POKE>GEAR@"
-.QuitString:     db "QUIT@"
+.PokedexString:    db "#DEX@"
+.PartyString:      db "#MON@"
+.PackString:       db "PACK@"
+.StatusString:     db "<PLAYER>@"
+.FakeStatusString: db FAKE_ID_SELLER_NAME
+.SaveString:       db "SAVE@"
+.OptionString:     db "OPTION@"
+.ExitString:       db "EXIT@"
+.PokegearString:   db "<POKE>GEAR@"
+.QuitString:       db "QUIT@"
 
 .OpenMenu:
 	ld a, [wMenuSelection]
@@ -289,8 +294,24 @@ endr
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_TRAINER_CARD, [hl]
 	jr z, .no_trainer_card
+
+	push bc
+	push de
+	ld b, CHECK_FLAG
+	ld de, EVENT_GOT_FAKE_ID
+	call EventFlagAction
+	pop de
+	pop bc
+	jr nz, .fake_trainer_card
+
 	ld a, STARTMENUITEM_STATUS
 	call .AppendMenuList
+	jr .no_trainer_card
+
+.fake_trainer_card
+	ld a, STARTMENUITEM_FAKE_STATUS
+	call .AppendMenuList
+
 .no_trainer_card
 
 	ld a, [wLinkMode]
