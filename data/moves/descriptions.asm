@@ -356,7 +356,7 @@ VineWhipDescription:
 	next "slender vines.@"
 
 StompDescription:
-	db   "30<PERCENT> flinch, ×2 dmg"
+	db   "30<PERCENT> flinch. Boost"
 	next "against minimized.@"
 
 DoubleKickDescription:
@@ -400,7 +400,7 @@ TackleDescription:
 	next "attack.@"
 
 BodySlamDescription:
-	db   "30<PERCENT> PAR, ×2 dmg"
+	db   "30<PERCENT> PAR. Boost"
 	next "against minimized.@"
 
 WrapDescription:
