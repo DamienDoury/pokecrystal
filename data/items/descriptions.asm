@@ -268,8 +268,8 @@ UltraBallDesc:
 	next "rate of success.@"
 
 BrightpowderDesc:
-	db   "Lowers the foe's"
-	next "accuracy. (HOLD)@"
+	db   "Lowers foe's accur-"
+	next "acy by 10<PERCENT>. (HOLD)@"
 
 GreatBallDesc:
 	db   "A BALL with a de-"
