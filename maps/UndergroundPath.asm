@@ -132,13 +132,13 @@ UndergroundPath_MapEvents:
 
 	def_warp_events
 	warp_event  3,  2, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 3
-	warp_event  3, 24, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 3
+	warp_event  3, 36, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 3
 
 	def_coord_events
 
 	def_bg_events
-	bg_event  3,  9, BGEVENT_ITEM, UndergroundPathHiddenFullRestore
-	bg_event  1, 19, BGEVENT_ITEM, UndergroundPathHiddenXSpecial
+	bg_event  1, 14, BGEVENT_ITEM, UndergroundPathHiddenFullRestore
+	bg_event  1, 38, BGEVENT_ITEM, UndergroundPathHiddenXSpecial
 
 	def_object_events
-	object_event  4, 11, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, UndergroundPathTrainerBurglarEddy, EVENT_BURGLAR_EDDY_LEFT
+	object_event  4, 19, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, UndergroundPathTrainerBurglarEddy, EVENT_BURGLAR_EDDY_LEFT
