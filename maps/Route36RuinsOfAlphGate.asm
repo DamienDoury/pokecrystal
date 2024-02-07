@@ -8,7 +8,23 @@ Route36RuinsOfAlphGate_MapScripts:
 	def_callbacks
 
 Route36RuinsOfAlphGateOfficerScript:
+	checkevent EVENT_GOT_WIDE_LENS
+	iffalse .GiveWideLens
+
 	jumptextfaceplayer Route36RuinsOfAlphGateOfficerText
+
+.GiveWideLens
+	faceplayer
+	opentext
+	writetext Route36RuinsOfAlphGateOfficerWideLensText
+	promptbutton
+	verbosegiveitem WIDE_LENS
+	iffalse .NoRoom
+
+	setevent EVENT_GOT_WIDE_LENS
+.NoRoom
+	closetext
+	end
 
 Route36RuinsOfAlphGateGrampsScript:
 	jumptextfaceplayer Route36RuinsOfAlphGateGrampsText
@@ -18,6 +34,13 @@ Route36RuinsOfAlphGateOfficerText:
 	line "who'd make some-"
 	cont "thing like this?"
 	cont "And why?"
+	done
+	
+Route36RuinsOfAlphGateOfficerWideLensText:
+	text "If you're going to"
+	line "inspect the RUINS"
+	cont "OF ALPH, this will"
+	cont "come in handy."
 	done
 
 Route36RuinsOfAlphGateGrampsText:

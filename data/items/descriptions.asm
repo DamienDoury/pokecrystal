@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw TeruSama2Desc
+	dw WideLensDesc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -333,6 +333,10 @@ PotionDesc:
 EscapeRopeDesc:
 	db   "Use for escaping"
 	next "from caves, etc.@"
+
+WideLensDesc:
+	db   "Boosts accuracy by"
+	next "10<PERCENT>. (HOLD)@"
 
 RepelDesc:
 	db   "Repels weak #-"

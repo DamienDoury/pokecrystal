@@ -369,7 +369,10 @@
 	const EVENT_BEAT_BURGLAR_EDDY
 	const EVENT_BURGLAR_EDDY_LEFT
 	const EVENT_GOT_FAKE_ID
-; Unused: next 259 events
+
+	const EVENT_GOT_WIDE_LENS
+
+; Unused: next 258 events
 
 	const_next 600
 ; Kurt Apricorn events
