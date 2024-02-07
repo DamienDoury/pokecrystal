@@ -1704,6 +1704,9 @@ BattleCommand_CheckHit:
 	call .FlyDigMoves
 	jp nz, .Miss
 
+	call .MinimizeAlwaysHit
+	ret nc
+
 	call .ThunderRain
 	ret z
 
@@ -1925,6 +1928,31 @@ BattleCommand_CheckHit:
 	ret nz
 
 	call Add10PercentToB
+	ret
+
+; Output: nc is accuracy check should be skipped. Carry otherwise.
+.MinimizeAlwaysHit:
+	; First, we checked if the target is minimized.
+	ld hl, wEnemyMinimized
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .ok
+	ld hl, wPlayerMinimized
+.ok
+	ld a, [hl]
+	and a
+	scf ; Doesn't affect the Z flag.
+	ret z
+
+	; Second, we check if the move is in the list of moves that skip accuracy check against a minimized target.
+	ld a, BATTLE_VARS_MOVE
+	call GetBattleVar
+	cp STOMP ; Faster than IsInByteArray.
+	ret z ; Also returns nc.
+	cp BODY_SLAM ; Faster than IsInByteArray.
+	ret z ; Also returns nc.
+
+	scf
 	ret
 
 .StatModifiers:
