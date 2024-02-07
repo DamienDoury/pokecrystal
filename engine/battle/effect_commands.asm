@@ -1704,6 +1704,9 @@ BattleCommand_CheckHit:
 	call .FlyDigMoves
 	jp nz, .Miss
 
+	call .OHKOIgnoresAccuracyEvasion
+	jr z, .SkipAccuracyEvasionModifiers
+
 	call .MinimizeAlwaysHit
 	ret nc
 
@@ -1728,20 +1731,12 @@ BattleCommand_CheckHit:
 	cp STRUGGLE
 	ret z
 
-	call .StatModifiers
-
-	ld a, [wPlayerMoveStruct + MOVE_ACC]
+	call .StatModifiers ; Returns the
 	ld b, a
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .WideLens
-	ld a, [wEnemyMoveStruct + MOVE_ACC]
-	ld b, a
-
-.WideLens:
 	call .WideLensBoost
 
-;.BrightPowder:
+.SkipAccuracyEvasionModifiers:
+; BrightPowder check
 	push bc
 	call GetOpponentItem
 	ld a, [hl]
@@ -1917,6 +1912,25 @@ BattleCommand_CheckHit:
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVar
 	bit SUBSTATUS_X_ACCURACY, a
+	ret
+
+.OHKOIgnoresAccuracyEvasion:
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_OHKO ; This will be the returned flags.
+
+	push af
+	ld a, [wPlayerMoveStruct + MOVE_ACC]
+	ld b, a
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .acc_found
+
+	ld a, [wEnemyMoveStruct + MOVE_ACC]
+	ld b, a
+.acc_found:
+	pop af
+	ld a, b
 	ret
 
 .WideLensBoost:
