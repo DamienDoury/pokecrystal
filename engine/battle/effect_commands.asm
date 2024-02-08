@@ -5820,16 +5820,12 @@ BattleCommand_HeldFlinch:
 	ld hl, ErikasSporesText
 	call StdBattleTextbox
 
-	ld a, [hl]
-	and TYPE_MASK
-	cp GRASS 
-	jp z, PrintDidntAffect
-
 	call BattleCommand_SwitchTurn
 
-	ld a, GRASS
-	call CheckOpponentType ; We are checking the player's types as we have forced a turn switch.
-	jp nz, .no_immunity_to_powder ; Grass Pokémon are immune to powder effects.
+	call CheckPowder_SkipSporeMoves
+	ld a, [wAttackMissed]
+	and a
+	jr z, .no_immunity_to_powder
 
 	call PrintDidntAffect
 	jr .spores_effect_end
@@ -5867,11 +5863,8 @@ BattleCommand_HeldFlinch:
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 .spores_effect_end
 	call BattleCommand_SwitchTurn
-
-
-
-
-
+	xor a
+	ld [wAttackMissed], a
 	ret
 
 BattleCommand_OHKO:
@@ -7074,6 +7067,13 @@ BattleCommand_CheckPowder:
 	ld hl, PowderMoves
 	call IsInByteArray
 	ret nc
+
+CheckPowder_SkipSporeMoves:
+; If the opponent wears the Pokémask, the move fails.
+	call GetOpponentItem
+	ld a, [hl]
+	cp POKEMASK
+	jr z, .Immune
 
 ; If the opponent is Grass-type, the move fails.
 	ld hl, wEnemyMonType1

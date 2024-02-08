@@ -942,8 +942,8 @@ SquirtBottleDesc:
 	next "watering plants.@"
 
 PokemaskDesc:
-	db   "Blocks viruses."
-	next "(HOLD)@"
+	db   "Blocks viruses"
+	next "& spores. (HOLD)@"
 
 WorkVisaDesc:
 	db   "Legal entry in"

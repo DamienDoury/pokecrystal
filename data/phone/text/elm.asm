@@ -189,8 +189,12 @@ ElmPhonePokemaskAfterText:
 	line "the mouth and nose"
 	cont "of any #MON!"
 
-	para "The fabric is self"
-	line "cleaning as well."
+	para "The wearer is pro-"
+	line "tected from vi-"
+	cont "ruses and spores."
+
+	para "Also, the fabric"
+	line "is self cleaning."
 
 	para "I've been assigned"
 	line "to test it on the"
