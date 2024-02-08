@@ -5820,6 +5820,15 @@ BattleCommand_HeldFlinch:
 	ld hl, ErikasSporesText
 	call StdBattleTextbox
 
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	and a
+	
+	push af
+	call nz, PrintDidntAffect
+	pop af
+	jr nz, .spores_effect_end
+
 	call BattleCommand_SwitchTurn
 
 	call CheckPowder_SkipSporeMoves
@@ -5838,7 +5847,6 @@ BattleCommand_HeldFlinch:
 	ld a, SPORE
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
 
-	push hl
 	call BattleRandom
 	cp 152
 	jr nc, .pollen_sleep
@@ -5857,7 +5865,15 @@ BattleCommand_HeldFlinch:
 	call BattleCommand_ParalyzeTarget
 
 .pollen_effect_chosen
-	pop hl
+	
+	ld a, BATTLE_VARS_STATUS_OPP
+	call GetBattleVarAddr
+	and a
+	
+	push af
+	call z, PrintDidntAffect
+	pop af
+	jr z, .spores_effect_end
 
 	ld a, b
 	ld [wEnemyMoveStruct + MOVE_ANIM], a
