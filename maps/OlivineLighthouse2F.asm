@@ -22,23 +22,7 @@ TrainerGentlemanAlfred:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GentlemanAlfredAfterBattleText
-	promptbutton
-
-	checkevent EVENT_PCR_TEST_PRESENTATION
-	iftrue .AfterPCRHasBeenIntroduced
-
-	writetext GentlemanAlfredAfterBattleBeforePCRText
-	sjump .CloseText
-
-.AfterPCRHasBeenIntroduced
-	writetext GentlemanAlfredAfterBattleAfterPCRText
-
-.CloseText:
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer  GentlemanAlfredAfterBattleText
 
 TrainerSailorHuey:
 	trainer SAILOR, HUEY1, EVENT_BEAT_SAILOR_HUEY, SailorHueySeenText, SailorHueyBeatenText, 0, .Script
@@ -173,44 +157,24 @@ SailorHueyBeatenText:
 	done
 
 GentlemanAlfredSeenText:
-	text "Did you know that"
-	line "there are several"
-	cont "variants of COVID?"
+	text "I told my wife I"
+	line "was going to do"
+	cont "the groceries."
 	done
 
 GentlemanAlfredBeatenText:
-	text "I can see you're"
-	line "knowledgeable."
+	text "Don't tell my wife"
+	line "I'm here!"
 	done
 
 GentlemanAlfredAfterBattleText:
-	text "I am a friend of"
-	line "CHIEF NURSE JOY."
+	text "When I come home"
+	line "empty-handed,"
 
-	para "She was able to"
-	line "tell me which"
-	cont "variant of COVID"
-	cont "my dear #MON"
-	cont "caught last time."
-	done
-
-GentlemanAlfredAfterBattleBeforePCRText:
-	text "She used a proto-"
-	line "type test that"
-	cont "should soon be"
-	cont "available to the"
-	cont "masses."
-	done
-
-GentlemanAlfredAfterBattleAfterPCRText:
-	text "You are a friend"
-	line "of her as well?"
-
-	para "Then if your"
-	line "#MON has done"
-
-	para "a PCR test, you"
-	line "could ask her."
+	para "I shall tell my"
+	line "wife the shortage"
+	cont "is the reason for"
+	cont "my failure."
 	done
 
 SailorHueyGiveProteinText:

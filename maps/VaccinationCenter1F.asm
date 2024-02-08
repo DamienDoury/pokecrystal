@@ -3,6 +3,26 @@
     const VACCINATION_CENTER_CHANSEY
     const VACCINATION_CENTER_WAITRESS
 
+    const VACCINATION_CENTER_PERMANENT_1
+    const VACCINATION_CENTER_PERMANENT_2
+
+    const VACCINATION_CENTER_MORNING_1
+    const VACCINATION_CENTER_MORNING_2
+    const VACCINATION_CENTER_MORNING_3
+    const VACCINATION_CENTER_MORNING_4
+
+    const VACCINATION_CENTER_DAY_1
+    const VACCINATION_CENTER_DAY_2
+    const VACCINATION_CENTER_DAY_3
+    const VACCINATION_CENTER_DAY_4
+    const VACCINATION_CENTER_DAY_5
+
+    const VACCINATION_CENTER_NITE_1
+    const VACCINATION_CENTER_NITE_2
+    const VACCINATION_CENTER_NITE_3
+    const VACCINATION_CENTER_NITE_4
+    const VACCINATION_CENTER_NITE_5
+
 VaccinationCenter1F_MapScripts:
     def_scene_scripts
     scene_script .DummyScene0 ; SCENE_DEFAULT
@@ -187,6 +207,64 @@ VaccinationCenterChanseyKicksYouScript:
     ;jumptext VaccinationCenterForbiddenSeatText
     end
 
+    
+VaccinationCenter_Script1:
+    jumptextfaceplayer VaccinationCenter_Text1
+
+VaccinationCenter_Script2:
+    jumptextfaceplayer VaccinationCenter_Text2
+
+VaccinationCenter_Script4:
+    jumptextfaceplayer VaccinationCenter_Text4
+
+VaccinationCenter_Script5:
+    jumptextfaceplayer VaccinationCenter_Text5
+
+VaccinationCenter_Script6:
+    jumptextfaceplayer VaccinationCenter_Text6
+
+VaccinationCenter_Script7:
+    jumptextfaceplayer VaccinationCenter_Text7
+
+VaccinationCenter_Script8:
+    jumptextfaceplayer VaccinationCenter_Text8
+
+VaccinationCenter_Script9:
+    jumptextfaceplayer VaccinationCenter_Text9
+
+VaccinationCenter_Script10:
+    jumptextfaceplayer VaccinationCenter_Text10
+
+VaccinationCenter_Script11:
+    jumptextfaceplayer VaccinationCenter_Text11
+
+VaccinationCenter_Script12:
+    jumptextfaceplayer VaccinationCenter_Text12
+
+VaccinationCenter_Script13:
+    faceplayer
+    opentext
+    writetext VaccinationCenter_Text13
+    waitbutton
+    closetext
+    showemote EMOTE_SHOCK, VACCINATION_CENTER_NITE_1, 15
+    jumptext VaccinationCenter_Text13Sequel
+
+VaccinationCenter_Script14:
+    jumptextfaceplayer VaccinationCenter_Text14
+
+VaccinationCenter_Script15:
+    jumptextfaceplayer VaccinationCenter_Text15
+
+VaccinationCenter_Script16:
+    jumptextfaceplayer VaccinationCenter_Text16
+
+VaccinationCenter_Script17:
+    showemote EMOTE_SLEEP, VACCINATION_CENTER_NITE_5, 45
+    pause 15
+    showemote EMOTE_SHOCK, VACCINATION_CENTER_NITE_5, 15
+    pause 5
+    jumptextfaceplayer VaccinationCenter_Text17
 
 VaccinationCenter1FScanner:	
     farsjump GoldenrodHospital1FScanner
@@ -237,9 +315,6 @@ VaccinationCenter_ChanseyWaitMovement:
     turn_head UP
     turn_head DOWN
     step_end
-
-VaccinationCenterEmptyScript:
-    end
 
 VaccinationCenterConstructionText:
     text "This SILPH CO."
@@ -337,6 +412,163 @@ VaccinationCenterCallText:
     line "You're up next."
     done
 
+VaccinationCenter_Text1:
+    text "I am a friend of"
+	line "CHIEF NURSE JOY."
+
+	para "She was able to"
+	line "tell me which"
+	cont "variant of COVID"
+	cont "my dear #MON"
+	cont "caught last time."
+
+	para "You are a friend"
+	line "of her as well?"
+
+	para "Then if your"
+	line "#MON has done"
+
+	para "a PCR test, you"
+	line "could ask her."
+    done
+
+VaccinationCenter_Text2:
+    text "It is the 5th"
+    line "appointment for"
+    cont "my PIKACHU."
+    
+    para "They say 2 shots"
+    line "are enough?"
+    
+    para "I don't think so."
+    done
+
+VaccinationCenter_Text4:
+    text "Yo."
+    done
+
+VaccinationCenter_Text5:
+    text "A wise man shall"
+    line "convince its rel-"
+    cont "atives to get"
+    cont "vaccinated."
+    done
+
+VaccinationCenter_Text6:
+    text "The #MON vac-"
+    line "cine is a blessing"
+    cont "for trainers."
+    done
+
+VaccinationCenter_Text7:
+    text "The vaccines are"
+    line "saving our phy-"
+    cont "sical health."
+    
+    para "But it's important"
+    line "to maintain a good"
+    
+    para "mental health as"
+    line "well."
+    
+    para "A lot of people"
+    line "fell into depres-"
+    
+    para "sion during the"
+    line "lockdown and the"
+    cont "curfew."
+    done
+
+VaccinationCenter_Text8:
+    text "The fact that the"
+    line "virus is mutating"
+    
+    para "into new variants"
+    line "is scary."
+    done
+
+VaccinationCenter_Text9:
+    text "I'm playing my part"
+    line "against COVID."
+    done
+
+VaccinationCenter_Text10:
+    text "Getting my #MON"
+    line "vaccinated will"
+    cont "be a relief."
+    done
+
+VaccinationCenter_Text11:
+    text "Human-#MON"
+    line "contamination can"
+
+    para "happen, but it"
+    line "is rare."
+    done
+
+VaccinationCenter_Text12:
+    text "We don't need a"
+    line "new lockdown."
+    
+    para "Everyone should"
+    line "get vaccinated."
+    done
+
+VaccinationCenter_Text13:
+    text "The LEAGUE CHAMP-"
+    line "ION inspired me"
+    cont "to get vaccinated."
+    done
+    
+VaccinationCenter_Text13Sequel:
+    text "Hey it's you!"
+    line "Incredible!"
+    done
+
+VaccinationCenter_Text14:
+    text "I used to be an"
+    line "anti-vaxxer until"
+    
+    para "I became severely"
+    line "ill while my vac-"
+    
+    para "cinated wife didn't"
+    line "get affected at"
+    cont "all."
+    
+    para "Now I want to pro-"
+    line "tect my #MON."
+    done
+
+VaccinationCenter_Text15:
+    text "Why are you talk-"
+    line "ing to everyone?"
+    
+    para "Stop it! It's"
+    line "embarrassing."
+    done
+
+VaccinationCenter_Text16:
+    text "As soon as the"
+    line "#MON vaccine"
+    cont "was announced,"
+    
+    para "everyone took an"
+    line "appointment at"
+    cont "once!"
+    
+    para "It lead to weeks"
+    line "of delay."
+    done
+
+VaccinationCenter_Text17:
+    text "Ah!"
+
+    para "I rested my eyes"
+    line "for a second. Did"
+    cont "I miss my slot?"
+    done
+
 VaccinationCenter1F_MapEvents:
     db 0, 0 ; filler
 
@@ -372,22 +604,22 @@ VaccinationCenter1F_MapEvents:
 	object_event 11,  5, SPRITE_CHANSEY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterChanseyScript, -1
 	object_event 10,  0, SPRITE_LINK_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterGoToOffice, 0
 
-	object_event  15,  1, SPRITE_GRAMPS, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  14,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 15,  1, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script1, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 14,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script2, EVENT_CROWD_IN_VACCINATION_CENTER
 
-	object_event  7,  1, SPRITE_GRANNY, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  9,  1, SPRITE_SAGE, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event 13,  1, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  6,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  7,  1, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script4, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  9,  1, SPRITE_SAGE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script5, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 13,  1, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script6, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  6,  3, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | MORN, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script7, EVENT_CROWD_IN_VACCINATION_CENTER
 
-	object_event 12,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  8,  3, SPRITE_ROCKER, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  7,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event 13,  1, SPRITE_NURSE, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  6,  3, SPRITE_TWIN, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 12,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | DAY, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script8, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  8,  3, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script9, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  7,  1, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script10, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 13,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | DAY, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script11, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  6,  3, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | DAY, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script12, EVENT_CROWD_IN_VACCINATION_CENTER
 
-	object_event 12,  3, SPRITE_LASS, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  8,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  9,  1, SPRITE_TWIN, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  6,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
-	object_event  7,  1, SPRITE_FISHER, SPRITEMOVEDATA_STILL, 0, 0, -1, %11100000 | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenterEmptyScript, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event 12,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script13, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  8,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script14, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  9,  1, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | NITE, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script15, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  6,  3, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | NITE, 0, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script16, EVENT_CROWD_IN_VACCINATION_CENTER
+	object_event  7,  1, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, %11100000 | NITE, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VaccinationCenter_Script17, EVENT_CROWD_IN_VACCINATION_CENTER

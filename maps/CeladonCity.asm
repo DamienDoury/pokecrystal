@@ -180,12 +180,15 @@ CeladonCityTeacher2TextBis:
 	done
 
 CeladonCityLassText:
-	text "Looking at the"
-	line "ground while I was"
-
-	para "walking made me"
-	line "dizzy."
-	done
+	text "My boyfriend said"
+    line "he would dump me"
+    
+    para "if I didn't get"
+    line "vaccinated."
+    
+    para "Too bad, I kinda"
+	line "liked him."
+    done
 
 CeladonCitySignText:
 	text "CELADON CITY"

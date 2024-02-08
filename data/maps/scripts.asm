@@ -280,9 +280,6 @@ INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
 INCLUDE "maps/CeruleanPoliceStation.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
-INCLUDE "maps/VaccinationCenter1F.asm"
-INCLUDE "maps/VaccinationCenterCorridor.asm"
-INCLUDE "maps/VaccinationCenterRoom.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -519,3 +516,8 @@ INCLUDE "maps/GoldenrodHospitalRoom.asm"
 
 
 SECTION "Map Scripts 28", ROMX
+
+INCLUDE "maps/VaccinationCenter1F.asm"
+INCLUDE "maps/VaccinationCenterCorridor.asm"
+INCLUDE "maps/VaccinationCenterRoom.asm"
+
