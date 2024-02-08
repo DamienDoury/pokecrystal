@@ -180,7 +180,7 @@ GoldenrodMagnetTrainStationTwinText:
 
 	para "I wish I was."
 	line "But my parents"
-	cont "forbids me."
+	cont "forbid me."
 	done
 
 GoldenrodMagnetTrainStation_MapEvents:
