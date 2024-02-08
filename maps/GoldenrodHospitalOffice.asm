@@ -1020,9 +1020,9 @@ GoldenrodHospitalOffice_ResultSoSoText:
 	para "I am a little"
 	line "disappointed."
 
-	para "You didn't show"
-	line "yourself in your"
-	cont "best light."
+	para "It wasn't the best"
+	line "version of"
+	cont "yourself."
 
 	para "Anyway, take this"
 	line "for your time."

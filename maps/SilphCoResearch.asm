@@ -635,8 +635,8 @@ SilphCoResearchScientist1_HiText:
     para "facilities devoted"
     line "to finding a"
 
-    para "#RUS vaccine"
-    line "for all #MON."
+    para "COVID vaccine for"
+    line "all #MON."
     
     para "We are currently"
     line "field testing"

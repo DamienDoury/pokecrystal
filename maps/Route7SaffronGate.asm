@@ -51,6 +51,13 @@ Route7SaffronGateCrossOakScript:
 
 	opentext
 	writetext Route7SaffronGate_OakGreetingsText
+	promptbutton
+	checkevent EVENT_GOT_POKEMON_FROM_SILPHCO
+	iftrue .skip_vaccine_research_talk
+	writetext Route7SaffronGate_OakGreetingsText2
+	promptbutton
+.skip_vaccine_research_talk
+	writetext Route7SaffronGate_OakGreetingsText3
 	waitbutton
 	closetext
 
@@ -119,8 +126,10 @@ Route7SaffronGate_OakGreetingsText:
 
 	para "But I'm getting"
 	line "carried away."
+	done
 
-	para "I was on my way to"
+Route7SaffronGate_OakGreetingsText2:
+	text "I was on my way to"
 	line "the SILPH CO."
 	cont "building in"
 	cont "SAFFRON CITY."
@@ -137,8 +146,10 @@ Route7SaffronGate_OakGreetingsText:
 
 	para "They're waiting for"
 	line "me, I should go."
+	done
 
-	para "My lab is in"
+Route7SaffronGate_OakGreetingsText3:
+	text "My lab is in"
 	line "PALLET TOWN,"
 
 	para "come say hi"
