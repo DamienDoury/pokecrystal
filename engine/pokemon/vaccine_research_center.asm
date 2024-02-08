@@ -74,11 +74,8 @@ _SilphCo_SetMonAttributes:
     ld d, h
     ld e, l
 
-    ld a, [wTempByteValue]
-    ld [wScriptVar], a
-
     xor a
-    ld [wTempByteValue], a
+    ld [wNewStarterMovesIndex], a
 
     ld b, TRUE
     push de
@@ -140,7 +137,7 @@ _SilphCo_SetMonAttributes:
     ret
 
 SilphCo_TrainerName:
-    db $92, $88, $8B, $8F, $87, $50
+    db "SILPH@"
 
 ; Input: none.
 ; Output: [wScriptVar]: 0 if the mon is not within the party, $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.
