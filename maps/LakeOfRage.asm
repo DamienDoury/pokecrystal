@@ -50,7 +50,6 @@ LakeOfRage_MapScripts:
 	endcallback
 
 .WesleyAppears:
-	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; LAKEOFRAGE_WESLEY
 	endcallback
 
 LakeOfRageLanceScript:
