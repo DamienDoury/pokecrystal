@@ -256,18 +256,31 @@ ReadTrainerPartyPieces:
 .no_dvs
 
 ; stat exp?
+	ld a, [wOtherTrainerClass] ; Doing a hardcoded check rather than adding data into the db saves almost 600 ROM bytes.
+	cp BLUE
+	jr z, .force_perfect_stat_exp
+	cp SWAT
+	jr z, .force_perfect_stat_exp
+	jr .stat_exp_check
+
+.force_perfect_stat_exp ; Blue and Swats get perfect stat exp.
+	call GetLastOTMonStatExpAddress
+	ld c, NUM_EXP_STATS * 2
+	ld a, $ff
+.force_perfect_stat_exp_loop
+	ld [de], a
+	inc de
+	dec c
+	jr nz, .force_perfect_stat_exp_loop
+	jr .no_stat_exp
+
+.stat_exp_check
 	ld a, [wOtherTrainerType]
 	bit TRAINERTYPE_STAT_EXP_F, a
 	jr z, .no_stat_exp
 
-	push hl
-	ld a, [wOTPartyCount]
-	dec a
-	ld hl, wOTPartyMon1StatExp
-	call GetPartyLocation
-	ld d, h
-	ld e, l
-	pop hl
+.do_stat_exp
+	call GetLastOTMonStatExpAddress
 
 	ld c, NUM_EXP_STATS
 .stat_exp_loop
@@ -382,10 +395,17 @@ endr
 .no_moves
 
 ; Custom DVs or stat experience affect stats, so recalculate them after TryAddMonToParty
+	ld a, [wOtherTrainerClass] ; Doing a hardcoded check rather than adding data into the db saves almost 600 ROM bytes.
+	cp BLUE
+	jr z, .force_stat_recalc
+	cp SWAT
+	jr z, .force_stat_recalc
+
 	ld a, [wOtherTrainerType]
 	and TRAINERTYPE_DVS | TRAINERTYPE_STAT_EXP
 	jr z, .no_stat_recalc
 
+.force_stat_recalc
 	push hl
 
 	ld a, [wOTPartyCount]
@@ -420,6 +440,17 @@ endr
 .no_stat_recalc
 
 	jp .loop
+
+GetLastOTMonStatExpAddress:
+	push hl
+	ld a, [wOTPartyCount]
+	dec a
+	ld hl, wOTPartyMon1StatExp
+	call GetPartyLocation
+	ld d, h
+	ld e, l
+	pop hl
+	ret
 
 ComputeTrainerReward:
 	ld hl, hProduct

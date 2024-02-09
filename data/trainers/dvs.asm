@@ -66,10 +66,10 @@ TrainerClassDVs:
 	dn  6, 13,  8,  8 ; POKEFANF
 	dn 15,  1, 15,  8 ; NURSE
 	dn 15, 15, 15, 15 ; RED
-	dn 14, 14, 14, 14 ; BLUE
+	dn 15, 15, 15, 15 ; BLUE
 	dn  9,  8,  8,  8 ; OFFICER
 	dn  9, 10, 10, 10 ; SERGEANT
-	dn 12, 12, 12, 12 ; JENNY
+	dn 13, 13, 13, 13 ; JENNY
 	dn 15, 15, 15, 15 ; SWAT
 	dn  7, 14, 10,  8 ; GRUNTF
 	dn  9,  8,  8,  8 ; MYSTICALMAN
