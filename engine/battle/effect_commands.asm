@@ -4150,6 +4150,26 @@ SapHealth:
 	ldh [hDividend + 1], a
 .at_least_one
 
+	call GetUserItem
+	ld a, [hl]
+	cp BIG_ROOT
+	jr nz, .regen_amount_determined
+
+	ldh a, [hDividend]
+	ld b, a
+
+	ldh a, [hDividend + 1]
+	ld c, a
+
+	call ApplyBigRootBoost
+
+	ld a, b
+	ldh [hDividend], a
+
+	ld a, c
+	ldh [hDividend + 1], a
+
+.regen_amount_determined
 	ld hl, wBattleMonHP
 	ld de, wBattleMonMaxHP
 	ldh a, [hBattleTurn]
@@ -4226,6 +4246,55 @@ SapHealth:
 	predef AnimateHPBar
 	call RefreshBattleHuds
 	jp UpdateBattleMonInParty
+
+; Input: Value to be boosted in BC (big-endian).
+; Output: Boosted value in BC.
+; May clobber hDividend to hDividend + 4.
+ApplyBigRootBoost:
+if BIG_ROOT_REGEN_VALUE == 5
+	; Here, the Big Root gives a bonus of 50% regen, so we optimize the code.
+	push de
+	ld a, c
+	ld e, a
+	srl e
+	add e
+	ld c, a
+
+	ld a, b
+	ld e, a
+	adc 0
+	srl e
+	add e
+	ld b, a
+	pop de
+elif
+	; The Big Root adds 30% to the regen amount.
+	; We calculate this 30%, we multiply by 13, then divide by 10.
+	; Should be an issue, damage is capped at 999. So it fits into 2 bytes, which is enough.
+
+	; Converting values to big endian.
+	ld a, b
+	ldh [hMultiplicand + 1], a
+	ld a, c
+	ldh [hMultiplicand + 2], a
+	xor a
+	ldh [hMultiplicand], a
+
+	ld a, 10 + BIG_ROOT_REGEN_VALUE
+	ldh [hMultiplier], a
+	call Multiply
+
+	ld a, 10
+	ldh [hDivisor], a
+	call Divide
+
+	; Converting the result back to little endian, and storing it where it belongs.
+	ldh a, [hQuotient + 2]
+	ld b, a
+	ldh a, [hQuotient + 3]
+	ld c, a ; Result is floored. No rounding.
+endc
+	ret
 
 BattleCommand_BurnTarget:
 ; burntarget

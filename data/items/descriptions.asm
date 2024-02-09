@@ -171,7 +171,7 @@ ItemDescriptions:
 	dw GorgeousBoxDesc
 	dw SunStoneDesc
 	dw PolkadotBowDesc
-	dw TeruSama22Desc
+	dw BigRootDesc
 	dw UpGradeDesc
 	dw BerryDesc
 	dw GoldBerryDesc
@@ -922,8 +922,9 @@ PolkadotBowDesc:
 	db   "NORMAL moves are"
 	next "20<PERCENT> stronger.@"
 
-TeruSama22Desc:
-	db   "?@"
+BigRootDesc:
+	db   "Drains restore {d:BIG_ROOT_REGEN_VALUE}0<PERCENT>"
+	next "more HP. (HOLD)@"
 
 UpGradeDesc:
 	db   "A mysterious box"

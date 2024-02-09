@@ -40,7 +40,7 @@ ViridianForestMaxPotion:
 	itemball MAX_POTION
 
 ViridianForestRevivalHerb:
-	itemball REVIVAL_HERB
+	itemball BIG_ROOT
 
 ViridianForestMiracleSeed:
 	itemball MIRACLE_SEED

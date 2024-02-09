@@ -170,7 +170,7 @@ ItemNames::
 	li "GORGEOUS BOX"
 	li "SUN STONE"
 	li "POLKADOT BOW"
-	li "TERU-SAMA"
+	li "BIG ROOT"
 	li "UP-GRADE"
 	li "ORAN BERRY"
 	li "SITRUS BERRY"

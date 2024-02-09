@@ -1228,6 +1228,17 @@ ResidualDamage:
 	call SubtractHPFromUser
 	ld a, $1
 	ldh [hBGMapMode], a
+
+	push bc
+	callfar GetOpponentItem
+	pop bc
+	ld a, [hl]
+	cp BIG_ROOT
+	jr nz, .no_big_root
+
+	farcall ApplyBigRootBoost
+
+.no_big_root
 	call RestoreHP
 	ld hl, LeechSeedSapsText
 	call StdBattleTextbox
