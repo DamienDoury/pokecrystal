@@ -76,10 +76,13 @@ GoldenrodHospitalRoom_MapScripts:
 	ifequal 32, .room32
 
 ; Default room : Unless we are in one of the player's sick pokemon rooms, there's only a random human patient, and no one else. 
-;	readmem wSickMonIsInThisRoom
-;	iffalse .default_room
-;	endcallback
-;	
+	readmem wSickMonIsInThisRoom
+	iffalse .default_room
+
+	disappear GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT
+	special GetHospitalRoomNumber
+	sjump .SetSickMonID	
+	
 .default_room:
 	special GetHospitalRoomNumber
 	scall Mod25
@@ -183,11 +186,11 @@ GoldenrodHospitalRoom_MapScripts:
 
 .room7:	
 	readmem wSickMonIsInThisRoom
-	iffalse .do_room6
+	iffalse .do_room7
 	disappear GOLDENROD_HOSPITAL_ROOM_VISITOR1
 	special GetHospitalRoomNumber
 	sjump .SetSickMonID
-.do_room6:
+.do_room7:
 	variablesprite SPRITE_HOSPITAL_HUMAN_PATIENT, SPRITE_NURSE
 	disappear GOLDENROD_HOSPITAL_ROOM_POKEMON_PATIENT
 	moveobject GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT, 1, 6
@@ -1051,7 +1054,7 @@ GoldenrodHospitalTrainerRoom8AfterBattleText:
 
 	GoldenrodHospitalTrainerRoom17SeenText:
 	text "I'm doing a show"
-	line "for the sick kids."
+	line "for the sick."
 	done
 
 GoldenrodHospitalTrainerRoom17BeatenText:
@@ -1066,7 +1069,7 @@ GoldenrodHospitalTrainerRoom17AfterBattleText:
 	cont "now!"
 	done
 
-	GoldenrodHospitalTrainerRoom26SeenText:
+GoldenrodHospitalTrainerRoom26SeenText:
 	text "Don't you dare"
 	line "approaching my"
 	cont "poor daughter!"
