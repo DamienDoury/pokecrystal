@@ -111,7 +111,7 @@ ItemNames::
 	li "LUM BERRY"
 	li "PEARL"
 	li "BIG PEARL"
-	li "EVERSTONE"
+	li "EVIOSTONE"
 	li "SPELL TAG"
 	li "CAKE OF RAGE"
 	li "GS BALL"

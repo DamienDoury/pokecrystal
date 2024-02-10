@@ -2847,6 +2847,7 @@ PlayerAttackDamage:
 	ld c, [hl]
 
 	farcall HailDefBoost
+	farcall EverstoneBoost
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_REFLECT, a
@@ -2873,6 +2874,7 @@ PlayerAttackDamage:
 	ld c, [hl]
 
 	farcall SandstormSpDefBoost
+	farcall EverstoneBoost
 
 	ld a, [wEnemyScreens]
 	bit SCREENS_LIGHT_SCREEN, a
@@ -3103,6 +3105,7 @@ EnemyAttackDamage:
 	ld c, [hl]
 
 	farcall HailDefBoost
+	farcall EverstoneBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_REFLECT, a
@@ -3129,6 +3132,7 @@ EnemyAttackDamage:
 	ld c, [hl]
 
 	farcall SandstormSpDefBoost
+	farcall EverstoneBoost
 
 	ld a, [wPlayerScreens]
 	bit SCREENS_LIGHT_SCREEN, a

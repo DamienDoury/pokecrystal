@@ -13,12 +13,13 @@ SandstormSpDefBoost::
 .ok
     ld a, [hli]
     cp ROCK
-    jr z, HailDefBoost.start_boost
+    jr z, FiftyPercentStatBoost
+
     ld a, [hl]
     cp ROCK
     ret nz
 
-    jr HailDefBoost.start_boost
+    jr FiftyPercentStatBoost
 
 HailDefBoost::
     ; First, check if Hail is active.
@@ -35,12 +36,14 @@ HailDefBoost::
 .ok
     ld a, [hli]
     cp ICE
-    jr z, .start_boost
+    jr z, FiftyPercentStatBoost
+
     ld a, [hl]
     cp ICE
     ret nz
+    ; fallthrough
 
-.start_boost
+FiftyPercentStatBoost::
     ld h, b
     ld l, c
     srl b

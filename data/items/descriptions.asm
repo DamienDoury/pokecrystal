@@ -697,8 +697,8 @@ BigPearlDesc:
 	next "pearl. Sell high.@"
 
 EverStoneDesc:
-	db   "Stops evolution."
-	next "(HOLD)@"
+	db   "Can evo? Stops it"
+	next "& ×1.5 (Sp.)Def.@"
 
 SpellTagDesc:
 	db   "GHOST moves are"
