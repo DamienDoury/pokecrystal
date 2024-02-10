@@ -118,7 +118,7 @@ ItemNames::
 	li "BLUE CARD"
 	li "MIRACLE SEED"
 	li "THICK CLUB"
-	li "FOCUS BAND"
+	li "FOCUS SASH"
 	li "SAFARI KEY"
 	li "ENERGYPOWDER"
 	li "ENERGY ROOT"

@@ -2359,7 +2359,7 @@ BattleCommand_ApplyDamage:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
 	call GetBattleVar
 	bit SUBSTATUS_ENDURE, a
-	jr z, .focus_band
+	jr z, .focus_sash_check
 
 	call BattleCommand_FalseSwipe
 	ld b, 0
@@ -2367,19 +2367,34 @@ BattleCommand_ApplyDamage:
 	ld b, 1
 	jr .damage
 
-.focus_band
+.focus_sash_check
 	call GetOpponentItem
-	ld a, b
-	cp HELD_FOCUS_BAND
+	ld a, [hl]
+	cp FOCUS_BAND
 	ld b, 0
 	jr nz, .damage
 
-	call BattleRandom
-	cp c
-	jr nc, .damage
-	call BattleCommand_FalseSwipe
-	ld b, 0
-	jr nc, .damage
+	; We check if the opponent is at full HP.
+	ld hl, wBattleMonHP
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .opponent_hp
+
+	ld hl, wEnemyMonHP
+
+.opponent_hp
+	ld d, h
+	ld e, l
+	inc de
+	inc de
+	ld c, 2
+	call CompareBytes ; Doesn't clobber B.
+	jr nz, .damage ; B is still 0 at this point.
+
+	; We check if the move is a OHKO.
+	call BattleCommand_FalseSwipe ; Doesn't clobber B.
+	jr nc, .damage ; B is still 0 at this point.
+
 	ld b, 2
 
 .damage

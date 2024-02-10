@@ -407,7 +407,7 @@ CinnabarIslandSickMakeRoom2Text:
 CinnabarIslandSickBuySilenceText:
 	text "I think I held out"
 	line "thanks to my"
-	cont "FOCUS BAND."
+	cont "FOCUS SASH."
 
 	para "Now it's your turn"
 	line "to take advantage"

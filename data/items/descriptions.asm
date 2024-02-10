@@ -725,8 +725,8 @@ ThickClubDesc:
 	next "CUBONE ATK. (HOLD)@"
 
 FocusBandDesc:
-	db   "May prevent faint-"
-	next "ing. (HOLD)@"
+	db   "Can't faint when"
+	next "at full HP. (HOLD)@"
 
 SafariKeyDesc:
 	db   "Opens SAFARI ZONE."
