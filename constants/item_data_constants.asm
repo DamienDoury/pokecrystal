@@ -139,6 +139,3 @@ MAIL_STRUCT_LENGTH EQU $2f ; mailmsg struct
 	const HELD_QUICK_CLAW
 	const HELD_FLINCH
 	const HELD_AMULET_COIN
-	const_skip
-	const_skip
-	const HELD_FOCUS_BAND
