@@ -2,7 +2,7 @@ BattleCommand_StartRain:
 ; startrain
 	ld a, WEATHER_RAIN
 	ld [wBattleWeather], a
-	ld a, 5
+	call GetWeatherMoveDuration
 	ld [wWeatherCount], a
 	call AnimateCurrentMove
 	ld hl, DownpourText

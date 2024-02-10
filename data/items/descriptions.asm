@@ -136,7 +136,7 @@ ItemDescriptions:
 	dw BasementKeyDesc
 	dw PassDesc
 	dw SilphBadgeDesc
-	dw TeruSama10Desc
+	dw WeatherRockDesc
 	dw TeruSama11Desc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
@@ -787,12 +787,13 @@ PassDesc:
 	db   "A ticket for the"
 	next "MAGNET TRAIN.@"
 
-	SilphBadgeDesc:
+SilphBadgeDesc:
 	db   "Allows access to"
 	next "SILPH CO. 11F.@"
 
-TeruSama10Desc:
-	db   "?@"
+WeatherRockDesc:
+	db   "Weathers last"
+	next "8 turns. (HOLD)@"
 
 TeruSama11Desc:
 	db   "?@"

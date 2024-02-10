@@ -63,7 +63,7 @@ SeafoamB4FWeakGround:
 	farjumptext _WeakGroundCollapsedText
 
 SeafoamB4FItem:
-	itemball CHARCOAL
+	itemball WEATHER_ROCK
 
 SeafoamB4FBoulder:
 	jumpstd StrengthBoulderScript

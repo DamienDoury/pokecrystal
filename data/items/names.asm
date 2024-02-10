@@ -135,7 +135,7 @@ ItemNames::
 	li "BASEMENT KEY"
 	li "RAIL PASS"
 	li "SILPH PASS"
-	li "TERU-SAMA"
+	li "WEATHER ROCK"
 	li "TERU-SAMA"
 	li "CHARCOAL"
 	li "BERRY JUICE"
