@@ -2272,18 +2272,19 @@ AI_Smart_Growth:
 	ld bc, wEnemyStatLevels ; Attack.
 	ld a, [bc]
 	cp BASE_STAT_LEVEL + 1
-	jr c, .encourage
+	jr c, .greatly_encourage
 
 	ld bc, wEnemyStatLevels + 3 ; Sp.Attack.
 	ld a, [bc]
 	cp BASE_STAT_LEVEL + 1
-	jr c, .encourage
+	jr c, .greatly_encourage
 
 .discourage
 	inc [hl]
 	ret
 
-.encourage
+.greatly_encourage
+	dec [hl]
 	dec [hl]
 	ret
 
