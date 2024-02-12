@@ -560,8 +560,8 @@ LeechSeedDescription:
 	next "foe on every turn.@"
 
 GrowthDescription:
-	db   "Raises the SPCL."
-	next "ATK rating.@"
+	db   "Ups ATK & SP.ATK."
+	next "Doubled under sun.@"
 
 RazorLeafDescription:
 	db   "Has a high criti-"

@@ -109,6 +109,7 @@
 	const EFFECT_FLY
 	const EFFECT_BLIZZARD
 	const EFFECT_BODY_SLAM
+	; Moves under this line have an accuracy displayed as "---" instead of "100".
 	const EFFECT_ALWAYS_HIT ; 3
 	const EFFECT_MIRROR_MOVE ; 1
 	const EFFECT_ATTACK_UP ; 2
@@ -161,4 +162,5 @@
 	const EFFECT_TELEPORT ; 1
 	const EFFECT_DEFENSE_CURL ; 1
 	const EFFECT_HAIL ; 1
+	const EFFECT_GROWTH ; 1
 NUM_MOVE_EFECTS EQU const_value

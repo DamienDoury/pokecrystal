@@ -2150,3 +2150,11 @@ BodySlam:
 	paralyzetarget
 	kingsrock ; Added for pollen in Erika's battle, and because it should be here.
 	endmove
+
+Growth:
+	checkobedience
+	usedmovetext
+	doturn
+	growth
+	endmove
+	

@@ -161,4 +161,5 @@ MoveEffectsPointers:
 	dw Teleport
 	dw DefenseCurl
 	dw Hail
+	dw Growth
 	assert_table_length NUM_MOVE_EFECTS
