@@ -633,7 +633,7 @@ wBattleWeather::
 ; 03 sandstorm
 ; 04 hail
 ; 05 rain stopped
-; 06 sunliight faded
+; 06 sunlight faded
 ; 07 sandstorm subsided
 ; 08 hail stopped
 	db

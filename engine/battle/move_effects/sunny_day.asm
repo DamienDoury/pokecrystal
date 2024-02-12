@@ -1,5 +1,9 @@
 BattleCommand_StartSun:
 ; startsun
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	jp z, BattleCommand_StartSandstorm.failed
+
 	ld a, WEATHER_SUN
 	ld [wBattleWeather], a
 	call GetWeatherMoveDuration
