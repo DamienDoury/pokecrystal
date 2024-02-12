@@ -389,6 +389,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_THUNDER,          AI_Smart_Thunder
 	dbw EFFECT_FLY,              AI_Smart_Fly
 	dbw EFFECT_HAIL,             AI_Smart_Hail
+	dbw EFFECT_GROWTH,           AI_Smart_Growth
 	db -1 ; end
 
 AI_Smart_Sleep:
@@ -2257,6 +2258,34 @@ AI_Smart_Hail:
 .GoodHailMoves
 	db BLIZZARD
 	db -1 ; end
+
+AI_Smart_Growth:
+	ld a, [wBattleWeather]
+	cp WEATHER_SUN
+	ret nz ; Neutral if no sun.
+
+	; Discourage this move if enemy's HP is lower than 50%.
+	call AICheckEnemyHalfHP
+	jr nc, .discourage
+
+	; Encourage if at least 1 of the 2 stats is not boosted at least once.
+	ld bc, wEnemyStatLevels ; Attack.
+	ld a, [bc]
+	cp BASE_STAT_LEVEL + 1
+	jr c, .encourage
+
+	ld bc, wEnemyStatLevels + 3 ; Sp.Attack.
+	ld a, [bc]
+	cp BASE_STAT_LEVEL + 1
+	jr c, .encourage
+
+.discourage
+	inc [hl]
+	ret
+
+.encourage
+	dec [hl]
+	ret
 
 AI_Smart_Endure:
 ; Greatly discourage this move if the enemy already used Protect.
