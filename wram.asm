@@ -1566,8 +1566,9 @@ wMenuSelectionQuantity:: db
 wWhichIndexSet:: db
 wScrollingMenuCursorPosition:: db
 wWindowStackSize:: db
+wTrainerCardBadgePaletteAddr:: dw
 
-	ds 8
+	ds 6
 
 ; menu header
 wMenuHeader::

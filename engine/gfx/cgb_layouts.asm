@@ -585,6 +585,18 @@ _CGB_UnownPuzzle:
 	call ApplyAttrmap
 	ret
 
+_CGB_TrainerCardBorderAndTrainerPicPalsJohto:
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	farcall JohtoBadgePalettes
+	jr _CGB_TrainerCardBorderAndTrainerPicPals
+
+_CGB_TrainerCardBorderAndTrainerPicPalsKanto:
+	call GetTrainerPalettePointer
+	call LoadPalette_White_Col1_Col2_Black
+	farcall KantoBadgePalettes
+	; fallthrough
+
 _CGB_TrainerCardBorderAndTrainerPicPals:
 	; The 5 following lines shouldn't be part of this function, but this saves 5 lines of code.
 	call GetTrainerPalettePointer
@@ -628,14 +640,7 @@ _CGB_TrainerCardBorderAndTrainerPicPals:
 	lb bc, 3, 3
 	ret
 
-_CGB_TrainerCardPalsEnd:
-	call ApplyAttrmap
-	call ApplyPals
-	ld a, TRUE
-	ldh [hCGBPalUpdate], a
-	ret
-
-_CGB_TrainerCard:
+_CGB_TrainerCard:	
 	ld de, wBGPals1
 	xor a ; CHRIS
 	call GetTrainerPalettePointer
@@ -659,8 +664,8 @@ _CGB_TrainerCard:
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, PRYCE
-	call _CGB_TrainerCardBorderAndTrainerPicPals
-	
+	call _CGB_TrainerCardBorderAndTrainerPicPalsJohto
+
 	ld a, $1 ; falkner
 	call FillBoxCGB
 	hlcoord 7, 10, wAttrmap
@@ -705,7 +710,7 @@ _CGB_TrainerCard:
 	ld a, c
 	jp _CGB_TrainerCardPalsEnd
 
-_CGB_TrainerCardKanto:
+_CGB_TrainerCardKanto:	
 	ld de, wBGPals1
 	xor a ; CHRIS
 	call GetTrainerPalettePointer
@@ -729,7 +734,7 @@ _CGB_TrainerCardKanto:
 	call GetTrainerPalettePointer
 	call LoadPalette_White_Col1_Col2_Black
 	ld a, BLUE
-	call _CGB_TrainerCardBorderAndTrainerPicPals
+	call _CGB_TrainerCardBorderAndTrainerPicPalsKanto
 
 	ld a, $2 ; brock
 	call FillBoxCGB
@@ -765,10 +770,16 @@ _CGB_TrainerCardKanto:
 	ld a, [wPlayerGender]
 	and a
 	ld a, $1 ; Kris (F)
-	jr z, .got_gender3
+	jr z, _CGB_TrainerCardPalsEnd
 	ld a, $0 ; Chris (M)
-.got_gender3
-	jp _CGB_TrainerCardPalsEnd
+	; fallthrough
+
+_CGB_TrainerCardPalsEnd:
+	call ApplyAttrmap
+	call ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
 
 _CGB_MoveList:
 	ld de, wBGPals1
