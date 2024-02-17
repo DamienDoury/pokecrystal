@@ -392,6 +392,8 @@ CheckOutdoorMap::
 	cp ROUTE
 	ret z
 	cp TOWN
+	ret z
+	cp ENVIRONMENT_5
 	ret
 
 CheckIndoorMap::

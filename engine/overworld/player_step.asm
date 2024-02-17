@@ -41,7 +41,7 @@ ScrollScreen::
 	ld e, a
 	
 	ld a, [wEnvironment]
-	cp ROUTE ; ENVIRONMENT_5
+	cp ENVIRONMENT_5
 	jr nz, .apply_scroll_offset
 
 	; When in an environment of type ENVIRONMENT_5 (rooftop), make the sky scroll slowly.

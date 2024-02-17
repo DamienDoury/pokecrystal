@@ -1134,10 +1134,7 @@ LoadMapPals:
 	jr z, .outside
 
 .environment_check
-	ld a, [wEnvironment]
-	cp TOWN
-	jr z, .outside
-	cp ROUTE
+	call CheckOutdoorMap
 	ret nz
 .outside
 	ld a, FALSE

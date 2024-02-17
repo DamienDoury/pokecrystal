@@ -1734,6 +1734,8 @@ BikeFunction:
 
 .CheckEnvironment:
 	call GetMapEnvironment
+	cp ENVIRONMENT_5
+	jr z, .nope ; No biking on rooftops.
 	call CheckOutdoorMap
 	jr z, .ok
 	cp CAVE

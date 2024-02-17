@@ -300,11 +300,9 @@ CheckSpecialPhoneCall::
 	ret
 
 SpecialCallOnlyWhenOutside:
-	ld a, [wEnvironment]
-	cp TOWN
+	call CheckOutdoorMap
 	jr z, .outside
-	cp ROUTE
-	jr z, .outside
+
 	xor a
 	ret
 

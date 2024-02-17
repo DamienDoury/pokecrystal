@@ -13,6 +13,7 @@ EnvironmentColorsPointers:
 
 ; Valid indices: $00 - $29 (see gfx/tilesets/bg_tiles.pal)
 .OutdoorColors:
+.Env5Colors:
 	db $00, $01, $02, $28, $04, $05, $06, $07 ; morn
 	db $08, $09, $0a, $28, $0c, $0d, $0e, $0f ; day
 	db $10, $11, $12, $29, $14, $15, $16, $17 ; nite
@@ -25,7 +26,6 @@ EnvironmentColorsPointers:
 	db $18, $18, $18, $18, $1c, $18, $18, $07 ; dark
 
 .DungeonColors:
-.Env5Colors:
 	db $00, $01, $02, $03, $04, $05, $06, $07 ; morn
 	db $08, $09, $0a, $0b, $0c, $0d, $0e, $0f ; day
 	db $10, $11, $12, $13, $14, $15, $16, $17 ; nite
