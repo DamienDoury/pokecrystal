@@ -39,6 +39,18 @@ ScrollScreen::
 	ld d, a
 	ld a, [wPlayerStepVectorY]
 	ld e, a
+	
+	ld a, [wEnvironment]
+	cp ROUTE ; ENVIRONMENT_5
+	jr nz, .apply_scroll_offset
+
+	; When in an environment of type ENVIRONMENT_5 (rooftop), make the sky scroll slowly.
+	; Also display the map on a Window, and make it scroll (hard).
+	; The background only displays the sky (stars and clouds).
+	sra d ; SRA manages both values 0, 2, 4, as well as -2, -4.
+	sra e
+
+.apply_scroll_offset
 	ldh a, [hSCX]
 	add d
 	ldh [hSCX], a
