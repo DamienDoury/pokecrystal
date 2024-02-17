@@ -127,7 +127,7 @@ GetMart:
 	push bc
 	push de
 	ld b, CHECK_FLAG
-	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	ld de, EVENT_GOT_HM01_CUT
 	call EventFlagAction
 	pop de
 	pop bc
