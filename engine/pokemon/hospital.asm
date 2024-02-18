@@ -368,6 +368,15 @@ SendMonToHospital::
 	call AddNTimes
 	ld d, [hl]
 	push de
+	ld a, JADE_CRYSTAL
+	cp d
+	jr nz, .didnt_get_scammed
+
+	ld b, SET_FLAG
+	ld de, EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	call EventFlagAction
+
+.didnt_get_scammed
 	farcall ItemIsMail
 	pop de
 	jr nc, .checkItem ; Not holding mail.

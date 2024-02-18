@@ -68,7 +68,7 @@ _CheckPokerus:
 	ld a, [hl] ; Retrieving the pokerus byte.
 	and POKERUS_DURATION_MASK ; Note that we check the duration, and not the strain. The nurse cannot detect the Pokémon's immunity, only the presence of the virus. It works like a PCR test.
 	cp POKERUS_IMMUNITY_DURATION + 1
-	call nc, SetTestFlag ; Party has undeclared Pokérus.
+	call nc, .SetTestFlag ; Party has undeclared Pokérus.
 
 ; Next PartyMon
 .next
@@ -83,13 +83,31 @@ _CheckPokerus:
 	scf ; Sets the carry flag.
 	ret ; Return true.
 
+.SetTestFlag:
+	; If the pokemon is declared covid while carrying a Jade Crystal, we set the scam flag.
+	push hl
+	push de
+	; We check the item.
+	ld de, $10000 - (MON_PKRUS - MON_ITEM)
+	add hl, de
+	ld a, [hl]
+	cp JADE_CRYSTAL
+	jr nz, .no_scam
 
+	push bc
+	ld b, SET_FLAG
+	ld de, EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	call EventFlagAction
+	pop bc
 
-SetTestFlag:
-	ld c, 1
+.no_scam
+	pop de
+	pop hl
+
 	ld a, [hl]
 	or POKERUS_TEST_MASK
 	ld [hl], a
+	ld c, 1
 	ret
 
 

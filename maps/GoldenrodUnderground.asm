@@ -14,6 +14,10 @@ GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_PRICE EQU 300
 	const GOLDENRODUNDERGROUND_GAMECORNER_EXIT_BLOCK
 	const GOLDENRODUNDERGROUND_BEATER
 	const GOLDENRODUNDERGROUND_STONE_SCAMMER
+	const GOLDENRODUNDERGROUND_RUSH_1
+	const GOLDENRODUNDERGROUND_RUSH_2
+	const GOLDENRODUNDERGROUND_RUSH_3
+	const GOLDENRODUNDERGROUND_RUSH_4
 
 GoldenrodUnderground_MapScripts:
 	def_scene_scripts
@@ -171,8 +175,61 @@ BitterMerchantScript:
 	end
 
 StonesMerchantScript:
+	checkevent EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	iffalse .opentext_then_mart
+
+	showemote EMOTE_QUESTION, GOLDENRODUNDERGROUND_STONE_SCAMMER, 30
 	opentext
+	writetext StoneScammerExcuseText
+	special PlaceMoneyTopRight
+	yesorno
+	iffalse .aggressive
+
+	checkmoney YOUR_MONEY, 9999
+	ifequal HAVE_LESS, .not_enough_money
+
+	giveitem JADE_CRYSTAL
+	iffalse .no_room
+
+	takemoney YOUR_MONEY, 9999
+	waitsfx
+	playsound SFX_TRANSACTION
+	pause 15
+	special PlaceMoneyTopRight
+
+	itemnotify
+
+	closetext ; Closes PlaceMoneyTopRight. 
+	opentext
+
+	writetext StoneScammerDoubleScamText
+	promptbutton
+	writetext StoneScammerEmptyBoxText
+	sjump .mart	
+
+.aggressive
+	closetext ; Closes PlaceMoneyTopRight. 
+	opentext
+	writetext StoneScammerAggressiveText
+	promptbutton
+	writetext StoneScammerEmptyBoxText
+	sjump .mart
+
+.opentext_then_mart
+	opentext
+.mart
 	pokemart MARTTYPE_STONES, MART_UNDERGROUND_STONES
+	closetext
+	end
+
+.not_enough_money
+	farwritetext _StoneShopNoMoneyText
+	sjump .end_text
+
+.no_room
+	farwritetext _HerbalLadyPackFullText
+.end_text
+	waitbutton
 	closetext
 	end
 
@@ -864,6 +921,48 @@ GoldenrodUndergroundRush3Text:
 GoldenrodUndergroundRush4Text:
 	text "Sell me everything"
 	line "you have. Now!"
+	done
+
+StoneScammerExcuseText:
+	text "Your #MON got"
+	line "sick while holding"
+	cont "a JADE CRYSTAL?"
+
+	para "This can't happen…"
+	line "Your #MON must"
+	
+	para "have held the item"
+	line "incorrectly."
+
+	para "…"
+
+	para "To prevent this"
+	line "from reoccurring,"
+	
+	para "I can sell you a"
+	line "stronger JADE"
+	cont "CRYSTAL for ¥9999."
+	done
+
+StoneScammerDoubleScamText:
+	text "You will see. This"
+	line "JADE CRYSTAL is"
+	cont "very powerful."
+	done
+
+StoneScammerAggressiveText:
+	text "Look, I will not"
+	line "give you a refund."
+
+	para "I cannot be held"
+	line "responsible for"
+	
+	para "your mishandling"
+	line "of my products."
+	done
+
+StoneScammerEmptyBoxText:
+	text " "
 	done
 
 GoldenrodUnderground_MapEvents:
