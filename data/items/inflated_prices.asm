@@ -57,7 +57,7 @@ InflatedPrices:
 	inflated_price 330, 360 ; SODA_POP
 	inflated_price 390, 430 ; LEMONADE
 	inflated_price 500, 550 ; X_ATTACK
-	inflated_price 0, 0 ; ITEM_32
+	inflated_price 1999, 2999 ; JADE_CRYSTAL
 	inflated_price 550, 600 ; X_DEFEND
 	inflated_price 350, 400 ; X_SPEED
 	inflated_price 350, 400 ; X_SPECIAL

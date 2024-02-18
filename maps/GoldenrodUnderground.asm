@@ -13,6 +13,7 @@ GOLDENRODUNDERGROUND_YOUNGER_HAIRCUT_PRICE EQU 300
 	const GOLDENRODUNDERGROUND_GAMECORNER_EMPLOYEES_BACKDOOR
 	const GOLDENRODUNDERGROUND_GAMECORNER_EXIT_BLOCK
 	const GOLDENRODUNDERGROUND_BEATER
+	const GOLDENRODUNDERGROUND_STONE_SCAMMER
 
 GoldenrodUnderground_MapScripts:
 	def_scene_scripts
@@ -166,6 +167,12 @@ BitterMerchantScript:
 
 .Open:
 	pokemart MARTTYPE_BITTER, MART_UNDERGROUND
+	closetext
+	end
+
+StonesMerchantScript:
+	opentext
+	pokemart MARTTYPE_STONES, MART_UNDERGROUND_STONES
 	closetext
 	end
 
@@ -502,6 +509,18 @@ DoorKeeperScript:
 	closetext
 	end
 
+GoldenrodUndergroundRush1Script:
+	jumptext GoldenrodUndergroundRush1Text
+
+GoldenrodUndergroundRush2Script:
+	jumptext GoldenrodUndergroundRush2Text
+
+GoldenrodUndergroundRush3Script:
+	jumptext GoldenrodUndergroundRush3Text
+
+GoldenrodUndergroundRush4Script:
+	jumptext GoldenrodUndergroundRush4Text
+
 PathMovement:
 	step UP
 	step RIGHT
@@ -822,6 +841,30 @@ PathInstructionText:
 	para "Have fun."
 	done
 
+GoldenrodUndergroundRush1Text:
+	text "Let me find"
+	line "my change…"
+	done
+
+GoldenrodUndergroundRush2Text:
+	text "Please don't sell"
+	line "all you have to"
+	cont "this lady. Save"
+	cont "some for me!"
+
+	para "I'll pay double"
+	line "the price!"
+	done
+
+GoldenrodUndergroundRush3Text:
+	text "This old lady is"
+	line "taking forever!"
+	done
+
+GoldenrodUndergroundRush4Text:
+	text "Sell me everything"
+	line "you have. Now!"
+	done
 
 GoldenrodUnderground_MapEvents:
 	db 0, 0 ; filler
@@ -855,8 +898,13 @@ GoldenrodUnderground_MapEvents:
 	object_event  2,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, DAY, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerPokemaniacDonald, -1
 	object_event  7, 11, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BargainMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRAMPS
 	object_event  7, 14, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, OlderHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_OLDER_HAIRCUT_BROTHER
-	object_event  7, 15, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, YoungerHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_YOUNGER_HAIRCUT_BROTHER
-	object_event  7, 21, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BitterMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRANNY
+	object_event  7, 16, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, YoungerHaircutBrotherScript, EVENT_GOLDENROD_UNDERGROUND_YOUNGER_HAIRCUT_BROTHER
+	object_event  7, 20, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, BitterMerchantScript, EVENT_GOLDENROD_UNDERGROUND_GRANNY
 	object_event 12,  6, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerEmployeesBackdoorScript, -1
 	object_event 26,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerExitBlockScript, -1
 	object_event  6,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, %11100000 | (18 - START_HOUR_FILTER_OFFSET), %11100000 | 18, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DoorKeeperScript, EVENT_GOLDENROD_ILLEGAL_CASINO
+	object_event  7, 22, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, StonesMerchantScript, -1
+	object_event  5, 22, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush1Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event  6, 23, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush2Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event  3, 22, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush3Script, EVENT_LOCKDOWN_MART_RUSH
+	object_event  5, 21, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush4Script, EVENT_LOCKDOWN_MART_RUSH

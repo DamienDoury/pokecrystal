@@ -50,7 +50,7 @@ ItemDescriptions:
 	dw SodaPopDesc
 	dw LemonadeDesc
 	dw XAttackDesc
-	dw TeruSama4Desc
+	dw JadeCrystalDesc
 	dw XDefendDesc
 	dw XSpeedDesc
 	dw XSpecialDesc
@@ -456,8 +456,9 @@ XAttackDesc:
 	db   "Raises ATTACK."
 	next "(1 BTL)@"
 
-TeruSama4Desc:
-	db   "?@"
+JadeCrystalDesc:
+	db   "Protects from"
+	next "COVID. (HOLD)@"
 
 XDefendDesc:
 	db   "Raises DEFENSE."

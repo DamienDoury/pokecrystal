@@ -32,6 +32,7 @@ Marts1:
 	dw .MartMtMoon
 	dw .MartIndigoPlateau
 	dw .MartUnderground
+	dw .MartUndergroundStones
 	assert_table_length NUM_MARTS
 
 .MartCherrygrove:
@@ -233,3 +234,11 @@ Marts1:
 	db ENERGYPOWDER
 	db ENERGY_ROOT
 	db -1 ; end
+
+.MartUndergroundStones:
+	db 3 ; # items
+	db JADE_CRYSTAL
+	db STAR_PIECE
+	db EVERSTONE
+	db -1 ; end
+	

@@ -440,8 +440,6 @@ _CongratulationsYourPokemonText::
 	text_ram wStringBuffer2
 	text_end
 
-	text_end ; unreferenced
-
 _EvolvedIntoText::
 	text_start
 
@@ -499,20 +497,6 @@ _HerbShopLadyIntroText::
 	para "Hehehehe…"
 	done
 
-_HerbalLadyHowManyText::
-	text "How many?"
-	done
-
-_HerbalLadyFinalPriceText::
-	text_decimal wItemQuantityChange, 1, 2
-	text " @"
-	text_ram wStringBuffer2
-	text "(S)"
-	line "will be ¥@"
-	text_decimal hMoneyTemp, 3, 6
-	text "."
-	done
-
 _HerbalLadyThanksText::
 	text "Thank you, dear."
 	line "Hehehehe…"
@@ -531,6 +515,80 @@ _HerbalLadyNoMoneyText::
 _HerbalLadyComeAgainText::
 	text "Come again, dear."
 	line "Hehehehe…"
+	done
+
+_StoneShopIntroText::
+	text "Stone healing is"
+	line "an ancestral"
+	cont "practice."
+	
+	para "There is a stone"
+	line "for every need."
+	done
+
+_StoneShopThanksText::
+	text "Great choice. You"
+	line "won't regret it."
+	done
+
+_StoneShopNoMoneyText::
+	text "My premium stones"
+	line "come at a price"
+	cont "you can't afford…"
+	done
+
+_StoneShopComeAgainText::
+	text "May you find peace"
+	line "in the stones."
+	done
+
+_JadeCrystalSellPitchText::
+	text "My best seller."
+
+	para "There is nothing a"
+	line "stone can't heal."
+
+	para "And COVID is no"
+	line "exception."
+
+	para "Have your #MON"
+	line "hold it, and it"
+	cont "won't get sick."
+	done
+	
+_StarPieceSellPitchText::
+	text "What is the effect"
+	line "of this one you"
+	cont "may ask?"
+
+	para "This one"
+	line "sparks joy."
+	done
+	
+_EverstoneSellPitchText::
+	text "EVIOSTONE is the"
+	line "contraction of"
+	cont "EVIOLITE and"
+	cont "EVERSTONE."
+
+	para "It holds the pro-"
+	line "perties of both"
+	cont "stones."
+
+	para "Give it to a #-"
+	line "MON that can still"
+	cont "evolve."
+
+	para "It will boost its"
+	line "DEF and SPCL.DEF"
+	cont "by 50<PERCENT> but prevent"
+	cont "it from evolving."
+	done
+
+_LastEverstoneText::
+	text "Lucky you!"
+	line "You bought my very"
+	cont "last EVIOSTONE!"
 	done
 
 _BargainShopIntroText::
@@ -582,10 +640,6 @@ _PharmacyIntroText::
 	line "some medicine?"
 	done
 
-_PharmacyHowManyText::
-	text "How many?"
-	done
-
 _PharmacyFinalPriceText::
 	text_decimal wItemQuantityChange, 1, 2
 	text " @"
@@ -613,10 +667,6 @@ _PharmacyNoMoneyText::
 _PharmacyComeAgainText::
 	text "All right."
 	line "See you around."
-	done
-
-_MartSellHowManyText::
-	text "How many?"
 	done
 
 _MartSellPriceText::

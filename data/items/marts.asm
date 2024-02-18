@@ -32,6 +32,7 @@ Marts:
 	dw .MartMtMoon
 	dw .MartIndigoPlateau
 	dw .MartUnderground
+	dw .MartUndergroundStones
 	assert_table_length NUM_MARTS
 
 .MartCherrygrove:
@@ -374,6 +375,13 @@ Marts:
 	db REVIVAL_HERB
 	db -1 ; end
 
+.MartUndergroundStones:
+	db 3 ; # items
+	db JADE_CRYSTAL
+	db STAR_PIECE
+	db EVERSTONE
+	db -1 ; end
+	
 DefaultMart:
 	db 2 ; # items
 	db POKE_BALL

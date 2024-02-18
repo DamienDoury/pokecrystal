@@ -22,6 +22,7 @@ OpenMartDialog::
 	dw BargainShop
 	dw Pharmacist
 	dw RooftopSale
+	dw StoneShop
 
 MartDialog:
 	ld a, MARTTYPE_STANDARD
@@ -38,6 +39,25 @@ HerbShop:
 	call MartTextbox
 	call BuyMenu
 	ld hl, HerbalLadyComeAgainText
+	call MartTextbox
+	ret
+
+StoneShop:
+	call FarReadMart
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_BOUGHT_EVERSTONE
+	call EventFlagAction
+	jr z, .inventory_determined
+
+	farcall RemoveEviostoneFromStoneShopInventory
+
+.inventory_determined
+	call LoadStandardMenuHeader
+	ld hl, StoneShopIntroText
+	call MartTextbox
+	call BuyMenu
+	ld hl, StoneShopComeAgainText
 	call MartTextbox
 	ret
 
@@ -577,6 +597,7 @@ GetMartDialogGroup:
 	dwb .BargainShopPointers, 1
 	dwb .PharmacyPointers, 0
 	dwb .StandardMartPointers, 2
+	dwb .StoneShopMartPointers, 0
 
 .StandardMartPointers:
 	dw MartHowManyText
@@ -587,8 +608,8 @@ GetMartDialogGroup:
 	dw BuyMenuLoop
 
 .HerbShopPointers:
-	dw HerbalLadyHowManyText
-	dw HerbalLadyFinalPriceText
+	dw MartHowManyText
+	dw MartFinalPriceText
 	dw HerbalLadyNoMoneyText
 	dw HerbalLadyPackFullText
 	dw HerbalLadyThanksText
@@ -603,11 +624,19 @@ GetMartDialogGroup:
 	dw BargainShopSoldOutText
 
 .PharmacyPointers:
-	dw PharmacyHowManyText
+	dw MartHowManyText
 	dw PharmacyFinalPriceText
 	dw PharmacyNoMoneyText
 	dw PharmacyPackFullText
 	dw PharmacyThanksText
+	dw BuyMenuLoop
+
+.StoneShopMartPointers
+	dw MartHowManyText
+	dw MartFinalPriceText
+	dw StoneShopNoMoneyText
+	dw HerbalLadyPackFullText
+	dw StoneShopThanksText
 	dw BuyMenuLoop
 
 BuyMenuLoop:
@@ -627,9 +656,13 @@ BuyMenuLoop:
 	call SpeechTextbox
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
-	jr z, .set_carry
+	jp z, .set_carry
+	farcall StoneShopSellPitch
+.ask_quantity
 	call MartAskPurchaseQuantity
 	jr c, .cancel
+	call MartConfirmQuantity
+	jr c, .ask_quantity
 	call MartConfirmPurchase
 	jr c, .cancel
 	ld de, wMoney
@@ -661,17 +694,23 @@ BuyMenuLoop:
 	xor a
 	ld [wWalkingAbuseGuard], a
 
+	farcall NotifyLastEverstone
+
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld b, FALSE
 	call CheckAndUpdateStock ; We check if it was the last of the stock.
-	jr nc, .cancel ; We stay in the buying menu if the seller's stock is not empty.
+	jr nc, .update_shop_if_everstone_removed_from_inventory ; We stay in the buying menu if the seller's stock is not empty.
 
 ; The player just emptied the stock.
 	ld hl, MartLastItemText
 	call PrintText
 	call JoyWaitAorB
 	jr .set_carry ; Quits the buying menu.
+
+.update_shop_if_everstone_removed_from_inventory
+	farcall CheckIfBoughtEverstoneAtStoneShop
+	jp z, BuyMenuLoop
 
 .cancel
 	call SpeechTextbox
@@ -705,23 +744,17 @@ StandardMartAskPurchaseQuantity:
 	call ExitMenu
 	ret
 
-MartConfirmPurchase:
-	;push bc
-	;push de
-	;push hl
+MartConfirmQuantity:
 	ld b, FALSE
 	call CheckAndUpdateStock
-	;pop hl
-	;pop de
-	;pop bc
-	jr nc, .EnoughInStock
+	ret nc
 
 	ld hl, MartShortageText
 	call PrintText
 	scf ; Returns transaction failure.
 	ret
 
-.EnoughInStock
+MartConfirmPurchase:
 	predef PartyMonItemName
 	ld a, MARTTEXT_COSTS_THIS_MUCH
 	call LoadBuyMenuText
@@ -841,14 +874,6 @@ HerbShopLadyIntroText:
 	text_far _HerbShopLadyIntroText
 	text_end
 
-HerbalLadyHowManyText:
-	text_far _HerbalLadyHowManyText
-	text_end
-
-HerbalLadyFinalPriceText:
-	text_far _HerbalLadyFinalPriceText
-	text_end
-
 HerbalLadyThanksText:
 	text_far _HerbalLadyThanksText
 	text_end
@@ -863,6 +888,22 @@ HerbalLadyNoMoneyText:
 
 HerbalLadyComeAgainText:
 	text_far _HerbalLadyComeAgainText
+	text_end
+
+StoneShopIntroText:
+	text_far _StoneShopIntroText
+	text_end
+
+StoneShopThanksText:
+	text_far _StoneShopThanksText
+	text_end
+
+StoneShopNoMoneyText:
+	text_far _StoneShopNoMoneyText
+	text_end
+
+StoneShopComeAgainText:
+	text_far _StoneShopComeAgainText
 	text_end
 
 BargainShopIntroText:
@@ -895,10 +936,6 @@ BargainShopComeAgainText:
 
 PharmacyIntroText:
 	text_far _PharmacyIntroText
-	text_end
-
-PharmacyHowManyText:
-	text_far _PharmacyHowManyText
 	text_end
 
 PharmacyFinalPriceText:
@@ -967,7 +1004,7 @@ SellMenu:
 	ret
 
 .okay_to_sell
-	ld hl, MartSellHowManyText
+	ld hl, MartHowManyText
 	call PrintText
 	farcall PlaceMoneyAtTopLeftOfTextbox
 	farcall SelectQuantityToSell
@@ -1002,10 +1039,6 @@ SellMenu:
 	call ExitMenu
 	and a
 	ret
-
-MartSellHowManyText:
-	text_far _MartSellHowManyText
-	text_end
 
 MartSellPriceText:
 	text_far _MartSellPriceText
@@ -1248,8 +1281,16 @@ GiveItemToPlayer::
 
 ; Input: if B=TRUE, then the stock will be updated. [wShortageInCurrentMart], [wCurrentMartID] and [wItemQuantityChange] need to be set.
 ; Output: Carry if not enough articles in stock to complete the transaction. nc otherwise. Returns the stock (number of available articles) in A.
-; Globbers DE and HL.
+; Clobbers DE and HL.
 CheckAndUpdateStock:
+	farcall CheckIfBoughtEverstoneAtStoneShop ; Doesn't clobber B.
+	jr nz, .check_shortage
+
+	ld a, [wItemQuantityChange]
+	cp 2
+	jr nc, .return_false ; The player can only buy 1 Everstone from the Stone Shop.
+
+.check_shortage
 	ld a, [wShortageInCurrentMart]
 	cp FALSE
 	jr z, .return_true_infinite ; Infinite stocks before the market rush.

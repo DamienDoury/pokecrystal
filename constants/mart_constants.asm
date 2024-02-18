@@ -5,6 +5,7 @@
 	const MARTTYPE_BARGAIN
 	const MARTTYPE_PHARMACY
 	const MARTTYPE_ROOFTOP
+	const MARTTYPE_STONES
 
 ; Marts indexes (see data/items/marts.asm)
 	const_def
@@ -39,4 +40,5 @@
 	const MART_MT_MOON
 	const MART_INDIGO_PLATEAU
 	const MART_UNDERGROUND
+	const MART_UNDERGROUND_STONES
 NUM_MARTS EQU const_value

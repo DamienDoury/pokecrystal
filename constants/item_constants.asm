@@ -55,10 +55,11 @@
 	const SODA_POP     ; 2f
 	const LEMONADE     ; 30
 	const X_ATTACK     ; 31
-	const ITEM_32      ; 32
+	const JADE_CRYSTAL ; 32
 	const X_DEFEND     ; 33
 	const X_SPEED      ; 34
 	const X_SPECIAL    ; 35
+	; Item above this line will undergo from price inflation.
 	const COIN_CASE    ; 36
 	const ITEMFINDER   ; 37
 	const POKE_FLUTE   ; 38
@@ -95,7 +96,7 @@
 	const BIG_MUSHROOM ; 57
 	const SILVERPOWDER ; 58
 	const BLU_APRICORN ; 59
-	const MUSEUM_KEY  ; 5a
+	const MUSEUM_KEY   ; 5a
 	const AMULET_COIN  ; 5b
 	const YLW_APRICORN ; 5c
 	const GRN_APRICORN ; 5d

@@ -49,7 +49,7 @@ ItemNames::
 	li "RAMUNE"
 	li "MILK TEA"
 	li "X ATTACK"
-	li "TERU-SAMA"
+	li "JADE CRYSTAL"
 	li "X DEFEND"
 	li "X SPEED"
 	li "X SPECIAL"
