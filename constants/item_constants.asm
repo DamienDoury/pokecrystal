@@ -30,7 +30,7 @@
 	const FIRE_STONE   ; 16
 	const THUNDERSTONE ; 17
 	const WATER_STONE  ; 18
-	const WIDE_LENS    ; 19
+	const ITEM_19      ; 19
 	const HP_UP        ; 1a
 	const PROTEIN      ; 1b
 	const IRON         ; 1c
@@ -143,7 +143,7 @@
 	const PASS         ; 86
 	const SILPH_BADGE  ; 87
 	const WEATHER_ROCK ; 88
-	const ITEM_89      ; 89
+	const WIDE_LENS    ; 89
 	const CHARCOAL     ; 8a
 	const BERRY_JUICE  ; 8b
 	const SCOPE_LENS   ; 8c

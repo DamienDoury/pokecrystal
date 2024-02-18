@@ -25,7 +25,7 @@ ItemDescriptions:
 	dw FireStoneDesc
 	dw ThunderStoneDesc
 	dw WaterStoneDesc
-	dw WideLensDesc
+	dw TeruSama11Desc
 	dw HPUpDesc
 	dw ProteinDesc
 	dw IronDesc
@@ -137,7 +137,7 @@ ItemDescriptions:
 	dw PassDesc
 	dw SilphBadgeDesc
 	dw WeatherRockDesc
-	dw TeruSama11Desc
+	dw WideLensDesc
 	dw CharcoalDesc
 	dw BerryJuiceDesc
 	dw ScopeLensDesc
