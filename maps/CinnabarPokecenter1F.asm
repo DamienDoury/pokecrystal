@@ -10,6 +10,7 @@
 	const CINNABARPOKECENTER1F_DANCER2
 	const CINNABARPOKECENTER1F_SERIOUS
 	const CINNABARPOKECENTER1F_CONE
+	const CINNABARPOKECENTER1F_FISHING_GURU
 
 CinnabarPokecenter1F_MapScripts:
 	def_scene_scripts
@@ -18,6 +19,8 @@ CinnabarPokecenter1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
+	scall CinnabarPokecenter1f_OldRodGuy
+
 	clearevent EVENT_CINNABAR_RAVE_PARTY
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
@@ -39,7 +42,16 @@ CinnabarPokecenter1F_MapScripts:
 .DoRaveParty:
 	setevent EVENT_CINNABAR_RAVE_PARTY
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Display all the party people!
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hide the Old Rod guy.
 	endcallback
+
+CinnabarPokecenter1f_OldRodGuy:
+	checkevent EVENT_GOT_OLD_ROD
+	iffalse .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+.end
+	end
 
 CinnabarPokecenterSleeperScript:
 	showemote EMOTE_SLEEP, CINNABARPOKECENTER1F_SLEEPER, 15
@@ -81,6 +93,9 @@ CinnabarPokecenterDJScript:
 	waitbutton
 	closetext
 	end
+
+CinnabarPokecenter1FFishingGuruScript:
+	farsjump Route32Pokecenter1FFishingGuruScript
 
 CinnabarPokecenter1FCooltrainerFText:
 	text "CINNABAR GYM's"
@@ -161,3 +176,4 @@ CinnabarPokecenter1F_MapEvents:
 	object_event  1,  1, SPRITE_ROCKER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterDancerScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  0,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterSeriousScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  8,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterConeScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  7,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FFishingGuruScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
