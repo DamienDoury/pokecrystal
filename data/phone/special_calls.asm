@@ -28,4 +28,5 @@ SpecialPhoneCallList:
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_HOSPITAL, HospitalCallerScript
 	specialcall SpecialCallOnlyWhenOutside, PHONECONTACT_HOSPITAL, HospitalCallerScript
 	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_TRACING,  ContactTracingCallerScript
+	specialcall SpecialCallWhereverYouAre,  PHONECONTACT_ELM,      ElmPhoneCallerScript
 	assert_table_length NUM_SPECIALCALLS

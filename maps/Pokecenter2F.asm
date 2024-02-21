@@ -433,6 +433,29 @@ Pokecenter2FOfficerScript:
 	writetext Text_MysteryGiftDeliveryGuy_Intro
 	promptbutton
 
+;.CheckEmergencyPokeballDelivery:
+	checkevent EVENT_ANTI_SOFTLOCK_DELIVERY
+	iffalse .MomGiftsOrMysteryGift
+
+	writetext EmergencyBallReceptionText
+	promptbutton
+
+	verbosegiveitem POKE_BALL, 1
+	iffalse .BagIsFull
+	
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; True if a Mystery Gift is available.
+	iftrue .ThatsNotAll
+
+	readmem wWhichMomItem
+	ifgreater $f, .ThatsNotAll
+
+	sjump .EndDelivery
+
+.ThatsNotAll
+	writetext ButThatsNotAllText
+	promptbutton
+
+.MomGiftsOrMysteryGift:
 	readmem wWhichMomItem
 	ifless $10, .MysteryGiftCheck
 
@@ -827,6 +850,15 @@ Text_BrokeStadiumRules:
 
 	para "Please come back"
 	line "when you're ready."
+	done
+
+EmergencyBallReceptionText:
+	text "You have a parcel"
+	line "from PROF.ELM."
+	done
+
+ButThatsNotAllText:
+	text "That's not all!"
 	done
 
 Pokecenter2F_MapEvents:

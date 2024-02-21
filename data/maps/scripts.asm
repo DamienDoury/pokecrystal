@@ -95,6 +95,7 @@ INCLUDE "maps/Route35NationalParkGate.asm"
 INCLUDE "maps/Route36RuinsOfAlphGate.asm"
 INCLUDE "maps/Route36NationalParkGate.asm"
 INCLUDE "maps/LavRadioTower1F.asm"
+INCLUDE "maps/BillsBrothersHouse.asm"
 
 
 SECTION "Map Scripts 6", ROMX
@@ -345,7 +346,6 @@ INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
-INCLUDE "maps/BillsBrothersHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX

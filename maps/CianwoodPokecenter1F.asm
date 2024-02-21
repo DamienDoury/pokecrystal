@@ -9,6 +9,36 @@ CianwoodPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, AntiSoftLockPokeball
+
+AntiSoftLockPokeball:
+	checkflag ENGINE_FREE_EMERGENCY_POKEBALL_SENT
+	iftrue .end_callback
+
+	checkflag ENGINE_FLYPOINT_GOLDENROD ; If you got softlocked before Goldenrod City, you had to do it on purpose... just restart the game.
+	iffalse .end_callback
+
+	checkphonecall
+	iftrue .end_callback ; Don't override another phone call. This one is low priority.
+
+	readmem wNumBalls
+	ifgreater 0, .end_callback
+
+	readvar VAR_MAPGROUP
+	ifequal GROUP_CIANWOOD_CITY, .skip_money_check
+	ifequal GROUP_CINNABAR_ISLAND, .skip_money_check
+
+	checkmoney YOUR_MONEY, 599
+	ifequal HAVE_MORE, .end_callback
+
+.skip_money_check
+	specialphonecall SPECIALCALL_ANTI_SOFTLOCK_POKEBALL
+
+.end_callback
+	endcallback
+
+
+	
 
 CianwoodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

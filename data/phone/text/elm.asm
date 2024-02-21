@@ -271,19 +271,6 @@ ElmPhoneSomethingToTellText:
 	line "my LAB, will you?"
 	done
 
-ElmPhoneGotAholdOfSomethingNeatText:
-	text "Hello, <PLAY_G>?"
-	line "How's it going?"
-
-	para "I got ahold of"
-	line "something neat."
-
-	para "Swing by my LAB"
-	line "and pick it up!"
-
-	para "See you later!"
-	done
-
 ElmPhoneHospital1Text:
 	text "Hello <PLAY_G>."
 	line "You are close by"
@@ -363,3 +350,16 @@ ElmPhoneKantoText:
 	line "curious. Keep me"
 	cont "informed!"
 	done
+
+ElmEmergencyPokeballDeliveryText:
+	text "Hello <PLAYER>."
+	line "You seem to be in"
+	cont "a dire situation."
+
+	para "I can't let"
+	line "you down."
+
+	para "I'm sending you"
+	line "1 #BALL."
+	done
+	

@@ -109,6 +109,7 @@ ElmPhoneCallerScript:
 	ifequal SPECIALCALL_SSTICKET, .something_important
 	ifequal SPECIALCALL_WORK_VISA, .gift
 	ifequal SPECIALCALL_MISSION_COMPLETE, .mission_complete
+	ifequal SPECIALCALL_ANTI_SOFTLOCK_POKEBALL, .anti_softlock_pokeball
 	farwritetext ElmPhoneDiscoveredPokerusText
 	specialphonecall SPECIALCALL_NONE
 	end
@@ -149,7 +150,12 @@ ElmPhoneCallerScript:
 	specialphonecall SPECIALCALL_NONE
 	end
 
-.neat ; unreferenced
-	farwritetext ElmPhoneGotAholdOfSomethingNeatText
+.anti_softlock_pokeball:
 	specialphonecall SPECIALCALL_NONE
+	setevent EVENT_ANTI_SOFTLOCK_DELIVERY
+	setflag ENGINE_FREE_EMERGENCY_POKEBALL_SENT
+	clearevent EVENT_MYSTERY_GIFT_DELIVERY_GUY
+	farwritetext ElmEmergencyPokeballDeliveryText
+	promptbutton
+	farwritetext _MomItsInPCText
 	end
