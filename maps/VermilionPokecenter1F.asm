@@ -8,6 +8,10 @@ VermilionPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .VermilionPokecenter1F_AntiSoftLock
+
+.VermilionPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 VermilionPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

@@ -8,6 +8,10 @@ OlivinePokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .OlivinePokecenter1F_AntiSoftLock
+
+.OlivinePokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 OlivinePokecenter1FNurseScript:
 	clearevent EVENT_RED_BEATEN

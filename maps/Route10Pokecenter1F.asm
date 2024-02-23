@@ -8,6 +8,10 @@ Route10Pokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .Route10Pokecenter1F_AntiSoftLock
+
+.Route10Pokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 Route10Pokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

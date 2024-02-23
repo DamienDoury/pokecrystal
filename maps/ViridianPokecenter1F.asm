@@ -8,6 +8,10 @@ ViridianPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .ViridianPokecenter1F_AntiSoftLock
+
+.ViridianPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 ViridianPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

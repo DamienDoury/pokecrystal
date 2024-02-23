@@ -9,6 +9,10 @@ CeladonPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CeladonPokecenter1F_AntiSoftLock
+
+.CeladonPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 CeladonPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

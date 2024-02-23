@@ -11,6 +11,7 @@ IndigoPlateauPokecenter1F_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .PrepareElite4
+	callback MAPCALLBACK_OBJECTS, .IndigoPlateauPokecenter1F_AntiSoftLock
 
 .PrepareElite4:
 	clearevent EVENT_WILLS_ROOM_ENTRANCE_CLOSED
@@ -30,6 +31,9 @@ IndigoPlateauPokecenter1F_MapScripts:
 	clearevent EVENT_BEAT_CHAMPION_LANCE
 	setevent EVENT_LANCES_ROOM_OAK_AND_MARY
 	endcallback
+
+.IndigoPlateauPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 PlateauRivalBattle1:
 	checkevent EVENT_BEAT_RIVAL_IN_MT_MOON

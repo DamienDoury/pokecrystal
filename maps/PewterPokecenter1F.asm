@@ -9,6 +9,10 @@ PewterPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .PewterPokecenter1F_AntiSoftLock
+
+.PewterPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 PewterPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

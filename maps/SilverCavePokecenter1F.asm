@@ -6,6 +6,10 @@ SilverCavePokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .SilverCavePokecenter1F_AntiSoftLock
+
+.SilverCavePokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 SilverCavePokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

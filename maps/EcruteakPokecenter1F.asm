@@ -10,6 +10,10 @@ EcruteakPokecenter1F_MapScripts:
 	scene_script .MeetBill ; SCENE_ALWAYS
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .EcruteakPokecenter1F_AntiSoftLock
+
+.EcruteakPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 .MeetBill:
 	checkevent EVENT_MET_BILL

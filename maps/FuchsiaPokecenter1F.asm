@@ -9,6 +9,10 @@ FuchsiaPokecenter1F_MapScripts:
 	scene_script .DummyScene
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .FuchsiaPokecenter1F_AntiSoftLock
+
+.FuchsiaPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 .DummyScene:
 	end

@@ -8,6 +8,10 @@ VioletPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .VioletPokecenter1F_AntiSoftLock
+
+.VioletPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 VioletPokecenterNurse:
 	jumpstd PokecenterNurseScript

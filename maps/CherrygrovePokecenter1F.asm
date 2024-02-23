@@ -8,6 +8,10 @@ CherrygrovePokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CherrygrovePokecenter1F_AntiSoftLock
+
+.CherrygrovePokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 CherrygrovePokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

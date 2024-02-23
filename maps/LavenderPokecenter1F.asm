@@ -8,6 +8,10 @@ LavenderPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .LavenderPokecenter1F_AntiSoftLock
+
+.LavenderPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 LavenderPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

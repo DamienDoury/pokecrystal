@@ -8,6 +8,10 @@ BlackthornPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .BlackthornPokecenter1F_AntiSoftLock
+
+.BlackthornPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 BlackthornPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

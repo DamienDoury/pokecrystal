@@ -8,6 +8,10 @@ SaffronPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .SaffronPokecenter1F_AntiSoftLock
+
+.SaffronPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 SaffronPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

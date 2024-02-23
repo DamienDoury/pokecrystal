@@ -7,6 +7,10 @@ Route32Pokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .Route32Pokecenter1F_AntiSoftLock
+
+.Route32Pokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 Route32Pokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

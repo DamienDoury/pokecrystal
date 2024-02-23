@@ -8,6 +8,10 @@ GoldenrodPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .GoldenrodPokecenter1F_AntiSoftLock
+
+.GoldenrodPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript

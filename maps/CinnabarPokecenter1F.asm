@@ -19,6 +19,7 @@ CinnabarPokecenter1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
+	farscall AntiSoftLockPokeball
 	scall CinnabarPokecenter1f_OldRodGuy
 
 	clearevent EVENT_CINNABAR_RAVE_PARTY

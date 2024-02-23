@@ -9,6 +9,10 @@ AzaleaPokecenter1F_MapScripts:
 	scene_script .DummyScene
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .AzaleaPokecenter1F_AntiSoftLock
+
+.AzaleaPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 .DummyScene:
 	end

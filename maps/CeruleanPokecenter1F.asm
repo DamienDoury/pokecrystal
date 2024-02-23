@@ -7,6 +7,10 @@ CeruleanPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CeruleanPokecenter1F_AntiSoftLock
+
+.CeruleanPokecenter1F_AntiSoftLock:
+	farsjump AntiSoftLockPokeball
 
 CeruleanPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
