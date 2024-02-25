@@ -2609,7 +2609,12 @@ WinTrainerBattle:
 	ld a, b
 	call z, PlayVictoryMusic
 	callfar Battle_GetTrainerName
+	call IsPluralTrainer
+	ld hl, BattleText_PluralEnemyWereDefeated
+	jr z, .got_defeat_phrase
+
 	ld hl, BattleText_EnemyWasDefeated
+.got_defeat_phrase
 	call StdBattleTextbox
 
 	call IsMobileBattle
@@ -3774,7 +3779,12 @@ OfferSwitch:
 	ld a, [wCurPartyMon]
 	push af
 	callfar Battle_GetTrainerName
+	call IsPluralTrainer
+	ld hl, BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon
+	jr z, .got_switch_phrase
+
 	ld hl, BattleText_EnemyIsAboutToUseWillPlayerChangeMon
+.got_switch_phrase
 	call StdBattleTextbox
 	lb bc, 1, 7
 	call PlaceYesNoBox

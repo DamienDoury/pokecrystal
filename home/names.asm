@@ -262,3 +262,10 @@ GetMoveName::
 
 	pop hl
 	ret
+
+IsPluralTrainer::
+; return z for plural trainers
+	ld a, [wOtherTrainerClass]
+	cp TWINS
+	ret
+	

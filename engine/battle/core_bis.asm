@@ -345,6 +345,10 @@ BattleStartMessage:
 	ld hl, WantsToApprehendText
 	jr z, .PlaceBattleStartText
 
+	ld hl, WantToBattlePluralText
+	call IsPluralTrainer
+	jr z, .PlaceBattleStartText
+
 	ld hl, WantsToBattleText
 	jr .PlaceBattleStartText
 
