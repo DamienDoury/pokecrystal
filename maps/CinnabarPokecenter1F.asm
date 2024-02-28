@@ -19,32 +19,32 @@ CinnabarPokecenter1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
-	farscall AntiSoftLockPokeball
-	scall CinnabarPokecenter1f_OldRodGuy
-
 	clearevent EVENT_CINNABAR_RAVE_PARTY
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 	readvar VAR_WEEKDAY
 	ifequal THURSDAY, .if_thursday
 	ifequal FRIDAY, .if_friday
-	endcallback
+	sjump .AntiSoftlock
 
 .if_thursday:
 	readvar VAR_HOUR
 	ifgreater 20, .DoRaveParty
-	endcallback
+	sjump .AntiSoftlock
 
 .if_friday:
 	readvar VAR_HOUR
 	ifless 4, .DoRaveParty
-	endcallback
+	sjump .AntiSoftlock
 
 .DoRaveParty:
 	setevent EVENT_CINNABAR_RAVE_PARTY
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Display all the party people!
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hide the Old Rod guy.
-	endcallback
+
+.AntiSoftlock
+	scall CinnabarPokecenter1f_OldRodGuy
+	farsjump AntiSoftLockPokeball ; Calls endcallback.
 
 CinnabarPokecenter1f_OldRodGuy:
 	checkevent EVENT_GOT_OLD_ROD
