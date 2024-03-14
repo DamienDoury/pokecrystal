@@ -16,8 +16,8 @@ Route6_MapScripts:
 	iftrue .EndCallback
 
 	; Turns off the underground path lights.
-	changeblock 16, 2, $9
-	changeblock 18, 2, $33
+	changeblock 16, 4, $9
+	changeblock 18, 4, $33
 
 .EndCallback
 	endcallback
@@ -261,7 +261,7 @@ Route6_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17,  3, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 1
+	warp_event 17,  5, ROUTE_6_UNDERGROUND_PATH_ENTRANCE, 1
 	warp_event  6,  1, ROUTE_6_SAFFRON_GATE, 3
 
 	def_coord_events
@@ -270,11 +270,11 @@ Route6_MapEvents:
 	coord_event  7,  4, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_POKEFANM_FRANCIS, PokefanFrancisSeenLeftmost
 
 	def_bg_events
-	bg_event 19,  5, BGEVENT_READ, Route6UndergroundPathSign
+	bg_event 19,  7, BGEVENT_READ, Route6UndergroundPathSign
 
 	def_object_events
-	object_event 17,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_RETURNED_MACHINE_PART
-	object_event  9, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
-	object_event 10, 12, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
+	object_event 17,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_RETURNED_MACHINE_PART
+	object_event  9, 20, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmRex, -1
+	object_event 10, 20, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 0, TrainerPokefanmAllan, -1
 	object_event  4,  4, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 3, TrainerPokefanmFrancis, -1
-	object_event  8,  9, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, TrainerBeautyJosie, -1
+	object_event  8, 13, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, TrainerBeautyJosie, -1

@@ -262,24 +262,24 @@ ENDM
 
 	map_attributes Route20, ROUTE_20, $43, WEST | EAST
 	connection west, CinnabarIsland, CINNABAR_ISLAND, 0
-	connection east, Route19, ROUTE_19, -9
+	connection east, Route19, ROUTE_19, -23
 
 	map_attributes Route19, ROUTE_19, $43, NORTH | WEST
 	connection north, FuchsiaCity, FUCHSIA_CITY, 0
-	connection west, Route20, ROUTE_20, 9
+	connection west, Route20, ROUTE_20, 23
 
 	map_attributes FuchsiaCity, FUCHSIA_CITY, $0f, SOUTH | WEST | EAST
 	connection south, Route19, ROUTE_19, 0
-	connection west, Route18, ROUTE_18, 7
+	connection west, Route18, ROUTE_18, 8
 	connection east, Route15, ROUTE_15, 9
 
-	map_attributes Route18, ROUTE_18, $43, WEST | EAST
-	connection west, Route17, ROUTE_17, -38
-	connection east, FuchsiaCity, FUCHSIA_CITY, -7
+	map_attributes Route18, ROUTE_18, $0f, NORTH | EAST
+	connection north, Route17, ROUTE_17, 0
+	connection east, FuchsiaCity, FUCHSIA_CITY, -8
 
-	map_attributes Route17, ROUTE_17, $43, NORTH | EAST
+	map_attributes Route17, ROUTE_17, $43, NORTH | SOUTH
 	connection north, Route16, ROUTE_16, 0
-	connection east, Route18, ROUTE_18, 38
+	connection south, Route18, ROUTE_18, 0
 
 	map_attributes Route16, ROUTE_16, $0f, SOUTH | EAST
 	connection south, Route17, ROUTE_17, 0
@@ -295,11 +295,11 @@ ENDM
 
 	map_attributes Route15, ROUTE_15, $0f, WEST | EAST
 	connection west, FuchsiaCity, FUCHSIA_CITY, -9
-	connection east, Route14, ROUTE_14, -9
+	connection east, Route14, ROUTE_14, -8
 
 	map_attributes Route14, ROUTE_14, $43, NORTH | WEST
 	connection north, Route13, ROUTE_13, 0
-	connection west, Route15, ROUTE_15, 9
+	connection west, Route15, ROUTE_15, 8
 
 	map_attributes Route13, ROUTE_13, $43, NORTH | SOUTH
 	connection north, Route12, ROUTE_12, 20
@@ -308,11 +308,11 @@ ENDM
 	map_attributes Route12, ROUTE_12, $43, NORTH | SOUTH | WEST
 	connection north, LavenderTown, LAVENDER_TOWN, 0
 	connection south, Route13, ROUTE_13, -20
-	connection west, Route11, ROUTE_11, 9
+	connection west, Route11, ROUTE_11, 21
 
 	map_attributes Route11, ROUTE_11, $0f, WEST | EAST
 	connection west, VermilionCity, VERMILION_CITY, 0
-	connection east, Route12, ROUTE_12, -9
+	connection east, Route12, ROUTE_12, -21
 
 	map_attributes LavenderTown, LAVENDER_TOWN, $2c, NORTH | SOUTH | WEST
 	connection north, Route10South, ROUTE_10_SOUTH, 0

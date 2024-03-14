@@ -8,16 +8,16 @@ Route5_MapScripts:
 	callback MAPCALLBACK_TILES, .TurnOffLights
 
 .TurnOffLights
-	changeblock 12, 20, $68
-	changeblock 14, 20, $7f
-	changeblock 16, 20, $69
+	changeblock 12, 32, $68
+	changeblock 14, 32, $7f
+	changeblock 16, 32, $69
 
 	checkevent EVENT_RETURNED_MACHINE_PART
 	iftrue .EndCallback
 
 	; Turns off the underground path lights.
-	changeblock 16, 14, $60
-	changeblock 18, 14, $26
+	changeblock 16, 26, $60
+	changeblock 18, 26, $26
 
 .EndCallback
 	endcallback
@@ -57,16 +57,16 @@ Route5_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17, 15, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
-	warp_event  8, 17, ROUTE_5_SAFFRON_GATE, 1
-	warp_event  9, 17, ROUTE_5_SAFFRON_GATE, 2
-	warp_event 10, 11, ROUTE_5_CLEANSE_TAG_HOUSE, 1
+	warp_event 17, 27, ROUTE_5_UNDERGROUND_PATH_ENTRANCE, 1
+	warp_event  8, 29, ROUTE_5_SAFFRON_GATE, 1
+	warp_event  9, 29, ROUTE_5_SAFFRON_GATE, 2
+	warp_event 10, 21, ROUTE_5_CLEANSE_TAG_HOUSE, 1
 
 	def_coord_events
 
 	def_bg_events
-	bg_event 17, 17, BGEVENT_READ, Route5UndergroundPathSign
-	bg_event 10, 11, BGEVENT_READ, HouseForSaleSign
+	bg_event 17, 29, BGEVENT_READ, Route5UndergroundPathSign
+	bg_event 10, 21, BGEVENT_READ, HouseForSaleSign
 
 	def_object_events
-	object_event 17, 16, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_RETURNED_MACHINE_PART
+	object_event 17, 28, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route5PokefanMScript, EVENT_RETURNED_MACHINE_PART

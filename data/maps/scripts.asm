@@ -453,6 +453,7 @@ INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route10South.asm"
+INCLUDE "maps/PalletTown.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -466,7 +467,7 @@ INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
-INCLUDE "maps/PalletTown.asm"
+
 
 SECTION "Map Scripts 25", ROMX
 

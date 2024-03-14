@@ -42,7 +42,7 @@ Route7_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  5, 11, BGEVENT_READ, Route7UndergroundPathSign
-	bg_event  6,  9, BGEVENT_READ, Route7LockedDoor
+	bg_event  3, 11, BGEVENT_READ, Route7UndergroundPathSign
+	bg_event  6, 11, BGEVENT_READ, Route7LockedDoor
 
 	def_object_events
