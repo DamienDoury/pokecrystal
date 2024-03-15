@@ -15,9 +15,7 @@ CheckFacingTileForStdScript::
 	ld [wJumpStdScriptBuffer + 2], a
 	ld a, BANK(Script_JumpStdFromRAM)
 	ld hl, Script_JumpStdFromRAM
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .notintable
 	xor a

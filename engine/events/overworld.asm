@@ -545,10 +545,7 @@ TrySurfOW::
 
 	ld a, BANK(AskSurfScript)
 	ld hl, AskSurfScript
-	call CallScript
-
-	scf
-	ret
+	jp CallScript
 
 .quit
 	xor a
@@ -744,16 +741,12 @@ TryWaterfallOW::
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
 	ld hl, Script_AskWaterfall
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .failed
 	ld a, BANK(Script_CantDoWaterfall)
 	ld hl, Script_CantDoWaterfall
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 Script_CantDoWaterfall:
 	jumptext .HugeWaterfallText
@@ -1217,16 +1210,12 @@ TryWhirlpoolOW::
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
 	ld hl, Script_AskWhirlpoolOW
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .failed
 	ld a, BANK(Script_MightyWhirlpool)
 	ld hl, Script_MightyWhirlpool
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 Script_MightyWhirlpool:
 	jumptext .MayPassWhirlpoolText
@@ -1308,9 +1297,7 @@ TryHeadbuttOW::
 
 	ld a, BANK(AskHeadbuttScript)
 	ld hl, AskHeadbuttScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .no
 	xor a
@@ -1817,16 +1804,12 @@ TryCutOW::
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .cant_cut
 	ld a, BANK(CantCutScript)
 	ld hl, CantCutScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 AskCutScript:
 	opentext

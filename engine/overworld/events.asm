@@ -327,8 +327,7 @@ CheckTileEvent:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	call CallScript
-	ret
+	jp CallScript
 
 CheckWildEncounterCooldown::
 	ld hl, wWildEncounterCooldown
@@ -399,9 +398,7 @@ RunSceneScript:
 	ld h, [hl]
 	ld l, a
 	ld a, [wPriorityScriptBank]
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .nope
 	xor a
@@ -434,9 +431,7 @@ CheckTimeEvents:
 .end_bug_contest
 	ld a, BANK(BugCatchingContestOverScript)
 	ld hl, BugCatchingContestOverScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 OWPlayerInput:
 	call PlayerMovement
@@ -503,9 +498,7 @@ CheckAPressOW:
 	call OpenTextPost
 	ld a, BANK(SweetScentScript)
 	ld hl, SweetScentScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .try_to_cut_grass ; Try to cut grass, while standing outside the edge of a patch.
 	farcall CutFunction.CheckAble ; Calls CheckHM and CheckMapForSomethingToCut.
@@ -648,8 +641,7 @@ ObjectEventTypeArray:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	call CallScript
-	ret
+	jp CallScript
 
 .itemball
 	ld hl, MAPOBJECT_SCRIPT_POINTER
@@ -741,9 +733,7 @@ BGEventJumptable:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .itemifset:
 	call CheckBGEventFlag
@@ -755,9 +745,7 @@ BGEventJumptable:
 	call FarCopyBytes
 	ld a, BANK(HiddenItemScript)
 	ld hl, HiddenItemScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .copy:
 	call CheckBGEventFlag
@@ -785,9 +773,7 @@ BGEventJumptable:
 	call GetMapScriptsBank
 	call GetFarWord
 	call GetMapScriptsBank
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .closeddoor:
 	call GetFacingTileCoord
@@ -864,9 +850,8 @@ PlayerMovementPointers:
 ; force the player to move in some direction
 	ld a, BANK(Script_ForcedMovement)
 	ld hl, Script_ForcedMovement
-	call CallScript
+	call CallScript ; Note: CallScript calls scf.
 	ld c, a
-	scf
 	ret
 
 .continue:
@@ -889,9 +874,7 @@ CheckMenuOW:
 
 	ld a, BANK(StartMenuScript)
 	ld hl, StartMenuScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .NoMenu:
 	xor a
@@ -901,9 +884,7 @@ CheckMenuOW:
 	call PlayTalkObject
 	ld a, BANK(SelectMenuScript)
 	ld hl, SelectMenuScript
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 StartMenuScript:
 	callasm StartMenu
@@ -1106,9 +1087,7 @@ DoRepelStep:
 	ld a, BANK(UseAnotherRepelScript)
 	ld hl, UseAnotherRepelScript
 .got_script
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 DoPlayerEvent:
 	ld a, [wScriptRunning]
@@ -1207,7 +1186,6 @@ RunMemScript::
 	ld l, a
 	ld a, [wMapReentryScriptBank]
 	call CallScript
-	scf
 ; Clear the buffer for the next script.
 	push af
 	xor a
@@ -1311,17 +1289,12 @@ RandomEncounter::
 .ok
 	ld a, BANK(WildBattleScript)
 	ld hl, WildBattleScript
-	jr .done
+	jp CallScript
 
 .ok_bug_contest
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
-	jr .done
-
-.done
-	call CallScript
-	scf
-	ret
+	jp CallScript	
 
 WildBattleScript:
 	randomwildmon

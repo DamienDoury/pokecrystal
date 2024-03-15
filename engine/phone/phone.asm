@@ -138,9 +138,7 @@ CheckPhoneCall::
 	call LoadCallerScript
 	ld a, BANK(Script_ReceivePhoneCall)
 	ld hl, Script_ReceivePhoneCall
-	call CallScript
-	scf
-	ret
+	jp CallScript
 
 .no_call
 	xor a
@@ -278,9 +276,8 @@ CheckSpecialPhoneCall::
 	ld [de], a
 	ld a, BANK(.script)
 	ld hl, .script
-	call CallScript
-	scf
-	ret
+	jp CallScript
+	
 .NoPhoneCall:
 	xor a
 	ret

@@ -48,10 +48,8 @@ DoPoisonStep::
 .someone_has_fainted
 	ld a, BANK(.Script_MonFaintedToPoison)
 	ld hl, .Script_MonFaintedToPoison
-	call CallScript
-	scf
-	ret
-
+	jp CallScript
+	
 .no_faint
 	xor a
 	ret
