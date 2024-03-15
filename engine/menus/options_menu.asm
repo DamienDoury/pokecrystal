@@ -84,6 +84,8 @@ StringOptions:
 	db "        :<LF>"
 	db "Fast boot<LF>"
 	db "        :<LF>"
+	db "Field moves<LF>"
+	db "        :<LF>"
 	db "Frame<LF>"
 	db "        :TYPE<LF>"
 	db "Save options@"
@@ -98,6 +100,7 @@ GetOptionPointer:
 	dw Options_Sound
 	dw Options_Print
 	dw Options_FastBoot
+	dw Options_FieldMoves
 	dw Options_Frame
 	dw Options_Cancel
 
@@ -261,6 +264,45 @@ Options_FastBoot:
 	call PlaceString
 	and a
 	ret
+
+Options_FieldMoves:
+	ld hl, wOptions2
+	ldh a, [hJoyPressed]
+	bit D_LEFT_F, a
+	jr nz, .LeftPressed
+	bit D_RIGHT_F, a
+	jr z, .NonePressed
+	bit FIELD_MOVES, [hl]
+	jr nz, .ToggleOff
+	jr .ToggleOn
+
+.LeftPressed:
+	bit FIELD_MOVES, [hl]
+	jr z, .ToggleOn
+	jr .ToggleOff
+
+.NonePressed:
+	bit FIELD_MOVES, [hl]
+	jr z, .ToggleOff
+	jr .ToggleOn
+
+.ToggleOff:
+	res FIELD_MOVES, [hl]
+	ld de, .Legacy
+	jr .Display
+
+.ToggleOn:
+	set FIELD_MOVES, [hl]
+	ld de, .Quick
+
+.Display:
+	hlcoord 11, 13
+	call PlaceString
+	and a
+	ret
+
+.Legacy: db "LEGACY@"
+.Quick:  db "QUICK @"
 
 Options_Sound:
 	ld hl, wOptions
@@ -433,7 +475,7 @@ Options_Frame:
 	ld [hl], a
 UpdateFrame:
 	ld a, [wTextboxFrame]
-	hlcoord 16, 13 ; where on the screen the number is drawn
+	hlcoord 16, 15 ; where on the screen the number is drawn
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
