@@ -1696,7 +1696,7 @@ wOptionsBackup:: db ; Used during Red's battle and shiny battles, to force the a
 wOptions::
 ; bit 0-2: number of frames to delay when printing text
 ;   fast 1; mid 3; slow 5
-; bit 3: ?
+; bit 3: fast boot
 ; bit 4: no text delay
 ; bit 5: stereo off/on
 ; bit 6: battle style shift/set
@@ -1719,7 +1719,7 @@ wGBPrinterBrightness::
 ;   darkest:  $7F
 	db
 wOptions2::
-; bit 1: menu account off/on
+; bit 0: menu account off/on
 	db
 	ds 2
 wOptionsEnd::
