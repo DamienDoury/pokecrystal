@@ -55,12 +55,12 @@ OpenRedText::
 	call OpenTextPost
 	ret
 
-OpenTextPre:
+OpenTextPre::
 	call ClearWindowData
 	farcall ReanchorBGMap_NoOAMUpdate ; clear bgmap
 	ret
 
-OpenTextPost:
+OpenTextPost::
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap
 	farcall LoadFonts_NoOAMUpdate ; load font
 	ret

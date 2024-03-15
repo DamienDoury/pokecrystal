@@ -466,9 +466,74 @@ OWPlayerInput:
 	ret
 
 CheckAPressOW:
+	ldh a, [hJoypadDown]
+	and A_BUTTON
+	ret z
+
+	ldh a, [hLongPressA]
+	and a
+	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressA has been set to 1 when A is first pressed down.
+
+	ldh a, [hJoypadDown]
+	cp A_BUTTON
+	jr nz, .cancel_long_press ; If the player is pressing any other button, cancel the long press.
+
+	ldh a, [hLongPressA]
+	inc a
+	ldh [hLongPressA], a ; Increase the longpress frame counter.
+	cp 15
+	jr c, .check_pressed_this_frame
+
+	xor a
+	ldh [hLongPressA], a ; Preventing infinite triggers.
+
+; Grass action check (either Cut or Sweet Scent).
+	call IsPlayerFacingGrassWhileStandingOutsideOfGrass
+	jr c, .try_to_cut_grass
+
+.try_sweet_scent ; Try to use sweet scent.
+	call CanUseSweetScent
+	jr nc, .check_pressed_this_frame ; Don't use sweet scent if wild pokemon can't appear on this tile.
+
+	ld d, SWEET_SCENT
+	farcall CheckPartyMove
+	jr c, .check_pressed_this_frame
+
+	call OpenTextPre
+	call OpenTextPost
+	ld a, BANK(SweetScentScript)
+	ld hl, SweetScentScript
+	call CallScript
+	scf
+	ret
+
+.try_to_cut_grass ; Try to cut grass, while standing outside the edge of a patch.
+	farcall CutFunction.CheckAble ; Calls CheckHM and CheckMapForSomethingToCut.
+	jr c, .check_pressed_this_frame
+
+	ld d, CUT
+	farcall CheckPartyMove
+	jr c, .check_pressed_this_frame
+
+	call OpenTextPre
+	call OpenTextPost
+	farcall CutDownTreeOrGrass
+	call CloseText
+	xor a
+	ret
+
+.cancel_long_press
+	xor a
+	ldh [hLongPressA], a
+
+.check_pressed_this_frame
 	ldh a, [hJoyPressed]
 	and A_BUTTON
 	ret z
+
+	ld a, 1
+	ldh [hLongPressA], a ; Initiates a long press.
+
 	call TryObjectEvent
 	ret c
 	call TryBGEvent
@@ -479,6 +544,29 @@ CheckAPressOW:
 	ret c
 	xor a
 	ret
+
+; Output: carry if true.
+IsPlayerFacingGrassWhileStandingOutsideOfGrass:
+	ld a, [wPlayerStandingTile]
+	ld hl, .grass_coll
+	call IsInByteArray
+	ccf
+	ret nc
+
+	call GetFacingTileCoord
+	ld hl, .grass_coll
+	call IsInByteArray
+	ret
+
+.grass_coll
+	db COLL_TALL_GRASS
+	db COLL_LONG_GRASS
+	db COLL_GRASS_48
+	db COLL_GRASS_49
+	db COLL_GRASS_4A
+	db COLL_GRASS_4B
+	db COLL_GRASS_4C
+	db -1
 
 PlayTalkObject:
 	push de

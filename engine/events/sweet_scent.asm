@@ -1,11 +1,11 @@
 SweetScentFromMenu:
-	ld hl, .SweetScent
+	ld hl, SweetScentScript
 	call QueueScript
 	ld a, $1
 	ld [wFieldMoveSucceeded], a
 	ret
 
-.SweetScent:
+SweetScentScript::
 	reloadmappart
 	special UpdateTimePals
 	callasm GetPartyNickname

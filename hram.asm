@@ -176,4 +176,6 @@ hDebugRoomMenuPage::
 endc
 hClockResetTrigger:: db
 
-	ds 19
+hLongPressA:: db
+hLongPressB:: db
+	ds 17

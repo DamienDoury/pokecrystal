@@ -81,7 +81,7 @@ CheckHMSilent:
 	xor a
 	ret
 
-CheckPartyMove:
+CheckPartyMove::
 ; Check if a monster in your party has move d.
 
 	ld e, 0
@@ -149,13 +149,15 @@ CutFunction:
 	dw .DoCut
 	dw .FailCut
 
-.CheckAble:
+.CheckAble::
 	ld a, HM_CUT
 	call CheckHM
 	jr c, .notOwned
 
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
+
+	xor a ; Unsets the carry flag.
 	ld a, $1
 	ret
 
@@ -232,7 +234,7 @@ Script_Cut:
 	closetext
 	end
 
-CutDownTreeOrGrass:
+CutDownTreeOrGrass::
 	ld hl, wCutWhirlpoolOverworldBlockAddr
 	ld a, [hli]
 	ld h, [hl]
