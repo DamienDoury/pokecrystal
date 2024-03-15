@@ -5,7 +5,8 @@
 	const OPT_SOUND        ; 2
 	const OPT_PRINT        ; 3
 	const OPT_FAST_BOOT    ; 4
-	const OPT_FRAME        ; 5
+	const OPT_FIELD_MOVES  ; 5
+	const OPT_FRAME        ; 6
 	const OPT_CANCEL       ; 7
 NUM_OPTIONS EQU const_value    ; 8
 
@@ -73,19 +74,19 @@ _Option:
 	ret
 
 StringOptions:
-	db "TEXT SPEED<LF>"
+	db "Text speed<LF>"
 	db "        :<LF>"
-	db "BATTLE SCENE<LF>"
+	db "Battle anim.<LF>"
 	db "        :<LF>"
-	db "SOUND<LF>"
+	db "Sound<LF>"
 	db "        :<LF>"
-	db "PRINT<LF>"
+	db "Print<LF>"
 	db "        :<LF>"
-	db "FAST BOOT<LF>"
+	db "Fast boot<LF>"
 	db "        :<LF>"
-	db "FRAME<LF>"
+	db "Frame<LF>"
 	db "        :TYPE<LF>"
-	db "CANCEL@"
+	db "Save options@"
 
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
@@ -158,7 +159,7 @@ Options_TextSpeed:
 	dw .Mid
 	dw .Slow
 
-.Fast: db "FASTEST@"
+.Fast: db "INSTANT@"
 .Mid:  db "FAST   @"
 .Slow: db "SLOW   @"
 
