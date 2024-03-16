@@ -13,6 +13,10 @@ PrintLetterDelay::
 	bit NO_TEXT_SCROLL, a
 	ret nz
 
+	ld a, [wOptions]
+	and %111
+	ret z
+
 ; non-scrolling text?
 	ld a, [wTextboxFlags]
 	bit NO_TEXT_DELAY_F, a
