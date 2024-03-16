@@ -139,7 +139,7 @@ Options_TextSpeed:
 .Save:
 	ld b, a
 	ld a, [wOptions]
-	and $f0
+	and $f8
 	or b
 	ld [wOptions], a
 
