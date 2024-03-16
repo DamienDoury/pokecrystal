@@ -515,11 +515,20 @@ CheckAPressOW:
 	jr c, .check_pressed_this_frame
 
 	ld d, CUT
-	farcall CheckPartyMove
+	farcall CheckPartyMove ; Sets wCurPartyMon for PlayMonCry.
 	jr c, .check_pressed_this_frame
 
 	call OpenTextPre
 	call OpenTextPost
+
+	xor a
+	ld [wMonType], a
+	ld a, [wCurPartyMon]
+	ld e, a
+	farcall GetMonSpecies
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
+
 	farcall CutDownTreeOrGrass
 	call CloseText
 	farcall HideMapNameSign

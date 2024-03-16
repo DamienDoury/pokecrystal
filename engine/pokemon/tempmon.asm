@@ -91,7 +91,7 @@ _TempMonStatsCalculation:
 	ld [hl], a
 	ret
 
-GetMonSpecies:
+GetMonSpecies::
 ; [wMonType] has the type of the mon
 ; e = Nr. of mon (i.e. [wCurPartyMon])
 
