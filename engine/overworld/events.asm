@@ -446,6 +446,9 @@ OWPlayerInput:
 	call CheckAPressOW
 	jr c, .Action
 
+	call CheckLongBPressOW
+	jr c, .Action
+
 	call CheckMenuOW
 	jr c, .Action
 
@@ -464,6 +467,10 @@ CheckAPressOW:
 	ldh a, [hJoypadDown]
 	and A_BUTTON
 	ret z
+
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr z, .check_pressed_this_frame
 
 	ldh a, [hLongPressA]
 	and a
@@ -537,6 +544,83 @@ CheckAPressOW:
 	ret c
 	call TryFarNPCOnlyEvent
 	ret c
+	xor a
+	ret
+
+CheckLongBPressOW:
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	ret z
+
+	ldh a, [hJoypadDown]
+	and B_BUTTON
+	ret z
+
+	ldh a, [hLongPressB]
+	and a
+	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressB has been set to 1 when B is first pressed down.
+
+	ldh a, [hJoypadDown]
+	cp B_BUTTON
+	jr nz, .cancel_long_press ; If the player is pressing any other button, cancel the long press.
+
+	ldh a, [hLongPressB]
+	inc a
+	ldh [hLongPressB], a ; Increase the longpress frame counter.
+	cp 15
+	jr c, .check_pressed_this_frame
+
+	xor a
+	ldh [hLongPressB], a ; Preventing infinite triggers.
+
+	; Escape method check: either Fly or Dig. Also Teleport?
+	ld d, FLY
+	farcall CheckPartyMove ; Sets wCurPartyMon for TownMapMon.
+	jr c, .try_dig
+
+	farcall TryFlySilent
+	ld a, b
+	cp $1
+	jr nz, .try_dig ; If Fly can't be used, try Dig.
+
+	call OpenTextPre
+	call OpenTextPost
+	call FadeToMenu
+	farcall TryFlyStandalone
+	ld a, b
+
+	cp $1
+	jr nz, .close_menu_after_cancel ; If Fly has been cancelled or failed, return to the map.
+
+	call ExitAllMenus
+
+	ld a, BANK(FlyFunction)
+	ld hl, FlyFunction.FlyScript
+	jp CallScript
+
+.close_menu_after_cancel
+; This is a copy of ExitAllMenus.
+	call ExitAllMenus
+	farcall HideMapNameSign
+	call CloseText
+	xor a
+	ret
+
+.try_dig
+	xor a
+	ret
+
+.cancel_long_press
+	xor a
+	ldh [hLongPressB], a
+
+.check_pressed_this_frame
+	ldh a, [hJoyPressed]
+	and B_BUTTON
+	ret z
+
+	ld a, 1
+	ldh [hLongPressB], a ; Initiates a long press.
 	xor a
 	ret
 

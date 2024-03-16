@@ -563,7 +563,17 @@ AskSurfText:
 	text_far _AskSurfText
 	text_end
 
-FlyFunction:
+TryFlyStandalone::
+	call FlyFunction.TryFly
+	ld b, a ; Return A from the farcall.
+	ret
+
+TryFlySilent::
+	call FlyFunction.TryFlySilent
+	ld b, a ; Return A from the farcall.
+	ret
+
+FlyFunction::
 	call FieldMoveJumptableReset
 .loop
 	ld hl, .Jumptable
@@ -587,6 +597,20 @@ FlyFunction:
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
+	
+;.indoors
+	ld a, $2
+	ret
+
+.TryFlySilent
+	ld a, HM_FLY
+	call CheckHM
+	jr c, .notOwned
+
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	ld a, $1
+	ret z
 	
 ;.indoors
 	ld a, $2
@@ -631,7 +655,7 @@ FlyFunction:
 	ld a, $82
 	ret
 
-.FlyScript:
+.FlyScript::
 	reloadmappart
 	callasm HideSprites
 	special UpdateTimePals
