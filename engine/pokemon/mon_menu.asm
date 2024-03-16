@@ -586,7 +586,7 @@ OpenPartyStats:
 	call LowVolume
 	predef StatsScreenInit
 	call MaxVolume
-	call Call_ExitMenu
+	call ExitMenu
 	ld a, 0
 	ret
 
@@ -621,10 +621,6 @@ MonMenu_Fly:
 
 .Error:
 	ld a, $0
-	ret
-
-.NoReload: ; unreferenced
-	ld a, $1
 	ret
 
 MonMenu_Flash:

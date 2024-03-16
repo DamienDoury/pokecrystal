@@ -358,10 +358,6 @@ LoadStandardMenuHeader::
 	dw 0
 	db 1 ; default option
 
-Call_ExitMenu::
-	call ExitMenu
-	ret
-
 VerticalMenu::
 	xor a
 	ldh [hBGMapMode], a

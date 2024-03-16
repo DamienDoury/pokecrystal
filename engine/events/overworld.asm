@@ -587,7 +587,10 @@ FlyFunction:
 	call GetMapEnvironment
 	call CheckOutdoorMap
 	jr z, .outdoors
-	jr .indoors
+	
+;.indoors
+	ld a, $2
+	ret
 
 .outdoors
 	xor a
@@ -598,6 +601,7 @@ FlyFunction:
 	ld a, e
 	cp -1
 	jr z, .illegal
+
 	cp NUM_SPAWNS
 	jr nc, .illegal
 
@@ -608,10 +612,6 @@ FlyFunction:
 
 .notOwned
 	ld a, $82
-	ret
-
-.indoors
-	ld a, $2
 	ret
 
 .illegal

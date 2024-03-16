@@ -303,9 +303,6 @@ ClearVBank1::
 	ldh [rVBK], a
 	ret
 
-GSReloadPalettes:: ; dummied out
-	ret
-
 ReloadSpritesNoPalettes::
 	ldh a, [hCGB]
 	and a
