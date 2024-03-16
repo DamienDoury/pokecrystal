@@ -383,6 +383,13 @@ _UseEscapeRopeText::
 	line "ESCAPE ROPE."
 	done
 
+_WantToUseDigText::
+	text "Want @"
+	text_ram wStringBuffer2
+	text_start
+	line "to use DIG?"
+	done
+
 _CantUseDigText::
 	text "Can't use that"
 	line "here."
@@ -391,6 +398,13 @@ _CantUseDigText::
 _TeleportReturnText::
 	text "Return to the last"
 	line "#MON CENTER."
+	done
+
+_WantToUseTeleportText::
+	text "Should @"
+	text_ram wStringBuffer2
+	text_start
+	line "use TELEPORT?"
 	done
 
 _CantUseTeleportText::

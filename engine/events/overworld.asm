@@ -19,7 +19,7 @@ FieldMoveJumptable:
 	scf
 	ret
 
-GetPartyNickname:
+GetPartyNickname::
 ; write wCurPartyMon nickname to wStringBuffer1-3
 	ld hl, wPartyMonNicknames
 	ld a, BOXMON
@@ -563,7 +563,7 @@ AskSurfText:
 	text_far _AskSurfText
 	text_end
 
-TryFlyStandalone::
+TryFlyFromOW::
 	call FlyFunction.TryFly
 	ld b, a ; Return A from the farcall.
 	ret
@@ -791,6 +791,22 @@ Script_AskWaterfall:
 	text_far _AskWaterfallText
 	text_end
 
+; Output: $1 if Dig can be used as a field move.
+TryDigSilent::
+	call EscapeRopeOrDig.CheckCanDig
+	ld b, a
+	ret
+
+DoDigFromOW::
+	ld hl, wDigWarpNumber
+	ld de, wNextWarp
+	ld bc, 3
+	call CopyBytes
+	call GetPartyNickname
+	ld a, $2
+	ld [wEscapeRopeOrDigType], a
+	ret
+
 EscapeRopeFunction:
 	call FieldMoveJumptableReset
 	ld a, $1
@@ -800,7 +816,7 @@ DigFunction:
 	call FieldMoveJumptableReset
 	ld a, $2
 
-EscapeRopeOrDig:
+EscapeRopeOrDig::
 	ld [wEscapeRopeOrDigType], a
 .loop
 	ld hl, .DigTable
@@ -885,11 +901,26 @@ EscapeRopeOrDig:
 	text_far _CantUseDigText
 	text_end
 
+.WantToUseDigText:
+	text_far _WantToUseDigText
+	text_end
+
 .UsedEscapeRopeScript:
 	reloadmappart
 	special UpdateTimePals
 	writetext .UseEscapeRopeText
 	sjump .UsedDigOrEscapeRopeScript
+
+.UsedDigFromOWScript::
+	opentext
+	writetext .WantToUseDigText
+	yesorno
+	iffalse .RefusedToUseDig
+	sjump .UsedDigSkipText
+
+.RefusedToUseDig
+	closetext
+	end
 
 .UsedDigScript:
 	reloadmappart
@@ -898,6 +929,7 @@ EscapeRopeOrDig:
 
 .UsedDigOrEscapeRopeScript:
 	waitbutton
+.UsedDigSkipText:
 	closetext
 	playsound SFX_WARP_TO
 	applymovement PLAYER, .DigOut
@@ -919,7 +951,13 @@ EscapeRopeOrDig:
 	return_dig 32
 	step_end
 
-TeleportFunction:
+; Output: $1 if Dig can be used as a field move.
+TryTeleportSilent::
+	call TeleportFunction.TryTeleport
+	ld b, a
+	ret
+
+TeleportFunction::
 	call FieldMoveJumptableReset
 .loop
 	ld hl, .Jumptable
@@ -973,9 +1011,24 @@ TeleportFunction:
 	text_far _TeleportReturnText
 	text_end
 
+.WantToUseTeleportText:
+	text_far _WantToUseTeleportText
+	text_end
+
 .CantUseTeleportText:
 	text_far _CantUseTeleportText
 	text_end
+
+.TeleportFromOWScript::
+	opentext
+	writetext .WantToUseTeleportText
+	yesorno
+	iffalse .RefusedToUseTeleport
+	sjump .TeleportSkipText
+
+.RefusedToUseTeleport
+	closetext
+	end
 
 .TeleportScript:
 	reloadmappart
@@ -983,6 +1036,7 @@ TeleportFunction:
 	writetext .TeleportReturnText
 	pause 60
 	reloadmappart
+.TeleportSkipText:
 	closetext
 	playsound SFX_WARP_TO
 	applymovement PLAYER, .TeleportFrom

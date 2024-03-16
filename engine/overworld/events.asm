@@ -463,6 +463,8 @@ OWPlayerInput:
 	scf
 	ret
 
+LONG_PRESS_FRAMES_DURATION EQU 10
+
 CheckAPressOW:
 	ldh a, [hJoypadDown]
 	and A_BUTTON
@@ -483,7 +485,7 @@ CheckAPressOW:
 	ldh a, [hLongPressA]
 	inc a
 	ldh [hLongPressA], a ; Increase the longpress frame counter.
-	cp 15
+	cp LONG_PRESS_FRAMES_DURATION
 	jr c, .check_pressed_this_frame
 
 	xor a
@@ -567,7 +569,7 @@ CheckLongBPressOW:
 	ldh a, [hLongPressB]
 	inc a
 	ldh [hLongPressB], a ; Increase the longpress frame counter.
-	cp 15
+	cp LONG_PRESS_FRAMES_DURATION
 	jr c, .check_pressed_this_frame
 
 	xor a
@@ -586,7 +588,7 @@ CheckLongBPressOW:
 	call OpenTextPre
 	call OpenTextPost
 	call FadeToMenu
-	farcall TryFlyStandalone
+	farcall TryFlyFromOW
 	ld a, b
 
 	cp $1
@@ -607,8 +609,19 @@ CheckLongBPressOW:
 	ret
 
 .try_dig
-	xor a
-	ret
+	ld d, DIG
+	farcall CheckPartyMove ; Sets wCurPartyMon for GetPartyNickname.
+	jr c, .try_teleport
+
+	farcall TryDigSilent
+	ld a, b
+	cp $1
+	jr nz, .try_teleport ; If Dig can't be used, try Teleport.
+
+	farcall DoDigFromOW
+	ld a, BANK(EscapeRopeOrDig.UsedDigFromOWScript)
+	ld hl, EscapeRopeOrDig.UsedDigFromOWScript
+	jp CallScript
 
 .cancel_long_press
 	xor a
@@ -623,6 +636,21 @@ CheckLongBPressOW:
 	ldh [hLongPressB], a ; Initiates a long press.
 	xor a
 	ret
+
+.try_teleport ; Put at the bottom, so we can keep using jr instead of jp above.
+	ld d, TELEPORT
+	farcall CheckPartyMove ; Sets wCurPartyMon for GetPartyNickname.
+	jr c, .check_pressed_this_frame
+	
+	farcall TryTeleportSilent
+	ld a, b
+	cp $1
+	jr nz, .check_pressed_this_frame ; If Teleport can't be used, then stop here.
+
+	farcall GetPartyNickname
+	ld a, BANK(TeleportFunction.TeleportFromOWScript)
+	ld hl, TeleportFunction.TeleportFromOWScript
+	jp CallScript
 
 ; Output: carry if true.
 IsPlayerFacingGrassWhileStandingOutsideOfGrass:
