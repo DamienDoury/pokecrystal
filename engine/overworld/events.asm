@@ -494,6 +494,7 @@ CheckAPressOW:
 	farcall CheckPartyMove
 	jr c, .check_pressed_this_frame
 
+	farcall HideMapNameSign
 	call OpenTextPre
 	call OpenTextPost
 	ld a, BANK(SweetScentScript)
@@ -512,6 +513,7 @@ CheckAPressOW:
 	call OpenTextPost
 	farcall CutDownTreeOrGrass
 	call CloseText
+	farcall HideMapNameSign
 	xor a
 	ret
 

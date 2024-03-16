@@ -293,3 +293,9 @@ PlaceMapNameFrame:
 	dec c
 	jr nz, .continueloop
 	ret
+
+HideMapNameSign::
+	call PlaceMapNameSign.disappear
+	xor a
+	ld [wLandmarkSignTimer], a
+	ret
