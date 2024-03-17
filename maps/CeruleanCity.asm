@@ -214,6 +214,7 @@ AshPikachuLeadsToCeruleanCave:
 
 .lead:
 	applymovement PLAYER, WayToCeruleanCaveMovement
+	pause 15
 	opentext
 	writetext PikachuDragsYouUnderWater
 	pause 45

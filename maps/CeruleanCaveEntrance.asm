@@ -37,8 +37,8 @@ CeruleanCaveMailText:
 	done
 
 CeruleanCaveEntrance_ExitQuestionText:
-	text "You can see the"
-	line "light of day."
+	text "Outside light"
+	line "is bleeding in."
 	
 	para "Go back out?"
 	done
