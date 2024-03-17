@@ -562,7 +562,7 @@ TrySurfOW::
 	call CheckHMSilent
 	jr c, .quit
 
-	call FindBestSurfer
+	farcall FindBestSurfer
 	jr c, .quit
 
 	ld hl, wBikeFlags
