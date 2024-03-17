@@ -500,7 +500,7 @@ GetSurfType:
 	ld d, a ; Also stores the result in D for farcall compatibility.
 	ret
 
-CheckDirection:
+CheckDirection::
 ; Return carry if a tile permission prevents you
 ; from moving in the direction you're facing.
 
@@ -533,9 +533,9 @@ CheckDirection:
 
 TrySurfOW::
 ; Checking a tile in the overworld.
-; Return carry if fail is allowed.
+; Return carry if surf is allowed.
 
-; Don't ask to surf if already fail.
+; Don't ask to surf if already surfing.
 	ld a, [wPlayerState]
 	cp PLAYER_SURF_PIKA
 	jr z, .quit

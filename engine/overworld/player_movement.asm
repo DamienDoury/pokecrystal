@@ -803,6 +803,9 @@ ENDM
 	bit FIELD_MOVES, a
 	jr z, .BumpSound
 
+	farcall CheckDirection
+	jr c, .BumpSound
+
 	call GetFacingTileCoord
 	cp COLL_CUT_TREE
 	jr z, .AutoCut
