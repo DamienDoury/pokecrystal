@@ -78,12 +78,6 @@ LinkReceptionistScript_Trade:
 	closetext
 	end
 
-	special Mobile_DummyReturnFalse ; always returns false
-	iffalse .NoMobile
-	writetext Text_TradeReceptionistMobile
-	special AskMobileOrCable
-	iffalse .Cancel
-	ifequal $1, .Mobile
 .NoMobile:
 	special SetBitsForLinkTradeRequest
 	writetext Text_PleaseWait
