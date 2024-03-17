@@ -67,18 +67,16 @@ CheckHM:
 	text_far _HMRequiredText
 	text_end
 
+FarCheckHMSilent::
+	ld a, b
+	; fallthrough
+
 ; Input: A = the ID of the HM item.
 CheckHMSilent:
 	ld [wCurItem], a
 	ld hl, wNumItems
 	call CheckItem
-	jr c, .return_nc
-
-	scf
-	ret
-
-.return_nc
-	xor a
+	ccf
 	ret
 
 CheckPartyMove::
@@ -339,6 +337,16 @@ Script_UseFlash:
 	closetext
 	end
 
+Script_AutoFlash::
+	opentext
+	writetext AutoFlashText
+	callasm BlindingFlash
+	closetext
+	callasm ReloadMapPals
+	writemem wPrevLandmark
+	callasm InitMapNameSign
+	end
+
 UseFlashTextScript:
 	text_far _BlindingFlashText
 	text_asm
@@ -346,10 +354,20 @@ UseFlashTextScript:
 	ld de, SFX_FLASH
 	call PlaySFX
 	call WaitSFX
-	ld hl, .BlankText
+	ld hl, BlankText
 	ret
 
-.BlankText:
+AutoFlashText:
+	text_far _AutoFlashText
+	text_asm
+	call WaitSFX
+	ld de, SFX_FLASH
+	call PlaySFX
+	call WaitSFX
+	ld hl, BlankText
+	ret
+
+BlankText:
 	text_end
 
 SurfFunction:

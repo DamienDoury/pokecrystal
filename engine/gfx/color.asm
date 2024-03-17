@@ -1044,7 +1044,7 @@ INCLUDE "data/trainers/palettes.asm"
 PartyBallPalette:
 INCLUDE "gfx/battle/party_ball.pal"
 
-LoadMapPals:
+LoadMapPals::
 	farcall LoadSpecialMapPalette
 	jr c, .got_bg_pals
 

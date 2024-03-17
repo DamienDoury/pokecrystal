@@ -359,6 +359,9 @@ RunSceneScript:
 	and a
 	jr z, .nope
 
+	cp -1
+	jr z, .priority_script_once
+
 	ld c, a
 	call CheckScenes
 	ld hl, wCurMapSceneScriptsPointer
@@ -393,6 +396,15 @@ RunSceneScript:
 	bit 3, [hl]
 	jr z, .nope
 
+.priority_script_once
+	ld a, [wCurMapSceneScriptCount]
+	cp -1
+	jr nz, .scene_script_count_reset
+
+	xor a
+	ld [wCurMapSceneScriptCount], a
+
+.scene_script_count_reset
 	ld hl, wPriorityScriptAddr
 	ld a, [hli]
 	ld h, [hl]

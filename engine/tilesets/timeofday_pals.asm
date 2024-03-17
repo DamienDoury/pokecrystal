@@ -194,6 +194,7 @@ ReplaceTimeOfDayPals:
 	ld a, [wMapTimeOfDay]
 	cp PALETTE_DARK
 	jr z, .NeedsFlash
+
 	maskbits NUM_MAP_PALETTES
 	add l
 	ld l, a
@@ -208,6 +209,23 @@ ReplaceTimeOfDayPals:
 	ld a, [wStatusFlags]
 	bit STATUSFLAGS_FLASH_F, a
 	jr nz, .UsedFlash
+
+	; Try to automatically use of Flash if the Quick Field Moves option is activated.
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr z, .SkipAutoFlash
+
+	ld b, HM_FLASH
+	farcall FarCheckHMSilent
+	jr c, .SkipAutoFlash
+
+	ld d, FLASH
+	farcall CheckPartyMove ; Sets wCurPartyMon for PlayMonCry.
+	jr c, .SkipAutoFlash
+
+	call .ActivateAutoFlash
+
+.SkipAutoFlash
 	ld a, DARKNESS_PALSET
 	ld [wTimeOfDayPalset], a
 	ret
@@ -215,6 +233,25 @@ ReplaceTimeOfDayPals:
 .UsedFlash:
 	ld a, (NITE_F << 6) | (NITE_F << 4) | (NITE_F << 2) | NITE_F
 	ld [wTimeOfDayPalset], a
+	ret
+
+.ActivateAutoFlash:
+	farcall GetPartyNickname
+	farcall HideMapNameSign ; Prevents window and palette confusion with the textbox.
+
+	ld a, [wPrevLandmark]
+	ld [wScriptVar], a ; Saving the prev landmark for the display of the map name sign after flash anim is done.
+
+	ld a, -1
+	ld [wCurMapSceneScriptCount], a ; This will executed the priority script once.
+	ld a, BANK(Script_AutoFlash)
+	ld [wPriorityScriptBank], a
+	ld a, LOW(Script_AutoFlash)
+	ld [wPriorityScriptAddr], a
+	ld a, HIGH(Script_AutoFlash)
+	ld [wPriorityScriptAddr + 1], a
+	ld hl, wScriptFlags
+	set 3, [hl]
 	ret
 
 .BrightnessLevels:

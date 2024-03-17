@@ -213,6 +213,13 @@ INCLUDE "gfx/mystery_gift/name_card_bg.pal"
 .OBPalette:
 INCLUDE "gfx/mystery_gift/name_card_ob.pal"
 
+ReloadMapPals::
+	farcall LoadMapPals
+	farcall ApplyPals
+	ld a, TRUE
+	ldh [hCGBPalUpdate], a
+	ret
+
 Function49742:
 	ld hl, .MobileBorderPalettes
 	ld de, wBGPals1

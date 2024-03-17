@@ -333,7 +333,12 @@ _BlindingFlashText::
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
+_AutoFlashText::
+	text_ram wStringBuffer2
+	text "'s FLASH"
+	line "lit up the area!@"
+	text_promptbutton
+	text_end
 
 _UsedSurfText::
 	text_ram wStringBuffer2
