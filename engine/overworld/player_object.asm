@@ -598,7 +598,7 @@ TrainerWalkToPlayer:
 	call ComputePathToWalkToPlayer
 	ret
 
-SurfStartStep:
+SurfStartStep::
 	ld a, [wPlayerDirection]
 	srl a
 	srl a

@@ -809,6 +809,10 @@ ENDM
 	call GetFacingTileCoord
 	cp COLL_CUT_TREE
 	jr z, .AutoCut
+
+	call GetTileCollision
+	cp WATER_TILE
+	jr z, .AutoSurf
 .BumpSound:
 	call CheckSFX
 	ret c
@@ -819,6 +823,36 @@ ENDM
 .AutoCut:
 	farcall CheckAPressOW.try_to_cut
 	jr c, .BumpSound
+	ret
+
+.AutoSurf:
+	farcall FarTrySurf
+	ld a, b
+	cp $1
+	jr nz, .BumpSound
+
+	ld d, SURF
+	farcall CheckPartyMove
+	jr c, .BumpSound
+
+	; Play Pokémon cry.
+	xor a
+	ld [wMonType], a
+	ld a, [wCurPartyMon]
+	ld e, a
+	farcall GetMonSpecies
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
+
+	; Do Surf.
+	farcall GetSurfType
+	ld a, d
+	ld [wSurfingPlayerState], a
+	ld [wPlayerState], a
+	farcall StubbedTrainerRankings_Surf
+	call UpdatePlayerSprite
+	call PlayMapMusic
+	farcall SurfStartStep
 	ret
 
 .GetOutOfWater:

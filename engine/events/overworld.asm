@@ -377,6 +377,11 @@ AutoFlashText:
 BlankText:
 	text_end
 
+FarTrySurf::
+	call SurfFunction.TrySurf
+	ld b, a
+	ret
+
 SurfFunction:
 	call FieldMoveJumptableReset
 .loop
@@ -481,7 +486,7 @@ AlreadySurfingText:
 	text_far _AlreadySurfingText
 	text_end
 
-GetSurfType:
+GetSurfType::
 ; Surfing on Pikachu uses an alternate sprite.
 ; This is done by using a separate movement type.
 
