@@ -1253,7 +1253,7 @@ UseWhirlpoolText:
 	text_far _UseWhirlpoolText
 	text_end
 
-TryWhirlpoolMenu:
+TryWhirlpoolMenu::
 	call GetFacingTileCoord
 	ld c, a
 	push de
@@ -1295,7 +1295,7 @@ Script_UsedWhirlpool:
 	closetext
 	end
 
-DisappearWhirlpool:
+DisappearWhirlpool::
 	ld hl, wCutWhirlpoolOverworldBlockAddr
 	ld a, [hli]
 	ld h, [hl]

@@ -257,9 +257,9 @@ DoPlayerMovement::
 ; Surfing actually calls .TrySurf directly instead of passing through here.
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
-	jr z, .TrySurf
+	jp z, .TrySurf
 	cp PLAYER_SURF_PIKA
-	jr z, .TrySurf
+	jp z, .TrySurf
 
 	call .CheckLandPerms
 	jr c, .obstacle
@@ -313,6 +313,32 @@ DoPlayerMovement::
 	xor a
 	ret
 
+.Whirlpool:
+	ld a, [wWalkingDirection]
+	cp STANDING
+	ret z
+
+	ld b, HM_WHIRLPOOL
+	farcall FarCheckHMSilent
+	ret c
+	
+	farcall TryWhirlpoolMenu
+	ret c
+
+	ld d, WHIRLPOOL
+	farcall CheckPartyMove
+	ret c
+
+	call PlayCurPartyMonCry
+	ld c, 10
+	call DelayFrames
+	
+	call OpenTextPre
+	call OpenTextPost
+	farcall DisappearWhirlpool
+	call CloseText
+	ret
+
 .TrySurf:
 	call .CheckSurfPerms
 	ld [wWalkingIntoLand], a
@@ -337,6 +363,19 @@ DoPlayerMovement::
 	ld a, STEP_WALK
 .DoSurfStep
 	call .DoStep
+	push af
+
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr z, .EndOfSurfStep
+
+	farcall CheckDirection
+	jr c, .EndOfSurfStep
+
+	call .Whirlpool
+	
+.EndOfSurfStep
+	pop af
 	scf
 	ret
 
