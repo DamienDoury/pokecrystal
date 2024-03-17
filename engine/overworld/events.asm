@@ -561,13 +561,7 @@ CheckAPressOW::
 	call OpenTextPre
 	call OpenTextPost
 
-	xor a
-	ld [wMonType], a
-	ld a, [wCurPartyMon]
-	ld e, a
-	farcall GetMonSpecies
-	ld a, [wCurPartySpecies]
-	call PlayMonCry
+	farcall PlayCurPartyMonCry
 
 	farcall CutDownTreeOrGrass
 	call CloseText

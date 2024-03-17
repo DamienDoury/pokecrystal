@@ -1105,9 +1105,12 @@ StrengthFunction:
 	ld a, $81
 	ret
 
-SetStrengthFlag:
+SetStrengthFlag::
 	ld hl, wBikeFlags
 	set BIKEFLAGS_STRENGTH_ACTIVE_F, [hl]
+	ret
+
+GetStrengthParams:
 	ld a, [wCurPartyMon]
 	ld e, a
 	ld d, 0
@@ -1124,6 +1127,7 @@ Script_StrengthFromMenu:
 
 Script_UsedStrength:
 	callasm SetStrengthFlag
+	callasm GetStrengthParams
 	writetext .UseStrengthText
 	readmem wStrengthSpecies
 	cry 0 ; plays [wStrengthSpecies] cry

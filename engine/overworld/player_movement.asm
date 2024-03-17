@@ -649,7 +649,6 @@ ENDM
 	add e
 	ld e, a
 ; Find an object struct with coordinates equal to d,e
-	ld bc, wObjectStructs ; redundant
 	farcall IsNPCAtCoord
 	jr nc, .is_npc
 	call .CheckStrengthBoulder
@@ -836,13 +835,7 @@ ENDM
 	jr c, .BumpSound
 
 	; Play Pokémon cry.
-	xor a
-	ld [wMonType], a
-	ld a, [wCurPartyMon]
-	ld e, a
-	farcall GetMonSpecies
-	ld a, [wCurPartySpecies]
-	call PlayMonCry
+	call PlayCurPartyMonCry
 
 	; Do Surf.
 	farcall GetSurfType
@@ -861,6 +854,16 @@ ENDM
 	ld [wPlayerState], a
 	call UpdatePlayerSprite ; UpdateSprites
 	pop bc
+	ret
+
+PlayCurPartyMonCry::
+	xor a
+	ld [wMonType], a
+	ld a, [wCurPartyMon]
+	ld e, a
+	farcall GetMonSpecies
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
 	ret
 
 CheckStandingOnIce::
