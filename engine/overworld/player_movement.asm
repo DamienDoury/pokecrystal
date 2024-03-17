@@ -817,6 +817,9 @@ ENDM
 	ld a, d
 	jr c, .BumpSound
 
+	cp SPRITEMOVEDATA_SMASHABLE_ROCK
+	jr z, .AutoRockSmash
+
 	cp SPRITEMOVEDATA_STRENGTH_BOULDER
 	jr z, .AutoStrength
 	
@@ -854,6 +857,18 @@ ENDM
 	farcall EnableScriptMode
 	farcall ScriptEvents
 	ret
+
+.AutoRockSmash:
+	ld d, ROCK_SMASH
+	farcall CheckPartyMove
+	jr c, .BumpSound
+
+	call PlayCurPartyMonCry
+	ld a, BANK(RockSmashScriptNoText)
+	ld hl, RockSmashScriptNoText
+	call CallScript
+	farcall EnableScriptMode
+	farcall ScriptEvents
 	ret
 
 .AutoStrength:

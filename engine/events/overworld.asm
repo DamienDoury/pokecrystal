@@ -1481,6 +1481,7 @@ RockSmashScript:
 	callasm GetPartyNickname
 	writetext UseRockSmashText
 	closetext
+RockSmashScriptNoText::
 	special WaitSFX
 	playsound SFX_STRENGTH
 	earthquake 84
