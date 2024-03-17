@@ -95,21 +95,21 @@ VictoryRoadGate_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17,  7, ROUTE_22, 1
-	warp_event 18,  7, ROUTE_22, 1
-	warp_event  9, 17, ROUTE_26, 1
-	warp_event 10, 17, ROUTE_26, 1
-	warp_event  9,  0, VICTORY_ROAD, 1
-	warp_event 10,  0, VICTORY_ROAD, 1
+	warp_event 25,  7, ROUTE_22, 1
+	warp_event 26,  7, ROUTE_22, 1
+	warp_event 13, 17, ROUTE_26, 1
+	warp_event 14, 17, ROUTE_26, 1
+	warp_event 13,  0, VICTORY_ROAD, 1
+	warp_event 14,  0, VICTORY_ROAD, 1
 	warp_event  1,  7, ROUTE_28, 2
 	warp_event  2,  7, ROUTE_28, 2
 
 	def_coord_events
-	coord_event 10, 11, CE_SCENE_ID, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
+	coord_event 14, 11, CE_SCENE_ID, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
 
 	def_bg_events
 
 	def_object_events
-	object_event  8, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateOfficerScript, -1
-	object_event  7,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateLeftBlackBeltScript, EVENT_OPENED_MT_SILVER
-	object_event 12,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateRightBlackBeltScript, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event 12, 11, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateOfficerScript, -1
+	object_event 11,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateLeftBlackBeltScript, EVENT_OPENED_MT_SILVER
+	object_event 16,  5, SPRITE_OFFICER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, VictoryRoadGateRightBlackBeltScript, EVENT_CINNABAR_ROCKS_CLEARED

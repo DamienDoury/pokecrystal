@@ -393,7 +393,7 @@ ENDM
 	endgroup
 
 	newgroup SILVER                                               ; 19
-	map_const ROUTE_28,                                    20,  9 ;  1
+	map_const ROUTE_28,                                    21,  9 ;  1
 	map_const SILVER_CAVE_OUTSIDE,                         20, 14 ;  2
 	map_const SILVER_CAVE_POKECENTER_1F,                    5,  4 ;  3
 	map_const ROUTE_28_STEEL_WING_HOUSE,                    4,  4 ;  4
@@ -466,7 +466,7 @@ ENDM
 	map_const VIRIDIAN_POKECENTER_1F,                       5,  4 ;  9
 	map_const ROUTE_2_NUGGET_HOUSE,                         4,  4 ; 10
 	map_const ROUTE_2_GATE,                                 5,  4 ; 11
-	map_const VICTORY_ROAD_GATE,                           10,  9 ; 12
+	map_const VICTORY_ROAD_GATE,                           14,  9 ; 12
 	map_const VIRIDIAN_FOREST,                             21, 31 ; 13
 	endgroup
 
