@@ -84,7 +84,7 @@ DoPlayerMovement::
 	ld a, [wWalkingDirection]
 	cp STANDING
 	jr z, .HitWall
-	call .BumpSound
+	call .Bump
 .HitWall:
 	call .StandInPlace
 	xor a
@@ -99,7 +99,7 @@ DoPlayerMovement::
 	ld a, [wWalkingIntoEdgeWarp]
 	and a
 	jr nz, .CantMove
-	call .BumpSound
+	call .Bump
 .CantMove:
 	call ._WalkInPlace
 	xor a
@@ -262,13 +262,13 @@ DoPlayerMovement::
 	jr z, .TrySurf
 
 	call .CheckLandPerms
-	jr c, .bump
+	jr c, .obstacle
 
 	call .CheckNPC
 	and a
-	jr z, .bump
+	jr z, .obstacle
 	cp 2
-	jr z, .bump
+	jr z, .obstacle
 
 	ld a, [wPlayerStandingTile]
 	call CheckIceTile
@@ -309,11 +309,7 @@ DoPlayerMovement::
 	scf
 	ret
 
-.unused ; unreferenced
-	xor a
-	ret
-
-.bump
+.obstacle
 	xor a
 	ret
 
@@ -791,11 +787,26 @@ ENDM
 	scf
 	ret
 
+.Bump:
+	; When the player bumps into specific tiles, we try to automatically activate some field moves.
+	; Water obstacles (waterfall and whirlpool) don’t Bump. So they are checked somewhere else.
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr z, .BumpSound
+
+	call GetFacingTileCoord
+	cp COLL_CUT_TREE
+	jr z, .AutoCut
 .BumpSound:
 	call CheckSFX
 	ret c
 	ld de, SFX_BUMP
 	call PlaySFX
+	ret
+
+.AutoCut:
+	farcall CheckAPressOW.try_to_cut
+	jr c, .BumpSound
 	ret
 
 .GetOutOfWater:

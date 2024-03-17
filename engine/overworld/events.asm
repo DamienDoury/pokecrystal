@@ -477,7 +477,7 @@ OWPlayerInput:
 
 LONG_PRESS_FRAMES_DURATION EQU 10
 
-CheckAPressOW:
+CheckAPressOW::
 	ldh a, [hJoypadDown]
 	and A_BUTTON
 	ret z
@@ -523,28 +523,8 @@ CheckAPressOW:
 	jp CallScript
 
 .try_to_cut_grass ; Try to cut grass, while standing outside the edge of a patch.
-	farcall CutFunction.CheckAbleSilent ; Calls CheckHM and CheckMapForSomethingToCut.
+	call .try_to_cut
 	jr c, .check_pressed_this_frame
-
-	ld d, CUT
-	farcall CheckPartyMove ; Sets wCurPartyMon for PlayMonCry.
-	jr c, .check_pressed_this_frame
-
-	call OpenTextPre
-	call OpenTextPost
-
-	xor a
-	ld [wMonType], a
-	ld a, [wCurPartyMon]
-	ld e, a
-	farcall GetMonSpecies
-	ld a, [wCurPartySpecies]
-	call PlayMonCry
-
-	farcall CutDownTreeOrGrass
-	call CloseText
-	farcall HideMapNameSign
-	xor a
 	ret
 
 .cancel_long_press
@@ -567,6 +547,31 @@ CheckAPressOW:
 	ret c
 	call TryFarNPCOnlyEvent
 	ret c
+	xor a
+	ret
+
+.try_to_cut::
+	farcall CutFunction.CheckAbleSilent ; Calls CheckHM and CheckMapForSomethingToCut.
+	ret c
+
+	ld d, CUT
+	farcall CheckPartyMove ; Sets wCurPartyMon for PlayMonCry.
+	ret c
+
+	call OpenTextPre
+	call OpenTextPost
+
+	xor a
+	ld [wMonType], a
+	ld a, [wCurPartyMon]
+	ld e, a
+	farcall GetMonSpecies
+	ld a, [wCurPartySpecies]
+	call PlayMonCry
+
+	farcall CutDownTreeOrGrass
+	call CloseText
+	farcall HideMapNameSign
 	xor a
 	ret
 
