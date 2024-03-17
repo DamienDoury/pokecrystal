@@ -147,11 +147,18 @@ CutFunction:
 	dw .DoCut
 	dw .FailCut
 
-.CheckAble::
+.CheckAbleSilent::
+	ld a, HM_CUT
+	call CheckHMSilent
+	jr c, .notOwned
+	jr .checkForSomething
+
+.CheckAble:
 	ld a, HM_CUT
 	call CheckHM
 	jr c, .notOwned
 
+.checkForSomething
 	call CheckMapForSomethingToCut
 	jr c, .nothingtocut
 
@@ -622,7 +629,7 @@ FlyFunction::
 
 .TryFlySilent
 	ld a, HM_FLY
-	call CheckHM
+	call CheckHMSilent
 	jr c, .notOwned
 
 	call GetMapEnvironment

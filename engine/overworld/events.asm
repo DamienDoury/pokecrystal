@@ -523,7 +523,7 @@ CheckAPressOW:
 	jp CallScript
 
 .try_to_cut_grass ; Try to cut grass, while standing outside the edge of a patch.
-	farcall CutFunction.CheckAble ; Calls CheckHM and CheckMapForSomethingToCut.
+	farcall CutFunction.CheckAbleSilent ; Calls CheckHM and CheckMapForSomethingToCut.
 	jr c, .check_pressed_this_frame
 
 	ld d, CUT
