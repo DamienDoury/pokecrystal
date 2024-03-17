@@ -735,7 +735,7 @@ WaterfallFunction:
 	ld a, $80
 	ret
 
-CheckMapCanWaterfall:
+CheckMapCanWaterfall::
 	ld a, [wPlayerDirection]
 	and $c
 	cp FACE_UP
@@ -756,9 +756,11 @@ Script_WaterfallFromMenu:
 
 Script_UsedWaterfall:
 	callasm GetPartyNickname
-	writetext .UseWaterfallText
+	writetext UseWaterfallText
 	waitbutton
 	closetext
+
+Script_UsedWaterfallSilent::
 	playsound SFX_BUBBLEBEAM
 .loop
 	applymovement PLAYER, .WaterfallStep
@@ -781,7 +783,7 @@ Script_UsedWaterfall:
 	turn_waterfall UP
 	step_end
 
-.UseWaterfallText:
+UseWaterfallText:
 	text_far _UseWaterfallText
 	text_end
 

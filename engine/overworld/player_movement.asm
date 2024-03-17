@@ -313,11 +313,31 @@ DoPlayerMovement::
 	xor a
 	ret
 
-.Whirlpool:
-	ld a, [wWalkingDirection]
-	cp STANDING
-	ret z
+.Waterfall:
+	farcall CheckMapCanWaterfall
+	ret c
 
+	ld b, HM_WATERFALL
+	farcall FarCheckHMSilent
+	ret c
+
+	ld d, WATERFALL
+	farcall CheckPartyMove
+	ret c
+
+	call PlayCurPartyMonCry
+	ld c, 10
+	call DelayFrames
+
+	ld a, BANK(Script_UsedWaterfallSilent)
+	ld hl, Script_UsedWaterfallSilent
+	call CallScript
+	farcall EnableScriptMode
+	farcall ScriptEvents
+
+	jp .StandInPlace
+
+.Whirlpool:
 	ld b, HM_WHIRLPOOL
 	farcall FarCheckHMSilent
 	ret c
@@ -373,8 +393,13 @@ DoPlayerMovement::
 	farcall CheckDirection
 	jr c, .EndOfSurfStep
 
+	ld a, [wWalkingDirection]
+	cp STANDING
+	jr z, .EndOfSurfStep
+
 	call .Whirlpool
-	
+	call .Waterfall
+
 .EndOfSurfStep
 	pop af
 	scf
