@@ -119,4 +119,5 @@ Music:
 	dba Music_CeruleanCityGBS
 	dba Music_Safari
 	dba Music_JigglypuffSong
+	dba Music_SurfingPikachu
 	assert_table_length NUM_MUSIC_SONGS

@@ -129,6 +129,7 @@ INCLUDE "audio/music/battletowerlobby.asm"
 INCLUDE "audio/music/mobilecenter.asm"
 INCLUDE "audio/music/dungeons2.asm" ; Viridian Forest.
 INCLUDE "audio/music/wildbattle.asm" ; From RBY.
+INCLUDE "audio/music/surfingpikachu.asm"
 
 
 SECTION "Songs 6", ROMX
