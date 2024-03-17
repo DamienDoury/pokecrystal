@@ -842,28 +842,28 @@ ENDM
 	farcall CheckPartyMove
 	jr c, .BumpSound
 
-	; Play Pokémon cry.
-	call PlayCurPartyMonCry
-
 	; Do Surf.
 	farcall GetSurfType
 	ld a, d
 	ld [wSurfingPlayerState], a
-	ld [wPlayerState], a
-	farcall StubbedTrainerRankings_Surf
-	call UpdatePlayerSprite
-	call PlayMapMusic
-	farcall SurfStartStep
+
+	call PlayCurPartyMonCry
+	ld a, BANK(UsedSurfScriptSilent)
+	ld hl, UsedSurfScriptSilent
+	call CallScript
+	farcall EnableScriptMode
+	farcall ScriptEvents
+	ret
 	ret
 
 .AutoStrength:
 	ld b, HM_STRENGTH
 	farcall FarCheckHMSilent
-	jr c, .BumpSound
+	jp c, .BumpSound
 
 	ld d, STRENGTH
 	farcall CheckPartyMove
-	jr c, .BumpSound
+	jp c, .BumpSound
 
 	; This one is complicated.
 	; When bumping into a boulder, even if it can't be pushed, we should alwaydd activate Strength.
@@ -873,7 +873,7 @@ ENDM
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, a
 	jr z, .ActivateStrength
 
-	jr .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
+	jp .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
 
 .ActivateStrength
 	call PlayCurPartyMonCry

@@ -460,6 +460,7 @@ UsedSurfScript:
 	waitbutton
 	closetext
 
+UsedSurfScriptSilent::
 	callasm .stubbed_fn
 
 	readmem wSurfingPlayerState
