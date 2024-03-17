@@ -337,7 +337,8 @@ DoPlayerMovement::
 	call OpenTextPost
 	farcall DisappearWhirlpool
 	call CloseText
-	ret
+
+	jp .StandInPlace
 
 .TrySurf:
 	call .CheckSurfPerms
