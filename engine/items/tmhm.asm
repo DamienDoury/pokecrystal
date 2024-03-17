@@ -130,7 +130,7 @@ TeachTMHM:
 	jr .nope
 
 .compatible
-	callfar KnowsMove
+	call KnowsMove
 	jr c, .nope
 
 	ld a, TRUE

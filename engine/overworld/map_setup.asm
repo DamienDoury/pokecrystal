@@ -160,8 +160,7 @@ CheckUpdatePlayerSprite:
 	cp PLAYER_SURF_PIKA
 	jr z, .is_surfing
 
-	ld d, SURF
-	farcall CheckPartyMove ; Sets wCurPartyMon for GetSurfType.
+	farcall FindBestSurfer ; Sets wCurPartyMon for GetSurfType.
 	ld a, PLAYER_SURF
 	ld [wPlayerState], a ; If the player has no Pokémon that knows Surf, we still display a Lapras.
 	jr c, .is_surfing

@@ -222,7 +222,8 @@ CheckAlreadyInList:
 	and a
 	ret
 
-CheckPokemonAlreadyKnowsMove:
+; Input: the move to check in C.
+CheckPokemonAlreadyKnowsMove::
 	push hl
 	push bc
 	ld a, MON_MOVES

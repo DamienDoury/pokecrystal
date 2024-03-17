@@ -178,7 +178,6 @@ SpecialsPointers::
 
 	add_special InitialSetDSTFlag
 	add_special InitialClearDSTFlag
-	add_special UnusedDummySpecial ; unused
 	add_special MakeRedsPikachu
 	add_special BoxLockAfterPowerOutage
 	add_special GetHospitalRoomNumber

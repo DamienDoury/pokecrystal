@@ -912,8 +912,7 @@ ENDM
 	cp $1
 	jr nz, .BumpSound
 
-	ld d, SURF
-	farcall CheckPartyMove
+	farcall FindBestSurfer
 	jr c, .BumpSound
 
 	; Do Surf.
