@@ -329,7 +329,13 @@ DoPlayerMovement::
 	and a
 	jr nz, .ExitWater
 
+	ld a, [wPlayerState]
+	cp PLAYER_SURF_PIKA
+	ld a, STEP_BIKE
+	jr z, .DoSurfStep
+	
 	ld a, STEP_WALK
+.DoSurfStep
 	call .DoStep
 	scf
 	ret
