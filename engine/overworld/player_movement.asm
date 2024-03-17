@@ -812,6 +812,14 @@ ENDM
 	call GetTileCollision
 	cp WATER_TILE
 	jr z, .AutoSurf
+
+	farcall GetFacingObject
+	ld a, d
+	jr c, .BumpSound
+
+	cp SPRITEMOVEDATA_STRENGTH_BOULDER
+	jr z, .AutoStrength
+	
 .BumpSound:
 	call CheckSFX
 	ret c
@@ -847,6 +855,30 @@ ENDM
 	call PlayMapMusic
 	farcall SurfStartStep
 	ret
+
+.AutoStrength:
+	ld b, HM_STRENGTH
+	farcall FarCheckHMSilent
+	jr c, .BumpSound
+
+	ld d, STRENGTH
+	farcall CheckPartyMove
+	jr c, .BumpSound
+
+	; This one is complicated.
+	; When bumping into a boulder, even if it can't be pushed, we should alwaydd activate Strength.
+	; Once activated, we should play the bump sound when the boulder can't be pushed away.
+
+	ld a, [wBikeFlags]
+	bit BIKEFLAGS_STRENGTH_ACTIVE_F, a
+	jr z, .ActivateStrength
+
+	jr .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
+
+.ActivateStrength
+	call PlayCurPartyMonCry
+	farcall SetStrengthFlag
+	jp .CheckNPC ; Pushes the Boulder as soon as Strength is activated. 2 actions in 1 input.
 
 .GetOutOfWater:
 	push bc
