@@ -788,6 +788,15 @@ ENDM
 	ret
 
 .Bump:
+	; If the player is not visually facing the direction he/she is logically facing, don't try the auto field moves, and don't play the bump sound.
+	ld a, [wWalkingDirection]
+	add a
+	add a
+	ld e, a
+	ld a, [wPlayerDirection]
+	sub e
+	ret nz
+
 	; When the player bumps into specific tiles, we try to automatically activate some field moves.
 	; Water obstacles (waterfall and whirlpool) don’t Bump. So they are checked somewhere else.
 	ld a, [wOptions2]
