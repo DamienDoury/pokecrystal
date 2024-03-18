@@ -14,7 +14,6 @@ OlivinePokecenter1F_MapScripts:
 	farsjump AntiSoftLockPokeball
 
 OlivinePokecenter1FNurseScript:
-	clearevent EVENT_RED_BEATEN
 	jumpstd PokecenterNurseScript
 
 OlivinePokecenter1FFishingGuruScript:
