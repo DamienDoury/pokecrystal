@@ -47,18 +47,10 @@ SoulHouseLassScript:
 SoulHouseGrannyScript:
 	jumptextfaceplayer SoulHouseGrannyText
 
-AmphyGraveScript:
-	checkevent EVENT_JASMINE_RETURNED_TO_GYM
-	iftrue .AmphyIzDedLol
-	end
-.AmphyIzDedLol
+SoulHouseAmphysGraveScript:
 	jumptext AmphyText
 
-MoomooGraveScript:
-	checkevent EVENT_BLACKTHORN_CITY_GRAMPS_BLOCKS_DRAGONS_DEN
-	iftrue .MoomooHasPassedAwayImSad
-	end
-.MoomooHasPassedAwayImSad
+MoomoosGraveScript:
 	jumptext MoomooText
 
 SoulHouseJasmineScript:
@@ -119,6 +111,28 @@ SoulHouseSurgeScript:
 	disappear SOULHOUSE_SURGE
 	waitsfx
 	end
+
+AntonFamilyGraveScript:
+	opentext
+	writetext SoulHouseAntonsWifeOnlyText
+	
+	checkevent EVENT_SICK_GENTLEMAN_DIED
+	iffalse .end
+	
+	promptbutton
+	pause 15
+	writetext SoulHouseFullAntonFamilyText
+	
+.end
+	waitbutton
+	closetext
+	end
+
+AgathasGraveScript:
+	jumptext AgathasGraveText
+
+RedsGraveScript:
+	jumptext RedsGraveText
 
 SoulHouseJasmineRunsLeftMovement:
 	big_step LEFT
@@ -205,14 +219,13 @@ SoulHouseGrannyText:
 	done
 
 AmphyText:
-	text "AMPHY"
-	cont " "
-	para "Sorry."
-	cont " "
+	text "“Forgive me”"
+
+	para "AMPHY"
 	done
 
 MoomooText:
-	text "Here lies our"
+	text "Here lies the"
 	line "beloved"
 	cont "MOOMOO."
 	done
@@ -272,6 +285,34 @@ SoulHouseSurgeText:
 	cont "the POWER PLANT."
 	done
 
+SoulHouseFullAntonFamilyText:
+	text "“Founder of the"
+	line "RARE CANDY"
+	cont "factory”"
+
+	para "MR.ANTON"
+	done
+
+SoulHouseAntonsWifeOnlyText:
+	text "“You will be"
+	line "remembered”"
+
+	para "MRS.ANTON"
+	done
+
+AgathasGraveText:
+	text "“She is one with"
+	line "her GHOST #MON”"
+
+	para "ELITE 4 AGATHA"
+	done
+
+RedsGraveText:
+	text "“...”"
+
+	para "CHAMPION RED"
+	done
+
 SoulHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -282,14 +323,17 @@ SoulHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  7,  4, BGEVENT_READ, AmphyGraveScript
-	bg_event  2,  6, BGEVENT_READ, MoomooGraveScript
 
 	def_object_events
 	object_event  4,  2, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, MrFuji, -1
-	object_event  7,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event  8,  3, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseTeacherScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  2,  5, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseLassScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  1,  3, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, SoulHouseGrannyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  7,  5, SPRITE_JASMINE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SoulHouseJasmineScript, EVENT_JASMINE_AT_SOUL_HOUSE
 	object_event  6,  7, SPRITE_LORELEI, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SoulHouseLoreleiScript, EVENT_LORELEI_AT_SOUL_HOUSE
 	object_event  3,  5, SPRITE_SURGE, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, SoulHouseSurgeScript, EVENT_SURGE_AT_SOUL_HOUSE
+	object_event  7,  4, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SoulHouseAmphysGraveScript, EVENT_OLIVINE_GYM_JASMINE
+	object_event  2,  6, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MoomoosGraveScript, EVENT_BLACKTHORN_CITY_GRAMPS_NOT_BLOCKING_DRAGONS_DEN
+	object_event  7,  2, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AgathasGraveScript, EVENT_LAKE_OF_RAGE_CIVILIANS
+	object_event  9,  6, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, AntonFamilyGraveScript, -1
+	object_event  3,  4, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, RedsGraveScript, EVENT_RED_BEATEN

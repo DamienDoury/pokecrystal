@@ -195,7 +195,6 @@ INCLUDE "maps/MrFujisHouse.asm"
 INCLUDE "maps/LavenderSpeechHouse.asm"
 INCLUDE "maps/LavenderNameRater.asm"
 INCLUDE "maps/LavenderMart.asm"
-INCLUDE "maps/SoulHouse.asm"
 
 
 SECTION "Map Scripts 11", ROMX
@@ -478,6 +477,7 @@ INCLUDE "maps/EarlsPokemonAcademy.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
+INCLUDE "maps/SoulHouse.asm"
 
 
 SECTION "Map Scripts 26", ROMX
