@@ -1695,7 +1695,7 @@ BillsPC_IsSilphCoProperty:
 	jr ReleaseRefusalNotification
 
 BillsPC_IsRedsPikachu:
-	farcall IsRedsPikachu
+	farcall IsRedsPikachu_PartyOrBox
 	ret nc
 
 	ld de, PCString_PikachuRefuses
@@ -1794,7 +1794,7 @@ BillsPC_CheckSelectedMonOTIDAndName::
 
     jr .return_true
     
-.party
+.party::
 	ld a, d
 	cp -1
 	jr z, .party_skip_species_check

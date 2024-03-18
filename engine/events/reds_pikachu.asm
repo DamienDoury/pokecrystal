@@ -98,10 +98,39 @@ MakeRedsPikachu::
 	; It's better because it forces the player go to heal him at a pkcenter where he will find out Pikachu as covid.
 	ret
 
+RedsPikachu_SetupSearch:
+	ld bc, 4
+    ld hl, .RedsTrainerName
+    ld de, wStringBuffer1
+    call CopyBytes ; copy bc bytes from hl to de
+
+    ld bc, $0100 ; BC contains the Trainer ID of Red.
+	ld d, PIKACHU ; species
+	ld e, 100 ; level
+	ret
+
+.RedsTrainerName:
+	db "RED@"
+
 ; Input: wCurPartyMon.
 ; Output: Carry if it is Red's Pikachu.
-; Works from both the PC and the party menu.
-IsRedsPikachu::
+; Works for the party menu.
+IsRedsPikachu_Party::
+	call RedsPikachu_SetupSearch
+    farcall BillsPC_CheckSelectedMonOTIDAndName.party
+	ret nc
+
+	jr IsRedsPikachu_PartyOrBox.CheckEvents
+
+; Input: wBillsPC_CursorPosition.
+; Output: Carry if it is Red's Pikachu.
+; Works for the PC.
+IsRedsPikachu_PartyOrBox::
+	call RedsPikachu_SetupSearch
+    farcall BillsPC_CheckSelectedMonOTIDAndName
+	ret nc
+
+.CheckEvents
 	ld b, CHECK_FLAG
 	ld de, EVENT_RED_BEATEN
 	call EventFlagAction
@@ -111,17 +140,5 @@ IsRedsPikachu::
 	call EventFlagAction
 	ret z ; If Red's Pikachu is still waiting in his room, the player can't own it.
 
-	ld bc, 4
-    ld hl, .RedsTrainerName
-    ld de, wStringBuffer1
-    call CopyBytes ; copy bc bytes from hl to de
-
-    ld bc, $0100 ; BC contains the Trainer ID of Red.
-	ld d, PIKACHU ; species
-	ld e, 100 ; level
-
-    farcall BillsPC_CheckSelectedMonOTIDAndName
+	scf
 	ret
-
-.RedsTrainerName
-	db "RED@"

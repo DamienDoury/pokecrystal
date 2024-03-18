@@ -2,11 +2,11 @@ MoveDeletion:
 	ld hl, .DeleterIntroText
 	call PrintText
 	call YesNoBox
-	jr c, .declined
+	jp c, .declined
 	ld hl, .DeleterAskWhichMonText
 	call PrintText
 	farcall SelectMonFromParty
-	jr c, .declined
+	jp c, .declined
 	ld a, [wCurPartySpecies]
 	cp EGG
 	jr z, .egg
@@ -35,11 +35,26 @@ MoveDeletion:
 	call YesNoBox
 	pop bc
 	jr c, .declined
-	call .DeleteMove
+
+	push bc
 	call WaitSFX
 	ld de, SFX_MOVE_DELETED
 	call PlaySFX
 	call WaitSFX
+	farcall IsRedsPikachu_Party
+	pop bc
+	jr nc, .not_surf_from_reds_pikachu
+
+	ld a, [wNamedObjectIndex]
+	cp SURF
+	jr nz, .not_surf_from_reds_pikachu
+
+	ld hl, .DeleterPikachuRefuses
+	call PrintText
+	ret
+	
+.not_surf_from_reds_pikachu
+	call .DeleteMove
 	ld hl, .DeleterForgotMoveText
 	call PrintText
 	ret
@@ -69,6 +84,10 @@ MoveDeletion:
 
 .DeleterForgotMoveText:
 	text_far _DeleterForgotMoveText
+	text_end
+
+.DeleterPikachuRefuses:
+	text_far _DeleterPikachuRefuses
 	text_end
 
 .MailEggText:

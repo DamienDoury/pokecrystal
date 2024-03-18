@@ -71,6 +71,7 @@ INCLUDE "engine/battle/everstone_effect.asm" ; Must stay with weather_boost.asm.
 INCLUDE "engine/battle/automatic_weather.asm"
 INCLUDE "data/text_buffers.asm"
 INCLUDE "engine/pokemon/level_up_happiness.asm"
+INCLUDE "engine/events/whiteout.asm"
 
 
 SECTION "bank5", ROMX
@@ -96,7 +97,6 @@ INCLUDE "engine/events/print_photo.asm"
 INCLUDE "engine/pokemon/breeding.asm"
 INCLUDE "engine/pokemon/hospital.asm"
 INCLUDE "engine/events/reds_pikachu.asm"
-INCLUDE "engine/events/whiteout.asm"
 
 
 SECTION "Roofs", ROMX

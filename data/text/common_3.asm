@@ -1575,6 +1575,16 @@ _DeleterForgotMoveText::
 	line "forgot the move."
 	done
 
+_DeleterPikachuRefuses::
+	text "Uh?"
+
+	para "PIKACHU refused"
+	line "to forget SURF."
+
+	para "It probably has"
+	line "good reasons."
+	done
+
 _DeleterEggText::
 	text "An EGG doesn't"
 	line "know any moves!"
