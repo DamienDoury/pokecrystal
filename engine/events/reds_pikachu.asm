@@ -142,3 +142,35 @@ IsRedsPikachu_PartyOrBox::
 
 	scf
 	ret
+
+; Output: wScriptVar = TRUE if Red's Pikachu is in the player's party.
+IsRedsPikachuIsPlayerParty::
+	xor a
+	ld [wScriptVar], a ; FALSE
+	call FindRedsPikachuInParty
+	ret nc
+	
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret
+
+; Output: carry if Red's Pikachu is in the player's party.
+FindRedsPikachuInParty::
+	ld a, [wPartyCount]
+	and a
+	ret z
+
+	dec a
+.party_search_loop
+	ld [wCurPartyMon], a
+
+	call IsRedsPikachu_Party
+	ret c
+
+; next
+	ld a, [wCurPartyMon]
+	dec a
+	cp -1
+	ret z
+
+	jr .party_search_loop

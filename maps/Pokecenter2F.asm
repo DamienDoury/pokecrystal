@@ -70,15 +70,27 @@ LinkReceptionistScript_Trade:
 	writetext Text_TradeReceptionistIntro
 	yesorno
 	iffalse .Cancel
+
 	special SilphCo_GetTestSubjectProgress
-	ifequal FALSE, .NoMobile
+	ifequal FALSE, .NoSilphMonInParty
 
 	writetext Text_TradeReceptionistSilphCo
 	waitbutton
 	closetext
 	end
 
-.NoMobile:
+.NoSilphMonInParty:
+	callasm IsRedsPikachuIsPlayerParty
+	ifequal FALSE, .NoRedsPikachuInParty
+
+	cry PIKACHU
+	pause 15
+	writetext Text_TradeReceptionistPikachuRefusal
+	waitbutton
+	closetext
+	end
+
+.NoRedsPikachuInParty
 	special SetBitsForLinkTradeRequest
 	writetext Text_PleaseWait
 	special WaitForLinkedFriend
@@ -665,6 +677,14 @@ Text_TradeReceptionistIntro:
 
 	para "Would you like to"
 	line "trade?"
+	done
+
+Text_TradeReceptionistPikachuRefusal:
+	text "PIKACHU refuses"
+	line "to go in there."
+	
+	para "You should deposit"
+	line "it first."
 	done
 
 Text_TradeReceptionistSilphCo:
