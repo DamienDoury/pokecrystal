@@ -153,10 +153,10 @@ _SilphCo_GetTestSubjectProgress::
 ; Output: FALSE if non-carry, TRUE if carry and HL = wPartyMon1 + MON_ID + 1 of the found test-subject Pokémon.
 SilphCoFindTestSubjectInParty:
     ld a, [wPlayerID]
-    ;cpl
+    cpl
     ld b, a
     ld a, [wPlayerID + 1]
-    ;cpl
+    cpl
     ld c, a ; BC contains the Trainer ID of Silph Co, the one we are looking for.
 
     ld a, [wPartyCount]
@@ -165,11 +165,11 @@ SilphCoFindTestSubjectInParty:
 
 .party_loop
     ld a, [hli]
-    and b
+    sub b
     jr nz, .next
 
     ld a, [hl]
-    and c
+    sub c
     jr nz, .next
 
     ; We have found the right ID!
