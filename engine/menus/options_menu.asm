@@ -75,19 +75,19 @@ _Option:
 
 StringOptions:
 	db "Text speed<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Battle anim.<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Sound<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Print<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Fast boot<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Field moves<LF>"
-	db "        :<LF>"
+	db "      :<LF>"
 	db "Frame<LF>"
-	db "        :TYPE<LF>"
+	db "      :TYPE<LF>"
 	db "Save options@"
 
 GetOptionPointer:
@@ -151,7 +151,7 @@ Options_TextSpeed:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 3
+	hlcoord 9, 3
 	call PlaceString
 	and a
 	ret
@@ -221,7 +221,7 @@ Options_BattleScene:
 	ld de, OffText
 
 .Display:
-	hlcoord 11, 5
+	hlcoord 9, 5
 	call PlaceString
 	and a
 	ret
@@ -260,7 +260,7 @@ Options_FastBoot:
 	ld de, OnText
 
 .Display:
-	hlcoord 11, 11
+	hlcoord 9, 11
 	call PlaceString
 	and a
 	ret
@@ -296,13 +296,13 @@ Options_FieldMoves:
 	ld de, .Quick
 
 .Display:
-	hlcoord 11, 13
+	hlcoord 9, 13
 	call PlaceString
 	and a
 	ret
 
-.Legacy: db "LEGACY@"
-.Quick:  db "QUICK @"
+.Legacy: db "LEGACY    @"
+.Quick:  db "QUICK CAST@"
 
 Options_Sound:
 	ld hl, wOptions
@@ -341,7 +341,7 @@ Options_Sound:
 	ld de, .Stereo
 
 .Display:
-	hlcoord 11, 7
+	hlcoord 9, 7
 	call PlaceString
 	and a
 	ret
@@ -395,7 +395,7 @@ Options_Print:
 	ld e, [hl]
 	inc hl
 	ld d, [hl]
-	hlcoord 11, 9
+	hlcoord 9, 9
 	call PlaceString
 	and a
 	ret
@@ -475,7 +475,7 @@ Options_Frame:
 	ld [hl], a
 UpdateFrame:
 	ld a, [wTextboxFrame]
-	hlcoord 16, 15 ; where on the screen the number is drawn
+	hlcoord 14, 15 ; where on the screen the number is drawn
 	add "1"
 	ld [hl], a
 	call LoadFontsExtra
