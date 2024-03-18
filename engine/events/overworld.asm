@@ -148,12 +148,18 @@ CutFunction:
 	dw .FailCut
 
 .CheckAbleSilent::
+	call CheckDirection
+	jr c, .nothingtocut
+
 	ld a, HM_CUT
 	call CheckHMSilent
 	jr c, .notOwned
 	jr .checkForSomething
 
 .CheckAble:
+	call CheckDirection
+	jr c, .nothingtocut
+	
 	ld a, HM_CUT
 	call CheckHM
 	jr c, .notOwned
