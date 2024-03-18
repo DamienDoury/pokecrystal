@@ -97,3 +97,31 @@ MakeRedsPikachu::
 	; Please note that I changed my mind, and I decided to give Pikachu 1 HP left, from after its battle with the player.
 	; It's better because it forces the player go to heal him at a pkcenter where he will find out Pikachu as covid.
 	ret
+
+; Input: wCurPartyMon.
+; Output: Carry if it is Red's Pikachu.
+; Works from both the PC and the party menu.
+IsRedsPikachu::
+	ld b, CHECK_FLAG
+	ld de, EVENT_RED_BEATEN
+	call EventFlagAction
+	ret nz ; If Red has not been beaten, the player can't own his Pikachu.
+
+	ld de, EVENT_REDS_PIKACHU_AVAILABLE
+	call EventFlagAction
+	ret z ; If Red's Pikachu is still waiting in his room, the player can't own it.
+
+	ld bc, 4
+    ld hl, .RedsTrainerName
+    ld de, wStringBuffer1
+    call CopyBytes ; copy bc bytes from hl to de
+
+    ld bc, $0100 ; BC contains the Trainer ID of Red.
+	ld d, PIKACHU ; species
+	ld e, 100 ; level
+
+    farcall BillsPC_CheckSelectedMonOTIDAndName
+	ret
+
+.RedsTrainerName
+	db "RED@"

@@ -187,6 +187,8 @@ BillsPCDepositFuncRelease:
 	jr c, BillsPCDepositFuncCancel
 	call BillsPC_IsSilphCoProperty
 	jr c, BillsPCDepositFuncCancel
+	call BillsPC_IsRedsPikachu
+	jr c, BillsPCDepositFuncCancel
 	ld a, [wMenuCursorY]
 	push af
 	ld de, PCString_ReleasePKMN
@@ -444,6 +446,8 @@ BillsPC_Withdraw:
 	call BillsPC_IsMonAnEgg
 	jr c, .FailedRelease
 	call BillsPC_IsSilphCoProperty
+	jr c, .FailedRelease
+	call BillsPC_IsRedsPikachu
 	jr c, .FailedRelease
 	ld de, PCString_ReleasePKMN
 	call BillsPC_PlaceString
@@ -1690,6 +1694,177 @@ BillsPC_IsSilphCoProperty:
 	ld de, PCString_SilphCoProperty
 	jr ReleaseRefusalNotification
 
+BillsPC_IsRedsPikachu:
+	farcall IsRedsPikachu
+	ret nc
+
+	ld de, PCString_PikachuRefuses
+	jr ReleaseRefusalNotification
+
+; Input: 
+; 		Trainer ID in BC,
+;		species in D (-1 if you don't want to check it),
+;		level in E (-1 if you don't want to check it),
+; 		name in wStringBuffer1.
+; Output: Carry if the selected mon matches the inputs.
+BillsPC_CheckSelectedMonOTIDAndName::
+	ld a, [wBillsPC_CursorPosition]
+	ld hl, wBillsPC_ScrollPosition
+	add [hl]
+	ld [wCurPartyMon], a
+
+	ld a, [wBillsPC_LoadedBox]
+	and a
+	jr z, .party
+
+;.loaded_box
+	ld a, d
+	cp -1
+	jr z, .loaded_box_skip_species_check
+
+	ld hl, sBoxMon1Species
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, BOXMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, BANK(sBoxMon1Species)
+    call OpenSRAM
+	ld a, [hl]
+    sub d
+    call CloseSRAM
+    jp nz, .return_false
+
+.loaded_box_skip_species_check
+	ld a, e
+	cp -1
+	jr z, .loaded_box_skip_level_check
+
+	ld hl, sBoxMon1Level
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, BOXMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, BANK(sBoxMon1Level)
+    call OpenSRAM
+	ld a, [hl]
+    sub e
+    call CloseSRAM
+    jp nz, .return_false
+
+.loaded_box_skip_level_check
+    ld hl, sBoxMon1ID
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, BOXMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, BANK(sBoxMon1ID)
+    call OpenSRAM
+
+    ld a, [hli]
+    and b
+    jp nz, .close_sram_then_return_false
+
+    ld a, [hl]
+    and c
+    jr nz, .close_sram_then_return_false
+
+    call CloseSRAM
+
+    ; We have found the right ID, now we need to check the Original Trainer name.
+
+    ld hl, sBoxMonOTs
+    ld a, [wCurPartyMon]
+    call SkipNames
+
+    ld de, wStringBuffer1
+	call CountChars
+	ld c, a
+
+    ld a, BANK(sBoxMonOTs)
+    call OpenSRAM
+    call CompareBytes ; Compare c bytes at de and hl. Return z if they all match.
+    call CloseSRAM
+    jr nz, .return_false
+
+    jr .return_true
+    
+.party
+	ld a, d
+	cp -1
+	jr z, .party_skip_species_check
+
+	ld hl, wPartyMon1Species
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, PARTYMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, [hl]
+    sub d
+    jr nz, .return_false
+
+.party_skip_species_check
+	ld a, e
+	cp -1
+	jr z, .party_skip_level_check
+
+	ld hl, wPartyMon1Level	
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, PARTYMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, [hl]
+    sub e
+    jr nz, .return_false
+
+.party_skip_level_check
+    ld hl, wPartyMon1ID
+    ld a, [wCurPartyMon]
+    push bc
+    ld bc, PARTYMON_STRUCT_LENGTH
+    call AddNTimes
+    pop bc
+
+    ld a, [hli]
+    and b
+    jr nz, .return_false
+
+    ld a, [hl]
+    and c
+    jr nz, .return_false
+
+    ; We have found the right ID, now we need to check the Original Trainer name.
+
+    ld hl, wPartyMonOTs
+    ld a, [wCurPartyMon]
+    call SkipNames
+
+    ld de, wStringBuffer1
+	call CountChars
+	ld c, a
+
+    call CompareBytes ; Compare c bytes at de and hl. Return z if they all match.
+    jr nz, .return_false
+
+.return_true
+    scf
+    ret
+
+.close_sram_then_return_false
+    call CloseSRAM
+.return_false
+    xor a
+    ret
+
 BillsPC_StatsScreen:
 	call LowVolume
 	call BillsPC_CopyMon
@@ -2333,6 +2508,7 @@ PCString_BoxFull: db "The BOX is full.@"
 PCString_PartyFull: db "The party's full!@"
 PCString_NoReleasingEGGS: db "No releasing EGGS!@"
 PCString_SilphCoProperty: db "SILPH's property!@"
+PCString_PikachuRefuses: db "PIKACHU refuses!@"
 
 _ChangeBox:
 	call LoadStandardMenuHeader
