@@ -15,34 +15,9 @@ BattleCommand_BatonPass:
 	ld c, 50
 	call DelayFrames
 
-; Transition into switchmon menu
-	call LoadStandardMenuHeader
-	farcall SetUpBattlePartyMenu
+	call ForceBattleSwitch
 
-	farcall ForcePickSwitchMonInBattle
-
-; Return to battle scene
-	call ClearPalettes
-	farcall _LoadBattleFontsHPBar
-	call CloseWindow
-	call ClearSprites
-	hlcoord 0, 0
-	lb bc, 4, 11
-	call ClearBox
-	ld b, SCGB_BATTLE_COLORS
-	call GetSGBLayout
-	call SetPalettes
-	call BatonPass_LinkPlayerSwitch
-
-; Mobile link battles handle entrances differently
-	farcall CheckMobileBattleError
-	jp c, EndMoveEffect
-
-	ld hl, PassedBattleMonEntrance
-	call CallBattleCore
-
-	call ResetBatonPassStatus
-	ret
+	jr ResetBatonPassStatus
 
 .Enemy:
 ; Wildmons don't have anything to switch to
@@ -55,26 +30,8 @@ BattleCommand_BatonPass:
 
 	call UpdateEnemyMonInParty
 	call AnimateCurrentMove
-	call BatonPass_LinkEnemySwitch
 
-; Mobile link battles handle entrances differently
-	farcall CheckMobileBattleError
-	jp c, EndMoveEffect
-
-; Passed enemy PartyMon entrance
-	xor a
-	ld [wEnemySwitchMonIndex], a
-	ld hl, EnemySwitch_SetMode
-	call CallBattleCore
-	ld hl, ResetBattleParticipants
-	call CallBattleCore
-	ld a, TRUE
-	ld [wApplyStatLevelMultipliersToEnemy], a
-	ld hl, ApplyStatLevelMultiplierOnAllStats
-	call CallBattleCore
-
-	ld hl, SpikesDamage
-	call CallBattleCore
+	call ForceBattleSwitch
 
 	jr ResetBatonPassStatus
 
@@ -216,4 +173,59 @@ CheckAnyOtherAliveMons:
 .done
 	ld a, b
 	and a
+	ret
+
+ForceBattleSwitch::
+	ldh a, [hBattleTurn]
+	and a
+	jp nz, .enemy
+
+	; Transition into switchmon menu
+	call LoadStandardMenuHeader
+	farcall SetUpBattlePartyMenu
+
+	farcall ForcePickSwitchMonInBattle
+
+	; Return to battle scene
+	call ClearPalettes
+	farcall _LoadBattleFontsHPBar
+	call CloseWindow
+	call ClearSprites
+	hlcoord 0, 0
+	lb bc, 4, 11
+	call ClearBox
+	ld b, SCGB_BATTLE_COLORS
+	call GetSGBLayout
+	call SetPalettes
+	call BatonPass_LinkPlayerSwitch
+
+	; Mobile link battles handle entrances differently
+	farcall CheckMobileBattleError
+	jp c, EndMoveEffect
+
+	ld hl, PassedBattleMonEntrance
+	call CallBattleCore
+	ret
+
+.enemy
+	call BatonPass_LinkEnemySwitch
+
+; Mobile link battles handle entrances differently
+	farcall CheckMobileBattleError
+	jp c, EndMoveEffect
+
+; Passed enemy PartyMon entrance
+	xor a
+	ld [wEnemySwitchMonIndex], a
+	ld hl, EnemySwitch_SetMode
+	call CallBattleCore
+	ld hl, ResetBattleParticipants
+	call CallBattleCore
+	ld a, TRUE
+	ld [wApplyStatLevelMultipliersToEnemy], a
+	ld hl, ApplyStatLevelMultiplierOnAllStats
+	call CallBattleCore
+
+	ld hl, SpikesDamage
+	call CallBattleCore
 	ret

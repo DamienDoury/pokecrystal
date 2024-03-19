@@ -1,6 +1,11 @@
 BattleCommand_Teleport:
 ; teleport
 
+; Can't teleport from a trainer battle
+	ld a, [wBattleMode]
+	dec a
+	jp nz, .trainer
+
 	ld a, [wBattleType]
 	cp BATTLETYPE_SHINY
 	jr z, .failed
@@ -19,10 +24,6 @@ BattleCommand_Teleport:
 	ldh a, [hBattleTurn]
 	and a
 	jr nz, .enemy_turn
-; Can't teleport from a trainer battle
-	ld a, [wBattleMode]
-	dec a
-	jr nz, .failed
 ; If your level is greater than the opponent's, you run without fail.
 	ld a, [wCurPartyLevel]
 	ld b, a
@@ -85,3 +86,39 @@ BattleCommand_Teleport:
 
 	ld hl, FledFromBattleText
 	jp StdBattleTextbox
+
+.trainer
+	farcall BreakAttraction
+	
+	ldh a, [hBattleTurn]
+	and a
+	jp nz, .enemy_trainer
+
+; Need something to switch to
+	call CheckAnyOtherAlivePartyMons
+	jr z, .failed
+
+	call UpdateBattleMonInParty
+	call AnimateCurrentMove
+
+	ld c, 20
+	call DelayFrames
+
+	farcall ForceBattleSwitch
+
+	farcall ResetPlayerStatLevels
+	farcall NewBattleMonStatus
+	ret
+
+.enemy_trainer
+	call CheckAnyOtherAliveEnemyMons
+	jr z, .failed
+
+	call UpdateEnemyMonInParty
+	call AnimateCurrentMove
+
+	farcall ForceBattleSwitch
+
+	farcall ResetEnemyStatLevels
+	farcall NewEnemyMonStatus
+	ret
