@@ -412,6 +412,8 @@ AI_Smart_Sleep:
 	ret
 
 AI_Smart_LeechHit:
+	call EncourageWhenHoldingBigRoot
+
 	push hl
 	ld a, 1
 	ldh [hBattleTurn], a
@@ -963,8 +965,19 @@ AI_Smart_Moonlight:
 	dec [hl]
 	ret
 
-AI_Smart_Toxic:
+EncourageWhenHoldingBigRoot:
+	ld a, [wEnemyMonItem]
+	cp BIG_ROOT
+	ret nz
+
+	inc [hl] ; Encourage if the enemy is holding a Big Root.
+	ret
+
 AI_Smart_LeechSeed:
+	call EncourageWhenHoldingBigRoot
+	; fallthough
+
+AI_Smart_Toxic:
 ; Discourage this move if player's HP is below 50%.
 
 	call AICheckPlayerHalfHP
