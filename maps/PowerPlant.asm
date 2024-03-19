@@ -144,6 +144,7 @@ PowerPlantManager:
 	takeitem MACHINE_PART
 	setevent EVENT_RETURNED_MACHINE_PART
 	clearevent EVENT_TRAIN_STATION_POPULATION
+	clearevent EVENT_OLIVINE_GYM_JASMINE ; Jasmine returns to her gym.
 	setevent EVENT_JASMINE_AT_FUJIS
 	setevent EVENT_RESTORED_POWER_TO_KANTO
 	readmem wYearMonth

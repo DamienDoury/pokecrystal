@@ -285,6 +285,7 @@ GoldenrodHospitalOffice_MapScripts:
 	writetext ElmGiveTicketText2
 	waitbutton
 	closetext
+	setevent EVENT_OLIVINE_GYM_JASMINE ; Jasmine board the SS Aqua.
 
 	pause 3
 	;applymovement GOLDENRODHOSPITALOFFICE_CHIEF, GoldenrodHospitalOffice_HeadRightMovement
