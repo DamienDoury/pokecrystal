@@ -1147,9 +1147,18 @@ AI_Smart_SuperFang:
 	ret
 
 AI_Smart_Paralyze:
+; Electric types can't be paralyzed, so using a paralyze effect is pointless.
+	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp ELECTRIC
+	jr z, .greatly_discourage
+
+	ld a, [wBattleMonType2] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp ELECTRIC
+	jr z, .greatly_discourage
+
 ; 50% chance to discourage this move if player's HP is below 25%.
 	call AICheckPlayerQuarterHP
-	jr nc, .discourage
+	jr nc, .may_discourage
 
 ; 80% chance to greatly encourage this move
 ; if enemy is slower than player and its HP is above 25%.
@@ -1163,9 +1172,15 @@ AI_Smart_Paralyze:
 	dec [hl]
 	ret
 
-.discourage
+.may_discourage
 	call AI_50_50
 	ret c
+	inc [hl]
+	ret
+
+.greatly_discourage
+	inc [hl]
+	inc [hl]
 	inc [hl]
 	ret
 
