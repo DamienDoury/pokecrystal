@@ -3394,15 +3394,15 @@ AI_Status:
 	pop hl
 	pop de
 	pop bc
-	jr nc, .skip_powder_check
+	jr nc, .general_status_check
 
 	ld a, [wBattleMonType1]
 	cp GRASS
-	jr z, .immune
+	jp z, .immune
 
 	ld a, [wBattleMonType2]
 	cp GRASS
-	jr z, .immune
+	jp z, .immune
 
 	; We are not supposed to check for the player's item.
 	; But this one is an exception as we consider it a visible element. 
@@ -3410,9 +3410,25 @@ AI_Status:
 	; Also, as this item provides an immunity, we don't want the AI to look stupid by spamming a move it shouldn't.
 	ld a, [wBattleMonItem]
 	cp POKEMASK
+	jp z, .immune
+
+.general_status_check
+	ld a, [wBattleMonStatus]
+	and ALL_STATUS
+	jr z, .specific_status_check
+
+	; Prevents the enemy to use any status move if the player already has a status.
+	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
+	cp EFFECT_TOXIC
+	jr z, .immune
+	cp EFFECT_POISON
+	jr z, .immune
+	cp EFFECT_SLEEP
+	jr z, .immune
+	cp EFFECT_PARALYZE
 	jr z, .immune
 
-.skip_powder_check
+.specific_status_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC
 	jr z, .check_poison_immunity
