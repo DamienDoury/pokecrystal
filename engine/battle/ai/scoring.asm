@@ -1733,15 +1733,7 @@ AI_Smart_Disable:
 	ret
 
 AI_Smart_MeanLook:
-	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
-	cp GHOST
-	jp z, AIDiscourageMove
-
-	ld a, [wBattleMonType2] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
-	cp GHOST
-	jp z, AIDiscourageMove
-
-;.player_is_no_ghost
+	; Note: the check for the player's Ghost type is done in AI_Status.
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
@@ -3416,6 +3408,8 @@ AI_Status:
 	jr z, .check_type_immunity
 	cp EFFECT_PARALYZE
 	jr z, .check_para_immunity
+	cp EFFECT_MEAN_LOOK
+	jr z, .check_ghost_immunity_to_traps
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
@@ -3443,6 +3437,17 @@ AI_Status:
 	ld a, [wBattleMonType2]
 	cp ELECTRIC
 	jr z, .immune
+
+	jr .check_type_immunity
+
+.check_ghost_immunity_to_traps ; This is not exactly a status, but close enough.
+	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp GHOST
+	jp z, .immune
+
+	ld a, [wBattleMonType2] ; Just in case we add new Pokemon in the future, let's check for the second type.
+	cp GHOST
+	jp z, .immune
 
 .check_type_immunity
 	push hl
