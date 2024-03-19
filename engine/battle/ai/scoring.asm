@@ -3411,6 +3411,14 @@ AI_Status:
 	cp GRASS
 	jr z, .immune
 
+	; We are not supposed to check for the player's item.
+	; But this one is an exception as we consider it a visible element. 
+	; I even considered altering the Pokémon backsprites to account for this item, but this would use too much memory and be too much work.
+	; Also, as this item provides an immunity, we don't want the AI to look stupid by spamming a move it shouldn't.
+	ld a, [wBattleMonItem]
+	cp POKEMASK
+	jr z, .immune
+
 .skip_powder_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC
