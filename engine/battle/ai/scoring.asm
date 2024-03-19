@@ -1150,11 +1150,11 @@ AI_Smart_Paralyze:
 ; Electric types can't be paralyzed, so using a paralyze effect is pointless.
 	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
 	cp ELECTRIC
-	jr z, .greatly_discourage
+	jp z, AIDiscourageMove
 
 	ld a, [wBattleMonType2] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
 	cp ELECTRIC
-	jr z, .greatly_discourage
+	jr z, AIDiscourageMove
 
 ; 50% chance to discourage this move if player's HP is below 25%.
 	call AICheckPlayerQuarterHP
@@ -1175,12 +1175,6 @@ AI_Smart_Paralyze:
 .may_discourage
 	call AI_50_50
 	ret c
-	inc [hl]
-	ret
-
-.greatly_discourage
-	inc [hl]
-	inc [hl]
 	inc [hl]
 	ret
 
@@ -1741,11 +1735,13 @@ AI_Smart_Disable:
 AI_Smart_MeanLook:
 	ld a, [wBattleMonType1] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
 	cp GHOST
-	jr nz, .player_is_no_ghost
-	call AIDiscourageMove ; We dismiss the use of Mean Look or Spider Web against a Ghost type because their are immune to it.
-	ret
+	jp z, AIDiscourageMove
 
-.player_is_no_ghost
+	ld a, [wBattleMonType2] ; Note: the Ghost type is always the first one (either Misdreavus or Gastly's family).
+	cp GHOST
+	jp z, AIDiscourageMove
+
+;.player_is_no_ghost
 	call AICheckEnemyHalfHP
 	jr nc, .discourage
 
@@ -3400,41 +3396,55 @@ AI_Status:
 	pop hl
 	pop de
 	pop bc
-	jr nc, .normal_check
+	jr nc, .skip_powder_check
 
 	ld a, [wBattleMonType1]
 	cp GRASS
 	jr z, .immune
+
 	ld a, [wBattleMonType2]
 	cp GRASS
 	jr z, .immune
 
-.normal_check
+.skip_powder_check
 	ld a, [wEnemyMoveStruct + MOVE_EFFECT]
 	cp EFFECT_TOXIC
-	jr z, .poisonimmunity
+	jr z, .check_poison_immunity
 	cp EFFECT_POISON
-	jr z, .poisonimmunity
+	jr z, .check_poison_immunity
 	cp EFFECT_SLEEP
-	jr z, .typeimmunity
+	jr z, .check_type_immunity
 	cp EFFECT_PARALYZE
-	jr z, .typeimmunity
+	jr z, .check_para_immunity
 
 	ld a, [wEnemyMoveStruct + MOVE_POWER]
 	and a
 	jr z, .checkmove
 
-	jr .typeimmunity
+	jr .check_type_immunity
 
-.poisonimmunity
+.check_poison_immunity
+	; Note: no need to check for steel types, as the Poison type move will get discarded by BattleCheckTypeMatchup.
 	ld a, [wBattleMonType1]
 	cp POISON
 	jr z, .immune
+
 	ld a, [wBattleMonType2]
 	cp POISON
 	jr z, .immune
 
-.typeimmunity
+	jr .check_type_immunity
+
+.check_para_immunity
+	ld a, [wBattleMonType1]
+	cp ELECTRIC
+	jr z, .immune
+
+	ld a, [wBattleMonType2]
+	cp ELECTRIC
+	jr z, .immune
+
+.check_type_immunity
 	push hl
 	push bc
 	push de
