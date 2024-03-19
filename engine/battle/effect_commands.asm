@@ -1716,6 +1716,9 @@ BattleCommand_CheckHit:
 	call .BlizzardHail
 	ret z
 
+	call .ToxicPoison
+	ret z
+
 	call .XAccuracy
 	ret nz
 
@@ -1906,6 +1909,28 @@ BattleCommand_CheckHit:
 
 	ld a, [wBattleWeather]
 	cp WEATHER_HAIL
+	ret
+
+.ToxicPoison:
+; Return z if the used move is Toxic, and the user is Poison type.
+; Which means Toxic should always hit.
+	ld a, BATTLE_VARS_MOVE_EFFECT
+	call GetBattleVar
+	cp EFFECT_TOXIC
+	ret nz
+
+	ld hl, wBattleMonType1
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .cur_mon_own_type_found
+	ld hl, wEnemyMonType1
+.cur_mon_own_type_found
+	ld a, [hli]
+	cp POISON
+	ret z
+
+	ld a, [hl]
+	cp POISON
 	ret
 
 .XAccuracy:
