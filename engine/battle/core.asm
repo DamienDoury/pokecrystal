@@ -143,7 +143,7 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	and BATTLERESULT_BITMASK
 	add DRAW
 	ld [wBattleResult], a
-	ld a, [wEnemyMonSpecies]
+	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
 	cp MEWTWO
 	jr z, .mewtwo
 
@@ -848,7 +848,7 @@ TryEnemyFlee:
 	and 1 << FRZ | SLP
 	jr nz, .Stay
 	
-	ld a, [wEnemyMonSpecies]
+	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
 	cp MEWTWO
 	jr z, .MewtwoBattle
 
@@ -6432,7 +6432,7 @@ LoadEnemyMon:
 	jr .UpdateDVs
 
 .NotRoaming:
-	ld a, [wEnemyMonSpecies]
+	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
 	cp MEWTWO
 	ld a, [wBattleType]
 	jr nz, .CheckShiny
