@@ -238,6 +238,10 @@ PokeBallEffect:
 
 	ld hl, wOptions
 	res NO_TEXT_SCROLL, [hl]
+
+	call .MewtwoMasterBallAvoidance
+	ret c
+
 	ld hl, ItemUsedText
 	call PrintText
 
@@ -421,7 +425,7 @@ PokeBallEffect:
 	inc a
 
 	add b
-	jr c, .catch_without_fail ; In case the catch rate is above the maximum of 255, it's a sure catch. No need to check for the other parameters, as nothing can reduce the catch rate after the current check.
+	jp c, .catch_without_fail ; In case the catch rate is above the maximum of 255, it's a sure catch. No need to check for the other parameters, as nothing can reduce the catch rate after the current check.
 	jr .one_hp_check
 
 .sub_total_stat_boost
@@ -467,6 +471,45 @@ PokeBallEffect:
 	jr c, .catch_without_fail
 
 	jr .skip_hp_calc
+
+; Output: nc if the master ball should proceed as normal.
+.MewtwoMasterBallAvoidance:
+	ld a, [wCurItem]
+	cp MASTER_BALL
+	jr nz, .masterball_succeeds
+
+	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
+	cp MEWTWO
+	jr nz, .masterball_succeeds
+
+	farcall TryEnemyFlee.IsMewtwoStrongEnoughToStay
+	ret nc
+
+; If wild Mewtwo is still strong enough, it will avoid the Master Ball.
+	ld hl, ItemUsedButNopeText
+	call PrintText
+
+	ld de, TELEPORT
+	call SetPlayerTurn
+	farcall PlayOpponentBattleAnim
+
+	ld a, BANK(wWindowStackBottom)
+	ld hl, wWindowStackBottom - 2
+	call GetFarWRAMByte
+	res 0, a ; Tells the upper menu in the stack to not call RestoreTileBackup on Exit, because it causes Mewtwo to re-appear after its teleport animation.
+	ldh [hWriteByte], a
+
+	ld a, BANK(wWindowStackBottom)
+	call WriteFarWRAMByte
+
+	ld a, $1	
+	ld [wBattleEnded], a
+	scf
+	ret
+
+.masterball_succeeds
+	xor a
+	ret
 
 .par_psn_brn_status_check
 	ld a, [wEnemyMonStatus]
@@ -2868,12 +2911,8 @@ ItemUsedText:
 	text_far _ItemUsedText
 	text_end
 
-ItemGotOnText: ; unreferenced
-	text_far _ItemGotOnText
-	text_end
-
-ItemGotOffText: ; unreferenced
-	text_far _ItemGotOffText
+ItemUsedButNopeText:
+	text_far _ItemUsedButNopeText
 	text_end
 
 ApplyPPUp:

@@ -1535,20 +1535,9 @@ _ItemUsedText::
 	text "."
 	done
 
-_ItemGotOnText::
-	text "<PLAYER> got on the@"
-	text_low
-	text_ram wStringBuffer2
-	text "."
-	prompt
-
-_ItemGotOffText::
-	text "<PLAYER> got off@"
-	text_low
-	text "the @"
-	text_ram wStringBuffer2
-	text "."
-	prompt
+_ItemUsedButNopeText::
+	text "<PLAYER> used the…"
+	done
 
 _KnowsMoveText::
 	text_ram wStringBuffer1

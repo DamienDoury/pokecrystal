@@ -7448,7 +7448,7 @@ PlayUserBattleAnim:
 	pop hl
 	ret
 
-PlayOpponentBattleAnim:
+PlayOpponentBattleAnim::
 	ld a, e
 	ld [wFXAnimID], a
 	ld a, d

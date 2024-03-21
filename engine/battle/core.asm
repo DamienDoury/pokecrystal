@@ -143,15 +143,24 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	and BATTLERESULT_BITMASK
 	add DRAW
 	ld [wBattleResult], a
+	ld hl, BattleText_WildFled
 	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
 	cp MEWTWO
-	jr z, .mewtwo
+	jr nz, .species_found
 
-	ld hl, BattleText_WildFled
-	jr .species_found
+	ld a, [wBattleMode]
+	dec a
+	jr nz, .species_found
 
-.mewtwo
+;.mewtwo battle ends now.
+
 	ld hl, BattleText_MewtwoFled
+	call StdBattleTextbox
+
+	ld de, TELEPORT
+	call SetPlayerTurn
+	farcall PlayOpponentBattleAnim
+	jr .skip_sfx
 
 .species_found
 	ld a, [wLinkMode]
@@ -839,7 +848,7 @@ HandleEncore:
 	ld hl, BattleText_TargetsEncoreEnded
 	jp StdBattleTextbox
 
-TryEnemyFlee:
+TryEnemyFlee::
 	ld a, [wBattleMode]
 	dec a
 	jr nz, .Stay ; You can't flee from a trainer battle.
@@ -898,18 +907,30 @@ TryEnemyFlee:
 	scf
 	ret
 
-.MewtwoBattle:
+; Output: carry if wild Mewtwo should stay in battle.
+.IsMewtwoStrongEnoughToStay::
 	ld a, [wEnemyTurnsTaken]
 	cp 10
-	jr c, .Stay
+	jr c, .MewtwoShouldStay
 
 	ld a, [wEnemyMonHP]
 	and a
-	jr nz, .Stay ; If Mewtwo has too much HP, it stays on the field.
+	jr nz, .MewtwoShouldStay ; If Mewtwo has too much HP, it stays on the field.
 
 	ld a, [wEnemyMonHP + 1]
 	cp 177
-	jr nc, .Stay ; If Mewtwo has more than half its max HP, it stays in battle.
+	jr nc, .MewtwoShouldStay ; If Mewtwo has more than half its max HP, it stays in battle.
+
+	xor a
+	ret
+
+.MewtwoShouldStay
+	scf
+	ret
+
+.MewtwoBattle:
+	call .IsMewtwoStrongEnoughToStay
+	jr c, .Stay
 
 	push bc
 	call BattleRandom

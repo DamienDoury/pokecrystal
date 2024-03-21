@@ -76,11 +76,23 @@ CeruleanCaveMewtwoScript:
 .appear
 	appear CERULEAN_CAVE_MEWTWO_TOP
 	appear CERULEAN_CAVE_MEWTWO_BOTTOM
-	jumptext MewtwoTeleportedAwayText
+	opentext
+	writetext MewtwoTeleportedAwayText
+	waitbutton
+	closetext
+
+	pause 20
+
+	jumptext MewtwoTeleportedAwaySequelText
 
 MewtwoTeleportedAwayText:
 	text "MEWTWO teleported"
 	line "away."
+	done
+
+MewtwoTeleportedAwaySequelText:
+	text "Its presence can"
+	line "still be felt…"
 	done
 
 CeruleanCaveB3F_MapEvents:
