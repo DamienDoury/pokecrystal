@@ -70,11 +70,13 @@ GetAnimatedFrontpic:
 	xor a
 	ldh [hBGMapMode], a
 	call _GetFrontpic
+
 	ld a, BANK(vTiles3)
 	ldh [rVBK], a
 	call GetAnimatedEnemyFrontpic
 	xor a
 	ldh [rVBK], a
+
 	pop af
 	ldh [rSVBK], a
 	jp CloseSRAM
@@ -111,7 +113,7 @@ _GetFrontpic:
 	ld c, 7 * 7
 	ldh a, [hROMBank]
 	ld b, a
-	call Get2bpp
+	call Get2bpp ; copy c 2bpp tiles from b:de to hl
 	pop hl
 	ret
 
@@ -372,6 +374,7 @@ GetTrainerPic:
 
 DecompressGet2bpp:
 ; Decompress lz data from b:hl to wDecompressScratch, then copy it to address de.
+; c is used by Get2bpp. It is the number of tiles to copy.
 
 	ldh a, [rSVBK]
 	push af

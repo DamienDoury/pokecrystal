@@ -728,6 +728,7 @@ SECTION "Battle Tower Trainer Data", ROMX
 
 INCLUDE "data/battle_tower/unknown.asm"
 INCLUDE "data/items/inflated_prices.asm"
+INCLUDE "gfx/cort/rotating_animation.asm"
 
 
 SECTION "Mobile News Data", ROMX

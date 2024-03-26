@@ -1,9 +1,73 @@
 BattleIntroSlidingPics:
+	ld a, WARTORTLE
+	ld [wCurPartySpecies], a
+	ld de, vTiles2
+	predef GetAnimatedFrontpic
+	;xor a
+	;ld [wTrainerClass], a
+	;ldh [hGraphicStartTile], a
+	;hlcoord 12, 0
+	;lb bc, 7, 7
+	;predef PlaceGraphic
+
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wLYOverrides)
 	ldh [rSVBK], a
 	call .subfunction1
+	
+	;_GetFrontpic
+	xor a
+	ldh [hBGMapMode], a
+	
+.loop
+	ld [wTileAnimationTimer], a
+	add a
+	ld c, a
+	ld b, 0
+	ld hl, EspeonRotatingFrames
+	add hl, bc
+	ld a, BANK(EspeonRotatingFrames)
+	call GetFarWord
+	ld b, BANK(EspeonRotatingFrames)
+	ld de, vTiles2 tile $00
+	ld c, 8 * 6
+	predef DecompressGet2bpp
+
+	;ld hl, wDecompressScratch
+	;ld a, h
+	;ldh [rHDMA1], a ; https://gbdev.io/pandocs/CGB_Registers.html?lcd-vram-dma-transfers#lcd-vram-dma-transfers
+	;ld a, l
+	;ldh [rHDMA2], a
+;
+	;ld hl, vTiles2 tile $00
+	;ld a, h
+	;ldh [rHDMA3], a
+	;ld a, l
+	;ldh [rHDMA4], a
+;
+	;ld a, WAVE_TILES_AMOUNT - 1
+	;ldh [rHDMA5], a
+	;call DelayFrame
+
+	ld a, [wTileAnimationTimer]
+	inc a
+	cp 36
+	jr c, .loop
+
+	xor a
+	jr .loop
+	ret
+
+
+
+
+
+
+
+
+
+
 	ld a, LOW(rSCX)
 	ldh [hLCDCPointer], a
 	call .subfunction2
