@@ -63,17 +63,6 @@ HandlePlayerStep:
 	dw BufferScreen
 	dw .mobile
 	dw .fail2
-; The rest are never used.  Ever.
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-	dw .fail1
-
-.fail1
-	ret
 
 .mobile
 	farcall StubbedTrainerRankings_StepCount
