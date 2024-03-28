@@ -1523,6 +1523,11 @@ _ItemUsedButNopeText::
 	line "let you use this."
 	done
 
+_MewtwoRetreatText::
+	text "MEWTWO"
+	line "retreats."
+	done
+
 _KnowsMoveText::
 	text_ram wStringBuffer1
 	text " knows"

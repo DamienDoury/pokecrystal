@@ -2536,6 +2536,22 @@ FaintYourPokemon:
 	jp StdBattleTextbox
 
 FaintEnemyPokemon:
+	farcall PokeBallEffect.IsItMewtwoBattle
+	jr nc, .notMewtwo
+
+	ld hl, .tactical_retreat
+	call PrintText
+
+	ld de, TELEPORT
+	call SetPlayerTurn
+	farcall PlayOpponentBattleAnim
+	ret
+
+.tactical_retreat
+	text_far _MewtwoRetreatText
+	text_end
+
+.notMewtwo
 	call WaitSFX
 	ld de, SFX_KINESIS
 	call PlaySFX
