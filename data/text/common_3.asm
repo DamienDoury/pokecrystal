@@ -1491,11 +1491,6 @@ _ItemOakWarningText::
 	cont "time to use that!"
 	prompt
 
-_ItemBelongsToSomeoneElseText::
-	text "That belongs to"
-	line "someone else!"
-	prompt
-
 _ItemWontHaveEffectText::
 	text "It won't have any"
 	line "effect."
@@ -1508,18 +1503,6 @@ _BallBlockedText::
 
 _BallDontBeAThiefText::
 	text "Don't be a thief!"
-	prompt
-
-_NoCyclingText::
-	text "Cycling isn't"
-	line "allowed here."
-	prompt
-
-_ItemCantGetOnText::
-	text "Can't get on your"
-	line "@"
-	text_ram wStringBuffer1
-	text " now."
 	prompt
 
 _BallBoxFullText::
@@ -1536,7 +1519,8 @@ _ItemUsedText::
 	done
 
 _ItemUsedButNopeText::
-	text "<PLAYER> used the…"
+	text "MEWTWO won't let"
+	line "you use this."
 	done
 
 _KnowsMoveText::
