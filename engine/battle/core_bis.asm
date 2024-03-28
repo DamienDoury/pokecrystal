@@ -597,29 +597,76 @@ CheckCaughtBeast:
 	ret
 
 SelectRandomMove::
-	ld hl, wEnemyMonMoves + 1
+	xor a
+	ld [wCurEnemyMoveNum], a ; Default choice.
+	ld hl, wEnemyMonMoves + 1 ; We start at the first move, as all Pokémon must have at least 1 move.
 	ld b, 0
+	ld c, 20 ; Number of tries before a forbidden move can be used.
 
 .count_loop
 	inc b
 	ld a, b
 	cp 4
-	jr z, .end_loop
+	jr z, .check_loop ; We can't count above 4.
+
 	ld a, [hli]
 	and a
 	jr nz, .count_loop
 
-.end_loop
+.check_loop
 	call Random
 	and NUM_MOVES - 1
 	call Modulo
-
+	
 	ld [wCurEnemyMoveNum], a
-
+	dec c
+	jr z, .move_chosen
+	
+	push bc
 	ld hl, wEnemyMonMoves
+	ld c, a
+	ld b, 0
+	add hl, bc
+	ld a, [hl] ; Getting the move ID.
+	ld b, a
+	callfar GetMoveEffect
+	ld a, b
+	
+	ld hl, .forbiddenMovesOnTurn1
+	call IsInByteArray ; Clobbers DE, but shouldn't be an issue.
+	pop bc
+
+	jr c, .check_loop
+
+.move_chosen
+	ld hl, wEnemyMonMoves
+	ld a, [wCurEnemyMoveNum]
 	ld c, a
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
 	ld [wCurEnemyMove], a
 	ret
+
+.forbiddenMovesOnTurn1
+	db EFFECT_HEAL
+	db EFFECT_MORNING_SUN
+	db EFFECT_SYNTHESIS
+	db EFFECT_MOONLIGHT
+	db EFFECT_MIMIC
+	db EFFECT_MIRROR_MOVE
+	db EFFECT_DISABLE
+	db EFFECT_ENCORE
+	db EFFECT_COUNTER
+	db EFFECT_MIRROR_COAT
+	db EFFECT_DREAM_EATER
+	db EFFECT_SLEEP_TALK
+	db EFFECT_NIGHTMARE
+	db EFFECT_SNORE
+	db EFFECT_PROTECT
+	db EFFECT_ENDURE
+	db EFFECT_RESET_STATS
+	db EFFECT_HEAL_BELL
+	db EFFECT_BATON_PASS
+	db EFFECT_PSYCH_UP
+	db -1
