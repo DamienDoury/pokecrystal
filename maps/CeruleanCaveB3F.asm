@@ -50,11 +50,11 @@ CeruleanCaveMewtwoScript:
 	end
 
 .DidntCatchMewtwo:
+	disappear CERULEAN_CAVE_MEWTWO_TOP
+	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
 	reloadmapafterbattle
 	playsound SFX_WARP_TO
 	waitsfx
-	disappear CERULEAN_CAVE_MEWTWO_TOP
-	disappear CERULEAN_CAVE_MEWTWO_BOTTOM
 
 	special ComputeMewtwoTeleportIndex
 	readmem wCeruleanCaveB3FTeleportIndex
