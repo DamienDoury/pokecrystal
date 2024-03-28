@@ -209,7 +209,7 @@ ItemEffects:
 ; They all have the ITEMMENU_NOUSE attribute so they can't be used anyway.
 ; NoEffect would be appropriate, with the table then being NUM_ITEMS long.
 
-PokeBallEffect:
+PokeBallEffect::
 	ld a, [wBattleMode]
 	dec a
 	jp nz, UseBallInTrainerBattle
@@ -506,7 +506,8 @@ PokeBallEffect:
 
 	jr .skip_hp_calc
 
-.IsItMewtwoBattle:
+; Output : carry if it is the Mewtwo fight.
+.IsItMewtwoBattle::
 	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
 	cp MEWTWO
 	jr nz, .masterball_succeeds

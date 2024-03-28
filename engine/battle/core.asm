@@ -7332,6 +7332,9 @@ GiveExperiencePoints:
 	bit 0, a
 	ret nz
 
+	farcall PokeBallEffect.IsItMewtwoBattle
+	ret c ; Don't give XP against Mewtwo, as it teleports away.
+
 	call .EvenlyDivideExpAmongParticipants
 	xor a
 	ld [wCurPartyMon], a
