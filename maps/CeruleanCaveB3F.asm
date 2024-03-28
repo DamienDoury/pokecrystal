@@ -15,6 +15,7 @@ CeruleanCaveB3F_MapScripts:
 	loadmem wCeruleanCaveB3FStepCount, 30
 	loadmem wCeruleanCaveB3FMessageIndex, 0
 	loadmem wCeruleanCaveB3FTeleportIndex, 0
+	loadmem wCeruleanCaveB3FMewtwoCatchRate, 0
 
 .end
 	endcallback
@@ -26,6 +27,13 @@ CeruleanCaveMewtwoScript:
 	cry MEWTWO
 	waitsfx
 	pause 30
+	readmem wCeruleanCaveB3FMewtwoCatchRate
+	ifequal MEWTWO_MAX_CATCHRATE + MEWTWO_ENCOUNTER_CATCHRATE_BOOST, .skip_catch_rate_increase
+	ifgreater MEWTWO_MAX_CATCHRATE + MEWTWO_ENCOUNTER_CATCHRATE_BOOST, .skip_catch_rate_increase
+	addval MEWTWO_ENCOUNTER_CATCHRATE_BOOST
+	writemem wCeruleanCaveB3FMewtwoCatchRate
+
+.skip_catch_rate_increase
 	loadmem wCeruleanCaveB3FStepCount, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100

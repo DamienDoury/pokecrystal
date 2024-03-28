@@ -247,13 +247,48 @@ PokeBallEffect:
 
 	ld a, [wEnemyMonCatchRate]
 	ld b, a
+
+	call .IsItMewtwoBattle
+	jr nc, .catch_rate_modifiers_applied
+
+	ld hl, wCeruleanCaveB3FMewtwoCatchRate
+	ld a, [hl]
+	sub MEWTWO_ENCOUNTER_CATCHRATE_BOOST ; We want Mewtwo's catchrate to be 0 at first. So we subtract the encounter boost which is added at the start of each encounter.
+	srl a
+	srl a
+	srl a ; Divide the value by 8.
+	ld b, a ; Mewtwo's base catch rate has been updated.
+
+	; Now we update the catchrate.
+	; To increase Mewtwo's catchrate by 1 (up to 20), you need: 
+	; 8 Pokéballs or
+	; 2 Ultra Balls
+	; 4 of any other balls
+	; Master Ball doesn't matter as it ends the battle (whether Mewtwo teleported away or got caught).
+
+	ld a, [hl]
+	cp MEWTWO_MAX_CATCHRATE + MEWTWO_ENCOUNTER_CATCHRATE_BOOST
+	jr nc, .catch_rate_modifiers_applied
+
+	inc [hl]
+	ld a, [wCurItem]
+	cp POKE_BALL
+	jr z, .catch_rate_modifiers_applied
+
+	inc [hl]
+	cp ULTRA_BALL
+	jr nz, .catch_rate_modifiers_applied
+
+	inc [hl]
+	inc [hl]
+
+.catch_rate_modifiers_applied
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jp z, .catch_without_fail
 	ld a, [wCurItem]
 	cp MASTER_BALL
 	jp z, .catch_without_fail
-	;ld a, [wCurItem] ; Useless.
 	ld c, a
 	ld hl, BallMultiplierFunctionTable
 
@@ -281,7 +316,6 @@ PokeBallEffect:
 	ld a, b
 	jp z, .skip_hp_calc
 
-	;ld a, b ; Useless.
 	ldh [hMultiplicand + 2], a ; Stores the modified catch rate (after ball multiplier).
 
 	ld hl, wEnemyMonHP
@@ -453,7 +487,7 @@ PokeBallEffect:
 	; 6 bonus points of catch rate if the wild pokemon is at exactly 1 HP left.
 	ld a, 6
 	add b
-	jr c, .catch_without_fail
+	jp c, .catch_without_fail
 	ld b, a
 
 .slp_frz_status_check
@@ -472,15 +506,25 @@ PokeBallEffect:
 
 	jr .skip_hp_calc
 
+.IsItMewtwoBattle:
+	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
+	cp MEWTWO
+	jr nz, .masterball_succeeds
+
+	ld a, [wCurLandmark]
+	cp LANDMARK_CERULEAN_CAVE
+	jr nz, .masterball_succeeds
+
+	jr .return_carry
+
 ; Output: nc if the master ball should proceed as normal.
 .MewtwoMasterBallAvoidance:
 	ld a, [wCurItem]
 	cp MASTER_BALL
 	jr nz, .masterball_succeeds
 
-	ld a, [wTempEnemyMonSpecies] ; wEnemyMonSpecies can be overriden by Transform.
-	cp MEWTWO
-	jr nz, .masterball_succeeds
+	call .IsItMewtwoBattle
+	jr nc, .masterball_succeeds
 
 	farcall TryEnemyFlee.IsMewtwoStrongEnoughToStay
 	ret nc
@@ -506,6 +550,8 @@ PokeBallEffect:
 	ld [wBattleEnded], a
 	inc a
 	ld [wBattleResult], a ; DRAW
+
+.return_carry
 	scf
 	ret
 
