@@ -504,6 +504,8 @@ PokeBallEffect:
 
 	ld a, $1	
 	ld [wBattleEnded], a
+	inc a
+	ld [wBattleResult], a ; DRAW
 	scf
 	ret
 
