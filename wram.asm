@@ -3096,6 +3096,7 @@ NEXTU ; Cerulean Cave.
 wCeruleanCaveB3FStepCount:: db
 wCeruleanCaveB3FMessageIndex:: db
 wCeruleanCaveB3FTeleportIndex:: db
+wCeruleanCaveB3FMewtwoCatchRate:: db ; The actual value is divided by 2.
 
 NEXTU ; Olivine City.
 wOlivineCafeBerry1:: db
