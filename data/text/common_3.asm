@@ -1519,8 +1519,8 @@ _ItemUsedText::
 	done
 
 _ItemUsedButNopeText::
-	text "MEWTWO won't let"
-	line "you use this."
+	text "MEWTWO won't"
+	line "let you use this."
 	done
 
 _KnowsMoveText::
