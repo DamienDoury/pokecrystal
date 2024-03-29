@@ -1,6 +1,6 @@
 	object_const_def
-	const CERULEAN_CAVE_MEWTWO_TOP
-	const CERULEAN_CAVE_MEWTWO_BOTTOM
+	const CERULEAN_CAVE_MEWTWO_TOP    ; Must stay at position 1, because it's used by RespawnPlayerAndOpponent.
+	const CERULEAN_CAVE_MEWTWO_BOTTOM ; Must stay at position 2, because it's used by RespawnPlayerAndOpponent.
 
 CeruleanCaveB3F_MapScripts:
 	def_scene_scripts

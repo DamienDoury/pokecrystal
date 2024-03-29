@@ -2345,10 +2345,20 @@ RespawnPlayerAndOpponent:
 	ld a, [wBattleScriptFlags]
 	bit 7, a
 	jr z, .skip_opponent
+
 	ldh a, [hLastTalked]
 	and a
 	jr z, .skip_opponent
 	call RespawnObject
+
+	farcall PokeBallEffect.IsItMewtwoBattle
+	jr nc, .skip_opponent
+
+	; Special case for Mewtwo, as it uses 2 objects.
+	ldh a, [hLastTalked]
+	xor %11 ; This find the second object index. 1 -> 2 or 2 -> 1.
+	call RespawnObject
+
 .skip_opponent
 	call _UpdateSprites
 	ret
