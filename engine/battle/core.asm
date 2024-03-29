@@ -197,6 +197,13 @@ WildFled_EnemyFled_LinkBattleCanceled:
 	ld [wBattleEnded], a
 	ret
 
+RotateLockSubStatuses:
+	ld a, [hl]
+	and %0101
+	sla a ; Moves the Lock On and Mind Reader "next turn" states to the current state.
+	ld [hl], a
+	ret
+
 BattleTurn:
 	ldh a, [hInMenu]
 	push af
@@ -215,6 +222,11 @@ BattleTurn:
 	ld [wEnemyJustGotFrozen], a
 	ld [wCurDamage], a
 	ld [wCurDamage + 1], a
+
+	ld hl, wPlayerSubStatus2
+	call RotateLockSubStatuses
+	ld hl, wEnemySubStatus2
+	call RotateLockSubStatuses
 
 	call HandleBerserkGene
 	call UpdateBattleMonInParty
@@ -3944,11 +3956,9 @@ endr
 	ld [wPlayerWrapCount], a
 	ld [wEnemyWrapCount], a
 	ld [wEnemyTurnsTaken], a
-	ld hl, wPlayerSubStatus2
-	res SUBSTATUS_MIND_READER, [hl]
+	ld [wPlayerSubStatus2], a ; Remove the lock substatuses.
 	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
 	ret
 
 ResetEnemyStatLevels:
@@ -4436,11 +4446,9 @@ endr
 	ld [wEnemyWrapCount], a
 	ld [wPlayerWrapCount], a
 	ld [wPlayerTurnsTaken], a
-	ld hl, wEnemySubStatus2
-	res SUBSTATUS_MIND_READER, [hl]
+	ld [wEnemySubStatus2], a ; Remove the lock substatuses.
 	ld hl, wEnemySubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
 	ret
 
 BreakAttraction:

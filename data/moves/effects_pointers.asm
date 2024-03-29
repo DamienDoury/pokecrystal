@@ -67,8 +67,6 @@ MoveEffectsPointers:
 	dw Encore
 	dw PainSplit
 	dw Snore
-	dw LockOn
-	dw MindReader
 	dw DefrostOpponent
 	dw Reversal
 	dw Spite
@@ -110,6 +108,7 @@ MoveEffectsPointers:
 	dw Fly
 	dw FreezeHit ; for Blizzard, purposefully with different EFFECT_* constant
 	dw BodySlam
+	; Moves below this line are displayed as having perfect accuracy.
 	dw NormalHit
 	dw MirrorMove
 	dw AttackUp
@@ -163,4 +162,6 @@ MoveEffectsPointers:
 	dw DefenseCurl
 	dw Hail
 	dw Growth
+	dw LockOn
+	dw MindReader
 	assert_table_length NUM_MOVE_EFECTS

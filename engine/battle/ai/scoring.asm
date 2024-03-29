@@ -449,11 +449,10 @@ AI_Smart_LeechHit:
 	ret
 
 AI_Smart_LockOn:
-	ld a, [wPlayerSubStatus5]
+	ld a, [wPlayerSubStatus2]
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .player_locked_on
 
-	ld a, [wPlayerSubStatus2]
 	bit SUBSTATUS_MIND_READER, a
 	jr nz, .player_locked_on
 
@@ -1986,20 +1985,18 @@ AI_Smart_Protect:
 
 .skip_perish_trap
 ; Encourage this move if the enemy is locked on.
-	ld a, [wEnemySubStatus5]
+	ld a, [wEnemySubStatus2]
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .greatly_encourage
 
-	ld a, [wEnemySubStatus2]
 	bit SUBSTATUS_MIND_READER, a
 	jr nz, .greatly_encourage
 
 ; Discourage this move if the player is locked on.
-	ld a, [wPlayerSubStatus5]
+	ld a, [wPlayerSubStatus2]
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .discourage
 
-	ld a, [wPlayerSubStatus2]
 	bit SUBSTATUS_MIND_READER, a
 	jr nz, .discourage
 
@@ -2340,11 +2337,10 @@ AI_Smart_Endure:
 
 .no_reversal
 ; If the enemy is not locked on, do nothing.
-	ld a, [wEnemySubStatus5]
+	ld a, [wEnemySubStatus2]
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .may_encourage
 
-	ld a, [wEnemySubStatus2]
 	bit SUBSTATUS_MIND_READER, a
 	ret z
 

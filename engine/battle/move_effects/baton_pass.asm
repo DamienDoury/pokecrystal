@@ -98,6 +98,11 @@ ResetBatonPassStatus:
 	; Disable isn't passed.
 	call ResetActorDisable
 
+	; Lock On and Mind Reader links are broken.
+	xor a
+	ld [wPlayerSubStatus2], a
+	ld [wEnemySubStatus2], a
+
 	; Attraction isn't passed.
 	ld hl, wPlayerSubStatus1
 	res SUBSTATUS_IN_LOVE, [hl]

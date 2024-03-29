@@ -176,7 +176,9 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 
 ; wPlayerSubStatus2 or wEnemySubStatus2 bit flags
 	const_def
-	const SUBSTATUS_CURLED
+	const SUBSTATUS_LOCK_ON_NEXT_TURN
+	const SUBSTATUS_LOCK_ON
+	const SUBSTATUS_MIND_READER_NEXT_TURN
 	const SUBSTATUS_MIND_READER
 
 ; wPlayerSubStatus3 or wEnemySubStatus3 bit flags
@@ -204,11 +206,11 @@ ALL_STATUS EQU (1 << PSN) | (1 << BRN) | (1 << FRZ) | (1 << PAR) | SLP
 ; wPlayerSubStatus5 or wEnemySubStatus5 bit flags
 	const_def
 	const SUBSTATUS_TOXIC
-	const_skip
-	const_skip
+	const_skip ; Toxic counter.
+	const_skip ; Toxic counter.
 	const SUBSTATUS_TRANSFORMED
 	const SUBSTATUS_ENCORED
-	const SUBSTATUS_LOCK_ON
+	const SUBSTATUS_CURLED
 	const SUBSTATUS_DESTINY_BOND
 	const SUBSTATUS_CANT_RUN
 

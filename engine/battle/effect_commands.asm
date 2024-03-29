@@ -1255,10 +1255,9 @@ BattleCommand_Critical:
 	and a
 	ret z
 
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
 	jr nz, .DoesCrit
 
 	ldh a, [hBattleTurn]
@@ -1696,7 +1695,7 @@ BattleCommand_CheckRestrictedWeather:
 BattleCommand_CheckHit:
 ; checkhit
 
-	call .LockOn
+	call .TargetLockedOn
 	ret nz
 
 	call .DreamEater
@@ -1709,6 +1708,9 @@ BattleCommand_CheckHit:
 	jp z, .Miss
 
 	call .FlyDigMoves
+	jp nz, .Miss
+
+	call .UserSensedMove ; If Lock On is used against Mind Reader, Lock On wins.
 	jp nz, .Miss
 
 	call .OHKOIgnoresAccuracyEvasion
@@ -1814,19 +1816,15 @@ BattleCommand_CheckHit:
 	and a
 	ret
 
-.LockOn:
+.TargetLockedOn:
 ; Return nz if we are locked-on and aren't trying to use Earthquake,
 ; Fissure or Magnitude on a monster that is flying.
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
-	call GetBattleVarAddr
-	bit SUBSTATUS_LOCK_ON, [hl]
-	res SUBSTATUS_LOCK_ON, [hl]
-	jr nz, .CheckFlying
-
 	ld a, BATTLE_VARS_SUBSTATUS2_OPP
 	call GetBattleVarAddr
+	bit SUBSTATUS_LOCK_ON, [hl]
+	jr nz, .CheckFlying
+
 	bit SUBSTATUS_MIND_READER, [hl]
-	res SUBSTATUS_MIND_READER, [hl]
 	ret z
 
 .CheckFlying
@@ -1848,6 +1846,25 @@ BattleCommand_CheckHit:
 .LockedOn:
 	ld a, 1
 	and a
+	ret
+
+.UserSensedMove:
+	ld a, BATTLE_VARS_SUBSTATUS2
+	call GetBattleVarAddr
+	bit SUBSTATUS_MIND_READER, [hl]
+	ret z
+	; Don't unset the flag. It can still be used by other functions.
+	; It will be unset at the end of the turn.
+
+	ld c, 20
+	call DelayFrames
+	call PromptButton
+
+	ld hl, AnticipatedAndAvoidedText
+	call StdBattleTextbox
+
+	ld a, 1
+	inc a ; Seting the return flag to nz. There has be a a cleaner way but I'm currently a zombi.
 	ret
 
 .DrainSub:
@@ -5242,7 +5259,7 @@ BattleCommand_TriStatusChance:
 
 BattleCommand_Curl:
 ; curl
-	ld a, BATTLE_VARS_SUBSTATUS2
+	ld a, BATTLE_VARS_SUBSTATUS5
 	call GetBattleVarAddr
 	set SUBSTATUS_CURLED, [hl]
 	ret
@@ -7292,10 +7309,10 @@ BattleCommand_Growth:
 	jp StdBattleTextbox
 
 CheckHiddenOpponent:
-	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
 	call GetBattleVar
 	cpl
-	and 1 << SUBSTATUS_LOCK_ON
+	and 1 << SUBSTATUS_LOCK_ON | 1 << SUBSTATUS_MIND_READER
 	ret z
 
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
