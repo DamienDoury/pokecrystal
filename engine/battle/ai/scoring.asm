@@ -344,6 +344,7 @@ AI_Smart_EffectHandlers:
 	dbw EFFECT_SNORE,            AI_Smart_Snore
 	dbw EFFECT_CONVERSION2,      AI_Smart_Conversion2
 	dbw EFFECT_LOCK_ON,          AI_Smart_LockOn
+	dbw EFFECT_MIND_READER,      AI_Smart_LockOn
 	dbw EFFECT_DEFROST_OPPONENT, AI_Smart_DefrostOpponent
 	dbw EFFECT_SLEEP_TALK,       AI_Smart_SleepTalk
 	dbw EFFECT_DESTINY_BOND,     AI_Smart_DestinyBond
@@ -450,6 +451,10 @@ AI_Smart_LeechHit:
 AI_Smart_LockOn:
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
+	jr nz, .player_locked_on
+
+	ld a, [wPlayerSubStatus2]
+	bit SUBSTATUS_MIND_READER, a
 	jr nz, .player_locked_on
 
 	push hl
@@ -1985,9 +1990,17 @@ AI_Smart_Protect:
 	bit SUBSTATUS_LOCK_ON, a
 	jr nz, .greatly_encourage
 
+	ld a, [wEnemySubStatus2]
+	bit SUBSTATUS_MIND_READER, a
+	jr nz, .greatly_encourage
+
 ; Discourage this move if the player is locked on.
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
+	jr nz, .discourage
+
+	ld a, [wPlayerSubStatus2]
+	bit SUBSTATUS_MIND_READER, a
 	jr nz, .discourage
 
 ; Encourage this move if the player's Fury Cutter is boosted enough.
@@ -2329,8 +2342,13 @@ AI_Smart_Endure:
 ; If the enemy is not locked on, do nothing.
 	ld a, [wEnemySubStatus5]
 	bit SUBSTATUS_LOCK_ON, a
+	jr nz, .may_encourage
+
+	ld a, [wEnemySubStatus2]
+	bit SUBSTATUS_MIND_READER, a
 	ret z
 
+.may_encourage
 ; 50% chance to greatly encourage this move.
 	call AI_50_50
 	ret c

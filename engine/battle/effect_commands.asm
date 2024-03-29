@@ -1814,8 +1814,15 @@ BattleCommand_CheckHit:
 	call GetBattleVarAddr
 	bit SUBSTATUS_LOCK_ON, [hl]
 	res SUBSTATUS_LOCK_ON, [hl]
+	jr nz, .CheckFlying
+
+	ld a, BATTLE_VARS_SUBSTATUS2_OPP
+	call GetBattleVarAddr
+	bit SUBSTATUS_MIND_READER, [hl]
+	res SUBSTATUS_MIND_READER, [hl]
 	ret z
 
+.CheckFlying
 	ld a, BATTLE_VARS_SUBSTATUS3_OPP
 	call GetBattleVar
 	bit SUBSTATUS_FLYING, a

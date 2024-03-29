@@ -780,6 +780,11 @@ TookAimText:
 	line "took aim!"
 	prompt
 
+AnticipatedText:
+	text "<USER> sensed"
+	line "the next move!"
+	prompt
+
 SketchedText:
 	text "<USER>"
 	line "SKETCHED"

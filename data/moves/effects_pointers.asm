@@ -68,6 +68,7 @@ MoveEffectsPointers:
 	dw PainSplit
 	dw Snore
 	dw LockOn
+	dw MindReader
 	dw DefrostOpponent
 	dw Reversal
 	dw Spite

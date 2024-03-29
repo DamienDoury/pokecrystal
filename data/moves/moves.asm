@@ -182,7 +182,7 @@ Moves:
 	move TRIPLE_KICK,  EFFECT_TRIPLE_KICK,        10, FIGHTING,      	PHYSICAL,	90, 10,   0
 	move THIEF,        EFFECT_THIEF,              60, DARK,         	PHYSICAL,	100, 25, 100
 	move SPIDER_WEB,   EFFECT_MEAN_LOOK,           0, BUG,          	STATUS,		100, 10,   0
-	move MIND_READER,  EFFECT_LOCK_ON,             0, NORMAL,       	STATUS,		100,  5,   0
+	move MIND_READER,  EFFECT_MIND_READER,         0, NORMAL,       	STATUS,		100,  5,   0
 	move NIGHTMARE,    EFFECT_NIGHTMARE,           0, GHOST,        	STATUS,		100, 15,   0
 	move FLAME_WHEEL,  EFFECT_FLAME_WHEEL,        60, FIRE,         	PHYSICAL,	100, 25,  10
 	move SNORE,        EFFECT_SNORE,              50, NORMAL,       	SPECIAL,	100, 15,  30

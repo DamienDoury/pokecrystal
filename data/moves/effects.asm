@@ -1367,6 +1367,14 @@ LockOn:
 	lockon
 	endmove
 
+MindReader:
+	checkobedience
+	usedmovetext
+	doturn
+	checkhit
+	mindreader
+	endmove
+
 Sketch:
 	checkobedience
 	usedmovetext

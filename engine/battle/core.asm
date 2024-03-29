@@ -3944,6 +3944,8 @@ endr
 	ld [wPlayerWrapCount], a
 	ld [wEnemyWrapCount], a
 	ld [wEnemyTurnsTaken], a
+	ld hl, wPlayerSubStatus2
+	res SUBSTATUS_MIND_READER, [hl]
 	ld hl, wPlayerSubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
 	res SUBSTATUS_LOCK_ON, [hl]
@@ -4434,6 +4436,8 @@ endr
 	ld [wEnemyWrapCount], a
 	ld [wPlayerWrapCount], a
 	ld [wPlayerTurnsTaken], a
+	ld hl, wEnemySubStatus2
+	res SUBSTATUS_MIND_READER, [hl]
 	ld hl, wEnemySubStatus5
 	res SUBSTATUS_CANT_RUN, [hl]
 	res SUBSTATUS_LOCK_ON, [hl]
