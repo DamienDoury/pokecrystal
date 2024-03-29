@@ -1255,6 +1255,12 @@ BattleCommand_Critical:
 	and a
 	ret z
 
+	ld a, BATTLE_VARS_SUBSTATUS5_OPP
+	call GetBattleVarAddr
+	bit SUBSTATUS_LOCK_ON, [hl]
+	res SUBSTATUS_LOCK_ON, [hl]
+	jr nz, .DoesCrit
+
 	ldh a, [hBattleTurn]
 	and a
 	ld hl, wEnemyMonItem
@@ -1327,6 +1333,7 @@ BattleCommand_Critical:
 	call BattleRandom
 	cp [hl]
 	ret nc
+.DoesCrit:
 	ld a, 1
 	ld [wCriticalHit], a
 	ret

@@ -1060,8 +1060,8 @@ BoneRushDescription:
 	next "hits 2-5 times.@"
 
 LockOnDescription:
-	db   "Ensures the next"
-	next "attack will hit.@"
+	db   "User's next move"
+	next "hits and crits.@"
 
 OutrageDescription:
 	db   "Works 2-3 turns"
