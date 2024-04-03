@@ -236,12 +236,9 @@ UpdateTallGrassFlags:
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
 	ld a, [hl]
-	;call UselessAndA
-	;ret c ; never happens
 	ld hl, OBJECT_STANDING_TILE
 	add hl, bc
 	ld a, [hl]
-	;call UselessAndA
 	ret
 
 SetTallGrassFlags:
@@ -260,10 +257,6 @@ SetTallGrassFlags:
 	add hl, bc
 	res OVERHEAD_F, [hl]
 	ret
-
-;UselessAndA:
-;	and a
-;	ret
 
 EndSpriteMovement:
 	xor a
@@ -1882,7 +1875,7 @@ StepFunction_ScreenShake:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	dec [hl]
-	jr z, .ok
+	jp z, DeleteMapObject
 	ld a, [hl]
 	call .GetSign
 	ld hl, OBJECT_1D
@@ -1892,10 +1885,6 @@ StepFunction_ScreenShake:
 	ld a, [wPlayerStepVectorY]
 	add d
 	ld [wPlayerStepVectorY], a
-	ret
-
-.ok
-	call DeleteMapObject
 	ret
 
 .GetSign:

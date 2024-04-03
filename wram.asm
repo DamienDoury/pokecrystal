@@ -2575,14 +2575,11 @@ wTimeOfDay:: db
 
 SECTION "Enemy Party", WRAMX
 
-UNION ; 8 bytes.
+UNION ; 8 / 28 bytes.
 wPokedexShowPointerAddr:: dw
 wPokedexShowPointerBank:: db
 	ds 3
 wd271:: dw ; mobile
-
-NEXTU ; 1 byte.
-	ds 1
 
 NEXTU ; 28 bytes.
 ; enemy party
