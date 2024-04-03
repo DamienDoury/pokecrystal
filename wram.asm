@@ -1209,7 +1209,9 @@ endc
 
 ENDU
 
-	ds 12
+wLoadedGrassRustleOrDust:: db
+
+	ds 11
 
 
 SECTION "Video", WRAM0

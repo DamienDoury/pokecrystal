@@ -2176,6 +2176,18 @@ SpawnShadow:
 
 SpawnStrengthBoulderDust:
 	push bc
+	ld a, [wLoadedGrassRustleOrDust]
+	cp EMOTE_BOULDER_DUST
+	jr z, .SkipLoadEmote
+
+	push bc
+	ld a, EMOTE_BOULDER_DUST
+	ld [wLoadedGrassRustleOrDust], a
+	ld c, a
+	farcall LoadEmote
+	pop bc
+
+.SkipLoadEmote
 	ld de, .BoulderDustObject
 	call CopyTempObjectData
 	call InitTempObject
@@ -2200,6 +2212,18 @@ SpawnEmote:
 
 ShakeGrass:
 	push bc
+	ld a, [wLoadedGrassRustleOrDust]
+	cp EMOTE_GRASS_RUSTLE
+	jr z, .SkipLoadEmote
+
+	push bc
+	ld a, EMOTE_GRASS_RUSTLE
+	ld [wLoadedGrassRustleOrDust], a
+	ld c, a
+	farcall LoadEmote
+	pop bc
+
+.SkipLoadEmote
 	ld de, .GrassObject
 	call CopyTempObjectData
 	call InitTempObject
