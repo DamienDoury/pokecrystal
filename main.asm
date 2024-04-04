@@ -480,12 +480,6 @@ INCLUDE "gfx/pokemon/frame_pointers.asm"
 INCLUDE "gfx/pokemon/kanto_frames.asm"
 
 
-SECTION "Font Inversed", ROMX
-
-FontInversed:
-INCBIN "gfx/font/font_inversed.1bpp"
-
-
 SECTION "Pic Animations 3", ROMX
 
 INCLUDE "gfx/pokemon/johto_frames.asm"

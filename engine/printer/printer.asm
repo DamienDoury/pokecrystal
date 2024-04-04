@@ -43,11 +43,7 @@ PrintDexEntry:
 	ld a, [wPrinterQueueLength]
 	push af
 
-	ld hl, vTiles1
-	ld de, FontInversed
-	lb bc, BANK(FontInversed), $80
-	call Request1bpp
-
+	farcall Pokedex_LoadInvertedFont ; Does the same job, but allows for the removal of a font image asset (save 1024 bytes!). Also easier to manage.
 	xor a
 	ldh [hPrinter], a
 	call Printer_PlayMusic
