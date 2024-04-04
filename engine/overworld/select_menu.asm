@@ -158,7 +158,7 @@ UseRegisteredItem:
 	ret
 
 .Overworld:
-	call RefreshScreen
+	farcall LoadOW_BGPal7
 	ld a, 1
 	ld [wUsingItemWithSelect], a
 	call DoItemEffect
@@ -166,7 +166,7 @@ UseRegisteredItem:
 	ld [wUsingItemWithSelect], a
 	ld a, [wItemEffectSucceeded]
 	cp 1
-	jr nz, ._cantuse
+	jr nz, .CantUse
 	scf
 	ld a, HMENURETURN_SCRIPT
 	ldh [hMenuReturn], a
@@ -174,8 +174,6 @@ UseRegisteredItem:
 
 .CantUse:
 	call RefreshScreen
-
-._cantuse
 	call CantUseItem
 	call CloseText
 	and a

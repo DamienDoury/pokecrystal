@@ -1569,6 +1569,12 @@ FishFunction:
 	dw .FishNoFish
 
 .TryFish:
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr z, .skip_screen_refresh
+
+	call RefreshScreen
+.skip_screen_refresh
 	ld a, [wPlayerState]
 	cp PLAYER_SURF
 	jr z, .fail
@@ -1710,7 +1716,7 @@ Fishing_CheckFacingUp:
 	ret
 
 Script_FishCastRod:
-	reloadmappart
+	;reloadmappart
 	loadmem hBGMapMode, $0
 	special UpdateTimePals
 	loademote EMOTE_ROD
@@ -1875,7 +1881,6 @@ Script_GetOnBike:
 
 Script_GetOnBike_Register:
 	loadvar VAR_MOVEMENT, PLAYER_BIKE
-	closetext
 	special UpdatePlayerSprite
 	end
 
@@ -1888,13 +1893,14 @@ Script_GetOffBike:
 
 FinishGettingOffBike:
 	closetext
+.registered
 	special UpdatePlayerSprite
 	special PlayMapMusic
 	end
 
 Script_GetOffBike_Register:
 	loadvar VAR_MOVEMENT, PLAYER_NORMAL
-	sjump FinishGettingOffBike
+	sjump FinishGettingOffBike.registered
 
 Script_CantGetOffBike:
 	writetext .CantGetOffBikeText

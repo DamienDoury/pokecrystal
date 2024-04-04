@@ -9,6 +9,12 @@ ItemFinder:
 
 .resume
 	call QueueScript
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr z, .skip_screen_refresh
+
+	call RefreshScreen
+.skip_screen_refresh
 	ld a, $1
 	ld [wItemEffectSucceeded], a
 	ret
