@@ -35,6 +35,7 @@ InitPartyMenuLayout:
 	ret
 
 LoadPartyMenuGFX:
+	call LoadStandardFont
 	call LoadFontsBattleExtra
 	callfar InitPartyMenuPalettes
 	callfar ClearSpriteAnims2

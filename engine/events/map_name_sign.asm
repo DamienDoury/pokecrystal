@@ -37,6 +37,8 @@ InitMapNameSign::
 	call .CheckSpecialMap
 	jr z, .dont_do_map_sign
 
+	farcall LoadOverworldFont
+
 ; Display for 60 frames
 	ld a, MAP_NAME_SIGN_DURATION
 	ld [wLandmarkSignTimer], a

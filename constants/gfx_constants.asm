@@ -55,3 +55,9 @@ SPRITE_GFX_LIST_CAPACITY EQU 32 ; see wUsedSprites
 	const ANIM_MON_HOF
 	const ANIM_MON_EGG1
 	const ANIM_MON_EGG2
+
+	const_def
+	const FONT_CLOBBERED ; 0
+	const FONT_STANDARD
+	const FONT_OW
+	const FONT_INVERSED

@@ -1210,8 +1210,8 @@ endc
 ENDU
 
 wLoadedGrassRustleOrDust:: db
-
-	ds 11
+wLoadedFont:: db
+	ds 10
 
 
 SECTION "Video", WRAM0

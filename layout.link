@@ -172,6 +172,8 @@ ROMX $40
 	"mobile40"
 ROMX $41
 	"bank41"
+	align 4
+	"Overworld Font"
 	"Tileset Data 10"
 ROMX $42
 	"mobile42"

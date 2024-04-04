@@ -28,6 +28,8 @@ Pokepic::
 	ret
 
 ClosePokepic::
+	xor a
+	ld [wLoadedFont], a
 	ld hl, PokepicMenuHeader
 	call CopyMenuHeader
 	call ClearMenuBoxInterior

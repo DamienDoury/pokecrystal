@@ -50,7 +50,8 @@ CelebiShrineEvent:
 .done
 	pop af
 	ld [wVramState], a
-	call .RestorePlayerSprite_DespawnLeaves
+	call .RestorePlayerSprite_DespawnLeaves ; Ends with A = 0.
+	ld [wLoadedFont], a
 	call CelebiEvent_SetBattleType
 	ret
 
@@ -369,6 +370,7 @@ CelebiFlyAwayAnim::
 	ld hl, wVirtualOAMSprite08
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite08
 	xor a
+	ld [wLoadedFont], a
 	call ByteFill
 	ret
 

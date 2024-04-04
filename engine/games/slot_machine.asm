@@ -77,6 +77,7 @@ SLOTS_END_LOOP_F EQU 7
 _SlotMachine:
 	ld hl, wOptions
 	set NO_TEXT_SCROLL, [hl]
+	call LoadStandardFont
 	call .InitGFX
 	call DelayFrame
 .loop

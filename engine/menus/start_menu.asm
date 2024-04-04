@@ -38,11 +38,13 @@ StartMenu::
 	call SafeUpdateSprites
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	farcall LoadFonts_NoOAMUpdate
+	farcall _LoadStandardFont.dont_use_ow_font
 	call .DrawBugContestStatus
 	call UpdateTimePals
 	jr .Select
 
 .Reopen:
+	farcall _LoadStandardFont.dont_use_ow_font
 	call UpdateSprites
 	call UpdateTimePals
 	call .SetUpMenuItems

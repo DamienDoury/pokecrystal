@@ -3,33 +3,34 @@ INCLUDE "gfx/font.asm"
 EnableHDMAForGraphics:
 	db FALSE
 
-
-
 _LoadStandardFont::
-	ld de, Font
-	ld hl, vTiles1
-	lb bc, BANK(Font), 128 ; "A" to "9"
-	ldh a, [rLCDC]
-	bit rLCDC_ENABLE, a
-	jp z, Copy1bpp
+	ld a, [wVramState]
+	bit 0, a
+	jr z, .dont_use_ow_font
+
+	; In vanilla, there are 2 different fonts used on the overworld: one for the Map Sign called "OW font", and a "Standard font" for everything else.
+	; We edited Palette_TextBG7 so that the OW font can be the only one used on the OW.
+	; So when LoadStandardFont is called while on the OW, LoadOverworldFont should be called instead.
+	; We need a way to check that we are on the OW.
+	; The solution found, although it looks like a hack and is not designed for this, looks to be working fine.
+	; We check wVramState first bit (bit 0).
+	; This solution is faster than checking all calls of LoadStandardFont and change those the call to LoadOverworldFont when required.
+	; Although the current solution may be unreliable.
+	farcall LoadOverworldFont
+	ret
+
+.dont_use_ow_font::
+	ld a, [wLoadedFont]
+	cp FONT_STANDARD
+	ret z ; If the font is already loaded, we don't need to load it again.
+
+	ld a, FONT_STANDARD
+	ld [wLoadedFont], a
 
 	ld de, Font
 	ld hl, vTiles1
-	lb bc, BANK(Font), 32 ; "A" to "]"
-	call Get1bppViaHDMA
-	ld de, Font + 32 * LEN_1BPP_TILE
-	ld hl, vTiles1 tile $20
-	lb bc, BANK(Font), 32 ; "a" to $bf
-	call Get1bppViaHDMA
-	ld de, Font + 64 * LEN_1BPP_TILE
-	ld hl, vTiles1 tile $40
-	lb bc, BANK(Font), 32 ; "Ä" to "←"
-	call Get1bppViaHDMA
-	ld de, Font + 96 * LEN_1BPP_TILE
-	ld hl, vTiles1 tile $60
-	lb bc, BANK(Font), 32 ; "'" to "9"
-	call Get1bppViaHDMA
-	ret
+	lb bc, BANK(Font), $80
+	jp Get2bpp
 
 _LoadFontsExtra1::
 	ld de, FontsExtra_SolidBlackGFX

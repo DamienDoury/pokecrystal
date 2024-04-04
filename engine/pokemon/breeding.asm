@@ -353,6 +353,7 @@ HatchEggs:
 	ld a, [wCurPartySpecies]
 	push af
 	call EggHatch_AnimationSequence
+	call LoadStandardFont
 	ld hl, .BreedClearboxText
 	call PrintText
 	pop af

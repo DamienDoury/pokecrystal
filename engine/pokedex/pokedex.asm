@@ -2446,12 +2446,21 @@ Pokedex_LoadGFX:
 	call EnableLCD
 	ret
 
-Pokedex_LoadInvertedFont:
+Pokedex_LoadInvertedFont::
+	ld a, [wLoadedFont]
+	cp FONT_INVERSED
+	ret z
+
+	ld a, FONT_INVERSED
+	ld [wLoadedFont], a
+
 	call LoadStandardFont
 	ld hl, vTiles1
 	ld bc, $80 tiles
 
 Pokedex_InvertTiles:
+	ld a, FONT_INVERSED
+	ld [wLoadedFont], a
 .loop
 	ld a, [hl]
 	xor $ff

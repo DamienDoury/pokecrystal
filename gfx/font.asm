@@ -2,7 +2,7 @@ FontExtra:
 INCBIN "gfx/font/font_extra.2bpp"
 
 Font:
-INCBIN "gfx/font/font.1bpp"
+INCBIN "gfx/font/font.2bpp"
 
 FontBattleExtra:
 INCBIN "gfx/font/font_battle_extra.2bpp"

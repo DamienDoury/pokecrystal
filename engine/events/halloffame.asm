@@ -297,6 +297,7 @@ HOF_SlideFrontpic:
 	jr .frontpicloop
 
 _HallOfFamePC:
+	call LoadStandardFont
 	call LoadFontsBattleExtra
 	xor a
 	ld [wJumptableIndex], a

@@ -146,16 +146,14 @@ OWCutAnimation:
 .loop
 	ld a, [wJumptableIndex]
 	bit 7, a
-	jr nz, .finish
+	ret nz
+	
 	ld a, 36 * SPRITEOAMSTRUCT_LENGTH
 	ld [wCurSpriteOAMAddr], a
 	callfar DoNextFrameForAllSprites
 	call OWCutJumptable
 	call DelayFrame
 	jr .loop
-
-.finish
-	ret
 
 .LoadCutGFX:
 	callfar ClearSpriteAnims ; pointless to farcall
@@ -167,6 +165,8 @@ OWCutAnimation:
 	ld hl, vTiles0 tile FIELDMOVE_TREE
 	lb bc, BANK(CutTreeGFX), 4
 	call Request2bpp
+	xor a
+	ld [wLoadedFont], a
 	ret
 
 CutTreeGFX:
@@ -349,6 +349,8 @@ FlyFromAnim:
 .exit
 	pop af
 	ld [wVramState], a
+	xor a
+	ld [wLoadedFont], a
 	ret
 
 ZapdosFlyToAnim::
@@ -391,6 +393,7 @@ ZapdosFlyToAnim::
 	ld hl, wVirtualOAMSprite12
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite12
 	xor a
+	ld [wLoadedFont], a
 	call ByteFill
 	ret
 
@@ -433,6 +436,7 @@ FlyToAnim:
 ;.RestorePlayerSprite_DespawnLeaves:
 	ld hl, wVirtualOAMSprite00TileID
 	xor a
+	ld [wLoadedFont], a
 	ld c, 4
 .OAMloop
 	ld [hli], a ; tile id

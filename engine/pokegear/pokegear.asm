@@ -2256,6 +2256,7 @@ _FlyMap:
 	ldh [hBGMapMode], a
 	farcall ClearSpriteAnims
 	farcall InitPartyMenuOBPals ; OBJ palettes always use their "day" palette.
+	call LoadStandardFont
 	call LoadTownMapGFX
 	ld de, FlyMapLabelBorderGFX
 	ld hl, vTiles2 tile $30
