@@ -466,17 +466,20 @@ GoldenrodGymGuideText:
 
 	para "She considers a"
 	line "#MON cute if it"
-	cont "is unevolved, and"
-	cont "is up to 1 meter"
-	cont "or 3'3” feet tall."
+	cont "is a baby or evo-"
+	cont "lution of a baby,"
+	
+	para "as long as it is"
+	line "up to 1 meter or"
+	cont "3'3” feet tall."
 
 	para "She also has a"
 	line "thing for pink."
 
-	para "So she has a tole-"
-	line "rance for height"
-	cont "of up to 1.2 meter"
-	cont "or 3'11” feet for"
+	para "She will tolerate"
+	line "a height of up to"
+	cont "1.2 meter or"
+	cont "3'11” feet for"
 	cont "pink #MON."
 	done
 
