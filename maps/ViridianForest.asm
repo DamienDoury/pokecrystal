@@ -171,7 +171,7 @@ ViridianForestLostKidText:
 
 ViridianForest_PeacefulText:
 	text "The forest is"
-	line "at peace."
+	line "at peace now."
 	done
 
 ViridianForest_FoundGSBallText:
