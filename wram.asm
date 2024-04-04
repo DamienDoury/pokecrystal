@@ -1721,7 +1721,7 @@ wGBPrinterBrightness::
 ;   darkest:  $7F
 	db
 wOptions2::
-; bit 0: menu account off/on
+; bit 0: removed
 ; bit 1: field moves
 	db
 	ds 2

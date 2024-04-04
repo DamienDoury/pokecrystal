@@ -9,7 +9,7 @@ DefaultOptions:
 	db 1 << FAST_TEXT_DELAY_F
 ; wGBPrinterBrightness: normal
 	db GBPRINTER_NORMAL
-; wOptions2: menu account on
+; wOptions2: legacy field moves mode
 	db FALSE
 
 	db $00

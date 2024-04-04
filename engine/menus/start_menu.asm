@@ -32,10 +32,9 @@ StartMenu::
 	and a
 	call z, AEqualsTwo
 	ld [wMenuCursorPosition], a
-	call .DrawMenuAccount
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatusBox
-	call SafeUpdateSprites
+	call UpdateSprites
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	farcall LoadFonts_NoOAMUpdate
 	farcall _LoadStandardFont.dont_use_ow_font
@@ -54,7 +53,6 @@ StartMenu::
 .Select:
 	call .GetInput
 	jr c, .Exit
-	call ._DrawMenuAccount
 	ld a, [wMenuCursorPosition]
 	ld [wBattleMenuCursorPosition], a
 	call PlayClickSFX
@@ -101,12 +99,10 @@ StartMenu::
 ; Return carry on exit, and no-carry on selection.
 	xor a
 	ldh [hBGMapMode], a
-	call ._DrawMenuAccount
 	call SetUpMenu
 	ld a, $ff
 	ld [wMenuSelection], a
 .loop
-	call .PrintMenuAccount
 	call GetScrollingMenuJoypad
 	ld a, [wMenuJoypad]
 	cp B_BUTTON
@@ -152,7 +148,6 @@ StartMenu::
 	call ClearBGPalettes
 	call ExitMenu
 	call ReloadTilesetAndPalettes
-	call .DrawMenuAccount
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
 	call UpdateSprites
@@ -223,25 +218,6 @@ DEF FAKE_ID_SELLER_NAME EQUS "\"EDDY@\""
 	ld e, a
 	pop hl
 	call PlaceString
-	ret
-
-.MenuDesc:
-	push de
-	ld a, [wMenuSelection]
-	cp $ff
-	jr z, .none
-	call .GetMenuAccountTextPointer
-rept 4
-	inc hl
-endr
-	ld a, [hli]
-	ld d, [hl]
-	ld e, a
-	pop hl
-	call PlaceString
-	ret
-.none
-	pop de
 	ret
 
 .GetMenuAccountTextPointer:
@@ -350,32 +326,6 @@ endr
 	ld [de], a
 	inc de
 	inc c
-	ret
-
-.DrawMenuAccount:
-	jp ._DrawMenuAccount
-
-.PrintMenuAccount:
-	call .IsMenuAccountOn
-	ret z
-	call ._DrawMenuAccount
-	decoord 0, 14
-	jp .MenuDesc
-
-._DrawMenuAccount:
-	call .IsMenuAccountOn
-	ret z
-	hlcoord 0, 13
-	lb bc, 5, 10
-	call ClearBox
-	hlcoord 0, 13
-	ld b, 3
-	ld c, 8
-	jp TextboxPalette
-
-.IsMenuAccountOn:
-	ld a, [wOptions2]
-	and 1 << MENU_ACCOUNT
 	ret
 
 .DrawBugContestStatusBox:
