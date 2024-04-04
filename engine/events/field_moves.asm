@@ -319,7 +319,6 @@ Cut_Headbutt_GetPixelFacing:
 	dbpixel 12, 11
 
 FlyFromAnim:
-	call DelayFrame
 	ld a, [wVramState]
 	push af
 	xor a

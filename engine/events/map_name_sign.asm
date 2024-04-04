@@ -38,11 +38,11 @@ InitMapNameSign::
 	jr z, .dont_do_map_sign
 
 ; Display for 60 frames
-	ld a, 60
+	ld a, MAP_NAME_SIGN_DURATION
 	ld [wLandmarkSignTimer], a
 	call LoadMapNameSignGFX
-	call InitMapNameFrame
-	farcall HDMATransfer_OnlyTopFourRows
+	;call InitMapNameFrame
+	;farcall HDMATransfer_OnlyTopFourRows
 	ret
 
 .dont_do_map_sign
@@ -109,16 +109,18 @@ PlaceMapNameSign::
 	ld a, [hl]
 	and a
 	jr z, .disappear
+
 	dec [hl]
-	cp 60
+	cp MAP_NAME_SIGN_DURATION
 	ret z
-	cp 59
+
+	cp MAP_NAME_SIGN_DURATION - 1
 	jr nz, .already_initialized
+	
 	call InitMapNameFrame
 	call PlaceMapNameCenterAlign
 	farcall HDMATransfer_OnlyTopFourRows
 .already_initialized
-	ld a, $80
 	ld a, $70
 	ldh [rWY], a
 	ldh [hWY], a
