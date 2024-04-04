@@ -40,6 +40,7 @@ DoBattleTransition:
 	ld hl, wBGPals1
 	ld bc, 8 palettes
 	xor a
+	ld [wLoadedGrassRustleOrDust], a
 	call ByteFill
 
 	pop af
