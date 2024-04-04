@@ -78,6 +78,7 @@ ViridianForest_ZapdosAppears:
 ViridianForest_ZapdosAssaultsPlayer:
 	checkevent EVENT_FOUGHT_ZAPDOS
 	iftrue .end
+	setlasttalked VIRIDIAN_FOREST_ZAPDOS
 	cry ZAPDOS
 	loadmem wAssaultBattle, $ff
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
@@ -120,8 +121,14 @@ ViridianForest_ZapdosAssaultsPlayer:
 ViridianGSBall:
 	setevent EVENT_CAN_GIVE_GS_BALL_TO_KURT
 	disappear VIRIDIAN_FOREST_GS_BALL ; also does setevent EVENT_GOT_GS_BALL_FROM_POKECOM_CENTER
+	
 	opentext
-	verbosegiveitem GS_BALL
+	giveitem GS_BALL
+	writetext ViridianForest_FoundGSBallText
+	playsound SFX_KEY_ITEM
+	waitsfx
+	waitbutton
+	itemnotify
 	closetext
 	end
 
@@ -165,6 +172,11 @@ ViridianForestLostKidText:
 ViridianForest_PeacefulText:
 	text "The forest is"
 	line "at peace."
+	done
+
+ViridianForest_FoundGSBallText:
+	text "<PLAYER> found"
+	line "the GS BALL."
 	done
 
 ViridianForest_MapEvents:
