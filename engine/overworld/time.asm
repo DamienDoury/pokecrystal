@@ -378,13 +378,6 @@ CopyDayToHL:
 	ld [hl], a
 	ret
 
-CopyDayHourToHL: ; unreferenced
-	ld a, [wCurDay]
-	ld [hli], a
-	ldh a, [hHours]
-	ld [hli], a
-	ret
-
 CopyDayHourMinToHL:
 	ld a, [wCurDay]
 	ld [hli], a
