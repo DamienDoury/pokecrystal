@@ -125,6 +125,7 @@ TradebackGuyScript:
 
 	opentext
 	farwritetext _TradebackPlayerGivesItemText
+	playsound SFX_TRANSACTION
 	waitbutton
 	closetext
 

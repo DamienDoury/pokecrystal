@@ -2256,7 +2256,7 @@ _TradebackGuyDontHaveItemText::
 	done
 
 _TradebackPlayerGivesItemText::
-	text "<PLAYER> gives 1"
+	text "<PLAYER> gave 1"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
@@ -2276,8 +2276,8 @@ _TradebackGuyKeepPaymentText::
 
 	para "Your problem!"
 
-	para "I keep the gift"
-	line "you made me."
+	para "I'm keeping your"
+	line "gift, thanks."
 	done
 
 _TradebackGuyDealNoEvoText::
