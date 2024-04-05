@@ -1176,8 +1176,126 @@ LoadPinkPage:
 
 ; stats
 	hlcoord 11, 8
-	ld bc, 6
+	ld bc, 5
 	predef PrintTempMonStats
+
+; DV_HP = (DV_ATK & 1) << 3 | (DV_DEF & 1) << 2 | (DV_SPD & 1) << 1 | (DV_SPC & 1)
+; atk,def,spd,spc
+	ld a, [wTempMonDVs + 1]
+	srl a
+	and %1000
+	ld h, a
+
+	ld a, [wTempMonDVs + 1]
+	sla a
+	sla a
+	and %100
+	or h
+	ld h, a
+
+	ld a, [wTempMonDVs]
+	swap a
+	sla a
+	and %10
+	or h
+	ld h, a
+
+	ld a, [wTempMonDVs]
+	and %1
+	or h
+	cp $f
+	jr nz, .atkDV
+
+	hlcoord 8, 10
+	ld [hl], "!"
+
+.atkDV
+	ld a, [wTempMonDVs]
+	and $f0
+	cp $f0
+	jr nz, .defDV
+
+	hlcoord 19, 9
+	ld [hl], "!"
+
+.defDV
+	ld a, [wTempMonDVs]
+	and $f
+	cp $f
+	jr nz, .spdDV
+
+	hlcoord 19, 11
+	ld [hl], "!"
+
+.spdDV
+	ld a, [wTempMonDVs + 1]
+	and $f0
+	cp $f0
+	jr nz, .spcDV
+
+	hlcoord 19, 17
+	ld [hl], "!"
+
+.spcDV
+	ld a, [wTempMonDVs + 1]
+	and $f
+	cp $f
+	jr nz, .perfectStatExpDisplay
+
+	hlcoord 19, 13
+	ld [hl], "!"
+
+	hlcoord 19, 15
+	ld [hl], "!"
+
+.perfectStatExpDisplay
+	ld hl, wTempMonHPExp
+	call .IsFullExp
+	jr nz, .atkExp
+
+	hlcoord 0, 10
+	ld [hl], "<EMPTY_STAR>"
+
+.atkExp
+	ld hl, wTempMonAtkExp
+	call .IsFullExp
+	jr nz, .defExp
+
+	hlcoord 15, 9
+	ld [hl], "<EMPTY_STAR>"
+
+.defExp
+	ld hl, wTempMonDefExp
+	call .IsFullExp
+	jr nz, .spcExp
+
+	hlcoord 15, 11
+	ld [hl], "<EMPTY_STAR>"
+
+.spcExp
+	ld hl, wTempMonSpcExp
+	call .IsFullExp
+	jr nz, .spdExp
+
+	hlcoord 15, 13
+	ld [hl], "<EMPTY_STAR>"
+
+	hlcoord 15, 15
+	ld [hl], "<EMPTY_STAR>"
+
+.spdExp
+	ld hl, wTempMonSpdExp
+	call .IsFullExp
+	ret nz
+
+	hlcoord 15, 17
+	ld [hl], "<EMPTY_STAR>"
+	ret
+
+.IsFullExp
+	ld a, [hli]
+	and [hl]
+	cp $ff
 	ret
 
 .Status:
