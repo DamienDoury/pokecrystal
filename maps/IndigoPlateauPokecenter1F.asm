@@ -150,6 +150,9 @@ AbraScript:
 	closetext
 	end
 
+IndigoPlateauGymGuideScript:
+	jumptextfaceplayer IndigoPlateauGymGuideText
+
 PlateauRivalMovement1:
 	step UP
 	step UP
@@ -262,6 +265,49 @@ AbraText:
 	text "ABRA: Aabra…"
 	done
 
+IndigoPlateauGymGuideText:
+	text "Hello trainer."
+	
+	para "Beyond these"
+	line "stairs is the"
+	cont "Elite 4."
+
+	para "It is JOHTO's and"
+	line "KANTO's greatest"
+	cont "challenge."
+
+	para "Just like GYM"
+	line "LEADERS, they are"
+	cont "using a POWER RES-"
+	cont "TRAINER."
+	
+	para "It lowers the"
+	line "level of their"
+	cont "party by up to"
+	
+	para "40 levels to match"
+	line "your highest level"
+	cont "#MON."
+
+	para "Unlike GYM LEADERS"
+	line "they don't have"
+	cont "specific chal-"
+	cont "lenges."
+
+	para "There is only"
+	line "1 rule:"
+
+	para "Defeat the 4 trai-"
+	line "ners and the CHAM-"
+	cont "PION in a row."
+	
+	para "If you lose, you"
+	line "have to start all"
+	cont "over again."
+
+	para "Good luck!"
+	done
+
 IndigoPlateauPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -284,3 +330,4 @@ IndigoPlateauPokecenter1F_MapEvents:
 	object_event 16,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_INDIGO_PLATEAU_POKECENTER_RIVAL
 	object_event  1,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, TeleportGuyScript, EVENT_TELEPORT_GUY
 	object_event  0,  9, SPRITE_ABRA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, AbraScript, EVENT_TELEPORT_GUY
+	object_event 16,  1, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauGymGuideScript, EVENT_BEAT_ELITE_FOUR
