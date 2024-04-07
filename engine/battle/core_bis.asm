@@ -46,6 +46,7 @@ BattleIntro:
 
 
 ExitBattle:
+	farcall UpdatePartyStats
 	call ForceBattleAnimationEnd
 	call .HandleEndOfBattle
 	farcall CleanUpBattleRAM

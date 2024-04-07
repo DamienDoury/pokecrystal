@@ -42,7 +42,6 @@ INCLUDE "engine/pokemon/bills_pc_top.asm"
 INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
-INCLUDE "engine/events/gym.asm"
 
 
 SECTION "bank4", ROMX
@@ -166,6 +165,7 @@ INCLUDE "engine/events/pokepic.asm"
 INCLUDE "engine/events/move_reminder.asm"
 INCLUDE "engine/items/stone_shop.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
+INCLUDE "engine/events/gym.asm"
 
 
 SECTION "Effect Commands", ROMX
