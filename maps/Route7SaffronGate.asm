@@ -35,9 +35,6 @@ Route7SaffronGuardScript:
 	end
 
 Route7SaffronGateCrossOakScript:
-	checkevent EVENT_MET_OAK_IN_SAFFRON
-	iftrue .end
-
 	turnobject ROUTE7SAFFRONGATE_OAK, RIGHT
 	pause 3
 	showemote EMOTE_SHOCK, ROUTE7SAFFRONGATE_OAK, 15
@@ -75,7 +72,6 @@ Route7SaffronGateCrossOakScript:
 	disappear ROUTE7SAFFRONGATE_OAK
 	waitsfx
 	setevent EVENT_MET_OAK_IN_SAFFRON
-.end
 	end
 
 Route7SaffronGate_StepDownMovement:
@@ -187,8 +183,8 @@ Route7SaffronGate_MapEvents:
 	warp_event  9,  5, SAFFRON_CITY, 11
 
 	def_coord_events
-	coord_event  7,  5, CE_SCENE_ID, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
-	coord_event  7,  4, CE_SCENE_ID, SCENE_ALWAYS, Route7SaffronGateCrossOakScript
+	coord_event  7,  5, CE_EVENT_FLAG_CLEARED, EVENT_MET_OAK_IN_SAFFRON, Route7SaffronGateCrossOakScript
+	coord_event  7,  4, CE_EVENT_FLAG_CLEARED, EVENT_MET_OAK_IN_SAFFRON, Route7SaffronGateCrossOakScript
 
 	def_bg_events
 

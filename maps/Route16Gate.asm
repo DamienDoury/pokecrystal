@@ -10,11 +10,6 @@ Route16GateOfficerScript:
 	jumptextfaceplayer Route16GateOfficerText
 
 Route16GateBicycleCheck:
-	checkitem BICYCLE
-	iffalse .NoBicycle
-	end
-
-.NoBicycle:
 	showemote EMOTE_SHOCK, ROUTE16GATE_OFFICER, 15
 
 	opentext
@@ -82,8 +77,8 @@ Route16Gate_MapEvents:
 	warp_event  9,  5, ROUTE_16, 3
 
 	def_coord_events
-	coord_event  5,  4, CE_SCENE_ID, SCENE_ALWAYS, Route16GateBicycleCheck
-	coord_event  5,  5, CE_SCENE_ID, SCENE_ALWAYS, Route16GateBicycleCheck
+	coord_event  5,  4, CE_MISSING_ITEM, BICYCLE, Route16GateBicycleCheck
+	coord_event  5,  5, CE_MISSING_ITEM, BICYCLE, Route16GateBicycleCheck
 
 	def_bg_events
 

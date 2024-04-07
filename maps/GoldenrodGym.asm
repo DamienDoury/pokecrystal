@@ -170,9 +170,6 @@ TrainerLassCarrie:
 	end
 
 WhitneyCriesScript:
-	checkevent EVENT_MADE_WHITNEY_CRY
-	iffalse .end
-
 	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
 	turnobject PLAYER, RIGHT
 	opentext
@@ -180,7 +177,6 @@ WhitneyCriesScript:
 	waitbutton
 	closetext
 	clearevent EVENT_MADE_WHITNEY_CRY
-.end
 	end
 
 TrainerLassBridget:
@@ -502,7 +498,7 @@ GoldenrodGym_MapEvents:
 	warp_event  3, 17, GOLDENROD_CITY, 1
 
 	def_coord_events
-	coord_event  8,  6, CE_SCENE_ID, SCENE_ALWAYS, WhitneyCriesScript
+	coord_event  8,  6, CE_EVENT_FLAG_SET, EVENT_MADE_WHITNEY_CRY, WhitneyCriesScript
 
 	def_bg_events
 	bg_event  1, 15, BGEVENT_READ, GoldenrodGymStatue

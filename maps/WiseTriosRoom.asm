@@ -42,10 +42,7 @@ WiseTriosRoomSage2Script:
 WiseTriosRoomSage3Script:
 	jumptextfaceplayer WiseTriosRoomSage3Text
 
-WiseTriosRoom_CannotEnterTinTowerScript:
-	checkevent EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER
-	iftrue .end
-	
+WiseTriosRoom_CannotEnterTinTowerScript:	
 	turnobject WISETRIOSROOM_SAGE3, UP
 	turnobject PLAYER, DOWN
 	showemote EMOTE_SHOCK, WISETRIOSROOM_SAGE3, 20
@@ -59,7 +56,6 @@ WiseTriosRoom_CannotEnterTinTowerScript:
 	waitbutton
 	closetext
 	applymovement WISETRIOSROOM_SAGE3, WiseTriosRoomSageReturnsMovement
-.end
 	end
 
 TrainerSageGaku:
@@ -344,7 +340,7 @@ WiseTriosRoom_MapEvents:
 	warp_event  1,  4, ECRUTEAK_TIN_TOWER_ENTRANCE, 5
 
 	def_coord_events
-	coord_event  7,  4, CE_SCENE_ID, SCENE_ALWAYS, WiseTriosRoom_CannotEnterTinTowerScript
+	coord_event  7,  4, CE_EVENT_FLAG_CLEARED, EVENT_KOJI_ALLOWS_YOU_PASSAGE_TO_TIN_TOWER, WiseTriosRoom_CannotEnterTinTowerScript
 
 	def_bg_events
 

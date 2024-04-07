@@ -9,9 +9,6 @@ VictoryRoadGate_MapScripts:
 	def_callbacks
 
 VictoryRoadGateBadgeCheckScene:
-	checkevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
-	iftrue VictoryRoadGateBadgeCheckScript.end
-
 	turnobject PLAYER, LEFT
 	sjump VictoryRoadGateBadgeCheckScript
 
@@ -34,7 +31,6 @@ VictoryRoadGateBadgeCheckScript:
 	waitbutton
 	closetext
 	setevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
-.end
 	end
 
 VictoryRoadGateLeftBlackBeltScript:
@@ -105,7 +101,7 @@ VictoryRoadGate_MapEvents:
 	warp_event  2,  7, ROUTE_28, 2
 
 	def_coord_events
-	coord_event 14, 11, CE_SCENE_ID, SCENE_ALWAYS, VictoryRoadGateBadgeCheckScene
+	coord_event 14, 11, CE_EVENT_FLAG_CLEARED, EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD, VictoryRoadGateBadgeCheckScene
 
 	def_bg_events
 

@@ -76,8 +76,6 @@ ViridianForest_ZapdosAppears:
 	end
 
 ViridianForest_ZapdosAssaultsPlayer:
-	checkevent EVENT_FOUGHT_ZAPDOS
-	iftrue .end
 	setlasttalked VIRIDIAN_FOREST_ZAPDOS
 	cry ZAPDOS
 	loadmem wAssaultBattle, $ff
@@ -115,7 +113,6 @@ ViridianForest_ZapdosAssaultsPlayer:
 	
 .NotBeaten:
 	reloadmapafterbattle
-.end
 	end
 	
 ViridianGSBall:
@@ -262,7 +259,7 @@ ViridianForest_MapEvents:
 ;	warp_event 14, 29, VIRIDIAN_CITY, 1
 
 	def_coord_events
-	coord_event  2, 27, CE_SCENE_ID, SCENE_ALWAYS, ViridianForest_ZapdosAppears
+	coord_event  2, 27, CE_EVENT_FLAG_CLEARED, EVENT_FOUGHT_ZAPDOS, ViridianForest_ZapdosAppears
 
 	def_bg_events
 	bg_event 22, 24, BGEVENT_ITEM, ViridianForestHiddenMaxEther

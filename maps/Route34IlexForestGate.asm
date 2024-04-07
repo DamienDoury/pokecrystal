@@ -24,8 +24,6 @@ Route34IlexForestGate_MapScripts:
 	endcallback
 
 Route34IlexForestGateCelebiEvent:
-	checkevent EVENT_FOREST_IS_RESTLESS
-	iffalse .skip
 	showemote EMOTE_SHOCK, ROUTE34ILEXFORESTGATE_TEACHER2, 20
 	turnobject ROUTE34ILEXFORESTGATE_TEACHER2, LEFT
 	turnobject PLAYER, RIGHT
@@ -39,7 +37,6 @@ Route34IlexForestGateCelebiEvent:
 	waitbutton
 	closetext
 	applymovement ROUTE34ILEXFORESTGATE_TEACHER2, Route34IlexForestGateTeacherReturnsMovement
-.skip:
 	end
 
 Route34IlexForestGateTeacherScript:
@@ -155,7 +152,7 @@ Route34IlexForestGate_MapEvents:
 	warp_event  5,  7, ILEX_FOREST, 1
 
 	def_coord_events
-	coord_event  4,  7, CE_SCENE_ID, SCENE_ALWAYS, Route34IlexForestGateCelebiEvent
+	coord_event  4,  7, CE_EVENT_FLAG_SET, EVENT_FOREST_IS_RESTLESS, Route34IlexForestGateCelebiEvent
 
 	def_bg_events
 
