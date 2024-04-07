@@ -120,6 +120,13 @@ Route34IlexForestGateTeacher_ForestIsRestless:
 	line "in ILEX FOREST,"
 	cont "I can smell it…"
 
+	para "Well, I don't smell"
+	line "anything. It's a"
+	cont "figure of speech."
+
+	para "But I can"
+	line "feel it…"
+
 	para "You should stay"
 	line "away right now."
 	done
