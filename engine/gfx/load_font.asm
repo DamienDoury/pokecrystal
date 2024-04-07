@@ -1,7 +1,8 @@
 INCLUDE "gfx/font.asm"
 
-EnableHDMAForGraphics:
-	db FALSE
+align 4
+StandardFontSpaceGFX:
+INCBIN "gfx/font/standard_space.2bpp"
 
 _LoadStandardFont::
 	ld a, [wVramState]
@@ -20,6 +21,11 @@ _LoadStandardFont::
 	ret
 
 .dont_use_ow_font::
+	ld de, StandardFontSpaceGFX
+	ld hl, vTiles2 tile " "
+	lb bc, BANK(StandardFontSpaceGFX), 1
+	call Get2bpp
+
 	ld a, [wLoadedFont]
 	cp FONT_STANDARD
 	ret z ; If the font is already loaded, we don't need to load it again.

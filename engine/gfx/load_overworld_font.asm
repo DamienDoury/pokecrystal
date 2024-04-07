@@ -1,4 +1,10 @@
 LoadOverworldFont::
+	; The space char gets erased on map reload, so we need to reload it anyway.
+	ld de, .OverworldFontSpaceGFX
+	ld hl, vTiles2 tile " "
+	lb bc, BANK(.OverworldFontSpaceGFX), 1
+	call Get2bpp
+
 	ld a, [wLoadedFont]
 	cp FONT_OW
 	ret z
@@ -9,10 +15,6 @@ LoadOverworldFont::
 	ld de, OverworldFontGFX
 	ld hl, vTiles1
 	lb bc, BANK(OverworldFontGFX), $80
-	call Get2bpp
-	ld de, .OverworldFontSpaceGFX
-	ld hl, vTiles2 tile " "
-	lb bc, BANK(.OverworldFontSpaceGFX), 1
 	jp Get2bpp
 
 align 4
