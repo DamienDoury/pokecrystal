@@ -75,12 +75,10 @@ ShakeHeadbuttTree:
 	ld hl, wVirtualOAMSprite36
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite36
 	xor a
+	ld [wLoadedFont], a
 	call ByteFill
-	ld de, Font
-	ld hl, vTiles1
-	lb bc, BANK(Font), 12
-	call Get1bpp
-	call UpdatePlayerSprite
+	call DelayFrame
+	call LoadStandardFont
 	ret
 
 HeadbuttTreeGFX:
