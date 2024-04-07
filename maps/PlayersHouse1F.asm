@@ -15,9 +15,6 @@ MeetMomLeftScript:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 
 MeetMomRightScript:
-	checkevent EVENT_PLAYERS_HOUSE_MOM_1
-	iftrue MeetMomScript.end
-
 	playmusic MUSIC_MOM
 	showemote EMOTE_SHOCK, PLAYERSHOUSE1F_MOM1, 15
 	turnobject PLAYER, LEFT
@@ -96,7 +93,6 @@ MeetMomScript:
 .Finish:
 	special RestartMapMusic
 	turnobject PLAYERSHOUSE1F_MOM1, LEFT
-.end
 	end
 
 MeetMomTalkedScript:
@@ -680,8 +676,8 @@ PlayersHouse1F_MapEvents:
 	warp_event  9,  0, PLAYERS_HOUSE_2F, 1
 
 	def_coord_events
-	coord_event  8,  4, CE_SCENE_ID, SCENE_ALWAYS, MeetMomLeftScript
-	coord_event  9,  4, CE_SCENE_ID, SCENE_ALWAYS, MeetMomRightScript
+	coord_event  8,  4, CE_EVENT_FLAG_CLEARED, EVENT_PLAYERS_HOUSE_MOM_1, MeetMomLeftScript
+	coord_event  9,  4, CE_EVENT_FLAG_CLEARED, EVENT_PLAYERS_HOUSE_MOM_1, MeetMomRightScript
 
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PlayersHouse1FStoveScript

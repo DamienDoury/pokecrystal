@@ -197,9 +197,6 @@ AshPikachuLeadsToCeruleanCave:
 	readvar VAR_FACING
 	ifnotequal DOWN, .quit
 
-	checkevent EVENT_RED_BEATEN ; False after you beat Red.
-	iftrue .quit
-
 	readmem wPlayerState
 	ifnotequal PLAYER_SURF_PIKA, .quit
 
@@ -581,7 +578,7 @@ CeruleanCity_MapEvents:
 	warp_event  9, 13, CERULEAN_GYM_BADGE_SPEECH_HOUSE, 3
 
 	def_coord_events
-	coord_event  6,  9, CE_SCENE_ID, SCENE_ALWAYS, AshPikachuLeadsToCeruleanCave
+	coord_event  6,  9, CE_EVENT_FLAG_CLEARED, EVENT_RED_BEATEN, AshPikachuLeadsToCeruleanCave
 
 	def_bg_events
 	bg_event 23, 23, BGEVENT_READ, CeruleanCitySign

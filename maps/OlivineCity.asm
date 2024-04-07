@@ -48,9 +48,6 @@ OlivineCity_MapScripts:
 	endcallback
 
 OlivineCityRivalSceneTop:
-	checkevent EVENT_MET_RIVAL_IN_OLIVINE
-	iftrue OlivineCityRivalSceneBottom.end
-
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -70,9 +67,6 @@ OlivineCityRivalSceneTop:
 	sjump OlivineCityRivalSceneBottom.outro
 
 OlivineCityRivalSceneBottom:
-	checkevent EVENT_MET_RIVAL_IN_OLIVINE
-	iftrue .end
-	
 	turnobject PLAYER, LEFT
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -94,7 +88,6 @@ OlivineCityRivalSceneBottom:
 	disappear OLIVINECITY_OLIVINE_RIVAL
 	special RestartMapMusic
 	special LoadUsedSpritesGFX
-.end
 	end
 
 OlivineCitySailor1Script:
@@ -500,8 +493,8 @@ OlivineCity_MapEvents:
 	warp_event 20, 27, OLIVINE_PORT_PASSAGE, 2
 
 	def_coord_events
-	coord_event 13, 12, CE_SCENE_ID, SCENE_ALWAYS, OlivineCityRivalSceneTop
-	coord_event 13, 13, CE_SCENE_ID, SCENE_ALWAYS, OlivineCityRivalSceneBottom
+	coord_event 13, 12, CE_EVENT_FLAG_CLEARED, EVENT_MET_RIVAL_IN_OLIVINE, OlivineCityRivalSceneTop
+	coord_event 13, 13, CE_EVENT_FLAG_CLEARED, EVENT_MET_RIVAL_IN_OLIVINE, OlivineCityRivalSceneBottom
 
 	def_bg_events
 	bg_event 17, 11, BGEVENT_READ, OlivineCitySign

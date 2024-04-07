@@ -30,9 +30,6 @@ SproutTower3F_MapScripts:
 	endcallback
 
 SproutTower3FRivalScene:
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
-	iftrue .end
-
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, PLAYER, 15
 	special FadeOutMusic
@@ -70,7 +67,6 @@ SproutTower3FRivalScene:
 	waitsfx
 	special FadeInQuickly
 	special RestartMapMusic
-.end
 	end
 
 SageLiScript:
@@ -354,7 +350,7 @@ SproutTower3F_MapEvents:
 	warp_event 10, 14, SPROUT_TOWER_2F, 4
 
 	def_coord_events
-	coord_event 11,  9, CE_SCENE_ID, SCENE_ALWAYS, SproutTower3FRivalScene
+	coord_event 11,  9, CE_EVENT_FLAG_CLEARED, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2, SproutTower3FRivalScene
 
 	def_bg_events
 	bg_event  8,  1, BGEVENT_READ, SproutTower3FStatue

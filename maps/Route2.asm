@@ -46,18 +46,12 @@ TrainerBugCatcherDoug:
 	end
 
 Route2WarningTopLeft:
-	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
-	iftrue .end
 	showemote EMOTE_SHOCK, ROUTE2_WARNING_TOP, 15
 	faceobject PLAYER, ROUTE2_WARNING_TOP
 	applymovement ROUTE2_WARNING_TOP, Route2LeftStepMovement
 	sjump Route2WarningTopScript
-.end
-	end
 
 Route2WarningTopRight:
-	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
-	iftrue Route2WarningTopLeft.end
 	showemote EMOTE_SHOCK, ROUTE2_WARNING_TOP, 15
 	faceobject PLAYER, ROUTE2_WARNING_TOP
 	pause 10
@@ -77,18 +71,12 @@ Route2WarningTopEndScript:
 	end
 
 Route2WarningBotLeft:
-	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
-	iftrue .end
 	showemote EMOTE_SHOCK, ROUTE2_WARNING_BOT, 15
 	faceobject PLAYER, ROUTE2_WARNING_BOT
 	applymovement ROUTE2_WARNING_BOT, Route2LeftStepMovement
 	sjump Route2WarningBotScript
-.end
-	end
 
 Route2WarningBotRight:
-	checkevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
-	iftrue Route2WarningBotLeft.end
 	showemote EMOTE_SHOCK, ROUTE2_WARNING_BOT, 15
 	faceobject PLAYER, ROUTE2_WARNING_BOT
 
@@ -257,10 +245,10 @@ Route2_MapEvents:
 	warp_event  9, 27, VIRIDIAN_FOREST, 4
 
 	def_coord_events
-	coord_event  6,  9, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningTopLeft
-	coord_event  7,  9, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningTopRight
-	coord_event  8, 33, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningBotLeft
-	coord_event  9, 33, CE_SCENE_ID, SCENE_ALWAYS, Route2WarningBotRight
+	coord_event  6,  9, CE_EVENT_FLAG_CLEARED, EVENT_VIRIDIAN_FOREST_WARNING_ISSUED, Route2WarningTopLeft
+	coord_event  7,  9, CE_EVENT_FLAG_CLEARED, EVENT_VIRIDIAN_FOREST_WARNING_ISSUED, Route2WarningTopRight
+	coord_event  8, 33, CE_EVENT_FLAG_CLEARED, EVENT_VIRIDIAN_FOREST_WARNING_ISSUED, Route2WarningBotLeft
+	coord_event  9, 33, CE_EVENT_FLAG_CLEARED, EVENT_VIRIDIAN_FOREST_WARNING_ISSUED, Route2WarningBotRight
 
 	def_bg_events
 	bg_event 11, 51, BGEVENT_READ, Route2Sign
