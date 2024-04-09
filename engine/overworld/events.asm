@@ -631,12 +631,12 @@ CheckLongBPressOW:
 .try_dig
 	ld d, DIG
 	farcall CheckPartyMove ; Sets wCurPartyMon for GetPartyNickname.
-	jr c, .try_teleport
+	jr c, .try_escape_rope
 
 	farcall TryDigSilent
 	ld a, b
 	cp $1
-	jr nz, .try_teleport ; If Dig can't be used, try Teleport.
+	jr nz, .try_escape_rope ; If Dig can't be used, try Teleport.
 
 	farcall DoDigFromOW
 	ld a, BANK(EscapeRopeOrDig.UsedDigFromOWScript)
@@ -656,6 +656,24 @@ CheckLongBPressOW:
 	ldh [hLongPressB], a ; Initiates a long press.
 	xor a
 	ret
+
+.try_escape_rope
+	; Check if we can dig in here.
+	farcall EscapeRopeOrDig.CheckCanDig
+	jr z, .try_teleport
+
+	; Check if player has an escape rope.
+	ld a, ESCAPE_ROPE
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .try_teleport
+
+	; Ask for confirmation, and then consumes item and trigger the effect.
+	farcall DoEscapeRopeFromOW
+	ld a, BANK(EscapeRopeOrDig.UsedEscapeRopeFromOWScript)
+	ld hl, EscapeRopeOrDig.UsedEscapeRopeFromOWScript
+	jp CallScript
 
 .try_teleport ; Put at the bottom, so we can keep using jr instead of jp above.
 	ld d, TELEPORT

@@ -395,6 +395,11 @@ _WantToUseDigText::
 	line "to use DIG?"
 	done
 
+_WantToUseEscapeRopeText::
+	text "Do you want to use"
+	line "an ESCAPE ROPE?"
+	done
+
 _CantUseDigText::
 	text "Can't use that"
 	line "here."

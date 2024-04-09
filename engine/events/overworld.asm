@@ -835,14 +835,19 @@ TryDigSilent::
 	ld b, a
 	ret
 
+DoEscapeRopeFromOW::
+	ld a, $1
+	jr DoDigFromOW.skip_type
+
 DoDigFromOW::
+	ld a, $2
+.skip_type
+	ld [wEscapeRopeOrDigType], a
 	ld hl, wDigWarpNumber
 	ld de, wNextWarp
 	ld bc, 3
 	call CopyBytes
 	call GetPartyNickname
-	ld a, $2
-	ld [wEscapeRopeOrDigType], a
 	ret
 
 EscapeRopeFunction:
@@ -869,7 +874,7 @@ EscapeRopeOrDig::
 	dw .DoDig
 	dw .FailDig
 
-.CheckCanDig:
+.CheckCanDig::
 	call GetMapEnvironment
 	cp CAVE
 	jr z, .incave
@@ -943,6 +948,10 @@ EscapeRopeOrDig::
 	text_far _WantToUseDigText
 	text_end
 
+.WantToUseEscapeRopeText:
+	text_far _WantToUseEscapeRopeText
+	text_end
+
 .UsedEscapeRopeScript:
 	reloadmappart
 	special UpdateTimePals
@@ -954,6 +963,15 @@ EscapeRopeOrDig::
 	writetext .WantToUseDigText
 	yesorno
 	iffalse .RefusedToUseDig
+	sjump .UsedDigSkipText
+
+.UsedEscapeRopeFromOWScript::
+	opentext
+	writetext .WantToUseEscapeRopeText
+	yesorno
+	iffalse .RefusedToUseDig
+	callasm SpecialKabutoChamber
+	takeitem ESCAPE_ROPE
 	sjump .UsedDigSkipText
 
 .RefusedToUseDig
