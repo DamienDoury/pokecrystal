@@ -116,6 +116,8 @@ GetMonMenuString:
 
 GetMonSubmenuItems:
 	call ResetMonSubmenu
+	ld a, MONMENUITEM_STATS
+	call AddMonMenuItem
 	ld a, [wCurPartySpecies]
 	cp EGG
 	jr z, .egg
@@ -147,8 +149,6 @@ GetMonSubmenuItems:
 	jr nz, .loop
 
 .skip_moves
-	ld a, MONMENUITEM_STATS
-	call AddMonMenuItem
 	ld a, MONMENUITEM_SWITCH
 	call AddMonMenuItem
 	ld a, [wLinkMode]
@@ -179,8 +179,6 @@ GetMonSubmenuItems:
 	ret
 
 .egg
-	ld a, MONMENUITEM_STATS
-	call AddMonMenuItem
 	ld a, MONMENUITEM_SWITCH
 	call AddMonMenuItem
 	ld a, MONMENUITEM_CANCEL
