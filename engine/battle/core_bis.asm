@@ -426,9 +426,7 @@ DeterMineAssaultAndPokerusSeed::
 
 	ld a, [wMapNumber]
 	cp MAP_CERULEAN_CAVE_ENTRANCE
-	jr c, .normal_area
-
-	jp CeruleanCaveInfection
+	jp nc, CeruleanCaveInfection
 
 .normal_area
 	ld a, [wBattlePokerusSeed]
@@ -526,7 +524,7 @@ DetermineAssault:
 
 	ld a, [wBattleMode]
 	cp WILD_BATTLE
-	ret nz ; Assaults only happen in wild battles.
+	ret nz ; Assaults only happens in wild battles.
 
 	ld a, [wMapGroup]
 	cp GROUP_NATIONAL_PARK

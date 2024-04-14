@@ -592,7 +592,7 @@ VaccinationCenter1F_MapEvents:
 	coord_event 12,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
 	coord_event  8,  3, CE_SCENE_ID, SCENE_VACCINATION_CENTER_FIND_SEAT, VaccinationCenterAllowedSeatScript
 
-	coord_event 10,  2, CE_SCENE_ID, 2, VaccinationCenterGoToOffice
+	;coord_event 10,  2, CE_SCENE_ID, 2, VaccinationCenterGoToOffice
     
     def_bg_events
 	bg_event  5,  6, BGEVENT_READ, VaccinationCenterGelScript
