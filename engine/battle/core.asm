@@ -3155,6 +3155,14 @@ SelectBattleMon:
 	farcall Mobile_PartyMenuSelect
 	ret
 
+
+BattleMenuPKMN_ReturnFromStats_Forced:
+	call Battle_StatsScreen
+	call ExitMenu
+	call LoadStandardMenuHeader
+	call ClearBGPalettes
+.setup
+	call SetUpBattlePartyMenu_Loop
 PickPartyMonInBattle:
 .loop
 	ld a, PARTYMENUACTION_SWITCH ; Which PKMN?
@@ -3164,8 +3172,20 @@ PickPartyMonInBattle:
 	ret c
 	call CheckIfCurPartyMonIsFitToFight
 	jr z, .loop
-	xor a
-	ret
+
+.submenu_loop
+	farcall FreezeMonIcons
+	farcall BattleMonMenu
+	jr c, BattleMenuPKMN_ReturnFromStats_Forced.setup
+
+	call PlaceHollowCursor
+	ld a, [wMenuCursorY]
+	cp $1 ; SWITCH
+	ret z ; No need for xor a.
+	
+	cp $2 ; STATS
+	jr z, BattleMenuPKMN_ReturnFromStats_Forced
+	jr .submenu_loop
 
 SwitchMonAlreadyOut:
 	ld hl, wCurBattleMon
