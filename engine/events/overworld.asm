@@ -859,7 +859,7 @@ DigFunction:
 	call FieldMoveJumptableReset
 	ld a, $2
 
-EscapeRopeOrDig::
+EscapeRopeOrDig:
 	ld [wEscapeRopeOrDigType], a
 .loop
 	ld hl, .DigTable
@@ -874,7 +874,7 @@ EscapeRopeOrDig::
 	dw .DoDig
 	dw .FailDig
 
-.CheckCanDig::
+.CheckCanDig:
 	call GetMapEnvironment
 	cp CAVE
 	jr z, .incave

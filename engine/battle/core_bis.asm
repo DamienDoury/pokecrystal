@@ -419,7 +419,7 @@ BattleStartMessage:
 
 	ret
 
-DeterMineAssaultAndPokerusSeed::
+DetermineAssaultAndPokerusSeed::
 	ld a, [wMapGroup]
 	cp GROUP_CERULEAN_CAVE_ENTRANCE
 	jr nz, .normal_area

@@ -659,8 +659,10 @@ CheckLongBPressOW:
 
 .try_escape_rope
 	; Check if we can dig in here.
-	farcall EscapeRopeOrDig.CheckCanDig
-	jr z, .try_teleport
+	farcall TryDigSilent
+	ld a, b
+	cp $1
+	jr nz, .try_teleport
 
 	; Check if player has an escape rope.
 	ld a, ESCAPE_ROPE
