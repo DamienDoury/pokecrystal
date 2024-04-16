@@ -84,7 +84,7 @@ StringOptions:
 	db "      :<LF>"
 	db "Fast boot<LF>"
 	db "      :<LF>"
-	db "Field moves<LF>"
+	db "World actions<LF>"
 	db "      :<LF>"
 	db "Frame<LF>"
 	db "      :TYPE<LF>"
@@ -301,8 +301,8 @@ Options_FieldMoves:
 	and a
 	ret
 
-.Legacy: db "LEGACY    @"
-.Quick:  db "QUICK CAST@"
+.Legacy: db "LEGACY   @"
+.Quick:  db "SHORTCUTS@"
 
 Options_Sound:
 	ld hl, wOptions
