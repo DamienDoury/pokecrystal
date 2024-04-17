@@ -178,4 +178,7 @@ hClockResetTrigger:: db
 
 hLongPressA:: db
 hLongPressB:: db
-	ds 17
+hLongPressStart:: db
+hLongPressSelect:: db
+hWaitForDownButtonRelease:: db
+	ds 14
