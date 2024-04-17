@@ -1485,12 +1485,6 @@ _ItemCantUseOnEggText::
 	line "on an EGG."
 	prompt
 
-_ItemOakWarningText::
-	text "OAK: <PLAYER>!"
-	line "This isn't the"
-	cont "time to use that!"
-	prompt
-
 _ItemWontHaveEffectText::
 	text "It won't have any"
 	line "effect."

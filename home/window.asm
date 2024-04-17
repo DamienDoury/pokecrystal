@@ -21,6 +21,10 @@ CloseText::
 
 	call .CloseText
 
+	ldh a, [hJoyDown]
+	and D_DOWN
+	ldh [hWaitForDownButtonRelease], a
+
 	pop af
 	ldh [hOAMUpdate], a
 	ld hl, wVramState
