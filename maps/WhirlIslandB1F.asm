@@ -9,8 +9,29 @@
 
 WhirlIslandB1F_MapScripts:
 	def_scene_scripts
+	scene_script .CheckIncMonth ; SCENE_ALWAYS
 
 	def_callbacks
+
+.CheckIncMonth
+	checkevent EVENT_GOT_HM07_WATERFALL
+	iftrue .hasIt
+
+	; If at some point (when entering the map) the player didn't have the HM, we save the info.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	end
+
+.hasIt
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iffalse .end
+
+	; Inc month.
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+.end
+	end
 
 WhirlIslandB1FFullRestore:
 	itemball FULL_RESTORE
@@ -28,15 +49,7 @@ WhirlIslandB1FEscapeRope:
 	itemball ESCAPE_ROPE
 
 WhirlIslandB1FHMWaterfall:
-	disappear WHIRLISLANDB1F_POKE_BALL6
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
-	opentext
-	verbosegiveitem HM_WATERFALL
-	closetext
-	end
-
+	itemball HM_WATERFALL
 
 WhirlIslandB1FBoulder:
 	jumpstd StrengthBoulderScript
@@ -78,4 +91,4 @@ WhirlIslandB1F_MapEvents:
 	object_event 17,  8, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FNugget, EVENT_WHIRL_ISLAND_B1F_NUGGET
 	object_event 19, 26, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FEscapeRope, EVENT_WHIRL_ISLAND_B1F_ESCAPE_ROPE
 	object_event 23, 26, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhirlIslandB1FBoulder, -1
-	object_event 19,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, WhirlIslandB1FHMWaterfall, EVENT_GOT_HM07_WATERFALL ; BUG: THIS ONE WON'T BE PICKED BY WALKING OVER IT AS IT'S NO OBJECTTYPE_ITEMBALL!
+	object_event 19,  4, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, WhirlIslandB1FHMWaterfall, EVENT_GOT_HM07_WATERFALL
