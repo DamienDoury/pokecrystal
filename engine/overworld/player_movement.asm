@@ -907,10 +907,44 @@ ENDM
 	jr c, .BumpSound
 
 	cp SPRITEMOVEDATA_SMASHABLE_ROCK
-	jr z, .AutoRockSmash
+	jp z, .AutoRockSmash
 
 	cp SPRITEMOVEDATA_STRENGTH_BOULDER
-	jr z, .AutoStrength
+	jp z, .AutoStrength
+
+	; Checking the sprite.
+	ldh a, [hObjectStructIndex]
+	call GetObjectStruct
+	;ld hl, OBJECT_SPRITE ; This is 0, so we don't need to add BC to HL.
+	;add hl, bc
+	ld a, [hl]
+	cp SPRITE_POKE_BALL
+	jr nz, .BumpSound
+	
+	;ld hl, OBJECT_MAP_OBJECT_INDEX ; This is 1, so it's faster to INC HL rather than ADD HL, BC.
+	;add hl, bc
+	inc hl
+	ld a, [hl]
+	call GetMapObject
+	ld hl, MAPOBJECT_COLOR
+	add hl, bc
+	ld a, [hl]
+	and %00001111
+	cp OBJECTTYPE_ITEMBALL
+	jr nz, .BumpSound
+
+	; Automatically picking itemballs.
+	farcall InteractWithObj ; Calls PlayTalkObject which plays the SFX.
+	ld a, BANK(FindItemInBallScript)
+	ld hl, FindItemInBallScript
+	call CallScript
+	farcall EnableScriptMode
+	farcall ScriptEvents
+	ret
+
+.InteractWithObj:
+	callasm InteractWithObj
+	end
 	
 .BumpSound:
 	call CheckSFX
@@ -969,7 +1003,7 @@ ENDM
 	jp c, .BumpSound
 
 	; This one is complicated.
-	; When bumping into a boulder, even if it can't be pushed, we should alwaydd activate Strength.
+	; When bumping into a boulder, even if it can't be pushed, we should always activate Strength.
 	; Once activated, we should play the bump sound when the boulder can't be pushed away.
 
 	ld a, [wBikeFlags]

@@ -547,6 +547,7 @@ CheckAPressOW::
 	ret c
 	call TryFarNPCOnlyEvent
 	ret c
+	; clap
 	xor a
 	ret
 
@@ -742,7 +743,7 @@ TryFarNPCOnlyEvent:
 	call InteractWithObj
 	ret
 
-InteractWithObj:
+InteractWithObj::
 	call PlayTalkObject
 	ldh a, [hObjectStructIndex]
 	call GetObjectStruct
@@ -750,8 +751,6 @@ InteractWithObj:
 	add hl, bc
 	ld a, [hl]
 	ldh [hLastTalked], a
-
-	ldh a, [hLastTalked]
 	call GetMapObject
 	ld hl, MAPOBJECT_COLOR
 	add hl, bc
