@@ -46,6 +46,9 @@ BattleIntro:
 
 
 ExitBattle:
+	ld a, D_DOWN
+	ldh [hWaitForDownButtonRelease], a ; Prevents the player from walking down after fast forwarding text by keeping Down pressed.
+
 	farcall UpdatePartyStats
 	call ForceBattleAnimationEnd
 	call .HandleEndOfBattle
