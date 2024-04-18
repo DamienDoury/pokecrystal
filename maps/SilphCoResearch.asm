@@ -483,6 +483,31 @@ SilphCoResearch_Printer:
 	jumptext SilphCoResearch_FaxText
 
 SilphCoResearch_UpGradeScript:
+; This whole script is written out rather than as an itemball
+; because we don't want it to be picked up by bumping into it.
+    getitemname STRING_BUFFER_3, UP_GRADE
+
+	giveitem UP_GRADE
+	iffalse .BagFull
+
+	disappear SILPHCORESEARCH_POKEBALL_UP_GRADE
+	opentext
+	farwritetext _PlayerFoundItemText
+	playsound SFX_ITEM
+	waitsfx
+	itemnotify
+	closetext
+	end
+
+.BagFull:
+	opentext
+	farwritetext _PlayerFoundItemText
+	promptbutton
+	farwritetext _CantCarryItemText
+	waitbutton
+	closetext
+	end
+
     disappear SILPHCORESEARCH_POKEBALL_UP_GRADE
 	opentext
 	verbosegiveitem UP_GRADE

@@ -554,13 +554,6 @@ _CanCutText::
 	line "CUT!"
 	done
 
-_FoundItemText::
-	text "<PLAYER> found"
-	line "@"
-	text_ram wStringBuffer3
-	text "!"
-	done
-
 _CantCarryItemText::
 	text "But <PLAYER> can't"
 	line "carry any more"
