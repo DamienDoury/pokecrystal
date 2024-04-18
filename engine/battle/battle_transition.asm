@@ -88,6 +88,8 @@ DoBattleTransition:
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
+	ld a, BALL_POCKET
+	ld [wLastPocket], a
 	call WipeLYOverrides
 	ret
 
