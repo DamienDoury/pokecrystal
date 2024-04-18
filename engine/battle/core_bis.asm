@@ -12,6 +12,8 @@ BattleIntro:
 	farcall FindFirstAliveMonAndStartBattle
 	call DisableSpriteUpdates
 	farcall ClearBattleRAM
+	xor a
+	ld [wLoadedFont], a
 	call InitEnemy
 	call BackUpBGMap2
 	ld b, SCGB_BATTLE_GRAYSCALE
@@ -46,6 +48,9 @@ BattleIntro:
 
 
 ExitBattle:
+	xor a
+	ld [wLoadedFont], a
+	
 	ld a, D_DOWN
 	ldh [hWaitForDownButtonRelease], a ; Prevents the player from walking down after fast forwarding text by keeping Down pressed.
 

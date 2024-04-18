@@ -134,7 +134,7 @@ PlaceMapNameSign::
 	ldh [hWY], a
 	xor a
 	ldh [hLCDCPointer], a
-	ret
+	jp LoadStandardFont
 
 LoadMapNameSignGFX:
 	ld de, MapEntryFrameGFX

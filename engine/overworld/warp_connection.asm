@@ -305,7 +305,7 @@ LoadMapGraphics:
 	ldh [hTileAnimFrame], a
 	farcall RefreshSprites
 	call LoadFontsExtra
-	farcall LoadOverworldFont
+	;farcall LoadOverworldFont
 	ret
 
 LoadMapPalettes:

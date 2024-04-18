@@ -37,13 +37,13 @@ StartMenu::
 	call UpdateSprites
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	farcall LoadFonts_NoOAMUpdate
-	farcall _LoadStandardFont.dont_use_ow_font
+	call LoadStandardFont
 	call .DrawBugContestStatus
 	call UpdateTimePals
 	jr .Select
 
 .Reopen:
-	farcall _LoadStandardFont.dont_use_ow_font
+	call LoadStandardFont
 	call UpdateSprites
 	call UpdateTimePals
 	call .SetUpMenuItems

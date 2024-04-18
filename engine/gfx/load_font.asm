@@ -5,33 +5,17 @@ StandardFontSpaceGFX:
 INCBIN "gfx/font/standard_space.2bpp"
 
 _LoadStandardFont::
-	ld a, [wVramState]
-	bit 0, a
-	jr z, .dont_use_ow_font
-
-	; In vanilla, there are 2 different fonts used on the overworld: one for the Map Sign called "OW font", and a "Standard font" for everything else.
-	; We edited Palette_TextBG7 so that the OW font can be the only one used on the OW.
-	; So when LoadStandardFont is called while on the OW, LoadOverworldFont should be called instead.
-	; We need a way to check that we are on the OW.
-	; The solution found, although it looks like a hack and is not designed for this, looks to be working fine.
-	; We check wVramState first bit (bit 0).
-	; This solution is faster than checking all calls of LoadStandardFont and change those the call to LoadOverworldFont when required.
-	; Although the current solution may be unreliable.
-	farcall LoadOverworldFont
-	ret
-
-.dont_use_ow_font::
-	ld de, StandardFontSpaceGFX
-	ld hl, vTiles2 tile " "
-	lb bc, BANK(StandardFontSpaceGFX), 1
-	call Get2bpp
-
 	ld a, [wLoadedFont]
 	cp FONT_STANDARD
 	ret z ; If the font is already loaded, we don't need to load it again.
 
 	ld a, FONT_STANDARD
 	ld [wLoadedFont], a
+
+	ld de, StandardFontSpaceGFX
+	ld hl, vTiles2 tile " "
+	lb bc, BANK(StandardFontSpaceGFX), 1
+	call Get2bpp
 
 	ld de, Font
 	ld hl, vTiles1
