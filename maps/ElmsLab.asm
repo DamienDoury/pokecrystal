@@ -669,11 +669,32 @@ ElmsLabTrashcan:
 ElmsLabPC:
 	jumptext ElmsLabPCText
 
-ElmsLabTrashcan2: ; unreferenced
-	jumpstd TrashCanScript
-
 ElmsLabBookshelf:
 	jumpstd DifficultBookshelfScript
+
+ElmsLabBookshelf1:
+	farjumptext ElmsLabBookshelf1Text
+
+ElmsLabBookshelf2:
+	farjumptext ElmsLabBookshelf2Text
+
+ElmsLabBookshelf3:
+	farjumptext ElmsLabBookshelf3Text
+
+ElmsLabBookshelf4:
+	farjumptext ElmsLabBookshelf4Text
+
+ElmsLabBookshelf5:
+	farjumptext ElmsLabBookshelf5Text
+
+ElmsLabBookshelf6:
+	farjumptext ElmsLabBookshelf6Text
+
+ElmsLabBookshelf7:
+	farjumptext ElmsLabBookshelf7Text
+
+ElmsLabBookshelf8:
+	farjumptext ElmsLabBookshelf8Text
 
 ElmsLab_WalkUpToElmMovement:
 	step UP
@@ -1267,7 +1288,9 @@ ElmMissionAcceptedText:
 
 	para "Before you leave"
 	line "NEW BARK TOWN"
-	cont "make sure to say"
+	cont "make sure to read"
+	cont "what's on my book-"
+	cont "shelves and say"
 	cont "good bye to your"
 	cont "mom."
 	done
@@ -1870,18 +1893,18 @@ ElmsLab_MapEvents:
 
 	def_bg_events
 	bg_event  2,  1, BGEVENT_READ, ElmsLabHealingMachine
+	bg_event  6,  7, BGEVENT_READ, ElmsLabBookshelf5
+	bg_event  7,  7, BGEVENT_READ, ElmsLabBookshelf6
+	bg_event  8,  7, BGEVENT_READ, ElmsLabBookshelf7
+	bg_event  9,  7, BGEVENT_READ, ElmsLabBookshelf8
+	bg_event  0,  7, BGEVENT_READ, ElmsLabBookshelf1
+	bg_event  1,  7, BGEVENT_READ, ElmsLabBookshelf2
+	bg_event  2,  7, BGEVENT_READ, ElmsLabBookshelf3
+	bg_event  3,  7, BGEVENT_READ, ElmsLabBookshelf4
 	bg_event  6,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  7,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  8,  1, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  9,  1, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  0,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  1,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  2,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  3,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  6,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  7,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  8,  7, BGEVENT_READ, ElmsLabBookshelf
-	bg_event  9,  7, BGEVENT_READ, ElmsLabBookshelf
 	bg_event  9,  3, BGEVENT_READ, ElmsLabTrashcan
 	bg_event  5,  0, BGEVENT_READ, ElmsLabWindow
 	bg_event  3,  5, BGEVENT_DOWN, ElmsLabPC

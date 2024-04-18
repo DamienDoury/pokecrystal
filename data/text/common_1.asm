@@ -2319,3 +2319,223 @@ ClosedBusinessCurfewText::
 	para "row morning, after"
 	line "the curfew.”"
 	done
+
+ElmsLabBookshelf1Text::
+	text "TRAINER TIPS"
+	
+	para "Keep the Down"
+	line "button pressed"
+	cont "to fast forward"
+	cont "dialogs!"
+	done
+	
+ElmsLabBookshelf2Text::
+	text "STATS SCREEN"
+
+	para "The ! symbol next"
+	line "to a stat means"
+	cont "that it has the"
+	cont "maximum potential."
+
+	para "The <EMPTY_STAR> symbol at"
+	line "the left of a stat"
+	cont "means that it is"
+	cont "fully trained, and"
+	cont "will only grow by"
+	cont "leveling up."
+	done
+
+ElmsLabBookshelf3Text::
+	text "START MENU"
+
+	para "Press Start to"
+	line "display the Start"
+	cont "menu."
+
+	para "While the menu is"
+	line "open, long press"
+	cont "the Start button"
+	cont "to create a "
+	cont "shortcut to the"
+	cont "selected menu."
+
+	para "When the Start"
+	line "menu is closed,"
+	cont "long press the"
+	cont "Start button to"
+	cont "use the saved"
+	cont "shortcut."
+
+	para "The SAVE menu al-"
+	line "lows you to save"
+	cont "your progress"
+	cont "before turning off"
+	cont "your console."
+
+	para "The OPTIONS menu"
+	line "allows you to"
+	cont "customize your"
+	cont "experience."
+
+	para "More info on this"
+	line "menu in the next"
+	cont "bookshelves to"
+	cont "the right."
+	done
+
+ElmsLabBookshelf4Text::
+	text "FAST BOOT"
+
+	para "OFF mode:"
+	line "The game starts"
+	cont "normally."
+	
+	para "ON mode:"
+	line "The game skips the"
+	cont "intro and starts"
+	cont "directly into the"
+	cont "world."
+
+	para "If you want to"
+	line "admire the intro-"
+	cont "duction, or access"
+	cont "the NEW GAME menu,"
+	cont "set the FAST BOOT"
+	cont "option to OFF,"
+	cont "save your game,"
+	cont "then reboot your"
+	cont "console."
+	done
+
+ElmsLabBookshelf5Text::
+	text "WORLD ACTIONS"
+	line "Tome 1/4"
+	
+	para "LEGACY mode:"
+	line "Interact in the"
+	cont "same way as in"
+	cont "the original game."
+
+	para "SHORTCUT mode:"
+	line "In addition to the"
+	cont "legacy interac-"
+	cont "tions, this mode"
+	cont "aims to offer a"
+	cont "fluid experience"
+	cont "by minimizing"
+	cont "button presses."
+
+	para "More info on the"
+	line "next shelf."
+	done
+	
+ElmsLabBookshelf6Text::
+	text "WORLD ACTIONS"
+	line "Tome 2/4"
+
+	para "SHORTCUTS mode:"
+	line "In this mode, pick"
+	cont "up items by walk-"
+	cont "ing towards them."
+
+	para "Auto-trigger field"
+	line "moves by bumping"
+	cont "in cutable trees,"
+	cont "breakable rocks,"
+	cont "boulders,"
+	cont "waterfalls,"
+	cont "and whirlpools."
+
+	para "FLASH triggers"
+	line "automatically in"
+	cont "dark areas."
+
+	para "You still have to"
+	line "press A to"
+	cont "HEADBUTT a tree."
+
+	para "You can trigger"
+	line "more field moves"
+	cont "by long-pressing"
+	cont "other buttons."
+
+	para "More info on the"
+	line "next shelf."
+	done
+
+ElmsLabBookshelf7Text::
+	text "WORLD ACTIONS"
+	line "Tome 3/4"
+	
+	para "SHORTCUTS mode:"
+	line "Long press the A"
+	cont "button to trigger"
+	cont "a field move."
+	
+	para "It triggers CUT"
+	line "while facing tall"
+	cont "grass."
+	
+	para "When inside of"
+	line "it, it triggers"
+	cont "SWEET SCENT."
+
+	para "Long press B to"
+	line "leave the current"
+	cont "area."
+	
+	para "After confirmation"
+	line "it will trigger"
+	cont "either FLY, DIG or"
+	cont "TELEPORT, depen-"
+	cont "ding on the area."
+	
+	para "ESCAPE ROPE can be"
+	line "used this way as"
+	cont "well."
+
+	para "The SELECT button"
+	line "also has magic"
+	cont "shortcuts."
+
+	para "More info on the"
+	line "next shelf."
+	done
+
+ElmsLabBookshelf8Text::
+	text "WORLD ACTIONS"
+	line "Tome 4/4"
+	
+	para "SHORTCUTS mode:"
+	line "To use the regis-"
+	cont "tered KEY ITEM,"
+	cont "short press the"
+	cont "Select button."
+
+	para "A long press will"
+	line "instead use the"
+	cont "adequate KEY ITEM"
+	cont "for the situation."
+
+	para "While facing"
+	line "water, the upper"
+	cont "ROD from the KEY"
+	cont "ITEMS pocket will"
+	cont "be used."
+
+	;para "(While facing a fruit tree, the SQUIRTBOTTLE will be used.)"
+	para "In other situa-"
+	line "tions, it will"
+	cont "make you ride the"
+	cont "BICYCLE."
+
+	para "When already"
+	line "riding it, it will"
+	cont "use the ITEM"
+	cont "FINDER instead."
+
+	para "This means that"
+	line "you can't dismount"
+	cont "the BICYCLE with"
+	cont "this shortcut."
+	done
