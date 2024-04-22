@@ -1693,7 +1693,11 @@ wOBP1:: db
 
 wNumHits:: db
 
+UNION
 wOptionsBackup:: db ; Used during Red's battle and shiny battles, to force the activation of the battle animations.
+NEXTU
+wItemFinderDistance:: db
+ENDU
 
 wOptions::
 ; bit 0-2: number of frames to delay when printing text
