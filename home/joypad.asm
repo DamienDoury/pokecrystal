@@ -410,6 +410,8 @@ PromptButton::
 	jr .input_wait_loop
 
 .received_input
+	and D_DOWN
+	ldh [hWaitForDownButtonRelease], a
 	pop af
 	ldh [hOAMUpdate], a
 	ret

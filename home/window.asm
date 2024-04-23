@@ -21,10 +21,16 @@ CloseText::
 
 	call .CloseText
 
+	ldh a, [hWaitForDownButtonRelease]
+	and a
+	jr z, .skip_down_button_assignment
+
+	; CloseText only prevents the player from walking down with the Down button if the previous text has been closed with Down.
 	ldh a, [hJoyDown]
 	and D_DOWN
 	ldh [hWaitForDownButtonRelease], a
 
+.skip_down_button_assignment
 	pop af
 	ldh [hOAMUpdate], a
 	ld hl, wVramState
