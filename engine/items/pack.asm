@@ -118,7 +118,7 @@ Pack:
 	ld [wKeyItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wKeyItemsPocketCursor], a
-	ld b, PACKSTATE_INITBERRYPOCKET ; left
+	ld b, PACKSTATE_INITTMHMPOCKET ; left
 	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
@@ -138,8 +138,8 @@ Pack:
 
 .TMHMPocketMenu:
 	farcall TMHMPocket
-	ld b, PACKSTATE_INITBALLSPOCKET ; left
-	ld c, PACKSTATE_INITBERRYPOCKET ; right
+	ld b, PACKSTATE_INITBERRYPOCKET ; left
+	ld c, PACKSTATE_INITKEYITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 
@@ -184,7 +184,7 @@ Pack:
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
 	ld b, PACKSTATE_INITMEDPOCKET ; left
-	ld c, PACKSTATE_INITTMHMPOCKET ; right
+	ld c, PACKSTATE_INITBERRYPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call .ItemBallsKey_LoadSubmenu
@@ -239,8 +239,8 @@ Pack:
 	ld [wBerryPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBerryPocketCursor], a
-	ld b, PACKSTATE_INITTMHMPOCKET ; left
-	ld c, PACKSTATE_INITKEYITEMSPOCKET ; right
+	ld b, PACKSTATE_INITBALLSPOCKET ; left
+	ld c, PACKSTATE_INITTMHMPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call .ItemBallsKey_LoadSubmenu
@@ -674,7 +674,7 @@ BattlePack:
 	ld [wItemsPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wItemsPocketCursor], a
-	ld b, PACKSTATE_INITKEYITEMSPOCKET ; left
+	ld b, PACKSTATE_INITBERRYPOCKET ; left
 	ld c, PACKSTATE_INITMEDPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
@@ -724,8 +724,8 @@ BattlePack:
 
 .TMHMPocketMenu:
 	farcall TMHMPocket
-	ld b, PACKSTATE_INITBALLSPOCKET ; left
-	ld c, PACKSTATE_INITBERRYPOCKET ; right
+	ld b, PACKSTATE_INITBERRYPOCKET ; left
+	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	xor a
@@ -754,7 +754,7 @@ BattlePack:
 	ld a, [wMenuCursorY]
 	ld [wBallsPocketCursor], a
 	ld b, PACKSTATE_INITMEDPOCKET ; left
-	ld c, PACKSTATE_INITTMHMPOCKET ; right
+	ld c, PACKSTATE_INITBERRYPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call ItemSubmenu
@@ -809,8 +809,8 @@ BattlePack:
 	ld [wBerryPocketScrollPosition], a
 	ld a, [wMenuCursorY]
 	ld [wBerryPocketCursor], a
-	ld b, PACKSTATE_INITTMHMPOCKET ; left
-	ld c, PACKSTATE_INITKEYITEMSPOCKET ; right
+	ld b, PACKSTATE_INITBALLSPOCKET ; left
+	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
 	call ItemSubmenu
@@ -957,9 +957,10 @@ DepositSellInitPackBuffers:
 	ldh [hBGMapMode], a
 	ld [wJumptableIndex], a ; PACKSTATE_INITGFX
 	ld [wPackJumptableIndex], a ; PACKSTATE_INITGFX
-	ld [wCurPocket], a ; ITEM_POCKET
 	ld [wPackUsedItem], a
 	ld [wSwitchItem], a
+	ld a, BALL_POCKET
+	ld [wCurPocket], a ; ITEM_BALLS
 	call Pack_InitGFX
 	call Pack_InitColors
 	ret
@@ -982,8 +983,8 @@ DepositSellPack:
 	dw .ItemsPocket
 	dw .MedPocket
 	dw .BallsPocket
-	dw .TMHMPocket
 	dw .BerryPocket
+	dw .TMHMPocket
 	dw .KeyItemsPocket
 
 .ItemsPocket:
@@ -1116,7 +1117,7 @@ DepositSellTutorial_InterpretJoypad:
 	dec a
 	cp -1
 	jr nz, .left_ok
-	ld a, NUM_POCKETS - 1
+	ld a, NUM_POCKETS - 3
 .left_ok
 	ld [wJumptableIndex], a
 	push de
@@ -1129,7 +1130,7 @@ DepositSellTutorial_InterpretJoypad:
 .d_right
 	ld a, [wJumptableIndex]
 	inc a
-	cp NUM_POCKETS
+	cp NUM_POCKETS - 2
 	jr nz, .right_ok
 	xor a
 .right_ok
@@ -1163,11 +1164,11 @@ TutorialPack:
 
 .dw
 ; entries correspond to *_POCKET constants
-	dw .Items
+	dw .Balls
 	dw .Meds
 	dw .Balls
-	dw .TMHM
 	dw .Berries
+	dw .TMHM
 	dw .KeyItems
 
 .Items:
@@ -1568,12 +1569,12 @@ DrawPocketName:
 	ret
 
 .separator:
-	db 0 ; ITEM_POCKET     ; 0
-	db 6 ; BALL_POCKET     ; 1
+	db 0  ; ITEM_POCKET     ; 0
+	db 6  ; BALL_POCKET     ; 1
 	db 17 ; KEY_ITEM_POCKET ; 2
-	db 9 ; TM_HM_POCKET    ; 3
-	db 3 ; MED_POCKET      ; 4
-	db 13 ; BERRIES_POCKET  ; 5
+	db 13 ; TM_HM_POCKET    ; 3
+	db 3  ; MED_POCKET      ; 4
+	db 9  ; BERRIES_POCKET  ; 5
 
 .tilemap: ; 5x12
 ; the 5x3 pieces correspond to *_POCKET constants

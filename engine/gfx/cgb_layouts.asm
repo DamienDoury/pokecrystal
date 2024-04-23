@@ -885,8 +885,6 @@ RefreshPackTabsColors::
 	ld d, [hl] ; D stores the ID of the menu.
 	ld e, 0
 
-
-	hlcoord 3, 0, wAttrmap
 	hlcoord 0, 0, wAttrmap
 
 	ld a, e
@@ -920,7 +918,7 @@ RefreshPackTabsColors::
 
 	call .incHL
 
-	; TM/HM tab.
+	; Berries tab.
 	lb bc, 1, 4
 	ld a, $2
 	push hl
@@ -929,7 +927,7 @@ RefreshPackTabsColors::
 
 	call .incHL
 
-	; Berries tab.
+	; TM/HM tab.
 	lb bc, 1, 4
 	ld a, $2
 	push hl
@@ -975,9 +973,9 @@ RefreshPackTabsColors::
 	db 0 ; ITEM_POCKET     ; 0
 	db 2 ; BALL_POCKET     ; 1
 	db 5 ; KEY_ITEM_POCKET ; 2
-	db 3 ; TM_HM_POCKET    ; 3
+	db 4 ; TM_HM_POCKET    ; 3
 	db 1 ; MED_POCKET      ; 4
-	db 4 ; BERRIES_POCKET  ; 5
+	db 3 ; BERRIES_POCKET  ; 5
 
 _CGB_Pokepic:
 	call _CGB_MapPals
