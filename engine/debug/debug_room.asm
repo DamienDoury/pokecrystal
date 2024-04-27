@@ -1011,76 +1011,10 @@ DebugRoomMenu_ItemGet:
 .PagedValuesHeader:
 	dw NULL ; A function
 	dw NULL ; Select function
-	dw DebugRoom_SaveItem ; Start function
+	dw NULL ; Start function
 	dw NULL ; Auto function
 	db 1 ; # pages
 	dw DebugRoomMenu_ItemGet_Page1Values
-
-DebugRoom_SaveItem:
-	call YesNoBox
-	ret c
-	ld a, BANK(sPlayerData)
-	call OpenSRAM
-	ld hl, sPlayerData + (wPCItems - wPlayerData)
-	ld a, [wDebugRoomItemID]
-	ld c, a
-.loop1
-	ld a, [hl]
-	cp c
-	jr z, .found
-	cp -1
-	jr z, .not_found
-	inc hl
-	inc hl
-	jr .loop1
-
-.found
-	inc hl
-	ld a, [wDebugRoomItemQuantity]
-	add [hl]
-	cp MAX_ITEM_STACK + 1
-	jr c, .max
-	ld a, MAX_ITEM_STACK
-.max
-	ld [hl], a
-	ld hl, .ItemNumberAddedText
-	jr .done
-
-.not_found
-	ld a, [sPlayerData + (wNumPCItems - wPlayerData)]
-	cp MAX_PC_ITEMS
-	jr nc, .full
-	inc a
-	ld [sPlayerData + (wNumPCItems - wPlayerData)], a
-	ld a, [wDebugRoomItemID]
-	ld [hli], a
-	ld a, [wDebugRoomItemQuantity]
-	ld [hli], a
-	ld [hl], -1 ; terminator
-	ld hl, .CreatedNewItemText
-	jr .done
-
-.full
-	ld hl, .StockFullText
-.done
-	call CloseSRAM
-	call MenuTextbox
-	call DebugRoom_JoyWaitABSelect
-	call CloseWindow
-	call DebugRoom_SaveChecksum
-	ret
-
-.ItemNumberAddedText:
-	text "Item number added!"
-	done
-
-.CreatedNewItemText:
-	text "Created new item!"
-	done
-
-.StockFullText:
-	text "Stock full!!"
-	done
 
 DebugRoom_PrintItemName:
 	ld [wNamedObjectIndex], a

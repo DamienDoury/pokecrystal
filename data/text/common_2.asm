@@ -306,11 +306,6 @@ _HMRequiredText::
 	line "own the HM."
 	prompt
 
-_CantDepositText::
-	text "Can't deposit"
-	line "this item."
-	prompt
-
 _CantUseItemText::
 	text "Can't use that"
 	line "here."
@@ -1171,48 +1166,6 @@ _PlayersPCAskWhatDoText::
 	line "to do?"
 	done
 
-_PlayersPCHowManyWithdrawText::
-	text "How many do you"
-	line "want to withdraw?"
-	done
-
-_PlayersPCWithdrewItemsText::
-	text "Withdrew @"
-	text_decimal wItemQuantityChange, 1, 2
-	text_start
-	line "@"
-	text_ram wStringBuffer2
-	text "(S)."
-	prompt
-
-_PlayersPCNoRoomWithdrawText::
-	text "There's no room"
-	line "for more items."
-	prompt
-
-_PlayersPCNoItemsText::
-	text "No items here!"
-	prompt
-
-_PlayersPCHowManyDepositText::
-	text "How many do you"
-	line "want to deposit?"
-	done
-
-_PlayersPCDepositItemsText::
-	text "Deposited @"
-	text_decimal wItemQuantityChange, 1, 2
-	text_start
-	line "@"
-	text_ram wStringBuffer2
-	text "(S)."
-	prompt
-
-_PlayersPCNoRoomDepositText::
-	text "There's no room to"
-	line "store items."
-	prompt
-
 _PlayersPCSanitizerText::
 	text "<PLAYER> washes his"
 	line "hands with some"
@@ -1460,34 +1413,6 @@ _StartMenuContestEndText::
 	text "Would you like to"
 	line "end the Contest?"
 	done
-
-_ItemsTossOutHowManyText::
-	text "Toss out how many"
-	line "@"
-	text_ram wStringBuffer2
-	text "(S)?"
-	done
-
-_ItemsThrowAwayText::
-	text "Throw away @"
-	text_decimal wItemQuantityChange, 1, 2
-	text_start
-	line "@"
-	text_ram wStringBuffer2
-	text "(S)?"
-	done
-
-_ItemsDiscardedText::
-	text "Discarded"
-	line "@"
-	text_ram wStringBuffer1
-	text "(S)."
-	prompt
-
-_ItemsTooImportantText::
-	text "That's too impor-"
-	line "tant to toss out!"
-	prompt
 
 _ItemsOakWarningText::
 	text "OAK: <PLAYER>!"

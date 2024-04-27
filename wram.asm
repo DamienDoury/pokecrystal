@@ -2115,7 +2115,8 @@ wCurMoveNum:: db
 
 wLastPocket:: db
 
-wPCItemsCursor::        db
+	ds 1
+
 wPartyMenuCursor::      db
 wItemsPocketCursor::    db
 wKeyItemsPocketCursor:: db
@@ -2124,7 +2125,8 @@ wTMHMPocketCursor::     db
 wMedPocketCursor::     	db
 wBerryPocketCursor::    db
 
-wPCItemsScrollPosition::        db
+	ds 1
+
 wItemsPocketScrollPosition::    db
 wKeyItemsPocketScrollPosition:: db
 wBallsPocketScrollPosition::    db
@@ -2402,11 +2404,6 @@ wSelectedDecoration::     db
 wOtherDecoration::        db
 wChangedDecorations::     db
 wCurDecorationCategory::  db
-
-NEXTU
-; withdraw/deposit items
-wPCItemQuantityChange:: db
-wPCItemQuantity:: db
 
 NEXTU
 ; mail
@@ -2910,8 +2907,7 @@ wMeds:: ds MAX_MEDS * 2 + 1
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
-wNumPCItems:: db ; à virer. To Remove. To delete.
-wPCItems:: ds MAX_PC_ITEMS * 2 + 1 ; à virer. To Remove. To delete.
+	ds 22
 
 wPokegearFlags::
 ; bit 0: map
