@@ -2922,7 +2922,7 @@ wPokegearFlags::
 	db
 wRadioTuningKnob:: db
 wLastDexMode:: db
-wWhichRegisteredItem:: db
+	ds 1
 wRegisteredItem:: db
 
 wPlayerState:: db

@@ -228,8 +228,6 @@ CheatGuyScript:
 
 	loadmem wPartyMon1Moves, FLY
 	loadmem wPartyMon2Moves, SURF
-	loadmem wWhichRegisteredItem, $80 + 1
-	loadmem wRegisteredItem, BICYCLE
 
 	setflag ENGINE_RADIO_CARD
 	setflag ENGINE_MAP_CARD

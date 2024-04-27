@@ -1595,14 +1595,6 @@ _PokemonNotEnoughHPText::
 	text "Not enough HP!"
 	prompt
 
-_MayRegisterItemText::
-	text "An item in your"
-	line "PACK may be"
-
-	para "registered for use"
-	line "on SELECT Button."
-	done
-
 _OakText1::
 	text "Hello! Sorry to"
 	line "keep you waiting!"

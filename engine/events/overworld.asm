@@ -1765,6 +1765,22 @@ RodNothingText:
 	text_far _RodNothingText
 	text_end
 
+; Returns Z if can get on the bike. Carry otherwise.
+; This doesn't check if the player owns a bike.
+TryBikeSilent::
+	call BikeFunction.CheckEnvironment
+	ret c
+
+	ld a, [wPlayerState]
+	cp PLAYER_NORMAL
+	ret z
+
+	cp PLAYER_BIKE
+	ret z
+
+	scf
+	ret
+
 BikeFunction:
 	call .TryBike
 	and $7f

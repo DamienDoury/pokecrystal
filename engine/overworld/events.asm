@@ -461,6 +461,12 @@ OWPlayerInput:
 	call CheckLongBPressOW
 	jr c, .Action
 
+	xor a
+	ldh [hMenuReturn], a
+
+	call CheckLongSelectPressOW
+	jr c, .Action
+
 	call CheckMenuOW
 	jr c, .Action
 
@@ -692,6 +698,151 @@ CheckLongBPressOW:
 	ld a, BANK(TeleportFunction.TeleportFromOWScript)
 	ld hl, TeleportFunction.TeleportFromOWScript
 	jp CallScript
+
+CheckLongSelectPressOW:
+	ldh a, [hJoypadDown]
+	and SELECT
+	jr z, .check_short_press
+
+	ldh a, [hLongPressSelect]
+	and a
+	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressB has been set to 1 when B is first pressed down.
+
+	ldh a, [hJoypadDown]
+	cp SELECT
+	jr nz, .cancel_long_press ; If the player is pressing any other button, cancel the long press.
+
+	ldh a, [hLongPressSelect]
+	inc a
+	ldh [hLongPressSelect], a ; Increase the longpress frame counter.
+	cp LONG_PRESS_FRAMES_DURATION
+	jr c, .check_pressed_this_frame
+
+	xor a
+	ldh [hLongPressSelect], a ; Preventing infinite triggers.
+
+; Try Itemfinder.
+	ld a, ITEMFINDER
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .check_pressed_this_frame
+	
+	ld a, ITEMFINDER
+	jr .use_key_item_no_sound
+
+.close_menu_after_cancel
+; This is a copy of ExitAllMenus.
+	call ExitAllMenus
+	farcall HideMapNameSign
+	call CloseText
+	xor a
+	ret
+
+.cancel_long_press
+	xor a
+	ldh [hLongPressSelect], a
+
+.check_pressed_this_frame
+	ldh a, [hJoyPressed]
+	and SELECT
+	ret z
+
+	ld a, 1
+	ldh [hLongPressSelect], a ; Initiates a long press.
+	xor a
+	ret
+
+.check_short_press
+	ldh a, [hLongPressSelect]
+	and a
+	ret z
+
+	; Note: the long press is activated as soon as possible.
+	; Which means if we are here, the short press is automatically validated.
+
+	xor a
+	ldh [hLongPressSelect], a ; Prevents infinite triggers.
+
+	; Try fishing.
+	call IsPlayerFacingWaterWhileStandingOnLand
+	jr nc, .try_squirtbottle
+
+	ld a, [wRegisteredItem]
+	call IsRod
+	jr z, .use_key_item
+
+	; Get highest rod from the key items pocket.
+	call GetFirstRod
+	and a
+	jr z, .try_squirtbottle
+
+	cp $ff
+	jr nz, .use_key_item
+
+.try_squirtbottle
+.try_bike
+	ld a, BICYCLE
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .abandon
+
+	farcall TryBikeSilent
+	jr c, .abandon
+
+	ld a, BICYCLE
+	jr .use_key_item_no_sound
+
+.abandon
+	xor a
+	ret
+
+.use_key_item
+	call PlayTalkObject ; Doesn't clobber A!
+.use_key_item_no_sound
+	ld [wCurItem], a
+	ld a, BANK(SelectMenuShortcutScript)
+	ld hl, SelectMenuShortcutScript
+	jp CallScript
+
+; Output: carry if true.
+IsPlayerFacingWaterWhileStandingOnLand:
+	call CheckOnWater
+	ret z
+
+	call GetFacingTileCoord
+	call GetTileCollision
+	cp WATER_TILE
+	jp z, DoBikeStep.returnCarry
+	
+	xor a
+	ret
+
+; Output: A is $00, $ff, OLD_ROD, GOOD_ROD or SUPER_ROD.
+GetFirstRod:
+	ld hl, wKeyItems
+.next
+	ld a, [hli]
+	and a
+	ret z
+
+	cp $ff
+	ret z
+
+	call IsRod
+	ret z
+	
+	jr .next
+
+; Returns Z if A is a rod. Returns NZ otherwise.
+IsRod:
+	cp OLD_ROD
+	ret z
+	cp GOOD_ROD
+	ret z
+	cp SUPER_ROD
+	ret
 
 ; Output: carry if true.
 IsPlayerFacingGrassWhileStandingOutsideOfGrass:
@@ -1019,9 +1170,6 @@ CheckMenuOW:
 	ldh [hMenuReturn], a
 	ldh a, [hJoyPressed]
 
-	bit SELECT_F, a
-	jr nz, .Select
-
 	bit START_F, a
 	jr z, .NoMenu
 
@@ -1033,18 +1181,12 @@ CheckMenuOW:
 	xor a
 	ret
 
-.Select:
-	call PlayTalkObject
-	ld a, BANK(SelectMenuScript)
-	ld hl, SelectMenuScript
-	jp CallScript
-
 StartMenuScript:
 	callasm StartMenu
 	sjump StartMenuCallback
 
-SelectMenuScript:
-	callasm SelectMenu
+SelectMenuShortcutScript:
+	callasm UseRegisteredItem
 	sjump SelectMenuCallback
 
 StartMenuCallback:

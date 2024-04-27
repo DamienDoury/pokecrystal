@@ -77,6 +77,7 @@ GetPlayerStandingTile::
 	ld b, a
 	ret
 
+; Returns Z if true.
 CheckOnWater::
 	ld a, [wPlayerStandingTile]
 	call GetTileCollision

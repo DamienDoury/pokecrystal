@@ -473,7 +473,6 @@ PlayerDepositItemMenu:
 	and a
 	jr z, .close
 	call .TryDepositItem
-	farcall CheckRegisteredItem
 	jr .loop
 
 .close
