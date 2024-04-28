@@ -83,17 +83,8 @@ _TossItem::
 	jp RemoveItemFromPocket
 
 .TMHM:
-	ld h, d
-	ld l, e
-	ld a, [wCurItem]
-	ld c, a
-	call GetTMHMNumber
-	jp TossTMHM
-
 .KeyItem:
-	ld h, d
-	ld l, e
-	jp TossKeyItem
+	ret
 
 .Item:
 	ld h, d
@@ -372,57 +363,6 @@ ReceiveKeyItem:
 	and a
 	ret
 
-TossKeyItem:
-	ld a, [wCurItemQuantity]
-	ld e, a
-	ld d, 0
-	ld hl, wNumKeyItems
-	ld a, [hl]
-	cp e
-	jr nc, .ok
-	call .Toss
-	ret nc
-	jr .ok2
-
-.ok
-	dec [hl]
-	inc hl
-	add hl, de
-
-.ok2
-	ld d, h
-	ld e, l
-	inc hl
-.loop
-	ld a, [hli]
-	ld [de], a
-	inc de
-	cp -1
-	jr nz, .loop
-	scf
-	ret
-
-.Toss:
-	ld hl, wNumKeyItems
-	ld a, [wCurItem]
-	ld c, a
-.loop3
-	inc hl
-	ld a, [hl]
-	cp c
-	jr z, .ok3
-	cp -1
-	jr nz, .loop3
-	xor a
-	ret
-
-.ok3
-	ld a, [wNumKeyItems]
-	dec a
-	ld [wNumKeyItems], a
-	scf
-	ret
-
 CheckKeyItems:
 	ld a, [wCurItem]
 	ld c, a
@@ -442,56 +382,27 @@ CheckKeyItems:
 
 ReceiveTMHM:
 	dec c
-	ld b, 0
+	ld e, c
+	ld d, 0
+
+	ld b, SET_FLAG
 	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [wItemQuantityChange]
-	add [hl]
-	cp MAX_ITEM_STACK + 1
-	jr nc, .toomany
-	ld [hl], a
+	call FlagAction
 	scf
-	ret
-
-.toomany
-	and a
-	ret
-
-TossTMHM:
-	dec c
-	ld b, 0
-	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [wItemQuantityChange]
-	ld b, a
-	ld a, [hl]
-	sub b
-	jr c, .nope
-	ld [hl], a
-	ld [wItemQuantity], a
-	jr nz, .yup
-	ld a, [wTMHMPocketScrollPosition]
-	and a
-	jr z, .yup
-	dec a
-	ld [wTMHMPocketScrollPosition], a
-
-.yup
-	scf
-	ret
-
-.nope
-	and a
 	ret
 
 CheckTMHM:
 	dec c
-	ld b, $0
+	ld e, c
+	ld d, 0
+
+	ld b, CHECK_FLAG
 	ld hl, wTMsHMs
-	add hl, bc
-	ld a, [hl]
+	call FlagAction
+	ld a, c
 	and a
 	ret z
+	
 	scf
 	ret
 

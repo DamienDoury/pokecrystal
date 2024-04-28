@@ -1015,8 +1015,6 @@ DepositSellPack:
 	call InitPocket
 	call WaitBGMap_DrawPackGFX
 	farcall TMHMPocket
-	ld a, [wCurItem]
-	ld [wCurItem], a
 	ret
 
 .BallsPocket:
@@ -1207,8 +1205,6 @@ TutorialPack:
 	call InitPocket
 	call WaitBGMap_DrawPackGFX
 	farcall TMHMPocket
-	ld a, [wCurItem]
-	ld [wCurItem], a
 	ret
 
 .Balls:

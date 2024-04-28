@@ -1,33 +1,3 @@
-HasNoItems:
-	ld a, [wNumItems]
-	and a
-	ret nz
-	ld a, [wNumKeyItems]
-	and a
-	ret nz
-	ld a, [wNumBalls]
-	and a
-	ret nz
-	ld a, [wNumMeds]
-	and a
-	ret nz
-	ld a, [wNumBerries]
-	and a
-	ret nz
-	ld hl, wTMsHMs
-	ld b, NUM_TMS + NUM_HMS
-.loop
-	ld a, [hli]
-	and a
-	jr nz, .done
-	dec b
-	jr nz, .loop
-	scf
-	ret
-.done
-	and a
-	ret
-
 CantUseItem:
 	ld hl, ItemsOakWarningText
 	call MenuTextboxWaitButton

@@ -7,25 +7,18 @@ TMHMPocket:
 	ret nc
 	call PlaceHollowCursor
 	call WaitBGMap
-	ld a, [wCurItem]
-	dec a
+	
+	ld a, 1
 	ld [wCurItemQuantity], a
-	ld hl, wTMsHMs
-	ld c, a
-	ld b, 0
-	add hl, bc
-	ld a, [hl]
 	ld [wItemQuantity], a
-	call .ConvertItemToTMHMNumber
-	scf
-	ret
 
-.ConvertItemToTMHMNumber:
 	ld a, [wCurItem]
 	ld c, a
 	callfar GetNumberedTMHM
 	ld a, c
 	ld [wCurItem], a
+
+	scf
 	ret
 
 ConvertCurItemIntoCurTMHM:
@@ -245,15 +238,13 @@ TMHM_ShowTMMoveDescription:
 
 TMHM_ChooseTMorHM:
 	call TMHM_PlaySFX_ReadText2
-	call CountTMsHMs ; This stores the count to wTempTMHM.
+	call CountTMsHMs ; This stores the count to C.
 	ld a, [wMenuCursorY]
 	dec a
 	ld b, a
 	ld a, [wTMHMPocketScrollPosition]
 	add b
-	ld b, a
-	ld a, [wTempTMHM]
-	cp b
+	cp c
 	jr z, _TMHM_ExitPack ; our cursor was hovering over CANCEL
 TMHM_CheckHoveringOverCancel:
 	call TMHM_GetCurrentPocketPosition
@@ -264,15 +255,29 @@ TMHM_CheckHoveringOverCancel:
 	ld a, c
 	cp NUM_TMS + NUM_HMS + 1
 	jr nc, .okay
-	ld a, [hli]
-	and a
+
+	call TMHM_CheckCursorTMHMOwned
 	jr z, .loop
+
 	dec b
 	jr nz, .loop
 	ld a, c
 .okay
 	ld [wCurItem], a
 	cp -1
+	ret
+
+TMHM_CheckCursorTMHMOwned:
+	push bc
+	push de
+	ld b, CHECK_FLAG
+	ld d, 0
+	ld e, c
+	dec e
+	ld hl, wTMsHMs
+	call FlagAction
+	pop de
+	pop bc
 	ret
 
 TMHM_ExitPack:
@@ -307,9 +312,10 @@ TMHM_ScrollPocket:
 	ld a, c
 	cp NUM_TMS + NUM_HMS + 1
 	jp nc, TMHM_JoypadLoop
-	ld a, [hli]
-	and a
+
+	call TMHM_CheckCursorTMHMOwned
 	jr z, .loop
+
 	dec b
 	jr nz, .loop
 	ld hl, wTMHMPocketScrollPosition
@@ -333,10 +339,10 @@ TMHM_DisplayPocketItems:
 	ld a, c
 	cp NUM_TMS + NUM_HMS + 1
 	jr nc, .NotTMHM
-	ld a, [hli]
-	and a
+
+	call TMHM_CheckCursorTMHMOwned
 	jr z, .loop2
-	ld b, a
+
 	ld a, c
 	ld [wTempTMHM], a
 	push hl
@@ -377,7 +383,7 @@ TMHM_DisplayPocketItems:
 	pop hl
 	dec d
 	jr nz, .loop2
-	jr .done
+	ret
 
 .NotTMHM:
 	call TMHMPocket_GetCurrentLineCoord
@@ -388,7 +394,6 @@ TMHM_DisplayPocketItems:
 	ld de, TMHM_CancelString
 	call PlaceString
 	pop de
-.done
 	ret
 
 TMHMPocket_GetCurrentLineCoord:
@@ -421,22 +426,58 @@ PlaceMoveNameAfterTMHMName: ; unreferenced
 TMHM_CancelString:
 	db "CANCEL@"
 
+
 TMHM_GetCurrentPocketPosition:
+	push de
 	ld hl, wTMsHMs
 	ld a, [wTMHMPocketScrollPosition]
 	ld b, a
 	inc b
 	ld c, 0
-.loop
-	inc c
-	ld a, [hli]
-	and a
-	jr z, .loop
+	ld e, 1
+	;ld d, NUM_TMS + NUM_HMS ; No upper cap. We run on confidence that wTMHMPocketScrollPosition will always be lower than NUM_TMS + NUM_HMS.
+
+.inner_loop
+	ld a, [hl] ; Reading the current byte in the wTMsHMs flag_array.
+	and e
+	jr z, .next_inner_loop ; The read bit is 0, which means that the player doesn't own this TM/HM.
+
+	; The player owns the TM/HM masked by the bit in E.
 	dec b
-	jr nz, .loop
-	dec hl
-	dec c
+	jr z, .done
+
+.next_inner_loop
+	inc c
+	sla e
+	jr nc, .inner_loop
+
+	inc hl ; Every 8 bits checked, we need to read the next byte.
+	ld e, 1
+	jr .inner_loop
+
+.done
+	pop de
 	ret
+
+
+;TMHM_GetCurrentPocketPosition:
+;	ld hl, wTMsHMs
+;	ld a, [wTMHMPocketScrollPosition]
+;	ld b, a
+;	inc b
+;	ld c, 0
+;.loop
+;	inc c
+;	ld a, [hli]
+;	and a
+;	jr z, .loop
+;
+;	dec b
+;	jr nz, .loop
+;
+;	dec hl
+;	dec c
+;	ret
 
 Tutorial_TMHMPocket:
 	hlcoord 9, 3
@@ -453,49 +494,7 @@ TMHM_PlaySFX_ReadText2:
 	pop de
 	ret
 
-VerboseReceiveTMHM: ; unreferenced
-	call ConvertCurItemIntoCurTMHM
-	call .CheckHaveRoomForTMHM
-	ld hl, .NoRoomTMHMText
-	jr nc, .print
-	ld hl, .ReceivedTMHMText
-.print
-	jp PrintText
-
-.NoRoomTMHMText:
-	text_far _NoRoomTMHMText
-	text_end
-
-.ReceivedTMHMText:
-	text_far _ReceivedTMHMText
-	text_end
-
-.CheckHaveRoomForTMHM:
-	ld a, [wTempTMHM]
-	dec a
-	ld hl, wTMsHMs
-	ld b, 0
-	ld c, a
-	add hl, bc
-	ld a, [hl]
-	inc a
-	cp MAX_ITEM_STACK + 1
-	ret nc
-	ld [hl], a
-	ret
-
 CountTMsHMs:
-	ld b, 0
-	ld c, NUM_TMS + NUM_HMS
 	ld hl, wTMsHMs
-.loop
-	ld a, [hli]
-	and a
-	jr z, .skip
-	inc b
-.skip
-	dec c
-	jr nz, .loop
-	ld a, b
-	ld [wTempTMHM], a
-	ret
+	ld b, NUM_TMS + NUM_HMS
+	jp CountSetBits ; Count the number of set bits in b bytes starting from hl. Return in a and c.

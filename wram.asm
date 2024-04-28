@@ -2890,7 +2890,7 @@ wBadges::
 wJohtoBadges:: flag_array NUM_JOHTO_BADGES
 wKantoBadges:: flag_array NUM_KANTO_BADGES
 
-wTMsHMs:: ds NUM_TMS + NUM_HMS
+wTMsHMs:: flag_array NUM_TMS + NUM_HMS ; Takes up 8 bytes (originally 58).
 
 wNumItems:: db
 wItems:: ds MAX_ITEMS * 2 + 1
@@ -2902,12 +2902,12 @@ wNumBalls:: db
 wBalls:: ds MAX_BALLS * 2 + 1
 
 wNumMeds:: db
-wMeds:: ds MAX_MEDS * 2 + 1
+wMeds:: ds MAX_MEDS * 2 + 1 ; Should be increased by 4, because it can't fit all meds. Will break save compatibility.
 
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
-	ds 22
+	ds 14
 
 wPokegearFlags::
 ; bit 0: map

@@ -207,21 +207,6 @@ _TMHMNotCompatibleText::
 	text "."
 	prompt
 
-_NoRoomTMHMText::
-	text "You have no room"
-	line "for any more"
-	cont "@"
-	text_ram wStringBuffer1
-	text "S."
-	prompt
-
-_ReceivedTMHMText::
-	text "You received"
-	line "@"
-	text_ram wStringBuffer1
-	text "!"
-	prompt
-
 _MysteryGiftCanceledText::
 	text "The link has been"
 	line "cancelled."
