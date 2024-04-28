@@ -218,9 +218,9 @@ AshPikachuLeadsToCeruleanCave:
 	closetext
 
 	; fade screen
-	;warpsound
+	playsound SFX_WATER_GUN
 	special FadeOutPalettes
-	pause 15
+	pause 20
 
 	; Escape rope setting.
 	loadmem wDigWarpNumber, 7

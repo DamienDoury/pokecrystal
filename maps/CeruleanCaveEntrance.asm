@@ -19,8 +19,9 @@ CeruleanCaveEntrance_ExitScript:
 	end
 
 .go_out
+	playsound SFX_WATER_GUN
 	special FadeBlackQuickly
-	pause 15
+	pause 20
 	warp CERULEAN_CITY, 2, 14
 	end
 
