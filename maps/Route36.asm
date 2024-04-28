@@ -121,6 +121,7 @@ WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	writetext SudowoodoAttackedText
 	waitbutton
 	closetext
+	loadmem wAssaultBattle, $ff
 	loadwildmon SUDOWOODO, 20
 	startbattle
 	ifequal DRAW, DidntCatchSudowoodo
