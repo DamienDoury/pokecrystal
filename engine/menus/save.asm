@@ -1,6 +1,11 @@
-SaveMenu:
+SaveMenu::
 	call LoadStandardMenuHeader
 	farcall DisplaySaveInfoOnSave
+	jr .go_on
+	
+.quick::
+	call LoadStandardMenuHeader
+.go_on:
 	call SpeechTextbox
 	call UpdateSprites
 	farcall SaveMenu_CopyTilemapAtOnce

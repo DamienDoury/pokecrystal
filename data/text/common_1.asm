@@ -2352,19 +2352,10 @@ ElmsLabBookshelf3Text::
 	line "display the Start"
 	cont "menu."
 
-	;para "While the menu is"
-	;line "open, long press"
-	;cont "the Start button"
-	;cont "to create a "
-	;cont "shortcut to the"
-	;cont "selected menu."
-
-	;para "When the Start"
-	;line "menu is closed,"
-	;cont "long press the"
-	;cont "Start button to"
-	;cont "use the saved"
-	;cont "shortcut."
+	para "Long press the"
+	line "Start button to"
+	cont "quickly access"
+	cont "the SAVE menu."
 
 	para "The SAVE menu al-"
 	line "lows you to save"

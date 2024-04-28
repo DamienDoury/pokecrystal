@@ -467,7 +467,7 @@ OWPlayerInput:
 	call CheckLongSelectPressOW
 	jr c, .Action
 
-	call CheckMenuOW
+	call CheckLongStartPressOW
 	jr c, .Action
 
 .NoAction:
@@ -731,14 +731,6 @@ CheckLongSelectPressOW:
 	ld a, ITEMFINDER
 	jr .use_key_item_no_sound
 
-.close_menu_after_cancel
-; This is a copy of ExitAllMenus.
-	call ExitAllMenus
-	farcall HideMapNameSign
-	call CloseText
-	xor a
-	ret
-
 .cancel_long_press
 	xor a
 	ldh [hLongPressSelect], a
@@ -804,6 +796,70 @@ CheckLongSelectPressOW:
 	ld [wCurItem], a
 	ld a, BANK(SelectMenuShortcutScript)
 	ld hl, SelectMenuShortcutScript
+	jp CallScript
+
+CheckLongStartPressOW:
+	ldh a, [hJoypadDown]
+	and START
+	jr z, .check_short_press
+
+	ldh a, [hLongPressStart]
+	and a
+	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressB has been set to 1 when B is first pressed down.
+
+	ldh a, [hJoypadDown]
+	cp START
+	jr nz, .cancel_long_press ; If the player is pressing any other button, cancel the long press.
+
+	ldh a, [hLongPressStart]
+	inc a
+	ldh [hLongPressStart], a ; Increase the longpress frame counter.
+	cp LONG_PRESS_FRAMES_DURATION
+	jr c, .check_pressed_this_frame
+
+	xor a
+	ldh [hLongPressStart], a ; Preventing infinite triggers.
+
+; Try quick save.
+	farcall LoadOW_BGPal7
+	
+	ld de, SFX_MENU
+	call PlaySFX
+
+	call RefreshScreen
+	farcall SaveMenu.quick
+	call RefreshScreen
+	xor a
+	ret
+
+.cancel_long_press
+	xor a
+	ldh [hLongPressStart], a
+
+.check_pressed_this_frame
+	ldh a, [hJoyPressed]
+	and START
+	ret z
+
+	ld a, 1
+	ldh [hLongPressStart], a ; Initiates a long press.
+	xor a
+	ret
+
+.check_short_press
+	ldh a, [hLongPressStart]
+	and a
+	ret z
+
+	; Note: the long press is activated as soon as possible.
+	; Which means if we are here, the short press is automatically validated.
+
+	xor a
+	ldh [hLongPressStart], a ; Prevents infinite triggers.
+
+	; Start menu.
+	ld a, BANK(StartMenuScript)
+	ld hl, StartMenuScript
 	jp CallScript
 
 ; Output: carry if true.
@@ -1163,22 +1219,6 @@ PlayerMovementPointers:
 	ld a, -1
 	ld c, a
 	and a
-	ret
-
-CheckMenuOW:
-	xor a
-	ldh [hMenuReturn], a
-	ldh a, [hJoyPressed]
-
-	bit START_F, a
-	jr z, .NoMenu
-
-	ld a, BANK(StartMenuScript)
-	ld hl, StartMenuScript
-	jp CallScript
-
-.NoMenu:
-	xor a
 	ret
 
 StartMenuScript:
