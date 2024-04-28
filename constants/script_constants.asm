@@ -254,6 +254,10 @@ EMOTE_LENGTH EQU 6
 	const FRUITTREE_VIRIDIAN_FOREST_4   ; 22
 	const FRUITTREE_VIRIDIAN_FOREST_5   ; 23
 	const FRUITTREE_VIRIDIAN_FOREST_6   ; 24
+	const FRUITTREE_placeholder_1   	; 25
+	const FRUITTREE_placeholder_2   	; 26
+	const FRUITTREE_placeholder_3   	; 27
+	const FRUITTREE_placeholder_4   	; 28
 NUM_FRUIT_TREES EQU const_value - 1
 
 ; describedecoration arguments

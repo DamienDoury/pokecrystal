@@ -1,6 +1,13 @@
 _Squirtbottle:
 	ld hl, .SquirtbottleScript
+
 	call QueueScript
+	ld a, [wUsingItemWithSelect]
+	and a
+	jr z, .skip_screen_refresh
+
+	call RefreshScreen
+.skip_screen_refresh
 	ld a, $1
 	ld [wItemEffectSucceeded], a
 	ret
@@ -8,33 +15,76 @@ _Squirtbottle:
 .SquirtbottleScript:
 	reloadmappart
 	special UpdateTimePals
-	callasm .CheckCanUseSquirtbottle
+
+	callasm GetSquirtbottleTarget
 	iffalse .SquirtbottleNothingScript
+	ifequal 2, .Sudowoodo
+
+; Fruit tree.
+	opentext
+	farsjump SquirtbottleOnFruitTreeScript
+
+.Sudowoodo:
 	farsjump WateredWeirdTreeScript
 
 .SquirtbottleNothingScript:
-	jumptext .SquirtbottleNothingText
+	opentext
+	farwritetext _SquirtbottleUseText
+	promptbutton
+	farwritetext _SquirtbottleNothingText
+	waitbutton
+	closetext
+	end
 
-.SquirtbottleNothingText:
-	text_far _SquirtbottleNothingText
-	text_end
-
-.CheckCanUseSquirtbottle:
-	ld a, [wMapGroup]
-	cp GROUP_ROUTE_36
-	jr nz, .nope
-
-	ld a, [wMapNumber]
-	cp MAP_ROUTE_36
-	jr nz, .nope
-
+GetSquirtbottleTarget::
 	farcall GetFacingObject
 	jr c, .nope
 
+	ld a, [wMapGroup]
+	cp GROUP_ROUTE_36
+	jr nz, .check_fruit_tree
+
+	ld a, [wMapNumber]
+	cp MAP_ROUTE_36
+	jr nz, .check_fruit_tree
+
 	ld a, d
 	cp SPRITEMOVEDATA_SUDOWOODO
+	jr nz, .check_fruit_tree
+
+	; Is the real Sudowoodo.
+	xor a ; Resets the carry.
+	ld a, 2
+	ld [wScriptVar], a
+	ret
+
+.check_fruit_tree
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	cp SPRITE_FRUIT_TREE
 	jr nz, .nope
 
+	ld hl, MAPOBJECT_SCRIPT_POINTER
+	add hl, bc
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	call GetMapScriptsBank
+	call GetFarWord
+
+	ld a, l
+	cp fruittree_command
+	jr nz, .nope
+
+	; At this point, the object we are facing has the sprite and the script of a fruit tree.
+	; That's enough to determine that it is a real fruit tree.
+
+	ld a, h
+	ld [wCurFruitTree], a
+
+	xor a ; Resets the carry.
 	ld a, 1
 	ld [wScriptVar], a
 	ret

@@ -2002,6 +2002,9 @@ NEXTU
 ; fruit tree data
 wCurFruitTree:: db
 wCurFruit:: db
+wCurFruitTreeWaterFlags:: db ; Bit 0 = TRUE means watered today; Bit 1 = TRUE means fruit count boosted.
+wCurFruitTreeSoilHumidity:: db ; Bool.
+wCurFruitCountBoosted:: db ; Bool.
 
 NEXTU
 ; item ball data
@@ -2907,7 +2910,9 @@ wMeds:: ds MAX_MEDS * 2 + 1 ; Should be increased by 4, because it can't fit all
 wNumBerries:: db
 wBerries:: ds MAX_BERRIES * 2 + 1
 
-	ds 14
+wFruitTreeWaterFlags:: flag_array NUM_FRUIT_TREES * 2 ; Takes 10 bytes for the current 40 ($28) trees.
+	
+	ds 4
 
 wPokegearFlags::
 ; bit 0: map
@@ -3034,7 +3039,6 @@ wDecoBigDoll::       db
 
 ; Items bought from Mom
 wWhichMomItem:: db
-	ds 1
 wMomItemTriggerBalance:: ds 3
 
 wDailyResetTimer:: dw
@@ -3048,7 +3052,7 @@ wPrevWarp:: db ; Moved here by Damien, so it can be saved.
 wPrevMapGroup:: db
 wPrevMapNumber:: db
 
-wFruitTreeFlags:: flag_array NUM_FRUIT_TREES * 2 ; Takes 9 bytes for the current $24 trees.
+wFruitTreeFlags:: flag_array NUM_FRUIT_TREES * 2 ; Takes 10 bytes for the current 40 ($28) trees.
 
 wLuckyNumberDayTimer:: dw
 wLastPaletteTransitionMinute:: db ; Damien.

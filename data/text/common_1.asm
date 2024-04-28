@@ -4,10 +4,17 @@ _FruitBearingTreeText::
 	done
 
 _HeyItsFruitText::
-	text "Hey! It's"
+	text "Hey! It's @"
+	text_ram wStringBuffer4
+	text_start 
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
+	done
+
+_PickUpFruitsText::
+	text "Do you want to"
+	line "pick these up?"
 	done
 
 _ObtainedFruitText::
@@ -27,6 +34,30 @@ _FruitPackIsFullText::
 _NothingHereText::
 	text "There's nothing"
 	line "here…"
+	done
+
+_DrySoilText::
+	text "The soil is dry."
+	done
+
+_WetSoilText::
+	text "The soil is nice"
+	line "and moist!"
+	done
+
+_AskWaterSoilText::
+	text "Water it with the"
+	line "SQUIRTBOTTLE?"
+	done
+
+_FruitTreeGotStrongerText::
+	text "The tree should"
+	line "grow more fruits!"
+	done
+
+_FruitPlentyOfWaterText::
+	text "The fruit tree has"
+	line "plenty of water."
 	done
 
 _WhichApricornText::
@@ -2400,7 +2431,7 @@ ElmsLabBookshelf4Text::
 
 ElmsLabBookshelf5Text::
 	text "WORLD ACTIONS"
-	line "Tome 1/4"
+	line "Tome 1/3"
 	
 	para "LEGACY mode:"
 	line "Interact in the"
@@ -2422,7 +2453,7 @@ ElmsLabBookshelf5Text::
 	
 ElmsLabBookshelf6Text::
 	text "WORLD ACTIONS"
-	line "Tome 2/4"
+	line "Tome 2/3"
 
 	para "SHORTCUTS mode:"
 	line "In this mode, pick"
@@ -2456,7 +2487,7 @@ ElmsLabBookshelf6Text::
 
 ElmsLabBookshelf7Text::
 	text "WORLD ACTIONS"
-	line "Tome 3/4"
+	line "Tome 3/3"
 	
 	para "SHORTCUTS mode:"
 	line "Long press the A"
@@ -2510,7 +2541,10 @@ ElmsLabBookshelf8Text::
 	cont "highest in the KEY"
 	cont "ITEMS pocket."
 
-	;para "(While facing a fruit tree, the SQUIRTBOTTLE will be used.)"
+	para "Facing a fruit"
+	line "tree will use the"
+	cont "SQUIRTBOTTLE."
+
 	para "In other situa-"
 	line "tions, it uses"
 	cont "the BICYCLE."

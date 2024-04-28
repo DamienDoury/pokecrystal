@@ -773,6 +773,24 @@ CheckLongSelectPressOW:
 	jr nz, .use_key_item
 
 .try_squirtbottle
+	ld a, SQUIRTBOTTLE
+	ld [wCurItem], a
+	ld hl, wNumItems
+	call CheckItem
+	jr nc, .try_bike
+
+	xor a
+	ld [wCurFruitTree], a
+	farcall GetSquirtbottleTarget
+	jr c, .try_bike
+
+	ld a, [wScriptVar]
+	and a
+	jr z, .try_bike
+	
+	ld a, SQUIRTBOTTLE
+	jr .use_key_item
+
 .try_bike
 	ld a, BICYCLE
 	ld [wCurItem], a

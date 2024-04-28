@@ -29,6 +29,8 @@ FlowerShopTeacherScript:
 .GiveBottle:
 	promptbutton
 	verbosegiveitem SQUIRTBOTTLE
+	writetext GoldenrodFlowerShopSquirtbottleAdviceText
+	waitbutton
 	closetext
 	end
 
@@ -132,6 +134,13 @@ GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
 
 	para "You are worthy"
 	line "of my bottle."
+	done
+
+GoldenrodFlowerShopSquirtbottleAdviceText:
+	text "Use it to water"
+	line "fruit trees. Just"
+	cont "a little water is"
+	cont "enough."
 	done
 
 GoldenrodFlowerShopTeacherCloseShopText:

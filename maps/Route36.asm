@@ -111,7 +111,7 @@ SudowoodoScript:
 	closetext
 WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	opentext
-	writetext UsedSquirtbottleText
+	farwritetext _SquirtbottleUseText
 	waitbutton
 	closetext
 	waitsfx
@@ -429,11 +429,6 @@ Route36_StepRightMovement:
 UseSquirtbottleText:
 	text "It's a weird tree."
 	line "Use SQUIRTBOTTLE?"
-	done
-
-UsedSquirtbottleText:
-	text "<PLAYER> used the"
-	line "SQUIRTBOTTLE."
 	done
 
 SudowoodoAttackedText:

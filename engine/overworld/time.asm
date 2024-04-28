@@ -409,5 +409,5 @@ ResetDailyCovidEvents::
 	farcall ApplyPokerusTick ; Also calls DecreaseHospitalMonsDuration.
 	farcall ResetVaccinationAvailability
 	farcall RestockMarts
-	farcall GrowOneBerryInAllTrees ; This is not exactly covid related, but it's my present to the player!
+	farcall GrowBerries ; This is not exactly covid related, but it's my present to the player!
 	ret

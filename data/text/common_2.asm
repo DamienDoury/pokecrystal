@@ -614,11 +614,13 @@ _SweetScentNothingText::
 	line "nothing here…"
 	done
 
-_SquirtbottleNothingText::
+_SquirtbottleUseText::
 	text "<PLAYER> sprinkled"
 	line "water."
+	done
 
-	para "But nothing"
+_SquirtbottleNothingText::
+	text "But nothing"
 	line "happened…"
 	done
 
