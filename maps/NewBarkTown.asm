@@ -157,34 +157,16 @@ CheatGuyScript:
 	writemem wVisitedSpawns + 1
 	writemem wVisitedSpawns + 2
 	writemem wVisitedSpawns + 3
-	giveitem HM_CUT
-	giveitem HM_FLY
-	giveitem HM_SURF
-	giveitem HM_STRENGTH
-	giveitem HM_FLASH
-	giveitem HM_WHIRLPOOL
-	giveitem HM_WATERFALL
-	giveitem TM_HEADBUTT, 10
-	giveitem TM_ROCK_SMASH, 10
-	giveitem TM_PSYCH_UP, 10
-	giveitem TM_SUNNY_DAY, 10
-	giveitem TM_SWEET_SCENT, 10
-	giveitem TM_PROTECT, 10
-	giveitem TM_RAIN_DANCE, 10
-	giveitem TM_GIGA_DRAIN, 10
-	giveitem TM_DRAGONBREATH, 10
-	giveitem TM_EARTHQUAKE, 10
-	giveitem TM_DIG, 10
-	giveitem TM_PSYCHIC_M, 10
-	giveitem TM_SHADOW_BALL, 10
-	giveitem TM_ICE_PUNCH, 10
-	giveitem TM_SLUDGE_BOMB, 10
-	giveitem TM_SANDSTORM, 10
-	giveitem TM_FIRE_BLAST, 10
-	giveitem TM_THUNDERPUNCH, 10
-	giveitem TM_FALSE_SWIPE, 10
-	giveitem TM_FIRE_PUNCH, 10
-	giveitem TM_HAIL, 10
+	writemem wTMsHMs
+	writemem wTMsHMs + 1
+	writemem wTMsHMs + 2
+	writemem wTMsHMs + 3
+	writemem wTMsHMs + 4
+	writemem wTMsHMs + 5
+	writemem wTMsHMs + 6
+	setval $3 ; We don't want to overflow.
+	writemem wTMsHMs + 7
+
 	giveitem MAX_REPEL, 99
 	giveitem ESCAPE_ROPE, 99
 	giveitem MAX_REVIVE, 99
