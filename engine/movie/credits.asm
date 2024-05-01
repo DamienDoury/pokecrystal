@@ -20,6 +20,9 @@ Credits::
 	call ClearTilemap
 	call ClearSprites
 
+	xor a
+	ld [wLoadedFont], a
+
 	ld hl, wCreditsBlankFrame2bpp
 	ld c, (wCreditsBlankFrame2bppEnd - wCreditsBlankFrame2bpp) / 2
 	ld de, `22222222 ; eight pixels, each color #2 (dark)
