@@ -184,6 +184,8 @@ CheatGuyScript:
 	giveitem SURF_MAIL, 10
 	giveitem BICYCLE, 1
 	giveitem SUPER_ROD, 1
+	giveitem OLD_ROD, 1
+	giveitem SQUIRTBOTTLE, 1
 	giveitem EXP_SHARE, 10
 	giveitem HELIX_FOSSIL, 3
 

@@ -19,6 +19,7 @@ ObjectActionPairPointers:
 	dw SetFacingBoulderDust,           SetFacingStanding
 	dw SetFacingGrassShake,            SetFacingStanding
 	dw SetFacingSkyfall,               SetFacingCurrent
+	dw SetFacingSprinkle,              SetFacingSprinkle
 	assert_table_length NUM_OBJECT_ACTIONS
 
 SetFacingStanding:
@@ -174,6 +175,16 @@ CounterclockwiseSpinAction:
 	db OW_RIGHT
 	db OW_UP
 	db OW_LEFT
+
+SetFacingSprinkle:
+	call GetSpriteDirection
+	rrca
+	rrca
+	add FACING_SPRINKLE_DOWN
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld [hl], a
+	ret
 
 SetFacingFish:
 	call GetSpriteDirection

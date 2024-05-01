@@ -1733,6 +1733,35 @@ Fishing_CheckFacingUp:
 	ld [wScriptVar], a
 	ret
 
+Script_PullOutSquirtbottle::
+	;reloadmappart
+	loadmem hBGMapMode, $0
+	special UpdateTimePals
+	loademote EMOTE_SPRINKLE_1
+	callasm LoadSquirtbottleGFX
+	applymovement PLAYER, .MovementData_PullOutSquirtbottle
+rept 4
+	pause 2
+	loademote EMOTE_SPRINKLE_2
+	pause 2
+	loademote EMOTE_SPRINKLE_3
+	pause 2
+	loademote EMOTE_SPRINKLE_4
+	pause 2
+	loademote EMOTE_SPRINKLE_1
+endr
+	applymovement PLAYER, .HideEmote
+	end
+
+.MovementData_PullOutSquirtbottle:
+	pull_out_squirtbottle
+	step_end
+
+.HideEmote:
+	hide_emote
+	step_sleep 1
+	step_end
+
 Script_FishCastRod:
 	;reloadmappart
 	loadmem hBGMapMode, $0
@@ -1740,18 +1769,18 @@ Script_FishCastRod:
 	loademote EMOTE_ROD
 	callasm LoadFishingGFX
 	loademote EMOTE_SHOCK
-	applymovement PLAYER, MovementData_CastRod
+	applymovement PLAYER, .MovementData_CastRod
 	pause 40
 	end
 
-MovementData_CastRod:
+.MovementData_CastRod:
 	fish_cast_rod
 	step_end
 
 PutTheRodAway:
 	xor a
 	ldh [hBGMapMode], a
-	ld a, $1
+	ld a, OBJECT_ACTION_STAND
 	ld [wPlayerAction], a
 	call UpdateSprites
 	call UpdatePlayerSprite

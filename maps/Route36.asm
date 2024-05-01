@@ -110,6 +110,7 @@ SudowoodoScript:
 	iffalse DidntUseSquirtbottleScript
 	closetext
 WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
+	farscall Script_PullOutSquirtbottle
 	opentext
 	farwritetext _SquirtbottleUseText
 	waitbutton

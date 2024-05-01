@@ -33,6 +33,10 @@ Facings:
 	dw FacingBoulderDust2
 	dw FacingGrass1
 	dw FacingGrass2
+	dw FacingSprinkleDown
+	dw FacingSprinkleUp
+	dw FacingSprinkleLeft
+	dw FacingSprinkleRight
 	assert_table_length NUM_FACINGS
 	dw 0 ; end
 
@@ -119,6 +123,14 @@ FacingStepRight3: ; walking right
 	db  8,  8, RELATIVE_ATTRIBUTES | X_FLIP, $16
 	db  8,  0, RELATIVE_ATTRIBUTES | X_FLIP, $17
 
+FacingSprinkleDown:
+	db 5 ; #
+	db  0,  0, 0, $00
+	db  0,  8, 0, $01
+	db  8,  0, RELATIVE_ATTRIBUTES, $02
+	db  8,  8, RELATIVE_ATTRIBUTES, $03
+	db 15,  2, ABSOLUTE_TILE_ID, $fb
+
 FacingFishDown: ; fishing down
 	db 5 ; #
 	db  0,  0, 0, $00
@@ -126,6 +138,14 @@ FacingFishDown: ; fishing down
 	db  8,  0, RELATIVE_ATTRIBUTES, $02
 	db  8,  8, RELATIVE_ATTRIBUTES, $03
 	db 16,  0, ABSOLUTE_TILE_ID, $fc
+
+FacingSprinkleUp:
+	db 5 ; #
+	db  0,  0, 0, $04
+	db  0,  8, 0, $05
+	db  8,  0, RELATIVE_ATTRIBUTES, $06
+	db  8,  8, RELATIVE_ATTRIBUTES, $07
+	db -7,  6, ABSOLUTE_TILE_ID | Y_FLIP, $fb
 
 FacingFishUp: ; fishing up
 	db 5 ; #
@@ -135,6 +155,14 @@ FacingFishUp: ; fishing up
 	db  8,  8, RELATIVE_ATTRIBUTES, $07
 	db -8,  0, ABSOLUTE_TILE_ID, $fc
 
+FacingSprinkleLeft:
+	db 5 ; #
+	db  0,  0, 0, $08
+	db  0,  8, 0, $09
+	db  8,  0, RELATIVE_ATTRIBUTES, $0a
+	db  8,  8, RELATIVE_ATTRIBUTES, $0b
+	db  8, -7, ABSOLUTE_TILE_ID | X_FLIP, $fa
+
 FacingFishLeft: ; fishing left
 	db 5 ; #
 	db  0,  0, 0, $08
@@ -142,6 +170,14 @@ FacingFishLeft: ; fishing left
 	db  8,  0, RELATIVE_ATTRIBUTES, $0a
 	db  8,  8, RELATIVE_ATTRIBUTES, $0b
 	db  5, -8, ABSOLUTE_TILE_ID | X_FLIP, $fd
+
+FacingSprinkleRight:
+	db 5 ; #
+	db  0,  8, X_FLIP, $08
+	db  0,  0, X_FLIP, $09
+	db  8,  8, RELATIVE_ATTRIBUTES | X_FLIP, $0a
+	db  8,  0, RELATIVE_ATTRIBUTES | X_FLIP, $0b
+	db  8, 15, ABSOLUTE_TILE_ID, $fa
 
 FacingFishRight: ; fishing right
 	db 5 ; #

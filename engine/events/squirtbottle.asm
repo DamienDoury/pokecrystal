@@ -21,7 +21,6 @@ _Squirtbottle:
 	ifequal 2, .Sudowoodo
 
 ; Fruit tree.
-	opentext
 	farsjump SquirtbottleOnFruitTreeScript
 
 .Sudowoodo:

@@ -30,7 +30,7 @@ FruitTreeScript::
 	specialsound
 	itemnotify
 	loadmem wWalkingAbuseGuard, 0
-	sjump .end
+	sjump .close_text
 
 .soil_check
 	readmem wCurFruitTreeSoilHumidity
@@ -38,38 +38,36 @@ FruitTreeScript::
 
 ;.wet
 	writetext WetSoilText
-	sjump .wait_end
+	sjump .wait_then_close_text
 
 .dry
 	writetext DrySoilText
 
 	checkitem SQUIRTBOTTLE
-	iffalse .wait_end
+	iffalse .wait_then_close_text
 
 	promptbutton
 	writetext AskWaterSoilText
 	yesorno
-	iffalse .end
+	iffalse .close_text
 
+	closetext
 	sjump SquirtbottleOnFruitTreeScript
 
 .packisfull
 	promptbutton
 	writetext FruitPackIsFullText
-.wait_end
+.wait_then_close_text
 	waitbutton
-.end
+.close_text
 	closetext
 	end
 
 SquirtbottleOnFruitTreeScript::
 	callasm CheckFruitTreeSoil
+	farscall Script_PullOutSquirtbottle
 
-	; TODO: insert animation here.
-	farwritetext _SquirtbottleUseText
-	pause 20
-	promptbutton
-
+	opentext
 	readmem wCurFruitTreeWaterFlags
 	callasm WaterCurFruitTree
 	ifnotequal 0, .plenty_of_water

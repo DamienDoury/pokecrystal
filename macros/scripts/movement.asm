@@ -219,4 +219,9 @@ skyfall_top: MACRO
 	db movement_skyfall_top
 ENDM
 
+	const movement_pull_out_squirtbottle ; $5a
+pull_out_squirtbottle: MACRO
+	db movement_pull_out_squirtbottle
+ENDM
+
 NUM_MOVEMENT_CMDS EQU const_value
