@@ -1,4 +1,9 @@
 LoadSquirtbottleGFX:
+	ld a, [wVirtualOAMSprite04Attributes]
+	and $fc
+	or PAL_OW_SILVER
+	ld [wVirtualOAMSprite04Attributes], a
+
 	ldh a, [rVBK]
 	push af
 	ld a, $1
@@ -13,6 +18,9 @@ LoadSquirtbottleGFX:
 
 	ld hl, vTiles0 tile $00
 	call .LoadGFX
+
+	ld c, EMOTE_SPRINKLE_1
+	farcall LoadEmote
 
 	pop af
 	ldh [rVBK], a

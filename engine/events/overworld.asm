@@ -1737,9 +1737,8 @@ Script_PullOutSquirtbottle::
 	;reloadmappart
 	loadmem hBGMapMode, $0
 	special UpdateTimePals
-	loademote EMOTE_SPRINKLE_1
-	callasm LoadSquirtbottleGFX
 	applymovement PLAYER, .MovementData_PullOutSquirtbottle
+	callasm LoadSquirtbottleGFX
 rept 4
 	pause 2
 	loademote EMOTE_SPRINKLE_2

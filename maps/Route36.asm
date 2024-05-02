@@ -111,10 +111,6 @@ SudowoodoScript:
 	closetext
 WateredWeirdTreeScript:: ; export (for when you use Squirtbottle from pack)
 	farscall Script_PullOutSquirtbottle
-	opentext
-	farwritetext _SquirtbottleUseText
-	waitbutton
-	closetext
 	waitsfx
 	playsound SFX_SANDSTORM
 	applymovement ROUTE36_WEIRD_TREE, SudowoodoShakeMovement
