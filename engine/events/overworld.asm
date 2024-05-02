@@ -1739,16 +1739,22 @@ Script_PullOutSquirtbottle::
 	special UpdateTimePals
 	applymovement PLAYER, .MovementData_PullOutSquirtbottle
 	callasm LoadSquirtbottleGFX
-rept 4
+rept 5
+	playsound SFX_WATER_GUN
 	pause 2
 	loademote EMOTE_SPRINKLE_2
 	pause 2
 	loademote EMOTE_SPRINKLE_3
+	playsound SFX_WATER_GUN
 	pause 2
 	loademote EMOTE_SPRINKLE_4
 	pause 2
 	loademote EMOTE_SPRINKLE_1
 endr
+	pause 2
+	loademote EMOTE_SPRINKLE_2
+	pause 2
+	loademote EMOTE_SPRINKLE_3
 	applymovement PLAYER, .HideEmote
 	end
 
