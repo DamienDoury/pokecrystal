@@ -959,6 +959,10 @@ ENDM
 	ret
 
 .AutoSurf:
+	ld b, HM_SURF
+	farcall FarCheckHMSilent
+	jp c, .BumpSound
+
 	farcall FarTrySurf
 	ld a, b
 	cp $1
