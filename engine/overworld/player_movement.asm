@@ -469,7 +469,7 @@ DoPlayerMovement::
 	ld e, a
 ; make sure the tile across the ledge is walkable
 	push de
-	call GetCoordTile
+	call GetCoordCollType
 	call .CheckWalkable
 	pop de
 	jr c, .DontJump
@@ -695,29 +695,59 @@ DoPlayerMovement::
 	ld [wFacingDirection], a
 	ld a, [hli]
 	ld [wWalkingX], a
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	ld d, a
+	ld a, [hl]
+	ld [wWalkingY], a
+	ld e, a
+
+	ld a, [wPlayerStandingMapX]
+	add d
+	ld d, a
+	ld a, [wPlayerStandingMapY]
+	add e
+	ld e, a
+
+	call GetCoordCollType
+else
 	ld a, [hli]
 	ld [wWalkingY], a
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
 	ld a, [hl]
+endc
 	ld [wWalkingTile], a
 	ret
 
 player_action: MACRO
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+; walk direction, facing, x movement, y movement
+	db \1, \2, \3, \4
+else
 ; walk direction, facing, x movement, y movement, tile collision pointer
 	db \1, \2, \3, \4
 	dw \5
+endc
 ENDM
 
 .action_table:
 .action_table_1
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	player_action STANDING, FACE_CURRENT, 0,  0 ; standing
+.action_table_1_end
+	player_action RIGHT,    FACE_RIGHT,   1,  0 ; right
+	player_action LEFT,     FACE_LEFT,   -1,  0 ; left
+	player_action UP,       FACE_UP,      0, -1 ; up
+	player_action DOWN,     FACE_DOWN,    0,  1 ; down
+else
 	player_action STANDING, FACE_CURRENT, 0,  0, wPlayerStandingTile
 .action_table_1_end
 	player_action RIGHT,    FACE_RIGHT,   1,  0, wTileRight
 	player_action LEFT,     FACE_LEFT,   -1,  0, wTileLeft
 	player_action UP,       FACE_UP,      0, -1, wTileUp
 	player_action DOWN,     FACE_DOWN,    0,  1, wTileDown
+endc
 
 .CheckNPC:
 ; Returns 0 if there is an NPC in front that you can't move
@@ -894,7 +924,7 @@ ENDM
 	farcall CheckDirection
 	jr c, .BumpSound
 
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	cp COLL_CUT_TREE
 	jr z, .AutoCut
 

@@ -202,7 +202,7 @@ CutNothingText:
 
 CheckMapForSomethingToCut:
 	; Does the collision data of the facing tile permit cutting?
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld c, a
 	push de
 	farcall CheckCutCollision
@@ -417,7 +417,7 @@ SurfFunction:
 	jr z, .alreadyfail
 	cp PLAYER_SURF_PIKA
 	jr z, .alreadyfail
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	call GetTileCollision
 	cp WATER_TILE
 	jr nz, .cannotsurf
@@ -745,7 +745,18 @@ CheckMapCanWaterfall::
 	and $c
 	cp FACE_UP
 	jr nz, .failed
+
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	ld a, [wPlayerStandingMapX]
+	ld d, a
+	ld a, [wPlayerStandingMapY]
+	dec a
+	ld e, a
+
+	call GetCoordCollType
+else
 	ld a, [wTileUp]
+endc
 	call CheckWaterfallTile
 	jr nz, .failed
 	xor a
@@ -1279,7 +1290,7 @@ UseWhirlpoolText:
 	text_end
 
 TryWhirlpoolMenu::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld c, a
 	push de
 	call CheckWhirlpoolTile
@@ -1381,7 +1392,7 @@ HeadbuttFunction:
 	ret
 
 TryHeadbuttFromMenu:
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	call CheckHeadbuttTreeTile
 	jr nz, .no_tree
 
@@ -1598,7 +1609,7 @@ FishFunction:
 	jr z, .fail
 	cp PLAYER_SURF_PIKA
 	jr z, .fail
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	call GetTileCollision
 	cp WATER_TILE
 	jr nz, .fail

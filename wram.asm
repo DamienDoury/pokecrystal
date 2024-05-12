@@ -195,10 +195,14 @@ ENDU
 
 	ds 1
 
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	ds 4
+else
 wTileDown::  db
 wTileUp::    db
 wTileLeft::  db
 wTileRight:: db
+endc
 
 wTilePermissions::
 ; set if tile behavior prevents

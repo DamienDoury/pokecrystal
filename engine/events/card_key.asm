@@ -13,7 +13,7 @@ _CardKey:
 	cp OW_UP
 	jr nz, .nope
 
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld a, d
 	cp 18
 	jr nz, .nope

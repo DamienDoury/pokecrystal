@@ -885,7 +885,7 @@ IsPlayerFacingWaterWhileStandingOnLand:
 	call CheckOnWater
 	ret z
 
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	call GetTileCollision
 	cp WATER_TILE
 	jp z, DoBikeStep.returnCarry
@@ -926,7 +926,7 @@ IsPlayerFacingGrassWhileStandingOutsideOfGrass:
 	ccf
 	ret nc
 
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld hl, .grass_coll
 	call IsInByteArray
 	ret
@@ -1154,7 +1154,7 @@ BGEventJumptable:
 	jp CallScript
 
 .closeddoor:
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	cp COLL_CLOSED_DOOR
 	jr z, .read
 
@@ -1567,7 +1567,7 @@ LoadScriptBDE::
 	ret
 
 TryTileCollisionEvent::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld [wFacingTileID], a
 	ld c, a
 	farcall CheckFacingTileForStdScript

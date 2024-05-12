@@ -210,12 +210,12 @@ WillObjectRemainOnWater:
 	inc e
 
 .continue
-	call GetCoordTile
+	call GetCoordCollType
 	call GetTileCollision
 	pop de
 	and a ; LAND_TILE
 	jr nz, .not_land
-	call GetCoordTile
+	call GetCoordCollType
 	call GetTileCollision
 	and a ; LAND_TILE
 	jr nz, .not_land
@@ -227,7 +227,7 @@ WillObjectRemainOnWater:
 	ret
 
 CheckFacingObject::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 
 ; Double the distance for counter tiles. Damien's note: this is still useful for pkmns behind counters (like Butterfree outside Ilex Forest).
 	call CheckCounterTile
@@ -266,7 +266,7 @@ CheckFacingObject::
 	ret
 
 CheckFacingObjectNPCExcluded::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 
 ; Double the distance for counter tiles. Damien's note: this is still useful for pkmns behind counters (like Butterfree outside Ilex Forest).
 	call CheckCounterTile
@@ -304,7 +304,7 @@ CheckFacingObjectNPCExcluded::
 	ret
 
 CheckFacingFarNPCOnly::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld b, a
 	push bc
 	push de

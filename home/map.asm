@@ -1607,7 +1607,7 @@ GetMovementPermissions::
 	ld d, a
 	ld a, [wPlayerStandingMapY]
 	ld e, a
-	call GetCoordTile
+	call GetCoordCollType
 	ld [wPlayerStandingTile], a
 	call .CheckHiNybble
 	ret nz
@@ -1644,14 +1644,18 @@ GetMovementPermissions::
 
 	push de
 	inc e
-	call GetCoordTile
+	call GetCoordCollType
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	ld [wTileDown], a
+endc
 	call .Down
 
 	pop de
 	dec e
-	call GetCoordTile
+	call GetCoordCollType
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	ld [wTileUp], a
+endc
 	call .Up
 	ret
 
@@ -1663,21 +1667,33 @@ GetMovementPermissions::
 
 	push de
 	dec d
-	call GetCoordTile
+	call GetCoordCollType
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	ld [wTileLeft], a
+endc
 	call .Left
 
 	pop de
 	inc d
-	call GetCoordTile
+	call GetCoordCollType
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	ld [wTileRight], a
+endc
 	call .Right
 	ret
 
 .Down:
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	push af
+	call .CheckHiNybble
+	jr nz, .ret_after_pop
+
+	pop af
+else
 	call .CheckHiNybble
 	ret nz
 	ld a, [wTileDown]
+endc
 	and %111
 	cp COLL_UP_WALL & %111 ; COLL_UP_BUOY & %111
 	jr z, .ok_down
@@ -1693,9 +1709,17 @@ GetMovementPermissions::
 	ret
 
 .Up:
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	push af
+	call .CheckHiNybble
+	jr nz, .ret_after_pop
+
+	pop af
+else
 	call .CheckHiNybble
 	ret nz
 	ld a, [wTileUp]
+endc
 	and %111
 	cp COLL_DOWN_WALL & %111 ; COLL_DOWN_BUOY & %111
 	jr z, .ok_up
@@ -1710,10 +1734,24 @@ GetMovementPermissions::
 	ld [wTilePermissions], a
 	ret
 
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+.ret_after_pop
+	pop af
+	ret
+endc
+	
 .Right:
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	push af
+	call .CheckHiNybble
+	jr nz, .ret_after_pop
+	
+	pop af
+else
 	call .CheckHiNybble
 	ret nz
 	ld a, [wTileRight]
+endc
 	and %111
 	cp COLL_LEFT_WALL & %111 ; COLL_LEFT_BUOY & %111
 	jr z, .ok_right
@@ -1729,9 +1767,17 @@ GetMovementPermissions::
 	ret
 
 .Left:
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	push af
+	call .CheckHiNybble
+	jr nz, .ret_after_pop
+	
+	pop af
+else
 	call .CheckHiNybble
 	ret nz
 	ld a, [wTileLeft]
+endc
 	and %111
 	cp COLL_RIGHT_WALL & %111 ; COLL_RIGHT_BUOY & %111
 	jr z, .ok_left
@@ -1753,8 +1799,8 @@ GetMovementPermissions::
 	cp HI_NYBBLE_SIDE_BUOYS
 	ret
 
-GetFacingTileCoord::
-; Return map coordinates in (d, e) and tile id in a
+GetFacingTileCoordAndCollType::
+; Return map coordinates in (d, e) and tile cool ID in A
 ; of the tile the player is facing.
 
 	ld a, [wPlayerDirection]
@@ -1763,19 +1809,23 @@ GetFacingTileCoord::
 	srl a
 	ld l, a
 	ld h, 0
-	add hl, hl
-	add hl, hl
+	add hl, hl ; Register A has been multiplied by 2.
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	add hl, hl ; Register A has been multiplied by 4.
+endc
 	ld de, .Directions
 	add hl, de
 
 	ld d, [hl]
 	inc hl
 	ld e, [hl]
-	inc hl
 
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	inc hl
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
+endc
 
 	ld a, [wPlayerStandingMapX]
 	add d
@@ -1783,11 +1833,24 @@ GetFacingTileCoord::
 	ld a, [wPlayerStandingMapY]
 	add e
 	ld e, a
+
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	push de ; Preserves the return value for the facing tile coord.
+	call GetCoordCollType
+	pop de
+else
 	ld a, [hl]
+endc
 	ret
 
 .Directions:
 	;   x,  y
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+	db  0,  1 ; down
+	db  0, -1 ; up
+	db -1,  0 ; left
+	db  1,  0 ; right
+else
 	db  0,  1
 	dw wTileDown
 	db  0, -1
@@ -1796,8 +1859,9 @@ GetFacingTileCoord::
 	dw wTileLeft
 	db  1,  0
 	dw wTileRight
+endc
 
-GetCoordTile::
+GetCoordCollType::
 ; Get the collision byte for tile d, e
 	call GetBlockLocation
 	ld a, [hl]
@@ -1831,6 +1895,8 @@ GetCoordTile::
 	ld a, -1
 	ret
 
+; Output: address in HL.
+; Clobbers A, BC.
 GetBlockLocation::
 	ld a, [wMapWidth]
 	add 6
@@ -1861,7 +1927,7 @@ GetBlockLocation::
 	ret
 
 CheckFacingBGEvent::
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 ; Load facing into b.
 	ld b, a
 ; Convert the coordinates at de to within-boundaries coordinates.

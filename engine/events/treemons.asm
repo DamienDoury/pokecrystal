@@ -140,7 +140,7 @@ GetTreeScore:
 	ret
 
 .CoordScore:
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld hl, 0
 	ld c, e
 	ld b, 0

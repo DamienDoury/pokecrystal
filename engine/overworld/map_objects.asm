@@ -314,7 +314,7 @@ GetNextTile:
 	ld [hl], a
 	ld e, a
 	push bc
-	call GetCoordTile
+	call GetCoordCollType
 	pop bc
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
@@ -464,7 +464,7 @@ StepFunction_Reset:
 	add hl, bc
 	ld e, [hl]
 	push bc
-	call GetCoordTile
+	call GetCoordCollType
 	pop bc
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc
@@ -2419,7 +2419,7 @@ UpdateObjectNextTile:
 	ld hl, OBJECT_NEXT_MAP_Y
 	add hl, bc
 	ld e, [hl]
-	call GetCoordTile
+	call GetCoordCollType
 	pop bc
 	ld hl, OBJECT_NEXT_TILE
 	add hl, bc

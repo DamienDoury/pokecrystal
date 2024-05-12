@@ -8,7 +8,7 @@ _BasementKey:
 	cp MAP_GOLDENROD_UNDERGROUND
 	jr nz, .nope
 ; Are we on the tile in front of the door?
-	call GetFacingTileCoord
+	call GetFacingTileCoordAndCollType
 	ld a, d
 	cp 22
 	jr nz, .nope
