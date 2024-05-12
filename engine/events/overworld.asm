@@ -1740,12 +1740,12 @@ Script_PullOutSquirtbottle::
 	applymovement PLAYER, .MovementData_PullOutSquirtbottle
 	callasm LoadSquirtbottleGFX
 rept 5
-	playsound SFX_WATER_GUN
+	playsound SFX_POWDER
 	pause 2
 	loademote EMOTE_SPRINKLE_2
 	pause 2
 	loademote EMOTE_SPRINKLE_3
-	playsound SFX_WATER_GUN
+	playsound SFX_POWDER
 	pause 2
 	loademote EMOTE_SPRINKLE_4
 	pause 2
