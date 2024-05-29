@@ -345,6 +345,23 @@ GoldenrodCityUndergroundSignSouth:
 	jumptext GoldenrodCityUndergroundSignSouthText
 
 GoldenrodCityPokecenterSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	readmem wParkBallsRemaining
+	addval 1
+	writemem wPartySpecies
+	addval 1
+	writemem wPartySpecies + 1
+	addval 1
+	writemem wPartySpecies + 2
+	addval 1
+	writemem wPartySpecies + 3
+	addval 1
+	writemem wPartySpecies + 4
+	addval 1
+	writemem wPartySpecies + 5
+	writemem wParkBallsRemaining
+	end
+endc
 	jumpstd PokecenterSignScript
 
 GoldenrodCityFlowerShopSign:

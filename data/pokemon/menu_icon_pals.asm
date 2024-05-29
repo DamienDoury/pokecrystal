@@ -29,7 +29,7 @@ MonMenuIconPals:
 	icon_pals BROWN, RED ; FEAROW
 	icon_pals PURPLE, BROWN ; EKANS
 	icon_pals PURPLE, BROWN ; ARBOK
-	icon_pals RED, BROWN ; PIKACHU
+	icon_pals YELLOWISH, BROWN ; PIKACHU
 	icon_pals RED, BROWN ; RAICHU
 	icon_pals YELLOWISH, GRAY ; SANDSHREW
 	icon_pals BROWN, RED ; SANDSLASH
@@ -64,7 +64,7 @@ MonMenuIconPals:
 	icon_pals BROWN, GREEN ; PRIMEAPE
 	icon_pals RED, BROWN ; GROWLITHE
 	icon_pals RED, BROWN ; ARCANINE
-	icon_pals PINK, BLUE ; POLIWAG
+	icon_pals BLUE, BLUE ; POLIWAG
 	icon_pals BLUE, BLUE ; POLIWHIRL
 	icon_pals BLUE, GREEN ; POLIWRATH
 	icon_pals YELLOWISH, PURPLE ; ABRA
