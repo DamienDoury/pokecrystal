@@ -639,7 +639,7 @@ Route36TrainerTips2Text:
 
 	para "Use DIG to return"
 	line "to the entrance of"
-	cont "any place."
+	cont "some places."
 
 	para "It is convenient"
 	line "for exploring"
