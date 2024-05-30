@@ -563,7 +563,7 @@ JohtoGrassWildMons:
 	end_grass_wildmons
 
 	def_grass_wildmons ILEX_FOREST
-	db 8 percent, 8 percent, 20 percent ; encounter rates: morn/day/nite
+	db 8 percent, 8 percent, 16 percent ; encounter rates: morn/day/nite
 	; morn
 	db 12, PARAS
 	db 12, ODDISH
