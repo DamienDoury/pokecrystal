@@ -2240,6 +2240,12 @@ INCLUDE "gfx/overworld/npc_sprites.pal"
 MapObjectPalsPurple::
 INCLUDE "gfx/overworld/npc_sprites_purple.pal"
 
+MapObjectPalsYellowish::
+INCLUDE "gfx/overworld/npc_sprites_yellowish.pal"
+
+MapObjectPalsYellowishOnRock::
+INCLUDE "gfx/overworld/npc_sprites_yellowish_on_rock.pal"
+
 MapObjectsPalRoute19::
 INCLUDE "gfx/overworld/npc_sprites_route_19.pal"
 
@@ -2248,6 +2254,9 @@ INCLUDE "gfx/overworld/npc_sprites_vermilion.pal"
 
 MapObjectPalsGSBall::
 INCLUDE "gfx/overworld/viridian_forest.pal"
+
+MapObjectPalsFuji::
+INCLUDE "gfx/overworld/npc_sprites_fuji.pal"
 
 SlotMachinePals:
 INCLUDE "gfx/slots/slots.pal"

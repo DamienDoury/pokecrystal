@@ -244,7 +244,7 @@ CopyMapObjectToObjectStruct:
 	ld [wTempObjectCopyRadius], a
 	ret
 
-InitializeVisibleSprites:
+InitializeVisibleSprites::
 	ld bc, wMap1Object
 	ld a, 1
 .loop

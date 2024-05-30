@@ -207,7 +207,7 @@ GoldenrodHospitalRoom_MapScripts:
 .room8:
 	variablesprite SPRITE_DOLL_1, SPRITE_JIGGLYPUFF
 	disappear GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT
-	setval PAL_NPC_PINK << 4
+	setval PAL_NPC_BLUE << 4
 	writemem wMap2ObjectColor
 	
 	disappear GOLDENROD_HOSPITAL_ROOM_VISITOR1
@@ -216,6 +216,8 @@ GoldenrodHospitalRoom_MapScripts:
 
 .room10:
 	variablesprite SPRITE_DOLL_1, SPRITE_ABRA
+	setval PAL_NPC_ROCK << 4
+	writemem wMap2ObjectColor
 	disappear GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT
 
 	variablesprite SPRITE_HOSPITAL_VISITOR, SPRITE_SCIENTIST

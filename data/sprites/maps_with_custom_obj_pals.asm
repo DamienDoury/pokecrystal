@@ -7,13 +7,20 @@ ENDM
 	custom_map_objects_pals ROUTE_19, MapObjectsPalRoute19 ; Onix (silver).
 	custom_map_objects_pals VIRIDIAN_NICKNAME_SPEECH_HOUSE, MapObjectPalsPurple
 	custom_map_objects_pals ROUTE_30, MapObjectPalsPurple
-	custom_map_objects_pals MR_FUJIS_HOUSE, MapObjectPalsPurple
+	custom_map_objects_pals MR_FUJIS_HOUSE, MapObjectPalsFuji
 	custom_map_objects_pals PEWTER_NIDORAN_SPEECH_HOUSE, MapObjectPalsPurple
 	custom_map_objects_pals DANCE_THEATRE, MapObjectPalsPurple
 	custom_map_objects_pals ROUTE_34_ILEX_FOREST_GATE, MapObjectPalsPurple
 	custom_map_objects_pals PLAYERS_HOUSE_2F, MapObjectPalsPurple
 	custom_map_objects_pals CERULEAN_CAVE_B3F, MapObjectPalsPurple
-	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall
-	custom_map_objects_pals BURNED_TOWER_B1F, MapObjectsPalRoute19
-	custom_map_objects_pals TIN_TOWER_1F, MapObjectsPalRoute19
+	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall ; TODO: add the Yellowish palette for Zapdos. Also, debug Zapdos using the Red palette (which influences the player).
+	custom_map_objects_pals BURNED_TOWER_B1F, MapObjectPalsYellowish
+	custom_map_objects_pals TIN_TOWER_1F, MapObjectPalsYellowish
+	custom_map_objects_pals REDS_HOUSE_2F, MapObjectPalsYellowish
+	custom_map_objects_pals OLIVINE_LIGHTHOUSE_6F, MapObjectPalsYellowish
+	custom_map_objects_pals SILVER_CAVE_ROOM_3, MapObjectPalsYellowish
+	custom_map_objects_pals GOLDENROD_GAME_CORNER, MapObjectPalsYellowish
+	custom_map_objects_pals INDIGO_PLATEAU_POKECENTER_1F, MapObjectPalsYellowish
+	custom_map_objects_pals POWER_PLANT, MapObjectPalsYellowish
+	custom_map_objects_pals GOLDENROD_HOSPITAL_ROOM, MapObjectPalsYellowishOnRock ; Needs pink for Nurses, yellowish for Abra, and leave the Tree palette for the player's sick mon.
 	db 0 ; end

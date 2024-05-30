@@ -201,7 +201,7 @@ MonMenuIconPals:
 	icon_pals BLUE, PINK ; WOOPER
 	icon_pals BLUE, PINK ; QUAGSIRE
 	icon_pals PURPLE, GREEN ; ESPEON
-	icon_pals RED, BLUE ; UMBREON
+	icon_pals GRAY, PURPLE ; UMBREON
 	icon_pals BLUE, PURPLE ; MURKROW
 	icon_pals PINK, PURPLE ; SLOWKING
 	icon_pals PURPLE, YELLOWISH ; MISDREAVUS

@@ -23,7 +23,6 @@ INCLUDE "engine/overworld/extended_map_events.asm"
 
 SECTION "bank2", ROMX
 
-INCLUDE "engine/overworld/player_object.asm"
 INCLUDE "engine/gfx/color.asm"
 
 
@@ -101,6 +100,7 @@ INCLUDE "engine/events/reds_pikachu.asm"
 SECTION "Roofs", ROMX
 
 INCLUDE "engine/tilesets/mapgroup_roofs.asm"
+INCLUDE "engine/overworld/player_object.asm"
 
 
 SECTION "Clock Reset", ROMX
