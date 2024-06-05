@@ -728,17 +728,15 @@ MovementData_Farfetched_Pos9_Pos8_Down:
 	step_end
 
 IlexForestKurtStepsUpMovement:
-	step UP
-	step UP
-	step UP
-	step UP
+	slow_step UP
+	slow_step UP
+	slow_step UP
 	step_end
 
 IlexFOrestKurtStepsDownMovement:
-	step DOWN
-	step DOWN
-	step DOWN
-	step DOWN
+	slow_step DOWN
+	slow_step DOWN
+	slow_step DOWN
 	step_end
 
 IlexForestPlayerStepsDownMovement:
