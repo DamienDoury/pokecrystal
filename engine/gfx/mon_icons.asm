@@ -392,14 +392,14 @@ FlyFunction_GetMonIcon:
 	farcall SetFlyingMonPalette
 	ret
 
-GetMonIconDE: ; unreferenced
+GetMonIcon_a:
 	push de
 	ld a, [wTempIconSpecies]
 	call ReadMonMenuIcon
 	ld [wCurIcon], a
 	pop de
-	call GetIcon_de
-	ret
+	ld a, e
+	jr GetIcon_a
 
 GetMemIconGFX:
 	ld a, [wCurIconTile]

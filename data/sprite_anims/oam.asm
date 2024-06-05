@@ -145,6 +145,8 @@ SpriteAnimOAMData:
 	dbw $00, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_1
 	dbw $04, .OAMData_PartyMon                 ; SPRITE_ANIM_OAMSET_PARTY_MON_2
 	dbw $66, .OAMData_GSIntroLapras            ; SPRITE_ANIM_OAMSET_GS_INTRO_LAPRAS_4
+	dbw $00, .OAMData_ZapdosFly                ; SPRITE_ANIM_OAMSET_ZAPDOS_FLY_1
+	dbw $04, .OAMData_ZapdosFly                ; SPRITE_ANIM_OAMSET_ZAPDOS_FLY_2
 	assert_table_length NUM_SPRITE_ANIM_OAMSETS
 
 .OAMData_1x1_Palette0:
@@ -1176,3 +1178,10 @@ SpriteAnimOAMData:
 	dbsprite -1,  0,  4,  0, $51, 1
 	dbsprite  0,  0,  4,  0, $52, 1
 	dbsprite  1,  0,  4,  0, $53, 1
+
+.OAMData_ZapdosFly:
+	db 4
+	dbsprite -1, -1,  0,  0, $00, PAL_OW_PINK
+	dbsprite  0, -1,  0,  0, $01, PAL_OW_PINK
+	dbsprite -1,  0,  0,  0, $02, PAL_OW_PINK
+	dbsprite  0,  0,  0,  0, $03, PAL_OW_PINK

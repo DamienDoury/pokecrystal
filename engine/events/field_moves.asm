@@ -359,7 +359,7 @@ ZapdosFlyToAnim::
 	ld [wVramState], a
 	call FlyFunction_InitZapdosGFX
 	depixel 32, 9, 3, 0
-	ld a, SPRITE_ANIM_INDEX_RED_WALK
+	ld a, SPRITE_ANIM_INDEX_ZAPDOS_FLY
 	call InitSpriteAnimStruct
 	ld hl, SPRITEANIMSTRUCT_TILE_ID
 	add hl, bc
@@ -475,10 +475,10 @@ FlyFunction_InitZapdosGFX:
 	ld hl, vTiles0 tile FIELDMOVE_GRASS
 	lb bc, BANK(CutGrassGFX), 4
 	call Request2bpp
-	ld a, 145
+	ld a, ZAPDOS
 	ld [wTempIconSpecies], a
 	ld e, FIELDMOVE_FLY
-	farcall FlyFunction_GetMonIcon
+	farcall GetMonIcon_a
 	xor a
 	ld [wJumptableIndex], a
 	ret
