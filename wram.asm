@@ -3110,8 +3110,8 @@ wOlivineCafeBerry1:: db
 wOlivineCafeBerry2:: db
 wOlivineCafeBerry3:: db
 
-NEXTU
-wSokobanPlacedStonesCount:: db ; Used in Seafoam Islands / Cinnabar Volcano.
+NEXTU ; Seafoam Islands / Cinnabar Volcano.
+wSokobanPlacedStonesCount:: db
 wSokobanTargetsCount:: db
 wSokobanTargetsXStart:: db
 wSokobanTargetsXEnd:: db
@@ -3119,8 +3119,8 @@ wSokobanTargetsYStart:: db
 wSokobanTargetsYEnd:: db
 wSokobanSuccessScript:: dw
 
-NEXTU
-wRevivedFossil:: db	; Used in SilphCoResearch.asm.
+NEXTU ; SilphCoResearch.asm.
+wRevivedFossil:: db
 wFossilItem:: db
 wNewStarterSpecies:: db
 wNewStarterMovesIndex:: db
@@ -3140,6 +3140,10 @@ wBuffer1:: db
 
 NEXTU ; MountMoon, MountMoonSquare (rival).
 wRivalSpokeToPlayer:: db
+	
+NEXTU ; Goldenrod Gym.
+wNotCuteCount:: db
+wNotCuteSpecies:: ds PARTY_LENGTH + 1
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

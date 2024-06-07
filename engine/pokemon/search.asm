@@ -203,7 +203,7 @@ CheckOwnMon:
 
 ; check species
 	ld a, [wScriptVar] ; species we're looking for
-	ld b, [hl] ; species we have
+	ld b, [hl] ; species we have. Note: unhatched egg species is checked here, which may be unintentional.
 	cp b
 	jr nz, .notfound ; species doesn't match
 

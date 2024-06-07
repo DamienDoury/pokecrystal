@@ -1676,7 +1676,7 @@ _GymPowerRestrainerFirstExplanation::
 	para "Also, each GYM"
 	line "LEADER sets some"
 	cont "special rules for"
-	cont "its battle,"
+	cont "their battle,"
 
 	para "in order to"
 	line "find out how well"

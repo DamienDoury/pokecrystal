@@ -8,12 +8,7 @@ _FindPartyMonAtLeastThatHappy:
 	call FindAtLeastThatHappy
 	ret
 
-_FindPartyMonThatSpecies:
-	ld hl, wPartyMon1Species
-	jp FindThatSpecies
-
 _FindPartyMonThatSpeciesYourTrainerID:
-	ld hl, wPartyMon1Species
 	call FindThatSpecies
 	ret z
 	ld a, c
@@ -98,6 +93,7 @@ FindAboveLevel:
 	and a
 	ret
 
+_FindPartyMonThatSpecies:
 FindThatSpecies:
 ; Find species b in your party.
 ; If you have no Pokemon, returns c = -1 and z.

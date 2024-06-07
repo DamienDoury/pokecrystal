@@ -9,14 +9,63 @@ _EggPhotoText::
 	done
 
 _MonNotCuteText::
-	text "Your @"
-	text_ram wStringBuffer1
-	text_start
-	line "is not cute."
+	text "Nah. Some of your"
+	line "#MON aren't"
+	cont "cute."
+	prompt
 
-	para "Replace this"
-	line "#MON or I won't"
-	cont "challenge you."
+_MonNotCuteInstanceSingleText::
+	text "I don't like"
+	line "@"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+
+_MonNotCuteInstanceFirstText::
+	text "I don't like"
+	line "@"
+	text_ram wStringBuffer1
+	text ","
+	prompt
+
+_MonNotCuteInstance2Text::
+	text "@"
+	text_ram wStringBuffer2
+	text ","
+	line "@"
+	text_ram wStringBuffer1
+	text ","
+	prompt
+
+_MonNotCuteInstanceLast1Text::
+	text "and @"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+
+_MonNotCuteInstanceLast2Text::
+	text "@"
+	text_ram wStringBuffer2
+	text ","
+	line "and @"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+
+_MonNotCuteEndText::
+	text "I won't bother"
+	line "explaining what"
+	cont "makes a #MON"
+	cont "cute."
+
+	para "Ask the GYM GUIDE"
+	line "at the entrance."
+	
+	para "Come back with a"
+	line "party of cuties,"
+
+	para "or I won't accept"
+	line "your challenge."
 	done
 
 _NameRaterHelloText::

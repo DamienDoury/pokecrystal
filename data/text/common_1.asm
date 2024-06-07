@@ -130,8 +130,6 @@ _GrewToLevelText::
 	text_promptbutton
 	text_end
 
-	text_end ; unreferenced
-
 _CameToItsSensesText::
 	text_ram wStringBuffer1
 	text " came"
@@ -1435,8 +1433,6 @@ _ReceiveItemText::
 	sound_item
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _NoCoinsText::
 	text "You have no coins."

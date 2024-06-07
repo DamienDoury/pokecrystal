@@ -91,7 +91,7 @@ CheckAllFlyingTypeParty::
 	ld a, 1
 	ld [wScriptVar], a ; Sets the return value as TRUE.
 
-	ld hl, wPartyMon1Species
+	ld hl, wPartyMon1Species ; TODO: use wPartySpecies instead. Like in CheckCuteParty.
 	ld de, PARTYMON_STRUCT_LENGTH
 	xor a
 	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
@@ -130,7 +130,7 @@ CheckAllFlyingOrWaterTypeParty::
 	ld a, 1
 	ld [wScriptVar], a ; Sets the return value as TRUE.
 
-	ld hl, wPartyMon1Species
+	ld hl, wPartyMon1Species ; TODO: use wPartySpecies instead. Like in CheckCuteParty.
 	ld de, PARTYMON_STRUCT_LENGTH
 	xor a
 	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
@@ -170,7 +170,7 @@ CheckAllFlyingOrWaterTypeParty::
 
 ; Returns true if there is at least 1 Pokémon of the type in passed in wScriptVar.
 CheckTypePresenceInParty::
-	ld hl, wPartyMon1Species
+	ld hl, wPartyMon1Species ; TODO: use wPartySpecies instead. Like in CheckCuteParty.
 	ld de, PARTYMON_STRUCT_LENGTH
 
 	ld a, [wScriptVar] ; We retrieve the type to check, passed as a parameter from the script.
@@ -218,47 +218,200 @@ CheckTypePresenceInParty::
 
 
 ; Check if all pokemons in the party are considered cute (non-evolved except if prior evolution is a baby pokemon, less than 1m/3"3' except for pink pkmn that can be up to 1.2m/3"11')
+;CheckCuteParty::
+;	ld a, 1
+;	ld [wScriptVar], a ; Sets the return value as TRUE.
+;
+;	ld hl, wPartyMon1Species
+;	ld de, PARTYMON_STRUCT_LENGTH
+;	xor a
+;	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
+;
+;.analyze_mon
+;	ld a, [hl] ; Retrieving the species.
+;	push de
+;	push hl
+;	ld hl, CuteMons ; Getting the array address.
+;	call IsInByteArray ; Searching for pkmn a in array hl. Returns its index in b, and carry if found.
+;	pop hl
+;	pop de
+;	jr nc, .invalid_party_member
+;
+;.next_party_mon
+;	ld a, [wPartyCount]
+;	ld b, a
+;	ld a, [wCurPartyMon]
+;	inc a
+;	cp b
+;	ret z ; We exit when we reach the last pkmn.
+;
+;	ld [wCurPartyMon], a
+;	add hl, de
+;	jr .analyze_mon
+;
+;.invalid_party_member
+;	call GetCurNickname
+;	ld hl, MonNotCuteText
+;	call PrintText
+;	ld a, 0
+;	ld [wScriptVar], a ; Set the return value as FALSE.
+;	ret
+
 CheckCuteParty::
 	ld a, 1
 	ld [wScriptVar], a ; Sets the return value as TRUE.
 
-	ld hl, wPartyMon1Species
-	ld de, PARTYMON_STRUCT_LENGTH
-	xor a
-	ld [wCurPartyMon], a ; Récupération du premier Pokémon de l'équipe (index 0)
+	dec a ; A = 0. "dec a" is more efficient than "LD r8,n8".
+	ld [wNotCuteCount], a
 
-.analyze_mon
-	ld a, [hl] ; Retrieving the species.
-	push de
+	dec a ; A = -1. "dec a" is more efficient than "LD r8,n8".
+	ld hl, wNotCuteSpecies
+	ld d, PARTY_LENGTH + 1
+.clear_array_loop
+	ld [hli], a
+	dec d
+	jr nz, .clear_array_loop
+
+	ld hl, wPartySpecies
+	ld bc, wNotCuteSpecies
+
+.analyze_next_mon
+	ld a, [hli] ; Retrieving the species.
+	cp $ff
+	jr z, .uncute_list_completed
+
 	push hl
+	push bc
 	ld hl, CuteMons ; Getting the array address.
 	call IsInByteArray ; Searching for pkmn a in array hl. Returns its index in b, and carry if found.
+	pop bc
 	pop hl
-	pop de
-	jr nc, .invalid_party_member
+	jr c, .analyze_next_mon
 
-.next_party_mon
-	ld a, [wPartyCount]
-	ld b, a
-	ld a, [wCurPartyMon]
+	; We add the current species to the list of "uncute" mons.
+	dec hl
+	ld a, [hli]
+	ld [bc], a
+	inc bc
+
+	; Increase the count.
+	ld a, [wNotCuteCount]
 	inc a
-	cp b
-	ret z ; We exit when we reach the last pkmn.
+	ld [wNotCuteCount], a
+	jr .analyze_next_mon
 
-	ld [wCurPartyMon], a
-	add hl, de
-	jr .analyze_mon
+.uncute_list_completed
+	ld a, LOW(wNotCuteSpecies)
+	cp c ; This works because the list has less than 256 elements.
+	ret z ; If the cute list index has never been increased, it means we found no "uncute" mon. Therefore, we return true.
 
-.invalid_party_member
-	call GetCurNickname
+; Print the list.
 	ld hl, MonNotCuteText
+	call PrintText	
+
+	ld hl, wNotCuteSpecies
+	call .get_next_one_name
+
+	ld a, [wNotCuteCount]
+	and a
+	cp 1
+	jr z, .single
+
+; first mon
+	push hl
+	ld hl, MonNotCuteInstanceFirstText
 	call PrintText
-	ld a, 0
+	pop hl
+
+.next_print
+	ld a, [wNotCuteCount]
+	dec a
+	ld [wNotCuteCount], a
+	cp 1
+	jr z, .last_one
+
+	cp 2
+	jr z, .last_two
+
+; next two.
+	ld a, [wNotCuteCount]
+	dec a
+	ld [wNotCuteCount], a
+
+	call .get_next_two_names
+	push hl
+	ld hl, MonNotCuteInstance2Text
+	call PrintText
+	pop hl
+	jr .next_print
+
+.single
+	ld hl, MonNotCuteInstanceSingleText
+	call PrintText
+	jr .bye
+
+.last_one
+	call .get_next_one_name
+	ld hl, MonNotCuteInstanceLast1Text
+	call PrintText
+	jr .bye
+
+.last_two
+	call .get_next_two_names
+	ld hl, MonNotCuteInstanceLast2Text
+	call PrintText
+
+.bye
+	ld hl, MonNotCuteEndText
+	call PrintText
+
+.return_false
+	xor a
 	ld [wScriptVar], a ; Set the return value as FALSE.
 	ret
 
+.get_next_two_names
+	ld a, [hli]
+	ld [wNamedObjectIndex], a
+	call GetPokemonName
+	push hl
+	ld hl, wStringBuffer1
+	ld de, wStringBuffer2
+	ld bc, MON_NAME_LENGTH
+	call CopyBytes ; copy bc bytes from hl to de
+	pop hl
+
+.get_next_one_name
+	ld a, [hli]
+	ld [wNamedObjectIndex], a
+	jp GetPokemonName ; Preserves HL.
+
 MonNotCuteText:
 	text_far _MonNotCuteText
+	text_end
+
+MonNotCuteInstanceSingleText:
+	text_far _MonNotCuteInstanceSingleText
+	text_end
+
+MonNotCuteInstanceFirstText:
+	text_far _MonNotCuteInstanceFirstText
+	text_end
+
+MonNotCuteInstance2Text:
+	text_far _MonNotCuteInstance2Text
+	text_end
+
+MonNotCuteInstanceLast1Text:
+	text_far _MonNotCuteInstanceLast1Text
+	text_end
+
+MonNotCuteInstanceLast2Text:
+	text_far _MonNotCuteInstanceLast2Text
+	text_end
+
+MonNotCuteEndText:
+	text_far _MonNotCuteEndText
 	text_end
 
 
