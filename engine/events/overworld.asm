@@ -1982,6 +1982,7 @@ Script_GetOffBike_Register:
 	sjump FinishGettingOffBike.registered
 
 Script_CantGetOffBike:
+	opentext
 	writetext .CantGetOffBikeText
 	waitbutton
 	closetext
