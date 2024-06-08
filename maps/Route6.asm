@@ -130,6 +130,9 @@ Route6PokefanMScript:
 Route6UndergroundPathSign:
 	jumptext Route6UndergroundPathSignText
 
+Route6ToiletPaper:
+	hiddenitem TOILET_PAPER, EVENT_ROUTE_6_HIDDEN_TOILET_PAPER
+
 Route6DownMovement:
 	step DOWN
 	step_end
@@ -271,6 +274,7 @@ Route6_MapEvents:
 
 	def_bg_events
 	bg_event 19,  7, BGEVENT_READ, Route6UndergroundPathSign
+	bg_event 19,  0, BGEVENT_ITEM, Route6ToiletPaper
 
 	def_object_events
 	object_event 17,  6, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 2, Route6PokefanMScript, EVENT_RETURNED_MACHINE_PART

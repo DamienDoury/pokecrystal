@@ -310,7 +310,7 @@ SilverGroupSprites:
 	db 0 ; end
 
 DungeonsGroupSprites:
-; NationalPark, NationalParkBugContest, RuinsOfAlphOutside
+; NationalPark, NationalParkBugContest, RuinsOfAlphOutside, SafariZoneBeta
 	db SPRITE_LASS, WALKING_SPRITE
 	db SPRITE_POKEFAN_F, WALKING_SPRITE
 	db SPRITE_TEACHER, WALKING_SPRITE
@@ -322,6 +322,7 @@ DungeonsGroupSprites:
 	db SPRITE_OFFICER, WALKING_SPRITE
 	db SPRITE_JENNY, WALKING_SPRITE
 	; 10 of max 14 walking sprites
+	db SPRITE_FRUIT_TREE, STILL_SPRITE
 	db SPRITE_GAMEBOY_KID, STANDING_SPRITE
 	db SPRITE_PERSIAN, POKEMON_SPRITE
 	db SPRITE_POKE_BALL, STILL_SPRITE

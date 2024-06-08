@@ -58,6 +58,9 @@ TrainerPokefanmRobert:
 Route10Sign:
 	jumptext Route10SignText
 
+Route10MaxEther:
+	hiddenitem MAX_ETHER, EVENT_ROUTE_10_HIDDEN_MAX_ETHER
+
 HikerJimSeenText:
 	text "Hahahah!"
 	done
@@ -109,6 +112,7 @@ Route10South_MapEvents:
 
 	def_bg_events
 	bg_event  5,  5, BGEVENT_READ, Route10Sign
+	bg_event 16,  3, BGEVENT_ITEM, Route10MaxEther
 
 	def_object_events
 	object_event 17,  5, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerHikerJim, -1

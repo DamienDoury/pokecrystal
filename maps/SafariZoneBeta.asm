@@ -1,7 +1,13 @@
+	object_const_def
+	const SAFARIZONE_FRUIT_TREE
+
 SafariZoneBeta_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+
+SafariZoneFruitTree:
+	fruittree FRUITTREE_SAFARI_ZONE
 
 SafariZoneBeta_MapEvents:
 	db 0, 0 ; filler
@@ -17,3 +23,4 @@ SafariZoneBeta_MapEvents:
 	def_bg_events
 
 	def_object_events
+	object_event  7,  6, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SafariZoneFruitTree, -1

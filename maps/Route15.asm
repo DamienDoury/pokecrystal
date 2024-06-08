@@ -6,6 +6,7 @@
 	const ROUTE15_TEACHER1
 	const ROUTE15_TEACHER2
 	const ROUTE15_POKE_BALL
+	const ROUTE15_FRUIT_TREE
 
 Route15_MapScripts:
 	def_scene_scripts
@@ -83,6 +84,9 @@ Route15Sign:
 
 Route15PPUp:
 	itemball PP_UP
+
+Route15FruitTree:
+	fruittree FRUITTREE_ROUTE_15
 
 TeacherColetteSeenText:
 	text "Have you forgotten"
@@ -219,3 +223,4 @@ Route15_MapEvents:
 	object_event 34, 15, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 4, TrainerTeacherColette, -1
 	object_event 20, 10, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerTeacherHillary, -1
 	object_event 21,  5, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route15PPUp, EVENT_ROUTE_15_PP_UP
+	object_event 32,  9, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route15FruitTree, -1
