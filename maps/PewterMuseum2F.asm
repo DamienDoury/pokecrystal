@@ -12,12 +12,11 @@ PewterMuseum2FScript:
 PewterMuseum2FSpaceShuttleScript:
 	jumptext MuseumSpaceShuttleText
 
-PewterMuseum2FSandshrewScript:
-	cry SANDSHREW
+PewterMuseum2FRattataScript:
+	cry RATTATA
 	pause 5
-	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid onto Sandshrew.
-	loadmem wAssaultBattle, $fe ; The sandshrew can never assault you, otherwise it would override its fleeing behaviour.
-	loadwildmon SANDSHREW, 20
+	loadmem wAssaultBattle, $ff ; Force assault.
+	loadwildmon RATTATA, 15
 	loadvar VAR_BATTLETYPE, BATTLETYPE_NORMAL
 	startbattle
 	disappear PEWTERMUSEUM2F_SANDSHREW
@@ -56,5 +55,5 @@ MuseumSpaceShuttleText:
 	bg_event  3,  5, BGEVENT_READ, PewterMuseum2FScript
 
 	def_object_events
-	object_event 13,  6, SPRITE_SANDSHREW, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, PewterMuseum2FSandshrewScript, EVENT_PEWTER_MUSEUM_SANDSHREW
+	object_event 13,  6, SPRITE_RATTATA, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, PewterMuseum2FRattataScript, EVENT_PEWTER_MUSEUM_RATTATA
 	object_event 13,  7, SPRITE_OLD_AMBER, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, PewterMuseum2FOldAmber, EVENT_PEWTER_MUSEUM_ITEM_OLD_AMBER

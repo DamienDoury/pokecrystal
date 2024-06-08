@@ -13,7 +13,8 @@ ENDM
 	custom_map_objects_pals ROUTE_34_ILEX_FOREST_GATE, MapObjectPalsPurple
 	custom_map_objects_pals PLAYERS_HOUSE_2F, MapObjectPalsPurple
 	custom_map_objects_pals CERULEAN_CAVE_B3F, MapObjectPalsPurple
-	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall ; TODO: add the Yellowish palette for Zapdos. Also, debug Zapdos using the Red palette (which influences the player).
+	custom_map_objects_pals PEWTER_MUSEUM_2F, MapObjectPalsPurple
+	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall
 	custom_map_objects_pals BURNED_TOWER_B1F, MapObjectPalsYellowish
 	custom_map_objects_pals TIN_TOWER_1F, MapObjectPalsYellowish
 	custom_map_objects_pals REDS_HOUSE_2F, MapObjectPalsYellowish

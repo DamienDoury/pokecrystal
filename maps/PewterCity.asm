@@ -206,7 +206,7 @@ PewterCityGrampsText_GotMuseumKey:
 	para "#MON dive into"
 	line "the forest from"
 	
-	para "the sky, then this"
+	para "the sky. Then this"
 	line "other fairy-like"
 	
 	para "#MON flew out"
