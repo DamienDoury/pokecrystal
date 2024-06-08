@@ -24,7 +24,6 @@ INCLUDE "audio/music/ssaqua.asm"
 INCLUDE "audio/music/newbarktown.asm"
 INCLUDE "audio/music/goldenrodcity.asm"
 INCLUDE "audio/music/vermilioncity.asm"
-INCLUDE "audio/music/titlescreen.asm"
 INCLUDE "audio/music/ruinsofalphinterior.asm"
 INCLUDE "audio/music/lookpokemaniac.asm"
 INCLUDE "audio/music/trainervictory.asm"
@@ -143,7 +142,11 @@ INCLUDE "audio/music/trainerbattleRBY.asm"
 INCLUDE "audio/music/ceruleanfuchsia.asm"
 INCLUDE "audio/music/safari.asm"
 INCLUDE "audio/music/kantogymbattle.asm"
+INCLUDE "audio/music/bikeridingkanto.asm"
 
+
+SECTION "Songs 7", ROMX
+INCLUDE "audio/music/titlescreen.asm"
 
 SECTION "Extra Songs 1", ROMX
 

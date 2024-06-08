@@ -118,6 +118,7 @@
 	const MUSIC_SAFARI                       ; 71
 	const MUSIC_JIGGLYPUFF_SONG              ; 72
 	const MUSIC_SURFING_PIKACHU              ; 73
+	const MUSIC_BIKE_KANTO                   ; 74
 NUM_MUSIC_SONGS EQU const_value
 
 ;GetMapMusic picks music for these values (see home/map.asm)

@@ -107,7 +107,7 @@ SECTION "Clock Reset", ROMX
 
 INCLUDE "engine/rtc/restart_clock.asm"
 INCLUDE "engine/math/get_square_root.asm"
-
+INCLUDE "engine/overworld/special_music.asm"
 
 
 SECTION "bank9", ROMX
