@@ -146,18 +146,17 @@ Route29FisherScript:
 Route29CooltrainerMScript:
 	faceplayer
 	opentext
-	checktime DAY
-	iftrue .day_morn
-	checktime NITE
-	iftrue .nite
-.day_morn
-	writetext Route29CooltrainerMText_WaitingForNight
-	waitbutton
-	closetext
-	end
+	writetext Route29CooltrainerMText_BerryExplanation
 
-.nite
-	writetext Route29CooltrainerMText_WaitingForMorning
+	readmem wPartyMon1Item
+	ifnotequal BERRY, .end
+
+	promptbutton
+	getitemname STRING_BUFFER_4, BERRY
+	loadmem wCurPartyMon, 0
+	callasm GetCurNickname
+	writetext Route29CooltrainerMText_OranBerryDetected
+.end	
 	waitbutton
 	closetext
 	end
@@ -316,28 +315,36 @@ Route29FisherText:
 	line "progress."
 	done
 
-Route29CooltrainerMText_WaitingForDay: ; unreferenced
-	text "I'm waiting for"
-	line "#MON that"
+Route29CooltrainerMText_BerryExplanation:
+	text "This tree next to"
+	line "us grows berries."
 
-	para "appear only in the"
-	line "daytime."
+	para "Feel free to pick"
+	line "some up!"
+
+	para "Your #MON can"
+	line "hold one, if you"
+	
+	para "give them one"
+	line "from your pack."
+	
+	para "They'll consume it"
+	line "in battle when"
+
+	para "their health drops"
+	line "below half."
 	done
 
-Route29CooltrainerMText_WaitingForNight:
-	text "I'm waiting for"
-	line "#MON that"
+Route29CooltrainerMText_OranBerryDetected:
+	text "Oh! I see your"
+	line "@"
+	text_ram wStringBuffer1
+	text " is"
 
-	para "appear only at"
-	line "night."
-	done
-
-Route29CooltrainerMText_WaitingForMorning:
-	text "I'm waiting for"
-	line "#MON that"
-
-	para "appear only in the"
-	line "morning."
+	para "already holding"
+	line "an @"
+	text_ram wStringBuffer4
+	text "!"
 	done
 
 MeetTuscanyText:
@@ -445,6 +452,6 @@ Route29_MapEvents:
 	object_event 15, 11, SPRITE_TEACHER, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, Route29TeacherScript, -1
 	object_event 12,  2, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route29FruitTree, -1
 	object_event 25,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route29FisherScript, -1
-	object_event 13,  4, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
+	object_event 13,  3, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route29CooltrainerMScript, -1
 	object_event 29, 12, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, TuscanyScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event 48,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route29Potion, EVENT_ROUTE_29_POTION

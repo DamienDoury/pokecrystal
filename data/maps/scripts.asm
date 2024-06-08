@@ -419,7 +419,6 @@ INCLUDE "maps/PewterNidoranSpeechHouse.asm"
 INCLUDE "maps/CeruleanGymBadgeSpeechHouse.asm"
 INCLUDE "maps/PewterMuseum1F.asm"
 INCLUDE "maps/PewterMuseum2F.asm"
-INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 22", ROMX
@@ -466,6 +465,7 @@ INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
+INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 25", ROMX
