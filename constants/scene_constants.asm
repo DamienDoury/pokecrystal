@@ -37,7 +37,7 @@ SCENE_ALWAYS   EQU -1
 	const SCENE_ELMSLAB_CANT_LEAVE            ; 1
 	const SCENE_ELMSLAB_NOTHING               ; 2
 	const SCENE_ELMSLAB_MEET_OFFICER          ; 3
-	const SCENE_ELMSLAB_UNUSED                ; 4
+	const SCENE_ELMSLAB_READ_BOOKSHELVES      ; 4
 	const SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS ; 5
 
 ; wRoute35NationalParkGateSceneID

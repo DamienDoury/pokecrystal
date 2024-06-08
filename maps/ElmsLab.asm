@@ -12,24 +12,17 @@ ElmsLab_MapScripts:
 	scene_script .DummyScene1 ; SCENE_ELMSLAB_CANT_LEAVE
 	scene_script .DummyScene2 ; SCENE_ELMSLAB_NOTHING
 	scene_script .DummyScene3 ; SCENE_ELMSLAB_MEET_OFFICER
-	scene_script .DummyScene4 ; SCENE_ELMSLAB_UNUSED
+	scene_script .DummyScene4 ; SCENE_ELMSLAB_READ_BOOKSHELVES
 
 	def_callbacks
 	callback MAPCALLBACK_OBJECTS, .MoveElmCallback
 
 .MeetElm:
 	prioritysjump .WalkUpToElm
-	end
 
 .DummyScene1:
-	end
-
 .DummyScene2:
-	end
-
 .DummyScene3:
-	end
-
 .DummyScene4:
 	end
 
@@ -292,7 +285,8 @@ ElmDirectionsScript:
 	closetext
 	setevent EVENT_GOT_A_POKEMON_FROM_ELM
 	setevent EVENT_RIVAL_CHERRYGROVE_CITY
-	setscene SCENE_ELMSLAB_NOTHING
+	setscene SCENE_ELMSLAB_READ_BOOKSHELVES
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Activates some coord_events.
 	end	
 
 LookAtElmPokeBallScript:
@@ -395,6 +389,7 @@ ElmAfterTheftScript:
 	clearevent EVENT_ROUTE_30_YOUNGSTER_JOEY
 	setevent EVENT_ROUTE_30_BATTLE
 	setscene SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Activates some coord_events.
 	writetext ElmAfterTheftText6
 	yesorno
 	iftrue .ElmMissionAccepted
@@ -545,6 +540,45 @@ ElmJumpRightScript:
 	opentext
 	end
 
+AideScript_PlayerIsLeaving1:
+	checkscene
+	ifequal SCENE_ELMSLAB_READ_BOOKSHELVES, AideScript_ReadShelves1
+	sjump AideScript_WalkBalls1
+
+AideScript_PlayerIsLeaving2:
+	checkscene
+	ifequal SCENE_ELMSLAB_READ_BOOKSHELVES, AideScript_ReadShelves2
+	sjump AideScript_WalkBalls2
+
+AideScript_ReadShelves1:
+	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
+	turnobject PLAYER, LEFT
+	scall AideScript_ReadBookshelves
+	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft1
+	stopfollow
+	applymovement PLAYER, AfterChikoritaMovement
+	end
+
+AideScript_ReadShelves2:
+	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight2
+	turnobject PLAYER, LEFT
+	scall AideScript_ReadBookshelves
+	applymovement ELMSLAB_ELMS_AIDE, AideWalksLeft2
+	stopfollow
+	applymovement PLAYER, AfterChikoritaMovement
+	end
+
+AideScript_ReadBookshelves:
+	setscene SCENE_ELMSLAB_NOTHING
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	opentext
+	writetext AideScript_ReadBookshelvesText
+	waitbutton
+	closetext
+
+	follow ELMSLAB_ELMS_AIDE, PLAYER
+	end
+
 AideScript_WalkBalls1:
 	applymovement ELMSLAB_ELMS_AIDE, AideWalksRight1
 	turnobject PLAYER, LEFT
@@ -566,10 +600,7 @@ AideScript_GiveYouBalls:
 	opentext
 	writetext AideText_GiveYouBalls
 	promptbutton
-	getitemname STRING_BUFFER_4, POKE_BALL
-	scall AideScript_ReceiveTheBalls
-	giveitem POKE_BALL, 5
-	itemnotify
+	verbosegiveitem POKE_BALL, 5
 
 	; Hand sanitizer.
 	writetext AideText_GiveYouHandSanitizer
@@ -581,10 +612,7 @@ AideScript_GiveYouBalls:
 	waitbutton
 	closetext
 	setscene SCENE_ELMSLAB_NOTHING
-	end
-
-AideScript_ReceiveTheBalls:
-	jumpstd ReceiveItemScript
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	end
 
 ElmsAideScript:
@@ -726,6 +754,7 @@ OfficerLeavesMovement:
 	step DOWN
 	step DOWN
 	step DOWN
+AideWalksDown:
 	step DOWN
 	step_end
 
@@ -753,16 +782,10 @@ AideWalksRight2:
 	turn_head RIGHT
 	step_end
 
-AideWalksLeft1:
-	step DOWN
-	step LEFT
-	turn_head DOWN
-	step_end
-
 AideWalksLeft2:
 	step LEFT
+AideWalksLeft1:
 	step DOWN
-	turn_head DOWN
 	step_end
 
 ElmsLab_StepLeftTwiceThenHeadDown:
@@ -1283,16 +1306,13 @@ ElmMissionAcceptedText:
 	para "I also hope you"
 	line "will enjoy your"
 	cont "journey and make"
-	cont "friend with your"
+	cont "friends with your"
 	cont "#MON!"
 
 	para "Before you leave"
-	line "NEW BARK TOWN"
-	cont "make sure to read"
-	cont "what's on my book-"
-	cont "shelves and say"
-	cont "good bye to your"
-	cont "mom."
+	line "NEW BARK TOWN,"
+	cont "make sure that you"
+	cont "talk to your mom."
 	done
 
 ElmFindPatientZeroText:
@@ -1815,6 +1835,18 @@ AideText_TheftTestimony:
 	cont "do that!"
 	done
 
+AideScript_ReadBookshelvesText:
+	text "Nice to meet you"
+	line "<PLAYER>!"
+
+	para "As a new TRAINER,"
+	line "you should read"
+	cont "all of ELM's books."
+
+	para "They're full of"
+	line "great knowledge."
+	done
+
 AideText_GiveYouBalls:
 	text "<PLAY_G>!"
 
@@ -1888,8 +1920,8 @@ ElmsLab_MapEvents:
 	coord_event  5,  6, CE_SCENE_ID, SCENE_ELMSLAB_CANT_LEAVE, LabTryToLeaveScript
 	coord_event  4,  5, CE_SCENE_ID, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript
 	coord_event  5,  5, CE_SCENE_ID, SCENE_ELMSLAB_MEET_OFFICER, MeetCopScript2
-	coord_event  4,  8, CE_SCENE_ID, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls1
-	coord_event  5,  8, CE_SCENE_ID, SCENE_ELMSLAB_AIDE_GIVES_POKE_BALLS, AideScript_WalkBalls2
+	coord_event  4,  8, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, AideScript_PlayerIsLeaving1
+	coord_event  5,  8, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, AideScript_PlayerIsLeaving2
 
 	def_bg_events
 	bg_event  2,  1, BGEVENT_READ, ElmsLabHealingMachine
