@@ -261,12 +261,18 @@ ReadTrainerPartyPieces:
 	jr z, .force_perfect_stat_exp
 	cp SWAT
 	jr z, .force_perfect_stat_exp
+	cp JENNY
+	ld a, $55 ; third of max stat exp.
+	jr z, .force_stat_exp
 	jr .stat_exp_check
 
 .force_perfect_stat_exp ; Blue and Swats get perfect stat exp.
-	call GetLastOTMonStatExpAddress
-	ld c, NUM_EXP_STATS * 2
 	ld a, $ff
+.force_stat_exp ; Jenny gets a third of the max stat exp.
+	push af
+	call GetLastOTMonStatExpAddress
+	pop af
+	ld c, NUM_EXP_STATS * 2
 .force_perfect_stat_exp_loop
 	ld [de], a
 	inc de
