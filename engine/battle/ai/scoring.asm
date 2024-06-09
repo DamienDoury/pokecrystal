@@ -106,7 +106,7 @@ AI_Setup:
 
 ;	cp EFFECT_ATTACK_DOWN_2 - 1
 	jr z, .checkmove
-	cp EFFECT_EVASION_DOWN_2 + 1
+	cp EFFECT_SWEET_SCENT + 1
 	jr c, .statdown
 
 	jr .checkmove

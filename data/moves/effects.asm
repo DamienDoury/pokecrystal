@@ -527,7 +527,7 @@ AccuracyDown2:
 	statdownfailtext
 	endmove
 
-EvasionDown2:
+SweetScent:
 	checkobedience
 	usedmovetext
 	doturn

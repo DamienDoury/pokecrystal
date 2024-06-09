@@ -42,7 +42,7 @@ MoveEffectsPointers:
 	dw SpecialAttackDown2
 	dw SpecialDefenseDown2
 	dw AccuracyDown2
-	dw EvasionDown2
+	dw SweetScent
 	dw DoPoison
 	dw DoParalyze
 	dw AttackDownHit

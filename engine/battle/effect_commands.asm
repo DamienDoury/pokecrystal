@@ -3991,7 +3991,7 @@ BattleCommand_SleepTarget:
 	and a
 	jp nz, PrintDidntAffect2
 
-	ld hl, DidntAffect1Text
+	ld hl, DidntAffectText
 
 	ld a, [de]
 	and a
@@ -4124,7 +4124,7 @@ BattleCommand_Poison:
 	jr .failed
 
 .do_poison
-	ld hl, DidntAffect1Text
+	ld hl, DidntAffectText
 	ld a, BATTLE_VARS_STATUS_OPP
 	call GetBattleVar
 	and a
@@ -4848,7 +4848,58 @@ BattleCommand_AccuracyDown2:
 	jr BattleCommand_StatDown
 
 BattleCommand_EvasionDown2:
-; evasiondown2
+; sweet scent / evasiondown2
+	ld hl, wBattlePokerusSeed ; Enemy covid/virus strain.
+	ld a, [wEnemyMonSpecies]
+	ld b, a
+
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .check_pokerus_status
+
+	ld a, MON_SPECIES
+	call BattlePartyAttr
+	ld b, a
+
+	ld a, MON_PKRUS
+	call BattlePartyAttr
+
+.check_pokerus_status
+	; We check if the Pokémon has symptoms.
+	ld a, MEWTWO
+	cp b
+	jr z, .lower_stat ; Mewtwo isn't affected by any kind of symptoms.
+
+	ld a, [hl]
+	and POKERUS_STRAIN_MASK
+	cp POKERUS_ALPHA_STRAIN
+	jr nz, .lower_stat
+
+	ld a, [hl]
+	and POKERUS_DURATION_MASK
+
+	cp POKERUS_SYMPTOMS_START + 1
+	jr nc, .lower_stat
+
+	; The smell loss lasts longer than other symptoms. 
+	; It even lasts into the immunity period. 
+	; This means that vaccination will "cure" the smell loss which is untrue. 
+	; It also means that getting infected by another variatn will also cure it.
+	; But players can deal with these inaccuracies.
+	; This symptom is very unlikely to be found in the first place anyway.
+	cp 3 
+	jr c, .lower_stat
+
+	; Didn't affect.
+	ld a, 1
+	ld [wAttackMissed], a
+
+	ld a, 4
+	ld [wFailedMessage], a
+	ret
+
+.lower_stat
+	; lowering accuracy
 	ld a, $10 | EVASION
 
 BattleCommand_StatDown:
@@ -4954,7 +5005,7 @@ CheckMist:
 	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_2
 	jr c, .dont_check_mist
-	cp EFFECT_EVASION_DOWN_2 + 1
+	cp EFFECT_SWEET_SCENT + 1
 	jr c, .check_mist
 	cp EFFECT_ATTACK_DOWN_HIT
 	jr c, .dont_check_mist
@@ -5096,14 +5147,25 @@ BattleCommand_StatDownFailText:
 	ld a, [wFailedMessage]
 	and a
 	ret z
+
 	push af
 	call BattleCommand_MoveDelay
 	pop af
+
+	; 1
 	dec a
 	jp z, TryPrintButItFailed
+
+	; 2
 	dec a
 	ld hl, ProtectedByMistText
 	jp z, StdBattleTextbox
+
+	; 4
+	cp 2
+	jp z, PrintDidntAffect
+
+	; 3 & 5+
 	ld a, [wLoweredStat]
 	and $f
 	ld b, a
@@ -6865,13 +6927,13 @@ FailMimic:
 
 PrintDidntAffect:
 ; 'it didn't affect'
-	ld hl, DidntAffect1Text
+	ld hl, DidntAffectText
 	jp StdBattleTextbox
 
 PrintDidntAffect2:
 	call AnimateFailedMove
-	ld hl, DidntAffect1Text ; 'it didn't affect'
-	ld de, DidntAffect2Text ; 'it didn't affect'
+	ld hl, DidntAffectText ; 'it didn't affect'
+	ld de, DidntAffectText ; 'it didn't affect'
 	jp FailText_CheckOpponentProtect
 
 PrintParalyze:
