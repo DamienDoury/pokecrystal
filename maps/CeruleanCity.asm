@@ -299,6 +299,10 @@ CeruleanLockedDoor:
 	jumptext CeruleanLockedDoorText
 
 CeruleanCityPokecenterSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	clearevent EVENT_RED_BEATEN
+	end
+endc
 	jumpstd PokecenterSignScript
 
 CeruleanCityMartSign:
