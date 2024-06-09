@@ -46,6 +46,7 @@ ElmsLab_MapScripts:
 	yesorno
 	iffalse .ElmGetsEmail
 	writetext ElmText_AllRighty
+	loadmem wCreditsType, CREDITS_LAB
 	credits
 
 .ElmGetsEmail:

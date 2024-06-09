@@ -34,6 +34,8 @@ HallOfFame::
 	ld a, [wHallOfFameCount]
 	cp 2
 	ret nc
+	ld a, CREDITS_HOF
+	ld [wCreditsType], a
 	farcall Credits
 	ret
 

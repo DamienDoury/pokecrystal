@@ -60,6 +60,7 @@ Red:
 	pause 180
 	special HealParty
 	refreshscreen
+	loadmem wCreditsType, CREDITS_RED
 	credits
 	end
 

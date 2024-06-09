@@ -351,24 +351,31 @@ ParseCredits:
 
 .music
 ; Play the credits music.
-	ld de, MUSIC_CREDITS
-	push de
 	ld de, MUSIC_NONE
-	call PlayMusic
+	call PlayMusic ; Calls _InitSound when param is MUSIC_NONE.
 	call DelayFrame
-	pop de
+
+	ld de, MUSIC_CREDITS_MELANCHOLIC
+	ld a, [wCreditsType]
+	cp CREDITS_RED
+	jr z, .play_music
+
+	ld de, MUSIC_CREDITS
+.play_music
 	call PlayMusic
 	jp .loop
 
 .wait2
 ; Wait for some amount of ticks.
 	call .get
+	call .extra_wait
 	ld [wCreditsTimer], a
 	jr .done
 
 .wait
 ; Wait for some amount of ticks, and do something else.
 	call .get
+	call .extra_wait
 	ld [wCreditsTimer], a
 
 	xor a
@@ -378,6 +385,18 @@ ParseCredits:
 
 .done
 	jp Credits_Next
+
+.extra_wait
+	ld l, a
+	ld a, [wCreditsType]
+	cp CREDITS_RED
+	ld a, 0
+	jr nz, .add_wait_duration
+
+	ld a, 1
+.add_wait_duration
+	add l
+	ret
 
 .end
 ; Stop execution.
@@ -565,6 +584,10 @@ CreditsPalettes:
 INCLUDE "gfx/credits/credits.pal"
 
 Credits_LoadBorderGFX:
+	ld a, [wCreditsType]
+	cp CREDITS_RED ; Red's credits don't display dancing Pokémon.
+	jr z, .init
+
 	ld hl, wCreditsBorderFrame
 	ld a, [hl]
 	cp $ff

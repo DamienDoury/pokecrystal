@@ -193,7 +193,7 @@ wTempObjectCopyY:: db
 wTempObjectCopyRadius:: db
 ENDU
 
-	ds 1
+wCreditsType:: db
 
 if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
 	ds 4

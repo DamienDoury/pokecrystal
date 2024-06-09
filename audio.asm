@@ -147,6 +147,7 @@ INCLUDE "audio/music/bikeridingkanto.asm"
 
 SECTION "Songs 7", ROMX
 INCLUDE "audio/music/titlescreen.asm"
+INCLUDE "audio/music/route10blackwhite.asm"
 
 SECTION "Extra Songs 1", ROMX
 

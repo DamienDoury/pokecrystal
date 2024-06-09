@@ -121,4 +121,5 @@ Music:
 	dba Music_JigglypuffSong
 	dba Music_SurfingPikachu
 	dba Music_BikeRiding
+	dba Music_Route10
 	assert_table_length NUM_MUSIC_SONGS
