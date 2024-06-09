@@ -92,7 +92,12 @@ VioletCityEarlScript:
 	end
 
 VioletCityLassScript:
+	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
+	iftrue .after_variants
 	jumptextfaceplayer VioletCityLassText
+
+.after_variants
+	jumptextfaceplayer VioletCityLassText2
 
 VioletCitySuperNerdScript:
 	jumptextfaceplayer VioletCitySuperNerdText
@@ -421,15 +426,20 @@ Text_HereTeacherIAm:
 	done
 
 VioletCityLassText:
-	text "Ghosts are rumored"
-	line "to appear in the"
-	cont "BURNED TOWER."
+	text "It is said that"
+	line "COVID makes you"
+	cont "lose your sense"
+	cont "of smell."
+	done
 
-	para "They said normal-"
-	line "type #MON moves"
+VioletCityLassText2:
+	text "The original"
+	line "strain of COVID-19"
+	cont "made you lose your"
+	cont "sense of smell."
 
-	para "had no effect on"
-	line "ghosts."
+	para "But new variants"
+	line "are unlikely."
 	done
 
 VioletCitySuperNerdText:

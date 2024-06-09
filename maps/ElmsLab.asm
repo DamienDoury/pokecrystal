@@ -1461,7 +1461,7 @@ ElmGiveWorkVisaText1:
 	para "the #MON LEAGUE"
 	line "is out of reach."
 
-	para "Look, you've helped"
+	para "Look. You've helped"
 	line "me a lot in my"
 	cont "research."
 	
