@@ -458,7 +458,22 @@ CheckRepelEffect::
 	ld a, [wRepelEffect]
 	and a
 	jr z, .encounter
+
+; Repels don't work in Cerulean Cave, as all wild Pokémon have the original covid, which impairs their sense of smell.
+	ld a, [wMapGroup]
+	cp GROUP_CERULEAN_CAVE_ENTRANCE
+	jr nz, .normal_area
+
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_ENTRANCE
+	jr c, .normal_area
+
+	ld a, [wMapNumber]
+	cp MAP_CERULEAN_CAVE_B3F + 1
+	jr c, .encounter
+
 ; Get the first Pokemon in your party that isn't fainted.
+.normal_area
 	ld hl, wPartyMon1HP
 	ld bc, PARTYMON_STRUCT_LENGTH - 1
 .loop

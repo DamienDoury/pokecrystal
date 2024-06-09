@@ -558,8 +558,11 @@ DetermineAssault:
 	ret
 	
 CeruleanCaveInfection: 
-	; Covid duration of 14 days (incubation).
-	ld a, POKERUS_SYMPTOMS_START + 1
+	;; Covid duration of 14 days (incubation).
+	;ld a, POKERUS_SYMPTOMS_START + 1
+
+	; Covid duration of 13 days (first day of symptoms). Infers that all Pokémon in Cerulean Cave (but Mewtwo) have lost their sense of smell.
+	ld a, POKERUS_SYMPTOMS_START
 
 	; Fixed strain (Mewtwo contaminated all Pokémon).
 	add POKERUS_ALPHA_STRAIN 
