@@ -434,7 +434,10 @@ DetermineAssaultAndPokerusSeed::
 
 	ld a, [wMapNumber]
 	cp MAP_CERULEAN_CAVE_ENTRANCE
-	jp nc, CeruleanCaveInfection
+	jp c, .normal_area
+
+	cp MAP_CERULEAN_CAVE_B3F + 1
+	jp c, CeruleanCaveInfection
 
 .normal_area
 	ld a, [wBattlePokerusSeed]

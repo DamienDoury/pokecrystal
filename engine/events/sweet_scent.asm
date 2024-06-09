@@ -11,6 +11,16 @@ SweetScentScript::
 	callasm GetPartyNickname
 	writetext UseSweetScentText
 	waitbutton
+	readvar VAR_MAPGROUP
+	ifnotequal GROUP_CERULEAN_CAVE_ENTRANCE, .next_check
+
+	readvar VAR_MAPNUMBER
+	ifless MAP_CERULEAN_CAVE_ENTRANCE, .next_check
+
+	readvar VAR_MAPNUMBER
+	ifless MAP_CERULEAN_CAVE_B3F + 1, SweetScentNothing
+
+.next_check
 	callasm SweetScentEncounter
 	iffalse SweetScentNothing
 	checkflag ENGINE_BUG_CONTEST_TIMER

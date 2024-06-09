@@ -385,9 +385,13 @@ PlayMapMusicBike::
 	ld a, [wMapGroup]
 	cp GROUP_CERULEAN_CAVE_ENTRANCE
 	jr nz, .skip_cerulean_cave
+
 	ld a, [wMapNumber]
 	cp MAP_CERULEAN_CAVE_ENTRANCE
 	jr c, .skip_cerulean_cave
+
+	cp MAP_CERULEAN_CAVE_B3F + 1
+	jr nc, .skip_cerulean_cave
 
 	call PlayMapMusic
 	jr .quit_function ; true.
