@@ -11,6 +11,7 @@ SweetScentScript::
 	callasm GetPartyNickname
 	writetext UseSweetScentText
 	waitbutton
+	
 	readvar VAR_MAPGROUP
 	ifnotequal GROUP_CERULEAN_CAVE_ENTRANCE, .next_check
 
