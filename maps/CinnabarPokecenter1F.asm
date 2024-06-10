@@ -19,8 +19,8 @@ CinnabarPokecenter1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
-	clearevent EVENT_CINNABAR_RAVE_PARTY
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	clearevent EVENT_CINNABAR_RAVE_PARTY
 
 	readvar VAR_WEEKDAY
 	ifequal THURSDAY, .if_thursday

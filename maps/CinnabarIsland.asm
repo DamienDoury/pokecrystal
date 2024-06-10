@@ -28,12 +28,20 @@ CinnabarIsland_MapScripts:
 	readmem wKantoAddLevel
 	addval 1
 	writemem wKantoAddLevel
-.endcallback
 	endcallback
 
 .RaveParty:
-	clearevent EVENT_CINNABAR_RAVE_PARTY
 	disappear CINNABARISLAND_LOVER_F
+	scall RavePartyFlag
+	checkevent EVENT_CINNABAR_RAVE_PARTY
+	iffalse .endcallback
+
+	appear CINNABARISLAND_LOVER_F
+.endcallback
+	endcallback
+
+RavePartyFlag::
+	clearevent EVENT_CINNABAR_RAVE_PARTY
 
 	readvar VAR_WEEKDAY
 	ifequal THURSDAY, .if_thursday
@@ -52,8 +60,7 @@ CinnabarIsland_MapScripts:
 
 .DoRaveParty
 	setevent EVENT_CINNABAR_RAVE_PARTY
-	appear CINNABARISLAND_LOVER_F
-	endcallback
+	end
 
 CinnabarIslandBlue:
 	faceplayer

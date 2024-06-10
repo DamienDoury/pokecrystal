@@ -280,6 +280,8 @@ INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
 INCLUDE "maps/CeruleanPoliceStation.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
+INCLUDE "maps/CinnabarPokecenter1F.asm"
+INCLUDE "maps/Route24.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -345,6 +347,7 @@ INCLUDE "maps/TradeCenter.asm"
 INCLUDE "maps/Colosseum.asm"
 INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
+INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX
@@ -433,9 +436,6 @@ INCLUDE "maps/Route41.asm"
 INCLUDE "maps/Route33.asm"
 INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
-INCLUDE "maps/Route24.asm"
-INCLUDE "maps/CinnabarPokecenter1F.asm"
-INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 
 
 SECTION "Map Scripts 23", ROMX

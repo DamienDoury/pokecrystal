@@ -11,25 +11,7 @@ SeafoamGym_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
-	clearevent EVENT_CINNABAR_RAVE_PARTY
-
-	readvar VAR_WEEKDAY
-	ifequal THURSDAY, .if_thursday
-	ifequal FRIDAY, .if_friday
-	endcallback
-
-.if_thursday:
-	readvar VAR_HOUR
-	ifgreater 20, .DoRaveParty
-	endcallback
-
-.if_friday:
-	readvar VAR_HOUR
-	ifless 4, .DoRaveParty
-	endcallback
-
-.DoRaveParty:
-	setevent EVENT_CINNABAR_RAVE_PARTY
+	farscall RavePartyFlag
 	endcallback
 
 

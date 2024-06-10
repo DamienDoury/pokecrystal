@@ -158,7 +158,7 @@ KRIS EQU __trainer_class__
 	const CHAD4
 	const CHAD5
 
-	trainerclass BIRD_KEEPER ; 18
+	trainerclass BIRD_KEEPER ; 21
 	const ROD
 	const ABE
 	const BRYAN
@@ -179,6 +179,9 @@ KRIS EQU __trainer_class__
 	const VANCE2
 	const VANCE3
 	const BOBBY
+	const GIDEON
+	const EASTON
+	const LEON
 
 	trainerclass LASS ; 19
 	const CARRIE
@@ -366,7 +369,7 @@ KRIS EQU __trainer_class__
 	const OLLY
 	const JEROME
 
-	trainerclass FISHER ; 25
+	trainerclass FISHER ; 28
 	const JUSTIN
 	const RALPH1
 	const ARNOLD
@@ -392,8 +395,11 @@ KRIS EQU __trainer_class__
 	const RALPH4
 	const RALPH5
 	const TULLY4
+	const WADE
+	const SKOVORODA
+	const MURPHY
 
-	trainerclass SWIMMERM ; 26
+	trainerclass SWIMMERM ; 29
 	const HAROLD
 	const SIMON
 	const RANDALL
@@ -415,8 +421,11 @@ KRIS EQU __trainer_class__
 	const JAMES
 	const LEWIS
 	const PARKER
+	const ESTEBAN
+	const TYSON
+	const DUANE
 
-	trainerclass SWIMMERF ; 27
+	trainerclass SWIMMERF ; 29
 	const ELAINE
 	const PAULA
 	const KAYLEE
@@ -436,6 +445,8 @@ KRIS EQU __trainer_class__
 	const NIKKI
 	const DIANA
 	const BRIANA
+	const CHELAN
+	const LULU
 
 	trainerclass SAILOR ; 28
 	const EUGENE
