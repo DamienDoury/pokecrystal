@@ -413,6 +413,7 @@ wBattleMonNickname:: ds MON_NAME_LENGTH
 wBattleMon:: battle_struct wBattleMon
 
 	ds 4
+
 wIntroJumptableIndex:: db
 wIntroBGMapPointer:: dw
 wIntroTilemapPointer:: dw
@@ -421,7 +422,8 @@ wIntroFrameCounter1:: db
 wIntroFrameCounter2:: db
 wIntroSpriteStateFlag:: db
 	
-	ds 2
+wBattleMonAbility:: db
+wEnemyMonAbility:: db
 
 wWildMon:: db
 if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)

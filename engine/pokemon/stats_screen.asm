@@ -1332,9 +1332,31 @@ LoadGreenPage:
 	hlcoord 0, 10
 	call PlaceString
 
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
 	ld de, .ThreeDashes
 	hlcoord 2, 11
 	call PlaceString
+else
+	; Get the ability name.
+	ld a, [wTempMonSpecies]
+	ld c, a
+	ld b, 0
+	ld hl, PokemonAbilities
+	add hl, bc
+	ld a, BANK(PokemonAbilities)
+	call GetFarByte
+	inc a ; GetName decreases A, so we need to compensate.
+	ld [wCurSpecies], a
+	; A contains the ID of the ability. Now we have to retrieve the name.
+	; But we can't just add a fixed offset, as names don't have a fixed length.
+	ld a, ABILITY_NAME
+	ld [wNamedObjectType], a
+	call GetName
+
+	ld de, wStringBuffer1
+	hlcoord 2, 11
+	call PlaceString
+endc
 
 	ld a, [wJohtoBadges]
 	cp 0

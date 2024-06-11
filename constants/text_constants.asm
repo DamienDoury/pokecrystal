@@ -13,7 +13,7 @@ POLICE_NAME_LENGTH EQU 11 - 4
 	const_def 1
 	const MON_NAME              ; 1
 	const MOVE_NAME             ; 2
-	const DUMMY_NAME            ; 3
+	const ABILITY_NAME            ; 3
 	const ITEM_NAME             ; 4
 	const PARTY_OT_NAME         ; 5
 	const ENEMY_OT_NAME         ; 6

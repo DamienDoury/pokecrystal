@@ -688,7 +688,8 @@ INCLUDE "data/items/names.asm"
 INCLUDE "engine/items/print_item_description.asm"
 INCLUDE "data/moves/names.asm"
 INCLUDE "engine/overworld/landmarks.asm"
-
+INCLUDE "data/abilities/names.asm"
+INCLUDE "data/abilities/pokemon_abilities.asm"
 
 SECTION "bank77", ROMX
 
