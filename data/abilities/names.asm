@@ -1,3 +1,4 @@
+; entries correspond to ability ids (see constants/ability_constants.asm)
 AbilityNames::
 	list_start AbilityNames
 	li "---"
@@ -43,7 +44,6 @@ AbilityNames::
 	li "NATURAL CURE"
 	li "REGENERATOR"
 	li "TECHNICIAN"
-	li "VITAL SPIRIT"
 	li "MOXIE"
 	li "HYDRATION"
 	li "IMPOSTER"

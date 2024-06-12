@@ -560,7 +560,11 @@ StatsScreen_JoypadAction:
 	jp PlaceItemDetail
 
 .tooltip_ability
-	ret
+	call GetTempMonAbility
+	and a
+	ret z
+
+	jp PlaceAbilityDescription
 
 .a_button_submenu ; Swapping moves.
 	; TODO: interact with the item.
@@ -1338,13 +1342,7 @@ if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
 	call PlaceString
 else
 	; Get the ability name.
-	ld a, [wTempMonSpecies]
-	ld c, a
-	ld b, 0
-	ld hl, PokemonAbilities
-	add hl, bc
-	ld a, BANK(PokemonAbilities)
-	call GetFarByte
+	call GetTempMonAbility
 	inc a ; GetName decreases A, so we need to compensate.
 	ld [wCurSpecies], a
 	; A contains the ID of the ability. Now we have to retrieve the name.
@@ -1353,6 +1351,8 @@ else
 	ld [wNamedObjectType], a
 	call GetName
 
+	ld hl, wStringBuffer1 + 13
+	ld [hl], "@"
 	ld de, wStringBuffer1
 	hlcoord 2, 11
 	call PlaceString
@@ -1409,6 +1409,21 @@ endc
 
 .DetailsPressA:
 	db "[Details: press A]@"
+
+
+; Input: wTempMonSpecies contains the ID of the species.
+; Output: the ability ID of this species in A and hFarByte.
+; Clobbers BC, HL.
+GetTempMonAbility:
+	ld a, [wTempMonSpecies]
+	ld c, a
+	ld b, 0
+	ld hl, PokemonAbilities
+	add hl, bc
+	ld a, BANK(PokemonAbilities)
+	call GetFarByte
+	ret
+
 
 
 LoadBluePage:
@@ -1943,6 +1958,23 @@ PlaceMoveDataNew:
 	ldh [hBGMapMode], a
 	ret
 
+PlaceAbilityDescription:
+	add a
+	ld e, a
+	ld d, 0
+	ld hl, AbilityDescriptions
+	add hl, de
+
+	ld a, BANK(AbilityDescriptions)
+	call GetFarWord ; retrieve a word from a:hl, and return it in hl.
+
+	ld e, l
+	ld d, h
+
+	ld a, BANK(AbilityDescriptions)
+	hlcoord 1, 1
+	jp PlaceFarString
+
 PlaceItemDetail:
 	ld [wCurSpecies], a
 	
@@ -2018,12 +2050,15 @@ IsDetailSlotEmpty:
 
 .tooltip_ability
 	; At the moment, there are no abilities, so it always returns false.
-	xor a
-	ret
+	call GetTempMonAbility
+	and a
+	ret z
+
+	; fallthrough.
 
 .slot_is_not_empty
 	xor a
-	inc a ; Unsets Z flag. There is probably a better  way.
+	inc a ; Unsets Z flag. There is probably a better way.
 	ret
 
 GetItemHelpAttr:

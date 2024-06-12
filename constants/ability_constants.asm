@@ -43,25 +43,25 @@
 	const NATURAL_CURE	; 28
 	const REGENERATOR	; 29
 	const TECHNICIAN	; 2a
-	const VITAL_SPIRIT	; 2b
-	const MOXIE			; 2c
-	const HYDRATION		; 2d
-	const IMPOSTER		; 2e
-	const WATER_ABSORB	; 2f
-	const VOLT_ABSORB	; 30
-	const TRACE			; 31
-	const WEAK_ARMOR	; 32
-	const PRESSURE		; 33
-	const MULTISCALE	; 34
-	const LEAF_GUARD	; 35
-	const SHEER_FORCE	; 36
-	const SUPER_LUCK	; 37
-	const HUGE_POWER	; 38
-	const DRIZZLE		; 39
-	const SPEED_BOOST	; 3a
-	const SHADOW_TAG	; 3b
-	const SAP_SIPPER	; 3c
-	const IMMUNITY		; 3d
-	const POISON_POINT	; 3e
-	const MOODY			; 3f
-	const SAND_STREAM	; 40
+	const MOXIE			; 2b
+	const HYDRATION		; 2c
+	const IMPOSTER		; 2d
+	const WATER_ABSORB	; 2e
+	const VOLT_ABSORB	; 2f
+	const TRACE			; 30
+	const WEAK_ARMOR	; 31
+	const PRESSURE		; 32
+	const MULTISCALE	; 33
+	const LEAF_GUARD	; 34
+	const SHEER_FORCE	; 35
+	const SUPER_LUCK	; 36
+	const HUGE_POWER	; 37
+	const DRIZZLE		; 38
+	const SPEED_BOOST	; 39
+	const SHADOW_TAG	; 3a
+	const SAP_SIPPER	; 3b
+	const IMMUNITY		; 3c
+	const POISON_POINT	; 3d
+	const MOODY			; 3e
+	const SAND_STREAM	; 3f
+NUM_ABILITIES EQU const_value
