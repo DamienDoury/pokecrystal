@@ -1972,7 +1972,7 @@ PlaceAbilityDescription:
 	ld d, h
 
 	ld a, BANK(AbilityDescriptions)
-	hlcoord 1, 1
+	hlcoord 1, 2
 	jp PlaceFarString
 
 PlaceItemDetail:
@@ -1981,7 +1981,7 @@ PlaceItemDetail:
 	xor a
 	ldh [hBGMapMode], a
 
-	decoord 1, 1
+	decoord 1, 2
 	farcall PrintItemDescription
 
 	ld a, [wCurSpecies]
@@ -2017,7 +2017,7 @@ PlaceItemDetail:
 	ld de, String_CantUseInBattle
 
 .display_usability
-	hlcoord 1, 5
+	hlcoord 1, 6
 	call PlaceString
 
 .item_end

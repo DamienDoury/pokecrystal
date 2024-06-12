@@ -583,6 +583,13 @@ SECTION "Battle Tower", ROMX
 INCLUDE "engine/events/battle_tower/trainer_text.asm"
 
 
+SECTION "Abilities", ROMX
+
+INCLUDE "data/abilities/pokemon_abilities.asm"
+INCLUDE "data/abilities/names.asm"
+INCLUDE "data/abilities/descriptions.asm"
+
+
 SECTION "bank5B", ROMX
 
 INCLUDE "mobile/mobile_5b.asm"
@@ -688,8 +695,7 @@ INCLUDE "data/items/names.asm"
 INCLUDE "engine/items/print_item_description.asm"
 INCLUDE "data/moves/names.asm"
 INCLUDE "engine/overworld/landmarks.asm"
-INCLUDE "data/abilities/names.asm"
-INCLUDE "data/abilities/pokemon_abilities.asm"
+
 
 SECTION "bank77", ROMX
 
