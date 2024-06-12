@@ -72,7 +72,7 @@ NoAbilityDesc:
 	
 ChlorophyllDesc:
 	db   "SPEED is doubled"
-	next "under the sun.@"
+	next "in the sun.@"
 	
 SolarPowerDesc:
 	db   "×1.5 SP.ATK in the"
@@ -162,7 +162,7 @@ EffectSporeDesc:
 SandForceDesc:
 	db   "+30<PERCENT> dmg to STEEL,"
 	next "ROCK, GROUND moves"
-	next "under sandstorms.@"
+	next "during sandstorms.@"
 	
 PickupDesc:
 	db   "Recover used item"
@@ -182,7 +182,7 @@ DefiantDesc:
 	
 SwiftSwimDesc:
 	db   "SPEED is doubled"
-	next "under the rain.@"
+	next "in the rain.@"
 	
 SynchronizeDesc:
 	db   "Status conditions"
@@ -269,7 +269,7 @@ MoxieDesc:
 	
 HydrationDesc:
 	db   "Status conditions"
-	next "are healed under"
+	next "are healed in"
 	next "the rain.@"
 	
 ImposterDesc:
