@@ -560,11 +560,15 @@ StatsScreen_JoypadAction:
 	jp PlaceItemDetail
 
 .tooltip_ability
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
+	ret
+else
 	call GetTempMonAbility
 	and a
 	ret z
 
 	jp PlaceAbilityDescription
+endc
 
 .a_button_submenu ; Swapping moves.
 	; TODO: interact with the item.
@@ -1336,7 +1340,7 @@ LoadGreenPage:
 	hlcoord 0, 10
 	call PlaceString
 
-if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
 	ld de, .ThreeDashes
 	hlcoord 2, 11
 	call PlaceString
@@ -1415,6 +1419,9 @@ endc
 ; Output: the ability ID of this species in A and hFarByte.
 ; Clobbers BC, HL.
 GetTempMonAbility:
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
+	xor a
+else 
 	ld a, [wTempMonSpecies]
 	ld c, a
 	ld b, 0
@@ -1422,6 +1429,7 @@ GetTempMonAbility:
 	add hl, bc
 	ld a, BANK(PokemonAbilities)
 	call GetFarByte
+endc
 	ret
 
 
@@ -2049,12 +2057,17 @@ IsDetailSlotEmpty:
 	jr .slot_is_not_empty
 
 .tooltip_ability
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
+	xor a
+	ret
+else 
 	; At the moment, there are no abilities, so it always returns false.
 	call GetTempMonAbility
 	and a
 	ret z
 
 	; fallthrough.
+endc
 
 .slot_is_not_empty
 	xor a
