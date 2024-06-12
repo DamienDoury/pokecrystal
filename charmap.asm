@@ -170,6 +170,7 @@
 	charmap "'s",        $d4
 	charmap "'t",        $d5
 	charmap "'v",        $d6
+	charmap "+",         $d7
 
 	charmap "<EMPTY_STAR>", $da
 	charmap "<FULL_STAR>",  $db
