@@ -229,7 +229,7 @@ ClearBattleRAM:
 
 ; Clear the entire BattleMons area
 	ld hl, wBattle
-	ld bc, wBattleEnd - wBattle
+	ld bc, wBattleEnd - wBattle ; Clears the battle abilities in the process.
 	xor a
 	call ByteFill
 

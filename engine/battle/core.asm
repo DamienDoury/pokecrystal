@@ -4251,6 +4251,12 @@ InitBattleMon:
 	ld [wTempBattleMonSpecies], a
 	ld [wCurPartySpecies], a
 	ld [wCurSpecies], a
+
+	; Get this species's ability.
+	farcall GetSpeciesAbility
+	ldh a, [hFarByte]
+	ld [wBattleMonAbility], a
+
 	call GetBaseData
 	ld a, [wBaseType1]
 	ld [wBattleMonType1], a
@@ -6372,6 +6378,11 @@ LoadEnemyMon:
 	ld [wEnemyMonSpecies], a
 	ld [wCurSpecies], a
 	ld [wCurPartySpecies], a
+
+; Get this species's ability.
+	farcall GetSpeciesAbility
+	ldh a, [hFarByte]
+	ld [wEnemyMonAbility], a
 
 ; Grab the BaseData for this species
 	call GetBaseData

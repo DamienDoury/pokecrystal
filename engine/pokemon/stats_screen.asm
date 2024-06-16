@@ -563,7 +563,7 @@ StatsScreen_JoypadAction:
 if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
 	ret
 else
-	call GetTempMonAbility
+	call StatsScreen_GetTempMonAbility
 	and a
 	ret z
 
@@ -1346,7 +1346,7 @@ if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition onc
 	call PlaceString
 else
 	; Get the ability name.
-	call GetTempMonAbility
+	call StatsScreen_GetTempMonAbility
 	inc a ; GetName decreases A, so we need to compensate.
 	ld [wCurSpecies], a
 	; A contains the ID of the ability. Now we have to retrieve the name.
@@ -1415,14 +1415,47 @@ endc
 	db "[Details: press A]@"
 
 
-; Input: wTempMonSpecies contains the ID of the species.
+; Input: wCurSpecies contains the ID of the species.
 ; Output: the ability ID of this species in A and hFarByte.
 ; Clobbers BC, HL.
-GetTempMonAbility:
+StatsScreen_GetTempMonAbility:
 if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
 	xor a
-else 
+	ret
+else
+	ld a, [wBattleMode]
+	and a
+	jr z, .overworld
+
+; In battle, the player's pokémon ability may change (e.g. Trace).
+; This only affects the one Pokémon in battle, as abilities reset after switching out.
+; So the Pokémon in the back have their default ability.
+; In this specific case, we need to return the in-battle ability.
+
+	ld a, [wCurBattleMon]
+	ld b, a
+	ld a, [wCurPartyMon]
+	cp b
+	jr nz, .overworld
+
+	; Note: wEnemyMonAbility can never be displayed in the Stats screen.
+	ld a, [wBattleMonAbility]
+	ret
+
+.overworld
 	ld a, [wTempMonSpecies]
+	ld [wCurSpecies], a
+	; fallthrough
+endc
+
+; Input: species in wCurSpecies.
+; Output: ability in A and hFarByte.
+; Clobbers BC, HL.
+GetSpeciesAbility::
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
+	xor a
+else
+	ld a, [wCurSpecies]
 	ld c, a
 	ld b, 0
 	ld hl, PokemonAbilities
@@ -2062,7 +2095,7 @@ if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition onc
 	ret
 else 
 	; At the moment, there are no abilities, so it always returns false.
-	call GetTempMonAbility
+	call StatsScreen_GetTempMonAbility
 	and a
 	ret z
 
