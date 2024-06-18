@@ -771,8 +771,10 @@ GoldenrodHospitalRoomVisitor1Script:
 	opentext
 	writetext GoldenrodHospitalRoom10VisitorText
 	yesorno
-; Player chose "No".
 	iftrue .room10_yes
+
+.room_10_no
+	; Player chose "No".
 	checkscene
 	ifequal 6, .room10_advance_quest
 	ifgreater 6, .room10_quest_text
@@ -786,6 +788,10 @@ GoldenrodHospitalRoomVisitor1Script:
 	jumptext GoldenrodHospitalRoom_Quest10Text	
 	
 .room10_yes:
+	writetext GoldenrodHospitalRoom10VisitorText2
+	yesorno
+	iffalse .room_10_no
+	; Player chose yes... twice.
 	jumptext GoldenrodHospitalRoom10VisitorYesText
 	
 .room13:
@@ -1624,10 +1630,20 @@ GoldenrodHospitalRoom7VisitorText:
 	done
 
 GoldenrodHospitalRoom10VisitorText:
-	text "If you are not in"
-	line "a hurry, I would"
-	cont "like to tell you"
+	text "If you have a lot"
+	line "of time ahead of"
+	cont "you, I would like"
+	cont "to tell you all"
 	cont "about my research."
+	done
+
+GoldenrodHospitalRoom10VisitorText2:
+	text "Most people find"
+	line "my speeches long"
+	cont "and boring."
+	
+	para "Do you have time"
+	line "for it?"
 	done
 
 GoldenrodHospitalRoom10VisitorYesText:
