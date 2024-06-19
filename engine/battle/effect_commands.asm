@@ -2481,6 +2481,13 @@ BattleCommand_ApplyDamage:
 	call GetOpponentItem
 	ld a, [hl]
 	ld [wNamedObjectIndex], a
+
+	; Removing the Focus Sash/Band from the Pokémon's held slot.
+	ld a, MON_ITEM
+	call OpponentPartyAttr
+	xor a
+	ld [hl], a
+
 	call GetItemName
 	ld hl, HungOnText
 	jp StdBattleTextbox

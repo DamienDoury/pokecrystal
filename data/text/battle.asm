@@ -562,7 +562,7 @@ UnleashedEnergyText:
 
 HungOnText:
 	text "<TARGET>"
-	line "hung on with"
+	line "hung on with the"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"

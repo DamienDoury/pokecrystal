@@ -15,27 +15,16 @@ GetPartyLocation::
 	ld bc, PARTYMON_STRUCT_LENGTH
 	jp AddNTimes
 
-UserPartyAttr::
+OpponentPartyAttr::
 	push af
 	ldh a, [hBattleTurn]
 	and a
 	jr nz, .ot
 	pop af
-	jr BattlePartyAttr
+	jr OTPartyAttr
 .ot
 	pop af
-	jr OTPartyAttr
-
-OpponentPartyAttr::
-	push af
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .ot
-	pop af
-	jr BattlePartyAttr
-.ot
-	pop af
-	jr OTPartyAttr
+	; fallthrough.
 
 BattlePartyAttr::
 ; Get attribute a from the party struct of the active battle mon.
@@ -48,6 +37,18 @@ BattlePartyAttr::
 	call GetPartyLocation
 	pop bc
 	ret
+
+UserPartyAttr::
+	push af
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .ot
+
+	pop af
+	jr BattlePartyAttr
+.ot
+	pop af
+	; fallthrough.
 
 OTPartyAttr::
 ; Get attribute a from the party struct of the active enemy mon.

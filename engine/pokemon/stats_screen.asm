@@ -865,6 +865,8 @@ String_CantUseInBattle:
 	db "No use in battle.@"
 String_OneTimeUse:
 	db "Lost after use.@"
+String_OncePerBattle:
+	db "Once per battle.@"
 String_PassiveEffect:
 	db "Passive effect.@"
 
@@ -2034,7 +2036,7 @@ PlaceItemDetail:
 
 	ld a, HELD_CONSUMABLE
 	cp b
-	jr z, .consumable
+	jr z, .once_per_battle
 
 	ld a, HELD_NONE
 	cp b
@@ -2052,6 +2054,10 @@ PlaceItemDetail:
 
 .consumable
 	ld de, String_OneTimeUse
+	jr .display_usability
+
+.once_per_battle
+	ld de, String_OncePerBattle
 	jr .display_usability
 
 .cant_use_in_battle
