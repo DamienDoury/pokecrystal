@@ -268,6 +268,10 @@ SpreadPokerusFromOpponents:
 
 .do_infect
 	ld a, [wBattlePokerusSeed]
+	and POKERUS_STRAIN_MASK
+	ld d, a
+	call RandomSicknessDuration
+	or d
 	ld [hl], a
 	pop hl ; We do this to balance the stack.
 	ret
