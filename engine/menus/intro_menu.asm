@@ -1015,6 +1015,7 @@ StartTitleScreen:
 	call ClearScreen
 	call WaitBGMap2
 	xor a
+	ld [wLoadedFont], a
 	ldh [hLCDCPointer], a
 	ldh [hSCX], a
 	ldh [hSCY], a
