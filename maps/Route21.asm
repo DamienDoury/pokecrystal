@@ -306,12 +306,13 @@ FisherSkovorodaBeatenText:
 	done
 
 FisherSkovorodaAfterBattleText:
-	text "Good things come"
+	text "Victory comes"
 	line "to those who"
 	cont "persevere."
 
-	para "Waiting doesn't"
-	line "help much."
+	para "Waiting for vic-"
+	line "tory to happen"
+	cont "is useless."
 
 	para "Except when"
 	line "fishing."
