@@ -552,7 +552,8 @@ wPlayerTurnsTaken:: db
 wPlayerSubstituteHP:: db
 wEnemySubstituteHP::  db
 
-wUnusedPlayerLockedMove:: db
+wPartyItemsOutsideOfBattle:: ds PARTY_LENGTH
+
 	ds 1
 
 wCurPlayerMove:: db
@@ -563,17 +564,10 @@ wLinkBattleRNCount::
 	db
 
 wEnemyItemState:: db
-	ds 2
 wCurEnemyMoveNum:: db
 
 wEnemyHPAtTimeOfPlayerSwitch:: dw
 wPayDayMoney:: ds 3
-
-	ds 1
-
-wSafariMonEating:: db
-
-	ds 1
 	
 wEnemyBackupDVs:: dw ; used when enemy is transformed
 wAlreadyDisobeyed:: db

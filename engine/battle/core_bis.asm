@@ -14,6 +14,7 @@ BattleIntro:
 	farcall ClearBattleRAM
 	xor a
 	ld [wLoadedFont], a
+	call BackupPartyItems ; Save the items held by the player's Pokémons.
 	call InitEnemy
 	call BackUpBGMap2
 	ld b, SCGB_BATTLE_GRAYSCALE
@@ -56,6 +57,7 @@ ExitBattle:
 
 	farcall UpdatePartyStats
 	call ForceBattleAnimationEnd
+	farcall GiveBackPartyItems
 	call .HandleEndOfBattle
 	farcall CleanUpBattleRAM
 	ret
@@ -98,6 +100,56 @@ LoadTrainerOrWildMonPic:
 .Trainer:
 	ld [wTempEnemyMonSpecies], a
 	ret
+
+
+
+
+; This is called after the battle ram has been cleared.
+; So there is no need to clear wPartyItemsOutsideOfBattle.
+BackupPartyItems:
+	ld de, wPartyItemsOutsideOfBattle
+	ld hl, wPartyMon1Item
+	ld a, [wPartyCount]
+	ld b, a
+	
+.next
+	ld a, [hl]
+	ld [de], a
+	inc de 
+
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop bc
+
+	dec b
+	ret z
+
+	jr .next
+
+
+
+
+GiveBackPartyItems::
+	ld de, wPartyItemsOutsideOfBattle
+	ld hl, wPartyMon1Item
+	ld a, [wPartyCount]
+	ld b, a
+	
+.next
+	ld a, [de]
+	ld [hl], a
+	inc de 
+
+	push bc
+	ld bc, PARTYMON_STRUCT_LENGTH
+	add hl, bc
+	pop bc
+
+	dec b
+	ret z
+	
+	jr .next
 
 
 
