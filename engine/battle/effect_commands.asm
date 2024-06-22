@@ -2488,6 +2488,10 @@ BattleCommand_ApplyDamage:
 	xor a
 	ld [hl], a
 
+	callfar GetOpponentItem
+	xor a
+	ld [hl], a
+
 	call GetItemName
 	ld hl, HungOnText
 	jp StdBattleTextbox
