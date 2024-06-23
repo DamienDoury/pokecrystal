@@ -2594,7 +2594,7 @@ wOTPlayerName:: ds NAME_LENGTH
 wOTPlayerID:: dw
 
 wAllBattleParticipantsAfterVirusSpread_ListLength:: db
-wAllBattleParticipantsAfterVirusSpread_ChronologicalList:: ds 6 ; This could be shortened to 3 bytes, but using 6 is easier, and the space would be wasted otherwise.
+wAllBattleParticipantsAfterVirusSpread_ChronologicalList:: ds PARTY_LENGTH ; This could be shortened to 3 bytes, but using 6 is easier, and the space would be wasted otherwise.
 
 wOTPartyCount::   db
 wOTPartySpecies:: ds PARTY_LENGTH
