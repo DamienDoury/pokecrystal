@@ -57,15 +57,19 @@ ExitBattle:
 
 	farcall UpdatePartyStats
 	call ForceBattleAnimationEnd
-	farcall GiveBackPartyItems
 	call .HandleEndOfBattle
 	farcall CleanUpBattleRAM
 	ret
+	
+.HandleEndOfBattle:	
+	xor a
+	ld [wAssaultBattle], a
+	ld [wBattlePokerusSeed], a
 
-.HandleEndOfBattle:
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
+
 	farcall ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
 	call DelayFrames
@@ -73,20 +77,52 @@ ExitBattle:
 	ret
 
 .not_linked
+	farcall GiveBackPartyItems
+	call DestroyDuplicatesPokemasks
+
 	ld a, [wBattleResult]
 	and $ff ^ BATTLERESULT_BITMASK
-	ret nz
+	ret nz ; Return if the player didn't win.
+
 	farcall CheckPayDay
 	xor a
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
-	call CheckCaughtBeast
-	xor a
-	ld [wAssaultBattle], a
-	ld [wBattlePokerusSeed], a
-	ret
+	jp CheckCaughtBeast
 	
+
+
+DestroyDuplicatesPokemasks:
+	ld b, 0 ; The index of the current mon.
+	ld c, FALSE ; Equals TRUE after a first Pokémask has been found in the party.
+	ld hl, wPartyMon1Item
+	ld de, PARTYMON_STRUCT_LENGTH
+
+.loop
+	ld a, POKEMASK
+	cp [hl]
+	jr nz, .next_mon
+
+	ld a, c
+	and a
+	call nz, .destroy_this_mask
+
+	ld c, TRUE
+
+.next_mon
+	inc b
+	ld a, [wPartyCount]
+	cp b
+	ret z
+
+	add hl, de
+	jr .loop
+
+.destroy_this_mask
+	xor a
+	ld [hl], a
+	ret
 
 
 

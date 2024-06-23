@@ -1,6 +1,5 @@
 GivePokerusAndConvertBerries: ; Called after each non-linked battle.
 	call ConvertBerriesToBerryJuice
-	call DestroyDuplicatesPokemasks
 	call SpreadPokerusFromAllies ; Up to 1 Pokémon can be contaminated from its allies.
 	call SpreadPokerusFromOpponents ; Up to 1 Pokémon from the opponent, which makes a maximum of 2 new contaminated Pokémons per battle.
 	; The spread from opponents comes after the one from allies, otherwise we could go from 0 to 2 infected mons in a single battle.
@@ -406,35 +405,4 @@ AddPartyMonIndexToChronologicalList::
 	ld a, c
 	ld [hl], a ; The pokemon party index has been added to the chronological list!
 	pop de
-	ret
-
-DestroyDuplicatesPokemasks:
-	ld b, 0 ; The index of the current mon.
-	ld c, FALSE ; Equals TRUE after a first Pokémask has been found in the party.
-	ld hl, wPartyMon1Item
-	ld de, PARTYMON_STRUCT_LENGTH
-
-.loop
-	ld a, POKEMASK
-	cp [hl]
-	jr nz, .next_mon
-
-	ld a, c
-	and a
-	call nz, .destroy_this_mask
-
-	ld c, TRUE
-
-.next_mon
-	inc b
-	ld a, [wPartyCount]
-	cp b
-	ret z
-
-	add hl, de
-	jr .loop
-
-.destroy_this_mask
-	xor a
-	ld [hl], a
 	ret
