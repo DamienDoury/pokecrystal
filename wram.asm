@@ -914,10 +914,7 @@ ENDU
 
 ENDU
 
-; This was a buffer for map-related pointers in the 1997 G/S prototype.
-; See wMapBuffer in pokegold-spaceworld's wram.asm.
-wUnusedMapBuffer:: ds 24
-wUnusedMapBufferEnd::
+	ds 24
 
 
 SECTION "Overworld Map", WRAM0
