@@ -2320,7 +2320,12 @@ UpdateAllObjectsFrozen::
 	ret
 
 RespawnPlayerAndOpponent:
-; called at battle start
+	; called at battle start
+	ld a, [wOtherTrainerClass]
+	cp RED
+	ret z ; Against Red, we keep the fake player visible, as we have moved the camera.
+
+; not_reds_battle
 	call HideAllObjects
 	ld a, PLAYER
 	call RespawnObject
@@ -2943,6 +2948,24 @@ ApplyBGMapAnchorToObjects:
 	pop de
 	pop hl
 	ret
+
+LoadDyingRedGFX::
+	ldh a, [rVBK]
+	push af
+	ld a, $1
+	ldh [rVBK], a
+
+	ld de, RedDyingGFX
+	ld hl, vTiles3 tile $18
+	lb bc, BANK(RedDyingGFX), 24
+	call Get2bpp
+
+	pop af
+	ldh [rVBK], a
+	ret
+
+RedDyingGFX:
+	INCBIN "gfx/sprites/red_dying.2bpp"
 
 PRIORITY_LOW  EQU $10
 PRIORITY_NORM EQU $20

@@ -316,8 +316,6 @@ INCLUDE "maps/SilverCaveRoom1.asm"
 INCLUDE "maps/SilverCaveRoom2.asm"
 INCLUDE "maps/SilverCaveRoom3.asm"
 INCLUDE "maps/SilverCaveItemRooms.asm"
-INCLUDE "maps/DarkCaveVioletEntrance.asm"
-INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
 INCLUDE "maps/DragonsDen1F.asm"
 INCLUDE "maps/DragonsDenB1F.asm"
 INCLUDE "maps/DragonShrine.asm"
@@ -436,6 +434,8 @@ INCLUDE "maps/Route41.asm"
 INCLUDE "maps/Route33.asm"
 INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
+INCLUDE "maps/DarkCaveVioletEntrance.asm"
+INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
 
 
 SECTION "Map Scripts 23", ROMX

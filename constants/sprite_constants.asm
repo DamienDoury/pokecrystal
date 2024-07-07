@@ -111,6 +111,7 @@
 	const SPRITE_OLD_AMBER ; 6b
 	const SPRITE_MEWTWO_OW_TOP ; 6c
 	const SPRITE_MEWTWO_OW_BOTTOM ; 6d
+	const SPRITE_WALKING_PIKACHU ; 6e
 NUM_OVERWORLD_SPRITES EQU const_value - 1
 
 ; SpriteMons indexes (see data/sprites/sprite_mons.asm)

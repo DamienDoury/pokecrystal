@@ -970,8 +970,7 @@ Script_turnobject:
 	add a
 	add a
 	ld e, a
-	call ApplyObjectFacing
-	ret
+	; fallthrough.
 
 ApplyObjectFacing:
 	ld a, d
@@ -1031,6 +1030,10 @@ Script_variablesprite:
 Script_appear:
 	call GetScriptByte
 	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, Script_appear_action
+	ldh a, [hLastTalked]
+Script_appear_action:
 	call UnmaskCopyMapObjectStruct
 	ldh a, [hMapObjectIndex]
 	ld b, 0 ; clear
@@ -1097,6 +1100,10 @@ Script_stopfollow:
 Script_moveobject:
 	call GetScriptByte
 	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, .obj_id_determined
+	ldh a, [hLastTalked]
+.obj_id_determined
 	ld b, a
 	call GetScriptByte
 	add 4

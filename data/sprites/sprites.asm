@@ -116,4 +116,5 @@ OverworldSprites:
 	overworld_sprite OldAmberSpriteGFX, 4, STILL_SPRITE, PAL_OW_RED
 	overworld_sprite MewtwoOwTopSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite MewtwoOwBottomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
+	overworld_sprite WalkingPikachuSpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
 	assert_table_length NUM_OVERWORLD_SPRITES

@@ -9,6 +9,9 @@ RedsHouse2F_MapScripts:
 RedsHouse2FPikachuScript:
 	setval PIKACHU
 	special PlaySlowCry
+	waitsfx
+	pause 15
+	faceplayer
 	pause 15
 	opentext
 	writetext RedsPikachuStaresText
@@ -99,4 +102,4 @@ RedsHouse2F_MapEvents:
 	bg_event  0,  1, BGEVENT_READ, RedsHouse2FPCScript
 
 	def_object_events
-	object_event  1,  5, SPRITE_PIKACHU, SPRITEMOVEDATA_POKEMON, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, RedsHouse2FPikachuScript, EVENT_REDS_PIKACHU_AVAILABLE
+	object_event  1,  5, SPRITE_WALKING_PIKACHU, SPRITEMOVEDATA_STANDING_LEFT, 1, 1, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, RedsHouse2FPikachuScript, EVENT_REDS_PIKACHU_AVAILABLE
