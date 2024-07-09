@@ -2949,15 +2949,26 @@ ApplyBGMapAnchorToObjects:
 	pop hl
 	ret
 
-LoadDyingRedGFX::
+LoadDyingRedNextGFX::
 	ldh a, [rVBK]
 	push af
 	ld a, $1
 	ldh [rVBK], a
 
-	ld de, RedDyingGFX
+	ld a, [wDyingFrameSetIndex]
+	ld c, a
+	ld b, 0
+	ld hl, RedDyingGFX
+	add hl, bc
+	ld a, [hli]
+	ld e, a
+	ld d, [hl] ; ld de, RedDyingGFX + X.
+	ld a, c
+	add 2
+	ld [wDyingFrameSetIndex], a
+
 	ld hl, vTiles3 tile $18
-	lb bc, BANK(RedDyingGFX), 24
+	lb bc, BANK(RedDyingGFX), 12
 	call Get2bpp
 
 	pop af
@@ -2965,7 +2976,18 @@ LoadDyingRedGFX::
 	ret
 
 RedDyingGFX:
-	INCBIN "gfx/sprites/red_dying.2bpp"
+	dw RedDying1GFX
+	dw RedDying2GFX
+	dw RedDying3GFX
+
+RedDying1GFX:
+	INCBIN "gfx/sprites/red_dying_1.2bpp"
+
+RedDying2GFX:
+	INCBIN "gfx/sprites/red_dying_2.2bpp"
+
+RedDying3GFX:
+	INCBIN "gfx/sprites/red_dying_3.2bpp"
 
 PRIORITY_LOW  EQU $10
 PRIORITY_NORM EQU $20

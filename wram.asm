@@ -3137,6 +3137,9 @@ wRivalSpokeToPlayer:: db
 NEXTU ; Goldenrod Gym.
 wNotCuteCount:: db
 wNotCuteSpecies:: ds PARTY_LENGTH + 1
+
+NEXTU ; Silver Cave Room 3.
+wDyingFrameSetIndex:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

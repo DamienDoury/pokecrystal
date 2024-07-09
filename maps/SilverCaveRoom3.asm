@@ -153,28 +153,42 @@ Red:
 .up_outro
 	applymovement PLAYER, Slow_walk_up_movement
 .red_outro
-	pause 100
+	pause 70
 	turnobject SILVERCAVEROOM3_RED, DOWN
+	pause 70
 
-	callasm LoadDyingRedGFX ; load new sprite 
-	
+	loadmem wDyingFrameSetIndex, 0
+	callasm LoadDyingRedNextGFX ; Load next sprite set.
+	applymovement SILVERCAVEROOM3_RED, CoughMovement1
+
+	pause 20
+	showemote EMOTE_SHOCK, SILVERCAVEROOM3_PIKACHU, 20
+	turnobject SILVERCAVEROOM3_PIKACHU, RIGHT
+	pause 20
 	opentext
 	writetext RedLeavesText
-	waitbutton
+	pause 45
 	closetext
-	pause 30
-	turnobject SILVERCAVEROOM3_RED, UP
-	pause 20
-	showemote EMOTE_SHOCK, SILVERCAVEROOM3_PIKACHU, 15
-	turnobject SILVERCAVEROOM3_PIKACHU, RIGHT
-	pause 15
 
-	opentext
-	writetext RedLeavesText2
-	waitbutton
-	closetext
-	special FadeBlackQuickly
-	special ReloadSpritesNoPalettes
+	applymovement SILVERCAVEROOM3_RED, CoughMovement2
+	pause 36
+
+	callasm LoadDyingRedNextGFX ; Load next sprite set.
+	applymovement SILVERCAVEROOM3_RED, CoughMovement1
+	pause 45
+	applymovement SILVERCAVEROOM3_RED, CoughMovement3
+	pause 80
+
+	callasm LoadDyingRedNextGFX ; Load next sprite set.
+	pause 2
+	loadmem wObject1SpriteX, $61 ; +6
+	turnobject SILVERCAVEROOM3_RED, UP
+	pause 4
+	loadmem wObject1SpriteX, $66 ; +6
+	loadmem wObject1SpriteY, $42 ; +2
+	turnobject SILVERCAVEROOM3_RED, LEFT
+	pause 180
+
 	specialphonecall SPECIALCALL_MISSION_COMPLETE
 	setflag ENGINE_DISPLAY_YEAR_AT_START
 	loadmem wYearMonth, $20 ; January 2022.
@@ -183,11 +197,6 @@ Red:
 	setevent EVENT_GOLDENROD_BEATER
 	setevent EVENT_RED_IN_MT_SILVER
 	clearevent EVENT_REDS_PIKACHU_AVAILABLE
-	disappear SILVERCAVEROOM3_RED
-	pause 15
-	special FadeInQuickly
-	pause 15
-	showemote EMOTE_QUESTION, SILVERCAVEROOM3_PIKACHU, 30
 	pause 180
 	special HealParty
 	refreshscreen
@@ -221,6 +230,36 @@ HideObjectMovement:
 	hide_object
 	step_end
 
+CoughMovement2:
+	turn_head UP
+	step_sleep 6
+	turn_head DOWN
+	step_sleep 12
+CoughMovement1:
+	turn_head UP
+	step_sleep 6
+	turn_head DOWN
+	step_sleep 12
+	turn_head UP
+	step_sleep 6
+	turn_head DOWN
+	step_end
+
+CoughMovement3:
+	turn_head UP
+	step_sleep 10
+	turn_head DOWN
+	step_sleep 6
+	turn_head UP
+	step_sleep 14
+	turn_head DOWN
+	step_sleep 6
+	turn_head UP
+	step_sleep 18
+	turn_head DOWN
+	step_end
+
+
 RedSeenText:
 	text "<……>"
 	line "<……>"
@@ -231,16 +270,8 @@ RedWinLossText:
 	done
 
 RedLeavesText:
-	text "<……>"
-	line "<……>"
-
-	para "*COUGH COUGH*" ; Damien
-	line "*COUGH COUGH*" ; Damien
-	done
-	
-RedLeavesText2:
-	text "…Red collapses" ; Damien
-	line "to the ground…" ; Damien
+	text "*COUGH COUGH*"
+	line "*COUGH COUGH*"
 	done
 
 SilverCaveRoom3_MapEvents:
