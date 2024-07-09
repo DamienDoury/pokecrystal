@@ -184,10 +184,21 @@ Red:
 	loadmem wObject1SpriteX, $61 ; +6
 	turnobject SILVERCAVEROOM3_RED, UP
 	pause 4
+	playsound SFX_TACKLE
 	loadmem wObject1SpriteX, $66 ; +6
 	loadmem wObject1SpriteY, $42 ; +2
 	turnobject SILVERCAVEROOM3_RED, LEFT
-	pause 180
+	waitsfx
+	pause 60
+	showemote EMOTE_QUESTION, SILVERCAVEROOM3_PIKACHU, 20
+	waitsfx
+	pause 80
+	cry PIKACHU
+	waitsfx
+	pause 100
+	applymovement SILVERCAVEROOM3_PIKACHU, DeathCheckPikachuMovement
+	playsound SFX_RUN
+	applymovement SILVERCAVEROOM3_PIKACHU, DeathCheckPikachuMovement2
 
 	specialphonecall SPECIALCALL_MISSION_COMPLETE
 	setflag ENGINE_DISPLAY_YEAR_AT_START
@@ -197,7 +208,7 @@ Red:
 	setevent EVENT_GOLDENROD_BEATER
 	setevent EVENT_RED_IN_MT_SILVER
 	clearevent EVENT_REDS_PIKACHU_AVAILABLE
-	pause 180
+	pause 200
 	special HealParty
 	refreshscreen
 	; End of cutscene.
@@ -259,6 +270,26 @@ CoughMovement3:
 	turn_head DOWN
 	step_end
 
+DeathCheckPikachuMovement:
+	slow_step DOWN
+	slow_step RIGHT
+	turn_head UP
+	step_sleep 40
+	fix_facing
+	slow_step DOWN
+	step_sleep 15
+	remove_fixed_facing
+	step_end
+
+DeathCheckPikachuMovement2:
+	big_step LEFT
+	big_step LEFT
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	big_step DOWN
+	step_end
+	
 
 RedSeenText:
 	text "<……>"
