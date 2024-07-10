@@ -800,8 +800,7 @@ Script_encountermusic:
 	ret
 
 Script_playmapmusic:
-	call PlayMapMusic
-	ret
+	jp PlayMapMusic
 
 Script_playmusic:
 	ld de, MUSIC_NONE
@@ -813,8 +812,7 @@ Script_playmusic:
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	call PlayMusic
-	ret
+	jp PlayMusic
 
 Script_musicfadeout:
 	call GetScriptByte
@@ -836,17 +834,14 @@ Script_playsound:
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 Script_waitsfx:
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 Script_warpsound:
 	farcall GetWarpSFX
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 Script_cry:
 	call GetScriptByte
@@ -857,8 +852,7 @@ Script_cry:
 	jr nz, .ok
 	ld a, [wScriptVar]
 .ok
-	call PlayMonCry
-	ret
+	jp PlayMonCry
 
 GetScriptObject:
 	and a ; PLAYER?
@@ -900,8 +894,7 @@ ApplyMovement:
 
 	ld a, SCRIPT_WAIT_MOVEMENT
 	ld [wScriptMode], a
-	call StopScript
-	ret
+	jp StopScript
 
 UnfreezeFollowerObject:
 	farcall _UnfreezeFollowerObject
@@ -928,8 +921,7 @@ Script_faceplayer:
 	ld e, a
 	ldh a, [hLastTalked]
 	ld d, a
-	call ApplyObjectFacing
-	ret
+	jr ApplyObjectFacing
 
 Script_faceobject:
 	call GetScriptByte
@@ -955,8 +947,7 @@ Script_faceobject:
 	add a
 	ld e, a
 	ld d, c
-	call ApplyObjectFacing
-	ret
+	jr ApplyObjectFacing
 
 Script_turnobject:
 	call GetScriptByte
@@ -996,8 +987,7 @@ ApplyObjectFacing:
 	jr nz, .text_state
 	call .DisableTextTiles
 .text_state
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 .not_visible
 	pop de
@@ -1027,19 +1017,6 @@ Script_variablesprite:
 	ld [hl], a
 	ret
 
-Script_appear:
-	call GetScriptByte
-	call GetScriptObject
-	cp LAST_TALKED
-	jr nz, Script_appear_action
-	ldh a, [hLastTalked]
-Script_appear_action:
-	call UnmaskCopyMapObjectStruct
-	ldh a, [hMapObjectIndex]
-	ld b, 0 ; clear
-	call ApplyEventActionAppearDisappear
-	ret
-
 Script_disappear:
 	call GetScriptByte
 	call GetScriptObject
@@ -1054,6 +1031,18 @@ Script_disappear_action:
 	call ApplyEventActionAppearDisappear
 	farcall _UpdateSprites
 	ret
+
+Script_appear:
+	call GetScriptByte
+	call GetScriptObject
+	cp LAST_TALKED
+	jr nz, Script_appear_action
+	ldh a, [hLastTalked]
+Script_appear_action:
+	call UnmaskCopyMapObjectStruct
+	ldh a, [hMapObjectIndex]
+	ld b, 0 ; clear
+	; fallthrough
 
 ApplyEventActionAppearDisappear:
 	push bc
@@ -1072,8 +1061,7 @@ ApplyEventActionAppearDisappear:
 	xor a
 	ret
 .okay
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 Script_follow:
 	call GetScriptByte
