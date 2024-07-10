@@ -159,7 +159,8 @@ Red:
 
 	loadmem wDyingFrameSetIndex, 0
 	callasm LoadDyingRedNextGFX ; Load next sprite set.
-	applymovement SILVERCAVEROOM3_RED, CoughMovement1
+	setval SFX_NOT_VERY_EFFECTIVE
+	scall RedCough1
 
 	pause 20
 	showemote EMOTE_SHOCK, SILVERCAVEROOM3_PIKACHU, 20
@@ -170,14 +171,19 @@ Red:
 	pause 45
 	closetext
 
-	applymovement SILVERCAVEROOM3_RED, CoughMovement2
+	setval SFX_NOT_VERY_EFFECTIVE
+	scall RedCough2
 	pause 36
 
 	callasm LoadDyingRedNextGFX ; Load next sprite set.
-	applymovement SILVERCAVEROOM3_RED, CoughMovement1
+	setval SFX_MEGA_KICK
+	scall RedCough1
 	pause 45
-	applymovement SILVERCAVEROOM3_RED, CoughMovement3
-	pause 80
+	scall RedCough2
+	pause 45
+	setval SFX_SUBMISSION
+	scall RedCough3
+	pause 100
 
 	callasm LoadDyingRedNextGFX ; Load next sprite set.
 	pause 2
@@ -192,12 +198,12 @@ Red:
 	pause 60
 	showemote EMOTE_QUESTION, SILVERCAVEROOM3_PIKACHU, 20
 	waitsfx
-	pause 80
-	cry PIKACHU
-	waitsfx
+	;pause 80
+	;cry PIKACHU
+	;waitsfx
 	pause 100
 	applymovement SILVERCAVEROOM3_PIKACHU, DeathCheckPikachuMovement
-	playsound SFX_RUN
+	;playsound SFX_INTRO_SUICUNE_2
 	applymovement SILVERCAVEROOM3_PIKACHU, DeathCheckPikachuMovement2
 
 	specialphonecall SPECIALCALL_MISSION_COMPLETE
@@ -208,13 +214,48 @@ Red:
 	setevent EVENT_GOLDENROD_BEATER
 	setevent EVENT_RED_IN_MT_SILVER
 	clearevent EVENT_REDS_PIKACHU_AVAILABLE
-	pause 200
+	pause 150
 	special HealParty
 	refreshscreen
 	; End of cutscene.
 
 	loadmem wCreditsType, CREDITS_RED
 	credits
+	end
+
+RedCough2:
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 6
+	turnobject SILVERCAVEROOM3_RED, DOWN
+	pause 12
+RedCough1:
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 6
+	turnobject SILVERCAVEROOM3_RED, DOWN
+	pause 12
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 6
+	turnobject SILVERCAVEROOM3_RED, DOWN
+	end
+
+RedCough3:
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 10
+	turnobject SILVERCAVEROOM3_RED, DOWN
+	pause 6
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 14
+	turnobject SILVERCAVEROOM3_RED, DOWN
+	pause 6
+	turnobject SILVERCAVEROOM3_RED, UP
+	playsound SFX_FROM_MEM
+	pause 18
+	turnobject SILVERCAVEROOM3_RED, DOWN
 	end
 
 Slow_walk_up_movement:
@@ -239,35 +280,6 @@ ShowObjectMovement:
 
 HideObjectMovement:
 	hide_object
-	step_end
-
-CoughMovement2:
-	turn_head UP
-	step_sleep 6
-	turn_head DOWN
-	step_sleep 12
-CoughMovement1:
-	turn_head UP
-	step_sleep 6
-	turn_head DOWN
-	step_sleep 12
-	turn_head UP
-	step_sleep 6
-	turn_head DOWN
-	step_end
-
-CoughMovement3:
-	turn_head UP
-	step_sleep 10
-	turn_head DOWN
-	step_sleep 6
-	turn_head UP
-	step_sleep 14
-	turn_head DOWN
-	step_sleep 6
-	turn_head UP
-	step_sleep 18
-	turn_head DOWN
 	step_end
 
 DeathCheckPikachuMovement:
