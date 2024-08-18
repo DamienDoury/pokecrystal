@@ -55,7 +55,6 @@ _TossItem::
 	push hl
 	call CheckItemPocket
 	pop de
-	ld a, [wItemAttributeValue]
 	dec a
 	ld hl, .Pockets
 	rst JumpTable
@@ -64,7 +63,7 @@ _TossItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .KeyItem
+	dw TossKeyItem
 	dw .Ball
 	dw .TMHM
 	dw .Med
@@ -361,6 +360,57 @@ ReceiveKeyItem:
 
 .nope
 	and a
+	ret
+
+TossKeyItem:
+	ld a, [wCurItemQuantity]
+	ld e, a
+	ld d, 0
+	ld hl, wNumKeyItems
+	ld a, [hl]
+	cp e
+	jr nc, .ok
+	call .Toss
+	ret nc
+	jr .ok2
+
+.ok
+	dec [hl]
+	inc hl
+	add hl, de
+
+.ok2
+	ld d, h
+	ld e, l
+	inc hl
+.loop
+	ld a, [hli]
+	ld [de], a
+	inc de
+	cp -1
+	jr nz, .loop
+	scf
+	ret
+
+.Toss:
+	ld hl, wNumKeyItems
+	ld a, [wCurItem]
+	ld c, a
+.loop3
+	inc hl
+	ld a, [hl]
+	cp c
+	jr z, .ok3
+	cp -1
+	jr nz, .loop3
+	xor a
+	ret
+
+.ok3
+	ld a, [wNumKeyItems]
+	dec a
+	ld [wNumKeyItems], a
+	scf
 	ret
 
 CheckKeyItems:
