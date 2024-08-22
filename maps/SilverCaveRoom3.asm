@@ -93,7 +93,7 @@ Red:
 	writetext RedSeenText
 	waitbutton
 	closetext
-	loadmem wBattlePokerusSeed, TRUE
+	loadmem wBattlePokerusSeed, POKERUS_ALPHA_STRAIN
 	winlosstext RedWinLossText, RedWinLossText
 	loadtrainer RED, RED1
 	startbattle
