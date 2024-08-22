@@ -34,6 +34,7 @@ CeruleanCaveMewtwoScript:
 	writemem wCeruleanCaveB3FMewtwoCatchRate
 
 .skip_catch_rate_increase
+	loadmem wBattlePokerusSeed, POKERUS_ALPHA_STRAIN + POKERUS_SYMPTOMS_START + 1
 	loadmem wCeruleanCaveB3FStepCount, 30
 	loadvar VAR_BATTLETYPE, BATTLETYPE_TRAP
 	loadwildmon MEWTWO, 100
