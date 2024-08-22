@@ -170,7 +170,7 @@ SpreadPokerusFromOpponents:
 	ld d, a
 	ld a, [wEnemyTurnsTaken]
 	add d
-	ret z ; The player can't get covid if he/she runs away immediately, or catches the Pokémon at first try. Getting assaulted may give it, which it what we expect.
+	jr z, .clear_seed_then_return ; The player can't get covid if he/she runs away immediately, or catches the Pokémon at first try. Getting assaulted may give it, which it what we expect.
 	; Note that this previous check is only useful for a first-turn catch, as this function is not currently called when running away.
 
 	ld hl, wBattlePokerusSeed
@@ -256,7 +256,7 @@ SpreadPokerusFromOpponents:
 	ld a, [wCurPartyMon]
 	inc a
 	cp b
-	ret z
+	jr z, .clear_seed_then_return
 	
 	ld [wCurPartyMon], a
 	push de
@@ -273,7 +273,12 @@ SpreadPokerusFromOpponents:
 	or d
 	ld [hl], a
 	pop hl ; We do this to balance the stack.
+
+.clear_seed_then_return
+	xor a
+	ld [wBattlePokerusSeed], a
 	ret
+
 
 
 ; Input: HL=pokerus byte to edit/infect.

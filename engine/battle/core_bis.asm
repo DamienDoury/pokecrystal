@@ -64,12 +64,13 @@ ExitBattle:
 .HandleEndOfBattle:	
 	xor a
 	ld [wAssaultBattle], a
-	ld [wBattlePokerusSeed], a
 
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
 
+	xor a
+	ld [wBattlePokerusSeed], a
 	farcall ShowLinkBattleParticipantsAfterEnd
 	ld c, 150
 	call DelayFrames
@@ -82,7 +83,7 @@ ExitBattle:
 
 	ld a, [wBattleResult]
 	and $ff ^ BATTLERESULT_BITMASK
-	ret nz ; Return if the player didn't win.
+	jr nz, .spread_covid_and_clear_seed ; Return if the player didn't win.
 
 	farcall CheckPayDay
 	xor a
@@ -90,6 +91,10 @@ ExitBattle:
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
 	jp CheckCaughtBeast
+
+.spread_covid_and_clear_seed
+	farcall GivePokerusAndConvertBerries
+	ret
 	
 
 
@@ -534,8 +539,8 @@ DetermineAssaultAndPokerusSeed::
 	jr z, .kanto_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
 	pop de ; We balance the stack.
 
-	xor a
-	ld [wBattlePokerusSeed], a ; Reset the seed, in case it's dirty.
+	cp FALSE
+	jr nz, DetermineAssault ; If the seed has been set to a specific value (non-zero, and not 1), then we don't need to generate a random one.
 
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
@@ -591,7 +596,7 @@ DetermineAssaultAndPokerusSeed::
 .start_generation
 	ld hl, wBattlePokerusSeed
 	ld a, BANK(InfectMonWithRandomStrain)
-	call FarCall_de ; Far calling CheckTypeMatchupFarcall. The a value will be gotten from [hFarByte].
+	call FarCall_de
 	pop de
 
 DetermineAssault:
