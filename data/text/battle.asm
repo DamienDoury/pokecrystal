@@ -656,7 +656,7 @@ Pkrus_WontObeyText:
 Pkrus_TurnedAwayText:
 	text_ram wBattleMonNickname
 	text " seems"
-	line "to have fever…"
+	line "to have a fever…"
 	prompt
 
 Pkrus_IgnoredOrdersText:

@@ -666,6 +666,8 @@ BattleCommand_CheckObedience:
 
 
 	; Damien : when battling Morty, the player's pkmn sometimes get scared (unless it's a Ghost or Dark type), which is like disobedience.
+	ld e, 0
+	
 	ld a, [wOtherTrainerClass]
 	cp MORTY
 	jr nz, .check_pkrus
@@ -722,7 +724,7 @@ BattleCommand_CheckObedience:
 	and POKERUS_DISOBEDIENCE_DISEASE_MASK
 	jr z, .no_disobedience_disease
 
-	ld a, 10 ; We set the obedience lvl to 10 when the Pkmon has the Pkrus.
+	ld b, 10 ; We set the obedience lvl to 10 when the Pkmon has the Pkrus.
 	ld e, 42 ; We store 42 in e, to distinguish between a normal disobedience or a covid disobedience. The e register may get erased (BattleRandom doesn't), so we would be btter off using a variable in RAM. 
 	jr nc, .getlevel
 
