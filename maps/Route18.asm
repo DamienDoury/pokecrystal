@@ -35,7 +35,6 @@ TrainerBirdKeeperBoris:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 	
 	endifjustbattled
@@ -54,7 +53,6 @@ TrainerBirdKeeperBob:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 
 	endifjustbattled
@@ -73,7 +71,6 @@ TrainerBirdKeeperBobby:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 
 	endifjustbattled

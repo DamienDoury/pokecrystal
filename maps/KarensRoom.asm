@@ -61,7 +61,6 @@ KarenScript_Battle:
 	winlosstext KarenScript_KarenBeatenText, 0
 	loadtrainer KAREN, KAREN1
 	startbattle
-	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
 	setevent EVENT_BEAT_ELITE_4_KAREN
 	checkevent EVENT_BEAT_ELITE_FOUR

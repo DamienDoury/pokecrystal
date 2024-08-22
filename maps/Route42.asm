@@ -47,7 +47,6 @@ Route42_PoliceTrainer:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	end
 
@@ -72,7 +71,6 @@ TrainerFisherTully:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	loadvar VAR_CALLERID, PHONE_FISHER_TULLY
 	endifjustbattled
@@ -193,7 +191,6 @@ TrainerPokemaniacShane:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
 	opentext
@@ -211,7 +208,6 @@ TrainerHikerBenjamin:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
 	opentext

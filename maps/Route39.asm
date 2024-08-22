@@ -56,7 +56,6 @@ TrainerPokefanmDerek:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 
 	loadvar VAR_CALLERID, PHONE_POKEFANM_DEREK
@@ -143,7 +142,6 @@ TrainerPokefanfRuth:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 
 	endifjustbattled
@@ -162,7 +160,6 @@ TrainerSailorEugene:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
 	opentext
@@ -180,7 +177,6 @@ TrainerPsychicNorman:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	endifjustbattled
 	opentext
@@ -227,7 +223,6 @@ Route39_PoliceTrainer:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_39
 	end
 

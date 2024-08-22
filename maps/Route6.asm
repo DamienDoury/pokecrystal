@@ -101,7 +101,6 @@ TrainerPokefanmFrancis:
 	loadtrainer POKEFANM, FRANCIS
 	startbattle
 	reloadmapafterbattle
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_BEAT_POKEFANM_FRANCIS
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 	end

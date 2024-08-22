@@ -151,7 +151,6 @@ CeruleanGymMistyScript:
 	winlosstext MistyWinLossText, 0
 	loadtrainer MISTY, MISTY1
 	startbattle
-	loadmem wBattlePokerusSeed, FALSE
 	reloadmapafterbattle
 	setevent EVENT_BEAT_MISTY
 	setevent EVENT_BEAT_SWIMMERF_DIANA

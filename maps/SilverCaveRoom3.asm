@@ -97,7 +97,6 @@ Red:
 	winlosstext RedWinLossText, RedWinLossText
 	loadtrainer RED, RED1
 	startbattle
-	loadmem wBattlePokerusSeed, FALSE
 	dontrestartmapmusic
 
 	; Red's death cutscene.

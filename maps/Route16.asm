@@ -34,7 +34,6 @@ TrainerBikerHusq:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 
 	endifjustbattled
@@ -53,7 +52,6 @@ TrainerBugCatcherJerome:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 
 	endifjustbattled

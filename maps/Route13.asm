@@ -29,7 +29,6 @@ TrainerPokefanmAlex:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
@@ -48,7 +47,6 @@ TrainerPokefanmJoshua:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
@@ -67,7 +65,6 @@ TrainerBirdKeeperPerry:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
@@ -86,7 +83,6 @@ TrainerBirdKeeperBret:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
@@ -105,7 +101,6 @@ TrainerHikerKenny:
 	
 	setevent EVENT_CONTACT_TRACING_NOTIFICATION
 .NoNotification
-	loadmem wBattlePokerusSeed, FALSE
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
