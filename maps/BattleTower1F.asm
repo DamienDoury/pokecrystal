@@ -338,22 +338,22 @@ MovementData_BattleTowerBattleRoomOpponentWalksOut:
 	turn_head UP
 	slow_step UP
 	slow_step UP
+	slow_step LEFT
+	slow_step UP
 	slow_step UP
 	step_end
 
 MovementData_BattleTowerBattleRoomReceptionistWalksToPlayer:
-	slow_step RIGHT
-	slow_step RIGHT
+	slow_step LEFT
 	slow_step UP
 	slow_step UP
+	turn_head RIGHT
 	step_end
 
 MovementData_BattleTowerBattleRoomReceptionistWalksAway:
 	slow_step DOWN
 	slow_step DOWN
-	slow_step LEFT
-	slow_step LEFT
-	turn_head RIGHT
+	slow_step RIGHT
 	step_end
 
 MovementData_BattleTowerElevatorPlayerExitsElevator:
@@ -361,7 +361,7 @@ MovementData_BattleTowerElevatorPlayerExitsElevator:
 	step_end
 
 MovementData_BattleTowerBattleRoomPlayerTurnsToFaceReceptionist:
-	turn_head DOWN
+	turn_head LEFT
 	step_end
 
 MovementData_BattleTowerBattleRoomPlayerTurnsToFaceNextOpponent:
