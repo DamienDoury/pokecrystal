@@ -2601,7 +2601,7 @@ HandleEnemySwitch:
 	ld e, HP_BAR_LENGTH_PX
 	call UpdateHPPal
 	call WaitBGMap
-	farcall EnemySwitch_TrainerHud
+	;farcall EnemySwitch_TrainerHud
 	ld a, [wLinkMode]
 	and a
 	jr z, .not_linked
