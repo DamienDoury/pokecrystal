@@ -161,7 +161,7 @@ Route36FloriaScript:
 Route36RockSmashGuyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_FOUGHT_SUDOWOODO
+	checkevent EVENT_ROUTE_36_SUDOWOODO
 	iffalse .DidntClearedSudowoodo
 
 	checkitem TM_ROCK_SMASH
@@ -188,7 +188,7 @@ Route36RockSmashGuyScript:
 Route36LassScript:
 	faceplayer
 	opentext
-	checkevent EVENT_FOUGHT_SUDOWOODO
+	checkevent EVENT_ROUTE_36_SUDOWOODO
 	iftrue .ClearedSudowoodo
 	writetext Route36LassText
 	waitbutton

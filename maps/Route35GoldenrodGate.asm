@@ -80,7 +80,7 @@ GiftSpearowOTName:
 Route35GoldenrodGatePokefanFScript:
 	faceplayer
 	opentext
-	checkevent EVENT_FOUGHT_SUDOWOODO
+	checkevent EVENT_ROUTE_36_SUDOWOODO
 	iftrue .FoughtSudowoodo
 	writetext Route35GoldenrodGatePokefanFText
 	waitbutton
