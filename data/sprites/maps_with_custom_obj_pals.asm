@@ -4,6 +4,7 @@ custom_map_objects_pals: MACRO
 	dw \2		; palette address
 ENDM
 	custom_map_objects_pals VERMILION_CITY, MapObjectsPalVermilion ; Special case, because Machoke (silver) and Snorlax (purple) on the same screen.
+	custom_map_objects_pals GOLDENROD_DEPT_STORE_B1F, MapObjectsPalVermilion
 	custom_map_objects_pals ROUTE_19, MapObjectsPalRoute19 ; Onix (silver).
 	custom_map_objects_pals VIRIDIAN_NICKNAME_SPEECH_HOUSE, MapObjectPalsPurple
 	custom_map_objects_pals ROUTE_30, MapObjectPalsPurple
