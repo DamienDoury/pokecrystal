@@ -9,7 +9,7 @@ Route12SuperRodHouse_MapScripts:
 Route12SuperRodHouseFishingGuruScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_SUPER_ROD
+	checkitem SUPER_ROD
 	iftrue .GotSuperRod
 	writetext OfferSuperRodText
 	yesorno
@@ -18,7 +18,6 @@ Route12SuperRodHouseFishingGuruScript:
 	promptbutton
 	verbosegiveitem SUPER_ROD
 	iffalse .NoRoom
-	setevent EVENT_GOT_SUPER_ROD
 .GotSuperRod:
 	writetext GaveSuperRodText
 	waitbutton

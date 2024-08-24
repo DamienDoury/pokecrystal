@@ -9,7 +9,7 @@ OlivineGoodRodHouse_MapScripts:
 GoodRodGuru:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_GOOD_ROD
+	checkitem GOOD_ROD
 	iftrue .AlreadyGotItem
 	writetext OfferGoodRodText
 	yesorno
@@ -20,7 +20,6 @@ GoodRodGuru:
 	writetext GaveGoodRodText
 	waitbutton
 	closetext
-	setevent EVENT_GOT_GOOD_ROD
 	end
 
 .DontWantIt:

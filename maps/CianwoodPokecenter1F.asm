@@ -9,13 +9,17 @@ CianwoodPokecenter1F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_OBJECTS, AntiSoftLockPokeball
+	callback MAPCALLBACK_OBJECTS, CianwoodPokecenter1F_AntiSoftLockChecks
+
+CianwoodPokecenter1F_AntiSoftLockChecks:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	farscall CinnabarPokecenter1f_OldRodGuy
 
 AntiSoftLockPokeball:
 	checkflag ENGINE_FREE_EMERGENCY_POKEBALL_SENT
 	iftrue .end_callback
 
-	checkflag ENGINE_FLYPOINT_GOLDENROD ; If you got softlocked before Goldenrod City, you had to do it on purpose... just restart the game.
+	checkitem HM_CUT ; We don't want to babysit the player too much. So we'll only help once it's absolutely required.
 	iffalse .end_callback
 
 	checkphonecall
@@ -177,5 +181,5 @@ CianwoodPokecenter1F_MapEvents:
 	object_event  1,  5, SPRITE_LASS, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 1, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodPokecenter1FLassScript, -1
 	object_event  5,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CianwoodGymGuideDudeScript, -1
 	object_event  8,  6, SPRITE_SUPER_NERD, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CianwoodPokecenter1FSuperNerdScript, -1
-	object_event  7,  1, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodPokecenter1FFishingGuruScript, EVENT_GOT_OLD_ROD
+	object_event  4,  5, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodPokecenter1FFishingGuruScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	

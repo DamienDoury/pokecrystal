@@ -19,7 +19,8 @@ CinnabarPokecenter1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .RaveParty
 
 .RaveParty:
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Hide all party people.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hide the Old Rod guy.
 	clearevent EVENT_CINNABAR_RAVE_PARTY
 
 	readvar VAR_WEEKDAY
@@ -40,17 +41,34 @@ CinnabarPokecenter1F_MapScripts:
 .DoRaveParty:
 	setevent EVENT_CINNABAR_RAVE_PARTY
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Display all the party people!
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hide the Old Rod guy.
 
 .AntiSoftlock
 	scall CinnabarPokecenter1f_OldRodGuy
 	farsjump AntiSoftLockPokeball ; Calls endcallback.
 
-CinnabarPokecenter1f_OldRodGuy:
-	checkevent EVENT_GOT_OLD_ROD
-	iffalse .end
+CinnabarPokecenter1f_OldRodGuy::
+	checkitem OLD_ROD
+	iftrue .end
 
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	checkitem GOOD_ROD
+	iftrue .end
+
+	checkitem SUPER_ROD
+	iftrue .end
+
+	loadmem wPutativeTMHMMove, SURF
+	callasm CanAtLeastOnePartyMemberLearnTMHMMove
+	iftrue .end ; We don't offer a Rod to the player if they can get away from the island with one of their party Pokémon using Surf.
+
+	checkitem HM_FLY
+	iffalse .offer_rod
+
+	loadmem wPutativeTMHMMove, FLY
+	callasm CanAtLeastOnePartyMemberLearnTMHMMove
+	iftrue .end ; We don't offer a Rod to the player if they can get away from the island with one of their party Pokémon using Fly.
+
+.offer_rod
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 .end
 	end
 
@@ -168,7 +186,7 @@ CinnabarPokecenter1F_MapEvents:
 	def_object_events
 	object_event  3,  1, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FNurseScript, EVENT_CINNABAR_RAVE_PARTY
 	object_event  7,  6, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FCooltrainerFScript, EVENT_CINNABAR_RAVE_PARTY
-	object_event  2,  4, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FFisherScript, EVENT_CINNABAR_RAVE_PARTY
+	object_event  0,  3, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FFisherScript, EVENT_CINNABAR_RAVE_PARTY
 	object_event  9,  2, SPRITE_CAPTAIN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterDJScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  7,  5, SPRITE_DROWZEE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FDrowzeeScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  7,  7, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterSleeperScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
@@ -177,4 +195,4 @@ CinnabarPokecenter1F_MapEvents:
 	object_event  1,  1, SPRITE_ROCKER, SPRITEMOVEDATA_SPINCOUNTERCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterDancerScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  0,  5, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINCLOCKWISE, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterSeriousScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  8,  1, SPRITE_CONE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenterConeScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	object_event  7,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FFishingGuruScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event  2,  4, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CinnabarPokecenter1FFishingGuruScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
