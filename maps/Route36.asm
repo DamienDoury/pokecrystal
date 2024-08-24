@@ -161,25 +161,27 @@ Route36FloriaScript:
 Route36RockSmashGuyScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM08_ROCK_SMASH
-	iftrue .AlreadyGotRockSmash
 	checkevent EVENT_FOUGHT_SUDOWOODO
-	iftrue .ClearedSudowoodo
-	writetext RockSmashGuyText1
-	waitbutton
-	closetext
-	end
+	iffalse .DidntClearedSudowoodo
 
-.ClearedSudowoodo:
+	checkitem TM_ROCK_SMASH
+	iftrue .AlreadyGotRockSmash
+	
+;.ClearedSudowoodo:
 	writetext RockSmashGuyText2
 	promptbutton
 	verbosegiveitem TM_ROCK_SMASH
 	iffalse .NoRoomForTM
-	setevent EVENT_GOT_TM08_ROCK_SMASH
 .AlreadyGotRockSmash:
 	writetext RockSmashGuyText3
 	waitbutton
 .NoRoomForTM:
+	closetext
+	end
+
+.DidntClearedSudowoodo
+	writetext RockSmashGuyText1
+	waitbutton
 	closetext
 	end
 
@@ -484,8 +486,8 @@ RockSmashGuyText1:
 	para "with my straight-"
 	line "arm punch."
 
-	para "But I couldn't!"
-	line "I'm a failure!"
+	para "But I couldn't! It's"
+	line "as hard as a rock!"
 	done
 
 RockSmashGuyText2:
@@ -498,11 +500,9 @@ RockSmashGuyText2:
 	done
 
 RockSmashGuyText3:
-	text "That happens to be"
-	line "ROCK SMASH."
-
-	para "You can shatter"
-	line "rocks with just a"
+	text "With ROCK SMASH"
+	line "you can shatter"
+	cont "rocks with just a"
 
 	para "single well-aimed"
 	line "smack."

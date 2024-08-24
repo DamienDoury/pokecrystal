@@ -14,13 +14,12 @@ Route28SteelWingHouse_MapScripts:
 Celebrity:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM47_STEEL_WING
+	checkitem TM_STEEL_WING
 	iftrue .AlreadyGotItem
 	writetext CelebrityText1
 	promptbutton
 	verbosegiveitem TM_STEEL_WING
 	iffalse .Done
-	setevent EVENT_GOT_TM47_STEEL_WING
 .Done:
 	closetext
 	end
@@ -54,14 +53,25 @@ CelebrityText1:
 	done
 
 CelebrityText2:
-	text "It's tough being a"
+	text "Moving to such a"
+	line "far away place was"
+	cont "a good decision."
+	
+	para "I spent a comfor-"
+	line "table lockdown,"
+	
+	para "and I didn't catch"
+	line "covid even once as"
+	
+	para "I'm the only one"
+	line "living around!"
+
+	para "In the city, fans"
+	line "chase me every-"
+	cont "where I go."
+
+	para "It's tough being a"
 	line "top celebrity."
-
-	para "Everywhere I go,"
-	line "people chase me."
-
-	para "I just want to be"
-	line "left alone…"
 	done
 
 CelebritysFearowText:

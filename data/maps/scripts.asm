@@ -63,6 +63,7 @@ INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
 INCLUDE "maps/Route34.asm"
+INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 
 
 SECTION "Map Scripts 4", ROMX
@@ -130,7 +131,6 @@ INCLUDE "maps/CeladonPokecenter1F.asm"
 INCLUDE "maps/CeladonGameCorner.asm"
 INCLUDE "maps/CeladonGameCornerPrizeRoom.asm"
 INCLUDE "maps/CeladonGym.asm"
-INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Gate.
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.

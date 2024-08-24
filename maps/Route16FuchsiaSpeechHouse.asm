@@ -7,17 +7,45 @@ Route16FuchsiaSpeechHouse_MapScripts:
 	def_callbacks
 
 Route16FuchsiaSpeechHouseSuperNerdScript:
-	jumptextfaceplayer Route16FuchsiaSpeechHouseSuperNerdText
+	faceplayer
+	checkitem TM_ROCK_SMASH
+	iffalse .give_rock_smash
+	jumptext Route16FuchsiaSpeechHouseSuperNerdText
+
+.give_rock_smash
+	opentext
+	writetext Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText
+	promptbutton
+	verbosegiveitem TM_ROCK_SMASH
+	closetext
+	end
 
 Route16FuchsiaSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-Route16FuchsiaSpeechHouseSuperNerdText:
-	text "If you cruise down"
-	line "CYCLING ROAD, you"
+Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText:
+	text "The previous owner"
+	line "of this house used"
+	
+	para "to give out useful"
+	line "items to people."
+	
+	para "I want to keep her"
+	line "tradition alive."
+	done
 
-	para "will end up in"
-	line "FUCHSIA CITY."
+Route16FuchsiaSpeechHouseSuperNerdText:
+	text "I bought this"
+	line "house from a"
+	cont "top celibrity."
+	
+	para "As soon as the"
+	line "first lockdown"
+	cont "was announced,"
+	
+	para "she moved to an"
+	line "isolated country-"
+	cont "side house."
 	done
 
 Route16FuchsiaSpeechHouse_MapEvents:
