@@ -145,11 +145,11 @@ Route17TrainerTips1Text:
 Route17TrainerTips2Text:
 	text "TRAINER TIPS"
 
-	para "There's a graffiti"
-	line "written in french…"
+	para "There's graffiti"
+	line "written in French…"
 
-	para "“Apres le covid,"
-	line "le frigovid!”"
+	para "“Apres le COVID,"
+	line "le FRIGOVID”"
 	done
 
 Route17BotSign1Text:

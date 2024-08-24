@@ -274,8 +274,8 @@ Route24Trainer2BeatenText:
 ; Couple 2)
 Route24Trainer3SeenText:
 	text "You got vaccinated"
-	line "several times"
-	cont "already,"
+	line "against other"
+	cont "diseases,"
 	
 	para "why won't you get"
 	line "vaccinated this"

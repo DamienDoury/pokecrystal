@@ -534,7 +534,7 @@ SilphCoOfficer_SuicuneText:
 
 	para "Scientists come"
 	line "from far away to"
-	cont "try and help."
+	cont "provide help."
 
 	para "A weird man came"
 	line "the other day and"

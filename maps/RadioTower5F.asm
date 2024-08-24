@@ -137,9 +137,7 @@ RadioTower5FRocketBossScene:
 	setscene SCENE_RADIOTOWER5F_NOTHING
 	setevent EVENT_GOT_CLEAR_BELL
 	setevent EVENT_TEAM_ROCKET_DISBANDED
-	sjump .UselessJump
 
-.UselessJump:
 	applymovement RADIOTOWER5F_DIRECTOR, RadioTower5FDirectorWalksOut
 	playsound SFX_EXIT_BUILDING
 	disappear RADIOTOWER5F_DIRECTOR

@@ -61,7 +61,7 @@ CelebrityText2:
 	line "table lockdown,"
 	
 	para "and I didn't catch"
-	line "covid even once as"
+	line "COVID even once as"
 	
 	para "I'm the only one"
 	line "living around!"

@@ -1491,11 +1491,11 @@ AI_Smart_SleepTalk:
 	inc [hl]
 	inc [hl]
 	inc [hl]
-	ret
+	; fallthrough.
 
 AI_Smart_DefrostOpponent:
-; Greatly encourage this move if enemy is frozen.
-; No move has EFFECT_DEFROST_OPPONENT, so this layer is unused.
+	; Greatly encourage this move if enemy is frozen.
+	; No move has EFFECT_DEFROST_OPPONENT, so this layer is unused.
 	ret
 
 AI_Smart_Spite:
