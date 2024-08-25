@@ -32,7 +32,6 @@ CianwoodCity_MapScripts:
 	iftrue .continue
 	setevent EVENT_GAVE_SHUCKIE_BACK
 .continue	
-	setevent EVENT_EUSINE_IN_BURNED_TOWER
 	checkevent EVENT_FOUGHT_EUSINE
 	iffalse .Done
 	disappear CIANWOODCITY_EUSINE
@@ -40,6 +39,7 @@ CianwoodCity_MapScripts:
 	endcallback
 
 CianwoodCitySuicuneAndEusine:
+	setevent EVENT_EUSINE_IN_BURNED_TOWER
 	turnobject PLAYER, UP
 	showemote EMOTE_SHOCK, PLAYER, 15
 	pause 15
