@@ -420,6 +420,11 @@ CeladonGymGuideText:
 
 	para "(achoo)"
 
+	para "To get protected"
+	line "from it, have your"
+	cont "#MON wear a"
+	cont "#MASK."
+
 	para "Good luck to you!"
 	done
 
