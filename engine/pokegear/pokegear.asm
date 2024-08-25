@@ -1623,19 +1623,31 @@ UpdateRadioStation:
 	ld hl, wRadioTuningKnob
 	ld d, [hl]
 	ld hl, RadioChannels
+
+	ld a, [wEnvironment]
+	cp CAVE
+	jr nz, .loop
+
+	push de
+	call GetMapPhoneService
+	pop de
+	and a
+	jr nz, .nosignal
+
 .loop
 	ld a, [hli]
 	cp -1
-	jr z, .nostation
+	jp z, NoRadioStation
 	cp d
 	jr z, .foundstation
 	inc hl
 	inc hl
 	jr .loop
 
-.nostation
-	call NoRadioStation
-	ret
+.nosignal
+	call NoRadioStation.skip_music_shutdown
+	ld de, NoSignalName
+	jr .displaychannelname
 
 .foundstation
 	ld a, [hli]
@@ -1649,6 +1661,8 @@ UpdateRadioStation:
 	ld a, [wPokegearRadioChannelBank]
 	and a
 	ret z
+
+.displaychannelname
 	xor a
 	ldh [hBGMapMode], a
 	hlcoord 2, 9
@@ -1896,9 +1910,6 @@ LoadStation_EvolutionRadio:
 	ld de, UnownStationName
 	ret
 
-DummyLoadStation: ; unreferenced
-	ret
-
 RadioMusicRestartDE:
 	push de
 	ld a, e
@@ -1932,6 +1943,7 @@ Radio_BackUpFarCallParams:
 
 NoRadioStation:
 	call NoRadioMusic
+.skip_music_shutdown
 	call NoRadioName
 ; no radio channel
 	xor a
@@ -1965,6 +1977,7 @@ PokedexShowName:      db "#DEX Show@"
 PokemonMusicName:     db "#MON Music@"
 LuckyChannelName:     db "Lucky Channel@"
 UnownStationName:     db "?????@"
+NoSignalName:         db "-- No signal --@"
 
 PlacesAndPeopleName:  db "Places & People@"
 LetsAllSingName:      db "Let's All Sing!@"
