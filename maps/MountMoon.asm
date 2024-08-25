@@ -52,7 +52,7 @@ MountMoonRivalBattle:
 	opentext
 	
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Hopefully this doesn't override the result of the previous checkevent.
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; This doesn't override the result of the previous checkevent.
 	ifequal FALSE, .GetMoreBadges
 
 	writetext MountMoonSilverTextBefore
@@ -204,7 +204,7 @@ MountMoonSilverTextRefuseFight:
 	text "I want us to fight"
 	line "on equal terms."
 
-	para "Go win more"
+	para "Go earn more"
 	line "badges."
 	done
 
