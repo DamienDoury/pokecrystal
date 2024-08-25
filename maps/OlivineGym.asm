@@ -140,11 +140,11 @@ OlivineGymJasmineScript:
 	
 CheckRocketsActivation:
 	loadmem wTempByteValue, 0
-	checkevent EVENT_ICE_PATH_EXPLORED ; This event is set only once, when Ice Path B3F has been reached.
+	checkevent EVENT_ICE_PATH_EXPLORED ; This event is set only once, when Ice Path B3F has been reached (which requires Strength, and therefore Surf).
 	iffalse .skipAdd1
 	loadmem wTempByteValue, 1
 .skipAdd1
-	checkevent EVENT_JASMINE_RETURNED_TO_GYM ; This event is set only once, when Amphy's mission is done.
+	checkevent EVENT_JASMINE_RETURNED_TO_GYM ; This event is set only once, when Amphy's mission is done (which requires Surf).
 	iffalse .skipAdd2 
 
 	readmem wTempByteValue

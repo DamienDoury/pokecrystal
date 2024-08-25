@@ -72,30 +72,24 @@ ReleaseTheBeasts:
 	waitsfx
 	special RestartMapMusic
 	setscene SCENE_FINISHED
-	setevent EVENT_ECRUTEAK_GYM_GRAMPS
 	clearevent EVENT_ECRUTEAK_CITY_GRAMPS
-	setevent EVENT_BURNED_TOWER_MORTY
 	setevent EVENT_BURNED_TOWER_1F_EUSINE
 	appear BURNEDTOWERB1F_EUSINE
 	refreshscreen
 	changeblock 6, 14, $1b ; ladder
 	reloadmappart
 	closetext
-	setscene SCENE_FINISHED
 	end
 
 BurnedTowerB1FEusine:
 	faceplayer
 	opentext
 	writetext BurnedTowerB1FEusineText
-	promptbutton
-
-	verbosegiveitem HM_SURF
-
-	writetext BurnedTowerB1FEusineTextSequel
 	waitbutton
 	closetext
 
+	setevent EVENT_ECRUTEAK_GYM_GRAMPS
+	setevent EVENT_BURNED_TOWER_MORTY
 	setevent EVENT_RELEASED_THE_BEASTS
 	special InitRoamMons
 	setmapscene CIANWOOD_CITY, SCENE_CIANWOODCITY_SUICUNE_AND_EUSINE
@@ -218,19 +212,8 @@ BurnedTowerB1FEusineText:
 	para "rid of the virus"
 	line "that gives COVID?"
 
-	para "SUICUNE also has"
-	line "the faculty to"
-	
-	para "walk on water."
-	line "In order to track"
-	
-	para "it, this HM will"
-	line "be essential."
-	done
-
-BurnedTowerB1FEusineTextSequel:
-	text "I'm going to track"
-	line "SUICUNE as well."
+	para "I'm going to track"
+	line "SUICUNE."
 
 	para "<PLAYER>, let's"
 	line "meet again!"
@@ -243,11 +226,7 @@ BurnedTowerB1F_MapEvents:
 
 	def_warp_events
 	warp_event 10,  9, BURNED_TOWER_1F, 3
-	warp_event 17,  7, BURNED_TOWER_1F, 7
-	warp_event 10,  8, BURNED_TOWER_1F, 9
-	warp_event  3, 13, BURNED_TOWER_1F, 10
-	warp_event 17, 14, BURNED_TOWER_1F, 12
-	warp_event  7, 15, BURNED_TOWER_1F, 14
+	warp_event  7, 15, BURNED_TOWER_1F, 4
 
 	def_coord_events
 	coord_event 10,  6, CE_EVENT_FLAG_CLEARED, EVENT_BURNED_TOWER_1F_EUSINE, ReleaseTheBeasts

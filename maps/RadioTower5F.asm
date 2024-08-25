@@ -132,6 +132,16 @@ RadioTower5FRocketBossScene:
 	promptbutton
 	verbosegiveitem CLEAR_BELL
 	writetext RadioTower5FDirectorDescribeClearBellText
+	promptbutton
+
+	checkevent EVENT_RELEASED_THE_BEASTS
+	iffalse .SkipTinTowerEventNotification
+
+	writetext RadioTower5FDirectorNotifiesAboutSuicuneText
+	promptbutton
+
+.SkipTinTowerEventNotification:
+	writetext RadioTower5FDirectorGetBackText
 	waitbutton
 	closetext
 	setscene SCENE_RADIOTOWER5F_NOTHING
@@ -367,8 +377,8 @@ RadioTower5FRocketBossStartBattleText:
 	done
 
 RadioTower5FRocketBossSkipBattleText:
-	text "Then leave and"
-	line "let me do what I"
+	text "Then leave."
+	line "Let me do what I"
 	cont "came for."
 
 	para "I will open"
@@ -409,10 +419,12 @@ RadioTower5FDirectorThankYouText:
 	line "thank you!"
 
 	para "Your courageous"
-	line "actions have saved"
+	line "actions will save"
 
-	para "#MON nation-"
-	line "wide."
+	para "countless people"
+	line "from the irra-"
+	cont "tional ideas TEAM"
+	cont "ROCKET spread."
 
 	para "I know it's not"
 	line "much, but please"
@@ -448,8 +460,10 @@ RadioTower5FDirectorDescribeClearBellText:
 
 	para "TIN TOWER in"
 	line "ECRUTEAK CITY…"
+	done
 
-	para "Ah!"
+RadioTower5FDirectorNotifiesAboutSuicuneText:
+	text "Ah!"
 
 	para "That reminds me…"
 
@@ -465,8 +479,10 @@ RadioTower5FDirectorDescribeClearBellText:
 
 	para "but you might look"
 	line "into it."
+	done
 
-	para "OK, I better go to"
+RadioTower5FDirectorGetBackText:
+	text "OK, I better go to"
 	line "my OFFICE."
 	done
 
