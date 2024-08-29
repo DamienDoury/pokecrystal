@@ -1,5 +1,21 @@
 PlayRadioShow:
+	ldh a, [hInMenu]
+	and a
+	jr z, .rockets_check
+
+	push de
+	push hl
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction
+	pop hl
+	pop de
+	ld a, c
+	and a
+	jr nz, .rave_party
+
 ; If we're already in the radio program proper, we don't need to be here.
+.rockets_check
 	ld a, [wCurRadioLine]
 	cp POKE_FLUTE_RADIO
 	jr nc, .ok
@@ -17,6 +33,15 @@ PlayRadioShow:
 .ok
 ; Jump to the currently loaded station.  The index to which we need to jump is in wCurRadioLine.
 	jumptable RadioJumptable, wCurRadioLine
+
+.rave_party
+	ld hl, CantHearAThing_Text
+	jp BuenaPrintText
+
+CantHearAThing_Text:
+	text "- You can't hear"
+	line "a thing! -"
+	done
 
 RadioJumptable:
 ; entries correspond to constants/radio_constants.asm

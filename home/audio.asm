@@ -69,6 +69,20 @@ PlayMusic::
 	push bc
 	push af
 
+	ldh a, [hInMenu]
+	and a
+	jr z, .do_it
+
+	ld b, CHECK_FLAG
+	push de
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction
+	pop de
+	ld a, c
+	and a
+	jr nz, .end_now
+
+.do_it
 	ldh a, [hROMBank]
 	push af
 	ld a, BANK(_PlayMusic) ; aka BANK(_InitSound)
@@ -89,6 +103,7 @@ PlayMusic::
 	pop af
 	ldh [hROMBank], a
 	ld [MBC3RomBank], a
+.end_now
 	pop af
 	pop bc
 	pop de

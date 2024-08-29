@@ -1503,17 +1503,19 @@ GetAMPMHours: ; unreferenced
 	and a
 	ret
 
-Pokegear_SwitchPage:
-	ld de, SFX_READ_TEXT_2
-	call PlaySFX
-	ld a, c
-	ld [wJumptableIndex], a
-	ld a, b
-	ld [wPokegearCard], a
-	call DeleteSpriteAnimStruct2ToEnd
-	ret
-
 ExitPokegearRadio_HandleMusic:
+	; If we are at the rave party, we don't unset the music, so that quitting the Radio menu doesn't restart the map music.
+	push de
+	push hl
+	ld b, CHECK_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	call EventFlagAction
+	pop hl
+	pop de
+	ld a, c
+	and a
+	ret nz
+
 	ld a, [wPokegearRadioMusicPlaying]
 	cp RESTART_MAP_MUSIC
 	jr z, .restart_map_music
@@ -1528,6 +1530,16 @@ ExitPokegearRadio_HandleMusic:
 	xor a
 	ld [wPokegearRadioMusicPlaying], a
 	ret
+
+
+Pokegear_SwitchPage:
+	ld de, SFX_READ_TEXT_2
+	call PlaySFX
+	ld a, c
+	ld [wJumptableIndex], a
+	ld a, b
+	ld [wPokegearCard], a
+	; fallthrough.
 
 DeleteSpriteAnimStruct2ToEnd:
 	ld hl, wSpriteAnim2
@@ -1942,10 +1954,10 @@ Radio_BackUpFarCallParams:
 	ret
 
 NoRadioStation:
+; no radio channel
 	call NoRadioMusic
 .skip_music_shutdown
 	call NoRadioName
-; no radio channel
 	xor a
 	ld [wPokegearRadioChannelBank], a
 	ld [wPokegearRadioChannelAddr], a

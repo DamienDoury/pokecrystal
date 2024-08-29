@@ -13,6 +13,11 @@ Pokecenter2F_MapScripts:
 	scene_script .Scene4 ; SCENE_POKECENTER2F_LEAVE_MOBILE_BATTLE_ROOM
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .RaveParty
+
+.RaveParty:
+	farscall RavePartyFlag
+	endcallback
 
 .Scene0:
 	special CheckMysteryGift

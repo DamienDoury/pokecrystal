@@ -1,6 +1,7 @@
 HandleNewMap:
 	call ResetMapBufferEventFlags
 	call ResetFlashIfOutOfCave
+	call ResetRaveParty
 	call GetCurrentMapSceneID
 	call ResetBikeFlags
 	ld a, MAPCALLBACK_NEWMAP
@@ -451,3 +452,8 @@ GetMapScreenCoords::
 	and 1
 	ld [wMetatileStandingX], a
 	ret
+
+ResetRaveParty:
+	ld b, RESET_FLAG
+	ld de, EVENT_CINNABAR_RAVE_PARTY
+	jp EventFlagAction
