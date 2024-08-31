@@ -2290,9 +2290,9 @@ _TradebackPlayerGivesItemText::
 	done
 
 _TradebackGuyDealOkText::
-	text "For real, I can"
+	text "For real? I can"
 	line "have it?"
-	cont "Thank you!"
+	cont "Thanks!"
 
 	para "Let's do it then!"
 	done

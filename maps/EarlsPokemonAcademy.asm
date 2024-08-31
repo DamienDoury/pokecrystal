@@ -514,10 +514,10 @@ EarlsPokemonAcademyGameboyKid1Text:
 	done
 
 EarlsPokemonAcademyGameboyKid2Text:
-	text "MICKEY: Huh? The"
-	line "#MON ROBIN sent"
-	cont "is holding some-"
-	cont "thing!"
+	text "MICKEY: I'm trading"
+	line "with ROBIN in"
+	cont "hopes of seeing a"
+	cont "#MON evolve."
 	done
 
 EarlsPokemonAcademyYoungster2Text:
@@ -528,7 +528,7 @@ EarlsPokemonAcademyYoungster2Text:
 	line "the item it is"
 	
 	para "holding. Like a"
-	line "BERRY for example."
+	line "berry for example."
 
 	para "Many other items"
 	line "can be held by"
