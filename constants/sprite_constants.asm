@@ -201,14 +201,14 @@ SPRITE_VARS EQU const_value
 	const SPRITE_DOLL_1 ; f1 ; Now also used for the hospital rooms' patient.
 	const SPRITE_DOLL_2 ; f2 
 	const SPRITE_BIG_DOLL ; f3
-	const SPRITE_WEIRD_TREE ; f4
-	const SPRITE_OLIVINE_RIVAL ; f5
-	const SPRITE_AZALEA_ROCKET ; f6
+	const_skip
+	const_skip
+	const_skip
 	const SPRITE_FUCHSIA_GYM_1 ; f7
 	const SPRITE_FUCHSIA_GYM_2 ; f8
 	const SPRITE_FUCHSIA_GYM_3 ; f9
 	const SPRITE_FUCHSIA_GYM_4 ; fa
 	const SPRITE_COPYCAT ; fb
 	const SPRITE_JANINE_IMPERSONATOR ; fc
-	const SPRITE_HOSPITAL_HUMAN_PATIENT ; fd ; Damien
-	const SPRITE_HOSPITAL_VISITOR ; fe ; Damien
+	const SPRITE_HOSPITAL_HUMAN_PATIENT ; fd
+	const SPRITE_HOSPITAL_VISITOR ; fe
