@@ -310,6 +310,8 @@ TradeAnim_AdvanceScriptPointer:
 TradeAnim_End:
 	ld hl, wJumptableIndex
 	set 7, [hl]
+	xor a
+	ld [wLoadedFont], a
 	ret
 
 TradeAnim_TubeToOT1:
