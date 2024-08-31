@@ -34,7 +34,14 @@ CeruleanGymBadgeSpeechHouseRocketFleesScript:
 	writetext CeruleanGymBadgeSpeechHouseRocketText
 	waitbutton
 	closetext
+	readvar VAR_XCOORD
+	ifequal 2, .flee_movement_bis
 	applymovement CERULEANGYMBADGESPEECHHOUSE_ROCKET, CeruleanGymBadgeSpeechHouseFleeMovement
+	sjump .flee_movement_done
+	
+.flee_movement_bis
+	applymovement CERULEANGYMBADGESPEECHHOUSE_ROCKET, CeruleanGymBadgeSpeechHouseFleeBisMovement
+.flee_movement_done
 	warpsound
 	disappear CERULEANGYMBADGESPEECHHOUSE_ROCKET
 	clearevent EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
@@ -44,6 +51,13 @@ CeruleanGymBadgeSpeechHouseFleeMovement:
 	big_step LEFT
 	big_step UP
 	big_step UP
+	big_step UP
+	step_end
+
+CeruleanGymBadgeSpeechHouseFleeBisMovement:
+	big_step UP
+	big_step UP
+	big_step LEFT
 	big_step UP
 	step_end
 

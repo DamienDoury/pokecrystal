@@ -63,23 +63,43 @@ TrainerHikerSammy:
 	end
 
 Route4RocketSouth:
+	readvar VAR_YCOORD
+	ifnotequal 11, .try_jumping
+
+	applymovement PLAYER, Route4TakeAStepBackMovement
+.try_jumping
 	applymovement ROUTE4_ROCKET_SOUTH, Route4RocketTryJumpLedgeMovement
 	playsound SFX_JUMP_OVER_LEDGE
 	applymovement ROUTE4_ROCKET_SOUTH, Route4RocketJumpsLedgeMovement
 	disappear ROUTE4_ROCKET_SOUTH
 
 	readvar VAR_XCOORD
-	ifless 25, .leftSide
+	ifequal 23, .a
+	ifequal 24, .b
+	ifequal 25, .c
 
+; X = 26
 	moveobject ROUTE4_JENNY, 32, 11
 	appear ROUTE4_JENNY ; Also does ROUTE4_ROCKET_NORTH
-	applymovement ROUTE4_JENNY, Route4JennyArrivesTooLateMovement
+	applymovement ROUTE4_JENNY, Route4JennyTotallyMissedHerTrainMovement
 	end
 
-.leftSide
+.a
+	moveobject ROUTE4_JENNY, 29, 11
+	appear ROUTE4_JENNY ; Also does ROUTE4_ROCKET_NORTH
+	applymovement ROUTE4_JENNY, Route4JennyBarelyMissedItMovement
+	end
+	
+.b
 	moveobject ROUTE4_JENNY, 30, 11
 	appear ROUTE4_JENNY ; Also does ROUTE4_ROCKET_NORTH
 	applymovement ROUTE4_JENNY, Route4JennyArrivesALittleTooLateMovement
+	end
+
+.c
+	moveobject ROUTE4_JENNY, 31, 11
+	appear ROUTE4_JENNY ; Also does ROUTE4_ROCKET_NORTH
+	applymovement ROUTE4_JENNY, Route4JennyArrivesTooLateMovement
 	end
 
 Route4Jenny:
@@ -98,6 +118,32 @@ Route4RocketNorth:
 	dontrestartmapmusic
 	reloadmapafterbattle
 	playmusic MUSIC_ROCKET_ENCOUNTER
+	readvar VAR_YCOORD
+	ifless 3, .from_top
+
+	readvar VAR_XCOORD
+	ifless 10, .from_left
+	ifequal 10, .from_bottom
+	ifequal 11, .from_right
+	sjump .proper_place
+
+.from_left
+	applymovement PLAYER, Route4_FaceRocket_1_Movement
+	sjump .proper_place
+
+.from_bottom
+	applymovement PLAYER, Route4_FaceRocket_2_Movement
+	sjump .proper_place
+
+.from_right
+	applymovement PLAYER, Route4_FaceRocket_3_Movement
+	sjump .proper_place
+
+.from_top
+	applymovement PLAYER, Route4_FaceRocket_4_Movement
+
+.proper_place
+	faceplayer
 	opentext
 	writetext Route4RocketAfterBattleText
 	promptbutton
@@ -233,19 +279,28 @@ endr
 	big_step UP
 	step_end
 
+Route4TakeAStepBackMovement:
+	fix_facing
+	step DOWN
+	remove_fixed_facing
+	step_end
+
 Route4JennyAppearsMovement:
 	step UP
 	step_end
 
 Route4RocketJumpsLedgeMovement:
 	jump_step UP
+Route4JennyTotallyMissedHerTrainMovement:
+	big_step LEFT
 Route4JennyArrivesTooLateMovement:
 	big_step LEFT
-	big_step LEFT
 Route4JennyArrivesALittleTooLateMovement:
-rept 3
 	big_step LEFT
-endr
+Route4JennyBarelyMissedItMovement:
+	big_step LEFT
+	big_step LEFT
+	big_step LEFT
 	step_end
 
 Route4JennyFinallyCatchesUpMovement:
@@ -279,6 +334,24 @@ endr
 rept 5
 	slow_step LEFT
 endr
+	step_end
+
+Route4_FaceRocket_1_Movement:
+	step DOWN
+	step RIGHT
+Route4_FaceRocket_2_Movement:
+	step RIGHT
+	step UP
+Route4_FaceRocket_3_Movement:
+	step RIGHT
+	turn_head LEFT
+	step_end
+
+Route4_FaceRocket_4_Movement:
+	step RIGHT
+	step DOWN
+	step RIGHT
+	turn_head LEFT
 	step_end
 
 BirdKeeperHankSeenText:
@@ -447,8 +520,8 @@ Route4RocketDisappearsText:
 	done
 
 Route4JennyPunchlineText:
-	text "I can tell you"
-	line "what you will do."
+	text "Let me tell you"
+	line "what you'll do."
 	done
 
 Route4JennyJailText:
@@ -521,4 +594,4 @@ Route4_MapEvents:
 	object_event 33,  5, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route4Boulder, -1
 	object_event 24, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route4RocketSouth, EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
 	object_event 10,  3, SPRITE_ROCKET, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route4RocketNorth, EVENT_ROCKET_THIEF_ROUTE_4_NORTH
-	object_event 27, 11, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route4Jenny, EVENT_ROCKET_THIEF_ROUTE_4_NORTH
+	object_event 26, 11, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Route4Jenny, EVENT_ROCKET_THIEF_ROUTE_4_NORTH

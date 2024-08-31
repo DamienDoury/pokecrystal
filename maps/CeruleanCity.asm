@@ -240,8 +240,16 @@ CeruleanCityRocketScript:
 	showemote EMOTE_SHOCK, CERULEANCITY_ROCKET, 15
 	faceplayer
 	pause 20
+	readvar VAR_YCOORD
+	ifequal 10, .flee1_movement_bis
+	
 	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee1Movement
+	sjump .flee1_movement_done
 
+.flee1_movement_bis
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee1BisMovement
+.flee1_movement_done
+	faceobject PLAYER, CERULEANCITY_ROCKET
 	readmem wOverworldMapBlocks + 220
 	ifnotequal $35, .tree_is_already_cut
 
@@ -251,9 +259,28 @@ CeruleanCityRocketScript:
 	playsound SFX_PLACE_PUZZLE_PIECE_DOWN
 	pause 10
 .tree_is_already_cut
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee1FinalMovement
+	turnobject PLAYER, RIGHT
+
+	readvar VAR_YCOORD
+	ifequal 10, .flee2_movement_bis
+	ifequal 11, .flee2_movement_ter
+
 	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee2Movement
-	pause 30
 	moveobject CERULEANCITY_DETECTIVE4, 20, 4
+	sjump .flee2_movement_done
+
+.flee2_movement_bis
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee2BisMovement
+	moveobject CERULEANCITY_DETECTIVE4, 20, 5
+
+	sjump .flee2_movement_done
+
+.flee2_movement_ter
+	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee2TerMovement
+	moveobject CERULEANCITY_DETECTIVE4, 20, 6
+.flee2_movement_done
+	pause 30
 	appear CERULEANCITY_DETECTIVE4 ; also does clearevent EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
 	follow CERULEANCITY_ROCKET, CERULEANCITY_DETECTIVE4
 	applymovement CERULEANCITY_ROCKET, CeruleanCityRocketFlee3Movement
@@ -329,15 +356,29 @@ WayToCeruleanCaveMovement:
 
 CeruleanCityRocketFlee1Movement:
 	big_step DOWN
+	big_step RIGHT
+	step_end
+
+CeruleanCityRocketFlee1BisMovement:
+	big_step RIGHT
+	big_step DOWN
 	turn_head RIGHT
 	step_end
 
+CeruleanCityRocketFlee1FinalMovement:
+	big_step RIGHT
+	big_step RIGHT
+	step_end
+
 CeruleanCityRocketFlee2Movement:
-	big_step RIGHT
-	big_step RIGHT
-rept 6
 	big_step UP
-endr
+CeruleanCityRocketFlee2BisMovement:
+	big_step UP
+CeruleanCityRocketFlee2TerMovement:
+	big_step UP
+	big_step UP
+	big_step UP
+	big_step UP
 	step_end
 
 CeruleanCityRocketFlee3Movement:
@@ -619,7 +660,7 @@ CeruleanCity_MapEvents:
 	object_event 31, 24, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySawThiefScript, EVENT_CERULEAN_HOUSE_ROCKET
 	object_event 26, 25, SPRITE_SQUIRTLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySquirtleScript, EVENT_CERULEAN_HOUSE_ROCKET
 
-	object_event 18,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityRocketScript, EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
+	object_event 17,  9, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityRocketScript, EVENT_ROCKET_THIEF_CERULEAN_CITY_GARDEN
 	object_event 20, 17, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCitySawThiefScript, EVENT_ROCKET_THIEF_ROUTE_4_SOUTH
 
 	object_event 20, -1, SPRITE_JENNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeruleanCityDetective2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

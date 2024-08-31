@@ -248,8 +248,7 @@ CheckFacingObject::
 	ld e, a
 
 .not_counter
-	ld bc, wObjectStructs ; redundant
-	ld a, 0
+	xor a
 	ldh [hMapObjectIndex], a
 	call IsNPCAtCoord
 	ret nc
@@ -287,15 +286,23 @@ CheckFacingObjectNPCExcluded::
 	ld e, a
 
 .not_counter
-	ld bc, wObjectStructs ; redundant
-	ld a, 0
+	xor a
 	ldh [hMapObjectIndex], a
 	call IsNPCAtCoord
 	ret nc
+
 	ld hl, OBJECT_SPRITE
 	add hl, bc
+	ld a, [hl]
+	cp SPRITE_ROCKET ; Rockets don't respect social distancing, so you can talk to them at point blank.
+	jr z, .is_obj
+
+	cp SPRITE_ROCKET_GIRL
+	jr z, .is_obj
+
 	call IsNPCSprite
 	jr nc, .is_obj
+
 	xor a
 	ret
 
@@ -336,8 +343,7 @@ CheckFacingFarNPCOnly::
 	add e
 	ld e, a
 
-	ld bc, wObjectStructs ; redundant
-	ld a, 0
+	xor a
 	ldh [hMapObjectIndex], a
 	call IsNPCAtCoord
 	ret nc
@@ -365,7 +371,7 @@ IsNPCSprite::
 	jr z, .not_npc
 	cp SPRITE_BIG_LAPRAS
 	jr z, .not_npc
-	cp SPRITE_OLIVINE_RIVAL
+	cp SPRITE_FUCHSIA_GYM_1
 	jr nc, .is_npc ; All sprites above this one (including this one) are NPC with a variable sprite.
 	cp SPRITE_MONSTER ; All sprites above this one (including this one) are not NPCs (as the variable sprites have already been treated).
 	jr nc, .not_npc

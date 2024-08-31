@@ -496,10 +496,12 @@ GoldenrodUndergroundExitBoard:
 	jumptext GoldenrodUndergroundExitText
 
 DoorKeeperScript:
-	opentext
+	faceplayer
 	readvar VAR_XCOORD
 	ifgreater 7, .Instruct
+	
 	showemote EMOTE_HAPPY, GOLDENRODUNDERGROUND_BEATER, 25
+	opentext
 	writetext DoorKeeperCheckTeamText
 	yesorno
 	iffalse .RefuseTeamCheck
@@ -525,6 +527,13 @@ DoorKeeperScript:
 	writetext FollowText
 	waitbutton
 	closetext
+
+	readvar VAR_YCOORD
+	ifgreater 7, .follow
+
+.player_moves_back
+	applymovement PLAYER, GoldenrodUnderground_PlayerFacesBeaterMovement
+.follow
 	follow GOLDENRODUNDERGROUND_BEATER, PLAYER
 	applymovement GOLDENRODUNDERGROUND_BEATER, PathMovement
 	waitsfx
@@ -534,8 +543,8 @@ DoorKeeperScript:
 	stopfollow
 	setmapscene GOLDENROD_GAME_CORNER, SCENE_DEFAULT
 	disappear GOLDENRODUNDERGROUND_GAMECORNER_EMPLOYEES_BACKDOOR
-	opentext
 .Instruct:
+	opentext
 	writetext PathInstructionText
 	waitbutton
 	closetext
@@ -587,6 +596,11 @@ PathMovement:
 	step RIGHT
 	step RIGHT
 	turn_head UP
+	step_end
+
+GoldenrodUnderground_PlayerFacesBeaterMovement:
+	step LEFT
+	step DOWN
 	step_end
 
 PathMovementEnd:
@@ -687,7 +701,7 @@ PokemaniacDonaldAfterBattleText:
 
 GameCornerExitBlockText:
 	text "The man locked the"
-	line "door behind me…"
+	line "door behind you…"
 	done
 
 GoldenrodUndergroundTheDoorsLockedText:

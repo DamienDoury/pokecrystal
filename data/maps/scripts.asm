@@ -79,6 +79,7 @@ INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/ViridianForest.asm"
 INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
 INCLUDE "maps/Route37.asm"
+INCLUDE "maps/Route4.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -167,7 +168,6 @@ SECTION "Map Scripts 9", ROMX
 INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
-INCLUDE "maps/Route4.asm"
 
 
 SECTION "Map Scripts 10", ROMX
