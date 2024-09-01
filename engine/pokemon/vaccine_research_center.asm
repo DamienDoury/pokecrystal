@@ -185,7 +185,7 @@ SilphCoFindTestSubjectInParty:
     ret
 
 .next
-    xor a ; Unsets the carry, as "dec" doesnn't touch it.
+    xor a ; We need to manually unset the carry in case we return FALSE, as "dec" doesn't do it.
     dec d
     ret z ; Return FALSE. We quit once we have reached the last mon in the party.
 
