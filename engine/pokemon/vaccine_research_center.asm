@@ -185,12 +185,12 @@ SilphCoFindTestSubjectInParty:
     ret
 
 .next
-    dec hl
+    xor a ; Unsets the carry, as "dec" doesnn't touch it.
     dec d
     ret z ; Return FALSE. We quit once we have reached the last mon in the party.
 
     push de
-    ld de, PARTYMON_STRUCT_LENGTH
+    ld de, PARTYMON_STRUCT_LENGTH - 1
     add hl, de
     pop de
     jr .party_loop
