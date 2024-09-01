@@ -286,9 +286,11 @@ PokeBallEffect::
 	ld a, [wBattleType]
 	cp BATTLETYPE_TUTORIAL
 	jp z, .catch_without_fail
+
 	ld a, [wCurItem]
 	cp MASTER_BALL
 	jp z, .catch_without_fail
+
 	ld c, a
 	ld hl, BallMultiplierFunctionTable
 
@@ -296,8 +298,10 @@ PokeBallEffect::
 	ld a, [hli]
 	cp $ff
 	jr z, .skip_or_return_from_ball_fn
+	
 	cp c
 	jr z, .call_ball_function
+
 	inc hl
 	inc hl
 	jr .get_multiplier_loop
@@ -314,7 +318,7 @@ PokeBallEffect::
 	ld a, [wCurItem]
 	cp LEVEL_BALL
 	ld a, b
-	jp z, .skip_hp_calc
+	jp z, .end_calculations
 
 	ldh [hMultiplicand + 2], a ; Stores the modified catch rate (after ball multiplier).
 
@@ -433,7 +437,6 @@ PokeBallEffect::
 
 .stats_level_check
 	ld b, a ; Backup the current catch rate.
-
 	xor a
 	ld d, 7
 	ld e, NUM_BATTLE_STATS
@@ -499,12 +502,12 @@ PokeBallEffect::
 	; x2.5
 	srl a
 	add b
-	jr c, .catch_without_fail
+	jp c, .catch_without_fail
 
 	add b
-	jr c, .catch_without_fail
+	jp c, .catch_without_fail
 
-	jr .skip_hp_calc
+	jr .low_level_check
 
 ; Output : carry if it is the Mewtwo fight.
 .IsItMewtwoBattle::
@@ -564,14 +567,34 @@ PokeBallEffect::
 	ld a, [wEnemyMonStatus]
 	and a
 	ld a, b
-	jr z, .skip_hp_calc
+	jr z, .low_level_check
 
 	; x1.5
 	srl a
 	add b
 	jr c, .catch_without_fail
 
-.skip_hp_calc
+.low_level_check
+	ld b, a ; Backup the current catch rate.
+
+	ld a, [wEnemyMonLevel]
+	cp CAPTURE_MAX_LEVEL_BOOST
+	jr nc, .end_calculations
+
+	ld d, a
+	ld a, CAPTURE_MAX_LEVEL_BOOST
+	sub d
+
+	; Multiply the diff by 8.
+	add a ; x2
+	add a ; x4
+	add a ; x8
+
+	; Add the result to the final result (post status bonus).
+	add b
+	jr c, .catch_without_fail
+
+.end_calculations
 	ld b, a
 	ld [wFinalCatchRate], a
 	cp $ff

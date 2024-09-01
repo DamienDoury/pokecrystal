@@ -364,6 +364,9 @@ AcademyNotebook:
 	yesorno
 	iffalse .Done
 	writetext AcademyNotebookText3
+	yesorno
+	iffalse .Done
+	writetext AcademyNotebookText4
 	waitbutton
 .Done:
 	closetext
@@ -744,8 +747,20 @@ AcademyNotebookText:
 
 	para "Keep reading?"
 	done
-
+	
 AcademyNotebookText1:
+	text "“The lower the"
+	line "level of a #-"
+	cont "MON, the easier"
+	cont "it is to catch."
+	
+	para "Especially single"
+	line "digit levels.”"
+
+	para "Keep reading?"
+	done
+
+AcademyNotebookText2:
 	text "“Paralyzing or"
 	line "freezing a #MON"
 	cont "multiplies your"
@@ -758,7 +773,7 @@ AcademyNotebookText1:
 	para "Keep reading?"
 	done
 
-AcademyNotebookText2:
+AcademyNotebookText3:
 	text "“Lowering a"
 	line "#MON's stats"
 	cont "also helps."
@@ -775,7 +790,7 @@ AcademyNotebookText2:
 	para "Keep reading?"
 	done
 
-AcademyNotebookText3:
+AcademyNotebookText4:
 	text "“Once your party"
 	line "reaches the limit"
 	cont "of 6 #MON,"
