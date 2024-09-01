@@ -18,6 +18,7 @@ PlayersHouse2F_MapScripts:
 	checkevent EVENT_INITIALIZED_EVENTS
 	iftrue .SkipInitialization
 	callasm GrowOneBerryInAllTrees
+	callasm RestockMarts
 	jumpstd InitializeEventsScript
 	endcallback
 

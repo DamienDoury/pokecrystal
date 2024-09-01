@@ -1359,12 +1359,8 @@ CheckAndUpdateStock:
 	ld a, $ff
 	ret
 
-
-
-
 RestockMarts::
-	ld a, 10 | 10 << 4; The player can purchase up to 10 items per shop per day. Shortage! There are 2 shops per byte.
+	ld a, 10 << 4 | 10; The player can purchase up to 10 items per shop per day. Shortage! There are 2 shops per byte.
 	ld bc, (NUM_MARTS + 1) / 2
 	ld hl, wMartsStock
-	call ByteFill ; fill bc bytes with the value of a, starting at hl
-	ret
+	jp ByteFill ; fill bc bytes with the value of a, starting at hl
