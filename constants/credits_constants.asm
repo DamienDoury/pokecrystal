@@ -112,6 +112,8 @@
 	const SOURAPPLE
 	const TRITEHEXAGON
 	const VOLOGT
+	const GARVEY
+	const BASTIEN_MAUBE
 	const CREDITS_EMPTY
 NUM_CREDITS_STRINGS EQU const_value
 

@@ -113,6 +113,8 @@ CreditsStringsPointers:
 	dw .SourApple
 	dw .TriteHexagon
 	dw .VoloGT
+	dw .Garvey
+	dw .BastienMaube
 	dw .Empty
 	assert_table_length NUM_CREDITS_STRINGS
 
@@ -232,6 +234,8 @@ CreditsStringsPointers:
 .SourApple:			  db "     SOURAPPLE@"
 .TriteHexagon:		  db "   <AT>TriteHexagon@"
 .VoloGT:		 	  db "  ANDRIY SKOVORODA@"
+.Garvey:		      db "       Garvey@" ; Vitalien.
+.BastienMaube:		  db "    Bastien MAUBE@"
 .Empty:				  db "@"
 
 .Copyright:

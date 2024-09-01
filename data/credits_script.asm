@@ -301,9 +301,11 @@ CreditsScript:
 
 	db CREDITS_WAIT, 11
 
-	db    PRODUCT_TESTING, 1
-	db       DAMIEN_DOURY, 3
-	db             VOLOGT, 4
+	db    PRODUCT_TESTING, 0
+	db       DAMIEN_DOURY, 2
+	db             VOLOGT, 3
+	db             GARVEY, 4
+	db      BASTIEN_MAUBE, 5
 
 	db CREDITS_WAIT, 11
 
