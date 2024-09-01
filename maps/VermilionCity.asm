@@ -182,9 +182,22 @@ VermilionCitySuperNerdText:
 	text "There are eight"
 	line "GYMS in KANTO."
 
-	para "That big building"
-	line "is VERMILION's"
-	cont "#MON GYM."
+	para "GYM LEADERS use a"
+	line "POWER RESTRAINER"
+	cont "to lower the level"
+	cont "of their #MON"
+	cont "up to yours."
+
+	para "It's basically"
+	line "adding weights"
+	cont "onto their #MON"
+	
+	para "… you already"
+	line "knew about it?"
+
+	para "It's the same"
+	line "as in JOHTO?"
+	cont "Fascinating!"
 	done
 
 VermilionCitySnorlaxSleepingText:

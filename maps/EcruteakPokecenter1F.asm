@@ -175,7 +175,22 @@ EcruteakPokecenter1FCooltrainerFText:
 	cont "cool."
 
 	para "His #MON are"
-	line "really tough too."
+	line "really tough."
+
+	para "So much that he"
+	line "has to use a"
+	cont "POWER RESTRAINER,"
+
+	para "so that his team's"
+	line "level matches the"
+	cont "highest level of"
+	cont "his opponent."
+
+	para "Other GYM LEADERS"
+	line "do it too, yeah."
+
+	para "But MORTY's still"
+	line "the coolest!"
 	done
 
 EcruteakPokecenter1FGymGuideText:
