@@ -67,7 +67,7 @@ Akiba1F_MapEvents:
 	def_warp_events
 	warp_event  5,  9, SAFFRON_CITY, 18
 	warp_event  4,  9, SAFFRON_CITY, 18
-	warp_event  0,  0, SAFFRON_CITY, 18
+	warp_event  0,  0, AKIBA_3F, 1
 
 	def_coord_events
 
