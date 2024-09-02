@@ -226,6 +226,7 @@ WillObjectRemainOnWater:
 	scf
 	ret
 
+; Output: carry if the player is facing an object.
 CheckFacingObject::
 	call GetFacingTileCoordAndCollType
 
@@ -252,11 +253,13 @@ CheckFacingObject::
 	ldh [hMapObjectIndex], a
 	call IsNPCAtCoord
 	ret nc
+
 	ld hl, OBJECT_DIRECTION_WALKING
 	add hl, bc
 	ld a, [hl]
 	cp STANDING
 	jr z, .standing
+
 	xor a
 	ret
 

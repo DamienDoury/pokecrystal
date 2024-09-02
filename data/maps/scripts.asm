@@ -515,6 +515,8 @@ INCLUDE "maps/SeafoamGym.asm"
 
 INCLUDE "maps/GoldenrodHospitalRoom.asm"
 
+INCLUDE "maps/Akiba1F.asm"
+
 
 SECTION "Map Scripts 28", ROMX
 

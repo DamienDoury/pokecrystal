@@ -507,6 +507,7 @@ ENDM
 	map_const MR_ANTONS_HOUSE,                				5,  4 ; 18
 	map_const SILPHCO_ELEVATOR,                				1,  2 ; 19
 	map_const SILPHCO_RESEARCH,                				8,  4 ; 20
+	map_const AKIBA_1F,                						6,  5 ; 21
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

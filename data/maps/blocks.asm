@@ -1043,3 +1043,6 @@ EcruteakPoliceStation_Blocks:
 
 Route4Tunnel_Blocks:
 	INCBIN "maps/Route4Tunnel.blk"
+
+Akiba1F_Blocks:
+	INCBIN "maps/Akiba1F.blk"

@@ -324,6 +324,7 @@ SaffronCity_MapEvents:
 	warp_event 39, 23, ROUTE_8_SAFFRON_GATE, 2
 	warp_event 37,  3, MR_ANTONS_HOUSE, 1
 	warp_event 27, 21, VACCINATION_CENTER_1F, 1
+	warp_event 31, 21, AKIBA_1F, 1
 
 	def_coord_events
 
