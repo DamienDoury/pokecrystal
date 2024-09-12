@@ -1045,8 +1045,10 @@ Route4Tunnel_Blocks:
 	INCBIN "maps/Route4Tunnel.blk"
 
 Akiba1F_Blocks:
-Akiba2F_Blocks:
 	INCBIN "maps/Akiba1F.blk"
+
+Akiba2F_Blocks:
+	INCBIN "maps/Akiba2F.blk"
 
 Akiba3F_Blocks:
 	INCBIN "maps/Akiba3F.blk"

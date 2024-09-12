@@ -9,6 +9,15 @@ CeladonMansion3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .LoadTiles
+	
+.LoadTiles:
+	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	iftrue .endcallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+.endcallback
+	endcallback
 
 GameFreakBotheringFanScript:
 	faceplayer
@@ -43,7 +52,19 @@ GameFreakBotheringFanScript:
 	turnobject CELADONMANSION3F_COOLTRAINER_M_1, LEFT
 	pause 1 ; Damien
 	turnobject CELADONMANSION3F_COOLTRAINER_M_1, UP
-	
+
+	pause 25
+	showemote EMOTE_SHOCK, CELADONMANSION3F_COOLTRAINER_M_1, 15
+	opentext
+	writetext GameFreakBotheringFanText3
+	waitbutton
+	closetext
+
+	applymovement CELADONMANSION3F_COOLTRAINER_M_1, GameFreakRunAwayMovement
+	disappear CELADONMANSION3F_COOLTRAINER_M_1
+	pause 10
+	playsound SFX_EXIT_BUILDING
+	clearevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
 	end
 
 GameFreakGameDesignerScript:
@@ -94,12 +115,6 @@ GameFreakGraphicArtistScript:
 	closetext
 	end
 
-.CancelPrinting: ; unreferenced
-	writetext GameFreakGraphicArtistErrorText
-	waitbutton
-	closetext
-	end
-
 GameFreakProgrammerScript:
 	jumptextfaceplayer GameFreakProgrammerText
 
@@ -117,6 +132,15 @@ CeladonMansion3FGameProgram:
 
 CeladonMansion3FReferenceMaterial:
 	jumptext CeladonMansion3FReferenceMaterialText
+
+GameFreakRunAwayMovement:
+	big_step RIGHT
+	big_step UP
+	big_step UP
+	big_step UP
+	big_step UP
+	big_step UP
+	step_end
 
 GameFreakBotheringFanText1:
 	text "I avoided the"
@@ -138,6 +162,14 @@ GameFreakBotheringFanText2:
 
 	para "I'm so excited!!"
 	line "Hyaaa!!"
+	done
+
+GameFreakBotheringFanText3:
+	text "I have no right"
+	line "to be here."
+
+	para "I should go back"
+	line "to my shop now."
 	done
 
 GameFreakGameDesignerText:
@@ -269,7 +301,7 @@ CeladonMansion3F_MapEvents:
 	bg_event  1,  3, BGEVENT_UP, CeladonMansion3FReferenceMaterial
 
 	def_object_events
-	object_event  4,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakBotheringFanScript, -1
+	object_event  5,  9, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakBotheringFanScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  2,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GameFreakGameDesignerScript, -1
 	object_event  3,  4, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakGraphicArtistScript, -1
 	object_event  0,  7, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GameFreakProgrammerScript, -1

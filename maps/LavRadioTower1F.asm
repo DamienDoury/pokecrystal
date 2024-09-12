@@ -34,23 +34,31 @@ LavRadioTower1FGentlemanScript:
 .ReturnedMachinePart:
 	writetext LavRadioTower1FGentlemanText_ReturnedMachinePart
 	promptbutton
+
+	checkflag ENGINE_RADIO_CARD
+	iffalse .GoFetchRadioCard
+
 	getstring STRING_BUFFER_4, .expncardname
 	scall .receiveitem
 	setflag ENGINE_EXPN_CARD
-
-	checkflag ENGINE_RADIO_CARD
-	iftrue .GotExpnCard
-
-	writetext LavRadioTower1FGentlemanText_GiveRadioCard
-	promptbutton
-	getstring STRING_BUFFER_4, .RadioCardText
-	scall .receiveitem
-	setflag ENGINE_RADIO_CARD
-
+	
 .GotExpnCard:
+	clearevent EVENT_FETCH_RADIO_CARD
 	writetext LavRadioTower1FGentlemanText_GotExpnCard
 	waitbutton
 	closetext
+	end
+
+.GoFetchRadioCard:
+	closetext
+	pause 5
+	showemote EMOTE_QUESTION, LAVRADIOTOWER1F_GENTLEMAN, 15
+	pause 5
+	opentext
+	writetext LavRadioTower1FGentlemanText_GiveRadioCard
+	waitbutton
+	closetext
+	setevent EVENT_FETCH_RADIO_CARD
 	end
 
 .receiveitem:
@@ -84,9 +92,6 @@ LavRadioTower1FDirectory:
 
 LavRadioTower1FPokeFluteSign:
 	jumptext LavRadioTower1FPokeFluteSignText
-
-LavRadioTower1FReferenceLibrary: ; unreferenced
-	jumptext LavRadioTower1FReferenceLibraryText
 
 LavRadioTower1FReceptionistText:
 	text "Welcome!"
@@ -163,8 +168,17 @@ LavRadioTower1FGentlemanText_GiveRadioCard:
 	line "doesn't have the"
 	cont "radio?"
 
-	para "Then you get"
-	line "two for one!"
+	para "It saddens me."
+
+	para "Go get it!"
+	line "There's an elec-"
+	cont "tronics shop at"
+
+	para "NEON TOWN in"
+	line "SAFFRON CITY."
+
+	para "Tell the owner you"
+	line "were sent by me."
 	done
 
 LavRadioTower1FGentlemanText_GotExpnCard:
@@ -230,15 +244,6 @@ LavRadioTower1FPokeFluteSignText:
 
 	para "of the # FLUTE"
 	line "on CHANNEL 20"
-	done
-
-LavRadioTower1FReferenceLibraryText:
-	text "Wow! A full rack"
-	line "of #MON CDs and"
-	cont "videos."
-
-	para "This must be the"
-	line "reference library."
 	done
 
 LavRadioTower1F_MapEvents:

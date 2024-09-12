@@ -54,6 +54,10 @@ LoadSpecialMapPalette:
 	ld a, [wMapNumber]
 	cp MAP_CELADON_MANSION_ROOF
 	ret z
+
+	ld a, [wMapGroup]
+	cp GROUP_AKIBA_2F
+	ret z
 	
 	call LoadMansionPalette
 	scf

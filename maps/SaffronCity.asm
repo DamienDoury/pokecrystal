@@ -111,6 +111,9 @@ SaffronCityPokecenterSign:
 SaffronCityMartSign:
 	jumpstd MartSignScript
 
+SaffronCityNeonTownSign:
+	jumptext NeonTownSignText
+
 SaffronCity_DoorScript:
 	jumptext SaffronCity_DojoDoorText
 
@@ -303,6 +306,11 @@ SaffronCity_DojoDoorText:
 	cont "of the pandemic."
 	done
 
+NeonTownSignText:
+	text "Nerds' Paradise"
+	para "NEON TOWN"
+	done
+
 SaffronCity_MapEvents:
 	db 0, 0 ; filler
 
@@ -340,6 +348,7 @@ SaffronCity_MapEvents:
 	bg_event 37,  5, BGEVENT_READ, MrAntonsHouseSign
 	bg_event 25, 21, BGEVENT_READ, VaccinationCenterSign
 	bg_event 26,  3, BGEVENT_READ, SaffronCity_DoorScript
+	bg_event 32, 21, BGEVENT_READ, SaffronCityNeonTownSign
 
 	def_object_events
 	object_event  7, 14, SPRITE_LASS, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 2, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, SaffronCityLass1Script, -1
