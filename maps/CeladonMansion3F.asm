@@ -239,8 +239,9 @@ GameFreakGraphicArtistErrorText:
 	done
 
 GameFreakProgrammerText:
-	text "Who, me? I'm the"
-	line "PROGRAMMER."
+	text "TETSUYA WATANABE:"
+	line "Who, me? I'm the"
+	cont "PROGRAMMER."
 
 	para "Play the slot"
 	line "machines!"
