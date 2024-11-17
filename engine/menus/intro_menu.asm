@@ -61,7 +61,19 @@ if !DEF(_CRYSTAL_BETA)
 	ld [wDebugFlags], a
 	call ResetWRAM
 	call NewGame_ClearTilemapEtc
+	ldh a, [hRTCSeconds]
+	push af
 	farcall DisclaimerScreen
+	call UpdateTime
+	pop af
+	ld b, a
+	ldh a, [hRTCSeconds]
+	cp b
+	jr z, .no_rtc_found
+
+	call .CheckMapper
+	jr nz, .no_rtc_found
+
 	call AreYouABoyOrAreYouAGirl
 	call OakSpeech
 	call InitializeWorld
@@ -75,6 +87,23 @@ if !DEF(_CRYSTAL_BETA)
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
 	jp FinishContinueFunction
+
+.no_rtc_found
+	call ClearScreen
+	call SetPalettes
+	ld hl, .rtc_error_text
+	call PrintText
+	ret
+
+.rtc_error_text
+	text_far _RTCErrorText
+	text_end
+
+; Returns carry if the mapper is MBC3 or MBC30.
+.CheckMapper:
+	ld a, [MAPPER_TYPE_ADDRESS]
+	cp MBC3_30_TIMER_RAM_BATTERY
+	ret
 endc
 
 AreYouABoyOrAreYouAGirl:

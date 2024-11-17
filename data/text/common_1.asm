@@ -2548,3 +2548,18 @@ ElmsLabBookshelf8Text::
 	para "A long press uses"
 	line "the ITEMFINDER."
 	done
+
+_RTCErrorText::
+	text "This game requires"
+	line "a Real-Time Clock."
+	
+	para "If you are using a"
+	line "game cartridge,"
+	cont "the coin battery"
+	cont "may be depleted."
+
+	para "If using an"
+	line "emulator, check"
+	cont "its parameters or"
+	cont "use another one."
+	prompt

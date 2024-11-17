@@ -16,6 +16,10 @@ WRAM1_End   EQU $e000
 HRAM_Begin  EQU $ff80
 HRAM_End    EQU $ffff
 
+; Location of Mapper type in the Header
+MAPPER_TYPE_ADDRESS EQU $0147
+MBC3_30_TIMER_RAM_BATTERY EQU $10 ; MBC3(0) + Timer + RAM + Battery
+
 ; MBC3
 MBC3SRamEnable EQU $0000
 MBC3RomBank    EQU $2000
