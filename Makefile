@@ -116,13 +116,13 @@ $(foreach obj, $(pokecrystal11_release_obj), $(eval $(call DEP,$(obj),$(obj:11_r
 endif
 
 
-pokecrystal_opt         = -Cjv -t PM_CRYSTAL -i BYTE -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal11_opt       = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal_au_opt      = -Cjv -t PM_CRYSTAL -i BYTU -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal_debug_opt   = -Cjv -t PM_CRYSTAL -i BYTE -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal11_debug_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal11_beta_opt  = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
-pokecrystal11_release_opt = -Cjv -t PM_CRYSTAL -i BYTE -n 1 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal_opt         = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_opt       = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal_au_opt      = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal_debug_opt   = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_debug_opt = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_beta_opt  = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
+pokecrystal11_release_opt = -Cjv -t PANDEMIC -i COVD -n 0 -k 01 -l 0x33 -m 0x10 -r 3 -p 0
 
 pokecrystal_base         = us
 pokecrystal11_base       = us
