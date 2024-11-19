@@ -1680,6 +1680,12 @@ else
 	ret nz
 	ld a, [wTileDown]
 endc
+	cp COLL_HOP_DOWN ; We forbid to move down if a ledge is south of the player, so that DoPlayerMovement.TryJump gets called.
+	ret z
+	cp COLL_HOP_DOWN_RIGHT
+	ret z
+	cp COLL_HOP_DOWN_LEFT
+	ret z
 	and %111
 	cp COLL_UP_WALL & %111 ; COLL_UP_BUOY & %111
 	jr z, .ok_down
@@ -1706,6 +1712,12 @@ else
 	ret nz
 	ld a, [wTileUp]
 endc
+	cp COLL_HOP_UP ; We forbid to move up if a ledge is north of the player, so that DoPlayerMovement.TryJump gets called.
+	ret z
+	cp COLL_HOP_UP_RIGHT
+	ret z
+	cp COLL_HOP_UP_LEFT
+	ret z
 	and %111
 	cp COLL_DOWN_WALL & %111 ; COLL_DOWN_BUOY & %111
 	jr z, .ok_up
@@ -1738,6 +1750,12 @@ else
 	ret nz
 	ld a, [wTileRight]
 endc
+	cp COLL_HOP_RIGHT ; We forbid to move right if a ledge is east of the player, so that DoPlayerMovement.TryJump gets called.
+	ret z
+	cp COLL_HOP_DOWN_RIGHT
+	ret z
+	cp COLL_HOP_UP_RIGHT
+	ret z
 	and %111
 	cp COLL_LEFT_WALL & %111 ; COLL_LEFT_BUOY & %111
 	jr z, .ok_right
@@ -1764,6 +1782,12 @@ else
 	ret nz
 	ld a, [wTileLeft]
 endc
+	cp COLL_HOP_LEFT ; We forbid to move left if a ledge is west of the player, so that DoPlayerMovement.TryJump gets called.
+	ret z
+	cp COLL_HOP_DOWN_LEFT
+	ret z
+	cp COLL_HOP_UP_LEFT
+	ret z
 	and %111
 	cp COLL_RIGHT_WALL & %111 ; COLL_RIGHT_BUOY & %111
 	jr z, .ok_left
@@ -1781,6 +1805,8 @@ endc
 .CheckHiNybble:
 	and $f0
 	cp HI_NYBBLE_SIDE_WALLS
+	ret z
+	cp HI_NYBBLE_LEDGES
 	ret z
 	cp HI_NYBBLE_SIDE_BUOYS
 	ret

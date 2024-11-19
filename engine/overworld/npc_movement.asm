@@ -157,7 +157,7 @@ GetSideWallDirectionMask:
 
 .continue
 	ld a, d
-	and $7
+	and $f
 	ld e, a
 	ld d, 0
 	ld hl, .side_wall_masks
@@ -175,6 +175,8 @@ GetSideWallDirectionMask:
 	db UP_MASK | LEFT_MASK    ; COLL_DOWN_LEFT_WALL/BUOY
 	db DOWN_MASK | RIGHT_MASK ; COLL_UP_RIGHT_WALL/BUOY
 	db DOWN_MASK | LEFT_MASK  ; COLL_UP_LEFT_WALL/BUOY
+	db LEFT_MASK | RIGHT_MASK ; COLL_LEFT_RIGHT_WALL
+	db UP_MASK | DOWN_MASK    ; COLL_UP_DOWN_WALL
 
 WillObjectRemainOnWater:
 	ld hl, OBJECT_DIRECTION_WALKING
