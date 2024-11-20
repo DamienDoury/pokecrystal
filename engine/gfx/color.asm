@@ -1122,24 +1122,28 @@ LoadMapPals::
 	call HandleHospitalRoomPalette
 
 	; Exception: Pewter Museum of Science, which is an indoor map that still uses palette transition.
-	ld a, [wMapGroup]
-	cp GROUP_PEWTER_MUSEUM_1F
-	jr nz, .environment_check
-
-	ld a, [wMapNumber]
-	cp MAP_PEWTER_MUSEUM_1F
-	jr z, .outside
-
-	cp MAP_PEWTER_MUSEUM_2F
-	jr z, .outside
-
-.environment_check
-	ld a, [wEnvironment]
-	cp TOWN
-	jr z, .outside
-	cp ROUTE
+	ld a, [wMapTimeOfDay]
+	cp PALETTE_AUTO
 	ret nz
-.outside
+
+;	ld a, [wMapGroup]
+;	cp GROUP_PEWTER_MUSEUM_1F
+;	jr nz, .environment_check
+;
+;	ld a, [wMapNumber]
+;	cp MAP_PEWTER_MUSEUM_1F
+;	jr z, .outside
+;
+;	cp MAP_PEWTER_MUSEUM_2F
+;	jr z, .outside
+;
+;.environment_check
+;	ld a, [wEnvironment]
+;	cp TOWN
+;	jr z, .outside
+;	cp ROUTE
+;	ret nz
+;.outside
 	ld a, FALSE
 	ld [wMustRefreshPaletteNow], a
 	call _ForceTimeOfDayPaletteSmoothing
