@@ -9,8 +9,8 @@ SeafoamE1F_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 17,  3, SEAFOAM_B1F, 2
-	warp_event 15,  5, ROUTE_20, 2
+	warp_event 57,  3, SEAFOAM_B1F, 2
+	warp_event 55,  5, ROUTE_20, 2
 
 	def_coord_events
 

@@ -120,6 +120,7 @@
 	const MUSIC_SURFING_PIKACHU              ; 73
 	const MUSIC_BIKE_KANTO                   ; 74
 	const MUSIC_CREDITS_MELANCHOLIC          ; 75
+	const MUSIC_DIGLETTS_CAVE                ; 76
 NUM_MUSIC_SONGS EQU const_value
 
 ;GetMapMusic picks music for these values (see home/map.asm)

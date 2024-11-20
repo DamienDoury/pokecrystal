@@ -122,4 +122,5 @@ Music:
 	dba Music_SurfingPikachu
 	dba Music_BikeRiding
 	dba Music_Route10
+	dba Music_PyriteTown
 	assert_table_length NUM_MUSIC_SONGS

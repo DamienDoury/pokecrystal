@@ -140,7 +140,6 @@ INCLUDE "maps/Route5SaffronGate.asm"
 
 SECTION "Map Scripts 8", ROMX
 
-INCLUDE "maps/DiglettsCave.asm"
 INCLUDE "maps/MountMoon.asm"
 INCLUDE "maps/UndergroundPath.asm"
 INCLUDE "maps/RockTunnel1F.asm"
@@ -168,6 +167,7 @@ SECTION "Map Scripts 9", ROMX
 INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
+INCLUDE "maps/DiglettsCave.asm"
 
 
 SECTION "Map Scripts 10", ROMX
