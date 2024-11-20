@@ -96,8 +96,8 @@ COLL_HOP_UP            EQU $a2
 COLL_HOP_DOWN          EQU $a3
 COLL_HOP_DOWN_RIGHT    EQU $a4
 COLL_HOP_DOWN_LEFT     EQU $a5
-COLL_HOP_UP_RIGHT      EQU $a6 ; unused
-COLL_HOP_UP_LEFT       EQU $a7 ; unused
+COLL_HOP_UP_RIGHT      EQU $a6
+COLL_HOP_UP_LEFT       EQU $a7
 COLL_RIGHT_WALL        EQU $b0
 COLL_LEFT_WALL         EQU $b1
 COLL_UP_WALL           EQU $b2
@@ -106,8 +106,6 @@ COLL_DOWN_RIGHT_WALL   EQU $b4 ; unused
 COLL_DOWN_LEFT_WALL    EQU $b5 ; unused
 COLL_UP_RIGHT_WALL     EQU $b6 ; unused
 COLL_UP_LEFT_WALL      EQU $b7 ; unused
-COLL_LEFT_RIGHT_WALL   EQU $b8
-COLL_UP_DOWN_WALL      EQU $b9
 COLL_RIGHT_BUOY        EQU $c0 ; unused
 COLL_LEFT_BUOY         EQU $c1 ; unused
 COLL_UP_BUOY           EQU $c2 ; unused
