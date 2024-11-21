@@ -76,6 +76,61 @@ Akiba1F_Seller_Script:
 .RadioCardText:
 	db "RADIO CARD@"
 
+Akiba1F_Inventory1:
+	jumptext Akiba1F_Inventory1Text
+
+Akiba1F_Inventory2:
+	jumptext Akiba1F_Inventory2Text
+
+Akiba1F_Inventory3:
+	jumptext Akiba1F_Inventory3Text
+
+Akiba1F_Inventory4:
+	jumptext Akiba1F_Inventory4Text
+
+Akiba1F_Inventory5:
+	jumptext Akiba1F_Inventory5Text
+
+Akiba1F_Inventory6:
+	jumptext Akiba1F_Inventory6Text
+
+Akiba1F_Inventory7:
+	jumptext Akiba1F_Inventory7Text
+
+Akiba1F_Inventory8:
+	jumptext Akiba1F_Inventory8Text
+
+Akiba1F_Inventory9:
+	cry MAGNEMITE
+	jumptext Akiba1F_Inventory9Text
+
+Akiba1F_Inventory10:
+	jumptext Akiba1F_Inventory10Text
+
+Akiba1F_Inventory11:
+	jumptext Akiba1F_Inventory11Text
+
+Akiba1F_Inventory12:
+	jumptext Akiba1F_Inventory12Text
+
+Akiba1F_Inventory13:
+	jumptext Akiba1F_Inventory13Text
+
+Akiba1F_Inventory14:
+	jumptext Akiba1F_Inventory14Text
+
+Akiba1F_Inventory15:
+	jumptext Akiba1F_Inventory15Text
+
+Akiba1F_Inventory16:
+	jumptext Akiba1F_Inventory16Text
+
+Akiba1F_Inventory17:
+	jumptext Akiba1F_Inventory17Text
+
+Akiba1F_Inventory18:
+	jumptext Akiba1F_Inventory18Text
+
 Akiba1F_FamicomBuyText:
 	text "Famicom"
 	done
@@ -120,6 +175,122 @@ Akiba1F_Seller_RadioText:
 	cont "free of charge!"
 	done
 
+Akiba1F_Inventory1Text:
+	text "Adrenaline and"
+	line "testosterone:"
+
+	para "Devil may cry"
+	done
+	
+Akiba1F_Inventory2Text:
+	text "Golden Sun 1 & 2!"
+	line "A must play!"
+	done
+
+Akiba1F_Inventory3Text:
+	text "Some #GEAR "
+	line "parts."
+	done
+
+Akiba1F_Inventory4Text:
+	text "Radio parts."
+	done
+
+Akiba1F_Inventory5Text:
+	text "Tamagotchis"
+	line "everywhere!"
+	done
+
+Akiba1F_Inventory6Text:
+	text "Pocket Pikachu 2!"
+	line "This one connects"
+	cont "with the #MON"
+	cont "games on the"
+	cont "Game Boy Color."
+	done
+
+Akiba1F_Inventory7Text:
+	text "The PC game"
+	line "Impossible"
+	cont "Creatures."
+	done
+
+Akiba1F_Inventory8Text:
+	text "Zeus: Master of"
+	line "Olympus"
+	cont "on CD-ROM."
+	done
+
+Akiba1F_Inventory9Text:
+	text "There's a MAGNEMITE"
+	line "chilling in"
+	cont "this bin."
+	done
+
+Akiba1F_Inventory10Text:
+	text "A cartridge of the"
+	line "final release of"
+	cont "Coral Version."
+	done
+
+Akiba1F_Inventory11Text:
+	text "Hey that's"
+	line "Polished Crystal!"
+	done
+
+Akiba1F_Inventory12Text:
+	text "Insaniquarium"
+	line "on CD-ROM."
+	done
+
+Akiba1F_Inventory13Text:
+	text "Morrowind"
+	line "on CD-ROM."
+	done
+
+Akiba1F_Inventory14Text:
+	text "Rare Game Boy"
+	line "games for"
+	cont "very cheap!"
+	done
+
+Akiba1F_Inventory15Text:
+	text "A Super Mario Bros"
+	line "Crystal Screen"
+	cont "Game & Watch!"
+	done
+
+Akiba1F_Inventory16Text:
+	text "Lots of weird"
+	line "accessories for"
+	cont "the Game Boy."
+
+	para "The Mobile Adapter"
+	line "GB cable, a pocket"
+	cont "printer, a barcode"
+	cont "reader, a…"
+	cont "fishing sonar, a"
+	cont "sewing machine,"
+	cont "and…"
+
+	para "…a blood sugar"
+	line "tester?"
+	done
+
+Akiba1F_Inventory17Text:
+	text "Copies of The"
+	line "Legend of Zelda"
+	cont "for the Game Boy"
+	cont "and Game Boy Color"
+	cont "consoles. Nice."
+	done
+
+Akiba1F_Inventory18Text:
+	text "A Game Boy game"
+	line "for McDonald's"
+	cont "employees?"
+	done
+
 Akiba1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -131,6 +302,28 @@ Akiba1F_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event 11,  5, BGEVENT_READ, Akiba1F_Inventory1
+	bg_event  4,  7, BGEVENT_READ, Akiba1F_Inventory2
+	bg_event 10,  9, BGEVENT_READ, Akiba1F_Inventory3
+	bg_event 11,  9, BGEVENT_READ, Akiba1F_Inventory3
+	bg_event  8,  9, BGEVENT_READ, Akiba1F_Inventory4
+	bg_event  9,  9, BGEVENT_READ, Akiba1F_Inventory4
+	bg_event  4,  9, BGEVENT_READ, Akiba1F_Inventory5
+	bg_event  5,  9, BGEVENT_READ, Akiba1F_Inventory5
+	bg_event  3,  9, BGEVENT_READ, Akiba1F_Inventory6
+	bg_event 10,  3, BGEVENT_READ, Akiba1F_Inventory7
+	bg_event 11,  3, BGEVENT_READ, Akiba1F_Inventory8
+	bg_event  0,  9, BGEVENT_READ, Akiba1F_Inventory9
+	bg_event  6,  7, BGEVENT_READ, Akiba1F_Inventory10
+	bg_event  7,  7, BGEVENT_READ, Akiba1F_Inventory11
+	bg_event 10,  2, BGEVENT_READ, Akiba1F_Inventory12
+	bg_event 11,  2, BGEVENT_READ, Akiba1F_Inventory13
+	bg_event  8,  7, BGEVENT_READ, Akiba1F_Inventory14
+	bg_event  9,  7, BGEVENT_READ, Akiba1F_Inventory14
+	bg_event  1,  9, BGEVENT_READ, Akiba1F_Inventory15
+	bg_event  2,  9, BGEVENT_READ, Akiba1F_Inventory16
+	bg_event  5,  7, BGEVENT_READ, Akiba1F_Inventory17
+	bg_event  2,  7, BGEVENT_READ, Akiba1F_Inventory18
 
 	def_object_events
 	object_event  7,  2, SPRITE_FAMICOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_FamicomBuyScript, -1
