@@ -331,6 +331,8 @@ UnownPuzzle_A:
 	ld a, TRUE
 	ld [wSolvedUnownPuzzle], a
 UnownPuzzle_Quit:
+	xor a
+	ld [wLoadedFont], a
 	ld hl, wJumptableIndex
 	set 7, [hl]
 	ret
