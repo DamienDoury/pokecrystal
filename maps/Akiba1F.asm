@@ -130,6 +130,36 @@ Akiba1F_Inventory17:
 
 Akiba1F_Inventory18:
 	jumptext Akiba1F_Inventory18Text
+	
+Akiba1F_Inventory19:
+	jumptext Akiba1F_Inventory19Text
+
+Akiba1F_Inventory20:
+	jumptext Akiba1F_Inventory20Text
+
+Akiba1F_Inventory21:
+	jumptext Akiba1F_Inventory21Text
+
+Akiba1F_Inventory22:
+	jumptext Akiba1F_Inventory22Text
+
+Akiba1F_Inventory23:
+	jumptext Akiba1F_Inventory23Text
+
+Akiba1F_Inventory24:
+	jumptext Akiba1F_Inventory24Text
+
+Akiba1F_Inventory25:
+	jumptext Akiba1F_Inventory25Text
+
+Akiba1F_Inventory26:
+	jumptext Akiba1F_Inventory26Text
+
+Akiba1F_Inventory27:
+	jumptext Akiba1F_Inventory27Text
+
+Akiba1F_Inventory28:
+	jumptext Akiba1F_Inventory28Text
 
 Akiba1F_FamicomBuyText:
 	text "Famicom"
@@ -291,6 +321,72 @@ Akiba1F_Inventory18Text:
 	cont "employees?"
 	done
 
+Akiba1F_Inventory19Text:
+	text "Pinball circuit"
+	line "boards!"
+	done
+
+Akiba1F_Inventory20Text:
+	text "Some junk 5V 2MB"
+	line "TSOP-48 flash"
+	cont "chips."
+	done
+	
+Akiba1F_Inventory21Text:
+	text "A copy of Tetris"
+	line "for the Game Boy."
+
+	para "A very common"
+	line "and cheap game."
+	
+	para "Its sticker looks"
+	line "slightly off, and"
+	cont "the engraved 'A'"
+	cont "is missing."
+	
+	para "Must be defective."
+	line "Better pass."
+	done
+
+Akiba1F_Inventory22Text:
+	text "Soldering hot"
+	line "plates, tweezers…"
+	done
+
+Akiba1F_Inventory23Text:
+	text "Rayman: The Great"
+	line "Escape."
+	done
+
+Akiba1F_Inventory24Text:
+	text "Great versus fun:"
+	line "The Next Tetris"
+	cont "on PlayStation."
+	done
+
+Akiba1F_Inventory25Text:
+	text "Second Sight"
+	line "on PlayStation 2."
+	done
+
+Akiba1F_Inventory26Text:
+	text "They even sell"
+	line "board games!"
+
+	para "They have Pokémon"
+	line "Master Trainer."
+	done
+
+Akiba1F_Inventory27Text:
+	text "3 games in 1:"
+	line "Mega Games 2"
+	cont "on Mega Drive."
+	done
+
+Akiba1F_Inventory28Text:
+	text "Mickey Mania."
+	done
+
 Akiba1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -324,6 +420,16 @@ Akiba1F_MapEvents:
 	bg_event  2,  9, BGEVENT_READ, Akiba1F_Inventory16
 	bg_event  5,  7, BGEVENT_READ, Akiba1F_Inventory17
 	bg_event  2,  7, BGEVENT_READ, Akiba1F_Inventory18
+	bg_event  2,  5, BGEVENT_READ, Akiba1F_Inventory19
+	bg_event  0,  5, BGEVENT_READ, Akiba1F_Inventory20
+	bg_event  3,  7, BGEVENT_READ, Akiba1F_Inventory21
+	bg_event  1,  5, BGEVENT_READ, Akiba1F_Inventory22
+	bg_event  8,  5, BGEVENT_READ, Akiba1F_Inventory23
+	bg_event  9,  5, BGEVENT_READ, Akiba1F_Inventory24
+	bg_event 10,  5, BGEVENT_READ, Akiba1F_Inventory25
+	bg_event  3,  5, BGEVENT_READ, Akiba1F_Inventory26
+	bg_event  7,  5, BGEVENT_READ, Akiba1F_Inventory27
+	bg_event  6,  5, BGEVENT_READ, Akiba1F_Inventory28
 
 	def_object_events
 	object_event  7,  2, SPRITE_FAMICOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_FamicomBuyScript, -1
