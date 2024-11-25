@@ -45,9 +45,6 @@ BlackbeltIcarusAfterBattleText:
 	para "So I've been"
 	line "digging here, but"
 	cont "it leads nowhere…"
-
-	para "It was a bad bet."
-	line "I'm giving up."
 	done
 
 
