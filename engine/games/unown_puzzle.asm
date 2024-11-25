@@ -805,7 +805,7 @@ LoadUnownPuzzlePiecesGFX:
 	ld l, a
 	ld de, vTiles2
 	call Decompress
-	jr ConvertLoadedPuzzlePieces
+	jp ConvertLoadedPuzzlePieces
 
 .LZPointers:
 ; entries correspond to UNOWNPUZZLE_* constants
