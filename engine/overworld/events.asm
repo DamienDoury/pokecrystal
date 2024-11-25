@@ -844,6 +844,7 @@ CheckLongStartPressOW:
 	ld de, SFX_MENU
 	call PlaySFX
 
+	farcall HideMapNameSign
 	call RefreshScreen
 	farcall SaveMenu.quick
 	call RefreshScreen
