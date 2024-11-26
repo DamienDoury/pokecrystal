@@ -1642,8 +1642,8 @@ GoldenrodHospitalRoom10VisitorText2:
 	line "my speeches long"
 	cont "and boring."
 	
-	para "Do you have time"
-	line "for it?"
+	para "Are you sure you"
+	line "have time for it?"
 	done
 
 GoldenrodHospitalRoom10VisitorYesText:
