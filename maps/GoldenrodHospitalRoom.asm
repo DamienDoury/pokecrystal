@@ -1849,7 +1849,7 @@ GoldenrodHospitalRoom_Quest10Text:
 	line "minutes ago."
 
 	para "She went towards"
-	line "the other side"
+	line "the opposite side"
 	cont "of this corridor."
 	done
 
