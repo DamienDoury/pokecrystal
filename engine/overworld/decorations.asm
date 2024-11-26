@@ -355,8 +355,7 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_1
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 .beyond_eight
 	ld hl, wNumOwnedDecoCategories
@@ -381,13 +380,11 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_2
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 .empty
 	ld hl, .NothingToChooseText
-	call MenuTextboxBackup
-	ret
+	jp MenuTextboxBackup
 
 .NothingToChooseText:
 	text_far _NothingToChooseText
@@ -424,16 +421,14 @@ PopulateDecoCategoryMenu:
 GetDecorationData:
 	ld hl, DecorationAttributes
 	ld bc, DECOATTR_STRUCT_LENGTH
-	call AddNTimes
-	ret
+	jp AddNTimes
 
 GetDecorationName:
 	push hl
 	call GetDecorationData
 	call GetDecoName
 	pop hl
-	call CopyName2
-	ret
+	jp CopyName2
 
 DecorationMenuFunction:
 	ld a, [wMenuSelection]
@@ -441,8 +436,7 @@ DecorationMenuFunction:
 	call GetDecorationData
 	call GetDecoName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 DoDecorationAction2:
 	ld a, [wMenuSelection]
@@ -481,6 +475,10 @@ GetDecorationFlag:
 	ld d, [hl]
 	ld e, a
 	ret
+
+DecorationFlagAction_c:
+	ld a, c
+	; fallthrough.
 
 DecorationFlagAction:
 	push bc
@@ -559,13 +557,6 @@ GetDecoName:
 	pop de
 	ld a, e
 	jr .getpokename
-
-.unused: ; unreferenced
-	push de
-	call .getdeconame
-	pop de
-	ld a, e
-	jr .getdeconame
 
 .getpokename:
 	push bc
@@ -919,10 +910,6 @@ GetDecorationName_c_de:
 	call GetDecorationName
 	ret
 
-DecorationFlagAction_c:
-	ld a, c
-	jp DecorationFlagAction
-
 GetDecorationName_c:
 	ld a, c
 	call GetDecorationID
@@ -951,7 +938,7 @@ GetDecorationID:
 	pop hl
 	ret
 
-SetAllDecorationFlags: ; unreferenced
+SetAllDecorationFlags::
 	ld hl, DecorationIDs
 .loop
 	ld a, [hli]
