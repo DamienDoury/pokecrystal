@@ -1963,7 +1963,7 @@ LoadMoneyAmountToMem:
 	ld [bc], a
 	pop bc
 
-	; If the amount of money is -1, it means we need to retrieve the amount of money from [wScriptVar] * 100.
+	; If the amount of money is -1, it means we need to retrieve the amount of money from [wScriptVar] * 1000.
 	push bc
 	cp $ff
 	jr nz, .end
@@ -1982,10 +1982,11 @@ LoadMoneyAmountToMem:
 	push bc
 	ld a, [wScriptVar]
 	ldh [hMultiplier], a
-	ld a, 100
+	ld a, LOW(1000)
 	ldh [hMultiplicand + 2], a
-	xor a
+	ld a, HIGH(1000)
 	ldh [hMultiplicand + 1], a
+	xor a
 	ldh [hMultiplicand + 0], a
 	call Multiply
 	ldh a, [hQuotient + 1]

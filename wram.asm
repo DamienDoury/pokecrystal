@@ -2738,7 +2738,7 @@ wRivalName::  ds NAME_LENGTH
 
 	ds 4
 
-wTravelViolationFine:: db ; The value multiplied by 100 is the fine paid by the player when using Fly or Teleport.
+wTravelViolationFine:: db ; The value multiplied by 1000 is the fine paid by the player when using Fly or Teleport.
 
 wMartsStock:: ds (NUM_MARTS + 1) / 2
 

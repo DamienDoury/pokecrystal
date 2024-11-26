@@ -388,7 +388,7 @@ endc
 	readmem wTravelViolationFine
 	ifgreater 0, .pay_fine
 
-	loadmem wTravelViolationFine, 10
+	loadmem wTravelViolationFine, 1
 	writetext TravelFineText1
 	waitbutton
 	closetext	
@@ -415,14 +415,14 @@ endc
 
 	; Increasing the fine for next time the player gets caught.
 	readmem wTravelViolationFine
-	ifgreater 249, .save_fine
-	ifgreater 49, .high_increase
+	ifgreater 99, .save_fine
+	ifgreater 4, .high_increase
 ; low_increase:
-	addval 20
+	addval 2
 	sjump .save_fine
 
 .high_increase
-	addval 50
+	addval 5
 .save_fine
 	writemem wTravelViolationFine
 	end
