@@ -1,3 +1,5 @@
+VIRTUAL_BOY_PRICE EQU 60000
+
 	object_const_def
 	const AKIBA1F_FAMICOM
 	const AKIBA1F_VBOY
@@ -27,8 +29,53 @@ Akiba1F_FamicomBuyScript:
 Akiba1F_SNESBuyScript:
 	jumptext Akiba1F_SNESBuyText
 
+Akiba1F_BuyingProcess:
+	special PlaceMoneyTopRight
+	writemem wTempByteValue ; Backs up the price of the item, that will be overwritten by the result of yesorno.
+	yesorno
+	iffalse .refused
+
+	; Checking the player's money.
+	readmem wTempByteValue ; Retrieves the price of the item.
+	checkmoney YOUR_MONEY, $ffffff
+	ifequal HAVE_LESS, .cant
+
+	; Buying.
+	playsound SFX_TRANSACTION
+	readmem wTempByteValue ; Retrieves the price of the item.
+	takemoney YOUR_MONEY, $ffffff
+	special PlaceMoneyTopRight
+	waitsfx
+	disappear LAST_TALKED ; This is the action that adds the item to the player's inventory.
+	writetext Akiba1F_TransactionCompletedText
+	sjump .text_end
+
+.cant
+	writetext Akiba1F_NotEnoughMoneyText
+	sjump .text_end
+
+.refused
+	writetext Akiba1F_TransactionRefusedText
+.text_end
+	loadmem wTempByteValue, 0
+	waitbutton
+	closetext
+	end
+
+Akiba1F_GameConsoleNoSeller:
+	jumptext Akiba1F_GameConsoleText
+
 Akiba1F_VirtualBoyBuyScript:
-	jumptext Akiba1F_VirtualBoyBuyText
+	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	iftrue Akiba1F_GameConsoleNoSeller
+
+	applymovement AKIBA1F_SELLER, Akiba1F_Left3Movement
+	opentext
+	writetext Akiba1F_VirtualBoyBuyText
+	setval VIRTUAL_BOY_PRICE / 1000
+	scall Akiba1F_BuyingProcess
+	applymovement AKIBA1F_SELLER, Akiba1F_BackToChairFromLeft3Movement
+	end
 
 Akiba1F_N64BuyScript:
 	jumptext Akiba1F_N64BuyText
@@ -161,6 +208,60 @@ Akiba1F_Inventory27:
 Akiba1F_Inventory28:
 	jumptext Akiba1F_Inventory28Text
 
+Akiba1F_Left3Movement:
+	step LEFT
+	step LEFT
+Akiba1F_Left1Movement:
+	step LEFT
+	turn_head DOWN
+	step_end
+
+Akiba1F_Right2Movement:
+	step RIGHT
+	step RIGHT
+	step_end
+
+Akiba1F_BackToChairFromLeft3Movement:
+	step RIGHT
+	step RIGHT
+Akiba1F_BackToChairFromLeft1Movement:
+	step RIGHT
+	turn_head UP
+	step_end
+
+Akiba1F_BackToChairFromRightMovement:
+	step LEFT
+	step LEFT
+	turn_head UP
+	step_end
+
+Akiba1F_GameConsoleText:
+	text "A game console."
+	line "Where's the seller?"
+	done
+
+Akiba1F_NotEnoughMoneyText:
+	text "I'm sorry but I"
+	line "won't lower the"
+	cont "price of this"
+	cont "item. Come back"
+	cont "with enough money."
+	done
+
+Akiba1F_TransactionCompletedText:
+	text "Great choice!"
+	line "I will ship it to"
+	cont "your home without"
+	cont "delay!"
+	done
+
+Akiba1F_TransactionRefusedText:
+	text "Think about it."
+	line "It may be gone"
+	cont "next time you"
+	cont "come."
+	done
+
 Akiba1F_FamicomBuyText:
 	text "Famicom"
 	done
@@ -170,7 +271,23 @@ Akiba1F_SNESBuyText:
 	done
 
 Akiba1F_VirtualBoyBuyText:
-	text "Virtual Boy"
+	text "This is a super"
+	line "rare VIRTUAL BOY."
+
+	para "This portable"
+	line "console got a 3D"
+	cont "screen before the"
+	cont "Game Boy Color"
+	cont "was even born."
+
+	para "Only 770 000 units"
+	line "were sold during"
+	cont "its single year of"
+	cont "lifetime."
+
+	para "You can join the"
+	line "happy few club"
+	cont "for ¥{d:VIRTUAL_BOY_PRICE}."
 	done
 
 Akiba1F_N64BuyText:
@@ -432,10 +549,10 @@ Akiba1F_MapEvents:
 	bg_event  6,  5, BGEVENT_READ, Akiba1F_Inventory28
 
 	def_object_events
-	object_event  7,  2, SPRITE_FAMICOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_FamicomBuyScript, -1
-	object_event  1,  3, SPRITE_VIRTUAL_BOY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_VirtualBoyBuyScript, -1
-	object_event  6,  3, SPRITE_SNES, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_SNESBuyScript, -1
-	object_event  3,  3, SPRITE_N64, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_N64BuyScript, -1
+	object_event  7,  2, SPRITE_FAMICOM, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_FamicomBuyScript, EVENT_DECO_FAMICOM
+	object_event  1,  3, SPRITE_VIRTUAL_BOY, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_VirtualBoyBuyScript, EVENT_DECO_VIRTUAL_BOY
+	object_event  6,  3, SPRITE_SNES, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_SNESBuyScript, EVENT_DECO_SNES
+	object_event  3,  3, SPRITE_N64, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_N64BuyScript, EVENT_DECO_N64
 	object_event  4,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Akiba1F_Seller_Script, EVENT_CONSOLE_SELLER_BACK_IN_STORE
 	object_event  5,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_BeRightBackScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  4,  1, SPRITE_N64, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_CONSOLE_SELLER_BACK_IN_STORE
