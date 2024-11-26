@@ -63,7 +63,7 @@
 	tilecoll FLOOR, WALL, WALL, WALL ; 3e
 	tilecoll STAIRCASE, WALL, FLOOR, FLOOR ; 3f
 	tilecoll FLOOR, FLOOR, WALL, FLOOR ; 40
-	tilecoll COUNTER, WALL, FLOOR, COUNTER ; 41
+	tilecoll WALL, WALL, FLOOR, WALL ; 41
 	tilecoll WALL, STAIRCASE, FLOOR, FLOOR ; 42
 	tilecoll FLOOR, FLOOR, FLOOR, FLOOR ; 43
 	tilecoll WALL, WALL, WALL, WALL ; 44

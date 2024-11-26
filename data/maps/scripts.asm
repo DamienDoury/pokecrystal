@@ -525,6 +525,6 @@ INCLUDE "maps/VaccinationCenterRoom.asm"
 
 SECTION "Map Scripts 29", ROMX
 
-INCLUDE "maps/Akiba1F.asm"
-INCLUDE "maps/Akiba2F.asm"
+INCLUDE "maps/Akiba1F.asm" ; Must stay with Akiba2F.asm.
+INCLUDE "maps/Akiba2F.asm" ; Must stay with Akiba1F.asm.
 INCLUDE "maps/Akiba3F.asm"

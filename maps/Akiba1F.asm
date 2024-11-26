@@ -26,6 +26,7 @@ Akiba1F_MapScripts:
 .endcallback
 	endcallback
 
+; Returns TRUE in wScriptVar if the transaction was successfull.
 Akiba1F_BuyingProcess:
 	special PlaceMoneyTopRight
 	writemem wTempByteValue ; Backs up the price of the item, that will be overwritten by the result of yesorno.
@@ -45,13 +46,16 @@ Akiba1F_BuyingProcess:
 	waitsfx
 	disappear LAST_TALKED ; This is the action that adds the item to the player's inventory.
 	writetext Akiba1F_TransactionCompletedText
+	setval TRUE
 	sjump .text_end
 
 .cant
+	setval FALSE
 	writetext Akiba1F_NotEnoughMoneyText
 	sjump .text_end
 
 .refused
+	setval FALSE
 	writetext Akiba1F_TransactionRefusedText
 .text_end
 	loadmem wTempByteValue, 0
@@ -597,8 +601,8 @@ Akiba1F_Inventory22Text:
 	done
 
 Akiba1F_Inventory23Text:
-	text "Rayman: The Great"
-	line "Escape."
+	text "Rayman 2: The"
+	line "Great Escape."
 	done
 
 Akiba1F_Inventory24Text:
