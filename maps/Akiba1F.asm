@@ -1,4 +1,7 @@
-VIRTUAL_BOY_PRICE EQU 60000
+VIRTUAL_BOY_PRICE EQU 40000
+N64_PRICE         EQU 18000
+SNES_PRICE        EQU 12000
+NES_PRICE         EQU 11000
 
 	object_const_def
 	const AKIBA1F_FAMICOM
@@ -22,12 +25,6 @@ Akiba1F_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 .endcallback
 	endcallback
-
-Akiba1F_FamicomBuyScript:
-	jumptext Akiba1F_FamicomBuyText
-
-Akiba1F_SNESBuyScript:
-	jumptext Akiba1F_SNESBuyText
 
 Akiba1F_BuyingProcess:
 	special PlaceMoneyTopRight
@@ -78,7 +75,41 @@ Akiba1F_VirtualBoyBuyScript:
 	end
 
 Akiba1F_N64BuyScript:
-	jumptext Akiba1F_N64BuyText
+	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	iftrue Akiba1F_GameConsoleNoSeller
+
+	applymovement AKIBA1F_SELLER, Akiba1F_Left1Movement
+	opentext
+	writetext Akiba1F_N64BuyText
+	setval N64_PRICE / 1000
+	scall Akiba1F_BuyingProcess
+	applymovement AKIBA1F_SELLER, Akiba1F_BackToChairFromLeft1Movement
+	end
+
+Akiba1F_SNESBuyScript:
+	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	iftrue Akiba1F_GameConsoleNoSeller
+
+	applymovement AKIBA1F_SELLER, Akiba1F_Right2Movement
+	turnobject AKIBA1F_SELLER, DOWN
+	opentext
+	writetext Akiba1F_SNESBuyText
+	setval SNES_PRICE / 1000
+	scall Akiba1F_BuyingProcess
+	applymovement AKIBA1F_SELLER, Akiba1F_BackToChairFromRightMovement
+	end
+
+Akiba1F_FamicomBuyScript:
+	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	iftrue Akiba1F_GameConsoleNoSeller
+
+	applymovement AKIBA1F_SELLER, Akiba1F_Right2Movement
+	opentext
+	writetext Akiba1F_NESBuyText
+	setval NES_PRICE / 1000
+	scall Akiba1F_BuyingProcess
+	applymovement AKIBA1F_SELLER, Akiba1F_BackToChairFromRightMovement
+	end
 
 Akiba1F_BeRightBackScript:
 	jumptext Akiba1F_BeRightBackText
@@ -86,8 +117,6 @@ Akiba1F_BeRightBackScript:
 Akiba1F_Seller_Script:
 	faceplayer
 	opentext
-	writetext Akiba1F_Seller_HiText
-	promptbutton
 
 	checkflag ENGINE_RADIO_CARD
 	iftrue .SkipRadioGift
@@ -96,7 +125,28 @@ Akiba1F_Seller_Script:
 	iftrue .FetchRadio
 
 .SkipRadioGift
+	checkevent EVENT_DECO_FAMICOM
+	iffalse .RememberMe
+
+	checkevent EVENT_DECO_SNES
+	iffalse .RememberMe
+
+	checkevent EVENT_DECO_N64
+	iffalse .RememberMe
+
+	checkevent EVENT_DECO_VIRTUAL_BOY
+	iffalse .RememberMe
+
+; The player has bought all the consoles.
+	writetext Akiba1F_Seller_BestCustomerText
+	sjump .ReturnToDesk
+
+.RememberMe
+	writetext Akiba1F_Seller_HiText
+	promptbutton
 	writetext Akiba1F_Seller_HiEndText
+
+.ReturnToDesk
 	waitbutton
 	closetext
 	pause 10
@@ -104,6 +154,8 @@ Akiba1F_Seller_Script:
 	end
 
 .FetchRadio
+	writetext Akiba1F_Seller_HiText
+	promptbutton
 	closetext
 	pause 5
 	showemote EMOTE_QUESTION, AKIBA1F_SELLER, 15
@@ -262,14 +314,6 @@ Akiba1F_TransactionRefusedText:
 	cont "come."
 	done
 
-Akiba1F_FamicomBuyText:
-	text "Famicom"
-	done
-
-Akiba1F_SNESBuyText:
-	text "Super NES"
-	done
-
 Akiba1F_VirtualBoyBuyText:
 	text "This is a super"
 	line "rare VIRTUAL BOY."
@@ -291,7 +335,54 @@ Akiba1F_VirtualBoyBuyText:
 	done
 
 Akiba1F_N64BuyText:
-	text "Nintendo 64"
+	text "This NINTENDO 64"
+	line "is the special"
+	cont "Pikachu edition."
+
+	para "A very bold design"
+	line "for a game console"
+	cont "don't you think?"
+
+	para "The illuminating"
+	line "cheeks are a nice"
+	cont "touch, and the"
+	cont "foot button is"
+	cont "so cute!"
+
+	para "It's yours for"
+	line "¥{d:N64_PRICE}."
+	done
+
+Akiba1F_SNESBuyText:
+	text "The SUPER NINTENDO"
+	line "ENTERTAINMENT"
+	cont "SYSTEM is the"
+	cont "successor of the"
+	cont "NES as you would"
+	cont "have guessed."
+
+	para "It's a legendary"
+	line "console… that I"
+	cont "never played."
+
+	para "You can have it"
+	line "for ¥{d:SNES_PRICE}."
+	done
+
+Akiba1F_NESBuyText:
+	text "The Famicom is the"
+	line "Japanese version"
+	cont "of the NINTENDO"
+	cont "ENTERTAINMENT"
+	cont "SYSTEM."
+
+	para "Unfortunately I"
+	line "don't have R.O.B."
+	cont "the robot it was"
+	cont "advertised with."
+
+	para "I'm selling it for"
+	line "¥{d:NES_PRICE}."
 	done
 
 Akiba1F_BeRightBackText:
@@ -310,6 +401,41 @@ Akiba1F_Seller_HiText:
 Akiba1F_Seller_HiEndText:
 	text "Feel free to snoop"
 	line "around my shop!"
+	done
+
+Akiba1F_Seller_BestCustomerText:
+	text "Hey! Isn't this my"
+	line "best customer?"
+
+	para "Thank you for"
+	line "supporting"
+	cont "retro gaming."
+
+	para "I'd like to share a"
+	line "thought with you."
+
+	para "We all know that"
+	line "matter is made of"
+	cont "pixels, which"
+	cont "interact under the"
+	cont "laws of the source"
+	cont "code and its bits."
+
+	para "But what if all of"
+	line "it is a simulation"
+	cont "created by higher"
+	cont "beings?"
+
+	para "How would we"
+	line "ever know?"
+
+	para "Could we interact"
+	line "with their"
+	cont "reality?"
+
+	para "…"
+
+	para "I wonder."
 	done
 
 Akiba1F_Seller_RadioText:

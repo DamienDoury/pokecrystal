@@ -515,10 +515,6 @@ INCLUDE "maps/SeafoamGym.asm"
 
 INCLUDE "maps/GoldenrodHospitalRoom.asm"
 
-INCLUDE "maps/Akiba1F.asm"
-INCLUDE "maps/Akiba2F.asm"
-INCLUDE "maps/Akiba3F.asm"
-
 
 SECTION "Map Scripts 28", ROMX
 
@@ -526,3 +522,9 @@ INCLUDE "maps/VaccinationCenter1F.asm"
 INCLUDE "maps/VaccinationCenterCorridor.asm"
 INCLUDE "maps/VaccinationCenterRoom.asm"
 
+
+SECTION "Map Scripts 29", ROMX
+
+INCLUDE "maps/Akiba1F.asm"
+INCLUDE "maps/Akiba2F.asm"
+INCLUDE "maps/Akiba3F.asm"

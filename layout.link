@@ -314,6 +314,7 @@ ROMX $7b
 	"Battle Tower Text"
 ROMX $7c
 	"Battle Tower Trainer Data"
+	"Map Scripts 29"
 ROMX $7d
 	"Mobile News Data"
 ROMX $7e
