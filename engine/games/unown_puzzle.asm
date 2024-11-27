@@ -315,7 +315,8 @@ UnownPuzzle_A:
 	xor a
 	ld [wHoldingUnownPuzzlePiece], a
 	;call WaitSFX
-	jp CheckSolvedUnownPuzzle
+	call CheckSolvedUnownPuzzle
+	ret nc
 
 ; You solved the puzzle!
 	call PlaceStartCancelBoxBorder
