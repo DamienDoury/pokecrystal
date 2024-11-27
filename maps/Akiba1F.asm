@@ -323,7 +323,7 @@ Akiba1F_VirtualBoyBuyText:
 	line "rare VIRTUAL BOY."
 
 	para "This portable"
-	line "console got a 3D"
+	line "console got a 3<BOLD_D>"
 	cont "screen before the"
 	cont "Game Boy Color"
 	cont "was even born."

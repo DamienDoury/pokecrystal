@@ -38,7 +38,7 @@
 	charmap "<BOLD_A>",  $60 ; unused
 	charmap "<BOLD_B>",  $61 ; unused
 	charmap "<BOLD_C>",  $62 ; unused
-	charmap "<BOLD_D>",  $63 ; unused
+	charmap "<BOLD_D>",  $63 ; Used once in Akiba1F.asm for the "3D" text about the Virtual Boy.
 	charmap "<BOLD_E>",  $64 ; unused
 	charmap "<BOLD_F>",  $65 ; unused
 	charmap "<BOLD_G>",  $66 ; unused
