@@ -71,4 +71,5 @@ SpriteMons:
 	db MAGNETON
 	db JOLTEON
 	db DUGTRIO
+	db SMEARGLE
 	assert_table_length NUM_POKEMON_SPRITES

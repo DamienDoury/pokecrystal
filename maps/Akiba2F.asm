@@ -5,6 +5,7 @@ POSTER_PRICE EQU 4000
 	const AKIBA2F_POSTER_2
 	const AKIBA2F_POSTER_3
 	const AKIBA2F_POSTER_4
+	const AKIBA2F_SMEARGLE
 
 Akiba2F_MapScripts:
 	def_scene_scripts
@@ -89,6 +90,8 @@ Akiba2F_SellerScript:
 .text_end
 	waitbutton
 	closetext
+.end
+	turnobject AKIBA2F_SELLER, DOWN
 	end
 
 .pikachu
@@ -131,8 +134,11 @@ Akiba2F_SellerScript:
 .reload_map
 	reloadmappart
 	setlasttalked AKIBA2F_SELLER
-.end
-	end
+	sjump .end
+
+Akiba2F_SmeargleScript:
+	cry SMEARGLE
+	jumptext Akiba2F_SmeargleText
 
 Akiba2F_PikachuPosterScript:
 	jumptext Akiba2F_PikachuPosterText
@@ -142,6 +148,10 @@ Akiba2F_ClefairyPosterScript:
 
 Akiba2F_JigglypuffPosterScript:
 	jumptext Akiba2F_JigglypuffPosterText
+
+Akiba2F_SmeargleText:
+	text "SMEARGLE: …"
+	done
 
 Akiba2F_PikachuPosterText:
 	text "An energizing pos-"
@@ -205,7 +215,8 @@ Akiba2F_MapEvents:
 	bg_event  0,  6, BGEVENT_READ, Akiba2F_SellerScriptFromTop
 
 	def_object_events
-	object_event  0,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
+	object_event  0,  7, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, -1
 	object_event  6,  7, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba2F_PikachuPosterScript, EVENT_DECO_POSTER_2
 	object_event  2,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba2F_ClefairyPosterScript, EVENT_DECO_POSTER_3
 	object_event  8,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba2F_JigglypuffPosterScript, EVENT_DECO_POSTER_4
+	object_event  0,  8, SPRITE_SMEARGLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Akiba2F_SmeargleScript, -1
