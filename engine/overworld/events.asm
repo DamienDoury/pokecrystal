@@ -553,7 +553,24 @@ CheckAPressOW::
 	ret c
 	call TryFarNPCOnlyEvent
 	ret c
-	; clap
+
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	ld a, [wTilePermissionCheat]
+	xor 1
+	ld [wTilePermissionCheat], a
+	and a
+	jr z, .cheat_end
+
+.cheat_end
+	xor a
+	ld [wTileDown], a
+	ld [wTileUp], a
+	ld [wTileLeft], a
+	ld [wTileRight], a
+	ld [wTilePermissions], a
+endc
+
+	; clap condition
 	xor a
 	ret
 

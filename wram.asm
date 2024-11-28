@@ -213,7 +213,11 @@ wTilePermissions::
 ; bit 0: right
 	db
 
+if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE)
 	ds 1
+else
+wTilePermissionCheat:: db
+endc
 
 
 SECTION "wSpriteAnims", WRAM0

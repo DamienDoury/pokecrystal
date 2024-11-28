@@ -1598,6 +1598,12 @@ GetMovementPermissions::
 	call .CheckHiNybble
 	ret nz
 
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	ld a, [wTilePermissionCheat]
+	and a
+	ret nz
+endc
+
 	ld a, [wPlayerStandingTile]
 	and 7
 	ld hl, .MovementPermissionsData
@@ -1632,6 +1638,16 @@ GetMovementPermissions::
 	inc e
 	call GetCoordCollType
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	push bc
+	ld b, a
+	ld a, [wTilePermissionCheat]
+	and a
+	ld a, b
+	jr z, .DownCheatSolved
+
+	xor a
+.DownCheatSolved
+	pop bc
 	ld [wTileDown], a
 endc
 	call .Down
@@ -1640,6 +1656,16 @@ endc
 	dec e
 	call GetCoordCollType
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	push bc
+	ld b, a
+	ld a, [wTilePermissionCheat]
+	and a
+	ld a, b
+	jr z, .UpCheatSolved
+
+	xor a
+.UpCheatSolved
+	pop bc
 	ld [wTileUp], a
 endc
 	jr .Up
@@ -1654,6 +1680,16 @@ endc
 	dec d
 	call GetCoordCollType
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	push bc
+	ld b, a
+	ld a, [wTilePermissionCheat]
+	and a
+	ld a, b
+	jr z, .LeftCheatSolved
+
+	xor a
+.LeftCheatSolved
+	pop bc
 	ld [wTileLeft], a
 endc
 	call .Left
@@ -1662,6 +1698,16 @@ endc
 	inc d
 	call GetCoordCollType
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	push bc
+	ld b, a
+	ld a, [wTilePermissionCheat]
+	and a
+	ld a, b
+	jr z, .RightCheatSolved
+
+	xor a
+.RightCheatSolved
+	pop bc
 	ld [wTileRight], a
 endc
 	jr .Right
