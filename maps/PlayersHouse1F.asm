@@ -375,6 +375,9 @@ PlayersHouse1FStoveScript:
 	jumptext PlayersHouse1FStoveText
 
 PlayersHouse1FSinkScript:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	callasm SetAllDecorationFlags
+endc
 	jumptext PlayersHouse1FSinkText
 
 PlayersHouse1FFridgeScript:
