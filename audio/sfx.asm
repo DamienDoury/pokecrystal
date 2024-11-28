@@ -497,6 +497,16 @@ Sfx_DexFanfare5079:
 	assert Sfx_LevelUp_Ch7 == Sfx_DexFanfare5079_Ch7
 	assert Sfx_LevelUp_Ch8 == Sfx_DexFanfare5079_Ch8
 
+	
+Sfx_Clap_1:
+	musicheader 1, 8, Sfx_Clap1_Ch8
+
+Sfx_Clap_2: ; f0a7f
+	musicheader 1, 8, Sfx_Clap2_Ch8
+
+Sfx_Clap_3:
+	musicheader 1, 8, Sfx_Clap3_Ch8
+
 Sfx_LevelUp_Ch5:
 Sfx_DexFanfare5079_Ch5:
 	toggle_sfx
@@ -5223,3 +5233,15 @@ Sfx_GlassTing2_Ch6:
 	duty_cycle 2
 	square_note 16, 13, 1, 2013
 	sound_ret
+
+Sfx_Clap1_Ch8:
+	noise C#,  6, $f1, $32
+	endchannel
+
+Sfx_Clap2_Ch8:
+	noise C#,  6, $c1, $32
+	endchannel
+
+Sfx_Clap3_Ch8:
+	noise C#,  6, $a1, $32
+	endchannel

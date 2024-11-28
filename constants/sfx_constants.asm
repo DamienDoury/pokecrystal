@@ -208,4 +208,7 @@
 	const SFX_TWO_PC_BEEPS                ; cc
 	const SFX_4_NOTE_DITTY                ; cd
 	const SFX_TWINKLE                     ; ce
+	const SFX_CLAP_1                      ; cf
+	const SFX_CLAP_2                      ; d0
+	const SFX_CLAP_3                      ; d1
 NUM_SFX EQU const_value

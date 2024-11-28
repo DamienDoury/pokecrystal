@@ -5,6 +5,7 @@ Drumkits:
 	dw Drumkit3
 	dw Drumkit4
 	dw Drumkit5
+	dw DrumkitCheering
 
 Drumkit0:
 	dw Drum00
@@ -90,6 +91,14 @@ Drumkit5:
 	dw Snare14
 	dw Snare13
 	dw Kick2
+DrumkitCheering: ;6
+	dw Drum00
+	dw AmbientNoise1 ;C_ 
+	dw SnareX1
+	dw SnareX2
+	dw SnareX3
+	dw SnareX4
+; e8efa
 
 Drum00:
 	noise_note 32, 1, 1, 0
@@ -258,3 +267,27 @@ Kick2:
 	noise_note 32, 10, 8, 107
 	noise_note 32, 7, 1, 0
 	sound_ret
+
+AmbientNoise1: ;this one is not actually used in the "music"
+	noise C#,  1, $18, $33 
+	endchannel
+
+SnareX1:
+	noise C#,  6, $c1, $32
+	noise C#,  1, $18, $33
+	endchannel
+
+SnareX2:
+	noise C#,  6, $b1, $32
+	noise C#,  1, $18, $33
+	endchannel
+
+SnareX3:
+	noise C#,  6, $a1, $32
+	noise C#,  1, $18, $33
+	endchannel
+
+SnareX4: ; e8f0a
+	noise C#,  6, $81, $32
+	noise C#,  1, $18, $33
+	endchannel
