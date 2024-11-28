@@ -2992,7 +2992,7 @@ wVaccinationCenterSceneID::	  					  db
 
 	ds 29
 
-wYearMonth:: db ; Upper nibble = year, lower nibble = month.
+wYearMonth:: db ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
 
 wJohtoAddLevel:: db
 wKantoAddLevel:: db

@@ -166,6 +166,7 @@ INCLUDE "engine/events/move_reminder.asm"
 INCLUDE "engine/items/stone_shop.asm"
 INCLUDE "engine/pokemon/knows_move.asm"
 INCLUDE "engine/events/gym.asm"
+INCLUDE "engine/events/window_clapping.asm"
 
 
 SECTION "Effect Commands", ROMX
