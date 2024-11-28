@@ -559,15 +559,21 @@ if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	xor 1
 	ld [wTilePermissionCheat], a
 	and a
-	jr z, .cheat_end
+	jr z, .enable_collisions
 
-.cheat_end
+; disable collisions
 	xor a
 	ld [wTileDown], a
 	ld [wTileUp], a
 	ld [wTileLeft], a
 	ld [wTileRight], a
 	ld [wTilePermissions], a
+	jr .cheat_end
+
+.enable_collisions
+	call GetMovementPermissions
+
+.cheat_end
 endc
 
 	; Clapping.
