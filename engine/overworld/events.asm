@@ -570,7 +570,16 @@ if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	ld [wTilePermissions], a
 endc
 
-	; clap condition
+	; Clapping.
+	farcall IsClappingAuthorized
+	ret nc
+
+	ld de, SFX_CLAP_2
+	ld a, SFX_CLAP_3 - SFX_CLAP_1
+	call RandomRange
+	add e
+	;ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
+	call PlaySFX
 	xor a
 	ret
 
