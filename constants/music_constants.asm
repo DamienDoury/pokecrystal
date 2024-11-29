@@ -121,6 +121,8 @@
 	const MUSIC_BIKE_KANTO                   ; 74
 	const MUSIC_CREDITS_MELANCHOLIC          ; 75
 	const MUSIC_DIGLETTS_CAVE                ; 76
+	const MUSIC_CHEERING                     ; 77
+	const MUSIC_CHEERING_NO_WHISTLING        ; 78
 NUM_MUSIC_SONGS EQU const_value
 
 ;GetMapMusic picks music for these values (see home/map.asm)

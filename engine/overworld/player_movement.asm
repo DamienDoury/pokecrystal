@@ -977,8 +977,14 @@ endc
 	end
 	
 .BumpSound:
+	ld a, [wCurSFX]
+	cp SFX_CHEERING
+	jr z, .PlayBumpSound
+	
 	call CheckSFX
 	ret c
+
+.PlayBumpSound
 	ld de, SFX_BUMP
 	call PlaySFX
 	ret

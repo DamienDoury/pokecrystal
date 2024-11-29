@@ -123,4 +123,6 @@ Music:
 	dba Music_BikeRiding
 	dba Music_Route10
 	dba Music_PyriteTown
+	dba Music_Cheering
+	dba Music_Cheering_NoWhistling
 	assert_table_length NUM_MUSIC_SONGS

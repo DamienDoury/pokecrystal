@@ -2468,9 +2468,9 @@ _PlayCry::
 	call MusicOn
 	ret
 
-_PlaySFX::
-; clear channels if they aren't already
+StopSFX::
 	call MusicOff
+; ch5
 	ld hl, wChannel5Flags1
 	bit SOUND_CHANNEL_ON, [hl] ; ch5 on?
 	jr z, .ch6
@@ -2530,6 +2530,12 @@ _PlaySFX::
 	ld [wNoiseSampleAddress], a
 	ld [wNoiseSampleAddress + 1], a
 .chscleared
+	jp MusicOn
+
+_PlaySFX::
+; clear channels if they aren't already
+	call MusicOff
+	call StopSFX
 ; start reading sfx header for # chs
 	ld hl, wMusicID
 	ld [hl], e

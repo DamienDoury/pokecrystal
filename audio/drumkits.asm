@@ -91,13 +91,13 @@ Drumkit5:
 	dw Snare14
 	dw Snare13
 	dw Kick2
-DrumkitCheering: ;6
-	dw Drum00
-	dw AmbientNoise1 ;C_ 
-	dw SnareX1
-	dw SnareX2
-	dw SnareX3
-	dw SnareX4
+DrumkitCheering: ; 6
+	dw Drum00		 ; __
+	dw AmbientNoise1 ; C_ 
+	dw SnareX1 		 ; C#
+	dw SnareX2 		 ; D_
+	dw SnareX3 		 ; D#
+	dw SnareX4 		 ; E_
 ; e8efa
 
 Drum00:

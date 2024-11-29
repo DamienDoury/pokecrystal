@@ -211,4 +211,5 @@
 	const SFX_CLAP_1                      ; cf
 	const SFX_CLAP_2                      ; d0
 	const SFX_CLAP_3                      ; d1
+	const SFX_CHEERING                    ; d2
 NUM_SFX EQU const_value

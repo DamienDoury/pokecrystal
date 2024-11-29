@@ -110,6 +110,27 @@ HandleMap:
 	call NextOverworldFrame
 	call HandleMapBackground
 	call CheckPlayerState
+	; fallthrough.
+
+ClappingAutoSFX:
+	farcall IsClappingAuthorized
+	jr nc, .TryEndClapping
+
+	call CheckSFX
+	ret c
+
+	ld de, SFX_CHEERING
+	jp PlaySFX
+
+.TryEndClapping
+	call CheckSFX
+	ret nc
+
+	ld a, [wCurSFX]
+	cp SFX_CHEERING
+	ret nz
+
+	farcall StopSFX
 	ret
 
 MapEvents:
@@ -158,12 +179,6 @@ HandleMapTimeAndJoypad:
 	call TimeOfDayPals
 	ret
 
-HandleMapObjects:
-	farcall HandleNPCStep
-	farcall _HandlePlayerStep
-	call _CheckObjectEnteringVisibleRange
-	ret
-
 HandleMapBackground:
 	farcall _UpdateSprites
 	farcall ScrollScreen
@@ -189,10 +204,16 @@ CheckPlayerState:
 	ld [wMapEventStatus], a
 	ret
 
+HandleMapObjects:
+	farcall HandleNPCStep
+	farcall _HandlePlayerStep
+	; fallthrough.
+
 _CheckObjectEnteringVisibleRange:
 	ld hl, wPlayerStepFlags
 	bit PLAYERSTEP_STOP_F, [hl]
 	ret z
+	
 	farcall CheckObjectEnteringVisibleRange
 	ret
 

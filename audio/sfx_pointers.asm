@@ -212,4 +212,5 @@ SFX:
 	dba Sfx_Clap_1
 	dba Sfx_Clap_2
 	dba Sfx_Clap_3
+	dba Sfx_Cheering
 	assert_table_length NUM_SFX
