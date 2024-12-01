@@ -1109,4 +1109,10 @@ tradeback: MACRO
 	db tradeback_command
 ENDM
 
+	const jumptextfaceplayerclap_command ; $b2
+jumptextfaceplayerclap: MACRO
+	db jumptextfaceplayerclap_command
+	dw \1 ; text_pointer
+ENDM
+
 NUM_EVENT_COMMANDS EQU const_value

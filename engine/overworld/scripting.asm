@@ -242,6 +242,7 @@ ScriptCommandTable:
 	dw Script_writeredtext				 ; af
 	dw Script_farwriteredtext			 ; b0
 	dw Script_tradeback					 ; b1
+	dw Script_clapjumptextfaceplayer	 ; b2
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -293,6 +294,24 @@ Script_memcallasm:
 	ret
 
 Script_jumptextfaceplayer:
+Script_clapjumptextfaceplayer:
+	farcall IsClappingAuthorized
+	jr c, .clapping
+	jr _Script_jumptextfaceplayer
+
+.clapping
+	ld a, BANK(_Clapping1Text)
+	ld [wScriptTextBank], a
+	ld a, LOW(_Clapping1Text)
+	ld [wScriptTextAddr], a
+	ld a, HIGH(_Clapping1Text)
+	ld [wScriptTextAddr + 1], a
+
+	ld b, BANK(JumpTextScript)
+	ld hl, JumpTextScript
+	jp ScriptJump
+
+_Script_jumptextfaceplayer:
 	ld a, [wScriptBank]
 	ld [wScriptTextBank], a
 	call GetScriptByte

@@ -2563,3 +2563,8 @@ _RTCErrorText::
 	cont "its parameters or"
 	cont "use another one."
 	prompt
+
+_Clapping1Text::
+	text "*clap* *clap*"
+	line " *clap* *clap*"
+	done
