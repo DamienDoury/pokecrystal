@@ -212,13 +212,10 @@ EcruteakCityFisherText:
 	done
 
 EcruteakCityFisherText_JasmineReturned:
-	text "The #MON at"
-	line "OLIVINE LIGHTHOUSE"
-	cont "has been cured."
-
-	para "Boats can safely"
-	line "sail out to sea at"
-	cont "night again."
+	text "What happened to"
+	line "the #MON at"
+	cont "OLIVINE LIGHTHOUSE"
+	cont "was sad…"
 	done
 
 EcruteakCityYoungsterText:
