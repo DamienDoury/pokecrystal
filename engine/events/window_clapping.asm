@@ -1,18 +1,21 @@
 ; Output: carry is it is currently clapping time, within a clapping area (town).
 ; Clobbers B.
 IsClappingAuthorized::
-    ld a, [wEnvironment]
-    cp INDOOR + 1
-    ret nc
-
-    cp ROUTE
-    jr z, .return_false
-
-    ; Valid environments: TOWN and INDOOR. As well as $0, but it doesn't exist.
-
-    ldh a, [hHours]
+    ldh a, [hHours] ; Quickest dismissal method. So we put it first.
     cp 20
     jr nz, .return_false
+    
+    push bc
+    push de
+    push hl
+    ld a, [wEnvironment]
+    ld hl, ClappingEnvironments
+    call IsInByteArray
+    pop hl
+    pop de
+    pop bc
+    ret nc
+    ;ret ; A virer.
     
     ld a, [wYearMonth] ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
     cp $07 ; August 2020.
@@ -41,3 +44,9 @@ IsClappingAuthorized::
 .return_false
     xor a
     ret
+
+ClappingEnvironments:
+    db TOWN
+    db INDOOR
+    db ENVIRONMENT_5
+    db -1
