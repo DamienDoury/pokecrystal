@@ -58,32 +58,18 @@ _ClearSprites: ; mobile
 	ld [wSpriteFlags], a
 	ret
 
-RefreshSprites::
-	call .Refresh
-	call LoadUsedSpritesGFX
-	ret
-
-.Refresh:
-	xor a
-	ld bc, wUsedSpritesEnd - wUsedSprites
-	ld hl, wUsedSprites
-	call ByteFill
-	call GetPlayerSprite
-	call AddMapSprites
-	call LoadAndSortSprites
-	ret
-
 GetPlayerSprite:
 ; Get Chris or Kris's sprite.
 	ld hl, ChrisStateSprites
 	ld a, [wPlayerSpriteSetupFlags]
 	bit PLAYERSPRITESETUP_FEMALE_TO_MALE_F, a
 	jr nz, .go
+
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, .go
-	ld hl, KrisStateSprites
 
+	ld hl, KrisStateSprites
 .go
 	ld a, [wPlayerState]
 	ld c, a
@@ -91,6 +77,7 @@ GetPlayerSprite:
 	ld a, [hli]
 	cp c
 	jr z, .good
+
 	inc hl
 	cp -1
 	jr nz, .loop
@@ -112,17 +99,6 @@ GetPlayerSprite:
 
 INCLUDE "data/sprites/player_sprites.asm"
 
-AddMapSprites:
-	call GetMapEnvironment
-	call CheckOutdoorMap
-	jr z, .outdoor
-	call AddIndoorSprites
-	ret
-
-.outdoor
-	call AddOutdoorSprites
-	ret
-
 AddIndoorSprites:
 	ld hl, wMap1ObjectSprite
 	ld a, 1
@@ -137,6 +113,13 @@ AddIndoorSprites:
 	cp NUM_OBJECTS
 	jr nz, .loop
 	ret
+
+AddMapSprites:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, AddOutdoorSprites
+
+	jr AddIndoorSprites
 
 AddOutdoorSprites:
 	ld a, [wMapGroup]
@@ -169,12 +152,21 @@ AddOutdoorSprites:
 	;call AddSpriteGFX
 	jr .loop
 
+RefreshSprites::
+	xor a
+	ld bc, wUsedSpritesEnd - wUsedSprites
+	ld hl, wUsedSprites
+	call ByteFill
+	call GetPlayerSprite
+	call AddMapSprites
+	call LoadAndSortSprites
+	; fallthrough.
+
 LoadUsedSpritesGFX:
 	ld a, MAPCALLBACK_SPRITES
 	call RunMapCallback
 	call GetUsedSprites
-	call LoadMiscTiles
-	ret
+	; fallthrough.
 
 LoadMiscTiles:
 	ld a, [wSpriteFlags]
@@ -201,6 +193,7 @@ GetSprite:
 	ld b, 0
 	ld a, NUM_SPRITEDATA_FIELDS
 	call AddNTimes
+
 	; load the address into de
 	ld a, [hli]
 	ld e, a
@@ -345,17 +338,6 @@ _GetSpritePalette::
 	ld c, a
 	ret
 
-LoadAndSortSprites:
-	call GetMapEnvironment
-	call CheckOutdoorMap
-	jr z, .outdoor
-	
-	call LoadSpriteGFX
-
-.outdoor
-	call ArrangeUsedSprites
-	ret
-
 AddSpriteGFX:
 ; Add any new sprite ids to a list of graphics to be loaded.
 ; Return carry if the list is full.
@@ -400,15 +382,14 @@ LoadSpriteGFX:
 .loop
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
+
 	push hl
 	call .LoadSprite
 	pop hl
 	ld [hli], a
 	dec b
 	jr nz, .loop
-
-.done
 	ret
 
 .LoadSprite:
@@ -417,6 +398,14 @@ LoadSpriteGFX:
 	pop bc
 	ld a, l
 	ret
+
+LoadAndSortSprites:
+	call GetMapEnvironment
+	call CheckOutdoorMap
+	jr z, ArrangeUsedSprites ; Outdoor maps jump to ArrangeUsedSprites, and skip LoadSpriteGFX.
+
+	call LoadSpriteGFX
+	; fallthrough.
 
 ArrangeUsedSprites:
 ; Get the length of each sprite and space them out in VRAM.
@@ -545,7 +534,8 @@ GetUsedSprites:
 
 	ld a, [hli]
 	and a
-	jr z, .done
+	ret z
+
 	ldh [hUsedSpriteIndex], a
 
 	ld a, [hli]
@@ -570,7 +560,6 @@ GetUsedSprites:
 	dec c
 	jr nz, .loop
 
-.done
 	ret
 
 GetUsedSprite:

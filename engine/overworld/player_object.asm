@@ -13,8 +13,7 @@ BlankScreen:
 	ld a, $7
 	call ByteFill
 	call WaitBGMap2
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 SpawnPlayer:
 	ld a, -1
@@ -58,6 +57,17 @@ PlayerObjectTemplate:
 _NUM_OBJECT_EVENTS = 0
 	object_event -4, -4, SPRITE_CHRIS, SPRITEMOVEDATA_PLAYER, 15, 15, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, 0, -1
 
+PlayerSpawn_ConvertCoords:
+	push bc
+	ld a, [wXCoord]
+	add 4
+	ld d, a
+	ld a, [wYCoord]
+	add 4
+	ld e, a
+	pop bc
+	; fallthrough.
+
 CopyDECoordsToMapObject::
 	push de
 	ld a, b
@@ -69,18 +79,6 @@ CopyDECoordsToMapObject::
 	ld hl, MAPOBJECT_Y_COORD
 	add hl, bc
 	ld [hl], e
-	ret
-
-PlayerSpawn_ConvertCoords:
-	push bc
-	ld a, [wXCoord]
-	add 4
-	ld d, a
-	ld a, [wYCoord]
-	add 4
-	ld e, a
-	pop bc
-	call CopyDECoordsToMapObject
 	ret
 
 WriteObjectXY::
@@ -552,8 +550,7 @@ TrainerWalkToPlayer:
 
 .TerminateStep:
 	ld a, movement_step_end
-	call AppendToMovementBuffer
-	ret
+	jp AppendToMovementBuffer
 
 .GetPathToPlayer:
 	push de
@@ -596,8 +593,7 @@ TrainerWalkToPlayer:
 	ld d, a
 
 	pop af
-	call ComputePathToWalkToPlayer
-	ret
+	jp ComputePathToWalkToPlayer
 
 SurfStartStep::
 	ld a, [wPlayerDirection]
@@ -719,6 +715,7 @@ GetRelativeFacing::
 	ld a, [hl]
 	cp NUM_OBJECT_STRUCTS
 	jr nc, .carry
+
 	ld d, a
 	ld a, e
 	call GetMapObject
@@ -727,9 +724,9 @@ GetRelativeFacing::
 	ld a, [hl]
 	cp NUM_OBJECT_STRUCTS
 	jr nc, .carry
+
 	ld e, a
-	call .GetFacing_e_relativeto_d
-	ret
+	jr .GetFacing_e_relativeto_d
 
 .carry
 	scf
