@@ -181,68 +181,6 @@ CopyObjectStruct::
 	set 5, [hl]
 	ret
 
-CopyMapObjectToObjectStruct:
-	call .CopyMapObjectToTempObject
-	call CopyTempObjectToObjectStruct
-	ret
-
-.CopyMapObjectToTempObject:
-	ldh a, [hObjectStructIndex]
-	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
-	add hl, bc
-	ld [hl], a
-
-	ldh a, [hMapObjectIndex]
-	ld [wTempObjectCopyMapObjectIndex], a
-
-	ld hl, MAPOBJECT_SPRITE
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopySprite], a
-
-	call GetSpriteVTile
-	ld [wTempObjectCopySpriteVTile], a
-
-	ld a, [hl]
-	call GetSpritePalette
-	ld [wTempObjectCopyPalette], a
-
-	ld hl, MAPOBJECT_COLOR
-	add hl, bc
-	ld a, [hl]
-	and $f0
-	jr z, .skip_color_override
-	swap a
-	and PALETTE_MASK
-	ld [wTempObjectCopyPalette], a
-
-.skip_color_override
-	ld hl, MAPOBJECT_MOVEMENT
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopyMovement], a
-
-	ld hl, MAPOBJECT_RANGE
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopyRange], a
-
-	ld hl, MAPOBJECT_X_COORD
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopyX], a
-
-	ld hl, MAPOBJECT_Y_COORD
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopyY], a
-
-	ld hl, MAPOBJECT_RADIUS
-	add hl, bc
-	ld a, [hl]
-	ld [wTempObjectCopyRadius], a
-	ret
-
 InitializeVisibleSprites::
 	ld bc, wMap1Object
 	ld a, 1
@@ -430,6 +368,64 @@ CheckObjectEnteringVisibleRange::
 	cp NUM_OBJECTS
 	jr nz, .loop_h
 	ret
+
+CopyMapObjectToObjectStruct:
+	ldh a, [hObjectStructIndex]
+	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
+	add hl, bc
+	ld [hl], a
+
+	ldh a, [hMapObjectIndex]
+	ld [wTempObjectCopyMapObjectIndex], a
+
+	ld hl, MAPOBJECT_SPRITE
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopySprite], a
+
+	call GetSpriteVTile
+	ld [wTempObjectCopySpriteVTile], a
+
+	ld a, [hl]
+	call GetSpritePalette
+	ld [wTempObjectCopyPalette], a
+
+	ld hl, MAPOBJECT_COLOR
+	add hl, bc
+	ld a, [hl]
+	and $f0
+	jr z, .skip_color_override
+
+	swap a
+	and PALETTE_MASK
+	ld [wTempObjectCopyPalette], a
+
+.skip_color_override
+	ld hl, MAPOBJECT_MOVEMENT
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopyMovement], a
+
+	ld hl, MAPOBJECT_RANGE
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopyRange], a
+
+	ld hl, MAPOBJECT_X_COORD
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopyX], a
+
+	ld hl, MAPOBJECT_Y_COORD
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopyY], a
+
+	ld hl, MAPOBJECT_RADIUS
+	add hl, bc
+	ld a, [hl]
+	ld [wTempObjectCopyRadius], a
+	; fallthrough.
 
 CopyTempObjectToObjectStruct:
 	ld a, [wTempObjectCopyMapObjectIndex]
