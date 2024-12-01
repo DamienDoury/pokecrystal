@@ -406,7 +406,7 @@ GoldenrodHospitalRoomHumanPatientScript:
 .room3:
 	jumptext GoldenrodHospitalRoom3PatientText
 
-.room4:
+.room4: ; Medical staff don't clap.
 	opentext
 	writetext GoldenrodHospitalRoom4PatientPart1Text
 	waitbutton
@@ -414,10 +414,10 @@ GoldenrodHospitalRoomHumanPatientScript:
 	pause 60
 	jumptext GoldenrodHospitalRoom4PatientPart2Text
 
-.room5:
-	jumptextfaceplayer GoldenrodHospitalRoom5PatientText
+.room5: ; Patients are too exhausted to clap.
+	jumptext GoldenrodHospitalRoom5PatientText
 
-.room7:
+.room7: ; Medical staff don't clap.
 	faceplayer
 	opentext 
 	writetext GoldenrodHospitalRoom7PatientText
@@ -618,8 +618,9 @@ GoldenrodHospitalRoomHumanPatientScript:
 
 .room27_advance_quest:
 	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_8
-.room27_quest_text:
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest27Text
+.room27_quest_text: ; This is a quest text. No clapping should prevent it from displaying.
+	faceplayer
+	jumptext GoldenrodHospitalRoom_Quest27Text
 
 .room29:
 	checkflag ENGINE_FLYPOINT_MAHOGANY
@@ -736,28 +737,33 @@ GoldenrodHospitalRoomVisitor1Script:
 .room2:
 	checkscene
 	ifgreater 0, .room2_quest
-	jumptextfaceplayer GoldenrodHospitalRoom2VisitorText
+	faceplayer ; Medical staff don't clap at themselves.
+	jumptext GoldenrodHospitalRoom2VisitorText
 
-.room2_quest:
+.room2_quest: ; This is a quest text. No clapping should prevent it from displaying.
 	ifgreater 4, .room2_quest_text
 	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_5
 .room2_quest_text:
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
+	faceplayer
+	jumptext GoldenrodHospitalRoom_Quest2And18Text
 	
 .room4:
-	jumptextfaceplayer GoldenrodHospitalRoom4VisitorText
+	faceplayer ; Medical staff don't clap.
+	jumptext GoldenrodHospitalRoom4VisitorText
 
 .room5:
+	faceplayer ; Medical staff don't clap.
 	checkscene
 	ifequal 5, .room5_quest
-	jumptextfaceplayer GoldenrodHospitalRoom5VisitorText
+	jumptext GoldenrodHospitalRoom5VisitorText
 .room5_quest:
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest5Text
+	jumptext GoldenrodHospitalRoom_Quest5Text
 
 .room6:
-	jumptextfaceplayer GoldenrodHospitalRoom6VisitorText
+	faceplayer
+	jumptext GoldenrodHospitalRoom6VisitorText ; Medical staff don't clap.
 
-.room7:
+.room7: ; Medical staff don't clap.
 	faceplayer
 	opentext
 	writetext GoldenrodHospitalRoom7VisitorText
@@ -794,31 +800,33 @@ GoldenrodHospitalRoomVisitor1Script:
 	; Player chose yes... twice.
 	jumptext GoldenrodHospitalRoom10VisitorYesText
 	
-.room13:
+.room13: ; Medical staff don't clap.
+	faceplayer
 	checkscene
 	ifless 1, .default_room13
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest13Text
+	jumptext GoldenrodHospitalRoom_Quest13Text
 
 .default_room13:
-	jumptextfaceplayer GoldenrodHospitalRoom13VisitorText
+	jumptext GoldenrodHospitalRoom13VisitorText
 
-.room18:
+.room18: ; Medical staff won't clap at themselves.
+	faceplayer
 	checkscene
 	ifequal 0, .default_room18
 	ifgreater 9, .default_room18
 	ifgreater 4, .room18_quest_text
 	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_5
 .room18_quest_text:
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest2And18Text
+	jumptext GoldenrodHospitalRoom_Quest2And18Text
 
 .default_room18:
-	jumptextfaceplayer GoldenrodHospitalRoom18VisitorText
+	jumptext GoldenrodHospitalRoom18VisitorText
 
 .room21:
 	jumptext GoldenrodHospitalRoom21VisitorText
 
-.room29:
-	jumptextfaceplayer GoldenrodHospitalRoom29VisitorText
+.room29: ; No clapping animation for Lance.
+	jumptext GoldenrodHospitalRoom29VisitorText
 
 .room31:
 	faceplayer
@@ -852,7 +860,8 @@ GoldenrodHospitalRoomTrainerRoom1Script:
 
 .Script:
 	endifjustbattled
-	jumptextfaceplayer GoldenrodHospitalTrainerRoom1AfterBattleText
+	faceplayer ; Medical staff can't clap at themselves.
+	jumptext GoldenrodHospitalTrainerRoom1AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom3Script:
 	trainer FIREBREATHER, HUGO, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_3, GoldenrodHospitalTrainerRoom3SeenText, GoldenrodHospitalTrainerRoom3BeatenText, 0, .Script
@@ -870,12 +879,14 @@ GoldenrodHospitalRoomTrainerRoom8Script:
 	endifjustbattled
 
 	ifgreater 5, .quest_afterbattle_text
-	jumptextfaceplayer GoldenrodHospitalTrainerRoom8AfterBattleText
+	faceplayer ; Medical staff can't clap at themselves.
+	jumptext GoldenrodHospitalTrainerRoom8AfterBattleText
 
 .advance_quest:
 	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_6
 .quest_afterbattle_text:
-	jumptextfaceplayer GoldenrodHospitalRoom_Quest8Text	
+	faceplayer ; Medical staff can't clap at themselves.
+	jumptext GoldenrodHospitalRoom_Quest8Text	
 
 GoldenrodHospitalRoomTrainerRoom17Script:
 	trainer JUGGLER, BOZO, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_17, GoldenrodHospitalTrainerRoom17SeenText, GoldenrodHospitalTrainerRoom17BeatenText, 0, .Script
@@ -902,15 +913,17 @@ GoldenrodHospitalRoomTrainerRoom31Script:
 	trainer GENTLEMAN, SUM_TING, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_31, GoldenrodHospitalTrainerRoom31SeenText, GoldenrodHospitalTrainerRoom31BeatenText, 0, .Script
 
 .Script:
-	endifjustbattled
-	jumptextfaceplayer GoldenrodHospitalTrainerRoom31AfterBattleText
+	endifjustbattled ; Patients are too exhausted to clap.
+	faceplayer
+	jumptext GoldenrodHospitalTrainerRoom31AfterBattleText
 
 GoldenrodHospitalRoomTrainerRoom32Script:
 	trainer GUITARIST, JIMI, EVENT_BEAT_HOSPITAL_TRAINER_ROOM_32, GoldenrodHospitalTrainerRoom32SeenText, GoldenrodHospitalTrainerRoom32BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	jumptextfaceplayer GoldenrodHospitalTrainerRoom32AfterBattleText
+	faceplayer
+	jumptext GoldenrodHospitalTrainerRoom32AfterBattleText ; Rocker's don't have a clapping animation.
 
 GoldenrodHospitalRoomTrainerChiefNurseScript:
 	showemote EMOTE_QUESTION, GOLDENROD_HOSPITAL_ROOM_TRAINER_CHIEF_NURSE, 15

@@ -26,7 +26,8 @@ MahoganyPokecenter1FCooltrainerFScript:
 	jumptextfaceplayer MahoganyPokecenter1FCooltrainerFText
 
 MahoganyPokecenter1FRocketScript:
-	jumptextfaceplayer MahoganyPokecenter1FRocketText
+	faceplayer
+	jumptext MahoganyPokecenter1FRocketText
 
 MahoganyPokecenter1FPokefanMText:
 	text "What's this? TEAM"

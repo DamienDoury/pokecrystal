@@ -54,20 +54,13 @@ BillScript:
 	db "CONTACT TRACING@"
 
 BillsMomScript:
-	faceplayer
-	opentext
 	checkevent EVENT_MET_BILL
 	iffalse .HaventMetBill
-	writetext BillsMomText_BeforeEcruteak
-	waitbutton
-	closetext
-	end
+
+	jumptextfaceplayer BillsMomText_BeforeEcruteak
 
 .HaventMetBill:
-	writetext BillsMomText_AfterEcruteak
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BillsMomText_AfterEcruteak
 
 BillsSisterScript:
 	faceplayer

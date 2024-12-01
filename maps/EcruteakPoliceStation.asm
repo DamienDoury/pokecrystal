@@ -18,33 +18,41 @@ EcruteakPoliceStation_MapScripts:
 	endcallback
 
 EcruteakPoliceStationReceptionistScript:
+	faceplayer
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iftrue .got_arrested
-	jumptextfaceplayer EcruteakPoliceStationReceptionistText
+	jumptext EcruteakPoliceStationReceptionistText
 
 .got_arrested
-	jumptextfaceplayer EcruteakPoliceStationReceptionistShooText
+	jumptext EcruteakPoliceStationReceptionistShooText
 
 EcruteakPoliceStationBriefing1Script:
-	jumptextfaceplayer EcruteakPoliceStationBriefingText1
+	faceplayer
+	jumptext EcruteakPoliceStationBriefingText1
 
 EcruteakPoliceStationBriefing2Script:
-	jumptextfaceplayer EcruteakPoliceStationBriefingText2
+	faceplayer
+	jumptext EcruteakPoliceStationBriefingText2
 
 EcruteakPoliceStationBriefing3Script:
-	jumptextfaceplayer EcruteakPoliceStationBriefingText3
+	faceplayer
+	jumptext EcruteakPoliceStationBriefingText3
 
 EcruteakPoliceStationBriefing4Script:
-	jumptextfaceplayer EcruteakPoliceStationBriefingText4
+	faceplayer
+	jumptext EcruteakPoliceStationBriefingText4
 
 EcruteakPoliceStationOutfitScript:
-	jumptextfaceplayer EcruteakPoliceStationOutfitText
+	faceplayer
+	jumptext EcruteakPoliceStationOutfitText
 
 EcruteakPoliceStationPrisonerScript:
-	jumptextfaceplayer EcruteakPoliceStationPrisonerText
+	faceplayer
+	jumptext EcruteakPoliceStationPrisonerText
 
 EcruteakPoliceStationPrisoner2Script:
-	jumptextfaceplayer EcruteakPoliceStationPrisoner2Text
+	faceplayer
+	jumptext EcruteakPoliceStationPrisoner2Text
 
 EcruteakPoliceStationBurnOutScript:
 	jumptext EcruteakPoliceStationBurnOutText

@@ -156,8 +156,9 @@ GoldenrodHospitalCorridorGelScript:
 	closetext
 	end
 
-GoldenrodHospitalCorridorNurse1Script:	
-	jumptextfaceplayer GoldenrodHospitalCorridorNurse1Text
+GoldenrodHospitalCorridorNurse1Script: ; Medical staff don't clap at themselves.
+	faceplayer
+	jumptext GoldenrodHospitalCorridorNurse1Text
 
 GoldenrodHospitalCorridorPokefan1Script:
 	trainer HIKER, MEREDITH, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
@@ -168,31 +169,34 @@ GoldenrodHospitalCorridorPokefan1Script:
 	endifjustbattled
 
 	ifgreater 9, .quest_afterbattle_text
-	jumptextfaceplayer GoldenrodHospitalPokefanMTrainerAfterBattleText
+	faceplayer
+	jumptext GoldenrodHospitalPokefanMTrainerAfterBattleText
 
 .advance_quest:
 	setscene SCENE_GOLDENROD_HOSPITAL_NURSE_SEARCH_STEP_10
 .quest_afterbattle_text:
 	jumptextfaceplayer GoldenrodHospitalCorridorPokefanMTrainerQuestText		
 
-GoldenrodHospitalCorridorFinder1Script:
+GoldenrodHospitalCorridorFinder1Script: ; Medical staff don't clap at themselves.
+	faceplayer
 	checkscene
 	ifequal 10, .tellAboutChiefNurse
-	jumptextfaceplayer GoldenrodHospitalCorridorFinder1Text
+	jumptext GoldenrodHospitalCorridorFinder1Text
 .tellAboutChiefNurse
-	jumptextfaceplayer GoldenrodHospitalCorridorFinder1ChiefNurseText
+	jumptext GoldenrodHospitalCorridorFinder1ChiefNurseText
 
-GoldenrodHospitalCorridorSick1Script:
+GoldenrodHospitalCorridorSick1Script: ; Medical staff don't clap at themselves.
 	jumptext GoldenrodHospitalCorridorSick1Text
 
 GoldenrodHospitalCorridorGrannyScript:
 	jumptextfaceplayer GoldenrodHospitalCorridorGrannyText
 
-GoldenrodHospitalCorridorWorriedScientist1Script:
+GoldenrodHospitalCorridorWorriedScientist1Script: ; Medical staff don't clap at themselves.
 	jumptext GoldenrodHospitalCorridorWorriedScientist1Text
 
 GoldenrodHospitalCorridorBathroomScript:
-	jumptextfaceplayer GoldenrodHospitalCorridorBathroomText
+	faceplayer 
+	jumptext GoldenrodHospitalCorridorBathroomText
 
 GoldenrodHospitalCorridorPsychicT1Script:
 	trainer PSYCHIC_T, GODOT, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_1, GoldenrodHospitalPsychicTrainerSeenText, GoldenrodHospitalPsychicTrainerBeatenText, 0, .Script

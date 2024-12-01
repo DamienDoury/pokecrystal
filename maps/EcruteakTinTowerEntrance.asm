@@ -136,7 +136,8 @@ EcruteakTinTowerEntranceWanderingSageScript:
 	end
 
 EcruteakTinTowerEntranceGrampsScript:
-	jumptextfaceplayer EcruteakTinTowerEntranceGrampsText
+	faceplayer
+	jumptext EcruteakTinTowerEntranceGrampsText
 
 EcruteakTinTowerEntranceSageBlocksLeftMovement:
 	fix_facing

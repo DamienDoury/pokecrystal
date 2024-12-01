@@ -199,20 +199,12 @@ CherrygroveSilverSceneNorth:
 	end
 
 CherrygroveTeacherScript:
-	faceplayer
-	opentext
 	checkflag ENGINE_MAP_CARD
 	iftrue .HaveMapCard
-	writetext CherrygroveTeacherText_NoMapCard
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CherrygroveTeacherText_NoMapCard
 
 .HaveMapCard:
-	writetext CherrygroveTeacherText_HaveMapCard
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CherrygroveTeacherText_HaveMapCard
 
 CherrygroveYoungsterScript:
 	faceplayer

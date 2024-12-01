@@ -8,11 +8,11 @@ GoldenrodMagnetTrainStation_MapScripts:
 	def_callbacks
 
 GoldenrodMagnetTrainStationOfficerScript:
-	faceplayer
-	opentext
 	checkevent EVENT_RESTORED_POWER_TO_KANTO
 	iffalse .NoPower
 
+	faceplayer
+	opentext
 	writetext GoldenrodMagnetTrainStationOfficerAreYouComingAboardText
 	yesorno
 	iffalse .DecidedNotToRide
@@ -42,10 +42,7 @@ GoldenrodMagnetTrainStationOfficerScript:
 	end
 
 .NoPower:
-	writetext GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText
 
 .MovementBoardTheTrain:
 	turn_head DOWN

@@ -206,7 +206,7 @@ GoldenrodHospitalNurse2Script:
 
 AskGelScript:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	jumptextfaceplayer GoldenrodHospitalAskGelText
+	jumptext GoldenrodHospitalAskGelText ; Avoiding the use of jumptextfaceplayer prevents the display of the clap dialog.
 
 GoldenrodHospitalGelScript:
 	setmapscene GOLDENROD_HOSPITAL_1F, SCENE_GOLDENROD_HOSPITAL_DEFAULT
@@ -228,7 +228,8 @@ GoldenrodHospitalGelScript:
 	end
 
 GoldenrodHospitalThankOakScript:
-	jumptextfaceplayer GoldenrodHospital1FThankOakText
+	faceplayer
+	jumptext GoldenrodHospital1FThankOakText ; This specific NPC is part of the medical staff, and shouldn't clap at himself. So we use jumptext instead of jumptextfaceplayer.
 
 GoldenrodHospitalChansey1Script:
 	cry CHANSEY
@@ -244,16 +245,17 @@ GoldenrodHospitalChanseyKicksYouScript:
 	end
 
 GoldenrodHospitalPokefan1Script:
-	jumptext GoldenrodHospitalPokefan1Text
+	jumptextfaceplayer GoldenrodHospitalPokefan1Text
 
 GoldenrodHospitalBlackglassesScript:
-	jumptext GoldenrodHospitalPharmacist1Text
+	jumptext GoldenrodHospitalPharmacist1Text ; This specific NPC doesn't have a clapping animation, so we use jumptext instead of jumptextfaceplayer.
 
 GoldenrodHospitalTwin1Script:
 	jumptextfaceplayer GoldenrodHospital1FTwin1Text
 
 GoldenrodHospitalDepressedScientistScript:
-	jumptextfaceplayer GoldenrodHospitalDepressedScientistText
+	faceplayer
+	jumptext GoldenrodHospitalDepressedScientistText ; This specific NPC is part of the medical staff, and shouldn't clap at himself. So we use jumptext instead of jumptextfaceplayer.
 
 GoldenrodHospitalCoughScript:
 	jumptextfaceplayer GoldenrodHospital1FCoughText
@@ -262,7 +264,7 @@ GoldenrodHospitalKarenScript:
 	jumptext GoldenrodHospitalKarenText
 
 GoldenrodHospitalGranny1Script:
-	jumptext GoldenrodHospitalGranny1Text
+	jumptextfaceplayer GoldenrodHospitalGranny1Text
 
 GoldenrodHospitalNursePatientScript:
 	jumptext GoldenrodHospitalNursePatientText

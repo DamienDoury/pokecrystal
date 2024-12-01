@@ -77,36 +77,22 @@ NewBarkTown_TeacherStopsYouScene2:
 	end
 
 NewBarkTownTeacherScript:
-	faceplayer
-	opentext
 	checkevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	iftrue .CallMom
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
 	iftrue .TellMomYoureLeaving
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .MonIsAdorable
-	writetext Text_GearIsImpressive
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Text_GearIsImpressive
 
 .MonIsAdorable:
-	writetext Text_YourMonIsAdorable
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Text_YourMonIsAdorable
 
 .TellMomYoureLeaving:
-	writetext Text_TellMomIfLeaving
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Text_TellMomIfLeaving
 
 .CallMom:
-	writetext Text_CallMomOnGear
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Text_CallMomOnGear
 
 NewBarkTownFisherScript:
 	jumptextfaceplayer Text_ElmDiscoveredNewMon

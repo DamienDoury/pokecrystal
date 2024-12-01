@@ -68,13 +68,13 @@ GoldenrodHappinessRaterTeacherScript:
 	end
 
 GoldenrodHappinessRaterPokefanMScript:
-	faceplayer
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
 
-	jumptext GoldenrodHappinessRaterPokefanMText
+	jumptextfaceplayer GoldenrodHappinessRaterPokefanMText
 .lockdown
+	faceplayer
 	opentext
 	writetext GoldenrodHappinessRaterPokefanMCatFilterText
 	waitbutton

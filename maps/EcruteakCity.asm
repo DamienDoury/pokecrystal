@@ -69,45 +69,32 @@ EcruteakCityLass1Script:
 	jumptextfaceplayer EcruteakCityLass1Text
 
 EcruteakCityLass2Script:
-	faceplayer
-	opentext
 	checkevent EVENT_RELEASED_THE_BEASTS
 	iftrue .ReleasedBeasts
-	writetext EcruteakCityLass2Text
-	waitbutton
-	closetext
-	end
+
+	jumptextfaceplayer EcruteakCityLass2Text
 
 .ReleasedBeasts:
-	writetext EcruteakCityLass2Text_ReleasedBeasts
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer EcruteakCityLass2Text_ReleasedBeasts
 
 EcruteakCityFisherScript:
-	faceplayer
-	opentext
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
 	iftrue .JasmineReturned
-	writetext EcruteakCityFisherText
-	waitbutton
-	closetext
-	end
+
+	jumptextfaceplayer EcruteakCityFisherText
 
 .JasmineReturned:
-	writetext EcruteakCityFisherText_JasmineReturned
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer EcruteakCityFisherText_JasmineReturned
 
 EcruteakCity_DeliveryGuyScript:
+	faceplayer
 	checkevent EVENT_FIRST_CURFEW_STARTED
 	iftrue .curfew
 	
-	jumptextfaceplayer DeliveryGuy_LockdownText
+	jumptext DeliveryGuy_LockdownText
 
 .curfew
-	jumptextfaceplayer DeliveryGuy_CurfewText
+	jumptext DeliveryGuy_CurfewText
 
 EcruteakCityYoungsterScript:
 	jumptextfaceplayer EcruteakCityYoungsterText

@@ -21,7 +21,8 @@ CianwoodLugiaSpeechHouse_MapScripts:
 	endcallback
 
 CianwoodLugiaSpeechHouseTeacherScript:
-	jumptextfaceplayer CianwoodLugiaSpeechHouseTeacherText
+	faceplayer
+	jumptext CianwoodLugiaSpeechHouseTeacherText
 
 CianwoodLugiaSpeechHouseTeacherLockdownScript:
 	faceplayer

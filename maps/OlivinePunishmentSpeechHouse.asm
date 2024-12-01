@@ -20,7 +20,8 @@ OlivinePunishmentSpeechHouse_MapScripts:
 	endcallback
 
 OlivinePunishmentSpeechHouseDad:
-	jumptextfaceplayer OlivinePunishmentSpeechHouseDadText
+	faceplayer
+	jumptext OlivinePunishmentSpeechHouseDadText
 
 OlivinePunishmentSpeechHouseDadLockdown:
 	faceplayer

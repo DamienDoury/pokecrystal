@@ -222,36 +222,21 @@ GoldenrodCityYoungster1Script:
 	jumptextfaceplayer GoldenrodCityYoungster1Text
 
 GoldenrodCityCooltrainerF1Script:
-	faceplayer
-	opentext
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .ClearedRadioTower
-	writetext GoldenrodCityCooltrainerF1Text
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GoldenrodCityCooltrainerF1Text
 
 .ClearedRadioTower:
-	writetext GoldenrodCityCooltrainerF1Text_ClearedRadioTower
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GoldenrodCityCooltrainerF1Text_ClearedRadioTower
 
 GoldenrodCityCooltrainerF2Script:
-	faceplayer
-	opentext
 	checkflag ENGINE_RADIO_CARD
 	iftrue .GotRadioCard
-	writetext GoldenrodCityCooltrainerF2Text
-	waitbutton
-	closetext
-	end
+
+	jumptextfaceplayer GoldenrodCityCooltrainerF2Text
 
 .GotRadioCard:
-	writetext GoldenrodCityCooltrainerF2Text_GotRadioCard
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GoldenrodCityCooltrainerF2Text_GotRadioCard
 
 GoldenrodCityYoungster2Script:
 	jumptextfaceplayer GoldenrodCityYoungster2Text

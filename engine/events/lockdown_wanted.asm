@@ -299,7 +299,7 @@ CheckResetWantedLevels::
 	jp ResetAllResearchLevels
 
 VaccinePassportControllerChatScript::
-	jumptextfaceplayer .dialog
+	jumptextfaceplayer .dialog ; This happens way after the clapping, so no issue here.
 
 .dialog
 	text "I scan TRAINER"
@@ -313,6 +313,7 @@ VaccinePassportControllerChatScript::
 	done
 
 TravelControllerChatScript::
+	faceplayer
 	readmem wMap1ObjectTimeOfDay ; Note: the travel controller must always be the first map_object in its map!
 	ifequal %11100000 | DAY | NITE, .morning_pause
 	ifequal %11100000 | MORN | NITE, .day_pause
@@ -321,19 +322,19 @@ TravelControllerChatScript::
 	; ifequal -1 -> always
 	; Default.
 .always
-	jumptextfaceplayer TravelControllerAlwaysText
+	jumptext TravelControllerAlwaysText
 
 .morning_pause
-	jumptextfaceplayer TravelControllerMorningPauseText
+	jumptext TravelControllerMorningPauseText
 
 .day_pause
-	jumptextfaceplayer TravelControllerDayPauseText
+	jumptext TravelControllerDayPauseText
 
 .night_pause
-	jumptextfaceplayer TravelControllerNightPauseText
+	jumptext TravelControllerNightPauseText
 
 .morning_only
-	jumptextfaceplayer TravelControllerMorningOnlyText
+	jumptext TravelControllerMorningOnlyText
 
 ArrestPlayerForTravellingScript::
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)

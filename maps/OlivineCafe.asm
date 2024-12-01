@@ -18,7 +18,8 @@ OlivineCafeFishingGuruScript:
 	end
 
 OlivineCafeStrengthSailorScript:
-	jumptextfaceplayer OlivineCafeSailorStrengthText
+	faceplayer
+	jumptext OlivineCafeSailorStrengthText
 
 OlivineCafeSailorScript:
 	turnobject OLIVINECAFE_SAILOR2, UP
@@ -30,7 +31,8 @@ OlivineCafeSailorScript:
 
 	pause 3
 
-	jumptextfaceplayer OlivineCafeSailorText2
+	faceplayer
+	jumptext OlivineCafeSailorText2
 
 OlivineCafeSailorStrengthText:
 	text "OLIVINE CAFE used"

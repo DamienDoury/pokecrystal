@@ -125,13 +125,14 @@ CianwoodCityYoungster:
 	jumptextfaceplayer Cianwood_NoPoliceControlsText
 
 CianwoodCityPokefanM:
+	faceplayer
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
-	jumptextfaceplayer CianwoodCityPokefanMText
+	jumptext CianwoodCityPokefanMText
 
 .lockdown
-	jumptextfaceplayer Cianwood_FreshAirText
+	jumptext Cianwood_FreshAirText
 
 CianwoodCityLass:
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM

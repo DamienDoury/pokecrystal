@@ -16,10 +16,11 @@ Route32Pokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 Route32Pokecenter1FFishingGuruScript:
-	faceplayer
-	opentext
 	checkitem OLD_ROD
 	iftrue .GotOldRod
+
+	faceplayer
+	opentext
 	writetext Route32Pokecenter1FFishingGuruText_Question
 	yesorno
 	iffalse .Refused
@@ -38,10 +39,7 @@ Route32Pokecenter1FFishingGuruScript:
 	end
 
 .GotOldRod:
-	writetext Route32Pokecenter1FFishingGuruText_After
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer Route32Pokecenter1FFishingGuruText_After
 
 Route32Pokecenter1FCooltrainerFScript:
 	jumptextfaceplayer Route32Pokecenter1FCooltrainerFText

@@ -304,12 +304,12 @@ LinkReceptionistScript_Battle:
 	end
 
 Script_TimeCapsuleClosed:
-	jumptextfaceplayer Text_TimeCapsuleClosed
+	jumptext Text_TimeCapsuleClosed
 
 LinkReceptionistScript_TimeCapsule:
 	checkevent EVENT_MET_BILL
 	iftrue Script_TimeCapsuleClosed
-	jumptextfaceplayer Text_TimeCapsuleReceptionistIntro
+	jumptext Text_TimeCapsuleReceptionistIntro
 
 Script_LeftCableTradeCenter:
 	special WaitForOtherPlayerToExit

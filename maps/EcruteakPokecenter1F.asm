@@ -71,7 +71,8 @@ EcruteakPokecenter1FCooltrainerFScript:
 	jumptextfaceplayer EcruteakPokecenter1FCooltrainerFText
 
 EcruteakPokecenter1FGymGuideScript:
-	jumptextfaceplayer EcruteakPokecenter1FGymGuideText
+	faceplayer
+	jumptext EcruteakPokecenter1FGymGuideText ; No clapping animation for SPRITE_GYM_GUIDE.
 
 EcruteakPokecenter1FBillMovement1:
 	step UP

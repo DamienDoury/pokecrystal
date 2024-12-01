@@ -94,20 +94,12 @@ OlivineCitySailor1Script:
 	jumptextfaceplayer OlivineCitySailor1Text
 
 OlivineCityStandingYoungsterScript:
-	faceplayer
-	opentext
 	random 2
 	ifequal 0, .FiftyFifty
-	writetext OlivineCityStandingYoungsterPokegearText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer OlivineCityStandingYoungsterPokegearText
 
 .FiftyFifty:
-	writetext OlivineCityStandingYoungsterPokedexText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer OlivineCityStandingYoungsterPokedexText
 
 OlivineCity_ToGoScript:
 	faceplayer

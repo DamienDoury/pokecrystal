@@ -163,7 +163,8 @@ RadioTower5FRocketBossScene:
 	end
 
 Ben:
-	jumptextfaceplayer BenText
+	faceplayer
+	jumptext BenText ; Avoiding the use of jumptextfaceplayer prevents the display of the clap dialog.
 
 RadioTower5FUltraBall:
 	itemball ULTRA_BALL

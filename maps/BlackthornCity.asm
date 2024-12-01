@@ -91,44 +91,39 @@ DragonsDenCutscene:
 	end
 
 BlackthornGramps1Script:
+	faceplayer
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	iftrue .violated_dragons_den
 
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
-	jumptextfaceplayer BlackthornGrampsRefusesEntryText
+	jumptext BlackthornGrampsRefusesEntryText
 
 .lockdown
-	jumptextfaceplayer BlackthornGrampsLockdownText
+	jumptext BlackthornGrampsLockdownText
 
 .violated_dragons_den
-	jumptextfaceplayer BlackthornGrampsViolationText
+	jumptext BlackthornGrampsViolationText
 
 BlackthornGramps2Script:
-	jumptextfaceplayer BlackthornGrampsGrantsEntryText
+	faceplayer
+	jumptext BlackthornGrampsGrantsEntryText
 
 BlackthornBlackBeltScript:
-	faceplayer
-	opentext
 	checkevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER
 	iftrue .ClearedRadioTower
-	writetext BlackBeltText_WeirdRadio
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BlackBeltText_WeirdRadio
 
 .ClearedRadioTower:
-	writetext BlackBeltText_VoicesInMyHead
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BlackBeltText_VoicesInMyHead
 
 BlackthornCooltrainerF1Script:
 	jumptextfaceplayer BlackthornCooltrainerF1Text
 
 BlackthornYoungsterScript:
-	jumptextfaceplayer BlackthornYoungsterText
+	faceplayer
+	jumptext BlackthornYoungsterText
 
 BlackthornCooltrainerF2Script:
 	jumptextfaceplayer BlackthornCooltrainerF2Text

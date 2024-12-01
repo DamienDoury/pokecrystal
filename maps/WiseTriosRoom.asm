@@ -34,13 +34,16 @@ WiseTriosRoom_MapScripts:
 	endcallback
 
 WiseTriosRoomSage1Script:
-	jumptextfaceplayer WiseTriosRoomSage1Text
+	faceplayer
+	jumptext WiseTriosRoomSage1Text
 
 WiseTriosRoomSage2Script:
-	jumptextfaceplayer WiseTriosRoomSage2Text
+	faceplayer
+	jumptext WiseTriosRoomSage2Text
 
 WiseTriosRoomSage3Script:
-	jumptextfaceplayer WiseTriosRoomSage3Text
+	faceplayer
+	jumptext WiseTriosRoomSage3Text
 
 WiseTriosRoom_CannotEnterTinTowerScript:	
 	turnobject WISETRIOSROOM_SAGE3, UP
