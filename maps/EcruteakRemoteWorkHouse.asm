@@ -129,7 +129,7 @@ EcruteakRemoteWorkHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  5,  1, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_MotherScript, -1
+	object_event  5,  1, SPRITE_TEACHER, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_MotherScript, -1
 	object_event  5,  4, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_ScientistScript, -1
 	object_event  2,  3, SPRITE_GAMEBOY_KID, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_MickeyScript, -1
 	object_event  3,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakRemoteWorkHouse_Computer1Script, -1

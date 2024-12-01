@@ -175,6 +175,8 @@ MAPOBJECT_SCREEN_HEIGHT EQU (SCREEN_HEIGHT / 2) + 2
 	const SPRITEMOVEDATA_SHINE  			  ; 2a
 NUM_SPRITEMOVEDATA EQU const_value
 
+CLAP_F EQU 1 << 7
+
 ; MapObjectMovementPattern.Pointers indexes (see engine/overworld/map_objects.asm)
 	const_def
 	const SPRITEMOVEFN_00                    ; 00

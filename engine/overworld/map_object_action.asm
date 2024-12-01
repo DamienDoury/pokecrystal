@@ -22,11 +22,37 @@ ObjectActionPairPointers:
 	dw SetFacingSprinkle,              SetFacingSprinkle
 	assert_table_length NUM_OBJECT_ACTIONS
 
+SetFacingCounterclockwiseSpin2:
+	call CounterclockwiseSpinAction
+	; fallthrough.
+
 SetFacingStanding:
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
 	ld [hl], STANDING
 	ret
+
+SetFacingStandAction:
+	ld hl, OBJECT_MOVEMENTTYPE
+	add hl, bc
+	ld a, [hl]
+	and CLAP_F
+	jr z, .stand_normal
+
+; check clapping time
+	push bc
+	farcall IsClappingAuthorized
+	pop bc
+	;jp c, SetFacingBounceHuman
+
+.stand_normal
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld a, [hl]
+	and 1
+	jr nz, SetFacingStepAction
+
+	; fallthrough.
 
 SetFacingCurrent:
 	call GetSpriteDirection
@@ -34,14 +60,6 @@ SetFacingCurrent:
 	add hl, bc
 	ld [hl], a
 	ret
-
-SetFacingStandAction:
-	ld hl, OBJECT_FACING_STEP
-	add hl, bc
-	ld a, [hl]
-	and 1
-	jr nz, SetFacingStepAction
-	jp SetFacingCurrent
 
 SetFacingStepAction:
 	ld hl, OBJECT_FLAGS1
@@ -127,9 +145,30 @@ SetFacingCounterclockwiseSpin:
 	ld [hl], a
 	ret
 
-SetFacingCounterclockwiseSpin2:
-	call CounterclockwiseSpinAction
-	jp SetFacingStanding
+SetFacingBounceHuman:
+	ld hl, OBJECT_STEP_FRAME
+	add hl, bc
+	ld a, [hl]
+	inc a
+	and %00000011
+	ld [hl], a
+	and a
+	jr nz, .default_facing
+
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld a, [hl]
+	xor 1
+	ld [hl], a
+	ret
+
+.default_facing
+	ld hl, OBJECT_FACING_STEP
+	add hl, bc
+	ld a, $f0
+	cp [hl]
+	jp c, SetFacingCurrent
+	ret
 
 CounterclockwiseSpinAction:
 ; Here, OBJECT_STEP_FRAME consists of two 2-bit components,

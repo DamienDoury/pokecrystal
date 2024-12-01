@@ -404,6 +404,7 @@ RestoreDefaultMovement:
 	ld a, [hl]
 	cp -1
 	jr z, .ok
+	
 	push bc
 	call GetMapObject
 	ld hl, MAPOBJECT_MOVEMENT
@@ -480,6 +481,7 @@ StepFunction_FromMovement:
 	call Field1c_ZeroAnonJumptableIndex
 	call GetSpriteMovementFunction
 	ld a, [hl]
+	and LOW(~CLAP_F)
 	ld hl, .Pointers
 	rst JumpTable
 	ret

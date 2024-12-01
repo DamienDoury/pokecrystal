@@ -97,6 +97,7 @@ WriteObjectXY::
 	pop bc
 
 	ld a, [hl]
+	and LOW(~CLAP_F)
 	cp SPRITEMOVEDATA_WANDER
 	ret z
 	cp SPRITEMOVEDATA_WALK_UP_DOWN

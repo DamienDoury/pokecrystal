@@ -261,6 +261,7 @@ CmdQueue_StoneTable:
 	ld hl, OBJECT_MOVEMENTTYPE
 	add hl, de
 	ld a, [hl]
+	and LOW(~CLAP_F)
 	cp SPRITEMOVEDATA_STRENGTH_BOULDER
 	jr nz, .next
 
@@ -310,6 +311,7 @@ CmdQueue_Sokoban:
 	ld hl, OBJECT_MOVEMENTTYPE
 	add hl, de
 	ld a, [hl]
+	and LOW(~CLAP_F)
 	cp SPRITEMOVEDATA_STRENGTH_BOULDER
 	jr nz, .next
 

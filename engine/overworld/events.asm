@@ -119,6 +119,10 @@ ClappingAutoSFX:
 	call CheckSFX
 	ret c
 
+	ld a, [wCurSFX]
+	cp SFX_CHEERING
+	ret z
+
 	ld de, SFX_CHEERING
 	jp PlaySFX
 
@@ -213,7 +217,7 @@ _CheckObjectEnteringVisibleRange:
 	ld hl, wPlayerStepFlags
 	bit PLAYERSTEP_STOP_F, [hl]
 	ret z
-	
+
 	farcall CheckObjectEnteringVisibleRange
 	ret
 

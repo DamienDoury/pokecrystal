@@ -1,7 +1,7 @@
 overworld_sprite: MACRO
 ; pointer, length, type, palette
 	dw \1
-	db \2 tiles, BANK(\1), \3, \4
+	db BANK(\1), \2 tiles, \3, \4
 ENDM
 
 OverworldSprites:
@@ -117,4 +117,118 @@ OverworldSprites:
 	overworld_sprite MewtwoOwTopSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite MewtwoOwBottomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite WalkingPikachuSpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
+	assert_table_length NUM_OVERWORLD_SPRITES
+
+ClappingOverworldSprites:
+	table_width 3, ClappingOverworldSprites
+	dab ChrisSpriteGFX
+	dab ChrisBikeSpriteGFX
+	dab GameboyKidSpriteGFX
+	dab SilverSpriteGFX
+	dab OakSpriteGFX
+	dab RedSpriteGFX
+	dab BlueSpriteGFX
+	dab BillSpriteGFX
+	dab ElderSpriteGFX
+	dab JanineSpriteGFX
+	dab KurtSpriteGFX
+	dab MomSpriteGFX
+	dab BlaineSpriteGFX
+	dab RedsMomSpriteGFX
+	dab DaisySpriteGFX
+	dab ElmSpriteGFX
+	dab WillSpriteGFX
+	dab FalknerSpriteGFX
+	dab WhitneySpriteGFX
+	dab BugsySpriteGFX
+	dab MortySpriteGFX
+	dab ChuckSpriteGFX
+	dab JasmineSpriteGFX
+	dab PryceSpriteGFX
+	dab ClairSpriteGFX
+	dab BrockSpriteGFX
+	dab KarenSpriteGFX
+	dab BrunoSpriteGFX
+	dab MistySpriteGFX
+	dab LanceSpriteGFX
+	dab SurgeSpriteGFX
+	dab ErikaSpriteGFX
+	dab KogaSpriteGFX
+	dab SabrinaSpriteGFX
+	dab CooltrainerMSpriteGFX
+	dab CooltrainerFSpriteGFX
+	dab BugCatcherSpriteGFX
+	dab TwinSpriteGFX
+	dab YoungsterSpriteGFX
+	dab LassSpriteGFX
+	dab TeacherSpriteGFX
+	dab BeautySpriteGFX
+	dab SuperNerdSpriteGFX
+	dab RockerSpriteGFX
+	dab PokefanMSpriteGFX
+	dab PokefanFSpriteGFX
+	dab GrampsSpriteGFX
+	dab GrannySpriteGFX
+	dab SwimmerGuySpriteGFX
+	dab SwimmerGirlSpriteGFX
+	dab BigSnorlaxSpriteGFX
+	dab SurfingPikachuSpriteGFX
+	dab RocketSpriteGFX
+	dab RocketGirlSpriteGFX
+	dab NurseSpriteGFX
+	dab LinkReceptionistSpriteGFX
+	dab ClerkSpriteGFX
+	dab FisherSpriteGFX
+	dab FishingGuruSpriteGFX
+	dab ScientistSpriteGFX
+	dab KimonoGirlSpriteGFX
+	dab SageSpriteGFX
+	dab UnusedGuySpriteGFX
+	dab GentlemanSpriteGFX
+	dab BlackBeltSpriteGFX
+	dab ReceptionistSpriteGFX
+	dab OfficerSpriteGFX
+	dab JennySpriteGFX
+	dab AgathaSpriteGFX
+	dab LoreleiSpriteGFX
+	dab CalSpriteGFX
+	dab SlowpokeSpriteGFX
+	dab CaptainSpriteGFX
+	dab BigLaprasSpriteGFX
+	dab GymGuideSpriteGFX
+	dab SailorSpriteGFX
+	dab BikerSpriteGFX
+	dab PharmacistSpriteGFX
+	dab MonsterSpriteGFX
+	dab FairySpriteGFX
+	dab BirdSpriteGFX
+	dab DragonSpriteGFX
+	dab BigOnixSpriteGFX
+	dab N64SpriteGFX
+	dab SudowoodoSpriteGFX
+	dab SurfSpriteGFX
+	dab PokeBallSpriteGFX
+	dab PokedexSpriteGFX
+	dab PaperSpriteGFX
+	dab VirtualBoySpriteGFX
+	dab ShineSpriteGFX
+	dab InvisibleWallSpriteGFX
+	dab RockSpriteGFX
+	dab BoulderSpriteGFX
+	dab SnesSpriteGFX
+	dab FamicomSpriteGFX
+	dab ConeSpriteGFX
+	dab FruitTreeSpriteGFX
+	dab GoldTrophySpriteGFX
+	dab SilverTrophySpriteGFX
+	dab KrisSpriteGFX
+	dab KrisBikeSpriteGFX
+	dab SuicuneSpriteGFX
+	dab EnteiSpriteGFX
+	dab RaikouSpriteGFX
+	dab SquirtleSquadSpriteGFX
+	dab OldAmberSpriteGFX
+	dab MewtwoOwTopSpriteGFX
+	dab MewtwoOwBottomSpriteGFX
+	dab WalkingPikachuSpriteGFX
 	assert_table_length NUM_OVERWORLD_SPRITES

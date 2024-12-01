@@ -564,6 +564,7 @@ IsObjectMovingOffEdgeOfScreen:
 	ld hl, OBJECT_MOVEMENTTYPE
 	add hl, bc
 	ld a, [hl]
+	and LOW(~CLAP_F)
 	cp SPRITEMOVEDATA_PATROL_X ; We allow patrolling NPCs to go out of the map.
 	jr nc, .nope
 

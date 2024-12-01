@@ -934,6 +934,7 @@ endc
 
 	farcall GetFacingObject
 	ld a, d
+	and LOW(~CLAP_F)
 	jr c, .BumpSound
 
 	cp SPRITEMOVEDATA_SMASHABLE_ROCK

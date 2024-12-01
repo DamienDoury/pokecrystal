@@ -134,7 +134,7 @@ GoldenrodHospitalRoom_MapScripts:
 	variablesprite SPRITE_HOSPITAL_VISITOR, SPRITE_OFFICER
 	setval PAL_NPC_GREEN << 4
 	writemem wMap4ObjectColor
-	setval SPRITEMOVEDATA_STANDING_LEFT
+	setval CLAP_F | SPRITEMOVEDATA_STANDING_LEFT
 	writemem wMap4ObjectMovement
 	sjump .SetSickMonID
 
@@ -1979,10 +1979,10 @@ GoldenrodHospitalRoom_MapEvents:
 
 	; Trainers.
 	object_event 12, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom1Script, -1
-	object_event 12, 12, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom3Script, -1
+	object_event 12, 12, SPRITE_FISHER, CLAP_F | SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom3Script, -1 ; This trainer can't walk, so the clapping animation can't break its walking animation.
 	object_event 12, 12, SPRITE_SCIENTIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom8Script, -1
-	object_event 12, 12, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom17Script, -1
-	object_event 12, 12, SPRITE_BLACK_BELT, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, GoldenrodHospitalRoomTrainerRoom26Script, -1
+	object_event 12, 12, SPRITE_SUPER_NERD, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom17Script, -1 ; This trainer can't walk, so the clapping animation can't break its walking animation.
+	object_event 12, 12, SPRITE_BLACK_BELT, CLAP_F | SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 1, GoldenrodHospitalRoomTrainerRoom26Script, -1 ; This trainer can't walk, so the clapping animation can't break its walking animation.
 	object_event 12, 12, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom30Script, -1
 	object_event 12, 12, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 0, GoldenrodHospitalRoomTrainerRoom31Script, -1
 	object_event 12, 12, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, GoldenrodHospitalRoomTrainerRoom32Script, -1

@@ -455,10 +455,11 @@ GetSpriteMovementFunction::
 	ld hl, OBJECT_MOVEMENTTYPE
 	add hl, bc
 	ld a, [hl]
+	and LOW(~CLAP_F) ; Filtering out the Clap bit.
 	cp NUM_SPRITEMOVEDATA
 	jr c, .ok
-	xor a
 
+	xor a
 .ok
 	ld hl, SpriteMovementData + SPRITEMOVEATTR_MOVEMENT
 	ld e, a
@@ -472,6 +473,7 @@ endr
 GetInitialFacing::
 	push bc
 	push de
+	and LOW(~CLAP_F)
 	ld e, a
 	ld d, 0
 	ld hl, SpriteMovementData + SPRITEMOVEATTR_FACING
@@ -510,6 +512,7 @@ CopySpriteMovementData::
 	ld [hl], a
 
 	push de
+	and LOW(~CLAP_F)
 	ld e, a
 	ld d, 0
 	ld hl, SpriteMovementData + SPRITEMOVEATTR_FACING
