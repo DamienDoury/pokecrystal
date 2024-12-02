@@ -210,6 +210,24 @@ GetSprite:
 	call SelectSpriteVariant
 	jr z, .load_length
 
+	; loading the alternate sprite (clapping).
+	push hl
+	ld hl, ClappingOverworldSprites
+	ld b, 0
+	add hl, bc
+	add hl, bc
+	add hl, bc
+
+	; loads the address
+	ld a, [hli]
+	ld e, a
+	ld a, [hli]
+	ld d, a
+	; load the sprite bank into b
+	ld b, [hl]
+	pop hl
+
+.load_length
 	; load the length into c
 	ld a, [hli]
 	swap a
@@ -231,6 +249,11 @@ SelectSpriteVariant:
 	and a
 	ret
 
+; Input: the sprite ID in A.
+; Outputs: 
+; - the sprite variant in A (0 = regular, 1 = clapping).
+; - nz if the sprite variant has been changed.
+; Clobbers B, C, D, E, H, L.
 FindSpriteVariant:
 ; If the sprite we loaded is one of the map objects, we register which variant we loaded. 
 ; Only the first map_object instance using this sprite will be considered. 
@@ -238,8 +261,7 @@ FindSpriteVariant:
 	ld hl, wMap1ObjectSprite
 	ld de, MAPOBJECT_LENGTH
 	call IsInArray
-	ld a, 0 ; Doesn't affect the carry flag, unlike xor a.
-	ret nc
+	jr nc, .return_unchanged ; If the sprite is not in the array, we'll return 0 and z.
 
 	ld a, [wClappingData]
 	ld e, MAPOBJECT_MOVEMENT - MAPOBJECT_SPRITE
@@ -254,7 +276,12 @@ endr
 
 	ld e, MAPOBJECT_SPRITE_VARIANT - MAPOBJECT_MOVEMENT
 	add hl, de
+	cp [hl]
 	ld [hl], a
+	ret
+
+.return_unchanged
+	xor a
 	ret
 
 GetMonSprite:
@@ -567,6 +594,51 @@ ArrangeUsedSprites:
 
 .OneDirection:
 	ld a, 4 / 4
+	ret
+
+UpdateSpriteVariants::
+	ld hl, wUsedSprites
+	ld c, SPRITE_GFX_LIST_CAPACITY
+.loop
+	ld a, [wSpriteFlags]
+	res 5, a
+	ld [wSpriteFlags], a
+
+	ld a, [hli]
+	and a
+	ret z
+
+	ldh [hUsedSpriteIndex], a
+
+	push bc
+	push hl
+	call FindSpriteVariant
+	pop hl
+	pop bc
+	ld a, [hli]
+	jr z, .next
+
+	ldh [hUsedSpriteTile], a
+	cp $40
+	jr c, .dont_set
+
+	ld a, [wSpriteFlags]
+	set 5, a ; load VBank0
+	ld [wSpriteFlags], a
+
+.dont_set
+	push bc
+	push hl
+	call GetUsedSprite
+	pop hl
+	pop bc
+	
+.next
+	dec c
+	jr nz, .loop
+	ret
+
+.updateSprite
 	ret
 
 GetUsedSprites::

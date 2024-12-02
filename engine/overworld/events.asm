@@ -144,7 +144,7 @@ ClappingModeCheck:
 	; Activation checks success.
 	set CLAP_BEHAVIOUR_BIT, [hl]
 
-	farcall GetUsedSprites ; Instead of using this generic function, I should make one that only reloads the necessary sprites.
+	farcall UpdateSpriteVariants
 	ret
 
 .TryEndClapping
@@ -155,7 +155,7 @@ ClappingModeCheck:
 	; Deactivation checks success.
 	res CLAP_BEHAVIOUR_BIT, [hl]
 
-	farcall GetUsedSprites ; Instead of using this generic function, I should make one that only reloads the necessary sprites.
+	farcall UpdateSpriteVariants
 	ret
 
 MapEvents:
