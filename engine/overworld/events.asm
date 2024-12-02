@@ -111,6 +111,7 @@ HandleMap:
 	call HandleMapBackground
 	call CheckPlayerState
 	call ClappingModeCheck
+	call AnimatePlayerClap
 	; fallthrough.
 
 ClappingAutoSFX:
@@ -156,6 +157,32 @@ ClappingModeCheck:
 	res CLAP_BEHAVIOUR_BIT, [hl]
 
 	farcall UpdateSpriteVariants
+	ret
+
+AnimatePlayerClap:
+	ld a, [wPlayerState]
+	cp PLAYER_CLAP
+	ld b, 0
+	jr nz, .save_countdown ; Resets the countdown then quits.
+	
+	ld a, [wClappingData]
+	and CLAPPING_IDLE_FRAMES_MASK ; We mask out the countdown.
+	ret z ; If the countdown has already reached 0, no need to decrease it.
+
+	dec a
+	ld b, a
+	jr nz, .save_countdown
+
+; When the countdown reaches 0, we update the player sprite to its normal behaviour.
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	call UpdatePlayerSprite
+
+.save_countdown
+	ld a, [wClappingData]
+	and ~CLAPPING_IDLE_FRAMES_MASK
+	or b
+	ld [wClappingData], a
 	ret
 
 MapEvents:
@@ -493,6 +520,7 @@ CheckTimeEvents:
 OWPlayerInput:
 	call PlayerMovement
 	ret c
+	
 	and a
 	jr nz, .NoAction
 
@@ -622,16 +650,74 @@ if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 endc
 
 	; Clapping.
+	ldh a, [hJoypadDown]
+	cp A_BUTTON
+	ret nz ; If the player is pressing any other button, cancel the clap.
+
 	farcall IsClappingAuthorized
 	ret nc
 
+	; Delay between 2 claps.
+	ld a, [wClappingData]
+	and CLAPPING_IDLE_FRAMES_MASK
+	cp CLAPPING_IDLE_FRAMES_MASK + 1 - MIN_CLAPPING_DELAY
+	ret nc
+
+	; Can't clap while surfing or biking. You can only clap from the normal state, or when already clapping.
+	ld hl, wPlayerState
+	ld a, [hl]
+	cp PLAYER_CLAP + 1
+	ret nc
+
+	; Clap is validated.
+
+	cp PLAYER_CLAP
+	jr z, .skip_sprite_update
+
+	; We load the clapping sprite variant of the player.
+	ld a, PLAYER_CLAP
+	ld [wPlayerState], a
+	call UpdatePlayerSprite
+
+.skip_sprite_update
+	; We reset the clap countdown, for animation timing purposes.
+	ld a, [wClappingData]
+	or CLAPPING_IDLE_FRAMES_MASK
+	ld [wClappingData], a
+
+	call .increase_clap_count
+
 	ld de, SFX_CLAP_2
-	ld a, SFX_CLAP_3 - SFX_CLAP_1
-	call RandomRange
-	add e
+	;ld a, SFX_CLAP_3 - SFX_CLAP_1
+	;call RandomRange
+	;add a
+	;add e
 	;ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
 	call PlaySFX
 	xor a
+	ret
+
+.increase_clap_count
+	ld hl, wClapCount
+	inc [hl] ; The low byte can always overflow, even if the 2 byte value is maxxed out, so the happiness can increase indefinitely. 
+	jr nz, .check_clap_count
+
+	inc hl
+	ld a, $ff
+	cp [hl]
+	jr z, .check_clap_count
+
+	inc [hl]
+	dec hl
+
+.check_clap_count
+	ld a, [hl]
+	and $1f
+	cp $1f
+	ret nz
+
+	; Every 32 claps, the happiness increases.
+	farcall IncreasePartyHappiness
 	ret
 
 .try_to_cut::
@@ -921,6 +1007,7 @@ CheckLongStartPressOW:
 	ld de, SFX_MENU
 	call PlaySFX
 
+	farcall SetNormalStateIfClapping
 	farcall HideMapNameSign
 	call RefreshScreen
 	farcall SaveMenu.quick

@@ -123,6 +123,8 @@ CheckUpdatePlayerSprite:
 	ld a, [wPlayerState]
 	cp PLAYER_NORMAL
 	jr z, .nope
+	cp PLAYER_CLAP
+	jr z, .nope
 	cp PLAYER_SKATE
 	jr z, .nope
 	cp PLAYER_SURF

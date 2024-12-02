@@ -919,7 +919,7 @@ ENDU
 ENDU
 
 wClappingData:: db
-; bit 0-4: timing since last player clap.
+; bit 0-3: timing since last player clap (see CLAPPING_IDLE_FRAMES_MASK).
 ; bit 7: clap mode activation.
 
 	ds 23
@@ -3295,7 +3295,9 @@ wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
 wWalkingAbuseGuard:: db ; Counts the number of steps since the last player "useful action", and disables some step counting features when the player walks too much.
 wTradebackSuccessfulTradesCount:: db ; Number of trades with the tradeback guy.
-	ds 13 ; Available saved memory. 
+wClapCount:: dw
+
+	ds 11 ; Available saved memory. 
 
 wPokemonDataEnd::
 wGameDataEnd::

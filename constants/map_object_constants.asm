@@ -178,6 +178,8 @@ NUM_SPRITEMOVEDATA EQU const_value
 
 CLAP_BEHAVIOUR_BIT EQU 7
 CLAP_F EQU 1 << CLAP_BEHAVIOUR_BIT
+CLAPPING_IDLE_FRAMES_MASK EQU $f
+MIN_CLAPPING_DELAY EQU 2
 
 ; MapObjectMovementPattern.Pointers indexes (see engine/overworld/map_objects.asm)
 	const_def

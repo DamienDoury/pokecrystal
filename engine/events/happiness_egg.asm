@@ -114,6 +114,7 @@ StepHappiness::
 	ld [hl], a
 	ret nz
 
+IncreasePartyHappiness::
 	ld de, wPartyCount
 	ld a, [de]
 	and a

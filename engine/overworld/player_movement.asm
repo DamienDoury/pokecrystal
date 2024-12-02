@@ -47,18 +47,31 @@ DoPlayerMovement::
 	ld [wCurInput], a
 	ret
 
+.Clap
+	ld a, [wCurInput]
+	and D_PAD
+	jr z, .Normal
+
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	call UpdatePlayerSprite
+	jr .Normal
+
 .TranslateIntoMovement:
 	ld a, [wPlayerState]
+	cp PLAYER_CLAP
+	jr z, .Clap
 	cp PLAYER_NORMAL
 	jr z, .Normal
 	cp PLAYER_SURF
 	jr z, .Surf
 	cp PLAYER_SURF_PIKA
 	jr z, .Surf
-	cp PLAYER_BIKE
-	jr z, .Normal
+	;cp PLAYER_BIKE
+	;jr z, .Normal
 	cp PLAYER_SKATE
 	jr z, .Ice
+	; Any other behaviour defaults to .Normal
 
 .Normal:
 	call .CheckForced
@@ -1098,6 +1111,7 @@ CheckStandingOnIce::
 	ret
 
 StopPlayerForEvent::
+	call SetNormalStateIfClapping
 	ld hl, wPlayerNextMovement
 	ld a, movement_step_sleep
 	cp [hl]
@@ -1107,3 +1121,12 @@ StopPlayerForEvent::
 	ld a, 0
 	ld [wPlayerTurningDirection], a
 	ret
+
+SetNormalStateIfClapping::
+	ld a, [wPlayerState]
+	cp PLAYER_CLAP
+	ret nz
+
+	ld a, PLAYER_NORMAL
+	ld [wPlayerState], a
+	jp UpdatePlayerSprite
