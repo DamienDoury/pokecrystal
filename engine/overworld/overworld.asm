@@ -199,16 +199,62 @@ GetSprite:
 	ld e, a
 	ld a, [hli]
 	ld d, a
+
+	; load the sprite bank into both b and h
+	ld a, [hli]
+	ld b, a
+
+	; Window Clapping special case.
+	ld a, c ; Retrieving the sprite ID that was given in A as an input to this function.
+	inc a
+	call SelectSpriteVariant
+	jr z, .load_length
+
 	; load the length into c
 	ld a, [hli]
 	swap a
 	ld c, a
-	; load the sprite bank into both b and h
-	ld b, [hl]
-	ld a, [hli]
 	; load the sprite type into l
 	ld l, [hl]
-	ld h, a
+	ld h, b
+	ret
+
+; Output: nz if clapping variant must be loaded. z if regular version must be loaded.
+SelectSpriteVariant:
+	push bc
+	push de
+	push hl
+	call FindSpriteVariant
+	pop hl
+	pop de
+	pop bc
+	and a
+	ret
+
+FindSpriteVariant:
+; If the sprite we loaded is one of the map objects, we register which variant we loaded. 
+; Only the first map_object instance using this sprite will be considered. 
+; All other map_objects must use the same sprite variant.
+	ld hl, wMap1ObjectSprite
+	ld de, MAPOBJECT_LENGTH
+	call IsInArray
+	ld a, 0 ; Doesn't affect the carry flag, unlike xor a.
+	ret nc
+
+	ld a, [wClappingData]
+	ld e, MAPOBJECT_MOVEMENT - MAPOBJECT_SPRITE
+	ld d, 0
+	add hl, de
+	and [hl]
+	and CLAP_F
+
+rept 8 - CLAP_BEHAVIOUR_BIT
+	rlc a ; Move the value of CLAP_F from bit 7 to bit 0.
+endr
+
+	ld e, MAPOBJECT_SPRITE_VARIANT - MAPOBJECT_MOVEMENT
+	add hl, de
+	ld [hl], a
 	ret
 
 GetMonSprite:
@@ -523,7 +569,7 @@ ArrangeUsedSprites:
 	ld a, 4 / 4
 	ret
 
-GetUsedSprites:
+GetUsedSprites::
 	ld hl, wUsedSprites
 	ld c, SPRITE_GFX_LIST_CAPACITY
 

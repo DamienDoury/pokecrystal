@@ -296,7 +296,8 @@ map_object: MACRO
 \1ObjectRange::     db
 \1ObjectScript::    dw
 \1ObjectEventFlag:: dw
-	ds 2
+\1ObjectSpriteVariant:: db
+	ds 1
 ENDM
 
 sprite_oam_struct: MACRO
