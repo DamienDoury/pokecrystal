@@ -380,7 +380,8 @@ GoldenrodGameCornerPokefanFScript:
 	end
 
 GoldenrodGameCornerCooltrainerFScript:
-	jumptextfaceplayer GoldenrodGameCornerCooltrainerFText
+	faceplayer
+	jumptext GoldenrodGameCornerCooltrainerFText
 
 GoldenrodGameCornerGentlemanScript:
 	faceplayer
@@ -392,13 +393,14 @@ GoldenrodGameCornerGentlemanScript:
 	end
 
 GoldenrodGameCornerPokefanM2Script:
+	faceplayer
 	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iftrue .legally_open
 
-	jumptextfaceplayer GoldenrodGameCornerPokefanM2Text
+	jumptext GoldenrodGameCornerPokefanM2Text
 
 .legally_open
-	jumptextfaceplayer GoldenrodGameCornerPokefanM2LegalText
+	jumptext GoldenrodGameCornerPokefanM2LegalText
 
 GoldenrodGameCornerAbraScript:
 	cry ABRA
