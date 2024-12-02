@@ -918,7 +918,11 @@ ENDU
 
 ENDU
 
-	ds 24
+wClappingData:: db
+; bit 0-4: timing since last player clap.
+; bit 7: clap mode activation.
+
+	ds 23
 
 
 SECTION "Overworld Map", WRAM0

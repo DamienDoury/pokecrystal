@@ -110,18 +110,17 @@ HandleMap:
 	call NextOverworldFrame
 	call HandleMapBackground
 	call CheckPlayerState
+	call ClappingModeCheck
 	; fallthrough.
 
 ClappingAutoSFX:
-	farcall IsClappingAuthorized
-	jr nc, .TryEndClapping
+	ld hl, wClappingData
+	bit CLAP_BEHAVIOUR_BIT, [hl]
+	jr z, .TryEndClapping
 
+	; Trying to start the clapping SFX.
 	call CheckSFX
 	ret c
-
-	ld a, [wCurSFX]
-	cp SFX_CHEERING
-	ret z
 
 	ld de, SFX_CHEERING
 	jp PlaySFX
@@ -129,12 +128,34 @@ ClappingAutoSFX:
 .TryEndClapping
 	call CheckSFX
 	ret nc
+	
+	farcall StopSFX
+	ret
 
-	ld a, [wCurSFX]
-	cp SFX_CHEERING
+ClappingModeCheck:
+	farcall IsClappingAuthorized
+	jr nc, .TryEndClapping
+
+	; Trying to activate the clapping.
+	ld hl, wClappingData
+	bit CLAP_BEHAVIOUR_BIT, [hl]
 	ret nz
 
-	farcall StopSFX
+	; Activation checks success.
+	set CLAP_BEHAVIOUR_BIT, [hl]
+
+	farcall GetUsedSprites ; Instead of using this generic function, I should make one that only reloads the necessary sprites.
+	ret
+
+.TryEndClapping
+	ld hl, wClappingData
+	bit CLAP_BEHAVIOUR_BIT, [hl]
+	ret z
+
+	; Deactivation checks success.
+	res CLAP_BEHAVIOUR_BIT, [hl]
+
+	farcall GetUsedSprites ; Instead of using this generic function, I should make one that only reloads the necessary sprites.
 	ret
 
 MapEvents:
@@ -169,9 +190,9 @@ NextOverworldFrame:
 	ld a, [wOverworldDelay]
 	and a
 	ret z
+
 	ld c, a
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 HandleMapTimeAndJoypad:
 	ld a, [wMapEventStatus]
@@ -180,8 +201,7 @@ HandleMapTimeAndJoypad:
 
 	call UpdateTime
 	call GetJoypad
-	call TimeOfDayPals
-	ret
+	jp TimeOfDayPals
 
 HandleMapBackground:
 	farcall _UpdateSprites

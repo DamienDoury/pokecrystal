@@ -215,6 +215,7 @@ CheckGDMA:
 	ret nc
 
 	; Must be a copy of >$80 tiles.
+	; Must not be a copy of >$80 tiles.
 	ld a, c
 	dec a
 	add a
