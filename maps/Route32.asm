@@ -389,7 +389,15 @@ TrainerYoungsterAlbert:
 .Script:
 	endifjustbattled
 	opentext
+	checkitem HM_CUT
+	iftrue .lockdown_announcement_was_made
+
 	writetext YoungsterAlbertAfterText
+	sjump .text_end
+
+.lockdown_announcement_was_made
+	writetext YoungsterAlbertAfterPostponedText
+.text_end
 	waitbutton
 	closetext
 	end
@@ -660,11 +668,8 @@ FisherHenryAfterText:
 	done
 
 YoungsterAlbertSeenText:
-	text "I haven't seen you"
-	line "around before."
-
-	para "So you think you"
-	line "are pretty tough?"
+	text "I love sports!"
+	line "Let's spar!"
 	done
 
 YoungsterAlbertBeatenText:
@@ -672,13 +677,18 @@ YoungsterAlbertBeatenText:
 	done
 
 YoungsterAlbertAfterText:
-	text "I'm going to try"
-	line "to be the best"
-	cont "with my favorites."
+	text "I bought tickets"
+	line "for the #ATHLON"
+	cont "that'll take place"
+	cont "in GOLDENROD CITY"
+	cont "in a few months!"
+	done
 
-	para "I'm not using the"
-	line "same tough #MON"
-	cont "as everyone else."
+YoungsterAlbertAfterPostponedText:
+	text "The #ATHLON has"
+	line "been postponed"
+	cont "indefinitely."
+	cont "I'm devastated."
 	done
 
 YoungsterGordonSeenText:
