@@ -40,10 +40,9 @@ SetFacingStandAction:
 	jr z, .stand_normal
 
 ; check clapping time
-	push bc
-	farcall IsClappingAuthorized
-	pop bc
-	;jp c, SetFacingBounceHuman
+	ld a, [wClappingData]
+	bit CLAP_BEHAVIOUR_BIT, a
+	jp nz, SetFacingBounceHuman
 
 .stand_normal
 	ld hl, OBJECT_FACING_STEP
@@ -254,13 +253,32 @@ SetFacingBigDollSym:
 	ret
 
 SetFacingBounce:
+	ld a, [bc]
+	cp SPRITE_NURSE
+	jr z, .nurse_timer
+
+	cp SPRITE_HOSPITAL_VISITOR ; No Pokémon use this variable sprite.
+	jr z, .nurse_timer
+
+	cp SPRITE_HOSPITAL_HUMAN_PATIENT ; No Pokémon use this variable sprite.
+	jr z, .nurse_timer
+
+	ld d, %00001111
+	ld e, %00001000
+	jr .got_timer
+
+	; Nurse bow at half the pokemon frequency.
+.nurse_timer
+	ld d, %00011111
+	ld e, %00010000
+.got_timer
 	ld hl, OBJECT_STEP_FRAME
 	add hl, bc
 	ld a, [hl]
 	inc a
-	and %00001111
+	and d
 	ld [hl], a
-	and %00001000
+	and e
 	jr z, SetFacingFreezeBounce
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc

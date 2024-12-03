@@ -52,9 +52,7 @@ DoPlayerMovement::
 	and D_PAD
 	jr z, .Normal
 
-	ld a, PLAYER_NORMAL
-	ld [wPlayerState], a
-	call UpdatePlayerSprite
+	farcall SetNormalStateIfClapping
 	jr .Normal
 
 .TranslateIntoMovement:
@@ -1126,6 +1124,8 @@ SetNormalStateIfClapping::
 	ld a, [wPlayerState]
 	cp PLAYER_CLAP
 	ret nz
+	
+	farcall NursesStopBowing
 
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a

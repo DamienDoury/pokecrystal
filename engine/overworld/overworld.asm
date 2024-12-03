@@ -271,7 +271,7 @@ FindSpriteVariant:
 	and CLAP_F
 
 rept 8 - CLAP_BEHAVIOUR_BIT
-	rlc a ; Move the value of CLAP_F from bit 7 to bit 0.
+	rlca ; Move the value of CLAP_F from bit 7 to bit 0.
 endr
 
 	ld e, MAPOBJECT_SPRITE_VARIANT - MAPOBJECT_MOVEMENT

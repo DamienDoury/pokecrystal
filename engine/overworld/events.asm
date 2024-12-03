@@ -174,10 +174,8 @@ AnimatePlayerClap:
 	jr nz, .save_countdown
 
 ; When the countdown reaches 0, we update the player sprite to its normal behaviour.
-	ld a, PLAYER_NORMAL
-	ld [wPlayerState], a
-	call UpdatePlayerSprite
-
+	farcall SetNormalStateIfClapping
+	
 .save_countdown
 	ld a, [wClappingData]
 	and ~CLAPPING_IDLE_FRAMES_MASK
@@ -687,13 +685,15 @@ endc
 
 	call .increase_clap_count
 
-	ld de, SFX_CLAP_2
+	ld de, SFX_CLAP_3
 	;ld a, SFX_CLAP_3 - SFX_CLAP_1
 	;call RandomRange
 	;add a
 	;add e
 	;ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
 	call PlaySFX
+	farcall NursesBowWhenClappedAt
+	farcall UpdatePlayerClapAnimation
 	xor a
 	ret
 

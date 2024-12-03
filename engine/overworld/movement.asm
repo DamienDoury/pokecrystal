@@ -309,7 +309,7 @@ Movement_step_sleep:
 ;	duration (DecimalParam)
 
 	call JumpMovementPointer
-	jr Movement_step_sleep_common
+	; fallthrough.
 
 Movement_step_sleep_common:
 	ld hl, OBJECT_STEP_DURATION

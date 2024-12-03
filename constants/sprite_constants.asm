@@ -200,7 +200,7 @@ NUM_POKEMON_SPRITES EQU const_value - SPRITE_POKEMON
 	const_next $f0
 SPRITE_VARS EQU const_value
 	const SPRITE_CONSOLE ; f0
-	const SPRITE_DOLL_1 ; f1 ; Now also used for the hospital rooms' patient.
+	const SPRITE_DOLL_1 ; f1 ; Now also used for the hospital rooms' Pokémon patient.
 	const SPRITE_DOLL_2 ; f2 
 	const SPRITE_BIG_DOLL ; f3
 	const_skip
