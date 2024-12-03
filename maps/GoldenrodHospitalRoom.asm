@@ -420,7 +420,20 @@ GoldenrodHospitalRoomHumanPatientScript:
 .room7: ; Medical staff don't clap.
 	faceplayer
 	opentext 
+	callasm HasPlayerClappedInThisRoom
+	iffalse .room7_no_clapping
+
+	farwritetext GoldenrodHospitalRoom7PatientClapText
+	checkevent EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
+	iffalse .room7_text_end
+
+	callasm ResetPlayerClappingInThisRoom
+	sjump .room7_text_end
+
+.room7_no_clapping:
 	writetext GoldenrodHospitalRoom7PatientText
+	
+.room7_text_end
 	waitbutton
 	closetext
 	turnobject GOLDENROD_HOSPITAL_ROOM_HUMAN_PATIENT, LEFT
@@ -766,11 +779,36 @@ GoldenrodHospitalRoomVisitor1Script:
 .room7: ; Medical staff don't clap.
 	faceplayer
 	opentext
+	callasm HasPlayerClappedInThisRoom
+	iffalse .room7_no_clapping
+
+	farwritetext GoldenrodHospitalRoom7VisitorClapText
+	checkevent EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
+	iftrue .room7_reset_clap_then_quit
+
+	promptbutton
+	farwritetext GoldenrodHospitalRoom7VisitorClap2Text
+	promptbutton
+	verbosegiveitem MAX_ELIXER, 10
+	iffalse .room7_closetext
+	
+	callasm ResetPlayerClappingInThisRoom
+	setevent EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
+	sjump .room7_closetext
+
+.room7_no_clapping:
 	writetext GoldenrodHospitalRoom7VisitorText
+	
+.room7_text_end:
 	waitbutton
+.room7_closetext:
 	closetext
 	turnobject GOLDENROD_HOSPITAL_ROOM_VISITOR1, RIGHT
 	end
+
+.room7_reset_clap_then_quit:
+	callasm ResetPlayerClappingInThisRoom
+	sjump .room7_text_end
 
 .room10:
 	faceplayer

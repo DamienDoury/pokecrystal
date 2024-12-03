@@ -116,6 +116,13 @@ PokecenterNurseScript:
 	; only do this once
 	clearevent EVENT_WELCOMED_TO_POKECOM_CENTER
 
+	callasm HasPlayerClappedInThisRoom
+	iffalse .check_pcr_presentation
+
+	farwritetext Pokecenter1F_ThanksForSupport
+	promptbutton
+
+.check_pcr_presentation
 	; We inform the player about PCR tests, once.
 	readvar VAR_BADGES
 	ifless 4, .pcr_presentation_skipped
@@ -382,7 +389,16 @@ PokecenterNurseScript:
 	closetext
 	opentext
 
+	callasm HasPlayerClappedInThisRoom_WithReset
+	iffalse .bye
+
+	farwritetext FreePCRTestAfterClappingText
+	promptbutton
+	loadmem wTempColorMixer, 2 ; Activates the PCR test.
+	sjump .heal_start
+
 .bye
+	callasm ResetPlayerClappingInThisRoom
 	farwritetext NurseGoodbyeText
 	turnobject LAST_TALKED, UP
 	pause 15

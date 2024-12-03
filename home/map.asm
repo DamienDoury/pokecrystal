@@ -403,6 +403,8 @@ LoadMapAttributes::
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts
+	ld hl, wClappingData
+	res CLAPPED_IN_THIS_ROOM_BIT, [hl]
 	xor a ; do not skip object events
 	ld [wBattlePokerusSeed], a ; Sometimes, a covid battle is enforced at the map level. Therefore we need to clean it at this point.
 	call ReadMapEvents

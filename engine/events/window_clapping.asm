@@ -1,30 +1,35 @@
 ; Output: carry is it is currently clapping time, within a clapping area (town).
-; Clobbers B.
+; Clobbers everything.
 IsClappingAuthorized::
-    ldh a, [hHours] ; Quickest dismissal method. So we put it first.
-    cp 20
-    jr nz, .return_false
+    ;ldh a, [hHours] ; Quickest dismissal method. So we put it first.
+    ;cp 20
+    ;jr nz, .return_false
     
+    ;ld b, CHECK_FLAG
+    ;ld de, EVENT_FIRST_LOCKDOWN_STARTED
+    ;call EventFlagAction
+    ;ret z
+
     push bc
     push de
-    push hl
     ld a, [wEnvironment]
     ld hl, ClappingEnvironments
     call IsInByteArray
-    pop hl
     pop de
     pop bc
     ret nc
-    ;ret ; A virer.
+    ret ; A virer.
     
     ld a, [wYearMonth] ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
     cp $07 ; August 2020.
     ret nc
 
-    sub $02 ; March 2020.
-    add a
+    sub $02 ; March 2020. A is now [0-4].
     ld b, a
-    ld a, 10
+    add a
+    add b
+    ld b, a ; A has been multiplied by 3, and is now [0, 3, 6, 9, 12].
+    ld a, 15
     sub b
     ld b, a
 
@@ -34,11 +39,11 @@ IsClappingAuthorized::
 
     ; 0. january  = return
     ; 1. february = return
-    ; 2. march    = 10 minutes of clapping (from minute 0:00 to 9:59)
-    ; 3. april    = 8 minutes
-    ; 4. may      = 6 minutes
-    ; 5. june     = 4 minutes
-    ; 6. july     = 2 minutes
+    ; 2. march    = 15 minutes of clapping (from minute 0:00 to 9:59)
+    ; 3. april    = 12 minutes
+    ; 4. may      = 9 minutes
+    ; 5. june     = 6 minutes
+    ; 6. july     = 3 minutes
     ; 7. august   = return
 
 .return_false
@@ -159,3 +164,25 @@ NursesBowWhenClappedAt::
     pop hl
     pop de
     jr .variable_sprite_decrypted
+
+HasPlayerClappedInThisRoom::
+    xor a ; FALSE
+    ld [wScriptVar], a
+
+    ld hl, wClappingData
+    bit CLAPPED_IN_THIS_ROOM_BIT, [hl]
+    ret z
+
+    inc a ; TRUE
+    ld [wScriptVar], a
+    ret
+
+HasPlayerClappedInThisRoom_WithReset::
+    call HasPlayerClappedInThisRoom
+    res CLAPPED_IN_THIS_ROOM_BIT, [hl]
+    ret
+
+ResetPlayerClappingInThisRoom::
+    ld hl, wClappingData
+    res CLAPPED_IN_THIS_ROOM_BIT, [hl]
+    ret

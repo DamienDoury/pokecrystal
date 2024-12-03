@@ -257,10 +257,10 @@ SetFacingBounce:
 	cp SPRITE_NURSE
 	jr z, .nurse_timer
 
-	cp SPRITE_HOSPITAL_VISITOR ; No Pokémon use this variable sprite.
+	cp SPRITE_HOSPITAL_VISITOR ; No Pokémon use this variable sprite. 4 Nurses do.
 	jr z, .nurse_timer
 
-	cp SPRITE_HOSPITAL_HUMAN_PATIENT ; No Pokémon use this variable sprite.
+	cp SPRITE_HOSPITAL_HUMAN_PATIENT ; No Pokémon use this variable sprite. 2 Nurses do.
 	jr z, .nurse_timer
 
 	ld d, %00001111
@@ -280,6 +280,7 @@ SetFacingBounce:
 	ld [hl], a
 	and e
 	jr z, SetFacingFreezeBounce
+
 	ld hl, OBJECT_FACING_STEP
 	add hl, bc
 	ld [hl], FACING_STEP_UP_0

@@ -471,7 +471,7 @@ GoldenrodHospitalOffice_IncPoints:
 	writeunusedbyte
 	end
 
-GoldenrodHospitalOfficeChiefScript:
+GoldenrodHospitalOfficeChiefScript: ; Chief Nurse Joy doesn't get distracted by the player's clapping. She's sharp!
 	faceplayer
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
 	iftrue .thanksForVaccine

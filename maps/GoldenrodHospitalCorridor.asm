@@ -158,7 +158,12 @@ GoldenrodHospitalCorridorGelScript:
 
 GoldenrodHospitalCorridorNurse1Script: ; Medical staff don't clap at themselves.
 	faceplayer
+	callasm HasPlayerClappedInThisRoom_WithReset
+	iftrue .player_clapped
+
 	jumptext GoldenrodHospitalCorridorNurse1Text
+.player_clapped
+	farjumptext GoldenrodHospitalCorridorNurse1ClappedText
 
 GoldenrodHospitalCorridorPokefan1Script:
 	trainer HIKER, MEREDITH, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
@@ -327,7 +332,6 @@ GoldenrodHospitalCorridorPokefanMTrainerQuestText:
 	line "left, straight"
 	cont "towards the lobby."
 	done
-
 
 GoldenrodHospitalCorridor_MapEvents:
 	db 0, 0 ; filler

@@ -162,8 +162,7 @@ ClappingModeCheck:
 AnimatePlayerClap:
 	ld a, [wPlayerState]
 	cp PLAYER_CLAP
-	ld b, 0
-	jr nz, .save_countdown ; Resets the countdown then quits.
+	ret nz
 	
 	ld a, [wClappingData]
 	and CLAPPING_IDLE_FRAMES_MASK ; We mask out the countdown.
@@ -174,8 +173,10 @@ AnimatePlayerClap:
 	jr nz, .save_countdown
 
 ; When the countdown reaches 0, we update the player sprite to its normal behaviour.
+	push bc
 	farcall SetNormalStateIfClapping
-	
+	pop bc
+
 .save_countdown
 	ld a, [wClappingData]
 	and ~CLAPPING_IDLE_FRAMES_MASK
@@ -668,6 +669,9 @@ endc
 	ret nc
 
 	; Clap is validated.
+
+	ld hl, wClappingData
+	set CLAPPED_IN_THIS_ROOM_BIT, [hl]
 
 	cp PLAYER_CLAP
 	jr z, .skip_sprite_update

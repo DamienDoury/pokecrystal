@@ -67,7 +67,18 @@ GoldenrodHospitalNurse1Script:
 	checkevent EVENT_PLAYER_CAN_GET_ITS_SECOND_SHOT
 	iftrue .chief_waiting
 
-	jumptext GoldenrodHospitalNurse1Text
+	opentext
+	callasm HasPlayerClappedInThisRoom_WithReset
+	iffalse .show_regular_text
+
+	farwritetext GoldenrodHospital1F_ClappedText
+	promptbutton
+
+.show_regular_text
+	writetext GoldenrodHospitalNurse1Text
+	waitbutton
+	closetext
+	end
 
 .chief_waiting
 	jumptext GoldenrodHospitalChiefWaitingText
@@ -80,7 +91,7 @@ GoldenrodHospitalNurse2Script:
 	checkevent EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	iffalse GoldenrodHospitalTakeover
 	checkscene
-	ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, AskGelScript
+	ifequal SCENE_GOLDENROD_HOSPITAL_NEED_TO_WASH_HANDS, AskGelScript.warning_text
 
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	iffalse .CleanHands
@@ -205,8 +216,22 @@ GoldenrodHospitalNurse2Script:
 	end
 
 AskGelScript:
+	callasm HasPlayerClappedInThisRoom_WithReset
+	iffalse .warning_text
+
+	opentext
+	farwritetext GoldenrodHospital1F_ClappedText
+	promptbutton
+	sjump .skip_open_text
+
+.warning_text
+	opentext
+.skip_open_text
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	jumptext GoldenrodHospitalAskGelText ; Avoiding the use of jumptextfaceplayer prevents the display of the clap dialog.
+	writetext GoldenrodHospitalAskGelText ; Avoiding the use of jumptextfaceplayer prevents the display of the clap dialog.
+	waitbutton
+	closetext
+	end
 
 GoldenrodHospitalGelScript:
 	setmapscene GOLDENROD_HOSPITAL_1F, SCENE_GOLDENROD_HOSPITAL_DEFAULT
@@ -267,8 +292,13 @@ GoldenrodHospitalGranny1Script:
 	jumptextfaceplayer GoldenrodHospitalGranny1Text
 
 GoldenrodHospitalNursePatientScript:
-	jumptext GoldenrodHospitalNursePatientText
+	callasm HasPlayerClappedInThisRoom_WithReset
+	iftrue .clapped
 
+	jumptext GoldenrodHospitalNursePatientText
+.clapped
+	jumptext GoldenrodHospital1FCoughText
+	
 GoldenrodHospitalRocketScript:
 	jumptext GoldenrodHospitalRocketText
 

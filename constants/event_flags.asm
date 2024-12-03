@@ -695,7 +695,9 @@
 	const EVENT_ROUTE_45_LVL_INCREASE
 	const EVENT_SECOND_SHOT_REQUIRED
 
-; Unused: next 122 events
+	const EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
+
+; Unused: next 121 events
 
 	const_next 1000
 ; Trainer flags

@@ -295,11 +295,11 @@ Script_memcallasm:
 
 Script_jumptextfaceplayer:
 Script_clapjumptextfaceplayer:
-	farcall IsClappingAuthorized
-	jr c, .clapping
-	jr _Script_jumptextfaceplayer
+	ld hl, wClappingData
+	bit CLAP_BEHAVIOUR_BIT, [hl]
+	jr z, _Script_jumptextfaceplayer
 
-.clapping
+;clapping
 	ld a, BANK(_Clapping1Text)
 	ld [wScriptTextBank], a
 	ld a, LOW(_Clapping1Text)

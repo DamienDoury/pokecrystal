@@ -2568,3 +2568,55 @@ _Clapping1Text::
 	text "*clap* *clap*"
 	line " *clap* *clap*"
 	done
+
+Pokecenter1F_ThanksForSupport::
+	text "Thank you for"
+	line "your support to"
+	cont "the healthcare"
+	cont "personnel."
+	done
+
+FreePCRTestAfterClappingText::
+	text "… but testing is"
+	line "important."
+	para "It's on me."
+	done
+
+GoldenrodHospital1F_ClappedText::
+	text "In the name of"
+	line "all employees of"
+	cont "this hospital,"
+
+	para "thank you for"
+	line "showing support."
+
+	para "It helps us all"
+	line "to stay motivated"
+	cont "in these difficult"
+	cont "times."
+	done
+
+GoldenrodHospitalCorridorNurse1ClappedText::
+	text "Thanks for showing"
+	line "support."
+
+	para "But this is not"
+	line "helping. Taking"
+	cont "action would help."
+	done
+
+GoldenrodHospitalRoom7PatientClapText::
+	text "Stop clapping!"
+	line "You're making me"
+	cont "blush!"
+	done
+
+GoldenrodHospitalRoom7VisitorClapText::
+	text "Your support is"
+	line "appreciated!"
+	done
+
+GoldenrodHospitalRoom7VisitorClap2Text::
+	text "I want to match"
+	line "your kindness!"
+	done
