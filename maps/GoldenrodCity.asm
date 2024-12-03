@@ -301,6 +301,37 @@ GoldenrodCityRadioTowerSign:
 	jumptext GoldenrodCityRadioTowerSignText
 
 GoldenrodDeptStoreSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+.item_loop
+	readmem wNumItems
+	ifequal MAX_ITEMS, .medicine_loop
+	ifgreater MAX_ITEMS, .medicine_loop
+	giveitem MAX_REPEL, 99
+	sjump .item_loop
+
+.medicine_loop
+	readmem wNumMeds
+	ifequal MAX_MEDS, .balls_loop
+	ifgreater MAX_MEDS, .balls_loop
+	giveitem FULL_RESTORE, 99
+	sjump .medicine_loop
+
+.balls_loop
+	readmem wNumBalls
+	ifequal MAX_BALLS, .berries_loop
+	ifgreater MAX_BALLS, .berries_loop
+	giveitem MASTER_BALL, 99
+	sjump .balls_loop
+
+.berries_loop
+	readmem wNumBerries
+	ifequal MAX_BERRIES, .end_loop
+	ifgreater MAX_BERRIES, .end_loop
+	giveitem GOLD_BERRY, 99
+	sjump .berries_loop
+
+.end_loop
+endc
 	jumptext GoldenrodDeptStoreSignText
 
 GoldenrodGymSign:
