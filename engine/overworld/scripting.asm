@@ -305,11 +305,7 @@ Script_clapjumptextfaceplayer:
 	ld a, LOW(_Clapping1Text)
 	ld [wScriptTextAddr], a
 	ld a, HIGH(_Clapping1Text)
-	ld [wScriptTextAddr + 1], a
-
-	ld b, BANK(JumpTextScript)
-	ld hl, JumpTextScript
-	jp ScriptJump
+	jr _Script_jumptextfaceplayer.jump
 
 _Script_jumptextfaceplayer:
 	ld a, [wScriptBank]
@@ -317,6 +313,7 @@ _Script_jumptextfaceplayer:
 	call GetScriptByte
 	ld [wScriptTextAddr], a
 	call GetScriptByte
+.jump
 	ld [wScriptTextAddr + 1], a
 	ld b, BANK(JumpTextFacePlayerScript)
 	ld hl, JumpTextFacePlayerScript

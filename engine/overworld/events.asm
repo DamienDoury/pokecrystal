@@ -651,22 +651,22 @@ endc
 	; Clapping.
 	ldh a, [hJoypadDown]
 	cp A_BUTTON
-	ret nz ; If the player is pressing any other button, cancel the clap.
+	jr nz, .return_no_action ; If the player is pressing any other button, cancel the clap.
 
 	farcall IsClappingAuthorized
-	ret nc
+	jr nc, .return_no_action
 
 	; Delay between 2 claps.
 	ld a, [wClappingData]
 	and CLAPPING_IDLE_FRAMES_MASK
 	cp CLAPPING_IDLE_FRAMES_MASK + 1 - MIN_CLAPPING_DELAY
-	ret nc
+	jr nc, .return_no_action
 
 	; Can't clap while surfing or biking. You can only clap from the normal state, or when already clapping.
 	ld hl, wPlayerState
 	ld a, [hl]
 	cp PLAYER_CLAP + 1
-	ret nc
+	jr nc, .return_no_action
 
 	; Clap is validated.
 
@@ -698,6 +698,8 @@ endc
 	call PlaySFX
 	farcall NursesBowWhenClappedAt
 	farcall UpdatePlayerClapAnimation
+
+.return_no_action
 	xor a
 	ret
 
