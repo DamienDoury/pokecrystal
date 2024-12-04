@@ -17,7 +17,8 @@ EcruteakFaunaHouse_Person1Script:
 	jumptextfaceplayer EcruteakFaunaHouse_Person1Text
 
 EcruteakFaunaHouse_Person2Script:
-	jumptextfaceplayer EcruteakFaunaHouse_Person2Text
+	faceplayer
+	jumptext EcruteakFaunaHouse_Person2Text
 
 EcruteakFaunaHouse_Person3Script:
 	faceplayer
@@ -118,5 +119,5 @@ EcruteakFaunaHouse_MapEvents:
 
 	def_object_events
 	object_event  5,  4, SPRITE_GRAMPS, CLAP_F | SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakFaunaHouse_Person1Script, -1
-	object_event  6,  2, SPRITE_GRANNY, CLAP_F | SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakFaunaHouse_Person2Script, -1
+	object_event  6,  2, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakFaunaHouse_Person2Script, -1
 	object_event  4,  2, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, EcruteakFaunaHouse_Person3Script, -1

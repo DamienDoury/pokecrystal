@@ -17,7 +17,8 @@ VioletPokecenterNurse:
 	jumpstd PokecenterNurseScript
 
 VioletPokecenter1FGameboyKidScript:
-	jumptextfaceplayer VioletPokecenter1FGameboyKidText
+	faceplayer
+	jumptext VioletPokecenter1FGameboyKidText
 
 VioletPokecenter1FGentlemanScript:
 	jumptextfaceplayer VioletPokecenter1FGentlemanText

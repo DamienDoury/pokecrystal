@@ -8,7 +8,8 @@ Route40BattleTowerGate_MapScripts:
 	def_callbacks
 
 Route40BattleTowerGateRockerScript:
-	jumptextfaceplayer Route40BattleTowerGateRockerText
+	faceplayer
+	jumptext Route40BattleTowerGateRockerText
 
 Route40BattleTowerGateTwinScript:
 	jumptextfaceplayer Route40BattleTowerGateTwinText

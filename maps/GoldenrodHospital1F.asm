@@ -68,7 +68,7 @@ GoldenrodHospitalNurse1Script:
 	iftrue .chief_waiting
 
 	opentext
-	callasm HasPlayerClappedInThisRoom_WithReset
+	callasm HasPlayerClappedALotInThisRoom_WithReset
 	iffalse .show_regular_text
 
 	farwritetext GoldenrodHospital1F_ClappedText
@@ -216,7 +216,7 @@ GoldenrodHospitalNurse2Script:
 	end
 
 AskGelScript:
-	callasm HasPlayerClappedInThisRoom_WithReset
+	callasm HasPlayerClappedALotInThisRoom_WithReset
 	iffalse .warning_text
 
 	opentext
@@ -292,7 +292,7 @@ GoldenrodHospitalGranny1Script:
 	jumptextfaceplayer GoldenrodHospitalGranny1Text
 
 GoldenrodHospitalNursePatientScript:
-	callasm HasPlayerClappedInThisRoom_WithReset
+	callasm HasPlayerClappedALotInThisRoom_WithReset
 	iftrue .clapped
 
 	jumptext GoldenrodHospitalNursePatientText
@@ -306,7 +306,8 @@ GoldenrodHospitalRocketCounterScript:
 	jumptext GoldenrodHospitalRocketCounterText
 
 GoldenrodHospitalRocket3Script:
-	jumptextfaceplayer GoldenrodHospitalRocket3Text
+	faceplayer
+	jumptext GoldenrodHospitalRocket3Text
 
 GoldenrodHospital1FChiefNursePanel:
 	jumptext GoldenrodHospital1FChiefNursePanelText

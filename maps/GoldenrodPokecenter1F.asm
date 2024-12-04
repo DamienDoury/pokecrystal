@@ -17,7 +17,8 @@ GoldenrodPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 GoldenrodPokecenter1FGameboyKidScript:
-	jumptextfaceplayer GoldenrodPokecenter1FGameboyKidText
+	faceplayer
+	jumptext GoldenrodPokecenter1FGameboyKidText
 
 GoldenrodPokecenter1FLassScript:
 	jumptextfaceplayer GoldenrodPokecenter1FLassText

@@ -19,7 +19,8 @@ GoldenrodDeptStore3FSuperNerdScript:
 	jumptextfaceplayer GoldenrodDeptStore3FSuperNerdText
 
 GoldenrodDeptStore3FRockerScript:
-	jumptextfaceplayer GoldenrodDeptStore3FRockerText
+	faceplayer
+	jumptext GoldenrodDeptStore3FRockerText
 
 GoldenrodDeptStore3FDirectory:
 	jumptext GoldenrodDeptStore3FDirectoryText

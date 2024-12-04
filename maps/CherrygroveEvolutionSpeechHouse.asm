@@ -8,10 +8,10 @@ CherrygroveEvolutionSpeechHouse_MapScripts:
 	def_callbacks
 
 CherrygroveEvolutionSpeechHouseYoungsterScript:
-	jumptext CherrygroveEvolutionSpeechHouseYoungsterText
+	jumptextfaceplayer CherrygroveEvolutionSpeechHouseYoungsterText
 
 CherrygroveEvolutionSpeechHouseLassScript:
-	jumptext CherrygroveEvolutionSpeechHouseLassText
+	jumptextfaceplayer CherrygroveEvolutionSpeechHouseLassText
 
 CherrygroveEvolutionSpeechHouseBookshelf:
 	jumpstd MagazineBookshelfScript

@@ -420,14 +420,14 @@ GoldenrodHospitalRoomHumanPatientScript:
 .room7: ; Medical staff don't clap.
 	faceplayer
 	opentext 
-	callasm HasPlayerClappedInThisRoom
+	callasm HasPlayerClappedALotInThisRoom
 	iffalse .room7_no_clapping
 
 	farwritetext GoldenrodHospitalRoom7PatientClapText
 	checkevent EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
 	iffalse .room7_text_end
 
-	callasm ResetPlayerClappingInThisRoom
+	callasm ResetClapInThisRoom
 	sjump .room7_text_end
 
 .room7_no_clapping:
@@ -768,7 +768,14 @@ GoldenrodHospitalRoomVisitor1Script:
 	faceplayer ; Medical staff don't clap.
 	checkscene
 	ifequal 5, .room5_quest
+
+	callasm HasPlayerClappedALotInThisRoom_WithReset
+	iftrue .room5_clap
 	jumptext GoldenrodHospitalRoom5VisitorText
+	
+.room5_clap:
+	farjumptext GoldenrodHospitalRoom13VisitorClapText
+
 .room5_quest:
 	jumptext GoldenrodHospitalRoom_Quest5Text
 
@@ -779,7 +786,7 @@ GoldenrodHospitalRoomVisitor1Script:
 .room7: ; Medical staff don't clap.
 	faceplayer
 	opentext
-	callasm HasPlayerClappedInThisRoom
+	callasm HasPlayerClappedALotInThisRoom
 	iffalse .room7_no_clapping
 
 	farwritetext GoldenrodHospitalRoom7VisitorClapText
@@ -792,7 +799,7 @@ GoldenrodHospitalRoomVisitor1Script:
 	verbosegiveitem MAX_ELIXER, 10
 	iffalse .room7_closetext
 	
-	callasm ResetPlayerClappingInThisRoom
+	callasm ResetClapInThisRoom
 	setevent EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
 	sjump .room7_closetext
 
@@ -807,7 +814,7 @@ GoldenrodHospitalRoomVisitor1Script:
 	end
 
 .room7_reset_clap_then_quit:
-	callasm ResetPlayerClappingInThisRoom
+	callasm ResetClapInThisRoom
 	sjump .room7_text_end
 
 .room10:
@@ -845,6 +852,12 @@ GoldenrodHospitalRoomVisitor1Script:
 	jumptext GoldenrodHospitalRoom_Quest13Text
 
 .default_room13:
+	callasm HasPlayerClappedALotInThisRoom_WithReset
+	iffalse .room13_no_clapping
+
+	farjumptext GoldenrodHospitalRoom13VisitorClapText
+
+.room13_no_clapping
 	jumptext GoldenrodHospitalRoom13VisitorText
 
 .room18: ; Medical staff won't clap at themselves.

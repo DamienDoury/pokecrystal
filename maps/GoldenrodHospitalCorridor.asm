@@ -158,7 +158,7 @@ GoldenrodHospitalCorridorGelScript:
 
 GoldenrodHospitalCorridorNurse1Script: ; Medical staff don't clap at themselves.
 	faceplayer
-	callasm HasPlayerClappedInThisRoom_WithReset
+	callasm HasPlayerClappedALotInThisRoom_WithReset
 	iftrue .player_clapped
 
 	jumptext GoldenrodHospitalCorridorNurse1Text

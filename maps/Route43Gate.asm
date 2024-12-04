@@ -94,7 +94,8 @@ RocketScript_ShakeDownNorth:
 	end
 
 RocketScript_MakingABundle:
-	jumptextfaceplayer RocketText_MakingABundle
+	faceplayer
+	jumptext RocketText_MakingABundle
 
 OfficerScript_GuardWithSludgeBomb:
 	faceplayer

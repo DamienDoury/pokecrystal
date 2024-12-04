@@ -265,22 +265,28 @@ GoldenrodCityRocketScoutScript:
 	jumptextfaceplayer GoldenrodCityRocketScoutLockdownText
 
 GoldenrodCityRocket1Script:
-	jumptextfaceplayer GoldenrodCityRocket1Text
+	faceplayer
+	jumptext GoldenrodCityRocket1Text
 
 GoldenrodCityRocket2Script:
-	jumptextfaceplayer GoldenrodCityRocket2Text
+	faceplayer
+	jumptext GoldenrodCityRocket2Text
 
 GoldenrodCityRocket3Script:
-	jumptextfaceplayer GoldenrodCityRocket3Text
+	faceplayer
+	jumptext GoldenrodCityRocket3Text
 
 GoldenrodCityRocket4Script:
-	jumptextfaceplayer GoldenrodCityRocket4Text
+	faceplayer
+	jumptext GoldenrodCityRocket4Text
 
 GoldenrodCityRocket5Script:
-	jumptextfaceplayer GoldenrodCityRocket5Text
+	faceplayer
+	jumptext GoldenrodCityRocket5Text
 
 GoldenrodCityRocket6Script:
-	jumptextfaceplayer GoldenrodCityRocket6Text
+	faceplayer
+	jumptext GoldenrodCityRocket6Text
 
 GoldenrodCityMarketRush1Script:
 	jumptext GoldenrodCityMarketRush1Text

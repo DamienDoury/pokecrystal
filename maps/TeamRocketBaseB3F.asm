@@ -88,7 +88,8 @@ RocketBaseRival:
 	end
 
 TeamRocketBaseB3FRocketScript:
-	jumptextfaceplayer TeamRocketBaseB3FRocketText
+	faceplayer
+	jumptext TeamRocketBaseB3FRocketText
 
 RocketBaseBossRight:
 	applymovement PLAYER, RocketBasePlayerApproachesBossRightMovement

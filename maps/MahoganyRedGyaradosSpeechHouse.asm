@@ -167,7 +167,7 @@ MahoganyRedGyaradosSpeechHouse_ScalperPackText:
 MahoganyRedGyaradosSpeechHouse_ScalperFullText:
 	text "I see my bag is"
 	line "not the only one"
-	cont "to be full!"
+	cont "that is full!"
 
 	para "Are you a"
 	line "scalper like me?"
