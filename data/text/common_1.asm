@@ -2564,11 +2564,6 @@ _RTCErrorText::
 	cont "use another one."
 	prompt
 
-_Clapping1Text::
-	text "*clap* *clap*"
-	line " *clap* *clap*"
-	done
-
 Pokecenter1F_ThanksForSupport::
 	text "Thank you for"
 	line "your support to"
@@ -2619,4 +2614,72 @@ GoldenrodHospitalRoom7VisitorClapText::
 GoldenrodHospitalRoom7VisitorClap2Text::
 	text "I want to match"
 	line "your kindness!"
+	done
+
+GoldenrodHospitalRoom13VisitorClapText::
+	text "Thank you for the"
+	line "cheering! I'll keep"
+	cont "working very hard."
+	done
+
+_Clapping1Text::
+	text "*clap* *clap*"
+	line " *clap* *clap*"
+	done
+
+_Clapping2Text::
+	text " *clap* *clap*"
+	line "*clap* *clap*"
+	done
+
+_Clapping3Text::
+	text "*clap* *clap*"
+
+	para "I wonder how long"
+	line "this clapping"
+	cont "will last."
+	done
+
+_Clapping4Text::
+	text "*clap* *clap*"
+
+	para "If you support"
+	line "healthcare workers"
+	cont "then clap along!"
+	done
+
+_Clapping5Text::
+	text "*clap* *clap*"
+
+	para "My hands hurt."
+	done
+
+_Clapping6Text::
+	text "*clap* *clap*"
+
+	para "Why are we all"
+	line "clapping already?"
+	done
+
+_Clapping7Text::
+	text "*clap* *clap*"
+
+	para "Clapping may not"
+	line "be helpful… but" 
+	cont "it sure is fun!"
+	done
+
+_Clapping8Text::
+	text "*clap* *clap*"
+
+	para "Healthcare workers"
+	line "are the frontline"
+	cont "in the war against"
+	cont "COVID."
+
+	para "Everyday they risk"
+	line "their lives with"
+	cont "the virus."
+
+	para "True heroes."
 	done

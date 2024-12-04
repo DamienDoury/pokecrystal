@@ -207,6 +207,15 @@ PlaySFX::
 
 	; Does it have priority?
 	ld a, [wCurSFX]
+	cp SFX_CLAP_1
+	jr z, .play
+
+	cp SFX_CLAP_2
+	jr z, .play
+
+	cp SFX_CLAP_3
+	jr z, .play
+	
 	cp e
 	jr c, .done
 

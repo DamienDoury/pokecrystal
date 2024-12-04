@@ -299,15 +299,53 @@ Script_clapjumptextfaceplayer:
 	bit CLAP_BEHAVIOUR_BIT, [hl]
 	jr z, _Script_jumptextfaceplayer
 
-;clapping
+	bit CLAPPED_A_LOT_IN_THIS_ROOM_BIT, [hl]
+	jr nz, _Script_jumptextfaceplayer
+
+; clapping
+	ld a, [hLastTalked]
+	ld d, a
+	ld a, [wMapNumber]
+	ld e, a
+	ld a, [wMapGroup]
+	add d
+	add e
+	and $f ; A now contains a random index between 0 and 15.
+	add a
+
+	ld e, a
+	ld d, 0
+	ld hl, .random_text_before_clap
+
+	add hl, de
 	ld a, BANK(_Clapping1Text)
 	ld [wScriptTextBank], a
-	ld a, LOW(_Clapping1Text)
+	ld a, [hli]
 	ld [wScriptTextAddr], a
-	ld a, HIGH(_Clapping1Text)
+	ld a, [hl]
 	jr _Script_jumptextfaceplayer.jump
 
+.random_text_before_clap
+	dw _Clapping1Text
+	dw _Clapping2Text
+	dw _Clapping1Text
+	dw _Clapping2Text
+	dw _Clapping3Text
+	dw _Clapping2Text
+	dw _Clapping4Text
+	dw _Clapping1Text
+	dw _Clapping5Text
+	dw _Clapping2Text
+	dw _Clapping6Text
+	dw _Clapping1Text
+	dw _Clapping7Text
+	dw _Clapping2Text
+	dw _Clapping8Text
+	dw _Clapping1Text
+
+
 _Script_jumptextfaceplayer:
+	farcall ResetClapInThisRoom
 	ld a, [wScriptBank]
 	ld [wScriptTextBank], a
 	call GetScriptByte

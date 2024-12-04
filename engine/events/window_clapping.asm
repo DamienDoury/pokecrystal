@@ -10,6 +10,11 @@ IsClappingAuthorized::
     ;call EventFlagAction
     ;ret z
 
+    ; No clapping in gyms.
+    ld a, [wMapMusic]
+    cp MUSIC_GYM
+    ret z
+
     push bc
     push de
     ld a, [wEnvironment]
@@ -165,24 +170,24 @@ NursesBowWhenClappedAt::
     pop de
     jr .variable_sprite_decrypted
 
-HasPlayerClappedInThisRoom::
+HasPlayerClappedALotInThisRoom::
     xor a ; FALSE
     ld [wScriptVar], a
 
     ld hl, wClappingData
-    bit CLAPPED_IN_THIS_ROOM_BIT, [hl]
+    bit CLAPPED_A_LOT_IN_THIS_ROOM_BIT, [hl]
     ret z
 
     inc a ; TRUE
     ld [wScriptVar], a
     ret
 
-HasPlayerClappedInThisRoom_WithReset::
-    call HasPlayerClappedInThisRoom
-    res CLAPPED_IN_THIS_ROOM_BIT, [hl]
-    ret
-
-ResetPlayerClappingInThisRoom::
-    ld hl, wClappingData
-    res CLAPPED_IN_THIS_ROOM_BIT, [hl]
+HasPlayerClappedALotInThisRoom_WithReset::
+    call HasPlayerClappedALotInThisRoom
+    ; fallthrough.
+    
+ResetClapInThisRoom::
+    ld a, [wClappingData]
+    and ~CLAP_COUNT_IN_ROOM_MASK
+    ld [wClappingData], a
     ret

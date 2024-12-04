@@ -116,7 +116,7 @@ PokecenterNurseScript:
 	; only do this once
 	clearevent EVENT_WELCOMED_TO_POKECOM_CENTER
 
-	callasm HasPlayerClappedInThisRoom
+	callasm HasPlayerClappedALotInThisRoom
 	iffalse .check_pcr_presentation
 
 	farwritetext Pokecenter1F_ThanksForSupport
@@ -389,7 +389,7 @@ PokecenterNurseScript:
 	closetext
 	opentext
 
-	callasm HasPlayerClappedInThisRoom_WithReset
+	callasm HasPlayerClappedALotInThisRoom_WithReset
 	iffalse .bye
 
 	farwritetext FreePCRTestAfterClappingText
@@ -398,7 +398,7 @@ PokecenterNurseScript:
 	sjump .heal_start
 
 .bye
-	callasm ResetPlayerClappingInThisRoom
+	callasm ResetClapInThisRoom
 	farwritetext NurseGoodbyeText
 	turnobject LAST_TALKED, UP
 	pause 15

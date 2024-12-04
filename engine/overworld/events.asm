@@ -670,9 +670,6 @@ endc
 
 	; Clap is validated.
 
-	ld hl, wClappingData
-	set CLAPPED_IN_THIS_ROOM_BIT, [hl]
-
 	cp PLAYER_CLAP
 	jr z, .skip_sprite_update
 
@@ -682,28 +679,57 @@ endc
 	call UpdatePlayerSprite
 
 .skip_sprite_update
+	push bc
+	push de
+	call .increase_clap_count
+
 	; We reset the clap countdown, for animation timing purposes.
 	ld a, [wClappingData]
 	or CLAPPING_IDLE_FRAMES_MASK
 	ld [wClappingData], a
 
-	call .increase_clap_count
-
-	ld de, SFX_CLAP_3
-	;ld a, SFX_CLAP_3 - SFX_CLAP_1
-	;call RandomRange
-	;add a
-	;add e
-	;ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
+	ld de, SFX_CLAP_1
+	ld a, SFX_CLAP_3 - SFX_CLAP_1 ; Note that SFX_CLAP_3 is excluded, which is fine as it causes issues.
+	call RandomRange
+	add a
+	add e
+	ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
 	call PlaySFX
 	farcall NursesBowWhenClappedAt
 	farcall UpdatePlayerClapAnimation
+	pop de
+	pop bc
 
 .return_no_action
 	xor a
 	ret
 
 .increase_clap_count
+	; Increasing the local, temporary clap count.
+	ld a, [wClappingData]
+	and CLAP_COUNT_IN_ROOM_MASK
+	jr z, .increase_local_count ; First clap is local always counted. This properly triggers the alternate clap dialogs.
+
+	; Only consecutive claps increase the counter above 1. Our goal here is to make sure the nurse bowed at least once.
+	ld a, [wClappingData]
+	and CLAPPING_IDLE_FRAMES_MASK
+	jr z, .dont_increase_local_count
+
+	ld a, [wClappingData]
+	and CLAP_COUNT_IN_ROOM_MASK
+.increase_local_count
+	cp 4 << 4 ; max value is %100 << 4.
+	jr nc, .dont_increase_local_count
+
+	add 1 << 4
+	ld l, a
+	ld a, [wClappingData]
+	and ~CLAP_COUNT_IN_ROOM_MASK
+	or l
+	ld [wClappingData], a
+
+.dont_increase_local_count
+	; Increasing the all-time clap count.
 	ld hl, wClapCount
 	inc [hl] ; The low byte can always overflow, even if the 2 byte value is maxxed out, so the happiness can increase indefinitely. 
 	jr nz, .check_clap_count
