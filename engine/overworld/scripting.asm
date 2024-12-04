@@ -242,7 +242,6 @@ ScriptCommandTable:
 	dw Script_writeredtext				 ; af
 	dw Script_farwriteredtext			 ; b0
 	dw Script_tradeback					 ; b1
-	dw Script_clapjumptextfaceplayer	 ; b2
 	assert_table_length NUM_EVENT_COMMANDS
 
 StartScript:
@@ -294,7 +293,6 @@ Script_memcallasm:
 	ret
 
 Script_jumptextfaceplayer:
-Script_clapjumptextfaceplayer:
 	ld hl, wClappingData
 	bit CLAP_BEHAVIOUR_BIT, [hl]
 	jr z, _Script_jumptextfaceplayer
