@@ -2683,3 +2683,30 @@ _Clapping8Text::
 
 	para "True heroes."
 	done
+
+ItemfinderExplanationText::
+	text "There are many"
+	line "items lying about"
+
+	para "that aren't ob-"
+	line "vious."
+
+	para "Use ITEMFINDER to"
+	line "check if there is"
+
+	para "an item on the"
+	line "ground near you."
+
+	para "It doesn't show"
+	line "the exact spot,"
+
+	para "so you'll have to"
+	line "look yourself."
+
+	para "Oh yeah--I heard"
+	line "there are items"
+
+	para "in ECRUTEAK's"
+	line "BURNED TOWER."
+	done
+	

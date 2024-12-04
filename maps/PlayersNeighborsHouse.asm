@@ -6,6 +6,16 @@ PlayersNeighborsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject PLAYERSNEIGHBORSHOUSE_POKEFAN_F, 4, 1
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 PlayersNeighborsDaughterScript:
 	jumptextfaceplayer PlayersNeighborsDaughterText

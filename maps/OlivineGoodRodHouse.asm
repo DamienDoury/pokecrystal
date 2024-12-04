@@ -5,13 +5,23 @@ OlivineGoodRodHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject OLIVINEGOODRODHOUSE_FISHING_GURU, 5, 1
+	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 GoodRodGuru:
 	faceplayer
 	opentext
 	checkitem GOOD_ROD
 	iftrue .AlreadyGotItem
-	writetext OfferGoodRodText
+	farwritetext OfferGoodRodText
 	yesorno
 	iffalse .DontWantIt
 	writetext GiveGoodRodText
@@ -34,24 +44,6 @@ GoodRodGuru:
 	closetext
 	end
 
-GoodRodHouseBookshelf: ; unreferenced
-	jumpstd PictureBookshelfScript
-
-OfferGoodRodText:
-	text "OLIVINE is on the"
-	line "sea!"
-
-	para "And if it's on the"
-	line "sea, there are"
-	cont "bound to be fish!"
-
-	para "I've fished here"
-	line "for 30 years."
-
-	para "Would you like to"
-	line "face the sea and"
-	cont "fish?"
-	done
 
 GiveGoodRodText:
 	text "Ah, hahah!"

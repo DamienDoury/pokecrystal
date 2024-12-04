@@ -9,6 +9,15 @@ OlivinePunishmentSpeechHouse_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject OLIVINEPUNISHMENTSPEECHHOUSE_LASS, 5, 1
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	endcallback
 
 .TilesLoad
 	readmem wCurFreedomState

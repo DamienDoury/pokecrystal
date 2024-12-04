@@ -12,6 +12,19 @@ VioletNicknameSpeechHouse_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject VIOLETNICKNAMESPEECHHOUSE_LASS, 7, 3
+	moveobject VIOLETNICKNAMESPEECHHOUSE_TEACHER, 7, 4
+	moveobject VIOLETNICKNAMESPEECHHOUSE_PUPIL, 7, 5
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+	loadmem wMap4ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+	endcallback
 
 .TilesLoad
 	readmem wCurFreedomState

@@ -5,6 +5,16 @@ GuideGentsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject GUIDEGENTSHOUSE_GRAMPS, 5, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 GuideGentsHouseGuideGent:
 	jumptextfaceplayer GuideGentsHouseGuideGentText

@@ -5,6 +5,16 @@ OlivineTimsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject OLIVINETIMSHOUSE_TIM, 5, 1
+	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 Tim:
 	faceplayer

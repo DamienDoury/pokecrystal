@@ -1,11 +1,22 @@
 	object_const_def
 	const ECRUTEAKITEMFINDERHOUSE_COOLTRAINER_M
 	const ECRUTEAKITEMFINDERHOUSE_POKEDEX
+	const ECRUTEAKITEMFINDERHOUSE_SISTER
 
 EcruteakItemfinderHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject ECRUTEAKITEMFINDERHOUSE_SISTER, 7, 3
+	loadmem wMap3ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+.end
+	endcallback
 
 EcruteakItemfinderGuy:
 	faceplayer
@@ -20,7 +31,7 @@ EcruteakItemfinderGuy:
 	verbosegiveitem ITEMFINDER
 	setevent EVENT_GOT_ITEMFINDER
 .itemfinder:
-	writetext ItemfinderExplanationText
+	farwritetext ItemfinderExplanationText
 	waitbutton
 	closetext
 	end
@@ -80,32 +91,6 @@ EcruteakItemfinderTrueSpiritText:
 
 	para "I like that! Take"
 	line "this with you."
-	done
-
-ItemfinderExplanationText:
-	text "There are many"
-	line "items lying about"
-
-	para "that aren't ob-"
-	line "vious."
-
-	para "Use ITEMFINDER to"
-	line "check if there is"
-
-	para "an item on the"
-	line "ground near you."
-
-	para "It doesn't show"
-	line "the exact spot,"
-
-	para "so you'll have to"
-	line "look yourself."
-
-	para "Oh yeah--I heard"
-	line "there are items"
-
-	para "in ECRUTEAK's"
-	line "BURNED TOWER."
 	done
 
 EcruteakItemfinderToEachHisOwnText:

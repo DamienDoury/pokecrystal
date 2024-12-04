@@ -8,6 +8,15 @@ GoldenrodPPSpeechHouse_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject GOLDENRODPPSPEECHHOUSE_FISHER, 5, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	endcallback
 
 .TilesLoad
 	readmem wCurFreedomState

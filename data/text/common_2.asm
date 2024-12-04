@@ -1867,3 +1867,19 @@ GGTCCinnaText::
 GGTCViriText::
 	text ""
 	done
+
+OfferGoodRodText::
+	text "OLIVINE is on the"
+	line "sea!"
+
+	para "And if it's on the"
+	line "sea, there are"
+	cont "bound to be fish!"
+
+	para "I've fished here"
+	line "for 30 years."
+
+	para "Would you like to"
+	line "face the sea and"
+	cont "fish?"
+	done

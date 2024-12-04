@@ -68,6 +68,8 @@ BlackthornCity_MapScripts:
 	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
 
 	changeblock  8, 30, $30 ; Move deleter's house.
+
+	ifnotequal 1 << CURFEW, .EndTilesCallback
 	changeblock 14, 28, $38 ; Mart.
 
 .EndTilesCallback

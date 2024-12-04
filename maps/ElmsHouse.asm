@@ -6,6 +6,18 @@ ElmsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject ELMSHOUSE_ELMS_WIFE, 1, 1
+	moveobject ELMSHOUSE_ELMS_SON, 2, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 ElmsWife:
 	jumptextfaceplayer ElmsWifeText

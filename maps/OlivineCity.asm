@@ -35,10 +35,10 @@ OlivineCity_MapScripts:
 	ifequal 1 << FREE, .EndTilesCallback
 	ifequal 1 << VACCINE_PASSPORT, .EndTilesCallback
 
-	changeblock 18, 16, $37 ; Mart.
-
-	checkevent EVENT_FIRST_CURFEW_STARTED
+	ifnotequal 1 << CURFEW, .EndTilesCallback
 	iffalse .EndTilesCallback
+	
+	changeblock 18, 16, $37 ; Mart.
 
 	; Olivine Cafe. The door stays open during lockdown: as it is guarded by the owner no one can enter the cafe.
 	changeblock  6, 20, $37

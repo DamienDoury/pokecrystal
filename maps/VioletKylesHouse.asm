@@ -11,6 +11,15 @@ VioletKylesHouse_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject VIOLETKYLESHOUSE_POKEFAN_M, 7, 3
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+	endcallback
 
 .TilesLoad
 	readmem wCurFreedomState

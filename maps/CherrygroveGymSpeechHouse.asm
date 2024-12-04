@@ -6,6 +6,18 @@ CherrygroveGymSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject CHERRYGROVEGYMSPEECHHOUSE_BUG_CATCHER, 5, 1
+	moveobject CHERRYGROVEGYMSPEECHHOUSE_POKEFAN_M, 6, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 CherrygroveGymSpeechHousePokefanMScript:
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED

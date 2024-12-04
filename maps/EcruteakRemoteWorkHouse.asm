@@ -57,7 +57,7 @@ EcruteakRemoteWorkHouse_Computer1Script:
 	farsjump VioletNicknameSpeechHouseComputer1Script
 
 EcruteakRemoteWorkHouse_Computer2Script:
-	jumptextfaceplayer EcruteakRemoteWorkHouse_Computer2Text
+	jumptext EcruteakRemoteWorkHouse_Computer2Text
 
 EcruteakRemoteWorkHouse_Radio:
 	jumpstd Radio1Script

@@ -6,6 +6,16 @@ MahoganyRedGyaradosSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject MAHOGANYREDGYARADOSSPEECHHOUSE_BLACK_BELT, 0, 3
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_LEFT
+.end
+	endcallback
 
 MahoganyRedGyaradosSpeechHouseBlackBeltScript:
 	jumptextfaceplayer MahoganyRedGyaradosSpeechHouseBlackBeltText

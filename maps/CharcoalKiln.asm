@@ -11,6 +11,16 @@ CharcoalKiln_MapScripts:
 	def_callbacks
 	callback MAPCALLBACK_SPRITES, .MoveCharcoalKilnApprentice
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 .DummyScene0:
 	end
@@ -91,51 +101,45 @@ LockdownFirstDeclaration:
 	end
 
 CharcoalKilnBoss:
-	faceplayer
 	checkevent EVENT_FIRST_CURFEW_STARTED
 	iftrue .Curfew
 	checkevent EVENT_LOCKDOWN_MART_RUSH
 	iffalse .Panic
 	checkevent EVENT_CLEARED_SLOWPOKE_WELL
 	iftrue .SavedSlowpoke
-	jumptext CharcoalKilnBossText1
+	jumptextfaceplayer CharcoalKilnBossText1
 
 .Curfew:
-	jumptext CharcoalKilnBossCurfewText
+	jumptextfaceplayer CharcoalKilnBossCurfewText
 
 .Panic:
-	jumptext CharcoalKilnBossPanicText
+	jumptextfaceplayer CharcoalKilnBossPanicText
 
 .SavedSlowpoke:
-	jumptext CharcoalKilnBossText2
+	jumptextfaceplayer CharcoalKilnBossText2
 
 CharcoalKilnApprentice:
-	faceplayer
-	opentext
 	checkevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
 	iftrue .YoureTheCoolest
 	checkevent EVENT_GOT_HM01_CUT
 	iftrue .Thanks
-	writetext CharcoalKilnApprenticeText1
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CharcoalKilnApprenticeText1
 
 .Thanks:
+	faceplayer
+	opentext
 	writetext CharcoalKilnApprenticeText2
 	promptbutton
 	verbosegiveitem CHARCOAL
 	iffalse .Done
+
 	setevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
+.Done
 	closetext
 	end
 
 .YoureTheCoolest:
-	writetext CharcoalKilnApprenticeText3
-	waitbutton
-.Done:
-	closetext
-	end
+	jumptextfaceplayer CharcoalKilnApprenticeText3
 
 CharcoalKilnFarfetchd:
 	faceplayer
@@ -333,6 +337,6 @@ CharcoalKiln_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, CharcoalKilnBookshelf
 
 	def_object_events
-	object_event  2,  3, SPRITE_BLACK_BELT, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharcoalKilnBoss, EVENT_CHARCOAL_KILN_BOSS
-	object_event  5,  3, SPRITE_YOUNGSTER, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CharcoalKilnApprentice, EVENT_CHARCOAL_KILN_APPRENTICE
+	object_event  2,  3, SPRITE_BLACK_BELT, CLAP_F | SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CharcoalKilnBoss, EVENT_CHARCOAL_KILN_BOSS
+	object_event  5,  3, SPRITE_YOUNGSTER, CLAP_F | SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CharcoalKilnApprentice, EVENT_CHARCOAL_KILN_APPRENTICE
 	object_event  5,  6, SPRITE_FARFETCH_D, SPRITEMOVEDATA_POKEMON, 2, 2, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, CharcoalKilnFarfetchd, EVENT_CHARCOAL_KILN_FARFETCH_D

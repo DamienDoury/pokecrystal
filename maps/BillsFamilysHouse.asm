@@ -8,6 +8,16 @@ BillsFamilysHouse_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject BILLSFAMILYSHOUSE_POKEFAN_F, 5, 1
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 .TilesLoad
 	checkevent EVENT_MET_BILL

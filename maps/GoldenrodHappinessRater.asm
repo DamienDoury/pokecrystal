@@ -8,6 +8,17 @@ GoldenrodHappinessRater_MapScripts:
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .TilesLoad
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject GOLDENRODHAPPINESSRATER_TEACHER, 5, 1
+	moveobject GOLDENRODHAPPINESSRATER_TWIN, 6, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap3ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	endcallback
 
 .TilesLoad
 	readmem wCurFreedomState
@@ -68,13 +79,13 @@ GoldenrodHappinessRaterTeacherScript:
 	end
 
 GoldenrodHappinessRaterPokefanMScript:
+	faceplayer
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
 
-	jumptextfaceplayer GoldenrodHappinessRaterPokefanMText
+	jumptext GoldenrodHappinessRaterPokefanMText
 .lockdown
-	faceplayer
 	opentext
 	writetext GoldenrodHappinessRaterPokefanMCatFilterText
 	waitbutton
@@ -188,7 +199,7 @@ GoldenrodHappinessRater_MapEvents:
 
 	def_object_events
 	object_event  2,  4, SPRITE_TEACHER, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterTeacherScript, -1
-	object_event  5,  3, SPRITE_POKEFAN_M, CLAP_F | SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterPokefanMScript, -1
+	object_event  5,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterPokefanMScript, -1
 	object_event  5,  6, SPRITE_TWIN, CLAP_F | SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterTwinScript, -1
 	object_event  4,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, HIDE_FREE & HIDE_VACCINE_PASS, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodHappinessRaterComputer1Script, -1
 	

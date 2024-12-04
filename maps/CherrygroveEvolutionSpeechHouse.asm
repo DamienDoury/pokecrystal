@@ -6,6 +6,18 @@ CherrygroveEvolutionSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject CHERRYGROVEEVOLUTIONSPEECHHOUSE_LASS, 6, 1
+	moveobject CHERRYGROVEEVOLUTIONSPEECHHOUSE_YOUNGSTER, 5, 1
+	;loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+	;loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 CherrygroveEvolutionSpeechHouseYoungsterScript:
 	jumptextfaceplayer CherrygroveEvolutionSpeechHouseYoungsterText

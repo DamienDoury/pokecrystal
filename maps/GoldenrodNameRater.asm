@@ -5,6 +5,16 @@ GoldenrodNameRater_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject GOLDENRODNAMERATER_NAME_RATER, 5, 1
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 GoldenrodNameRater:
 	faceplayer
@@ -37,4 +47,4 @@ GoldenrodNameRater_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, GoldenrodNameRaterRadio
 
 	def_object_events
-	object_event  2,  4, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodNameRater, -1
+	object_event  2,  4, SPRITE_GENTLEMAN, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 2, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodNameRater, -1

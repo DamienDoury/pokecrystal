@@ -6,6 +6,18 @@ EcruteakLugiaSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject ECRUTEAKLUGIASPEECHHOUSE_GRAMPS, 7, 3
+	moveobject ECRUTEAKLUGIASPEECHHOUSE_YOUNGSTER, 7, 5
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT
+.end
+	endcallback
 
 EcruteakLugiaSpeechHouseGrampsScript:
 	jumptextfaceplayer EcruteakLugiaSpeechHouseGrampsText

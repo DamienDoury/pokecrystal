@@ -6,6 +6,16 @@ BlackthornDragonSpeechHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .CheckClapping
+
+.CheckClapping:
+	callasm IsClappingAuthorizedScript
+	iffalse .end
+
+	moveobject BLACKTHORNDRAGONSPEECHHOUSE_GRANNY, 4, 2
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
+.end
+	endcallback
 
 BlackthornDragonSpeechHouseGrannyScript:
 	jumptextfaceplayer BlackthornDragonSpeechHouseGrannyText
@@ -17,12 +27,6 @@ BlackthornDragonSpeechHouseDratiniScript:
 	waitbutton
 	closetext
 	end
-
-BlackthornDragonSpeechHousePictureBookshelf: ; unreferenced
-	jumpstd PictureBookshelfScript
-
-BlackthornDragonSpeechHouseMagazineBookshelf: ; unreferenced
-	jumpstd MagazineBookshelfScript
 
 BlackthornDragonSpeechHouseGrannyText:
 	text "A clan of trainers"
