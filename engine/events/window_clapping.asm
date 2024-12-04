@@ -15,6 +15,10 @@ IsClappingAuthorized::
     cp MUSIC_GYM
     ret z
 
+    ; Clapping only takes place inside towns.
+    call IsInClappingTown
+    ret z
+
     push bc
     push de
     ld a, [wEnvironment]
@@ -190,4 +194,68 @@ ResetClapInThisRoom::
     ld a, [wClappingData]
     and ~CLAP_COUNT_IN_ROOM_MASK
     ld [wClappingData], a
+    ret
+
+ClappingTownLandmarks:
+    db \
+    1 << (LANDMARK_NEW_BARK_TOWN % 8) /*01*/ | \
+    1 << (LANDMARK_CHERRYGROVE_CITY % 8) /*03*/ | \
+    1 << (LANDMARK_VIOLET_CITY % 8) /*06*/
+
+    db \
+    1 << (LANDMARK_ROUTE_32 % 8) /*08*/ | \
+    1 << (LANDMARK_AZALEA_TOWN % 8) /*0c*/
+
+    db \
+    1 << (LANDMARK_GOLDENROD_CITY % 8) /*10*/ | \
+    1 << (LANDMARK_HOSPITAL % 8) /*12*/ | \
+    1 << (LANDMARK_ECRUTEAK_CITY % 8) /*17*/
+
+    db \
+    1 << (LANDMARK_OLIVINE_CITY % 8) /*1c*/ | \
+    1 << (LANDMARK_LIGHTHOUSE % 8) /*1d*/
+
+    db \
+    1 << (LANDMARK_CIANWOOD_CITY % 8) /*22*/ | \
+    1 << (LANDMARK_MAHOGANY_TOWN % 8) /*25*/
+
+    db \
+    1 << (LANDMARK_BLACKTHORN_CITY % 8) /*2a*/
+
+    ;db \
+    ;1 << (LANDMARK_PALLET_TOWN % 8) /*30*/ | \
+    ;1 << (LANDMARK_VIRIDIAN_CITY % 8) /*32*/ | \
+    ;1 << (LANDMARK_PEWTER_CITY % 8) /*35*/
+    ;
+    ;db \
+    ;1 << (LANDMARK_CERULEAN_CITY % 8) /*39*/
+    ;
+    ;db \
+    ;1 << (LANDMARK_VERMILION_CITY % 8) /*40*/
+    ;
+    ;db \
+    ;1 << (LANDMARK_LAVENDER_TOWN % 8) /*48*/ | \
+    ;1 << (LANDMARK_CELADON_CITY % 8) /*4a*/ | \
+    ;1 << (LANDMARK_SAFFRON_CITY % 8) /*4b*/
+    ;
+    ;db \
+    ;1 << (LANDMARK_FUCHSIA_CITY % 8) /*55*/
+    ;
+    ;ds 1 ; $58 to $5f
+    ;ds 1 ; $60 to $67
+
+; Output: NZ if inside a clapping town. Z otherwise.
+IsInClappingTown:
+    ld a, [wCurLandmark]
+    cp LANDMARK_BLACKTHORN_CITY + 1
+    jr nc, .return_false
+    
+    ld d, 0
+    ld e, a
+    ld hl, ClappingTownLandmarks
+    ld b, CHECK_FLAG
+    jp FlagAction
+
+.return_false
+    xor a
     ret
