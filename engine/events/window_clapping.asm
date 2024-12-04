@@ -203,7 +203,7 @@ ClappingTownLandmarks:
     1 << (LANDMARK_VIOLET_CITY % 8) /*06*/
 
     db \
-    1 << (LANDMARK_ROUTE_32 % 8) /*08*/ | \
+    1 << (LANDMARK_ROUTE_32 % 8) /*08*/ | \ ; Used for Route32 Pokécenter.
     1 << (LANDMARK_AZALEA_TOWN % 8) /*0c*/
 
     db \
@@ -212,8 +212,7 @@ ClappingTownLandmarks:
     1 << (LANDMARK_ECRUTEAK_CITY % 8) /*17*/
 
     db \
-    1 << (LANDMARK_OLIVINE_CITY % 8) /*1c*/ | \
-    1 << (LANDMARK_LIGHTHOUSE % 8) /*1d*/
+    1 << (LANDMARK_OLIVINE_CITY % 8) /*1c*/
 
     db \
     1 << (LANDMARK_CIANWOOD_CITY % 8) /*22*/ | \

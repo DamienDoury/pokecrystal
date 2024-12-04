@@ -479,9 +479,13 @@ StepFunction_Reset:
 
 StepFunction_FromMovement:
 	call Field1c_ZeroAnonJumptableIndex
-	call GetSpriteMovementFunction
+	call GetSpriteMovementType
+	bit CLAP_BEHAVIOUR_BIT, a
+	jp nz, MovementFunction_Standing ; Clapping NPCs can't move, because they are using a different sprite set that doesn't have walking frames.
+
+	;and LOW(~CLAP_F)
+	call GetMovementFunctionFromMovementType	
 	ld a, [hl]
-	and LOW(~CLAP_F)
 	ld hl, .Pointers
 	rst JumpTable
 	ret
