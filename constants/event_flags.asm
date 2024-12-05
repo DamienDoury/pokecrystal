@@ -696,8 +696,12 @@
 	const EVENT_SECOND_SHOT_REQUIRED
 
 	const EVENT_GOT_STUFF_FROM_CLAPPING_AT_NURSE
+	const EVENT_CLAPPING_EXPLAINED
+	const EVENT_GOT_CLAPPING_GIFT_1
+	const EVENT_GOT_CLAPPING_GIFT_2
+	const EVENT_GOT_CLAPPING_GIFT_3
 
-; Unused: next 121 events
+; Unused: next 117 events
 
 	const_next 1000
 ; Trainer flags

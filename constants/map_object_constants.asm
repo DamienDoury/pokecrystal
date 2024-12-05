@@ -183,6 +183,17 @@ CLAP_F EQU 1 << CLAP_BEHAVIOUR_BIT
 CLAPPING_IDLE_FRAMES_MASK EQU $f
 MIN_CLAPPING_DELAY EQU 2 ; Must be a multiple of 2, and at least 2.
 
+CLAP_CAP_3_AMOUNT EQU 5000 ; gift #3.
+CLAP_CAP_2_AMOUNT EQU 1000 ; gift #2.
+CLAP_CAP_1_AMOUNT EQU 100  ; gift #1.
+CLAP_CAP_0_AMOUNT EQU 0
+
+CLAP_CAP_3_RET_VAL      EQU 4
+CLAP_CAP_2_RET_VAL      EQU 3
+CLAP_CAP_1_RET_VAL      EQU 2
+CLAP_CAP_0_RET_VAL      EQU 1
+NEVER_CLAPPED_RET_VAL   EQU 0
+
 ; MapObjectMovementPattern.Pointers indexes (see engine/overworld/map_objects.asm)
 	const_def
 	const SPRITEMOVEFN_00                    ; 00

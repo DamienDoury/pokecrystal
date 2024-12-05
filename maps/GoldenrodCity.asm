@@ -390,6 +390,9 @@ GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
 
 GoldenrodHospitalSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	setevent EVENT_FIRST_LOCKDOWN_STARTED
+endc
 	jumptext GoldenrodHospitalSignText
 
 GoldenrodFlowerShopDoorScript:
@@ -858,6 +861,7 @@ GoldenrodCity_MapEvents:
 	warp_event 11, 29, GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, 5
 	warp_event 15, 27, GOLDENROD_POKECENTER_1F, 1
 	warp_event 33,  5, GOLDENROD_HOSPITAL_1F, 1
+	warp_event 29, 15, GOLDENROD_CLAP_HOUSE, 1
 
 	def_coord_events
 

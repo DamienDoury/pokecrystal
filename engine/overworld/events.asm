@@ -730,17 +730,17 @@ endc
 
 .dont_increase_local_count
 	; Increasing the all-time clap count.
-	ld hl, wClapCount
+	ld hl, wClapCount + 1
 	inc [hl] ; The low byte can always overflow, even if the 2 byte value is maxxed out, so the happiness can increase indefinitely. 
 	jr nz, .check_clap_count
 
-	inc hl
+	dec hl
 	ld a, $ff
 	cp [hl]
 	jr z, .check_clap_count
 
 	inc [hl]
-	dec hl
+	inc hl
 
 .check_clap_count
 	ld a, [hl]

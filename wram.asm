@@ -3295,7 +3295,7 @@ wMagikarpRecordHoldersName:: ds NAME_LENGTH
 
 wWalkingAbuseGuard:: db ; Counts the number of steps since the last player "useful action", and disables some step counting features when the player walks too much.
 wTradebackSuccessfulTradesCount:: db ; Number of trades with the tradeback guy.
-wClapCount:: dw
+wClapCount:: dw ; Little endian.
 
 	ds 11 ; Available saved memory. 
 

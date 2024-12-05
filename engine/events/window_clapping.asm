@@ -310,3 +310,44 @@ IsNPCClapping::
     db SPRITE_GYM_GUIDE
     db SPRITE_PHARMACIST
     db -1
+
+; Output: the number of all time claps in wScriptVar and A.
+;           4: >5001 (CLAP_CAP_3)
+;           3: 1001~5000 (CLAP_CAP_2)
+;           2: 101~1000 (CLAP_CAP_1)
+;           1: 1~100 (CLAP_CAP_0)
+;           0: 0 (never clapped)
+
+CheckClapCap::
+    ld a, [wClapCount]
+    ld h, a
+    ld a, [wClapCount + 1]
+    ld l, a
+    ld a, CLAP_CAP_3_RET_VAL
+
+    ld bc, $ffff - CLAP_CAP_3_AMOUNT
+    call .compare_16bits
+    ret c
+
+    ld bc, $ffff - CLAP_CAP_2_AMOUNT
+    call .compare_16bits
+    ret c
+
+    ld bc, $ffff - CLAP_CAP_1_AMOUNT
+    call .compare_16bits
+    ret c
+
+    ld bc, $ffff - CLAP_CAP_0_AMOUNT
+    call .compare_16bits
+    ret c
+
+    ld [wScriptVar], a ; NEVER_CLAPPED_RET_VAL
+    ret
+
+.compare_16bits
+    ld [wScriptVar], a
+    dec a
+    push hl
+    add hl, bc
+    pop hl
+    ret
