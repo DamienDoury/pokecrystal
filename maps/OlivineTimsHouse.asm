@@ -12,14 +12,25 @@ OlivineTimsHouse_MapScripts:
 	iffalse .end
 
 	moveobject OLIVINETIMSHOUSE_TIM, 5, 1
-	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
 .end
 	endcallback
 
 Tim:
 	faceplayer
 	opentext
+	callasm IsClappingAuthorizedScript
+	iffalse .trade
+
+	callasm HasPlayerClappedALotInThisRoom_WithReset
+	iftrue .trade
+
+	farwritetext _Clapping7Text
+	sjump .text_end
+
+.trade
 	trade NPC_TRADE_TIM
+.text_end
 	waitbutton
 	closetext
 	end
@@ -41,4 +52,4 @@ OlivineTimsHouse_MapEvents:
 	bg_event  1,  1, BGEVENT_READ, TimsHouseBookshelf
 
 	def_object_events
-	object_event  2,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Tim, -1
+	object_event  2,  3, SPRITE_FISHING_GURU, CLAP_F | SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Tim, -1

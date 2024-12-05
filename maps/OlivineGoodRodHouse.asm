@@ -12,13 +12,24 @@ OlivineGoodRodHouse_MapScripts:
 	iffalse .end
 
 	moveobject OLIVINEGOODRODHOUSE_FISHING_GURU, 5, 1
-	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_STANDING_UP
+	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
 .end
 	endcallback
 
 GoodRodGuru:
 	faceplayer
 	opentext
+
+	callasm IsClappingAuthorizedScript
+	iffalse .GoodRod
+
+	callasm HasPlayerClappedALotInThisRoom_WithReset
+	iftrue .GoodRod
+
+	farwritetext _Clapping4Text
+	sjump .text_end
+
+.GoodRod
 	checkitem GOOD_ROD
 	iftrue .AlreadyGotItem
 	farwritetext OfferGoodRodText
@@ -28,6 +39,7 @@ GoodRodGuru:
 	promptbutton
 	verbosegiveitem GOOD_ROD
 	writetext GaveGoodRodText
+.text_end
 	waitbutton
 	closetext
 	end
@@ -82,4 +94,4 @@ OlivineGoodRodHouse_MapEvents:
 	def_bg_events
 
 	def_object_events
-	object_event  2,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoodRodGuru, -1
+	object_event  2,  3, SPRITE_FISHING_GURU, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoodRodGuru, -1
