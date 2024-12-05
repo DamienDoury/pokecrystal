@@ -184,7 +184,7 @@ OfferClappingGift:
 .give_gift2
 	writetext GoldenrodClapHouse_Gift2Text
 	promptbutton
-	verbosegiveitem GOLD_LEAF
+	verbosegiveitem BIG_PEARL
 	iffalse .end_with_ret_val
 
 	setevent EVENT_GOT_CLAPPING_GIFT_2
