@@ -1162,6 +1162,7 @@ SeelEvosAttacks:
 	db 0 ; no more evolutions
 	db 1, HEADBUTT
 	db 5, GROWL
+	db 13, ENCORE
 	db 16, AURORA_BEAM
 	db 21, REST
 	db 32, TAKE_DOWN
@@ -1176,6 +1177,7 @@ DewgongEvosAttacks:
 	db 1, GROWL
 	db 1, AURORA_BEAM
 	db 5, GROWL
+	db 13, ENCORE
 	db 16, AURORA_BEAM
 	db 21, REST
 	db 32, TAKE_DOWN

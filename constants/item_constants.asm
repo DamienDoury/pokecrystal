@@ -280,6 +280,7 @@ ENDM
 	add_tm FURY_CUTTER  ; f1
 	add_tm NIGHTMARE    ; f2
 	add_tm HAIL   		; f3
+	add_tm ENCORE   	; f4
 NUM_TMS EQU __tmhm_value__ - 1
 
 add_hm: MACRO
@@ -304,13 +305,13 @@ PURGE HM_VALUE
 	add_tmnum \1
 ENDM
 
-	add_hm CUT          ; f4
-	add_hm FLY          ; f5
-	add_hm SURF         ; f6
-	add_hm STRENGTH     ; f7
-	add_hm FLASH        ; f8
-	add_hm WHIRLPOOL    ; f9
-	add_hm WATERFALL    ; fa
+	add_hm CUT          ; f5
+	add_hm FLY          ; f6
+	add_hm SURF         ; f7
+	add_hm STRENGTH     ; f8
+	add_hm FLASH        ; f9
+	add_hm WHIRLPOOL    ; fa
+	add_hm WATERFALL    ; fb
 NUM_HMS EQU __tmhm_value__ - NUM_TMS - 1
 
 add_mt: MACRO
@@ -336,7 +337,7 @@ NUM_TUTORS = __tmhm_value__ - NUM_TMS - NUM_HMS - 1
 
 NUM_TM_HM_TUTOR EQU NUM_TMS + NUM_HMS + NUM_TUTORS
 
-	const ITEM_FA       ; fa
+	const ITEM_FC       ; fc
 
 USE_SCRIPT_VAR EQU $00
 ITEM_FROM_MEM  EQU $ff

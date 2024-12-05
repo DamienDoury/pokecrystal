@@ -150,7 +150,7 @@ CheatGuyScript:
 	writemem wTMsHMs + 4
 	writemem wTMsHMs + 5
 	writemem wTMsHMs + 6
-	setval $3 ; We don't want to overflow.
+	setval $7 ; We don't want to overflow.
 	writemem wTMsHMs + 7
 
 	giveitem MAX_REPEL, 99
