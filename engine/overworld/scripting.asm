@@ -300,6 +300,9 @@ Script_jumptextfaceplayer:
 	bit CLAPPED_A_LOT_IN_THIS_ROOM_BIT, [hl]
 	jr nz, _Script_jumptextfaceplayer
 
+	farcall IsNPCClapping
+	jr nc, _Script_jumptextfaceplayer
+
 ; clapping
 	ld a, [hLastTalked]
 	ld d, a

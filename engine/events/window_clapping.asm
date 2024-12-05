@@ -258,3 +258,55 @@ IsInClappingTown:
 .return_false
     xor a
     ret
+
+; Output: carry if the NPC has the CLAP_F bit in its movement type.
+; The use of setlasttalked in the same script as jumptextfaceplayer may break this security.
+; But I checked, and it should never be the case anyway.
+; Most of the time, setlasttalked actually helps targetting the right NPC .
+IsNPCClapping::
+    ; Return if the hLastTalkedValue is out of bounds.
+    ld a, [hLastTalked]
+    and a
+    ret z
+
+    cp NUM_OBJECTS + 1
+    ret nc
+
+    ; Getting the map object data.
+    ld hl, wPlayerObject + MAPOBJECT_SPRITE
+    ld bc, MAPOBJECT_LENGTH
+    call AddNTimes
+
+    ; A few sprites can't clap.
+    ld a, [hl]
+    push hl
+    ld hl, .non_clapping_sprites
+    call IsInByteArray
+    pop hl
+    ccf
+    ret nc
+
+    ; Checking the sprite's CLAP_F flag.
+    ccf ; Reset the carry to zero.
+    ld bc, MAPOBJECT_MOVEMENT - MAPOBJECT_SPRITE
+    add hl, bc
+    bit CLAP_BEHAVIOUR_BIT, [hl] ; Doesn't touch the carry flag.
+    ret z
+
+    ; The object type must be OBJECTTYPE_SCRIPT. Note that the object type is stored with the color attribute.
+    ld bc, MAPOBJECT_COLOR - MAPOBJECT_MOVEMENT
+    add hl, bc
+    ld a, [hl]
+    and $f ; Masking out the color, to keep only the object type.
+    sub 1 ; sub 1 will return a carry only if A is 0. OBJECTTYPE_SCRIPT is 0.
+    ret
+
+.non_clapping_sprites
+    db SPRITE_ROCKET
+    db SPRITE_ROCKET_GIRL
+    db SPRITE_ROCKER
+    db SPRITE_GAMEBOY_KID
+    db SPRITE_NURSE
+    db SPRITE_GYM_GUIDE
+    db SPRITE_PHARMACIST
+    db -1
