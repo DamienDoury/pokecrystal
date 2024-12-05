@@ -134,7 +134,7 @@ GoldenrodHospitalRoom_MapScripts:
 	variablesprite SPRITE_HOSPITAL_VISITOR, SPRITE_OFFICER
 	setval PAL_NPC_GREEN << 4
 	writemem wMap4ObjectColor
-	setval CLAP_F | SPRITEMOVEDATA_STANDING_LEFT
+	setval SPRITEMOVEDATA_STANDING_LEFT
 	writemem wMap4ObjectMovement
 	sjump .SetSickMonID
 
