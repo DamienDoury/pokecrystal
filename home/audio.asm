@@ -192,6 +192,10 @@ endr
 	pop hl
 	ret
 
+WaitPlaySFX::
+	call WaitSFX
+	; fallthrough.
+
 PlaySFX::
 ; Play sound effect de.
 ; Sound effects are ordered by priority (highest to lowest)
@@ -241,14 +245,13 @@ PlaySFX::
 	pop hl
 	ret
 
-WaitPlaySFX::
-	call WaitSFX
-	jr PlaySFX
-
 WaitSFX::
 ; infinite loop until sfx is done playing
-
 	push hl
+	push af
+	ld a, [wCurSFX]
+	cp SFX_CHEERING
+	jr z, .exit
 
 .wait
 	ld hl, wChannel5Flags1
@@ -264,6 +267,8 @@ WaitSFX::
 	bit 0, [hl]
 	jr nz, .wait
 
+.exit
+	pop af
 	pop hl
 	ret
 
