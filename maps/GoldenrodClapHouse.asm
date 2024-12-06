@@ -14,6 +14,19 @@ GoldenrodClapHouse_MapScripts:
 	endcallback
 
 .CheckClapping:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Hide instructions book.
+	
+	readmem wYearMonth
+	ifgreater $06, .done_with_instructions
+	
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Show instructions in bookshelves.
+
+	checkevent EVENT_FIRST_LOCKDOWN_STARTED
+	iffalse .done_with_instructions
+
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Show instructions book.
+
+.done_with_instructions
 	callasm IsClappingAuthorizedScript
 	iffalse .end
 
@@ -238,7 +251,29 @@ GoldenrodClapHouse_HusbandScript:
 .best_time
 	jumptext GoldenrodClapHouse_HusbandClapText
 
+
+
+GoldenrodClapHouse_InstructionsScript:
+	jumptext GoldenrodClapHouse_InstructionsText
+	
 GoldenrodClapHouse_Bookshelf:
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	iftrue .std
+
+	opentext
+	writetext GoldenrodClapHouse_OldBookText
+	yesorno
+	iffalse .close_text
+
+	writetext GoldenrodClapHouse_InstructionsText
+
+.text_end
+	waitbutton
+.close_text
+	closetext
+	end
+
+.std
 	jumpstd MagazineBookshelfScript
 
 GoldenrodClapHouse_Radio:
@@ -425,6 +460,38 @@ GoldenrodClapHouse_HypedText:
 	line "for 8 PM!"
 	done
 
+
+
+
+GoldenrodClapHouse_OldBookText:
+	text "There's an old copy"
+	line "of The Book of"
+	cont "Clapping."
+	
+	para "Do you want"
+	line "to read it?"
+	done
+
+GoldenrodClapHouse_InstructionsText:
+	text "“The Book of"
+	line "Clapping”"
+
+	para "By the self-"
+	line "proclaimed"
+	cont "CLAP MASTER."
+
+	para "When to clap?"
+	line "<EMPTY_STAR> Starts at 8 PM"
+
+	para "Where to clap?"
+	line "<EMPTY_STAR> Mostly in cities"
+
+	para "How to clap?"
+	line "<EMPTY_STAR> Tinker around!"
+	cont "You can figure it"
+	cont "out on your own ;)"
+	done
+
 GoldenrodClapHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -442,3 +509,4 @@ GoldenrodClapHouse_MapEvents:
 	def_object_events
 	object_event  6,  2, SPRITE_RECEPTIONIST, CLAP_F | SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_ClapMasterScript, -1
 	object_event  1,  3, SPRITE_SUPER_NERD, CLAP_F | SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_HusbandScript, -1
+	object_event  4,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_InstructionsScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
