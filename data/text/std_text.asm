@@ -342,6 +342,13 @@ WindowText:
 	line "Lookin' good!"
 	done
 
+WindowClappingText:
+	text "People are"
+	line "clapping at their"
+	cont "window from all"
+	cont "directions."
+	done
+
 TVText:
 	text "It's a TV."
 	done

@@ -521,7 +521,12 @@ TownMapScript:
 	end
 
 WindowScript:
+	callasm IsClappingAuthorizedScript
+	iftrue .clapping
+
 	farjumptext WindowText
+.clapping
+	farjumptext WindowClappingText
 
 TVScript:
 	farsjump TVShow
