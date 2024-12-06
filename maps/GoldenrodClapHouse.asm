@@ -395,11 +395,11 @@ GoldenrodClapHouse_ExplanationText:
 	para "Everyday at 8 PM,"
 	line "locked down people"
 	
-	para "are clapping"
-	line "through their"
+	para "are clapping at"
+	line "their window"
 
-	para "window as a way to"
-	line "show their support"
+	para "as a way to show"
+	line "their support"
 
 	para "to the healthcare"
 	line "workers that are"
@@ -440,5 +440,5 @@ GoldenrodClapHouse_MapEvents:
 	bg_event  7,  1, BGEVENT_READ, GoldenrodClapHouse_Radio
 
 	def_object_events
-	object_event  6,  2, SPRITE_RECEPTIONIST, CLAP_F | SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_ClapMasterScript, -1
+	object_event  6,  2, SPRITE_RECEPTIONIST, CLAP_F | SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_ClapMasterScript, -1
 	object_event  1,  3, SPRITE_SUPER_NERD, CLAP_F | SPRITEMOVEDATA_WANDER, 2, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodClapHouse_HusbandScript, -1

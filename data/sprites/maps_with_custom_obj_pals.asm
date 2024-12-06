@@ -25,4 +25,5 @@ ENDM
 	custom_map_objects_pals INDIGO_PLATEAU_POKECENTER_1F, MapObjectPalsYellowish
 	custom_map_objects_pals POWER_PLANT, MapObjectPalsYellowish
 	custom_map_objects_pals GOLDENROD_HOSPITAL_ROOM, MapObjectPalsYellowishOnRock ; Needs pink for Nurses, yellowish for Abra, and leave the Tree palette for the player's sick mon.
+	custom_map_objects_pals GOLDENROD_CLAP_HOUSE, MapObjectsPalVermilion
 	db 0 ; end
