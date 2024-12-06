@@ -197,51 +197,22 @@ ResetClapInThisRoom::
     ret
 
 ClappingTownLandmarks:
-    db \
-    1 << (LANDMARK_NEW_BARK_TOWN % 8) /*01*/ | \
-    1 << (LANDMARK_CHERRYGROVE_CITY % 8) /*03*/ | \
-    1 << (LANDMARK_VIOLET_CITY % 8) /*06*/
-
-    db \
-    1 << (LANDMARK_ROUTE_32 % 8) /*08*/ | \ ; Used for Route32 Pokécenter.
-    1 << (LANDMARK_AZALEA_TOWN % 8) /*0c*/
-
-    db \
-    1 << (LANDMARK_GOLDENROD_CITY % 8) /*10*/ | \
-    1 << (LANDMARK_HOSPITAL % 8) /*12*/ | \
-    1 << (LANDMARK_ECRUTEAK_CITY % 8) /*17*/
-
-    db \
-    1 << (LANDMARK_OLIVINE_CITY % 8) /*1c*/
-
-    db \
-    1 << (LANDMARK_CIANWOOD_CITY % 8) /*22*/ | \
-    1 << (LANDMARK_MAHOGANY_TOWN % 8) /*25*/
-
-    db \
-    1 << (LANDMARK_BLACKTHORN_CITY % 8) /*2a*/
-
-    ;db \
-    ;1 << (LANDMARK_PALLET_TOWN % 8) /*30*/ | \
-    ;1 << (LANDMARK_VIRIDIAN_CITY % 8) /*32*/ | \
-    ;1 << (LANDMARK_PEWTER_CITY % 8) /*35*/
-    ;
-    ;db \
-    ;1 << (LANDMARK_CERULEAN_CITY % 8) /*39*/
-    ;
-    ;db \
-    ;1 << (LANDMARK_VERMILION_CITY % 8) /*40*/
-    ;
-    ;db \
-    ;1 << (LANDMARK_LAVENDER_TOWN % 8) /*48*/ | \
-    ;1 << (LANDMARK_CELADON_CITY % 8) /*4a*/ | \
-    ;1 << (LANDMARK_SAFFRON_CITY % 8) /*4b*/
-    ;
-    ;db \
-    ;1 << (LANDMARK_FUCHSIA_CITY % 8) /*55*/
-    ;
-    ;ds 1 ; $58 to $5f
-    ;ds 1 ; $60 to $67
+    def_bitfield
+	; johto
+	bit_value LANDMARK_NEW_BARK_TOWN
+	bit_value LANDMARK_CHERRYGROVE_CITY
+	bit_value LANDMARK_VIOLET_CITY
+	bit_value LANDMARK_AZALEA_TOWN
+	bit_value LANDMARK_GOLDENROD_CITY
+	bit_value LANDMARK_ECRUTEAK_CITY
+	bit_value LANDMARK_OLIVINE_CITY
+	bit_value LANDMARK_CIANWOOD_CITY
+	bit_value LANDMARK_MAHOGANY_TOWN
+	bit_value LANDMARK_BLACKTHORN_CITY
+	; extra
+	bit_value LANDMARK_HOSPITAL
+    bit_value LANDMARK_ROUTE_32
+	end_bitfield
 
 ; Output: NZ if inside a clapping town. Z otherwise.
 IsInClappingTown:
