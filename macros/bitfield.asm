@@ -1,3 +1,5 @@
+; Thanks to Rangi42/Sylvie for the original macro that was used as the base for this one.
+;
 ; Use: 
 ;    def_bitfield [OPTIONAL_FIXED_LENGTH]
 ;    bit_value BIT_INDEX
