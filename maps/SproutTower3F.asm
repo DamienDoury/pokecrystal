@@ -11,20 +11,20 @@ SproutTower3F_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_NEWMAP, .EnterCallback
+	callback MAPCALLBACK_OBJECTS, .EnterCallback
 	
 .EnterCallback:
 	checkevent EVENT_RIVAL_SPROUT_TOWER
 	iffalse .SilverInSproutTower
 
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Silver.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hides Silver, and disables the coord event.
 
 .SilverInSproutTower
 	readmem wFreedomStateWhenEntered
 	ifnotequal 1 << CURFEW, .EndCallback
 
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Silver.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Hides Silver, and disables the coord event.
 
 .EndCallback:
 	endcallback
@@ -63,7 +63,8 @@ SproutTower3FRivalScene:
 	playsound SFX_WARP_TO
 	special FadeBlackQuickly
 	special ReloadSpritesNoPalettes
-	disappear SPROUTTOWER3F_SILVER ; Also sets EVENT_RIVAL_SPROUT_TOWER, which end the event.
+	disappear SPROUTTOWER3F_SILVER ; Also sets EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2.
+	setevent EVENT_RIVAL_SPROUT_TOWER
 	waitsfx
 	special FadeInQuickly
 	special RestartMapMusic
