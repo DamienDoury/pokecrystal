@@ -117,6 +117,8 @@ OverworldSprites:
 	overworld_sprite MewtwoOwTopSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite MewtwoOwBottomSpriteGFX, 4, STILL_SPRITE, PAL_OW_PINK
 	overworld_sprite WalkingPikachuSpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
+	overworld_sprite ChrisClapSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+	overworld_sprite KrisClapSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	assert_table_length NUM_OVERWORLD_SPRITES
 
 ClappingOverworldSprites:
@@ -155,7 +157,7 @@ ClappingOverworldSprites:
 	dab ErikaSpriteGFX
 	dab KogaSpriteGFX
 	dab SabrinaSpriteGFX
-	dab CooltrainerMSpriteGFX
+	dab CooltrainerMSpriteGFX_Clap
 	dab CooltrainerFSpriteGFX
 	dab BugCatcherSpriteGFX
 	dab TwinSpriteGFX
@@ -163,7 +165,7 @@ ClappingOverworldSprites:
 	dab LassSpriteGFX
 	dab TeacherSpriteGFX
 	dab BeautySpriteGFX
-	dab SuperNerdSpriteGFX
+	dab SuperNerdSpriteGFX_Clap
 	dab RockerSpriteGFX
 	dab PokefanMSpriteGFX
 	dab PokefanFSpriteGFX
@@ -186,7 +188,7 @@ ClappingOverworldSprites:
 	dab UnusedGuySpriteGFX
 	dab GentlemanSpriteGFX
 	dab BlackBeltSpriteGFX
-	dab ReceptionistSpriteGFX
+	dab ReceptionistSpriteGFX_Clap
 	dab OfficerSpriteGFX
 	dab JennySpriteGFX
 	dab AgathaSpriteGFX
@@ -231,4 +233,6 @@ ClappingOverworldSprites:
 	dab MewtwoOwTopSpriteGFX
 	dab MewtwoOwBottomSpriteGFX
 	dab WalkingPikachuSpriteGFX
+	dab ChrisClapSpriteGFX
+	dab KrisClapSpriteGFX
 	assert_table_length NUM_OVERWORLD_SPRITES
