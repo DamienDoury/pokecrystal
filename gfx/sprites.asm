@@ -118,6 +118,7 @@ MewtwoOwBottomSpriteGFX::      INCBIN "gfx/sprites/mewtwo_ow_bottom.2bpp"
 LoreleiSpriteGFX::             INCBIN "gfx/sprites/lorelei.2bpp"
 WalkingPikachuSpriteGFX::      INCBIN "gfx/sprites/pikachu.2bpp"
 KrisClapSpriteGFX::
+ChrisClapSpriteGFX::           INCBIN "gfx/sprites/chris_clap.2bpp"
 CooltrainerMSpriteGFX_Clap::   INCBIN "gfx/sprites/cooltrainer_m_clap.2bpp"
 SuperNerdSpriteGFX_Clap::      INCBIN "gfx/sprites/super_nerd_clap.2bpp"
 ReceptionistSpriteGFX_Clap::   INCBIN "gfx/sprites/receptionist_clap.2bpp"
