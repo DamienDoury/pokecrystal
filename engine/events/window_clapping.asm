@@ -1,14 +1,14 @@
 ; Output: carry is it is currently clapping time, within a clapping area (town).
 ; Clobbers everything.
 IsClappingAuthorized::
-    ;ldh a, [hHours] ; Quickest dismissal method. So we put it first.
-    ;cp 20
-    ;jr nz, .return_false
+    ldh a, [hHours] ; Quickest dismissal method. So we put it first.
+    cp 20
+    jr nz, .return_false
     
-    ;ld b, CHECK_FLAG
-    ;ld de, EVENT_FIRST_LOCKDOWN_STARTED
-    ;call EventFlagAction
-    ;ret z
+    ld b, CHECK_FLAG
+    ld de, EVENT_FIRST_LOCKDOWN_STARTED
+    call EventFlagAction
+    ret z
 
     ; No clapping in gyms.
     ld a, [wMapMusic]
@@ -27,8 +27,17 @@ IsClappingAuthorized::
     pop de
     pop bc
     ret nc
-    ret ; A virer.
-    
+    ;ret ; A virer.
+
+    ; The clapping shouldn't happen in Goldenrod during the Rocket invasion.
+    push bc
+    push de
+    call IsInGoldenrodDuringRocketInvasion
+    pop de
+    pop bc
+    ret nc
+
+.skip_rocket_invasion
     ld a, [wYearMonth] ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
     cp $07 ; August 2020.
     ret nc
@@ -56,6 +65,34 @@ IsClappingAuthorized::
     ; 7. august   = return
 
 .return_false
+    xor a
+    ret
+
+; Output: nc if the player is within Goldenrod during the Rocket invasion.
+IsInGoldenrodDuringRocketInvasion:
+    ld a, [wCurLandmark]
+    cp LANDMARK_GOLDENROD_CITY
+    jr z, .check_invasion_event
+
+    cp LANDMARK_RADIO_TOWER
+    jr z, .check_invasion_event
+
+    cp LANDMARK_HOSPITAL
+    jr z, .check_invasion_event
+
+.return_false
+    scf
+    ret
+
+.check_invasion_event
+    ld de, ENGINE_ROCKETS_IN_RADIO_TOWER
+    ld b, CHECK_FLAG
+    farcall EngineFlagAction
+    ld a, c
+    and a
+    jr z, .return_false
+
+    ; Return true
     xor a
     ret
 
