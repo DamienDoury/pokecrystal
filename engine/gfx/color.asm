@@ -439,7 +439,7 @@ FillBoxCGB:
 	jr nz, .row
 	ret
 
-ResetBGPals:
+ResetBGPals::
 	push af
 	push bc
 	push de
@@ -475,14 +475,14 @@ ResetBGPals:
 	pop af
 	ret
 
-WipeAttrmap:
+WipeAttrmap::
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
 	call ByteFill
 	ret
 
-ApplyPals:
+ApplyPals::
 	ld hl, wBGPals1
 	ld de, wBGPals2
 	ld bc, 16 palettes
@@ -2224,6 +2224,13 @@ SetHospitalMonSpecies::
 
 	call CloseSRAM
 	ret
+
+WholeScreenBG0::
+	call WaitBGMap
+	hlcoord 0, 0
+	lb bc, SCREEN_HEIGHT, SCREEN_WIDTH
+	call TextboxPalette
+	jp WaitBGMap
 
 INCLUDE "data/sprites/maps_with_custom_obj_pals.asm"
 

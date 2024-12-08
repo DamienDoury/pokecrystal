@@ -1432,7 +1432,7 @@ GameInit::
 	farcall _LoadData
 	jp Continue.Go
 
-Continue_DisplayYear:
+Continue_DisplayYear::
 	call LoadStandardFont
 	ld c, 35
 	call DelayFrames

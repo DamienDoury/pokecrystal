@@ -354,6 +354,7 @@ IlexForestCharcoalMasterScript:
 	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
+	special FadeOutMusic
 	closetext
 	setevent EVENT_ILEX_FOREST_FARFETCHD
 	setevent EVENT_ILEX_FOREST_APPRENTICE
@@ -363,6 +364,13 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_BOSS
 	setmapscene CHARCOAL_KILN, SCENE_FINISHED
 	special FadeOutPalettes
+	callasm ClearBGPalettes
+	callasm ResetBGPals
+	callasm ApplyPals
+	callasm ClearSprites
+	callasm ClearScreen
+	callasm WipeAttrmap
+	callasm Continue_DisplayYear
 	warpfacing UP, CHARCOAL_KILN, 2, 5
 	end
 

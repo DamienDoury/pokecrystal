@@ -22,11 +22,9 @@ CharcoalKiln_MapScripts:
 .end
 	endcallback
 
-.DummyScene0:
-	end
-
 .LockdownFirstDeclarationScene:
 	prioritysjump LockdownFirstDeclaration
+.DummyScene0:
 	end
 
 .MoveCharcoalKilnApprentice:
