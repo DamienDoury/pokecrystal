@@ -129,6 +129,10 @@ ClappingAutoSFX:
 .TryEndClapping
 	call CheckSFX
 	ret nc
+
+	ld a, [wCurSFX]
+	cp SFX_CHEERING
+	ret nz
 	
 	farcall StopSFX
 	ret
