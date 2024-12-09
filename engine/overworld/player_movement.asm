@@ -50,8 +50,9 @@ DoPlayerMovement::
 .Clap
 	ld a, [wCurInput]
 	and D_PAD
-	jr z, .Normal
+	jp z, ._WalkInPlace ; Bump animation.
 
+	; As soon as the player presses any button from the DPad, we set it back to its normal state.
 	farcall SetNormalStateIfClapping
 	jr .Normal
 
@@ -59,14 +60,10 @@ DoPlayerMovement::
 	ld a, [wPlayerState]
 	cp PLAYER_CLAP
 	jr z, .Clap
-	cp PLAYER_NORMAL
-	jr z, .Normal
 	cp PLAYER_SURF
 	jr z, .Surf
 	cp PLAYER_SURF_PIKA
 	jr z, .Surf
-	;cp PLAYER_BIKE
-	;jr z, .Normal
 	cp PLAYER_SKATE
 	jr z, .Ice
 	; Any other behaviour defaults to .Normal
@@ -1124,6 +1121,11 @@ SetNormalStateIfClapping::
 	ld a, [wPlayerState]
 	cp PLAYER_CLAP
 	ret nz
+
+	; Reset the clapping idle cooldown.
+	ld a, [wClappingData]
+	and ~CLAPPING_IDLE_FRAMES_MASK
+	ld [wClappingData], a
 	
 	farcall NursesStopBowing
 

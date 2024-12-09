@@ -201,6 +201,7 @@ ROMX $49
 ROMX $4a
 	"Trainer Pic Pointers"
 	"Pics 3"
+	"Sprites 4"
 ROMX $4b
 	"Pics 4"
 ROMX $4c

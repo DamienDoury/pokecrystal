@@ -181,7 +181,9 @@ CLAPPED_A_LOT_IN_THIS_ROOM_BIT EQU 6
 CLAP_BEHAVIOUR_BIT EQU 7
 CLAP_F EQU 1 << CLAP_BEHAVIOUR_BIT
 CLAPPING_IDLE_FRAMES_MASK EQU $f
-MIN_CLAPPING_DELAY EQU 2 ; Must be a multiple of 2, and at least 2.
+MIN_CLAPPING_DELAY EQU 4
+CLAP_ANIM_DURATION EQU 10
+CLAP_ANIM_START_FRAME EQU 12 ; The clap animation actually uses the BUMP movement. The value of this constant is the start frame of the bump animation.
 
 CLAP_CAP_3_AMOUNT EQU 2000	; gift #3.
 CLAP_CAP_2_AMOUNT EQU 500 	; gift #2.

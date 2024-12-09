@@ -689,7 +689,8 @@ endc
 
 	; We reset the clap countdown, for animation timing purposes.
 	ld a, [wClappingData]
-	or CLAPPING_IDLE_FRAMES_MASK
+	and ~CLAPPING_IDLE_FRAMES_MASK
+	add CLAP_ANIM_DURATION
 	ld [wClappingData], a
 
 	ld de, SFX_CLAP_1
@@ -700,7 +701,9 @@ endc
 	ld e, a ; When using different sound effects, the audio doesn't transition well. Whereas the same SFX perfectly chains up.
 	call PlaySFX
 	farcall NursesBowWhenClappedAt
-	farcall UpdatePlayerClapAnimation
+
+	ld a, CLAP_ANIM_START_FRAME
+	ld [wPlayerObjectStepFrame], a ; Restart player clap animation.
 	pop de
 	pop bc
 

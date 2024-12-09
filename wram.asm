@@ -920,6 +920,7 @@ ENDU
 
 wClappingData:: db
 ; bit 0-3: timing since last player clap (see CLAPPING_IDLE_FRAMES_MASK).
+; bit 4-6: clapping count in current map.
 ; bit 7: clap mode activation.
 
 	ds 23
