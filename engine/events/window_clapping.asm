@@ -10,13 +10,17 @@ IsClappingAuthorized::
     call EventFlagAction
     ret z
 
+    ; Clapping only takes place inside towns.
+    call IsInClappingTown
+    ret z
+
     ; No clapping in gyms.
     ld a, [wMapMusic]
     cp MUSIC_GYM
     ret z
 
-    ; Clapping only takes place inside towns.
-    call IsInClappingTown
+    ; No clapping in some specific locations.
+    call IsForbiddenClappingArea
     ret z
 
     push bc
@@ -27,7 +31,6 @@ IsClappingAuthorized::
     pop de
     pop bc
     ret nc
-    ;ret ; A virer.
 
     ; The clapping shouldn't happen in Goldenrod during the Rocket invasion.
     push bc
@@ -37,7 +40,6 @@ IsClappingAuthorized::
     pop bc
     ret nc
 
-.skip_rocket_invasion
     ld a, [wYearMonth] ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
     cp $07 ; August 2020.
     ret nc
@@ -94,6 +96,24 @@ IsInGoldenrodDuringRocketInvasion:
 
     ; Return true
     xor a
+    ret
+
+IsForbiddenClappingArea:
+; Goldenrod Game Corner.
+    ld a, [wMapGroup]
+    cp GROUP_GOLDENROD_GAME_CORNER
+    jr nz, .Dance_Theater_check
+
+    ld a, [wMapNumber]
+    cp MAP_GOLDENROD_GAME_CORNER
+    ret
+
+.Dance_Theater_check
+    cp GROUP_DANCE_THEATRE
+    ret nz
+
+    ld a, [wMapNumber]
+    cp MAP_DANCE_THEATRE
     ret
 
 ClappingEnvironments:
