@@ -158,19 +158,19 @@ ClappingOverworldSprites:
 	dab KogaSpriteGFX
 	dab SabrinaSpriteGFX
 	dab CooltrainerMSpriteGFX_Clap
-	dab CooltrainerFSpriteGFX
-	dab BugCatcherSpriteGFX
-	dab TwinSpriteGFX
-	dab YoungsterSpriteGFX
-	dab LassSpriteGFX
-	dab TeacherSpriteGFX
+	dab CooltrainerFSpriteGFX_Clap
+	dab BugCatcherSpriteGFX_Clap
+	dab TwinSpriteGFX_Clap
+	dab YoungsterSpriteGFX_Clap
+	dab LassSpriteGFX_Clap
+	dab TeacherSpriteGFX_Clap
 	dab BeautySpriteGFX
 	dab SuperNerdSpriteGFX_Clap
 	dab RockerSpriteGFX
-	dab PokefanMSpriteGFX
-	dab PokefanFSpriteGFX
-	dab GrampsSpriteGFX
-	dab GrannySpriteGFX
+	dab PokefanMSpriteGFX_Clap
+	dab PokefanFSpriteGFX_Clap
+	dab GrampsSpriteGFX_Clap
+	dab GrannySpriteGFX_Clap
 	dab SwimmerGuySpriteGFX
 	dab SwimmerGirlSpriteGFX
 	dab BigSnorlaxSpriteGFX
@@ -179,15 +179,15 @@ ClappingOverworldSprites:
 	dab RocketGirlSpriteGFX
 	dab NurseSpriteGFX
 	dab LinkReceptionistSpriteGFX
-	dab ClerkSpriteGFX
-	dab FisherSpriteGFX
-	dab FishingGuruSpriteGFX
+	dab ClerkSpriteGFX_Clap
+	dab FisherSpriteGFX_Clap
+	dab FishingGuruSpriteGFX_Clap
 	dab ScientistSpriteGFX
 	dab KimonoGirlSpriteGFX
 	dab SageSpriteGFX
 	dab UnusedGuySpriteGFX
-	dab GentlemanSpriteGFX
-	dab BlackBeltSpriteGFX
+	dab GentlemanSpriteGFX_Clap
+	dab BlackBeltSpriteGFX_Clap
 	dab ReceptionistSpriteGFX_Clap
 	dab OfficerSpriteGFX
 	dab JennySpriteGFX

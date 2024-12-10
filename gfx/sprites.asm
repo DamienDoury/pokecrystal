@@ -120,8 +120,26 @@ WalkingPikachuSpriteGFX::      INCBIN "gfx/sprites/pikachu.2bpp"
 CooltrainerMSpriteGFX_Clap::   INCBIN "gfx/sprites/cooltrainer_m_clap.2bpp"
 SuperNerdSpriteGFX_Clap::      INCBIN "gfx/sprites/super_nerd_clap.2bpp"
 ReceptionistSpriteGFX_Clap::   INCBIN "gfx/sprites/receptionist_clap.2bpp"
-FisherSpriteGFX_Clap::          INCBIN "gfx/sprites/fisher_clap.2bpp"
+FisherSpriteGFX_Clap::         INCBIN "gfx/sprites/fisher_clap.2bpp"
     
 SECTION "Sprites 4", ROMX
 ChrisClapSpriteGFX::           INCBIN "gfx/sprites/chris_clap.2bpp" ; Must stay in the same bank as KrisClapSpriteGFX.
 KrisClapSpriteGFX::            INCBIN "gfx/sprites/kris_clap.2bpp"  ; Must stay in the same bank as ChrisClapSpriteGFX.
+YoungsterSpriteGFX_Clap::      INCBIN "gfx/sprites/youngster_clap.2bpp"
+LassSpriteGFX_Clap::           INCBIN "gfx/sprites/lass_clap.2bpp"
+BlackBeltSpriteGFX_Clap::      INCBIN "gfx/sprites/black_belt_clap.2bpp"
+ClerkSpriteGFX_Clap::          INCBIN "gfx/sprites/clerk_clap.2bpp"
+TeacherSpriteGFX_Clap::        INCBIN "gfx/sprites/teacher_clap.2bpp"
+CooltrainerFSpriteGFX_Clap::   INCBIN "gfx/sprites/cooltrainer_f_clap.2bpp"
+GentlemanSpriteGFX_Clap::      INCBIN "gfx/sprites/gentleman_clap.2bpp"
+TwinSpriteGFX_Clap::           INCBIN "gfx/sprites/twin_clap.2bpp"
+BugCatcherSpriteGFX_Clap::     INCBIN "gfx/sprites/bug_catcher_clap.2bpp"
+
+SECTION "Sprites 5", ROMX
+PokefanMSpriteGFX_Clap::       INCBIN "gfx/sprites/pokefan_m_clap.2bpp"
+PokefanFSpriteGFX_Clap::       INCBIN "gfx/sprites/pokefan_f_clap.2bpp"
+FishingGuruSpriteGFX_Clap::    INCBIN "gfx/sprites/fishing_guru_clap.2bpp"
+
+SECTION "Sprites 6", ROMX
+GrampsSpriteGFX_Clap::         INCBIN "gfx/sprites/gramps_clap.2bpp"
+GrannySpriteGFX_Clap::         INCBIN "gfx/sprites/granny_clap.2bpp"

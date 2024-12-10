@@ -206,8 +206,10 @@ ROMX $4b
 	"Pics 4"
 ROMX $4c
 	"Pics 5"
+	"Sprites 5"
 ROMX $4d
 	"Pics 6"
+	"Sprites 6"
 ROMX $4e
 	"Pics 7"
 ROMX $4f
