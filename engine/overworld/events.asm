@@ -657,8 +657,14 @@ endc
 	cp A_BUTTON
 	jr nz, .return_no_action ; If the player is pressing any other button, cancel the clap.
 
+.try_clap
 	farcall IsClappingAuthorized
 	jr nc, .return_no_action
+
+	; Can't clap while moving.
+	ld a, [wPlayerStepDirection]
+	cp STANDING
+	jr nz, .return_no_action
 
 	; Delay between 2 claps.
 	ld a, [wClappingData]
@@ -687,7 +693,7 @@ endc
 	push de
 	call .increase_clap_count
 
-	; We reset the clap countdown, for animation timing purposes.
+	; We restart the clap countdown, for animation timing purposes.
 	ld a, [wClappingData]
 	and ~CLAPPING_IDLE_FRAMES_MASK
 	add CLAP_ANIM_DURATION
@@ -860,6 +866,8 @@ CheckLongBPressOW:
 	ldh a, [hJoyPressed]
 	and B_BUTTON
 	ret z
+
+	call CheckAPressOW.try_clap
 
 	ld a, 1
 	ldh [hLongPressB], a ; Initiates a long press.
