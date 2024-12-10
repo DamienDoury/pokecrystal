@@ -41,10 +41,10 @@ IsClappingAuthorized::
     ret nc
 
     ld a, [wYearMonth] ; Upper nibble = year (0 = 2020), lower nibble = month (0 = january).
-    cp $07 ; August 2020.
+    cp $08 ; September 2020.
     ret nc
 
-    sub $02 ; March 2020. A is now [0-4].
+    sub $03 ; April 2020. A is now [0-4]. Note: actual lockdown starts on April, after beating Chief Nurse Joy.
     ld b, a
     add a
     add b
@@ -57,14 +57,15 @@ IsClappingAuthorized::
     cp b
     ret
 
-    ; 0. january  = return
-    ; 1. february = return
-    ; 2. march    = 15 minutes of clapping (from minute 0:00 to 9:59)
-    ; 3. april    = 12 minutes
-    ; 4. may      = 9 minutes
-    ; 5. june     = 6 minutes
-    ; 6. july     = 3 minutes
-    ; 7. august   = return
+    ; 0. january   = return
+    ; 1. february  = return
+    ; 2. march     = return
+    ; 3. april     = 15 minutes of clapping (from minute 0:00 to 9:59)
+    ; 4. may       = 12 minutes
+    ; 5. june      = 9 minutes
+    ; 6. july      = 6 minutes
+    ; 7. august    = 3 minutes
+    ; 8. september = return
 
 .return_false
     xor a

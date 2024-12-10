@@ -10,14 +10,14 @@ GoldenrodClapHouse_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .CheckClapping
 
 .SecondWindow:
-	changeblock 2, 0, $08 ; inactive window (wall) + TV.
+	changeblock 2, 0, $05 ; window.
 	endcallback
 
 .CheckClapping:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Hide instructions book.
 	
 	readmem wYearMonth
-	ifgreater $06, .done_with_instructions
+	ifgreater $07, .done_with_instructions
 	
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Show instructions in bookshelves.
 

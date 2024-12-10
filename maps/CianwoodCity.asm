@@ -125,14 +125,13 @@ CianwoodCityYoungster:
 	jumptextfaceplayer Cianwood_NoPoliceControlsText
 
 CianwoodCityPokefanM:
-	faceplayer
 	readmem wCurFreedomState
 	ifequal 1 << LOCKDOWN, .lockdown
 	ifequal 1 << CURFEW, .lockdown
-	jumptext CianwoodCityPokefanMText
+	jumptextfaceplayer CianwoodCityPokefanMText
 
 .lockdown
-	jumptext Cianwood_FreshAirText
+	jumptextfaceplayer Cianwood_FreshAirText
 
 CianwoodCityLass:
 	checkevent EVENT_JASMINE_RETURNED_TO_GYM
@@ -502,7 +501,7 @@ CianwoodCity_MapEvents:
 
 	def_object_events
 	object_event 21, 37, SPRITE_YOUNGSTER, CLAP_F | SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CianwoodCityYoungster, -1
-	object_event 17, 33, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityPokefanM, -1
+	object_event 17, 33, SPRITE_POKEFAN_M, CLAP_F | SPRITEMOVEDATA_WALK_LEFT_RIGHT, 1, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityPokefanM, -1
 	object_event 14, 42, SPRITE_LASS, CLAP_F | SPRITEMOVEDATA_WALK_UP_DOWN, 0, 2, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityLass, -1
 	object_event  8, 16, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
 	object_event  9, 17, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, CianwoodCityRock, -1
