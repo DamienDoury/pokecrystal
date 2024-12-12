@@ -1183,7 +1183,7 @@ TitleScreenTimer:
 
 ; Start a timer
 	ld hl, wTitleScreenTimer
-	ld de, 73 * 60 + 36
+	ld de, 83 * 60 + 36
 	ld [hl], e
 	inc hl
 	ld [hl], d
