@@ -923,7 +923,10 @@ wClappingData:: db
 ; bit 4-6: clapping count in current map.
 ; bit 7: clap mode activation.
 
-	ds 23
+wTempMonLevelUpStatGain:: ds NUM_BATTLE_STATS
+wTempMonStatGainDisplay:: db
+
+	ds 16
 
 
 SECTION "Overworld Map", WRAM0

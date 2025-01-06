@@ -1433,6 +1433,9 @@ VitaminEffect:
 	ld c, HAPPINESS_USEDITEM
 	farcall ChangeHappiness
 
+	predef CopyMonToTempMon
+	call DisplayStatsInPartyMenu
+
 	jp UseDisposableItem
 
 NoEffectMessage:
@@ -1445,10 +1448,35 @@ UpdateStatsAfterItem:
 	call GetPartyParamLocation
 	ld d, h
 	ld e, l
+	call WriteDownOldStatsForGainCalculation
 	ld a, MON_STAT_EXP - 1
 	call GetPartyParamLocation
 	ld b, TRUE
 	predef_jump CalcMonStats
+
+WriteDownOldStatsForGainCalculation::
+	inc hl ; Max HP.
+	inc hl ; Max HP + 1.
+	inc hl ; Atk high byte (big-endian).
+	ld a, [hli]
+	ld [wTempMonLevelUpStatGain + 0], a ; Atk.
+	inc hl
+
+	ld a, [hli]
+	ld [wTempMonLevelUpStatGain + 1], a ; Def.
+	inc hl
+
+	ld a, [hli]
+	ld [wTempMonLevelUpStatGain + 4], a ; Speed.
+	inc hl
+
+	ld a, [hli]
+	ld [wTempMonLevelUpStatGain + 2], a ; Special atk.
+	inc hl
+
+	ld a, [hl]
+	ld [wTempMonLevelUpStatGain + 3], a ; Special def.
+	ret
 
 RareCandy_StatBooster_ExitMenu:
 	xor a
@@ -1506,8 +1534,7 @@ RareCandy_StatBooster_GetParameters:
 	call GetBaseData
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
-	call GetNickname
-	ret
+	jp GetNickname
 
 RareCandyEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1594,16 +1621,7 @@ RareCandyEffect:
 	ld [wMonType], a
 	predef CopyMonToTempMon
 
-	hlcoord 9, 0
-	ld b, 10
-	ld c, 9
-	call Textbox
-
-	hlcoord 11, 1
-	ld bc, 4
-	predef PrintTempMonStats
-
-	call WaitPressAorB_BlinkCursor
+	call DisplayStatsInPartyMenu
 
 	xor a ; PARTYMON
 	ld [wMonType], a
@@ -1616,6 +1634,18 @@ RareCandyEffect:
 	farcall EvolvePokemon
 
 	jp UseDisposableItem
+
+DisplayStatsInPartyMenu:
+	hlcoord 9, 0
+	ld b, 10
+	ld c, 9
+	call Textbox
+
+	hlcoord 11, 1
+	ld bc, 4
+	predef PrintTempMonLevelUpStats
+
+	jp WaitPressAorB_BlinkCursor
 
 HealPowderEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM

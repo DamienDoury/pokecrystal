@@ -82,6 +82,83 @@ DrawHP:
 	pop de
 	ret
 
+PrintTempMonLevelUpStats:
+	push bc
+	push hl
+	ld de, PrintTempMonStats.StatNames
+	call PlaceString
+	pop hl
+	pop bc
+
+	push bc
+	push hl
+
+	add hl, bc
+	ld bc, SCREEN_WIDTH + 1
+	add hl, bc
+	lb bc, 1, 2 ; Parameters for PrintNum. "Print c digits of the b-byte value from de to hl."
+
+	ld a, [wTempMonLevelUpStatGain + 0]
+	ld e, a
+	ld a, [wTempMonAttack + 1] ; Big-endian.
+	call .PrintStatGain
+
+	ld a, [wTempMonLevelUpStatGain + 1]
+	ld e, a
+	ld a, [wTempMonDefense + 1] ; Big-endian.
+	call .PrintStatGain
+
+	ld a, [wTempMonLevelUpStatGain + 2]
+	ld e, a
+	ld a, [wTempMonSpclAtk + 1] ; Big-endian.
+	call .PrintStatGain
+
+	ld a, [wTempMonLevelUpStatGain + 3]
+	ld e, a
+	ld a, [wTempMonSpclDef + 1] ; Big-endian.
+	call .PrintStatGain
+
+	ld a, [wTempMonLevelUpStatGain + 4]
+	ld e, a
+	ld a, [wTempMonSpeed + 1] ; Big-endian.
+	call .PrintStatGain
+
+	call JoyWaitAorB
+	pop hl
+	pop bc
+
+
+	push bc
+	push hl
+	lb bc, 10, 8
+	call ClearBox
+	pop hl
+	pop bc
+	jp PrintTempMonStats
+	
+.PrintStatGain:
+	sub e ; Note: the amount of stat gain always fits within 1 byte during normal gameplay.
+	ld [wTempMonStatGainDisplay], a
+
+	push hl
+	ld de, wTempMonStatGainDisplay
+	call PrintNum
+	pop hl
+
+	push hl
+	ld a, [wTempMonStatGainDisplay]
+	cp 10
+	jr c, .OneDigit
+
+	dec hl ; If there are 2 digits, we shift the "+" sign to the left, so it overlaps the leading 0.
+.OneDigit
+	ld [hl], "+"
+	pop hl
+
+	ld de, SCREEN_WIDTH * 2
+	add hl, de
+	ret
+
 PrintTempMonStats:
 ; Print wTempMon's stats at hl, with spacing bc.
 	push bc
@@ -323,49 +400,6 @@ ListMovePP:
 	add hl, de
 	dec c
 	jr nz, .load_loop
-	ret
-
-BrokenPlacePPUnits: ; unreferenced
-; Probably would have these parameters:
-; hl = starting coordinate
-; de = SCREEN_WIDTH or SCREEN_WIDTH * 2
-; c = the number of moves (1-4)
-.loop
-	ld [hl], $32 ; typo for P?
-	inc hl
-	ld [hl], $3e ; P
-	dec hl
-	add hl, de
-	dec c
-	jr nz, .loop
-	ret
-
-Unused_PlaceEnemyHPLevel:
-	push hl
-	push hl
-	ld hl, wPartyMonNicknames
-	ld a, [wCurPartyMon]
-	call GetNickname
-	pop hl
-	call PlaceString
-	call CopyMonToTempMon
-	pop hl
-	ld a, [wCurPartySpecies]
-	cp EGG
-	jr z, .egg
-	push hl
-	ld bc, -12
-	add hl, bc
-	ld b, 0
-	call DrawEnemyHP
-	pop hl
-	ld bc, 5
-	add hl, bc
-	push de
-	call PrintLevel
-	pop de
-
-.egg
 	ret
 
 PlaceStatusString:
