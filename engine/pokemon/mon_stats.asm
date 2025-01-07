@@ -83,21 +83,14 @@ DrawHP:
 	ret
 
 PrintTempMonLevelUpStats:
-	push bc
 	push hl
-	ld de, PrintTempMonStats.StatNames
-	call PlaceString
+	call PrintTempMonStats
 	pop hl
-	pop bc
 
-	push bc
-	push hl
-
-	add hl, bc
-	ld bc, SCREEN_WIDTH + 1
+	ld bc, SCREEN_WIDTH
 	add hl, bc
 	lb bc, 1, 2 ; Parameters for PrintNum. "Print c digits of the b-byte value from de to hl."
-
+	
 	ld a, [wTempMonLevelUpStatGain + 0]
 	ld e, a
 	ld a, [wTempMonAttack + 1] ; Big-endian.
@@ -121,24 +114,19 @@ PrintTempMonLevelUpStats:
 	ld a, [wTempMonLevelUpStatGain + 4]
 	ld e, a
 	ld a, [wTempMonSpeed + 1] ; Big-endian.
-	call .PrintStatGain
-
-	call JoyWaitAorB
-	pop hl
-	pop bc
-
-
-	push bc
-	push hl
-	lb bc, 10, 8
-	call ClearBox
-	pop hl
-	pop bc
-	jp PrintTempMonStats
+	jp .PrintStatGain
 	
 .PrintStatGain:
 	sub e ; Note: the amount of stat gain always fits within 1 byte during normal gameplay.
 	ld [wTempMonStatGainDisplay], a
+
+	inc hl
+	inc hl
+	inc hl
+	ld [hl], "→"
+	dec hl
+	dec hl
+	dec hl
 
 	push hl
 	ld de, wTempMonStatGainDisplay
