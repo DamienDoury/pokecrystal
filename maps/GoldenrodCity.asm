@@ -391,7 +391,18 @@ GoldenrodCityFlowerShopSign:
 
 GoldenrodHospitalSign:
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	loadmem wYearMonth, 3
+	setevent EVENT_SICK_CATERPIE
+	setevent EVENT_LOCKDOWN_MART_RUSH ; Stops the rush.
 	setevent EVENT_FIRST_LOCKDOWN_STARTED
+	;clearevent EVENT_TRAVEL_CONTROL
+	clearevent EVENT_MART_CHERRYGROVE_MISSED
+	clearevent EVENT_MART_VIOLET_MISSED
+	clearevent EVENT_MART_AZALEA_MISSED
+	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
+	clearevent EVENT_GOLDENROD_BEATER
+	;loadmem wCurFreedomState, 1 << LOCKDOWN
+	setscene SCENE_GOLDENROD_HOSPITAL_NO_SEARCH
 endc
 	jumptext GoldenrodHospitalSignText
 

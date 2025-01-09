@@ -546,7 +546,7 @@ EarlsPokemonAcademyYoungster2Text:
 
 	para "items from the"
 	line "PACK when facing"
-	cont "an other trainer."
+	cont "another trainer."
 
 	para "It wouldn't be"
 	line "fair."
