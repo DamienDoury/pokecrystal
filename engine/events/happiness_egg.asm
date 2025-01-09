@@ -240,7 +240,7 @@ TryLayEgg::
 	ret nc
 
 	ld hl, wDayCareMan
-	res DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
+	;res DAYCAREMAN_MONS_COMPATIBLE_F, [hl] ; Eggs will keep being produced by the Pokemon pair at the day care, even after the player refuses one.
 	set DAYCAREMAN_HAS_EGG_F, [hl]
 	ret
 
