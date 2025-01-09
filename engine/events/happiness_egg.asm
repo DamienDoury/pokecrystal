@@ -140,7 +140,7 @@ IncreasePartyHappiness::
 	jr nz, .loop
 	ret
 
-DayCareStep::
+DayCareExpStep::
 ; Raise the experience of Day-Care Pokémon every step cycle.
 
 	ld a, [wDayCareMan]
@@ -174,7 +174,7 @@ DayCareStep::
 .day_care_lady
 	ld a, [wDayCareLady]
 	bit DAYCARELADY_HAS_MON_F, a
-	jr z, .check_egg
+	ret z
 	
 	ld hl, wBreedMon2Exp
 	; We divide the cur XP by 4096, and take the square root.
@@ -184,29 +184,36 @@ DayCareStep::
 
 	add [hl]
 	ld [hl], a
-	jr nc, .check_egg
+	ret nc
+
 	dec hl
 	inc [hl]
-	jr nz, .check_egg
+	ret nz
+
 	dec hl
 	inc [hl]
 	ld a, [hl]
 	cp HIGH(MAX_DAY_CARE_EXP >> 8)
-	jr c, .check_egg
+	ret c
+
 	ld a, HIGH(MAX_DAY_CARE_EXP >> 8)
 	ld [hl], a
+	ret
 
-.check_egg
+TryLayEgg::
 	ld hl, wDayCareMan
 	bit DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
 	ret z
+
 	ld hl, wStepsToEgg
 	dec [hl]
-	jr z, .try_lay_egg
-	cp $80
+	ld a, [hl]
+	jr z, .try
+
+	cp $80 ; Doubles the odds of laying an egg, as it will happen when [wStepsToEgg] is either $00 or $80.
 	ret nz
 
-.try_lay_egg
+.try
 	call Random
 	ld [hl], a
 	callfar CheckBreedmonCompatibility
@@ -214,20 +221,24 @@ DayCareStep::
 	cp 230
 	ld b, 31 percent + 1
 	jr nc, .okay
+
 	ld a, [wBreedingCompatibility]
 	cp 170
 	ld b, 16 percent
 	jr nc, .okay
+
 	ld a, [wBreedingCompatibility]
 	cp 110
 	ld b, 12 percent
 	jr nc, .okay
+
 	ld b, 4 percent
 
 .okay
 	call Random
 	cp b
 	ret nc
+
 	ld hl, wDayCareMan
 	res DAYCAREMAN_MONS_COMPATIBLE_F, [hl]
 	set DAYCAREMAN_HAS_EGG_F, [hl]

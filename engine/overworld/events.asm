@@ -1568,9 +1568,11 @@ CountStep:
 
 .day_care_step
 	; Increase the EXP of (both) DayCare Pokemon.
-	farcall DayCareStep
+	farcall DayCareExpStep
 
 .check_egg
+	farcall TryLayEgg
+
 	; Every 64 steps, decrease the hatch counter of all your eggs
 	; until you reach the first one that is ready to hatch.
 	ld a, [wStepCount]
