@@ -7894,7 +7894,7 @@ GiveExperiencePoints:
 	jr nz, .base_stat_division_loop
 	ret
 
-BoostExp:
+BoostExp: ; This is called before the DoubleExp calls. At this point, the experience gain can't overflow. So there's no need to secure it.
 ; Multiply experience by 1.5x
 	push bc
 ; load experience value
@@ -7926,7 +7926,10 @@ DoubleExp:
 ; double it
 	sla c
 	rl b
+	jr nc, .no_overflow
 
+	lb bc, $ff, $ff ; Prevents overflows.
+.no_overflow
 	ld a, c
 	ldh [hProduct + 3], a
 	ld a, b
