@@ -129,8 +129,15 @@ PrintTempMonLevelUpStats:
 	dec hl
 
 	push hl
+	cp 100
+	jr c, .ValueCapped
+
+	ld c, 3
+
+.ValueCapped
 	ld de, wTempMonStatGainDisplay
 	call PrintNum
+	ld c, 2
 	pop hl
 
 	push hl
