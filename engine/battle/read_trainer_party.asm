@@ -628,9 +628,9 @@ IsFairTrainer:
 	scf ; Sets the carry flag.
 	ret
 
-; Gets the level of the strongest Pokemon in the player's team, and stores it in a.
+; Gets the level of the strongest Pokemon in the player's team, and stores it in A and hFarByte.
 ; Destroys the flags.
-GetPlayerHighestLevel:
+GetPlayerHighestLevel::
 	push bc
 	push hl
 
@@ -653,6 +653,7 @@ GetPlayerHighestLevel:
 	jr nz, .loop
 
 	ld a, c ; We return the highest level in a.
+	ldh [hFarByte], a
 	pop hl ; Restoring dem values.
 	pop bc
 	ret

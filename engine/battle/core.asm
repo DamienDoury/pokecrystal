@@ -7544,6 +7544,7 @@ GiveExperiencePoints:
 	ld a, [wPlayerID]
 	cp [hl]
 	jr nz, .boosted
+
 	inc hl
 	ld a, [wPlayerID + 1]
 	cp [hl]
@@ -7560,6 +7561,7 @@ GiveExperiencePoints:
 	ld a, [wBattleMode]
 	dec a
 	call nz, BoostExp
+	
 ; Boost experience for Lucky Egg
 	push bc
 	ld a, MON_ITEM
@@ -7568,28 +7570,32 @@ GiveExperiencePoints:
 	cp LUCKY_EGG
 	call z, DoubleExp
 
+; Boost experience if the Pokémon isn't the highest level in the party.
+	farcall GetPlayerHighestLevel
+	ldh a, [hFarByte]
+	ld c, a
+	ld a, MON_LEVEL
+	call GetPartyParamLocation
+	ld a, [hl]
+	cp c
+	call c, DoubleExp ; If the Pokémon isn't the highest level in the party, it gets double the exp, so that the party gets around the same level quickly.
+
 	ldh a, [hQuotient + 3] ; XP to display is being stored within the string buffer.
 	ld [wStringBuffer2 + 1], a
 	ldh a, [hQuotient + 2]
 	ld [wStringBuffer2], a
 
-	ld a, [wStringBuffer2 + 3]
-	and a
-	ld a, [wCurPartyMon] ; Display formatting.
-	jr z, .pkrs_text_display
-
-.normal_text_display
 	ld hl, wPartyMonNicknames
 	call GetNickname
 	ld hl, Text_MonGainedExpPoint
-	jr .go_on
 
+	ld a, [wStringBuffer2 + 3]
+	and a
+	ld a, [wCurPartyMon] ; Display formatting.
+	jr z, .go_on
 
-.pkrs_text_display
-	ld hl, wPartyMonNicknames
-	call GetNickname
+;.pkrs_text_display
 	ld hl, Text_MonGainedNoExpPoint
-
 .go_on
 	call BattleTextbox
 	ld a, [wStringBuffer2 + 1]

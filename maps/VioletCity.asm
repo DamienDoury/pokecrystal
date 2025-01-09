@@ -443,14 +443,23 @@ VioletCityLassText2:
 	done
 
 VioletCitySuperNerdText:
-	text "Hey, you're a"
-	line "#MON trainer?"
+	text "It's easier to"
+	line "learn from a"
+	
+	para "teacher than"
+	line "learning on"
+	cont "your own."
 
-	para "If you beat the"
-	line "GYM LEADER here,"
+	para "It's the same for"
+	line "#MON."
 
-	para "you'll be ready"
-	line "for prime time!"
+	para "A #MON gains"
+	line "twice as many"
+	cont "EXP. Points if"
+
+	para "there is a higher"
+	line "level #MON"
+	cont "in your party."
 	done
 
 VioletCityGrampsText:
