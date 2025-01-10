@@ -1052,4 +1052,7 @@ Akiba2F_Blocks:
 	INCBIN "maps/Akiba2F.blk"
 
 Akiba3F_Blocks:
-	INCBIN "maps/Akiba3F.blk"
+	INCBIN "maps/Akiba3F.blk"	INCBIN "maps/Akiba3F.blk"
+
+CarpetShop_Blocks:
+	INCBIN "maps/CarpetShop.blk"

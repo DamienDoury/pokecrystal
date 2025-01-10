@@ -207,3 +207,4 @@ SpecialsPointers::
 	add_special ComputeMewtwoTeleportIndex
 	add_special MoveReminder
 	add_special FindNextDeliveryFromMom
+	add_special PlaceMoneyTopLeft

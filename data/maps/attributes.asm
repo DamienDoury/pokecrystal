@@ -720,3 +720,4 @@ ENDM
 	map_attributes Akiba2F, AKIBA_2F, $00, 0
 	map_attributes Akiba3F, AKIBA_3F, $00, 0
 	map_attributes GoldenrodClapHouse, GOLDENROD_CLAP_HOUSE, $00, 0
+	map_attributes CarpetShop, CARPET_SHOP, $00, 0

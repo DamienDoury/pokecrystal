@@ -282,6 +282,7 @@ INCLUDE "maps/CeruleanPoliceStation.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/Route24.asm"
+INCLUDE "maps/CarpetShop.asm"
 
 
 SECTION "Map Scripts 15", ROMX

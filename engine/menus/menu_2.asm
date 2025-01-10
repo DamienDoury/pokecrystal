@@ -27,6 +27,11 @@ PlaceMenuItemQuantity:
 .done
 	ret
 
+PlaceMoneyTopLeft:
+	ld hl, MoneyTopLeftMenuHeader
+	call CopyMenuHeader
+	jr PlaceMoneyTextbox
+
 PlaceMoneyTopRight:
 	ld hl, MoneyTopRightMenuHeader
 	call CopyMenuHeader
@@ -55,6 +60,12 @@ PlaceMoneyTextbox:
 MoneyTopRightMenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 11, 0, SCREEN_WIDTH - 1, 2
+	dw NULL
+	db 1 ; default option
+
+MoneyTopLeftMenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 0, 0, SCREEN_WIDTH - 12, 2
 	dw NULL
 	db 1 ; default option
 
