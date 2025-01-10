@@ -154,6 +154,11 @@ _NameRaterNamedText::
 	text "."
 	prompt
 
+Text_Earned::
+	text_ram wStringBuffer1
+	text " earned@"
+	text_end
+
 Text_Gained::
 	text_ram wStringBuffer1
 	text " gained@"
@@ -163,8 +168,8 @@ Text_No_Xp_Gained::
 	text_ram wStringBuffer1
 	text " doesn't"
 	line "feel good enough"
-	cont "@"
-	text_end
+	cont "to gain any EXP.…"
+	prompt
 
 _BoostedExpPointsText::
 	text_start
@@ -179,12 +184,6 @@ _ExpPointsText::
 	line "@"
 	text_decimal wStringBuffer2, 2, 5
 	text " EXP. Points!"
-	prompt
-
-_NoExpPointsPokerusText::
-	text_start
-	line "@"
-	text "to gain any EXP.…"
 	prompt
 
 _GoMonText::

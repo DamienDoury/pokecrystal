@@ -7578,6 +7578,14 @@ GiveExperiencePoints:
 	call GetPartyParamLocation
 	ld a, [hl]
 	cp c
+
+	; We set C to TRUE if the "gained" verb should be used. Otherwise, it'll use the "earned" verb.
+	push af
+	ld a, 0
+	adc 0
+	ld c, a
+	pop af
+	
 	call c, DoubleExp ; If the Pokémon isn't the highest level in the party, it gets double the exp, so that the party gets around the same level quickly.
 
 	ldh a, [hQuotient + 3] ; XP to display is being stored within the string buffer.
@@ -7585,14 +7593,20 @@ GiveExperiencePoints:
 	ldh a, [hQuotient + 2]
 	ld [wStringBuffer2], a
 
+	ld a, [wCurPartyMon] ; Display formatting.
 	ld hl, wPartyMonNicknames
 	call GetNickname
-	ld hl, Text_MonGainedExpPoint
 
-	ld a, [wStringBuffer2 + 3]
+	ld hl, Text_MonEarnedExpPoint
+	xor a
+	cp c
+	jr z, .verb_determined
+
+	ld hl, Text_MonGainedExpPoint
+.verb_determined
+	ld a, [wStringBuffer2 + 3]  ; Check if the Pokémon has the covid variant with the no XP symptom.
 	and a
-	ld a, [wCurPartyMon] ; Display formatting.
-	jr z, .go_on
+	jr nz, .go_on
 
 ;.pkrs_text_display
 	ld hl, Text_MonGainedNoExpPoint
@@ -7943,10 +7957,16 @@ DoubleExp:
 	pop bc
 	ret
 
+Text_MonEarnedExpPoint:
+	text_far Text_Earned
+	text_asm
+	jr Text_MonGainedExpPoint.boost_check
+
 Text_MonGainedExpPoint:
 	text_far Text_Gained
 	text_asm
 
+.boost_check
 	ld hl, ExpPointsText
 
 	ld a, [wStringBuffer2 + 2] ; IsTradedMon
@@ -7958,16 +7978,10 @@ Text_MonGainedExpPoint:
 
 Text_MonGainedNoExpPoint:
 	text_far Text_No_Xp_Gained
-	text_asm
-	ld hl, NoExpPointsPokerusText
-	ret
+	text_end
 
 BoostedExpPointsText:
 	text_far _BoostedExpPointsText
-	text_end
-
-NoExpPointsPokerusText:
-	text_far _NoExpPointsPokerusText
 	text_end
 
 ExpPointsText:
