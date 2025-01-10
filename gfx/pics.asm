@@ -618,7 +618,6 @@ SkarmoryBackpic:     INCBIN "gfx/pokemon/skarmory/back.2bpp.lz"
 MetapodBackpic:      INCBIN "gfx/pokemon/metapod/back.2bpp.lz"
 JigglypuffBackpic:   INCBIN "gfx/pokemon/jigglypuff/back.2bpp.lz"
 OddishBackpic:       INCBIN "gfx/pokemon/oddish/back.2bpp.lz"
-UnownDBackpic:       INCBIN "gfx/pokemon/unown_d/back.2bpp.lz"
 
 
 SECTION "Pics 18", ROMX
@@ -723,6 +722,7 @@ SECTION "Pics 20", ROMX
 ForretressFrontpic:  INCBIN "gfx/pokemon/forretress/front.animated.2bpp.lz"
 UnownHBackpic:       INCBIN "gfx/pokemon/unown_h/back.2bpp.lz"
 RaichuFrontpic:      INCBIN "gfx/pokemon/raichu/front.animated.2bpp.lz"
+UnownDBackpic:       INCBIN "gfx/pokemon/unown_d/back.2bpp.lz"
 
 YoungsterPicNoMask:    INCBIN "gfx/trainers/youngster_no_mask.2bpp.lz"
 BirdKeeperPicNoMask:   INCBIN "gfx/trainers/bird_keeper_no_mask.2bpp.lz"
