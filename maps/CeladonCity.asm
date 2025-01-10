@@ -269,6 +269,7 @@ CeladonCity_MapEvents:
 	warp_event 23, 19, CELADON_GAME_CORNER_PRIZE_ROOM, 1
 	warp_event 10, 29, CELADON_GYM, 1
 	warp_event 25, 29, CELADON_CAFE, 1
+	warp_event 33, 19, BED_SHOP, 1
 
 	def_coord_events
 
