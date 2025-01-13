@@ -93,6 +93,9 @@ CeladonCityGameCornerSign:
 CeladonCityTrainerTips:
 	jumptext CeladonCityTrainerTipsText
 
+CeladonCityBedStore:
+	jumptext CeladonCityBedStoreText
+
 CeladonCityPokecenterSign:
 	jumpstd PokecenterSignScript
 
@@ -235,13 +238,17 @@ CeladonCityTrainerTipsText:
 	para "GUARD SPEC."
 	line "protects #MON"
 
-	para "against SPECIAL"
-	line "attacks such as"
-	cont "fire and water."
+	para "from stats reduc-"
+	line "tion from your"
+	cont "opponent."
 
 	para "Get your items at"
 	line "CELADON DEPT."
 	cont "STORE!"
+	done
+
+CeladonCityBedStoreText:
+	text "BED STORE"
 	done
 
 CeladonCity_CasinoDoorText:
@@ -280,6 +287,7 @@ CeladonCity_MapEvents:
 	bg_event 13,  9, BGEVENT_READ, CeladonCityMansionSign
 	bg_event 19, 21, BGEVENT_READ, CeladonCityGameCornerSign
 	bg_event 29, 21, BGEVENT_READ, CeladonCityTrainerTips
+	bg_event 33, 21, BGEVENT_READ, CeladonCityBedStore
 	bg_event 30,  9, BGEVENT_READ, CeladonCityPokecenterSign
 	bg_event 37, 21, BGEVENT_ITEM, CeladonCityHiddenPpUp
 
