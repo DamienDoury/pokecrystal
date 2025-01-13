@@ -93,17 +93,18 @@ BedShop_SellerScript:
 	end
 
 .polkadot
-	getstring STRING_BUFFER_3, .PolkadotBedName
+	setval DECO_POLKADOT_BED
 	sjump .offer
 
 .pikachu
-	getmonname STRING_BUFFER_3, PIKACHU
+	setval DECO_PIKACHU_BED
 	sjump .offer
 
 .pink
-	getstring STRING_BUFFER_3, .PinkBedName
+	setval DECO_PINK_BED
 	
 .offer
+	callasm GetDecorationNameFromScript
 	writetext BedShop_OfferText
 	setval BED_PRICE / 1000
 	farscall Akiba1F_BuyingProcess
@@ -143,41 +144,26 @@ BedShop_SellerScript:
 	setlasttalked BEDSHOP_SELLER
 	sjump .end
 
-.PolkadotBedName
-	db "POLKADOT@"
-
-.PinkBedName
-	db "PINK@"
-
 BedShop_Poster:
 	jumptext BedShop_PosterText
 
 BedShop_PolkadotBedScript:
-	jumptext BedShop_PolkadotBedText
+	setval DECO_POLKADOT_BED
+	farsjump DisplayDecoNameScript
 
 BedShop_PikachuBedScript:
-	jumptext BedShop_PikachuBedText
+	setval DECO_PIKACHU_BED
+	farsjump DisplayDecoNameScript
 
 BedShop_PinkBedScript:
-	jumptext BedShop_PinkBedText
-
-BedShop_PolkadotBedText:
-	text "The POLKADOT BED."
-	done
-
-BedShop_PikachuBedText:
-	text "The PIKACHU BED."
-	done
-
-BedShop_PinkBedText:
-	text "The PINK BED."
-	done
+	setval DECO_PINK_BED
+	farsjump DisplayDecoNameScript
 	
 BedShop_OfferText:
 	text "So you like the"
 	line "@"
-	text_ram wStringBuffer3
-	text " BED!"
+	text_ram wStringBuffer2
+	text "!"
 
 	para "It's my favorite"
 	line "too!"
@@ -197,12 +183,13 @@ BedShop_LookAroundText:
 
 	para "come back to tell"
 	line "me which one"
-	cont "you want."
+	cont "you prefer."
 	done
 
 BedShop_SoldOutText:
-	text "All our beds"
-	line "have been sold!"
+	text "We are thrilled by"
+	line "our success!"
+	cont "We are sold out!"
 	done
 
 BedShop_PosterText:

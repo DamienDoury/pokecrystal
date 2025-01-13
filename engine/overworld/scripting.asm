@@ -919,6 +919,11 @@ GetScriptObject:
 
 Script_setlasttalked:
 	call GetScriptByte
+	cp ITEM_FROM_MEM
+	jr nz, .got_target
+
+	ld a, [wScriptVar]
+.got_target
 	call GetScriptObject
 	ldh [hLastTalked], a
 	ret

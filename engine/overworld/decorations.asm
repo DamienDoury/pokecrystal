@@ -500,6 +500,11 @@ INCLUDE "data/decorations/attributes.asm"
 
 INCLUDE "data/decorations/names.asm"
 
+GetDecorationNameFromScript::
+	ld a, [wScriptVar]
+	call GetDecorationData
+	; fallthrough
+
 GetDecoName:
 	ld a, [hli] ; DECOATTR_TYPE
 	ld e, [hl] ; DECOATTR_NAME

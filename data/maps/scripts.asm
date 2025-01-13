@@ -1,7 +1,6 @@
 SECTION "Map Scripts 1", ROMX
 
 INCLUDE "maps/GoldenrodGym.asm"
-INCLUDE "maps/GoldenrodBikeShop.asm"
 INCLUDE "maps/GoldenrodHappinessRater.asm"
 INCLUDE "maps/BillsFamilysHouse.asm"
 INCLUDE "maps/GoldenrodMagnetTrainStation.asm"
@@ -438,6 +437,7 @@ INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/DarkCaveVioletEntrance.asm"
 INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
+INCLUDE "maps/GoldenrodBikeShop.asm"
 
 
 SECTION "Map Scripts 23", ROMX

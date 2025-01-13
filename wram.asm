@@ -3152,6 +3152,9 @@ wNotCuteSpecies:: ds PARTY_LENGTH + 1
 
 NEXTU ; Silver Cave Room 3.
 wDyingFrameSetIndex:: db
+
+NEXTU
+wSelectedPlant:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
