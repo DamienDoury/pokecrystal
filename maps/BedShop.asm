@@ -13,9 +13,9 @@ BedShop_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
-	callback MAPCALLBACK_TILES, .DisplayPosters
+	callback MAPCALLBACK_TILES, .DisplayBeds
 
-.DisplayPosters:
+.DisplayBeds:
 	setlasttalked 0
 
 ; polkadot bed
@@ -70,7 +70,7 @@ BedShop_SellerScript:
 	ifequal BEDSHOP_BED_4 - 1,     .pink
 	ifequal BEDSHOP_BED_4_BIS - 1, .pink
 
-; No poster was looked at.
+; No bed was looked at.
 	checkevent EVENT_DECO_BED_2
 	iffalse .look_around
 
@@ -110,7 +110,7 @@ BedShop_SellerScript:
 ;	appear LAST_TALKED
 	iffalse .end
 
-	; If the transaction was successfull, we need to hide the poster from the wall.
+	; If the transaction was successfull, we need to hide the bed.
 	readmem hLastTalked
 	ifequal BEDSHOP_BED_2 - 1,     .hide_polkadot
 	ifequal BEDSHOP_BED_2_BIS - 1, .hide_polkadot
