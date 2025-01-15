@@ -113,7 +113,6 @@ INCLUDE "engine/overworld/special_music.asm"
 SECTION "bank9", ROMX
 
 INCLUDE "engine/menus/menu.asm"
-INCLUDE "engine/items/update_item_description.asm"
 INCLUDE "engine/overworld/map_objects_2.asm"
 INCLUDE "engine/menus/scrolling_menu.asm"
 INCLUDE "engine/items/switch_items.asm"
@@ -139,6 +138,7 @@ INCLUDE "engine/battle/link_result.asm" ; Must stay with link.asm
 INCLUDE "engine/events/treemons.asm" ; Must stay with wildmons.asm
 INCLUDE "engine/overworld/wildmons.asm" ; Must stay with treemons.asm
 INCLUDE "engine/menus/badges_colors.asm"
+INCLUDE "engine/items/update_item_description.asm"
 
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"

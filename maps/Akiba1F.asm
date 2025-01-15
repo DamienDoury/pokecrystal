@@ -19,6 +19,12 @@ Akiba1F_MapScripts:
 	callback MAPCALLBACK_TILES, .LoadTiles
 
 .LoadTiles:
+	readvar VAR_YCOORD
+	ifless 3, .skip_big_doll_selection
+
+	loadmem wJustWonBigDoll, FALSE
+	callasm GetTodaysBigDoll
+.skip_big_doll_selection
 	checkevent EVENT_CONSOLE_SELLER_BACK_IN_STORE
 	iftrue .endcallback
 

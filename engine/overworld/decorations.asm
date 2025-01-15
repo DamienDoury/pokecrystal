@@ -1179,3 +1179,57 @@ PadCoords_de:
 	ld e, a
 	call GetBlockLocation
 	ret
+
+; Called once when entering Neon Town (Akiba) 1F.
+GetTodaysBigDoll::
+	ld a, -1
+	ld [wTodaysBigDollIndex], a
+
+	call GetWeekday
+	ld c, 3
+
+.loop
+	ld b, 3
+	call Modulo
+	ld b, a
+
+	push bc
+	ld b, CHECK_FLAG
+	ld de, EVENT_DECO_BIG_SNORLAX_DOLL
+	add e ; Note: EVENT_DECO_BIG_SNORLAX_DOLL is $2cf. Meaning E is $cf, and won't overflow when adding 0, 1, or 2.
+	ld e, a
+	call EventFlagAction
+	ld a, c
+	and a
+	pop bc
+
+	jr z, .doll_available_for_purchase
+
+	dec c
+	ret z ; All three big dolls are already in possession of the player.
+
+	inc b
+	ld a, b
+	jr .loop
+
+.doll_available_for_purchase
+	ld a, b
+	ld [wTodaysBigDollIndex], a
+	add LOW(EVENT_DECO_BIG_SNORLAX_DOLL)
+	ld [wTodaysBigDollEventFlag], a
+	ld a, HIGH(EVENT_DECO_BIG_SNORLAX_DOLL)
+	ld [wTodaysBigDollEventFlag + 1], a
+	ld a, DECO_BIG_SNORLAX_DOLL
+	add b
+	ld [wTodaysBigDollID], a
+	ret
+
+DisplayTodaysBigDoll::
+	ld a, [wTodaysBigDollIndex]
+	cp -1
+	ret z
+
+	ld e, a
+	ld d, 0
+	ld b, RESET_FLAG
+	jp EventFlagAction

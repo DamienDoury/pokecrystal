@@ -3152,8 +3152,14 @@ wNotCuteSpecies:: ds PARTY_LENGTH + 1
 NEXTU ; Silver Cave Room 3.
 wDyingFrameSetIndex:: db
 
-NEXTU
+NEXTU ; Goldenrod Flower Shop.
 wSelectedPlant:: db
+
+NEXTU ; Akiba (Neon Town).
+wTodaysBigDollIndex:: db
+wTodaysBigDollID:: db
+wTodaysBigDollEventFlag:: dw
+wJustWonBigDoll:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
