@@ -12,7 +12,7 @@ ENDM
 	custom_map_objects_pals PEWTER_NIDORAN_SPEECH_HOUSE, MapObjectPalsPurple
 	custom_map_objects_pals DANCE_THEATRE, MapObjectPalsPurple
 	custom_map_objects_pals ROUTE_34_ILEX_FOREST_GATE, MapObjectPalsPurple
-	custom_map_objects_pals PLAYERS_HOUSE_2F, MapObjectPalsPurple
+	custom_map_objects_pals PLAYERS_HOUSE_2F, MapObjectsPalVermilion
 	custom_map_objects_pals CERULEAN_CAVE_B3F, MapObjectPalsPurple
 	custom_map_objects_pals PEWTER_MUSEUM_2F, MapObjectPalsPurple
 	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall
@@ -26,4 +26,5 @@ ENDM
 	custom_map_objects_pals POWER_PLANT, MapObjectPalsYellowish
 	custom_map_objects_pals GOLDENROD_HOSPITAL_ROOM, MapObjectPalsYellowishOnRock ; Needs pink for Nurses, yellowish for Abra, and leave the Tree palette for the player's sick mon.
 	custom_map_objects_pals GOLDENROD_CLAP_HOUSE, MapObjectsPalVermilion
+	custom_map_objects_pals AKIBA_3F, MapObjectsPalVermilion ; Big Snorlax and Big Onix.
 	db 0 ; end

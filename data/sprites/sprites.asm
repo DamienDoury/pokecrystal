@@ -57,7 +57,7 @@ OverworldSprites:
 	overworld_sprite GrannySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite SwimmerGuySpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite SwimmerGirlSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
-	overworld_sprite BigSnorlaxSpriteGFX, 12, STANDING_SPRITE, PAL_OW_PINK ; Purple.
+	overworld_sprite BigSnorlaxSpriteGFX, 12, STANDING_SPRITE, PAL_OW_ROCK ; Purple.
 	overworld_sprite SurfingPikachuSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite RocketSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
 	overworld_sprite RocketGirlSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BROWN
@@ -89,7 +89,7 @@ OverworldSprites:
 	overworld_sprite FairySpriteGFX, 12, WALKING_SPRITE, PAL_OW_PINK
 	overworld_sprite BirdSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
 	overworld_sprite DragonSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
-	overworld_sprite BigOnixSpriteGFX, 12, STANDING_SPRITE, PAL_OW_SILVER
+	overworld_sprite BigOnixSpriteGFX, 12, STANDING_SPRITE, PAL_OW_PINK ; Silver
 	overworld_sprite N64SpriteGFX, 4, STILL_SPRITE, PAL_OW_BLUE
 	overworld_sprite SudowoodoSpriteGFX, 12, STANDING_SPRITE, PAL_OW_GREEN
 	overworld_sprite SurfSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
