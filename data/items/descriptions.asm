@@ -162,7 +162,7 @@ ItemDescriptions:
 	dw LevelBallDesc
 	dw LureBallDesc
 	dw FastBallDesc
-	dw TeruSama21Desc
+	dw VoucherDesc
 	dw LightBallDesc
 	dw FriendBallDesc
 	dw MoonBallDesc
@@ -889,8 +889,9 @@ FastBallDesc:
 	db   "A BALL for fleeing"
 	next "#MON.@"
 
-TeruSama21Desc:
-	db   "?@"
+VoucherDesc:
+	db   "Exchange for prize"
+	next "at NEON TOWN.@"
 
 LightBallDesc:
 	db   "Doubles PIKACHU"

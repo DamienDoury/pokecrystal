@@ -59,7 +59,7 @@
 	const X_DEFEND     ; 33
 	const X_SPEED      ; 34
 	const X_SPECIAL    ; 35
-	; Item above this line will undergo from price inflation.
+	; Item above this line will undergo price inflation.
 	const COIN_CASE    ; 36
 	const ITEMFINDER   ; 37
 	const POKE_FLUTE   ; 38
@@ -168,7 +168,7 @@
 	const LEVEL_BALL   ; 9f
 	const LURE_BALL    ; a0
 	const FAST_BALL    ; a1
-	const ITEM_A2      ; a2
+	const VOUCHER      ; a2
 	const LIGHT_BALL   ; a3
 	const FRIEND_BALL  ; a4
 	const MOON_BALL    ; a5

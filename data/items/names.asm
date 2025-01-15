@@ -161,7 +161,7 @@ ItemNames::
 	li "LEVEL BALL"
 	li "LURE BALL"
 	li "FAST BALL"
-	li "TERU-SAMA"
+	li "VOUCHER"
 	li "LIGHT BALL"
 	li "FRIEND BALL"
 	li "MOON BALL"
