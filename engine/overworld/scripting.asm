@@ -2219,6 +2219,17 @@ Script_setevent:
 	ld e, a
 	call GetScriptByte
 	ld d, a
+	cp HIGH(EVENT_FROM_MEM)
+	jr nz, .set_flag
+
+	; Retrieve event from memory.
+	ld a, [wScriptVar]
+	ld e, a
+
+	ld a, [wScriptVar2]
+	ld d, a
+
+.set_flag
 	ld b, SET_FLAG
 	call EventFlagAction
 	ret
@@ -2228,6 +2239,17 @@ Script_clearevent:
 	ld e, a
 	call GetScriptByte
 	ld d, a
+	cp HIGH(EVENT_FROM_MEM)
+	jr nz, .reset_flag
+
+	; Retrieve event from memory.
+	ld a, [wScriptVar]
+	ld e, a
+
+	ld a, [wScriptVar2]
+	ld d, a
+
+.reset_flag
 	ld b, RESET_FLAG
 	call EventFlagAction
 	ret
@@ -2237,6 +2259,17 @@ Script_checkevent:
 	ld e, a
 	call GetScriptByte
 	ld d, a
+	cp HIGH(EVENT_FROM_MEM)
+	jr nz, .check_flag
+
+	; Retrieve event from memory.
+	ld a, [wScriptVar]
+	ld e, a
+
+	ld a, [wScriptVar2]
+	ld d, a
+
+.check_flag
 	ld b, CHECK_FLAG
 	call EventFlagAction
 	ld a, c
