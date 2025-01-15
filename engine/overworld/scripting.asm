@@ -138,7 +138,7 @@ ScriptCommandTable:
 	dw Script_opentext                   ; 47
 	dw Script_refreshscreen              ; 48
 	dw Script_closetext                  ; 49
-	dw Script_writeunusedbyte            ; 4a
+	dw Script_writemem2                  ; 4a
 	dw Script_farwritetext               ; 4b
 	dw Script_writetext                  ; 4c
 	dw Script_repeattext                 ; 4d
@@ -1631,6 +1631,15 @@ Script_writemem:
 	ld [hl], a
 	ret
 
+Script_writemem2:
+	call GetScriptByte
+	ld l, a
+	call GetScriptByte
+	ld h, a
+	ld a, [wScriptVar2]
+	ld [hl], a
+	ret
+
 Script_loadmem:
 	call GetScriptByte
 	ld l, a
@@ -2440,11 +2449,6 @@ Script_openredtext:
 Script_refreshscreen:
 	call RefreshScreen
 	call GetScriptByte
-	ret
-
-Script_writeunusedbyte:
-	ld a, [wScriptVar]
-	ld [wUnusedScriptByte], a
 	ret
 
 Script_closetext:

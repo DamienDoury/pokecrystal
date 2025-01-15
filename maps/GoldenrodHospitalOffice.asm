@@ -211,7 +211,7 @@ GoldenrodHospitalOffice_MapScripts:
 	yesorno
 
 	setval 0
-	writeunusedbyte
+	writemem2 wScriptVar
 
 	writetext GoldenrodHospitalOffice_Itw1Text
 	yesorno
@@ -362,7 +362,7 @@ GoldenrodHospitalOffice_MapScripts:
 	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_HeadRightMovement
 	applymovement PLAYER, GoldenrodHospitalOffice_HeadLeftMovement
 
-	readmem wUnusedScriptByte
+	readmem wScriptVar2
 	ifless 2, .resultNothing
 	ifless 4, .resultSoSo
 	ifequal 4, .resultOk
@@ -425,7 +425,7 @@ GoldenrodHospitalOffice_MapScripts:
 	pause 5
 
 	setval 0
-	writeunusedbyte
+	writemem2 wScriptVar
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_6
 
 	applymovement GOLDENRODHOSPITALOFFICE_MARY, GoldenrodHospitalOffice_DownRightStepMovement
@@ -466,9 +466,9 @@ GoldenrodHospitalOffice_MapScripts:
 	endcallback
 
 GoldenrodHospitalOffice_IncPoints:
-	readmem wUnusedScriptByte
+	readmem wScriptVar2
 	addval 1
-	writeunusedbyte
+	writemem2 wScriptVar
 	end
 
 GoldenrodHospitalOfficeChiefScript: ; Chief Nurse Joy doesn't get distracted by the player's clapping. She's sharp!

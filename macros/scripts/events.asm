@@ -489,9 +489,10 @@ closetext: MACRO
 	db closetext_command
 ENDM
 
-	const writeunusedbyte_command ; $4a
-writeunusedbyte: MACRO
-	db writeunusedbyte_command
+	const writemem2_command ; $4a
+writemem2: MACRO
+	db writemem2_command
+	dw \1 ; address
 ENDM
 
 	const farwritetext_command ; $4b

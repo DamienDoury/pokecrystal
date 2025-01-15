@@ -200,8 +200,6 @@ givepokeitem          EQUS "givepokemail"
 checkpokeitem         EQUS "checkpokemail"
 passtoengine          EQUS "autoinput"
 verbosegiveitem2      EQUS "verbosegiveitemvar"
-loadbytec2cf          EQUS "writeunusedbyte"
-writeunusedbytebuffer EQUS "writeunusedbyte"
 
 ; macros/scripts/maps.asm
 

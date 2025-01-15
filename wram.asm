@@ -142,8 +142,6 @@ wDebugFlags:: db
 wGameLogicPaused:: db
 wSpriteUpdatesEnabled:: db
 
-wUnusedScriptByte:: db
-
 wMapTimeOfDay:: db
 
 	ds 3
@@ -161,6 +159,7 @@ wLinkMode::
 	db
 
 wScriptVar:: db
+wScriptVar2:: db
 
 wPlayerNextMovement:: db
 wPlayerMovement:: db
