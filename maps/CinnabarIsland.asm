@@ -372,7 +372,7 @@ CinnabarIslandAskWaterText:
 	done
 
 CinnabarIslandGiveWaterText:
-	text "<PLAYER> gives"
+	text "<PLAYER> gave"
 	line "FRESH WATER."
 	done
 
