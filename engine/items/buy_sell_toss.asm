@@ -1,8 +1,7 @@
 SelectQuantityToToss:
 	ld hl, TossItem_MenuHeader
 	call LoadMenuHeader
-	call Toss_Sell_Loop
-	ret
+	jr Toss_Sell_Loop
 
 SelectQuantityToBuy:
 	farcall GetItemPrice
@@ -13,8 +12,7 @@ RooftopSale_SelectQuantityToBuy:
 	ld [wBuySellItemPrice + 1], a
 	ld hl, BuyItem_MenuHeader
 	call LoadMenuHeader
-	call Toss_Sell_Loop
-	ret
+	jr Toss_Sell_Loop
 
 SelectQuantityToSell:
 	farcall GetItemPrice
@@ -24,8 +22,7 @@ SelectQuantityToSell:
 	ld [wBuySellItemPrice + 1], a
 	ld hl, SellItem_MenuHeader
 	call LoadMenuHeader
-	call Toss_Sell_Loop
-	ret
+	; fallthrough.
 
 Toss_Sell_Loop:
 	ld a, 1
@@ -138,23 +135,7 @@ BuySellToss_UpdateQuantityDisplay:
 	ld a, [wMenuDataPointer + 1]
 	ld d, a
 	ld a, [wMenuDataBank]
-	call FarCall_de
-	ret
-
-NoPriceToDisplay:
-; Does nothing.
-	ret
-
-DisplayPurchasePrice:
-	call BuySell_MultiplyPrice
-	call BuySell_DisplaySubtotal
-	ret
-
-DisplaySellingPrice:
-	call BuySell_MultiplyPrice
-	call Sell_HalvePrice
-	call BuySell_DisplaySubtotal
-	ret
+	jp FarCall_de
 
 BuySell_MultiplyPrice:
 	xor a
@@ -168,6 +149,7 @@ BuySell_MultiplyPrice:
 	push hl
 	call Multiply
 	pop hl
+NoPriceToDisplay: ; Does nothing.
 	ret
 
 Sell_HalvePrice:
@@ -185,6 +167,15 @@ Sell_HalvePrice:
 	pop hl
 	ret
 
+DisplayPurchasePrice:
+	call BuySell_MultiplyPrice
+	jr BuySell_DisplaySubtotal
+
+DisplaySellingPrice:
+	call BuySell_MultiplyPrice
+	call Sell_HalvePrice
+	; fallthrough.
+
 BuySell_DisplaySubtotal:
 	push hl
 	ld hl, hMoneyTemp
@@ -199,8 +190,7 @@ BuySell_DisplaySubtotal:
 	ld de, hMoneyTemp
 	lb bc, PRINTNUM_MONEY | 3, 6
 	call PrintNum
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 TossItem_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
