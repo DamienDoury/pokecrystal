@@ -782,7 +782,8 @@ TookAimText:
 
 AnticipatedText:
 	text "<USER> read"
-	line "the enemy's mind."
+	line "read the enemy's"
+	cont "mind."
 	prompt
 
 SketchedText:
@@ -1116,8 +1117,9 @@ ProtectingItselfText:
 	done
 
 AnticipatedAndAvoidedText:
-	text "<TARGET> foresaw"
-	line "it and avoided!"
+	text "<TARGET>"
+	line "foresaw it and"
+	cont "avoided!"
 	prompt
 
 SpikesText:
