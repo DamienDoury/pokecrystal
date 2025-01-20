@@ -726,6 +726,8 @@ KRIS EQU __trainer_class__
 	const GEORGIA
 	const JAIME
 	const BERTHA
+	const CLEO1
+	const CLEO2
 
 	trainerclass NURSE ; 3f
 	const CHIEF

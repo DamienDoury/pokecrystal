@@ -11,6 +11,7 @@ DoBattle:
 	ld [wBattlePlayerAction], a
 	ld [wBattleEnded], a
 	ld [wWalkingAbuseGuard], a
+	ld [wSpecialBattleData], a
 	inc a
 	ld [wBattleHasJustStarted], a
 	ld hl, wOTPartyMon1HP
@@ -276,6 +277,7 @@ BattleTurn:
 	jr c, .quit
 
 	call DetermineMoveOrder
+	farcall SpecialBattle_RegisterBattlePriority
 	jr c, .false
 .assault
 	call Battle_EnemyFirst
@@ -721,7 +723,7 @@ ParsePlayerAction:
 .not_encored
 	ld a, [wBattlePlayerAction]
 	cp BATTLEPLAYERACTION_SWITCH
-	jr z, .reset_rage
+	jp z, .reset_rage
 	and a
 	jr nz, .reset_bide
 	ld a, [wPlayerSubStatus3]
@@ -738,6 +740,8 @@ ParsePlayerAction:
 	ld a, [wCurPlayerMove]
 	cp STRUGGLE
 	jr z, .struggle
+
+	farcall SpecialBattle_RegisterMetronomeUsage
 	call PlayClickSFX
 
 .struggle

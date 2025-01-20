@@ -168,6 +168,10 @@ EngineFlags:
 	engine_flag wDailyRematchFlags, 22 ; parry
 	engine_flag wDailyRematchFlags, 23 ; erin
 
+	engine_flag wDailyRematchFlags, 24 ; cleo
+	engine_flag wDailyRematchFlags, 25 ; dash
+	engine_flag wDailyRematchFlags, 26 ; jodie
+
 	engine_flag wDailyPhoneItemFlags, 0 ; beverly has nugget
 	engine_flag wDailyPhoneItemFlags, 1 ; jose has star piece
 	engine_flag wDailyPhoneItemFlags, 2 ; wade has item (see EVENT_WADE_HAS_*** in constants/event_flags.asm)

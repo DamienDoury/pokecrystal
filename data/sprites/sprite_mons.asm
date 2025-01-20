@@ -72,4 +72,5 @@ SpriteMons:
 	db JOLTEON
 	db DUGTRIO
 	db SMEARGLE
+	db CLEFABLE
 	assert_table_length NUM_POKEMON_SPRITES

@@ -283,6 +283,7 @@ INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CarpetShop.asm"
 INCLUDE "maps/BedShop.asm"
+INCLUDE "maps/Route18.asm"
 
 
 SECTION "Map Scripts 15", ROMX
@@ -454,20 +455,19 @@ INCLUDE "maps/Route9.asm"
 INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route10South.asm"
 INCLUDE "maps/PalletTown.asm"
+INCLUDE "maps/Route5UndergroundPathEntrance.asm"
+INCLUDE "maps/Route16.asm"
 
 
 SECTION "Map Scripts 24", ROMX
 
 INCLUDE "maps/CinnabarIsland.asm"
-INCLUDE "maps/Route18.asm"
 INCLUDE "maps/Route17.asm"
-INCLUDE "maps/Route16.asm"
 INCLUDE "maps/Route3.asm"
 INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
-INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 25", ROMX

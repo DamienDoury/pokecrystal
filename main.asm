@@ -41,6 +41,7 @@ INCLUDE "engine/pokemon/bills_pc_top.asm"
 INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
+INCLUDE "engine/battle/special_battle.asm"
 
 
 SECTION "bank4", ROMX

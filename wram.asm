@@ -925,7 +925,9 @@ wClappingData:: db
 wTempMonLevelUpStatGain:: ds NUM_BATTLE_STATS
 wTempMonStatGainDisplay:: db
 
-	ds 16
+wSpecialBattleData:: db
+
+	ds 15
 
 
 SECTION "Overworld Map", WRAM0
