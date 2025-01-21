@@ -781,7 +781,7 @@ TookAimText:
 	prompt
 
 AnticipatedText:
-	text "<USER> read"
+	text "<USER>"
 	line "read the enemy's"
 	cont "mind."
 	prompt
