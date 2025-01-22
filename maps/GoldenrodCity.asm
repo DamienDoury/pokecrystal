@@ -92,10 +92,13 @@ GoldenrodCity_MapScripts:
 	endcallback
 
 .MoveTutor:
-	checkevent EVENT_BEAT_ELITE_FOUR
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iffalse .MoveTutorDone
 	checkitem COIN_CASE
 	iffalse .MoveTutorDisappear
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	sjump .MoveTutorAppear
+endc
 	readvar VAR_WEEKDAY
 	ifequal WEDNESDAY, .MoveTutorAppear
 	ifequal SATURDAY, .MoveTutorAppear
@@ -188,14 +191,7 @@ MoveTutorScript:
 	writetext GoldenrodCityMoveTutorFarewellKidText
 	waitbutton
 	closetext
-	readvar VAR_FACING
-	ifequal LEFT, .WalkAroundPlayer
 	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorEnterGameCornerMovement
-	sjump .GoInside
-
-.WalkAroundPlayer:
-	applymovement GOLDENRODCITY_MOVETUTOR, GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement
-.GoInside:
 	playsound SFX_ENTER_DOOR
 	disappear GOLDENRODCITY_MOVETUTOR
 	clearevent EVENT_GOLDENROD_GAME_CORNER_MOVE_TUTOR
@@ -355,6 +351,9 @@ GoldenrodCityBikeShopSign:
 	farjumptext CeruleanBikeShopSignText
 
 GoldenrodCityGameCornerSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	setevent EVENT_CINNABAR_ROCKS_CLEARED
+endc
 	jumptext GoldenrodCityGameCornerSignText
 
 GoldenrodCityNameRaterSign:
@@ -456,15 +455,6 @@ GoldenrodCityBeaterScript:
 
 GoldenrodCityMoveTutorEnterGameCornerMovement:
 	step RIGHT
-	step RIGHT
-	step UP
-	step_end
-
-GoldenrodCityMoveTutorWalkAroundPlayerThenEnterGameCornerMovement:
-	step DOWN
-	step RIGHT
-	step RIGHT
-	step UP
 	step UP
 	step_end
 
@@ -913,7 +903,7 @@ GoldenrodCity_MapEvents:
 	object_event 27, 16, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket4Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 29,  7, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket5Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
 	object_event 31, 10, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityRocket6Script, EVENT_RADIO_TOWER_ROCKET_TAKEOVER
-	object_event 12, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
+	object_event 13, 22, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, MoveTutorScript, EVENT_GOLDENROD_CITY_MOVE_TUTOR
 	object_event 34, 24, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, MORN, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodCityBeaterScript, EVENT_GOLDENROD_BEATER
 	object_event 24, 28, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush1Script, EVENT_LOCKDOWN_MART_RUSH
 	object_event 25, 28, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, GoldenrodCityMarketRush2Script, EVENT_LOCKDOWN_MART_RUSH
