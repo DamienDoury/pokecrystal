@@ -836,8 +836,8 @@ LovelyKissDescription:
 	next "to fall asleep.@"
 
 SkyAttackDescription:
-	db   "1st turn: Speed up"
-	next "2nd turn: Attack@"
+	db   "Speed up then dmg."
+	next "May flinch & crit.@"
 
 TransformDescription:
 	db   "The user assumes"
