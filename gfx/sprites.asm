@@ -73,7 +73,7 @@ ReceptionistSpriteGFX::        INCBIN "gfx/sprites/receptionist.2bpp"
 OfficerSpriteGFX::             INCBIN "gfx/sprites/officer.2bpp"
 JennySpriteGFX::               INCBIN "gfx/sprites/jenny.2bpp"
 AgathaSpriteGFX::              INCBIN "gfx/sprites/agatha.2bpp"
-CalSpriteGFX::                 INCBIN "gfx/sprites/cal.2bpp"
+EusineSpriteGFX::              INCBIN "gfx/sprites/eusine.2bpp"
 SlowpokeSpriteGFX::            INCBIN "gfx/sprites/slowpoke.2bpp"
 CaptainSpriteGFX::             INCBIN "gfx/sprites/captain.2bpp"
 BigLaprasSpriteGFX::           INCBIN "gfx/sprites/big_lapras.2bpp"
@@ -107,7 +107,9 @@ SuicuneSpriteGFX::             INCBIN "gfx/sprites/suicune.2bpp"
 EnteiSpriteGFX::               INCBIN "gfx/sprites/entei.2bpp"
 RaikouSpriteGFX::              INCBIN "gfx/sprites/raikou.2bpp"
 
+
 SECTION "Sprites 3", ROMX
+
 ShineSpriteGFX::	           INCBIN "gfx/sprites/shine.2bpp"
 ConeSpriteGFX::                INCBIN "gfx/sprites/cone.2bpp"
 SubstituteSpriteGFX::          INCBIN "gfx/sprites/substitute.2bpp"
@@ -122,7 +124,9 @@ SuperNerdSpriteGFX_Clap::      INCBIN "gfx/sprites/super_nerd_clap.2bpp"
 ReceptionistSpriteGFX_Clap::   INCBIN "gfx/sprites/receptionist_clap.2bpp"
 FisherSpriteGFX_Clap::         INCBIN "gfx/sprites/fisher_clap.2bpp"
     
+
 SECTION "Sprites 4", ROMX
+
 ChrisClapSpriteGFX::           INCBIN "gfx/sprites/chris_clap.2bpp" ; Must stay in the same bank as KrisClapSpriteGFX.
 KrisClapSpriteGFX::            INCBIN "gfx/sprites/kris_clap.2bpp"  ; Must stay in the same bank as ChrisClapSpriteGFX.
 YoungsterSpriteGFX_Clap::      INCBIN "gfx/sprites/youngster_clap.2bpp"
@@ -135,11 +139,15 @@ GentlemanSpriteGFX_Clap::      INCBIN "gfx/sprites/gentleman_clap.2bpp"
 TwinSpriteGFX_Clap::           INCBIN "gfx/sprites/twin_clap.2bpp"
 BugCatcherSpriteGFX_Clap::     INCBIN "gfx/sprites/bug_catcher_clap.2bpp"
 
+
 SECTION "Sprites 5", ROMX
+
 PokefanMSpriteGFX_Clap::       INCBIN "gfx/sprites/pokefan_m_clap.2bpp"
 PokefanFSpriteGFX_Clap::       INCBIN "gfx/sprites/pokefan_f_clap.2bpp"
 FishingGuruSpriteGFX_Clap::    INCBIN "gfx/sprites/fishing_guru_clap.2bpp"
 
+
 SECTION "Sprites 6", ROMX
+
 GrampsSpriteGFX_Clap::         INCBIN "gfx/sprites/gramps_clap.2bpp"
 GrannySpriteGFX_Clap::         INCBIN "gfx/sprites/granny_clap.2bpp"

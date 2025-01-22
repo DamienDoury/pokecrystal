@@ -72,7 +72,7 @@
 	const SPRITE_JENNY ; 44
 	const SPRITE_AGATHA ; 45
 	const SPRITE_LORELEI ; 46
-	const SPRITE_CAL ; 47 unused
+	const SPRITE_EUSINE ; 47
 	const SPRITE_SLOWPOKE ; 48
 	const SPRITE_CAPTAIN ; 49
 	const SPRITE_BIG_LAPRAS ; 4a
