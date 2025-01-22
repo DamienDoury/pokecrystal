@@ -435,7 +435,8 @@ ENDM
 	map_const ROUTE_16_GATE,                                5,  4 ; 23
 	map_const ROUTE_7_SAFFRON_GATE,                         5,  4 ; 24
 	map_const ROUTE_17_ROUTE_18_GATE,                       5,  4 ; 25
-	map_const BED_SHOP,    				                    4,  4 ; 26
+	map_const BED_SHOP,    	                                4,  4 ; 26
+	map_const EUSINE_HOUSE,                                 4,  4 ; 27
 	endgroup
 
 	newgroup CIANWOOD                                             ; 22

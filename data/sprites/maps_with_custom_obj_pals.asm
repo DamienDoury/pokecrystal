@@ -16,8 +16,11 @@ ENDM
 	custom_map_objects_pals CERULEAN_CAVE_B3F, MapObjectPalsPurple
 	custom_map_objects_pals PEWTER_MUSEUM_2F, MapObjectPalsPurple
 	custom_map_objects_pals VIRIDIAN_FOREST, MapObjectPalsGSBall
-	custom_map_objects_pals BURNED_TOWER_B1F, MapObjectPalsYellowish
-	custom_map_objects_pals TIN_TOWER_1F, MapObjectPalsYellowish
+	custom_map_objects_pals CIANWOOD_CITY, MapObjectPalsPurple
+	custom_map_objects_pals BURNED_TOWER_1F, MapObjectPalsPurple
+	custom_map_objects_pals BURNED_TOWER_B1F, MapObjectPalsFuji
+	custom_map_objects_pals TIN_TOWER_1F, MapObjectPalsFuji
+	custom_map_objects_pals EUSINE_HOUSE, MapObjectPalsPurple
 	custom_map_objects_pals REDS_HOUSE_2F, MapObjectPalsYellowish
 	custom_map_objects_pals OLIVINE_LIGHTHOUSE_6F, MapObjectPalsYellowish
 	custom_map_objects_pals SILVER_CAVE_ROOM_3, MapObjectPalsYellowish

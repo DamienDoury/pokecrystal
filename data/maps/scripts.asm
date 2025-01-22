@@ -135,6 +135,7 @@ INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Ga
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
 INCLUDE "maps/Route5SaffronGate.asm"
+INCLUDE "maps/EusineHouse.asm"
 
 
 SECTION "Map Scripts 8", ROMX

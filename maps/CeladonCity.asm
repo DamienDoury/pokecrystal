@@ -277,6 +277,7 @@ CeladonCity_MapEvents:
 	warp_event 10, 29, CELADON_GYM, 1
 	warp_event 25, 29, CELADON_CAFE, 1
 	warp_event 33, 19, BED_SHOP, 1
+	warp_event 13, 33, EUSINE_HOUSE, 1
 
 	def_coord_events
 

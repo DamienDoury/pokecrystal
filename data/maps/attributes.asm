@@ -722,3 +722,4 @@ ENDM
 	map_attributes GoldenrodClapHouse, GOLDENROD_CLAP_HOUSE, $00, 0
 	map_attributes CarpetShop, CARPET_SHOP, $00, 0
 	map_attributes BedShop, BED_SHOP, $00, 0
+	map_attributes EusineHouse, EUSINE_HOUSE, $00, 0
