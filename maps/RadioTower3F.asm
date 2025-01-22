@@ -50,7 +50,7 @@ RadioTower3FGymGuideScript:
 RadioTower3FCooltrainerFScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_SUNNY_DAY_FROM_RADIO_TOWER
+	checkitem TM_SUNNY_DAY
 	iftrue .GotSunnyDay
 	checkevent EVENT_CLEARED_RADIO_TOWER
 	iftrue .NoRockets
@@ -75,7 +75,6 @@ RadioTower3FCooltrainerFScript:
 	writetext RadioTower3FCooltrainerFItsSunnyDayText
 	waitbutton
 	closetext
-	setevent EVENT_GOT_SUNNY_DAY_FROM_RADIO_TOWER
 	end
 
 .GotSunnyDay:

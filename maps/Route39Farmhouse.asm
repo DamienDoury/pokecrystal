@@ -72,7 +72,7 @@ FarmerMScript_Milking:
 PokefanF_SnoreFarmer:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
+	checkitem TM_SNORE
 	iftrue FarmerFScript_GotSnore
 	checkevent EVENT_HEALED_MOOMOO
 	iftrue FarmerFScript_GiveSnore
@@ -88,7 +88,7 @@ FarmerFScript_GiveSnore:
 	promptbutton
 	verbosegiveitem TM_SNORE
 	iffalse FarmerFScript_NoRoomForSnore
-	setevent EVENT_GOT_TM13_SNORE_FROM_MOOMOO_FARM
+	setevent EVENT_DARK_CAVE_BLACKTHORN_ENTRANCE_TM_SNORE
 FarmerFScript_GotSnore:
 	writetext FarmerFText_SnoreSpeech
 	waitbutton
