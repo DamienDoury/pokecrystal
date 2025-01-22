@@ -14,17 +14,35 @@ Route28SteelWingHouse_MapScripts:
 Celebrity:
 	faceplayer
 	opentext
-	checkitem TM_STEEL_WING
-	iftrue .AlreadyGotItem
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; True if the player refused to learn Sky Attack.
+	iftrue .covid_chat
+
 	writetext CelebrityText1
 	promptbutton
-	verbosegiveitem TM_STEEL_WING
-	iffalse .Done
-.Done:
-	closetext
-	end
-.AlreadyGotItem:
+	writetext CelebrityBegging
+	promptbutton
+	writetext CelebrityAskTeach
+	yesorno
+	iffalse .refused
+
+	farwritetext GoldenrodCityMoveTutorMoveText
+	callasm TopCelebrityMoveTutor
+	ifequal -1, .cancelled
+	
+.covid_chat
 	writetext CelebrityText2
+	sjump .text_end
+
+.cancelled
+	farwritetext GoldenrodCityMoveTutorBButText
+	promptbutton
+	sjump .refused_2
+
+.refused
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+.refused_2
+	writetext CelebrityBegging
+.text_end
 	waitbutton
 	closetext
 	end
@@ -43,13 +61,20 @@ CelebrityHouseBookshelf:
 CelebrityText1:
 	text "Oh, dear."
 	line "You've found me."
+	done
 
-	para "Please don't tell"
+CelebrityAskTeach:
+	text "For keeping my"
+	line "secret, I'll teach"
+	cont "your #MON the"
+	cont "strongest FLYING-"
+	cont "type move there"
+	cont "is: SKY ATTACK."
+	done
+
+CelebrityBegging:
+	text "Please don't tell"
 	line "anyone about me."
-
-	para "I'll give you this"
-	line "for keeping my"
-	cont "secret. Please?"
 	done
 
 CelebrityText2:
@@ -67,8 +92,8 @@ CelebrityText2:
 	line "living around!"
 
 	para "In the city, fans"
-	line "chase me every-"
-	cont "where I go."
+	line "chased me every-"
+	cont "where I went."
 
 	para "It's tough being a"
 	line "top celebrity."

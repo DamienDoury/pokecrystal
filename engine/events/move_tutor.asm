@@ -1,4 +1,4 @@
-MoveTutor:
+MoveTutor_ClearScreen:
 	call FadeToMenu
 	call ClearBGPalettes
 	call ClearScreen
@@ -7,12 +7,29 @@ MoveTutor:
 	call GetSGBLayout
 	xor a
 	ld [wItemAttributeValue], a
-	call .GetMoveTutorMove
+	ret
+
+; Input: the MT_0X move ID to teach in A.
+; Output: carry if the player cancelled.
+MoveTutor_RegisterMoveToLearn:
 	ld [wNamedObjectIndex], a
 	ld [wPutativeTMHMMove], a
 	call GetMoveName
 	call CopyName1
 	farcall ChooseMonToLearnTMHM
+	ret
+
+TopCelebrityMoveTutor::
+	call MoveTutor_ClearScreen
+	ld a, MT04_MOVE ; SKY_ATTACK
+	call MoveTutor_RegisterMoveToLearn
+	jr c, MoveTutor.cancel
+	jr MoveTutor.enter_loop
+
+MoveTutor:
+	call MoveTutor_ClearScreen
+	call .GetMoveTutorMove
+	call MoveTutor_RegisterMoveToLearn
 	jr c, .cancel
 	jr .enter_loop
 
