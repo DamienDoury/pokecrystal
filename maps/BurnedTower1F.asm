@@ -23,7 +23,8 @@ BurnedTower1F_MapScripts:
 .HoleAndLadder:
 	checkevent EVENT_HOLE_IN_BURNED_TOWER
 	iftrue .KeepHoleOpen
-	changeblock 10, 8, $32 ; floor
+	changeblock  8, 8, $37 ; floor
+	changeblock 10, 8, $38 ; floor
 .KeepHoleOpen:
 	checkevent EVENT_BURNED_TOWER_1F_EUSINE
 	iftrue .HideBasement
@@ -100,6 +101,7 @@ BurnedTowerRivalBattleScript:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	playsound SFX_ENTER_DOOR
 	waitsfx
+	changeblock  8, 8, $39 ; hole border
 	changeblock 10, 8, $25 ; hole
 	reloadmappart
 	pause 15
