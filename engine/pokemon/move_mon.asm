@@ -1,4 +1,4 @@
-RANDY_OT_ID EQU 01001
+NPC_OT_ID EQU 01001
 
 UpdatePartyStats::
 	ld a, -1
@@ -1966,9 +1966,9 @@ GivePoke::
 	ld hl, wPartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-	ld a, HIGH(RANDY_OT_ID)
+	ld a, HIGH(NPC_OT_ID)
 	ld [hli], a
-	ld [hl], LOW(RANDY_OT_ID)
+	ld [hl], LOW(NPC_OT_ID)
 	pop bc
 	farcall SetGiftPartyMonCaughtData
 	jr .skip_nickname

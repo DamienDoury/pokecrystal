@@ -283,6 +283,7 @@ ReturnTestSubjectParam:
 
 _SilphCo_TestSubjectRemovedFromParty::
     call SilphCoFindTestSubjectInParty ; Must always return true, as it is only called in scripts when the pokémon has been found in the party before.
+DepositCurPartyMon::
     xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
 	farcall RemoveMonFromPartyOrBox
@@ -308,4 +309,49 @@ _SilphCo_PlayerGetsPropertyOfTestSubject::
 
     ; Copying the name if the test subject into wStringBuffer1.
     call GetCurNickname
+    ret
+
+LanaTrainerName:
+    db "LANA@"
+
+SelectScarfTheVaccinatedFurret::
+    ld a, -1
+    ld [wScriptVar], a
+
+    farcall SelectMonFromParty
+    ret c ; We return -1 in wScriptVar if the player cancelled the selection.
+
+    ld a, 2
+    ld [wScriptVar], a
+
+    ld bc, 5
+    ld hl, LanaTrainerName
+    ld de, wStringBuffer1
+    call CopyBytes ; copy bc bytes from hl to de
+
+    ld a, HIGH(NPC_OT_ID)
+    ld b, a
+	ld a, LOW(NPC_OT_ID)
+    ld c, a ; BC contains the Trainer ID we are looking for.
+
+    ld d, FURRET ; species
+    ld e, -1 ; level
+    farcall BillsPC_CheckSelectedMonOTIDAndName.party
+    ret nc ; We return 2 in wScriptVar if the Pokemon's identity doesn't match Lana's Furret.
+
+    ld a, 3
+    ld [wScriptVar], a
+
+    ld a, [wCurPartyMon]
+	ld hl, wPartyMon1PokerusStatus
+	ld bc, PARTYMON_STRUCT_LENGTH
+	call AddNTimes
+
+    ld a, [hl]
+	and POKERUS_INVERSED_DURATION_MASK
+	cp POKERUS_TEST_MASK
+	ret nz ; We return 3 in wScriptVar if the Pokemon hasn't been vaccinated at least once.
+
+    ld a, 1
+    ld [wScriptVar], a
     ret

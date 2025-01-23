@@ -51,7 +51,7 @@ BeverlyGiftText:
 	line "a little gift."
 	done
 
-BeverlyPackFullText:
+BeverlyPackFullText::
 	text "Oh?"
 	line "You have no room."
 
