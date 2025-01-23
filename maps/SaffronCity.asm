@@ -91,6 +91,9 @@ FightingDojoSign:
 	jumptext FightingDojoSignText
 
 SilphCoSign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	clearevent EVENT_CROWD_IN_VACCINATION_CENTER
+endc
 	jumptext SilphCoSignText
 
 MrPsychicsHouseSign:
