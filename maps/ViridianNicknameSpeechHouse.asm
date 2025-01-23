@@ -37,6 +37,10 @@ ViridianNicknameSpeechHouseTwinScript:
 	checkevent EVENT_LANAS_FURRET_GIVEN_TO_PLAYER
 	iftrue .check_on_scarf
 	
+	writetext ViridianNicknameSpeechHouseTwin_AntivaxxerTestText
+	yesorno
+	iftrue .nevermind
+
 	writetext ViridianNicknameSpeechHouseTwin_AskForVaccineText
 	yesorno
 	iffalse .refused
@@ -50,6 +54,10 @@ ViridianNicknameSpeechHouseTwinScript:
 
 .go
 	writetext ViridianNicknameSpeechHouseTwin_GoText
+	sjump .text_end
+
+.nevermind
+	writetext ViridianNicknameSpeechHouseTwin_NevermindText
 	sjump .text_end
 
 .before_center_opening
@@ -72,7 +80,9 @@ ViridianNicknameSpeechHouseTwinScript:
 
 .check_on_scarf
 	writetext ViridianNicknameSpeechHouseTwin_CheckingOnFurretText
-	waitbutton
+	yesorno
+	iffalse .misses_furret
+
 	farwritetext GoldenrodCityMoveTutorMoveText
 	callasm SelectScarfTheVaccinatedFurret
 	ifequal -1, .cancelled_check
@@ -92,6 +102,10 @@ ViridianNicknameSpeechHouseTwinScript:
 
 .no_room_for_item
 	farwritetext BeverlyPackFullText
+	sjump .text_end
+
+.misses_furret
+	writetext ViridianNicknameSpeechHouseTwin_MissesFurretText
 	sjump .text_end
 
 .mission_accomplished
@@ -155,15 +169,33 @@ ViridianNicknameSpeechHouseTwin_BeforeOpeningText:
 	line "me a visit."
 	done
 
+ViridianNicknameSpeechHouseTwin_AntivaxxerTestText:
+	text "You gotta be dumb"
+	line "to get a #MON"
+	cont "vaccinated, right?"
+	done
+
+ViridianNicknameSpeechHouseTwin_NevermindText:
+	text "Yeah! You get it!"
+	done
+
 ViridianNicknameSpeechHouseTwin_AskForVaccineText:
-	text "My dad is a pure"
+	text "Shush! Keep it"
+	line "down!"
+	
+	para "My dad is a pure"
 	line "antivaxxer breed."
 
-	para "He won't take me"
-	line "to SAFFRON CITY,"
+	para "He'll get mad if he"
+	line "hears any opposing"
+	cont "opinions."
+
+	para "When I asked him"
+	line "to take me to"
+	cont "SAFFRON CITY to"
 	
-	para "so I can't get my"
-	line "FURRET vaccinated…"
+	para "get FURRET a shot,"
+	line "dad beat me down…"
 
 	para "Could you get my"
 	line "#MON vaccinated"
@@ -187,6 +219,10 @@ ViridianNicknameSpeechHouseTwin_CheckingOnFurretText:
 	line "with SCARF's"
 	cont "vaccination?"
 	cont "Can I get it back?"
+	done
+
+ViridianNicknameSpeechHouseTwin_MissesFurretText:
+	text "I miss my FURRET…"
 	done
 
 ViridianNicknameSpeechHouseTwin_CancelledCheckText:
@@ -230,7 +266,7 @@ ViridianNicknameSpeechHouseTwin_VoucherGivenText:
 	done
 
 ViridianPrimeapeText:
-	text "JAPE PAUL: Pooool!"
+	text "JAPE PAUL: Prime!"
 	done
 
 ViridianScarfText:
