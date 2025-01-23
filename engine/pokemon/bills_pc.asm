@@ -1767,11 +1767,11 @@ BillsPC_CheckSelectedMonOTIDAndName::
     call OpenSRAM
 
     ld a, [hli]
-    and b
+    sub b
     jp nz, .close_sram_then_return_false
 
     ld a, [hl]
-    and c
+    sub c
     jr nz, .close_sram_then_return_false
 
     call CloseSRAM
@@ -1835,11 +1835,11 @@ BillsPC_CheckSelectedMonOTIDAndName::
     pop bc
 
     ld a, [hli]
-    and b
+    sub b
     jr nz, .return_false
 
     ld a, [hl]
-    and c
+    sub c
     jr nz, .return_false
 
     ; We have found the right ID, now we need to check the Original Trainer name.

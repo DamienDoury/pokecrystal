@@ -104,7 +104,7 @@ RedsPikachu_SetupSearch:
     ld de, wStringBuffer1
     call CopyBytes ; copy bc bytes from hl to de
 
-    ld bc, $0100 ; BC contains the Trainer ID of Red.
+    ld bc, $0001 ; BC contains the Trainer ID of Red.
 	ld d, PIKACHU ; species
 	ld e, 100 ; level
 	ret

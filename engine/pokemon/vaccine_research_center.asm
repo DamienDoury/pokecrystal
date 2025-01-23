@@ -206,8 +206,10 @@ IsTestSubjectForSure::
     call CopyBytes ; copy bc bytes from hl to de
 
     ld a, [wPlayerID]
+    cpl
     ld b, a
     ld a, [wPlayerID + 1]
+    cpl
     ld c, a ; BC contains the Trainer ID of Silph Co, the one we are looking for.
 
     ld d, -1 ; species
