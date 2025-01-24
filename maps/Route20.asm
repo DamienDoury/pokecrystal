@@ -41,6 +41,61 @@ TrainerSwimmermCameron:
 	closetext
 	end
 
+WaitForFollowMovementToEnd:
+	readmem wObjectFollow_Follower
+	ifequal  0, .break_loop
+	ifequal -1, .break_loop
+
+	callasm GetFollowerAction ; Returns the follower's action in wScriptVar.
+	callasm HandleNPCStep
+	callasm NextOverworldFrame
+	callasm HandleMapBackground
+	ifnotequal OBJECT_ACTION_STAND, WaitForFollowMovementToEnd
+
+.break_loop
+	end
+NPCFollowsPlayer:
+	scall JoinPlayerBeforeFollowing
+Route20_FollowScript:
+	follow PLAYER, LAST_TALKED
+	end
+JoinPlayerBeforeFollowing:
+	readvar VAR_FACING
+	ifequal LEFT, .FollowRight
+	ifequal RIGHT, .FollowLeft
+	ifequal UP, .FollowDown
+
+	; ifequal DOWN
+	applymovementlasttalked .FollowUpMovement
+	end
+
+.FollowRight
+	applymovementlasttalked .FollowRightMovement
+	end
+
+.FollowLeft
+	applymovementlasttalked .FollowLeftMovement
+	end
+
+.FollowDown
+	applymovementlasttalked .FollowDownMovement
+	end
+
+.FollowRightMovement
+	step RIGHT
+	step_end
+
+.FollowLeftMovement
+	step LEFT
+	step_end
+
+.FollowDownMovement
+	step DOWN
+	step_end
+
+.FollowUpMovement
+	step UP
+	step_end
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
 

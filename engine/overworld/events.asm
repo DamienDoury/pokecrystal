@@ -216,7 +216,7 @@ ResetOverworldDelay:
 	ld [wOverworldDelay], a
 	ret
 
-NextOverworldFrame:
+NextOverworldFrame::
 	ld a, [wOverworldDelay]
 	and a
 	ret z
@@ -233,7 +233,7 @@ HandleMapTimeAndJoypad:
 	call GetJoypad
 	jp TimeOfDayPals
 
-HandleMapBackground:
+HandleMapBackground::
 	farcall _UpdateSprites
 	farcall ScrollScreen
 	farcall PlaceMapNameSign

@@ -250,14 +250,14 @@ object_struct: MACRO
 \1Sprite::            db
 \1MapObjectIndex::    db
 \1SpriteTile::        db
-\1MovementType::      db
+\1MovementType::      db ; SPRITEMOVEDATA_* constant.
 \1Flags::             dw
 \1Palette::           db
 \1Walking::           db
 \1Direction::         db
 \1StepType::          db
 \1StepDuration::      db
-\1Action::            db
+\1Action::            db ; OBJECT_ACTION_* constant.
 \1ObjectStepFrame::   db
 \1Facing::            db
 \1StandingTile::      db ; collision

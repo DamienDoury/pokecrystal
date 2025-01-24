@@ -2058,3 +2058,14 @@ CantCutScript:
 CanCutText:
 	text_far _CanCutText
 	text_end
+
+; Input: none.
+; Output: the follower NPC's action in wScriptVar. 
+GetFollowerAction::
+    ld a, [wObjectFollow_Follower]
+    ld hl, wPlayerAction
+    ld bc, OBJECT_LENGTH
+    call AddNTimes
+    ld a, [hl]
+    ld [wScriptVar], a
+    ret
