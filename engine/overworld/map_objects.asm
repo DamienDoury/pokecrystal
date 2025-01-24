@@ -2591,20 +2591,16 @@ CheckObjectCoveredByTextbox:
 	ret
 
 HandleNPCStep::
-	call ResetStepVector
-	call DoStepsForAllObjects
-	ret
-
-ResetStepVector:
+;ResetStepVector:
 	xor a
 	ld [wPlayerStepVectorX], a
 	ld [wPlayerStepVectorY], a
 	ld [wPlayerStepFlags], a
 	ld a, STANDING
 	ld [wPlayerStepDirection], a
-	ret
+	; fallthrough.
 
-DoStepsForAllObjects:
+;DoStepsForAllObjects:
 	ld bc, wObjectStructs
 	xor a
 .loop

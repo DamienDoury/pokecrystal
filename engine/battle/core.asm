@@ -277,7 +277,6 @@ BattleTurn:
 	jr c, .quit
 
 	call DetermineMoveOrder
-	farcall SpecialBattle_RegisterBattlePriority
 	jr c, .false
 .assault
 	call Battle_EnemyFirst
