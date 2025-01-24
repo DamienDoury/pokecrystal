@@ -51,6 +51,7 @@ WaitForFollowMovementToEnd:
 	callasm HandleNPCStep
 	callasm NextOverworldFrame
 	callasm HandleMapBackground
+	pause 1
 	ifnotequal OBJECT_ACTION_STAND, WaitForFollowMovementToEnd
 
 .break_loop
