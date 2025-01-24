@@ -550,7 +550,6 @@ CharmanderBackpic:   INCBIN "gfx/pokemon/charmander/back.2bpp.lz"
 RhyhornBackpic:      INCBIN "gfx/pokemon/rhyhorn/back.2bpp.lz"
 UnownCFrontpic:      INCBIN "gfx/pokemon/unown_c/front.animated.2bpp.lz"
 MistyPic:            INCBIN "gfx/trainers/misty.2bpp.lz"
-BlainePic:           INCBIN "gfx/trainers/blaine.2bpp.lz"
 UnownZFrontpic:      INCBIN "gfx/pokemon/unown_z/front.animated.2bpp.lz"
 SwinubFrontpic:      INCBIN "gfx/pokemon/swinub/front.animated.2bpp.lz"
 LarvitarBackpic:     INCBIN "gfx/pokemon/larvitar/back.2bpp.lz"
@@ -735,6 +734,7 @@ CamperPicNoMask:       INCBIN "gfx/trainers/camper_no_mask.2bpp.lz"
 SagePicNoMask:         INCBIN "gfx/trainers/sage_no_mask.2bpp.lz"
 TwinsPicNoMask:        INCBIN "gfx/trainers/twins_no_mask.2bpp.lz"
 BurglarIDPic::         INCBIN "gfx/player/burglar_trainer_card.2bpp"
+BlainePic:             INCBIN "gfx/trainers/blaine.2bpp.lz"
 
 
 SECTION "Pics 21", ROMX
