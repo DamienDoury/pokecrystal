@@ -439,7 +439,6 @@ INCLUDE "maps/Route20.asm"
 INCLUDE "maps/Route21.asm"
 INCLUDE "maps/DarkCaveVioletEntrance.asm"
 INCLUDE "maps/DarkCaveBlackthornEntrance.asm"
-INCLUDE "maps/GoldenrodBikeShop.asm"
 
 
 SECTION "Map Scripts 23", ROMX
@@ -469,6 +468,7 @@ INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
+INCLUDE "maps/GoldenrodBikeShop.asm"
 
 
 SECTION "Map Scripts 25", ROMX

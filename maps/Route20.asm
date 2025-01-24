@@ -2,6 +2,7 @@
 	const ROUTE20_SWIMMER_GIRL1
 	const ROUTE20_SWIMMER_GIRL2
 	const ROUTE20_SWIMMER_GUY
+	const ROUTE20_ESCORT_SWIMMER
 
 Route20_MapScripts:
 	def_scene_scripts
@@ -54,11 +55,141 @@ WaitForFollowMovementToEnd:
 
 .break_loop
 	end
+
+Route20_DeadEndScript:
+	scall WaitForFollowMovementToEnd
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; When true, it means the player is stuck in a dead-end, and the follower is waiting for the player to leave it.
+Route20_StopFollowScript:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	stopfollow
+	end
+
+Route20_LeavingDeadEndScript_TowardsTop:
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowRightMovement
+	sjump Route20_JustFollowScript
+
+Route20_LeavingDeadEndScript_TowardsLeft:
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowDownMovement
+
+Route20_JustFollowScript:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	setlasttalked ROUTE20_ESCORT_SWIMMER
+	sjump Route20_FollowScript
+
+Route20_EscortScript:
+	faceplayer
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	iftrue .behind_you
+
+	opentext
+	writetext Route20_EscortQuestIntroText
+	promptbutton
+	writetext Route20_BehindYouText
+	waitbutton
+	closetext
+
+	scall NPCFollowsPlayer
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; When true, the player is being actively followed.
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; When true, the player escort quest is active.
+.end
+	end
+
+.behind_you
+	jumptext Route20_BehindYouText
+
+Route20_SeafoamDialogScript:
+	scall WaitForFollowMovementToEnd
+	setlasttalked ROUTE20_ESCORT_SWIMMER
+	faceplayer
+	showemote EMOTE_SHOCK, ROUTE20_ESCORT_SWIMMER, 15
+	faceobject PLAYER, ROUTE20_ESCORT_SWIMMER
+	opentext
+	writetext Route20_EscortSeafoamText
+	waitbutton
+	closetext
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowLeftMovement
+	end
+
+Route20_ReachedDestinationScript_FromTop:
+	applymovement PLAYER, JoinPlayerBeforeFollowing.DownRightMovement
+	scall WaitForFollowMovementToEnd
+	scall Route20_StopFollowScript
+	applymovement PLAYER, Route20_TurnHeadLeftMovement
+	applymovement ROUTE20_ESCORT_SWIMMER, Route20_MoveLeftThenFacePlayerMovement
+	sjump Route20_ReachedDestinationScript
+
+Route20_ReachedDestinationScript_FromRight:
+	scall WaitForFollowMovementToEnd
+	scall Route20_StopFollowScript
+	applymovement PLAYER, Route20_TurnHeadLeftMovement
+	applymovement ROUTE20_ESCORT_SWIMMER, Route20_SMovement
+
+Route20_ReachedDestinationScript:
+	showemote EMOTE_HAPPY, ROUTE20_ESCORT_SWIMMER, 15
+	pause 10
+
+	farscall RavePartyFlag
+	checkevent EVENT_CINNABAR_RAVE_PARTY
+	clearevent EVENT_CINNABAR_RAVE_PARTY
+	opentext
+	iftrue .rave_ongoing
+
+	writetext Route20_SwimmerRescueEpilogueText
+	sjump .sequel
+
+.rave_ongoing
+	writetext Route20_SwimmerRaveOngoingText
+.sequel
+	waitbutton
+	closetext
+
+	applymovement ROUTE20_ESCORT_SWIMMER, Route20_BacktrackMovement
+	disappear ROUTE20_ESCORT_SWIMMER
+	reloadmappart
+	end
+
+Route20_SeafoamDirectionScript_VeryTop:
+	scall Route20_SeafoamDialogScript
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowDown2Movement
+	sjump Route20_SeafoamBacktrackScript
+
+Route20_SeafoamDirectionScript_Top:
+	scall Route20_SeafoamDialogScript
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowDownMovement
+	sjump Route20_SeafoamBacktrackScript
+
+Route20_SeafoamDirectionScript_Bot:
+	scall Route20_SeafoamDialogScript
+	applymovement ROUTE20_ESCORT_SWIMMER, JoinPlayerBeforeFollowing.FollowUpMovement
+	sjump Route20_SeafoamBacktrackScript
+
+Route20_SeafoamDirectionScript:
+	scall Route20_SeafoamDialogScript
+
+Route20_SeafoamBacktrackScript:
+	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	scall Route20_StopFollowScript
+
+	readvar VAR_FACING
+	ifequal DOWN, .long_backtrack
+	applymovement ROUTE20_ESCORT_SWIMMER, Route20_BacktrackMovement
+	sjump .disappear
+
+.long_backtrack
+	applymovement ROUTE20_ESCORT_SWIMMER, Route20_BacktrackFurtherMovement
+.disappear
+	disappear ROUTE20_ESCORT_SWIMMER
+	appear ROUTE20_ESCORT_SWIMMER
+	reloadmappart
+	end
+
 NPCFollowsPlayer:
 	scall JoinPlayerBeforeFollowing
 Route20_FollowScript:
 	follow PLAYER, LAST_TALKED
 	end
+
 JoinPlayerBeforeFollowing:
 	readvar VAR_FACING
 	ifequal LEFT, .FollowRight
@@ -81,6 +212,8 @@ JoinPlayerBeforeFollowing:
 	applymovementlasttalked .FollowDownMovement
 	end
 
+.DownRightMovement
+	step DOWN
 .FollowRightMovement
 	step RIGHT
 	step_end
@@ -89,6 +222,8 @@ JoinPlayerBeforeFollowing:
 	step LEFT
 	step_end
 
+.FollowDown2Movement
+	step DOWN
 .FollowDownMovement
 	step DOWN
 	step_end
@@ -96,6 +231,27 @@ JoinPlayerBeforeFollowing:
 .FollowUpMovement
 	step UP
 	step_end
+
+Route20_BacktrackFurtherMovement:
+	step LEFT
+Route20_BacktrackMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
+
+Route20_SMovement:
+	step LEFT
+	step DOWN
+Route20_MoveLeftThenFacePlayerMovement:
+	step LEFT
+	turn_head RIGHT
+	step_end
+
+Route20_TurnHeadLeftMovement:
+	turn_head LEFT
+	step_end
+
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
 
@@ -161,6 +317,51 @@ CinnabarGymSignText:
 	para "DO NOT ENTER"
 	done
 
+Route20_EscortQuestIntroText:
+	text "I'm lost."
+	line "Help me!"
+	done
+
+Route20_BehindYouText:
+	text "Guide me to"
+	line "CINNABAR ISLAND,"
+	cont "I'm following you."
+	done
+
+Route20_EscortSeafoamText:
+	text "These are the"
+	line "SEAFOAM ISLANDS!"
+
+	para "You're getting me"
+	line "even more lost!"
+
+	para "Plus, this place"
+	line "is dangerous."
+
+	para "I'm backtracking to"
+	line "to where we met."
+	done
+
+Route20_SwimmerRescueEpilogueText:
+	text "You did it!"
+
+	para "I must've drifted"
+	line "from here after"
+	cont "the last rave."
+
+	para "Maybe I'll see you"
+	line "at the next one!"
+	done
+
+Route20_SwimmerRaveOngoingText:
+	text "We're right on"
+	line "time! The party's"
+	cont "raging!"
+
+	para "Come with me!"
+	done
+
+
 Route20_MapEvents:
 	db 0, 0 ; filler
 
@@ -169,6 +370,16 @@ Route20_MapEvents:
 	warp_event 58,  7, SEAFOAM_E1F, 2
 
 	def_coord_events
+	coord_event 54, 12, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_SeafoamDirectionScript_VeryTop
+	coord_event 55, 13, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_SeafoamDirectionScript_Top
+	coord_event 56, 14, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_SeafoamDirectionScript
+	coord_event 57, 15, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_SeafoamDirectionScript_Bot
+	coord_event 58, 16, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_SeafoamDirectionScript_Bot
+	coord_event 39, 16, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_DeadEndScript
+	coord_event  1, 16, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_ReachedDestinationScript_FromRight
+	coord_event  0, 15, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1, Route20_ReachedDestinationScript_FromTop
+	coord_event 38, 16, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3, Route20_LeavingDeadEndScript_TowardsLeft
+	coord_event 39, 15, CE_EVENT_FLAG_SET, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3, Route20_LeavingDeadEndScript_TowardsTop
 
 	def_bg_events
 	bg_event 59,  9, BGEVENT_READ, CinnabarGymSign
@@ -176,4 +387,5 @@ Route20_MapEvents:
 	def_object_events
 	object_event 72,  8, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfNicole, -1
 	object_event 65, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
-	object_event 36,  7, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
+	object_event 37,  7, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
+	object_event 45,  3, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route20_EscortScript, EVENT_SWIMMER_RESCUE

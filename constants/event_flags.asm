@@ -1289,6 +1289,8 @@
 	const EVENT_LANAS_FURRET_WAS_RETURNED
 	const EVENT_LANA_GAVE_VOUCHER
 
+	const EVENT_SWIMMER_RESCUE
+
 ; Unused: next 68 events	
 
 	const_next 1592
