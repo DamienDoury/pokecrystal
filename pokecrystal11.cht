@@ -1,20 +1,13 @@
-010108D2 0Enemy Mon HP+1 = 1
-010007D2 0Enemy Mon HP = 1
-010148D4 0Player gender (bit 0: 0=M, 1=F)
-010487DE 01=free, 2=curfew, 4=lockdown
-01ADFEDC 0Set covid of 1st active mon.
-010080D4 0Change weekday
-010481D4 0Change hour
+010108D2 0Enemy HP + 1
+010007D2 0Enemy HP
+01015DC6 0Prevent trainer battles
+010580D4 0Change weekday
+010081D4 0Change minute
+010087DE 01=free, 2=lockd, 4=curf, 8=passp
+010381D4 0Change hour
 01FFF4D8 0All badges Johto
 01FFF5D8 0All badges Kanto
-01FFABDC 0Fly to all cities 1/4
-01FFACDC 0Fly to all cities 2/4
-01FFADDC 0Fly to all cities 3/4
-0100FAC2 1Walk through anything 1
-0100FBC2 1Walk through anything 2
-0100FCC2 1Walk through anything 3
-0100FDC2 1Walk through anything 4
-0100FEC2 1Walk through anything 5
-01FFAEDC 0Fly to all cities 4/4
-012C82D4 0Change minute
-01015DC6 1No trainer battles
+01FFACDC 0Fly to all cities 1
+01FFADDC 0Fly to all cities 2
+01FFAEDC 0Fly to all cities 3
+01FFAFDC 0Fly to all cities 4
