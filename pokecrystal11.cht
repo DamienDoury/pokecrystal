@@ -2,7 +2,7 @@
 010007D2 0Enemy HP
 01015DC6 0Prevent trainer battles
 010580D4 0Change weekday
-010081D4 0Change minute
+010082D4 0Change minute
 010087DE 01=free, 2=lockd, 4=curf, 8=passp
 010381D4 0Change hour
 01FFF4D8 0All badges Johto
