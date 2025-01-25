@@ -56,7 +56,7 @@ WaitForFollowMovementToEnd:
 
 	callasm GetFollowerAction ; Returns the follower's action in wScriptVar.
 	callasm HandleNPCStep
-	callasm NextOverworldFrame
+	callasm HandleLastTalkedStep
 	callasm HandleMapBackground
 	pause 1
 	ifnotequal OBJECT_ACTION_STAND, WaitForFollowMovementToEnd

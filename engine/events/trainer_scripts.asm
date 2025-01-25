@@ -111,7 +111,7 @@ WaitForObserverToEndMovementScript:
 	ifequal  0, .break_loop
 	ifequal -1, .break_loop
 
-	callasm HandleNPCStep ;HandleLastTalkedStep
+	callasm HandleLastTalkedStep
 	callasm NextOverworldFrame
 	callasm HandleMapBackground
 	pause 1
