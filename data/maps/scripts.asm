@@ -51,6 +51,7 @@ INCLUDE "maps/PlayersNeighborsHouse.asm"
 INCLUDE "maps/Route6SaffronGate.asm"
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/GoldenrodNameRater.asm"
+INCLUDE "maps/PalletTown.asm"
 
 
 SECTION "Map Scripts 3", ROMX
@@ -452,11 +453,6 @@ INCLUDE "maps/ViridianCity.asm"
 INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/VermilionCity.asm"
 INCLUDE "maps/Route9.asm"
-INCLUDE "maps/Route10North.asm"
-INCLUDE "maps/Route10South.asm"
-INCLUDE "maps/PalletTown.asm"
-INCLUDE "maps/Route5UndergroundPathEntrance.asm"
-INCLUDE "maps/Route16.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -469,6 +465,7 @@ INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
 INCLUDE "maps/GoldenrodBikeShop.asm"
+INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 25", ROMX
@@ -481,6 +478,9 @@ INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/SoulHouse.asm"
+INCLUDE "maps/Route16.asm"
+INCLUDE "maps/Route10North.asm"
+INCLUDE "maps/Route10South.asm"
 
 
 SECTION "Map Scripts 26", ROMX

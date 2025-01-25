@@ -390,7 +390,9 @@
 	const EVENT_DIGLETTS_CAVE_MAX_REPEL
 	const EVENT_DIGLETTS_CAVE_ESCAPE_ROPE
 
-; Unused: next 242 events
+	const EVENT_BEAT_COOLTRAINERM_ANDRIY
+
+; Unused: next 241 events
 
 	const_next 600
 ; Kurt Apricorn events

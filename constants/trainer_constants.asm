@@ -230,6 +230,7 @@ KRIS EQU __trainer_class__
 	const ALLEN
 	const DARIN
 	const FRED
+	const ANDRIY
 
 	trainerclass COOLTRAINERF ; 1c
 	const GWEN

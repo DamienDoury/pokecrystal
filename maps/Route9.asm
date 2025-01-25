@@ -7,6 +7,7 @@
 	const ROUTE9_POKEFAN_M2
 	const ROUTE9_COOLTRAINER_F
 	const ROUTE9_COOLTRAINER_M
+	const ROUTE9_COOLTRAINER_ANDRIY
 
 Route9_MapScripts:
 	def_scene_scripts
@@ -18,85 +19,65 @@ TrainerCamperDean:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CamperDeanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CamperDeanAfterBattleText
 
 TrainerPicnickerHeidi:
 	trainer PICNICKER, HEIDI, EVENT_BEAT_PICNICKER_HEIDI, PicnickerHeidiSeenText, PicnickerHeidiBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerHeidiAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerHeidiAfterBattleText
 
 TrainerCamperSid:
 	trainer CAMPER, SID, EVENT_BEAT_CAMPER_SID, CamperSidSeenText, CamperSidBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CamperSidAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CamperSidAfterBattleText
 
 TrainerPicnickerEdna:
 	trainer PICNICKER, EDNA, EVENT_BEAT_PICNICKER_EDNA, PicnickerEdnaSeenText, PicnickerEdnaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerEdnaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerEdnaAfterBattleText
 
 TrainerHikerTim:
 	trainer HIKER, TIM, EVENT_BEAT_HIKER_TIM, HikerTimSeenText, HikerTimBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerTimAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerTimAfterBattleText
 
 TrainerHikerSidney:
 	trainer HIKER, SIDNEY, EVENT_BEAT_HIKER_SIDNEY, HikerSidneySeenText, HikerSidneyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerSidneyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerSidneyAfterBattleText
 
 TrainerCooltrainerFMaria:
 	trainer COOLTRAINERF, MARIA, EVENT_BEAT_COOLTRAINERF_MARIA, CooltrainerFMariaSeenText, CooltrainerFMariaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerFMariaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerFMariaAfterBattleText
 
 TrainerCooltrainerMFred:
 	trainer COOLTRAINERM, FRED, EVENT_BEAT_COOLTRAINERM_FRED, CooltrainerMFredSeenText, CooltrainerMFredBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
+	jumptextfaceplayer CooltrainerMFredAfterBattleText
+
+TrainerCooltrainerMAndriy:
+	trainer COOLTRAINERM, ANDRIY, EVENT_BEAT_COOLTRAINERM_ANDRIY, CooltrainerMAndriySeenText, CooltrainerMAndriyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer CooltrainerMAndriyAfterBattleText
+
 	opentext
-	writetext CooltrainerMFredAfterBattleText
 	waitbutton
 	closetext
 	end
@@ -254,6 +235,24 @@ CooltrainerMFredAfterBattleText:
 	cont "surroundings."
 	done
 
+CooltrainerMAndriySeenText:
+	text "I saw a man in"
+	line "black running"
+	cont "towards CERULEAN"
+	cont "CITY."
+	done
+
+CooltrainerMAndriyBeatenText:
+	text "Well played!"
+	done
+
+CooltrainerMAndriyAfterBattleText:
+	text "The man in black"
+	line "drew my attention"
+	cont "because he didn't"
+	cont "wear a face mask."
+	done
+
 Route9SignText:
 	text "ROUTE 9"
 
@@ -277,8 +276,9 @@ Route9_MapEvents:
 	object_event 23, 11, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerCamperDean, -1
 	object_event 40,  8, SPRITE_LASS, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerHeidi, -1
 	object_event 10,  4, SPRITE_YOUNGSTER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 5, TrainerCamperSid, -1
-	object_event  8, 15, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerPicnickerEdna, -1
+	object_event  8, 14, SPRITE_LASS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 2, TrainerPicnickerEdna, -1
 	object_event 37,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 2, TrainerHikerTim, -1
 	object_event 37, 14, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerHikerSidney, -1
 	object_event 29,  5, SPRITE_COOLTRAINER_F, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerFMaria, -1
 	object_event 33,  6, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMFred, -1
+	object_event  8, 15, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_RIGHT, 1, 1, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerCooltrainerMAndriy, -1
