@@ -3095,6 +3095,7 @@ UNION ; 12 bytes.
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
+wEscortStartTime::
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
 wUndergroundSwitchPositions:: db
 wFarfetchdPosition:: db

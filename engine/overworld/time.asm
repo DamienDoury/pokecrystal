@@ -142,18 +142,8 @@ SampleKenjiBreakCountdown:
 	ld [wKenjiBreakTimer], a
 	ret
 
-StartBugContestTimer:
-	ld a, BUG_CONTEST_MINUTES
-	ld [wBugContestMinsRemaining], a
-	ld a, BUG_CONTEST_SECONDS
-	ld [wBugContestSecsRemaining], a
-	call UpdateTime
-	ld hl, wBugContestStartTime
-	call CopyDayHourMinSecToHL
-	ret
-
 CheckBugContestTimer::
-	ld hl, wBugContestStartTime
+	ld hl, wBugContestStartTime + 3
 	call CalcSecsMinsHoursDaysSince
 	ld a, [wDaysSince]
 	and a
@@ -315,10 +305,12 @@ CalcMinsHoursDaysSince:
 	xor a
 	jr _CalcMinsHoursDaysSince
 
+GetTimeSinceTimerStartDuration:
+	call UpdateTime
+	ld hl, wBugContestStartTime + 3
+	; fallthrough.
+
 CalcSecsMinsHoursDaysSince:
-	inc hl
-	inc hl
-	inc hl
 	ldh a, [hSeconds]
 	ld c, a
 	sub [hl]
@@ -362,6 +354,16 @@ _CalcDaysSince:
 	ld [wDaysSince], a ; days since
 	ret
 
+StartEscortTimer::
+StartBugContestTimer:
+	ld a, BUG_CONTEST_MINUTES
+	ld [wBugContestMinsRemaining], a
+	ld a, BUG_CONTEST_SECONDS
+	ld [wBugContestSecsRemaining], a
+	call UpdateTime
+	ld hl, wBugContestStartTime
+	; fallthrough.
+
 CopyDayHourMinSecToHL:
 	ld a, [wCurDay]
 	ld [hli], a
@@ -371,6 +373,33 @@ CopyDayHourMinSecToHL:
 	ld [hli], a
 	ldh a, [hSeconds]
 	ld [hli], a
+	ret
+
+; Input: none.
+; Output: number of seconds in wScriptVar. Fits within 1 byte (max 255 seconds).
+GetEscortDurationInSeconds::
+	ld a, -1
+	ld [wScriptVar], a
+	call GetTimeSinceTimerStartDuration
+	ld a, [wDaysSince]
+	and a
+	ret nz
+
+	ld a, [wHoursSince]
+	and a
+	ret nz
+
+	ld a, [wMinutesSince]
+	cp 3
+	ret nc
+
+	ld c, 60
+	call SimpleMultiply
+	ld c, a
+
+	ld a, [wSecondsSince]
+	add c
+	ld [wScriptVar], a
 	ret
 
 CopyDayToHL:

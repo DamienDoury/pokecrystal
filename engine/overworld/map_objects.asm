@@ -2699,11 +2699,6 @@ SetLeaderIfVisible:
 	ld [wObjectFollow_Leader], a
 	ret
 
-StopFollow::
-	call ResetLeader
-	call ResetFollower
-	ret
-
 ResetLeader:
 	ld a, -1
 	ld [wObjectFollow_Leader], a
@@ -2725,12 +2720,16 @@ SetFollowerIfVisible:
 	ld [wObjectFollow_Follower], a
 	ret
 
+StopFollow::
+	call ResetLeader
+	; fallthrough.
+
 ResetFollower:
 	ld a, [wObjectFollow_Follower]
 	cp -1
 	ret z
 	call GetObjectStruct
-	farcall ResetObject ; no need to farcall
+	call ResetObject
 	ld a, -1
 	ld [wObjectFollow_Follower], a
 	ret
