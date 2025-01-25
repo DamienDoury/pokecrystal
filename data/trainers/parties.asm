@@ -2018,6 +2018,11 @@ TeacherGroup:
 	db 35, JIGGLYPUFF
 	db -1 ; end
 
+	; TEACHER (4)
+	db "SARAH@", TRAINERTYPE_ITEM
+	db 15, PSYDUCK, FOCUS_BAND
+	db -1 ; end
+
 SabrinaGroup:
 	; SABRINA (1)
 	db "SABRINA@", TRAINERTYPE_ITEM_MOVES | TRAINERTYPE_STAT_EXP

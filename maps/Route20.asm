@@ -3,44 +3,51 @@
 	const ROUTE20_SWIMMER_GIRL2
 	const ROUTE20_SWIMMER_GUY
 	const ROUTE20_ESCORT_SWIMMER
+	const ROUTE20_TEACHER_SARAH
 
 Route20_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_OBJECTS, .RavePartyCheck
+
+.RavePartyCheck:
+	farscall RavePartyFlag
+	checkevent EVENT_CINNABAR_RAVE_PARTY
+	clearevent EVENT_CINNABAR_RAVE_PARTY
+	iffalse .endcallback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+.endcallback
+	endcallback
 
 TrainerSwimmerfNicole:
 	trainer SWIMMERF, NICOLE, EVENT_BEAT_SWIMMERF_NICOLE, SwimmerfNicoleSeenText, SwimmerfNicoleBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmerfNicoleAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmerfNicoleAfterBattleText
 
 TrainerSwimmerfLori:
 	trainer SWIMMERF, LORI, EVENT_BEAT_SWIMMERF_LORI, SwimmerfLoriSeenText, SwimmerfLoriBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmerfLoriAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmerfLoriAfterBattleText
 
 TrainerSwimmermCameron:
 	trainer SWIMMERM, CAMERON, EVENT_BEAT_SWIMMERM_CAMERON, SwimmermCameronSeenText, SwimmermCameronBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmermCameronAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermCameronAfterBattleText
+
+TrainerTeacherSarah:
+	trainer TEACHER, SARAH, EVENT_BEAT_TEACHER_SARAH, TeacherSarahSeenText, TeacherSarahBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer TeacherSarahAfterBattleText
 
 WaitForFollowMovementToEnd:
 	readmem wObjectFollow_Follower
@@ -309,6 +316,19 @@ SwimmermCameronAfterBattleText:
 	cont "ponds and rivers."
 	done
 
+TeacherSarahSeenText:
+	text "How did I end"
+	line "up here?"
+	done
+
+TeacherSarahBeatenText:
+	text "My head hurts…"
+	done
+
+TeacherSarahAfterBattleText:
+	text "What happened?"
+	done
+
 CinnabarGymSignText:
 	text "SEAFOAM ISLANDS"
 
@@ -390,3 +410,4 @@ Route20_MapEvents:
 	object_event 65, 13, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfLori, -1
 	object_event 37,  7, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
 	object_event 45,  3, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route20_EscortScript, EVENT_SWIMMER_RESCUE
+	object_event 29, 15, SPRITE_TEACHER, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, TrainerTeacherSarah, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
