@@ -44,44 +44,30 @@ TrainerSwimmerfElaine:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmerfElaineAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmerfElaineAfterBattleText
 
 TrainerSwimmerfPaula:
 	trainer SWIMMERF, PAULA, EVENT_BEAT_SWIMMERF_PAULA, SwimmerfPaulaSeenText, SwimmerfPaulaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmerfPaulaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmerfPaulaAfterBattleText
 
 TrainerSwimmermSimon:
 	trainer SWIMMERM, SIMON, EVENT_BEAT_SWIMMERM_SIMON, SwimmermSimonSeenText, SwimmermSimonBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE40_OLIVINE_RIVAL1, Route40_SleepMovement
 	endifjustbattled
-	opentext
-	writetext SwimmermSimonAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermSimonAfterBattleText
 
 TrainerSwimmermRandall:
 	trainer SWIMMERM, RANDALL, EVENT_BEAT_SWIMMERM_RANDALL, SwimmermRandallSeenText, SwimmermRandallBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmermRandallAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermRandallAfterBattleText
 
 Route40Lass1Script:
 	jumptextfaceplayer Route40Lass1Text
@@ -144,6 +130,10 @@ Route40HiddenHyperPotion:
 
 Route40_DoorScript:
 	jumpstd ClosedBusinessScript
+
+Route40_SleepMovement:
+	step_sleep 1
+	step_end
 
 SwimmermSimonSeenText:
 	text "You have to warm"

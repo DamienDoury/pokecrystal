@@ -42,6 +42,8 @@ TrainerSwimmerfLulu:
 	trainer SWIMMERF, LULU, EVENT_BEAT_SWIMMERF_LULU, SwimmerfLuluSeenText, SwimmerfLuluBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap3ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE21_SWIMMER_GIRL_LULU, Route21_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer SwimmerfLuluAfterBattleText
 
@@ -91,6 +93,8 @@ TrainerSwimmermTyson:
 	trainer SWIMMERM, TYSON, EVENT_BEAT_SWIMMERM_TYSON, SwimmermTysonSeenText, SwimmermTysonBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap10ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE21_SWIMMER_GUY_TYSON, Route21_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer SwimmermTysonAfterBattleText
 
@@ -98,6 +102,8 @@ TrainerSwimmermDuane:
 	trainer SWIMMERM, DUANE, EVENT_BEAT_SWIMMERM_DUANE, SwimmermDuaneSeenText, SwimmermDuaneBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap11ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE21_SWIMMER_GUY_DUANE, Route21_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer SwimmermDuaneAfterBattleText
 
@@ -121,6 +127,10 @@ TrainerBirdKeeperLeon:
 .Script:
 	endifjustbattled
 	jumptextfaceplayer BirdKeeperLeonAfterBattleText
+
+Route21_SleepMovement:
+	step_sleep 1
+	step_end
 
 SwimmermSethSeenText:
 	text "Land ho! Gotta"

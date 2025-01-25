@@ -169,6 +169,8 @@ GoldenrodHospitalCorridorPokefan1Script:
 	trainer HIKER, MEREDITH, EVENT_BEAT_HOSPITAL_TRAINER_CORRIDOR_2, GoldenrodHospitalPokefanMTrainerSeenText, GoldenrodHospitalPokefanMTrainerBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap5ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement GOLDENROD_HOSPITAL_CORRIDOR_POKEFAN1, GoldenrodHospitalCorridor_SleepMovement
 	checkscene 
 	ifequal 9, .advance_quest
 	endifjustbattled
@@ -220,6 +222,10 @@ GoldenrodHospitalCorridorWashHandsFemaleText:
 
 GoldenrodHospitalCorridorMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_GOLDENROD_HOSPITAL_CORRIDOR_MAX_ELIXER
+
+GoldenrodHospitalCorridor_SleepMovement:
+	step_sleep 1
+	step_end
 
 GoldenrodHospitalCorridorNurse1Text:
 	text "I'm exhausted. I"

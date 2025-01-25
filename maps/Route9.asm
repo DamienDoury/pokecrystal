@@ -61,13 +61,21 @@ TrainerCooltrainerFMaria:
 	trainer COOLTRAINERF, MARIA, EVENT_BEAT_COOLTRAINERF_MARIA, CooltrainerFMariaSeenText, CooltrainerFMariaBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap7ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE9_COOLTRAINER_F, Route9_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer CooltrainerFMariaAfterBattleText
+
+Route9_SleepMovement:
+	step_sleep 1
+	step_end
 
 TrainerCooltrainerMFred:
 	trainer COOLTRAINERM, FRED, EVENT_BEAT_COOLTRAINERM_FRED, CooltrainerMFredSeenText, CooltrainerMFredBeatenText, 0, .Script
 
 .Script:
+	loadmem wMap8ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
+	applymovement ROUTE9_COOLTRAINER_M, Route9_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer CooltrainerMFredAfterBattleText
 
