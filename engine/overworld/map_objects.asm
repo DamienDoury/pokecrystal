@@ -2595,14 +2595,17 @@ CheckObjectCoveredByTextbox:
 	scf
 	ret
 
-HandleNPCStep::
-;ResetStepVector:
+ResetStepVector::
 	xor a
 	ld [wPlayerStepVectorX], a
 	ld [wPlayerStepVectorY], a
 	ld [wPlayerStepFlags], a
 	ld a, STANDING
 	ld [wPlayerStepDirection], a
+	ret
+
+HandleNPCStep::
+	call ResetStepVector
 	; fallthrough.
 
 ;DoStepsForAllObjects:

@@ -50,21 +50,24 @@ TrainerTeacherSarah:
 	jumptextfaceplayer TeacherSarahAfterBattleText
 
 WaitForFollowMovementToEnd:
+	callasm ResetStepVector
 	readmem wObjectFollow_Follower
 	ifequal  0, .break_loop
 	ifequal -1, .break_loop
 
-	callasm GetFollowerAction ; Returns the follower's action in wScriptVar.
-	callasm HandleNPCStep
+.loop
 	callasm HandleLastTalkedStep
+	callasm NextOverworldFrame
 	callasm HandleMapBackground
 	pause 1
-	ifnotequal OBJECT_ACTION_STAND, WaitForFollowMovementToEnd
+	callasm GetFollowerAction ; Returns the follower's action in wScriptVar.
+	ifnotequal OBJECT_ACTION_STAND, .loop
 
 .break_loop
 	end
 
 Route20_DeadEndScript:
+	setlasttalked ROUTE20_ESCORT_SWIMMER
 	scall WaitForFollowMovementToEnd
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; When true, it means the player is stuck in a dead-end, and the follower is waiting for the player to leave it.
 Route20_StopFollowScript:
@@ -107,8 +110,8 @@ Route20_EscortScript:
 	jumptext Route20_BehindYouText
 
 Route20_SeafoamDialogScript:
-	scall WaitForFollowMovementToEnd
 	setlasttalked ROUTE20_ESCORT_SWIMMER
+	scall WaitForFollowMovementToEnd
 	faceplayer
 	showemote EMOTE_SHOCK, ROUTE20_ESCORT_SWIMMER, 15
 	faceobject PLAYER, ROUTE20_ESCORT_SWIMMER
@@ -121,6 +124,7 @@ Route20_SeafoamDialogScript:
 
 Route20_ReachedDestinationScript_FromTop:
 	applymovement PLAYER, JoinPlayerBeforeFollowing.DownRightMovement
+	setlasttalked ROUTE20_ESCORT_SWIMMER
 	scall WaitForFollowMovementToEnd
 	scall Route20_StopFollowScript
 	applymovement PLAYER, Route20_TurnHeadLeftMovement
@@ -128,6 +132,7 @@ Route20_ReachedDestinationScript_FromTop:
 	sjump Route20_ReachedDestinationScript
 
 Route20_ReachedDestinationScript_FromRight:
+	setlasttalked ROUTE20_ESCORT_SWIMMER
 	scall WaitForFollowMovementToEnd
 	scall Route20_StopFollowScript
 	applymovement PLAYER, Route20_TurnHeadLeftMovement

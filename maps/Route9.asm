@@ -120,6 +120,7 @@ Route9_EscortGirlScript:
 	end
 
 Route9_WrongWayScript:
+	setlasttalked ROUTE9_ESCORT
 	farscall WaitForFollowMovementToEnd
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ; Waiting
 	turnobject ROUTE9_ESCORT, LEFT
@@ -185,6 +186,7 @@ Route9_TowardsCeruleanScript:
 
 Route9_DestinationScript:
 	applymovement PLAYER, Route9_StepRightMovement
+	setlasttalked ROUTE9_ESCORT
 	farscall WaitForFollowMovementToEnd
 	stopfollow
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; stop follow.
@@ -253,8 +255,8 @@ Route9_DestinationScript:
 	end
 
 Route9_FollowerAndPlayerFaceEachOtherScript:
-	farscall WaitForFollowMovementToEnd
 	setlasttalked ROUTE9_ESCORT
+	farscall WaitForFollowMovementToEnd
 	faceplayer
 	faceobject PLAYER, ROUTE9_ESCORT
 	end
@@ -549,8 +551,8 @@ Route9_ForYourEffortText:
 	done
 
 Route9_TooLongText:
-	text "It took you too"
-	line "long to reach the"
+	text "It took you for-"
+	line "ever to reach the"
 	cont "end. I'm sure you"
 	cont "can do better!"
 	done
