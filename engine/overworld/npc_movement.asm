@@ -438,7 +438,7 @@ IsNPCAtCoord:
 
 	ld hl, OBJECT_FLAGS1
 	add hl, bc
-	bit 7, [hl]
+	bit EMOTE_OBJECT_F, [hl]
 	jr nz, .next
 
 	ld hl, OBJECT_PALETTE
@@ -446,7 +446,7 @@ IsNPCAtCoord:
 	bit BIG_OBJECT_F, [hl]
 	jr z, .not_big
 	call WillObjectIntersectBigObject
-	jr nc, .check_current_coords
+	jr nc, .next
 	jr .continue
 
 .not_big
@@ -454,31 +454,14 @@ IsNPCAtCoord:
 	add hl, bc
 	ld a, [hl]
 	cp d
-	jr nz, .check_current_coords
+	jr nz, .next
 	ld hl, OBJECT_NEXT_MAP_Y
 	add hl, bc
 	ld a, [hl]
 	cp e
-	jr nz, .check_current_coords
+	jr nz, .next
 
 .continue
-	ldh a, [hMapObjectIndex]
-	ld l, a
-	ldh a, [hObjectStructIndex]
-	cp l
-	jr nz, .yes
-
-.check_current_coords
-	ld hl, OBJECT_MAP_X
-	add hl, bc
-	ld a, [hl]
-	cp d
-	jr nz, .next
-	ld hl, OBJECT_MAP_Y
-	add hl, bc
-	ld a, [hl]
-	cp e
-	jr nz, .next
 	ldh a, [hMapObjectIndex]
 	ld l, a
 	ldh a, [hObjectStructIndex]
