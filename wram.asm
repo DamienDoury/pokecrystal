@@ -3164,6 +3164,7 @@ wTodaysBigDollIndex:: db
 wTodaysBigDollID:: db
 wTodaysBigDollEventFlag:: dw
 wJustWonBigDoll:: db
+wLastCheckedPoster:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

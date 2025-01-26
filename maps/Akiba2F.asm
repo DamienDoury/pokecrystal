@@ -6,6 +6,8 @@ POSTER_PRICE EQU 4000
 	const AKIBA2F_POSTER_3
 	const AKIBA2F_POSTER_4
 	const AKIBA2F_SMEARGLE
+	const AKIBA2F_CLIENT_GENTLEMAN
+	const AKIBA2F_CLIENT_BEAUTY
 
 Akiba2F_MapScripts:
 	def_scene_scripts
@@ -49,6 +51,11 @@ Akiba2F_HideJigglypuffPoster:
 	changeblock 8, 2, $44 ; empty wall
 	end
 
+Akiba2F_SaveSeenPoster:
+	writemem wLastCheckedPoster
+	writemem hLastTalked
+	end
+
 Akiba2F_SellerScriptFromRight:
 	turnobject AKIBA2F_SELLER, RIGHT
 	sjump Akiba2F_SellerScript
@@ -67,11 +74,17 @@ Akiba2F_SellerScript:
 
 .skip_welcome
 	readmem hLastTalked
+.check
 	ifequal AKIBA2F_POSTER_2 - 1, .pikachu
 	ifequal AKIBA2F_POSTER_3 - 1, .clefairy
 	ifequal AKIBA2F_POSTER_4 - 1, .jigglypuff
 
-; No poster was looked at.
+	readmem wLastCheckedPoster
+	ifless AKIBA2F_POSTER_2 - 1, .no_poster_looked_at
+	ifgreater AKIBA2F_POSTER_4 - 1, .no_poster_looked_at
+	sjump .check
+
+.no_poster_looked_at
 	checkevent EVENT_DECO_POSTER_2
 	iffalse .look_around
 
@@ -95,14 +108,17 @@ Akiba2F_SellerScript:
 	end
 
 .pikachu
+	scall Akiba2F_SaveSeenPoster
 	setval PIKACHU
 	sjump .offer
 
 .clefairy
+	scall Akiba2F_SaveSeenPoster
 	setval CLEFAIRY
 	sjump .offer
 
 .jigglypuff
+	scall Akiba2F_SaveSeenPoster
 	setval JIGGLYPUFF
 	
 .offer
@@ -133,20 +149,45 @@ Akiba2F_SellerScript:
 
 .reload_map
 	reloadmappart
+	loadmem wLastCheckedPoster, 0
 	setlasttalked AKIBA2F_SELLER
 	sjump .end
+
+Akiba2F_Client1Script:
+	checkevent EVENT_DECO_POSTER_4
+	iftrue .sold
+
+	showemote EMOTE_HEART, AKIBA2F_CLIENT_GENTLEMAN, 30
+	pause 5
+	faceplayer
+	pause 5
+	opentext
+	writetext Akiba2F_InLoveText
+	waitbutton
+	closetext
+	turnobject AKIBA2F_CLIENT_GENTLEMAN, UP
+	end
+
+.sold
+	jumptextfaceplayer Akiba2F_JiggGoneText
+
+Akiba2F_Client2Script:
+	jumptextfaceplayer Akiba2F_WeshText
 
 Akiba2F_SmeargleScript:
 	cry SMEARGLE
 	jumptext Akiba2F_SmeargleText
 
 Akiba2F_PikachuPosterScript:
+	loadmem wLastCheckedPoster, AKIBA2F_POSTER_2 - 1
 	jumptext Akiba2F_PikachuPosterText
 
 Akiba2F_ClefairyPosterScript:
+	loadmem wLastCheckedPoster, AKIBA2F_POSTER_3 - 1
 	jumptext Akiba2F_ClefairyPosterText
 
 Akiba2F_JigglypuffPosterScript:
+	loadmem wLastCheckedPoster, AKIBA2F_POSTER_4 - 1
 	jumptext Akiba2F_JigglypuffPosterText
 
 Akiba2F_SmeargleText:
@@ -201,6 +242,25 @@ Akiba2F_SoldOutText:
 	line "are sold out!"
 	done
 
+Akiba2F_WeshText:
+	text "Are they really"
+	line "advertising pos-"
+	cont "ters as fine art?"
+	done
+
+Akiba2F_InLoveText:
+	text "I'm in love with"
+	line "this one!"
+	done
+
+Akiba2F_JiggGoneText:
+	text "My favorite poster"
+	line "is gone!"
+	
+	para "Surely its buyer"
+	line "is a connoisseur."
+	done
+
 Akiba2F_MapEvents:
 	db 0, 0 ; filler
 
@@ -220,3 +280,5 @@ Akiba2F_MapEvents:
 	object_event  2,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba2F_ClefairyPosterScript, EVENT_DECO_POSTER_3
 	object_event  8,  3, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba2F_JigglypuffPosterScript, EVENT_DECO_POSTER_4
 	object_event  0,  8, SPRITE_SMEARGLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Akiba2F_SmeargleScript, -1
+	object_event  7,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Akiba2F_Client1Script, -1
+	object_event  9,  8, SPRITE_BEAUTY, SPRITEMOVEDATA_WANDER, 1, 1, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Akiba2F_Client2Script, -1
