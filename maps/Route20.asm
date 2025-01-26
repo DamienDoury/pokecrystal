@@ -60,8 +60,8 @@ WaitForFollowMovementToEnd:
 	callasm NextOverworldFrame
 	callasm HandleMapBackground
 	pause 1
-	callasm GetFollowerAction ; Returns the follower's action in wScriptVar.
-	ifnotequal OBJECT_ACTION_STAND, .loop
+	callasm GetFollowerWalking ; Returns the follower's "walking" in wScriptVar.
+	ifnotequal -1, .loop
 
 .break_loop
 	end

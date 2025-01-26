@@ -14,7 +14,7 @@ GetObserverAction:
     ld bc, MAPOBJECT_LENGTH
     call AddNTimes
     ld a, [hl]
-    ld hl, wPlayerAction
+    ld hl, wPlayerWalking
     ld bc, OBJECT_LENGTH
     call AddNTimes
     ld a, [hl]
@@ -116,7 +116,7 @@ WaitForObserverToEndMovementScript:
 	callasm HandleMapBackground
 	pause 1
 	callasm GetObserverAction ; Returns the observer's action in wScriptVar.
-	ifnotequal OBJECT_ACTION_STAND, WaitForObserverToEndMovementScript
+	ifnotequal -1, WaitForObserverToEndMovementScript
 
 .break_loop
 	end
