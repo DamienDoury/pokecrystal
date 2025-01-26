@@ -26,6 +26,28 @@ DeleteMapObject::
 	pop bc
 	ret
 
+HandleLastTalkedStep::
+	ldh a, [hLastTalked]
+	ld hl, wPlayerObjectStructID
+	ld bc, MAPOBJECT_LENGTH
+	call AddNTimes
+	ld a, [hl]
+	ldh [hMapObjectIndex], a
+	ld hl, wObjectStructs
+	ld bc, OBJECT_LENGTH
+	call AddNTimes
+	ld b, h
+	ld c, l
+	jr HandleObjectStep.skip_visibility
+
+HandleObjectStep:
+	call CheckObjectStillVisible
+	ret c
+
+.skip_visibility
+	call HandleStepType
+	jp HandleObjectAction
+
 CheckObjectStillVisible:
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
@@ -133,28 +155,6 @@ HandleStepType:
 .frozen
 	ret
 
-HandleLastTalkedStep::
-	ldh a, [hLastTalked]
-	ld hl, wPlayerObjectStructID
-    ld bc, MAPOBJECT_LENGTH
-    call AddNTimes
-    ld a, [hl]
-	ldh [hMapObjectIndex], a
-	ld hl, wObjectStructs
-	ld bc, OBJECT_LENGTH
-	call AddNTimes
-	ld b, h
-	ld c, l
-	jr HandleObjectStep.skip_visibility
-
-HandleObjectStep:
-	call CheckObjectStillVisible
-	ret c
-
-.skip_visibility
-	call HandleStepType
-	; fallthrough.
-
 HandleObjectAction:
 	ld hl, OBJECT_FLAGS1
 	add hl, bc
@@ -178,7 +178,7 @@ HandleFrozenObjectAction:
 _CallFrozenObjectAction:
 ; use second column (frozen)
 	ld de, ObjectActionPairPointers + 2
-	; fallthrough.
+	jr CallObjectAction ; pointless
 
 CallObjectAction:
 	ld hl, OBJECT_ACTION
@@ -431,22 +431,6 @@ RestoreDefaultMovement:
 	ld a, SPRITEMOVEDATA_STANDING_DOWN
 	ret
 
-_MovementSpinNextFacing:
-	ld hl, OBJECT_FACING
-	add hl, bc
-	ld a, [hl]
-	and %00001100
-	rrca
-	rrca
-	push hl
-	ld l, a
-	ld h, 0
-	add hl, de
-	ld a, [hl]
-	pop hl
-	ld [hl], a
-	; fallthrough.
-
 ObjectMovementByte_IncAnonJumptableIndex:
 	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
 	add hl, bc
@@ -472,39 +456,6 @@ Field1c_ZeroAnonJumptableIndex:
 	add hl, bc
 	ld [hl], 0
 	ret
-
-StepFunction_NPCJump:
-	call Field1c_AnonJumptable
-.anon_dw
-	dw .Jump
-	dw .Land
-
-.Land:
-	call AddStepVector
-	call UpdateJumpPosition
-	ld hl, OBJECT_STEP_DURATION
-	add hl, bc
-	dec [hl]
-	ret nz
-	call CopyNextCoordsTileToStandingCoordsTile
-	ld hl, OBJECT_STEP_TYPE
-	add hl, bc
-	ld [hl], STEP_TYPE_FROM_MOVEMENT
-	ret
-
-.Jump:
-	call AddStepVector
-	call UpdateJumpPosition
-	ld hl, OBJECT_STEP_DURATION
-	add hl, bc
-	dec [hl]
-	ret nz
-	call CopyNextCoordsTileToStandingCoordsTile
-	call GetNextTile
-	ld hl, OBJECT_FLAGS2
-	add hl, bc
-	res OVERHEAD_F, [hl]
-	; fallthrough.
 
 Field1c_IncAnonJumptableIndex:
 	ld hl, OBJECT_1C
@@ -939,6 +890,22 @@ _MovementShine:
 	db OW_UP
 	db OW_DOWN
 
+_MovementSpinNextFacing:
+	ld hl, OBJECT_FACING
+	add hl, bc
+	ld a, [hl]
+	and %00001100
+	rrca
+	rrca
+	push hl
+	ld l, a
+	ld h, 0
+	add hl, de
+	ld a, [hl]
+	pop hl
+	ld [hl], a
+	jp ObjectMovementByte_DecAnonJumptableIndex
+
 MovementFunction_Shadow:
 	call InitMovementField1dField1e
 	ld hl, OBJECT_ACTION
@@ -1283,6 +1250,39 @@ WaitStep_InPlace:
 	add hl, bc
 	dec [hl]
 	ret nz
+	ld hl, OBJECT_STEP_TYPE
+	add hl, bc
+	ld [hl], STEP_TYPE_FROM_MOVEMENT
+	ret
+
+StepFunction_NPCJump:
+	call Field1c_AnonJumptable
+.anon_dw
+	dw .Jump
+	dw .Land
+
+.Jump:
+	call AddStepVector
+	call UpdateJumpPosition
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	dec [hl]
+	ret nz
+	call CopyNextCoordsTileToStandingCoordsTile
+	call GetNextTile
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	res OVERHEAD_F, [hl]
+	jp Field1c_IncAnonJumptableIndex
+
+.Land:
+	call AddStepVector
+	call UpdateJumpPosition
+	ld hl, OBJECT_STEP_DURATION
+	add hl, bc
+	dec [hl]
+	ret nz
+	call CopyNextCoordsTileToStandingCoordsTile
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_FROM_MOVEMENT
@@ -2365,6 +2365,22 @@ RespawnPlayer:
 	call RespawnObject
 	jp _UpdateSprites
 
+RespawnObject:
+	cp NUM_OBJECTS
+	ret nc
+	call GetMapObject
+	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
+	add hl, bc
+	ld a, [hl]
+	cp -1
+	ret z
+	cp NUM_OBJECT_STRUCTS
+	ret nc
+	call GetObjectStruct
+	call DoesObjectHaveASprite
+	ret z
+	jp UpdateRespawnedObjectFrozen
+
 HideAllObjects:
 	xor a
 	ld bc, wObjectStructs
@@ -2392,26 +2408,6 @@ UpdateObjectFrozen:
 	farcall HandleFrozenObjectAction ; no need to farcall
 	xor a
 	ret
-
-RespawnObject:
-	cp NUM_OBJECTS
-	ret nc
-
-	call GetMapObject
-	ld hl, MAPOBJECT_OBJECT_STRUCT_ID
-	add hl, bc
-	ld a, [hl]
-	cp -1
-	ret z
-
-	cp NUM_OBJECT_STRUCTS
-	ret nc
-
-	call GetObjectStruct
-	call DoesObjectHaveASprite
-	ret z
-
-	; fallthrough.
 
 UpdateRespawnedObjectFrozen:
 	call CheckObjectOnScreen
@@ -2627,17 +2623,6 @@ HandleNPCStep::
 	jr nz, .loop
 	ret
 
-TryResetPlayerAction:
-	ld hl, wPlayerSpriteSetupFlags
-	bit PLAYERSPRITESETUP_RESET_ACTION_F, [hl]
-	jr nz, .ok
-	ret
-
-.ok
-	ld a, OBJECT_ACTION_00
-	ld [wPlayerAction], a
-	ret
-
 RefreshPlayerSprite:
 	ld a, movement_step_sleep
 	ld [wPlayerNextMovement], a
@@ -2648,7 +2633,18 @@ RefreshPlayerSprite:
 	call TryResetPlayerAction
 	farcall CheckWarpFacingDown
 	call c, SpawnInFacingDown
-	; fallthrough.
+	jp SpawnInCustomFacing
+
+TryResetPlayerAction:
+	ld hl, wPlayerSpriteSetupFlags
+	bit PLAYERSPRITESETUP_RESET_ACTION_F, [hl]
+	jr nz, .ok
+	ret
+
+.ok
+	ld a, OBJECT_ACTION_00
+	ld [wPlayerAction], a
+	ret
 
 SpawnInCustomFacing:
 	ld hl, wPlayerSpriteSetupFlags
@@ -2753,6 +2749,15 @@ FreezeAllOtherObjects::
 	xor a
 	ret
 
+FreezeObject: ; unreferenced
+	call CheckObjectVisibility
+	ret c
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	set FROZEN_F, [hl]
+	xor a
+	ret
+
 FreezeAllObjects:
 	ld bc, wObjectStructs
 	xor a
@@ -2816,6 +2821,14 @@ UnfreezeAllObjects::
 	cp NUM_OBJECT_STRUCTS
 	jr nz, .loop
 	pop bc
+	ret
+
+UnfreezeObject: ; unreferenced
+	call CheckObjectVisibility
+	ret c
+	ld hl, OBJECT_FLAGS2
+	add hl, bc
+	res FROZEN_F, [hl]
 	ret
 
 ResetObject:
@@ -2991,24 +3004,7 @@ InitSprites:
 	ld c, PRIORITY_NORM
 	call .InitSpritesByPriority
 	ld c, PRIORITY_LOW
-.InitSpritesByPriority:
-	ld hl, wObjectPriorities
-.next_sprite
-	ld a, [hli]
-	ld d, a
-	and $f0
-	ret z
-	cp c
-	jr nz, .next_sprite
-	push bc
-	push hl
-	ld a, d
-	and $f
-	call .GetObjectStructPointer
-	call .InitSprite
-	pop hl
-	pop bc
-	jr .next_sprite
+	jr .InitSpritesByPriority
 
 .DeterminePriorities:
 	xor a
@@ -3062,6 +3058,25 @@ InitSprites:
 	cp NUM_OBJECT_STRUCTS
 	jr nz, .loop
 	ret
+
+.InitSpritesByPriority:
+	ld hl, wObjectPriorities
+.next_sprite
+	ld a, [hli]
+	ld d, a
+	and $f0
+	ret z
+	cp c
+	jr nz, .next_sprite
+	push bc
+	push hl
+	ld a, d
+	and $f
+	call .GetObjectStructPointer
+	call .InitSprite
+	pop hl
+	pop bc
+	jr .next_sprite
 
 .InitSprite:
 	ld hl, OBJECT_SPRITE_TILE
