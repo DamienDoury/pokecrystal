@@ -293,7 +293,7 @@ CheckFacingObjectNPCExcluded::
 .not_counter
 	xor a
 	ldh [hMapObjectIndex], a
-	call IsNPCAtCoord
+	call IsNPCAtCoord_NoCurrentCoord
 	ret nc
 
 	ld hl, OBJECT_SPRITE
@@ -320,7 +320,7 @@ CheckFacingFarNPCOnly::
 	ld b, a
 	push bc
 	push de
-	call IsNPCAtCoord
+	call IsNPCAtCoord ; We are within a function that's used for interaction, but in this case we check for NPC obstacles, which is collision. So no IsNPCAtCoord_NoCurrentCoord in this instance.
 	pop de
 	pop bc
 	ld a, b
@@ -350,7 +350,7 @@ CheckFacingFarNPCOnly::
 
 	xor a
 	ldh [hMapObjectIndex], a
-	call IsNPCAtCoord
+	call IsNPCAtCoord_NoCurrentCoord
 	ret nc
 	ld hl, OBJECT_SPRITE
 	add hl, bc
@@ -428,7 +428,84 @@ WillObjectBumpIntoSomeoneElse:
 	dec d
 	ret
 
+; This function checks both the previous and next positions of the NPC.
+; As such, it should be used for collision purposes, to avoid overlapping of 2 sprites.
 IsNPCAtCoord:
+	ld bc, wObjectStructs
+	xor a
+.loop
+	ldh [hObjectStructIndex], a
+	call DoesObjectHaveASprite
+	jr z, .next
+
+	ld hl, OBJECT_FLAGS1
+	add hl, bc
+	bit EMOTE_OBJECT_F, [hl]
+	jr nz, .next
+
+	ld hl, OBJECT_PALETTE
+	add hl, bc
+	bit BIG_OBJECT_F, [hl]
+	jr z, .not_big
+	call WillObjectIntersectBigObject
+	jr nc, .check_current_coords
+	jr .continue
+
+.not_big
+	ld hl, OBJECT_NEXT_MAP_X
+	add hl, bc
+	ld a, [hl]
+	cp d
+	jr nz, .check_current_coords
+	ld hl, OBJECT_NEXT_MAP_Y
+	add hl, bc
+	ld a, [hl]
+	cp e
+	jr nz, .check_current_coords
+
+.continue
+	ldh a, [hMapObjectIndex]
+	ld l, a
+	ldh a, [hObjectStructIndex]
+	cp l
+	jr nz, .yes
+
+.check_current_coords
+	ld hl, OBJECT_MAP_X
+	add hl, bc
+	ld a, [hl]
+	cp d
+	jr nz, .next
+	ld hl, OBJECT_MAP_Y
+	add hl, bc
+	ld a, [hl]
+	cp e
+	jr nz, .next
+	ldh a, [hMapObjectIndex]
+	ld l, a
+	ldh a, [hObjectStructIndex]
+	cp l
+	jr nz, .yes
+
+.next
+	ld hl, OBJECT_LENGTH
+	add hl, bc
+	ld b, h
+	ld c, l
+	ldh a, [hObjectStructIndex]
+	inc a
+	cp NUM_OBJECT_STRUCTS
+	jr nz, .loop
+	and a
+	ret
+
+.yes
+	scf
+	ret
+
+; This function only checks for the destination position of the NPC.
+; As such, it should be used for interaction purposes, to prevent the player from interacting with an NPC that's moving away from them.
+IsNPCAtCoord_NoCurrentCoord:
 	ld bc, wObjectStructs
 	xor a
 .loop

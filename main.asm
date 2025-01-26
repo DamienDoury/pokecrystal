@@ -15,7 +15,6 @@ INCLUDE "data/items/attributes.asm"
 INCLUDE "engine/overworld/npc_movement.asm"
 INCLUDE "engine/events/happiness_egg.asm"
 INCLUDE "engine/events/shuckle.asm"
-INCLUDE "engine/events/haircut.asm"
 INCLUDE "engine/battle/core_bis.asm"
 INCLUDE "engine/predef.asm"
 INCLUDE "engine/overworld/extended_map_events.asm"
@@ -42,6 +41,7 @@ INCLUDE "engine/pokemon/breedmon_level_growth.asm"
 INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle/special_battle.asm"
+INCLUDE "engine/events/haircut.asm"
 
 
 SECTION "bank4", ROMX
