@@ -6,7 +6,8 @@ TalkToTrainerScript::
 	encountermusic
 	sjump StartBattleWithMapTrainerScript
 
-; Output: the address of wObjectXWalking in HL.
+; Input: none.
+; Output: the address of the last talked NPC wObjectXWalking in HL.
 GetObserverWalking_HL:
 	ldh a, [hLastTalked]
     ld hl, wPlayerObjectStructID
@@ -15,16 +16,7 @@ GetObserverWalking_HL:
     ld a, [hl]
     ld hl, wPlayerWalking
     ld bc, OBJECT_LENGTH
-    call AddNTimes
-	ret
-
-; Input: none.
-; Output: the last talked NPC's action in wScriptVar. 
-GetObserverWalking:
-    call GetObserverWalking_HL
-    ld a, [hl]
-    ld [wScriptVar], a
-    ret
+    jp AddNTimes
 
 ForceObserverFacing:
 	call GetObserverWalking_HL
@@ -34,7 +26,7 @@ ForceObserverFacing:
     ld [hl], a
 	ret
 
-SaveObserverData:
+SaveObserverData::
 	call GetObserverWalking_HL
 	ld d, h
 	ld e, l
@@ -112,24 +104,37 @@ SetObserverAction:
     ld [hl], a
     ret
 
-WaitForObserverToEndMovementScript:
-	readmem hLastTalked
-	ifequal  0, .break_loop
-	ifequal -1, .break_loop
+WaitForObserverToEndMovement::
+	ldh a, [hLastTalked]
+	and a
+	ret z
 
-	callasm GetObserverWalking
-	ifequal -1, .break_loop
+	cp -1
+	ret z
 
-	callasm HandleLastTalkedStep
-	callasm GetObserverWalking ; Returns the observer's action in wScriptVar.
-	callasm ForceObserverFacing
-	callasm NextOverworldFrame
-	callasm HandleMapBackground
-	pause 1
-	ifnotequal -1, WaitForObserverToEndMovementScript
+	call GetObserverWalking_HL
+	ld a, [hl]
+	cp -1
+	ret z
 
-.break_loop
-	end
+.loop
+	farcall HandleLastTalkedStep
+	call GetObserverWalking_HL
+	ld a, [hl]
+	push af
+
+	call ForceObserverFacing
+	farcall NextOverworldFrame
+	farcall HandleMapBackground
+
+	ld c, 2
+	call DelayFrames
+
+	pop af
+	cp -1
+	jr nz, .loop
+
+	ret
 
 SeenByTrainerScript::
 	loadtemptrainer
@@ -139,7 +144,7 @@ SeenByTrainerScript::
 	showemote EMOTE_SHOCK, LAST_TALKED, 30
 	callasm RestoreObserverData
 
-	scall WaitForObserverToEndMovementScript
+	callasm WaitForObserverToEndMovement
 
 	callasm TrainerWalkToPlayer
 	applymovementlasttalked wMovementBuffer

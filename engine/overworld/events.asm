@@ -1177,17 +1177,17 @@ TryFarNPCOnlyEvent:
 	ret
 
 .IsObject:
-	call InteractWithObj
-	ret
+	call PlayTalkObject
+	call GetLastTalkedFromObjectStructIndex
+	farcall SaveObserverData
+	farcall WaitForObserverToEndMovement
+	ldh a, [hLastTalked]
+	jr InteractWithObj.get_map_object
 
 InteractWithObj::
 	call PlayTalkObject
-	ldh a, [hObjectStructIndex]
-	call GetObjectStruct
-	ld hl, OBJECT_MAP_OBJECT_INDEX
-	add hl, bc
-	ld a, [hl]
-	ldh [hLastTalked], a
+	call GetLastTalkedFromObjectStructIndex
+.get_map_object
 	call GetMapObject
 	ld hl, MAPOBJECT_COLOR
 	add hl, bc
@@ -1209,6 +1209,15 @@ InteractWithObj::
 
 .nope
 	xor a
+	ret
+
+GetLastTalkedFromObjectStructIndex:
+	ldh a, [hObjectStructIndex]
+	call GetObjectStruct
+	ld hl, OBJECT_MAP_OBJECT_INDEX
+	add hl, bc
+	ld a, [hl]
+	ldh [hLastTalked], a
 	ret
 
 ObjectEventTypeArray:

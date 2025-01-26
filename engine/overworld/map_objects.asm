@@ -33,11 +33,7 @@ HandleLastTalkedStep::
 	call AddNTimes
 	ld a, [hl]
 	ldh [hMapObjectIndex], a
-	ld hl, wObjectStructs
-	ld bc, OBJECT_LENGTH
-	call AddNTimes
-	ld b, h
-	ld c, l
+	call GetObjectStruct
 	jr HandleObjectStep.skip_visibility
 
 HandleObjectStep:
