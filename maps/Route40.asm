@@ -57,8 +57,6 @@ TrainerSwimmermSimon:
 	trainer SWIMMERM, SIMON, EVENT_BEAT_SWIMMERM_SIMON, SwimmermSimonSeenText, SwimmermSimonBeatenText, 0, .Script
 
 .Script:
-	loadmem wMap1ObjectMovement, SPRITEMOVEDATA_SPINRANDOM_SLOW
-	applymovement ROUTE40_OLIVINE_RIVAL1, Route40_SleepMovement
 	endifjustbattled
 	jumptextfaceplayer SwimmermSimonAfterBattleText
 
@@ -130,10 +128,6 @@ Route40HiddenHyperPotion:
 
 Route40_DoorScript:
 	jumpstd ClosedBusinessScript
-
-Route40_SleepMovement:
-	step_sleep 1
-	step_end
 
 SwimmermSimonSeenText:
 	text "You have to warm"
