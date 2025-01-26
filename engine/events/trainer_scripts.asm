@@ -6,22 +6,8 @@ TalkToTrainerScript::
 	encountermusic
 	sjump StartBattleWithMapTrainerScript
 
-; Input: none.
-; Output: the last talked NPC's action in wScriptVar. 
-GetObserverAction:
-    ldh a, [hLastTalked]
-    ld hl, wPlayerObjectStructID
-    ld bc, MAPOBJECT_LENGTH
-    call AddNTimes
-    ld a, [hl]
-    ld hl, wPlayerWalking
-    ld bc, OBJECT_LENGTH
-    call AddNTimes
-    ld a, [hl]
-    ld [wScriptVar], a
-    ret
-
-SaveObserverData:
+; Output: the address of wObjectXWalking in HL.
+GetObserverWalking_HL:
 	ldh a, [hLastTalked]
     ld hl, wPlayerObjectStructID
     ld bc, MAPOBJECT_LENGTH
@@ -30,6 +16,26 @@ SaveObserverData:
     ld hl, wPlayerWalking
     ld bc, OBJECT_LENGTH
     call AddNTimes
+	ret
+
+; Input: none.
+; Output: the last talked NPC's action in wScriptVar. 
+GetObserverWalking:
+    call GetObserverWalking_HL
+    ld a, [hl]
+    ld [wScriptVar], a
+    ret
+
+ForceObserverFacing:
+	call GetObserverWalking_HL
+	;inc hl
+
+	ld a, [wObserverMovementData]
+    ld [hl], a
+	ret
+
+SaveObserverData:
+	call GetObserverWalking_HL
 	ld d, h
 	ld e, l
 	ld hl, wObserverMovementData
@@ -111,11 +117,15 @@ WaitForObserverToEndMovementScript:
 	ifequal  0, .break_loop
 	ifequal -1, .break_loop
 
+	callasm GetObserverWalking
+	ifequal -1, .break_loop
+
 	callasm HandleLastTalkedStep
+	callasm GetObserverWalking ; Returns the observer's action in wScriptVar.
+	callasm ForceObserverFacing
 	callasm NextOverworldFrame
 	callasm HandleMapBackground
 	pause 1
-	callasm GetObserverAction ; Returns the observer's action in wScriptVar.
 	ifnotequal -1, WaitForObserverToEndMovementScript
 
 .break_loop
@@ -130,7 +140,6 @@ SeenByTrainerScript::
 	callasm RestoreObserverData
 
 	scall WaitForObserverToEndMovementScript
-	faceplayer
 
 	callasm TrainerWalkToPlayer
 	applymovementlasttalked wMovementBuffer
