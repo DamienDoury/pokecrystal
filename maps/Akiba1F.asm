@@ -11,6 +11,9 @@ NES_PRICE         EQU 11000
 	const AKIBA1F_SELLER
 	const AKIBA1F_NOTE
 	const AKIBA1F_REPAIR_N64
+	const AKIBA1F_CLIENT_GRAMPS
+	const AKIBA1F_CLIENT_BUG_CATCHER
+	const AKIBA1F_CLIENT_LASS
 
 Akiba1F_MapScripts:
 	def_scene_scripts
@@ -184,6 +187,33 @@ Akiba1F_Seller_Script:
 
 .RadioCardText:
 	db "RADIO CARD@"
+
+Akiba1F_PricesUpScript:
+	faceplayer
+	opentext
+	writetext Akiba1F_PricesUpText
+	waitbutton
+	closetext
+	turnobject AKIBA1F_CLIENT_GRAMPS, UP
+	end
+
+Akiba1F_NoClueScript:
+	faceplayer
+	opentext
+	writetext Akiba1F_NoClueText
+	waitbutton
+	closetext
+	turnobject AKIBA1F_CLIENT_BUG_CATCHER, DOWN
+	end
+
+Akiba1F_TrueGemsScript:
+	faceplayer
+	opentext
+	writetext Akiba1F_GemsText
+	waitbutton
+	closetext
+	turnobject AKIBA1F_CLIENT_LASS, RIGHT
+	end
 
 Akiba1F_Inventory1:
 	jumptext Akiba1F_Inventory1Text
@@ -640,6 +670,28 @@ Akiba1F_Inventory28Text:
 	text "Mickey Mania."
 	done
 
+Akiba1F_PricesUpText:
+	text "I like my games in"
+	line "physical format."
+	
+	para "This way, I truly"
+	line "own them."
+	
+	para "No company can"
+	line "take those from"
+	cont "me."
+	done
+
+Akiba1F_NoClueText:
+	text "I have no clue"
+	line "what this is…"
+	done
+
+Akiba1F_GemsText:
+	text "You can find true"
+	line "gems in here!"
+	done
+
 Akiba1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -692,3 +744,6 @@ Akiba1F_MapEvents:
 	object_event  4,  2, SPRITE_COOLTRAINER_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Akiba1F_Seller_Script, EVENT_CONSOLE_SELLER_BACK_IN_STORE
 	object_event  5,  3, SPRITE_POKEDEX, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba1F_BeRightBackScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  4,  1, SPRITE_N64, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	object_event 11,  6, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Akiba1F_PricesUpScript, EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	object_event  0,  4, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, LOW(%11100000 | MORN | DAY), PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Akiba1F_NoClueScript, EVENT_CONSOLE_SELLER_BACK_IN_STORE
+	object_event  9,  3, SPRITE_LASS, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, LOW(%11100000 | DAY | NITE), PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Akiba1F_TrueGemsScript, EVENT_CONSOLE_SELLER_BACK_IN_STORE
