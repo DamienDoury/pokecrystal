@@ -1,4 +1,5 @@
 UNDERGROUNDPATH_FAKE_ID_PRICE   EQU 60000
+UNDERGROUNDPATH_VOUCHER_PRICE   EQU 40000
 
 	object_const_def
 	const UNDERGROUNDPATH_BURGLAR
@@ -7,6 +8,16 @@ UndergroundPath_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .DisplayVoucherSeller
+
+.DisplayVoucherSeller:
+	farscall Akiba3F_HaveAllBigDollsBeenSold
+	iffalse .end_callback
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1 ; Show the voucher seller.
+
+.end_callback
+	endcallback
 
 UndergroundPathTrainerBurglarEddy:
 	trainer BURGLAR, EDDY, EVENT_BEAT_BURGLAR_EDDY, BurglarEddySeenText, BurglarEddyBeatenText, 0, .Script
@@ -70,6 +81,50 @@ UndergroundPathTrainerBurglarEddy:
 	writetext BurglarEddyTurnedDownText
 	sjump .WaitCloseText
 
+UndergroundPathVoucherSellerScript:
+	faceplayer
+	opentext
+	writetext VoucherSellerIntroText
+	promptbutton
+	special PlaceMoneyTopRight
+	writetext VoucherSellerPriceText
+	yesorno
+	iffalse .Refused
+
+	checkmoney YOUR_MONEY, UNDERGROUNDPATH_VOUCHER_PRICE
+	ifequal HAVE_LESS, .NotEnoughMoney
+
+	giveitem VOUCHER
+	iffalse .NoRoom
+
+	takemoney YOUR_MONEY, UNDERGROUNDPATH_VOUCHER_PRICE
+	waitsfx
+	playsound SFX_TRANSACTION
+	pause 15
+	special PlaceMoneyTopRight
+
+	getitemname STRING_BUFFER_4, VOUCHER
+	callstd ReceiveItemScript
+
+	writetext VoucherSellerFewMoreText
+.TextEnd
+	waitbutton
+.CloseText
+	closetext
+	end
+
+.NoRoom
+	farwritetext CeladonPrizeRoom_NotEnoughRoomText
+	sjump .TextEnd
+
+.NotEnoughMoney
+	farwritetext Akiba1F_NotEnoughMoneyText
+	sjump .TextEnd
+
+.Refused
+	writetext VoucherSellerRefusedText
+	sjump .TextEnd
+
 BurglarEddySeenText:
 	text "Show me what"
 	line "you got."
@@ -121,6 +176,30 @@ BurglarEddySoldText:
 	cont "anti-vaxxer."
 	done
 
+VoucherSellerIntroText:
+	text "Hey! Want a"
+	line "VOUCHER?"
+	done
+
+VoucherSellerPriceText:
+	text "¥{d:UNDERGROUNDPATH_VOUCHER_PRICE} for one."
+	line "What do you say?"
+	done
+
+VoucherSellerRefusedText:
+	text "My price is fair."
+
+	para "These are super"
+	line "rare, and you can't"
+	cont "win them anymore."
+	done
+
+VoucherSellerFewMoreText:
+	text "If you need an"
+	line "other one, I still"
+	cont "have a few more."
+	done
+
 UndergroundPathHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_UNDERGROUND_PATH_HIDDEN_FULL_RESTORE
 
@@ -142,3 +221,4 @@ UndergroundPath_MapEvents:
 
 	def_object_events
 	object_event  4, 19, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 0, UndergroundPathTrainerBurglarEddy, EVENT_BURGLAR_EDDY_LEFT
+	object_event  1, 30, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, UndergroundPathVoucherSellerScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1

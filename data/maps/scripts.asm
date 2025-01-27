@@ -52,7 +52,9 @@ INCLUDE "maps/Route6SaffronGate.asm"
 INCLUDE "maps/SilverCaveOutside.asm"
 INCLUDE "maps/GoldenrodNameRater.asm"
 INCLUDE "maps/PalletTown.asm"
-
+INCLUDE "maps/TinTowerRoof.asm"
+INCLUDE "maps/RockTunnel1F.asm"
+INCLUDE "maps/RockTunnelB1F.asm"
 
 SECTION "Map Scripts 3", ROMX
 
@@ -143,8 +145,6 @@ SECTION "Map Scripts 8", ROMX
 
 INCLUDE "maps/MountMoon.asm"
 INCLUDE "maps/UndergroundPath.asm"
-INCLUDE "maps/RockTunnel1F.asm"
-INCLUDE "maps/RockTunnelB1F.asm"
 INCLUDE "maps/SafariZoneFuchsiaGateBeta.asm"
 INCLUDE "maps/SafariZoneBeta.asm"
 INCLUDE "maps/VictoryRoad.asm"
@@ -159,7 +159,6 @@ INCLUDE "maps/OlivinePortPassage.asm"
 INCLUDE "maps/VermilionPortPassage.asm"
 INCLUDE "maps/MountMoonSquare.asm"
 INCLUDE "maps/MountMoonGiftShop.asm"
-INCLUDE "maps/TinTowerRoof.asm"
 INCLUDE "maps/ElmsHouse.asm"
 
 
