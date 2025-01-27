@@ -2422,9 +2422,13 @@ IsVaccinePassportValid::
 	checkflag ENGINE_TRAINER_CARD
 	iffalse .no_trainer_card
 
+	checkevent EVENT_GOT_FAKE_ID
+	iftrue .skip_real_first_shot_check
+
 	checkevent EVENT_PLAYER_VACCINATED_ONCE
 	iffalse .not_vaccinated
 
+.skip_real_first_shot_check
 	checkevent EVENT_SECOND_SHOT_REQUIRED
 	iffalse .yes
 
