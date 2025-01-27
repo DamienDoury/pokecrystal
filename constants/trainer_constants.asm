@@ -426,6 +426,7 @@ KRIS EQU __trainer_class__
 	const ESTEBAN
 	const TYSON
 	const DUANE
+	const GARVEY
 
 	trainerclass SWIMMERF ; 29
 	const ELAINE
@@ -449,6 +450,7 @@ KRIS EQU __trainer_class__
 	const BRIANA
 	const CHELAN
 	const LULU
+	const VAIANA
 
 	trainerclass SAILOR ; 28
 	const EUGENE

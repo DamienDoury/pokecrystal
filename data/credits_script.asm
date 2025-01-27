@@ -304,7 +304,7 @@ CreditsScript:
 	db    PRODUCT_TESTING, 0
 	db       DAMIEN_DOURY, 2
 	db             VOLOGT, 3
-	db             GARVEY, 4
+	db           GARVEY_V, 4
 	db      BASTIEN_MAUBE, 5
 
 	db CREDITS_WAIT, 11

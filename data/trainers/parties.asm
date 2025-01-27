@@ -2550,6 +2550,11 @@ SwimmerMGroup:
 	db 40, KABUTOPS
 	db -1 ; end	
 
+	; SWIMMERM (25)
+	db "GARVEY@", TRAINERTYPE_MOVES
+	db 41, TAUROS, 	SURF, NO_MOVE, NO_MOVE, NO_MOVE
+	db -1 ; end
+
 SwimmerFGroup:
 	; SWIMMERF (1)
 	db "ELAINE@", TRAINERTYPE_NORMAL
@@ -2675,6 +2680,14 @@ SwimmerFGroup:
 	db 34, SEAKING
 	db 34, WARTORTLE
 	db 34, MANTINE
+	db -1 ; end
+
+	; SWIMMERF (22)
+	db "VAIANA@", TRAINERTYPE_NORMAL
+	db 39, TENTACRUEL
+	db 39, TENTACRUEL
+	db 39, DITTO
+	db 37, VAPOREON
 	db -1 ; end
 
 SailorGroup:

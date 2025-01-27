@@ -392,8 +392,10 @@
 
 	const EVENT_BEAT_COOLTRAINERM_ANDRIY
 	const EVENT_BEAT_TEACHER_SARAH
+	const EVENT_BEAT_SWIMMERM_GARVEY
+	const EVENT_BEAT_SWIMMERF_VAIANA
 
-; Unused: next 241 events
+; Unused: next 239 events
 
 	const_next 600
 ; Kurt Apricorn events

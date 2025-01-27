@@ -30,44 +30,42 @@ TrainerSwimmerfDawn:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmerfDawnAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmerfDawnAfterBattleText
 
 TrainerSwimmermHarold:
 	trainer SWIMMERM, HAROLD, EVENT_BEAT_SWIMMERM_HAROLD, SwimmermHaroldSeenText, SwimmermHaroldBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmermHaroldAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermHaroldAfterBattleText
 
 TrainerSwimmermFlavien:
 	trainer SWIMMERM, FLAVIEN, EVENT_BEAT_SWIMMERM_FLAVIEN, SwimmermFlavienSeenText, SwimmermFlavienBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmermFlavienAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermFlavienAfterBattleText
 
 TrainerSwimmermTucker:
 	trainer SWIMMERM, TUCKER, EVENT_BEAT_SWIMMERM_TUCKER, SwimmermTuckerSeenText, SwimmermTuckerBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SwimmermTuckerAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SwimmermTuckerAfterBattleText
+
+TrainerSwimmermGarvey:
+	trainer SWIMMERM, GARVEY, EVENT_BEAT_SWIMMERM_GARVEY, SwimmermGarveySeenText, SwimmermGarveyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SwimmermGarveyAfterBattleText
+
+TrainerSwimmerfVaiana:
+	trainer SWIMMERF, VAIANA, EVENT_BEAT_SWIMMERF_VAIANA, SwimmerfVaianaSeenText, SwimmerfVaianaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SwimmerfVaianaAfterBattleText
 
 Route19Fisher1Script:
 	faceplayer
@@ -169,6 +167,37 @@ SwimmermTuckerAfterBattleText:
 	text "I… asked my girl-"
 	line "friend to swim to"
 	cont "FUCHSIA… Gasp…"
+	done
+
+SwimmermGarveySeenText:
+	text "My #MON is the"
+	line "best surfer!"
+	done
+
+SwimmermGarveyBeatenText:
+	text "You got surfed."
+	done
+
+SwimmermGarveyAfterBattleText:
+	text "It's fun to surf"
+	line "on TAUROS!"
+	done
+
+SwimmerfVaianaSeenText:
+	text "Just caught"
+	line "what I needed!"
+	done
+
+SwimmerfVaianaBeatenText:
+	text "Don't hurt him!"
+	done
+
+SwimmerfVaianaAfterBattleText:
+	text "All I need now is"
+	line "a THUNDERSTONE, a"
+	cont "trip to GOLDENROD"
+	cont "and I'll get myself"
+	cont "a JOLTEON!"
 	done
 
 SwimmerfDawnSeenText:
@@ -292,3 +321,5 @@ Route19_MapEvents:
 	object_event  9,  7, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
 	object_event  8,  8, SPRITE_BROCK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, Route19Fisher2Script, EVENT_CINNABAR_ROCKS_CLEARED
 	object_event  6,  9, SPRITE_ROCK, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, -1, EVENT_CINNABAR_ROCKS_CLEARED
+	object_event 15, 39, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSwimmermGarvey, -1
+	object_event 16, 60, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerSwimmerfVaiana, -1
