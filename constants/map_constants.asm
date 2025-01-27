@@ -513,7 +513,7 @@ ENDM
 	map_const SILPHCO_RESEARCH,                				8,  4 ; 20
 	map_const AKIBA_1F,                						6,  5 ; 21
 	map_const AKIBA_2F,                						6,  5 ; 22
-	map_const AKIBA_3F,                						6,  5 ; 23
+	map_const AKIBA_3F,                						5,  5 ; 23
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26
