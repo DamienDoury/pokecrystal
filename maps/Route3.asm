@@ -86,7 +86,7 @@ TrainerMetronomeBattleScript:
 	writetext Route3CleoBattleAcceptedText
 	loadtrainer POKEFANF, CLEO1
 	scall .setup_battle
-	ifnotequal WIN, .rematch_tomorrow
+	ifnotequal WIN, .was_fun
 
 	setflag ENGINE_CLEO_READY_FOR_REMATCH
 
@@ -146,7 +146,7 @@ endr
 
 	loadtrainer POKEFANF, CLEO2
 	scall .setup_battle
-	ifnotequal WIN, .rematch_tomorrow
+	ifnotequal WIN, .was_fun
 
 	setflag ENGINE_CLEO_READY_FOR_REMATCH
 
@@ -181,6 +181,11 @@ endr
 	writetext Route3CleoLostFairAndSquareText
 	sjump .text_end
 
+.was_fun
+	setflag ENGINE_CLEO_READY_FOR_REMATCH
+	writetext Route3CleoWasFunText
+	sjump .text_end
+
 .cheated
 	writetext Route3CleoCheatText
 	promptbutton
@@ -209,7 +214,7 @@ endr
 	winlosstext Route3CleoWinText, Route3CleoLossText
 	loadvar VAR_BATTLETYPE, BATTLETYPE_CANLOSE
 	startbattle
-	reloadmapafterbattle
+	reloadmap
 	opentext
 	callasm SpecialBattle_GetBattleResultFromScript
 	end
@@ -322,6 +327,12 @@ Route3CleoCheatText:
 Route3CleoRematchTomorrowText:
 	text "I want a rematch"
 	line "tomorrow!"
+	done
+
+Route3CleoWasFunText:
+	text "That was fun!"
+	line "Let's have another"
+	cont "one tomorrow!"
 	done
 
 Route3CleoLevelUpText:

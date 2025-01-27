@@ -55,6 +55,8 @@ INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/TinTowerRoof.asm"
 INCLUDE "maps/RockTunnel1F.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
+INCLUDE "maps/Route5UndergroundPathEntrance.asm"
+
 
 SECTION "Map Scripts 3", ROMX
 
@@ -464,7 +466,6 @@ INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
 INCLUDE "maps/GoldenrodBikeShop.asm"
-INCLUDE "maps/Route5UndergroundPathEntrance.asm"
 
 
 SECTION "Map Scripts 25", ROMX
