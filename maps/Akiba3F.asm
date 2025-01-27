@@ -3,6 +3,8 @@
 	const AKIBA3F_SNORLAX_DOLL
 	const AKIBA3F_ONIX_DOLL
 	const AKIBA3F_LAPRAS_DOLL
+	const AKIBA3F_CLIENT_1
+	const AKIBA3F_CLIENT_TWIN
 
 Akiba3F_MapScripts:
 	def_scene_scripts
@@ -16,6 +18,12 @@ Akiba3F_MapScripts:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 
+	scall Akiba3F_HaveAllBigDollsBeenSold
+	iffalse .skip_hide_twin
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+
+.skip_hide_twin
 	; Display today's available Big Doll, or nothing if the player already bought them all.
 	readmem wJustWonBigDoll
 	iftrue .end_callback
@@ -23,6 +31,17 @@ Akiba3F_MapScripts:
 	callasm DisplayTodaysBigDoll
 .end_callback
 	endcallback
+
+Akiba3F_HaveAllBigDollsBeenSold:	
+	checkevent EVENT_DECO_BIG_SNORLAX_DOLL
+	iffalse .end
+
+	checkevent EVENT_DECO_BIG_ONIX_DOLL
+	iffalse .end
+
+	checkevent EVENT_DECO_BIG_LAPRAS_DOLL
+.end
+	end
 
 Akiba3F_DollNameDisplayScript:
 	readmem wTodaysBigDollID
@@ -67,6 +86,14 @@ Akiba3F_SellerScript:
 	readmem wTodaysBigDollEventFlag
 	setevent EVENT_FROM_MEM
 	loadmem wJustWonBigDoll, TRUE
+	
+	scall Akiba3F_HaveAllBigDollsBeenSold
+	iffalse .skip_hide_twin
+
+	disappear AKIBA3F_CLIENT_TWIN
+
+.skip_hide_twin
+	; Get doll.
 	callasm GetTodaysBigDoll ; This is used to refresh wTodaysBigDollIndex, in order to display the proper text whether there are more dolls to win, or it was the last one.
 
 .just_won
@@ -87,6 +114,18 @@ Akiba3F_SellerScript:
 	waitbutton
 	closetext
 	end
+
+Akiba3F_Client1Script:
+	scall Akiba3F_HaveAllBigDollsBeenSold
+	iftrue .no_dolls
+
+	jumptextfaceplayer Akiba3F_Client1Text
+
+.no_dolls
+	jumptextfaceplayer Akiba3F_Client1BisText
+
+Akiba3F_Client2Script:
+	jumptextfaceplayer Akiba3F_Client2Text
 
 Akiba3F_DecoNameText:
 	text "@"
@@ -126,7 +165,7 @@ Akiba3F_InstructionsText:
 	done
 
 Akiba3F_VoucherDetectedText:
-	text "I see you have a"
+	text "I see you own a"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
@@ -144,6 +183,30 @@ Akiba3F_ShippingText:
 	cont "your home!"
 	done
 
+Akiba3F_Client1Text:
+	text "The vouchers were"
+	line "distributed"
+	cont "through a lottery."
+
+	para "Winners are"
+	line "selling theirs"
+	cont "for an absurd"
+	cont "price."
+	done
+
+Akiba3F_Client1BisText:
+	text "I wish I had"
+	line "obtained a"
+	cont "VOUCHER. But now"
+	cont "it's too late."
+	done
+
+Akiba3F_Client2Text:
+	text "Even COPYCAT"
+	line "doesn't have such"
+	cont "pretty dolls!"
+	done
+
 Akiba3F_MapEvents:
 	db 0, 0 ; filler
 
@@ -159,3 +222,5 @@ Akiba3F_MapEvents:
 	object_event  4,  4, SPRITE_BIG_SNORLAX, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, PAL_NPC_ROCK, OBJECTTYPE_SCRIPT, 0, Akiba3F_DollNameDisplayScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  4,  4, SPRITE_BIG_ONIX, SPRITEMOVEDATA_BIGDOLLASYM, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, Akiba3F_DollNameDisplayScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
 	object_event  4,  4, SPRITE_BIG_LAPRAS, SPRITEMOVEDATA_BIGDOLLSYM, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, Akiba3F_DollNameDisplayScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	object_event 11,  2, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba3F_Client1Script, -1
+	object_event  1,  4, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Akiba3F_Client2Script, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
