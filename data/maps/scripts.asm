@@ -487,7 +487,6 @@ SECTION "Map Scripts 26", ROMX
 
 INCLUDE "maps/Route2.asm"
 INCLUDE "maps/Route4Tunnel.asm"
-INCLUDE "maps/Route12.asm"
 INCLUDE "maps/Route15.asm"
 INCLUDE "maps/PewterGym.asm"
 INCLUDE "maps/PewterPokecenter1F.asm"
@@ -517,6 +516,7 @@ INCLUDE "maps/SeafoamGymB5F.asm"
 INCLUDE "maps/SeafoamGym.asm"
 
 INCLUDE "maps/GoldenrodHospitalRoom.asm"
+INCLUDE "maps/Route12.asm"
 
 
 SECTION "Map Scripts 28", ROMX

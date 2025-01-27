@@ -27,44 +27,49 @@ TrainerFisherKyle:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherKyleAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherKyleAfterBattleText
 
 TrainerFisherMartin:
 	trainer FISHER, MARTIN, EVENT_BEAT_FISHER_MARTIN, FisherMartinSeenText, FisherMartinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherMartinAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherMartinAfterBattleText
 
 TrainerFisherStephen:
 	trainer FISHER, STEPHEN, EVENT_BEAT_FISHER_STEPHEN, FisherStephenSeenText, FisherStephenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherStephenAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherStephenAfterBattleText
 
 TrainerFisherBarney:
 	trainer FISHER, BARNEY, EVENT_BEAT_FISHER_BARNEY, FisherBarneySeenText, FisherBarneyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherBarneyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherBarneyAfterBattleText
+
+TrainerTeacherCecilia:
+	trainer TEACHER, CECILIA, EVENT_BEAT_TEACHER_CECILIA, TeacherCeciliaSeenText, TeacherCeciliaBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer TeacherCeciliaAfterBattleText
+
+TrainerSchoolboySawara:
+	trainer SCHOOLBOY, SAWARA, EVENT_BEAT_SCHOOLBOY_SAWARA, SchoolboySawaraSeenText, SchoolboySawaraBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SchoolboySawaraAfterBattleText
+
+TrainerSchoolboyGinko:
+	trainer SCHOOLBOY, GINKO, EVENT_BEAT_SCHOOLBOY_GINKO, SchoolboyGinkoSeenText, SchoolboyGinkoBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SchoolboyGinkoSeenText
 
 Route12Sign:
 	jumptext Route12SignText
@@ -167,6 +172,47 @@ FisherKyleAfterBattleText:
 	cont "an angler like me."
 	done
 
+TeacherCeciliaSeenText:
+	text "Now that the stay-"
+	line "at-home order is"
+	cont "gone, it's time"
+	cont "for field trips!"
+	done
+
+TeacherCeciliaBeatenText:
+	text "… … …"
+	done
+
+TeacherCeciliaAfterBattleText:
+	text "I like walking"
+	line "around large"
+	cont "bodies of water."
+	done
+
+SchoolboySawaraSeenText:
+	text "I'm grateful to"
+	line "my teacher for"
+	cont "this trip!"
+	done
+
+SchoolboySawaraBeatenText:
+	text "I'm still learning."
+	done
+
+SchoolboySawaraAfterBattleText:
+	text "I couldn't stand"
+	line "remote schooling."
+	done
+
+SchoolboyGinkoSeenText:
+	text "RUN RUN RUN"
+	line "RUN RUN RUN"
+	done
+
+SchoolboyGinkoBeatenText:
+	text "*derp*"
+	done
+
 Route12SignText:
 	text "ROUTE 12"
 
@@ -199,3 +245,6 @@ Route12_MapEvents:
 	object_event  5, 77, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Calcium, EVENT_ROUTE_12_CALCIUM
 	object_event  4, 86, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, Route12Nugget, EVENT_ROUTE_12_NUGGET
 	object_event  5, 87, SPRITE_FRUIT_TREE, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12FruitTree, -1
+	object_event 12, 40, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerTeacherCecilia, -1
+	object_event 15, 38, SPRITE_YOUNGSTER, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSchoolboyGinko, -1
+	object_event 15, 41, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerSchoolboySawara, -1

@@ -157,6 +157,8 @@ KRIS EQU __trainer_class__
 	const ALAN5
 	const CHAD4
 	const CHAD5
+	const GINKO
+	const SAWARA
 
 	trainerclass BIRD_KEEPER ; 21
 	const ROD
@@ -333,6 +335,7 @@ KRIS EQU __trainer_class__
 	const VIRGIL
 	const ALFRED
 	const SUM_TING
+	const PAULO
 
 	trainerclass SKIER ; 21
 	const ROXANNE
@@ -343,6 +346,7 @@ KRIS EQU __trainer_class__
 	const HILLARY
 	const SHIRLEY
 	const SARAH
+	const CECILIA
 
 	trainerclass SABRINA ; 23
 	const SABRINA1
