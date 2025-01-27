@@ -6,6 +6,7 @@
 	const ROUTE3_CLEO
 	const ROUTE3_CLEFAIRY
 	const ROUTE3_CLEFABLE
+	const ROUTE3_GUITARIST1
 
 Route3_MapScripts:
 	def_scene_scripts
@@ -25,44 +26,35 @@ TrainerFirebreatherOtis:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FirebreatherOtisAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FirebreatherOtisAfterBattleText
 
 TrainerYoungsterWarren:
 	trainer YOUNGSTER, WARREN, EVENT_BEAT_YOUNGSTER_WARREN, YoungsterWarrenSeenText, YoungsterWarrenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext YoungsterWarrenAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer YoungsterWarrenAfterBattleText
 
 TrainerYoungsterJimmy:
 	trainer YOUNGSTER, JIMMY, EVENT_BEAT_YOUNGSTER_JIMMY, YoungsterJimmySeenText, YoungsterJimmyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext YoungsterJimmyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer YoungsterJimmyAfterBattleText
 
 TrainerFirebreatherBurt:
 	trainer FIREBREATHER, BURT, EVENT_BEAT_FIREBREATHER_BURT, FirebreatherBurtSeenText, FirebreatherBurtBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FirebreatherBurtAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FirebreatherBurtAfterBattleText
+
+TrainerGuitaristRegis:
+	trainer GUITARIST, REGIS, EVENT_BEAT_GUITARIST_REGIS, GuitaristRegisSeenText, GuitaristRegisBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer GuitaristRegisAfterBattleText
 
 TrainerMetronomeBattleScript:
 	faceplayer
@@ -289,6 +281,23 @@ FirebreatherBurtAfterBattleText:
 	line "trainer…"
 	done
 
+GuitaristRegisSeenText:
+	text "Yeeeaaah!"
+	done
+
+GuitaristRegisBeatenText:
+	text "Of f…"
+	done
+
+GuitaristRegisAfterBattleText:
+	text "Concerts are still"
+	line "forbidden. So I'm"
+	cont "praticing outside"
+	cont "to keep my sanity."
+
+	para "Darn pandemic!"
+	done
+
 Route3MtMoonSquareSignText:
 	text "MT.MOON SQUARE"
 
@@ -389,3 +398,4 @@ Route3_MapEvents:
 	object_event 38, 16, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, TrainerMetronomeBattleScript, -1
 	object_event 38, 17, SPRITE_CLEFAIRY, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event 38, 17, SPRITE_CLEFABLE, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event 18,  7, SPRITE_ROCKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerGuitaristRegis, -1

@@ -2965,6 +2965,14 @@ GuitaristGroup:
 	db 26, LICKITUNG
 	db -1 ; end
 
+	; GUITARIST (4)
+	db "REGIS@", TRAINERTYPE_NORMAL
+	db 36, MAGNEMITE
+	db 36, MAREEP
+	db 36, PORYGON
+	db 37, ELECTABUZZ
+	db -1 ; end
+
 HikerGroup:
 	; HIKER (1)
 	db "ANTHONY@", TRAINERTYPE_NORMAL

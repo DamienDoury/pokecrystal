@@ -398,9 +398,9 @@
 	const EVENT_BEAT_SCHOOLBOY_SAWARA
 	const EVENT_BEAT_SCHOOLBOY_GINKO
 	const EVENT_BEAT_GENTLEMAN_PAULO
+	const EVENT_BEAT_GUITARIST_REGIS
 
-; Unused: next 239 events
-; Unused: next 235 events
+; Unused: next 234 events
 
 	const_next 600
 ; Kurt Apricorn events

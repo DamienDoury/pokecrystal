@@ -499,6 +499,7 @@ KRIS EQU __trainer_class__
 	const CLYDE
 	const VINCENT
 	const JIMI
+	const REGIS
 
 	trainerclass HIKER ; 2c
 	const ANTHONY1

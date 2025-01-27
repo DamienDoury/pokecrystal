@@ -5,6 +5,7 @@
 	const ROUTE11_YOUNGSTER4
 	const ROUTE11_FRUIT_TREE
 	const ROUTE11_FRUIT_TREE_2
+	const ROUTE11_GENTLEMAN1
 
 Route11_MapScripts:
 	def_scene_scripts
