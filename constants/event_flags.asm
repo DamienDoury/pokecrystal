@@ -394,8 +394,13 @@
 	const EVENT_BEAT_TEACHER_SARAH
 	const EVENT_BEAT_SWIMMERM_GARVEY
 	const EVENT_BEAT_SWIMMERF_VAIANA
+	const EVENT_BEAT_TEACHER_CECILIA
+	const EVENT_BEAT_SCHOOLBOY_SAWARA
+	const EVENT_BEAT_SCHOOLBOY_GINKO
+	const EVENT_BEAT_GENTLEMAN_PAULO
 
 ; Unused: next 239 events
+; Unused: next 235 events
 
 	const_next 600
 ; Kurt Apricorn events
