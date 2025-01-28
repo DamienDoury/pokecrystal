@@ -287,7 +287,7 @@ PokefanMNovakSeenText:
 
 PokefanMNovakBeatenText:
 	text "How could I lose"
-	line "to a vaxxer?"
+	line "to a pharma shill?"
 	done
 
 PokefanMNovakAfterBattleText:
