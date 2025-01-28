@@ -286,7 +286,7 @@ GuitaristRegisSeenText:
 	done
 
 GuitaristRegisBeatenText:
-	text "Of f…"
+	text "Oh f…"
 	done
 
 GuitaristRegisAfterBattleText:
