@@ -4250,6 +4250,16 @@ PokefanMGroup:
 	db 35, SWINUB,  BERRY
 	db -1 ; end
 
+	; POKEFANM (16)
+	db "NOVAK@", TRAINERTYPE_ITEM
+	db 37, CLEFAIRY,   BERRY
+	db 37, MAREEP,     BERRY
+	db 37, DELIBIRD,   BERRY
+	db 37, BUTTERFREE, BERRY
+	db 37, JUMPLUFF,   BERRY
+	db 37, HORSEA,     BERRY
+	db -1 ; end
+
 KimonoGirlGroup:
 	; KIMONO_GIRL (1)
 	db "NAOKO@", TRAINERTYPE_NORMAL

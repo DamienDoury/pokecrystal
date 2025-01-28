@@ -9,6 +9,8 @@
 	const ROUTE12_YOUNGSTER1
 	const ROUTE12_YOUNGSTER2
 	const ROUTE12_SAILOR1
+	const ROUTE12_SAILOR2
+	const ROUTE12_POKEFANM1
 
 Route12_MapScripts:
 	def_scene_scripts
@@ -88,6 +90,13 @@ TrainerSailorStrand:
 .Script:
 	endifjustbattled
 	jumptextfaceplayer SailorStrandAfterBattleText
+
+TrainerPokefanMNovak:
+	trainer POKEFANM, NOVAK, EVENT_BEAT_POKEFANM_NOVAK, PokefanMNovakSeenText, PokefanMNovakBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer PokefanMNovakAfterBattleText
 
 Route12Sign:
 	jumptext Route12SignText
@@ -271,6 +280,30 @@ SailorStrandAfterBattleText:
 	cont "region?"
 	done
 
+PokefanMNovakSeenText:
+	text "So you're vacci-"
+	line "nated, uh?"
+	done
+
+PokefanMNovakBeatenText:
+	text "How could I lose"
+	line "to a vaxxer?"
+	done
+
+PokefanMNovakAfterBattleText:
+	text "What's the point of"
+	line "getting injected"
+	cont "some chemicals,"
+
+	para "when instead, you"
+	line "can use proven"
+	cont "naturals methods"
+
+	para "like breathing"
+	line "salty sea air,"
+	cont "and eating well?"
+	done
+
 Route12SignText:
 	text "ROUTE 12"
 
@@ -308,3 +341,4 @@ Route12_MapEvents:
 	object_event 15, 41, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerSchoolboySawara, -1
 	object_event 10, 48, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorClovis, -1
 	object_event 17,  9, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorStrand, -1
+	object_event 15, 79, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 4, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerPokefanMNovak, -1

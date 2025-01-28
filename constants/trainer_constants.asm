@@ -708,6 +708,7 @@ KRIS EQU __trainer_class__
 	const REX
 	const ALLAN
 	const FRANCIS
+	const NOVAK
 
 	trainerclass KIMONO_GIRL ; 3c
 	const NAOKO_UNUSED
