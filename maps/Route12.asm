@@ -5,6 +5,10 @@
 	const ROUTE12_FISHER4
 	const ROUTE12_POKE_BALL1
 	const ROUTE12_POKE_BALL2
+	const ROUTE12_TEACHER1
+	const ROUTE12_YOUNGSTER1
+	const ROUTE12_YOUNGSTER2
+	const ROUTE12_SAILOR1
 
 Route12_MapScripts:
 	def_scene_scripts
@@ -70,6 +74,20 @@ TrainerSchoolboyGinko:
 .Script:
 	endifjustbattled
 	jumptextfaceplayer SchoolboyGinkoSeenText
+
+TrainerSailorClovis:
+	trainer SAILOR, CLOVIS, EVENT_BEAT_SAILOR_CLOVIS, SailorClovisSeenText, SailorClovisBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SailorClovisAfterBattleText
+
+TrainerSailorStrand:
+	trainer SAILOR, STRAND, EVENT_BEAT_SAILOR_STRAND, SailorStrandSeenText, SailorStrandBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SailorStrandAfterBattleText
 
 Route12Sign:
 	jumptext Route12SignText
@@ -200,8 +218,10 @@ SchoolboySawaraBeatenText:
 	done
 
 SchoolboySawaraAfterBattleText:
-	text "I couldn't stand"
-	line "remote schooling."
+	text "My brother GINKO…"
+
+	para "He's weird since"
+	line "the lockdown…"
 	done
 
 SchoolboyGinkoSeenText:
@@ -211,6 +231,44 @@ SchoolboyGinkoSeenText:
 
 SchoolboyGinkoBeatenText:
 	text "*derp*"
+	done
+
+SailorClovisSeenText:
+	text "I'm stuck here with"
+	line "the S.S.AQUA."
+
+	para "It's like a new"
+	line "lockdown…"
+	done
+
+SailorClovisBeatenText:
+	text "I just want to go"
+	line "back to JOHTO…"
+	done
+
+SailorClovisAfterBattleText:
+	text "Wait… Did I miss"
+	line "the S.S.AQUA"
+	cont "departure?"
+	done
+
+SailorStrandSeenText:
+	text "Aaah, the horizon…"
+	done
+
+SailorStrandBeatenText:
+	text "You're breaking my"
+	line "peacefulness."
+	done
+
+SailorStrandAfterBattleText:
+	text "I've visited many"
+	line "places."
+
+	para "Did you know the"
+	line "pandemic barely"
+	cont "hit the ONWA"
+	cont "region?"
 	done
 
 Route12SignText:
@@ -248,3 +306,5 @@ Route12_MapEvents:
 	object_event 12, 40, SPRITE_TEACHER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerTeacherCecilia, -1
 	object_event 15, 38, SPRITE_YOUNGSTER, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSchoolboyGinko, -1
 	object_event 15, 41, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, TrainerSchoolboySawara, -1
+	object_event 10, 48, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorClovis, -1
+	object_event 17,  9, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorStrand, -1

@@ -470,6 +470,8 @@ KRIS EQU __trainer_class__
 	const HUEY2
 	const HUEY3
 	const HUEY4
+	const CLOVIS
+	const STRAND
 
 	trainerclass SUPER_NERD ; 29
 	const STAN
