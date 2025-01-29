@@ -4,6 +4,7 @@
 	const ROUTE20_SWIMMER_GUY
 	const ROUTE20_ESCORT_SWIMMER
 	const ROUTE20_TEACHER_SARAH
+	const ROUTE20_SWIMMER_GUY2
 
 Route20_MapScripts:
 	def_scene_scripts
@@ -48,6 +49,13 @@ TrainerTeacherSarah:
 .Script:
 	endifjustbattled
 	jumptextfaceplayer TeacherSarahAfterBattleText
+
+TrainerSwimmerMFinn:
+	trainer SWIMMERM, FINN, EVENT_BEAT_SWIMMER_FINN, SwimmerMFinnSeenText, SwimmerMFinnBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer SwimmerMFinnAfterBattleText
 
 WaitForFollowMovementToEnd:
 	callasm ResetStepVector
@@ -334,6 +342,26 @@ TeacherSarahAfterBattleText:
 	text "What happened?"
 	done
 
+SwimmerMFinnSeenText:
+	text "Woah! Did you"
+	line "traverse the"
+	cont "SEAFOAM ISLANDS?"
+	done
+
+SwimmerMFinnBeatenText:
+	text "No wonder you went"
+	line "through."
+	done
+
+SwimmerMFinnAfterBattleText:
+	text "Have you been to"
+	line "the very bottom?"
+
+	para "I've heard you can"
+	line "see the inside of"
+	cont "the volcano."
+	done
+
 CinnabarGymSignText:
 	text "SEAFOAM ISLANDS"
 
@@ -416,3 +444,4 @@ Route20_MapEvents:
 	object_event 37,  7, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerSwimmermCameron, -1
 	object_event 45,  3, SPRITE_SWIMMER_GIRL, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, Route20_EscortScript, EVENT_SWIMMER_RESCUE
 	object_event 29, 15, SPRITE_TEACHER, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_TRAINER, 2, TrainerTeacherSarah, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
+	object_event 89,  5, SPRITE_SWIMMER_GUY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 5, TrainerSwimmerMFinn, -1

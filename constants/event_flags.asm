@@ -402,8 +402,9 @@
 	const EVENT_BEAT_SAILOR_CLOVIS
 	const EVENT_BEAT_SAILOR_STRAND
 	const EVENT_BEAT_POKEFANM_NOVAK
+	const EVENT_BEAT_SWIMMER_FINN
 
-; Unused: next 231 events
+; Unused: next 230 events
 
 	const_next 600
 ; Kurt Apricorn events

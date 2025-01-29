@@ -431,6 +431,7 @@ KRIS EQU __trainer_class__
 	const TYSON
 	const DUANE
 	const GARVEY
+	const FINN
 
 	trainerclass SWIMMERF ; 29
 	const ELAINE

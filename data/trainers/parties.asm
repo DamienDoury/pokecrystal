@@ -2581,6 +2581,14 @@ SwimmerMGroup:
 	db 41, TAUROS, 	SURF, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
+	; SWIMMERM (26)
+	db "FINN@", TRAINERTYPE_NORMAL
+	db 37, SEEL
+	db 37, MAGIKARP
+	db 37, SEADRA
+	db 38, MANTINE
+	db -1 ; end
+
 SwimmerFGroup:
 	; SWIMMERF (1)
 	db "ELAINE@", TRAINERTYPE_NORMAL
