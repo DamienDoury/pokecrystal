@@ -98,6 +98,31 @@ TrainerPokefanMNovak:
 	endifjustbattled
 	jumptextfaceplayer PokefanMNovakAfterBattleText
 
+Route12_LockdownSpeakerScript:
+	jumptextfaceplayer Route12_LockdownSpeakerText
+
+Route12_TeacherLockdownScript:
+	faceplayer
+	opentext
+	writetext Route12_TeacherLockdown1Text
+	yesorno
+	iftrue .no_1
+
+	writetext Route12_TeacherLockdown3Text
+	yesorno
+	iffalse .close_text
+
+	writetext Route12_TeacherLockdown5Text
+	sjump .text_end
+
+.no_1
+	writetext Route12_TeacherLockdown2Text
+.text_end
+	waitbutton
+.close_text
+	closetext
+	end
+
 Route12Sign:
 	jumptext Route12SignText
 
@@ -304,6 +329,114 @@ PokefanMNovakAfterBattleText:
 	cont "and eating well?"
 	done
 
+Route12_TeacherLockdown1Text:
+	text "Do you know what"
+	line "the worst aspect"
+	cont "of the lockdown"
+	cont "was?"
+	done
+	
+Route12_TeacherLockdown2Text:
+	text "You've lived"
+	line "through it,"
+	cont "haven't you?"
+	done
+
+Route12_TeacherLockdown3Text:
+	text "Do you want"
+	line "to know?"
+	done
+
+Route12_TeacherLockdown5Text:
+	text "It's not being"
+	line "emprisoned in an"
+	cont "enclosed space."
+	
+	para "After all, we can"
+	line "all spend a week-"
+	cont "end at home"
+	cont "without going out."
+
+	para "The worst aspect"
+	line "was being trapped"
+	cont "in time."
+
+	para "At first, the"
+	line "authorithies said"
+	cont "the lockdown was"
+	cont "going to last for"
+	cont "2 weeks."
+
+	para "It may not seem"
+	line "like a lot."
+	
+	para "But with the panic"
+	line "that was already"
+	cont "settling, it felt"
+	cont "like forever."
+
+	para "And it's not just"
+	line "you who's trapped"
+	cont "home. The whole"
+	cont "world stopped for"
+	cont "2 weeks."
+
+	para "I remember looking"
+	line "through the"
+	cont "windows of my"
+	cont "apartment and"
+	cont "seeing absolutely"
+	cont "no one outside."
+
+	para "So you turn on"
+	line "your TV or your"
+	cont "computer to get"
+	cont "a some comfort."
+	
+	para "And all you find"
+	line "there is alarming"
+	cont "news."
+
+	para "After the initial"
+	line "period, they"
+	
+	para "prolonged it for"
+	line "2 more weeks."
+	
+	para "Imagine the amount"
+	line "of stress it"
+	cont "caused."
+
+	para "And then after"
+	line "that, they said"
+	cont "they'll prolong it"
+	cont "“until necessary”…"
+
+	para "Many people went"
+	line "into a depression."
+
+	para "It lasted for"
+	line "about 2 months."
+
+	para "Stuck between"
+	line "four walls."
+	
+	para "What a time."
+	done
+
+Route12_LockdownSpeakerText:
+	text "I remember the"
+	line "first lockdown"
+	cont "declaration was"
+	cont "a shock. We went"
+	
+	para "from “everything's"
+	line "gonna be alright”"
+	
+	para "to “stay home or"
+	line "perish”."
+	done
+
 Route12SignText:
 	text "ROUTE 12"
 
@@ -342,3 +475,5 @@ Route12_MapEvents:
 	object_event 10, 48, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorClovis, -1
 	object_event 17,  9, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerSailorStrand, -1
 	object_event 15, 79, SPRITE_POKEFAN_M, SPRITEMOVEDATA_WALK_UP_DOWN, 0, 4, -1, -1, 0, OBJECTTYPE_TRAINER, 2, TrainerPokefanMNovak, -1
+	object_event 11, 29, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12_LockdownSpeakerScript, -1
+	object_event 13, 29, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, Route12_TeacherLockdownScript, -1
