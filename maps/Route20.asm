@@ -349,9 +349,9 @@ Route20_EscortQuestIntroText:
 	done
 
 Route20_BehindYouText:
-	text "Guide me to"
-	line "CINNABAR ISLAND,"
-	cont "I'm following you."
+	text "I need to go to"
+	line "CINNABAR ISLAND."
+	cont "Lead the way!"
 	done
 
 Route20_EscortSeafoamText:
