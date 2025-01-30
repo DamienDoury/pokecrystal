@@ -388,6 +388,9 @@ Route12_TeacherLockdown5Text:
 	cont "seeing absolutely"
 	cont "no one outside."
 
+	para "Just like in a"
+	line "dystopian movie."
+
 	para "So you turn on"
 	line "your TV or your"
 	cont "computer to get"
@@ -412,16 +415,30 @@ Route12_TeacherLockdown5Text:
 	cont "they'll prolong it"
 	cont "“until necessary”…"
 
-	para "Many people went"
-	line "into a depression."
-
 	para "It lasted for"
 	line "about 2 months."
 
 	para "Stuck between"
 	line "four walls."
 	
-	para "What a time."
+	para "Many people went"
+	line "into depression."
+
+	para "After finally"
+	line "being released,"
+	cont "socializing wasn't"
+	cont "natural anymore."
+
+	para "We had lost"
+	line "this skill!"
+
+	para "Seeing relatives"
+	line "felt weird, as"
+	cont "everyone had"
+	cont "changed in their"
+	cont "own way."
+	
+	para "Crazy times."
 	done
 
 Route12_LockdownSpeakerText:
