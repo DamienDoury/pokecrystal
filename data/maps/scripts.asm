@@ -198,6 +198,7 @@ INCLUDE "maps/MrFujisHouse.asm"
 INCLUDE "maps/LavenderSpeechHouse.asm"
 INCLUDE "maps/LavenderNameRater.asm"
 INCLUDE "maps/LavenderMart.asm"
+INCLUDE "maps/SaffronMagnetTrainStation.asm"
 
 
 SECTION "Map Scripts 11", ROMX
@@ -301,7 +302,6 @@ INCLUDE "maps/SaffronGym.asm"
 INCLUDE "maps/SaffronMart.asm"
 INCLUDE "maps/SaffronPokecenter1F.asm"
 INCLUDE "maps/MrPsychicsHouse.asm"
-INCLUDE "maps/SaffronMagnetTrainStation.asm"
 INCLUDE "maps/SilphCo1F.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"

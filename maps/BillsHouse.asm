@@ -209,6 +209,9 @@ BillsGrandpa:
 	closetext
 	end
 
+BillsHouseMachineInstructionsScript:
+	jumptext BillsHouseMachineInstructionsText
+
 BillsGrandpaIntroText:
 	text "Hm? You know BILL?"
 	line "He's my grandson."
@@ -351,6 +354,24 @@ BillsGrandpaPichuText:
 	line "evolves."
 	done
 
+BillsHouseMachineInstructionsText:
+	text "-#MON TRANSFER"
+	line "MACHINE PROTOTYPE-"
+
+	para "Instructions:"
+	line "Insert 1 #MON"
+	cont "into a vat."
+
+	para "It should be"
+	line "transfered into"
+	cont "the other vat."
+
+	para "Known bugs:"
+	
+	para "…"
+	line "End of file."
+	done
+
 BillsHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -361,6 +382,8 @@ BillsHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  2,  4, BGEVENT_UP, BillsHouseMachineInstructionsScript
+	bg_event  3,  4, BGEVENT_UP, BillsHouseMachineInstructionsScript
 
 	def_object_events
-	object_event  2,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BillsGrandpa, -1
+	object_event  5,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BillsGrandpa, -1

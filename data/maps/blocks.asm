@@ -107,7 +107,6 @@ OlivinePunishmentSpeechHouse_Blocks:
 OlivineGoodRodHouse_Blocks:
 Route39Farmhouse_Blocks:
 CeruleanTradeSpeechHouse_Blocks:
-BillsHouse_Blocks:
 LakeOfRageMagikarpHouse_Blocks:
 GoldenrodHappinessRater_Blocks:
 BillsFamilysHouse_Blocks:
@@ -1060,3 +1059,6 @@ CarpetShop_Blocks:
 
 BedShop_Blocks:
 	INCBIN "maps/BedShop.blk"
+
+BillsHouse_Blocks:
+	INCBIN "maps/BillsLab.blk"
