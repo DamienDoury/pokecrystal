@@ -172,20 +172,25 @@ FuchsiaCityFruitTree:
 FuchsiaCityFruitTree2:
 	opentext
 	writetext FuchsiaEatenTreeText
-	waitbutton
-	closetext
-	checktime MORN
-	iffalse .end
-	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	iftrue .end
-	readvar VAR_WEEKDAY
-	ifequal TUESDAY, .end
-	ifequal THURSDAY, .end
-	ifequal SATURDAY, .end
-	ifequal SUNDAY, .end
+	promptbutton
 
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	iftrue .text_end
+
+	readvar VAR_WEEKDAY
+	ifequal TUESDAY, .hungry_tomorrow
+	ifequal THURSDAY, .hungry_tomorrow
+	ifequal SATURDAY, .hungry_tomorrow
+	ifequal SUNDAY, .hungry_tomorrow
+
+	readvar VAR_HOUR
+	ifless MORN_HOUR, .hungry_soon
+
+	checktime MORN
+	iffalse .this_morning
+	
+	showemote EMOTE_SHOCK, PLAYER, 30
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
-	opentext
 	writetext HiddenKangaskhanText
 	waitbutton
 	closetext
@@ -194,7 +199,21 @@ FuchsiaCityFruitTree2:
 	loadwildmon KANGASKHAN, 40
 	startbattle
 	reloadmapafterbattle
-.end
+	end
+
+.hungry_tomorrow
+	writetext FuchsiaEatenTreeHungryTomorrowText
+	sjump .text_end
+
+.hungry_soon
+	writetext FuchsiaEatenTreeHungrySoonText
+	sjump .text_end
+
+.this_morning
+	writetext FuchsiaEatenTreeThisMorningText
+.text_end
+	waitbutton
+	closetext
 	end
 
 SafariZoneDoorScript:
@@ -483,9 +502,33 @@ FuchsiaEatenTreeText:
 
 	para "eaten by a wild"
 	line "#MON."
-	
-	para "The bite marks"
+	done
+
+FuchsiaEatenTreeThisMorningText:
+	text "The bite marks"
 	line "are still fresh…"
+
+	para "Probably from"
+	line "this morning."
+	done
+
+FuchsiaEatenTreeHungryTomorrowText:
+	text "Judging by the"
+	line "amount of fruits"
+	cont "eaten, the #MON"
+	cont "will be full for"
+	cont "the day."
+	done
+
+FuchsiaEatenTreeHungrySoonText:
+	text "The bite marks"
+	line "look old…"
+
+	para "The creature"
+	line "feeding off this"
+	cont "tree should feel"
+	cont "hungry within the"
+	cont "next few hours."
 	done
 
 HiddenKangaskhanText:
