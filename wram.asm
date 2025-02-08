@@ -2971,8 +2971,7 @@ wBattleTowerHallwaySceneID::                      db
 	ds 1
 wTinTower1FSceneID::                              db
 wBurnedTower1FSceneID::                           db
-	ds 1
-wRadioTower5FSceneID::                            db
+	ds 2
 wRuinsOfAlphOutsideSceneID::                      db
 wRuinsOfAlphResearchCenterSceneID::               db
 wRuinsOfAlphHoOhChamberSceneID::                  db
