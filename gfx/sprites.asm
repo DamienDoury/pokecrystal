@@ -151,3 +151,5 @@ SECTION "Sprites 6", ROMX
 
 GrampsSpriteGFX_Clap::         INCBIN "gfx/sprites/gramps_clap.2bpp"
 GrannySpriteGFX_Clap::         INCBIN "gfx/sprites/granny_clap.2bpp"
+TubeTransfer1GFX::             INCBIN "gfx/sprites/tube_transfer_1.2bpp"
+TubeTransfer2GFX::             INCBIN "gfx/sprites/tube_transfer_2.2bpp"

@@ -8,10 +8,17 @@ SelectMonFromParty:
 	call SetPalettes
 	call DelayFrame
 	call PartyMenuSelect
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp ReturnToMapWithSpeechTextbox
+
+SelectTradeOrDayCareMon_NoTextbox:
+	call SelectTradeOrDayCareMonPart1
+	jp ReturnToMap
 
 SelectTradeOrDayCareMon:
+	call SelectTradeOrDayCareMonPart1
+	jp ReturnToMapWithSpeechTextbox
+
+SelectTradeOrDayCareMonPart1:
 	ld a, b
 	ld [wPartyMenuActionText], a
 	call DisableSpriteUpdates
@@ -22,17 +29,14 @@ SelectTradeOrDayCareMon:
 	call GetSGBLayout
 	call SetPalettes
 	call DelayFrame
-	call PartyMenuSelect
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp PartyMenuSelect
 
 InitPartyMenuLayout:
 	call LoadPartyMenuGFX
 	call InitPartyMenuWithCancel
 	call InitPartyMenuGFX
 	call WritePartyMenuTilemap
-	call PrintPartyMenuText
-	ret
+	jp PrintPartyMenuText
 
 LoadPartyMenuGFX:
 	call LoadStandardFont
@@ -107,8 +111,7 @@ PlacePartyNicknames:
 	dec hl
 	dec hl
 	ld de, .CancelString
-	call PlaceString
-	ret
+	jp PlaceString
 
 .CancelString:
 	db "CANCEL@"
@@ -152,8 +155,7 @@ PlacePartyHPBar:
 	dec c
 	jr nz, .loop
 	ld b, SCGB_PARTY_MENU
-	call GetSGBLayout
-	ret
+	jp GetSGBLayout
 
 PlacePartymonHPBar:
 	ld a, b
@@ -782,8 +784,7 @@ PrintPartyMenuActionText:
 	ld a, [wPartyMenuActionText]
 	and $f
 	ld hl, .MenuActionTexts
-	call .PrintText
-	ret
+	jr .PrintText
 
 .MenuActionTexts:
 ; entries correspond to PARTYMENUTEXT_* constants

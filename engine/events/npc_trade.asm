@@ -73,24 +73,21 @@ NPCTradeBack::
 	farcall SelectTradeOrDayCareMon
 	ld a, $ff
 	ld [wScriptVar], a
-	jr c, .done
+	ret c
 
 	ld hl, NPCTradeCableText
 	call PrintText
 
 	call DoTradebackTrade
-	call .TradeAnimation
 
-	call RestartMapMusic
-	ret
-
-.done
-	ret
-
-.TradeAnimation:
+;.TradeAnimation:
 	call DisableSpriteUpdates
 	predef TradeAnimation
+	call TradeEvo
+	call ReturnToMapWithSpeechTextbox
+	jp RestartMapMusic
 
+TradeEvo::
 	ld a, 1
 	ld [wLinkMode], a ; Spoofing the link mode value.
 
@@ -105,8 +102,6 @@ NPCTradeBack::
 
 	xor a
 	ld [wLinkMode], a ; Resetting the link mode value.
-
-	call ReturnToMapWithSpeechTextbox
 	ret
 
 CheckTradeGender:
@@ -618,3 +613,14 @@ NPCTradeCompleteText4:
 NPCTradeAfterText4:
 	text_far _NPCTradeAfterText4
 	text_end
+
+SelectMonForBillsMachine::
+	ld b, PARTYMENUACTION_GIVE_MON
+	farcall SelectTradeOrDayCareMon_NoTextbox
+	ld a, -1
+	ld [wScriptVar], a
+	ret c
+
+	ld a, [wCurPartyMon]
+	ld [wScriptVar], a
+	ret

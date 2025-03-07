@@ -325,7 +325,7 @@ GetMonSprite:
 	cp FALSE
 	jr z, .EmptyHospitalMon
 
-	cp 2 ; Vaccination center.
+	cp 2 ; Vaccination center and Bill's House.
 	ld a, [wCurPartySpecies]
 	jr z, .Mon
 

@@ -1121,29 +1121,10 @@ LoadMapPals::
 
 	call HandleHospitalRoomPalette
 
-	; Exception: Pewter Museum of Science, which is an indoor map that still uses palette transition.
 	ld a, [wMapTimeOfDay]
 	cp PALETTE_AUTO
 	ret nz
-
-;	ld a, [wMapGroup]
-;	cp GROUP_PEWTER_MUSEUM_1F
-;	jr nz, .environment_check
-;
-;	ld a, [wMapNumber]
-;	cp MAP_PEWTER_MUSEUM_1F
-;	jr z, .outside
-;
-;	cp MAP_PEWTER_MUSEUM_2F
-;	jr z, .outside
-;
-;.environment_check
-;	ld a, [wEnvironment]
-;	cp TOWN
-;	jr z, .outside
-;	cp ROUTE
-;	ret nz
-;.outside
+	
 	ld a, FALSE
 	ld [wMustRefreshPaletteNow], a
 	call _ForceTimeOfDayPaletteSmoothing
@@ -1513,26 +1494,39 @@ HandleHospitalRoomPalette:
 	ld a, [wMapGroup]
 	cp GROUP_GOLDENROD_HOSPITAL_ROOM
 	jr nz, .vaccination_center_check
+
 	ld a, [wMapNumber]
 	cp MAP_GOLDENROD_HOSPITAL_ROOM
 	jr nz, .vaccination_center_check
+
 	jr .hospital
 
 .vaccination_center_check
 	ld a, [wMapGroup]
 	cp GROUP_VACCINATION_CENTER_ROOM
-	ret nz
+	jr nz, .bills_house_check
+
 	ld a, [wMapNumber]
 	cp MAP_VACCINATION_CENTER_ROOM
+	jr z, .use_current_party_mon
+	
+.bills_house_check
+	ld a, [wMapGroup]
+	cp GROUP_BILLS_HOUSE
 	ret nz
 
+	ld a, [wMapNumber]
+	cp MAP_BILLS_HOUSE
+	ret nz
+
+	call AddBillsHouseTransferTubePalette
+
+.use_current_party_mon
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMon1DVs
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
-
 	jr .skip_automated_species_selection
-
 
 .hospital
 	ld a, BANK(sHospitalBoxMon1DVs)
@@ -1569,6 +1563,15 @@ HandleHospitalRoomPalette:
 	call CloseSRAM
 	ret
 
+AddBillsHouseTransferTubePalette:
+	ld hl, .BillsHouseGrayPalette
+	ld bc, 6 ; 3 colors (2 bytes per color).
+	ld de, wOBPals1 palette 4 + 2 ; OBJ 4 pal, starting at color 2 (skipping the invisible color).
+	ld a, BANK(wOBPals1)
+ 	jp FarCopyWRAM
+
+.BillsHouseGrayPalette
+	RGB 30,28,26, 19,19,19, 07,07,07
 
 HandleDayCareOutdoorTransitionPalettes:
 	; Day Care special case: on Route 34, we change the palette so they match the Pokémon species outside the day care.
