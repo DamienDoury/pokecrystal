@@ -301,21 +301,6 @@ VaccinationCenter_NurseScansCardStartMovement:
     turn_head UP
     step_end
 
-VaccinationCenter_ChanseyWaitMovement:
-    turn_head UP
-    turn_head DOWN
-    turn_head UP
-    turn_head DOWN
-    turn_head UP
-    turn_head DOWN
-    turn_head UP
-    turn_head DOWN
-    turn_head UP
-    turn_head DOWN
-    turn_head UP
-    turn_head DOWN
-    step_end
-
 VaccinationCenterConstructionText:
     text "This SILPH CO."
     line "condo is being"

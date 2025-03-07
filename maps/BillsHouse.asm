@@ -1,10 +1,22 @@
 	object_const_def
 	const BILLSHOUSE_GRAMPS
+	const BILLSHOUSE_TRADE_MON
+	const BILLSHOUSE_TUBE_ANIM_1
+	const BILLSHOUSE_TUBE_ANIM_2
 
 BillsHouse_MapScripts:
 	def_scene_scripts
 
 	def_callbacks
+	callback MAPCALLBACK_TILES, .EnterCallback
+
+.EnterCallback:
+    disappear BILLSHOUSE_TRADE_MON
+	disappear BILLSHOUSE_TUBE_ANIM_1
+	disappear BILLSHOUSE_TUBE_ANIM_2
+    setval 2 ; Used in engine/overworld/overworld.asm:GetMonSprite.HospitalMon
+    writemem wSickMonIsInThisRoom
+    endcallback
 
 BillsGrandpa:
 	faceplayer
@@ -209,8 +221,164 @@ BillsGrandpa:
 	closetext
 	end
 
+BillsHouse_TubeAnim_LeftToRight:
+	appear BILLSHOUSE_TUBE_ANIM_1
+	appear BILLSHOUSE_TUBE_ANIM_2
+
+	loadmem wTubeAnimX, $60
+	loadmem wObject2SpriteX, $60
+	loadmem wObject3SpriteX, $60
+	loadmem wObject2SpriteY, $25
+	loadmem wObject3SpriteY, $25
+	reloadmappart
+
+.anim_loop
+	readmem wTubeAnimX
+	addval 1
+	writemem wTubeAnimX
+	writemem wObject2SpriteX
+	writemem wObject3SpriteX
+	turnobject BILLSHOUSE_TUBE_ANIM_1, UP
+	turnobject BILLSHOUSE_TUBE_ANIM_2, UP
+	reloadmappart
+
+	addval 1
+	writemem wTubeAnimX
+	writemem wObject2SpriteX
+	writemem wObject3SpriteX
+	turnobject BILLSHOUSE_TUBE_ANIM_1, DOWN
+	turnobject BILLSHOUSE_TUBE_ANIM_2, DOWN
+	reloadmappart
+	ifless $78, .anim_loop
+
+	;loadmem wObject2SpriteX, $f0
+	;loadmem wObject3SpriteX, $f0
+	disappear BILLSHOUSE_TUBE_ANIM_1
+	disappear BILLSHOUSE_TUBE_ANIM_2
+	reloadmappart
+	end
+
+BillsHouse_TubeAnim_RightToLeft:
+	appear BILLSHOUSE_TUBE_ANIM_1
+	appear BILLSHOUSE_TUBE_ANIM_2
+
+	loadmem wTubeAnimX, $28
+	loadmem wObject2SpriteX, $28
+	loadmem wObject3SpriteX, $28
+	loadmem wObject2SpriteY, $25
+	loadmem wObject3SpriteY, $25
+	reloadmappart
+
+	.anim_loop
+	readmem wTubeAnimX
+	addval -1
+	writemem wTubeAnimX
+	writemem wObject2SpriteX
+	writemem wObject3SpriteX
+	turnobject BILLSHOUSE_TUBE_ANIM_1, UP
+	turnobject BILLSHOUSE_TUBE_ANIM_2, UP
+	reloadmappart
+
+	addval -1
+	writemem wTubeAnimX
+	writemem wObject2SpriteX
+	writemem wObject3SpriteX
+	turnobject BILLSHOUSE_TUBE_ANIM_1, DOWN
+	turnobject BILLSHOUSE_TUBE_ANIM_2, DOWN
+	reloadmappart
+	ifgreater $10, .anim_loop
+
+	;loadmem wObject2SpriteX, $f0
+	;loadmem wObject3SpriteX, $f0
+	disappear BILLSHOUSE_TUBE_ANIM_1
+	disappear BILLSHOUSE_TUBE_ANIM_2
+	reloadmappart
+	end
+
+BillsHouseVatDoorScript:
+	opentext
+	writetext BillsHouseVatDoorAskPokemonText
+	yesorno
+	iffalse .close_text
+
+	callasm SelectMonForBillsMachine
+	ifgreater 5, .end ; If the player cancelled, we end the script.
+
+	; Play trade OW animation (bubble moving along trade tube).
+	playsound SFX_BALL_POOF
+	waitsfx
+	pause 15
+	playsound SFX_GIVE_TRADEMON
+	pause 20
+	readvar VAR_XCOORD
+	ifgreater 3, .left_vat
+
+; right vat.
+	moveobject BILLSHOUSE_TRADE_MON, 6, 3 ; Displaces the Pokémon to the right.
+	scall BillsHouse_TubeAnim_LeftToRight
+	turnobject PLAYER, RIGHT
+	pause 15
+	scall .trade_animation
+	applymovement PLAYER, BillsHouseWalkFromLeftToRightVatMovement
+	sjump .get_mon_out_of_vat
+
+.left_vat
+	moveobject BILLSHOUSE_TRADE_MON, 1, 3 ; Displaces the Pokémon to the left.
+	scall BillsHouse_TubeAnim_RightToLeft
+	turnobject PLAYER, LEFT
+	pause 15
+	scall .trade_animation
+	applymovement PLAYER, BillsHouseWalkFromRightToLeftVatMovement
+
+.get_mon_out_of_vat
+	pause 15
+	playsound SFX_BALL_POOF
+	pause 10
+	sjump BillsHouseTradedMonScript
+
+.trade_animation
+	callasm StopSFX
+
+	callasm TradeEvo
+	iffalse .no_need_to_return_to_map
+
+	callasm ReturnToMap
+	special RestartMapMusic
+	pause 15
+
+.no_need_to_return_to_map
+	appear BILLSHOUSE_TRADE_MON
+	reloadmappart
+	playsound SFX_BALL_POOF
+	waitsfx
+	pause 30
+	end
+
+.close_text
+	closetext
+.end
+	end
+
+BillsHouseTradedMonScript:
+	disappear BILLSHOUSE_TRADE_MON
+	end
+
 BillsHouseMachineInstructionsScript:
 	jumptext BillsHouseMachineInstructionsText
+
+BillsHouseWalkFromLeftToRightVatMovement:
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step RIGHT
+	step_end
+
+BillsHouseWalkFromRightToLeftVatMovement:
+	step LEFT
+	step LEFT
+	step LEFT
+	step LEFT
+	step_end
 
 BillsGrandpaIntroText:
 	text "Hm? You know BILL?"
@@ -372,6 +540,14 @@ BillsHouseMachineInstructionsText:
 	line "End of file."
 	done
 
+BillsHouseVatDoorAskPokemonText:
+	text "The machine is up"
+	line "and running."
+
+	para "Do you want to put"
+	line "a #MON inside?"
+	done
+
 BillsHouse_MapEvents:
 	db 0, 0 ; filler
 
@@ -384,6 +560,11 @@ BillsHouse_MapEvents:
 	def_bg_events
 	bg_event  2,  4, BGEVENT_UP, BillsHouseMachineInstructionsScript
 	bg_event  3,  4, BGEVENT_UP, BillsHouseMachineInstructionsScript
+	bg_event  1,  2, BGEVENT_UP, BillsHouseVatDoorScript	
+	bg_event  6,  2, BGEVENT_UP, BillsHouseVatDoorScript
 
 	def_object_events
-	object_event  5,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 2, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BillsGrandpa, -1
+	object_event  5,  5, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, BillsGrandpa, -1
+	object_event  6,  3, SPRITE_HOSPITAL_MON, SPRITEMOVEDATA_POKEMON, 0, 0, -1, -1, 6, OBJECTTYPE_SCRIPT, 0, BillsHouseTradedMonScript, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2
+	object_event  3,  4, SPRITE_TUBE_TRANSFER_1, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4 ; The {3, 4} position is always visible within this map.
+	object_event  3,  4, SPRITE_TUBE_TRANSFER_2, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, ObjectEvent, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4 ; The {3, 4} position is always visible within this map.

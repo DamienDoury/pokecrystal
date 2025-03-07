@@ -10,8 +10,7 @@ LoadOverworldMonIcon:
 	ld a, [hli]
 	ld e, a
 	ld d, [hl]
-	call GetIconBank
-	ret
+	jp GetIconBank
 
 SetMenuMonIconColor:
 	push hl

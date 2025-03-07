@@ -2128,16 +2128,14 @@ FinishExitMenu::
 	call EnableSpriteUpdates
 	ret
 
-ReturnToMapWithSpeechTextbox::
-	push af
+ReturnToMapPart1:
 	ld a, $1
 	ld [wSpriteUpdatesEnabled], a
 	call ClearBGPalettes
 	call ClearSprites
-	call ReloadTilesetAndPalettes
-	hlcoord 0, 12
-	lb bc, 4, 18
-	call Textbox
+	jp ReloadTilesetAndPalettes
+
+ReturnToMapPart2:
 	ld hl, wVramState
 	set 0, [hl]
 	call UpdateSprites
@@ -2149,6 +2147,23 @@ ReturnToMapWithSpeechTextbox::
 	call DelayFrame
 	ld a, $1
 	ldh [hMapAnims], a
+	ret
+
+ReturnToMap::
+	push af
+	call ReturnToMapPart1
+	call ReturnToMapPart2
+	farcall Script_reloadmappart
+	pop af
+	ret
+
+ReturnToMapWithSpeechTextbox::
+	push af
+	call ReturnToMapPart1
+	hlcoord 0, 12
+	lb bc, 4, 18
+	call Textbox
+	call ReturnToMapPart2
 	pop af
 	ret
 
