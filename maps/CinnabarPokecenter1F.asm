@@ -56,6 +56,8 @@ CinnabarPokecenter1f_OldRodGuy::
 	checkitem SUPER_ROD
 	iftrue .end
 
+	; No need to check if the player owns Surf. The player NEEDS surf to reach an island in the first hand.
+
 	loadmem wPutativeTMHMMove, SURF
 	callasm CanAtLeastOnePartyMemberLearnTMHMMove
 	iftrue .end ; We don't offer a Rod to the player if they can get away from the island with one of their party Pokémon using Surf.
