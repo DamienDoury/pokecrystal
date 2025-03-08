@@ -45,6 +45,8 @@ GetTMHMMove:
 	ret
 
 ; Input: Move ID in wPutativeTMHMMove.
+; Output: TRUE of FALSE in wScriptVar.
+; Note: if the Pokémon knows 4 HMs, he can technically learn the move in input but won't be able to if the player is stranded on an island.
 CanAtLeastOnePartyMemberLearnTMHMMove::
 	xor a ; FALSE
 	ld [wScriptVar], a
@@ -58,12 +60,16 @@ CanAtLeastOnePartyMemberLearnTMHMMove::
 	
 .next
 	push bc
-	ld a, [hl]
+	
+	call KnowsOrHasRoomForTM
 
+	push af ; Saves the results of KnowsOrHasRoomForTM.
+	ld a, [hl]
 	push hl
 	call CanLearnTMHMMove.skip_start
 	pop hl
-	ld a, c
+	pop af
+	and c ; Combines the results of KnowsOrHasRoomForTM (stored in A) and CanLearnTMHMMove (stored in C) into A.
 
 	ld bc, PARTYMON_STRUCT_LENGTH
 	add hl, bc
@@ -84,3 +90,38 @@ CanAtLeastOnePartyMemberLearnTMHMMove::
 
 
 INCLUDE "data/moves/tmhm_moves.asm"
+
+; Input: Move ID in wPutativeTMHMMove.
+; Output: -1 in A if the Pokémon has room to learn (or already knows) the move given in input. 0 otherwise.
+; Clobbers BC.
+KnowsOrHasRoomForTM:
+	push hl
+	ld bc, MON_MOVES - MON_SPECIES
+	add hl, bc
+	ld b, 4
+.movepool_loop
+	ld a, [wPutativeTMHMMove]
+	cp [hl]
+	jr z, .return_true ; The Pokémon already knows the move.
+
+	push hl
+	push bc
+	ld a, [hl]
+	call IsHMMove ; Also discards NO_MOVE.
+	pop bc
+	pop hl
+	jr nc, .return_true ; If the move is not an HM, it means the Pokémon has room for a new move, so we return true.
+
+	inc hl
+	dec b
+	jr nz, .movepool_loop
+
+; return false.
+	pop hl
+	xor a
+	ret
+
+.return_true
+	pop hl
+	ld a, -1
+	ret
