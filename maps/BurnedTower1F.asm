@@ -1,5 +1,5 @@
 	object_const_def
-	const BURNEDTOWER1F_ROCK
+	const BURNEDTOWER1F_BOULDER
 	const BURNEDTOWER1F_EUSINE
 	const BURNEDTOWER1F_SILVER
 	const BURNEDTOWER1F_MORTY
@@ -123,8 +123,8 @@ BurnedTower1FEusineScript:
 BurnedTower1FMortyScript:
 	jumptextfaceplayer BurnedTower1FMortyText
 
-BurnedTower1FRock:
-	jumpstd SmashRockScript
+BurnedTower1FBoulder:
+	jumpstd StrengthBoulderScript
 
 BurnedTower1FHiddenEther:
 	hiddenitem ETHER, EVENT_BURNED_TOWER_1F_HIDDEN_ETHER
@@ -290,7 +290,7 @@ BurnedTower1F_MapEvents:
 	bg_event 13, 11, BGEVENT_ITEM, BurnedTower1FHiddenUltraBall
 
 	def_object_events
-	object_event 15,  4, SPRITE_ROCK, SPRITEMOVEDATA_SMASHABLE_ROCK, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTower1FRock, -1
+	object_event 15,  4, SPRITE_BOULDER, SPRITEMOVEDATA_STRENGTH_BOULDER, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BurnedTower1FBoulder, -1
 	object_event 12, 12, SPRITE_EUSINE, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, BurnedTower1FEusineScript, EVENT_BURNED_TOWER_1F_EUSINE
 	object_event  8,  9, SPRITE_SILVER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, 0, OBJECTTYPE_TRAINER, 3, ObjectEvent, EVENT_RIVAL_BURNED_TOWER
 	object_event 14, 14, SPRITE_MORTY, SPRITEMOVEDATA_WANDER, 1, 1, HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, BurnedTower1FMortyScript, EVENT_BURNED_TOWER_MORTY
