@@ -43,6 +43,9 @@ RGBLINK ?= $(RGBDS)rgblink
 
 ### Build targets
 
+RGBASMFLAGS = -L -Weverything
+LANG := _EN_US
+
 .SUFFIXES:
 .PHONY: all crystal crystal11 crystal_au crystal_debug crystal11_debug clean tidy compare tools
 .SECONDEXPANSION:
@@ -72,12 +75,12 @@ compare: $(roms)
 tools:
 	$(MAKE) -C tools/
 
-
-RGBASMFLAGS = -L -Weverything
 # Create a sym/map for debug purposes if `make` run with `DEBUG=1`
 ifeq ($(DEBUG),1)
 RGBASMFLAGS += -E
 endif
+
+RGBASMFLAGS += -D $(LANG)
 
 $(pokecrystal_obj):         RGBASMFLAGS +=
 $(pokecrystal11_obj):       RGBASMFLAGS += -D _CRYSTAL11

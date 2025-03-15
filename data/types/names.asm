@@ -33,6 +33,27 @@ TypeNames:
 	dw Dark
 	assert_table_length TYPES_END
 
+if DEF(_FR_FR)
+Normal:    db "NORMAL@"
+Fighting:  db "COMBAT@"
+Flying:    db "VOL@"
+Poison:    db "POISON@"
+CurseType: db "???@"
+Fire:      db "FEU@"
+Water:     db "EAU@"
+Grass:     db "PLANTE@"
+Electric:  db "ELECTRIK@"
+Psychic:   db "PSY@"
+Ice:       db "GLACE@"
+Ground:    db "SOL@"
+Rock:      db "ROCHE@"
+Bird:      db "@"
+Bug:       db "INSECTE@"
+Ghost:     db "SPECTRE@"
+Steel:     db "ACIER@"
+Dragon:    db "DRAGON@"
+Dark:      db "TENEBRES@"
+else
 Normal:    db "NORMAL@"
 Fighting:  db "FIGHTING@"
 Flying:    db "FLYING@"
@@ -52,3 +73,4 @@ Ghost:     db "GHOST@"
 Steel:     db "STEEL@"
 Dragon:    db "DRAGON@"
 Dark:      db "DARK@"
+endc
