@@ -1,20 +1,37 @@
-PrintFiveDigitNumber: ; unreferenced
-; Debug function?
-; Input: bc = value, de = destination
-	ld a, b
-	ld b, c
-	ld c, a
-	push bc ; de points to this on the stack for PrintNum
-	push de
-	ld hl, sp+2
-	ld d, h
-	ld e, l
-	pop hl
-	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
+TrimSpaces::
+	push bc
+	ld h, d
+	ld l, e
+
+.loop:
+	ld a, [hli]
+	cp " "
+	jr z, .loop
+
+	dec hl
+	ld b, d
+	ld c, e
+
+.loop2:
+	ld a, [hli]
+	ld [de], a
+	cp "@"
+	jr z, .done
+
+	inc de
+	cp " "
+	jr z, .loop2
+
+	ld b, d
+	ld c, e
+	jr .loop2
+
+.done:
+	ld a, "@"
+	ld [bc], a
 	pop bc
 	ret
-
+	
 PrintHoursMins:
 ; Hours in b, minutes in c
 	ld a, b

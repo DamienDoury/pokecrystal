@@ -1124,9 +1124,19 @@ Pokedex_DrawMainScreenBG:
 	ret
 
 String_SEEN:
+if DEF(_FR_FR)
+	db "VUS", -1
+else
 	db "SEEN", -1
+endc
+
 String_OWN:
+	if DEF(_FR_FR)
+	db "PRIS", -1
+else
 	db "OWN", -1
+endc
+
 String_SELECT_OPTION:
 	db $3b, $48, $49, $4a, $44, $45, $46, $47 ; SELECT > OPTION
 	; fallthrough
@@ -1167,12 +1177,22 @@ Pokedex_DrawDexEntryScreenBG:
 
 .Number: ; unreferenced
 	db $5c, $5d, -1 ; No.
+
+if DEF(_FR_FR)
+.Height:
+	db "TAI  ???m", -1
+.Weight:
+	db "PDS  ???kg", -1
+.MenuItems:
+	db $3b, " PAGE ZONE CRI IMPR", -1
+else
 .Height:
 	db "HT  ?", $5e, "??", $5f, -1 ; HT  ?'??"
 .Weight:
 	db "WT   ???lb", -1
 .MenuItems:
 	db $3b, " PAGE AREA CRY PRNT", -1
+endc
 
 Pokedex_DrawOptionScreenBG:
 	call Pokedex_FillBackgroundColor2
@@ -1197,16 +1217,30 @@ Pokedex_DrawOptionScreenBG:
 	ret
 
 .Title:
+if DEF(_FR_FR)
+	db $3b, " OPTIONS ", $3c, -1
+else
 	db $3b, " OPTION ", $3c, -1
-
+endc
+	
 .Modes:
+if DEF(_FR_FR)
+	db   "NOUVEAU MODE"
+	next "ANCIEN MODE"
+	next "MODE A à Z"
+else
 	db   "NEW #DEX MODE"
 	next "OLD #DEX MODE"
 	next "A to Z MODE"
+endc
 	db   "@"
 
 .UnownMode:
+if DEF(_FR_FR)
+	db "MODE ZARBI@"
+else
 	db "UNOWN MODE@"
+endc
 
 Pokedex_DrawSearchScreenBG:
 	call Pokedex_FillBackgroundColor2
@@ -1242,8 +1276,13 @@ Pokedex_DrawSearchScreenBG:
 	db   "@"
 
 .Menu:
+if DEF(_FR_FR)
+	db   "LANCER RECHERCHE"
+	next "RETOUR"
+else
 	db   "BEGIN SEARCH!!"
 	next "CANCEL"
+endc
 	db   "@"
 
 Pokedex_DrawSearchResultsScreenBG:
@@ -1277,9 +1316,15 @@ Pokedex_DrawSearchResultsScreenBG:
 	ret
 
 .BottomWindowText:
+if DEF(_FR_FR)
+	db   "RESULTAT RECHERCHE"
+	next "TYPE:"
+	next "    TROUVE(S)!"
+else
 	db   "SEARCH RESULTS"
 	next "  TYPE"
 	next "    FOUND!"
+endc
 	db   "@"
 
 Pokedex_PlaceSearchResultsTypeStrings:
@@ -1729,20 +1774,40 @@ Pokedex_DisplayModeDescription:
 	dw .UnownMode
 
 .NewMode:
+if DEF(_FR_FR)
+	db   "<PKMN> listés par"
+	next "type d'évolution.@"
+else
 	db   "<PK><MN> are listed by"
 	next "evolution type.@"
+endc
 
 .OldMode:
+if DEF(_FR_FR)
+	db   "<PKMN> listés de"
+	next "façon officielle.@"
+else
 	db   "<PK><MN> are listed by"
 	next "official type.@"
+endc
 
 .ABCMode:
+if DEF(_FR_FR)
+	db   "<PKMN> listés"
+	next "alphabétiquement.@"
+else
 	db   "<PK><MN> are listed"
 	next "alphabetically.@"
+endc
 
 .UnownMode:
+if DEF(_FR_FR)
+	db   "ZARBI listés par"
+	next "ordre de capture.@"
+else
 	db   "UNOWN are listed"
 	next "in catching order.@"
+endc
 
 Pokedex_DisplayChangingModesMessage:
 	xor a
@@ -1764,8 +1829,13 @@ Pokedex_DisplayChangingModesMessage:
 	ret
 
 String_ChangingModesPleaseWait:
+if DEF(_FR_FR)
+	db   "Chang de modes."
+	next "Attendre s.v.p.@"
+else
 	db   "Changing modes."
 	next "Please wait.@"
+endc
 
 Pokedex_UpdateSearchMonType:
 	ld a, [wDexArrowCursorPosIndex]
@@ -1964,8 +2034,13 @@ Pokedex_DisplayTypeNotFoundMessage:
 	ret
 
 .TypeNotFound:
+if DEF(_FR_FR)
+	db   "Le type mentionné"
+	next "n'a pas été trouvé.@"
+else
 	db   "The specified type"
 	next "was not found.@"
+endc
 
 Pokedex_UpdateCursorOAM:
 	ld a, [wCurDexMode]
@@ -2472,7 +2547,11 @@ Pokedex_InvertTiles:
 	ret
 
 PokedexLZ:
+if DEF(_FR_FR)
+INCBIN "gfx/pokedex/pokedex_fr.2bpp.lz"
+else
 INCBIN "gfx/pokedex/pokedex.2bpp.lz"
+endc
 
 PokedexSlowpokeLZ:
 INCBIN "gfx/pokedex/slowpoke.2bpp.lz"

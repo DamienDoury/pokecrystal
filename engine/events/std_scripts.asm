@@ -615,6 +615,22 @@ DayToTextScript:
 .Saturday:
 	getstring STRING_BUFFER_3, .SaturdayText
 	end
+if DEF(_FR_FR)
+.SundayText:
+	db "DIMANCHE@"
+.MondayText:
+	db "LUNDI@"
+.TuesdayText:
+	db "MARDI@"
+.WednesdayText:
+	db "MERCREDI@"
+.ThursdayText:
+	db "JEUDI@"
+.FridayText:
+	db "VENDREDI@"
+.SaturdayText:
+	db "SAMEDI@"
+else
 .SundayText:
 	db "SUNDAY@"
 .MondayText:
@@ -629,6 +645,7 @@ DayToTextScript:
 	db "FRIDAY@"
 .SaturdayText:
 	db "SATURDAY@"
+endc
 
 GoldenrodRocketsScript:
 	clearevent EVENT_GOLDENROD_CITY_ROCKET_TAKEOVER

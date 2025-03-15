@@ -1043,6 +1043,15 @@ GetWeekDayStringAddress::
 	dw .Fri
 	dw .Satur
 
+if DEF(_FR_FR)
+.Sun:    db "DIMANCHE@"
+.Mon:    db "LUNDI@"
+.Tues:   db "MARDI@"
+.Wednes: db "MERCREDI@"
+.Thurs:  db "JEUDI@"
+.Fri:    db "VENDREDI@"
+.Satur:  db "SAMEDI@"
+else
 .Sun:    db "SUNDAY@"
 .Mon:    db "MONDAY@"
 .Tues:   db "TUESDAY@"
@@ -1050,3 +1059,4 @@ GetWeekDayStringAddress::
 .Thurs:  db "THURSDAY@"
 .Fri:    db "FRIDAY@"
 .Satur:  db "SATURDAY@"
+endc

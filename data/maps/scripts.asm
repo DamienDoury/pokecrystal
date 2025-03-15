@@ -103,6 +103,7 @@ INCLUDE "maps/Route36NationalParkGate.asm"
 INCLUDE "maps/LavRadioTower1F.asm"
 INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/Route1.asm"
+INCLUDE "maps/Route28.asm"
 
 
 SECTION "Map Scripts 6", ROMX
@@ -431,7 +432,6 @@ SECTION "Map Scripts 22", ROMX
 
 INCLUDE "maps/EcruteakCity.asm"
 INCLUDE "maps/Route26.asm"
-INCLUDE "maps/Route28.asm"
 INCLUDE "maps/Route31.asm"
 INCLUDE "maps/Route39.asm"
 INCLUDE "maps/Route40.asm"

@@ -1,11 +1,19 @@
 Font:
+if DEF(_FR_FR)
+INCBIN "gfx/font/french_german.2bpp"
+else
 INCBIN "gfx/font/font.2bpp"
+endc
     
 FontExtra:
 INCBIN "gfx/font/font_extra.2bpp"
 
 FontBattleExtra:
+if DEF(_FR_FR)
+INCBIN "gfx/font/font_battle_extra_fr.2bpp"
+else
 INCBIN "gfx/font/font_battle_extra.2bpp"
+endc
 
 Frames:
 INCBIN "gfx/frames/1.1bpp"
@@ -22,7 +30,11 @@ StatsScreenPageTilesGFX:
 INCBIN "gfx/stats/stats_tiles.2bpp"
 
 EnemyHPBarBorderGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/battle/enemy_hp_bar_border_fr.1bpp"
+else
 INCBIN "gfx/battle/enemy_hp_bar_border.1bpp"
+endc
 
 HPExpBarBorderGFX:
 INCBIN "gfx/battle/hp_exp_bar_border.1bpp"

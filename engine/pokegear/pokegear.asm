@@ -405,6 +405,32 @@ InitPokegearTilemap::
 	dw .November
 	dw .December
 
+if DEF(_FR_FR)
+.January
+	db " Janv.@"
+.February
+	db " Févr.@"
+.March
+	db " Mars@"
+.April
+	db " Avril@"
+.May
+	db " Mai@"
+.June
+	db " Juin@"
+.July
+	db " Juil.@"
+.August
+	db " Août@"
+.September
+	db " Sept.@"
+.October
+	db " Oct.@"
+.November
+	db " Nov.@"
+.December
+	db " Déc.@"
+else
 .January
 	db " Jan.@"
 .February
@@ -429,6 +455,7 @@ InitPokegearTilemap::
 	db " Nov.@"
 .December
 	db " Dec.@"
+endc
 
 .Map:
 	ld a, [wPokegearMapPlayerIconLandmark]

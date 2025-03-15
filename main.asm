@@ -546,8 +546,11 @@ INCLUDE "engine/gfx/load_overworld_font.asm"
 
 SECTION "Overworld Font", ROMX
 OverworldFontGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/font/overworld_fr.2bpp"
+else
 INCBIN "gfx/font/overworld.2bpp"
-
+endc
 
 SECTION "mobile42", ROMX
 

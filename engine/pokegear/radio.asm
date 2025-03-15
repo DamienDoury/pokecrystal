@@ -735,9 +735,16 @@ PokedexShow2:
 	pop hl
 	pop af
 	call CopyDexEntryPart2
-rept 4
+if DEF(_FR_FR)
 	inc hl
-endr
+	inc hl
+	inc hl
+else
+	inc hl
+	inc hl
+	inc hl
+	inc hl
+endc
 	ld a, l
 	ld [wPokedexShowPointerAddr], a
 	ld a, h

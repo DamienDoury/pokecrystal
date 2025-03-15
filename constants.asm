@@ -1,4 +1,8 @@
+if DEF(_FR_FR)
+INCLUDE "charmap_fr.asm"
+else
 INCLUDE "charmap.asm"
+endc
 
 INCLUDE "macros.asm"
 

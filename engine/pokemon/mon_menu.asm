@@ -364,6 +364,14 @@ ComposeMailMessage:
 	ld de, wTempMailAuthor
 	ld bc, NAME_LENGTH - 1
 	call CopyBytes
+if DEF(_FR_FR)
+	; Setting the nationality of the mail. See IsMailEuropean.
+	ld hl, wTempMailNationality
+	ld a, "E"
+	ld [hli], a ; European mail.
+	ld a, "F"
+	ld [hl], a ; French mail.
+endc
 	ld hl, wPlayerID
 	ld bc, 2
 	call CopyBytes
