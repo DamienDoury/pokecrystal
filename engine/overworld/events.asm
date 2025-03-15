@@ -630,7 +630,7 @@ CheckAPressOW::
 	call TryFarNPCOnlyEvent
 	ret c
 
-if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE) && 0
 	ld a, [wTilePermissionCheat]
 	xor 1
 	ld [wTilePermissionCheat], a
