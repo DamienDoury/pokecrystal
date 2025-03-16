@@ -75,6 +75,30 @@ CheckMagikarpLength:
 	text_far _MagikarpGuruMeasureText
 	text_end
 
+if !DEF(_FR_FR)
+PrintMagikarpLength:
+	ld hl, wStringBuffer1
+	ld de, wMagikarpLength
+	lb bc, PRINTNUM_LEADINGZEROS | 2, 4
+	call PrintNum
+	ld a, "@"
+	ld [wStringBuffer1 + 5], a
+	ld a, [wStringBuffer1 + 3]
+	ld [wStringBuffer1 + 4], a
+	ld a, "."
+	ld [wStringBuffer1 + 3], a
+	ld hl, wStringBuffer1
+
+.loop:
+	ld a, [hli]
+	cp "0"
+	jr z, .loop
+
+	dec hl
+	ld de, wStringBuffer1
+	ld bc, 6
+	jp CopyBytes
+else
 Magikarp_LoadFeetInchesChars:
 	ld hl, vTiles2 tile "′" ; $6e
 	ld de, .feetinchchars
@@ -100,9 +124,10 @@ PrintMagikarpLength:
 	inc hl
 	ld [hl], "@"
 	ret
+endc
 
 CalcMagikarpLength:
-; Return Magikarp's length (in feet and inches) at wMagikarpLength (big endian).
+; Return Magikarp's length (in feet and inches) (or mm if using the metric system) at wMagikarpLength (big endian).
 ;
 ; input:
 ;   de: wEnemyMonDVs
@@ -240,6 +265,7 @@ CalcMagikarpLength:
 	ld e, l
 
 .done
+if DEF(_EN_US)
 	; convert from mm to feet and inches
 	; in = mm / 25.4
 	; ft = in / 12
@@ -270,11 +296,11 @@ CalcMagikarpLength:
 	jr .mod_12
 .ok
 	ld e, a
-
+endc
 	ld hl, wMagikarpLength
-	ld [hl], d ; ft
+	ld [hl], d ; ft (when using the imperial system)
 	inc hl
-	ld [hl], e ; in
+	ld [hl], e ; in (when using the imperial system)
 	ret
 
 .BCLessThanDE:
