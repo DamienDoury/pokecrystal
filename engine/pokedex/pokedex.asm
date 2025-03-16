@@ -1265,7 +1265,11 @@ Pokedex_DrawSearchScreenBG:
 	ret
 
 .Title:
+if DEF(_FR_FR)
+	db $3b, " CHERCHER ", $3c, -1
+else
 	db $3b, " SEARCH ", $3c, -1
+endc
 
 .TypeLeftRightArrows:
 	db $3d, "        ", $3e, -1

@@ -2745,17 +2745,31 @@ Pokedex_GetArea:
 	ld a, $07
 	call ByteFill
 	ld [hl], $17
+if DEF(_FR_FR)
+	hlcoord 2, 0
+else
 	call GetPokemonName
 	hlcoord 2, 0
 	call PlaceString
 	ld h, b
 	ld l, c
+endc
 	ld de, .String_SNest
 	call PlaceString
+if DEF(_FR_FR)
+	push bc
+	call GetPokemonName
+	pop hl
+	call PlaceString
+endc
 	ret
 
 .String_SNest:
+if DEF(_FR_FR)
+	db "NID DE @"
+else
 	db "'S NEST@"
+endc
 
 .GetAndPlaceNest:
 	ld [wTownMapCursorLandmark], a
