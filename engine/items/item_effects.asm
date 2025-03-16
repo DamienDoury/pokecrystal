@@ -1052,6 +1052,10 @@ HeavyBallMultiplier:
 	push bc
 	inc hl
 	inc hl
+if DEF(_FR_FR)
+	call GetFarByte
+	pop bc
+else
 	call GetFarWord
 
 	srl h
@@ -1086,6 +1090,7 @@ endr
 	add hl, bc
 	pop bc
 	ret
+endc
 
 .compare
 	ld c, a
