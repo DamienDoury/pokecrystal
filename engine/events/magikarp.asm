@@ -75,7 +75,7 @@ CheckMagikarpLength:
 	text_far _MagikarpGuruMeasureText
 	text_end
 
-if !DEF(_FR_FR)
+if DEF(_FR_FR)
 PrintMagikarpLength:
 	ld hl, wStringBuffer1
 	ld de, wMagikarpLength
