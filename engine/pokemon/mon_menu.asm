@@ -366,7 +366,9 @@ ComposeMailMessage:
 	call CopyBytes
 if DEF(_FR_FR)
 	; Setting the nationality of the mail. See IsMailEuropean.
-	ld hl, wTempMailNationality
+	ld hl, wTempMailNationality - 1
+	ld a, "@"
+	ld [hli], a ; Prevents player name overflow.
 	ld a, "E"
 	ld [hli], a ; European mail.
 	ld a, "F"
