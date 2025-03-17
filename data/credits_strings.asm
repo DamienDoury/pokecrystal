@@ -60,6 +60,17 @@ CreditsStringsPointers:
 	dw .HideyukiHashimoto
 	dw .SatoshiYamato
 	dw .ShigeruMiyamoto
+if DEF(_FR_FR)
+	dw .KaiZeh
+	dw .HiroyukiUesugi
+	dw .TanjaBaar
+	dw .KaiNeumann
+	dw .MauriceTisdale
+	dw .JulienBardakoff
+	dw .NicolasRobert
+	dw .PatrickThieret
+	dw .FrenchTestingTeam
+else
 	dw .GailTilden
 	dw .NobOgasawara
 	dw .SethMcMahill
@@ -67,6 +78,7 @@ CreditsStringsPointers:
 	dw .TeresaLillygren
 	dw .ThomasHertzog
 	dw .ErikJohnson
+endc
 	dw .HiroNakamura
 	dw .TerukiMurakawa
 	dw .KazuyoshiOsawa
@@ -100,14 +112,25 @@ CreditsStringsPointers:
 	dw .MobileStadiumDir
 	dw .Coordination
 	dw .Copyright
+
+if DEF(_FR_FR)
+	dw .EquipeFrance
+	dw .CoordinationEurope
+	dw .TextesFrancais
+	dw .TestProduit
+	dw .Relecture
+else
 	dw .UsVersionStaff
 	dw .UsCoordination
 	dw .TextTranslation
 	dw .PaadTesting
+endc
+
+	; Romhacking.
 	dw .Romhacking
 	dw .Disassembly
-	dw .Pret
 	dw .Programming
+	dw .Pret
 	dw .DamienDoury
 	dw .Darkshade
 	dw .SourApple
@@ -181,6 +204,18 @@ CreditsStringsPointers:
 .ShigeruMiyamoto:     db "  SHIGERU MIYAMOTO@"        ; "みやもと　しげる@"
 .End:                 db "        END@"               ; "おしまい@"
 .Unknown:             db "      ????????@"            ; "？？？？？？？？@"
+
+if DEF(_FR_FR)
+.KaiZeh:              db "      KAI ZEH@"
+.HiroyukiUesugi:      db "  HIROYUKI UESUGI@"
+.TanjaBaar:           db "     TANJA BAAR@"
+.KaiNeumann:          db "    KAI NEUMANN@"
+.MauriceTisdale:      db "  MAURICE TISDALE@"
+.JulienBardakoff:     db "  JULIEN BARDAKOFF@"
+.NicolasRobert:       db "   NICOLAS ROBERT@"
+.PatrickThieret:      db "  PATRICK THIERET@"
+.FrenchTestingTeam:   db "FRENCH TESTING TEAM@"
+else
 .GailTilden:          db "    GAIL TILDEN@"
 .NobOgasawara:        db "   NOB OGASAWARA@"
 .SethMcMahill:        db "   SETH McMAHILL@"
@@ -188,11 +223,49 @@ CreditsStringsPointers:
 .TeresaLillygren:     db "  TERESA LILLYGREN@"
 .ThomasHertzog:       db "   THOMAS HERTZOG@"
 .ErikJohnson:         db "    ERIK JOHNSON@"
+endc
+
 .HiroNakamura:        db "   HIRO NAKAMURA@"
 .TerukiMurakawa:      db "  TERUKI MURAKAWA@"
 .KazuyoshiOsawa:      db "  KAZUYOSHI OSAWA@"
 .KimikoNakamichi:     db "  KIMIKO NAKAMICHI@"
 .Staff:               db "      #MON"                 ; "ポケットモンスター"
+
+if DEF(_FR_FR)
+                    next "  Version Cristal"          ; "　　クりスタル　バージョン"
+                    next "       Equipe@"             ; "　　　　スタッフ@"
+.Director:            db "     Directeur@"            ; "エグゼクティブ　ディレクター@"
+.CoDirector:          db "   Sous-directeur@"         ; "ディレクター@"
+.Programmers:         db "    Programmeurs@"          ; "プログラム@"
+.GraphicsDirector:    db "Directeur graphique@"       ; "グラフィック　ディレクター@"
+.MonsterDesign:       db "  Design monstres@"         ; "#　デザイン@"
+.GraphicsDesign:      db " Design graphiques@"        ; "グラフィック　デザイン@"
+.Music:               db "      Musique@"             ; "おんがく@"
+.SoundEffects:        db "   Effets sonores@"         ; "サウンド　エフェクト@"
+.GameDesign:          db "     Design jeu@"           ; "ゲームデザイン@"
+.GameScenario:        db "      Scénario@"            ; "シナりオ@"
+.ToolProgramming:     db " Programme config@"         ; "ツール　プログラム@"
+.ParametricDesign:    db " Design paramètres@"        ; "パラメーター　せってい@"
+.ScriptDesign:        db "   Design script@"          ; "スクりプト　せってい@"
+.MapDataDesign:       db "Design donnée carte@"       ; "マップデータ　せってい@"
+.MapDesign:           db "    Design carte@"          ; "マップ　デザイン@"
+.ProductTesting:      db "    Test Produit@"          ; "デバッグプレイ@"
+.SpecialThanks:       db "  Un grand merci à@"        ; "スぺシャルサンクス@"
+.Producers:           db "    Producteurs@"           ; "プロデューサー@"
+.ExecutiveProducer:   db "Producteur exécutif@"       ; "エグゼクティブ　プロデューサー@"
+.PokemonAnimation:    db " Animation #MON@"           ; "#　アニメーション@"
+.PokedexText:         db "   Texte #DEX@"             ; "ずかん　テキスト@"
+.MobilePrjLeader:     db "@"                          ; "モバイルプロジェクト　りーダー@"
+.MobileSystemAd:      db "@"                          ; "モバイル　システムアドバイザー@"
+.MobileStadiumDir:    db "@"                          ; "モバイルスタジアム　ディレクター@"
+.Coordination:        db "    Coordination@"          ; "コーディネーター@"
+.EquipeFrance:        db "   Equipe France@"
+.CoordinationEurope:  db "Coordination Europe@"
+.TextesFrancais:      db "  Textes Français@"
+.TestProduit:         db "    Test Produit@"
+.Relecture:           db "     Relecture@"
+
+else
                     next "  CRYSTAL VERSION"          ; "　　クりスタル　バージョン"
                     next "       STAFF@"              ; "　　　　スタッフ@"
 .Director:            db "      DIRECTOR@"            ; "エグゼクティブ　ディレクター@"
@@ -224,11 +297,18 @@ CreditsStringsPointers:
 .UsCoordination:      db "  US COORDINATION@"
 .TextTranslation:     db "  TEXT TRANSLATION@"
 .PaadTesting:         db "    PAAD TESTING@"
+endc
 
+if DEF(_FR_FR)
+.Romhacking:		  db "    ROM hacking@"
+.Disassembly		  db "   Désassemblage@"
+.Programming		  db "   Programmation@"
+else
 .Romhacking:		  db "    ROM HACKING@"
 .Disassembly		  db "    DISASSEMBLY@"
-.Pret		  		  db "  github.com/pret@"
 .Programming		  db "    PROGRAMMING@"
+endc
+.Pret		  		  db "  github.com/pret@"
 .DamienDoury:		  db "    DAMIEN DOURY@"
 .Darkshade:			  db "     DARKSHADE@"
 .SourApple:			  db "     SOURAPPLE@"
@@ -245,6 +325,6 @@ CreditsStringsPointers:
 	next $60,$61,$62,$63,$64,$65,$66,  $6d,$6e,$6f,$70,$71,$72,      $7a,$7b,$7c
 	;     ©  1  9  9  5 - 2  0  0  1   G  A  M  E  F  R  E  A  K     i  n  c .
 	next $60,$61,$62,$63,$64,$65,$66,  $73,$74,$75,$76,$77,$78,$79,  $7a,$7b,$7c
-	; 	  ©  2  0  2  1 - 2  0  2  3   H  e  y  k  i  n  o  x
+	; 	  ©  2  0  2  1 - 2  0  2  5   H  e  y  k  i  n  o  x
 	next $60,$9d,$9e,$9f,$a0,$a1,$a2,  $a3,$a4,$a5,$a6,$a7,$a8
 	db "@"

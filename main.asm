@@ -448,8 +448,11 @@ INCLUDE "data/moves/animations.asm"
 INCLUDE "engine/events/poisonstep_pals.asm"
 
 TheEndGFX::
+if DEF(_FR_FR)
+INCBIN "gfx/credits/theend_fr.2bpp"
+else
 INCBIN "gfx/credits/theend.2bpp"
-
+endc
 
 SECTION "Move Animations", ROMX
 

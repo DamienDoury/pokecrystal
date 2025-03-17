@@ -50,8 +50,7 @@ CreditsScript:
 	db         KEN_SUGIMORI, 2
 	db    MOTOFUMI_FUJIWARA, 3
 	db     SHIGEKI_MORIMOTO, 4
-	db       MONSTER_DESIGN, 5
-	db     HIRONOBU_YOSHIDA, 6
+	db     HIRONOBU_YOSHIDA, 5
 	
 	db CREDITS_WAIT, 11
 	
@@ -188,7 +187,79 @@ CreditsScript:
 
 ; Update the banner.
 	db CREDITS_SCENE, 3 ; Togepi
+if DEF(_FR_FR)
+	db        EQUIPE_FRANCE, 2
 
+	db CREDITS_WAIT, 9
+
+	db  COORDINATION_EUROPE, 0
+	db              KAI_ZEH, 2
+	db      HIROYUKI_UESUGI, 3
+	db       JUNICHI_MASUDA, 4
+	db        KOHJI_NISHINO, 5
+
+	db CREDITS_WAIT, 11
+
+	db  COORDINATION_EUROPE, 0
+	db      KUNIMI_KAWAMURA, 2
+	db           TANJA_BAAR, 3
+	db          KAI_NEUMANN, 4
+
+	db CREDITS_WAIT, 10
+
+	db      TEXTES_FRANCAIS, 1
+	db     JULIEN_BARDAKOFF, 3
+	db       NICOLAS_ROBERT, 4
+
+	db CREDITS_WAIT, 10
+
+	db          PROGRAMMERS, 1
+	db      TERUKI_MURAKAWA, 3
+	db      KAZUYOSHI_OSAWA, 4
+
+	db CREDITS_WAIT, 10
+
+	db         TEST_PRODUIT, 0
+	db      MAURICE_TISDALE, 2
+	db      PATRICK_THIERET, 3
+	db  FRENCH_TESTING_TEAM, 4
+
+	db CREDITS_WAIT, 10
+
+	db      PRODUCT_TESTING, 0
+	db             PLANNING, 2
+
+	db CREDITS_WAIT, 9
+
+	db      PRODUCT_TESTING, 0
+	db       KEITA_NAKAMURA, 2
+	db      HIROTAKA_UEMURA, 3
+	db       HIROAKI_TAMURA, 4
+	db    NORIAKI_SAKAGUCHI, 5
+
+	db CREDITS_WAIT, 11
+
+	db      PRODUCT_TESTING, 0
+	db NCL_SUPER_MARIO_CLUB, 2
+	db          KENJI_SAIKI, 3
+	db         ATSUSHI_TADA, 4
+	db          MIYUKI_SATO, 5
+
+	db CREDITS_WAIT, 11
+
+	db            RELECTURE, 1
+	db     KIMIKO_NAKAMICHI, 3
+
+	db CREDITS_WAIT, 10
+
+	db       SPECIAL_THANKS, 0
+	db           AKITO_MORI, 2
+	db        GAKUZI_NOMOTO, 3
+	db           AI_MASHIMA, 4
+	db    MIKIHIRO_ISHIKAWA, 5
+	db   HIDEYUKI_HASHIMOTO, 6
+
+else
 	db     US_VERSION_STAFF, 2
 
 	db CREDITS_WAIT, 10
@@ -257,6 +328,7 @@ CreditsScript:
 	db      KUNIMI_KAWAMURA, 2
 	db    MIKIHIRO_ISHIKAWA, 3
 	db   HIDEYUKI_HASHIMOTO, 4
+endc
 
 	db CREDITS_WAIT, 10
 
