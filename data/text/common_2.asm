@@ -755,8 +755,6 @@ Text_BattleEffectActivate::
 	text_ram wStringBuffer2
 	text_end
 
-	text_end ; unreferenced
-
 _BattleStatWentWayUpText::
 	text_pause
 	text "<SCROLL>went way up!"
@@ -771,8 +769,6 @@ Text_BattleFoeEffectActivate::
 	line "@"
 	text_ram wStringBuffer2
 	text_end
-
-	text_end ; unreferenced
 
 _BattleStatSharplyFellText::
 	text_pause
@@ -864,8 +860,6 @@ _MoveNameText::
 	text_ram wStringBuffer2
 	text_end
 
-	text_end ; unreferenced
-
 _EndUsedMove1Text::
 	text "!"
 	done
@@ -903,8 +897,6 @@ _BreedEggHatchText::
 	sound_caught_mon
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _BreedAskNicknameText::
 	text "Give a nickname to"
@@ -995,29 +987,6 @@ _MailMovedFromBoxText::
 	text "The MAIL was moved"
 	line "from the MAILBOX."
 	prompt
-
-_YesPromptText:: ; unreferenced
-	text "Yes"
-	prompt
-
-_NoPromptText:: ; unreferenced
-	text "No"
-	prompt
-
-_AnimationTypeText:: ; unreferenced
-	text_decimal wcf64, 1, 3
-	text " @"
-	text_ram wStringBuffer1
-	text_start
-	line "Animation type @"
-	text_ram wStringBuffer2
-	text_end
-
-	text_end ; unreferenced
-
-_MonNumberText:: ; unreferenced
-	text "#MON number?"
-	done
 
 _WasSentToBillsPCText::
 	text_ram wStringBuffer1
@@ -1150,8 +1119,6 @@ _KarpGuruRecordText::
 	text_ram wMagikarpRecordHoldersName
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _LuckyNumberMatchPartyText::
 	text "Congratulations!"
@@ -1415,27 +1382,6 @@ _OakPCText4::
 	line "OAK's PC closed."
 	done
 
-_TrainerRankingExplanationText:: ; unreferenced
-	text "Triple-theme"
-	line "trainer ranking!"
-
-	para "The SAVE file you"
-	line "just sent might"
-	cont "make the rankings!"
-
-	para ""
-	done
-
-_TrainerRankingNoDataText:: ; unreferenced
-	text "There is no"
-	line "ranking data."
-
-	para "Link to obtain"
-	line "ranking data."
-
-	para ""
-	done
-
 _MemoryGameYeahText::
 	text " , yeah!"
 	done
@@ -1578,8 +1524,6 @@ _OakText2::
 _OakText3::
 	text_promptbutton
 	text_end
-
-	text_end ; unreferenced
 
 _OakText4::
 	text "People and #MON"
@@ -1747,7 +1691,7 @@ GGTCBlackText::
 	line "is cheating!"
 	done
 
-GGTCPewText ::
+GGTCPewText::
 	text "Yo actual CHAMP!"
 
 	para "You made it up"
