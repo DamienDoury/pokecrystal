@@ -137,7 +137,11 @@ GetCardPic:
 	ret
 
 TrainerCardGFX:
+if DEF(_FR_FR)
+	INCBIN "gfx/trainer_card/trainer_card_fr.2bpp"
+else
 	INCBIN "gfx/trainer_card/trainer_card.2bpp"
+endc
 
 TrainerCardAdditionsGFX:
 	INCBIN "gfx/trainer_card/trainer_card_additions.2bpp"

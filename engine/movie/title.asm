@@ -373,7 +373,11 @@ TitleSuicuneGFX:
 INCBIN "gfx/title/suicune.2bpp.lz"
 
 TitleLogoGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/title/logo_fr.2bpp.lz"
+else
 INCBIN "gfx/title/logo.2bpp.lz"
+endc
 
 TitleCrystalGFX:
 INCBIN "gfx/title/crystal.2bpp.lz"

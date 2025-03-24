@@ -2212,7 +2212,11 @@ SlotsTilemap:
 INCBIN "gfx/slots/slots.tilemap"
 
 Slots1LZ:
+if DEF(_FR_FR)
+INCBIN "gfx/slots/slots_1_fr.2bpp.lz"
+else
 INCBIN "gfx/slots/slots_1.2bpp.lz"
+endc
 
 Slots2LZ:
 INCBIN "gfx/slots/slots_2.2bpp.lz"

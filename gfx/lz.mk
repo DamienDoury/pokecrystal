@@ -42,8 +42,10 @@ gfx/pokemon/unown_g/front.animated.2bpp.lz: LZFLAGS += --method 4
 gfx/pokemon/voltorb/front.animated.2bpp.lz: LZFLAGS += --method 4
 
 gfx/sgb/gbc_only.2bpp.lz: LZFLAGS = --compressor null --method 1 --align 1
+gfx/sgb/gbc_only_fr.2bpp.lz: LZFLAGS = --compressor null --method 1 --align 1
 
 gfx/slots/slots_1.2bpp.lz: LZFLAGS += --method 2 --align 4
+gfx/slots/slots_1_fr.2bpp.lz: LZFLAGS += --method 2 --align 4
 gfx/slots/slots_2.2bpp.lz: LZFLAGS += --align 4
 gfx/slots/slots_3.2bpp.lz: LZFLAGS += --align 4
 
@@ -72,3 +74,4 @@ gfx/title/suicune.2bpp.lz: LZFLAGS += --align 4
 
 gfx/unown_puzzle/%.lz: LZFLAGS += --align 4
 gfx/unown_puzzle/start_cancel.2bpp.lz: LZFLAGS += --method 8 --align 1
+gfx/unown_puzzle/start_cancel_fr.2bpp.lz: LZFLAGS += --method 8 --align 1

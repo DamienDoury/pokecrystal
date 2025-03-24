@@ -332,7 +332,11 @@ GameFreakDittoPaletteFade:
 INCLUDE "gfx/splash/ditto_fade.pal"
 
 GameFreakLogoGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/splash/gamefreak_presents_fr.1bpp"
+else
 INCBIN "gfx/splash/gamefreak_presents.1bpp"
+endc
 INCBIN "gfx/splash/gamefreak_logo.1bpp"
 
 ReinitializeEverything::

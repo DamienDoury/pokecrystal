@@ -141,4 +141,8 @@ endc
 	next "Game Boy Color.@"
 
 GBCOnlyGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/sgb/gbc_only_fr.2bpp.lz"
+else
 INCBIN "gfx/sgb/gbc_only.2bpp.lz"
+endc

@@ -722,7 +722,11 @@ INCLUDE "engine/events/catch_tutorial_input.asm"
 INCLUDE "engine/pokegear/townmap_convertlinebreakcharacters.asm"
 
 PokegearGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/pokegear/pokegear_fr.2bpp.lz"
+else
 INCBIN "gfx/pokegear/pokegear.2bpp.lz"
+endc
 
 INCLUDE "engine/pokemon/european_mail.asm"
 

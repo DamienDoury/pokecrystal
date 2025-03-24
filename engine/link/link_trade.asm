@@ -1,5 +1,9 @@
 LinkCommsBorderGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/trade/border_tiles_fr.2bpp"
+else
 INCBIN "gfx/trade/border_tiles.2bpp"
+endc
 
 __LoadTradeScreenBorderGFX:
 	ld de, LinkCommsBorderGFX

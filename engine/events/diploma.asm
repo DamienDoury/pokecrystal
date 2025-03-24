@@ -79,7 +79,11 @@ PrintDiplomaPage2:
 .GameFreak: db "GAME FREAK@"
 
 DiplomaGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/diploma/diploma_fr.2bpp.lz"
+else
 INCBIN "gfx/diploma/diploma.2bpp.lz"
+endc
 
 DiplomaPage1Tilemap:
 INCBIN "gfx/diploma/page1.tilemap"

@@ -819,7 +819,11 @@ UnownPuzzleCursorGFX:
 INCBIN "gfx/unown_puzzle/cursor.2bpp"
 
 UnownPuzzleStartCancelLZ:
+if DEF(_FR_FR)
+INCBIN "gfx/unown_puzzle/start_cancel_fr.2bpp.lz"
+else
 INCBIN "gfx/unown_puzzle/start_cancel.2bpp.lz"
+endc
 
 HoOhPuzzleLZ:
 INCBIN "gfx/unown_puzzle/hooh.2bpp.lz"

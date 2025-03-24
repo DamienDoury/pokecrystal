@@ -18,7 +18,12 @@ MG_OKAY           EQU $ff ^ MG_NOT_OKAY
 MG_START_END      EQU %11111111
 
 REGION_PREFIX EQU $96
+
+if DEF(_FR_FR)
+REGION_CODE   EQU $9a ; FRA
+else
 REGION_CODE   EQU $90 ; USA
+endc
 
 MESSAGE_PREFIX EQU $5a
 
@@ -1580,7 +1585,11 @@ InitMysteryGiftLayout:
 	ret
 
 MysteryGiftGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/mystery_gift/mystery_gift_fr.2bpp"
+else
 INCBIN "gfx/mystery_gift/mystery_gift.2bpp"
+endc
 
 DoNameCardSwap:
 	call ClearTilemap

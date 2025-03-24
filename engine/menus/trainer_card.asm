@@ -824,7 +824,11 @@ TrainerCard_KantoBadgesOAM:
 	db $1c,            $20 | (1 << 7), $24, $20
 	db $1c | (1 << 7), $20 | (1 << 7), $24, $20
 
+if DEF(_FR_FR)
+CardStatusGFX: INCBIN "gfx/trainer_card/card_status_fr.2bpp"
+else
 CardStatusGFX: INCBIN "gfx/trainer_card/card_status.2bpp"
+endc
 
 LeaderGFX:  INCBIN "gfx/trainer_card/johto_leaders.2bpp"
 LeaderGFX2: INCBIN "gfx/trainer_card/kanto_leaders.2bpp"

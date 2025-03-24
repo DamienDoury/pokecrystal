@@ -346,7 +346,15 @@ PrintParty_NoMoveString:
 	db "------------@"
 
 GBPrinterHPIcon:
+if DEF(_FR_FR)
+INCBIN "gfx/printer/hp_fr.1bpp"
+else
 INCBIN "gfx/printer/hp.1bpp"
+endc
 
 GBPrinterLvIcon:
+if DEF(_FR_FR)
+INCBIN "gfx/printer/lv_fr.1bpp"
+else
 INCBIN "gfx/printer/lv.1bpp"
+endc
