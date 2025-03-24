@@ -37,9 +37,9 @@ RTC_M  EQU $09 ; Minutes   0-59 (0-3Bh)
 RTC_H  EQU $0a ; Hours     0-23 (0-17h)
 RTC_DL EQU $0b ; Lower 8 bits of Day Counter (0-FFh)
 RTC_DH EQU $0c ; Upper 1 bit of Day Counter, Carry Bit, Halt Flag
-               ; Bit 0  Most significant bit of Day Counter (Bit 8)
-               ; Bit 6  Halt (0=Active, 1=Stop Timer)
-               ; Bit 7  Day Counter Carry Bit (1=Counter Overflow)
+RTC_DH_HI       EQU 0 ; Most significant bit of Day Counter (Bit 8)
+RTC_DH_HALT     EQU 6 ; Halt (0=Active, 1=Stop Timer)
+RTC_DH_OVERFLOW EQU 7 ; Day Counter Carry Bit (1=Counter Overflow)
 
 ; interrupt flags
 VBLANK   EQU 0
@@ -161,12 +161,12 @@ rBGPD       EQU $ff69 ; CGB Mode Only - Background Palette Data
 rOBPI       EQU $ff6a ; CGB Mode Only - Sprite Palette Index
 rOBPI_AUTO_INCREMENT EQU 7 ; increment rOBPI after write to rOBPD
 rOBPD       EQU $ff6b ; CGB Mode Only - Sprite Palette Data
-rUNKNOWN1   EQU $ff6c ; (FEh) Bit 0 (Read/Write) - CGB Mode Only
+rOPRI       EQU $ff6c ; CGB Mode Only - Object Priority Mode - Bit 0 (Read/Write)
 rSVBK       EQU $ff70 ; CGB Mode Only - WRAM Bank
 rUNKNOWN2   EQU $ff72 ; (00h) - Bit 0-7 (Read/Write)
 rUNKNOWN3   EQU $ff73 ; (00h) - Bit 0-7 (Read/Write)
 rUNKNOWN4   EQU $ff74 ; (00h) - Bit 0-7 (Read/Write) - CGB Mode Only
 rUNKNOWN5   EQU $ff75 ; (8Fh) - Bit 4-6 (Read/Write)
-rUNKNOWN6   EQU $ff76 ; (00h) - Always 00h (Read Only)
-rUNKNOWN7   EQU $ff77 ; (00h) - Always 00h (Read Only)
+rPCM12      EQU $ff76 ; Channel 1 & 2 Amplitude (Read Only)
+rPCM34      EQU $ff77 ; Channel 3 & 4 Amplitude (Read Only)
 rIE         EQU $ffff ; Interrupt Enable (R/W)
