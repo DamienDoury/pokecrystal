@@ -2518,8 +2518,9 @@ ItemfinderExplanationText::
 	para "It doesn't show"
 	line "the exact spot,"
 
-	para "so you'll have to"
-	line "look yourself."
+	para "but the closer you"
+	line "get, the faster"
+	cont "it beeps!"
 
 	para "Oh yeah--I heard"
 	line "there are items"
