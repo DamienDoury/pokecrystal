@@ -75,8 +75,7 @@ Pack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .ItemsPocketMenu:
 	ld hl, ItemsPocketMenuHeader
@@ -103,8 +102,7 @@ Pack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .KeyItemsPocketMenu:
 	ld hl, KeyItemsPocketMenuHeader
@@ -133,8 +131,7 @@ Pack:
 	xor a
 	ldh [hBGMapMode], a
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .TMHMPocketMenu:
 	farcall TMHMPocket
@@ -168,8 +165,7 @@ Pack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BallsPocketMenu:
 	ld hl, BallsPocketMenuHeader
@@ -196,8 +192,7 @@ Pack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .MedPocketMenu:
 	ld hl, MedPocketMenuHeader
@@ -224,8 +219,7 @@ Pack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BerryPocketMenu:
 	ld hl, BerryPocketMenuHeader
@@ -650,8 +644,7 @@ BattlePack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .ItemsPocketMenu:
 	ld hl, ItemsPocketMenuHeader
@@ -669,8 +662,7 @@ BattlePack:
 	ld c, PACKSTATE_INITMEDPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jp ItemSubmenu
 
 .InitKeyItemsPocket:
 	ld a, KEY_ITEM_POCKET
@@ -678,8 +670,7 @@ BattlePack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .KeyItemsPocketMenu:
 	ld hl, KeyItemsPocketMenuHeader
@@ -697,8 +688,7 @@ BattlePack:
 	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jp ItemSubmenu
 
 .InitTMHMPocket:
 	ld a, TM_HM_POCKET
@@ -710,8 +700,7 @@ BattlePack:
 	call WaitBGMap_DrawPackGFX
 	ld hl, PackEmptyText
 	call Pack_PrintTextNoScroll
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .TMHMPocketMenu:
 	farcall TMHMPocket
@@ -720,8 +709,7 @@ BattlePack:
 	call Pack_InterpretJoypad
 	ret c
 	xor a
-	call TMHMSubmenu
-	ret
+	jp TMHMSubmenu
 
 .InitBallsPocket:
 	ld a, BALL_POCKET
@@ -729,8 +717,7 @@ BattlePack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BallsPocketMenu:
 	ld hl, BallsPocketMenuHeader
@@ -748,8 +735,7 @@ BattlePack:
 	ld c, PACKSTATE_INITBERRYPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jr ItemSubmenu
 
 .InitMedPocket:
 	ld a, MED_POCKET
@@ -757,8 +743,7 @@ BattlePack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .MedPocketMenu:
 	ld hl, MedPocketMenuHeader
@@ -776,8 +761,7 @@ BattlePack:
 	ld c, PACKSTATE_INITBALLSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	jr ItemSubmenu
 
 .InitBerryPocket:
 	ld a, BERRIES_POCKET
@@ -785,8 +769,7 @@ BattlePack:
 	call ClearPocketList
 	call DrawPocketName
 	call WaitBGMap_DrawPackGFX
-	call Pack_JumptableNext
-	ret
+	jp Pack_JumptableNext
 
 .BerryPocketMenu:
 	ld hl, BerryPocketMenuHeader
@@ -804,8 +787,8 @@ BattlePack:
 	ld c, PACKSTATE_INITITEMSPOCKET ; right
 	call Pack_InterpretJoypad
 	ret c
-	call ItemSubmenu
-	ret
+	
+	; fallthrough
 
 ItemSubmenu:
 	farcall CheckItemContext
@@ -1272,8 +1255,7 @@ TutorialPack:
 	call InitPocket
 	pop hl
 	call CopyMenuHeader
-	call ScrollingMenu
-	ret
+	jp ScrollingMenu
 
 Pack_JumptableNext:
 	ld hl, wJumptableIndex
@@ -1336,8 +1318,7 @@ DrawPackGFX:
 	ld d, [hl]
 	ld hl, vTiles2 tile $50
 	lb bc, BANK(PackGFX), 15
-	call Request2bpp
-	ret
+	jp Request2bpp
 
 .female
 	farcall DrawKrisPackGFX
@@ -1470,8 +1451,7 @@ Pack_InitGFX:
 	lb bc, 4, SCREEN_WIDTH - 2
 	call Textbox
 	call EnableLCD
-	call DrawPackGFX
-	ret
+	jp DrawPackGFX
 
 PlacePackGFX:
 	hlcoord 0, 3
@@ -1556,12 +1536,21 @@ DrawPocketName:
 	ret
 
 .separator:
+if DEF(_FR_FR)
+	db 0  ; ITEM_POCKET     ; 0
+	db 6  ; BALL_POCKET     ; 1
+	db 16 ; KEY_ITEM_POCKET ; 2
+	db 12 ; TM_HM_POCKET    ; 3
+	db 3  ; MED_POCKET      ; 4
+	db 9  ; BERRIES_POCKET  ; 5
+else
 	db 0  ; ITEM_POCKET     ; 0
 	db 6  ; BALL_POCKET     ; 1
 	db 17 ; KEY_ITEM_POCKET ; 2
 	db 13 ; TM_HM_POCKET    ; 3
 	db 3  ; MED_POCKET      ; 4
 	db 9  ; BERRIES_POCKET  ; 5
+endc
 
 .tilemap: ; 5x12
 ; the 5x3 pieces correspond to *_POCKET constants
@@ -1779,6 +1768,11 @@ YouCantUseItInABattleText: ; unreferenced
 	text_end
 
 PackMenuGFX:
+if DEF(_FR_FR)
+INCBIN "gfx/pack/pack_menu_fr.2bpp"
+else
 INCBIN "gfx/pack/pack_menu.2bpp"
+endc
+
 PackGFX:
 INCBIN "gfx/pack/pack.2bpp"

@@ -919,7 +919,11 @@ RefreshPackTabsColors::
 	call .incHL
 
 	; Berries tab.
+if DEF(_FR_FR)
+	lb bc, 1, 3
+else
 	lb bc, 1, 4
+endc
 	ld a, $2
 	push hl
 	call FillBoxCGB
@@ -937,7 +941,11 @@ RefreshPackTabsColors::
 	call .incHL
 
 	; Key tab.
+	if DEF(_FR_FR)
+	lb bc, 1, 3
+else
 	lb bc, 1, 2
+endc
 	ld a, $2
 	call FillBoxCGB
 
