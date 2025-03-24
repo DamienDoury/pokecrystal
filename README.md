@@ -6,6 +6,8 @@ https://rgbds.gbdev.io/docs/v0.5.1/gbz80.7/
 
 https://gbdev.io/pandocs/CGB_Registers.html
 
+To compile in French:
+`make crystal11 LANG=_FR_FR`
 
 This is a disassembly of Pokémon Crystal.
 
