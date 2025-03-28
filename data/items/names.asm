@@ -36,7 +36,7 @@ if DEF(_FR_FR)
 	li "PRECISION +"
 	li "PIERREPLANTE"
 	li "POUDRE METAL"
-	li "PAPIERTOILET"
+	li "ROULEAU d'PQ"
 	li "# POUPEE"
 	li "TOTAL SOIN"
 	li "RAPPEL"
