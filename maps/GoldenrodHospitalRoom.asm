@@ -1912,9 +1912,9 @@ GoldenrodHospitalRoom_Quest10Text:
 	para "She left a few"
 	line "minutes ago."
 
-	para "She went towards"
-	line "the opposite side"
-	cont "of this corridor."
+	para "She went to the"
+	line "opposite side"
+	cont "of the corridor."
 	done
 
 GoldenrodHospitalRoom_Quest11Text:
