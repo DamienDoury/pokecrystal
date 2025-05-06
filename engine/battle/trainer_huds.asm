@@ -137,8 +137,7 @@ DrawEnemyHUDBorder:
 	call CopyBytes
 	hlcoord 1, 3
 	ld de, 1 ; start on left
-	call PlaceHUDBorderTiles
-	ret
+	jr PlaceHUDBorderTiles
 
 .tiles
 	db $6d ; left side
@@ -186,9 +185,9 @@ LinkBattle_TrainerHuds:
 	ld de, wPartyCount
 	call StageBallTilesData
 	ld hl, wPlaceBallsX
-	ld a, 10
+	ld a, 9
 	ld [hli], a
-	ld [hl], 8
+	ld [hl], 6
 	ld a, 1
 	ld [wPlaceBallsDirection], a
 	call LoadTrainerHudOAM
@@ -197,9 +196,9 @@ LinkBattle_TrainerHuds:
 	ld de, wOTPartyCount
 	call StageBallTilesData
 	ld hl, wPlaceBallsX
-	ld a, 10
+	ld a, 9
 	ld [hli], a
-	ld [hl], 13
+	ld [hl], 11
 	; fallthrough
 
 LoadTrainerHudOAM:
@@ -241,8 +240,7 @@ LoadBallIconGFX:
 	ld de, .gfx + 2 * 8 * 8 / 4
 	ld hl, vTiles2 tile $70
 	lb bc, BANK(LoadBallIconGFX), 2
-	call Get2bppViaHDMA
-	ret
+	jp Get2bppViaHDMA
 
 .gfx
 INCBIN "gfx/battle/balls.2bpp"
@@ -264,7 +262,7 @@ _ShowLinkBattleParticipants:
 	ld a, "<BOLD_V>"
 	ld [hli], a
 	ld [hl], "<BOLD_S>"
-	farcall LinkBattle_TrainerHuds ; no need to farcall
+	call LinkBattle_TrainerHuds
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
