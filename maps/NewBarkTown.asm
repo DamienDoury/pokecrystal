@@ -158,12 +158,12 @@ CheatGuyScript:
 	giveitem MAX_REVIVE, 99
 	giveitem FULL_RESTORE, 99
 	giveitem GOLD_BERRY, 99
+	giveitem MASTER_BALL, 99
 	giveitem POKE_BALL, 99
 	giveitem GREAT_BALL, 99
 	giveitem ULTRA_BALL, 99
 	giveitem HEAVY_BALL, 99
 	giveitem LOVE_BALL, 99
-	giveitem MASTER_BALL, 99
 	giveitem RARE_CANDY, 99
 	giveitem RARE_CANDY, 99
 	giveitem RARE_CANDY, 99
