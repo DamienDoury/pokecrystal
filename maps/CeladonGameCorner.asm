@@ -132,6 +132,13 @@ CeladonGameCornerSlotMachineScript:
 	closetext
 	end
 
+CeladonGameCornerSodaCanScript:
+	opentext
+	writetext CeladonGameCornerSodaCanText
+	waitbutton
+	closetext
+	; fallthrough.
+
 CeladonGameCornerCardFlipScript:
 	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
@@ -139,16 +146,11 @@ CeladonGameCornerCardFlipScript:
 	closetext
 	end
 
+CeladonGameCornerMachineOffScript:
+	jumptext GoldenrodHospitalMachineOffText
+
 CeladonGameCornerLighterScript:
 	jumptext CeladonGameCornerLighterText
-
-CeladonGameCornerSodaCanScript:
-	opentext
-	writetext CeladonGameCornerSodaCanText
-	waitbutton
-	special CardFlip
-	closetext
-	end
 
 CeladonGameCornerReceptionistText:
 	text "Welcome!"
@@ -315,6 +317,11 @@ CeladonGameCornerSodaCanText:
 	para "Huh? It's empty!"
 	done
 
+GoldenrodHospitalMachineOffText:
+	text "This machine is"
+	line "turned off."
+	done
+
 CeladonGameCorner_MapEvents:
 	db 0, 0 ; filler
 
@@ -325,41 +332,41 @@ CeladonGameCorner_MapEvents:
 	def_coord_events
 
 	def_bg_events
-	bg_event  1,  6, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  1,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  1,  7, BGEVENT_READ, CeladonGameCornerCardFlipScript
-	bg_event  1,  8, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  1,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  1,  9, BGEVENT_READ, CeladonGameCornerCardFlipScript
-	bg_event  1, 10, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  1, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  1, 11, BGEVENT_LEFT, CeladonGameCornerCardFlipScript
-	bg_event  6,  6, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  6,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  6,  7, BGEVENT_READ, CeladonGameCornerCardFlipScript
-	bg_event  6,  8, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  6,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  6,  9, BGEVENT_READ, CeladonGameCornerSodaCanScript
-	bg_event  6, 10, BGEVENT_READ, CeladonGameCornerCardFlipScript
+	bg_event  6, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  6, 11, BGEVENT_RIGHT, CeladonGameCornerCardFlipScript
-	bg_event  7,  6, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event  7,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  7,  7, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event  7,  8, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event  7,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  7,  9, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event  7, 10, BGEVENT_READ, CeladonGameCornerSlotMachineScript
+	bg_event  7, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event  7, 11, BGEVENT_LEFT, CeladonGameCornerLuckySlotMachineScript
-	bg_event 12,  6, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 12,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 12,  7, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 12,  8, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 12,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 12,  9, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 12, 10, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 12, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 12, 11, BGEVENT_RIGHT, CeladonGameCornerLuckySlotMachineScript
-	bg_event 13,  6, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 13,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 13,  7, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 13,  8, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 13,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 13,  9, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 13, 10, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 13, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 13, 11, BGEVENT_LEFT, CeladonGameCornerLuckySlotMachineScript
-	bg_event 18,  6, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 18,  6, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 18,  7, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 18,  8, BGEVENT_READ, CeladonGameCornerLighterScript
-	bg_event 18,  9, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
-	bg_event 18, 10, BGEVENT_READ, CeladonGameCornerLuckySlotMachineScript
+	bg_event 18,  8, BGEVENT_READ, CeladonGameCornerMachineOffScript
+	bg_event 18,  9, BGEVENT_READ, CeladonGameCornerLighterScript
+	bg_event 18, 10, BGEVENT_READ, CeladonGameCornerMachineOffScript
 	bg_event 18, 11, BGEVENT_RIGHT, CeladonGameCornerLuckySlotMachineScript
 	bg_event 15,  0, BGEVENT_READ, CeladonGameCornerPoster1Script
 	bg_event  9,  0, BGEVENT_READ, CeladonGameCornerPoster2Script
@@ -368,9 +375,9 @@ CeladonGameCorner_MapEvents:
 	object_event  5,  2, SPRITE_CLERK, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerClerkScript, -1
 	object_event 12, 13, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_FREE & HIDE_LOCKDOWN & HIDE_CURFEW, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, VaccinePassportController, -1 ; Should always be at the second spot in the list.
 	object_event  3,  2, SPRITE_RECEPTIONIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerReceptionistScript, -1
-	object_event 14, 10, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerPokefanMScript, -1
+	object_event 14,  9, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerPokefanMScript, -1
 	object_event 17,  7, SPRITE_TEACHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerTeacherScript, -1
 	object_event 11,  7, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFishingGuruScript, -1
-	object_event  8, 10, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY | NITE, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFisherScript, -1
+	object_event  8, 11, SPRITE_FISHER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, DAY | NITE, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerFisherScript, -1
 	object_event 11,  3, SPRITE_GYM_GUIDE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CeladonGymGuideDudeScript, -1
-	object_event  2,  8, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerGrampsScript, -1
+	object_event  2,  9, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonGameCornerGrampsScript, -1
