@@ -34,8 +34,8 @@ EusineHouse_Eusine:
 	writetext EusineLeavesCeladonText
 	waitbutton
 	closetext
-	applymovement CELADONPOKECENTER1F_EUSINE, .Movement
-	disappear CELADONPOKECENTER1F_EUSINE
+	applymovement EUSINEHOUSE_EUSINE, .Movement
+	disappear EUSINEHOUSE_EUSINE
 	playsound SFX_EXIT_BUILDING
 	waitsfx
 	end
