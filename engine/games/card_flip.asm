@@ -23,6 +23,8 @@ _CardFlip:
 	call DisableLCD
 	call LoadStandardFont
 	call LoadFontsExtra
+	xor a ; FONT_CLOBBERED
+	ld [wLoadedFont], a
 
 	ld hl, CardFlipLZ01
 	ld de, vTiles2 tile $00

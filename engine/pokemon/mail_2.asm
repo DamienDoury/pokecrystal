@@ -58,7 +58,7 @@ ReadAnyMail:
 	call .loop
 	call ClearBGPalettes
 	call DisableLCD
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call LoadStandardFont
 	jp EnableLCD
