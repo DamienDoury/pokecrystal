@@ -28,7 +28,7 @@ Pokepic::
 	ret
 
 ClosePokepic::
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ld hl, PokepicMenuHeader
 	call CopyMenuHeader

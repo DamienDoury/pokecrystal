@@ -1043,7 +1043,7 @@ StartTitleScreen:
 	res rLCDC_SPRITE_SIZE, [hl] ; 8x8
 	call ClearScreen
 	call WaitBGMap2
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ldh [hLCDCPointer], a
 	ldh [hSCX], a

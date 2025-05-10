@@ -344,7 +344,7 @@ CelebiFlyAwayAnim::
 	; Despawn leaves and celebi.
 	ld hl, wVirtualOAMSprite08
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite08
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call ByteFill
 	ret

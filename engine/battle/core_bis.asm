@@ -12,7 +12,7 @@ BattleIntro:
 	farcall FindFirstAliveMonAndStartBattle
 	call DisableSpriteUpdates
 	farcall ClearBattleRAM
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call BackupPartyItems ; Save the items held by the player's Pokémons.
 	call InitEnemy
@@ -49,7 +49,7 @@ BattleIntro:
 
 
 ExitBattle:
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	
 	ld a, D_DOWN

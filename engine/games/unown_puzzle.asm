@@ -329,7 +329,7 @@ UnownPuzzle_A:
 	ld a, TRUE
 	ld [wSolvedUnownPuzzle], a
 UnownPuzzle_Quit:
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ld hl, wJumptableIndex
 	set 7, [hl]

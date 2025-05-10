@@ -20,7 +20,7 @@ Credits::
 	call ClearTilemap
 	call ClearSprites
 
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 
 	ld hl, wCreditsBlankFrame2bpp

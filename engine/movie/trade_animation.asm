@@ -310,7 +310,7 @@ TradeAnim_AdvanceScriptPointer:
 TradeAnim_End:
 	ld hl, wJumptableIndex
 	set 7, [hl]
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ret
 

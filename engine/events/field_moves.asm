@@ -74,7 +74,7 @@ ShakeHeadbuttTree:
 	farcall ClearSpriteAnims
 	ld hl, wVirtualOAMSprite36
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite36
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call ByteFill
 	call DelayFrame
@@ -163,7 +163,7 @@ OWCutAnimation:
 	ld hl, vTiles0 tile FIELDMOVE_TREE
 	lb bc, BANK(CutTreeGFX), 4
 	call Request2bpp
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ret
 
@@ -347,7 +347,7 @@ FlyFromAnim:
 .exit
 	pop af
 	ld [wVramState], a
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ret
 
@@ -390,7 +390,7 @@ ZapdosFlyToAnim::
 	; Despawn leaves.
 	ld hl, wVirtualOAMSprite12
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite12
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call ByteFill
 	ret
@@ -433,7 +433,7 @@ FlyToAnim:
 
 ;.RestorePlayerSprite_DespawnLeaves:
 	ld hl, wVirtualOAMSprite00TileID
-	xor a
+	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	ld c, 4
 .OAMloop
