@@ -123,11 +123,13 @@ TrainerSupernerdEric:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdEricAfterBattleText
-	waitbutton
-	closetext
-	end
+	checkevent EVENT_CINNABAR_ROCKS_CLEARED
+	iftrue .Reopening
+
+	jumptextfaceplayer  SupernerdEricAfterBattleText
+
+.Reopening
+	jumptextfaceplayer SupernerdEricAfterBattleText_Reopening
 
 TrainerSupernerdTeru:
 	trainer SUPER_NERD, TERU, EVENT_BEAT_SUPER_NERD_TERU, SupernerdTeruSeenText, SupernerdTeruBeatenText, 0, .Script
@@ -609,6 +611,14 @@ PathMovementEnd:
 	step_end
 
 SupernerdEricSeenText:
+	text "I like to gamble."
+	done
+
+SupernerdEricBeatenText:
+	text "…Grumble…"
+	done
+
+SupernerdEricAfterBattleText:
 	text "I wish I could go"
 	line "to the GAME COR-"
 	cont "NER."
@@ -618,14 +628,10 @@ SupernerdEricSeenText:
 	cont "closed…"
 	done
 
-SupernerdEricBeatenText:
-	text "…Grumble…"
-	done
-
-SupernerdEricAfterBattleText:
-	text "I guess I have to"
-	line "do things fair and"
-	cont "square…"
+SupernerdEricAfterBattleText_Reopening:
+	text "The GAME CORNER"
+	line "finally reopened!"
+	cont "Time to gamble!"
 	done
 
 SupernerdTeruSeenText:
