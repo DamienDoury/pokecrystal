@@ -462,6 +462,8 @@ GoldenrodGameCornerFrontDoorLockScript:
 GoldenrodGameCornerSlotsMachineScript:
 	random 6
 	ifequal 0, GoldenrodGameCornerLuckySlotsMachineScript
+
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	setval FALSE
 	special SlotMachine
@@ -469,6 +471,8 @@ GoldenrodGameCornerSlotsMachineScript:
 	end
 
 GoldenrodGameCornerLuckySlotsMachineScript:
+
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	setval TRUE
 	special SlotMachine
@@ -476,6 +480,7 @@ GoldenrodGameCornerLuckySlotsMachineScript:
 	end
 
 GoldenrodGameCornerCardFlipMachineScript:
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	special CardFlip
 	closetext

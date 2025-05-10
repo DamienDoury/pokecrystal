@@ -116,6 +116,8 @@ CeladonGameCornerPoster2Script:
 CeladonGameCornerLuckySlotMachineScript:
 	random 6
 	ifequal 0, CeladonGameCornerSlotMachineScript
+
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	setval FALSE
 	special SlotMachine
@@ -123,6 +125,7 @@ CeladonGameCornerLuckySlotMachineScript:
 	end
 
 CeladonGameCornerSlotMachineScript:
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	setval TRUE
 	special SlotMachine
@@ -130,6 +133,7 @@ CeladonGameCornerSlotMachineScript:
 	end
 
 CeladonGameCornerCardFlipScript:
+	farscall GoldenrodHospitalCorridorGelScript
 	refreshscreen
 	special CardFlip
 	closetext
