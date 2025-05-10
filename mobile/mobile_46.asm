@@ -4622,10 +4622,18 @@ BattleTowerRoomMenu2_UpdateYesNoMenu:
 	ret
 
 String_11a2cf:
+if DEF(_FR_FR)
+	db "OUI@"
+else
 	db "YES@"
+endc
 
 String_11a2d3:
+if DEF(_FR_FR)
+	db "NON@"
+else	
 	db "NO@"
+endc
 
 MenuHeader_11a2d6: ; unreferenced
 	db MENU_BACKUP_TILES ; flags

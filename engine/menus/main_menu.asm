@@ -65,12 +65,19 @@ MainMenu:
 
 .Strings:
 ; entries correspond to MAINMENUITEM_* constants
+if DEF(_FR_FR)
+	db "CONTINUER@"
+	db "NOUVEAU JEU@"
+	db "OPTIONS@"
+	db "CADEAU MYSTERE@"
+else
 	db "CONTINUE@"
 	db "NEW GAME@"
 	db "OPTION@"
 	db "MYSTERY GIFT@"
+endc
 	db "MOBILE@"
-	db "MOBILE STUDIUM@"
+	db "MOBILE STADIUM@"
 if DEF(_DEBUG)
 	db "DEBUG ROOM@"
 endc
@@ -316,9 +323,6 @@ MainMenu_PrintCurrentTimeAndDay:
 	call PrintNum
 	ret
 
-.minString: ; unreferenced
-	db "min.@"
-
 .PrintTimeNotSet:
 	hlcoord 1, 14
 	ld de, .TimeNotSetString
@@ -326,11 +330,11 @@ MainMenu_PrintCurrentTimeAndDay:
 	ret
 
 .TimeNotSetString:
+if DEF(_FR_FR)
+	db "REGLER HORLOGE@"
+else
 	db "TIME NOT SET@"
-
-.MainMenuTimeUnknownText: ; unreferenced
-	text_far _MainMenuTimeUnknownText
-	text_end
+endc
 
 .PrintDayOfWeek:
 	push de
@@ -348,6 +352,15 @@ MainMenu_PrintCurrentTimeAndDay:
 	ret
 
 .Days:
+if DEF(_FR_FR)
+	db "DIMANCHE@"
+	db "LUNDI@"
+	db "MARDI@"
+	db "MERCREDI@"
+	db "JEUDI@"
+	db "VENDREDI@"
+	db "SAMEDI@"
+else
 	db "SUN@"
 	db "MON@"
 	db "TUES@"
@@ -355,8 +368,14 @@ MainMenu_PrintCurrentTimeAndDay:
 	db "THURS@"
 	db "FRI@"
 	db "SATUR@"
+endc
+
 .Day:
+if DEF(_FR_FR)
+	db "@"
+else
 	db "DAY@"
+endc
 
 ClearTilemapEtc:
 	xor a

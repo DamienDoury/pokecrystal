@@ -173,11 +173,19 @@ DoMysteryGift:
 	ret
 
 .String_PressAToLink_BToCancel:
+if DEF(_FR_FR)
+	db   "Appuyer sur A"
+	next "pour lien IR."
+	next "Appuyer sur B"
+	next "pour annuler."
+	db   "@"
+else
 	db   "Press A to"
 	next "link IR-Device"
 	next "Press B to"
 	next "cancel it."
 	db   "@"
+endc
 
 .MysteryGiftCanceledText:
 	text_far _MysteryGiftCanceledText

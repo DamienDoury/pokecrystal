@@ -31,5 +31,10 @@ _DeleteSaveData:
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
 	db 2 ; items
+if DEF(_FR_FR)
+	db "NON@"
+	db "OUI@"
+else
 	db "NO@"
 	db "YES@"
+endc

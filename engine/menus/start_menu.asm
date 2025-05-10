@@ -188,6 +188,18 @@ DEF FAKE_ID_SELLER_NAME EQUS "\"EDDY@\""
 	dw StartMenu_Pokegear, .PokegearString,   .PokedexString
 	dw StartMenu_Quit,     .QuitString,       .PokedexString
 
+if DEF(_FR_FR)
+.PokedexString:    db "#DEX@"
+.PartyString:      db "#MON@"
+.PackString:       db "SAC@"
+.StatusString:     db "<PLAYER>@"
+.FakeStatusString: db FAKE_ID_SELLER_NAME
+.SaveString:       db "SAUVER@"
+.OptionString:     db "OPTIONS@"
+.ExitString:       db "RETOUR@"
+.PokegearString:   db "<POKE>MATOS@"
+.QuitString:       db "FIN@"
+else
 .PokedexString:    db "#DEX@"
 .PartyString:      db "#MON@"
 .PackString:       db "PACK@"
@@ -198,6 +210,7 @@ DEF FAKE_ID_SELLER_NAME EQUS "\"EDDY@\""
 .ExitString:       db "EXIT@"
 .PokegearString:   db "<POKE>GEAR@"
 .QuitString:       db "QUIT@"
+endc
 
 .OpenMenu:
 	ld a, [wMenuSelection]

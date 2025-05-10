@@ -1309,13 +1309,21 @@ LoadPinkPage:
 	ret
 
 .Status:
+if DEF(_FR_FR)
+	db "SANTE/@"
+else
 	db "HEALTH/@"
+endc
 
 .Type
 	db "TYPE/@"
 
 .OK_str:
+if DEF(_FR_FR)
+	db "SAIN@"
+else
 	db "HEALTHY@"
+endc
 
 .IncubStr:
 	db "INCUB.@"
@@ -1324,10 +1332,18 @@ LoadPinkPage:
 	db "COVID@"
 
 .PkrsImmuneStr:
+if DEF(_FR_FR)
+	db "IMMUNI.@"
+else
 	db "IMMUNE@"
+endc
 
 .PkrsSickStr:
+if DEF(_FR_FR)
+	db "MALADE@"
+else
 	db "SICK@"
+endc
 
 LoadGreenPage:
 	ld de, .Item

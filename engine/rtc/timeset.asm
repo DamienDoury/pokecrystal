@@ -716,9 +716,15 @@ GetTimeOfDayString:
 	ld de, .day_string
 	ret
 
+if DEF(_FR_FR)
+.nite_string: db "NUIT@"
+.morn_string: db "MATIN@"
+.day_string:  db "JOUR@"
+else
 .nite_string: db "NITE@"
 .morn_string: db "MORN@"
 .day_string:  db "DAY@"
+endc
 
 AdjustHourForAMorPM:
 ; Convert the hour stored in c (0-23) to a 1-12 value

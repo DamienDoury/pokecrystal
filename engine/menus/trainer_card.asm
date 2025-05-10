@@ -254,7 +254,13 @@ TrainerCard_PrintTopHalfOfCard:
 	call EventFlagAction
 	ld a, c
 	and a
+
+if DEF(_FR_FR)
+	hlcoord 2, 2
+else
 	hlcoord 7, 2
+endc
+
 	jr nz, .fake_id
 	
 	ld de, wPlayerName
@@ -334,9 +340,15 @@ TrainerCard_PrintTopHalfOfCard:
 	db "69420@"
 
 .Name_Money:
+if DEF(_FR_FR)
+	db   ""
+	next ""
+	next "ARG.@"
+else
 	db   "NAME/"
 	next ""
 	next "MONEY@"
+endc
 
 .ID_No:
 	db $27, $28, -1 ; ID NO
@@ -411,22 +423,43 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 
 .Dex_PlayTime:
 	db   "#DEX"
+
+if DEF(_FR_FR)
+	next "DUREE JEU@"
+else
 	next "PLAY TIME@"
+endc
 
 .SpaceString:
 	db   " @"
 
 .TrainerString:
+if DEF(_FR_FR)
+	db   "DRESSEUR #MON@"
+else
 	db   "#MON TRAINER@"
+endc
 
 .MasterString:
+if DEF(_FR_FR)
+	db   "MAITRE #MON@"
+else
 	db   "LEAGUE CHAMPION@"
+endc
 
 .MasterUndisputedString:
+if DEF(_FR_FR)
+	db   " INCONTESTé@"
+else
 	db   " LEAGUE CHAMPION@"
+endc
 
 .UndisputedString:
+if DEF(_FR_FR)
+	db   "MAITRE #MON@"
+else
 	db   "UNDISPUTED@"
+endc
 
 .StatusTilemap:
 	db $29, $2a, $2b, $2c, $2d, $01, -1

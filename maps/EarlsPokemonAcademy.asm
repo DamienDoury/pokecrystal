@@ -284,12 +284,21 @@ AcademyBlackboard:
 	dbw BANK(@), NULL
 
 .Text:
+if DEF(_FR_FR)
+	db "SAIN@"
+	db "MALADE@"
+	db "INCUB.@"
+	db "COVID@"
+	db "IMMUNI.@"
+	db "RETOUR@"
+else
 	db "HEALTHY@"
 	db "SICK@"
 	db "INCUB.@"
 	db "COVID@"
 	db "IMMUNE@"
 	db "QUIT@"
+endc
 
 AcademyStatusLesson:
 	opentext

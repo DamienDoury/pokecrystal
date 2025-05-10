@@ -25,6 +25,15 @@ PrintDayOfWeek:
 	ret
 
 .Days:
+if DEF(_FR_FR)
+	db "DIMANCHE@"
+	db "LUNDI@"
+	db "MARDI@"
+	db "MERCREDI@"
+	db "JEUDI@"
+	db "VENDREDI@"
+	db "SAMEDI@"
+else
 	db "SUN@"
 	db "MON@"
 	db "TUES@"
@@ -32,9 +41,14 @@ PrintDayOfWeek:
 	db "THURS@"
 	db "FRI@"
 	db "SATUR@"
+endc
 
 .Day:
+if DEF(_FR_FR)
+	db "@"
+else
 	db "DAY@"
+endc
 
 NewGame_ClearTilemapEtc:
 	xor a
@@ -302,7 +316,11 @@ SetDefaultBoxNames:
 	ret
 
 .Box:
+if DEF(_FR_FR)
+	db "BOITE@"
+else
 	db "BOX@"
+endc
 
 InitializeMagikarpHouse:
 	ld hl, wBestMagikarpLengthFeet
@@ -315,7 +333,11 @@ InitializeMagikarpHouse:
 	ret
 
 .Ralph:
+if DEF(_FR_FR)
+	db "LAZARE@"
+else
 	db "RALPH@"
+endc
 
 InitializeNPCNames:
 	ld hl, .Rival
@@ -526,34 +548,42 @@ DisplaySaveInfoOnContinue:
 	call CheckRTCStatus
 	and %10000000
 	jr z, .clock_ok
+if DEF(_FR_FR)
+	lb de, 2, 8
+else
 	lb de, 4, 8
-	call DisplayContinueDataWithRTCError
-	ret
+endc
+	jr DisplayContinueDataWithRTCError
 
 .clock_ok
+if DEF(_FR_FR)
+	lb de, 2, 8
+else
 	lb de, 4, 8
-	call DisplayNormalContinueData
-	ret
+endc
+	jr DisplayNormalContinueData
 
 DisplaySaveInfoOnSave:
+if DEF(_FR_FR)
+	lb de, 2, 0
+else
 	lb de, 4, 0
-	jr DisplayNormalContinueData
+endc
+	; fallthrough.
 
 DisplayNormalContinueData:
 	call Continue_LoadMenuHeader
 	call Continue_DisplayBadgesDexPlayerName
 	call Continue_PrintGameTime
 	call LoadFontsExtra
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 DisplayContinueDataWithRTCError:
 	call Continue_LoadMenuHeader
 	call Continue_DisplayBadgesDexPlayerName
 	call Continue_UnknownGameTime
 	call LoadFontsExtra
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 Continue_LoadMenuHeader:
 	xor a
@@ -567,51 +597,84 @@ Continue_LoadMenuHeader:
 .show_menu
 	call _OffsetMenuHeader
 	call MenuBox
-	call PlaceVerticalMenuItems
-	ret
+	jp PlaceVerticalMenuItems
 
 .MenuHeader_Dex:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 17, 9
+else
 	menu_coords 0, 0, 15, 9
+endc
 	dw .MenuData_Dex
 	db 1 ; default option
 
 .MenuData_Dex:
 	db 0 ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "JOUEUR@"
+	db "BADGES@"
+	db "#DEX@"
+	db "DUREE JEU@"
+else
 	db "PLAYER@"
 	db "BADGES@"
 	db "#DEX@"
 	db "TIME@"
+endc
 
 .MenuHeader_NoDex:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 17, 9
+else
 	menu_coords 0, 0, 15, 9
+endc
 	dw .MenuData_NoDex
 	db 1 ; default option
 
 .MenuData_NoDex:
 	db 0 ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "JOUEUR@"
+	db "BADGES@"
+	db " @"
+	db "DUREE JEU@"
+else
 	db "PLAYER <PLAYER>@"
 	db "BADGES@"
 	db " @"
 	db "TIME@"
+endc
 
 Continue_DisplayBadgesDexPlayerName:
 	call MenuBoxCoord2Tile
 	push hl
+if DEF(_FR_FR)
+	decoord 15, 4, 0
+else
 	decoord 13, 4, 0
+endc
 	add hl, de
 	call Continue_DisplayBadgeCount
 	pop hl
 	push hl
+if DEF(_FR_FR)
+	decoord 14, 6, 0
+else
 	decoord 12, 6, 0
+endc
 	add hl, de
 	call Continue_DisplayPokedexNumCaught
 	pop hl
 	push hl
+if DEF(_FR_FR)
+	decoord 10, 2, 0
+else
 	decoord 8, 2, 0
+endc
 	add hl, de
 	ld de, .Player
 	call PlaceString
@@ -622,13 +685,21 @@ Continue_DisplayBadgesDexPlayerName:
 	db "<PLAYER>@"
 
 Continue_PrintGameTime:
+if DEF(_FR_FR)
+	decoord 11, 8, 0
+else
 	decoord 9, 8, 0
+endc
 	add hl, de
 	call Continue_DisplayGameTime
 	ret
 
 Continue_UnknownGameTime:
+if DEF(_FR_FR)
+	decoord 11, 8, 0
+else
 	decoord 9, 8, 0
+endc
 	add hl, de
 	ld de, .three_question_marks
 	call PlaceString
@@ -830,16 +901,11 @@ NamePlayer:
 .Chris:
 	db "CHRIS@@@@@@"
 .Kris:
+if DEF(_FR_FR)
+	db "CHRISTY@@@@"
+else
 	db "KRIS@@@@@@@"
-
-GSShowPlayerNamingChoices: ; unreferenced
-	call LoadMenuHeader
-	call VerticalMenu
-	ld a, [wMenuCursorY]
-	dec a
-	call CopyNameFromMenu
-	call CloseWindow
-	ret
+endc
 
 StorePlayerName:
 	ld a, "@"
@@ -1470,7 +1536,15 @@ Continue_DisplayYear::
 	ret
 
 .JanuaryText:
+if DEF(_FR_FR)
+	db "Janvier@"
+else
 	db "January@"
+endc
 
 .MarchText:
+if DEF(_FR_FR)
+	db "  Mars@"
+else
 	db " March@"
+endc
