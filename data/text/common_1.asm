@@ -230,8 +230,6 @@ if DEF(_FR_FR)
 	sound_dex_fanfare_50_79 ; plays SFX_DEX_FANFARE_50_79, identical to SFX_LEVEL_UP
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wStringBuffer1
 	text " grew to"
@@ -241,8 +239,6 @@ else
 	sound_dex_fanfare_50_79 ; plays SFX_DEX_FANFARE_50_79, identical to SFX_LEVEL_UP
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _CameToItsSensesText::
@@ -474,110 +470,8 @@ _OakTimeIsItText::
 if DEF(_FR_FR)
 	text "?"
 	done
-	
-	; Mobile Adapter
-	
-	_ThereIsNothingConnectedText:: ; unreferenced
-	text "Rien n'est"
-	line "connecté."
-	done
-	
-	_CheckCellPhoneAdapterText:: ; unreferenced
-	text_start
-	done
-	
-	_CheckCDMAAdapterText:: ; unreferenced
-	text_start
-	done
-	
-	_CheckDOCOMOPHSAdapterText:: ; unreferenced
-	text_start
-	done
-	
-	_CheckDDIPHSAdapterText:: ; unreferenced
-	text_start
-	done
-	
-	_CheckMobileAdapterText:: ; unreferenced
-	text_start
-	done
-	
-	; Mobile Adapter End
-	
-	_ThePasswordIsText:: ; unreferenced
-	text "Mot de passe:"
-	line ""
-	done
-	
-	_IsThisOKText:: ; unreferenced
-	text "OK?"
-	done
-	
-	_EnterTheIDNoText:: ; unreferenced
-	text "Entrer le"
-	line "no. ID."
-	done
-	
-	_EnterTheAmountText:: ; unreferenced
-	text "Entrer le"
-	line "montant."
-	done
 else
 	text ", is it?"
-	done
-	
-	; Mobile Adapter
-	
-	_ThereIsNothingConnectedText:: ; unreferenced
-	text "There is nothing"
-	line "connected."
-	done
-	
-	_CheckCellPhoneAdapterText:: ; unreferenced
-	text "Check cell phone"
-	line "adapter."
-	done
-	
-	_CheckCDMAAdapterText:: ; unreferenced
-	text "Check CDMA"
-	line "adapter."
-	done
-	
-	_CheckDOCOMOPHSAdapterText:: ; unreferenced
-	text "Check DOCOMO PHS"
-	line "adapter."
-	done
-	
-	_CheckDDIPHSAdapterText:: ; unreferenced
-	text "Check DDI PHS"
-	line "adapter."
-	done
-	
-	_CheckMobileAdapterText:: ; unreferenced
-	text "Check unlimited"
-	line "battle mobile"
-	cont "adapter."
-	done
-	
-	; Mobile Adapter End
-	
-	_ThePasswordIsText:: ; unreferenced
-	text "The password is:"
-	line ""
-	done
-	
-	_IsThisOKText:: ; unreferenced
-	text "Is this OK?"
-	done
-	
-	_EnterTheIDNoText:: ; unreferenced
-	text "Enter the"
-	line "ID no."
-	done
-	
-	_EnterTheAmountText:: ; unreferenced
-	text "Enter the"
-	line "amount."
 	done
 endc
 
@@ -914,16 +808,12 @@ if DEF(_FR_FR)
 	line "ger @"
 	text_ram wOTTrademonSpeciesName
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wOTTrademonSenderName
 	text " will"
 	line "trade @"
 	text_ram wOTTrademonSpeciesName
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _ForYourMonWillTradeText::
@@ -952,16 +842,12 @@ if DEF(_FR_FR)
 	line "ger @"
 	text_ram wPlayerTrademonSpeciesName
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wPlayerTrademonSenderName
 	text " will"
 	line "trade @"
 	text_ram wPlayerTrademonSpeciesName
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _MobileForPartnersMonText::
@@ -1105,15 +991,11 @@ if DEF(_FR_FR)
 	line "CHEN: @"
 	text_ram wMonOrItemNameBuffer
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_start
 	line "OAK: @"
 	text_ram wMonOrItemNameBuffer
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _OPT_OakText2::
@@ -1140,8 +1022,6 @@ if DEF(_FR_FR)
 	line "LULA: @"
 	text_ram wStringBuffer1
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_start
 	line "MARY: @"
@@ -1826,8 +1706,6 @@ if DEF(_FR_FR)
 	text " @"
 	text_ram wStringBuffer2
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_start
 	line "@"
@@ -1835,8 +1713,6 @@ else
 	text " @"
 	text_ram wStringBuffer1
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _PnP_CuteText::
@@ -2383,108 +2259,6 @@ if DEF(_FR_FR)
 	text_ram wEnemyMonNickname
 	text "!"
 	prompt
-	
-	_ThatCantBeUsedRightNowText:: ; unreferenced
-	text "C'est inutilisable"
-	line "pour l'instant."
-	prompt
-	
-	_ThatItemCantBePutInThePackText:: ; unreferenced
-	text "Cet objet n'entre"
-	line "pas dans le SAC."
-	done
-	
-	_TheItemWasPutInThePackText:: ; unreferenced
-	text_ram wStringBuffer1
-	text_start
-	line "va dans le SAC."
-	done
-	
-	_RemainingTimeText:: ; unreferenced
-	text "Temps restant"
-	done
-	
-	_YourMonsHPWasHealedText:: ; unreferenced
-	text "PV du #MON"
-	line "restaurés."
-	prompt
-	
-	_WarpingText:: ; unreferenced
-	text "Téléportation..."
-	done
-	
-	_ChangeWhichNumberText:: ; unreferenced
-	text "Quel chiffre doit"
-	line "être modifié?"
-	done
-	
-	_WillYouPlayWithMonText:: ; unreferenced
-	text "Jouer avec"
-	line "@"
-	text_ram wStringBuffer2
-	text "?"
-	done
-	
-	_YouNeedTwoMonForBreedingText:: ; unreferenced
-	text "Il faut 2 #MON"
-	line "pour l'élevage."
-	prompt
-	
-	_BreedingIsNotPossibleText:: ; unreferenced
-	text "Elevage"
-	line "impossible."
-	prompt
-	
-	_CompatibilityShouldTheyBreedText:: ; unreferenced
-	text "L'entente est de"
-	line "@"
-	text_decimal wBreedingCompatibility, 1, 3
-	text "."
-	cont "Les accoupler?"
-	done
-	
-	_ThereIsNoEggText:: ; unreferenced
-	text "Pas d'OEUF."
-	line ""
-	prompt
-	
-	_ItsGoingToHatchText:: ; unreferenced
-	text "Il va éclore!"
-	prompt
-	
-	_TestEventText:: ; unreferenced
-	text "Tester"
-	line "@"
-	text_decimal wStringBuffer2, 1, 2
-	text "?"
-	done
-	
-	_StartText:: ; unreferenced
-	text "C'est parti!"
-	done
-	
-	_EndText:: ; unreferenced
-	text "C'est fini!"
-	done
-	
-	_ForABoyText:: ; unreferenced
-	text "Pour un garçon!"
-	done
-	
-	_ForAGirlText:: ; unreferenced
-	text "Pour une fille!"
-	done
-	
-	_DoesntConcernABoyText:: ; unreferenced
-	text "Ce n'est pas pour"
-	line "un garçon!"
-	done
-	
-	_TheBoxIsFullText:: ; unreferenced
-	text "BOITE pleine!"
-	done
-	
-	; Mobile Adapter
 else
 	text "<ENEMY>"
 	line "used @"
@@ -2494,111 +2268,6 @@ else
 	text_ram wEnemyMonNickname
 	text "!"
 	prompt
-	
-	_ThatCantBeUsedRightNowText:: ; unreferenced
-	text "That can't be used"
-	line "right now."
-	prompt
-	
-	_ThatItemCantBePutInThePackText:: ; unreferenced
-	text "That item can't be"
-	line "put in the PACK."
-	done
-	
-	_TheItemWasPutInThePackText:: ; unreferenced
-	text "The @"
-	text_ram wStringBuffer1
-	text_start
-	line "was put in the"
-	cont "PACK."
-	done
-	
-	_RemainingTimeText:: ; unreferenced
-	text "Remaining Time"
-	done
-	
-	_YourMonsHPWasHealedText:: ; unreferenced
-	text "Your #MON's HP"
-	line "was healed."
-	prompt
-	
-	_WarpingText:: ; unreferenced
-	text "Warping…"
-	done
-	
-	_ChangeWhichNumberText:: ; unreferenced
-	text "Which number"
-	line "should be changed?"
-	done
-	
-	_WillYouPlayWithMonText:: ; unreferenced
-	text "Will you play with"
-	line "@"
-	text_ram wStringBuffer2
-	text "?"
-	done
-	
-	_YouNeedTwoMonForBreedingText:: ; unreferenced
-	text "You need two #-"
-	line "MON for breeding."
-	prompt
-	
-	_BreedingIsNotPossibleText:: ; unreferenced
-	text "Breeding is not"
-	line "possible."
-	prompt
-	
-	_CompatibilityShouldTheyBreedText:: ; unreferenced
-	text "The compatibility"
-	line "is @"
-	text_decimal wBreedingCompatibility, 1, 3
-	text "."
-	cont "Should they breed?"
-	done
-	
-	_ThereIsNoEggText:: ; unreferenced
-	text "There is no EGG."
-	line ""
-	prompt
-	
-	_ItsGoingToHatchText:: ; unreferenced
-	text "It's going to"
-	line "hatch!"
-	prompt
-	
-	_TestEventText:: ; unreferenced
-	text "Test event"
-	line "@"
-	text_decimal wStringBuffer2, 1, 2
-	text "?"
-	done
-	
-	_StartText:: ; unreferenced
-	text "Start!"
-	done
-	
-	_EndText:: ; unreferenced
-	text "End!"
-	done
-	
-	_ForABoyText:: ; unreferenced
-	text "For a boy!"
-	done
-	
-	_ForAGirlText:: ; unreferenced
-	text "For a girl!"
-	done
-	
-	_DoesntConcernABoyText:: ; unreferenced
-	text "This doesn't"
-	line "concern a boy!"
-	done
-	
-	_TheBoxIsFullText:: ; unreferenced
-	text "The BOX is full!"
-	done
-	
-	; Mobile Adapter
 endc
 
 _NewCardArrivedText::
@@ -2658,35 +2327,8 @@ _ClosingLinkText::
 if DEF(_FR_FR)
 	text_start
 	done
-	
-	_ClearTimeLimitText:: ; unreferenced
-	text_start
-	done
-	
-	_TimeLimitWasClearedText:: ; unreferenced
-	text_start
-	done
-	
-	_PickErrorPacketText:: ; unreferenced
-	text_start
-	done
 else
 	text "Closing link."
-	done
-	
-	_ClearTimeLimitText:: ; unreferenced
-	text "Clear the time"
-	line "limit?"
-	done
-	
-	_TimeLimitWasClearedText:: ; unreferenced
-	text "The time limit was"
-	line "cleared."
-	done
-	
-	_PickErrorPacketText:: ; unreferenced
-	text "Pick which packet"
-	line "as an error?"
 	done
 endc
 
@@ -2699,13 +2341,6 @@ if DEF(_FR_FR)
 	text_ram wStringBuffer1
 	text "…"
 	done
-	
-	; Mobile Adapter End
-	
-	_ObtainedTheVoltorbBadgeText:: ; unreferenced
-	text "VOLTORBBADGE"
-	line "obtenu!"
-	done
 else
 	text "Trading @"
 	text_ram wStringBuffer2
@@ -2713,13 +2348,6 @@ else
 	line "for @"
 	text_ram wStringBuffer1
 	text "…"
-	done
-	
-	; Mobile Adapter End
-	
-	_ObtainedTheVoltorbBadgeText:: ; unreferenced
-	text "Obtained the"
-	line "VOLTORBBADGE!"
 	done
 endc
 
@@ -2852,8 +2480,6 @@ if DEF(_FR_FR)
 	sound_item
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wPlayerName
 	text " received"
@@ -2863,8 +2489,6 @@ else
 	sound_item
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _NoCoinsText::

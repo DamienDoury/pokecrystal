@@ -695,15 +695,11 @@ if DEF(_FR_FR)
 	line "les environs!@"
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "A blinding FLASH"
 	line "lights the area!@"
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _AutoFlashText:: ; TO TRANSLATE
@@ -1493,8 +1489,6 @@ else
 	line "@"
 	text_ram wStringBuffer2
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _BattleStatWentWayUpText::
@@ -1529,8 +1523,6 @@ else
 	line "@"
 	text_ram wStringBuffer2
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _BattleStatSharplyFellText::
@@ -1736,8 +1728,6 @@ if DEF(_FR_FR)
 	sound_caught_mon
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wStringBuffer1
 	text " came"
@@ -1745,8 +1735,6 @@ else
 	sound_caught_mon
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _BreedAskNicknameText::
@@ -1942,56 +1930,10 @@ if DEF(_FR_FR)
 	line "de la BOITE AUX"
 	cont "LETTRES."
 	prompt
-	
-	_YesPromptText:: ; unreferenced
-	text "Oui"
-	prompt
-	
-	_NoPromptText:: ; unreferenced
-	text "Non"
-	prompt
-	
-	_AnimationTypeText:: ; unreferenced
-	text_decimal wcf64, 1, 3
-	text " @"
-	text_ram wStringBuffer1
-	text_start
-	line "Type animation @"
-	text_ram wStringBuffer2
-	text_end
-	
-	text_end ; unreferenced
-	
-	_MonNumberText:: ; unreferenced
-	text "Numéro #MON?"
-	done
 else
 	text "The MAIL was moved"
 	line "from the MAILBOX."
 	prompt
-	
-	_YesPromptText:: ; unreferenced
-	text "Yes"
-	prompt
-	
-	_NoPromptText:: ; unreferenced
-	text "No"
-	prompt
-	
-	_AnimationTypeText:: ; unreferenced
-	text_decimal wcf64, 1, 3
-	text " @"
-	text_ram wStringBuffer1
-	text_start
-	line "Animation type @"
-	text_ram wStringBuffer2
-	text_end
-	
-	text_end ; unreferenced
-	
-	_MonNumberText:: ; unreferenced
-	text "#MON number?"
-	done
 endc
 
 _WasSentToBillsPCText::
@@ -2258,8 +2200,6 @@ if DEF(_FR_FR)
 	text_ram wMagikarpRecordHoldersName
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "CURRENT RECORD"
 	
@@ -2270,8 +2210,6 @@ else
 	text_ram wMagikarpRecordHoldersName
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _LuckyNumberMatchPartyText::
@@ -2820,38 +2758,9 @@ if DEF(_FR_FR)
 	text "Connexion au PC du"
 	line "PROF.CHEN coupée."
 	done
-	
-	_TrainerRankingExplanationText:: ; unreferenced
-	text_start
-	done
-	
-	_TrainerRankingNoDataText:: ; unreferenced
-	text_start
-	done
 else
 	text "The link to PROF."
 	line "OAK's PC closed."
-	done
-	
-	_TrainerRankingExplanationText:: ; unreferenced
-	text "Triple-theme"
-	line "trainer ranking!"
-	
-	para "The SAVE file you"
-	line "just sent might"
-	cont "make the rankings!"
-	
-	para ""
-	done
-	
-	_TrainerRankingNoDataText:: ; unreferenced
-	text "There is no"
-	line "ranking data."
-	
-	para "Link to obtain"
-	line "ranking data."
-	
-	para ""
 	done
 endc
 

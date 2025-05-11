@@ -399,20 +399,10 @@ if DEF(_FR_FR)
 	cont "les données sont"
 	cont "sauvegardées. OK?"
 	done
-	
-	_WindowAreaExceededErrorText:: ; unreferenced
-	text "L'espace de sauve-"
-	line "garde est dépassé."
-	done
 else
 	text "Each time you move"
 	line "a #MON, data"
 	cont "will be saved. OK?"
-	done
-	
-	_WindowAreaExceededErrorText:: ; unreferenced
-	text "The window save"
-	line "area was exceeded."
 	done
 endc
 
@@ -421,18 +411,10 @@ if DEF(_FR_FR)
 	text "Pas de fenêtre"
 	line "pour apparition."
 	done
-	
-	_CorruptedEventText:: ; unreferenced
-	text "Cas corrompu!"
-	prompt
 else
 	text "No windows avail-"
 	line "able for popping."
 	done
-	
-	_CorruptedEventText:: ; unreferenced
-	text "Corrupted event!"
-	prompt
 endc
 
 _ObjectEventText::
@@ -848,15 +830,11 @@ if DEF(_FR_FR)
 	line "Votre @"
 	text_ram wStringBuffer2
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "Congratulations!"
 	line "Your @"
 	text_ram wStringBuffer2
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _EvolvedIntoText::
@@ -1845,16 +1823,8 @@ _PhoneThankYouText::
 if DEF(_FR_FR)
 	text "Merci!"
 	done
-	
-	_SpaceSpaceColonText:: ; unreferenced
-	text "  :"
-	done
 else
 	text "Thank you!"
-	done
-	
-	_SpaceSpaceColonText:: ; unreferenced
-	text "  :"
 	done
 endc
 
@@ -1924,8 +1894,6 @@ if DEF(_FR_FR)
 	sound_dex_fanfare_50_79
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wMonOrItemNameBuffer
 	text " learned"
@@ -1935,8 +1903,6 @@ else
 	sound_dex_fanfare_50_79
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _MoveAskForgetText::
@@ -2045,14 +2011,10 @@ if DEF(_FR_FR)
 	text "1, 2 et...@"
 	text_pause
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "1, 2 and…@"
 	text_pause
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _MoveForgotText::
@@ -2511,8 +2473,6 @@ if DEF(_FR_FR)
 	line "est attrapé!@"
 	sound_caught_mon
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "Gotcha! @"
 	text_ram wEnemyMonNickname
@@ -2520,8 +2480,6 @@ else
 	line "was caught!@"
 	sound_caught_mon
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _WaitButtonText::
@@ -2551,8 +2509,6 @@ if DEF(_FR_FR)
 	sound_slot_machine_start
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text_ram wEnemyMonNickname
 	text "'s data"
@@ -2561,8 +2517,6 @@ else
 	sound_slot_machine_start
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _AskGiveNicknameText::
@@ -2656,15 +2610,11 @@ if DEF(_FR_FR)
 	line "#FLUTE.@"
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "<PLAYER> played the"
 	line "# FLUTE.@"
 	text_promptbutton
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _BlueCardBalanceText::
@@ -2688,15 +2638,11 @@ if DEF(_FR_FR)
 	line "@"
 	text_decimal wCoins, 2, 4
 	text_end
-	
-	text_end ; unreferenced
 else
 	text "Coins:"
 	line "@"
 	text_decimal wCoins, 2, 4
 	text_end
-	
-	text_end ; unreferenced
 endc
 
 _RaiseThePPOfWhichMoveText::
