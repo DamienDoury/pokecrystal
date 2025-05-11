@@ -393,7 +393,11 @@ InitPokegearTilemap::
 .year
 	db "202@"
 .contactTracing
-	db "CONTACT TRACING ON@"
+if DEF(_FR_FR)
+	db "TRAçAGE CONTACTS@"
+else
+	db " CONTACT TRACING@"
+endc
 
 .months
 	dw .January

@@ -12,6 +12,17 @@ NonTrainerCallerNames:
 	dw .buena
 	assert_table_length NUM_NONTRAINER_PHONECONTACTS + 1
 
+if DEF(_FR_FR)
+.none:     db "----------@"
+.mom:      db "MAMAN:@"
+.bill:     db "LEO:@"
+.elm:      db "PROF.ORME:@"
+.bikeshop: db "CYCLES A GOGO:@"
+.hospital: db "INFIRMIERE JOELLE:<LF>      HOPITAL@"
+.creator:  db "NUMERO CACHé:@"
+.tracing:  db "TRAçAGE CONTACTS:@"
+.buena:    db "BUENA:<LF>   DJ@"
+else
 .none:     db "----------@"
 .mom:      db "MOM:@"
 .bill:     db "BILL:@"
@@ -21,3 +32,4 @@ NonTrainerCallerNames:
 .creator:  db "HIDDEN NUMBER:@"
 .tracing:  db "CONTACT TRACING:@"
 .buena:    db "BUENA:<LF>   DISC JOCKEY@"
+endc

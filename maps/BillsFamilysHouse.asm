@@ -61,7 +61,11 @@ BillScript:
 	end
 
 .contactTracingCardText
+if DEF(_FR_FR)
+	db "TRAçAGE CONTACTS@"
+else
 	db "CONTACT TRACING@"
+endc
 
 BillsMomScript:
 	checkevent EVENT_MET_BILL
