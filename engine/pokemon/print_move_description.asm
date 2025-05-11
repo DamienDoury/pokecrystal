@@ -1,7 +1,7 @@
 PrintMoveFullDescription:
 	push hl
 
-	bccoord 11, 0, 0
+	bccoord 10, 0, 0
 	add hl, bc
 	;hlcoord 12, 1
 	ld de, String_MoveAtk_
@@ -9,7 +9,7 @@ PrintMoveFullDescription:
 
 	pop hl
 	push hl
-	bccoord 11, 1, 0
+	bccoord 10, 1, 0
 	add hl, bc
 	;hlcoord 12, 2
 	ld de, String_MoveAcc_
@@ -115,9 +115,19 @@ PrintMoveDescription:
 	jp PlaceString
 
 String_MoveAtk_:
+if DEF(_FR_FR)
+	db "PUIS/@"
+else
 	db "POW/@"
+endc
+
 String_MoveAcc_:
+if DEF(_FR_FR)
+	db "PREC/@"
+else
 	db "ACC/@"
+endc
+
 String_MoveNoPower_:
 	db "---@"
 
