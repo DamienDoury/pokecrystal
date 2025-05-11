@@ -126,19 +126,24 @@ Buena:
 	closetext
 	turnobject RADIOTOWER2F_BUENA, RIGHT
 	readvar VAR_FACING
-	ifnotequal RIGHT, .DontNeedToMove
+	ifnotequal RIGHT, .ShortWalk
 	applymovement PLAYER, RadioTower2FPlayerWalksToMicrophoneMovement
-.DontNeedToMove:
-	turnobject PLAYER, RIGHT
+	sjump .SittingInFrontOfBuena
+
+.ShortWalk:
+	applymovement PLAYER, RadioTower2FPlayerWalksToMicrophoneMovement2
+.SittingInFrontOfBuena:
+	applymovement RADIOTOWER2F_BUENA, RadioTower2FStompRightMovement
 	opentext
 	writetext RadioTower2FBuenaEveryoneSayPasswordText
 	waitbutton
 	closetext
-	turnobject RADIOTOWER2F_BUENA, DOWN
 	refreshscreen
 	special BuenasPassword
 	closetext
 	iffalse .WrongAnswer
+
+	applymovement RADIOTOWER2F_BUENA, RadioTower2FStompRightMovement
 	opentext
 	writetext RadioTower2FBuenaCorrectAnswerText
 	waitbutton
@@ -343,6 +348,19 @@ RadioTower2FBookshelf:
 RadioTower2FPlayerWalksToMicrophoneMovement:
 	slow_step DOWN
 	slow_step RIGHT
+	slow_step DOWN
+	slow_step RIGHT
+RadioTower2FPlayerWalksToMicrophoneMovement2:
+	slow_step RIGHT
+	slow_step RIGHT
+	slow_step RIGHT
+	slow_step UP
+	turn_head LEFT
+	step_end
+
+RadioTower2FStompRightMovement:
+	turn_step RIGHT
+	step_bump
 	step_end
 
 RadioTower2FSuperNerdText:
