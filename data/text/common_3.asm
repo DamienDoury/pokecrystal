@@ -2810,16 +2810,6 @@ else
 	done
 endc
 
-_ItemUsedButNopeText:: ; TO TRANSLATE
-	text "MEWTWO won't"
-	line "let you use this."
-	done
-
-_MewtwoRetreatText:: ; TO TRANSLATE
-	text "MEWTWO"
-	line "retreats."
-	done
-
 _KnowsMoveText::
 if DEF(_FR_FR)
 	text_ram wStringBuffer1

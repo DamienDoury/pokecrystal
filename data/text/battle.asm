@@ -137,6 +137,28 @@ else
 	prompt
 endc
 
+_ItemUsedButNopeText::
+if DEF(_FR_FR)
+	text "MEWTWO ne laissera"
+	line "pas faire ça."
+	done
+else
+	text "MEWTWO won't"
+	line "let you use this."
+	done
+endc
+
+_MewtwoRetreatText::
+if DEF(_FR_FR)
+	text "MEWTWO"
+	line "se retire."
+	done
+else
+	text "MEWTWO"
+	line "retreats."
+	done
+endc
+
 BattleText_EnemyFled:
 if DEF(_FR_FR)
 	text "Le @"
@@ -221,9 +243,9 @@ endc
 
 PeltedByHailText:
 if DEF(_FR_FR)
-	text "<USER> est"
-	line "blessé par la"
-	cont "GRELE!"
+	text "<USER>"
+	line "est blessé par"
+	cont "la GRELE!"
 	prompt
 else
 	text "<USER>"
@@ -714,8 +736,8 @@ endc
 
 BattleText_UserCaughtInStickyWeb:
 if DEF(_FR_FR)
-	text "<USER> est"
-	line "pris dans une"
+	text "<USER>"
+	line "est pris dans une"
 	cont "TOILE GLUANTE!"
 	prompt
 else
@@ -1594,7 +1616,7 @@ if DEF(_FR_FR)
 	text "<USER> est"
 	line "entré en contact"
 	cont "avec le pollen sur"
-	cont "<TARGET>..."
+	cont "<TARGET>."
 	prompt
 else
 	text "<USER> got in"

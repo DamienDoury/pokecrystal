@@ -345,11 +345,19 @@ PlaceBattlersName:
 	jr PlaceCommandCharacter
 
 .enemy
+if DEF(_FR_FR)
+	ld de, wEnemyMonNickname
+	call PlaceString
+	ld h, b
+	ld l, c
+	ld de, EnemyText
+else
 	ld de, EnemyText
 	call PlaceString
 	ld h, b
 	ld l, c
 	ld de, wEnemyMonNickname
+endc
 	jr PlaceCommandCharacter
 
 PlaceEnemysName::
@@ -405,6 +413,18 @@ PlaceCommandCharacter::
 	pop de
 	jp NextChar
 
+if DEF(_FR_FR)
+TMCharText::      db "CT@"
+TrainerCharText:: db "DRESSEUR@"
+PCCharText::      db "PC@"
+RocketCharText::  db "ROCKET@"
+PlacePOKeText::   db "POKé@"
+KougekiText::     db "こうげき@"
+SixDotsCharText:: db "……@"
+EnemyText::       db " ennemi@"
+
+else
+
 TMCharText::      db "TM@"
 TrainerCharText:: db "TRAINER@"
 PCCharText::      db "PC@"
@@ -413,6 +433,8 @@ PlacePOKeText::   db "POKé@"
 KougekiText::     db "こうげき@"
 SixDotsCharText:: db "……@"
 EnemyText::       db "Enemy @"
+endc
+
 PlacePKMNText::   db "<PK><MN>@"
 PlacePOKEText::   db "<PO><KE>@"
 String_Space::    db " @"
