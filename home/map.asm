@@ -1433,6 +1433,10 @@ LoadTilesetGFX::
 	ld bc, $60 tiles
 	call CopyBytes
 
+if DEF(_FR_FR)
+	farcall LocalizeTileset_vTiles2
+endc
+
 	ldh a, [rVBK]
 	push af
 	ld a, BANK(vTiles5)
@@ -1442,6 +1446,10 @@ LoadTilesetGFX::
 	ld de, vTiles5
 	ld bc, $60 tiles
 	call CopyBytes
+
+if DEF(_FR_FR)
+	farcall LocalizeTileset_vTiles5
+endc
 
 	pop af
 	ldh [rVBK], a

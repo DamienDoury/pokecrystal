@@ -52,7 +52,7 @@ ByteFill::
 	ret
 
 GetFarByte::
-; retrieve a single byte from a:hl, and return it in a.
+; retrieve a single byte from a:hl, and return it in A and hFarByte.
 	; bankswitch to new bank
 	ldh [hTempBank], a
 	ldh a, [hROMBank]

@@ -102,6 +102,7 @@ SECTION "Roofs", ROMX
 
 INCLUDE "engine/tilesets/mapgroup_roofs.asm"
 INCLUDE "engine/overworld/player_object.asm"
+INCLUDE "engine/gfx/localize_tileset.asm"
 
 
 SECTION "Clock Reset", ROMX
