@@ -76,11 +76,19 @@ _BillsPC:
 	dw .strings
 
 .strings
+if DEF(_FR_FR)
+	db "RETIRER <PK><MN>@"
+	db "STOCKER <PK><MN>@"
+	db "CHANGER BOITE@"
+	db "DEP.<PK><MN> SNS LETTRE@"
+	db "SALUT!@"
+else
 	db "WITHDRAW <PK><MN>@"
 	db "DEPOSIT <PK><MN>@"
 	db "CHANGE BOX@"
 	db "MOVE <PK><MN> W/O MAIL@"
 	db "SEE YA!@"
+endc
 
 .Jumptable:
 	dw BillsPC_WithdrawMenu

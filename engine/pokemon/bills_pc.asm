@@ -238,10 +238,17 @@ BillsPCDepositMenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "STOCKER@"
+	db "STATS@"
+	db "RELACHER@"
+	db "RETOUR@"
+else
 	db "DEPOSIT@"
 	db "STATS@"
 	db "RELEASE@"
 	db "CANCEL@"
+endc
 
 BillsPCClearThreeBoxes: ; unreferenced
 	hlcoord 0, 0
@@ -495,10 +502,17 @@ BillsPC_Withdraw:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "RETIRER@"
+	db "STATS@"
+	db "RELACHER@"
+	db "RETOUR@"
+else
 	db "WITHDRAW@"
 	db "STATS@"
 	db "RELEASE@"
 	db "CANCEL@"
+endc
 
 _MovePKMNWithoutMail:
 	ld hl, wOptions
@@ -705,9 +719,15 @@ _MovePKMNWithoutMail:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "ORDRE@"
+	db "STATS@"
+	db "RETOUR@"
+else
 	db "MOVE@"
 	db "STATS@"
 	db "CANCEL@"
+endc
 
 .PrepInsertCursor:
 	xor a
@@ -1042,7 +1062,11 @@ BillsPC_BoxName:
 	ret
 
 .PartyPKMN:
+if DEF(_FR_FR)
+	db "EQUIPE<PK><MN>@"
+else
 	db "PARTY <PK><MN>@"
+endc
 
 PCMonInfo:
 ; Display a monster's pic and
@@ -1289,7 +1313,11 @@ BillsPC_RefreshTextboxes:
 	ret
 
 .CancelString:
+if DEF(_FR_FR)
+	db "RETOUR@"
+else
 	db "CANCEL@"
+endc
 
 .PlaceNickname:
 	ld a, [de]
@@ -2009,6 +2037,15 @@ DepositPokemon:
 	call Textbox
 	call WaitBGMap
 	hlcoord 1, 16
+
+if DEF(_FR_FR)
+	ld de, wStringBuffer1
+	call PlaceString
+	ld l, c
+	ld h, b
+	ld de, PCString_Stored
+	call PlaceString
+else
 	ld de, PCString_Stored
 	call PlaceString
 	ld l, c
@@ -2017,6 +2054,8 @@ DepositPokemon:
 	call PlaceString
 	ld a, "!"
 	ld [bc], a
+endc
+
 	ld c, 50
 	call DelayFrames
 	and a
@@ -2130,6 +2169,15 @@ TryWithdrawPokemon:
 	call Textbox
 	call WaitBGMap
 	hlcoord 1, 16
+
+if DEF(_FR_FR)
+	ld de, wStringBuffer1
+	call PlaceString
+	ld l, c
+	ld h, b
+	ld de, PCString_Got
+	call PlaceString
+else
 	ld de, PCString_Got
 	call PlaceString
 	ld l, c
@@ -2138,6 +2186,8 @@ TryWithdrawPokemon:
 	call PlaceString
 	ld a, "!"
 	ld [bc], a
+endc
+
 	ld c, 50
 	call DelayFrames
 	and a
@@ -2247,7 +2297,11 @@ MovePKMNWitoutMail_InsertMon:
 	ret
 
 .Saving_LeaveOn:
+if DEF(_FR_FR)
+	db "Sauv.:patientez.@"
+else
 	db "Saving… Leave ON!@"
+endc
 
 .Jumptable:
 	dw .BoxToBox
@@ -2491,6 +2545,25 @@ BillsPC_InitGFX:
 PCSelectLZ: INCBIN "gfx/pc/pc.2bpp.lz"
 PCMailGFX:  INCBIN "gfx/pc/pc_mail.2bpp"
 
+if DEF(_FR_FR)
+PCString_ChooseaPKMN: db "Choisir un <PK><MN>.@"
+PCString_WhatsUp: db "Que faire?@"
+PCString_ReleasePKMN: db "Relâcher <PK><MN>?@"
+PCString_MoveToWhere: db "Déplacer où?@"
+PCString_ItsYourLastPKMN: db "Dernier #MON!@"
+PCString_TheresNoRoom: db "Pas de place!@"
+PCString_NoMoreUsablePKMN: db "Plus de <PK><MN> apte!@"
+PCString_RemoveMail: db "Effacer LETTRE.@"
+PCString_ReleasedPKMN: db "<PK><MN> relâché.@"
+PCString_Bye: db "Adieu@"
+PCString_Stored: db " gardé!@"
+PCString_Got: db " obtenu!@"
+PCString_BoxFull: db "BOITE pleine.@"
+PCString_PartyFull: db "EQUIPE pleine!@"
+PCString_NoReleasingEGGS: db "Impos. jeter OEUFS@"
+PCString_SilphCoProperty: db "Propriété de SILPH@"
+PCString_PikachuRefuses: db "PIKACHU refuse!@"
+else
 PCString_ChooseaPKMN: db "Choose a <PK><MN>.@"
 PCString_WhatsUp: db "What's up?@"
 PCString_ReleasePKMN: db "Release <PK><MN>?@"
@@ -2503,12 +2576,12 @@ PCString_ReleasedPKMN: db "Released <PK><MN>.@"
 PCString_Bye: db "Bye,@"
 PCString_Stored: db "Stored @"
 PCString_Got: db "Got @"
-PCString_Non: db "Non.@" ; unreferenced
 PCString_BoxFull: db "The BOX is full.@"
 PCString_PartyFull: db "The party's full!@"
 PCString_NoReleasingEGGS: db "No releasing EGGS!@"
 PCString_SilphCoProperty: db "SILPH's property!@"
 PCString_PikachuRefuses: db "PIKACHU refuses!@"
+endc
 
 _ChangeBox:
 	call LoadStandardMenuHeader
@@ -2732,7 +2805,11 @@ BillsPC_PrintBoxName:
 	ret
 
 .Current:
+if DEF(_FR_FR)
+	db "EN COURS@"
+else
 	db "CURRENT@"
+endc
 
 BillsPC_ChangeBoxSubmenu:
 	ld hl, .MenuHeader
@@ -2801,8 +2878,6 @@ BillsPC_ChangeBoxSubmenu:
 	call CopyName2
 	ret
 
-	hlcoord 11, 7 ; unreferenced
-
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
 	menu_coords 11, 4, SCREEN_WIDTH - 1, 13
@@ -2812,24 +2887,39 @@ BillsPC_ChangeBoxSubmenu:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "CHANG.@"
+	db "NOM@"
+	db "IMPRIM@"
+	db "RETOUR@"
+else
 	db "SWITCH@"
 	db "NAME@"
 	db "PRINT@"
 	db "QUIT@"
+endc
 
 BillsPC_PlaceChooseABoxString:
 	ld de, .ChooseABox
 	jr BillsPC_PlaceChangeBoxString
 
 .ChooseABox:
+if DEF(_FR_FR)
+	db "Choisir une boîte.@"
+else
 	db "Choose a BOX.@"
+endc
 
 BillsPC_PlaceWhatsUpString:
 	ld de, .WhatsUp
 	jr BillsPC_PlaceChangeBoxString
 
 .WhatsUp:
+if DEF(_FR_FR)
+	db "Que faire?@"
+else
 	db "What's up?@"
+endc
 
 BillsPC_PlaceEmptyBoxString_SFX:
 	ld de, .NoMonString
@@ -2842,7 +2932,11 @@ BillsPC_PlaceEmptyBoxString_SFX:
 	ret
 
 .NoMonString:
+if DEF(_FR_FR)
+	db "Pas de #MON!@"
+else
 	db "There's no #MON.@"
+endc
 
 BillsPC_PlaceChangeBoxString:
 	push de
