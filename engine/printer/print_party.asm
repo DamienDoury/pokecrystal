@@ -193,7 +193,7 @@ PrintPartyMonPage1:
 	hlcoord 8, 2
 	ld a, [wTempMonLevel]
 	call PrintLevel_Force3Digits
-	hlcoord 12, 2
+	hlcoord 13, 2
 	ld [hl], PRINTPARTY_HP
 	inc hl
 	ld de, wTempMonMaxHP
@@ -233,7 +233,11 @@ PrintPartyMonPage1:
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
+if DEF(_FR_FR)
+	hlcoord 1, 13
+else
 	hlcoord 1, 14
+endc
 	ld de, PrintParty_MoveString
 	call PlaceString
 	hlcoord 7, 14
@@ -346,12 +350,12 @@ PlaceGenderAndShininess:
 	ld a, "♀"
 
 .got_gender
-	hlcoord 17, 2
+	hlcoord 18, 2
 	ld [hl], a
 	ld bc, wTempMonDVs
 	farcall CheckShininess
 	ret nc
-	hlcoord 18, 2
+	hlcoord 14, 0
 	ld [hl], "⁂"
 	ret
 
