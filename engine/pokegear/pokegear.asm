@@ -1503,9 +1503,15 @@ PokegearPhoneContactSubmenu:
 .CallDeleteCancelStrings:
 	dwcoord 10, 6
 	db 3
+if DEF(_FR_FR)
+	db   "APPELER"
+	next "EFFACER"
+	next "RETOUR"
+else
 	db   "CALL"
 	next "DELETE"
 	next "CANCEL"
+endc
 	db   "@"
 
 .CallDeleteCancelJumptable:
@@ -1516,8 +1522,13 @@ PokegearPhoneContactSubmenu:
 .CallCancelStrings:
 	dwcoord 10, 8
 	db 2
+if DEF(_FR_FR)
+	db   "APPELER"
+	next "RETOUR"
+else	
 	db   "CALL"
 	next "CANCEL"
+endc
 	db   "@"
 
 .CallCancelJumptable:
@@ -1888,7 +1899,13 @@ LoadStation_BuenasPassword:
 	ld de, BuenasPasswordName
 	ret
 
-BuenasPasswordName:    db "BUENA'S PASSWORD@"
+BuenasPasswordName:   
+if DEF(_FR_FR)
+	db "CODE DE BUENA@"	
+else
+	db "BUENA'S PASSWORD@"
+endc
+
 NotBuenasPasswordName: db "@"
 
 LoadStation_UnownRadio:
@@ -2019,6 +2036,18 @@ NoRadioName:
 	call Textbox
 	ret
 
+if DEF(_FR_FR)
+OaksPKMNTalkName:     db "CHRONIQUE<PKMN> CHEN@"
+PokedexShowName:      db "Show #DEX@"
+PokemonMusicName:     db "Musique #MON@"
+LuckyChannelName:     db "Antenne Chance@"
+UnownStationName:     db "?????@"
+NoSignalName:         db "--Aucun signal--@"
+
+PlacesAndPeopleName:  db "Socio FM@"
+LetsAllSingName:      db "Chantons un peu@"
+PokeFluteStationName: db "FLUTE #MON@"
+else
 OaksPKMNTalkName:     db "OAK's <PK><MN> Talk@"
 PokedexShowName:      db "#DEX Show@"
 PokemonMusicName:     db "#MON Music@"
@@ -2029,6 +2058,7 @@ NoSignalName:         db "-- No signal --@"
 PlacesAndPeopleName:  db "Places & People@"
 LetsAllSingName:      db "Let's All Sing!@"
 PokeFluteStationName: db "# FLUTE@"
+endc
 
 _TownMap:
 	ld hl, wOptions
@@ -2457,7 +2487,11 @@ TownMapBubble:
 	ret
 
 .Where:
+if DEF(_FR_FR)
+	db "Où?@"
+else
 	db "Where?@"
+endc
 
 .Name:
 ; We need the map location of the default flypoint

@@ -39,8 +39,13 @@ PlayRadioShow:
 	jp BuenaPrintText
 
 CantHearAThing_Text:
+if DEF(_FR_FR)
+	text "- On n'entend"
+	line "rien du tout ! -"
+else
 	text "- You can't hear"
 	line "a thing! -"
+endc
 	done
 
 RadioJumptable:
@@ -172,21 +177,6 @@ PrintRadioLine:
 	ld [wCurRadioLine], a
 	ld a, 100
 	ld [wRadioTextDelay], a
-	ret
-
-ReplacePeriodsWithSpaces: ; unreferenced
-	push hl
-	ld b, SCREEN_WIDTH * 2
-.loop
-	ld a, [hl]
-	cp "."
-	jr nz, .next
-	ld [hl], " "
-.next
-	inc hl
-	dec b
-	jr nz, .loop
-	pop hl
 	ret
 
 RadioScroll:
@@ -613,7 +603,11 @@ OaksPKMNTalk12:
 	jp PlaceRadioString
 
 .pokemon_channel_string
+if DEF(_FR_FR)
+	db "Antenne #MON@"
+else
 	db "#MON Channel@"
+endc
 
 OaksPKMNTalk13:
 	ld hl, wRadioTextDelay
@@ -1781,7 +1775,11 @@ BuenasPasswordCheckTime:
 	ret
 
 BuenasPasswordChannelName:
+if DEF(_FR_FR)
+	db "CODE DE BUENA@"
+else
 	db "BUENA'S PASSWORD@"
+endc
 
 BuenaRadioText1:
 	text_far _BuenaRadioText1
