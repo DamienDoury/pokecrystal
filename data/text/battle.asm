@@ -84,16 +84,28 @@ else
 	prompt
 endc
 
-WantToBattlePluralText:: ; TO TRANSLATE
+WantToBattlePluralText::
+if DEF(_FR_FR)
+	text "<ENEMY>"
+	line "veulent se battre!"
+	prompt
+else
 	text "<ENEMY>"
 	line "want to battle!"
 	prompt
+endc
 
-WantsToApprehendText:: ; TO TRANSLATE
+WantsToApprehendText::
+if DEF(_FR_FR)
+	text "<ENEMY>"
+	line "veut vous arrêter!"
+	prompt
+else
 	text "<ENEMY>"
 	line "wants to arrest"
 	cont "you!"
 	prompt
+endc
 
 BattleText_WildFled:
 if DEF(_FR_FR)
@@ -110,12 +122,20 @@ else
 	prompt
 endc
 
-BattleText_MewtwoFled: ; TO TRANSLATE
+BattleText_MewtwoFled:
+if DEF(_FR_FR)
+	text "Le @"
+	text_ram wEnemyMonNickname
+	text " sauvage"
+	line "semble inquiet..."
+	prompt
+else
 	text "Wild @"
 	text_ram wEnemyMonNickname
 	text_start
 	line "is growing uneasy…"
 	prompt
+endc
 
 BattleText_EnemyFled:
 if DEF(_FR_FR)
@@ -199,10 +219,17 @@ else
 	prompt
 endc
 
-PeltedByHailText: ; TO TRANSLATE
+PeltedByHailText:
+if DEF(_FR_FR)
+	text "<USER> est"
+	line "blessé par la"
+	cont "GRELE!"
+	prompt
+else
 	text "<USER>"
 	line "is pelted by HAIL!"
 	prompt
+endc
 
 PerishCountText:
 if DEF(_FR_FR)
@@ -237,11 +264,18 @@ else
 	prompt
 endc
 
-BattleText_RecoveredWithGrassyTerrain: ; TO TRANSLATE
+BattleText_RecoveredWithGrassyTerrain:
+if DEF(_FR_FR)
+	text "<TARGET>"
+	line "récupère avec"
+	cont "CHAMP HERBU."
+	prompt
+else
 	text "<TARGET>"
 	line "recovered with"
 	cont "GRASSY TERRAIN."
 	prompt
+endc
 
 BattleText_UserRecoveredPPUsing:
 if DEF(_FR_FR)
@@ -326,10 +360,16 @@ else
 	prompt
 endc
 
-BattleText_TheSunlightIsStrong: ; TO TRANSLATE
+BattleText_TheSunlightIsStrong:
+if DEF(_FR_FR)
+	text "La chaleur est"
+	line "intense."
+	prompt
+else
 	text "The heat is"
 	line "intense."
 	prompt
+endc
 
 BattleText_TheSandstormRages:
 if DEF(_FR_FR)
@@ -342,10 +382,16 @@ else
 	prompt
 endc
 
-BattleText_HailContinuesToFall: ; TO TRANSLATE
+BattleText_HailContinuesToFall:
+if DEF(_FR_FR)
+	text "La GRELE continue"
+	line "de tomber."
+	prompt
+else
 	text "HAIL continues to"
 	line "fall."
 	prompt
+endc
 
 BattleText_TheRainStopped:
 if DEF(_FR_FR)
@@ -379,8 +425,13 @@ else
 	prompt
 endc
 
-BattleText_TheHailStopped: ; TO TRANSLATE
+BattleText_TheHailStopped:
+if DEF(_FR_FR)
+	text "La GRELE s'est"
+	line "arrêtée."
+else
 	text "The HAIL stopped."
+endc
 	prompt
 
 BattleText_EnemyMonFainted:
@@ -424,10 +475,16 @@ else
 	prompt
 endc
 
-BattleText_PluralEnemyWereDefeated: ; TO TRANSLATE
+BattleText_PluralEnemyWereDefeated:
+if DEF(_FR_FR)
+	text "<ENEMY>"
+	line "ont perdu!"
+	prompt
+else
 	text "<ENEMY>"
 	line "were defeated!"
 	prompt
+endc
 
 TiedAgainstText:
 if DEF(_FR_FR)
@@ -468,8 +525,13 @@ else
 	prompt
 endc
 
-SentAllToMomText: ; TO TRANSLATE
+SentAllToMomText:
+if DEF(_FR_FR)
+	text "Tout est envoyé"
+	line "à MAMAN!"
+else
 	text "Sent all to MOM!"
+endc
 	prompt
 
 BattleText_MonFainted:
@@ -485,8 +547,13 @@ else
 	prompt
 endc
 
-BattleText_UseNextMon: ; TO TRANSLATE
+BattleText_UseNextMon:
+if DEF(_FR_FR)
+	text "Utiliser le"
+	line "#MON suivant?"
+else
 	text "Use next #MON?"
+endc
 	done
 
 LostAgainstText:
@@ -523,7 +590,18 @@ else
 	done
 endc
 
-BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon: ; TO TRANSLATE
+BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon:
+if DEF(_FR_FR)
+	text "<ENEMY>"
+	line "vont utiliser"
+	cont "@"
+	text_ram wEnemyMonNickname
+	text "."
+	
+	para "Voulez-vous"
+	line "changer de PKMN?"
+	done
+else
 	text "<ENEMY>"
 	line "are about to use"
 	cont "@"
@@ -533,6 +611,7 @@ BattleText_PluralEnemyAreAboutToUseWillPlayerChangeMon: ; TO TRANSLATE
 	para "Will <PLAYER>"
 	line "change #MON?"
 	done
+endc
 
 BattleText_EnemySentOut:
 if DEF(_FR_FR)
@@ -633,10 +712,17 @@ else
 	prompt
 endc
 
-BattleText_UserCaughtInStickyWeb: ; TO TRANSLATE
+BattleText_UserCaughtInStickyWeb:
+if DEF(_FR_FR)
+	text "<USER> est"
+	line "pris dans une"
+	cont "TOILE GLUANTE!"
+	prompt
+else
 	text "<USER>'s caught"
 	line "in a STICKY WEB!"
 	prompt
+endc
 
 RecoveredUsingText:
 if DEF(_FR_FR)
@@ -671,7 +757,17 @@ else
 	prompt
 endc
 
-BattleText_ItemsCantBeUsedHere: ; TO TRANSLATE
+BattleText_ItemsCantBeUsedHere:
+if DEF(_FR_FR)
+	text "Les objets ne sont"
+	line "pas équitables"
+	cont "entre dresseurs."
+
+	para "Bats-toi avec ton"
+	line "talent, pas avec"
+	cont "ton argent!"
+	prompt
+else
 	text "Items aren't fair"
 	line "in a trainer"
 	cont "battle."
@@ -679,6 +775,7 @@ BattleText_ItemsCantBeUsedHere: ; TO TRANSLATE
 	para "Fight with skill,"
 	line "not money!"
 	prompt
+endc
 
 BattleText_MonIsAlreadyOut:
 if DEF(_FR_FR)
@@ -693,11 +790,18 @@ else
 	prompt
 endc
 
-BattleText_SwitchingForbidden: ; TO TRANSLATE
+BattleText_SwitchingForbidden:
+if DEF(_FR_FR)
+	text "Il est interdit de"
+	line "changer durant ce"
+	cont "combat!"
+	prompt
+else
 	text "Switching is"
 	line "forbidden during"
 	cont "this battle!"
 	prompt
+endc
 
 BattleText_MonCantBeRecalled:
 if DEF(_FR_FR)
@@ -759,7 +863,16 @@ else
 	prompt
 endc
 
-BattleText_StringBuffer1GrewToLevel: ; TO TRANSLATE
+BattleText_StringBuffer1GrewToLevel:
+if DEF(_FR_FR)
+	text_ram wStringBuffer1
+	text " monte"
+	line "au niveau @"
+	text_decimal wCurPartyLevel, 1, 3
+	text "!@"
+	sound_dex_fanfare_50_79
+	text_end
+else
 	text_ram wStringBuffer1
 	text " grew to"
 	line "level @"
@@ -767,6 +880,7 @@ BattleText_StringBuffer1GrewToLevel: ; TO TRANSLATE
 	text "!@"
 	sound_dex_fanfare_50_79
 	text_end
+endc
 
 BattleText_WildMonIsEating:
 if DEF(_FR_FR)
@@ -842,15 +956,28 @@ else
 	prompt
 endc
 
-ScaredText: ; TO TRANSLATE
+ScaredText:
+if DEF(_FR_FR)
+	text "<USER> n'y voit"
+	line "rien et manque"
+	cont "sa cible."
+	prompt
+else
 	text "<USER> couldn't"
 	line "see and missed."
 	prompt
+endc
 
-Scared2Text: ; TO TRANSLATE
+Scared2Text:
+if DEF(_FR_FR)
+	text "<USER> a pris"
+	line "peur et échoue."
+	prompt
+else
 	text "<USER> got"
 	line "scared and missed."
 	prompt
+endc
 
 MustRechargeText:
 if DEF(_FR_FR)
@@ -897,10 +1024,16 @@ else
 	prompt
 endc
 
-Pkrus_HurtItselfText: ; TO TRANSLATE
+Pkrus_HurtItselfText:
+if DEF(_FR_FR)
+	text "La douleur est"
+	line "insupportable."
+	prompt
+else
 	text "The ache is"
 	line "unbearable."
 	prompt
+endc
 
 ConfusedNoMoreText:
 if DEF(_FR_FR)
@@ -1069,13 +1202,22 @@ else
 	prompt
 endc
 
-HungOnText: ; TO TRANSLATE
+HungOnText:
+if DEF(_FR_FR)
+	text "<TARGET>"
+	line "tient bon grâce à"
+	cont "@"
+	text_ram wStringBuffer1
+	text "!"
+	prompt
+else
 	text "<TARGET>"
 	line "hung on with the"
 	cont "@"
 	text_ram wStringBuffer1
 	text "!"
 	prompt
+endc
 
 EnduredText:
 if DEF(_FR_FR)
@@ -1209,41 +1351,83 @@ else
 	prompt
 endc
 
-Pkrus_LoafingAroundText: ; TO TRANSLATE
+Pkrus_LoafingAroundText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " est"
+	line "épuisé..."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " is"
 	line "exhausted…"
 	prompt
+endc
 
-Pkrus_BeganToNapText: ; TO TRANSLATE
+Pkrus_BeganToNapText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " a"
+	line "besoin de repos..."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " needs"
 	line "to rest…"
 	prompt
+endc
 
-Pkrus_WontObeyText: ; TO TRANSLATE
+Pkrus_WontObeyText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " souffre"
+	line "de tout son corps."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " body"
 	line "is aching…"
 	prompt
+endc
 
-Pkrus_TurnedAwayText: ; TO TRANSLATE
+Pkrus_TurnedAwayText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " semble"
+	line "fièvreux..."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " seems"
 	line "to have a fever…"
 	prompt
+endc
 
-Pkrus_IgnoredOrdersText: ; TO TRANSLATE
+Pkrus_IgnoredOrdersText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " reprend"
+	line "son souffle..."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " catches"
 	line "its breath…"
 	prompt
+endc
 
-Pkrus_IgnoredSleepingText: ; TO TRANSLATE
+Pkrus_IgnoredSleepingText:
+if DEF(_FR_FR)
+	text_ram wBattleMonNickname
+	text " ne vous"
+	line "a pas entendu."
+	prompt
+else
 	text_ram wBattleMonNickname
 	text " didn't"
 	line "hear you."
 	prompt
+endc
 
 NoPPLeftText:
 if DEF(_FR_FR)
@@ -1405,12 +1589,20 @@ else
 	prompt
 endc
 
-ErikasSporesText: ; TO TRANSLATE
+ErikasSporesText:
+if DEF(_FR_FR)
+	text "<USER> est"
+	line "entré en contact"
+	cont "avec le pollen sur"
+	cont "<TARGET>..."
+	prompt
+else
 	text "<USER> got in"
 	line "contact with the"
 	cont "pollen on"
 	cont "<TARGET>…"
 	prompt
+endc
 
 TookDownWithItText:
 if DEF(_FR_FR)
@@ -1471,11 +1663,18 @@ else
 	prompt
 endc
 
-AnticipatedText: ; TO TRANSLATE
+AnticipatedText:
+if DEF(_FR_FR)
+	text "<USER>"
+	line "lit l'esprit de"
+	cont "son adversaire."
+	prompt
+else
 	text "<USER>"
 	line "read the enemy's"
 	cont "mind."
 	prompt
+endc
 
 SketchedText:
 if DEF(_FR_FR)
@@ -2014,10 +2213,16 @@ else
 	prompt
 endc
 
-DidntAffectText: ; TO TRANSLATE
+DidntAffectText:
+if DEF(_FR_FR)
+	text "Ca n'affecte pas"
+	line "<TARGET>!"
+	prompt
+else
 	text "It didn't affect"
 	line "<TARGET>!"
 	prompt
+endc
 
 HPIsFullText:
 if DEF(_FR_FR)
@@ -2199,11 +2404,18 @@ else
 	done
 endc
 
-AnticipatedAndAvoidedText: ; TO TRANSLATE
+AnticipatedAndAvoidedText:
+if DEF(_FR_FR)
+	text "<TARGET>"
+	line "l'a anticipé, et"
+	cont "esquive!"
+	prompt
+else
 	text "<TARGET>"
 	line "foresaw it and"
 	cont "avoided!"
 	prompt
+endc
 
 SpikesText:
 if DEF(_FR_FR)
@@ -2254,10 +2466,16 @@ else
 	prompt
 endc
 
-ItStartedToHailText: ; TO TRANSLATE
+ItStartedToHailText:
+if DEF(_FR_FR)
+	text "La GRELE commence"
+	line "à tomber!"
+	prompt
+else
 	text "It started"
 	line "to HAIL!"
 	prompt
+endc
 
 BracedItselfText:
 if DEF(_FR_FR)
@@ -2354,10 +2572,16 @@ else
 	prompt
 endc
 
-RippedStickyWebText: ; TO TRANSLATE
+RippedStickyWebText:
+if DEF(_FR_FR)
+	text "<USER> déchire"
+	line "la TOILE GLUANTE!"
+	prompt
+else
 	text "<USER> ripped"
 	line "off STICKY WEB!"
 	prompt
+endc
 
 DownpourText:
 if DEF(_FR_FR)
@@ -2460,17 +2684,34 @@ else
 	prompt
 endc
 
-BattleText_LinkErrorBattleCanceled: ; TO TRANSLATE
+BattleText_LinkErrorBattleCanceled:
+if DEF(_FR_FR)
+	text "Erreur Link..."
+
+	para "Le combat est"
+	line "annulé..."
+	prompt
+else
 	text "Link error…"
 	
 	para "The battle has"
 	line "been canceled…"
 	prompt
+endc
 
-WildPokemonAssaultText: ; TO TRANSLATE
+WildPokemonAssaultText:
+if DEF(_FR_FR)
+	text "Quoi? Le"
+	line "@"
+	text_ram wEnemyMonNickname
+	text " sauvage"
+	cont "vous agresse!"
+	prompt
+else
 	text "What?"
 	line "Wild @"
 	text_ram wEnemyMonNickname
 	text_start
 	cont "assaulted you!"
 	prompt
+endc
