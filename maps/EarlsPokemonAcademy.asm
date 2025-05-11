@@ -342,7 +342,11 @@ AcademyStatusLesson:
 
 .BlackboardMenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 12, 8
+else
 	menu_coords 0, 0, 11, 8
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -354,12 +358,21 @@ AcademyStatusLesson:
 	dbw BANK(@), NULL
 
 .Text:
+if DEF(_FR_FR)
+	db "PSN@"
+	db "PAR@"
+	db "SOM@"
+	db "BRU@"
+	db "GEL@"
+	db "RET@"
+else
 	db "PSN@"
 	db "PAR@"
 	db "SLP@"
 	db "BRN@"
 	db "FRZ@"
 	db "QUIT@"
+endc
 
 AcademyNotebook:
 	opentext

@@ -426,7 +426,11 @@ PlaceStatusString:
 	ret
 
 FntString:
+if DEF(_FR_FR)
+	db "KO @"
+else
 	db "FNT@"
+endc
 
 CopyStatusString:
 	ld a, [de]
@@ -467,11 +471,19 @@ PlaceNonFaintStatus:
 	pop de
 	ret
 
+if DEF(_FR_FR)
+SlpString: db "SOM@"
+PsnString: db "PSN@"
+BrnString: db "BRU@"
+FrzString: db "GEL@"
+ParString: db "PAR@"
+else
 SlpString: db "SLP@"
 PsnString: db "PSN@"
 BrnString: db "BRN@"
 FrzString: db "FRZ@"
 ParString: db "PAR@"
+endc
 
 ListMoves:
 ; List moves at hl, spaced every [wListMovesLineSpacing] tiles.
