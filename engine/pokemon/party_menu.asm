@@ -114,7 +114,11 @@ PlacePartyNicknames:
 	jp PlaceString
 
 .CancelString:
+if DEF(_FR_FR)
+	db "RETOUR@"
+else
 	db "CANCEL@"
+endc
 
 PlacePartyHPBar:
 	xor a
@@ -344,10 +348,18 @@ PlacePartyMonTMHMCompatibility:
 	ret
 
 .string_able
+if DEF(_FR_FR)
+	db "APTE@"
+else
 	db "ABLE@"
+endc
 
 .string_not_able
+if DEF(_FR_FR)
+	db "PAS APTE@"
+else
 	db "NOT ABLE@"
+endc
 
 PlacePartyMonEvoStoneCompatibility:
 	ld a, [wPartyCount]
@@ -420,17 +432,12 @@ PlacePartyMonEvoStoneCompatibility:
 	inc hl
 	inc hl
 	jr nz, .loop2
-	ld de, .string_able
+	ld de, PlacePartyMonTMHMCompatibility.string_able
 	ret
 
 .nope
-	ld de, .string_not_able
+	ld de, PlacePartyMonTMHMCompatibility.string_not_able
 	ret
-
-.string_able
-	db "ABLE@"
-.string_not_able
-	db "NOT ABLE@"
 
 PlacePartyMonGender:
 	ld a, [wPartyCount]
@@ -471,6 +478,16 @@ PlacePartyMonGender:
 	jr nz, .loop
 	ret
 
+if DEF(_FR_FR)
+.male
+	db "♂…MALE@"
+
+.female
+	db "♀…FEMEL.@"
+
+.unknown
+	db "…INCONNU@"
+else
 .male
 	db "♂…MALE@"
 
@@ -479,6 +496,7 @@ PlacePartyMonGender:
 
 .unknown
 	db "…UNKNOWN@"
+endc
 
 PlacePartyMonMobileBattleSelection:
 	ld a, [wPartyCount]
@@ -750,6 +768,28 @@ PartyMenuStrings:
 	dw ChooseAMonString ; Probably used to be ChooseAMalePKMNString
 	dw ToWhichPKMNString
 
+if DEF(_FR_FR)
+ChooseAMonString:
+	db "Choisir un #MON@"
+
+UseOnWhichPKMNString:
+	db "Sur quel <PK><MN>?@"
+
+WhichPKMNString:
+	db "Quel <PK><MN>?@"
+
+TeachWhichPKMNString:
+	db "Former quel<PK><MN>?@"
+
+MoveToWhereString:
+	db "Déplacer où?@"
+
+ToWhichPKMNString:
+	db "A quel <PK><MN>?@"
+
+YouHaveNoPKMNString:
+	db "Pas de <PK><MN>!@"
+else
 ChooseAMonString:
 	db "Choose a #MON.@"
 
@@ -765,17 +805,12 @@ TeachWhichPKMNString:
 MoveToWhereString:
 	db "Move to where?@"
 
-ChooseAFemalePKMNString: ; unreferenced
-	db "Choose a ♀<PK><MN>.@"
-
-ChooseAMalePKMNString: ; unreferenced
-	db "Choose a ♂<PK><MN>.@"
-
 ToWhichPKMNString:
 	db "To which <PK><MN>?@"
 
 YouHaveNoPKMNString:
 	db "You have no <PK><MN>!@"
+endc
 
 PrintPartyMenuActionText:
 	ld a, [wCurPartyMon]

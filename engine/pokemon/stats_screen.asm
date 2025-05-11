@@ -862,13 +862,32 @@ SwapMoves:
 	ret
 
 String_CantUseInBattle:
+if DEF(_FR_FR)
+	db "Inutile en combat.@"
+else
 	db "No use in battle.@"
+endc
+
 String_OneTimeUse:
+if DEF(_FR_FR)
+	db "Perdu après usage.@"
+else	
 	db "Lost after use.@"
+endc
+
 String_OncePerBattle:
+if DEF(_FR_FR)
+	db "1 usage / combat.@"
+else
 	db "Once per battle.@"
+endc
+
 String_PassiveEffect:
+if DEF(_FR_FR)
+	db "Effet passif.@"
+else
 	db "Passive effect.@"
+endc
 
 ClearTopTiles:
 	hlcoord 0, 0
@@ -1418,20 +1437,35 @@ endc
 	ret
 
 .Item:
+if DEF(_FR_FR)
+	db "OBJET/@"
+else
 	db "ITEM/@"
+endc
 
 .Ability:
+if DEF(_FR_FR)
+	db "TALENT/@"
+else
 	db "ABILITY/@"
+endc
 
 .Move:
+if DEF(_FR_FR)
+	db "CAPACITES/@"
+else
 	db "MOVES/@"
+endc
 
 .ThreeDashes:
 	db "---@"
 
 .DetailsPressA:
+if DEF(_FR_FR)
+	db "   [Détails: A]@"
+else
 	db "[Details: press A]@"
-
+endc
 
 ; Input: wCurSpecies contains the ID of the species.
 ; Output: the ability ID of this species in A and hFarByte.
@@ -1611,19 +1645,39 @@ LoadBluePage:
 	dw wBufferMonOT
 
 .ExpPointStr:
+if DEF(_FR_FR)
+	db "PTS EXP.@"
+else
 	db "EXP POINTS@"
+endc
 
 .LevelUpStr:
+if DEF(_FR_FR)
+	db "PROCH.NIV.@"
+else
 	db "LEVEL UP@"
+endc
 
 .ToStr:
+if DEF(_FR_FR)
+	db "▶@"
+else
 	db "TO@"
+endc
 
 IDNoString:
+if DEF(_FR_FR)
+	db "№.<ID>@"
+else
 	db "<ID>№.@"
+endc
 
 OTString:
+if DEF(_FR_FR)
+	db "DO/@"
+else
 	db "OT/@"
+endc
 
 StatsScreen_PlaceFrontpic:
 	ld hl, wTempMonDVs
@@ -1786,9 +1840,6 @@ StatsScreen_LoadTextboxSpaceGFX:
 	pop hl
 	ret
 
-StatsScreenSpaceGFX: ; unreferenced
-INCBIN "gfx/font/space.2bpp"
-
 EggStatsScreen:
 	xor a
 	ldh [hBGMapMode], a
@@ -1854,31 +1905,60 @@ endc
 	ret
 
 EggString:
+if DEF(_FR_FR)
+	db "OEUF@"
+else
 	db "EGG@"
+endc
 
 FiveQMarkString:
 	db "?????@"
 
 EggSoonString:
+if DEF(_FR_FR)
+	db   "Cela fait du bruit"
+	next "à l'intérieur. Il"
+	next "va bientôt éclore!@"
+else
 	db   "It's making sounds"
 	next "inside. It's going"
 	next "to hatch soon!@"
+endc
 
 EggCloseString:
+if DEF(_FR_FR)
+	db   "Il se déplace à"
+	next "l'intérieur. Il"
+	next "est sur le point"
+	next "d'éclore!@"
+else
 	db   "It moves around"
 	next "inside sometimes."
 	next "It must be close"
 	next "to hatching.@"
+endc
 
 EggMoreTimeString:
+if DEF(_FR_FR)
+	db   "Qu'y a-t-il à"
+	next "l'intérieur?"
+	next "Il faut attendre"
+	next "encore un peu.@"
+else
 	db   "Wonder what's"
 	next "inside? It needs"
 	next "more time, though.@"
+endc
 
 EggALotMoreTimeString:
+if DEF(_FR_FR)
+	db   "Cet OEUF va mettre"
+	next "du temps à éclore!@"
+else
 	db   "This EGG needs a"
 	next "lot more time to"
 	next "hatch.@"
+endc
 
 StatsScreen_AnimateEgg:
 	call StatsScreen_GetAnimationParam

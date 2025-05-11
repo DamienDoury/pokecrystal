@@ -102,6 +102,35 @@ PrintPage2:
 
 GBPrinterStrings: ; used only for BANK(GBPrinterStrings)
 GBPrinterString_Null: db "@"
+if DEF(_FR_FR)
+GBPrinterString_CheckingLink: next "   VERIF.LIEN...@"
+GBPrinterString_Transmitting: next "  TRANSMISSION...@"
+GBPrinterString_Printing: next "   IMPRESSION...@"
+GBPrinterString_PrinterError1:
+	db   " ERREUR PRINTER 1"
+	next ""
+	next "Voir le manuel du"
+	next "Game Boy Printer."
+	db   "@"
+GBPrinterString_PrinterError2:
+	db   " ERREUR PRINTER 2"
+	next ""
+	next "Voir le manuel du"
+	next "Game Boy Printer."
+	db   "@"
+GBPrinterString_PrinterError3:
+	db   " ERREUR PRINTER 3"
+	next ""
+	next "Voir le manuel du"
+	next "Game Boy Printer."
+	db   "@"
+GBPrinterString_PrinterError4:
+	db   " ERREUR PRINTER 4"
+	next ""
+	next "Voir le manuel du"
+	next "Game Boy Printer."
+	db   "@"
+else
 GBPrinterString_CheckingLink: next " CHECKING LINK...@"
 GBPrinterString_Transmitting: next "  TRANSMITTING...@"
 GBPrinterString_Printing: next "    PRINTING...@"
@@ -129,6 +158,7 @@ GBPrinterString_PrinterError4:
 	next "Check the Game Boy"
 	next "Printer Manual."
 	db   "@"
+endc
 
 PrintPartyMonPage1:
 	call ClearBGPalettes
@@ -326,21 +356,42 @@ PlaceGenderAndShininess:
 	ret
 
 PrintParty_OTString:
+if DEF(_FR_FR)
+	db "DO/@"
+else
 	db "OT/@"
+endc
 
 PrintParty_MoveString:
+if DEF(_FR_FR)
+	db "CAPACITE/@"
+else
 	db "MOVE@"
+endc
 
 PrintParty_IDNoString:
+if DEF(_FR_FR)
+	db "№.<ID>@"
+else
 	db "<ID>№.@"
+endc
 
 PrintParty_StatsString:
+if DEF(_FR_FR)
+	db   "ATTAQUE"
+	next "DEFENSE"
+	next "ATQ.SPE."
+	next "DEF.SPE."
+	next "VITESSE"
+	db   "@"
+else
 	db   "ATTACK"
 	next "DEFENSE"
 	next "SPCL.ATK"
 	next "SPCL.DEF"
 	next "SPEED"
 	db   "@"
+endc
 
 PrintParty_NoMoveString:
 	db "------------@"

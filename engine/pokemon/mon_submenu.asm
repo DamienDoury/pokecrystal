@@ -20,7 +20,11 @@ MonSubmenu:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 5, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+else
 	menu_coords 6, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw 0
 	db 1 ; default option
 
@@ -270,13 +274,23 @@ BattleMonMenu:
 
 .MenuHeader:
 	db 0 ; flags
+if DEF(_FR_FR)
+	menu_coords 10, 11, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+else
 	menu_coords 11, 11, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_NO_TOP_SPACING ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "CHANGER@"
+	db "STATS@"
+	db "RETOUR@"
+else
 	db "SWITCH@"
 	db "STATS@"
 	db "CANCEL@"
+endc

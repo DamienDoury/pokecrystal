@@ -291,15 +291,24 @@ TakePartyItem:
 
 GiveTakeItemMenuData:
 	db MENU_SPRITE_ANIMS | MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords  9, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+else
 	menu_coords 12, 12, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw .Items
 	db 1 ; default option
 
 .Items:
 	db STATICMENU_CURSOR ; flags
 	db 2 ; # items
+if DEF(_FR_FR)
+	db "DONNER@"
+	db "PRENDRE@"
+else
 	db "GIVE@"
 	db "TAKE@"
+endc
 
 PokemonSwapItemText:
 	text_far _PokemonSwapItemText
@@ -468,16 +477,26 @@ MonMailAction:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords  9, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+else
 	menu_coords 12, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "LIRE@"
+	db "PRENDRE@"
+	db "RETOUR@"
+else
 	db "READ@"
 	db "TAKE@"
 	db "QUIT@"
+endc
 
 .MailLoseMessageText:
 	text_far _MailLoseMessageText
@@ -1005,7 +1024,11 @@ MoveScreen2DMenuData:
 	db D_UP | D_DOWN | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON ; accepted buttons
 
 String_MoveWhere:
+if DEF(_FR_FR)
+	db "Où?@"
+else
 	db "Where?@"
+endc
 
 SetUpMoveScreenBG:
 	call ClearBGPalettes

@@ -186,12 +186,20 @@ PrintTempMonStats:
 	ret
 
 .StatNames:
+if DEF(_FR_FR)
+	db   "ATTAQUE"
+	next "DEFENSE"
+	next "ATQ.SPE."
+	next "DEF.SPE."
+	next "VITESSE@"
+else
 	db   "ATTACK"
 	next "DEFENSE"
 	next "SPCL.ATK"
 	next "SPCL.DEF"
 	next "SPEED"
 	next "@"
+endc
 
 GetGender:
 ; Return the gender of a given monster (wCurPartyMon/wCurOTMon/wCurWildMon).
