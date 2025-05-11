@@ -18,9 +18,9 @@ if DEF(_FR_FR)
 .bill:     db "LEO:@"
 .elm:      db "PROF.ORME:@"
 .bikeshop: db "CYCLES A GOGO:@"
-.hospital: db "INFIRMIERE JOELLE:<LF>      HOPITAL@"
+.hospital: db "INFIRMIERE:<LF>      HOPITAL@"
 .creator:  db "NUMERO CACHé:@"
-.tracing:  db "TRAçAGE CONTACTS:@"
+.tracing:  db "TRAçAGE CONTACT:@"
 .buena:    db "BUENA:<LF>   DJ@"
 else
 .none:     db "----------@"
