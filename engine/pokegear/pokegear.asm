@@ -362,6 +362,10 @@ InitPokegearTilemap::
 	ld [hl], a
 
 	hlcoord 1, 16
+	ld a, $0c ; "Rec" icon. Signifies that Contact Tracing is on.
+	ld [hl], a
+
+	hlcoord 2, 16
 	ld de, .contactTracing
 	call PlaceString
 
