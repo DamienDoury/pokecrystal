@@ -363,7 +363,10 @@ GoldenrodCityUndergroundSignNorth:
 	jumptext GoldenrodCityUndergroundSignNorthText
 
 GoldenrodCityUndergroundSignSouth:
-	jumptext GoldenrodCityUndergroundSignSouthText
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	setevent EVENT_POKEGEAR_CONTACT_TRACING_MODULE
+endc
+	jumptext GoldenrodCityUndergroundSignNorthText
 
 GoldenrodCityPokecenterSign:
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
@@ -659,11 +662,6 @@ GoldenrodCityNameRaterSignText:
 	done
 
 GoldenrodCityUndergroundSignNorthText:
-	text "UNDERGROUND"
-	line "ENTRANCE"
-	done
-
-GoldenrodCityUndergroundSignSouthText:
 	text "UNDERGROUND"
 	line "ENTRANCE"
 	done
