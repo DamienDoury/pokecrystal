@@ -64,20 +64,36 @@ UsedMoveText:
 	ret nz
 
 	; check move grammar
-	ld a, [wMoveGrammar]
-	cp $3
-	ld hl, UsedMove2Text
-	ret c
-	ld hl, UsedMove1Text
+	;ld a, [wMoveGrammar]
+	;cp $3
+	;ld hl, UsedMove2Text
+	;ret c
+
+if DEF(_FR_FR)
+	push de
+	ld de, wStringBuffer2
+	call CountChars
+	pop de
+	cp 12
+	jr nc, .doesnt_fit_in_1_line
+
+	ld hl, UsedMoveOneLinerText
 	ret
 
-UsedMove1Text:
-	text_far _UsedMove1Text
+.doesnt_fit_in_1_line
+endc
+	ld hl, UsedMove2Text
+	ret
+
+if DEF(_FR_FR)
+UsedMoveOneLinerText:
+	text_far _UsedMoveOneLinerText
 	text_asm
 	jr UsedMoveText_CheckObedience
+endc
 
 UsedMove2Text:
-	text_far _UsedMove2Text
+	text_far _UsedMoveText
 	text_asm
 UsedMoveText_CheckObedience:
 ; check obedience

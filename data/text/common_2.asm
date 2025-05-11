@@ -1644,7 +1644,7 @@ _FeelsWeakText4:: ; TO TRANSLATE
 	para "@"
 	text_end
 
-_UsedMove1Text::
+_UsedMoveText::
 if DEF(_FR_FR)
 	text_start
 	line "lance"
@@ -1656,15 +1656,10 @@ else
 	text_end
 endc
 
-_UsedMove2Text::
 if DEF(_FR_FR)
+_UsedMoveOneLinerText::
 	text_start
-	line "lance"
-	cont "@"
-	text_end
-else
-	text_start
-	line "used @"
+	line "lance @"
 	text_end
 endc
 
