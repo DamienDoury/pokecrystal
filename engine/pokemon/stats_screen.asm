@@ -1462,7 +1462,7 @@ endc
 
 .DetailsPressA:
 if DEF(_FR_FR)
-	db "   [Détails: A]@"
+	db "[Détail: appuie A]@"
 else
 	db "[Details: press A]@"
 endc
