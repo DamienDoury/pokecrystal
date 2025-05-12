@@ -3517,7 +3517,7 @@ if DEF(_FR_FR)
 	
 	para "récupérer ton"
 	line "#MON, tu dois"
-	cont "payer 100¥."
+	cont "payer 200¥."
 	done
 else
 	text "Huh? Back already?"
@@ -3529,7 +3529,7 @@ else
 	
 	para "If you want your"
 	line "#MON back, it"
-	cont "will cost ¥100."
+	cont "will cost ¥200."
 	done
 endc
 
