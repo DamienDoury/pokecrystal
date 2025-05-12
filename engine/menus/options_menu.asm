@@ -74,6 +74,23 @@ _Option:
 	ret
 
 StringOptions:
+if DEF(_FR_FR)
+	db "Vitesse texte<LF>"
+	db "      :<LF>"
+	db "Anim. combat<LF>"
+	db "      :<LF>"
+	db "Son<LF>"
+	db "      :<LF>"
+	db "Imprimer<LF>"
+	db "      :<LF>"
+	db "Allum. rapide<LF>"
+	db "      :<LF>"
+	db "Interactions<LF>"
+	db "      :<LF>"
+	db "Cadre<LF>"
+	db "      :TYPE<LF>"
+	db "Enregistrer@"
+else
 	db "Text speed<LF>"
 	db "      :<LF>"
 	db "Battle anim.<LF>"
@@ -89,6 +106,7 @@ StringOptions:
 	db "Frame<LF>"
 	db "      :TYPE<LF>"
 	db "Save options@"
+endc
 
 GetOptionPointer:
 	jumptable .Pointers, wJumptableIndex
@@ -162,9 +180,15 @@ Options_TextSpeed:
 	dw .Mid
 	dw .Slow
 
+if DEF(_FR_FR)
+.Fast: db "IMMEDIAT@"
+.Mid:  db "RAPIDE  @"
+.Slow: db "LENT    @"
+else
 .Fast: db "INSTANT@"
 .Mid:  db "FAST   @"
 .Slow: db "SLOW   @"
+endc
 
 GetTextSpeed:
 ; converts TEXT_DELAY_* value in a to OPT_TEXT_SPEED_* value in c,
@@ -301,8 +325,13 @@ Options_FieldMoves:
 	and a
 	ret
 
+if DEF(_FR_FR)
+.Legacy: db "TRADI    @"
+.Quick:  db "RACCOURCI@"
+else
 .Legacy: db "LEGACY   @"
 .Quick:  db "SHORTCUTS@"
+endc
 
 Options_Sound:
 	ld hl, wOptions
@@ -408,11 +437,19 @@ Options_Print:
 	dw .Darker
 	dw .Darkest
 
+if DEF(_FR_FR)
+.Lightest: db "CLAIR+ @"
+.Lighter:  db "CLAIR  @"
+.Normal:   db "NORMAL @"
+.Darker:   db "SOMBRE @"
+.Darkest:  db "SOMBRE+@"
+else
 .Lightest: db "LIGHTEST@"
 .Lighter:  db "LIGHTER @"
 .Normal:   db "NORMAL  @"
 .Darker:   db "DARKER  @"
 .Darkest:  db "DARKEST @"
+endc
 
 GetPrinterSetting:
 ; converts GBPRINTER_* value in a to OPT_PRINT_* value in c,
