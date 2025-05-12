@@ -269,7 +269,11 @@ SavedTheGame:
 	jp WaitSFX
 
 .saving_text
+if DEF(_FR_FR)
+	text "Sauvegarde..."
+else
 	text "Saving…"
+endc
 	done
 
 SaveGameData:
