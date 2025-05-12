@@ -1952,41 +1952,14 @@ endc
 
 _AskForgetMoveText::
 if DEF(_FR_FR)
-	text_ram wMonOrItemNameBuffer
-	text_start
-	line "tente d'apprendre"
-	cont "@"
-	text_ram wStringBuffer2
-	text "."
-	
-	para "Mais @"
-	text_ram wMonOrItemNameBuffer
-	text " ne"
-	line "peut pas apprendre"
-	cont "plus de quatre"
-	cont "capacités."
-	
-	para "Effacer une"
+	text "Effacer une"
 	line "ancienne capacité"
 	cont "pour @"
 	text_ram wStringBuffer2
 	text "?"
 	done
 else
-	text_ram wMonOrItemNameBuffer
-	text " is"
-	line "trying to learn"
-	cont "@"
-	text_ram wStringBuffer2
-	text "."
-	
-	para "But @"
-	text_ram wMonOrItemNameBuffer
-	text_start
-	line "can't learn more"
-	cont "than four moves."
-	
-	para "Delete an older"
+	text "Delete an older"
 	line "move to make room"
 	cont "for @"
 	text_ram wStringBuffer2
