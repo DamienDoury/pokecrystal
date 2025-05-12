@@ -170,9 +170,9 @@ endc
 MomCheckBalanceText:
 if DEF(_FR_FR)
 	text "Au fait, tu m'as"
-	line "envoyé ¥@"
+	line "envoyé @"
 	text_ram wStringBuffer3
-	text "."
+	text "¥."
 
 	para "Es-tu encore en"
 	line "mesure de m'aider"
@@ -233,9 +233,9 @@ endc
 MomYouveSavedText:
 if DEF(_FR_FR)
 	text "Au fait, tu m'as"
-	line "envoyé ¥@"
+	line "envoyé @"
 	text_ram wStringBuffer3
-	text "."
+	text "¥."
 
 	para "Tu pourrais en"
 	line "partager un peu"
