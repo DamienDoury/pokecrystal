@@ -666,23 +666,71 @@ endc
 
 _MomFoundAnItemText::
 if DEF(_FR_FR)
-	text "J'ai trouvé un bel"
-	line "objet à acheter..."
+	text "En faisant les"
+	line "courses j'ai trouvé"
+
+	para "un objet perdu au"
+	line "fond d'un rayon."
+
+	para "C'était un lot de"
+
+	line "@"
+	text_decimal wStringBuffer2, 1, 1
+	text " @"
+	text_ram wStringBuffer1
+	text ""
+
+	cont "pour ¥@"
+	text_decimal wStringBuffer3, 3, 5
+	text "."
+
+	para "C'est une super"
+	line "affaire, alors"
+
+	para "je l'ai acheté avec"
+	line "ton argent et je"
+	cont "te l'ai envoyé."
 	prompt
 else
-	text "I found a useful"
-	line "item shopping, so"
+	text "While doing groce-"
+	line "ries, I found a"
+
+	para "lost item at the"
+	line "back of a shelf."
+
+	para "It was a pack of"
+
+	line "@"
+	text_decimal wStringBuffer2, 1, 1
+	text " @"
+	text_ram wStringBuffer1
+	text ""
+
+	cont "for ¥@"
+	text_decimal wStringBuffer3, 3, 5
+	text "."
+
+	para "It's a rare deal,"
+	line "so I bought it"
+
+	para "with your money &"
+	line "sent it to you."
 	prompt
 endc
 
 _MomItsInPCText::
 if DEF(_FR_FR)
-	text "C'est dans ton PC."
-	line "Ca va te plaire!"
+	text "Le livreur t'attend"
+	line "au 2ème étage du"
+	cont "CENTRE #MON."
 	done
 else
-	text "It's in your PC."
-	line "You'll like it!"
+	text "The delivery guy"
+	line "will be waiting"
+
+	para "for you at the"
+	line "second floor of"
+	cont "a #CENTER."
 	done
 endc
 
@@ -1922,124 +1970,143 @@ endc
 _RocketRadioText3::
 if DEF(_FR_FR)
 	text_start
-	line "Après trois ans"
+	line "Ecoutez!"
 	done
 else
 	text_start
-	line "After three years"
+	line "Listen people!"
 	done
 endc
 
 _RocketRadioText4::
 if DEF(_FR_FR)
 	text_start
-	line "d'attente, on"
+	line "Le gouvernement"
 	done
 else
 	text_start
-	line "of preparation, we"
+	line "The government is"
 	done
 endc
 
 _RocketRadioText5::
 if DEF(_FR_FR)
 	text_start
-	line "est de retour"
+	line "vous manipule!"
 	done
 else
 	text_start
-	line "have risen again"
+	line "controlling y'all!"
 	done
 endc
 
 _RocketRadioText6::
 if DEF(_FR_FR)
 	text_start
-	line "pour de bon!"
+	line "Sortez de chez"
 	done
 else
 	text_start
-	line "from the ashes!"
+	line "Stop staying home"
 	done
 endc
 
 _RocketRadioText7::
 if DEF(_FR_FR)
 	text_start
-	line "GIOVANNI! @"
-	text_pause
-	text "Chef!"
+	line "vous et retirez"
 	done
 else
 	text_start
-	line "GIOVANNI! @"
-	text_pause
-	text "Can you"
+	line "and wearing face"
 	done
 endc
 
 _RocketRadioText8::
 if DEF(_FR_FR)
 	text_start
-	line "On a réussi!"
+	line "votre masque! @"
+	text_pause
+	text "Reprenez"
 	done
 else
 	text_start
-	line "hear?@"
+	line "masks! @"
 	text_pause
-	text " We did it!"
+	text "Get your"
 	done
 endc
 
 _RocketRadioText9::
 if DEF(_FR_FR)
 	text_start
-	line "@"
-	text_pause
-	text "Où est notre chef?"
+	line "votre liberté!"
 	done
 else
 	text_start
-	line "@"
-	text_pause
-	text "Where is our boss?"
+	line "freedom back!"
 	done
 endc
 
 _RocketRadioText10::
 if DEF(_FR_FR)
 	text_start
-	line "@"
+	line "REVEILLEZ-VOUS!@"
 	text_pause
-	text "Il nous écoute?"
+	text "ARRETEZ DE"
 	done
 else
 	text_start
-	line "@"
+	line "REVOLTE! @"
 	text_pause
-	text "Is he listening?"
+	text "STOP"
 	done
 endc
 
-_RocketRadioText11:: ; TO TRANSLATE
+_RocketRadioText11::
+if DEF(_FR_FR)
+	text_start
+	line "VOUS SOUMETTRE!"
+	done
+else
 	text_start
 	line "SUBMITTING!"
 	done
+endc
 
-_RocketRadioText12:: ; TO TRANSLATE
+_RocketRadioText12::
+if DEF(_FR_FR)
+	text_start
+	line "Le COVID est un"
+	done
+else
 	text_start
 	line "COVID is a lie!"
 	done
+endc
 
-_RocketRadioText13:: ; TO TRANSLATE
+_RocketRadioText13::
+if DEF(_FR_FR)
+	text_start
+	line "mensonge! Vérifiez"
+	done
+else
 	text_start
 	line "Go out and find"
 	done
+endc
 
-_RocketRadioText14:: ; TO TRANSLATE
+_RocketRadioText14::
+if DEF(_FR_FR)
+	text_start
+	line "par vous-même!"
+	done
+else
 	text_start
 	line "out for yourself!"
 	done
+endc
+	
 
 
 
@@ -2880,52 +2947,66 @@ if DEF(_FR_FR)
 	line "Hein? Où ça?"
 	
 	para "........."
-	
-	para "Alors t'aimes"
-	line "l'aventure, quoi."
-	
-	para "OK!"
-	line "J'vais t'aider."
-	
-	para "Mais..."
-	line "Que faire?"
-	
-	para "Je sais! Je vais"
-	line "économiser pour"
-	cont "toi."
-	
-	para "L'argent, c'est"
-	line "important."
-	
-	para "Veux-tu que j'éco-"
-	line "nomise pour toi?"
+
+	para "Alors tu pars"
+	line "à l'aventure..."
+
+	para "Aider à combattre"
+	line "ce virus, c'est"
+	cont "honorable."
+
+	para "Ok! Moi aussi je"
+	line "veux aider!"
+
+	para "Prends ce dont tu"
+	line "as besoin dans le"
+	cont "frigo."
+
+	para "J'irai faire les"
+	line "courses chaque"
+	cont "jour."
+
+	para "Regarde souvent la"
+	line "télé pour rester"
+	cont "informé sur le"
+	cont "COVID."
+
+	para "N'oublie pas d'"
+	line "appeler ta Maman!"
 	done
 else
 	text "Wow, that's a cute"
 	line "#MON."
-	
+
 	para "Where did you get"
 	line "it?"
-	
+
 	para "…"
-	
+
 	para "So, you're leaving"
 	line "on an adventure…"
-	
+
+	para "Helping fight this"
+	line "virus is very"
+	cont "honorable of you."
+
 	para "OK!"
-	line "I'll help too."
-	
-	para "But what can I do"
-	line "for you?"
-	
-	para "I know! I'll save"
-	line "money for you."
-	
-	para "On a long journey,"
-	line "money's important."
-	
-	para "Do you want me to"
-	line "save your money?"
+	line "I also want"
+	cont "to help!"
+
+	para "Take anything you"
+	line "need in the fridge"
+
+	para "I will go grocery"
+	line "shopping everyday."
+
+	para "Watch TV often"
+	line "to stay informed"
+	cont "on the latest"
+	cont "news about COVID."
+
+	para "Don't forget to"
+	line "call your Mom!"
 	done
 endc
 
@@ -3005,11 +3086,11 @@ endc
 _MomStoreMoneyText::
 if DEF(_FR_FR)
 	text "Combien veux-tu"
-	line "économiser?"
+	line "donner?"
 	done
 else
 	text "How much do you"
-	line "want to save?"
+	line "want to give?"
 	done
 endc
 
@@ -3026,22 +3107,26 @@ endc
 
 _MomSaveMoneyText::
 if DEF(_FR_FR)
-	text "Veux-tu économiser"
-	line "de l'argent?"
+	text "Veux-tu m'envoyer"
+	line "une partie de"
+	cont "l'argent que tu"
+	cont "gagnes?"
 	done
 else
 	text "Do you want to"
-	line "save some money?"
+	line "send me some of"
+	cont "the money you"
+	cont "earn?"
 	done
 endc
 
 _MomHaventSavedThatMuchText::
 if DEF(_FR_FR)
-	text "Tu n'as pas écono-"
-	line "misé autant."
+	text "MAMAN n'a pas"
+	line "assez."
 	prompt
 else
-	text "You haven't saved"
+	text "MOM doesn't have"
 	line "that much."
 	prompt
 endc
@@ -3070,27 +3155,26 @@ endc
 
 _MomNotEnoughRoomInBankText::
 if DEF(_FR_FR)
-	text "Tu ne peux en"
-	line "économiser autant."
+	text "Tu ne peux pas"
+	line "donner autant."
 	prompt
 else
-	text "You can't save"
+	text "You can't give"
 	line "that much."
 	prompt
 endc
 
 _MomStartSavingMoneyText::
 if DEF(_FR_FR)
-	text "OK, je vais écono-"
-	line "miser ton argent."
-	cont "Aie confiance!"
+	text "OK, j'accepte"
+	line "ton argent. Merci!"
 	
 	para "<PLAYER>,"
 	line "tiens bon!"
 	done
 else
-	text "OK, I'll save your"
-	line "money. Trust me!"
+	text "OK, I'll take your"
+	line "money. Thanks!"
 	
 	para "<PLAYER>, stick"
 	line "with it!"
@@ -3099,12 +3183,12 @@ endc
 
 _MomStoredMoneyText::
 if DEF(_FR_FR)
-	text "Je m'occupe de tes"
-	line "sous! Va!"
+	text "C'est très généreux"
+	line "de ta part, va!"
 	done
 else
-	text "Your money's safe"
-	line "here! Get going!"
+	text "It's very generous"
+	line "of you! Get going!"
 	done
 endc
 
@@ -3361,13 +3445,17 @@ if DEF(_FR_FR)
 	para "Il a gagné"
 	line "@"
 	text_decimal wStringBuffer2 + 1, 1, 3
-	text " niveau(x)."
+	text " niveau(x) et"
+	cont "est maintenant"
+	cont "niveau @"
+	text_decimal wStringBuffer2 + 5, 1, 3
+	text "."
 	
 	para "Si tu veux récupé-"
 	line "rer ton #MON,"
 	cont "tu dois payer"
 	cont "@"
-	text_decimal wStringBuffer2 + 2, 3, 4
+	text_decimal wStringBuffer2 + 2, 3, 5
 	text "¥."
 	done
 else
@@ -3375,16 +3463,19 @@ else
 	text_ram wStringBuffer1
 	text_start
 	line "has grown a lot."
-	
+
 	para "By level, it's"
 	line "grown by @"
 	text_decimal wStringBuffer2 + 1, 1, 3
+	text " and"
+	cont "is now level @"
+	text_decimal wStringBuffer2 + 5, 1, 3
 	text "."
-	
+
 	para "If you want your"
 	line "#MON back, it"
 	cont "will cost ¥@"
-	text_decimal wStringBuffer2 + 2, 3, 4
+	text_decimal wStringBuffer2 + 2, 3, 5
 	text "."
 	done
 endc
