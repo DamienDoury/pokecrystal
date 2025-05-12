@@ -160,8 +160,7 @@ BuenaPrintText::
 
 PrintTextboxText::
 	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	call PlaceHLTextAtBC
-	ret
+	jp PlaceHLTextAtBC
 
 SetUpTextbox::
 	push hl

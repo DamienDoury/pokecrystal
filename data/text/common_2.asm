@@ -2374,24 +2374,7 @@ else
 	prompt
 endc
 
-_PokecenterOaksPCText::
-if DEF(_FR_FR)
-	text "PC du PROF.CHEN"
-	line "connecté."
-	
-	para "Evaluation du"
-	line "#DEX."
-	prompt
-else
-	text "PROF.OAK's PC"
-	line "accessed."
-	
-	para "#DEX Rating"
-	line "System opened."
-	prompt
-endc
-
-_PokecenterPCOaksClosedText::
+_PokecenterPCClosedText::
 if DEF(_FR_FR)
 	text "..."
 	line "Déconnexion..."
@@ -2399,17 +2382,6 @@ if DEF(_FR_FR)
 else
 	text "…"
 	line "Link closed…"
-	done
-endc
-
-_OakPCText1::
-if DEF(_FR_FR)
-	text "Veux-tu que j'éva-"
-	line "lue ton #DEX?"
-	done
-else
-	text "Want to get your"
-	line "#DEX rated?"
 	done
 endc
 
@@ -2745,17 +2717,6 @@ else
 	
 	para "dreamt about this!"
 	line "Congratulations!"
-	done
-endc
-
-_OakPCText4::
-if DEF(_FR_FR)
-	text "Connexion au PC du"
-	line "PROF.CHEN coupée."
-	done
-else
-	text "The link to PROF."
-	line "OAK's PC closed."
 	done
 endc
 

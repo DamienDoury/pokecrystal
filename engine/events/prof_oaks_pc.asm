@@ -1,24 +1,10 @@
-ProfOaksPC:
-	ld hl, OakPCText1
-	call MenuTextbox
-	call YesNoBox
-	jr c, .shutdown
-	call ProfOaksPCBoot ; player chose "yes"?
-.shutdown
-	ld hl, OakPCText4
-	call PrintText
-	call JoyWaitAorB
-	call ExitMenu
-	ret
-
-ProfOaksPCBoot:
+ProfOaksPCBoot::
 	ld hl, OakPCText2
-	call PrintText
+	call BuenaPrintText
 	call Rate
 	call PlaySFX ; sfx loaded by previous Rate function call
 	call JoyWaitAorB
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 ProfOaksPCRating:
 	call Rate
@@ -28,8 +14,7 @@ ProfOaksPCRating:
 	pop de
 	call PlaySFX
 	call JoyWaitAorB
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 Rate:
 ; calculate Seen/Owned
@@ -45,13 +30,13 @@ Rate:
 ; print appropriate rating
 	call .UpdateRatingBuffers
 	ld hl, OakPCText3
-	call PrintText
+	call BuenaPrintText
 	call JoyWaitAorB
 	ld a, [wTempPokedexCaughtCount]
 	ld hl, OakRatings
 	call FindOakRating
 	push de
-	call PrintText
+	call BuenaPrintText
 	pop de
 	ret
 
@@ -99,10 +84,6 @@ endr
 	ret
 
 INCLUDE "data/events/pokedex_ratings.asm"
-
-OakPCText1:
-	text_far _OakPCText1
-	text_end
 
 OakPCText2:
 	text_far _OakPCText2
@@ -186,8 +167,4 @@ OakRating18:
 
 OakRating19:
 	text_far _OakRating19
-	text_end
-
-OakPCText4:
-	text_far _OakPCText4
 	text_end
