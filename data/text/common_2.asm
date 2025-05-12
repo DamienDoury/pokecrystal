@@ -294,7 +294,7 @@ if DEF(_FR_FR)
 	text_start
 	line "un bonus de"
 	cont "@"
-	text_decimal wStringBuffer2, 2, 4
+	text_decimal wStringBuffer2, 2, 5
 	text " Points EXP!"
 	prompt
 else
@@ -302,7 +302,7 @@ else
 	text_start
 	line "a boosted"
 	cont "@"
-	text_decimal wStringBuffer2, 2, 4
+	text_decimal wStringBuffer2, 2, 5
 	text " EXP. Points!"
 	prompt
 endc
@@ -312,14 +312,14 @@ if DEF(_FR_FR)
 	; BUG: Five-digit experience gain is printed incorrectly (see docs/bugs_and_glitches.md)
 	text_start
 	line "@"
-	text_decimal wStringBuffer2, 2, 4
+	text_decimal wStringBuffer2, 2, 5
 	text " Points EXP!"
 	prompt
 else
 	; BUG: Five-digit experience gain is printed incorrectly (see docs/bugs_and_glitches.md)
 	text_start
 	line "@"
-	text_decimal wStringBuffer2, 2, 4
+	text_decimal wStringBuffer2, 2, 5
 	text " EXP. Points!"
 	prompt
 endc
@@ -431,24 +431,14 @@ endc
 
 _ContainedMoveText::
 if DEF(_FR_FR)
-	text "Elle contient"
-	line "@"
-	text_ram wStringBuffer2
-	text "."
-	
-	para "Apprendre"
+	text "Apprendre"
 	line "@"
 	text_ram wStringBuffer2
 	text_start
 	cont "à un #MON?"
 	done
 else
-	text "It contained"
-	line "@"
-	text_ram wStringBuffer2
-	text "."
-	
-	para "Teach @"
+	text "Teach @"
 	text_ram wStringBuffer2
 	text_start
 	line "to a #MON?"
@@ -997,10 +987,12 @@ endc
 
 _HeadbuttNothingText::
 if DEF(_FR_FR)
-	text "Non. Rien..."
+	text "Non. Rien dans"
+	line "cet arbre..."
 	done
 else
-	text "Nope. Nothing…"
+	text "Nope. Nothing"
+	line "in this tree…"
 	done
 endc
 
@@ -1166,18 +1158,12 @@ _WhitedOutText::
 if DEF(_FR_FR)
 	text "<PLAYER> n'a plus"
 	line "de #MON en"
-	cont "forme!"
-	
-	para "<PLAYER> est"
-	line "hors-jeu!"
-	done
+	cont "forme..."
+	prompt
 else
 	text "<PLAYER> is out of"
-	line "useable #MON!"
-	
-	para "<PLAYER> whited"
-	line "out!"
-	done
+	line "useable #MON…"
+	prompt
 endc
 
 _LostMoneyText:: ; TO TRANSLATE
@@ -1300,17 +1286,11 @@ _SquirtbottleUseText:: ; TO TRANSLATE
 
 _SquirtbottleNothingText::
 if DEF(_FR_FR)
-	text "<PLAYER> fait"
-	line "jaillir de l'eau."
-	
-	para "Mais rien ne"
+	text "Mais rien ne"
 	line "se passe..."
 	done
 else
-	text "<PLAYER> sprinkled"
-	line "water."
-	
-	para "But nothing"
+	text "But nothing"
 	line "happened…"
 	done
 endc
