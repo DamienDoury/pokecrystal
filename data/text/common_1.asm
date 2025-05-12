@@ -2014,7 +2014,7 @@ endc
 _RocketRadioText7::
 if DEF(_FR_FR)
 	text_start
-	line "vous et retirez"
+	line "vous & jetez votre"
 	done
 else
 	text_start
@@ -2025,13 +2025,17 @@ endc
 _RocketRadioText8::
 if DEF(_FR_FR)
 	text_start
-	line "votre masque! @"
+	line "masque! @"
+	text_pause
+	text_pause
 	text_pause
 	text "Reprenez"
 	done
 else
 	text_start
 	line "masks! @"
+	text_pause
+	text_pause
 	text_pause
 	text "Get your"
 	done
@@ -2051,13 +2055,17 @@ endc
 _RocketRadioText10::
 if DEF(_FR_FR)
 	text_start
-	line "REVEILLEZ-VOUS!@"
+	line "REVOLTE! @"
 	text_pause
-	text "ARRETEZ DE"
+	text_pause
+	text_pause
+	text "ARRETEZ"
 	done
 else
 	text_start
 	line "REVOLTE! @"
+	text_pause
+	text_pause
 	text_pause
 	text "STOP"
 	done
@@ -2066,7 +2074,7 @@ endc
 _RocketRadioText11::
 if DEF(_FR_FR)
 	text_start
-	line "VOUS SOUMETTRE!"
+	line "DE VOUS SOUMETTRE!"
 	done
 else
 	text_start
