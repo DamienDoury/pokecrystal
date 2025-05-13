@@ -110,7 +110,7 @@ RedsPikachu_SetupSearch:
 	ret
 
 .RedsTrainerName:
-	db "RED@"
+	db "RED@@@@@"
 
 ; Input: wCurPartyMon.
 ; Output: Carry if it is Red's Pikachu.

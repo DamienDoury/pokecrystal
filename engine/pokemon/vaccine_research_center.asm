@@ -130,7 +130,7 @@ _SilphCo_SetMonAttributes:
     ld e, l
 
     ld hl, SilphCo_TrainerName
-    ld bc, 6
+    ld bc, 8
     call CopyBytes ; Copy Silph Co trainer name.
 
     farcall HealPartyMon ; The stats of the Pokémon need to be recalculated.
@@ -204,7 +204,7 @@ SilphCoFindTestSubjectInParty:
 ; Output: c if the OT ID and OT Name of the selected mon are those of Silph Co. Returns nc otherwise.
 ; Works from both the PC and the party menu.
 IsTestSubjectForSure::
-    ld bc, 6
+    ld bc, 8
     ld hl, SilphCo_TrainerName
     ld de, wStringBuffer1
     call CopyBytes ; copy bc bytes from hl to de
