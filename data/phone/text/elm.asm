@@ -351,7 +351,7 @@ if DEF(_FR_FR)
 	line "un #MASQUE."
 
 	para "C'est un prototype"
-	line "de la SILPH SARL"
+	line "de la SYLPHE SARL"
 
 	para "qui a coûté des"
 	line "millions à créer."

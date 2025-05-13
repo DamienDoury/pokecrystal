@@ -138,9 +138,9 @@ _SilphCo_SetMonAttributes:
 
 SilphCo_TrainerName:
 if DEF(_FR_FR)
-    db "SYLPHE@"
+    db "SYLPHE@@"
 else
-    db "SILPH@"
+    db "SILPH@@@"
 endc
 
 ; Input: none.
