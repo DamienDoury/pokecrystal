@@ -3191,7 +3191,7 @@ endc
 
 _MomStoredMoneyText::
 if DEF(_FR_FR)
-	text "C'est très généreux"
+	text "C'est généreux"
 	line "de ta part, va!"
 	done
 else
