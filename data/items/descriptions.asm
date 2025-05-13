@@ -1564,7 +1564,7 @@ endc
 
 SilphBadgeDesc:
 if DEF(_FR_FR)
-	db   "Accès 11e étage"
+	db   "Accès 10e étage"
 	next "SYLPHE SARL.@"
 else
 	db   "Allows access to"
