@@ -369,7 +369,7 @@ if DEF(_FR_FR)
 
 	para "..."
 
-	para "Écoute. Je ne sais"
+	para "Ecoute. Je ne sais"
 	line "pas comment te le"
 	cont "dire... J'ai une"
 	cont "mauvaise nouvelle."
@@ -380,8 +380,8 @@ if DEF(_FR_FR)
 	para "A cause de la si-"
 	line "tuation sanitaire,"
 
-	para "les frontières sont"
-	line "désormais fermées."
+	para "les frontières ont"
+	line "été fermées."
 
 	para "Mon entreprise n'a"
 	line "pas d'autre choix"
@@ -392,7 +392,7 @@ if DEF(_FR_FR)
 	para "..."
 
 	para "Je vais chercher"
-	line "un nouveau emploi,"
+	line "un nouvel emploi,"
 
 	para "mais ça risque de"
 	line "prendre du temps"
@@ -404,9 +404,9 @@ if DEF(_FR_FR)
 	line "demander, mais"
 
 	para "si tu pouvais"
-	line "partager un petit"
-	cont "peu de l'argent"
-	cont "que tu gagnes,"
+	line "partager un peu"
+	cont "de l'argent que"
+	cont "tu gagnes,"
 
 	para "ce serait très"
 	line "généreux de ta"
