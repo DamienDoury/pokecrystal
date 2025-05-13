@@ -431,11 +431,10 @@ endc
 
 _ContainedMoveText::
 if DEF(_FR_FR)
-	text "Apprendre"
+	text "Enseigner"
 	line "@"
 	text_ram wStringBuffer2
-	text_start
-	cont "à un #MON?"
+	text "?"
 	done
 else
 	text "Teach @"
