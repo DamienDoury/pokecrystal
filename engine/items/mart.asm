@@ -1080,16 +1080,26 @@ MartAllIHaveLeftText:
 
 MenuHeader_BuySell:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 10, 8
+else
 	menu_coords 0, 0, 7, 8
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData
 	db STATICMENU_CURSOR ; strings
 	db 3 ; items
+if DEF(_FR_FR)
+	db "ACHETER@"
+	db "VENDRE@"
+	db "SALUT!@"
+else
 	db "BUY@"
 	db "SELL@"
 	db "QUIT@"
+endc
 
 MartThanksText:
 	text_far _MartThanksText
