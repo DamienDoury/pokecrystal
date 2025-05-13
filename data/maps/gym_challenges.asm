@@ -29,6 +29,27 @@ ChallengeNames:
 	dw Challenge_Cherrygrove	; 26
 	assert_table_length NUM_MAP_GROUPS
 
+if DEF(_FR_FR)
+; Johto
+Challenge_Violet:      db "COMBAT AERIEN@"						
+Challenge_Azalea:      db "DANS LA TOILE@"												
+Challenge_Goldenrod:   db "MIGNONNERIES@"		
+Challenge_Ecruteak:    db "FACE A LA PEUR@"						
+Challenge_Cianwood:    db "COMBAT SINGULIER@"						
+Challenge_Olivine:     db "SUBMERGé@"			
+Challenge_Mahogany:    db "GRELE@"											
+Challenge_Blackthorn:  db "FORCE BRUTE@"						
+
+; Kanto
+Challenge_Pewter:      db "TEMPETE DE SABLE@"									
+Challenge_Cerulean:    db "OURAGAN OCEANIQUE@"						
+Challenge_Vermilion:   db "SURCHARGé@"		
+Challenge_Celadon:     db "PRINTEMPS@"						
+Challenge_Fuchsia:     db "POISON LETHAL@"								
+Challenge_Saffron:     db "JEU D'ESPRIT@"						
+Challenge_Cinnabar:    db "VAGUE DE CHALEUR@"						
+Challenge_Viridian:    db "ADAPTABILITé@"
+else
 ; Johto
 Challenge_Violet:      db "AERIAL BATTLE@"						
 Challenge_Azalea:      db "STUCK IN A WEB@"												
@@ -48,6 +69,7 @@ Challenge_Fuchsia:     db "LETHAL POISON@"
 Challenge_Saffron:     db "MIND BATTLE@"						
 Challenge_Cinnabar:    db "HEATWAVE@"						
 Challenge_Viridian:    db "ADAPTABILITY@"											
+endc
 
 ; Unused (no gym)
 Challenge_Dungeons:	   

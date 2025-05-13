@@ -1,6 +1,34 @@
 DecorationNames:
 ; entries correspond to constants/deco_constants.asm
 	list_start DecorationNames
+if DEF(_FR_FR)
+	li "RETOUR"
+	li "RANGER"
+	li "GROSSE PLANTE"
+	li "PLANTE TROPICALE"
+	li "MAXI PLANTE"
+	li "CARTE"
+	li "NES"
+	li "SUPER NINTENDO"
+	li "NINTENDO 64"
+	li "VIRTUAL BOY"
+	li "TROPHEE OR"
+	li "TROPHEE ARGENT"
+	li "JOUETPIKACHU SURF"
+	li "LIT "
+	li "TAPIS "
+	li "POSTER "
+	li "POUPEE "
+	li " SUPER"
+	li "A PLUMES"
+	li "PIKACHU"
+	li ":ROSE"
+	li "A POIS"
+	li ":ROUGE"
+	li ":BLEU"
+	li ":JAUNE"
+	li ":VERT"
+else
 	li "CANCEL"
 	li "PUT IT AWAY"
 	li "MAGNAPLANT"
@@ -27,4 +55,5 @@ DecorationNames:
 	li "BLUE"
 	li "YELLOW"
 	li "GREEN"
+endc
 	assert_list_length NUM_DECO_NAMES

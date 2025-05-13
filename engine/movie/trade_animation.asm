@@ -976,10 +976,17 @@ TrademonStats_MonTemplate:
 	ret
 
 .OTMonData:
+if DEF(_FR_FR)
+	db   "─── №."
+	next ""
+	next "DO/"
+	next "№.<ID>@"
+else
 	db   "─── №."
 	next ""
 	next "OT/"
 	next "<ID>№.@"
+endc
 
 TrademonStats_Egg:
 	call WaitTop
@@ -997,9 +1004,15 @@ TrademonStats_Egg:
 	ret
 
 .EggData:
+if DEF(_FR_FR)
+	db   "OEUF"
+	next "DO/?????"
+	next "№.<ID>?????@"
+else
 	db   "EGG"
 	next "OT/?????"
 	next "<ID>№.?????@"
+endc
 
 TrademonStats_WaitBGMap:
 	call WaitBGMap
@@ -1042,7 +1055,11 @@ TrademonStats_PrintOTName:
 	db " ", "♂", "♀"
 
 TrademonStats_PrintTrademonID:
+if DEF(_FR_FR)
+	hlcoord 8, 6
+else
 	hlcoord 7, 6
+endc
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
 	call PrintNum
 	ret

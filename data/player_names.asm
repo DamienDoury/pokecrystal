@@ -8,6 +8,16 @@ ChrisNameMenuHeader:
 .MaleNames:
 	db STATICMENU_CURSOR | STATICMENU_PLACE_TITLE | STATICMENU_DISABLE_B ; flags
 	db 5 ; items
+if DEF(_FR_FR)
+	db "NOM:@"
+MalePlayerNameArray:
+	db "CHRIS@"
+	db "BENJI@"
+	db "NICOLAS@"
+	db "JEAN@"
+	db 2 ; title indent
+	db " NOM @" ; title
+else
 	db "NEW NAME@"
 MalePlayerNameArray:
 	db "CHRIS@"
@@ -16,6 +26,7 @@ MalePlayerNameArray:
 	db "JON@"
 	db 2 ; title indent
 	db " NAME @" ; title
+endc
 
 KrisNameMenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -27,6 +38,16 @@ KrisNameMenuHeader:
 .FemaleNames:
 	db STATICMENU_CURSOR | STATICMENU_PLACE_TITLE | STATICMENU_DISABLE_B ; flags
 	db 5 ; items
+if DEF(_FR_FR)
+	db "NOM:@"
+FemalePlayerNameArray:
+	db "CHRISTY@"
+	db "SOPHIE@"
+	db "NICOLE@"
+	db "JEANNE@"
+	db 2 ; title indent
+	db " NOM @" ; title
+else
 	db "NEW NAME@"
 FemalePlayerNameArray:
 	db "KRIS@"
@@ -35,3 +56,4 @@ FemalePlayerNameArray:
 	db "JODI@"
 	db 2 ; title indent
 	db " NAME @" ; title
+endc
