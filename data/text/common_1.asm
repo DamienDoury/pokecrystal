@@ -24,10 +24,16 @@ else
 	done
 endc
 
-_PickUpFruitsText:: ; TO TRANSLATE
+_PickUpFruitsText::
+if DEF(_FR_FR)
+	text "Voulez-vous"
+	line "cueillir?"
+	done
+else
 	text "Do you want to"
 	line "pick these up?"
 	done
+endc
 
 _ObtainedFruitText::
 if DEF(_FR_FR)
@@ -66,29 +72,59 @@ else
 	done
 endc
 
-_DrySoilText:: ; TO TRANSLATE
+_DrySoilText::
+if DEF(_FR_FR)
+	text "La terre est"
+	line "sèche."
+	done
+else
 	text "The soil is dry."
 	done
+endc
 
-_WetSoilText:: ; TO TRANSLATE
+_WetSoilText::
+if DEF(_FR_FR)
+	text "La terre est"
+	line "humide à souhait!"
+	done
+else
 	text "The soil is nice"
 	line "and moist!"
 	done
+endc
 
-_AskWaterSoilText:: ; TO TRANSLATE
+_AskWaterSoilText::
+if DEF(_FR_FR)
+	text "L'arroser avec la"
+	line "CARAPUCE A O?"
+	done
+else
 	text "Water it with the"
 	line "SQUIRTBOTTLE?"
 	done
+endc
 
-_FruitTreeGotStrongerText:: ; TO TRANSLATE
+_FruitTreeGotStrongerText::
+if DEF(_FR_FR)
+	text "Plus de fruits"
+	line "devraient croitre!"
+	done
+else
 	text "The tree should"
 	line "grow more fruits!"
 	done
+endc
 
-_FruitPlentyOfWaterText:: ; TO TRANSLATE
+_FruitPlentyOfWaterText::
+if DEF(_FR_FR)
+	text "L'arbre dispose de"
+	line "suffisamment d'eau."
+	done
+else
 	text "The fruit tree has"
 	line "plenty of water."
 	done
+endc
 
 _WhichApricornText::
 if DEF(_FR_FR)
@@ -734,7 +770,17 @@ else
 	done
 endc
 
-_MomReceivedItemFromNeighborText:: ; TO TRANSLATE
+_MomReceivedItemFromNeighborText::
+if DEF(_FR_FR)
+	text "La voisine"
+	line "m'a donné"
+	cont "@"
+	text_decimal wStringBuffer2, 1, 1
+	text " @"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+else
 	text "The neighbor gave"
 	line "me @"
 	text_decimal wStringBuffer2, 1, 1
@@ -742,22 +788,44 @@ _MomReceivedItemFromNeighborText:: ; TO TRANSLATE
 	text_ram wStringBuffer1
 	text "."
 	prompt
+endc
 
-_MomWontNeedText:: ; TO TRANSLATE
+_MomWontNeedText::
+if DEF(_FR_FR)
+	text "Elle a dit qu'elle"
+	line "n'en a plus besoin,"
+	
+	para "vu qu'on est coin-"
+	line "cés à la maison."
+	prompt
+else
 	text "She said she won't"
 	line "need it now that"
 	cont "we're stuck home."
 	prompt
+endc
 
-_MomDontHaveAUseText:: ; TO TRANSLATE
+_MomDontHaveAUseText::
+if DEF(_FR_FR)
+	text "Je n'en ai pas"
+	line "l'utilité."
+	prompt
+else
 	text "I don't have"
 	line "a use for it."
 	prompt
+endc
 
-_MomShippedText:: ; TO TRANSLATE
+_MomShippedText::
+if DEF(_FR_FR)
+	text "Alors je te l'ai"
+	line "envoyé."
+	prompt
+else
 	text "So I shipped it"
 	line "to you."
 	prompt
+endc	
 
 _MonWasSentToText::
 if DEF(_FR_FR)
@@ -2470,7 +2538,18 @@ else
 	done
 endc
 
-_UseAnotherRepelText:: ; TO TRANSLATE
+_UseAnotherRepelText::
+if DEF(_FR_FR)
+	text "L'effet du"
+	line "@"
+	text_ram wStringBuffer3
+	text " s'est"
+	cont "dissipé."
+
+	para "En utiliser"
+	line "un autre?"
+	done
+else
 	text "@"
 	text_ram wStringBuffer3
 	text "'s"
@@ -2478,6 +2557,7 @@ _UseAnotherRepelText:: ; TO TRANSLATE
 
 	para "Use another?"
 	done
+endc
 
 _PlayerFoundItemText::
 if DEF(_FR_FR)
@@ -3581,7 +3661,25 @@ else
 	done
 endc
 
-_DayCare_RumorsText:: ; TO TRANSLATE
+_DayCare_RumorsText::
+if DEF(_FR_FR)
+	text "J'ai entendu des"
+	line "rumeurs disant que"
+	cont "cette espèce de"
+	cont "#MON serait à"
+	cont "l'origine du"
+	cont "virus."
+
+	para "Je ne veux pas"
+	line "risquer de"
+	cont "contamination."
+
+	para "Je ne vais pas"
+	line "prendre en charge"
+	cont "ce #MON."
+	cont "Désolé."
+	prompt
+else
 	text "I've heard some"
 	line "rumors saying that"
 	cont "this #MON"
@@ -3596,8 +3694,19 @@ _DayCare_RumorsText:: ; TO TRANSLATE
 	para "I won't raise"
 	line "this one. Sorry."
 	prompt
+endc
 
-_DayCare_LooksLikeVirusText:: ; TO TRANSLATE
+_DayCare_LooksLikeVirusText::
+if DEF(_FR_FR)
+	text "Ce #MON ressem-"
+	line "ble à un virus"
+	cont "géant, et je suis"
+	cont "superstitieux..."
+
+	para "Je ne vais pas"
+	line "l'élever, désolé."
+	prompt
+else
 	text "This #MON"
 	line "looks like a giant"
 	cont "virus, and I'm"
@@ -3606,15 +3715,36 @@ _DayCare_LooksLikeVirusText:: ; TO TRANSLATE
 	para "I can't raise this"
 	line "#MON, sorry."
 	prompt
+endc
 
-_DayCare_BadShapeText:: ; TO TRANSLATE
+_DayCare_BadShapeText::
+if DEF(_FR_FR)
+	text "Ton #MON a"
+	line "l'air mal en point."
+	
+	para "Je ne peux pas"
+	line "m'en occuper."
+	prompt
+else
 	text "Your #MON"
 	line "appears to be"
 	cont "sick. I can't"
 	cont "take care of it."
 	prompt
+endc
 
-_DayCare_HasCovidText:: ; TO TRANSLATE
+_DayCare_HasCovidText::
+if DEF(_FR_FR)
+	text "Attends..."
+
+	para "Ton #MON est"
+	line "infecté par le"
+	cont "virus?!?"
+
+	para "DEGAGE D'ICI"
+	line "SUR-LE-CHAMP!"
+	done
+else
 	text "Wait…"
 
 	para "Your #MON is"
@@ -3624,6 +3754,7 @@ _DayCare_HasCovidText:: ; TO TRANSLATE
 	para "GET OUT OF"
 	line "MY HOUSE, NOW!"
 	done
+endc	
 
 _NotYetText::
 if DEF(_FR_FR)
@@ -3751,7 +3882,17 @@ else
 	done
 endc
 
-_GymGuideEggText:: ; TO TRANSLATE
+_GymGuideEggText::
+if DEF(_FR_FR)
+	text "Les OEUFS ne sont"
+	line "pas autorisés"
+	cont "en ARENE."
+
+	para "On ne sait jamais"
+	line "ce qui pourrait"
+	cont "en sortir."
+	done
+else
 	text "EGGS are not"
 	line "allowed in a GYM."
 
@@ -3759,21 +3900,46 @@ _GymGuideEggText:: ; TO TRANSLATE
 	line "what could hatch"
 	cont "from it."
 	done
+endc
 
-_MissedItemText:: ; TO TRANSLATE
+_MissedItemText::
+if DEF(_FR_FR)
+	text "Hé! Il y a un"
+	line "objet oublié au"
+	cont "fond de l'étagère!"
+	prompt
+else
 	text "Hey! There's a"
 	line "lone item in the"
 	cont "back of the shelf!"
 	prompt
+endc
 
-_MissedItemSingle:: ; TO TRANSLATE
+_MissedItemSingle::
+if DEF(_FR_FR)
+	text "C'est un unique"
+	line "@"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+else
 	text "It's a single"
 	line "@"
 	text_ram wStringBuffer1
 	text "."
 	prompt
+endc
 
-_MissedItemBundle:: ; TO TRANSLATE
+_MissedItemBundle::
+if DEF(_FR_FR)
+	text "C'est un lot de"
+	line "@"
+	text_ram wStringBuffer2
+	text " @"
+	text_ram wStringBuffer1
+	text "S."
+	prompt
+else
 	text "It's a pack of"
 	line "@"
 	text_ram wStringBuffer2
@@ -3781,13 +3947,23 @@ _MissedItemBundle:: ; TO TRANSLATE
 	text_ram wStringBuffer1
 	text "S."
 	prompt
+endc
 
-_MissedItemPrice:: ; TO TRANSLATE
+_MissedItemPrice::
+if DEF(_FR_FR)
+	text "Le prix est de"
+	line "seulement @"
+	text_ram wStringBuffer3
+	text "!"
+	cont "Acheter?"
+	done
+else
 	text "The price is only"
 	line "@"
 	text_ram wStringBuffer3
 	text "! Buy it?"
 	done
+endc	
 
 
 ; Mewtwo dialogs in Cerulean Cave.
@@ -3795,7 +3971,19 @@ _MissedItemPrice:: ; TO TRANSLATE
 ; B1F, in order. Theme = asking politely to leave.
 ; Shortest path = 121 steps.
 
-_MewtwoB1FText1:: ; TO TRANSLATE
+_MewtwoB1FText1::
+if DEF(_FR_FR)
+	text "Je sens ta"
+	line "présence."
+
+	para "Le monde"
+	line "extérieur n'est"
+	cont "pas admis ici."
+
+	para "Retourne d'où"
+	line "tu viens."
+	done
+else
 	text "I can feel your"
 	line "presence."
 
@@ -3806,34 +3994,70 @@ _MewtwoB1FText1:: ; TO TRANSLATE
 	para "Go back where"
 	line "you came from."
 	done
+endc
 
-_MewtwoB1FText2:: ; TO TRANSLATE
+_MewtwoB1FText2::
+if DEF(_FR_FR)
+	text "Je sais pourquoi"
+	line "tu es venu."
+
+	para "Tu ne trouveras"
+	line "que des regrets."
+	done
+else
 	text "I know why you"
 	line "came."
 
 	para "You will only"
 	line "find regrets."
 	done
+endc
 
-_MewtwoB1FText3:: ; TO TRANSLATE
+_MewtwoB1FText3::
+if DEF(_FR_FR)
+	text "Quitte cet"
+	line "endroit."
+
+	para "Tu es prévenu."
+	done
+else
 	text "Leave this place"
 	line "at once."
 
 	para "You have been"
 	line "warned."
 	done
+endc
 
-_MewtwoB1FText4:: ; TO TRANSLATE
+_MewtwoB1FText4::
+if DEF(_FR_FR)
+	text "Si tu continues"
+	line "d'avancer,"
+
+	para "tu ne pourras plus"
+	line "faire demi-tour."
+	done
+else
 	text "If you keep going"
 	line "forward, there"
 
 	para "will be no way"
 	line "out for you."
 	done
+endc
 
-; B2F, in order. Theme = big reveals. Beginning threats.
-; Shortest path = 73 steps.
-_MewtwoB2FText1:: ; TO TRANSLATE
+_MewtwoB2FText1::
+if DEF(_FR_FR)
+	text "J'ai fait s'effon-"
+	line "drer ce lieu afin"
+	cont "qu'il me"
+	cont "contienne."
+
+	para "Personne ne doit"
+	line "entrer ni sortir"
+	cont "de cet endroit."
+	done
+else
 	text "I made this place"
 	line "collapse so I"
 	cont "could be"
@@ -3843,8 +4067,31 @@ _MewtwoB2FText1:: ; TO TRANSLATE
 	line "in or go out of"
 	cont "this place."
 	done
+endc
 
-_MewtwoB2FText2:: ; TO TRANSLATE
+_MewtwoB2FText2::
+if DEF(_FR_FR)
+	text "Les pauvres"
+	line "#MON de cette"
+	cont "grotte..."
+
+	para "Je suis respon-"
+	line "sable de ce qui"
+	cont "leur arrive."
+
+	para "Mais je ne peux"
+	line "pas les laisser"
+	cont "partir."
+
+	para "Cela ne ferait"
+	line "que causer plus"
+	cont "de souffrance."
+
+	para "Mes créateurs"
+	line "ne m'ont laissé"
+	cont "aucun choix."
+	done
+else
 	text "The poor #MON"
 	line "of this cave…"
 
@@ -3862,8 +4109,22 @@ _MewtwoB2FText2:: ; TO TRANSLATE
 	para "My creators left"
 	line "me no choice."
 	done
+endc
 
-_MewtwoB2FText3:: ; TO TRANSLATE
+_MewtwoB2FText3::
+if DEF(_FR_FR)
+	text "J'ai envoyé"
+	line "l'avatar du feu"
+	cont "pour libérer la"
+	cont "puissance du"
+	cont "volcan et"
+	cont "détruire leur"
+	cont "laboratoire."
+
+	para "Ne me force pas"
+	line "à te détruire."
+	done
+else
 	text "I sent the avatar"
 	line "of fire to unleash"
 	cont "the volcano's power"
@@ -3873,8 +4134,20 @@ _MewtwoB2FText3:: ; TO TRANSLATE
 	para "Don't force me to"
 	line "destroy you."
 	done
+endc
 
-_MewtwoB2FText4:: ; TO TRANSLATE
+_MewtwoB2FText4::
+if DEF(_FR_FR)
+	text "Un autre est venu"
+	line "avant toi."
+
+	para "Il a causé sa"
+	line "propre perte."
+
+	para "Ne fais pas la"
+	line "même erreur."
+	done
+else
 	text "Another one came"
 	line "before you."
 
@@ -3884,31 +4157,63 @@ _MewtwoB2FText4:: ; TO TRANSLATE
 	para "Don't make the"
 	line "same mistake."
 	done
+endc
 
-; B3F, random. Theme = discouraging fight with threats. Trying to be convincing by showing good intentions.
-; Shortest path = 123 steps.
-_MewtwoB3FText1:: ; TO TRANSLATE
+_MewtwoB3FText1::
+if DEF(_FR_FR)
+	text "Ne m'approche pas,"
+	line "je suis dangereux."
+	done
+else
 	text "Don't approach me,"
 	line "I am dangerous."
 	done
+endc
 
-_MewtwoB3FText2:: ; TO TRANSLATE
+_MewtwoB3FText2::
+if DEF(_FR_FR)
+	text "Je ne veux pas"
+	line "me battre."
+
+	para "C'est pour ta"
+	line "sécurité."
+	done
+else
 	text "I don't want to"
 	line "fight you."
 
 	para "For your own"
 	line "protection."
 	done
+endc
 
-_MewtwoB3FText3:: ; TO TRANSLATE
+_MewtwoB3FText3::
+if DEF(_FR_FR)
+	text "Pourquoi tu ne"
+	line "m'écoutes-tu pas?"
+
+	para "Je serai sans"
+	line "pitié."
+	done
+else
 	text "Why don't you"
 	line "listen to me?"
 
 	para "I will show you"
 	line "no mercy."
 	done
+endc
 
-_MewtwoB3FText4:: ; TO TRANSLATE
+_MewtwoB3FText4::
+if DEF(_FR_FR)
+	text "On m'a créé comme"
+	line "arme de destruc-"
+	cont "tion massive."
+
+	para "Je désire la paix."
+	line "Laisse-moi."
+	done
+else
 	text "They built me as a"
 	line "weapon of mass"
 	cont "destruction."
@@ -3916,15 +4221,34 @@ _MewtwoB3FText4:: ; TO TRANSLATE
 	para "I just want peace."
 	line "Leave me."
 	done
+endc
 
-_MewtwoB3FText5:: ; TO TRANSLATE
+_MewtwoB3FText5::
+if DEF(_FR_FR)
+	text "Arrête de me"
+	line "poursuivre."
+
+	para "Tu le regretteras"
+	line "pour toujours."
+	done
+else
 	text "Stop chasing me."
 
 	para "You will forever"
 	line "regret it."
 	done
+endc
 
-_MewtwoB3FText6:: ; TO TRANSLATE
+_MewtwoB3FText6::
+if DEF(_FR_FR)
+	text "Je serai ta fin,"
+	line "et tu seras la fin"
+	cont "de ton espèce."
+
+	para "C'est ma"
+	line "malédiction."
+	done
+else
 	text "I will be your"
 	line "end, and you will"
 	cont "be the end of"
@@ -3932,16 +4256,39 @@ _MewtwoB3FText6:: ; TO TRANSLATE
 
 	para "This is my curse."
 	done
+endc
 
-_MewtwoB3FText7:: ; TO TRANSLATE
+_MewtwoB3FText7::
+if DEF(_FR_FR)
+	text "Quitte cet endroit"
+	line "sans tarder."
+
+	para "Ne fais pas"
+	line "souffrir tes"
+	cont "#MON."
+	done
+else
 	text "Go out of this"
 	line "cave. Now."
 
 	para "Don't make your"
 	line "#MON suffer."
 	done
+endc
 
-_MewtwoB3FText8:: ; TO TRANSLATE
+_MewtwoB3FText8::
+if DEF(_FR_FR)
+	text "Dompte ton ins-"
+	line "tinct primitif,"
+	cont "humain."
+
+	para "Pour ton propre"
+	line "bien."
+
+	para "Ta soif de pouvoir"
+	line "causera ta perte."
+	done
+else
 	text "Tame your primal"
 	line "instincts, human."
 
@@ -3951,22 +4298,50 @@ _MewtwoB3FText8:: ; TO TRANSLATE
 	line "power will be"
 	cont "your downfall."
 	done
+endc	
 
-_WeakGroundText:: ; TO TRANSLATE
+_WeakGroundText::
+if DEF(_FR_FR)
+	text "Le sol est"
+	line "fragile."
+
+	para "Un poids assez"
+	line "grand le fera"
+	cont "s'effondrer."
+	done
+else
 	text "The ground's weak."
 	para "Enough weight over"
 	line "it will make it"
 	cont "collapse."
 	done
+endc
 
-_WeakGroundCollapsedText:: ; TO TRANSLATE
+_WeakGroundCollapsedText::
+if DEF(_FR_FR)
+	text "Le sol fragile"
+	line "a cédé sous"
+	cont "le poids des"
+	cont "rochers."
+	done
+else
 	text "The weak ground"
 	line "collapsed under"
 	cont "the weight of"
 	cont "the boulders."
 	done
+endc
 
-_TradebackGuyIntroText:: ; TO TRANSLATE
+_TradebackGuyIntroText::
+if DEF(_FR_FR)
+	text "T'es chaud pour un"
+	line "échange avec moi?"
+
+	para "Balance un #MON"
+	line "et j'te le renvoie"
+	cont "direct."
+	done
+else
 	text "Hey wanna trade"
 	line "with me?"
 
@@ -3974,12 +4349,34 @@ _TradebackGuyIntroText:: ; TO TRANSLATE
 	line "and I'll send it"
 	cont "right back at ya'."
 	done
+endc
 
-_TradebackGuyAnotherTimeText:: ; TO TRANSLATE
+_TradebackGuyAnotherTimeText::
+if DEF(_FR_FR)
+	text "P't'être un"
+	line "autre jour."
+	done
+else
 	text "Maybe another day."
 	done
+endc
 
-_TradebackGuyConfusedText:: ; TO TRANSLATE
+_TradebackGuyConfusedText::
+if DEF(_FR_FR)
+	text "Oh... vraiment?"
+	line "Canon!"
+
+	para "...euh, j'veux"
+	line "dire... j'te fait"
+	cont "une faveur! Ca"
+	cont "mérite un..."
+
+	para "Heu..."
+
+	para "Laisse-moi"
+	line "réfléchir."
+	done
+else
 	text "Oh… really?"
 	line "Phat!"
 
@@ -3992,8 +4389,20 @@ _TradebackGuyConfusedText:: ; TO TRANSLATE
 
 	para "Let me think."
 	done
+endc
 
-_TradebackGuyDealText:: ; TO TRANSLATE
+_TradebackGuyDealText::
+if DEF(_FR_FR)
+	text "J'veux une"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+
+	para "Donne m'en une et"
+	line "le marché est"
+	cont "conclu."
+	done
+else
 	text "I want a"
 	line "@"
 	text_ram wStringBuffer3
@@ -4002,37 +4411,81 @@ _TradebackGuyDealText:: ; TO TRANSLATE
 	para "Give me one, and"
 	line "we have a deal."
 	done
+endc
 
-_TradebackGuyDealBrokenText:: ; TO TRANSLATE
+_TradebackGuyDealBrokenText::
+if DEF(_FR_FR)
+	text "Zut! J'ai été"
+	line "trop gourmand."
+	done
+else
 	text "Shoot! I should've"
 	line "asked for some-"
 	cont "thing cheaper."
 	done
+endc
 
-_TradebackGuyDontHaveItemText:: ; TO TRANSLATE
+_TradebackGuyDontHaveItemText::
+if DEF(_FR_FR)
+	text "Mais tu n'en"
+	line "as pas!"
+
+	para "Je croyais que"
+	line "tu étais un"
+	cont "vrai dresseur..."
+	done
+else
 	text "But you don't"
 	line "have one!"
 
 	para "I thought you were"
 	line "a real trainer…"
 	done
+endc
 
-_TradebackPlayerGivesItemText:: ; TO TRANSLATE
+_TradebackPlayerGivesItemText::
+if DEF(_FR_FR)
+	text "<PLAYER> a donné"
+	line "1 @"
+	text_ram wStringBuffer3
+	text "."
+	done
+else
 	text "<PLAYER> gave 1"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
 	done
+endc
 
-_TradebackGuyDealOkText:: ; TO TRANSLATE
+_TradebackGuyDealOkText::
+if DEF(_FR_FR)
+	text "Sans dec'? Je peux"
+	line "l'avoir?"
+	cont "Merci!"
+
+	para "Alors c'est ti-par!"
+	done
+else
 	text "For real? I can"
 	line "have it?"
 	cont "Thanks!"
 
 	para "Let's do it then!"
 	done
+endc
 
-_TradebackGuyKeepPaymentText:: ; TO TRANSLATE
+_TradebackGuyKeepPaymentText::
+if DEF(_FR_FR)
+	text "Tu changes"
+	line "d'avis?"
+
+	para "Pas mon problème!"
+
+	para "Je garde ton"
+	line "cadeau, merci."
+	done
+else
 	text "Changed your"
 	line "mind?"
 
@@ -4041,13 +4494,29 @@ _TradebackGuyKeepPaymentText:: ; TO TRANSLATE
 	para "I'm keeping your"
 	line "gift, thanks."
 	done
+endc
 
-_TradebackGuyDealNoEvoText:: ; TO TRANSLATE
+_TradebackGuyDealNoEvoText::
+if DEF(_FR_FR)
+	text "Pas d'évolution."
+	line "Fais iech."
+	done
+else
 	text "It didn't evolve."
 	line "Boring."
 	done
+endc
 
-_TradebackGuyDealEvoText:: ; TO TRANSLATE
+_TradebackGuyDealEvoText::
+if DEF(_FR_FR)
+	text "Wow!"
+	line "Cette évo, c'était"
+	cont "de la bombe!"
+
+	para "Trop hâte de ra-"
+	line "conter à MICKEY!"
+	done
+else
 	text "Wow!"
 	line "This evolution"
 	cont "was the bomb!"
@@ -4056,8 +4525,24 @@ _TradebackGuyDealEvoText:: ; TO TRANSLATE
 	line "tell MICKEY"
 	cont "about it!"
 	done
+endc
 
-ClosedBusinessText:: ; TO TRANSLATE
+ClosedBusinessText::
+if DEF(_FR_FR)
+	text "Il y a un avis"
+	line "sur la porte..."
+
+	para "“En raison de la"
+	line "crise sanitaire,"
+
+	para "notre établi-"
+	line "ssement doit"
+	cont "rester fermé"
+
+	para "jusqu'à nouvel"
+	line "ordre.”"
+	done
+else
 	text "There is a notice"
 	line "on the door…"
 
@@ -4070,8 +4555,21 @@ ClosedBusinessText:: ; TO TRANSLATE
 	para "until further"
 	line "notice.”"
 	done
+endc
 
-ClosedBusinessCurfewText:: ; TO TRANSLATE
+ClosedBusinessCurfewText::
+if DEF(_FR_FR)
+	text "Il y a un avis"
+	line "sur la porte..."
+
+	para "“Notre établi-"
+	line "ssement rouvrira"
+
+	para "demain matin,"
+	line "après le couvre-"
+	cont "feu.”"
+	done
+else
 	text "There is a notice"
 	line "on the door…"
 
@@ -4081,8 +4579,18 @@ ClosedBusinessCurfewText:: ; TO TRANSLATE
 	para "row morning, after"
 	line "the curfew.”"
 	done
+endc
 
-ElmsLabBookshelf1Text:: ; TO TRANSLATE
+ElmsLabBookshelf1Text::
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Maintiens le"
+	line "bouton Bas pour"
+	cont "accélérer les"
+	cont "dialogues!"
+	done
+else
 	text "TRAINER TIPS"
 
 	para "Keep the Down"
@@ -4090,8 +4598,28 @@ ElmsLabBookshelf1Text:: ; TO TRANSLATE
 	cont "to fast forward"
 	cont "dialogs!"
 	done
+endc
 
-ElmsLabBookshelf2Text:: ; TO TRANSLATE
+ElmsLabBookshelf2Text::
+if DEF(_FR_FR)
+	text "ECRAN STATS"
+
+	para "Le symbôle ! à"
+	line "droite d'une stat"
+	cont "indique qu'elle a"
+	cont "le potentiel max."
+
+	para "Le symbôle <EMPTY_STAR> à"
+	line "gauche d'une stat"
+	cont "indique qu'elle est"
+	cont "entraînée à fond,"
+	
+	para "et qu'elle ne"
+	line "pourra augmenter"
+	cont "qu'en gagnant "
+	cont "des niveaux."
+	done
+else
 	text "STATS SCREEN"
 
 	para "The ! symbol next"
@@ -4106,8 +4634,37 @@ ElmsLabBookshelf2Text:: ; TO TRANSLATE
 	cont "will only grow by"
 	cont "leveling up."
 	done
+endc
 
-ElmsLabBookshelf3Text:: ; TO TRANSLATE
+ElmsLabBookshelf3Text::
+if DEF(_FR_FR)
+	text "MENU START"
+
+	para "Appuie sur le"
+	line "bouton Start"
+	cont "pour ouvrir le"
+	cont "menu Start."
+	
+	para "Un appui long sur"
+	line "Start ouvre la"
+	cont "sauvegarde rapide."
+
+	para "SAUVE ta pro-"
+	line "gression avant"
+	cont "d'éteindre ta"
+	cont "console."
+
+	para "Le menu OPTIONS"
+	line "permet de"
+	cont "personnaliser ton"
+	cont "expérience de jeu."
+
+	para "Plus d'infos sur ce"
+	line "menu dans la"
+	cont "prochaine biblio-"
+	cont "thèque à droite."
+	done
+else
 	text "START MENU"
 
 	para "Press Start to"
@@ -4135,8 +4692,31 @@ ElmsLabBookshelf3Text:: ; TO TRANSLATE
 	cont "bookshelves to"
 	cont "the right."
 	done
+endc
 
-ElmsLabBookshelf4Text:: ; TO TRANSLATE
+ElmsLabBookshelf4Text::
+if DEF(_FR_FR)
+	text "ALLUM. RAPIDE"
+
+	para "OFF : le jeu"
+	line "s'allume normale-"
+	cont "ment."
+
+	para "ON : l'intro est"
+	line "sautée, pour"
+	cont "démarrer direct"
+	cont "dans le jeu."
+
+	para "Pour admirer la"
+	line "magnifique intro,"
+	cont "ou pour créer un"
+	cont "NOUVEAU JEU, mets"
+	cont "Allum. rapide sur"
+	cont "OFF, sauvegarde ta"
+	cont "partie, puis redé-"
+	cont "marres ta console."
+	done
+else
 	text "FAST BOOT"
 
 	para "OFF mode:"
@@ -4159,8 +4739,33 @@ ElmsLabBookshelf4Text:: ; TO TRANSLATE
 	cont "then reboot your"
 	cont "console."
 	done
+endc
 
-ElmsLabBookshelf5Text:: ; TO TRANSLATE
+ElmsLabBookshelf5Text::
+if DEF(_FR_FR)
+	text "INTERACTIONS"
+	line "Tome 1/3"
+
+	para "TRADI : les inter-"
+	line "actions marchent"
+	cont "comme dans le"
+	cont "jeu original."
+
+	para "RACCOURCI :"
+	line "en plus des inter-"
+	cont "actions traditio-"
+	cont "nnelles, ce mode"
+	cont "propose une expé-"
+	cont "rience fluide en"
+	cont "en réduisant les"
+	cont "appuis sur les"
+	cont "boutons."
+
+	para "Plus d'infos dans"
+	line "la prochaine"
+	cont "bibliothèque."
+	done
+else
 	text "WORLD ACTIONS"
 	line "Tome 1/3"
 
@@ -4181,8 +4786,48 @@ ElmsLabBookshelf5Text:: ; TO TRANSLATE
 	para "More info on the"
 	line "next shelf."
 	done
+endc
 
-ElmsLabBookshelf6Text:: ; TO TRANSLATE
+ElmsLabBookshelf6Text::
+if DEF(_FR_FR)
+	text "INTERACTIONS"
+	line "Tome 2/3"
+
+	para "RACCOURCI : dans"
+	line "ce mode les objets"
+	cont "sont ramassés en"
+	cont "marchant vers eux."
+
+	para "Auto-déclenche les"
+	line "effets des CS en"
+	cont "marchant contre"
+	cont "les arbres à"
+	cont "couper, rochers"
+	cont "brisables, rochers"
+	cont "à pousser, les"
+	cont "cascades, et les"
+	cont "siphons."
+
+	para "FLASH s'active"
+	line "tout seul dans"
+	cont "les zones sombres."
+
+	para "Appuies sur A"
+	line "contre un arbre"
+	cont "pour lui mettre"
+	cont "un COUP D'BOULE."
+
+	para "Tu peux aussi"
+	line "déclencher d'autres"
+	cont "effets grâce à un"
+	cont "appui long sur"
+	cont "certains boutons."
+
+	para "Plus d'infos dans"
+	line "la prochaine"
+	cont "bibliothèque."
+	done
+else
 	text "WORLD ACTIONS"
 	line "Tome 2/3"
 
@@ -4215,8 +4860,53 @@ ElmsLabBookshelf6Text:: ; TO TRANSLATE
 	para "More info on the"
 	line "next shelf."
 	done
+endc
 
-ElmsLabBookshelf7Text:: ; TO TRANSLATE
+ElmsLabBookshelf7Text::
+if DEF(_FR_FR)
+	text "INTERACTIONS"
+	line "Tome 3/3"
+
+	para "RACCOURCI : un"
+	line "appui long sur A"
+	cont "déclenche divers"
+	cont "effets selon le"
+	cont "contexte."
+
+	para "Lance COUPE en"
+	line "faisant face à des"
+	cont "hautes herbes."
+
+	para "A l'intérieur de"
+	line "l'herbe, cela lance"
+	cont "DOUX PARFUM."
+
+	para "Un appui long sur"
+	line "B permet de"
+	cont "quitter la zone"
+	cont "actuelle."
+
+	para "Après validation,"
+	line "cela déclenche"
+	cont "VOL, TUNNEL ou"
+	cont "TELEPORT selon la"
+	cont "zone."
+
+	para "Une CORDE SORTIE"
+	line "peut être utilisée"
+	cont "de cette même"
+	cont "manière."
+
+	para "Le bouton SELECT"
+	line "dispose aussi de"
+	cont "raccourcis"
+	cont "intuitifs."
+
+	para "Plus d'infos dans"
+	line "la prochaine"
+	cont "bibliothèque."
+	done
+else
 	text "WORLD ACTIONS"
 	line "Tome 3/3"
 
@@ -4254,8 +4944,44 @@ ElmsLabBookshelf7Text:: ; TO TRANSLATE
 	para "More info on the"
 	line "next shelf."
 	done
+endc
 
-ElmsLabBookshelf8Text:: ; TO TRANSLATE
+ElmsLabBookshelf8Text::
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Utilisez divers"
+	line "OBJETS RARES avec"
+	cont "le bouton Select."
+
+	para "Faire face à l'eau"
+	line "utilise une CANNE."
+
+	para "Celle qui est"
+	line "enregistrée sera"
+	cont "utilisée en prio."
+
+	para "Sinon, c'est celle"
+	line "qui est la plus"
+	cont "haute de la POCHE"
+	cont "OBJETS RARES."
+
+	para "Faire face à un"
+	line "arbre à fruits"
+	cont "utilise la"
+	cont "CARAPUCE A O."
+
+	para "Dans les autres"
+	line "situations, la"
+	cont "BICYCLETTE sera"
+	cont "utilisée."
+
+	para "Un appui long"
+	line "sur Select"
+	cont "déclenche le"
+	cont "CHERCH'OBJET."
+	done
+else
 	text "TRAINER TIPS"
 
 	para "You can use KEY"
@@ -4283,8 +5009,24 @@ ElmsLabBookshelf8Text:: ; TO TRANSLATE
 	para "A long press uses"
 	line "the ITEMFINDER."
 	done
+endc	
 
-_RTCErrorText:: ; TO TRANSLATE
+_RTCErrorText::
+if DEF(_FR_FR)
+	text "Ce jeu requiert"
+	line "une horloge (RTC)."
+
+	para "Si tu joues sur"
+	line "cartouche, la"
+	cont "pile est peut-"
+	cont "être vide."
+
+	para "Sur émulateur,"
+	line "vérifie les"
+	cont "paramètres ou"
+	cont "change d'appli."
+	prompt
+else
 	text "This game requires"
 	line "a Real-Time Clock."
 
@@ -4298,21 +5040,51 @@ _RTCErrorText:: ; TO TRANSLATE
 	cont "its parameters or"
 	cont "use another one."
 	prompt
+endc
 
-Pokecenter1F_ThanksForSupport:: ; TO TRANSLATE
+Pokecenter1F_ThanksForSupport::
+if DEF(_FR_FR)
+	text "Merci pour ton"
+	line "soutien au"
+	cont "personnel de"
+	cont "santé."
+	done
+else
 	text "Thank you for"
 	line "your support to"
 	cont "the healthcare"
 	cont "personnel."
 	done
+endc
 
-FreePCRTestAfterClappingText:: ; TO TRANSLATE
+FreePCRTestAfterClappingText::
+if DEF(_FR_FR)
+	text "... mais se tester"
+	line "est important."
+	para "Je te l'offre."
+	done
+else
 	text "… but testing is"
 	line "important."
 	para "It's on me."
 	done
+endc
 
-GoldenrodHospital1F_ClappedText:: ; TO TRANSLATE
+GoldenrodHospital1F_ClappedText::
+if DEF(_FR_FR)
+	text "Au nom de tous"
+	line "les employés"
+	cont "de cet hôpital,"
+
+	para "merci de manifes-"
+	line "ter ton soutien."
+
+	para "Ca nous aide à"
+	line "garder la motiva-"
+	cont "tion en ces temps"
+	cont "difficiles."
+	done
+else
 	text "In the name of"
 	line "all employees of"
 	cont "this hospital,"
@@ -4325,8 +5097,21 @@ GoldenrodHospital1F_ClappedText:: ; TO TRANSLATE
 	cont "in these difficult"
 	cont "times."
 	done
+endc
 
-GoldenrodHospitalCorridorNurse1ClappedText:: ; TO TRANSLATE
+GoldenrodHospitalCorridorNurse1ClappedText::
+if DEF(_FR_FR)
+	text "Merci de montrer"
+	line "ton soutien."
+
+	para "Mais ça ne suffit"
+	line "pas à faire avan-"
+	cont "cer les choses."
+	
+	para "Il faudrait"
+	line "aussi agir."
+	done
+else
 	text "Thanks for showing"
 	line "support."
 
@@ -4334,77 +5119,177 @@ GoldenrodHospitalCorridorNurse1ClappedText:: ; TO TRANSLATE
 	line "helping. Taking"
 	cont "action would help."
 	done
+endc
 
-GoldenrodHospitalRoom7PatientClapText:: ; TO TRANSLATE
+GoldenrodHospitalRoom7PatientClapText::
+if DEF(_FR_FR)
+	text "Arrête d'applaudir!"
+	line "Tu me fais rougir!"
+	done
+else
 	text "Stop clapping!"
 	line "You're making me"
 	cont "blush!"
 	done
+endc
 
-GoldenrodHospitalRoom7VisitorClapText:: ; TO TRANSLATE
+GoldenrodHospitalRoom7VisitorClapText::
+if DEF(_FR_FR)
+	text "Ton soutien est"
+	line "apprécié!"
+	done
+else
 	text "Your support is"
 	line "appreciated!"
 	done
+endc
 
-GoldenrodHospitalRoom7VisitorClap2Text:: ; TO TRANSLATE
+GoldenrodHospitalRoom7VisitorClap2Text::
+if DEF(_FR_FR)
+	text "Je veux te rendre"
+	line "ta gentillesse!"
+	done
+else
 	text "I want to match"
 	line "your kindness!"
 	done
+endc
 
-GoldenrodHospitalRoom13VisitorClapText:: ; TO TRANSLATE
+GoldenrodHospitalRoom13VisitorClapText::
+if DEF(_FR_FR)
+	text "Merci pour les"
+	line "encouragements!"
+	cont "Je vais travailler"
+	cont "encore plus dur."
+	done
+else
 	text "Thank you for the"
 	line "cheering! I'll keep"
 	cont "working very hard."
 	done
+endc
 
-_Clapping1Text:: ; TO TRANSLATE
+_Clapping1Text::
+if DEF(_FR_FR)
 	text "*clap* *clap*"
 	line " *clap* *clap*"
 	done
+else
+	text "*clap* *clap*"
+	line " *clap* *clap*"
+	done
+endc
 
-_Clapping2Text:: ; TO TRANSLATE
+_Clapping2Text::
+if DEF(_FR_FR)
 	text " *clap* *clap*"
 	line "*clap* *clap*"
 	done
+else
+	text " *clap* *clap*"
+	line "*clap* *clap*"
+	done
+endc
 
-_Clapping3Text:: ; TO TRANSLATE
+_Clapping3Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "Je me demande"
+	line "combien de temps"
+	
+	para "cet applaudisse-"
+	line "ment va durer."
+	done
+else
 	text "*clap* *clap*"
 
 	para "I wonder how long"
 	line "this clapping"
 	cont "will last."
 	done
+endc
 
-_Clapping4Text:: ; TO TRANSLATE
+_Clapping4Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "Si tu soutiens les"
+	line "soignants, alors"
+	cont "tape en rythme!"
+	done
+else
 	text "*clap* *clap*"
 
 	para "If you support"
 	line "healthcare workers"
 	cont "then clap along!"
 	done
+endc
 
-_Clapping5Text:: ; TO TRANSLATE
+_Clapping5Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "J'ai mal aux"
+	line "mains."
+	done
+else
 	text "*clap* *clap*"
 
 	para "My hands hurt."
 	done
+endc
 
-_Clapping6Text:: ; TO TRANSLATE
+_Clapping6Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "Pourquoi on"
+	line "applaudit déjà?"
+	done
+else
 	text "*clap* *clap*"
 
 	para "Why are we all"
 	line "clapping already?"
 	done
+endc
 
-_Clapping7Text:: ; TO TRANSLATE
+_Clapping7Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "Applaudir n'est"
+	line "sans doute pas"
+	cont "très utile..."
+	cont "mais c'est fun!"
+	done
+else
 	text "*clap* *clap*"
 
 	para "Clapping may not"
 	line "be helpful… but"
 	cont "it sure is fun!"
 	done
+endc
 
-_Clapping8Text:: ; TO TRANSLATE
+_Clapping8Text::
+if DEF(_FR_FR)
+	text "*clap* *clap*"
+
+	para "Les soignants sont"
+	line "en première ligne"
+	cont "dans la guerre"
+	cont "contre le COVID."
+
+	para "Chaque jour, ils"
+	line "risquent leur vie"
+	cont "face au virus."
+
+	para "De vrais héros."
+	done
+else
 	text "*clap* *clap*"
 
 	para "Healthcare workers"
@@ -4418,8 +5303,38 @@ _Clapping8Text:: ; TO TRANSLATE
 
 	para "True heroes."
 	done
+endc
 
-ItemfinderExplanationText:: ; TO TRANSLATE
+ItemfinderExplanationText::
+if DEF(_FR_FR)
+	text "Il y a plein"
+	line "d'objets qui"
+	cont "trainent par"
+	cont "terre, et qu'on"
+	cont "rate facilement."
+
+	para "Le CHERCH'OBJET"
+	line "permet de vérifier"
+
+	para "si un objet se"
+	line "trouve au sol"
+	cont "près de toi."
+
+	para "Il n'indique pas"
+	line "la localisation"
+	cont "exacte, mais plus"
+
+	para "tu te rapproches,"
+	line "plus il bippe"
+	cont "rapidement!"
+
+	para "On dit qu'il y a"
+	line "des objets dans"
+
+	para "la TOUR CENDREE"
+	line "de ROSALIA."
+	done
+else
 	text "There are many"
 	line "items lying about"
 
@@ -4445,3 +5360,4 @@ ItemfinderExplanationText:: ; TO TRANSLATE
 	para "in ECRUTEAK's"
 	line "BURNED TOWER."
 	done
+endc
