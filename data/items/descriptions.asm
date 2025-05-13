@@ -282,7 +282,7 @@ endc
 BrightpowderDesc:
 if DEF(_FR_FR)
 	db   "Baisse PRECISION"
-	next "adv. de 10<PERCENT> (TENU)@"
+	next "adv. de 10<PERCENT>.(TENU)@"
 else
 	db   "Lowers foe's accur-"
 	next "acy by 10<PERCENT>. (HOLD)@"
