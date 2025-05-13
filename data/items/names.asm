@@ -135,7 +135,7 @@ if DEF(_FR_FR)
 	li "MORC. ETOILE"
 	li "CLE SOUS-SOL"
 	li "PASSE TRAIN"
-	li "BADGE SILPH"
+	li "BADGE SYLPHE"
 	li "ROCHE CLIMAT"
 	li "LOUPE"
 	li "CHARBON"

@@ -137,7 +137,11 @@ _SilphCo_SetMonAttributes:
     ret
 
 SilphCo_TrainerName:
+if DEF(_FR_FR)
+    db "SYLPHE@"
+else
     db "SILPH@"
+endc
 
 ; Input: none.
 ; Output: [wScriptVar]: 0 if the mon is not within the party, $a if the mon needs more training, $b if more than 50% of the training, $c if >= 100% of the training.

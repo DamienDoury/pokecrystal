@@ -2561,7 +2561,7 @@ PCString_Got: db " obtenu!@"
 PCString_BoxFull: db "BOITE pleine.@"
 PCString_PartyFull: db "EQUIPE pleine!@"
 PCString_NoReleasingEGGS: db "Impos. jeter OEUFS@"
-PCString_SilphCoProperty: db "Propriété de SILPH@"
+PCString_SilphCoProperty: db "Prêté par SYLPHE!@"
 PCString_PikachuRefuses: db "PIKACHU refuse!@"
 else
 PCString_ChooseaPKMN: db "Choose a <PK><MN>.@"

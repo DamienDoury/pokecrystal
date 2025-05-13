@@ -285,7 +285,7 @@ if DEF(_FR_FR)
 	line "j'attends une"
 
 	para "livraison de la"
-	line "SILPH SARL."
+	line "SYLPHE SARL."
 
 	para "La grande société"
 	line "basée à KANTO,"
