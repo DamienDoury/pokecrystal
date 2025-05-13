@@ -680,9 +680,9 @@ if DEF(_FR_FR)
 	text_ram wStringBuffer1
 	text ""
 
-	cont "pour ¥@"
+	cont "pour @"
 	text_decimal wStringBuffer3, 3, 5
-	text "."
+	text "¥."
 
 	para "C'est une super"
 	line "affaire, alors"
