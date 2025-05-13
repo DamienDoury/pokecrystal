@@ -2402,7 +2402,8 @@ _OakRating01::
 if DEF(_FR_FR)
 	text "Cherche des #-"
 	line "MON dans les"
-	cont "hautes herbes!"
+	
+	para "hautes herbes!"
 	done
 else
 	text "Look for #MON"
@@ -2414,12 +2415,14 @@ _OakRating02::
 if DEF(_FR_FR)
 	text "Bien. Je vois que"
 	line "tu sais te servir"
-	cont "des # BALLS."
+	
+	para "des # BALLS."
 	done
 else
 	text "Good. I see you"
 	line "understand how to"
-	cont "use # BALLS."
+	
+	para "use # BALLS."
 	done
 endc
 
@@ -2512,12 +2515,14 @@ _OakRating08::
 if DEF(_FR_FR)
 	text "Super! Tu aimes"
 	line "collectionner"
-	cont "des trucs, hein?"
+	
+	para "des trucs, hein?"
 	done
 else
 	text "Excellent! You"
-	line "seem to like col-"
-	cont "lecting things!"
+	line "seem to like"
+	
+	para "collecting things!"
 	done
 endc
 
@@ -2528,7 +2533,8 @@ if DEF(_FR_FR)
 	
 	para "qu'à certains"
 	line "moments de la"
-	cont "journée."
+	
+	para "journée."
 	done
 else
 	text "Some #MON only"
@@ -2542,13 +2548,16 @@ endc
 _OakRating10::
 if DEF(_FR_FR)
 	text "Ton #DEX se"
-	line "remplit. C'est"
-	cont "bien!"
+	line "remplit."
+	
+	para "C'est bien!"
 	done
 else
 	text "Your #DEX is"
-	line "filling up. Keep"
-	cont "up the good work!"
+	line "filling up."
+	
+	para "Keep up the"
+	line "good work!"
 	done
 endc
 
@@ -2572,13 +2581,16 @@ endc
 _OakRating12::
 if DEF(_FR_FR)
 	text "Tu connais"
-	line "FARGAS? Il fabri-"
-	cont "que des BALLS!"
+	line "FARGAS?"
+	
+	para "Il fabrique"
+	line "des BALLS!"
 	done
 else
 	text "Have you met KURT?"
 	line "His custom BALLS"
-	cont "should help."
+	
+	para "should help."
 	done
 endc
 
@@ -2589,7 +2601,8 @@ if DEF(_FR_FR)
 	
 	para "qu'au dernier"
 	line "recensement du"
-	cont "#DEX."
+	
+	para "#DEX."
 	done
 else
 	text "Wow. You've found"
@@ -2621,13 +2634,15 @@ _OakRating15::
 if DEF(_FR_FR)
 	text "Whoa! T'as passé"
 	line "la barre des 200!"
-	cont "Ton #DEX est"
-	cont "mortel!"
+	
+	para "Ton #DEX est"
+	line "mortel!"
 	done
 else
 	text "Wow! You've hit"
 	line "200! Your #DEX"
-	cont "is looking great!"
+	
+	para "is looking great!"
 	done
 endc
 
