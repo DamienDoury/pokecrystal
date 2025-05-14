@@ -4962,7 +4962,7 @@ if DEF(_FR_FR)
 	line "enregistrée sera"
 	cont "utilisée en prio."
 
-	para "Sinon, c'est celle"
+	para "Sinon, celle"
 	line "qui est la plus"
 	cont "haute de la POCHE"
 	cont "OBJETS RARES."
