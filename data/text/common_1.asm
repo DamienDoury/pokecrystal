@@ -4514,7 +4514,8 @@ if DEF(_FR_FR)
 	cont "de la bombe!"
 
 	para "Trop hâte de ra-"
-	line "conter à MICKEY!"
+	line "conter à mon pote"
+	cont "MICKEY!"
 	done
 else
 	text "Wow!"
