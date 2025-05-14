@@ -53,6 +53,18 @@ InitClock:
 .loop
 	ld hl, OakTimeWhatTimeIsItText
 	call PrintText
+
+if DEF(_FR_FR)
+	hlcoord 9, 7
+	ld b, 2
+	ld c, 9
+	call Textbox
+	hlcoord 14, 7
+	ld [hl], $1
+	hlcoord 14, 10
+	ld [hl], $2
+	hlcoord 10, 9
+else
 	hlcoord 3, 7
 	ld b, 2
 	ld c, 15
@@ -62,6 +74,7 @@ InitClock:
 	hlcoord 11, 10
 	ld [hl], $2
 	hlcoord 4, 9
+endc
 	call DisplayHourOClock
 	ld c, 10
 	call DelayFrames
@@ -169,11 +182,19 @@ SetHour:
 	ld [hl], a
 
 .okay
+if DEF(_FR_FR)
+	hlcoord 10, 9
+	ld a, " "
+	ld bc, 9
+	call ByteFill
+	hlcoord 10, 9
+else
 	hlcoord 4, 9
 	ld a, " "
 	ld bc, 15
 	call ByteFill
 	hlcoord 4, 9
+endc
 	call DisplayHourOClock
 	call WaitBGMap
 	and a
@@ -194,32 +215,6 @@ DisplayHourOClock:
 	ld de, String_oclock
 	call PlaceString
 	pop hl
-	ret
-
-DisplayHoursMinutesWithMinString: ; unreferenced
-	ld h, d
-	ld l, e
-	push hl
-	call DisplayHourOClock
-	pop de
-	inc de
-	inc de
-	ld a, ":"
-	ld [de], a
-	inc de
-	push de
-	ld hl, 3
-	add hl, de
-	ld a, [de]
-	inc de
-	ld [hli], a
-	ld a, [de]
-	ld [hl], a
-	pop hl
-	call DisplayMinutesWithMinString
-	inc hl
-	inc hl
-	inc hl
 	ret
 
 SetMinutes:
@@ -298,7 +293,11 @@ OakTimeWhatTimeIsItText:
 	text_end
 
 String_oclock:
+if DEF(_FR_FR)
+	db "h@"
+else
 	db "o'clock@"
+endc
 
 OakTimeWhatHoursText:
 	; What?@ @
@@ -404,6 +403,17 @@ SetDayOfWeek:
 	call LoadStandardMenuHeader
 	ld hl, .OakTimeWhatDayIsItText
 	call PrintText
+if DEF(_FR_FR)
+	hlcoord 10, 3
+	ld b, 2
+	ld c, 8
+	call Textbox
+	hlcoord 14, 3
+	ld [hl], TIMESET_UP_ARROW
+	hlcoord 14, 6
+	ld [hl], TIMESET_DOWN_ARROW
+	hlcoord 11, 5
+else
 	hlcoord 9, 3
 	ld b, 2
 	ld c, 9
@@ -413,6 +423,7 @@ SetDayOfWeek:
 	hlcoord 14, 6
 	ld [hl], TIMESET_DOWN_ARROW
 	hlcoord 10, 5
+endc
 	call .PlaceWeekdayString
 	call ApplyTilemap
 	ld c, 10
@@ -480,11 +491,19 @@ SetDayOfWeek:
 .finish_dpad
 	xor a
 	ldh [hBGMapMode], a
+if DEF(_FR_FR)
+	hlcoord 11, 4
+	ld b, 2
+	ld c, 8
+	call ClearBox
+	hlcoord 11, 5
+else
 	hlcoord 10, 4
 	ld b, 2
 	ld c, 9
 	call ClearBox
 	hlcoord 10, 5
+endc
 	call .PlaceWeekdayString
 	call WaitBGMap
 	and a

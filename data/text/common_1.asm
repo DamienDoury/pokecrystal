@@ -4477,7 +4477,7 @@ endc
 
 _TradebackGuyKeepPaymentText::
 if DEF(_FR_FR)
-	text "Tu changes"
+	text "T'as changé"
 	line "d'avis?"
 
 	para "Pas mon problème!"

@@ -30,11 +30,19 @@ DisclaimerScreen:
 	ret
 
 .Disclaimer
+if DEF(_FR_FR)
+	db "    Ce romhack<LF>"
+	db "<LF>"
+	db "    n'est pas un<LF>"
+	db "<LF>"
+	db "    jeu officiel.@"
+else
 	db "    This fangame<LF>"
 	db "<LF>"
 	db "     is not an<LF>"
 	db "<LF>"
 	db "   official game.@"
+endc
 
 InitGender:
 	call InitGenderScreen
@@ -58,15 +66,24 @@ InitGender:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 5, 4, 13, 9
+else
 	menu_coords 6, 4, 12, 9
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR | STATICMENU_WRAP | STATICMENU_DISABLE_B ; flags
 	db 2 ; items
+if DEF(_FR_FR)
+	db "Garçon@"
+	db "Fille@"
+else
 	db "Boy@"
 	db "Girl@"
+endc
 
 AreYouABoyOrAreYouAGirlText:
 	text_far _AreYouABoyOrAreYouAGirlText
