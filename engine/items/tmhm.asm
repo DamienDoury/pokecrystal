@@ -424,7 +424,11 @@ PlaceMoveNameAfterTMHMName: ; unreferenced
 	ret
 
 TMHM_CancelString:
+if DEF(_FR_FR)
+	db "RETOUR@"
+else
 	db "CANCEL@"
+endc
 
 
 TMHM_GetCurrentPocketPosition:

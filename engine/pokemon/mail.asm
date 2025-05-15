@@ -246,7 +246,11 @@ GivePokeMail::
 	jp CloseSRAM
 
 .DamianOTName
+if DEF(_FR_FR)
+	db "DAMIEN@"
+else
 	db "DAMIAN@"
+endc
 
 BackupMail:
 	ld a, BANK(sPartyMail)
@@ -566,14 +570,25 @@ MailboxPC:
 
 .SubMenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 17, 9
+else
 	menu_coords 0, 0, 13, 9
+endc
 	dw .SubMenuData
 	db 1 ; default option
 
 .SubMenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "LIRE LETTRE@"
+	db "METTRE DANS SAC@"
+	db "CONFIER LETTRE@"
+	db "RETOUR@"
+else
 	db "READ MAIL@"
 	db "PUT IN PACK@"
 	db "ATTACH MAIL@"
 	db "CANCEL@"
+endc

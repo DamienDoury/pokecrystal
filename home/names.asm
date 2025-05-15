@@ -237,12 +237,20 @@ GetTMHMName::
 	ret
 
 .TMText:
+if DEF(_FR_FR)
+	db "CT"
+else
 	db "TM"
+endc
 .TMTextEnd:
 	db "@"
 
 .HMText:
+if DEF(_FR_FR)
+	db "CS"
+else
 	db "HM"
+endc
 .HMTextEnd:
 	db "@"
 

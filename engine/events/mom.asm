@@ -461,7 +461,11 @@ Mom_WithdrawDepositMenuJoypad:
 	xor a
 	ldh [hBGMapMode], a
 	hlcoord 12, 6
+if DEF(_FR_FR)
+	ld bc, 6
+else
 	ld bc, 7
+endc
 	ld a, " "
 	call ByteFill
 	hlcoord 12, 6
@@ -471,7 +475,12 @@ Mom_WithdrawDepositMenuJoypad:
 	ldh a, [hVBlankCounter]
 	and $10
 	jr nz, .skip
+
+if DEF(_FR_FR)
+	hlcoord 12, 6
+else
 	hlcoord 13, 6
+endc
 	ld a, [wMomBankDigitCursorPosition]
 	ld c, a
 	ld b, 0
@@ -638,6 +647,19 @@ MomJustDoWhatYouCanText:
 	text_far _MomJustDoWhatYouCanText
 	text_end
 
+if DEF(_FR_FR)
+Mom_SavedString:
+	db "Maman@"
+
+Mon_WithdrawString:
+	db "Retirer@"
+
+Mom_DepositString:
+	db "Déposer@"
+
+Mom_HeldString:
+	db "En poche@"
+else
 Mom_SavedString:
 	db "MOM@"
 
@@ -649,6 +671,7 @@ Mom_DepositString:
 
 Mom_HeldString:
 	db "YOU@"
+endc
 
 BankOfMom_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -659,7 +682,14 @@ BankOfMom_MenuHeader:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "Retirer@"
+	db "Donner@"
+	db "Changer@"
+	db "Retour@"
+else
 	db "GET@"
 	db "GIVE@"
 	db "CHANGE@"
 	db "CANCEL@"
+endc

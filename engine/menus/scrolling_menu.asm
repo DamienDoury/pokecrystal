@@ -394,7 +394,11 @@ ScrollingMenu_UpdateDisplay:
 	ret
 
 .CancelString
+if DEF(_FR_FR)
+	db "RETOUR@"
+else
 	db "CANCEL@"
+endc
 
 .call_function
 	ld d, h

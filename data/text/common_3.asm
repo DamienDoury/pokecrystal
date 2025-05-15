@@ -1289,8 +1289,8 @@ endc
 
 _ShortageExplanationText::
 if DEF(_FR_FR)
-	text "Bonjour, cher"
-	line "client!"
+	text "Bonjour la"
+	line "clientèle!"
 
 	para "Comme tu peux le"
 	line "remarquer à mes"
@@ -1304,13 +1304,13 @@ if DEF(_FR_FR)
 	para "la fermeture"
 	line "des frontières,"
 
-	para "et la baisse"
-	line "de main-d'oeuvre"
+	para "et la réduction"
+	line "de la main-d'oeuvre"
 	cont "ont mené à cela."
 
 	para "Mon stock est"
 	line "limité, et les"
-	cont "prix ont grimpé."
+	cont "prix ont augmenté."
 
 	para "Si tu ne trouves"
 	line "pas ton bonheur"
@@ -1373,7 +1373,7 @@ endc
 _MartDoMyBest1Text::
 if DEF(_FR_FR)
 	text "Je t'aiderai autant"
-	line "que je peux."
+	line "que possible."
 	done
 else
 	text "I'll help you as"
@@ -1394,8 +1394,8 @@ endc
 
 _MartDoMyBest3Text::
 if DEF(_FR_FR)
-	text "Je ferai de mon"
-	line "mieux pour toi."
+	text "Je ferai au mieux"
+	line "pour te servir."
 	done
 else
 	text "I'll do my best"
@@ -1449,8 +1449,8 @@ endc
 
 _MartShortageText::
 if DEF(_FR_FR)
-	text "Je n'ai pas assez"
-	line "de stock."
+	text "Je n'en ai pas"
+	line "autant en stock."
 	prompt
 else
 	text "I don't have this"
@@ -1535,7 +1535,8 @@ endc
 
 _MartEmptyStock2Text::
 if DEF(_FR_FR)
-	text "Mon stock est vide"
+	text "Mon stock est"
+	line "vide."
 	prompt
 else
 	text "My stock is empty."
