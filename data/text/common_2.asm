@@ -21,27 +21,51 @@ else
 	done
 endc
 
-_MonNotCuteText:: ; TO TRANSLATE
+_MonNotCuteText::
+if DEF(_FR_FR)
+	text "Nan. Certains de"
+	line "tes #MON ne"
+	cont "sont pas mignons."
+	prompt
+else
 	text "Nah. Some of your"
 	line "#MON aren't"
 	cont "cute."
 	prompt
+endc
 
-_MonNotCuteInstanceSingleText:: ; TO TRANSLATE
+_MonNotCuteInstanceSingleText::
+if DEF(_FR_FR)
+	text "Je n'aime pas"
+	line "@"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+else
 	text "I don't like"
 	line "@"
 	text_ram wStringBuffer1
 	text "."
 	prompt
+endc
 
-_MonNotCuteInstanceFirstText:: ; TO TRANSLATE
+_MonNotCuteInstanceFirstText::
+if DEF(_FR_FR)
+	text "Je n'aime pas"
+	line "@"
+	text_ram wStringBuffer1
+	text ","
+	prompt
+else
 	text "I don't like"
 	line "@"
 	text_ram wStringBuffer1
 	text ","
 	prompt
+endc
 
-_MonNotCuteInstance2Text:: ; TO TRANSLATE
+_MonNotCuteInstance2Text::
+if DEF(_FR_FR)
 	text "@"
 	text_ram wStringBuffer2
 	text ","
@@ -49,14 +73,39 @@ _MonNotCuteInstance2Text:: ; TO TRANSLATE
 	text_ram wStringBuffer1
 	text ","
 	prompt
+else
+	text "@"
+	text_ram wStringBuffer2
+	text ","
+	line "@"
+	text_ram wStringBuffer1
+	text ","
+	prompt
+endc
 
-_MonNotCuteInstanceLast1Text:: ; TO TRANSLATE
+_MonNotCuteInstanceLast1Text::
+if DEF(_FR_FR)
+	text "et @"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+else
 	text "and @"
 	text_ram wStringBuffer1
 	text "."
 	prompt
+endc
 
-_MonNotCuteInstanceLast2Text:: ; TO TRANSLATE
+_MonNotCuteInstanceLast2Text::
+if DEF(_FR_FR)
+	text "@"
+	text_ram wStringBuffer2
+	text ","
+	line "et @"
+	text_ram wStringBuffer1
+	text "."
+	prompt
+else
 	text "@"
 	text_ram wStringBuffer2
 	text ","
@@ -64,8 +113,26 @@ _MonNotCuteInstanceLast2Text:: ; TO TRANSLATE
 	text_ram wStringBuffer1
 	text "."
 	prompt
+endc
 
-_MonNotCuteEndText:: ; TO TRANSLATE
+_MonNotCuteEndText::
+if DEF(_FR_FR)
+	text "La flemme d'expli-"
+	line "quer ce qui fait"
+	
+	para "qu'un #MON"
+	line "est mignon."
+
+	para "Demande au GUIDE"
+	line "ARENE à l'entrée."
+
+	para "Reviens avec une"
+	line "équipe mignonne,"
+
+	para "ou je refuserai"
+	line "de t'affronter."
+	done
+else
 	text "I won't bother"
 	line "explaining what"
 	cont "makes a #MON"
@@ -80,6 +147,7 @@ _MonNotCuteEndText:: ; TO TRANSLATE
 	para "or I won't accept"
 	line "your challenge."
 	done
+endc	
 
 _NameRaterHelloText::
 if DEF(_FR_FR)
@@ -265,10 +333,16 @@ else
 	prompt
 endc
 
-Text_Earned:: ; TO TRANSLATE
+Text_Earned::
+if DEF(_FR_FR)
+	text_ram wStringBuffer1
+	text " prend@"
+	text_end
+else
 	text_ram wStringBuffer1
 	text " earned@"
 	text_end
+endc
 
 Text_Gained::
 if DEF(_FR_FR)
@@ -281,12 +355,20 @@ else
 	text_end
 endc
 
-Text_No_Xp_Gained:: ; TO TRANSLATE
+Text_No_Xp_Gained::
+if DEF(_FR_FR)
+	text_ram wStringBuffer1
+	text " se sent"
+	line "trop mal pour"
+	cont "gagner de l'EXP..."
+	prompt
+else
 	text_ram wStringBuffer1
 	text " doesn't"
 	line "feel good enough"
 	cont "to gain any EXP.…"
 	prompt
+endc
 
 _BoostedExpPointsText::
 if DEF(_FR_FR)
@@ -638,10 +720,16 @@ else
 	prompt
 endc
 
-_HMRequiredText:: ; TO TRANSLATE
+_HMRequiredText::
+if DEF(_FR_FR)
+	text "Désolé! Vous devez"
+	line "posséder la CS."
+	prompt
+else
 	text "Sorry! You must"
 	line "own the HM."
 	prompt
+endc
 
 _CantUseItemText::
 if DEF(_FR_FR)
@@ -691,12 +779,22 @@ else
 	text_end
 endc
 
-_AutoFlashText:: ; TO TRANSLATE
+_AutoFlashText::
+if DEF(_FR_FR)
+	text "Le FLASH de"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "illumine la zone!@"
+	text_promptbutton
+	text_end
+else
 	text_ram wStringBuffer2
 	text "'s FLASH"
 	line "lit up the area!@"
 	text_promptbutton
 	text_end
+endc
 
 _UsedSurfText::
 if DEF(_FR_FR)
@@ -803,17 +901,32 @@ else
 	done
 endc
 
-_WantToUseDigText:: ; TO TRANSLATE
+_WantToUseDigText::
+if DEF(_FR_FR)
+	text "Voulez-vous que"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "utilise TUNNEL?"
+	done
+else
 	text "Want @"
 	text_ram wStringBuffer2
 	text_start
 	line "to use DIG?"
 	done
+endc
 
-_WantToUseEscapeRopeText:: ; TO TRANSLATE
+_WantToUseEscapeRopeText::
+if DEF(_FR_FR)
+	text "Utiliser une"
+	line "CORDE SORTIE?"
+	done
+else
 	text "Do you want to use"
 	line "an ESCAPE ROPE?"
 	done
+endc
 
 _CantUseDigText::
 if DEF(_FR_FR)
@@ -837,12 +950,23 @@ else
 	done
 endc
 
-_WantToUseTeleportText:: ; TO TRANSLATE
+_WantToUseTeleportText::
+if DEF(_FR_FR)
+	text "Voulez-vous que"
+	line "@"
+	text_ram wStringBuffer2
+	text_start
+	cont "utilise TELEPORT?"
+	done
+else
 	text "Should @"
 	text_ram wStringBuffer2
 	text_start
 	line "use TELEPORT?"
 	done
+endc
+
+	
 
 _CantUseTeleportText::
 if DEF(_FR_FR)
@@ -1165,7 +1289,18 @@ else
 	prompt
 endc
 
-_LostMoneyText:: ; TO TRANSLATE
+_LostMoneyText::
+if DEF(_FR_FR)
+	text "<PLAYER> a perdu"
+	line "@"
+	text_ram wStringBuffer3
+	text "¥ dans la"
+	cont "panique..."
+
+	para "<PLAYER> est"
+	line "hors-jeu!"
+	done
+else
 	text "<PLAYER> dropped"
 	line "¥@"
 	text_ram wStringBuffer3
@@ -1174,8 +1309,20 @@ _LostMoneyText:: ; TO TRANSLATE
 	para "<PLAYER> whited"
 	line "out!"
 	done
+endc
 
-_SurrendMoneyText:: ; TO TRANSLATE
+_SurrendMoneyText::
+if DEF(_FR_FR)
+	text "<PLAYER> a donné"
+	line "@"
+	text_ram wStringBuffer3
+	text "¥ au"
+	cont "vainqueur."
+
+	para "<PLAYER> est"
+	line "hors-jeu!"
+	done
+else
 	text "<PLAYER> gave"
 	line "¥@"
 	text_ram wStringBuffer3
@@ -1186,8 +1333,20 @@ _SurrendMoneyText:: ; TO TRANSLATE
 	line "overwhelmed by"
 	cont "the defeat!"
 	done
+endc
 
-_FinedText:: ; TO TRANSLATE
+_FinedText::
+if DEF(_FR_FR)
+	text "<PLAYER> écope de"
+	line "@"
+	text_ram wStringBuffer3
+	text "¥ d'amende."
+
+	para "<PLAYER> est"
+	line "escorté vers un"
+	cont "CENTRE #MON."
+	done
+else
 	text "<PLAYER> is fined"
 	line "¥@"
 	text_ram wStringBuffer3
@@ -1197,6 +1356,7 @@ _FinedText:: ; TO TRANSLATE
 	line "escorted to a"
 	cont "#MON CENTER."
 	done
+endc	
 
 _ItemfinderItemNearbyText::
 if DEF(_FR_FR)
@@ -1278,10 +1438,16 @@ else
 	done
 endc
 
-_SquirtbottleUseText:: ; TO TRANSLATE
+_SquirtbottleUseText::
+if DEF(_FR_FR)
+	text "<PLAYER> arrose"
+	line "le sol."
+	done
+else
 	text "<PLAYER> sprinkled"
 	line "water."
 	done
+endc
 
 _SquirtbottleNothingText::
 if DEF(_FR_FR)
@@ -1599,29 +1765,58 @@ _ActorNameText::
 	text "<USER>@"
 	text_end
 
-_FeelsWeakText:: ; TO TRANSLATE
+_FeelsWeakText::
+if DEF(_FR_FR)
+	text "<USER> se"
+	line "sent faible..."
+	para "@"
+	text_end
+else
 	text "<USER> feels"
 	line "weak…"
 	para "@"
 	text_end
+endc
 
-_FeelsWeakText1:: ; TO TRANSLATE
+_FeelsWeakText1::
+if DEF(_FR_FR)
+	text "<USER> se sent"
+else
 	text "<USER> feels"
+endc
 
-_FeelsWeakText2:: ; TO TRANSLATE
+_FeelsWeakText2::
+if DEF(_FR_FR)
+	line "faible..."
+	para "@"
+	text_end
+else
 	line "weak…"
 	para "@"
 	text_end
+endc
 
-_FeelsWeakText3:: ; TO TRANSLATE
+_FeelsWeakText3::
+if DEF(_FR_FR)
+	line "épuisé..."
+	para "@"
+	text_end
+else
 	line "exhausted…"
 	para "@"
 	text_end
+endc
 
-_FeelsWeakText4:: ; TO TRANSLATE
+_FeelsWeakText4::
+if DEF(_FR_FR)
+	line "à bout..."
+	para "@"
+	text_end
+else
 	line "out of energy…"
 	para "@"
 	text_end
+endc		
 
 _UsedMoveText::
 if DEF(_FR_FR)
@@ -1943,10 +2138,16 @@ else
 	done
 endc
 
-_PC404Text:: ; TO TRANSLATE
+_PC404Text::
+if DEF(_FR_FR)
+	text "404: NOT FOUND."
+	line "Limité mode local."
+	prompt
+else
 	text "404: NOT FOUND."
 	line "Local mode only."
 	prompt
+endc
 
 _PCMonHoldingMailText::
 if DEF(_FR_FR)
@@ -2288,17 +2489,26 @@ else
 	done
 endc
 
-_PlayersPCSanitizerText:: ; TO TRANSLATE
+if DEF(_FR_FR)
+_PlayersPCSanitizerText::
+_PlayersPCSanitizerFemaleText::
+	text "<PLAYER> se lave"
+	line "les mains au gel"
+	cont "hydroalcoolique."
+	prompt
+else
+_PlayersPCSanitizerText::
 	text "<PLAYER> washes his"
 	line "hands with some"
 	cont "hand sanitizer."
 	prompt
 
-_PlayersPCSanitizerFemaleText:: ; TO TRANSLATE
+_PlayersPCSanitizerFemaleText::
 	text "<PLAYER> washes her"
 	line "hands with some"
 	cont "hand sanitizer."
 	prompt
+endc
 
 _PokecenterPCTurnOnText::
 if DEF(_FR_FR)
@@ -3071,14 +3281,33 @@ else
 	prompt
 endc
 
-GymGuideRefusesEntranceEndText:: ; TO TRANSLATE
+GymGuideRefusesEntranceEndText::
+if DEF(_FR_FR)
+	text "Reviens avec une"
+	line "équipe appropriée."
+	done
+else
 	text "Come back with an"
 	line "appropriate team."
 	done
+endc	
 
-GymKickPlayerOutAfterEvolutionText:: ; TO TRANSLATE
+GymKickPlayerOutAfterEvolutionText::
+if DEF(_FR_FR)
+	text "Haut-parleur: Nous"
+	line "avons détecté un"
+	cont "#MON évoluer"
+	cont "en un type"
+	cont "interdit dans"
+	cont "cette ARENE."
+
+	para "Son dresseur est"
+	line "prié de quitter"
+	cont "les lieux."
+	done
+else
 	text "PA system: We have"
-	line "seen a #MON"
+	line "detected a #MON"
 	cont "evolve into a type"
 	cont "forbidden into"
 	cont "this GYM."
@@ -3087,8 +3316,32 @@ GymKickPlayerOutAfterEvolutionText:: ; TO TRANSLATE
 	line "asked to leave"
 	cont "now."
 	done
+endc	
 
-GGTCVioletText:: ; TO TRANSLATE
+GGTCVioletText::
+if DEF(_FR_FR)
+	text "Salutations, jeune"
+	line "dresseur qui prend"
+	cont "son envol!"
+
+	para "Voici l'ARENE"
+	line "VOL de JOHTO."
+
+	para "Tu n'as pas le"
+	line "droit d'entrer avec"
+	cont "un #MON de type"
+	cont "ELECTRIK, GLACE"
+	cont "ou ROCHE, ça va à"
+	cont "l'encontre des"
+	cont "règles."
+
+	para "Ce ne serait pas"
+	line "équitable pour les"
+	cont "dresseurs de cette"
+	cont "ARENE, je suis sûr"
+	cont "que tu comprends."
+	done
+else
 	text "Yo CHAMP in"
 	line "making!"
 
@@ -3105,10 +3358,27 @@ GGTCVioletText:: ; TO TRANSLATE
 	para "It wouldn't be fair"
 	line "battles, I'm sure"
 	cont "you understand."
-
 	done
+endc
 
-GGTCAzaText:: ; TO TRANSLATE
+GGTCAzaText::
+if DEF(_FR_FR)
+	text "Yo CHAMPION en"
+	line "herbe!"
+
+	para "Ici, aucun #MON"
+	line "de type FEU, VOL"
+	cont "ni ROCHE!"
+
+	para "Ils nuiraient à"
+	line "cet écosystème"
+	cont "fragile."
+
+	para "Seul HECTOR peut"
+	line "les utiliser, car"
+	cont "c'est un expert."
+	done
+else
 	text "Yo CHAMP in"
 	line "making!"
 
@@ -3125,8 +3395,21 @@ GGTCAzaText:: ; TO TRANSLATE
 	cont "those, as he is"
 	cont "an expert."
 	done
+endc
 
-GGTCGoldText:: ; TO TRANSLATE
+GGTCGoldText::
+if DEF(_FR_FR)
+	text "Yo CHAMPION"
+	line "en devenir!"
+
+	para "Je vois un #MON"
+	line "de type COMBAT"
+	cont "dans ton équipe."
+
+	para "BLANCHE n'approu-"
+	line "verait pas."
+	done
+else
 	text "Yo CHAMP in"
 	line "making!"
 
@@ -3137,8 +3420,20 @@ GGTCGoldText:: ; TO TRANSLATE
 	para "WHITNEY doesn't"
 	line "approve."
 	done
+endc
 
-GGTCEcruText:: ; TO TRANSLATE
+GGTCEcruText::
+if DEF(_FR_FR)
+	text "Yo futur CHAMPION!"
+
+	para "Bien que le type"
+	line "SPECTRE soit"
+	cont "autorisé ici,"
+
+	para "ce n'est pas le cas"
+	line "du type TENEBRES."
+	done
+else
 	text "Yo CHAMP in"
 	line "making!"
 
@@ -3147,8 +3442,24 @@ GGTCEcruText:: ; TO TRANSLATE
 	cont "in this place,"
 	cont "DARK types aren't."
 	done
+endc
 
-GGTCCianText:: ; TO TRANSLATE
+GGTCCianText::
+if DEF(_FR_FR)
+	text "ARRETE-TOI LA!"
+
+	para "Qui t'a dit que"
+	line "tu pouvais entrer"
+	cont "avec des #MON"
+	cont "de type VOL, PSY"
+	cont "ou SPECTRE?"
+
+	para "On tolère pas"
+	line "ça ici."
+
+	para "Casse-toi."
+	done
+else
 	text "WAIT RIGHT HERE!"
 
 	para "Who told you you"
@@ -3162,8 +3473,31 @@ GGTCCianText:: ; TO TRANSLATE
 
 	para "Go back out."
 	done
+endc
 
-GGTCOlivText:: ; TO TRANSLATE
+GGTCOlivText::
+if DEF(_FR_FR)
+	text "Merci d'avoir aidé"
+	line "JASMINE plus tôt."
+
+	para "Elle va mieux."
+
+	para "J'aimerais pouvoir"
+	line "te laisser entrer"
+	cont "avec des #MON"
+	cont "de type FEU, SOL"
+	cont "ou COMBAT."
+	
+	para "Mais tu comprends,"
+	line "ce ne serait pas"
+	cont "un affrontement"
+	cont "équitable."
+
+	para "JASMINE s'autorise"
+	line "une exception pour"
+	cont "son propre STEELIX."
+	done
+else
 	text "Thanks for helping"
 	line "JASMINE earlier."
 
@@ -3184,8 +3518,23 @@ GGTCOlivText:: ; TO TRANSLATE
 	line "an exception for"
 	cont "her own STEELIX."
 	done
+endc
 
-GGTCMahoText:: ; TO TRANSLATE
+GGTCMahoText::
+if DEF(_FR_FR)
+	text "Salut, DRESSEUR"
+	line "d'avenir!"
+
+	para "Les types COMBAT,"
+	line "ACIER, ROCHE & FEU"
+	cont "sont dangereux"
+	cont "pour la GLACE"
+	cont "de cette ARENE."
+
+	para "Ils ne peuvent"
+	line "pas entrer."
+	done
+else
 	text "Hello, CHAMP in"
 	line "making!"
 
@@ -3198,8 +3547,21 @@ GGTCMahoText:: ; TO TRANSLATE
 	para "They cannot stay"
 	line "inside."
 	done
+endc
 
-GGTCBlackText:: ; TO TRANSLATE
+GGTCBlackText::
+if DEF(_FR_FR)
+	text "Yo futur CHAMPION!"
+
+	para "C'est quoi ça"
+	line "dans ton équipe?"
+
+	para "Un type DRAGON ce"
+	line "serait ok. Mais un"
+	cont "type GLACE c'est de"
+	cont "la triche!"
+	done
+else
 	text "Yo future CHAMP!"
 
 	para "What's that in"
@@ -3211,8 +3573,39 @@ GGTCBlackText:: ; TO TRANSLATE
 	para "but an ICE type"
 	line "is cheating!"
 	done
+endc
 
-GGTCPewText:: ; TO TRANSLATE
+GGTCPewText::
+if DEF(_FR_FR)
+	text "Yo CHAMPION"
+	line "en titre!"
+
+	para "Tu es arrivé jusqu'"
+	line "ici, c'est génial!"
+
+	para "Toutefois, pour"
+	line "entrer dans cette"
+	cont "ARENE, tu dois te"
+	cont "débarrasser des"
+	cont "types EAU, PLANTE,"
+	cont "COMBAT, ACIER et"
+	cont "SOL."
+
+	para "Je suis d'accord,"
+	line "la liste est"
+	cont "un peu longue."
+
+	para "Mais c'est pas moi"
+	line "qui l'ai édité!"
+	
+	para "C'est PIERRE."
+
+	para "Et pourtant, je"
+	line "peux te dire qu'il"
+	cont "est bien loin de"
+	cont "la respecter..."
+	done
+else
 	text "Yo actual CHAMP!"
 
 	para "You made it up"
@@ -3239,8 +3632,32 @@ GGTCPewText:: ; TO TRANSLATE
 	cont "follow his"
 	cont "own rules…"
 	done
+endc
 
-GGTCCeruText:: ; TO TRANSLATE
+GGTCCeruText::
+if DEF(_FR_FR)
+	text "Hé toi!"
+
+	para "Comment ça a pu te"
+	line "passer par la tête"
+	cont "de venir ici avec"
+	cont "un #MON PLANTE"
+	cont "ou ELECTRIK?"
+
+	para "Tu connais pas"
+	line "la musique?"
+
+	para "C'est pas parce qu'"
+	line "ONDINE utilise un"
+	cont "type ELECTRIK dans"
+	cont "son équipe que ça"
+	cont "te donne le droit!"
+
+	para "Ces types ne sont"
+	line "pas adaptés à"
+	cont "cette piscine."
+	done
+else
 	text "Hey you!"
 
 	para "Why would you even"
@@ -3259,10 +3676,27 @@ GGTCCeruText:: ; TO TRANSLATE
 	para "Those are not"
 	line "suitable around"
 	cont "this pool."
-
 	done
+endc
 
-GGTCVermiText:: ; TO TRANSLATE
+GGTCVermiText::
+if DEF(_FR_FR)
+	text "Yo CHAMPION!"
+
+	para "Tu es bien loin"
+	line "de JOHTO!"
+
+	para "Oh..."
+
+	para "Tu as apporté un"
+	line "#MON de type"
+	cont "SOL dans une ARENE"
+	cont "ELECTRIK?"
+
+	para "Tu vaux mieux"
+	line "que ça!"
+	done
+else
 	text "Yo CHAMP!"
 
 	para "You're far"
@@ -3278,8 +3712,33 @@ GGTCVermiText:: ; TO TRANSLATE
 	para "You're better"
 	line "than that!"
 	done
+endc
 
-GGTCCelaText:: ; TO TRANSLATE
+GGTCCelaText::
+if DEF(_FR_FR)
+	text "Bonjour et"
+	line "bienvenue!"
+
+	para "Je suis désolée,"
+	line "mais les types"
+	
+	para "FEU, GLACE, VOL,"
+	line "INSECTE et POISON"
+	
+	para "n'ont pas le droit"
+	line "d'entrer ici pour"
+	
+	para "des raisons de"
+	line "sécurité."
+
+	para "(atchoum)"
+
+	para "Sauf les 3 recuei-"
+	line "llis par ERIKA."
+
+	para "(atchi)"
+	done
+else
 	text "Hello dear,"
 	line "and welcome!"
 
@@ -3300,8 +3759,32 @@ GGTCCelaText:: ; TO TRANSLATE
 
 	para "(achii)"
 	done
+endc
 
-GGTCFuchText:: ; TO TRANSLATE
+GGTCFuchText::
+if DEF(_FR_FR)
+	text "Yo CHAMPION!"
+
+	para "Ton équipe est"
+	line "illégale dans"
+	cont "cette ARENE."
+
+	para "Je te prie de"
+	line "retirer les types"
+	cont "PSY, SOL et ACIER"
+	cont "de ton équipe."
+
+	para "Je sais que c'est"
+	line "frustrant, alors"
+	cont "je te donne un"
+	cont "bon tuyau--"
+
+	para "JEANNINE contourne"
+	line "cette règle pour"
+	cont "1 membre de son"
+	cont "équipe."
+	done
+else
 	text "Yo CHAMP!"
 
 	para "Your party is not"
@@ -3319,20 +3802,56 @@ GGTCFuchText:: ; TO TRANSLATE
 	line "this rule for 1 of"
 	cont "her #MON."
 	done
+endc
 
-GGTCSaffText:: ; TO TRANSLATE
+GGTCSaffText::
+if DEF(_FR_FR)
 	text ""
 	done
-
-GGTCCinnaText:: ; TO TRANSLATE
+else
 	text ""
 	done
+endc
 
-GGTCViriText:: ; TO TRANSLATE
+GGTCCinnaText::
+if DEF(_FR_FR)
 	text ""
 	done
+else
+	text ""
+	done
+endc
 
-OfferGoodRodText:: ; TO TRANSLATE
+GGTCViriText::
+if DEF(_FR_FR)
+	text ""
+	done
+else
+	text ""
+	done
+endc	
+
+OfferGoodRodText::
+if DEF(_FR_FR)
+	text "OLIVILLE est sur"
+	line "la mer!"
+
+	para "Et si c'est sur la"
+	line "mer... C'est"
+	cont "qu'on peut pêcher!"
+
+	para "Ca fait 30 ans que"
+	line "je pêche ici mon"
+	cont "bouchon."
+
+	para "La pêche c'est mon"
+	line "hobby, même que"
+	cont "des fois et bah ça"
+	cont "mord... Et hop une"
+	cont "chaussure trouée!"
+	cont "Tu veux essayer?"
+	done
+else
 	text "OLIVINE is on the"
 	line "sea!"
 
@@ -3347,3 +3866,4 @@ OfferGoodRodText:: ; TO TRANSLATE
 	line "face the sea and"
 	cont "fish?"
 	done
+endc

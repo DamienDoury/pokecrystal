@@ -107,7 +107,7 @@ endc
 _FruitTreeGotStrongerText::
 if DEF(_FR_FR)
 	text "Plus de fruits"
-	line "devraient croitre!"
+	line "devraient croître!"
 	done
 else
 	text "The tree should"
