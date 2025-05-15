@@ -441,7 +441,16 @@ else
 	done
 endc
 
-_ReceivedMultipleItemText:: ; TO TRANSLATE
+_ReceivedMultipleItemText::
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "@"
+	text_decimal wItemQuantityChange, 1, 2
+	text " @"
+	text_ram wStringBuffer4
+	text "."
+	done
+else
 	text "<PLAYER> received"
 	line "@"
 	text_decimal wItemQuantityChange, 1, 2
@@ -449,6 +458,7 @@ _ReceivedMultipleItemText:: ; TO TRANSLATE
 	text_ram wStringBuffer4
 	text "."
 	done
+endc
 
 _PutItemInPocketText::
 if DEF(_FR_FR)
@@ -895,10 +905,16 @@ else
 	done
 endc
 
-AlreadyHaveTMText:: ; TO TRANSLATE
+AlreadyHaveTMText::
+if DEF(_FR_FR)
+	text "Vous possédez déjà"
+	line "cette CT."
+	done
+else
 	text "You already own"
 	line "that TM."
 	done
+endc
 
 _MartFinalPriceText::
 if DEF(_FR_FR)
@@ -1271,7 +1287,48 @@ else
 	done
 endc
 
-_ShortageExplanationText:: ; TO TRANSLATE
+_ShortageExplanationText::
+if DEF(_FR_FR)
+	text "Bonjour, cher"
+	line "client!"
+
+	para "Comme tu peux le"
+	line "remarquer à mes"
+	cont "rayons vides, il"
+	cont "y a une grave"
+	cont "pénurie."
+
+	para "L'afflux brutal"
+	line "de clients,"
+
+	para "la fermeture"
+	line "des frontières,"
+
+	para "et la baisse"
+	line "de main-d'oeuvre"
+	cont "ont mené à cela."
+
+	para "Mon stock est"
+	line "limité, et les"
+	cont "prix ont grimpé."
+
+	para "Si tu ne trouves"
+	line "pas ton bonheur"
+	cont "ici, tu peux essa-"
+
+	para "yer dans une autre"
+	line "BOUTIQUE #MON"
+
+	para "ou revenir demain,"
+	line "car j'aurai peut-"
+	
+	para "être reçu une nou-"
+	line "velle livraison."
+
+	para "Voyons si j'ai"
+	line "ce qu'il te faut."
+	done
+else
 	text "Hello, dear"
 	line "customer!"
 
@@ -1311,30 +1368,55 @@ _ShortageExplanationText:: ; TO TRANSLATE
 	para "Let's see if I have"
 	line "anything you need."
 	done
+endc	
 
-_MartDoMyBest1Text:: ; TO TRANSLATE
+_MartDoMyBest1Text::
+if DEF(_FR_FR)
+	text "Je t'aiderai autant"
+	line "que je peux."
+	done
+else
 	text "I'll help you as"
 	line "much as I can."
 	done
+endc
 
-_MartDoMyBest2Text:: ; TO TRANSLATE
+_MartDoMyBest2Text::
+if DEF(_FR_FR)
+	text "Espérons que j'ai"
+	line "ce qu'il te faut."
+	done
+else
 	text "Let's hope I have"
 	line "what you need."
 	done
+endc
 
-_MartDoMyBest3Text:: ; TO TRANSLATE
+_MartDoMyBest3Text::
+if DEF(_FR_FR)
+	text "Je ferai de mon"
+	line "mieux pour toi."
+	done
+else
 	text "I'll do my best"
 	line "to serve you."
 	done
+endc
 
-_MartDoMyBest4Text:: ; TO TRANSLATE
+_MartDoMyBest4Text::
+if DEF(_FR_FR)
+	text "Bienvenue dans mon"
+	line "magasin dévalisé!"
+	done
+else
 	text "Welcome to my"
 	line "almost-empty shop!"
 	done
+endc		
 
 _MartThanksText::
 if DEF(_FR_FR)
-	text "Voilà."
+	text "Et voilà."
 	line "Merci!"
 	done
 else
@@ -1365,10 +1447,16 @@ else
 	done
 endc
 
-_MartShortageText:: ; TO TRANSLATE
+_MartShortageText::
+if DEF(_FR_FR)
+	text "Je n'ai pas assez"
+	line "de stock."
+	prompt
+else
 	text "I don't have this"
 	line "many articles."
 	prompt
+endc
 
 _MartCantBuyText::
 if DEF(_FR_FR)
@@ -1390,10 +1478,16 @@ else
 	done
 endc
 
-_MartComeAnotherDayText:: ; TO TRANSLATE
+_MartComeAnotherDayText::
+if DEF(_FR_FR)
+	text "Je réassors chaque"
+	line "jour, repasse!"
+	done
+else
 	text "I restock every-"
 	line "day, come again!"
 	done
+endc
 
 _MartAskMoreText::
 if DEF(_FR_FR)
@@ -1406,34 +1500,69 @@ else
 	done
 endc
 
-_MartAllIHaveLeftText:: ; TO TRANSLATE
+_MartAllIHaveLeftText::
+if DEF(_FR_FR)
+	text "Avec la pénurie,"
+	line "j'ai plus que ça."
+	done
+else
 	text "It's all I got left"
 	line "with the shortage."
 	done
+endc
 
-_MartLastItemText:: ; TO TRANSLATE
+_MartLastItemText::
+if DEF(_FR_FR)
+	text "C'était le dernier"
+	line "de mes articles."
+	done
+else
 	text "This was the last"
 	line "of my items."
 	done
+endc
 
-_MartEmptyStock1Text:: ; TO TRANSLATE
+_MartEmptyStock1Text::
+if DEF(_FR_FR)
+	text "Plus rien d'autre à"
+	line "vendre aujourd'hui."
+	prompt
+else
 	text "I got nothing else"
 	line "to sell today."
 	prompt
+endc
 
-_MartEmptyStock2Text:: ; TO TRANSLATE
+_MartEmptyStock2Text::
+if DEF(_FR_FR)
+	text "Mon stock est vide"
+	prompt
+else
 	text "My stock is empty."
 	prompt
+endc
 
-_MartEmptyStock3Text:: ; TO TRANSLATE
+_MartEmptyStock3Text::
+if DEF(_FR_FR)
+	text "Tu as acheté tout"
+	line "ce que j'avais!"
+	prompt
+else
 	text "You bought every-"
 	line "thing I had!"
 	prompt
+endc
 
-_MartEmptyStock4Text:: ; TO TRANSLATE
+_MartEmptyStock4Text::
+if DEF(_FR_FR)
+	text "Nouvel arrivage"
+	line "prévu demain."
+	prompt
+else
 	text "Come back tomorrow"
 	line "after I restock."
 	prompt
+endc	
 
 _MartBoughtText::
 if DEF(_FR_FR)
