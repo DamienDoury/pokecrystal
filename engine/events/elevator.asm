@@ -119,7 +119,16 @@ Elevator_AskWhichFloor:
 	ld hl, AskFloorElevatorText
 	call PrintText
 	call Elevator_GetCurrentFloorText
+	ld a, [wMapGroup]
+	cp GROUP_GOLDENROD_CITY
+	jr z, .goldenrod_elevator
+
 	ld hl, Elevator_MenuHeader
+	jr .menu_selected
+
+.goldenrod_elevator
+	ld hl, ElevatorGolderodDeptStore_MenuHeader
+.menu_selected
 	call CopyMenuHeader
 	call InitScrollingMenu
 	call UpdateSprites
@@ -174,6 +183,12 @@ Elevator_GetCurrentFloorString:
 	pop de
 	call GetFloorString
 	ret
+
+ElevatorGolderodDeptStore_MenuHeader:
+	db MENU_BACKUP_TILES ; flags
+	menu_coords 12, 1, 18, 9
+	dw Elevator_MenuData
+	db 2 ; default option
 
 Elevator_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
