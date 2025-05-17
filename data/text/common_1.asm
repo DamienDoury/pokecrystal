@@ -4536,8 +4536,8 @@ if DEF(_FR_FR)
 	para "“En raison de la"
 	line "crise sanitaire,"
 
-	para "notre établi-"
-	line "ssement doit"
+	para "notre établis-"
+	line "sement doit"
 	cont "rester fermé"
 
 	para "jusqu'à nouvel"
@@ -4560,15 +4560,14 @@ endc
 
 ClosedBusinessCurfewText::
 if DEF(_FR_FR)
-	text "Il y a un avis"
+	text "Il y a une note"
 	line "sur la porte..."
 
-	para "“Notre établi-"
-	line "ssement rouvrira"
+	para "“Notre établis-"
+	line "sement rouvrira"
 
-	para "demain matin,"
-	line "après le couvre-"
-	cont "feu.”"
+	para "demain matin après"
+	line "le couvre-feu.”"
 	done
 else
 	text "There is a notice"
