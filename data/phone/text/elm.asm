@@ -301,7 +301,7 @@ if DEF(_FR_FR)
 	para "le récupérer pour"
 	line "moi stp?"
 
-	para "À très vite!"
+	para "A	très vite!"
 	done
 else
 	text "<PLAY_G>!"

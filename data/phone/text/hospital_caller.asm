@@ -16,7 +16,7 @@ if DEF(_FR_FR)
 	cont "l'HOPITAL NATIONAL"
 	cont "de DOUBLONVILLE."
 
-	para "À très bientôt."
+	para "A très bientôt."
 	done
 else
 	text "Hello <PLAY_G>."

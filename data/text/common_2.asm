@@ -124,7 +124,7 @@ if DEF(_FR_FR)
 	line "est mignon."
 
 	para "Demande au GUIDE"
-	line "ARENE à l'entrée."
+	line "à l'entrée."
 
 	para "Reviens avec une"
 	line "équipe mignonne,"

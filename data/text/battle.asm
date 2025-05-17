@@ -1049,7 +1049,7 @@ endc
 Pkrus_HurtItselfText:
 if DEF(_FR_FR)
 	text "La douleur est"
-	line "insupportable."
+	line "insoutenable."
 	prompt
 else
 	text "The ache is"
