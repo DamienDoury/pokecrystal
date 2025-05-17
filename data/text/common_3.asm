@@ -1014,7 +1014,17 @@ else
 	done
 endc
 
-_StoneShopIntroText:: ; TO TRANSLATE
+_StoneShopIntroText::
+if DEF(_FR_FR)
+	text "La lithothérapie"
+	line "est une pratique"
+	cont "ancestrale."
+
+	para "Il existe une"
+	line "pierre pour"
+	cont "chaque besoin."
+	done
+else
 	text "Stone healing is"
 	line "an ancestral"
 	cont "practice."
@@ -1022,24 +1032,65 @@ _StoneShopIntroText:: ; TO TRANSLATE
 	para "There is a stone"
 	line "for every need."
 	done
+endc
 
-_StoneShopThanksText:: ; TO TRANSLATE
+_StoneShopThanksText::
+if DEF(_FR_FR)
+	text "Excellent choix."
+	line "Tu ne le"
+	cont "regretteras pas."
+	done
+else
 	text "Great choice. You"
 	line "won't regret it."
 	done
+endc
 
-_StoneShopNoMoneyText:: ; TO TRANSLATE
+_StoneShopNoMoneyText::
+if DEF(_FR_FR)
+	text "Mes pierres haut"
+	line "de gamme coûtent"
+	cont "trop cher pour"
+	cont "toi..."
+	done
+else
 	text "My premium stones"
 	line "come at a price"
 	cont "you can't afford…"
 	done
+endc
 
-_StoneShopComeAgainText:: ; TO TRANSLATE
+_StoneShopComeAgainText::
+if DEF(_FR_FR)
+	text "Puissent les"
+	line "pierres t'apporter"
+	cont "la paix."
+	done
+else
 	text "May you find peace"
 	line "in the stones."
 	done
+endc
 
-_JadeCrystalSellPitchText:: ; TO TRANSLATE
+_JadeCrystalSellPitchText::
+if DEF(_FR_FR)
+	text "Ceci est mon"
+	line "produit phare."
+
+	para "Il n'y a rien qu'une"
+	line "pierre ne puisse"
+	cont "guérir."
+
+	para "Et le COVID ne"
+	line "fait pas"
+	cont "exception."
+
+	para "En portant cette"
+	line "pierre, un #MON"
+	cont "ne pourra pas"
+	cont "tomber malade."
+	done
+else
 	text "My best seller."
 
 	para "There is nothing a"
@@ -1052,8 +1103,18 @@ _JadeCrystalSellPitchText:: ; TO TRANSLATE
 	line "hold it, and it"
 	cont "won't get sick."
 	done
+endc
 
-_StarPieceSellPitchText:: ; TO TRANSLATE
+_StarPieceSellPitchText::
+if DEF(_FR_FR)
+	text "Quel est l'effet"
+	line "de celle-ci, te"
+	cont "demandes-tu?"
+
+	para "Celle-ci apporte"
+	line "la joie."
+	done
+else
 	text "What is the effect"
 	line "of this one you"
 	cont "may ask?"
@@ -1061,8 +1122,30 @@ _StarPieceSellPitchText:: ; TO TRANSLATE
 	para "This one"
 	line "sparks joy."
 	done
+endc
 
-_EverstoneSellPitchText:: ; TO TRANSLATE
+_EverstoneSellPitchText::
+if DEF(_FR_FR)
+	text "ROC STASE est la"
+	line "contraction de"
+	cont "EVOLUROC et"
+	cont "PIERRE STASE."
+
+	para "Cette pierre"
+	line "combine les"
+	cont "propriétés des"
+	cont "deux autres."
+
+	para "Donne-la à un"
+	line "#MON qui peut"
+	cont "encore évoluer."
+
+	para "Elle augmentera la"
+	line "DEF et la DEF.SPE."
+	cont "de 50<PERCENT> et bloquera"
+	cont "aussi l'évolution."
+	done
+else
 	text "EVIOSTONE is the"
 	line "contraction of"
 	cont "EVIOLITE and"
@@ -1081,12 +1164,21 @@ _EverstoneSellPitchText:: ; TO TRANSLATE
 	cont "by 50<PERCENT> but prevent"
 	cont "it from evolving."
 	done
+endc
 
-_LastEverstoneText:: ; TO TRANSLATE
+_LastEverstoneText::
+if DEF(_FR_FR)
+	text "Quelle chance!"
+	line "Tu as acheté mon"
+	cont "tout dernier"
+	cont "ROC STASE!"
+	done
+else
 	text "Lucky you!"
 	line "You bought my very"
 	cont "last EVIOSTONE!"
 	done
+endc	
 
 _BargainShopIntroText::
 if DEF(_FR_FR)
@@ -2097,7 +2189,19 @@ else
 	done
 endc
 
-_AskForgetMoveLongText:: ; TO TRANSLATE
+_AskForgetMoveLongText::
+if DEF(_FR_FR)
+	text_ram wMonOrItemNameBuffer
+	text " veut"
+	line "apprendre"
+	cont "@"
+	text_ram wStringBuffer2
+	text "."
+
+	para "Effacer une"
+	line "ancienne capacité?"
+	done
+else
 	text_ram wMonOrItemNameBuffer
 	text " is"
 	line "trying to learn"
@@ -2108,6 +2212,7 @@ _AskForgetMoveLongText:: ; TO TRANSLATE
 	para "Delete a move to"
 	line "make room for it?"
 	done
+endc	
 
 Text_MoveForgetCount::
 if DEF(_FR_FR)
@@ -2968,7 +3073,17 @@ else
 	done
 endc
 
-_DeleterPikachuRefuses:: ; TO TRANSLATE
+_DeleterPikachuRefuses::
+if DEF(_FR_FR)
+	text "Comment?"
+
+	para "PIKACHU a refusé"
+	line "d'oublier SURF."
+
+	para "Il a sans doute"
+	line "une bonne raison."
+	done
+else
 	text "Uh?"
 
 	para "PIKACHU refused"
@@ -2977,6 +3092,7 @@ _DeleterPikachuRefuses:: ; TO TRANSLATE
 	para "It probably has"
 	line "good reasons."
 	done
+endc
 
 _DeleterEggText::
 if DEF(_FR_FR)
@@ -3152,7 +3268,59 @@ else
 	prompt
 endc
 
-_GymPowerRestrainerFirstExplanation:: ; TO TRANSLATE
+_GymPowerRestrainerFirstExplanation::
+if DEF(_FR_FR)
+	text "Oh! C'est la"
+	line "première fois"
+	cont "que tu défies un"
+	cont "CHAMPION D'ARENE?"
+
+	para "Je vois."
+
+	para "Laisse-moi t'expli-"
+	line "quer comment ça"
+	cont "se passe."
+
+	para "Mon but est de"
+	line "juger avec équité"
+	cont "tes talents de"
+	cont "dresseur."
+
+	para "Les CHAMPIONS"
+	line "utilisent un"
+	cont "LIMITEUR DE FORCE"
+	cont "sur leurs #MON."
+
+	para "Il peut réduire"
+	line "de 40 niveaux"
+	cont "maximum le niveau"
+	cont "de nos #MON."
+
+	para "Je vais ajuster"
+	line "le niveau de mon"
+	cont "équipe sur ton"
+	cont "#MON le plus"
+	cont "fort."
+
+	para "Si ce niveau est"
+	line "supérieur au"
+	cont "mien, je n'aurais"
+	cont "pas besoin du"
+	cont "LIMITEUR DE FORCE."
+
+	para "Chaque CHAMPION"
+	line "fixe aussi des"
+	cont "règles spéciales,"
+
+	para "afin de tester ta"
+	line "capacité à gérer"
+	cont "des situations"
+	cont "inattendues."
+
+	para "Et c'est tout."
+	line "Revenons à moi."
+	done
+else
 	text "Oh! It's the first"
 	line "time you challenge"
 	cont "a GYM leader?"
@@ -3200,17 +3368,61 @@ _GymPowerRestrainerFirstExplanation:: ; TO TRANSLATE
 	cont "unexpected"
 	cont "situations."
 
-;	para "Have you checked"
-;	line "them on the"
-;	cont "pillars at the "
-;	cont "entrance?"
-
 	para "That's all."
-	line "Back to me." ; Damien.
-
+	line "Back to me."
 	done
+endc	
 
-_FirstLockdownDeclarationText:: ; TO TRANSLATE
+_FirstLockdownDeclarationText::
+if DEF(_FR_FR)
+	text "FLASH SPECIAL"
+
+	para "“Face à la forte"
+	line "hausse des cas"
+	cont "quotidiens de"
+	cont "contamination,"
+
+	para "à partir de demain"
+	line "un confinement"
+	cont "sera instauré."
+
+	para "#MON et humains"
+	line "ne sont pas auto-"
+	cont "risés à quitter"
+	cont "leur domicile."
+
+	para "Les exceptions"
+	line "sont:"
+	cont "courses, travail,"
+	cont "et soins."
+
+	para "Chaque sortie"
+	line "exige une auto-"
+	cont "attestation écrite"
+	cont "à la main."
+
+	para "Le port du masque"
+	line "sera obligatoire."
+
+	para "Des contrôles de"
+	line "police seront"
+	cont "organisés."
+
+	para "Les infractions"
+	line "seront verbalisées"
+	cont "et vous serez re-"
+	cont "conduis à domicile"
+	cont "ou au CENTRE"
+	cont "#MON le plus"
+	cont "proche."
+
+	para "-"
+
+	para "Soyez responsable,"
+	line "sauvez des vies,"
+	cont "restez prudents.”"
+	done
+else
 	text "INTERVENTION"
 
 	para "“Due to the rise"
@@ -3255,66 +3467,139 @@ _FirstLockdownDeclarationText:: ; TO TRANSLATE
 	line "save lives,"
 	cont "stay safe.”"
 	done
+endc	
 
 
 
 
-_HospitalVisitHappiness0Text:: ; TO TRANSLATE
+_HospitalVisitHappiness0Text::
+if DEF(_FR_FR)
+	text "Ton @"
+	text_ram wStringBuffer1
+	text_start
+	line "t'ignore..."
+	prompt
+else
 	text "Your @"
 	text_ram wStringBuffer1
 	text " is"
 	line "ignoring you…"
 	prompt
+endc
 
-_HospitalVisitHappiness1Text:: ; TO TRANSLATE
+_HospitalVisitHappiness1Text::
+if DEF(_FR_FR)
+	text "Ton @"
+	text_ram wStringBuffer1
+	text ""
+	line "ne s'attendait"
+	cont "pas à te voir."
+	prompt
+else
 	text "Your @"
 	text_ram wStringBuffer1
 	text ""
 	line "didn't expect you."
 	prompt
+endc
 
-_HospitalVisitHappiness2Text:: ; TO TRANSLATE
+_HospitalVisitHappiness2Text::
+if DEF(_FR_FR)
+	text "Ton @"
+	text_ram wStringBuffer1
+	text " est"
+	line "content de te"
+	cont "voir."
+	prompt
+else
 	text "Your @"
 	text_ram wStringBuffer1
 	text " is"
 	line "glad to see you."
 	prompt
+endc
 
-_HospitalVisitHappiness3Text:: ; TO TRANSLATE
+_HospitalVisitHappiness3Text::
+if DEF(_FR_FR)
+	text "Ton @"
+	text_ram wStringBuffer1
+	text " est"
+	line "très heureux"
+	cont "de te revoir!"
+	prompt
+else
 	text "Your @"
 	text_ram wStringBuffer1
 	text " is"
 	line "happy to see you"
 	cont "once again!"
 	prompt
+endc
 
 
 
-
-_HospitalVisitDuration0Text:: ; TO TRANSLATE
+_HospitalVisitDuration0Text::
+if DEF(_FR_FR)
+	text "Il semble en"
+	line "pleine forme"
+	cont "et prêt à sortir!"
+	done
+else
 	text "It looks in per-"
 	line "fect shape and"
 	cont "ready to go out!"
 	done
+endc
 
-_HospitalVisitDuration1Text:: ; TO TRANSLATE
+_HospitalVisitDuration1Text::
+if DEF(_FR_FR)
+	text "Il va mieux et"
+	line "devrait bientôt"
+	cont "pouvoir sortir."
+	done
+else
 	text "It appears to feel"
 	line "better and should"
 	cont "be able to leave"
 	cont "soon."
 	done
+endc
 
-_HospitalVisitDuration2Text:: ; TO TRANSLATE
+_HospitalVisitDuration2Text::
+if DEF(_FR_FR)
+	text "Il faudra encore"
+	line "pas mal de temps"
+	cont "avant qu'il ne"
+	cont "puisse sortir..."
+	done
+else
 	text "Quite some time"
 	line "will be necessary"
 	cont "before it can"
 	cont "leave this room…"
 	done
+endc
 
 
 
+_MoveReminderIntro::
+if DEF(_FR_FR)
+	text "Tu ne me reconnais"
+	line "pas? Je suis le"
+	cont "MAITRE DES"
+	cont "CAPACITES!"
 
-_MoveReminderIntro:: ; TO TRANSLATE
+	para "Je peux réappren-"
+	line "dre à un #MON"
+
+	para "une capacité"
+	line "déjà oubliée."
+
+	para "Le tarif de mon"
+	line "service est 500¥."
+	cont "C'est parti?"
+	done
+else
 	text "Don't you know me?"
 	line "I'm the MOVE"
 	cont "REMINDER!"
@@ -3329,28 +3614,63 @@ _MoveReminderIntro:: ; TO TRANSLATE
 	line "I charge ¥500."
 	cont "Deal?"
 	done
+endc
 
-_MoveReminderWhichMon:: ; TO TRANSLATE
+_MoveReminderWhichMon::
+if DEF(_FR_FR)
+	text "Montre-moi le"
+	line "#MON!"
+	done
+else
 	text "Show me the"
 	line "#MON!"
 	done
+endc
 
-_MoveReminderWhichMove:: ; TO TRANSLATE
+_MoveReminderWhichMove::
+if DEF(_FR_FR)
+	text "Quelle attaque"
+	next "réapprendre?"
+	done
+else
 	text "Which move should"
 	next "it relearn?"
 	done
+endc
 
-_MoveReminderCancel:: ; TO TRANSLATE
+_MoveReminderCancel::
+if DEF(_FR_FR)
+	text "Reviens quand tu"
+	line "veux."
+	done
+else
 	text "Come back anytime."
 	done
+endc
 
-_MoveReminderEgg:: ; TO TRANSLATE
+_MoveReminderEgg::
+if DEF(_FR_FR)
+	text "Je suis censé"
+	line "faire quoi avec"
+	cont "un OEUF?"
+	done
+else
 	text "What am I"
 	line "supposed to do"
 	cont "with an EGG?"
 	done
+endc
 
-_MoveReminderNoPay:: ; TO TRANSLATE
+_MoveReminderNoPay::
+if DEF(_FR_FR)
+	text "Hmm. Tu n'as pas"
+	line "assez d'argent."
+
+	para "La prochaine fois,"
+	line "pense à apporter"
+	cont "de quoi payer."
+	done
+else
 	text "Hm. You don't"
 	line "have enough."
 
@@ -3358,24 +3678,54 @@ _MoveReminderNoPay:: ; TO TRANSLATE
 	line "remember to bring"
 	cont "in some money."
 	done
+endc
 
-_MoveReminderNoMon:: ; TO TRANSLATE
+_MoveReminderNoMon::
+if DEF(_FR_FR)
+	text "Tu n'as aucun"
+	line "#MON qui puisse"
+	cont "se souvenir d'une"
+	cont "capacité."
+	done
+else
 	text "You don't have a"
 	line "#MON that can"
 	cont "remember a move."
 	done
+endc
 
-_MoveReminderNoMoves:: ; TO TRANSLATE
+_MoveReminderNoMoves::
+if DEF(_FR_FR)
+	text "Ce #MON n'a"
+	line "aucune capacité"
+	cont "à réapprendre."
+	done
+else
 	text "There are no moves"
 	line "for this #MON"
 	cont "to remember."
 	done
+endc
 
-_MoveReminderTakeMoney:: ; TO TRANSLATE
+_MoveReminderTakeMoney::
+if DEF(_FR_FR)
+	text "Un plaisir de"
+	line "faire affaire"
+	cont "avec toi!"
+	done
+else
 	text "Pleasure doing"
 	line "business with you!"
 	done
+endc
 
-_MoveReminderThanks:: ; TO TRANSLATE
+_MoveReminderThanks::
+if DEF(_FR_FR)
+	text "Je ne l'oublierai"
+	line "pas!"
+	done
+else
 	text "I won't forget it!"
 	done
+endc
+	
