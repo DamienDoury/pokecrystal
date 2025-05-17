@@ -529,7 +529,7 @@ TVShow:
 
 	para "The #MON LEAGUE"
 	line "has given"
-	cont "1 billion ¥"
+	cont "¥1 billion"
 
 	para "to finance"
 	line "medical research."
@@ -802,7 +802,7 @@ TVShow:
 	cont "dential homes."
 
 	para "The price for a"
-	line "meal is 50 000¥"
+	line "meal is ¥50 000"
 	cont "and you need a"
 	cont "password from an"
 	cont "insider to get in."
