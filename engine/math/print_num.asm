@@ -10,7 +10,7 @@ _PrintNum::
 ; Bit 7: print leading zeros if set
 
 	push bc
-
+if DEF(_EN_US)
 	bit 5, b
 	jr z, .main
 	bit 7, b
@@ -24,6 +24,7 @@ _PrintNum::
 	res 5, b ; 100xxxxx or 010xxxxx
 
 .main
+endc
 	xor a
 	ldh [hPrintNumBuffer + 0], a
 	ldh [hPrintNumBuffer + 1], a
@@ -150,18 +151,26 @@ _PrintNum::
 	ld b, a
 	ldh a, [hPrintNumBuffer + 0]
 	or c
+
+if DEF(_FR_FR)
+	ldh [hPrintNumBuffer + 0], a
+endc
 	jr nz, .money
 	call .PrintLeadingZero
 	jr .money_leading_zero
 
 .money
+if DEF(_EN_US)
 	call .PrintYen
 	push af
+endc
 	ld a, "0"
 	add c
 	ld [hl], a
+if DEF(_EN_US)
 	pop af
 	ldh [hPrintNumBuffer + 0], a
+endc
 	inc e
 	dec e
 	jr nz, .money_leading_zero
@@ -170,11 +179,14 @@ _PrintNum::
 
 .money_leading_zero
 	call .AdvancePointer
+if DEF(_EN_US)
 	call .PrintYen
+endc
 	ld a, "0"
 	add b
 	ld [hli], a
 
+if DEF(_EN_US)
 	pop de
 	pop bc
 	ret
@@ -184,14 +196,23 @@ _PrintNum::
 	ldh a, [hPrintNumBuffer + 0]
 	and a
 	jr nz, .stop
+endc
+
 	bit 5, d
 	jr z, .stop
 	ld a, "¥"
 	ld [hli], a
+if DEF(_EN_US)
 	res 5, d
+endc
 
 .stop
+if DEF(_EN_US)
 	pop af
+else
+	pop de
+	pop bc
+endc
 	ret
 
 .PrintDigit:
@@ -259,6 +280,7 @@ _PrintNum::
 	ldh a, [hPrintNumBuffer + 0]
 	or c
 	jr z, .PrintLeadingZero
+if DEF(_EN_US)
 	ldh a, [hPrintNumBuffer + 0]
 	and a
 	jr nz, .done
@@ -267,6 +289,7 @@ _PrintNum::
 	ld a, "¥"
 	ld [hli], a
 	res 5, d
+endc
 .done
 	ld a, "0"
 	add c

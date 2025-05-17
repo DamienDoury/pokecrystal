@@ -486,8 +486,13 @@ PokecenterNurseScript:
 
 DamiansMail:
 	db PORTRAITMAIL
+if DEF(_FR_FR)
+	db   "Je te récupére-"
+	next "rai plus tard.@"
+else
 	db   "I'll come back"
 	next "for you later.@"
+endc
 
 DifficultBookshelfScript:
 	farjumptext DifficultBookshelfText
@@ -2242,9 +2247,15 @@ CoinVendor_IntroScript:
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db " 50 :  1000¥@"
+	db "500 : 10000¥@"
+	db "RETOUR@"
+else
 	db " 50 :  ¥1000@"
 	db "500 : ¥10000@"
 	db "CANCEL@"
+endc
 
 HappinessCheckScript:
 	faceplayer
@@ -2527,6 +2538,20 @@ VaccinePassCheckpoint:
 	farsjump PlayerMovesDownThroughDoor
 
 .NoVaccinePassText:
+if DEF(_FR_FR)
+	text "Mon scanner ne"
+	line "détecte pas le"
+	cont "PASS VACCINAL sur"
+	cont "ta CARTE DRESSEUR."
+
+	para "Peux-tu me"
+	line "le montrer?"
+
+	para "Non? Alors tu"
+	line "ne peux pas"
+	cont "entrer, désolé."
+	done
+else
 	text "My scanner doesn't"
 	line "detect the VACCINE"
 	cont "PASSPORT on your"
@@ -2538,8 +2563,26 @@ VaccinePassCheckpoint:
 	para "No? Then you can't"
 	line "come in, sorry."
 	done
+endc
 
 .BoosterRequiredText:
+if DEF(_FR_FR)
+	text "Ta CARTE DRESSEUR"
+	line "indique que tu"
+	cont "n'as reçu qu'un"
+	cont "seul vaccin."
+
+	para "Une dose de rappel"
+	line "est désormais"
+	cont "requise pour que"
+	cont "ton PASS VACCINAL"
+	cont "soit valide."
+
+	para "Je ne peux pas"
+	line "te laisser entrer"
+	cont "sans cela."
+	done
+else
 	text "Your TRAINER CARD"
 	line "indicates you were"
 	cont "vaccinated only"
@@ -2553,3 +2596,5 @@ VaccinePassCheckpoint:
 	para "I can't let you"
 	line "enter without it."
 	done
+endc
+		

@@ -16,12 +16,14 @@ PrintBCDNumber::
 	res PRINTNUM_LEADINGZEROS_F, c
 	res PRINTNUM_LEFTALIGN_F, c
 	res PRINTNUM_MONEY_F, c ; c now holds the length
+if DEF(_EN_US)
 	bit PRINTNUM_MONEY_F, b
 	jr z, .loop
 	bit PRINTNUM_LEADINGZEROS_F, b
 	jr nz, .loop ; skip currency symbol
 	ld [hl], "¥"
 	inc hl
+endc
 .loop
 	ld a, [de]
 	swap a
@@ -35,25 +37,36 @@ PrintBCDNumber::
 	jr z, .done ; if so, we are done
 ; every digit of the BCD number is zero
 	bit PRINTNUM_LEFTALIGN_F, b
+if DEF(_EN_US)
 	jr nz, .skipLeftAlignmentAdjustment
+else
+	jr nz, .skipCurrencySymbol
+endc
 ; the string is left-aligned; it needs to be moved back one space
 	dec hl
+if DEF(_EN_US)
 .skipLeftAlignmentAdjustment
 	bit PRINTNUM_MONEY_F, b
 	jr z, .skipCurrencySymbol
 	ld [hl], "¥" ; currency symbol
 	inc hl
+endc
 .skipCurrencySymbol
 	ld [hl], "0"
 	call PrintLetterDelay
 	inc hl
 .done
+if DEF(_FR_FR)
+	ld a, "¥"
+	ld [hli], a
+endc
 	ret
 
 PrintBCDDigit::
 	and %00001111
 	and a
 	jr z, .zeroDigit
+if DEF(_EN_US)
 ; nonzero digit
 	bit PRINTNUM_LEADINGZEROS_F, b ; have any non-space characters been printed?
 	jr z, .outputDigit
@@ -64,6 +77,7 @@ PrintBCDDigit::
 	inc hl
 	res PRINTNUM_MONEY_F, b
 .skipCurrencySymbol
+endc
 	res PRINTNUM_LEADINGZEROS_F, b ; unset 7 to indicate that a nonzero digit has been reached
 .outputDigit
 	add "0"
