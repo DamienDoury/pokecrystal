@@ -1,22 +1,40 @@
-NurseMornText: ; TO TRANSLATE
+NurseMornText:
+if DEF(_FR_FR)
+	text "Bien le bonjour!"
+	done
+else
 	text "Good morning!"
 	;line "Welcome to our"
 	;cont "#MON CENTER."
 	done
+endc
 
-NurseDayText: ; TO TRANSLATE
+
+NurseDayText:
+if DEF(_FR_FR)
+	text "Salut!"
+	done
+else
 	text "Hello!"
 	;line "Welcome to our"
 	;cont "#MON CENTER."
 	done
+endc
+	
 
-NurseNiteText: ; TO TRANSLATE
+NurseNiteText:
+if DEF(_FR_FR)
+	text "Bonsoir!"
+	done
+else
 	text "Good evening!"
 	;line "You're out late." ; Damien
-	
+
 	;para "Welcome to our"
 	;line "#MON CENTER."
 	done
+endc
+	
 
 PokeComNurseMornText:
 if DEF(_FR_FR)
@@ -86,12 +104,31 @@ else
 endc
 
 
-NurseAskHealText: ; TO TRANSLATE
+NurseAskHealText:
+if DEF(_FR_FR)
+	text "Dois-je soigner"
+	line "vos #MON?"
+	done
+else
 	text "Shall we heal your"
 	line "#MON?"
 	done
+endc
 
-NurseAskTestText: ; TO TRANSLATE
+
+NurseAskTestText:
+if DEF(_FR_FR)
+	text "Voulez-vous aussi"
+	line "des tests PCR?"
+
+	para "Pour @"
+	text_ram wStringBuffer3
+	text ", le montant"
+	line "est de @"
+	text_ram wStringBuffer3
+	text "00¥."
+	done
+else
 	text "Should we perform"
 	line "a PCR test also?"
 	
@@ -102,46 +139,102 @@ NurseAskTestText: ; TO TRANSLATE
 	text_ram wStringBuffer3
 	text "00."
 	done
+endc
 
-NurseHealOnlyText: ; TO TRANSLATE
+NurseHealOnlyText:
+if DEF(_FR_FR)
+	text "OK, seulement"
+	line "le soin."
+	done
+else
 	text "OK, heal only."
 	done
+endc
 
-NurseThanksText: ; TO TRANSLATE
+NurseThanksText:
+if DEF(_FR_FR)
+	text "Merci."
+	done
+else
 	text "Thank you."
 	done
+endc
 
-NurseTakePokemonText: ; TO TRANSLATE
+NurseTakePokemonText:
+if DEF(_FR_FR)
+	text "Puis-je voir"
+	line "vos #MON?"
+	done
+else
 	text "May I see your"
 	line "#MON?"
 	done
+endc
 
-NurseReturnPokemonText: ; TO TRANSLATE
-	;text "Thank you for" ; Damien
-	;line "waiting."
-	
-	;para "Your #MON are"
-	;line "fully healed."
+NurseNotEnoughMoneyText:
+if DEF(_FR_FR)
+	text "Désolé, vous n'avez"
+	line "assez pour couvrir"
+	cont "les tests PCR."
 	done
-
-NurseNotEnoughMoneyText: ; TO TRANSLATE
+else
 	text "I am sorry but you"
 	line "don't have enough"
 	cont "for the PCR test."
 	done
+endc
 
-NurseBallsDisinfectedText: ; TO TRANSLATE
+NurseBallsDisinfectedText:
+if DEF(_FR_FR)
+	text "Vos #BALLS ont"
+	line "été désinfectées."
+	done
+else
 	text "Your #BALLS"
 	line "have been"
 	cont "disinfected."
 	done
+endc
 
-NurseGoodbyeText:: ; TO TRANSLATE
+NurseGoodbyeText::
+if DEF(_FR_FR)
+	text "Encore merci et"
+	line "à bientôt!"
+	done
+else
 	text "We hope to see you"
 	line "again."
 	done
+endc
 
-NursePCRArrivedText: ; TO TRANSLATE
+NursePCRArrivedText:
+if DEF(_FR_FR)
+	text "Nous vous"
+	line "informons d'un"
+	cont "nouveau service"
+	cont "dans les"
+	cont "CENTRES #MON."
+	
+	para "Les tests PCR"
+	line "sont arrivés!"
+	
+	para "Ils permettent de"
+	line "détecter si vos"
+	cont "#MON sont actu-"
+	cont "ellement infectés"
+	cont "par le virus."
+
+	para "Les résultats sont"
+	line "immédiats, et le"
+	cont "tarif est fixé à"
+	cont "100¥ par #MON."
+
+	para "Il est conseillé"
+	line "aux dresseurs de"
+	cont "fréquemment tester"
+	cont "leur équipe."
+	done
+else
 	text "We would like to"
 	line "inform you about"
 	cont "a new service in"
@@ -165,21 +258,57 @@ NursePCRArrivedText: ; TO TRANSLATE
 	line "vised to frequent-"
 	cont "ly test their"
 	cont "party."
-	
 	done
+endc
 
-NurseTestsNegativeText: ; TO TRANSLATE
+NurseTestsNegativeText:
+if DEF(_FR_FR)
+	text "Tous les tests"
+	line "PCR sont négatifs."
+	done
+else
 	text "All PCR tests are"
 	line "negative."
 	done
+endc
 
-NurseOtherTestsNegativeText: ; TO TRANSLATE
+NurseOtherTestsNegativeText:
+if DEF(_FR_FR)
+	text "Les autres tests"
+	line "PCR sont négatifs."
+	done
+else
 	text "The other PCR"
 	line "tests are"
 	cont "negative."
 	done
+endc
 
-NurseCriticallyIllText: ; TO TRANSLATE
+NurseCriticallyIllText:
+if DEF(_FR_FR)
+	text "Oh non..."
+	line " "
+
+	para "Votre @"
+	
+	text_ram wStringBuffer1
+	text_start
+	
+	line "est gravement"
+	cont "malade et a besoin"
+	cont "de soins urgents."
+
+	para "Ca ressemble à une"
+	line "forme sévère"
+	cont "de COVID..."
+
+	para "Je dois l'envoyer"
+	line "immédiatement à"
+	cont "l'hôpital, avant"
+	cont "qu'il ne soit trop"
+	cont "tard."
+	done
+else
 	text "Oh my…"
 	line " "
 	
@@ -201,8 +330,20 @@ NurseCriticallyIllText: ; TO TRANSLATE
 	cont "now, before it's"
 	cont "too late."
 	done
+endc
 
-NurseCriticallyIllMail1Text: ; TO TRANSLATE
+NurseCriticallyIllMail1Text:
+if DEF(_FR_FR)
+	text "La @"
+	
+	text_ram wStringBuffer1
+	text " "
+	
+	line "qu'il tenait a été"
+	cont "envoyée dans votre"
+	cont "BOITE LETTRES."
+	done
+else
 	text "The @"
 	
 	text_ram wStringBuffer1
@@ -212,8 +353,24 @@ NurseCriticallyIllMail1Text: ; TO TRANSLATE
 	cont "has been sent to"
 	cont "your MAIL BOX."
 	done
+endc
 
-NurseCriticallyIllMail2Text: ; TO TRANSLATE
+NurseCriticallyIllMail2Text:
+if DEF(_FR_FR)
+	text "Je n'ai pas réussi"
+	line "à envoyer sa"
+	cont "@"
+	
+	text_ram wStringBuffer1
+	text " au PC,"
+	
+	cont "du coup le message"
+	cont "a été perdu."
+
+	para "Vous pouvez quand"
+	line "même la reprendre."
+	done
+else
 	text "I couldn't send its"
 	line "@"
 	
@@ -226,8 +383,23 @@ NurseCriticallyIllMail2Text: ; TO TRANSLATE
 	para "You can have it"
 	line "back though."
 	done
+endc
 
-NurseCriticallyIllMail3Text: ; TO TRANSLATE
+NurseCriticallyIllMail3Text:
+if DEF(_FR_FR)
+	text "Ta BOITE LETTRES"
+	line "et ton SAC sont"
+	cont "pleins, alors je"
+	cont "vais garder la"
+	cont "@"
+	
+	text_ram wStringBuffer1
+	
+	text " que"
+	cont "tenait votre"
+	cont "#MON."
+	done
+else
 	text "Your MAIL BOX and"
 	line "your PACK are full"
 	cont "so I will keep the"
@@ -238,15 +410,37 @@ NurseCriticallyIllMail3Text: ; TO TRANSLATE
 	text " your"
 	cont "#MON held."
 	done
+endc
 
-NurseCriticallyIll2Text: ; TO TRANSLATE
+NurseCriticallyIll2Text:
+if DEF(_FR_FR)
+	text "Vous pourrez"
+	line "rendre visite à"
+	cont "votre #MON à"
+	cont "l'HOPITAL NATIONAL"
+	cont "de DOUBLONVILLE."
+	done
+else
 	text "You can go check"
 	line "on your #MON"
 	cont "at GOLDENROD"
 	cont "NATIONAL HOSPITAL."
 	done
+endc
 
-NurseMildIllnessText: ; TO TRANSLATE
+NurseMildIllnessText:
+if DEF(_FR_FR)
+	text "Certains de vos"
+	line "#MON avaient"
+	cont "une maladie"
+	cont "bénigne,"
+	
+	para "mais nous les"
+	line "avons pris en"
+	cont "charge, et ils ont"
+	cont "été soignés!"
+	done
+else
 	text "Some of your"
 	line "#MON had a mild"
 	cont "illness, but they"
@@ -254,16 +448,41 @@ NurseMildIllnessText: ; TO TRANSLATE
 	cont "care of and they"
 	cont "are now cured!"
 	done
+endc
 
-NursePokerusReaction: ; TO TRANSLATE
+NursePokerusReaction:
+if DEF(_FR_FR)
+	text "Certains de vos"
+	line "#MON sont"
+	
+	para "infectés par"
+	line "le virus."
+	done
+else
 	text "Some of your"
 	line "#MON appear"
 	
 	para "to be infected"
 	line "by the virus."
 	done
+endc
 
-NursePokerusLongTextStart: ; TO TRANSLATE
+NursePokerusLongTextStart:
+if DEF(_FR_FR)
+	text "Ils risquent d'être"
+	line "fatigués et d'avoir"
+	cont "mal à la tête."
+	
+	para "On ne sait pas"
+	line "encore comment"
+	cont "guérir la maladie."
+	
+	para "Vos #MON"
+	line "devraient aller"
+	cont "mieux sous"
+	cont "5 jours."
+	done
+else
 	text "They may feel"
 	line "exhausted and may"
 	cont "have headaches."
@@ -276,8 +495,19 @@ NursePokerusLongTextStart: ; TO TRANSLATE
 	line "should get better"
 	cont "within 5 days."
 	done
+endc
 
-NursePokerusRecommendsVaccinationText: ; TO TRANSLATE
+NursePokerusRecommendsVaccinationText:
+if DEF(_FR_FR)
+	text "Une fois les symp-"
+	line "tômes dissipés,"
+	cont "vous pourrez faire"
+	cont "vacciner vos"
+	cont "#MON au CENTRE"
+	cont "DE VACCINATION"
+	cont "de SAFRANIA."
+	done
+else
 	text "Once the symptoms"
 	line "are gone, you can"
 	cont "get your #MON"
@@ -286,22 +516,60 @@ NursePokerusRecommendsVaccinationText: ; TO TRANSLATE
 	cont "vaccination"
 	cont "center."
 	done
+endc
 
-NursePokerusEssentialText: ; TO TRANSLATE
+NursePokerusEssentialText:
+if DEF(_FR_FR)
+	text "Gardez-les confi-"
+	line "nés à l'intérieur"
+	cont "de leur #BALL"
+	cont "jusqu'à leur"
+	cont "rétablissement."
+	done
+else
 	text "Please keep them"
 	line "confined inside"
 	cont "their #BALL"
 	cont "until they"
 	cont "feel better."
 	done
+endc
 
-NursePokerusLongTextEnd: ; TO TRANSLATE
+NursePokerusLongTextEnd:
+if DEF(_FR_FR)
+	text "Une fois guéris,"
+	line "ils seront"
+	cont "immunisés pour une"
+	cont "longue période."
+	done
+else
 	text "Once cured, they"
 	line "should be immuned"
 	cont "for a long time."
 	done
+endc
 
-NurseAbandonedMonText: ; TO TRANSLATE
+NurseAbandonedMonText:
+if DEF(_FR_FR)
+	text "Attendez!!"
+	
+	para "Vous n'avez plus de"
+	line "#MON et vous ne"
+	cont "pouvez pas partir"
+	cont "sans en avoir un!"
+	
+	para "Les CENTRES #-"
+	line "MON recueillent"
+	cont "des #MON aban-"
+	cont "donnés, attendant"
+	cont "d'être adoptés par"
+	cont "un nouveau"
+	cont "dresseur."
+	
+	para "Prenez soin de"
+	line "celui-ci."
+	done
+else
 	text "Wait!!"
 	
 	para "You no longer have"
@@ -319,6 +587,8 @@ NurseAbandonedMonText: ; TO TRANSLATE
 	para "Please take care"
 	line "of this one."
 	done
+endc
+	
 
 DifficultBookshelfText:
 if DEF(_FR_FR)
@@ -364,7 +634,21 @@ else
 endc
 
 
-TeamRocketOathText: ; TO TRANSLATE
+TeamRocketOathText:
+if DEF(_FR_FR)
+	text "SERMENT ROCKET"
+
+	para "Voler les #MON"
+	line "pour le pognon!"
+
+	para "Se battre pour"
+	line "la liberté!"
+
+	para "Le monde"
+	line "appartient à"
+	cont "la TEAM ROCKET!"
+	done
+else
 	text "TEAM ROCKET OATH"
 	
 	para "Steal #MON for"
@@ -377,6 +661,8 @@ TeamRocketOathText: ; TO TRANSLATE
 	line "belongs to"
 	cont "TEAM ROCKET!"
 	done
+endc
+
 
 IncenseBurnerText:
 if DEF(_FR_FR)
@@ -406,10 +692,18 @@ else
 endc
 
 
-MerchandiseGoneText: ; TO TRANSLATE
+MerchandiseGoneText:
+if DEF(_FR_FR)
+	text "Tout ce qui a le"
+	line "moindre intérêt"
+	cont "est parti..."
+	done
+else
 	text "Everything of"
 	line "interest is gone…"
 	done
+endc
+
 
 LookTownMapText:
 if DEF(_FR_FR)
@@ -433,12 +727,21 @@ else
 endc
 
 
-WindowClappingText: ; TO TRANSLATE
+WindowClappingText:
+if DEF(_FR_FR)
+	text "Les gens"
+	line "applaudissent à"
+	cont "leurs fenêtres"
+	cont "de tous côtés."
+	done
+else
 	text "People are"
 	line "clapping at their"
 	cont "window from all"
 	cont "directions."
 	done
+endc
+
 
 TVText:
 if DEF(_FR_FR)
@@ -705,12 +1008,20 @@ else
 endc
 
 
-GymStatue_ChallengeGymText: ; TO TRANSLATE
+GymStatue_ChallengeGymText:
+if DEF(_FR_FR)
 	text "Challenge:"
 	line "@"
 	text_ram wStringBuffer3
 	text " "
 	done
+else
+	text "Challenge:"
+	line "@"
+	text_ram wStringBuffer3
+	text " "
+	done
+endc
 
 GymStatue_WinningTrainersText:
 if DEF(_FR_FR)
