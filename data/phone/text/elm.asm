@@ -178,8 +178,9 @@ if DEF(_FR_FR)
 	line "dangereux et se"
 	cont "propage vite."
 
-	para "J'ai récemment fait"
-	line "une découverte qui"
+	para "J'ai récemment"
+	line "fait une"
+	cont "découverte qui"
 	cont "te sera utile:"
 	
 	para "le virus persiste"
