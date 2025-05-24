@@ -66,7 +66,7 @@ HallOfFame_SlowlyApproachMachine:
 	slow_step UP
 	step_end
 
-HallOfFame_LanceText:
+HallOfFame_LanceText: ; AUTOTRAD
 	text "LANCE: It's been a"
 	line "long time since I"
 	cont "last came here."

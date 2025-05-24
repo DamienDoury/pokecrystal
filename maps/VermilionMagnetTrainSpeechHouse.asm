@@ -16,7 +16,7 @@ VermilionMagnetTrainSpeechHouseYoungsterScript:
 VermilionMagnetTrainSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-VermilionMagnetTrainSpeechHousePokefanFText:
+VermilionMagnetTrainSpeechHousePokefanFText: ; AUTOTRAD
 	text "Do you know about"
 	line "the MAGNET TRAIN?"
 
@@ -25,7 +25,7 @@ VermilionMagnetTrainSpeechHousePokefanFText:
 	cont "DENROD in JOHTO."
 	done
 
-VermilionMagnetTrainSpeechHouseYoungsterText:
+VermilionMagnetTrainSpeechHouseYoungsterText: ; AUTOTRAD
 	text "I want to go to"
 	line "SAFFRON to see"
 	cont "the MAGNET TRAIN."

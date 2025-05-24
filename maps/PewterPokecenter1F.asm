@@ -79,7 +79,7 @@ Chris:
 	closetext
 	end
 
-PewterPokecenter1FTeacherText:
+PewterPokecenter1FTeacherText: ; AUTOTRAD
 	text "…Yeah, and the"
 	line "GYM in CINNABAR's"
 
@@ -90,12 +90,12 @@ PewterPokecenter1FTeacherText:
 	line "phone. Go away!"
 	done
 
-PewterJigglypuffText:
+PewterJigglypuffText: ; AUTOTRAD
 	text "JIGGLYPUFF: Puu"
 	line "pupuu."
 	done
 
-PewterPokecenter1FBugCatcherText:
+PewterPokecenter1FBugCatcherText: ; AUTOTRAD
 	text "Most #MON get"
 	line "drowsy if they"
 

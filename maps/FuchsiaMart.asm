@@ -34,7 +34,7 @@ FuchsiaMartCooltrainerFScript:
 FuchsiaMartShelfItem1Script:
 	shelfitem 6, MOOMOO_MILK, 6000
 
-FuchsiaMartFisherText:
+FuchsiaMartFisherText: ; AUTOTRAD
 	text "I was hoping to"
 	line "buy some SAFARI"
 
@@ -42,7 +42,7 @@ FuchsiaMartFisherText:
 	line "but it's closed…"
 	done
 
-FuchsiaMartFisherText2:
+FuchsiaMartFisherText2: ; TO TRANSLATE
 	text "Wow! You're the new"
 	line "SAFARI ZONE owner!"
 
@@ -50,7 +50,7 @@ FuchsiaMartFisherText2:
 	line "for re-opening it!"
 	done
 
-FuchsiaMartCooltrainerFText:
+FuchsiaMartCooltrainerFText: ; AUTOTRAD
 	text "The SAFARI ZONE"
 	line "WARDEN's grand-"
 	cont "daughter lives in"

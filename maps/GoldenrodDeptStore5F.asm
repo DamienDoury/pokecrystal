@@ -100,39 +100,39 @@ GoldenrodDeptStore5FDirectory:
 GoldenrodDeptStore5FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText:
+GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText: ; AUTOTRAD
 	text "Hello. Oh, your"
 	line "#MON…"
 	done
 
-GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText: ; TO TRANSLATE
 	text "It's very attached"
 	line "to you."
 	done
 
-GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel:
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel: ; TO TRANSLATE
 	text "This move should"
 	line "be perfect for a"
 	cont "pair like you."
 	done
 
-GoldenrodDeptStore5FReceptionistItsAdorableText:
+GoldenrodDeptStore5FReceptionistItsAdorableText: ; AUTOTRAD
 	text "It's adorable!"
 
 	para "You should teach"
 	line "it good TM moves."
 	done
 
-GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText: ; TO TRANSLATE
 	text "It looks evil."
 	done
 	
-GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel:
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel: ; TO TRANSLATE
 	text "How about this"
 	cont "TM for it?"
 	done
 
-GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:
+GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText: ; AUTOTRAD
 	text "There are sure to"
 	line "be TMs that are"
 
@@ -140,7 +140,7 @@ GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText:
 	line "your #MON."
 	done
 
-GoldenrodDeptStore5FLassText:
+GoldenrodDeptStore5FLassText: ; AUTOTRAD
 	text "On Sundays, a lady"
 	line "comes to check out"
 	cont "#MON."
@@ -149,7 +149,7 @@ GoldenrodDeptStore5FLassText:
 	line "away TMs!"
 	done
 
-GoldenrodDeptStore5FPokefanMText:
+GoldenrodDeptStore5FPokefanMText: ; AUTOTRAD
 	text "You can't rename a"
 	line "#MON you get in"
 	cont "a trade."
@@ -161,7 +161,7 @@ GoldenrodDeptStore5FPokefanMText:
 	line "feelings for it."
 	done
 
-GoldenrodDeptStore5FDirectoryText:
+GoldenrodDeptStore5FDirectoryText: ; AUTOTRAD
 	text "Customize Your"
 	line "#MON"
 

@@ -30,7 +30,7 @@ HiddenPowerGuy:
 HiddenPowerHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-HiddenPowerGuyText1:
+HiddenPowerGuyText1: ; AUTOTRAD
 	text "…You have strayed"
 	line "far…"
 
@@ -47,7 +47,7 @@ HiddenPowerGuyText1:
 	line "Take this, child."
 	done
 
-HiddenPowerGuyText2:
+HiddenPowerGuyText2: ; AUTOTRAD
 	text "Do you see it? It"
 	line "is HIDDEN POWER!"
 
@@ -61,7 +61,7 @@ HiddenPowerGuyText2:
 	cont "MON using it."
 	done
 
-HiddenPowerGuyText3:
+HiddenPowerGuyText3: ; AUTOTRAD
 	text "I am meditating…"
 	done
 

@@ -96,7 +96,7 @@ GoldenrodVendingMachine:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "FRESH WATER  ¥{d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}@"
@@ -116,12 +116,12 @@ GoldenrodDeptStore6FDirectory:
 GoldenrodDeptStore6FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodVendingText:
+GoldenrodVendingText: ; AUTOTRAD
 	text "A vending machine!"
 	line "Here's the menu."
 	done
 
-GoldenrodClangText:
+GoldenrodClangText: ; AUTOTRAD
 	text "Clang! A can of"
 	line "@"
 	text_ram wStringBuffer3
@@ -129,17 +129,17 @@ GoldenrodClangText:
 	cont "popped out!"
 	done
 
-GoldenrodVendingNoMoneyText:
+GoldenrodVendingNoMoneyText: ; AUTOTRAD
 	text "Oops, not enough"
 	line "money."
 	done
 
-GoldenrodVendingNoSpaceText:
+GoldenrodVendingNoSpaceText: ; AUTOTRAD
 	text "There's no more"
 	line "room for stuff."
 	done
 
-GoldenrodDeptStore6FLassText:
+GoldenrodDeptStore6FLassText: ; AUTOTRAD
 	text "Do you listen to"
 	line "LUCKY CHANNEL?"
 
@@ -153,7 +153,7 @@ GoldenrodDeptStore6FLassText:
 	line "numbers."
 	done
 
-GoldenrodDeptStore6FSuperNerdText:
+GoldenrodDeptStore6FSuperNerdText: ; AUTOTRAD
 	text "If you're tired,"
 	line "try the vending"
 	cont "machine's drinks."
@@ -162,14 +162,14 @@ GoldenrodDeptStore6FSuperNerdText:
 	line "love them too."
 	done
 
-GoldenrodDeptStore6FDirectoryText:
+GoldenrodDeptStore6FDirectoryText: ; AUTOTRAD
 	text "Take a Break from"
 	line "Shopping!"
 
 	para "6F TRANQUIL SQUARE"
 	done
 
-GoldenrodDeptStore5FCarrieMysteryGiftExplanationText:
+GoldenrodDeptStore5FCarrieMysteryGiftExplanationText: ; AUTOTRAD
 	text "MYSTERY GIFT."
 
 	para "With just a"
@@ -177,7 +177,7 @@ GoldenrodDeptStore5FCarrieMysteryGiftExplanationText:
 	cont "get a gift."
 	done
 
-GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText:
+GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText: ; AUTOTRAD
 	text "The MYSTERY GIFT"
 	line "option requires a"
 	cont "Game Boy Color."

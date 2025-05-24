@@ -25,7 +25,7 @@ CeladonPokecenter1FCooltrainerFScript:
 CeladonPokecenter1FPharmacistScript:
 	jumptextfaceplayer CeladonPokecenter1FPharmacistText	
 
-CeladonPokecenter1FCooltrainerFText:
+CeladonPokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "ERIKA is a master"
 	line "of grass #MON."
 
@@ -34,7 +34,7 @@ CeladonPokecenter1FCooltrainerFText:
 	cont "watch yourself."
 	done
 
-CeladonPokecenter1FPharmacistText:
+CeladonPokecenter1FPharmacistText: ; AUTOTRAD
 	text "TEAM ROCKET's"
 	line "hideout is in the"
 

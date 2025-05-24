@@ -24,7 +24,7 @@ RuinsOfAlphHoOhItemRoomCharcoal:
 RuinsOfAlphHoOhItemRoomAncientReplica:
 	jumptext RuinsOfAlphHoOhItemRoomAncientReplicaText
 
-RuinsOfAlphHoOhItemRoomAncientReplicaText:
+RuinsOfAlphHoOhItemRoomAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."

@@ -43,7 +43,7 @@ MountMoonGiftShopShelfItem2Script:
 MountMoonGiftShopShelfItem3Script:
 	shelfitem 3, MAX_ELIXER, 13500
 
-MountMoonGiftShopLassText:
+MountMoonGiftShopLassText: ; AUTOTRAD
 	text "When the sun goes"
 	line "down, CLEFAIRY"
 	cont "come out to play."

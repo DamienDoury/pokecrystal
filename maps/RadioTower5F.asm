@@ -257,12 +257,12 @@ RadioTower5FFakeDirectorSpinsMovement:
 	step_sleep 1
 	step_end
 
-FakeDirectorTextBefore1:
+FakeDirectorTextBefore1: ; AUTOTRAD
 	text "Y-you! You came to"
 	line "rescue me?"
 	done
 
-FakeDirectorTextBefore2:
+FakeDirectorTextBefore2: ; TO TRANSLATE
 	text "Is that what you"
 	line "were expecting?"
 
@@ -270,7 +270,7 @@ FakeDirectorTextBefore2:
 	line "I'm an imposter!"
 	done
 
-FakeDirectorTextBefore3:
+FakeDirectorTextBefore3: ; TO TRANSLATE
 	text "I pretended to be"
 	line "the real thing to"
 
@@ -286,12 +286,12 @@ FakeDirectorTextBefore3:
 	cont "you can beat me!"
 	done
 
-FakeDirectorWinText:
+FakeDirectorWinText: ; AUTOTRAD
 	text "OK, OK. I'll tell"
 	line "you where he is."
 	done
 
-FakeDirectorTextAfter:
+FakeDirectorTextAfter: ; AUTOTRAD
 	text "We stashed the"
 	line "real DIRECTOR in"
 
@@ -306,7 +306,7 @@ FakeDirectorTextAfter:
 	line "get that far."
 	done
 
-Executivef1SeenText:
+Executivef1SeenText: ; AUTOTRAD
 	text "Remember me from"
 	line "the HIDEOUT in"
 	cont "MAHOGANY TOWN?"
@@ -315,7 +315,7 @@ Executivef1SeenText:
 	line "won't this time."
 	done
 
-Executivef1BeatenText:
+Executivef1BeatenText: ; AUTOTRAD
 	text "This can't be"
 	line "happening!"
 
@@ -323,7 +323,7 @@ Executivef1BeatenText:
 	line "I still lost…"
 	done
 
-Executivef1AfterBattleText:
+Executivef1AfterBattleText: ; TO TRANSLATE
 	text "<PLAYER>, isn't it?"
 
 	para "A brat like you"
@@ -337,7 +337,7 @@ Executivef1AfterBattleText:
 	cont "your power."
 	done
 
-RadioTower5FRocketBossBeforeText:
+RadioTower5FRocketBossBeforeText: ; TO TRANSLATE
 	text "Oh? You managed to"
 	line "get this far?"
 
@@ -403,13 +403,13 @@ RadioTower5FRocketBossBeforeText:
 	cont "arguments?"
 	done
 
-RadioTower5FRocketBossStartBattleText:
+RadioTower5FRocketBossStartBattleText: ; TO TRANSLATE
 	text "Then I can't let"
 	line "you to interfere"
 	cont "with our plan."
 	done
 
-RadioTower5FRocketBossSkipBattleText:
+RadioTower5FRocketBossSkipBattleText: ; TO TRANSLATE
 	text "Then leave."
 	line "Let me do what I"
 	cont "came for."
@@ -421,12 +421,12 @@ RadioTower5FRocketBossSkipBattleText:
 	line "revolution!"
 	done
 
-RadioTower5FRocketBossWinText:
+RadioTower5FRocketBossWinText: ; TO TRANSLATE
 	text "Nooo! Forgive me,"
 	line "JOHTO people!"
 	done
 
-RadioTower5FRocketBossAfterText:
+RadioTower5FRocketBossAfterText: ; TO TRANSLATE
 	text "How could this be?"
 
 	para "Our objective has"
@@ -447,7 +447,7 @@ RadioTower5FRocketBossAfterText:
 	para "Farewell."
 	done
 
-RadioTower5FDirectorThankYouText:
+RadioTower5FDirectorThankYouText: ; TO TRANSLATE
 	text "DIRECTOR: <PLAY_G>,"
 	line "thank you!"
 
@@ -464,7 +464,7 @@ RadioTower5FDirectorThankYouText:
 	cont "take this."
 	done
 
-RadioTower5FDirectorDescribeClearBellText:
+RadioTower5FDirectorDescribeClearBellText: ; TO TRANSLATE
 	text "There used to be a"
 	line "tower right here"
 	cont "in GOLDENROD CITY."
@@ -495,7 +495,7 @@ RadioTower5FDirectorDescribeClearBellText:
 	line "ECRUTEAK CITY…"
 	done
 
-RadioTower5FDirectorNotifiesAboutSuicuneText:
+RadioTower5FDirectorNotifiesAboutSuicuneText: ; TO TRANSLATE
 	text "Ah!"
 
 	para "That reminds me…"
@@ -514,12 +514,12 @@ RadioTower5FDirectorNotifiesAboutSuicuneText:
 	line "into it."
 	done
 
-RadioTower5FDirectorGetBackText:
+RadioTower5FDirectorGetBackText: ; TO TRANSLATE
 	text "OK, I better go to"
 	line "my OFFICE."
 	done
 
-RadioTower5FDirectorText:
+RadioTower5FDirectorText: ; AUTOTRAD
 	text "DIRECTOR: Hello,"
 	line "<PLAY_G>!"
 
@@ -537,17 +537,17 @@ RadioTower5FDirectorText:
 	cont "our programs."
 	done
 
-BenText:
+BenText: ; AUTOTRAD
 	text "BEN: Do you listen"
 	line "to our music?"
 	done
 
-RadioTower5FDirectorsOfficeSignText:
+RadioTower5FDirectorsOfficeSignText: ; AUTOTRAD
 	text "5F DIRECTOR'S"
 	line "   OFFICE"
 	done
 
-RadioTower5FStudio1SignText:
+RadioTower5FStudio1SignText: ; AUTOTRAD
 	text "5F STUDIO 1"
 	done
 

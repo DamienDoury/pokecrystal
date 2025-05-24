@@ -94,12 +94,12 @@ CeruleanCaveMewtwoScript:
 
 	jumptext MewtwoTeleportedAwaySequelText
 
-MewtwoTeleportedAwayText:
+MewtwoTeleportedAwayText: ; TO TRANSLATE
 	text "MEWTWO teleported"
 	line "away."
 	done
 
-MewtwoTeleportedAwaySequelText:
+MewtwoTeleportedAwaySequelText: ; TO TRANSLATE
 	text "Its presence can"
 	line "still be felt…"
 	done

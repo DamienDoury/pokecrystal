@@ -59,7 +59,7 @@ Route11FruitTree2:
 Route11HiddenRevive:
 	hiddenitem REVIVE, EVENT_ROUTE_11_HIDDEN_REVIVE
 
-YoungsterOwenSeenText:
+YoungsterOwenSeenText: ; AUTOTRAD
 	text "There's no cheat-"
 	line "ing in #MON."
 
@@ -67,12 +67,12 @@ YoungsterOwenSeenText:
 	line "and square!"
 	done
 
-YoungsterOwenBeatenText:
+YoungsterOwenBeatenText: ; AUTOTRAD
 	text "Huh? How did this"
 	line "happen?"
 	done
 
-YoungsterOwenAfterBattleText:
+YoungsterOwenAfterBattleText: ; AUTOTRAD
 	text "I fought fair and"
 	line "square with honor."
 
@@ -80,7 +80,7 @@ YoungsterOwenAfterBattleText:
 	line "this at all."
 	done
 
-YoungsterJasonSeenText:
+YoungsterJasonSeenText: ; AUTOTRAD
 	text "It itches and"
 	line "tickles a bit when"
 
@@ -88,12 +88,12 @@ YoungsterJasonSeenText:
 	line "the grass."
 	done
 
-YoungsterJasonBeatenText:
+YoungsterJasonBeatenText: ; AUTOTRAD
 	text "Aiyaaah!"
 	line "I got stomped!"
 	done
 
-YoungsterJasonAfterBattleText:
+YoungsterJasonAfterBattleText: ; AUTOTRAD
 	text "I'm going to catch"
 	line "more #MON in"
 	cont "the grass."
@@ -107,26 +107,26 @@ PsychicHermanBeatenText:
 	text "…"
 	done
 
-PsychicHermanAfterBattleText:
+PsychicHermanAfterBattleText: ; AUTOTRAD
 	text "…"
 
 	para "I lost while I had"
 	line "my eyes closed…"
 	done
 
-PsychicFidelSeenText:
+PsychicFidelSeenText: ; AUTOTRAD
 	text "I can see it…"
 
 	para "Everything to see"
 	line "about you…"
 	done
 
-PsychicFidelBeatenText:
+PsychicFidelBeatenText: ; AUTOTRAD
 	text "I couldn't foresee"
 	line "your power…"
 	done
 
-PsychicFidelAfterBattleText:
+PsychicFidelAfterBattleText: ; AUTOTRAD
 	text "Strength in con-"
 	line "viction…"
 
@@ -135,17 +135,17 @@ PsychicFidelAfterBattleText:
 	cont "in your #MON."
 	done
 
-GentlemanPauloSeenText:
+GentlemanPauloSeenText: ; TO TRANSLATE
 	text "Look what I"
 	line "caught!"
 	done
 
-GentlemanPauloBeatenText:
+GentlemanPauloBeatenText: ; TO TRANSLATE
 	text "Are you not happy"
 	line "to see my #MON?"
 	done
 
-GentlemanPauloAfterBattleText:
+GentlemanPauloAfterBattleText: ; TO TRANSLATE
 	text "It has been a"
 	line "delightful night"
 	cont "of hunting."
@@ -155,7 +155,7 @@ GentlemanPauloAfterBattleText:
 	cont "the day."
 	done
 
-Route11SignText:
+Route11SignText: ; AUTOTRAD
 	text "ROUTE 11"
 	done
 

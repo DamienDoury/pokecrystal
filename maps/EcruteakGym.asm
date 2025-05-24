@@ -240,12 +240,12 @@ EcruteakGymGrampsSlowStepDownMovement:
 	slow_step DOWN
 	step_end
 
-MortyIntroText:
+MortyIntroText: ; TO TRANSLATE
 	text "Good of you to"
 	line "have come."
 	done
 
-MortyIntroSequelText:
+MortyIntroSequelText: ; TO TRANSLATE
 	text "Here in ECRUTEAK,"
 	line "#MON have been"
 	cont "revered."
@@ -286,7 +286,7 @@ EcruteakGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-MortyWinLossText:
+MortyWinLossText: ; AUTOTRAD
 	text "I'm not good"
 	line "enough yet…"
 
@@ -294,12 +294,12 @@ MortyWinLossText:
 	line "BADGE is yours."
 	done
 
-Text_ReceivedFogBadge:
+Text_ReceivedFogBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "FOGBADGE."
 	done
 
-MortyText_FogBadgeSpeech:
+MortyText_FogBadgeSpeech: ; TO TRANSLATE
 	text "By obtaining FOG-"
 	line "BADGE, you proved"
 
@@ -307,12 +307,12 @@ MortyText_FogBadgeSpeech:
 	line "scare you."
 	done
 
-MortyText_FogBadgeSpeech2:
+MortyText_FogBadgeSpeech2: ; TO TRANSLATE
 	text "I want you to have"
 	line "this too."
 	done
 
-Obey50:
+Obey50: ; TO TRANSLATE
 	text "Traded #MON up"
 	line "to L50 will obey"
 	
@@ -320,7 +320,7 @@ Obey50:
 	line "fifth badge."
 	done
 
-MortyText_ShadowBallSpeech:
+MortyText_ShadowBallSpeech: ; AUTOTRAD
 	text "It's SHADOW BALL."
 	line "It causes damage"
 
@@ -331,7 +331,7 @@ MortyText_ShadowBallSpeech:
 	line "appeals to you."
 	done
 
-MortyFightDoneText:
+MortyFightDoneText: ; AUTOTRAD
 	text "I see…"
 
 	para "Your journey has"
@@ -346,7 +346,7 @@ MortyFightDoneText:
 	line "that…"
 	done
 
-SageJeffreySeenText:
+SageJeffreySeenText: ; AUTOTRAD
 	text "I spent the spring"
 	line "with my #MON."
 
@@ -360,27 +360,27 @@ SageJeffreySeenText:
 	line "for a long time."
 	done
 
-SageJeffreyBeatenText:
+SageJeffreyBeatenText: ; AUTOTRAD
 	text "Wins and losses, I"
 	line "experienced both."
 	done
 
-SageJeffreyAfterBattleText:
+SageJeffreyAfterBattleText: ; AUTOTRAD
 	text "Where did #MON"
 	line "come from?"
 	done
 
-SagePingSeenText:
+SagePingSeenText: ; AUTOTRAD
 	text "Can you inflict"
 	line "any damage on our"
 	cont "#MON?"
 	done
 
-SagePingBeatenText:
+SagePingBeatenText: ; AUTOTRAD
 	text "Ah! Well done!"
 	done
 
-SagePingAfterBattleText:
+SagePingAfterBattleText: ; AUTOTRAD
 	text "We use only ghost-"
 	line "type #MON."
 
@@ -389,20 +389,20 @@ SagePingAfterBattleText:
 	cont "them!"
 	done
 
-MediumMarthaSeenText:
+MediumMarthaSeenText: ; AUTOTRAD
 	text "I shall win!"
 	done
 
-MediumMarthaBeatenText:
+MediumMarthaBeatenText: ; AUTOTRAD
 	text "I, I, I lost!"
 	done
 
-MediumMarthaAfterBattleText:
+MediumMarthaAfterBattleText: ; AUTOTRAD
 	text "The one who wants"
 	line "to win most--will!"
 	done
 
-MediumGraceSeenText:
+MediumGraceSeenText: ; AUTOTRAD
 	text "Stumped by our in-"
 	line "visible floor?"
 
@@ -410,11 +410,11 @@ MediumGraceSeenText:
 	line "want a hint!"
 	done
 
-MediumGraceBeatenText:
+MediumGraceBeatenText: ; AUTOTRAD
 	text "Wha-what?"
 	done
 
-MediumGraceAfterBattleText:
+MediumGraceAfterBattleText: ; AUTOTRAD
 	text "Fine. I shall tell"
 	line "you the secret of"
 
@@ -425,7 +425,7 @@ MediumGraceAfterBattleText:
 	line "before our eyes!"
 	done
 
-EcruteakGymGuideText:
+EcruteakGymGuideText: ; AUTOTRAD
 	text "The trainers here"
 	line "have secret mo-"
 	cont "tives."
@@ -437,7 +437,7 @@ EcruteakGymGuideText:
 	line "ECRUTEAK."
 	done
 
-EcruteakGymGuideWinText:
+EcruteakGymGuideWinText: ; AUTOTRAD
 	text "Whew, <PLAYER>."
 	line "You did great!"
 
@@ -446,7 +446,7 @@ EcruteakGymGuideWinText:
 	cont "pure terror!"
 	done
 
-EcruteakGymClosedText:
+EcruteakGymClosedText: ; AUTOTRAD
 	text "MORTY, the GYM"
 	line "LEADER, is absent."
 

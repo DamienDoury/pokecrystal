@@ -26,7 +26,7 @@ CeruleanPokecenter1FSuperNerdScript:
 CeruleanPokecenter1FGymGuideScript:
 	jumptextfaceplayer CeruleanPokecenter1FGymGuideText
 
-CeruleanPokecenter1FSuperNerdText:
+CeruleanPokecenter1FSuperNerdText: ; AUTOTRAD
 	text "For battles, I'd"
 	line "much rather use"
 
@@ -38,7 +38,7 @@ CeruleanPokecenter1FSuperNerdText:
 	cont "caught #MON."
 	done
 
-CeruleanPokecenter1FSuperNerdText_Mobile:
+CeruleanPokecenter1FSuperNerdText_Mobile: ; AUTOTRAD
 	text "Do you battle by"
 	line "mobile phone?"
 
@@ -50,7 +50,7 @@ CeruleanPokecenter1FSuperNerdText_Mobile:
 	cont "nerve wracking."
 	done
 
-CeruleanPokecenter1FGymGuideText:
+CeruleanPokecenter1FGymGuideText: ; AUTOTRAD
 	text "The MAGNET TRAIN"
 	line "travels at over"
 

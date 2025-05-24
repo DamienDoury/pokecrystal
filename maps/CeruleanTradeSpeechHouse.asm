@@ -31,23 +31,23 @@ CeruleanTradeSpeechHouseZubatScript:
 	closetext
 	end
 
-CeruleanTradeSpeechHouseGrannyText:
+CeruleanTradeSpeechHouseGrannyText: ; AUTOTRAD
 	text "My husband lives"
 	line "happily with #-"
 	cont "MON he got through"
 	cont "trades."
 	done
 
-CeruleanTradeSpeechHouseGrampsText:
+CeruleanTradeSpeechHouseGrampsText: ; AUTOTRAD
 	text "Ah… I'm so happy…"
 	done
 
-CeruleanTradeSpeechHouseKangaskhanText:
+CeruleanTradeSpeechHouseKangaskhanText: ; TO TRANSLATE
 	text "KANGASKHAN: Garu"
 	line "garuu."
 	done
 
-CeruleanTradeSpeechHouseZubatText:
+CeruleanTradeSpeechHouseZubatText: ; AUTOTRAD
 	text "ZUBAT: Zuba zubaa."
 	done
 

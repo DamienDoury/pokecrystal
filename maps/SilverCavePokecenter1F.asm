@@ -17,7 +17,7 @@ SilverCavePokecenter1FNurseScript:
 SilverCavePokecenter1FGrannyScript:
 	jumptextfaceplayer SilverCavePokecenter1FGrannyText
 
-SilverCavePokecenter1FGrannyText:
+SilverCavePokecenter1FGrannyText: ; AUTOTRAD
 	text "Trainers who seek"
 	line "power climb MT."
 

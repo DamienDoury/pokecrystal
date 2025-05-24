@@ -89,13 +89,13 @@ Route34IlexForestGateTeacherReturnsMovement:
 	step RIGHT
 	step_end
 
-Route34IlexForestGateTeacherText:
+Route34IlexForestGateTeacherText: ; TO TRANSLATE
 	text "Oh honey, can you"
 	line "please get rid of"
 	cont "this for me?"
 	done
 
-Route34IlexForestGateTeacher_GotSweetScent:
+Route34IlexForestGateTeacher_GotSweetScent: ; TO TRANSLATE
 	text "It's SWEET SCENT."
 
 	para "Use it wherever"
@@ -115,7 +115,7 @@ Route34IlexForestGateTeacher_GotSweetScent:
 	cont "recently."
 	done
 
-Route34IlexForestGateTeacher_ForestIsRestless:
+Route34IlexForestGateTeacher_ForestIsRestless: ; TO TRANSLATE
 	text "Something's wrong"
 	line "in ILEX FOREST,"
 	cont "I can smell it…"
@@ -131,11 +131,11 @@ Route34IlexForestGateTeacher_ForestIsRestless:
 	line "away right now."
 	done
 
-Route34IlexForestGateButterfreeText:
+Route34IlexForestGateButterfreeText: ; AUTOTRAD
 	text "BUTTERFREE: Freeh!"
 	done
 
-Route34IlexForestGateLassText:
+Route34IlexForestGateLassText: ; AUTOTRAD
 	text "Did you see the"
 	line "shrine honoring"
 	cont "the protector?"

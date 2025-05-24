@@ -9,7 +9,7 @@ Route8SaffronGate_MapScripts:
 Route8SaffronGateOfficerScript:
 	jumptextfaceplayer Route8SaffronGateOfficerText
 
-Route8SaffronGateOfficerText:
+Route8SaffronGateOfficerText: ; AUTOTRAD
 	text "Have you been to"
 	line "LAVENDER TOWN?"
 

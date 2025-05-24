@@ -9,7 +9,7 @@ Route38EcruteakGate_MapScripts:
 Route38EcruteakGateOfficerScript:
 	jumptextfaceplayer Route38EcruteakGateOfficerText
 
-Route38EcruteakGateOfficerText:
+Route38EcruteakGateOfficerText: ; AUTOTRAD
 	text "Where did you say"
 	line "you're from?"
 

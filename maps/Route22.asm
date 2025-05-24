@@ -6,7 +6,7 @@ Route22_MapScripts:
 VictoryRoadEntranceSign:
 	jumptext VictoryRoadEntranceSignText
 
-VictoryRoadEntranceSignText:
+VictoryRoadEntranceSignText: ; AUTOTRAD
 	text "#MON LEAGUE"
 
 	para "VICTORY ROAD"

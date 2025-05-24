@@ -105,7 +105,7 @@ HappinessRatersHouseBookshelf:
 HappinessRatersHouseRadio:
 	jumpstd Radio2Script
 
-GoldenrodHappinessRaterTeacherText:
+GoldenrodHappinessRaterTeacherText: ; AUTOTRAD
 	text "If you treat your"
 	line "#MON nicely,"
 
@@ -118,41 +118,41 @@ GoldenrodHappinessRaterTeacherText:
 	text "…"
 	done
 
-GoldenrodHappinessRatingText_LovesYouALot:
+GoldenrodHappinessRatingText_LovesYouALot: ; AUTOTRAD
 	text "It looks really"
 	line "happy! It must"
 	cont "love you a lot."
 	done
 
-GoldenrodHappinessRatingText_ReallyTrustsYou:
+GoldenrodHappinessRatingText_ReallyTrustsYou: ; AUTOTRAD
 	text "I get the feeling"
 	line "that it really"
 	cont "trusts you."
 	done
 
-GoldenrodHappinessRatingText_SortOfHappy:
+GoldenrodHappinessRatingText_SortOfHappy: ; AUTOTRAD
 	text "It's friendly to-"
 	line "ward you. It looks"
 	cont "sort of happy."
 	done
 
-GoldenrodHappinessRatingText_QuiteCute:
+GoldenrodHappinessRatingText_QuiteCute: ; AUTOTRAD
 	text "It's quite cute."
 	done
 
-GoldenrodHappinessRatingText_NotUsedToYou:
+GoldenrodHappinessRatingText_NotUsedToYou: ; AUTOTRAD
 	text "You should treat"
 	line "it better. It's"
 	cont "not used to you."
 	done
 
-GoldenrodHappinessRatingText_LooksMean:
+GoldenrodHappinessRatingText_LooksMean: ; AUTOTRAD
 	text "It doesn't seem to"
 	line "like you at all."
 	cont "It looks mean."
 	done
 
-GoldenrodHappinessRaterPokefanMText:
+GoldenrodHappinessRaterPokefanMText: ; AUTOTRAD
 	text "I keep losing in"
 	line "battles, and my"
 
@@ -164,11 +164,11 @@ GoldenrodHappinessRaterPokefanMText:
 	cont "like me much…"
 	done
 
-GoldenrodHappinessRaterPokefanMCatFilterText:
+GoldenrodHappinessRaterPokefanMCatFilterText: ; TO TRANSLATE
 	text "I'm not a MEOWTH!"
 	done
 
-GoldenrodHappinessRaterComputer1Text:
+GoldenrodHappinessRaterComputer1Text: ; TO TRANSLATE
 	text "This man is on a"
 	line "virtual hearing"
 	cont "with a judge."
@@ -177,7 +177,7 @@ GoldenrodHappinessRaterComputer1Text:
 	line "filter turned on."
 	done
 
-GoldenrodHappinessRaterTwinText:
+GoldenrodHappinessRaterTwinText: ; AUTOTRAD
 	text "When I use an item"
 	line "on my #MON, it"
 	cont "acts really glad!"

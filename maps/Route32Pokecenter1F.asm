@@ -44,7 +44,7 @@ Route32Pokecenter1FFishingGuruScript:
 Route32Pokecenter1FCooltrainerFScript:
 	jumptextfaceplayer Route32Pokecenter1FCooltrainerFText
 
-Route32Pokecenter1FFishingGuruText_Question:
+Route32Pokecenter1FFishingGuruText_Question: ; AUTOTRAD
 	text "This is a great"
 	line "fishing spot."
 
@@ -56,7 +56,7 @@ Route32Pokecenter1FFishingGuruText_Question:
 	line "of my RODS?"
 	done
 
-Route32Pokecenter1FFishingGuruText_Yes:
+Route32Pokecenter1FFishingGuruText_Yes: ; AUTOTRAD
 	text "Heh, that's good"
 	line "to hear."
 
@@ -64,7 +64,7 @@ Route32Pokecenter1FFishingGuruText_Yes:
 	line "angler too!"
 	done
 
-Route32Pokecenter1FFishingGuruText_GiveOldRod:
+Route32Pokecenter1FFishingGuruText_GiveOldRod: ; AUTOTRAD
 	text "Fishing is great!"
 
 	para "If there's water,"
@@ -74,17 +74,17 @@ Route32Pokecenter1FFishingGuruText_GiveOldRod:
 	line "your ROD."
 	done
 
-Route32Pokecenter1FFishingGuruText_No:
+Route32Pokecenter1FFishingGuruText_No: ; AUTOTRAD
 	text "Oh. That's rather"
 	line "disappointing…"
 	done
 
-Route32Pokecenter1FFishingGuruText_After:
+Route32Pokecenter1FFishingGuruText_After: ; AUTOTRAD
 	text "Yo, kid. How are"
 	line "they biting?"
 	done
 
-Route32Pokecenter1FCooltrainerFText:
+Route32Pokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "What should I make"
 	line "my #MON hold?"
 

@@ -35,7 +35,7 @@ CopycatsHouse1FBlisseyScript:
 	closetext
 	end
 
-CopycatsHouse1FPokefanMText:
+CopycatsHouse1FPokefanMText: ; AUTOTRAD
 	text "My daughter likes"
 	line "to mimic people."
 
@@ -46,7 +46,7 @@ CopycatsHouse1FPokefanMText:
 	line "around here."
 	done
 
-CopycatsHouse1FPokefanFText:
+CopycatsHouse1FPokefanFText: ; AUTOTRAD
 	text "My daughter is so"
 	line "self-centered…"
 
@@ -54,7 +54,7 @@ CopycatsHouse1FPokefanFText:
 	line "friends."
 	done
 
-CopycatsHouse1FPokefanFText_ReturnedMachinePart:
+CopycatsHouse1FPokefanFText_ReturnedMachinePart: ; AUTOTRAD
 	text "She recently lost"
 	line "the # DOLL that"
 
@@ -66,7 +66,7 @@ CopycatsHouse1FPokefanFText_ReturnedMachinePart:
 	cont "better at mimicry…"
 	done
 
-CopycatsHouse1FBlisseyText:
+CopycatsHouse1FBlisseyText: ; AUTOTRAD
 	text "BLISSEY: Bliisii!"
 	done
 

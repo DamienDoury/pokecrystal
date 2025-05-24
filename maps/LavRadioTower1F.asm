@@ -65,10 +65,10 @@ LavRadioTower1FGentlemanScript:
 	jumpstd ReceiveItemScript
 	end
 
-.expncardname
+.expncardname ; AUTOTRAD
 	db "EXPN CARD@"
 
-.RadioCardText:
+.RadioCardText: ; AUTOTRAD
 	db "RADIO CARD@"
 
 LavRadioTower1FSuperNerd2Script:
@@ -93,7 +93,7 @@ LavRadioTower1FDirectory:
 LavRadioTower1FPokeFluteSign:
 	jumptext LavRadioTower1FPokeFluteSignText
 
-LavRadioTower1FReceptionistText:
+LavRadioTower1FReceptionistText: ; AUTOTRAD
 	text "Welcome!"
 	line "Feel free to look"
 
@@ -101,7 +101,7 @@ LavRadioTower1FReceptionistText:
 	line "this floor."
 	done
 
-LavRadioTower1FOfficerText:
+LavRadioTower1FOfficerText: ; AUTOTRAD
 	text "Sorry, but you can"
 	line "only tour the"
 	cont "ground floor."
@@ -116,7 +116,7 @@ LavRadioTower1FOfficerText:
 	line "up our security."
 	done
 
-LavRadioTower1FSuperNerd1Text:
+LavRadioTower1FSuperNerd1Text: ; AUTOTRAD
 	text "Many people are"
 	line "hard at work here"
 
@@ -128,7 +128,7 @@ LavRadioTower1FSuperNerd1Text:
 	cont "on good shows."
 	done
 
-LavRadioTower1FGentlemanText:
+LavRadioTower1FGentlemanText: ; AUTOTRAD
 	text "Oh, no, no, no!"
 
 	para "We've been off the"
@@ -146,7 +146,7 @@ LavRadioTower1FGentlemanText:
 	para "I'll be ruined!"
 	done
 
-LavRadioTower1FGentlemanText_ReturnedMachinePart:
+LavRadioTower1FGentlemanText_ReturnedMachinePart: ; AUTOTRAD
 	text "Ah! So you're the"
 	line "<PLAY_G> who solved"
 
@@ -163,7 +163,7 @@ LavRadioTower1FGentlemanText_ReturnedMachinePart:
 	line "as my thanks."
 	done
 
-LavRadioTower1FGentlemanText_GiveRadioCard:
+LavRadioTower1FGentlemanText_GiveRadioCard: ; TO TRANSLATE
 	text "Your #GEAR"
 	line "doesn't have the"
 	cont "radio?"
@@ -181,7 +181,7 @@ LavRadioTower1FGentlemanText_GiveRadioCard:
 	line "were sent by me."
 	done
 
-LavRadioTower1FGentlemanText_GotExpnCard:
+LavRadioTower1FGentlemanText_GotExpnCard: ; AUTOTRAD
 	text "With that thing,"
 	line "you can tune into"
 
@@ -191,7 +191,7 @@ LavRadioTower1FGentlemanText_GotExpnCard:
 	para "Gahahahaha!"
 	done
 
-LavRadioTower1FSuperNerd2Text:
+LavRadioTower1FSuperNerd2Text: ; AUTOTRAD
 	text "Hey there!"
 
 	para "I am the super"
@@ -210,7 +210,7 @@ LavRadioTower1FSuperNerd2Text:
 	line "better get one!"
 	done
 
-LavRadioTower1FSuperNerd2Text_GotExpnCard:
+LavRadioTower1FSuperNerd2Text_GotExpnCard: ; AUTOTRAD
 	text "Hey there!"
 
 	para "I am the super"
@@ -227,7 +227,7 @@ LavRadioTower1FSuperNerd2Text_GotExpnCard:
 	cont "off the air!"
 	done
 
-LavRadioTower1FDirectoryText:
+LavRadioTower1FDirectoryText: ; AUTOTRAD
 	text "1F RECEPTION"
 	line "2F SALES"
 
@@ -238,7 +238,7 @@ LavRadioTower1FDirectoryText:
 	line "   OFFICE"
 	done
 
-LavRadioTower1FPokeFluteSignText:
+LavRadioTower1FPokeFluteSignText: ; AUTOTRAD
 	text "Perk Up #MON"
 	line "with Mellow Sounds"
 

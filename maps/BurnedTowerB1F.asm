@@ -182,7 +182,7 @@ BurnedTowerB1FEusineMovement1:
 	step DOWN
 	step_end
 
-BurnedTowerB1FEusineText:
+BurnedTowerB1FEusineText: ; TO TRANSLATE
 	text "EUSINE: I dug a"
 	line "hole here, too…"
 

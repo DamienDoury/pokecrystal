@@ -260,7 +260,7 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "TM25    3000@"
@@ -346,7 +346,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "CUBONE      400@"
@@ -521,24 +521,24 @@ GoldenrodGameCornerCardFlipMachineScript:
 	closetext
 	end
 
-GoldenrodGameCornerGreetings1Text:
+GoldenrodGameCornerGreetings1Text: ; TO TRANSLATE
 	text "First time"
 	line "I see you!"
 
 	para "Please take this!"
 	done
 
-GoldenrodGameCornerGreetings2Text:
+GoldenrodGameCornerGreetings2Text: ; TO TRANSLATE
 	text "I put 50 coins"
 	line "inside."
 	done
 
-GoldenrodGameCornerGreetings3Text:
+GoldenrodGameCornerGreetings3Text: ; TO TRANSLATE
 	text "It's on the house."
 	line "Enjoy the slots!"
 	done
 
-GoldenrodGameCornerGreetings4Text:
+GoldenrodGameCornerGreetings4Text: ; TO TRANSLATE
 	text "Oh! You should"
 	line "know: to get out"
 	cont "of here, ask"
@@ -553,7 +553,7 @@ GoldenrodGameCornerGreetings4Text:
 	para "Have fun!"
 	done
 
-GoldenrodGameCornerPrizeVendorIntroText:
+GoldenrodGameCornerPrizeVendorIntroText: ; AUTOTRAD
 	text "Welcome!"
 
 	para "We exchange your"
@@ -561,43 +561,43 @@ GoldenrodGameCornerPrizeVendorIntroText:
 	cont "fabulous prizes!"
 	done
 
-GoldenrodGameCornerPrizeVendorWhichPrizeText:
+GoldenrodGameCornerPrizeVendorWhichPrizeText: ; AUTOTRAD
 	text "Which prize would"
 	line "you like?"
 	done
 
-GoldenrodGameCornerPrizeVendorConfirmPrizeText:
+GoldenrodGameCornerPrizeVendorConfirmPrizeText: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text "."
 	line "Is that right?"
 	done
 
-GoldenrodGameCornerPrizeVendorHereYouGoText:
+GoldenrodGameCornerPrizeVendorHereYouGoText: ; AUTOTRAD
 	text "Here you go!"
 	done
 
-GoldenrodGameCornerPrizeVendorAlreadyHaveTMText:
+GoldenrodGameCornerPrizeVendorAlreadyHaveTMText: ; TO TRANSLATE
 	text "But you already"
 	line "own that TM!"
 	done
 
-GoldenrodGameCornerPrizeVendorNeedMoreCoinsText:
+GoldenrodGameCornerPrizeVendorNeedMoreCoinsText: ; AUTOTRAD
 	text "Sorry! You need"
 	line "more coins."
 	done
 
-GoldenrodGameCornerPrizeVendorNoMoreRoomText:
+GoldenrodGameCornerPrizeVendorNoMoreRoomText: ; AUTOTRAD
 	text "Sorry. You can't"
 	line "carry any more."
 	done
 
-GoldenrodGameCornerPrizeVendorQuitText:
+GoldenrodGameCornerPrizeVendorQuitText: ; AUTOTRAD
 	text "OK. Please save"
 	line "your coins and"
 	cont "come again!"
 	done
 
-GoldenrodGameCornerPrizeVendorNoCoinCaseText:
+GoldenrodGameCornerPrizeVendorNoCoinCaseText: ; AUTOTRAD
 	text "Oh? You don't have"
 	line "a COIN CASE."
 	done
@@ -666,7 +666,7 @@ else
 	done
 endc
 
-GoldenrodGameCornerCooltrainerMAbraText:
+GoldenrodGameCornerCooltrainerMAbraText: ; TO TRANSLATE
 	text "Did you just get"
 	line "teleported here?"
 	
@@ -683,12 +683,12 @@ GoldenrodGameCornerCooltrainerMAbraText:
 	line "try again!"
 	done
 
-GoldenrodGameCornerCooltrainerFText:
+GoldenrodGameCornerCooltrainerFText: ; AUTOTRAD
 	text "I won't quit until"
 	line "I win!"
 	done
 
-GoldenrodGameCornerGentlemanText:
+GoldenrodGameCornerGentlemanText: ; AUTOTRAD
 	text "I taught BLIZZARD"
 	line "to my #MON."
 
@@ -699,7 +699,7 @@ GoldenrodGameCornerGentlemanText:
 	line "worth it."
 	done
 
-GoldenrodGameCornerPokefanM2Text:
+GoldenrodGameCornerPokefanM2Text: ; TO TRANSLATE
 	text "Playing illegally"
 	line "is even more"
 	cont "thrilling!"
@@ -713,7 +713,7 @@ GoldenrodGameCornerPokefanM2Text:
 	para "Hyaaaah!"
 	done
 
-GoldenrodGameCornerPokefanM2LegalText:
+GoldenrodGameCornerPokefanM2LegalText: ; TO TRANSLATE
 	text "I'm getting bored"
 	line "of this place."
 
@@ -721,19 +721,19 @@ GoldenrodGameCornerPokefanM2LegalText:
 	line "it used to be."
 	done
 
-MoveTutorInsideText:
+MoveTutorInsideText: ; AUTOTRAD
 	text "Wahahah! The coins"
 	line "keep rolling in!"
 	done
 
-GoldenrodGameCornerLeftTheirDrinkText:
+GoldenrodGameCornerLeftTheirDrinkText: ; AUTOTRAD
 	text "Someone left their"
 	line "drink."
 
 	para "It smells sweet."
 	done
 
-GoldenrodGameCornerFrontDoorLockText:
+GoldenrodGameCornerFrontDoorLockText: ; TO TRANSLATE
 	text "The front door is"
 	line "locked with chains"
 
@@ -741,7 +741,7 @@ GoldenrodGameCornerFrontDoorLockText:
 	line "an opaque curtain."
 	done
 
-AbraTeleportText:
+AbraTeleportText: ; TO TRANSLATE
 	text "This ABRA seems"
 	line "exhausted…"
 

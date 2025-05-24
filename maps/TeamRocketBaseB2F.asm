@@ -544,12 +544,12 @@ RocketBasePlayerLeavesElectrodesMovement3:
 	step RIGHT
 	step_end
 
-RocketBaseExecutiveFHoldItText:
+RocketBaseExecutiveFHoldItText: ; AUTOTRAD
 	text "Hold it right"
 	line "there!"
 	done
 
-RocketBaseBossFThrashText:
+RocketBaseBossFThrashText: ; AUTOTRAD
 	text "We can't have a"
 	line "brat like you on"
 	cont "the loose."
@@ -569,13 +569,13 @@ RocketBaseBossFThrashText:
 	cont "thrashed."
 	done
 
-RocketBaseLanceShareFunText:
+RocketBaseLanceShareFunText: ; AUTOTRAD
 	text "Hey! Don't be so"
 	line "selfish. Spread"
 	cont "the fun around."
 	done
 
-RocketBaseBossDontMeddleText:
+RocketBaseBossDontMeddleText: ; AUTOTRAD
 	text "What? You had an"
 	line "accomplice?"
 
@@ -592,7 +592,7 @@ RocketBaseBossDontMeddleText:
 	line "with TEAM ROCKET!"
 	done
 
-RocketBaseBossWinText:
+RocketBaseBossWinText: ; AUTOTRAD
 	text "Tch, you really"
 	line "are strong."
 
@@ -605,7 +605,7 @@ RocketBaseBossWinText:
 	line "an EXECUTIVE."
 	done
 
-RocketBaseBossRetreatText:
+RocketBaseBossRetreatText: ; TO TRANSLATE
 	text "…This hideout is"
 	line "done for…"
 
@@ -633,7 +633,7 @@ RocketBaseBossRetreatText:
 	para "Fufufufu…"
 	done
 
-RocketBaseLancePostBattleText:
+RocketBaseLancePostBattleText: ; AUTOTRAD
 	text "LANCE: That did"
 	line "it. We defeated"
 
@@ -647,7 +647,7 @@ RocketBaseLancePostBattleText:
 	line "the process…"
 	done
 
-RocketBaseLancePowerOffText:
+RocketBaseLancePowerOffText: ; AUTOTRAD
 	text "Sorry, <PLAY_G>."
 	line "I saw how well you"
 
@@ -661,7 +661,7 @@ RocketBaseLancePowerOffText:
 	line "radio signal."
 	done
 
-RockerBaseLanceElectrodeFaintText:
+RockerBaseLanceElectrodeFaintText: ; AUTOTRAD
 	text "It's this machine"
 	line "that's causing all"
 	cont "the problems."
@@ -691,12 +691,12 @@ RockerBaseLanceElectrodeFaintText:
 	line "split the job."
 	done
 
-RocketBaseLancesSideText:
+RocketBaseLancesSideText: ; AUTOTRAD
 	text "LANCE: Leave this"
 	line "side to me."
 	done
 
-RocketBaseLanceElectrodeDoneText:
+RocketBaseLanceElectrodeDoneText: ; TO TRANSLATE
 	text "LANCE: That odd"
 	line "signal has finally"
 	cont "stopped."
@@ -711,7 +711,7 @@ RocketBaseLanceElectrodeDoneText:
 	line "should take this."
 	done
 
-RocketBaseLanceStrengthText:
+RocketBaseLanceStrengthText: ; TO TRANSLATE
 	text "That's STRENGTH."
 	line "Teach it to a"
 
@@ -723,7 +723,7 @@ RocketBaseLanceStrengthText:
 	cont "like you."
 	done
 
-RocketBaseLanceMonMasterText:
+RocketBaseLanceMonMasterText: ; TO TRANSLATE
 	text "<PLAY_G>…"
 
 	para "The journey to be-"
@@ -743,7 +743,7 @@ RocketBaseLanceMonMasterText:
 	line "seeing you again!"
 	done
 
-LanceHealsText1:
+LanceHealsText1: ; AUTOTRAD
 	text "LANCE: Are you all"
 	line "right?"
 
@@ -755,13 +755,13 @@ LanceHealsText1:
 	cont "cine."
 	done
 
-LanceHealsText2:
+LanceHealsText2: ; AUTOTRAD
 	text "LANCE: <PLAY_G>,"
 	line "let's give it our"
 	cont "best for #MON."
 	done
 
-GruntM17SeenText:
+GruntM17SeenText: ; AUTOTRAD
 	text "The door won't"
 	line "open?"
 
@@ -772,11 +772,11 @@ GruntM17SeenText:
 	line "TEAM ROCKET knows."
 	done
 
-GruntM17BeatenText:
+GruntM17BeatenText: ; AUTOTRAD
 	text "What? I lost?"
 	done
 
-GruntM17AfterBattleText:
+GruntM17AfterBattleText: ; AUTOTRAD
 	text "Heh, I'm just a"
 	line "GRUNT."
 
@@ -785,7 +785,7 @@ GruntM17AfterBattleText:
 	cont "for you."
 	done
 
-GruntM18SeenText:
+GruntM18SeenText: ; AUTOTRAD
 	text "Oh, a kid? I don't"
 	line "really like this,"
 
@@ -793,11 +793,11 @@ GruntM18SeenText:
 	line "I must."
 	done
 
-GruntM18BeatenText:
+GruntM18BeatenText: ; AUTOTRAD
 	text "I knew I'd lose…"
 	done
 
-GruntM18AfterBattleText:
+GruntM18AfterBattleText: ; TO TRANSLATE
 	text "The MAGIKARPS"
 	line "evolving because"
 
@@ -810,16 +810,16 @@ GruntM18AfterBattleText:
 	cont "a bummer."
 	done
 
-GruntM19SeenText:
+GruntM19SeenText: ; AUTOTRAD
 	text "You rotten little"
 	line "pest!"
 	done
 
-GruntM19BeatenText:
+GruntM19BeatenText: ; AUTOTRAD
 	text "Grrrr…"
 	done
 
-GruntM19AfterBattleText:
+GruntM19AfterBattleText: ; AUTOTRAD
 	text "Heh, only the boss"
 	line "knows the password"
 	cont "for that door."
@@ -829,14 +829,14 @@ GruntM19AfterBattleText:
 	cont "for yourself."
 	done
 
-RocketBaseDoorNoPasswordText:
+RocketBaseDoorNoPasswordText: ; AUTOTRAD
 	text "The door's closed…"
 
 	para "It needs a pass-"
 	line "word to open."
 	done
 
-RocketBaseDoorKnowPasswordText:
+RocketBaseDoorKnowPasswordText: ; AUTOTRAD
 	text "The door's closed…"
 
 	para "<PLAYER> entered"
@@ -845,7 +845,7 @@ RocketBaseDoorKnowPasswordText:
 	para "The door opened!"
 	done
 
-RocketBaseB2FTransmitterText:
+RocketBaseB2FTransmitterText: ; AUTOTRAD
 	text "It's the radio"
 	line "transmitter that's"
 
@@ -856,7 +856,7 @@ RocketBaseB2FTransmitterText:
 	line "full capacity."
 	done
 
-RocketBaseB2FDeactivateTransmitterText:
+RocketBaseB2FDeactivateTransmitterText: ; AUTOTRAD
 	text "The radio trans-"
 	line "mitter has finally"
 

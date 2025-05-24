@@ -84,7 +84,7 @@ Route8FruitTree:
 	fruittree FRUITTREE_ROUTE_8
 
 
-BikerDwayneSeenText:
+BikerDwayneSeenText: ; AUTOTRAD
 	text "We're the KANTO"
 	line "#MON FEDERATION"
 	cont "trainer group."
@@ -93,17 +93,17 @@ BikerDwayneSeenText:
 	line "under our wheels!"
 	done
 
-BikerDwayneBeatenText:
+BikerDwayneBeatenText: ; AUTOTRAD
 	text "S-sorry!"
 	done
 
-BikerDwayneAfterBattleText:
+BikerDwayneAfterBattleText: ; AUTOTRAD
 	text "The KANTO #MON"
 	line "FEDERATION will"
 	cont "never fall!"
 	done
 
-BikerHarrisSeenText:
+BikerHarrisSeenText: ; AUTOTRAD
 	text "The cops shut down"
 	line "our UNDERGROUND"
 
@@ -111,75 +111,75 @@ BikerHarrisSeenText:
 	line "fries me!"
 	done
 
-BikerHarrisBeatenText:
+BikerHarrisBeatenText: ; AUTOTRAD
 	text "F-forgive me!"
 	done
 
-BikerHarrisAfterBattleText:
+BikerHarrisAfterBattleText: ; AUTOTRAD
 	text "Wiped out by some"
 	line "punk from JOHTO…"
 	done
 
-BikerZekeSeenText:
+BikerZekeSeenText: ; AUTOTRAD
 	text "We're the KANTO"
 	line "#MON FEDERA-"
 	cont "TION!"
 	cont "Right on!"
 	done
 
-BikerZekeBeatenText:
+BikerZekeBeatenText: ; AUTOTRAD
 	text "Yikes! Sorry!"
 	done
 
-BikerZekeAfterBattleText:
+BikerZekeAfterBattleText: ; AUTOTRAD
 	text "We'll try not to"
 	line "disturb anyone"
 	cont "from now on…"
 	done
 
-SupernerdSamSeenText:
+SupernerdSamSeenText: ; AUTOTRAD
 	text "How does the MAG-"
 	line "NET TRAIN work?"
 	done
 
-SupernerdSamBeatenText:
+SupernerdSamBeatenText: ; AUTOTRAD
 	text "I just want to see"
 	line "the MAGNET TRAIN…"
 	done
 
-SupernerdSamAfterBattleText:
+SupernerdSamAfterBattleText: ; AUTOTRAD
 	text "The power of mag-"
 	line "nets is awesome!"
 	done
 
-SupernerdTomSeenText:
+SupernerdTomSeenText: ; AUTOTRAD
 	text "Hm… You've got"
 	line "many GYM BADGES."
 	done
 
-SupernerdTomBeatenText:
+SupernerdTomBeatenText: ; AUTOTRAD
 	text "Just as I thought…"
 	line "You're tough!"
 	done
 
-SupernerdTomAfterBattleText:
+SupernerdTomAfterBattleText: ; TO TRANSLATE
 	text "GYM BADGES are"
 	line "a proof of your"
 	cont "worth."
 	done
 
-Route8LockedDoorText:
+Route8LockedDoorText: ; AUTOTRAD
 	text "It's locked…"
 	done
 
-Route8UndergroundPathSignText:
+Route8UndergroundPathSignText: ; AUTOTRAD
 	text "The flyer's torn."
 
 	para "It's impossible to"
 	line "read…"
 	done
 
-Route8BurialGuyText:
+Route8BurialGuyText: ; TO TRANSLATE
 	text "Our group comes"
 	line "all the way from"
 

@@ -33,12 +33,12 @@ CeladonMansionRoofHousePharmacistScript:
 	closetext
 	end
 
-CeladonMansionRoofHousePharmacistIntroText:
+CeladonMansionRoofHousePharmacistIntroText: ; AUTOTRAD
 	text "Let me recount a"
 	line "terrifying tale…"
 	done
 
-CeladonMansionRoofHousePharmacistNotNightText:
+CeladonMansionRoofHousePharmacistNotNightText: ; AUTOTRAD
 	text "Then again, it's"
 	line "not as scary while"
 
@@ -49,7 +49,7 @@ CeladonMansionRoofHousePharmacistNotNightText:
 	line "sunset, OK?"
 	done
 
-CeladonMansionRoofHousePharmacistStoryText:
+CeladonMansionRoofHousePharmacistStoryText: ; AUTOTRAD
 	text "Once upon a time,"
 	line "there was a little"
 
@@ -104,7 +104,7 @@ CeladonMansionRoofHousePharmacistStoryText:
 	cont "take this--TM03!"
 	done
 
-CeladonMansionRoofHousePharmacistCurseText:
+CeladonMansionRoofHousePharmacistCurseText: ; AUTOTRAD
 	text "TM03 is CURSE."
 
 	para "It's a terrifying"

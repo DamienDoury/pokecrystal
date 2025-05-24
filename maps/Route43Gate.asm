@@ -183,7 +183,7 @@ Rocket2Script_LetsYouPassNorth:
 	big_step UP
 	step_end
 
-RocketText_TollFee:
+RocketText_TollFee: ; AUTOTRAD
 	text "Hold it there,"
 	line "kiddo!"
 
@@ -191,17 +191,17 @@ RocketText_TollFee:
 	line "to go through."
 	done
 
-RocketText_ThankYou:
+RocketText_ThankYou: ; AUTOTRAD
 	text "Thank you very"
 	line "much!"
 	done
 
-RocketText_AllYouGot:
+RocketText_AllYouGot: ; AUTOTRAD
 	text "Then pay what you"
 	line "have, please."
 	done
 
-RocketText_MakingABundle:
+RocketText_MakingABundle: ; AUTOTRAD
 	text "He-he-he. We're"
 	line "making a bundle."
 
@@ -212,7 +212,7 @@ RocketText_MakingABundle:
 	line "RAGE."
 	done
 
-OfficerText_FoundTM:
+OfficerText_FoundTM: ; AUTOTRAD
 	text "I got chased from"
 	line "my post by these"
 	cont "thugs in black."
@@ -225,7 +225,7 @@ OfficerText_FoundTM:
 	cont "you take it away?"
 	done
 
-OfficerText_AvoidGrass:
+OfficerText_AvoidGrass: ; AUTOTRAD
 	text "Use this gate to"
 	line "avoid walking in"
 	cont "the grass."

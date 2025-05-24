@@ -98,7 +98,7 @@ EcruteakPokecenter1FPlayerMovement1:
 	step UP
 	step_end
 
-EcruteakPokecenter1F_BillText1:
+EcruteakPokecenter1F_BillText1: ; AUTOTRAD
 	text "Hi, I'm BILL. And"
 	line "who are you?"
 
@@ -107,7 +107,7 @@ EcruteakPokecenter1F_BillText1:
 	cont "right time."
 	done
 
-EcruteakPokecenter1F_BillText2:
+EcruteakPokecenter1F_BillText2: ; TO TRANSLATE
 	text "I just finished"
 	line "a study on the"
 	cont "PSS, the #MON"
@@ -145,7 +145,7 @@ EcruteakPokecenter1F_BillText2:
 	para "Buh-bye!"
 	done
 
-EcruteakPokecenter1FPokefanMText:
+EcruteakPokecenter1FPokefanMText: ; AUTOTRAD
 	text "The way the KIMONO"
 	line "GIRLS dance is"
 
@@ -154,7 +154,7 @@ EcruteakPokecenter1FPokefanMText:
 	cont "use their #MON."
 	done
 
-EcruteakPokecenter1FPokefanMTextMobile:
+EcruteakPokecenter1FPokefanMTextMobile: ; AUTOTRAD
 	text "You must be hoping"
 	line "to battle more"
 
@@ -170,7 +170,7 @@ EcruteakPokecenter1FPokefanMTextMobile:
 	line "OLIVINE CITY."
 	done
 
-EcruteakPokecenter1FCooltrainerFText:
+EcruteakPokecenter1FCooltrainerFText: ; TO TRANSLATE
 	text "MORTY, the GYM"
 	line "LEADER, is soooo"
 	cont "cool."
@@ -194,7 +194,7 @@ EcruteakPokecenter1FCooltrainerFText:
 	line "the coolest!"
 	done
 
-EcruteakPokecenter1FGymGuideText:
+EcruteakPokecenter1FGymGuideText: ; AUTOTRAD
 	text "LAKE OF RAGE…"
 
 	para "The appearance of"

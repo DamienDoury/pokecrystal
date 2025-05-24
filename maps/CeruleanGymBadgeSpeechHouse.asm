@@ -61,7 +61,7 @@ CeruleanGymBadgeSpeechHouseFleeBisMovement:
 	big_step UP
 	step_end
 
-CeruleanGymBadgeSpeechHousePokefanMText:
+CeruleanGymBadgeSpeechHousePokefanMText: ; TO TRANSLATE
 	text "There used to be"
 	line "SANDSHREWs west"
 	cont "of here."
@@ -75,13 +75,13 @@ CeruleanGymBadgeSpeechHousePokefanMText:
 	cont "somewhere safer!"
 	done
 
-CeruleanGymBadgeSpeechHousePokefanMHoldUpText:
+CeruleanGymBadgeSpeechHousePokefanMHoldUpText: ; TO TRANSLATE
 	text "I don't understand"
 	line "a word from this"
 	cont "man. I'm scared!"
 	done
 
-CeruleanGymBadgeSpeechHousePokefanMHeldUpText:
+CeruleanGymBadgeSpeechHousePokefanMHeldUpText: ; TO TRANSLATE
 	text "Being held up by"
 	line "by this thief"
 	
@@ -92,7 +92,7 @@ CeruleanGymBadgeSpeechHousePokefanMHeldUpText:
 	line "catches him."
 	done
 
-CeruleanGymBadgeSpeechHouseRocketText:
+CeruleanGymBadgeSpeechHouseRocketText: ; TO TRANSLATE
 	text "YOU CATCH ME"
 	line "NEVER!"
 	done

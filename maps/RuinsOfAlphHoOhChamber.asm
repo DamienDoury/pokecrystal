@@ -108,7 +108,7 @@ RuinsOfAlphHoOhChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphHoOhChamberWallPatternLeftText:
+RuinsOfAlphHoOhChamberWallPatternLeftText: ; AUTOTRAD
 	text "Patterns appeared"
 	line "on the walls…"
 	done
@@ -117,23 +117,23 @@ RuinsOfAlphHoOhChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphHoOhChamberWallPatternRightText:
+RuinsOfAlphHoOhChamberWallPatternRightText: ; AUTOTRAD
 	text "Patterns appeared"
 	line "on the walls…"
 	done
 
-RuinsOfAlphHoOhChamberWallHoleText:
+RuinsOfAlphHoOhChamberWallHoleText: ; AUTOTRAD
 	text "There's a big hole"
 	line "in the wall!"
 	done
 
-RuinsOfAlphHoOhChamberAncientReplicaText:
+RuinsOfAlphHoOhChamberAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
 	done
 
-RuinsOfAlphHoOhChamberDescriptionText:
+RuinsOfAlphHoOhChamberDescriptionText: ; AUTOTRAD
 	text "A #MON that"
 	line "flew gracefully on"
 

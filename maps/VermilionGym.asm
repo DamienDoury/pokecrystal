@@ -169,7 +169,7 @@ VermilionGymStatue:
 	gettrainername STRING_BUFFER_4, LT_SURGE, LT_SURGE1
 	jumpstd GymStatue2Script
 
-LtSurgeIntroText:
+LtSurgeIntroText: ; TO TRANSLATE
 	text "SURGE: Hey, you"
 	line "little tyke!"
 
@@ -208,7 +208,7 @@ LtSurgeIntroText:
 
 	done
 
-LtSurgeWinLossText:
+LtSurgeWinLossText: ; AUTOTRAD
 	text "SURGE: Arrrgh!"
 	line "You are strong!"
 
@@ -216,12 +216,12 @@ LtSurgeWinLossText:
 	line "THUNDERBADGE!"
 	done
 
-ReceivedThunderBadgeText:
+ReceivedThunderBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "THUNDERBADGE."
 	done
 
-LtSurgeThunderBadgeText:
+LtSurgeThunderBadgeText: ; TO TRANSLATE
 	text "SURGE: Consider it"
 	line "proof that you"
 	cont "defeated me."
@@ -230,7 +230,7 @@ LtSurgeThunderBadgeText:
 	line "proudly, hear?"
 	done
 
-LtSurgeFightDoneText:
+LtSurgeFightDoneText: ; AUTOTRAD
 	text "SURGE: Hey, kid!"
 	line "Still slugging and"
 	cont "chugging away?"
@@ -239,7 +239,7 @@ LtSurgeFightDoneText:
 	line "are still at it!"
 	done
 
-GentlemanGregorySeenText:
+GentlemanGregorySeenText: ; AUTOTRAD
 	text "You're here to"
 	line "defeat LT.SURGE?"
 
@@ -247,13 +247,13 @@ GentlemanGregorySeenText:
 	line "it!"
 	done
 
-GentlemanGregoryBeatenText:
+GentlemanGregoryBeatenText: ; AUTOTRAD
 	text "Sorry I failed"
 	line "you, LT.SURGE,"
 	cont "sir!"
 	done
 
-GentlemanGregoryAfterBattleText:
+GentlemanGregoryAfterBattleText: ; AUTOTRAD
 	text "When I was still"
 	line "in the army, LT."
 
@@ -261,7 +261,7 @@ GentlemanGregoryAfterBattleText:
 	line "life."
 	done
 
-GuitaristVincentSeenText:
+GuitaristVincentSeenText: ; AUTOTRAD
 	text "LT.SURGE recog-"
 	line "nized my potential"
 
@@ -272,11 +272,11 @@ GuitaristVincentSeenText:
 	line "me?"
 	done
 
-GuitaristVincentBeatenText:
+GuitaristVincentBeatenText: ; AUTOTRAD
 	text "Ooh, how shocking!"
 	done
 
-GuitaristVincentAfterBattleText:
+GuitaristVincentAfterBattleText: ; AUTOTRAD
 	text "If the GYM's traps"
 	line "were working, you"
 
@@ -284,18 +284,18 @@ GuitaristVincentAfterBattleText:
 	line "toast…"
 	done
 
-JugglerHortonSeenText:
+JugglerHortonSeenText: ; AUTOTRAD
 	text "I'm going to take"
 	line "you down! Prepare"
 	cont "to be shocked!"
 	done
 
-JugglerHortonBeatenText:
+JugglerHortonBeatenText: ; AUTOTRAD
 	text "Gwaaah!"
 	line "I was overpowered…"
 	done
 
-JugglerHortonAfterBattleText:
+JugglerHortonAfterBattleText: ; AUTOTRAD
 	text "Don't get too com-"
 	line "fortable about"
 
@@ -303,7 +303,7 @@ JugglerHortonAfterBattleText:
 	line "LT.SURGE is tough."
 	done
 
-VermilionGymGuideText:
+VermilionGymGuideText: ; TO TRANSLATE
 	text "Yo CHAMP!"
 
 	para "You lucked out"
@@ -324,7 +324,7 @@ VermilionGymGuideText:
 	cont "LT.SURGE."
 	done
 
-VermilionGymGuideWinText:
+VermilionGymGuideWinText: ; AUTOTRAD
 	text "Whew! That was an"
 	line "electrifying bout!"
 
@@ -332,7 +332,7 @@ VermilionGymGuideWinText:
 	line "nervous."
 	done
 
-VermilionGymTrashCanText:
+VermilionGymTrashCanText: ; AUTOTRAD
 	text "Nope! Nothing here"
 	line "but trash."
 	done

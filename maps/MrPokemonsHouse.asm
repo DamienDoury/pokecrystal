@@ -174,7 +174,7 @@ MrPokemonsHouse_OakExits:
 	step_sleep 2
 	step_end
 
-MrPokemonIntroText1:
+MrPokemonIntroText1: ; AUTOTRAD
 	text "Hello, hello! You"
 	line "must be <PLAY_G>."
 
@@ -182,18 +182,18 @@ MrPokemonIntroText1:
 	line "you would visit."
 	done
 
-MrPokemonIntroText2:
+MrPokemonIntroText2: ; AUTOTRAD
 	text "This is what I"
 	line "want PROF.ELM to"
 	cont "examine."
 	done
 
-MrPokemonsHouse_GotEggText:
+MrPokemonsHouse_GotEggText: ; TO TRANSLATE
 	text "<PLAYER> received"
 	line "PARCEL."
 	done
 
-MrPokemonIntroText3:
+MrPokemonIntroText3: ; TO TRANSLATE
 	text "I recently started"
 	line "working with"
 	cont "PROF.ELM."
@@ -203,12 +203,12 @@ MrPokemonIntroText3:
 	cont "the authority."
 	done
 
-MrPokemonIntroText4:
+MrPokemonIntroText4: ; AUTOTRAD
 	text "Even PROF.OAK here"
 	line "recognizes that."
 	done
 
-MrPokemonsHouse_MrPokemonHealText:
+MrPokemonsHouse_MrPokemonHealText: ; AUTOTRAD
 	text "You are returning"
 	line "to PROF.ELM?"
 
@@ -217,12 +217,12 @@ MrPokemonsHouse_MrPokemonHealText:
 	cont "rest."
 	done
 
-MrPokemonText_ImDependingOnYou:
+MrPokemonText_ImDependingOnYou: ; AUTOTRAD
 	text "I'm depending on"
 	line "you!"
 	done
 
-MrPokemonText_AlwaysNewDiscoveries:
+MrPokemonText_AlwaysNewDiscoveries: ; AUTOTRAD
 	text "Life is delight-"
 	line "ful! Always, new"
 
@@ -230,7 +230,7 @@ MrPokemonText_AlwaysNewDiscoveries:
 	line "made!"
 	done
 
-MrPokemonsHouse_OakText1:
+MrPokemonsHouse_OakText1: ; AUTOTRAD
 	text "OAK: Aha! So"
 	line "you're <PLAY_G>!"
 
@@ -294,12 +294,12 @@ MrPokemonsHouse_OakText1:
 	line "encyclopedia!"
 	done
 
-MrPokemonsHouse_GetDexText:
+MrPokemonsHouse_GetDexText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "#DEX!"
 	done
 
-MrPokemonsHouse_OakText2:
+MrPokemonsHouse_OakText2: ; TO TRANSLATE
 	text "Go meet many kinds"
 	line "of #MON and"
 
@@ -319,7 +319,7 @@ MrPokemonsHouse_OakText2:
 	cont "radio!"
 	done
 
-MrPokemonText_GimmeTheScale:
+MrPokemonText_GimmeTheScale: ; AUTOTRAD
 	text "Hm? That SCALE!"
 	line "What's that?"
 	cont "A red GYARADOS?"
@@ -335,13 +335,13 @@ MrPokemonText_GimmeTheScale:
 	cont "from PROF.OAK."
 	done
 
-MrPokemonText_Disappointed:
+MrPokemonText_Disappointed: ; AUTOTRAD
 	text "That's disappoint-"
 	line "ing. That happens"
 	cont "to be very rare."
 	done
 
-MrPokemonsHouse_ForeignMagazinesText:
+MrPokemonsHouse_ForeignMagazinesText: ; AUTOTRAD
 	text "It's packed with"
 	line "foreign magazines."
 
@@ -349,13 +349,13 @@ MrPokemonsHouse_ForeignMagazinesText:
 	line "their titles…"
 	done
 
-MrPokemonsHouse_BrokenComputerText:
+MrPokemonsHouse_BrokenComputerText: ; AUTOTRAD
 	text "It's a big com-"
 	line "puter. Hmm. It's"
 	cont "broken."
 	done
 
-MrPokemonsHouse_StrangeCoinsText:
+MrPokemonsHouse_StrangeCoinsText: ; AUTOTRAD
 	text "A whole pile of"
 	line "strange coins!"
 

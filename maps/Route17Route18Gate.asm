@@ -49,18 +49,18 @@ Route17Route18Gate_RightMovement:
 	step RIGHT
 	step_end
 
-Route17Route18GateOfficerText:
+Route17Route18GateOfficerText: ; AUTOTRAD
 	text "CYCLING ROAD"
 	line "Uphill Starts Here"
 	done
 
-Route17Route18GateGetRentalBackText:
+Route17Route18GateGetRentalBackText: ; TO TRANSLATE
 	text "I'll take this"
 	line "rental BICYCLE"
 	cont "back, thank you!"
 	done
 
-Route17Route18GateCannotPassText:
+Route17Route18GateCannotPassText: ; TO TRANSLATE
 	text "Hang on! Don't you"
 	line "have a BICYCLE?"
 

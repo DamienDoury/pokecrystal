@@ -269,7 +269,7 @@ FuchsiaCityToiletPaper:
 FuchsiaCityLemonade:
 	hiddenitem LEMONADE, EVENT_FUCHSIA_LEMONADE
 
-FuchsiaCityGrampsText:
+FuchsiaCityGrampsText: ; TO TRANSLATE
 	text "This town used to"
 	line "thrive but now"
 
@@ -314,7 +314,7 @@ FuchsiaCityGrampsText:
 	line "tourists like you."
 	done
 
-FuchsiaCityBlockerText:
+FuchsiaCityBlockerText: ; TO TRANSLATE
 	text "Howdy trainer!"
 
 	para "Pleasure to see" 
@@ -323,12 +323,12 @@ FuchsiaCityBlockerText:
 	cont "this town."
 	done
 
-FuchsiaCityBlockerText2:
+FuchsiaCityBlockerText2: ; TO TRANSLATE
 	text "What? You want"
 	line "to go east?"
 	done
 
-FuchsiaCityBlockerText25:
+FuchsiaCityBlockerText25: ; TO TRANSLATE
 	text "Oh! Well, we"
 	line "haven't moved"
 	cont "those boulders"
@@ -344,7 +344,7 @@ FuchsiaCityBlockerText25:
 	cont "those."
 	done
 
-FuchsiaCityBlockerText3:
+FuchsiaCityBlockerText3: ; TO TRANSLATE
 	text "You know what?"
 
 	para "I will do any-"
@@ -358,7 +358,7 @@ FuchsiaCityBlockerText3:
 	cont "well! Great idea!"
 	done
 
-FuchsiaCityBlockerText4:
+FuchsiaCityBlockerText4: ; TO TRANSLATE
 	text "The clearance"
 	line "shouldn't take"
 	cont "long."
@@ -373,7 +373,7 @@ FuchsiaCityBlockerText4:
 	cont "this town!"
 	done
 
-FuchsiaCityTeacherText:
+FuchsiaCityTeacherText: ; TO TRANSLATE
 	text "Since the #MON"
 	line "zoo closed, only"
 	cont "2 #MON stayed."
@@ -387,13 +387,13 @@ FuchsiaCityTeacherText:
 	cont "VOLTORB."
 	done
 
-FuchsiaCityStupidText:
+FuchsiaCityStupidText: ; TO TRANSLATE
 	text "That # BALL in"
 	line "there is really a"
 	cont "#MON."
 	done
 
-FuchsiaCityStupidSurprisedText:
+FuchsiaCityStupidSurprisedText: ; TO TRANSLATE
 	text "The # BALL was"
 	line "actually…"
 	cont "an # BALL?"
@@ -405,14 +405,14 @@ FuchsiaCityStupidSurprisedText:
 	line "#MON?"
 	done
 
-FuchsiaCitySignText:
+FuchsiaCitySignText: ; AUTOTRAD
 	text "FUCHSIA CITY"
 
 	para "Behold! It's"
 	line "Passion Pink!"
 	done
 
-FuchsiaGymSignText:
+FuchsiaGymSignText: ; AUTOTRAD
 	text "FUCHSIA CITY"
 	line "#MON GYM"
 	cont "LEADER: JANINE"
@@ -421,7 +421,7 @@ FuchsiaGymSignText:
 	line "Ninja Master"
 	done
 
-SafariZoneOfficeSignText:
+SafariZoneOfficeSignText: ; AUTOTRAD
 	text "There's a notice"
 	line "here…"
 
@@ -430,47 +430,47 @@ SafariZoneOfficeSignText:
 	cont "further notice."
 	done
 
-WardensHomeSignText:
+WardensHomeSignText: ; AUTOTRAD
 	text "SAFARI ZONE"
 	line "WARDEN'S HOME"
 	done
 
-SafariZoneClosedSignText:
+SafariZoneClosedSignText: ; TO TRANSLATE
 	text "SAFARI ZONE"
 	para "FOR SALE"
 	done
 
-SafariZoneOpenedSignText:
+SafariZoneOpenedSignText: ; TO TRANSLATE
 	text "SAFARI ZONE"
 	para "Now opened!"
 	done
 
-NoLitteringSignText:
+NoLitteringSignText: ; AUTOTRAD
 	text "No littering."
 
 	para "Please take your"
 	line "waste with you."
 	done
 
-FuchsiaOldSign1Text:
+FuchsiaOldSign1Text: ; TO TRANSLATE
 	text "Name: VOLTORB"
 	para "The very image of"
 	line "a #BALL."
 	done
 
-FuchsiaOldSign2Text:
+FuchsiaOldSign2Text: ; TO TRANSLATE
 	text "Name: CHANSEY"
 	para "Catching one is"
 	line "all up to chance."
 	done
 
-FuchsiaOldSign3Text:
+FuchsiaOldSign3Text: ; TO TRANSLATE
 	text "Name: SLOWPOKE"
 	para "Friendly and very"
 	line "slow moving."
 	done
 	
-FuchsiaOldSign4Text:
+FuchsiaOldSign4Text: ; TO TRANSLATE
 	text "Name: KANGASKHAN"
 	para "A maternal #MON"
 	line "that raises its"
@@ -478,7 +478,7 @@ FuchsiaOldSign4Text:
 	cont "on its belly."
 	done
 		
-FuchsiaOldSign5Text:
+FuchsiaOldSign5Text: ; TO TRANSLATE
 	text "…was resurrected"
 	line "from a fossil."
 
@@ -487,13 +487,13 @@ FuchsiaOldSign5Text:
 	cont "out to the sun."
 	done
 
-FuchsiaOldSign6Text:
+FuchsiaOldSign6Text: ; TO TRANSLATE
 	text "Name: LAPRAS"
 	para "A.K.A. the king"
 	line "of the seas."
 	done
 
-FuchsiaEatenTreeText:
+FuchsiaEatenTreeText: ; TO TRANSLATE
 	text "It's a fruit-"
 	line "bearing tree."
 
@@ -504,7 +504,7 @@ FuchsiaEatenTreeText:
 	line "#MON."
 	done
 
-FuchsiaEatenTreeThisMorningText:
+FuchsiaEatenTreeThisMorningText: ; TO TRANSLATE
 	text "The bite marks"
 	line "are still fresh…"
 
@@ -512,7 +512,7 @@ FuchsiaEatenTreeThisMorningText:
 	line "this morning."
 	done
 
-FuchsiaEatenTreeHungryTomorrowText:
+FuchsiaEatenTreeHungryTomorrowText: ; TO TRANSLATE
 	text "Judging by the"
 	line "amount of fruits"
 	cont "eaten, the #MON"
@@ -520,7 +520,7 @@ FuchsiaEatenTreeHungryTomorrowText:
 	cont "the day."
 	done
 
-FuchsiaEatenTreeHungrySoonText:
+FuchsiaEatenTreeHungrySoonText: ; TO TRANSLATE
 	text "The bite marks"
 	line "look old…"
 
@@ -531,19 +531,19 @@ FuchsiaEatenTreeHungrySoonText:
 	cont "next few hours."
 	done
 
-HiddenKangaskhanText:
+HiddenKangaskhanText: ; TO TRANSLATE
 	text "Wow! The wild"
 	line "#MON was right"
 	cont "behind the tree!"
 	done
 
-FuchsiaCity_KeyBrokeText:
+FuchsiaCity_KeyBrokeText: ; TO TRANSLATE
 	text "<PLAYER> used the"
 	line "SAFARI KEY."
 	cont "… and it broke."
 	done
 	
-DoorUnlockedText:
+DoorUnlockedText: ; TO TRANSLATE
 	text "The door unlocked."
 	done
 

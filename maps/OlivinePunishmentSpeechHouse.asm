@@ -67,7 +67,7 @@ OlivinePunishmentSpeechHouseBookshelf2:
 OlivinePunishmentSpeechHouseBookshelf1:
 	jumpstd MagazineBookshelfScript
 
-OlivinePunishmentSpeechHouseDadText:
+OlivinePunishmentSpeechHouseDadText: ; AUTOTRAD
 	text "Along the way to"
 	line "CIANWOOD, there"
 
@@ -79,7 +79,7 @@ OlivinePunishmentSpeechHouseDadText:
 	cont "punishment!"
 	done
 
-OlivinePunishmentSpeechHouseDadLockdownText:
+OlivinePunishmentSpeechHouseDadLockdownText: ; TO TRANSLATE
 	text "I give up."
 
 	para "I'm ordering two"
@@ -87,7 +87,7 @@ OlivinePunishmentSpeechHouseDadLockdownText:
 	cont "OLIVINE CAFE."
 	done
 	
-OlivinePunishmentSpeechHouseDadCurfewText:
+OlivinePunishmentSpeechHouseDadCurfewText: ; TO TRANSLATE
 	text "…But wait, it's"
 	line "already past"
 	cont "curfew!"
@@ -101,18 +101,18 @@ OlivinePunishmentSpeechHouseDadCurfewText:
 	cont "the night!"
 	done
 
-OlivinePunishmentSpeechHouseDaughterText:
+OlivinePunishmentSpeechHouseDaughterText: ; AUTOTRAD
 	text "Whenever I get in"
 	line "trouble, Daddy"
 	cont "always scares me."
 	done
 
-OlivinePunishmentSpeechHouseDaughterLockdownText:
+OlivinePunishmentSpeechHouseDaughterLockdownText: ; TO TRANSLATE
 	text "I'm afraid Daddy's"
 	line "no good cook…"
 	done
 
-OlivinePunishmentSpeechHouseComputerText:
+OlivinePunishmentSpeechHouseComputerText: ; TO TRANSLATE
 	text "There's a 1 minute"
 	line "video tutorial on"
 	cont "how to boil pasta."

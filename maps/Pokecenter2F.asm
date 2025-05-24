@@ -625,7 +625,7 @@ Pokecenter2FMovementData_PlayerTakesOneStepLeft:
 	step LEFT
 	step_end
 
-Text_BattleReceptionistMobile:
+Text_BattleReceptionistMobile: ; AUTOTRAD
 	text "Would you like to"
 	line "battle over a GAME"
 
@@ -633,7 +633,7 @@ Text_BattleReceptionistMobile:
 	line "mobile phone?"
 	done
 
-Text_TradeReceptionistMobile:
+Text_TradeReceptionistMobile: ; AUTOTRAD
 	text "Would you like to"
 	line "trade over a GAME"
 
@@ -646,7 +646,7 @@ Text_ThisWayToMobileRoom: ; unreferenced
 	line "MOBILE ROOM."
 	done
 
-Text_BattleReceptionistIntro:
+Text_BattleReceptionistIntro: ; AUTOTRAD
 	text "Welcome to CABLE"
 	line "CLUB COLOSSEUM."
 
@@ -657,7 +657,7 @@ Text_BattleReceptionistIntro:
 	line "battle?"
 	done
 
-Text_TradeReceptionistIntro:
+Text_TradeReceptionistIntro: ; AUTOTRAD
 	text "Welcome to CABLE"
 	line "TRADE CENTER."
 
@@ -669,7 +669,7 @@ Text_TradeReceptionistIntro:
 	line "trade?"
 	done
 
-Text_TradeReceptionistPikachuRefusal:
+Text_TradeReceptionistPikachuRefusal: ; TO TRANSLATE
 	text "PIKACHU refuses"
 	line "to go in there."
 	
@@ -677,7 +677,7 @@ Text_TradeReceptionistPikachuRefusal:
 	line "it first."
 	done
 
-Text_TradeReceptionistSilphCo:
+Text_TradeReceptionistSilphCo: ; TO TRANSLATE
 	text "You have a #MON"
 	line "that is SILPH CO's"
 	cont "property in your"
@@ -689,7 +689,7 @@ Text_TradeReceptionistSilphCo:
 	cont "you do not own."
 	done
 
-Text_TimeCapsuleReceptionistIntro:
+Text_TimeCapsuleReceptionistIntro: ; TO TRANSLATE
 	text "The CABLE CLUB"
 	line "TIME CAPSULE has"
 	cont "been closed"
@@ -700,22 +700,22 @@ Text_TimeCapsuleReceptionistIntro:
 	cont "back in time."
 	done
 
-YourFriendIsNotReadyText:
+YourFriendIsNotReadyText: ; AUTOTRAD
 	text "Your friend is not"
 	line "ready."
 	prompt
 
-Text_MustSaveGame:
+Text_MustSaveGame: ; AUTOTRAD
 	text "Before opening the"
 	line "link, you must"
 	cont "save your game."
 	done
 
-Text_PleaseWait:
+Text_PleaseWait: ; AUTOTRAD
 	text "Please wait."
 	done
 
-Text_LinkTimedOut:
+Text_LinkTimedOut: ; AUTOTRAD
 	text "The link has been"
 	line "closed because of"
 	cont "inactivity."
@@ -725,7 +725,7 @@ Text_LinkTimedOut:
 	cont "come again."
 	prompt
 
-Text_PleaseComeAgain:
+Text_PleaseComeAgain: ; AUTOTRAD
 	text "Please come again."
 	prompt
 
@@ -739,21 +739,21 @@ Text_TemporaryStagingInLinkRoom: ; unreferenced
 	cont "the time being."
 	done
 
-Text_CantLinkToThePast:
+Text_CantLinkToThePast: ; AUTOTRAD
 	text "You can't link to"
 	line "the past here."
 	prompt
 
-Text_IncompatibleRooms:
+Text_IncompatibleRooms: ; AUTOTRAD
 	text "Incompatible rooms"
 	line "were chosen."
 	prompt
 
-Text_PleaseComeIn:
+Text_PleaseComeIn: ; AUTOTRAD
 	text "Please come in."
 	done
 
-Text_RejectMonWithMail:
+Text_RejectMonWithMail: ; AUTOTRAD
 	text "You can't take the"
 	line "@"
 	text_ram wStringBuffer1
@@ -761,57 +761,57 @@ Text_RejectMonWithMail:
 	cont "has MAIL with you."
 	prompt
 
-Text_TimeCapsuleClosed:
+Text_TimeCapsuleClosed: ; AUTOTRAD
 	text "I'm sorry--the"
 	line "TIME CAPSULE is"
 	cont "being adjusted."
 	done
 
-Text_TradeRoomClosed:
+Text_TradeRoomClosed: ; AUTOTRAD
 	text "I'm sorry--the"
 	line "TRADE MACHINE is"
 	cont "being adjusted."
 	done
 
-Text_BattleRoomClosed:
+Text_BattleRoomClosed: ; AUTOTRAD
 	text "I'm sorry--the"
 	line "BATTLE MACHINE is"
 	cont "being adjusted."
 	done
 
-Text_MysteryGiftDeliveryGuy_Intro:
+Text_MysteryGiftDeliveryGuy_Intro: ; TO TRANSLATE
 	text "Hello! You're"
 	line "<PLAYER>, right?"
 	done
 
-Text_MysteryGiftDeliveryGuy_MomDeliveryIntro:
+Text_MysteryGiftDeliveryGuy_MomDeliveryIntro: ; TO TRANSLATE
 	text "Your mom delivered"
 	line "this!"
 	done
 
-Text_MysteryGiftDeliveryGuy_NextMomPackage:
+Text_MysteryGiftDeliveryGuy_NextMomPackage: ; TO TRANSLATE
 	text "And also this…"
 	done
 
-Text_MysteryGiftDeliveryGuy_IHaveSomething:
+Text_MysteryGiftDeliveryGuy_IHaveSomething: ; TO TRANSLATE
 	text "I have a package"
 	line "for you."
 
 	para "Here you go!"
 	done
 
-Text_MysteryGiftDeliveryGuy_AlsoHave:
+Text_MysteryGiftDeliveryGuy_AlsoHave: ; TO TRANSLATE
 	text "And I also have"
 	line "this package for"
 	cont "you. Here you go!"
 	done
 
-Text_MysteryGiftDeliveryGuy_Outro:
+Text_MysteryGiftDeliveryGuy_Outro: ; AUTOTRAD
 	text "We hope to serve"
 	line "you again."
 	done
 
-Text_MysteryGiftDeliveryGuy_NoRoom:
+Text_MysteryGiftDeliveryGuy_NoRoom: ; AUTOTRAD
 	text "Oh, you have no"
 	line "space for this."
 
@@ -822,21 +822,21 @@ Text_MysteryGiftDeliveryGuy_NoRoom:
 	line "to pick it up."
 	done
 
-Text_OhPleaseWait:
+Text_OhPleaseWait: ; AUTOTRAD
 	text "Oh, please wait."
 	done
 
-Text_ChangeTheLook:
+Text_ChangeTheLook: ; AUTOTRAD
 	text "We need to change"
 	line "the look here…"
 	done
 
-Text_LikeTheLook:
+Text_LikeTheLook: ; AUTOTRAD
 	text "How does this"
 	line "style look to you?"
 	done
 
-Text_BrokeStadiumRules:
+Text_BrokeStadiumRules: ; AUTOTRAD
 	text "Excuse me!"
 
 	para "For STADIUM rules,"
@@ -856,12 +856,12 @@ Text_BrokeStadiumRules:
 	line "when you're ready."
 	done
 
-EmergencyBallReceptionText:
+EmergencyBallReceptionText: ; TO TRANSLATE
 	text "You have a parcel"
 	line "from PROF.ELM."
 	done
 
-ButThatsNotAllText:
+ButThatsNotAllText: ; TO TRANSLATE
 	text "That's not all!"
 	done
 

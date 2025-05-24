@@ -272,7 +272,7 @@ OlivineCityPlayerStepsAsideBottomMovement:
 	turn_head DOWN
 	step_end
 
-OlivineCityRivalText:
+OlivineCityRivalText: ; AUTOTRAD
 	text "…"
 
 	para "You again?"
@@ -312,7 +312,7 @@ OlivineCityRivalText:
 	cont "less weak!"
 	done
 
-OlivineCitySailor1Text:
+OlivineCitySailor1Text: ; AUTOTRAD
 	text "Dark roads are"
 	line "dangerous at"
 	cont "night."
@@ -330,14 +330,14 @@ OlivineCitySailor1Text:
 	line "ship can sail."
 	done
 
-OlivineCityStandingYoungsterPokegearText:
+OlivineCityStandingYoungsterPokegearText: ; AUTOTRAD
 	text "That thing you"
 	line "have--it's a #-"
 	cont "GEAR, right? Wow,"
 	cont "that's cool."
 	done
 
-OlivineCityStandingYoungsterPokedexText:
+OlivineCityStandingYoungsterPokedexText: ; AUTOTRAD
 	text "Wow, you have a"
 	line "#DEX!"
 
@@ -345,7 +345,7 @@ OlivineCityStandingYoungsterPokedexText:
 	line "awesome."
 	done
 
-OlivineCitySailor2Text:
+OlivineCitySailor2Text: ; AUTOTRAD
 	text "The sea is sweet!"
 
 	para "Sunsets on the sea"
@@ -356,19 +356,19 @@ OlivineCitySailor2Text:
 	cont "man down!…"
 	done
 
-OlivineCitySignText:
+OlivineCitySignText: ; AUTOTRAD
 	text "OLIVINE CITY"
 
 	para "The Port Closest"
 	line "to Foreign Lands"
 	done
 
-OlivineCityPortSignText:
+OlivineCityPortSignText: ; AUTOTRAD
 	text "OLIVINE PORT"
 	line "FAST SHIP PIER"
 	done
 
-OlivineGymSignText:
+OlivineGymSignText: ; AUTOTRAD
 	text "OLIVINE CITY"
 	line "#MON GYM"
 	cont "LEADER: JASMINE"
@@ -377,18 +377,18 @@ OlivineGymSignText:
 	line "Defense Girl"
 	done
 
-OlivineLighthouseSignText:
+OlivineLighthouseSignText: ; AUTOTRAD
 	text "OLIVINE LIGHTHOUSE"
 	line "Also known as the"
 	cont "GLITTER LIGHTHOUSE"
 	done
 
-OlivineCityBattleTowerSignText:
+OlivineCityBattleTowerSignText: ; AUTOTRAD
 	text "BATTLE TOWER AHEAD"
 	line "Opening Now!"
 	done
 
-OlivineCity_ToGoText:
+OlivineCity_ToGoText: ; TO TRANSLATE
 	text "Our CAFE is not"
 	line "allowed to host"
 	cont "sitted customers,"
@@ -398,7 +398,7 @@ OlivineCity_ToGoText:
 	cont "to-go meals."
 	done
 
-OlivineCity_TodaysSpecialText:
+OlivineCity_TodaysSpecialText: ; TO TRANSLATE
 	text "Today's special is"
 	line "the @"
 	text_ram wStringBuffer3
@@ -407,12 +407,12 @@ OlivineCity_TodaysSpecialText:
 	cont "Want one?"
 	done
 
-OlivineCity_AlreadyBoughtText:
+OlivineCity_AlreadyBoughtText: ; TO TRANSLATE
 	text "Come back tomorrow"
 	line "for a new special!"
 	done
 
-OlivineCity_RefusedSaladText:
+OlivineCity_RefusedSaladText: ; TO TRANSLATE
 	text "No problem."
 
 	para "Perhaps tomorrow's"
@@ -420,17 +420,17 @@ OlivineCity_RefusedSaladText:
 	cont "to your liking."
 	done
 
-OlivineCity_ThanksText:
+OlivineCity_ThanksText: ; TO TRANSLATE
 	text "Thank you!"
 	line "Enjoy!"
 	done
 
-OlivineCity_NotEnoughMoneyText:
+OlivineCity_NotEnoughMoneyText: ; TO TRANSLATE
 	text "You don't have"
 	line "¥500."
 	done
 
-OlivineCity_CantCarryText:
+OlivineCity_CantCarryText: ; TO TRANSLATE
 	text "Whoops, you can't"
 	line "carry this, your"
 	cont "pack is full!"
@@ -439,28 +439,28 @@ OlivineCity_CantCarryText:
 	line "lity, no refund!"
 	done
 
-OlivineCity_Berry1Text:
+OlivineCity_Berry1Text: ; TO TRANSLATE
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer1
 	text ""
 	done
 
-OlivineCity_Berry2Text:
+OlivineCity_Berry2Text: ; TO TRANSLATE
 	text "topped with"
 	line "@"
 	text_ram wStringBuffer3
 	text ""
 	done
 
-OlivineCity_Berry3Text:
+OlivineCity_Berry3Text: ; TO TRANSLATE
 	text "and @"
 	text_ram wStringBuffer3
 	text ""
 	line "on the side."
 	done
 
-OlivineCity_BerryDrinkText:
+OlivineCity_BerryDrinkText: ; TO TRANSLATE
 	text "And here is"
 	line "the drink."
 

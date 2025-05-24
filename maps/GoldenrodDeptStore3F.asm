@@ -28,7 +28,7 @@ GoldenrodDeptStore3FDirectory:
 GoldenrodDeptStore3FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodDeptStore3FSuperNerdText:
+GoldenrodDeptStore3FSuperNerdText: ; AUTOTRAD
 	text "I, I, I'm really"
 	line "impatient!"
 
@@ -37,7 +37,7 @@ GoldenrodDeptStore3FSuperNerdText:
 	cont "my #MON."
 	done
 
-GoldenrodDeptStore3FRockerText:
+GoldenrodDeptStore3FRockerText: ; AUTOTRAD
 	text "Hey! When you bat-"
 	line "tle, do you use X"
 	cont "SPECIAL?"
@@ -47,7 +47,7 @@ GoldenrodDeptStore3FRockerText:
 	cont "SPECIAL ATTACK!"
 	done
 
-GoldenrodDeptStore3FDirectoryText:
+GoldenrodDeptStore3FDirectoryText: ; AUTOTRAD
 	text "For Victory"
 	line "Seekers"
 

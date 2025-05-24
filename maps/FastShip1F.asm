@@ -230,7 +230,7 @@ FastShip1F_PlayerLeavesShipRightMovement:
 	step UP
 	step_end
 
-FastShip1FSailor1Text_ToVermilion:
+FastShip1FSailor1Text_ToVermilion: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "is en route to"
 	cont "VERMILION CITY."
@@ -240,7 +240,7 @@ FastShip1FSailor1Text_ToVermilion:
 	cont "we arrive."
 	done
 
-FastShip1FSailor1Text_ToOlivine:
+FastShip1FSailor1Text_ToOlivine: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "is en route to"
 	cont "OLIVINE CITY."
@@ -250,7 +250,7 @@ FastShip1FSailor1Text_ToOlivine:
 	cont "we arrive."
 	done
 
-FastShip1FSailor2Text_FirstTime:
+FastShip1FSailor2Text_FirstTime: ; AUTOTRAD
 	text "Here's your cabin."
 
 	para "If your #MON"
@@ -261,7 +261,7 @@ FastShip1FSailor2Text_FirstTime:
 	line "them."
 	done
 
-FastShip1FSailor2Text:
+FastShip1FSailor2Text: ; AUTOTRAD
 	text "Here's your cabin."
 
 	para "You can heal your"
@@ -273,7 +273,7 @@ FastShip1FSailor2Text:
 	cont "you're sleeping."
 	done
 
-FastShip1FSailor3Text:
+FastShip1FSailor3Text: ; AUTOTRAD
 	text "The passengers are"
 	line "all trainers."
 
@@ -282,7 +282,7 @@ FastShip1FSailor3Text:
 	cont "their cabins."
 	done
 
-FastShip1FGrandpaText:
+FastShip1FGrandpaText: ; AUTOTRAD
 	text "Whoa! Excuse me."
 	line "I was in a hurry!"
 
@@ -296,34 +296,34 @@ FastShip1FGrandpaText:
 	line "know!"
 	done
 
-FastShip1FSailor1Text_InOlivine:
+FastShip1FSailor1Text_InOlivine: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "OLIVINE CITY."
 	done
 
-FastShip1FSailor1Text_InVermilion:
+FastShip1FSailor1Text_InVermilion: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
 	done
 
-FastShip1FSailor1Text_NeedToSave:
+FastShip1FSailor1Text_NeedToSave: ; TO TRANSLATE
 	text "You need to save"
 	line "the game before"
 	cont "leaving."
 	done
 
-FastShip1FSailor1Text_Saving:
+FastShip1FSailor1Text_Saving: ; TO TRANSLATE
 	text "Saving…"
 	done
 
-FastShip1FSailor1Text_CantLetYouOut:
+FastShip1FSailor1Text_CantLetYouOut: ; TO TRANSLATE
 	text "Sorry I can't"
 	line "let you out."
 	done
 
-FastShip1FSailor1Text_SeeYou:
+FastShip1FSailor1Text_SeeYou: ; TO TRANSLATE
 	text "Have a nice stay"
 	line "in VERMILION CITY!"
 	done

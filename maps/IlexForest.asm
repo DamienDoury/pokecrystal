@@ -753,7 +753,7 @@ IlexForestPlayerStepsDownMovement:
 	remove_fixed_facing
 	step_end
 
-IlexForestApprenticeIntroText:
+IlexForestApprenticeIntroText: ; TO TRANSLATE
 	text "APPRENTICE: Oh,"
 	line "man…"
 	
@@ -774,7 +774,7 @@ IlexForestApprenticeIntroText:
 	line "and scary for me…"
 	done
 
-IlexForestApprenticeAfterText:
+IlexForestApprenticeAfterText: ; TO TRANSLATE
 	text "APPRENTICE: Wow!"
 	line "Thanks a whole"
 	cont "bunch!"
@@ -785,16 +785,16 @@ IlexForestApprenticeAfterText:
 	cont "a BADGE."
 	done
 
-Text_ItsTheMissingPokemon:
+Text_ItsTheMissingPokemon: ; AUTOTRAD
 	text "It's the missing"
 	line "#MON!"
 	done
 
-Text_Kwaaaa:
+Text_Kwaaaa: ; AUTOTRAD
 	text "FARFETCH'D: Kwaa!"
 	done
 
-Text_CharcoalMasterIntro:
+Text_CharcoalMasterIntro: ; TO TRANSLATE
 	text "Ah! My FARFETCH'D!"
 
 	para "You found it for"
@@ -818,7 +818,7 @@ Text_CharcoalMasterIntro:
 	para "Come with me."
 	done
 
-Text_CharcoalMasterTalkAfter:
+Text_CharcoalMasterTalkAfter: ; AUTOTRAD
 	text "Do you want to"
 	line "apprentice as a"
 
@@ -829,7 +829,7 @@ Text_CharcoalMasterTalkAfter:
 	line "rate in ten years!"
 	done
 
-Text_HeadbuttIntro:
+Text_HeadbuttIntro: ; AUTOTRAD
 	text "What am I doing?"
 
 	para "I'm shaking trees"
@@ -839,7 +839,7 @@ Text_HeadbuttIntro:
 	line "you try it too!"
 	done
 
-Text_HeadbuttOutro:
+Text_HeadbuttOutro: ; TO TRANSLATE
 	text "Rattle trees with"
 	line "HEADBUTT. Some-"
 	cont "times, sleeping"
@@ -850,13 +850,13 @@ Text_HeadbuttOutro:
 	cont "tree."
 	done
 
-Text_IlexForestLass:
+Text_IlexForestLass: ; AUTOTRAD
 	text "Did something"
 	line "happen to the"
 	cont "forest's guardian?"
 	done
 
-IlexForestSignpostText:
+IlexForestSignpostText: ; AUTOTRAD
 	text "ILEX FOREST is"
 	line "so overgrown with"
 
@@ -868,7 +868,7 @@ IlexForestSignpostText:
 	cont "have been dropped."
 	done
 
-Text_IlexForestShrine:
+Text_IlexForestShrine: ; AUTOTRAD
 	text "ILEX FOREST"
 	line "SHRINE…"
 
@@ -877,7 +877,7 @@ Text_IlexForestShrine:
 	cont "protector…"
 	done
 
-Text_ShrineCelebiEvent:
+Text_ShrineCelebiEvent: ; AUTOTRAD
 	text "ILEX FOREST"
 	line "SHRINE…"
 
@@ -897,12 +897,12 @@ Text_ShrineCelebiEvent:
 	line "BALL here?"
 	done
 
-Text_InsertGSBall:
+Text_InsertGSBall: ; AUTOTRAD
 	text "<PLAYER> put in the"
 	line "GS BALL."
 	done
 
-Text_KurtCaughtCelebi:
+Text_KurtCaughtCelebi: ; AUTOTRAD
 	text "Whew, wasn't that"
 	line "something!"
 
@@ -922,7 +922,7 @@ Text_KurtCaughtCelebi:
 	para "I'm going!"
 	done
 
-BugCatcherWayneSeenText:
+BugCatcherWayneSeenText: ; AUTOTRAD
 	text "Don't sneak up on"
 	line "me like that!"
 
@@ -930,12 +930,12 @@ BugCatcherWayneSeenText:
 	line "#MON away!"
 	done
 
-BugCatcherWayneBeatenText:
+BugCatcherWayneBeatenText: ; AUTOTRAD
 	text "I hadn't seen that"
 	line "#MON before…"
 	done
 
-BugCatcherWayneAfterBattleText:
+BugCatcherWayneAfterBattleText: ; AUTOTRAD
 	text "A #MON I've"
 	line "never seen before"
 
@@ -948,7 +948,7 @@ BugCatcherWayneAfterBattleText:
 	cont "places too."
 	done
 
-BugCatcherWayneAfterBattleLockdownText:
+BugCatcherWayneAfterBattleLockdownText: ; TO TRANSLATE
 	text "I can't stand being"
 	line "stuck within four"
 	cont "walls."
@@ -961,7 +961,7 @@ BugCatcherWayneAfterBattleLockdownText:
 	line "the police."
 	done
 
-BugCatcherWayneAfterBattleCurfewText:
+BugCatcherWayneAfterBattleCurfewText: ; TO TRANSLATE
 	text "I couldn't get"
 	line "home before"
 	cont "curfew…"
@@ -973,7 +973,7 @@ BugCatcherWayneAfterBattleCurfewText:
 	done
 
 	
-BugCatcherWayneAfterBattleVaccinationPassText:
+BugCatcherWayneAfterBattleVaccinationPassText: ; TO TRANSLATE
 	text "I don't want to"
 	line "get vaccinated."
 	

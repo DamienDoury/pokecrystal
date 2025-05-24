@@ -99,7 +99,7 @@ MeetMomTalkedScript:
 	playmusic MUSIC_MOM
 	sjump MeetMomScript
 
-PokegearName:
+PokegearName: ; AUTOTRAD
 	db "#GEAR@"
 
 PlayersHouse1FReceiveItemStd:
@@ -443,12 +443,12 @@ MomWalksBackMovement:
 	slow_step LEFT
 	step_end
 
-SmellText:
+SmellText: ; TO TRANSLATE
 	text "Smells good!"
 	line "Mom's a good cook!"
 	done
 
-PlayerSeatText:
+PlayerSeatText: ; TO TRANSLATE
 	text "This is my seat"
 	line "at the table."
 
@@ -456,18 +456,18 @@ PlayerSeatText:
 	line "view on the TV!"
 	done
 
-MomsSeatText:
+MomsSeatText: ; TO TRANSLATE
 	text "Mom's seat has"
 	line "lovely cushions."
 	done
 
-SocialDistancingText:
+SocialDistancingText: ; TO TRANSLATE
 	text "<PLAYER> remember"
 	line "to keep 1 step of"
 	cont "social distancing."
 	done
 
-ElmsLookingForYouText:
+ElmsLookingForYouText: ; AUTOTRAD
 	text "Oh, <PLAYER>…! Our"
 	line "neighbor, PROF."
 
@@ -487,7 +487,7 @@ ElmsLookingForYouText:
 	para "Here you go!"
 	done
 
-MomGivesPokegearText:
+MomGivesPokegearText: ; AUTOTRAD
 	text "#MON GEAR, or"
 	line "just #GEAR."
 
@@ -502,12 +502,12 @@ MomGivesPokegearText:
 	line "that!"
 	done
 
-IsItDSTText:
+IsItDSTText: ; AUTOTRAD
 	text "Is it Daylight"
 	line "Saving Time now?"
 	done
 
-ComeHomeForDSTText:
+ComeHomeForDSTText: ; AUTOTRAD
 	text "Come home to"
 	line "adjust your clock"
 
@@ -519,11 +519,11 @@ ComeHomeForDSTText:
 	cont "the PHONE?"
 	done
 
-KnowTheInstructionsText:
+KnowTheInstructionsText: ; TO TRANSLATE
 	text "Great!"
 	done
 
-DontKnowTheInstructionsText:
+DontKnowTheInstructionsText: ; AUTOTRAD
 	text "I'll read the"
 	line "instructions."
 
@@ -532,7 +532,7 @@ DontKnowTheInstructionsText:
 	cont "PHONE icon."
 	done
 
-InstructionsNextText:
+InstructionsNextText: ; AUTOTRAD
 	text "Phone numbers are"
 	line "stored in memory."
 
@@ -543,7 +543,7 @@ InstructionsNextText:
 	line "convenient?"
 	done
 
-CovidIntroText:
+CovidIntroText: ; TO TRANSLATE
 	text "One last thing!"
 	line "They are talking"
 	cont "about a new virus"
@@ -564,14 +564,14 @@ CovidIntroText:
 	line "out there!"
 	done
 
-HurryUpElmIsWaitingText:
+HurryUpElmIsWaitingText: ; AUTOTRAD
 	text "PROF.ELM is wait-"
 	line "ing for you."
 
 	para "Hurry up, baby!"
 	done
 
-SoWhatWasProfElmsErrandText:
+SoWhatWasProfElmsErrandText: ; AUTOTRAD
 	text "So, what was PROF."
 	line "ELM's errand?"
 
@@ -585,33 +585,33 @@ SoWhatWasProfElmsErrandText:
 	cont "rely on you."
 	done
 
-ImBehindYouText:
+ImBehindYouText: ; AUTOTRAD
 	text "<PLAYER>, do it!"
 
 	para "I'm behind you all"
 	line "the way!"
 	done
 
-NeighborMornIntroText:
+NeighborMornIntroText: ; AUTOTRAD
 	text "Good morning,"
 	line "<PLAY_G>!"
 
 	para "I'm visiting!"
 	done
 
-NeighborDayIntroText:
+NeighborDayIntroText: ; AUTOTRAD
 	text "Hello, <PLAY_G>!"
 	line "I'm visiting!"
 	done
 
-NeighborNiteIntroText:
+NeighborNiteIntroText: ; AUTOTRAD
 	text "Good evening,"
 	line "<PLAY_G>!"
 
 	para "I'm visiting!"
 	done
 
-NeighborText:
+NeighborText: ; TO TRANSLATE
 	text "Have you heard?"
 	line "Some people caught"
 
@@ -623,20 +623,20 @@ NeighborText:
 	cont "we will be fine!"
 	done
 
-PlayersHouse1FStoveText:
+PlayersHouse1FStoveText: ; TO TRANSLATE
 	text "Mom's specialty!"
 
 	para "CIANWOOD WHIRL"
 	line "MAKIS!"
 	done
 
-PlayersHouse1FSinkText:
+PlayersHouse1FSinkText: ; TO TRANSLATE
 	text "The sink is spot-"
 	line "less. MOM likes it"
 	cont "clean."
 	done
 
-EmptyFridgeText:
+EmptyFridgeText: ; TO TRANSLATE
 	text "It's empty…"
 
 	para "Maybe MOM doesn't"
@@ -644,7 +644,7 @@ EmptyFridgeText:
 	cont "to do groceries?"
 	done
 
-PlayersHouse1FFridgeText:
+PlayersHouse1FFridgeText: ; TO TRANSLATE
 	text "Let's see what's"
 	line "in the fridge…"
 
@@ -655,17 +655,17 @@ PlayersHouse1FFridgeText:
 	line "WATER?"
 	done
 
-AskLemonadeFridgeText:
+AskLemonadeFridgeText: ; TO TRANSLATE
 	text "Take the MILK"
 	line "TEA?"
 	done
 
-OtherDrinkIsForMomText:
+OtherDrinkIsForMomText: ; TO TRANSLATE
 	text "The other drink"
 	line "is for MOM."
 	done
 
-NowWeCanTalkText:
+NowWeCanTalkText: ; TO TRANSLATE
 	text "Perfect!"
 	line "Now we can talk!"
 	done

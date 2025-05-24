@@ -82,7 +82,7 @@ MountMortarB1FPPUp:
 MountMortarB1FHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_MOUNT_MORTAR_B1F_HIDDEN_MAX_REVIVE
 
-MountMortarB1FKiyoIntroText:
+MountMortarB1FKiyoIntroText: ; TO TRANSLATE
 	text "Hey!"
 
 	para "I am the KARATE"
@@ -100,12 +100,12 @@ MountMortarB1FKiyoIntroText:
 	para "Hwaaarggh!"
 	done
 
-MountMortarB1FKiyoWinText:
+MountMortarB1FKiyoWinText: ; AUTOTRAD
 	text "Waaaarggh!"
 	line "I'm beaten!"
 	done
 
-MountMortarB1FTyrogueRewardText:
+MountMortarB1FTyrogueRewardText: ; AUTOTRAD
 	text "I… I'm crushed…"
 
 	para "My training is"
@@ -121,12 +121,12 @@ MountMortarB1FTyrogueRewardText:
 	line "fighting #MON."
 	done
 
-MountMortarB1FReceiveMonText:
+MountMortarB1FReceiveMonText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "TYROGUE."
 	done
 
-MountMortarB1FKiyoGotTyrogueText:
+MountMortarB1FKiyoGotTyrogueText: ; AUTOTRAD
 	text "TYROGUE is a"
 	line "fighting-type."
 
@@ -140,7 +140,7 @@ MountMortarB1FKiyoGotTyrogueText:
 	para "Farewell!"
 	done
 
-MountMortarB1FKiyoFullPartyText:
+MountMortarB1FKiyoFullPartyText: ; AUTOTRAD
 	text "You have no room"
 	line "in your party!"
 	done

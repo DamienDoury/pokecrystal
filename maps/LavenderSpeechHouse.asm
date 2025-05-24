@@ -12,7 +12,7 @@ LavenderSpeechHousePokefanFScript:
 LavenderSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-LavenderSpeechHousePokefanFText:
+LavenderSpeechHousePokefanFText: ; AUTOTRAD
 	text "LAVENDER is a"
 	line "tiny, quiet town"
 

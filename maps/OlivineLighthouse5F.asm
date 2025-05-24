@@ -54,7 +54,7 @@ OlivineLighthouse5FTMSwagger:
 OlivineLighthouse5FHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_OLIVINE_LIGHTHOUSE_5F_HIDDEN_HYPER_POTION
 
-SailorErnestSeenText:
+SailorErnestSeenText: ; AUTOTRAD
 	text "I wanted to battle"
 	line "JASMINE, but she's"
 
@@ -62,12 +62,12 @@ SailorErnestSeenText:
 	line "So, how about you?"
 	done
 
-SailorErnestBeatenText:
+SailorErnestBeatenText: ; AUTOTRAD
 	text "Whoa, whoa. You're"
 	line "overwhelming!"
 	done
 
-SailorErnestAfterBattleText:
+SailorErnestAfterBattleText: ; AUTOTRAD
 	text "A GYM LEADER isn't"
 	line "just about being"
 
@@ -76,7 +76,7 @@ SailorErnestAfterBattleText:
 	cont "compassionate."
 	done
 
-BirdKeeperDenisSeenText:
+BirdKeeperDenisSeenText: ; AUTOTRAD
 	text "We're pretty high"
 	line "up here. My bird"
 
@@ -84,11 +84,11 @@ BirdKeeperDenisSeenText:
 	line "prime form."
 	done
 
-BirdKeeperDenisBeatenText:
+BirdKeeperDenisBeatenText: ; AUTOTRAD
 	text "Oops…They crashed…"
 	done
 
-BirdKeeperDenisAfterBattleText:
+BirdKeeperDenisAfterBattleText: ; AUTOTRAD
 	text "My #MON learned"
 	line "how to use FLY in"
 	cont "CIANWOOD."

@@ -264,19 +264,19 @@ Route30_MikeysRattataAttacksMovement:
 	remove_sliding
 	step_end
 
-Text_UseTackle:
+Text_UseTackle: ; AUTOTRAD
 	text "Go, RATTATA!"
 
 	para "TACKLE!"
 	done
 
-Text_ThisIsABigBattle:
+Text_ThisIsABigBattle: ; AUTOTRAD
 	text "What? This is a"
 	line "big battle!"
 	cont "Leave me alone!"
 	done
 
-YoungsterJoey1SeenText:
+YoungsterJoey1SeenText: ; AUTOTRAD
 	text "I just lost, so"
 	line "I'm trying to find"
 	cont "more #MON."
@@ -286,12 +286,12 @@ YoungsterJoey1SeenText:
 	cont "let's battle!"
 	done
 
-YoungsterJoey1BeatenText:
+YoungsterJoey1BeatenText: ; AUTOTRAD
 	text "Ack! I lost again!"
 	line "Doggone it!"
 	done
 
-YoungsterJoey1AfterText:
+YoungsterJoey1AfterText: ; AUTOTRAD
 	text "Do I have to have"
 	line "more #MON in"
 
@@ -303,7 +303,7 @@ YoungsterJoey1AfterText:
 	cont "matter what!"
 	done
 
-YoungsterMikeySeenText:
+YoungsterMikeySeenText: ; TO TRANSLATE
 	text "SOCIAL DISTANCING"
 	line "ALERT!"
 
@@ -317,7 +317,7 @@ YoungsterMikeySeenText:
 	line "you respect!"
 	done
 
-YoungsterMikeyBeatenText:
+YoungsterMikeyBeatenText: ; TO TRANSLATE
 	text "Still, you should"
 	line "respect social"
 	cont "distancing."
@@ -326,7 +326,7 @@ YoungsterMikeyBeatenText:
 	line "mommy."
 	done
 
-YoungsterMikeyAfterText:
+YoungsterMikeyAfterText: ; TO TRANSLATE
 	text "Social distancing"
 	line "is for your own"
 	cont "good."
@@ -338,18 +338,18 @@ YoungsterMikeyAfterText:
 	line "others."
 	done
 
-BugCatcherDonSeenText:
+BugCatcherDonSeenText: ; AUTOTRAD
 	text "Instead of a bug"
 	line "#MON, I found"
 	cont "a trainer!"
 	done
 
-BugCatcherDonBeatenText:
+BugCatcherDonBeatenText: ; AUTOTRAD
 	text "Argh! You're too"
 	line "strong!"
 	done
 
-BugCatcherDonAfterText:
+BugCatcherDonAfterText: ; AUTOTRAD
 	text "I ran out of #"
 	line "BALLS while I was"
 	cont "catching #MON."
@@ -358,19 +358,19 @@ BugCatcherDonAfterText:
 	line "some more…"
 	done
 
-Route30YoungsterText_DirectionsToMrPokemonsHouse:
+Route30YoungsterText_DirectionsToMrPokemonsHouse: ; AUTOTRAD
 	text "MR.#MON's"
 	line "house? It's a bit"
 	cont "farther ahead."
 	done
 
-Route30YoungsterText_EveryoneIsBattling:
+Route30YoungsterText_EveryoneIsBattling: ; AUTOTRAD
 	text "Everyone's having"
 	line "fun battling!"
 	cont "You should too!"
 	done
 
-Route30CooltrainerFText:
+Route30CooltrainerFText: ; AUTOTRAD
 	text "I'm not a trainer."
 
 	para "But if you look"
@@ -378,23 +378,23 @@ Route30CooltrainerFText:
 	cont "prepare to battle."
 	done
 
-Route30SignText:
+Route30SignText: ; AUTOTRAD
 	text "ROUTE 30"
 
 	para "VIOLET CITY -"
 	line "CHERRYGROVE CITY"
 	done
 
-MrPokemonsHouseDirectionsSignText:
+MrPokemonsHouseDirectionsSignText: ; AUTOTRAD
 	text "MR.#MON'S HOUSE"
 	line "STRAIGHT AHEAD!"
 	done
 
-MrPokemonsHouseSignText:
+MrPokemonsHouseSignText: ; AUTOTRAD
 	text "MR.#MON'S HOUSE"
 	done
 
-Route30TrainerTipsText:
+Route30TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "No stealing other"
@@ -405,7 +405,7 @@ Route30TrainerTipsText:
 	cont "wild #MON!"
 	done
 
-YoungsterJoeyText_GiveHPUpAfterBattle:
+YoungsterJoeyText_GiveHPUpAfterBattle: ; AUTOTRAD
 	text "I lost again…"
 	line "Gee, you're tough!"
 

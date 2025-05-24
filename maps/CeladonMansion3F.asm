@@ -142,7 +142,7 @@ GameFreakRunAwayMovement:
 	big_step UP
 	step_end
 
-GameFreakBotheringFanText1:
+GameFreakBotheringFanText1: ; TO TRANSLATE
 	text "I avoided the"
 	line "security guards"
 	cont "to come and see"
@@ -153,7 +153,7 @@ GameFreakBotheringFanText1:
 	cont "working on!"
 	done
 
-GameFreakBotheringFanText2:
+GameFreakBotheringFanText2: ; TO TRANSLATE
 	text "Could you take"
 	line "a picture of me?"
 	cont "Maybe I should"
@@ -164,7 +164,7 @@ GameFreakBotheringFanText2:
 	line "Hyaaa!!"
 	done
 
-GameFreakBotheringFanText3:
+GameFreakBotheringFanText3: ; TO TRANSLATE
 	text "I have no right"
 	line "to be here."
 
@@ -172,7 +172,7 @@ GameFreakBotheringFanText3:
 	line "to my shop now."
 	done
 
-GameFreakGameDesignerText:
+GameFreakGameDesignerText: ; TO TRANSLATE
 	text "SATOSHI TAJIRI: Is"
 	line "that right?"
 
@@ -184,7 +184,7 @@ GameFreakGameDesignerText:
 	cont "but don't give up!"
 	done
 
-GameFreakGameDesignerCompletedPokedexText:
+GameFreakGameDesignerCompletedPokedexText: ; TO TRANSLATE
 	text "SATOSHI TAJIRI:"
 	line "Wow! Excellent!"
 	cont "You completed your"
@@ -197,7 +197,7 @@ GameFreakGameDesignerPauseForDiplomaText:
 	text "…"
 	done
 
-GameFreakGameDesignerAfterDiplomaText:
+GameFreakGameDesignerAfterDiplomaText: ; AUTOTRAD
 	text "The GRAPHIC ARTIST"
 	line "will print out a"
 	cont "DIPLOMA for you."
@@ -206,7 +206,7 @@ GameFreakGameDesignerAfterDiplomaText:
 	line "it off."
 	done
 
-GameFreakGraphicArtistText:
+GameFreakGraphicArtistText: ; TO TRANSLATE
 	text "KEN SUGIMORI: I'm"
 	line "the GRAPHIC"
 	cont "ARTIST."
@@ -214,7 +214,7 @@ GameFreakGraphicArtistText:
 	para "I drew you!"
 	done
 
-GameFreakGraphicArtistPrintDiplomaText:
+GameFreakGraphicArtistPrintDiplomaText: ; TO TRANSLATE
 	text "KEN SUGIMORI: I'm"
 	line "the GRAPHIC"
 	cont "ARTIST."
@@ -226,19 +226,19 @@ GameFreakGraphicArtistPrintDiplomaText:
 	line "out your DIPLOMA?"
 	done
 
-GameFreakGraphicArtistRefusedText:
+GameFreakGraphicArtistRefusedText: ; AUTOTRAD
 	text "Give me a shout if"
 	line "you want your"
 	cont "DIPLOMA printed."
 	done
 
-GameFreakGraphicArtistErrorText:
+GameFreakGraphicArtistErrorText: ; AUTOTRAD
 	text "Something's wrong."
 	line "I'll have to can-"
 	cont "cel printing."
 	done
 
-GameFreakProgrammerText:
+GameFreakProgrammerText: ; TO TRANSLATE
 	text "TETSUYA WATANABE:"
 	line "Who, me? I'm the"
 	cont "PROGRAMMER."
@@ -247,7 +247,7 @@ GameFreakProgrammerText:
 	line "machines!"
 	done
 
-GameFreakCharacterDesignerText:
+GameFreakCharacterDesignerText: ; TO TRANSLATE
 	text "KOHJI NISHINO:"
 	line "Aren't the TWINS"
 	cont "adorable?"
@@ -258,18 +258,18 @@ GameFreakCharacterDesignerText:
 	para "Oh, I love them!"
 	done
 
-CeladonMansion3FDevRoomSignText:
+CeladonMansion3FDevRoomSignText: ; AUTOTRAD
 	text "GAME FREAK"
 	line "DEVELOPMENT ROOM"
 	done
 
-CeladonMansion3FDrawingText:
+CeladonMansion3FDrawingText: ; AUTOTRAD
 	text "It's a detailed"
 	line "drawing of a"
 	cont "pretty girl."
 	done
 
-CeladonMansion3FGameProgramText:
+CeladonMansion3FGameProgramText: ; AUTOTRAD
 	text "It's the game"
 	line "program. Messing"
 
@@ -277,7 +277,7 @@ CeladonMansion3FGameProgramText:
 	line "a bug in the game!"
 	done
 
-CeladonMansion3FReferenceMaterialText:
+CeladonMansion3FReferenceMaterialText: ; AUTOTRAD
 	text "It's crammed with"
 	line "reference materi-"
 	cont "als. There's even"

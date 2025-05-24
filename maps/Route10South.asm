@@ -59,33 +59,33 @@ Route10Sign:
 Route10MaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_10_HIDDEN_MAX_ETHER
 
-HikerJimSeenText:
+HikerJimSeenText: ; AUTOTRAD
 	text "Hahahah!"
 	done
 
-HikerJimBeatenText:
+HikerJimBeatenText: ; AUTOTRAD
 	text "Hahaha-hachoo!"
 	done
 
-HikerJimAfterBattleText:
+HikerJimAfterBattleText: ; AUTOTRAD
 	text "Hay fever is"
 	line "making me sneeze!"
 	cont "Ahahah-CHOO!"
 	done
 
-PokefanmRobertSeenText:
+PokefanmRobertSeenText: ; AUTOTRAD
 	text "You like #MON,"
 	line "don't you?"
 
 	para "Me too!"
 	done
 
-PokefanmRobertBeatenText:
+PokefanmRobertBeatenText: ; AUTOTRAD
 	text "I'd have to say"
 	line "that's my loss."
 	done
 
-PokefanmRobertAfterBattleText:
+PokefanmRobertAfterBattleText: ; AUTOTRAD
 	text "Look what you did"
 	line "to my #MON…"
 
@@ -93,7 +93,7 @@ PokefanmRobertAfterBattleText:
 	line "this…"
 	done
 
-Route10SignText:
+Route10SignText: ; AUTOTRAD
 	text "ROUTE 10"
 
 	para "CERULEAN CITY -"

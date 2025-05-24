@@ -13,13 +13,13 @@ IlexForestAzaleaGateOfficerScript:
 IlexForestAzaleaGateGrannyScript:
 	jumptextfaceplayer IlexForestAzaleaGateGrannyText
 
-IlexForestAzaleaGateOfficerText:
+IlexForestAzaleaGateOfficerText: ; AUTOTRAD
 	text "ILEX FOREST is"
 	line "big. Be careful!"
 	cont "Don't get lost."
 	done
 
-IlexForestAzaleaGateGrannyText:
+IlexForestAzaleaGateGrannyText: ; AUTOTRAD
 	text "The FOREST is"
 	line "watched over by"
 	cont "its protector."

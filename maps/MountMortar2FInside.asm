@@ -44,15 +44,15 @@ MountMortar2FInsideEscapeRope:
 MountMortar2FInsideHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_MOUNT_MORTAR_2F_INSIDE_HIDDEN_FULL_RESTORE
 
-SupernerdHughSeenText:
+SupernerdHughSeenText: ; AUTOTRAD
 	text "Yo! MARKUS!"
 	done
 
-SupernerdHughBeatenText:
+SupernerdHughBeatenText: ; AUTOTRAD
 	text "Sorry, my mistake."
 	done
 
-SupernerdHughAfterBattleText:
+SupernerdHughAfterBattleText: ; AUTOTRAD
 	text "I'm investigating"
 	line "MT.MORTAR, but my"
 	cont "pal's gone AWOL."

@@ -310,7 +310,7 @@ Route43FruitTree:
 Route43MaxEther:
 	itemball MAX_ETHER
 
-PokemaniacBenSeenText:
+PokemaniacBenSeenText: ; AUTOTRAD
 	text "I love #MON!"
 
 	para "That's why I"
@@ -320,12 +320,12 @@ PokemaniacBenSeenText:
 	line "lecting #MON!"
 	done
 
-PokemaniacBenBeatenText:
+PokemaniacBenBeatenText: ; AUTOTRAD
 	text "How could you do"
 	line "this to me?"
 	done
 
-PokemaniacBenAfterBattleText:
+PokemaniacBenAfterBattleText: ; AUTOTRAD
 	text "What else do I"
 	line "like besides"
 	cont "#MON?"
@@ -334,23 +334,23 @@ PokemaniacBenAfterBattleText:
 	line "I bet she's cute!"
 	done
 
-PokemaniacBrentSeenText:
+PokemaniacBrentSeenText: ; AUTOTRAD
 	text "Hey! Do you have"
 	line "any rare #MON?"
 	done
 
-PokemaniacBrentBeatenText:
+PokemaniacBrentBeatenText: ; AUTOTRAD
 	text "Oh, my poor #-"
 	line "MON! Darlings!"
 	done
 
-PokemaniacBrentAfterBattleText:
+PokemaniacBrentAfterBattleText: ; AUTOTRAD
 	text "I'd be happy just"
 	line "to own a single"
 	cont "rare #MON."
 	done
 
-PokemaniacRonSeenText:
+PokemaniacRonSeenText: ; AUTOTRAD
 	text "Would you get"
 	line "this?"
 
@@ -362,12 +362,12 @@ PokemaniacRonSeenText:
 	line "MON's great!"
 	done
 
-PokemaniacRonBeatenText:
+PokemaniacRonBeatenText: ; AUTOTRAD
 	text "My NIDOKING did"
 	line "pretty right on!"
 	done
 
-PokemaniacRonAfterBattleText:
+PokemaniacRonAfterBattleText: ; AUTOTRAD
 	text "It's okay for"
 	line "people to like"
 
@@ -379,7 +379,7 @@ PokemaniacRonAfterBattleText:
 	cont "most powerful one."
 	done
 
-FisherMarvinSeenText:
+FisherMarvinSeenText: ; AUTOTRAD
 	text "I'm in a slump."
 
 	para "Maybe it's the"
@@ -389,12 +389,12 @@ FisherMarvinSeenText:
 	line "change of pace!"
 	done
 
-FisherMarvinBeatenText:
+FisherMarvinBeatenText: ; AUTOTRAD
 	text "I lost, but I feel"
 	line "better anyway."
 	done
 
-FisherMarvinAfterBattleText:
+FisherMarvinAfterBattleText: ; AUTOTRAD
 	text "KURT's LURE BALL"
 	line "is the best for"
 
@@ -406,18 +406,18 @@ FisherMarvinAfterBattleText:
 	cont "ULTRA BALL."
 	done
 
-CamperSpencerSeenText:
+CamperSpencerSeenText: ; AUTOTRAD
 	text "I can do so much"
 	line "with my #MON--"
 	cont "it's super-fun!"
 	done
 
-CamperSpencerBeatenText:
+CamperSpencerBeatenText: ; AUTOTRAD
 	text "Losing isn't fun"
 	line "at all…"
 	done
 
-CamperSpencerAfterBattleText:
+CamperSpencerAfterBattleText: ; AUTOTRAD
 	text "What is going on"
 	line "at LAKE OF RAGE?"
 
@@ -425,7 +425,7 @@ CamperSpencerAfterBattleText:
 	line "to camp there."
 	done
 
-PicnickerTiffanySeenText:
+PicnickerTiffanySeenText: ; AUTOTRAD
 	text "Are you going to"
 	line "LAKE OF RAGE too?"
 
@@ -433,38 +433,38 @@ PicnickerTiffanySeenText:
 	line "little while!"
 	done
 
-PicnickerTiffanyBeatenText:
+PicnickerTiffanyBeatenText: ; AUTOTRAD
 	text "I played too much!"
 	done
 
-PicnickerTiffanyWantsPicnicText:
+PicnickerTiffanyWantsPicnicText: ; AUTOTRAD
 	text "I'm having a pic-"
 	line "nic with #MON."
 
 	para "Won't you join us?"
 	done
 
-PicnickerTiffanyClefairyText:
+PicnickerTiffanyClefairyText: ; AUTOTRAD
 	text "Isn't my CLEFAIRY"
 	line "just the most"
 	cont "adorable thing?"
 	done
 
-Route43Sign1Text:
+Route43Sign1Text: ; AUTOTRAD
 	text "ROUTE 43"
 
 	para "LAKE OF RAGE -"
 	line "MAHOGANY TOWN"
 	done
 
-Route43Sign2Text:
+Route43Sign2Text: ; AUTOTRAD
 	text "ROUTE 43"
 
 	para "LAKE OF RAGE -"
 	line "MAHOGANY TOWN"
 	done
 
-Route43TrainerTipsText:
+Route43TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "All #MON have"

@@ -161,7 +161,7 @@ SproutTower3FRivalLeavesElderMovement:
 	step DOWN
 	step_end
 
-SproutTowerElderLecturesRivalText:
+SproutTowerElderLecturesRivalText: ; AUTOTRAD
 	text "ELDER: You are in-"
 	line "deed skilled as a"
 	cont "trainer."
@@ -182,7 +182,7 @@ SproutTowerElderLecturesRivalText:
 	line "tools of war…"
 	done
 
-SproutTowerRivalOnlyCareAboutStrongText:
+SproutTowerRivalOnlyCareAboutStrongText: ; AUTOTRAD
 	text "…"
 	line "…Humph!"
 
@@ -208,12 +208,12 @@ SproutTowerRivalOnlyCareAboutStrongText:
 	cont "weak #MON."
 	done
 
-SproutTowerRivalUsedEscapeRopeText:
+SproutTowerRivalUsedEscapeRopeText: ; AUTOTRAD
 	text "<RIVAL> used an"
 	line "ESCAPE ROPE!"
 	done
 
-SageLiSeenText:
+SageLiSeenText: ; AUTOTRAD
 	text "So good of you to"
 	line "come here!"
 
@@ -236,11 +236,11 @@ SageLiSeenText:
 	line "you!"
 	done
 
-SageLiBeatenText:
+SageLiBeatenText: ; AUTOTRAD
 	text "Ah, excellent!"
 	done
 
-SageLiTakeThisFlashText:
+SageLiTakeThisFlashText: ; AUTOTRAD
 	text "You and your #-"
 	line "MON should have"
 
@@ -251,7 +251,7 @@ SageLiTakeThisFlashText:
 	line "HM."
 	done
 
-SageLiFlashExplanationText:
+SageLiFlashExplanationText: ; TO TRANSLATE
 	text "FLASH illuminates"
 	line "even the darkest"
 	cont "of all places."
@@ -270,24 +270,24 @@ SageLiFlashExplanationText:
 	line "to a #MON."
 	done
 
-SageLiAfterBattleText:
+SageLiAfterBattleText: ; AUTOTRAD
 	text "I hope you learn"
 	line "and grow from your"
 	cont "journey."
 	done
 
-SageJinSeenText:
+SageJinSeenText: ; AUTOTRAD
 	text "I train to find"
 	line "enlightenment in"
 	cont "#MON!"
 	done
 
-SageJinBeatenText:
+SageJinBeatenText: ; AUTOTRAD
 	text "My training is"
 	line "incomplete…"
 	done
 
-SageJinAfterBattleText:
+SageJinAfterBattleText: ; AUTOTRAD
 	text "As #MON grow"
 	line "stronger, so does"
 	cont "the trainer."
@@ -299,45 +299,45 @@ SageJinAfterBattleText:
 	line "the #MON."
 	done
 
-SageTroySeenText:
+SageTroySeenText: ; AUTOTRAD
 	text "Let me see how"
 	line "much you trust"
 	cont "your #MON."
 	done
 
-SageTroyBeatenText:
+SageTroyBeatenText: ; AUTOTRAD
 	text "Yes, your trust is"
 	line "real!"
 	done
 
-SageTroyAfterBattleText:
+SageTroyAfterBattleText: ; AUTOTRAD
 	text "It is not far to"
 	line "the ELDER."
 	done
 
-SageNealSeenText:
+SageNealSeenText: ; AUTOTRAD
 	text "The ELDER's HM"
 	line "lights even pitch-"
 	cont "black darkness."
 	done
 
-SageNealBeatenText:
+SageNealBeatenText: ; AUTOTRAD
 	text "It is my head that"
 	line "is bright!"
 	done
 
-SageNealAfterBattleText:
+SageNealAfterBattleText: ; AUTOTRAD
 	text "Let there be light"
 	line "on your journey."
 	done
 
-SproutTower3FPaintingText:
+SproutTower3FPaintingText: ; AUTOTRAD
 	text "It's a powerful"
 	line "painting of a"
 	cont "BELLSPROUT."
 	done
 
-SproutTower3FStatueText:
+SproutTower3FStatueText: ; AUTOTRAD
 	text "A #MON statue…"
 
 	para "It looks very"

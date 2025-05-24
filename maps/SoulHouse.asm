@@ -169,7 +169,7 @@ SoulHouseSurgeMovement:
 	slow_step DOWN
 	step_end
 
-MrFujiText:
+MrFujiText: ; AUTOTRAD
 	text "MR.FUJI: Welcome."
 
 	para "Hmm… You appear to"
@@ -194,7 +194,7 @@ MrFujiText:
 	line "make them happy."
 	done
 
-SoulHouseTeacherText:
+SoulHouseTeacherText: ; AUTOTRAD
 	text "There are other"
 	line "graves of #MON"
 	cont "here, I think."
@@ -204,13 +204,13 @@ SoulHouseTeacherText:
 	cont "MR.FUJI may enter."
 	done
 
-SoulHouseLassText:
+SoulHouseLassText: ; AUTOTRAD
 	text "I came with my mom"
 	line "to visit #MON"
 	cont "graves…"
 	done
 
-SoulHouseGrannyText:
+SoulHouseGrannyText: ; AUTOTRAD
 	text "The #MON that"
 	line "lived with me…"
 
@@ -218,23 +218,23 @@ SoulHouseGrannyText:
 	line "my grandchildren…"
 	done
 
-AmphyText:
+AmphyText: ; TO TRANSLATE
 	text "“Forgive me”"
 
 	para "AMPHY"
 	done
 
-MoomooText:
+MoomooText: ; TO TRANSLATE
 	text "Here lies the"
 	line "beloved"
 	cont "MOOMOO."
 	done
 
-SoulHouseJasmineSobsText:
+SoulHouseJasmineSobsText: ; TO TRANSLATE
 	text "JASMINE: (sob)"
 	done
 
-SoulHouseFujiAmphyText:
+SoulHouseFujiAmphyText: ; TO TRANSLATE
 	text "MR.FUJI: She needs"
 	line "time to mourn."
 
@@ -248,7 +248,7 @@ SoulHouseFujiAmphyText:
 	cont "next door."
 	done
 
-SoulHouseFujiAmphy2Text:
+SoulHouseFujiAmphy2Text: ; TO TRANSLATE
 	text "JASMINE resides"
 	line "at my place for"
 	cont "the time being."
@@ -260,7 +260,7 @@ SoulHouseFujiAmphy2Text:
 	cont "support."
 	done
 
-SoulHouseLoreleiText:
+SoulHouseLoreleiText: ; TO TRANSLATE
 	text "LORELEI: I've been"
 	line "coming to this"
 	cont "place too often"
@@ -270,7 +270,7 @@ SoulHouseLoreleiText:
 	line "gone too soon…"
 	done
 
-SoulHouseSurgeText:
+SoulHouseSurgeText: ; TO TRANSLATE
 	text "SURGE: Back when"
 	line "I was a brat,"
 	
@@ -285,7 +285,7 @@ SoulHouseSurgeText:
 	cont "the POWER PLANT."
 	done
 
-SoulHouseFullAntonFamilyText:
+SoulHouseFullAntonFamilyText: ; TO TRANSLATE
 	text "“Founder of the"
 	line "RARE CANDY"
 	cont "factory”"
@@ -293,21 +293,21 @@ SoulHouseFullAntonFamilyText:
 	para "MR.ANTON"
 	done
 
-SoulHouseAntonsWifeOnlyText:
+SoulHouseAntonsWifeOnlyText: ; TO TRANSLATE
 	text "“You will be"
 	line "remembered”"
 
 	para "MRS.ANTON"
 	done
 
-AgathasGraveText:
+AgathasGraveText: ; TO TRANSLATE
 	text "“She is one with"
 	line "her GHOST #MON”"
 
 	para "ELITE 4 AGATHA"
 	done
 
-RedsGraveText:
+RedsGraveText: ; TO TRANSLATE
 	text "“...”"
 
 	para "CHAMPION RED"

@@ -147,16 +147,16 @@ ShuckieHappyJump4:
 	jump_step DOWN
 	step_end
 
-ShuckieBeforeText:
+ShuckieBeforeText: ; TO TRANSLATE
 	text "SHUCKIE: Uuuck?"
 	done
 
-ShuckieAfterText:
+ShuckieAfterText: ; TO TRANSLATE
 	text "SHUCKIE: Shuuuuuu-"
 	line "uuuuuuuuuuuuuuuck!"
 	done
 
-ManiaText_AskLookAfterShuckle:
+ManiaText_AskLookAfterShuckle: ; AUTOTRAD
 	text "I, I'm in shock!"
 
 	para "A guy about your"
@@ -180,7 +180,7 @@ ManiaText_AskLookAfterShuckle:
 	line "for a while?"
 	done
 
-ManiaText_TakeCareOfShuckle:
+ManiaText_TakeCareOfShuckle: ; TO TRANSLATE
 	text "Oh, thank you!"
 
 	para "Take good care of"
@@ -192,18 +192,18 @@ ManiaText_GotShuckle::
 	line "#MON."
 	done
 
-ManiaText_PartyFull:
+ManiaText_PartyFull: ; AUTOTRAD
 	text "Your #MON party"
 	line "is full."
 	done
 
-ManiaText_IfHeComesBack:
+ManiaText_IfHeComesBack: ; AUTOTRAD
 	text "Oh, no… What'll"
 	line "I do if he comes"
 	cont "back?"
 	done
 
-ManiaText_CanIHaveMyMonBack:
+ManiaText_CanIHaveMyMonBack: ; TO TRANSLATE
 	text "Hi! How's my"
 	line "SHUCKIE?"
 
@@ -212,16 +212,16 @@ ManiaText_CanIHaveMyMonBack:
 	cont "it back?"
 	done
 
-ManiaText_ThankYou:
+ManiaText_ThankYou: ; AUTOTRAD
 	text "Thank you!"
 	done
 
-ManiaText_ShuckleNotThere:
+ManiaText_ShuckleNotThere: ; TO TRANSLATE
 	text "Hey, that's not"
 	line "my SHUCKIE!"
 	done
 
-ManiaText_ShuckleLikesYou:
+ManiaText_ShuckleLikesYou: ; AUTOTRAD
 	text "My #MON has"
 	line "come to like you."
 
@@ -232,13 +232,13 @@ ManiaText_ShuckleLikesYou:
 	line "be good to it!"
 	done
 
-ManiaText_SameAsBeingRobbed:
+ManiaText_SameAsBeingRobbed: ; AUTOTRAD
 	text "Oh, no, no… That's"
 	line "the same as being"
 	cont "robbed."
 	done
 
-ManiaText_HappinessSpeech:
+ManiaText_HappinessSpeech: ; AUTOTRAD
 	text "For #MON, hap-"
 	line "piness is being"
 
@@ -246,7 +246,7 @@ ManiaText_HappinessSpeech:
 	line "treats them well."
 	done
 
-ManiaText_ShuckleIsYourLastMon:
+ManiaText_ShuckleIsYourLastMon: ; AUTOTRAD
 	text "If I take my #-"
 	line "MON back, what are"
 

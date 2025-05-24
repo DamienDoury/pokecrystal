@@ -221,7 +221,7 @@ MahoganyGymStatue:
 	gettrainername STRING_BUFFER_4, PRYCE, PRYCE1
 	jumpstd GymStatue2Script
 
-PryceSleepingText:
+PryceSleepingText: ; TO TRANSLATE
 	text "…"
 
 	para "Uh?"
@@ -230,7 +230,7 @@ PryceSleepingText:
 	line "…"
 	done
 
-PryceText_Intro:
+PryceText_Intro: ; TO TRANSLATE
 	text "#MON have many"
 	line "experiences in"
 
@@ -279,7 +279,7 @@ MahoganyGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-PryceText_Impressed:
+PryceText_Impressed: ; AUTOTRAD
 	text "Ah, I am impressed"
 	line "by your prowess."
 
@@ -293,23 +293,23 @@ PryceText_Impressed:
 	line "this BADGE!"
 	done
 
-Text_ReceivedGlacierBadge:
+Text_ReceivedGlacierBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "GLACIERBADGE."
 	done
 
-PryceText_GlacierBadgeSpeech:
+PryceText_GlacierBadgeSpeech: ; TO TRANSLATE
 	text "This BADGE got"
 	line "you prepared for"
 	cont "the ICE PATH."
 	done
 
-PryceText_GlacierBadgeSpeech2:
+PryceText_GlacierBadgeSpeech2: ; TO TRANSLATE
 	text "And this… This is"
 	line "a gift from me!"
 	done
 
-PryceText_IcyWindSpeech:
+PryceText_IcyWindSpeech: ; AUTOTRAD
 	text "That TM contains"
 	line "ICY WIND."
 
@@ -321,7 +321,7 @@ PryceText_IcyWindSpeech:
 	cont "winter."
 	done
 
-PryceText_CherishYourPokemon:
+PryceText_CherishYourPokemon: ; AUTOTRAD
 	text "When the ice and"
 	line "snow melt, spring"
 	cont "arrives."
@@ -336,18 +336,18 @@ PryceText_CherishYourPokemon:
 	line "together!"
 	done
 
-BoarderRonaldSeenText:
+BoarderRonaldSeenText: ; AUTOTRAD
 	text "I'll freeze your"
 	line "#MON, so you"
 	cont "can't do a thing!"
 	done
 
-BoarderRonaldBeatenText:
+BoarderRonaldBeatenText: ; AUTOTRAD
 	text "Darn. I couldn't"
 	line "do a thing."
 	done
 
-BoarderRonaldAfterBattleText:
+BoarderRonaldAfterBattleText: ; AUTOTRAD
 	text "I think there's a"
 	line "move a #MON"
 
@@ -355,7 +355,7 @@ BoarderRonaldAfterBattleText:
 	line "frozen."
 	done
 
-BoarderBradSeenText:
+BoarderBradSeenText: ; AUTOTRAD
 	text "This GYM has a"
 	line "slippery floor."
 
@@ -367,28 +367,28 @@ BoarderBradSeenText:
 	cont "here!"
 	done
 
-BoarderBradBeatenText:
+BoarderBradBeatenText: ; AUTOTRAD
 	text "Do you see how"
 	line "serious we are?"
 	done
 
-BoarderBradAfterBattleText:
+BoarderBradAfterBattleText: ; AUTOTRAD
 	text "This GYM is great."
 	line "I love boarding"
 	cont "with my #MON!"
 	done
 
-BoarderDouglasSeenText:
+BoarderDouglasSeenText: ; AUTOTRAD
 	text "I know PRYCE's"
 	line "secret."
 	done
 
-BoarderDouglasBeatenText:
+BoarderDouglasBeatenText: ; AUTOTRAD
 	text "OK. I'll tell you"
 	line "PRYCE's secret."
 	done
 
-BoarderDouglasAfterBattleText:
+BoarderDouglasAfterBattleText: ; AUTOTRAD
 	text "The secret behind"
 	line "PRYCE's power…"
 
@@ -399,7 +399,7 @@ BoarderDouglasAfterBattleText:
 	line "mind and body."
 	done
 
-SkierRoxanneSeenText:
+SkierRoxanneSeenText: ; AUTOTRAD
 	text "To get to PRYCE,"
 	line "our GYM LEADER,"
 
@@ -407,12 +407,12 @@ SkierRoxanneSeenText:
 	line "before you skate."
 	done
 
-SkierRoxanneBeatenText:
+SkierRoxanneBeatenText: ; AUTOTRAD
 	text "I wouldn't lose to"
 	line "you in skiing!"
 	done
 
-SkierRoxanneAfterBattleText:
+SkierRoxanneAfterBattleText: ; AUTOTRAD
 	text "If you don't skate"
 	line "with precision,"
 
@@ -420,23 +420,23 @@ SkierRoxanneAfterBattleText:
 	line "in this GYM."
 	done
 
-SkierClarissaSeenText:
+SkierClarissaSeenText: ; AUTOTRAD
 	text "Check out my"
 	line "parallel turn!"
 	done
 
-SkierClarissaBeatenText:
+SkierClarissaBeatenText: ; AUTOTRAD
 	text "No! You made me"
 	line "wipe out!"
 	done
 
-SkierClarissaAfterBattleText:
+SkierClarissaAfterBattleText: ; AUTOTRAD
 	text "I shouldn't have"
 	line "been bragging"
 	cont "about my skiing…"
 	done
 
-MahoganyGymGuideText:
+MahoganyGymGuideText: ; AUTOTRAD
 	text "PRYCE is a veteran"
 	line "who has trained"
 
@@ -456,7 +456,7 @@ MahoganyGymGuideText:
 	line "ambition!"
 	done
 
-MahoganyGymGuideWinText:
+MahoganyGymGuideWinText: ; AUTOTRAD
 	text "PRYCE is some-"
 	line "thing, but you're"
 	cont "something else!"

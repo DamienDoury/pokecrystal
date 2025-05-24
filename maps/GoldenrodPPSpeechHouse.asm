@@ -51,7 +51,7 @@ GoldenrodPPSpeechHouseBookshelf1:
 GoldenrodPPSpeechHouseRadio:
 	jumpstd Radio2Script
 
-GoldenrodPPSpeechHouseFisherText:
+GoldenrodPPSpeechHouseFisherText: ; AUTOTRAD
 	text "Once while I was"
 	line "battling, my"
 
@@ -65,7 +65,7 @@ GoldenrodPPSpeechHouseFisherText:
 	line "gone."
 	done
 
-GoldenrodPPSpeechHouseLassText:
+GoldenrodPPSpeechHouseLassText: ; AUTOTRAD
 	text "Sometimes, a"
 	line "healthy #MON"
 
@@ -78,14 +78,14 @@ GoldenrodPPSpeechHouseLassText:
 	cont "an item."
 	done
 
-GoldenrodPPSpeechHouseLassLockdownText:
+GoldenrodPPSpeechHouseLassLockdownText: ; TO TRANSLATE
 	text "Video calls are"
 	line "weird. I'll need"
 	cont "time to get used"
 	cont "to it."
 	done 
 
-GoldenrodPPSpeechHouseComputerText:
+GoldenrodPPSpeechHouseComputerText: ; TO TRANSLATE
 	text "A video call with"
 	line "a person wearing a"
 	cont "shirt and a tie."

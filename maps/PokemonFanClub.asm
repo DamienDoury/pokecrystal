@@ -118,7 +118,7 @@ PokemonFanClubListenSign:
 PokemonFanClubBraggingSign:
 	jumptext PokemonFanClubBraggingSignText
 
-PokemonFanClubChairmanDidYouVisitToHearAboutMyMonText:
+PokemonFanClubChairmanDidYouVisitToHearAboutMyMonText: ; AUTOTRAD
 	text "I'm the CHAIRMAN"
 	line "of the #MON FAN"
 	cont "CLUB."
@@ -135,7 +135,7 @@ PokemonFanClubChairmanDidYouVisitToHearAboutMyMonText:
 	cont "#MON?"
 	done
 
-PokemonFanClubChairmanRapidashText:
+PokemonFanClubChairmanRapidashText: ; AUTOTRAD
 	text "Good!"
 	line "Then listen up!"
 
@@ -161,13 +161,13 @@ PokemonFanClubChairmanRapidashText:
 	cont "you too long!"
 	done
 
-PokemonFanClubChairmanIWantYouToHaveThisText:
+PokemonFanClubChairmanIWantYouToHaveThisText: ; AUTOTRAD
 	text "Thanks for hearing"
 	line "me out. I want you"
 	cont "to have this!"
 	done
 
-PokemonFanClubChairmanItsARareCandyText:
+PokemonFanClubChairmanItsARareCandyText: ; AUTOTRAD
 	text "It's a RARE CANDY"
 	line "that makes #MON"
 	cont "stronger."
@@ -179,7 +179,7 @@ PokemonFanClubChairmanItsARareCandyText:
 	line "you can have it."
 	done
 
-PokemonFanClubChairmanMoreTalesToTellText:
+PokemonFanClubChairmanMoreTalesToTellText: ; AUTOTRAD
 	text "Hello, <PLAY_G>!"
 
 	para "Did you come see"
@@ -190,20 +190,20 @@ PokemonFanClubChairmanMoreTalesToTellText:
 	line "tales to tell…"
 	done
 
-PokemonFanClubChairmanHowDisappointingText:
+PokemonFanClubChairmanHowDisappointingText: ; AUTOTRAD
 	text "How disappointing…"
 
 	para "Come back if you"
 	line "want to listen."
 	done
 
-PokemonFanClubReceptionistText:
+PokemonFanClubReceptionistText: ; AUTOTRAD
 	text "Our CHAIRMAN is"
 	line "very vocal when it"
 	cont "comes to #MON…"
 	done
 
-PokemonFanClubClefairyGuyClefairyIsSoAdorableText:
+PokemonFanClubClefairyGuyClefairyIsSoAdorableText: ; AUTOTRAD
 	text "I love the way"
 	line "CLEFAIRY waggles"
 
@@ -214,7 +214,7 @@ PokemonFanClubClefairyGuyClefairyIsSoAdorableText:
 	line "It's so adorable!"
 	done
 
-PokemonFanClubClefairyGuyMakingDoWithADollIFoundText:
+PokemonFanClubClefairyGuyMakingDoWithADollIFoundText: ; AUTOTRAD
 	text "I love CLEFAIRY,"
 	line "but I could never"
 
@@ -225,7 +225,7 @@ PokemonFanClubClefairyGuyMakingDoWithADollIFoundText:
 	line "found."
 	done
 
-PokemonFanClubClefairyGuyTakeThisDollBackToGirlText:
+PokemonFanClubClefairyGuyTakeThisDollBackToGirlText: ; AUTOTRAD
 	text "Oh, I see now. The"
 	line "girl who lost this"
 
@@ -244,12 +244,12 @@ PokemonFanClubClefairyGuyTakeThisDollBackToGirlText:
 	line "No worries!"
 	done
 
-PokemonFanClubPlayerReceivedDollText:
+PokemonFanClubPlayerReceivedDollText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "# DOLL."
 	done
 
-PokemonFanClubClefairyGuyGoingToGetARealClefairyText:
+PokemonFanClubClefairyGuyGoingToGetARealClefairyText: ; AUTOTRAD
 	text "You watch. I'm"
 	line "going to get a"
 
@@ -257,12 +257,12 @@ PokemonFanClubClefairyGuyGoingToGetARealClefairyText:
 	line "my friend."
 	done
 
-PokemonFanClubClefairyGuyPackIsJammedFullText:
+PokemonFanClubClefairyGuyPackIsJammedFullText: ; AUTOTRAD
 	text "Your PACK is"
 	line "jammed full."
 	done
 
-PokemonFanClubTeacherText:
+PokemonFanClubTeacherText: ; TO TRANSLATE
 	text "Look at my darling"
 	line "CHIKORITA!"
 
@@ -270,7 +270,7 @@ PokemonFanClubTeacherText:
 	line "head is so cute!"
 	done
 
-PokemonFanClubClefairyDollText:
+PokemonFanClubClefairyDollText: ; AUTOTRAD
 	text "It's a CLEFAIRY!"
 	line "Huh?"
 
@@ -279,18 +279,18 @@ PokemonFanClubClefairyDollText:
 	cont "DOLL."
 	done
 
-PokemonFanClubChikoritaText:
+PokemonFanClubChikoritaText: ; TO TRANSLATE
 	text "CHIKORITA: Chi"
 	line "chiii!"
 	done
 
-PokemonFanClubListenSignText:
+PokemonFanClubListenSignText: ; AUTOTRAD
 	text "Let's all listen"
 	line "politely to other"
 	cont "trainers."
 	done
 
-PokemonFanClubBraggingSignText:
+PokemonFanClubBraggingSignText: ; AUTOTRAD
 	text "If someone brags,"
 	line "brag right back!"
 	done

@@ -28,7 +28,7 @@ CherrygroveEvolutionSpeechHouseLassScript:
 CherrygroveEvolutionSpeechHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-CherrygroveEvolutionSpeechHouseYoungsterText:
+CherrygroveEvolutionSpeechHouseYoungsterText: ; AUTOTRAD
 	text "#MON gain expe-"
 	line "rience in battle"
 
@@ -36,7 +36,7 @@ CherrygroveEvolutionSpeechHouseYoungsterText:
 	line "form."
 	done
 
-CherrygroveEvolutionSpeechHouseLassText:
+CherrygroveEvolutionSpeechHouseLassText: ; AUTOTRAD
 	text "#MON change?"
 
 	para "I would be shocked"

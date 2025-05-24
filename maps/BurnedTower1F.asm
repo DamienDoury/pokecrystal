@@ -155,7 +155,7 @@ BurnedTower1FEusineMovement:
 	step DOWN
 	step_end
 
-BurnedTowerSilver_BeforeText:
+BurnedTowerSilver_BeforeText: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "…Oh, it's you."
@@ -179,7 +179,7 @@ BurnedTowerSilver_BeforeText:
 	line "fault!"
 	done
 
-BurnedTowerSilver_WinText:
+BurnedTowerSilver_WinText: ; AUTOTRAD
 	text "…Humph!"
 
 	para "This is why I hate"
@@ -189,7 +189,7 @@ BurnedTowerSilver_WinText:
 	line "challenge in it."
 	done
 
-BurnedTowerSilver_AfterText1:
+BurnedTowerSilver_AfterText1: ; AUTOTRAD
 	text "…Aw, whatever."
 
 	para "You would never be"
@@ -199,7 +199,7 @@ BurnedTowerSilver_AfterText1:
 	line "anyway."
 	done
 
-BurnedTowerSilver_LossText:
+BurnedTowerSilver_LossText: ; AUTOTRAD
 	text "…Humph!"
 
 	para "This is why I hate"
@@ -209,7 +209,7 @@ BurnedTowerSilver_LossText:
 	line "of my time."
 	done
 
-BurnedTowerSilver_AfterText2:
+BurnedTowerSilver_AfterText2: ; AUTOTRAD
 	text "Humph!"
 
 	para "What are you doing"
@@ -221,7 +221,7 @@ BurnedTowerSilver_AfterText2:
 	para "Serves you right!"
 	done
 
-BurnedTower1FEusineIntroText:
+BurnedTower1FEusineIntroText: ; AUTOTRAD
 	text "EUSINE: My name's"
 	line "EUSINE."
 
@@ -244,7 +244,7 @@ BurnedTower1FEusineIntroText:
 	line "could it be?"
 	done
 
-BurnedTower1FEusineText:
+BurnedTower1FEusineText: ; AUTOTRAD
 	text "EUSINE: I heard"
 	line "that SUICUNE is in"
 
@@ -255,7 +255,7 @@ BurnedTower1FEusineText:
 	line "could it be?"
 	done
 
-BurnedTower1FMortyText:
+BurnedTower1FMortyText: ; AUTOTRAD
 	text "MORTY: ECRUTEAK's"
 	line "GYM LEADER has to"
 

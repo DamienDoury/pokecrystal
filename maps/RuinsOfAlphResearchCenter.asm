@@ -181,7 +181,7 @@ RuinsOfAlphResearchCenterLeavesPlayerMovement:
 	turn_head UP
 	step_end
 
-RuinsOfAlphResearchCenterModifiedDexText:
+RuinsOfAlphResearchCenterModifiedDexText: ; AUTOTRAD
 	text "Done!"
 
 	para "I modified your"
@@ -198,12 +198,12 @@ RuinsOfAlphResearchCenterModifiedDexText:
 	cont "they were caught."
 	done
 
-RuinsOfAlphResearchCenterDexUpgradedText:
+RuinsOfAlphResearchCenterDexUpgradedText: ; AUTOTRAD
 	text "<PLAYER>'s #DEX"
 	line "was upgraded."
 	done
 
-RuinsOfAlphResearchCenterScientist3Text:
+RuinsOfAlphResearchCenterScientist3Text: ; AUTOTRAD
 	text "The UNOWN you"
 	line "catch will all be"
 	cont "recorded."
@@ -212,7 +212,7 @@ RuinsOfAlphResearchCenterScientist3Text:
 	line "many kinds exist."
 	done
 
-RuinsOfAlphResearchCenterScientist3_PrinterAvailable:
+RuinsOfAlphResearchCenterScientist3_PrinterAvailable: ; AUTOTRAD
 	text "You caught all the"
 	line "UNOWN variations?"
 
@@ -227,7 +227,7 @@ RuinsOfAlphResearchCenterScientist3_PrinterAvailable:
 	line "it anytime."
 	done
 
-RuinsOfAlphResearchCenterScientist1Text:
+RuinsOfAlphResearchCenterScientist1Text: ; AUTOTRAD
 	text "The RUINS are"
 	line "about 1500 years"
 	cont "old."
@@ -237,13 +237,13 @@ RuinsOfAlphResearchCenterScientist1Text:
 	cont "built--or by whom."
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_GotUnownDex:
+RuinsOfAlphResearchCenterScientist1Text_GotUnownDex: ; AUTOTRAD
 	text "I wonder how many"
 	line "kinds of #MON"
 	cont "are in the RUINS?"
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_UnownAppeared:
+RuinsOfAlphResearchCenterScientist1Text_UnownAppeared: ; AUTOTRAD
 	text "#MON appeared"
 	line "in the RUINS?"
 
@@ -254,7 +254,7 @@ RuinsOfAlphResearchCenterScientist1Text_UnownAppeared:
 	line "investigate this."
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
+RuinsOfAlphResearchCenterScientist1Text_GotAllUnown: ; AUTOTRAD
 	text "Our investigation,"
 	line "with your help, is"
 
@@ -268,7 +268,7 @@ RuinsOfAlphResearchCenterScientist1Text_GotAllUnown:
 	line "#MON."
 	done
 
-RuinsOfAlphResearchCenterScientist2Text:
+RuinsOfAlphResearchCenterScientist2Text: ; AUTOTRAD
 	text "There are odd pat-"
 	line "terns drawn on the"
 
@@ -281,7 +281,7 @@ RuinsOfAlphResearchCenterScientist2Text:
 	cont "of the RUINS."
 	done
 
-RuinsOfAlphResearchCenterScientist2Text_UnownAppeared:
+RuinsOfAlphResearchCenterScientist2Text_UnownAppeared: ; AUTOTRAD
 	text "The strange #-"
 	line "MON you saw in the"
 	cont "RUINS?"
@@ -327,7 +327,7 @@ RuinsOfAlphResearchCenterUnusedText2: ; unreferenced
 	line "link…"
 	done
 
-RuinsOfAlphResearchCenterScientist2Text_GotAllUnown:
+RuinsOfAlphResearchCenterScientist2Text_GotAllUnown: ; AUTOTRAD
 	text "Why did those"
 	line "ancient patterns"
 
@@ -338,14 +338,14 @@ RuinsOfAlphResearchCenterScientist2Text_GotAllUnown:
 	line "deepens…"
 	done
 
-RuinsOfAlphResearchCenterComputerText:
+RuinsOfAlphResearchCenterComputerText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 
 	para "Exploration"
 	line "Year 10"
 	done
 
-RuinsOfAlphResearchCenterComputerText_GotAllUnown:
+RuinsOfAlphResearchCenterComputerText_GotAllUnown: ; AUTOTRAD
 	text "Mystery #MON"
 	line "Name: UNOWN"
 
@@ -353,17 +353,17 @@ RuinsOfAlphResearchCenterComputerText_GotAllUnown:
 	line "kinds found."
 	done
 
-RuinsOfAlphResearchCenterPrinterText_DoesntWork:
+RuinsOfAlphResearchCenterPrinterText_DoesntWork: ; AUTOTRAD
 	text "This doesn't seem"
 	line "to work yet."
 	done
 
-RuinsOfAlphResearchCenterUnownPrinterText:
+RuinsOfAlphResearchCenterUnownPrinterText: ; AUTOTRAD
 	text "UNOWN may be"
 	line "printed out."
 	done
 
-RuinsOfAlphResearchCenterProfSilktreePhotoText:
+RuinsOfAlphResearchCenterProfSilktreePhotoText: ; AUTOTRAD
 	text "It's a photo of"
 	line "the RESEARCH"
 
@@ -371,7 +371,7 @@ RuinsOfAlphResearchCenterProfSilktreePhotoText:
 	line "PROF.SILKTREE."
 	done
 
-RuinsOfAlphResearchCenterAcademicBooksText:
+RuinsOfAlphResearchCenterAcademicBooksText: ; AUTOTRAD
 	text "There are many"
 	line "academic books."
 

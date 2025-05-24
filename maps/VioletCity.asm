@@ -400,7 +400,7 @@ VioletCityElmsAideDown:
 	step_end
 
 
-Text_EarlAsksIfYouBeatFalkner:
+Text_EarlAsksIfYouBeatFalkner: ; AUTOTRAD
 	text "Hello!"
 	line "You are trainer?"
 
@@ -408,31 +408,31 @@ Text_EarlAsksIfYouBeatFalkner:
 	line "win you did?"
 	done
 
-Text_VeryNiceIndeed:
+Text_VeryNiceIndeed: ; AUTOTRAD
 	text "Ooh, la la!"
 	line "Very indeed nice!"
 	done
 
-Text_FollowEarl:
+Text_FollowEarl: ; AUTOTRAD
 	text "Is that so? Then"
 	line "study shall you!"
 	cont "Follow me!"
 	done
 
-Text_HereTeacherIAm:
+Text_HereTeacherIAm: ; AUTOTRAD
 	text "Here, teacher I"
 	line "am. Good it is"
 	cont "you study here!"
 	done
 
-VioletCityLassText:
+VioletCityLassText: ; TO TRANSLATE
 	text "It is said that"
 	line "COVID makes you"
 	cont "lose your sense"
 	cont "of smell."
 	done
 
-VioletCityLassText2:
+VioletCityLassText2: ; TO TRANSLATE
 	text "The original"
 	line "strain of COVID-19"
 	cont "made you lose your"
@@ -442,7 +442,7 @@ VioletCityLassText2:
 	line "are unlikely."
 	done
 
-VioletCitySuperNerdText:
+VioletCitySuperNerdText: ; TO TRANSLATE
 	text "It's easier to"
 	line "learn from a"
 	
@@ -462,7 +462,7 @@ VioletCitySuperNerdText:
 	cont "in your party."
 	done
 
-VioletCityGrampsText:
+VioletCityGrampsText: ; AUTOTRAD
 	text "FALKNER, from the"
 	line "VIOLET #MON"
 
@@ -476,7 +476,7 @@ VioletCityGrampsText:
 	line "job with it."
 	done
 
-VioletCityYoungsterText:
+VioletCityYoungsterText: ; AUTOTRAD
 	text "I saw a wiggly"
 	line "tree up ahead!"
 
@@ -485,14 +485,14 @@ VioletCityYoungsterText:
 	cont "dances! Cool!"
 	done
 
-VioletCitySignText:
+VioletCitySignText: ; AUTOTRAD
 	text "VIOLET CITY"
 
 	para "The City of"
 	line "Nostalgic Scents"
 	done
 
-VioletGymSignText:
+VioletGymSignText: ; AUTOTRAD
 	text "VIOLET CITY"
 	line "#MON GYM"
 	cont "LEADER: FALKNER"
@@ -501,25 +501,25 @@ VioletGymSignText:
 	line "of Flying #MON"
 	done
 
-SproutTowerSignText:
+SproutTowerSignText: ; AUTOTRAD
 	text "SPROUT TOWER"
 
 	para "Experience the"
 	line "Way of #MON"
 	done
 
-EarlsPokemonAcademySignText:
+EarlsPokemonAcademySignText: ; AUTOTRAD
 	text "EARL'S #MON"
 	line "ACADEMY"
 	done
 
-LockdownNPC1Text:
+LockdownNPC1Text: ; TO TRANSLATE
 	text "Please go on line"
 	line "and wait for your"
 	cont "turn."
 	done
 
-LockdownNPC3Text:
+LockdownNPC3Text: ; TO TRANSLATE
 	text "I am glad every-"
 	line "one respects the"
 
@@ -527,7 +527,7 @@ LockdownNPC3Text:
 	line "a good education."
 	done
 
-LockdownNPC4Text:
+LockdownNPC4Text: ; TO TRANSLATE
 	text "This queue is not"
 	line "getting shorter!"
 
@@ -537,7 +537,7 @@ LockdownNPC4Text:
 	line "the queue soon!"
 	done
 
-VioletCity_ClosedSchoolText:
+VioletCity_ClosedSchoolText: ; TO TRANSLATE
 	text "There's a notice"
 	line "on the door…"
 	
@@ -559,16 +559,16 @@ VioletCity_ClosedSchoolText:
 
 
 
-VioletCityElmsAide_CallText:
+VioletCityElmsAide_CallText: ; TO TRANSLATE
 	text "<PLAYER>!"
 	done
 
-VioletCityElmsAide_ProfElmSentMeText:
+VioletCityElmsAide_ProfElmSentMeText: ; TO TRANSLATE
 	text "PROF.ELM sent me"
 	line "after you."
 	done
 
-VioletCityElmsAide_NothingBeatenText:
+VioletCityElmsAide_NothingBeatenText: ; TO TRANSLATE
 	text "Already leaving"
 	line "VIOLET CITY?"
 
@@ -578,7 +578,7 @@ VioletCityElmsAide_NothingBeatenText:
 	line "challenge FALKNER."
 	done
 
-VioletCityElmsAide_FailedAgainstFalknerText:
+VioletCityElmsAide_FailedAgainstFalknerText: ; TO TRANSLATE
 	text "You couldn't beat"
 	line "FALKNER, hey?"
 
@@ -586,13 +586,13 @@ VioletCityElmsAide_FailedAgainstFalknerText:
 	line "about it."
 	done
 
-VioletCityElmsAide_FalknerBeatenText:
+VioletCityElmsAide_FalknerBeatenText: ; TO TRANSLATE
 	text "You have beaten"
 	line "FALKNER, that's…"
 	cont "That's impressive!"
 	done
 
-VioletCityElmsAide_VisitSproutTowerText:
+VioletCityElmsAide_VisitSproutTowerText: ; TO TRANSLATE
 	text "You could make"
 	line "short work of"
 	
@@ -600,7 +600,7 @@ VioletCityElmsAide_VisitSproutTowerText:
 	line "that's for sure!"
 	done
 	
-VioletCityElmsAide_SproutBeatenText:
+VioletCityElmsAide_SproutBeatenText: ; TO TRANSLATE
 	text "Finally found you!"
 	
 	para "Now that you have"
@@ -608,13 +608,13 @@ VioletCityElmsAide_SproutBeatenText:
 	cont "SPROUT TOWER,"
 	done
 
-VioletCityElmsAide_OnlySproutBeatenText:
+VioletCityElmsAide_OnlySproutBeatenText: ; TO TRANSLATE
 	text "you may want to"
 	line "challenge this"
 	cont "city's GYM LEADER."
 	done
 
-VioletCityElmsAide_SurprisedText:
+VioletCityElmsAide_SurprisedText: ; TO TRANSLATE
 	text "I'm surprised you"
 	line "haven't taken"
 	cont "FALKNER down."
@@ -624,7 +624,7 @@ VioletCityElmsAide_SurprisedText:
 
 	
 	
-VioletCityElmsAide_DontBeatFalknerText:
+VioletCityElmsAide_DontBeatFalknerText: ; TO TRANSLATE
 	text "Here is a personal"
 	line "advice: don't spend"
 	cont "too much time on"
@@ -640,7 +640,7 @@ VioletCityElmsAide_DontBeatFalknerText:
 	cont "PROF.ELM."
 	done
 
-VioletCityElmsAide_GiveMaskText:
+VioletCityElmsAide_GiveMaskText: ; TO TRANSLATE
 	text "I was sent after"
 	line "you, because ELM"
 	
@@ -651,7 +651,7 @@ VioletCityElmsAide_GiveMaskText:
 	line "a FACE MASK!"
 	done
 
-VioletCityElmsAide_ByeText:	
+VioletCityElmsAide_ByeText: ; TO TRANSLATE
 	text "Acting early with"
 	line "strong measures is"
 	

@@ -115,7 +115,7 @@ GotBadgeNoTrainerCard:
 .end
 	end
 
-.text
+.text ; TO TRANSLATE
 	text "Oh, you don't have"
 	line "your TRAINER CARD?"
 
@@ -240,14 +240,14 @@ Route24FightRightMovement:
 	step_end
 
 ; Couple 1)
-Route24Trainer1SeenText:
+Route24Trainer1SeenText: ; TO TRANSLATE
 	text "Forcing me to get"
 	line "vaccinated goes"
 	cont "against my"
 	cont "freedom!"
 	done
 
-Route24Trainer1BeatenText:
+Route24Trainer1BeatenText: ; TO TRANSLATE
 	text "I'm not telling you"
 	line "to not get"
 	cont "vaccinated, so"
@@ -256,14 +256,14 @@ Route24Trainer1BeatenText:
 	line "get vaccinated!"
 	done
 
-Route24Trainer2SeenText:
+Route24Trainer2SeenText: ; TO TRANSLATE
 	text "Getting vaccinated"
 	line "is not a right."
 
 	para "It's a duty!"
 	done
 
-Route24Trainer2BeatenText:
+Route24Trainer2BeatenText: ; TO TRANSLATE
 	text "This pandemic won't"
 	line "stop by itself,"
 	
@@ -272,7 +272,7 @@ Route24Trainer2BeatenText:
 	done
 	
 ; Couple 2)
-Route24Trainer3SeenText:
+Route24Trainer3SeenText: ; TO TRANSLATE
 	text "You got vaccinated"
 	line "against other"
 	cont "diseases,"
@@ -282,7 +282,7 @@ Route24Trainer3SeenText:
 	cont "time?"
 	done
 
-Route24Trainer3BeatenText:
+Route24Trainer3BeatenText: ; TO TRANSLATE
 	text "If our health"
 	line "researchers say"
 	
@@ -294,7 +294,7 @@ Route24Trainer3BeatenText:
 	cont "you and I!"
 	done
 
-Route24Trainer4SeenText:
+Route24Trainer4SeenText: ; TO TRANSLATE
 	text "This vaccine has"
 	line "not been tested"
 	cont "thoroughly enough!"
@@ -304,7 +304,7 @@ Route24Trainer4SeenText:
 	cont "the long term!"
 	done
 	
-Route24Trainer4BeatenText:
+Route24Trainer4BeatenText: ; TO TRANSLATE
 	text "How could this"
 	line "vaccine get appro-"
 	cont "ved within months"
@@ -315,7 +315,7 @@ Route24Trainer4BeatenText:
 	done
 
 ; Couple 3)
-Route24Trainer5SeenText:
+Route24Trainer5SeenText: ; TO TRANSLATE
 	text "Studies show the"
 	line "vaccine has high"
 	cont "odds of giving you"
@@ -323,7 +323,7 @@ Route24Trainer5SeenText:
 	cont "effect!"
 	done
 
-Route24Trainer5BeatenText:
+Route24Trainer5BeatenText: ; TO TRANSLATE
 	text "I'd rather take my"
 	line "chances to escape"
 	cont "the virus,"
@@ -334,13 +334,13 @@ Route24Trainer5BeatenText:
 	cont "into my body."
 	done
 
-Route24Trainer6SeenText:
+Route24Trainer6SeenText: ; TO TRANSLATE
 	text "It's not getting"
 	line "vaccinated that"
 	cont "is dangerous!"
 	done
 
-Route24Trainer6BeatenText:
+Route24Trainer6BeatenText: ; TO TRANSLATE
 	text "Not getting vacci-"
 	line "nated puts your-"
 	cont "self at risk, and"
@@ -353,7 +353,7 @@ Route24Trainer6BeatenText:
 	done
 
 ; Couple 4)
-Route24Trainer7SeenText:
+Route24Trainer7SeenText: ; TO TRANSLATE
 	text "We should kill"
 	line "people that refuse"
 
@@ -361,12 +361,12 @@ Route24Trainer7SeenText:
 	line "spread the virus."
 	done
 
-Route24Trainer7BeatenText:
+Route24Trainer7BeatenText: ; TO TRANSLATE
 	text "You f*cking"
 	line "dumbsh*t!"
 	done
 
-Route24Trainer8SeenText:
+Route24Trainer8SeenText: ; TO TRANSLATE
 	text "I hope your"
 	line "vaccine gives"
 	
@@ -374,7 +374,7 @@ Route24Trainer8SeenText:
 	line "f*cking nazi!"
 	done
 
-Route24Trainer8BeatenText:
+Route24Trainer8BeatenText: ; TO TRANSLATE
 	text "Yeah right"
 	line "f*ck you!"
 	done

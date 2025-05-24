@@ -24,7 +24,7 @@ RuinsOfAlphKabutoItemRoomEnergypowder:
 RuinsOfAlphKabutoItemRoomAncientReplica:
 	jumptext RuinsOfAlphKabutoItemRoomAncientReplicaText
 
-RuinsOfAlphKabutoItemRoomAncientReplicaText:
+RuinsOfAlphKabutoItemRoomAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."

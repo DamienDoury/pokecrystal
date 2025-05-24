@@ -158,7 +158,7 @@ PewterGymStatue:
 	gettrainername STRING_BUFFER_4, BROCK, BROCK1
 	jumpstd GymStatue2Script
 
-BrockIntroText:
+BrockIntroText: ; TO TRANSLATE
 	text "BROCK: Wow, it's"
 	line "not often that we"
 
@@ -188,7 +188,7 @@ BrockIntroText:
 	para "Come on!"
 	done
 
-BrockWinLossText:
+BrockWinLossText: ; AUTOTRAD
 	text "BROCK: Your #-"
 	line "MON's powerful at-"
 	cont "tacks overcame my"
@@ -201,12 +201,12 @@ BrockWinLossText:
 	line "this BADGE."
 	done
 
-ReceivedBoulderBadgeText:
+ReceivedBoulderBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "BOULDERBADGE."
 	done
 
-BrockBoulderBadgeText:
+BrockBoulderBadgeText: ; TO TRANSLATE
 	text "BROCK: <PLAY_G>,"
 	line "thanks. I enjoyed"
 
@@ -218,7 +218,7 @@ BrockBoulderBadgeText:
 	line "train harder."
 	done
 
-BrockFightDoneText:
+BrockFightDoneText: ; AUTOTRAD
 	text "BROCK: The world"
 	line "is huge. There are"
 
@@ -231,7 +231,7 @@ BrockFightDoneText:
 	cont "er too."
 	done
 
-CamperJerrySeenText:
+CamperJerrySeenText: ; AUTOTRAD
 	text "The trainers of"
 	line "this GYM use rock-"
 	cont "type #MON."
@@ -246,12 +246,12 @@ CamperJerrySeenText:
 	line "ready for this?"
 	done
 
-CamperJerryBeatenText:
+CamperJerryBeatenText: ; AUTOTRAD
 	text "I have to win"
 	line "these battles…"
 	done
 
-CamperJerryAfterBattleText:
+CamperJerryAfterBattleText: ; AUTOTRAD
 	text "Hey, you! Trainer"
 	line "from JOHTO! BROCK"
 
@@ -262,7 +262,7 @@ CamperJerryAfterBattleText:
 	line "seriously."
 	done
 
-CamperJerryBrockLocationText:
+CamperJerryBrockLocationText: ; TO TRANSLATE
 	text "BROCK went south"
 	line "to help with some"
 	cont "roadwork that was"
@@ -276,7 +276,7 @@ CamperJerryBrockLocationText:
 	cont "want his BADGE."
 	done
 
-PewterGymGuideText:
+PewterGymGuideText: ; TO TRANSLATE
 	text "Yo CHAMP! You're"
 	line "really rocking."
 
@@ -291,7 +291,7 @@ PewterGymGuideText:
 	line "GYM LEADERS."
 	done
 
-PewterGymGuideWinText:
+PewterGymGuideWinText: ; AUTOTRAD
 	text "Yo! CHAMP in"
 	line "making! That GYM"
 

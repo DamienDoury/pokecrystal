@@ -39,7 +39,7 @@ SandstormHouseWoman:
 SandstormHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-SandstormHouseWomanText1:
+SandstormHouseWomanText1: ; AUTOTRAD
 	text "Where are you off"
 	line "to with #MON?"
 
@@ -52,7 +52,7 @@ SandstormHouseWomanText1:
 	para "Let me see…"
 	done
 
-SandstormHouseWomanLoyalText:
+SandstormHouseWomanLoyalText: ; AUTOTRAD
 	text "Ah! Your #MON"
 	line "trusts you very"
 	cont "much."
@@ -64,7 +64,7 @@ SandstormHouseWomanLoyalText:
 	line "your journey."
 	done
 
-SandstormHouseSandstormDescription:
+SandstormHouseSandstormDescription: ; AUTOTRAD
 	text "TM37 happens to be"
 	line "SANDSTORM."
 
@@ -79,7 +79,7 @@ SandstormHouseSandstormDescription:
 	line "dare. Good luck!"
 	done
 
-SandstormHouseWomanDisloyalText:
+SandstormHouseWomanDisloyalText: ; AUTOTRAD
 	text "If it doesn't come"
 	line "to trust you some"
 

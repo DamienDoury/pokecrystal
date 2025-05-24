@@ -221,7 +221,7 @@ CianwoodCityEusineDepartMovement:
 	step DOWN
 	step_end
 
-ChucksWifeEasierToFlyText:
+ChucksWifeEasierToFlyText: ; AUTOTRAD
 	text "You crossed the"
 	line "sea to get here?"
 
@@ -235,7 +235,7 @@ ChucksWifeEasierToFlyText:
 	line "to FLY…"
 	done
 
-ChucksWifeBeatChuckText:
+ChucksWifeBeatChuckText: ; TO TRANSLATE
 	text "If you beat the"
 	line "GYM LEADER here,"
 	cont "come see me."
@@ -244,7 +244,7 @@ ChucksWifeBeatChuckText:
 	line "gift for you."
 	done
 
-ChucksWifeGiveHMText:
+ChucksWifeGiveHMText: ; TO TRANSLATE
 	text "That's CIANWOOD's"
 	line "GYM BADGE!"
 
@@ -253,7 +253,7 @@ ChucksWifeGiveHMText:
 	cont "take this HM."
 	done
 
-ChucksWifeFlySpeechText:
+ChucksWifeFlySpeechText: ; TO TRANSLATE
 	text "Teach FLY to your"
 	line "#MON."
 
@@ -285,7 +285,7 @@ ChucksWifeFlySpeechText:
 	line "own risks."
 	done
 
-ChucksWifeChubbyText:
+ChucksWifeChubbyText: ; AUTOTRAD
 	text "My husband lost to"
 	line "you, so he needs"
 	cont "to train harder."
@@ -295,7 +295,7 @@ ChucksWifeChubbyText:
 	cont "little chubby."
 	done
 
-CianwoodCityPokefanMText:
+CianwoodCityPokefanMText: ; AUTOTRAD
 	text "Boulders to the"
 	line "north of town can"
 	cont "be crushed."
@@ -308,7 +308,7 @@ CianwoodCityPokefanMText:
 	cont "break them."
 	done
 
-CianwoodCityLassText:
+CianwoodCityLassText: ; AUTOTRAD
 	text "CHUCK, the GYM"
 	line "LEADER, spars with"
 
@@ -316,7 +316,7 @@ CianwoodCityLassText:
 	line "MON."
 	done
 
-PharmacistRanAwayText:
+PharmacistRanAwayText: ; TO TRANSLATE
 	text "We used to have"
 	line "a pharmacist."
 
@@ -325,7 +325,7 @@ PharmacistRanAwayText:
 	cont "word. Shady dude."
 	done
 
-CianwoodCityYoungsterText:
+CianwoodCityYoungsterText: ; TO TRANSLATE
 	text "There are several"
 	line "islands between"
 	cont "here and OLIVINE."
@@ -335,7 +335,7 @@ CianwoodCityYoungsterText:
 	cont "ly lives there."
 	done
 
-EusineSuicuneText:
+EusineSuicuneText: ; TO TRANSLATE
 	text "EUSINE: Yo,"
 	line "<PLAYER>."
 
@@ -374,12 +374,12 @@ EusineSuicuneText:
 	line "Let's battle now!"
 	done
 
-EusineBeatenText:
+EusineBeatenText: ; AUTOTRAD
 	text "I hate to admit"
 	line "it, but you win."
 	done
 
-EusineAfterText:
+EusineAfterText: ; AUTOTRAD
 	text "You're amazing,"
 	line "<PLAYER>!"
 
@@ -398,14 +398,14 @@ EusineAfterText:
 	para "See you around!"
 	done
 
-CianwoodCitySignText:
+CianwoodCitySignText: ; AUTOTRAD
 	text "CIANWOOD CITY"
 
 	para "A Port Surrounded"
 	line "by Rough Seas"
 	done
 
-CianwoodGymSignText:
+CianwoodGymSignText: ; AUTOTRAD
 	text "CIANWOOD CITY"
 	line "#MON GYM"
 
@@ -415,7 +415,7 @@ CianwoodGymSignText:
 	line "Do the Talking"
 	done
 
-CianwoodPharmacySignText:
+CianwoodPharmacySignText: ; AUTOTRAD
 	text "500 Years of"
 	line "Tradition"
 
@@ -426,7 +426,7 @@ CianwoodPharmacySignText:
 	line "Medicinal Queries"
 	done
 
-CianwoodPhotoStudioSignText:
+CianwoodPhotoStudioSignText: ; AUTOTRAD
 	text "CIANWOOD CITY"
 	line "PHOTO STUDIO"
 
@@ -434,12 +434,12 @@ CianwoodPhotoStudioSignText:
 	line "a Keepsake!"
 	done
 
-CianwoodPokeSeerSignText:
+CianwoodPokeSeerSignText: ; AUTOTRAD
 	text "THE # SEER"
 	line "AHEAD"
 	done
 
-Cianwood_NoFaceMaskText:
+Cianwood_NoFaceMaskText: ; TO TRANSLATE
 	text "I won't wear"
 	line "a face mask."
 
@@ -448,7 +448,7 @@ Cianwood_NoFaceMaskText:
 	cont "believe in it."
 	done
 
-Cianwood_NoPoliceControlsText:
+Cianwood_NoPoliceControlsText: ; TO TRANSLATE
 	text "The police doesn't"
 	line "bother control-"
 	cont "ling such a "
@@ -460,7 +460,7 @@ Cianwood_NoPoliceControlsText:
 	cont "it's forbidden."
 	done
 
-Cianwood_FreshAirText:
+Cianwood_FreshAirText: ; TO TRANSLATE
 	text "The fresh air"
 	line "feels good!"
 

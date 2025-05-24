@@ -320,7 +320,7 @@ Route44MaxRepel:
 Route44HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_44_HIDDEN_ELIXER
 
-FisherWilton1SeenText:
+FisherWilton1SeenText: ; AUTOTRAD
 	text "Aack! You made me"
 	line "lose a POLIWAG!"
 
@@ -328,12 +328,12 @@ FisherWilton1SeenText:
 	line "to do about it?"
 	done
 
-FisherWilton1BeatenText:
+FisherWilton1BeatenText: ; AUTOTRAD
 	text "Just forget about"
 	line "it."
 	done
 
-FisherWiltonHugePoliwagText:
+FisherWiltonHugePoliwagText: ; AUTOTRAD
 	text "That POLIWAG that"
 	line "got away…"
 	cont "It was huge."
@@ -342,7 +342,7 @@ FisherWiltonHugePoliwagText:
 	line "been 16 feet long!"
 	done
 
-FisherEdgarSeenText:
+FisherEdgarSeenText: ; AUTOTRAD
 	text "I fish until I"
 	line "can't anymore."
 
@@ -354,12 +354,12 @@ FisherEdgarSeenText:
 	cont "with my #MON."
 	done
 
-FisherEdgarBeatenText:
+FisherEdgarBeatenText: ; AUTOTRAD
 	text "Hmmmm… "
 	line "This isn't right."
 	done
 
-FisherEdgarAfterBattleText:
+FisherEdgarAfterBattleText: ; AUTOTRAD
 	text "That's 100 wins"
 	line "to 101 losses."
 
@@ -367,18 +367,18 @@ FisherEdgarAfterBattleText:
 	line "again for a while."
 	done
 
-BirdKeeperVance1SeenText:
+BirdKeeperVance1SeenText: ; AUTOTRAD
 	text "Do you know about"
 	line "the legendary bird"
 	cont "#MON?"
 	done
 
-BirdKeeperVance1BeatenText:
+BirdKeeperVance1BeatenText: ; AUTOTRAD
 	text "Whew! You're hot"
 	line "stuff."
 	done
 
-BirdKeeperVanceLegendaryBirdsText:
+BirdKeeperVanceLegendaryBirdsText: ; AUTOTRAD
 	text "ARTICUNO, ZAPDOS"
 	line "and MOLTRES are"
 
@@ -390,7 +390,7 @@ BirdKeeperVanceLegendaryBirdsText:
 	cont "birds, though."
 	done
 
-BirdKeeperVance2BeatenText:
+BirdKeeperVance2BeatenText: ; AUTOTRAD
 	text "Why can't I ever"
 	line "beat you?"
 
@@ -401,34 +401,34 @@ BirdKeeperVance2BeatenText:
 	line "you last time."
 	done
 
-PsychicPhilSeenText:
+PsychicPhilSeenText: ; AUTOTRAD
 	text "I'm gonna win,"
 	line "for sure!"
 	done
 
-PsychicPhilBeatenText:
+PsychicPhilBeatenText: ; AUTOTRAD
 	text "Arrgh… That's a"
 	line "shocking loss…"
 	done
 
-PsychicPhilAfterBattleText:
+PsychicPhilAfterBattleText: ; AUTOTRAD
 	text "It's important to"
 	line "have conviction"
 	cont "on your side."
 	done
 
-PokemaniacZachSeenText:
+PokemaniacZachSeenText: ; AUTOTRAD
 	text "I'll do anything"
 	line "to get my hands on"
 	cont "rare #MON!"
 	done
 
-PokemaniacZachBeatenText:
+PokemaniacZachBeatenText: ; AUTOTRAD
 	text "Oooh, your #MON"
 	line "are so appealing."
 	done
 
-PokemaniacZachAfterBattleText:
+PokemaniacZachAfterBattleText: ; AUTOTRAD
 	text "If a #MON has"
 	line "different colors"
 
@@ -439,7 +439,7 @@ PokemaniacZachAfterBattleText:
 	line "that's not true?"
 	done
 
-CooltrainermAllenSeenText:
+CooltrainermAllenSeenText: ; AUTOTRAD
 	text "I can tell you're"
 	line "a good trainer by"
 	cont "looking at you."
@@ -449,12 +449,12 @@ CooltrainermAllenSeenText:
 	cont "that you are too."
 	done
 
-CooltrainermAllenBeatenText:
+CooltrainermAllenBeatenText: ; AUTOTRAD
 	text "Tch! It's a total"
 	line "loss on my part."
 	done
 
-CooltrainermAllenAfterBattleText:
+CooltrainermAllenAfterBattleText: ; TO TRANSLATE
 	text "I wonder if"
 	line "ECRUTEAK GYM's"
 
@@ -465,7 +465,7 @@ CooltrainermAllenAfterBattleText:
 	line "me."
 	done
 
-CooltrainerfCybilSeenText:
+CooltrainerfCybilSeenText: ; AUTOTRAD
 	text "You look strong."
 
 	para "Good trainers seek"
@@ -473,12 +473,12 @@ CooltrainerfCybilSeenText:
 	cont "instinctively."
 	done
 
-CooltrainerfCybilBeatenText:
+CooltrainerfCybilBeatenText: ; AUTOTRAD
 	text "Nope! This won't"
 	line "do at all."
 	done
 
-CooltrainerfCybilAfterBattleText:
+CooltrainerfCybilAfterBattleText: ; AUTOTRAD
 	text "We all get better"
 	line "by experiencing"
 	cont "many battles."
@@ -488,12 +488,12 @@ CooltrainerfCybilAfterBattleText:
 	cont "today--an elite."
 	done
 
-Route44Sign1Text:
+Route44Sign1Text: ; AUTOTRAD
 	text "ROUTE 44"
 	line "ICE PATH AHEAD"
 	done
 
-Route44Sign2Text:
+Route44Sign2Text: ; AUTOTRAD
 	text "ROUTE 44"
 
 	para "MAHOGANY TOWN -"

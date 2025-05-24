@@ -32,7 +32,7 @@ RedsHouse1FTV:
 RedsHouse1FBookshelf:
 	jumpstd PictureBookshelfScript
 
-RedsMomText1:
+RedsMomText1: ; TO TRANSLATE
 	text "Hi!"
 
 	para "RED's been away"
@@ -54,7 +54,7 @@ RedsMomText1:
 	cont "or sick."
 	done
 
-RedsMomSawPikachuText:
+RedsMomSawPikachuText: ; TO TRANSLATE
 	text "My son's PIKACHU"
 	line "came back home."
 
@@ -63,7 +63,7 @@ RedsMomSawPikachuText:
 	cont "touch him."
 	done
 
-RedsHouse1FTVText:
+RedsHouse1FTVText: ; AUTOTRAD
 	text "They have programs"
 	line "that aren't shown"
 	cont "in JOHTO…"

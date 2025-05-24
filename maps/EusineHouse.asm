@@ -49,7 +49,7 @@ EusineHouse_Eusine:
 EusineHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-CeladonEusineText1:
+CeladonEusineText1: ; TO TRANSLATE
 	text "EUSINE: Hi!"
 
 	para "I brought SUICUNE's"
@@ -65,7 +65,7 @@ CeladonEusineText1:
 	cont "offering me this."
 	done
 
-CeladonEusineText2:
+CeladonEusineText2: ; TO TRANSLATE
 	text "I never thanked"
 	line "you for finding"
 	cont "SUICUNE, so"
@@ -84,7 +84,7 @@ CeladonEusineText2:
 	line "Not on a RATTATA."
 	done
 
-EusineLeavesCeladonText:
+EusineLeavesCeladonText: ; AUTOTRAD
 	text "<PLAYER>, have you"
 	line "heard?"
 
@@ -105,7 +105,7 @@ EusineLeavesCeladonText:
 	line "you, <PLAYER>!"
 	done
 
-NoBeastsText:
+NoBeastsText: ; AUTOTRAD
 	text "Oh, by the way,"
 	line "<PLAYER>."
 

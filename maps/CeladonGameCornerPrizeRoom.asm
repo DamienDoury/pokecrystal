@@ -114,7 +114,7 @@ CeladonPrizeRoom_TMMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
 	db "TM32    {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
@@ -199,7 +199,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "PIKACHU    {d:CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS}@"
@@ -207,7 +207,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	db "LARVITAR   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
 	db "CANCEL@"
 
-CeladonGameCornerPrizeRoomGentlemanText:
+CeladonGameCornerPrizeRoomGentlemanText: ; AUTOTRAD
 	text "I wanted PORYGON,"
 	line "but I was short by"
 	cont "100 coins…"
@@ -230,7 +230,7 @@ else
 	done
 endc
 
-CeladonPrizeRoom_PrizeVendorIntroText:
+CeladonPrizeRoom_PrizeVendorIntroText: ; AUTOTRAD
 	text "Welcome!"
 
 	para "We exchange your"
@@ -238,38 +238,38 @@ CeladonPrizeRoom_PrizeVendorIntroText:
 	cont "prizes!"
 	done
 
-CeladonPrizeRoom_AskWhichPrizeText:
+CeladonPrizeRoom_AskWhichPrizeText: ; AUTOTRAD
 	text "Which prize would"
 	line "you like?"
 	done
 
-CeladonPrizeRoom_ConfirmPurchaseText:
+CeladonPrizeRoom_ConfirmPurchaseText: ; AUTOTRAD
 	text "OK, so you wanted"
 	line "a @"
 	text_ram wStringBuffer3
 	text "?"
 	done
 
-CeladonPrizeRoom_HereYouGoText:
+CeladonPrizeRoom_HereYouGoText: ; AUTOTRAD
 	text "Here you go!"
 	done
 
-CeladonPrizeRoom_NotEnoughCoinsText:
+CeladonPrizeRoom_NotEnoughCoinsText: ; AUTOTRAD
 	text "You don't have"
 	line "enough coins."
 	done
 
-CeladonPrizeRoom_NotEnoughRoomText:
+CeladonPrizeRoom_NotEnoughRoomText: ; AUTOTRAD
 	text "You have no room"
 	line "for it."
 	done
 
-CeladonPrizeRoom_ComeAgainText:
+CeladonPrizeRoom_ComeAgainText: ; AUTOTRAD
 	text "Oh. Please come"
 	line "back with coins!"
 	done
 
-CeladonPrizeRoom_NoCoinCaseText:
+CeladonPrizeRoom_NoCoinCaseText: ; AUTOTRAD
 	text "Oh? You don't have"
 	line "a COIN CASE."
 	done

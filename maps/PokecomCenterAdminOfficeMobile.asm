@@ -104,7 +104,7 @@ PokecomCenterAdminOfficeMobileComputer2:
 PokecomCenterAdminOfficeMobileComputer3:
 	jumptext PokecomCenterAdminOfficeMobileComputer3Text
 
-PokecomCenterAdminOfficeMobileScientist1Text:
+PokecomCenterAdminOfficeMobileScientist1Text: ; AUTOTRAD
 	text "#COM CENTER and"
 	line "MOBILE CENTER were"
 
@@ -118,7 +118,7 @@ PokecomCenterAdminOfficeMobileScientist1Text:
 	line "strangers."
 	done
 
-PokecomCenterAdminOfficeMobileScientist2Text:
+PokecomCenterAdminOfficeMobileScientist2Text: ; AUTOTRAD
 	text "When you linked"
 	line "with someone by"
 
@@ -135,7 +135,7 @@ PokecomCenterAdminOfficeMobileScientist2Text:
 	line "got the shakes!"
 	done
 
-PokecomCenterAdminOfficeMobileScientist3Text:
+PokecomCenterAdminOfficeMobileScientist3Text: ; AUTOTRAD
 	text "They were able to"
 	line "build this huge"
 
@@ -144,7 +144,7 @@ PokecomCenterAdminOfficeMobileScientist3Text:
 	cont "less technology."
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text:
+PokecomCenterAdminOfficeMobileComputer1Text: ; AUTOTRAD
 	text "It's a notice"
 	line "about where MOBILE"
 
@@ -152,7 +152,7 @@ PokecomCenterAdminOfficeMobileComputer1Text:
 	line "used…"
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub:
+PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub: ; AUTOTRAD
 	text "There's a #COM"
 	line "CLUB upstairs in"
 
@@ -174,7 +174,7 @@ PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub:
 	cont "you."
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter:
+PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter: ; AUTOTRAD
 	text "To use the TRADE"
 	line "CORNER or read the"
 
@@ -189,13 +189,13 @@ PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter:
 	line "connecting there."
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text:
+PokecomCenterAdminOfficeMobileComputer2Text: ; AUTOTRAD
 	text "It's a notice"
 	line "about using the"
 	cont "phone…"
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text_UsePhone:
+PokecomCenterAdminOfficeMobileComputer2Text_UsePhone: ; AUTOTRAD
 	text "Please ensure that"
 	line "your phone and"
 
@@ -211,7 +211,7 @@ PokecomCenterAdminOfficeMobileComputer2Text_UsePhone:
 	cont "while linking."
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone:
+PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone: ; AUTOTRAD
 	text "If the server is"
 	line "busy, it may not"
 
@@ -232,7 +232,7 @@ PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone:
 	cont "instructions."
 	done
 
-PokecomCenterAdminOfficeMobileComputer3Text:
+PokecomCenterAdminOfficeMobileComputer3Text: ; AUTOTRAD
 	text "The ADMINISTRATION"
 	line "OFFICE received an"
 	cont "e-mail. It says…"

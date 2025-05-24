@@ -103,7 +103,7 @@ RadioTower4FProductionSign:
 RadioTower4FStudio2Sign:
 	jumptext RadioTower4FStudio2SignText
 
-RadioTower4FFisherText:
+RadioTower4FFisherText: ; AUTOTRAD
 	text "I listened to the"
 	line "radio while I was"
 	cont "at the RUINS."
@@ -112,7 +112,7 @@ RadioTower4FFisherText:
 	line "broadcast there."
 	done
 
-RadioTower4FDJMaryText:
+RadioTower4FDJMaryText: ; AUTOTRAD
 	text "MARY: Why? Why do"
 	line "I have to suffer"
 	cont "through this?"
@@ -120,7 +120,7 @@ RadioTower4FDJMaryText:
 	para "MEOWTH, help me!"
 	done
 
-RadioTower4FDJMaryText_ClearedRockets:
+RadioTower4FDJMaryText_ClearedRockets: ; AUTOTRAD
 	text "MARY: Oh! You're"
 	line "my little savior!"
 
@@ -128,7 +128,7 @@ RadioTower4FDJMaryText_ClearedRockets:
 	line "as my thanks?"
 	done
 
-RadioTower4FDJMaryText_GivePinkBow:
+RadioTower4FDJMaryText_GivePinkBow: ; AUTOTRAD
 	text "MARY: It's just"
 	line "right for #MON"
 
@@ -136,7 +136,7 @@ RadioTower4FDJMaryText_GivePinkBow:
 	line "type moves."
 	done
 
-RadioTower4FDJMaryText_After:
+RadioTower4FDJMaryText_After: ; AUTOTRAD
 	text "MARY: Please tune"
 	line "into me on PROF."
 
@@ -144,37 +144,37 @@ RadioTower4FDJMaryText_After:
 	line "show."
 	done
 
-RadioTowerMeowthText:
+RadioTowerMeowthText: ; AUTOTRAD
 	text "MEOWTH: Meowth…"
 	done
 
-GruntM10SeenText:
+GruntM10SeenText: ; TO TRANSLATE
 	text "I believe COVID"
 	line "is a lie from"
 	cont "the government."
 	done
 
-GruntM10BeatenText:
+GruntM10BeatenText: ; AUTOTRAD
 	text "No! Unbelievable!"
 	done
 
-GruntM10AfterBattleText:
+GruntM10AfterBattleText: ; AUTOTRAD
 	text "I don't believe"
 	line "it! I was beaten!"
 	done
 
-GruntF4SeenText:
+GruntF4SeenText: ; TO TRANSLATE
 	text "Living in lockdown"
 	line "is not an accep-"
 	cont "table way of"
 	cont "living!"
 	done
 
-GruntF4BeatenText:
+GruntF4BeatenText: ; TO TRANSLATE
 	text "I should run home!"
 	done
 
-GruntF4AfterBattleText:
+GruntF4AfterBattleText: ; TO TRANSLATE
 	text "People are getting"
 	line "crazy when locked"
 	cont "up home."
@@ -184,7 +184,7 @@ GruntF4AfterBattleText:
 	cont "damage than COVID."
 	done
 
-Executivem2SeenText:
+Executivem2SeenText: ; TO TRANSLATE
 
 	text "The lockdowns and"
 	line "curfews will"
@@ -193,12 +193,12 @@ Executivem2SeenText:
 	line "economy."
 	done
 
-Executivem2BeatenText:
+Executivem2BeatenText: ; TO TRANSLATE
 	text "Please don't take"
 	line "my money!"
 	done
 
-Executivem2AfterBattleText:
+Executivem2AfterBattleText: ; TO TRANSLATE
 	text "The dip in our"
 	line "economy will cause"
 
@@ -209,7 +209,7 @@ Executivem2AfterBattleText:
 	para "Wanna bet?"
 	done
 
-ScientistRichSeenText:
+ScientistRichSeenText: ; AUTOTRAD
 	text "Most excellent."
 
 	para "This RADIO TOWER"
@@ -217,14 +217,14 @@ ScientistRichSeenText:
 	cont "grand design."
 	done
 
-ScientistRichBeatenText:
+ScientistRichBeatenText: ; AUTOTRAD
 	text "Hmmm…"
 
 	para "All grand plans"
 	line "come with snags."
 	done
 
-ScientistRichAfterBattleText:
+ScientistRichAfterBattleText: ; TO TRANSLATE
 	text "Do you honestly"
 	line "believe the"
 	
@@ -232,11 +232,11 @@ ScientistRichAfterBattleText:
 	line "trying to save us?"
 	done
 
-RadioTower4FProductionSignText:
+RadioTower4FProductionSignText: ; AUTOTRAD
 	text "4F PRODUCTION"
 	done
 
-RadioTower4FStudio2SignText:
+RadioTower4FStudio2SignText: ; AUTOTRAD
 	text "4F STUDIO 2"
 	done
 

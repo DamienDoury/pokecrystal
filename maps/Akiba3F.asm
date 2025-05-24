@@ -127,19 +127,19 @@ Akiba3F_Client1Script:
 Akiba3F_Client2Script:
 	jumptextfaceplayer Akiba3F_Client2Text
 
-Akiba3F_DecoNameText:
+Akiba3F_DecoNameText: ; TO TRANSLATE
 	text "@"
 	text_ram wStringBuffer2
 	text " DOLL"
 	done
 
-Akiba3F_ComeBackLaterText:
+Akiba3F_ComeBackLaterText: ; TO TRANSLATE
 	text "Come back another"
 	line "day for new"
 	cont "prizes!"
 	done
 
-Akiba3F_LotteryDoneText:
+Akiba3F_LotteryDoneText: ; TO TRANSLATE
 	text "Our great giveaway"
 	line "is over."
 
@@ -149,7 +149,7 @@ Akiba3F_LotteryDoneText:
 
 Akiba3F_BigPriceAnnoucementText:
 	text "@"
-	text_today
+	text_today ; TO TRANSLATE
 	text "'s grand"
 	line "prize is a"
 	cont "@"
@@ -157,14 +157,14 @@ Akiba3F_BigPriceAnnoucementText:
 	text " DOLL!"
 	done
 
-Akiba3F_InstructionsText:
+Akiba3F_InstructionsText: ; TO TRANSLATE
 	text "Show me a @"
 	text_ram wStringBuffer3
 	text ""
 	line "and it's yours!"
 	done
 
-Akiba3F_VoucherDetectedText:
+Akiba3F_VoucherDetectedText: ; TO TRANSLATE
 	text "I see you own a"
 	line "@"
 	text_ram wStringBuffer3
@@ -175,7 +175,7 @@ Akiba3F_VoucherDetectedText:
 	cont "today's prize?"
 	done
 
-Akiba3F_ShippingText:
+Akiba3F_ShippingText: ; TO TRANSLATE
 	text "Congratulations!"
 
 	para "It will be"
@@ -183,7 +183,7 @@ Akiba3F_ShippingText:
 	cont "your home!"
 	done
 
-Akiba3F_Client1Text:
+Akiba3F_Client1Text: ; TO TRANSLATE
 	text "The vouchers were"
 	line "distributed"
 	cont "through a lottery."
@@ -194,14 +194,14 @@ Akiba3F_Client1Text:
 	cont "price."
 	done
 
-Akiba3F_Client1BisText:
+Akiba3F_Client1BisText: ; TO TRANSLATE
 	text "I wish I had"
 	line "obtained a"
 	cont "VOUCHER. But now"
 	cont "it's too late."
 	done
 
-Akiba3F_Client2Text:
+Akiba3F_Client2Text: ; TO TRANSLATE
 	text "Even COPYCAT"
 	line "doesn't have such"
 	cont "pretty dolls!"

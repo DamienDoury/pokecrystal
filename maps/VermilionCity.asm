@@ -139,7 +139,7 @@ VermilionCityMartSign:
 VermilionCityHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_VERMILION_CITY_HIDDEN_FULL_HEAL
 
-VermilionCityTeacherText:
+VermilionCityTeacherText: ; AUTOTRAD
 	text "VERMILION PORT is"
 	line "KANTO's seaside"
 	cont "gateway."
@@ -149,7 +149,7 @@ VermilionCityTeacherText:
 	cont "dock here."
 	done
 
-VermilionMachopOwnerText:
+VermilionMachopOwnerText: ; TO TRANSLATE
 	text "My #MON is"
 	line "preparing the land"
 	cont "for construction."
@@ -167,18 +167,18 @@ VermilionMachopOwnerText:
 	cont "finished…"
 	done
 
-VermilionMachopText1:
+VermilionMachopText1: ; AUTOTRAD
 	text "MACHOP: Guooh"
 	line "gogogoh!"
 	done
 
-VermilionMachopText2:
+VermilionMachopText2: ; AUTOTRAD
 	text "A MACHOP is growl-"
 	line "ing while stomping"
 	cont "the ground flat."
 	done
 
-VermilionCitySuperNerdText:
+VermilionCitySuperNerdText: ; TO TRANSLATE
 	text "There are eight"
 	line "GYMS in KANTO."
 
@@ -200,12 +200,12 @@ VermilionCitySuperNerdText:
 	cont "Fascinating!"
 	done
 
-VermilionCitySnorlaxSleepingText:
+VermilionCitySnorlaxSleepingText: ; AUTOTRAD
 	text "SNORLAX is snoring"
 	line "peacefully…"
 	done
 
-VermilionCityRadioNearSnorlaxText:
+VermilionCityRadioNearSnorlaxText: ; AUTOTRAD
 	text "The #GEAR was"
 	line "placed near the"
 	cont "sleeping SNORLAX…"
@@ -215,7 +215,7 @@ VermilionCityRadioNearSnorlaxText:
 	para "SNORLAX woke up!"
 	done
 
-VermilionCityBadgeGuyTrainerText:
+VermilionCityBadgeGuyTrainerText: ; AUTOTRAD
 	text "Skilled trainers"
 	line "gather in KANTO."
 
@@ -226,7 +226,7 @@ VermilionCityBadgeGuyTrainerText:
 	line "to defeat."
 	done
 
-VermilionCityBadgeGuySomeBadgesText:
+VermilionCityBadgeGuySomeBadgesText: ; AUTOTRAD
 	text "You've started to"
 	line "collect KANTO GYM"
 	cont "BADGES?"
@@ -236,7 +236,7 @@ VermilionCityBadgeGuySomeBadgesText:
 	cont "here are tough?"
 	done
 
-VermilionCityBadgeGuyMostBadgesText:
+VermilionCityBadgeGuyMostBadgesText: ; AUTOTRAD
 	text "I guess you'll be"
 	line "finished with your"
 
@@ -248,7 +248,7 @@ VermilionCityBadgeGuyMostBadgesText:
 	cont "BADGES."
 	done
 
-VermilionCityBadgeGuyAllBadgesText:
+VermilionCityBadgeGuyAllBadgesText: ; AUTOTRAD
 	text "Congratulations!"
 
 	para "You got all the"
@@ -258,7 +258,7 @@ VermilionCityBadgeGuyAllBadgesText:
 	line "for your efforts."
 	done
 
-VermilionCityBadgeGuyBattleEdgeText:
+VermilionCityBadgeGuyBattleEdgeText: ; AUTOTRAD
 	text "Having a variety"
 	line "of #MON types"
 
@@ -270,14 +270,14 @@ VermilionCityBadgeGuyBattleEdgeText:
 	cont "help you."
 	done
 
-VermilionCitySignText:
+VermilionCitySignText: ; AUTOTRAD
 	text "VERMILION CITY"
 
 	para "The Port of"
 	line "Exquisite Sunsets"
 	done
 
-VermilionGymSignText:
+VermilionGymSignText: ; AUTOTRAD
 	text "VERMILION CITY"
 	line "#MON GYM"
 	cont "LEADER: LT.SURGE"
@@ -286,23 +286,23 @@ VermilionGymSignText:
 	line "American"
 	done
 
-PokemonFanClubSignText:
+PokemonFanClubSignText: ; AUTOTRAD
 	text "#MON FAN CLUB"
 
 	para "All #MON Fans"
 	line "Welcome!"
 	done
 
-VermilionCityDiglettsCaveSignText:
+VermilionCityDiglettsCaveSignText: ; AUTOTRAD
 	text "DIGLETT'S CAVE"
 	done
 
-VermilionCityPortSignText:
+VermilionCityPortSignText: ; AUTOTRAD
 	text "VERMILION PORT"
 	line "ENTRANCE"
 	done
 
-VermilionGymBlockerText:
+VermilionGymBlockerText: ; TO TRANSLATE
 	text "LT.SURGE went to"
 	line "give a hand at the"
 	cont "POWER PLANT."
@@ -314,7 +314,7 @@ VermilionGymBlockerText:
 	cont "whole town!"
 	done
 
-VermilionSnorlaxGuyBeforeBattleText:
+VermilionSnorlaxGuyBeforeBattleText: ; TO TRANSLATE
 	text "This SNORLAX has"
 	line "been laying here"
 	cont "for months."
@@ -327,7 +327,7 @@ VermilionSnorlaxGuyBeforeBattleText:
 	line "to approach it."
 	done
 
-VermilionSnorlaxGuyAfterBattleText:
+VermilionSnorlaxGuyAfterBattleText: ; TO TRANSLATE
 	text "So in the end the"
 	line "SNORLAX was just"
 	cont "being lazy?"

@@ -18,7 +18,7 @@ Route23_MapScripts:
 IndigoPlateauSign:
 	jumptext IndigoPlateauSignText
 
-IndigoPlateauSignText:
+IndigoPlateauSignText: ; AUTOTRAD
 	text "INDIGO PLATEAU"
 
 	para "The Ultimate Goal"

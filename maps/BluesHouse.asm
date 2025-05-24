@@ -63,7 +63,7 @@ DaisyScript:
 	closetext
 	end
 
-DaisyHelloText:
+DaisyHelloText: ; AUTOTRAD
 	text "DAISY: Hi! My kid"
 	line "brother is the GYM"
 
@@ -77,7 +77,7 @@ DaisyHelloText:
 	line "for the trainers."
 	done
 
-DaisyOfferGroomingText:
+DaisyOfferGroomingText: ; AUTOTRAD
 	text "DAISY: Hi! Good"
 	line "timing. I'm about"
 	cont "to have some tea."
@@ -92,24 +92,24 @@ DaisyOfferGroomingText:
 	line "to groom one?"
 	done
 
-DaisyWhichMonText:
+DaisyWhichMonText: ; AUTOTRAD
 	text "DAISY: Which one"
 	line "should I groom?"
 	done
 
-DaisyAlrightText:
+DaisyAlrightText: ; AUTOTRAD
 	text "DAISY: OK, I'll"
 	line "get it looking"
 	cont "nice in no time."
 	done
 
-GroomedMonLooksContentText:
+GroomedMonLooksContentText: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text " looks"
 	line "content."
 	done
 
-DaisyAllDoneText:
+DaisyAllDoneText: ; AUTOTRAD
 	text "DAISY: There you"
 	line "go! All done."
 
@@ -120,7 +120,7 @@ DaisyAllDoneText:
 	line "#MON."
 	done
 
-DaisyAlreadyGroomedText:
+DaisyAlreadyGroomedText: ; AUTOTRAD
 	text "DAISY: I always"
 	line "have tea around"
 
@@ -128,7 +128,7 @@ DaisyAlreadyGroomedText:
 	line "join me."
 	done
 
-DaisyRefusedText:
+DaisyRefusedText: ; AUTOTRAD
 	text "DAISY: You don't"
 	line "want to have one"
 
@@ -136,7 +136,7 @@ DaisyRefusedText:
 	line "just have tea."
 	done
 
-DaisyCantGroomEggText:
+DaisyCantGroomEggText: ; AUTOTRAD
 	text "DAISY: Oh, sorry."
 	line "I honestly can't"
 	cont "groom an EGG."

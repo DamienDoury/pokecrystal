@@ -84,7 +84,7 @@ CeruleanPoliceStationStompUpMovement:
 	step_bump
 	step_end
 
-CeruleanPoliceStationFishingGuruText:
+CeruleanPoliceStationFishingGuruText: ; AUTOTRAD
 	text "I heard that some"
 	line "shady character is"
 	cont "skulking about."
@@ -94,7 +94,7 @@ CeruleanPoliceStationFishingGuruText:
 	cont "to be a thief."
 	done
 
-CeruleanPoliceStationRaveText:
+CeruleanPoliceStationRaveText: ; TO TRANSLATE
 	text "Now that we're done"
 	line "with this thief,"
 
@@ -112,21 +112,21 @@ CeruleanPoliceStationRaveText:
 	cont "ing where."
 	done
 
-CeruleanPoliceStationPokefanFText:
+CeruleanPoliceStationPokefanFText: ; AUTOTRAD
 	text "We were held up by"
 	line "robbers before."
 	done
 
-CeruleanDiglettText:
+CeruleanDiglettText: ; TO TRANSLATE
 	text "SQUIRTLE: lelele!"
 	done
 
-CeruleanCoolSquirtleText:
+CeruleanCoolSquirtleText: ; TO TRANSLATE
 	text "SQUIRTLE SQUAD"
 	line "LEADER: Squirtle!"
 	done
 
-CeruleanPoliceStationJennyText:
+CeruleanPoliceStationJennyText: ; TO TRANSLATE
 	text "We've been watching"
 	line "this dude since"
 	cont "the last rave."
@@ -141,7 +141,7 @@ CeruleanPoliceStationJennyText:
 	cont "he was going."
 	done
 
-CeruleanPoliceStationRaverText:
+CeruleanPoliceStationRaverText: ; TO TRANSLATE
 	text "A custody cell."
 
 	para "There's a young man"
@@ -150,7 +150,7 @@ CeruleanPoliceStationRaverText:
 	cont "a swimsuit."
 	done
 
-CeruleanRocketPrisonerText:
+CeruleanRocketPrisonerText: ; TO TRANSLATE
 	text "A custody cell."
 
 	para "There's a ROCKET"
@@ -159,7 +159,7 @@ CeruleanRocketPrisonerText:
 	cont "foreign accent."
 	done
 
-CeruleanPoliceStationSignText:
+CeruleanPoliceStationSignText: ; TO TRANSLATE
 	text "To the backyard."
 	line "Now robber-free!"
 	done

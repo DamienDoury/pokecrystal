@@ -135,14 +135,14 @@ SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-SaffronMagnetTrainStationOfficerTrainIsntOperatingText:
+SaffronMagnetTrainStationOfficerTrainIsntOperatingText: ; TO TRANSLATE
 	text "I'm sorry, but the"
 	line "MAGNET TRAIN can't"
 	cont "operate without"
 	cont "power."
 	done
 
-SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:
+SaffronMagnetTrainStationOfficerAreYouComingOnBoardText: ; AUTOTRAD
 	text "We'll soon depart"
 	line "for GOLDENROD."
 
@@ -150,12 +150,12 @@ SaffronMagnetTrainStationOfficerAreYouComingOnBoardText:
 	line "board?"
 	done
 
-SaffronMagnetTrainStationOfficerArrivedInSaffronText:
+SaffronMagnetTrainStationOfficerArrivedInSaffronText: ; TO TRANSLATE
 	text "We have arrived in"
 	line "SAFFRON."
 	done
 
-SaffronMagnetTrainStationGymGuideText:
+SaffronMagnetTrainStationGymGuideText: ; AUTOTRAD
 	text "The MAGNET TRAIN"
 	line "is a super-modern"
 
@@ -171,7 +171,7 @@ SaffronMagnetTrainStationGymGuideText:
 	cont "tricity…"
 	done
 
-SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart:
+SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart: ; AUTOTRAD
 	text "Whew…"
 
 	para "How many times"
@@ -181,7 +181,7 @@ SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart:
 	line "KANTO and JOHTO?"
 	done
 
-SaffronMagnetTrainStationTeacherText:
+SaffronMagnetTrainStationTeacherText: ; AUTOTRAD
 	text "Before the MAGNET"
 	line "TRAIN STATION was"
 
@@ -193,7 +193,7 @@ SaffronMagnetTrainStationTeacherText:
 	cont "to live there."
 	done
 
-SaffronMagnetTrainStationLassText:
+SaffronMagnetTrainStationLassText: ; TO TRANSLATE
 	text "Hi. Do you have a"
 	line "RAIL PASS? I have"
 

@@ -30,7 +30,7 @@ SlowpokeWellB2FGymGuideScript:
 SlowpokeWellB2FTMRainDance:
 	itemball TM_RAIN_DANCE
 
-SlowpokeWellB2FGymGuideText:
+SlowpokeWellB2FGymGuideText: ; AUTOTRAD
 	text "I'm waiting to see"
 	line "SLOWPOKE's moment"
 	cont "of evolution."
@@ -50,7 +50,7 @@ SlowpokeWellB2FGymGuideText:
 	cont "you."
 	done
 
-SlowpokeWellB2FGymGuideText_GotKingsRock:
+SlowpokeWellB2FGymGuideText_GotKingsRock: ; AUTOTRAD
 	text "I'm going to be"
 	line "like SLOWPOKE."
 

@@ -610,15 +610,15 @@ PathMovementEnd:
 	turn_head LEFT
 	step_end
 
-SupernerdEricSeenText:
+SupernerdEricSeenText: ; TO TRANSLATE
 	text "I like to gamble."
 	done
 
-SupernerdEricBeatenText:
+SupernerdEricBeatenText: ; AUTOTRAD
 	text "…Grumble…"
 	done
 
-SupernerdEricAfterBattleText:
+SupernerdEricAfterBattleText: ; TO TRANSLATE
 	text "I wish I could go"
 	line "to the GAME COR-"
 	cont "NER."
@@ -628,13 +628,13 @@ SupernerdEricAfterBattleText:
 	cont "closed…"
 	done
 
-SupernerdEricAfterBattleText_Reopening:
+SupernerdEricAfterBattleText_Reopening: ; TO TRANSLATE
 	text "The GAME CORNER"
 	line "finally reopened!"
 	cont "Time to gamble!"
 	done
 
-SupernerdTeruSeenText:
+SupernerdTeruSeenText: ; AUTOTRAD
 	text "Do you consider"
 	line "type alignments in"
 	cont "battle?"
@@ -646,11 +646,11 @@ SupernerdTeruSeenText:
 	line "in battle."
 	done
 
-SupernerdTeruBeatenText:
+SupernerdTeruBeatenText: ; AUTOTRAD
 	text "Ow, ow, ow!"
 	done
 
-SupernerdTeruAfterBattleText:
+SupernerdTeruAfterBattleText: ; AUTOTRAD
 	text "I know my #MON"
 	line "type alignments."
 
@@ -658,7 +658,7 @@ SupernerdTeruAfterBattleText:
 	line "type of #MON."
 	done
 
-PokemaniacIssacSeenText:
+PokemaniacIssacSeenText: ; AUTOTRAD
 	text "My #MON just"
 	line "got a haircut!"
 
@@ -666,11 +666,11 @@ PokemaniacIssacSeenText:
 	line "strong it is!"
 	done
 
-PokemaniacIssacBeatenText:
+PokemaniacIssacBeatenText: ; AUTOTRAD
 	text "Aiyeeee!"
 	done
 
-PokemaniacIssacAfterBattleText:
+PokemaniacIssacAfterBattleText: ; AUTOTRAD
 	text "Your #MON will"
 	line "like you more if"
 
@@ -678,7 +678,7 @@ PokemaniacIssacAfterBattleText:
 	line "haircuts."
 	done
 
-PokemaniacDonaldSeenText:
+PokemaniacDonaldSeenText: ; TO TRANSLATE
 	text "I think you have"
 	line "some rare #MON"
 	cont "with you."
@@ -686,12 +686,12 @@ PokemaniacDonaldSeenText:
 	para "Lemme see them!"
 	done
 
-PokemaniacDonaldBeatenText:
+PokemaniacDonaldBeatenText: ; AUTOTRAD
 	text "Gaah! I lost!"
 	line "That makes me mad!"
 	done
 
-PokemaniacDonaldAfterBattleText:
+PokemaniacDonaldAfterBattleText: ; AUTOTRAD
 	text "Are you making a"
 	line "#DEX? Here's a"
 	cont "hot tip."
@@ -705,25 +705,25 @@ PokemaniacDonaldAfterBattleText:
 	cont "#MON."
 	done
 
-GameCornerExitBlockText:
+GameCornerExitBlockText: ; TO TRANSLATE
 	text "The man locked the"
 	line "door behind you…"
 	done
 
-GoldenrodUndergroundTheDoorsLockedText:
+GoldenrodUndergroundTheDoorsLockedText: ; AUTOTRAD
 	text "The door's locked…"
 	done
 
-GoldenrodUndergroundTheDoorIsOpenText:
+GoldenrodUndergroundTheDoorIsOpenText: ; AUTOTRAD
 	text "The door is open."
 	done
 
-GoldenrodUndergroundBasementKeyOpenedDoorText:
+GoldenrodUndergroundBasementKeyOpenedDoorText: ; AUTOTRAD
 	text "The BASEMENT KEY"
 	line "opened the door."
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText:
+GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText: ; AUTOTRAD
 	text "Welcome!"
 
 	para "I run the #MON"
@@ -741,37 +741,37 @@ GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText:
 	line "to do that?"
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText:
+GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText: ; AUTOTRAD
 	text "Which #MON"
 	line "should I work on?"
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherWatchItBecomeBeautifulText:
+GoldenrodUndergroundOlderHaircutBrotherWatchItBecomeBeautifulText: ; AUTOTRAD
 	text "OK! Watch it"
 	line "become beautiful!"
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherAllDoneText:
+GoldenrodUndergroundOlderHaircutBrotherAllDoneText: ; AUTOTRAD
 	text "There! All done!"
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherThatsAShameText:
+GoldenrodUndergroundOlderHaircutBrotherThatsAShameText: ; AUTOTRAD
 	text "Is that right?"
 	line "That's a shame!"
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherYoullNeedMoreMoneyText:
+GoldenrodUndergroundOlderHaircutBrotherYoullNeedMoreMoneyText: ; AUTOTRAD
 	text "You'll need more"
 	line "money than that."
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherOneHaircutADayText:
+GoldenrodUndergroundOlderHaircutBrotherOneHaircutADayText: ; AUTOTRAD
 	text "I do only one"
 	line "haircut a day. I'm"
 	cont "done for today."
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText:
+GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText: ; AUTOTRAD
 	text "Welcome to the"
 	line "#MON SALON!"
 
@@ -787,32 +787,32 @@ GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText:
 	para "So? How about it?"
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherAskWhichMonText:
+GoldenrodUndergroundYoungerHaircutBrotherAskWhichMonText: ; AUTOTRAD
 	text "OK, which #MON"
 	line "should I do?"
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherIllMakeItLookCoolText:
+GoldenrodUndergroundYoungerHaircutBrotherIllMakeItLookCoolText: ; AUTOTRAD
 	text "OK! I'll make it"
 	line "look cool!"
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherAllDoneText:
+GoldenrodUndergroundYoungerHaircutBrotherAllDoneText: ; AUTOTRAD
 	text "There we go!"
 	line "All done!"
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherHowDisappointingText:
+GoldenrodUndergroundYoungerHaircutBrotherHowDisappointingText: ; AUTOTRAD
 	text "No? "
 	line "How disappointing!"
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherShortOnFundsText:
+GoldenrodUndergroundYoungerHaircutBrotherShortOnFundsText: ; AUTOTRAD
 	text "You're a little"
 	line "short on funds."
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherOneHaircutADayText:
+GoldenrodUndergroundYoungerHaircutBrotherOneHaircutADayText: ; AUTOTRAD
 	text "I can do only one"
 	line "haircut a day."
 
@@ -820,40 +820,40 @@ GoldenrodUndergroundYoungerHaircutBrotherOneHaircutADayText:
 	line "done for today."
 	done
 
-HaircutBrosText_SlightlyHappier:
+HaircutBrosText_SlightlyHappier: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text " looks a"
 	line "little happier."
 	done
 
-HaircutBrosText_Happier:
+HaircutBrosText_Happier: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text " looks"
 	line "happy."
 	done
 
-HaircutBrosText_MuchHappier:
+HaircutBrosText_MuchHappier: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text " looks"
 	line "delighted!"
 	done
 
-GoldenrodUndergroundWeAreNotOpenTodayText:
+GoldenrodUndergroundWeAreNotOpenTodayText: ; AUTOTRAD
 	text "We're not open"
 	line "today."
 	done
 
-GoldenrodUndergroundNoEntryText:
+GoldenrodUndergroundNoEntryText: ; AUTOTRAD
 	text "NO ENTRY BEYOND"
 	line "THIS POINT"
 	done
 
-GoldenrodUndergroundExitText:
+GoldenrodUndergroundExitText: ; TO TRANSLATE
 	text "EMERGENCY EXIT"
 	line "DO NOT BLOCK"
 	done
 
-DoorKeeperCheckTeamText:
+DoorKeeperCheckTeamText: ; TO TRANSLATE
 	text "Good evening!"
 
 	para "You seem to be a"
@@ -863,12 +863,12 @@ DoorKeeperCheckTeamText:
 	line "#MON team?"
 	done
 
-NevermindText:
+NevermindText: ; TO TRANSLATE
 	text "Maybe another"
 	line "time!"
 	done
 
-FakeComplimentsText:
+FakeComplimentsText: ; TO TRANSLATE
 	text "…"
 
 	para "That's a fine"
@@ -876,7 +876,7 @@ FakeComplimentsText:
 	cont "good training!"
 	done
 
-CheckPassText:
+CheckPassText: ; TO TRANSLATE
 	text "…"
 
 	para "OK, you're clean."
@@ -885,12 +885,12 @@ CheckPassText:
 	line "Lemme see it."
 	done
 
-RefuseMoneyCheckText:
+RefuseMoneyCheckText: ; TO TRANSLATE
 	text "GO GET CASH NOW,"
 	line "BEFORE I LEAVE!"
 	done
 
-NotEnoughMoneyCheckText:
+NotEnoughMoneyCheckText: ; TO TRANSLATE
 	text "…"
 
 	para "We said 3000¥"
@@ -902,28 +902,28 @@ NotEnoughMoneyCheckText:
 	line "SIGHT, NOW!"
 	done
 
-MoneyCheckPassText:
+MoneyCheckPassText: ; TO TRANSLATE
 	text "My share is ¥1000."
 	done
 
-FollowText:
+FollowText: ; TO TRANSLATE
 	text "All right,"
 	line "come with me."
 	done
 
-PathInstructionText:
+PathInstructionText: ; TO TRANSLATE
 	text "Behind that door,"
 	line "straight forward."
 
 	para "Have fun."
 	done
 
-GoldenrodUndergroundRush1Text:
+GoldenrodUndergroundRush1Text: ; TO TRANSLATE
 	text "Let me find"
 	line "my change…"
 	done
 
-GoldenrodUndergroundRush2Text:
+GoldenrodUndergroundRush2Text: ; TO TRANSLATE
 	text "Please don't sell"
 	line "all you have to"
 	cont "this lady. Save"
@@ -933,17 +933,17 @@ GoldenrodUndergroundRush2Text:
 	line "the price!"
 	done
 
-GoldenrodUndergroundRush3Text:
+GoldenrodUndergroundRush3Text: ; TO TRANSLATE
 	text "This old lady is"
 	line "taking forever!"
 	done
 
-GoldenrodUndergroundRush4Text:
+GoldenrodUndergroundRush4Text: ; TO TRANSLATE
 	text "Sell me everything"
 	line "you have. Now!"
 	done
 
-StoneScammerExcuseText:
+StoneScammerExcuseText: ; TO TRANSLATE
 	text "Your #MON got"
 	line "sick while holding"
 	cont "a JADE CRYSTAL?"
@@ -964,13 +964,13 @@ StoneScammerExcuseText:
 	cont "CRYSTAL for ¥9999."
 	done
 
-StoneScammerDoubleScamText:
+StoneScammerDoubleScamText: ; TO TRANSLATE
 	text "You will see. This"
 	line "JADE CRYSTAL is"
 	cont "very powerful."
 	done
 
-StoneScammerAggressiveText:
+StoneScammerAggressiveText: ; TO TRANSLATE
 	text "Look, I will not"
 	line "give you a refund."
 

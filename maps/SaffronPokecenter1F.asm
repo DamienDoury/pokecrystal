@@ -43,7 +43,7 @@ SaffronPokecenter1FFisherScript:
 SaffronPokecenter1FYoungsterScript:
 	jumptextfaceplayer SaffronPokecenter1FYoungsterText
 
-SaffronPokecenter1FTeacherText:
+SaffronPokecenter1FTeacherText: ; AUTOTRAD
 	text "What are JOHTO's"
 	line "#MON CENTERS"
 	cont "like?"
@@ -59,7 +59,7 @@ SaffronPokecenter1FTeacherText:
 	cont "then!"
 	done
 
-SaffronPokecenter1FTeacherMobileText:
+SaffronPokecenter1FTeacherMobileText: ; AUTOTRAD
 	text "What are JOHTO's"
 	line "#MON CENTERS"
 	cont "like?"
@@ -77,7 +77,7 @@ SaffronPokecenter1FTeacherMobileText:
 	line "trade it to me!"
 	done
 
-SaffronPokecenter1FFisherText:
+SaffronPokecenter1FFisherText: ; AUTOTRAD
 	text "I just happened to"
 	line "come through ROCK"
 
@@ -86,7 +86,7 @@ SaffronPokecenter1FFisherText:
 	cont "the POWER PLANT."
 	done
 
-SaffronPokecenter1FFisherReturnedMachinePartText:
+SaffronPokecenter1FFisherReturnedMachinePartText: ; AUTOTRAD
 	text "Caves collapse"
 	line "easily."
 
@@ -102,7 +102,7 @@ SaffronPokecenter1FFisherReturnedMachinePartText:
 	cont "knowledge."
 	done
 
-SaffronPokecenter1FYoungsterText:
+SaffronPokecenter1FYoungsterText: ; AUTOTRAD
 	text "SILPH CO.'s HEAD"
 	line "OFFICE and the"
 

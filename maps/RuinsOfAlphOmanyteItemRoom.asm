@@ -24,7 +24,7 @@ RuinsOfAlphOmanyteItemRoomStarPiece:
 RuinsOfAlphOmanyteItemRoomAncientReplica:
 	jumptext RuinsOfAlphOmanyteItemRoomAncientReplicaText
 
-RuinsOfAlphOmanyteItemRoomAncientReplicaText:
+RuinsOfAlphOmanyteItemRoomAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."

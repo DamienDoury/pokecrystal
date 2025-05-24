@@ -28,7 +28,7 @@ PewterMartSuperNerdScript:
 PewterMartShelfItem1Script:
 	shelfitem 1, MAX_REPEL, 700
 
-PewterMartYoungsterText:
+PewterMartYoungsterText: ; AUTOTRAD
 	text "Hi! Check out my"
 	line "GYARADOS!"
 
@@ -39,7 +39,7 @@ PewterMartYoungsterText:
 	line "it has become."
 	done
 
-PewterMartSuperNerdText:
+PewterMartSuperNerdText: ; AUTOTRAD
 	text "There once was a"
 	line "weird old man who"
 	cont "sold MAGIKARP."

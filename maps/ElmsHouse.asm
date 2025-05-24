@@ -31,7 +31,7 @@ ElmsHousePC:
 ElmsHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-ElmsWifeText:
+ElmsWifeText: ; TO TRANSLATE
 	text "Hi, <PLAY_G>! My"
 	line "husband's always"
 
@@ -45,7 +45,7 @@ ElmsWifeText:
 	line "forgets to eat."
 	done
 
-ElmsSonText:
+ElmsSonText: ; TO TRANSLATE
 	text "When I grow up,"
 	line "I'm going to help"
 	cont "my dad!"
@@ -54,7 +54,7 @@ ElmsSonText:
 	line "great professor!"
 	done
 
-ElmsHousePCText:
+ElmsHousePCText: ; TO TRANSLATE
 	text "“…Where"
 	line "does it come from?"
 

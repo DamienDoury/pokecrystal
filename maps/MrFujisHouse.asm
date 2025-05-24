@@ -114,7 +114,7 @@ MrFujisHouseFaceRightMovement:
 	step_bump
 	step_end
 
-MrFujisHouseSuperNerdText:
+MrFujisHouseSuperNerdText: ; AUTOTRAD
 	text "MR.FUJI does live"
 	line "here, but he's not"
 
@@ -124,7 +124,7 @@ MrFujisHouseSuperNerdText:
 	line "the SOUL HOUSE."
 	done
 
-MrFujisHouseLassText:
+MrFujisHouseLassText: ; AUTOTRAD
 	text "Some cold-hearted"
 	line "people stop caring"
 	cont "for their #MON."
@@ -136,23 +136,23 @@ MrFujisHouseLassText:
 	line "care of them."
 	done
 
-MrFujisPsyduckText:
+MrFujisPsyduckText: ; AUTOTRAD
 	text "PSYDUCK: Gu-guwa?"
 	done
 
-MrFujisNidorinoText:
+MrFujisNidorinoText: ; AUTOTRAD
 	text "NIDORINO: Gyun!"
 	done
 
-MrFujisPidgeyText:
+MrFujisPidgeyText: ; AUTOTRAD
 	text "PIDGEY: Pijji!"
 	done
 
-MrFujisJasminesFriendFirstText:
+MrFujisJasminesFriendFirstText: ; TO TRANSLATE
 	text "Poor JASMINE…"
 	done
 
-MrFujisJasminesFriendSecondText:
+MrFujisJasminesFriendSecondText: ; TO TRANSLATE
 	text "Thanks for coming"
 	line "& showing support,"
 	cont "it's heartwarming."

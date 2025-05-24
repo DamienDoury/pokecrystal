@@ -57,13 +57,13 @@ MahoganyTownPokecenterSign:
 MahoganyTown_DoorScript:
 	jumpstd LockdownCurfewClosedDoor
 
-MahoganyTownGrampsText:
+MahoganyTownGrampsText: ; AUTOTRAD
 	text "Are you off to see"
 	line "the GYARADOS ram-"
 	cont "page at the LAKE?"
 	done
 
-MahoganyTownGrampsText_ClearedRocketHideout:
+MahoganyTownGrampsText_ClearedRocketHideout: ; AUTOTRAD
 	text "MAGIKARP have"
 	line "returned to LAKE"
 	cont "OF RAGE."
@@ -73,7 +73,7 @@ MahoganyTownGrampsText_ClearedRocketHideout:
 	cont "anglers there."
 	done
 
-MahoganyTownLassText:
+MahoganyTownLassText: ; AUTOTRAD
 	text "Visit Grandma's"
 	line "shop. She sells"
 
@@ -81,21 +81,21 @@ MahoganyTownLassText:
 	line "else has."
 	done
 
-MahoganyTownSignText:
+MahoganyTownSignText: ; AUTOTRAD
 	text "MAHOGANY TOWN"
 
 	para "Welcome to the"
 	line "Home of the Ninja"
 	done
 
-MahoganyTownRagecandybarSignText:
+MahoganyTownRagecandybarSignText: ; TO TRANSLATE
 	text "While visiting"
 	line "MAHOGANY TOWN, and"
 	cont "LAKE OF RAGE, try"
 	cont "a CAKE OF RAGE!"
 	done
 
-MahoganyGymSignText:
+MahoganyGymSignText: ; AUTOTRAD
 	text "MAHOGANY TOWN"
 	line "#MON GYM"
 	cont "LEADER: PRYCE"

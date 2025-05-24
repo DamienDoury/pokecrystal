@@ -414,7 +414,7 @@ Route27_SocialDistancingMovement:
 	step LEFT
 	step_end
 
-Route27FisherText:
+Route27FisherText: ; TO TRANSLATE
 	text "Hey!"
 
 	para "Do you know what"
@@ -427,7 +427,7 @@ Route27FisherText:
 	line "GEAR MAP and see."
 	done
 
-Route27BorderClosedText:
+Route27BorderClosedText: ; TO TRANSLATE
 	text "The border is"
 	line "closed because"
 	cont "of the pandemic."
@@ -436,7 +436,7 @@ Route27BorderClosedText:
 	line "back."
 	done
 
-Route27BorderLetterText:
+Route27BorderLetterText: ; TO TRANSLATE
 	text "Is that a WORK"
 	line "VISA?"
 	cont "Let me see it."
@@ -447,37 +447,37 @@ Route27BorderLetterText:
 	line "in order."
 	done
 
-Route27EntranceText:	
+Route27EntranceText: ; TO TRANSLATE
 	text "You may cross"
 	line "the border." 
 	done
 
-Route27BorderArrestText:
+Route27BorderArrestText: ; TO TRANSLATE
 	text "Go back were you"
 	line "came from, before"
 	cont "we arrest you."
 	done
 
-Route27VisaExpiredText:
+Route27VisaExpiredText: ; TO TRANSLATE
 	text "Your WORK VISA is"
 	line "expired. I won't"
 	cont "let you through."
 	done
 
-Route27_VaccinationPassText:
+Route27_VaccinationPassText: ; TO TRANSLATE
 	text "Please show your"
 	line "TRAINER CARD."
 
 	para "…"
 	done
 	
-Route27_VaccinationPassValidText:
+Route27_VaccinationPassValidText: ; TO TRANSLATE
 	text "I see you're"
 	line "vaccinated, you"
 	cont "can go through."
 	done
 
-Route27_FakeIDText:
+Route27_FakeIDText: ; TO TRANSLATE
 	text "Hey! It's a fake"
 	line "TRAINER CARD!"
 
@@ -492,17 +492,17 @@ Route27_FakeIDText:
 	line "Now get lost."
 	done
 
-CooltrainermBlakeSeenText:
+CooltrainermBlakeSeenText: ; AUTOTRAD
 	text "You look pretty"
 	line "strong."
 	cont "Let me battle you!"
 	done
 
-CooltrainermBlakeBeatenText:
+CooltrainermBlakeBeatenText: ; AUTOTRAD
 	text "Yow!"
 	done
 
-CooltrainermBlakeAfterBattleText:
+CooltrainermBlakeAfterBattleText: ; AUTOTRAD
 	text "If you prevail on"
 	line "this harsh trek,"
 
@@ -514,22 +514,22 @@ CooltrainermBlakeAfterBattleText:
 	cont "something cool."
 	done
 
-CooltrainermBrianSeenText:
+CooltrainermBrianSeenText: ; AUTOTRAD
 	text "Hm? You're good,"
 	line "aren't you?"
 	done
 
-CooltrainermBrianBeatenText:
+CooltrainermBrianBeatenText: ; AUTOTRAD
 	text "Just as I thought!"
 	done
 
-CooltrainermBrianAfterBattleText:
+CooltrainermBrianAfterBattleText: ; AUTOTRAD
 	text "A good trainer can"
 	line "recognize other"
 	cont "good trainers."
 	done
 
-CooltrainerfReenaSeenText:
+CooltrainerfReenaSeenText: ; AUTOTRAD
 	text "You shouldn't"
 	line "underestimate the"
 
@@ -537,12 +537,12 @@ CooltrainerfReenaSeenText:
 	line "these parts."
 	done
 
-CooltrainerfReenaBeatenText:
+CooltrainerfReenaBeatenText: ; AUTOTRAD
 	text "Oh! You're much"
 	line "too strong!"
 	done
 
-CooltrainerfReenaAfterBattleText:
+CooltrainerfReenaAfterBattleText: ; AUTOTRAD
 	text "You're just a kid,"
 	line "but you're not to"
 
@@ -550,7 +550,7 @@ CooltrainerfReenaAfterBattleText:
 	line "either."
 	done
 
-CooltrainerfMeganSeenText:
+CooltrainerfMeganSeenText: ; AUTOTRAD
 	text "It's rare to see"
 	line "anyone come here."
 
@@ -558,12 +558,12 @@ CooltrainerfMeganSeenText:
 	line "on your own?"
 	done
 
-CooltrainerfMeganBeatenText:
+CooltrainerfMeganBeatenText: ; AUTOTRAD
 	text "Oh! You're really"
 	line "strong!"
 	done
 
-CooltrainerfMeganAfterBattleText:
+CooltrainerfMeganAfterBattleText: ; AUTOTRAD
 	text "I'm checking out"
 	line "pre- and post-"
 	cont "evolution #MON."
@@ -577,7 +577,7 @@ CooltrainerfMeganAfterBattleText:
 	cont "later on."
 	done
 
-PsychicGilbertSeenText:
+PsychicGilbertSeenText: ; AUTOTRAD
 	text "Don't say a thing!"
 
 	para "Let me guess what"
@@ -590,11 +590,11 @@ PsychicGilbertSeenText:
 	cont "LEAGUE challenge!"
 	done
 
-PsychicGilbertBeatenText:
+PsychicGilbertBeatenText: ; AUTOTRAD
 	text "You're too much!"
 	done
 
-PsychicGilbertAfterBattleText:
+PsychicGilbertAfterBattleText: ; AUTOTRAD
 	text "With your skills,"
 	line "you'll do well at"
 	cont "the LEAGUE."
@@ -603,16 +603,16 @@ PsychicGilbertAfterBattleText:
 	line "premonition says."
 	done
 
-BirdKeeperJose2SeenText:
+BirdKeeperJose2SeenText: ; AUTOTRAD
 	text "Tweet! Tweet!"
 	line "Tetweet!"
 	done
 
-BirdKeeperJose2BeatenText:
+BirdKeeperJose2BeatenText: ; AUTOTRAD
 	text "Tweet!"
 	done
 
-BirdKeeperJose2AfterBattleText:
+BirdKeeperJose2AfterBattleText: ; AUTOTRAD
 	text "BIRD KEEPERS like"
 	line "me mimic bird"
 
@@ -620,7 +620,7 @@ BirdKeeperJose2AfterBattleText:
 	line "mand #MON."
 	done
 
-TohjoFallsSignText:
+TohjoFallsSignText: ; AUTOTRAD
 	text "TOHJO FALLS"
 
 	para "THE LINK BETWEEN"

@@ -120,7 +120,7 @@ WiseTriosRoomSageReturnsMovement:
 	turn_head LEFT
 	step_end
 
-WiseTriosRoomSage1Text:
+WiseTriosRoomSage1Text: ; AUTOTRAD
 	text "Astounding…"
 
 	para "SUICUNE, ENTEI and"
@@ -131,7 +131,7 @@ WiseTriosRoomSage1Text:
 	line "coming true?"
 	done
 
-WiseTriosRoomSage2Text:
+WiseTriosRoomSage2Text: ; AUTOTRAD
 	text "We train at the"
 	line "BURNED TOWER, but"
 
@@ -145,7 +145,7 @@ WiseTriosRoomSage2Text:
 	line "by someone."
 	done
 
-WiseTriosRoomSage3BlocksExitText:
+WiseTriosRoomSage3BlocksExitText: ; AUTOTRAD
 	text "TIN TOWER may be"
 	line "entered by those"
 
@@ -162,7 +162,7 @@ WiseTriosRoomSage3BlocksExitText:
 	line "entering!"
 	done
 
-WiseTriosRoomSage3Text:
+WiseTriosRoomSage3Text: ; AUTOTRAD
 	text "We, the WISE TRIO,"
 	line "are the protectors"
 
@@ -170,7 +170,7 @@ WiseTriosRoomSage3Text:
 	line "#MON."
 	done
 
-SageGakuSeenText:
+SageGakuSeenText: ; AUTOTRAD
 	text "Legend has it that"
 	line "upon the emergence"
 
@@ -200,12 +200,12 @@ SageGakuSeenText:
 	line "inside!"
 	done
 
-SageGakuBeatenText:
+SageGakuBeatenText: ; AUTOTRAD
 	text "Stronger than we"
 	line "thought? Perhaps…"
 	done
 
-SageGakuAfterBattleText:
+SageGakuAfterBattleText: ; AUTOTRAD
 	text "Ah, so it is you"
 	line "who claim to have"
 
@@ -220,7 +220,7 @@ SageGakuAfterBattleText:
 	cont "while they sleep…"
 	done
 
-SageMasaSeenText:
+SageMasaSeenText: ; AUTOTRAD
 	text "Can you be trusted"
 	line "with the truth?"
 
@@ -228,12 +228,12 @@ SageMasaSeenText:
 	line "your worthiness."
 	done
 
-SageMasaBeatenText:
+SageMasaBeatenText: ; AUTOTRAD
 	text "…I will tell you"
 	line "the truth…"
 	done
 
-SageMasaAfterBattleText:
+SageMasaAfterBattleText: ; AUTOTRAD
 	text "In the past, there"
 	line "were two nine-tier"
 	cont "towers here."
@@ -283,17 +283,17 @@ SageMasaAfterBattleText:
 	cont "came to be."
 	done
 
-SageKojiSeenText:
+SageKojiSeenText: ; AUTOTRAD
 	text "Let me see your"
 	line "power!"
 	done
 
-SageKojiBeatenText:
+SageKojiBeatenText: ; AUTOTRAD
 	text "Too strong!"
 	line "Why?"
 	done
 
-SageKojiAfterBattleQuestionText:
+SageKojiAfterBattleQuestionText: ; AUTOTRAD
 	text "You… Are you the"
 	line "trainer who is"
 
@@ -301,7 +301,7 @@ SageKojiAfterBattleQuestionText:
 	line "legendary #MON?"
 	done
 
-SageKojiAfterBattleSpeechText:
+SageKojiAfterBattleSpeechText: ; AUTOTRAD
 	text "I see…"
 
 	para "We, the WISE TRIO,"
@@ -327,7 +327,7 @@ SageKojiAfterBattleSpeechText:
 	line "you to the test."
 	done
 
-SageKojiAfterBattleFinalText:
+SageKojiAfterBattleFinalText: ; AUTOTRAD
 	text "Please, do go on."
 
 	para "SUICUNE will put"

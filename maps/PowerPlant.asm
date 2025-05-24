@@ -272,7 +272,7 @@ PowerPlantStompLeftMovement:
 	step_bump
 	step_end
 
-PowerPlantOfficer1AThiefBrokeInText:
+PowerPlantOfficer1AThiefBrokeInText: ; AUTOTRAD
 	text "A thief broke into"
 	line "the POWER PLANT…"
 
@@ -280,7 +280,7 @@ PowerPlantOfficer1AThiefBrokeInText:
 	line "coming to?"
 	done
 
-PowerPlantOfficer1CeruleanShadyCharacterText:
+PowerPlantOfficer1CeruleanShadyCharacterText: ; AUTOTRAD
 	text "I just got word"
 	line "from CERULEAN."
 
@@ -291,18 +291,18 @@ PowerPlantOfficer1CeruleanShadyCharacterText:
 	line "around."
 	done
 
-PowerPlantOfficer1CouldIAskForYourCooperationText:
+PowerPlantOfficer1CouldIAskForYourCooperationText: ; AUTOTRAD
 	text "Could I ask for"
 	line "your cooperation?"
 	done
 
-PowerPlantOfficer1HaveToBeefUpSecurityText:
+PowerPlantOfficer1HaveToBeefUpSecurityText: ; AUTOTRAD
 	text "We'll have to beef"
 	line "up our security"
 	cont "presence."
 	done
 
-PowerPlantGymGuide1SomeoneStoleAPartText:
+PowerPlantGymGuide1SomeoneStoleAPartText: ; AUTOTRAD
 	text "Someone made off"
 	line "with a part that's"
 
@@ -314,7 +314,7 @@ PowerPlantGymGuide1SomeoneStoleAPartText:
 	cont "useless!"
 	done
 
-PowerPlantGymGuide1GeneratorUpAndRunningText:
+PowerPlantGymGuide1GeneratorUpAndRunningText: ; AUTOTRAD
 	text "The generator's up"
 	line "and running. It's"
 
@@ -322,7 +322,7 @@ PowerPlantGymGuide1GeneratorUpAndRunningText:
 	line "to spare."
 	done
 
-PowerPlantGymGuide2PowerPlantUpAndRunningText:
+PowerPlantGymGuide2PowerPlantUpAndRunningText: ; TO TRANSLATE
 	text "This POWER PLANT"
 	line "had been abandoned"
 	cont "in the past."
@@ -341,7 +341,7 @@ PowerPlantGymGuide2PowerPlantUpAndRunningText:
 	line "operate again."
 	done
 
-PowerPlantOfficer2ManagerHasBeenSadAndFuriousText:
+PowerPlantOfficer2ManagerHasBeenSadAndFuriousText: ; AUTOTRAD
 	text "The POWER PLANT's"
 	line "MANAGER is up"
 	cont "ahead."
@@ -353,7 +353,7 @@ PowerPlantOfficer2ManagerHasBeenSadAndFuriousText:
 	cont "furious…"
 	done
 
-PowerPlantOfficer2ManagerHasBeenCheerfulText:
+PowerPlantOfficer2ManagerHasBeenCheerfulText: ; AUTOTRAD
 	text "Since the gener-"
 	line "ator's been fixed,"
 
@@ -361,7 +361,7 @@ PowerPlantOfficer2ManagerHasBeenCheerfulText:
 	line "been cheerful."
 	done
 
-PowerPlantGymGuide4MagnetTrainConsumesElectricityText:
+PowerPlantGymGuide4MagnetTrainConsumesElectricityText: ; AUTOTRAD
 	text "The MAGNET TRAIN"
 	line "consumes a lot of"
 	cont "electricity."
@@ -371,7 +371,7 @@ PowerPlantGymGuide4MagnetTrainConsumesElectricityText:
 	cont "isn't operating."
 	done
 
-PowerPlantGymGuide4WeCanGetMagnetTrainRunningText:
+PowerPlantGymGuide4WeCanGetMagnetTrainRunningText: ; AUTOTRAD
 	text "All right! We can"
 	line "finally get the"
 
@@ -379,7 +379,7 @@ PowerPlantGymGuide4WeCanGetMagnetTrainRunningText:
 	line "running again."
 	done
 
-PowerPlantManagerWhoWouldRuinMyGeneratorText:
+PowerPlantManagerWhoWouldRuinMyGeneratorText: ; AUTOTRAD
 	text "MANAGER: I, I, I'm"
 	line "ready to blast"
 	cont "someone!"
@@ -397,7 +397,7 @@ PowerPlantManagerWhoWouldRuinMyGeneratorText:
 	line "CANNON!"
 	done
 
-PowerPlantManagerIWontForgiveCulpritText:
+PowerPlantManagerIWontForgiveCulpritText: ; AUTOTRAD
 	text "MANAGER: I won't"
 	line "forgive him!"
 
@@ -410,7 +410,7 @@ PowerPlantManagerIWontForgiveCulpritText:
 	para "Gahahahah!"
 	done
 
-PowerPlantManagerThatsThePartText:
+PowerPlantManagerThatsThePartText: ; AUTOTRAD
 	text "MANAGER: Ah! Yeah!"
 
 	para "That's the missing"
@@ -419,14 +419,14 @@ PowerPlantManagerThatsThePartText:
 	cont "You found it?"
 	done
 
-PowerPlantManagerTakeThisTMText:
+PowerPlantManagerTakeThisTMText: ; AUTOTRAD
 	text "Wahah! Thanks!"
 
 	para "Here! Take this TM"
 	line "as a reward!"
 	done
 
-PowerPlantManagerTM07IsZapCannonText:
+PowerPlantManagerTM07IsZapCannonText: ; AUTOTRAD
 	text "MANAGER: TM07 is"
 	line "my ZAP CANNON."
 
@@ -440,7 +440,7 @@ PowerPlantManagerTM07IsZapCannonText:
 	line "packs a wallop!"
 	done
 
-PowerPlantManagerMyBelovedGeneratorText:
+PowerPlantManagerMyBelovedGeneratorText: ; AUTOTRAD
 	text "MANAGER: My be-"
 	line "loved generator!"
 
@@ -448,7 +448,7 @@ PowerPlantManagerMyBelovedGeneratorText:
 	line "electricity out!"
 	done
 
-PowerPlantVermilionGymGuideText:
+PowerPlantVermilionGymGuideText: ; TO TRANSLATE
 	text "Yo CHAMP!"
 
 	para "LT.SURGE is our"
@@ -462,7 +462,7 @@ PowerPlantVermilionGymGuideText:
 	cont "all of KANTO!"
 	done
 
-PowerPlantVermilionGymGuidePowerRestoredText:
+PowerPlantVermilionGymGuidePowerRestoredText: ; TO TRANSLATE
 	text "Yo CHAMP!"
 
 	para "You did an amazing"
@@ -473,13 +473,13 @@ PowerPlantVermilionGymGuidePowerRestoredText:
 	cont "GYM."
 	done
 
-PowerPlantSurgeText:
+PowerPlantSurgeText: ; TO TRANSLATE
 	text "SURGE: DO IT!"
 
 	para "JUST DO IT!!"
 	done
 
-PowerPlantSurgeMissionCompletedText:
+PowerPlantSurgeMissionCompletedText: ; TO TRANSLATE
 	text "SURGE: So it's over"
 	line "hey?"
 	
@@ -488,7 +488,7 @@ PowerPlantSurgeMissionCompletedText:
 	cont "to base camp."
 	done
 
-PowerPlantPokemonShoutText:
+PowerPlantPokemonShoutText: ; TO TRANSLATE
 	text "@"
 	text_ram wStringBuffer3
 	text ": !!!"

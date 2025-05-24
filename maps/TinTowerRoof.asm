@@ -41,7 +41,7 @@ TinTowerHoOh:
 .end
 	end
 
-HoOhText:
+HoOhText: ; AUTOTRAD
 	text "Shaoooh!"
 	done
 

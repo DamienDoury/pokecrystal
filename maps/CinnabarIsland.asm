@@ -270,7 +270,7 @@ CinnabarSellerBack_Movement:
 	step RIGHT
 	step_end
 
-CinnabarIslandBlueText:
+CinnabarIslandBlueText: ; AUTOTRAD
 	text "Who are you?"
 
 	para "Well, it's plain"
@@ -338,17 +338,17 @@ CinnabarIslandBlueText:
 	line "then."
 	done
 
-CinnabarIslandPartyText:
+CinnabarIslandPartyText: ; TO TRANSLATE
 	text "PAR-TAAAY!!"
 	done
 
-CinnabarIslandVolcanoSwimmingText:
+CinnabarIslandVolcanoSwimmingText: ; TO TRANSLATE
 	text "WOOHOO! I'm swim-"
 	line "ming in a f*cking"
 	cont "volcano baby!"
 	done
 
-CinnabarIslandVolcanoSwimmingSequelText:
+CinnabarIslandVolcanoSwimmingSequelText: ; TO TRANSLATE
 	text "Let me tell you"
 	line "a secret, my dear:"
 
@@ -356,7 +356,7 @@ CinnabarIslandVolcanoSwimmingSequelText:
 	line "nothing!"
 	done
 
-CinnabarIslandSickText:
+CinnabarIslandSickText: ; TO TRANSLATE
 	text "(burp)"
 
 	para "I'm not feeling"
@@ -366,17 +366,17 @@ CinnabarIslandSickText:
 	cont "to drink…"
 	done
 
-CinnabarIslandAskWaterText:
+CinnabarIslandAskWaterText: ; TO TRANSLATE
 	text "Offer FRESH"
 	line "WATER?"
 	done
 
-CinnabarIslandGiveWaterText:
+CinnabarIslandGiveWaterText: ; TO TRANSLATE
 	text "<PLAYER> gave"
 	line "FRESH WATER."
 	done
 
-CinnabarIslandSickWaterText:
+CinnabarIslandSickWaterText: ; TO TRANSLATE
 	text "(drinks)"
 
 	para "…"
@@ -395,23 +395,23 @@ CinnabarIslandSickWaterText:
 	cont "use this…"
 	done
 
-CinnabarIslandSickMaxReviveBisText:
+CinnabarIslandSickMaxReviveBisText: ; TO TRANSLATE
 	text "I don't need"
 	line "this anymore,"
 	cont "please take it."
 	done
 
-CinnabarIslandSickMakeRoomText:
+CinnabarIslandSickMakeRoomText: ; TO TRANSLATE
 	text "Empty your bag"
 	line "then come back."
 	done
 
-CinnabarIslandSickMakeRoom2Text:
+CinnabarIslandSickMakeRoom2Text: ; TO TRANSLATE
 	text "You can't take it?"
 	line "Come back swiftly."
 	done
 
-CinnabarIslandSickBuySilenceText:
+CinnabarIslandSickBuySilenceText: ; TO TRANSLATE
 	text "I think I held out"
 	line "thanks to my"
 	cont "FOCUS SASH."
@@ -421,27 +421,27 @@ CinnabarIslandSickBuySilenceText:
 	cont "of it!"
 	done
 
-CinnabarIslandSickBetterText:
+CinnabarIslandSickBetterText: ; TO TRANSLATE
 	text "Give me a minute,"
 	line "then let's"
 	cont "PAR-TAY!"
 	cont "(burp)!"
 	done
 
-CinnabarIslandSignText:
+CinnabarIslandSignText: ; AUTOTRAD
 	text "CINNABAR ISLAND"
 
 	para "The Fiery Town of"
 	line "Burning Desire"
 	done
 
-CinnabarHydratedText:
+CinnabarHydratedText: ; TO TRANSLATE
 	text "Gotta stay"
 	line "hydrated"
 	cont "tee-hee!"
 	done
 
-CinnabarGoFetchStuffText:
+CinnabarGoFetchStuffText: ; TO TRANSLATE
 	text "Hey you!"
 	line "You see the guy"
 	cont "over there?"
@@ -453,24 +453,24 @@ CinnabarGoFetchStuffText:
 	line "me some, would ya."
 	done
 
-CinnabarBusyText:
+CinnabarBusyText: ; TO TRANSLATE
 	text "Yo, I'm busy"
 	line "can't you see?"
 	done
 
-CinnabarDeliverStuffText:
+CinnabarDeliverStuffText: ; TO TRANSLATE
 	text "Wait. Who wants"
 	line "some you said?"
 
 	para "Ok, I'll go sell."
 	done
 
-CinnabarThanksText:
+CinnabarThanksText: ; TO TRANSLATE
 	text "Thanks for the"
 	line "tip."
 	done
 
-CinnabarWrongOrderText:
+CinnabarWrongOrderText: ; TO TRANSLATE
 	text "What did I"
 	line "just buy?"
 
@@ -485,12 +485,12 @@ CinnabarWrongOrderText:
 	cont "of it."
 	done
 
-CinnabarSyncText:
+CinnabarSyncText: ; TO TRANSLATE
 	text "Don't talk to me!"
 	line "Imma lose my sync!"
 	done
 
-CinnabarSingingText:
+CinnabarSingingText: ; TO TRANSLATE
 	;text "Dis is ze rhythm"
 	;line "of da night,"
 	;cont "da night, oh yeah!"
@@ -508,7 +508,7 @@ CinnabarSingingText:
 	line "judge mah life?"
 	done
 
-CinnabarSunriseText:
+CinnabarSunriseText: ; TO TRANSLATE
 	text "This place is per-"
 	line "fect, no one would"
 	cont "think of searching"

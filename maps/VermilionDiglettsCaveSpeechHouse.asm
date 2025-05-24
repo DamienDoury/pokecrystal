@@ -17,7 +17,7 @@ VermilionDiglettsCaveSpeechHouseGentlemanScript:
 VermilionDiglettsCaveSpeechHouseComputerScript:
 	jumptext VermilionDiglettsCaveSpeechHouseComputerText
 
-VermilionDiglettsCaveSpeechHouseGentlemanText:
+VermilionDiglettsCaveSpeechHouseGentlemanText: ; TO TRANSLATE
 	text "Now that we can go"
 	line "out once again,"
 	cont "most people went"
@@ -34,7 +34,7 @@ VermilionDiglettsCaveSpeechHouseGentlemanText:
 	cont "beach!"
 	done
 
-VermilionDiglettsCaveSpeechHouseComputerText:
+VermilionDiglettsCaveSpeechHouseComputerText: ; TO TRANSLATE
 	text "There's a weekly"
 	line "schedule opened."
 

@@ -47,7 +47,7 @@ GoldenrodBikeShopClerkScript:
 GoldenrodBikeShopBicycle:
 	jumptext GoldenrodBikeShopBicycleText
 
-GoldenrodBikeShopClerkIntroText:
+GoldenrodBikeShopClerkIntroText: ; AUTOTRAD
 	text "…sigh… I moved"
 	line "here, but I can't"
 
@@ -59,7 +59,7 @@ GoldenrodBikeShopClerkIntroText:
 	cont "tise for me?"
 	done
 
-GoldenrodBikeShopClerkAgreedText:
+GoldenrodBikeShopClerkAgreedText: ; AUTOTRAD
 	text "Really? Great!"
 
 	para "Give me your name"
@@ -69,12 +69,12 @@ GoldenrodBikeShopClerkAgreedText:
 	line "a BICYCLE."
 	done
 
-BorrowedABicycleText:
+BorrowedABicycleText: ; AUTOTRAD
 	text "<PLAYER> borrowed a"
 	line "BICYCLE."
 	done
 
-GoldenrodBikeShopClerkFirstRateBikesText:
+GoldenrodBikeShopClerkFirstRateBikesText: ; AUTOTRAD
 	text "My BICYCLES are"
 	line "first-rate! You"
 
@@ -82,13 +82,13 @@ GoldenrodBikeShopClerkFirstRateBikesText:
 	line "anywhere."
 	done
 
-GoldenrodBikeShopClerkRefusedText:
+GoldenrodBikeShopClerkRefusedText: ; AUTOTRAD
 	text "…sigh… Oh, for"
 	line "the kindness of"
 	cont "people…"
 	done
 
-GoldenrodBikeShopBicycleText:
+GoldenrodBikeShopBicycleText: ; AUTOTRAD
 	text "It's a shiny new"
 	line "BICYCLE!"
 	done

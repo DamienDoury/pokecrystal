@@ -84,12 +84,12 @@ DeptStore_StepDownMovement:
 	step DOWN
 	step_end
 
-GoldenrodDeptStore1FReceptionistText:
+GoldenrodDeptStore1FReceptionistText: ; AUTOTRAD
 	text "Welcome to GOLDEN-"
 	line "ROD DEPT.STORE."
 	done
 
-GoldenrodDeptStore1FReceptionistClosedText:
+GoldenrodDeptStore1FReceptionistClosedText: ; TO TRANSLATE
 	text "The DEPT.STORE"
 	line "is closed, but it"
 	cont "is allowed to"
@@ -97,7 +97,7 @@ GoldenrodDeptStore1FReceptionistClosedText:
 	cont "area."
 	done
 
-GoldenrodDeptStore1FGentlemanText:
+GoldenrodDeptStore1FGentlemanText: ; TO TRANSLATE
 	text "I just saw a girl"
 	line "carrying a TM that"
 
@@ -115,7 +115,7 @@ GoldenrodDeptStore1FGentlemanText:
 	line "has been declared…"
 	done
 
-GoldenrodDeptStore1FGentlemanGameCornerText:
+GoldenrodDeptStore1FGentlemanGameCornerText: ; TO TRANSLATE
 	text "The GAME CORNER is"
 	line "offering a free"
 	
@@ -126,7 +126,7 @@ GoldenrodDeptStore1FGentlemanGameCornerText:
 	line "grand re-opening!"
 	done
 
-GoldenrodDeptStore1FDirectoryText:
+GoldenrodDeptStore1FDirectoryText: ; AUTOTRAD
 	text "1F SERVICE COUNTER"
 
 	para "2F TRAINER'S"
@@ -144,7 +144,7 @@ GoldenrodDeptStore1FDirectoryText:
 	para "ROOFTOP LOOKOUT"
 	done
 
-DeptStore_FloorClosedText:
+DeptStore_FloorClosedText: ; TO TRANSLATE
 	text "“The DEPT.STORE"
 	line "is not allowed to"
 	cont "open because of"
@@ -152,7 +152,7 @@ DeptStore_FloorClosedText:
 	cont "restrictions.”"
 	done
 
-GoldenrodDeptStore_VaccinePassportControllerConfused:
+GoldenrodDeptStore_VaccinePassportControllerConfused: ; TO TRANSLATE
 	text "I don't recall"
 	line "scanning your"
 	cont "VACCINE PASSPORT."

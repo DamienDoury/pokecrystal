@@ -128,7 +128,7 @@ TrainerSwimmermMathew:
 Route41HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER
 
-SwimmermCharlieSeenText:
+SwimmermCharlieSeenText: ; AUTOTRAD
 	text "The water's warm"
 	line "here. I'm loose"
 	cont "and limber."
@@ -137,28 +137,28 @@ SwimmermCharlieSeenText:
 	line "you on!"
 	done
 
-SwimmermCharlieBeatenText:
+SwimmermCharlieBeatenText: ; AUTOTRAD
 	text "Yikes! I've got"
 	line "prune skin!"
 	done
 
-SwimmermCharlieAfterBattleText:
+SwimmermCharlieAfterBattleText: ; AUTOTRAD
 	text "Isn't it relaxing"
 	line "just floating like"
 	cont "this?"
 	done
 
-SwimmermGeorgeSeenText:
+SwimmermGeorgeSeenText: ; AUTOTRAD
 	text "I'm a bit tired."
 	line "If I win, lend me"
 	cont "your #MON."
 	done
 
-SwimmermGeorgeBeatenText:
+SwimmermGeorgeBeatenText: ; AUTOTRAD
 	text "Pant, pant…"
 	done
 
-SwimmermGeorgeAfterBattleText:
+SwimmermGeorgeAfterBattleText: ; AUTOTRAD
 	text "It's so far to"
 	line "CIANWOOD."
 
@@ -169,7 +169,7 @@ SwimmermGeorgeAfterBattleText:
 	para "What should I do?"
 	done
 
-SwimmermBerkeSeenText:
+SwimmermBerkeSeenText: ; AUTOTRAD
 	text "See those islands"
 	line "that are blocked"
 	cont "by whirlpools?"
@@ -178,12 +178,12 @@ SwimmermBerkeSeenText:
 	line "be a secret!"
 	done
 
-SwimmermBerkeBeatenText:
+SwimmermBerkeBeatenText: ; AUTOTRAD
 	text "What's the secret"
 	line "to your strength?"
 	done
 
-SwimmermBerkeAfterBattleText:
+SwimmermBerkeAfterBattleText: ; AUTOTRAD
 	text "It was a dark and"
 	line "stormy night…"
 
@@ -196,7 +196,7 @@ SwimmermBerkeAfterBattleText:
 	cont "silver wings."
 	done
 
-SwimmermKirkSeenText:
+SwimmermKirkSeenText: ; AUTOTRAD
 	text "The waves are wild"
 	line "here."
 
@@ -204,28 +204,28 @@ SwimmermKirkSeenText:
 	line "while you swim."
 	done
 
-SwimmermKirkBeatenText:
+SwimmermKirkBeatenText: ; AUTOTRAD
 	text "I'm beat!"
 	done
 
-SwimmermKirkAfterBattleText:
+SwimmermKirkAfterBattleText: ; AUTOTRAD
 	text "The currents keep"
 	line "me from reaching"
 	cont "that island."
 	done
 
-SwimmermMathewSeenText:
+SwimmermMathewSeenText: ; AUTOTRAD
 	text "Are you seeking"
 	line "the secrets of"
 	cont "WHIRL ISLANDS?"
 	done
 
-SwimmermMathewBeatenText:
+SwimmermMathewBeatenText: ; AUTOTRAD
 	text "Ooh, you've got"
 	line "great endurance!"
 	done
 
-SwimmermMathewAfterBattleText:
+SwimmermMathewAfterBattleText: ; AUTOTRAD
 	text "A secret about"
 	line "WHIRL ISLANDS…"
 
@@ -233,7 +233,7 @@ SwimmermMathewAfterBattleText:
 	line "inside!"
 	done
 
-SwimmerfKayleeSeenText:
+SwimmerfKayleeSeenText: ; AUTOTRAD
 	text "I'm on my way to"
 	line "WHIRL ISLANDS."
 
@@ -241,12 +241,12 @@ SwimmerfKayleeSeenText:
 	line "ing with friends."
 	done
 
-SwimmerfKayleeBeatenText:
+SwimmerfKayleeBeatenText: ; AUTOTRAD
 	text "Is that how you do"
 	line "it?"
 	done
 
-SwimmerfKayleeAfterBattleText:
+SwimmerfKayleeAfterBattleText: ; AUTOTRAD
 	text "There's supposed"
 	line "to be a big #-"
 	cont "MON deep beneath"
@@ -256,33 +256,33 @@ SwimmerfKayleeAfterBattleText:
 	line "could be?"
 	done
 
-SwimmerfSusieSeenText:
+SwimmerfSusieSeenText: ; AUTOTRAD
 	text "You look so ele-"
 	line "gant, riding your"
 	cont "#MON."
 	done
 
-SwimmerfSusieBeatenText:
+SwimmerfSusieBeatenText: ; AUTOTRAD
 	text "I'm crushed…"
 	done
 
-SwimmerfSusieAfterBattleText:
+SwimmerfSusieAfterBattleText: ; AUTOTRAD
 	text "Wasn't there a hit"
 	line "song about a boy"
 	cont "riding a LAPRAS?"
 	done
 
-SwimmerfDeniseSeenText:
+SwimmerfDeniseSeenText: ; AUTOTRAD
 	text "The weather is so"
 	line "beautiful, I'm in"
 	cont "a daze!"
 	done
 
-SwimmerfDeniseBeatenText:
+SwimmerfDeniseBeatenText: ; AUTOTRAD
 	text "Ohhh!"
 	done
 
-SwimmerfDeniseAfterBattleText:
+SwimmerfDeniseAfterBattleText: ; AUTOTRAD
 	text "A sunburn is the"
 	line "worst for skin."
 
@@ -293,7 +293,7 @@ SwimmerfDeniseAfterBattleText:
 	line "the water."
 	done
 
-SwimmerfKaraSeenText:
+SwimmerfKaraSeenText: ; AUTOTRAD
 	text "If you need to"
 	line "rest, just tread"
 	cont "water."
@@ -305,28 +305,28 @@ SwimmerfKaraSeenText:
 	line "strong."
 	done
 
-SwimmerfKaraBeatenText:
+SwimmerfKaraBeatenText: ; AUTOTRAD
 	text "Oh! You have more"
 	line "energy than I do."
 	done
 
-SwimmerfKaraAfterBattleText:
+SwimmerfKaraAfterBattleText: ; AUTOTRAD
 	text "I heard roars from"
 	line "deep inside the"
 	cont "ISLANDS."
 	done
 
-SwimmerfWendySeenText:
+SwimmerfWendySeenText: ; TO TRANSLATE
 	text "At night, CHINCHOU"
 	line "gather near the"
 	cont "water's surface."
 	done
 
-SwimmerfWendyBeatenText:
+SwimmerfWendyBeatenText: ; AUTOTRAD
 	text "Oh, dear…"
 	done
 
-SwimmerfWendyAfterBattleText:
+SwimmerfWendyAfterBattleText: ; TO TRANSLATE
 	text "The clusters of"
 	line "CHINCHOU light up"
 	cont "at the same time."

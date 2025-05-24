@@ -26,13 +26,13 @@ PewterMuseum2FRattataScript:
 PewterMuseum2FOldAmber:
 	itemball OLD_AMBER
 
-PewterMuseum2FText:
+PewterMuseum2FText: ; TO TRANSLATE
 	text "“Meteorite that"
 	line "fell on MT.MOON."
 	cont "(MOON STONE?)”"
 	done
 
-MuseumSpaceShuttleText:
+MuseumSpaceShuttleText: ; TO TRANSLATE
 	text "“SPACE SHUTTLE"
 	line "COLUMBIA -"
 	cont "Never crashed!”"

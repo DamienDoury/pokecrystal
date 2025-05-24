@@ -145,29 +145,29 @@ TrainerSailorHuey:
 	jumpstd RematchGiftMScript
 	end
 
-SailorHueySeenText:
+SailorHueySeenText: ; AUTOTRAD
 	text "Men of the sea are"
 	line "always spoiling"
 	cont "for a good fight!"
 	done
 
-SailorHueyBeatenText:
+SailorHueyBeatenText: ; AUTOTRAD
 	text "Urf!"
 	line "I lose!"
 	done
 
-GentlemanAlfredSeenText:
+GentlemanAlfredSeenText: ; TO TRANSLATE
 	text "I told my wife I"
 	line "was going to do"
 	cont "the groceries."
 	done
 
-GentlemanAlfredBeatenText:
+GentlemanAlfredBeatenText: ; TO TRANSLATE
 	text "Don't tell my wife"
 	line "I'm here!"
 	done
 
-GentlemanAlfredAfterBattleText:
+GentlemanAlfredAfterBattleText: ; TO TRANSLATE
 	text "When I come home"
 	line "empty-handed,"
 
@@ -177,7 +177,7 @@ GentlemanAlfredAfterBattleText:
 	cont "my failure."
 	done
 
-SailorHueyGiveProteinText:
+SailorHueyGiveProteinText: ; AUTOTRAD
 	text "Man! You're as"
 	line "tough as ever!"
 

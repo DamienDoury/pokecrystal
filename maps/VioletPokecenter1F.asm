@@ -26,13 +26,13 @@ VioletPokecenter1FGentlemanScript:
 VioletPokecenter1FYoungsterScript:
 	jumptextfaceplayer VioletPokecenter1FYoungsterText
 
-VioletPokecenter1FGameboyKidText:
+VioletPokecenter1FGameboyKidText: ; AUTOTRAD
 	text "A guy named BILL"
 	line "made the #MON"
 	cont "PC storage system."
 	done
 
-VioletPokecenter1FGentlemanText:
+VioletPokecenter1FGentlemanText: ; AUTOTRAD
 	text "It was around"
 	line "three years ago."
 
@@ -45,7 +45,7 @@ VioletPokecenter1FGentlemanText:
 	cont "kid broke 'em up."
 	done
 
-VioletPokecenter1FYoungsterText:
+VioletPokecenter1FYoungsterText: ; AUTOTRAD
 	text "#MON are smart."
 	line "They won't obey a"
 

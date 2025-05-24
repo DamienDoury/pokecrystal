@@ -13,13 +13,13 @@ Route31VioletGateOfficerScript:
 Route31VioletGateCooltrainerFScript:
 	jumptextfaceplayer Route31VioletGateCooltrainerFText
 
-Route31VioletGateOfficerText:
+Route31VioletGateOfficerText: ; AUTOTRAD
 	text "Hi there!"
 	line "Did you visit"
 	cont "SPROUT TOWER?"
 	done
 
-Route31VioletGateCooltrainerFText:
+Route31VioletGateCooltrainerFText: ; AUTOTRAD
 	text "I came too far"
 	line "out. I'd better"
 	cont "phone home!"

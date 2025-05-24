@@ -643,13 +643,13 @@ GoldenrodHospitalRoomHumanPatientScript:
 .agatha
 	jumptext GoldenrodHospitalLoreleiText
 
-GiftAntonMonName:
+GiftAntonMonName: ; TO TRANSLATE
 	db "NYAN@"
 
-GiftAntonMonOTName:
+GiftAntonMonOTName: ; TO TRANSLATE
 	db "ANTON@"
 
-GiftAntonMonMail:
+GiftAntonMonMail: ; TO TRANSLATE
 	db BLUESKY_MAIL
 	db   "I will always"
 	next "love you darling@"
@@ -1067,19 +1067,19 @@ GoldenrodHospitalRoom_AnnounceLockdownMovement:
 	turn_head DOWN
 	step_end
 
-GoldenrodHospitalTrainerRoom1SeenText:
+GoldenrodHospitalTrainerRoom1SeenText: ; TO TRANSLATE
 	text "I'm on my break."
 
 	para "Let's have a"
 	line "battle!"
 	done
 
-GoldenrodHospitalTrainerRoom1BeatenText:
+GoldenrodHospitalTrainerRoom1BeatenText: ; TO TRANSLATE
 	text "I better get back"
 	line "to work."
 	done
 
-GoldenrodHospitalTrainerRoom1AfterBattleText:	
+GoldenrodHospitalTrainerRoom1AfterBattleText: ; TO TRANSLATE
 	text "We are bearing"
 	line "hundreds of lives"
 	cont "on our shoulders."
@@ -1088,18 +1088,18 @@ GoldenrodHospitalTrainerRoom1AfterBattleText:
 	line "stress."
 	done
 
-GoldenrodHospitalTrainerRoom3SeenText:
+GoldenrodHospitalTrainerRoom3SeenText: ; TO TRANSLATE
 	text "A good battle"
 	line "should entertain"
 	cont "my daughter."
 	done
 
-GoldenrodHospitalTrainerRoom3BeatenText:
+GoldenrodHospitalTrainerRoom3BeatenText: ; TO TRANSLATE
 	text "Was it"
 	line "entertaining?"
 	done
 
-GoldenrodHospitalTrainerRoom3AfterBattleText:	
+GoldenrodHospitalTrainerRoom3AfterBattleText: ; TO TRANSLATE
 	text "I've been in my"
 	line "daughter's shoes."
 
@@ -1107,58 +1107,58 @@ GoldenrodHospitalTrainerRoom3AfterBattleText:
 	line "to keep up morale."
 	done
 
-GoldenrodHospitalTrainerRoom8SeenText:
+GoldenrodHospitalTrainerRoom8SeenText: ; TO TRANSLATE
 	text "Let me check"
 	line "your #MON."
 	done
 
-GoldenrodHospitalTrainerRoom8BeatenText:
+GoldenrodHospitalTrainerRoom8BeatenText: ; TO TRANSLATE
 	text "I admit I baited"
 	line "you into a battle."
 	done
 
-GoldenrodHospitalTrainerRoom8AfterBattleText:	
+GoldenrodHospitalTrainerRoom8AfterBattleText: ; TO TRANSLATE
 	text "Don't worry about"
 	line "this #MON, it's"
 	cont "out of the danger"
 	cont "zone!"
 	done
 
-	GoldenrodHospitalTrainerRoom17SeenText:
+	GoldenrodHospitalTrainerRoom17SeenText: ; TO TRANSLATE
 	text "I'm doing a show"
 	line "for the sick."
 	done
 
-GoldenrodHospitalTrainerRoom17BeatenText:
+GoldenrodHospitalTrainerRoom17BeatenText: ; TO TRANSLATE
 	text "Stop it, you"
 	line "ruined the show!"
 	done
 
-GoldenrodHospitalTrainerRoom17AfterBattleText:	
+GoldenrodHospitalTrainerRoom17AfterBattleText: ; TO TRANSLATE
 	text "My juggling balls"
 	line "fell on the floor,"
 	cont "I look ridiculous"
 	cont "now!"
 	done
 
-GoldenrodHospitalTrainerRoom26SeenText:
+GoldenrodHospitalTrainerRoom26SeenText: ; TO TRANSLATE
 	text "Don't you dare"
 	line "approaching my"
 	cont "poor daughter!"
 	done
 
-GoldenrodHospitalTrainerRoom26BeatenText:
+GoldenrodHospitalTrainerRoom26BeatenText: ; TO TRANSLATE
 	text "Sorry I need to"
 	line "calm down."
 	done
 
-GoldenrodHospitalTrainerRoom26AfterBattleText:	
+GoldenrodHospitalTrainerRoom26AfterBattleText: ; TO TRANSLATE
 	text "I just want to"
 	line "help my daughter"
 	cont "but I'm powerless."
 	done
 
-	GoldenrodHospitalTrainerRoom30SeenText:
+	GoldenrodHospitalTrainerRoom30SeenText: ; TO TRANSLATE
 	text "I'm not allowed to"
 	line "leave this room,"
 	
@@ -1166,12 +1166,12 @@ GoldenrodHospitalTrainerRoom26AfterBattleText:
 	line "battles so much!"
 	done
 
-GoldenrodHospitalTrainerRoom30BeatenText:
+GoldenrodHospitalTrainerRoom30BeatenText: ; TO TRANSLATE
 	text "Couldn't you let a"
 	line "sick person win?"
 	done
 
-GoldenrodHospitalTrainerRoom30AfterBattleText:	
+GoldenrodHospitalTrainerRoom30AfterBattleText: ; TO TRANSLATE
 	text "Once I'll have left"
 	line "this hospital, I"
 	cont "think I'll go"
@@ -1179,7 +1179,7 @@ GoldenrodHospitalTrainerRoom30AfterBattleText:
 	cont "LEADERS."
 	done
 
-GoldenrodHospitalTrainerRoom31SeenText:
+GoldenrodHospitalTrainerRoom31SeenText: ; TO TRANSLATE
 	text "Welcome to my"
 	line "humble house."
 	
@@ -1187,33 +1187,33 @@ GoldenrodHospitalTrainerRoom31SeenText:
 	line "guest."
 	done
 
-GoldenrodHospitalTrainerRoom31BeatenText:
+GoldenrodHospitalTrainerRoom31BeatenText: ; TO TRANSLATE
 	text "Be nice to your"
 	line "uncle, RILEY!"
 	done
 
-GoldenrodHospitalTrainerRoom31AfterBattleText:	
+GoldenrodHospitalTrainerRoom31AfterBattleText: ; TO TRANSLATE
 	text "I have baked some"
 	line "delicious cookies"
 	cont "for you!"
 	done
 
-GoldenrodHospitalTrainerRoom32SeenText:
+GoldenrodHospitalTrainerRoom32SeenText: ; TO TRANSLATE
 	text "You have nothing"
 	line "to do in this"
 	cont "room, GET OUT!"
 	done
 
-GoldenrodHospitalTrainerRoom32BeatenText:
+GoldenrodHospitalTrainerRoom32BeatenText: ; TO TRANSLATE
 	text "Ok, I'll cool it."
 	done
 
-GoldenrodHospitalTrainerRoom32AfterBattleText:	
+GoldenrodHospitalTrainerRoom32AfterBattleText: ; TO TRANSLATE
 	text "Please don't bother"
 	line "my MURKROW."
 	done
 
-GoldenrodHospitalRoomChiefNurseSeenText:
+GoldenrodHospitalRoomChiefNurseSeenText: ; TO TRANSLATE
 	text "WHAT?"
 
 	para "What do you want?"
@@ -1241,16 +1241,16 @@ GoldenrodHospitalRoomChiefNurseSeenText:
 	line "Come here."
 	done
 
-GoldenrodHospitalRoomChiefNurseBeatenText:
+GoldenrodHospitalRoomChiefNurseBeatenText: ; TO TRANSLATE
 	text "Woooooo!"
 	done
 
-GoldenrodHospitalRoomChiefNurseLoseText:
+GoldenrodHospitalRoomChiefNurseLoseText: ; TO TRANSLATE
 	text "Sorry for hurting"
 	line "your #MON…"
 	done
 
-GoldenrodHospitalRoomChiefNurseAfterBattleText:
+GoldenrodHospitalRoomChiefNurseAfterBattleText: ; TO TRANSLATE
 	text "(deep breath)"
 	
 	para "Thanks for the"
@@ -1264,7 +1264,7 @@ GoldenrodHospitalRoomChiefNurseAfterBattleText:
 	line "your #MON."
 	done
 
-GoldenrodHospitalRoomChiefNurseAfterBattleText2:
+GoldenrodHospitalRoomChiefNurseAfterBattleText2: ; TO TRANSLATE
 	text "Why did you want"
 	line "to see me?"
 
@@ -1290,7 +1290,7 @@ GoldenrodHospitalRoomChiefNurseAfterBattleText2:
 
 
 
-GoldenrodHospitalRoom3PatientText:
+GoldenrodHospitalRoom3PatientText: ; TO TRANSLATE
 	text "Dad would do any-"
 	line "thing to make me"
 	cont "feel better."
@@ -1298,13 +1298,13 @@ GoldenrodHospitalRoom3PatientText:
 	para "I'm glad."
 	done
 
-GoldenrodHospitalRoom4PatientPart1Text:
+GoldenrodHospitalRoom4PatientPart1Text: ; TO TRANSLATE
 	text "I'm tired, so I'm"
 	line "taking a nap in"
 	cont "this bed."
 	done
 
-GoldenrodHospitalRoom4PatientPart2Text:
+GoldenrodHospitalRoom4PatientPart2Text: ; TO TRANSLATE
 	text "Of course not,"
 	line "what did you"
 	cont "think?"
@@ -1318,7 +1318,7 @@ GoldenrodHospitalRoom4PatientPart2Text:
 	line "(COUGH)"
 	done
 
-GoldenrodHospitalRoom5PatientText:
+GoldenrodHospitalRoom5PatientText: ; TO TRANSLATE
 	text "I am thankful to"
 	line "everyone in this"
 	cont "hospital for"
@@ -1332,7 +1332,7 @@ GoldenrodHospitalRoom5PatientText:
 	cont "can have it."
 	done
 
-GoldenrodHospitalRoom7PatientText:
+GoldenrodHospitalRoom7PatientText: ; TO TRANSLATE
 	text "Those bed sheets"
 	line "must be full of"
 	cont "viruses."
@@ -1342,7 +1342,7 @@ GoldenrodHospitalRoom7PatientText:
 	cont "degrees Celsius."
 	done   
 
-GoldenrodHospitalRoom14PatientText:
+GoldenrodHospitalRoom14PatientText: ; TO TRANSLATE
 	text "My business isn't"
 	line "gonna run itself."
 
@@ -1354,7 +1354,7 @@ GoldenrodHospitalRoom14PatientText:
 	cont "be ruined."
 	done
 
-GoldenrodHospitalRoom17PatientText:
+GoldenrodHospitalRoom17PatientText: ; TO TRANSLATE
 	text "Don't tell the man,"
 	line "but I think"
 	cont "juggling's lame."
@@ -1365,7 +1365,7 @@ GoldenrodHospitalRoom17PatientText:
 	cont "loneliness."
 	done
 
-GoldenrodHospitalRoom23PatientText:
+GoldenrodHospitalRoom23PatientText: ; TO TRANSLATE
 	text "(COUGH)"
 
 	para "Am I…"
@@ -1385,7 +1385,7 @@ GoldenrodHospitalRoom23PatientText:
 	para "?"
 	done
 	
-GoldenrodHospitalRoom24PatientText:
+GoldenrodHospitalRoom24PatientText: ; TO TRANSLATE
 	text "My job is to"
 	line "protect the"
 	cont "population by"
@@ -1405,7 +1405,7 @@ GoldenrodHospitalRoom24PatientText:
 	para "I am furious."
 	done
 
-GoldenrodHospitalRoom25Patient_FirstMeetingText:
+GoldenrodHospitalRoom25Patient_FirstMeetingText: ; TO TRANSLATE
 	text "My family lives in"
 	line "KANTO so I don't"
 	cont "get any visitors."
@@ -1417,7 +1417,7 @@ GoldenrodHospitalRoom25Patient_FirstMeetingText:
 	cont "visit an old man."
 	done
 	
-GoldenrodHospitalRoom25Patient_AlreadyMetText:
+GoldenrodHospitalRoom25Patient_AlreadyMetText: ; TO TRANSLATE
 	text "I am happy to see"
 	line "you again!"
 	
@@ -1426,13 +1426,13 @@ GoldenrodHospitalRoom25Patient_AlreadyMetText:
 	cont "person!"
 	done
 
-GoldenrodHospitalRoom25Patient_TakeThisText:
+GoldenrodHospitalRoom25Patient_TakeThisText: ; TO TRANSLATE
 	text "Take this as a"
 	line "sign of my"
 	cont "gratitude."
 	done
 
-GoldenrodHospitalRoom25Patient_BagFullText:
+GoldenrodHospitalRoom25Patient_BagFullText: ; TO TRANSLATE
 	text "You can't take it…"
 	line "This is a good"
 	cont "reason to come"
@@ -1440,7 +1440,7 @@ GoldenrodHospitalRoom25Patient_BagFullText:
 	cont "later!"
 	done
 
-GoldenrodHospitalRoom25Patient_PartyFullText:
+GoldenrodHospitalRoom25Patient_PartyFullText: ; TO TRANSLATE
 	text "I would like to"
 	line "entrust you with"
 	cont "a mission."
@@ -1453,18 +1453,18 @@ GoldenrodHospitalRoom25Patient_PartyFullText:
 	line "you."
 	done
 
-GoldenrodHospitalRoom25Patient_NothingTodayText:
+GoldenrodHospitalRoom25Patient_NothingTodayText: ; TO TRANSLATE
 	text "Unfortunately, I"
 	line "have nothing else"
 	cont "to give you today."
 	done
 
-GoldenrodHospitalRoom25Patient_ComeBackText:
+GoldenrodHospitalRoom25Patient_ComeBackText: ; TO TRANSLATE
 	text "Come back another"
 	line "day if you will!"
 	done
 
-GoldenrodHospitalRoom25Patient_QuestStartText:
+GoldenrodHospitalRoom25Patient_QuestStartText: ; TO TRANSLATE
 	text "I appreciate you."
 
 	para "I would like to"
@@ -1485,7 +1485,7 @@ GoldenrodHospitalRoom25Patient_QuestStartText:
 	cont "to her."
 	done
 
-GoldenrodHospitalRoom25Patient_DeliverMailText:
+GoldenrodHospitalRoom25Patient_DeliverMailText: ; TO TRANSLATE
 	text "Please deliver the"
 	line "MAIL to my wife."
 
@@ -1498,7 +1498,7 @@ GoldenrodHospitalRoom25Patient_DeliverMailText:
 	cont "in KANTO."
 	done
 
-GoldenrodHospitalRoom25Patient_IzDedText:
+GoldenrodHospitalRoom25Patient_IzDedText: ; TO TRANSLATE
 	text "(COUGH)"
 
 	para "I am sorry, but"
@@ -1517,7 +1517,7 @@ GoldenrodHospitalRoom25Patient_IzDedText:
 	para "(COUGH)"
 	done
 
-GoldenrodHospitalRoom26PatientText:
+GoldenrodHospitalRoom26PatientText: ; TO TRANSLATE
 	text "Daddy is over-"
 	line "protective."
 
@@ -1525,7 +1525,7 @@ GoldenrodHospitalRoom26PatientText:
 	line "scared."
 	done
 
-GoldenrodHospitalRoom29PatientText:
+GoldenrodHospitalRoom29PatientText: ; TO TRANSLATE
 	text "(cough)"
 
 	para "I've heard a famous"
@@ -1537,7 +1537,7 @@ GoldenrodHospitalRoom29PatientText:
 	cont "the fever."
 	done
 	
-GoldenrodHospitalRoom1PokemonPatientText:
+GoldenrodHospitalRoom1PokemonPatientText: ; TO TRANSLATE
 	text "The leaves of the"
 	line "ODDISH are looking"
 	cont "dry."
@@ -1546,12 +1546,12 @@ GoldenrodHospitalRoom1PokemonPatientText:
 	line "is not healthy."
 	done
 
-GoldenrodHospitalRoom1CaterpiePatientText:
+GoldenrodHospitalRoom1CaterpiePatientText: ; TO TRANSLATE
 	text "Hopefully CATERPIE"
 	line "can be saved…"
 	done
 
-GoldenrodHospitalRoom2PokemonPatientText:
+GoldenrodHospitalRoom2PokemonPatientText: ; TO TRANSLATE
 	text "The DROWZEE doesn't"
 	line "even have enough"
 	cont "strength to wiggle"
@@ -1561,12 +1561,12 @@ GoldenrodHospitalRoom2PokemonPatientText:
 	line "very bad shape."
 	done
 
-GoldenrodHospitalRoom6PokemonPatientText:
+GoldenrodHospitalRoom6PokemonPatientText: ; TO TRANSLATE
 	text "Poor POLIWAG seems"
 	line "to suffer…"
 	done
 
-GoldenrodHospitalRoom8PokemonPatientText:
+GoldenrodHospitalRoom8PokemonPatientText: ; TO TRANSLATE
 	text "For once, it's the"
 	line "JIGGLYPUFF that's"
 	cont "sleeping."
@@ -1574,7 +1574,7 @@ GoldenrodHospitalRoom8PokemonPatientText:
 	para "How ironic."
 	done
 
-GoldenrodHospitalRoom10PokemonPatientText:
+GoldenrodHospitalRoom10PokemonPatientText: ; TO TRANSLATE
 	text "The ABRA could"
 	line "easily TELEPORT"
 	cont "away."
@@ -1586,21 +1586,21 @@ GoldenrodHospitalRoom10PokemonPatientText:
 	cont "to stay in here."
 	done 
 
-GoldenrodHospitalRoom13PokemonPatientText:
+GoldenrodHospitalRoom13PokemonPatientText: ; TO TRANSLATE
 	text "We can tell this"
 	line "MEOWTH is sick"
 	cont "but it still"
 	cont "seems jolly."
 	done 
 
-GoldenrodHospitalRoom32PokemonPatientText:
+GoldenrodHospitalRoom32PokemonPatientText: ; TO TRANSLATE
 	text "Not looking good…"
 	done
 
 	
 	
 	
-GoldenrodHospitalRoom1BisVisitorText:
+GoldenrodHospitalRoom1BisVisitorText: ; TO TRANSLATE
 	text "I was the one who"
 	line "found this sick"
 	cont "CATERPIE."
@@ -1613,7 +1613,7 @@ GoldenrodHospitalRoom1BisVisitorText:
 	cont "be fine."
 	done
 
-GoldenrodHospitalRoom2VisitorText:
+GoldenrodHospitalRoom2VisitorText: ; TO TRANSLATE
 	text "When an infected"
 	line "person is talking"
 	cont "to a healthy"
@@ -1650,7 +1650,7 @@ GoldenrodHospitalRoom2VisitorText:
 	cont "#MON though."
 	done
 
-GoldenrodHospitalRoom4VisitorText:
+GoldenrodHospitalRoom4VisitorText: ; TO TRANSLATE
 	text "Viruses normally"
 	line "don't transmit from"
 	cont "#MON to human."
@@ -1672,13 +1672,13 @@ GoldenrodHospitalRoom4VisitorText:
 	cont "zero."
 	done
 
-GoldenrodHospitalRoom5VisitorText:
+GoldenrodHospitalRoom5VisitorText: ; TO TRANSLATE
 	text "We are taking"
 	line "good care of"
 	cont "this patient."
 	done
 
-GoldenrodHospitalRoom6VisitorText:
+GoldenrodHospitalRoom6VisitorText: ; TO TRANSLATE
 	text "This #MON"
 	line "should survive."
 	
@@ -1686,14 +1686,14 @@ GoldenrodHospitalRoom6VisitorText:
 	line "over it."
 	done 
 	
-GoldenrodHospitalRoom7VisitorText:
+GoldenrodHospitalRoom7VisitorText: ; TO TRANSLATE
 	text "I got to sanitize"
 	line "this room quickly"
 	cont "before the next"
 	cont "patient comes in."
 	done
 
-GoldenrodHospitalRoom10VisitorText:
+GoldenrodHospitalRoom10VisitorText: ; TO TRANSLATE
 	text "If you have a lot"
 	line "of time ahead of"
 	cont "you, I would like"
@@ -1701,7 +1701,7 @@ GoldenrodHospitalRoom10VisitorText:
 	cont "about my research."
 	done
 
-GoldenrodHospitalRoom10VisitorText2:
+GoldenrodHospitalRoom10VisitorText2: ; TO TRANSLATE
 	text "Most people find"
 	line "my speeches long"
 	cont "and boring."
@@ -1710,7 +1710,7 @@ GoldenrodHospitalRoom10VisitorText2:
 	line "have time for it?"
 	done
 
-GoldenrodHospitalRoom10VisitorYesText:
+GoldenrodHospitalRoom10VisitorYesText: ; TO TRANSLATE
 	text "While studying the"
 	line "effects of COVID,"
 
@@ -1764,13 +1764,13 @@ GoldenrodHospitalRoom10VisitorYesText:
 	cont "everything yet."
 	done
 
-GoldenrodHospitalRoom10VisitorNoText:
+GoldenrodHospitalRoom10VisitorNoText: ; TO TRANSLATE
 	text "Nevermind, you"
 	line "wouldn't understand"
 	cont "anyway."
 	done
 
-GoldenrodHospitalRoom13VisitorText:
+GoldenrodHospitalRoom13VisitorText: ; TO TRANSLATE
 	text "I just love this"
 	line "#MON!"
 	
@@ -1778,7 +1778,7 @@ GoldenrodHospitalRoom13VisitorText:
 	line "friends!"
 	done
 
-GoldenrodHospitalRoom18VisitorText:
+GoldenrodHospitalRoom18VisitorText: ; TO TRANSLATE
 	text "The virus cannot"
 	line "move through the"
 	cont "shell of a #-"
@@ -1792,7 +1792,7 @@ GoldenrodHospitalRoom18VisitorText:
 	line "into a #BALL."
 	done
 
-GoldenrodHospitalRoom21VisitorText:
+GoldenrodHospitalRoom21VisitorText: ; TO TRANSLATE
 	text "Checking on this"
 	line "patient…"
 
@@ -1805,13 +1805,13 @@ GoldenrodHospitalRoom21VisitorText:
 	para "… All good!"
 	done
 
-GoldenrodHospitalRoom31VisitorText:
+GoldenrodHospitalRoom31VisitorText: ; TO TRANSLATE
 	text "My husband is"
 	line "delirious because"
 	cont "of the fever."
 	done
 
-GoldenrodHospitalRoom29VisitorText:
+GoldenrodHospitalRoom29VisitorText: ; TO TRANSLATE
 	text "You are not part"
 	line "of the family."
 
@@ -1829,7 +1829,7 @@ GoldenrodHospitalRoom29VisitorText:
 
 	
 
-GoldenrodHospitalLoreleiText:
+GoldenrodHospitalLoreleiText: ; TO TRANSLATE
 	text "Shush!"
 
 	para "I'm not supposed"
@@ -1838,12 +1838,12 @@ GoldenrodHospitalLoreleiText:
 	cont "talk to you."
 	done
 
-GoldenrodHospitalPatientDefaultText:
+GoldenrodHospitalPatientDefaultText: ; TO TRANSLATE
 	text "Looking dizzy."
 	line "Must be drugged."
 	done
 	
-GoldenrodHospitalRoomMedicineText:
+GoldenrodHospitalRoomMedicineText: ; TO TRANSLATE
 	text "Lots of different"
 	line "medications."
 	done
@@ -1856,7 +1856,7 @@ GoldenrodHospitalRoomMedicineText:
 
 
 ; Quest speeches.
-GoldenrodHospitalRoom_Quest2And18Text:
+GoldenrodHospitalRoom_Quest2And18Text: ; TO TRANSLATE
 	text "When I last saw"
 	line "CHIEF NURSE JOY"
 	cont "today, she was"
@@ -1865,7 +1865,7 @@ GoldenrodHospitalRoom_Quest2And18Text:
 	cont "on the right."
 	done
 
-GoldenrodHospitalRoom_Quest5Text:
+GoldenrodHospitalRoom_Quest5Text: ; TO TRANSLATE
 	text "I can't tell you"
 	line "where the CHIEF"
 	cont "is, but I've heard"
@@ -1877,7 +1877,7 @@ GoldenrodHospitalRoom_Quest5Text:
 	line "still around."
 	done
 
-GoldenrodHospitalRoom_Quest8Text:
+GoldenrodHospitalRoom_Quest8Text: ; TO TRANSLATE
 	text "I saw the CHIEF a"
 	line "few minutes ago."
 	
@@ -1887,7 +1887,7 @@ GoldenrodHospitalRoom_Quest8Text:
 	cont "room 11."
 	done
 
-GoldenrodHospitalRoom_Quest9Text:
+GoldenrodHospitalRoom_Quest9Text: ; TO TRANSLATE
 	text "I'm sorry, I don't"
 	line "know where the"
 	cont "CHIEF NURSE is."
@@ -1899,7 +1899,7 @@ GoldenrodHospitalRoom_Quest9Text:
 	line "feeling so lonely…"
 	done
 
-GoldenrodHospitalRoom_Quest10Text:
+GoldenrodHospitalRoom_Quest10Text: ; TO TRANSLATE
 	text "In a hurry, huh?"
 
 	para "…"
@@ -1917,7 +1917,7 @@ GoldenrodHospitalRoom_Quest10Text:
 	cont "of the corridor."
 	done
 
-GoldenrodHospitalRoom_Quest11Text:
+GoldenrodHospitalRoom_Quest11Text: ; TO TRANSLATE
 	text "No, I haven't seen"
 	line "CHIEF NURSE JOY"
 	cont "today."
@@ -1929,7 +1929,7 @@ GoldenrodHospitalRoom_Quest11Text:
 	cont "room 8."
 	done
 
-GoldenrodHospitalRoom_Quest12Text:
+GoldenrodHospitalRoom_Quest12Text: ; TO TRANSLATE
 	text "(COUGH)"
 	line "(COUGH)"
 	
@@ -1939,7 +1939,7 @@ GoldenrodHospitalRoom_Quest12Text:
 	cont "room 25 to 28."
 	done
 
-GoldenrodHospitalRoom_Quest13Text:
+GoldenrodHospitalRoom_Quest13Text: ; TO TRANSLATE
 	text "No I am not"
 	line "CHIEF NURSE JOY"
 	cont "even though I've"
@@ -1951,7 +1951,7 @@ GoldenrodHospitalRoom_Quest13Text:
 	cont "the moment."
 	done
 
-GoldenrodHospitalRoom_Quest19Text:
+GoldenrodHospitalRoom_Quest19Text: ; TO TRANSLATE
 	text "I have seen CHIEF"
 	line "NURSE JOY, but it"
 	cont "was last week."
@@ -1960,7 +1960,7 @@ GoldenrodHospitalRoom_Quest19Text:
 	line "(cough)"
 	done
 
-GoldenrodHospitalRoom_Quest27Text:
+GoldenrodHospitalRoom_Quest27Text: ; TO TRANSLATE
 	text "CHIEF NURSE JOY"
 	line "was taking care"
 	cont "of me when"
@@ -1973,7 +1973,7 @@ GoldenrodHospitalRoom_Quest27Text:
 	cont "30-something."
 	done
 
-GoldenrodHospitalRoom_Quest31Text:
+GoldenrodHospitalRoom_Quest31Text: ; TO TRANSLATE
 	text "…"
 	
 	para "Oh yes indeed."
@@ -1985,11 +1985,11 @@ GoldenrodHospitalRoom_Quest31Text:
 	line "seconds ago."
 	done
 
-GoldenrodHospitalAnnounceLockdownText:
+GoldenrodHospitalAnnounceLockdownText: ; TO TRANSLATE
 	text "Hey you."
 	done
 
-GoldenrodHospitalAnnounceLockdown2Text:
+GoldenrodHospitalAnnounceLockdown2Text: ; TO TRANSLATE
 	text "You have nothing"
 	line "to do here."
 

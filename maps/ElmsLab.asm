@@ -855,7 +855,7 @@ ElmsLab_SlowStepDownMovement:
 	slow_step DOWN
 	step_end
 
-ElmText_Intro:
+ElmText_Intro: ; TO TRANSLATE
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
@@ -898,25 +898,25 @@ ElmText_Intro:
 	line "caught."
 	done
 
-ElmText_Accepted:
+ElmText_Accepted: ; AUTOTRAD
 	text "Thanks, <PLAY_G>!"
 
 	para "You're a great"
 	line "help!"
 	done
 
-ElmText_Refused:
+ElmText_Refused: ; AUTOTRAD
 	text "But… Please, I"
 	line "need your help!"
 	done
 
-ElmText_Insist:
+ElmText_Insist: ; TO TRANSLATE
 	text "Wait? Are you sure"
 	line "you don't want a"
 	cont "#MON?"
 	done
 
-ElmText_AllRighty:
+ElmText_AllRighty: ; TO TRANSLATE
 	text "All righty then…"
 	para "…"
 	para "…"
@@ -926,7 +926,7 @@ ElmText_AllRighty:
 	line "LITTLE SHI"
 	done
 
-ElmText_ResearchAmbitions:
+ElmText_ResearchAmbitions: ; TO TRANSLATE
 	text "When I announce my"
 	line "findings, I'm sure"
 
@@ -935,7 +935,7 @@ ElmText_ResearchAmbitions:
 	cont "community."
 	done
 
-ElmText_GotAnEmail:
+ElmText_GotAnEmail: ; AUTOTRAD
 	text "Oh, hey! I got an"
 	line "e-mail!"
 
@@ -945,7 +945,7 @@ ElmText_GotAnEmail:
 	para "Okay…"
 	done
 
-ElmText_MissionFromMrPokemon:
+ElmText_MissionFromMrPokemon: ; TO TRANSLATE
 	text "Hey, listen."
 
 	para "I have an acquain-"
@@ -978,7 +978,7 @@ ElmText_MissionFromMrPokemon:
 	line "go in our place?"
 	done
 
-ElmText_ChooseAPokemon:
+ElmText_ChooseAPokemon: ; TO TRANSLATE
 	text "I want you to"
 	line "raise one of the"
 
@@ -992,30 +992,30 @@ ElmText_ChooseAPokemon:
 	para "Go on. Pick one!"
 	done
 
-LabWhereGoingText:
+LabWhereGoingText: ; AUTOTRAD
 	text "ELM: Wait! Where"
 	line "are you going?"
 	done
 
-TakeCyndaquilText:
+TakeCyndaquilText: ; AUTOTRAD
 	text "ELM: You'll take"
 	line "CYNDAQUIL, the"
 	cont "fire #MON?"
 	done
 
-TakeTotodileText:
+TakeTotodileText: ; AUTOTRAD
 	text "ELM: Do you want"
 	line "TOTODILE, the"
 	cont "water #MON?"
 	done
 
-TakeChikoritaText:
+TakeChikoritaText: ; AUTOTRAD
 	text "ELM: So, you like"
 	line "CHIKORITA, the"
 	cont "grass #MON?"
 	done
 
-DidntChooseStarterText:
+DidntChooseStarterText: ; AUTOTRAD
 	text "ELM: Think it over"
 	line "carefully."
 
@@ -1023,20 +1023,20 @@ DidntChooseStarterText:
 	line "important."
 	done
 
-ChoseStarterText:
+ChoseStarterText: ; AUTOTRAD
 	text "ELM: I think"
 	line "that's a great"
 	cont "#MON too!"
 	done
 
-ReceivedStarterText:
+ReceivedStarterText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 
-ElmDirectionsText1:
+ElmDirectionsText1: ; TO TRANSLATE
 	text "MR.#MON lives a"
 	line "little bit beyond"
 
@@ -1056,7 +1056,7 @@ ElmDirectionsText1:
 	line "anything comes up."
 	done
 
-ElmDirectionsText2:
+ElmDirectionsText2: ; TO TRANSLATE
 	text "If your #MON is"
 	line "hurt, you should"
 
@@ -1072,17 +1072,17 @@ ElmDirectionsText2:
 	line "it anytime."
 	done
 
-ElmDirectionsText3:
+ElmDirectionsText3: ; AUTOTRAD
 	text "<PLAY_G>, I'm"
 	line "counting on you!"
 	done
 
-GotElmsNumberText:
+GotElmsNumberText: ; AUTOTRAD
 	text "<PLAYER> got ELM's"
 	line "phone number."
 	done
 
-ElmDescribesMrPokemonText:
+ElmDescribesMrPokemonText: ; TO TRANSLATE
 	text "MR.#MON goes"
 	line "everywhere and"
 	cont "finds rarities."
@@ -1092,23 +1092,23 @@ ElmDescribesMrPokemonText:
 	cont "for me, will you?"
 	done
 
-ElmPokeBallText:
+ElmPokeBallText: ; AUTOTRAD
 	text "It contains a"
 	line "#MON caught by"
 	cont "PROF.ELM."
 	done
 
-ElmsLabHealingMachineText1:
+ElmsLabHealingMachineText1: ; AUTOTRAD
 	text "I wonder what this"
 	line "does?"
 	done
 
-ElmsLabHealingMachineText2:
+ElmsLabHealingMachineText2: ; AUTOTRAD
 	text "Would you like to"
 	line "heal your #MON?"
 	done
 
-ElmAfterTheftText1:
+ElmAfterTheftText1: ; TO TRANSLATE
 	text "ELM: <PLAY_G>, this"
 	line "is terrible…"
 
@@ -1119,17 +1119,17 @@ ElmAfterTheftText1:
 	cont "discovery?"
 	done
 
-ElmAfterTheftText2:
+ElmAfterTheftText2: ; TO TRANSLATE
 	text "<PLAYER> handed"
 	line "the PARCEL to"
 	cont "PROF.ELM."
 	done
 
-ElmAfterTheftText3:
+ElmAfterTheftText3: ; AUTOTRAD
 	text "ELM: This?"
 	done
 
-ElmAfterTheftText4:
+ElmAfterTheftText4: ; TO TRANSLATE
 	text "But… how did he"
 	line "get this?"
 
@@ -1138,7 +1138,7 @@ ElmAfterTheftText4:
 	cont "research!"
 	done
 
-ElmAfterTheftText5:
+ElmAfterTheftText5: ; TO TRANSLATE
 	text "What?!?"
 
 	para "PROF.OAK also gave"
@@ -1174,17 +1174,17 @@ ElmAfterTheftText5:
 	cont "radio?"
 	done
 
-ElmIsItOfficialText:
+ElmIsItOfficialText: ; TO TRANSLATE
 	text "Is he going to"
 	line "make it official?"
 	done
 
-ElmListenRadioText:
+ElmListenRadioText: ; TO TRANSLATE
 	text "Let's listen to it"
 	line "on my computer!"
 	done
 
-ElmCovidAnnouncementText:
+ElmCovidAnnouncementText: ; TO TRANSLATE
 	text "MARY: Today PROF."
 	line "OAK you have"
 	cont "something very"
@@ -1241,12 +1241,12 @@ ElmCovidAnnouncementText:
 	cont "for now."
 	done
 
-ElmWorksWithOakText:
+ElmWorksWithOakText: ; TO TRANSLATE
 	text "So now the word"
 	line "is out."
 	done
 
-ElmAfterTheftText6:
+ElmAfterTheftText6: ; TO TRANSLATE
 	text "…<PLAY_G>. The"
 	line "PARCEL you brought"
 	cont "from MR.#MON"
@@ -1278,7 +1278,7 @@ ElmAfterTheftText6:
 	cont "this mission?"
 	done
 
-ElmInsistOnGettingHelpText:
+ElmInsistOnGettingHelpText: ; TO TRANSLATE
 	text "This work is"
 	line "crucial and will"
 	cont "save lives."
@@ -1287,7 +1287,7 @@ ElmInsistOnGettingHelpText:
 	line "to help me!"
 	done
 
-ElmMissionAcceptedText:
+ElmMissionAcceptedText: ; TO TRANSLATE
 	text "Great! Explore the"
 	line "region and call me"
 	cont "whenever you"
@@ -1316,12 +1316,12 @@ ElmMissionAcceptedText:
 	cont "talk to your mom."
 	done
 
-ElmFindPatientZeroText:
+ElmFindPatientZeroText: ; TO TRANSLATE
 	text "ELM: Don't give up!"
 	line "Find patient zero!"
 	done
 
-ElmLockdownAnnouncementText:
+ElmLockdownAnnouncementText: ; TO TRANSLATE
 	text "ELM: Everyone"
 	line "is panicking"
 	cont "right now…"
@@ -1344,7 +1344,7 @@ ElmLockdownAnnouncementText:
 	line "within a few days."
 	done
 
-ElmLockdownCurfewVisitText:
+ElmLockdownCurfewVisitText: ; TO TRANSLATE
 	text "ELM: <PLAYER>?"
 
 	para "It's illegal for"
@@ -1365,7 +1365,7 @@ ElmLockdownCurfewVisitText:
 	para "Just be careful."
 	done
 
-ElmVaccinePassportText:
+ElmVaccinePassportText: ; TO TRANSLATE
 	text "ELM: With the"
 	line "widespread use of"
 
@@ -1383,7 +1383,7 @@ ElmVaccinePassportText:
 	cont "eradicated."
 	done
 
-ElmCurfewDayVisitText:
+ElmCurfewDayVisitText: ; TO TRANSLATE
 	text "ELM: Welcome back"
 	line "<PLAYER>!"
 	
@@ -1418,7 +1418,7 @@ ElmCurfewDayVisitText:
 	line "compromise."
 	done
 
-ElmFinalText:
+ElmFinalText: ; TO TRANSLATE
 	text "ELM: Mission"
 	line "succeeded!"
 	done
@@ -1429,7 +1429,7 @@ ElmFinalText2::
 	cont "COVID-19!"
 	done
 
-AideText_AfterTheft:
+AideText_AfterTheft: ; AUTOTRAD
 	text "…sigh… That"
 	line "stolen #MON."
 
@@ -1443,7 +1443,7 @@ AideText_AfterTheft:
 	line "itself."
 	done
 
-ElmGiveWorkVisaText1:
+ElmGiveWorkVisaText1: ; TO TRANSLATE
 	text "ELM: The rumors"
 	line "say that you won"
 	
@@ -1480,7 +1480,7 @@ ElmGiveWorkVisaText1:
 	cont "got you this."
 	done
 
-ElmGiveWorkVisaText2:
+ElmGiveWorkVisaText2: ; TO TRANSLATE
 	text "Those are only"
 	line "given to a"
 	cont "select few."
@@ -1513,7 +1513,7 @@ ElmGiveWorkVisaText2:
 	line "good luck!"
 	done
 
-ElmGiveVaccineText1:
+ElmGiveVaccineText1: ; TO TRANSLATE
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
@@ -1546,7 +1546,7 @@ ElmGiveVaccineText1:
 	line "quickly!"
 	done
 
-ElmGiveVaccineText2:
+ElmGiveVaccineText2: ; TO TRANSLATE
 	text "For this reason,"
 	line "a lot of people"
 	
@@ -1557,7 +1557,7 @@ ElmGiveVaccineText2:
 	line "tested thourougly."
 	done
 
-ElmGiveVaccineText3:
+ElmGiveVaccineText3: ; TO TRANSLATE
 	text "This is where you"
 	line "play a part."
 
@@ -1583,7 +1583,7 @@ ElmGiveVaccineText3:
 	line "up to you."
 	done
 
-ElmGiveVaccineText4:
+ElmGiveVaccineText4: ; TO TRANSLATE
 	text "CHIEF NURSE JOY"
 	line "is ready to give"
 
@@ -1591,7 +1591,7 @@ ElmGiveVaccineText4:
 	line "speak."
 	done
 
-ElmGiveVaccineText5:
+ElmGiveVaccineText5: ; TO TRANSLATE
 	text "As someone that"
 	line "helped with the"
 
@@ -1623,7 +1623,7 @@ ElmGiveVaccineText5:
 	cont "find patient zero!"
 	done
 
-ElmFoundPatientZeroText1:
+ElmFoundPatientZeroText1: ; TO TRANSLATE
 	text "Hello <PLAYER>."
 	para "We've got a lot"
 	line "to talk about."
@@ -1631,7 +1631,7 @@ ElmFoundPatientZeroText1:
 	para "So please sit."
 	done
 
-ElmFoundPatientZeroText2:
+ElmFoundPatientZeroText2: ; TO TRANSLATE
 	text "Two years ago"
 	line "I sent you on"
 	cont "a mission."
@@ -1744,7 +1744,7 @@ ElmFoundPatientZeroText2:
 	para "…" 
 	done
 
-ElmComfortOakText:
+ElmComfortOakText: ; TO TRANSLATE
 	text "Poor PROF.OAK."
 
 	para "RED was his"
@@ -1759,7 +1759,7 @@ ElmComfortOakText:
 	para "…"
 	done
 
-ElmFoundPatientZeroText3:
+ElmFoundPatientZeroText3: ; TO TRANSLATE
 	text "You've done so"
 	line "much, <PLAYER>."
 
@@ -1798,7 +1798,7 @@ ElmFoundPatientZeroText3:
 	line "for everything!"
 	done
 
-AideText_GiveYouHandSanitizer:
+AideText_GiveYouHandSanitizer: ; TO TRANSLATE
 	text "I also want you to"
 	line "keep clean hands"
 	cont "at all times."
@@ -1807,13 +1807,13 @@ AideText_GiveYouHandSanitizer:
 	line "HAND SANITIZER!"
 	done
 
-AideText_AlwaysBusy:
+AideText_AlwaysBusy: ; TO TRANSLATE
 	text "Have you heard"
 	line "about the virus"
 	cont "on TV?"
 	done
 
-AideText_BetterSafeThanSorry:
+AideText_BetterSafeThanSorry: ; TO TRANSLATE
 	text "Better safe than"
 	line "sorry."
 
@@ -1823,7 +1823,7 @@ AideText_BetterSafeThanSorry:
 	cont "careful about it."
 	done
 
-AideText_TheftTestimony:
+AideText_TheftTestimony: ; TO TRANSLATE
 	text "There was a loud"
 	line "noise outside…"
 
@@ -1836,7 +1836,7 @@ AideText_TheftTestimony:
 	cont "do that!"
 	done
 
-AideScript_ReadBookshelvesText:
+AideScript_ReadBookshelvesText: ; TO TRANSLATE
 	text "Nice to meet you"
 	line "<PLAYER>!"
 
@@ -1848,14 +1848,14 @@ AideScript_ReadBookshelvesText:
 	line "great knowledge."
 	done
 
-AideText_GiveYouBalls:
+AideText_GiveYouBalls: ; AUTOTRAD
 	text "<PLAY_G>!"
 
 	para "Use these on your"
 	line "#DEX quest!"
 	done
 
-ElmsLabOfficerText1:
+ElmsLabOfficerText1: ; AUTOTRAD
 	text "I heard a #MON"
 	line "was stolen here…"
 
@@ -1876,7 +1876,7 @@ ElmsLabOfficerText1:
 	line "get his name?"
 	done
 
-ElmsLabOfficerText2:
+ElmsLabOfficerText2: ; AUTOTRAD
 	text "OK! So <RIVAL>"
 	line "was his name."
 
@@ -1884,24 +1884,24 @@ ElmsLabOfficerText2:
 	line "my investigation!"
 	done
 
-ElmsLabWindowText1:
+ElmsLabWindowText1: ; AUTOTRAD
 	text "The window's open."
 
 	para "A pleasant breeze"
 	line "is blowing in."
 	done
 
-ElmsLabWindowText2:
+ElmsLabWindowText2: ; AUTOTRAD
 	text "He broke in"
 	line "through here!"
 	done
 
-ElmsLabTrashcanText:
+ElmsLabTrashcanText: ; TO TRANSLATE
 	text "Some used surgical"
 	line "masks and gloves…"
 	done
 
-ElmsLabPCText:
+ElmsLabPCText: ; TO TRANSLATE
 	text "OBSERVATIONS ON"
 	line "#MON VIROLOGY"
 

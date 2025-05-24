@@ -683,7 +683,7 @@ UndergroundSilverRetreatMovement2:
 	step UP
 	step_end
 
-UndergroundSilverBeforeText:
+UndergroundSilverBeforeText: ; AUTOTRAD
 	text "Hold it!"
 
 	para "I saw you, so I"
@@ -706,7 +706,7 @@ UndergroundSilverBeforeText:
 	line "debts!"
 	done
 
-UndergroundSilverWinText:
+UndergroundSilverWinText: ; AUTOTRAD
 	text "…Why…"
 	line "Why do I lose?"
 
@@ -719,7 +719,7 @@ UndergroundSilverWinText:
 	para "So why do I lose?"
 	done
 
-UndergroundSilverAfterText:
+UndergroundSilverAfterText: ; AUTOTRAD
 	text "…I don't under-"
 	line "stand…"
 
@@ -755,7 +755,7 @@ UndergroundSilverAfterText:
 	line "#MON trainer!"
 	done
 
-UndergroundSilverLossText:
+UndergroundSilverLossText: ; AUTOTRAD
 	text "Humph. This is my"
 	line "real power, wimp."
 
@@ -767,7 +767,7 @@ UndergroundSilverLossText:
 	cont "under my heels."
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText:
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText: ; TO TRANSLATE
 	text "I've seen a sus-"
 	line "picious man down"
 	cont "the underground."
@@ -779,7 +779,7 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText:
 	line "careful."
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText:
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText: ; TO TRANSLATE
 	text "Have you noticed a"
 	line "shady dude lurking"
 	cont "around the East"
@@ -801,7 +801,7 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText:
 	line "careful."
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText:
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText: ; AUTOTRAD
 	text "I was challenged"
 	line "to a battle down-"
 	cont "stairs."
@@ -811,7 +811,7 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText:
 	cont "better be careful."
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_TeacherText:
+GoldenrodUndergroundSwitchRoomEntrances_TeacherText: ; AUTOTRAD
 	text "There are some"
 	line "shops downstairs…"
 
@@ -822,7 +822,7 @@ GoldenrodUndergroundSwitchRoomEntrances_TeacherText:
 	line "down there."
 	done
 
-GruntM11SeenText:
+GruntM11SeenText: ; AUTOTRAD
 	text "Open one shutter,"
 	line "another closes."
 
@@ -830,12 +830,12 @@ GruntM11SeenText:
 	line "where you want!"
 	done
 
-GruntM11BeatenText:
+GruntM11BeatenText: ; AUTOTRAD
 	text "Drat! I was sunk"
 	line "by indecision!"
 	done
 
-GruntM11AfterBattleText:
+GruntM11AfterBattleText: ; AUTOTRAD
 	text "I'm confused too…"
 	line "The switch on the"
 
@@ -843,7 +843,7 @@ GruntM11AfterBattleText:
 	line "press first, but…"
 	done
 
-GruntM25SeenText:
+GruntM25SeenText: ; AUTOTRAD
 	text "Kwahaha!"
 
 	para "Confounded by the"
@@ -854,12 +854,12 @@ GruntM25SeenText:
 	cont "can beat me!"
 	done
 
-GruntM25BeatenText:
+GruntM25BeatenText: ; AUTOTRAD
 	text "Uwww…"
 	line "I blew it."
 	done
 
-GruntM25AfterBattleText:
+GruntM25AfterBattleText: ; AUTOTRAD
 	text "All right. A hint!"
 
 	para "Change the order"
@@ -870,22 +870,22 @@ GruntM25AfterBattleText:
 	cont "open and close."
 	done
 
-BurglarDuncanSeenText:
+BurglarDuncanSeenText: ; AUTOTRAD
 	text "Fork over your"
 	line "goodies!"
 	done
 
-BurglarDuncanBeatenText:
+BurglarDuncanBeatenText: ; AUTOTRAD
 	text "Mercy!"
 	done
 
-BurglarDuncanAfterBattleText:
+BurglarDuncanAfterBattleText: ; AUTOTRAD
 	text "Steal and sell!"
 	line "That's basic in"
 	cont "crime, kid!"
 	done
 
-BurglarEddieSeenText:
+BurglarEddieSeenText: ; AUTOTRAD
 	text "They ditched this"
 	line "project before"
 	cont "they finished."
@@ -894,11 +894,11 @@ BurglarEddieSeenText:
 	line "leftover loot."
 	done
 
-BurglarEddieBeatenText:
+BurglarEddieBeatenText: ; AUTOTRAD
 	text "Over the top!"
 	done
 
-BurglarEddieAfterBattleText:
+BurglarEddieAfterBattleText: ; AUTOTRAD
 	text "UNDERGROUND WARE-"
 	line "HOUSE?"
 
@@ -909,7 +909,7 @@ BurglarEddieAfterBattleText:
 	line "down there."
 	done
 
-GruntM13SeenText:
+GruntM13SeenText: ; AUTOTRAD
 	text "I don't care if"
 	line "you're lost."
 
@@ -918,23 +918,23 @@ GruntM13SeenText:
 	cont "a victim!"
 	done
 
-GruntM13BeatenText:
+GruntM13BeatenText: ; AUTOTRAD
 	text "Urk! Yeah, think"
 	line "you're cool, huh?"
 	done
 
-GruntM13AfterBattleText:
+GruntM13AfterBattleText: ; AUTOTRAD
 	text "You must have ice"
 	line "in your veins to"
 	cont "dis TEAM ROCKET."
 	done
 
-SwitchRoomText_Switch1:
+SwitchRoomText_Switch1: ; AUTOTRAD
 	text "It's labeled"
 	line "SWITCH 1."
 	done
 
-GruntF3SeenText:
+GruntF3SeenText: ; AUTOTRAD
 	text "Are you lost? No,"
 	line "you can't be."
 
@@ -946,37 +946,37 @@ GruntF3SeenText:
 	cont "scared about!"
 	done
 
-GruntF3BeatenText:
+GruntF3BeatenText: ; AUTOTRAD
 	text "How could you?"
 	done
 
-GruntF3AfterBattleText:
+GruntF3AfterBattleText: ; AUTOTRAD
 	text "Go wherever you'd"
 	line "like! Get lost!"
 	cont "See if I care!"
 	done
 
-SwitchRoomText_OffTurnOn:
+SwitchRoomText_OffTurnOn: ; AUTOTRAD
 	text "It's OFF."
 	line "Turn it ON?"
 	done
 
-SwitchRoomText_OnTurnOff:
+SwitchRoomText_OnTurnOff: ; AUTOTRAD
 	text "It's ON."
 	line "Turn it OFF?"
 	done
 
-SwitchRoomText_Switch2:
+SwitchRoomText_Switch2: ; AUTOTRAD
 	text "It's labeled"
 	line "SWITCH 2."
 	done
 
-SwitchRoomText_Switch3:
+SwitchRoomText_Switch3: ; AUTOTRAD
 	text "It's labeled"
 	line "SWITCH 3."
 	done
 
-SwitchRoomText_Emergency:
+SwitchRoomText_Emergency: ; AUTOTRAD
 	text "It's labeled"
 	line "EMERGENCY."
 	done

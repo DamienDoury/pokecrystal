@@ -23,7 +23,7 @@ Route16FuchsiaSpeechHouseSuperNerdScript:
 Route16FuchsiaSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText:
+Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText: ; TO TRANSLATE
 	text "The previous owner"
 	line "of this house used"
 	
@@ -34,7 +34,7 @@ Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText:
 	line "tradition alive."
 	done
 
-Route16FuchsiaSpeechHouseSuperNerdText:
+Route16FuchsiaSpeechHouseSuperNerdText: ; TO TRANSLATE
 	text "I bought this"
 	line "house from a"
 	cont "top celibrity."

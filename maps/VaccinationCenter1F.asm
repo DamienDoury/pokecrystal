@@ -301,7 +301,7 @@ VaccinationCenter_NurseScansCardStartMovement:
     turn_head UP
     step_end
 
-VaccinationCenterConstructionText:
+VaccinationCenterConstructionText: ; TO TRANSLATE
     text "This SILPH CO."
     line "condo is being"
     
@@ -319,7 +319,7 @@ VaccinationCenterConstructionText:
     line "later."
     done
 
-VaccinationCenterAppointmentText:
+VaccinationCenterAppointmentText: ; TO TRANSLATE
     text "Welcome to"
     line "SILPH CO."
     cont "VACCINATION"
@@ -333,7 +333,7 @@ VaccinationCenterAppointmentText:
     cont "appointments."
     done
 
-VaccinationCenterSuccessText:
+VaccinationCenterSuccessText: ; TO TRANSLATE
     text "However!"
 
     para "We just had a"
@@ -348,7 +348,7 @@ VaccinationCenterSuccessText:
     cont "your #MON?"
     done
 
-VaccinationCenterFailText:
+VaccinationCenterFailText: ; TO TRANSLATE
     text "There is still a"
     line "way to get a shot."
 
@@ -367,24 +367,24 @@ VaccinationCenterFailText:
     cont "#MON ready."
     done
 
-VaccinationCenterAcceptedText:
+VaccinationCenterAcceptedText: ; TO TRANSLATE
     text "Please sit and"
     line "wait to be called."
     done
 
-VaccinationCenterRefusedText:
+VaccinationCenterRefusedText: ; TO TRANSLATE
     text "No problem, I will"
     line "give the spot to"
     cont "someone else."
     done
 
-VaccinationCenterYourTurnText:
+VaccinationCenterYourTurnText: ; TO TRANSLATE
     text "It's your turn!"
     line "You'll miss it if"
     cont "you don't go now!"
     done
 
-VaccinationCenterForbiddenSeatText:
+VaccinationCenterForbiddenSeatText: ; TO TRANSLATE
     text "It is not allowed"
     line "to sit here."
 
@@ -392,12 +392,12 @@ VaccinationCenterForbiddenSeatText:
     line "isn't respected."
     done
 
-VaccinationCenterCallText:
+VaccinationCenterCallText: ; TO TRANSLATE
     text "<PLAYER>!"
     line "You're up next."
     done
 
-VaccinationCenter_Text1:
+VaccinationCenter_Text1: ; TO TRANSLATE
     text "I am a friend of"
 	line "CHIEF NURSE JOY."
 
@@ -417,7 +417,7 @@ VaccinationCenter_Text1:
 	line "could ask her."
     done
 
-VaccinationCenter_Text2:
+VaccinationCenter_Text2: ; TO TRANSLATE
     text "It is the 5th"
     line "appointment for"
     cont "my PIKACHU."
@@ -428,24 +428,24 @@ VaccinationCenter_Text2:
     para "I don't think so."
     done
 
-VaccinationCenter_Text4:
+VaccinationCenter_Text4: ; TO TRANSLATE
     text "Yo."
     done
 
-VaccinationCenter_Text5:
+VaccinationCenter_Text5: ; TO TRANSLATE
     text "A wise man shall"
     line "convince its rel-"
     cont "atives to get"
     cont "vaccinated."
     done
 
-VaccinationCenter_Text6:
+VaccinationCenter_Text6: ; TO TRANSLATE
     text "The #MON vac-"
     line "cine is a blessing"
     cont "for trainers."
     done
 
-VaccinationCenter_Text7:
+VaccinationCenter_Text7: ; TO TRANSLATE
     text "The vaccines are"
     line "saving our phy-"
     cont "sical health."
@@ -464,7 +464,7 @@ VaccinationCenter_Text7:
     cont "curfew."
     done
 
-VaccinationCenter_Text8:
+VaccinationCenter_Text8: ; TO TRANSLATE
     text "The fact that the"
     line "virus is mutating"
     
@@ -472,18 +472,18 @@ VaccinationCenter_Text8:
     line "is scary."
     done
 
-VaccinationCenter_Text9:
+VaccinationCenter_Text9: ; TO TRANSLATE
     text "I'm playing my part"
     line "against COVID."
     done
 
-VaccinationCenter_Text10:
+VaccinationCenter_Text10: ; TO TRANSLATE
     text "Getting my #MON"
     line "vaccinated will"
     cont "be a relief."
     done
 
-VaccinationCenter_Text11:
+VaccinationCenter_Text11: ; TO TRANSLATE
     text "Human-#MON"
     line "contamination can"
 
@@ -491,7 +491,7 @@ VaccinationCenter_Text11:
     line "is rare."
     done
 
-VaccinationCenter_Text12:
+VaccinationCenter_Text12: ; TO TRANSLATE
     text "We don't need a"
     line "new lockdown."
     
@@ -499,18 +499,18 @@ VaccinationCenter_Text12:
     line "get vaccinated."
     done
 
-VaccinationCenter_Text13:
+VaccinationCenter_Text13: ; TO TRANSLATE
     text "The LEAGUE CHAMP-"
     line "ION inspired me"
     cont "to get vaccinated."
     done
     
-VaccinationCenter_Text13Sequel:
+VaccinationCenter_Text13Sequel: ; TO TRANSLATE
     text "Hey it's you!"
     line "Incredible!"
     done
 
-VaccinationCenter_Text14:
+VaccinationCenter_Text14: ; TO TRANSLATE
     text "I used to be an"
     line "anti-vaxxer until"
     
@@ -525,7 +525,7 @@ VaccinationCenter_Text14:
     line "tect my #MON."
     done
 
-VaccinationCenter_Text15:
+VaccinationCenter_Text15: ; TO TRANSLATE
     text "Why are you talk-"
     line "ing to everyone?"
     
@@ -533,7 +533,7 @@ VaccinationCenter_Text15:
     line "embarrassing."
     done
 
-VaccinationCenter_Text16:
+VaccinationCenter_Text16: ; TO TRANSLATE
     text "As soon as the"
     line "#MON vaccine"
     cont "was announced,"
@@ -546,7 +546,7 @@ VaccinationCenter_Text16:
     line "of delay."
     done
 
-VaccinationCenter_Text17:
+VaccinationCenter_Text17: ; TO TRANSLATE
     text "Ah!"
 
     para "I rested my eyes"

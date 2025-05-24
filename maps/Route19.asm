@@ -133,17 +133,17 @@ Route19Sign:
 CarefulSwimmingSign:
 	jumptext CarefulSwimmingSignText
 
-SwimmermHaroldSeenText:
+SwimmermHaroldSeenText: ; AUTOTRAD
 	text "Have you ever gone"
 	line "swimming in the"
 	cont "sea at night?"
 	done
 
-SwimmermHaroldBeatenText:
+SwimmermHaroldBeatenText: ; AUTOTRAD
 	text "Glub…"
 	done
 
-SwimmermHaroldAfterBattleText:
+SwimmermHaroldAfterBattleText: ; AUTOTRAD
 	text "At night, the sea"
 	line "turns black. It"
 
@@ -151,7 +151,7 @@ SwimmermHaroldAfterBattleText:
 	line "swallow you up."
 	done
 
-SwimmermTuckerSeenText:
+SwimmermTuckerSeenText: ; AUTOTRAD
 	text "Pant, pant…"
 	line "Just… a little…"
 
@@ -159,40 +159,40 @@ SwimmermTuckerSeenText:
 	line "FUCHSIA…"
 	done
 
-SwimmermTuckerBeatenText:
+SwimmermTuckerBeatenText: ; AUTOTRAD
 	text "I'm drowning!"
 	done
 
-SwimmermTuckerAfterBattleText:
+SwimmermTuckerAfterBattleText: ; AUTOTRAD
 	text "I… asked my girl-"
 	line "friend to swim to"
 	cont "FUCHSIA… Gasp…"
 	done
 
-SwimmermGarveySeenText:
+SwimmermGarveySeenText: ; TO TRANSLATE
 	text "My #MON is the"
 	line "best surfer!"
 	done
 
-SwimmermGarveyBeatenText:
+SwimmermGarveyBeatenText: ; TO TRANSLATE
 	text "You got surfed."
 	done
 
-SwimmermGarveyAfterBattleText:
+SwimmermGarveyAfterBattleText: ; TO TRANSLATE
 	text "It's fun to surf"
 	line "on TAUROS!"
 	done
 
-SwimmerfVaianaSeenText:
+SwimmerfVaianaSeenText: ; TO TRANSLATE
 	text "Just caught"
 	line "what I needed!"
 	done
 
-SwimmerfVaianaBeatenText:
+SwimmerfVaianaBeatenText: ; TO TRANSLATE
 	text "Don't hurt him!"
 	done
 
-SwimmerfVaianaAfterBattleText:
+SwimmerfVaianaAfterBattleText: ; TO TRANSLATE
 	text "All I need now is"
 	line "a THUNDERSTONE, a"
 	cont "trip to GOLDENROD"
@@ -200,17 +200,17 @@ SwimmerfVaianaAfterBattleText:
 	cont "a JOLTEON!"
 	done
 
-SwimmerfDawnSeenText:
+SwimmerfDawnSeenText: ; AUTOTRAD
 	text "I'm disgusted by"
 	line "wimpy people!"
 	done
 
-SwimmerfDawnBeatenText:
+SwimmerfDawnBeatenText: ; AUTOTRAD
 	text "I could beat you"
 	line "at swimming…"
 	done
 
-SwimmerfDawnAfterBattleText:
+SwimmerfDawnAfterBattleText: ; AUTOTRAD
 	text "It's a quick swim"
 	line "between FUCHSIA"
 
@@ -223,7 +223,7 @@ SwimmerfDawnAfterBattleText:
 	para "is! What a wimp!"
 	done
 
-SwimmermFlavienSeenText:
+SwimmermFlavienSeenText: ; TO TRANSLATE
 	text "Swimming?"
 	line "I'm lousy at it."
 
@@ -232,18 +232,18 @@ SwimmermFlavienSeenText:
 	cont "shallow waters."
 	done
 
-SwimmermFlavienBeatenText:
+SwimmermFlavienBeatenText: ; TO TRANSLATE
 	text "I thought I could"
 	line "win."
 	done
 
-SwimmermFlavienAfterBattleText:
+SwimmermFlavienAfterBattleText: ; TO TRANSLATE
 	text "I might be bad at"
 	line "swimming, but I"
 	cont "love the sea."
 	done
 
-Route19Fisher1Text:
+Route19Fisher1Text: ; TO TRANSLATE
 	text "Sorry. This road"
 	line "is closed for"
 	cont "roadwork."
@@ -255,25 +255,25 @@ Route19Fisher1Text:
 	line "from PALLET TOWN."
 	done
 
-Route19Fisher1Text_RocksCleared:
+Route19Fisher1Text_RocksCleared: ; AUTOTRAD
 	text "I'm all sweaty."
 	line "Time for a swim!"
 	done
 
-Route19Fisher2Text:
+Route19Fisher2Text: ; TO TRANSLATE
 	text "Who knows how long"
 	line "it will take to"
 	cont "clear these"
 	cont "boulders…"
 	done
 
-Route19Fisher2SequelText:
+Route19Fisher2SequelText: ; TO TRANSLATE
 	text "A few days with"
 	line "that ONIX at work"
 	cont "I would say."
 	done
 
-Route19Fisher2Text_RocksCleared:
+Route19Fisher2Text_RocksCleared: ; TO TRANSLATE
 	text "The roadwork is"
 	line "finally finished"
 	cont "and the workers"
@@ -283,14 +283,14 @@ Route19Fisher2Text_RocksCleared:
 	line "fishing again."
 	done
 
-Route19SignText:
+Route19SignText: ; AUTOTRAD
 	text "ROUTE 19"
 
 	para "FUCHSIA CITY -"
 	line "SEAFOAM ISLANDS"
 	done
 
-CarefulSwimmingSignText:
+CarefulSwimmingSignText: ; AUTOTRAD
 	text "Please be careful"
 	line "if you are swim-"
 	cont "ming to SEAFOAM"

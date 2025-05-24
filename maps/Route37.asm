@@ -124,18 +124,18 @@ Route37FruitTree3:
 Route37HiddenEther:
 	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
 
-TwinsAnnandanne1SeenText:
+TwinsAnnandanne1SeenText: ; AUTOTRAD
 	text "ANN: ANNE and I"
 	line "are in this to-"
 	cont "gether!"
 	done
 
-TwinsAnnandanne1BeatenText:
+TwinsAnnandanne1BeatenText: ; AUTOTRAD
 	text "ANN & ANNE: Nnn… A"
 	line "little too strong."
 	done
 
-TwinsAnnandanne1AfterBattleText:
+TwinsAnnandanne1AfterBattleText: ; AUTOTRAD
 	text "ANN: I can tell"
 	line "what my sister and"
 
@@ -143,24 +143,24 @@ TwinsAnnandanne1AfterBattleText:
 	line "thinking."
 	done
 
-TwinsAnnandanne2SeenText:
+TwinsAnnandanne2SeenText: ; AUTOTRAD
 	text "ANNE: ANN and I"
 	line "are in this to-"
 	cont "gether!"
 	done
 
-TwinsAnnandanne2BeatenText:
+TwinsAnnandanne2BeatenText: ; TO TRANSLATE
 	text "ANNE & ANN: Nnn… A"
 	line "little too strong."
 	done
 
-TwinsAnnandanne2AfterBattleText:
+TwinsAnnandanne2AfterBattleText: ; AUTOTRAD
 	text "ANNE: We share the"
 	line "same feelings as"
 	cont "our #MON."
 	done
 
-PsychicGregSeenText:
+PsychicGregSeenText: ; AUTOTRAD
 	text "#MON can't do a"
 	line "thing if they are"
 	cont "asleep."
@@ -169,19 +169,19 @@ PsychicGregSeenText:
 	line "scary that is!"
 	done
 
-PsychicGregBeatenText:
+PsychicGregBeatenText: ; AUTOTRAD
 	text "I lost. That's"
 	line "pretty sad…"
 	done
 
-PsychicGregAfterBattleText:
+PsychicGregAfterBattleText: ; AUTOTRAD
 	text "Putting #MON to"
 	line "sleep or paralyz-"
 	cont "ing them are good"
 	cont "battle techniques."
 	done
 
-MeetSunnyText:
+MeetSunnyText: ; AUTOTRAD
 	text "SUNNY: Hi!"
 
 	para "I'm SUNNY of Sun-"
@@ -189,19 +189,19 @@ MeetSunnyText:
 	cont "Sunday today!"
 	done
 
-SunnyGivesGiftText1:
+SunnyGivesGiftText1: ; AUTOTRAD
 	text "I was told to give"
 	line "you this if I saw"
 	cont "you!"
 	done
 
-SunnyGivesGiftText2:
+SunnyGivesGiftText2: ; AUTOTRAD
 	text "I was told to give"
 	line "you this if I saw"
 	cont "you!"
 	done
 
-SunnyGaveGiftText:
+SunnyGaveGiftText: ; AUTOTRAD
 	text "SUNNY: That thing…"
 
 	para "Um…"
@@ -224,7 +224,7 @@ SunnyGaveGiftText:
 	cont "electric moves!"
 	done
 
-SunnySundayText:
+SunnySundayText: ; AUTOTRAD
 	text "SUNNY: My sisters"
 	line "and brothers are"
 	cont "MONICA, TUSCANY,"
@@ -235,13 +235,13 @@ SunnySundayText:
 	line "than me!"
 	done
 
-SunnyNotSundayText:
+SunnyNotSundayText: ; AUTOTRAD
 	text "SUNNY: Isn't today"
 	line "Sunday?"
 	cont "Um… I forgot!"
 	done
 
-Route37SignText:
+Route37SignText: ; AUTOTRAD
 	text "ROUTE 37"
 	done
 

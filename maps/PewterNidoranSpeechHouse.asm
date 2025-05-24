@@ -18,11 +18,11 @@ PewterNidoran:
 	closetext
 	end
 
-PewterNidoranSpeechHouseSuperNerdText:
+PewterNidoranSpeechHouseSuperNerdText: ; AUTOTRAD
 	text "NIDORAN, shake!"
 	done
 
-PewterNidoranText:
+PewterNidoranText: ; AUTOTRAD
 	text "NIDORAN: Gau gau!"
 	done
 

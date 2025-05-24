@@ -185,24 +185,24 @@ Route46FruitTree1:
 Route46FruitTree2:
 	fruittree FRUITTREE_ROUTE_46_2
 
-HikerBaileySeenText:
+HikerBaileySeenText: ; AUTOTRAD
 	text "Awright! I'll show"
 	line "you the power of"
 	cont "mountain #MON!"
 	done
 
-HikerBaileyBeatenText:
+HikerBaileyBeatenText: ; AUTOTRAD
 	text "Mercy! You showed"
 	line "me your power!"
 	done
 
-HikerBaileyAfterBattleText:
+HikerBaileyAfterBattleText: ; AUTOTRAD
 	text "It's over. I don't"
 	line "mind. We HIKERS"
 	cont "are like that."
 	done
 
-CamperTedSeenText:
+CamperTedSeenText: ; AUTOTRAD
 	text "I'm raising #-"
 	line "MON too!"
 
@@ -210,11 +210,11 @@ CamperTedSeenText:
 	line "with me?"
 	done
 
-CamperTedBeatenText:
+CamperTedBeatenText: ; AUTOTRAD
 	text "Wha…?"
 	done
 
-CamperTedAfterBattleText:
+CamperTedAfterBattleText: ; AUTOTRAD
 	text "I did my best but"
 	line "came up short."
 
@@ -222,7 +222,7 @@ CamperTedAfterBattleText:
 	line "admit I lost."
 	done
 
-PicnickerErin1SeenText:
+PicnickerErin1SeenText: ; AUTOTRAD
 	text "I raise #MON"
 	line "too!"
 
@@ -230,11 +230,11 @@ PicnickerErin1SeenText:
 	line "with me?"
 	done
 
-PicnickerErin1BeatenText:
+PicnickerErin1BeatenText: ; AUTOTRAD
 	text "Oh, rats!"
 	done
 
-PicnickerErinAfterBattleText:
+PicnickerErinAfterBattleText: ; AUTOTRAD
 	text "I've been to many"
 	line "GYMS, but the GYM"
 
@@ -245,7 +245,7 @@ PicnickerErinAfterBattleText:
 	line "pretty flowers!"
 	done
 
-PicnickerErin2BeatenText:
+PicnickerErin2BeatenText: ; AUTOTRAD
 	text "Aww… I keep losing"
 	line "all the time!"
 
@@ -260,7 +260,7 @@ PicnickerErin2BeatenText:
 	cont "the other time."
 	done
 
-Route46SignText:
+Route46SignText: ; AUTOTRAD
 	text "ROUTE 46"
 	line "MOUNTAIN RD. AHEAD"
 	done

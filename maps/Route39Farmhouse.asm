@@ -117,7 +117,7 @@ PokefanF_Twin2:
 FarmhouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-FarmerMText_SickCow:
+FarmerMText_SickCow: ; TO TRANSLATE
 	text "My MILTANK ain't"
 	line "givin' me milk"
 	cont "n'more."
@@ -136,7 +136,7 @@ FarmerMText_SickCow:
 	cont "I reckon."
 	done
 
-FarmerMText_BuyMilk:
+FarmerMText_BuyMilk: ; AUTOTRAD
 	text "How'd you like my"
 	line "MOOMOO MILK?"
 
@@ -150,32 +150,32 @@ FarmerMText_BuyMilk:
 	line "fer just ¥{d:ROUTE39FARMHOUSE_MILK_PRICE}."
 	done
 
-FarmerMText_GotMilk:
+FarmerMText_GotMilk: ; AUTOTRAD
 	text "Here ya go!"
 	line "Drink up'n enjoy!"
 	done
 
-FarmerMText_NoMoney:
+FarmerMText_NoMoney: ; AUTOTRAD
 	text "Sorry, there."
 	line "No cash, no sale!"
 	done
 
-FarmerMText_NoRoom:
+FarmerMText_NoRoom: ; AUTOTRAD
 	text "I reckon yer"
 	line "PACK's full."
 	done
 
-FarmerMText_NoSale:
+FarmerMText_NoSale: ; AUTOTRAD
 	text "You don't want it?"
 	line "Come again, hear?"
 	done
 
-FarmerMText_Milking:
+FarmerMText_Milking: ; AUTOTRAD
 	text "I best go do my"
 	line "milkin'."
 	done
 
-FarmerFText_InTrouble:
+FarmerFText_InTrouble: ; AUTOTRAD
 	text "Our milk even goes"
 	line "out to KANTO."
 
@@ -186,7 +186,7 @@ FarmerFText_InTrouble:
 	line "in trouble."
 	done
 
-FarmerFText_HealedMiltank:
+FarmerFText_HealedMiltank: ; TO TRANSLATE
 	text "You helped our"
 	line "MOOMOO, hon."
 
@@ -194,7 +194,7 @@ FarmerFText_HealedMiltank:
 	line "fer your trouble."
 	done
 
-FarmerFText_SnoreSpeech:
+FarmerFText_SnoreSpeech: ; AUTOTRAD
 	text "That there's"
 	line "SNORE."
 
@@ -209,11 +209,11 @@ FarmerFText_SnoreSpeech:
 	cont "it, hon."
 	done
 
-Twin1Text:
+Twin1Text: ; TO TRANSLATE
 	text "I miss MOOMOO…"
 	done
 
-Twin2Text:
+Twin2Text: ; TO TRANSLATE
 	text "In the end, the"
 	line "illness was"
 	cont "stronger than"

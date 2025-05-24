@@ -191,7 +191,7 @@ OlivineLighthouseJasmineLeavesRightMovement:
 	step_sleep 8
 	step_end
 
-JasmineCianwoodPharmacyText:
+JasmineCianwoodPharmacyText: ; TO TRANSLATE
 	text "JASMINE: … This"
 	line "#MON always"
 
@@ -212,13 +212,13 @@ JasmineCianwoodPharmacyText:
 	line "AMPHY unattended…"
 	done
 
-JasmineGetSomeMedicineText:
+JasmineGetSomeMedicineText: ; AUTOTRAD
 	text "…May I ask you to"
 	line "get some medicine"
 	cont "for me? Please?"
 	done
 
-JasmineOverTheSeaText:
+JasmineOverTheSeaText: ; TO TRANSLATE
 	text "But that's across"
 	line "the sea…"
 
@@ -226,23 +226,23 @@ JasmineOverTheSeaText:
 	line "this…"
 	done
 
-JasminePleaseHelpText:
+JasminePleaseHelpText: ; TO TRANSLATE
 	text "…I need your help."
 	done
 
-JasmineCureAmphyText:
+JasmineCureAmphyText: ; TO TRANSLATE
 	text "JASMINE: …Will"
 	line "the CHLOROQUINE"
 	cont "cure AMPHY?"
 	done
 
-PlayerHandedSecretpotionText:
+PlayerHandedSecretpotionText: ; TO TRANSLATE
 	text "<PLAYER> handed the"
 	line "CHLOROQUINE to"
 	cont "JASMINE."
 	done
 
-JasmineDontBeOffendedText:
+JasmineDontBeOffendedText: ; AUTOTRAD
 	text "JASMINE: …Um,"
 	line "please don't be"
 	cont "offended…"
@@ -252,14 +252,14 @@ JasmineDontBeOffendedText:
 	cont "anyone but me…"
 	done
 
-JasmineAmphyHowAreYouFeelingText:
+JasmineAmphyHowAreYouFeelingText: ; AUTOTRAD
 	text "JASMINE: …"
 
 	para "AMPHY, how are you"
 	line "feeling?"
 	done
 
-JasmineThankYouText:
+JasmineThankYouText: ; TO TRANSLATE
 	text "JASMINE: …Oh, I'm"
 	line "…"
 
@@ -269,25 +269,25 @@ JasmineThankYouText:
 	para "We did our best…"
 	done
 
-JasmineBackToGymText:
+JasmineBackToGymText: ; TO TRANSLATE
 	text "…I will return to"
 	line "the GYM…"
 	done
 
-JasmineISeeText:
+JasmineISeeText: ; AUTOTRAD
 	text "JASMINE: …I see…"
 	done
 
-JasmineAmphyHangOnText:
+JasmineAmphyHangOnText: ; AUTOTRAD
 	text "…AMPHY, hang on!"
 	done
 
-AmphyPalPalooText:
+AmphyPalPalooText: ; AUTOTRAD
 	text "AMPHY: …"
 	line "…Pa… paloo…"
 	done
 
-AmphyBreathingLaboredText:
+AmphyBreathingLaboredText: ; AUTOTRAD
 	text "Its breathing is"
 	line "terribly labored…"
 	done

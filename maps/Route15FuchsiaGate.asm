@@ -20,7 +20,7 @@ Route15FuchsiaGateBlockerScript:
 .HasSeenPlayerInFuchsia:
 	jumptext Route15FuchsiaGateBlockerText
 
-Route15FuchsiaGateOfficerText:
+Route15FuchsiaGateOfficerText: ; AUTOTRAD
 	text "You're working on"
 	line "a #DEX? That's"
 
@@ -28,7 +28,7 @@ Route15FuchsiaGateOfficerText:
 	line "Don't give up!"
 	done
 
-Route15FuchsiaGateBlockerNewText:
+Route15FuchsiaGateBlockerNewText: ; TO TRANSLATE
 	text "Howdy trainer!"
 
 	para "Don't rush!"
@@ -37,7 +37,7 @@ Route15FuchsiaGateBlockerNewText:
 	cont "CITY!"
 	done
 
-Route15FuchsiaGateBlockerText:
+Route15FuchsiaGateBlockerText: ; TO TRANSLATE
 	text "Hey friend!"
 
 	para "Clearing those"

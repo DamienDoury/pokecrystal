@@ -129,7 +129,7 @@ Route40HiddenHyperPotion:
 Route40_DoorScript:
 	jumpstd ClosedBusinessScript
 
-SwimmermSimonSeenText:
+SwimmermSimonSeenText: ; AUTOTRAD
 	text "You have to warm"
 	line "up before going"
 	cont "into the water."
@@ -137,17 +137,17 @@ SwimmermSimonSeenText:
 	para "That's basic."
 	done
 
-SwimmermSimonBeatenText:
+SwimmermSimonBeatenText: ; AUTOTRAD
 	text "OK! Uncle! I give!"
 	done
 
-SwimmermSimonAfterBattleText:
+SwimmermSimonAfterBattleText: ; AUTOTRAD
 	text "CIANWOOD CITY is"
 	line "a good distance"
 	cont "away from here."
 	done
 
-SwimmermRandallSeenText:
+SwimmermRandallSeenText: ; AUTOTRAD
 	text "Hey, you're young"
 	line "and fit!"
 
@@ -155,17 +155,17 @@ SwimmermRandallSeenText:
 	line "#MON! Swim!"
 	done
 
-SwimmermRandallBeatenText:
+SwimmermRandallBeatenText: ; AUTOTRAD
 	text "Uh-oh. I lost…"
 	done
 
-SwimmermRandallAfterBattleText:
+SwimmermRandallAfterBattleText: ; AUTOTRAD
 	text "Swimming exercises"
 	line "your entire body."
 	cont "It's healthy."
 	done
 
-SwimmerfElaineSeenText:
+SwimmerfElaineSeenText: ; AUTOTRAD
 	text "Are you going to"
 	line "CIANWOOD?"
 
@@ -173,17 +173,17 @@ SwimmerfElaineSeenText:
 	line "battle first?"
 	done
 
-SwimmerfElaineBeatenText:
+SwimmerfElaineBeatenText: ; AUTOTRAD
 	text "I lost that one!"
 	done
 
-SwimmerfElaineAfterBattleText:
+SwimmerfElaineAfterBattleText: ; AUTOTRAD
 	text "I'd say I'm a bet-"
 	line "ter swimmer than"
 	cont "you. Yeah!"
 	done
 
-SwimmerfPaulaSeenText:
+SwimmerfPaulaSeenText: ; AUTOTRAD
 	text "No inner tube for"
 	line "me."
 
@@ -191,18 +191,18 @@ SwimmerfPaulaSeenText:
 	line "a sea #MON!"
 	done
 
-SwimmerfPaulaBeatenText:
+SwimmerfPaulaBeatenText: ; AUTOTRAD
 	text "Ooh, I'm feeling"
 	line "dizzy!"
 	done
 
-SwimmerfPaulaAfterBattleText:
+SwimmerfPaulaAfterBattleText: ; AUTOTRAD
 	text "While I float like"
 	line "this, the waves"
 	cont "carry me along."
 	done
 
-Route40Lass1Text:
+Route40Lass1Text: ; AUTOTRAD
 	text "Although you can't"
 	line "see it from here,"
 
@@ -210,14 +210,14 @@ Route40Lass1Text:
 	line "the sea."
 	done
 
-Route40PokefanMText:
+Route40PokefanMText: ; AUTOTRAD
 	text "Hm! There's a big"
 	line "building up ahead!"
 
 	para "What is it?"
 	done
 
-Route40PokefanMText_Mobile:
+Route40PokefanMText_Mobile: ; AUTOTRAD
 	text "Hm! Look at all"
 	line "those serious-"
 	cont "looking trainers"
@@ -226,7 +226,7 @@ Route40PokefanMText_Mobile:
 	para "What? What?"
 	done
 
-Route40Lass2Text:
+Route40Lass2Text: ; TO TRANSLATE
 	text "I came to OLIVINE"
 	line "by ship the day"
 	cont "before the lock-"
@@ -241,20 +241,20 @@ Route40Lass2Text:
 	cont "from a big city."
 	done
 
-MeetMonicaText:
+MeetMonicaText: ; AUTOTRAD
 	text "MONICA: Glad to"
 	line "meet you. I'm"
 
 	para "MONICA of Monday."
 	done
 
-MonicaGivesGiftText:
+MonicaGivesGiftText: ; AUTOTRAD
 	text "As a token of our"
 	line "friendship, I have"
 	cont "a gift for you!"
 	done
 
-MonicaGaveGiftText:
+MonicaGaveGiftText: ; AUTOTRAD
 	text "MONICA: It's an"
 	line "item that raises"
 
@@ -266,7 +266,7 @@ MonicaGaveGiftText:
 	cont "that item."
 	done
 
-MonicaMondayText:
+MonicaMondayText: ; AUTOTRAD
 	text "MONICA: My broth-"
 	line "ers and sisters"
 
@@ -277,13 +277,13 @@ MonicaMondayText:
 	line "find them all!"
 	done
 
-MonicaNotMondayText:
+MonicaNotMondayText: ; AUTOTRAD
 	text "MONICA: I don't"
 	line "think today is"
 	cont "Monday. How sad…"
 	done
 
-Route40SignText:
+Route40SignText: ; AUTOTRAD
 	text "ROUTE 40"
 
 	para "CIANWOOD CITY -"

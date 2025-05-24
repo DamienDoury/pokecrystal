@@ -295,7 +295,7 @@ CeruleanGymGruntBacksAwayMovement:
 	remove_fixed_facing
 	step_end
 
-CeruleanGymGruntIntroText:
+CeruleanGymGruntIntroText: ; AUTOTRAD
 	text "Oops! I so sorry!"
 	line "You not hurt,"
 	cont "okay?"
@@ -307,13 +307,13 @@ CeruleanGymGruntIntroText:
 	cont "seen by somebody."
 	done
 
-CeruleanGymGruntBigMistakeText:
+CeruleanGymGruntBigMistakeText: ; AUTOTRAD
 	text "Oh no! You seen"
 	line "me already! I make"
 	cont "big mistake!"
 	done
 
-CeruleanGymGruntByeText:
+CeruleanGymGruntByeText: ; AUTOTRAD
 	text "Hey, you! Forget"
 	line "you see me, okay?"
 
@@ -326,19 +326,19 @@ CeruleanGymGruntByeText:
 	para "Bye-bye a go-go!"
 	done
 
-CeruleanGymNote1Text:
+CeruleanGymNote1Text: ; AUTOTRAD
 	text "Sorry, I'll be out"
 	line "for a while."
 	cont "MISTY, GYM LEADER"
 	done
 
-CeruleanGymNote2Text:
+CeruleanGymNote2Text: ; AUTOTRAD
 	text "Since MISTY's out,"
 	line "we'll be away too."
 	cont "GYM TRAINERS"
 	done
 
-MistyIntroText:
+MistyIntroText: ; TO TRANSLATE
 	text "MISTY: I was ex-"
 	line "pecting you, you"
 	cont "pest!"
@@ -357,7 +357,7 @@ MistyIntroText:
 	cont "fought in."	
 	done
 
-MistyOnlyWaterOrFlyingTypeText:
+MistyOnlyWaterOrFlyingTypeText: ; TO TRANSLATE
 	text "Only WATER and"
 	line "FLYING #MON"
 
@@ -372,7 +372,7 @@ MistyOnlyWaterOrFlyingTypeText:
 	line "you pest! Quick!"
 	done
 
-MistyValidatesTeamText:
+MistyValidatesTeamText: ; TO TRANSLATE
 	text "That'll show you"
 	line "the true power of"
 	cont "WATER #MON."
@@ -381,7 +381,7 @@ MistyValidatesTeamText:
 	line "you're made of!"
 	done
 
-MistyWinLossText:
+MistyWinLossText: ; AUTOTRAD
 	text "MISTY: You really"
 	line "are good…"
 
@@ -392,12 +392,12 @@ MistyWinLossText:
 	line "CASCADEBADGE."
 	done
 
-ReceivedCascadeBadgeText:
+ReceivedCascadeBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "CASCADEBADGE."
 	done
 
-MistyFightDoneText:
+MistyFightDoneText: ; TO TRANSLATE
 	text "MISTY: Are there"
 	line "many strong train-"
 	cont "ers in JOHTO? Like"
@@ -412,7 +412,7 @@ MistyFightDoneText:
 	line "skilled trainers."
 	done
 
-MistyRedDeadText:
+MistyRedDeadText: ; TO TRANSLATE
 	text "MISTY: (weeping)"
 	line "Poor him…"
 	cont "…I'm sure it's his"
@@ -439,34 +439,34 @@ MistyRedDeadText:
 	cont "condemn it…"
 	done
 
-SwimmerfDianaSeenText:
+SwimmerfDianaSeenText: ; AUTOTRAD
 	text "Sorry about being"
 	line "away. Let's get on"
 	cont "with it!"
 	done
 
-SwimmerfDianaBeatenText:
+SwimmerfDianaBeatenText: ; AUTOTRAD
 	text "I give up! You're"
 	line "the winner!"
 	done
 
-SwimmerfDianaAfterBattleText:
+SwimmerfDianaAfterBattleText: ; AUTOTRAD
 	text "I'll be swimming"
 	line "quietly."
 	done
 
-SwimmerfBrianaSeenText:
+SwimmerfBrianaSeenText: ; AUTOTRAD
 	text "Don't let my ele-"
 	line "gant swimming un-"
 	cont "nerve you."
 	done
 
-SwimmerfBrianaBeatenText:
+SwimmerfBrianaBeatenText: ; AUTOTRAD
 	text "Ooh, you calmly"
 	line "disposed of me…"
 	done
 
-SwimmerfBrianaAfterBattleText:
+SwimmerfBrianaAfterBattleText: ; AUTOTRAD
 	text "Don't be too smug"
 	line "about beating me."
 
@@ -475,18 +475,18 @@ SwimmerfBrianaAfterBattleText:
 	cont "complacent."
 	done
 
-SwimmermParkerSeenText:
+SwimmermParkerSeenText: ; AUTOTRAD
 	text "Glub…"
 
 	para "I'm first! Come"
 	line "and get me!"
 	done
 
-SwimmermParkerBeatenText:
+SwimmermParkerBeatenText: ; AUTOTRAD
 	text "This can't be…"
 	done
 
-SwimmermParkerAfterBattleText:
+SwimmermParkerAfterBattleText: ; AUTOTRAD
 	text "MISTY has gotten"
 	line "much better in the"
 	cont "past few years."
@@ -496,7 +496,7 @@ SwimmermParkerAfterBattleText:
 	cont "you'll be crushed!"
 	done
 
-CeruleanGymGuideText:
+CeruleanGymGuideText: ; TO TRANSLATE
 	text "Yo CHAMP!"
 
 	para "Since MISTY was"
@@ -506,7 +506,7 @@ CeruleanGymGuideText:
 	line "He-he-he."
 	done
 
-CeruleanGymGuideWinText:
+CeruleanGymGuideWinText: ; AUTOTRAD
 	text "Hoo, you showed me"
 	line "how tough you are."
 
@@ -515,7 +515,7 @@ CeruleanGymGuideWinText:
 	cont "great battle!"
 	done
 
-CeruleanGymTrainerCardGoneText:
+CeruleanGymTrainerCardGoneText: ; TO TRANSLATE
 	text "What?!"
 
 	para "Your TRAINER CARD"

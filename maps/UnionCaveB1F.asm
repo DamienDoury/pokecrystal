@@ -65,7 +65,7 @@ UnionCaveB1FXDefend:
 UnionCaveB1FBoulder:
 	jumpstd StrengthBoulderScript
 
-HikerPhillipSeenText:
+HikerPhillipSeenText: ; AUTOTRAD
 	text "It's been a while"
 	line "since I last saw"
 	cont "another person."
@@ -74,11 +74,11 @@ HikerPhillipSeenText:
 	line "Let's battle!"
 	done
 
-HikerPhillipBeatenText:
+HikerPhillipBeatenText: ; AUTOTRAD
 	text "Uurggh…"
 	done
 
-HikerPhillipAfterBattleText:
+HikerPhillipAfterBattleText: ; AUTOTRAD
 	text "I've been lost for"
 	line "a long time…"
 
@@ -87,17 +87,17 @@ HikerPhillipAfterBattleText:
 	cont "soooo hungry!"
 	done
 
-HikerLeonardSeenText:
+HikerLeonardSeenText: ; AUTOTRAD
 	text "What do you know!"
 	line "A visitor!"
 	done
 
-HikerLeonardBeatenText:
+HikerLeonardBeatenText: ; AUTOTRAD
 	text "Wahahah! You're a"
 	line "feisty one!"
 	done
 
-HikerLeonardAfterBattleText:
+HikerLeonardAfterBattleText: ; AUTOTRAD
 	text "I live down here."
 
 	para "You can, too, if"
@@ -107,25 +107,25 @@ HikerLeonardAfterBattleText:
 	line "room, you see."
 	done
 
-PokemaniacAndrewSeenText:
+PokemaniacAndrewSeenText: ; AUTOTRAD
 	text "Who's there?"
 
 	para "Leave me and my"
 	line "#MON alone!"
 	done
 
-PokemaniacAndrewBeatenText:
+PokemaniacAndrewBeatenText: ; AUTOTRAD
 	text "Go…"
 	line "Go away!"
 	done
 
-PokemaniacAndrewAfterBattleText:
+PokemaniacAndrewAfterBattleText: ; AUTOTRAD
 	text "Just me and my"
 	line "#MON. I'm de-"
 	cont "lirious with joy."
 	done
 
-PokemaniacCalvinSeenText:
+PokemaniacCalvinSeenText: ; AUTOTRAD
 	text "I came all the way"
 	line "here to conduct my"
 	cont "#MON research."
@@ -135,12 +135,12 @@ PokemaniacCalvinSeenText:
 	cont "real battle!"
 	done
 
-PokemaniacCalvinBeatenText:
+PokemaniacCalvinBeatenText: ; AUTOTRAD
 	text "You demonstrated"
 	line "on me!"
 	done
 
-PokemaniacCalvinAfterBattleText:
+PokemaniacCalvinAfterBattleText: ; AUTOTRAD
 	text "I should compile"
 	line "and announce my"
 	cont "study findings."

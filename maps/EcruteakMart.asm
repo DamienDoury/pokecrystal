@@ -31,7 +31,7 @@ EcruteakMartCooltrainerFScript:
 EcruteakMartShelfItem1Script:
 	shelfitem 1, ULTRA_BALL, 1200
 
-EcruteakMartSuperNerdText:
+EcruteakMartSuperNerdText: ; AUTOTRAD
 	text "My EEVEE evolved"
 	line "into an ESPEON."
 
@@ -46,7 +46,7 @@ EcruteakMartSuperNerdText:
 	line "same way…"
 	done
 
-EcruteakMartGrannyText:
+EcruteakMartGrannyText: ; AUTOTRAD
 	text "If you use REVIVE,"
 	line "a #MON that's"
 
@@ -54,7 +54,7 @@ EcruteakMartGrannyText:
 	line "right up."
 	done
 
-EcruteakMartCooltrainerFText:
+EcruteakMartCooltrainerFText: ; TO TRANSLATE
 	text "I can't believe it!"
 	
 	para "I'm going from"

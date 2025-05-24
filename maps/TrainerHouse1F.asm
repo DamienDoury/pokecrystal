@@ -38,7 +38,7 @@ TrainerHouseSign2:
 TrainerHouseIllegibleBook:
 	jumptext TrainerHouseIllegibleText
 
-TrainerHouse1FReceptionistText:
+TrainerHouse1FReceptionistText: ; AUTOTRAD
 	text "Welcome to TRAINER"
 	line "HOUSE, the newest"
 
@@ -55,7 +55,7 @@ TrainerHouse1FReceptionistText:
 	line "downstairs."
 	done
 
-TrainerHouse1FCooltrainerMText:
+TrainerHouse1FCooltrainerMText: ; AUTOTRAD
 	text "VIRIDIAN is the"
 	line "town closest to"
 	cont "INDIGO PLATEAU."
@@ -70,7 +70,7 @@ TrainerHouse1FCooltrainerMText:
 	line "PLATEAU."
 	done
 
-TrainerHouse1FCooltrainerFText:
+TrainerHouse1FCooltrainerFText: ; AUTOTRAD
 	text "They hold practice"
 	line "battles downstairs"
 	cont "here."
@@ -82,7 +82,7 @@ TrainerHouse1FCooltrainerFText:
 	line "battles."
 	done
 
-TrainerHouse1FYoungsterText:
+TrainerHouse1FYoungsterText: ; AUTOTRAD
 	text "I guess you can't"
 	line "become the CHAMP"
 
@@ -99,13 +99,13 @@ TrainerHouse1FYoungsterText:
 	line "towns in KANTO."
 	done
 
-TrainerHouse1FGentlemanText:
+TrainerHouse1FGentlemanText: ; AUTOTRAD
 	text "Whew… I'm taking a"
 	line "rest from #MON"
 	cont "battles."
 	done
 
-TrainerHouseSign1Text:
+TrainerHouseSign1Text: ; AUTOTRAD
 	text "Practice battles"
 	line "are held in the"
 
@@ -117,7 +117,7 @@ TrainerHouseSign1Text:
 	cont "participate."
 	done
 
-TrainerHouseSign2Text:
+TrainerHouseSign2Text: ; AUTOTRAD
 	text "There are no rules"
 	line "or regulations for"
 
@@ -128,7 +128,7 @@ TrainerHouseSign2Text:
 	line "goes!"
 	done
 
-TrainerHouseIllegibleText:
+TrainerHouseIllegibleText: ; AUTOTRAD
 	text "…What's this?"
 	line "A strategy memo?"
 

@@ -24,7 +24,7 @@ RuinsOfAlphAerodactylItemRoomEnergyRoot:
 RuinsOfAlphAerodactylItemRoomAncientReplica:
 	jumptext RuinsOfAlphAerodactylItemRoomAncientReplicaText
 
-RuinsOfAlphAerodactylItemRoomAncientReplicaText:
+RuinsOfAlphAerodactylItemRoomAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."

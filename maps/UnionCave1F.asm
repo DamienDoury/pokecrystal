@@ -84,7 +84,7 @@ UnionCave1FAwakening:
 UnionCave1FUnusedSign: ; unreferenced
 	jumptext UnionCave1FUnusedSignText
 
-HikerRussellSeenText:
+HikerRussellSeenText: ; AUTOTRAD
 	text "You're headed to"
 	line "AZALEA, are you?"
 
@@ -93,11 +93,11 @@ HikerRussellSeenText:
 	cont "enough to battle."
 	done
 
-HikerRussellBeatenText:
+HikerRussellBeatenText: ; AUTOTRAD
 	text "Oh, oh, oh!"
 	done
 
-HikerRussellAfterBattleText:
+HikerRussellAfterBattleText: ; AUTOTRAD
 	text "All right, then!"
 	line "I've decided."
 
@@ -106,7 +106,7 @@ HikerRussellAfterBattleText:
 	cont "get tougher!"
 	done
 
-PokemaniacLarrySeenText:
+PokemaniacLarrySeenText: ; AUTOTRAD
 	text "I roam far and"
 	line "wide in search of"
 	cont "#MON."
@@ -118,12 +118,12 @@ PokemaniacLarrySeenText:
 	line "collecting rival!"
 	done
 
-PokemaniacLarryBeatenText:
+PokemaniacLarryBeatenText: ; AUTOTRAD
 	text "Ugh. My poor #-"
 	line "MON…"
 	done
 
-PokemaniacLarryAfterBattleText:
+PokemaniacLarryAfterBattleText: ; AUTOTRAD
 	text "Every Friday, you"
 	line "can hear #MON"
 
@@ -131,7 +131,7 @@ PokemaniacLarryAfterBattleText:
 	line "inside the cave."
 	done
 
-HikerDanielSeenText:
+HikerDanielSeenText: ; AUTOTRAD
 	text "Whoa! What a"
 	line "surprise!"
 
@@ -139,12 +139,12 @@ HikerDanielSeenText:
 	line "see anyone here!"
 	done
 
-HikerDanielBeatenText:
+HikerDanielBeatenText: ; AUTOTRAD
 	text "Whoa! I'm beaten"
 	line "big time!"
 	done
 
-HikerDanielAfterBattleText:
+HikerDanielAfterBattleText: ; AUTOTRAD
 	text "I was conned into"
 	line "buying a SLOWPOKE-"
 	cont "TAIL."
@@ -153,7 +153,7 @@ HikerDanielAfterBattleText:
 	line "the poor #MON."
 	done
 
-FirebreatherBillSeenText:
+FirebreatherBillSeenText: ; TO TRANSLATE
 	text "Rumour has it that"
 	line "there will be an"
 	cont "important announ-"
@@ -161,12 +161,12 @@ FirebreatherBillSeenText:
 	cont "the epidemic soon."
 	done
 
-FirebreatherBillBeatenText:
+FirebreatherBillBeatenText: ; TO TRANSLATE
 	text "Gotta go watch the"
 	line "news on TV!"
 	done
 
-FirebreatherBillAfterBattleText:
+FirebreatherBillAfterBattleText: ; TO TRANSLATE
 	text "Some people say"
 	line "that a lockdown"
 	cont "could be announced"
@@ -175,7 +175,7 @@ FirebreatherBillAfterBattleText:
 	line "impossible."
 	done
 
-FirebreatherRaySeenText:
+FirebreatherRaySeenText: ; AUTOTRAD
 	text "If it's light, a"
 	line "cave isn't scary."
 
@@ -184,17 +184,17 @@ FirebreatherRaySeenText:
 	cont "scary."
 	done
 
-FirebreatherRayBeatenText:
+FirebreatherRayBeatenText: ; AUTOTRAD
 	text "FLASH!"
 	done
 
-FirebreatherRayAfterBattleText:
+FirebreatherRayAfterBattleText: ; AUTOTRAD
 	text "It's my #MON's"
 	line "fire that lights"
 	cont "up this cave."
 	done
 
-UnionCave1FUnusedSignText:
+UnionCave1FUnusedSignText: ; AUTOTRAD
 	text "UNION CAVE"
 	done
 

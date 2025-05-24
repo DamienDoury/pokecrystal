@@ -272,7 +272,7 @@ Route35TMRollout:
 Route35FruitTree:
 	fruittree FRUITTREE_ROUTE_35
 
-CamperIvanSeenText:
+CamperIvanSeenText: ; AUTOTRAD
 	text "I've been getting"
 	line "#MON data off"
 
@@ -280,77 +280,77 @@ CamperIvanSeenText:
 	line "I'm good."
 	done
 
-CamperIvanBeatenText:
+CamperIvanBeatenText: ; AUTOTRAD
 	text "I give!"
 	done
 
-CamperIvanAfterBattleText:
+CamperIvanAfterBattleText: ; AUTOTRAD
 	text "Music on the radio"
 	line "changes the moods"
 	cont "of wild #MON."
 	done
 
-CamperElliotSeenText:
+CamperElliotSeenText: ; AUTOTRAD
 	text "I'm gonna show my"
 	line "girlfriend I'm hot"
 	cont "stuff!"
 	done
 
-CamperElliotBeatenText:
+CamperElliotBeatenText: ; AUTOTRAD
 	text "I wish you would"
 	line "have lost for me…"
 	done
 
-CamperElliotAfterBattleText:
+CamperElliotAfterBattleText: ; AUTOTRAD
 	text "I was humiliated"
 	line "in front of my"
 	cont "girlfriend…"
 	done
 
-PicnickerBrookeSeenText:
+PicnickerBrookeSeenText: ; AUTOTRAD
 	text "My boyfriend's"
 	line "weak, so I can't"
 	cont "rely on him."
 	done
 
-PicnickerBrookeBeatenText:
+PicnickerBrookeBeatenText: ; AUTOTRAD
 	text "Oh, my! You're so"
 	line "strong!"
 	done
 
-PicnickerBrookeAfterBattleText:
+PicnickerBrookeAfterBattleText: ; AUTOTRAD
 	text "I can count on my"
 	line "#MON more than"
 	cont "my boyfriend."
 	done
 
-PicnickerKimSeenText:
+PicnickerKimSeenText: ; AUTOTRAD
 	text "Are you going to"
 	line "the GYM? Me too!"
 	done
 
-PicnickerKimBeatenText:
+PicnickerKimBeatenText: ; AUTOTRAD
 	text "Oh. I couldn't"
 	line "win…"
 	done
 
-PicnickerKimAfterBattleText:
+PicnickerKimAfterBattleText: ; AUTOTRAD
 	text "The GYM BADGES are"
 	line "pretty. I collect"
 	cont "them."
 	done
 
-BirdKeeperBryanSeenText:
+BirdKeeperBryanSeenText: ; AUTOTRAD
 	text "What kinds of"
 	line "BALLS do you use?"
 	done
 
-BirdKeeperBryanBeatenText:
+BirdKeeperBryanBeatenText: ; AUTOTRAD
 	text "Yikes! Not fast"
 	line "enough!"
 	done
 
-BirdKeeperBryanAfterBattleText:
+BirdKeeperBryanAfterBattleText: ; AUTOTRAD
 	text "Some #MON flee"
 	line "right away."
 
@@ -366,17 +366,17 @@ BirdKeeperBryanAfterBattleText:
 	line "custom BALL."
 	done
 
-JugglerIrwin1SeenText:
+JugglerIrwin1SeenText: ; AUTOTRAD
 	text "Behold my graceful"
 	line "BALL dexterity!"
 	done
 
-JugglerIrwin1BeatenText:
+JugglerIrwin1BeatenText: ; AUTOTRAD
 	text "Whew! That was a"
 	line "jolt!"
 	done
 
-JugglerIrwinAfterBattleText:
+JugglerIrwinAfterBattleText: ; AUTOTRAD
 	text "I was going to"
 	line "dazzle you with my"
 	cont "prize #MON."
@@ -385,18 +385,18 @@ JugglerIrwinAfterBattleText:
 	line "electrified me!"
 	done
 
-BugCatcherArnieSeenText:
+BugCatcherArnieSeenText: ; AUTOTRAD
 	text "I'll go anywhere"
 	line "if bug #MON"
 	cont "appear there."
 	done
 
-BugCatcherArnieBeatenText:
+BugCatcherArnieBeatenText: ; AUTOTRAD
 	text "Huh? I shouldn't"
 	line "have lost that…"
 	done
 
-BugCatcherArnieAfterBattleText:
+BugCatcherArnieAfterBattleText: ; AUTOTRAD
 	text "My VENONAT won me"
 	line "the Bug-Catching"
 
@@ -404,7 +404,7 @@ BugCatcherArnieAfterBattleText:
 	line "NATIONAL PARK."
 	done
 
-BugCatcherArnieYanmaText:
+BugCatcherArnieYanmaText: ; AUTOTRAD
 	text "Wow… Look at all"
 	line "those YANMA!"
 
@@ -412,27 +412,27 @@ BugCatcherArnieYanmaText:
 	line "I can't move."
 	done
 
-FirebreatherWaltSeenText:
+FirebreatherWaltSeenText: ; AUTOTRAD
 	text "I'm practicing my"
 	line "fire breathing."
 	done
 
-FirebreatherWaltBeatenText:
+FirebreatherWaltBeatenText: ; AUTOTRAD
 	text "Ow! I scorched the"
 	line "tip of my nose!"
 	done
 
-FirebreatherWaltAfterBattleText:
+FirebreatherWaltAfterBattleText: ; AUTOTRAD
 	text "The #MON March"
 	line "on the radio lures"
 	cont "wild #MON."
 	done
 
-Route35SignText:
+Route35SignText: ; AUTOTRAD
 	text "ROUTE 35"
 	done
 
-Route35SaviourText:
+Route35SaviourText: ; TO TRANSLATE
 	text "This #MON is"
 	line "seriously ill and"
 	cont "needs immediate"

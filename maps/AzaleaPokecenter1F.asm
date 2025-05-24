@@ -29,7 +29,7 @@ AzaleaPokecenter1FFishingGuruScript:
 AzaleaPokecenter1FPokefanFScript:
 	jumptextfaceplayer AzaleaPokecenter1FPokefanFText
 
-AzaleaPokecenter1FGentlemanText:
+AzaleaPokecenter1FGentlemanText: ; TO TRANSLATE
 	text "Do your #MON"
 	line "know TM moves?"
 
@@ -38,13 +38,13 @@ AzaleaPokecenter1FGentlemanText:
 	cont "finitely."
 	done
 
-AzaleaPokecenter1FFishingGuruText:
+AzaleaPokecenter1FFishingGuruText: ; AUTOTRAD
 	text "BILL's PC can"
 	line "store up to 20"
 	cont "#MON per BOX."
 	done
 
-AzaleaPokecenter1FPokefanFText:
+AzaleaPokecenter1FPokefanFText: ; AUTOTRAD
 	text "Do you know about"
 	line "APRICORNS?"
 

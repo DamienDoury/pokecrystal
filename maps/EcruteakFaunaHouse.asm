@@ -56,7 +56,7 @@ EcruteakFaunaHouse_Person3Script:
 EcruteakFaunaHouse_Radio:
 	jumpstd Radio1Script
 
-EcruteakFaunaHouse_Person1Text:
+EcruteakFaunaHouse_Person1Text: ; TO TRANSLATE
 	text "We study the"
 	line "impact of the"
 	cont "pandemic on the"
@@ -64,7 +64,7 @@ EcruteakFaunaHouse_Person1Text:
 	cont "wild #MON."
 	done
 
-EcruteakFaunaHouse_Person2Text:
+EcruteakFaunaHouse_Person2Text: ; TO TRANSLATE
 	text "COVID has a big"
 	line "impact on wild"
 	cont "#MON."
@@ -86,7 +86,7 @@ EcruteakFaunaHouse_Person2Text:
 	cont "harder to catch."
 	done
 
-EcruteakFaunaHouse_Person3Text:
+EcruteakFaunaHouse_Person3Text: ; TO TRANSLATE
 	text "Because of the"
 	line "migrations, some"
 	cont "#MON defend"
@@ -103,13 +103,13 @@ EcruteakFaunaHouse_Person3Text:
 	cont "dangerous."
 	done
 
-EcruteakFaunaHouse_Person3GiveCleanseTagText:
+EcruteakFaunaHouse_Person3GiveCleanseTagText: ; TO TRANSLATE
 	text "You should protect"
 	line "yourself with"
 	cont "this."
 	done
 
-EcruteakFaunaHouse_Person3DescribesCleanseTagText:
+EcruteakFaunaHouse_Person3DescribesCleanseTagText: ; TO TRANSLATE
 	text "It repulses some"
 	line "wild #MON, but"
 	cont "not all of them."

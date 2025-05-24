@@ -141,34 +141,34 @@ Route12FruitTree:
 Route12HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_12_HIDDEN_ELIXER
 
-FisherMartinSeenText:
+FisherMartinSeenText: ; AUTOTRAD
 	text "Patience is the"
 	line "key to both fish-"
 	cont "ing and #MON."
 	done
 
-FisherMartinBeatenText:
+FisherMartinBeatenText: ; AUTOTRAD
 	text "Gwaaah!"
 	done
 
-FisherMartinAfterBattleText:
+FisherMartinAfterBattleText: ; AUTOTRAD
 	text "I'm too impatient"
 	line "for fishing…"
 	done
 
-FisherStephenSeenText:
+FisherStephenSeenText: ; AUTOTRAD
 	text "I feel so content,"
 	line "fishing while lis-"
 	cont "tening to some"
 	cont "tunes on my radio."
 	done
 
-FisherStephenBeatenText:
+FisherStephenBeatenText: ; AUTOTRAD
 	text "My stupid radio"
 	line "distracted me!"
 	done
 
-FisherStephenAfterBattleText:
+FisherStephenAfterBattleText: ; AUTOTRAD
 	text "Have you checked"
 	line "out KANTO's radio"
 
@@ -176,18 +176,18 @@ FisherStephenAfterBattleText:
 	line "good variety here."
 	done
 
-FisherBarneySeenText:
+FisherBarneySeenText: ; AUTOTRAD
 	text "What's most impor-"
 	line "tant in our every-"
 	cont "day lives?"
 	done
 
-FisherBarneyBeatenText:
+FisherBarneyBeatenText: ; AUTOTRAD
 	text "The answer is"
 	line "coming up next!"
 	done
 
-FisherBarneyAfterBattleText:
+FisherBarneyAfterBattleText: ; AUTOTRAD
 	text "I think electric-"
 	line "ity is the most"
 
@@ -204,15 +204,15 @@ FisherBarneyAfterBattleText:
 	line "out of commission."
 	done
 
-FisherKyleSeenText:
+FisherKyleSeenText: ; AUTOTRAD
 	text "Do you remember?"
 	done
 
-FisherKyleBeatenText:
+FisherKyleBeatenText: ; AUTOTRAD
 	text "You do remember?"
 	done
 
-FisherKyleAfterBattleText:
+FisherKyleAfterBattleText: ; AUTOTRAD
 	text "The tug you feel"
 	line "on the ROD when"
 
@@ -224,50 +224,50 @@ FisherKyleAfterBattleText:
 	cont "an angler like me."
 	done
 
-TeacherCeciliaSeenText:
+TeacherCeciliaSeenText: ; TO TRANSLATE
 	text "Now that the stay-"
 	line "at-home order is"
 	cont "gone, it's time"
 	cont "for field trips!"
 	done
 
-TeacherCeciliaBeatenText:
+TeacherCeciliaBeatenText: ; TO TRANSLATE
 	text "… … …"
 	done
 
-TeacherCeciliaAfterBattleText:
+TeacherCeciliaAfterBattleText: ; TO TRANSLATE
 	text "I like walking"
 	line "around large"
 	cont "bodies of water."
 	done
 
-SchoolboySawaraSeenText:
+SchoolboySawaraSeenText: ; TO TRANSLATE
 	text "I'm grateful to"
 	line "my teacher for"
 	cont "this trip!"
 	done
 
-SchoolboySawaraBeatenText:
+SchoolboySawaraBeatenText: ; TO TRANSLATE
 	text "I'm still learning."
 	done
 
-SchoolboySawaraAfterBattleText:
+SchoolboySawaraAfterBattleText: ; TO TRANSLATE
 	text "My brother GINKO…"
 
 	para "He's weird since"
 	line "the lockdown…"
 	done
 
-SchoolboyGinkoSeenText:
+SchoolboyGinkoSeenText: ; TO TRANSLATE
 	text "RUN RUN RUN"
 	line "RUN RUN RUN"
 	done
 
-SchoolboyGinkoBeatenText:
+SchoolboyGinkoBeatenText: ; TO TRANSLATE
 	text "*derp*"
 	done
 
-SailorClovisSeenText:
+SailorClovisSeenText: ; TO TRANSLATE
 	text "I'm stuck here with"
 	line "the S.S.AQUA."
 
@@ -275,27 +275,27 @@ SailorClovisSeenText:
 	line "lockdown…"
 	done
 
-SailorClovisBeatenText:
+SailorClovisBeatenText: ; TO TRANSLATE
 	text "I just want to go"
 	line "back to JOHTO…"
 	done
 
-SailorClovisAfterBattleText:
+SailorClovisAfterBattleText: ; TO TRANSLATE
 	text "Wait… Did I miss"
 	line "the S.S.AQUA"
 	cont "departure?"
 	done
 
-SailorStrandSeenText:
+SailorStrandSeenText: ; TO TRANSLATE
 	text "Aaah, the horizon…"
 	done
 
-SailorStrandBeatenText:
+SailorStrandBeatenText: ; TO TRANSLATE
 	text "You're breaking my"
 	line "peacefulness."
 	done
 
-SailorStrandAfterBattleText:
+SailorStrandAfterBattleText: ; TO TRANSLATE
 	text "I've visited many"
 	line "places."
 
@@ -305,17 +305,17 @@ SailorStrandAfterBattleText:
 	cont "region?"
 	done
 
-PokefanMNovakSeenText:
+PokefanMNovakSeenText: ; TO TRANSLATE
 	text "So you're vacci-"
 	line "nated, uh?"
 	done
 
-PokefanMNovakBeatenText:
+PokefanMNovakBeatenText: ; TO TRANSLATE
 	text "How could I lose"
 	line "to a pharma shill?"
 	done
 
-PokefanMNovakAfterBattleText:
+PokefanMNovakAfterBattleText: ; TO TRANSLATE
 	text "What's the point of"
 	line "getting injected"
 	cont "some chemicals,"
@@ -329,25 +329,25 @@ PokefanMNovakAfterBattleText:
 	cont "and eating well?"
 	done
 
-Route12_TeacherLockdown1Text:
+Route12_TeacherLockdown1Text: ; TO TRANSLATE
 	text "Do you know what"
 	line "the worst aspect"
 	cont "of the lockdown"
 	cont "was?"
 	done
 	
-Route12_TeacherLockdown2Text:
+Route12_TeacherLockdown2Text: ; TO TRANSLATE
 	text "You've lived"
 	line "through it,"
 	cont "haven't you?"
 	done
 
-Route12_TeacherLockdown3Text:
+Route12_TeacherLockdown3Text: ; TO TRANSLATE
 	text "Do you want"
 	line "to know?"
 	done
 
-Route12_TeacherLockdown5Text:
+Route12_TeacherLockdown5Text: ; TO TRANSLATE
 	text "It's not being"
 	line "emprisoned in an"
 	cont "enclosed space."
@@ -441,7 +441,7 @@ Route12_TeacherLockdown5Text:
 	para "Crazy times."
 	done
 
-Route12_LockdownSpeakerText:
+Route12_LockdownSpeakerText: ; TO TRANSLATE
 	text "I remember the"
 	line "first lockdown"
 	cont "declaration was"
@@ -454,14 +454,14 @@ Route12_LockdownSpeakerText:
 	line "perish”."
 	done
 
-Route12SignText:
+Route12SignText: ; AUTOTRAD
 	text "ROUTE 12"
 
 	para "NORTH TO LAVENDER"
 	line "TOWN"
 	done
 
-FishingSpotSignText:
+FishingSpotSignText: ; AUTOTRAD
 	text "FISHING SPOT"
 	done
 

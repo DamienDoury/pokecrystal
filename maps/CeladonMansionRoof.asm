@@ -12,7 +12,7 @@ CeladonMansionRoofFisherScript:
 CeladonMansionRoofGraffiti:
 	jumptext CeladonMansionRoofGraffitiText
 
-CeladonMansionRoofFisherText:
+CeladonMansionRoofFisherText: ; AUTOTRAD
 	text "High places--I do"
 	line "love them so!"
 
@@ -23,7 +23,7 @@ CeladonMansionRoofFisherText:
 	line "me is smoke!"
 	done
 
-CeladonMansionRoofGraffitiText:
+CeladonMansionRoofGraffitiText: ; AUTOTRAD
 	text "There's graffiti"
 	line "on the wall…"
 

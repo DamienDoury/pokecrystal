@@ -29,21 +29,21 @@ Route36RuinsOfAlphGateOfficerScript:
 Route36RuinsOfAlphGateGrampsScript:
 	jumptextfaceplayer Route36RuinsOfAlphGateGrampsText
 
-Route36RuinsOfAlphGateOfficerText:
+Route36RuinsOfAlphGateOfficerText: ; AUTOTRAD
 	text "Don't you wonder"
 	line "who'd make some-"
 	cont "thing like this?"
 	cont "And why?"
 	done
 	
-Route36RuinsOfAlphGateOfficerWideLensText:
+Route36RuinsOfAlphGateOfficerWideLensText: ; TO TRANSLATE
 	text "If you're going to"
 	line "inspect the RUINS"
 	cont "OF ALPH, this will"
 	cont "come in handy."
 	done
 
-Route36RuinsOfAlphGateGrampsText:
+Route36RuinsOfAlphGateGrampsText: ; AUTOTRAD
 	text "Did you see that"
 	line "strange tree in"
 	cont "the road?"

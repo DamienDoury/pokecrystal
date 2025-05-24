@@ -59,7 +59,7 @@ FuchsiaPokecenter1FJanineImpersonatorSpinMovement:
 	turn_head DOWN
 	step_end
 
-FuchsiaPokecenter1FCooltrainerFText:
+FuchsiaPokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "I got quite a"
 	line "shock at the GYM."
 
@@ -68,12 +68,12 @@ FuchsiaPokecenter1FCooltrainerFText:
 	cont "looked identical."
 	done
 
-FuchsiaPokecenter1FJanineImpersonatorText1:
+FuchsiaPokecenter1FJanineImpersonatorText1: ; AUTOTRAD
 	text "I'm JANINE! Hocus-"
 	line "pocus… Poof!"
 	done
 
-FuchsiaPokecenter1FJanineImpersonatorText2:
+FuchsiaPokecenter1FJanineImpersonatorText2: ; AUTOTRAD
 	text "See? I look just"
 	line "like her now!"
 	done

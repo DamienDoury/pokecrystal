@@ -252,7 +252,7 @@ LakeOfRageLanceTeleportIntoSkyMovement:
 	teleport_from
 	step_end
 
-LakeOfRageLanceForcedToEvolveText:
+LakeOfRageLanceForcedToEvolveText: ; AUTOTRAD
 	text "This lake is full"
 	line "of GYARADOS but"
 	cont "nothing else…"
@@ -262,7 +262,7 @@ LakeOfRageLanceForcedToEvolveText:
 	cont "to evolve…"
 	done
 
-LakeOfRageLanceIntroText:
+LakeOfRageLanceIntroText: ; AUTOTRAD
 	text "Did you come here"
 	line "because of the"
 	cont "rumors?"
@@ -290,7 +290,7 @@ LakeOfRageLanceIntroText:
 	cont "investigate?"
 	done
 
-LakeOfRageLanceRadioSignalText:
+LakeOfRageLanceRadioSignalText: ; AUTOTRAD
 	text "LANCE: Excellent!"
 
 	para "It seems that the"
@@ -309,39 +309,39 @@ LakeOfRageLanceRadioSignalText:
 	line "for you, <PLAY_G>."
 	done
 
-LakeOfRageLanceRefusedText:
+LakeOfRageLanceRefusedText: ; AUTOTRAD
 	text "Oh… Well, if you"
 	line "change your mind,"
 	cont "please help me."
 	done
 
-LakeOfRageLanceAskHelpText:
+LakeOfRageLanceAskHelpText: ; AUTOTRAD
 	text "LANCE: Hm? Are you"
 	line "going to help me?"
 	done
 
-LakeOfRageGyaradosCryText:
+LakeOfRageGyaradosCryText: ; AUTOTRAD
 	text "GYARADOS: Gyashaa!"
 	done
 
-LakeOfRageGotRedScaleText:
+LakeOfRageGotRedScaleText: ; AUTOTRAD
 	text "<PLAYER> obtained a"
 	line "RED SCALE."
 	done
 
-LakeOfRageGrampsText:
+LakeOfRageGrampsText: ; AUTOTRAD
 	text "The GYARADOS are"
 	line "angry!"
 
 	para "It's a bad omen!"
 	done
 
-LakeOfRageGrampsText_ClearedRocketHideout:
+LakeOfRageGrampsText_ClearedRocketHideout: ; AUTOTRAD
 	text "Hahah! The MAGI-"
 	line "KARP are biting!"
 	done
 
-LakeOfRageSuperNerdText:
+LakeOfRageSuperNerdText: ; AUTOTRAD
 	text "I heard this lake"
 	line "was made by ram-"
 	cont "paging GYARADOS."
@@ -353,7 +353,7 @@ LakeOfRageSuperNerdText:
 	line "break now?"
 	done
 
-LakeOfRageCooltrainerFText:
+LakeOfRageCooltrainerFText: ; AUTOTRAD
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
@@ -365,13 +365,13 @@ LakeOfRageCooltrainerFText:
 	cont "usually blue?"
 	done
 
-FisherAndreSeenText:
+FisherAndreSeenText: ; AUTOTRAD
 	text "Let me battle with"
 	line "the #MON I just"
 	cont "caught!"
 	done
 
-FisherAndreBeatenText:
+FisherAndreBeatenText: ; AUTOTRAD
 	text "I might be an ex-"
 	line "pert angler, but"
 
@@ -379,13 +379,13 @@ FisherAndreBeatenText:
 	line "MON trainer…"
 	done
 
-FisherAndreAfterBattleText:
+FisherAndreAfterBattleText: ; AUTOTRAD
 	text "I won't lose as an"
 	line "angler! I catch"
 	cont "#MON all day."
 	done
 
-FisherRaymondSeenText:
+FisherRaymondSeenText: ; AUTOTRAD
 	text "No matter what I"
 	line "do, all I catch"
 
@@ -393,17 +393,17 @@ FisherRaymondSeenText:
 	line "MON…"
 	done
 
-FisherRaymondBeatenText:
+FisherRaymondBeatenText: ; AUTOTRAD
 	text "My line's all"
 	line "tangled up…"
 	done
 
-FisherRaymondAfterBattleText:
+FisherRaymondAfterBattleText: ; AUTOTRAD
 	text "Why can't I catch"
 	line "any good #MON?"
 	done
 
-CooltrainermAaronSeenText:
+CooltrainermAaronSeenText: ; AUTOTRAD
 	text "If a trainer spots"
 	line "another trainer,"
 
@@ -414,12 +414,12 @@ CooltrainermAaronSeenText:
 	line "destiny."
 	done
 
-CooltrainermAaronBeatenText:
+CooltrainermAaronBeatenText: ; AUTOTRAD
 	text "Whew…"
 	line "Good battle."
 	done
 
-CooltrainermAaronAfterBattleText:
+CooltrainermAaronAfterBattleText: ; AUTOTRAD
 	text "#MON and their"
 	line "trainer become"
 
@@ -427,7 +427,7 @@ CooltrainermAaronAfterBattleText:
 	line "constant battling."
 	done
 
-CooltrainerfLoisSeenText:
+CooltrainerfLoisSeenText: ; AUTOTRAD
 	text "What happened to"
 	line "the red GYARADOS?"
 
@@ -440,17 +440,17 @@ CooltrainerfLoisSeenText:
 	line "battle!"
 	done
 
-CooltrainerfLoisBeatenText:
+CooltrainerfLoisBeatenText: ; AUTOTRAD
 	text "Good going!"
 	done
 
-CooltrainerfLoisAfterBattleText:
+CooltrainerfLoisAfterBattleText: ; AUTOTRAD
 	text "Come to think of"
 	line "it, I've seen a"
 	cont "pink BUTTERFREE."
 	done
 
-MeetWesleyText:
+MeetWesleyText: ; AUTOTRAD
 	text "WESLEY: Well, how"
 	line "do you do?"
 
@@ -461,19 +461,19 @@ MeetWesleyText:
 	line "Wednesday."
 	done
 
-WesleyGivesGiftText:
+WesleyGivesGiftText: ; AUTOTRAD
 	text "Pleased to meet"
 	line "you. Please take a"
 	cont "souvenir."
 	done
 
-WesleyGaveGiftText:
+WesleyGaveGiftText: ; AUTOTRAD
 	text "WESLEY: BLACKBELT"
 	line "beefs up the power"
 	cont "of fighting moves."
 	done
 
-WesleyWednesdayText:
+WesleyWednesdayText: ; AUTOTRAD
 	text "WESLEY: Since you"
 	line "found me, you must"
 
@@ -484,19 +484,19 @@ WesleyWednesdayText:
 	line "get lucky?"
 	done
 
-WesleyNotWednesdayText:
+WesleyNotWednesdayText: ; AUTOTRAD
 	text "WESLEY: Today's"
 	line "not Wednesday."
 	cont "That's too bad."
 	done
 
-LakeOfRageSignText:
+LakeOfRageSignText: ; AUTOTRAD
 	text "LAKE OF RAGE,"
 	line "also known as"
 	cont "GYARADOS LAKE."
 	done
 
-FishingGurusHouseSignText:
+FishingGurusHouseSignText: ; AUTOTRAD
 	text "FISHING GURU'S"
 	line "HOUSE"
 	done

@@ -82,7 +82,7 @@ MahoganyRedGyaradosSpeechHouseTeacherScript:
 	closetext
 	end
 
-MahoganyRedGyaradosSpeechHouseBlackBeltText:
+MahoganyRedGyaradosSpeechHouseBlackBeltText: ; AUTOTRAD
 	text "I heard that a red"
 	line "GYARADOS appeared"
 	cont "at the LAKE."
@@ -94,7 +94,7 @@ MahoganyRedGyaradosSpeechHouseBlackBeltText:
 	line "in that lake…"
 	done
 
-MahoganyRedGyaradosSpeechHouseTeacherText:
+MahoganyRedGyaradosSpeechHouseTeacherText: ; TO TRANSLATE
 	text "When COVID-19 was"
 	line "first announced,"
 
@@ -132,12 +132,12 @@ MahoganyRedGyaradosSpeechHouseTeacherText:
 	line "something for you."
 	done
 
-MahoganyRedGyaradosSpeechHouse_ScalperGiveText:
+MahoganyRedGyaradosSpeechHouse_ScalperGiveText: ; TO TRANSLATE
 	text "SCALPER: Here's a"
 	line "little something."
 	done
 
-MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText:
+MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText: ; TO TRANSLATE
 	text "SCALPER: Hey! I'm"
 	line "not gonna give you"
 	cont "everything I got!"
@@ -147,7 +147,7 @@ MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText:
 	cont "maybe."
 	done
 
-	MahoganyRedGyaradosSpeechHouse_ScalperFanText:
+	MahoganyRedGyaradosSpeechHouse_ScalperFanText: ; TO TRANSLATE
 	text "SCALPER: Hey!"
 	line "I know you!"
 
@@ -159,7 +159,7 @@ MahoganyRedGyaradosSpeechHouse_ScalperNotTodayText:
 	cont "secret stock."
 	done
 
-MahoganyRedGyaradosSpeechHouse_ScalperPackText:
+MahoganyRedGyaradosSpeechHouse_ScalperPackText: ; TO TRANSLATE
 	text "SCALPER: A"
 	line "pristine 24-pack"
 	cont "for you my friend!"
@@ -168,7 +168,7 @@ MahoganyRedGyaradosSpeechHouse_ScalperPackText:
 	line "worth gold."
 	done
 
-MahoganyRedGyaradosSpeechHouse_ScalperFullText:
+MahoganyRedGyaradosSpeechHouse_ScalperFullText: ; TO TRANSLATE
 	text "I see my bag is"
 	line "not the only one"
 	cont "that is full!"

@@ -243,7 +243,7 @@ SSAquaGrandpaApproachesPlayerMovement:
 	turn_head DOWN
 	step_end
 
-SSAquaCaptainExhaustingText:
+SSAquaCaptainExhaustingText: ; AUTOTRAD
 	text "Whew! Thanks for"
 	line "coming along."
 
@@ -252,7 +252,7 @@ SSAquaCaptainExhaustingText:
 	cont "was exhausting."
 	done
 
-SSAquaCaptainHowDoYouLikeText:
+SSAquaCaptainHowDoYouLikeText: ; AUTOTRAD
 	text "How do you like"
 	line "S.S.AQUA's ride?"
 
@@ -261,7 +261,7 @@ SSAquaCaptainHowDoYouLikeText:
 	cont "waves."
 	done
 
-SSAquaCantFindGranddaughterText:
+SSAquaCantFindGranddaughterText: ; AUTOTRAD
 	text "Oh, hello…"
 
 	para "I still can't find"
@@ -277,7 +277,7 @@ SSAquaCantFindGranddaughterText:
 	line "one. I'm worried…"
 	done
 
-SSAquaEntertainedGranddaughterText:
+SSAquaEntertainedGranddaughterText: ; AUTOTRAD
 	text "<PLAY_G>, was it?"
 	line "I heard you enter-"
 	cont "tained my grand-"
@@ -287,17 +287,17 @@ SSAquaEntertainedGranddaughterText:
 	line "you for that."
 	done
 
-SSAquaGrandpaHaveThisText:
+SSAquaGrandpaHaveThisText: ; AUTOTRAD
 	text "I know! I'd like"
 	line "you to have this!"
 	done
 
-SSAquaGrandpaTravellingText:
+SSAquaGrandpaTravellingText: ; AUTOTRAD
 	text "We're traveling"
 	line "around the world."
 	done
 
-SSAquaGranddaughterCaptainPlayWithMeText:
+SSAquaGranddaughterCaptainPlayWithMeText: ; AUTOTRAD
 	text "CAPTAIN, play with"
 	line "me, please?"
 
@@ -305,7 +305,7 @@ SSAquaGranddaughterCaptainPlayWithMeText:
 	line "to play more!"
 	done
 
-SSAquaGranddaughterHasToFindGrandpaText:
+SSAquaGranddaughterHasToFindGrandpaText: ; AUTOTRAD
 	text "Hi! Will you play"
 	line "with me?"
 
@@ -320,7 +320,7 @@ SSAquaGranddaughterHasToFindGrandpaText:
 	line "Grandpa!"
 	done
 
-SSAquaGranddaughterWasPlayingMText:
+SSAquaGranddaughterWasPlayingMText: ; AUTOTRAD
 	text "Grandpa, here I"
 	line "am! I was playing"
 
@@ -328,7 +328,7 @@ SSAquaGranddaughterWasPlayingMText:
 	line "and this guy!"
 	done
 
-SSAquaGranddaughterWasPlayingFText:
+SSAquaGranddaughterWasPlayingFText: ; AUTOTRAD
 	text "Grandpa, here I"
 	line "am! I was playing"
 
@@ -336,21 +336,21 @@ SSAquaGranddaughterWasPlayingFText:
 	line "and this big girl!"
 	done
 
-SSAquaGranddaughterHadFunText:
+SSAquaGranddaughterHadFunText: ; AUTOTRAD
 	text "I had lots of fun"
 	line "playing!"
 	done
 
-PokefanmColinSeenText:
+PokefanmColinSeenText: ; AUTOTRAD
 	text "Hey, kid! Want to"
 	line "battle with me?"
 	done
 
-PokefanmColinBeatenText:
+PokefanmColinBeatenText: ; AUTOTRAD
 	text "You're strong!"
 	done
 
-PokefanmColinAfterBattleText:
+PokefanmColinAfterBattleText: ; AUTOTRAD
 	text "You're traveling"
 	line "all alone?"
 
@@ -358,114 +358,114 @@ PokefanmColinAfterBattleText:
 	line "worried?"
 	done
 
-TwinsMegandpeg1SeenText:
+TwinsMegandpeg1SeenText: ; AUTOTRAD
 	text "You think I'm a"
 	line "baby?"
 	cont "That's not fair!"
 	done
 
-TwinsMegandpeg1BeatenText:
+TwinsMegandpeg1BeatenText: ; AUTOTRAD
 	text "Oh! We lost!"
 	done
 
-TwinsMegandpeg1AfterBattleText:
+TwinsMegandpeg1AfterBattleText: ; AUTOTRAD
 	text "Baby is a rude"
 	line "name to call us"
 	cont "girls!"
 	done
 
-TwinsMegandpeg2SeenText:
+TwinsMegandpeg2SeenText: ; AUTOTRAD
 	text "I'm not a baby!"
 
 	para "That's not nice to"
 	line "say to a lady!"
 	done
 
-TwinsMegandpeg2BeatenText:
+TwinsMegandpeg2BeatenText: ; AUTOTRAD
 	text "Oh! We lost!"
 	done
 
-TwinsMegandpeg2AfterBattleText:
+TwinsMegandpeg2AfterBattleText: ; AUTOTRAD
 	text "Sometimes, kids"
 	line "are smarter than"
 	cont "grown-ups!"
 	done
 
-PsychicRodneySeenText:
+PsychicRodneySeenText: ; AUTOTRAD
 	text "Ssh! My brain is"
 	line "picking up radio"
 	cont "signals!"
 	done
 
-PsychicRodneyBeatenText:
+PsychicRodneyBeatenText: ; AUTOTRAD
 	text "…I hear some-"
 	line "thing!"
 	done
 
-PsychicRodneyAfterBattleText:
+PsychicRodneyAfterBattleText: ; AUTOTRAD
 	text "I get it. You can"
 	line "hear JOHTO's radio"
 	cont "on the FAST SHIP."
 	done
 
-PokefanmJeremySeenText:
+PokefanmJeremySeenText: ; AUTOTRAD
 	text "What do you think?"
 	line "My #MON are"
 	cont "beautiful, yes?"
 	done
 
-PokefanmJeremyBeatenText:
+PokefanmJeremyBeatenText: ; AUTOTRAD
 	text "Oh, no! My beauti-"
 	line "ful #MON!"
 	done
 
-PokefanmJeremyAfterBattleText:
+PokefanmJeremyAfterBattleText: ; AUTOTRAD
 	text "I must go to the"
 	line "#MON SALON and"
 	cont "fix them up nice!"
 	done
 
-PokefanfGeorgiaSeenText:
+PokefanfGeorgiaSeenText: ; AUTOTRAD
 	text "I'm going to shop"
 	line "at the DEPT.STORE"
 	cont "and then…"
 	done
 
-PokefanfGeorgiaBeatenText:
+PokefanfGeorgiaBeatenText: ; AUTOTRAD
 	text "What was I going"
 	line "to do?"
 	done
 
-PokefanfGeorgiaAfterBattleText:
+PokefanfGeorgiaAfterBattleText: ; AUTOTRAD
 	text "Oh, yes! I have to"
 	line "get my #MON out"
 	cont "of DAY-CARE!"
 	done
 
-SupernerdShawnSeenText:
+SupernerdShawnSeenText: ; AUTOTRAD
 	text "What kinds of #"
 	line "BALLS do you have"
 	cont "with you?"
 	done
 
-SupernerdShawnBeatenText:
+SupernerdShawnBeatenText: ; AUTOTRAD
 	text "Wait! Stop! Don't!"
 	line "Please!"
 	done
 
-SupernerdShawnAfterBattleText:
+SupernerdShawnAfterBattleText: ; AUTOTRAD
 	text "You should use the"
 	line "right BALLS to fit"
 	cont "the situation."
 	done
 
-SSAquaHasArrivedVermilionText:
+SSAquaHasArrivedVermilionText: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
 	done
 
-SSAquaPowerOutageText:
+SSAquaPowerOutageText: ; TO TRANSLATE
 	text "We have a special"
 	line "announcement to"
 	cont "make…"

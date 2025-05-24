@@ -63,7 +63,7 @@ VioletNicknameSpeechHouseComputer1Script:
 	writetext VioletNicknameSpeechHouseComputer1Text
 	farsjump AcademyBlackboard.Loop
 
-VioletNicknameSpeechHouseTeacherText:
+VioletNicknameSpeechHouseTeacherText: ; AUTOTRAD
 	text "She uses the names"
 	line "of her favorite"
 	cont "things to eat."
@@ -73,16 +73,16 @@ VioletNicknameSpeechHouseTeacherText:
 	cont "#MON, I mean."
 	done
 
-VioletNicknameSpeechHouseLassText:
+VioletNicknameSpeechHouseLassText: ; AUTOTRAD
 	text "I call my PIDGEY"
 	line "STRAWBERRY!"
 	done
 
-VioletNicknameSpeechHouseBirdText:
+VioletNicknameSpeechHouseBirdText: ; AUTOTRAD
 	text "STRAWBERRY: Pijji!"
 	done
 	
-VioletNicknameSpeechPupilText:
+VioletNicknameSpeechPupilText: ; TO TRANSLATE
 	text "I dislike the"
 	line "online classes."
 
@@ -91,7 +91,7 @@ VioletNicknameSpeechPupilText:
 	cont "my notebook."
 	done
 
-VioletNicknameSpeechHouseComputer1Text:
+VioletNicknameSpeechHouseComputer1Text: ; TO TRANSLATE
 	text "Today's lesson is"
 	line "about COVID."
 	

@@ -72,7 +72,7 @@ LavenderPokecenterSignText:
 LavenderMartSignText:
 	jumpstd MartSignScript
 
-LavenderTownPokefanMText:
+LavenderTownPokefanMText: ; AUTOTRAD
 	text "That's quite some"
 	line "building, eh?"
 
@@ -80,12 +80,12 @@ LavenderTownPokefanMText:
 	line "TOWER."
 	done
 
-LavenderTownTeacherText:
+LavenderTownTeacherText: ; AUTOTRAD
 	text "KANTO has many"
 	line "good radio shows."
 	done
 
-LavenderTownGrampsText:
+LavenderTownGrampsText: ; AUTOTRAD
 	text "People come from"
 	line "all over to pay"
 
@@ -94,7 +94,7 @@ LavenderTownGrampsText:
 	cont "of #MON."
 	done
 
-LavenderTownYoungsterText:
+LavenderTownYoungsterText: ; AUTOTRAD
 	text "You need a #"
 	line "FLUTE to wake"
 	cont "sleeping #MON."
@@ -103,14 +103,14 @@ LavenderTownYoungsterText:
 	line "to know that!"
 	done
 
-LavenderTownSignText:
+LavenderTownSignText: ; AUTOTRAD
 	text "LAVENDER TOWN"
 
 	para "The Noble Purple"
 	line "Town"
 	done
 
-KantoRadioStationSignText:
+KantoRadioStationSignText: ; AUTOTRAD
 	text "KANTO RADIO"
 	line "STATION"
 
@@ -119,31 +119,31 @@ KantoRadioStationSignText:
 	cont "Around the Clock!"
 	done
 
-VolunteerPokemonHouseSignText:
+VolunteerPokemonHouseSignText: ; AUTOTRAD
 	text "LAVENDER VOLUNTEER"
 	line "#MON HOUSE"
 	done
 
-SoulHouseSignText:
+SoulHouseSignText: ; AUTOTRAD
 	text "SOUL HOUSE"
 
 	para "May the Souls of"
 	line "#MON Rest Easy"
 	done
 
-LavenderTownPasserby1Text:
+LavenderTownPasserby1Text: ; TO TRANSLATE
 	text "CAPTAIN: He'd been"
 	line "guiding my ship"
 	cont "for decades in"
 	cont "OLIVINE port…"
 	done
 
-LavenderTownPasserby2Text:
+LavenderTownPasserby2Text: ; TO TRANSLATE
 	text "I'm going to head"
 	line "back home now…"
 	done
 
-LavenderTownPasserby3Text:
+LavenderTownPasserby3Text: ; TO TRANSLATE
 	text "I've known him"
 	line "since I was"
 	cont "a kid."
@@ -152,12 +152,12 @@ LavenderTownPasserby3Text:
 	line "light in the dark."
 	done
 
-LavenderTownPasserby4Text:
+LavenderTownPasserby4Text: ; TO TRANSLATE
 	text "I hope JASMINE"
 	line "is feeling ok…"
 	done
 
-LavenderTownPasserby5Text:
+LavenderTownPasserby5Text: ; TO TRANSLATE
 	text "You missed the"
 	line "ceremony, it just"
 	cont "ended."

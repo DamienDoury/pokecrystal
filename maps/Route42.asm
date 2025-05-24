@@ -257,18 +257,18 @@ Route42SuicuneMovement:
 	remove_sliding
 	step_end
 
-FisherTullySeenText:
+FisherTullySeenText: ; AUTOTRAD
 	text "Let me demonstrate"
 	line "the power of the"
 	cont "#MON I caught!"
 	done
 
-FisherTullyBeatenText:
+FisherTullyBeatenText: ; AUTOTRAD
 	text "What? That's not"
 	line "right."
 	done
 
-FisherTullyAfterBattleText:
+FisherTullyAfterBattleText: ; AUTOTRAD
 	text "I want to become"
 	line "the trainer CHAMP"
 
@@ -279,17 +279,17 @@ FisherTullyAfterBattleText:
 	line "part of fishing!"
 	done
 
-HikerBenjaminSeenText:
+HikerBenjaminSeenText: ; AUTOTRAD
 	text "Ah, it's good to"
 	line "be outside!"
 	cont "I feel so free!"
 	done
 
-HikerBenjaminBeatenText:
+HikerBenjaminBeatenText: ; AUTOTRAD
 	text "Gahahah!"
 	done
 
-HikerBenjaminAfterBattleText:
+HikerBenjaminAfterBattleText: ; AUTOTRAD
 	text "Losing feels in-"
 	line "significant if you"
 
@@ -297,7 +297,7 @@ HikerBenjaminAfterBattleText:
 	line "sky!"
 	done
 
-PokemaniacShaneSeenText:
+PokemaniacShaneSeenText: ; AUTOTRAD
 	text "HEY!"
 
 	para "This is my secret"
@@ -305,12 +305,12 @@ PokemaniacShaneSeenText:
 	cont "you outsider!"
 	done
 
-PokemaniacShaneBeatenText:
+PokemaniacShaneBeatenText: ; AUTOTRAD
 	text "I should have used"
 	line "my MOON STONE…"
 	done
 
-PokemaniacShaneAfterBattleText:
+PokemaniacShaneAfterBattleText: ; AUTOTRAD
 	text "You're working on"
 	line "a #DEX?"
 
@@ -322,28 +322,28 @@ PokemaniacShaneAfterBattleText:
 	line "it. Please?"
 	done
 
-Route42Sign1Text:
+Route42Sign1Text: ; AUTOTRAD
 	text "ROUTE 42"
 
 	para "ECRUTEAK CITY -"
 	line "MAHOGANY TOWN"
 	done
 
-MtMortarSign1Text:
+MtMortarSign1Text: ; AUTOTRAD
 	text "MT.MORTAR"
 
 	para "WATERFALL CAVE"
 	line "INSIDE"
 	done
 
-MtMortarSign2Text:
+MtMortarSign2Text: ; AUTOTRAD
 	text "MT.MORTAR"
 
 	para "WATERFALL CAVE"
 	line "INSIDE"
 	done
 
-Route42Sign2Text:
+Route42Sign2Text: ; AUTOTRAD
 	text "ROUTE 42"
 
 	para "ECRUTEAK CITY -"

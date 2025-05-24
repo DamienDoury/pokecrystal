@@ -216,12 +216,12 @@ DayCarePlayerRunsAway6Movement:
 	step DOWN
 	step_end
 
-Text_GrampsLookingForYou:
+Text_GrampsLookingForYou: ; AUTOTRAD
 	text "Gramps was looking"
 	line "for you."
 	done
 
-DayCareManText_GiveOddEgg:
+DayCareManText_GiveOddEgg: ; AUTOTRAD
 	text "I'm the DAY-CARE"
 	line "MAN."
 
@@ -249,12 +249,12 @@ DayCareText_ComeAgain: ; unreferenced
 	text "Come again."
 	done
 
-DayCareText_GotOddEgg:
+DayCareText_GotOddEgg: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "ODD EGG!"
 	done
 
-DayCareText_DescribeOddEgg:
+DayCareText_DescribeOddEgg: ; AUTOTRAD
 	text "I found that when"
 	line "I was caring for"
 
@@ -268,18 +268,18 @@ DayCareText_DescribeOddEgg:
 	line "it around."
 	done
 
-DayCareText_PartyFull:
+DayCareText_PartyFull: ; AUTOTRAD
 	text "You've no room for"
 	line "this."
 	done
 
-DayCare_ScaredManText:
+DayCare_ScaredManText: ; TO TRANSLATE
 	text "Go away, you and"
 	line "your infected"
 	cont "#MON."
 	done
 
-DayCare_ScaredLadyText:
+DayCare_ScaredLadyText: ; TO TRANSLATE
 	text "Are you trying to"
 	line "contaminate us??"
 

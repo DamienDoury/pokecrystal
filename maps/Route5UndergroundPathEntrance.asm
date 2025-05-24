@@ -9,7 +9,7 @@ Route5UndergroundPathEntrance_MapScripts:
 Route5UndergroundPathEntranceTeacherScript:
 	jumptextfaceplayer Route5UndergroundPathEntranceTeacherText
 
-Route5UndergroundPathEntranceTeacherText:
+Route5UndergroundPathEntranceTeacherText: ; AUTOTRAD
 	text "Many cities in"
 	line "JOHTO have long"
 

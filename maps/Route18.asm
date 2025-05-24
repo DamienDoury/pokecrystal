@@ -94,7 +94,7 @@ TrainerBikerCharles:
 Route18Sign:
 	jumptext Route18SignText
 
-BirdKeeperBorisSeenText:
+BirdKeeperBorisSeenText: ; AUTOTRAD
 	text "If you're looking"
 	line "for #MON, you"
 
@@ -102,27 +102,27 @@ BirdKeeperBorisSeenText:
 	line "the tall grass."
 	done
 
-BirdKeeperBorisBeatenText:
+BirdKeeperBorisBeatenText: ; AUTOTRAD
 	text "Ayieee!"
 	done
 
-BirdKeeperBorisAfterBattleText:
+BirdKeeperBorisAfterBattleText: ; AUTOTRAD
 	text "Since you're so"
 	line "strong, it must be"
 	cont "fun to battle."
 	done
 
-BirdKeeperBobSeenText:
+BirdKeeperBobSeenText: ; AUTOTRAD
 	text "CYCLING ROAD is a"
 	line "quick shortcut to"
 	cont "CELADON."
 	done
 
-BirdKeeperBobBeatenText:
+BirdKeeperBobBeatenText: ; AUTOTRAD
 	text "…Whew!"
 	done
 
-BirdKeeperBobAfterBattleText:
+BirdKeeperBobAfterBattleText: ; AUTOTRAD
 	text "If you don't have"
 	line "a BICYCLE, you're"
 
@@ -130,7 +130,7 @@ BirdKeeperBobAfterBattleText:
 	line "the shortcut."
 	done
 
-BirdKeeperBobbySeenText:
+BirdKeeperBobbySeenText: ; TO TRANSLATE
 	text "The motorbikes on"
 	line "the CYCLING ROAD"
 	cont "produce fumes that"
@@ -139,32 +139,32 @@ BirdKeeperBobbySeenText:
 	line "our clean air."
 	done
 
-BirdKeeperBobbyBeatenText:
+BirdKeeperBobbyBeatenText: ; TO TRANSLATE
 	text "I feel like my"
 	line "head is spinning."
 	done
 
-BirdKeeperBobbyAfterBattleText:
+BirdKeeperBobbyAfterBattleText: ; TO TRANSLATE
 	text "(cough)"
 	done
 
-BikerCharlesSeenText:
+BikerCharlesSeenText: ; AUTOTRAD
 	text "We're fearless"
 	line "highway stars!"
 	done
 
-BikerCharlesBeatenText:
+BikerCharlesBeatenText: ; AUTOTRAD
 	text "Arrrgh! Crash and"
 	line "burn!"
 	done
 
-BikerCharlesAfterBattleText:
+BikerCharlesAfterBattleText: ; AUTOTRAD
 	text "Reckless driving"
 	line "causes accidents!"
 	cont "Take it easy!"
 	done
 
-Route18SignText:
+Route18SignText: ; AUTOTRAD
 	text "ROUTE 18"
 
 	para "CELADON CITY -"

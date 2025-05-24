@@ -304,7 +304,7 @@ MovementData_BattleTowerBattleRoomPlayerTurnsToFaceNextOpponent:
 	turn_head RIGHT
 	step_end
 
-Text_BattleTowerWelcomesYou:
+Text_BattleTowerWelcomesYou: ; AUTOTRAD
 	text "BATTLE TOWER"
 	line "welcomes you!"
 
@@ -312,17 +312,17 @@ Text_BattleTowerWelcomesYou:
 	line "to a BATTLE ROOM."
 	done
 
-Text_WantToGoIntoABattleRoom:
+Text_WantToGoIntoABattleRoom: ; AUTOTRAD
 	text "Want to go into a"
 	line "BATTLE ROOM?"
 	done
 
-Text_RightThisWayToYourBattleRoom:
+Text_RightThisWayToYourBattleRoom: ; AUTOTRAD
 	text "Right this way to"
 	line "your BATTLE ROOM."
 	done
 
-Text_BattleTowerIntroduction_2:
+Text_BattleTowerIntroduction_2: ; AUTOTRAD
 	text "BATTLE TOWER is a"
 	line "facility made for"
 	cont "#MON battles."
@@ -358,7 +358,7 @@ Text_BattleTowerIntroduction_2:
 	para ""
 	done
 
-Text_ReceivedAListOfLeadersOnTheHonorRoll:
+Text_ReceivedAListOfLeadersOnTheHonorRoll: ; AUTOTRAD
 	text "Received a list of"
 	line "LEADERS on the"
 	cont "HONOR ROLL."
@@ -366,17 +366,17 @@ Text_ReceivedAListOfLeadersOnTheHonorRoll:
 	para ""
 	done
 
-Text_PleaseConfirmOnThisMonitor:
+Text_PleaseConfirmOnThisMonitor: ; AUTOTRAD
 	text "Please confirm on"
 	line "this monitor."
 	done
 
-Text_ThanksForVisiting:
+Text_ThanksForVisiting: ; AUTOTRAD
 	text "Thanks for"
 	line "visiting!"
 	done
 
-Text_CongratulationsYouveBeatenAllTheTrainers:
+Text_CongratulationsYouveBeatenAllTheTrainers: ; AUTOTRAD
 	text "Congratulations!"
 
 	para "You've beaten all"
@@ -388,7 +388,7 @@ Text_CongratulationsYouveBeatenAllTheTrainers:
 	para ""
 	done
 
-Text_PlayerGotFive:
+Text_PlayerGotFive: ; AUTOTRAD
 	text "<PLAYER> got five"
 	line "@"
 	text_ram wStringBuffer4
@@ -397,7 +397,7 @@ Text_PlayerGotFive:
 	text_promptbutton
 	text_end
 
-Text_YourPackIsStuffedFull:
+Text_YourPackIsStuffedFull: ; AUTOTRAD
 	text "Oops, your PACK is"
 	line "stuffed full."
 
@@ -405,23 +405,23 @@ Text_YourPackIsStuffedFull:
 	line "and come back."
 	done
 
-Text_WeHopeToServeYouAgain:
+Text_WeHopeToServeYouAgain: ; AUTOTRAD
 	text "We hope to serve"
 	line "you again."
 	done
 
-Text_PleaseStepThisWay:
+Text_PleaseStepThisWay: ; AUTOTRAD
 	text "Please step this"
 	line "way."
 	done
 
-Text_WouldYouLikeToHearAboutTheBattleTower:
+Text_WouldYouLikeToHearAboutTheBattleTower: ; AUTOTRAD
 	text "Would you like to"
 	line "hear about the"
 	cont "BATTLE TOWER?"
 	done
 
-Text_CantBeRegistered:
+Text_CantBeRegistered: ; AUTOTRAD
 	text "Your record from"
 	line "the previous"
 
@@ -429,7 +429,7 @@ Text_CantBeRegistered:
 	line "be registered. OK?"
 	done
 
-Text_CantBeRegistered_PreviousRecordDeleted:
+Text_CantBeRegistered_PreviousRecordDeleted: ; AUTOTRAD
 	text "Your record from"
 	line "the previous"
 
@@ -441,14 +441,14 @@ Text_CantBeRegistered_PreviousRecordDeleted:
 	cont "deleted. OK?"
 	done
 
-Text_ReadBattleTowerRules:
+Text_ReadBattleTowerRules: ; AUTOTRAD
 	text "BATTLE TOWER rules"
 	line "are written here."
 
 	para "Read the rules?"
 	done
 
-Text_BattleTowerRules:
+Text_BattleTowerRules: ; AUTOTRAD
 	text "Three #MON may"
 	line "enter battles."
 
@@ -466,7 +466,7 @@ Text_BattleTowerRules:
 	line "placed on them."
 	done
 
-Text_BattleTower_LeftWithoutSaving:
+Text_BattleTower_LeftWithoutSaving: ; AUTOTRAD
 	text "Excuse me!"
 	line "You didn't SAVE"
 
@@ -480,20 +480,20 @@ Text_BattleTower_LeftWithoutSaving:
 	line "invalid."
 	done
 
-Text_YourMonWillBeHealedToFullHealth:
+Text_YourMonWillBeHealedToFullHealth: ; AUTOTRAD
 	text "Your #MON will"
 	line "be healed to full"
 	cont "health."
 	done
 
-Text_NextUpOpponentNo:
+Text_NextUpOpponentNo: ; AUTOTRAD
 	text "Next up, opponent"
 	line "no.@"
 	text_ram wStringBuffer3
 	text ". Ready?"
 	done
 
-Text_SaveBeforeEnteringBattleRoom:
+Text_SaveBeforeEnteringBattleRoom: ; AUTOTRAD
 	text "Before entering"
 	line "the BATTLE ROOM,"
 
@@ -501,12 +501,12 @@ Text_SaveBeforeEnteringBattleRoom:
 	line "be saved."
 	done
 
-Text_SaveAndEndTheSession:
+Text_SaveAndEndTheSession: ; AUTOTRAD
 	text "SAVE and end the"
 	line "session?"
 	done
 
-Text_SaveBeforeReentry:
+Text_SaveBeforeReentry: ; AUTOTRAD
 	text "Your record will"
 	line "be SAVED before"
 
@@ -514,12 +514,12 @@ Text_SaveBeforeReentry:
 	line "the previous ROOM."
 	done
 
-Text_CancelYourBattleRoomChallenge:
+Text_CancelYourBattleRoomChallenge: ; AUTOTRAD
 	text "Cancel your BATTLE"
 	line "ROOM challenge?"
 	done
 
-Text_WeveBeenWaitingForYou:
+Text_WeveBeenWaitingForYou: ; AUTOTRAD
 	text "We've been waiting"
 	line "for you. This way"
 
@@ -527,7 +527,7 @@ Text_WeveBeenWaitingForYou:
 	line "please."
 	done
 
-Text_FiveDayBattleLimit_Mobile:
+Text_FiveDayBattleLimit_Mobile: ; AUTOTRAD
 	text "You may enter only"
 	line "five BATTLE ROOMS"
 	cont "each day."
@@ -536,7 +536,7 @@ Text_FiveDayBattleLimit_Mobile:
 	line "tomorrow."
 	done
 
-Text_TooMuchTimeElapsedNoRegister:
+Text_TooMuchTimeElapsedNoRegister: ; AUTOTRAD
 	text "Sorry, but it's"
 	line "not possible to"
 
@@ -551,7 +551,7 @@ Text_TooMuchTimeElapsedNoRegister:
 	cont "challenge."
 	done
 
-Text_AMonLevelExceeds:
+Text_AMonLevelExceeds: ; AUTOTRAD
 	text "One or more of"
 	line "your #MON's"
 	cont "levels exceeds @"
@@ -559,7 +559,7 @@ Text_AMonLevelExceeds:
 	text "."
 	done
 
-Text_MayNotEnterABattleRoomUnderL70:
+Text_MayNotEnterABattleRoomUnderL70: ; AUTOTRAD
 	text_ram wcd49
 	text " may not"
 	line "enter a BATTLE"
@@ -571,7 +571,7 @@ Text_MayNotEnterABattleRoomUnderL70:
 	text "."
 	done
 
-Text_BattleTowerYoungster:
+Text_BattleTowerYoungster: ; AUTOTRAD
 	text "Destroyed by the"
 	line "first opponent in"
 
@@ -579,7 +579,7 @@ Text_BattleTowerYoungster:
 	line "I'm no good…"
 	done
 
-Text_BattleTowerCooltrainerF:
+Text_BattleTowerCooltrainerF: ; AUTOTRAD
 	text "There are lots of"
 	line "BATTLE ROOMS, but"
 
@@ -587,7 +587,7 @@ Text_BattleTowerCooltrainerF:
 	line "them all!"
 	done
 
-Text_BattleTowerGranny:
+Text_BattleTowerGranny: ; AUTOTRAD
 	text "It's a grueling"
 	line "task, not being"
 
@@ -601,7 +601,7 @@ Text_BattleTowerGranny:
 	line "winning battles."
 	done
 
-Text_BattleTowerBugCatcher:
+Text_BattleTowerBugCatcher: ; AUTOTRAD
 	text "I'm trying to see"
 	line "how far I can go"
 

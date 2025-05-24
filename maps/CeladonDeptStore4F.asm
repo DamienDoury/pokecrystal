@@ -27,7 +27,7 @@ CeladonDeptStore4FDirectory:
 CeladonDeptStore4FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore4FSuperNerdText:
+CeladonDeptStore4FSuperNerdText: ; TO TRANSLATE
 	text "I'm here to buy a"
 	line "LOVELY MAIL to"
 	cont "send to my girl-"
@@ -41,7 +41,7 @@ CeladonDeptStore4FSuperNerdText:
 	cont "our couple?"
 	done
 
-CeladonDeptStore4FYoungsterText:
+CeladonDeptStore4FYoungsterText: ; TO TRANSLATE
 	text "What am I even"
 	line "doing here?"
 	
@@ -53,7 +53,7 @@ CeladonDeptStore4FYoungsterText:
 	cont "That was lit!"
 	done
 
-CeladonDeptStore4FDirectoryText:
+CeladonDeptStore4FDirectoryText: ; AUTOTRAD
 	text "Express Yourself"
 	line "With Gifts!"
 

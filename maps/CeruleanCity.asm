@@ -392,7 +392,7 @@ CeruleanCityStompLeftMovement:
 	step_bump
 	step_end
 
-CeruleanCityCooltrainerMText1:
+CeruleanCityCooltrainerMText1: ; AUTOTRAD
 	text "KANTO's POWER"
 	line "PLANT?"
 
@@ -407,7 +407,7 @@ CeruleanCityCooltrainerMText1:
 	cont "some sort there."
 	done
 
-CeruleanCityCooltrainerMText2:
+CeruleanCityCooltrainerMText2: ; AUTOTRAD
 	text "You're collecting"
 	line "every single kind"
 	cont "of #MON?"
@@ -417,7 +417,7 @@ CeruleanCityCooltrainerMText2:
 	cont "it sounds fun too."
 	done
 
-CeruleanCitySuperNerdText:
+CeruleanCitySuperNerdText: ; TO TRANSLATE
 ;	text "The CAPE in the"
 ;	line "north is a good"
 ;
@@ -446,17 +446,17 @@ CeruleanCitySuperNerdText:
 	line "the SHAME BRIDGE."
 	done
 
-CeruleanCitySlowbroText:
+CeruleanCitySlowbroText: ; AUTOTRAD
 	text "SLOWBRO: Yarah?"
 	done
 
-CeruleanCityCooltrainerFText1:
+CeruleanCityCooltrainerFText1: ; AUTOTRAD
 	text "My SLOWBRO and I"
 	line "make an awesome"
 	cont "combination!"
 	done
 
-CeruleanCityCooltrainerFText2:
+CeruleanCityCooltrainerFText2: ; AUTOTRAD
 	text "SLOWBRO, show me"
 	line "your CONFUSION!"
 	done
@@ -465,19 +465,19 @@ CeruleanCityCooltrainerFText3:
 	text "…"
 	done
 
-CeruleanCityFisherText:
+CeruleanCityFisherText: ; AUTOTRAD
 	text "I'm a huge fan of"
 	line "CERULEAN GYM's"
 	cont "MISTY."
 	done
 
-CeruleanCityFisherRocketTipText:
+CeruleanCityFisherRocketTipText: ; AUTOTRAD
 	text "I saw this shady"
 	line "guy go off toward"
 	cont "CERULEAN's CAPE."
 	done
 
-CeruleanCityYoungsterText1:
+CeruleanCityYoungsterText1: ; TO TRANSLATE
 	text "There used to be a"
 	line "cave here that had"
 
@@ -500,27 +500,27 @@ CeruleanCityYoungsterText1:
 	cont "its way in."
 	done
 
-CeruleanCityYoungsterText2:
+CeruleanCityYoungsterText2: ; AUTOTRAD
 	text "Ayuh?"
 
 	para "My ITEMFINDER is"
 	line "responding…"
 	done
 
-CeruleanCityYoungsterTextRocket:
+CeruleanCityYoungsterTextRocket: ; TO TRANSLATE
 	text "What is this dude"
 	line "doing in my gar-"
 	cont "den? Get him out!"
 	done
 
-CeruleanCitySignText:
+CeruleanCitySignText: ; AUTOTRAD
 	text "CERULEAN CITY"
 
 	para "A Mysterious Blue"
 	line "Aura Surrounds It"
 	done
 
-CeruleanGymSignText:
+CeruleanGymSignText: ; AUTOTRAD
 	text "CERULEAN CITY"
 	line "#MON GYM"
 	cont "LEADER: MISTY"
@@ -529,7 +529,7 @@ CeruleanGymSignText:
 	line "Mermaid"
 	done
 
-CeruleanBikeShopSignText:
+CeruleanBikeShopSignText: ; TO TRANSLATE
 	text "There's a notice"
 	line "here…"
 
@@ -538,7 +538,7 @@ CeruleanBikeShopSignText:
 	cont "bankruptcy."
 	done
 
-CeruleanPoliceSignText:
+CeruleanPoliceSignText: ; AUTOTRAD
 	text "There's a notice"
 	line "here…"
 
@@ -551,17 +551,17 @@ CeruleanPoliceSignText:
 	para "CERULEAN POLICE"
 	done
 
-CeruleanCapeSignText:
+CeruleanCapeSignText: ; AUTOTRAD
 	text "CERULEAN CAPE"
 	line "AHEAD"
 	done
 
-CeruleanLockedDoorText:
+CeruleanLockedDoorText: ; TO TRANSLATE
 	text "A heavy chain"
 	line "seals the door."
 	done
 
-CeruleanCityDetectiveText:
+CeruleanCityDetectiveText: ; TO TRANSLATE
 	text "There's an ongoing"
 	line "investigation into"
 
@@ -572,24 +572,24 @@ CeruleanCityDetectiveText:
 	line "anyone in or out."
 	done
 
-CeruleanCityDetective2Text:
+CeruleanCityDetective2Text: ; TO TRANSLATE
 	text "We are looking for"
 	line "a thief."
 	done
 
-CeruleanCitySawThiefText:
+CeruleanCitySawThiefText: ; TO TRANSLATE
 	text "I saw the thief!"
 	
 	para "He fled to the"
 	line "west, get him!"
 	done
 
-CeruleanCitySquirtleText:
+CeruleanCitySquirtleText: ; TO TRANSLATE
 	text "SQUIRTLE: Squirt"
 	line "Squirtle!"
 	done
 
-PikachuRecognizesThisPlace:
+PikachuRecognizesThisPlace: ; TO TRANSLATE
 	text "PIKACHU recognizes"
 	line "this place."
 
@@ -597,12 +597,12 @@ PikachuRecognizesThisPlace:
 	line "the way?"
 	done
 
-PikachuDragsYouUnderWater:
+PikachuDragsYouUnderWater: ; TO TRANSLATE
 	text "PIKACHU drags you"
 	line "under water."
 	done
 
-CeruleanCityRocketText1:
+CeruleanCityRocketText1: ; TO TRANSLATE
 	text "…MACHINE PART safe"
 	line "in GYM pool, no"
 	cont "worry…"

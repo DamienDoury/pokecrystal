@@ -38,7 +38,7 @@ ViridianPokecenter1FCooltrainerFScript:
 ViridianPokecenter1FBugCatcherScript:
 	jumptextfaceplayer ViridianPokecenter1FBugCatcherText
 
-ViridianPokecenter1FCooltrainerMText:
+ViridianPokecenter1FCooltrainerMText: ; AUTOTRAD
 	text "Where in the world"
 	line "is VIRIDIAN's GYM"
 
@@ -46,7 +46,7 @@ ViridianPokecenter1FCooltrainerMText:
 	line "to challenge him."
 	done
 
-ViridianPokecenter1FCooltrainerMText_BlueReturned:
+ViridianPokecenter1FCooltrainerMText_BlueReturned: ; AUTOTRAD
 	text "There are no GYM"
 	line "TRAINERS at the"
 	cont "VIRIDIAN GYM."
@@ -58,7 +58,7 @@ ViridianPokecenter1FCooltrainerMText_BlueReturned:
 	line "any underlings."
 	done
 
-ViridianPokecenter1FCooltrainerFText:
+ViridianPokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "I heard that the"
 	line "GYM in CINNABAR is"
 	cont "gone."
@@ -68,7 +68,7 @@ ViridianPokecenter1FCooltrainerFText:
 	cont "the GYM LEADER."
 	done
 
-ViridianPokecenter1FBugCatcherText:
+ViridianPokecenter1FBugCatcherText: ; AUTOTRAD
 	text "My dream is to be-"
 	line "come a GYM LEADER."
 	done

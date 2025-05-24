@@ -28,13 +28,13 @@ ViridianMartCooltrainerMScript:
 ViridianMartShelfItem1Script:
 	shelfitem 8, REPEL, 2800
 
-ViridianMartLassText:
+ViridianMartLassText: ; AUTOTRAD
 	text "The GYM LEADER"
 	line "here is totally"
 	cont "cool."
 	done
 
-ViridianMartCooltrainerMText:
+ViridianMartCooltrainerMText: ; AUTOTRAD
 	text "Have you been to"
 	line "CINNABAR?"
 

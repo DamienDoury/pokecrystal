@@ -42,7 +42,7 @@ VermilionPokecenter1FSailorScript:
 VermilionPokecenter1FBugCatcherScript:
 	jumptextfaceplayer VermilionPokecenter1FBugCatcherText
 
-VermilionPokecenter1FFishingGuruText:
+VermilionPokecenter1FFishingGuruText: ; AUTOTRAD
 	text "A sleeping #MON"
 	line "is lying in front"
 	cont "of DIGLETT'S CAVE."
@@ -54,7 +54,7 @@ VermilionPokecenter1FFishingGuruText:
 	line "wake it up?"
 	done
 
-VermilionPokecenter1FFishingGuruText_FoughtSnorlax:
+VermilionPokecenter1FFishingGuruText_FoughtSnorlax: ; AUTOTRAD
 	text "There used to be a"
 	line "sleeping #MON"
 
@@ -65,7 +65,7 @@ VermilionPokecenter1FFishingGuruText_FoughtSnorlax:
 	line "have disappeared."
 	done
 
-VermilionPokecenter1FSailorText:
+VermilionPokecenter1FSailorText: ; AUTOTRAD
 	text "The FAST SHIP is a"
 	line "great place to"
 
@@ -73,7 +73,7 @@ VermilionPokecenter1FSailorText:
 	line "trainers."
 	done
 
-VermilionPokecenter1FSailorPowerOutageText:
+VermilionPokecenter1FSailorPowerOutageText: ; TO TRANSLATE
 	text "Oh fudge! BILL's PC"
 	line "can't connect to"
 	cont "JOHTO's servers!"
@@ -87,7 +87,7 @@ VermilionPokecenter1FSailorPowerOutageText:
 	cont "the CAPTAIN!"
 	done
 
-VermilionPokecenter1FBugCatcherText:
+VermilionPokecenter1FBugCatcherText: ; AUTOTRAD
 	text "Oh? You have some"
 	line "BADGES I've never"
 	cont "seen before."

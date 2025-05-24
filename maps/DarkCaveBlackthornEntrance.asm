@@ -31,7 +31,7 @@ DarkCaveBlackthornEntranceRevive:
 DarkCaveBlackthornEntranceTMSnore:
 	itemball TM_SNORE
 
-DarkCaveBlackthornEntrancePharmacistText1:
+DarkCaveBlackthornEntrancePharmacistText1: ; AUTOTRAD
 	text "Whoa! You startled"
 	line "me there!"
 
@@ -53,7 +53,7 @@ DarkCaveBlackthornEntrancePharmacistText1:
 	cont "you saw me, OK?"
 	done
 
-DarkCaveBlackthornEntrancePharmacistText2:
+DarkCaveBlackthornEntrancePharmacistText2: ; AUTOTRAD
 	text "BLACKGLASSES ups"
 	line "the power of dark-"
 	cont "type moves."

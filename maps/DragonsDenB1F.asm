@@ -191,11 +191,11 @@ MovementDragonsDen_ClairWalksAway:
 	slow_step LEFT
 	step_end
 
-ClairText_Wait:
+ClairText_Wait: ; AUTOTRAD
 	text "Wait!"
 	done
 
-ClairText_GiveDragonbreathDragonDen:
+ClairText_GiveDragonbreathDragonDen: ; AUTOTRAD
 	text "CLAIR: I'm sorry"
 	line "about this."
 
@@ -203,12 +203,12 @@ ClairText_GiveDragonbreathDragonDen:
 	line "my apology."
 	done
 
-Text_ReceivedTM24:
+Text_ReceivedTM24: ; TO TRANSLATE
 	text "<PLAYER> received"
 	line "TM24 DRAGONBREATH."
 	done
 
-ClairText_DescribeDragonbreathDragonDen:
+ClairText_DescribeDragonbreathDragonDen: ; TO TRANSLATE
 	text "That contains"
 	line "DRAGONBREATH."
 
@@ -232,7 +232,7 @@ ClairText_DescribeDragonbreathDragonDen:
 	cont "it."
 	done
 
-ClairText_NoRoom:
+ClairText_NoRoom: ; AUTOTRAD
 	text "Oh? You don't have"
 	line "any room for this."
 
@@ -243,7 +243,7 @@ ClairText_NoRoom:
 	line "see me there."
 	done
 
-DragonShrineSignpostText:
+DragonShrineSignpostText: ; AUTOTRAD
 	text "DRAGON SHRINE"
 
 	para "A shrine honoring"
@@ -253,7 +253,7 @@ DragonShrineSignpostText:
 	line "in DRAGON'S DEN."
 	done
 
-SilverText_Training1:
+SilverText_Training1: ; AUTOTRAD
 	text "…"
 	line "What? <PLAYER>?"
 
@@ -273,7 +273,7 @@ SilverText_Training1:
 	line "MON trainer…"
 	done
 
-SilverText_Training2:
+SilverText_Training2: ; TO TRANSLATE
 	text "…"
 
 	para "Whew…"
@@ -288,16 +288,16 @@ SilverText_Training2:
 	line "Wednesday."
 	done
 
-CooltrainermDarinSeenText:
+CooltrainermDarinSeenText: ; AUTOTRAD
 	text "You! How dare you"
 	line "enter uninvited!"
 	done
 
-CooltrainermDarinBeatenText:
+CooltrainermDarinBeatenText: ; AUTOTRAD
 	text "S-strong!"
 	done
 
-CooltrainermDarinAfterBattleText:
+CooltrainermDarinAfterBattleText: ; AUTOTRAD
 	text "The SHRINE ahead"
 	line "is home to the"
 
@@ -308,16 +308,16 @@ CooltrainermDarinAfterBattleText:
 	line "to just go in!"
 	done
 
-CooltrainerfCaraSeenText:
+CooltrainerfCaraSeenText: ; AUTOTRAD
 	text "You shouldn't be"
 	line "in here!"
 	done
 
-CooltrainerfCaraBeatenText:
+CooltrainerfCaraBeatenText: ; AUTOTRAD
 	text "Oh yikes, I lost!"
 	done
 
-CooltrainerfCaraAfterBattleText:
+CooltrainerfCaraAfterBattleText: ; AUTOTRAD
 	text "Soon I'm going to"
 	line "get permission"
 
@@ -334,29 +334,29 @@ CooltrainerfCaraAfterBattleText:
 	line "approval."
 	done
 
-TwinsLeaandpia1SeenText:
+TwinsLeaandpia1SeenText: ; AUTOTRAD
 	text "It's a stranger we"
 	line "don't know."
 	done
 
-TwinsLeaandpia1BeatenText:
+TwinsLeaandpia1BeatenText: ; AUTOTRAD
 	text "Ouchies."
 	done
 
-TwinsLeaandpia1AfterBattleText:
+TwinsLeaandpia1AfterBattleText: ; AUTOTRAD
 	text "It was like having"
 	line "to battle LANCE."
 	done
 
-TwinsLeaandpia2SeenText:
+TwinsLeaandpia2SeenText: ; AUTOTRAD
 	text "Who are you?"
 	done
 
-TwinsLeaandpia2BeatenText:
+TwinsLeaandpia2BeatenText: ; AUTOTRAD
 	text "Meanie."
 	done
 
-TwinsLeaandpia2AfterBattleText:
+TwinsLeaandpia2AfterBattleText: ; AUTOTRAD
 	text "We'll tell on you."
 
 	para "MASTER will be"

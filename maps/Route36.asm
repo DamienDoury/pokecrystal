@@ -426,12 +426,12 @@ Route36_StepRightMovement:
 	step RIGHT
 	step_end
 
-UseSquirtbottleText:
+UseSquirtbottleText: ; AUTOTRAD
 	text "It's a weird tree."
 	line "Use SQUIRTBOTTLE?"
 	done
 
-SudowoodoAttackedText:
+SudowoodoAttackedText: ; AUTOTRAD
 	text "The weird tree"
 	line "doesn't like the"
 	cont "SQUIRTBOTTLE!"
@@ -440,7 +440,7 @@ SudowoodoAttackedText:
 	line "attacked!"
 	done
 
-FloriaText1:
+FloriaText1: ; TO TRANSLATE
 	text "I'm the FLOWER"
 	line "SHOP's FLORIA!"
 
@@ -462,7 +462,7 @@ FloriaText1:
 	line "soaked it!"
 	done
 
-FloriaStayAtHomeText:
+FloriaStayAtHomeText: ; TO TRANSLATE
 	text "Wait what?"
 
 	para "The lockdown has"
@@ -471,13 +471,13 @@ FloriaStayAtHomeText:
 	para "I should get home."
 	done
 
-FloriaText2:
+FloriaText2: ; TO TRANSLATE
 	text "I know! I'll tell"
 	line "my sis and borrow"
 	cont "her water bottle!"
 	done
 
-RockSmashGuyText1:
+RockSmashGuyText1: ; TO TRANSLATE
 	text "Wa-hey!"
 
 	para "I was going to"
@@ -490,7 +490,7 @@ RockSmashGuyText1:
 	line "as hard as a rock!"
 	done
 
-RockSmashGuyText2:
+RockSmashGuyText2: ; AUTOTRAD
 	text "Did you clear that"
 	line "wretched tree?"
 
@@ -499,7 +499,7 @@ RockSmashGuyText2:
 	cont "have this."
 	done
 
-RockSmashGuyText3:
+RockSmashGuyText3: ; TO TRANSLATE
 	text "With ROCK SMASH"
 	line "you can shatter"
 	cont "rocks with just a"
@@ -512,7 +512,7 @@ RockSmashGuyText3:
 	cont "smash 'em up!"
 	done
 
-Route36LassText:
+Route36LassText: ; AUTOTRAD
 	text "An odd tree is"
 	line "blocking the way"
 	cont "to GOLDENROD CITY."
@@ -524,7 +524,7 @@ Route36LassText:
 	line "be done about it."
 	done
 
-Route36LassText_ClearedSudowoodo:
+Route36LassText_ClearedSudowoodo: ; AUTOTRAD
 	text "That odd tree dis-"
 	line "appeared without a"
 	cont "trace."
@@ -533,16 +533,16 @@ Route36LassText_ClearedSudowoodo:
 	line "really a #MON?"
 	done
 
-PsychicMarkSeenText:
+PsychicMarkSeenText: ; AUTOTRAD
 	text "I'm going to read"
 	line "your thoughts!"
 	done
 
-PsychicMarkBeatenText:
+PsychicMarkBeatenText: ; AUTOTRAD
 	text "I misread you!"
 	done
 
-PsychicMarkAfterBattleText:
+PsychicMarkAfterBattleText: ; AUTOTRAD
 	text "I'd be strong if"
 	line "only I could tell"
 
@@ -550,18 +550,18 @@ PsychicMarkAfterBattleText:
 	line "was thinking."
 	done
 
-SchoolboyAlan1SeenText:
+SchoolboyAlan1SeenText: ; AUTOTRAD
 	text "Thanks to my stud-"
 	line "ies, I'm ready for"
 	cont "any #MON!"
 	done
 
-SchoolboyAlan1BeatenText:
+SchoolboyAlan1BeatenText: ; AUTOTRAD
 	text "Oops! Computation"
 	line "error?"
 	done
 
-SchoolboyAlanBooksText:
+SchoolboyAlanBooksText: ; AUTOTRAD
 	text "Darn. I study five"
 	line "hours a day too."
 
@@ -570,7 +570,7 @@ SchoolboyAlanBooksText:
 	cont "reading books."
 	done
 
-MeetArthurText:
+MeetArthurText: ; AUTOTRAD
 	text "ARTHUR: Who are"
 	line "you?"
 
@@ -578,12 +578,12 @@ MeetArthurText:
 	line "Thursday."
 	done
 
-ArthurGivesGiftText:
+ArthurGivesGiftText: ; AUTOTRAD
 	text "Here. You can have"
 	line "this."
 	done
 
-ArthurGaveGiftText:
+ArthurGaveGiftText: ; AUTOTRAD
 	text "ARTHUR: A #MON"
 	line "that uses rock-"
 
@@ -594,7 +594,7 @@ ArthurGaveGiftText:
 	line "type attacks."
 	done
 
-ArthurThursdayText:
+ArthurThursdayText: ; AUTOTRAD
 	text "ARTHUR: I'm ARTHUR"
 	line "of Thursday. I'm"
 
@@ -602,22 +602,22 @@ ArthurThursdayText:
 	line "of seven children."
 	done
 
-ArthurNotThursdayText:
+ArthurNotThursdayText: ; AUTOTRAD
 	text "ARTHUR: Today's"
 	line "not Thursday. How"
 	cont "disappointing."
 	done
 
-Route36SignText:
+Route36SignText: ; AUTOTRAD
 	text "ROUTE 36"
 	done
 
-RuinsOfAlphNorthSignText:
+RuinsOfAlphNorthSignText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 	line "NORTH ENTRANCE"
 	done
 
-Route36TrainerTips1Text:
+Route36TrainerTips1Text: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "#MON stats"
@@ -634,7 +634,7 @@ Route36TrainerTips1Text:
 	line "#MON grow."
 	done
 
-Route36TrainerTips2Text:
+Route36TrainerTips2Text: ; TO TRANSLATE
 	text "TRAINER TIPS"
 
 	para "Use DIG to return"

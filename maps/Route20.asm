@@ -276,16 +276,16 @@ Route20_TurnHeadLeftMovement:
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
 
-SwimmerfNicoleSeenText:
+SwimmerfNicoleSeenText: ; AUTOTRAD
 	text "I feel so much"
 	line "lighter in water."
 	done
 
-SwimmerfNicoleBeatenText:
+SwimmerfNicoleBeatenText: ; AUTOTRAD
 	text "Oh, no!"
 	done
 
-SwimmerfNicoleAfterBattleText:
+SwimmerfNicoleAfterBattleText: ; AUTOTRAD
 	text "Swimming exercises"
 	line "your full body."
 
@@ -293,7 +293,7 @@ SwimmerfNicoleAfterBattleText:
 	line "for you."
 	done
 
-SwimmerfLoriSeenText:
+SwimmerfLoriSeenText: ; AUTOTRAD
 	text "What an impressive"
 	line "collection of GYM"
 
@@ -301,17 +301,17 @@ SwimmerfLoriSeenText:
 	line "battle!"
 	done
 
-SwimmerfLoriBeatenText:
+SwimmerfLoriBeatenText: ; AUTOTRAD
 	text "No!"
 	done
 
-SwimmerfLoriAfterBattleText:
+SwimmerfLoriAfterBattleText: ; AUTOTRAD
 	text "SURF is no longer"
 	line "the only HM move"
 	cont "you use in water."
 	done
 
-SwimmermCameronSeenText:
+SwimmermCameronSeenText: ; AUTOTRAD
 	text "I guess it's im-"
 	line "possible to swim"
 
@@ -319,41 +319,41 @@ SwimmermCameronSeenText:
 	line "JOHTO."
 	done
 
-SwimmermCameronBeatenText:
+SwimmermCameronBeatenText: ; AUTOTRAD
 	text "Aiyah!"
 	done
 
-SwimmermCameronAfterBattleText:
+SwimmermCameronAfterBattleText: ; AUTOTRAD
 	text "Besides the sea, I"
 	line "can also swim in"
 	cont "ponds and rivers."
 	done
 
-TeacherSarahSeenText:
+TeacherSarahSeenText: ; TO TRANSLATE
 	text "How did I end"
 	line "up here?"
 	done
 
-TeacherSarahBeatenText:
+TeacherSarahBeatenText: ; TO TRANSLATE
 	text "My head hurts…"
 	done
 
-TeacherSarahAfterBattleText:
+TeacherSarahAfterBattleText: ; TO TRANSLATE
 	text "What happened?"
 	done
 
-SwimmerMFinnSeenText:
+SwimmerMFinnSeenText: ; TO TRANSLATE
 	text "Woah! Did you"
 	line "traverse the"
 	cont "SEAFOAM ISLANDS?"
 	done
 
-SwimmerMFinnBeatenText:
+SwimmerMFinnBeatenText: ; TO TRANSLATE
 	text "No wonder you went"
 	line "through."
 	done
 
-SwimmerMFinnAfterBattleText:
+SwimmerMFinnAfterBattleText: ; TO TRANSLATE
 	text "Have you been to"
 	line "the very bottom?"
 
@@ -362,7 +362,7 @@ SwimmerMFinnAfterBattleText:
 	cont "the volcano."
 	done
 
-CinnabarGymSignText:
+CinnabarGymSignText: ; TO TRANSLATE
 	text "SEAFOAM ISLANDS"
 
 	para "DANGER OF"
@@ -371,18 +371,18 @@ CinnabarGymSignText:
 	para "DO NOT ENTER"
 	done
 
-Route20_EscortQuestIntroText:
+Route20_EscortQuestIntroText: ; TO TRANSLATE
 	text "I'm lost."
 	line "Help me!"
 	done
 
-Route20_BehindYouText:
+Route20_BehindYouText: ; TO TRANSLATE
 	text "I need to go to"
 	line "CINNABAR ISLAND."
 	cont "Lead the way!"
 	done
 
-Route20_EscortSeafoamText:
+Route20_EscortSeafoamText: ; TO TRANSLATE
 	text "These are the"
 	line "SEAFOAM ISLANDS!"
 
@@ -396,7 +396,7 @@ Route20_EscortSeafoamText:
 	line "to where we met."
 	done
 
-Route20_SwimmerRescueEpilogueText:
+Route20_SwimmerRescueEpilogueText: ; TO TRANSLATE
 	text "You did it!"
 
 	para "I must've drifted"
@@ -407,7 +407,7 @@ Route20_SwimmerRescueEpilogueText:
 	line "at the next one!"
 	done
 
-Route20_SwimmerRaveOngoingText:
+Route20_SwimmerRaveOngoingText: ; TO TRANSLATE
 	text "We're right on"
 	line "time! The party's"
 	cont "raging!"

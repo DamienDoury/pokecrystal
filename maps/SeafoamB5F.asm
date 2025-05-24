@@ -85,7 +85,7 @@ SeafoamB5FBoulder:
 SeafoamB5FRock:
 	jumpstd SmashRockScript
 
-SeafoamB5FSolidDoorText:
+SeafoamB5FSolidDoorText: ; TO TRANSLATE
 	text "The lava on the"
 	line "wall is shaped"
 	cont "like a door."

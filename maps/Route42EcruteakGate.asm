@@ -9,7 +9,7 @@ Route42EcruteakGate_MapScripts:
 Route42EcruteakGateOfficerScript:
 	jumptextfaceplayer Route42EcruteakGateOfficerText
 
-Route42EcruteakGateOfficerText:
+Route42EcruteakGateOfficerText: ; AUTOTRAD
 	text "MT.MORTAR is like"
 	line "a maze inside."
 

@@ -237,7 +237,7 @@ Route31MailRecipientScript:
 	closetext
 	end
 
-ReceivedSpearowMailText:
+ReceivedSpearowMailText: ; AUTOTRAD
 	db   "DARK CAVE leads"
 	next "to another road@"
 
@@ -262,7 +262,7 @@ Route31Potion:
 Route31PokeBall:
 	itemball POKE_BALL
 
-Route31CooltrainerMText:
+Route31CooltrainerMText: ; AUTOTRAD
 	text "DARK CAVE…"
 
 	para "If #MON could"
@@ -270,17 +270,17 @@ Route31CooltrainerMText:
 	cont "explore it."
 	done
 
-BugCatcherWade1SeenText:
+BugCatcherWade1SeenText: ; AUTOTRAD
 	text "I caught a bunch"
 	line "of #MON. Let me"
 	cont "battle with you!"
 	done
 
-BugCatcherWade1BeatenText:
+BugCatcherWade1BeatenText: ; AUTOTRAD
 	text "Awwwww…"
 	done
 
-BugCatcherWade1AfterText:
+BugCatcherWade1AfterText: ; AUTOTRAD
 	text "You can catch"
 	line "#MON even if"
 
@@ -292,7 +292,7 @@ BugCatcherWade1AfterText:
 	cont "BOX automatically."
 	done
 
-Text_Route31SleepyMan:
+Text_Route31SleepyMan: ; AUTOTRAD
 	text "… Hnuurg… Huh?"
 
 	para "I walked too far"
@@ -309,14 +309,14 @@ Text_Route31SleepyMan:
 	para "…Zzzz…"
 	done
 
-Text_Route31SleepyManGotMail:
+Text_Route31SleepyManGotMail: ; AUTOTRAD
 	text "…Zzzz… Huh?"
 
 	para "What's that? You"
 	line "have MAIL for me?"
 	done
 
-Text_Route31ReadingMail:
+Text_Route31ReadingMail: ; AUTOTRAD
 	text "Let's see…"
 
 	para "…DARK CAVE leads"
@@ -340,7 +340,7 @@ Text_Route31ReadingMail:
 	line "to have this!"
 	done
 
-Text_Route31DescribeNightmare:
+Text_Route31DescribeNightmare: ; AUTOTRAD
 	text "TM50 is NIGHTMARE."
 
 	para "It's a wicked move"
@@ -356,12 +356,12 @@ Text_Route31DescribeNightmare:
 	line "have bad dreams."
 	done
 
-Text_Route31WrongMail:
+Text_Route31WrongMail: ; AUTOTRAD
 	text "This MAIL isn't"
 	line "for me."
 	done
 
-Text_Route31MissingMail:
+Text_Route31MissingMail: ; AUTOTRAD
 	text "Why is this #-"
 	line "MON so special?"
 
@@ -369,12 +369,12 @@ Text_Route31MissingMail:
 	line "any MAIL."
 	done
 
-Text_Route31DeclinedToHandOverMail:
+Text_Route31DeclinedToHandOverMail: ; AUTOTRAD
 	text "What? You don't"
 	line "want anything?"
 	done
 
-Text_Route31CantTakeLastMon:
+Text_Route31CantTakeLastMon: ; AUTOTRAD
 	text "If I take that"
 	line "#MON from you,"
 
@@ -382,7 +382,7 @@ Text_Route31CantTakeLastMon:
 	line "to use in battle?"
 	done
 
-Route31YoungsterText:
+Route31YoungsterText: ; AUTOTRAD
 	text "I found a good"
 	line "#MON in DARK"
 	cont "CAVE."
@@ -395,14 +395,14 @@ Route31YoungsterText:
 	line "VIOLET CITY's GYM."
 	done
 
-Route31SignText:
+Route31SignText: ; AUTOTRAD
 	text "ROUTE 31"
 
 	para "VIOLET CITY -"
 	line "CHERRYGROVE CITY"
 	done
 
-DarkCaveSignText:
+DarkCaveSignText: ; AUTOTRAD
 	text "DARK CAVE"
 	done
 

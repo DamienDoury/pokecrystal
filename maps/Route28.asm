@@ -9,7 +9,7 @@ Route28Sign:
 Route28HiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_ROUTE_28_HIDDEN_RARE_CANDY
 
-Route28SignText:
+Route28SignText: ; AUTOTRAD
 	text "ROUTE 28"
 	done
 

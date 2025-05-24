@@ -237,7 +237,7 @@ CeladonGymStatue:
 	gettrainername STRING_BUFFER_4, ERIKA, ERIKA1
 	jumpstd GymStatue2Script
 
-ErikaBeforeBattleText:
+ErikaBeforeBattleText: ; TO TRANSLATE
 	text "ERIKA: Hello…"
 	line "Lovely weather,"
 	cont "isn't it?"
@@ -276,7 +276,7 @@ ErikaBeforeBattleText:
 	para "Shall we begin?"
 	done
 
-ErikaBeatenText:
+ErikaBeatenText: ; AUTOTRAD
 	text "ERIKA: Oh!"
 	line "I concede defeat…"
 
@@ -287,12 +287,12 @@ ErikaBeatenText:
 	line "RAINBOWBADGE…"
 	done
 
-PlayerReceivedRainbowBadgeText:
+PlayerReceivedRainbowBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "RAINBOWBADGE."
 	done
 
-ErikaExplainTMText:
+ErikaExplainTMText: ; AUTOTRAD
 	text "ERIKA: That was a"
 	line "delightful match."
 
@@ -313,7 +313,7 @@ ErikaExplainTMText:
 	line "it pleases you…"
 	done
 
-ErikaAfterBattleText:
+ErikaAfterBattleText: ; AUTOTRAD
 	text "ERIKA: Losing"
 	line "leaves a bitter"
 	cont "aftertaste…"
@@ -325,32 +325,32 @@ ErikaAfterBattleText:
 	line "to do better…"
 	done
 
-LassMichelleSeenText:
+LassMichelleSeenText: ; AUTOTRAD
 	text "Do you think a"
 	line "girls-only GYM"
 	cont "is rare?"
 	done
 
-LassMichelleBeatenText:
+LassMichelleBeatenText: ; AUTOTRAD
 	text "Oh, bleah!"
 	done
 
-LassMichelleAfterBattleText:
+LassMichelleAfterBattleText: ; AUTOTRAD
 	text "I just got care-"
 	line "less, that's all!"
 	done
 
-PicnickerTanyaSeenText:
+PicnickerTanyaSeenText: ; AUTOTRAD
 	text "Oh, a battle?"
 	line "That's kind of"
 	cont "scary, but OK!"
 	done
 
-PicnickerTanyaBeatenText:
+PicnickerTanyaBeatenText: ; AUTOTRAD
 	text "Oh, that's it?"
 	done
 
-PicnickerTanyaAfterBattleText:
+PicnickerTanyaAfterBattleText: ; AUTOTRAD
 	text "Oh, look at all"
 	line "your BADGES. No"
 
@@ -358,52 +358,52 @@ PicnickerTanyaAfterBattleText:
 	line "win!"
 	done
 
-BeautyJuliaSeenText:
+BeautyJuliaSeenText: ; AUTOTRAD
 	text "Were you looking"
 	line "at these flowers"
 	cont "or at me?"
 	done
 
-BeautyJuliaBeatenText:
+BeautyJuliaBeatenText: ; AUTOTRAD
 	text "How annoying!"
 	done
 
-BeautyJuliaAfterBattleText:
+BeautyJuliaAfterBattleText: ; AUTOTRAD
 	text "How do I go about"
 	line "becoming ladylike"
 	cont "like ERIKA?"
 	done
 
-TwinsJoAndZoe1SeenText:
+TwinsJoAndZoe1SeenText: ; AUTOTRAD
 	text "We'll show you"
 	line "#MON moves that"
 	cont "ERIKA taught us!"
 	done
 
-TwinsJoAndZoe1BeatenText:
+TwinsJoAndZoe1BeatenText: ; AUTOTRAD
 	text "Oh… We lost…"
 	done
 
-TwinsJoAndZoe1AfterBattleText:
+TwinsJoAndZoe1AfterBattleText: ; AUTOTRAD
 	text "ERIKA will get you"
 	line "back for us!"
 	done
 
-TwinsJoAndZoe2SeenText:
+TwinsJoAndZoe2SeenText: ; AUTOTRAD
 	text "We're going to"
 	line "protect ERIKA!"
 	done
 
-TwinsJoAndZoe2BeatenText:
+TwinsJoAndZoe2BeatenText: ; AUTOTRAD
 	text "We couldn't win…"
 	done
 
-TwinsJoAndZoe2AfterBattleText:
+TwinsJoAndZoe2AfterBattleText: ; AUTOTRAD
 	text "ERIKA is much,"
 	line "much stronger!"
 	done
 
-CeladonGymGuideText:
+CeladonGymGuideText: ; TO TRANSLATE
 	text "Welcome, CHAMP!"
 
 	para "(achii)"
@@ -428,13 +428,13 @@ CeladonGymGuideText:
 	para "Good luck to you!"
 	done
 
-CeladonGymGuideWinText:
+CeladonGymGuideWinText: ; TO TRANSLATE
 	text "You did…"
 	para "(ACHII)"
 	para "…!"
 	done
 
-CeladonGymGuideClosedText:
+CeladonGymGuideClosedText: ; TO TRANSLATE
 	text "Hello sweet"
 	line "trainer!"
 
@@ -465,7 +465,7 @@ CeladonGymGuideClosedText:
 	para "See you later!"
 	done
 
-_GymGuideNotVaccinatedText:
+_GymGuideNotVaccinatedText: ; TO TRANSLATE
 	text "Hello dear!"
 
 	para "ERIKA demands that"

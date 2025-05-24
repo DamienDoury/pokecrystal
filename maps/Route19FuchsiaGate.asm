@@ -22,7 +22,7 @@ Route19FuchsiaGateOfficerScript:
 	closetext
 	end
 
-Route19FuchsiaGateOfficerText:
+Route19FuchsiaGateOfficerText: ; AUTOTRAD
 	text "CINNABAR's volcano"
 	line "erupted."
 
@@ -35,7 +35,7 @@ Route19FuchsiaGateOfficerText:
 	cont "are safe…"
 	done
 
-Route19FuchsiaGateOfficerText_RocksCleared:
+Route19FuchsiaGateOfficerText_RocksCleared: ; AUTOTRAD
 	text "No CINNABAR citi-"
 	line "zens were injured"
 

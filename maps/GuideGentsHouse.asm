@@ -22,7 +22,7 @@ GuideGentsHouseGuideGent:
 GuideGentsHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-GuideGentsHouseGuideGentText:
+GuideGentsHouseGuideGentText: ; AUTOTRAD
 	text "When I was a wee"
 	line "lad, I was a hot-"
 	cont "shot trainer!"

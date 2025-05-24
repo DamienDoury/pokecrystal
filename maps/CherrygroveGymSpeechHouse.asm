@@ -38,7 +38,7 @@ CherrygroveGymSpeechHouseBugCatcherScript:
 CherrygroveGymSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-CherrygroveGymSpeechHousePokefanM0Text:
+CherrygroveGymSpeechHousePokefanM0Text: ; TO TRANSLATE
 	text "A new virus we"
 	line "should be scared"
 	cont "of? Let me laugh!"
@@ -58,7 +58,7 @@ CherrygroveGymSpeechHousePokefanM0Text:
 	cont "squib."
 	done
 
-CherrygroveGymSpeechHousePokefanM1Text:
+CherrygroveGymSpeechHousePokefanM1Text: ; TO TRANSLATE
 	text "I'm not feeling"
 	line "well, I can't know"
 	cont "if I caught COVID!"
@@ -69,7 +69,7 @@ CherrygroveGymSpeechHousePokefanM1Text:
 	cont "detect the virus."
 	done
 
-CherrygroveGymSpeechHousePokefanM2Text:
+CherrygroveGymSpeechHousePokefanM2Text: ; TO TRANSLATE
 	text "PCR tests are a"
 	line "blessing!"
 
@@ -87,7 +87,7 @@ CherrygroveGymSpeechHousePokefanM2Text:
 	line "bleeding again?"
 	done
 
-CherrygroveGymSpeechHouseBugCatcherText:
+CherrygroveGymSpeechHouseBugCatcherText: ; AUTOTRAD
 	text "When I get older,"
 	line "I'm going to be a"
 	cont "GYM LEADER!"

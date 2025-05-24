@@ -186,7 +186,7 @@ CharcoalKiln_ApprenticeRunsToMartMovement:
 	big_step DOWN
 	step_end
 
-CharcoalKilnBossText1:
+CharcoalKilnBossText1: ; AUTOTRAD
 	text "All the SLOWPOKE"
 	line "have disappeared"
 	cont "from the town."
@@ -200,7 +200,7 @@ CharcoalKilnBossText1:
 	cont "stay in."
 	done
 
-CharcoalKilnBossText2:
+CharcoalKilnBossText2: ; AUTOTRAD
 	text "The SLOWPOKE have"
 	line "returned…"
 
@@ -212,7 +212,7 @@ CharcoalKilnBossText2:
 	line "is that lazy guy?"
 	done
 
-CharcoalKilnBossCurfewText:
+CharcoalKilnBossCurfewText: ; TO TRANSLATE
 	text "I've visited my"
 	line "family in"
 	cont "ECRUTEAK CITY."
@@ -222,7 +222,7 @@ CharcoalKilnBossCurfewText:
 	cont "lockdown!"
 	done
 
-CharcoalKilnApprenticeText1:
+CharcoalKilnApprenticeText1: ; TO TRANSLATE
 	text "APPRENTICE: Where"
 	line "have all the"
 	cont "SLOWPOKE gone?"
@@ -231,7 +231,7 @@ CharcoalKilnApprenticeText1:
 	line "ing somewhere?"
 	done
 
-CharcoalKilnApprenticeText2:
+CharcoalKilnApprenticeText2: ; TO TRANSLATE
 	text "APPRENTICE: I'm"
 	line "sorry--I forgot"
 	cont "to thank you."
@@ -244,7 +244,7 @@ CharcoalKilnApprenticeText2:
 	cont "hold that."
 	done
 
-CharcoalKilnApprenticeText3:
+CharcoalKilnApprenticeText3: ; TO TRANSLATE
 	text "APPRENTICE: The"
 	line "SLOWPOKE came"
 	cont "back, and you even"
@@ -254,18 +254,18 @@ CharcoalKilnApprenticeText3:
 	line "est, man!"
 	done
 
-FarfetchdText:
+FarfetchdText: ; AUTOTRAD
 	text "FARFETCH'D: Kwaa!"
 	done
 
-CharcoalKiln_ThanksText:
+CharcoalKiln_ThanksText: ; TO TRANSLATE
 	text "To thank you for"
 	line "helping us, I'd"
 	cont "like you to have"
 	cont "this."
 	done
 
-Text_CharcoalMasterOutro:
+Text_CharcoalMasterOutro: ; TO TRANSLATE
 	text "That's the CUT HM."
 	line "Teach that to a"
 
@@ -273,7 +273,7 @@ Text_CharcoalMasterOutro:
 	line "small trees."
 	done
 
-CharcoalKiln_SomethingsHappeningOnTVText:
+CharcoalKiln_SomethingsHappeningOnTVText: ; TO TRANSLATE
 	text "What's happening?"
 
 	para "An important"
@@ -283,7 +283,7 @@ CharcoalKiln_SomethingsHappeningOnTVText:
 	cont "watch it!"
 	done
 
-CharcoalKiln_ProgramInterruptionText:
+CharcoalKiln_ProgramInterruptionText: ; TO TRANSLATE
 	text "“We interrupt"
 	line "your program for"
 	cont "an official"
@@ -293,18 +293,18 @@ CharcoalKiln_ProgramInterruptionText:
 
 	done
 
-CharcoalKiln_YoungsterReactionText:
+CharcoalKiln_YoungsterReactionText: ; TO TRANSLATE
 	text "APPRENTICE: Well,"
 	line "that's something…"
 	done
 
-CharcoalKiln_YoungsterRushsMartText:
+CharcoalKiln_YoungsterRushsMartText: ; TO TRANSLATE
 	text "I gotta go to the"
 	line "#MON MART"
 	cont "before we can't!"
 	done
 
-CharcoalKiln_MasterReactionText:
+CharcoalKiln_MasterReactionText: ; TO TRANSLATE
 	text "How can we manage"
 	line "to stay inside?"
 
@@ -313,7 +313,7 @@ CharcoalKiln_MasterReactionText:
 	cont "ECRUTEAK CITY?"
 	done
 
-CharcoalKilnBossPanicText:
+CharcoalKilnBossPanicText: ; TO TRANSLATE
 	text "How does the"
 	line "self-made written"
 	cont "attestation work?"

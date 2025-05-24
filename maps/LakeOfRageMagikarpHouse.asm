@@ -86,7 +86,7 @@ MagikarpLengthRaterScript:
 MagikarpHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-MagikarpLengthRaterText_LakeOfRageHistory:
+MagikarpLengthRaterText_LakeOfRageHistory: ; AUTOTRAD
 	text "LAKE OF RAGE is"
 	line "actually a crater"
 
@@ -115,7 +115,7 @@ MagikarpLengthRaterText_LakeOfRageHistory:
 	line "what's happening."
 	done
 
-MagikarpLengthRaterText_MenInBlack:
+MagikarpLengthRaterText_MenInBlack: ; AUTOTRAD
 	text "The LAKE hasn't"
 	line "been normal since"
 
@@ -123,7 +123,7 @@ MagikarpLengthRaterText_MenInBlack:
 	line "black arrived."
 	done
 
-MagikarpLengthRaterText_WorldsLargestMagikarp:
+MagikarpLengthRaterText_WorldsLargestMagikarp: ; AUTOTRAD
 	text "LAKE OF RAGE is"
 	line "back to normal."
 
@@ -140,7 +140,7 @@ MagikarpLengthRaterText_WorldsLargestMagikarp:
 	cont "you do."
 	done
 
-MagikarpLengthRaterText_YouHaveAMagikarp:
+MagikarpLengthRaterText_YouHaveAMagikarp: ; AUTOTRAD
 	text "Ah, you have a"
 	line "MAGIKARP! Let's"
 
@@ -148,7 +148,7 @@ MagikarpLengthRaterText_YouHaveAMagikarp:
 	line "baby is."
 	done
 
-MagikarpLengthRaterText_Memento:
+MagikarpLengthRaterText_Memento: ; AUTOTRAD
 	text "Wow! This one is"
 	line "outstanding!"
 
@@ -159,7 +159,7 @@ MagikarpLengthRaterText_Memento:
 	line "memento!"
 	done
 
-MagikarpLengthRaterText_Bonus:
+MagikarpLengthRaterText_Bonus: ; AUTOTRAD
 	text "The record is the"
 	line "important thing."
 
@@ -167,7 +167,7 @@ MagikarpLengthRaterText_Bonus:
 	line "a bonus!"
 	done
 
-MagikarpLengthRaterText_TooShort:
+MagikarpLengthRaterText_TooShort: ; AUTOTRAD
 	text "Wow! This one is"
 	line "outstanding!"
 
@@ -178,12 +178,12 @@ MagikarpLengthRaterText_TooShort:
 	line "before."
 	done
 
-MagikarpLengthRaterText_NotMagikarp:
+MagikarpLengthRaterText_NotMagikarp: ; AUTOTRAD
 	text "What? That's not a"
 	line "MAGIKARP!"
 	done
 
-MagikarpLengthRaterText_Refused:
+MagikarpLengthRaterText_Refused: ; AUTOTRAD
 	text "Oh… So you didn't"
 	line "get one good"
 

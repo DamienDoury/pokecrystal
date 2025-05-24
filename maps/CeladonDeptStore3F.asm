@@ -50,7 +50,7 @@ CeladonDeptStore3FDirectory:
 CeladonDeptStore3FShelfItem1Script:
 	shelfitem 8, CALCIUM, 62720
 
-CeladonDeptStore3FYoungsterText:
+CeladonDeptStore3FYoungsterText: ; TO TRANSLATE
 	text "It feels great"
 	line "to be vaccinated"
 
@@ -62,7 +62,7 @@ CeladonDeptStore3FYoungsterText:
 	cont "vaccinated too…"
 	done
 
-CeladonDeptStore3FGameboyKid1Text:
+CeladonDeptStore3FGameboyKid1Text: ; AUTOTRAD
 	text "Uh-oh! I traded my"
 	line "#MON without"
 
@@ -70,7 +70,7 @@ CeladonDeptStore3FGameboyKid1Text:
 	line "GRADE from it."
 	done
 
-CeladonDeptStore3FGameboyKid2Text:
+CeladonDeptStore3FGameboyKid2Text: ; AUTOTRAD
 	text "Yeah! I'm finally"
 	line "getting a PORYGON!"
 
@@ -87,14 +87,14 @@ CeladonDeptStore3FGameboyKid2Text:
 	cont "ferent #MON!"
 	done
 
-CeladonDeptStore3FSuperNerdText:
+CeladonDeptStore3FSuperNerdText: ; TO TRANSLATE
 	text "The TM SHOP sells"
 	line "some rare moves…"
 	cont "…when their stock"
 	cont "isn't empty."
 	done
 
-CeladonDeptStore3FDirectoryText:
+CeladonDeptStore3FDirectoryText: ; AUTOTRAD
 	text "3F: TM SHOP"
 
 	para "Make Your #MON"

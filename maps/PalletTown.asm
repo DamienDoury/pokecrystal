@@ -30,7 +30,7 @@ OaksLabSign:
 BluesHouseSign:
 	jumptext BluesHouseSignText
 
-PalletTownTeacherText:
+PalletTownTeacherText: ; AUTOTRAD
 	text "I'm raising #-"
 	line "MON too."
 
@@ -38,7 +38,7 @@ PalletTownTeacherText:
 	line "private guards."
 	done
 
-PalletTownFisherText:
+PalletTownFisherText: ; AUTOTRAD
 	text "Technology is"
 	line "incredible!"
 
@@ -47,23 +47,23 @@ PalletTownFisherText:
 	cont "time like e-mail."
 	done
 
-PalletTownSignText:
+PalletTownSignText: ; AUTOTRAD
 	text "PALLET TOWN"
 
 	para "A Tranquil Setting"
 	line "of Peace & Purity"
 	done
 
-RedsHouseSignText:
+RedsHouseSignText: ; AUTOTRAD
 	text "RED'S HOUSE"
 	done
 
-OaksLabSignText:
+OaksLabSignText: ; AUTOTRAD
 	text "OAK #MON"
 	line "RESEARCH LAB"
 	done
 
-BluesHouseSignText:
+BluesHouseSignText: ; AUTOTRAD
 	text "BLUE'S HOUSE"
 	done
 

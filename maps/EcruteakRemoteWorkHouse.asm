@@ -62,13 +62,13 @@ EcruteakRemoteWorkHouse_Computer2Script:
 EcruteakRemoteWorkHouse_Radio:
 	jumpstd Radio1Script
 
-EcruteakRemoteWorkHouse_MotherAloneText:
+EcruteakRemoteWorkHouse_MotherAloneText: ; TO TRANSLATE
 	text "This house feels"
 	line "empty without my"
 	cont "two men…"
 	done
 
-EcruteakRemoteWorkHouse_MotherHappyText:
+EcruteakRemoteWorkHouse_MotherHappyText: ; TO TRANSLATE
 	text "The stay-at-home"
 	line "order allows me to"
 	cont "see my two men."
@@ -77,12 +77,12 @@ EcruteakRemoteWorkHouse_MotherHappyText:
 	line "joyful!"
 	done
 
-EcruteakRemoteWorkHouse_ScientistText:
+EcruteakRemoteWorkHouse_ScientistText: ; TO TRANSLATE
 	text "I can't wait to be"
 	line "back on the field!"
 	done
 
-EcruteakRemoteWorkHouse_MickeyText:
+EcruteakRemoteWorkHouse_MickeyText: ; TO TRANSLATE
 	text "MICKEY: I wish I"
 	line "could trade with"
 	cont "my friend ROBIN."
@@ -98,7 +98,7 @@ EcruteakRemoteWorkHouse_MickeyText:
 	cont "on my screen."
 	done
 
-EcruteakRemoteWorkHouse_Computer2Text:
+EcruteakRemoteWorkHouse_Computer2Text: ; TO TRANSLATE
 	text "It's a text editor."
 
 	para "-Research notes-"

@@ -29,7 +29,7 @@ MtSilverSign:
 MtSilverHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE
 
-MtSilverSignText:
+MtSilverSignText: ; AUTOTRAD
 	text "MT.SILVER"
 	done
 

@@ -88,7 +88,7 @@ OaksLabTrashcan:
 OaksLabPC:
 	jumptext OaksLabPCText
 
-OakWelcomeKantoText:
+OakWelcomeKantoText: ; AUTOTRAD
 	text "OAK: Ah, <PLAY_G>!"
 	line "It's good of you"
 
@@ -102,20 +102,20 @@ OakWelcomeKantoText:
 	line "Pretty tough, huh?"
 	done
 
-OakLabDexCheckText:
+OakLabDexCheckText: ; AUTOTRAD
 	text "How is your #-"
 	line "DEX coming?"
 
 	para "Let's see…"
 	done
 
-OakLabGoodbyeText:
+OakLabGoodbyeText: ; AUTOTRAD
 	text "If you're in the"
 	line "area, I hope you"
 	cont "come visit again."
 	done
 
-OakOpenMtSilverText:
+OakOpenMtSilverText: ; AUTOTRAD
 	text "OAK: Wow! That's"
 	line "excellent!"
 
@@ -156,7 +156,7 @@ OakOpenMtSilverText:
 	line "from there."
 	done
 
-OakNoKantoBadgesText:
+OakNoKantoBadgesText: ; AUTOTRAD
 	text "OAK: Hmm? You're"
 	line "not collecting"
 	cont "KANTO GYM BADGES?"
@@ -172,7 +172,7 @@ OakNoKantoBadgesText:
 	cont "them."
 	done
 
-OakYesKantoBadgesText:
+OakYesKantoBadgesText: ; AUTOTRAD
 	text "OAK: Ah, you're"
 	line "collecting KANTO"
 	cont "GYM BADGES."
@@ -193,7 +193,7 @@ OakYesKantoBadgesText:
 	line "<PLAY_G>!"
 	done
 
-OakLabPikachuText:
+OakLabPikachuText: ; TO TRANSLATE
 	text "OAK: Oh hi"
 	line "<PLAYER>!"
 	
@@ -220,7 +220,7 @@ OakLabPikachuText:
 	line "do it for me."
 	done
 
-OaksAssistant1Text:
+OaksAssistant1Text: ; AUTOTRAD
 	text "The PROF's #MON"
 	line "TALK radio program"
 
@@ -231,7 +231,7 @@ OaksAssistant1Text:
 	line "like to hear it."
 	done
 
-OaksAssistant2Text:
+OaksAssistant2Text: ; AUTOTRAD
 	text "Thanks to your"
 	line "work on the #-"
 	cont "DEX, the PROF's"
@@ -240,7 +240,7 @@ OaksAssistant2Text:
 	line "along great."
 	done
 
-OaksAssistant3Text:
+OaksAssistant3Text: ; AUTOTRAD
 	text "Don't tell anyone,"
 	line "but PROF.OAK'S"
 
@@ -248,12 +248,12 @@ OaksAssistant3Text:
 	line "a live broadcast."
 	done
 
-OaksLabPoster1Text:
+OaksLabPoster1Text: ; AUTOTRAD
 	text "Press START to"
 	line "open the MENU."
 	done
 
-OaksLabPoster2Text:
+OaksLabPoster2Text: ; AUTOTRAD
 	text "The SAVE option is"
 	line "on the MENU."
 
@@ -261,12 +261,12 @@ OaksLabPoster2Text:
 	line "manner."
 	done
 
-OaksLabTrashcanText:
+OaksLabTrashcanText: ; AUTOTRAD
 	text "There's nothing in"
 	line "here…"
 	done
 
-OaksLabPCText:
+OaksLabPCText: ; AUTOTRAD
 	text "There's an e-mail"
 	line "message on the PC."
 

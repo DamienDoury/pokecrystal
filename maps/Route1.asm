@@ -36,18 +36,18 @@ Route1Sign:
 Route1FruitTree:
 	fruittree FRUITTREE_ROUTE_1
 
-SchoolboyDannySeenText:
+SchoolboyDannySeenText: ; AUTOTRAD
 	text "If trainers meet,"
 	line "the first thing to"
 	cont "do is battle."
 	done
 
-SchoolboyDannyBeatenText:
+SchoolboyDannyBeatenText: ; AUTOTRAD
 	text "Awww… I've got a"
 	line "losing record…"
 	done
 
-SchoolboyDannyAfterBattleText:
+SchoolboyDannyAfterBattleText: ; AUTOTRAD
 	text "For trainers, it's"
 	line "a given that we'll"
 
@@ -55,23 +55,23 @@ SchoolboyDannyAfterBattleText:
 	line "meet."
 	done
 
-CooltrainerfQuinnSeenText:
+CooltrainerfQuinnSeenText: ; AUTOTRAD
 	text "You there!"
 	line "Want to battle?"
 	done
 
-CooltrainerfQuinnBeatenText:
+CooltrainerfQuinnBeatenText: ; AUTOTRAD
 	text "Down and out…"
 	done
 
-CooltrainerfQuinnAfterBattleText:
+CooltrainerfQuinnAfterBattleText: ; AUTOTRAD
 	text "You're strong."
 
 	para "You obviously must"
 	line "have trained hard."
 	done
 
-Route1SignText:
+Route1SignText: ; AUTOTRAD
 	text "ROUTE 1"
 
 	para "PALLET TOWN -"

@@ -38,7 +38,7 @@ LavenderPokecenter1FYoungsterScript:
 	closetext
 	end
 
-LavenderPokecenter1FGentlemanText:
+LavenderPokecenter1FGentlemanText: ; AUTOTRAD
 	text "To the north of"
 	line "LAVENDER is ROCK"
 
@@ -47,7 +47,7 @@ LavenderPokecenter1FGentlemanText:
 	cont "POWER PLANT."
 	done
 
-LavenderPokecenter1FTeacherText:
+LavenderPokecenter1FTeacherText: ; AUTOTRAD
 	text "There's a radio"
 	line "program that plays"
 	cont "# FLUTE music."
@@ -57,7 +57,7 @@ LavenderPokecenter1FTeacherText:
 	cont "to tune into it."
 	done
 
-LavenderPokecenter1FYoungsterText:
+LavenderPokecenter1FYoungsterText: ; AUTOTRAD
 	text "If the POWER PLANT"
 	line "isn't running, the"
 
@@ -69,7 +69,7 @@ LavenderPokecenter1FYoungsterText:
 	cont "can't broadcast…"
 	done
 
-LavenderPokecenter1FYoungsterText_ReturnedMachinePart:
+LavenderPokecenter1FYoungsterText_ReturnedMachinePart: ; AUTOTRAD
 	text "The DIRECTOR of"
 	line "the RADIO STATION"
 	cont "sure was happy."

@@ -354,18 +354,18 @@ Route4_FaceRocket_4_Movement:
 	turn_head LEFT
 	step_end
 
-BirdKeeperHankSeenText:
+BirdKeeperHankSeenText: ; AUTOTRAD
 	text "I'm raising my"
 	line "#MON. Want to"
 	cont "battle with me?"
 	done
 
-BirdKeeperHankBeatenText:
+BirdKeeperHankBeatenText: ; AUTOTRAD
 	text "Ack! I lost that"
 	line "one…"
 	done
 
-BirdKeeperHankAfterBattleText:
+BirdKeeperHankAfterBattleText: ; AUTOTRAD
 	text "If you have a"
 	line "specific #MON"
 
@@ -379,7 +379,7 @@ BirdKeeperHankAfterBattleText:
 	line "it."
 	done
 
-PicnickerHopeSeenText:
+PicnickerHopeSeenText: ; AUTOTRAD
 	text "I have a feeling"
 	line "that I can win."
 
@@ -387,12 +387,12 @@ PicnickerHopeSeenText:
 	line "right!"
 	done
 
-PicnickerHopeBeatenText:
+PicnickerHopeBeatenText: ; AUTOTRAD
 	text "Aww, you are too"
 	line "strong."
 	done
 
-PicnickerHopeAfterBattleText:
+PicnickerHopeAfterBattleText: ; AUTOTRAD
 	text "I heard CLEFAIRY"
 	line "appear at MT.MOON."
 
@@ -400,7 +400,7 @@ PicnickerHopeAfterBattleText:
 	line "they be?"
 	done
 
-PicnickerSharonSeenText:
+PicnickerSharonSeenText: ; AUTOTRAD
 	text "Um…"
 	line "I…"
 	done
@@ -409,22 +409,22 @@ PicnickerSharonBeatenText:
 	text "…"
 	done
 
-PicnickerSharonAfterBattleText:
+PicnickerSharonAfterBattleText: ; AUTOTRAD
 	text "……I'll go train"
 	line "some more…"
 	done
 
-HikerSammySeenText:
+HikerSammySeenText: ; TO TRANSLATE
 	text "Hello fellow"
 	line "HIKER!"
 	done
 
-HikerSammyBeatenText:
+HikerSammyBeatenText: ; TO TRANSLATE
 	text "I had a pebble in"
 	line "my shoe. Not fair."
 	done
 
-HikerSammyAfterBattleText:
+HikerSammyAfterBattleText: ; TO TRANSLATE
 	text "Have you met the"
 	line "crazy man that"
 	cont "dug this cave?"
@@ -441,14 +441,14 @@ HikerSammyAfterBattleText:
 	line "rumor suggests."
 	done
 
-MtMoonSquareSignText:
+MtMoonSquareSignText: ; AUTOTRAD
 	text "MT.MOON SQUARE"
 
 	para "Just go up the"
 	line "stairs."
 	done
 
-Route4RocketSeenText:
+Route4RocketSeenText: ; TO TRANSLATE
 	text "Hey, kid! Chasing"
 	line "me you stop."
 
@@ -476,7 +476,7 @@ Route4RocketSeenText:
 	line "begin we do!"
 	done
 
-Route4RocketBeatenText:
+Route4RocketBeatenText: ; TO TRANSLATE
 	text "Ayieeeh! No, no,"
 	line "no, believe it I"
 	cont "can't!"
@@ -486,7 +486,7 @@ Route4RocketBeatenText:
 	cont "not to you!"
 	done
 
-Route4RocketAfterBattleText:
+Route4RocketAfterBattleText: ; TO TRANSLATE
 	text "OK. You win."
 
 	para "But you forget me"
@@ -502,7 +502,7 @@ Route4RocketAfterBattleText:
 	line "revenge they are."
 	done
 
-Route4RocketDisappearsText:
+Route4RocketDisappearsText: ; TO TRANSLATE
 	text "…"
 
 	para "You say what? TEAM"
@@ -519,34 +519,34 @@ Route4RocketDisappearsText:
 	cont "from, me?"
 	done
 
-Route4JennyPunchlineText:
+Route4JennyPunchlineText: ; TO TRANSLATE
 	text "Let me tell you"
 	line "what you'll do."
 	done
 
-Route4JennyJailText:
+Route4JennyJailText: ; TO TRANSLATE
 	text "YOU'RE GOING"
 	line "TO JAIL!!"
 
 	para "Show me your ID."
 	done
 
-Route4JennyWhatsThisText:
+Route4JennyWhatsThisText: ; TO TRANSLATE
 	text "Hey! This TRAINER"
 	line "CARD isn't yours!"
 	done
 
-Route4TrainerCardFemaleText:
+Route4TrainerCardFemaleText: ; TO TRANSLATE
 	text "<PLAYER> retrieves"
 	line "her TRAINER CARD!"
 	done
 
-Route4TrainerCardMaleText:
+Route4TrainerCardMaleText: ; TO TRANSLATE
 	text "<PLAYER> retrieves"
 	line "his TRAINER CARD!"
 	done
 
-Route4JennyThanksText:
+Route4JennyThanksText: ; TO TRANSLATE
 	text "Thanks <PLAYER>."
 	line "You've been a"
 	cont "great support."
@@ -559,7 +559,7 @@ Route4JennyThanksText:
 	line "POLICE STATION."
 	done
 
-Route4JennyJusticeText:
+Route4JennyJusticeText: ; TO TRANSLATE
 	text "Let's go mister."
 
 	para "Justice's waiting"

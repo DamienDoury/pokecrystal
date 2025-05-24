@@ -57,13 +57,13 @@ GoodRodGuru:
 	end
 
 
-GiveGoodRodText:
+GiveGoodRodText: ; AUTOTRAD
 	text "Ah, hahah!"
 	line "We have ourselves"
 	cont "a new angler!"
 	done
 
-GaveGoodRodText:
+GaveGoodRodText: ; AUTOTRAD
 	text "Fish aren't found"
 	line "in the sea alone."
 
@@ -71,13 +71,13 @@ GaveGoodRodText:
 	line "there is water."
 	done
 
-DontWantGoodRodText:
+DontWantGoodRodText: ; AUTOTRAD
 	text "Whaaat? You don't"
 	line "like to fish!?"
 	cont "Incomprehensible!"
 	done
 
-HaveGoodRodText:
+HaveGoodRodText: ; AUTOTRAD
 	text "How are things?"
 	line "Land the big one?"
 	done

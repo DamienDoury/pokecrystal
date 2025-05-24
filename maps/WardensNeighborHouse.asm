@@ -47,7 +47,7 @@ WardensNeighborHouse_BoulderScript:
 .cleared
 	jumptext WardensNeighborHouse_BoulderClearedText
 
-WardensNeighborHouseManText:
+WardensNeighborHouseManText: ; TO TRANSLATE
 	text "Why did you have"
 	line "to push this rock?"
 
@@ -63,12 +63,12 @@ WardensNeighborHouseManText:
 	para "and you RUINED IT!"
 	done
 
-WardensNeighborHouse_BoulderBlockingText:
+WardensNeighborHouse_BoulderBlockingText: ; TO TRANSLATE
 	text "A big boulder is"
 	line "blocking the door."
 	done
 
-WardensNeighborHouse_BoulderClearedText:
+WardensNeighborHouse_BoulderClearedText: ; TO TRANSLATE
 	text "The boulder has"
 	line "been pushed away!"
 	done

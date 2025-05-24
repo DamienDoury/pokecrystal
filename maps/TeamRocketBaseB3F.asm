@@ -310,7 +310,7 @@ RocketBaseRivalShovesPlayerMovement:
 	remove_fixed_facing
 	step_end
 
-LanceGetPasswordText:
+LanceGetPasswordText: ; TO TRANSLATE
 	text "LANCE: It takes"
 	line "two passwords to"
 
@@ -322,24 +322,24 @@ LanceGetPasswordText:
 	cont "a few ROCKETS."
 	done
 
-LanceGetPasswordText2:
+LanceGetPasswordText2: ; TO TRANSLATE
 	text "That ROCKET there"
 	line "very graciously"
 	cont "told me so."
 	done
 
-LanceGetPasswordText3:
+LanceGetPasswordText3: ; TO TRANSLATE
 	text "<PLAY_G>, let's go"
 	line "get the passwords."
 	done
 
-TeamRocketBaseB3FRocketText:
+TeamRocketBaseB3FRocketText: ; AUTOTRAD
 	text "Urrggh… The guy"
 	line "in the cape is"
 	cont "incredibly tough…"
 	done
 
-RocketBaseRivalText:
+RocketBaseRivalText: ; AUTOTRAD
 	text "…"
 
 	para "Didn't I tell you"
@@ -381,7 +381,7 @@ RocketBaseRivalText:
 	cont "the likes of you!"
 	done
 
-ExecutiveM4BeforeText:
+ExecutiveM4BeforeText: ; TO TRANSLATE
 	text "What? Who are you?"
 	line "You're wearing a"
 	cont "face mask…"
@@ -423,12 +423,12 @@ ExecutiveM4BeforeText:
 	line "let this go on…"
 	done
 
-ExecutiveM4BeatenText:
+ExecutiveM4BeatenText: ; TO TRANSLATE
 	text "I… I couldn't do a"
 	line "thing…"
 	done
 
-ExecutiveM4AfterText:
+ExecutiveM4AfterText: ; AUTOTRAD
 	text "No, I can't let"
 	line "this affect me."
 
@@ -436,14 +436,14 @@ ExecutiveM4AfterText:
 	line "the others…"
 	done
 
-RocketBaseMurkrowText:
+RocketBaseMurkrowText: ; AUTOTRAD
 	text "MURKROW: The"
 	line "password is…"
 
 	para "HAIL GIOVANNI."
 	done
 
-GruntF5SeenText:
+GruntF5SeenText: ; AUTOTRAD
 	text "Do I know the"
 	line "password?"
 
@@ -453,12 +453,12 @@ GruntF5SeenText:
 	line "going to get it!"
 	done
 
-GruntF5BeatenText:
+GruntF5BeatenText: ; AUTOTRAD
 	text "All right. Stop."
 	line "I'll tell you."
 	done
 
-GruntF5AfterBattleText:
+GruntF5AfterBattleText: ; AUTOTRAD
 	text "The password to"
 	line "the boss's room is"
 
@@ -469,7 +469,7 @@ GruntF5AfterBattleText:
 	cont "two passwords."
 	done
 
-GruntM28SeenText:
+GruntM28SeenText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 
 	para "You're challenging"
@@ -487,12 +487,12 @@ GruntM28SeenText:
 	line "boss's room!"
 	done
 
-GruntM28BeatenText:
+GruntM28BeatenText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 	line "You're good!"
 	done
 
-GruntM28AfterBattleText:
+GruntM28AfterBattleText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 
 	para "The password to"
@@ -502,7 +502,7 @@ GruntM28AfterBattleText:
 	line "RATICATE TAIL."
 	done
 
-ScientistRossSeenText:
+ScientistRossSeenText: ; AUTOTRAD
 	text "I used to work for"
 	line "SILPH, but now I"
 
@@ -514,12 +514,12 @@ ScientistRossSeenText:
 	cont "be punished."
 	done
 
-ScientistRossBeatenText:
+ScientistRossBeatenText: ; AUTOTRAD
 	text "A mere tactical"
 	line "error cost me…"
 	done
 
-ScientistRossAfterBattleText:
+ScientistRossAfterBattleText: ; TO TRANSLATE
 	text "All right, I"
 	line "actually got fired"
 	cont "from SILPH CO."
@@ -536,7 +536,7 @@ ScientistRossAfterBattleText:
 	cont "I can't stand it!"
 	done
 
-ScientistMitchSeenText:
+ScientistMitchSeenText: ; TO TRANSLATE
 	text "I don't care that"
 	line "#MON are hurt"
 	cont "by our experiment."
@@ -545,13 +545,13 @@ ScientistMitchSeenText:
 	line "product."
 	done
 
-ScientistMitchBeatenText:
+ScientistMitchBeatenText: ; AUTOTRAD
 	text "Thinking is my"
 	line "strong suit, not"
 	cont "battling."
 	done
 
-ScientistMitchAfterBattleText:
+ScientistMitchAfterBattleText: ; AUTOTRAD
 	text "If we turn up the"
 	line "power of our radio"
 
@@ -562,14 +562,14 @@ ScientistMitchAfterBattleText:
 	line "excites me!"
 	done
 
-TeamRocketBaseB3FLockedDoorNeedsPasswordText:
+TeamRocketBaseB3FLockedDoorNeedsPasswordText: ; AUTOTRAD
 	text "The door's closed…"
 
 	para "It needs two"
 	line "passwords to open."
 	done
 
-TeamRocketBaseB3FLockedDoorOpenSesameText:
+TeamRocketBaseB3FLockedDoorOpenSesameText: ; AUTOTRAD
 	text "The door's closed…"
 
 	para "<PLAYER> entered"

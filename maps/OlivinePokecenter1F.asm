@@ -25,7 +25,7 @@ OlivinePokecenter1FFisherScript:
 OlivinePokecenter1FTeacherScript:
 	jumptextfaceplayer OlivinePokecenter1FTeacherText
 
-OlivinePokecenter1FFisherText:
+OlivinePokecenter1FFisherText: ; TO TRANSLATE
 	text "I'm happy that the"
 	line "OLIVINE CAFE next"
 
@@ -33,7 +33,7 @@ OlivinePokecenter1FFisherText:
 	line "meals to-go!"
 	done
 
-OlivinePokecenter1FTeacherText:
+OlivinePokecenter1FTeacherText: ; AUTOTRAD
 	text "There's a person"
 	line "in CIANWOOD CITY"
 	cont "across the sea."

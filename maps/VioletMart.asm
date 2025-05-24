@@ -28,7 +28,7 @@ VioletMartCooltrainerMScript:
 VioletMartShelfItem1Script:
 	shelfitem 10, POKE_BALL, 2000
 
-VioletMartGrannyText:
+VioletMartGrannyText: ; AUTOTRAD
 	text "When you first"
 	line "catch a #MON,"
 	cont "it may be weak."
@@ -42,7 +42,7 @@ VioletMartGrannyText:
 	cont "love."
 	done
 
-VioletMartCooltrainerMText:
+VioletMartCooltrainerMText: ; AUTOTRAD
 	text "#MON can hold"
 	line "items like POTION"
 	cont "and ANTIDOTE."

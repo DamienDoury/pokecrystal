@@ -124,10 +124,10 @@ ViridianNicknameSpeechHouseTwinScript:
 	setevent EVENT_LANA_GAVE_VOUCHER
 	sjump .close_text
 
-.mon_name:
+.mon_name: ; TO TRANSLATE
 	db "SCARF@"
 
-.mon_OT_name:
+.mon_OT_name: ; TO TRANSLATE
 	db "LANA@"
 
 ViridianPrimeapeScript:
@@ -146,7 +146,7 @@ ViridianScarfScript:
 	closetext
 	end
 
-ViridianNicknameSpeechHousePokefanMText:
+ViridianNicknameSpeechHousePokefanMText: ; TO TRANSLATE
 	text "Trust me--no one"
 	line "in this family"
 	
@@ -158,7 +158,7 @@ ViridianNicknameSpeechHousePokefanMText:
 	line "subjects!"
 	done
 
-ViridianNicknameSpeechHouseTwin_BeforeOpeningText:
+ViridianNicknameSpeechHouseTwin_BeforeOpeningText: ; TO TRANSLATE
 	text "A #MON"
 	line "vaccination center"
 	
@@ -169,17 +169,17 @@ ViridianNicknameSpeechHouseTwin_BeforeOpeningText:
 	line "me a visit."
 	done
 
-ViridianNicknameSpeechHouseTwin_AntivaxxerTestText:
+ViridianNicknameSpeechHouseTwin_AntivaxxerTestText: ; TO TRANSLATE
 	text "You gotta be dumb"
 	line "to get a #MON"
 	cont "vaccinated, right?"
 	done
 
-ViridianNicknameSpeechHouseTwin_NevermindText:
+ViridianNicknameSpeechHouseTwin_NevermindText: ; TO TRANSLATE
 	text "Yeah! You get it!"
 	done
 
-ViridianNicknameSpeechHouseTwin_AskForVaccineText:
+ViridianNicknameSpeechHouseTwin_AskForVaccineText: ; TO TRANSLATE
 	text "Shush! Keep it"
 	line "down!"
 	
@@ -202,50 +202,50 @@ ViridianNicknameSpeechHouseTwin_AskForVaccineText:
 	cont "discreetly?"
 	done
 
-ViridianNicknameSpeechHouseTwin_RefusesText:
+ViridianNicknameSpeechHouseTwin_RefusesText: ; TO TRANSLATE
 	text "You're my only way"
 	line "out of this"
 	cont "prison. I'm"
 	cont "begging you…"
 	done
 
-ViridianNicknameSpeechHouseTwin_GoText:
+ViridianNicknameSpeechHouseTwin_GoText: ; TO TRANSLATE
 	text "Now go before"
 	line "daddy notices!"
 	done
 
-ViridianNicknameSpeechHouseTwin_CheckingOnFurretText:
+ViridianNicknameSpeechHouseTwin_CheckingOnFurretText: ; TO TRANSLATE
 	text "How is it going"
 	line "with SCARF's"
 	cont "vaccination?"
 	cont "Can I get it back?"
 	done
 
-ViridianNicknameSpeechHouseTwin_MissesFurretText:
+ViridianNicknameSpeechHouseTwin_MissesFurretText: ; TO TRANSLATE
 	text "I miss my FURRET…"
 	done
 
-ViridianNicknameSpeechHouseTwin_CancelledCheckText:
+ViridianNicknameSpeechHouseTwin_CancelledCheckText: ; TO TRANSLATE
 	text "Where's my FURRET?"
 	done
 
-ViridianNicknameSpeechHouseTwin_WrongPokemonText:
+ViridianNicknameSpeechHouseTwin_WrongPokemonText: ; TO TRANSLATE
 	text "Hey this isn't"
 	line "my FURRET!"
 	done
 
-ViridianNicknameSpeechHouseTwin_NotVaccinatedYetText:
+ViridianNicknameSpeechHouseTwin_NotVaccinatedYetText: ; TO TRANSLATE
 	text "It's not vaccinated"
 	line "yet. Please do it"
 	cont "for me…"
 	done
 
-ViridianNicknameSpeechHouseTwin_ThanksText:
+ViridianNicknameSpeechHouseTwin_ThanksText: ; TO TRANSLATE
 	text "I'm so relieved!"
 	line "Thanks!"
 	done
 
-ViridianNicknameSpeechHouseTwin_GiveVoucherText:
+ViridianNicknameSpeechHouseTwin_GiveVoucherText: ; TO TRANSLATE
 	text "As I can't go to"
 	line "SAFFRON CITY, I"
 	cont "can't redeem this"
@@ -256,7 +256,7 @@ ViridianNicknameSpeechHouseTwin_GiveVoucherText:
 	cont "You deserve it."
 	done
 
-ViridianNicknameSpeechHouseTwin_VoucherGivenText:
+ViridianNicknameSpeechHouseTwin_VoucherGivenText: ; TO TRANSLATE
 	text "Thanks for doing"
 	line "your part against"
 	cont "COVID, soldier."
@@ -265,11 +265,11 @@ ViridianNicknameSpeechHouseTwin_VoucherGivenText:
 	line "never gets sick."
 	done
 
-ViridianPrimeapeText:
+ViridianPrimeapeText: ; TO TRANSLATE
 	text "JAPE PAUL: Prime!"
 	done
 
-ViridianScarfText:
+ViridianScarfText: ; TO TRANSLATE
 	text "SCARF: FUUUUUU-"
 	done
 

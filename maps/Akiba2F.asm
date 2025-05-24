@@ -190,26 +190,26 @@ Akiba2F_JigglypuffPosterScript:
 	loadmem wLastCheckedPoster, AKIBA2F_POSTER_4 - 1
 	jumptext Akiba2F_JigglypuffPosterText
 
-Akiba2F_SmeargleText:
+Akiba2F_SmeargleText: ; TO TRANSLATE
 	text "SMEARGLE: …"
 	done
 
-Akiba2F_PikachuPosterText:
+Akiba2F_PikachuPosterText: ; TO TRANSLATE
 	text "An energizing pos-"
 	line "ter of a PIKACHU."
 	done
 
-Akiba2F_ClefairyPosterText:
+Akiba2F_ClefairyPosterText: ; TO TRANSLATE
 	text "A cute poster"
 	line "of a CLEFAIRY."
 	done
 
-Akiba2F_JigglypuffPosterText:
+Akiba2F_JigglypuffPosterText: ; TO TRANSLATE
 	text "A relaxing poster"
 	line "of a JIGGLYPUFF."
 	done
 	
-Akiba2F_PosterOfferText:
+Akiba2F_PosterOfferText: ; TO TRANSLATE
 	text "Mmm."
 	para "I've seen you"
 	line "admiring the"
@@ -224,12 +224,12 @@ Akiba2F_PosterOfferText:
 	line "home for ¥{d:POSTER_PRICE}."
 	done
 
-Akiba2F_WelcomeText:
+Akiba2F_WelcomeText: ; TO TRANSLATE
 	text "Welcome to our"
 	line "exhibition!"
 	done
 
-Akiba2F_LookAroundText:
+Akiba2F_LookAroundText: ; TO TRANSLATE
 	text "Please admire our"
 	line "magnificient art,"
 
@@ -237,23 +237,23 @@ Akiba2F_LookAroundText:
 	line "about it."
 	done
 
-Akiba2F_SoldOutText:
+Akiba2F_SoldOutText: ; TO TRANSLATE
 	text "All our posters"
 	line "are sold out!"
 	done
 
-Akiba2F_WeshText:
+Akiba2F_WeshText: ; TO TRANSLATE
 	text "Are they really"
 	line "advertising pos-"
 	cont "ters as fine art?"
 	done
 
-Akiba2F_InLoveText:
+Akiba2F_InLoveText: ; TO TRANSLATE
 	text "I'm in love with"
 	line "this one!"
 	done
 
-Akiba2F_JiggGoneText:
+Akiba2F_JiggGoneText: ; TO TRANSLATE
 	text "My favorite poster"
 	line "is gone!"
 	

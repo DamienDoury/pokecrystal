@@ -132,7 +132,7 @@ GoldenrodHospitalCorridorRoomNumberScript:
 	getnum STRING_BUFFER_3
 	jumptext GoldenrodHospitalCorridorRoomNumberText
 
-GoldenrodHospitalCorridorRoomNumberText:
+GoldenrodHospitalCorridorRoomNumberText: ; TO TRANSLATE
 	text "Room @"
 	text_ram wStringBuffer3
 	text_start
@@ -227,7 +227,7 @@ GoldenrodHospitalCorridor_SleepMovement:
 	step_sleep 1
 	step_end
 
-GoldenrodHospitalCorridorNurse1Text:
+GoldenrodHospitalCorridorNurse1Text: ; TO TRANSLATE
 	text "I'm exhausted. I"
 	line "wish I could sit."
 
@@ -236,12 +236,12 @@ GoldenrodHospitalCorridorNurse1Text:
 	cont "and visitors."
 	done
 
-GoldenrodHospitalCorridorFinder1Text:
+GoldenrodHospitalCorridorFinder1Text: ; TO TRANSLATE
 	text "I can't find room"
 	line "16, where is it?"
 	done
 
-GoldenrodHospitalCorridorFinder1ChiefNurseText:
+GoldenrodHospitalCorridorFinder1ChiefNurseText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY?"
 
 	para "She's here, she"
@@ -249,7 +249,7 @@ GoldenrodHospitalCorridorFinder1ChiefNurseText:
 	cont "room 18."
 	done
 
-GoldenrodHospitalCorridorSick1Text:
+GoldenrodHospitalCorridorSick1Text: ; TO TRANSLATE
 	text "I think I'm sick…"
 
 	para "(burp)"
@@ -258,12 +258,12 @@ GoldenrodHospitalCorridorSick1Text:
 	line "get infected!"
 	done
 
-GoldenrodHospitalCorridorGrannyText:
+GoldenrodHospitalCorridorGrannyText: ; TO TRANSLATE
 	text "I visit my husband"
 	line "every day."
 	done
 
-GoldenrodHospitalCorridorWorriedScientist1Text:
+GoldenrodHospitalCorridorWorriedScientist1Text: ; TO TRANSLATE
 	text "There has to be a"
 	line "way to save her."
 
@@ -271,14 +271,14 @@ GoldenrodHospitalCorridorWorriedScientist1Text:
 	line "go."
 	done
 
-GoldenrodHospitalCorridorBathroomText:
+GoldenrodHospitalCorridorBathroomText: ; TO TRANSLATE
 	text "WHERE'S THE"
 	line "BATHROOM?"
 
 	para "PLEEEEEASE"
 	done
 
-GoldenrodHospitalPsychicTrainerSeenText:
+GoldenrodHospitalPsychicTrainerSeenText: ; TO TRANSLATE
 	text "I've been waiting"
 	line "here forever…"
 
@@ -286,12 +286,12 @@ GoldenrodHospitalPsychicTrainerSeenText:
 	line "sanity…"
 	done
 
-GoldenrodHospitalPsychicTrainerBeatenText:
+GoldenrodHospitalPsychicTrainerBeatenText: ; TO TRANSLATE
 	text "Waiting was less"
 	line "painful actually."
 	done
 
-GoldenrodHospitalPsychicTrainerAfterBattleText:	
+GoldenrodHospitalPsychicTrainerAfterBattleText: ; TO TRANSLATE
 	text "Wait"
 
 	para "…"
@@ -309,7 +309,7 @@ GoldenrodHospitalPsychicTrainerAfterBattleText:
 	cont "driving me insane…"
 	done
 
-GoldenrodHospitalPokefanMTrainerSeenText:
+GoldenrodHospitalPokefanMTrainerSeenText: ; TO TRANSLATE
 	text "My wife isn't in"
 	line "this room anymore."
 	
@@ -320,17 +320,17 @@ GoldenrodHospitalPokefanMTrainerSeenText:
 	line "happen?"
 	done
 
-GoldenrodHospitalPokefanMTrainerBeatenText:
+GoldenrodHospitalPokefanMTrainerBeatenText: ; TO TRANSLATE
 	text "I'll ask a nurse"
 	line "about my wife."
 	done
 
-GoldenrodHospitalPokefanMTrainerAfterBattleText:
+GoldenrodHospitalPokefanMTrainerAfterBattleText: ; TO TRANSLATE
 	text "Hospitals are"
 	line "making me nervous."
 	done
 
-GoldenrodHospitalCorridorPokefanMTrainerQuestText:
+GoldenrodHospitalCorridorPokefanMTrainerQuestText: ; TO TRANSLATE
 	text "I just saw the"
 	line "CHIEF NURSE, yeah."
 

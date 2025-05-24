@@ -290,7 +290,7 @@ NationalParkTMDig:
 NationalParkHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
 
-NationalParkLassText:
+NationalParkLassText: ; AUTOTRAD
 	text "Look! Check out my"
 	line "bag!"
 
@@ -301,13 +301,13 @@ NationalParkLassText:
 	line "them on my bag."
 	done
 
-NationalParkPokefanFText:
+NationalParkPokefanFText: ; AUTOTRAD
 	text "This is MAIL I got"
 	line "from my daughter."
 	cont "It cheers me up."
 	done
 
-NationalParkTeacher1Text:
+NationalParkTeacher1Text: ; AUTOTRAD
 	text "Pay attention,"
 	line "please!"
 
@@ -327,7 +327,7 @@ NationalParkTeacher1Text:
 	line "this."
 	done
 
-NationalParkTeacher1Text_GotQuickClaw:
+NationalParkTeacher1Text_GotQuickClaw: ; AUTOTRAD
 	text "Let a #MON hold"
 	line "that QUICK CLAW."
 
@@ -336,19 +336,19 @@ NationalParkTeacher1Text_GotQuickClaw:
 	cont "during battle."
 	done
 
-NationalParkYoungster1Text:
+NationalParkYoungster1Text: ; AUTOTRAD
 	text "I'm playing with"
 	line "stickers I printed"
 	cont "from my #DEX."
 	done
 
-NationalParkYoungster2Text:
+NationalParkYoungster2Text: ; AUTOTRAD
 	text "I get the other"
 	line "guy's #DEX"
 	cont "sticker if I win."
 	done
 
-NationalParkTeacher2Text:
+NationalParkTeacher2Text: ; AUTOTRAD
 	text "I take walks in"
 	line "the PARK, but I"
 
@@ -359,11 +359,11 @@ NationalParkTeacher2Text:
 	line "want to battle…"
 	done
 
-NationalParkPersianText:
+NationalParkPersianText: ; AUTOTRAD
 	text "PERSIAN: Fufushaa!"
 	done
 
-NationalParkGameboyKidText:
+NationalParkGameboyKidText: ; AUTOTRAD
 	text "I'm printing out"
 	line "my #DEX."
 
@@ -374,7 +374,7 @@ NationalParkGameboyKidText:
 	line "BOXES."
 	done
 
-SchoolboyJack1SeenText:
+SchoolboyJack1SeenText: ; AUTOTRAD
 	text "The world of"
 	line "#MON is deep."
 
@@ -386,11 +386,11 @@ SchoolboyJack1SeenText:
 	line "than you do!"
 	done
 
-SchoolboyJack1BeatenText:
+SchoolboyJack1BeatenText: ; AUTOTRAD
 	text "Wha-wha-what?"
 	done
 
-SchoolboyJackTradeMonText:
+SchoolboyJackTradeMonText: ; AUTOTRAD
 	text "There is a lot"
 	line "to learn."
 
@@ -403,7 +403,7 @@ SchoolboyJackTradeMonText:
 	line "level up faster."
 	done
 
-PokefanfBeverly1SeenText:
+PokefanfBeverly1SeenText: ; AUTOTRAD
 	text "My #MON are"
 	line "simply darling."
 
@@ -412,18 +412,18 @@ PokefanfBeverly1SeenText:
 	cont "darlings make me."
 	done
 
-PokefanfBeverly1BeatenText:
+PokefanfBeverly1BeatenText: ; AUTOTRAD
 	text "I can beat you in"
 	line "pride, but…"
 	done
 
-PokefanBeverlyCuteMonText:
+PokefanBeverlyCuteMonText: ; AUTOTRAD
 	text "I must say, your"
 	line "#MON are quite"
 	cont "cute, too."
 	done
 
-PokefanmWilliamSeenText:
+PokefanmWilliamSeenText: ; AUTOTRAD
 	text "We adore our #-"
 	line "MON, even if they"
 	cont "dislike us."
@@ -432,11 +432,11 @@ PokefanmWilliamSeenText:
 	line "a FAN is about."
 	done
 
-PokefanmWilliamBeatenText:
+PokefanmWilliamBeatenText: ; AUTOTRAD
 	text "M-my #MON!"
 	done
 
-PokefanmWilliamAfterBattleText:
+PokefanmWilliamAfterBattleText: ; AUTOTRAD
 	text "I lost the battle,"
 	line "but my #MON win"
 
@@ -444,7 +444,7 @@ PokefanmWilliamAfterBattleText:
 	line "being most lovely."
 	done
 
-PokefanFBeverlyMarillFriendText:
+PokefanFBeverlyMarillFriendText: ; AUTOTRAD
 	text "My friend keeps a"
 	line "MARILL!"
 
@@ -455,29 +455,29 @@ PokefanFBeverlyMarillFriendText:
 	line "MARILL of my own…"
 	done
 
-LassKriseSeenText:
+LassKriseSeenText: ; AUTOTRAD
 	text "Hello? Why are you"
 	line "staring at me?"
 
 	para "Oh, a battle?"
 	done
 
-LassKriseBeatenText:
+LassKriseBeatenText: ; AUTOTRAD
 	text "…Hmmm…"
 	done
 
-LassKriseAfterBattleText:
+LassKriseAfterBattleText: ; AUTOTRAD
 	text "I thought you were"
 	line "staring at me"
 	cont "because I'm cute!"
 	done
 
-NationalParkRelaxationSquareText:
+NationalParkRelaxationSquareText: ; AUTOTRAD
 	text "RELAXATION SQUARE"
 	line "NATIONAL PARK"
 	done
 
-NationalParkBattleNoticeText:
+NationalParkBattleNoticeText: ; AUTOTRAD
 	text "What is this"
 	line "notice?"
 
@@ -488,7 +488,7 @@ NationalParkBattleNoticeText:
 	line "WARDEN'S OFFICE"
 	done
 
-NationalParkTrainerTipsText:
+NationalParkTrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "Print out MAIL by"

@@ -118,14 +118,14 @@ GoldenrodMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText:
+GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText: ; TO TRANSLATE
 	text "The train is shut"
 	line "down while the"
 	cont "travel restriction"
 	cont "remains effective."
 	done
 
-GoldenrodMagnetTrainStationOfficerAreYouComingAboardText:
+GoldenrodMagnetTrainStationOfficerAreYouComingAboardText: ; AUTOTRAD
 	text "We'll soon depart"
 	line "for SAFFRON."
 
@@ -133,7 +133,7 @@ GoldenrodMagnetTrainStationOfficerAreYouComingAboardText:
 	line "aboard?"
 	done
 
-GoldenrodMagnetTrainStationOfficerShowRailPassText:
+GoldenrodMagnetTrainStationOfficerShowRailPassText: ; TO TRANSLATE
 	text "May I see your"
 	line "RAIL PASS, please?"
 
@@ -142,22 +142,22 @@ GoldenrodMagnetTrainStationOfficerShowRailPassText:
 	para "Looks good to me."
 	done
 	
-GoldenrodMagnetTrainStationOfficerRightThisWayText:
+GoldenrodMagnetTrainStationOfficerRightThisWayText: ; TO TRANSLATE
 	text "Right this way,"
 	line "please."
 	done
 
-GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText:
+GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText: ; TO TRANSLATE
 	text "Sorry. You don't"
 	line "have a RAIL PASS."
 	done
 
-GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText:
+GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText: ; TO TRANSLATE
 	text "We have arrived in"
 	line "GOLDENROD."
 	done
 
-GoldenrodMagnetTrainStationGentlemanText:
+GoldenrodMagnetTrainStationGentlemanText: ; AUTOTRAD
 	text "I'm the PRESIDENT."
 
 	para "My dream was to"
@@ -171,7 +171,7 @@ GoldenrodMagnetTrainStationGentlemanText:
 	cont "to KANTO."
 	done
 
-GoldenrodMagnetTrainStationTwinText:
+GoldenrodMagnetTrainStationTwinText: ; TO TRANSLATE
 	text "Being vaccinated"
 	line "sounds nice."
 

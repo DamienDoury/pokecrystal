@@ -122,33 +122,33 @@ Route13DirectionsSign:
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
 
-PokefanmAlexSeenText:
+PokefanmAlexSeenText: ; AUTOTRAD
 	text "Bow down before my"
 	line "regal #MON!"
 	done
 
-PokefanmAlexBeatenText:
+PokefanmAlexBeatenText: ; AUTOTRAD
 	text "How… How dare you"
 	line "mock royalty!"
 	done
 
-PokefanmAlexAfterBattleText:
+PokefanmAlexAfterBattleText: ; AUTOTRAD
 	text "Doesn't everyone"
 	line "wish to someday be"
 	cont "a king?"
 	done
 
-PokefanmJoshuaSeenText:
+PokefanmJoshuaSeenText: ; AUTOTRAD
 	text "Nihihi! Would you"
 	line "like to battle my"
 	cont "PIKACHU gang?"
 	done
 
-PokefanmJoshuaBeatenText:
+PokefanmJoshuaBeatenText: ; AUTOTRAD
 	text "PI-PIKACHU!"
 	done
 
-PokefanmJoshuaAfterBattleText:
+PokefanmJoshuaAfterBattleText: ; AUTOTRAD
 	text "You look like you"
 	line "have many #MON,"
 
@@ -156,24 +156,24 @@ PokefanmJoshuaAfterBattleText:
 	line "still the best."
 	done
 
-BirdKeeperPerrySeenText:
+BirdKeeperPerrySeenText: ; AUTOTRAD
 	text "Agility is the key"
 	line "attribute of bird"
 	cont "#MON."
 	done
 
-BirdKeeperPerryBeatenText:
+BirdKeeperPerryBeatenText: ; AUTOTRAD
 	text "You beat me with"
 	line "your speed…"
 	done
 
-BirdKeeperPerryAfterBattleText:
+BirdKeeperPerryAfterBattleText: ; AUTOTRAD
 	text "Your #MON are"
 	line "remarkably well-"
 	cont "trained."
 	done
 
-BirdKeeperBretSeenText:
+BirdKeeperBretSeenText: ; AUTOTRAD
 	text "Check out my #-"
 	line "MON. Just look at"
 
@@ -181,27 +181,27 @@ BirdKeeperBretSeenText:
 	line "their plumage."
 	done
 
-BirdKeeperBretBeatenText:
+BirdKeeperBretBeatenText: ; AUTOTRAD
 	text "Shoot!"
 	line "Not good enough!"
 	done
 
-BirdKeeperBretAfterBattleText:
+BirdKeeperBretAfterBattleText: ; AUTOTRAD
 	text "If you groom them,"
 	line "#MON get happy."
 	done
 
-HikerKennySeenText:
+HikerKennySeenText: ; AUTOTRAD
 	text "I should go to"
 	line "ROCK TUNNEL to get"
 	cont "myself an ONIX."
 	done
 
-HikerKennyBeatenText:
+HikerKennyBeatenText: ; AUTOTRAD
 	text "I lost…"
 	done
 
-HikerKennyAfterBattleText:
+HikerKennyAfterBattleText: ; AUTOTRAD
 	text "Geological fea-"
 	line "tures don't appear"
 	cont "to change."
@@ -211,7 +211,7 @@ HikerKennyAfterBattleText:
 	cont "little."
 	done
 
-Route13TrainerTipsText:
+Route13TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "Look! Right there,"
@@ -219,14 +219,14 @@ Route13TrainerTipsText:
 	cont "of the post."
 	done
 
-Route13SignText:
+Route13SignText: ; AUTOTRAD
 	text "ROUTE 13"
 
 	para "NORTH TO SILENCE"
 	line "BRIDGE"
 	done
 
-Route13DirectionsSignText:
+Route13DirectionsSignText: ; AUTOTRAD
 	text "NORTH TO LAVENDER"
 	line "TOWN"
 

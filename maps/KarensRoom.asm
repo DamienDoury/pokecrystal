@@ -93,7 +93,7 @@ KarensRoom_EnterMovement:
 	step UP
 	step_end
 
-KarenScript_KarenBeforeText:
+KarenScript_KarenBeforeText: ; TO TRANSLATE
 	text "My name is KAREN."
 
 	para "Because of COVID,"
@@ -116,13 +116,13 @@ KarenScript_KarenBeforeText:
 	cont "despair."
 	done
 
-KarenScript_KarenBeatenText:
+KarenScript_KarenBeatenText: ; TO TRANSLATE
 	text "You have a solid"
 	line "mind. I like that"
 	cont "in a trainer."
 	done
 
-KarenScript_KarenDefeatText:
+KarenScript_KarenDefeatText: ; TO TRANSLATE
 	text "You have a good"
 	line "heart, and you"
 

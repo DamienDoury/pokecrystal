@@ -17,7 +17,7 @@ Route32RuinsOfAlphGatePokefanMScript:
 Route32RuinsOfAlphGateYoungsterScript:
 	jumptextfaceplayer Route32RuinsOfAlphGateYoungsterText
 
-Route32RuinsOfAlphGateOfficerText:
+Route32RuinsOfAlphGateOfficerText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 
 	para "A Look-and-Touch"
@@ -27,7 +27,7 @@ Route32RuinsOfAlphGateOfficerText:
 	line "stone panels!"
 	done
 
-Route32RuinsOfAlphGatePokefanMText:
+Route32RuinsOfAlphGatePokefanMText: ; AUTOTRAD
 	text "You're studying"
 	line "the RUINS?"
 
@@ -35,7 +35,7 @@ Route32RuinsOfAlphGatePokefanMText:
 	line "in the making."
 	done
 
-Route32RuinsOfAlphGateYoungsterText:
+Route32RuinsOfAlphGateYoungsterText: ; AUTOTRAD
 	text "There are drawings"
 	line "on stone panels."
 

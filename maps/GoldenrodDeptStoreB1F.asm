@@ -73,7 +73,7 @@ GoldenrodDeptStoreB1FBurnHeal:
 GoldenrodDeptStoreB1FUltraBall:
 	itemball ULTRA_BALL
 
-GoldenrodDeptStoreB1FBlackBelt1Text:
+GoldenrodDeptStoreB1FBlackBelt1Text: ; AUTOTRAD
 	text "Hey, kid! You're"
 	line "holding us up!"
 
@@ -84,7 +84,7 @@ GoldenrodDeptStoreB1FBlackBelt1Text:
 	line "one can see us!"
 	done
 
-GoldenrodDeptStoreB1FBlackBelt2Text:
+GoldenrodDeptStoreB1FBlackBelt2Text: ; AUTOTRAD
 	text "I lose my passion"
 	line "for work if some-"
 	cont "one's watching."
@@ -93,7 +93,7 @@ GoldenrodDeptStoreB1FBlackBelt2Text:
 	line "scoot!"
 	done
 
-GoldenrodDeptStoreB1FBlackBelt3Text:
+GoldenrodDeptStoreB1FBlackBelt3Text: ; AUTOTRAD
 	text "Oohah! Oohah!"
 
 	para "The stuff on the"
@@ -103,7 +103,7 @@ GoldenrodDeptStoreB1FBlackBelt3Text:
 	line "want it!"
 	done
 
-GoldenrodDeptStoreB1FMachokeText:
+GoldenrodDeptStoreB1FMachokeText: ; AUTOTRAD
 	text "MACHOKE: Maaacho!"
 	done
 

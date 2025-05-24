@@ -128,31 +128,31 @@ Route21_SleepMovement:
 	step_sleep 1
 	step_end
 
-SwimmermSethSeenText:
+SwimmermSethSeenText: ; AUTOTRAD
 	text "Land ho! Gotta"
 	line "keep going!"
 	done
 
-SwimmermSethBeatenText:
+SwimmermSethBeatenText: ; AUTOTRAD
 	text "Glug…"
 	done
 
-SwimmermSethAfterBattleText:
+SwimmermSethAfterBattleText: ; AUTOTRAD
 	text "This arrogant guy"
 	line "was at CINNABAR's"
 	cont "volcano."
 	done
 
-SwimmermDuaneSeenText:
+SwimmermDuaneSeenText: ; TO TRANSLATE
 	text "Check out my rare"
 	line "#MON!"
 	done
 
-SwimmermDuaneBeatenText:
+SwimmermDuaneBeatenText: ; TO TRANSLATE
 	text "Impressed?"
 	done
 
-SwimmermDuaneAfterBattleText:
+SwimmermDuaneAfterBattleText: ; TO TRANSLATE
 	text "The volcano spat"
 	line "some fossils from"
 	
@@ -160,16 +160,16 @@ SwimmermDuaneAfterBattleText:
 	line "ocean."
 	done
 
-SwimmermTysonSeenText:
+SwimmermTysonSeenText: ; TO TRANSLATE
 	text "I used to be"
 	line "an athlete…"
 	done
 
-SwimmermTysonBeatenText:
+SwimmermTysonBeatenText: ; TO TRANSLATE
 	text "I got soft…"
 	done
 
-SwimmermTysonAfterBattleText:
+SwimmermTysonAfterBattleText: ; TO TRANSLATE
 	text "I couldn't train"
 	line "during the"
 	cont "pandemic."
@@ -178,18 +178,18 @@ SwimmermTysonAfterBattleText:
 	line "twice as much."
 	done
 
-SwimmermEstebanSeenText:
+SwimmermEstebanSeenText: ; TO TRANSLATE
 	text "I used to be a"
 	line "SCIENTIST at the"
 	cont "CINNABAR LAB."
 	done
 
-SwimmermEstebanBeatenText:
+SwimmermEstebanBeatenText: ; TO TRANSLATE
 	text "I enjoyed this"
 	line "battle. Thanks!"
 	done
 
-SwimmermEstebanAfterBattleText:
+SwimmermEstebanAfterBattleText: ; TO TRANSLATE
 	text "My colleagues were"
 	line "assigned to other"
 	cont "workplaces after"
@@ -199,18 +199,18 @@ SwimmermEstebanAfterBattleText:
 	line "SAFFRON CITY."
 	done
 
-SwimmerfNikkiSeenText:
+SwimmerfNikkiSeenText: ; AUTOTRAD
 	text "If I win, you have"
 	line "to help me with my"
 	cont "suntan lotion!"
 	done
 
-SwimmerfNikkiBeatenText:
+SwimmerfNikkiBeatenText: ; AUTOTRAD
 	text "I'm worried about"
 	line "sunburn…"
 	done
 
-SwimmerfNikkiAfterBattleText:
+SwimmerfNikkiAfterBattleText: ; TO TRANSLATE
 	text "The day CINNABAR's"
 	line "volcano erupted,"
 
@@ -224,17 +224,17 @@ SwimmerfNikkiAfterBattleText:
 	line "SEAFOAM ISLANDS."
 	done
 
-SwimmerfChelanSeenText:
+SwimmerfChelanSeenText: ; TO TRANSLATE
 	text "Are you also"
 	line "coming for it?"
 	done
 
-SwimmerfChelanBeatenText:
+SwimmerfChelanBeatenText: ; TO TRANSLATE
 	text "Come on, you're"
 	line "no fun."
 	done
 
-SwimmerfChelanAfterBattleText:
+SwimmerfChelanAfterBattleText: ; TO TRANSLATE
 	text "I'm waiting for it."
 	line "You know, right?"
 
@@ -243,18 +243,18 @@ SwimmerfChelanAfterBattleText:
 	cont "what day?"
 	done
 
-SwimmerfLuluSeenText:
+SwimmerfLuluSeenText: ; TO TRANSLATE
 	text "Who knew I could"
 	line "become such a"
 	cont "good SWIMMER?!"
 	done
 
-SwimmerfLuluBeatenText:
+SwimmerfLuluBeatenText: ; TO TRANSLATE
 	text "I'll have better"
 	line "luck next time…"
 	done
 
-SwimmerfLuluAfterBattleText:
+SwimmerfLuluAfterBattleText: ; TO TRANSLATE
 	text "I never tried"
 	line "swimming when I"
 	cont "was younger."
@@ -265,40 +265,40 @@ SwimmerfLuluAfterBattleText:
 	line "sooner!"
 	done
 
-FisherArnoldSeenText:
+FisherArnoldSeenText: ; AUTOTRAD
 	text "I'm bored by fish-"
 	line "ing. Let's battle!"
 	done
 
-FisherArnoldBeatenText:
+FisherArnoldBeatenText: ; AUTOTRAD
 	text "Utter failure…"
 	done
 
-FisherArnoldAfterBattleText:
+FisherArnoldAfterBattleText: ; AUTOTRAD
 	text "I'll just go back"
 	line "to fishing…"
 	done
 
-FisherWadeSeenText:
+FisherWadeSeenText: ; TO TRANSLATE
 	text "I got a big haul!"
 	line "Wanna go for it?"
 	done
 
-FisherWadeBeatenText:
+FisherWadeBeatenText: ; TO TRANSLATE
 	text "Darn MAGIKARP!"
 	done
 
-FisherWadeAfterBattleText:
+FisherWadeAfterBattleText: ; TO TRANSLATE
 	text "I seem to only"
 	line "catch MAGIKARP!"
 	done
 
-FisherMurphyBattleText:
+FisherMurphyBattleText: ; TO TRANSLATE
 	text "Hi, my name is"
 	line "MURPHY!"
 	done
 
-FisherSkovorodaSeenText:
+FisherSkovorodaSeenText: ; TO TRANSLATE
 	text "I used to lose"
 	line "all battles."
 
@@ -306,12 +306,12 @@ FisherSkovorodaSeenText:
 	line "discourage me."
 	done
 
-FisherSkovorodaBeatenText:
+FisherSkovorodaBeatenText: ; TO TRANSLATE
 	text "Well played!"
 	line "I learned a lot."
 	done
 
-FisherSkovorodaAfterBattleText:
+FisherSkovorodaAfterBattleText: ; TO TRANSLATE
 	text "Victory comes"
 	line "to those who"
 	cont "persevere."
@@ -324,7 +324,7 @@ FisherSkovorodaAfterBattleText:
 	line "fishing."
 	done
 
-BirdKeeperGideonSeenText:
+BirdKeeperGideonSeenText: ; TO TRANSLATE
 	text "Looking at my"
 	line "#MON flying"
 	cont "in circles is"
@@ -336,12 +336,12 @@ BirdKeeperGideonSeenText:
 	cont "It'll be you."
 	done
 
-BirdKeeperGideonBeatenText:
+BirdKeeperGideonBeatenText: ; TO TRANSLATE
 	text "I'm feeling even"
 	line "more dizzy now."
 	done
 
-BirdKeeperGideonAfterBattleText:
+BirdKeeperGideonAfterBattleText: ; TO TRANSLATE
 	text "The sky is so"
 	line "beautiful here."
 
@@ -349,7 +349,7 @@ BirdKeeperGideonAfterBattleText:
 	line "the lockdown."
 	done
 
-BirdKeeperEastonSeenText:
+BirdKeeperEastonSeenText: ; TO TRANSLATE
 	text "Flying in the"
 	line "blue sky is"
 	cont "freedom to me."
@@ -357,29 +357,29 @@ BirdKeeperEastonSeenText:
 	para "But it's dangerous."
 	done
 
-BirdKeeperEastonBeatenText:
+BirdKeeperEastonBeatenText: ; TO TRANSLATE
 	text "Life goes on."
 	done
 
-BirdKeeperEastonAfterBattleText:
+BirdKeeperEastonAfterBattleText: ; TO TRANSLATE
 	text "Is security worth"
 	line "sacrificing"
 	cont "freedom?"
 	done
 
-BirdKeeperLeonSeenText:
+BirdKeeperLeonSeenText: ; TO TRANSLATE
 	text "I collect colorful"
 	line "FLYING #MON."
 
 	para "Wanna see'em?"
 	done
 
-BirdKeeperLeonBeatenText:
+BirdKeeperLeonBeatenText: ; TO TRANSLATE
 	text "Hmmm… what"
 	line "happened?"
 	done
 
-BirdKeeperLeonAfterBattleText:
+BirdKeeperLeonAfterBattleText: ; TO TRANSLATE
 	text "Taking care of all"
 	line "my FLYING #MON"
 	cont "is hard work."

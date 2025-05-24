@@ -15,7 +15,7 @@ FishingDudesHousePhoto:
 FishingDudesHouseBookshelf: ; unreferenced
 	jumpstd PictureBookshelfScript
 
-FishingDudeText:
+FishingDudeText: ; AUTOTRAD
 	text "I am the FISHING"
 	line "DUDE, the elder of"
 	cont "the FISHING BROS."
@@ -39,7 +39,7 @@ FishingDudeText:
 	cont "of his dreams."
 	done
 
-FishingDudesHousePhotoText:
+FishingDudesHousePhotoText: ; AUTOTRAD
 	text "It's a photo of"
 	line "people fishing…"
 

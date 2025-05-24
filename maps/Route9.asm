@@ -302,16 +302,16 @@ Route9_JumpDownMovement:
 	jump_step DOWN
 	step_end
 
-CamperDeanSeenText:
+CamperDeanSeenText: ; AUTOTRAD
 	text "I came to explore"
 	line "ROCK TUNNEL."
 	done
 
-CamperDeanBeatenText:
+CamperDeanBeatenText: ; AUTOTRAD
 	text "Whoa! Danger, man."
 	done
 
-CamperDeanAfterBattleText:
+CamperDeanAfterBattleText: ; AUTOTRAD
 	text "My #MON were"
 	line "hurt before even"
 
@@ -323,7 +323,7 @@ CamperDeanAfterBattleText:
 	cont "CENTER right away."
 	done
 
-PicnickerHeidiSeenText:
+PicnickerHeidiSeenText: ; AUTOTRAD
 	text "Have you ever been"
 	line "to a picnic?"
 
@@ -331,11 +331,11 @@ PicnickerHeidiSeenText:
 	line "fun!"
 	done
 
-PicnickerHeidiBeatenText:
+PicnickerHeidiBeatenText: ; AUTOTRAD
 	text "Ohhhh!"
 	done
 
-PicnickerHeidiAfterBattleText:
+PicnickerHeidiAfterBattleText: ; AUTOTRAD
 	text "We bake lots of"
 	line "goodies and share"
 
@@ -343,33 +343,33 @@ PicnickerHeidiAfterBattleText:
 	line "They're delicious!"
 	done
 
-CamperSidSeenText:
+CamperSidSeenText: ; AUTOTRAD
 	text "Hey, you!"
 	line "Don't litter!"
 	done
 
-CamperSidBeatenText:
+CamperSidBeatenText: ; AUTOTRAD
 	text "I was just point-"
 	line "ing out…"
 	done
 
-CamperSidAfterBattleText:
+CamperSidAfterBattleText: ; AUTOTRAD
 	text "Sorry. You weren't"
 	line "littering. It was"
 	cont "my mistake."
 	done
 
-PicnickerEdnaSeenText:
+PicnickerEdnaSeenText: ; AUTOTRAD
 	text "People shouldn't"
 	line "leave any litter"
 	cont "behind."
 	done
 
-PicnickerEdnaBeatenText:
+PicnickerEdnaBeatenText: ; AUTOTRAD
 	text "Ohh… I lost…"
 	done
 
-PicnickerEdnaAfterBattleText:
+PicnickerEdnaAfterBattleText: ; AUTOTRAD
 	text "Conserving energy"
 	line "is important, but"
 
@@ -377,7 +377,7 @@ PicnickerEdnaAfterBattleText:
 	line "even more vital."
 	done
 
-HikerTimSeenText:
+HikerTimSeenText: ; AUTOTRAD
 	text "She'll be coming"
 	line "'round MT.SILVER"
 	cont "when she comes…"
@@ -386,17 +386,17 @@ HikerTimSeenText:
 	line "JOHTO, right?"
 	done
 
-HikerTimBeatenText:
+HikerTimBeatenText: ; AUTOTRAD
 	text "I was too busy"
 	line "singing…"
 	done
 
-HikerTimAfterBattleText:
+HikerTimAfterBattleText: ; AUTOTRAD
 	text "Battles are about"
 	line "concentration."
 	done
 
-HikerSidneySeenText:
+HikerSidneySeenText: ; AUTOTRAD
 	text "I'll tell you a"
 	line "secret."
 
@@ -404,44 +404,44 @@ HikerSidneySeenText:
 	line "battle!"
 	done
 
-HikerSidneyBeatenText:
+HikerSidneyBeatenText: ; AUTOTRAD
 	text "Oh, dang!"
 	line "I lost that…"
 	done
 
-HikerSidneyAfterBattleText:
+HikerSidneyAfterBattleText: ; AUTOTRAD
 	text "The POWER PLANT is"
 	line "across a small"
 	cont "river."
 	done
 
-CooltrainerFMariaSeenText:
+CooltrainerFMariaSeenText: ; TO TRANSLATE
 	text "It's a good place"
 	line "to do some"
 	cont "exercise."
 	done
 
-CooltrainerFMariaBeatenText:
+CooltrainerFMariaBeatenText: ; TO TRANSLATE
 	text "Mamma mia!"
 	done
 
-CooltrainerFMariaAfterBattleText:
+CooltrainerFMariaAfterBattleText: ; TO TRANSLATE
 	text "In the morning,"
 	line "some rare #MON"
 	cont "exercise here."
 	done
 
-CooltrainerMFredSeenText:
+CooltrainerMFredSeenText: ; TO TRANSLATE
 	text "I run in here"
 	line "everyday."
 	done
 
-CooltrainerMFredBeatenText:
+CooltrainerMFredBeatenText: ; TO TRANSLATE
 	text "I was looking at"
 	line "my girlfriend…"
 	done
 
-CooltrainerMFredAfterBattleText:
+CooltrainerMFredAfterBattleText: ; TO TRANSLATE
 	text "Some FIGHTING"
 	line "TYPE #MON keep"
 	cont "smashing the rocks"
@@ -449,43 +449,43 @@ CooltrainerMFredAfterBattleText:
 	cont "surroundings."
 	done
 
-CooltrainerMAndriySeenText:
+CooltrainerMAndriySeenText: ; TO TRANSLATE
 	text "I saw a man in"
 	line "black running"
 	cont "towards CERULEAN"
 	cont "CITY."
 	done
 
-CooltrainerMAndriyBeatenText:
+CooltrainerMAndriyBeatenText: ; TO TRANSLATE
 	text "Well played!"
 	done
 
-CooltrainerMAndriyAfterBattleText:
+CooltrainerMAndriyAfterBattleText: ; TO TRANSLATE
 	text "The man in black"
 	line "drew my attention"
 	cont "because he didn't"
 	cont "wear a face mask."
 	done
 
-Route9SignText:
+Route9SignText: ; AUTOTRAD
 	text "ROUTE 9"
 
 	para "CERULEAN CITY -"
 	line "ROCK TUNNEL"
 	done
 
-Route9_QuestIntroText:
+Route9_QuestIntroText: ; TO TRANSLATE
 	text "How fast could we"
 	line "reach the top of"
 	cont "this ledge?"
 	done
 
-Route9_QuestIntroSequelText:
+Route9_QuestIntroSequelText: ; TO TRANSLATE
 	text "How about you"
 	line "take me there?"
 	done
 
-Route9_QuestAcceptedText:
+Route9_QuestAcceptedText: ; TO TRANSLATE
 	text "Cool! I'll make an"
 	line "exception to"
 	cont "social distancing,"
@@ -500,28 +500,28 @@ Route9_QuestAcceptedText:
 	line "fast you can go!"
 	done
 
-Route9_WrongWayText:
+Route9_WrongWayText: ; TO TRANSLATE
 	text "That's the wrong"
 	line "way! Come back!"
 	done
 
-Route9_AbandonmentQuestionText:
+Route9_AbandonmentQuestionText: ; TO TRANSLATE
 	text "Are you"
 	line "abandoning me?"
 	done
 	
-Route9_BackOnTrackText:
+Route9_BackOnTrackText: ; TO TRANSLATE
 	text "Then let's get"
 	line "back on track!"
 	done
 
-Route9_DestinationReachedText:
+Route9_DestinationReachedText: ; TO TRANSLATE
 	text "We've made it!"
 	line "That was a"
 	cont "fun hike!"
 	done
 
-Route9_DisplayHikeDurationText:
+Route9_DisplayHikeDurationText: ; TO TRANSLATE
 	text "It took you"
 	line "@"
 	text_decimal wScriptVar, 1, 3
@@ -529,40 +529,40 @@ Route9_DisplayHikeDurationText:
 	cont "reach the end!"
 	done
 
-Route9_BeWayFasterText:
+Route9_BeWayFasterText: ; TO TRANSLATE
 	text "I'm sure you can do"
 	line "it in less time."
 	done
 
-Route9_BeFasterText:
+Route9_BeFasterText: ; TO TRANSLATE
 	text "Be a little faster"
 	line "and I'll show"
 	cont "recognition."
 	done
 
-Route9_CongratsText:
+Route9_CongratsText: ; TO TRANSLATE
 	text "What an impres-"
 	line "sive performance!"
 	done
 
-Route9_ForYourEffortText:
+Route9_ForYourEffortText: ; TO TRANSLATE
 	text "Take this for"
 	line "your effort."
 	done
 
-Route9_TooLongText:
+Route9_TooLongText: ; TO TRANSLATE
 	text "It took you for-"
 	line "ever to reach the"
 	cont "end. I'm sure you"
 	cont "can do better!"
 	done
 
-Route9_DoItAgainText:
+Route9_DoItAgainText: ; TO TRANSLATE
 	text "If you wanna do it"
 	line "again I'll be here!"
 	done
 
-Route9_YahooText:
+Route9_YahooText: ; TO TRANSLATE
 	text "Yahoo!"
 	done
 

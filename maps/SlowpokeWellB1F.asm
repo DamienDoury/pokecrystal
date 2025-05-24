@@ -179,7 +179,7 @@ PlayerRespectsKurtDistancingMovementData:
 	remove_fixed_facing
 	step_end
 
-SlowpokeWellB1FKurtText:
+SlowpokeWellB1FKurtText: ; AUTOTRAD
 	text "KURT: Hey there,"
 	line "<PLAYER>!"
 
@@ -209,7 +209,7 @@ SlowpokeWellB1FKurtText:
 	cont "in my place!"
 	done
 
-KurtLeaveSlowpokeWellText:
+KurtLeaveSlowpokeWellText: ; AUTOTRAD
 	text "KURT: Way to go,"
 	line "<PLAYER>!"
 
@@ -221,7 +221,7 @@ KurtLeaveSlowpokeWellText:
 	cont "of here."
 	done
 
-GruntM29SeenText:
+GruntM29SeenText: ; AUTOTRAD
 	text "Darn! I was stand-"
 	line "ing guard up top"
 
@@ -237,12 +237,12 @@ GruntM29SeenText:
 	cont "it out on you!"
 	done
 
-GruntM29BeatenText:
+GruntM29BeatenText: ; AUTOTRAD
 	text "Arrgh! This is NOT"
 	line "my day!"
 	done
 
-GruntM29AfterBattleText:
+GruntM29AfterBattleText: ; TO TRANSLATE
 	text "Sure, we've been"
 	line "hacking the tails"
 
@@ -259,7 +259,7 @@ GruntM29AfterBattleText:
 	line "for bigger plans!"
 	done
 
-GruntM1SeenText:
+GruntM1SeenText: ; AUTOTRAD
 	text "What do you want?"
 
 	para "If you interrupt"
@@ -267,13 +267,13 @@ GruntM1SeenText:
 	cont "expect any mercy!"
 	done
 
-GruntM1BeatenText:
+GruntM1BeatenText: ; AUTOTRAD
 	text "You did OK today,"
 	line "but wait till next"
 	cont "time!"
 	done
 
-TrainerGruntM1WhenTalkText:
+TrainerGruntM1WhenTalkText: ; AUTOTRAD
 	text "Yeah, TEAM ROCKET"
 	line "was broken up"
 	cont "three years ago."
@@ -287,7 +287,7 @@ TrainerGruntM1WhenTalkText:
 	cont "stir up trouble!"
 	done
 
-GruntM2SeenText:
+GruntM2SeenText: ; AUTOTRAD
 	text "Quit taking SLOW-"
 	line "POKETAILS?"
 
@@ -296,12 +296,12 @@ GruntM2SeenText:
 	cont "would be ruined!"
 	done
 
-GruntM2BeatenText:
+GruntM2BeatenText: ; AUTOTRAD
 	text "Just…"
 	line "Too strong…"
 	done
 
-GruntM2AfterBattleText:
+GruntM2AfterBattleText: ; AUTOTRAD
 	text "We need the money,"
 	line "but selling SLOW-"
 	cont "POKETAILS?"
@@ -310,18 +310,18 @@ GruntM2AfterBattleText:
 	line "ROCKET GRUNT!"
 	done
 
-GruntF1SeenText:
+GruntF1SeenText: ; AUTOTRAD
 	text "Stop taking TAILS?"
 
 	para "Yeah, just try to"
 	line "defeat all of us!"
 	done
 
-GruntF1BeatenText:
+GruntF1BeatenText: ; AUTOTRAD
 	text "You rotten brat!"
 	done
 
-GruntF1AfterBattleText:
+GruntF1AfterBattleText: ; AUTOTRAD
 	text "SLOWPOKETAILS"
 	line "grow back fast!"
 
@@ -329,7 +329,7 @@ GruntF1AfterBattleText:
 	line "selling them?"
 	done
 
-SlowpokeWellB1FSlowpokeWithMailText:
+SlowpokeWellB1FSlowpokeWithMailText: ; AUTOTRAD
 	text "A SLOWPOKE with"
 	line "its TAIL cut off…"
 
@@ -337,7 +337,7 @@ SlowpokeWellB1FSlowpokeWithMailText:
 	line "Read it?"
 	done
 
-SlowpokeWellB1FSlowpokeMailText:
+SlowpokeWellB1FSlowpokeMailText: ; TO TRANSLATE
 	text "<PLAYER> reads the"
 	line "MAIL."
 
@@ -350,7 +350,7 @@ SlowpokeWellB1FSlowpokeMailText:
 	para "Love, Dad"
 	done
 
-SlowpokeWellB1FTaillessSlowpokeText:
+SlowpokeWellB1FTaillessSlowpokeText: ; AUTOTRAD
 	text "A SLOWPOKE with"
 	line "its TAIL cut off…"
 	done

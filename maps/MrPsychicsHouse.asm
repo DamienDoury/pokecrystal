@@ -25,7 +25,7 @@ MrPsychic:
 MrPsychicsHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-MrPsychicText1:
+MrPsychicText1: ; AUTOTRAD
 	text "…"
 
 	para "…"
@@ -37,7 +37,7 @@ MrPsychicText1:
 	para "You wanted this!"
 	done
 
-MrPsychicText2:
+MrPsychicText2: ; AUTOTRAD
 	text "TM29 is PSYCHIC."
 
 	para "It may lower the"

@@ -221,7 +221,7 @@ RuinsOfAlphOutsidePlayerEnterLabMovement:
 	step UP
 	step_end
 
-RuinsOfAlphOutsideScientistText:
+RuinsOfAlphOutsideScientistText: ; AUTOTRAD
 	text "Hm? That's a #-"
 	line "DEX, isn't it?"
 	cont "May I see it?"
@@ -250,7 +250,7 @@ RuinsOfAlphOutsideScientistText:
 	cont "DEX. Follow me."
 	done
 
-PsychicNathanSeenText:
+PsychicNathanSeenText: ; AUTOTRAD
 	text "Hmmm… This is a"
 	line "strange place."
 	done
@@ -259,22 +259,22 @@ PsychicNathanBeatenText:
 	text "…"
 	done
 
-PsychicNathanAfterBattleText:
+PsychicNathanAfterBattleText: ; AUTOTRAD
 	text "I like thinking"
 	line "here."
 	done
 
-RuinsOfAlphOutsideMysteryChamberSignText:
+RuinsOfAlphOutsideMysteryChamberSignText: ; AUTOTRAD
 	text "MYSTERY STONE"
 	line "PANEL CHAMBER"
 	done
 
-RuinsOfAlphSignText:
+RuinsOfAlphSignText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 	line "VISITORS WELCOME"
 	done
 
-RuinsOfAlphResearchCenterSignText:
+RuinsOfAlphResearchCenterSignText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 	line "RESEARCH CENTER"
 
@@ -282,20 +282,20 @@ RuinsOfAlphResearchCenterSignText:
 	line "THE RUINS OF ALPH"
 	done
 
-RuinsOfAlphOutsideFisherText1:
+RuinsOfAlphOutsideFisherText1: ; TO TRANSLATE
 	text "There is an odd"
 	line "presence surroun-"
 	cont "ding this area."
 	done
 
-RuinsOfAlphOutsideFisherText2:
+RuinsOfAlphOutsideFisherText2: ; AUTOTRAD
 	text "The RUINS hide a"
 	line "huge secret!"
 
 	para "…I think…"
 	done
 
-RuinsOfAlphOutsideYoungster1Text:
+RuinsOfAlphOutsideYoungster1Text: ; AUTOTRAD
 	text "There are many"
 	line "kinds of UNOWN, so"
 
@@ -303,7 +303,7 @@ RuinsOfAlphOutsideYoungster1Text:
 	line "our secret codes."
 	done
 
-RuinsOfAlphOutsideYoungster2Text:
+RuinsOfAlphOutsideYoungster2Text: ; AUTOTRAD
 	text "A… H… E… A… D…"
 	line "Hmm…"
 
@@ -313,7 +313,7 @@ RuinsOfAlphOutsideYoungster2Text:
 	line "message!"
 	done
 
-RuinsOfAlphDoorText:
+RuinsOfAlphDoorText: ; TO TRANSLATE
 	text "Our RESEARCH"
 	line "CENTER has not"
 	
@@ -327,7 +327,7 @@ RuinsOfAlphDoorText:
 	line "closed for now."
 	done
 
-RuinsOfAlphConeText:
+RuinsOfAlphConeText: ; TO TRANSLATE
 	text "RUINS OF ALPH"
 	line "are closed to"
 	cont "the public."

@@ -116,7 +116,7 @@ CeladonCafeTrashcan:
 	jumptext FoundLeftoversText
 	end
 
-ChefText_Eatathon:
+ChefText_Eatathon: ; TO TRANSLATE
 	text "Hi!"
 
 	para "We're full at the"
@@ -125,11 +125,11 @@ ChefText_Eatathon:
 
 	done
 
-Fisher1Text_Snarfle:
+Fisher1Text_Snarfle: ; AUTOTRAD
 	text "…Snarfle, chew…"
 	done
 
-Fisher1Text_Concentration:
+Fisher1Text_Concentration: ; TO TRANSLATE
 	text "I can't cook so"
 	line "I've been eating"
 	cont "frozen meals dur-"
@@ -143,31 +143,31 @@ Fisher1Text_Concentration:
 
 	done
 
-Fisher2Text_GulpChew:
+Fisher2Text_GulpChew: ; AUTOTRAD
 	text "…Gulp… Chew…"
 	done
 
-Fisher2Text_Eating:
+Fisher2Text_Eating: ; TO TRANSLATE
 	text "CAN'T YOU SEE"
 	line "I'M BUSY EATING?"
 	done
 
-Fisher2Text_Loss:
+Fisher2Text_Loss: ; TO TRANSLATE
 	text "I'll get one more"
 	line "dessert please."
 	done
 
-Fisher2Text_Quantity:
+Fisher2Text_Quantity: ; TO TRANSLATE
 	text "Don't talk to me,"
 	line "I'm not wearing"
 	cont "my face mask!"
 	done
 
-Fisher3Text_MunchMunch:
+Fisher3Text_MunchMunch: ; AUTOTRAD
 	text "Munch, munch…"
 	done
 
-Fisher3Text_GoldenrodIsBest:
+Fisher3Text_GoldenrodIsBest: ; TO TRANSLATE
 	text "I forgot that I"
 	line "lost the sense of"
 	cont "taste and smell…"
@@ -179,11 +179,11 @@ Fisher3Text_GoldenrodIsBest:
 	line "thing to me…"
 	done
 
-TeacherText_CrunchCrunch:
+TeacherText_CrunchCrunch: ; AUTOTRAD
 	text "Crunch… Crunch…"
 	done
 
-TeacherText_NoCoinCase:
+TeacherText_NoCoinCase: ; AUTOTRAD
 	text "Nobody here will"
 	line "give you a COIN"
 
@@ -191,17 +191,17 @@ TeacherText_NoCoinCase:
 	line "look in JOHTO."
 	done
 
-TeacherText_KeepEating:
+TeacherText_KeepEating: ; AUTOTRAD
 	text "Crunch… Crunch…"
 
 	para "I can keep eating!"
 	done
 
-TeacherText_MoreChef:
+TeacherText_MoreChef: ; AUTOTRAD
 	text "More, CHEF!"
 	done
 
-EatathonContestPosterText:
+EatathonContestPosterText: ; TO TRANSLATE
 	text "SANITARY RULES:"
 
 	para "- Line up outside"
@@ -253,7 +253,7 @@ EatathonContestPosterText:
 
 	done
 
-FoundLeftoversText:
+FoundLeftoversText: ; TO TRANSLATE
 	text "<PLAYER> found"
 	line "NOTHING!"
 

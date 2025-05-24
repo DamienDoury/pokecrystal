@@ -288,7 +288,7 @@ AzaleaTownPlayerLeavesKurtsHouseMovement:
 	turn_head UP
 	step_end
 
-AzaleaTownRivalBeforeText:
+AzaleaTownRivalBeforeText: ; AUTOTRAD
 	text "…Tell me some-"
 	line "thing."
 
@@ -305,7 +305,7 @@ AzaleaTownRivalBeforeText:
 	cont "good you are."
 	done
 
-AzaleaTownRivalWinText:
+AzaleaTownRivalWinText: ; AUTOTRAD
 	text "… Humph! Useless"
 	line "#MON!"
 
@@ -316,7 +316,7 @@ AzaleaTownRivalWinText:
 	line "weak."
 	done
 
-AzaleaTownRivalAfterText:
+AzaleaTownRivalAfterText: ; AUTOTRAD
 	text "I hate the weak."
 
 	para "#MON, trainers."
@@ -346,12 +346,12 @@ AzaleaTownRivalAfterText:
 	line "distraction."
 	done
 
-AzaleaTownRivalLossText:
+AzaleaTownRivalLossText: ; AUTOTRAD
 	text "…Humph! I knew"
 	line "you were lying."
 	done
 
-AzaleaTownRocket1Text:
+AzaleaTownRocket1Text: ; AUTOTRAD
 	text "It's unsafe to go"
 	line "in there, so I'm"
 	cont "standing guard."
@@ -360,7 +360,7 @@ AzaleaTownRocket1Text:
 	line "Samaritan?"
 	done
 
-AzaleaTownRocket2Text:
+AzaleaTownRocket2Text: ; AUTOTRAD
 	text "Do you know about"
 	line "SLOWPOKETAIL? I"
 	cont "heard it's tasty!"
@@ -369,7 +369,7 @@ AzaleaTownRocket2Text:
 	line "told you that?"
 	done
 
-AzaleaTownGrampsTextBefore:
+AzaleaTownGrampsTextBefore: ; AUTOTRAD
 	text "The SLOWPOKE have"
 	line "disappeared from"
 	cont "town…"
@@ -379,7 +379,7 @@ AzaleaTownGrampsTextBefore:
 	cont "sold somewhere."
 	done
 
-AzaleaTownGrampsTextAfter:
+AzaleaTownGrampsTextAfter: ; AUTOTRAD
 	text "The SLOWPOKE have"
 	line "returned."
 
@@ -390,7 +390,7 @@ AzaleaTownGrampsTextAfter:
 	line "where."
 	done
 
-AzaleaTownTeacherText:
+AzaleaTownTeacherText: ; AUTOTRAD
 	text "Did you come to"
 	line "get KURT to make"
 	cont "some BALLS?"
@@ -399,7 +399,7 @@ AzaleaTownTeacherText:
 	line "just that."
 	done
 
-AzaleaTownYoungsterText:
+AzaleaTownYoungsterText: ; AUTOTRAD
 	text "Cut through AZALEA"
 	line "and you'll be in"
 	cont "ILEX FOREST."
@@ -415,35 +415,35 @@ AzaleaTownYoungsterText:
 	cont "down trees."
 	done
 
-AzaleaTownSlowpokeText1:
+AzaleaTownSlowpokeText1: ; AUTOTRAD
 	text "SLOWPOKE: …"
 
 	para "<……> <……> <……>"
 	done
 
-AzaleaTownSlowpokeText2:
+AzaleaTownSlowpokeText2: ; AUTOTRAD
 	text "<……> <……>Yawn?"
 	done
 
-AzaleaTownKurtText1:
+AzaleaTownKurtText1: ; AUTOTRAD
 	text "ILEX FOREST is"
 	line "restless!"
 
 	para "What is going on?"
 	done
 
-AzaleaTownKurtText2:
+AzaleaTownKurtText2: ; AUTOTRAD
 	text "<PLAYER>, here's"
 	line "your GS BALL back!"
 	done
 
-AzaleaTownKurtText3:
+AzaleaTownKurtText3: ; AUTOTRAD
 	text "Could you go see"
 	line "why ILEX FOREST is"
 	cont "so restless?"
 	done
 
-AzaleaTownSignText:
+AzaleaTownSignText: ; AUTOTRAD
 	text "AZALEA TOWN"
 	line "Where People and"
 
@@ -451,11 +451,11 @@ AzaleaTownSignText:
 	line "Happy Harmony"
 	done
 
-KurtsHouseSignText:
+KurtsHouseSignText: ; AUTOTRAD
 	text "KURT'S HOUSE"
 	done
 
-AzaleaGymSignText:
+AzaleaGymSignText: ; AUTOTRAD
 	text "AZALEA TOWN"
 	line "#MON GYM"
 	cont "LEADER: BUGSY"
@@ -465,7 +465,7 @@ AzaleaGymSignText:
 	cont "Encyclopedia"
 	done
 
-SlowpokeWellSignText:
+SlowpokeWellSignText: ; AUTOTRAD
 	text "SLOWPOKE WELL"
 
 	para "Also known as the"
@@ -482,24 +482,24 @@ SlowpokeWellSignText:
 	line "400 years ago."
 	done
 
-CharcoalKilnSignText:
+CharcoalKilnSignText: ; AUTOTRAD
 	text "CHARCOAL KILN"
 	done
 
-AzaleaTownIlexForestSignText:
+AzaleaTownIlexForestSignText: ; AUTOTRAD
 	text "ILEX FOREST"
 
 	para "Enter through the"
 	line "gate."
 	done
 
-AzaleaTownTeacherRushText:
+AzaleaTownTeacherRushText: ; TO TRANSLATE
 	text "Let"
 	para "me"
 	para "IIIIIIN !"
 	done
 
-AzaleaTownGrampsRushText:
+AzaleaTownGrampsRushText: ; TO TRANSLATE
 	text "Do you think the"
 	line "young people would"
 	cont "give priority to"
@@ -510,7 +510,7 @@ AzaleaTownGrampsRushText:
 	line "they don't."
 	done
 
-AzaleaTownPokefanRushText:
+AzaleaTownPokefanRushText: ; TO TRANSLATE
 	text "I'm not sure about"
 	line "social distancing."
 
@@ -518,7 +518,7 @@ AzaleaTownPokefanRushText:
 	line "a little more?"
 	done
 
-AzaleaTownApprenticeRushText:
+AzaleaTownApprenticeRushText: ; TO TRANSLATE
 	text "APPRENTICE: There"
 	line "is no way I will"
 	cont "be able to get"

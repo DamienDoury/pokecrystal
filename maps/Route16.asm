@@ -61,18 +61,18 @@ TrainerBugCatcherJerome:
 	closetext
 	end
 
-BikerHusqSeenText:
+BikerHusqSeenText: ; TO TRANSLATE
 	text "The CYCLING ROAD"
 	line "is all about"
 	cont "speed!!"
 	done
 
-BikerHusqBeatenText:
+BikerHusqBeatenText: ; TO TRANSLATE
 	text "This battle was"
 	line "too fast for me…"
 	done
 
-BikerHusqAfterBattleText:
+BikerHusqAfterBattleText: ; TO TRANSLATE
 	text "I like speed, and"
 	line "I like #MON."
 	
@@ -80,7 +80,7 @@ BikerHusqAfterBattleText:
 	line "fast #MON!"
 	done
 
-BugCatcherJeromeSeenText:
+BugCatcherJeromeSeenText: ; TO TRANSLATE
 	text "I used to play in"
 	line "VIRIDIAN FOREST."
 
@@ -92,12 +92,12 @@ BugCatcherJeromeSeenText:
 	line "new hobbies."
 	done
 
-BugCatcherJeromeBeatenText:
+BugCatcherJeromeBeatenText: ; TO TRANSLATE
 	text "What did you"
 	line "think?"
 	done
 
-BugCatcherJeromeAfterBattleText:
+BugCatcherJeromeAfterBattleText: ; TO TRANSLATE
 	text "I love my HOUNDOOM"
 	line "cause she's a good"
 	cont "girl!"
@@ -106,7 +106,7 @@ BugCatcherJeromeAfterBattleText:
 CyclingRoadSign:
 	jumptext CyclingRoadSignText
 
-CyclingRoadSignText:
+CyclingRoadSignText: ; AUTOTRAD
 	text "CYCLING ROAD"
 
 	para "DOWNHILL COASTING"

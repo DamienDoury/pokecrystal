@@ -115,25 +115,25 @@ NationalParkBugContestTMDig:
 NationalParkBugContestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
 
-BugCatchingContestant1AText:
+BugCatchingContestant1AText: ; AUTOTRAD
 	text "DON: I'm going to"
 	line "win! Don't bother"
 	cont "me."
 	done
 
-BugCatchingContestant2AText:
+BugCatchingContestant2AText: ; AUTOTRAD
 	text "ED: My PARASECT"
 	line "puts #MON to"
 	cont "sleep with SPORE."
 	done
 
-BugCatchingContestant3AText:
+BugCatchingContestant3AText: ; AUTOTRAD
 	text "NICK: I'm raising"
 	line "fast #MON for"
 	cont "battles."
 	done
 
-BugCatchingContestant4AText:
+BugCatchingContestant4AText: ; AUTOTRAD
 	text "WILLIAM: I'm not"
 	line "concerned about"
 	cont "winning."
@@ -142,7 +142,7 @@ BugCatchingContestant4AText:
 	line "for rare #MON."
 	done
 
-BugCatchingContestant5AText:
+BugCatchingContestant5AText: ; AUTOTRAD
 	text "BENNY: Ssh! You'll"
 	line "scare off SCYTHER."
 
@@ -150,7 +150,7 @@ BugCatchingContestant5AText:
 	line "later."
 	done
 
-BugCatchingContestant6AText:
+BugCatchingContestant6AText: ; AUTOTRAD
 	text "BARRY: You should"
 	line "weaken bug #MON"
 
@@ -158,7 +158,7 @@ BugCatchingContestant6AText:
 	line "a BALL."
 	done
 
-BugCatchingContestant7AText:
+BugCatchingContestant7AText: ; AUTOTRAD
 	text "CINDY: I love bug"
 	line "#MON."
 
@@ -166,7 +166,7 @@ BugCatchingContestant7AText:
 	line "like them too."
 	done
 
-BugCatchingContestant8AText:
+BugCatchingContestant8AText: ; AUTOTRAD
 	text "JOSH: I've been"
 	line "collecting bug"
 
@@ -177,7 +177,7 @@ BugCatchingContestant8AText:
 	line "going to lose!"
 	done
 
-BugCatchingContestant9AText:
+BugCatchingContestant9AText: ; AUTOTRAD
 	text "SAMUEL: If you've"
 	line "got the time to"
 
@@ -185,7 +185,7 @@ BugCatchingContestant9AText:
 	line "bug #MON."
 	done
 
-BugCatchingContestant10AText:
+BugCatchingContestant10AText: ; AUTOTRAD
 	text "KIPP: I've studied"
 	line "about bug #MON"
 	cont "a lot."
@@ -194,12 +194,12 @@ BugCatchingContestant10AText:
 	line "for sure."
 	done
 
-NationalParkBugContestRelaxationSquareText:
+NationalParkBugContestRelaxationSquareText: ; AUTOTRAD
 	text "RELAXATION SQUARE"
 	line "NATIONAL PARK"
 	done
 
-NationalParkBugContestBattleNoticeText:
+NationalParkBugContestBattleNoticeText: ; AUTOTRAD
 	text "What is this"
 	line "notice?"
 
@@ -210,7 +210,7 @@ NationalParkBugContestBattleNoticeText:
 	line "WARDEN'S OFFICE"
 	done
 
-NationalParkBugContestTrainerTipsText:
+NationalParkBugContestTrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "Print out MAIL by"

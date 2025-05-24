@@ -448,7 +448,7 @@ KurtsHouseKurtGoAroundPlayerThenExitHouseMovement:
 	big_step DOWN
 	step_end
 
-KurtsHouseKurtMakingBallsMustWaitText:
+KurtsHouseKurtMakingBallsMustWaitText: ; AUTOTRAD
 	text "Hm? Who are you?"
 
 	para "<PLAYER>, eh? You"
@@ -489,7 +489,7 @@ KurtsHouseKurtMakingBallsMustWaitText:
 	cont "way!"
 	done
 
-KurtsHouseKurtHonoredToMakeBallsText:
+KurtsHouseKurtHonoredToMakeBallsText: ; AUTOTRAD
 	text "KURT: Hi, <PLAYER>!"
 
 	para "You handled your-"
@@ -508,7 +508,7 @@ KurtsHouseKurtHonoredToMakeBallsText:
 	line "now, but take it."
 	done
 
-KurtsHouseKurtBallsFromApricornsText:
+KurtsHouseKurtBallsFromApricornsText: ; AUTOTRAD
 	text "KURT: I make BALLS"
 	line "from APRICORNS."
 
@@ -520,7 +520,7 @@ KurtsHouseKurtBallsFromApricornsText:
 	line "out of them."
 	done
 
-KurtsHouseKurtAskYouHaveAnApricornText:
+KurtsHouseKurtAskYouHaveAnApricornText: ; AUTOTRAD
 	text "KURT: You have an"
 	line "APRICORN for me?"
 
@@ -528,7 +528,7 @@ KurtsHouseKurtAskYouHaveAnApricornText:
 	line "into a BALL."
 	done
 
-KurtsHouseKurtItWillTakeADayText:
+KurtsHouseKurtItWillTakeADayText: ; AUTOTRAD
 	text "KURT: It'll take a"
 	line "day to make you a"
 
@@ -536,23 +536,23 @@ KurtsHouseKurtItWillTakeADayText:
 	line "for it later."
 	done
 
-KurtsHouseKurtThatsALetdownText:
+KurtsHouseKurtThatsALetdownText: ; AUTOTRAD
 	text "KURT: Oh…"
 	line "That's a letdown."
 	done
 
-KurtsHouseKurtDontBotherMeText:
+KurtsHouseKurtDontBotherMeText: ; AUTOTRAD
 	text "KURT: I'm working!"
 	line "Don't bother me!"
 	done
 
-KurtsHouseKurtJustFinishedYourBallText:
+KurtsHouseKurtJustFinishedYourBallText: ; AUTOTRAD
 	text "KURT: Ah, <PLAYER>!"
 	line "I just finished"
 	cont "your BALL. Here!"
 	done
 
-KurtsHouseKurtTurnedOutGreatText:
+KurtsHouseKurtTurnedOutGreatText: ; AUTOTRAD
 	text "KURT: That turned"
 	line "out great."
 
@@ -560,7 +560,7 @@ KurtsHouseKurtTurnedOutGreatText:
 	line "#MON with it."
 	done
 
-KurtsHouseKurtGranddaughterHelpingWorkFasterText:
+KurtsHouseKurtGranddaughterHelpingWorkFasterText: ; AUTOTRAD
 	text "KURT: Now that my"
 	line "granddaughter is"
 
@@ -568,7 +568,7 @@ KurtsHouseKurtGranddaughterHelpingWorkFasterText:
 	line "work much faster."
 	done
 
-KurtsHouseKurtWhatIsThatText:
+KurtsHouseKurtWhatIsThatText: ; AUTOTRAD
 	text "Wh-what is that?"
 
 	para "I've never seen"
@@ -584,17 +584,17 @@ KurtsHouseKurtWhatIsThatText:
 	line "for you."
 	done
 
-KurtsHouseKurtImCheckingItNowText:
+KurtsHouseKurtImCheckingItNowText: ; AUTOTRAD
 	text "I'm checking it"
 	line "now."
 	done
 
-KurtsHouseKurtAhHaISeeText:
+KurtsHouseKurtAhHaISeeText: ; AUTOTRAD
 	text "Ah-ha! I see!"
 	line "So…"
 	done
 
-KurtsHouseKurtThisBallStartedToShakeText:
+KurtsHouseKurtThisBallStartedToShakeText: ; AUTOTRAD
 	text "<PLAYER>!"
 
 	para "This BALL started"
@@ -605,7 +605,7 @@ KurtsHouseKurtThisBallStartedToShakeText:
 	line "something to this!"
 	done
 
-KurtsGranddaughterSlowpokeGoneText:
+KurtsGranddaughterSlowpokeGoneText: ; AUTOTRAD
 	text "The SLOWPOKE are"
 	line "gone… Were they"
 
@@ -613,12 +613,12 @@ KurtsGranddaughterSlowpokeGoneText:
 	line "people?"
 	done
 
-KurtsGranddaughterLonelyText:
+KurtsGranddaughterLonelyText: ; AUTOTRAD
 	text "Grandpa's gone…"
 	line "I'm so lonely…"
 	done
 
-KurtsGranddaughterSlowpokeBackText:
+KurtsGranddaughterSlowpokeBackText: ; AUTOTRAD
 	text "The SLOWPOKE my"
 	line "dad gave me came"
 
@@ -626,7 +626,7 @@ KurtsGranddaughterSlowpokeBackText:
 	line "growing back too!"
 	done
 
-KurtsGranddaughterDadText:
+KurtsGranddaughterDadText: ; AUTOTRAD
 	text "Dad works at SILPH"
 	line "where he studies"
 	cont "# BALLS."
@@ -636,7 +636,7 @@ KurtsGranddaughterDadText:
 	cont "and SLOWPOKE."
 	done
 
-KurtsGranddaughterHelpText:
+KurtsGranddaughterHelpText: ; AUTOTRAD
 	text "I get to help"
 	line "Grandpa now!"
 
@@ -645,12 +645,12 @@ KurtsGranddaughterHelpText:
 	cont "please wait!"
 	done
 
-KurtsGranddaughterFunText:
+KurtsGranddaughterFunText: ; AUTOTRAD
 	text "It's fun to make"
 	line "BALLS!"
 	done
 
-KurtsGranddaughterGSBallText:
+KurtsGranddaughterGSBallText: ; AUTOTRAD
 	text "Grandpa's checking"
 	line "a BALL right now."
 
@@ -658,17 +658,17 @@ KurtsGranddaughterGSBallText:
 	line "till he's done."
 	done
 
-KurtsHouseSlowpokeText:
+KurtsHouseSlowpokeText: ; AUTOTRAD
 	text "SLOWPOKE: …"
 	line "Yawn?"
 	done
 
-KurtsHouseOakPhotoText:
+KurtsHouseOakPhotoText: ; AUTOTRAD
 	text "…A young PROF."
 	line "OAK?"
 	done
 
-KurtsHouseCelebiStatueText:
+KurtsHouseCelebiStatueText: ; AUTOTRAD
 	text "It's a statue of"
 	line "the forest's pro-"
 	cont "tector."

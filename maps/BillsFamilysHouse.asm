@@ -141,7 +141,7 @@ BillTakeThisEeveeText:
 	cont "take any risk!"
 	done
 
-BillsMomText_BeforeEcruteak:
+BillsMomText_BeforeEcruteak: ; TO TRANSLATE
 	text "Oh, you collect"
 	line "#MON? My son"
 	cont "BILL is an expert."
@@ -153,7 +153,7 @@ BillsMomText_BeforeEcruteak:
 	line "CITY."
 	done
 
-BillsMomText_AfterEcruteak:
+BillsMomText_AfterEcruteak: ; AUTOTRAD
 	text "My husband was"
 	line "once known as a"
 
@@ -164,7 +164,7 @@ BillsMomText_AfterEcruteak:
 	line "father."
 	done
 
-BillsSisterUsefulNumberText:
+BillsSisterUsefulNumberText: ; AUTOTRAD
 	text "Are you a trainer?"
 
 	para "I've got a useful"
@@ -172,12 +172,12 @@ BillsSisterUsefulNumberText:
 	cont "you."
 	done
 
-RecordedBillsNumberText:
+RecordedBillsNumberText: ; AUTOTRAD
 	text "<PLAYER> recorded"
 	line "BILL's number."
 	done
 
-BillsSisterRefusedNumberText:
+BillsSisterRefusedNumberText: ; AUTOTRAD
 	text "My brother made"
 	line "the PC #MON"
 	cont "storage system."
@@ -187,12 +187,12 @@ BillsSisterRefusedNumberText:
 	cont "number…"
 	done
 
-BillsSisterPhoneFullText:
+BillsSisterPhoneFullText: ; AUTOTRAD
 	text "You can't record"
 	line "any more numbers."
 	done
 
-BillsSisterStorageSystemText:
+BillsSisterStorageSystemText: ; AUTOTRAD
 	text "My big brother"
 	line "BILL made the PC"
 
@@ -200,7 +200,7 @@ BillsSisterStorageSystemText:
 	line "system."
 	done
 
-BillsComputerText:
+BillsComputerText: ; TO TRANSLATE
 	text "ld a, [hl]"
 	line "ld e, a"
 	
@@ -225,7 +225,7 @@ BillsComputerText:
 	line "alien writings?"
 	done
 
-BillAskForCardText:
+BillAskForCardText: ; TO TRANSLATE
 	text "BILL: Yo <PLAYER>!"
 
 	para "Are you coming to"
@@ -233,12 +233,12 @@ BillAskForCardText:
 	cont "TRACING CARD?"
 	done
 
-BillAllYouHadToSayText:
+BillAllYouHadToSayText: ; TO TRANSLATE
 	text "It's all you"
 	line "had to say."
 	done
 
-BillPrivacyConcernsText:
+BillPrivacyConcernsText: ; TO TRANSLATE
 	text "Is it a privacy"
 	line "concern?"
 
@@ -247,7 +247,7 @@ BillPrivacyConcernsText:
 	cont "worry about it."
 	done
 
-BillAutomaticText:
+BillAutomaticText: ; TO TRANSLATE
 	text "No manual needed."
 	line "It's all automated!"
 	done

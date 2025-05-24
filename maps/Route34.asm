@@ -439,17 +439,17 @@ Route34MovementData_DayCareManWalksBackInside:
 	slow_step UP
 	step_end
 
-YoungsterSamuelSeenText:
+YoungsterSamuelSeenText: ; AUTOTRAD
 	text "This is where I do"
 	line "my training!"
 	done
 
-YoungsterSamuelBeatenText:
+YoungsterSamuelBeatenText: ; TO TRANSLATE
 	text "The DAY-CARE wasn't"
 	line "a good training…"
 	done
 
-YoungsterSamuelAfterText:
+YoungsterSamuelAfterText: ; TO TRANSLATE
 	text "WHITNEY told me"
 	line "that a high level"
 	cont "#MON gains"
@@ -459,17 +459,17 @@ YoungsterSamuelAfterText:
 	cont "low level one."
 	done
 
-YoungsterIanSeenText:
+YoungsterIanSeenText: ; AUTOTRAD
 	text "I'm the best in my"
 	line "class at #MON."
 	done
 
-YoungsterIanBeatenText:
+YoungsterIanBeatenText: ; AUTOTRAD
 	text "No! There are bet-"
 	line "ter trainers…"
 	done
 
-YoungsterIanAfterText:
+YoungsterIanAfterText: ; TO TRANSLATE
 	text "Did you know that"
 	line "a child #MON"
 	
@@ -493,7 +493,7 @@ YoungsterIanAfterText:
 	line "DAY-CARE told me."
 	done
 
-CamperTodd1SeenText:
+CamperTodd1SeenText: ; AUTOTRAD
 	text "I'm confident in"
 	line "my ability to"
 	cont "raise #MON."
@@ -501,12 +501,12 @@ CamperTodd1SeenText:
 	para "Want to see?"
 	done
 
-CamperTodd1BeatenText:
+CamperTodd1BeatenText: ; AUTOTRAD
 	text "Did I screw up my"
 	line "training?"
 	done
 
-CamperTodd1AfterText:
+CamperTodd1AfterText: ; AUTOTRAD
 	text "Maybe I should"
 	line "take one to a DAY-"
 
@@ -514,7 +514,7 @@ CamperTodd1AfterText:
 	line "some items…"
 	done
 
-CamperToddSaleText:
+CamperToddSaleText: ; AUTOTRAD
 	text "Shopping under the"
 	line "sky!"
 
@@ -522,25 +522,25 @@ CamperToddSaleText:
 	line "up on a rooftop."
 	done
 
-PicnickerGina1SeenText:
+PicnickerGina1SeenText: ; AUTOTRAD
 	text "Are you a trainer?"
 
 	para "Let's have a"
 	line "practice battle."
 	done
 
-PicnickerGina1BeatenText:
+PicnickerGina1BeatenText: ; AUTOTRAD
 	text "Oh, no! I just"
 	line "can't win…"
 	done
 
-PicnickerGina1AfterText:
+PicnickerGina1AfterText: ; AUTOTRAD
 	text "You're too strong"
 	line "to be a practice"
 	cont "partner."
 	done
 
-PokefanmBrandonSeenText:
+PokefanmBrandonSeenText: ; AUTOTRAD
 	text "I just got my"
 	line "#MON back from"
 	cont "DAY-CARE."
@@ -549,12 +549,12 @@ PokefanmBrandonSeenText:
 	line "stronger it got!"
 	done
 
-PokefanmBrandonBeatenText:
+PokefanmBrandonBeatenText: ; AUTOTRAD
 	text "Why does it end"
 	line "this way?"
 	done
 
-PokefanmBrandonAfterText:
+PokefanmBrandonAfterText: ; TO TRANSLATE
 	text "I left my #MON"
 	line "at the DAY-CARE"
 	cont "for one week and"
@@ -565,23 +565,23 @@ PokefanmBrandonAfterText:
 	cont "gained 6 levels!"
 	done
 
-CooltrainerfIreneSeenText:
+CooltrainerfIreneSeenText: ; AUTOTRAD
 	text "IRENE: Kyaaah!"
 	line "Someone found us!"
 	done
 
-CooltrainerfIreneBeatenText:
+CooltrainerfIreneBeatenText: ; AUTOTRAD
 	text "IRENE: Ohhh!"
 	line "Too strong!"
 	done
 
-CooltrainerfIreneAfterText1:
+CooltrainerfIreneAfterText1: ; AUTOTRAD
 	text "IRENE: My sister"
 	line "KATE will get you"
 	cont "for this!"
 	done
 
-CooltrainerfIreneAfterText2:
+CooltrainerfIreneAfterText2: ; AUTOTRAD
 	text "IRENE: Isn't this"
 	line "beach great?"
 
@@ -589,41 +589,41 @@ CooltrainerfIreneAfterText2:
 	line "little getaway!"
 	done
 
-CooltrainerfJennSeenText:
+CooltrainerfJennSeenText: ; AUTOTRAD
 	text "JENN: You can't"
 	line "beat IRENE and go"
 	cont "unpunished!"
 	done
 
-CooltrainerfJennBeatenText:
+CooltrainerfJennBeatenText: ; AUTOTRAD
 	text "JENN: So sorry,"
 	line "IRENE! Sis!"
 	done
 
-CooltrainerfJennAfterText1:
+CooltrainerfJennAfterText1: ; AUTOTRAD
 	text "JENN: Don't get"
 	line "cocky! My sister"
 	cont "KATE is tough!"
 	done
 
-CooltrainerfJennAfterText2:
+CooltrainerfJennAfterText2: ; AUTOTRAD
 	text "JENN: Sunlight"
 	line "makes your body"
 	cont "stronger."
 	done
 
-CooltrainerfKateSeenText:
+CooltrainerfKateSeenText: ; AUTOTRAD
 	text "KATE: You sure"
 	line "were mean to my"
 	cont "little sisters!"
 	done
 
-CooltrainerfKateBeatenText:
+CooltrainerfKateBeatenText: ; AUTOTRAD
 	text "KATE: No! I can't"
 	line "believe I lost."
 	done
 
-CooltrainerfKateOfferSoftSandText:
+CooltrainerfKateOfferSoftSandText: ; AUTOTRAD
 	text "KATE: You're too"
 	line "strong. I didn't"
 	cont "stand a chance."
@@ -632,7 +632,7 @@ CooltrainerfKateOfferSoftSandText:
 	line "this."
 	done
 
-CooltrainerfKateAfterText:
+CooltrainerfKateAfterText: ; AUTOTRAD
 	text "KATE: I'm sorry we"
 	line "jumped you."
 
@@ -643,12 +643,12 @@ CooltrainerfKateAfterText:
 	line "startled us."
 	done
 
-Route34IlexForestSignText:
+Route34IlexForestSignText: ; AUTOTRAD
 	text "ILEX FOREST"
 	line "THROUGH THE GATE"
 	done
 
-Route34SignText:
+Route34SignText: ; AUTOTRAD
 	text "ROUTE 34"
 
 	para "GOLDENROD CITY -"
@@ -658,7 +658,7 @@ Route34SignText:
 	line "SOMEWHERE BETWEEN"
 	done
 
-Route34TrainerTipsText:
+Route34TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "BERRY trees grow"
@@ -670,7 +670,7 @@ Route34TrainerTipsText:
 	cont "which BERRIES."
 	done
 
-DayCareSignText:
+DayCareSignText: ; AUTOTRAD
 	text "DAY-CARE"
 
 	para "LET US RAISE YOUR"

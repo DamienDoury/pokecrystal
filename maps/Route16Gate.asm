@@ -40,7 +40,7 @@ Route16GateBicycleCheck:
 	applymovement PLAYER, Route17Route18Gate_RightMovement
 	end
 
-Route16GateOfficerText:
+Route16GateOfficerText: ; AUTOTRAD
 	text "CYCLING ROAD"
 	line "starts here."
 
@@ -55,7 +55,7 @@ Route16GateOfficerText:
 	line "a ship or train."
 	done
 
-Route16GateCannotPassText:
+Route16GateCannotPassText: ; TO TRANSLATE
 	text "Hey! Whoa! Stop!"
 
 	para "You can't go out"

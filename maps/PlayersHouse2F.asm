@@ -99,27 +99,27 @@ PlayersHousePlayersTV:
 	disappear PLAYERSHOUSE2F_INVISIBLE_TV
 	end
 
-PlayersRadioText1:
+PlayersRadioText1: ; AUTOTRAD
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
 	cont "in next time!"
 	done
 
-PlayersRadioText2:
+PlayersRadioText2: ; AUTOTRAD
 	text "#MON CHANNEL!"
 	done
 
-PlayersRadioText3:
+PlayersRadioText3: ; AUTOTRAD
 	text "This is DJ MARY,"
 	line "your co-host!"
 	done
 
-PlayersRadioText4:
+PlayersRadioText4: ; AUTOTRAD
 	text "#MON!"
 	line "#MON CHANNEL…"
 	done
 
-PlayersHousePlayersTVText:
+PlayersHousePlayersTVText: ; TO TRANSLATE
 	text "My favorite anime!"
 	line "It's the story of"
 

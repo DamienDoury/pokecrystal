@@ -39,7 +39,7 @@ TrainerSailorKent:
 	closetext
 	end
 
-SailorKentSeenText:
+SailorKentSeenText: ; AUTOTRAD
 	text "JASMINE must be"
 	line "worried sick about"
 	cont "the #MON here."
@@ -48,12 +48,12 @@ SailorKentSeenText:
 	line "smile these days."
 	done
 
-SailorKentBeatenText:
+SailorKentBeatenText: ; AUTOTRAD
 	text "I can't manage a"
 	line "smile either…"
 	done
 
-SailorKentAfterBattleText:
+SailorKentAfterBattleText: ; AUTOTRAD
 	text "Speaking of sick,"
 	line "I've heard there's"
 
@@ -61,7 +61,7 @@ SailorKentAfterBattleText:
 	line "CIANWOOD."
 	done
 
-LassConnie1SeenText:
+LassConnie1SeenText: ; AUTOTRAD
 	text "JASMINE is this"
 	line "city's GYM LEADER."
 
@@ -72,11 +72,11 @@ LassConnie1SeenText:
 	line "get in my way!"
 	done
 
-LassConnie1BeatenText:
+LassConnie1BeatenText: ; AUTOTRAD
 	text "Aaack! My #MON!"
 	done
 
-LassConnie1AfterBattleText:
+LassConnie1AfterBattleText: ; TO TRANSLATE
 	text "Did you know that"
 	line "the number of"
 	cont "abandonned #MON"

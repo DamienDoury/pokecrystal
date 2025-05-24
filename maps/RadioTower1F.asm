@@ -175,7 +175,7 @@ RadioTower1FRadioCardWomanScript:
 	closetext
 	end
 
-.RadioCardText:
+.RadioCardText: ; AUTOTRAD
 	db "RADIO CARD@"
 
 .ReceiveItem:
@@ -228,18 +228,18 @@ RadioTower1FLuckyNumberManReturnToPlayerMovement:
 	turn_head UP
 	step_end
 
-RadioTower1FReceptionistWelcomeText:
+RadioTower1FReceptionistWelcomeText: ; AUTOTRAD
 	text "Welcome!"
 	done
 
-RadioTower1FReceptionistNoToursText:
+RadioTower1FReceptionistNoToursText: ; AUTOTRAD
 	text "Hello. I'm sorry,"
 	line "but we're not"
 	cont "offering any tours"
 	cont "today."
 	done
 
-RadioTower1FLuckyNumberManAskToPlayText:
+RadioTower1FLuckyNumberManAskToPlayText: ; AUTOTRAD
 	text "Hi, are you here"
 	line "for the LUCKY NUM-"
 	cont "BER SHOW?"
@@ -252,14 +252,14 @@ RadioTower1FLuckyNumberManAskToPlayText:
 	line "you win a prize."
 	done
 
-RadioTower1FLuckyNumberManThisWeeksIdIsText:
+RadioTower1FLuckyNumberManThisWeeksIdIsText: ; TO TRANSLATE
 	text "Today's ID"
 	line "number is @"
 	text_ram wStringBuffer3
 	text "."
 	done
 
-RadioTower1FLuckyNumberManCheckIfMatchText:
+RadioTower1FLuckyNumberManCheckIfMatchText: ; AUTOTRAD
 	text "Let's see if you"
 	line "have a match."
 	done
@@ -269,13 +269,13 @@ RadioTower1FLuckyNumberManDotDotDotText:
 	line "<……>"
 	done
 
-RadioTower1FLuckyNumberManComeAgainText:
+RadioTower1FLuckyNumberManComeAgainText: ; AUTOTRAD
 	text "Please come back"
 	line "next week for the"
 	cont "next LUCKY NUMBER."
 	done
 
-RadioTower1FLuckyNumberManPerfectMatchText:
+RadioTower1FLuckyNumberManPerfectMatchText: ; AUTOTRAD
 	text "Wow! You have a"
 	line "perfect match of"
 	cont "all five numbers!"
@@ -287,7 +287,7 @@ RadioTower1FLuckyNumberManPerfectMatchText:
 	line "MASTER BALL!"
 	done
 
-RadioTower1FLuckyNumberManOkayMatchText:
+RadioTower1FLuckyNumberManOkayMatchText: ; AUTOTRAD
 	text "Hey! You've"
 	line "matched the last"
 	cont "three numbers!"
@@ -297,7 +297,7 @@ RadioTower1FLuckyNumberManOkayMatchText:
 	cont "SHARE!"
 	done
 
-RadioTower1FLuckyNumberManWeakMatchText:
+RadioTower1FLuckyNumberManWeakMatchText: ; AUTOTRAD
 	text "Ooh, you've"
 	line "matched the last"
 	cont "two numbers."
@@ -306,12 +306,12 @@ RadioTower1FLuckyNumberManWeakMatchText:
 	line "prize, a PP UP."
 	done
 
-RadioTower1FLuckyNumberManNoneOfYourIDNumbersMatchText:
+RadioTower1FLuckyNumberManNoneOfYourIDNumbersMatchText: ; AUTOTRAD
 	text "Nope, none of your"
 	line "ID numbers match."
 	done
 
-RadioTower1FLuckyNumberManNoRoomForYourPrizeText:
+RadioTower1FLuckyNumberManNoRoomForYourPrizeText: ; AUTOTRAD
 	text "You've got no room"
 	line "for your prize."
 
@@ -319,7 +319,7 @@ RadioTower1FLuckyNumberManNoRoomForYourPrizeText:
 	line "back right away."
 	done
 
-RadioTower1FRadioCardWomanOfferQuizText:
+RadioTower1FRadioCardWomanOfferQuizText: ; AUTOTRAD
 	text "We have a special"
 	line "quiz campaign on"
 	cont "right now."
@@ -338,7 +338,7 @@ RadioTower1FRadioCardWomanOfferQuizText:
 	line "take the quiz?"
 	done
 
-RadioTower1FRadioCardWomanQuestion1Text:
+RadioTower1FRadioCardWomanQuestion1Text: ; AUTOTRAD
 	text "Question 1:"
 
 	para "Is there a #MON"
@@ -346,7 +346,7 @@ RadioTower1FRadioCardWomanQuestion1Text:
 	cont "in the morning?"
 	done
 
-RadioTower1FRadioCardWomanQuestion2Text:
+RadioTower1FRadioCardWomanQuestion2Text: ; AUTOTRAD
 	text "Correct!"
 	line "Question 2:"
 
@@ -357,7 +357,7 @@ RadioTower1FRadioCardWomanQuestion2Text:
 	line "BERRY at a MART."
 	done
 
-RadioTower1FRadioCardWomanQuestion3Text:
+RadioTower1FRadioCardWomanQuestion3Text: ; AUTOTRAD
 	text "Bull's-eye!"
 	line "Question 3:"
 
@@ -365,7 +365,7 @@ RadioTower1FRadioCardWomanQuestion3Text:
 	line "the move FLASH?"
 	done
 
-RadioTower1FRadioCardWomanQuestion4Text:
+RadioTower1FRadioCardWomanQuestion4Text: ; AUTOTRAD
 	text "So far so good!"
 	line "Question 4:"
 
@@ -376,7 +376,7 @@ RadioTower1FRadioCardWomanQuestion4Text:
 	line "#MON?"
 	done
 
-RadioTower1FRadioCardWomanQuestion5Text:
+RadioTower1FRadioCardWomanQuestion5Text: ; TO TRANSLATE
 	text "Wow! Right again!"
 	line "Here's the final"
 	cont "question:"
@@ -385,7 +385,7 @@ RadioTower1FRadioCardWomanQuestion5Text:
 	line "male only?"
 	done
 
-RadioTower1FRadioCardWomanYouWinText:
+RadioTower1FRadioCardWomanYouWinText: ; AUTOTRAD
 	text "Bingo! You got it!"
 	line "Congratulations!"
 
@@ -393,18 +393,18 @@ RadioTower1FRadioCardWomanYouWinText:
 	line "a RADIO CARD!"
 	done
 
-RadioTower1FPokegearIsARadioText:
+RadioTower1FPokegearIsARadioText: ; AUTOTRAD
 	text "<PLAYER>'s #GEAR"
 	line "can now double as"
 	cont "a radio!"
 	done
 
-RadioTower1FRadioCardWomanTuneInText:
+RadioTower1FRadioCardWomanTuneInText: ; AUTOTRAD
 	text "Please tune in to"
 	line "our radio shows."
 	done
 
-RadioTower1FRadioCardWomanWrongAnswerText:
+RadioTower1FRadioCardWomanWrongAnswerText: ; AUTOTRAD
 	text "Oh, dear."
 	line "Sorry, but you"
 
@@ -412,13 +412,13 @@ RadioTower1FRadioCardWomanWrongAnswerText:
 	line "Please try again!"
 	done
 
-RadioTower1FRadioCardWomanNotTakingQuizText:
+RadioTower1FRadioCardWomanNotTakingQuizText: ; AUTOTRAD
 	text "Oh. I see. Please"
 	line "see me if you"
 	cont "change your mind."
 	done
 
-RadioTower1FLassText:
+RadioTower1FLassText: ; AUTOTRAD
 	text "BEN is a fabulous"
 	line "DJ."
 
@@ -426,7 +426,7 @@ RadioTower1FLassText:
 	line "makes me melt!"
 	done
 
-RadioTower1FYoungsterText:
+RadioTower1FYoungsterText: ; AUTOTRAD
 	text "I love MARY, from"
 	line "#MON TALK."
 
@@ -435,7 +435,7 @@ RadioTower1FYoungsterText:
 	cont "though."
 	done
 
-GruntM3SeenText:
+GruntM3SeenText: ; TO TRANSLATE
 	text "We've finally"
 	line "taken over the"
 	cont "RADIO TOWER!"
@@ -447,12 +447,12 @@ GruntM3SeenText:
 	line "life!"
 	done
 
-GruntM3BeatenText:
+GruntM3BeatenText: ; AUTOTRAD
 	text "Too strong! We"
 	line "must watch you…"
 	done
 
-GruntM3AfterBattleText:
+GruntM3AfterBattleText: ; AUTOTRAD
 	text "You're too strong."
 
 	para "Our plan could be"
@@ -460,7 +460,7 @@ GruntM3AfterBattleText:
 	cont "warn the others…"
 	done
 
-RadioTower1FDirectoryText:
+RadioTower1FDirectoryText: ; AUTOTRAD
 	text "1F RECEPTION"
 	line "2F SALES"
 
@@ -471,7 +471,7 @@ RadioTower1FDirectoryText:
 	line "   OFFICE"
 	done
 
-RadioTower1FLuckyChannelSignText:
+RadioTower1FLuckyChannelSignText: ; AUTOTRAD
 	text "LUCKY CHANNEL!"
 
 	para "Win with #MON"

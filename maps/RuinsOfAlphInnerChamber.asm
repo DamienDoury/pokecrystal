@@ -39,18 +39,18 @@ RuinsOfAlphInnerChamberGrampsScript:
 RuinsOfAlphInnerChamberStatue:
 	jumptext RuinsOfAlphInnerChamberStatueText
 
-RuinsOfAlphStrangePresenceText:
+RuinsOfAlphStrangePresenceText: ; AUTOTRAD
 	text "There is a strange"
 	line "presence here…"
 	done
 
-RuinsOfAlphInnerChamberFisherText:
+RuinsOfAlphInnerChamberFisherText: ; AUTOTRAD
 	text "This is a big"
 	line "room, but there's"
 	cont "nothing here."
 	done
 
-RuinsOfAlphInnerChamberTeacherText:
+RuinsOfAlphInnerChamberTeacherText: ; AUTOTRAD
 	text "This place has a"
 	line "mystical quality"
 	cont "to it."
@@ -59,7 +59,7 @@ RuinsOfAlphInnerChamberTeacherText:
 	line "ethereal even."
 	done
 
-RuinsOfAlphInnerChamberGrampsText:
+RuinsOfAlphInnerChamberGrampsText: ; AUTOTRAD
 	text "Ancient buildings"
 	line "are often tombs of"
 	cont "kings."
@@ -68,7 +68,7 @@ RuinsOfAlphInnerChamberGrampsText:
 	line "for instance."
 	done
 
-RuinsOfAlphInnerChamberStatueText:
+RuinsOfAlphInnerChamberStatueText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."

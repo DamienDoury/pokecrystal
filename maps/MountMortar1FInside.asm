@@ -64,17 +64,17 @@ MountMortar1FInsideUltraBall:
 MountMortar1FInsideHiddenMaxRepel:
 	hiddenitem MAX_REPEL, EVENT_MOUNT_MORTAR_1F_INSIDE_HIDDEN_MAX_REPEL
 
-PokemaniacMillerSeenText:
+PokemaniacMillerSeenText: ; AUTOTRAD
 	text "I'm not losing"
 	line "this time!"
 	done
 
-PokemaniacMillerBeatenText:
+PokemaniacMillerBeatenText: ; AUTOTRAD
 	text "I lost to some"
 	line "kid…?"
 	done
 
-PokemaniacMillerAfterBattleText:
+PokemaniacMillerAfterBattleText: ; AUTOTRAD
 	text "A while back, this"
 	line "karate dude wanted"
 
@@ -91,16 +91,16 @@ PokemaniacMillerAfterBattleText:
 	line "wonder how he is?"
 	done
 
-SupernerdMarkusSeenText:
+SupernerdMarkusSeenText: ; AUTOTRAD
 	text "Hey! HUGH!"
 	done
 
-SupernerdMarkusBeatenText:
+SupernerdMarkusBeatenText: ; AUTOTRAD
 	text "I mistook you for"
 	line "someone else…"
 	done
 
-SupernerdMarkusAfterBattleText:
+SupernerdMarkusAfterBattleText: ; AUTOTRAD
 	text "I came to explore"
 	line "MT.MORTAR, but I"
 

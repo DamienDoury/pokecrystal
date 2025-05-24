@@ -34,7 +34,7 @@ Route12SuperRodHouseFishingGuruScript:
 SuperRodHouseBookshelf: ; unreferenced
 	jumpstd PictureBookshelfScript
 
-OfferSuperRodText:
+OfferSuperRodText: ; AUTOTRAD
 	text "I'm the FISHING"
 	line "GURU's younger"
 	cont "brother."
@@ -49,7 +49,7 @@ OfferSuperRodText:
 	line "right."
 	done
 
-GiveSuperRodText:
+GiveSuperRodText: ; AUTOTRAD
 	text "Yes, yes. Just as"
 	line "I thought!"
 
@@ -58,7 +58,7 @@ GiveSuperRodText:
 	cont "SUPER ROD."
 	done
 
-GaveSuperRodText:
+GaveSuperRodText: ; AUTOTRAD
 	text "Try your hand at"
 	line "fishing wherever"
 	cont "there is water."
@@ -70,7 +70,7 @@ GaveSuperRodText:
 	line "different RODS."
 	done
 
-DontWantSuperRodText:
+DontWantSuperRodText: ; AUTOTRAD
 	text "Huh? My own eyes"
 	line "deceived me?"
 	done

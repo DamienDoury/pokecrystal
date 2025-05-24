@@ -9,7 +9,7 @@ VermilionPortPassage_MapScripts:
 VermilionPortPassageTeacherScript:
 	jumptextfaceplayer VermilionPortPassageTeacherText
 
-VermilionPortPassageTeacherText:
+VermilionPortPassageTeacherText: ; AUTOTRAD
 	text "The FAST SHIP"
 	line "sails on Wednes-"
 	cont "days and Sundays"

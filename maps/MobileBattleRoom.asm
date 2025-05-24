@@ -53,12 +53,12 @@ MobileBattleRoomConsoleScript:
 	closetext
 	end
 
-MobileBattleRoom_EstablishingCommsText:
+MobileBattleRoom_EstablishingCommsText: ; AUTOTRAD
 	text "Establishing"
 	line "communications…"
 	done
 
-MobileBattleRoom_HealText:
+MobileBattleRoom_HealText: ; AUTOTRAD
 	text "Your #MON will"
 	line "be fully healed"
 	cont "before battle."

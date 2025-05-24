@@ -38,7 +38,7 @@ CianwoodPharmacist:
 CianwoodPharmacyBookshelf:
 	jumpstd DifficultBookshelfScript
 
-PharmacistGiveSecretpotionText:
+PharmacistGiveSecretpotionText: ; AUTOTRAD
 	text "Your #MON ap-"
 	line "pear to be fine."
 
@@ -57,12 +57,12 @@ PharmacistGiveSecretpotionText:
 	line "the trick."
 	done
 
-ReceivedSecretpotionText:
+ReceivedSecretpotionText: ; TO TRANSLATE
 	text "<PLAYER> received"
 	line "CHLOROQUINE."
 	done
 
-PharmacistDescribeSecretpotionText:
+PharmacistDescribeSecretpotionText: ; TO TRANSLATE
 	text "My CHLOROQUINE is"
 	line "a tad too strong."
 

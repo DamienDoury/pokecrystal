@@ -112,7 +112,7 @@ PewterCity_Door2Script:
 	closetext
 	end
 
-PewterCityCooltrainerFText:
+PewterCityCooltrainerFText: ; TO TRANSLATE
 	text "Young people had"
 	line "organized an il-"
 	cont "legal party in our"
@@ -125,7 +125,7 @@ PewterCityCooltrainerFText:
 	cont "chains."
 	done
 
-PewterCityBugCatcherJustSavedText:
+PewterCityBugCatcherJustSavedText: ; TO TRANSLATE
 	text "Thank you for"
 	line "“fixing” the"
 	cont "forest."
@@ -141,7 +141,7 @@ PewterCityBugCatcherJustSavedText:
 	line "in the city."
 	done
 
-PewterCityBugCatcherText:
+PewterCityBugCatcherText: ; TO TRANSLATE
 	text "At night, CLEFAIRY"
 	line "come out to play"
 	cont "at MT.MOON."
@@ -154,7 +154,7 @@ PewterCityBugCatcherText:
 	cont "lost once again."
 	done
 
-PewterCityGrampsLostGrandKidText:
+PewterCityGrampsLostGrandKidText: ; TO TRANSLATE
 	text "My grand-kid went"
 	line "picking berries"
 	cont "in VIRIDIAN FOREST"
@@ -169,7 +169,7 @@ PewterCityGrampsLostGrandKidText:
 	cont "I'm begging you!"
 	done
 
-PewterCityGrampsText:
+PewterCityGrampsText: ; TO TRANSLATE
 	text "Ah, you're the one"
 	line "that solved the"
 	cont "forest's mystery."
@@ -196,7 +196,7 @@ PewterCityGrampsText:
 	cont "when you leave."
 	done
 
-PewterCityGrampsText_GotMuseumKey:
+PewterCityGrampsText_GotMuseumKey: ; TO TRANSLATE
 	text "When you were into"
 	line "VIRIDIAN FOREST,"
 
@@ -224,12 +224,12 @@ PewterCityGrampsText_GotMuseumKey:
 	para "It's hard to tell…"
 	done
 
-PewterCitySignText:
+PewterCitySignText: ; AUTOTRAD
 	text "PEWTER CITY"
 	line "A Stone Gray City"
 	done
 
-PewterGymSignText:
+PewterGymSignText: ; AUTOTRAD
 	text "PEWTER CITY"
 	line "#MON GYM"
 	cont "LEADER: BROCK"
@@ -238,7 +238,7 @@ PewterGymSignText:
 	line "#MON Trainer"
 	done
 
-PewterMuseumSignText:
+PewterMuseumSignText: ; TO TRANSLATE
 	text "There's a notice"
 	line "here…"
 
@@ -255,25 +255,25 @@ PewterMuseumSignText:
 	line "for bankruptcy."
 	done
 
-PewterMuseumHeavyChainText:
+PewterMuseumHeavyChainText: ; TO TRANSLATE
 	text "A heavy chain"
 	line "keeps the door"
 	cont "locked."
 	done
 
-PewterMuseumKeyDoesntFitText:
+PewterMuseumKeyDoesntFitText: ; TO TRANSLATE
 	text "The MUSEUM KEY"
 	line "doesn't fit into"
 	cont "the padlock."
 	done
 
-PewterMuseumKeySuccessText:
+PewterMuseumKeySuccessText: ; TO TRANSLATE
 	text "The MUSEUM KEY"
 	line "unlocked the"
 	cont "chain."
 	done
 
-PewterCityMtMoonGiftShopSignText:
+PewterCityMtMoonGiftShopSignText: ; AUTOTRAD
 	text "There's a notice"
 	line "here…"
 
@@ -281,7 +281,7 @@ PewterCityMtMoonGiftShopSignText:
 	line "NOW OPEN!"
 	done
 
-PewterCityWelcomeSignText:
+PewterCityWelcomeSignText: ; AUTOTRAD
 	text "WELCOME TO"
 	line "PEWTER CITY!"
 	done

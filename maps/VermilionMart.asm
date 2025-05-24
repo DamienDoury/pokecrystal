@@ -28,7 +28,7 @@ VermilionMartBeautyScript:
 VermilionMartShelfItem1Script:
 	shelfitem 3, ESCAPE_ROPE, 1650
 
-VermilionMartSuperNerdText:
+VermilionMartSuperNerdText: ; AUTOTRAD
 	text "TEAM ROCKET is no"
 	line "longer in KANTO."
 
@@ -36,7 +36,7 @@ VermilionMartSuperNerdText:
 	line "me happy."
 	done
 
-VermilionMartBeautyText:
+VermilionMartBeautyText: ; TO TRANSLATE
 	text "I'm dreaming about"
 	line "going shopping in"
 	cont "CELADON."

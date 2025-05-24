@@ -78,7 +78,7 @@ BrunosRoom_EnterMovement:
 	step UP
 	step_end
 
-BrunoScript_BrunoBeforeText:
+BrunoScript_BrunoBeforeText: ; AUTOTRAD
 	text "I am BRUNO of the"
 	line "ELITE FOUR."
 
@@ -108,12 +108,12 @@ BrunoScript_BrunoBeforeText:
 	para "Hoo hah!"
 	done
 
-BrunoScript_BrunoBeatenText:
+BrunoScript_BrunoBeatenText: ; AUTOTRAD
 	text "Why? How could we"
 	line "lose?"
 	done
 
-BrunoScript_BrunoDefeatText:
+BrunoScript_BrunoDefeatText: ; AUTOTRAD
 	text "Having lost, I"
 	line "have no right to"
 	cont "say anything…"

@@ -68,7 +68,7 @@ CianwoodLugiaSpeechHouseComputerScript:
 CianwoodLugiaSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-CianwoodLugiaSpeechHouseTeacherText:
+CianwoodLugiaSpeechHouseTeacherText: ; AUTOTRAD
 	text "You came from"
 	line "OLIVINE?"
 
@@ -82,7 +82,7 @@ CianwoodLugiaSpeechHouseTeacherText:
 	cont "them."
 	done
 
-CianwoodLugiaSpeechHouseLassText:
+CianwoodLugiaSpeechHouseLassText: ; TO TRANSLATE
 	text "I read that you"
 	line "can only see the"
 
@@ -95,7 +95,7 @@ CianwoodLugiaSpeechHouseLassText:
 	cont "creature."
 	done
 
-CianwoodLugiaSpeechHouseLassLockdownText:
+CianwoodLugiaSpeechHouseLassLockdownText: ; TO TRANSLATE
 	text "“The air from the"
 	line "sea will be good"
 	cont "for you” said mom."
@@ -111,7 +111,7 @@ CianwoodLugiaSpeechHouseLassLockdownText:
 	cont "quarantine."
 	done
 
-CianwoodLugiaSpeechHouseTwinText:
+CianwoodLugiaSpeechHouseTwinText: ; TO TRANSLATE
 	text "I've read that"
 	line "the whirlpools"
 
@@ -124,7 +124,7 @@ CianwoodLugiaSpeechHouseTwinText:
 	cont "get past them."
 	done
 
-CianwoodLugiaSpeechHouseTwinLockdownText:
+CianwoodLugiaSpeechHouseTwinLockdownText: ; TO TRANSLATE
 	text "Mom didn't think"
 	line "about the internet"
 	
@@ -142,7 +142,7 @@ CianwoodLugiaSpeechHouseTwinLockdownText:
 	line "reading books…"
 	done
 
-CianwoodLugiaSpeechHouseTeacherLockdownText:
+CianwoodLugiaSpeechHouseTeacherLockdownText: ; TO TRANSLATE
 	text "So when the first"
 	line "lockdown was ann-"
 	cont "ounced, I quickly"
@@ -159,7 +159,7 @@ CianwoodLugiaSpeechHouseTeacherLockdownText:
 	cont "Look at my screen…"
 	done
 
-CianwoodLugiaSpeechHouseComputerText:
+CianwoodLugiaSpeechHouseComputerText: ; TO TRANSLATE
 	text "A video call run-"
 	line "ning at a whopping"
 	cont "20 frames per"

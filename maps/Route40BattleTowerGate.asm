@@ -14,7 +14,7 @@ Route40BattleTowerGateRockerScript:
 Route40BattleTowerGateTwinScript:
 	jumptextfaceplayer Route40BattleTowerGateTwinText
 
-Route40BattleTowerGateRockerText:
+Route40BattleTowerGateRockerText: ; AUTOTRAD
 	text "Are you going to"
 	line "the BATTLE TOWER?"
 
@@ -25,7 +25,7 @@ Route40BattleTowerGateRockerText:
 	line "win special gifts."
 	done
 
-Route40BattleTowerGateTwinText:
+Route40BattleTowerGateTwinText: ; AUTOTRAD
 	text "The levels of the"
 	line "#MON I want to"
 

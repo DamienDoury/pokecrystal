@@ -70,7 +70,7 @@ UndergroundPathTrainerBurglarEddy:
 	closetext
 	end
 
-.FakeIDText
+.FakeIDText ; TO TRANSLATE
 	db "FAKE TRAINER CARD@"
 
 .NotEnoughMoney
@@ -125,35 +125,35 @@ UndergroundPathVoucherSellerScript:
 	writetext VoucherSellerRefusedText
 	sjump .TextEnd
 
-BurglarEddySeenText:
+BurglarEddySeenText: ; TO TRANSLATE
 	text "Show me what"
 	line "you got."
 	done
 
-BurglarEddyBeatenText:
+BurglarEddyBeatenText: ; TO TRANSLATE
 	text "I needed to make"
 	line "sure you're no"
 	cont "police member."
 	done
 
-BurglarEddySellText:
+BurglarEddySellText: ; TO TRANSLATE
 	text "Want a TRAINER"
 	line "CARD with a"
 	cont "VACCINE PASSPORT?"
 	done
 
-BurglarEddyWrongClientText:
+BurglarEddyWrongClientText: ; TO TRANSLATE
 	text "Oh, you've got your"
 	line "own, I see."
 	cont "Wrong client."
 	done
 
-BurglarEddySellText2:
+BurglarEddySellText2: ; TO TRANSLATE
 	text "I'm selling it for"
 	line "¥{d:UNDERGROUNDPATH_FAKE_ID_PRICE}."
 	done
 
-BurglarEddyTurnedDownText:
+BurglarEddyTurnedDownText: ; TO TRANSLATE
 	text "If you know anti-"
 	line "vaxxers that are"
 
@@ -161,12 +161,12 @@ BurglarEddyTurnedDownText:
 	line "them I'm here."
 	done
 
-BurglarEddyNotEnoughMoneyText:
+BurglarEddyNotEnoughMoneyText: ; TO TRANSLATE
 	text "I'm not a charity."
 	line "Get enough money."
 	done
 
-BurglarEddySoldText:
+BurglarEddySoldText: ; TO TRANSLATE
 	text "It's my name on it"
 	line "but… you'll be fine"
 	cont "in most cases."
@@ -176,17 +176,17 @@ BurglarEddySoldText:
 	cont "anti-vaxxer."
 	done
 
-VoucherSellerIntroText:
+VoucherSellerIntroText: ; TO TRANSLATE
 	text "Hey! Want a"
 	line "VOUCHER?"
 	done
 
-VoucherSellerPriceText:
+VoucherSellerPriceText: ; TO TRANSLATE
 	text "¥{d:UNDERGROUNDPATH_VOUCHER_PRICE} for one."
 	line "What do you say?"
 	done
 
-VoucherSellerRefusedText:
+VoucherSellerRefusedText: ; TO TRANSLATE
 	text "My price is fair."
 
 	para "These are super"
@@ -194,7 +194,7 @@ VoucherSellerRefusedText:
 	cont "win them anymore."
 	done
 
-VoucherSellerFewMoreText:
+VoucherSellerFewMoreText: ; TO TRANSLATE
 	text "If you need an"
 	line "other one, I still"
 	cont "have a few more."

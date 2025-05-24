@@ -102,7 +102,7 @@ CeladonCityPokecenterSign:
 CeladonCityHiddenPpUp:
 	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
 
-CeladonCityFisherText:
+CeladonCityFisherText: ; TO TRANSLATE
 	text "This POLIWHIRL is"
 	line "my partner."
 
@@ -111,11 +111,11 @@ CeladonCityFisherText:
 	cont "frog #MON."
 	done
 
-CeladonCityPoliwrathText:
+CeladonCityPoliwrathText: ; TO TRANSLATE
 	text "POLIWHIRL: Croak!"
 	done
 
-CeladonCityTeacher1Text:
+CeladonCityTeacher1Text: ; TO TRANSLATE
 	text "My forehead is"
 	line "sore…"
 
@@ -130,7 +130,7 @@ CeladonCityTeacher1Text:
 	line "Try it yourself!"
 	done
 
-CeladonCityGramps1Text:
+CeladonCityGramps1Text: ; TO TRANSLATE
 	text "Where did all"
 	line "those GRIMER"
 	cont "come from?"
@@ -139,7 +139,7 @@ CeladonCityGramps1Text:
 	line "problem…"
 	done
 
-CeladonCityGramps2Text:
+CeladonCityGramps2Text: ; AUTOTRAD
 	text "Nihihi! This GYM"
 	line "is great! Only"
 
@@ -147,7 +147,7 @@ CeladonCityGramps2Text:
 	line "here!"
 	done
 
-CeladonCityYoungster1Text:
+CeladonCityYoungster1Text: ; AUTOTRAD
 	text "Want to know a"
 	line "secret?"
 
@@ -156,7 +156,7 @@ CeladonCityYoungster1Text:
 	cont "door."
 	done
 
-CeladonCityYoungster2Text:
+CeladonCityYoungster2Text: ; TO TRANSLATE
 	text "This is the grand"
 	line "re-opening of"
 	cont "the restaurant."
@@ -166,7 +166,7 @@ CeladonCityYoungster2Text:
 	cont "lockdown."
 	done
 
-CeladonCityTeacher2Text:
+CeladonCityTeacher2Text: ; TO TRANSLATE
 	text "CELADON DEPT.STORE"
 	line "just recently"
 	cont "fully re-opened."
@@ -176,13 +176,13 @@ CeladonCityTeacher2Text:
 	cont "being vaccinated."
 	done
 
-CeladonCityTeacher2TextBis:
+CeladonCityTeacher2TextBis: ; TO TRANSLATE
 	text "I'll never get"
 	line "vaccinated. It's"
 	cont "my choice."
 	done
 
-CeladonCityLassText:
+CeladonCityLassText: ; TO TRANSLATE
 	text "My boyfriend said"
     line "he would dump me"
     
@@ -193,14 +193,14 @@ CeladonCityLassText:
 	line "liked him."
     done
 
-CeladonCitySignText:
+CeladonCitySignText: ; AUTOTRAD
 	text "CELADON CITY"
 
 	para "The City of"
 	line "Rainbow Dreams"
 	done
 
-CeladonGymSignText:
+CeladonGymSignText: ; AUTOTRAD
 	text "CELADON CITY"
 	line "#MON GYM"
 	cont "LEADER: ERIKA"
@@ -209,13 +209,13 @@ CeladonGymSignText:
 	line "Princess"
 	done
 
-CeladonCityDeptStoreSignText:
+CeladonCityDeptStoreSignText: ; AUTOTRAD
 	text "Find What You"
 	line "Need at CELADON"
 	cont "DEPT.STORE!"
 	done
 
-CeladonCityMansionSignText:
+CeladonCityMansionSignText: ; AUTOTRAD
 	text "CELADON MANSION"
 	done
 
@@ -232,7 +232,7 @@ else
 	done
 endc
 
-CeladonCityTrainerTipsText:
+CeladonCityTrainerTipsText: ; TO TRANSLATE
 	text "TRAINER TIPS"
 
 	para "GUARD SPEC."
@@ -247,11 +247,11 @@ CeladonCityTrainerTipsText:
 	cont "STORE!"
 	done
 
-CeladonCityBedStoreText:
+CeladonCityBedStoreText: ; TO TRANSLATE
 	text "BED STORE"
 	done
 
-CeladonCity_CasinoDoorText:
+CeladonCity_CasinoDoorText: ; TO TRANSLATE
 	text "“Our entertainment"
 	line "establishement is"
 	cont "not yet allowed"

@@ -58,12 +58,12 @@ CelebritysFearow:
 CelebrityHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-CelebrityText1:
+CelebrityText1: ; TO TRANSLATE
 	text "Oh, dear."
 	line "You've found me."
 	done
 
-CelebrityAskTeach:
+CelebrityAskTeach: ; TO TRANSLATE
 	text "For keeping my"
 	line "secret, I'll teach"
 	cont "your #MON the"
@@ -72,12 +72,12 @@ CelebrityAskTeach:
 	cont "is: SKY ATTACK."
 	done
 
-CelebrityBegging:
+CelebrityBegging: ; TO TRANSLATE
 	text "Please don't tell"
 	line "anyone about me."
 	done
 
-CelebrityText2:
+CelebrityText2: ; TO TRANSLATE
 	text "Moving to such a"
 	line "far away place was"
 	cont "a good decision."
@@ -99,7 +99,7 @@ CelebrityText2:
 	line "top celebrity."
 	done
 
-CelebritysFearowText:
+CelebritysFearowText: ; AUTOTRAD
 	text "FEAROW: Feero!"
 	done
 

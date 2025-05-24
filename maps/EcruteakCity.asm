@@ -138,7 +138,7 @@ EcruteakCityHiddenBerryJuice:
 EcruteakCity_DoorScript:
 	jumpstd LockdownCurfewClosedDoor
 
-EcruteakCityGramps1Text:
+EcruteakCityGramps1Text: ; AUTOTRAD
 	text "ECRUTEAK used to"
 	line "have two towers:"
 
@@ -146,7 +146,7 @@ EcruteakCityGramps1Text:
 	line "east and west."
 	done
 
-EcruteakCityGramps2Text:
+EcruteakCityGramps2Text: ; AUTOTRAD
 	text "Ah, child."
 	line "Have you learned"
 
@@ -161,7 +161,7 @@ EcruteakCityGramps2Text:
 	cont "nice, I hear."
 	done
 
-EcruteakCityLass1Text:
+EcruteakCityLass1Text: ; AUTOTRAD
 	text "I'm going to prac-"
 	line "tice at the DANCE"
 
@@ -169,7 +169,7 @@ EcruteakCityLass1Text:
 	line "join me?"
 	done
 
-EcruteakCityLass2Text:
+EcruteakCityLass2Text: ; AUTOTRAD
 	text "The tower that"
 	line "used to be here…"
 
@@ -178,14 +178,14 @@ EcruteakCityLass2Text:
 	cont "taller."
 	done
 
-EcruteakCityLass2Text_ReleasedBeasts:
+EcruteakCityLass2Text_ReleasedBeasts: ; AUTOTRAD
 	text "Three big #MON"
 	line "ran off in differ-"
 	cont "ent directions."
 	cont "What were they?"
 	done
 
-EcruteakCityFisherText:
+EcruteakCityFisherText: ; AUTOTRAD
 	text "I heard a rumor"
 	line "about OLIVINE"
 	cont "LIGHTHOUSE."
@@ -198,14 +198,14 @@ EcruteakCityFisherText:
 	cont "are in trouble."
 	done
 
-EcruteakCityFisherText_JasmineReturned:
+EcruteakCityFisherText_JasmineReturned: ; TO TRANSLATE
 	text "What happened to"
 	line "the #MON at"
 	cont "OLIVINE LIGHTHOUSE"
 	cont "was sad…"
 	done
 
-EcruteakCityYoungsterText:
+EcruteakCityYoungsterText: ; AUTOTRAD
 	text "I hear #MON are"
 	line "rampaging at the"
 
@@ -213,7 +213,7 @@ EcruteakCityYoungsterText:
 	line "like to see that."
 	done
 
-EcruteakCityGramps3Text:
+EcruteakCityGramps3Text: ; AUTOTRAD
 	text "In the distant"
 	line "past…"
 
@@ -242,7 +242,7 @@ EcruteakCityGramps3Text:
 	cont "Hohoho!"
 	done
 
-EcruteakCitySignText:
+EcruteakCitySignText: ; AUTOTRAD
 	text "ECRUTEAK CITY"
 	line "A Historical City"
 
@@ -250,7 +250,7 @@ EcruteakCitySignText:
 	line "Meets the Present"
 	done
 
-TinTowerSignText:
+TinTowerSignText: ; AUTOTRAD
 	text "TIN TOWER"
 
 	para "A legendary #-"
@@ -258,7 +258,7 @@ TinTowerSignText:
 	cont "roost here."
 	done
 
-EcruteakGymSignText:
+EcruteakGymSignText: ; AUTOTRAD
 	text "ECRUTEAK CITY"
 	line "#MON GYM"
 	cont "LEADER: MORTY"
@@ -267,12 +267,12 @@ EcruteakGymSignText:
 	line "the Future"
 	done
 
-EcruteakDanceTheaterSignText:
+EcruteakDanceTheaterSignText: ; AUTOTRAD
 	text "ECRUTEAK DANCE"
 	line "THEATER"
 	done
 
-BurnedTowerSignText:
+BurnedTowerSignText: ; AUTOTRAD
 	text "BURNED TOWER"
 
 	para "It was destroyed"
@@ -283,12 +283,12 @@ BurnedTowerSignText:
 	line "as it is unsafe."
 	done
 
-EcruteakCityPoliceStationSignText:
+EcruteakCityPoliceStationSignText: ; TO TRANSLATE
 	text "ECRUTEAK CITY"
 	line "POLICE STATION"
 	done
 
-DeliveryGuy_LockdownText:
+DeliveryGuy_LockdownText: ; TO TRANSLATE
 	text "Everyone is qua-"
 	line "rantined at home…"
 
@@ -307,7 +307,7 @@ DeliveryGuy_LockdownText:
 	line "less payments."
 	done
 
-DeliveryGuy_CurfewText:
+DeliveryGuy_CurfewText: ; TO TRANSLATE
 	text "Gotta go fast!"
 
 	para "Or I won't be done"

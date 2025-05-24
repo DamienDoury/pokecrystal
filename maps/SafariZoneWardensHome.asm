@@ -258,14 +258,14 @@ WardensHouse_PlayerLastStepMovement:
 	turn_head UP
 	step_end
 	
-WardensNeighbor_LadyGoHome1Text:
+WardensNeighbor_LadyGoHome1Text: ; TO TRANSLATE
 	text "You were able to"
 	line "move the neighbor's"
 	cont "boulder out of"
 	cont "the way?"
 	done
 
-WardensNeighbor_LadyGoHome2Text:
+WardensNeighbor_LadyGoHome2Text: ; TO TRANSLATE
 	text "Did you hear that,"
 	line "mister?"
 
@@ -276,7 +276,7 @@ WardensNeighbor_LadyGoHome2Text:
 	line "home now!"
 	done
 
-WardensNeighbor_ManGoHomeText:
+WardensNeighbor_ManGoHomeText: ; TO TRANSLATE
 	text "You… you moved"
 	line "the boulder that"
 	cont "was blocking my"
@@ -287,7 +287,7 @@ WardensNeighbor_ManGoHomeText:
 	cont "next door."
 	done
 
-GiveFirstSafariKeyText:
+GiveFirstSafariKeyText: ; TO TRANSLATE
 	text "Thank you so much"
 	line "for removing this"
 	cont "boulder!"
@@ -303,7 +303,7 @@ GiveFirstSafariKeyText:
 	cont "freeing me."
 	done
 
-GiveFirstSafariKeyAfterText:
+GiveFirstSafariKeyAfterText: ; TO TRANSLATE
 	text "I have plenty of"
 	line "those: it is one"
 	cont "of the old"
@@ -314,13 +314,13 @@ GiveFirstSafariKeyAfterText:
 	cont "they often break."
 	done
 
-SafariZoneTrustText:
+SafariZoneTrustText: ; TO TRANSLATE
 	text "I trust you to be"
 	line "respectful in the"
 	cont "SAFARI ZONE."
 	done
 
-SecondSafariKeyText:
+SecondSafariKeyText: ; TO TRANSLATE
 	text "Did you lose or"
 	line "break the SAFARI"
 	cont "KEY I gave you?"
@@ -331,7 +331,7 @@ SecondSafariKeyText:
 	cont "the last one."
 	done
 
-WardensGranddaughterText:
+WardensGranddaughterText: ; TO TRANSLATE
 	text "My grandpa is the"
 	line "SAFARI ZONE WAR-"
 	cont "DEN."
@@ -350,7 +350,7 @@ WardensGranddaughterText:
 	cont "like that."
 	done
 
-WardensGranddaughter_ForSaleText:
+WardensGranddaughter_ForSaleText: ; TO TRANSLATE
 	text "Hey! You seem to"
 	line "enjoy the SAFARI"
 	cont "ZONE, right?"
@@ -377,12 +377,12 @@ WardensGranddaughter_ForSaleText:
 	cont "buying it?"
 	done
 
-WardensGranddaughter_NotEnoughText:
+WardensGranddaughter_NotEnoughText: ; TO TRANSLATE
 	text "Oh dear, you don't"
 	line "have enough."
 	done
 
-WardensGranddaughter_RefusalText:
+WardensGranddaughter_RefusalText: ; TO TRANSLATE
 	text "You've been there"
 	line "several times,"
 	
@@ -390,17 +390,17 @@ WardensGranddaughter_RefusalText:
 	line "liked it…"
 	done
 
-WardensGranddaughter_SignText:
+WardensGranddaughter_SignText: ; TO TRANSLATE
 	text "Sign here, and"
 	line "it's yours."
 	done
 
-WardensGranddaughter_OwnText:
+WardensGranddaughter_OwnText: ; TO TRANSLATE
 	text "<PLAYER> owns"
 	line "the SAFARI ZONE!"
 	done
 
-WardensGranddaughter_PlansText:
+WardensGranddaughter_PlansText: ; TO TRANSLATE
 	text "I have thought"
 	line "about it, and I"
 	
@@ -415,7 +415,7 @@ WardensGranddaughter_PlansText:
 	cont "acquisition!"
 	done
 
-WardenNeighborText:
+WardenNeighborText: ; TO TRANSLATE
 	text "I used to live"
 	line "next door, but"
 
@@ -440,7 +440,7 @@ WardenNeighborText:
 	para "Nice, hehe!"
 	done
 
-WardenPhotoText:
+WardenPhotoText: ; AUTOTRAD
 	text "It's a photo of a"
 	line "grinning old man"
 
@@ -448,7 +448,7 @@ WardenPhotoText:
 	line "by #MON."
 	done
 
-SafariZonePhotoText:
+SafariZonePhotoText: ; AUTOTRAD
 	text "It's a photo of a"
 	line "huge grassy plain"
 
@@ -456,7 +456,7 @@ SafariZonePhotoText:
 	line "frolicking in it."
 	done
 
-SafariZoneOwnerText:
+SafariZoneOwnerText: ; TO TRANSLATE
 	text "“This document"
 	line "certifies that"
 	cont "<PLAYER> is the"

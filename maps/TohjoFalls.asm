@@ -13,7 +13,7 @@ TohjoFallsMoonStone:
 TohjoFallsWaterfallTipScript:
 	jumptextfaceplayer TohjoFallsWaterfallTipText
 
-TohjoFallsWaterfallTipText:
+TohjoFallsWaterfallTipText: ; TO TRANSLATE
 	text "I'm stuck here."
 	line "I lost the HM that"
 

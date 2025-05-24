@@ -49,7 +49,7 @@ GoldenrodDeptStore4FShelfItem1Script:
 GoldenrodDeptStore4FShelfItem2Script:
 	shelfitem 10, ELIXER, 24000
 
-GoldenrodDeptStore4FCooltrainerMText:
+GoldenrodDeptStore4FCooltrainerMText: ; AUTOTRAD
 	text "Hey. I love strong"
 	line "#MON."
 
@@ -58,19 +58,19 @@ GoldenrodDeptStore4FCooltrainerMText:
 	cont "their ATTACK."
 	done
 
-GoldenrodDeptStore4FCooltrainerMLockdownText:
+GoldenrodDeptStore4FCooltrainerMLockdownText: ; TO TRANSLATE
 	text "I like to hide in"
 	line "here while the"
 	cont "store is closed"
 	cont "heehee!"
 	done
 
-GoldenrodDeptStore4FBugCatcherText:
+GoldenrodDeptStore4FBugCatcherText: ; AUTOTRAD
 	text "IRON adds to your"
 	line "#MON's DEFENSE."
 	done
 
-GoldenrodDeptStore4FGameboyKidText:
+GoldenrodDeptStore4FGameboyKidText: ; AUTOTRAD
 	text "Some #MON"
 	line "evolve only by"
 
@@ -87,7 +87,7 @@ GoldenrodDeptStore4FGameboyKidText:
 	line "others too."
 	done
 
-GoldenrodDeptStore4FDirectoryText:
+GoldenrodDeptStore4FDirectoryText: ; AUTOTRAD
 	text "Let Us Pump Up"
 	line "Your #MON!"
 

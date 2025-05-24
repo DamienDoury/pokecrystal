@@ -11,7 +11,7 @@ SafariZoneFuchsiaGateBeta_MapScripts:
 SafariGateEmployeeScript:
 	jumptextfaceplayer SafariGateEmployeeText
 
-SafariGateEmployeeText:
+SafariGateEmployeeText: ; TO TRANSLATE
 	text "Oh, hi boss!"
 	done
 

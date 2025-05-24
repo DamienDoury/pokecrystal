@@ -25,7 +25,7 @@ CianwoodPhotoStudioFishingGuruScript:
 	closetext
 	end
 
-CianwoodPhotoStudioFishingGuruText_Question:
+CianwoodPhotoStudioFishingGuruText_Question: ; AUTOTRAD
 	text "You have magnifi-"
 	line "cent #MON with"
 	cont "you."
@@ -34,11 +34,11 @@ CianwoodPhotoStudioFishingGuruText_Question:
 	line "for a souvenir?"
 	done
 
-CianwoodPhotoStudioFishingGuruText_Yes:
+CianwoodPhotoStudioFishingGuruText_Yes: ; AUTOTRAD
 	text "OK! Big smile now!"
 	done
 
-CianwoodPhotoStudioFishingGuruText_No:
+CianwoodPhotoStudioFishingGuruText_No: ; AUTOTRAD
 	text "Oh, that's too"
 	line "bad. I thought it"
 

@@ -101,12 +101,12 @@ CeladonDeptStore6FDirectory:
 CeladonDeptStore6FElevatorButton: ; unreferenced
 	jumpstd ElevatorButtonScript
 
-CeladonVendingText:
+CeladonVendingText: ; AUTOTRAD
 	text "A vending machine!"
 	line "Here's the menu."
 	done
 
-CeladonClangText:
+CeladonClangText: ; AUTOTRAD
 	text "Clang!"
 
 	para "@"
@@ -115,17 +115,17 @@ CeladonClangText:
 	line "popped out."
 	done
 
-CeladonVendingNoMoneyText:
+CeladonVendingNoMoneyText: ; AUTOTRAD
 	text "Oops, not enough"
 	line "money…"
 	done
 
-CeladonVendingNoSpaceText:
+CeladonVendingNoSpaceText: ; AUTOTRAD
 	text "There's no more"
 	line "room for stuff…"
 	done
 
-CeladonDeptStore6FSuperNerdText:
+CeladonDeptStore6FSuperNerdText: ; AUTOTRAD
 	text "A vending machine"
 	line "with a prize rou-"
 	cont "lette…"
@@ -134,14 +134,14 @@ CeladonDeptStore6FSuperNerdText:
 	line "those anymore."
 	done
 
-CeladonDeptStore6FYoungsterText:
+CeladonDeptStore6FYoungsterText: ; AUTOTRAD
 	text "Aww! There's no"
 	line "games here!"
 
 	para "I wanted to play…"
 	done
 
-CeladonDeptStore6FDirectoryText:
+CeladonDeptStore6FDirectoryText: ; AUTOTRAD
 	text "6F: ROOFTOP SQUARE"
 	line "VENDING MACHINES"
 	done

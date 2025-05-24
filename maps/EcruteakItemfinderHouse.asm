@@ -69,7 +69,7 @@ EcruteakHistoryBook:
 ItemFinderHouseRadio:
 	jumpstd Radio2Script
 
-EcruteakItemfinderAdventureText:
+EcruteakItemfinderAdventureText: ; AUTOTRAD
 	text "Ah. You're on an"
 	line "adventure with"
 	cont "your #MON?"
@@ -82,7 +82,7 @@ EcruteakItemfinderAdventureText:
 	line "I right?"
 	done
 
-EcruteakItemfinderTrueSpiritText:
+EcruteakItemfinderTrueSpiritText: ; AUTOTRAD
 	text "Good! You under-"
 	line "stand the true"
 
@@ -93,12 +93,12 @@ EcruteakItemfinderTrueSpiritText:
 	line "this with you."
 	done
 
-EcruteakItemfinderToEachHisOwnText:
+EcruteakItemfinderToEachHisOwnText: ; AUTOTRAD
 	text "Oh… To each his"
 	line "own, I suppose…"
 	done
 
-EcruteakItemfinderGirlText:
+EcruteakItemfinderGirlText: ; TO TRANSLATE
 	text "My brother lives"
 	line "in AZALEA TOWN"
 	cont "with his trusty"
@@ -109,14 +109,14 @@ EcruteakItemfinderGirlText:
 	line "are ok…"
 	done
 
-EcruteakHistoryBookText:
+EcruteakHistoryBookText: ; AUTOTRAD
 	text "HISTORY OF"
 	line "ECRUTEAK"
 
 	para "Want to read it?"
 	done
 
-EcruteakTwoTowersText:
+EcruteakTwoTowersText: ; AUTOTRAD
 	text "In ECRUTEAK, there"
 	line "were two towers."
 
@@ -135,7 +135,7 @@ EcruteakTwoTowersText:
 	para "Keep reading?"
 	done
 
-EcruteakThreeMonText:
+EcruteakThreeMonText: ; AUTOTRAD
 	text "ECRUTEAK was also"
 	line "home to three"
 

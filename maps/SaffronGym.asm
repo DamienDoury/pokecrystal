@@ -126,7 +126,7 @@ SaffronGymStatue:
 	gettrainername STRING_BUFFER_4, SABRINA, SABRINA1
 	jumpstd GymStatue2Script
 
-SabrinaIntroText:
+SabrinaIntroText: ; TO TRANSLATE
 	text "SABRINA: I knew"
 	line "you were coming…"
 
@@ -165,19 +165,19 @@ SabrinaIntroText:
 	line "ready?"
 	done
 
-SabrinaIntroSequelText:
+SabrinaIntroSequelText: ; TO TRANSLATE
 	text "Since you wish it,"
 	line "I will show you my"
 	cont "psychic powers!"
 	done
 
-SabrinaChallengeRefusedText:
+SabrinaChallengeRefusedText: ; TO TRANSLATE
 	text "I foresee that"
 	line "our paths will"
 	cont "cross again."
 	done
 
-SabrinaWinLossText:
+SabrinaWinLossText: ; AUTOTRAD
 	text "SABRINA: Your"
 	line "power…"
 
@@ -195,12 +195,12 @@ SabrinaWinLossText:
 	cont "MARSHBADGE."
 	done
 
-ReceivedMarshBadgeText:
+ReceivedMarshBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "MARSHBADGE."
 	done
 
-SabrinaMarshBadgeText:
+SabrinaMarshBadgeText: ; TO TRANSLATE
 	text "SABRINA: Although"
 	line "I failed to"
 	cont "accurately predict"
@@ -213,7 +213,7 @@ SabrinaMarshBadgeText:
 	cont "beloved CHAMPION!"
 	done
 
-SabrinaFightDoneText:
+SabrinaFightDoneText: ; TO TRANSLATE
 	text "SABRINA: The power"
 	line "of your mind"
 
@@ -224,34 +224,34 @@ SabrinaFightDoneText:
 	line "paths…"
 	done
 
-MediumRebeccaSeenText:
+MediumRebeccaSeenText: ; AUTOTRAD
 	text "The power of all"
 	line "those you defeated"
 	cont "comes to me!"
 	done
 
-MediumRebeccaBeatenText:
+MediumRebeccaBeatenText: ; AUTOTRAD
 	text "Strong…"
 	line "Far too strong…"
 	done
 
-MediumRebeccaAfterBattleText:
+MediumRebeccaAfterBattleText: ; AUTOTRAD
 	text "What is the source"
 	line "of your power?"
 	done
 
-PsychicFranklinSeenText:
+PsychicFranklinSeenText: ; AUTOTRAD
 	text "Psychic power is"
 	line "the power of your"
 	cont "soul."
 	done
 
-PsychicFranklinBeatenText:
+PsychicFranklinBeatenText: ; AUTOTRAD
 	text "Your soul has more"
 	line "power than mine!"
 	done
 
-PsychicFranklinAfterBattleText:
+PsychicFranklinAfterBattleText: ; TO TRANSLATE
 	text "SABRINA's powers"
 	line "are terrifying."
 	
@@ -275,7 +275,7 @@ PsychicFranklinAfterBattleText:
 	cont "to this building."
 	done
 
-MediumDorisSeenText:
+MediumDorisSeenText: ; AUTOTRAD
 	text "Fufufufu…"
 	line "I see it clearly."
 
@@ -283,28 +283,28 @@ MediumDorisSeenText:
 	line "your soul!"
 	done
 
-MediumDorisBeatenText:
+MediumDorisBeatenText: ; AUTOTRAD
 	text "Though I read you,"
 	line "I still lost…"
 	done
 
-MediumDorisAfterBattleText:
+MediumDorisAfterBattleText: ; AUTOTRAD
 	text "Darn! I forgot"
 	line "that I predicted I"
 	cont "would lose to you."
 	done
 
-PsychicJaredSeenText:
+PsychicJaredSeenText: ; AUTOTRAD
 	text "The FIGHTING DOJO"
 	line "next door was once"
 	cont "this city's GYM."
 	done
 
-PsychicJaredBeatenText:
+PsychicJaredBeatenText: ; AUTOTRAD
 	text "I was no match…"
 	done
 
-PsychicJaredAfterBattleText:
+PsychicJaredAfterBattleText: ; AUTOTRAD
 	text "KARATE KING, the"
 	line "master of the"
 
@@ -313,7 +313,7 @@ PsychicJaredAfterBattleText:
 	cont "SABRINA."
 	done
 
-SaffronGymGuideText:
+SaffronGymGuideText: ; TO TRANSLATE
 	text "Hello <PLAYER>…"
 
 	para "SABRINA told me"
@@ -341,7 +341,7 @@ SaffronGymGuideText:
 	cont "challenge her?"
 	done
 
-SaffronGymGuideWinText:
+SaffronGymGuideWinText: ; TO TRANSLATE
 	text "That was another"
 	line "FANTASTIC battle!"
 	done

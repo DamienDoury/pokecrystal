@@ -74,7 +74,7 @@ ViridianGymStatue:
 	gettrainername STRING_BUFFER_4, BLUE, BLUE1
 	jumpstd GymStatue2Script
 
-LeaderBlueBeforeText:
+LeaderBlueBeforeText: ; TO TRANSLATE
 	text "BLUE: Yo! Finally"
 	line "got here, huh?"
 
@@ -118,7 +118,7 @@ LeaderBlueBeforeText:
 	cont "CHAMP?"
 	done
 
-LeaderBlueWinText:
+LeaderBlueWinText: ; AUTOTRAD
 	text "BLUE: What?"
 
 	para "How the heck did I"
@@ -131,12 +131,12 @@ LeaderBlueWinText:
 	cont "it's EARTHBADGE."
 	done
 
-Text_ReceivedEarthBadge:
+Text_ReceivedEarthBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "EARTHBADGE."
 	done
 
-LeaderBlueAfterText:
+LeaderBlueAfterText: ; AUTOTRAD
 	text "BLUE: …"
 
 	para "All right, I was"
@@ -152,7 +152,7 @@ LeaderBlueAfterText:
 	line "it!"
 	done
 
-LeaderBlueEpilogueText:
+LeaderBlueEpilogueText: ; AUTOTRAD
 	text "BLUE: Listen, you."
 
 	para "You'd better not"
@@ -160,7 +160,7 @@ LeaderBlueEpilogueText:
 	cont "you. Got it?"
 	done
 
-LeaderBlueRivalText:
+LeaderBlueRivalText: ; TO TRANSLATE
 	text "BLUE: Now that RED"
 	line "is gone, I have"
 	cont "no rival."
@@ -172,7 +172,7 @@ LeaderBlueRivalText:
 	line "a new purpose…"
 	done
 
-ViridianGymGuideText:
+ViridianGymGuideText: ; TO TRANSLATE
 	text "Yo, CHAMP!"
 
 	para "How's it going?"
@@ -209,7 +209,7 @@ ViridianGymGuideText:
 
 	done
 
-ViridianGymGuideWinText:
+ViridianGymGuideWinText: ; AUTOTRAD
 	text "Man, you are truly"
 	line "tough…"
 

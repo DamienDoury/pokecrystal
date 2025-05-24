@@ -265,7 +265,7 @@ NewBadgeObedienceNotification:
 	end
 
 
-BugsyText_INeverLose:
+BugsyText_INeverLose: ; TO TRANSLATE
 	text "I'm BUGSY!"
 	line "I never lose when"
 
@@ -273,7 +273,7 @@ BugsyText_INeverLose:
 	line "#MON."
 	done
 
-BugsyText_INeverLoseSequel:
+BugsyText_INeverLoseSequel: ; TO TRANSLATE
 	text "My research is"
 	line "going to make me"
 
@@ -297,7 +297,7 @@ AzaleaGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-BugsyText_ResearchIncomplete:
+BugsyText_ResearchIncomplete: ; AUTOTRAD
 	text "Whoa, amazing!"
 	line "You're an expert"
 	cont "on #MON!"
@@ -309,12 +309,12 @@ BugsyText_ResearchIncomplete:
 	line "this BADGE."
 	done
 
-Text_ReceivedHiveBadge:
+Text_ReceivedHiveBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "HIVEBADGE."
 	done
 
-Obey30:
+Obey30: ; TO TRANSLATE
 	text "With this first"
 	line "badge in hand,"
 	
@@ -322,12 +322,12 @@ Obey30:
 	line "will obey you."
 	done
 
-BugsyText_HiveBadgeSpeech:
+BugsyText_HiveBadgeSpeech: ; TO TRANSLATE
 	text "Here, I also want"
 	line "you to have this."
 	done
 
-BugsyText_FuryCutterSpeech:
+BugsyText_FuryCutterSpeech: ; AUTOTRAD
 	text "TM49 contains"
 	line "FURY CUTTER."
 
@@ -343,7 +343,7 @@ BugsyText_FuryCutterSpeech:
 	line "I discovered it!"
 	done
 
-BugsyText_BugMonsAreDeep:
+BugsyText_BugMonsAreDeep: ; AUTOTRAD
 	text "Bug #MON are"
 	line "deep. There are"
 
@@ -354,7 +354,7 @@ BugsyText_BugMonsAreDeep:
 	line "ites thoroughly."
 	done
 
-BugCatcherBennySeenText:
+BugCatcherBennySeenText: ; AUTOTRAD
 	text "Bug #MON evolve"
 	line "young. So they get"
 
@@ -362,18 +362,18 @@ BugCatcherBennySeenText:
 	line "faster."
 	done
 
-BugCatcherBennyBeatenText:
+BugCatcherBennyBeatenText: ; AUTOTRAD
 	text "Just evolving"
 	line "isn't enough!"
 	done
 
-BugCatcherBennyAfterBattleText:
+BugCatcherBennyAfterBattleText: ; AUTOTRAD
 	text "#MON become"
 	line "stronger if they"
 	cont "evolve. Really!"
 	done
 
-BugCatcherAlSeenText:
+BugCatcherAlSeenText: ; AUTOTRAD
 	text "Bug #MON are"
 	line "cool and tough!"
 
@@ -381,12 +381,12 @@ BugCatcherAlSeenText:
 	line "you!"
 	done
 
-BugCatcherAlBeatenText:
+BugCatcherAlBeatenText: ; AUTOTRAD
 	text "You proved how"
 	line "tough you are…"
 	done
 
-BugCatcherAlAfterBattleText:
+BugCatcherAlAfterBattleText: ; AUTOTRAD
 	text "They're so cool,"
 	line "but most girls"
 
@@ -396,7 +396,7 @@ BugCatcherAlAfterBattleText:
 	para "I don't know why…"
 	done
 
-BugCatcherJoshSeenText:
+BugCatcherJoshSeenText: ; AUTOTRAD
 	text "You saved all the"
 	line "SLOWPOKE? Whew,"
 	cont "you're mighty!"
@@ -406,50 +406,50 @@ BugCatcherJoshSeenText:
 	cont "tough too!"
 	done
 
-BugCatcherJoshBeatenText:
+BugCatcherJoshBeatenText: ; AUTOTRAD
 	text "Urrgggh!"
 	done
 
-BugCatcherJoshAfterBattleText:
+BugCatcherJoshAfterBattleText: ; AUTOTRAD
 	text "I guess I should"
 	line "teach them better"
 	cont "moves…"
 	done
 
-TwinsAmyandmay1SeenText:
+TwinsAmyandmay1SeenText: ; AUTOTRAD
 	text "AMY: Hi! Are you"
 	line "challenging the"
 	cont "LEADER? No way!"
 	done
 
-TwinsAmyandmay1BeatenText:
+TwinsAmyandmay1BeatenText: ; AUTOTRAD
 	text "AMY & MAY: Oh,"
 	line "double goodness!"
 	done
 
-TwinsAmyandmay1AfterBattleText:
+TwinsAmyandmay1AfterBattleText: ; AUTOTRAD
 	text "AMY: You're"
 	line "really strong!"
 	done
 
-TwinsAmyandmay2SeenText:
+TwinsAmyandmay2SeenText: ; AUTOTRAD
 	text "MAY: You want to"
 	line "see the LEADER?"
 	cont "We come first!"
 	done
 
-TwinsAmyandmay2BeatenText:
+TwinsAmyandmay2BeatenText: ; TO TRANSLATE
 	text "MAY & AMY: Oh,"
 	line "double goodness!"
 	done
 
-TwinsAmyandmay2AfterBattleText:
+TwinsAmyandmay2AfterBattleText: ; TO TRANSLATE
 	text "MAY: Our BUG #-"
 	line "MON lost! Oh, what"
 	cont "a shame."
 	done
 
-AzaleaGymGuideText:
+AzaleaGymGuideText: ; AUTOTRAD
 	text "Yo, challenger!"
 
 	para "BUGSY's young, but"
@@ -471,7 +471,7 @@ AzaleaGymGuideText:
 	cont "tive too."
 	done
 
-AzaleaGymGuideWinText:
+AzaleaGymGuideWinText: ; AUTOTRAD
 	text "Well done! That"
 	line "was a great clash"
 

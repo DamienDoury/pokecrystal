@@ -185,7 +185,7 @@ Akiba1F_Seller_Script:
 	closetext
 	end
 
-.RadioCardText:
+.RadioCardText: ; AUTOTRAD
 	db "RADIO CARD@"
 
 Akiba1F_PricesUpScript:
@@ -327,12 +327,12 @@ Akiba1F_BackToChairFromRightMovement:
 	turn_head UP
 	step_end
 
-Akiba1F_GameConsoleText:
+Akiba1F_GameConsoleText: ; TO TRANSLATE
 	text "A game console."
 	line "Where's the seller?"
 	done
 
-Akiba1F_NotEnoughMoneyText:
+Akiba1F_NotEnoughMoneyText: ; TO TRANSLATE
 	text "I'm sorry but I"
 	line "won't lower the"
 	cont "price of this"
@@ -340,21 +340,21 @@ Akiba1F_NotEnoughMoneyText:
 	cont "with enough money."
 	done
 
-Akiba1F_TransactionCompletedText:
+Akiba1F_TransactionCompletedText: ; TO TRANSLATE
 	text "Great choice!"
 	line "I will ship it to"
 	cont "your home without"
 	cont "delay!"
 	done
 
-Akiba1F_TransactionRefusedText:
+Akiba1F_TransactionRefusedText: ; TO TRANSLATE
 	text "Think about it."
 	line "It may be gone"
 	cont "next time you"
 	cont "come."
 	done
 
-Akiba1F_VirtualBoyBuyText:
+Akiba1F_VirtualBoyBuyText: ; TO TRANSLATE
 	text "This is a super"
 	line "rare VIRTUAL BOY."
 
@@ -374,7 +374,7 @@ Akiba1F_VirtualBoyBuyText:
 	cont "for ¥{d:VIRTUAL_BOY_PRICE}."
 	done
 
-Akiba1F_N64BuyText:
+Akiba1F_N64BuyText: ; TO TRANSLATE
 	text "This NINTENDO 64"
 	line "is the special"
 	cont "Pikachu edition."
@@ -393,7 +393,7 @@ Akiba1F_N64BuyText:
 	line "¥{d:N64_PRICE}."
 	done
 
-Akiba1F_SNESBuyText:
+Akiba1F_SNESBuyText: ; TO TRANSLATE
 	text "The SUPER NINTENDO"
 	line "ENTERTAINMENT"
 	cont "SYSTEM is the"
@@ -409,7 +409,7 @@ Akiba1F_SNESBuyText:
 	line "for ¥{d:SNES_PRICE}."
 	done
 
-Akiba1F_NESBuyText:
+Akiba1F_NESBuyText: ; TO TRANSLATE
 	text "The Famicom is the"
 	line "Japanese version"
 	cont "of the NINTENDO"
@@ -425,12 +425,12 @@ Akiba1F_NESBuyText:
 	line "¥{d:NES_PRICE}."
 	done
 
-Akiba1F_BeRightBackText:
+Akiba1F_BeRightBackText: ; TO TRANSLATE
 	text "I'm in CELADON,"
 	line "I'll be right back."
 	done
 
-Akiba1F_Seller_HiText:
+Akiba1F_Seller_HiText: ; TO TRANSLATE
 	text "Oh hi!"
 
 	para "We met at "
@@ -438,12 +438,12 @@ Akiba1F_Seller_HiText:
 	cont "remember me?"
 	done
 
-Akiba1F_Seller_HiEndText:
+Akiba1F_Seller_HiEndText: ; TO TRANSLATE
 	text "Feel free to snoop"
 	line "around my shop!"
 	done
 
-Akiba1F_Seller_BestCustomerText:
+Akiba1F_Seller_BestCustomerText: ; TO TRANSLATE
 	text "Hey! Isn't this my"
 	line "best customer?"
 
@@ -478,7 +478,7 @@ Akiba1F_Seller_BestCustomerText:
 	para "I wonder."
 	done
 
-Akiba1F_Seller_RadioText:
+Akiba1F_Seller_RadioText: ; TO TRANSLATE
 	text "My friend the"
 	line "MUSIC DIRECTOR"
 	cont "sent you? I see."
@@ -488,33 +488,33 @@ Akiba1F_Seller_RadioText:
 	cont "free of charge!"
 	done
 
-Akiba1F_Inventory1Text:
+Akiba1F_Inventory1Text: ; TO TRANSLATE
 	text "Adrenaline and"
 	line "testosterone:"
 
 	para "Devil may cry"
 	done
 	
-Akiba1F_Inventory2Text:
+Akiba1F_Inventory2Text: ; TO TRANSLATE
 	text "Golden Sun 1 & 2!"
 	line "A must play!"
 	done
 
-Akiba1F_Inventory3Text:
+Akiba1F_Inventory3Text: ; TO TRANSLATE
 	text "Some #GEAR "
 	line "parts."
 	done
 
-Akiba1F_Inventory4Text:
+Akiba1F_Inventory4Text: ; TO TRANSLATE
 	text "Radio parts."
 	done
 
-Akiba1F_Inventory5Text:
+Akiba1F_Inventory5Text: ; TO TRANSLATE
 	text "Tamagotchis"
 	line "everywhere!"
 	done
 
-Akiba1F_Inventory6Text:
+Akiba1F_Inventory6Text: ; TO TRANSLATE
 	text "Pocket Pikachu 2!"
 	line "This one connects"
 	cont "with the #MON"
@@ -522,58 +522,58 @@ Akiba1F_Inventory6Text:
 	cont "Game Boy Color."
 	done
 
-Akiba1F_Inventory7Text:
+Akiba1F_Inventory7Text: ; TO TRANSLATE
 	text "The PC game"
 	line "Impossible"
 	cont "Creatures."
 	done
 
-Akiba1F_Inventory8Text:
+Akiba1F_Inventory8Text: ; TO TRANSLATE
 	text "Zeus: Master of"
 	line "Olympus"
 	cont "on CD-ROM."
 	done
 
-Akiba1F_Inventory9Text:
+Akiba1F_Inventory9Text: ; TO TRANSLATE
 	text "There's a MAGNEMITE"
 	line "chilling in"
 	cont "this bin."
 	done
 
-Akiba1F_Inventory10Text:
+Akiba1F_Inventory10Text: ; TO TRANSLATE
 	text "A cartridge of the"
 	line "final release of"
 	cont "Coral Version."
 	done
 
-Akiba1F_Inventory11Text:
+Akiba1F_Inventory11Text: ; TO TRANSLATE
 	text "Hey that's"
 	line "Polished Crystal!"
 	done
 
-Akiba1F_Inventory12Text:
+Akiba1F_Inventory12Text: ; TO TRANSLATE
 	text "Insaniquarium"
 	line "on CD-ROM."
 	done
 
-Akiba1F_Inventory13Text:
+Akiba1F_Inventory13Text: ; TO TRANSLATE
 	text "Morrowind"
 	line "on CD-ROM."
 	done
 
-Akiba1F_Inventory14Text:
+Akiba1F_Inventory14Text: ; TO TRANSLATE
 	text "Rare Game Boy"
 	line "games for"
 	cont "very cheap!"
 	done
 
-Akiba1F_Inventory15Text:
+Akiba1F_Inventory15Text: ; TO TRANSLATE
 	text "A Super Mario Bros"
 	line "Crystal Screen"
 	cont "Game & Watch!"
 	done
 
-Akiba1F_Inventory16Text:
+Akiba1F_Inventory16Text: ; TO TRANSLATE
 	text "Lots of weird"
 	line "accessories for"
 	cont "the Game Boy."
@@ -590,7 +590,7 @@ Akiba1F_Inventory16Text:
 	line "tester?"
 	done
 
-Akiba1F_Inventory17Text:
+Akiba1F_Inventory17Text: ; TO TRANSLATE
 	text "Copies of The"
 	line "Legend of Zelda"
 	cont "for the Game Boy"
@@ -598,24 +598,24 @@ Akiba1F_Inventory17Text:
 	cont "consoles. Nice."
 	done
 
-Akiba1F_Inventory18Text:
+Akiba1F_Inventory18Text: ; TO TRANSLATE
 	text "A Game Boy game"
 	line "for McDonald's"
 	cont "employees?"
 	done
 
-Akiba1F_Inventory19Text:
+Akiba1F_Inventory19Text: ; TO TRANSLATE
 	text "Pinball circuit"
 	line "boards!"
 	done
 
-Akiba1F_Inventory20Text:
+Akiba1F_Inventory20Text: ; TO TRANSLATE
 	text "Some junk 5V 2MB"
 	line "TSOP-48 flash"
 	cont "chips."
 	done
 	
-Akiba1F_Inventory21Text:
+Akiba1F_Inventory21Text: ; TO TRANSLATE
 	text "A copy of Tetris"
 	line "for the Game Boy."
 
@@ -631,28 +631,28 @@ Akiba1F_Inventory21Text:
 	line "Better pass."
 	done
 
-Akiba1F_Inventory22Text:
+Akiba1F_Inventory22Text: ; TO TRANSLATE
 	text "Soldering hot"
 	line "plates, tweezers…"
 	done
 
-Akiba1F_Inventory23Text:
+Akiba1F_Inventory23Text: ; TO TRANSLATE
 	text "Rayman 2: The"
 	line "Great Escape."
 	done
 
-Akiba1F_Inventory24Text:
+Akiba1F_Inventory24Text: ; TO TRANSLATE
 	text "Great versus fun:"
 	line "The Next Tetris"
 	cont "on PlayStation."
 	done
 
-Akiba1F_Inventory25Text:
+Akiba1F_Inventory25Text: ; TO TRANSLATE
 	text "Second Sight"
 	line "on PlayStation 2."
 	done
 
-Akiba1F_Inventory26Text:
+Akiba1F_Inventory26Text: ; TO TRANSLATE
 	text "They even sell"
 	line "board games!"
 
@@ -660,17 +660,17 @@ Akiba1F_Inventory26Text:
 	line "Master Trainer."
 	done
 
-Akiba1F_Inventory27Text:
+Akiba1F_Inventory27Text: ; TO TRANSLATE
 	text "3 games in 1:"
 	line "Mega Games 2"
 	cont "on Mega Drive."
 	done
 
-Akiba1F_Inventory28Text:
+Akiba1F_Inventory28Text: ; TO TRANSLATE
 	text "Mickey Mania."
 	done
 
-Akiba1F_PricesUpText:
+Akiba1F_PricesUpText: ; TO TRANSLATE
 	text "I like my games in"
 	line "physical format."
 	
@@ -682,12 +682,12 @@ Akiba1F_PricesUpText:
 	cont "me."
 	done
 
-Akiba1F_NoClueText:
+Akiba1F_NoClueText: ; TO TRANSLATE
 	text "I have no clue"
 	line "what this is…"
 	done
 
-Akiba1F_GemsText:
+Akiba1F_GemsText: ; TO TRANSLATE
 	text "You can find true"
 	line "gems in here!"
 	done

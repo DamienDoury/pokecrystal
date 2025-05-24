@@ -43,13 +43,13 @@ VictoryRoadGateStepDownMovement:
 	step DOWN
 	step_end
 
-VictoryRoadGateOfficerText:
+VictoryRoadGateOfficerText: ; AUTOTRAD
 	text "Only trainers who"
 	line "have proven them-"
 	cont "selves may pass."
 	done
 
-VictoryRoadGateNotEnoughBadgesText:
+VictoryRoadGateNotEnoughBadgesText: ; AUTOTRAD
 	text "You don't have all"
 	line "the GYM BADGES of"
 	cont "JOHTO."
@@ -59,7 +59,7 @@ VictoryRoadGateNotEnoughBadgesText:
 	cont "through."
 	done
 
-VictoryRoadGateEightBadgesText:
+VictoryRoadGateEightBadgesText: ; AUTOTRAD
 	text "Oh! The eight"
 	line "BADGES of JOHTO!"
 
@@ -67,7 +67,7 @@ VictoryRoadGateEightBadgesText:
 	line "on through!"
 	done
 
-VictoryRoadGateLeftBlackBeltText:
+VictoryRoadGateLeftBlackBeltText: ; AUTOTRAD
 	text "This way leads to"
 	line "MT.SILVER."
 
@@ -76,7 +76,7 @@ VictoryRoadGateLeftBlackBeltText:
 	cont "there."
 	done
 
-VictoryRoadGateRightBlackBeltText:
+VictoryRoadGateRightBlackBeltText: ; AUTOTRAD
 	text "Off to the #MON"
 	line "LEAGUE, are you?"
 

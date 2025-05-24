@@ -113,7 +113,7 @@ CherrygroveCityGuideGent:
 	jumpstd ReceiveItemScript
 	end
 
-.mapcardname
+.mapcardname ; AUTOTRAD
 	db "MAP CARD@"
 
 .No:
@@ -366,7 +366,7 @@ CherrygroveCity_RivalExitsStageLeft:
 	big_step LEFT
 	step_end
 
-GuideGentIntroText:
+GuideGentIntroText: ; AUTOTRAD
 	text "You're a rookie"
 	line "trainer, aren't"
 	cont "you? I can tell!"
@@ -380,12 +380,12 @@ GuideGentIntroText:
 	cont "few things."
 	done
 
-GuideGentTourText1:
+GuideGentTourText1: ; AUTOTRAD
 	text "OK, then!"
 	line "Follow me!"
 	done
 
-GuideGentPokecenterText:
+GuideGentPokecenterText: ; AUTOTRAD
 	text "This is a #MON"
 	line "CENTER. They heal"
 
@@ -399,7 +399,7 @@ GuideGentPokecenterText:
 	line "about them."
 	done
 
-GuideGentMartText:
+GuideGentMartText: ; AUTOTRAD
 	text "This is a #MON"
 	line "MART."
 
@@ -410,7 +410,7 @@ GuideGentMartText:
 	line "useful items."
 	done
 
-GuideGentRoute30Text:
+GuideGentRoute30Text: ; AUTOTRAD
 	text "ROUTE 30 is out"
 	line "this way."
 
@@ -421,7 +421,7 @@ GuideGentRoute30Text:
 	line "there."
 	done
 
-GuideGentSeaText:
+GuideGentSeaText: ; AUTOTRAD
 	text "This is the sea,"
 	line "as you can see."
 
@@ -430,7 +430,7 @@ GuideGentSeaText:
 	cont "water."
 	done
 
-GuideGentGiftText:
+GuideGentGiftText: ; AUTOTRAD
 	text "Here…"
 
 	para "It's my house!"
@@ -441,12 +441,12 @@ GuideGentGiftText:
 	line "small gift."
 	done
 
-GotMapCardText:
+GotMapCardText: ; AUTOTRAD
 	text "<PLAYER>'s #GEAR"
 	line "now has a MAP!"
 	done
 
-GuideGentPokegearText:
+GuideGentPokegearText: ; AUTOTRAD
 	text "#GEAR becomes"
 	line "more useful as you"
 	cont "add CARDS."
@@ -455,7 +455,7 @@ GuideGentPokegearText:
 	line "your journey!"
 	done
 
-GuideGentNoText:
+GuideGentNoText: ; AUTOTRAD
 	text "Oh… It's something"
 	line "I enjoy doing…"
 
@@ -463,7 +463,7 @@ GuideGentNoText:
 	line "when you like."
 	done
 
-CherrygroveRivalText_Seen:
+CherrygroveRivalText_Seen: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "You got a #MON"
@@ -484,12 +484,12 @@ CherrygroveRivalText_Seen:
 	line "what I mean!"
 	done
 
-SilverCherrygroveWinText:
+SilverCherrygroveWinText: ; AUTOTRAD
 	text "Humph. Are you"
 	line "happy you won?"
 	done
 
-CherrygroveRivalText_YouLost:
+CherrygroveRivalText_YouLost: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "My name's ???."
@@ -500,12 +500,12 @@ CherrygroveRivalText_YouLost:
 	cont "trainer."
 	done
 
-SilverCherrygroveLossText:
+SilverCherrygroveLossText: ; AUTOTRAD
 	text "Humph. That was a"
 	line "waste of time."
 	done
 
-CherrygroveRivalText_YouWon:
+CherrygroveRivalText_YouWon: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "My name's ???."
@@ -516,7 +516,7 @@ CherrygroveRivalText_YouWon:
 	cont "trainer."
 	done
 
-CherrygroveTeacherText_NoMapCard:
+CherrygroveTeacherText_NoMapCard: ; AUTOTRAD
 	text "Did you talk to"
 	line "the old man by the"
 	cont "#MON CENTER?"
@@ -526,19 +526,19 @@ CherrygroveTeacherText_NoMapCard:
 	cont "#GEAR."
 	done
 
-CherrygroveTeacherText_HaveMapCard:
+CherrygroveTeacherText_HaveMapCard: ; AUTOTRAD
 	text "When you're with"
 	line "#MON, going"
 	cont "anywhere is fun."
 	done
 
-CherrygroveYoungsterText_NoPokedex:
+CherrygroveYoungsterText_NoPokedex: ; AUTOTRAD
 	text "MR.#MON's house"
 	line "is still farther"
 	cont "up ahead."
 	done
 
-CherrygroveYoungsterText_HavePokedex:
+CherrygroveYoungsterText_HavePokedex: ; AUTOTRAD
 	text "I battled the"
 	line "trainers on the"
 	cont "road."
@@ -550,7 +550,7 @@ CherrygroveYoungsterText_HavePokedex:
 	line "a #MON CENTER."
 	done
 
-MysticWaterGuyTextBefore:
+MysticWaterGuyTextBefore: ; AUTOTRAD
 	text "A #MON I caught"
 	line "had an item."
 
@@ -561,18 +561,18 @@ MysticWaterGuyTextBefore:
 	line "so do you want it?"
 	done
 
-MysticWaterGuyTextAfter:
+MysticWaterGuyTextAfter: ; AUTOTRAD
 	text "Back to fishing"
 	line "for me, then."
 	done
 
-FirstInLineFirstLockdownText:
+FirstInLineFirstLockdownText: ; TO TRANSLATE
 	text "The declaration of"
 	line "the lockdown got"
 	cont "me hooked…"
 	done
 
-MysticWaterGuyFirstLockdownText:
+MysticWaterGuyFirstLockdownText: ; TO TRANSLATE
 	text "I heard the news"
 	line "on the radio while"
 
@@ -588,7 +588,7 @@ MysticWaterGuyFirstLockdownText:
 	para "Get it?"
 	done
 
-CooltrainerFirstLockdownText:
+CooltrainerFirstLockdownText: ; TO TRANSLATE
 	text "Some supplies were"
 	line "already rare and"
 
@@ -600,14 +600,14 @@ CooltrainerFirstLockdownText:
 	cont "to be chaotic…"
 	done
 
-CherrygroveCitySignText:
+CherrygroveCitySignText: ; AUTOTRAD
 	text "CHERRYGROVE CITY"
 
 	para "The City of Cute,"
 	line "Fragrant Flowers"
 	done
 
-GuideGentsHouseSignText:
+GuideGentsHouseSignText: ; AUTOTRAD
 	text "GUIDE GENT'S HOUSE"
 	done
 

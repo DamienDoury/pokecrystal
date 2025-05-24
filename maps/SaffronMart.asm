@@ -28,13 +28,13 @@ SaffronMartCooltrainerFScript:
 SaffronMartShelfItem1Script:
 	shelfitem 1, PP_UP, 9800
 
-SaffronMartCooltrainerMText:
+SaffronMartCooltrainerMText: ; AUTOTRAD
 	text "There's a big"
 	line "RADIO TOWER in"
 	cont "LAVENDER."
 	done
 
-SaffronMartCooltrainerFText:
+SaffronMartCooltrainerFText: ; TO TRANSLATE
 	text "I hope the infla-"
 	line "tion will soon"
 	cont "stop and revert."

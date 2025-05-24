@@ -43,10 +43,10 @@ RedsHouse2FPikachuScript:
 	closetext
 	end
 
-AdoptedPikachuName:
+AdoptedPikachuName: ; TO TRANSLATE
 	db "PIKACHU@"
 
-AdoptedPikachuOTName:
+AdoptedPikachuOTName: ; TO TRANSLATE
 	db "RED@"
 
 RedsHouse2FN64Script:
@@ -55,7 +55,7 @@ RedsHouse2FN64Script:
 RedsHouse2FPCScript:
 	jumptext RedsHouse2FPCText
 
-RedsHouse2FN64Text:
+RedsHouse2FN64Text: ; AUTOTRAD
 	text "<PLAYER> played the"
 	line "N64."
 
@@ -63,13 +63,13 @@ RedsHouse2FN64Text:
 	line "no time to lose!"
 	done
 
-RedsHouse2FPCText:
+RedsHouse2FPCText: ; AUTOTRAD
 	text "It looks like it"
 	line "hasn't been used"
 	cont "in a long time…"
 	done
 
-RedsPikachuStaresText:
+RedsPikachuStaresText: ; TO TRANSLATE
 	text "PIKACHU stares at"
 	line "you insistently."
 
@@ -79,12 +79,12 @@ RedsPikachuStaresText:
 	cont "about it."
 	done
 
-RedsPikachuTakeText:
+RedsPikachuTakeText: ; TO TRANSLATE
 	text "Take it into"
 	line "your arms?"
 	done
 
-RedsPikachuJoinsText:
+RedsPikachuJoinsText: ; TO TRANSLATE
 	text "PIKACHU joins"
 	line "<PLAYER>'s party."
 	done

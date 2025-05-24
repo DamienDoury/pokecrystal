@@ -51,7 +51,7 @@ CableClubFriendScript:
 	closetext
 	end
 
-.FriendReadyText:
+.FriendReadyText: ; AUTOTRAD
 	text "Your friend is"
 	line "ready."
 	done

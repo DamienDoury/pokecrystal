@@ -47,7 +47,7 @@ GoldenrodDeptStore2FElevatorButton:
 GoldenrodDeptStore2FShelfItem1Script:
 	shelfitem 16, ULTRA_BALL, 15360
 
-GoldenrodDeptStore2FYoungsterText:
+GoldenrodDeptStore2FYoungsterText: ; TO TRANSLATE
 	text "#GEAR can store"
 	line "up to twenty"
 	cont "phone numbers."
@@ -57,7 +57,7 @@ GoldenrodDeptStore2FYoungsterText:
 	cont "to keep."
 	done
 
-GoldenrodDeptStore2FCooltrainerFText:
+GoldenrodDeptStore2FCooltrainerFText: ; TO TRANSLATE
 	text "I got my new TM at"
 	line "the GAME CORNER."
 
@@ -65,13 +65,13 @@ GoldenrodDeptStore2FCooltrainerFText:
 	line "it closed."
 	done
 
-GoldenrodDeptStore2FCooltrainerFGameCornerText:
+GoldenrodDeptStore2FCooltrainerFGameCornerText: ; TO TRANSLATE
 	text "The GAME CORNER"
 	line "has legally re-"
 	cont "opened, hurray!"
 	done
 
-GoldenrodDeptStore2FGentlemanText:
+GoldenrodDeptStore2FGentlemanText: ; TO TRANSLATE
 	text "“COVID.”"
 	line "“Pandemic.”"
 	
@@ -84,7 +84,7 @@ GoldenrodDeptStore2FGentlemanText:
 	para "Give me a break."
 	done
 
-GoldenrodDeptStore2FDirectoryText:
+GoldenrodDeptStore2FDirectoryText: ; AUTOTRAD
 	text "Your Travel"
 	line "Companion"
 

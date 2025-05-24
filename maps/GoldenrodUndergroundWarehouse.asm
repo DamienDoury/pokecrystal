@@ -95,19 +95,19 @@ GoldenrodUndergroundWarehouseTMSleepTalk:
 GoldenrodUndergroundWarehouseUltraBall:
 	itemball ULTRA_BALL
 
-GruntM24SeenText:
+GruntM24SeenText: ; TO TRANSLATE
 	text "An intruder?"
 
 	para "Why would you"
 	line "oppose our cause?"
 	done
 
-GruntM24BeatenText:
+GruntM24BeatenText: ; TO TRANSLATE
 	text "I can't understand"
 	line "you."
 	done
 
-GruntM24AfterBattleText:
+GruntM24AfterBattleText: ; TO TRANSLATE
 	text "Opposing TEAM"
 	line "ROCKET's cause is"
 	cont "being the enemy"
@@ -117,7 +117,7 @@ GruntM24AfterBattleText:
 	line "it takes."
 	done
 
-GruntM14SeenText:
+GruntM14SeenText: ; TO TRANSLATE
 	text "We're here to free"
 	line "the people!"
 
@@ -125,18 +125,18 @@ GruntM14SeenText:
 	line "the DIRECTOR."
 	done
 
-GruntM14BeatenText:
+GruntM14BeatenText: ; TO TRANSLATE
 	text "Wait, I'm"
 	line "confused…"
 	done
 
-GruntM14AfterBattleText:
+GruntM14AfterBattleText: ; TO TRANSLATE
 	text "Wait, are we"
 	line "capturing people"
 	cont "or freeing them?"
 	done
 
-GruntM15SeenText:
+GruntM15SeenText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 	line "I remember you!"
 
@@ -144,18 +144,18 @@ GruntM15SeenText:
 	line "at our hideout!"
 	done
 
-GruntM15BeatenText:
+GruntM15BeatenText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 	line "So, that's how?"
 	done
 
-GruntM15AfterBattleText:
+GruntM15AfterBattleText: ; AUTOTRAD
 	text "Hyuck-hyuck-hyuck!"
 	line "That was a blast!"
 	cont "I'll remember you!"
 	done
 
-DirectorIntroText:
+DirectorIntroText: ; AUTOTRAD
 	text "DIRECTOR: Who?"
 	line "What? You came to"
 	cont "rescue me?"
@@ -174,13 +174,13 @@ DirectorIntroText:
 	line "CARD KEY."
 	done
 
-DirectorCardKeyText:
+DirectorCardKeyText: ; AUTOTRAD
 	text "DIRECTOR: Use that"
 	line "to open the shut-"
 	cont "ters on 3F."
 	done
 
-DirectorAfterText:
+DirectorAfterText: ; TO TRANSLATE
 	text "I'm begging you to"
 	line "help."
 

@@ -178,7 +178,7 @@ VaccinationCenterRoom_HeadLeftMovement:
     turn_head LEFT
     step_end
 
-VaccinationCenterRoom_IntroText:
+VaccinationCenterRoom_IntroText: ; TO TRANSLATE
     text "<PLAYER> is"
     line "that it?"
 
@@ -191,7 +191,7 @@ VaccinationCenterRoom_IntroText:
     line "works?"
     done
 
-VaccinationCenterRoom_InfoText:
+VaccinationCenterRoom_InfoText: ; TO TRANSLATE
     text "The vaccine is"
     line "inserted into the"
     cont "body by injection."
@@ -247,7 +247,7 @@ VaccinationCenterRoom_InfoText:
     para "Was I clear?"
     done
 
-VaccinationCenterRoom_GoodText:
+VaccinationCenterRoom_GoodText: ; TO TRANSLATE
     text "Good."
 
     para "Which #MON"
@@ -255,12 +255,12 @@ VaccinationCenterRoom_GoodText:
     cont "vaccinated today?"
     done
 
-VaccinationCenterRoom_EggText:
+VaccinationCenterRoom_EggText: ; TO TRANSLATE
     text "I can't vaccinate"
     line "an EGG!"
     done
 
-VaccinationCenterRoom_PrevShotText:
+VaccinationCenterRoom_PrevShotText: ; TO TRANSLATE
     text "I see this #MON"
     line "previously got a"
     cont "vaccine shot."
@@ -271,7 +271,7 @@ VaccinationCenterRoom_PrevShotText:
     cont "important."
     done
 
-VaccinationCenterRoom_PrevCovidText:
+VaccinationCenterRoom_PrevCovidText: ; TO TRANSLATE
     text "I see this #MON"
     line "already caught"
     cont "COVID-19 in the"
@@ -286,7 +286,7 @@ VaccinationCenterRoom_PrevCovidText:
     line "shot later."
     done
 
-VaccinationCenterRoom_CurrentlySickText:
+VaccinationCenterRoom_CurrentlySickText: ; TO TRANSLATE
     text "Wait, this #MON"
     line "is currently sick?"
 
@@ -303,7 +303,7 @@ VaccinationCenterRoom_CurrentlySickText:
     cont "nity to settle."
     done
 
-VaccinationCenterRoom_NeverCovidText:
+VaccinationCenterRoom_NeverCovidText: ; TO TRANSLATE
     text "This #MON"
     line "never caught"
     cont "COVID-19 before."
@@ -314,18 +314,18 @@ VaccinationCenterRoom_NeverCovidText:
     cont "your #MON."
     done
 
-VaccinationCenterRoom_FullText:
+VaccinationCenterRoom_FullText: ; TO TRANSLATE
     text "This #MON"
     line "doesn't need more"
     cont "shots."
     done
 
-VaccinationCenterRoom_ChooseAnotherText:
+VaccinationCenterRoom_ChooseAnotherText: ; TO TRANSLATE
     text "Please choose"
     line "another #MON."
     done
 
-VaccinationCenterRoom_CancelText:
+VaccinationCenterRoom_CancelText: ; TO TRANSLATE
     text "A sudden change"
     line "of mind?"
 
@@ -334,7 +334,7 @@ VaccinationCenterRoom_CancelText:
     cont "you're ready."
     done
 
-VaccinationCenterRoom_SecondMeetingText:
+VaccinationCenterRoom_SecondMeetingText: ; TO TRANSLATE
     text "Look, I don't"
     line "have time to"
     cont "waste."
@@ -344,7 +344,7 @@ VaccinationCenterRoom_SecondMeetingText:
     cont "vaccinated?"
     done
 
-VaccinationCenterRoom_MustLeaveText:
+VaccinationCenterRoom_MustLeaveText: ; TO TRANSLATE
     text "You must leave"
     line "now."
     
@@ -352,13 +352,13 @@ VaccinationCenterRoom_MustLeaveText:
     line "is waiting."
     done
 
-VaccinationCenterRoom_BedText:
+VaccinationCenterRoom_BedText: ; TO TRANSLATE
     text "Please put your"
     line "#MON on the"
     cont "bed."
     done
 
-VaccinationCenterRoom_InjectionText:
+VaccinationCenterRoom_InjectionText: ; TO TRANSLATE
     text "I'm proceeding to"
     line "the injection."
 
@@ -369,7 +369,7 @@ VaccinationCenterRoom_InjectionText:
     line "duals anyway."
     done
 
-VaccinationCenterRoom_DoneText:
+VaccinationCenterRoom_DoneText: ; TO TRANSLATE
     text "Done!"
 
     para "I've updated the"
@@ -383,7 +383,7 @@ VaccinationCenterRoom_DoneText:
     cont "COVID!"
     done
 
-VaccinationCenterRoom_VialsText:
+VaccinationCenterRoom_VialsText: ; TO TRANSLATE
     text "Tons of refrige-"
     line "rated vials."
     done

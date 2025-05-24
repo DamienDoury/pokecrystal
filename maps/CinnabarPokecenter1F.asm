@@ -118,7 +118,7 @@ CinnabarPokecenterDJScript:
 CinnabarPokecenter1FFishingGuruScript:
 	farsjump Route32Pokecenter1FFishingGuruScript
 
-CinnabarPokecenter1FCooltrainerFText:
+CinnabarPokecenter1FCooltrainerFText: ; TO TRANSLATE
 	text "CINNABAR GYM's"
 	line "BLAINE now lives"
 	cont "alone in a cave…"
@@ -127,21 +127,21 @@ CinnabarPokecenter1FCooltrainerFText:
 	line "left the island…"
 	done
 
-CinnabarPokecenter1FFisherText:
+CinnabarPokecenter1FFisherText: ; AUTOTRAD
 	text "It's been a year"
 	line "since the volcano"
 	cont "erupted."
 	done
 
-CinnabarPokecenterRunnerText:
+CinnabarPokecenterRunnerText: ; TO TRANSLATE
 	text "Where's my sister?"
 	done
 
-CinnabarPokecenterDancerText:
+CinnabarPokecenterDancerText: ; TO TRANSLATE
 	text "Yeaaah!"
 	done
 
-CinnabarPokecenterSeriousText:
+CinnabarPokecenterSeriousText: ; TO TRANSLATE
 	text "Clubs are closed."
 	line "So the youth has"
 	cont "to find another"
@@ -152,7 +152,7 @@ CinnabarPokecenterSeriousText:
 	cont "more exciting!"
 	done
 
-CinnabarPokecenterDJText:
+CinnabarPokecenterDJText: ; TO TRANSLATE
 	text "DJ: WHAAAAAT?"
 
 	para "OH YEAH, I'M"
@@ -163,13 +163,13 @@ CinnabarPokecenterDJText:
 	cont "IT'S GIGA LOUD!"
 	done
 
-CinnabarPokecenterDJText2:
+CinnabarPokecenterDJText2: ; TO TRANSLATE
 	text "aaaaaaand…"
 	para "(FOGHOOOOORN)"
 	para "  DROP THE BASS"
 	done
 
-WetFloorText:
+WetFloorText: ; TO TRANSLATE
 	text "Wet floor"
 	done
 

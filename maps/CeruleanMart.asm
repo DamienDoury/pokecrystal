@@ -28,7 +28,7 @@ CeruleanMart_CooltrainerF:
 CeruleanMartShelfItem1Script:
 	shelfitem 1, CARBOS, 9800
 
-CeruleanMart_CooltrainerMText:
+CeruleanMart_CooltrainerMText: ; AUTOTRAD
 	text "You'll run into"
 	line "many trainers on"
 
@@ -42,7 +42,7 @@ CeruleanMart_CooltrainerMText:
 	line "trainers."
 	done
 
-CeruleanMart_CooltrainerFText:
+CeruleanMart_CooltrainerFText: ; AUTOTRAD
 	text "MISTY is about the"
 	line "only person in"
 

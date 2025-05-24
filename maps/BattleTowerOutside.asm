@@ -21,7 +21,7 @@ BattleTowerOutsideSailorScript:
 BattleTowerOutsideSign:
 	jumptext BattleTowerOutsideSignText
 
-BattleTowerOutsideYoungsterText:
+BattleTowerOutsideYoungsterText: ; AUTOTRAD
 	text "Wow, the BATTLE"
 	line "TOWER is huge!"
 
@@ -30,7 +30,7 @@ BattleTowerOutsideYoungsterText:
 	cont "in there!"
 	done
 
-BattleTowerOutsideBeautyText:
+BattleTowerOutsideBeautyText: ; AUTOTRAD
 	text "You can use only"
 	line "three #MON."
 
@@ -41,7 +41,7 @@ BattleTowerOutsideBeautyText:
 	line "battle…"
 	done
 
-BattleTowerOutsideSailorText:
+BattleTowerOutsideSailorText: ; AUTOTRAD
 	text "Hehehe, I snuck"
 	line "out from work."
 
@@ -52,7 +52,7 @@ BattleTowerOutsideSailorText:
 	line "all. That I must!"
 	done
 
-BattleTowerOutsideSignText:
+BattleTowerOutsideSignText: ; AUTOTRAD
 	text "BATTLE TOWER"
 
 	para "Take the Ultimate"

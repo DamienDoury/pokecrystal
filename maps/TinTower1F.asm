@@ -312,7 +312,7 @@ TinTower1FSage3EntersMovement:
 	step UP
 	step_end
 
-TinTower1FEusineSuicuneText:
+TinTower1FEusineSuicuneText: ; TO TRANSLATE
 	text "EUSINE: Awesome!"
 	line "Too awesome, even!"
 
@@ -362,7 +362,7 @@ TinTower1FEusineSuicuneText:
 	para "Later, <PLAYER>!"
 	done
 
-TinTower1FSage1Text:
+TinTower1FSage1Text: ; AUTOTRAD
 	text "According to"
 	line "legend…"
 
@@ -382,7 +382,7 @@ TinTower1FSage1Text:
 	line "humans?"
 	done
 
-TinTower1FSage2Text:
+TinTower1FSage2Text: ; AUTOTRAD
 	text "When the BRASS"
 	line "TOWER burned down,"
 
@@ -414,7 +414,7 @@ TinTower1FSage2Text:
 	line "say."
 	done
 
-TinTower1FSage3Text:
+TinTower1FSage3Text: ; AUTOTRAD
 	text "The two TOWERS are"
 	line "said to have been"
 
@@ -431,7 +431,7 @@ TinTower1FSage3Text:
 	line "important today."
 	done
 
-TinTower1FSage4Text1:
+TinTower1FSage4Text1: ; AUTOTRAD
 	text "HO-OH appears to"
 	line "have descended"
 
@@ -439,16 +439,16 @@ TinTower1FSage4Text1:
 	line "TOWER!"
 	done
 
-TinTower1FSage5Text1:
+TinTower1FSage5Text1: ; AUTOTRAD
 	text "This will protect"
 	line "you. Take it."
 	done
 
-TinTower1FSage5Text2:
+TinTower1FSage5Text2: ; AUTOTRAD
 	text "Now, go."
 	done
 
-TinTower1FSage6Text1:
+TinTower1FSage6Text1: ; AUTOTRAD
 	text "I believe you are"
 	line "being tested."
 
@@ -457,7 +457,7 @@ TinTower1FSage6Text1:
 	cont "and advance."
 	done
 
-TinTower1FEusineHoOhText:
+TinTower1FEusineHoOhText: ; AUTOTRAD
 	text "I knew it."
 
 	para "I knew you'd get"
@@ -479,7 +479,7 @@ TinTower1FEusineHoOhText:
 	line "#MANIAC!"
 	done
 
-TinTower1FSage4Text2:
+TinTower1FSage4Text2: ; AUTOTRAD
 	text "The legendary"
 	line "#MON are said"
 
@@ -496,7 +496,7 @@ TinTower1FSage4Text2:
 	line "put out the fire…"
 	done
 
-TinTower1FSage5Text3:
+TinTower1FSage5Text3: ; AUTOTRAD
 	text "When the legendary"
 	line "#MON appeared…"
 
@@ -517,7 +517,7 @@ TinTower1FSage5Text3:
 	cont "frightened people."
 	done
 
-TinTower1FSage6Text2:
+TinTower1FSage6Text2: ; AUTOTRAD
 	text "Of the legendary"
 	line "#MON, SUICUNE"
 

@@ -145,7 +145,7 @@ RuinsOfAlphKabutoChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphKabutoChamberReceptionistText:
+RuinsOfAlphKabutoChamberReceptionistText: ; AUTOTRAD
 	text "Welcome to this"
 	line "chamber."
 
@@ -170,7 +170,7 @@ RuinsOfAlphKabutoChamberReceptionistText:
 	line "patterns."
 	done
 
-RuinsOfAlphKabutoChamberScientistCrypticText:
+RuinsOfAlphKabutoChamberScientistCrypticText: ; AUTOTRAD
 	text "Recently, strange,"
 	line "cryptic patterns"
 	cont "have appeared."
@@ -183,7 +183,7 @@ RuinsOfAlphKabutoChamberScientistCrypticText:
 	line "look at the walls."
 	done
 
-RuinsOfAlphKabutoChamberScientistHoleText:
+RuinsOfAlphKabutoChamberScientistHoleText: ; AUTOTRAD
 	text "Ah! Here's another"
 	line "huge hole!"
 
@@ -191,7 +191,7 @@ RuinsOfAlphKabutoChamberScientistHoleText:
 	line "go through!"
 	done
 
-RuinsOfAlphKabutoChamberScientistTremorText:
+RuinsOfAlphKabutoChamberScientistTremorText: ; AUTOTRAD
 	text "That tremor was"
 	line "pretty scary!"
 
@@ -218,7 +218,7 @@ RuinsOfAlphKabutoChamberUnusedText: ; unreferenced
 	line "yet…"
 	done
 
-RuinsOfAlphKabutoChamberWallPatternLeftText:
+RuinsOfAlphKabutoChamberWallPatternLeftText: ; AUTOTRAD
 	text "Patterns appeared"
 	line "on the walls…"
 	done
@@ -227,23 +227,23 @@ RuinsOfAlphKabutoChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphKabutoChamberWallPatternRightText:
+RuinsOfAlphKabutoChamberWallPatternRightText: ; AUTOTRAD
 	text "Patterns appeared"
 	line "on the walls…"
 	done
 
-RuinsOfAlphKabutoChamberWallHoleText:
+RuinsOfAlphKabutoChamberWallHoleText: ; AUTOTRAD
 	text "There's a big hole"
 	line "in the wall!"
 	done
 
-RuinsOfAlphKabutoChamberAncientReplicaText:
+RuinsOfAlphKabutoChamberAncientReplicaText: ; AUTOTRAD
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
 	done
 
-RuinsOfAlphKabutoChamberDescriptionText:
+RuinsOfAlphKabutoChamberDescriptionText: ; AUTOTRAD
 	text "A #MON that hid"
 	line "on the sea floor."
 

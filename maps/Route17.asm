@@ -68,31 +68,31 @@ Route17HiddenMaxEther:
 Route17HiddenMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
 
-BikerRileySeenText:
+BikerRileySeenText: ; AUTOTRAD
 	text "Hey, you! You're"
 	line "from JOHTO, huh?"
 	done
 
-BikerRileyBeatenText:
+BikerRileyBeatenText: ; AUTOTRAD
 	text "Whoa, you kick!"
 	done
 
-BikerRileyAfterBattleText:
+BikerRileyAfterBattleText: ; AUTOTRAD
 	text "Don't get cocky,"
 	line "you JOHTO punk!"
 	done
 
-BikerJoelSeenText:
+BikerJoelSeenText: ; AUTOTRAD
 	text "Wow. That's a cool"
 	line "BICYCLE!"
 	done
 
-BikerJoelBeatenText:
+BikerJoelBeatenText: ; AUTOTRAD
 	text "But you don't just"
 	line "look cool…"
 	done
 
-BikerJoelAfterBattleText:
+BikerJoelAfterBattleText: ; AUTOTRAD
 	text "I look cool, but"
 	line "I'm weak, so I'm"
 	cont "not really cool."
@@ -101,36 +101,36 @@ BikerJoelAfterBattleText:
 	line "harder…"
 	done
 
-BikerGlennSeenText:
+BikerGlennSeenText: ; AUTOTRAD
 	text "Hey! Want to have"
 	line "a speed battle?"
 	done
 
-BikerGlennBeatenText:
+BikerGlennBeatenText: ; AUTOTRAD
 	text "Yikes! You've got"
 	line "awesome torque!"
 	done
 
-BikerGlennAfterBattleText:
+BikerGlennAfterBattleText: ; AUTOTRAD
 	text "Hands-free riding"
 	line "is considered cool"
 	cont "on CYCLING ROAD."
 	done
 
-Route17MidSign3Text:
+Route17MidSign3Text: ; TO TRANSLATE
 	text "Route 16"
 	line "CELADON CITY -"
 	cont "FUCHSIA CITY"
 	done
 
-Route17MidSign1Text:
+Route17MidSign1Text: ; TO TRANSLATE
 	text "It's a notice!"
 
 	para "Watch out for"
 	line "discarded items!"
 	done
 
-Route17TrainerTips1Text:
+Route17TrainerTips1Text: ; TO TRANSLATE
 	text "TRAINER TIPS"
 
 	para "All #MON are"
@@ -142,7 +142,7 @@ Route17TrainerTips1Text:
 	cont "different rates."
 	done
 
-Route17TrainerTips2Text:
+Route17TrainerTips2Text: ; TO TRANSLATE
 	text "TRAINER TIPS"
 
 	para "There's graffiti"
@@ -152,7 +152,7 @@ Route17TrainerTips2Text:
 	line "le FRIGOVID”"
 	done
 
-Route17BotSign1Text:
+Route17BotSign1Text: ; TO TRANSLATE
 	text "It's a notice!"
 
 	para "Don't throw the"

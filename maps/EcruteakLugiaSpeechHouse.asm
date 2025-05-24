@@ -28,7 +28,7 @@ EcruteakLugiaSpeechHouseYoungsterScript:
 LugiaSpeechHouseRadio:
 	jumpstd Radio2Script
 
-EcruteakLugiaSpeechHouseGrampsText:
+EcruteakLugiaSpeechHouseGrampsText: ; AUTOTRAD
 	text "This happened when"
 	line "I was young."
 
@@ -46,7 +46,7 @@ EcruteakLugiaSpeechHouseGrampsText:
 	line "and a dragon."
 	done
 
-EcruteakLugiaSpeechHouseYoungsterText:
+EcruteakLugiaSpeechHouseYoungsterText: ; AUTOTRAD
 	text "Is there really a"
 	line "#MON that big?"
 

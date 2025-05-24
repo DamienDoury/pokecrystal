@@ -306,7 +306,7 @@ Movement_NinjaSpin:
 	turn_head DOWN
 	step_end
 
-JanineText_DisappointYou:
+JanineText_DisappointYou: ; TO TRANSLATE
 	text "Fufufufu…"
 
 	para "I'm sorry to dis-"
@@ -337,7 +337,7 @@ JanineText_DisappointYou:
 	cont "it!"
 	done
 
-JanineText_ToughOne:
+JanineText_ToughOne: ; AUTOTRAD
 	text "JANINE: You're a"
 	line "tough one. You"
 	cont "definitely won…"
@@ -346,12 +346,12 @@ JanineText_ToughOne:
 	line "Take it."
 	done
 
-Text_ReceivedSoulBadge:
+Text_ReceivedSoulBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "SOULBADGE."
 	done
 
-JanineText_ToxicSpeech:
+JanineText_ToxicSpeech: ; AUTOTRAD
 	text "JANINE: You're so"
 	line "tough! I have a"
 	cont "special gift!"
@@ -363,7 +363,7 @@ JanineText_ToxicSpeech:
 	line "victim's HP."
 	done
 
-JanineText_ApplyMyself:
+JanineText_ApplyMyself: ; AUTOTRAD
 	text "JANINE: I'm going"
 	line "to really apply"
 
@@ -375,7 +375,7 @@ JanineText_ApplyMyself:
 	cont "Father and you!"
 	done
 
-LassAliceBeforeText:
+LassAliceBeforeText: ; AUTOTRAD
 	text "Fufufu!"
 
 	para "I'm JANINE, the"
@@ -385,32 +385,32 @@ LassAliceBeforeText:
 	line "Gotcha, sucker!"
 	done
 
-LassAliceBeatenText:
+LassAliceBeatenText: ; AUTOTRAD
 	text "I had you fooled…"
 	done
 
-LassAliceAfterText:
+LassAliceAfterText: ; AUTOTRAD
 	text "How will you dis-"
 	line "tinguish our real"
 	cont "LEADER?"
 	done
 
-LassLindaBeforeText:
+LassLindaBeforeText: ; AUTOTRAD
 	text "Fooled you!"
 	line "Hahaha!"
 	done
 
-LassLindaBeatenText:
+LassLindaBeatenText: ; AUTOTRAD
 	text "Ooh… I lost…"
 	line "You're not weak…"
 	done
 
-LassLindaAfterText:
+LassLindaAfterText: ; AUTOTRAD
 	text "Well? Wasn't my"
 	line "disguise perfect?"
 	done
 
-PicnickerCindyBeforeText:
+PicnickerCindyBeforeText: ; AUTOTRAD
 	text "I'm JANINE!"
 
 	para "How did you know I"
@@ -419,35 +419,35 @@ PicnickerCindyBeforeText:
 	para "Let's battle!"
 	done
 
-PicnickerCindyBeatenText:
+PicnickerCindyBeatenText: ; AUTOTRAD
 	text "Darn it!"
 	line "I wanted to win!"
 	done
 
-PicnickerCindyAfterText:
+PicnickerCindyAfterText: ; AUTOTRAD
 	text "You must be"
 	line "getting tired."
 	done
 
-CamperBarryBeforeText:
+CamperBarryBeforeText: ; AUTOTRAD
 	text "Wahahaha!"
 
 	para "You betcha!"
 	line "I'm JANINE!"
 	done
 
-CamperBarryBeatenText:
+CamperBarryBeatenText: ; AUTOTRAD
 	text "My disguise was"
 	line "right on! Dang!"
 	done
 
-CamperBarryAfterText:
+CamperBarryAfterText: ; AUTOTRAD
 	text "Hey, you. Was my"
 	line "disguise cute or"
 	cont "what, huh?"
 	done
 
-FuchsiaGymGuideText:
+FuchsiaGymGuideText: ; TO TRANSLATE
 	text "Yo, CHAMP!"
 
 	para "Whoops! Take a"
@@ -461,7 +461,7 @@ FuchsiaGymGuideText:
 	line "the real JANINE?"
 	done
 
-FuchsiaGymGuideWinText:
+FuchsiaGymGuideWinText: ; AUTOTRAD
 	text "That was a great"
 	line "battle, trainer"
 	cont "from JOHTO!"

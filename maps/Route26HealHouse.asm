@@ -29,7 +29,7 @@ Route26HealHouseTeacherScript:
 Route26HealHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-Route26HealHouseRestAWhileText:
+Route26HealHouseRestAWhileText: ; AUTOTRAD
 	text "Your #MON look"
 	line "a little tired."
 
@@ -37,7 +37,7 @@ Route26HealHouseRestAWhileText:
 	line "them a while."
 	done
 
-Route26HealHouseKeepAtItText:
+Route26HealHouseKeepAtItText: ; AUTOTRAD
 	text "There!"
 
 	para "Your #MON are"

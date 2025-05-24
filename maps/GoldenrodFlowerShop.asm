@@ -241,7 +241,7 @@ DisplayDecoNameScript:
 	callasm GetDecorationNameFromScript
 	jumptext DecoNameText
 
-GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
+GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text: ; TO TRANSLATE
 	text "Have you seen that"
 	line "wiggly tree that's"
 
@@ -255,7 +255,7 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
 	line "it…"
 	done
 
-GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText:
+GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText: ; TO TRANSLATE
 	text "I'm worried…"
 
 	para "Because of the"
@@ -265,7 +265,7 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText:
 	line "here by now…"
 	done
 
-GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
+GoldenrodFlowerShopTeacherHeresTheSquirtbottleText: ; TO TRANSLATE
 	text "Do you want to"
 	line "borrow the water"
 	cont "bottle too?"
@@ -278,14 +278,14 @@ GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
 	line "of my bottle."
 	done
 
-GoldenrodFlowerShopSquirtbottleAdviceText:
+GoldenrodFlowerShopSquirtbottleAdviceText: ; TO TRANSLATE
 	text "Use it to water"
 	line "fruit trees. Just"
 	cont "a little water is"
 	cont "enough."
 	done
 
-GoldenrodFlowerShopTeacherCloseShopText:
+GoldenrodFlowerShopTeacherCloseShopText: ; TO TRANSLATE
 	text "Now that sis is"
 	line "back, I can"
 	cont "close the shop."
@@ -300,19 +300,19 @@ GoldenrodFlowerShopTeacherCloseShopText:
 	cont "You can have it!"
 	done
 
-GoldenrodFlowerShopTeacherDontDoAnythingDangerousText:
+GoldenrodFlowerShopTeacherDontDoAnythingDangerousText: ; TO TRANSLATE
 	text "Don't do anything"
 	line "dangerous with"
 	cont "the SQUIRTBOTTLE!"
 	done
 
-GoldenrodFlowerShopTeacherGoHomeText:
+GoldenrodFlowerShopTeacherGoHomeText: ; TO TRANSLATE
 	text "Shouldn't you be"
 	line "home with your"
 	cont "parents?"
 	done
 
-GoldenrodFlowerShopTeacherAllPlantsDiedText:
+GoldenrodFlowerShopTeacherAllPlantsDiedText: ; TO TRANSLATE
 	text "All my plants died"
 	line "during the lock-"
 	cont "down. It's sad."
@@ -322,14 +322,14 @@ GoldenrodFlowerShopTeacherAllPlantsDiedText:
 	cont "no watering."
 	done
 
-GoldenrodFlowerShopTeacherChooseAPlantText:
+GoldenrodFlowerShopTeacherChooseAPlantText: ; TO TRANSLATE
 	text "Take a look at my"
 	line "plants then tell"
 	cont "me the one you"
 	cont "want."
 	done
 
-GoldenrodFlowerShopTeacherWantThisOneText:
+GoldenrodFlowerShopTeacherWantThisOneText: ; TO TRANSLATE
 	text "The @"
 	text_ram wStringBuffer2
 	text ""
@@ -337,14 +337,14 @@ GoldenrodFlowerShopTeacherWantThisOneText:
 	cont "is ¥{d:PLANT_PRICE}. Deal?"
 	done
 
-GoldenrodFlowerShopTeacherSoldOutText:
+GoldenrodFlowerShopTeacherSoldOutText: ; TO TRANSLATE
 	text "I hope you take"
 	line "good care of all"
 	cont "the plants you"
 	cont "bought me!"
 	done
 
-GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
+GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText: ; TO TRANSLATE
 	text "Sis doesn't want"
 	line "to lend me her"
 	cont "bottle."
@@ -354,7 +354,7 @@ GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
 	cont "carry it."
 	done
 
-GoldenrodFlowerShopFloriaPoliceText:
+GoldenrodFlowerShopFloriaPoliceText: ; TO TRANSLATE
 	text "I saw the police"
 	line "on the way here."
 
@@ -362,13 +362,13 @@ GoldenrodFlowerShopFloriaPoliceText:
 	line "didn't see me!"
 	done
 
-GoldenrodFlowerShopFloriaYouBeatWhitneyText:
+GoldenrodFlowerShopFloriaYouBeatWhitneyText: ; TO TRANSLATE
 	text "You got my sister's"
 	line "SQUIRTBOTTLE?"
 	cont "I'm jealous!"
 	done
 
-GoldenrodFlowerShopFloriaItReallyWasAMonText:
+GoldenrodFlowerShopFloriaItReallyWasAMonText: ; AUTOTRAD
 	text "So it really was a"
 	line "#MON!"
 	done

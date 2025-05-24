@@ -198,7 +198,7 @@ OlivineGymStatue:
 	gettrainername STRING_BUFFER_4, JASMINE, JASMINE1
 	jumpstd GymStatue2Script
 
-Jasmine_SteelTypeIntroText:
+Jasmine_SteelTypeIntroText: ; TO TRANSLATE
 	text "…Thank you for"
 	line "your help at the"
 	cont "LIGHTHOUSE…"
@@ -214,7 +214,7 @@ Jasmine_SteelTypeIntroText:
 	cont "the steel-type."
 	done
 
-Jasmine_SteelTypeIntroSequelText:
+Jasmine_SteelTypeIntroSequelText: ; TO TRANSLATE
 	text "I will test you to"
 	line "see how well you"
 
@@ -226,7 +226,7 @@ OlivineGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-Jasmine_TeamTooBigText:
+Jasmine_TeamTooBigText: ; TO TRANSLATE
 	text "…You can have"
 	line "up to 3 #MON."
 
@@ -234,11 +234,11 @@ Jasmine_TeamTooBigText:
 	line "some into a PC."
 	done
 
-Jasmine_ValidatesTeamText:
+Jasmine_ValidatesTeamText: ; TO TRANSLATE
 	text "…Um… May I begin?"
 	done
 
-Jasmine_BetterTrainer:
+Jasmine_BetterTrainer: ; AUTOTRAD
 	text "…You are a better"
 	line "trainer than me,"
 
@@ -252,12 +252,12 @@ Jasmine_BetterTrainer:
 	line "this BADGE."
 	done
 
-Text_ReceivedMineralBadge:
+Text_ReceivedMineralBadge: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "MINERALBADGE."
 	done
 
-Jasmine_BadgeSpeech:
+Jasmine_BadgeSpeech: ; TO TRANSLATE
 	text "…Um… Please take"
 	line "this too…"
 	done
@@ -267,19 +267,19 @@ Text_ReceivedTM09: ; unreferenced
 	line "TM09."
 	done
 
-Jasmine_IronTailSpeech:
+Jasmine_IronTailSpeech: ; AUTOTRAD
 	text "…You could use"
 	line "that TM to teach"
 	cont "IRON TAIL."
 	done
 
-Jasmine_GoodLuck:
+Jasmine_GoodLuck: ; AUTOTRAD
 	text "Um… I don't know"
 	line "how to say this,"
 	cont "but good luck…"
 	done
 
-OlivineGymGuideText:
+OlivineGymGuideText: ; AUTOTRAD
 	text "JASMINE uses the"
 	line "newly discovered"
 	cont "steel-type."
@@ -288,7 +288,7 @@ OlivineGymGuideText:
 	line "much about it."
 	done
 
-OlivineGymGuideWinText:
+OlivineGymGuideWinText: ; AUTOTRAD
 	text "That was awesome."
 
 	para "The steel-type,"
@@ -299,7 +299,7 @@ OlivineGymGuideWinText:
 	cont "unknown kind!"
 	done
 
-OlivineGymGuidePreText:
+OlivineGymGuidePreText: ; AUTOTRAD
 	text "JASMINE, the GYM"
 	line "LEADER, is at the"
 	cont "LIGHTHOUSE."

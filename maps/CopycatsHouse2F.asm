@@ -201,7 +201,7 @@ CopycatSpinAroundMovementData:
 	turn_head DOWN
 	step_end
 
-CopycatText_Male_1:
+CopycatText_Male_1: ; AUTOTRAD
 	text "<PLAYER>: Hi! Do"
 	line "you like #MON?"
 
@@ -212,7 +212,7 @@ CopycatText_Male_1:
 	line "You're strange!"
 	done
 
-CopycatText_QuickMimicking:
+CopycatText_QuickMimicking: ; AUTOTRAD
 	text "COPYCAT: Hmm?"
 	line "Quit mimicking?"
 
@@ -220,7 +220,7 @@ CopycatText_QuickMimicking:
 	line "favorite hobby!"
 	done
 
-CopycatText_Male_2:
+CopycatText_Male_2: ; TO TRANSLATE
 	text "<PLAYER>: Hi!"
 	line "I heard that you"
 
@@ -239,7 +239,7 @@ CopycatText_Male_2:
 	cont "to VERMILION CITY?"
 	done
 
-CopycatText_Worried:
+CopycatText_Worried: ; AUTOTRAD
 	text "COPYCAT: Pardon?"
 
 	para "I shouldn't decide"
@@ -251,7 +251,7 @@ CopycatText_Worried:
 	cont "someone finds it?"
 	done
 
-CopycatText_GiveDoll:
+CopycatText_GiveDoll: ; AUTOTRAD
 	text "COPYCAT: Yay!"
 	line "That's my CLEFAIRY"
 	cont "# DOLL!"
@@ -263,13 +263,13 @@ CopycatText_GiveDoll:
 	line "proof!"
 	done
 
-CopycatText_GivePass:
+CopycatText_GivePass: ; AUTOTRAD
 	text "OK. Here's the"
 	line "MAGNET TRAIN PASS"
 	cont "like I promised!"
 	done
 
-CopycatText_ExplainPass:
+CopycatText_ExplainPass: ; AUTOTRAD
 	text "COPYCAT: That's"
 	line "the PASS for the"
 	cont "MAGNET TRAIN."
@@ -282,7 +282,7 @@ CopycatText_ExplainPass:
 	cont "for the STATION."
 	done
 
-CopycatText_Male_3:
+CopycatText_Male_3: ; TO TRANSLATE
 	text "<PLAYER>: Hi!"
 	line "Thanks a lot for"
 	cont "the RAIL PASS!"
@@ -294,12 +294,12 @@ CopycatText_Male_3:
 	cont "my every move?"
 	done
 
-CopycatText_ItsAScream:
+CopycatText_ItsAScream: ; AUTOTRAD
 	text "COPYCAT: You bet!"
 	line "It's a scream!"
 	done
 
-CopycatText_Female_1:
+CopycatText_Female_1: ; AUTOTRAD
 	text "<PLAYER>: Hi. You"
 	line "must like #MON."
 
@@ -310,7 +310,7 @@ CopycatText_Female_1:
 	line "You're weird!"
 	done
 
-CopycatText_Female_2:
+CopycatText_Female_2: ; TO TRANSLATE
 	text "<PLAYER>: Hi. Did"
 	line "you really lose"
 	cont "your # DOLL?"
@@ -329,7 +329,7 @@ CopycatText_Female_2:
 	cont "in VERMILION?"
 	done
 
-CopycatText_Female_3:
+CopycatText_Female_3: ; TO TRANSLATE
 	text "<PLAYER>: Thank you"
 	line "for the RAIL PASS!"
 
@@ -342,11 +342,11 @@ CopycatText_Female_3:
 	line "and do?"
 	done
 
-CopycatsDodrioText1:
+CopycatsDodrioText1: ; AUTOTRAD
 	text "DODRIO: Gii giii!"
 	done
 
-CopycatsDodrioText2:
+CopycatsDodrioText2: ; AUTOTRAD
 	text "MIRROR, MIRROR ON"
 	line "THE WALL, WHO'S"
 
@@ -354,7 +354,7 @@ CopycatsDodrioText2:
 	line "ALL?"
 	done
 
-CopycatsHouse2FDollText:
+CopycatsHouse2FDollText: ; AUTOTRAD
 	text "This is a rare"
 	line "#MON! Huh?"
 

@@ -35,7 +35,7 @@ OlivineLighthouse1FSailorScript:
 OlivineLighthouse1FPokefanFScript:
 	jumptextfaceplayer OlivineLighthouse1FPokefanFText
 
-OlivineLighthouse1FSailorLockdownText:
+OlivineLighthouse1FSailorLockdownText: ; TO TRANSLATE
 	text "Most people in"
 	line "this place work"
 	cont "here."
@@ -49,7 +49,7 @@ OlivineLighthouse1FSailorLockdownText:
 	line "AMPHY got sick."
 	done
 
-OlivineLighthouse1FSailorFreedomText:
+OlivineLighthouse1FSailorFreedomText: ; TO TRANSLATE
 	text "Some people used"
 	line "to sneak in here"
 	cont "to avoid the stay-"
@@ -60,7 +60,7 @@ OlivineLighthouse1FSailorFreedomText:
 	cont "happened to AMPHY."
 	done
 
-OlivineLighthouse1FPokefanFText:
+OlivineLighthouse1FPokefanFText: ; AUTOTRAD
 	text "In the past, #-"
 	line "MON used to light"
 

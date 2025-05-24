@@ -179,7 +179,7 @@ PlateauRivalLeavesMovement:
 	step DOWN
 	step_end
 
-IndigoPlateauPokecenter1FCooltrainerMText:
+IndigoPlateauPokecenter1FCooltrainerMText: ; AUTOTRAD
 	text "At the #MON"
 	line "LEAGUE, you'll get"
 
@@ -193,7 +193,7 @@ IndigoPlateauPokecenter1FCooltrainerMText:
 	line "start all over!"
 	done
 
-PlateauRivalText1:
+PlateauRivalText1: ; AUTOTRAD
 	text "Hold it."
 
 	para "You're going to"
@@ -215,13 +215,13 @@ PlateauRivalText1:
 	line "I challenge you!"
 	done
 
-PlateauRivalWinText:
+PlateauRivalWinText: ; AUTOTRAD
 	text "…"
 
 	para "OK--I lost…"
 	done
 
-PlateauRivalText2:
+PlateauRivalText2: ; AUTOTRAD
 	text "…Darn… I still"
 	line "can't win…"
 
@@ -233,7 +233,7 @@ PlateauRivalText2:
 	line "lose!"
 	done
 
-PlateauRivalLoseText:
+PlateauRivalLoseText: ; AUTOTRAD
 	text "…"
 
 	para "Whew…"
@@ -243,7 +243,7 @@ PlateauRivalLoseText:
 	line "the CHAMPION!"
 	done
 
-TeleportGuyText1:
+TeleportGuyText1: ; TO TRANSLATE
 	text "Ah! You're chal-"
 	line "lenging the ELITE"
 
@@ -261,11 +261,11 @@ TeleportGuyText1:
 	para "I'm stuck here."
 	done
 
-AbraText:
+AbraText: ; AUTOTRAD
 	text "ABRA: Aabra…"
 	done
 
-IndigoPlateauGymGuideText:
+IndigoPlateauGymGuideText: ; TO TRANSLATE
 	text "Hello trainer."
 	
 	para "Beyond these"

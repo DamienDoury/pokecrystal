@@ -363,13 +363,13 @@ RadioTower2FStompRightMovement:
 	step_bump
 	step_end
 
-RadioTower2FSuperNerdText:
+RadioTower2FSuperNerdText: ; AUTOTRAD
 	text "You can listen to"
 	line "the radio any-"
 	cont "where. Tune in!"
 	done
 
-RadioTower2FSuperNerdTROpinionText:
+RadioTower2FSuperNerdTROpinionText: ; TO TRANSLATE
 	text "I think TEAM"
 	line "ROCKET's message"
 	
@@ -391,24 +391,24 @@ RadioTower2FSuperNerdTROpinionText:
 	cont "distancing."
 	done
 
-RadioTower2FTeacherText:
+RadioTower2FTeacherText: ; AUTOTRAD
 	text "Lullabies on the"
 	line "radio may make"
 	cont "#MON sleep."
 	done
 
-RadioTower2FTeacherText_Rockets:
+RadioTower2FTeacherText_Rockets: ; AUTOTRAD
 	text "Why would they"
 	line "want to take over"
 	cont "the RADIO TOWER?"
 	done
 
-RadioTowerJigglypuffText:
+RadioTowerJigglypuffText: ; AUTOTRAD
 	text "JIGGLYPUFF:"
 	line "Jiggly…"
 	done
 
-RadioTower2FBlackBelt1Text:
+RadioTower2FBlackBelt1Text: ; AUTOTRAD
 	text "Sorry. Authorized"
 	line "personnel only"
 	cont "beyond this point."
@@ -421,7 +421,7 @@ RadioTower2FBlackBelt1Text:
 	cont "DIRECTOR…"
 	done
 
-RadioTower2FBlackBelt2Text:
+RadioTower2FBlackBelt2Text: ; AUTOTRAD
 	text "Feel free to look"
 	line "around anywhere."
 
@@ -430,7 +430,7 @@ RadioTower2FBlackBelt2Text:
 	cont "as he was before."
 	done
 
-GruntM4SeenText:
+GruntM4SeenText: ; TO TRANSLATE
 	text "The vaccine they"
 	line "are working on"
 	
@@ -441,44 +441,44 @@ GruntM4SeenText:
 	line "brain."
 	done
 
-GruntM4BeatenText:
+GruntM4BeatenText: ; TO TRANSLATE
 	text "Gah! You destroyed"
 	line "my brain!"
 	done
 
-GruntM4AfterBattleText:
+GruntM4AfterBattleText: ; TO TRANSLATE
 	text "We won't let you"
 	line "ruin our plans!"
 	done
 
-GruntM5SeenText:
+GruntM5SeenText: ; TO TRANSLATE
 	text "We won't let the"
 	line "government win!"
 	done
 
-GruntM5BeatenText:
+GruntM5BeatenText: ; AUTOTRAD
 	text "You think you're a"
 	line "hero?"
 	done
 
-GruntM5AfterBattleText:
+GruntM5AfterBattleText: ; TO TRANSLATE
 	text "We should all"
 	line "just do whatever"
 	cont "we like."
 	done
 
-GruntM6SeenText:
+GruntM6SeenText: ; TO TRANSLATE
 	text "Don't give up your"
 	line "freedom because of"
 	cont "a little flu"
 	cont "outbreak!"
 	done
 
-GruntM6BeatenText:
+GruntM6BeatenText: ; AUTOTRAD
 	text "Arggh. I give up."
 	done
 
-GruntM6AfterBattleText:
+GruntM6AfterBattleText: ; AUTOTRAD
 	text "Our EXECUTIVES are"
 	line "trying to take"
 	cont "this place over."
@@ -488,7 +488,7 @@ GruntM6AfterBattleText:
 	cont "what that is?"
 	done
 
-GruntF2SeenText:
+GruntF2SeenText: ; AUTOTRAD
 	text "Hahaha!"
 
 	para "How boring."
@@ -501,16 +501,16 @@ GruntF2SeenText:
 	line "amused!"
 	done
 
-GruntF2BeatenText:
+GruntF2BeatenText: ; AUTOTRAD
 	text "Wh-who are you?"
 	done
 
-GruntF2AfterBattleText:
+GruntF2AfterBattleText: ; AUTOTRAD
 	text "You beat me, and"
 	line "I won't forget it!"
 	done
 
-RadioTower2FBuenaShowIntroductionText:
+RadioTower2FBuenaShowIntroductionText: ; AUTOTRAD
 	text "BUENA: Hi! I'm"
 	line "BUENA!"
 
@@ -539,12 +539,12 @@ RadioTower2FBuenaShowIntroductionText:
 	line "point card!"
 	done
 
-RadioTower2FBuenaTuneInToMyShowText:
+RadioTower2FBuenaTuneInToMyShowText: ; AUTOTRAD
 	text "BUENA: Tune in to"
 	line "my PASSWORD SHOW!"
 	done
 
-RadioTower2FBuenaDoYouKnowPasswordText:
+RadioTower2FBuenaDoYouKnowPasswordText: ; AUTOTRAD
 	text "BUENA: Hi!"
 	line "Did you tune in to"
 	cont "my radio show?"
@@ -553,7 +553,7 @@ RadioTower2FBuenaDoYouKnowPasswordText:
 	line "today's password?"
 	done
 
-RadioTower2FBuenaJoinTheShowText:
+RadioTower2FBuenaJoinTheShowText: ; AUTOTRAD
 	text "BUENA: Oh, wow!"
 	line "Thank you!"
 
@@ -566,7 +566,7 @@ RadioTower2FBuenaJoinTheShowText:
 	line "Join the show."
 	done
 
-RadioTower2FBuenaEveryoneSayPasswordText:
+RadioTower2FBuenaEveryoneSayPasswordText: ; AUTOTRAD
 	text "BUENA: Everyone"
 	line "ready?"
 
@@ -577,7 +577,7 @@ RadioTower2FBuenaEveryoneSayPasswordText:
 	line "<PLAY_G>!"
 	done
 
-RadioTower2FBuenaComeBackAfterListeningText:
+RadioTower2FBuenaComeBackAfterListeningText: ; AUTOTRAD
 	text "BUENA: Come back"
 	line "after you listen"
 
@@ -585,7 +585,7 @@ RadioTower2FBuenaComeBackAfterListeningText:
 	line "Catch ya later!"
 	done
 
-RadioTower2FBuenaAlreadyPlayedText:
+RadioTower2FBuenaAlreadyPlayedText: ; AUTOTRAD
 	text "BUENA: Sorry…"
 
 	para "You get just one"
@@ -595,7 +595,7 @@ RadioTower2FBuenaAlreadyPlayedText:
 	line "for another try!"
 	done
 
-RadioTower2FBuenaCorrectAnswerText:
+RadioTower2FBuenaCorrectAnswerText: ; AUTOTRAD
 	text "BUENA: YIPPEE!"
 	line "That's right!"
 
@@ -606,7 +606,7 @@ RadioTower2FBuenaCorrectAnswerText:
 	line "point! Congrats!"
 	done
 
-RadioTower2FBuenaDidYouForgetText:
+RadioTower2FBuenaDidYouForgetText: ; AUTOTRAD
 	text "BUENA: Aww…"
 	line "That's not it…"
 
@@ -614,7 +614,7 @@ RadioTower2FBuenaDidYouForgetText:
 	line "password?"
 	done
 
-RadioTower2FBuenaThanksForComingText:
+RadioTower2FBuenaThanksForComingText: ; AUTOTRAD
 	text "BUENA: Yup! Our"
 	line "contestant was"
 
@@ -628,14 +628,14 @@ RadioTower2FBuenaThanksForComingText:
 	line "I'll be waiting!"
 	done
 
-RadioTower2FBuenaPasswordIsHelpText:
+RadioTower2FBuenaPasswordIsHelpText: ; AUTOTRAD
 	text "BUENA: Huh?"
 	line "Today's password?"
 
 	para "HELP, of course!"
 	done
 
-RadioTower2FBuenaCardIsFullText:
+RadioTower2FBuenaCardIsFullText: ; AUTOTRAD
 	text "BUENA: Your BLUE"
 	line "CARD's full."
 
@@ -643,7 +643,7 @@ RadioTower2FBuenaCardIsFullText:
 	line "fabulous prize!"
 	done
 
-RadioTower2FBuenaTuneInAfterSixText:
+RadioTower2FBuenaTuneInAfterSixText: ; AUTOTRAD
 	text "BUENA: Tune in to"
 	line "PASSWORD every"
 
@@ -654,7 +654,7 @@ RadioTower2FBuenaTuneInAfterSixText:
 	line "in for a visit!"
 	done
 
-RadioTower2FBuenaNoBlueCardText:
+RadioTower2FBuenaNoBlueCardText: ; AUTOTRAD
 	text "BUENA: Oh? You"
 	line "forgot to bring"
 	cont "your BLUE CARD?"
@@ -664,7 +664,7 @@ RadioTower2FBuenaNoBlueCardText:
 	cont "don't have it."
 	done
 
-RadioTower2FBuenaOfferPhoneNumberText:
+RadioTower2FBuenaOfferPhoneNumberText: ; AUTOTRAD
 	text "BUENA: Oh! Your"
 	line "BLUE CARD reached"
 
@@ -685,7 +685,7 @@ RadioTower2FBuenaOfferPhoneNumberText:
 	line "my phone number?"
 	done
 
-RadioTower2FBuenaOfferNumberAgainText:
+RadioTower2FBuenaOfferNumberAgainText: ; AUTOTRAD
 	text "BUENA: <PLAY_G>,"
 	line "do you want to"
 
@@ -693,23 +693,23 @@ RadioTower2FBuenaOfferNumberAgainText:
 	line "number?"
 	done
 
-RadioTower2FRegisteredBuenasNumberText:
+RadioTower2FRegisteredBuenasNumberText: ; AUTOTRAD
 	text "<PLAYER> registered"
 	line "BUENA's number."
 	done
 
-RadioTower2FBuenaCallMeText:
+RadioTower2FBuenaCallMeText: ; AUTOTRAD
 	text "BUENA: I look"
 	line "forward to hearing"
 	cont "from you!"
 	done
 
-RadioTower2FBuenaSadRejectedText:
+RadioTower2FBuenaSadRejectedText: ; AUTOTRAD
 	text "BUENA: Aww… It's a"
 	line "special prize…"
 	done
 
-RadioTower2FBuenaYourPhoneIsFullText:
+RadioTower2FBuenaYourPhoneIsFullText: ; AUTOTRAD
 	text "BUENA: <PLAY_G>,"
 	line "your phone list"
 
@@ -717,7 +717,7 @@ RadioTower2FBuenaYourPhoneIsFullText:
 	line "for me…"
 	done
 
-RadioTower2FBuenaReceptionistPointsForPrizesText:
+RadioTower2FBuenaReceptionistPointsForPrizesText: ; AUTOTRAD
 	text "You can cash in"
 	line "your saved points"
 
@@ -725,7 +725,7 @@ RadioTower2FBuenaReceptionistPointsForPrizesText:
 	line "of your choice!"
 	done
 
-RadioTower2FBuenaReceptionistNoCardText:
+RadioTower2FBuenaReceptionistNoCardText: ; AUTOTRAD
 	text "You can't trade in"
 	line "points without"
 	cont "your BLUE CARD."
@@ -734,11 +734,11 @@ RadioTower2FBuenaReceptionistNoCardText:
 	line "BLUE CARD!"
 	done
 
-RadioTower2FSalesSignText:
+RadioTower2FSalesSignText: ; AUTOTRAD
 	text "2F SALES"
 	done
 
-RadioTower2FOaksPKMNTalkSignText:
+RadioTower2FOaksPKMNTalkSignText: ; AUTOTRAD
 	text "PROF.OAK'S #MON"
 	line "TALK"
 
@@ -746,7 +746,7 @@ RadioTower2FOaksPKMNTalkSignText:
 	line "on the Air!"
 	done
 
-RadioTower2FPokemonRadioSignText:
+RadioTower2FPokemonRadioSignText: ; AUTOTRAD
 	text "Anywhere, Anytime"
 	line "#MON Radio"
 	done

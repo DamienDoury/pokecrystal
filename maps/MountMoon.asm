@@ -174,7 +174,7 @@ MountMoonSilverNoNameIdeaMovement:
 	step DOWN
 	step_end
 
-MountMoonSilverTextBefore:
+MountMoonSilverTextBefore: ; TO TRANSLATE
 	text "<……> <……> <……>"
 
 	para "It's been a while,"
@@ -188,7 +188,7 @@ MountMoonSilverTextBefore:
 	cont "#MON…"
 	done
 
-MountMoonSilverTextMadeProgress:
+MountMoonSilverTextMadeProgress: ; TO TRANSLATE
 	text "Since then, we"
 	line "have made great"
 	cont "progress!"
@@ -200,7 +200,7 @@ MountMoonSilverTextMadeProgress:
 	line "you don't…"
 	done
 
-MountMoonSilverTextRefuseFight:
+MountMoonSilverTextRefuseFight: ; TO TRANSLATE
 	text "I want us to fight"
 	line "on equal terms."
 
@@ -208,7 +208,7 @@ MountMoonSilverTextRefuseFight:
 	line "badges."
 	done
 
-MountMoonSilverTextStartBattle:
+MountMoonSilverTextStartBattle: ; TO TRANSLATE
 	text "And we came up"
 	line "with an answer."
 
@@ -216,7 +216,7 @@ MountMoonSilverTextStartBattle:
 	line "show you!"
 	done
 
-MountMoonSilverTextWin:
+MountMoonSilverTextWin: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "I thought I raised"
@@ -229,7 +229,7 @@ MountMoonSilverTextWin:
 	line "wasn't enough…"
 	done
 
-MountMoonSilverTextAfter:
+MountMoonSilverTextAfter: ; TO TRANSLATE
 	text "<……> <……> <……>"
 
 	para "…You won, fair"
@@ -258,7 +258,7 @@ MountMoonSilverTextAfter:
 	line "will find me."
 	done
 
-MountMoonSilverTextLoss:
+MountMoonSilverTextLoss: ; AUTOTRAD
 	text "<……> <……> <……>"
 
 	para "I've repaid my"
@@ -272,18 +272,18 @@ MountMoonSilverTextLoss:
 	cont "greatest trainer."
 	done
 
-BurglarBonesSeenText:
+BurglarBonesSeenText: ; TO TRANSLATE
 	text "My shovel and I"
 	line "came for the rare"
 	cont "stones!"
 	done
 
-BurglarBonesBeatenText:
+BurglarBonesBeatenText: ; TO TRANSLATE
 	text "All right, let's"
 	line "stop playing."
 	done
 
-BurglarBonesAfterBattleText:
+BurglarBonesAfterBattleText: ; TO TRANSLATE
 	text "I didn't find any"
 	line "rare stones here."
 	
@@ -295,7 +295,7 @@ BurglarBonesAfterBattleText:
 	line "become a cook?"
 	done
 
-BurglarBonesGivesLootText:
+BurglarBonesGivesLootText: ; TO TRANSLATE
 	text "Yes! This is a"
 	line "great plan!"
 
@@ -303,13 +303,13 @@ BurglarBonesGivesLootText:
 	line "of my loot then."
 	done
 
-BurglarBonesLightenPackText:
+BurglarBonesLightenPackText: ; TO TRANSLATE
 	text "Go lighten your"
 	line "pack, before I"
 	cont "do it for you."
 	done
 
-BurglarBonesOriginText:
+BurglarBonesOriginText: ; TO TRANSLATE
 	text "Got it in GOLDEN-"
 	line "ROD UNDERGROUND"
 	cont "WAREHOUSE."

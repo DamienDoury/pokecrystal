@@ -28,7 +28,7 @@ BlackthornDragonSpeechHouseDratiniScript:
 	closetext
 	end
 
-BlackthornDragonSpeechHouseGrannyText:
+BlackthornDragonSpeechHouseGrannyText: ; AUTOTRAD
 	text "A clan of trainers"
 	line "who can freely"
 
@@ -43,7 +43,7 @@ BlackthornDragonSpeechHouseGrannyText:
 	line "this town."
 	done
 
-BlackthornDragonSpeechHouseDratiniText:
+BlackthornDragonSpeechHouseDratiniText: ; AUTOTRAD
 	text "DRATINI: Draa!"
 	done
 

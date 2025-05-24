@@ -380,7 +380,7 @@ BillsHouseWalkFromRightToLeftVatMovement:
 	step LEFT
 	step_end
 
-BillsGrandpaIntroText:
+BillsGrandpaIntroText: ; AUTOTRAD
 	text "Hm? You know BILL?"
 	line "He's my grandson."
 
@@ -391,23 +391,23 @@ BillsGrandpaIntroText:
 	line "house-sitting."
 	done
 
-BillsGrandpaAskToSeeMonText:
+BillsGrandpaAskToSeeMonText: ; AUTOTRAD
 	text "If you have that"
 	line "#MON, may I see"
 	cont "it, please?"
 	done
 
-BillsGrandpaExcitedToSeeText:
+BillsGrandpaExcitedToSeeText: ; AUTOTRAD
 	text "You will show me?"
 	line "How good of you!"
 	done
 
-BillsGrandpaYouDontHaveItTextText:
+BillsGrandpaYouDontHaveItTextText: ; AUTOTRAD
 	text "You don't have it?"
 	line "That's too bad…"
 	done
 
-BillsGrandpaShownPokemonText:
+BillsGrandpaShownPokemonText: ; AUTOTRAD
 	text "Ah, so that is"
 	line "@"
 	text_ram wStringBuffer3
@@ -418,19 +418,19 @@ BillsGrandpaShownPokemonText:
 	cont "you."
 	done
 
-BillsGrandpaTokenOfAppreciationText:
+BillsGrandpaTokenOfAppreciationText: ; AUTOTRAD
 	text "Thanks!"
 
 	para "This is a token of"
 	line "my appreciation."
 	done
 
-BillsGrandpaComeAgainText:
+BillsGrandpaComeAgainText: ; AUTOTRAD
 	text "Come visit again"
 	line "sometime."
 	done
 
-BillsGrandpaShownAllThePokemonText:
+BillsGrandpaShownAllThePokemonText: ; AUTOTRAD
 	text "Thanks for showing"
 	line "me so many cute"
 	cont "#MON."
@@ -442,7 +442,7 @@ BillsGrandpaShownAllThePokemonText:
 	line "long life."
 	done
 
-BillsGrandpaWrongPokemonText:
+BillsGrandpaWrongPokemonText: ; AUTOTRAD
 	text "Hm?"
 
 	para "That's not the"
@@ -450,7 +450,7 @@ BillsGrandpaWrongPokemonText:
 	cont "told about."
 	done
 
-BillsGrandpaLickitungText:
+BillsGrandpaLickitungText: ; AUTOTRAD
 	text "My grandson BILL"
 	line "told me about a"
 
@@ -458,7 +458,7 @@ BillsGrandpaLickitungText:
 	line "long tongue."
 	done
 
-BillsGrandpaOddishText:
+BillsGrandpaOddishText: ; AUTOTRAD
 	text "Ah, my grandson"
 	line "mentioned a round,"
 
@@ -467,7 +467,7 @@ BillsGrandpaOddishText:
 	cont "on its head."
 	done
 
-BillsGrandpaStaryuText:
+BillsGrandpaStaryuText: ; AUTOTRAD
 	text "Do you know of a"
 	line "sea #MON that"
 
@@ -485,7 +485,7 @@ BillsGrandpaStaryuText:
 	line "like to see it."
 	done
 
-BillsGrandpaGrowlitheText:
+BillsGrandpaGrowlitheText: ; AUTOTRAD
 	text "BILL told me about"
 	line "a #MON that is"
 
@@ -496,7 +496,7 @@ BillsGrandpaGrowlitheText:
 	line "ROAR well."
 	done
 
-BillsGrandpaVulpixText:
+BillsGrandpaVulpixText: ; AUTOTRAD
 	text "I heard about a"
 	line "cute #MON that"
 	cont "has six tails."
@@ -506,7 +506,7 @@ BillsGrandpaVulpixText:
 	cont "like that."
 	done
 
-BillsGrandpaPichuText:
+BillsGrandpaPichuText: ; AUTOTRAD
 	text "Do you know that"
 	line "hugely popular"
 	cont "#MON?"
@@ -522,7 +522,7 @@ BillsGrandpaPichuText:
 	line "evolves."
 	done
 
-BillsHouseMachineInstructionsText:
+BillsHouseMachineInstructionsText: ; TO TRANSLATE
 	text "-#MON TRANSFER"
 	line "MACHINE PROTOTYPE-"
 
@@ -540,7 +540,7 @@ BillsHouseMachineInstructionsText:
 	line "End of file."
 	done
 
-BillsHouseVatDoorAskPokemonText:
+BillsHouseVatDoorAskPokemonText: ; TO TRANSLATE
 	text "The machine is up"
 	line "and running."
 

@@ -144,7 +144,7 @@ Route6RightMovement:
 	step RIGHT
 	step_end
 
-Route6PokefanMText:
+Route6PokefanMText: ; AUTOTRAD
 	text "The road is closed"
 	line "until the problem"
 
@@ -152,24 +152,24 @@ Route6PokefanMText:
 	line "is solved."
 	done
 
-Route6UndergroundPathSignText:
+Route6UndergroundPathSignText: ; AUTOTRAD
 	text "UNDERGROUND PATH"
 
 	para "CERULEAN CITY -"
 	line "VERMILION CITY"
 	done
 
-PokefanmRexSeenText:
+PokefanmRexSeenText: ; AUTOTRAD
 	text "My PHANPY is the"
 	line "cutest in the"
 	cont "world."
 	done
 
-PokefanmRexBeatenText:
+PokefanmRexBeatenText: ; AUTOTRAD
 	text "My PHANPY!"
 	done
 
-PokefanmRexAfterBattleText:
+PokefanmRexAfterBattleText: ; AUTOTRAD
 	text "Look how adorable"
 	line "my PHANPY acts!"
 
@@ -178,17 +178,17 @@ PokefanmRexAfterBattleText:
 	cont "your heart melt?"
 	done
 
-PokefanmAllanSeenText:
+PokefanmAllanSeenText: ; AUTOTRAD
 	text "My TEDDIURSA is"
 	line "the cutest in the"
 	cont "world."
 	done
 
-PokefanmAllanBeatenText:
+PokefanmAllanBeatenText: ; AUTOTRAD
 	text "My TEDDIURSA!"
 	done
 
-PokefanmAllanAfterBattleText:
+PokefanmAllanAfterBattleText: ; AUTOTRAD
 	text "Look how adorable"
 	line "my TEDDIURSA acts!"
 
@@ -197,7 +197,7 @@ PokefanmAllanAfterBattleText:
 	cont "your heart melt?"
 	done
 
-PokefanmFrancisSeenText:
+PokefanmFrancisSeenText: ; TO TRANSLATE
 	text "Hi! You're <PLAYER>!"
 	line "The trainer that"
 	cont "beat the ELITE 4!"
@@ -209,12 +209,12 @@ PokefanmFrancisSeenText:
 	line "your hand!"
 	done
 
-PokefanmFrancisBeatenText:
+PokefanmFrancisBeatenText: ; TO TRANSLATE
 	text "I can't believe I"
 	line "got to fight you!"
 	done
 
-PokefanmFrancisAfterBattleText:
+PokefanmFrancisAfterBattleText: ; TO TRANSLATE
 	text "I'm sorry, I"
 	line "shouldn't have"
 	cont "shaken your hand."
@@ -224,7 +224,7 @@ PokefanmFrancisAfterBattleText:
 	cont "followed."
 	done
 
-BeautyJosieSeenText:
+BeautyJosieSeenText: ; TO TRANSLATE
 	text "This place is so"
 	line "refreshing!"
 
@@ -239,12 +239,12 @@ BeautyJosieSeenText:
 	line "like JOHTO."
 	done
 
-BeautyJosieBeatenText:
+BeautyJosieBeatenText: ; TO TRANSLATE
 	text "Hey! Why did you"
 	line "start the fight?"
 	done
 
-BeautyJosieAfterBattleText:
+BeautyJosieAfterBattleText: ; TO TRANSLATE
 	text "I'm sorry if I hurt"
 	line "your feelings."
 	

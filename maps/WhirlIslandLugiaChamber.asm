@@ -38,7 +38,7 @@ Lugia:
 	farscall AugmentKantoDifficultyLevel
 	end
 
-LugiaText:
+LugiaText: ; AUTOTRAD
 	text "Gyaaas!"
 	done
 

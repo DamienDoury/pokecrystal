@@ -634,7 +634,7 @@ GoldenrodHospitalOffice_GoGetBoosterMovement:
 	step DOWN
 	step_end
 
-GoldenrodHospitalOfficeChiefText:
+GoldenrodHospitalOfficeChiefText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "I can't afford to"
 	cont "take a break with"
@@ -643,7 +643,7 @@ GoldenrodHospitalOfficeChiefText:
 	cont "every day."
 	done
 
-GoldenrodHospitalOffice_AskVariantText:
+GoldenrodHospitalOffice_AskVariantText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "Hey <PLAYER>,"
 
@@ -659,7 +659,7 @@ GoldenrodHospitalOffice_AskVariantText:
 	cont "to know?"
 	done
 
-GoldenrodHospitalOffice_VisitingText:
+GoldenrodHospitalOffice_VisitingText: ; TO TRANSLATE
 	text "Patients are often"
 	line "lonely."
 
@@ -667,7 +667,7 @@ GoldenrodHospitalOffice_VisitingText:
 	line "kes them happier."
 	done
 
-GoldenrodHospitalOffice_TooOldText:
+GoldenrodHospitalOffice_TooOldText: ; TO TRANSLATE
 	text "I can't tell for"
 	line "this one."
 
@@ -681,13 +681,13 @@ GoldenrodHospitalOffice_TooOldText:
 	line "done too long ago."
 	done
 
-GoldenrodHospitalOffice_VaccinatedText:
+GoldenrodHospitalOffice_VaccinatedText: ; TO TRANSLATE
 	text "I see this #MON"
 	line "got vaccinated,"
 	cont "congratulations!"
 	done
 
-GoldenrodHospitalOffice_TellVariantText:
+GoldenrodHospitalOffice_TellVariantText: ; TO TRANSLATE
 	text "Last time this"
 	line "#MON got tested"
 
@@ -701,7 +701,7 @@ GoldenrodHospitalOffice_TellVariantText:
 	line "your #MON!"
 	done
 
-GoldenrodHospitalOfficeChiefLuckyEggText:
+GoldenrodHospitalOfficeChiefLuckyEggText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "I didn't properly"
 	cont "thank you for"
@@ -709,7 +709,7 @@ GoldenrodHospitalOfficeChiefLuckyEggText:
 	cont "last time."
 	done
 
-GoldenrodHospitalOfficeChiefLuckyEggSequelText:
+GoldenrodHospitalOfficeChiefLuckyEggSequelText: ; TO TRANSLATE
 	text "A #MON that"
 	line "holds this grows"
 
@@ -717,36 +717,36 @@ GoldenrodHospitalOfficeChiefLuckyEggSequelText:
 	line "Use it wisely!"
 	done
 
-GoldenrodHospitalOfficePrinterText:
+GoldenrodHospitalOfficePrinterText: ; TO TRANSLATE
 	text "The screen says"
 	line "“Out of paper”"
 	done
 
-VeryPrestigiousDiplomaText:
+VeryPrestigiousDiplomaText: ; TO TRANSLATE
 	text "A diploma from a"
 	line "very prestigious"
 	cont "medical school."
 	done
 
-GoldenrodHospitalOffice_ComingForVaccineText:
+GoldenrodHospitalOffice_ComingForVaccineText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "Hello <PLAYER>,"
 	cont "are you coming to"
 	cont "get vaccinated?"
 	done
 
-GoldenrodHospitalOffice_NotComingForVaccineText:
+GoldenrodHospitalOffice_NotComingForVaccineText: ; TO TRANSLATE
 	text "Oh OK. I got"
 	line "ahead of myself."
 	done
 
-GoldenrodHospitalOffice_PhoneCallsText:
+GoldenrodHospitalOffice_PhoneCallsText: ; TO TRANSLATE
 	text "Amazing! I need"
 	line "to make a few"
 	cont "phone calls."
 	done
 
-GoldenrodHospitalOffice_AfterPhoneCallsText:
+GoldenrodHospitalOffice_AfterPhoneCallsText: ; TO TRANSLATE
 	text "So it's happening!"
 
 	para "You'll be the first"
@@ -762,13 +762,13 @@ GoldenrodHospitalOffice_AfterPhoneCallsText:
 	line "block after all."
 	done
 
-GoldenrodHospitalOffice_AfterPhoneCalls2Text:
+GoldenrodHospitalOffice_AfterPhoneCalls2Text: ; TO TRANSLATE
 	text "PROF.ELM has told"
 	line "you about the"
 	cont "interview, right?"
 	done
 
-GoldenrodHospitalOffice_MaryIntroText:
+GoldenrodHospitalOffice_MaryIntroText: ; TO TRANSLATE
 	text "MARY: I'm finally"
 	line "going to get this"
 	cont "interview you owe"
@@ -778,41 +778,41 @@ GoldenrodHospitalOffice_MaryIntroText:
 	line "this time!"
 	done
 
-GoldenrodHospitalOffice_VaccineArrivesText:
+GoldenrodHospitalOffice_VaccineArrivesText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "You should start"
 	cont "rolling, we're"
 	cont "ready."
 	done
 
-GoldenrodHospitalOffice_ComeNextToMeText:
+GoldenrodHospitalOffice_ComeNextToMeText: ; TO TRANSLATE
 	text "Come next to me"
 	line "<PLAYER>."
 	done
 
-GoldenrodHospitalOffice_EveryoneInPlaceText:
+GoldenrodHospitalOffice_EveryoneInPlaceText: ; TO TRANSLATE
 	text "MARY: All righty,"
 	line "everyone in place!"
 	done
 
-GoldenrodHospitalOffice_LiveCountdownIntroText:
+GoldenrodHospitalOffice_LiveCountdownIntroText: ; TO TRANSLATE
 	text "MARY: We're live"
 	line "in…"
 	done
 
-GoldenrodHospitalOffice_LiveCountdown3Text:
+GoldenrodHospitalOffice_LiveCountdown3Text: ; TO TRANSLATE
 	text "3…"
 	done
 
-GoldenrodHospitalOffice_LiveCountdown2Text:
+GoldenrodHospitalOffice_LiveCountdown2Text: ; TO TRANSLATE
 	text "2…"
 	done
 
-GoldenrodHospitalOffice_LiveCountdown1Text:
+GoldenrodHospitalOffice_LiveCountdown1Text: ; TO TRANSLATE
 	text "1…"
 	done
 
-GoldenrodHospitalOffice_ItwIntroText:
+GoldenrodHospitalOffice_ItwIntroText: ; TO TRANSLATE
 	text "MARY: Hi everyone!"
 	line "Today I'm with no"
 	cont "one but the one"
@@ -822,7 +822,7 @@ GoldenrodHospitalOffice_ItwIntroText:
 	line "doing today?"
 	done
 
-GoldenrodHospitalOffice_Itw1Text:
+GoldenrodHospitalOffice_Itw1Text: ; TO TRANSLATE
 	text "MARY: All right!"
 
 	para "Congratulations on"
@@ -836,17 +836,17 @@ GoldenrodHospitalOffice_Itw1Text:
 	line "your #MON?"
 	done
 
-GoldenrodHospitalOffice_Itw1GoodText:
+GoldenrodHospitalOffice_Itw1GoodText: ; TO TRANSLATE
 	text "MARY: How sweet"
 	line "of you!"
 	done
 
-GoldenrodHospitalOffice_Itw1BadText:
+GoldenrodHospitalOffice_Itw1BadText: ; TO TRANSLATE
 	text "MARY: Too shy to"
 	line "say it?"
 	done
 
-GoldenrodHospitalOffice_Itw2Text:
+GoldenrodHospitalOffice_Itw2Text: ; TO TRANSLATE
 	text "We have an exclu-"
 	line "sive info: you are"
 	cont "about to receive"
@@ -861,24 +861,24 @@ GoldenrodHospitalOffice_Itw2Text:
 	para "Do you trust it?"
 	done
 
-GoldenrodHospitalOffice_Itw2SequelText:
+GoldenrodHospitalOffice_Itw2SequelText: ; TO TRANSLATE
 	text "MARY: I have to"
 	line "cut you, it is"
 	cont "happening."
 	done
 
-GoldenrodHospitalOffice_Itw2NurseText:
+GoldenrodHospitalOffice_Itw2NurseText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "I'm proceeding to"
 	cont "the injection now."
 	done
 
-GoldenrodHospitalOffice_PlayerVaccinatedText:
+GoldenrodHospitalOffice_PlayerVaccinatedText: ; TO TRANSLATE
 	text "<PLAYER> is now"
 	line "vaccinated."
 	done
 
-GoldenrodHospitalOffice_Itw2Nurse2Text:
+GoldenrodHospitalOffice_Itw2Nurse2Text: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "That's all!"
 
@@ -891,7 +891,7 @@ GoldenrodHospitalOffice_Itw2Nurse2Text:
 	cont "phone please."
 	done
 
-GoldenrodHospitalOffice_Itw2Nurse3Text:
+GoldenrodHospitalOffice_Itw2Nurse3Text: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "This shot will"
 	cont "not only protect"
@@ -926,7 +926,7 @@ GoldenrodHospitalOffice_Itw2Nurse3Text:
 	cont "gift."
 	done
 
-ElmGiveTicketText2:
+ElmGiveTicketText2: ; TO TRANSLATE
 	text "The ship departs"
 	line "from OLIVINE CITY."
 
@@ -934,7 +934,7 @@ ElmGiveTicketText2:
 	line "PROF.OAK in KANTO!"
 	done
 
-GoldenrodHospitalOffice_Itw3Text:
+GoldenrodHospitalOffice_Itw3Text: ; TO TRANSLATE
 	text "MARY: It's official"
 	line "<PLAYER> just"
 	cont "received the shot!"
@@ -942,7 +942,7 @@ GoldenrodHospitalOffice_Itw3Text:
 	para "Was it painful?"
 	done
 
-GoldenrodHospitalOffice_Itw3GoodText:
+GoldenrodHospitalOffice_Itw3GoodText: ; TO TRANSLATE
 	text "MARY: That's good"
 	line "to hear!"
 
@@ -950,7 +950,7 @@ GoldenrodHospitalOffice_Itw3GoodText:
 	line "people!"
 	done
 
-GoldenrodHospitalOffice_Itw3BadText:
+GoldenrodHospitalOffice_Itw3BadText: ; TO TRANSLATE
 	text "MARY: Ahah, good"
 	line "joke! A little"
 	cont "needle wouldn't"
@@ -958,7 +958,7 @@ GoldenrodHospitalOffice_Itw3BadText:
 	cont "LEAGUE CHAMPION!"
 	done
 
-GoldenrodHospitalOffice_Itw4Text:
+GoldenrodHospitalOffice_Itw4Text: ; TO TRANSLATE
 	text "I have one"
 	line "last question."
 	
@@ -967,14 +967,14 @@ GoldenrodHospitalOffice_Itw4Text:
 	cont "get vaccinated?"
 	done
 
-GoldenrodHospitalOffice_Itw4GoodText:
+GoldenrodHospitalOffice_Itw4GoodText: ; TO TRANSLATE
 	text "MARY: Well, coming"
 	line "from the CHAMPION,"
 	cont "now I sure want my"
 	cont "shot as well!"
 	done
 	
-GoldenrodHospitalOffice_Itw4BadText:
+GoldenrodHospitalOffice_Itw4BadText: ; TO TRANSLATE
 	text "MARY: I see what"
 	line "you mean."
 
@@ -990,7 +990,7 @@ GoldenrodHospitalOffice_Itw4BadText:
 	line "to normal life."
 	done
 
-GoldenrodHospitalOffice_ItwEndText:
+GoldenrodHospitalOffice_ItwEndText: ; TO TRANSLATE
 	text "Thank you so"
 	line "much for your"
 	cont "time <PLAYER>."
@@ -998,7 +998,7 @@ GoldenrodHospitalOffice_ItwEndText:
 	para "Back to you, Tom."
 	done
 
-GoldenrodHospitalOffice_ResultBadText:
+GoldenrodHospitalOffice_ResultBadText: ; TO TRANSLATE
 	text "What was that"
 	line "<PLAYER>?"
 
@@ -1013,7 +1013,7 @@ GoldenrodHospitalOffice_ResultBadText:
 	cont "uncomfortable."
 	done
 
-GoldenrodHospitalOffice_ResultSoSoText:
+GoldenrodHospitalOffice_ResultSoSoText: ; TO TRANSLATE
 	text "This interview"
 	line "could have gone"
 	cont "better."
@@ -1029,7 +1029,7 @@ GoldenrodHospitalOffice_ResultSoSoText:
 	line "for your time."
 	done
 
-GoldenrodHospitalOffice_ResultOkText:
+GoldenrodHospitalOffice_ResultOkText: ; TO TRANSLATE
 	text "The interview was"
 	line "ok!"
 
@@ -1040,7 +1040,7 @@ GoldenrodHospitalOffice_ResultOkText:
 	line "for your time."
 	done
 
-GoldenrodHospitalOffice_ResultWellText:
+GoldenrodHospitalOffice_ResultWellText: ; TO TRANSLATE
 	text "The interview went"
 	line "well, I'm glad we"
 	cont "finally did it!"
@@ -1055,7 +1055,7 @@ GoldenrodHospitalOffice_ResultWellText:
 	line "to take this."
 	done
 
-GoldenrodHospitalOffice_ResultAmazingText:
+GoldenrodHospitalOffice_ResultAmazingText: ; TO TRANSLATE
 	text "<PLAYER>."
 
 	para "This interview was"
@@ -1089,7 +1089,7 @@ GoldenrodHospitalOffice_ResultAmazingText:
 	cont "appreciation."
 	done
 
-GoldenrodHospitalOffice_PackOf5Text:
+GoldenrodHospitalOffice_PackOf5Text: ; TO TRANSLATE
 	text "We give those"
 	line "away in BUENA's"
 	cont "PASSWORD show,"
@@ -1097,7 +1097,7 @@ GoldenrodHospitalOffice_PackOf5Text:
 	cont "of these."
 	done
 
-GoldenrodHospitalOffice_PackOf8Text:
+GoldenrodHospitalOffice_PackOf8Text: ; TO TRANSLATE
 	text "Those are very"
 	line "hard to find."
 	
@@ -1110,17 +1110,17 @@ GoldenrodHospitalOffice_PackOf8Text:
 	cont "you again!"
 	done
 
-GoldenrodHospitalOffice_CatchYouLaterText:
+GoldenrodHospitalOffice_CatchYouLaterText: ; TO TRANSLATE
 	text "Catch you later."
 	done
 
-GoldenrodHospitalOffice_ThanksVaccineText:
+GoldenrodHospitalOffice_ThanksVaccineText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "Thanks for showing"
 	cont "the example!"
 	done
 
-GoldenrodHospitalOffice_AskForBoosterText:
+GoldenrodHospitalOffice_AskForBoosterText: ; TO TRANSLATE
 	text "CHIEF NURSE JOY:"
 	line "Nice to see you!"
 
@@ -1134,7 +1134,7 @@ GoldenrodHospitalOffice_AskForBoosterText:
 	line "your booster?"
 	done
 
-GoldenrodHospitalOffice_RefusedBoosterText:
+GoldenrodHospitalOffice_RefusedBoosterText: ; TO TRANSLATE
 	text "You are free to"
 	line "not take it."
 	
@@ -1143,7 +1143,7 @@ GoldenrodHospitalOffice_RefusedBoosterText:
 	cont "invalidated."
 	done
 
-GoldenrodHospitalOffice_NoTrainerCardText:
+GoldenrodHospitalOffice_NoTrainerCardText: ; TO TRANSLATE
 	text "Wait, you don't"
 	line "have your TRAINER"
 	cont "CARD?"
@@ -1155,7 +1155,7 @@ GoldenrodHospitalOffice_NoTrainerCardText:
 	para "Come back with it."
 	done
 
-GoldenrodHospitalOffice_FakeIDText:
+GoldenrodHospitalOffice_FakeIDText: ; TO TRANSLATE
 	text "Uh… whose TRAINER"
 	line "CARD is this?"
 
@@ -1166,12 +1166,12 @@ GoldenrodHospitalOffice_FakeIDText:
 	line "yours."
 	done
 
-GoldenrodHospitalOffice_GotBoosterDoseText:
+GoldenrodHospitalOffice_GotBoosterDoseText: ; TO TRANSLATE
 	text "<PLAYER> got a"
 	line "booster dose!"
 	done
 
-GoldenrodHospitalOffice_SecondVaccinePassportUpdateText:
+GoldenrodHospitalOffice_SecondVaccinePassportUpdateText: ; TO TRANSLATE
 	text "Let me update the"
 	line "VACCINE PASSPORT"
 	cont "on your TRAINER"

@@ -109,7 +109,7 @@ Route2LeftStepMovement:
 	step LEFT
 	step_end
 
-Route2WarningTopText:
+Route2WarningTopText: ; TO TRANSLATE
 	text "You shouldn't go"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -126,7 +126,7 @@ Route2WarningTopText:
 	line "stop you."
 	done
 	
-Route2WarningBotText:
+Route2WarningBotText: ; TO TRANSLATE
 	text "Please don't go"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -136,7 +136,7 @@ Route2WarningBotText:
 	cont "rous out there."
 	done
 	
-Route2WarningTextEnd:
+Route2WarningTextEnd: ; TO TRANSLATE
 	text "At least follow my"
 	line "advice, and bring"
 	
@@ -148,34 +148,34 @@ Route2WarningTextEnd:
 	cont "those woods."
 	done
 
-BugCatcherRobSeenText:
+BugCatcherRobSeenText: ; AUTOTRAD
 	text "My bug #MON are"
 	line "tough. Prepare to"
 	cont "lose!"
 	done
 
-BugCatcherRobBeatenText:
+BugCatcherRobBeatenText: ; AUTOTRAD
 	text "I was whipped…"
 	done
 
-BugCatcherRobAfterBattleText:
+BugCatcherRobAfterBattleText: ; AUTOTRAD
 	text "I'm going to look"
 	line "for stronger bug"
 	cont "#MON."
 	done
 
-BugCatcherEdSeenText:
+BugCatcherEdSeenText: ; TO TRANSLATE
 	text "Boo!"
 
 	para "I'm the spirit from"
 	line "VIRIDIAN FOREST!"
 	done
 
-BugCatcherEdBeatenText:
+BugCatcherEdBeatenText: ; AUTOTRAD
 	text "Ouch, ouch, ouch!"
 	done
 
-BugCatcherEdAfterBattleText:
+BugCatcherEdAfterBattleText: ; TO TRANSLATE
 	text "In the past, I"
 	line "hunted BUGS in"
 	cont "VIRIDIAN FOREST."
@@ -184,7 +184,7 @@ BugCatcherEdAfterBattleText:
 	line "allow me."
 	done
 
-BugCatcherDougSeenText:
+BugCatcherDougSeenText: ; TO TRANSLATE
 	text "I used to wander"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -194,11 +194,11 @@ BugCatcherDougSeenText:
 	cont "to go."
 	done
 
-BugCatcherDougBeatenText:
+BugCatcherDougBeatenText: ; AUTOTRAD
 	text "No good!"
 	done
 
-BugCatcherDougAfterBattleText:
+BugCatcherDougAfterBattleText: ; TO TRANSLATE
 	text "VIRIDIAN FOREST"
 	line "had been cut down"
 	
@@ -218,14 +218,14 @@ BugCatcherDougAfterBattleText:
 	line "natural speed."
 	done
 
-Route2SignText:
+Route2SignText: ; AUTOTRAD
 	text "ROUTE 2"
 
 	para "VIRIDIAN CITY -"
 	line "PEWTER CITY"
 	done
 
-Route2DiglettsCaveSignText:
+Route2DiglettsCaveSignText: ; AUTOTRAD
 	text "DIGLETT'S CAVE"
 	done
 

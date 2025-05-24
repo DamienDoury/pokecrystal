@@ -68,7 +68,7 @@ IcePathB1FIron:
 IcePathB1FHiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION
 
-IcePathBoulderFellThroughText:
+IcePathBoulderFellThroughText: ; AUTOTRAD
 	text "The boulder fell"
 	line "through."
 	done

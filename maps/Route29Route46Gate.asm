@@ -13,7 +13,7 @@ Route29Route46GateOfficerScript:
 Route29Route46GateYoungsterScript:
 	jumptextfaceplayer Route29Route46GateYoungsterText
 
-Route29Route46GateOfficerText:
+Route29Route46GateOfficerText: ; AUTOTRAD
 	text "You can't climb"
 	line "ledges."
 
@@ -22,7 +22,7 @@ Route29Route46GateOfficerText:
 	cont "take a shortcut."
 	done
 
-Route29Route46GateYoungsterText:
+Route29Route46GateYoungsterText: ; AUTOTRAD
 	text "Different kinds of"
 	line "#MON appear"
 	cont "past here."

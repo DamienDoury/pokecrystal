@@ -17,16 +17,16 @@ TrainerBlackbeltIcarus:
 	closetext
 	end
 
-BlackbeltIcarusSeenText:
+BlackbeltIcarusSeenText: ; TO TRANSLATE
 	text "…Who's there?"
 	done
 
-BlackbeltIcarusBeatenText:
+BlackbeltIcarusBeatenText: ; TO TRANSLATE
 	text "That was self"
 	line "defense."
 	done
 
-BlackbeltIcarusAfterBattleText:
+BlackbeltIcarusAfterBattleText: ; TO TRANSLATE
 	text "CERULEAN CAVE is"
 	line "no longer being"
 	cont "watched since it"

@@ -218,7 +218,7 @@ FastShipB1FSailorBlocksLeftMovement:
 	turn_head DOWN
 	step_end
 
-FastShipB1FOnDutySailorText:
+FastShipB1FOnDutySailorText: ; AUTOTRAD
 	text "Hey, kid. Could I"
 	line "get you to look"
 	cont "for my buddy?"
@@ -232,14 +232,14 @@ FastShipB1FOnDutySailorText:
 	cont "duty right now."
 	done
 
-FastShipB1FOnDutySailorRefusedText:
+FastShipB1FOnDutySailorRefusedText: ; AUTOTRAD
 	text "Oh, gee…"
 
 	para "The CAPTAIN will"
 	line "be furious…"
 	done
 
-FastShipB1FOnDutySailorThanksText:
+FastShipB1FOnDutySailorThanksText: ; AUTOTRAD
 	text "Thanks, kid!"
 	line "I chewed him out"
 
@@ -247,14 +247,14 @@ FastShipB1FOnDutySailorThanksText:
 	line "slacking off!"
 	done
 
-FastShipB1FOnDutySailorSawLittleGirlText:
+FastShipB1FOnDutySailorSawLittleGirlText: ; AUTOTRAD
 	text "A little girl?"
 
 	para "I may have seen"
 	line "her go by here."
 	done
 
-FastShipB1FOnDutySailorDirectionsText:
+FastShipB1FOnDutySailorDirectionsText: ; AUTOTRAD
 	text "The dining room is"
 	line "up ahead."
 
@@ -263,34 +263,34 @@ FastShipB1FOnDutySailorDirectionsText:
 	cont "CAPTAIN's cabin."
 	done
 
-SailorJeffSeenText:
+SailorJeffSeenText: ; AUTOTRAD
 	text "Nothing beats a"
 	line "battle when I'm"
 	cont "on my break."
 	done
 
-SailorJeffBeatenText:
+SailorJeffBeatenText: ; AUTOTRAD
 	text "Win or lose, my"
 	line "break's over!"
 	done
 
-SailorJeffAfterBattleText:
+SailorJeffAfterBattleText: ; AUTOTRAD
 	text "I guess I can't"
 	line "win if I don't get"
 	cont "serious."
 	done
 
-PicnickerDebraSeenText:
+PicnickerDebraSeenText: ; AUTOTRAD
 	text "I'm so bored."
 	line "Want to battle?"
 	done
 
-PicnickerDebraBeatenText:
+PicnickerDebraBeatenText: ; AUTOTRAD
 	text "Yow! You're too"
 	line "strong!"
 	done
 
-PicnickerDebraAfterBattleText:
+PicnickerDebraAfterBattleText: ; AUTOTRAD
 	text "SAFFRON, CELADON…"
 	line "I hear there are"
 
@@ -298,17 +298,17 @@ PicnickerDebraAfterBattleText:
 	line "in KANTO."
 	done
 
-JugglerFritzSeenText:
+JugglerFritzSeenText: ; AUTOTRAD
 	text "Urrf…"
 	line "I'm seasick!"
 	done
 
-JugglerFritzBeatenText:
+JugglerFritzBeatenText: ; AUTOTRAD
 	text "I can't move any-"
 	line "more…"
 	done
 
-JugglerFritzAfterBattleText:
+JugglerFritzAfterBattleText: ; AUTOTRAD
 	text "No more ships for"
 	line "me. Next time,"
 
@@ -316,17 +316,17 @@ JugglerFritzAfterBattleText:
 	line "MAGNET TRAIN."
 	done
 
-SailorGarrettSeenText:
+SailorGarrettSeenText: ; AUTOTRAD
 	text "This is where we"
 	line "sailors work!"
 	done
 
-SailorGarrettBeatenText:
+SailorGarrettBeatenText: ; AUTOTRAD
 	text "I lost on my home"
 	line "field…"
 	done
 
-SailorGarrettAfterBattleText:
+SailorGarrettAfterBattleText: ; AUTOTRAD
 	text "We get different"
 	line "passengers from"
 
@@ -334,7 +334,7 @@ SailorGarrettAfterBattleText:
 	line "OLIVINE CITY."
 	done
 
-FisherJonahSeenText:
+FisherJonahSeenText: ; AUTOTRAD
 	text "Even though we're"
 	line "out on the sea, I"
 	cont "can't fish!"
@@ -343,17 +343,17 @@ FisherJonahSeenText:
 	line "Let's battle!"
 	done
 
-FisherJonahBeatenText:
+FisherJonahBeatenText: ; AUTOTRAD
 	text "I… I'm not bored"
 	line "anymore…"
 	done
 
-FisherJonahAfterBattleText:
+FisherJonahAfterBattleText: ; AUTOTRAD
 	text "I plan to fish off"
 	line "VERMILION's pier."
 	done
 
-BlackbeltWaiSeenText:
+BlackbeltWaiSeenText: ; AUTOTRAD
 	text "I'm building up my"
 	line "legs by bracing"
 
@@ -361,12 +361,12 @@ BlackbeltWaiSeenText:
 	line "rocking!"
 	done
 
-BlackbeltWaiBeatenText:
+BlackbeltWaiBeatenText: ; AUTOTRAD
 	text "Rocked and rolled"
 	line "over!"
 	done
 
-BlackbeltWaiAfterBattleText:
+BlackbeltWaiAfterBattleText: ; AUTOTRAD
 	text "I couldn't find"
 	line "the KARATE KING in"
 	cont "JOHTO."
@@ -376,7 +376,7 @@ BlackbeltWaiAfterBattleText:
 	cont "cave somewhere."
 	done
 
-SailorKennethSeenText:
+SailorKennethSeenText: ; AUTOTRAD
 	text "I'm a sailor man!"
 
 	para "But I'm training"
@@ -384,12 +384,12 @@ SailorKennethSeenText:
 	cont "become the CHAMP!"
 	done
 
-SailorKennethBeatenText:
+SailorKennethBeatenText: ; AUTOTRAD
 	text "My lack of train-"
 	line "ing is obvious…"
 	done
 
-SailorKennethAfterBattleText:
+SailorKennethAfterBattleText: ; AUTOTRAD
 	text "Eight BADGES!"
 	line "They must prove"
 
@@ -400,47 +400,47 @@ SailorKennethAfterBattleText:
 	line "so good!"
 	done
 
-TeacherShirleySeenText:
+TeacherShirleySeenText: ; AUTOTRAD
 	text "Don't lay a finger"
 	line "on my students!"
 	done
 
-TeacherShirleyBeatenText:
+TeacherShirleyBeatenText: ; AUTOTRAD
 	text "Aaack!"
 	done
 
-TeacherShirleyAfterBattleText:
+TeacherShirleyAfterBattleText: ; AUTOTRAD
 	text "We're on a field"
 	line "trip to the RUINS"
 	cont "outside VIOLET."
 	done
 
-SchoolboyNateSeenText:
+SchoolboyNateSeenText: ; AUTOTRAD
 	text "Do you know the"
 	line "RUINS OF ALPH?"
 	done
 
-SchoolboyNateBeatenText:
+SchoolboyNateBeatenText: ; AUTOTRAD
 	text "Yaargh!"
 	done
 
-SchoolboyNateAfterBattleText:
+SchoolboyNateAfterBattleText: ; AUTOTRAD
 	text "Radios pick up"
 	line "strange signals"
 	cont "inside the RUINS."
 	done
 
-SchoolboyRickySeenText:
+SchoolboyRickySeenText: ; AUTOTRAD
 	text "There are some odd"
 	line "stone panels in"
 	cont "the RUINS OF ALPH."
 	done
 
-SchoolboyRickyBeatenText:
+SchoolboyRickyBeatenText: ; AUTOTRAD
 	text "I was done in!"
 	done
 
-SchoolboyRickyAfterBattleText:
+SchoolboyRickyAfterBattleText: ; AUTOTRAD
 	text "I read that there"
 	line "are four of those"
 	cont "stone panels."

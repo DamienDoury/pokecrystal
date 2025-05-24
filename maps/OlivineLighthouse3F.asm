@@ -55,7 +55,7 @@ TrainerSailorTerrell:
 OlivineLighthouse3FEther:
 	itemball ETHER
 
-BirdKeeperTheoSeenText:
+BirdKeeperTheoSeenText: ; AUTOTRAD
 	text "Why are you here?"
 	line "Are you just going"
 
@@ -63,12 +63,12 @@ BirdKeeperTheoSeenText:
 	line "that you leave!"
 	done
 
-BirdKeeperTheoBeatenText:
+BirdKeeperTheoBeatenText: ; AUTOTRAD
 	text "You really are"
 	line "concerned…"
 	done
 
-BirdKeeperTheoAfterBattleText:
+BirdKeeperTheoAfterBattleText: ; AUTOTRAD
 	text "How the heck do"
 	line "you go up?"
 
@@ -79,18 +79,18 @@ BirdKeeperTheoAfterBattleText:
 	line "there…"
 	done
 
-SailorTerrellSeenText:
+SailorTerrellSeenText: ; AUTOTRAD
 	text "Sailors are both"
 	line "kind and strong."
 	cont "How about you?"
 	done
 
-SailorTerrellBeatenText:
+SailorTerrellBeatenText: ; AUTOTRAD
 	text "You are both kind"
 	line "and strong…"
 	done
 
-SailorTerrellAfterBattleText:
+SailorTerrellAfterBattleText: ; TO TRANSLATE
 	text "I once had no"
 	line "choice but to"
 	cont "abandon my"
@@ -108,19 +108,19 @@ SailorTerrellAfterBattleText:
 	line "good trainer now."
 	done
 
-GentlemanPrestonSeenText:
+GentlemanPrestonSeenText: ; AUTOTRAD
 	text "I travel the world"
 	line "to train my #-"
 	cont "MON. I wish to"
 	cont "battle with you."
 	done
 
-GentlemanPrestonBeatenText:
+GentlemanPrestonBeatenText: ; AUTOTRAD
 	text "…sigh… I must"
 	line "train some more…"
 	done
 
-GentlemanPrestonAfterBattleText:
+GentlemanPrestonAfterBattleText: ; AUTOTRAD
 	text "JASMINE used to"
 	line "use rock #MON"
 	cont "like ONIX."

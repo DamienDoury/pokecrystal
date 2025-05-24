@@ -26,7 +26,7 @@ Route6SaffronGuardScript:
 	closetext
 	end
 
-Route6SaffronGuardWelcomeText:
+Route6SaffronGuardWelcomeText: ; AUTOTRAD
 	text "Welcome to SAFFRON"
 	line "CITY, home of the"
 	cont "MAGNET TRAIN!"
@@ -47,7 +47,7 @@ Route6SaffronGuardWelcomeText:
 	line "PLANT."
 	done
 
-Route6SaffronGuardMagnetTrainText:
+Route6SaffronGuardMagnetTrainText: ; AUTOTRAD
 	text "The MAGNET TRAIN"
 	line "is the most famous"
 

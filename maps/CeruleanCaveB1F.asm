@@ -55,7 +55,7 @@ CeruleanCave_LookAroundMovement:
 	step_sleep 3
 	step_end
 
-CeruleanCave_SomeoneAroundText:
+CeruleanCave_SomeoneAroundText: ; TO TRANSLATE
 	text "You just heard a"
 	line "voice."
 
@@ -63,7 +63,7 @@ CeruleanCave_SomeoneAroundText:
 	line "be alone."
 	done
 
-CeruleanCave_VoiceInHeadText:
+CeruleanCave_VoiceInHeadText: ; TO TRANSLATE
 	text "The voice seems"
 	line "to be coming from"
 	

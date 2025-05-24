@@ -222,7 +222,7 @@ LancesRoomMovementData_MaryRunsBackAndForth:
 	turn_head UP
 	step_end
 
-LanceBattleIntroText:
+LanceBattleIntroText: ; TO TRANSLATE
 	text "LANCE: I've been"
 	line "waiting for you."
 
@@ -250,13 +250,13 @@ LanceBattleIntroText:
 	line "CHAMPION…"
 	done
 
-LanceBattleIntroEndText:
+LanceBattleIntroEndText: ; TO TRANSLATE
 	text "I, LANCE the Drag-"
 	line "on master, accept"
 	cont "your challenge!"
 	done
 
-LanceBattleWinText:
+LanceBattleWinText: ; AUTOTRAD
 	text "…It's over."
 
 	para "But it's an odd"
@@ -273,7 +273,7 @@ LanceBattleWinText:
 	line "CHAMPION!"
 	done
 
-LanceBattleAfterText:
+LanceBattleAfterText: ; AUTOTRAD
 	text "…Whew."
 
 	para "You have become"
@@ -293,7 +293,7 @@ LanceBattleAfterText:
 	line "your #MON."
 	done
 
-LancesRoomMaryOhNoOakText:
+LancesRoomMaryOhNoOakText: ; AUTOTRAD
 	text "MARY: Oh, no!"
 	line "It's all over!"
 
@@ -301,7 +301,7 @@ LancesRoomMaryOhNoOakText:
 	line "weren't so slow…"
 	done
 
-LancesRoomOakCongratulationsText:
+LancesRoomOakCongratulationsText: ; AUTOTRAD
 	text "PROF.OAK: Ah,"
 	line "<PLAY_G>!"
 
@@ -334,13 +334,13 @@ LancesRoomOakCongratulationsText:
 	line "<PLAY_G>!"
 	done
 
-LancesRoomMaryInterviewText:
+LancesRoomMaryInterviewText: ; AUTOTRAD
 	text "MARY: Let's inter-"
 	line "view the brand new"
 	cont "CHAMPION!"
 	done
 
-LancesRoomNoisyText:
+LancesRoomNoisyText: ; AUTOTRAD
 	text "LANCE: This is"
 	line "getting to be a"
 	cont "bit too noisy…"
@@ -349,7 +349,7 @@ LancesRoomNoisyText:
 	line "come with me?"
 	done
 
-LancesRoomMaryNoInterviewText:
+LancesRoomMaryNoInterviewText: ; AUTOTRAD
 	text "MARY: Oh, wait!"
 	line "We haven't done"
 	cont "the interview!"

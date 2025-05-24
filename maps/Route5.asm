@@ -31,7 +31,7 @@ Route5UndergroundPathSign:
 HouseForSaleSign:
 	jumptext HouseForSaleSignText
 
-Route5PokefanMText:
+Route5PokefanMText: ; AUTOTRAD
 	text "The road is closed"
 	line "until the problem"
 
@@ -39,14 +39,14 @@ Route5PokefanMText:
 	line "is solved."
 	done
 
-Route5UndergroundPathSignText:
+Route5UndergroundPathSignText: ; AUTOTRAD
 	text "UNDERGROUND PATH"
 
 	para "CERULEAN CITY -"
 	line "VERMILION CITY"
 	done
 
-HouseForSaleSignText:
+HouseForSaleSignText: ; AUTOTRAD
 	text "What's this?"
 
 	para "House for Sale…"

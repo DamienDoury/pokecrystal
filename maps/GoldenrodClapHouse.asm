@@ -279,7 +279,7 @@ GoldenrodClapHouse_Bookshelf:
 GoldenrodClapHouse_Radio:
 	jumpstd Radio2Script
 
-GoldenrodClapHouse_HusbandLockdownOpportunityText:
+GoldenrodClapHouse_HusbandLockdownOpportunityText: ; TO TRANSLATE
 	text "This stay at home"
 	line "order's a blessing!"
 
@@ -295,7 +295,7 @@ GoldenrodClapHouse_HusbandLockdownOpportunityText:
 	cont "my own bread!"
 	done
 
-GoldenrodClapHouse_HusbandClapText:
+GoldenrodClapHouse_HusbandClapText: ; TO TRANSLATE
 	text "This is the most"
 	line "important time of"
 	cont "the day!"
@@ -303,7 +303,7 @@ GoldenrodClapHouse_HusbandClapText:
 	para "Time to claaaap!"
 	done
 
-GoldenrodClapHouse_HusbandLockdownText:
+GoldenrodClapHouse_HusbandLockdownText: ; TO TRANSLATE
 	text "All I did during"
 	line "the lockdown was"
 	
@@ -319,7 +319,7 @@ GoldenrodClapHouse_HusbandLockdownText:
 
 
 
-GoldenrodClapHouse_MasterBeforeLockdownText:
+GoldenrodClapHouse_MasterBeforeLockdownText: ; TO TRANSLATE
 	text "I'm afraid to stay"
 	line "locked at home."
 
@@ -332,7 +332,7 @@ GoldenrodClapHouse_MasterBeforeLockdownText:
 	cont "8 PM."
 	done
 
-GoldenrodClapHouse_MasterEncoreSecondChanceText:
+GoldenrodClapHouse_MasterEncoreSecondChanceText: ; TO TRANSLATE
 	text "Window clapping"
 	line "appears to be"
 	cont "gone for good."
@@ -345,7 +345,7 @@ GoldenrodClapHouse_MasterEncoreSecondChanceText:
 	line "take this."
 	done
 
-GoldenrodClapHouse_MasterPokeathlonText:
+GoldenrodClapHouse_MasterPokeathlonText: ; TO TRANSLATE
 	text "I wish I could be"
 	line "clapping at the"
 	cont "#ATHLON."
@@ -356,37 +356,37 @@ GoldenrodClapHouse_MasterPokeathlonText:
 	cont "public."
 	done
 
-GoldenrodClapHouse_MasterTrendVanishedText:
+GoldenrodClapHouse_MasterTrendVanishedText: ; TO TRANSLATE
 	text "Unfortunately, the"
 	line "window clapping"
 	cont "trend slowly"
 	cont "vanished."
 	done
 
-GoldenrodClapHouse_LoveYourClappingText:
+GoldenrodClapHouse_LoveYourClappingText: ; TO TRANSLATE
 	text "I love the way"
 	line "you clap!"
 	done
 
-GoldenrodClapHouse_MasterShowHandsText:
+GoldenrodClapHouse_MasterShowHandsText: ; TO TRANSLATE
 	text "By looking at your"
 	line "hands, I can tell…"
 	done
 
-GoldenrodClapHouse_MasterThanksLookbackText:
+GoldenrodClapHouse_MasterThanksLookbackText: ; TO TRANSLATE
 	text "Thanks for taking"
 	line "part in the window"
 	cont "clapping movement!"
 	done
 
-GoldenrodClapHouse_MasterClapCountText:
+GoldenrodClapHouse_MasterClapCountText: ; TO TRANSLATE
 	text "You've clapped"
 	line "@"
 	text_decimal wClapCount, 2, 5
 	text " times."
 	done
 
-GoldenrodClapHouse_MasterHighCountText:
+GoldenrodClapHouse_MasterHighCountText: ; TO TRANSLATE
 	text "You've clapped more"
 	line "than I can count!"
 
@@ -394,7 +394,7 @@ GoldenrodClapHouse_MasterHighCountText:
 	line "something?"
 	done
 
-GoldenrodClapHouse_Gift1Text:
+GoldenrodClapHouse_Gift1Text: ; TO TRANSLATE
 	text "You've clapped"
 	line "more than {d:CLAP_CAP_1_AMOUNT}"
 	cont "times!"
@@ -403,7 +403,7 @@ GoldenrodClapHouse_Gift1Text:
 	line "for your effort."
 	done
 
-GoldenrodClapHouse_Gift2Text:
+GoldenrodClapHouse_Gift2Text: ; TO TRANSLATE
 	text "Wow! You've clapped"
 	line "more than {d:CLAP_CAP_2_AMOUNT}"
 	cont "times!"
@@ -412,7 +412,7 @@ GoldenrodClapHouse_Gift2Text:
 	line "with a present."
 	done
 
-GoldenrodClapHouse_Gift3Text:
+GoldenrodClapHouse_Gift3Text: ; TO TRANSLATE
 	text "Wow! You've clapped"
 	line "more than {d:CLAP_CAP_3_AMOUNT}"
 	cont "times! Impressive!"
@@ -423,7 +423,7 @@ GoldenrodClapHouse_Gift3Text:
 	cont "your strong hands."
 	done
 
-GoldenrodClapHouse_ExplanationText:
+GoldenrodClapHouse_ExplanationText: ; TO TRANSLATE
 	text "The trend I start-"
 	line "ed has picked up!"
 
@@ -449,13 +449,13 @@ GoldenrodClapHouse_ExplanationText:
 	line "are doing it!"
 	done
 
-GoldenrodClapHouse_ClapAlongText:
+GoldenrodClapHouse_ClapAlongText: ; TO TRANSLATE
 	text "Come on! Please"
 	line "clap along!"
 	cont "You can do it!"
 	done
 
-GoldenrodClapHouse_HypedText:
+GoldenrodClapHouse_HypedText: ; TO TRANSLATE
 	text "I'm really amped"
 	line "for 8 PM!"
 	done
@@ -463,7 +463,7 @@ GoldenrodClapHouse_HypedText:
 
 
 
-GoldenrodClapHouse_OldBookText:
+GoldenrodClapHouse_OldBookText: ; TO TRANSLATE
 	text "There's an old copy"
 	line "of The Book of"
 	cont "Clapping."
@@ -472,7 +472,7 @@ GoldenrodClapHouse_OldBookText:
 	line "to read it?"
 	done
 
-GoldenrodClapHouse_InstructionsText:
+GoldenrodClapHouse_InstructionsText: ; TO TRANSLATE
 	text "“The Book of"
 	line "Clapping”"
 

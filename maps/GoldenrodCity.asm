@@ -161,7 +161,7 @@ MoveTutorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "FLAMETHROWER@"
@@ -461,7 +461,7 @@ GoldenrodCityMoveTutorEnterGameCornerMovement:
 	step UP
 	step_end
 
-GoldenrodCityPokefanMText:
+GoldenrodCityPokefanMText: ; AUTOTRAD
 	text "They built the new"
 	line "RADIO TOWER to"
 
@@ -469,7 +469,7 @@ GoldenrodCityPokefanMText:
 	line "creaky one."
 	done
 
-GoldenrodCityYoungster1Text:
+GoldenrodCityYoungster1Text: ; AUTOTRAD
 	text "I know there's a"
 	line "new BIKE SHOP, but"
 
@@ -477,7 +477,7 @@ GoldenrodCityYoungster1Text:
 	line "anywhere."
 	done
 
-GoldenrodCityCooltrainerF1Text:
+GoldenrodCityCooltrainerF1Text: ; AUTOTRAD
 	text "Is that man in"
 	line "black dressed up"
 
@@ -485,7 +485,7 @@ GoldenrodCityCooltrainerF1Text:
 	line "member? How silly!"
 	done
 
-GoldenrodCityCooltrainerF1Text_ClearedRadioTower:
+GoldenrodCityCooltrainerF1Text_ClearedRadioTower: ; AUTOTRAD
 	text "Was that man in"
 	line "black really part"
 
@@ -493,7 +493,7 @@ GoldenrodCityCooltrainerF1Text_ClearedRadioTower:
 	line "can't believe it!"
 	done
 
-GoldenrodCityCooltrainerF2Text:
+GoldenrodCityCooltrainerF2Text: ; AUTOTRAD
 	text "The RADIO TOWER in"
 	line "GOLDENROD CITY is"
 	cont "a landmark."
@@ -509,12 +509,12 @@ GoldenrodCityCooltrainerF2Text:
 	line "serve as a radio."
 	done
 
-GoldenrodCityCooltrainerF2Text_GotRadioCard:
+GoldenrodCityCooltrainerF2Text_GotRadioCard: ; AUTOTRAD
 	text "Oh, your #GEAR"
 	line "works as a radio!"
 	done
 
-GoldenrodCityYoungster2Text:
+GoldenrodCityYoungster2Text: ; TO TRANSLATE
 	text "The hospital in"
 	line "the north of the"
 	cont "city has been"
@@ -527,7 +527,7 @@ GoldenrodCityYoungster2Text:
 	para "Yo, it's crazy!"
 	done
 
-GoldenrodCityLassText:
+GoldenrodCityLassText: ; AUTOTRAD
 	text "The man at that"
 	line "house rates your"
 	cont "#MON names."
@@ -536,7 +536,7 @@ GoldenrodCityLassText:
 	line "your #MON."
 	done
 
-GoldenrodCityGrampsText:
+GoldenrodCityGrampsText: ; AUTOTRAD
 	text "Whew! This is one"
 	line "big town. I don't"
 
@@ -544,17 +544,17 @@ GoldenrodCityGrampsText:
 	line "thing is."
 	done
 
-GoldenrodCityRocketScoutText1:
+GoldenrodCityRocketScoutText1: ; AUTOTRAD
 	text "So this is the"
 	line "RADIO TOWER…"
 	done
 
-GoldenrodCityRocketScoutText2:
+GoldenrodCityRocketScoutText2: ; AUTOTRAD
 	text "What do you want,"
 	line "you pest? Scram!"
 	done
 
-GoldenrodCityRocketScoutLockdownText:
+GoldenrodCityRocketScoutLockdownText: ; TO TRANSLATE
 	text "Going outside"
 	line "against the law…"
 
@@ -566,12 +566,12 @@ GoldenrodCityRocketScoutLockdownText:
 	cont "got big plans!"
 	done
 
-GoldenrodCityRocket1Text:
+GoldenrodCityRocket1Text: ; AUTOTRAD
 	text "Stay out of the"
 	line "way! Beat it!"
 	done
 
-GoldenrodCityRocket2Text:
+GoldenrodCityRocket2Text: ; AUTOTRAD
 	text "Take over the"
 	line "RADIO TOWER…"
 
@@ -579,7 +579,7 @@ GoldenrodCityRocket2Text:
 	line "your business!"
 	done
 
-GoldenrodCityRocket3Text:
+GoldenrodCityRocket3Text: ; AUTOTRAD
 	text "#MON? They're"
 	line "nothing more than"
 
@@ -587,7 +587,7 @@ GoldenrodCityRocket3Text:
 	line "money!"
 	done
 
-GoldenrodCityRocket4Text:
+GoldenrodCityRocket4Text: ; AUTOTRAD
 	text "Our dream will"
 	line "soon come true…"
 
@@ -595,29 +595,29 @@ GoldenrodCityRocket4Text:
 	line "struggle…"
 	done
 
-GoldenrodCityRocket5Text:
+GoldenrodCityRocket5Text: ; AUTOTRAD
 	text "Hey, brat! You"
 	line "don't belong here!"
 	cont "Get lost!"
 	done
 
-GoldenrodCityRocket6Text:
+GoldenrodCityRocket6Text: ; AUTOTRAD
 	text "Come taste the"
 	line "true terror of"
 	cont "TEAM ROCKET!"
 	done
 
-GoldenrodCityStationSignText:
+GoldenrodCityStationSignText: ; AUTOTRAD
 	text "GOLDENROD CITY"
 	line "STATION"
 	done
 
-GoldenrodCityRadioTowerSignText:
+GoldenrodCityRadioTowerSignText: ; AUTOTRAD
 	text "GOLDENROD CITY"
 	line "RADIO TOWER"
 	done
 
-GoldenrodDeptStoreSignText:
+GoldenrodDeptStoreSignText: ; AUTOTRAD
 	text "Full Selection of"
 	line "#MON Goods!"
 
@@ -625,7 +625,7 @@ GoldenrodDeptStoreSignText:
 	line "DEPT.STORE"
 	done
 
-GoldenrodGymSignText:
+GoldenrodGymSignText: ; AUTOTRAD
 	text "GOLDENROD CITY"
 	line "#MON GYM"
 	cont "LEADER: WHITNEY"
@@ -634,49 +634,49 @@ GoldenrodGymSignText:
 	line "Pretty Girl!"
 	done
 
-GoldenrodCitySignText:
+GoldenrodCitySignText: ; AUTOTRAD
 	text "GOLDENROD CITY"
 
 	para "The Festive City"
 	line "of Opulent Charm"
 	done
 
-GoldenrodCityBikeShopSignText:
+GoldenrodCityBikeShopSignText: ; AUTOTRAD
 	text "The World is a"
 	line "Cycle Path!"
 	cont "BIKE SHOP"
 	done
 
-GoldenrodCityGameCornerSignText:
+GoldenrodCityGameCornerSignText: ; AUTOTRAD
 	text "Your Playground!"
 
 	para "GOLDENROD CITY"
 	line "GAME CORNER"
 	done
 
-GoldenrodCityNameRaterSignText:
+GoldenrodCityNameRaterSignText: ; AUTOTRAD
 	text "NAME RATER"
 
 	para "Get Your #MON"
 	line "Nicknames Rated"
 	done
 
-GoldenrodCityUndergroundSignNorthText:
+GoldenrodCityUndergroundSignNorthText: ; AUTOTRAD
 	text "UNDERGROUND"
 	line "ENTRANCE"
 	done
 
-GoldenrodCityFlowerShopSignText:
+GoldenrodCityFlowerShopSignText: ; AUTOTRAD
 	text "Blooming Beautiful"
 	line "FLOWER SHOP"
 	done
 
-GoldenrodHospitalSignText:
+GoldenrodHospitalSignText: ; TO TRANSLATE
 	text "GOLDENROD NATIONAL"
 	line "HOSPITAL"
 	done
 
-GoldenrodCityMoveTutorAskTeachAMoveText:
+GoldenrodCityMoveTutorAskTeachAMoveText: ; AUTOTRAD
 	text "I can teach your"
 	line "#MON amazing"
 
@@ -687,17 +687,17 @@ GoldenrodCityMoveTutorAskTeachAMoveText:
 	line "new move?"
 	done
 
-GoldenrodCityMoveTutorAsk4000CoinsOkayText:
+GoldenrodCityMoveTutorAsk4000CoinsOkayText: ; AUTOTRAD
 	text "It will cost you"
 	line "4000 coins. Okay?"
 	done
 
-GoldenrodCityMoveTutorAwwButTheyreAmazingText:
+GoldenrodCityMoveTutorAwwButTheyreAmazingText: ; AUTOTRAD
 	text "Aww… But they're"
 	line "amazing…"
 	done
 
-GoldenrodCityMoveTutorWhichMoveShouldITeachText:
+GoldenrodCityMoveTutorWhichMoveShouldITeachText: ; AUTOTRAD
 	text "Wahahah! You won't"
 	line "regret it!"
 
@@ -705,13 +705,13 @@ GoldenrodCityMoveTutorWhichMoveShouldITeachText:
 	line "I teach?"
 	done
 
-GoldenrodCityMoveTutorHmTooBadText:
+GoldenrodCityMoveTutorHmTooBadText: ; AUTOTRAD
 	text "Hm, too bad. I'll"
 	line "have to get some"
 	cont "cash from home…"
 	done
 
-GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText:
+GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText: ; AUTOTRAD
 	text "If you understand"
 	line "what's so amazing"
 
@@ -720,21 +720,21 @@ GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText:
 	cont "a trainer."
 	done
 
-GoldenrodCityMoveTutorFarewellKidText:
+GoldenrodCityMoveTutorFarewellKidText: ; AUTOTRAD
 	text "Wahahah!"
 	line "Farewell, kid!"
 	done
 
-GoldenrodCityMoveTutorBButText:
+GoldenrodCityMoveTutorBButText: ; AUTOTRAD
 	text "B-but…"
 	done
 
-GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText:
+GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText: ; AUTOTRAD
 	text "…You don't have"
 	line "enough coins here…"
 	done
 
-GoldenrodCasinoWindowText:
+GoldenrodCasinoWindowText: ; TO TRANSLATE
 	text "The GAME CORNER"
 	line "forgot to turn"
 	
@@ -746,7 +746,7 @@ GoldenrodCasinoWindowText:
 	cont "city bill!"
 	done
 
-GoldenrodCasinoWindowKnownSecretText:
+GoldenrodCasinoWindowKnownSecretText: ; TO TRANSLATE
 	text "The GAME CORNER"
 	line "forgot to close"
 	
@@ -758,14 +758,14 @@ GoldenrodCasinoWindowKnownSecretText:
 	line "it a secret."
 	done
 
-BeaterText1:
+BeaterText1: ; TO TRANSLATE
 	text "Hey kid."
 
 	para "Wanna have"
 	line "some fun?"
 	done
 
-BeaterText2:
+BeaterText2: ; TO TRANSLATE
 	text "All right."
 
 	para "Go in the"
@@ -791,7 +791,7 @@ BeaterText2:
 	para "Got it?"
 	done
 
-BeaterText2Bis:
+BeaterText2Bis: ; TO TRANSLATE
 	text "Underground. Just"
 	line "after nightfall."
 
@@ -800,15 +800,15 @@ BeaterText2Bis:
 	cont "and ¥3000 cash."
 	done
 
-BeaterText3:
+BeaterText3: ; TO TRANSLATE
 	text "Now bounce."
 	done
 
-GetLostText:
+GetLostText: ; TO TRANSLATE
 	text "Get lost kiddo…"
 	done
 
-GoldenrodCityMarketRush1Text:
+GoldenrodCityMarketRush1Text: ; TO TRANSLATE
 	text "We need TOILET"
 	line "PAPER!"
 	
@@ -820,18 +820,18 @@ GoldenrodCityMarketRush1Text:
 	line "of rolls!"
 	done
 
-GoldenrodCityMarketRush2Text:
+GoldenrodCityMarketRush2Text: ; TO TRANSLATE
 	text "Mom I'm scared,"
 	line "I wanna go home."
 	done
 
-GoldenrodCityMarketRush3Text:
+GoldenrodCityMarketRush3Text: ; TO TRANSLATE
 	text "People say the"
 	line "DEPT.STORE is al-"
 	cont "most out of goods…"
 	done
 
-GoldenrodCityMarketRush4Text:
+GoldenrodCityMarketRush4Text: ; TO TRANSLATE
 	text "I want to shop"
 	line "once last…"
 	done

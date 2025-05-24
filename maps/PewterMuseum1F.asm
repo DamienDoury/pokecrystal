@@ -42,18 +42,18 @@ PewterMuseum1FBooks:
 PewterMuseum1FClosedDoor:
 	jumptext PewterMuseum1FClosedDoorText
 
-PewterMuseum1FHoleText:
+PewterMuseum1FHoleText: ; TO TRANSLATE
 	text "A #MON made a"
 	line "hole in the wall."
 	done
 
-PewterMuseum1FHelixText:
+PewterMuseum1FHelixText: ; TO TRANSLATE
 	text "An ancient wall"
 	line "painting of a"
 	cont "revered #MON."
 	done
 
-PewterMuseum1FBrokenGlassText:
+PewterMuseum1FBrokenGlassText: ; TO TRANSLATE
 	text "“This feather is"
 	line "said to belong to"
 	cont "an old legendary"
@@ -66,19 +66,19 @@ PewterMuseum1FBrokenGlassText:
 	line "from here."
 	done
 
-PewterMuseum1FCounterText:
+PewterMuseum1FCounterText: ; TO TRANSLATE
 	text "The counter is"
 	line "broken."
 	done
 
-PewterMuseum1FDNAText:
+PewterMuseum1FDNAText: ; TO TRANSLATE
 	text "“This OLD AMBER"
 	line "contains the DNA"
 	cont "of a prehistoric"
 	cont "#MON.”"
 	done
 
-PewterMuseum1FStoolText:
+PewterMuseum1FStoolText: ; TO TRANSLATE
 	text "Oh dear lord…"
 
 	para "The stool hasn't"
@@ -90,12 +90,12 @@ PewterMuseum1FStoolText:
 	line "UNACCEPTABLE!"
 	done
 
-PewterMuseum1FBooksText:
+PewterMuseum1FBooksText: ; TO TRANSLATE
 	text "Many books are"
 	line "missing."
 	done
 
-PewterMuseum1FClosedDoorText:
+PewterMuseum1FClosedDoorText: ; TO TRANSLATE
 	text "The door is closed"
 	line "from the outside."
 	done

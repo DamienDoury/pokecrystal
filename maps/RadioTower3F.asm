@@ -158,7 +158,7 @@ RadioTower3FPersonnelSign:
 RadioTower3FPokemonMusicSign:
 	jumptext RadioTower3FPokemonMusicSignText
 
-RadioTower3FSuperNerdText:
+RadioTower3FSuperNerdText: ; AUTOTRAD
 	text "We have recordings"
 	line "of the cries of"
 
@@ -169,7 +169,7 @@ RadioTower3FSuperNerdText:
 	line "200 kinds."
 	done
 
-RadioTower3FSuperNerdTROpinionText:
+RadioTower3FSuperNerdTROpinionText: ; TO TRANSLATE
 	text "I kinda understand"
 	line "TEAM ROCKET's point"
 	cont "of view."
@@ -181,7 +181,7 @@ RadioTower3FSuperNerdTROpinionText:
 	cont "even been proven?"
 	done
 
-RadioTower3FGymGuideText_Rockets:
+RadioTower3FGymGuideText_Rockets: ; TO TRANSLATE
 	text "COVID infects more"
 	line "people and #MON"
 	cont "every second,"
@@ -198,7 +198,7 @@ RadioTower3FGymGuideText_Rockets:
 	cont "measures."
 	done
 
-RadioTower3FGymGuideText:
+RadioTower3FGymGuideText: ; AUTOTRAD
 	text "We run 24 hours a"
 	line "day to broadcast"
 
@@ -210,7 +210,7 @@ RadioTower3FGymGuideText:
 	cont "clock too!"
 	done
 
-RadioTower3FCooltrainerFPleaseSaveDirectorText:
+RadioTower3FCooltrainerFPleaseSaveDirectorText: ; AUTOTRAD
 	text "The TEAM ROCKET"
 	line "boss has locked"
 	cont "himself in."
@@ -224,12 +224,12 @@ RadioTower3FCooltrainerFPleaseSaveDirectorText:
 	para "Please save him!"
 	done
 
-RadioTower3FCooltrainerFIsDirectorSafeText:
+RadioTower3FCooltrainerFIsDirectorSafeText: ; AUTOTRAD
 	text "Is the DIRECTOR"
 	line "safe?"
 	done
 
-RadioTower3FCooltrainerFYoureMyHeroText:
+RadioTower3FCooltrainerFYoureMyHeroText: ; AUTOTRAD
 	text "Thank you!"
 	line "You're my hero!"
 
@@ -237,19 +237,19 @@ RadioTower3FCooltrainerFYoureMyHeroText:
 	line "my appreciation."
 	done
 
-RadioTower3FCooltrainerFItsSunnyDayText:
+RadioTower3FCooltrainerFItsSunnyDayText: ; AUTOTRAD
 	text "It's SUNNY DAY."
 	line "It powers up fire-"
 	cont "type moves for a"
 	cont "while."
 	done
 
-RadioTower3FCooltrainerFYouWereMarvelousText:
+RadioTower3FCooltrainerFYouWereMarvelousText: ; AUTOTRAD
 	text "You were simply"
 	line "marvelous!"
 	done
 
-GruntM7SeenText:
+GruntM7SeenText: ; AUTOTRAD
 	text "I've been given"
 	line "strict orders."
 
@@ -258,11 +258,11 @@ GruntM7SeenText:
 	cont "TEAM ROCKET!"
 	done
 
-GruntM7BeatenText:
+GruntM7BeatenText: ; AUTOTRAD
 	text "What?!"
 	done
 
-GruntM7AfterBattleText:
+GruntM7AfterBattleText: ; AUTOTRAD
 	text "I failed in my"
 	line "duties…"
 
@@ -270,7 +270,7 @@ GruntM7AfterBattleText:
 	line "for this…"
 	done
 
-GruntM8SeenText:
+GruntM8SeenText: ; TO TRANSLATE
 	text "It feels great"
 	line "to explore the"
 
@@ -282,12 +282,12 @@ GruntM8SeenText:
 	line "take my freedom."
 	done
 
-GruntM8BeatenText:
+GruntM8BeatenText: ; TO TRANSLATE
 	text "I chose to loose"
 	line "because I'm free!"
 	done
 
-GruntM8AfterBattleText:
+GruntM8AfterBattleText: ; TO TRANSLATE
 	text "Please don't use"
 	line "any more of your"
 	cont "freedom to beat"
@@ -296,7 +296,7 @@ GruntM8AfterBattleText:
 	para "I submit!"
 	done
 
-GruntM9SeenText:
+GruntM9SeenText: ; AUTOTRAD
 	text "Why did the shut-"
 	line "ter open? Did you"
 
@@ -304,11 +304,11 @@ GruntM9SeenText:
 	line "do with this?"
 	done
 
-GruntM9BeatenText:
+GruntM9BeatenText: ; AUTOTRAD
 	text "I'm done for!"
 	done
 
-GruntM9AfterBattleText:
+GruntM9AfterBattleText: ; AUTOTRAD
 	text "What?! You made it"
 	line "past our men in"
 	cont "the UNDERGROUND?"
@@ -316,19 +316,19 @@ GruntM9AfterBattleText:
 	para "How could you?"
 	done
 
-ScientistMarcSeenText:
+ScientistMarcSeenText: ; AUTOTRAD
 	text "An unknown child"
 	line "wandering here?"
 
 	para "Who are you?"
 	done
 
-ScientistMarcBeatenText:
+ScientistMarcBeatenText: ; AUTOTRAD
 	text "Tch! I took you"
 	line "too lightly!"
 	done
 
-ScientistMarcAfterBattleText:
+ScientistMarcAfterBattleText: ; AUTOTRAD
 	text "Bwahahaha…"
 
 	para "I can transmit as"
@@ -336,21 +336,21 @@ ScientistMarcAfterBattleText:
 	cont "I need from here."
 	done
 
-RadioTower3FCardKeySlotText:
+RadioTower3FCardKeySlotText: ; AUTOTRAD
 	text "It's the CARD KEY"
 	line "slot."
 	done
 
-InsertedTheCardKeyText:
+InsertedTheCardKeyText: ; AUTOTRAD
 	text "<PLAYER> inserted"
 	line "the CARD KEY."
 	done
 
-RadioTower3FPersonnelSignText:
+RadioTower3FPersonnelSignText: ; AUTOTRAD
 	text "3F PERSONNEL"
 	done
 
-RadioTower3FPokemonMusicSignText:
+RadioTower3FPokemonMusicSignText: ; AUTOTRAD
 	text "#MON MUSIC with"
 	line "Host DJ BEN"
 	done

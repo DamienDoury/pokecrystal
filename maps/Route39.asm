@@ -259,12 +259,12 @@ Route39FruitTree:
 Route39HiddenNugget:
 	hiddenitem TOILET_PAPER, EVENT_ROUTE_39_HIDDEN_NUGGET
 
-Route39_CuteText:
+Route39_CuteText: ; TO TRANSLATE
 	text "She's so cute!"
 	line "I want one!"
 	done
 
-Route39_IMeanText:
+Route39_IMeanText: ; TO TRANSLATE
 	text "…Uh I mean…"
 
 	para "You are under"
@@ -274,11 +274,11 @@ Route39_IMeanText:
 	line "sanitary measures!"
 	done
 
-Route39MiltankText:
+Route39MiltankText: ; AUTOTRAD
 	text "MILTANK: Mooo!"
 	done
 
-SailorEugeneSeenText:
+SailorEugeneSeenText: ; AUTOTRAD
 	text "I just got back to"
 	line "OLIVINE."
 
@@ -286,11 +286,11 @@ SailorEugeneSeenText:
 	line "#MON battle?"
 	done
 
-SailorEugeneBeatenText:
+SailorEugeneBeatenText: ; AUTOTRAD
 	text "Awaaargh!"
 	done
 
-SailorEugeneAfterBattleText:
+SailorEugeneAfterBattleText: ; AUTOTRAD
 	text "My #MON were"
 	line "caught and raised"
 	cont "overseas."
@@ -300,18 +300,18 @@ SailorEugeneAfterBattleText:
 	cont "voyages."
 	done
 
-PokefanmDerekSeenText:
+PokefanmDerekSeenText: ; AUTOTRAD
 	text "This is a good"
 	line "time to brag about"
 	cont "my PIKACHU!"
 	done
 
-PokefanmDerekBeatenText:
+PokefanmDerekBeatenText: ; AUTOTRAD
 	text "I had no time to"
 	line "show off PIKACHU…"
 	done
 
-PokefanMDerekText_NotBragging:
+PokefanMDerekText_NotBragging: ; AUTOTRAD
 	text "I'm not listening"
 	line "to your bragging!"
 
@@ -322,7 +322,7 @@ PokefanMDerekText_NotBragging:
 	line "people brag!"
 	done
 
-PokefanfRuthSeenText:
+PokefanfRuthSeenText: ; AUTOTRAD
 	text "Such darling"
 	line "#MON."
 
@@ -331,12 +331,12 @@ PokefanfRuthSeenText:
 	cont "at the same time."
 	done
 
-PokefanfRuthBeatenText:
+PokefanfRuthBeatenText: ; AUTOTRAD
 	text "I don't mind"
 	line "losing."
 	done
 
-PokefanfRuthAfterBattleText:
+PokefanfRuthAfterBattleText: ; AUTOTRAD
 	text "Do you know about"
 	line "baby #MON?"
 
@@ -344,24 +344,24 @@ PokefanfRuthAfterBattleText:
 	line "adorable!"
 	done
 
-PokefanMDerekPikachuIsItText:
+PokefanMDerekPikachuIsItText: ; AUTOTRAD
 	text "PIKACHU is it!"
 	line "Don't you agree?"
 	done
 
-PsychicNormanSeenText:
+PsychicNormanSeenText: ; TO TRANSLATE
 	text "Wouldn't you like"
 	line "to let your #-"
 	cont "MON out, so it can"
 	cont "follow you around?"
 	done
 
-PsychicNormanBeatenText:
+PsychicNormanBeatenText: ; TO TRANSLATE
 	text "I want my #MON"
 	line "to follow me!"
 	done
 
-PsychicNormanAfterBattleText:
+PsychicNormanAfterBattleText: ; TO TRANSLATE
 	text "Trainers used to"
 	line "have their #MON"
 	cont "follow them around"
@@ -375,24 +375,24 @@ PsychicNormanAfterBattleText:
 	para "It's so sad…"
 	done
 
-PokefanfJaimeHopeItGetsDarkText:
+PokefanfJaimeHopeItGetsDarkText: ; AUTOTRAD
 	text "Ufufufu… I hope it"
 	line "gets dark soon."
 	done
 
-PokefanfJaimeSeenText:
+PokefanfJaimeSeenText: ; AUTOTRAD
 	text "You came at just"
 	line "the right time."
 
 	para "Let's battle."
 	done
 
-PokefanfJaimeBeatenText:
+PokefanfJaimeBeatenText: ; AUTOTRAD
 	text "Oh, how disap-"
 	line "pointing…"
 	done
 
-PokefanfJaimeAfterBattleText:
+PokefanfJaimeAfterBattleText: ; AUTOTRAD
 	text "I met my MEOWTH at"
 	line "night, right here"
 	cont "on ROUTE 39."
@@ -410,21 +410,21 @@ PokefanfJaimeAfterBattleText:
 	line "anywhere else."
 	done
 
-Route39SignText:
+Route39SignText: ; AUTOTRAD
 	text "ROUTE 39"
 
 	para "OLIVINE CITY -"
 	line "ECRUTEAK CITY"
 	done
 
-MoomooFarmSignText:
+MoomooFarmSignText: ; AUTOTRAD
 	text "MOOMOO FARM"
 
 	para "Enjoy Our Fresh"
 	line "and Tasty Milk"
 	done
 
-Route39TrainerTipsText:
+Route39TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "Use HEADBUTT on"

@@ -81,7 +81,7 @@ WillsRoom_EnterMovement:
 	step UP
 	step_end
 
-WillScript_WillBeforeText:
+WillScript_WillBeforeText: ; AUTOTRAD
 	text "Welcome to #MON"
 	line "LEAGUE, <PLAYER>."
 
@@ -106,12 +106,12 @@ WillScript_WillBeforeText:
 	line "option!"
 	done
 
-WillScript_WillBeatenText:
+WillScript_WillBeatenText: ; AUTOTRAD
 	text "I… I can't…"
 	line "believe it…"
 	done
 
-WillScript_WillDefeatText:
+WillScript_WillDefeatText: ; AUTOTRAD
 	text "Even though I was"
 	line "defeated, I won't"
 	cont "change my course."

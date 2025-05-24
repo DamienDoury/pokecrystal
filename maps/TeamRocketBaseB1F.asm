@@ -628,21 +628,21 @@ SecurityCameraMovement9:
 	big_step LEFT
 	step_end
 
-CameraGrunt1SeenText:
+CameraGrunt1SeenText: ; AUTOTRAD
 	text "Hey!"
 	line "Intruder alert!"
 	done
 
-CameraGrunt1BeatenText:
+CameraGrunt1BeatenText: ; AUTOTRAD
 	text "Dang… I failed…"
 	done
 
-CameraGrunt2SeenText:
+CameraGrunt2SeenText: ; AUTOTRAD
 	text "It's my turn!"
 	line "There's no escape!"
 	done
 
-CameraGrunt2BeatenText:
+CameraGrunt2BeatenText: ; AUTOTRAD
 	text "Surveillance cams"
 	line "are in the #MON"
 	cont "statues."
@@ -652,7 +652,7 @@ CameraGrunt2BeatenText:
 	cont "a secret switch."
 	done
 
-ScientistJedSeenText:
+ScientistJedSeenText: ; AUTOTRAD
 	text "This was once a"
 	line "ninja hideout."
 
@@ -661,11 +661,11 @@ ScientistJedSeenText:
 	cont "like you."
 	done
 
-ScientistJedBeatenText:
+ScientistJedBeatenText: ; AUTOTRAD
 	text "I get it…"
 	done
 
-ScientistJedAfterBattleText:
+ScientistJedAfterBattleText: ; AUTOTRAD
 	text "All right. I'll"
 	line "divulge a secret"
 	cont "about our hideout."
@@ -681,7 +681,7 @@ ScientistJedAfterBattleText:
 	line "trance."
 	done
 
-GruntM16SeenText:
+GruntM16SeenText: ; AUTOTRAD
 	text "Heheh. Feeling"
 	line "lucky, punk?"
 
@@ -692,11 +692,11 @@ GruntM16SeenText:
 	line "set in the floor!"
 	done
 
-GruntM16BeatenText:
+GruntM16BeatenText: ; AUTOTRAD
 	text "Kaboom!"
 	done
 
-GruntM16AfterBattleText:
+GruntM16AfterBattleText: ; AUTOTRAD
 	text "I don't even know"
 	line "where the traps"
 	cont "are planted."
@@ -706,7 +706,7 @@ GruntM16AfterBattleText:
 	cont "courage and walk."
 	done
 
-TeamRocketBaseB1FSecurityCameraText:
+TeamRocketBaseB1FSecurityCameraText: ; AUTOTRAD
 	text "It's a PERSIAN"
 	line "statue…"
 
@@ -714,12 +714,12 @@ TeamRocketBaseB1FSecurityCameraText:
 	line "shiny."
 	done
 
-TeamRocketBaseB1FSecretSwitchText:
+TeamRocketBaseB1FSecretSwitchText: ; AUTOTRAD
 	text "A secret switch!"
 	line "Better press it."
 	done
 
-TeamRocketBaseB1FSwitchOffText:
+TeamRocketBaseB1FSwitchOffText: ; AUTOTRAD
 	text "The switch is"
 	line "turned off."
 	done

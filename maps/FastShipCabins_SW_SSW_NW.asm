@@ -111,18 +111,18 @@ FastShipBed:
 FastShipCabinsNorthwestCabinTrashcan:
 	jumpstd TrashCanScript
 
-FirebreatherLyleSeenText:
+FirebreatherLyleSeenText: ; AUTOTRAD
 	text "I'm going to KANTO"
 	line "to put on fire-"
 	cont "breathing shows!"
 	done
 
-FirebreatherLyleBeatenText:
+FirebreatherLyleBeatenText: ; AUTOTRAD
 	text "Fizzle… The"
 	line "flame's tiny…"
 	done
 
-FirebreatherLyleAfterBattleText:
+FirebreatherLyleAfterBattleText: ; AUTOTRAD
 	text "I guess fire is"
 	line "weak on the sea."
 
@@ -130,34 +130,34 @@ FirebreatherLyleAfterBattleText:
 	line "Really?"
 	done
 
-BugCatcherKenSeenText:
+BugCatcherKenSeenText: ; AUTOTRAD
 	text "I'm visiting my"
 	line "grandma to catch"
 	cont "me some bugs!"
 	done
 
-BugCatcherKenBeatenText:
+BugCatcherKenBeatenText: ; AUTOTRAD
 	text "Ooh, wow."
 	line "You're tough!"
 	done
 
-BugCatcherKenAfterBattleText:
+BugCatcherKenAfterBattleText: ; AUTOTRAD
 	text "You can find lots"
 	line "of #MON in the"
 	cont "trees of JOHTO!"
 	done
 
-BeautyCassieSeenText:
+BeautyCassieSeenText: ; AUTOTRAD
 	text "I'm trying to"
 	line "forget my woes."
 	cont "Let's battle!"
 	done
 
-BeautyCassieBeatenText:
+BeautyCassieBeatenText: ; AUTOTRAD
 	text "My heart weeps…"
 	done
 
-BeautyCassieAfterBattleText:
+BeautyCassieAfterBattleText: ; AUTOTRAD
 	text "A voyage is best"
 	line "for getting over"
 	cont "a broken heart."
@@ -167,7 +167,7 @@ BeautyCassieAfterBattleText:
 	cont "for grieving."
 	done
 
-GuitaristClydeSeenText:
+GuitaristClydeSeenText: ; AUTOTRAD
 	text "I'm going to audi-"
 	line "tion my songs at"
 
@@ -175,12 +175,12 @@ GuitaristClydeSeenText:
 	line "STATION."
 	done
 
-GuitaristClydeBeatenText:
+GuitaristClydeBeatenText: ; AUTOTRAD
 	text "Yowza!"
 	line "Total distortion!"
 	done
 
-GuitaristClydeAfterBattleMobileText:
+GuitaristClydeAfterBattleMobileText: ; AUTOTRAD
 	text "I was going to"
 	line "make my debut at"
 	cont "the BATTLE TOWER…"
@@ -190,7 +190,7 @@ GuitaristClydeAfterBattleMobileText:
 	cont "redo my training…"
 	done
 
-GuitaristClydeAfterBattleText:
+GuitaristClydeAfterBattleText: ; AUTOTRAD
 	text "Speaking of the"
 	line "RADIO STATION,"
 
@@ -198,23 +198,23 @@ GuitaristClydeAfterBattleText:
 	line "lucky number?"
 	done
 
-FastShipBedText1:
+FastShipBedText1: ; AUTOTRAD
 	text "A comfy bed!"
 	line "Time to sleep…"
 	done
 
-FastShipBedText2:
+FastShipBedText2: ; AUTOTRAD
 	text "Ah, refreshed and"
 	line "restored!"
 	done
 
-FastShipArrivedOlivineText:
+FastShipArrivedOlivineText: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "OLIVINE CITY."
 	done
 
-FastShipArrivedVermilionText:
+FastShipArrivedVermilionText: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."

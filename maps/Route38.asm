@@ -306,18 +306,18 @@ Route38TrainerTips:
 Route38FruitTree:
 	fruittree FRUITTREE_ROUTE_38
 
-BirdKeeperTobySeenText:
+BirdKeeperTobySeenText: ; AUTOTRAD
 	text "Fly high into the"
 	line "sky, my beloved"
 	cont "bird #MON!"
 	done
 
-BirdKeeperTobyBeatenText:
+BirdKeeperTobyBeatenText: ; AUTOTRAD
 	text "I feel like just"
 	line "flying away now."
 	done
 
-BirdKeeperTobyAfterBattleText:
+BirdKeeperTobyAfterBattleText: ; AUTOTRAD
 	text "I plan to train in"
 	line "CIANWOOD CITY to"
 
@@ -325,18 +325,18 @@ BirdKeeperTobyAfterBattleText:
 	line "how to FLY."
 	done
 
-SchoolboyChad1SeenText:
+SchoolboyChad1SeenText: ; AUTOTRAD
 	text "Let me try some-"
 	line "thing I learned"
 	cont "today."
 	done
 
-SchoolboyChad1BeatenText:
+SchoolboyChad1BeatenText: ; AUTOTRAD
 	text "I didn't study"
 	line "enough, I guess."
 	done
 
-SchoolboyChadSoManyTestsText:
+SchoolboyChadSoManyTestsText: ; AUTOTRAD
 	text "I have to take so"
 	line "many tests, I"
 
@@ -348,7 +348,7 @@ SchoolboyChadSoManyTestsText:
 	cont "concentrate."
 	done
 
-LassDana1SeenText:
+LassDana1SeenText: ; AUTOTRAD
 	text "You seem to be"
 	line "good at #MON."
 
@@ -357,12 +357,12 @@ LassDana1SeenText:
 	cont "some advice?"
 	done
 
-LassDana1BeatenText:
+LassDana1BeatenText: ; AUTOTRAD
 	text "I see. So you can"
 	line "battle that way."
 	done
 
-LassDanaMoomooMilkText:
+LassDanaMoomooMilkText: ; AUTOTRAD
 	text "I know something"
 	line "good!"
 
@@ -371,7 +371,7 @@ LassDanaMoomooMilkText:
 	cont "flavor."
 	done
 
-BeautyValerieSeenText:
+BeautyValerieSeenText: ; AUTOTRAD
 	text "Hi! Aren't you a"
 	line "cute trainer!"
 
@@ -379,45 +379,45 @@ BeautyValerieSeenText:
 	line "#MON?"
 	done
 
-BeautyValerieBeatenText:
+BeautyValerieBeatenText: ; AUTOTRAD
 	text "I'm glad I got to"
 	line "see your #MON!"
 	done
 
-BeautyValerieAfterBattleText:
+BeautyValerieAfterBattleText: ; AUTOTRAD
 	text "When I see #-"
 	line "MON, it seems to"
 	cont "soothe my nerves."
 	done
 
-SailorHarrySeenText:
+SailorHarrySeenText: ; TO TRANSLATE
 	text "WOOPER is love."
 	line "WOOPER is life."
 	done
 
-SailorHarryBeatenText:
+SailorHarryBeatenText: ; TO TRANSLATE
 	text "The Woop fell."
 	line "I'm devastated."
 	done
 
-SailorHarryAfterBattleText:
+SailorHarryAfterBattleText: ; TO TRANSLATE
 	text "Remember this tip:"
 	line "WOOPER is the"
 	cont "best #MON."
 	done
 
-BeautyOliviaSeenText:
+BeautyOliviaSeenText: ; AUTOTRAD
 	text "Don't you think my"
 	line "#MON and I are"
 	cont "beautiful?"
 	done
 
-BeautyOliviaBeatenText:
+BeautyOliviaBeatenText: ; AUTOTRAD
 	text "We drink MOOMOO"
 	line "MILK every day."
 	done
 
-BeautyOliviaAfterBattleText:
+BeautyOliviaAfterBattleText: ; AUTOTRAD
 	text "MOOMOO MILK is"
 	line "good for beauty"
 
@@ -428,14 +428,14 @@ BeautyOliviaAfterBattleText:
 	line "bottle at a time."
 	done
 
-Route38SignText:
+Route38SignText: ; AUTOTRAD
 	text "ROUTE 38"
 
 	para "OLIVINE CITY -"
 	line "ECRUTEAK CITY"
 	done
 
-Route38TrainerTipsText:
+Route38TrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "If a #MON is"

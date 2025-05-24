@@ -140,24 +140,24 @@ DanceTheatreGrannyScript:
 DanceTheatreFancyPanel:
 	jumptext DanceTheatreFancyPanelText
 
-KimonoGirlNaokoSeenText:
+KimonoGirlNaokoSeenText: ; AUTOTRAD
 	text "You have lovely"
 	line "#MON. May I see"
 	cont "them in battle?"
 	done
 
-KimonoGirlNaokoBeatenText:
+KimonoGirlNaokoBeatenText: ; AUTOTRAD
 	text "Oh, you are very"
 	line "strong."
 	done
 
-KimonoGirlNaokoAfterBattleText:
+KimonoGirlNaokoAfterBattleText: ; AUTOTRAD
 	text "I enjoyed that"
 	line "bout. I would like"
 	cont "to see you again."
 	done
 
-KimonoGirlSayoSeenText:
+KimonoGirlSayoSeenText: ; AUTOTRAD
 	text "I always dance"
 	line "with my #MON."
 
@@ -165,12 +165,12 @@ KimonoGirlSayoSeenText:
 	line "train them."
 	done
 
-KimonoGirlSayoBeatenText:
+KimonoGirlSayoBeatenText: ; AUTOTRAD
 	text "Oh, so close!"
 	line "I almost had you."
 	done
 
-KimonoGirlSayoAfterBattleText:
+KimonoGirlSayoAfterBattleText: ; AUTOTRAD
 	text "Rhythm is impor-"
 	line "tant for both"
 
@@ -178,7 +178,7 @@ KimonoGirlSayoAfterBattleText:
 	line "MON."
 	done
 
-KimonoGirlZukiSeenText:
+KimonoGirlZukiSeenText: ; AUTOTRAD
 	text "Isn't my barrette"
 	line "pretty?"
 
@@ -186,29 +186,29 @@ KimonoGirlZukiSeenText:
 	line "battle?"
 	done
 
-KimonoGirlZukiBeatenText:
+KimonoGirlZukiBeatenText: ; AUTOTRAD
 	text "I don't have any"
 	line "#MON left…"
 	done
 
-KimonoGirlZukiAfterBattleText:
+KimonoGirlZukiAfterBattleText: ; AUTOTRAD
 	text "I put a different"
 	line "flower in my bar-"
 	cont "rette every month."
 	done
 
-KimonoGirlKuniSeenText:
+KimonoGirlKuniSeenText: ; AUTOTRAD
 	text "Oh, you're a cute"
 	line "trainer. Would you"
 	cont "like to battle?"
 	done
 
-KimonoGirlKuniBeatenText:
+KimonoGirlKuniBeatenText: ; AUTOTRAD
 	text "You're stronger"
 	line "than you look."
 	done
 
-KimonoGirlKuniAfterBattleText:
+KimonoGirlKuniAfterBattleText: ; AUTOTRAD
 	text "I trained a lot,"
 	line "so I thought I was"
 
@@ -216,18 +216,18 @@ KimonoGirlKuniAfterBattleText:
 	line "I guess I'm not."
 	done
 
-KimonoGirlMikiSeenText:
+KimonoGirlMikiSeenText: ; AUTOTRAD
 	text "Do you like my"
 	line "dancing? I'm good"
 	cont "at #MON too."
 	done
 
-KimonoGirlMikiBeatenText:
+KimonoGirlMikiBeatenText: ; AUTOTRAD
 	text "Ooh, you're good"
 	line "at #MON too."
 	done
 
-KimonoGirlMikiAfterBattleText:
+KimonoGirlMikiAfterBattleText: ; AUTOTRAD
 	text "I can keep dancing"
 	line "because there are"
 
@@ -238,7 +238,7 @@ KimonoGirlMikiAfterBattleText:
 	line "spirits up too."
 	done
 
-WhirlpoolGuyNeverLeftAScratchText:
+WhirlpoolGuyNeverLeftAScratchText: ; TO TRANSLATE
 	text "Not only are the"
 	line "KIMONO GIRLS great"
 
@@ -253,7 +253,7 @@ WhirlpoolGuyNeverLeftAScratchText:
 	line "scratch…"
 	done
 
-WhirlpoolGuyLadGiftText:
+WhirlpoolGuyLadGiftText: ; TO TRANSLATE
 	text "Lad! If you can"
 	line "defeat all the"
 
@@ -261,7 +261,7 @@ WhirlpoolGuyLadGiftText:
 	line "give you a gift."
 	done
 
-WhirlpoolGuyLassieGiftText:
+WhirlpoolGuyLassieGiftText: ; TO TRANSLATE
 	text "Lassie, if you can"
 	line "defeat all the"
 
@@ -269,7 +269,7 @@ WhirlpoolGuyLassieGiftText:
 	line "give you a gift."
 	done
 
-WhirlpoolGuyLikeADanceText:
+WhirlpoolGuyLikeADanceText: ; TO TRANSLATE
 	text "The way you bat-"
 	line "tled, it was like"
 	cont "watching a dance."
@@ -282,7 +282,7 @@ WhirlpoolGuyLikeADanceText:
 	cont "--take it!"
 	done
 
-WhirlpoolGuyWhirlpoolExplanationText:
+WhirlpoolGuyWhirlpoolExplanationText: ; TO TRANSLATE
 	text "That's WHIRLPOOL."
 
 	para "It's a move that"
@@ -292,18 +292,18 @@ WhirlpoolGuyWhirlpoolExplanationText:
 	line "KIMONO GIRLS."
 	done
 
-WhirlpoolGuyElegantKimonoGirlsText:
+WhirlpoolGuyElegantKimonoGirlsText: ; TO TRANSLATE
 	text "I wish my #MON"
 	line "were as elegant as"
 	cont "the KIMONO GIRLS…"
 	done
 
-RhydonText:
+RhydonText: ; AUTOTRAD
 	text "RHYDON: Gugooh"
 	line "gugogooh!"
 	done
 
-DanceTheatreCooltrainerMText:
+DanceTheatreCooltrainerMText: ; TO TRANSLATE
 	text "That man's always"
 	line "with his RHYDON."
 
@@ -312,7 +312,7 @@ DanceTheatreCooltrainerMText:
 	cont "dance."
 	done
 
-DanceTheatreGrannyText:
+DanceTheatreGrannyText: ; AUTOTRAD
 	text "The KIMONO GIRLS"
 	line "are so beautiful…"
 
@@ -331,7 +331,7 @@ DanceTheatreGrannyText:
 	cont "thing is possible."
 	done
 
-DanceTheatreFancyPanelText:
+DanceTheatreFancyPanelText: ; AUTOTRAD
 	text "It's a fancy panel"
 	line "that's decorated"
 	cont "with flowers."

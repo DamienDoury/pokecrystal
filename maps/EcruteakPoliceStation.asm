@@ -69,7 +69,7 @@ EcruteakPoliceStationPhoneScript:
 EcruteakPoliceStationTrainingSign:
 	jumptext EcruteakPoliceStationTrainingSignText
 
-EcruteakPoliceStationReceptionistText:
+EcruteakPoliceStationReceptionistText: ; TO TRANSLATE
 	text "Welcome to the"
 	line "police station."
 
@@ -77,13 +77,13 @@ EcruteakPoliceStationReceptionistText:
 	line "for you?"
 	done
 
-EcruteakPoliceStationReceptionistShooText:
+EcruteakPoliceStationReceptionistShooText: ; TO TRANSLATE
 	text "I don't want to"
 	line "see you here ever"
 	cont "again. Shoo!"
 	done
 
-EcruteakPoliceStationOutfitText:
+EcruteakPoliceStationOutfitText: ; TO TRANSLATE
 	text "What do you think"
 	line "of my outfit?"
 	
@@ -94,17 +94,17 @@ EcruteakPoliceStationOutfitText:
 	line "me to wear it…"
 	done
 
-EcruteakPoliceStationBriefingText1:
+EcruteakPoliceStationBriefingText1: ; TO TRANSLATE
 	text "We've got so much"
 	line "to do these days…"
 	done
 
-EcruteakPoliceStationBriefingText2:
+EcruteakPoliceStationBriefingText2: ; TO TRANSLATE
 	text "Shouldn't you"
 	line "be home?"
 	done
 
-EcruteakPoliceStationBriefingText3:
+EcruteakPoliceStationBriefingText3: ; TO TRANSLATE
 	text "I'm briefing"
 	line "my colleagues."
 	done
@@ -113,7 +113,7 @@ EcruteakPoliceStationBriefingText4:
 	text "…"
 	done
 
-EcruteakPoliceStationPrisonerText:
+EcruteakPoliceStationPrisonerText: ; TO TRANSLATE
 	text "I should've worn"
 	line "my face mask"
 	cont "properly, not"
@@ -123,7 +123,7 @@ EcruteakPoliceStationPrisonerText:
 	line "trouble now!"
 	done
 
-EcruteakPoliceStationPrisoner2Text:
+EcruteakPoliceStationPrisoner2Text: ; TO TRANSLATE
 	text "Let me tell you"
 	line "my story."
 
@@ -158,7 +158,7 @@ EcruteakPoliceStationPrisoner2Text:
 	line "it??"
 	done
 
-EcruteakPoliceStationBurnOutText:
+EcruteakPoliceStationBurnOutText: ; TO TRANSLATE
 	text "I can't do it"
 	line "anymore…"
 
@@ -177,17 +177,17 @@ EcruteakPoliceStationBurnOutText:
 	para "What am I doing?"
 	done
 
-EcruteakPoliceStationCustodyCellText:
+EcruteakPoliceStationCustodyCellText: ; TO TRANSLATE
 	text "A custody cell."
 	done
 
-EcruteakPoliceStationPhoneText:
+EcruteakPoliceStationPhoneText: ; TO TRANSLATE
 	text "There's a phone for"
 	line "those who don't"
 	cont "have a #GEAR."
 	done
 
-EcruteakPoliceStationTrainingSignText:
+EcruteakPoliceStationTrainingSignText: ; TO TRANSLATE
 	text "POLICE TRAINING"
 	line "FIELD"
 	done	

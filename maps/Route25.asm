@@ -233,7 +233,7 @@ Route25MistyLeavesMovement: ; Damien
 	step DOWN
 	step_end
 
-Route25MistyDateText:
+Route25MistyDateText: ; TO TRANSLATE
 	text "MISTY: (cough)"
 	line "Aww! Why did you"
 
@@ -269,7 +269,7 @@ Route25MistyDateText:
 	cont "CERULEAN."
 	done
 
-SchoolboyDudleySeenText:
+SchoolboyDudleySeenText: ; AUTOTRAD
 	text "Beat the six of us"
 	line "trainers to win a"
 	cont "fabulous prize!"
@@ -278,87 +278,87 @@ SchoolboyDudleySeenText:
 	line "what it takes?"
 	done
 
-SchoolboyDudleyBeatenText:
+SchoolboyDudleyBeatenText: ; AUTOTRAD
 	text "Whoo! Good stuff."
 	done
 
-SchoolboyDudleyAfterBattleText:
+SchoolboyDudleyAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-LassEllenSeenText:
+LassEllenSeenText: ; AUTOTRAD
 	text "I'm second."
 	line "Now it's serious!"
 	done
 
-LassEllenBeatenText:
+LassEllenBeatenText: ; AUTOTRAD
 	text "How could I lose?"
 	done
 
-LassEllenAfterBattleText:
+LassEllenAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-SchoolboyJoeSeenText:
+SchoolboyJoeSeenText: ; AUTOTRAD
 	text "Here's No. 3!"
 	line "I won't be easy."
 	done
 
-SchoolboyJoeBeatenText:
+SchoolboyJoeBeatenText: ; AUTOTRAD
 	text "Ow! Stomped flat!"
 	done
 
-SchoolboyJoeAfterBattleText:
+SchoolboyJoeAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-LassLauraSeenText:
+LassLauraSeenText: ; AUTOTRAD
 	text "I'm No. 4!"
 	line "Getting tired?"
 	done
 
-LassLauraBeatenText:
+LassLauraBeatenText: ; AUTOTRAD
 	text "I lost too…"
 	done
 
-LassLauraAfterBattleText:
+LassLauraAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-CamperLloydSeenText:
+CamperLloydSeenText: ; AUTOTRAD
 	text "OK! I'm No. 5."
 	line "I'll stomp you!"
 	done
 
-CamperLloydBeatenText:
+CamperLloydBeatenText: ; AUTOTRAD
 	text "Whoa! Too much."
 	done
 
-CamperLloydAfterBattleText:
+CamperLloydAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-LassShannonSeenText:
+LassShannonSeenText: ; AUTOTRAD
 	text "I'm the last in"
 	line "line, but I tell"
 	cont "you, I'm tough!"
 	done
 
-LassShannonBeatenText:
+LassShannonBeatenText: ; AUTOTRAD
 	text "You're kidding."
 	done
 
-LassShannonAfterBattleText:
+LassShannonAfterBattleText: ; AUTOTRAD
 	text "I did my best."
 	line "I have no regrets."
 	done
 
-SupernerdPatSeenText:
+SupernerdPatSeenText: ; AUTOTRAD
 	text "Mufufufu…"
 
 	para "I have nothing to"
@@ -372,17 +372,17 @@ SupernerdPatSeenText:
 	line "all the battles."
 	done
 
-SupernerdPatBeatenText:
+SupernerdPatBeatenText: ; AUTOTRAD
 	text "Aren't you tired"
 	line "at all?"
 	done
 
-SupernerdPatAfterBattleText:
+SupernerdPatAfterBattleText: ; AUTOTRAD
 	text "I'm sorry… I won't"
 	line "cheat anymore…"
 	done
 
-CooltrainermKevinNuggetText:
+CooltrainermKevinNuggetText: ; AUTOTRAD
 	text "You took on one"
 	line "more battle than"
 
@@ -393,7 +393,7 @@ CooltrainermKevinNuggetText:
 	line "win a prize."
 	done
 
-CooltrainermKevinSeenText:
+CooltrainermKevinSeenText: ; AUTOTRAD
 	text "But after seeing"
 	line "how you battle, I"
 
@@ -404,12 +404,12 @@ CooltrainermKevinSeenText:
 	line "me take you on."
 	done
 
-CooltrainermKevinBeatenText:
+CooltrainermKevinBeatenText: ; AUTOTRAD
 	text "I've never had a"
 	line "battle this good!"
 	done
 
-CooltrainermKevinAfterBattleText:
+CooltrainermKevinAfterBattleText: ; AUTOTRAD
 	text "That was a great"
 	line "battle!"
 
@@ -418,7 +418,7 @@ CooltrainermKevinAfterBattleText:
 	cont "standing!"
 	done
 
-BillsHouseSignText:
+BillsHouseSignText: ; AUTOTRAD
 	text "SEA COTTAGE"
 	line "BILL'S HOUSE"
 	done

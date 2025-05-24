@@ -192,13 +192,13 @@ VioletGymStatue:
 	gettrainername STRING_BUFFER_4, FALKNER, FALKNER1
 	jumpstd GymStatue2Script
 
-FalknerIntroText:
+FalknerIntroText: ; TO TRANSLATE
 	text "I'm FALKNER, the"
 	line "VIOLET #MON GYM"
 	cont "leader!"
 	done
 
-FalknerIntroSequelText:
+FalknerIntroSequelText: ; TO TRANSLATE
 	text "Have you ever felt"
 	line "the thrill of a"
 
@@ -211,7 +211,7 @@ VioletGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-FalknerAllFlyingTypeText:
+FalknerAllFlyingTypeText: ; TO TRANSLATE
 	text "In such environ-"
 	line "ment, only FLYING"
 
@@ -231,7 +231,7 @@ FalknerAllFlyingTypeText:
 	line "#MON."
 	done
 
-FalknerValidatesTeam:
+FalknerValidatesTeam: ; TO TRANSLATE
 	text "It is where"
 	line "FLYING #MON"
 	cont "truly shine."
@@ -243,7 +243,7 @@ FalknerValidatesTeam:
 	line "#MON!"
 	done
 
-FalknerWinLossText:
+FalknerWinLossText: ; AUTOTRAD
 	text "…Darn! My dad's"
 	line "cherished bird"
 	cont "#MON…"
@@ -256,23 +256,23 @@ FalknerWinLossText:
 	cont "ZEPHYRBADGE."
 	done
 
-ReceivedZephyrBadgeText:
+ReceivedZephyrBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "ZEPHYRBADGE."
 	done
 
-FalknerZephyrBadgeText:
+FalknerZephyrBadgeText: ; TO TRANSLATE
 	text "ZEPHYRBADGE is a"
 	line "recognition of"
 	cont "your worth as a"
 	cont "trainer."
 	done
 
-FalknerZephyrBadgeText2:
+FalknerZephyrBadgeText2: ; TO TRANSLATE
 	text "Here--take this."
 	done
 
-FalknerTMMudSlapText:
+FalknerTMMudSlapText: ; TO TRANSLATE
 	text "By using a TM, a"
 	line "#MON will"
 
@@ -297,7 +297,7 @@ FalknerTMMudSlapText:
 	cont "and offensive."
 	done
 
-FalknerFightDoneText:
+FalknerFightDoneText: ; AUTOTRAD
 	text "There are #MON"
 	line "GYMS in cities and"
 	cont "towns ahead."
@@ -313,7 +313,7 @@ FalknerFightDoneText:
 	line "master!"
 	done
 
-BirdKeeperRodSeenText:
+BirdKeeperRodSeenText: ; AUTOTRAD
 	text "The keyword is"
 	line "guts!"
 
@@ -326,11 +326,11 @@ BirdKeeperRodSeenText:
 	para "Come on!"
 	done
 
-BirdKeeperRodBeatenText:
+BirdKeeperRodBeatenText: ; AUTOTRAD
 	text "Gaaah!"
 	done
 
-BirdKeeperRodAfterBattleText:
+BirdKeeperRodAfterBattleText: ; AUTOTRAD
 	text "FALKNER's skills"
 	line "are for real!"
 
@@ -339,24 +339,24 @@ BirdKeeperRodAfterBattleText:
 	cont "beat me!"
 	done
 
-BirdKeeperAbeSeenText:
+BirdKeeperAbeSeenText: ; AUTOTRAD
 	text "Let me see if you"
 	line "are good enough to"
 	cont "face FALKNER!"
 	done
 
-BirdKeeperAbeBeatenText:
+BirdKeeperAbeBeatenText: ; AUTOTRAD
 	text "This can't be"
 	line "true!"
 	done
 
-BirdKeeperAbeAfterBattleText:
+BirdKeeperAbeAfterBattleText: ; AUTOTRAD
 	text "This is pathetic,"
 	line "losing to some"
 	cont "rookie trainer…"
 	done
 
-VioletGymGuideText:
+VioletGymGuideText: ; AUTOTRAD
 	text "Hey! I'm no train-"
 	line "er but I can give"
 	cont "some advice!"
@@ -377,7 +377,7 @@ VioletGymGuideText:
 	line "this in mind."
 	done
 
-VioletGymGuideWinText:
+VioletGymGuideWinText: ; AUTOTRAD
 	text "Nice battle! Keep"
 	line "it up, and you'll"
 

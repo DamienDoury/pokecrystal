@@ -88,16 +88,16 @@ Route15PPUp:
 Route15FruitTree:
 	fruittree FRUITTREE_ROUTE_15
 
-TeacherColetteSeenText:
+TeacherColetteSeenText: ; AUTOTRAD
 	text "Have you forgotten"
 	line "anything?"
 	done
 
-TeacherColetteBeatenText:
+TeacherColetteBeatenText: ; AUTOTRAD
 	text "Kyaaah!"
 	done
 
-TeacherColetteAfterBattleText:
+TeacherColetteAfterBattleText: ; AUTOTRAD
 	text "Before I became a"
 	line "teacher, I used to"
 
@@ -105,7 +105,7 @@ TeacherColetteAfterBattleText:
 	line "things."
 	done
 
-TeacherHillarySeenText:
+TeacherHillarySeenText: ; AUTOTRAD
 	text "On sunny days, I"
 	line "think that the"
 
@@ -116,28 +116,28 @@ TeacherHillarySeenText:
 	line "studying in class."
 	done
 
-TeacherHillaryBeatenText:
+TeacherHillaryBeatenText: ; AUTOTRAD
 	text "I didn't want to"
 	line "lose…"
 	done
 
-TeacherHillaryAfterBattleText:
+TeacherHillaryAfterBattleText: ; AUTOTRAD
 	text "Studying is impor-"
 	line "tant, but exercise"
 	cont "is just as vital."
 	done
 
-SchoolboyKippSeenText:
+SchoolboyKippSeenText: ; AUTOTRAD
 	text "Hang on. I have to"
 	line "phone my mom."
 	done
 
-SchoolboyKippBeatenText:
+SchoolboyKippBeatenText: ; AUTOTRAD
 	text "Sorry, Mom!"
 	line "I was beaten!"
 	done
 
-SchoolboyKippAfterBattleText:
+SchoolboyKippAfterBattleText: ; AUTOTRAD
 	text "My mom worries so"
 	line "much about me, I"
 
@@ -145,23 +145,23 @@ SchoolboyKippAfterBattleText:
 	line "all the time."
 	done
 
-SchoolboyTommySeenText:
+SchoolboyTommySeenText: ; AUTOTRAD
 	text "Let's battle."
 	line "I won't lose!"
 	done
 
-SchoolboyTommyBeatenText:
+SchoolboyTommyBeatenText: ; AUTOTRAD
 	text "I forgot to do my"
 	line "homework!"
 	done
 
-SchoolboyTommyAfterBattleText:
+SchoolboyTommyAfterBattleText: ; AUTOTRAD
 	text "Sayonara! I just"
 	line "learned that in my"
 	cont "Japanese class."
 	done
 
-SchoolboyJohnnySeenText:
+SchoolboyJohnnySeenText: ; AUTOTRAD
 	text "We're on a field"
 	line "trip to LAVENDER"
 
@@ -169,34 +169,34 @@ SchoolboyJohnnySeenText:
 	line "social studies."
 	done
 
-SchoolboyJohnnyBeatenText:
+SchoolboyJohnnyBeatenText: ; AUTOTRAD
 	text "You're wickedly"
 	line "tough!"
 	done
 
-SchoolboyJohnnyAfterBattleText:
+SchoolboyJohnnyAfterBattleText: ; AUTOTRAD
 	text "I'm tired of walk-"
 	line "ing. I need to"
 	cont "take a break."
 	done
 
-SchoolboyBillySeenText:
+SchoolboyBillySeenText: ; AUTOTRAD
 	text "My favorite class"
 	line "is gym!"
 	done
 
-SchoolboyBillyBeatenText:
+SchoolboyBillyBeatenText: ; AUTOTRAD
 	text "Oh, no!"
 	line "How could I lose?"
 	done
 
-SchoolboyBillyAfterBattleText:
+SchoolboyBillyAfterBattleText: ; AUTOTRAD
 	text "If #MON were a"
 	line "subject at school,"
 	cont "I'd be the best!"
 	done
 
-Route15SignText:
+Route15SignText: ; AUTOTRAD
 	text "ROUTE 15"
 
 	para "FUCHSIA CITY -"

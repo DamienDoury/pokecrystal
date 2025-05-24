@@ -38,7 +38,7 @@ OlivineMartTwinScript:
 OlivineMartShelfItem1Script:
 	shelfitem 1, REVIVE, 1500
 
-OlivineMartCooltrainerFText:
+OlivineMartCooltrainerFText: ; AUTOTRAD
 	text "Do your #MON"
 	line "already know the"
 
@@ -46,7 +46,7 @@ OlivineMartCooltrainerFText:
 	line "people on water?"
 	done
 
-OlivineMartLassText:
+OlivineMartLassText: ; AUTOTRAD
 	text "My BUTTERFREE came"
 	line "from my boyfriend"
 	cont "overseas."
@@ -61,7 +61,7 @@ OlivineMartLassText:
 	line "It's a secret!"
 	done
 
-OlivineMartYoungsterText:
+OlivineMartYoungsterText: ; TO TRANSLATE
 	text "A friend of mine"
 	line "managed to find an"
 	

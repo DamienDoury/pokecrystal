@@ -153,7 +153,7 @@ EcruteakTinTowerEntranceSageBlocksRightMovement:
 	turn_head DOWN
 	step_end
 
-EcruteakTinTowerEntranceSageText:
+EcruteakTinTowerEntranceSageText: ; AUTOTRAD
 	text "TIN TOWER is off"
 	line "limits to anyone"
 
@@ -164,7 +164,7 @@ EcruteakTinTowerEntranceSageText:
 	line "have to leave."
 	done
 
-EcruteakTinTowerEntranceSageText_GotFogBadge:
+EcruteakTinTowerEntranceSageText_GotFogBadge: ; AUTOTRAD
 	text "TIN TOWER is off"
 	line "limits to anyone"
 
@@ -178,7 +178,7 @@ EcruteakTinTowerEntranceSageText_GotFogBadge:
 	cont "right through."
 	done
 
-EcruteakTinTowerEntranceSageText_NoClearBell:
+EcruteakTinTowerEntranceSageText_NoClearBell: ; AUTOTRAD
 	text "A momentous event"
 	line "has occurred."
 
@@ -196,7 +196,7 @@ EcruteakTinTowerEntranceSageText_NoClearBell:
 	line "understand…"
 	done
 
-EcruteakTinTowerEntranceSageText_HearsClearBell:
+EcruteakTinTowerEntranceSageText_HearsClearBell: ; AUTOTRAD
 	text "A momentous event"
 	line "has occurred."
 
@@ -230,11 +230,11 @@ EcruteakTinTowerEntranceSageText_HearsClearBell:
 	para "Please, do go on."
 	done
 
-EcruteakTinTowerEntranceSageText_PleaseDoGoOn:
+EcruteakTinTowerEntranceSageText_PleaseDoGoOn: ; AUTOTRAD
 	text "Please, do go on."
 	done
 
-EcruteakTinTowerEntranceSageText_HeardClearBell:
+EcruteakTinTowerEntranceSageText_HeardClearBell: ; AUTOTRAD
 	text "That bell's chime"
 	line "is indicative of"
 	cont "the bearer's soul."
@@ -248,7 +248,7 @@ EcruteakTinTowerEntranceSageText_HeardClearBell:
 	para "Please, do go on."
 	done
 
-EcruteakTinTowerEntranceWanderingSageText:
+EcruteakTinTowerEntranceWanderingSageText: ; AUTOTRAD
 	text "The TIN TOWER"
 	line "ahead is a nine-"
 
@@ -260,7 +260,7 @@ EcruteakTinTowerEntranceWanderingSageText:
 	cont "see it."
 	done
 
-EcruteakTinTowerEntranceWanderingSageText_GotClearBell:
+EcruteakTinTowerEntranceWanderingSageText_GotClearBell: ; AUTOTRAD
 	text "The TIN TOWER"
 	line "shook! A #MON"
 
@@ -268,7 +268,7 @@ EcruteakTinTowerEntranceWanderingSageText_GotClearBell:
 	line "to the top!"
 	done
 
-EcruteakTinTowerEntranceGrampsText:
+EcruteakTinTowerEntranceGrampsText: ; AUTOTRAD
 	text "Two towers…"
 	line "Two #MON…"
 

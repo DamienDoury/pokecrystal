@@ -78,18 +78,18 @@ TrainerCooltrainerfFran:
 	closetext
 	end
 
-CooltrainermCodySeenText:
+CooltrainermCodySeenText: ; AUTOTRAD
 	text "It's not as if we"
 	line "all use dragon-"
 	cont "type #MON."
 	done
 
-CooltrainermCodyBeatenText:
+CooltrainermCodyBeatenText: ; AUTOTRAD
 	text "Rats! If only I"
 	line "had a dragon!"
 	done
 
-CooltrainermCodyAfterBattleText:
+CooltrainermCodyAfterBattleText: ; AUTOTRAD
 	text "Members of our"
 	line "dragon-user clan"
 
@@ -100,7 +100,7 @@ CooltrainermCodyAfterBattleText:
 	line "it."
 	done
 
-CooltrainerfFranSeenText:
+CooltrainerfFranSeenText: ; AUTOTRAD
 	text "I can't allow a"
 	line "nameless trainer"
 	cont "past me!"
@@ -109,11 +109,11 @@ CooltrainerfFranSeenText:
 	line "livid if I did!"
 	done
 
-CooltrainerfFranBeatenText:
+CooltrainerfFranBeatenText: ; AUTOTRAD
 	text "Awww… I lost…"
 	done
 
-CooltrainerfFranAfterBattleText:
+CooltrainerfFranAfterBattleText: ; AUTOTRAD
 	text "Uh-oh… CLAIR is"
 	line "going to be mad…"
 	done

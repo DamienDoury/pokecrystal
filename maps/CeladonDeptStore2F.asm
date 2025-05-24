@@ -38,7 +38,7 @@ CeladonDeptStore2FElevatorButton:
 CeladonDeptStore2FShelfItem1Script:
 	shelfitem 16, POKE_BALL, 2560
 
-CeladonDeptStore2FPokefanMText:
+CeladonDeptStore2FPokefanMText: ; TO TRANSLATE
 	text "I just recently"
 	line "became a trainer."
 
@@ -50,7 +50,7 @@ CeladonDeptStore2FPokefanMText:
 	cont "childhood dream!"
 	done
 
-CeladonDeptStore2FYoungsterText:
+CeladonDeptStore2FYoungsterText: ; AUTOTRAD
 	text "My dad's having a"
 	line "hard time learning"
 
@@ -61,7 +61,7 @@ CeladonDeptStore2FYoungsterText:
 	line "used…"
 	done
 
-CeladonDeptStore2FDirectoryText:
+CeladonDeptStore2FDirectoryText: ; AUTOTRAD
 	text "Top Grade Items"
 	line "for Trainers!"
 

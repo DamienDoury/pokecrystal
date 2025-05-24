@@ -280,7 +280,7 @@ DragonShrineQuestion1_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Pal@"
@@ -293,7 +293,7 @@ DragonShrineQuestion2_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Strategy@"
@@ -306,7 +306,7 @@ DragonShrineQuestion3_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Weak person@"
@@ -319,7 +319,7 @@ DragonShrineQuestion4_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Love@"
@@ -332,7 +332,7 @@ DragonShrineQuestion5_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; AUTOTRAD
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Tough@"
@@ -394,7 +394,7 @@ DragonShrineClairWalkOutMovement:
 	step DOWN
 	step_end
 
-DragonShrineElderGreetingText:
+DragonShrineElderGreetingText: ; AUTOTRAD
 	text "Hm… Good to see"
 	line "you here."
 
@@ -417,29 +417,29 @@ DragonShrineElderGreetingText:
 	para "Ready?"
 	done
 
-DragonShrineQuestion1Text:
+DragonShrineQuestion1Text: ; AUTOTRAD
 	text "What are #MON"
 	line "to you?"
 	done
 
-DragonShrineQuestion2Text:
+DragonShrineQuestion2Text: ; AUTOTRAD
 	text "What helps you to"
 	line "win battles?"
 	done
 
-DragonShrineQuestion3Text:
+DragonShrineQuestion3Text: ; AUTOTRAD
 	text "What kind of"
 	line "trainer do you"
 	cont "wish to battle?"
 	done
 
-DragonShrineQuestion4Text:
+DragonShrineQuestion4Text: ; AUTOTRAD
 	text "What is most"
 	line "important for"
 	cont "raising #MON?"
 	done
 
-DragonShrineQuestion5Text:
+DragonShrineQuestion5Text: ; AUTOTRAD
 	text "Strong #MON."
 	line "Weak #MON."
 
@@ -447,7 +447,7 @@ DragonShrineQuestion5Text:
 	line "important?"
 	done
 
-DragonShrinePassedTestText:
+DragonShrinePassedTestText: ; AUTOTRAD
 	text "Hm… I see…"
 
 	para "You care deeply"
@@ -466,7 +466,7 @@ DragonShrinePassedTestText:
 	cont "#MON LEAGUE."
 	done
 
-DragonShrineMustIInformLanceText:
+DragonShrineMustIInformLanceText: ; AUTOTRAD
 	text "CLAIR!"
 
 	para "This child is"
@@ -481,7 +481,7 @@ DragonShrineMustIInformLanceText:
 	line "LANCE of this?"
 	done
 
-DragonShrineElderScoldsClairText:
+DragonShrineElderScoldsClairText: ; AUTOTRAD
 	text "CLAIR…"
 
 	para "Reflect upon what"
@@ -491,12 +491,12 @@ DragonShrineElderScoldsClairText:
 	line "child has."
 	done
 
-DragonShrineComeAgainText:
+DragonShrineComeAgainText: ; AUTOTRAD
 	text "Come again, if you"
 	line "so desire."
 	done
 
-DragonShrineTakeThisDratiniText:
+DragonShrineTakeThisDratiniText: ; AUTOTRAD
 	text "Hm… Good to see"
 	line "you here."
 
@@ -513,17 +513,17 @@ DragonShrineTakeThisDratiniText:
 	line "your worth."
 	done
 
-DragonShrinePlayerReceivedDratiniText:
+DragonShrinePlayerReceivedDratiniText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "DRATINI!"
 	done
 
-DragonShrinePartyFullText:
+DragonShrinePartyFullText: ; AUTOTRAD
 	text "Hm? Your #MON"
 	line "party is full."
 	done
 
-DragonShrineSymbolicDragonText:
+DragonShrineSymbolicDragonText: ; AUTOTRAD
 	text "Dragon #MON are"
 	line "symbolic of our"
 	cont "clan."
@@ -535,7 +535,7 @@ DragonShrineSymbolicDragonText:
 	line "one."
 	done
 
-DragonShrineClairsGrandfatherText:
+DragonShrineClairsGrandfatherText: ; AUTOTRAD
 	text "CLAIR appears to"
 	line "have learned an"
 
@@ -546,7 +546,7 @@ DragonShrineClairsGrandfatherText:
 	line "grandfather."
 	done
 
-DragonShrineSilverIsInTrainingText:
+DragonShrineSilverIsInTrainingText: ; AUTOTRAD
 	text "A boy close to"
 	line "your age is in"
 	cont "training here."
@@ -558,21 +558,21 @@ DragonShrineSilverIsInTrainingText:
 	line "little worrisome…"
 	done
 
-DragonShrineWrongAnswerText1:
+DragonShrineWrongAnswerText1: ; AUTOTRAD
 	text "Hah? I didn't"
 	line "quite catch that…"
 	done
 
-DragonShrineWrongAnswerText2:
+DragonShrineWrongAnswerText2: ; AUTOTRAD
 	text "What was it you"
 	line "said?"
 	done
 
-DragonShrineRightAnswerText:
+DragonShrineRightAnswerText: ; AUTOTRAD
 	text "Oh, I understand…"
 	done
 
-DragonShrineElder2Text:
+DragonShrineElder2Text: ; AUTOTRAD
 	text "It's been quite"
 	line "some time since a"
 
@@ -584,7 +584,7 @@ DragonShrineElder2Text:
 	line "Master LANCE."
 	done
 
-DragonShrineElder3Text:
+DragonShrineElder3Text: ; AUTOTRAD
 	text "You know young"
 	line "Master LANCE?"
 
@@ -596,7 +596,7 @@ DragonShrineElder3Text:
 	line "blood."
 	done
 
-DragonShrineClairYouPassedText:
+DragonShrineClairYouPassedText: ; AUTOTRAD
 	text "So how did it go?"
 
 	para "I guess there's no"
@@ -609,34 +609,34 @@ DragonShrineClairYouPassedText:
 	para "…What? You passed?"
 	done
 
-DragonShrineClairThatCantBeText:
+DragonShrineClairThatCantBeText: ; AUTOTRAD
 	text "That can't be!"
 	done
 
-DragonShrineClairYoureLyingText:
+DragonShrineClairYoureLyingText: ; AUTOTRAD
 	text "You're lying!"
 
 	para "Even I haven't"
 	line "been approved!"
 	done
 
-DragonShrineIUnderstandText:
+DragonShrineIUnderstandText: ; AUTOTRAD
 	text "I-I understand…"
 	done
 
-DragonShrineHereRisingBadgeText:
+DragonShrineHereRisingBadgeText: ; AUTOTRAD
 	text "Here, this is the"
 	line "RISINGBADGE…"
 
 	para "Hurry up! Take it!"
 	done
 
-DragonShrinePlayerReceivedRisingBadgeText:
+DragonShrinePlayerReceivedRisingBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "RISINGBADGE."
 	done
 
-Obey100:
+Obey100: ; TO TRANSLATE
 	text "With this last"
 	line "badge, all #MON"
 	cont "will recognize you"
@@ -648,7 +648,7 @@ Obey100:
 	line "question."
 	done
 
-DragonShrineSpeechlessText:
+DragonShrineSpeechlessText: ; AUTOTRAD
 	text "<……><……><……><……><……><……>"
 	done
 

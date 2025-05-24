@@ -224,7 +224,7 @@ VermilionPortApproachFastShipLeftMovement:
 	step LEFT
 	step_end
 
-VermilionPortSuperNerdText:
+VermilionPortSuperNerdText: ; AUTOTRAD
 	text "You came from"
 	line "JOHTO?"
 
@@ -233,7 +233,7 @@ VermilionPortSuperNerdText:
 	cont "there."
 	done
 
-VermilionPortTempSailorText:
+VermilionPortTempSailorText: ; TO TRANSLATE
 	text "I was supposed"
 	line "to embark on"
 	cont "the next ship."
@@ -243,7 +243,7 @@ VermilionPortTempSailorText:
 	cont "for a while…"
 	done
 
-VermilionPortPowerOutageText:
+VermilionPortPowerOutageText: ; TO TRANSLATE
 	text "Because of the"
 	line "power outage, the"
 	cont "signaling system"
@@ -257,7 +257,7 @@ VermilionPortPowerOutageText:
 	line "inconvenience."
 	done
 
-VermilionPortCaptainText:
+VermilionPortCaptainText: ; TO TRANSLATE
 	text "The signaling"
 	line "system of the"
 	cont "port is down"
@@ -268,12 +268,12 @@ VermilionPortCaptainText:
 	line "leave the port."
 	done
 
-VermilionPortTruck1Text:
+VermilionPortTruck1Text: ; TO TRANSLATE
 	text "There's nothing"
 	line "under the truck."
 	done
 
-VermilionPortTruck2Text:
+VermilionPortTruck2Text: ; TO TRANSLATE
 	text "Wait…"
 	done
 

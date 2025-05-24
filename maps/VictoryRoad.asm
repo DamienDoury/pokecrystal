@@ -162,7 +162,7 @@ VictoryRoadRivalBattleExitMovement2:
 	step DOWN
 	step_end
 
-VictoryRoadRivalBeforeText:
+VictoryRoadRivalBeforeText: ; AUTOTRAD
 	text "Hold it."
 
 	para "…Are you going to"
@@ -188,7 +188,7 @@ VictoryRoadRivalBeforeText:
 	line "I challenge you!"
 	done
 
-VictoryRoadRivalDefeatText:
+VictoryRoadRivalDefeatText: ; AUTOTRAD
 	text "…I couldn't win…"
 
 	para "I gave it every-"
@@ -204,7 +204,7 @@ VictoryRoadRivalDefeatText:
 	line "said to me…"
 	done
 
-VictoryRoadRivalAfterText:
+VictoryRoadRivalAfterText: ; AUTOTRAD
 	text "…I haven't given up"
 	line "on becoming the"
 	cont "greatest trainer…"
@@ -226,7 +226,7 @@ VictoryRoadRivalAfterText:
 	line "at it until then."
 	done
 
-VictoryRoadRivalVictoryText:
+VictoryRoadRivalVictoryText: ; AUTOTRAD
 	text "…Humph!"
 
 	para "When it comes down"

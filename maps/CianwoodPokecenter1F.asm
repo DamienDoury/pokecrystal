@@ -74,7 +74,7 @@ CianwoodPokecenter1FSuperNerdScript:
 CianwoodPokecenter1FFishingGuruScript:
 	farsjump Route32Pokecenter1FFishingGuruScript
 
-CianwoodPokecenter1FLassText:
+CianwoodPokecenter1FLassText: ; AUTOTRAD
 	text "Did you meet the"
 	line "#MANIAC?"
 
@@ -83,7 +83,7 @@ CianwoodPokecenter1FLassText:
 	cont "rare #MON."
 	done
 
-CianwoodGymGuideDudeText:
+CianwoodGymGuideDudeText: ; TO TRANSLATE
 	text "The #MON GYM"
 	line "trainers here are"
 	cont "macho bullies."
@@ -116,7 +116,7 @@ CianwoodGymGuideDudeText:
 	line "go outside."
 	done
 
-CianwoodGymGuideDudeWinText:
+CianwoodGymGuideDudeWinText: ; TO TRANSLATE
 	text "<PLAYER>! You won!"
 	line "I could tell by"
 	cont "looking at you!"
@@ -150,7 +150,7 @@ CianwoodPokecenter1FUnusedText2: ; unreferenced
 	cont "gotta crank it up!"
 	done
 
-CianwoodPokecenter1FSuperNerdText:
+CianwoodPokecenter1FSuperNerdText: ; AUTOTRAD
 	text "I love showing off"
 	line "the #MON that"
 

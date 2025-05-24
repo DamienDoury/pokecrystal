@@ -125,7 +125,7 @@ ClefairyFleeMovement:
 	step RIGHT
 	step_end
 
-DontLitterSignText:
+DontLitterSignText: ; AUTOTRAD
 	text "MT.MOON SQUARE"
 	line "DON'T LITTER"
 	done

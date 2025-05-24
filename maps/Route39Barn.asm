@@ -134,62 +134,62 @@ MoomooScript:
 BarnMiltank:
 	farsjump Route39Miltank
 
-Route39BarnTwinMoomooIsSickText:
+Route39BarnTwinMoomooIsSickText: ; TO TRANSLATE
 	text "MOOMOO is sick…"
 
 	para "She needs lots of"
 	line "ORAN BERRIES."
 	done
 
-Route39BarnTwinWereFeedingMoomooText:
+Route39BarnTwinWereFeedingMoomooText: ; AUTOTRAD
 	text "We're feeding"
 	line "MOOMOO!"
 	done
 
-MoomooWeakMooText:
+MoomooWeakMooText: ; TO TRANSLATE
 	text "MOOMOO: …Moo…"
 	done
 
-Route39BarnItsCryIsWeakText:
+Route39BarnItsCryIsWeakText: ; AUTOTRAD
 	text "Its cry is weak…"
 	done
 
-MoomooHappyMooText:
+MoomooHappyMooText: ; TO TRANSLATE
 	text "MOOMOO: Mooo!"
 	done
 
-Route39BarnAskGiveBerryText:
+Route39BarnAskGiveBerryText: ; TO TRANSLATE
 	text "Give an ORAN BERRY"
 	line "to MILTANK?"
 	done
 
-Route39BarnGaveBerryText:
+Route39BarnGaveBerryText: ; TO TRANSLATE
 	text "<PLAYER> gave an"
 	line "ORAN BERRY to"
 	cont "MILTANK."
 	done
 
-Route39BarnLittleHealthierText:
+Route39BarnLittleHealthierText: ; TO TRANSLATE
 	text "MOOMOO feels a"
 	line "little healthier!"
 	done
 
-Route39BarnQuiteHealthyText:
+Route39BarnQuiteHealthyText: ; TO TRANSLATE
 	text "MOOMOO feels a"
 	line "little bit better!"
 	done
 
-Route39BarnTotallyHealthyText:
+Route39BarnTotallyHealthyText: ; TO TRANSLATE
 	text "MOOMOO feels"
 	line "better!"
 	done
 
-Route39BarnNoBerriesText:
+Route39BarnNoBerriesText: ; TO TRANSLATE
 	text "<PLAYER> has no"
 	line "ORAN BERRIES…"
 	done
 
-Route39BarnRefusedBerryText:
+Route39BarnRefusedBerryText: ; TO TRANSLATE
 	text "<PLAYER> wouldn't"
 	line "give an ORAN"
 	cont "BERRY."

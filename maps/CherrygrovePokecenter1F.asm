@@ -38,7 +38,7 @@ CherrygrovePokecenter1FTeacherScript:
 	closetext
 	end
 
-CherrygrovePokecenter1FFisherText:
+CherrygrovePokecenter1FFisherText: ; AUTOTRAD
 	text "It's great. I can"
 	line "store any number"
 
@@ -46,13 +46,13 @@ CherrygrovePokecenter1FFisherText:
 	line "it's all free."
 	done
 
-CherrygrovePokecenter1FGentlemanText:
+CherrygrovePokecenter1FGentlemanText: ; AUTOTRAD
 	text "That PC is free"
 	line "for any trainer"
 	cont "to use."
 	done
 
-CherrygrovePokecenter1FTeacherText:
+CherrygrovePokecenter1FTeacherText: ; AUTOTRAD
 	text "The COMMUNICATION"
 	line "CENTER upstairs"
 	cont "was just built."
@@ -61,7 +61,7 @@ CherrygrovePokecenter1FTeacherText:
 	line "finishing it up."
 	done
 
-CherrygrovePokecenter1FTeacherText_CommCenterOpen:
+CherrygrovePokecenter1FTeacherText_CommCenterOpen: ; AUTOTRAD
 	text "The COMMUNICATION"
 	line "CENTER upstairs"
 	cont "was just built."

@@ -483,7 +483,7 @@ Route36NationalParkGatePlayerWaitWithContestantsMovement:
 	turn_head UP
 	step_end
 
-Route36NationalParkGateOfficer1AskToParticipateText:
+Route36NationalParkGateOfficer1AskToParticipateText: ; AUTOTRAD
 	text "Today's @"
 	text_ram wStringBuffer3
 	text "."
@@ -505,18 +505,18 @@ Route36NationalParkGateOfficer1AskToParticipateText:
 	line "give it a try?"
 	done
 
-Route36NationalParkGateOfficer1GiveParkBallsText:
+Route36NationalParkGateOfficer1GiveParkBallsText: ; AUTOTRAD
 	text "Here are the PARK"
 	line "BALLS for the"
 	cont "Contest."
 	done
 
-Route36NationalParkGatePlayerReceivedParkBallsText:
+Route36NationalParkGatePlayerReceivedParkBallsText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "{d:BUG_CONTEST_BALLS} PARK BALLS."
 	done
 
-Route36NationalParkGateOfficer1ExplainsRulesText:
+Route36NationalParkGateOfficer1ExplainsRulesText: ; AUTOTRAD
 	text "The person who"
 	line "gets the strong-"
 	cont "est bug #MON"
@@ -540,7 +540,7 @@ Route36NationalParkGateOfficer1ExplainsRulesText:
 	line "find!"
 	done
 
-Route36NationalParkGateOfficer1AskToUseFirstMonText:
+Route36NationalParkGateOfficer1AskToUseFirstMonText: ; AUTOTRAD
 	text "Uh-oh…"
 
 	para "You have more than"
@@ -558,19 +558,19 @@ Route36NationalParkGateOfficer1AskToUseFirstMonText:
 	line "you?"
 	done
 
-Route36NationalParkGateOfficer1WellHoldYourMonText:
+Route36NationalParkGateOfficer1WellHoldYourMonText: ; AUTOTRAD
 	text "Fine, we'll hold"
 	line "your other #MON"
 	cont "while you compete."
 	done
 
-Route36NationalParkGatePlayersMonLeftWithHelperText:
+Route36NationalParkGatePlayersMonLeftWithHelperText: ; AUTOTRAD
 	text "<PLAYER>'s #MON"
 	line "were left with the"
 	cont "CONTEST HELPER."
 	done
 
-Route36NationalParkGateOfficer1ChooseMonAndComeBackText:
+Route36NationalParkGateOfficer1ChooseMonAndComeBackText: ; AUTOTRAD
 	text "Please choose the"
 	line "#MON to be used"
 
@@ -578,13 +578,13 @@ Route36NationalParkGateOfficer1ChooseMonAndComeBackText:
 	line "then come see me."
 	done
 
-Route36NationalParkGateOfficer1TakePartInFutureText:
+Route36NationalParkGateOfficer1TakePartInFutureText: ; AUTOTRAD
 	text "OK. We hope you'll"
 	line "take part in the"
 	cont "future."
 	done
 
-Route36NationalParkGateOfficer1FirstMonCantBattleText:
+Route36NationalParkGateOfficer1FirstMonCantBattleText: ; AUTOTRAD
 	text "Uh-oh…"
 	line "The first #MON"
 
@@ -598,7 +598,7 @@ Route36NationalParkGateOfficer1FirstMonCantBattleText:
 	line "then come see me."
 	done
 
-Route36NationalParkGateOfficer1MakeRoomText:
+Route36NationalParkGateOfficer1MakeRoomText: ; AUTOTRAD
 	text "Uh-oh…"
 	line "Both your party"
 
@@ -616,7 +616,7 @@ Route36NationalParkGateOfficer1MakeRoomText:
 	line "come see me."
 	done
 
-Route36NationalParkGateOfficer1EggAsFirstMonText:
+Route36NationalParkGateOfficer1EggAsFirstMonText: ; AUTOTRAD
 	text "Uh-oh…"
 	line "You have an EGG as"
 
@@ -630,7 +630,7 @@ Route36NationalParkGateOfficer1EggAsFirstMonText:
 	line "then come see me."
 	done
 
-Route36NationalParkGateOfficer1WantToFinishText:
+Route36NationalParkGateOfficer1WantToFinishText: ; AUTOTRAD
 	text "You still have @"
 	text_ram wStringBuffer3
 	text_start
@@ -640,7 +640,7 @@ Route36NationalParkGateOfficer1WantToFinishText:
 	line "finish now?"
 	done
 
-Route36NationalParkGateOfficer1WaitHereForAnnouncementText:
+Route36NationalParkGateOfficer1WaitHereForAnnouncementText: ; AUTOTRAD
 	text "OK. Please wait"
 	line "here for the"
 
@@ -648,13 +648,13 @@ Route36NationalParkGateOfficer1WaitHereForAnnouncementText:
 	line "the winners."
 	done
 
-Route36NationalParkGateOfficer1OkGoFinishText:
+Route36NationalParkGateOfficer1OkGoFinishText: ; AUTOTRAD
 	text "OK. Please go back"
 	line "outside and finish"
 	cont "up."
 	done
 
-Route36NationalParkGateOfficer1ContestIsOverText:
+Route36NationalParkGateOfficer1ContestIsOverText: ; AUTOTRAD
 	text "Today's Contest is"
 	line "over. We hope you"
 
@@ -662,19 +662,19 @@ Route36NationalParkGateOfficer1ContestIsOverText:
 	line "in the future."
 	done
 
-Route36NationalParkGateOfficer1SomeMonOnlySeenInParkText:
+Route36NationalParkGateOfficer1SomeMonOnlySeenInParkText: ; AUTOTRAD
 	text "Some #MON can"
 	line "only be seen in"
 	cont "the PARK."
 	done
 
-BugCatchingContestant1BText:
+BugCatchingContestant1BText: ; AUTOTRAD
 	text "DON: Wow, you beat"
 	line "me. You're pretty"
 	cont "good."
 	done
 
-BugCatchingContestant1BStillCompetingText:
+BugCatchingContestant1BStillCompetingText: ; AUTOTRAD
 	text "DON: Luck plays a"
 	line "big part in this."
 
@@ -683,24 +683,24 @@ BugCatchingContestant1BStillCompetingText:
 	cont "appear."
 	done
 
-BugCatchingContestant2BText:
+BugCatchingContestant2BText: ; AUTOTRAD
 	text "ED: I envy you."
 	line "I just couldn't"
 	cont "do it this time."
 	done
 
-BugCatchingContestant2BStillCompetingText:
+BugCatchingContestant2BStillCompetingText: ; AUTOTRAD
 	text "ED: Maybe you win"
 	line "with big #MON?"
 	done
 
-BugCatchingContestant3BText:
+BugCatchingContestant3BText: ; AUTOTRAD
 	text "NICK: Well done!"
 	line "I'm going to raise"
 	cont "my #MON better."
 	done
 
-BugCatchingContestant3BStillCompetingText:
+BugCatchingContestant3BStillCompetingText: ; AUTOTRAD
 	text "NICK: Maybe you"
 	line "get a higher score"
 
@@ -708,13 +708,13 @@ BugCatchingContestant3BStillCompetingText:
 	line "an unusual color."
 	done
 
-BugCatchingContestant4BText:
+BugCatchingContestant4BText: ; AUTOTRAD
 	text "WILLIAM: You're"
 	line "the winner? What"
 	cont "did you catch?"
 	done
 
-BugCatchingContestant4BStillCompetingText:
+BugCatchingContestant4BStillCompetingText: ; AUTOTRAD
 	text "WILLIAM: Well, I'm"
 	line "satisfied because"
 
@@ -722,25 +722,25 @@ BugCatchingContestant4BStillCompetingText:
 	line "that I wanted."
 	done
 
-BugCatchingContestant5BText:
+BugCatchingContestant5BText: ; AUTOTRAD
 	text "BENNY: Congrats!"
 	line "You have earned my"
 	cont "respect!"
 	done
 
-BugCatchingContestant5BStillCompetingText:
+BugCatchingContestant5BStillCompetingText: ; AUTOTRAD
 	text "BENNY: I caught a"
 	line "SCYTHER before,"
 	cont "but I didn't win."
 	done
 
-BugCatchingContestant6BText:
+BugCatchingContestant6BText: ; AUTOTRAD
 	text "BARRY: That #-"
 	line "MON you caught…"
 	cont "it's awesome!"
 	done
 
-BugCatchingContestant6BStillCompetingText:
+BugCatchingContestant6BStillCompetingText: ; AUTOTRAD
 	text "BARRY: It's easier"
 	line "to win if you get"
 
@@ -752,7 +752,7 @@ BugCatchingContestant6BStillCompetingText:
 	cont "other points."
 	done
 
-BugCatchingContestant7BText:
+BugCatchingContestant7BText: ; AUTOTRAD
 	text "CINDY: You won?"
 	line "That's great!"
 
@@ -761,35 +761,35 @@ BugCatchingContestant7BText:
 	cont "#MON with me?"
 	done
 
-BugCatchingContestant7BStillCompetingText:
+BugCatchingContestant7BStillCompetingText: ; AUTOTRAD
 	text "CINDY: I really"
 	line "love bug #MON!"
 	done
 
-BugCatchingContestant8BText:
+BugCatchingContestant8BText: ; AUTOTRAD
 	text "JOSH: I… I can't"
 	line "believe I lost at"
 	cont "bug-catching…"
 	done
 
-BugCatchingContestant8BStillCompetingText:
+BugCatchingContestant8BStillCompetingText: ; AUTOTRAD
 	text "JOSH: I heard that"
 	line "somebody won with"
 	cont "a CATERPIE!"
 	done
 
-BugCatchingContestant9BText:
+BugCatchingContestant9BText: ; AUTOTRAD
 	text "SAMUEL: Next time,"
 	line "I'm going to win."
 	done
 
-BugCatchingContestant9BStillCompetingText:
+BugCatchingContestant9BStillCompetingText: ; AUTOTRAD
 	text "SAMUEL: Darn."
 	line "I thought I would"
 	cont "score higher…"
 	done
 
-BugCatchingContestant10BText:
+BugCatchingContestant10BText: ; AUTOTRAD
 	text "KIPP: Could you"
 	line "give me some tips?"
 
@@ -797,7 +797,7 @@ BugCatchingContestant10BText:
 	line "your style."
 	done
 
-BugCatchingContestant10BStillCompetingText:
+BugCatchingContestant10BStillCompetingText: ; AUTOTRAD
 	text "KIPP: I study a"
 	line "lot, but that's"
 
@@ -817,7 +817,7 @@ UnusedSilphScope2Text: ; unreferenced
 	cont "SILPHSCOPE 2."
 	done
 
-UnusedBugCatchingContestExplanationText:
+UnusedBugCatchingContestExplanationText: ; AUTOTRAD
 ; duplicate of BugCatchingContestExplanationText in Route35NationalParkGate.asm
 	text "The Bug-Catching"
 	line "Contest is held on"
@@ -838,7 +838,7 @@ UnusedBugCatchingContestExplanationText:
 	line "the contest."
 	done
 
-Route36NationalParkGateOfficer1WellHoldPrizeText:
+Route36NationalParkGateOfficer1WellHoldPrizeText: ; AUTOTRAD
 	text "Uh-oh… Your PACK"
 	line "is full."
 
@@ -850,7 +850,7 @@ Route36NationalParkGateOfficer1WellHoldPrizeText:
 	line "then come see me."
 	done
 
-Route36NationalParkGateOfficer1HeresThePrizeText:
+Route36NationalParkGateOfficer1HeresThePrizeText: ; AUTOTRAD
 	text "<PLAYER>?"
 
 	para "Here's the prize"

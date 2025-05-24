@@ -167,13 +167,13 @@ MahoganyMart1FLanceGoDownStairsMovement:
 	slow_step DOWN
 	step_end
 
-MahoganyMart1FPharmacistText_LanceEntered:
+MahoganyMart1FPharmacistText_LanceEntered: ; AUTOTRAD
 	text "Arrgh… You found"
 	line "the secret stair-"
 	cont "way…"
 	done
 
-MahoganyMart1FBlackBeltText:
+MahoganyMart1FBlackBeltText: ; TO TRANSLATE
 	text "Heheh! The experi-"
 	line "ment worked like a"
 	cont "charm."
@@ -189,19 +189,19 @@ MahoganyMart1FBlackBeltText:
 	cont "big deal."
 	done
 
-MahoganyMart1FBlackBeltText_LanceEntered:
+MahoganyMart1FBlackBeltText_LanceEntered: ; AUTOTRAD
 	text "Urrgh…"
 
 	para "That guy's dragon"
 	line "#MON are tough…"
 	done
 
-MahoganyMart1FLanceDragoniteStrengthText:
+MahoganyMart1FLanceDragoniteStrengthText: ; TO TRANSLATE
 	text "LANCE: DRAGONITE,"
 	line "use STRENGTH!"
 	done
 
-MahoganyMart1FLanceRadioText:
+MahoganyMart1FLanceRadioText: ; AUTOTRAD
 	text "What took you,"
 	line "<PLAY_G>?"
 
@@ -212,12 +212,12 @@ MahoganyMart1FLanceRadioText:
 	line "from here."
 	done
 
-MahoganyMart1FLanceStairsText:
+MahoganyMart1FLanceStairsText: ; AUTOTRAD
 	text "The stairs are"
 	line "right here."
 	done
 
-MahoganyMart1FLanceSplitUpText:
+MahoganyMart1FLanceSplitUpText: ; AUTOTRAD
 	text "LANCE: <PLAY_G>, we"
 	line "should split up to"
 

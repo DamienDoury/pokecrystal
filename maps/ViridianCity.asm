@@ -85,7 +85,7 @@ ViridianCityPokecenterSign:
 ViridianCityMartSign:
 	jumpstd MartSignScript
 
-ViridianCityCoffeeGrampsQuestionText:
+ViridianCityCoffeeGrampsQuestionText: ; AUTOTRAD
 	text "Hey, kid! I just"
 	line "had a double shot"
 
@@ -105,7 +105,7 @@ ViridianCityCoffeeGrampsQuestionText:
 	para "Do you believe me?"
 	done
 
-ViridianCityCoffeeGrampsBelievedText:
+ViridianCityCoffeeGrampsBelievedText: ; AUTOTRAD
 	text "Good, good. Yes, I"
 	line "was something out"
 
@@ -113,7 +113,7 @@ ViridianCityCoffeeGrampsBelievedText:
 	line "let me tell you!"
 	done
 
-ViridianCityCoffeeGrampsDoubtedText:
+ViridianCityCoffeeGrampsDoubtedText: ; AUTOTRAD
 	text "What? You little"
 	line "whelp!"
 
@@ -124,7 +124,7 @@ ViridianCityCoffeeGrampsDoubtedText:
 	line "or two. Humph!"
 	done
 
-ViridianCityGrampsNearGymText:
+ViridianCityGrampsNearGymText: ; AUTOTRAD
 	text "This GYM didn't"
 	line "have a LEADER"
 	cont "until recently."
@@ -136,7 +136,7 @@ ViridianCityGrampsNearGymText:
 	line "often away."
 	done
 
-ViridianCityGrampsNearGymBlueReturnedText:
+ViridianCityGrampsNearGymBlueReturnedText: ; AUTOTRAD
 	text "Are you going to"
 	line "battle the LEADER?"
 
@@ -144,7 +144,7 @@ ViridianCityGrampsNearGymBlueReturnedText:
 	line "You'll need it."
 	done
 
-ViridianCityDreamEaterFisherText:
+ViridianCityDreamEaterFisherText: ; AUTOTRAD
 	text "Yawn!"
 
 	para "I must have dozed"
@@ -167,14 +167,14 @@ ViridianCityDreamEaterFisherText:
 	cont "this TM."
 	done
 
-ViridianCityDreamEaterFisherGotDreamEaterText:
+ViridianCityDreamEaterFisherGotDreamEaterText: ; AUTOTRAD
 	text "TM42 contains"
 	line "DREAM EATER…"
 
 	para "…Zzzzz…"
 	done
 
-ViridianCityYoungsterText:
+ViridianCityYoungsterText: ; AUTOTRAD
 	text "I heard that there"
 	line "are many items on"
 
@@ -182,14 +182,14 @@ ViridianCityYoungsterText:
 	line "VIRIDIAN FOREST."
 	done
 
-ViridianCitySignText:
+ViridianCitySignText: ; AUTOTRAD
 	text "VIRIDIAN CITY"
 
 	para "The Eternally"
 	line "Green Paradise"
 	done
 
-ViridianGymSignText:
+ViridianGymSignText: ; AUTOTRAD
 	text "VIRIDIAN CITY"
 	line "#MON GYM"
 	cont "LEADER: …"
@@ -198,7 +198,7 @@ ViridianGymSignText:
 	line "text is illegible…"
 	done
 
-ViridianCityWelcomeSignText:
+ViridianCityWelcomeSignText: ; AUTOTRAD
 	text "WELCOME TO"
 	line "VIRIDIAN CITY,"
 
@@ -206,7 +206,7 @@ ViridianCityWelcomeSignText:
 	line "INDIGO PLATEAU"
 	done
 
-TrainerHouseSignText:
+TrainerHouseSignText: ; AUTOTRAD
 	text "TRAINER HOUSE"
 
 	para "The Club for Top"

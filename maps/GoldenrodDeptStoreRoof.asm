@@ -101,7 +101,7 @@ BinocularsNight:
 PokeDollVendingMachine:
 	jumptext PokeDollVendingMachineText
 
-GoldenrodDeptStoreRoofPokefanFText:
+GoldenrodDeptStoreRoofPokefanFText: ; AUTOTRAD
 	text "Whew, I'm tired."
 
 	para "I sometimes come"
@@ -111,7 +111,7 @@ GoldenrodDeptStoreRoofPokefanFText:
 	line "from shopping."
 	done
 
-GoldenrodDeptStoreRoofFisherText:
+GoldenrodDeptStoreRoofFisherText: ; AUTOTRAD
 	text "Pardon? Who says"
 	line "an adult can't get"
 	cont "into this?"
@@ -123,22 +123,22 @@ GoldenrodDeptStoreRoofFisherText:
 	line "dolls!"
 	done
 
-GoldenrodDeptStoreRoofTwinText:
+GoldenrodDeptStoreRoofTwinText: ; AUTOTRAD
 	text "They have bargain"
 	line "sales here every"
 	cont "so often."
 	done
 
-GoldenrodDeptStoreRoofSuperNerdOhWowText:
+GoldenrodDeptStoreRoofSuperNerdOhWowText: ; AUTOTRAD
 	text "Oh, wow!"
 	done
 
-GoldenrodDeptStoreRoofSuperNerdQuitBotheringMeText:
+GoldenrodDeptStoreRoofSuperNerdQuitBotheringMeText: ; AUTOTRAD
 	text "Will you quit"
 	line "bothering me?"
 	done
 
-GoldenrodDeptStoreRoofPokefanMText:
+GoldenrodDeptStoreRoofPokefanMText: ; AUTOTRAD
 	text "There's something"
 	line "I really want, but"
 
@@ -150,7 +150,7 @@ GoldenrodDeptStoreRoofPokefanMText:
 	cont "I've collected…"
 	done
 
-GoldenrodDeptStoreRoofTeacherText:
+GoldenrodDeptStoreRoofTeacherText: ; TO TRANSLATE
 	text "Oh, everything is"
 	line "interesting!"
 
@@ -158,7 +158,7 @@ GoldenrodDeptStoreRoofTeacherText:
 	line "my PACK's crammed!"
 	done
 
-GoldenrodDeptStoreRoofBugCatcherText:
+GoldenrodDeptStoreRoofBugCatcherText: ; AUTOTRAD
 	text "My #MON always"
 	line "get paralyzed or"
 
@@ -172,7 +172,7 @@ GoldenrodDeptStoreRoofBugCatcherText:
 	line "there's any left?"
 	done
 
-Binoculars1Text:
+Binoculars1Text: ; AUTOTRAD
 	text "These binoculars"
 	line "let me see far"
 
@@ -183,7 +183,7 @@ Binoculars1Text:
 	line "the green roof?"
 	done
 
-Binoculars2Text:
+Binoculars2Text: ; AUTOTRAD
 	text "Hey! Some trainers"
 	line "are battling on"
 	cont "the road!"
@@ -196,12 +196,12 @@ Binoculars2Text:
 	cont "right now!"
 	done
 
-BinocularsNightText:
+BinocularsNightText: ; TO TRANSLATE
 	text "It's too dark"
 	line "to see anything…"
 	done
 
-Binoculars3Text:
+Binoculars3Text: ; AUTOTRAD
 	text "A FISHER caught a"
 	line "lot of MAGIKARP…"
 
@@ -212,7 +212,7 @@ Binoculars3Text:
 	line "going everywhere!"
 	done
 
-PokeDollVendingMachineText:
+PokeDollVendingMachineText: ; AUTOTRAD
 	text "A vending machine"
 	line "for #MON dolls?"
 

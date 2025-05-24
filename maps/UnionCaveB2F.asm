@@ -74,7 +74,7 @@ UnionCaveB2FElixer:
 UnionCaveB2FHyperPotion:
 	itemball HYPER_POTION
 
-CooltrainermNickSeenText:
+CooltrainermNickSeenText: ; AUTOTRAD
 	text "There are two"
 	line "kinds of people."
 
@@ -86,12 +86,12 @@ CooltrainermNickSeenText:
 	line "person are you?"
 	done
 
-CooltrainermNickBeatenText:
+CooltrainermNickBeatenText: ; AUTOTRAD
 	text "You've got"
 	line "dazzling style!"
 	done
 
-CooltrainermNickAfterBattleText:
+CooltrainermNickAfterBattleText: ; AUTOTRAD
 	text "Your #MON style"
 	line "is stunning and"
 	cont "colorful, I admit."
@@ -100,23 +100,23 @@ CooltrainermNickAfterBattleText:
 	line "getting better!"
 	done
 
-CooltrainerfGwenSeenText:
+CooltrainerfGwenSeenText: ; AUTOTRAD
 	text "I'm in training."
 	line "Care for a round?"
 	done
 
-CooltrainerfGwenBeatenText:
+CooltrainerfGwenBeatenText: ; AUTOTRAD
 	text "Aww, no! You're"
 	line "too good for me."
 	done
 
-CooltrainerfGwenAfterBattleText:
+CooltrainerfGwenAfterBattleText: ; AUTOTRAD
 	text "I'm going to train"
 	line "by myself until I"
 	cont "improve."
 	done
 
-CooltrainerfEmmaSeenText:
+CooltrainerfEmmaSeenText: ; AUTOTRAD
 	text "If the #MON I"
 	line "liked were there,"
 	cont "I'd go anywhere."
@@ -125,12 +125,12 @@ CooltrainerfEmmaSeenText:
 	line "trainer does."
 	done
 
-CooltrainerfEmmaBeatenText:
+CooltrainerfEmmaBeatenText: ; AUTOTRAD
 	text "I'd rather pet my"
 	line "babies than this!"
 	done
 
-CooltrainerfEmmaAfterBattleText:
+CooltrainerfEmmaAfterBattleText: ; AUTOTRAD
 	text "Just once a week,"
 	line "a #MON comes to"
 	cont "the water's edge."

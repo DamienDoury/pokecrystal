@@ -16,7 +16,7 @@ Route5CleanseTagHouseTeacherScript:
 HouseForSaleBookshelf:
 	jumpstd DifficultBookshelfScript
 
-Route5CleanseTagHouseGrannyText1:
+Route5CleanseTagHouseGrannyText1: ; TO TRANSLATE
 	text "Eeyaaaah!"
 
 	para "I sense a sinister"
@@ -24,7 +24,7 @@ Route5CleanseTagHouseGrannyText1:
 	cont "over you."
 	done
 
-Route5CleanseTagHouseTeacherText:
+Route5CleanseTagHouseTeacherText: ; AUTOTRAD
 	text "My grandma is into"
 	line "warding off what"
 

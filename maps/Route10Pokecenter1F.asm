@@ -38,7 +38,7 @@ Route10Pokecenter1FGymGuideScript:
 Route10Pokecenter1FCooltrainerFScript:
 	jumptextfaceplayer Route10Pokecenter1FCooltrainerFText
 
-Route10Pokecenter1FGentlemanText:
+Route10Pokecenter1FGentlemanText: ; AUTOTRAD
 	text "A #MON CENTER"
 	line "near a cave?"
 
@@ -46,7 +46,7 @@ Route10Pokecenter1FGentlemanText:
 	line "convenient."
 	done
 
-Route10Pokecenter1FGymGuideText:
+Route10Pokecenter1FGymGuideText: ; AUTOTRAD
 	text "The POWER PLANT's"
 	line "MANAGER is looking"
 
@@ -60,7 +60,7 @@ Route10Pokecenter1FGymGuideText:
 	line "was stolen."
 	done
 
-Route10Pokecenter1FGymGuideText_ReturnedMachinePart:
+Route10Pokecenter1FGymGuideText_ReturnedMachinePart: ; AUTOTRAD
 	text "I hear TEAM ROCKET"
 	line "got back together"
 
@@ -71,7 +71,7 @@ Route10Pokecenter1FGymGuideText_ReturnedMachinePart:
 	line "thing about that."
 	done
 
-Route10Pokecenter1FCooltrainerFText:
+Route10Pokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "When you go out-"
 	line "side, you can see"
 

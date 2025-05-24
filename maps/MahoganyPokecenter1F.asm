@@ -29,7 +29,7 @@ MahoganyPokecenter1FRocketScript:
 	faceplayer
 	jumptext MahoganyPokecenter1FRocketText
 
-MahoganyPokecenter1FPokefanMText:
+MahoganyPokecenter1FPokefanMText: ; AUTOTRAD
 	text "What's this? TEAM"
 	line "ROCKET has come"
 	cont "back?"
@@ -39,7 +39,7 @@ MahoganyPokecenter1FPokefanMText:
 	cont "RAGE…"
 	done
 
-MahoganyPokecenter1FYoungsterText:
+MahoganyPokecenter1FYoungsterText: ; AUTOTRAD
 	text "I stop my #MON"
 	line "from evolving too"
 	cont "early."
@@ -50,7 +50,7 @@ MahoganyPokecenter1FYoungsterText:
 	cont "evolve."
 	done
 
-MahoganyPokecenter1FCooltrainerFText:
+MahoganyPokecenter1FCooltrainerFText: ; AUTOTRAD
 	text "#MON do become"
 	line "stronger when they"
 
@@ -59,7 +59,7 @@ MahoganyPokecenter1FCooltrainerFText:
 	cont "more slowly."
 	done
 
-MahoganyPokecenter1FRocketText:
+MahoganyPokecenter1FRocketText: ; TO TRANSLATE
 	text "Hear it from"
 	line "someone that has"
 

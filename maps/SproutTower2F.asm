@@ -46,18 +46,18 @@ SproutTower2FStatue:
 SproutTower2FXAccuracy:
 	itemball X_ACCURACY
 
-SageNicoSeenText:
+SageNicoSeenText: ; AUTOTRAD
 	text "However hard we"
 	line "battle, the TOWER"
 	cont "will stand strong."
 	done
 
-SageNicoBeatenText:
+SageNicoBeatenText: ; AUTOTRAD
 	text "I fought hard but"
 	line "I'm too weak."
 	done
 
-SageNicoAfterBattleText:
+SageNicoAfterBattleText: ; AUTOTRAD
 	text "The flexible pil-"
 	line "lar protects the"
 
@@ -65,16 +65,16 @@ SageNicoAfterBattleText:
 	line "earthquakes."
 	done
 
-SageEdmondSeenText:
+SageEdmondSeenText: ; AUTOTRAD
 	text "…Sway like leaves"
 	line "in the wind…"
 	done
 
-SageEdmondBeatenText:
+SageEdmondBeatenText: ; AUTOTRAD
 	text "Oh, I'm weak!"
 	done
 
-SageEdmondAfterBattleText:
+SageEdmondAfterBattleText: ; AUTOTRAD
 	text "I tried to copy"
 	line "BELLSPROUT's"
 
@@ -85,7 +85,7 @@ SageEdmondAfterBattleText:
 	line "well enough."
 	done
 
-SproutTower2FStatueText:
+SproutTower2FStatueText: ; AUTOTRAD
 	text "A #MON statue…"
 
 	para "It looks very"

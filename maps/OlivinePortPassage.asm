@@ -36,7 +36,7 @@ OlivinePortPassageCustomsScript:
 	closetext
 	end
 
-OlivinePortCustomsText:
+OlivinePortCustomsText: ; TO TRANSLATE
 	text "You must be coming"
 	line "for PROF.ELM's"
 	cont "held parcel?"
@@ -56,18 +56,18 @@ OlivinePortCustomsText:
 	line "to take."
 	done
 
-OlivinePortCustomsNoRoomText:
+OlivinePortCustomsNoRoomText: ; TO TRANSLATE
 	text "I'll wait for you"
 	line "while you offload"
 	cont "your pack."
 	done
 
-OlivinePortCustomsInconvenienceText:
+OlivinePortCustomsInconvenienceText: ; TO TRANSLATE
 	text "Sorry for the"
 	line "delivery delay."
 	done
 
-OlivinePortPassagePokefanMText:
+OlivinePortPassagePokefanMText: ; AUTOTRAD
 	text "FAST SHIP S.S.AQUA"
 	line "sails to KANTO on"
 

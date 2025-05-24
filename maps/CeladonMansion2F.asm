@@ -28,7 +28,7 @@ CeladonMansion2FMeetingRoomSign:
 CeladonMansion2FBookshelf:
 	jumpstd DifficultBookshelfScript
 
-CeladonMansion2FComputerText:
+CeladonMansion2FComputerText: ; AUTOTRAD
 	text "<PLAYER> turned on"
 	line "the PC."
 
@@ -58,7 +58,7 @@ CeladonMansion2FComputerText:
 	para "…"
 	done
 
-CeladonMansion2FMeetingRoomSignText:
+CeladonMansion2FMeetingRoomSignText: ; AUTOTRAD
 	text "GAME FREAK"
 	line "MEETING ROOM"
 	done

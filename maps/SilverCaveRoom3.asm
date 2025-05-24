@@ -311,7 +311,7 @@ RedWinLossText:
 	text "…"
 	done
 
-RedLeavesText:
+RedLeavesText: ; TO TRANSLATE
 	text "*COUGH COUGH*"
 	line "*COUGH COUGH*"
 	done

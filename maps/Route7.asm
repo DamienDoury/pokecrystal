@@ -9,7 +9,7 @@ Route7UndergroundPathSign:
 Route7LockedDoor:
 	jumptext Route7LockedDoorText
 
-Route7UndergroundPathSignText:
+Route7UndergroundPathSignText: ; AUTOTRAD
 	text "What's this flyer?"
 
 	para "… Uncouth trainers"
@@ -28,7 +28,7 @@ Route7UndergroundPathSignText:
 	para "CELADON POLICE"
 	done
 
-Route7LockedDoorText:
+Route7LockedDoorText: ; AUTOTRAD
 	text "It's locked…"
 	done
 

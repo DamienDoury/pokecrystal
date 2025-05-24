@@ -57,7 +57,7 @@ AcademyEarl:
 	writetext AcademyEarlAfterEggText
 	sjump .TextEnd
 
-.EggName:
+.EggName: ; TO TRANSLATE
 	db "EGG@"
 
 .GiveEgg:
@@ -412,7 +412,7 @@ AcademyEarlSpinMovement:
 	turn_head RIGHT
 	step_end
 
-AcademyEarlIntroText:
+AcademyEarlIntroText: ; TO TRANSLATE
 	text "EARL, I am!"
 
 	para "Wonderful are"
@@ -423,13 +423,13 @@ AcademyEarlIntroText:
 	cont "trainer!"
 	done
 
-AcademyEarlIntroText2:
+AcademyEarlIntroText2: ; TO TRANSLATE
 	text "What you want to"
 	line "know? Want to be"
 	cont "a winner is you?"
 	done
 
-AcademyEarlTeachHowToWinText:
+AcademyEarlTeachHowToWinText: ; AUTOTRAD
 	text "Good! Teach you,"
 	line "I will!"
 
@@ -445,13 +445,13 @@ AcademyEarlTeachHowToWinText:
 	line "want to hear?"
 	done
 
-AcademyEarlTeachMoreText:
+AcademyEarlTeachMoreText: ; AUTOTRAD
 	text "So, want to know"
 	line "how to raise"
 	cont "#MON well?"
 	done
 
-AcademyEarlTeachHowToRaiseWellText:
+AcademyEarlTeachHowToRaiseWellText: ; AUTOTRAD
 	text "Fine! Teach you,"
 	line "I will!"
 
@@ -472,7 +472,7 @@ AcademyEarlTeachHowToRaiseWellText:
 	cont "become!"
 	done
 
-AcademyEarlNoMoreToTeachText:
+AcademyEarlNoMoreToTeachText: ; AUTOTRAD
 	text "Oh! Smart student"
 	line "you are! Nothing"
 	cont "more do I teach!"
@@ -481,7 +481,7 @@ AcademyEarlNoMoreToTeachText:
 	line "you must be!"
 	done
 
-AcademyEarlGiveEggText:
+AcademyEarlGiveEggText: ; TO TRANSLATE
 	text "Each pupil I give"
 	line "an EGG!"
 	
@@ -492,7 +492,7 @@ AcademyEarlGiveEggText:
 	para "I give you one?"
 	done
 
-AcademyEarlRefusedEggText:
+AcademyEarlRefusedEggText: ; TO TRANSLATE
 	text "Learn step after"
 	line "step is important!"
 
@@ -500,7 +500,7 @@ AcademyEarlRefusedEggText:
 	line "later you can!"
 	done
 
-AcademyEarlPartyFullText:
+AcademyEarlPartyFullText: ; TO TRANSLATE
 	text "First lesson I"
 	line "teach: 6 #MON"
 	
@@ -514,7 +514,7 @@ AcademyEarlPartyFullText:
 	line "you must!"
 	done
 
-AcademyEarlAfterEggText:
+AcademyEarlAfterEggText: ; TO TRANSLATE
 	text "Keep EGG with you"
 	line "until it hatch."
 
@@ -522,7 +522,7 @@ AcademyEarlAfterEggText:
 	line "friend, me trust!"
 	done
 
-EarlsPokemonAcademyYoungster1Text:
+EarlsPokemonAcademyYoungster1Text: ; AUTOTRAD
 	text "I'm taking notes"
 	line "of the teacher's"
 	cont "lecture."
@@ -532,20 +532,20 @@ EarlsPokemonAcademyYoungster1Text:
 	cont "blackboard too."
 	done
 
-EarlsPokemonAcademyGameboyKid1Text:
+EarlsPokemonAcademyGameboyKid1Text: ; TO TRANSLATE
 	text "ROBIN: I traded my"
 	line "best #MON to"
 	cont "MICKEY beside me."
 	done
 
-EarlsPokemonAcademyGameboyKid2Text:
+EarlsPokemonAcademyGameboyKid2Text: ; TO TRANSLATE
 	text "MICKEY: I'm trading"
 	line "with ROBIN in"
 	cont "hopes of seeing a"
 	cont "#MON evolve."
 	done
 
-EarlsPokemonAcademyYoungster2Text:
+EarlsPokemonAcademyYoungster2Text: ; TO TRANSLATE
 	text "During a battle,"
 	line "a #MON can heal"
 	
@@ -596,7 +596,7 @@ EarlsPokemonAcademyYoungster2Text:
 	;line "taking notes…"
 	done
 
-AcademyBlackboardText:
+AcademyBlackboardText: ; TO TRANSLATE
 	text "The blackboard"
 	line "describes #MON"
 
@@ -605,7 +605,7 @@ AcademyBlackboardText:
 	cont "about the virus."
 	done
 
-AcademyHealthyText:
+AcademyHealthyText: ; TO TRANSLATE
 	text "The subject is in"
 	line "good shape."
 	
@@ -615,14 +615,14 @@ AcademyHealthyText:
 	cont "STATS screen."
 	done
 
-AcademyHealthyPCRText:
+AcademyHealthyPCRText: ; TO TRANSLATE
 	text "It is automati-"
 	line "cally updated"
 	cont "after each"
 	cont "PCR test."
 	done
 
-AcademySickText:
+AcademySickText: ; TO TRANSLATE
 	text "Symptoms of a"
 	line "disease."
 	
@@ -636,7 +636,7 @@ AcademySickText:
 	cont "prevent spreading."
 	done
 
-AcademySickSequelText:
+AcademySickSequelText: ; TO TRANSLATE
 	text "The subject should"
 	line "do a PCR test at a"
 	cont "#MON CENTER to"
@@ -649,13 +649,13 @@ AcademySickSequelText:
 	cont "healing machine."
 	done
 
-AcademyIncubStartText:
+AcademyIncubStartText: ; TO TRANSLATE
 	text "The subject has"
 	line "been tested"
 	cont "positive to COVID."
 	done
 
-AcademyIncubText:
+AcademyIncubText: ; TO TRANSLATE
 	text "The incubation is"
 	line "phase 1/3 of the"
 	cont "infection by the"
@@ -678,13 +678,13 @@ AcademyIncubText:
 	cont "for a #MON."
 	done
 
-AcademyIncubEndText:
+AcademyIncubEndText: ; TO TRANSLATE
 	text "The next phase is"
 	line "the appearance"
 	cont "of symptoms."
 	done
 
-AcademyCovidText:
+AcademyCovidText: ; TO TRANSLATE
 	text "The disease is"
 	line "phase 2/3 of the"
 	cont "infection by the"
@@ -700,7 +700,7 @@ AcademyCovidText:
 	cont "#MON."
 	done
 
-AcademyCovidEndText:
+AcademyCovidEndText: ; TO TRANSLATE
 	text "This phase lasts"
 	line "5 to 14 days for"
 	cont "a human,"
@@ -715,7 +715,7 @@ AcademyCovidEndText:
 	cont "latest news."
 	done
 
-AcademyImmuneText:
+AcademyImmuneText: ; TO TRANSLATE
 	text "The subject has"
 	line "recovered from"
 	cont "COVID."
@@ -726,12 +726,12 @@ AcademyImmuneText:
 	cont "virus."
 	done
 
-AcademyImmuneBeforeStudiesText:
+AcademyImmuneBeforeStudiesText: ; TO TRANSLATE
 	text "This phase should"
 	line "last a long time."
 	done
 
-AcademyImmuneStudiesText:
+AcademyImmuneStudiesText: ; TO TRANSLATE
 	text "This phase lasts"
 	line "at least 6 months"
 	cont "for a human,"
@@ -739,7 +739,7 @@ AcademyImmuneStudiesText:
 	cont "a #MON."
 	done
 	
-AcademyImmuneSequelText:
+AcademyImmuneSequelText: ; TO TRANSLATE
 	text "Meanwhile, the"
 	line "odds of the"
 	cont "subject catching"
@@ -752,7 +752,7 @@ AcademyImmuneSequelText:
 	cont "can be ended."
 	done
 
-AcademyNotebookText:
+AcademyNotebookText: ; TO TRANSLATE
 	text "It's this kid's"
 	line "notebook…"
 
@@ -770,7 +770,7 @@ AcademyNotebookText:
 	para "Keep reading?"
 	done
 	
-AcademyNotebookText1:
+AcademyNotebookText1: ; TO TRANSLATE
 	text "“The lower the"
 	line "level of a #-"
 	cont "MON, the easier"
@@ -782,7 +782,7 @@ AcademyNotebookText1:
 	para "Keep reading?"
 	done
 
-AcademyNotebookText2:
+AcademyNotebookText2: ; TO TRANSLATE
 	text "“Paralyzing or"
 	line "freezing a #MON"
 	cont "multiplies your"
@@ -795,7 +795,7 @@ AcademyNotebookText2:
 	para "Keep reading?"
 	done
 
-AcademyNotebookText3:
+AcademyNotebookText3: ; TO TRANSLATE
 	text "“Lowering a"
 	line "#MON's stats"
 	cont "also helps."
@@ -812,7 +812,7 @@ AcademyNotebookText3:
 	para "Keep reading?"
 	done
 
-AcademyNotebookText4:
+AcademyNotebookText4: ; TO TRANSLATE
 	text "“Once your party"
 	line "reaches the limit"
 	cont "of 6 #MON,"
@@ -836,7 +836,7 @@ AcademyNotebookText4:
 	line "is… Blank!"
 	done
 
-AcademyBlackboardStatusText:
+AcademyBlackboardStatusText: ; TO TRANSLATE
 	text "The blackboard"
 	line "describes #MON"
 
@@ -844,7 +844,7 @@ AcademyBlackboardStatusText:
 	line "battle."
 	done
 
-AcademyPoisonText:
+AcademyPoisonText: ; AUTOTRAD
 	text "If poisoned, a"
 	line "#MON steadily"
 	cont "loses HP."
@@ -859,7 +859,7 @@ AcademyPoisonText:
 	line "ANTIDOTE."
 	done
 
-AcademyParalysisText:
+AcademyParalysisText: ; AUTOTRAD
 	text "Paralysis reduces"
 	line "speed and may"
 	cont "prevent movement."
@@ -869,7 +869,7 @@ AcademyParalysisText:
 	cont "a PARLYZ HEAL."
 	done
 
-AcademySleepText:
+AcademySleepText: ; AUTOTRAD
 	text "If asleep, your"
 	line "#MON can't make"
 	cont "a move."
@@ -882,7 +882,7 @@ AcademySleepText:
 	line "an AWAKENING."
 	done
 
-AcademyBurnText:
+AcademyBurnText: ; AUTOTRAD
 	text "A burn steadily"
 	line "consumes HP."
 
@@ -896,7 +896,7 @@ AcademyBurnText:
 	line "the cure."
 	done
 
-AcademyFreezeText:
+AcademyFreezeText: ; AUTOTRAD
 	text "If your #MON is"
 	line "frozen, it can't"
 	cont "do a thing."

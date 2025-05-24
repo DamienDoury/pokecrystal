@@ -54,7 +54,7 @@ PlayersNeighborsHouseRadioScript:
 	closetext
 	end
 
-PlayersNeighborsDaughterText:
+PlayersNeighborsDaughterText: ; TO TRANSLATE
 	text "The #RUS is a"
 	line "virus beneficial"
 	cont "to #MON."
@@ -74,7 +74,7 @@ PlayersNeighborsDaughterText:
 	cont "him…"
 	done
 
-PlayersNeighborText:
+PlayersNeighborText: ; TO TRANSLATE
 	text "My daughter is"
 	line "adamant about"
 
@@ -82,22 +82,22 @@ PlayersNeighborText:
 	line "ELM's assistant."
 	done
 
-PlayerNeighborRadioText1:
+PlayerNeighborRadioText1: ; AUTOTRAD
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
 	cont "in next time!"
 	done
 
-PlayerNeighborRadioText2:
+PlayerNeighborRadioText2: ; AUTOTRAD
 	text "#MON CHANNEL!"
 	done
 
-PlayerNeighborRadioText3:
+PlayerNeighborRadioText3: ; AUTOTRAD
 	text "This is DJ MARY,"
 	line "your co-host!"
 	done
 
-PlayerNeighborRadioText4:
+PlayerNeighborRadioText4: ; AUTOTRAD
 	text "#MON!"
 	line "#MON CHANNEL…"
 	done

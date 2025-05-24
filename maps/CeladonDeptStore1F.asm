@@ -28,7 +28,7 @@ CeladonDeptStore1FDirectory:
 CeladonDeptStore1FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore1FReceptionistText:
+CeladonDeptStore1FReceptionistText: ; AUTOTRAD
 	text "Hello! Welcome to"
 	line "CELADON DEPT."
 	cont "STORE!"
@@ -37,7 +37,7 @@ CeladonDeptStore1FReceptionistText:
 	line "on the wall."
 	done
 
-CeladonDeptStore1FGentlemanText:
+CeladonDeptStore1FGentlemanText: ; TO TRANSLATE
 	text "This DEPT.STORE is"
 	line "part of the same"
 
@@ -49,7 +49,7 @@ CeladonDeptStore1FGentlemanText:
 	cont "the quarantine."
 	done
 
-CeladonDeptStore1FTeacherText:
+CeladonDeptStore1FTeacherText: ; AUTOTRAD
 	text "This is my first"
 	line "time here."
 
@@ -59,7 +59,7 @@ CeladonDeptStore1FTeacherText:
 	line "get lost."
 	done
 
-CeladonDeptStore1FDirectoryText:
+CeladonDeptStore1FDirectoryText: ; AUTOTRAD
 	text "1F: SERVICE"
 	line "    COUNTER"
 

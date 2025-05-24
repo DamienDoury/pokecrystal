@@ -90,7 +90,7 @@ Route7SaffronGate_StepRight4Movement:
 	step RIGHT
 	step_end
 
-Route7SaffronGate_OakGreetingsText:
+Route7SaffronGate_OakGreetingsText: ; TO TRANSLATE
 	text "OAK: <PLAY_G>?"
 	para "I wasn't expecting"
 	line "you here!"
@@ -124,7 +124,7 @@ Route7SaffronGate_OakGreetingsText:
 	line "carried away."
 	done
 
-Route7SaffronGate_OakGreetingsText2:
+Route7SaffronGate_OakGreetingsText2: ; TO TRANSLATE
 	text "I was on my way to"
 	line "the SILPH CO."
 	cont "building in"
@@ -144,7 +144,7 @@ Route7SaffronGate_OakGreetingsText2:
 	line "me, I should go."
 	done
 
-Route7SaffronGate_OakGreetingsText3:
+Route7SaffronGate_OakGreetingsText3: ; TO TRANSLATE
 	text "My lab is in"
 	line "PALLET TOWN,"
 
@@ -152,7 +152,7 @@ Route7SaffronGate_OakGreetingsText3:
 	line "sometimes!"
 	done
 
-Route7SaffronGuardPowerPlantText:
+Route7SaffronGuardPowerPlantText: ; AUTOTRAD
 	text "Did you hear about"
 	line "the accident at"
 	cont "the POWER PLANT?"
@@ -162,7 +162,7 @@ Route7SaffronGuardPowerPlantText:
 	cont "LAVENDER TOWN."
 	done
 
-Route7SaffronGuardSeriousText:
+Route7SaffronGuardSeriousText: ; AUTOTRAD
 	text "I take my GUARD"
 	line "job seriously."
 

@@ -12,7 +12,7 @@ PewterSnoozeSpeechHouseGrampsScript:
 PewterSnoozeSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-PewterSnoozeSpeechHouseGrampsText:
+PewterSnoozeSpeechHouseGrampsText: ; AUTOTRAD
 	text "I like snoozing"
 	line "with the radio on…"
 	cont "…Zzzz…"

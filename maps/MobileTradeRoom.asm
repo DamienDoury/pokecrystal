@@ -27,7 +27,7 @@ MobileTradeRoomConsoleScript:
 	closetext
 	end
 
-MobileTradeRoom_EstablishingCommsText:
+MobileTradeRoom_EstablishingCommsText: ; AUTOTRAD
 	text "Establishing"
 	line "communications…"
 	done

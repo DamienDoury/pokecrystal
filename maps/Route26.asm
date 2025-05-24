@@ -234,7 +234,7 @@ Route26FruitTree:
 Route26MaxElixer:
 	itemball MAX_ELIXER
 
-CooltrainermJakeSeenText:
+CooltrainermJakeSeenText: ; AUTOTRAD
 	text "I'm making my"
 	line "final preparations"
 
@@ -242,11 +242,11 @@ CooltrainermJakeSeenText:
 	line "LEAGUE."
 	done
 
-CooltrainermJakeBeatenText:
+CooltrainermJakeBeatenText: ; AUTOTRAD
 	text "I blew it!"
 	done
 
-CooltrainermJakeAfterBattleText:
+CooltrainermJakeAfterBattleText: ; AUTOTRAD
 	text "It's going to be"
 	line "tough to win at"
 	cont "the LEAGUE."
@@ -261,18 +261,18 @@ CooltrainermJakeAfterBattleText:
 	line "than GYM LEADERS."
 	done
 
-CooltrainermGaven3SeenText:
+CooltrainermGaven3SeenText: ; AUTOTRAD
 	text "By experiencing"
 	line "tough battles, you"
 	cont "gain power."
 	done
 
-CooltrainermGaven3BeatenText:
+CooltrainermGaven3BeatenText: ; AUTOTRAD
 	text "Gaah! Life is even"
 	line "tougher!"
 	done
 
-CooltrainermGavenAfterText:
+CooltrainermGavenAfterText: ; AUTOTRAD
 	text "To get to #MON"
 	line "LEAGUE, you have"
 
@@ -286,7 +286,7 @@ CooltrainermGavenAfterText:
 	line "goes there!"
 	done
 
-CooltrainerfJoyceSeenText:
+CooltrainerfJoyceSeenText: ; AUTOTRAD
 	text "Since you've come"
 	line "this far, you must"
 	cont "be good."
@@ -296,12 +296,12 @@ CooltrainerfJoyceSeenText:
 	cont "thing I've got!"
 	done
 
-CooltrainerfJoyceBeatenText:
+CooltrainerfJoyceBeatenText: ; AUTOTRAD
 	text "No! I don't"
 	line "believe this!"
 	done
 
-CooltrainerfJoyceAfterBattleText:
+CooltrainerfJoyceAfterBattleText: ; AUTOTRAD
 	text "I've defeated"
 	line "eight GYM LEADERS,"
 
@@ -312,7 +312,7 @@ CooltrainerfJoyceAfterBattleText:
 	line "harder next time."
 	done
 
-CooltrainerfBeth1SeenText:
+CooltrainerfBeth1SeenText: ; AUTOTRAD
 	text "I lost to a train-"
 	line "er named <RIVAL>."
 
@@ -327,18 +327,18 @@ CooltrainerfBeth1SeenText:
 	line "his #MON."
 	done
 
-CooltrainerfBeth1BeatenText:
+CooltrainerfBeth1BeatenText: ; AUTOTRAD
 	text "#MON aren't"
 	line "tools of war."
 	done
 
-CooltrainerfBethAfterText:
+CooltrainerfBethAfterText: ; AUTOTRAD
 	text "#MON are in-"
 	line "valuable, lifelong"
 	cont "partners."
 	done
 
-PsychicRichardSeenText:
+PsychicRichardSeenText: ; AUTOTRAD
 	text "Wow, look at all"
 	line "those BADGES!"
 	cont "I'm impressed."
@@ -350,11 +350,11 @@ PsychicRichardSeenText:
 	line "right?"
 	done
 
-PsychicRichardBeatenText:
+PsychicRichardBeatenText: ; AUTOTRAD
 	text "Good battle!"
 	done
 
-PsychicRichardAfterBattleText:
+PsychicRichardAfterBattleText: ; AUTOTRAD
 	text "People and #MON"
 	line "grow from their"
 	cont "experiences."
@@ -363,7 +363,7 @@ PsychicRichardAfterBattleText:
 	line "complacent."
 	done
 
-FisherScottSeenText:
+FisherScottSeenText: ; AUTOTRAD
 	text "I'm feeling great"
 	line "today!"
 
@@ -372,12 +372,12 @@ FisherScottSeenText:
 	cont "the LEAGUE CHAMP!"
 	done
 
-FisherScottBeatenText:
+FisherScottBeatenText: ; AUTOTRAD
 	text "No! Not in this"
 	line "battle!"
 	done
 
-FisherScottAfterBattleText:
+FisherScottAfterBattleText: ; AUTOTRAD
 	text "Just like in fish-"
 	line "ing, it's all over"
 
@@ -385,7 +385,7 @@ FisherScottAfterBattleText:
 	line "give up."
 	done
 
-Route26SignText:
+Route26SignText: ; AUTOTRAD
 	text "ROUTE 26"
 
 	para "#MON LEAGUE"

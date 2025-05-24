@@ -9,7 +9,7 @@ Route2Gate_MapScripts:
 Route2GateScientistScript:
 	jumptextfaceplayer Route2GateScientistText
 
-Route2GateScientistText:
+Route2GateScientistText: ; TO TRANSLATE
 	text "Are you <PLAY_G>?"
 
 	para "I work as PROF."

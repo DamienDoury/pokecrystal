@@ -65,7 +65,7 @@ VioletKylesHouseComputer2Script:
 .night
 	jumptext VioletKylesHouseComputer2NightText
 
-VioletKylesHousePokefanMText:
+VioletKylesHousePokefanMText: ; AUTOTRAD
 	text "A #MON you get"
 	line "in a trade grows"
 	cont "quickly."
@@ -77,20 +77,20 @@ VioletKylesHousePokefanMText:
 	line "disobey you."
 	done
 
-VioletKylesHouseTradebackGuyText:
+VioletKylesHouseTradebackGuyText: ; TO TRANSLATE
 	text "ROBIN: My brother"
 	line "doesn't want to"
 	cont "trade with me."
 	done
 
-VioletKylesHouseComputer1Text:
+VioletKylesHouseComputer1Text: ; TO TRANSLATE
 	text "The web browser"
 	line "has 30 open tabs"
 	cont "of Bulbapedia"
 	cont "articles."
 	done
 
-VioletKylesHouseComputer2DayText:
+VioletKylesHouseComputer2DayText: ; TO TRANSLATE
 	text "It's the online"
 	line "classroom!"
 
@@ -111,7 +111,7 @@ VioletKylesHouseComputer2DayText:
 	line "a monologue."
 	done
 
-VioletKylesHouseComputer2NightText:
+VioletKylesHouseComputer2NightText: ; TO TRANSLATE
 	text "There's a video of"
 	line "a game called"
 	cont "Pandemic Version."

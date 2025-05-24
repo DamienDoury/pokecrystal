@@ -9,7 +9,7 @@ PowerPlantSign:
 Route10PokecenterSign:
 	jumpstd PokecenterSignScript
 
-PowerPlantSignText:
+PowerPlantSignText: ; AUTOTRAD
 	text "KANTO POWER PLANT"
 	done
 

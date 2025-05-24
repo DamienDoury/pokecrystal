@@ -20,14 +20,14 @@ DayOfWeekSiblingsHousePokedexScript:
 	closetext
 	end
 
-DayOfWeekSiblingsHousePokedexText1:
+DayOfWeekSiblingsHousePokedexText1: ; AUTOTRAD
 	text "There's something"
 	line "written here."
 
 	para "Read it?"
 	done
 
-DayOfWeekSiblingsHousePokedexText2:
+DayOfWeekSiblingsHousePokedexText2: ; AUTOTRAD
 	text "To my brothers and"
 	line "sisters:"
 
@@ -45,7 +45,7 @@ DayOfWeekSiblingsHousePokedexText2:
 	para "Keep reading?"
 	done
 
-DayOfWeekSiblingsHousePokedexText3:
+DayOfWeekSiblingsHousePokedexText3: ; AUTOTRAD
 	text "Monday, MONICA"
 	line "ROUTE 40"
 

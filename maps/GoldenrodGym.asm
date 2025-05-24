@@ -247,11 +247,11 @@ GoldenrodGymMiltankScript:
 	closetext
 	end
 
-WhitneyBeforeText:
+WhitneyBeforeText: ; TO TRANSLATE
 	text "Hi! I'm WHITNEY!"
 	done
 
-WhitneySequelText:
+WhitneySequelText: ; TO TRANSLATE
 	text "Everyone was into"
 	line "#MON, so I got"
 	cont "into it too!"
@@ -278,7 +278,7 @@ WhitneySequelText:
 	line "……"
 	done
 
-WhitneyValidsCutenessText:
+WhitneyValidsCutenessText: ; TO TRANSLATE
 	text "Oooh! Your team"
 	line "is so cuuuute--!"
 
@@ -291,7 +291,7 @@ GoldenrodGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-WhitneyShouldntBeSoSeriousText:
+WhitneyShouldntBeSoSeriousText: ; AUTOTRAD
 	text "Sob…"
 
 	para "…Waaaaaaah!"
@@ -302,7 +302,7 @@ WhitneyShouldntBeSoSeriousText:
 	cont "you child, you!"
 	done
 
-WhitneyYouMeanieText:
+WhitneyYouMeanieText: ; AUTOTRAD
 	text "Waaaaah!"
 
 	para "Waaaaah!"
@@ -311,7 +311,7 @@ WhitneyYouMeanieText:
 	line "…You meanie!"
 	done
 
-WhitneyWhatDoYouWantText:
+WhitneyWhatDoYouWantText: ; AUTOTRAD
 	text "…Sniff…"
 
 	para "What? What do you"
@@ -322,23 +322,23 @@ WhitneyWhatDoYouWantText:
 	cont "PLAINBADGE."
 	done
 
-PlayerReceivedPlainBadgeText:
+PlayerReceivedPlainBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "PLAINBADGE."
 	done
 
-WhitneyPlainBadgeText:
+WhitneyPlainBadgeText: ; TO TRANSLATE
 	text "PLAINBADGE isn't"
 	line "given to a lot"
 	cont "trainers."
 	done
 
-WhitneyPlainBadgeText2:
+WhitneyPlainBadgeText2: ; TO TRANSLATE
 	text "Oh, you can have"
 	line "this too!"
 	done
 
-WhitneyAttractText:
+WhitneyAttractText: ; AUTOTRAD
 	text "It's ATTRACT!"
 	line "It makes full use"
 
@@ -350,7 +350,7 @@ WhitneyAttractText:
 	cont "like me?"
 	done
 
-WhitneyGoodCryText:
+WhitneyGoodCryText: ; AUTOTRAD
 	text "Ah, that was a"
 	line "good cry!"
 
@@ -358,7 +358,7 @@ WhitneyGoodCryText:
 	line "again! Bye-bye!"
 	done
 
-LassCarrieSeenText:
+LassCarrieSeenText: ; AUTOTRAD
 	text "Don't let my"
 	line "#MON's cute"
 
@@ -366,17 +366,17 @@ LassCarrieSeenText:
 	line "They can whip you!"
 	done
 
-LassCarrieBeatenText:
+LassCarrieBeatenText: ; AUTOTRAD
 	text "Darn… I thought"
 	line "you were weak…"
 	done
 
-LassCarrieAfterBattleText:
+LassCarrieAfterBattleText: ; AUTOTRAD
 	text "Do my #MON"
 	line "think I'm cute?"
 	done
 
-LassBridgetSeenText:
+LassBridgetSeenText: ; AUTOTRAD
 	text "I like cute #-"
 	line "MON better than"
 	cont "strong #MON."
@@ -385,11 +385,11 @@ LassBridgetSeenText:
 	line "and cute #MON!"
 	done
 
-LassBridgetBeatenText:
+LassBridgetBeatenText: ; AUTOTRAD
 	text "Oh, no, no, no!"
 	done
 
-LassBridgetAfterBattleText:
+LassBridgetAfterBattleText: ; AUTOTRAD
 	text "I'm trying to beat"
 	line "WHITNEY, but…"
 	cont "It's depressing."
@@ -401,7 +401,7 @@ LassBridgetAfterBattleText:
 	line "time!"
 	done
 
-BridgetWhitneyCriesText:
+BridgetWhitneyCriesText: ; AUTOTRAD
 	text "Oh, no. You made"
 	line "WHITNEY cry."
 
@@ -412,7 +412,7 @@ BridgetWhitneyCriesText:
 	line "she loses."
 	done
 
-BeautyVictoriaSeenText:
+BeautyVictoriaSeenText: ; AUTOTRAD
 	text "Oh, you are a cute"
 	line "little trainer! "
 
@@ -420,35 +420,35 @@ BeautyVictoriaSeenText:
 	line "won't hold back!"
 	done
 
-BeautyVictoriaBeatenText:
+BeautyVictoriaBeatenText: ; AUTOTRAD
 	text "Let's see… Oops,"
 	line "it's over?"
 	done
 
-BeautyVictoriaAfterBattleText:
+BeautyVictoriaAfterBattleText: ; AUTOTRAD
 	text "Wow, you must be"
 	line "good to beat me!"
 	cont "Keep it up!"
 	done
 
-BeautySamanthaSeenText:
+BeautySamanthaSeenText: ; AUTOTRAD
 	text "Give it your best"
 	line "shot, or I'll take"
 	cont "you down!"
 	done
 
-BeautySamanthaBeatenText:
+BeautySamanthaBeatenText: ; AUTOTRAD
 	text "No! Oh, MEOWTH,"
 	line "I'm so sorry!"
 	done
 
-BeautySamanthaAfterBattleText:
+BeautySamanthaAfterBattleText: ; AUTOTRAD
 	text "I taught MEOWTH"
 	line "moves for taking"
 	cont "on any type…"
 	done
 
-GoldenrodGymGuideText:
+GoldenrodGymGuideText: ; TO TRANSLATE
 	text "Yo! CHAMP in"
 	line "making!"
 
@@ -479,13 +479,13 @@ GoldenrodGymGuideText:
 	cont "pink #MON."
 	done
 
-GoldenrodGymGuideWinText:
+GoldenrodGymGuideWinText: ; AUTOTRAD
 	text "You won? Great! I"
 	line "was busy admiring"
 	cont "the ladies here."
 	done
 
-GoldenrodGymMiltankText:
+GoldenrodGymMiltankText: ; TO TRANSLATE
 	text "MILTANK:"
 	line "Moo! MOO!"
 	done

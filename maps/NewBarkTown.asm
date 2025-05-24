@@ -215,11 +215,11 @@ CheatGuyScript:
 .TalkAfterFirstMon	
 	jumptextfaceplayer CheatAfterFirstMonText
 
-LetsCheatText:
+LetsCheatText: ; TO TRANSLATE
 	text "Let's CHEAT!"
 	done
 
-CheatAfterFirstMonText:
+CheatAfterFirstMonText: ; TO TRANSLATE
 	text "Talk to me after"
 	line "you get your"
 	cont "first #MON"
@@ -271,7 +271,7 @@ NewBarkTown_SilverReturnsToTheShadowsMovement:
 	step RIGHT
 	step_end
 
-Text_GearIsImpressive:
+Text_GearIsImpressive: ; AUTOTRAD
 	text "Wow, your #GEAR"
 	line "is impressive!"
 
@@ -279,16 +279,16 @@ Text_GearIsImpressive:
 	line "it for you?"
 	done
 
-Text_WaitPlayer:
+Text_WaitPlayer: ; AUTOTRAD
 	text "Wait, <PLAY_G>!"
 	done
 
-Text_WhatDoYouThinkYoureDoing:
+Text_WhatDoYouThinkYoureDoing: ; AUTOTRAD
 	text "What do you think"
 	line "you're doing?"
 	done
 
-Text_ItsDangerousToGoAlone:
+Text_ItsDangerousToGoAlone: ; AUTOTRAD
 	text "It's dangerous to"
 	line "go out without a"
 	cont "#MON!"
@@ -300,13 +300,13 @@ Text_ItsDangerousToGoAlone:
 	line "to the next town."
 	done
 
-Text_YourMonIsAdorable:
+Text_YourMonIsAdorable: ; AUTOTRAD
 	text "Oh! Your #MON"
 	line "is adorable!"
 	cont "I wish I had one!"
 	done
 
-Text_TellMomIfLeaving:
+Text_TellMomIfLeaving: ; AUTOTRAD
 	text "Hi, <PLAY_G>!"
 	line "Leaving again?"
 
@@ -315,7 +315,7 @@ Text_TellMomIfLeaving:
 	cont "are leaving."
 	done
 
-Text_CallMomOnGear:
+Text_CallMomOnGear: ; AUTOTRAD
 	text "Call your mom on"
 	line "your #GEAR to"
 
@@ -323,7 +323,7 @@ Text_CallMomOnGear:
 	line "you're doing."
 	done
 
-Text_ElmDiscoveredNewMon:
+Text_ElmDiscoveredNewMon: ; TO TRANSLATE
 	text "Yo, <PLAYER>!"
 
 	para "I hear PROF.ELM"
@@ -331,24 +331,24 @@ Text_ElmDiscoveredNewMon:
 	cont "important work."
 	done
 
-NewBarkTownRivalText1:
+NewBarkTownRivalText1: ; TO TRANSLATE
 	text "<……>"
 
 	para "So this is the"
 	line "famous ELM'S LAB…"
 	done
 
-NewBarkTownRivalText2:
+NewBarkTownRivalText2: ; AUTOTRAD
 	text "…What are you"
 	line "staring at?"
 	done
 
-FootstepsText:
+FootstepsText: ; TO TRANSLATE
 	text "Footsteps in the"
 	line "dirt."
 	done
 
-NewBarkTownSignText:
+NewBarkTownSignText: ; AUTOTRAD
 	text "NEW BARK TOWN"
 
 	para "The Town Where the"
@@ -356,15 +356,15 @@ NewBarkTownSignText:
 	cont "Beginning Blow"
 	done
 
-NewBarkTownPlayersHouseSignText:
+NewBarkTownPlayersHouseSignText: ; AUTOTRAD
 	text "<PLAYER>'s House"
 	done
 
-NewBarkTownElmsLabSignText:
+NewBarkTownElmsLabSignText: ; TO TRANSLATE
 	text "ELM'S LAB"
 	done
 
-NewBarkTownElmsHouseSignText:
+NewBarkTownElmsHouseSignText: ; AUTOTRAD
 	text "ELM'S HOUSE"
 	done
 

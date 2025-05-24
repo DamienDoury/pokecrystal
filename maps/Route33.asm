@@ -142,7 +142,7 @@ Route33Sign:
 Route33FruitTree:
 	fruittree FRUITTREE_ROUTE_33
 
-HikerAnthony2SeenText:
+HikerAnthony2SeenText: ; AUTOTRAD
 	text "I came through the"
 	line "tunnel, but I"
 
@@ -150,18 +150,18 @@ HikerAnthony2SeenText:
 	line "of energy left."
 	done
 
-HikerAnthony2BeatenText:
+HikerAnthony2BeatenText: ; AUTOTRAD
 	text "Whoa! You've got"
 	line "more zip than me!"
 	done
 
-HikerAnthony2AfterText:
+HikerAnthony2AfterText: ; AUTOTRAD
 	text "We HIKERS are at"
 	line "our best in the"
 	cont "mountains."
 	done
 
-HikerAnthonyDunsparceText:
+HikerAnthonyDunsparceText: ; AUTOTRAD
 	text "Hey, did you get a"
 	line "DUNSPARCE?"
 
@@ -172,7 +172,7 @@ HikerAnthonyDunsparceText:
 	cont "got a funny face!"
 	done
 
-Route33LassText:
+Route33LassText: ; AUTOTRAD
 	text "Pant, pant…"
 
 	para "I finally got"
@@ -188,7 +188,7 @@ Route33LassText:
 	line "outside."
 	done
 
-Route33SignText:
+Route33SignText: ; AUTOTRAD
 	text "ROUTE 33"
 	done
 

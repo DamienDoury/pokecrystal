@@ -50,7 +50,7 @@ TrainerPokefanmTrevor:
 	closetext
 	end
 
-PokefanmCarterSeenText:
+PokefanmCarterSeenText: ; AUTOTRAD
 	text "Let me tell you,"
 	line "I had a hard time"
 
@@ -58,11 +58,11 @@ PokefanmCarterSeenText:
 	line "#MON."
 	done
 
-PokefanmCarterBeatenText:
+PokefanmCarterBeatenText: ; AUTOTRAD
 	text "Awaaah!"
 	done
 
-PokefanmCarterAfterBattleText:
+PokefanmCarterAfterBattleText: ; TO TRANSLATE
 	text "SQUIRTLE, CHARMAN-"
 	line "DER and BULBASAUR…"
 
@@ -73,18 +73,18 @@ PokefanmCarterAfterBattleText:
 	line "very rare!"
 	done
 
-BirdKeeperRoySeenText:
+BirdKeeperRoySeenText: ; AUTOTRAD
 	text "My dream is to fly"
 	line "with my beloved"
 	cont "bird #MON."
 	done
 
-BirdKeeperRoyBeatenText:
+BirdKeeperRoyBeatenText: ; AUTOTRAD
 	text "I can dream, but I"
 	line "can't ever fly…"
 	done
 
-BirdKeeperRoyAfterBattleText:
+BirdKeeperRoyAfterBattleText: ; AUTOTRAD
 	text "You have #MON"
 	line "that know the HM"
 
@@ -92,7 +92,7 @@ BirdKeeperRoyAfterBattleText:
 	line "you? I envy you."
 	done
 
-PokefanmTrevorSeenText:
+PokefanmTrevorSeenText: ; AUTOTRAD
 	text "Hi. Did you know…?"
 
 	para "#MON get more"
@@ -103,12 +103,12 @@ PokefanmTrevorSeenText:
 	cont "remember."
 	done
 
-PokefanmTrevorBeatenText:
+PokefanmTrevorBeatenText: ; AUTOTRAD
 	text "Where did I meet"
 	line "this PSYDUCK?"
 	done
 
-PokefanmTrevorAfterBattleText:
+PokefanmTrevorAfterBattleText: ; AUTOTRAD
 	text "If only there were"
 	line "an easy way to"
 

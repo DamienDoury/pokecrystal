@@ -31,7 +31,7 @@ LavenderMartShelfItem1Script:
 LavenderMartShelfItem2Script:
 	shelfitem 1, REVIVAL_HERB, 4000
 
-LavenderMartPokefanMText:
+LavenderMartPokefanMText: ; TO TRANSLATE
 	text "REPEL is a neces-"
 	line "sity if you are"
 
@@ -48,7 +48,7 @@ LavenderMartPokefanMText:
 	line "declaration."
 	done
 
-LavenderMartRockerText:
+LavenderMartRockerText: ; AUTOTRAD
 	text "I heard about a"
 	line "craftsman who"
 

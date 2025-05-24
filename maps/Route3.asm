@@ -214,48 +214,48 @@ endr
 Route3MtMoonSquareSign:
 	jumptext Route3MtMoonSquareSignText
 
-FirebreatherOtisSeenText:
+FirebreatherOtisSeenText: ; AUTOTRAD
 	text "Ah! The weather's"
 	line "as fine as ever."
 	done
 
-FirebreatherOtisBeatenText:
+FirebreatherOtisBeatenText: ; AUTOTRAD
 	text "It's sunny, but"
 	line "I'm all wet…"
 	done
 
-FirebreatherOtisAfterBattleText:
+FirebreatherOtisAfterBattleText: ; AUTOTRAD
 	text "When it rains,"
 	line "it's hard to get"
 	cont "ignition…"
 	done
 
-YoungsterWarrenSeenText:
+YoungsterWarrenSeenText: ; AUTOTRAD
 	text "Hmmm… I don't know"
 	line "what to do…"
 	done
 
-YoungsterWarrenBeatenText:
+YoungsterWarrenBeatenText: ; AUTOTRAD
 	text "I knew I'd lose…"
 	done
 
-YoungsterWarrenAfterBattleText:
+YoungsterWarrenAfterBattleText: ; AUTOTRAD
 	text "You looked strong."
 
 	para "I was afraid to"
 	line "take you on…"
 	done
 
-YoungsterJimmySeenText:
+YoungsterJimmySeenText: ; AUTOTRAD
 	text "I can run like the"
 	line "wind!"
 	done
 
-YoungsterJimmyBeatenText:
+YoungsterJimmyBeatenText: ; AUTOTRAD
 	text "Blown away!"
 	done
 
-YoungsterJimmyAfterBattleText:
+YoungsterJimmyAfterBattleText: ; AUTOTRAD
 	text "I wear shorts the"
 	line "whole year round."
 
@@ -263,16 +263,16 @@ YoungsterJimmyAfterBattleText:
 	line "policy."
 	done
 
-FirebreatherBurtSeenText:
+FirebreatherBurtSeenText: ; AUTOTRAD
 	text "Step right up and"
 	line "take a look!"
 	done
 
-FirebreatherBurtBeatenText:
+FirebreatherBurtBeatenText: ; AUTOTRAD
 	text "Yow! That's hot!"
 	done
 
-FirebreatherBurtAfterBattleText:
+FirebreatherBurtAfterBattleText: ; AUTOTRAD
 	text "The greatest fire-"
 	line "breather in KANTO,"
 	cont "that's me."
@@ -281,15 +281,15 @@ FirebreatherBurtAfterBattleText:
 	line "trainer…"
 	done
 
-GuitaristRegisSeenText:
+GuitaristRegisSeenText: ; TO TRANSLATE
 	text "Yeeeaaah!"
 	done
 
-GuitaristRegisBeatenText:
+GuitaristRegisBeatenText: ; TO TRANSLATE
 	text "Oh f…"
 	done
 
-GuitaristRegisAfterBattleText:
+GuitaristRegisAfterBattleText: ; TO TRANSLATE
 	text "Concerts are still"
 	line "forbidden. So I'm"
 	cont "praticing outside"
@@ -298,79 +298,79 @@ GuitaristRegisAfterBattleText:
 	para "Darn pandemic!"
 	done
 
-Route3MtMoonSquareSignText:
+Route3MtMoonSquareSignText: ; AUTOTRAD
 	text "MT.MOON SQUARE"
 
 	para "Just go up the"
 	line "stairs."
 	done
 
-Route3CleoSeenText:
+Route3CleoSeenText: ; TO TRANSLATE
 	text "Hello darling!"
 	line "Wanna do a 1v1"
 	cont "METRONOME battle?"
 	done
 	
-Route3Cleo1v1Text:
+Route3Cleo1v1Text: ; TO TRANSLATE
 	text "I said 1v1! You"
 	line "have too many"
 	cont "#MON."
 	done
 
-Route3CleoBattleRefusedText:
+Route3CleoBattleRefusedText: ; TO TRANSLATE
 	text "I wanna do this"
 	line "so badly! Please!"
 	done
 
-Route3CleoBattleAcceptedText:
+Route3CleoBattleAcceptedText: ; TO TRANSLATE
 	text "Exciting! Let's see"
 	line "who's the luckiest!"
 	done
 
-Route3CleoCheatText:
+Route3CleoCheatText: ; TO TRANSLATE
 	text "You cheater! You're"
 	line "supposed to only"
 	cont "use METRONOME!"
 	done
 	
-Route3CleoRematchTomorrowText:
+Route3CleoRematchTomorrowText: ; TO TRANSLATE
 	text "I want a rematch"
 	line "tomorrow!"
 	done
 
-Route3CleoWasFunText:
+Route3CleoWasFunText: ; TO TRANSLATE
 	text "That was fun!"
 	line "Let's have another"
 	cont "one tomorrow!"
 	done
 
-Route3CleoLevelUpText:
+Route3CleoLevelUpText: ; TO TRANSLATE
 	text "Wait that can't"
 	line "happen! Let me use"
 	cont "some items, then"
 	cont "let's redo this."
 	done
 
-Route3CleoRematchText:
+Route3CleoRematchText: ; TO TRANSLATE
 	text "I want my 1v1"
 	line "METRONOME rematch!"
 	done
 
-Route3CleoLossText:
+Route3CleoLossText: ; TO TRANSLATE
 	text "I knew I was"
 	line "the luckiest!"
 	done
 
-Route3CleoWinText:
+Route3CleoWinText: ; TO TRANSLATE
 	text "Oh!"
 	done
 
-Route3CleoLostFairAndSquareText:
+Route3CleoLostFairAndSquareText: ; TO TRANSLATE
 	text "You beat me"
 	line "fair and square."
 	done
 
-Route3CleoLostFairAndSquare2Text:
+Route3CleoLostFairAndSquare2Text: ; TO TRANSLATE
 	text "I thought to be"
 	line "the luckiest"
 	cont "since I won this"

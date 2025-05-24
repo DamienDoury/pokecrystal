@@ -166,7 +166,7 @@ DiglettsCaveShow5Script:
 .next
 	end
 
-DiglettsCavePokefanMText:
+DiglettsCavePokefanMText: ; TO TRANSLATE
 	text "I was having fun"
 	line "exploring the cave"
 	

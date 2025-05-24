@@ -28,7 +28,7 @@ CeruleanCaveEntrance_ExitScript:
 CeruleanCaveMail:
 	jumptext CeruleanCaveMailText
 
-CeruleanCaveMailText:
+CeruleanCaveMailText: ; TO TRANSLATE
 	text "There's a mail"
 	line "deposited on top"
 	cont "of the rock."
@@ -37,7 +37,7 @@ CeruleanCaveMailText:
 	line "- RED”"
 	done
 
-CeruleanCaveEntrance_ExitQuestionText:
+CeruleanCaveEntrance_ExitQuestionText: ; TO TRANSLATE
 	text "Outside light"
 	line "is bleeding in."
 	

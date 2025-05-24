@@ -64,15 +64,15 @@ RandyScript:
 	closetext
 	end
 
-GiftSpearowMail:
+GiftSpearowMail: ; AUTOTRAD
 	db FLOWER_MAIL
 	db   "DARK CAVE leads"
 	next "to another road@"
 
-GiftSpearowName:
+GiftSpearowName: ; AUTOTRAD
 	db "KENYA@"
 
-GiftSpearowOTName:
+GiftSpearowOTName: ; AUTOTRAD
 	db "RANDY@"
 
 	db 0 ; unused
@@ -96,7 +96,7 @@ Route35GoldenrodGatePokefanFScript:
 Route35GoldenrodGateFisherScript:
 	jumptextfaceplayer Route35GoldenrodGateFisherText
 
-Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText:
+Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText: ; AUTOTRAD
 	text "Excuse me, kid!"
 	line "Can you do a guy"
 	cont "a favor?"
@@ -108,7 +108,7 @@ Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText:
 	para "He's on ROUTE 31."
 	done
 
-Route35GoldenrodGateRandyThanksText:
+Route35GoldenrodGateRandyThanksText: ; AUTOTRAD
 	text "You will? Perfect!"
 	line "Thanks, kid!"
 
@@ -120,12 +120,12 @@ Route35GoldenrodGateRandyThanksText:
 	line "him right away!"
 	done
 
-Route35GoldenrodGatePlayerReceivedAMonWithMailText:
+Route35GoldenrodGatePlayerReceivedAMonWithMailText: ; AUTOTRAD
 	text "<PLAYER> received a"
 	line "#MON with MAIL."
 	done
 
-Route35GoldenrodGateRandyWeirdTreeBlockingRoadText:
+Route35GoldenrodGateRandyWeirdTreeBlockingRoadText: ; AUTOTRAD
 	text "You can read it,"
 	line "but don't lose it!"
 	cont "ROUTE 31!"
@@ -138,17 +138,17 @@ Route35GoldenrodGateRandyWeirdTreeBlockingRoadText:
 	line "been cleared?"
 	done
 
-Route35GoldenrodGateRandyCantCarryAnotherMonText:
+Route35GoldenrodGateRandyCantCarryAnotherMonText: ; AUTOTRAD
 	text "You can't carry"
 	line "another #MON…"
 	done
 
-Route35GoldenrodGateRandyOhNeverMindThenText:
+Route35GoldenrodGateRandyOhNeverMindThenText: ; AUTOTRAD
 	text "Oh… Never mind,"
 	line "then…"
 	done
 
-Route35GoldenrodGateRandySomethingForYourTroubleText:
+Route35GoldenrodGateRandySomethingForYourTroubleText: ; AUTOTRAD
 	text "Thanks, kid! You"
 	line "made the delivery"
 	cont "for me!"
@@ -157,13 +157,13 @@ Route35GoldenrodGateRandySomethingForYourTroubleText:
 	line "for your trouble!"
 	done
 
-Route35GoldenrodGateRandyMyPalWasSnoozingRightText:
+Route35GoldenrodGateRandyMyPalWasSnoozingRightText: ; AUTOTRAD
 	text "My pal was snooz-"
 	line "ing, right? Heh,"
 	cont "what'd I say?"
 	done
 
-Route35GoldenrodGatePokefanFText:
+Route35GoldenrodGatePokefanFText: ; AUTOTRAD
 	text "A strange tree is"
 	line "blocking the road."
 
@@ -177,13 +177,13 @@ Route35GoldenrodGatePokefanFText:
 	line "SQUIRTBOTTLE."
 	done
 
-Route35GoldenrodGatePokefanFText_FoughtSudowoodo:
+Route35GoldenrodGatePokefanFText_FoughtSudowoodo: ; AUTOTRAD
 	text "I like the #MON"
 	line "Lullaby they play"
 	cont "on the radio."
 	done
 
-Route35GoldenrodGateFisherText:
+Route35GoldenrodGateFisherText: ; AUTOTRAD
 	text "I wonder how many"
 	line "kinds of #MON"
 

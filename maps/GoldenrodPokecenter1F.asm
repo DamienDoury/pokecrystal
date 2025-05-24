@@ -67,7 +67,7 @@ GoldenrodPokecenter1FPokefanF:
 	closetext
 	end
 
-GoldenrodPokecenter1FGameboyKidText:
+GoldenrodPokecenter1FGameboyKidText: ; AUTOTRAD
 	text "The COLOSSEUM"
 	line "upstairs is for"
 	cont "link battles."
@@ -79,7 +79,7 @@ GoldenrodPokecenter1FGameboyKidText:
 	line "afford to lose."
 	done
 
-GoldenrodPokecenter1FLassText:
+GoldenrodPokecenter1FLassText: ; AUTOTRAD
 	text "A higher level"
 	line "#MON doesn't"
 	cont "always win."
@@ -95,7 +95,7 @@ GoldenrodPokecenter1FLassText:
 	line "the toughest."
 	done
 
-GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText:
+GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText: ; AUTOTRAD
 	text "Oh my, your pack"
 	line "looks so heavy!"
 
@@ -110,12 +110,12 @@ GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText:
 	line "one, can't you?"
 	done
 
-GoldenrodPokecenter1FAskGiveAwayAnEonMailText:
+GoldenrodPokecenter1FAskGiveAwayAnEonMailText: ; AUTOTRAD
 	text "Give away an EON"
 	line "MAIL?"
 	done
 
-GoldenrodPokecenter1FPokefanFThisIsForYouText:
+GoldenrodPokecenter1FPokefanFThisIsForYouText: ; AUTOTRAD
 	text "Oh, that's great!"
 	line "Thank you, honey!"
 
@@ -123,12 +123,12 @@ GoldenrodPokecenter1FPokefanFThisIsForYouText:
 	line "you in return!"
 	done
 
-GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText:
+GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText: ; AUTOTRAD
 	text "My daughter will"
 	line "be delighted!"
 	done
 
-GoldenrodPokecenter1FPokefanFDaughterTomorrowText:
+GoldenrodPokecenter1FPokefanFDaughterTomorrowText: ; TO TRANSLATE
 	text "Meet me here"
 	line "another day,"
 	
@@ -136,17 +136,17 @@ GoldenrodPokecenter1FPokefanFDaughterTomorrowText:
 	line "want some more."
 	done
 
-GoldenrodPokecenter1FPokefanFTooBadText:
+GoldenrodPokecenter1FPokefanFTooBadText: ; AUTOTRAD
 	text "Oh? You don't have"
 	line "one? Too bad."
 	done
 
-GoldenrodPokecenter1FPokefanFAnotherTimeThenText:
+GoldenrodPokecenter1FPokefanFAnotherTimeThenText: ; AUTOTRAD
 	text "Oh… Well, another"
 	line "time, then."
 	done
 
-GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText:
+GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText: ; AUTOTRAD
 	text "<PLAYER> gave away"
 	line "the EON MAIL."
 	done

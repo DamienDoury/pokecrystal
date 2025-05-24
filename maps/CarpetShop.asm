@@ -108,7 +108,7 @@ CarpetShopMenu:
 CarpetShopBookshelf:
 	jumpstd PictureBookshelfScript
 
-CarpetSeller_WelcomeText:
+CarpetSeller_WelcomeText: ; TO TRANSLATE
 	text "Hello dear"
 	line "customer!"
 
@@ -116,17 +116,17 @@ CarpetSeller_WelcomeText:
 	line "carpets."
 	done
 
-CarpetShop_AlreadyHaveDecoText:
+CarpetShop_AlreadyHaveDecoText: ; TO TRANSLATE
 	text "You already have"
 	line "this one."
 	done
 
-CarpetShop_AreYouSureText:
+CarpetShop_AreYouSureText: ; TO TRANSLATE
 	text "The price is"
 	line "¥{d:CARPET_PRICE}."
 	done
 
-CarpetShop_CancelText:
+CarpetShop_CancelText: ; TO TRANSLATE
 	text "Take your time."
 	done
 

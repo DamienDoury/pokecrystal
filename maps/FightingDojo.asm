@@ -19,7 +19,7 @@ FightingDojoSign2:
 FightingDojoFocusBand:
 	itemball FOCUS_BAND
 
-FightingDojoBlackBeltText:
+FightingDojoBlackBeltText: ; AUTOTRAD
 	text "Hello!"
 
 	para "KARATE KING, the"
@@ -30,12 +30,12 @@ FightingDojoBlackBeltText:
 	cont "training."
 	done
 
-FightingDojoSign1Text:
+FightingDojoSign1Text: ; AUTOTRAD
 	text "What goes around"
 	line "comes around!"
 	done
 
-FightingDojoSign2Text:
+FightingDojoSign2Text: ; AUTOTRAD
 	text "Enemies on every"
 	line "side!"
 	done

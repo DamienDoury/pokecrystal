@@ -78,7 +78,7 @@ CeladonGameCornerFisherScript:
 	jumpstd ReceiveItemScript
 	end
 
-.coinname
+.coinname ; AUTOTRAD
 	db "COIN@"
 
 .NoCoinCase:
@@ -152,7 +152,7 @@ CeladonGameCornerMachineOffScript:
 CeladonGameCornerLighterScript:
 	jumptext CeladonGameCornerLighterText
 
-CeladonGameCornerReceptionistText:
+CeladonGameCornerReceptionistText: ; AUTOTRAD
 	text "Welcome!"
 
 	para "You may exchange"
@@ -162,7 +162,7 @@ CeladonGameCornerReceptionistText:
 	line "next door."
 	done
 
-CeladonGameCornerPokefanMText:
+CeladonGameCornerPokefanMText: ; AUTOTRAD
 	text "The slot machines"
 	line "are all state of"
 	cont "the art."
@@ -226,7 +226,7 @@ else
 	done
 endc
 
-CeladonGameCornerFisherText2:
+CeladonGameCornerFisherText2: ; AUTOTRAD
 	text "Gahahaha!"
 
 	para "It makes me feel"
@@ -236,7 +236,7 @@ CeladonGameCornerFisherText2:
 	line "people!"
 	done
 
-CeladonGameCornerFisherNoCoinCaseText:
+CeladonGameCornerFisherNoCoinCaseText: ; AUTOTRAD
 	text "Hey, you don't"
 	line "have a COIN CASE."
 
@@ -294,7 +294,7 @@ else
 	done
 endc
 
-CeladonGameCornerPoster1Text:
+CeladonGameCornerPoster1Text: ; AUTOTRAD
 	text "Hey!"
 
 	para "Underneath this"
@@ -303,12 +303,12 @@ CeladonGameCornerPoster1Text:
 	para "There's nothing!"
 	done
 
-CeladonGameCornerLighterText:
+CeladonGameCornerLighterText: ; AUTOTRAD
 	text "There's a lighter"
 	line "here."
 	done
 
-CeladonGameCornerSodaCanText:
+CeladonGameCornerSodaCanText: ; AUTOTRAD
 	text "A can of soda…"
 
 	para "Someone must be"
@@ -317,7 +317,7 @@ CeladonGameCornerSodaCanText:
 	para "Huh? It's empty!"
 	done
 
-GoldenrodHospitalMachineOffText:
+GoldenrodHospitalMachineOffText: ; TO TRANSLATE
 	text "This machine is"
 	line "turned off."
 	done

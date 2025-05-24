@@ -239,14 +239,14 @@ BlackthornGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 	
-ClairIntroText:
+ClairIntroText: ; TO TRANSLATE
 	text "I am CLAIR."
 
 	para "The world's best"
 	line "dragon master."
 	done
 
-ClairIntroTextSequel:
+ClairIntroTextSequel: ; TO TRANSLATE
 	text "I can hold my own"
 	line "against even the"
 
@@ -264,7 +264,7 @@ ClairIntroTextSequel:
 	line "to take me on?"
 	done
 
-ClairIntroSequelText:
+ClairIntroSequelText: ; TO TRANSLATE
 	text "…Fine."
 	line "Let's do it!"
 
@@ -275,7 +275,7 @@ ClairIntroSequelText:
 	line "opponent!"
 	done
 
-RefusesClairsChallengeText:
+RefusesClairsChallengeText: ; TO TRANSLATE
 	text "Afraid of me"
 	line "I guess."
 
@@ -283,7 +283,7 @@ RefusesClairsChallengeText:
 	line "you."
 	done
 
-ClairWinText:
+ClairWinText: ; AUTOTRAD
 	text "I lost?"
 
 	para "I don't believe"
@@ -291,7 +291,7 @@ ClairWinText:
 	cont "some mistake…"
 	done
 
-ClairText_GoToDragonsDen:
+ClairText_GoToDragonsDen: ; TO TRANSLATE
 	text "I won't admit"
 	line "this."
 
@@ -320,26 +320,26 @@ ClairText_GoToDragonsDen:
 	cont "BADGE!"
 	done
 
-ClairText_TooMuchToExpect:
+ClairText_TooMuchToExpect: ; AUTOTRAD
 	text "What's the matter?"
 
 	para "Is it too much to"
 	line "expect of you?"
 	done
 
-BlackthornGymClairText_YouKeptMeWaiting:
+BlackthornGymClairText_YouKeptMeWaiting: ; AUTOTRAD
 	text "You've kept me"
 	line "waiting!"
 
 	para "Here! Take this!"
 	done
 
-BlackthornGymText_ReceivedTM24:
+BlackthornGymText_ReceivedTM24: ; TO TRANSLATE
 	text "<PLAYER> received"
 	line "TM24 DRAGONBREATH."
 	done
 
-BlackthornGymClairText_DescribeTM24:
+BlackthornGymClairText_DescribeTM24: ; AUTOTRAD
 	text "That contains"
 	line "DRAGONBREATH."
 
@@ -352,18 +352,18 @@ BlackthornGymClairText_DescribeTM24:
 	cont "to take it."
 	done
 
-BlackthornGymClairText_BagFull:
+BlackthornGymClairText_BagFull: ; AUTOTRAD
 	text "What is this? You"
 	line "don't have room?"
 	done
 
-BlackthornGymClairText_League:
+BlackthornGymClairText_League: ; TO TRANSLATE
 	text "I'm so mad about"
 	line "having lost"
 	cont "to you!"
 	done
 
-CooltrainermPaulSeenText:
+CooltrainermPaulSeenText: ; AUTOTRAD
 	text "Your first battle"
 	line "against dragons?"
 
@@ -371,12 +371,12 @@ CooltrainermPaulSeenText:
 	line "tough they are!"
 	done
 
-CooltrainermPaulBeatenText:
+CooltrainermPaulBeatenText: ; AUTOTRAD
 	text "My dragon #MON"
 	line "lost?"
 	done
 
-CooltrainermPaulAfterBattleText:
+CooltrainermPaulAfterBattleText: ; AUTOTRAD
 	text "LANCE told you"
 	line "that he'd like to"
 
@@ -384,17 +384,17 @@ CooltrainermPaulAfterBattleText:
 	line "Not a chance!"
 	done
 
-CooltrainermMikeSeenText:
+CooltrainermMikeSeenText: ; AUTOTRAD
 	text "My chance of"
 	line "losing? Not even"
 	cont "one percent!"
 	done
 
-CooltrainermMikeBeatenText:
+CooltrainermMikeBeatenText: ; AUTOTRAD
 	text "That's odd."
 	done
 
-CooltrainermMikeAfterBattleText:
+CooltrainermMikeAfterBattleText: ; AUTOTRAD
 	text "I know my short-"
 	line "comings now."
 
@@ -402,7 +402,7 @@ CooltrainermMikeAfterBattleText:
 	line "me!"
 	done
 
-CooltrainerfLolaSeenText:
+CooltrainerfLolaSeenText: ; AUTOTRAD
 	text "Dragons are sacred"
 	line "#MON."
 
@@ -416,17 +416,17 @@ CooltrainerfLolaSeenText:
 	line "them."
 	done
 
-CooltrainerfLolaBeatenText:
+CooltrainerfLolaBeatenText: ; AUTOTRAD
 	text "Way to go!"
 	done
 
-CooltrainerfLolaAfterBattleText:
+CooltrainerfLolaAfterBattleText: ; AUTOTRAD
 	text "Dragons are weak"
 	line "against dragon-"
 	cont "type moves."
 	done
 
-BlackthornGymGuideText:
+BlackthornGymGuideText: ; TO TRANSLATE
 	text "Yo! CHAMP in"
 	line "making!"
 
@@ -445,7 +445,7 @@ BlackthornGymGuideText:
 	line "ice-type moves."
 	done
 
-BlackthornGymGuideWinText:
+BlackthornGymGuideWinText: ; AUTOTRAD
 	text "You were great to"
 	line "beat CLAIR!"
 

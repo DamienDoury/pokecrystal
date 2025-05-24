@@ -505,11 +505,11 @@ Movement_Route32CooltrainerMReset1:
 	step DOWN
 	step_end
 
-Route32CooltrainerMText_WaitUp:
+Route32CooltrainerMText_WaitUp: ; TO TRANSLATE
 	text "Wait up!"
 	done
 
-Route32CooltrainerMText_YouNerd:
+Route32CooltrainerMText_YouNerd: ; TO TRANSLATE
 	text "You are wearing"
 	line "a face mask!"
 
@@ -529,7 +529,7 @@ Route32CooltrainerMText_YouNerd:
 	line "my friends!"
 	done
 
-Text_MillionDollarSlowpokeTail:
+Text_MillionDollarSlowpokeTail: ; TO TRANSLATE
 	text "Haven't you heard"
 	line "on TV?"
 
@@ -548,29 +548,29 @@ Text_MillionDollarSlowpokeTail:
 	para "You'll want this!"
 	done
 
-Text_ThoughtKidsWereLoaded:
+Text_ThoughtKidsWereLoaded: ; AUTOTRAD
 	text "Tch! I thought"
 	line "kids these days"
 	cont "were loaded…"
 	done
 
-Text_RefusedToBuySlowpokeTail:
+Text_RefusedToBuySlowpokeTail: ; TO TRANSLATE
 	text "I gotta work on my"
 	line "selling pitch…"
 	done
 
-FisherJustinSeenText:
+FisherJustinSeenText: ; AUTOTRAD
 	text "Whoa!"
 
 	para "You made me lose"
 	line "that fish!"
 	done
 
-FisherJustinBeatenText:
+FisherJustinBeatenText: ; AUTOTRAD
 	text "Sploosh!"
 	done
 
-FisherJustinAfterText:
+FisherJustinAfterText: ; AUTOTRAD
 	text "Calm, collected…"
 	line "The essence of"
 
@@ -578,7 +578,7 @@ FisherJustinAfterText:
 	line "MON is the same."
 	done
 
-FisherRalph1SeenText:
+FisherRalph1SeenText: ; AUTOTRAD
 	text "I'm really good at"
 	line "both fishing and"
 	cont "#MON."
@@ -587,12 +587,12 @@ FisherRalph1SeenText:
 	line "lose to any kid!"
 	done
 
-FisherRalph1BeatenText:
+FisherRalph1BeatenText: ; AUTOTRAD
 	text "Tch! I tried to"
 	line "rush things…"
 	done
 
-FisherRalphAfterText:
+FisherRalphAfterText: ; AUTOTRAD
 	text "Fishing is a life-"
 	line "long passion."
 
@@ -600,7 +600,7 @@ FisherRalphAfterText:
 	line "long friends!"
 	done
 
-FisherRalphSwarmText:
+FisherRalphSwarmText: ; AUTOTRAD
 	text "One, two, three…"
 	line "Muahahaha, what a"
 
@@ -650,16 +650,16 @@ Route32UnusedFisher2AfterText: ; unreferenced
 	line "#MON."
 	done
 
-FisherHenrySeenText:
+FisherHenrySeenText: ; AUTOTRAD
 	text "My #MON?"
 	line "Freshly caught!"
 	done
 
-FisherHenryBeatenText:
+FisherHenryBeatenText: ; AUTOTRAD
 	text "SPLASH?"
 	done
 
-FisherHenryAfterText:
+FisherHenryAfterText: ; AUTOTRAD
 	text "Freshly caught"
 	line "#MON are no"
 
@@ -667,16 +667,16 @@ FisherHenryAfterText:
 	line "raised ones."
 	done
 
-YoungsterAlbertSeenText:
+YoungsterAlbertSeenText: ; TO TRANSLATE
 	text "I love sports!"
 	line "Let's spar!"
 	done
 
-YoungsterAlbertBeatenText:
+YoungsterAlbertBeatenText: ; AUTOTRAD
 	text "You're strong!"
 	done
 
-YoungsterAlbertAfterText:
+YoungsterAlbertAfterText: ; TO TRANSLATE
 	text "I bought tickets"
 	line "for the #ATHLON"
 	cont "that'll take place"
@@ -684,14 +684,14 @@ YoungsterAlbertAfterText:
 	cont "in a few months!"
 	done
 
-YoungsterAlbertAfterPostponedText:
+YoungsterAlbertAfterPostponedText: ; TO TRANSLATE
 	text "The #ATHLON has"
 	line "been postponed"
 	cont "indefinitely."
 	cont "I'm devastated."
 	done
 
-YoungsterGordonSeenText:
+YoungsterGordonSeenText: ; AUTOTRAD
 	text "I found some good"
 	line "#MON in the"
 	cont "grass!"
@@ -700,33 +700,33 @@ YoungsterGordonSeenText:
 	line "it for me!"
 	done
 
-YoungsterGordonBeatenText:
+YoungsterGordonBeatenText: ; AUTOTRAD
 	text "Darn. I thought I"
 	line "could win."
 	done
 
-YoungsterGordonAfterText:
+YoungsterGordonAfterText: ; AUTOTRAD
 	text "The grass is full"
 	line "of clingy things."
 	done
 
-CamperRolandSeenText:
+CamperRolandSeenText: ; AUTOTRAD
 	text "That glance…"
 	line "It's intriguing."
 	done
 
-CamperRolandBeatenText:
+CamperRolandBeatenText: ; AUTOTRAD
 	text "Hmmm. This is"
 	line "disappointing."
 	done
 
-CamperRolandAfterText:
+CamperRolandAfterText: ; AUTOTRAD
 	text "If you don't want"
 	line "to battle, just"
 	cont "avoid eye contact."
 	done
 
-PicnickerLiz1SeenText:
+PicnickerLiz1SeenText: ; AUTOTRAD
 	text "Uh-huh. Yeah, and"
 	line "you know…"
 
@@ -737,28 +737,28 @@ PicnickerLiz1SeenText:
 	line "make it fast."
 	done
 
-PicnickerLiz1BeatenText:
+PicnickerLiz1BeatenText: ; AUTOTRAD
 	text "Oh! I've got to"
 	line "relieve my anger!"
 	done
 
-PicnickerLiz1AfterText:
+PicnickerLiz1AfterText: ; AUTOTRAD
 	text "I was having a"
 	line "nice chat too."
 	done
 
-BirdKeeperPeterSeenText:
+BirdKeeperPeterSeenText: ; TO TRANSLATE
 	text "Have you beaten"
 	line "FALKNER from"
 	cont "VIOLET CITY?"
 	done
 
-BirdKeeperPeterBeatenText:
+BirdKeeperPeterBeatenText: ; AUTOTRAD
 	text "I know what my"
 	line "weaknesses are."
 	done
 
-BirdKeeperPeterAfterText:
+BirdKeeperPeterAfterText: ; AUTOTRAD
 	text "I should train"
 	line "again at the GYM"
 	cont "in VIOLET CITY."
@@ -770,7 +770,7 @@ Route32UnusedText: ; unreferenced
 	cont "bugging them…"
 	done
 
-Text_RoarIntro:
+Text_RoarIntro: ; AUTOTRAD
 	text "WROOOOAR!"
 	line "PEOPLE RUN WHEN I"
 
@@ -781,7 +781,7 @@ Text_RoarIntro:
 	line "NOW TAKE THIS!"
 	done
 
-Text_RoarOutro:
+Text_RoarOutro: ; AUTOTRAD
 	text "WROOOAR!"
 	line "IT'S ROAR!"
 
@@ -789,7 +789,7 @@ Text_RoarOutro:
 	line "FROM A GOOD ROAR!"
 	done
 
-MeetFriedaText:
+MeetFriedaText: ; AUTOTRAD
 	text "FRIEDA: Yahoo!"
 	line "It's Friday!"
 
@@ -799,12 +799,12 @@ MeetFriedaText:
 	para "Nice to meet you!"
 	done
 
-FriedaGivesGiftText:
+FriedaGivesGiftText: ; AUTOTRAD
 	text "Here's a POISON"
 	line "BARB for you!"
 	done
 
-FriedaGaveGiftText:
+FriedaGaveGiftText: ; AUTOTRAD
 	text "FRIEDA: Give it to"
 	line "a #MON that has"
 	cont "poison-type moves."
@@ -818,7 +818,7 @@ FriedaGaveGiftText:
 	cont "poison moves!"
 	done
 
-FriedaFridayText:
+FriedaFridayText: ; AUTOTRAD
 	text "FRIEDA: Hiya! What"
 	line "day do you like?"
 
@@ -829,7 +829,7 @@ FriedaFridayText:
 	line "it's great too?"
 	done
 
-FriedaNotFridayText:
+FriedaNotFridayText: ; AUTOTRAD
 	text "FRIEDA: Isn't it"
 	line "Friday today?"
 
@@ -837,19 +837,19 @@ FriedaNotFridayText:
 	line "when it's not!"
 	done
 
-Route32SignText:
+Route32SignText: ; AUTOTRAD
 	text "ROUTE 32"
 
 	para "VIOLET CITY -"
 	line "AZALEA TOWN"
 	done
 
-Route32RuinsSignText:
+Route32RuinsSignText: ; AUTOTRAD
 	text "RUINS OF ALPH"
 	line "EAST ENTRANCE"
 	done
 
-Route32UnionCaveSignText:
+Route32UnionCaveSignText: ; AUTOTRAD
 	text "UNION CAVE"
 	line "AHEAD"
 	done

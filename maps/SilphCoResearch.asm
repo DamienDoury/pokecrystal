@@ -586,21 +586,21 @@ SilphCoResearch_StepDownMovement:
     step DOWN
     step_end
 
-SilphCo_LookPokeballText:
+SilphCo_LookPokeballText: ; TO TRANSLATE
     text "It contains a"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
 	done
 
-SilphCo_LookPokeballVowelText:
+SilphCo_LookPokeballVowelText: ; TO TRANSLATE
     text "It contains an"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
 	done
 
-SilphCo_LevelText:
+SilphCo_LevelText: ; TO TRANSLATE
     text "It is level 10 and"
     line "knows the moves"
     done
@@ -615,7 +615,7 @@ SilphCo_Moves12Text:
 	text ","
     done
 
-SilphCo_Moves34Text:
+SilphCo_Moves34Text: ; TO TRANSLATE
     text "@"
 	text_ram wStringBuffer2
 	text ","
@@ -625,19 +625,19 @@ SilphCo_Moves34Text:
 	text "."
     done
 
-SilphCo_WannaTakeItText:
+SilphCo_WannaTakeItText: ; TO TRANSLATE
     text "Do you want to"
     line "take this one?"
     done
 
-SilphCo_PartyFullText:
+SilphCo_PartyFullText: ; TO TRANSLATE
     text "But your party is"
     line "full."
     done
 
 
 
-SilphCoResearch_FaxText:
+SilphCoResearch_FaxText: ; TO TRANSLATE
     text "There's a printed"
     line "fax signed by"
     cont "PROF.OAK,"
@@ -650,13 +650,13 @@ SilphCoResearch_FaxText:
     line "important."
     done
 
-SilphCoResearchScientist1Text:
+SilphCoResearchScientist1Text: ; TO TRANSLATE
     text "Reckless driving"
     line "causes accidents!"
     cont "Take it easy!"
     done
 
-SilphCoResearchScientist1_HiText:
+SilphCoResearchScientist1_HiText: ; TO TRANSLATE
     text "This office is one"
     line "of the research"
     
@@ -718,7 +718,7 @@ SilphCoResearchScientist1_HiText:
     line "need this."
     done
 
-SilphCoResearchScientist1_PassText:
+SilphCoResearchScientist1_PassText: ; TO TRANSLATE
     text "With this, the"
     line "security guard"
     cont "won't bother you."
@@ -749,13 +749,13 @@ SilphCoResearchScientist1_PassText:
 ; Case B: The trainer has done more than half, but less than 100%.
 ; Case C: The trainer has done >= 100%.
 
-SilphCoResearchScientist1_QuestIntro_Text:
+SilphCoResearchScientist1_QuestIntro_Text: ; TO TRANSLATE
 	text "How is our test"
 	line "subject #MON"
 	cont "doing?"
 	done
 
-SilphCoResearchScientist1_Case1_Text:
+SilphCoResearchScientist1_Case1_Text: ; TO TRANSLATE
 	text "Please bring it"
 	line "here so I can"
 	
@@ -766,13 +766,13 @@ SilphCoResearchScientist1_Case1_Text:
 	line "health."
 	done
 
-SilphCoResearchScientist1_Case2_Text:	
+SilphCoResearchScientist1_Case2_Text: ; TO TRANSLATE
     text "I see the test"
 	line "subject #MON"
 	cont "is doing good."
 	done
 	
-SilphCoResearchScientist1_Case1A2A_Text:
+SilphCoResearchScientist1_Case1A2A_Text: ; TO TRANSLATE
 	text "However I need"
 	line "much more data"
 	cont "to analyze."
@@ -782,7 +782,7 @@ SilphCoResearchScientist1_Case1A2A_Text:
 	cont "more."
 	done
 
-SilphCoResearchScientist1_Case1B2B_Text:
+SilphCoResearchScientist1_Case1B2B_Text: ; TO TRANSLATE
     text "A little more"
 	line "training with you,"
 
@@ -791,7 +791,7 @@ SilphCoResearchScientist1_Case1B2B_Text:
 	cont "reliable results."
 	done
 
-SilphCoResearchScientist1_ExplainTraining_Text:
+SilphCoResearchScientist1_ExplainTraining_Text: ; TO TRANSLATE
 	text "And by training"
 	line "I mean battles."
 
@@ -809,7 +809,7 @@ SilphCoResearchScientist1_ExplainTraining_Text:
 	cont "items won't help."
 	done
 
-SilphCoResearchScientist1_Case1C_Text:
+SilphCoResearchScientist1_Case1C_Text: ; TO TRANSLATE
     text "You've trained"
 	line "it a lot!"
 	
@@ -823,12 +823,12 @@ SilphCoResearchScientist1_Case1C_Text:
 	line "now."
 	done
 
-SilphCoResearchScientist1_HandedOver_Text:
+SilphCoResearchScientist1_HandedOver_Text: ; TO TRANSLATE
 	text "<PLAYER> handed"
 	line "over the #MON."
 	done
 
-SilphCoResearchScientist1_CaseDone_Text:
+SilphCoResearchScientist1_CaseDone_Text: ; TO TRANSLATE
 	text "Results are as"
 	line "good as we"
 	cont "expected!"
@@ -862,7 +862,7 @@ SilphCoResearchScientist1_CaseDone_Text:
 	cont "instant!-"
 	done
 
-SilphCoResearchScientist1_AfterQuest_Text:
+SilphCoResearchScientist1_AfterQuest_Text: ; TO TRANSLATE
     text "Our vaccination"
 	line "center is located"
 	
@@ -876,7 +876,7 @@ SilphCoResearchScientist1_AfterQuest_Text:
 	line "LEAGUE CHAMPION."
 	done
 
-SilphCoResearchScientist1_KeepMon_Text:
+SilphCoResearchScientist1_KeepMon_Text: ; TO TRANSLATE
 	text "The test subject"
 	line "#MON feels"
 	
@@ -888,14 +888,14 @@ SilphCoResearchScientist1_KeepMon_Text:
 	line "with that."
 	done
 
-SilphCoResearchScientist1_GotBack_Text:
+SilphCoResearchScientist1_GotBack_Text: ; TO TRANSLATE
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer1
 	text " back!"
 	done
 
-SilphCoResearchScientist1_ThankService_Text:
+SilphCoResearchScientist1_ThankService_Text: ; TO TRANSLATE
 	text "Thank you for your"
 	line "service, dear"
 	cont "@"
@@ -906,7 +906,7 @@ SilphCoResearchScientist1_ThankService_Text:
 
 
 
-SilphCoResearchScientist2_Text:
+SilphCoResearchScientist2_Text: ; TO TRANSLATE
     text "It is safe to"
     line "use a contagious"
     
@@ -917,7 +917,7 @@ SilphCoResearchScientist2_Text:
     line "sent afterwards."
     done
 
-SilphCoResearchScientist3_Text:
+SilphCoResearchScientist3_Text: ; TO TRANSLATE
     text "We made a break-"
     line "through in the"
     
@@ -926,7 +926,7 @@ SilphCoResearchScientist3_Text:
     cont "sample."
     done
 
-SilphCoResearchScientist4_Text:
+SilphCoResearchScientist4_Text: ; TO TRANSLATE
     text "Our research shows"
     line "that the virus"
 
@@ -935,7 +935,7 @@ SilphCoResearchScientist4_Text:
     cont "sion of #RUS."
     done
 
-SilphCoResearchScientist5_Text:
+SilphCoResearchScientist5_Text: ; TO TRANSLATE
     text "Yup, I'm the guy"
     line "that came up with"
     cont "the #MASK."
@@ -950,7 +950,7 @@ SilphCoResearchScientist5_Text:
     line "huge challenge."
     done
 
-SilphCoResearchScientist1_ConfusedText:
+SilphCoResearchScientist1_ConfusedText: ; TO TRANSLATE
 	text "I'm sorry"
 	line "I'm confused."
 	done
@@ -958,7 +958,7 @@ SilphCoResearchScientist1_ConfusedText:
 
 
 
-SilphCoResearchScientist6IntroText:
+SilphCoResearchScientist6IntroText: ; TO TRANSLATE
     text "I was transfered"
     line "here because I'm"
     cont "an expert on DNA."
@@ -976,7 +976,7 @@ SilphCoResearchScientist6IntroText:
     cont "with…"
     done
 
-SilphCoResearchScientist6AskReviveText:
+SilphCoResearchScientist6AskReviveText: ; TO TRANSLATE
     text "Is that a"
     line "@"
     text_ram wStringBuffer3
@@ -984,7 +984,7 @@ SilphCoResearchScientist6AskReviveText:
     cont "have here?"
     done
 
-SilphCoResearchScientist6AskReviveVowelText:
+SilphCoResearchScientist6AskReviveVowelText: ; TO TRANSLATE
     text "Is that an"
     line "@"
     text_ram wStringBuffer3
@@ -992,45 +992,45 @@ SilphCoResearchScientist6AskReviveVowelText:
     cont "have here?"
     done
 
-SilphCoResearchScientist6AskReviveSequelText:
+SilphCoResearchScientist6AskReviveSequelText: ; TO TRANSLATE
     text "I'd be happy to"
     line "try to revive it!"
 
     para "Can I have it?"
     done
 
-SilphCoResearchScientist6SadText:
+SilphCoResearchScientist6SadText: ; TO TRANSLATE
     text "This task would"
     line "have given me"
     cont "purpose…"
     done
 
-SilphCoResearchScientist6NotEnoughRoomText:
+SilphCoResearchScientist6NotEnoughRoomText: ; TO TRANSLATE
     text "Before I try any-"
     line "thing, you gotta"
     cont "make some room"
     cont "in your party."
     done
 
-SilphCoResearchScientist6WaitText:
+SilphCoResearchScientist6WaitText: ; TO TRANSLATE
     text "My equipment is"
     line "upstairs, please"
     cont "wait here."
     done
 
-SilphCoResearchScientist6SuccessText:
+SilphCoResearchScientist6SuccessText: ; TO TRANSLATE
     text "I succeeded!"
     line "Yeah baby!"
     done
 
-SilphCoResearchScientist6GetMonText:
+SilphCoResearchScientist6GetMonText: ; TO TRANSLATE
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
 	done
 
-SilphCoResearchScientist6ThanksText:
+SilphCoResearchScientist6ThanksText: ; TO TRANSLATE
     text "You made my day!"
     line "Please come back"
     cont "if you ever find"

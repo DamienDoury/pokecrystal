@@ -26,7 +26,7 @@ Route30BerryHousePokefanMScript:
 Route30BerryHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-Route30BerrySpeechHouseMonEatBerriesText:
+Route30BerrySpeechHouseMonEatBerriesText: ; AUTOTRAD
 	text "You know, #MON"
 	line "eat BERRIES."
 
@@ -38,7 +38,7 @@ Route30BerrySpeechHouseMonEatBerriesText:
 	line "one with you!"
 	done
 
-Route30BerrySpeechHouseCheckTreesText:
+Route30BerrySpeechHouseCheckTreesText: ; AUTOTRAD
 	text "Check trees for"
 	line "BERRIES. They just"
 	cont "drop right off."

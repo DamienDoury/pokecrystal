@@ -41,13 +41,13 @@ MrAntonsHouseNursePicture:
     writetext MrAntonsHouseNursePictureSequelText
     sjump MrAntonsHouseCandyFactory.end
 
-MrAntonsHouseCandyFactoryText:
+MrAntonsHouseCandyFactoryText: ; TO TRANSLATE
     text "A picture of a man"
     line "in his 30s in a"
     cont "candy factory."
     done
 
-MrAntonsHouseCandyFactorySequelText: 
+MrAntonsHouseCandyFactorySequelText: ; TO TRANSLATE
     text "Looks like this"
     line "famous movie."
 
@@ -59,26 +59,26 @@ MrAntonsHouseCandyFactorySequelText:
     line "the same age."
     done
 
-MrAntonsHouseCandyFactoryKnowledgeText:
+MrAntonsHouseCandyFactoryKnowledgeText: ; TO TRANSLATE
     text "A picture of a"
     line "younger MR.ANTON"
     cont "in a giant candy"
     cont "factory."
     done
 
-MrAntonsHouseNursePictureText:
+MrAntonsHouseNursePictureText: ; TO TRANSLATE
     text "A picture of an"
     line "old man wearing a"
     cont "top hat next to a"
     done
     
-MrAntonsHouseNursePictureSequelText:
+MrAntonsHouseNursePictureSequelText: ; TO TRANSLATE
     text "pink-haired young-"
     line "er woman wearing"
     cont "a white uniform."
     done
 
-MrAntonsHouseNursePictureKnowledgeText:
+MrAntonsHouseNursePictureKnowledgeText: ; TO TRANSLATE
     text "A recent picture"
     line "of MR.ANTON"
     cont "sitting next to a"

@@ -150,7 +150,7 @@ ViridianForest_PlayerStepsBackMovement:
 	remove_fixed_facing
 	step_end
 
-ViridianForestLostKidText:
+ViridianForestLostKidText: ; TO TRANSLATE
 	text "Please help!"
 	
 	para "I've been lost"
@@ -166,12 +166,12 @@ ViridianForestLostKidText:
 	line "with the forest!"
 	done
 
-ViridianForest_PeacefulText:
+ViridianForest_PeacefulText: ; TO TRANSLATE
 	text "The forest is"
 	line "at peace now."
 	done
 
-ViridianForest_FoundGSBallText:
+ViridianForest_FoundGSBallText: ; TO TRANSLATE
 	text "<PLAYER> found"
 	line "the GS BALL."
 	done

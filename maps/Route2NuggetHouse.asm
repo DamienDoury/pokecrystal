@@ -26,7 +26,7 @@ Route2NuggetHouseFisherScript:
 Route2NuggetHouseBookshelf: ; unreferenced
 	jumpstd DifficultBookshelfScript
 
-Route2NuggetHouseFisherText:
+Route2NuggetHouseFisherText: ; AUTOTRAD
 	text "Hi! Wow, I'm glad"
 	line "to see you."
 
@@ -39,7 +39,7 @@ Route2NuggetHouseFisherText:
 	cont "little present."
 	done
 
-Route2NuggetHouseFisherText_GotNugget:
+Route2NuggetHouseFisherText_GotNugget: ; TO TRANSLATE
 	text "That's"
 	line "TOILET PAPER."
 

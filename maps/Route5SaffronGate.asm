@@ -9,7 +9,7 @@ Route5SaffronGate_MapScripts:
 Route5SaffronGateOfficerScript:
 	jumptextfaceplayer Route5SaffronGateOfficerText
 
-Route5SaffronGateOfficerText:
+Route5SaffronGateOfficerText: ; AUTOTRAD
 	text "You're from JOHTO,"
 	line "aren't you?"
 

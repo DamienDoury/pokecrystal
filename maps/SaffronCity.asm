@@ -120,7 +120,7 @@ SaffronCityNeonTownSign:
 SaffronCity_DoorScript:
 	jumptext SaffronCity_DojoDoorText
 
-SaffronCityLass1Text:
+SaffronCityLass1Text: ; AUTOTRAD
 	text "A little girl who"
 	line "is an expert at"
 
@@ -134,7 +134,7 @@ SaffronCityLass1Text:
 	line "It's confusing."
 	done
 
-SaffronCityLass1Text_ReturnedMachinePart:
+SaffronCityLass1Text_ReturnedMachinePart: ; AUTOTRAD
 	text "The COPYCAT girl"
 	line "looked unhappy."
 
@@ -143,7 +143,7 @@ SaffronCityLass1Text_ReturnedMachinePart:
 	cont "DOLL--CLEFAIRY."
 	done
 
-SaffronCityPokefanMText:
+SaffronCityPokefanMText: ; AUTOTRAD
 	text "You came out from"
 	line "JOHTO?"
 
@@ -152,7 +152,7 @@ SaffronCityPokefanMText:
 	cont "TRAIN's running."
 	done
 
-SaffronCityPokefanMText_ReturnedMachinePart:
+SaffronCityPokefanMText_ReturnedMachinePart: ; AUTOTRAD
 	text "You came out from"
 	line "JOHTO?"
 
@@ -161,7 +161,7 @@ SaffronCityPokefanMText_ReturnedMachinePart:
 	cont "the MAGNET TRAIN."
 	done
 
-SaffronCityCooltrainerMText:
+SaffronCityCooltrainerMText: ; TO TRANSLATE
 	text "The quarantine in"
 	line "a big city like"
 	cont "this one was"
@@ -187,7 +187,7 @@ SaffronCityCooltrainerMText:
 	cont "MAGNET TRAIN."
 	done
 
-SaffronCityCooltrainerFText:
+SaffronCityCooltrainerFText: ; AUTOTRAD
 	text "This is SILPH CO.,"
 	line "famous for #MON"
 	cont "merchandise."
@@ -199,7 +199,7 @@ SaffronCityCooltrainerFText:
 	line "that."
 	done
 
-SaffronCityFisherText:
+SaffronCityFisherText: ; AUTOTRAD
 	text "Chew… Chew…"
 
 	para "I hear there's big"
@@ -209,7 +209,7 @@ SaffronCityFisherText:
 	para "Chew… Chew…"
 	done
 
-SaffronCityFisherText_ReturnedMachinePart:
+SaffronCityFisherText_ReturnedMachinePart: ; AUTOTRAD
 	text "Chew… Chew…"
 
 	para "I hear there was"
@@ -220,7 +220,7 @@ SaffronCityFisherText_ReturnedMachinePart:
 	line "Haaah, I'm full!"
 	done
 
-SaffronCityYoungster1Text:
+SaffronCityYoungster1Text: ; AUTOTRAD
 	text "Going into an"
 	line "alley for the"
 
@@ -228,7 +228,7 @@ SaffronCityYoungster1Text:
 	line "me sorta anxious."
 	done
 
-SaffronCityYoungster2Text:
+SaffronCityYoungster2Text: ; AUTOTRAD
 	text "There's a place"
 	line "called TRAINER"
 
@@ -239,7 +239,7 @@ SaffronCityYoungster2Text:
 	line "over the place."
 	done
 
-SaffronCityLass2Text:
+SaffronCityLass2Text: ; AUTOTRAD
 	text "Our city was"
 	line "featured on a"
 	cont "radio program."
@@ -252,14 +252,14 @@ SaffronCityLass2Text:
 	cont "too."
 	done
 
-SaffronCitySignText:
+SaffronCitySignText: ; AUTOTRAD
 	text "SAFFRON CITY"
 
 	para "Shining, Golden"
 	line "Land of Commerce"
 	done
 
-SaffronGymSignText:
+SaffronGymSignText: ; AUTOTRAD
 	text "SAFFRON CITY"
 	line "#MON GYM"
 	cont "LEADER: SABRINA"
@@ -268,38 +268,38 @@ SaffronGymSignText:
 	line "Psychic #MON!"
 	done
 
-FightingDojoSignText:
+FightingDojoSignText: ; AUTOTRAD
 	text "Everyone Welcome!"
 	line "FIGHTING DOJO"
 	done
 
-SilphCoSignText:
+SilphCoSignText: ; AUTOTRAD
 	text "SILPH CO."
 	line "OFFICE BUILDING"
 	done
 
-MrPsychicsHouseSignText:
+MrPsychicsHouseSignText: ; AUTOTRAD
 	text "MR.PSYCHIC'S"
 	line "HOUSE"
 	done
 
-MrAntonsHouseSignText:
+MrAntonsHouseSignText: ; TO TRANSLATE
 	text "MR.ANTON'S"
 	line "HOUSE"
 	done
 
-SaffronCityMagnetTrainStationSignText:
+SaffronCityMagnetTrainStationSignText: ; AUTOTRAD
 	text "SAFFRON CITY"
 	line "MAGNET TRAIN"
 	cont "STATION"
 	done
 
-VaccinationCenterSignText:
+VaccinationCenterSignText: ; TO TRANSLATE
 	text "SILPH CO."
 	line "VACCINATION CENTER"
 	done
 
-SaffronCity_DojoDoorText:
+SaffronCity_DojoDoorText: ; TO TRANSLATE
 	text "Yet another notice"
 	line "on the door…"
 
@@ -309,7 +309,7 @@ SaffronCity_DojoDoorText:
 	cont "of the pandemic."
 	done
 
-NeonTownSignText:
+NeonTownSignText: ; TO TRANSLATE
 	text "Nerds' Paradise"
 	para "NEON TOWN"
 	done

@@ -78,7 +78,7 @@ KogasRoom_EnterMovement:
 	step UP
 	step_end
 
-KogaScript_KogaBeforeText:
+KogaScript_KogaBeforeText: ; AUTOTRAD
 	text "Fwahahahaha!"
 
 	para "I am KOGA of the"
@@ -107,13 +107,13 @@ KogaScript_KogaBeforeText:
 	line "see soon enough!"
 	done
 
-KogaScript_KogaBeatenText:
+KogaScript_KogaBeatenText: ; AUTOTRAD
 	text "Ah!"
 	line "You have proven"
 	cont "your worth!"
 	done
 
-KogaScript_KogaDefeatText:
+KogaScript_KogaDefeatText: ; AUTOTRAD
 	text "I subjected you to"
 	line "everything I could"
 	cont "muster."

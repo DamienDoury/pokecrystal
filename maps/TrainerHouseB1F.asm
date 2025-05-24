@@ -105,7 +105,7 @@ Movement_TrainerHouseTurnBack:
 	turn_head LEFT
 	step_end
 
-TrainerHouseB1FIntroText:
+TrainerHouseB1FIntroText: ; AUTOTRAD
 	text "Hi. Welcome to our"
 	line "TRAINING HALL."
 
@@ -114,18 +114,18 @@ TrainerHouseB1FIntroText:
 	cont "day."
 	done
 
-TrainerHouseB1FYourOpponentIsText:
+TrainerHouseB1FYourOpponentIsText: ; AUTOTRAD
 	text_ram wStringBuffer3
 	text " is your"
 	line "opponent today."
 	done
 
-TrainerHouseB1FAskWantToBattleText:
+TrainerHouseB1FAskWantToBattleText: ; AUTOTRAD
 	text "Would you like to"
 	line "battle?"
 	done
 
-TrainerHouseB1FGoRightInText:
+TrainerHouseB1FGoRightInText: ; AUTOTRAD
 	text "Please go right"
 	line "through."
 
@@ -133,7 +133,7 @@ TrainerHouseB1FGoRightInText:
 	line "right away."
 	done
 
-TrainerHouseB1FPleaseComeAgainText:
+TrainerHouseB1FPleaseComeAgainText: ; AUTOTRAD
 	text "Sorry. Only those"
 	line "trainers who will"
 
@@ -141,7 +141,7 @@ TrainerHouseB1FPleaseComeAgainText:
 	line "allowed to go in."
 	done
 
-TrainerHouseB1FSecondChallengeDeniedText:
+TrainerHouseB1FSecondChallengeDeniedText: ; AUTOTRAD
 	text "I'm sorry."
 	line "This would be your"
 
@@ -152,12 +152,12 @@ TrainerHouseB1FSecondChallengeDeniedText:
 	line "a day."
 	done
 
-TrainerHouseB1FCalBeatenText:
+TrainerHouseB1FCalBeatenText: ; AUTOTRAD
 	text "I lost…"
 	line "Darn…"
 	done
 
-TrainerHouseB1FCalBeforeText:
+TrainerHouseB1FCalBeforeText: ; AUTOTRAD
 	text "I traveled out"
 	line "here just so I"
 	cont "could battle you."

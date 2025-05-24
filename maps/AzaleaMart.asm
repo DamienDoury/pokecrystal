@@ -28,7 +28,7 @@ AzaleaMartBugCatcherScript:
 AzaleaMartShelfItem1Script:
 	shelfitem 1, TOILET_PAPER, 150
 
-AzaleaMartCooltrainerMText:
+AzaleaMartCooltrainerMText: ; TO TRANSLATE
 	text "There's no GREAT"
 	line "BALL here."
 
@@ -37,7 +37,7 @@ AzaleaMartCooltrainerMText:
 	cont "his custom BALLS."
 	done
 
-AzaleaMartBugCatcherText:
+AzaleaMartBugCatcherText: ; AUTOTRAD
 	text "A GREAT BALL is"
 	line "better for catch-"
 	cont "ing #MON than a"

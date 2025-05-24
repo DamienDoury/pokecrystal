@@ -27,23 +27,23 @@ BillsBrothersHouseYoungsterScript:
 	closetext
 	end
 
-BillsBrotherText:
+BillsBrotherText: ; AUTOTRAD
 	text "My grandpa is at "
 	line "my brother BILL's"
 	cont "on CERULEAN CAPE."
 	done
 
-BillsBrothersHouseYoungsterText:
+BillsBrothersHouseYoungsterText: ; TO TRANSLATE
 	text "Can I tell you an"
 	line "interesting story"
 	cont "about the PSS?"
 	done
 
-BillsBrothersHouseYoungsterOkText:
+BillsBrothersHouseYoungsterOkText: ; TO TRANSLATE
 	text "Then I won't."
 	done
 
-BillsBrothersHouseYoungsterStoryText:
+BillsBrothersHouseYoungsterStoryText: ; TO TRANSLATE
 	text "The PC's local mode"
 	line "is actually the"
 	cont "original version"

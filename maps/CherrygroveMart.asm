@@ -48,7 +48,7 @@ CherrygroveMartYoungsterScript:
 CherrygroveMartShelfItem1Script:
 	shelfitem 4, MAX_REPEL, 2800
 
-CherrygroveMartCooltrainerMText:
+CherrygroveMartCooltrainerMText: ; AUTOTRAD
 	text "They're fresh out"
 	line "of # BALLS!"
 
@@ -56,13 +56,13 @@ CherrygroveMartCooltrainerMText:
 	line "more of them?"
 	done
 
-CherrygroveMartCooltrainerMText_PokeBallsInStock:
+CherrygroveMartCooltrainerMText_PokeBallsInStock: ; AUTOTRAD
 	text "# BALLS are in"
 	line "stock! Now I can"
 	cont "catch #MON!"
 	done
 
-CherrygroveMartYoungsterText:
+CherrygroveMartYoungsterText: ; TO TRANSLATE
 	text "When I was walking"
 	line "in the grass, a"
 

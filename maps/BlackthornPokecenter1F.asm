@@ -25,7 +25,7 @@ BlackthornPokecenter1FTwinScript:
 BlackthornPokecenter1FCooltrainerMScript:
 	jumpstd HappinessCheckScript
 
-BlackthornPokecenter1FGentlemanText:
+BlackthornPokecenter1FGentlemanText: ; TO TRANSLATE
 	text "My CONTACT TRACING"
 	line "CARD feels great!"
 
@@ -41,7 +41,7 @@ BlackthornPokecenter1FGentlemanText:
 	cont "#GEAR."
 	done
 
-BlackthornPokecenter1FTwinText:
+BlackthornPokecenter1FTwinText: ; AUTOTRAD
 	text "There was this"
 	line "move I just had"
 

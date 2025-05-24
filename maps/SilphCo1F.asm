@@ -314,17 +314,17 @@ SilphCo_RightMovement:
 	step RIGHT
 	step_end
 
-ReceivedAntonMailText:
+ReceivedAntonMailText: ; TO TRANSLATE
 	db   "I will always"
 	next "love you darling@"
 
-SilphCoReceptionistText:
+SilphCoReceptionistText: ; AUTOTRAD
 	text "Welcome. This is"
 	line "SILPH CO.'s HEAD"
 	cont "OFFICE BUILDING."
 	done
 
-SilphCoOfficerText:
+SilphCoOfficerText: ; AUTOTRAD
 	text "Only employees are"
 	line "permitted to go"
 	cont "upstairs."
@@ -336,11 +336,11 @@ SilphCoOfficerText:
 	line "little souvenir."
 	done
 
-SilphCoOfficerText_GotUpGrade:
+SilphCoOfficerText_GotUpGrade: ; TO TRANSLATE
 	text "Now please leave."
 	done
 
-SilphCoNurseDefaultText:
+SilphCoNurseDefaultText: ; TO TRANSLATE
 	text "SILPH CO. has"
 	line "devoted hundreds"
 	cont "of its researchers"
@@ -350,7 +350,7 @@ SilphCoNurseDefaultText:
 	cont "a vaccine."
 	done
 
-SilphCoNurse_AntonText:
+SilphCoNurse_AntonText: ; TO TRANSLATE
 	text "You have a letter"
 	line "for Mister ANTON's"
 	cont "relatives?"
@@ -364,7 +364,7 @@ SilphCoNurse_AntonText:
 	cont "letter?"
 	done
 
-SilphCoNurse_InsistText:
+SilphCoNurse_InsistText: ; TO TRANSLATE
 	text "If you show me the"
 	line "letter, I may tell"
 	
@@ -372,12 +372,12 @@ SilphCoNurse_InsistText:
 	line "MR.ANTON."
 	done
 
-SilphCoNurse_WrongMail:
+SilphCoNurse_WrongMail: ; TO TRANSLATE
 	text "That's not MR."
 	line "ANTON's writing."
 	done
 
-SilphCoNurse_ReadsText:
+SilphCoNurse_ReadsText: ; TO TRANSLATE
 	text "Let's see what MR."
 	line "ANTON has to say."
 
@@ -389,7 +389,7 @@ SilphCoNurse_ReadsText:
 	line "isn't he?"
 	done
 
-SilphCoNurse_Reads2Text:
+SilphCoNurse_Reads2Text: ; TO TRANSLATE
 	text "Wait, you don't"
 	line "know?"
 
@@ -457,7 +457,7 @@ SilphCoNurse_Reads2Text:
 	line "them quickly."
 	done
 
-SilphCoNurse_NoRoomText:
+SilphCoNurse_NoRoomText: ; TO TRANSLATE
 	text "There is a lot!"
 	line "You're gonna need"
 	cont "to make room in"
@@ -467,11 +467,11 @@ SilphCoNurse_NoRoomText:
 	cont "gave me."
 	done
 
-SilphCoNurse_ThereYouGoText:
+SilphCoNurse_ThereYouGoText: ; TO TRANSLATE
 	text "There you go!"
 	done
 
-SilphCoNurse_CandiesText:
+SilphCoNurse_CandiesText: ; TO TRANSLATE
 	text "I counted 42"
 	line "RARE CANDIES."
 	
@@ -498,14 +498,14 @@ SilphCoNurse_CandiesText:
 	cont "to work."
 	done
 
-SilphCoNurse_SayHiText:
+SilphCoNurse_SayHiText: ; TO TRANSLATE
 	text "Next time you see"
 	line "MR.ANTON, tell him"
 	cont "his old nurse"
 	cont "says hi!"
 	done
 
-SilphCoScientist_HiText:
+SilphCoScientist_HiText: ; TO TRANSLATE
 	text "Are you <PLAYER>,"
 	line "the LEAGUE"
 	cont "CHAMPION?"
@@ -522,7 +522,7 @@ SilphCoScientist_HiText:
 	para "Please follow me."
 	done
 
-SilphCoOfficer_SuicuneText:
+SilphCoOfficer_SuicuneText: ; TO TRANSLATE
 	text "Reseachers are"
 	line "trying to find a"
 	cont "vaccine for"
@@ -547,7 +547,7 @@ SilphCoOfficer_SuicuneText:
 	line "him out."
 	done
 
-SilphCoOfficer_OkayText:
+SilphCoOfficer_OkayText: ; TO TRANSLATE
 	text "May I see your"
 	line "@"
 	text_ram wStringBuffer3

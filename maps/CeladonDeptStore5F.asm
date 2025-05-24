@@ -39,7 +39,7 @@ CeladonDeptStore5FDirectory:
 CeladonDeptStore5FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore5FGentlemanText:
+CeladonDeptStore5FGentlemanText: ; AUTOTRAD
 	text "I want to buy some"
 	line "items that raise"
 
@@ -48,7 +48,7 @@ CeladonDeptStore5FGentlemanText:
 	cont "enough money…"
 	done
 
-CeladonDeptStore5FSailorText:
+CeladonDeptStore5FSailorText: ; AUTOTRAD
 	text "I want PP UP, so I"
 	line "can raise the PP"
 
@@ -56,7 +56,7 @@ CeladonDeptStore5FSailorText:
 	line "can't buy it…"
 	done
 
-CeladonDeptStore5FTeacherText:
+CeladonDeptStore5FTeacherText: ; AUTOTRAD
 	text "Using items on"
 	line "them makes #-"
 	cont "MON happy."
@@ -65,7 +65,7 @@ CeladonDeptStore5FTeacherText:
 	line "items, though…"
 	done
 
-CeladonDeptStore5FDirectoryText:
+CeladonDeptStore5FDirectoryText: ; AUTOTRAD
 	text "5F: DRUG STORE"
 	done
 

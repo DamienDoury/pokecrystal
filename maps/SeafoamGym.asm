@@ -99,7 +99,7 @@ SeafoamGymItem:
 SeafoamGymBoulder:
 	jumpstd StrengthBoulderScript
 
-BlaineIntroText:
+BlaineIntroText: ; TO TRANSLATE
 	text "BLAINE: Waaah!"
 
 	para "The eruption may"
@@ -137,7 +137,7 @@ BlaineIntroText:
 	line "thing #MON."
 	done
 
-BlaineIntroEndText:
+BlaineIntroEndText: ; TO TRANSLATE
 	text "I accept your"
 	line "challenge."
 
@@ -151,7 +151,7 @@ BlaineIntroEndText:
 	para "Wah ah haha!"
 	done
 
-BlaineRefusesBattleText:
+BlaineRefusesBattleText: ; TO TRANSLATE
 	text "Someone should"
 	line "have told you…"
 
@@ -182,7 +182,7 @@ BlaineRefusesBattleText:
 	line "new riddle!"
 	done
 
-BlaineWinLossText:
+BlaineWinLossText: ; AUTOTRAD
 	text "BLAINE: Awesome."
 	line "I've burned out…"
 
@@ -190,12 +190,12 @@ BlaineWinLossText:
 	line "VOLCANOBADGE!"
 	done
 
-ReceivedVolcanoBadgeText:
+ReceivedVolcanoBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "VOLCANOBADGE."
 	done
 
-BlaineAfterBattleText:
+BlaineAfterBattleText: ; AUTOTRAD
 	text "BLAINE: I did lose"
 	line "this time, but I'm"
 
@@ -209,7 +209,7 @@ BlaineAfterBattleText:
 	line "a rematch."
 	done
 
-BlaineFightDoneText:
+BlaineFightDoneText: ; AUTOTRAD
 	text "BLAINE: My fire"
 	line "#MON will be"
 
@@ -217,7 +217,7 @@ BlaineFightDoneText:
 	line "Just you watch!"
 	done
 
-SeafoamGymGuideWinText:
+SeafoamGymGuideWinText: ; TO TRANSLATE
 	text "Yo!"
 
 	para "… Huh? It's over"
@@ -244,7 +244,7 @@ SeafoamGymGuideWinText:
 	line "miss something!"
 	done
 
-SeafoamGymGuideWinText2:
+SeafoamGymGuideWinText2: ; AUTOTRAD
 	text "A #MON GYM can"
 	line "be anywhere as"
 

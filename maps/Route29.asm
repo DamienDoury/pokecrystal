@@ -239,7 +239,7 @@ DudeMovementData2b:
 	step DOWN
 	step_end
 
-CatchingTutorialBoxFullText:
+CatchingTutorialBoxFullText: ; AUTOTRAD
 	text "#MON hide in"
 	line "the grass. Who"
 
@@ -247,7 +247,7 @@ CatchingTutorialBoxFullText:
 	line "pop out…"
 	done
 
-CatchingTutorialIntroText:
+CatchingTutorialIntroText: ; AUTOTRAD
 	text "I've seen you a"
 	line "couple times. How"
 
@@ -259,7 +259,7 @@ CatchingTutorialIntroText:
 	cont "catch #MON?"
 	done
 
-CatchingTutorialDebriefText:
+CatchingTutorialDebriefText: ; AUTOTRAD
 	text "That's how you do"
 	line "it."
 
@@ -268,7 +268,7 @@ CatchingTutorialDebriefText:
 	cont "easier to catch."
 	done
 
-CatchingTutorialDeclinedText:
+CatchingTutorialDeclinedText: ; AUTOTRAD
 	text "Oh. Fine, then."
 
 	para "Anyway, if you"
@@ -278,13 +278,13 @@ CatchingTutorialDeclinedText:
 	line "to walk a lot."
 	done
 
-CatchingTutorialRepeatText:
+CatchingTutorialRepeatText: ; AUTOTRAD
 	text "Huh? You want me"
 	line "to show you how to"
 	cont "catch #MON?"
 	done
 
-Route29YoungsterText:
+Route29YoungsterText: ; AUTOTRAD
 	text "Yo. How are your"
 	line "#MON?"
 
@@ -295,7 +295,7 @@ Route29YoungsterText:
 	line "of the grass."
 	done
 
-Route29TeacherText:
+Route29TeacherText: ; AUTOTRAD
 	text "See those ledges?"
 	line "It's scary to jump"
 	cont "off them."
@@ -307,7 +307,7 @@ Route29TeacherText:
 	line "the grass."
 	done
 
-Route29FisherText:
+Route29FisherText: ; AUTOTRAD
 	text "I wanted to take a"
 	line "break, so I saved"
 
@@ -315,7 +315,7 @@ Route29FisherText:
 	line "progress."
 	done
 
-Route29CooltrainerMText_BerryExplanation:
+Route29CooltrainerMText_BerryExplanation: ; TO TRANSLATE
 	text "This tree next to"
 	line "us grows berries."
 
@@ -335,7 +335,7 @@ Route29CooltrainerMText_BerryExplanation:
 	line "below half."
 	done
 
-Route29CooltrainerMText_OranBerryDetected:
+Route29CooltrainerMText_OranBerryDetected: ; TO TRANSLATE
 	text "Oh! I see your"
 	line "@"
 	text_ram wStringBuffer1
@@ -347,7 +347,7 @@ Route29CooltrainerMText_OranBerryDetected:
 	text "!"
 	done
 
-MeetTuscanyText:
+MeetTuscanyText: ; AUTOTRAD
 	text "TUSCANY: I do be-"
 	line "lieve that this is"
 
@@ -361,7 +361,7 @@ MeetTuscanyText:
 	line "Tuesday."
 	done
 
-TuscanyGivesGiftText:
+TuscanyGivesGiftText: ; AUTOTRAD
 	text "By way of intro-"
 	line "duction, please"
 
@@ -369,7 +369,7 @@ TuscanyGivesGiftText:
 	line "a PINK BOW."
 	done
 
-TuscanyGaveGiftText:
+TuscanyGaveGiftText: ; AUTOTRAD
 	text "TUSCANY: Wouldn't"
 	line "you agree that it"
 	cont "is most adorable?"
@@ -381,7 +381,7 @@ TuscanyGaveGiftText:
 	line "will be of use."
 	done
 
-TuscanyTuesdayText:
+TuscanyTuesdayText: ; AUTOTRAD
 	text "TUSCANY: Have you"
 	line "met MONICA, my"
 	cont "older sister?"
@@ -393,20 +393,20 @@ TuscanyTuesdayText:
 	line "seven children."
 	done
 
-TuscanyNotTuesdayText:
+TuscanyNotTuesdayText: ; AUTOTRAD
 	text "TUSCANY: Today is"
 	line "not Tuesday. That"
 	cont "is unfortunate…"
 	done
 
-Route29Sign1Text:
+Route29Sign1Text: ; AUTOTRAD
 	text "ROUTE 29"
 
 	para "CHERRYGROVE CITY -"
 	line "NEW BARK TOWN"
 	done
 
-Route29Sign2Text:
+Route29Sign2Text: ; AUTOTRAD
 	text "ROUTE 29"
 
 	para "CHERRYGROVE CITY -"

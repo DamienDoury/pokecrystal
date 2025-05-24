@@ -62,7 +62,7 @@ SproutTower1FParlyzHeal:
 SproutTower1FStatue:
 	jumptext SproutTower1FStatueText
 
-SageChowSeenText:
+SageChowSeenText: ; AUTOTRAD
 	text "We stand guard in"
 	line "this tower."
 
@@ -71,11 +71,11 @@ SageChowSeenText:
 	cont "honor all #MON."
 	done
 
-SageChowBeatenText:
+SageChowBeatenText: ; AUTOTRAD
 	text "Th-Thank you!"
 	done
 
-SageChowAfterBattleText:
+SageChowAfterBattleText: ; AUTOTRAD
 	text "All living beings"
 	line "coexist through"
 	cont "cooperation."
@@ -84,13 +84,13 @@ SageChowAfterBattleText:
 	line "thankful for this."
 	done
 
-SproutTower1FSage1Text:
+SproutTower1FSage1Text: ; AUTOTRAD
 	text "Only if you reach"
 	line "the top will you"
 	cont "obtain an HM."
 	done
 
-SproutTower1FSage2Text:
+SproutTower1FSage2Text: ; AUTOTRAD
 	text "SPROUT TOWER was"
 	line "built long ago"
 
@@ -98,7 +98,7 @@ SproutTower1FSage2Text:
 	line "#MON training."
 	done
 
-SproutTower1FGrannyText:
+SproutTower1FGrannyText: ; AUTOTRAD
 	text "A BELLSPROUT over"
 	line "100 feet tall…"
 
@@ -107,7 +107,7 @@ SproutTower1FGrannyText:
 	cont "pillar here."
 	done
 
-SproutTower1FTeacherText:
+SproutTower1FTeacherText: ; AUTOTRAD
 	text "See the pillar"
 	line "shaking?"
 
@@ -115,7 +115,7 @@ SproutTower1FTeacherText:
 	line "ing upstairs."
 	done
 
-SproutTower1FStatueText:
+SproutTower1FStatueText: ; AUTOTRAD
 	text "A #MON statue…"
 
 	para "It looks very"

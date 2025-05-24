@@ -28,7 +28,7 @@ BlackthornMartBlackBeltScript:
 BlackthornMartShelfItem1Script:
 	shelfitem 6, FULL_HEAL, 3600
 
-BlackthornMartCooltrainerMText:
+BlackthornMartCooltrainerMText: ; AUTOTRAD
 	text "You can't buy MAX"
 	line "REVIVE, but it"
 
@@ -42,7 +42,7 @@ BlackthornMartCooltrainerMText:
 	line "needed for moves."
 	done
 
-BlackthornMartBlackBeltText:
+BlackthornMartBlackBeltText: ; TO TRANSLATE
 	text "They say the"
 	line "inflation might"
 

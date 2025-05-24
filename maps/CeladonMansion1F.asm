@@ -42,7 +42,7 @@ CeladonMansionManagersSuiteSign:
 CeladonMansion1FBookshelf:
 	jumpstd PictureBookshelfScript
 
-CeladonMansionManagerText:
+CeladonMansionManagerText: ; AUTOTRAD
 	text "My dear #MON"
 	line "keep me company,"
 
@@ -53,21 +53,21 @@ CeladonMansionManagerText:
 	line "money home."
 	done
 
-CeladonMansion1FMeowthText:
+CeladonMansion1FMeowthText: ; AUTOTRAD
 	text "MEOWTH: Meow!"
 	done
 
-CeladonMansion1FClefairyText:
+CeladonMansion1FClefairyText: ; AUTOTRAD
 	text "CLEFAIRY: Clef"
 	line "cleff!"
 	done
 
-CeladonMansion1FNidoranFText:
+CeladonMansion1FNidoranFText: ; AUTOTRAD
 	text "NIDORAN: Kya"
 	line "kyaoo!"
 	done
 
-CeladonMansionManagersSuiteSignText:
+CeladonMansionManagersSuiteSignText: ; AUTOTRAD
 	text "CELADON MANSION"
 	line "MANAGER'S SUITE"
 	done

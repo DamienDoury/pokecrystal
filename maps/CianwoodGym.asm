@@ -237,14 +237,14 @@ CianwoodGymMovement_ChuckChucksBoulder:
 	remove_sliding
 	step_end
 
-ChuckIntroText1:
+ChuckIntroText1: ; TO TRANSLATE
 	text "WAHAHAH!"
 
 	para "So you've come"
 	line "this far!"
 	done
 
-ChuckIntroSequelText:
+ChuckIntroSequelText: ; TO TRANSLATE
 	text "Let me tell you,"
 	line "I'm tough!"
 
@@ -255,7 +255,7 @@ ChuckIntroSequelText:
 	para "Watch this!"
 	done
 
-ChuckIntroText2:
+ChuckIntroText2: ; AUTOTRAD
 	text "CHUCK: Urggh!"
 	line "…"
 
@@ -266,7 +266,7 @@ CianwoodGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-ChuckIntroText3:
+ChuckIntroText3: ; TO TRANSLATE
 	text "There! Scared now,"
 	line "are you?"
 
@@ -296,7 +296,7 @@ ChuckIntroText3:
 	para "Let's do this!"
 	done
 
-ChuckLossText:
+ChuckLossText: ; AUTOTRAD
 	text "Wha? Huh?"
 	line "I lost?"
 
@@ -305,12 +305,12 @@ ChuckLossText:
 	cont "STORMBADGE!"
 	done
 
-GetStormBadgeText:
+GetStormBadgeText: ; AUTOTRAD
 	text "<PLAYER> received"
 	line "STORMBADGE."
 	done
 
-ChuckExplainBadgeText:
+ChuckExplainBadgeText: ; TO TRANSLATE
 	text "STORMBADGE is"
 	line "only given to"
 
@@ -318,12 +318,12 @@ ChuckExplainBadgeText:
 	line "of trainers."
 	done
 
-ChuckExplainBadgeText2:
+ChuckExplainBadgeText2: ; TO TRANSLATE
 	text "Here, take this"
 	line "too!"
 	done
 
-Obey40:
+Obey40: ; TO TRANSLATE
 	text "This third badge"
 	line "lets all traded"
 
@@ -331,7 +331,7 @@ Obey40:
 	line "obey."
 	done
 
-Obey60:
+Obey60: ; TO TRANSLATE
 	text "The seventh badge"
 	line "you just earned"
 	cont "make #MON obey"
@@ -340,7 +340,7 @@ Obey60:
 	line "are under L60."
 	done
 
-ChuckExplainTMText:
+ChuckExplainTMText: ; AUTOTRAD
 	text "That is DYNAMIC-"
 	line "PUNCH."
 
@@ -351,7 +351,7 @@ ChuckExplainTMText:
 	line "confusion!"
 	done
 
-ChuckAfterText:
+ChuckAfterText: ; AUTOTRAD
 	text "WAHAHAH! I enjoyed"
 	line "battling you!"
 
@@ -363,24 +363,24 @@ ChuckAfterText:
 	cont "hours a day!"
 	done
 
-BlackbeltYoshiSeenText:
+BlackbeltYoshiSeenText: ; TO TRANSLATE
 	text "Do you know what"
 	line "toughness is?"
 	done
 
-BlackbeltYoshiBeatenText:
+BlackbeltYoshiBeatenText: ; TO TRANSLATE
 	text "Toughness is not"
 	line "being afraid."
 	done
 
-BlackbeltYoshiAfterText:
+BlackbeltYoshiAfterText: ; TO TRANSLATE
 	text "I'm not afraid of"
 	line "COVID!"
 	
 	para "I'm super tough!"
 	done
 
-BlackbeltLaoSeenText:
+BlackbeltLaoSeenText: ; TO TRANSLATE
 	text "If using a TM"
 	line "replenished PPs,"
 	
@@ -388,11 +388,11 @@ BlackbeltLaoSeenText:
 	line "fight all day!"
 	done
 
-BlackbeltLaoBeatenText:
+BlackbeltLaoBeatenText: ; TO TRANSLATE
 	text "Enough for today."
 	done
 
-BlackbeltLaoAfterText:
+BlackbeltLaoAfterText: ; TO TRANSLATE
 	text "Can you imagine"
 	line "having 2 TMs and"
 	
@@ -411,7 +411,7 @@ BlackbeltLaoAfterText:
 	line "overpowered."
 	done
 
-BlackbeltNobSeenText:
+BlackbeltNobSeenText: ; AUTOTRAD
 	text "Words are useless."
 	line "Let your fists do"
 	cont "the talking!"
@@ -421,28 +421,28 @@ BlackbeltNobBeatenText:
 	text "…"
 	done
 
-BlackbeltNobAfterText:
+BlackbeltNobAfterText: ; AUTOTRAD
 	text "I lost! "
 	line "I'm speechless!"
 	done
 
-BlackbeltLungSeenText:
+BlackbeltLungSeenText: ; AUTOTRAD
 	text "My raging fists"
 	line "will shatter your"
 	cont "#MON!"
 	done
 
-BlackbeltLungBeatenText:
+BlackbeltLungBeatenText: ; AUTOTRAD
 	text "I got shattered!"
 	done
 
-BlackbeltLungAfterText:
+BlackbeltLungAfterText: ; AUTOTRAD
 	text "My #MON lost…"
 	line "My… my pride is"
 	cont "shattered…"
 	done
 
-CianwoodGymGuideText:
+CianwoodGymGuideText: ; TO TRANSLATE
 	text "Yo!"
 
 	para "This GYM is all"
@@ -452,7 +452,7 @@ CianwoodGymGuideText:
 	line "fight!"
 	done
 
-CianwoodGymGuideWinText:
+CianwoodGymGuideWinText: ; TO TRANSLATE
 	text "What a fight!"
 	line "That was epic!"
 	
@@ -464,7 +464,7 @@ CianwoodGymGuideWinText:
 
 	done
 
-CianwoodGymGuideEggText:
+CianwoodGymGuideEggText: ; TO TRANSLATE
 	text "HEY YO!"
 	
 	para "What are you gon'"

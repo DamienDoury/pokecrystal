@@ -24,7 +24,7 @@ OlivineHouseBetaBookshelf1:
 OlivineHouseBetaBookshelf2:
 	jumpstd MagazineBookshelfScript
 
-OlivineHouseBetaTeacherText:
+OlivineHouseBetaTeacherText: ; AUTOTRAD
 	text "When my #MON"
 	line "got sick, the"
 
@@ -33,7 +33,7 @@ OlivineHouseBetaTeacherText:
 	cont "medicine for me."
 	done
 
-OlivineHouseBetaRhydonText:
+OlivineHouseBetaRhydonText: ; AUTOTRAD
 	text "RHYDON: Gugooh!"
 	done
 

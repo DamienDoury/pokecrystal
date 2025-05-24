@@ -159,7 +159,7 @@ BedShop_PinkBedScript:
 	setval DECO_PINK_BED
 	farsjump DisplayDecoNameScript
 	
-BedShop_OfferText:
+BedShop_OfferText: ; TO TRANSLATE
 	text "So you like the"
 	line "@"
 	text_ram wStringBuffer2
@@ -172,12 +172,12 @@ BedShop_OfferText:
 	line "¥{d:BED_PRICE}."
 	done
 
-BedShop_WelcomeText:
+BedShop_WelcomeText: ; TO TRANSLATE
 	text "Welcome to our"
 	line "store!"
 	done
 
-BedShop_LookAroundText:
+BedShop_LookAroundText: ; TO TRANSLATE
 	text "Please check out"
 	line "our beds, then"
 
@@ -186,13 +186,13 @@ BedShop_LookAroundText:
 	cont "you prefer."
 	done
 
-BedShop_SoldOutText:
+BedShop_SoldOutText: ; TO TRANSLATE
 	text "We are thrilled by"
 	line "our success!"
 	cont "We are sold out!"
 	done
 
-BedShop_PosterText:
+BedShop_PosterText: ; TO TRANSLATE
 	text "Best beds in town!"
 	done
 

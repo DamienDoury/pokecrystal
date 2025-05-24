@@ -327,7 +327,7 @@ Route45LevelIncrease:
 .end
 	end
 
-HikerErikSeenText:
+HikerErikSeenText: ; AUTOTRAD
 	text "Be prepared for"
 	line "anything!"
 
@@ -336,11 +336,11 @@ HikerErikSeenText:
 	cont "raised properly!"
 	done
 
-HikerErikBeatenText:
+HikerErikBeatenText: ; AUTOTRAD
 	text "Oh, I lost that!"
 	done
 
-HikerErikAfterBattleText:
+HikerErikAfterBattleText: ; AUTOTRAD
 	text "I'll head back to"
 	line "BLACKTHORN's ICE"
 
@@ -348,7 +348,7 @@ HikerErikAfterBattleText:
 	line "some more."
 	done
 
-HikerMichaelSeenText:
+HikerMichaelSeenText: ; AUTOTRAD
 	text "Yo! You're spunky!"
 	line "But you know what?"
 
@@ -357,12 +357,12 @@ HikerMichaelSeenText:
 	cont "I'm the man!"
 	done
 
-HikerMichaelBeatenText:
+HikerMichaelBeatenText: ; AUTOTRAD
 	text "My #MON weren't"
 	line "spunky enough!"
 	done
 
-HikerMichaelAfterBattleText:
+HikerMichaelAfterBattleText: ; AUTOTRAD
 	text "Boy, do I love"
 	line "HP UP! Mmmm, yum!"
 
@@ -372,17 +372,17 @@ HikerMichaelAfterBattleText:
 	para "I can't help it!"
 	done
 
-HikerParry3SeenText:
+HikerParry3SeenText: ; AUTOTRAD
 	text "My #MON are"
 	line "power packed!"
 	done
 
-HikerParry3BeatenText:
+HikerParry3BeatenText: ; AUTOTRAD
 	text "Wahahah! I'm the"
 	line "big loser!"
 	done
 
-HikerParryAfterBattleText:
+HikerParryAfterBattleText: ; AUTOTRAD
 	text "I'm not much good"
 	line "at thinking, see?"
 
@@ -390,7 +390,7 @@ HikerParryAfterBattleText:
 	line "ahead with power!"
 	done
 
-HikerTimothySeenText:
+HikerTimothySeenText: ; AUTOTRAD
 	text "Why do I climb"
 	line "mountains?"
 
@@ -404,12 +404,12 @@ HikerTimothySeenText:
 	line "there!"
 	done
 
-HikerTimothyBeatenText:
+HikerTimothyBeatenText: ; AUTOTRAD
 	text "Losses…"
 	line "They're there too!"
 	done
 
-HikerTimothyAfterBattleText:
+HikerTimothyAfterBattleText: ; AUTOTRAD
 	text "The best thing to"
 	line "ever happen to me"
 
@@ -417,7 +417,7 @@ HikerTimothyAfterBattleText:
 	line "#MON."
 	done
 
-HikerParryGivesIronText:
+HikerParryGivesIronText: ; AUTOTRAD
 	text "I just can't find"
 	line "a way to win!"
 
@@ -430,7 +430,7 @@ HikerParryGivesIronText:
 	line "when we last met."
 	done
 
-BlackbeltKenji3SeenText:
+BlackbeltKenji3SeenText: ; AUTOTRAD
 	text "I was training"
 	line "here alone."
 
@@ -438,11 +438,11 @@ BlackbeltKenji3SeenText:
 	line "of my labor!"
 	done
 
-BlackbeltKenji3BeatenText:
+BlackbeltKenji3BeatenText: ; AUTOTRAD
 	text "Waaaargh!"
 	done
 
-BlackbeltKenjiAfterBattleText:
+BlackbeltKenjiAfterBattleText: ; AUTOTRAD
 	text "This calls for"
 	line "extreme measures."
 
@@ -451,13 +451,13 @@ BlackbeltKenjiAfterBattleText:
 	cont "solitude."
 	done
 
-BlackbeltKenjiMorningText:
+BlackbeltKenjiMorningText: ; AUTOTRAD
 	text "I'm going to train"
 	line "a bit more before"
 	cont "I break for lunch."
 	done
 
-BlackbeltKenjiNightText:
+BlackbeltKenjiNightText: ; AUTOTRAD
 	text "We had plenty of"
 	line "rest at lunch, so"
 
@@ -468,18 +468,18 @@ BlackbeltKenjiNightText:
 	line "train again!"
 	done
 
-CooltrainermRyanSeenText:
+CooltrainermRyanSeenText: ; AUTOTRAD
 	text "What are your"
 	line "thoughts on rais-"
 	cont "ing #MON?"
 	done
 
-CooltrainermRyanBeatenText:
+CooltrainermRyanBeatenText: ; AUTOTRAD
 	text "You've won my"
 	line "respect."
 	done
 
-CooltrainermRyanAfterBattleText:
+CooltrainermRyanAfterBattleText: ; AUTOTRAD
 	text "I see you're rais-"
 	line "ing your #MON"
 	cont "with care."
@@ -489,7 +489,7 @@ CooltrainermRyanAfterBattleText:
 	cont "tough situations."
 	done
 
-CooltrainerfKellySeenText:
+CooltrainerfKellySeenText: ; AUTOTRAD
 	text "What is your"
 	line "battle strategy?"
 
@@ -498,11 +498,11 @@ CooltrainerfKellySeenText:
 	cont "indiscriminately."
 	done
 
-CooltrainerfKellyBeatenText:
+CooltrainerfKellyBeatenText: ; AUTOTRAD
 	text "Fine. I lost."
 	done
 
-CooltrainerfKellyAfterBattleText:
+CooltrainerfKellyAfterBattleText: ; AUTOTRAD
 	text "I'm not in favor"
 	line "of overly power-"
 	cont "ful moves."
@@ -512,17 +512,17 @@ CooltrainerfKellyAfterBattleText:
 	cont "to harm #MON."
 	done
 
-CamperQuentinSeenText:
+CamperQuentinSeenText: ; AUTOTRAD
 	text "I'm really, really"
 	line "tough!"
 	done
 
-CamperQuentinBeatenText:
+CamperQuentinBeatenText: ; AUTOTRAD
 	text "I was tough at the"
 	line "BATTLE TOWER…"
 	done
 
-CamperQuentinAfterBattleText:
+CamperQuentinAfterBattleText: ; AUTOTRAD
 	text "Have you been to"
 	line "the BATTLE TOWER?"
 
@@ -530,7 +530,7 @@ CamperQuentinAfterBattleText:
 	line "there, but…"
 	done
 
-Route45SignText:
+Route45SignText: ; AUTOTRAD
 	text "ROUTE 45"
 	line "MOUNTAIN RD. AHEAD"
 	done

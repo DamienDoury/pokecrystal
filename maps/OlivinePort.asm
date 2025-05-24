@@ -313,18 +313,18 @@ OlivinePortApproachFastShipAfterHOFMovement:
 	step LEFT
 	step_end
 
-OlivinePortSailorGetOnBoardText:
+OlivinePortSailorGetOnBoardText: ; AUTOTRAD
 	text "We're departing"
 	line "soon. Please get"
 	cont "on board."
 	done
 
-OlivinePortCantBoardText:
+OlivinePortCantBoardText: ; AUTOTRAD
 	text "Sorry. You can't"
 	line "board now."
 	done
 
-OlivinePortAskBoardText:
+OlivinePortAskBoardText: ; AUTOTRAD
 	text "Welcome to FAST"
 	line "SHIP S.S.AQUA."
 
@@ -332,12 +332,12 @@ OlivinePortAskBoardText:
 	line "ing today?"
 	done
 
-OlivinePortAskTicketText:
+OlivinePortAskTicketText: ; AUTOTRAD
 	text "May I see your"
 	line "S.S.TICKET?"
 	done
 
-OlivinePortFlashTicketText:
+OlivinePortFlashTicketText: ; AUTOTRAD
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET."
 
@@ -345,12 +345,12 @@ OlivinePortFlashTicketText:
 	line "Thank you!"
 	done
 
-OlivinePortAskPassportText:
+OlivinePortAskPassportText: ; TO TRANSLATE
 	text "I also need to see"
 	line "your TRAINER CARD."
 	done
 
-OlivinePortFakeIDText:
+OlivinePortFakeIDText: ; TO TRANSLATE
 	text "What? It's the pic-"
 	line "ture of someone"
 	cont "else on the CARD!"
@@ -359,13 +359,13 @@ OlivinePortFakeIDText:
 	line "call the police!"
 	done
 
-OlivinePortFlashPassportText:
+OlivinePortFlashPassportText: ; TO TRANSLATE
 	text "Everything is in"
 	line "order. You can"
 	cont "go on!"
 	done
 
-OlivinePortNoTicketText:
+OlivinePortNoTicketText: ; AUTOTRAD
 	text "<PLAYER> tried to"
 	line "show the S.S."
 	cont "TICKET…"
@@ -379,7 +379,7 @@ OlivinePortNoTicketText:
 	line "S.S.TICKET."
 	done
 
-OlivinePortCantShowPassportText:
+OlivinePortCantShowPassportText: ; TO TRANSLATE
 	text "<PLAYER> tried to"
 	line "show the TRAINER"
 	cont "CARD…"
@@ -388,12 +388,12 @@ OlivinePortCantShowPassportText:
 	line "have it!"
 	done
 
-OlivinePortShowPassportText:
+OlivinePortShowPassportText: ; TO TRANSLATE
 	text "<PLAYER> flashed"
 	line "the TRAINER CARD."
 	done
 
-OlivinePortPassportInvalidText:
+OlivinePortPassportInvalidText: ; TO TRANSLATE
 	text "Sorry!"
 	
 	para "You need to show"
@@ -403,7 +403,7 @@ OlivinePortPassportInvalidText:
 	line "VACCINE PASSPORT."
 	done
 
-OlivinePortPassportNoBoosterText:
+OlivinePortPassportNoBoosterText: ; TO TRANSLATE
 	text "Sorry!"
 	line "Your VACCINE PASS-"
 	cont "PORT is expired."
@@ -412,27 +412,27 @@ OlivinePortPassportNoBoosterText:
 	line "now required."
 	done
 
-OlivinePortMondayShipText:
+OlivinePortMondayShipText: ; AUTOTRAD
 	text "The FAST SHIP will"
 	line "sail next Monday."
 	done
 
-OlivinePortWednesdayShipText:
+OlivinePortWednesdayShipText: ; TO TRANSLATE
 	text "The FAST SHIP will"
 	line "sail on Wednesday."
 	done
 
-OlivinePortFridayShipText:
+OlivinePortFridayShipText: ; AUTOTRAD
 	text "The FAST SHIP will"
 	line "sail next Friday."
 	done
 
-OlivinePortSundayShipText:
+OlivinePortSundayShipText: ; TO TRANSLATE
 	text "The FAST SHIP will"
 	line "sail next Sunday."
 	done
 
-OlivinePortFishingGuru1Text:
+OlivinePortFishingGuru1Text: ; AUTOTRAD
 	text "SHELLDER are easy"
 	line "to catch here."
 
@@ -440,7 +440,7 @@ OlivinePortFishingGuru1Text:
 	line "rare elsewhere."
 	done
 
-OlivinePortFishingGuru2Text:
+OlivinePortFishingGuru2Text: ; AUTOTRAD
 	text "How many RODS do"
 	line "you have?"
 
@@ -449,20 +449,20 @@ OlivinePortFishingGuru2Text:
 	cont "#MON."
 	done
 
-OlivinePortYoungsterText:
+OlivinePortYoungsterText: ; AUTOTRAD
 	text "S.S.AQUA uses jets"
 	line "to skim over the"
 	cont "waves!"
 	done
 
-OlivinePortCooltrainerFText:
+OlivinePortCooltrainerFText: ; AUTOTRAD
 	text "There are lots of"
 	line "#MON in KANTO."
 
 	para "I wish I could go…"
 	done
 
-OlivinePortSailorBeforeHOFText:
+OlivinePortSailorBeforeHOFText: ; AUTOTRAD
 	text "We don't want you"
 	line "to fall into the"
 
@@ -470,7 +470,7 @@ OlivinePortSailorBeforeHOFText:
 	line "allowed in."
 	done
 
-OlivinePortAttentionSeekerText:
+OlivinePortAttentionSeekerText: ; TO TRANSLATE
 	text "I'm not allowed"
 	line "to swim here."
 

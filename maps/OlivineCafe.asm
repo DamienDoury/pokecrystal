@@ -34,7 +34,7 @@ OlivineCafeSailorScript:
 	faceplayer
 	jumptext OlivineCafeSailorText2
 
-OlivineCafeSailorStrengthText:
+OlivineCafeSailorStrengthText: ; TO TRANSLATE
 	text "OLIVINE CAFE used"
 	line "to serve hearty"
 
@@ -50,12 +50,12 @@ OlivineCafeSailorStrengthText:
 	line "to BERRY salads."
 	done
 
-OlivineCafeSailorText:
+OlivineCafeSailorText: ; TO TRANSLATE
 	text "Hurry up!"
 	line "CHOP CHOP!"
 	done
 	
-OlivineCafeSailorText2:
+OlivineCafeSailorText2: ; TO TRANSLATE
 	text "If I ain't gettin"
 	line "my order quickly,"
 	cont "Imma miss m'boat!"

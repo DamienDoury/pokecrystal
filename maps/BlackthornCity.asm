@@ -194,7 +194,7 @@ BlackthornCity_StepDownMovement:
 	step DOWN
 	step_end
 
-BlackthornGrampsRefusesEntryText:
+BlackthornGrampsRefusesEntryText: ; AUTOTRAD
 	text "No. Only chosen"
 	line "trainers may train"
 
@@ -202,7 +202,7 @@ BlackthornGrampsRefusesEntryText:
 	line "Please leave."
 	done
 
-BlackthornGrampsLockdownText:
+BlackthornGrampsLockdownText: ; TO TRANSLATE
 	text "I know I shouldn't"
 	line "be out. But nei-"
 	cont "ther should you."
@@ -211,13 +211,13 @@ BlackthornGrampsLockdownText:
 	line "CLAIR's order."
 	done
 
-BlackthornGrampsViolationText:
+BlackthornGrampsViolationText: ; TO TRANSLATE
 	text "How dared you"
 	line "enter this sacred"
 	cont "place uninvited!"
 	done
 
-BlackthornGrampsGrantsEntryText:
+BlackthornGrampsGrantsEntryText: ; AUTOTRAD
 	text "If CLAIR allows"
 	line "it, her grand-"
 	cont "father--our MASTER"
@@ -226,13 +226,13 @@ BlackthornGrampsGrantsEntryText:
 	para "You may enter."
 	done
 
-BlackBeltText_WeirdRadio:
+BlackBeltText_WeirdRadio: ; AUTOTRAD
 	text "My radio's busted?"
 	line "Lately, I only get"
 	cont "this weird signal."
 	done
 
-BlackBeltText_VoicesInMyHead:
+BlackBeltText_VoicesInMyHead: ; AUTOTRAD
 	text "Arooo! Voices in"
 	line "my head!"
 
@@ -240,19 +240,19 @@ BlackBeltText_VoicesInMyHead:
 	line "to my radio!"
 	done
 
-BlackthornCooltrainerF1Text:
+BlackthornCooltrainerF1Text: ; AUTOTRAD
 	text "Are you going to"
 	line "make your #MON"
 	cont "forget some moves?"
 	done
 
-BlackthornYoungsterText:
+BlackthornYoungsterText: ; AUTOTRAD
 	text "Dragon masters all"
 	line "come from the city"
 	cont "of BLACKTHORN."
 	done
 
-MeetSantosText:
+MeetSantosText: ; AUTOTRAD
 	text "SANTOS: …"
 
 	para "It's Saturday…"
@@ -261,11 +261,11 @@ MeetSantosText:
 	line "Saturday…"
 	done
 
-SantosGivesGiftText:
+SantosGivesGiftText: ; AUTOTRAD
 	text "You can have this…"
 	done
 
-SantosGaveGiftText:
+SantosGaveGiftText: ; AUTOTRAD
 	text "SANTOS: …"
 
 	para "SPELL TAG…"
@@ -277,7 +277,7 @@ SantosGaveGiftText:
 	line "you…"
 	done
 
-SantosSaturdayText:
+SantosSaturdayText: ; AUTOTRAD
 	text "SANTOS: …"
 
 	para "See you again on"
@@ -287,12 +287,12 @@ SantosSaturdayText:
 	line "more gifts…"
 	done
 
-SantosNotSaturdayText:
+SantosNotSaturdayText: ; AUTOTRAD
 	text "SANTOS: Today's"
 	line "not Saturday…"
 	done
 
-BlackthornCooltrainerF2Text:
+BlackthornCooltrainerF2Text: ; AUTOTRAD
 	text "Wow, you came"
 	line "through the ICE"
 	cont "PATH?"
@@ -301,14 +301,14 @@ BlackthornCooltrainerF2Text:
 	line "hotshot trainer!"
 	done
 
-BlackthornCitySignText:
+BlackthornCitySignText: ; AUTOTRAD
 	text "BLACKTHORN CITY"
 
 	para "A Quiet Mountain"
 	line "Retreat"
 	done
 
-BlackthornGymSignText:
+BlackthornGymSignText: ; AUTOTRAD
 	text "BLACKTHORN CITY"
 	line "#MON GYM"
 	cont "LEADER: CLAIR"
@@ -317,17 +317,17 @@ BlackthornGymSignText:
 	line "of Dragon #MON"
 	done
 
-MoveDeletersHouseSignText:
+MoveDeletersHouseSignText: ; AUTOTRAD
 	text "MOVE DELETER'S"
 	line "HOUSE"
 	done
 
-DragonDensSignText:
+DragonDensSignText: ; AUTOTRAD
 	text "DRAGON'S DEN"
 	line "AHEAD"
 	done
 
-BlackthornCityTrainerTipsText:
+BlackthornCityTrainerTipsText: ; AUTOTRAD
 	text "TRAINER TIPS"
 
 	para "A #MON holding"

@@ -127,16 +127,16 @@ FastShipLazySailorLeavesMovement:
 	step UP
 	step_end
 
-CooltrainermSeanSeenText:
+CooltrainermSeanSeenText: ; AUTOTRAD
 	text "I'm going to KANTO"
 	line "to test my skills."
 	done
 
-CooltrainermSeanBeatenText:
+CooltrainermSeanBeatenText: ; AUTOTRAD
 	text "I wanted to win!"
 	done
 
-CooltrainermSeanAfterBattleText:
+CooltrainermSeanAfterBattleText: ; AUTOTRAD
 	text "Trainers from"
 	line "JOHTO can battle"
 
@@ -144,32 +144,32 @@ CooltrainermSeanAfterBattleText:
 	line "LEADERS."
 	done
 
-CooltrainerfCarolSeenText:
+CooltrainerfCarolSeenText: ; AUTOTRAD
 	text "I'm training to"
 	line "become the CHAMP!"
 	done
 
-CooltrainerfCarolBeatenText:
+CooltrainerfCarolBeatenText: ; AUTOTRAD
 	text "What's so differ-"
 	line "ent between us?"
 	done
 
-CooltrainerfCarolAfterBattleText:
+CooltrainerfCarolAfterBattleText: ; AUTOTRAD
 	text "I'm going to beat"
 	line "you someday!"
 	done
 
-PokemaniacEthanSeenText:
+PokemaniacEthanSeenText: ; AUTOTRAD
 	text "Do you know LILY?"
 	line "She's a hot DJ in"
 	cont "KANTO."
 	done
 
-PokemaniacEthanBeatenText:
+PokemaniacEthanBeatenText: ; AUTOTRAD
 	text "Gyaaaah!"
 	done
 
-PokemaniacEthanAfterBattleText:
+PokemaniacEthanAfterBattleText: ; AUTOTRAD
 	text "LILY's nice, but"
 	line "MARY's the best!"
 
@@ -178,17 +178,17 @@ PokemaniacEthanAfterBattleText:
 	cont "programs!"
 	done
 
-HikerNolandSeenText:
+HikerNolandSeenText: ; AUTOTRAD
 	text "Are you alone?"
 	line "Then let's battle!"
 	done
 
-HikerNolandBeatenText:
+HikerNolandBeatenText: ; AUTOTRAD
 	text "That's too much to"
 	line "handle!"
 	done
 
-HikerNolandAfterBattleText:
+HikerNolandAfterBattleText: ; AUTOTRAD
 	text "I wonder if there"
 	line "are any mountains"
 
@@ -196,7 +196,7 @@ HikerNolandAfterBattleText:
 	line "KANTO?"
 	done
 
-SailorStanlySeenText:
+SailorStanlySeenText: ; AUTOTRAD
 	text "Yeah, I'm a sail-"
 	line "or, all right."
 
@@ -211,30 +211,30 @@ SailorStanlySeenText:
 	line "Let's battle!"
 	done
 
-SailorStanlyBeatenText:
+SailorStanlyBeatenText: ; AUTOTRAD
 	text "Sorry! It's all my"
 	line "fault!"
 	done
 
-SailorStanlyAfterBattleText:
+SailorStanlyAfterBattleText: ; AUTOTRAD
 	text "Being a sailor, I"
 	line "have to do phys-"
 	cont "ical labor. It's"
 	cont "exhausting!"
 	done
 
-GentlemanEdwardSeenText:
+GentlemanEdwardSeenText: ; AUTOTRAD
 	text "Oh, no. I've lost"
 	line "something that's"
 	cont "very important."
 	done
 
-GentlemanEdwardBeatenText:
+GentlemanEdwardBeatenText: ; AUTOTRAD
 	text "I… I can't find"
 	line "it…"
 	done
 
-GentlemanEdwardAfterBattleText:
+GentlemanEdwardAfterBattleText: ; AUTOTRAD
 	text "I give up."
 	line "You don't have to"
 
@@ -242,17 +242,17 @@ GentlemanEdwardAfterBattleText:
 	line "about it!"
 	done
 
-BurglarCoreySeenText:
+BurglarCoreySeenText: ; AUTOTRAD
 	text "Yeehaw!"
 	line "Lucky!"
 	done
 
-BurglarCoreyBeatenText:
+BurglarCoreyBeatenText: ; AUTOTRAD
 	text "How unlucky!"
 	line "I lost!"
 	done
 
-BurglarCoreyAfterBattleText:
+BurglarCoreyAfterBattleText: ; AUTOTRAD
 	text "I found a pretty"
 	line "coin here."
 
@@ -260,7 +260,7 @@ BurglarCoreyAfterBattleText:
 	line "lost it…"
 	done
 
-FastShipJasmineText:
+FastShipJasmineText: ; TO TRANSLATE
 	text "JASMINE: I'm not"
 	line "in the mood for"
 	cont "a battle…"
