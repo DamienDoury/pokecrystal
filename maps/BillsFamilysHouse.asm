@@ -120,7 +120,7 @@ BillsHouseBookshelf2:
 BillsHouseRadio:
 	jumpstd Radio2Script
 
-BillTakeThisEeveeText:
+BillTakeThisEeveeText: ; TO TRANSLATE
 	text "BILL: Hi, <PLAYER>!"
 	line "Have you noticed"
 	cont "that the PSS"

@@ -96,7 +96,7 @@ CarpetShopMenu:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
 	db "RED@"

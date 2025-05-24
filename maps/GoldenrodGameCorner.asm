@@ -260,7 +260,7 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "TM25    3000@"
@@ -346,7 +346,7 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "CUBONE      400@"
@@ -635,26 +635,26 @@ else
 	done
 endc
 
-GoldenrodGameCornerCooltrainerMText:
+GoldenrodGameCornerCooltrainerMText: ; AUTOTRAD
 if DEF(_CRYSTAL_AU)
 	text "Nothing is certain"
 	line "in this area."
 	done
-else
+else ; TO TRANSLATE
 	text "Life is a gamble."
 	line "I'm going to flip"
 	cont "cards till I drop!"
 	done
 endc
 
-GoldenrodGameCornerPokefanFText:
+GoldenrodGameCornerPokefanFText: ; AUTOTRAD
 	text "Card flip…"
 
 if DEF(_CRYSTAL_AU)
 	para "Different from the"
 	line "other machines."
 	done
-else
+else ; TO TRANSLATE
 	para "I prefer it over"
 	line "the slots because"
 

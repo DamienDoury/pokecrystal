@@ -161,7 +161,7 @@ MoveTutorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "FLAMETHROWER@"

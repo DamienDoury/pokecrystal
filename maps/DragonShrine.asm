@@ -280,7 +280,7 @@ DragonShrineQuestion1_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Pal@"
@@ -293,7 +293,7 @@ DragonShrineQuestion2_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Strategy@"
@@ -306,7 +306,7 @@ DragonShrineQuestion3_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Weak person@"
@@ -319,7 +319,7 @@ DragonShrineQuestion4_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Love@"
@@ -332,7 +332,7 @@ DragonShrineQuestion5_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
 	db "Tough@"

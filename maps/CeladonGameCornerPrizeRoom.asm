@@ -114,7 +114,7 @@ CeladonPrizeRoom_TMMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
 	db "TM32    {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
@@ -199,7 +199,7 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; AUTOTRAD
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "PIKACHU    {d:CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS}@"

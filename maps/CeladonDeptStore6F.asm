@@ -87,7 +87,7 @@ CeladonDeptStore6FVendingMachine:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData:
+.MenuData: ; TO TRANSLATE
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
 	db "FRESH WATER  ¥{d:CELADONDEPTSTORE6F_FRESH_WATER_PRICE}@"
