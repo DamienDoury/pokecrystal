@@ -75,7 +75,11 @@ CatchTutorial::
 	ret
 
 .Dude:
+if DEF(_FR_FR)
+	db "COPAIN@"
+else
 	db "DUDE@"
+endc
 
 .AutoInput:
 	db NO_INPUT, $ff ; end

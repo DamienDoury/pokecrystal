@@ -108,16 +108,30 @@ DisplayMoneyAndCoinBalance:
 	hlcoord 6, 3
 	ld de, CoinString
 	call PlaceString
+if DEF(_FR_FR)
+	hlcoord 14, 3
+else
 	hlcoord 15, 3
+endc
 	ld de, wCoins
 	lb bc, 2, 4
 	call PrintNum
 	ret
 
 MoneyString:
+if DEF(_FR_FR)
+	db "ARG.@"
+else
 	db "MONEY@"
+endc
+
 CoinString:
+if DEF(_FR_FR)
+	db "JETON@"
+else
 	db "COIN@"
+endc
+
 ShowMoney_TerminatorString:
 	db "@"
 
@@ -156,7 +170,11 @@ StartMenu_PrintSafariGameStatus: ; unreferenced
 StartMenu_DrawBugContestStatusBox:
 	hlcoord 0, 0
 	ld b, 5
+if DEF(_FR_FR)
+	ld c, 18
+else
 	ld c, 17
+endc
 	call Textbox
 	ret
 
@@ -184,7 +202,11 @@ StartMenu_PrintBugContestStatus:
 	call GetPokemonName
 
 .no_contest_mon
+if DEF(_FR_FR)
+	hlcoord 9, 1
+else
 	hlcoord 8, 1
+endc
 	call PlaceString
 	ld a, [wContestMon]
 	and a
@@ -204,16 +226,33 @@ StartMenu_PrintBugContestStatus:
 	ld [wOptions], a
 	ret
 
-.BallsJPString: ; unreferenced
-	db "ボール　　　こ@"
 .CaughtString:
+if DEF(_FR_FR)
+	db "PRIS@"
+else
 	db "CAUGHT@"
+endc
+
 .BallsString:
+if DEF(_FR_FR)
 	db "BALLS:@"
+else
+	db "BALLS:@"
+endc
+
 .NoneString:
+if DEF(_FR_FR)
+	db "Aucun@"
+else
 	db "None@"
+endc
+
 .LevelString:
+if DEF(_FR_FR)
+	db "NIVEAU@"
+else
 	db "LEVEL@"
+endc
 
 FindApricornsInBag:
 ; Checks the bag for Apricorns.

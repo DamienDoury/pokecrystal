@@ -66,10 +66,18 @@ GiveShuckle:
 	ret
 
 SpecialShuckleOT:
+if DEF(_FR_FR)
 	db "MANIA@"
+else
+	db "MANIA@"
+endc
 
 SpecialShuckleNickname:
+if DEF(_FR_FR)
+	db "NESSY@"
+else
 	db "SHUCKIE@"
+endc
 
 ReturnShuckie:
 	farcall SelectMonFromParty

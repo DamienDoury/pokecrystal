@@ -170,7 +170,11 @@ Elevator_GetCurrentFloorText:
 	ret
 
 Elevator_CurrentFloorText:
+if DEF(_FR_FR)
+	db "Etage:@"
+else
 	db "Now on:@"
+endc
 
 Elevator_GetCurrentFloorString:
 	push hl

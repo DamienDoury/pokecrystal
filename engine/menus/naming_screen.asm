@@ -124,8 +124,13 @@ endc
 	ret
 
 .NicknameStrings:
+if DEF(_FR_FR)
+	db "@"
+	db "SURNOM?@"
+else
 	db "'S@"
 	db "NICKNAME?@"
+endc
 
 .Player:
 	farcall GetPlayerIcon

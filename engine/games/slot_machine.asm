@@ -231,43 +231,6 @@ SlotsLoop:
 	call PrintNum
 	ret
 
-DebugPrintSlotBias: ; unreferenced
-	ld a, [wSlotBias]
-	add 0
-	daa
-	ld e, a
-	and $f
-	add "0"
-	hlcoord 1, 0
-	ld [hl], a
-	ld a, e
-	swap a
-	and $f
-	add "0"
-	hlcoord 0, 0
-	ld [hl], a
-	ret
-
-AnimateSlotReelIcons: ; unreferenced
-; This animation was present in pokegold-spaceworld.
-	ld hl, wUnusedSlotReelIconDelay
-	ld a, [hl]
-	inc [hl]
-	and $7
-	ret nz
-	ld hl, wVirtualOAMSprite16TileID
-	ld c, NUM_SPRITE_OAM_STRUCTS - 16
-.loop
-	ld a, [hl]
-	xor $20 ; alternate between $00-$1f and $20-$3f
-	ld [hli], a ; tile id
-rept SPRITEOAMSTRUCT_LENGTH - 1
-	inc hl
-endr
-	dec c
-	jr nz, .loop
-	ret
-
 SlotsJumptable:
 	jumptable .Jumptable, wJumptableIndex
 
@@ -1768,16 +1731,26 @@ Slots_AskBet:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 15, 6, SCREEN_WIDTH - 1, 13
+else
 	menu_coords 14, 10, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "3@"
+	db "2@"
+	db "1@"
+else
 	db " 3@"
 	db " 2@"
 	db " 1@"
+endc
 
 Slots_AskPlayAgain:
 	ld hl, wCoins

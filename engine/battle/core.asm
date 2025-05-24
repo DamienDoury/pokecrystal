@@ -1859,10 +1859,17 @@ HandleScreens:
 	ld hl, wStringBuffer1
 	jp CopyName2
 
+if DEF(_FR_FR)
+.Your:
+	db "de votre POKéMON@"
+.Enemy:
+	db "du POKéMON ennemi@"
+else
 .Your:
 	db "Your@"
 .Enemy:
 	db "Enemy@"
+endc
 
 .LightScreenTick:
 	ld a, [de]
@@ -6111,7 +6118,11 @@ MoveInfoBox:
 	ret
 
 .Disabled:
+if DEF(_FR_FR)
+	db "Entravé@"
+else
 	db "Disabled@"
+endc
 
 .PrintPP:
 	hlcoord 4, 11
@@ -8701,7 +8712,11 @@ DisplayLinkBattleResult:
 	jr .store_result
 
 .store_result
+if DEF(_FR_FR)
+	hlcoord 3, 8
+else
 	hlcoord 6, 8
+endc
 	call PlaceString
 	farcall BackupMobileEventIndex
 	ld c, 200
@@ -8727,12 +8742,21 @@ DisplayLinkBattleResult:
 	call ClearTilemap
 	ret
 
+if DEF(_FR_FR)
+.YouWin:
+	db "    GAGNE     @"
+.YouLose:
+	db "    PERDU     @"
+.Draw:
+	db "  MATCH NUL   @"
+else
 .YouWin:
 	db "YOU WIN@"
 .YouLose:
 	db "YOU LOSE@"
 .Draw:
 	db "  DRAW@"
+endc
 
 .Mobile_InvalidBattle:
 	hlcoord 6, 8
@@ -8744,7 +8768,11 @@ DisplayLinkBattleResult:
 	ret
 
 .InvalidBattle:
+if DEF(_FR_FR)
+	db "CBT NON CONFORME@"
+else
 	db "INVALID BATTLE@"
+endc
 
 IsMobileBattle2:
 	ld a, [wLinkMode]
@@ -8895,12 +8923,22 @@ ReadAndPrintLinkBattleRecord:
 .Format:
 	db "  ---  <LF>"
 	db "         -    -    -@"
+	
+if DEF(_FR_FR)
+.Record:
+	db "RECORD de <PLAYER>@"
+.Result:
+	db "RES GAGNE PERDU NUL@"
+.Total:
+	db "TOT GAGNE PERDU NUL@"
+else
 .Record:
 	db "<PLAYER>'s RECORD@"
 .Result:
 	db "RESULT WIN LOSE DRAW@"
 .Total:
 	db "TOTAL  WIN LOSE DRAW@"
+endc
 
 BattleEnd_HandleRoamMons:
 	ld a, [wBattleType]

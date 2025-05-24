@@ -205,7 +205,11 @@ PrintBlueCardBalance:
 	ret
 
 .Points_string:
+if DEF(_FR_FR)
 	db "Points@"
+else
+	db "Points@"
+endc
 
 BlueCardBalanceMenuHeader:
 	db MENU_BACKUP_TILES ; flags

@@ -88,7 +88,11 @@ NameRival:
 	ret
 
 .DefaultName:
+if DEF(_FR_FR)
 	db "SILVER@"
+else
+	db "SILVER@"
+endc
 
 NameRater:
 	farcall _NameRater

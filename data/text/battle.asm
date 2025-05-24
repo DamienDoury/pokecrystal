@@ -343,8 +343,8 @@ endc
 
 BattleText_MonsLightScreenFell:
 if DEF(_FR_FR)
-	text "MUR LUMIERE de"
-	line "#MON @"
+	text "MUR LUMIERE"
+	line "@"
 	text_ram wStringBuffer1
 	text_start
 	cont "s'évanouit!"
@@ -358,10 +358,10 @@ endc
 
 BattleText_MonsReflectFaded:
 if DEF(_FR_FR)
-	text "PROTECTION de"
+	text "PROTECTION"
 	line "@"
 	text_ram wStringBuffer1
-	text " #MON"
+	text_start
 	cont "s'évanouit!"
 	prompt
 else

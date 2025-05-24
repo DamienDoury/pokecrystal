@@ -250,8 +250,13 @@ Options_BattleScene:
 	and a
 	ret
 
+if DEF(_FR_FR)
 OnText:  db "ON @"
 OffText: db "OFF@"
+else
+OnText:  db "ON @"
+OffText: db "OFF@"
+endc
 
 Options_FastBoot:
 	ld hl, wOptions
@@ -375,8 +380,13 @@ Options_Sound:
 	and a
 	ret
 
+if DEF(_FR_FR)
 .Mono:   db "MONO  @"
 .Stereo: db "STEREO@"
+else
+.Mono:   db "MONO  @"
+.Stereo: db "STEREO@"
+endc
 
 	const_def
 	const OPT_PRINT_LIGHTEST ; 0

@@ -302,6 +302,19 @@ VaccinePassportControllerChatScript::
 	jumptextfaceplayer .dialog ; This happens way after the clapping, so no issue here.
 
 .dialog
+if DEF(_FR_FR)
+	text "Je scanne les"
+	line "CARTES DRESSEUR"
+	cont "pour vérifier le"
+	cont "PASS VACCINAL."
+
+	para "Seules les per-"
+	line "sonnes entièrement"
+	cont "vaccinées, et"
+	cont "portant un MASQUE"
+	cont "sont admises."
+	done
+else
 	text "I scan TRAINER"
 	line "CARDS to check for"
 	cont "VACCINE PASSPORTS."
@@ -311,6 +324,8 @@ VaccinePassportControllerChatScript::
 	cont "ing a face mask"
 	cont "are allowed in."
 	done
+endc
+
 
 TravelControllerChatScript::
 	faceplayer
@@ -433,6 +448,34 @@ endc
 	step_end
 
 TravelBanWarningText:
+if DEF(_FR_FR)
+	text "Ha! Pris en"
+	line "flagrant délit!"
+
+	para "Tu as enfreint"
+	line "l'interdiction"
+	cont "de voyager."
+
+	para "..."
+
+	para "Tu en as entendu"
+	line "parler... non?"
+
+	para "Tu vis dans une"
+	line "grotte ou quoi?"
+
+	para "..."
+
+	para "Je t'emmène au"
+	line "POSTE DE POLICE."
+
+	para "On doit faire un"
+	line "test PCR afin de"
+	cont "s'assurer que tu"
+	cont "n'apportes pas le"
+	cont "virus d'ailleurs."
+	done
+else
 	text "Ha! Caught you"
 	line "red handed!"
 
@@ -461,8 +504,23 @@ TravelBanWarningText:
 	cont "bringing the virus"
 	cont "from afar."
 	done
+endc
 
 TravelBanArrestText:
+if DEF(_FR_FR)
+	text "ARRETEZ-VOUS!"
+
+	para "Pris en train"
+	line "d'enfreindre"
+	cont "l'interdiction"
+	cont "de voyager."
+
+	para "Vous êtes en état"
+	line "d'arrestation."
+	
+	para "Suivez-moi."
+	done
+else
 	text "STOP RIGHT HERE!"
 
 	para "You have been"
@@ -475,8 +533,24 @@ TravelBanArrestText:
 	para "I'm taking you"
 	line "with me."
 	done
+endc
 
 TravelFineText1:
+if DEF(_FR_FR)
+	text "POLICIER: Je ne"
+	line "t'ai jamais vu ici."
+
+	para "Je passe l'éponge"
+	line "pour cette fois."
+
+	para "Considère que c'est"
+	line "un avertissement."
+
+	para "La prochaine fois"
+	line "que je te vois, ce"
+	cont "sera une amende."
+	done
+else
 	text "OFFICER: I've never"
 	line "seen you here."
 
@@ -489,8 +563,25 @@ TravelFineText1:
 	para "Next time I see"
 	line "you, it's a fine."
 	done
+endc
 
 TravelFineText1Bis:
+if DEF(_FR_FR)
+	text "POLICIER: Le dos-"
+	line "sier indique que"
+	
+	para "ce n'est pas la"
+	line "première fois que"
+	cont "tu enfreins l'"
+	cont "interdiction de"
+	cont "voyager..."
+
+	para "Ton amende sera"
+	line "de @"
+	text_decimal hMoneyTemp, 3, 6
+	text "¥."
+	done
+else
 	text "OFFICER: The file"
 	line "says that it's not"
 	
@@ -503,15 +594,39 @@ TravelFineText1Bis:
 	text_decimal hMoneyTemp, 3, 6
 	text "."
 	done
+endc
 
 TravelFineText2:
+if DEF(_FR_FR)
+	text "Ton test PCR"
+	line "est négatif."
+
+	para "Tu es libre."
+	done
+else
 	text "Your PCR test"
 	line "was negative."
 
 	para "You're free to go."
 	done
+endc
 
 TravelControllerAlwaysText:
+if DEF(_FR_FR)
+	text "Ne fais pas gaffe"
+	line "à moi."
+
+	para "Je suis ici pour"
+	line "faire appliquer"
+	cont "l'interdiction de"
+	cont "voyager."
+
+	para "J'arrête seulement"
+	line "les dresseurs qui"
+	cont "utilisent VOL ou"
+	cont "TELEPORT."
+	done
+else
 	text "Don't mind me."
 	line "I'm here to enforce"
 	cont "the travel ban."
@@ -520,8 +635,25 @@ TravelControllerAlwaysText:
 	line "trainers that use"
 	cont "FLY or TELEPORT."
 	done
+endc
 
 TravelControllerMorningOnlyText:
+if DEF(_FR_FR)
+	text "Cette ville est"
+	line "un trou paumé!"
+
+	para "Je veille au"
+	line "respect de"
+	cont "l'interdiction de"
+	cont "voyager,"
+	
+	para "mais comme"
+	line "personne ne vient"
+	cont "ici, je ne bosse"
+	cont "que la demie-"
+	cont "journée."
+	done
+else
 	text "This town's in the"
 	line "middle of nowhere!"
 
@@ -534,8 +666,21 @@ TravelControllerMorningOnlyText:
 	cont "I only work half"
 	cont "of the day."
 	done
-	
+endc
+
 TravelControllerMorningPauseText:
+if DEF(_FR_FR)
+	text "Je suis contrôleur"
+	line "de l'interdiction"
+	cont "de voyager, et j'ai"
+	cont "besoin d'un café."
+
+	para "Je fais tellement"
+	line "d'heures que je"
+	cont "peine à me lever"
+	cont "chaque matin..."
+	done
+else
 	text "I'm a long-distance"
 	line "travel controller,"
 	cont "and I need coffee."
@@ -545,8 +690,23 @@ TravelControllerMorningPauseText:
 	cont "hard to wake up"
 	cont "every morning…"
 	done
+endc
 
 TravelControllerDayPauseText:
+if DEF(_FR_FR)
+	text "Tu es au courant"
+	line "de l'interdiction"
+	cont "de voyager?"
+
+	para "Je reste ici toute"
+	line "la nuit jusqu'à"
+	cont "tard le matin,"
+	
+	para "pour m'assurer que"
+	line "tout le monde la"
+	cont "respecte."
+	done
+else
 	text "Have you heard"
 	line "about the travel"
 	cont "restriction?"
@@ -558,8 +718,23 @@ TravelControllerDayPauseText:
 	para "to make sure"
 	line "people respect it."
 	done
+endc
 
 TravelControllerNightPauseText:
+if DEF(_FR_FR)
+	text "Je traque les gens"
+	line "qui utilisent VOL"
+	cont "ou TELEPORT malgré"
+	cont "l'interdiction."
+
+	para "Mon secret pour"
+	line "rester vigilant"
+	cont "toute la journée?"
+	
+	para "Une bonne nuit"
+	line "de sommeil!"
+	done
+else
 	text "I search for"
 	line "trainers that use"
 	cont "FLY or TELEPORT"
@@ -572,3 +747,4 @@ TravelControllerNightPauseText:
 	para "A good night's"
 	line "sleep!"
 	done
+endc

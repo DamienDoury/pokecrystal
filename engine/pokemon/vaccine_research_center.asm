@@ -318,7 +318,11 @@ _SilphCo_PlayerGetsPropertyOfTestSubject::
     ret
 
 LanaTrainerName:
+if DEF(_FR_FR)
     db "LANA@"
+else
+    db "LANA@"
+endc
 
 SelectScarfTheVaccinatedFurret::
     ld a, -1

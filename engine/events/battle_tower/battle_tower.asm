@@ -482,7 +482,11 @@ endr
 	ret
 
 BT_ChrisName:
+if DEF(_FR_FR)
 	db "CHRIS@"
+else
+	db "CHRIS@"
+endc
 
 Function17042c:
 	ld hl, w3_d202TrainerData

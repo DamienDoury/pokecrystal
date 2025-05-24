@@ -4536,9 +4536,8 @@ if DEF(_FR_FR)
 	para "“En raison de la"
 	line "crise sanitaire,"
 
-	para "notre établis-"
-	line "sement doit"
-	cont "rester fermé"
+	para "cet établissement"
+	line "doit rester fermé"
 
 	para "jusqu'à nouvel"
 	line "ordre.”"

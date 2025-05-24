@@ -37,7 +37,11 @@ _PlayerDecorationMenu:
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 4, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+else
 	menu_coords 5, 0, SCREEN_WIDTH - 1, SCREEN_HEIGHT - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -60,6 +64,16 @@ _PlayerDecorationMenu:
 	dw DecoExitMenu,     .exit
 	assert_table_length NUM_DECO_CATEGORIES + 1
 
+if DEF(_FR_FR)
+.bed:      db "LIT@"
+.carpet:   db "TAPIS@"
+.plant:    db "PLANTE@"
+.poster:   db "POSTER@"
+.game:     db "CONSOLE@"
+.ornament: db "DECORATION@"
+.big_doll: db "GROSSE POUPEE@"
+.exit:     db "QUITTER@"
+else
 .bed:      db "BED@"
 .carpet:   db "CARPET@"
 .plant:    db "PLANT@"
@@ -68,6 +82,7 @@ _PlayerDecorationMenu:
 .ornament: db "ORNAMENT@"
 .big_doll: db "BIG DOLL@"
 .exit:     db "EXIT@"
+endc
 
 .FindCategoriesWithOwnedDecos:
 	xor a
@@ -375,7 +390,7 @@ PopulateDecoCategoryMenu:
 	ld [wMenuScrollPosition], a
 	call ScrollingMenu
 	ld a, [wMenuJoypad]
-	cp 2
+	cp B_BUTTON
 	jr z, .no_action_2
 	call DoDecorationAction2
 
@@ -877,16 +892,26 @@ QueryWhichSide:
 
 DecoSideMenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 0, 0, 11, 7
+else
 	menu_coords 0, 0, 13, 7
+endc
 	dw .MenuData
 	db 1 ; default option
 
 .MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "A DROITE@"
+	db "A GAUCHE@"
+	db "RETOUR@"
+else
 	db "RIGHT SIDE@"
 	db "LEFT SIDE@"
 	db "CANCEL@"
+endc
 
 PutAwayTheDecoText:
 	text_far _PutAwayTheDecoText

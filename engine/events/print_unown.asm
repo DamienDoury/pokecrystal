@@ -197,20 +197,40 @@ _UnownPrinter:
 	ret
 
 AlphRuinsStampString:
+if DEF(_FR_FR)
+	db "TAMPON RUIN. ALPHA@"
+else
 	db " ALPH RUINS STAMP@"
+endc
 
 UnownDexDoWhatString:
+if DEF(_FR_FR)
+	db "Que faire?@"
+else
 	db "Do what?@"
+endc
 
 UnownDexMenuString:
+if DEF(_FR_FR)
+	db   UNOWNSTAMP_BOLD_A, " IMPRIMER"
+	next UNOWNSTAMP_BOLD_B, " ANNULER"
+	next "← RETOUR"
+	next "→ SUITE"
+	db   "@"
+else
 	db   UNOWNSTAMP_BOLD_A, " PRINT"
 	next UNOWNSTAMP_BOLD_B, " CANCEL"
 	next "← PREVIOUS"
 	next "→ NEXT"
 	db   "@"
+endc
 
 UnownDexVacantString:
+if DEF(_FR_FR)
+	db "  VIDE@"
+else
 	db "VACANT@"
+endc
 
 UnownDexATile:
 INCBIN "gfx/printer/bold_a.1bpp"

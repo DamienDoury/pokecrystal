@@ -346,7 +346,11 @@ InitializeNPCNames:
 	call CopyBytes
 	ret
 
+if DEF(_FR_FR)
 .Rival:  db "???@"
+else
+.Rival:  db "???@"
+endc
 
 InitializeWorld:
 	call ShrinkPlayer
@@ -706,7 +710,11 @@ endc
 	ret
 
 .three_question_marks
+if DEF(_FR_FR)
 	db " ???@"
+else
+	db " ???@"
+endc
 
 Continue_DisplayBadgeCount:
 	push hl
@@ -899,7 +907,11 @@ NamePlayer:
 	ret
 
 .Chris:
+if DEF(_FR_FR)
 	db "CHRIS@@@@@@"
+else
+	db "CHRIS@@@@@@"
+endc
 .Kris:
 if DEF(_FR_FR)
 	db "CHRISTY@@@@"

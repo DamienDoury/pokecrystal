@@ -201,9 +201,15 @@ GetCaughtTime:
 	ret
 
 .times
+if DEF(_FR_FR)
+	db "MATIN@"
+	db "JOUR@"
+	db "NUIT@"
+else
 	db "Morning@"
 	db "Day@"
 	db "Night@"
+endc
 
 UnknownCaughtData:
 	ld hl, .unknown
@@ -212,7 +218,11 @@ UnknownCaughtData:
 	ret
 
 .unknown
+if DEF(_FR_FR)
+	db "INCONNU@"
+else
 	db "Unknown@"
+endc
 
 GetCaughtLocation:
 	ld a, [wSeerCaughtGender]

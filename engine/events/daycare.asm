@@ -887,7 +887,11 @@ DayCare_InitBreeding:
 	ret
 
 .String_EGG:
+if DEF(_FR_FR)
+	db "OEUF@"
+else
 	db "EGG@"
+endc
 
 ; Input: number of days since last save in B.
 ; Increases the level of the Pokémons at the daycare by 1 for every day the player hasn't played, starting at day 2.

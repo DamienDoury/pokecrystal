@@ -525,13 +525,29 @@ TellCovidVariant:
 	ret
 
 .alpha
+if DEF(_FR_FR)
 	db "ALPHA@"
+else
+	db "ALPHA@"
+endc
 
 .delta
+if DEF(_FR_FR)
 	db "DELTA@"
+else
+	db "DELTA@"
+endc
 
 .omicronBAtwo
+if DEF(_FR_FR)
 	db "BA.2@"
+else
+	db "BA.2@"
+endc
 
 .omicronBAfive
+if DEF(_FR_FR)
 	db "BA.5@"
+else
+	db "BA.5@"
+endc

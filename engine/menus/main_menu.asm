@@ -70,14 +70,17 @@ if DEF(_FR_FR)
 	db "NOUVEAU JEU@"
 	db "OPTIONS@"
 	db "CADEAU MYSTERE@"
+	db "MOBILE@"
+	db "MOBILE STADIUM@"
 else
 	db "CONTINUE@"
 	db "NEW GAME@"
 	db "OPTION@"
 	db "MYSTERY GIFT@"
-endc
 	db "MOBILE@"
 	db "MOBILE STADIUM@"
+endc
+	
 if DEF(_DEBUG)
 	db "DEBUG ROOM@"
 endc

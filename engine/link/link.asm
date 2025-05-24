@@ -16,13 +16,23 @@ LinkCommunications:
 	call LoadFontsBattleExtra
 	farcall LinkComms_LoadPleaseWaitTextboxBorderGFX
 	call WaitBGMap2
+if DEF(_FR_FR)
+	hlcoord 4, 8
+	ld b, 2
+	ld c, 10
+else
 	hlcoord 3, 8
 	ld b, 2
 	ld c, 12
+endc
 	ld d, h
 	ld e, l
 	farcall LinkTextbox2
+if DEF(_FR_FR)
+	hlcoord 5, 10
+else
 	hlcoord 4, 10
+endc
 	ld de, String_PleaseWait
 	call PlaceString
 	call SetTradeRoomBGPals
@@ -410,7 +420,11 @@ ExchangeBytes:
 	ret
 
 String_PleaseWait:
+if DEF(_FR_FR)
+	db "UN MOMENT…@"
+else
 	db "PLEASE WAIT!@"
+endc
 
 ClearLinkData:
 	ld hl, wLinkData
@@ -1006,13 +1020,7 @@ LinkTrade_TradeStatsMenu:
 	call PlaceHLTextAtBC
 
 .cancel_trade
-	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
-	call LinkTextboxAtHL
-	hlcoord 1, 14
-	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	call DisplayTradeCancelled
 	ld a, $1
 	ld [wPlayerLinkAction], a
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
@@ -1025,11 +1033,24 @@ LinkTrade_TradeStatsMenu:
 	text_end
 
 .String_Stats_Trade:
+if DEF(_FR_FR)
+	db "STATS     ECHANGE@"
+else
 	db "STATS     TRADE@"
+endc
 
 .LinkAbnormalMonText:
 	text_far _LinkAbnormalMonText
 	text_end
+
+DisplayTradeCancelled:
+	hlcoord 0, 12
+	ld b, 4
+	ld c, 18
+	call LinkTextboxAtHL
+	hlcoord 1, 14
+	ld de, String_TooBadTheTradeWasCanceled
+	jp PlaceString
 
 LinkTradeOTPartymonMenuCheckCancel:
 	ld a, [wMenuCursorY]
@@ -1106,7 +1127,17 @@ LinkTradePlaceArrow:
 	hlcoord 6, 9
 	ld bc, SCREEN_WIDTH
 	call AddNTimes
+if DEF(_FR_FR)
+; I'm unsure about this.
+	;ld [hl], $1f
+	;ld bc, MON_NAME_LENGTH
+	;add hl, bc
+	;ld [hl], $1f
+	
 	ld [hl], "▷"
+else
+	ld [hl], "▷"
+endc
 	ret
 
 LinkEngine_FillBox:
@@ -1158,16 +1189,32 @@ LinkTrade:
 	bccoord 1, 14
 	call PlaceHLTextAtBC
 	call LoadStandardMenuHeader
+if DEF(_FR_FR)
+	hlcoord 9, 7
+else
 	hlcoord 10, 7
+endc
 	ld b, 3
+if DEF(_FR_FR)
+	ld c, 8
+else
 	ld c, 7
+endc
 	call LinkTextboxAtHL
 	ld de, String_TradeCancel
+if DEF(_FR_FR)
+	hlcoord 11, 8
+else
 	hlcoord 12, 8
+endc
 	call PlaceString
 	ld a, 8
 	ld [w2DMenuCursorInitY], a
+if DEF(_FR_FR)
+	ld a, 10
+else
 	ld a, 11
+endc
 	ld [w2DMenuCursorInitX], a
 	ld a, 1
 	ld [w2DMenuNumCols], a
@@ -1198,13 +1245,7 @@ LinkTrade:
 .canceled
 	ld a, $1
 	ld [wPlayerLinkAction], a
-	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
-	call LinkTextboxAtHL
-	hlcoord 1, 14
-	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	call DisplayTradeCancelled
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
 	jp InitTradeMenuDisplay_Delay
 
@@ -1216,13 +1257,7 @@ LinkTrade:
 	dec a
 	jr nz, .do_trade
 ; If we're here, the other player canceled the trade
-	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
-	call LinkTextboxAtHL
-	hlcoord 1, 14
-	ld de, String_TooBadTheTradeWasCanceled
-	call PlaceString
+	call DisplayTradeCancelled
 	jp InitTradeMenuDisplay_Delay
 
 .do_trade
@@ -1487,19 +1522,33 @@ InitTradeMenuDisplay_Delay:
 	jp InitTradeMenuDisplay
 
 String_TradeCancel:
+if DEF(_FR_FR)
+	db   "ECHANGE"
+	next "ANNULER@"
+else
 	db   "TRADE"
 	next "CANCEL@"
+endc
 
 LinkAskTradeForText:
 	text_far _LinkAskTradeForText
 	text_end
 
 String_TradeCompleted:
+if DEF(_FR_FR)
+	db   "ECHANGE TERMINE!@"
+else
 	db   "Trade completed!@"
+endc
 
 String_TooBadTheTradeWasCanceled:
+if DEF(_FR_FR)
+	db   "Dommage! L'échange"
+	next "est annulé!@"
+else
 	db   "Too bad! The trade"
 	next "was canceled!@"
+endc
 
 LinkTextboxAtHL:
 	ld d, h
@@ -1513,8 +1562,7 @@ LoadTradeScreenBorderGFX:
 
 SetTradeRoomBGPals:
 	farcall LoadTradeRoomBGPals ; just a nested farcall; so wasteful
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 INCLUDE "engine/movie/trade_animation.asm"
 

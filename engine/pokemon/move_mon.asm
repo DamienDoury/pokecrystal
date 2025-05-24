@@ -1431,7 +1431,11 @@ GiveEgg::
 	ret
 
 String_Egg:
+if DEF(_FR_FR)
+	db "OEUF@"
+else
 	db "EGG@"
+endc
 
 RemoveMonFromPartyOrBox:
 	ld hl, wPartyCount

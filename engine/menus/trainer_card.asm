@@ -422,7 +422,11 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	jp ClearBox
 
 .Dex_PlayTime:
+if DEF(_FR_FR)
 	db   "#DEX"
+else
+	db   "#DEX"
+endc
 
 if DEF(_FR_FR)
 	next "DUREE JEU@"

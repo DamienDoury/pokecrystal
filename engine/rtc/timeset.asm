@@ -317,7 +317,11 @@ OakTimeHowManyMinutesText:
 	text_end
 
 String_min:
+if DEF(_FR_FR)
 	db "min.@"
+else
+	db "min.@"
+endc
 
 OakTimeWhoaMinutesText:
 	; Whoa!@ @

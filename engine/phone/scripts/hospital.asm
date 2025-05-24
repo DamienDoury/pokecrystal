@@ -35,6 +35,61 @@ HospitalCallerScript:
 	end
 
 .HospitalContactTracingAvailableText
+if DEF(_FR_FR)
+	text "Bonne nouvelle"
+	line "<PLAYER>!"
+
+	para "Nous avons une"
+	line "arme nouvelle"
+	cont "contre la"
+	cont "pandémie!"
+
+	para "Un génie nommé LEO"
+	line "a créé un nouveau"
+	cont "module pour le"
+	cont "#GEAR."
+
+	para "Une fois"
+	line "installé, il"
+	cont "trace ton chemin"
+	cont "toute la journée"
+	cont "et stocke les"
+	cont "infos."
+
+	para "Si une personne"
+	line "ou son #MON est"
+	cont "détectée comme"
+	cont "contaminée,"
+
+	para "l'appli retrace"
+	line "le trajet de"
+	cont "l'utilisateur"
+	cont "pour trouver"
+
+	para "les autres"
+	line "utilisateurs"
+	cont "qu'il a"
+	cont "croisés."
+
+	para "Ces personnes"
+	line "pourront alors"
+	cont "être prévenues."
+
+	para "C'est ce qu'on"
+	line "appelle le TRAçAGE"
+	cont "DES CONTACTS."
+
+	para "Plus nous sommes"
+	line "nombreux à"
+	cont "l'utiliser, plus"
+	cont "c'est efficace."
+
+	para "Tu devrais récu-"
+	line "pérer ce nouveau"
+	cont "COUPON pour ton"
+	cont "#GEAR."
+	done
+else
 	text "Good news <PLAYER>!"
 	line "We have a new"
 	cont "weapon against"
@@ -75,14 +130,28 @@ HospitalCallerScript:
 	para "You should get"
 	line "this CARD."
 	done
+endc
 
 .HospitalContactTracingAvailableEcruteakText
+if DEF(_FR_FR)
+	text "LEO travaille"
+	line "actuellement à"
+	cont "ROSALIA."
+	done
+else
 	text "BILL is currently"
 	line "working in ECRU-"
 	cont "TEAK CITY."
 	done
+endc
 
 .HospitalContactTracingAvailableGoldenrodText
+if DEF(_FR_FR)
+	text "LEO séjourne à"
+	line "DOUBLONVILLE."
+	done
+else
 	text "BILL is staying in"
 	line "GOLDENROD CITY."
 	done
+endc

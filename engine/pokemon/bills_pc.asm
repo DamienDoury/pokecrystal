@@ -1430,7 +1430,11 @@ endc
 	ret
 
 .Placeholder:
+if DEF(_FR_FR)
 	db "-----@"
+else
+	db "-----@"
+endc
 
 copy_box_data: MACRO
 .loop\@

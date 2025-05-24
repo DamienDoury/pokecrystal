@@ -92,6 +92,10 @@ _GiveOddEgg:
 	ret
 
 .Odd:
+if DEF(_FR_FR)
+	db "BIZAR@@@@@@@"
+else
 	db "ODD@@@@@@@@@"
+endc
 
 INCLUDE "data/events/odd_eggs.asm"

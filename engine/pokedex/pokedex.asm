@@ -1268,9 +1268,15 @@ endc
 	db $3d, "        ", $3e, -1
 
 .Types:
+if DEF(_FR_FR)
 	db   "TYPE1"
 	next "TYPE2"
 	db   "@"
+else
+	db   "TYPE1"
+	next "TYPE2"
+	db   "@"
+endc
 
 .Menu:
 if DEF(_FR_FR)

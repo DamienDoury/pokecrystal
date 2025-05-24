@@ -133,12 +133,13 @@ if DEF(_FR_FR)
 	next "ne fonctionne"
 	next "qu"
 	db   "'avec la" ; uses char "'" instead of char "u'"
+	next "Game Boy Color.@"
 else
 	db   "This Game Pak is"
 	next "designed only for"
 	next "use on the"
-endc
 	next "Game Boy Color.@"
+endc
 
 GBCOnlyGFX:
 if DEF(_FR_FR)

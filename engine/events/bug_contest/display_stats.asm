@@ -27,11 +27,19 @@ DisplayCaughtContestMonStats:
 	ld de, .This
 	call PlaceString
 
+if DEF(_FR_FR)
+	hlcoord 4, 4
+else
 	hlcoord 5, 4
+endc
 	ld de, .Health
 	call PlaceString
 
+if DEF(_FR_FR)
+	hlcoord 4, 10
+else
 	hlcoord 5, 10
+endc
 	ld de, .Health
 	call PlaceString
 
@@ -58,12 +66,20 @@ DisplayCaughtContestMonStats:
 	ld [wTempMonLevel], a
 	call PrintLevel
 
+if DEF(_FR_FR)
+	hlcoord 10, 4
+else
 	hlcoord 11, 4
+endc
 	ld de, wContestMonMaxHP
 	lb bc, 2, 3
 	call PrintNum
 
+if DEF(_FR_FR)
+	hlcoord 10, 10
+else
 	hlcoord 11, 10
+endc
 	ld de, wEnemyMonMaxHP
 	call PrintNum
 
@@ -80,11 +96,25 @@ DisplayCaughtContestMonStats:
 	ret
 
 .Health:
+if DEF(_FR_FR)
+	db "   VIE@"
+else
 	db "HEALTH@"
+endc
+
 .Stock:
+if DEF(_FR_FR)
+	db " STOCKER <PKMN> @"
+else
 	db " STOCK <PKMN> @"
+endc
+
 .This:
+if DEF(_FR_FR)
+	db " CE <PKMN> @"
+else
 	db " THIS <PKMN>  @"
+endc
 
 ContestAskSwitchText:
 	text_far _ContestAskSwitchText
