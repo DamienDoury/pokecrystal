@@ -572,8 +572,8 @@ if DEF(_FR_FR)
 	
 	para "ce n'est pas la"
 	line "première fois que"
-	cont "tu enfreins l'"
-	cont "interdiction de"
+	cont "tu enfreins"
+	cont "l'interdiction de"
 	cont "voyager..."
 
 	para "Ton amende sera"
@@ -601,7 +601,8 @@ if DEF(_FR_FR)
 	text "Ton test PCR"
 	line "est négatif."
 
-	para "Tu es libre."
+	para "Tu es libre"
+	line "de partir."
 	done
 else
 	text "Your PCR test"
