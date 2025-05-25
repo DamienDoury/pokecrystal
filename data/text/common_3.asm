@@ -3373,6 +3373,51 @@ else
 	done
 endc	
 
+TV_FirstCovidShowText::
+if DEF(_FR_FR)
+	text "Au journal TV,"
+	line "un médecin débat"
+	cont "avec un politicien"
+	cont "au sujet d'un"
+	cont "nouveau virus."
+
+	para "Le médecin semble"
+	line "nerveux."
+
+	para "Le politicien rit"
+	line "et dit qu'il n'y a"
+
+	para "aucune raison"
+	line "de paniquer."
+
+	para "..."
+
+	para "Je ferais mieux"
+	line "de sortir."
+	done
+else
+	text "On the news,"
+	line "a doctor debates"
+	cont "with a politician"
+	cont "about a newly"
+	cont "discovered virus."
+
+	para "The doctor seems"
+	line "nervous."
+
+	para "The politician"
+	line "laughes and says"
+
+	para "there is no need"
+	line "to panic."
+
+	para "…"
+
+	para "I better"
+	line "get going."
+	done
+endc
+
 _FirstLockdownDeclarationText::
 if DEF(_FR_FR)
 	text "FLASH SPECIAL"
@@ -3467,7 +3512,38 @@ else
 	line "save lives,"
 	cont "stay safe.”"
 	done
-endc	
+endc
+
+Phase6Even3Text::
+if DEF(_FR_FR)
+	text "NECROLOGIE"
+
+	para "“Le bien-aimé"
+	line "MAITRE RED, porté"
+	cont "disparu depuis"
+	cont "plusieurs mois,"
+	cont "a succombé au"
+	cont "virus."
+
+	para "<PLAYER> devient"
+	line "le MAITRE #MON"
+	cont "officiel.”"
+	done
+else
+	text "OBITUARY"
+
+	para "“Beloved CHAMPION"
+	line "RED that had been"
+	cont "missing for months"
+	cont "has succumbed to"
+	cont "the virus."
+
+	para "<PLAYER> who was"
+	line "co-CHAMPION is now"
+	cont "the official"
+	cont "CHAMPION.”"
+	done
+endc
 
 
 

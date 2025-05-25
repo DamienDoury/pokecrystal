@@ -1,4 +1,105 @@
 TVShow:
+	opentext
+	writetext .Phase1Even1Text
+	waitbutton
+
+	writetext .Phase1Even2Text
+	waitbutton
+
+	writetext .Phase1Even3Text
+	waitbutton
+
+	writetext .Phase1Odd1Text
+	waitbutton
+
+	writetext .Phase1Odd2Text
+	waitbutton
+
+	writetext .Phase1Odd3Text
+	waitbutton
+
+	writetext .Phase2Even1Text
+	waitbutton
+
+	writetext .Phase2Even2Text
+	waitbutton
+
+	writetext .Phase2Even3Text
+	waitbutton
+
+	writetext .Phase2Odd1Text
+	waitbutton
+
+	writetext .Phase2Odd2Text
+	waitbutton
+
+	farwritetext TV_FirstCovidShowText
+	waitbutton
+
+	writetext .Phase3Even1Text
+	waitbutton
+
+	writetext .Phase3Even2Text
+	waitbutton
+
+	writetext .Phase3Even3Text
+	waitbutton
+
+	writetext .Phase3Odd1Text
+	waitbutton
+
+	writetext .Phase3Odd2Text
+	waitbutton
+
+	writetext .Phase3Odd3Text
+	waitbutton
+
+	writetext .Phase4Even1Text
+	waitbutton
+
+	writetext .Phase4Even2Text
+	waitbutton
+
+	writetext .Phase4Even3Text
+	waitbutton
+
+	writetext .Phase4Odd1Text
+	waitbutton
+
+	writetext .Phase4Odd2Text
+	waitbutton
+
+	writetext .Phase4Odd3Text
+	waitbutton
+
+
+	writetext .Phase5Even1Text
+	waitbutton
+
+	writetext .Phase5Even2Text
+	waitbutton
+
+	writetext .Phase5Even3Text
+	waitbutton
+
+	writetext .Phase5Odd1Text
+	waitbutton
+
+	writetext .Phase5Odd2Text
+	waitbutton
+
+	writetext .Phase5Odd3Text
+	waitbutton
+
+	farwritetext Phase6Even3Text
+	waitbutton
+
+	writetext .Phase6Odd2Text
+	waitbutton
+
+	closetext
+	end
+
 	checkevent EVENT_RED_BEATEN
 	iffalse .Phase6
 	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
@@ -12,7 +113,6 @@ TVShow:
 	checkevent EVENT_GOT_HM01_CUT
 	iftrue .FirstLockdownDeclaration
 	sjump .Phase1
-	end
 
 .Phase1:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
@@ -37,8 +137,7 @@ TVShow:
 	iftrue .Phase1Odd2
 	checktime NITE
 	iftrue .Phase1Odd3
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 .FirstLockdownDeclaration:
 	farjumptext _FirstLockdownDeclarationText
@@ -61,8 +160,7 @@ TVShow:
 	iftrue .Phase2Odd1
 	checktime NITE
 	iftrue .Phase2Odd2
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 .Phase3:
 	readvar VAR_WEEKDAY
@@ -85,8 +183,7 @@ TVShow:
 	iftrue .Phase3Odd2
 	checktime NITE
 	iftrue .Phase3Odd3
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 .Phase4:
 	readvar VAR_WEEKDAY
@@ -109,8 +206,7 @@ TVShow:
 	iftrue .Phase4Odd2
 	checktime NITE
 	iftrue .Phase4Odd3
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 .Phase5:
 	readvar VAR_WEEKDAY
@@ -133,8 +229,7 @@ TVShow:
 	iftrue .Phase5Odd2
 	checktime NITE
 	iftrue .Phase5Odd3
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 .Phase6:
 	readvar VAR_WEEKDAY
@@ -157,8 +252,7 @@ TVShow:
 	iftrue .Phase6Odd2
 	checktime NITE
 	iftrue .Phase6Odd2
-	jumptext .TV_DefaultText
-	end
+	farjumptext TVText
 
 
 
@@ -177,6 +271,30 @@ TVShow:
 	jumptext .Phase1Odd1Text
 
 .Phase1Odd1Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "Dans une autre"
+	line "région, pour"
+	cont "ralentir l'épidé-"
+	cont "mie, les hommes et"
+	cont "les femmes ne sont"
+	cont "pas autorisés à"
+	cont "sortir le même"
+	cont "jour de la"
+	cont "semaine."
+
+	para "Cela me fait"
+	line "me demander..."
+
+	para "Les personnes"
+	line "non binaires"
+	cont "peuvent-elles"
+	cont "sortir chaque"
+	cont "jour ou bien"
+	cont "jamais?"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "In another region,"
@@ -198,11 +316,33 @@ TVShow:
 	cont "locked inside all"
 	cont "the time?"
 	done
+endc
+
 
 .Phase1Odd2:
 	jumptext .Phase1Odd2Text
 
 .Phase1Odd2Text:
+if DEF(_FR_FR)
+	text "ITW POLITIQUE"
+
+	para "“Notre pays est"
+	line "parfaitement pré-"
+	cont "paré à faire face"
+	cont "à une épidémie."
+
+	para "Ce virus ne nous"
+	line "atteindra pas."
+
+	para "Dans trois mois"
+	line "tout sera"
+	cont "derrière nous.” -"
+
+	para "annonce le chef"
+	line "politique d'une"
+	cont "autre région."
+	done
+else
 	text "POLITICAL ITW"
 
 	para "“Our region is"
@@ -218,11 +358,39 @@ TVShow:
 	para "says the leader"
 	line "of another region."
 	done
+endc
+
 
 .Phase1Odd3:
 	jumptext .Phase1Odd3Text
 
 .Phase1Odd3Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“En tant que"
+	line "président, je vous"
+	cont "encourage à vivre"
+	cont "et sortir comme"
+	cont "avant."
+
+	para "Nous sommes un"
+	line "peuple fort et"
+	cont "fier. Ce"
+	cont "virus ne nous"
+	cont "affectera pas.”"
+
+	para "..."
+
+	para "Ce président doit"
+	line "être le genre de"
+	cont "personne qui pense"
+	cont "qu'on peut battre"
+	cont "un virus en le"
+	cont "frappant avec ses"
+	cont "poings..."
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“As the president"
@@ -248,11 +416,61 @@ TVShow:
 	para "is to punch it in"
 	line "the face."
 	done
+endc
+
 
 .Phase1Even1:
 	jumptext .Phase1Even1Text
 
 .Phase1Even1Text:
+if DEF(_FR_FR)
+	text "ITW POLITIQUE"
+
+	para "“Les masques ne"
+	line "sont pas néces-"
+	cont "saires pour tout"
+	cont "le monde."
+
+	para "Et vous savez"
+	line "quoi? Moi je sais"
+	cont "pas utiliser un"
+	cont "masque."
+
+	para "J'pourrais dire"
+	line "“Je suis ministre"
+	cont "j'me mets un"
+	cont "masque” mais"
+	cont "en fait je sais"
+	cont "pas l'utiliser."
+	
+	para "L'utilisation d'un"
+	line "masque, ce sont"
+	cont "des gestes tech-"
+	cont "niques précis."
+
+	para "Sinon on se gratte"
+	line "le nez sous le"
+	cont "masque, et bah en"
+	cont "fait on a du"
+	cont "virus sur les"
+	cont "mains."
+
+	para "Sinon on a une"
+	line "utilisation qui"
+	cont "n'est pas bonne,"
+
+	para "et ça peut être"
+	line "même contre-"
+	cont "productif.”"
+
+	para "..."
+
+	para "La porte parole du"
+	line "gouvernement nous"
+	cont "prendrait-elle"
+	cont "pour des abrutis?"
+	done
+else
 	text "POLITICAL ITW"
 
 	para "“People shouldn't"
@@ -297,11 +515,27 @@ TVShow:
 
 	;cont " A face mask is just a piece of paper with 2 elastics: what's so complicated about it? It blocks viruses from going in and out your mouth and nose: what's so dangerous about it? Does this person think we are stupid? Please fire this spokeperson."
 	done
+endc
+
 
 .Phase1Even2:
 	jumptext .Phase1Even2Text
 
 .Phase1Even2Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "Dans une autre"
+	line "région, les gens"
+	cont "sont autorisés à"
+	cont "sortir seulement"
+	cont "certains jours de"
+	cont "la semaine qui"
+	cont "sont définis par"
+	cont "le dernier chiffre"
+	cont "de leur numéro ID."
+	done
+else
 	text "INTERNATIONAL"
 
 	para "In another region"
@@ -312,11 +546,30 @@ TVShow:
 	cont "figure of their"
 	cont "TRAINER ID."
 	done
+endc
+
 
 .Phase1Even3:
 	jumptext .Phase1Even3Text
 
 .Phase1Even3Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Le président"
+	line "d'Unys qualifie"
+	cont "le virus de"
+	cont "“virus Kantonais”,"
+	cont "suscitant la haine"
+	cont "contre Kanto."
+
+	para "Neuf agressions"
+	line "contre des"
+	cont "immigrés de Kanto"
+	cont "ont depuis été"
+	cont "signalées à Unys.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“The president of"
@@ -333,6 +586,8 @@ TVShow:
 	cont "reported in"
 	cont "Unova.”"
 	done
+endc
+
 
 
 
@@ -347,6 +602,47 @@ TVShow:
 	jumptext .Phase2Odd1Text
 
 .Phase2Odd1Text:
+if DEF(_FR_FR)
+	text "FLASH SPECIAL"
+
+	para "“Avec le confine-"
+	line "ment maintenant"
+	cont "décrété à JOHTO,"
+	
+	para "seuls les commer-"
+	line "ces essentiels"
+	cont "sont autorisés à"
+	cont "rester ouverts,"
+
+	para "s'ils respectent"
+	line "les mesures"
+	cont "sanitaires."
+
+	para "Les commerces non"
+	line "essentiels sont:"
+
+	para "arts,"
+	line "loisirs,"
+
+	para "sports,"
+	line "voyages,"
+
+	para "tourisme,"
+	line "restaurants,"
+
+	para "centres"
+	line "commerciaux,"
+	cont "etc."
+
+	para "Pour savoir si"
+	line "votre activité"
+	cont "est autorisée,"
+
+	para "consultez la liste"
+	line "complète sur notre"
+	cont "site internet.”"
+	done
+else
 	text "BREAKING NEWS"
 
 	para "“With the lockdown"
@@ -357,7 +653,7 @@ TVShow:
 	line "businesses are"
 	cont "allowed to stay"
 	cont "open,"
-	
+
 	para "with some sanitary" 
 	line "restrictions."
 
@@ -384,11 +680,23 @@ TVShow:
 	para "read the full list"
 	line "on our website.”"
 	done
+endc
+
 
 .Phase2Odd2:
 	jumptext .Phase2Odd2Text
 
 .Phase2Odd2Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Nous avons"
+	line "franchi le cap de"
+	cont "10 000 décès liés"
+	cont "à la pandémie"
+	cont "dans le monde.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“There are now"
@@ -397,11 +705,35 @@ TVShow:
 	para "worldwide caused"
 	line "by the pandemic.”"
 	done
+endc
+
 
 .Phase2Even1:
 	jumptext .Phase2Even1Text
 
 .Phase2Even1Text:
+if DEF(_FR_FR)
+	text "SOCIETE"
+
+	para "“L'annonce du"
+	line "confinement a"
+	cont "poussé les"
+	cont "consommateurs à"
+	cont "se ruer sur les"
+	cont "produits de"
+	cont "première nécéssité"
+
+	para "entrainant des"
+	line "pénuries."
+
+	para "Pâtes, farine,"
+	line "#BALLs, et"
+	cont "papier toilette"
+
+	para "sont les biens"
+	line "les plus prisés.”"
+	done
+else
 	text "SOCIETY"
 
 	para "“The declaration"
@@ -422,11 +754,34 @@ TVShow:
 	line "most prized"
 	cont "possessions.”"
 	done
+endc
+
 
 .Phase2Even2:
 	jumptext .Phase2Even2Text
 
 .Phase2Even2Text:
+if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“La communauté"
+	line "médicale est"
+	cont "divisée sur la"
+	cont "CHLOROQUINE."
+
+	para "Certains l'esti-"
+	line "ment efficace,"
+	cont "d'autres craignent"
+	cont "des effets"
+	cont "secondaires"
+	cont "mortels."
+
+	para "Un test clinique"
+	line "débute sur des"
+	cont "humains et #MON"
+	cont "volontaires.”"
+	done
+else
 	text "SCIENTIFIC REVIEW"
 
 	para "“The medical"
@@ -452,11 +807,55 @@ TVShow:
 	cont "#MON"
 	cont "volunteers.”"
 	done
+endc
+
 
 .Phase2Even3:
 	jumptext .Phase2Even3Text
 
 .Phase2Even3Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Les fausses"
+	line "informations se"
+	cont "répandent à"
+	cont "vitesse grand V."
+
+	para "Merci de garder un"
+	line "esprit critique,"
+
+	para "vérifiez toujours"
+	line "les sources,"
+
+	para "et assurez-vous de"
+	line "la fiabilité des"
+	
+	para "sources avant de"
+	line "partager l'info.”"
+
+	para " "
+
+	para "“Et ne faites"
+	line "jamais confiance"
+	cont "à quelqu'un qui"
+	cont "parle trop et qui"
+	cont "porte un costume."
+
+	para "Un costume est une"
+	line "ruse servant à"
+	cont "impressionner pour"
+	cont "faire passer"
+	cont "n'importe quoi"
+	cont "pour vérité.”"
+
+	para " "
+
+	para "“Sauf à un"
+	line "mariage, dans ce"
+	cont "cas c'est ok.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“Fake information"
@@ -501,6 +900,8 @@ TVShow:
 	line "a wedding,"
 	cont "then it's ok.”"
 	done
+endc
+
 
 
 
@@ -516,6 +917,27 @@ TVShow:
 	jumptext .Phase3Odd1Text
 
 .Phase3Odd1Text:
+if DEF(_FR_FR)
+	text "EVENEMENTS"
+
+	para "“Bien que le"
+	line "dernier Champion-"
+	cont "nat #MON ait"
+	cont "été annulé à cause"
+	cont "des restrictions"
+	cont "sanitaires,"
+
+	para "la LIGUE #MON"
+	line "a versé"
+	cont "1 milliard ¥"
+	cont "pour financer"
+	cont "la recherche"
+	cont "médicale."
+
+	para "Le Championnat"
+	line "rouvrira bientôt.”"
+	done
+else
 	text "EVENTS"
 
 	para "“Even though the"
@@ -527,7 +949,7 @@ TVShow:
 	line "sanitary"
 	cont "restrictions,"
 
-	para "The #MON LEAGUE"
+	para "the #MON LEAGUE"
 	line "has given"
 	cont "¥1 billion"
 
@@ -538,11 +960,33 @@ TVShow:
 	line "will re-open"
 	cont "soon.”"
 	done
+endc
+
 
 .Phase3Odd2:
 	jumptext .Phase3Odd2Text
 
 .Phase3Odd2Text:
+if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“Des chercheurs"
+	line "ont découvert"
+	cont "un nouveau"
+	cont "variant du virus."
+
+	para "Cette souche"
+	line "mutée provoque"
+	cont "de nouveaux"
+	cont "symptômes aux"
+	cont "#MON."
+
+	para "Elle se propage"
+	line "vite et devrait"
+	cont "bientôt devenir le"
+	cont "variant dominant.”"
+	done
+else
 	text "SCIENTIFIC REVIEW"
 
 	para "“Scientists have"
@@ -560,11 +1004,29 @@ TVShow:
 	cont "dominant variant"
 	cont "quite soon.”"
 	done
+endc
+
 
 .Phase3Odd3:
 	jumptext .Phase3Odd3Text
 
 .Phase3Odd3Text:
+if DEF(_FR_FR)
+	text "SOCIETE"
+
+	para "“Les dresseurs"
+	line "étant confinés"
+	cont "et incapables de"
+	cont "faire des combats"
+	cont "#MON, le jeu VR"
+
+	para "trainer-simulator"
+	line "(.com)"
+
+	para "voit sa popularité"
+	line "exploser.”"
+	done
+else
 	text "SOCIETY"
 
 	para "“People being"
@@ -581,11 +1043,26 @@ TVShow:
 	para "is rising"
 	line "in popularity.”"
 	done
+endc
+
 
 .Phase3Even1:
 	jumptext .Phase3Even1Text
 
 .Phase3Even1Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Le cap symbolique"
+	line "des 100 000 décès"
+	cont "humains et #MON"
+	cont "dans le monde"
+	cont "est franchi"
+	cont "aujourd'hui, et"
+	cont "le bilan ne cesse"
+	cont "d'augmenter.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“The symbolic"
@@ -596,11 +1073,64 @@ TVShow:
 	cont "today, and numbers"
 	cont "keep increasing.”"
 	done
+endc
+
 
 .Phase3Even2:
 	jumptext .Phase3Even2Text
 
 .Phase3Even2Text:
+if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“Le confinement"
+	line "n'est qu'une option"
+	cont "parmi d'autres pour"
+	cont "venir à bout du"
+	cont "virus."
+
+	para "Une autre voie"
+	line "serait l'immunité"
+	cont "collective."
+
+	para "Si la majorité de"
+	line "la population"
+	cont "attrapait le virus"
+	cont "sur une courte"
+	cont "période, alors"
+
+	para "les survivants"
+	line "seraient immunisés"
+
+	para "ce qui ralentirait"
+	line "le virus jusqu'à"
+	cont "le stopper net."
+
+	para "Mais cela"
+	line "tuerait près de"
+	cont "10<PERCENT> de la"
+	cont "population."
+
+	para "Le conseil"
+	line "scientifique a"
+	cont "choisi le"
+	cont "confinement pour"
+	cont "stopper le virus"
+	cont "immédiatement, et"
+	cont "éviter la"
+	cont "saturation des"
+	cont "hôpitaux, ce qui"
+	cont "devrait sauver de"
+	cont "nombreuses vies."
+
+	para "Cela offre aussi"
+	line "du temps aux"
+	cont "chercheurs pour"
+	cont "étudier le virus"
+	cont "et travailler sur"
+	cont "un vaccin.”"
+	done
+else
 	text "SCIENTIFIC REVIEW"
 
 	para "“The lockdown is"
@@ -659,11 +1189,30 @@ TVShow:
 	cont "virus and work"
 	cont "on a vaccine.”"
 	done
+endc
+
 
 .Phase3Even3:
 	jumptext .Phase3Even3Text
 
 .Phase3Even3Text:
+if DEF(_FR_FR)
+	text "BUSINESS"
+
+	para "“Le confinement"
+	line "n'est pas une"
+	cont "mauvaise nouvelle"
+	cont "pour tout le"
+	cont "monde."
+
+	para "Les géants du"
+	line "jeu vidéo et du"
+	cont "streaming ont"
+	cont "doublé leurs"
+	cont "bénéfices ce"
+	cont "trimestre.”"
+	done
+else
 	text "BUSINESS"
 
 	para "“The lockdown"
@@ -678,6 +1227,7 @@ TVShow:
 	line "earnings in the"
 	cont "last quarter.”"
 	done
+endc
 
 
 
@@ -691,6 +1241,28 @@ TVShow:
 	jumptext .Phase4Odd1Text
 
 .Phase4Odd1Text:
+if DEF(_FR_FR)
+	text "FAITS DIVERS"
+
+	para "“La LIGUE #MON"
+	line "annonce que le"
+	cont "MAITRE RED a"
+	cont "disparu depuis"
+	cont "plusieurs"
+	cont "semaines."
+
+	para "Il est remplacé"
+	line "temporairement par"
+	cont "PETER du"
+	cont "CONSEIL des 4."
+
+	para "Le CHAMPION KOGA"
+	line "a été promu au"
+	cont "CONSEIL des 4"
+	cont "pour occuper le"
+	cont "poste de PETER.”"
+	done
+else
 	text "AFFAIRS"
 
 	para "“#MON League"
@@ -709,11 +1281,36 @@ TVShow:
 	cont "has been promoted"
 	cont "to the ELITE 4.”"
 	done
+endc
+
 
 .Phase4Odd2:
 	jumptext .Phase4Odd2Text
 
 .Phase4Odd2Text:
+if DEF(_FR_FR)
+	text "SOCIETE"
+
+	para "“Vous souvenez-"
+	line "vous de votre"
+	cont "vieille collection"
+	cont "de cartes #MON?"
+
+	para "Vous pourriez être"
+	line "assis sur une"
+	cont "mine d'or!"
+
+	para "Leur prix grimpe"
+	line "depuis des années,"
+	cont "et depuis le début"
+	cont "de la pandémie,"
+	
+	para "le prix de"
+	line "certaines cartes"
+	cont "rares a été"
+	cont "multiplié par 10.”"
+	done
+else
 	text "SOCIETY"
 
 	para "“Remember your old"
@@ -736,11 +1333,32 @@ TVShow:
 	cont "been multiplied"
 	cont "by 10 or more.”"
 	done
+endc
+
 
 .Phase4Odd3:
 	jumptext .Phase4Odd3Text
 
 .Phase4Odd3Text:
+if DEF(_FR_FR)
+	text "ITW POLITIQUE"
+
+	para "“Nous avons des"
+	line "preuves solides"
+	cont "que ce virus est"
+	cont "artificiel et qu'il"
+	cont "s'agit d'une attaque"
+	cont "contre notre"
+	cont "pays.”"
+
+	para "..."
+
+	para "Heu... alors"
+	line "pourquoi tous les"
+	cont "pays du monde"
+	cont "sont-ils touchés?"
+	done
+else
 	text "POLITICAL ITW"
 
 	para "“We have strong"
@@ -757,11 +1375,35 @@ TVShow:
 	line "countries affected"
 	cont "then?"
 	done
+endc
+
 
 .Phase4Even1:
 	jumptext .Phase4Even1Text
 
 .Phase4Even1Text:
+if DEF(_FR_FR)
+	text "NECROLOGIE"
+
+	para "“La membre la plus"
+	line "âgée du CONSEIL 4,"
+	cont "AGATHA, est"
+	cont "décédée."
+
+	para "Elle avait"
+	line "contracté le"
+	cont "COVID il y a"
+	cont "quelques semaines."
+
+	para "Suite à cet événe-"
+	line "ment, son amie"
+	cont "OLGA a décidé de"
+	cont "quitter le"
+	cont "CONSEIL des 4.”"
+	cont "- rapporte la"
+	cont "LIGUE #MON."
+	done
+else
 	text "OBITUARY"
 
 	para "“Oldest ELITE 4"
@@ -769,7 +1411,7 @@ TVShow:
 	cont "has passed away."
 
 	para "She caught COVID"
-	line "a few weeks ago.”"
+	line "a few weeks ago."
 
 	para "Her close friend"
 	line "LORELEI decided"
@@ -778,11 +1420,50 @@ TVShow:
 	cont "- reports #MON"
 	cont "League."
 	done
+endc
+
 
 .Phase4Even2:
 	jumptext .Phase4Even2Text
 
 .Phase4Even2Text:
+if DEF(_FR_FR)
+	text "FAITS DIVERS"
+
+	para "“Tandis que les"
+	line "restaurants sont"
+	cont "fermés, et que la"
+	cont "population est"
+	cont "tenue de rester"
+	cont "à la maison,"
+	
+	para "les riches"
+	line "contournent les"
+	cont "restrictions."
+
+	para "Des restaurants"
+	line "clandestins tenus"
+	cont "par des chefs"
+	cont "étoilés ont ouvert"
+	cont "dans certaines"
+	cont "résidences"
+	cont "privées."
+	
+	para "Le prix d'un repas"
+	line "serait de 50 000¥,"
+	cont "et un mot de passe"
+	cont "serait nécessaire"
+	cont "pour y accéder."
+
+	para "Nos sources affir-"
+	line "ment que certains"
+	cont "hommes politiques"
+	cont "hauts placés"
+	cont "participent à"
+	cont "cette activité"
+	cont "illégale.”"
+	done
+else
 	text "AFFAIRS"
 
 	para "“While restaurants"
@@ -815,11 +1496,22 @@ TVShow:
 	cont "this illegal"
 	cont "activity.”"
 	done
+endc
+
 
 .Phase4Even3:
 	jumptext .Phase4Even3Text
 
 .Phase4Even3Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Le nombre de"
+	line "décès dans le"
+	cont "monde a atteint"
+	cont "1 million.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "The number of"
@@ -828,6 +1520,8 @@ TVShow:
 	para "world has now"
 	line "reached 1 million."
 	done
+endc
+
 
 
 
@@ -845,6 +1539,37 @@ TVShow:
 	jumptext .Phase5Odd1Text
 
 .Phase5Odd1Text:
+if DEF(_FR_FR)
+	text "FAITS DIVERS"
+
+	para "“Pas le meilleur"
+	line "moment pour être"
+	cont "jeune."
+
+	para "Entre écoles"
+	line "fermées, et vie"
+	cont "sociale à l'arrêt,"
+
+	para "les jeunes sont"
+	line "désespérés."
+
+	para "Des raves party"
+	line "illégales sont"
+	cont "organisées dans"
+	cont "des lieux isolés,"
+
+	para "malgré les"
+	line "restrictions et"
+	cont "le risque de"
+	cont "propager le virus."
+
+	para "Une rave party au"
+	line "MUSEE D'ARGENTA"
+	cont "a été récemment"
+	cont "interrompue par la"
+	cont "POLICE D'AZURIA.”"
+	done
+else
 	text "AFFAIRS"
 
 	para "“Not a good time"
@@ -877,11 +1602,32 @@ TVShow:
 	cont "down by CERULEAN"
 	cont "CITY POLICE.”"
 	done
+endc
+
 
 .Phase5Odd2:
 	jumptext .Phase5Odd2Text
 
 .Phase5Odd2Text:
+if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“Les vaccins"
+	line "sont gratuits"
+	cont "pour les #MON!"
+
+	para "C'est notre"
+	line "meilleure arme"
+	cont "contre le virus!"
+
+	para "Prenez rendez-vous"
+	line "pour un vaccin au"
+	cont "CENTRE DE"
+	cont "VACCINATION"
+	cont "SYLPHE SARL"
+	cont "à SAFRANIA.”"
+	done
+else
 	text "SCIENTIFIC REVIEW"
 
 	para "“Vaccines are now"
@@ -892,19 +1638,33 @@ TVShow:
 	line "weapon to beat"
 	cont "the virus!"
 
-	para "Take an"
-	line "appointment to get"
+	para "Take an appoint-"
+	line "ment to get them"
 	cont "vaccinated at the"
 	cont "SILPH CO. VACCINA-"
 	cont "TION CENTER"
 	cont "in SAFFRON CITY.”"
 	done
+endc
 
 
 .Phase5Odd3:
 	jumptext .Phase5Odd3Text
 
 .Phase5Odd3Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Il y a désormais"
+	line "plus de 5 millions"
+	cont "de décès liés au"
+	cont "virus."
+
+	para "Faites-vous"
+	line "vacciner pour"
+	cont "sauver des vies.”"
+	done
+else
 	text "INTERNATIONAL"
 
 	para "“There are now"
@@ -918,12 +1678,38 @@ TVShow:
 	line "vaccinated to save"
 	cont "lives.”"
 	done
+endc
 
 
 .Phase5Even1:
 	jumptext .Phase5Even1Text
 
 .Phase5Even1Text:
+if DEF(_FR_FR)
+	text "PEOPLE"
+
+	para "“KANTO et JOHTO"
+	line "pourraient avoir"
+	cont "un nouveau"
+	cont "MAITRE #MON!"
+
+	para "Le MAITRE PETER,"
+	line "remplaçant par"
+	cont "intérim du"
+	cont "MAITRE en titre"
+	cont "RED, a été vaincu"
+	cont "par le dresseur"
+	cont "<PLAYER>."
+
+	para "L'appartenance du"
+	line "titre de MAITRE au"
+	cont "dresseur <PLAYER>"
+	cont "reste contestée,"
+	cont "tant que le"
+	cont "titulaire RED n'a"
+	cont "pas été vaincu.”"
+	done
+else
 	text "PEOPLE"
 
 	para "“KANTO and JOHTO"
@@ -946,12 +1732,58 @@ TVShow:
 	cont "has not been"
 	cont "defeated.”"
 	done
+endc
 
 
 .Phase5Even2:
 	jumptext .Phase5Even2Text
 
 .Phase5Even2Text:
+if DEF(_FR_FR)
+	text "BUSINESS"
+
+	para "“Les pénuries de"
+	line "cartes graphiques"
+	cont "sont peut-être"
+	cont "influencées par"
+	cont "la pandémie,"
+
+	para "mais les études"
+	line "montrent que c'est"
+	cont "la hausse du prix"
+	cont "des cryptomonnaies"
+	cont "qui en est le"
+	cont "principal facteur."
+
+	para "Il a fallu des"
+	line "mois à notre"
+	cont "journaliste pour"
+	cont "se procurer une"
+	cont "carte graphique"
+	cont "en magasin."
+
+	para "Le marché de"
+	line "l'occasion se"
+	cont "porte bien: les"
+	cont "GPU d'occasion"
+	cont "se vendent le"
+	cont "double du prix du"
+	cont "neuf, au lieu de"
+	cont "la moitié"
+	cont "habituellement."
+
+	para "Pour le moment,"
+	line "la GAME BOY,"
+	cont "vieille de plu-"
+	cont "sieurs décennies"
+	cont "et increvable,"
+	cont "reste sans doute"
+	cont "la meilleure"
+	cont "solution pour"
+	cont "les développeurs"
+	cont "et les joueurs.”"
+	done
+else
 	text "BUSINESS"
 
 	para "“GPU shortages may"
@@ -986,11 +1818,37 @@ TVShow:
 	cont "developers and"
 	cont "players alike.”"
 	done
+endc
+
 
 .Phase5Even3:
 	jumptext .Phase5Even3Text
 
 .Phase5Even3Text:
+if DEF(_FR_FR)
+	text "VACCINATION"
+
+	para "“La promesse de"
+	line "vaccination rapide"
+	cont "à grande échelle"
+	cont "semble s'estomper,"
+	
+	para "alors que les"
+	line "vaccins subissent"
+	cont "de gros retards de"
+	cont "production."
+
+	para "La promesse"
+	line "initiale était"
+	cont "irréaliste,"
+	
+	para "mais on attend"
+	line "tout de même 99<PERCENT>"
+	cont "de vaccination"
+	cont "avant la fin"
+	cont "de l'année.”"
+	done
+else
 	text "VACCINATION"
 
 	para "“Promises of"
@@ -1014,6 +1872,7 @@ TVShow:
 	para "before the end of"
 	line "the year.”"
 	done
+endc
 
 
 
@@ -1025,6 +1884,37 @@ TVShow:
 	jumptext .Phase6Odd2Text
 
 .Phase6Odd2Text:
+if DEF(_FR_FR)
+	text "VACCINATION"
+
+	para "“Le taux de"
+	line "vaccination peine"
+	cont "à dépasser 80<PERCENT> de"
+	cont "la population."
+
+	para "En effet,"
+	line "beaucoup de gens"
+	cont "craignent de se"
+	cont "faire vacciner"
+	cont "eux-mêmes ou"
+	cont "leurs #MON."
+
+	para "Ces antivax se"
+	line "mettent en danger"
+	cont "eux-mêmes, ainsi"
+	cont "que le reste de la"
+	cont "population, en"
+	cont "laissant le virus"
+	cont "se propager."
+
+	para "Pour accélérer le"
+	line "taux de vacci-"
+	cont "nation, un cadeau"
+	cont "est offert pour"
+	cont "chaque #MON"
+	cont "vacciné.”"
+	done
+else
 	text "VACCINATION"
 
 	para "“Our vaccination"
@@ -1054,52 +1944,13 @@ TVShow:
 	cont "for every #MON"
 	cont "you vaccinate.”"
 	done
+endc
+
 
 
 .Phase6Even3:
-	jumptext .Phase6Even3Text
-
-.Phase6Even3Text:
-	text "OBITUARY"
-
-	para "“Beloved CHAMPION"
-	line "RED that had been"
-	cont "missing for months"
-	cont "has succumbed to"
-	cont "the virus."
-
-	para "<PLAYER> who was"
-	line "co-CHAMPION is now"
-	cont "the official"
-	cont "CHAMPION.”"
-	done
-
+	farjumptext Phase6Even3Text
 
 .TV_FirstCovidShow:
-	jumptext .TV_FirstCovidShowText
+	farjumptext TV_FirstCovidShowText
 	
-.TV_FirstCovidShowText:
-	text "On the news,"
-	line "a doctor debates"
-	cont "with a politician"
-	cont "about a newly"
-	cont "discovered virus."
-
-	para "The doctor seems"
-	line "nervous."
-
-	para "The politician"
-	line "laughes and says"
-
-	para "there is no need"
-	line "to panic."
-
-	para "…"
-
-	para "I better"
-	line "get going."
-	done
-
-.TV_DefaultText:
-	text "It's a TV."
-	done
