@@ -1,104 +1,104 @@
 TVShow:
-	opentext
-	writetext .Phase1Even1Text
-	waitbutton
+	; opentext
+	; writetext .Phase1Even1Text
+	; waitbutton
 
-	writetext .Phase1Even2Text
-	waitbutton
+	; writetext .Phase1Even2Text
+	; waitbutton
 
-	writetext .Phase1Even3Text
-	waitbutton
+	; writetext .Phase1Even3Text
+	; waitbutton
 
-	writetext .Phase1Odd1Text
-	waitbutton
+	; writetext .Phase1Odd1Text
+	; waitbutton
 
-	writetext .Phase1Odd2Text
-	waitbutton
+	; writetext .Phase1Odd2Text
+	; waitbutton
 
-	writetext .Phase1Odd3Text
-	waitbutton
+	; writetext .Phase1Odd3Text
+	; waitbutton
 
-	writetext .Phase2Even1Text
-	waitbutton
+	; writetext .Phase2Even1Text
+	; waitbutton
 
-	writetext .Phase2Even2Text
-	waitbutton
+	; writetext .Phase2Even2Text
+	; waitbutton
 
-	writetext .Phase2Even3Text
-	waitbutton
+	; writetext .Phase2Even3Text
+	; waitbutton
 
-	writetext .Phase2Odd1Text
-	waitbutton
+	; writetext .Phase2Odd1Text
+	; waitbutton
 
-	writetext .Phase2Odd2Text
-	waitbutton
+	; writetext .Phase2Odd2Text
+	; waitbutton
 
-	farwritetext TV_FirstCovidShowText
-	waitbutton
+	; farwritetext TV_FirstCovidShowText
+	; waitbutton
 
-	writetext .Phase3Even1Text
-	waitbutton
+	; writetext .Phase3Even1Text
+	; waitbutton
 
-	writetext .Phase3Even2Text
-	waitbutton
+	; writetext .Phase3Even2Text
+	; waitbutton
 
-	writetext .Phase3Even3Text
-	waitbutton
+	; writetext .Phase3Even3Text
+	; waitbutton
 
-	writetext .Phase3Odd1Text
-	waitbutton
+	; writetext .Phase3Odd1Text
+	; waitbutton
 
-	writetext .Phase3Odd2Text
-	waitbutton
+	; writetext .Phase3Odd2Text
+	; waitbutton
 
-	writetext .Phase3Odd3Text
-	waitbutton
+	; writetext .Phase3Odd3Text
+	; waitbutton
 
-	writetext .Phase4Even1Text
-	waitbutton
+	; writetext .Phase4Even1Text
+	; waitbutton
 
-	writetext .Phase4Even2Text
-	waitbutton
+	; writetext .Phase4Even2Text
+	; waitbutton
 
-	writetext .Phase4Even3Text
-	waitbutton
+	; writetext .Phase4Even3Text
+	; waitbutton
 
-	writetext .Phase4Odd1Text
-	waitbutton
+	; writetext .Phase4Odd1Text
+	; waitbutton
 
-	writetext .Phase4Odd2Text
-	waitbutton
+	; writetext .Phase4Odd2Text
+	; waitbutton
 
-	writetext .Phase4Odd3Text
-	waitbutton
+	; writetext .Phase4Odd3Text
+	; waitbutton
 
 
-	writetext .Phase5Even1Text
-	waitbutton
+	; writetext .Phase5Even1Text
+	; waitbutton
 
-	writetext .Phase5Even2Text
-	waitbutton
+	; writetext .Phase5Even2Text
+	; waitbutton
 
-	writetext .Phase5Even3Text
-	waitbutton
+	; writetext .Phase5Even3Text
+	; waitbutton
 
-	writetext .Phase5Odd1Text
-	waitbutton
+	; writetext .Phase5Odd1Text
+	; waitbutton
 
-	writetext .Phase5Odd2Text
-	waitbutton
+	; writetext .Phase5Odd2Text
+	; waitbutton
 
-	writetext .Phase5Odd3Text
-	waitbutton
+	; writetext .Phase5Odd3Text
+	; waitbutton
 
-	farwritetext Phase6Even3Text
-	waitbutton
+	; farwritetext Phase6Even3Text
+	; waitbutton
 
-	writetext .Phase6Odd2Text
-	waitbutton
+	; writetext .Phase6Odd2Text
+	; waitbutton
 
-	closetext
-	end
+	; closetext
+	; end
 
 	checkevent EVENT_RED_BEATEN
 	iffalse .Phase6
