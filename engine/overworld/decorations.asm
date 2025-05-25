@@ -549,34 +549,78 @@ GetDecoName:
 	jr .getdeconame
 
 .bed:
+if DEF(_FR_FR)
+	ld a, _BED
+	jr .shared
+else
 	call .plant
 	ld a, _BED
 	jr .getdeconame
+endc
 
 .carpet:
+if DEF(_FR_FR)
+	ld a, _CARPET
+	jr .shared
+else
 	call .plant
 	ld a, _CARPET
 	jr .getdeconame
+endc
 
 .poster:
+if DEF(_FR_FR)
+	push de
+	ld a, _POSTER
+	call .getdeconame
+	pop de
+	ld a, e
+	jr .getpokename
+else
 	ld a, e
 	call .getpokename
 	ld a, _POSTER
 	jr .getdeconame
+endc
 
 .doll:
+if DEF(_FR_FR)
+	push de
+	ld a, _DOLL
+	call .getdeconame
+	pop de
+	ld a, e
+	jr .getpokename
+else
 	ld a, e
 	call .getpokename
 	ld a, _DOLL
 	jr .getdeconame
+endc
 
 .bigdoll:
+if DEF(_FR_FR)
+	ld a, e
+	call .getpokename
+	ld a, BIG_
+	jr .getdeconame
+else
 	push de
 	ld a, BIG_
 	call .getdeconame
 	pop de
 	ld a, e
 	jr .getpokename
+endc
+
+if DEF(_FR_FR)
+.shared:
+	push de
+	call .getdeconame
+	pop de
+	ld a, e
+	jr .getdeconame
+endc
 
 .getpokename:
 	push bc
