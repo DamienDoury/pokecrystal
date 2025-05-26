@@ -1124,7 +1124,7 @@ GoldenrodHospitalTrainerRoom8AfterBattleText: ; TO TRANSLATE
 	cont "zone!"
 	done
 
-	GoldenrodHospitalTrainerRoom17SeenText: ; TO TRANSLATE
+GoldenrodHospitalTrainerRoom17SeenText: ; TO TRANSLATE
 	text "I'm doing a show"
 	line "for the sick."
 	done
