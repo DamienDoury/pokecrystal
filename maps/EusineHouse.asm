@@ -84,7 +84,28 @@ CeladonEusineText2: ; TO TRANSLATE
 	line "Not on a RATTATA."
 	done
 
-EusineLeavesCeladonText: ; AUTOTRAD
+EusineLeavesCeladonText:
+if DEF(_FR_FR)
+	text "<PLAYER>, es-tu"
+	line "au courant?"
+
+	para "On raconte qu'un"
+	line "#MON aux cou-"
+
+	para "leurs de l'arc-"
+	line "en-ciel est apparu"
+	cont "à la TOUR"
+	cont "FERRAILLE."
+
+	para "Je viens de soi-"
+	line "gner mon équipe."
+
+	para "Je retourne à"
+	line "ROSALIA."
+
+	para "A très bientôt,"
+	line "<PLAYER>!"
+else
 	text "<PLAYER>, have you"
 	line "heard?"
 
@@ -103,9 +124,31 @@ EusineLeavesCeladonText: ; AUTOTRAD
 
 	para "I'll be seeing"
 	line "you, <PLAYER>!"
+endc
+
 	done
 
-NoBeastsText: ; AUTOTRAD
+NoBeastsText:
+if DEF(_FR_FR)
+	text "Au fait,"
+	line "<PLAYER>."
+
+	para "As-tu attrapé les"
+	line "#MON légendai-"
+
+	para "res RAIKOU et"
+	line "ENTEI?"
+
+	para "<……><……><……>"
+
+	para "D'accord..."
+
+	para "Si tu en attrapes"
+	line "un, préviens-moi."
+
+	para "Je compte sur toi,"
+	line "<PLAYER>!"
+else
 	text "Oh, by the way,"
 	line "<PLAYER>."
 
@@ -125,6 +168,8 @@ NoBeastsText: ; AUTOTRAD
 
 	para "I'm counting on"
 	line "you, <PLAYER>!"
+endc
+
 	done
 
 EusineHouse_MapEvents:

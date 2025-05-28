@@ -185,8 +185,12 @@ Akiba1F_Seller_Script:
 	closetext
 	end
 
-.RadioCardText: ; AUTOTRAD
+.RadioCardText:
+if DEF(_FR_FR)
+	db "COUPON RADIO@"
+else
 	db "RADIO CARD@"
+endc
 
 Akiba1F_PricesUpScript:
 	faceplayer

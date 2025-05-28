@@ -626,9 +626,15 @@ endc
 
 	done
 
-SilverCherrygroveWinText: ; AUTOTRAD
+SilverCherrygroveWinText: 
+if DEF(_FR_FR)
+	text "Alors?"
+	line "C'est la joie?"
+else
 	text "Humph. Are you"
 	line "happy you won?"
+endc
+
 	done
 
 CherrygroveRivalText_YouLost: 
@@ -654,9 +660,15 @@ endc
 
 	done
 
-SilverCherrygroveLossText: ; AUTOTRAD
+SilverCherrygroveLossText: 
+if DEF(_FR_FR)
+	text "Pfff. Une perte"
+	line "de temps."
+else
 	text "Humph. That was a"
 	line "waste of time."
+endc
+
 	done
 
 CherrygroveRivalText_YouWon: 

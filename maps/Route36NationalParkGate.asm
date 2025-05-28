@@ -1177,7 +1177,26 @@ UnusedSilphScope2Text: ; unreferenced
 	cont "SILPHSCOPE 2."
 	done
 
-UnusedBugCatchingContestExplanationText: ; AUTOTRAD
+UnusedBugCatchingContestExplanationText: 
+if DEF(_FR_FR)
+	text "Le Concours de"
+	line "Capture se déroule"
+
+	para "le mardi, le jeudi"
+	line "et le samedi."
+
+	para "On peut y gagner"
+	line "un prix rien qu'en"
+
+	para "participant mais"
+	line "on garde aussi le"
+
+	para "#MON insecte"
+	line "que l'on chope"
+
+	para "pendant le con-"
+	line "cours."
+else
 ; duplicate of BugCatchingContestExplanationText in Route35NationalParkGate.asm
 	text "The Bug-Catching"
 	line "Contest is held on"
@@ -1196,6 +1215,8 @@ UnusedBugCatchingContestExplanationText: ; AUTOTRAD
 
 	para "have at the end of"
 	line "the contest."
+endc
+
 	done
 
 Route36NationalParkGateOfficer1WellHoldPrizeText: 

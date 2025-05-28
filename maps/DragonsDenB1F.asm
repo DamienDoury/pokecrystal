@@ -289,7 +289,27 @@ endc
 
 	done
 
-SilverText_Training1: ; AUTOTRAD
+SilverText_Training1: 
+if DEF(_FR_FR)
+	text "......"
+	line "Quoi? <PLAYER>?"
+
+	para "...Non, je ne me"
+	line "battrai pas avec"
+	cont "toi maintenant..."
+
+	para "Mes #MON ne"
+	line "sont pas prêts."
+
+	para "Et je ne veux pas"
+	line "les pousser."
+
+	para "Je dois être sage"
+	line "pour devenir un"
+
+	para "jour le plus grand"
+	line "des dresseurs..."
+else
 	text "…"
 	line "What? <PLAYER>?"
 
@@ -307,6 +327,8 @@ SilverText_Training1: ; AUTOTRAD
 
 	para "the greatest #-"
 	line "MON trainer…"
+endc
+
 	done
 
 SilverText_Training2: ; TO TRANSLATE

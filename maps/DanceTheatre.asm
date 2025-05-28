@@ -140,94 +140,214 @@ DanceTheatreGrannyScript:
 DanceTheatreFancyPanel:
 	jumptext DanceTheatreFancyPanelText
 
-KimonoGirlNaokoSeenText: ; AUTOTRAD
+KimonoGirlNaokoSeenText: 
+if DEF(_FR_FR)
+	text "Tu as de jolis"
+	line "#MON. On peut"
+	cont "voir c'que ça"
+	cont "donne en combat?"
+else
 	text "You have lovely"
 	line "#MON. May I see"
 	cont "them in battle?"
+endc
+
 	done
 
-KimonoGirlNaokoBeatenText: ; AUTOTRAD
+KimonoGirlNaokoBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, bravo les"
+	line "biscotos!!"
+else
 	text "Oh, you are very"
 	line "strong."
+endc
+
 	done
 
-KimonoGirlNaokoAfterBattleText: ; AUTOTRAD
+KimonoGirlNaokoAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai apprécié la"
+	line "petite baston. On"
+	cont "peut se revoir?"
+else
 	text "I enjoyed that"
 	line "bout. I would like"
 	cont "to see you again."
+endc
+
 	done
 
-KimonoGirlSayoSeenText: ; AUTOTRAD
+KimonoGirlSayoSeenText: 
+if DEF(_FR_FR)
+	text "Je danse toujours"
+	line "avec mes #MON."
+
+	para "Bien sûr, je les"
+	line "entraîne aussi."
+else
 	text "I always dance"
 	line "with my #MON."
 
 	para "Of course, I also"
 	line "train them."
+endc
+
 	done
 
-KimonoGirlSayoBeatenText: ; AUTOTRAD
+KimonoGirlSayoBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, presque!"
+	line "J'ai failli"
+	cont "t'avoir."
+else
 	text "Oh, so close!"
 	line "I almost had you."
+endc
+
 	done
 
-KimonoGirlSayoAfterBattleText: ; AUTOTRAD
+KimonoGirlSayoAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le rythme, c'est"
+	line "un truc super"
+
+	para "important pour la"
+	line "danse et pour les"
+	cont "#MON."
+else
 	text "Rhythm is impor-"
 	line "tant for both"
 
 	para "dancing and #-"
 	line "MON."
+endc
+
 	done
 
-KimonoGirlZukiSeenText: ; AUTOTRAD
+KimonoGirlZukiSeenText: 
+if DEF(_FR_FR)
+	text "Elle est pas belle"
+	line "ma barrette?"
+
+	para "Oh! Un combat de"
+	line "#MON?"
+else
 	text "Isn't my barrette"
 	line "pretty?"
 
 	para "Oh. A #MON"
 	line "battle?"
+endc
+
 	done
 
-KimonoGirlZukiBeatenText: ; AUTOTRAD
+KimonoGirlZukiBeatenText: 
+if DEF(_FR_FR)
+	text "Je n'ai plus de"
+	line "#MON..."
+else
 	text "I don't have any"
 	line "#MON left…"
+endc
+
 	done
 
-KimonoGirlZukiAfterBattleText: ; AUTOTRAD
+KimonoGirlZukiAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tous les mois je"
+	line "change de fleur"
+	cont "pour ma barrette."
+	cont "Bon des fois elle"
+	cont "fane avant!"
+else
 	text "I put a different"
 	line "flower in my bar-"
 	cont "rette every month."
+endc
+
 	done
 
-KimonoGirlKuniSeenText: ; AUTOTRAD
+KimonoGirlKuniSeenText: 
+if DEF(_FR_FR)
+	text "Oh, t'es tout"
+	line "mimi comme"
+	cont "dresseur! Un petit"
+	cont "combat en tête à"
+	cont "tête?"
+else
 	text "Oh, you're a cute"
 	line "trainer. Would you"
 	cont "like to battle?"
+endc
+
 	done
 
-KimonoGirlKuniBeatenText: ; AUTOTRAD
+KimonoGirlKuniBeatenText: 
+if DEF(_FR_FR)
+	text "Tu es plus cool"
+	line "que tu n'en n'as"
+	cont "pas l'air."
+else
 	text "You're stronger"
 	line "than you look."
+endc
+
 	done
 
-KimonoGirlKuniAfterBattleText: ; AUTOTRAD
+KimonoGirlKuniAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je me suis entraî-"
+	line "née d'arrache-pied"
+
+	para "et je pensais être"
+	line "au niveau. Et bah"
+	cont "non..."
+else
 	text "I trained a lot,"
 	line "so I thought I was"
 
 	para "a capable trainer."
 	line "I guess I'm not."
+endc
+
 	done
 
-KimonoGirlMikiSeenText: ; AUTOTRAD
+KimonoGirlMikiSeenText: 
+if DEF(_FR_FR)
+	text "Tu aimes mes pas"
+	line "de danse? La pure"
+	cont "classe, non?"
+	cont "Mais je suis aussi"
+	cont "forte en #MON."
+else
 	text "Do you like my"
 	line "dancing? I'm good"
 	cont "at #MON too."
+endc
+
 	done
 
-KimonoGirlMikiBeatenText: ; AUTOTRAD
+KimonoGirlMikiBeatenText: 
+if DEF(_FR_FR)
+	text ".... Heu... T'es"
+	line "pas naze non"
+	cont "plus toi!"
+else
 	text "Ooh, you're good"
 	line "at #MON too."
+endc
+
 	done
 
-KimonoGirlMikiAfterBattleText: ; AUTOTRAD
+KimonoGirlMikiAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je continue de"
+	line "danser! Les gens"
+	cont "adorent ça!"
+
+	para "Mes #MON aussi."
+else
 	text "I can keep dancing"
 	line "because there are"
 
@@ -236,6 +356,8 @@ KimonoGirlMikiAfterBattleText: ; AUTOTRAD
 
 	para "My #MON keep my"
 	line "spirits up too."
+endc
+
 	done
 
 WhirlpoolGuyNeverLeftAScratchText: ; TO TRANSLATE
@@ -298,9 +420,15 @@ WhirlpoolGuyElegantKimonoGirlsText: ; TO TRANSLATE
 	cont "the KIMONO GIRLS…"
 	done
 
-RhydonText: ; AUTOTRAD
+RhydonText: 
+if DEF(_FR_FR)
+	text "RHINOFEROS: Ross!"
+	line "Férrroosss!"
+else
 	text "RHYDON: Gugooh"
 	line "gugogooh!"
+endc
+
 	done
 
 DanceTheatreCooltrainerMText: ; TO TRANSLATE
@@ -312,7 +440,28 @@ DanceTheatreCooltrainerMText: ; TO TRANSLATE
 	cont "dance."
 	done
 
-DanceTheatreGrannyText: ; AUTOTRAD
+DanceTheatreGrannyText:
+if DEF(_FR_FR)
+	text "Les KIMONO sont"
+	line "très belles..."
+
+	para "Mais elles doivent"
+	line "suivre un"
+	cont "entraînement de"
+	cont "titan."
+
+	para "Elles doivent"
+	line "apprendre à suivre"
+
+	para "des règles avant"
+	line "de se montrer en"
+	cont "public."
+
+	para "Mais quand tu"
+	line "aimes quelque"
+	cont "chose, tout est"
+	cont "possible."
+else
 	text "The KIMONO GIRLS"
 	line "are so beautiful…"
 
@@ -329,12 +478,22 @@ DanceTheatreGrannyText: ; AUTOTRAD
 	para "But if you love"
 	line "something, any-"
 	cont "thing is possible."
+endc
+
 	done
 
-DanceTheatreFancyPanelText: ; AUTOTRAD
+
+DanceTheatreFancyPanelText:
+if DEF(_FR_FR)
+	text "C'est un joli"
+	line "paravent décoré de"
+	cont "fleurs."
+else
 	text "It's a fancy panel"
 	line "that's decorated"
 	cont "with flowers."
+endc
+
 	done
 
 DanceTheatre_MapEvents:

@@ -233,18 +233,33 @@ endc
 
 	done
 
-GoldenrodDeptStore5FCarrieMysteryGiftExplanationText: ; AUTOTRAD
+GoldenrodDeptStore5FCarrieMysteryGiftExplanationText: 
+if DEF(_FR_FR)
+	text "Le CADEAU MYSTERE."
+
+	para "Au bip..."
+	line "Un cadeau!"
+else
 	text "MYSTERY GIFT."
 
 	para "With just a"
 	line "little beep, you"
 	cont "get a gift."
+endc
+
 	done
 
-GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText: ; AUTOTRAD
+GoldenrodDeptStore5FCarrieMysteryGiftRequiresGBCText: 
+if DEF(_FR_FR)
+	text "L'option CADEAU"
+	line "MYSTERE nécessite"
+	cont "une GameBoy Color."
+else
 	text "The MYSTERY GIFT"
 	line "option requires a"
 	cont "Game Boy Color."
+endc
+
 	done
 
 GoldenrodDeptStore6F_MapEvents:

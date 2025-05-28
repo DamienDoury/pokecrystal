@@ -155,7 +155,29 @@ BurnedTower1FEusineMovement:
 	step DOWN
 	step_end
 
-BurnedTowerSilver_BeforeText: ; AUTOTRAD
+BurnedTowerSilver_BeforeText: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "...Oh, c'est toi."
+
+	para "Je suis venu pour"
+	line "trouver une sorte"
+
+	para "de #MON légen-"
+	line "daire..."
+
+	para "Mais y'a rien ici!"
+
+	para "Venir dans ce trou"
+	line "paumé pour rien"
+
+	para "trouver, moi ça"
+	line "m'énerve la tête!"
+
+	para "Je vais t'en faire"
+	line "baver!"
+else
 	text "<……> <……> <……>"
 
 	para "…Oh, it's you."
@@ -177,9 +199,15 @@ BurnedTowerSilver_BeforeText: ; AUTOTRAD
 
 	para "It's all your"
 	line "fault!"
+endc
+
 	done
 
-BurnedTowerSilver_WinText: ; AUTOTRAD
+BurnedTowerSilver_WinText: 
+if DEF(_FR_FR)
+	text "...Pfff!"
+	para "Aucun intérêt."
+else
 	text "…Humph!"
 
 	para "This is why I hate"
@@ -187,9 +215,20 @@ BurnedTowerSilver_WinText: ; AUTOTRAD
 
 	para "There's no"
 	line "challenge in it."
+endc
+
 	done
 
-BurnedTowerSilver_AfterText1: ; AUTOTRAD
+BurnedTowerSilver_AfterText1: 
+if DEF(_FR_FR)
+	text "Pff...minable."
+
+	para "T'auras jamais un"
+	line "#MON légendaire"
+
+	para "de toute façon."
+	line "T'es zéro."
+else
 	text "…Aw, whatever."
 
 	para "You would never be"
@@ -197,9 +236,21 @@ BurnedTowerSilver_AfterText1: ; AUTOTRAD
 
 	para "legendary #MON"
 	line "anyway."
+endc
+
 	done
 
-BurnedTowerSilver_LossText: ; AUTOTRAD
+BurnedTowerSilver_LossText: 
+if DEF(_FR_FR)
+	text "...Pff!"
+
+	para "Voilà pourquoi"
+	line "j'aime pas me"
+
+	para "battre contre les"
+	line "nuls: c'est une"
+	cont "perte de temps."
+else
 	text "…Humph!"
 
 	para "This is why I hate"
@@ -207,9 +258,22 @@ BurnedTowerSilver_LossText: ; AUTOTRAD
 
 	para "It's just a waste"
 	line "of my time."
+endc
+
 	done
 
-BurnedTowerSilver_AfterText2: ; AUTOTRAD
+BurnedTowerSilver_AfterText2: 
+if DEF(_FR_FR)
+	text "...Pfff!"
+
+	para "Tu tombes dans les"
+	line "trous?"
+
+	para "T'es pas trop"
+	line "bête, c'est bien."
+
+	para "Minable!"
+else
 	text "Humph!"
 
 	para "What are you doing"
@@ -219,6 +283,8 @@ BurnedTowerSilver_AfterText2: ; AUTOTRAD
 	line "you are!"
 
 	para "Serves you right!"
+endc
+
 	done
 
 BurnedTower1FEusineIntroText: 

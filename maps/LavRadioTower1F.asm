@@ -74,8 +74,12 @@ else
 
 endc
 
-.RadioCardText: ; AUTOTRAD
+.RadioCardText:
+if DEF(_FR_FR)
+	db "COUPON RADIO@"
+else
 	db "RADIO CARD@"
+endc
 
 LavRadioTower1FSuperNerd2Script:
 	faceplayer

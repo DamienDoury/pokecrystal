@@ -683,7 +683,29 @@ UndergroundSilverRetreatMovement2:
 	step UP
 	step_end
 
-UndergroundSilverBeforeText: ; AUTOTRAD
+UndergroundSilverBeforeText: 
+if DEF(_FR_FR)
+	text "Minute!"
+
+	para "Hé hé! J'étais"
+	line "derrière toi..."
+
+	para "J'ai pas besoin de"
+	line "toi pour casser la"
+
+	para "tête à la TEAM"
+	line "ROCKET."
+
+	para "...Attends voir..."
+	line "Tu m'as battu"
+	cont "avant, non?"
+
+	para "C'était de la"
+	line "chance."
+
+	para "Mais cette fois..."
+	line "Ca va saigner!"
+else
 	text "Hold it!"
 
 	para "I saw you, so I"
@@ -704,9 +726,23 @@ UndergroundSilverBeforeText: ; AUTOTRAD
 
 	para "But I repay my"
 	line "debts!"
+endc
+
 	done
 
-UndergroundSilverWinText: ; AUTOTRAD
+UndergroundSilverWinText: 
+if DEF(_FR_FR)
+	text "...Pourquoi..."
+	line "Moi perdre?"
+
+	para "Mes #MON sont"
+	line "super balèzes!"
+
+	para "Je les ai entraî-"
+	line "nés à fond!"
+
+	para "Alors pourquoi???"
+else
 	text "…Why…"
 	line "Why do I lose?"
 
@@ -717,9 +753,46 @@ UndergroundSilverWinText: ; AUTOTRAD
 	line "on the gas."
 
 	para "So why do I lose?"
+endc
+
 	done
 
-UndergroundSilverAfterText: ; AUTOTRAD
+UndergroundSilverAfterText: 
+if DEF(_FR_FR)
+	text "C'est..."
+	line "Incroyable..."
+
+	para "Ce qu'a dit PETER"
+	line "est donc vrai?"
+
+	para "Je m'occupe mal de"
+	line "mes #MON?"
+
+	para "Amour..."
+
+	para "Confiance..."
+
+	para "Est-ce aussi im-"
+	line "portant?"
+
+	para "Est-ce la raison"
+	line "de ma défaite?"
+
+	para "Je ne comprends"
+	line "plus rien..."
+
+	para "Mais ce n'est pas"
+	line "la fin."
+
+	para "Pas maintenant..."
+	line "Pas comme ça."
+
+	para "Je serai le plus"
+	line "grand dresseur de"
+
+	para "#MON de tous"
+	line "les temps!"
+else
 	text "…I don't under-"
 	line "stand…"
 
@@ -753,9 +826,22 @@ UndergroundSilverAfterText: ; AUTOTRAD
 
 	para "the world's best"
 	line "#MON trainer!"
+endc
+
 	done
 
-UndergroundSilverLossText: ; AUTOTRAD
+UndergroundSilverLossText: 
+if DEF(_FR_FR)
+	text "Tsss! Voilà ce que"
+	line "c'est la force."
+
+	para "J'vais la bouffer"
+	line "la TEAM ROCKET."
+
+	para "Et PETER..."
+	line "J'vais lui casser"
+	cont "ses rêves."
+else
 	text "Humph. This is my"
 	line "real power, wimp."
 
@@ -765,6 +851,8 @@ UndergroundSilverLossText: ; AUTOTRAD
 	para "And I'm going to"
 	line "grind that LANCE"
 	cont "under my heels."
+endc
+
 	done
 
 GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText: ; TO TRANSLATE

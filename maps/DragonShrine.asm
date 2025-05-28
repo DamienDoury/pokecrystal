@@ -710,7 +710,18 @@ endc
 
 	done
 
-DragonShrineSilverIsInTrainingText: ; AUTOTRAD
+DragonShrineSilverIsInTrainingText: 
+if DEF(_FR_FR)
+	text "Un garçon de ton"
+	line "âge s'entraîne"
+	cont "ici."
+
+	para "Il est comme l'é-"
+	line "tait SANDRA plus"
+
+	para "jeune. Je suis"
+	line "très inquiet..."
+else
 	text "A boy close to"
 	line "your age is in"
 	cont "training here."
@@ -720,6 +731,8 @@ DragonShrineSilverIsInTrainingText: ; AUTOTRAD
 
 	para "younger. It is a"
 	line "little worrisome…"
+endc
+
 	done
 
 DragonShrineWrongAnswerText1: 

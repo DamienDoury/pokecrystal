@@ -190,20 +190,39 @@ BirdKeeperBobbyAfterBattleText: ; TO TRANSLATE
 	text "(cough)"
 	done
 
-BikerCharlesSeenText: ; AUTOTRAD
+BikerCharlesSeenText: 
+if DEF(_FR_FR)
+	text "Nous on est des"
+	line "durs! Des vrais!"
+else
 	text "We're fearless"
 	line "highway stars!"
+endc
+
 	done
 
-BikerCharlesBeatenText: ; AUTOTRAD
+BikerCharlesBeatenText: 
+if DEF(_FR_FR)
+	text "Arrrgh!"
+	line "Trop dur!"
+else
 	text "Arrrgh! Crash and"
 	line "burn!"
+endc
+
 	done
 
-BikerCharlesAfterBattleText: ; AUTOTRAD
+BikerCharlesAfterBattleText: 
+if DEF(_FR_FR)
+	text "Conduis doucement,"
+	line "c'est plus"
+	cont "prudent!"
+else
 	text "Reckless driving"
 	line "causes accidents!"
 	cont "Take it easy!"
+endc
+
 	done
 
 Route18SignText: 

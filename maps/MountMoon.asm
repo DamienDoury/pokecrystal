@@ -216,7 +216,19 @@ MountMoonSilverTextStartBattle: ; TO TRANSLATE
 	line "show you!"
 	done
 
-MountMoonSilverTextWin: ; AUTOTRAD
+MountMoonSilverTextWin: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Je pensais avoir"
+	line "élevé mes #MON"
+
+	para "au max de leurs"
+	line "capacités..."
+
+	para "...Mais ce n'était"
+	line "pas suffisant..."
+else
 	text "<……> <……> <……>"
 
 	para "I thought I raised"
@@ -227,6 +239,8 @@ MountMoonSilverTextWin: ; AUTOTRAD
 
 	para "…But it still "
 	line "wasn't enough…"
+endc
+
 	done
 
 MountMoonSilverTextAfter: ; TO TRANSLATE
@@ -258,7 +272,20 @@ MountMoonSilverTextAfter: ; TO TRANSLATE
 	line "will find me."
 	done
 
-MountMoonSilverTextLoss: ; AUTOTRAD
+MountMoonSilverTextLoss: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Yahahaha!"
+	line "Vengeance!"
+
+	para "Avec mes #MON,"
+	line "je vais battre le"
+
+	para "CHAMPION et être"
+	line "le plus grand des"
+	cont "dresseurs."
+else
 	text "<……> <……> <……>"
 
 	para "I've repaid my"
@@ -270,6 +297,8 @@ MountMoonSilverTextLoss: ; AUTOTRAD
 	para "the CHAMPION and"
 	line "become the world's"
 	cont "greatest trainer."
+endc
+
 	done
 
 BurglarBonesSeenText: ; TO TRANSLATE

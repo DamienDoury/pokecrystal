@@ -632,7 +632,26 @@ endc
 
 	done
 
-BugCatchingContestExplanationText: ; AUTOTRAD
+BugCatchingContestExplanationText: 
+if DEF(_FR_FR)
+	text "Le Concours de"
+	line "Capture se déroule"
+
+	para "le mardi, le jeudi"
+	line "et le samedi."
+
+	para "On peut y gagner"
+	line "un prix rien qu'en"
+
+	para "participant mais"
+	line "on garde aussi le"
+
+	para "#MON insecte"
+	line "que l'on chope"
+
+	para "pendant le con-"
+	line "cours."
+else
 	text "The Bug-Catching"
 	line "Contest is held on"
 
@@ -650,6 +669,8 @@ BugCatchingContestExplanationText: ; AUTOTRAD
 
 	para "have at the end of"
 	line "the contest."
+endc
+
 	done
 
 NationalParkLockdownText: ; TO TRANSLATE
