@@ -426,18 +426,35 @@ Route36_StepRightMovement:
 	step RIGHT
 	step_end
 
-UseSquirtbottleText: ; AUTOTRAD
+UseSquirtbottleText: 
+if DEF(_FR_FR)
+	text "Un arbre bizarre."
+	line "Utiliser la"
+	cont "CARAPUCE A O?"
+else
 	text "It's a weird tree."
 	line "Use SQUIRTBOTTLE?"
+endc
+
 	done
 
-SudowoodoAttackedText: ; AUTOTRAD
+SudowoodoAttackedText: 
+if DEF(_FR_FR)
+	text "L'arbre bizarre"
+	line "n'aime pas la"
+	cont "CARAPUCE A O!"
+
+	para "L'arbre bizarre"
+	line "attaque!"
+else
 	text "The weird tree"
 	line "doesn't like the"
 	cont "SQUIRTBOTTLE!"
 
 	para "The weird tree"
 	line "attacked!"
+endc
+
 	done
 
 FloriaText1: ; TO TRANSLATE
@@ -490,13 +507,23 @@ RockSmashGuyText1: ; TO TRANSLATE
 	line "as hard as a rock!"
 	done
 
-RockSmashGuyText2: ; AUTOTRAD
+RockSmashGuyText2: 
+if DEF(_FR_FR)
+	text "Tu as battu"
+	line "l'arbre?"
+
+	para "Impressionnant!"
+	line "Tu as bien mérité"
+	cont "ça."
+else
 	text "Did you clear that"
 	line "wretched tree?"
 
 	para "I'm impressed!"
 	line "I want you to"
 	cont "have this."
+endc
+
 	done
 
 RockSmashGuyText3: ; TO TRANSLATE
@@ -512,7 +539,18 @@ RockSmashGuyText3: ; TO TRANSLATE
 	cont "smash 'em up!"
 	done
 
-Route36LassText: ; AUTOTRAD
+Route36LassText: 
+if DEF(_FR_FR)
+	text "Un drôle d'arbre"
+	line "bloque le passage"
+	cont "vers DOUBLONVILLE."
+
+	para "Je peux pas faire"
+	line "mes courses."
+
+	para "On devrait faire"
+	line "quelque chose."
+else
 	text "An odd tree is"
 	line "blocking the way"
 	cont "to GOLDENROD CITY."
@@ -522,68 +560,147 @@ Route36LassText: ; AUTOTRAD
 
 	para "Something should"
 	line "be done about it."
+endc
+
 	done
 
-Route36LassText_ClearedSudowoodo: ; AUTOTRAD
+Route36LassText_ClearedSudowoodo: 
+if DEF(_FR_FR)
+	text "L'arbre bizarre a"
+	line "disparu..."
+
+	para "Oh! C'était un"
+	line "#MON?"
+	cont "Vraiment?"
+else
 	text "That odd tree dis-"
 	line "appeared without a"
 	cont "trace."
 
 	para "Oh! That tree was"
 	line "really a #MON?"
+endc
+
 	done
 
-PsychicMarkSeenText: ; AUTOTRAD
+PsychicMarkSeenText: 
+if DEF(_FR_FR)
+	text "Je suis..."
+	line "Puissant!"
+else
 	text "I'm going to read"
 	line "your thoughts!"
+endc
+
 	done
 
-PsychicMarkBeatenText: ; AUTOTRAD
+PsychicMarkBeatenText: 
+if DEF(_FR_FR)
+	text "J'suis une tache!"
+else
 	text "I misread you!"
+endc
+
 	done
 
-PsychicMarkAfterBattleText: ; AUTOTRAD
+PsychicMarkAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai des pouvoirs"
+	line "psychiques mais..."
+
+	para "Je sais pas com-"
+	line "ment m'en servir."
+else
 	text "I'd be strong if"
 	line "only I could tell"
 
 	para "what my opponent"
 	line "was thinking."
+endc
+
 	done
 
-SchoolboyAlan1SeenText: ; AUTOTRAD
+SchoolboyAlan1SeenText: 
+if DEF(_FR_FR)
+	text "J'ai étudié et je"
+	line "suis incollable!"
+	cont "A l'attaque!"
+else
 	text "Thanks to my stud-"
 	line "ies, I'm ready for"
 	cont "any #MON!"
+endc
+
 	done
 
-SchoolboyAlan1BeatenText: ; AUTOTRAD
+SchoolboyAlan1BeatenText: 
+if DEF(_FR_FR)
+	text "Oups! Me serais-je"
+	line "trompé?"
+else
 	text "Oops! Computation"
 	line "error?"
+endc
+
 	done
 
-SchoolboyAlanBooksText: ; AUTOTRAD
+SchoolboyAlanBooksText: 
+if DEF(_FR_FR)
+	text "Pfff. J'étudie 5"
+	line "heures par jour."
+
+	para "Lire des livres"
+	line "ça suffit pas..."
+	cont "Apparemment..."
+else
 	text "Darn. I study five"
 	line "hours a day too."
 
 	para "There's more to"
 	line "learning than just"
 	cont "reading books."
+endc
+
 	done
 
-MeetArthurText: ; AUTOTRAD
+MeetArthurText: 
+if DEF(_FR_FR)
+	text "JEROME: Qui es-tu?"
+
+	para "Moi c'est JEROME"
+	line "du jeudi."
+else
 	text "ARTHUR: Who are"
 	line "you?"
 
 	para "I'm ARTHUR of"
 	line "Thursday."
+endc
+
 	done
 
-ArthurGivesGiftText: ; AUTOTRAD
+ArthurGivesGiftText: 
+if DEF(_FR_FR)
+	text "Tiens. Voilà pour"
+	line "toi."
+else
 	text "Here. You can have"
 	line "this."
+endc
+
 	done
 
-ArthurGaveGiftText: ; AUTOTRAD
+ArthurGaveGiftText: 
+if DEF(_FR_FR)
+	text "JEROME: C'est pour"
+	line "un #MON avec"
+
+	para "des capacités du"
+	line "type ROCHE."
+
+	para "Cela va améliorer"
+	line "ses attaques."
+else
 	text "ARTHUR: A #MON"
 	line "that uses rock-"
 
@@ -592,32 +709,79 @@ ArthurGaveGiftText: ; AUTOTRAD
 
 	para "It pumps up rock-"
 	line "type attacks."
+endc
+
 	done
 
-ArthurThursdayText: ; AUTOTRAD
+ArthurThursdayText: 
+if DEF(_FR_FR)
+	text "JEROME: Moi c'est"
+	line "JEROME du jeudi,"
+
+	para "le deuxième fils"
+	line "des sept enfants."
+else
 	text "ARTHUR: I'm ARTHUR"
 	line "of Thursday. I'm"
 
 	para "the second son out"
 	line "of seven children."
+endc
+
 	done
 
-ArthurNotThursdayText: ; AUTOTRAD
+ArthurNotThursdayText: 
+if DEF(_FR_FR)
+	text "JEROME: On n'est"
+	line "pas jeudi aujourd'"
+	cont "hui. Dommage."
+else
 	text "ARTHUR: Today's"
 	line "not Thursday. How"
 	cont "disappointing."
+endc
+
 	done
 
-Route36SignText: ; AUTOTRAD
+Route36SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 36"
+else
+	text "ROUTE 36"
+endc
+
 	done
 
-RuinsOfAlphNorthSignText: ; AUTOTRAD
+RuinsOfAlphNorthSignText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+	line "ENTREE NORD"
+else
 	text "RUINS OF ALPH"
 	line "NORTH ENTRANCE"
+endc
+
 	done
 
-Route36TrainerTips1Text: ; AUTOTRAD
+Route36TrainerTips1Text: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Les statistiques"
+	line "des #MON"
+	cont "varient, même dans"
+	cont "la même espèce."
+
+	para "Et même si au dé-"
+	line "but deux #MON"
+	cont "se ressemblent..."
+
+	para "En grandissant ils"
+	line "n'auront pas les"
+
+	para "mêmes forces et"
+	line "faiblesses."
+else
 	text "TRAINER TIPS"
 
 	para "#MON stats"
@@ -632,6 +796,8 @@ Route36TrainerTips1Text: ; AUTOTRAD
 
 	para "pronounced as the"
 	line "#MON grow."
+endc
+
 	done
 
 Route36TrainerTips2Text: ; TO TRANSLATE

@@ -625,20 +625,28 @@ Pokecenter2FMovementData_PlayerTakesOneStepLeft:
 	step LEFT
 	step_end
 
-Text_BattleReceptionistMobile: ; AUTOTRAD
+Text_BattleReceptionistMobile: 
+if DEF(_FR_FR)
+else
 	text "Would you like to"
 	line "battle over a GAME"
 
 	para "LINK cable or by"
 	line "mobile phone?"
+endc
+
 	done
 
-Text_TradeReceptionistMobile: ; AUTOTRAD
+Text_TradeReceptionistMobile: 
+if DEF(_FR_FR)
+else
 	text "Would you like to"
 	line "trade over a GAME"
 
 	para "LINK cable or by"
 	line "mobile phone?"
+endc
+
 	done
 
 Text_ThisWayToMobileRoom: ; unreferenced
@@ -646,7 +654,19 @@ Text_ThisWayToMobileRoom: ; unreferenced
 	line "MOBILE ROOM."
 	done
 
-Text_BattleReceptionistIntro: ; AUTOTRAD
+Text_BattleReceptionistIntro: 
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "COLISEE du CLUB"
+	cont "LINK."
+
+	para "Vous pouvez y"
+	line "affronter un(e)"
+	cont "ami(e)."
+
+	para "Voulez-vous"
+	line "combattre?"
+else
 	text "Welcome to CABLE"
 	line "CLUB COLOSSEUM."
 
@@ -655,9 +675,23 @@ Text_BattleReceptionistIntro: ; AUTOTRAD
 
 	para "Would you like to"
 	line "battle?"
+endc
+
 	done
 
-Text_TradeReceptionistIntro: ; AUTOTRAD
+Text_TradeReceptionistIntro: 
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "CENTRE TROC."
+
+	para "Vous pouvez y"
+	line "faire des échanges"
+	cont "de #MON avec"
+	cont "un(e) ami(e)."
+
+	para "Voulez-vous"
+	line "échanger?"
+else
 	text "Welcome to CABLE"
 	line "TRADE CENTER."
 
@@ -667,6 +701,8 @@ Text_TradeReceptionistIntro: ; AUTOTRAD
 
 	para "Would you like to"
 	line "trade?"
+endc
+
 	done
 
 Text_TradeReceptionistPikachuRefusal: ; TO TRANSLATE
@@ -700,22 +736,49 @@ Text_TimeCapsuleReceptionistIntro: ; TO TRANSLATE
 	cont "back in time."
 	done
 
-YourFriendIsNotReadyText: ; AUTOTRAD
+YourFriendIsNotReadyText: 
+if DEF(_FR_FR)
+	text "Votre ami(e) n'est"
+	line "pas prêt(e)."
+else
 	text "Your friend is not"
 	line "ready."
+endc
+
 	prompt
 
-Text_MustSaveGame: ; AUTOTRAD
+Text_MustSaveGame: 
+if DEF(_FR_FR)
+	text "Avant toute conne-"
+	line "xion, vous devez"
+	cont "sauvegarder."
+else
 	text "Before opening the"
 	line "link, you must"
 	cont "save your game."
+endc
+
 	done
 
-Text_PleaseWait: ; AUTOTRAD
+Text_PleaseWait: 
+if DEF(_FR_FR)
+	text "Attendre s.v.p."
+else
 	text "Please wait."
+endc
+
 	done
 
-Text_LinkTimedOut: ; AUTOTRAD
+Text_LinkTimedOut: 
+if DEF(_FR_FR)
+	text "Pas de réponse:"
+	line "la connexion a été"
+	cont "fermée."
+
+	para "Contactez votre"
+	line "ami(e) et recom-"
+	cont "mencez plus tard."
+else
 	text "The link has been"
 	line "closed because of"
 	cont "inactivity."
@@ -723,10 +786,17 @@ Text_LinkTimedOut: ; AUTOTRAD
 	para "Please contact"
 	line "your friend and"
 	cont "come again."
+endc
+
 	prompt
 
-Text_PleaseComeAgain: ; AUTOTRAD
+Text_PleaseComeAgain: 
+if DEF(_FR_FR)
+	text "A bientôt."
+else
 	text "Please come again."
+endc
+
 	prompt
 
 Text_PleaseComeInDuplicate: ; unreferenced
@@ -739,44 +809,90 @@ Text_TemporaryStagingInLinkRoom: ; unreferenced
 	cont "the time being."
 	done
 
-Text_CantLinkToThePast: ; AUTOTRAD
+Text_CantLinkToThePast: 
+if DEF(_FR_FR)
+	text "Vous ne pouvez pas"
+	line "vous connecter au"
+	cont "passé ici."
+else
 	text "You can't link to"
 	line "the past here."
+endc
+
 	prompt
 
-Text_IncompatibleRooms: ; AUTOTRAD
+Text_IncompatibleRooms: 
+if DEF(_FR_FR)
+	text "Votre ami(e) a"
+	line "choisi une salle"
+	cont "différente."
+else
 	text "Incompatible rooms"
 	line "were chosen."
+endc
+
 	prompt
 
-Text_PleaseComeIn: ; AUTOTRAD
+Text_PleaseComeIn: 
+if DEF(_FR_FR)
+	text "Entrez s.v.p."
+else
 	text "Please come in."
+endc
+
 	done
 
-Text_RejectMonWithMail: ; AUTOTRAD
+Text_RejectMonWithMail: 
+if DEF(_FR_FR)
+	text "Vous ne pouvez pas"
+	line "prendre @"
+	text_ram wStringBuffer1
+else
 	text "You can't take the"
 	line "@"
 	text_ram wStringBuffer1
 	text " that"
 	cont "has MAIL with you."
+endc
+
 	prompt
 
-Text_TimeCapsuleClosed: ; AUTOTRAD
+Text_TimeCapsuleClosed: 
+if DEF(_FR_FR)
+	text "Le BLOC TEMPOREL"
+	line "est en réparation."
+else
 	text "I'm sorry--the"
 	line "TIME CAPSULE is"
 	cont "being adjusted."
+endc
+
 	done
 
-Text_TradeRoomClosed: ; AUTOTRAD
+Text_TradeRoomClosed: 
+if DEF(_FR_FR)
+	text "La MACHINE à"
+	line "ECHANGES est en"
+	cont "réparation."
+else
 	text "I'm sorry--the"
 	line "TRADE MACHINE is"
 	cont "being adjusted."
+endc
+
 	done
 
-Text_BattleRoomClosed: ; AUTOTRAD
+Text_BattleRoomClosed: 
+if DEF(_FR_FR)
+	text "La MACHINE à"
+	line "COMBATS est en"
+	cont "réparation."
+else
 	text "I'm sorry--the"
 	line "BATTLE MACHINE is"
 	cont "being adjusted."
+endc
+
 	done
 
 Text_MysteryGiftDeliveryGuy_Intro: ; TO TRANSLATE
@@ -806,12 +922,26 @@ Text_MysteryGiftDeliveryGuy_AlsoHave: ; TO TRANSLATE
 	cont "you. Here you go!"
 	done
 
-Text_MysteryGiftDeliveryGuy_Outro: ; AUTOTRAD
+Text_MysteryGiftDeliveryGuy_Outro: 
+if DEF(_FR_FR)
+	text "A bientôt."
+else
 	text "We hope to serve"
 	line "you again."
+endc
+
 	done
 
-Text_MysteryGiftDeliveryGuy_NoRoom: ; AUTOTRAD
+Text_MysteryGiftDeliveryGuy_NoRoom: 
+if DEF(_FR_FR)
+	text "Oh, tu n'as pas"
+	line "de place."
+
+	para "Va dans un CENTRE"
+	line "#MON pour"
+
+	para "le récupérer."
+else
 	text "Oh, you have no"
 	line "space for this."
 
@@ -820,23 +950,44 @@ Text_MysteryGiftDeliveryGuy_NoRoom: ; AUTOTRAD
 
 	para "across the country"
 	line "to pick it up."
+endc
+
 	done
 
-Text_OhPleaseWait: ; AUTOTRAD
+Text_OhPleaseWait: 
+if DEF(_FR_FR)
+	text "Oh, un moment."
+else
 	text "Oh, please wait."
+endc
+
 	done
 
-Text_ChangeTheLook: ; AUTOTRAD
+Text_ChangeTheLook: 
+if DEF(_FR_FR)
+	text "Il faut changer"
+	line "le décor..."
+else
 	text "We need to change"
 	line "the look here…"
+endc
+
 	done
 
-Text_LikeTheLook: ; AUTOTRAD
+Text_LikeTheLook: 
+if DEF(_FR_FR)
+	text "Le décor vous"
+	line "plaît-il?"
+else
 	text "How does this"
 	line "style look to you?"
+endc
+
 	done
 
-Text_BrokeStadiumRules: ; AUTOTRAD
+Text_BrokeStadiumRules: 
+if DEF(_FR_FR)
+else
 	text "Excuse me!"
 
 	para "For STADIUM rules,"
@@ -854,6 +1005,8 @@ Text_BrokeStadiumRules: ; AUTOTRAD
 
 	para "Please come back"
 	line "when you're ready."
+endc
+
 	done
 
 EmergencyBallReceptionText: ; TO TRANSLATE

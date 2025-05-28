@@ -99,24 +99,49 @@ PlayersHousePlayersTV:
 	disappear PLAYERSHOUSE2F_INVISIBLE_TV
 	end
 
-PlayersRadioText1: ; AUTOTRAD
+PlayersRadioText1: 
+if DEF(_FR_FR)
+	text "La CHRONIQUE PKMN"
+	line "du PROF.CHEN!"
+	cont "Ecoutez-nous la"
+	cont "prochaine fois!"
+else
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
 	cont "in next time!"
+endc
+
 	done
 
-PlayersRadioText2: ; AUTOTRAD
+PlayersRadioText2: 
+if DEF(_FR_FR)
+	text "ANTENNE #MON!"
+else
 	text "#MON CHANNEL!"
+endc
+
 	done
 
-PlayersRadioText3: ; AUTOTRAD
+PlayersRadioText3: 
+if DEF(_FR_FR)
+	text "Ici DJ LULA, la"
+	line "co-présentatrice!"
+else
 	text "This is DJ MARY,"
 	line "your co-host!"
+endc
+
 	done
 
-PlayersRadioText4: ; AUTOTRAD
+PlayersRadioText4: 
+if DEF(_FR_FR)
+	text "#MON!"
+	line "ANTENNE #MON..."
+else
 	text "#MON!"
 	line "#MON CHANNEL…"
+endc
+
 	done
 
 PlayersHousePlayersTVText: ; TO TRANSLATE

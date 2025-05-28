@@ -35,7 +35,14 @@ CopycatsHouse1FBlisseyScript:
 	closetext
 	end
 
-CopycatsHouse1FPokefanMText: ; AUTOTRAD
+CopycatsHouse1FPokefanMText: 
+if DEF(_FR_FR)
+	text "Ma fille aime imi-"
+	line "ter les gens."
+
+	para "On l'appelle la"
+	line "COPIEUSE."
+else
 	text "My daughter likes"
 	line "to mimic people."
 
@@ -44,17 +51,39 @@ CopycatsHouse1FPokefanMText: ; AUTOTRAD
 
 	para "nickname COPYCAT"
 	line "around here."
+endc
+
 	done
 
-CopycatsHouse1FPokefanFText: ; AUTOTRAD
+CopycatsHouse1FPokefanFText: 
+if DEF(_FR_FR)
+	text "Ma fille est très"
+	line "égocentrique..."
+
+	para "Elle n'a pas beau-"
+	line "coup d'amis."
+else
 	text "My daughter is so"
 	line "self-centered…"
 
 	para "She only has a few"
 	line "friends."
+endc
+
 	done
 
-CopycatsHouse1FPokefanFText_ReturnedMachinePart: ; AUTOTRAD
+CopycatsHouse1FPokefanFText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "Elle a perdu la"
+	line "# POUPEE qu'un"
+
+	para "garçon lui a don-"
+	line "née il y a 3 ans."
+
+	para "Et depuis, elle"
+	line "imite encore mieux"
+	cont "qu'avant..."
+else
 	text "She recently lost"
 	line "the # DOLL that"
 
@@ -64,10 +93,17 @@ CopycatsHouse1FPokefanFText_ReturnedMachinePart: ; AUTOTRAD
 	para "Ever since then,"
 	line "she's gotten even"
 	cont "better at mimicry…"
+endc
+
 	done
 
-CopycatsHouse1FBlisseyText: ; AUTOTRAD
+CopycatsHouse1FBlisseyText: 
+if DEF(_FR_FR)
+	text "LEUPHORIE: Rriii!"
+else
 	text "BLISSEY: Bliisii!"
+endc
+
 	done
 
 CopycatsHouse1F_MapEvents:

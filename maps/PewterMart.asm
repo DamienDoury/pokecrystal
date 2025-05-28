@@ -28,7 +28,17 @@ PewterMartSuperNerdScript:
 PewterMartShelfItem1Script:
 	shelfitem 1, MAX_REPEL, 700
 
-PewterMartYoungsterText: ; AUTOTRAD
+PewterMartYoungsterText: 
+if DEF(_FR_FR)
+	text "Hé! Mate un peu"
+	line "mon LEVIATOR!"
+
+	para "Je l'ai eu en en-"
+	line "traînant mon"
+
+	para "MAGICARPE. Il est"
+	line "super balèze!!!"
+else
 	text "Hi! Check out my"
 	line "GYARADOS!"
 
@@ -37,9 +47,21 @@ PewterMartYoungsterText: ; AUTOTRAD
 
 	para "believe how strong"
 	line "it has become."
+endc
+
 	done
 
-PewterMartSuperNerdText: ; AUTOTRAD
+PewterMartSuperNerdText: 
+if DEF(_FR_FR)
+	text "Il y avait un type"
+	line "tout vieux et bi-"
+	cont "zarre qui vendait"
+	cont "des MAGICARPE."
+
+	para "Il recommandait"
+	line "les MAGICARPE du"
+	cont "LAC COLERE."
+else
 	text "There once was a"
 	line "weird old man who"
 	cont "sold MAGIKARP."
@@ -49,6 +71,8 @@ PewterMartSuperNerdText: ; AUTOTRAD
 
 	para "LAKE OF RAGE were"
 	line "excellent."
+endc
+
 	done
 
 PewterMart_MapEvents:

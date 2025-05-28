@@ -120,7 +120,17 @@ WiseTriosRoomSageReturnsMovement:
 	turn_head LEFT
 	step_end
 
-WiseTriosRoomSage1Text: ; AUTOTRAD
+WiseTriosRoomSage1Text: 
+if DEF(_FR_FR)
+	text "Dingue..."
+
+	para "SUICUNE, ENTEI et"
+	line "RAIKOU se sont"
+	cont "réveillés..."
+
+	para "La légende est-"
+	line "elle vraie?"
+else
 	text "Astounding…"
 
 	para "SUICUNE, ENTEI and"
@@ -129,9 +139,24 @@ WiseTriosRoomSage1Text: ; AUTOTRAD
 
 	para "Is the legend"
 	line "coming true?"
+endc
+
 	done
 
-WiseTriosRoomSage2Text: ; AUTOTRAD
+WiseTriosRoomSage2Text: 
+if DEF(_FR_FR)
+	text "On s'entraîne à la"
+	line "TOUR CENDREE mais"
+
+	para "on n'a jamais vu"
+	line "de trou s'ouvrir"
+
+	para "jusqu'à présent."
+	line "Quelqu'un doit en"
+
+	para "être le"
+	line "responsable."
+else
 	text "We train at the"
 	line "BURNED TOWER, but"
 
@@ -143,9 +168,26 @@ WiseTriosRoomSage2Text: ; AUTOTRAD
 
 	para "deliberately made"
 	line "by someone."
+endc
+
 	done
 
-WiseTriosRoomSage3BlocksExitText: ; AUTOTRAD
+WiseTriosRoomSage3BlocksExitText: 
+if DEF(_FR_FR)
+	text "La TOUR FERRAILLE"
+	line "est accessible aux"
+
+	para "porteurs du BADGE"
+	line "de ROSALIA."
+
+	para "Toutefois, depuis"
+	line "le réveil de"
+	cont "SUICUNE, RAIKOU"
+
+	para "et d'ENTEI, je ne"
+	line "peux pas vous"
+	cont "laisser entrer!"
+else
 	text "TIN TOWER may be"
 	line "entered by those"
 
@@ -160,17 +202,53 @@ WiseTriosRoomSage3BlocksExitText: ; AUTOTRAD
 
 	para "to refrain from"
 	line "entering!"
+endc
+
 	done
 
-WiseTriosRoomSage3Text: ; AUTOTRAD
+WiseTriosRoomSage3Text: 
+if DEF(_FR_FR)
+	text "Nous, le TRIO des"
+	line "SAGES, sommes les"
+
+	para "gardiens des #-"
+	line "MON légendaires."
+else
 	text "We, the WISE TRIO,"
 	line "are the protectors"
 
 	para "of the legendary"
 	line "#MON."
+endc
+
 	done
 
-SageGakuSeenText: ; AUTOTRAD
+SageGakuSeenText: 
+if DEF(_FR_FR)
+	text "La légende dit"
+	line "que la venue d'un"
+
+	para "dresseur pouvant"
+	line "toucher l'âme des"
+
+	para "#MON, un"
+	line "#MON viendra"
+
+	para "mettre ce dresseur"
+	line "à l'épreuve dans"
+	cont "la TOUR FERRAILLE."
+
+	para "La légende s'est"
+	line "réalisée!"
+
+	para "Le #MON"
+	line "légendaire SUICUNE"
+	cont "est arrivé!"
+
+	para "Nous, le TRIO des"
+	line "SAGES, te mettons"
+	cont "au défi d'entrer!"
+else
 	text "Legend has it that"
 	line "upon the emergence"
 
@@ -198,14 +276,34 @@ SageGakuSeenText: ; AUTOTRAD
 
 	para "worthiness to go"
 	line "inside!"
+endc
+
 	done
 
-SageGakuBeatenText: ; AUTOTRAD
+SageGakuBeatenText: 
+if DEF(_FR_FR)
+	text "Trop de puissance!"
+else
 	text "Stronger than we"
 	line "thought? Perhaps…"
+endc
+
 	done
 
-SageGakuAfterBattleText: ; AUTOTRAD
+SageGakuAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu prétends donc"
+	line "avoir vu SUICUNE,"
+	cont "ENTEI et RAIKOU"
+	cont "endormis?"
+
+	para "Incroyable!"
+
+	para "La légende dit"
+	line "bien qu'on ne peut"
+	cont "pas les voir"
+	cont "dormir..."
+else
 	text "Ah, so it is you"
 	line "who claim to have"
 
@@ -218,22 +316,85 @@ SageGakuAfterBattleText: ; AUTOTRAD
 	para "Legend has it that"
 	line "they can't be seen"
 	cont "while they sleep…"
+endc
+
 	done
 
-SageMasaSeenText: ; AUTOTRAD
+SageMasaSeenText: 
+if DEF(_FR_FR)
+	text "Doit-on te faire"
+	line "confiance?"
+
+	para "Je dois te mettre"
+	line "à l'épreuve."
+else
 	text "Can you be trusted"
 	line "with the truth?"
 
 	para "I must ascertain"
 	line "your worthiness."
+endc
+
 	done
 
-SageMasaBeatenText: ; AUTOTRAD
+SageMasaBeatenText: 
+if DEF(_FR_FR)
+	text "...Je dirai la"
+	line "vérité..."
+else
 	text "…I will tell you"
 	line "the truth…"
+endc
+
 	done
 
-SageMasaAfterBattleText: ; AUTOTRAD
+SageMasaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Il y a longtemps,"
+	line "il y avait deux"
+	cont "tours ici."
+
+	para "La TOUR de CUIVRE,"
+	line "qui pouvait éveil-"
+
+	para "ler les #MON,"
+	line "et la TOUR FER-"
+
+	para "RAILLE, où les"
+	line "#MON se"
+	cont "reposaient."
+
+	para "La vue depuis le"
+	line "sommet des TOURS"
+
+	para "devait être"
+	line "magnifique."
+
+	para "En ce temps-là, un"
+	line "immense #MON"
+
+	para "argenté avait fait"
+	line "son nid en haut de"
+	cont "la TOUR de CUIVRE."
+
+	para "Toutefois..."
+
+	para "Il y a 150 ans,"
+	line "un éclair frappa"
+	cont "l'une des TOURS."
+
+	para "Elle prit feu et"
+	line "brûla pendant"
+	cont "trois jours."
+
+	para "Et puis une pluie"
+	line "violente eut"
+	cont "raison du brasier."
+
+	para "Voici comment la"
+	line "TOUR CENDREE est"
+	cont "née."
+else
 	text "In the past, there"
 	line "were two nine-tier"
 	cont "towers here."
@@ -281,27 +442,69 @@ SageMasaAfterBattleText: ; AUTOTRAD
 	para "And that is how"
 	line "the BURNED TOWER"
 	cont "came to be."
+endc
+
 	done
 
-SageKojiSeenText: ; AUTOTRAD
+SageKojiSeenText: 
+if DEF(_FR_FR)
+	text "Montre-moi ta"
+	line "force!"
+else
 	text "Let me see your"
 	line "power!"
+endc
+
 	done
 
-SageKojiBeatenText: ; AUTOTRAD
+SageKojiBeatenText: 
+if DEF(_FR_FR)
+	text "Trop de puissance!"
+	line "Pourquoi?"
+else
 	text "Too strong!"
 	line "Why?"
+endc
+
 	done
 
-SageKojiAfterBattleQuestionText: ; AUTOTRAD
+SageKojiAfterBattleQuestionText: 
+if DEF(_FR_FR)
+	text "Toi... Es-tu là"
+	line "pour les #MON"
+	cont "légendaires?"
+else
 	text "You… Are you the"
 	line "trainer who is"
 
 	para "awaited by the"
 	line "legendary #MON?"
+endc
+
 	done
 
-SageKojiAfterBattleSpeechText: ; AUTOTRAD
+SageKojiAfterBattleSpeechText: 
+if DEF(_FR_FR)
+	text "Je vois..."
+
+	para "Nous, le TRIO des"
+	line "SAGES, avons le"
+
+	para "devoir de protéger"
+	line "les #MON légen-"
+
+	para "daires. "
+	line "Nous ne laissons"
+
+	para "passer que ceux"
+	line "au coeur pur."
+
+	para "Entre et découvre"
+	line "la TOUR FERRAILLE."
+
+	para "SUICUNE te mettra"
+	line "à l'épreuve."
+else
 	text "I see…"
 
 	para "We, the WISE TRIO,"
@@ -325,13 +528,23 @@ SageKojiAfterBattleSpeechText: ; AUTOTRAD
 
 	para "SUICUNE will put"
 	line "you to the test."
+endc
+
 	done
 
-SageKojiAfterBattleFinalText: ; AUTOTRAD
+SageKojiAfterBattleFinalText: 
+if DEF(_FR_FR)
+	text "Va."
+
+	para "SUICUNE te mettra"
+	line "à l'épreuve."
+else
 	text "Please, do go on."
 
 	para "SUICUNE will put"
 	line "you to the test."
+endc
+
 	done
 
 WiseTriosRoom_MapEvents:

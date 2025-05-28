@@ -85,7 +85,26 @@ ViridianCityPokecenterSign:
 ViridianCityMartSign:
 	jumpstd MartSignScript
 
-ViridianCityCoffeeGrampsQuestionText: ; AUTOTRAD
+ViridianCityCoffeeGrampsQuestionText: 
+if DEF(_FR_FR)
+	text "Hé, toi! Je"
+	line "viens de m'enfiler"
+
+	para "un double café et"
+	line "j'ai la patate!"
+
+	para "Faut qu'je parle à"
+	line "quelqu'un alors..."
+	cont "Ecoute-moi!"
+
+	para "J'ai pas l'air"
+	line "mais je suis un"
+
+	para "expert en capture"
+	line "de #MON."
+
+	para "Tu me crois, hein?"
+else
 	text "Hey, kid! I just"
 	line "had a double shot"
 
@@ -103,17 +122,37 @@ ViridianCityCoffeeGrampsQuestionText: ; AUTOTRAD
 	line "catching #MON."
 
 	para "Do you believe me?"
+endc
+
 	done
 
-ViridianCityCoffeeGrampsBelievedText: ; AUTOTRAD
+ViridianCityCoffeeGrampsBelievedText: 
+if DEF(_FR_FR)
+	text "Tant mieux."
+	line "J'étais un crack!"
+
+	para "Un balèze! J'avais"
+	line "la classe!"
+else
 	text "Good, good. Yes, I"
 	line "was something out"
 
 	para "of the ordinary,"
 	line "let me tell you!"
+endc
+
 	done
 
-ViridianCityCoffeeGrampsDoubtedText: ; AUTOTRAD
+ViridianCityCoffeeGrampsDoubtedText: 
+if DEF(_FR_FR)
+	text "Quoi? Sale peste!"
+
+	para "Si j'étais plus"
+	line "jeune, j't'en"
+
+	para "ferais baver, moi!"
+	line "Oh que oui!"
+else
 	text "What? You little"
 	line "whelp!"
 
@@ -122,9 +161,23 @@ ViridianCityCoffeeGrampsDoubtedText: ; AUTOTRAD
 
 	para "show you a thing"
 	line "or two. Humph!"
+endc
+
 	done
 
-ViridianCityGrampsNearGymText: ; AUTOTRAD
+ViridianCityGrampsNearGymText: 
+if DEF(_FR_FR)
+	text "Cette ARENE vient"
+	line "juste d'avoir un"
+	cont "CHAMPION officiel."
+
+	para "Un jeune homme de"
+	line "PALETTE est devenu"
+
+	para "le CHAMPION mais"
+	line "il se balade"
+	cont "beaucoup."
+else
 	text "This GYM didn't"
 	line "have a LEADER"
 	cont "until recently."
@@ -134,17 +187,50 @@ ViridianCityGrampsNearGymText: ; AUTOTRAD
 
 	para "LEADER, but he's"
 	line "often away."
+endc
+
 	done
 
-ViridianCityGrampsNearGymBlueReturnedText: ; AUTOTRAD
+ViridianCityGrampsNearGymBlueReturnedText: 
+if DEF(_FR_FR)
+	text "Vas-tu affronter"
+	line "le CHAMPION?"
+
+	para "Bonne chance."
+	line "T'en auras besoin."
+else
 	text "Are you going to"
 	line "battle the LEADER?"
 
 	para "Good luck to you."
 	line "You'll need it."
+endc
+
 	done
 
-ViridianCityDreamEaterFisherText: ; AUTOTRAD
+ViridianCityDreamEaterFisherText: 
+if DEF(_FR_FR)
+	text "(baille)!"
+
+	para "J'ai dormi sous"
+	line "le soleil."
+
+	para "...J'ai rêvé d'un"
+	line "SOPORIFIK en train"
+
+	para "de manger mes"
+	line "songes. Bizarre!"
+
+	para "Hein?"
+	line "C'est quoi?"
+
+	para "D'où vient cette"
+	line "CT?"
+
+	para "C'est louche!"
+	line "Tiens, je te la"
+	cont "donne."
+else
 	text "Yawn!"
 
 	para "I must have dozed"
@@ -165,52 +251,106 @@ ViridianCityDreamEaterFisherText: ; AUTOTRAD
 	para "This is spooky!"
 	line "Here, you can have"
 	cont "this TM."
+endc
+
 	done
 
-ViridianCityDreamEaterFisherGotDreamEaterText: ; AUTOTRAD
+ViridianCityDreamEaterFisherGotDreamEaterText: 
+if DEF(_FR_FR)
+	text "CT42 contient"
+	line "DEVOREVE..."
+
+	para "...Zzzzz..."
+else
 	text "TM42 contains"
 	line "DREAM EATER…"
 
 	para "…Zzzzz…"
+endc
+
 	done
 
-ViridianCityYoungsterText: ; AUTOTRAD
+ViridianCityYoungsterText: 
+if DEF(_FR_FR)
+	text "On dit qu'il y a"
+	line "plein d'objets sur"
+
+	para "le sol de la FORET"
+	line "DE JADE."
+else
 	text "I heard that there"
 	line "are many items on"
 
 	para "the ground in"
 	line "VIRIDIAN FOREST."
+endc
+
 	done
 
-ViridianCitySignText: ; AUTOTRAD
+ViridianCitySignText: 
+if DEF(_FR_FR)
+	text "JADIELLE"
+
+	para "Le paradis vert"
+	line "éternel"
+else
 	text "VIRIDIAN CITY"
 
 	para "The Eternally"
 	line "Green Paradise"
+endc
+
 	done
 
-ViridianGymSignText: ; AUTOTRAD
+ViridianGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de JADIELLE:"
+	cont "..."
+
+	para "Le reste est"
+	line "illisible..."
+else
 	text "VIRIDIAN CITY"
 	line "#MON GYM"
 	cont "LEADER: …"
 
 	para "The rest of the"
 	line "text is illegible…"
+endc
+
 	done
 
-ViridianCityWelcomeSignText: ; AUTOTRAD
+ViridianCityWelcomeSignText: 
+if DEF(_FR_FR)
+	text "Bienvenue à"
+	line "JADIELLE, la porte"
+
+	para "vers le PLATEAU"
+	line "INDIGO"
+else
 	text "WELCOME TO"
 	line "VIRIDIAN CITY,"
 
 	para "THE GATEWAY TO"
 	line "INDIGO PLATEAU"
+endc
+
 	done
 
-TrainerHouseSignText: ; AUTOTRAD
+TrainerHouseSignText: 
+if DEF(_FR_FR)
+	text "CLUB des DRESSEURS"
+
+	para "Réservé aux"
+	line "meilleurs"
+else
 	text "TRAINER HOUSE"
 
 	para "The Club for Top"
 	line "Trainer Battles"
+endc
+
 	done
 
 ViridianCity_MapEvents:

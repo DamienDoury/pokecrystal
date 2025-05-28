@@ -31,26 +31,52 @@ Route5UndergroundPathSign:
 HouseForSaleSign:
 	jumptext HouseForSaleSignText
 
-Route5PokefanMText: ; AUTOTRAD
+Route5PokefanMText: 
+if DEF(_FR_FR)
+	text "La route sera"
+	line "fermée tant que le"
+
+	para "problème à la"
+	line "CENTRALE ne sera"
+	cont "pas résolu."
+else
 	text "The road is closed"
 	line "until the problem"
 
 	para "at the POWER PLANT"
 	line "is solved."
+endc
+
 	done
 
-Route5UndergroundPathSignText: ; AUTOTRAD
+Route5UndergroundPathSignText: 
+if DEF(_FR_FR)
+	text "SOUTERRAIN"
+
+	para "AZURIA -"
+	line "CARMIN SUR MER"
+else
 	text "UNDERGROUND PATH"
 
 	para "CERULEAN CITY -"
 	line "VERMILION CITY"
+endc
+
 	done
 
-HouseForSaleSignText: ; AUTOTRAD
+HouseForSaleSignText: 
+if DEF(_FR_FR)
+	text "C'est quoi ça?"
+
+	para "Maison à vendre..."
+	line "Il n'y a personne."
+else
 	text "What's this?"
 
 	para "House for Sale…"
 	line "Nobody lives here."
+endc
+
 	done
 
 Route5_MapEvents:

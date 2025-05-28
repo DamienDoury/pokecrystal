@@ -127,76 +127,168 @@ FastShipLazySailorLeavesMovement:
 	step UP
 	step_end
 
-CooltrainermSeanSeenText: ; AUTOTRAD
+CooltrainermSeanSeenText: 
+if DEF(_FR_FR)
+	text "Je vais à KANTO"
+	line "pour m'entraîner."
+else
 	text "I'm going to KANTO"
 	line "to test my skills."
+endc
+
 	done
 
-CooltrainermSeanBeatenText: ; AUTOTRAD
+CooltrainermSeanBeatenText: 
+if DEF(_FR_FR)
+	text "J'voulais gagner!"
+else
 	text "I wanted to win!"
+endc
+
 	done
 
-CooltrainermSeanAfterBattleText: ; AUTOTRAD
+CooltrainermSeanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les dresseurs de"
+	line "JOHTO peuvent af-"
+	cont "fronter les CHAM-"
+	cont "PIONS de KANTO."
+else
 	text "Trainers from"
 	line "JOHTO can battle"
 
 	para "with KANTO GYM"
 	line "LEADERS."
+endc
+
 	done
 
-CooltrainerfCarolSeenText: ; AUTOTRAD
+CooltrainerfCarolSeenText: 
+if DEF(_FR_FR)
+	text "J'm'entraîne pour"
+	line "être la meilleure!"
+else
 	text "I'm training to"
 	line "become the CHAMP!"
+endc
+
 	done
 
-CooltrainerfCarolBeatenText: ; AUTOTRAD
+CooltrainerfCarolBeatenText: 
+if DEF(_FR_FR)
+	text "Pourquoi?"
+else
 	text "What's so differ-"
 	line "ent between us?"
+endc
+
 	done
 
-CooltrainerfCarolAfterBattleText: ; AUTOTRAD
+CooltrainerfCarolAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'te battrai un"
+	line "jour! Oh oui!"
+else
 	text "I'm going to beat"
 	line "you someday!"
+endc
+
 	done
 
-PokemaniacEthanSeenText: ; AUTOTRAD
+PokemaniacEthanSeenText: 
+if DEF(_FR_FR)
+	text "Tu connais PETRA?"
+	line "C'est un super DJ"
+	cont "de KANTO."
+else
 	text "Do you know LILY?"
 	line "She's a hot DJ in"
 	cont "KANTO."
+endc
+
 	done
 
-PokemaniacEthanBeatenText: ; AUTOTRAD
+PokemaniacEthanBeatenText: 
+if DEF(_FR_FR)
 	text "Gyaaaah!"
+else
+	text "Gyaaaah!"
+endc
+
 	done
 
-PokemaniacEthanAfterBattleText: ; AUTOTRAD
+PokemaniacEthanAfterBattleText: 
+if DEF(_FR_FR)
+	text "PETRA est cool"
+	line "mais LULA est top!"
+
+	para "J'veux connaître"
+	line "les stations de"
+	cont "radio de JOHTO!"
+else
 	text "LILY's nice, but"
 	line "MARY's the best!"
 
 	para "I want to check"
 	line "out JOHTO's radio"
 	cont "programs!"
+endc
+
 	done
 
-HikerNolandSeenText: ; AUTOTRAD
+HikerNolandSeenText: 
+if DEF(_FR_FR)
+	text "Ca va?"
+	line "Alors...COMBAT!"
+else
 	text "Are you alone?"
 	line "Then let's battle!"
+endc
+
 	done
 
-HikerNolandBeatenText: ; AUTOTRAD
+HikerNolandBeatenText: 
+if DEF(_FR_FR)
+	text "T'es trop, toi!"
+	line "Pfouiii!"
+else
 	text "That's too much to"
 	line "handle!"
+endc
+
 	done
 
-HikerNolandAfterBattleText: ; AUTOTRAD
+HikerNolandAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu crois qu'il y a"
+	line "de belles monta-"
+	cont "gnes à KANTO?"
+else
 	text "I wonder if there"
 	line "are any mountains"
 
 	para "worth climbing in"
 	line "KANTO?"
+endc
+
 	done
 
-SailorStanlySeenText: ; AUTOTRAD
+SailorStanlySeenText: 
+if DEF(_FR_FR)
+	text "Ouaip. Moi j'suis"
+	line "un marin."
+
+	para "Un vrai de vrai."
+	line "Pur boeuf!"
+
+	para "J'suis grand."
+	line "J'suis beau."
+	cont "Je sens le sable"
+	cont "chaud."
+
+	para "Oh! Tu m'écoutes?"
+	line "...COMBAT!"
+else
 	text "Yeah, I'm a sail-"
 	line "or, all right."
 
@@ -209,55 +301,113 @@ SailorStanlySeenText: ; AUTOTRAD
 
 	para "Ah, forget it!"
 	line "Let's battle!"
+endc
+
 	done
 
-SailorStanlyBeatenText: ; AUTOTRAD
+SailorStanlyBeatenText: 
+if DEF(_FR_FR)
+	text "Heu... Comment?"
+	line "De quoi?"
+else
 	text "Sorry! It's all my"
 	line "fault!"
+endc
+
 	done
 
-SailorStanlyAfterBattleText: ; AUTOTRAD
+SailorStanlyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Dans la mariiine,"
+	line "on n'est pas des"
+	cont "p'tites filles!"
+	cont "Dans la mariiine!"
+else
 	text "Being a sailor, I"
 	line "have to do phys-"
 	cont "ical labor. It's"
 	cont "exhausting!"
+endc
+
 	done
 
-GentlemanEdwardSeenText: ; AUTOTRAD
+GentlemanEdwardSeenText: 
+if DEF(_FR_FR)
+	text "J'ai perdu un truc"
+	line "super important..."
+else
 	text "Oh, no. I've lost"
 	line "something that's"
 	cont "very important."
+endc
+
 	done
 
-GentlemanEdwardBeatenText: ; AUTOTRAD
+GentlemanEdwardBeatenText: 
+if DEF(_FR_FR)
+	text "J'le...trouve..."
+	line "...pas!!!"
+else
 	text "I… I can't find"
 	line "it…"
+endc
+
 	done
 
-GentlemanEdwardAfterBattleText: ; AUTOTRAD
+GentlemanEdwardAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je laisse tomber."
+	line "Ce n'est pas la"
+
+	para "peine de chercher."
+	line "Oublie!"
+else
 	text "I give up."
 	line "You don't have to"
 
 	para "look. Just forget"
 	line "about it!"
+endc
+
 	done
 
-BurglarCoreySeenText: ; AUTOTRAD
+BurglarCoreySeenText: 
+if DEF(_FR_FR)
+	text "Ouaiiis!"
+	line "Le bol!"
+else
 	text "Yeehaw!"
 	line "Lucky!"
+endc
+
 	done
 
-BurglarCoreyBeatenText: ; AUTOTRAD
+BurglarCoreyBeatenText: 
+if DEF(_FR_FR)
+	text "Ooooh!"
+	line "Pas d'bol!"
+else
 	text "How unlucky!"
 	line "I lost!"
+endc
+
 	done
 
-BurglarCoreyAfterBattleText: ; AUTOTRAD
+BurglarCoreyAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai trouvé une"
+	line "belle pièce."
+
+	para "Quelqu'un a dû"
+	line "la perdre..."
+else
 	text "I found a pretty"
 	line "coin here."
 
 	para "Someone must have"
 	line "lost it…"
+endc
+
 	done
 
 FastShipJasmineText: ; TO TRANSLATE

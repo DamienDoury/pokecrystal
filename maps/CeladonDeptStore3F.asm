@@ -62,15 +62,41 @@ CeladonDeptStore3FYoungsterText: ; TO TRANSLATE
 	cont "vaccinated too…"
 	done
 
-CeladonDeptStore3FGameboyKid1Text: ; AUTOTRAD
+CeladonDeptStore3FGameboyKid1Text: 
+if DEF(_FR_FR)
+	text "Oh! J'ai échangé"
+	line "mon #MON sans"
+
+	para "lui enlever mon"
+	line "EVOLUTOR!"
+else
 	text "Uh-oh! I traded my"
 	line "#MON without"
 
 	para "removing the UP-"
 	line "GRADE from it."
+endc
+
 	done
 
-CeladonDeptStore3FGameboyKid2Text: ; AUTOTRAD
+CeladonDeptStore3FGameboyKid2Text: 
+if DEF(_FR_FR)
+	text "Ouais! Enfin j'ai"
+	line "un PORYGON!"
+
+	para "Moi j'aime pas les"
+	line "machines à sous."
+
+	para "J'avais jamais"
+	line "assez de jetons..."
+
+	para "...Hein???"
+
+	para "Le PORYGON échangé"
+	line "s'est transformé"
+	cont "en un autre #-"
+	cont "MON!"
+else
 	text "Yeah! I'm finally"
 	line "getting a PORYGON!"
 
@@ -85,6 +111,8 @@ CeladonDeptStore3FGameboyKid2Text: ; AUTOTRAD
 	para "The traded PORYGON"
 	line "turned into a dif-"
 	cont "ferent #MON!"
+endc
+
 	done
 
 CeladonDeptStore3FSuperNerdText: ; TO TRANSLATE
@@ -94,11 +122,20 @@ CeladonDeptStore3FSuperNerdText: ; TO TRANSLATE
 	cont "isn't empty."
 	done
 
-CeladonDeptStore3FDirectoryText: ; AUTOTRAD
+CeladonDeptStore3FDirectoryText: 
+if DEF(_FR_FR)
+	text "2EME: MARCHE AUX"
+	line "      CT"
+
+	para "Renforcez vos"
+	line "#MON!"
+else
 	text "3F: TM SHOP"
 
 	para "Make Your #MON"
 	line "Stronger!"
+endc
+
 	done
 
 CeladonDeptStore3F_MapEvents:

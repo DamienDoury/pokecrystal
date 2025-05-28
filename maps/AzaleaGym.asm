@@ -297,7 +297,18 @@ AzaleaGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-BugsyText_ResearchIncomplete: ; AUTOTRAD
+BugsyText_ResearchIncomplete: 
+if DEF(_FR_FR)
+	text "Whaou, dingue!"
+	line "Tu connais bien"
+	cont "les #MON!"
+
+	para "Mes recherches ne"
+	line "sont pas finies."
+
+	para "OK, tu as gagné."
+	line "Prends ce BADGE."
+else
 	text "Whoa, amazing!"
 	line "You're an expert"
 	cont "on #MON!"
@@ -307,11 +318,19 @@ BugsyText_ResearchIncomplete: ; AUTOTRAD
 
 	para "OK, you win. Take"
 	line "this BADGE."
+endc
+
 	done
 
-Text_ReceivedHiveBadge: ; AUTOTRAD
+Text_ReceivedHiveBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE ESSAIM."
+else
 	text "<PLAYER> received"
 	line "HIVEBADGE."
+endc
+
 	done
 
 Obey30: ; TO TRANSLATE
@@ -327,7 +346,25 @@ BugsyText_HiveBadgeSpeech: ; TO TRANSLATE
 	line "you to have this."
 	done
 
-BugsyText_FuryCutterSpeech: ; AUTOTRAD
+BugsyText_FuryCutterSpeech: 
+if DEF(_FR_FR)
+	text "La CT49 contient"
+	line "TAILLADE."
+
+	para "Si tu ne manques"
+	line "pas ton coup,"
+	cont "la puissance au-"
+	cont "gmente à chaque"
+	cont "tour."
+
+	para "Plus le combat est"
+	line "long, plus le coup"
+	cont "est puissant."
+
+	para "C'est pas super"
+	line "ça? Et c'est moi"
+	cont "qui l'ai trouvée!"
+else
 	text "TM49 contains"
 	line "FURY CUTTER."
 
@@ -341,9 +378,23 @@ BugsyText_FuryCutterSpeech: ; AUTOTRAD
 
 	para "Isn't that great?"
 	line "I discovered it!"
+endc
+
 	done
 
-BugsyText_BugMonsAreDeep: ; AUTOTRAD
+BugsyText_BugMonsAreDeep: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "insecte ont des"
+
+	para "talents cachés. Il"
+	line "faudra encore du"
+	cont "temps pour tous"
+	cont "les découvrir."
+
+	para "Etudie-les"
+	line "minutieusement."
+else
 	text "Bug #MON are"
 	line "deep. There are"
 
@@ -352,41 +403,96 @@ BugsyText_BugMonsAreDeep: ; AUTOTRAD
 
 	para "Study your favor-"
 	line "ites thoroughly."
+endc
+
 	done
 
-BugCatcherBennySeenText: ; AUTOTRAD
+BugCatcherBennySeenText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "insecte évoluent"
+
+	para "rapidement. Ils"
+	line "deviennent forts"
+	cont "plus vite."
+else
 	text "Bug #MON evolve"
 	line "young. So they get"
 
 	para "stronger that much"
 	line "faster."
+endc
+
 	done
 
-BugCatcherBennyBeatenText: ; AUTOTRAD
+BugCatcherBennyBeatenText: 
+if DEF(_FR_FR)
+	text "Faire évoluer un"
+	line "#MON n'est pas"
+	cont "suffisant!"
+else
 	text "Just evolving"
 	line "isn't enough!"
+endc
+
 	done
 
-BugCatcherBennyAfterBattleText: ; AUTOTRAD
+BugCatcherBennyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "deviennent plus"
+	cont "forts en évoluant!"
+else
 	text "#MON become"
 	line "stronger if they"
 	cont "evolve. Really!"
+endc
+
 	done
 
-BugCatcherAlSeenText: ; AUTOTRAD
+BugCatcherAlSeenText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "insecte sont trop"
+
+	para "cool et trop"
+	line "résistants! Je"
+	cont "vais trop te le"
+	cont "prouver!"
+else
 	text "Bug #MON are"
 	line "cool and tough!"
 
 	para "I'll prove it to"
 	line "you!"
+endc
+
 	done
 
-BugCatcherAlBeatenText: ; AUTOTRAD
+BugCatcherAlBeatenText: 
+if DEF(_FR_FR)
+	text "T'as prouvé à"
+	line "quel point t'es"
+	cont "balèze!..."
+else
 	text "You proved how"
 	line "tough you are…"
+endc
+
 	done
 
-BugCatcherAlAfterBattleText: ; AUTOTRAD
+BugCatcherAlAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ils sont trop"
+	line "cool mais la"
+
+	para "plupart des filles"
+	line "n'aiment pas les"
+	cont "#MON insecte."
+
+	para "Je ne sais pas"
+	line "pourquoi..."
+else
 	text "They're so cool,"
 	line "but most girls"
 
@@ -394,9 +500,21 @@ BugCatcherAlAfterBattleText: ; AUTOTRAD
 	line "#MON."
 
 	para "I don't know why…"
+endc
+
 	done
 
-BugCatcherJoshSeenText: ; AUTOTRAD
+BugCatcherJoshSeenText: 
+if DEF(_FR_FR)
+	text "Tu as sauvé tous"
+	line "les RAMOLOSS? T'es"
+	cont "super balèze toi!"
+
+	para "Mais mes #MON"
+	line "adultes sont aussi"
+	cont "un peu balèzes je"
+	cont "crois!"
+else
 	text "You saved all the"
 	line "SLOWPOKE? Whew,"
 	cont "you're mighty!"
@@ -404,38 +522,77 @@ BugCatcherJoshSeenText: ; AUTOTRAD
 	para "But my grown-up"
 	line "#MON are pretty"
 	cont "tough too!"
+endc
+
 	done
 
-BugCatcherJoshBeatenText: ; AUTOTRAD
+BugCatcherJoshBeatenText: 
+if DEF(_FR_FR)
+	text "Aarrgggh!"
+else
 	text "Urrgggh!"
+endc
+
 	done
 
-BugCatcherJoshAfterBattleText: ; AUTOTRAD
+BugCatcherJoshAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je crois que j'ai"
+	line "oublié de leur"
+	cont "apprendre un truc!"
+else
 	text "I guess I should"
 	line "teach them better"
 	cont "moves…"
+endc
+
 	done
 
-TwinsAmyandmay1SeenText: ; AUTOTRAD
+TwinsAmyandmay1SeenText: 
+if DEF(_FR_FR)
+	text "PIM: Salut!"
+	line "Tu veux battre le"
+	cont "CHAMPION? Oh non!"
+else
 	text "AMY: Hi! Are you"
 	line "challenging the"
 	cont "LEADER? No way!"
+endc
+
 	done
 
-TwinsAmyandmay1BeatenText: ; AUTOTRAD
+TwinsAmyandmay1BeatenText: 
+if DEF(_FR_FR)
+	text "PIM & PAM: Oh,"
+	line "double zut!"
+else
 	text "AMY & MAY: Oh,"
 	line "double goodness!"
+endc
+
 	done
 
-TwinsAmyandmay1AfterBattleText: ; AUTOTRAD
+TwinsAmyandmay1AfterBattleText: 
+if DEF(_FR_FR)
+	text "PIM: Et paf!"
+else
 	text "AMY: You're"
 	line "really strong!"
+endc
+
 	done
 
-TwinsAmyandmay2SeenText: ; AUTOTRAD
+TwinsAmyandmay2SeenText: 
+if DEF(_FR_FR)
+	text "PAM: Tu veux voir"
+	line "le CHAMPION?"
+	cont "Pas tout de suite!"
+else
 	text "MAY: You want to"
 	line "see the LEADER?"
 	cont "We come first!"
+endc
+
 	done
 
 TwinsAmyandmay2BeatenText: ; TO TRANSLATE
@@ -449,7 +606,31 @@ TwinsAmyandmay2AfterBattleText: ; TO TRANSLATE
 	cont "a shame."
 	done
 
-AzaleaGymGuideText: ; AUTOTRAD
+AzaleaGymGuideText: 
+if DEF(_FR_FR)
+	text "Yo, toi!"
+
+	para "HECTOR est jeune"
+	line "mais ses connais-"
+
+	para "sances en matière"
+	line "de #MON sont"
+	cont "vastes."
+
+	para "Ca risque d'être"
+	line "difficile sans mes"
+	cont "conseils."
+
+	para "Voyons voir... Les"
+	line "#MON insecte"
+	cont "sont vulnérables"
+	cont "au feu."
+
+	para "Les attaques des"
+	line "#MON volants"
+	cont "sont aussi très"
+	cont "efficaces."
+else
 	text "Yo, challenger!"
 
 	para "BUGSY's young, but"
@@ -469,9 +650,20 @@ AzaleaGymGuideText: ; AUTOTRAD
 	para "Flying-type moves"
 	line "are super-effec-"
 	cont "tive too."
+endc
+
 	done
 
-AzaleaGymGuideWinText: ; AUTOTRAD
+AzaleaGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Bien joué! Voilà"
+	line "une bonne leçon."
+
+	para "Avec des gens"
+	line "comme toi, l'ave-"
+	cont "nir des #MON"
+	cont "sera brillant!"
+else
 	text "Well done! That"
 	line "was a great clash"
 
@@ -481,6 +673,8 @@ AzaleaGymGuideWinText: ; AUTOTRAD
 	para "With people like"
 	line "you, the future of"
 	cont "#MON is bright!"
+endc
+
 	done
 
 AzaleaGym_MapEvents:

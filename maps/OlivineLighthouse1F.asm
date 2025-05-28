@@ -60,7 +60,19 @@ OlivineLighthouse1FSailorFreedomText: ; TO TRANSLATE
 	cont "happened to AMPHY."
 	done
 
-OlivineLighthouse1FPokefanFText: ; AUTOTRAD
+OlivineLighthouse1FPokefanFText: 
+if DEF(_FR_FR)
+	text "Il y a longtemps,"
+	line "des #MON illu-"
+
+	para "minaient les mers"
+	line "autour d'OLIVILLE."
+
+	para "Le PHARE a été"
+	line "construit en"
+	cont "hommage à ces"
+	cont "#MON."
+else
 	text "In the past, #-"
 	line "MON used to light"
 
@@ -70,6 +82,8 @@ OlivineLighthouse1FPokefanFText: ; AUTOTRAD
 	para "The LIGHTHOUSE was"
 	line "made in honor of"
 	cont "those #MON."
+endc
+
 	done
 
 OlivineLighthouse1F_MapEvents:

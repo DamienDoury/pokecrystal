@@ -31,15 +31,28 @@ CeruleanTradeSpeechHouseZubatScript:
 	closetext
 	end
 
-CeruleanTradeSpeechHouseGrannyText: ; AUTOTRAD
+CeruleanTradeSpeechHouseGrannyText: 
+if DEF(_FR_FR)
+	text "Mon mari aime les"
+	line "#MON qu'il a"
+	cont "eu en faisant des"
+	cont "échanges."
+else
 	text "My husband lives"
 	line "happily with #-"
 	cont "MON he got through"
 	cont "trades."
+endc
+
 	done
 
-CeruleanTradeSpeechHouseGrampsText: ; AUTOTRAD
+CeruleanTradeSpeechHouseGrampsText: 
+if DEF(_FR_FR)
+	text "Ah... Super..."
+else
 	text "Ah… I'm so happy…"
+endc
+
 	done
 
 CeruleanTradeSpeechHouseKangaskhanText: ; TO TRANSLATE
@@ -47,8 +60,13 @@ CeruleanTradeSpeechHouseKangaskhanText: ; TO TRANSLATE
 	line "garuu."
 	done
 
-CeruleanTradeSpeechHouseZubatText: ; AUTOTRAD
+CeruleanTradeSpeechHouseZubatText: 
+if DEF(_FR_FR)
+	text "NOSFERAPTI: Ptiii!"
+else
 	text "ZUBAT: Zuba zubaa."
+endc
+
 	done
 
 CeruleanTradeSpeechHouse_MapEvents:

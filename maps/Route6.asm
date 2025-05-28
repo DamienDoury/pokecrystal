@@ -144,57 +144,115 @@ Route6RightMovement:
 	step RIGHT
 	step_end
 
-Route6PokefanMText: ; AUTOTRAD
+Route6PokefanMText: 
+if DEF(_FR_FR)
+	text "La route sera"
+	line "fermée tant que le"
+
+	para "problème à la"
+	line "CENTRALE ne sera"
+	cont "pas résolu."
+else
 	text "The road is closed"
 	line "until the problem"
 
 	para "at the POWER PLANT"
 	line "is solved."
+endc
+
 	done
 
-Route6UndergroundPathSignText: ; AUTOTRAD
+Route6UndergroundPathSignText: 
+if DEF(_FR_FR)
+	text "SOUTERRAIN"
+
+	para "AZURIA -"
+	line "CARMIN SUR MER"
+else
 	text "UNDERGROUND PATH"
 
 	para "CERULEAN CITY -"
 	line "VERMILION CITY"
+endc
+
 	done
 
-PokefanmRexSeenText: ; AUTOTRAD
+PokefanmRexSeenText: 
+if DEF(_FR_FR)
+	text "Mon PHANPY est le"
+	line "plus beau du"
+	cont "monde."
+else
 	text "My PHANPY is the"
 	line "cutest in the"
 	cont "world."
+endc
+
 	done
 
-PokefanmRexBeatenText: ; AUTOTRAD
+PokefanmRexBeatenText: 
+if DEF(_FR_FR)
+	text "Mon PHANPY!"
+else
 	text "My PHANPY!"
+endc
+
 	done
 
-PokefanmRexAfterBattleText: ; AUTOTRAD
+PokefanmRexAfterBattleText: 
+if DEF(_FR_FR)
+	text "Mon PHANPY est"
+	line "trop mimi!"
+
+	para "Tu trouves pas?"
+else
 	text "Look how adorable"
 	line "my PHANPY acts!"
 
 	para "Isn't it cute"
 	line "enough to make"
 	cont "your heart melt?"
+endc
+
 	done
 
-PokefanmAllanSeenText: ; AUTOTRAD
+PokefanmAllanSeenText: 
+if DEF(_FR_FR)
+	text "Mon TEDDIURSA est"
+	line "le plus beau du"
+	cont "monde."
+else
 	text "My TEDDIURSA is"
 	line "the cutest in the"
 	cont "world."
+endc
+
 	done
 
-PokefanmAllanBeatenText: ; AUTOTRAD
+PokefanmAllanBeatenText: 
+if DEF(_FR_FR)
+	text "Mon TEDDIURSA!"
+else
 	text "My TEDDIURSA!"
+endc
+
 	done
 
-PokefanmAllanAfterBattleText: ; AUTOTRAD
+PokefanmAllanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Mon TEDDIURSA est"
+	line "trop mimi!"
+
+	para "Tu trouves pas?"
+else
 	text "Look how adorable"
 	line "my TEDDIURSA acts!"
 
 	para "Isn't it cute"
 	line "enough to make"
 	cont "your heart melt?"
+endc
+
 	done
 
 PokefanmFrancisSeenText: ; TO TRANSLATE

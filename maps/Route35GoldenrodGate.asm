@@ -64,18 +64,40 @@ RandyScript:
 	closetext
 	end
 
-GiftSpearowMail: ; AUTOTRAD
+GiftSpearowMail: 
+if DEF(_FR_FR)
+	db FLOWER_MAIL
+	db   "ANTRE NOIRE    "
+	next "mène autre part@"
+
+else
 	db FLOWER_MAIL
 	db   "DARK CAVE leads"
 	next "to another road@"
 
-GiftSpearowName: ; AUTOTRAD
+endc
+
+GiftSpearowName: 
+if DEF(_FR_FR)
+	db "ALFRED@"
+
+else
 	db "KENYA@"
 
-GiftSpearowOTName: ; AUTOTRAD
+endc
+
+GiftSpearowOTName: 
+if DEF(_FR_FR)
+	db "BOBBY@"
+
+	db 0 ; unused
+
+else
 	db "RANDY@"
 
 	db 0 ; unused
+
+endc
 
 Route35GoldenrodGatePokefanFScript:
 	faceplayer
@@ -96,7 +118,19 @@ Route35GoldenrodGatePokefanFScript:
 Route35GoldenrodGateFisherScript:
 	jumptextfaceplayer Route35GoldenrodGateFisherText
 
-Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText: ; AUTOTRAD
+Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText: 
+if DEF(_FR_FR)
+	text "Minute papillon!"
+	line "Tu peux me rendre"
+	cont "service?"
+
+	para "Tu peux apporter"
+	line "ce #MON et sa"
+	cont "LETTRE à mon pote?"
+
+	para "Il est sur la"
+	line "ROUTE 31."
+else
 	text "Excuse me, kid!"
 	line "Can you do a guy"
 	cont "a favor?"
@@ -106,9 +140,22 @@ Route35GoldenrodGateRandyAskTakeThisMonToMyFriendText: ; AUTOTRAD
 	cont "to my friend?"
 
 	para "He's on ROUTE 31."
+endc
+
 	done
 
-Route35GoldenrodGateRandyThanksText: ; AUTOTRAD
+Route35GoldenrodGateRandyThanksText: 
+if DEF(_FR_FR)
+	text "Tu veux bien?"
+	line "Merci!"
+
+	para "Mon pote est gras"
+	line "et il pionce tout"
+	cont "le temps."
+
+	para "Tu vas le recon-"
+	line "naître, c'est sûr!"
+else
 	text "You will? Perfect!"
 	line "Thanks, kid!"
 
@@ -118,14 +165,37 @@ Route35GoldenrodGateRandyThanksText: ; AUTOTRAD
 
 	para "You'll recognize"
 	line "him right away!"
+endc
+
 	done
 
-Route35GoldenrodGatePlayerReceivedAMonWithMailText: ; AUTOTRAD
+Route35GoldenrodGatePlayerReceivedAMonWithMailText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "un #MON avec"
+	cont "une LETTRE."
+else
 	text "<PLAYER> received a"
 	line "#MON with MAIL."
+endc
+
 	done
 
-Route35GoldenrodGateRandyWeirdTreeBlockingRoadText: ; AUTOTRAD
+Route35GoldenrodGateRandyWeirdTreeBlockingRoadText: 
+if DEF(_FR_FR)
+	text "Tu peux la lire"
+	line "mais ne la perds"
+	cont "pas, OK? Et sou-"
+	cont "viens-toi: la"
+	cont "ROUTE 31!"
+
+	para "Au fait, il y a un"
+	line "arbre bizarre qui"
+	cont "bloque le chemin."
+
+	para "Il est parti, tu"
+	line "crois?"
+else
 	text "You can read it,"
 	line "but don't lose it!"
 	cont "ROUTE 31!"
@@ -136,34 +206,77 @@ Route35GoldenrodGateRandyWeirdTreeBlockingRoadText: ; AUTOTRAD
 
 	para "I wonder if it's"
 	line "been cleared?"
+endc
+
 	done
 
-Route35GoldenrodGateRandyCantCarryAnotherMonText: ; AUTOTRAD
+Route35GoldenrodGateRandyCantCarryAnotherMonText: 
+if DEF(_FR_FR)
+	text "Tu ne peux plus"
+	line "porter de #MON!"
+else
 	text "You can't carry"
 	line "another #MON…"
+endc
+
 	done
 
-Route35GoldenrodGateRandyOhNeverMindThenText: ; AUTOTRAD
+Route35GoldenrodGateRandyOhNeverMindThenText: 
+if DEF(_FR_FR)
+	text "Bon. Laisse tomber"
+	line "alors..."
+else
 	text "Oh… Never mind,"
 	line "then…"
+endc
+
 	done
 
-Route35GoldenrodGateRandySomethingForYourTroubleText: ; AUTOTRAD
+Route35GoldenrodGateRandySomethingForYourTroubleText: 
+if DEF(_FR_FR)
+	text "Merci bien! Tu"
+	line "as bien fait la"
+	cont "livraison!"
+
+	para "Voilà pour toi!"
+else
 	text "Thanks, kid! You"
 	line "made the delivery"
 	cont "for me!"
 
 	para "Here's something"
 	line "for your trouble!"
+endc
+
 	done
 
-Route35GoldenrodGateRandyMyPalWasSnoozingRightText: ; AUTOTRAD
+Route35GoldenrodGateRandyMyPalWasSnoozingRightText: 
+if DEF(_FR_FR)
+	text "Mon pote pionce"
+	line "comme un fou, non?"
+	cont "Quelle classe!"
+else
 	text "My pal was snooz-"
 	line "ing, right? Heh,"
 	cont "what'd I say?"
+endc
+
 	done
 
-Route35GoldenrodGatePokefanFText: ; AUTOTRAD
+Route35GoldenrodGatePokefanFText: 
+if DEF(_FR_FR)
+	text "Un arbre bizarre"
+	line "bloque le chemin."
+
+	para "Il gigote si on"
+	line "s'en approche."
+
+	para "Il paraît qu'il"
+	line "devient dingue si"
+
+	para "on l'asperge avec"
+	line "une CARAPUCE A O."
+else
 	text "A strange tree is"
 	line "blocking the road."
 
@@ -175,15 +288,38 @@ Route35GoldenrodGatePokefanFText: ; AUTOTRAD
 
 	para "watered it with a"
 	line "SQUIRTBOTTLE."
+endc
+
 	done
 
-Route35GoldenrodGatePokefanFText_FoughtSudowoodo: ; AUTOTRAD
+Route35GoldenrodGatePokefanFText_FoughtSudowoodo: 
+if DEF(_FR_FR)
+	text "J'aime la berceuse"
+	line "#MON qui passe"
+	cont "à la radio."
+else
 	text "I like the #MON"
 	line "Lullaby they play"
 	cont "on the radio."
+endc
+
 	done
 
-Route35GoldenrodGateFisherText: ; AUTOTRAD
+Route35GoldenrodGateFisherText: 
+if DEF(_FR_FR)
+	text "Je me demande"
+	line "combien de types"
+
+	para "de #MON il y a"
+	line "dans le monde."
+
+	para "Il y a trois ans,"
+	line "le PROF.CHEN"
+
+	para "disait qu'il y"
+	line "avait 150 types"
+	cont "différents."
+else
 	text "I wonder how many"
 	line "kinds of #MON"
 
@@ -195,6 +331,8 @@ Route35GoldenrodGateFisherText: ; AUTOTRAD
 
 	para "there were 150"
 	line "different kinds."
+endc
+
 	done
 
 Route35GoldenrodGate_MapEvents:

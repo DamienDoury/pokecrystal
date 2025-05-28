@@ -548,10 +548,16 @@ Text_MillionDollarSlowpokeTail: ; TO TRANSLATE
 	para "You'll want this!"
 	done
 
-Text_ThoughtKidsWereLoaded: ; AUTOTRAD
+Text_ThoughtKidsWereLoaded: 
+if DEF(_FR_FR)
+	text "Pff! T'as pas une"
+	line "thune! Dégage!"
+else
 	text "Tch! I thought"
 	line "kids these days"
 	cont "were loaded…"
+endc
+
 	done
 
 Text_RefusedToBuySlowpokeTail: ; TO TRANSLATE
@@ -559,48 +565,103 @@ Text_RefusedToBuySlowpokeTail: ; TO TRANSLATE
 	line "selling pitch…"
 	done
 
-FisherJustinSeenText: ; AUTOTRAD
+FisherJustinSeenText: 
+if DEF(_FR_FR)
+	text "Hééé!"
+
+	para "Tu m'as fait per-"
+	line "dre mon poisson!"
+else
 	text "Whoa!"
 
 	para "You made me lose"
 	line "that fish!"
+endc
+
 	done
 
-FisherJustinBeatenText: ; AUTOTRAD
+FisherJustinBeatenText: 
+if DEF(_FR_FR)
+	text "Splash!"
+else
 	text "Sploosh!"
+endc
+
 	done
 
-FisherJustinAfterText: ; AUTOTRAD
+FisherJustinAfterText: 
+if DEF(_FR_FR)
+	text "L'essence de la"
+	line "pêche et de #-"
+
+	para "MON, c'est le"
+	line "calme."
+else
 	text "Calm, collected…"
 	line "The essence of"
 
 	para "fishing and #-"
 	line "MON is the same."
+endc
+
 	done
 
-FisherRalph1SeenText: ; AUTOTRAD
+FisherRalph1SeenText: 
+if DEF(_FR_FR)
+	text "La pêche et les"
+	line "#MON, c'est"
+	cont "de la balle."
+
+	para "J'suis pas du"
+	line "genre à perdre!"
+else
 	text "I'm really good at"
 	line "both fishing and"
 	cont "#MON."
 
 	para "I'm not about to"
 	line "lose to any kid!"
+endc
+
 	done
 
-FisherRalph1BeatenText: ; AUTOTRAD
+FisherRalph1BeatenText: 
+if DEF(_FR_FR)
+	text "Pfff!"
+	line "J't'aime pas."
+else
 	text "Tch! I tried to"
 	line "rush things…"
+endc
+
 	done
 
-FisherRalphAfterText: ; AUTOTRAD
+FisherRalphAfterText: 
+if DEF(_FR_FR)
+	text "Ma passion c'est"
+	line "la pêche et les"
+
+	para "#MON sont mes"
+	line "amis!"
+else
 	text "Fishing is a life-"
 	line "long passion."
 
 	para "#MON are life-"
 	line "long friends!"
+endc
+
 	done
 
-FisherRalphSwarmText: ; AUTOTRAD
+FisherRalphSwarmText: 
+if DEF(_FR_FR)
+	text "Un, deux et trois!"
+	line "Une bonne prise!"
+
+	para "Yahahahahahahah!"
+	line "J'en ai marre!"
+	cont "A ton tour!"
+else
 	text "One, two, three…"
 	line "Muahahaha, what a"
 
@@ -609,6 +670,8 @@ FisherRalphSwarmText: ; AUTOTRAD
 
 	para "and catch as many"
 	line "as you can, kid!"
+endc
+
 	done
 
 Route32UnusedFisher1SeenText: ; unreferenced
@@ -650,21 +713,42 @@ Route32UnusedFisher2AfterText: ; unreferenced
 	line "#MON."
 	done
 
-FisherHenrySeenText: ; AUTOTRAD
+FisherHenrySeenText: 
+if DEF(_FR_FR)
+	text "Mes #MON?"
+	line "Frais du matin"
+	cont "pêchés!"
+else
 	text "My #MON?"
 	line "Freshly caught!"
+endc
+
 	done
 
-FisherHenryBeatenText: ; AUTOTRAD
+FisherHenryBeatenText: 
+if DEF(_FR_FR)
 	text "SPLASH?"
+else
+	text "SPLASH?"
+endc
+
 	done
 
-FisherHenryAfterText: ; AUTOTRAD
+FisherHenryAfterText: 
+if DEF(_FR_FR)
+	text "Les #MON bien"
+	line "entraînés sont"
+
+	para "plus forts que les"
+	line "jeunes."
+else
 	text "Freshly caught"
 	line "#MON are no"
 
 	para "match for properly"
 	line "raised ones."
+endc
+
 	done
 
 YoungsterAlbertSeenText: ; TO TRANSLATE
@@ -672,8 +756,13 @@ YoungsterAlbertSeenText: ; TO TRANSLATE
 	line "Let's spar!"
 	done
 
-YoungsterAlbertBeatenText: ; AUTOTRAD
+YoungsterAlbertBeatenText: 
+if DEF(_FR_FR)
+	text "Oulààà!"
+else
 	text "You're strong!"
+endc
+
 	done
 
 YoungsterAlbertAfterText: ; TO TRANSLATE
@@ -691,42 +780,92 @@ YoungsterAlbertAfterPostponedText: ; TO TRANSLATE
 	cont "I'm devastated."
 	done
 
-YoungsterGordonSeenText: ; AUTOTRAD
+YoungsterGordonSeenText: 
+if DEF(_FR_FR)
+	text "J'ai trouvé des"
+	line "#MON dans les"
+	cont "hautes herbes!"
+
+	para "Ils sont cool!"
+	line "Et forts! Regarde!"
+else
 	text "I found some good"
 	line "#MON in the"
 	cont "grass!"
 
 	para "I think they'll do"
 	line "it for me!"
+endc
+
 	done
 
-YoungsterGordonBeatenText: ; AUTOTRAD
+YoungsterGordonBeatenText: 
+if DEF(_FR_FR)
+	text "Et ben ça alors."
+else
 	text "Darn. I thought I"
 	line "could win."
+endc
+
 	done
 
-YoungsterGordonAfterText: ; AUTOTRAD
+YoungsterGordonAfterText: 
+if DEF(_FR_FR)
+	text "Y'a plein de trucs"
+	line "dans l'herbe."
+else
 	text "The grass is full"
 	line "of clingy things."
+endc
+
 	done
 
-CamperRolandSeenText: ; AUTOTRAD
+CamperRolandSeenText: 
+if DEF(_FR_FR)
+	text "Dis donc..."
+	line "Tu m'cherches?"
+else
 	text "That glance…"
 	line "It's intriguing."
+endc
+
 	done
 
-CamperRolandBeatenText: ; AUTOTRAD
+CamperRolandBeatenText: 
+if DEF(_FR_FR)
+	text "Ouaiiis!"
+	line "Perduuu!"
+else
 	text "Hmmm. This is"
 	line "disappointing."
+endc
+
 	done
 
-CamperRolandAfterText: ; AUTOTRAD
+CamperRolandAfterText: 
+if DEF(_FR_FR)
+	text "Evite les regards"
+	line "si tu ne veux pas"
+	cont "te battre."
+else
 	text "If you don't want"
 	line "to battle, just"
 	cont "avoid eye contact."
+endc
+
 	done
 
-PicnickerLiz1SeenText: ; AUTOTRAD
+PicnickerLiz1SeenText: 
+if DEF(_FR_FR)
+	text "Ah-ha. Ouais."
+	line "Vers midi."
+
+	para "Quoi? Combat?"
+	line "J'suis au tél!"
+
+	para "Bon d'accord."
+	line "Mais rapide."
+else
 	text "Uh-huh. Yeah, and"
 	line "you know…"
 
@@ -735,16 +874,30 @@ PicnickerLiz1SeenText: ; AUTOTRAD
 
 	para "Oh, all right. But"
 	line "make it fast."
+endc
+
 	done
 
-PicnickerLiz1BeatenText: ; AUTOTRAD
+PicnickerLiz1BeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Il faut que"
+	line "je me calme!"
+else
 	text "Oh! I've got to"
 	line "relieve my anger!"
+endc
+
 	done
 
-PicnickerLiz1AfterText: ; AUTOTRAD
+PicnickerLiz1AfterText: 
+if DEF(_FR_FR)
+	text "J'avais une copine"
+	line "au téléphone."
+else
 	text "I was having a"
 	line "nice chat too."
+endc
+
 	done
 
 BirdKeeperPeterSeenText: ; TO TRANSLATE
@@ -753,15 +906,29 @@ BirdKeeperPeterSeenText: ; TO TRANSLATE
 	cont "VIOLET CITY?"
 	done
 
-BirdKeeperPeterBeatenText: ; AUTOTRAD
+BirdKeeperPeterBeatenText: 
+if DEF(_FR_FR)
+	text "OK."
+	line "Pas mal."
+else
 	text "I know what my"
 	line "weaknesses are."
+endc
+
 	done
 
-BirdKeeperPeterAfterText: ; AUTOTRAD
+BirdKeeperPeterAfterText: 
+if DEF(_FR_FR)
+	text "Je vais encore"
+	line "m'entraîner dans"
+	cont "l'ARENE de"
+	cont "MAUVILLE."
+else
 	text "I should train"
 	line "again at the GYM"
 	cont "in VIOLET CITY."
+endc
+
 	done
 
 Route32UnusedText: ; unreferenced
@@ -770,7 +937,18 @@ Route32UnusedText: ; unreferenced
 	cont "bugging them…"
 	done
 
-Text_RoarIntro: ; AUTOTRAD
+Text_RoarIntro: 
+if DEF(_FR_FR)
+	text "GRAAAAA!"
+	line "LES GENS N'AIMENT"
+
+	para "PAS QUAND JE CRIE!"
+	line "POURQUOI???"
+
+	para "TOI TU AIMES?"
+	line "SUPEEEER!"
+	cont "VOILA POUR TOI!!!"
+else
 	text "WROOOOAR!"
 	line "PEOPLE RUN WHEN I"
 
@@ -779,17 +957,37 @@ Text_RoarIntro: ; AUTOTRAD
 
 	para "THAT PLEASES ME!"
 	line "NOW TAKE THIS!"
+endc
+
 	done
 
-Text_RoarOutro: ; AUTOTRAD
+Text_RoarOutro: 
+if DEF(_FR_FR)
+	text "GRAAAAAH!"
+	line "C'EST HURLEMENT!"
+
+	para "CA FAIT PEUR AUX"
+	line "#MON!"
+else
 	text "WROOOAR!"
 	line "IT'S ROAR!"
 
 	para "EVEN #MON RUN"
 	line "FROM A GOOD ROAR!"
+endc
+
 	done
 
-MeetFriedaText: ; AUTOTRAD
+MeetFriedaText: 
+if DEF(_FR_FR)
+	text "VANESSA: Ouaiis!"
+	line "On est vendredi!"
+
+	para "Je suis VANESSA du"
+	line "vendredi!"
+
+	para "Bonjour toi!"
+else
 	text "FRIEDA: Yahoo!"
 	line "It's Friday!"
 
@@ -797,14 +995,36 @@ MeetFriedaText: ; AUTOTRAD
 	line "Friday!"
 
 	para "Nice to meet you!"
+endc
+
 	done
 
-FriedaGivesGiftText: ; AUTOTRAD
+FriedaGivesGiftText: 
+if DEF(_FR_FR)
+	text "Voilà un PIC VENIN"
+	line "pour toi!"
+else
 	text "Here's a POISON"
 	line "BARB for you!"
+endc
+
 	done
 
-FriedaGaveGiftText: ; AUTOTRAD
+FriedaGaveGiftText: 
+if DEF(_FR_FR)
+	text "VANESSA: Donne-le"
+	line "à un #MON qui a"
+	cont "des capacités du"
+	cont "type POISON."
+
+	para "Oh!"
+
+	para "C'est terrible!"
+
+	para "Tu verras à quel"
+	line "point ça peut les"
+	cont "améliorer!"
+else
 	text "FRIEDA: Give it to"
 	line "a #MON that has"
 	cont "poison-type moves."
@@ -816,9 +1036,22 @@ FriedaGaveGiftText: ; AUTOTRAD
 	para "You'll be shocked"
 	line "how good it makes"
 	cont "poison moves!"
+endc
+
 	done
 
-FriedaFridayText: ; AUTOTRAD
+FriedaFridayText: 
+if DEF(_FR_FR)
+	text "VANESSA: Ouais!"
+	line "Quel jour tu"
+	cont "aimes, toi?"
+
+	para "Moi j'aime le ven-"
+	line "dredi, et oui!"
+
+	para "Pas toi? Hein?"
+	line "Pas toi?"
+else
 	text "FRIEDA: Hiya! What"
 	line "day do you like?"
 
@@ -827,31 +1060,63 @@ FriedaFridayText: ; AUTOTRAD
 
 	para "Don't you think"
 	line "it's great too?"
+endc
+
 	done
 
-FriedaNotFridayText: ; AUTOTRAD
+FriedaNotFridayText: 
+if DEF(_FR_FR)
+	text "VANESSA: On est"
+	line "vendredi, aujour-"
+	cont "d'hui?"
+
+	para "Moi j'aime que le"
+	line "vendredi!"
+else
 	text "FRIEDA: Isn't it"
 	line "Friday today?"
 
 	para "It's so boring"
 	line "when it's not!"
+endc
+
 	done
 
-Route32SignText: ; AUTOTRAD
+Route32SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 32"
+
+	para "MAUVILLE -"
+	line "ECORCIA"
+else
 	text "ROUTE 32"
 
 	para "VIOLET CITY -"
 	line "AZALEA TOWN"
+endc
+
 	done
 
-Route32RuinsSignText: ; AUTOTRAD
+Route32RuinsSignText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+	line "ENTREE EST"
+else
 	text "RUINS OF ALPH"
 	line "EAST ENTRANCE"
+endc
+
 	done
 
-Route32UnionCaveSignText: ; AUTOTRAD
+Route32UnionCaveSignText: 
+if DEF(_FR_FR)
+	text "CAVES JUMELLES"
+	line "Tout droit"
+else
 	text "UNION CAVE"
 	line "AHEAD"
+endc
+
 	done
 
 Route32_MapEvents:

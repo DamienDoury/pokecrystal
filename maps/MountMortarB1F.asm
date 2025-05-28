@@ -100,12 +100,34 @@ MountMortarB1FKiyoIntroText: ; TO TRANSLATE
 	para "Hwaaarggh!"
 	done
 
-MountMortarB1FKiyoWinText: ; AUTOTRAD
+MountMortarB1FKiyoWinText: 
+if DEF(_FR_FR)
+	text "Waaaarggh!"
+	line "Perdu!"
+else
 	text "Waaaarggh!"
 	line "I'm beaten!"
+endc
+
 	done
 
-MountMortarB1FTyrogueRewardText: ; AUTOTRAD
+MountMortarB1FTyrogueRewardText: 
+if DEF(_FR_FR)
+	text "J'suis...mauvais."
+
+	para "Mon entraînement"
+	line "n'est pas encore"
+	cont "suffisant."
+
+	para "Mais j'admets ma"
+	line "défaite."
+
+	para "En gage de récom-"
+	line "pense, je vais te"
+
+	para "donner un #MON"
+	line "de combat rare."
+else
 	text "I… I'm crushed…"
 
 	para "My training is"
@@ -119,14 +141,35 @@ MountMortarB1FTyrogueRewardText: ; AUTOTRAD
 
 	para "give you a rare"
 	line "fighting #MON."
+endc
+
 	done
 
-MountMortarB1FReceiveMonText: ; AUTOTRAD
+MountMortarB1FReceiveMonText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "DEBUGANT."
+else
 	text "<PLAYER> received"
 	line "TYROGUE."
+endc
+
 	done
 
-MountMortarB1FKiyoGotTyrogueText: ; AUTOTRAD
+MountMortarB1FKiyoGotTyrogueText: 
+if DEF(_FR_FR)
+	text "DEBUGANT est du"
+	line "type COMBAT."
+
+	para "Il évolue en un"
+	line "puissant #MON."
+
+	para "Alors fais comme"
+	line "moi..."
+	cont "Entraîne-toi!"
+
+	para "Adieu!"
+else
 	text "TYROGUE is a"
 	line "fighting-type."
 
@@ -138,11 +181,19 @@ MountMortarB1FKiyoGotTyrogueText: ; AUTOTRAD
 	cont "training too."
 
 	para "Farewell!"
+endc
+
 	done
 
-MountMortarB1FKiyoFullPartyText: ; AUTOTRAD
+MountMortarB1FKiyoFullPartyText: 
+if DEF(_FR_FR)
+	text "Pas de place dans"
+	line "ton équipe!"
+else
 	text "You have no room"
 	line "in your party!"
+endc
+
 	done
 
 MountMortarB1F_MapEvents:

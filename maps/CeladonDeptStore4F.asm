@@ -53,11 +53,20 @@ CeladonDeptStore4FYoungsterText: ; TO TRANSLATE
 	cont "That was lit!"
 	done
 
-CeladonDeptStore4FDirectoryText: ; AUTOTRAD
+CeladonDeptStore4FDirectoryText: 
+if DEF(_FR_FR)
+	text "Offrir, c'est"
+	line "merveilleux!"
+
+	para "3EME: CADEAUX DU"
+	line "      SAGE"
+else
 	text "Express Yourself"
 	line "With Gifts!"
 
 	para "4F: WISEMAN GIFTS"
+endc
+
 	done
 
 CeladonDeptStore4F_MapEvents:

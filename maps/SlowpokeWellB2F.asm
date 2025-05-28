@@ -30,7 +30,26 @@ SlowpokeWellB2FGymGuideScript:
 SlowpokeWellB2FTMRainDance:
 	itemball TM_RAIN_DANCE
 
-SlowpokeWellB2FGymGuideText: ; AUTOTRAD
+SlowpokeWellB2FGymGuideText: 
+if DEF(_FR_FR)
+	text "J'attends de voir"
+	line "l'évolution du"
+	cont "RAMOLOSS."
+
+	para "En observant j'ai"
+	line "fait une nouvelle"
+	cont "découverte."
+
+	para "Un RAMOLOSS avec"
+	line "une ROCHE ROYALE"
+
+	para "se fait mordre par"
+	line "un KOKIYAS."
+
+	para "Tiens! Je vais te"
+	line "donner une ROCHE"
+	cont "ROYALE."
+else
 	text "I'm waiting to see"
 	line "SLOWPOKE's moment"
 	cont "of evolution."
@@ -48,15 +67,27 @@ SlowpokeWellB2FGymGuideText: ; AUTOTRAD
 	para "Here, I'll share a"
 	line "KING'S ROCK with"
 	cont "you."
+endc
+
 	done
 
-SlowpokeWellB2FGymGuideText_GotKingsRock: ; AUTOTRAD
+SlowpokeWellB2FGymGuideText_GotKingsRock: 
+if DEF(_FR_FR)
+	text "Je serai comme"
+	line "RAMOLOSS."
+
+	para "Je serai patient"
+	line "et j'en verrai un"
+	cont "évoluer."
+else
 	text "I'm going to be"
 	line "like SLOWPOKE."
 
 	para "I'll wait patient-"
 	line "ly, so I can see"
 	cont "one evolve."
+endc
+
 	done
 
 SlowpokeWellB2F_MapEvents:

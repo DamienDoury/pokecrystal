@@ -304,25 +304,83 @@ MovementData_BattleTowerBattleRoomPlayerTurnsToFaceNextOpponent:
 	turn_head RIGHT
 	step_end
 
-Text_BattleTowerWelcomesYou: ; AUTOTRAD
+Text_BattleTowerWelcomesYou: 
+if DEF(_FR_FR)
+	text "Bienvenue à la"
+	line "TOUR DE COMBAT!"
+
+	para "Je peux vous faire"
+	line "accéder à une"
+	cont "SALLE DE COMBAT."
+else
 	text "BATTLE TOWER"
 	line "welcomes you!"
 
 	para "I could show you"
 	line "to a BATTLE ROOM."
+endc
+
 	done
 
-Text_WantToGoIntoABattleRoom: ; AUTOTRAD
+Text_WantToGoIntoABattleRoom: 
+if DEF(_FR_FR)
+	text "Voulez-vous aller"
+	line "dans une SALLE"
+	cont "DE COMBAT?"
+else
 	text "Want to go into a"
 	line "BATTLE ROOM?"
+endc
+
 	done
 
-Text_RightThisWayToYourBattleRoom: ; AUTOTRAD
+Text_RightThisWayToYourBattleRoom: 
+if DEF(_FR_FR)
+	text "Par ici..."
+else
 	text "Right this way to"
 	line "your BATTLE ROOM."
+endc
+
 	done
 
-Text_BattleTowerIntroduction_2: ; AUTOTRAD
+Text_BattleTowerIntroduction_2: 
+if DEF(_FR_FR)
+	text "La TOUR DE COMBAT"
+	line "a été construite"
+	cont "pour les matches"
+	cont "de #MON."
+
+	para "Divers dresseurs"
+	line "viennent s'y af-"
+
+	para "fronter dans les"
+	line "SALLES DE COMBAT"
+	cont "spéciales."
+
+	para "Il existe beaucoup"
+	line "de SALLES diffé-"
+	cont "rentes."
+
+	para "Chaque SALLE ren-"
+	line "ferme 7 dresseurs."
+
+	para "Il faut tous les"
+	line "battre pour gagner"
+	cont "un prix."
+
+	para "Pour arrêter une"
+	line "session, il faut"
+
+	para "SAUVER. Dans le"
+	line "cas contraire, on"
+
+	para "ne peut pas re-"
+	line "prendre le défi"
+	cont "d'une SALLE."
+
+	para ""
+else
 	text "BATTLE TOWER is a"
 	line "facility made for"
 	cont "#MON battles."
@@ -356,27 +414,58 @@ Text_BattleTowerIntroduction_2: ; AUTOTRAD
 	line "challenge."
 
 	para ""
+endc
+
 	done
 
-Text_ReceivedAListOfLeadersOnTheHonorRoll: ; AUTOTRAD
+Text_ReceivedAListOfLeadersOnTheHonorRoll: 
+if DEF(_FR_FR)
+	text "Vous avez reçu une"
+	line "liste des CHAM-"
+	cont "PIONS sur les TA-"
+	cont "BLES de l'HONNEUR."
+
+	para ""
+else
 	text "Received a list of"
 	line "LEADERS on the"
 	cont "HONOR ROLL."
 
 	para ""
+endc
+
 	done
 
-Text_PleaseConfirmOnThisMonitor: ; AUTOTRAD
+Text_PleaseConfirmOnThisMonitor: 
+if DEF(_FR_FR)
+	text "Confirmez sur ce"
+	line "moniteur."
+else
 	text "Please confirm on"
 	line "this monitor."
+endc
+
 	done
 
-Text_ThanksForVisiting: ; AUTOTRAD
+Text_ThanksForVisiting: 
+if DEF(_FR_FR)
+	text "Merci et à"
+	line "bientôt!"
+else
 	text "Thanks for"
 	line "visiting!"
+endc
+
 	done
 
-Text_CongratulationsYouveBeatenAllTheTrainers: ; AUTOTRAD
+Text_CongratulationsYouveBeatenAllTheTrainers: 
+if DEF(_FR_FR)
+	text "Félicitations! "
+	line "Tous les dresseurs"
+
+	para "ont été vaincus! "
+	line "Et hop! Cadeau!"
+else
 	text "Congratulations!"
 
 	para "You've beaten all"
@@ -386,50 +475,109 @@ Text_CongratulationsYouveBeatenAllTheTrainers: ; AUTOTRAD
 	line "this great prize!"
 
 	para ""
+endc
+
 	done
 
-Text_PlayerGotFive: ; AUTOTRAD
+Text_PlayerGotFive: 
+if DEF(_FR_FR)
+	text "<PLAYER> gagne 5"
+	line "@"
+	text_ram wStringBuffer4
+	text "!@"
+else
 	text "<PLAYER> got five"
 	line "@"
 	text_ram wStringBuffer4
 	text "!@"
+endc
+
 	sound_item
 	text_promptbutton
 	text_end
 
-Text_YourPackIsStuffedFull: ; AUTOTRAD
+Text_YourPackIsStuffedFull: 
+if DEF(_FR_FR)
+	text "Oups! Le SAC est"
+	line "plein."
+
+	para "Il faut faire de"
+	line "la place!"
+else
 	text "Oops, your PACK is"
 	line "stuffed full."
 
 	para "Please make room"
 	line "and come back."
+endc
+
 	done
 
-Text_WeHopeToServeYouAgain: ; AUTOTRAD
+Text_WeHopeToServeYouAgain: 
+if DEF(_FR_FR)
+	text "A bientôt,"
+	line "j'espère."
+else
 	text "We hope to serve"
 	line "you again."
+endc
+
 	done
 
-Text_PleaseStepThisWay: ; AUTOTRAD
+Text_PleaseStepThisWay: 
+if DEF(_FR_FR)
+	text "Par ici."
+else
 	text "Please step this"
 	line "way."
+endc
+
 	done
 
-Text_WouldYouLikeToHearAboutTheBattleTower: ; AUTOTRAD
+Text_WouldYouLikeToHearAboutTheBattleTower: 
+if DEF(_FR_FR)
+	text "Voulez-vous tout"
+	line "savoir sur la TOUR"
+	cont "DE COMBAT?"
+else
 	text "Would you like to"
 	line "hear about the"
 	cont "BATTLE TOWER?"
+endc
+
 	done
 
-Text_CantBeRegistered: ; AUTOTRAD
+Text_CantBeRegistered: 
+if DEF(_FR_FR)
+	text "Votre progression"
+	line "dans la dernière"
+
+	para "SALLE DE COMBAT ne"
+	line "peut pas être en-"
+	cont "registrée. OK?"
+else
 	text "Your record from"
 	line "the previous"
 
 	para "BATTLE ROOM can't"
 	line "be registered. OK?"
+endc
+
 	done
 
-Text_CantBeRegistered_PreviousRecordDeleted: ; AUTOTRAD
+Text_CantBeRegistered_PreviousRecordDeleted: 
+if DEF(_FR_FR)
+	text "Votre progression"
+	line "dans la dernière"
+
+	para "SALLE DE COMBAT ne"
+	line "peut pas être en-"
+	cont "registrée."
+
+	para "De plus, la pro-"
+	line "gression existante"
+	cont "sera effacée. OK?"
+else
 	text "Your record from"
 	line "the previous"
 
@@ -439,16 +587,43 @@ Text_CantBeRegistered_PreviousRecordDeleted: ; AUTOTRAD
 	para "Also, the existing"
 	line "record will be"
 	cont "deleted. OK?"
+endc
+
 	done
 
-Text_ReadBattleTowerRules: ; AUTOTRAD
+Text_ReadBattleTowerRules: 
+if DEF(_FR_FR)
+	text "Les règles de la"
+	line "TOUR DE COMBAT"
+
+	para "Lire?"
+else
 	text "BATTLE TOWER rules"
 	line "are written here."
 
 	para "Read the rules?"
+endc
+
 	done
 
-Text_BattleTowerRules: ; AUTOTRAD
+Text_BattleTowerRules: 
+if DEF(_FR_FR)
+	text "3 #MON peuvent"
+	line "participer."
+
+	para "Les 3 doivent être"
+	line "différents."
+
+	para "Les objets tenus"
+	line "doivent être aussi"
+	cont "différents."
+
+	para "Certains #MON"
+	line "peuvent avoir des"
+
+	para "restrictions de"
+	line "niveau."
+else
 	text "Three #MON may"
 	line "enter battles."
 
@@ -464,9 +639,22 @@ Text_BattleTowerRules: ; AUTOTRAD
 
 	para "level restrictions"
 	line "placed on them."
+endc
+
 	done
 
-Text_BattleTower_LeftWithoutSaving: ; AUTOTRAD
+Text_BattleTower_LeftWithoutSaving: 
+if DEF(_FR_FR)
+	text "Excusez-moi!"
+	line "Vous n'avez pas"
+	cont "SAUVE avant de"
+	cont "quitter la SALLE"
+	cont "DE COMBAT."
+
+	para "Votre défi ne sera"
+	line "donc pas pris en"
+	cont "compte."
+else
 	text "Excuse me!"
 	line "You didn't SAVE"
 
@@ -478,65 +666,142 @@ Text_BattleTower_LeftWithoutSaving: ; AUTOTRAD
 
 	para "will be declared"
 	line "invalid."
+endc
+
 	done
 
-Text_YourMonWillBeHealedToFullHealth: ; AUTOTRAD
+Text_YourMonWillBeHealedToFullHealth: 
+if DEF(_FR_FR)
+	text "Nous allons soi-"
+	line "gner vos #MON."
+else
 	text "Your #MON will"
 	line "be healed to full"
 	cont "health."
+endc
+
 	done
 
-Text_NextUpOpponentNo: ; AUTOTRAD
+Text_NextUpOpponentNo: 
+if DEF(_FR_FR)
+	text "Prochain adversai-"
+	line "re, le no.@"
+	text_ram wStringBuffer3
+	text ". OK?"
+else
 	text "Next up, opponent"
 	line "no.@"
 	text_ram wStringBuffer3
 	text ". Ready?"
+endc
+
 	done
 
-Text_SaveBeforeEnteringBattleRoom: ; AUTOTRAD
+Text_SaveBeforeEnteringBattleRoom: 
+if DEF(_FR_FR)
+	text "Avant d'entrer"
+	line "dans une SALLE de"
+
+	para "COMBAT, la partie"
+	line "sera SAUVEE."
+else
 	text "Before entering"
 	line "the BATTLE ROOM,"
 
 	para "your progress will"
 	line "be saved."
+endc
+
 	done
 
-Text_SaveAndEndTheSession: ; AUTOTRAD
+Text_SaveAndEndTheSession: 
+if DEF(_FR_FR)
+	text "SAUVER et arrêter"
+	line "la session?"
+else
 	text "SAVE and end the"
 	line "session?"
+endc
+
 	done
 
-Text_SaveBeforeReentry: ; AUTOTRAD
+Text_SaveBeforeReentry: 
+if DEF(_FR_FR)
+	text "Votre progression"
+	line "sera SAUVEE avant"
+
+	para "de retourner dans"
+	line "la dernière SALLE."
+else
 	text "Your record will"
 	line "be SAVED before"
 
 	para "you go back into"
 	line "the previous ROOM."
+endc
+
 	done
 
-Text_CancelYourBattleRoomChallenge: ; AUTOTRAD
+Text_CancelYourBattleRoomChallenge: 
+if DEF(_FR_FR)
+	text "Annuler le défi"
+	line "des SALLES DE"
+	cont "COMBAT?"
+else
 	text "Cancel your BATTLE"
 	line "ROOM challenge?"
+endc
+
 	done
 
-Text_WeveBeenWaitingForYou: ; AUTOTRAD
+Text_WeveBeenWaitingForYou: 
+if DEF(_FR_FR)
+	text "Nous vous atten-"
+	line "dions. Par ici"
+
+	para "pour une SALLE DE"
+	line "COMBAT."
+else
 	text "We've been waiting"
 	line "for you. This way"
 
 	para "to a BATTLE ROOM,"
 	line "please."
+endc
+
 	done
 
-Text_FiveDayBattleLimit_Mobile: ; AUTOTRAD
+Text_FiveDayBattleLimit_Mobile: 
+if DEF(_FR_FR)
+	text "Vous ne pouvez"
+	line "accéder qu'à 5"
+	cont "SALLES DE COMBAT"
+	cont "par jour."
+
+	para "Revenez demain."
+else
 	text "You may enter only"
 	line "five BATTLE ROOMS"
 	cont "each day."
 
 	para "Please come back"
 	line "tomorrow."
+endc
+
 	done
 
-Text_TooMuchTimeElapsedNoRegister: ; AUTOTRAD
+Text_TooMuchTimeElapsedNoRegister: 
+if DEF(_FR_FR)
+	text "Il est impossible"
+	line "d'enregistrer"
+
+	para "votre progression"
+	line "au CENTRE: trop de"
+
+	para "temps s'est écoulé"
+	line "depuis le début de"
+	cont "votre défi."
+else
 	text "Sorry, but it's"
 	line "not possible to"
 
@@ -549,17 +814,42 @@ Text_TooMuchTimeElapsedNoRegister: ; AUTOTRAD
 	para "elapsed since the"
 	line "start of your"
 	cont "challenge."
+endc
+
 	done
 
-Text_AMonLevelExceeds: ; AUTOTRAD
+Text_AMonLevelExceeds: 
+if DEF(_FR_FR)
+	text "Un de vos #MON"
+	line "ou plus a un ni-"
+	cont "veau au-dessus de"
+	cont "@"
+	text_decimal wScriptVar, 1, 3
+	text "."
+else
 	text "One or more of"
 	line "your #MON's"
 	cont "levels exceeds @"
 	text_decimal wScriptVar, 1, 3
 	text "."
+endc
+
 	done
 
-Text_MayNotEnterABattleRoomUnderL70: ; AUTOTRAD
+Text_MayNotEnterABattleRoomUnderL70: 
+if DEF(_FR_FR)
+	text_ram wcd49
+	text " ne"
+	line "peut pas entrer"
+	cont "dans une SALLE DE"
+	cont "COMBAT avant le"
+	cont "N70."
+
+	para "Cette SALLE est"
+	line "pour les N@"
+	text_decimal wScriptVar, 1, 3
+	text "."
+else
 	text_ram wcd49
 	text " may not"
 	line "enter a BATTLE"
@@ -569,25 +859,53 @@ Text_MayNotEnterABattleRoomUnderL70: ; AUTOTRAD
 	line "is for L@"
 	text_decimal wScriptVar, 1, 3
 	text "."
+endc
+
 	done
 
-Text_BattleTowerYoungster: ; AUTOTRAD
+Text_BattleTowerYoungster: 
+if DEF(_FR_FR)
+	text "Détruit par le"
+	line "premier adversai-"
+	cont "re... Je suis nul!"
+else
 	text "Destroyed by the"
 	line "first opponent in"
 
 	para "no time at all…"
 	line "I'm no good…"
+endc
+
 	done
 
-Text_BattleTowerCooltrainerF: ; AUTOTRAD
+Text_BattleTowerCooltrainerF: 
+if DEF(_FR_FR)
+	text "Il y a plein de"
+	line "SALLES DE COMBAT!"
+	cont "Mais je vais"
+	cont "gagner!"
+else
 	text "There are lots of"
 	line "BATTLE ROOMS, but"
 
 	para "I'm going to win"
 	line "them all!"
+endc
+
 	done
 
-Text_BattleTowerGranny: ; AUTOTRAD
+Text_BattleTowerGranny: 
+if DEF(_FR_FR)
+	text "C'est difficile de"
+	line "se passer d'objets"
+
+	para "pendant les"
+	line "combats..."
+
+	para "Faire tenir un ob-"
+	line "jet à son #MON"
+	cont "ça aide..."
+else
 	text "It's a grueling"
 	line "task, not being"
 
@@ -599,9 +917,23 @@ Text_BattleTowerGranny: ; AUTOTRAD
 
 	para "is the key to"
 	line "winning battles."
+endc
+
 	done
 
-Text_BattleTowerBugCatcher: ; AUTOTRAD
+Text_BattleTowerBugCatcher: 
+if DEF(_FR_FR)
+	text "J'essaie de voir"
+	line "jusqu'où on peut"
+
+	para "aller en n'utili-"
+	line "sant que des"
+	cont "#MON insecte."
+
+	para "Du moment qu'il"
+	line "n'y a pas de"
+	cont "#MON de feu..."
+else
 	text "I'm trying to see"
 	line "how far I can go"
 
@@ -610,6 +942,8 @@ Text_BattleTowerBugCatcher: ; AUTOTRAD
 
 	para "Don't let there be"
 	line "any fire #MON…"
+endc
+
 	done
 
 BattleTower1F_MapEvents:

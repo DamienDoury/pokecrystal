@@ -380,7 +380,18 @@ BillsHouseWalkFromRightToLeftVatMovement:
 	step LEFT
 	step_end
 
-BillsGrandpaIntroText: ; AUTOTRAD
+BillsGrandpaIntroText: 
+if DEF(_FR_FR)
+	text "Tu connais LEO?"
+	line "C'est mon"
+	cont "petit-fils."
+
+	para "Il est à JOHTO."
+	line "Il s'occupe de PC."
+
+	para "Alors moi je m'oc-"
+	line "cupe de la maison."
+else
 	text "Hm? You know BILL?"
 	line "He's my grandson."
 
@@ -389,25 +400,55 @@ BillsGrandpaIntroText: ; AUTOTRAD
 
 	para "with PCs, so I'm"
 	line "house-sitting."
+endc
+
 	done
 
-BillsGrandpaAskToSeeMonText: ; AUTOTRAD
+BillsGrandpaAskToSeeMonText: 
+if DEF(_FR_FR)
+	text "Si tu as ce #-"
+	line "MON, peux-tu me"
+	cont "le montrer?"
+else
 	text "If you have that"
 	line "#MON, may I see"
 	cont "it, please?"
+endc
+
 	done
 
-BillsGrandpaExcitedToSeeText: ; AUTOTRAD
+BillsGrandpaExcitedToSeeText: 
+if DEF(_FR_FR)
+	text "Tu vas me le mon-"
+	line "trer? Cool!"
+else
 	text "You will show me?"
 	line "How good of you!"
+endc
+
 	done
 
-BillsGrandpaYouDontHaveItTextText: ; AUTOTRAD
+BillsGrandpaYouDontHaveItTextText: 
+if DEF(_FR_FR)
+	text "Tu ne l'as pas?"
+	line "Dommage..."
+else
 	text "You don't have it?"
 	line "That's too bad…"
+endc
+
 	done
 
-BillsGrandpaShownPokemonText: ; AUTOTRAD
+BillsGrandpaShownPokemonText: 
+if DEF(_FR_FR)
+	text "Alors c'est"
+	line "@"
+	text_ram wStringBuffer3
+	text "?"
+
+	para "Il est mimi!"
+	line "Merci mon p'tit!"
+else
 	text "Ah, so that is"
 	line "@"
 	text_ram wStringBuffer3
@@ -416,21 +457,48 @@ BillsGrandpaShownPokemonText: ; AUTOTRAD
 	para "Isn't it cute!"
 	line "That's so kind of"
 	cont "you."
+endc
+
 	done
 
-BillsGrandpaTokenOfAppreciationText: ; AUTOTRAD
+BillsGrandpaTokenOfAppreciationText: 
+if DEF(_FR_FR)
+	text "Toi t'es cool!"
+
+	para "Voilà une petite"
+	line "récompense."
+else
 	text "Thanks!"
 
 	para "This is a token of"
 	line "my appreciation."
+endc
+
 	done
 
-BillsGrandpaComeAgainText: ; AUTOTRAD
+BillsGrandpaComeAgainText: 
+if DEF(_FR_FR)
+	text "Rends-moi visite"
+	line "des fois."
+else
 	text "Come visit again"
 	line "sometime."
+endc
+
 	done
 
-BillsGrandpaShownAllThePokemonText: ; AUTOTRAD
+BillsGrandpaShownAllThePokemonText: 
+if DEF(_FR_FR)
+	text "Merci de me mon-"
+	line "trer autant de"
+	cont "#MON tout mimi."
+
+	para "C'est vraiment"
+	line "très amusant. Ma"
+
+	para "vie est belle"
+	line "grâce à toi."
+else
 	text "Thanks for showing"
 	line "me so many cute"
 	cont "#MON."
@@ -440,34 +508,81 @@ BillsGrandpaShownAllThePokemonText: ; AUTOTRAD
 
 	para "I've lived such a"
 	line "long life."
+endc
+
 	done
 
-BillsGrandpaWrongPokemonText: ; AUTOTRAD
+BillsGrandpaWrongPokemonText: 
+if DEF(_FR_FR)
+	text "Hmm?"
+
+	para "Ce n'est pas le"
+	line "#MON dont on"
+	cont "m'a parlé."
+else
 	text "Hm?"
 
 	para "That's not the"
 	line "#MON that I was"
 	cont "told about."
+endc
+
 	done
 
-BillsGrandpaLickitungText: ; AUTOTRAD
+BillsGrandpaLickitungText: 
+if DEF(_FR_FR)
+	text "LEO mon petit-fils"
+	line "m'a parlé d'un"
+
+	para "#MON avec une"
+	line "longue langue."
+else
 	text "My grandson BILL"
 	line "told me about a"
 
 	para "#MON that has a"
 	line "long tongue."
+endc
+
 	done
 
-BillsGrandpaOddishText: ; AUTOTRAD
+BillsGrandpaOddishText: 
+if DEF(_FR_FR)
+	text "Mon petit-fils m'a"
+	line "parlé d'un #-"
+
+	para "MON vert et rond"
+	line "avec des feuilles"
+	cont "sur sa tête."
+else
 	text "Ah, my grandson"
 	line "mentioned a round,"
 
 	para "green #MON that"
 	line "has leaves growing"
 	cont "on its head."
+endc
+
 	done
 
-BillsGrandpaStaryuText: ; AUTOTRAD
+BillsGrandpaStaryuText: 
+if DEF(_FR_FR)
+	text "Connais-tu un"
+	line "#MON marin avec"
+
+	para "une sphère rouge"
+	line "dans le corps?"
+
+	para "Tu sais... Celui"
+	line "qui est en forme"
+	cont "d'étoile?"
+
+	para "On dit qu'il appa-"
+	line "raît la nuit."
+
+	para "J'aimerais tant"
+	line "le voir."
+else
 	text "Do you know of a"
 	line "sea #MON that"
 
@@ -483,9 +598,21 @@ BillsGrandpaStaryuText: ; AUTOTRAD
 
 	para "I would surely"
 	line "like to see it."
+endc
+
 	done
 
-BillsGrandpaGrowlitheText: ; AUTOTRAD
+BillsGrandpaGrowlitheText: 
+if DEF(_FR_FR)
+	text "LEO m'a parlé d'un"
+	line "#MON très loyal"
+
+	para "envers son dres-"
+	line "seur."
+
+	para "On dit qu'il HURLE"
+	line "très bien."
+else
 	text "BILL told me about"
 	line "a #MON that is"
 
@@ -494,9 +621,20 @@ BillsGrandpaGrowlitheText: ; AUTOTRAD
 
 	para "It's supposed to"
 	line "ROAR well."
+endc
+
 	done
 
-BillsGrandpaVulpixText: ; AUTOTRAD
+BillsGrandpaVulpixText: 
+if DEF(_FR_FR)
+	text "On m'a parlé d'un"
+	line "joli #MON à"
+	cont "six queues."
+
+	para "J'aimerais tant"
+	line "caresser un #-"
+	cont "MON comme ça."
+else
 	text "I heard about a"
 	line "cute #MON that"
 	cont "has six tails."
@@ -504,9 +642,25 @@ BillsGrandpaVulpixText: ; AUTOTRAD
 	para "I would love to"
 	line "hug a cute #MON"
 	cont "like that."
+endc
+
 	done
 
-BillsGrandpaPichuText: ; AUTOTRAD
+BillsGrandpaPichuText: 
+if DEF(_FR_FR)
+	text "Tu connais ce"
+	line "#MON super"
+	cont "populaire?"
+
+	para "Ce #MON qui"
+	line "a un corps jaune"
+	cont "et des joues"
+	cont "rouges..."
+
+	para "J'aimerais tant le"
+	line "voir avant qu'il"
+	cont "n'évolue."
+else
 	text "Do you know that"
 	line "hugely popular"
 	cont "#MON?"
@@ -520,6 +674,8 @@ BillsGrandpaPichuText: ; AUTOTRAD
 
 	para "like before it"
 	line "evolves."
+endc
+
 	done
 
 BillsHouseMachineInstructionsText: ; TO TRANSLATE

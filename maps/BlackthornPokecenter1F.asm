@@ -41,7 +41,20 @@ BlackthornPokecenter1FGentlemanText: ; TO TRANSLATE
 	cont "#GEAR."
 	done
 
-BlackthornPokecenter1FTwinText: ; AUTOTRAD
+BlackthornPokecenter1FTwinText: 
+if DEF(_FR_FR)
+	text "Il y avait une"
+	line "capacité que je"
+
+	para "voulais donner à"
+	line "mon #MON..."
+
+	para "Alors j'ai demandé"
+	line "au TYPE QUI EFFACE"
+	cont "LES CAPACITES de"
+	cont "lui faire oublier"
+	cont "une CS."
+else
 	text "There was this"
 	line "move I just had"
 
@@ -51,6 +64,8 @@ BlackthornPokecenter1FTwinText: ; AUTOTRAD
 	para "So I got the MOVE"
 	line "DELETER to make it"
 	cont "forget an HM move."
+endc
+
 	done
 
 BlackthornPokecenter1F_MapEvents:

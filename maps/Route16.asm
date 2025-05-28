@@ -106,11 +106,19 @@ BugCatcherJeromeAfterBattleText: ; TO TRANSLATE
 CyclingRoadSign:
 	jumptext CyclingRoadSignText
 
-CyclingRoadSignText: ; AUTOTRAD
+CyclingRoadSignText: 
+if DEF(_FR_FR)
+	text "PISTE CYCLABLE"
+
+	para "Une descente"
+	line "d'enfer!"
+else
 	text "CYCLING ROAD"
 
 	para "DOWNHILL COASTING"
 	line "ALL THE WAY!"
+endc
+
 	done
 
 Route16_MapEvents:

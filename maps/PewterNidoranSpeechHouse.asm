@@ -18,12 +18,22 @@ PewterNidoran:
 	closetext
 	end
 
-PewterNidoranSpeechHouseSuperNerdText: ; AUTOTRAD
+PewterNidoranSpeechHouseSuperNerdText: 
+if DEF(_FR_FR)
+	text "NIDORAN, couché!"
+else
 	text "NIDORAN, shake!"
+endc
+
 	done
 
-PewterNidoranText: ; AUTOTRAD
+PewterNidoranText: 
+if DEF(_FR_FR)
+	text "NIDORAN: Nidôô!"
+else
 	text "NIDORAN: Gau gau!"
+endc
+
 	done
 
 PewterNidoranSpeechHouse_MapEvents:

@@ -28,19 +28,37 @@ CherrygroveEvolutionSpeechHouseLassScript:
 CherrygroveEvolutionSpeechHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-CherrygroveEvolutionSpeechHouseYoungsterText: ; AUTOTRAD
+CherrygroveEvolutionSpeechHouseYoungsterText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "gagnent de l'expé-"
+
+	para "rience et évoluent"
+	line "en combattant."
+else
 	text "#MON gain expe-"
 	line "rience in battle"
 
 	para "and change their"
 	line "form."
+endc
+
 	done
 
-CherrygroveEvolutionSpeechHouseLassText: ; AUTOTRAD
+CherrygroveEvolutionSpeechHouseLassText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "évoluent?"
+
+	para "Je serais curieuse"
+	line "de voir ça!"
+else
 	text "#MON change?"
 
 	para "I would be shocked"
 	line "if one did that!"
+endc
+
 	done
 
 CherrygroveEvolutionSpeechHouse_MapEvents:

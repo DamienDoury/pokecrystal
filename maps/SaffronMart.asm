@@ -28,10 +28,17 @@ SaffronMartCooltrainerFScript:
 SaffronMartShelfItem1Script:
 	shelfitem 1, PP_UP, 9800
 
-SaffronMartCooltrainerMText: ; AUTOTRAD
+SaffronMartCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Il y a une grande"
+	line "TOUR RADIO à"
+	cont "LAVANVILLE."
+else
 	text "There's a big"
 	line "RADIO TOWER in"
 	cont "LAVENDER."
+endc
+
 	done
 
 SaffronMartCooltrainerFText: ; TO TRANSLATE

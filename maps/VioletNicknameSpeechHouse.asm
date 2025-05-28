@@ -63,7 +63,16 @@ VioletNicknameSpeechHouseComputer1Script:
 	writetext VioletNicknameSpeechHouseComputer1Text
 	farsjump AcademyBlackboard.Loop
 
-VioletNicknameSpeechHouseTeacherText: ; AUTOTRAD
+VioletNicknameSpeechHouseTeacherText: 
+if DEF(_FR_FR)
+	text "Pour donner des"
+	line "noms rigolos à ses"
+	cont "#MON..."
+
+	para "Elle utilise le"
+	line "nom de ses plats"
+	cont "préférés."
+else
 	text "She uses the names"
 	line "of her favorite"
 	cont "things to eat."
@@ -71,15 +80,30 @@ VioletNicknameSpeechHouseTeacherText: ; AUTOTRAD
 	para "For the nicknames"
 	line "she gives to her"
 	cont "#MON, I mean."
+endc
+
 	done
 
-VioletNicknameSpeechHouseLassText: ; AUTOTRAD
+VioletNicknameSpeechHouseLassText: 
+if DEF(_FR_FR)
+	text "J'ai appelé mon"
+	line "ROUCOOL..."
+	cont "MOUSSE DE PORC!"
+else
 	text "I call my PIDGEY"
 	line "STRAWBERRY!"
+endc
+
 	done
 
-VioletNicknameSpeechHouseBirdText: ; AUTOTRAD
+VioletNicknameSpeechHouseBirdText: 
+if DEF(_FR_FR)
+	text "MOUSSE DE PORC:"
+	line "Rouuu!"
+else
 	text "STRAWBERRY: Pijji!"
+endc
+
 	done
 	
 VioletNicknameSpeechPupilText: ; TO TRANSLATE

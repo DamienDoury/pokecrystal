@@ -57,29 +57,63 @@ GoodRodGuru:
 	end
 
 
-GiveGoodRodText: ; AUTOTRAD
+GiveGoodRodText: 
+if DEF(_FR_FR)
+	text "Ah, hahah!"
+	line "Et voici une"
+	cont "nouvelle recrue"
+	cont "dans ce hobby"
+	cont "formidable!"
+else
 	text "Ah, hahah!"
 	line "We have ourselves"
 	cont "a new angler!"
+endc
+
 	done
 
-GaveGoodRodText: ; AUTOTRAD
+GaveGoodRodText: 
+if DEF(_FR_FR)
+	text "On ne trouve pas"
+	line "seulement des"
+
+	para "poissons en mer."
+	line "Ils sont malins et"
+	cont "vont partout où il"
+	cont "y a de l'eau!"
+else
 	text "Fish aren't found"
 	line "in the sea alone."
 
 	para "They go wherever"
 	line "there is water."
+endc
+
 	done
 
-DontWantGoodRodText: ; AUTOTRAD
+DontWantGoodRodText: 
+if DEF(_FR_FR)
+	text "Kkkoii? T'aimes"
+	line "pas la pêche!?"
+	cont "C'est pas bien!"
+else
 	text "Whaaat? You don't"
 	line "like to fish!?"
 	cont "Incomprehensible!"
+endc
+
 	done
 
-HaveGoodRodText: ; AUTOTRAD
+HaveGoodRodText: 
+if DEF(_FR_FR)
+	text "Comment vont les"
+	line "affaires..."
+	cont "Ca roule?"
+else
 	text "How are things?"
 	line "Land the big one?"
+endc
+
 	done
 
 OlivineGoodRodHouse_MapEvents:

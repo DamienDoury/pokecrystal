@@ -68,7 +68,20 @@ CianwoodLugiaSpeechHouseComputerScript:
 CianwoodLugiaSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-CianwoodLugiaSpeechHouseTeacherText: ; AUTOTRAD
+CianwoodLugiaSpeechHouseTeacherText: 
+if DEF(_FR_FR)
+	text "Tu viens"
+	line "d'OLIVILLE?"
+
+	para "Tu te rappelles"
+	line "des quatre îles"
+	cont "sur la route?"
+
+	para "J'ai entendu dire"
+	line "qu'une créature"
+	cont "marine mythique"
+	cont "s'y cache."
+else
 	text "You came from"
 	line "OLIVINE?"
 
@@ -80,6 +93,8 @@ CianwoodLugiaSpeechHouseTeacherText: ; AUTOTRAD
 	line "mythical sea crea-"
 	cont "ture is hiding in"
 	cont "them."
+endc
+
 	done
 
 CianwoodLugiaSpeechHouseLassText: ; TO TRANSLATE

@@ -38,15 +38,43 @@ OlivineMartTwinScript:
 OlivineMartShelfItem1Script:
 	shelfitem 1, REVIVE, 1500
 
-OlivineMartCooltrainerFText: ; AUTOTRAD
+OlivineMartCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Est-ce que ton"
+	line "#MON connait"
+
+	para "la capacité qui"
+	line "permet de trans-"
+	cont "porter des per-"
+	cont "sonnes sur l'eau?"
+else
 	text "Do your #MON"
 	line "already know the"
 
 	para "move for carrying"
 	line "people on water?"
+endc
+
 	done
 
-OlivineMartLassText: ; AUTOTRAD
+OlivineMartLassText: 
+if DEF(_FR_FR)
+	text "Mon PAPILUSION"
+	line "vient de mon petit"
+	cont "copain de l'autre"
+	cont "côté de la mer."
+
+	para "Il nous transporte"
+	line "nos LETTRES."
+
+	para "Tu veux savoir ce"
+	line "qui est écrit?"
+
+	para "Alors... Ah!"
+	line "Désolée! C'est"
+	cont "perso une lettre"
+	cont "comme ça!"
+else
 	text "My BUTTERFREE came"
 	line "from my boyfriend"
 	cont "overseas."
@@ -59,6 +87,8 @@ OlivineMartLassText: ; AUTOTRAD
 
 	para "Let's see… Nope!"
 	line "It's a secret!"
+endc
+
 	done
 
 OlivineMartYoungsterText: ; TO TRANSLATE

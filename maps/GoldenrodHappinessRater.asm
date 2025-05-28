@@ -105,7 +105,19 @@ HappinessRatersHouseBookshelf:
 HappinessRatersHouseRadio:
 	jumpstd Radio2Script
 
-GoldenrodHappinessRaterTeacherText: ; AUTOTRAD
+GoldenrodHappinessRaterTeacherText: 
+if DEF(_FR_FR)
+	text "Si tu traites tes"
+	line "#MON avec"
+
+	para "amour, ils te le"
+	line "rendront bien."
+
+	para "Oh? Montre-moi"
+	line "ton @"
+	text_ram wStringBuffer3
+	text "."
+else
 	text "If you treat your"
 	line "#MON nicely,"
 
@@ -116,43 +128,105 @@ GoldenrodHappinessRaterTeacherText: ; AUTOTRAD
 	line "your @"
 	text_ram wStringBuffer3
 	text "…"
+endc
+
 	done
 
-GoldenrodHappinessRatingText_LovesYouALot: ; AUTOTRAD
+GoldenrodHappinessRatingText_LovesYouALot: 
+if DEF(_FR_FR)
+	text "Il a l'air très"
+	line "content! Il doit"
+	cont "t'aimer énormé-"
+	cont "ment."
+else
 	text "It looks really"
 	line "happy! It must"
 	cont "love you a lot."
+endc
+
 	done
 
-GoldenrodHappinessRatingText_ReallyTrustsYou: ; AUTOTRAD
+GoldenrodHappinessRatingText_ReallyTrustsYou: 
+if DEF(_FR_FR)
+	text "J'ai le sentiment"
+	line "qu'il te fait"
+	cont "vraiment, vraiment"
+	cont "confiance."
+else
 	text "I get the feeling"
 	line "that it really"
 	cont "trusts you."
+endc
+
 	done
 
-GoldenrodHappinessRatingText_SortOfHappy: ; AUTOTRAD
+GoldenrodHappinessRatingText_SortOfHappy: 
+if DEF(_FR_FR)
+	text "Tu es vraiment un"
+	line "amour..."
+	cont "Un nuage de"
+	cont "bonne humeur et"
+	cont "de gentillesse"
+	cont "flotte au-dessus"
+	cont "de toi."
+else
 	text "It's friendly to-"
 	line "ward you. It looks"
 	cont "sort of happy."
+endc
+
 	done
 
-GoldenrodHappinessRatingText_QuiteCute: ; AUTOTRAD
+GoldenrodHappinessRatingText_QuiteCute: 
+if DEF(_FR_FR)
+	text "C'est trop chou."
+else
 	text "It's quite cute."
+endc
+
 	done
 
-GoldenrodHappinessRatingText_NotUsedToYou: ; AUTOTRAD
+GoldenrodHappinessRatingText_NotUsedToYou: 
+if DEF(_FR_FR)
+	text "Tu devrais mieux"
+	line "le traiter. C'est"
+	cont "pour ton bien."
+else
 	text "You should treat"
 	line "it better. It's"
 	cont "not used to you."
+endc
+
 	done
 
-GoldenrodHappinessRatingText_LooksMean: ; AUTOTRAD
+GoldenrodHappinessRatingText_LooksMean: 
+if DEF(_FR_FR)
+	text "Il n'a pas l'air"
+	line "de beaucoup"
+	cont "t'aimer. Il a"
+	cont "l'air triste."
+else
 	text "It doesn't seem to"
 	line "like you at all."
 	cont "It looks mean."
+endc
+
 	done
 
-GoldenrodHappinessRaterPokefanMText: ; AUTOTRAD
+GoldenrodHappinessRaterPokefanMText: 
+if DEF(_FR_FR)
+	text "Je ne fais que"
+	line "perdre les combats"
+
+	para "avec mes #MON,"
+	line "ils sont tout le"
+	cont "temps K.O..."
+
+	para "C'est peut-être"
+	line "pour ça que mes"
+	cont "#MON ne"
+	cont "m'aiment pas trop!"
+else
 	text "I keep losing in"
 	line "battles, and my"
 
@@ -162,6 +236,8 @@ GoldenrodHappinessRaterPokefanMText: ; AUTOTRAD
 	para "Maybe that's why"
 	line "my #MON don't"
 	cont "like me much…"
+endc
+
 	done
 
 GoldenrodHappinessRaterPokefanMCatFilterText: ; TO TRANSLATE
@@ -177,10 +253,19 @@ GoldenrodHappinessRaterComputer1Text: ; TO TRANSLATE
 	line "filter turned on."
 	done
 
-GoldenrodHappinessRaterTwinText: ; AUTOTRAD
+GoldenrodHappinessRaterTwinText: 
+if DEF(_FR_FR)
+	text "Lorsque j'utilise"
+	line "un objet sur mes"
+	cont "#MON, ça"
+	cont "fait des trucs"
+	cont "cool!"
+else
 	text "When I use an item"
 	line "on my #MON, it"
 	cont "acts really glad!"
+endc
+
 	done
 
 GoldenrodHappinessRater_MapEvents:

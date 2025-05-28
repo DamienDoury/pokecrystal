@@ -272,85 +272,193 @@ Route35TMRollout:
 Route35FruitTree:
 	fruittree FRUITTREE_ROUTE_35
 
-CamperIvanSeenText: ; AUTOTRAD
+CamperIvanSeenText: 
+if DEF(_FR_FR)
+	text "J'ai appris plein"
+	line "de trucs sur les"
+
+	para "#MON à la ra-"
+	line "dio. Tu vas voir!"
+else
 	text "I've been getting"
 	line "#MON data off"
 
 	para "my radio. I think"
 	line "I'm good."
+endc
+
 	done
 
-CamperIvanBeatenText: ; AUTOTRAD
+CamperIvanBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu!"
+else
 	text "I give!"
+endc
+
 	done
 
-CamperIvanAfterBattleText: ; AUTOTRAD
+CamperIvanAfterBattleText: 
+if DEF(_FR_FR)
+	text "La musique de la"
+	line "radio fait réagir"
+	cont "les #MON sau-"
+	cont "vages."
+else
 	text "Music on the radio"
 	line "changes the moods"
 	cont "of wild #MON."
+endc
+
 	done
 
-CamperElliotSeenText: ; AUTOTRAD
+CamperElliotSeenText: 
+if DEF(_FR_FR)
+	text "J'vais montrer à"
+	line "ma copine que je"
+	cont "suis un vrai dur!"
+else
 	text "I'm gonna show my"
 	line "girlfriend I'm hot"
 	cont "stuff!"
+endc
+
 	done
 
-CamperElliotBeatenText: ; AUTOTRAD
+CamperElliotBeatenText: 
+if DEF(_FR_FR)
+	text "T'aurais pu perdre"
+	line "pour me faire"
+	cont "plaisir..."
+else
 	text "I wish you would"
 	line "have lost for me…"
+endc
+
 	done
 
-CamperElliotAfterBattleText: ; AUTOTRAD
+CamperElliotAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu m'as fichu la"
+	line "honte devant ma"
+	cont "copine..."
+else
 	text "I was humiliated"
 	line "in front of my"
 	cont "girlfriend…"
+endc
+
 	done
 
-PicnickerBrookeSeenText: ; AUTOTRAD
+PicnickerBrookeSeenText: 
+if DEF(_FR_FR)
+	text "Mon copain est"
+	line "trop nul! J'ai la"
+	cont "super honte!"
+else
 	text "My boyfriend's"
 	line "weak, so I can't"
 	cont "rely on him."
+endc
+
 	done
 
-PicnickerBrookeBeatenText: ; AUTOTRAD
+PicnickerBrookeBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Mazette!"
+else
 	text "Oh, my! You're so"
 	line "strong!"
+endc
+
 	done
 
-PicnickerBrookeAfterBattleText: ; AUTOTRAD
+PicnickerBrookeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je préfère mes"
+	line "#MON à mon"
+	cont "copain."
+else
 	text "I can count on my"
 	line "#MON more than"
 	cont "my boyfriend."
+endc
+
 	done
 
-PicnickerKimSeenText: ; AUTOTRAD
+PicnickerKimSeenText: 
+if DEF(_FR_FR)
+	text "Tu vas à l'ARENE?"
+	line "Moi aussi!"
+else
 	text "Are you going to"
 	line "the GYM? Me too!"
+endc
+
 	done
 
-PicnickerKimBeatenText: ; AUTOTRAD
+PicnickerKimBeatenText: 
+if DEF(_FR_FR)
+	text "J'ai aucune"
+	line "chance..."
+else
 	text "Oh. I couldn't"
 	line "win…"
+endc
+
 	done
 
-PicnickerKimAfterBattleText: ; AUTOTRAD
+PicnickerKimAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les BADGES d'ARENE"
+	line "sont jolis. Je les"
+	cont "collectionne."
+else
 	text "The GYM BADGES are"
 	line "pretty. I collect"
 	cont "them."
+endc
+
 	done
 
-BirdKeeperBryanSeenText: ; AUTOTRAD
+BirdKeeperBryanSeenText: 
+if DEF(_FR_FR)
+	text "Quelles # BALLS"
+	line "utilises-tu?"
+else
 	text "What kinds of"
 	line "BALLS do you use?"
+endc
+
 	done
 
-BirdKeeperBryanBeatenText: ; AUTOTRAD
+BirdKeeperBryanBeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! Pas assez"
+	line "rapide!"
+else
 	text "Yikes! Not fast"
 	line "enough!"
+endc
+
 	done
 
-BirdKeeperBryanAfterBattleText: ; AUTOTRAD
+BirdKeeperBryanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Certains #MON"
+	line "s'enfuient vite."
+
+	para "Attrape-les avec"
+	line "une SPEED BALL de"
+	cont "FARGAS."
+
+	para "Apporte à FARGAS"
+	line "un NOIGRUME BLC si"
+	cont "tu en trouves un."
+
+	para "Il le transformera"
+	line "en # BALL!"
+else
 	text "Some #MON flee"
 	line "right away."
 
@@ -364,72 +472,150 @@ BirdKeeperBryanAfterBattleText: ; AUTOTRAD
 
 	para "He turns it into a"
 	line "custom BALL."
+endc
+
 	done
 
-JugglerIrwin1SeenText: ; AUTOTRAD
+JugglerIrwin1SeenText: 
+if DEF(_FR_FR)
+	text "Regarde comme je"
+	line "lance bien mes"
+	cont "BALLS!"
+else
 	text "Behold my graceful"
 	line "BALL dexterity!"
+endc
+
 	done
 
-JugglerIrwin1BeatenText: ; AUTOTRAD
+JugglerIrwin1BeatenText: 
+if DEF(_FR_FR)
+	text "Alors ça!"
+else
 	text "Whew! That was a"
 	line "jolt!"
+endc
+
 	done
 
-JugglerIrwinAfterBattleText: ; AUTOTRAD
+JugglerIrwinAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'allais t'éblouir"
+	line "avec mon nouveau"
+	cont "#MON..."
+
+	para "Mais tu es trop"
+	line "rapide!"
+else
 	text "I was going to"
 	line "dazzle you with my"
 	cont "prize #MON."
 
 	para "But your prowess"
 	line "electrified me!"
+endc
+
 	done
 
-BugCatcherArnieSeenText: ; AUTOTRAD
+BugCatcherArnieSeenText: 
+if DEF(_FR_FR)
+	text "Moi mon truc c'est"
+	line "les #MON"
+	cont "insecte."
+else
 	text "I'll go anywhere"
 	line "if bug #MON"
 	cont "appear there."
+endc
+
 	done
 
-BugCatcherArnieBeatenText: ; AUTOTRAD
+BugCatcherArnieBeatenText: 
+if DEF(_FR_FR)
+	text "Hein? Je n'aurais"
+	line "pas dû perdre..."
+else
 	text "Huh? I shouldn't"
 	line "have lost that…"
+endc
+
 	done
 
-BugCatcherArnieAfterBattleText: ; AUTOTRAD
+BugCatcherArnieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Mon MIMITOSS a ga-"
+	line "gné au Concours de"
+
+	para "Capture d'insecte"
+	line "au PARC NATUREL."
+else
 	text "My VENONAT won me"
 	line "the Bug-Catching"
 
 	para "Contest at the"
 	line "NATIONAL PARK."
+endc
+
 	done
 
-BugCatcherArnieYanmaText: ; AUTOTRAD
+BugCatcherArnieYanmaText: 
+if DEF(_FR_FR)
+	text "Woah! Regarde"
+	line "ces YANMA!"
+
+	para "J'en suis baba!"
+else
 	text "Wow… Look at all"
 	line "those YANMA!"
 
 	para "I'm so blown away,"
 	line "I can't move."
+endc
+
 	done
 
-FirebreatherWaltSeenText: ; AUTOTRAD
+FirebreatherWaltSeenText: 
+if DEF(_FR_FR)
+	text "Moi j'crache du"
+	line "feu. COMBAT!"
+else
 	text "I'm practicing my"
 	line "fire breathing."
+endc
+
 	done
 
-FirebreatherWaltBeatenText: ; AUTOTRAD
+FirebreatherWaltBeatenText: 
+if DEF(_FR_FR)
+	text "Tu m'as cramé!"
+else
 	text "Ow! I scorched the"
 	line "tip of my nose!"
+endc
+
 	done
 
-FirebreatherWaltAfterBattleText: ; AUTOTRAD
+FirebreatherWaltAfterBattleText: 
+if DEF(_FR_FR)
+	text "La fanfare #MON"
+	line "à la radio attire"
+	cont "les #MON"
+	cont "sauvages."
+else
 	text "The #MON March"
 	line "on the radio lures"
 	cont "wild #MON."
+endc
+
 	done
 
-Route35SignText: ; AUTOTRAD
+Route35SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 35"
+else
+	text "ROUTE 35"
+endc
+
 	done
 
 Route35SaviourText: ; TO TRANSLATE

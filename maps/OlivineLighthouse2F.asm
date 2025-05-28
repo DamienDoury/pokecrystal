@@ -145,15 +145,28 @@ TrainerSailorHuey:
 	jumpstd RematchGiftMScript
 	end
 
-SailorHueySeenText: ; AUTOTRAD
+SailorHueySeenText: 
+if DEF(_FR_FR)
+	text "Les marins sont"
+	line "toujours partants"
+	cont "pour la baston!"
+else
 	text "Men of the sea are"
 	line "always spoiling"
 	cont "for a good fight!"
+endc
+
 	done
 
-SailorHueyBeatenText: ; AUTOTRAD
+SailorHueyBeatenText: 
+if DEF(_FR_FR)
+	text "Humpf!"
+	line "Perdu!"
+else
 	text "Urf!"
 	line "I lose!"
+endc
+
 	done
 
 GentlemanAlfredSeenText: ; TO TRANSLATE
@@ -177,13 +190,22 @@ GentlemanAlfredAfterBattleText: ; TO TRANSLATE
 	cont "my failure."
 	done
 
-SailorHueyGiveProteinText: ; AUTOTRAD
+SailorHueyGiveProteinText: 
+if DEF(_FR_FR)
+	text "Tu as de plus en"
+	line "plus de talent!"
+
+	para "Voilà le médica-"
+	line "ment..."
+else
 	text "Man! You're as"
 	line "tough as ever!"
 
 	para "Anyway, here's"
 	line "that medicine from"
 	cont "before."
+endc
+
 	done
 
 OlivineLighthouse2F_MapEvents:

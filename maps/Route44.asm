@@ -320,29 +320,63 @@ Route44MaxRepel:
 Route44HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_44_HIDDEN_ELIXER
 
-FisherWilton1SeenText: ; AUTOTRAD
+FisherWilton1SeenText: 
+if DEF(_FR_FR)
+	text "Aahh! Tu m'as fait"
+	line "perdre un PTITARD!"
+
+	para "Tu vas t'excuser,"
+	line "ouais?"
+else
 	text "Aack! You made me"
 	line "lose a POLIWAG!"
 
 	para "What are you going"
 	line "to do about it?"
+endc
+
 	done
 
-FisherWilton1BeatenText: ; AUTOTRAD
+FisherWilton1BeatenText: 
+if DEF(_FR_FR)
+	text "Je te pardonne."
+else
 	text "Just forget about"
 	line "it."
+endc
+
 	done
 
-FisherWiltonHugePoliwagText: ; AUTOTRAD
+FisherWiltonHugePoliwagText: 
+if DEF(_FR_FR)
+	text "Ce PTITARD était"
+	line "énorme!"
+
+	para "Il faisait 5 mè-"
+	line "tres au moins!"
+else
 	text "That POLIWAG that"
 	line "got away…"
 	cont "It was huge."
 
 	para "I swear it must've"
 	line "been 16 feet long!"
+endc
+
 	done
 
-FisherEdgarSeenText: ; AUTOTRAD
+FisherEdgarSeenText: 
+if DEF(_FR_FR)
+	text "Je pêche comme"
+	line "un méga dingue."
+
+	para "Je fais des com-"
+	line "bats, aussi."
+
+	para "Les #MON, je"
+	line "les aime aussi"
+	cont "pour ça."
+else
 	text "I fish until I"
 	line "can't anymore."
 
@@ -352,33 +386,73 @@ FisherEdgarSeenText: ; AUTOTRAD
 	para "That's my"
 	line "relationship"
 	cont "with my #MON."
+endc
+
 	done
 
-FisherEdgarBeatenText: ; AUTOTRAD
+FisherEdgarBeatenText: 
+if DEF(_FR_FR)
+	text "Hmmmm..."
+else
 	text "Hmmmm… "
 	line "This isn't right."
+endc
+
 	done
 
-FisherEdgarAfterBattleText: ; AUTOTRAD
+FisherEdgarAfterBattleText: 
+if DEF(_FR_FR)
+	text "Gagné 100 fois et"
+	line "perdu 101 fois."
+
+	para "Je vais faire une"
+	line "petite pause."
+else
 	text "That's 100 wins"
 	line "to 101 losses."
 
 	para "I won't battle"
 	line "again for a while."
+endc
+
 	done
 
-BirdKeeperVance1SeenText: ; AUTOTRAD
+BirdKeeperVance1SeenText: 
+if DEF(_FR_FR)
+	text "Tu connais les"
+	line "#MON oiseaux"
+	cont "légendaires?"
+else
 	text "Do you know about"
 	line "the legendary bird"
 	cont "#MON?"
+endc
+
 	done
 
-BirdKeeperVance1BeatenText: ; AUTOTRAD
+BirdKeeperVance1BeatenText: 
+if DEF(_FR_FR)
+	text "Alors toi, tu"
+	line "rigoles pas!"
+else
 	text "Whew! You're hot"
 	line "stuff."
+endc
+
 	done
 
-BirdKeeperVanceLegendaryBirdsText: ; AUTOTRAD
+BirdKeeperVanceLegendaryBirdsText: 
+if DEF(_FR_FR)
+	text "ARTIKODIN,"
+	line "ELECTHOR et"
+
+	para "SULFURA sont les"
+	line "trois #MON oi-"
+	cont "seaux légendaires."
+
+	para "On dit qu'il y en"
+	line "a d'autres..."
+else
 	text "ARTICUNO, ZAPDOS"
 	line "and MOLTRES are"
 
@@ -388,9 +462,22 @@ BirdKeeperVanceLegendaryBirdsText: ; AUTOTRAD
 	para "I heard there are"
 	line "other legendary"
 	cont "birds, though."
+endc
+
 	done
 
-BirdKeeperVance2BeatenText: ; AUTOTRAD
+BirdKeeperVance2BeatenText: 
+if DEF(_FR_FR)
+	text "Pourquoi j'arrive"
+	line "jamais à te"
+	cont "battre, toi?"
+
+	para "Au fait... Voilà"
+	line "le truc que je"
+
+	para "voulais te donner"
+	line "la dernière fois."
+else
 	text "Why can't I ever"
 	line "beat you?"
 
@@ -399,36 +486,78 @@ BirdKeeperVance2BeatenText: ; AUTOTRAD
 
 	para "I couldn't give"
 	line "you last time."
+endc
+
 	done
 
-PsychicPhilSeenText: ; AUTOTRAD
+PsychicPhilSeenText: 
+if DEF(_FR_FR)
+	text "J'vais gagner!"
+	line "Pour sûr!"
+else
 	text "I'm gonna win,"
 	line "for sure!"
+endc
+
 	done
 
-PsychicPhilBeatenText: ; AUTOTRAD
+PsychicPhilBeatenText: 
+if DEF(_FR_FR)
+	text "Qu...Comm..."
+	line "Hein?"
+else
 	text "Arrgh… That's a"
 	line "shocking loss…"
+endc
+
 	done
 
-PsychicPhilAfterBattleText: ; AUTOTRAD
+PsychicPhilAfterBattleText: 
+if DEF(_FR_FR)
+	text "Etre sûr de soi,"
+	line "c'est important."
+else
 	text "It's important to"
 	line "have conviction"
 	cont "on your side."
+endc
+
 	done
 
-PokemaniacZachSeenText: ; AUTOTRAD
+PokemaniacZachSeenText: 
+if DEF(_FR_FR)
+	text "J'veux des #MON"
+	line "rares! Yaaaaah!"
+else
 	text "I'll do anything"
 	line "to get my hands on"
 	cont "rare #MON!"
+endc
+
 	done
 
-PokemaniacZachBeatenText: ; AUTOTRAD
+PokemaniacZachBeatenText: 
+if DEF(_FR_FR)
+	text "Oooh, tes #MON"
+	line "sont siii beaux!"
+else
 	text "Oooh, your #MON"
 	line "are so appealing."
+endc
+
 	done
 
-PokemaniacZachAfterBattleText: ; AUTOTRAD
+PokemaniacZachAfterBattleText: 
+if DEF(_FR_FR)
+	text "Si un #MON est"
+	line "d'une couleur in-"
+
+	para "habituelle, il a"
+	line "plus de valeur."
+
+	para "Quoi? On m'aurait"
+	line "menti?"
+else
 	text "If a #MON has"
 	line "different colors"
 
@@ -437,9 +566,19 @@ PokemaniacZachAfterBattleText: ; AUTOTRAD
 
 	para "What? You mean"
 	line "that's not true?"
+endc
+
 	done
 
-CooltrainermAllenSeenText: ; AUTOTRAD
+CooltrainermAllenSeenText: 
+if DEF(_FR_FR)
+	text "Tu as du talent,"
+	line "ça se voit."
+
+	para "Mais... Comment"
+	line "dire... J'suis"
+	cont "le plus fort."
+else
 	text "I can tell you're"
 	line "a good trainer by"
 	cont "looking at you."
@@ -447,11 +586,19 @@ CooltrainermAllenSeenText: ; AUTOTRAD
 	para "I'm good at #-"
 	line "MON, and I can see"
 	cont "that you are too."
+endc
+
 	done
 
-CooltrainermAllenBeatenText: ; AUTOTRAD
+CooltrainermAllenBeatenText: 
+if DEF(_FR_FR)
+	text "Pfff!"
+	line "Même pas mal."
+else
 	text "Tch! It's a total"
 	line "loss on my part."
+endc
+
 	done
 
 CooltrainermAllenAfterBattleText: ; TO TRANSLATE
@@ -465,20 +612,42 @@ CooltrainermAllenAfterBattleText: ; TO TRANSLATE
 	line "me."
 	done
 
-CooltrainerfCybilSeenText: ; AUTOTRAD
+CooltrainerfCybilSeenText: 
+if DEF(_FR_FR)
+	text "T'as l'air fort."
+
+	para "Ca te dirait un"
+	line "p'tit challenge?"
+else
 	text "You look strong."
 
 	para "Good trainers seek"
 	line "tough opponents"
 	cont "instinctively."
+endc
+
 	done
 
-CooltrainerfCybilBeatenText: ; AUTOTRAD
+CooltrainerfCybilBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Rien compris!"
+else
 	text "Nope! This won't"
 	line "do at all."
+endc
+
 	done
 
-CooltrainerfCybilAfterBattleText: ; AUTOTRAD
+CooltrainerfCybilAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les combats for-"
+	line "ment la jeunesse."
+
+	para "Moi j'ai beaucoup"
+	line "combattu et voilà"
+	cont "le résultat: je"
+	cont "suis un crack."
+else
 	text "We all get better"
 	line "by experiencing"
 	cont "many battles."
@@ -486,18 +655,35 @@ CooltrainerfCybilAfterBattleText: ; AUTOTRAD
 	para "I battled a lot to"
 	line "become what I am"
 	cont "today--an elite."
+endc
+
 	done
 
-Route44Sign1Text: ; AUTOTRAD
+Route44Sign1Text: 
+if DEF(_FR_FR)
+	text "ROUTE 44"
+	line "ROUTE DE GLACE"
+	cont "Tout droit"
+else
 	text "ROUTE 44"
 	line "ICE PATH AHEAD"
+endc
+
 	done
 
-Route44Sign2Text: ; AUTOTRAD
+Route44Sign2Text: 
+if DEF(_FR_FR)
+	text "ROUTE 44"
+
+	para "ACAJOU -"
+	line "EBENELLE"
+else
 	text "ROUTE 44"
 
 	para "MAHOGANY TOWN -"
 	line "BLACKTHORN CITY"
+endc
+
 	done
 
 Route44_MapEvents:

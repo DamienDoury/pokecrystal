@@ -40,7 +40,22 @@ Route16GateBicycleCheck:
 	applymovement PLAYER, Route17Route18Gate_RightMovement
 	end
 
-Route16GateOfficerText: ; AUTOTRAD
+Route16GateOfficerText: 
+if DEF(_FR_FR)
+	text "La PISTE CYCLABLE"
+	line "commence ici."
+
+	para "C'est une descente"
+	line "facile et très"
+	cont "reposante."
+
+	para "C'est aussi une"
+	line "sensation unique,"
+
+	para "différente du"
+	line "train ou d'un"
+	cont "bateau."
+else
 	text "CYCLING ROAD"
 	line "starts here."
 
@@ -53,6 +68,8 @@ Route16GateOfficerText: ; AUTOTRAD
 
 	para "you can't get from"
 	line "a ship or train."
+endc
+
 	done
 
 Route16GateCannotPassText: ; TO TRANSLATE

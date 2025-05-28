@@ -17,7 +17,23 @@ SilverCavePokecenter1FNurseScript:
 SilverCavePokecenter1FGrannyScript:
 	jumptextfaceplayer SilverCavePokecenter1FGrannyText
 
-SilverCavePokecenter1FGrannyText: ; AUTOTRAD
+SilverCavePokecenter1FGrannyText: 
+if DEF(_FR_FR)
+	text "Les dresseurs qui"
+	line "recherchent le"
+
+	para "pouvoir grimpent"
+	line "le MONT ARGENT"
+	cont "malgré ses nom-"
+	cont "breux dangers."
+
+	para "Avec leurs"
+	line "#MON les plus"
+
+	para "forts, ils pensent"
+	line "pouvoir aller"
+	cont "partout..."
+else
 	text "Trainers who seek"
 	line "power climb MT."
 
@@ -29,6 +45,8 @@ SilverCavePokecenter1FGrannyText: ; AUTOTRAD
 
 	para "feel they can go"
 	line "anywhere…"
+endc
+
 	done
 
 SilverCavePokecenter1F_MapEvents:

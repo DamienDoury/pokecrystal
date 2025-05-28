@@ -120,7 +120,18 @@ SaffronCityNeonTownSign:
 SaffronCity_DoorScript:
 	jumptext SaffronCity_DojoDoorText
 
-SaffronCityLass1Text: ; AUTOTRAD
+SaffronCityLass1Text: 
+if DEF(_FR_FR)
+	text "Une fille experte"
+	line "en imitation vit"
+	cont "ici."
+
+	para "Elle imite même"
+	line "les gens avec qui"
+
+	para "elle parle. C'est"
+	line "un peu lourd."
+else
 	text "A little girl who"
 	line "is an expert at"
 
@@ -132,33 +143,66 @@ SaffronCityLass1Text: ; AUTOTRAD
 
 	para "conversing with."
 	line "It's confusing."
+endc
+
 	done
 
-SaffronCityLass1Text_ReturnedMachinePart: ; AUTOTRAD
+SaffronCityLass1Text_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "La COPIEUSE semble"
+	line "malheureuse. Elle"
+
+	para "dit avoir perdu sa"
+	line "# POUPEE pré-"
+	cont "férée: MELOFEE."
+else
 	text "The COPYCAT girl"
 	line "looked unhappy."
 
 	para "She said she lost"
 	line "her favorite #"
 	cont "DOLL--CLEFAIRY."
+endc
+
 	done
 
-SaffronCityPokefanMText: ; AUTOTRAD
+SaffronCityPokefanMText: 
+if DEF(_FR_FR)
+	text "Tu viens de JOHTO?"
+
+	para "Tu peux retourner"
+	line "chez toi en une"
+	cont "seconde si le"
+	cont "TRAIN MAGNET"
+	cont "fonctionne."
+else
 	text "You came out from"
 	line "JOHTO?"
 
 	para "You can zip back"
 	line "home if the MAGNET"
 	cont "TRAIN's running."
+endc
+
 	done
 
-SaffronCityPokefanMText_ReturnedMachinePart: ; AUTOTRAD
+SaffronCityPokefanMText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "Tu viens de JOHTO?"
+
+	para "Tu peux retourner"
+	line "chez toi en une"
+	cont "seconde avec le"
+	cont "TRAIN MAGNET."
+else
 	text "You came out from"
 	line "JOHTO?"
 
 	para "You can zip back"
 	line "home by hopping on"
 	cont "the MAGNET TRAIN."
+endc
+
 	done
 
 SaffronCityCooltrainerMText: ; TO TRANSLATE
@@ -187,7 +231,18 @@ SaffronCityCooltrainerMText: ; TO TRANSLATE
 	cont "MAGNET TRAIN."
 	done
 
-SaffronCityCooltrainerFText: ; AUTOTRAD
+SaffronCityCooltrainerFText: 
+if DEF(_FR_FR)
+	text "La SYLPHE SARL est"
+	line "célèbre pour ses"
+	cont "produits #MON."
+
+	para "C'est pour ça que"
+	line "la TEAM ROCKET"
+
+	para "voulait la contrô-"
+	line "ler..."
+else
 	text "This is SILPH CO.,"
 	line "famous for #MON"
 	cont "merchandise."
@@ -197,9 +252,20 @@ SaffronCityCooltrainerFText: ; AUTOTRAD
 
 	para "company because of"
 	line "that."
+endc
+
 	done
 
-SaffronCityFisherText: ; AUTOTRAD
+SaffronCityFisherText: 
+if DEF(_FR_FR)
+	text "(bouffe)(mâche)"
+
+	para "On dit qu'il y a"
+	line "du tintouin à la"
+	cont "CENTRALE."
+
+	para "(bouffe)(mâche)"
+else
 	text "Chew… Chew…"
 
 	para "I hear there's big"
@@ -207,9 +273,21 @@ SaffronCityFisherText: ; AUTOTRAD
 	cont "the POWER PLANT."
 
 	para "Chew… Chew…"
+endc
+
 	done
 
-SaffronCityFisherText_ReturnedMachinePart: ; AUTOTRAD
+SaffronCityFisherText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "(bouffe)(mâche)"
+
+	para "On dit qu'il y a-"
+	line "vait du tintouin à"
+	cont "la CENTRALE."
+
+	para "(bouffe)(mâche)"
+	line "J'ai plus faim!"
+else
 	text "Chew… Chew…"
 
 	para "I hear there was"
@@ -218,17 +296,36 @@ SaffronCityFisherText_ReturnedMachinePart: ; AUTOTRAD
 
 	para "Chew… Chew…"
 	line "Haaah, I'm full!"
+endc
+
 	done
 
-SaffronCityYoungster1Text: ; AUTOTRAD
+SaffronCityYoungster1Text: 
+if DEF(_FR_FR)
+	text "Se balader dans"
+	line "une ruelle pour la"
+
+	para "première fois fait"
+	line "peur, non?"
+else
 	text "Going into an"
 	line "alley for the"
 
 	para "first time makes"
 	line "me sorta anxious."
+endc
+
 	done
 
-SaffronCityYoungster2Text: ; AUTOTRAD
+SaffronCityYoungster2Text: 
+if DEF(_FR_FR)
+	text "On dit que les"
+	line "dresseurs se ren-"
+
+	para "contrent au CLUB"
+	line "des DRESSEURS à"
+	cont "JADIELLE."
+else
 	text "There's a place"
 	line "called TRAINER"
 
@@ -237,9 +334,20 @@ SaffronCityYoungster2Text: ; AUTOTRAD
 
 	para "gather from all"
 	line "over the place."
+endc
+
 	done
 
-SaffronCityLass2Text: ; AUTOTRAD
+SaffronCityLass2Text: 
+if DEF(_FR_FR)
+	text "On a parlé de"
+	line "notre ville à la"
+	cont "radio."
+
+	para "Ca fait plaisir."
+	line "C'est pas tous les"
+	cont "jours."
+else
 	text "Our city was"
 	line "featured on a"
 	cont "radio program."
@@ -250,37 +358,75 @@ SaffronCityLass2Text: ; AUTOTRAD
 	para "city, but it's a"
 	line "bit embarrassing"
 	cont "too."
+endc
+
 	done
 
-SaffronCitySignText: ; AUTOTRAD
+SaffronCitySignText: 
+if DEF(_FR_FR)
+	text "SAFRANIA"
+
+	para "Le berceau doré"
+	line "du commerce"
+else
 	text "SAFFRON CITY"
 
 	para "Shining, Golden"
 	line "Land of Commerce"
+endc
+
 	done
 
-SaffronGymSignText: ; AUTOTRAD
+SaffronGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de SAFRANIA:"
+	cont "MORGANE"
+
+	para "La maîtresse des"
+	line "#MON PSY!"
+else
 	text "SAFFRON CITY"
 	line "#MON GYM"
 	cont "LEADER: SABRINA"
 
 	para "The Master of"
 	line "Psychic #MON!"
+endc
+
 	done
 
-FightingDojoSignText: ; AUTOTRAD
+FightingDojoSignText: 
+if DEF(_FR_FR)
+	text "DOJO"
+	line "Bienvenue à tous!"
+else
 	text "Everyone Welcome!"
 	line "FIGHTING DOJO"
+endc
+
 	done
 
-SilphCoSignText: ; AUTOTRAD
+SilphCoSignText: 
+if DEF(_FR_FR)
+	text "BUREAUX de la"
+	line "SYLPHE SARL"
+else
 	text "SILPH CO."
 	line "OFFICE BUILDING"
+endc
+
 	done
 
-MrPsychicsHouseSignText: ; AUTOTRAD
+MrPsychicsHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DE"
+	line "M.PSY"
+else
 	text "MR.PSYCHIC'S"
 	line "HOUSE"
+endc
+
 	done
 
 MrAntonsHouseSignText: ; TO TRANSLATE
@@ -288,10 +434,17 @@ MrAntonsHouseSignText: ; TO TRANSLATE
 	line "HOUSE"
 	done
 
-SaffronCityMagnetTrainStationSignText: ; AUTOTRAD
+SaffronCityMagnetTrainStationSignText: 
+if DEF(_FR_FR)
+	text "STATION du"
+	line "TRAIN MAGNET"
+	cont "de SAFRANIA"
+else
 	text "SAFFRON CITY"
 	line "MAGNET TRAIN"
 	cont "STATION"
+endc
+
 	done
 
 VaccinationCenterSignText: ; TO TRANSLATE

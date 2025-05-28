@@ -234,19 +234,44 @@ Route26FruitTree:
 Route26MaxElixer:
 	itemball MAX_ELIXER
 
-CooltrainermJakeSeenText: ; AUTOTRAD
+CooltrainermJakeSeenText: 
+if DEF(_FR_FR)
+	text "Je me prépare pour"
+	line "la LIGUE #MON."
+else
 	text "I'm making my"
 	line "final preparations"
 
 	para "for the #MON"
 	line "LEAGUE."
+endc
+
 	done
 
-CooltrainermJakeBeatenText: ; AUTOTRAD
+CooltrainermJakeBeatenText: 
+if DEF(_FR_FR)
+	text "Noooon!"
+else
 	text "I blew it!"
+endc
+
 	done
 
-CooltrainermJakeAfterBattleText: ; AUTOTRAD
+CooltrainermJakeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Gagner à la LIGUE"
+	line "ça doit être dur."
+
+	para "J'ai besoin de"
+	line "plus d'entraîne-"
+	cont "ment."
+
+	para "On dit que ceux"
+	line "du CONSEIL des 4"
+
+	para "sont plus forts"
+	line "que les CHAMPIONS."
+else
 	text "It's going to be"
 	line "tough to win at"
 	cont "the LEAGUE."
@@ -259,20 +284,49 @@ CooltrainermJakeAfterBattleText: ; AUTOTRAD
 
 	para "FOUR are tougher"
 	line "than GYM LEADERS."
+endc
+
 	done
 
-CooltrainermGaven3SeenText: ; AUTOTRAD
+CooltrainermGaven3SeenText: 
+if DEF(_FR_FR)
+	text "C'est en rempor-"
+	line "tant des combats"
+	cont "difficiles que"
+	cont "l'on progresse."
+else
 	text "By experiencing"
 	line "tough battles, you"
 	cont "gain power."
+endc
+
 	done
 
-CooltrainermGaven3BeatenText: ; AUTOTRAD
+CooltrainermGaven3BeatenText: 
+if DEF(_FR_FR)
+	text "Gaah!"
+	line "Tu progresses là?"
+else
 	text "Gaah! Life is even"
 	line "tougher!"
+endc
+
 	done
 
-CooltrainermGavenAfterText: ; AUTOTRAD
+CooltrainermGavenAfterText: 
+if DEF(_FR_FR)
+	text "Pour aller à la"
+	line "LIGUE #MON, tu"
+
+	para "dois traverser la"
+	line "ROUTE VICTOIRE."
+
+	para "Mais ça ne sera"
+	line "pas facile."
+
+	para "Presque personne"
+	line "ne va là-bas!"
+else
 	text "To get to #MON"
 	line "LEAGUE, you have"
 
@@ -284,9 +338,20 @@ CooltrainermGavenAfterText: ; AUTOTRAD
 
 	para "Practically nobody"
 	line "goes there!"
+endc
+
 	done
 
-CooltrainerfJoyceSeenText: ; AUTOTRAD
+CooltrainerfJoyceSeenText: 
+if DEF(_FR_FR)
+	text "Si tu es là, c'est"
+	line "que tu dois être"
+	cont "balèze."
+
+	para "Je vais me donner"
+	line "à fond..."
+	cont "Tu vas voir!"
+else
 	text "Since you've come"
 	line "this far, you must"
 	cont "be good."
@@ -294,14 +359,33 @@ CooltrainerfJoyceSeenText: ; AUTOTRAD
 	para "I'm going to give"
 	line "this battle every-"
 	cont "thing I've got!"
+endc
+
 	done
 
-CooltrainerfJoyceBeatenText: ; AUTOTRAD
+CooltrainerfJoyceBeatenText: 
+if DEF(_FR_FR)
+	text "Mais...c'est..."
+	line "Incroyable!"
+else
 	text "No! I don't"
 	line "believe this!"
+endc
+
 	done
 
-CooltrainerfJoyceAfterBattleText: ; AUTOTRAD
+CooltrainerfJoyceAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai battu huit"
+	line "CHAMPIONS d'ARENE"
+
+	para "alors j'avais con-"
+	line "fiance en moi."
+
+	para "Je ferai plus"
+	line "attention la pro-"
+	cont "chaine fois."
+else
 	text "I've defeated"
 	line "eight GYM LEADERS,"
 
@@ -310,9 +394,27 @@ CooltrainerfJoyceAfterBattleText: ; AUTOTRAD
 
 	para "I'll have to try"
 	line "harder next time."
+endc
+
 	done
 
-CooltrainerfBeth1SeenText: ; AUTOTRAD
+CooltrainerfBeth1SeenText: 
+if DEF(_FR_FR)
+	text "J'ai perdu face"
+	line "à un type du nom"
+	cont "de <RIVAL>."
+
+	para "Il était fort"
+	line "mais..."
+
+	para "On aurait dit qu'"
+	line "il combattait pour"
+	cont "sa vie..."
+
+	para "Ca me faisait de"
+	line "la peine pour ses"
+	cont "#MON."
+else
 	text "I lost to a train-"
 	line "er named <RIVAL>."
 
@@ -325,20 +427,45 @@ CooltrainerfBeth1SeenText: ; AUTOTRAD
 
 	para "I felt sorry for"
 	line "his #MON."
+endc
+
 	done
 
-CooltrainerfBeth1BeatenText: ; AUTOTRAD
+CooltrainerfBeth1BeatenText: 
+if DEF(_FR_FR)
+	text "Les #MON ne"
+	line "sont pas nos"
+	cont "esclaves."
+else
 	text "#MON aren't"
 	line "tools of war."
+endc
+
 	done
 
-CooltrainerfBethAfterText: ; AUTOTRAD
+CooltrainerfBethAfterText: 
+if DEF(_FR_FR)
+	text "Les #MON sont"
+	line "des amis pour"
+	cont "la vie."
+else
 	text "#MON are in-"
 	line "valuable, lifelong"
 	cont "partners."
+endc
+
 	done
 
-PsychicRichardSeenText: ; AUTOTRAD
+PsychicRichardSeenText: 
+if DEF(_FR_FR)
+	text "Whoa! Regarde-moi"
+	line "tous ces BADGES!"
+	cont "J'suis bluffé."
+
+	para "Les collectionner"
+	line "ne te suffit pas,"
+	cont "hein?"
+else
 	text "Wow, look at all"
 	line "those BADGES!"
 	cont "I'm impressed."
@@ -348,48 +475,98 @@ PsychicRichardSeenText: ; AUTOTRAD
 
 	para "collecting them,"
 	line "right?"
+endc
+
 	done
 
-PsychicRichardBeatenText: ; AUTOTRAD
+PsychicRichardBeatenText: 
+if DEF(_FR_FR)
+	text "Même pas mal!"
+else
 	text "Good battle!"
+endc
+
 	done
 
-PsychicRichardAfterBattleText: ; AUTOTRAD
+PsychicRichardAfterBattleText: 
+if DEF(_FR_FR)
+	text "Humains et #MON"
+	line "évoluent grâce à"
+	cont "l'expérience."
+
+	para "Il faut s'entraî-"
+	line "ner et voyager!"
+else
 	text "People and #MON"
 	line "grow from their"
 	cont "experiences."
 
 	para "Don't get lazy and"
 	line "complacent."
+endc
+
 	done
 
-FisherScottSeenText: ; AUTOTRAD
+FisherScottSeenText: 
+if DEF(_FR_FR)
+	text "Moi j'suis en"
+	line "pleine forme!"
+
+	para "J'me sens capable"
+	line "de battre l'MAITRE"
+	cont "de la LIGUE!"
+else
 	text "I'm feeling great"
 	line "today!"
 
 	para "I feel like I"
 	line "could boot even"
 	cont "the LEAGUE CHAMP!"
+endc
+
 	done
 
-FisherScottBeatenText: ; AUTOTRAD
+FisherScottBeatenText: 
+if DEF(_FR_FR)
+	text "Heu..."
+	line "Ca compte pas!"
+else
 	text "No! Not in this"
 	line "battle!"
+endc
+
 	done
 
-FisherScottAfterBattleText: ; AUTOTRAD
+FisherScottAfterBattleText: 
+if DEF(_FR_FR)
+	text "Comme pour la pê-"
+	line "che, faut jamais"
+
+	para "abandonner à"
+	line "#MON."
+else
 	text "Just like in fish-"
 	line "ing, it's all over"
 
 	para "in #MON if you"
 	line "give up."
+endc
+
 	done
 
-Route26SignText: ; AUTOTRAD
+Route26SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 26"
+
+	para "LIGUE #MON"
+	line "PORTE D'ACCES"
+else
 	text "ROUTE 26"
 
 	para "#MON LEAGUE"
 	line "RECEPTION GATE"
+endc
+
 	done
 
 Route26_MapEvents:

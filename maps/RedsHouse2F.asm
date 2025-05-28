@@ -55,18 +55,34 @@ RedsHouse2FN64Script:
 RedsHouse2FPCScript:
 	jumptext RedsHouse2FPCText
 
-RedsHouse2FN64Text: ; AUTOTRAD
+RedsHouse2FN64Text: 
+if DEF(_FR_FR)
+	text "<PLAYER> joue"
+	line "à la N64."
+
+	para "Bon. On y va"
+	line "maintenant?"
+else
 	text "<PLAYER> played the"
 	line "N64."
 
 	para "Better get going--"
 	line "no time to lose!"
+endc
+
 	done
 
-RedsHouse2FPCText: ; AUTOTRAD
+RedsHouse2FPCText: 
+if DEF(_FR_FR)
+	text "On n'a pas utilisé"
+	line "ceci depuis bien"
+	cont "longtemps..."
+else
 	text "It looks like it"
 	line "hasn't been used"
 	cont "in a long time…"
+endc
+
 	done
 
 RedsPikachuStaresText: ; TO TRANSLATE

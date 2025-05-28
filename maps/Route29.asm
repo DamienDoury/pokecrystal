@@ -239,15 +239,35 @@ DudeMovementData2b:
 	step DOWN
 	step_end
 
-CatchingTutorialBoxFullText: ; AUTOTRAD
+CatchingTutorialBoxFullText: 
+if DEF(_FR_FR)
+	text "Les #MON se"
+	line "cachent dans"
+
+	para "l'herbe. Ils sur-"
+	line "gissent d'un coup."
+	cont "Pouf!"
+else
 	text "#MON hide in"
 	line "the grass. Who"
 
 	para "knows when they'll"
 	line "pop out…"
+endc
+
 	done
 
-CatchingTutorialIntroText: ; AUTOTRAD
+CatchingTutorialIntroText: 
+if DEF(_FR_FR)
+	text "J'te connais toi."
+	line "Combien de #MON"
+	cont "as-tu attrapés?"
+
+	para "Veux-tu que je te"
+	line "montre comment at-"
+	cont "traper des"
+	cont "#MON?"
+else
 	text "I've seen you a"
 	line "couple times. How"
 
@@ -257,18 +277,40 @@ CatchingTutorialIntroText: ; AUTOTRAD
 	para "Would you like me"
 	line "to show you how to"
 	cont "catch #MON?"
+endc
+
 	done
 
-CatchingTutorialDebriefText: ; AUTOTRAD
+CatchingTutorialDebriefText: 
+if DEF(_FR_FR)
+	text "Voilà comment il"
+	line "faut faire."
+
+	para "Si tu affaiblis"
+	line "d'abord le #-"
+	cont "MON, il sera plus"
+	cont "facile à attraper."
+else
 	text "That's how you do"
 	line "it."
 
 	para "If you weaken them"
 	line "first, #MON are"
 	cont "easier to catch."
+endc
+
 	done
 
-CatchingTutorialDeclinedText: ; AUTOTRAD
+CatchingTutorialDeclinedText: 
+if DEF(_FR_FR)
+	text "Oh. Bon."
+
+	para "En tout cas, tu"
+	line "dois beaucoup mar-"
+
+	para "cher pour attraper"
+	line "des #MON."
+else
 	text "Oh. Fine, then."
 
 	para "Anyway, if you"
@@ -276,15 +318,35 @@ CatchingTutorialDeclinedText: ; AUTOTRAD
 
 	para "#MON, you have"
 	line "to walk a lot."
+endc
+
 	done
 
-CatchingTutorialRepeatText: ; AUTOTRAD
+CatchingTutorialRepeatText: 
+if DEF(_FR_FR)
+	text "Hein? Tu veux que"
+	line "je te montre com-"
+	cont "ment attraper des"
+	cont "#MON?"
+else
 	text "Huh? You want me"
 	line "to show you how to"
 	cont "catch #MON?"
+endc
+
 	done
 
-Route29YoungsterText: ; AUTOTRAD
+Route29YoungsterText: 
+if DEF(_FR_FR)
+	text "Salut. Comment"
+	line "vont tes #MON?"
+
+	para "S'ils sont fati-"
+	line "gués ou incapables"
+
+	para "de combattre,"
+	line "évite l'herbe!"
+else
 	text "Yo. How are your"
 	line "#MON?"
 
@@ -293,9 +355,22 @@ Route29YoungsterText: ; AUTOTRAD
 
 	para "battle, keep out"
 	line "of the grass."
+endc
+
 	done
 
-Route29TeacherText: ; AUTOTRAD
+Route29TeacherText: 
+if DEF(_FR_FR)
+	text "Tu vois ce mur?"
+	line "Sauter de là doit"
+	cont "faire peur."
+
+	para "Mais tu peux aller"
+	line "à BOURG GEON sans"
+
+	para "marcher dans les"
+	line "hautes herbes."
+else
 	text "See those ledges?"
 	line "It's scary to jump"
 	cont "off them."
@@ -305,14 +380,25 @@ Route29TeacherText: ; AUTOTRAD
 
 	para "walking through"
 	line "the grass."
+endc
+
 	done
 
-Route29FisherText: ; AUTOTRAD
+Route29FisherText: 
+if DEF(_FR_FR)
+	text "J'ai voulu faire"
+	line "une pause alors"
+
+	para "j'ai sauvegardé ma"
+	line "partie."
+else
 	text "I wanted to take a"
 	line "break, so I saved"
 
 	para "to record my"
 	line "progress."
+endc
+
 	done
 
 Route29CooltrainerMText_BerryExplanation: ; TO TRANSLATE
@@ -347,7 +433,18 @@ Route29CooltrainerMText_OranBerryDetected: ; TO TRANSLATE
 	text "!"
 	done
 
-MeetTuscanyText: ; AUTOTRAD
+MeetTuscanyText: 
+if DEF(_FR_FR)
+	text "MARIE: Il me sem-"
+	line "ble que c'est la"
+
+	para "première fois que"
+	line "l'on se rencontre."
+
+	para "Permets-moi de me"
+	line "présenter. Je suis"
+	cont "MARIE du mardi."
+else
 	text "TUSCANY: I do be-"
 	line "lieve that this is"
 
@@ -359,17 +456,40 @@ MeetTuscanyText: ; AUTOTRAD
 
 	para "I am TUSCANY of"
 	line "Tuesday."
+endc
+
 	done
 
-TuscanyGivesGiftText: ; AUTOTRAD
+TuscanyGivesGiftText: 
+if DEF(_FR_FR)
+	text "En cadeau..."
+	line "Permets-moi"
+
+	para "de t'offrir..."
+	line "Un RUBAN ROSE."
+else
 	text "By way of intro-"
 	line "duction, please"
 
 	para "accept this gift,"
 	line "a PINK BOW."
+endc
+
 	done
 
-TuscanyGaveGiftText: ; AUTOTRAD
+TuscanyGaveGiftText: 
+if DEF(_FR_FR)
+	text "MARIE: C'est"
+	line "ravissant, tu ne"
+	cont "trouves pas?"
+
+	para "Il améliore les"
+	line "capacités de type"
+	cont "NORMAL."
+
+	para "Je suis sûre qu'il"
+	line "te sera utile."
+else
 	text "TUSCANY: Wouldn't"
 	line "you agree that it"
 	cont "is most adorable?"
@@ -379,9 +499,23 @@ TuscanyGaveGiftText: ; AUTOTRAD
 
 	para "I am certain it"
 	line "will be of use."
+endc
+
 	done
 
-TuscanyTuesdayText: ; AUTOTRAD
+TuscanyTuesdayText: 
+if DEF(_FR_FR)
+	text "MARIE: As-tu"
+	line "rencontré LUCIE,"
+	cont "ma grande soeur?"
+
+	para "Ou mon petit frère"
+	line "HOMER?"
+
+	para "Je suis la deuxiè-"
+	line "me des sept en-"
+	cont "fants."
+else
 	text "TUSCANY: Have you"
 	line "met MONICA, my"
 	cont "older sister?"
@@ -391,26 +525,51 @@ TuscanyTuesdayText: ; AUTOTRAD
 
 	para "I am the second of"
 	line "seven children."
+endc
+
 	done
 
-TuscanyNotTuesdayText: ; AUTOTRAD
+TuscanyNotTuesdayText: 
+if DEF(_FR_FR)
+	text "MARIE: Aujourd'hui"
+	line "n'est pas mardi."
+	cont "C'est dommage..."
+else
 	text "TUSCANY: Today is"
 	line "not Tuesday. That"
 	cont "is unfortunate…"
+endc
+
 	done
 
-Route29Sign1Text: ; AUTOTRAD
+Route29Sign1Text: 
+if DEF(_FR_FR)
+	text "ROUTE 29"
+
+	para "VILLE GRIOTTE -"
+	line "BOURG GEON"
+else
 	text "ROUTE 29"
 
 	para "CHERRYGROVE CITY -"
 	line "NEW BARK TOWN"
+endc
+
 	done
 
-Route29Sign2Text: ; AUTOTRAD
+Route29Sign2Text: 
+if DEF(_FR_FR)
+	text "ROUTE 29"
+
+	para "VILLE GRIOTTE -"
+	line "BOURG GEON"
+else
 	text "ROUTE 29"
 
 	para "CHERRYGROVE CITY -"
 	line "NEW BARK TOWN"
+endc
+
 	done
 
 Route29_MapEvents:

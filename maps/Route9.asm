@@ -302,16 +302,38 @@ Route9_JumpDownMovement:
 	jump_step DOWN
 	step_end
 
-CamperDeanSeenText: ; AUTOTRAD
+CamperDeanSeenText: 
+if DEF(_FR_FR)
+	text "Je viens pour ex-"
+	line "plorer la GROTTE."
+else
 	text "I came to explore"
 	line "ROCK TUNNEL."
+endc
+
 	done
 
-CamperDeanBeatenText: ; AUTOTRAD
+CamperDeanBeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! Danger!"
+else
 	text "Whoa! Danger, man."
+endc
+
 	done
 
-CamperDeanAfterBattleText: ; AUTOTRAD
+CamperDeanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Mes #MON ont"
+	line "été blessés avant"
+
+	para "d'entrer dans la"
+	line "GROTTE."
+
+	para "Je devrais les"
+	line "amener à un CENTRE"
+	cont "#MON..."
+else
 	text "My #MON were"
 	line "hurt before even"
 
@@ -321,98 +343,207 @@ CamperDeanAfterBattleText: ; AUTOTRAD
 	para "I'd better take"
 	line "them to a #MON"
 	cont "CENTER right away."
+endc
+
 	done
 
-PicnickerHeidiSeenText: ; AUTOTRAD
+PicnickerHeidiSeenText: 
+if DEF(_FR_FR)
+	text "Tu aimes les"
+	line "pique-niques?"
+	cont "C'est trop cool!"
+else
 	text "Have you ever been"
 	line "to a picnic?"
 
 	para "They're so much"
 	line "fun!"
+endc
+
 	done
 
-PicnickerHeidiBeatenText: ; AUTOTRAD
+PicnickerHeidiBeatenText: 
+if DEF(_FR_FR)
 	text "Ohhhh!"
+else
+	text "Ohhhh!"
+endc
+
 	done
 
-PicnickerHeidiAfterBattleText: ; AUTOTRAD
+PicnickerHeidiAfterBattleText: 
+if DEF(_FR_FR)
+	text "On mange comme"
+	line "des truies et on"
+
+	para "fait des miettes."
+	line "C'est mortel!"
+else
 	text "We bake lots of"
 	line "goodies and share"
 
 	para "them all around."
 	line "They're delicious!"
+endc
+
 	done
 
-CamperSidSeenText: ; AUTOTRAD
+CamperSidSeenText: 
+if DEF(_FR_FR)
+	text "Toi, moi!"
+	line "Combat, yaaah!"
+else
 	text "Hey, you!"
 	line "Don't litter!"
+endc
+
 	done
 
-CamperSidBeatenText: ; AUTOTRAD
+CamperSidBeatenText: 
+if DEF(_FR_FR)
+	text "OK."
+	line "A gagné."
+else
 	text "I was just point-"
 	line "ing out…"
+endc
+
 	done
 
-CamperSidAfterBattleText: ; AUTOTRAD
+CamperSidAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ca va pour cette"
+	line "fois. Je te laisse"
+	cont "gagner. File!"
+else
 	text "Sorry. You weren't"
 	line "littering. It was"
 	cont "my mistake."
+endc
+
 	done
 
-PicnickerEdnaSeenText: ; AUTOTRAD
+PicnickerEdnaSeenText: 
+if DEF(_FR_FR)
+	text "Faire des saletés"
+	line "dans les lieux pu-"
+	cont "blics, c'est mal."
+else
 	text "People shouldn't"
 	line "leave any litter"
 	cont "behind."
+endc
+
 	done
 
-PicnickerEdnaBeatenText: ; AUTOTRAD
+PicnickerEdnaBeatenText: 
+if DEF(_FR_FR)
+	text "Ohh...pas glop."
+else
 	text "Ohh… I lost…"
+endc
+
 	done
 
-PicnickerEdnaAfterBattleText: ; AUTOTRAD
+PicnickerEdnaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ne jette pas tes"
+	line "papiers gras au"
+
+	para "sol. Parce que"
+	line "c'est mal."
+else
 	text "Conserving energy"
 	line "is important, but"
 
 	para "the environment is"
 	line "even more vital."
+endc
+
 	done
 
-HikerTimSeenText: ; AUTOTRAD
+HikerTimSeenText: 
+if DEF(_FR_FR)
+	text "Elle descend du"
+	line "MONT ARGENT à"
+	cont "cheval..."
+	cont "La la la la la..."
+
+	para "Le MONT ARGENT est"
+	line "à JOHTO, non?"
+else
 	text "She'll be coming"
 	line "'round MT.SILVER"
 	cont "when she comes…"
 
 	para "MT.SILVER is in"
 	line "JOHTO, right?"
+endc
+
 	done
 
-HikerTimBeatenText: ; AUTOTRAD
+HikerTimBeatenText: 
+if DEF(_FR_FR)
+	text "C'est trop bien"
+	line "de chanter."
+else
 	text "I was too busy"
 	line "singing…"
+endc
+
 	done
 
-HikerTimAfterBattleText: ; AUTOTRAD
+HikerTimAfterBattleText: 
+if DEF(_FR_FR)
+	text "C'est la fête au"
+	line "village..."
+	cont "La la la la la..."
+else
 	text "Battles are about"
 	line "concentration."
+endc
+
 	done
 
-HikerSidneySeenText: ; AUTOTRAD
+HikerSidneySeenText: 
+if DEF(_FR_FR)
+	text "J'ai un secret"
+	line "pour toi."
+
+	para "Mais d'abord..."
+	line "Combat!"
+else
 	text "I'll tell you a"
 	line "secret."
 
 	para "But first, we"
 	line "battle!"
+endc
+
 	done
 
-HikerSidneyBeatenText: ; AUTOTRAD
+HikerSidneyBeatenText: 
+if DEF(_FR_FR)
+	text "Zut de flûte!"
+	line "Perdu!"
+else
 	text "Oh, dang!"
 	line "I lost that…"
+endc
+
 	done
 
-HikerSidneyAfterBattleText: ; AUTOTRAD
+HikerSidneyAfterBattleText: 
+if DEF(_FR_FR)
+	text "La CENTRALE est de"
+	line "l'autre côté d'une"
+	cont "rivière."
+else
 	text "The POWER PLANT is"
 	line "across a small"
 	cont "river."
+endc
+
 	done
 
 CooltrainerFMariaSeenText: ; TO TRANSLATE
@@ -467,11 +598,19 @@ CooltrainerMAndriyAfterBattleText: ; TO TRANSLATE
 	cont "wear a face mask."
 	done
 
-Route9SignText: ; AUTOTRAD
+Route9SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 9"
+
+	para "AZURIA -"
+	line "GROTTE"
+else
 	text "ROUTE 9"
 
 	para "CERULEAN CITY -"
 	line "ROCK TUNNEL"
+endc
+
 	done
 
 Route9_QuestIntroText: ; TO TRANSLATE

@@ -12,10 +12,18 @@ PewterSnoozeSpeechHouseGrampsScript:
 PewterSnoozeSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-PewterSnoozeSpeechHouseGrampsText: ; AUTOTRAD
+PewterSnoozeSpeechHouseGrampsText: 
+if DEF(_FR_FR)
+	text "J'aime bien dor-"
+	line "mir avec la radio"
+	cont "allumée..."
+	cont "....Zzzz...."
+else
 	text "I like snoozing"
 	line "with the radio on…"
 	cont "…Zzzz…"
+endc
+
 	done
 
 PewterSnoozeSpeechHouse_MapEvents:

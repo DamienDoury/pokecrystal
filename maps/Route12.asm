@@ -141,53 +141,122 @@ Route12FruitTree:
 Route12HiddenElixer:
 	hiddenitem ELIXER, EVENT_ROUTE_12_HIDDEN_ELIXER
 
-FisherMartinSeenText: ; AUTOTRAD
+FisherMartinSeenText: 
+if DEF(_FR_FR)
+	text "La patience est"
+	line "la meilleure arme"
+	cont "pour pêcher..."
+else
 	text "Patience is the"
 	line "key to both fish-"
 	cont "ing and #MON."
+endc
+
 	done
 
-FisherMartinBeatenText: ; AUTOTRAD
+FisherMartinBeatenText: 
+if DEF(_FR_FR)
 	text "Gwaaah!"
+else
+	text "Gwaaah!"
+endc
+
 	done
 
-FisherMartinAfterBattleText: ; AUTOTRAD
+FisherMartinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Bon... La pêche"
+	line "c'est lourd..."
+else
 	text "I'm too impatient"
 	line "for fishing…"
+endc
+
 	done
 
-FisherStephenSeenText: ; AUTOTRAD
+FisherStephenSeenText: 
+if DEF(_FR_FR)
+	text "Ca c'est le pied!"
+	line "Pêcher en écoutant"
+	cont "la radio, c'est"
+	cont "super pépère."
+else
 	text "I feel so content,"
 	line "fishing while lis-"
 	cont "tening to some"
 	cont "tunes on my radio."
+endc
+
 	done
 
-FisherStephenBeatenText: ; AUTOTRAD
+FisherStephenBeatenText: 
+if DEF(_FR_FR)
+	text "Ma radio m'a fait"
+	line "perdre!"
+else
 	text "My stupid radio"
 	line "distracted me!"
+endc
+
 	done
 
-FisherStephenAfterBattleText: ; AUTOTRAD
+FisherStephenAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu connais les"
+	line "radios de KANTO?"
+
+	para "Elles sont pas"
+	line "mal, tu sais..."
+else
 	text "Have you checked"
 	line "out KANTO's radio"
 
 	para "programs? We get a"
 	line "good variety here."
+endc
+
 	done
 
-FisherBarneySeenText: ; AUTOTRAD
+FisherBarneySeenText: 
+if DEF(_FR_FR)
+	text "Quelle est la"
+	line "chose la plus im-"
+	cont "portante dans nos"
+	cont "vies quotidiennes?"
+else
 	text "What's most impor-"
 	line "tant in our every-"
 	cont "day lives?"
+endc
+
 	done
 
-FisherBarneyBeatenText: ; AUTOTRAD
+FisherBarneyBeatenText: 
+if DEF(_FR_FR)
+	text "La réponse va"
+	line "suivre!"
+else
 	text "The answer is"
 	line "coming up next!"
+endc
+
 	done
 
-FisherBarneyAfterBattleText: ; AUTOTRAD
+FisherBarneyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je crois que"
+	line "l'électricité est"
+
+	para "la chose la plus"
+	line "importante."
+
+	para "Et c'est pour ça"
+	line "qu'on a fait tant"
+
+	para "d'histoires à pro-"
+	line "pos de la panne de"
+	cont "la CENTRALE."
+else
 	text "I think electric-"
 	line "ity is the most"
 
@@ -202,17 +271,40 @@ FisherBarneyAfterBattleText: ; AUTOTRAD
 
 	para "POWER PLANT went"
 	line "out of commission."
+endc
+
 	done
 
-FisherKyleSeenText: ; AUTOTRAD
+FisherKyleSeenText: 
+if DEF(_FR_FR)
+	text "Tu t'en souviens?"
+else
 	text "Do you remember?"
+endc
+
 	done
 
-FisherKyleBeatenText: ; AUTOTRAD
+FisherKyleBeatenText: 
+if DEF(_FR_FR)
+	text "Tu t'en souviens?"
+else
 	text "You do remember?"
+endc
+
 	done
 
-FisherKyleAfterBattleText: ; AUTOTRAD
+FisherKyleAfterBattleText: 
+if DEF(_FR_FR)
+	text "La p'tite secousse"
+	line "que l'on sent"
+
+	para "quand on ferre un"
+	line "#MON..."
+
+	para "C'est la plus"
+	line "belle des sensa-"
+	cont "tions!!!"
+else
 	text "The tug you feel"
 	line "on the ROD when"
 
@@ -222,6 +314,8 @@ FisherKyleAfterBattleText: ; AUTOTRAD
 	para "That's the best"
 	line "feeling ever for"
 	cont "an angler like me."
+endc
+
 	done
 
 TeacherCeciliaSeenText: ; TO TRANSLATE
@@ -454,15 +548,26 @@ Route12_LockdownSpeakerText: ; TO TRANSLATE
 	line "perish”."
 	done
 
-Route12SignText: ; AUTOTRAD
+Route12SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 12"
+	line "NORD: LAVANVILLE"
+else
 	text "ROUTE 12"
 
 	para "NORTH TO LAVENDER"
 	line "TOWN"
+endc
+
 	done
 
-FishingSpotSignText: ; AUTOTRAD
+FishingSpotSignText: 
+if DEF(_FR_FR)
+	text "COIN PECHE"
+else
 	text "FISHING SPOT"
+endc
+
 	done
 
 Route12_MapEvents:

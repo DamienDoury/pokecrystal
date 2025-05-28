@@ -101,49 +101,103 @@ CeladonDeptStore6FDirectory:
 CeladonDeptStore6FElevatorButton: ; unreferenced
 	jumpstd ElevatorButtonScript
 
-CeladonVendingText: ; AUTOTRAD
+CeladonVendingText: 
+if DEF(_FR_FR)
+	text "Un distributeur!"
+	line "Voyons ce qu'il y"
+	cont "a dedans..."
+else
 	text "A vending machine!"
 	line "Here's the menu."
+endc
+
 	done
 
-CeladonClangText: ; AUTOTRAD
+CeladonClangText: 
+if DEF(_FR_FR)
+	text "Cling!"
+
+	para "Et hop!"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+else
 	text "Clang!"
 
 	para "@"
 	text_ram wStringBuffer3
+endc
+
 	text_start
 	line "popped out."
 	done
 
-CeladonVendingNoMoneyText: ; AUTOTRAD
+CeladonVendingNoMoneyText: 
+if DEF(_FR_FR)
+	text "Oups, pas assez"
+	line "d'argent..."
+else
 	text "Oops, not enough"
 	line "money…"
+endc
+
 	done
 
-CeladonVendingNoSpaceText: ; AUTOTRAD
+CeladonVendingNoSpaceText: 
+if DEF(_FR_FR)
+	text "Plus de place pour"
+	line "autre chose..."
+else
 	text "There's no more"
 	line "room for stuff…"
+endc
+
 	done
 
-CeladonDeptStore6FSuperNerdText: ; AUTOTRAD
+CeladonDeptStore6FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Un distributeur"
+	line "avec une roulette!"
+	cont "On peut gagner"
+	cont "quelque chose!"
+
+	para "Alors ça..."
+	line "C'est fort."
+else
 	text "A vending machine"
 	line "with a prize rou-"
 	cont "lette…"
 
 	para "You never see"
 	line "those anymore."
+endc
+
 	done
 
-CeladonDeptStore6FYoungsterText: ; AUTOTRAD
+CeladonDeptStore6FYoungsterText: 
+if DEF(_FR_FR)
+	text "Ah! Y'a pas de"
+	line "jeux ici!"
+
+	para "Je veux jouer..."
+else
 	text "Aww! There's no"
 	line "games here!"
 
 	para "I wanted to play…"
+endc
+
 	done
 
-CeladonDeptStore6FDirectoryText: ; AUTOTRAD
+CeladonDeptStore6FDirectoryText: 
+if DEF(_FR_FR)
+	text "5EME: ESPACE TOIT"
+	line "DISTRIBUTEURS"
+else
 	text "6F: ROOFTOP SQUARE"
 	line "VENDING MACHINES"
+endc
+
 	done
 
 CeladonDeptStore6F_MapEvents:

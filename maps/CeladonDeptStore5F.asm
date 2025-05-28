@@ -39,34 +39,72 @@ CeladonDeptStore5FDirectory:
 CeladonDeptStore5FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore5FGentlemanText: ; AUTOTRAD
+CeladonDeptStore5FGentlemanText: 
+if DEF(_FR_FR)
+	text "Je voudrais ache-"
+	line "ter des objets"
+
+	para "pour augmenter les"
+	line "stats de mes #-"
+	cont "MON, mais je n'ai"
+	cont "pas assez de sous."
+else
 	text "I want to buy some"
 	line "items that raise"
 
 	para "#MON stats, but"
 	line "I don't have"
 	cont "enough money…"
+endc
+
 	done
 
-CeladonDeptStore5FSailorText: ; AUTOTRAD
+CeladonDeptStore5FSailorText: 
+if DEF(_FR_FR)
+	text "Je veux PP PLUS"
+	line "pour augmenter les"
+
+	para "PP des capacités."
+	line "Mais on ne peut"
+	cont "pas en acheter..."
+else
 	text "I want PP UP, so I"
 	line "can raise the PP"
 
 	para "of moves. But you"
 	line "can't buy it…"
+endc
+
 	done
 
-CeladonDeptStore5FTeacherText: ; AUTOTRAD
+CeladonDeptStore5FTeacherText: 
+if DEF(_FR_FR)
+	text "Utiliser des"
+	line "objets sur les"
+	cont "#MON les rend"
+	cont "heureux."
+
+	para "Mais ils n'aiment"
+	line "pas certains"
+	cont "objets..."
+else
 	text "Using items on"
 	line "them makes #-"
 	cont "MON happy."
 
 	para "They hate certain"
 	line "items, though…"
+endc
+
 	done
 
-CeladonDeptStore5FDirectoryText: ; AUTOTRAD
+CeladonDeptStore5FDirectoryText: 
+if DEF(_FR_FR)
+	text "4EME: POTIONS, etc"
+else
 	text "5F: DRUG STORE"
+endc
+
 	done
 
 CeladonDeptStore5F_MapEvents:

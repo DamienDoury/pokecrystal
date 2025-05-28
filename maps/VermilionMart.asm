@@ -28,12 +28,22 @@ VermilionMartBeautyScript:
 VermilionMartShelfItem1Script:
 	shelfitem 3, ESCAPE_ROPE, 1650
 
-VermilionMartSuperNerdText: ; AUTOTRAD
+VermilionMartSuperNerdText: 
+if DEF(_FR_FR)
+	text "La TEAM ROCKET"
+	line "n'est plus à"
+	cont "KANTO."
+
+	para "Ca pour une"
+	line "nouvelle..."
+else
 	text "TEAM ROCKET is no"
 	line "longer in KANTO."
 
 	para "That alone makes"
 	line "me happy."
+endc
+
 	done
 
 VermilionMartBeautyText: ; TO TRANSLATE

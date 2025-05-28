@@ -67,7 +67,19 @@ OlivinePunishmentSpeechHouseBookshelf2:
 OlivinePunishmentSpeechHouseBookshelf1:
 	jumpstd MagazineBookshelfScript
 
-OlivinePunishmentSpeechHouseDadText: ; AUTOTRAD
+OlivinePunishmentSpeechHouseDadText: 
+if DEF(_FR_FR)
+	text "Sur le chemin"
+	line "d'IRISIA, il y a"
+
+	para "quatre îles"
+	line "désertes."
+
+	para "Les petites"
+	line "canailles y sont"
+	cont "emmenées en guise"
+	cont "de punition!"
+else
 	text "Along the way to"
 	line "CIANWOOD, there"
 
@@ -77,6 +89,8 @@ OlivinePunishmentSpeechHouseDadText: ; AUTOTRAD
 	para "Bad kids are taken"
 	line "to the islands as"
 	cont "punishment!"
+endc
+
 	done
 
 OlivinePunishmentSpeechHouseDadLockdownText: ; TO TRANSLATE
@@ -101,10 +115,20 @@ OlivinePunishmentSpeechHouseDadCurfewText: ; TO TRANSLATE
 	cont "the night!"
 	done
 
-OlivinePunishmentSpeechHouseDaughterText: ; AUTOTRAD
+OlivinePunishmentSpeechHouseDaughterText: 
+if DEF(_FR_FR)
+	text "A chaque fois que"
+	line "je fais des"
+	cont "bêtises, papa me"
+	cont "dit qu'il va m'y"
+	cont "envoyer et moi"
+	cont "j'ai peur!"
+else
 	text "Whenever I get in"
 	line "trouble, Daddy"
 	cont "always scares me."
+endc
+
 	done
 
 OlivinePunishmentSpeechHouseDaughterLockdownText: ; TO TRANSLATE

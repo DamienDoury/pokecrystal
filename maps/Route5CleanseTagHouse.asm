@@ -24,7 +24,17 @@ Route5CleanseTagHouseGrannyText1: ; TO TRANSLATE
 	cont "over you."
 	done
 
-Route5CleanseTagHouseTeacherText: ; AUTOTRAD
+Route5CleanseTagHouseTeacherText: 
+if DEF(_FR_FR)
+	text "Ma mémé est à fond"
+	line "dans les délires"
+
+	para "paranormaux."
+	line "Excuse-la."
+
+	para "Elle a dû te"
+	line "faire peur, hein?"
+else
 	text "My grandma is into"
 	line "warding off what"
 
@@ -33,6 +43,8 @@ Route5CleanseTagHouseTeacherText: ; AUTOTRAD
 
 	para "I'm sorry that she"
 	line "startled you."
+endc
+
 	done
 
 Route5CleanseTagHouse_MapEvents:

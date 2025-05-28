@@ -99,8 +99,14 @@ MeetMomTalkedScript:
 	playmusic MUSIC_MOM
 	sjump MeetMomScript
 
-PokegearName: ; AUTOTRAD
+PokegearName: 
+if DEF(_FR_FR)
+	db "#MATOS@"
+
+else
 	db "#GEAR@"
+
+endc
 
 PlayersHouse1FReceiveItemStd:
 	jumpstd ReceiveItemScript
@@ -467,7 +473,27 @@ SocialDistancingText: ; TO TRANSLATE
 	cont "social distancing."
 	done
 
-ElmsLookingForYouText: ; AUTOTRAD
+ElmsLookingForYouText: 
+if DEF(_FR_FR)
+	text "Ah, <PLAYER>...!"
+	line "Notre voisin, le"
+
+	para "PROF.ORME, te"
+	line "cherchait."
+
+	para "Il voulait que"
+	line "tu fasses quelque"
+	cont "chose pour lui."
+
+	para "Oh! J'allais"
+	line "oublier! Ton"
+
+	para "MATOS #MON est"
+	line "revenu de chez le"
+	cont "réparateur."
+
+	para "Tiens!"
+else
 	text "Oh, <PLAYER>…! Our"
 	line "neighbor, PROF."
 
@@ -485,9 +511,26 @@ ElmsLookingForYouText: ; AUTOTRAD
 	line "the repair shop."
 
 	para "Here you go!"
+endc
+
 	done
 
-MomGivesPokegearText: ; AUTOTRAD
+MomGivesPokegearText: 
+if DEF(_FR_FR)
+	text "Le MATOS #MON,"
+	line "ou simplement"
+	cont "#MATOS..."
+
+	para "...est primordial"
+	line "si tu veux devenir"
+	cont "dresseur."
+
+	para "Oh! Le jour de la"
+	line "semaine n'est pas"
+	cont "paramétré."
+
+	para "N'oublie pas ça!"
+else
 	text "#MON GEAR, or"
 	line "just #GEAR."
 
@@ -500,14 +543,34 @@ MomGivesPokegearText: ; AUTOTRAD
 
 	para "You mustn't forget"
 	line "that!"
+endc
+
 	done
 
-IsItDSTText: ; AUTOTRAD
+IsItDSTText: 
+if DEF(_FR_FR)
+	text "Changement d'heure"
+	line "à activer?"
+else
 	text "Is it Daylight"
 	line "Saving Time now?"
+endc
+
 	done
 
-ComeHomeForDSTText: ; AUTOTRAD
+ComeHomeForDSTText: 
+if DEF(_FR_FR)
+	text "Reviens à la"
+	line "maison pour le"
+
+	para "changement"
+	line "d'heure."
+
+	para "Par ailleurs,"
+	line "sais-tu comment"
+	cont "utiliser le"
+	cont "TELEPHONE?"
+else
 	text "Come home to"
 	line "adjust your clock"
 
@@ -517,22 +580,48 @@ ComeHomeForDSTText: ; AUTOTRAD
 	para "By the way, do you"
 	line "know how to use"
 	cont "the PHONE?"
+endc
+
 	done
 
 KnowTheInstructionsText: ; TO TRANSLATE
 	text "Great!"
 	done
 
-DontKnowTheInstructionsText: ; AUTOTRAD
+DontKnowTheInstructionsText: 
+if DEF(_FR_FR)
+	text "Je vais lire le"
+	line "manuel."
+
+	para "Allume le"
+	line "#MATOS et"
+	cont "sélectionne"
+	cont "l'icône TELEPHONE."
+else
 	text "I'll read the"
 	line "instructions."
 
 	para "Turn the #GEAR"
 	line "on and select the"
 	cont "PHONE icon."
+endc
+
 	done
 
-InstructionsNextText: ; AUTOTRAD
+InstructionsNextText: 
+if DEF(_FR_FR)
+	text "Les numéros de"
+	line "téléphone sont"
+
+	para "enregistrés dans"
+	line "la mémoire."
+	cont "Choisis le nom de"
+	cont "celui que tu veux"
+	cont "appeler."
+
+	para "C'est pas trop"
+	line "compliqué, non?"
+else
 	text "Phone numbers are"
 	line "stored in memory."
 
@@ -541,6 +630,8 @@ InstructionsNextText: ; AUTOTRAD
 
 	para "Gee, isn't that"
 	line "convenient?"
+endc
+
 	done
 
 CovidIntroText: ; TO TRANSLATE
@@ -564,14 +655,37 @@ CovidIntroText: ; TO TRANSLATE
 	line "out there!"
 	done
 
-HurryUpElmIsWaitingText: ; AUTOTRAD
+HurryUpElmIsWaitingText: 
+if DEF(_FR_FR)
+	text "Le PROF.ORME"
+	line "t'attend."
+
+	para "Dépêche-toi, mon"
+	line "poussin!"
+else
 	text "PROF.ELM is wait-"
 	line "ing for you."
 
 	para "Hurry up, baby!"
+endc
+
 	done
 
-SoWhatWasProfElmsErrandText: ; AUTOTRAD
+SoWhatWasProfElmsErrandText: 
+if DEF(_FR_FR)
+	text "Alors, quelle"
+	line "était la commis-"
+	cont "sion du PROF.ORME?"
+
+	para "..."
+
+	para "Ca a l'air"
+	line "difficile."
+
+	para "Mais c'est impor-"
+	line "tant que l'on te"
+	cont "fasse confiance."
+else
 	text "So, what was PROF."
 	line "ELM's errand?"
 
@@ -583,32 +697,68 @@ SoWhatWasProfElmsErrandText: ; AUTOTRAD
 	para "But, you should be"
 	line "proud that people"
 	cont "rely on you."
+endc
+
 	done
 
-ImBehindYouText: ; AUTOTRAD
+ImBehindYouText: 
+if DEF(_FR_FR)
+	text "<PLAYER>, courage!"
+
+	para "Je suis avec toi!"
+else
 	text "<PLAYER>, do it!"
 
 	para "I'm behind you all"
 	line "the way!"
+endc
+
 	done
 
-NeighborMornIntroText: ; AUTOTRAD
+NeighborMornIntroText: 
+if DEF(_FR_FR)
+	text "Bonjour,"
+	line "<PLAY_G>!"
+
+	para "Je suis de"
+	line "passage!"
+else
 	text "Good morning,"
 	line "<PLAY_G>!"
 
 	para "I'm visiting!"
+endc
+
 	done
 
-NeighborDayIntroText: ; AUTOTRAD
+NeighborDayIntroText: 
+if DEF(_FR_FR)
+	text "Bonjour,"
+	line "<PLAY_G>!"
+
+	para "Je suis de"
+	line "passage!"
+else
 	text "Hello, <PLAY_G>!"
 	line "I'm visiting!"
+endc
+
 	done
 
-NeighborNiteIntroText: ; AUTOTRAD
+NeighborNiteIntroText: 
+if DEF(_FR_FR)
+	text "Bonjour,"
+	line "<PLAY_G>!"
+
+	para "Je suis de"
+	line "passage!"
+else
 	text "Good evening,"
 	line "<PLAY_G>!"
 
 	para "I'm visiting!"
+endc
+
 	done
 
 NeighborText: ; TO TRANSLATE

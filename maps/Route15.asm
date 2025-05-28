@@ -88,24 +88,49 @@ Route15PPUp:
 Route15FruitTree:
 	fruittree FRUITTREE_ROUTE_15
 
-TeacherColetteSeenText: ; AUTOTRAD
+TeacherColetteSeenText: 
+if DEF(_FR_FR)
+	text "Il est où ton"
+	line "cahier?"
+	cont "Et ta trousse?"
+else
 	text "Have you forgotten"
 	line "anything?"
+endc
+
 	done
 
-TeacherColetteBeatenText: ; AUTOTRAD
+TeacherColetteBeatenText: 
+if DEF(_FR_FR)
 	text "Kyaaah!"
+else
+	text "Kyaaah!"
+endc
+
 	done
 
-TeacherColetteAfterBattleText: ; AUTOTRAD
+TeacherColetteAfterBattleText: 
+if DEF(_FR_FR)
+	text "Etre professeur ça"
+	line "laisse des traces."
+else
 	text "Before I became a"
 	line "teacher, I used to"
 
 	para "forget a lot of"
 	line "things."
+endc
+
 	done
 
-TeacherHillarySeenText: ; AUTOTRAD
+TeacherHillarySeenText: 
+if DEF(_FR_FR)
+	text "Avoir son matériel"
+	line "est important."
+
+	para "Comme les dictées"
+	line "et les devoirs."
+else
 	text "On sunny days, I"
 	line "think that the"
 
@@ -114,93 +139,199 @@ TeacherHillarySeenText: ; AUTOTRAD
 
 	para "schoolyard than"
 	line "studying in class."
+endc
+
 	done
 
-TeacherHillaryBeatenText: ; AUTOTRAD
+TeacherHillaryBeatenText: 
+if DEF(_FR_FR)
+	text "Perdre c'est mal."
+	line "Pfff..."
+else
 	text "I didn't want to"
 	line "lose…"
+endc
+
 	done
 
-TeacherHillaryAfterBattleText: ; AUTOTRAD
+TeacherHillaryAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un esprit sain"
+	line "dans un corps"
+	cont "sain..."
+else
 	text "Studying is impor-"
 	line "tant, but exercise"
 	cont "is just as vital."
+endc
+
 	done
 
-SchoolboyKippSeenText: ; AUTOTRAD
+SchoolboyKippSeenText: 
+if DEF(_FR_FR)
+	text "Un p'tit combat"
+	line "et j'appelle ma"
+	cont "maman."
+else
 	text "Hang on. I have to"
 	line "phone my mom."
+endc
+
 	done
 
-SchoolboyKippBeatenText: ; AUTOTRAD
+SchoolboyKippBeatenText: 
+if DEF(_FR_FR)
+	text "Allô maman?"
+	line "J'ai perdu!"
+else
 	text "Sorry, Mom!"
 	line "I was beaten!"
+endc
+
 	done
 
-SchoolboyKippAfterBattleText: ; AUTOTRAD
+SchoolboyKippAfterBattleText: 
+if DEF(_FR_FR)
+	text "Maman s'inquiète"
+	line "beaucoup pour moi."
+
+	para "Alors je dois lui"
+	line "téléphoner..."
+else
 	text "My mom worries so"
 	line "much about me, I"
 
 	para "have to phone her"
 	line "all the time."
+endc
+
 	done
 
-SchoolboyTommySeenText: ; AUTOTRAD
+SchoolboyTommySeenText: 
+if DEF(_FR_FR)
+	text "COOOOMBAAAAT!"
+	line "HA HA HA HA!"
+else
 	text "Let's battle."
 	line "I won't lose!"
+endc
+
 	done
 
-SchoolboyTommyBeatenText: ; AUTOTRAD
+SchoolboyTommyBeatenText: 
+if DEF(_FR_FR)
+	text "Heu..."
+	line "Copain?"
+else
 	text "I forgot to do my"
 	line "homework!"
+endc
+
 	done
 
-SchoolboyTommyAfterBattleText: ; AUTOTRAD
+SchoolboyTommyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Trop fort!"
+	line "On devient potes?"
+	cont "Allez!!!"
+else
 	text "Sayonara! I just"
 	line "learned that in my"
 	cont "Japanese class."
+endc
+
 	done
 
-SchoolboyJohnnySeenText: ; AUTOTRAD
+SchoolboyJohnnySeenText: 
+if DEF(_FR_FR)
+	text "On va étudier à la"
+	line "TOUR RADIO de"
+
+	para "LAVANVILLE..."
+	line "Génial, non?"
+else
 	text "We're on a field"
 	line "trip to LAVENDER"
 
 	para "RADIO TOWER for"
 	line "social studies."
+endc
+
 	done
 
-SchoolboyJohnnyBeatenText: ; AUTOTRAD
+SchoolboyJohnnyBeatenText: 
+if DEF(_FR_FR)
+	text "T'es pas sympa,"
+	line "toi!"
+else
 	text "You're wickedly"
 	line "tough!"
+endc
+
 	done
 
-SchoolboyJohnnyAfterBattleText: ; AUTOTRAD
+SchoolboyJohnnyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Marcher c'est"
+	line "crevant..."
+	cont "Je fais une pause."
+else
 	text "I'm tired of walk-"
 	line "ing. I need to"
 	cont "take a break."
+endc
+
 	done
 
-SchoolboyBillySeenText: ; AUTOTRAD
+SchoolboyBillySeenText: 
+if DEF(_FR_FR)
+	text "J'aime la purée!"
+	line "Combat!"
+else
 	text "My favorite class"
 	line "is gym!"
+endc
+
 	done
 
-SchoolboyBillyBeatenText: ; AUTOTRAD
+SchoolboyBillyBeatenText: 
+if DEF(_FR_FR)
+	text "...."
+	line "Super."
+else
 	text "Oh, no!"
 	line "How could I lose?"
+endc
+
 	done
 
-SchoolboyBillyAfterBattleText: ; AUTOTRAD
+SchoolboyBillyAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'aime le lard et"
+	line "le jambon, et tout"
+	cont "ce qu'il y a dans"
+	cont "le cochon!"
+else
 	text "If #MON were a"
 	line "subject at school,"
 	cont "I'd be the best!"
+endc
+
 	done
 
-Route15SignText: ; AUTOTRAD
+Route15SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 15"
+
+	para "PARMANIE -"
+	line "LAVANVILLE"
+else
 	text "ROUTE 15"
 
 	para "FUCHSIA CITY -"
 	line "LAVENDER TOWN"
+endc
+
 	done
 
 Route15_MapEvents:

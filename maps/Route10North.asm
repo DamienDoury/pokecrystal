@@ -9,8 +9,13 @@ PowerPlantSign:
 Route10PokecenterSign:
 	jumpstd PokecenterSignScript
 
-PowerPlantSignText: ; AUTOTRAD
+PowerPlantSignText: 
+if DEF(_FR_FR)
+	text "CENTRALE de KANTO"
+else
 	text "KANTO POWER PLANT"
+endc
+
 	done
 
 Route10North_MapEvents:

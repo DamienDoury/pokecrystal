@@ -28,13 +28,23 @@ CeladonDeptStore1FDirectory:
 CeladonDeptStore1FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore1FReceptionistText: ; AUTOTRAD
+CeladonDeptStore1FReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "CENTRE COMMERCIAL"
+	cont "de CELADOPOLE!"
+
+	para "Les informations"
+	line "sont sur le mur."
+else
 	text "Hello! Welcome to"
 	line "CELADON DEPT."
 	cont "STORE!"
 
 	para "The directory is"
 	line "on the wall."
+endc
+
 	done
 
 CeladonDeptStore1FGentlemanText: ; TO TRANSLATE
@@ -49,7 +59,17 @@ CeladonDeptStore1FGentlemanText: ; TO TRANSLATE
 	cont "the quarantine."
 	done
 
-CeladonDeptStore1FTeacherText: ; AUTOTRAD
+CeladonDeptStore1FTeacherText: 
+if DEF(_FR_FR)
+	text "C'est la première"
+	line "fois que je viens"
+	cont "ici."
+
+	para "C'est grand..."
+
+	para "Je vais me perdre."
+	line "C'est sûr."
+else
 	text "This is my first"
 	line "time here."
 
@@ -57,9 +77,28 @@ CeladonDeptStore1FTeacherText: ; AUTOTRAD
 
 	para "I'm afraid I'll"
 	line "get lost."
+endc
+
 	done
 
-CeladonDeptStore1FDirectoryText: ; AUTOTRAD
+CeladonDeptStore1FDirectoryText: 
+if DEF(_FR_FR)
+	text "RDC:  COMPTOIR"
+	line "      SERVICE"
+
+	para "1ER:  MARCHE DU"
+	line "      DRESSEUR"
+
+	para "2EME: MARCHE AUX"
+	line "      CT"
+
+	para "3EME: CADEAUX DU"
+	line "      SAGE"
+
+	para "4EME: POTIONS, etc"
+
+	para "5EME: ESPACE TOIT"
+else
 	text "1F: SERVICE"
 	line "    COUNTER"
 
@@ -74,6 +113,8 @@ CeladonDeptStore1FDirectoryText: ; AUTOTRAD
 
 	para "6F: ROOFTOP"
 	line "    SQUARE"
+endc
+
 	done
 
 CeladonDeptStore1F_MapEvents:

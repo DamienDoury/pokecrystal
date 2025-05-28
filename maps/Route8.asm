@@ -84,82 +84,176 @@ Route8FruitTree:
 	fruittree FRUITTREE_ROUTE_8
 
 
-BikerDwayneSeenText: ; AUTOTRAD
+BikerDwayneSeenText: 
+if DEF(_FR_FR)
+	text "Nous sommes la"
+	line "FEDERATION des"
+	cont "dresseurs de #-"
+	cont "MON de KANTO."
+
+	para "On va te faire"
+	line "ta fête!"
+else
 	text "We're the KANTO"
 	line "#MON FEDERATION"
 	cont "trainer group."
 
 	para "We'll drive you"
 	line "under our wheels!"
+endc
+
 	done
 
-BikerDwayneBeatenText: ; AUTOTRAD
+BikerDwayneBeatenText: 
+if DEF(_FR_FR)
+	text "P-Pardon!"
+else
 	text "S-sorry!"
+endc
+
 	done
 
-BikerDwayneAfterBattleText: ; AUTOTRAD
+BikerDwayneAfterBattleText: 
+if DEF(_FR_FR)
+	text "La FEDERATION des"
+	line "dresseurs de KANTO"
+	cont "est invincible!"
+else
 	text "The KANTO #MON"
 	line "FEDERATION will"
 	cont "never fall!"
+endc
+
 	done
 
-BikerHarrisSeenText: ; AUTOTRAD
+BikerHarrisSeenText: 
+if DEF(_FR_FR)
+	text "La police a fermé"
+	line "notre SOUTERRAIN!"
+
+	para "C'est injuste!"
+	line "C'est dégueulasse!"
+else
 	text "The cops shut down"
 	line "our UNDERGROUND"
 
 	para "PATH! That really"
 	line "fries me!"
+endc
+
 	done
 
-BikerHarrisBeatenText: ; AUTOTRAD
+BikerHarrisBeatenText: 
+if DEF(_FR_FR)
+	text "P-Pardon!"
+else
 	text "F-forgive me!"
+endc
+
 	done
 
-BikerHarrisAfterBattleText: ; AUTOTRAD
+BikerHarrisAfterBattleText: 
+if DEF(_FR_FR)
+	text "Battu par quelqu'"
+	line "un de JOHTO..."
+else
 	text "Wiped out by some"
 	line "punk from JOHTO…"
+endc
+
 	done
 
-BikerZekeSeenText: ; AUTOTRAD
+BikerZekeSeenText: 
+if DEF(_FR_FR)
+	text "On est la FEDERA-"
+	line "TION des dresseurs"
+	cont "de KANTO."
+	cont "On est cool!"
+else
 	text "We're the KANTO"
 	line "#MON FEDERA-"
 	cont "TION!"
 	cont "Right on!"
+endc
+
 	done
 
-BikerZekeBeatenText: ; AUTOTRAD
+BikerZekeBeatenText: 
+if DEF(_FR_FR)
+	text "Oups! Pardon!"
+else
 	text "Yikes! Sorry!"
+endc
+
 	done
 
-BikerZekeAfterBattleText: ; AUTOTRAD
+BikerZekeAfterBattleText: 
+if DEF(_FR_FR)
+	text "On va essayer de"
+	line "n'plus déranger..."
+	cont "Pardon."
+else
 	text "We'll try not to"
 	line "disturb anyone"
 	cont "from now on…"
+endc
+
 	done
 
-SupernerdSamSeenText: ; AUTOTRAD
+SupernerdSamSeenText: 
+if DEF(_FR_FR)
+	text "Comment ça marche"
+	line "un TRAIN MAGNET?"
+else
 	text "How does the MAG-"
 	line "NET TRAIN work?"
+endc
+
 	done
 
-SupernerdSamBeatenText: ; AUTOTRAD
+SupernerdSamBeatenText: 
+if DEF(_FR_FR)
+	text "Moi je veux voir"
+	line "le TRAIN MAGNET..."
+else
 	text "I just want to see"
 	line "the MAGNET TRAIN…"
+endc
+
 	done
 
-SupernerdSamAfterBattleText: ; AUTOTRAD
+SupernerdSamAfterBattleText: 
+if DEF(_FR_FR)
+	text "La puissance"
+	line "magnétique, c'est"
+	cont "terrible!"
+else
 	text "The power of mag-"
 	line "nets is awesome!"
+endc
+
 	done
 
-SupernerdTomSeenText: ; AUTOTRAD
+SupernerdTomSeenText: 
+if DEF(_FR_FR)
+	text "Hmm... Tu en as"
+	line "des bô BADGES."
+else
 	text "Hm… You've got"
 	line "many GYM BADGES."
+endc
+
 	done
 
-SupernerdTomBeatenText: ; AUTOTRAD
+SupernerdTomBeatenText: 
+if DEF(_FR_FR)
+	text "Pas mal..."
+	line "Je m'y attendais!"
+else
 	text "Just as I thought…"
 	line "You're tough!"
+endc
+
 	done
 
 SupernerdTomAfterBattleText: ; TO TRANSLATE
@@ -168,15 +262,29 @@ SupernerdTomAfterBattleText: ; TO TRANSLATE
 	cont "worth."
 	done
 
-Route8LockedDoorText: ; AUTOTRAD
+Route8LockedDoorText: 
+if DEF(_FR_FR)
+	text "C'est fermé..."
+else
 	text "It's locked…"
+endc
+
 	done
 
-Route8UndergroundPathSignText: ; AUTOTRAD
+Route8UndergroundPathSignText: 
+if DEF(_FR_FR)
+	text "L'affiche est"
+	line "déchirée."
+
+	para "C'est impossible"
+	line "de la lire..."
+else
 	text "The flyer's torn."
 
 	para "It's impossible to"
 	line "read…"
+endc
+
 	done
 
 Route8BurialGuyText: ; TO TRANSLATE

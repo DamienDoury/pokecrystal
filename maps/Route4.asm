@@ -354,18 +354,42 @@ Route4_FaceRocket_4_Movement:
 	turn_head LEFT
 	step_end
 
-BirdKeeperHankSeenText: ; AUTOTRAD
+BirdKeeperHankSeenText: 
+if DEF(_FR_FR)
+	text "J'entraîne des"
+	line "#MON. Un p'tit"
+	cont "combat?"
+else
 	text "I'm raising my"
 	line "#MON. Want to"
 	cont "battle with me?"
+endc
+
 	done
 
-BirdKeeperHankBeatenText: ; AUTOTRAD
+BirdKeeperHankBeatenText: 
+if DEF(_FR_FR)
+	text "Ack! Perdu..."
+else
 	text "Ack! I lost that"
 	line "one…"
+endc
+
 	done
 
-BirdKeeperHankAfterBattleText: ; AUTOTRAD
+BirdKeeperHankAfterBattleText: 
+if DEF(_FR_FR)
+	text "Si tu veux entraî-"
+	line "ner un #MON en"
+
+	para "particulier, mets-"
+	line "le en premier et"
+
+	para "fais un changement"
+	line "tout de suite."
+
+	para "Pas bête, hein?"
+else
 	text "If you have a"
 	line "specific #MON"
 
@@ -377,41 +401,80 @@ BirdKeeperHankAfterBattleText: ; AUTOTRAD
 
 	para "That's how to do"
 	line "it."
+endc
+
 	done
 
-PicnickerHopeSeenText: ; AUTOTRAD
+PicnickerHopeSeenText: 
+if DEF(_FR_FR)
+	text "Je vais gagner,"
+	line "je le sens."
+
+	para "Ca va être ta fête"
+	line "tu vas voir!"
+else
 	text "I have a feeling"
 	line "that I can win."
 
 	para "Let's see if I'm"
 	line "right!"
+endc
+
 	done
 
-PicnickerHopeBeatenText: ; AUTOTRAD
+PicnickerHopeBeatenText: 
+if DEF(_FR_FR)
+	text "Plein la tête!"
+else
 	text "Aww, you are too"
 	line "strong."
+endc
+
 	done
 
-PicnickerHopeAfterBattleText: ; AUTOTRAD
+PicnickerHopeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Des MELOFEE appa-"
+	line "raissent au MONT"
+
+	para "SELENITE, mais où"
+	line "exactement?"
+else
 	text "I heard CLEFAIRY"
 	line "appear at MT.MOON."
 
 	para "But where could"
 	line "they be?"
+endc
+
 	done
 
-PicnickerSharonSeenText: ; AUTOTRAD
+PicnickerSharonSeenText: 
+if DEF(_FR_FR)
+	text "T'as pas aimé"
+	line "mon histoire?"
+else
 	text "Um…"
 	line "I…"
+endc
+
 	done
 
 PicnickerSharonBeatenText:
 	text "…"
 	done
 
-PicnickerSharonAfterBattleText: ; AUTOTRAD
+PicnickerSharonAfterBattleText: 
+if DEF(_FR_FR)
+	text "..........."
+
+	para "Je vais aller"
+	line "m'entraîner....."
+else
 	text "……I'll go train"
 	line "some more…"
+endc
+
 	done
 
 HikerSammySeenText: ; TO TRANSLATE
@@ -441,11 +504,18 @@ HikerSammyAfterBattleText: ; TO TRANSLATE
 	line "rumor suggests."
 	done
 
-MtMoonSquareSignText: ; AUTOTRAD
+MtMoonSquareSignText: 
+if DEF(_FR_FR)
+	text "SQUARE du MONT"
+	line "SELENITE: En haut"
+	cont "des escaliers."
+else
 	text "MT.MOON SQUARE"
 
 	para "Just go up the"
 	line "stairs."
+endc
+
 	done
 
 Route4RocketSeenText: ; TO TRANSLATE

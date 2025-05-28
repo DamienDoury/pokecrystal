@@ -9,7 +9,25 @@ Route7UndergroundPathSign:
 Route7LockedDoor:
 	jumptext Route7LockedDoorText
 
-Route7UndergroundPathSignText: ; AUTOTRAD
+Route7UndergroundPathSignText: 
+if DEF(_FR_FR)
+	text "Une affiche?"
+
+	para "De vilains dres-"
+	line "seurs livrent"
+
+	para "des combats dans"
+	line "le SOUTERRAIN."
+
+	para "Suite à de nom-"
+	line "breuses plaintes,"
+	cont "le SOUTERRAIN a"
+	cont "été fermé défini-"
+	cont "tivement."
+
+	para "POLICE"
+	line "de CELADOPOLE"
+else
 	text "What's this flyer?"
 
 	para "… Uncouth trainers"
@@ -26,10 +44,17 @@ Route7UndergroundPathSignText: ; AUTOTRAD
 	cont "indefinitely."
 
 	para "CELADON POLICE"
+endc
+
 	done
 
-Route7LockedDoorText: ; AUTOTRAD
+Route7LockedDoorText: 
+if DEF(_FR_FR)
+	text "C'est fermé..."
+else
 	text "It's locked…"
+endc
+
 	done
 
 Route7_MapEvents:

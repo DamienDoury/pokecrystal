@@ -179,7 +179,37 @@ PlayerRespectsKurtDistancingMovementData:
 	remove_fixed_facing
 	step_end
 
-SlowpokeWellB1FKurtText: ; AUTOTRAD
+SlowpokeWellB1FKurtText: 
+if DEF(_FR_FR)
+	text "FARGAS: Salut,"
+	line "<PLAYER>!"
+
+	para "Le garde a"
+	line "décampé quand je"
+	cont "lui ai crié"
+	cont "dessus..."
+
+	para "Et puis je suis"
+	line "descendu dans le"
+	cont "PUITS."
+
+	para "Et ben j'me suis"
+	line "planté et... Je"
+	cont "peux plus bouger."
+
+	para "Pfff! Si j'étais"
+	line "en forme, mes"
+
+	para "#MON les au-"
+	line "raient punis..."
+
+	para "C'est vraiment"
+	line "trop bête."
+
+	para "<PLAYER>, va leur"
+	line "mettre une raclée"
+	cont "à ma place!"
+else
 	text "KURT: Hey there,"
 	line "<PLAYER>!"
 
@@ -207,9 +237,22 @@ SlowpokeWellB1FKurtText: ; AUTOTRAD
 	para "<PLAYER>, show them"
 	line "how gutsy you are"
 	cont "in my place!"
+endc
+
 	done
 
-KurtLeaveSlowpokeWellText: ; AUTOTRAD
+KurtLeaveSlowpokeWellText: 
+if DEF(_FR_FR)
+	text "FARGAS: Bravo,"
+	line "<PLAYER>!"
+
+	para "La TEAM ROCKET a"
+	line "décampé."
+
+	para "Mon dos va mieux."
+	line "Allez..."
+	cont "On se casse."
+else
 	text "KURT: Way to go,"
 	line "<PLAYER>!"
 
@@ -219,9 +262,27 @@ KurtLeaveSlowpokeWellText: ; AUTOTRAD
 	para "My back's better"
 	line "too. Let's get out"
 	cont "of here."
+endc
+
 	done
 
-GruntM29SeenText: ; AUTOTRAD
+GruntM29SeenText: 
+if DEF(_FR_FR)
+	text "Grrah! Je montais"
+	line "la garde quand un"
+
+	para "vieux dingue est"
+	line "venu me crier"
+	cont "dessus."
+
+	para "Il m'a fichu une"
+	line "telle trouille que"
+	cont "je suis tombé ici."
+
+	para "... Tu sais quoi?"
+	line "Je vais calmer mes"
+	cont "nerfs sur ta face!"
+else
 	text "Darn! I was stand-"
 	line "ing guard up top"
 
@@ -235,11 +296,19 @@ GruntM29SeenText: ; AUTOTRAD
 	para "I think I'll vent"
 	line "my anger by taking"
 	cont "it out on you!"
+endc
+
 	done
 
-GruntM29BeatenText: ; AUTOTRAD
+GruntM29BeatenText: 
+if DEF(_FR_FR)
+	text "Grrah! C'est pas"
+	line "mon jour!"
+else
 	text "Arrgh! This is NOT"
 	line "my day!"
+endc
+
 	done
 
 GruntM29AfterBattleText: ; TO TRANSLATE
@@ -259,21 +328,49 @@ GruntM29AfterBattleText: ; TO TRANSLATE
 	line "for bigger plans!"
 	done
 
-GruntM1SeenText: ; AUTOTRAD
+GruntM1SeenText: 
+if DEF(_FR_FR)
+	text "Kesstu veux?"
+
+	para "Si tu viens nous"
+	line "embêter, ça va"
+	cont "barder!"
+else
 	text "What do you want?"
 
 	para "If you interrupt"
 	line "our work, don't"
 	cont "expect any mercy!"
+endc
+
 	done
 
-GruntM1BeatenText: ; AUTOTRAD
+GruntM1BeatenText: 
+if DEF(_FR_FR)
+	text "Attends voir la"
+	line "prochaine fois!"
+else
 	text "You did OK today,"
 	line "but wait till next"
 	cont "time!"
+endc
+
 	done
 
-TrainerGruntM1WhenTalkText: ; AUTOTRAD
+TrainerGruntM1WhenTalkText: 
+if DEF(_FR_FR)
+	text "La TEAM ROCKET a"
+	line "été dissoute il y"
+	cont "a trois ans..."
+
+	para "Mais on a continué"
+	line "nos p'tites affai-"
+	cont "res dans l'ombre."
+
+	para "Et à partir d'au-"
+	line "jourd'hui... On va"
+	cont "tout faire sauter!"
+else
 	text "Yeah, TEAM ROCKET"
 	line "was broken up"
 	cont "three years ago."
@@ -285,56 +382,118 @@ TrainerGruntM1WhenTalkText: ; AUTOTRAD
 	para "Now you can have"
 	line "fun watching us"
 	cont "stir up trouble!"
+endc
+
 	done
 
-GruntM2SeenText: ; AUTOTRAD
+GruntM2SeenText: 
+if DEF(_FR_FR)
+	text "Arrêter de voler"
+	line "les QUEUES de"
+	cont "RAMOLOSS?"
+
+	para "Et notre réputa-"
+	line "tion, tu y as"
+	cont "pensé?"
+else
 	text "Quit taking SLOW-"
 	line "POKETAILS?"
 
 	para "If we obeyed you,"
 	line "TEAM ROCKET's rep"
 	cont "would be ruined!"
+endc
+
 	done
 
-GruntM2BeatenText: ; AUTOTRAD
+GruntM2BeatenText: 
+if DEF(_FR_FR)
+	text "Heu..."
+	line "Trop fort..."
+else
 	text "Just…"
 	line "Too strong…"
+endc
+
 	done
 
-GruntM2AfterBattleText: ; AUTOTRAD
+GruntM2AfterBattleText: 
+if DEF(_FR_FR)
+	text "On a besoin de"
+	line "sous à la TEAM"
+	cont "ROCKET..."
+
+	para "C'est pas facile"
+	line "d'être un SBIRE!"
+else
 	text "We need the money,"
 	line "but selling SLOW-"
 	cont "POKETAILS?"
 
 	para "It's tough being a"
 	line "ROCKET GRUNT!"
+endc
+
 	done
 
-GruntF1SeenText: ; AUTOTRAD
+GruntF1SeenText: 
+if DEF(_FR_FR)
+	text "Arrêter de voler"
+	line "les QUEUES?"
+
+	para "C'est ça, oui..."
+	line "T'as raison..."
+else
 	text "Stop taking TAILS?"
 
 	para "Yeah, just try to"
 	line "defeat all of us!"
+endc
+
 	done
 
-GruntF1BeatenText: ; AUTOTRAD
+GruntF1BeatenText: 
+if DEF(_FR_FR)
+	text "Sale môme!"
+else
 	text "You rotten brat!"
+endc
+
 	done
 
-GruntF1AfterBattleText: ; AUTOTRAD
+GruntF1AfterBattleText: 
+if DEF(_FR_FR)
+	text "Les QUEUES de"
+	line "RAMOLOSS?"
+	cont "Ca repousse vite!"
+
+	para "Alors on peut les"
+	line "vendre, non?"
+else
 	text "SLOWPOKETAILS"
 	line "grow back fast!"
 
 	para "What's wrong with"
 	line "selling them?"
+endc
+
 	done
 
-SlowpokeWellB1FSlowpokeWithMailText: ; AUTOTRAD
+SlowpokeWellB1FSlowpokeWithMailText: 
+if DEF(_FR_FR)
+	text "Un RAMOLOSS sans"
+	line "QUEUE..."
+
+	para "Hein? Il a une"
+	line "LETTRE. On la lit?"
+else
 	text "A SLOWPOKE with"
 	line "its TAIL cut off…"
 
 	para "Huh? It has MAIL."
 	line "Read it?"
+endc
+
 	done
 
 SlowpokeWellB1FSlowpokeMailText: ; TO TRANSLATE
@@ -350,9 +509,15 @@ SlowpokeWellB1FSlowpokeMailText: ; TO TRANSLATE
 	para "Love, Dad"
 	done
 
-SlowpokeWellB1FTaillessSlowpokeText: ; AUTOTRAD
+SlowpokeWellB1FTaillessSlowpokeText: 
+if DEF(_FR_FR)
+	text "Un RAMOLOSS à la"
+	line "queue coupée..."
+else
 	text "A SLOWPOKE with"
 	line "its TAIL cut off…"
+endc
+
 	done
 
 SlowpokeWellB1F_MapEvents:

@@ -26,7 +26,24 @@ Route6SaffronGuardScript:
 	closetext
 	end
 
-Route6SaffronGuardWelcomeText: ; AUTOTRAD
+Route6SaffronGuardWelcomeText: 
+if DEF(_FR_FR)
+	text "Bienvenue à"
+	line "SAFRANIA, la ville"
+	cont "du TRAIN MAGNET!"
+
+	para "...Enfin..."
+	line "Le TRAIN MAGNET ne"
+
+	para "fonctionne pas en"
+	line "ce moment."
+
+	para "Il n'y a plus de"
+	line "courant depuis le"
+
+	para "problème de la"
+	line "CENTRALE."
+else
 	text "Welcome to SAFFRON"
 	line "CITY, home of the"
 	cont "MAGNET TRAIN!"
@@ -45,14 +62,23 @@ Route6SaffronGuardWelcomeText: ; AUTOTRAD
 
 	para "with the POWER"
 	line "PLANT."
+endc
+
 	done
 
-Route6SaffronGuardMagnetTrainText: ; AUTOTRAD
+Route6SaffronGuardMagnetTrainText: 
+if DEF(_FR_FR)
+	text "Le TRAIN MAGNET"
+	line "est la fierté de"
+	cont "SAFRANIA."
+else
 	text "The MAGNET TRAIN"
 	line "is the most famous"
 
 	para "thing about SAF-"
 	line "FRON."
+endc
+
 	done
 
 Route6SaffronGate_MapEvents:

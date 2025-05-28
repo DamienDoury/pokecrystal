@@ -269,96 +269,216 @@ Route25MistyDateText: ; TO TRANSLATE
 	cont "CERULEAN."
 	done
 
-SchoolboyDudleySeenText: ; AUTOTRAD
+SchoolboyDudleySeenText: 
+if DEF(_FR_FR)
+	text "Bats les six"
+	line "dresseurs pour"
+	cont "gagner un prix!"
+
+	para "Tu crois en être"
+	line "capable?"
+else
 	text "Beat the six of us"
 	line "trainers to win a"
 	cont "fabulous prize!"
 
 	para "Think you've got"
 	line "what it takes?"
+endc
+
 	done
 
-SchoolboyDudleyBeatenText: ; AUTOTRAD
+SchoolboyDudleyBeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! Balèze."
+else
 	text "Whoo! Good stuff."
+endc
+
 	done
 
-SchoolboyDudleyAfterBattleText: ; AUTOTRAD
+SchoolboyDudleyAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-LassEllenSeenText: ; AUTOTRAD
+LassEllenSeenText: 
+if DEF(_FR_FR)
+	text "J'suis en deuz."
+	line "Ca va barder!"
+else
 	text "I'm second."
 	line "Now it's serious!"
+endc
+
 	done
 
-LassEllenBeatenText: ; AUTOTRAD
+LassEllenBeatenText: 
+if DEF(_FR_FR)
+	text "Impossible!"
+else
 	text "How could I lose?"
+endc
+
 	done
 
-LassEllenAfterBattleText: ; AUTOTRAD
+LassEllenAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-SchoolboyJoeSeenText: ; AUTOTRAD
+SchoolboyJoeSeenText: 
+if DEF(_FR_FR)
+	text "Numéro 3!"
+	line "Tu vas en baver!"
+else
 	text "Here's No. 3!"
 	line "I won't be easy."
+endc
+
 	done
 
-SchoolboyJoeBeatenText: ; AUTOTRAD
+SchoolboyJoeBeatenText: 
+if DEF(_FR_FR)
+	text "Ouille! Perdu!"
+else
 	text "Ow! Stomped flat!"
+endc
+
 	done
 
-SchoolboyJoeAfterBattleText: ; AUTOTRAD
+SchoolboyJoeAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-LassLauraSeenText: ; AUTOTRAD
+LassLauraSeenText: 
+if DEF(_FR_FR)
+	text "Numéro 4! Tu"
+	line "tiens le coup?"
+else
 	text "I'm No. 4!"
 	line "Getting tired?"
+endc
+
 	done
 
-LassLauraBeatenText: ; AUTOTRAD
+LassLauraBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu? Moi aussi?"
+else
 	text "I lost too…"
+endc
+
 	done
 
-LassLauraAfterBattleText: ; AUTOTRAD
+LassLauraAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-CamperLloydSeenText: ; AUTOTRAD
+CamperLloydSeenText: 
+if DEF(_FR_FR)
+	text "OK! Numéro 5."
+	line "COMBAAAAT!"
+else
 	text "OK! I'm No. 5."
 	line "I'll stomp you!"
+endc
+
 	done
 
-CamperLloydBeatenText: ; AUTOTRAD
+CamperLloydBeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! Trop fort."
+else
 	text "Whoa! Too much."
+endc
+
 	done
 
-CamperLloydAfterBattleText: ; AUTOTRAD
+CamperLloydAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-LassShannonSeenText: ; AUTOTRAD
+LassShannonSeenText: 
+if DEF(_FR_FR)
+	text "Dernier rempart!"
+	line "Autant te dire..."
+	cont "Ca va être dur!"
+else
 	text "I'm the last in"
 	line "line, but I tell"
 	cont "you, I'm tough!"
+endc
+
 	done
 
-LassShannonBeatenText: ; AUTOTRAD
+LassShannonBeatenText: 
+if DEF(_FR_FR)
+	text "Sans blague?"
+else
 	text "You're kidding."
+endc
+
 	done
 
-LassShannonAfterBattleText: ; AUTOTRAD
+LassShannonAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de"
+	line "mon mieux."
+else
 	text "I did my best."
 	line "I have no regrets."
+endc
+
 	done
 
-SupernerdPatSeenText: ; AUTOTRAD
+SupernerdPatSeenText: 
+if DEF(_FR_FR)
+	text "Hin hin hin..."
+
+	para "Je me fiche des"
+	line "six autres dres-"
+	cont "seurs."
+
+	para "Je suis là pour te"
+	line "battre au moment"
+
+	para "où tu es le plus"
+	line "à plat."
+else
 	text "Mufufufu…"
 
 	para "I have nothing to"
@@ -370,19 +490,42 @@ SupernerdPatSeenText: ; AUTOTRAD
 
 	para "were tired out by"
 	line "all the battles."
+endc
+
 	done
 
-SupernerdPatBeatenText: ; AUTOTRAD
+SupernerdPatBeatenText: 
+if DEF(_FR_FR)
+	text "T'es pas à plat?"
+else
 	text "Aren't you tired"
 	line "at all?"
+endc
+
 	done
 
-SupernerdPatAfterBattleText: ; AUTOTRAD
+SupernerdPatAfterBattleText: 
+if DEF(_FR_FR)
+	text "Pardon. Je ne"
+	line "tricherai plus..."
+else
 	text "I'm sorry… I won't"
 	line "cheat anymore…"
+endc
+
 	done
 
-CooltrainermKevinNuggetText: ; AUTOTRAD
+CooltrainermKevinNuggetText: 
+if DEF(_FR_FR)
+	text "Tu as livré un"
+	line "combat de plus que"
+
+	para "prévu et tu as"
+	line "quand même gagné."
+
+	para "Tu remportes donc"
+	line "un prix."
+else
 	text "You took on one"
 	line "more battle than"
 
@@ -391,9 +534,21 @@ CooltrainermKevinNuggetText: ; AUTOTRAD
 
 	para "As promised, you"
 	line "win a prize."
+endc
+
 	done
 
-CooltrainermKevinSeenText: ; AUTOTRAD
+CooltrainermKevinSeenText: 
+if DEF(_FR_FR)
+	text "Mais après avoir"
+	line "vu ton combat, je"
+
+	para "voudrais tenter ma"
+	line "chance."
+
+	para "Ca te dit?"
+	line "Alors c'est parti."
+else
 	text "But after seeing"
 	line "how you battle, I"
 
@@ -402,25 +557,49 @@ CooltrainermKevinSeenText: ; AUTOTRAD
 
 	para "How about it? Let"
 	line "me take you on."
+endc
+
 	done
 
-CooltrainermKevinBeatenText: ; AUTOTRAD
+CooltrainermKevinBeatenText: 
+if DEF(_FR_FR)
+	text "Ouais!"
+	line "Beau combat!"
+else
 	text "I've never had a"
 	line "battle this good!"
+endc
+
 	done
 
-CooltrainermKevinAfterBattleText: ; AUTOTRAD
+CooltrainermKevinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Quelle belle"
+	line "rencontre!"
+
+	para "Toi et tes #MON"
+	line "êtes vraiment"
+	cont "impressionnants!"
+else
 	text "That was a great"
 	line "battle!"
 
 	para "You and your #-"
 	line "MON are truly out-"
 	cont "standing!"
+endc
+
 	done
 
-BillsHouseSignText: ; AUTOTRAD
+BillsHouseSignText: 
+if DEF(_FR_FR)
+	text "VILLA"
+	line "MAISON DE LEO"
+else
 	text "SEA COTTAGE"
 	line "BILL'S HOUSE"
+endc
+
 	done
 
 UnusedBillsHouseSignText: ; unreferenced

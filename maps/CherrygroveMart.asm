@@ -48,18 +48,38 @@ CherrygroveMartYoungsterScript:
 CherrygroveMartShelfItem1Script:
 	shelfitem 4, MAX_REPEL, 2800
 
-CherrygroveMartCooltrainerMText: ; AUTOTRAD
+CherrygroveMartCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Ils n'ont plus de"
+	line "# BALLS!"
+
+	para "A quand l'arrivage"
+	line "de bonnes"
+	cont "# BALLS?"
+else
 	text "They're fresh out"
 	line "of # BALLS!"
 
 	para "When will they get"
 	line "more of them?"
+endc
+
 	done
 
-CherrygroveMartCooltrainerMText_PokeBallsInStock: ; AUTOTRAD
+CherrygroveMartCooltrainerMText_PokeBallsInStock: 
+if DEF(_FR_FR)
+	text "Les # BALLS"
+	line "sont arrivées!"
+	cont "C'est reparti! Les"
+	cont "#MON n'ont"
+	cont "qu'à bien se"
+	cont "tenir!"
+else
 	text "# BALLS are in"
 	line "stock! Now I can"
 	cont "catch #MON!"
+endc
+
 	done
 
 CherrygroveMartYoungsterText: ; TO TRANSLATE

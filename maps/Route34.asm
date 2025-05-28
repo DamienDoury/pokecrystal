@@ -439,9 +439,15 @@ Route34MovementData_DayCareManWalksBackInside:
 	slow_step UP
 	step_end
 
-YoungsterSamuelSeenText: ; AUTOTRAD
+YoungsterSamuelSeenText: 
+if DEF(_FR_FR)
+	text "C'est ici que je"
+	line "m'entraîne!"
+else
 	text "This is where I do"
 	line "my training!"
+endc
+
 	done
 
 YoungsterSamuelBeatenText: ; TO TRANSLATE
@@ -459,14 +465,27 @@ YoungsterSamuelAfterText: ; TO TRANSLATE
 	cont "low level one."
 	done
 
-YoungsterIanSeenText: ; AUTOTRAD
+YoungsterIanSeenText: 
+if DEF(_FR_FR)
+	text "Le meilleur de la"
+	line "classe à #MON,"
+	cont "c'est moi!"
+else
 	text "I'm the best in my"
 	line "class at #MON."
+endc
+
 	done
 
-YoungsterIanBeatenText: ; AUTOTRAD
+YoungsterIanBeatenText: 
+if DEF(_FR_FR)
+	text "Il existe de meil-"
+	line "leurs dresseurs..."
+else
 	text "No! There are bet-"
 	line "ter trainers…"
+endc
+
 	done
 
 YoungsterIanAfterText: ; TO TRANSLATE
@@ -493,65 +512,135 @@ YoungsterIanAfterText: ; TO TRANSLATE
 	line "DAY-CARE told me."
 	done
 
-CamperTodd1SeenText: ; AUTOTRAD
+CamperTodd1SeenText: 
+if DEF(_FR_FR)
+	text "J'ai foi en mon"
+	line "talent de dresseur"
+	cont "de #MON."
+
+	para "Tu veux voir?"
+else
 	text "I'm confident in"
 	line "my ability to"
 	cont "raise #MON."
 
 	para "Want to see?"
+endc
+
 	done
 
-CamperTodd1BeatenText: ; AUTOTRAD
+CamperTodd1BeatenText: 
+if DEF(_FR_FR)
+	text "J'ai raté mon en-"
+	line "traînement?"
+else
 	text "Did I screw up my"
 	line "training?"
+endc
+
 	done
 
-CamperTodd1AfterText: ; AUTOTRAD
+CamperTodd1AfterText: 
+if DEF(_FR_FR)
+	text "Je devrais en"
+	line "mettre un en PEN-"
+
+	para "SION. Ou peut-"
+	line "être utiliser des"
+	cont "objets..."
+else
 	text "Maybe I should"
 	line "take one to a DAY-"
 
 	para "CARE. Or maybe use"
 	line "some items…"
+endc
+
 	done
 
-CamperToddSaleText: ; AUTOTRAD
+CamperToddSaleText: 
+if DEF(_FR_FR)
+	text "Faire des courses"
+	line "sous le ciel!"
+
+	para "Ca c'est la super"
+	line "classe."
+else
 	text "Shopping under the"
 	line "sky!"
 
 	para "It feels so nice"
 	line "up on a rooftop."
+endc
+
 	done
 
-PicnickerGina1SeenText: ; AUTOTRAD
+PicnickerGina1SeenText: 
+if DEF(_FR_FR)
+	text "Tu t'entraînes?"
+
+	para "On se fait un duel"
+	line "d'entraînement?"
+else
 	text "Are you a trainer?"
 
 	para "Let's have a"
 	line "practice battle."
+endc
+
 	done
 
-PicnickerGina1BeatenText: ; AUTOTRAD
+PicnickerGina1BeatenText: 
+if DEF(_FR_FR)
+	text "Ne gagnerai-je"
+	line "donc jamais?"
+else
 	text "Oh, no! I just"
 	line "can't win…"
+endc
+
 	done
 
-PicnickerGina1AfterText: ; AUTOTRAD
+PicnickerGina1AfterText: 
+if DEF(_FR_FR)
+	text "Tu es trop balèze"
+	line "pour qu'on s'en-"
+	cont "traîne ensemble."
+else
 	text "You're too strong"
 	line "to be a practice"
 	cont "partner."
+endc
+
 	done
 
-PokefanmBrandonSeenText: ; AUTOTRAD
+PokefanmBrandonSeenText: 
+if DEF(_FR_FR)
+	text "Mon #MON vient"
+	line "de rentrer de la"
+	cont "PENSION."
+
+	para "Voyons s'il est"
+	line "plus fort!"
+else
 	text "I just got my"
 	line "#MON back from"
 	cont "DAY-CARE."
 
 	para "Let's see how much"
 	line "stronger it got!"
+endc
+
 	done
 
-PokefanmBrandonBeatenText: ; AUTOTRAD
+PokefanmBrandonBeatenText: 
+if DEF(_FR_FR)
+	text "Pourquoi?"
+else
 	text "Why does it end"
 	line "this way?"
+endc
+
 	done
 
 PokefanmBrandonAfterText: ; TO TRANSLATE
@@ -565,74 +654,164 @@ PokefanmBrandonAfterText: ; TO TRANSLATE
 	cont "gained 6 levels!"
 	done
 
-CooltrainerfIreneSeenText: ; AUTOTRAD
+CooltrainerfIreneSeenText: 
+if DEF(_FR_FR)
+	text "AMY: Kyaaah! On"
+	line "nous a trouvées!"
+else
 	text "IRENE: Kyaaah!"
 	line "Someone found us!"
+endc
+
 	done
 
-CooltrainerfIreneBeatenText: ; AUTOTRAD
+CooltrainerfIreneBeatenText: 
+if DEF(_FR_FR)
+	text "AMY: Ohhh!"
+else
 	text "IRENE: Ohhh!"
 	line "Too strong!"
+endc
+
 	done
 
-CooltrainerfIreneAfterText1: ; AUTOTRAD
+CooltrainerfIreneAfterText1: 
+if DEF(_FR_FR)
+	text "AMY: Ma soeur"
+	line "IRENE te fera "
+	cont "payer ça!"
+else
 	text "IRENE: My sister"
 	line "KATE will get you"
 	cont "for this!"
+endc
+
 	done
 
-CooltrainerfIreneAfterText2: ; AUTOTRAD
+CooltrainerfIreneAfterText2: 
+if DEF(_FR_FR)
+	text "AMY: Elle est"
+	line "pas excellente"
+	cont "cette plage?"
+
+	para "C'est notre"
+	line "cachette secrète!"
+else
 	text "IRENE: Isn't this"
 	line "beach great?"
 
 	para "It's our secret"
 	line "little getaway!"
+endc
+
 	done
 
-CooltrainerfJennSeenText: ; AUTOTRAD
+CooltrainerfJennSeenText: 
+if DEF(_FR_FR)
+	text "MARIA: Tu ne peux"
+	line "battre AMY comme"
+	cont "ça! Attends!"
+else
 	text "JENN: You can't"
 	line "beat IRENE and go"
 	cont "unpunished!"
+endc
+
 	done
 
-CooltrainerfJennBeatenText: ; AUTOTRAD
+CooltrainerfJennBeatenText: 
+if DEF(_FR_FR)
+	text "MARIA: Pardon AMY!"
+else
 	text "JENN: So sorry,"
 	line "IRENE! Sis!"
+endc
+
 	done
 
-CooltrainerfJennAfterText1: ; AUTOTRAD
+CooltrainerfJennAfterText1: 
+if DEF(_FR_FR)
+	text "MARIA: Ne crâne"
+	line "pas trop! Ma"
+	cont "soeur IRENE est"
+	cont "très forte!"
+else
 	text "JENN: Don't get"
 	line "cocky! My sister"
 	cont "KATE is tough!"
+endc
+
 	done
 
-CooltrainerfJennAfterText2: ; AUTOTRAD
+CooltrainerfJennAfterText2: 
+if DEF(_FR_FR)
+	text "MARIA: Le soleil"
+	line "rend le corps"
+	cont "plus fort."
+else
 	text "JENN: Sunlight"
 	line "makes your body"
 	cont "stronger."
+endc
+
 	done
 
-CooltrainerfKateSeenText: ; AUTOTRAD
+CooltrainerfKateSeenText: 
+if DEF(_FR_FR)
+	text "IRENE: T'as pas"
+	line "été sympa avec mes"
+	cont "petites soeurs!"
+else
 	text "KATE: You sure"
 	line "were mean to my"
 	cont "little sisters!"
+endc
+
 	done
 
-CooltrainerfKateBeatenText: ; AUTOTRAD
+CooltrainerfKateBeatenText: 
+if DEF(_FR_FR)
+	text "IRENE: Non! J'ai"
+	line "perdu! Incroyable!"
+else
 	text "KATE: No! I can't"
 	line "believe I lost."
+endc
+
 	done
 
-CooltrainerfKateOfferSoftSandText: ; AUTOTRAD
+CooltrainerfKateOfferSoftSandText: 
+if DEF(_FR_FR)
+	text "IRENE: Tu es trop"
+	line "balèze. Je n'avais"
+	cont "aucune chance."
+
+	para "Tiens, tu mérites"
+	line "bien ceci."
+else
 	text "KATE: You're too"
 	line "strong. I didn't"
 	cont "stand a chance."
 
 	para "Here. You deserve"
 	line "this."
+endc
+
 	done
 
-CooltrainerfKateAfterText: ; AUTOTRAD
+CooltrainerfKateAfterText: 
+if DEF(_FR_FR)
+	text "IRENE: Désolée de"
+	line "t'avoir sauté"
+	cont "dessus."
+
+	para "On ne pensait pas"
+	line "que quelqu'un"
+
+	para "nous trouverait"
+	line "ici. Tu nous as"
+	cont "bien surprises!"
+else
 	text "KATE: I'm sorry we"
 	line "jumped you."
 
@@ -641,14 +820,31 @@ CooltrainerfKateAfterText: ; AUTOTRAD
 
 	para "here. You sure"
 	line "startled us."
+endc
+
 	done
 
-Route34IlexForestSignText: ; AUTOTRAD
+Route34IlexForestSignText: 
+if DEF(_FR_FR)
+	text "BOIS AUX CHENES"
+	line "Après la porte"
+else
 	text "ILEX FOREST"
 	line "THROUGH THE GATE"
+endc
+
 	done
 
-Route34SignText: ; AUTOTRAD
+Route34SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 34"
+
+	para "DOUBLONVILLE -"
+	line "ECORCIA"
+
+	para "BOIS AUX CHENES"
+	line "Sur la route"
+else
 	text "ROUTE 34"
 
 	para "GOLDENROD CITY -"
@@ -656,9 +852,21 @@ Route34SignText: ; AUTOTRAD
 
 	para "ILEX FOREST"
 	line "SOMEWHERE BETWEEN"
+endc
+
 	done
 
-Route34TrainerTipsText: ; AUTOTRAD
+Route34TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Les arbres à BAIES"
+	line "donnent des BAIES"
+	cont "tous les jours."
+
+	para "Notez quel arbre"
+	line "donne quelle BAIE."
+else
 	text "TRAINER TIPS"
 
 	para "BERRY trees grow"
@@ -668,13 +876,23 @@ Route34TrainerTipsText: ; AUTOTRAD
 	para "Make a note of"
 	line "which trees bear"
 	cont "which BERRIES."
+endc
+
 	done
 
-DayCareSignText: ; AUTOTRAD
+DayCareSignText: 
+if DEF(_FR_FR)
+	text "PENSION"
+
+	para "On élève votre"
+	line "#MON pour vous!"
+else
 	text "DAY-CARE"
 
 	para "LET US RAISE YOUR"
 	line "#MON FOR YOU!"
+endc
+
 	done
 
 Route34_MapEvents:

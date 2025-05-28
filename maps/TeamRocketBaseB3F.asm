@@ -333,13 +333,61 @@ LanceGetPasswordText3: ; TO TRANSLATE
 	line "get the passwords."
 	done
 
-TeamRocketBaseB3FRocketText: ; AUTOTRAD
+TeamRocketBaseB3FRocketText: 
+if DEF(_FR_FR)
+	text "Gueuuh... Le type"
+	line "avec la cape est"
+	cont "trop balèze!"
+else
 	text "Urrggh… The guy"
 	line "in the cape is"
 	cont "incredibly tough…"
+endc
+
 	done
 
-RocketBaseRivalText: ; AUTOTRAD
+RocketBaseRivalText: 
+if DEF(_FR_FR)
+	text "..."
+
+	para "J'te l'avais dit"
+	line "que j'allais la"
+
+	para "casser la TEAM"
+	line "ROCKET, non?"
+
+	para "Au fait, kissé le"
+	line "type avec la cape"
+
+	para "qui a plein de"
+	line "#MON dragons?"
+
+	para "Mes #MON se"
+	line "sont fait éclater."
+
+	para "Mais c'est pas"
+	line "grave. Je pourrai"
+
+	para "le battre dans pas"
+	line "longtemps."
+
+	para "Ce qu'il a dit"
+	line "me perturbe..."
+
+	para "Il raconte que je"
+	line "n'aime ni ne res-"
+
+	para "pecte mes #MON."
+	line "Tu le crois ça?"
+
+	para "Comment j'ai pu"
+	line "perdre face à un"
+	cont "crétin pareil."
+
+	para "...Pfff..."
+	line "Vous me faites"
+	cont "tous pitié!"
+else
 	text "…"
 
 	para "Didn't I tell you"
@@ -379,6 +427,8 @@ RocketBaseRivalText: ; AUTOTRAD
 	para "…Humph! I don't"
 	line "have the time for"
 	cont "the likes of you!"
+endc
+
 	done
 
 ExecutiveM4BeforeText: ; TO TRANSLATE
@@ -428,22 +478,48 @@ ExecutiveM4BeatenText: ; TO TRANSLATE
 	line "thing…"
 	done
 
-ExecutiveM4AfterText: ; AUTOTRAD
+ExecutiveM4AfterText: 
+if DEF(_FR_FR)
+	text "Je dois m'en"
+	line "remettre et..."
+
+	para "Je dois vite pré-"
+	line "venir les autres!"
+else
 	text "No, I can't let"
 	line "this affect me."
 
 	para "I have to inform"
 	line "the others…"
+endc
+
 	done
 
-RocketBaseMurkrowText: ; AUTOTRAD
+RocketBaseMurkrowText: 
+if DEF(_FR_FR)
+	text "CORNEBRE: Le mot"
+	line "de passe est..."
+
+	para "VIVE GIOVANNI."
+else
 	text "MURKROW: The"
 	line "password is…"
 
 	para "HAIL GIOVANNI."
+endc
+
 	done
 
-GruntF5SeenText: ; AUTOTRAD
+GruntF5SeenText: 
+if DEF(_FR_FR)
+	text "Si je connais le"
+	line "mot de passe?"
+
+	para "Peut-être."
+
+	para "Mais j'le donnerai"
+	line "pas!"
+else
 	text "Do I know the"
 	line "password?"
 
@@ -451,14 +527,33 @@ GruntF5SeenText: ; AUTOTRAD
 
 	para "But no weakling's"
 	line "going to get it!"
+endc
+
 	done
 
-GruntF5BeatenText: ; AUTOTRAD
+GruntF5BeatenText: 
+if DEF(_FR_FR)
+	text "OK. Arrête."
+	line "Je vais parler."
+else
 	text "All right. Stop."
 	line "I'll tell you."
+endc
+
 	done
 
-GruntF5AfterBattleText: ; AUTOTRAD
+GruntF5AfterBattleText: 
+if DEF(_FR_FR)
+	text "Le mot de passe de"
+	line "la salle du chef"
+	cont "est..."
+
+	para "QUEUERAMOLOS."
+
+	para "Mais ça te sert à"
+	line "rien sans l'autre"
+	cont "mot de passe."
+else
 	text "The password to"
 	line "the boss's room is"
 
@@ -467,9 +562,28 @@ GruntF5AfterBattleText: ; AUTOTRAD
 	para "But it's useless"
 	line "unless you have"
 	cont "two passwords."
+endc
+
 	done
 
-GruntM28SeenText: ; AUTOTRAD
+GruntM28SeenText: 
+if DEF(_FR_FR)
+	text "Gnyark Gnyark!"
+
+	para "Tu me lances un"
+	line "défi? A moi? T'es"
+
+	para "débile ou quoi?"
+	line "J'vais te bouffer!"
+
+	para "Gnyark Gnyark!"
+
+	para "Bats-moi et je te"
+	line "donne un des"
+
+	para "mots de passe pour"
+	line "la salle du chef!"
+else
 	text "Hyuck-hyuck-hyuck!"
 
 	para "You're challenging"
@@ -485,14 +599,31 @@ GruntM28SeenText: ; AUTOTRAD
 
 	para "a password to the"
 	line "boss's room!"
+endc
+
 	done
 
-GruntM28BeatenText: ; AUTOTRAD
+GruntM28BeatenText: 
+if DEF(_FR_FR)
+	text "Gnyark!"
+	line "Alors toi!"
+else
 	text "Hyuck-hyuck-hyuck!"
 	line "You're good!"
+endc
+
 	done
 
-GruntM28AfterBattleText: ; AUTOTRAD
+GruntM28AfterBattleText: 
+if DEF(_FR_FR)
+	text "Gnyark Gnyark!"
+
+	para "Le mot de passe"
+	line "est..."
+
+	para "Heu...c'est..."
+	line "QUEUE RATTATAC."
+else
 	text "Hyuck-hyuck-hyuck!"
 
 	para "The password to"
@@ -500,9 +631,23 @@ GruntM28AfterBattleText: ; AUTOTRAD
 
 	para "Uh…, I think it is"
 	line "RATICATE TAIL."
+endc
+
 	done
 
-ScientistRossSeenText: ; AUTOTRAD
+ScientistRossSeenText: 
+if DEF(_FR_FR)
+	text "Je travaillais"
+	line "pour la SYLPHE"
+
+	para "mais maintenant je"
+	line "suis pour la"
+	cont "TEAM ROCKET."
+
+	para "Une petite peste"
+	line "comme toi doit"
+	cont "être punie."
+else
 	text "I used to work for"
 	line "SILPH, but now I"
 
@@ -512,11 +657,19 @@ ScientistRossSeenText: ; AUTOTRAD
 	para "A meddlesome child"
 	line "like you needs to"
 	cont "be punished."
+endc
+
 	done
 
-ScientistRossBeatenText: ; AUTOTRAD
+ScientistRossBeatenText: 
+if DEF(_FR_FR)
+	text "Petite erreur"
+	line "de calcul..."
+else
 	text "A mere tactical"
 	line "error cost me…"
+endc
+
 	done
 
 ScientistRossAfterBattleText: ; TO TRANSLATE
@@ -545,13 +698,30 @@ ScientistMitchSeenText: ; TO TRANSLATE
 	line "product."
 	done
 
-ScientistMitchBeatenText: ; AUTOTRAD
+ScientistMitchBeatenText: 
+if DEF(_FR_FR)
+	text "Moi, j'suis un"
+	line "cérébral, pas un"
+	cont "combattant."
+else
 	text "Thinking is my"
 	line "strong suit, not"
 	cont "battling."
+endc
+
 	done
 
-ScientistMitchAfterBattleText: ; AUTOTRAD
+ScientistMitchAfterBattleText: 
+if DEF(_FR_FR)
+	text "On pourrait pous-"
+	line "ser le signal au"
+
+	para "niveau national..."
+	line "Et puis..."
+
+	para "Ha... Cela serait"
+	line "formidable!"
+else
 	text "If we turn up the"
 	line "power of our radio"
 
@@ -560,22 +730,46 @@ ScientistMitchAfterBattleText: ; AUTOTRAD
 
 	para "The very thought"
 	line "excites me!"
+endc
+
 	done
 
-TeamRocketBaseB3FLockedDoorNeedsPasswordText: ; AUTOTRAD
+TeamRocketBaseB3FLockedDoorNeedsPasswordText: 
+if DEF(_FR_FR)
+	text "La porte est"
+	line "fermée..."
+
+	para "Il faut deux mots"
+	line "de passe."
+else
 	text "The door's closed…"
 
 	para "It needs two"
 	line "passwords to open."
+endc
+
 	done
 
-TeamRocketBaseB3FLockedDoorOpenSesameText: ; AUTOTRAD
+TeamRocketBaseB3FLockedDoorOpenSesameText: 
+if DEF(_FR_FR)
+	text "La porte est"
+	line "fermée..."
+
+	para "<PLAYER> tape les"
+	line "deux mots de"
+	cont "passe."
+
+	para "La porte est"
+	line "ouverte!"
+else
 	text "The door's closed…"
 
 	para "<PLAYER> entered"
 	line "the two passwords."
 
 	para "The door opened!"
+endc
+
 	done
 
 TeamRocketBaseB3F_MapEvents:

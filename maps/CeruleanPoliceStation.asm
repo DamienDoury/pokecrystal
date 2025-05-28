@@ -84,7 +84,15 @@ CeruleanPoliceStationStompUpMovement:
 	step_bump
 	step_end
 
-CeruleanPoliceStationFishingGuruText: ; AUTOTRAD
+CeruleanPoliceStationFishingGuruText: 
+if DEF(_FR_FR)
+	text "On raconte qu'un"
+	line "drôle de type"
+	cont "rode dans le coin."
+
+	para "Si c'est un vo-"
+	line "leur, ça craint."
+else
 	text "I heard that some"
 	line "shady character is"
 	cont "skulking about."
@@ -92,6 +100,8 @@ CeruleanPoliceStationFishingGuruText: ; AUTOTRAD
 	para "I won't stand for"
 	line "it if he turns out"
 	cont "to be a thief."
+endc
+
 	done
 
 CeruleanPoliceStationRaveText: ; TO TRANSLATE
@@ -112,9 +122,15 @@ CeruleanPoliceStationRaveText: ; TO TRANSLATE
 	cont "ing where."
 	done
 
-CeruleanPoliceStationPokefanFText: ; AUTOTRAD
+CeruleanPoliceStationPokefanFText: 
+if DEF(_FR_FR)
+	text "Des voleurs nous"
+	line "ont déjà volés."
+else
 	text "We were held up by"
 	line "robbers before."
+endc
+
 	done
 
 CeruleanDiglettText: ; TO TRANSLATE

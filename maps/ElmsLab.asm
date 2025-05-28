@@ -898,16 +898,29 @@ ElmText_Intro: ; TO TRANSLATE
 	line "caught."
 	done
 
-ElmText_Accepted: ; AUTOTRAD
+ElmText_Accepted: 
+if DEF(_FR_FR)
+	text "Merci, <PLAY_G>!"
+
+	para "Tu es chic!"
+else
 	text "Thanks, <PLAY_G>!"
 
 	para "You're a great"
 	line "help!"
+endc
+
 	done
 
-ElmText_Refused: ; AUTOTRAD
+ElmText_Refused: 
+if DEF(_FR_FR)
+	text "Mais..."
+	line "J'en ai besoin!"
+else
 	text "But… Please, I"
 	line "need your help!"
+endc
+
 	done
 
 ElmText_Insist: ; TO TRANSLATE
@@ -935,7 +948,16 @@ ElmText_ResearchAmbitions: ; TO TRANSLATE
 	cont "community."
 	done
 
-ElmText_GotAnEmail: ; AUTOTRAD
+ElmText_GotAnEmail: 
+if DEF(_FR_FR)
+	text "Oh! J'ai reçu un"
+	line "e-mail!"
+
+	para "<……><……><……>"
+	line "Hmm… Oui…"
+
+	para "OK…"
+else
 	text "Oh, hey! I got an"
 	line "e-mail!"
 
@@ -943,6 +965,8 @@ ElmText_GotAnEmail: ; AUTOTRAD
 	line "Hm… Uh-huh…"
 
 	para "Okay…"
+endc
+
 	done
 
 ElmText_MissionFromMrPokemon: ; TO TRANSLATE
@@ -992,48 +1016,99 @@ ElmText_ChooseAPokemon: ; TO TRANSLATE
 	para "Go on. Pick one!"
 	done
 
-LabWhereGoingText: ; AUTOTRAD
+LabWhereGoingText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Hep!"
+	line "Où vas-tu?"
+else
 	text "ELM: Wait! Where"
 	line "are you going?"
+endc
+
 	done
 
-TakeCyndaquilText: ; AUTOTRAD
+TakeCyndaquilText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Veux-tu"
+	line "HERICENDRE, le"
+	cont "#MON de feu?"
+else
 	text "ELM: You'll take"
 	line "CYNDAQUIL, the"
 	cont "fire #MON?"
+endc
+
 	done
 
-TakeTotodileText: ; AUTOTRAD
+TakeTotodileText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Veux-tu"
+	line "KAIMINUS, le"
+	cont "#MON d'eau?"
+else
 	text "ELM: Do you want"
 	line "TOTODILE, the"
 	cont "water #MON?"
+endc
+
 	done
 
-TakeChikoritaText: ; AUTOTRAD
+TakeChikoritaText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Veux-tu"
+	line "GERMIGNON, le"
+	cont "#MON plante?"
+else
 	text "ELM: So, you like"
 	line "CHIKORITA, the"
 	cont "grass #MON?"
+endc
+
 	done
 
-DidntChooseStarterText: ; AUTOTRAD
+DidntChooseStarterText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Fais le"
+	line "bon choix!"
+
+	para "Ton partenaire est"
+	line "très important."
+else
 	text "ELM: Think it over"
 	line "carefully."
 
 	para "Your partner is"
 	line "important."
+endc
+
 	done
 
-ChoseStarterText: ; AUTOTRAD
+ChoseStarterText: 
+if DEF(_FR_FR)
+	text "PROF.ORME: C'est"
+	line "un très bon"
+	cont "#MON!"
+else
 	text "ELM: I think"
 	line "that's a great"
 	cont "#MON too!"
+endc
+
 	done
 
-ReceivedStarterText: ; AUTOTRAD
+ReceivedStarterText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+else
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
+endc
+
 	done
 
 ElmDirectionsText1: ; TO TRANSLATE
@@ -1072,14 +1147,27 @@ ElmDirectionsText2: ; TO TRANSLATE
 	line "it anytime."
 	done
 
-ElmDirectionsText3: ; AUTOTRAD
+ElmDirectionsText3: 
+if DEF(_FR_FR)
+	text "<PLAY_G>, je"
+	line "compte sur toi!"
+else
 	text "<PLAY_G>, I'm"
 	line "counting on you!"
+endc
+
 	done
 
-GotElmsNumberText: ; AUTOTRAD
+GotElmsNumberText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit le"
+	line "numéro de tél. du"
+	cont "PROF.ORME."
+else
 	text "<PLAYER> got ELM's"
 	line "phone number."
+endc
+
 	done
 
 ElmDescribesMrPokemonText: ; TO TRANSLATE
@@ -1092,20 +1180,39 @@ ElmDescribesMrPokemonText: ; TO TRANSLATE
 	cont "for me, will you?"
 	done
 
-ElmPokeBallText: ; AUTOTRAD
+ElmPokeBallText: 
+if DEF(_FR_FR)
+	text "Cela contient un"
+	line "#MON attrapé"
+	cont "par le PROF.ORME."
+else
 	text "It contains a"
 	line "#MON caught by"
 	cont "PROF.ELM."
+endc
+
 	done
 
-ElmsLabHealingMachineText1: ; AUTOTRAD
+ElmsLabHealingMachineText1: 
+if DEF(_FR_FR)
+	text "Je me demande à"
+	line "quoi ça sert..."
+else
 	text "I wonder what this"
 	line "does?"
+endc
+
 	done
 
-ElmsLabHealingMachineText2: ; AUTOTRAD
+ElmsLabHealingMachineText2: 
+if DEF(_FR_FR)
+	text "Voulez-vous soi-"
+	line "gner vos #MON?"
+else
 	text "Would you like to"
 	line "heal your #MON?"
+endc
+
 	done
 
 ElmAfterTheftText1: ; TO TRANSLATE
@@ -1125,8 +1232,13 @@ ElmAfterTheftText2: ; TO TRANSLATE
 	cont "PROF.ELM."
 	done
 
-ElmAfterTheftText3: ; AUTOTRAD
+ElmAfterTheftText3: 
+if DEF(_FR_FR)
+	text "PROF.ORME: Ca?"
+else
 	text "ELM: This?"
+endc
+
 	done
 
 ElmAfterTheftText4: ; TO TRANSLATE
@@ -1429,7 +1541,21 @@ ElmFinalText2::
 	cont "COVID-19!"
 	done
 
-AideText_AfterTheft: ; AUTOTRAD
+AideText_AfterTheft: 
+if DEF(_FR_FR)
+	text "...(soupir)..."
+	line "Ce #MON volé..."
+
+	para "Je me demande"
+	line "comment il va."
+
+	para "On dit qu'un"
+	line "#MON élevé par"
+
+	para "un méchant p'tit"
+	line "bonhomme tourne"
+	cont "mal lui aussi."
+else
 	text "…sigh… That"
 	line "stolen #MON."
 
@@ -1441,6 +1567,8 @@ AideText_AfterTheft: ; AUTOTRAD
 
 	para "person turns bad"
 	line "itself."
+endc
+
 	done
 
 ElmGiveWorkVisaText1: ; TO TRANSLATE
@@ -1848,14 +1976,47 @@ AideScript_ReadBookshelvesText: ; TO TRANSLATE
 	line "great knowledge."
 	done
 
-AideText_GiveYouBalls: ; AUTOTRAD
+AideText_GiveYouBalls: 
+if DEF(_FR_FR)
+	text "<PLAY_G>!"
+
+	para "Utilise ceci pour"
+	line "compléter ton"
+	cont "#DEX!"
+else
 	text "<PLAY_G>!"
 
 	para "Use these on your"
 	line "#DEX quest!"
+endc
+
 	done
 
-ElmsLabOfficerText1: ; AUTOTRAD
+ElmsLabOfficerText1: 
+if DEF(_FR_FR)
+	text "J'ai entendu dire"
+	line "qu'un #MON"
+	cont "a été volé ici..."
+
+	para "Je viens de rece-"
+	line "voir des infos"
+	cont "du PROF.ORME."
+
+	para "Apparemment,"
+	line "c'était un jeune"
+	cont "garnement aux"
+	cont "longs cheveux"
+	cont "rouges..."
+	cont "Racaille-racaille!"
+
+	para "Quuooi?"
+
+	para "Tu as combattu un"
+	line "dresseur comme ça?"
+
+	para "As-tu retenu"
+	line "son nom?"
+else
 	text "I heard a #MON"
 	line "was stolen here…"
 
@@ -1874,26 +2035,51 @@ ElmsLabOfficerText1: ; AUTOTRAD
 
 	para "Did you happen to"
 	line "get his name?"
+endc
+
 	done
 
-ElmsLabOfficerText2: ; AUTOTRAD
+ElmsLabOfficerText2: 
+if DEF(_FR_FR)
+	text "Il s'appelait"
+	line "donc <RIVAL>."
+
+	para "Merci pour ta"
+	line "coopération!"
+else
 	text "OK! So <RIVAL>"
 	line "was his name."
 
 	para "Thanks for helping"
 	line "my investigation!"
+endc
+
 	done
 
-ElmsLabWindowText1: ; AUTOTRAD
+ElmsLabWindowText1: 
+if DEF(_FR_FR)
+	text "La fenêtre est"
+	line "ouverte."
+
+	para "Un filet d'air"
+	line "passe."
+else
 	text "The window's open."
 
 	para "A pleasant breeze"
 	line "is blowing in."
+endc
+
 	done
 
-ElmsLabWindowText2: ; AUTOTRAD
+ElmsLabWindowText2: 
+if DEF(_FR_FR)
+	text "Il a déboulé ici!"
+else
 	text "He broke in"
 	line "through here!"
+endc
+
 	done
 
 ElmsLabTrashcanText: ; TO TRANSLATE

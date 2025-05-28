@@ -167,10 +167,17 @@ MahoganyMart1FLanceGoDownStairsMovement:
 	slow_step DOWN
 	step_end
 
-MahoganyMart1FPharmacistText_LanceEntered: ; AUTOTRAD
+MahoganyMart1FPharmacistText_LanceEntered: 
+if DEF(_FR_FR)
+	text "Graaah... Tu as"
+	line "trouvé l'escalier"
+	cont "secret!"
+else
 	text "Arrgh… You found"
 	line "the secret stair-"
 	cont "way…"
+endc
+
 	done
 
 MahoganyMart1FBlackBeltText: ; TO TRANSLATE
@@ -189,11 +196,20 @@ MahoganyMart1FBlackBeltText: ; TO TRANSLATE
 	cont "big deal."
 	done
 
-MahoganyMart1FBlackBeltText_LanceEntered: ; AUTOTRAD
+MahoganyMart1FBlackBeltText_LanceEntered: 
+if DEF(_FR_FR)
+	text "Gueuhhh..."
+
+	para "Les #MON dragon"
+	line "de ce type sont"
+	cont "super forts..."
+else
 	text "Urrgh…"
 
 	para "That guy's dragon"
 	line "#MON are tough…"
+endc
+
 	done
 
 MahoganyMart1FLanceDragoniteStrengthText: ; TO TRANSLATE
@@ -201,7 +217,17 @@ MahoganyMart1FLanceDragoniteStrengthText: ; TO TRANSLATE
 	line "use STRENGTH!"
 	done
 
-MahoganyMart1FLanceRadioText: ; AUTOTRAD
+MahoganyMart1FLanceRadioText: 
+if DEF(_FR_FR)
+	text "Tu en as mis du"
+	line "temps, <PLAY_G>!"
+
+	para "Comme je le pen-"
+	line "sais, cet étrange"
+
+	para "signal radio vient"
+	line "d'ici."
+else
 	text "What took you,"
 	line "<PLAY_G>?"
 
@@ -210,19 +236,37 @@ MahoganyMart1FLanceRadioText: ; AUTOTRAD
 
 	para "signal is coming"
 	line "from here."
+endc
+
 	done
 
-MahoganyMart1FLanceStairsText: ; AUTOTRAD
+MahoganyMart1FLanceStairsText: 
+if DEF(_FR_FR)
+	text "Les escaliers sont"
+	line "par ici."
+else
 	text "The stairs are"
 	line "right here."
+endc
+
 	done
 
-MahoganyMart1FLanceSplitUpText: ; AUTOTRAD
+MahoganyMart1FLanceSplitUpText: 
+if DEF(_FR_FR)
+	text "PETER: <PLAY_G>,"
+	line "nous ferions mieux"
+
+	para "de nous séparer."
+	line "Je passe en"
+	cont "premier."
+else
 	text "LANCE: <PLAY_G>, we"
 	line "should split up to"
 
 	para "check this place."
 	line "I'll go first."
+endc
+
 	done
 
 MahoganyMart1F_MapEvents:

@@ -74,13 +74,23 @@ CianwoodPokecenter1FSuperNerdScript:
 CianwoodPokecenter1FFishingGuruScript:
 	farsjump Route32Pokecenter1FFishingGuruScript
 
-CianwoodPokecenter1FLassText: ; AUTOTRAD
+CianwoodPokecenter1FLassText: 
+if DEF(_FR_FR)
+	text "As-tu rencontré le"
+	line "#MANIAC?"
+
+	para "Il se vante sans"
+	line "cesse sur ses"
+	cont "#MON rares."
+else
 	text "Did you meet the"
 	line "#MANIAC?"
 
 	para "He's always brag-"
 	line "ging about his"
 	cont "rare #MON."
+endc
+
 	done
 
 CianwoodGymGuideDudeText: ; TO TRANSLATE
@@ -150,7 +160,20 @@ CianwoodPokecenter1FUnusedText2: ; unreferenced
 	cont "gotta crank it up!"
 	done
 
-CianwoodPokecenter1FSuperNerdText: ; AUTOTRAD
+CianwoodPokecenter1FSuperNerdText: 
+if DEF(_FR_FR)
+	text "J'adore frimer"
+	line "avec mes #MON."
+
+	para "Et toi?"
+	line "C'est ton truc?"
+
+	para "Je vais faire"
+	line "plein de combats"
+
+	para "et frimer avec"
+	line "mes jolis #MON!"
+else
 	text "I love showing off"
 	line "the #MON that"
 
@@ -162,6 +185,8 @@ CianwoodPokecenter1FSuperNerdText: ; AUTOTRAD
 
 	para "battles, and show"
 	line "off my #MON!"
+endc
+
 	done
 
 CianwoodPokecenter1F_MapEvents:

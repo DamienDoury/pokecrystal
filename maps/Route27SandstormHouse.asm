@@ -39,7 +39,19 @@ SandstormHouseWoman:
 SandstormHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-SandstormHouseWomanText1: ; AUTOTRAD
+SandstormHouseWomanText1: 
+if DEF(_FR_FR)
+	text "Où tu vas toi avec"
+	line "tes #MON?"
+
+	para "La LIGUE #MON?"
+
+	para "Tes #MON sont"
+	line "assez confiants"
+	cont "pour y aller?"
+
+	para "On va voir..."
+else
 	text "Where are you off"
 	line "to with #MON?"
 
@@ -50,9 +62,23 @@ SandstormHouseWomanText1: ; AUTOTRAD
 	cont "you to win?"
 
 	para "Let me see…"
+endc
+
 	done
 
-SandstormHouseWomanLoyalText: ; AUTOTRAD
+SandstormHouseWomanLoyalText: 
+if DEF(_FR_FR)
+	text "Ah! Ton #MON"
+	line "te fait vraiment"
+	cont "confiance."
+
+	para "C'est agréable de"
+	line "voir un bon"
+	cont "dresseur."
+
+	para "Tiens! Un cadeau"
+	line "pour toi."
+else
 	text "Ah! Your #MON"
 	line "trusts you very"
 	cont "much."
@@ -62,9 +88,26 @@ SandstormHouseWomanLoyalText: ; AUTOTRAD
 
 	para "Here. A gift for"
 	line "your journey."
+endc
+
 	done
 
-SandstormHouseSandstormDescription: ; AUTOTRAD
+SandstormHouseSandstormDescription: 
+if DEF(_FR_FR)
+	text "CT37 apprend"
+	line "TEMPETESABLE."
+
+	para "Elle inflige des"
+	line "dégâts aux deux"
+	cont "combattants."
+
+	para "Seuls les experts"
+	line "savent bien s'en"
+	cont "servir."
+
+	para "A toi de peaufiner"
+	line "une technique!"
+else
 	text "TM37 happens to be"
 	line "SANDSTORM."
 
@@ -77,9 +120,23 @@ SandstormHouseSandstormDescription: ; AUTOTRAD
 
 	para "Use it if you"
 	line "dare. Good luck!"
+endc
+
 	done
 
-SandstormHouseWomanDisloyalText: ; AUTOTRAD
+SandstormHouseWomanDisloyalText: 
+if DEF(_FR_FR)
+	text "Sois à la hauteur"
+	line "ou ton périple"
+
+	para "sera de plus en"
+	line "plus difficile."
+
+	para "La confiance est"
+	line "le lien entre"
+	cont "les #MON et"
+	cont "les dresseurs."
+else
 	text "If it doesn't come"
 	line "to trust you some"
 
@@ -89,6 +146,8 @@ SandstormHouseWomanDisloyalText: ; AUTOTRAD
 	para "Trust is the tie"
 	line "that binds #MON"
 	cont "and trainers."
+endc
+
 	done
 
 Route27SandstormHouse_MapEvents:

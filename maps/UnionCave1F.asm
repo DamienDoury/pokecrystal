@@ -84,29 +84,64 @@ UnionCave1FAwakening:
 UnionCave1FUnusedSign: ; unreferenced
 	jumptext UnionCave1FUnusedSignText
 
-HikerRussellSeenText: ; AUTOTRAD
+HikerRussellSeenText: 
+if DEF(_FR_FR)
+	text "Tu vas à ECORCIA,"
+	line "n'est-ce pas?"
+
+	para "Voyons si tu as"
+	line "les épaules..."
+else
 	text "You're headed to"
 	line "AZALEA, are you?"
 
 	para "Let my #MON see"
 	line "if you are good"
 	cont "enough to battle."
+endc
+
 	done
 
-HikerRussellBeatenText: ; AUTOTRAD
+HikerRussellBeatenText: 
+if DEF(_FR_FR)
 	text "Oh, oh, oh!"
+else
+	text "Oh, oh, oh!"
+endc
+
 	done
 
-HikerRussellAfterBattleText: ; AUTOTRAD
+HikerRussellAfterBattleText: 
+if DEF(_FR_FR)
+	text "Parfait! C'est"
+	line "décidé..."
+
+	para "Je vais entraîner"
+	line "ici mes #MON à"
+	cont "fond!"
+else
 	text "All right, then!"
 	line "I've decided."
 
 	para "I'm not leaving"
 	line "until my #MON"
 	cont "get tougher!"
+endc
+
 	done
 
-PokemaniacLarrySeenText: ; AUTOTRAD
+PokemaniacLarrySeenText: 
+if DEF(_FR_FR)
+	text "Je parcours la"
+	line "terre à la recher-"
+	cont "che de #MON."
+
+	para "Quoi? Toi aussi tu"
+	line "les collectionnes?"
+
+	para "Bah alors..."
+	line "COMBAT!"
+else
 	text "I roam far and"
 	line "wide in search of"
 	cont "#MON."
@@ -116,41 +151,84 @@ PokemaniacLarrySeenText: ; AUTOTRAD
 
 	para "Then you're my"
 	line "collecting rival!"
+endc
+
 	done
 
-PokemaniacLarryBeatenText: ; AUTOTRAD
+PokemaniacLarryBeatenText: 
+if DEF(_FR_FR)
+	text "Non!!! Mes pauvres"
+	line "#MON..."
+else
 	text "Ugh. My poor #-"
 	line "MON…"
+endc
+
 	done
 
-PokemaniacLarryAfterBattleText: ; AUTOTRAD
+PokemaniacLarryAfterBattleText: 
+if DEF(_FR_FR)
+	text "Chaque vendredi on"
+	line "peut entendre des"
+
+	para "cris de #MON"
+	line "venant de l'antre."
+else
 	text "Every Friday, you"
 	line "can hear #MON"
 
 	para "roars from deep"
 	line "inside the cave."
+endc
+
 	done
 
-HikerDanielSeenText: ; AUTOTRAD
+HikerDanielSeenText: 
+if DEF(_FR_FR)
+	text "Whoa! Tu m'as"
+	line "fait peur!"
+
+	para "Je me croyais seul"
+	line "dans le coin!"
+else
 	text "Whoa! What a"
 	line "surprise!"
 
 	para "I didn't expect to"
 	line "see anyone here!"
+endc
+
 	done
 
-HikerDanielBeatenText: ; AUTOTRAD
+HikerDanielBeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! J'me suis"
+	line "fait détruire!"
+else
 	text "Whoa! I'm beaten"
 	line "big time!"
+endc
+
 	done
 
-HikerDanielAfterBattleText: ; AUTOTRAD
+HikerDanielAfterBattleText: 
+if DEF(_FR_FR)
+	text "On m'a persuadé"
+	line "d'acheter une"
+	cont "QUEUE de RAMOLOSS."
+
+	para "Mais j'ai des"
+	line "remords..."
+	cont "Pauvre #MON."
+else
 	text "I was conned into"
 	line "buying a SLOWPOKE-"
 	cont "TAIL."
 
 	para "I feel sorry for"
 	line "the poor #MON."
+endc
+
 	done
 
 FirebreatherBillSeenText: ; TO TRANSLATE
@@ -175,27 +253,55 @@ FirebreatherBillAfterBattleText: ; TO TRANSLATE
 	line "impossible."
 	done
 
-FirebreatherRaySeenText: ; AUTOTRAD
+FirebreatherRaySeenText: 
+if DEF(_FR_FR)
+	text "Une caverne éclai-"
+	line "rée, ça fait pas"
+	cont "peur."
+
+	para "Avec du courage,"
+	line "les méchants, ça"
+	cont "fait pas peur."
+else
 	text "If it's light, a"
 	line "cave isn't scary."
 
 	para "If you're strong,"
 	line "#MON aren't"
 	cont "scary."
+endc
+
 	done
 
-FirebreatherRayBeatenText: ; AUTOTRAD
+FirebreatherRayBeatenText: 
+if DEF(_FR_FR)
 	text "FLASH!"
+else
+	text "FLASH!"
+endc
+
 	done
 
-FirebreatherRayAfterBattleText: ; AUTOTRAD
+FirebreatherRayAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le feu de mon"
+	line "#MON illumine"
+	cont "cette caverne."
+else
 	text "It's my #MON's"
 	line "fire that lights"
 	cont "up this cave."
+endc
+
 	done
 
-UnionCave1FUnusedSignText: ; AUTOTRAD
+UnionCave1FUnusedSignText: 
+if DEF(_FR_FR)
+	text "CAVES JUMELLES"
+else
 	text "UNION CAVE"
+endc
+
 	done
 
 UnionCave1F_MapEvents:

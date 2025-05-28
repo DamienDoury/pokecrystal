@@ -9,12 +9,21 @@ Route42EcruteakGate_MapScripts:
 Route42EcruteakGateOfficerScript:
 	jumptextfaceplayer Route42EcruteakGateOfficerText
 
-Route42EcruteakGateOfficerText: ; AUTOTRAD
+Route42EcruteakGateOfficerText: 
+if DEF(_FR_FR)
+	text "Le MONT CREUSET"
+	line "est un labyrinthe."
+
+	para "Fais attention à"
+	line "ne pas te perdre."
+else
 	text "MT.MORTAR is like"
 	line "a maze inside."
 
 	para "Be careful. Don't"
 	line "get lost in there."
+endc
+
 	done
 
 Route42EcruteakGate_MapEvents:

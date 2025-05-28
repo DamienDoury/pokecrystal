@@ -136,26 +136,66 @@ GruntM14AfterBattleText: ; TO TRANSLATE
 	cont "or freeing them?"
 	done
 
-GruntM15SeenText: ; AUTOTRAD
+GruntM15SeenText: 
+if DEF(_FR_FR)
+	text "Gnyak Gnyak Gnyak!"
+	line "J'me souviens de"
+
+	para "toi! Tu m'as battu"
+	line "à notre planque!"
+else
 	text "Hyuck-hyuck-hyuck!"
 	line "I remember you!"
 
 	para "You got me good"
 	line "at our hideout!"
+endc
+
 	done
 
-GruntM15BeatenText: ; AUTOTRAD
+GruntM15BeatenText: 
+if DEF(_FR_FR)
+	text "Gnyak!"
+	line "Heu? Encore??"
+else
 	text "Hyuck-hyuck-hyuck!"
 	line "So, that's how?"
+endc
+
 	done
 
-GruntM15AfterBattleText: ; AUTOTRAD
+GruntM15AfterBattleText: 
+if DEF(_FR_FR)
+	text "Gnyaaaaaak!"
+	line "J'me souviendrai"
+	cont "de toi!"
+else
 	text "Hyuck-hyuck-hyuck!"
 	line "That was a blast!"
 	cont "I'll remember you!"
+endc
+
 	done
 
-DirectorIntroText: ; AUTOTRAD
+DirectorIntroText: 
+if DEF(_FR_FR)
+	text "DIRECTEUR: Qui?"
+	line "Quoi? Tu es là"
+	cont "pour me sauver?"
+
+	para "Merci!"
+
+	para "La TOUR RADIO!"
+
+	para "Que se passe-t-il"
+	line "là-bas?"
+
+	para "Contrôlée par la"
+	line "TEAM ROCKET?"
+
+	para "Tiens. Prends"
+	line "cette CARTE MAGN."
+else
 	text "DIRECTOR: Who?"
 	line "What? You came to"
 	cont "rescue me?"
@@ -172,12 +212,22 @@ DirectorIntroText: ; AUTOTRAD
 
 	para "Here. Take this"
 	line "CARD KEY."
+endc
+
 	done
 
-DirectorCardKeyText: ; AUTOTRAD
+DirectorCardKeyText: 
+if DEF(_FR_FR)
+	text "DIRECTEUR: Utilise"
+	line "cette carte pour"
+	cont "ouvrir les volets"
+	cont "du 2ème."
+else
 	text "DIRECTOR: Use that"
 	line "to open the shut-"
 	cont "ters on 3F."
+endc
+
 	done
 
 DirectorAfterText: ; TO TRANSLATE

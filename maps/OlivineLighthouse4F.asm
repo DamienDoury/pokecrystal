@@ -39,29 +39,65 @@ TrainerSailorKent:
 	closetext
 	end
 
-SailorKentSeenText: ; AUTOTRAD
+SailorKentSeenText: 
+if DEF(_FR_FR)
+	text "JASMINE doit"
+	line "s'inquiéter à pro-"
+	cont "pos du #MON."
+
+	para "Elle ne sourit"
+	line "même plus."
+else
 	text "JASMINE must be"
 	line "worried sick about"
 	cont "the #MON here."
 
 	para "She won't even"
 	line "smile these days."
+endc
+
 	done
 
-SailorKentBeatenText: ; AUTOTRAD
+SailorKentBeatenText: 
+if DEF(_FR_FR)
+	text "Moi non plus..."
+	line "J'souris plus..."
+else
 	text "I can't manage a"
 	line "smile either…"
+endc
+
 	done
 
-SailorKentAfterBattleText: ; AUTOTRAD
+SailorKentAfterBattleText: 
+if DEF(_FR_FR)
+	text "Au fait, je crois"
+	line "qu'il y a une bon-"
+
+	para "ne PHARMACIE à"
+	line "IRISIA."
+else
 	text "Speaking of sick,"
 	line "I've heard there's"
 
 	para "a good PHARMACY in"
 	line "CIANWOOD."
+endc
+
 	done
 
-LassConnie1SeenText: ; AUTOTRAD
+LassConnie1SeenText: 
+if DEF(_FR_FR)
+	text "JASMINE est la"
+	line "CHAMPIONNE de"
+	cont "cette ville."
+
+	para "Et moi j'suis plus"
+	line "forte qu'elle."
+
+	para "Et ça... Tu vas"
+	line "le comprendre!"
+else
 	text "JASMINE is this"
 	line "city's GYM LEADER."
 
@@ -70,10 +106,17 @@ LassConnie1SeenText: ; AUTOTRAD
 
 	para "Nobody had better"
 	line "get in my way!"
+endc
+
 	done
 
-LassConnie1BeatenText: ; AUTOTRAD
+LassConnie1BeatenText: 
+if DEF(_FR_FR)
+	text "Aaah! Mes #MON!"
+else
 	text "Aaack! My #MON!"
+endc
+
 	done
 
 LassConnie1AfterBattleText: ; TO TRANSLATE

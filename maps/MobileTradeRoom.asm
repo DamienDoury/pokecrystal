@@ -27,9 +27,13 @@ MobileTradeRoomConsoleScript:
 	closetext
 	end
 
-MobileTradeRoom_EstablishingCommsText: ; AUTOTRAD
+MobileTradeRoom_EstablishingCommsText: 
+if DEF(_FR_FR)
+else
 	text "Establishing"
 	line "communications…"
+endc
+
 	done
 
 MobileTradeRoom_MapEvents:

@@ -69,7 +69,20 @@ EcruteakHistoryBook:
 ItemFinderHouseRadio:
 	jumpstd Radio2Script
 
-EcruteakItemfinderAdventureText: ; AUTOTRAD
+EcruteakItemfinderAdventureText: 
+if DEF(_FR_FR)
+	text "Ah! Tu fais les"
+	line "400 coups avec tes"
+	cont "#MON?"
+
+	para "Mais qu'est-ce"
+	line "qu'une aventure"
+	cont "sans une chasse au"
+	cont "trésor?"
+
+	para "J'ai bon ou j'ai"
+	line "bon?"
+else
 	text "Ah. You're on an"
 	line "adventure with"
 	cont "your #MON?"
@@ -80,9 +93,22 @@ EcruteakItemfinderAdventureText: ; AUTOTRAD
 
 	para "Am I right, or am"
 	line "I right?"
+endc
+
 	done
 
-EcruteakItemfinderTrueSpiritText: ; AUTOTRAD
+EcruteakItemfinderTrueSpiritText: 
+if DEF(_FR_FR)
+	text "C'est cool, tu"
+	line "comprends le vrai"
+
+	para "esprit de l'aven-"
+	line "ture."
+
+	para "Et moi, j'aime ça!"
+	line "Prends ça avec"
+	cont "toi."
+else
 	text "Good! You under-"
 	line "stand the true"
 
@@ -91,11 +117,19 @@ EcruteakItemfinderTrueSpiritText: ; AUTOTRAD
 
 	para "I like that! Take"
 	line "this with you."
+endc
+
 	done
 
-EcruteakItemfinderToEachHisOwnText: ; AUTOTRAD
+EcruteakItemfinderToEachHisOwnText: 
+if DEF(_FR_FR)
+	text "Oh... Chacun pour"
+	line "soi je parie."
+else
 	text "Oh… To each his"
 	line "own, I suppose…"
+endc
+
 	done
 
 EcruteakItemfinderGirlText: ; TO TRANSLATE
@@ -109,14 +143,41 @@ EcruteakItemfinderGirlText: ; TO TRANSLATE
 	line "are ok…"
 	done
 
-EcruteakHistoryBookText: ; AUTOTRAD
+EcruteakHistoryBookText: 
+if DEF(_FR_FR)
+	text "HISTOIRE de"
+	line "ROSALIA"
+
+	para "Désirez-vous lire?"
+else
 	text "HISTORY OF"
 	line "ECRUTEAK"
 
 	para "Want to read it?"
+endc
+
 	done
 
-EcruteakTwoTowersText: ; AUTOTRAD
+EcruteakTwoTowersText: 
+if DEF(_FR_FR)
+	text "Il existait deux"
+	line "tours à ROSALIA."
+
+	para "Chacune d'elle"
+	line "était le perchoir"
+	cont "d'un puissant"
+	cont "#MON volant."
+
+	para "Mais l'une des"
+	line "tours a complète-"
+	cont "ment brûlé."
+
+	para "Les deux #MON"
+	line "n'ont jamais été"
+	cont "revus depuis..."
+
+	para "Continuer à lire?"
+else
 	text "In ECRUTEAK, there"
 	line "were two towers."
 
@@ -133,9 +194,37 @@ EcruteakTwoTowersText: ; AUTOTRAD
 	cont "since…"
 
 	para "Keep reading?"
+endc
+
 	done
 
-EcruteakThreeMonText: ; AUTOTRAD
+EcruteakThreeMonText: 
+if DEF(_FR_FR)
+	text "ROSALIA était"
+	line "aussi la demeure"
+
+	para "de trois #MON"
+	line "qui couraient"
+	cont "autour de la"
+	cont "ville."
+
+	para "Ils étaient soi-"
+	line "disant nés de"
+
+	para "l'eau, de la"
+	line "foudre et du feu."
+
+	para "Mais ils ne"
+	line "pouvaient pas"
+	cont "contenir toute"
+	cont "leur puissance."
+
+	para "C'est la raison"
+	line "pour laquelle ils"
+
+	para "couraient sans"
+	line "cesse."
+else
 	text "ECRUTEAK was also"
 	line "home to three"
 
@@ -157,6 +246,8 @@ EcruteakThreeMonText: ; AUTOTRAD
 
 	para "wind off into the"
 	line "grassland."
+endc
+
 	done
 
 EcruteakItemfinderHouse_MapEvents:

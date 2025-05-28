@@ -108,37 +108,73 @@ RuinsOfAlphHoOhChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphHoOhChamberWallPatternLeftText: ; AUTOTRAD
+RuinsOfAlphHoOhChamberWallPatternLeftText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
 RuinsOfAlphHoOhChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphHoOhChamberWallPatternRightText: ; AUTOTRAD
+RuinsOfAlphHoOhChamberWallPatternRightText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
-RuinsOfAlphHoOhChamberWallHoleText: ; AUTOTRAD
+RuinsOfAlphHoOhChamberWallHoleText: 
+if DEF(_FR_FR)
+	text "Il y a un gros"
+	line "trou dans le mur!"
+else
 	text "There's a big hole"
 	line "in the wall!"
+endc
+
 	done
 
-RuinsOfAlphHoOhChamberAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphHoOhChamberAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
-RuinsOfAlphHoOhChamberDescriptionText: ; AUTOTRAD
+RuinsOfAlphHoOhChamberDescriptionText: 
+if DEF(_FR_FR)
+	text "Un #MON qui"
+	line "volait avec grâce"
+
+	para "en battant ses"
+	line "ailes irisées."
+else
 	text "A #MON that"
 	line "flew gracefully on"
 
 	para "rainbow-colored"
 	line "wings."
+endc
+
 	done
 
 RuinsOfAlphHoOhChamber_MapEvents:

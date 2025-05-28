@@ -214,71 +214,149 @@ endr
 Route3MtMoonSquareSign:
 	jumptext Route3MtMoonSquareSignText
 
-FirebreatherOtisSeenText: ; AUTOTRAD
+FirebreatherOtisSeenText: 
+if DEF(_FR_FR)
+	text "Ah! Il fait beau!"
+	line "Alors combat!"
+else
 	text "Ah! The weather's"
 	line "as fine as ever."
+endc
+
 	done
 
-FirebreatherOtisBeatenText: ; AUTOTRAD
+FirebreatherOtisBeatenText: 
+if DEF(_FR_FR)
+	text "Il fait beau mais"
+	line "j'ai froid, là..."
+else
 	text "It's sunny, but"
 	line "I'm all wet…"
+endc
+
 	done
 
-FirebreatherOtisAfterBattleText: ; AUTOTRAD
+FirebreatherOtisAfterBattleText: 
+if DEF(_FR_FR)
+	text "La pluie ça"
+	line "mouille..."
+else
 	text "When it rains,"
 	line "it's hard to get"
 	cont "ignition…"
+endc
+
 	done
 
-YoungsterWarrenSeenText: ; AUTOTRAD
+YoungsterWarrenSeenText: 
+if DEF(_FR_FR)
+	text "Pfff..."
+	line "Combat?"
+else
 	text "Hmmm… I don't know"
 	line "what to do…"
+endc
+
 	done
 
-YoungsterWarrenBeatenText: ; AUTOTRAD
+YoungsterWarrenBeatenText: 
+if DEF(_FR_FR)
+	text "Pfff...perdu."
+else
 	text "I knew I'd lose…"
+endc
+
 	done
 
-YoungsterWarrenAfterBattleText: ; AUTOTRAD
+YoungsterWarrenAfterBattleText: 
+if DEF(_FR_FR)
+	text "T'es balèze."
+
+	para "Et moi j'suis pas"
+	line "trop bon...Pfff..."
+else
 	text "You looked strong."
 
 	para "I was afraid to"
 	line "take you on…"
+endc
+
 	done
 
-YoungsterJimmySeenText: ; AUTOTRAD
+YoungsterJimmySeenText: 
+if DEF(_FR_FR)
+	text "Ha ha! Je cours"
+	line "comme le vent!"
+else
 	text "I can run like the"
 	line "wind!"
+endc
+
 	done
 
-YoungsterJimmyBeatenText: ; AUTOTRAD
+YoungsterJimmyBeatenText: 
+if DEF(_FR_FR)
+	text "Haha! Génial!"
+else
 	text "Blown away!"
+endc
+
 	done
 
-YoungsterJimmyAfterBattleText: ; AUTOTRAD
+YoungsterJimmyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'aime les"
+	line "shorts."
+
+	para "C'est cool."
+	line "C'est beau."
+else
 	text "I wear shorts the"
 	line "whole year round."
 
 	para "That's my fashion"
 	line "policy."
+endc
+
 	done
 
-FirebreatherBurtSeenText: ; AUTOTRAD
+FirebreatherBurtSeenText: 
+if DEF(_FR_FR)
+	text "Tu cherches le"
+	line "contact?"
+else
 	text "Step right up and"
 	line "take a look!"
+endc
+
 	done
 
-FirebreatherBurtBeatenText: ; AUTOTRAD
+FirebreatherBurtBeatenText: 
+if DEF(_FR_FR)
+	text "Yaaah!"
+else
 	text "Yow! That's hot!"
+endc
+
 	done
 
-FirebreatherBurtAfterBattleText: ; AUTOTRAD
+FirebreatherBurtAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je suis le plus"
+	line "grand crache-feu"
+	cont "de KANTO."
+
+	para "Mais je suis un"
+	line "dresseur nul..."
+else
 	text "The greatest fire-"
 	line "breather in KANTO,"
 	cont "that's me."
 
 	para "But not the best"
 	line "trainer…"
+endc
+
 	done
 
 GuitaristRegisSeenText: ; TO TRANSLATE
@@ -298,11 +376,18 @@ GuitaristRegisAfterBattleText: ; TO TRANSLATE
 	para "Darn pandemic!"
 	done
 
-Route3MtMoonSquareSignText: ; AUTOTRAD
+Route3MtMoonSquareSignText: 
+if DEF(_FR_FR)
+	text "SQUARE du MONT"
+	line "SELENITE: En haut"
+	cont "des escaliers."
+else
 	text "MT.MOON SQUARE"
 
 	para "Just go up the"
 	line "stairs."
+endc
+
 	done
 
 Route3CleoSeenText: ; TO TRANSLATE

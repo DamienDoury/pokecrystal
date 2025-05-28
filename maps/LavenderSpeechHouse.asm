@@ -12,7 +12,20 @@ LavenderSpeechHousePokefanFScript:
 LavenderSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-LavenderSpeechHousePokefanFText: ; AUTOTRAD
+LavenderSpeechHousePokefanFText: 
+if DEF(_FR_FR)
+	text "LAVANVILLE est"
+	line "une petite ville"
+
+	para "calme au pied des"
+	line "montagnes."
+
+	para "Il y a plus de"
+	line "passage depuis la"
+
+	para "construction de la"
+	line "TOUR RADIO."
+else
 	text "LAVENDER is a"
 	line "tiny, quiet town"
 
@@ -24,6 +37,8 @@ LavenderSpeechHousePokefanFText: ; AUTOTRAD
 
 	para "RADIO TOWER was"
 	line "built."
+endc
+
 	done
 
 LavenderSpeechHouse_MapEvents:

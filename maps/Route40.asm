@@ -129,101 +129,205 @@ Route40HiddenHyperPotion:
 Route40_DoorScript:
 	jumpstd ClosedBusinessScript
 
-SwimmermSimonSeenText: ; AUTOTRAD
+SwimmermSimonSeenText: 
+if DEF(_FR_FR)
+	text "Il faut s'échauf-"
+	line "fer avant de se"
+	cont "baigner."
+
+	para "Tout le monde sait"
+	line "ça!"
+else
 	text "You have to warm"
 	line "up before going"
 	cont "into the water."
 
 	para "That's basic."
+endc
+
 	done
 
-SwimmermSimonBeatenText: ; AUTOTRAD
+SwimmermSimonBeatenText: 
+if DEF(_FR_FR)
+	text "Aïe! Une crampe!"
+else
 	text "OK! Uncle! I give!"
+endc
+
 	done
 
-SwimmermSimonAfterBattleText: ; AUTOTRAD
+SwimmermSimonAfterBattleText: 
+if DEF(_FR_FR)
+	text "IRISIA est assez"
+	line "loin d'ici."
+else
 	text "CIANWOOD CITY is"
 	line "a good distance"
 	cont "away from here."
+endc
+
 	done
 
-SwimmermRandallSeenText: ; AUTOTRAD
+SwimmermRandallSeenText: 
+if DEF(_FR_FR)
+	text "T'as la flemme ou"
+	line "quoi?"
+
+	para "Nage au lieu de"
+	line "monter sur ton"
+	cont "#MON!"
+else
 	text "Hey, you're young"
 	line "and fit!"
 
 	para "Don't ride your"
 	line "#MON! Swim!"
+endc
+
 	done
 
-SwimmermRandallBeatenText: ; AUTOTRAD
+SwimmermRandallBeatenText: 
+if DEF(_FR_FR)
+	text "Zut de flûte."
+else
 	text "Uh-oh. I lost…"
+endc
+
 	done
 
-SwimmermRandallAfterBattleText: ; AUTOTRAD
+SwimmermRandallAfterBattleText: 
+if DEF(_FR_FR)
+	text "Nager, c'est bon"
+	line "pour la santé."
+else
 	text "Swimming exercises"
 	line "your entire body."
 	cont "It's healthy."
+endc
+
 	done
 
-SwimmerfElaineSeenText: ; AUTOTRAD
+SwimmerfElaineSeenText: 
+if DEF(_FR_FR)
+	text "Tu vas à IRISIA?"
+
+	para "On s'bat d'abord?"
+else
 	text "Are you going to"
 	line "CIANWOOD?"
 
 	para "How about a quick"
 	line "battle first?"
+endc
+
 	done
 
-SwimmerfElaineBeatenText: ; AUTOTRAD
+SwimmerfElaineBeatenText: 
+if DEF(_FR_FR)
+	text "C'est perdu!"
+else
 	text "I lost that one!"
+endc
+
 	done
 
-SwimmerfElaineAfterBattleText: ; AUTOTRAD
+SwimmerfElaineAfterBattleText: 
+if DEF(_FR_FR)
+	text "En tout cas, je"
+	line "nage mieux que"
+	cont "toi. Ouais!"
+else
 	text "I'd say I'm a bet-"
 	line "ter swimmer than"
 	cont "you. Yeah!"
+endc
+
 	done
 
-SwimmerfPaulaSeenText: ; AUTOTRAD
+SwimmerfPaulaSeenText: 
+if DEF(_FR_FR)
+	text "J'adore les #-"
+	line "MON marins!"
+else
 	text "No inner tube for"
 	line "me."
 
 	para "I'm hanging on to"
 	line "a sea #MON!"
+endc
+
 	done
 
-SwimmerfPaulaBeatenText: ; AUTOTRAD
+SwimmerfPaulaBeatenText: 
+if DEF(_FR_FR)
+	text "Oups!"
+else
 	text "Ooh, I'm feeling"
 	line "dizzy!"
+endc
+
 	done
 
-SwimmerfPaulaAfterBattleText: ; AUTOTRAD
+SwimmerfPaulaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je me laisse"
+	line "porter par les"
+	cont "vagues."
+else
 	text "While I float like"
 	line "this, the waves"
 	cont "carry me along."
+endc
+
 	done
 
-Route40Lass1Text: ; AUTOTRAD
+Route40Lass1Text: 
+if DEF(_FR_FR)
+	text "IRISIA est de"
+	line "l'autre côté de la"
+	cont "mer."
+else
 	text "Although you can't"
 	line "see it from here,"
 
 	para "CIANWOOD is across"
 	line "the sea."
+endc
+
 	done
 
-Route40PokefanMText: ; AUTOTRAD
+Route40PokefanMText: 
+if DEF(_FR_FR)
+	text "Hmm! Il y a un"
+	line "grand immeuble"
+	cont "droit devant!"
+
+	para "C'est quoi donc?"
+else
 	text "Hm! There's a big"
 	line "building up ahead!"
 
 	para "What is it?"
+endc
+
 	done
 
-Route40PokefanMText_Mobile: ; AUTOTRAD
+Route40PokefanMText_Mobile: 
+if DEF(_FR_FR)
+	text "Hmm! Tu as vu tous"
+	line "les dresseurs"
+	cont "qui sont entrés?"
+
+	para "C'est quoi donc?"
+else
 	text "Hm! Look at all"
 	line "those serious-"
 	cont "looking trainers"
 	cont "streaming in."
 
 	para "What? What?"
+endc
+
 	done
 
 Route40Lass2Text: ; TO TRANSLATE
@@ -241,20 +345,46 @@ Route40Lass2Text: ; TO TRANSLATE
 	cont "from a big city."
 	done
 
-MeetMonicaText: ; AUTOTRAD
+MeetMonicaText: 
+if DEF(_FR_FR)
+	text "LUCIE: Bonjour!"
+	line "Je suis LUCIE du"
+
+	para "lundi."
+else
 	text "MONICA: Glad to"
 	line "meet you. I'm"
 
 	para "MONICA of Monday."
+endc
+
 	done
 
-MonicaGivesGiftText: ; AUTOTRAD
+MonicaGivesGiftText: 
+if DEF(_FR_FR)
+	text "Puisqu'on est des"
+	line "potes, voilà un"
+	cont "petit cadeau!"
+else
 	text "As a token of our"
 	line "friendship, I have"
 	cont "a gift for you!"
+endc
+
 	done
 
-MonicaGaveGiftText: ; AUTOTRAD
+MonicaGaveGiftText: 
+if DEF(_FR_FR)
+	text "LUCIE: C'est un"
+	line "objet qui améliore"
+
+	para "les capacités du"
+	line "type VOL."
+
+	para "Tu devrais le don-"
+	line "ner à un #MON"
+	cont "oiseau."
+else
 	text "MONICA: It's an"
 	line "item that raises"
 
@@ -264,9 +394,18 @@ MonicaGaveGiftText: ; AUTOTRAD
 	para "You should equip a"
 	line "bird #MON with"
 	cont "that item."
+endc
+
 	done
 
-MonicaMondayText: ; AUTOTRAD
+MonicaMondayText: 
+if DEF(_FR_FR)
+	text "LUCIE: Mes frères"
+	line "et soeurs sont un"
+	cont "peu partout."
+
+	para "Trouve-les tous!"
+else
 	text "MONICA: My broth-"
 	line "ers and sisters"
 
@@ -275,19 +414,36 @@ MonicaMondayText: ; AUTOTRAD
 
 	para "See if you could"
 	line "find them all!"
+endc
+
 	done
 
-MonicaNotMondayText: ; AUTOTRAD
+MonicaNotMondayText: 
+if DEF(_FR_FR)
+	text "LUCIE: On est pas"
+	line "lundi aujourd'hui!"
+	cont "Dommage..."
+else
 	text "MONICA: I don't"
 	line "think today is"
 	cont "Monday. How sad…"
+endc
+
 	done
 
-Route40SignText: ; AUTOTRAD
+Route40SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 40"
+
+	para "IRISIA -"
+	line "OLIVILLE"
+else
 	text "ROUTE 40"
 
 	para "CIANWOOD CITY -"
 	line "OLIVINE CITY"
+endc
+
 	done
 
 Route40_MapEvents:

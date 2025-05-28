@@ -221,7 +221,28 @@ BurnedTowerSilver_AfterText2: ; AUTOTRAD
 	para "Serves you right!"
 	done
 
-BurnedTower1FEusineIntroText: ; AUTOTRAD
+BurnedTower1FEusineIntroText: 
+if DEF(_FR_FR)
+	text "EUSINE: Mon nom"
+	line "est EUSINE."
+
+	para "Je poursuis un"
+	line "#MON du nom de"
+	cont "SUICUNE."
+
+	para "Et toi c'est quoi?"
+
+	para "<PLAYER>? Ravi"
+	line "de te connaître!"
+
+	para "On raconte que"
+	line "SUICUNE est dans"
+
+	para "cette TOUR CEN-"
+	line "DREE..."
+
+	para "Mais où???"
+else
 	text "EUSINE: My name's"
 	line "EUSINE."
 
@@ -242,9 +263,20 @@ BurnedTower1FEusineIntroText: ; AUTOTRAD
 
 	para "But where exactly"
 	line "could it be?"
+endc
+
 	done
 
-BurnedTower1FEusineText: ; AUTOTRAD
+BurnedTower1FEusineText: 
+if DEF(_FR_FR)
+	text "On raconte que"
+	line "SUICUNE est dans"
+
+	para "cette TOUR CEN-"
+	line "DREE..."
+
+	para "Mais où???"
+else
 	text "EUSINE: I heard"
 	line "that SUICUNE is in"
 
@@ -253,9 +285,27 @@ BurnedTower1FEusineText: ; AUTOTRAD
 
 	para "But where exactly"
 	line "could it be?"
+endc
+
 	done
 
-BurnedTower1FMortyText: ; AUTOTRAD
+BurnedTower1FMortyText: 
+if DEF(_FR_FR)
+	text "MORTIMER: Le CHAM-"
+	line "PION de ROSALIA"
+
+	para "doit étudier les"
+	line "#MON légen-"
+
+	para "daires: SUICUNE,"
+	line "ENTEI et RAIKOU."
+
+	para "EUSINE est ici."
+	line "J'ai décidé de"
+
+	para "fouiller la TOUR"
+	line "avec lui."
+else
 	text "MORTY: ECRUTEAK's"
 	line "GYM LEADER has to"
 
@@ -271,6 +321,8 @@ BurnedTower1FMortyText: ; AUTOTRAD
 
 	para "investigate the"
 	line "TOWER with him."
+endc
+
 	done
 
 BurnedTower1F_MapEvents:

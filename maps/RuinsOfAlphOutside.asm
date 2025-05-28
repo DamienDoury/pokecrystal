@@ -221,7 +221,36 @@ RuinsOfAlphOutsidePlayerEnterLabMovement:
 	step UP
 	step_end
 
-RuinsOfAlphOutsideScientistText: ; AUTOTRAD
+RuinsOfAlphOutsideScientistText: 
+if DEF(_FR_FR)
+	text "Hm? C'est un #-"
+	line "DEX, n'est-ce pas?"
+	cont "Puis-je le voir?"
+
+	para "Il y a tant de"
+	line "#MON..."
+
+	para "Hmm? C'est quoi?"
+
+	para "Quel est donc"
+	line "ce #MON?"
+
+	para "Il ressemble aux"
+	line "inscriptions sur"
+
+	para "les murs des"
+	line "RUINES."
+
+	para "Si ces dessins"
+	line "sont des #MON,"
+	cont "il doit y en avoir"
+	cont "beaucoup d'autres."
+
+	para "Je sais! Je vais"
+	line "améliorer ton"
+	cont "#DEX..."
+	cont "Suis-moi."
+else
 	text "Hm? That's a #-"
 	line "DEX, isn't it?"
 	cont "May I see it?"
@@ -248,38 +277,74 @@ RuinsOfAlphOutsideScientistText: ; AUTOTRAD
 	para "I know! Let me up-"
 	line "grade your #-"
 	cont "DEX. Follow me."
+endc
+
 	done
 
-PsychicNathanSeenText: ; AUTOTRAD
+PsychicNathanSeenText: 
+if DEF(_FR_FR)
+	text "Hmmm... C'est"
+	line "bizarre ici."
+else
 	text "Hmmm… This is a"
 	line "strange place."
+endc
+
 	done
 
 PsychicNathanBeatenText:
 	text "…"
 	done
 
-PsychicNathanAfterBattleText: ; AUTOTRAD
+PsychicNathanAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'aime réfléchir"
+	line "ici."
+else
 	text "I like thinking"
 	line "here."
+endc
+
 	done
 
-RuinsOfAlphOutsideMysteryChamberSignText: ; AUTOTRAD
+RuinsOfAlphOutsideMysteryChamberSignText: 
+if DEF(_FR_FR)
+	text "PIERRE MYSTERE"
+	line "CHAMBRE du PANNEAU"
+else
 	text "MYSTERY STONE"
 	line "PANEL CHAMBER"
+endc
+
 	done
 
-RuinsOfAlphSignText: ; AUTOTRAD
+RuinsOfAlphSignText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+	line "Bienvenue"
+else
 	text "RUINS OF ALPH"
 	line "VISITORS WELCOME"
+endc
+
 	done
 
-RuinsOfAlphResearchCenterSignText: ; AUTOTRAD
+RuinsOfAlphResearchCenterSignText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+	line "CENTRE de"
+	cont "RECHERCHE"
+
+	para "La référence des"
+	line "RUINES D'ALPHA"
+else
 	text "RUINS OF ALPH"
 	line "RESEARCH CENTER"
 
 	para "THE AUTHORITY ON"
 	line "THE RUINS OF ALPH"
+endc
+
 	done
 
 RuinsOfAlphOutsideFisherText1: ; TO TRANSLATE
@@ -288,22 +353,49 @@ RuinsOfAlphOutsideFisherText1: ; TO TRANSLATE
 	cont "ding this area."
 	done
 
-RuinsOfAlphOutsideFisherText2: ; AUTOTRAD
+RuinsOfAlphOutsideFisherText2: 
+if DEF(_FR_FR)
+	text "Il y a un secret"
+	line "dans les RUINES!"
+
+	para "Enfin je crois..."
+else
 	text "The RUINS hide a"
 	line "huge secret!"
 
 	para "…I think…"
+endc
+
 	done
 
-RuinsOfAlphOutsideYoungster1Text: ; AUTOTRAD
+RuinsOfAlphOutsideYoungster1Text: 
+if DEF(_FR_FR)
+	text "Il existe des"
+	line "ZARBI différents."
+
+	para "Nous les utilisons"
+	line "pour nos codes"
+	cont "secrets."
+else
 	text "There are many"
 	line "kinds of UNOWN, so"
 
 	para "we use them for"
 	line "our secret codes."
+endc
+
 	done
 
-RuinsOfAlphOutsideYoungster2Text: ; AUTOTRAD
+RuinsOfAlphOutsideYoungster2Text: 
+if DEF(_FR_FR)
+	text "D… R… O… I… T…"
+	line "Hmmm…"
+
+	para "Quoi?"
+
+	para "Je décode le"
+	line "message!"
+else
 	text "A… H… E… A… D…"
 	line "Hmm…"
 
@@ -311,6 +403,8 @@ RuinsOfAlphOutsideYoungster2Text: ; AUTOTRAD
 
 	para "I'm decoding this"
 	line "message!"
+endc
+
 	done
 
 RuinsOfAlphDoorText: ; TO TRANSLATE

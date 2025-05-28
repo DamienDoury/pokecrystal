@@ -310,7 +310,17 @@ Route43FruitTree:
 Route43MaxEther:
 	itemball MAX_ETHER
 
-PokemaniacBenSeenText: ; AUTOTRAD
+PokemaniacBenSeenText: 
+if DEF(_FR_FR)
+	text "J'adoooore les"
+	line "#MON!"
+
+	para "C'est pour ça que"
+	line "je les collection-"
+
+	para "ne tous! Vive les"
+	line "jolis #MON!"
+else
 	text "I love #MON!"
 
 	para "That's why I"
@@ -318,39 +328,87 @@ PokemaniacBenSeenText: ; AUTOTRAD
 
 	para "I'll keep on col-"
 	line "lecting #MON!"
+endc
+
 	done
 
-PokemaniacBenBeatenText: ; AUTOTRAD
+PokemaniacBenBeatenText: 
+if DEF(_FR_FR)
+	text "Comment oses-tu?"
+else
 	text "How could you do"
 	line "this to me?"
+endc
+
 	done
 
-PokemaniacBenAfterBattleText: ; AUTOTRAD
+PokemaniacBenAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ce que j'aime à"
+	line "part les #MON?"
+
+	para "LULA à la radio."
+	line "Elle doit être"
+	cont "mignonne!"
+else
 	text "What else do I"
 	line "like besides"
 	cont "#MON?"
 
 	para "MARY on the radio."
 	line "I bet she's cute!"
+endc
+
 	done
 
-PokemaniacBrentSeenText: ; AUTOTRAD
+PokemaniacBrentSeenText: 
+if DEF(_FR_FR)
+	text "Hé! Tu as des"
+	line "#MON rares?"
+else
 	text "Hey! Do you have"
 	line "any rare #MON?"
+endc
+
 	done
 
-PokemaniacBrentBeatenText: ; AUTOTRAD
+PokemaniacBrentBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Mes jolis"
+	line "#MON!"
+else
 	text "Oh, my poor #-"
 	line "MON! Darlings!"
+endc
+
 	done
 
-PokemaniacBrentAfterBattleText: ; AUTOTRAD
+PokemaniacBrentAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'aimerais tant"
+	line "avoir de jolis"
+	cont "#MON rares."
+else
 	text "I'd be happy just"
 	line "to own a single"
 	cont "rare #MON."
+endc
+
 	done
 
-PokemaniacRonSeenText: ; AUTOTRAD
+PokemaniacRonSeenText: 
+if DEF(_FR_FR)
+	text "Tu le crois, toi?"
+
+	para "Un sale type,"
+	line "<RIVAL>, s'est"
+	cont "moqué de mes"
+	cont "#MON!"
+
+	para "C'est du n'importe"
+	line "quoi! Mes #MON"
+	cont "sont trop cool!"
+else
 	text "Would you get"
 	line "this?"
 
@@ -360,14 +418,31 @@ PokemaniacRonSeenText: ; AUTOTRAD
 
 	para "Darn it! My #-"
 	line "MON's great!"
+endc
+
 	done
 
-PokemaniacRonBeatenText: ; AUTOTRAD
+PokemaniacRonBeatenText: 
+if DEF(_FR_FR)
+	text "Mon NIDOKING est"
+	line "le plus fort!"
+else
 	text "My NIDOKING did"
 	line "pretty right on!"
+endc
+
 	done
 
-PokemaniacRonAfterBattleText: ; AUTOTRAD
+PokemaniacRonAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les gens aiment"
+	line "les #MON"
+	cont "différents."
+
+	para "Avoir le #MON"
+	line "le plus puissant"
+	cont "n'est pas le but."
+else
 	text "It's okay for"
 	line "people to like"
 
@@ -377,9 +452,20 @@ PokemaniacRonAfterBattleText: ; AUTOTRAD
 	para "#MON isn't just"
 	line "about having the"
 	cont "most powerful one."
+endc
+
 	done
 
-FisherMarvinSeenText: ; AUTOTRAD
+FisherMarvinSeenText: 
+if DEF(_FR_FR)
+	text "J'suis pas fort."
+
+	para "Mon matos n'est"
+	line "pas bon."
+
+	para "On va s'battre."
+	line "Ca va me détendre!"
+else
 	text "I'm in a slump."
 
 	para "Maybe it's the"
@@ -387,14 +473,34 @@ FisherMarvinSeenText: ; AUTOTRAD
 
 	para "Let's battle for a"
 	line "change of pace!"
+endc
+
 	done
 
-FisherMarvinBeatenText: ; AUTOTRAD
+FisherMarvinBeatenText: 
+if DEF(_FR_FR)
+	text "J'ai perdu, mais"
+	line "ça va mieux."
+else
 	text "I lost, but I feel"
 	line "better anyway."
+endc
+
 	done
 
-FisherMarvinAfterBattleText: ; AUTOTRAD
+FisherMarvinAfterBattleText: 
+if DEF(_FR_FR)
+	text "L'APPAT BALL de"
+	line "FARGAS est la"
+
+	para "meilleure pour"
+	line "attraper les #-"
+	cont "MON ferrés."
+
+	para "C'est plus effica-"
+	line "ce qu'une HYPER"
+	cont "BALL."
+else
 	text "KURT's LURE BALL"
 	line "is the best for"
 
@@ -404,67 +510,159 @@ FisherMarvinAfterBattleText: ; AUTOTRAD
 	para "It's much more"
 	line "effective than a"
 	cont "ULTRA BALL."
+endc
+
 	done
 
-CamperSpencerSeenText: ; AUTOTRAD
+CamperSpencerSeenText: 
+if DEF(_FR_FR)
+	text "Mes #MON et"
+	line "moi, on est des"
+	cont "super potes!"
+else
 	text "I can do so much"
 	line "with my #MON--"
 	cont "it's super-fun!"
+endc
+
 	done
 
-CamperSpencerBeatenText: ; AUTOTRAD
+CamperSpencerBeatenText: 
+if DEF(_FR_FR)
+	text "Perdre..."
+	line "C'est mal."
+else
 	text "Losing isn't fun"
 	line "at all…"
+endc
+
 	done
 
-CamperSpencerAfterBattleText: ; AUTOTRAD
+CamperSpencerAfterBattleText: 
+if DEF(_FR_FR)
+	text "Que se passe-t-il"
+	line "au LAC COLERE?"
+
+	para "On voulait y"
+	line "camper."
+else
 	text "What is going on"
 	line "at LAKE OF RAGE?"
 
 	para "We were planning"
 	line "to camp there."
+endc
+
 	done
 
-PicnickerTiffanySeenText: ; AUTOTRAD
+PicnickerTiffanySeenText: 
+if DEF(_FR_FR)
+	text "Tu vas aussi au"
+	line "LAC COLERE?"
+
+	para "On va jouer,"
+	line "d'abord!"
+else
 	text "Are you going to"
 	line "LAKE OF RAGE too?"
 
 	para "Let's play for a "
 	line "little while!"
+endc
+
 	done
 
-PicnickerTiffanyBeatenText: ; AUTOTRAD
+PicnickerTiffanyBeatenText: 
+if DEF(_FR_FR)
+	text "Oups!"
+else
 	text "I played too much!"
+endc
+
 	done
 
-PicnickerTiffanyWantsPicnicText: ; AUTOTRAD
+PicnickerTiffanyWantsPicnicText: 
+if DEF(_FR_FR)
+	text "Je pique-nique"
+	line "avec mes #MON."
+
+	para "Tu veux venir?"
+else
 	text "I'm having a pic-"
 	line "nic with #MON."
 
 	para "Won't you join us?"
+endc
+
 	done
 
-PicnickerTiffanyClefairyText: ; AUTOTRAD
+PicnickerTiffanyClefairyText: 
+if DEF(_FR_FR)
+	text "Mon MELOFEE ne"
+	line "serait pas le plus"
+	cont "mimi du monde, par"
+	cont "hasard?"
+else
 	text "Isn't my CLEFAIRY"
 	line "just the most"
 	cont "adorable thing?"
+endc
+
 	done
 
-Route43Sign1Text: ; AUTOTRAD
+Route43Sign1Text: 
+if DEF(_FR_FR)
+	text "ROUTE 43"
+
+	para "LAC COLERE -"
+	line "ACAJOU"
+else
 	text "ROUTE 43"
 
 	para "LAKE OF RAGE -"
 	line "MAHOGANY TOWN"
+endc
+
 	done
 
-Route43Sign2Text: ; AUTOTRAD
+Route43Sign2Text: 
+if DEF(_FR_FR)
+	text "ROUTE 43"
+
+	para "LAC COLERE -"
+	line "ACAJOU"
+else
 	text "ROUTE 43"
 
 	para "LAKE OF RAGE -"
 	line "MAHOGANY TOWN"
+endc
+
 	done
 
-Route43TrainerTipsText: ; AUTOTRAD
+Route43TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Tous les #MON"
+	line "ont des atouts et"
+
+	para "des défauts en"
+	line "fonction de leurs"
+	cont "types."
+
+	para "Suivant les types,"
+	line "un #MON de haut"
+
+	para "niveau peut perdre"
+	line "un combat."
+
+	para "Découvrez quels"
+	line "types ont l'avan-"
+
+	para "tage sur certains"
+	line "#MON."
+else
 	text "TRAINER TIPS"
 
 	para "All #MON have"
@@ -484,6 +682,8 @@ Route43TrainerTipsText: ; AUTOTRAD
 
 	para "weak against your"
 	line "#MON's type."
+endc
+
 	done
 
 Route43_MapEvents:

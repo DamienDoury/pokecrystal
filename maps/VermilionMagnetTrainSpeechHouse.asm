@@ -16,19 +16,36 @@ VermilionMagnetTrainSpeechHouseYoungsterScript:
 VermilionMagnetTrainSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-VermilionMagnetTrainSpeechHousePokefanFText: ; AUTOTRAD
+VermilionMagnetTrainSpeechHousePokefanFText: 
+if DEF(_FR_FR)
+	text "Tu connais le"
+	line "TRAIN MAGNET?"
+
+	para "C'est un train qui"
+	line "va à DOUBLONVILLE"
+	cont "à JOHTO."
+else
 	text "Do you know about"
 	line "the MAGNET TRAIN?"
 
 	para "It's a railway"
 	line "that goes to GOL-"
 	cont "DENROD in JOHTO."
+endc
+
 	done
 
-VermilionMagnetTrainSpeechHouseYoungsterText: ; AUTOTRAD
+VermilionMagnetTrainSpeechHouseYoungsterText: 
+if DEF(_FR_FR)
+	text "Je veux aller à"
+	line "SAFRANIA pour voir"
+	cont "le TRAIN MAGNET."
+else
 	text "I want to go to"
 	line "SAFFRON to see"
 	cont "the MAGNET TRAIN."
+endc
+
 	done
 
 VermilionMagnetTrainSpeechHouse_MapEvents:

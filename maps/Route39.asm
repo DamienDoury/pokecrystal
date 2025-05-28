@@ -274,23 +274,51 @@ Route39_IMeanText: ; TO TRANSLATE
 	line "sanitary measures!"
 	done
 
-Route39MiltankText: ; AUTOTRAD
+Route39MiltankText: 
+if DEF(_FR_FR)
+	text "ECREMEUH: Meuh!"
+else
 	text "MILTANK: Mooo!"
+endc
+
 	done
 
-SailorEugeneSeenText: ; AUTOTRAD
+SailorEugeneSeenText: 
+if DEF(_FR_FR)
+	text "Je reviens de"
+	line "OLIVILLE."
+
+	para "Ca te dit un p'tit"
+	line "combat #MON?"
+else
 	text "I just got back to"
 	line "OLIVINE."
 
 	para "So how about a"
 	line "#MON battle?"
+endc
+
 	done
 
-SailorEugeneBeatenText: ; AUTOTRAD
+SailorEugeneBeatenText: 
+if DEF(_FR_FR)
 	text "Awaaargh!"
+else
+	text "Awaaargh!"
+endc
+
 	done
 
-SailorEugeneAfterBattleText: ; AUTOTRAD
+SailorEugeneAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai attrapé et"
+	line "entraîné mes #-"
+	cont "MON à l'étranger."
+
+	para "Ils m'accompagnent"
+	line "pendant mes longs"
+	cont "voyages."
+else
 	text "My #MON were"
 	line "caught and raised"
 	cont "overseas."
@@ -298,20 +326,40 @@ SailorEugeneAfterBattleText: ; AUTOTRAD
 	para "They're my compan-"
 	line "ions on those long"
 	cont "voyages."
+endc
+
 	done
 
-PokefanmDerekSeenText: ; AUTOTRAD
+PokefanmDerekSeenText: 
+if DEF(_FR_FR)
+	text "Moi je crâne avec"
+	line "mon PIKACHU!"
+else
 	text "This is a good"
 	line "time to brag about"
 	cont "my PIKACHU!"
+endc
+
 	done
 
-PokefanmDerekBeatenText: ; AUTOTRAD
+PokefanmDerekBeatenText: 
+if DEF(_FR_FR)
+	text "J'ai pas pu"
+	line "crâner..."
+else
 	text "I had no time to"
 	line "show off PIKACHU…"
+endc
+
 	done
 
-PokefanMDerekText_NotBragging: ; AUTOTRAD
+PokefanMDerekText_NotBragging: 
+if DEF(_FR_FR)
+	text "Ne te vante pas!"
+	line "Moi j'aime pas"
+	cont "ceux qui se"
+	cont "vantent!"
+else
 	text "I'm not listening"
 	line "to your bragging!"
 
@@ -320,33 +368,66 @@ PokefanMDerekText_NotBragging: ; AUTOTRAD
 
 	para "listening to other"
 	line "people brag!"
+endc
+
 	done
 
-PokefanfRuthSeenText: ; AUTOTRAD
+PokefanfRuthSeenText: 
+if DEF(_FR_FR)
+	text "Les jolis"
+	line "#MON."
+
+	para "Allez! On se les"
+	line "montre en même"
+	cont "temps, OK?"
+else
 	text "Such darling"
 	line "#MON."
 
 	para "Let's show our"
 	line "#MON together"
 	cont "at the same time."
+endc
+
 	done
 
-PokefanfRuthBeatenText: ; AUTOTRAD
+PokefanfRuthBeatenText: 
+if DEF(_FR_FR)
+	text "J'm'en fiche si je"
+	line "perds."
+else
 	text "I don't mind"
 	line "losing."
+endc
+
 	done
 
-PokefanfRuthAfterBattleText: ; AUTOTRAD
+PokefanfRuthAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu connais les"
+	line "bébés #MON?"
+
+	para "Ils sont siiii"
+	line "mignooons!"
+else
 	text "Do you know about"
 	line "baby #MON?"
 
 	para "I bet they're just"
 	line "adorable!"
+endc
+
 	done
 
-PokefanMDerekPikachuIsItText: ; AUTOTRAD
+PokefanMDerekPikachuIsItText: 
+if DEF(_FR_FR)
+	text "PIKACHU est cool!"
+	line "Tu ne trouves pas?"
+else
 	text "PIKACHU is it!"
 	line "Don't you agree?"
+endc
+
 	done
 
 PsychicNormanSeenText: ; TO TRANSLATE
@@ -375,24 +456,58 @@ PsychicNormanAfterBattleText: ; TO TRANSLATE
 	para "It's so sad…"
 	done
 
-PokefanfJaimeHopeItGetsDarkText: ; AUTOTRAD
+PokefanfJaimeHopeItGetsDarkText: 
+if DEF(_FR_FR)
+	text "Hin hin hin..."
+	line "Il va faire nuit."
+else
 	text "Ufufufu… I hope it"
 	line "gets dark soon."
+endc
+
 	done
 
-PokefanfJaimeSeenText: ; AUTOTRAD
+PokefanfJaimeSeenText: 
+if DEF(_FR_FR)
+	text "Tu viens au bon"
+	line "moment."
+
+	para "COMBAT."
+else
 	text "You came at just"
 	line "the right time."
 
 	para "Let's battle."
+endc
+
 	done
 
-PokefanfJaimeBeatenText: ; AUTOTRAD
+PokefanfJaimeBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, quel dommage!"
+else
 	text "Oh, how disap-"
 	line "pointing…"
+endc
+
 	done
 
-PokefanfJaimeAfterBattleText: ; AUTOTRAD
+PokefanfJaimeAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai vu MIAOUSS la"
+	line "nuit, ici sur la"
+	cont "ROUTE 39."
+
+	para "Je ne sais pas"
+	line "pourquoi mais il"
+
+	para "aime s'entraîner"
+	line "ici."
+
+	para "Il devient plus"
+	line "amical de cette"
+	cont "façon..."
+else
 	text "I met my MEOWTH at"
 	line "night, right here"
 	cont "on ROUTE 39."
@@ -408,23 +523,57 @@ PokefanfJaimeAfterBattleText: ; AUTOTRAD
 
 	para "training here than"
 	line "anywhere else."
+endc
+
 	done
 
-Route39SignText: ; AUTOTRAD
+Route39SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 39"
+
+	para "OLIVILLE -"
+	line "ROSALIA"
+else
 	text "ROUTE 39"
 
 	para "OLIVINE CITY -"
 	line "ECRUTEAK CITY"
+endc
+
 	done
 
-MoomooFarmSignText: ; AUTOTRAD
+MoomooFarmSignText: 
+if DEF(_FR_FR)
+	text "RANCH MEUMEU"
+
+	para "Le meilleur lait"
+	line "sur le marché!"
+else
 	text "MOOMOO FARM"
 
 	para "Enjoy Our Fresh"
 	line "and Tasty Milk"
+endc
+
 	done
 
-Route39TrainerTipsText: ; AUTOTRAD
+Route39TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Un COUP D'BOULE"
+	line "sur les arbres"
+	cont "peut faire tomber"
+	cont "des #MON."
+
+	para "Des #MON diffé-"
+	line "rents vivent dans"
+	cont "les arbres."
+
+	para "Donnez des COUPS"
+	line "D'BOULE et vous"
+	cont "verrez!"
+else
 	text "TRAINER TIPS"
 
 	para "Use HEADBUTT on"
@@ -437,6 +586,8 @@ Route39TrainerTipsText: ; AUTOTRAD
 
 	para "Use HEADBUTT on"
 	line "any tree you see!"
+endc
+
 	done
 
 Route39_MapEvents:

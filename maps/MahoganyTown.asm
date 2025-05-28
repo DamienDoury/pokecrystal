@@ -57,13 +57,29 @@ MahoganyTownPokecenterSign:
 MahoganyTown_DoorScript:
 	jumpstd LockdownCurfewClosedDoor
 
-MahoganyTownGrampsText: ; AUTOTRAD
+MahoganyTownGrampsText: 
+if DEF(_FR_FR)
+	text "Sors-tu pour voir"
+	line "le LEVIATOR"
+	cont "déchaîné au LAC?"
+else
 	text "Are you off to see"
 	line "the GYARADOS ram-"
 	cont "page at the LAKE?"
+endc
+
 	done
 
-MahoganyTownGrampsText_ClearedRocketHideout: ; AUTOTRAD
+MahoganyTownGrampsText_ClearedRocketHideout: 
+if DEF(_FR_FR)
+	text "Des MAGICARPE sont"
+	line "revenus au LAC"
+	cont "COLERE."
+
+	para "Ca devrait faire"
+	line "plaisir aux"
+	cont "pêcheurs du coin."
+else
 	text "MAGIKARP have"
 	line "returned to LAKE"
 	cont "OF RAGE."
@@ -71,21 +87,40 @@ MahoganyTownGrampsText_ClearedRocketHideout: ; AUTOTRAD
 	para "That should be"
 	line "good news for the"
 	cont "anglers there."
+endc
+
 	done
 
-MahoganyTownLassText: ; AUTOTRAD
+MahoganyTownLassText: 
+if DEF(_FR_FR)
+	text "Va voir la"
+	line "boutique de mémé."
+
+	para "Elle vend des"
+	line "trucs incroyables."
+else
 	text "Visit Grandma's"
 	line "shop. She sells"
 
 	para "stuff that nobody"
 	line "else has."
+endc
+
 	done
 
-MahoganyTownSignText: ; AUTOTRAD
+MahoganyTownSignText: 
+if DEF(_FR_FR)
+	text "ACAJOU"
+
+	para "Bienvenue chez"
+	line "le grand ninja"
+else
 	text "MAHOGANY TOWN"
 
 	para "Welcome to the"
 	line "Home of the Ninja"
+endc
+
 	done
 
 MahoganyTownRagecandybarSignText: ; TO TRANSLATE
@@ -95,13 +130,22 @@ MahoganyTownRagecandybarSignText: ; TO TRANSLATE
 	cont "a CAKE OF RAGE!"
 	done
 
-MahoganyGymSignText: ; AUTOTRAD
+MahoganyGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'ACAJOU: FREDO"
+
+	para "Le prof. qui"
+	line "venait du froid"
+else
 	text "MAHOGANY TOWN"
 	line "#MON GYM"
 	cont "LEADER: PRYCE"
 
 	para "The Teacher of"
 	line "Winter's Harshness"
+endc
+
 	done
 
 MahoganyTown_MapEvents:

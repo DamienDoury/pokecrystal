@@ -327,42 +327,91 @@ Route45LevelIncrease:
 .end
 	end
 
-HikerErikSeenText: ; AUTOTRAD
+HikerErikSeenText: 
+if DEF(_FR_FR)
+	text "Attends-toi à"
+	line "l'impossible!"
+
+	para "Montre si tes"
+	line "#MON ont bien"
+	cont "été entraînés!"
+else
 	text "Be prepared for"
 	line "anything!"
 
 	para "Let me see if your"
 	line "#MON have been"
 	cont "raised properly!"
+endc
+
 	done
 
-HikerErikBeatenText: ; AUTOTRAD
+HikerErikBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Perdu!"
+else
 	text "Oh, I lost that!"
+endc
+
 	done
 
-HikerErikAfterBattleText: ; AUTOTRAD
+HikerErikAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je retourne à la"
+	line "ROUTE DE GLACE"
+
+	para "d'EBENELLE pour"
+	line "m'entraîner."
+else
 	text "I'll head back to"
 	line "BLACKTHORN's ICE"
 
 	para "PATH and train"
 	line "some more."
+endc
+
 	done
 
-HikerMichaelSeenText: ; AUTOTRAD
+HikerMichaelSeenText: 
+if DEF(_FR_FR)
+	text "Toi, tu crains!"
+	line "Tu le sais, ça?"
+
+	para "Alors il faut se"
+	line "battre. Parce que"
+	cont "j't'aime pas!"
+else
 	text "Yo! You're spunky!"
 	line "But you know what?"
 
 	para "When it comes to"
 	line "sheer spunkiness,"
 	cont "I'm the man!"
+endc
+
 	done
 
-HikerMichaelBeatenText: ; AUTOTRAD
+HikerMichaelBeatenText: 
+if DEF(_FR_FR)
+	text "Bien joué!"
+else
 	text "My #MON weren't"
 	line "spunky enough!"
+endc
+
 	done
 
-HikerMichaelAfterBattleText: ; AUTOTRAD
+HikerMichaelAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'aime les"
+	line "PV PLUS! Mmmm!"
+
+	para "C'est pour les"
+	line "#MON mais j'en"
+	cont "bois quand même!"
+
+	para "C'est trop bon!"
+else
 	text "Boy, do I love"
 	line "HP UP! Mmmm, yum!"
 
@@ -370,27 +419,62 @@ HikerMichaelAfterBattleText: ; AUTOTRAD
 	line "#MON's!"
 
 	para "I can't help it!"
+endc
+
 	done
 
-HikerParry3SeenText: ; AUTOTRAD
+HikerParry3SeenText: 
+if DEF(_FR_FR)
+	text "J'ai super boosté"
+	line "mes #MON!"
+else
 	text "My #MON are"
 	line "power packed!"
+endc
+
 	done
 
-HikerParry3BeatenText: ; AUTOTRAD
+HikerParry3BeatenText: 
+if DEF(_FR_FR)
+	text "Wahahah!"
+	line "J'suis nul!"
+else
 	text "Wahahah! I'm the"
 	line "big loser!"
+endc
+
 	done
 
-HikerParryAfterBattleText: ; AUTOTRAD
+HikerParryAfterBattleText: 
+if DEF(_FR_FR)
+	text "Réfléchir, c'est"
+	line "pas mon truc."
+
+	para "Alors, je cogne."
+else
 	text "I'm not much good"
 	line "at thinking, see?"
 
 	para "So, I just plow"
 	line "ahead with power!"
+endc
+
 	done
 
-HikerTimothySeenText: ; AUTOTRAD
+HikerTimothySeenText: 
+if DEF(_FR_FR)
+	text "Pourquoi j'aime"
+	line "l'escalade?"
+
+	para "Parce que j'aime"
+	line "la montagne."
+
+	para "Pourquoi j'aime"
+	line "les #MON?"
+
+	para "Parce que j'aime"
+	line "combattre!"
+else
 	text "Why do I climb"
 	line "mountains?"
 
@@ -402,22 +486,52 @@ HikerTimothySeenText: ; AUTOTRAD
 
 	para "Because they're"
 	line "there!"
+endc
+
 	done
 
-HikerTimothyBeatenText: ; AUTOTRAD
+HikerTimothyBeatenText: 
+if DEF(_FR_FR)
+	text "Mais..."
+	line "J'aime pas perdre!"
+else
 	text "Losses…"
 	line "They're there too!"
+endc
+
 	done
 
-HikerTimothyAfterBattleText: ; AUTOTRAD
+HikerTimothyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Découvrir le monde"
+	line "merveilleux des"
+
+	para "#MON a été un"
+	line "grand bonheur."
+else
 	text "The best thing to"
 	line "ever happen to me"
 
 	para "was discovering"
 	line "#MON."
+endc
+
 	done
 
-HikerParryGivesIronText: ; AUTOTRAD
+HikerParryGivesIronText: 
+if DEF(_FR_FR)
+	text "Je n'arrive pas"
+	line "à gagner!"
+
+	para "Courage!"
+
+	para "Oh, prends ça..."
+	line "C'est le truc que"
+
+	para "tu ne pouvais pas"
+	line "prendre la derniè-"
+	cont "re fois."
+else
 	text "I just can't find"
 	line "a way to win!"
 
@@ -428,36 +542,79 @@ HikerParryGivesIronText: ; AUTOTRAD
 
 	para "you couldn't take"
 	line "when we last met."
+endc
+
 	done
 
-BlackbeltKenji3SeenText: ; AUTOTRAD
+BlackbeltKenji3SeenText: 
+if DEF(_FR_FR)
+	text "Je m'entraîne en"
+	line "solitaire."
+
+	para "Et voilà le"
+	line "résultat!"
+else
 	text "I was training"
 	line "here alone."
 
 	para "Behold the fruits"
 	line "of my labor!"
+endc
+
 	done
 
-BlackbeltKenji3BeatenText: ; AUTOTRAD
+BlackbeltKenji3BeatenText: 
+if DEF(_FR_FR)
 	text "Waaaargh!"
+else
+	text "Waaaargh!"
+endc
+
 	done
 
-BlackbeltKenjiAfterBattleText: ; AUTOTRAD
+BlackbeltKenjiAfterBattleText: 
+if DEF(_FR_FR)
+	text "Parfait..."
+	line "Tu l'auras voulu."
+
+	para "Je vais encore"
+	line "m'entraîner en"
+	cont "solitaire."
+else
 	text "This calls for"
 	line "extreme measures."
 
 	para "I must take to the"
 	line "hills and train in"
 	cont "solitude."
+endc
+
 	done
 
-BlackbeltKenjiMorningText: ; AUTOTRAD
+BlackbeltKenjiMorningText: 
+if DEF(_FR_FR)
+	text "Je vais encore"
+	line "m'entraîner avant"
+	cont "de bouffer."
+else
 	text "I'm going to train"
 	line "a bit more before"
 	cont "I break for lunch."
+endc
+
 	done
 
-BlackbeltKenjiNightText: ; AUTOTRAD
+BlackbeltKenjiNightText: 
+if DEF(_FR_FR)
+	text "On a tous bouffé"
+	line "comme des malades!"
+
+	para "On a la super"
+	line "pêche!"
+
+	para "On va encore"
+	line "s'entraîner!"
+else
 	text "We had plenty of"
 	line "rest at lunch, so"
 
@@ -466,20 +623,43 @@ BlackbeltKenjiNightText: ; AUTOTRAD
 
 	para "We're going to"
 	line "train again!"
+endc
+
 	done
 
-CooltrainermRyanSeenText: ; AUTOTRAD
+CooltrainermRyanSeenText: 
+if DEF(_FR_FR)
+	text "Comment tu fais"
+	line "pour entraîner tes"
+	cont "#MON?"
+else
 	text "What are your"
 	line "thoughts on rais-"
 	cont "ing #MON?"
+endc
+
 	done
 
-CooltrainermRyanBeatenText: ; AUTOTRAD
+CooltrainermRyanBeatenText: 
+if DEF(_FR_FR)
+	text "Respect."
+	line "Bravo."
+else
 	text "You've won my"
 	line "respect."
+endc
+
 	done
 
-CooltrainermRyanAfterBattleText: ; AUTOTRAD
+CooltrainermRyanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vois que tu"
+	line "prends soin de tes"
+	cont "#MON."
+
+	para "Votre amitié vous"
+	line "sauvera."
+else
 	text "I see you're rais-"
 	line "ing your #MON"
 	cont "with care."
@@ -487,22 +667,49 @@ CooltrainermRyanAfterBattleText: ; AUTOTRAD
 	para "The bond you build"
 	line "will save you in"
 	cont "tough situations."
+endc
+
 	done
 
-CooltrainerfKellySeenText: ; AUTOTRAD
+CooltrainerfKellySeenText: 
+if DEF(_FR_FR)
+	text "Quelle est ta"
+	line "stratégie?"
+
+	para "Utiliser des capa-"
+	line "cités puissantes"
+	cont "au hasard ne sert"
+	cont "à rien."
+else
 	text "What is your"
 	line "battle strategy?"
 
 	para "It is foolish to"
 	line "use strong moves"
 	cont "indiscriminately."
+endc
+
 	done
 
-CooltrainerfKellyBeatenText: ; AUTOTRAD
+CooltrainerfKellyBeatenText: 
+if DEF(_FR_FR)
+	text "Bien. Perdu."
+else
 	text "Fine. I lost."
+endc
+
 	done
 
-CooltrainerfKellyAfterBattleText: ; AUTOTRAD
+CooltrainerfKellyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'aime pas les"
+	line "attaques puissan-"
+	cont "tes."
+
+	para "Ca ne me fait pas"
+	line "plaisir de faire"
+	cont "mal aux #MON."
+else
 	text "I'm not in favor"
 	line "of overly power-"
 	cont "ful moves."
@@ -510,29 +717,58 @@ CooltrainerfKellyAfterBattleText: ; AUTOTRAD
 	para "I want to win, but"
 	line "I also don't want"
 	cont "to harm #MON."
+endc
+
 	done
 
-CamperQuentinSeenText: ; AUTOTRAD
+CamperQuentinSeenText: 
+if DEF(_FR_FR)
+	text "Trop de la balle!"
+else
 	text "I'm really, really"
 	line "tough!"
+endc
+
 	done
 
-CamperQuentinBeatenText: ; AUTOTRAD
+CamperQuentinBeatenText: 
+if DEF(_FR_FR)
+	text "La TOUR DE COMBAT"
+	line "c'est de la balle!"
+else
 	text "I was tough at the"
 	line "BATTLE TOWER…"
+endc
+
 	done
 
-CamperQuentinAfterBattleText: ; AUTOTRAD
+CamperQuentinAfterBattleText: 
+if DEF(_FR_FR)
+	text "As-tu visité la"
+	line "TOUR DE COMBAT?"
+
+	para "Je ne perds jamais"
+	line "là-bas..."
+else
 	text "Have you been to"
 	line "the BATTLE TOWER?"
 
 	para "I never, ever lose"
 	line "there, but…"
+endc
+
 	done
 
-Route45SignText: ; AUTOTRAD
+Route45SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 45"
+	line "CHEMIN de MONTAGNE"
+	cont "Tout droit"
+else
 	text "ROUTE 45"
 	line "MOUNTAIN RD. AHEAD"
+endc
+
 	done
 
 Route45_MapEvents:

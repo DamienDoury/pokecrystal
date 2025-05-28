@@ -28,16 +28,37 @@ GoldenrodDeptStore3FDirectory:
 GoldenrodDeptStore3FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodDeptStore3FSuperNerdText: ; AUTOTRAD
+GoldenrodDeptStore3FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Je suis super"
+	line "speed!"
+
+	para "J'utilise"
+	line "VITESSE + pour"
+	cont "booster mon"
+	cont "#MON."
+else
 	text "I, I, I'm really"
 	line "impatient!"
 
 	para "I use X SPEED in"
 	line "battle to speed up"
 	cont "my #MON."
+endc
+
 	done
 
-GoldenrodDeptStore3FRockerText: ; AUTOTRAD
+GoldenrodDeptStore3FRockerText: 
+if DEF(_FR_FR)
+	text "Hé! Quand tu te"
+	line "bats, utilises-tu"
+	cont "du SPECIAL +?"
+
+	para "C'est impression-"
+	line "nant! Ca booste"
+	cont "vraiment ta stat"
+	cont "d'ATQ.SPE!"
+else
 	text "Hey! When you bat-"
 	line "tle, do you use X"
 	cont "SPECIAL?"
@@ -45,14 +66,25 @@ GoldenrodDeptStore3FRockerText: ; AUTOTRAD
 	para "It's awesome. It"
 	line "really jacks up"
 	cont "SPECIAL ATTACK!"
+endc
+
 	done
 
-GoldenrodDeptStore3FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore3FDirectoryText: 
+if DEF(_FR_FR)
+	text "Pour ceux qui"
+	line "aiment gagner"
+
+	para "2EME COLLECTION"
+	line "     DE COMBAT"
+else
 	text "For Victory"
 	line "Seekers"
 
 	para "3F BATTLE"
 	line "   COLLECTION"
+endc
+
 	done
 
 GoldenrodDeptStore3F_MapEvents:

@@ -59,23 +59,44 @@ FuchsiaPokecenter1FJanineImpersonatorSpinMovement:
 	turn_head DOWN
 	step_end
 
-FuchsiaPokecenter1FCooltrainerFText: ; AUTOTRAD
+FuchsiaPokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "J'me suis fait"
+	line "battre à l'ARENE."
+
+	para "Toutes les filles"
+	line "s'y ressemblent!"
+else
 	text "I got quite a"
 	line "shock at the GYM."
 
 	para "There were all"
 	line "these girls who"
 	cont "looked identical."
+endc
+
 	done
 
-FuchsiaPokecenter1FJanineImpersonatorText1: ; AUTOTRAD
+FuchsiaPokecenter1FJanineImpersonatorText1: 
+if DEF(_FR_FR)
+	text "J'suis JEANNINE!"
+	line "Abracadabra!"
+else
 	text "I'm JANINE! Hocus-"
 	line "pocus… Poof!"
+endc
+
 	done
 
-FuchsiaPokecenter1FJanineImpersonatorText2: ; AUTOTRAD
+FuchsiaPokecenter1FJanineImpersonatorText2: 
+if DEF(_FR_FR)
+	text "Tu vois? Je lui"
+	line "ressemble, non?"
+else
 	text "See? I look just"
 	line "like her now!"
+endc
+
 	done
 
 FuchsiaPokecenter1F_MapEvents:

@@ -53,15 +53,23 @@ MobileBattleRoomConsoleScript:
 	closetext
 	end
 
-MobileBattleRoom_EstablishingCommsText: ; AUTOTRAD
+MobileBattleRoom_EstablishingCommsText: 
+if DEF(_FR_FR)
+else
 	text "Establishing"
 	line "communications…"
+endc
+
 	done
 
-MobileBattleRoom_HealText: ; AUTOTRAD
+MobileBattleRoom_HealText: 
+if DEF(_FR_FR)
+else
 	text "Your #MON will"
 	line "be fully healed"
 	cont "before battle."
+endc
+
 	done
 
 MobileBattleRoom_MapEvents:

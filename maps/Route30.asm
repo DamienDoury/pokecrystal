@@ -264,19 +264,43 @@ Route30_MikeysRattataAttacksMovement:
 	remove_sliding
 	step_end
 
-Text_UseTackle: ; AUTOTRAD
+Text_UseTackle: 
+if DEF(_FR_FR)
+	text "Allez, RATTATA!"
+
+	para "CHARGE!"
+else
 	text "Go, RATTATA!"
 
 	para "TACKLE!"
+endc
+
 	done
 
-Text_ThisIsABigBattle: ; AUTOTRAD
+Text_ThisIsABigBattle: 
+if DEF(_FR_FR)
+	text "Quoi? C'est un"
+	line "grand combat!"
+	cont "Laisse-moi!"
+else
 	text "What? This is a"
 	line "big battle!"
 	cont "Leave me alone!"
+endc
+
 	done
 
-YoungsterJoey1SeenText: ; AUTOTRAD
+YoungsterJoey1SeenText: 
+if DEF(_FR_FR)
+	text "Je viens de perdre"
+	line "et j'essaie donc"
+	cont "d'attraper plus de"
+	cont "#MON."
+
+	para "Au fait! Tu as"
+	line "l'air faible, toi!"
+	cont "COMBAT!"
+else
 	text "I just lost, so"
 	line "I'm trying to find"
 	cont "more #MON."
@@ -284,14 +308,32 @@ YoungsterJoey1SeenText: ; AUTOTRAD
 	para "Wait! You look"
 	line "weak! Come on,"
 	cont "let's battle!"
+endc
+
 	done
 
-YoungsterJoey1BeatenText: ; AUTOTRAD
+YoungsterJoey1BeatenText: 
+if DEF(_FR_FR)
+	text "Encore perdu!"
+	line "Zut de flûte!"
+else
 	text "Ack! I lost again!"
 	line "Doggone it!"
+endc
+
 	done
 
-YoungsterJoey1AfterText: ; AUTOTRAD
+YoungsterJoey1AfterText: 
+if DEF(_FR_FR)
+	text "Dois-je choper"
+	line "plus de #MON"
+
+	para "pour gagner des"
+	line "combats?"
+
+	para "Non! Je reste"
+	line "avec celui-ci!"
+else
 	text "Do I have to have"
 	line "more #MON in"
 
@@ -301,6 +343,8 @@ YoungsterJoey1AfterText: ; AUTOTRAD
 	para "No! I'm sticking"
 	line "with this one no"
 	cont "matter what!"
+endc
+
 	done
 
 YoungsterMikeySeenText: ; TO TRANSLATE
@@ -338,63 +382,142 @@ YoungsterMikeyAfterText: ; TO TRANSLATE
 	line "others."
 	done
 
-BugCatcherDonSeenText: ; AUTOTRAD
+BugCatcherDonSeenText: 
+if DEF(_FR_FR)
+	text "Tiens..."
+	line "T'es qui toi?"
+else
 	text "Instead of a bug"
 	line "#MON, I found"
 	cont "a trainer!"
+endc
+
 	done
 
-BugCatcherDonBeatenText: ; AUTOTRAD
+BugCatcherDonBeatenText: 
+if DEF(_FR_FR)
+	text "Ah. T'es pas"
+	line "cool, toi!"
+else
 	text "Argh! You're too"
 	line "strong!"
+endc
+
 	done
 
-BugCatcherDonAfterText: ; AUTOTRAD
+BugCatcherDonAfterText: 
+if DEF(_FR_FR)
+	text "J'ai utilisé ma"
+	line "dernière # BALL"
+	cont "pendant une chasse"
+	cont "au #MON."
+
+	para "J'aurais dû en"
+	line "acheter plus..."
+else
 	text "I ran out of #"
 	line "BALLS while I was"
 	cont "catching #MON."
 
 	para "I should've bought"
 	line "some more…"
+endc
+
 	done
 
-Route30YoungsterText_DirectionsToMrPokemonsHouse: ; AUTOTRAD
+Route30YoungsterText_DirectionsToMrPokemonsHouse: 
+if DEF(_FR_FR)
+	text "La maison de"
+	line "M.#MON? C'est"
+	cont "un peu plus loin."
+else
 	text "MR.#MON's"
 	line "house? It's a bit"
 	cont "farther ahead."
+endc
+
 	done
 
-Route30YoungsterText_EveryoneIsBattling: ; AUTOTRAD
+Route30YoungsterText_EveryoneIsBattling: 
+if DEF(_FR_FR)
+	text "Combattre c'est"
+	line "marrant! Tu"
+	cont "devrais essayer!"
+else
 	text "Everyone's having"
 	line "fun battling!"
 	cont "You should too!"
+endc
+
 	done
 
-Route30CooltrainerFText: ; AUTOTRAD
+Route30CooltrainerFText: 
+if DEF(_FR_FR)
+	text "Je ne suis pas"
+	line "dresseur."
+
+	para "Mais si tu regar-"
+	line "des quelqu'un dans"
+	cont "les yeux, prépare-"
+	cont "toi à combattre."
+else
 	text "I'm not a trainer."
 
 	para "But if you look"
 	line "one in the eyes,"
 	cont "prepare to battle."
+endc
+
 	done
 
-Route30SignText: ; AUTOTRAD
+Route30SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 30"
+
+	para "MAUVILLE -"
+	line "VILLE GRIOTTE"
+else
 	text "ROUTE 30"
 
 	para "VIOLET CITY -"
 	line "CHERRYGROVE CITY"
+endc
+
 	done
 
-MrPokemonsHouseDirectionsSignText: ; AUTOTRAD
+MrPokemonsHouseDirectionsSignText: 
+if DEF(_FR_FR)
+	text "CHEZ M.#MON"
+	line "C'est tout droit!"
+else
 	text "MR.#MON'S HOUSE"
 	line "STRAIGHT AHEAD!"
+endc
+
 	done
 
-MrPokemonsHouseSignText: ; AUTOTRAD
+MrPokemonsHouseSignText: 
+if DEF(_FR_FR)
+	text "CHEZ M.#MON"
+else
 	text "MR.#MON'S HOUSE"
+endc
+
 	done
 
-Route30TrainerTipsText: ; AUTOTRAD
+Route30TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "On ne vole pas les"
+	line "#MON des"
+	cont "autres!"
+
+	para "Les # BALLS"
+	line "sont faites pour"
+	cont "attraper les #-"
+	cont "MON sauvages!"
+else
 	text "TRAINER TIPS"
 
 	para "No stealing other"
@@ -403,9 +526,25 @@ Route30TrainerTipsText: ; AUTOTRAD
 	para "# BALLS are to"
 	line "be thrown only at"
 	cont "wild #MON!"
+endc
+
 	done
 
-YoungsterJoeyText_GiveHPUpAfterBattle: ; AUTOTRAD
+YoungsterJoeyText_GiveHPUpAfterBattle: 
+if DEF(_FR_FR)
+	text "Encore perdu..."
+	line "T'y vas fort!"
+
+	para "Oh oui."
+	line "Je dois te donner"
+	cont "ça."
+
+	para "Ca améliore quel-"
+	line "que chose..."
+
+	para "Me demande pas"
+	line "quoi..."
+else
 	text "I lost again…"
 	line "Gee, you're tough!"
 
@@ -418,6 +557,8 @@ YoungsterJoeyText_GiveHPUpAfterBattle: ; AUTOTRAD
 
 	para "I'm going to get"
 	line "tougher too."
+endc
+
 	done
 
 Route30_MapEvents:

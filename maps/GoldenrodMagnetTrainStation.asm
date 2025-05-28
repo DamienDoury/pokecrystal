@@ -125,12 +125,22 @@ GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText: ; TO TRANSLATE
 	cont "remains effective."
 	done
 
-GoldenrodMagnetTrainStationOfficerAreYouComingAboardText: ; AUTOTRAD
+GoldenrodMagnetTrainStationOfficerAreYouComingAboardText: 
+if DEF(_FR_FR)
+	text "Nous allons bien-"
+	line "tôt partir pour"
+	cont "SAFRANIA."
+
+	para "Vous montez"
+	line "à bord?"
+else
 	text "We'll soon depart"
 	line "for SAFFRON."
 
 	para "Are you coming"
 	line "aboard?"
+endc
+
 	done
 
 GoldenrodMagnetTrainStationOfficerShowRailPassText: ; TO TRANSLATE
@@ -157,7 +167,21 @@ GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText: ; TO TRANSLATE
 	line "GOLDENROD."
 	done
 
-GoldenrodMagnetTrainStationGentlemanText: ; AUTOTRAD
+GoldenrodMagnetTrainStationGentlemanText: 
+if DEF(_FR_FR)
+	text "Je suis le"
+	line "PRESIDENT."
+
+	para "Mon rêve était de"
+	line "construire un"
+
+	para "train plus rapide"
+	line "que n'importe quel"
+	cont "#MON."
+
+	para "Cela rapproche"
+	line "JOHTO de KANTO."
+else
 	text "I'm the PRESIDENT."
 
 	para "My dream was to"
@@ -169,6 +193,8 @@ GoldenrodMagnetTrainStationGentlemanText: ; AUTOTRAD
 	para "It really brings"
 	line "JOHTO much closer"
 	cont "to KANTO."
+endc
+
 	done
 
 GoldenrodMagnetTrainStationTwinText: ; TO TRANSLATE

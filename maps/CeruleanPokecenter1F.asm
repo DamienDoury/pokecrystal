@@ -26,7 +26,19 @@ CeruleanPokecenter1FSuperNerdScript:
 CeruleanPokecenter1FGymGuideScript:
 	jumptextfaceplayer CeruleanPokecenter1FGymGuideText
 
-CeruleanPokecenter1FSuperNerdText: ; AUTOTRAD
+CeruleanPokecenter1FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Pour les combats,"
+	line "je préfère utili-"
+
+	para "ser des #MON"
+	line "que j'ai entraînés"
+
+	para "plutôt que des"
+	line "#MON plus forts"
+	cont "que je viens"
+	cont "d'attraper."
+else
 	text "For battles, I'd"
 	line "much rather use"
 
@@ -36,9 +48,13 @@ CeruleanPokecenter1FSuperNerdText: ; AUTOTRAD
 	para "they're weaker"
 	line "than some newly"
 	cont "caught #MON."
+endc
+
 	done
 
-CeruleanPokecenter1FSuperNerdText_Mobile: ; AUTOTRAD
+CeruleanPokecenter1FSuperNerdText_Mobile: 
+if DEF(_FR_FR)
+else
 	text "Do you battle by"
 	line "mobile phone?"
 
@@ -48,9 +64,22 @@ CeruleanPokecenter1FSuperNerdText_Mobile: ; AUTOTRAD
 	para "waiting to see who"
 	line "won is really"
 	cont "nerve wracking."
+endc
+
 	done
 
-CeruleanPokecenter1FGymGuideText: ; AUTOTRAD
+CeruleanPokecenter1FGymGuideText: 
+if DEF(_FR_FR)
+	text "Le TRAIN MAGNET"
+	line "fait du 550!"
+
+	para "Il va de KANTO"
+	line "à JOHTO en un"
+	cont "rien de temps."
+
+	para "Aller à JOHTO est"
+	line "alors très facile."
+else
 	text "The MAGNET TRAIN"
 	line "travels at over"
 
@@ -62,6 +91,8 @@ CeruleanPokecenter1FGymGuideText: ; AUTOTRAD
 
 	para "It really makes"
 	line "JOHTO accessible."
+endc
+
 	done
 
 CeruleanPokecenter1F_MapEvents:

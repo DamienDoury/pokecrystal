@@ -27,10 +27,17 @@ BillsBrothersHouseYoungsterScript:
 	closetext
 	end
 
-BillsBrotherText: ; AUTOTRAD
+BillsBrotherText: 
+if DEF(_FR_FR)
+	text "Mon pépé est chez"
+	line "mon frère LEO au"
+	cont "CAP d'AZURIA."
+else
 	text "My grandpa is at "
 	line "my brother BILL's"
 	cont "on CERULEAN CAPE."
+endc
+
 	done
 
 BillsBrothersHouseYoungsterText: ; TO TRANSLATE

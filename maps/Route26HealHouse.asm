@@ -29,21 +29,40 @@ Route26HealHouseTeacherScript:
 Route26HealHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-Route26HealHouseRestAWhileText: ; AUTOTRAD
+Route26HealHouseRestAWhileText: 
+if DEF(_FR_FR)
+	text "Tes #MON ont"
+	line "l'air fatigué."
+
+	para "Tu devrais les"
+	line "soigner."
+else
 	text "Your #MON look"
 	line "a little tired."
 
 	para "You should rest"
 	line "them a while."
+endc
+
 	done
 
-Route26HealHouseKeepAtItText: ; AUTOTRAD
+Route26HealHouseKeepAtItText: 
+if DEF(_FR_FR)
+	text "Voilà!"
+
+	para "Tes #MON ont"
+	line "la patate!"
+
+	para "Courage!"
+else
 	text "There!"
 
 	para "Your #MON are"
 	line "looking good!"
 
 	para "Keep at it!"
+endc
+
 	done
 
 Route26HealHouse_MapEvents:

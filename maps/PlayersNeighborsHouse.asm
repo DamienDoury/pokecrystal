@@ -82,24 +82,49 @@ PlayersNeighborText: ; TO TRANSLATE
 	line "ELM's assistant."
 	done
 
-PlayerNeighborRadioText1: ; AUTOTRAD
+PlayerNeighborRadioText1: 
+if DEF(_FR_FR)
+	text "La CHRONIQUE PKMN"
+	line "du PROF.CHEN!"
+	cont "Bientôt de retour"
+	cont "sur les ondes!"
+else
 	text "PROF.OAK'S #MON"
 	line "TALK! Please tune"
 	cont "in next time!"
+endc
+
 	done
 
-PlayerNeighborRadioText2: ; AUTOTRAD
+PlayerNeighborRadioText2: 
+if DEF(_FR_FR)
+	text "ANTENNE #MON!"
+else
 	text "#MON CHANNEL!"
+endc
+
 	done
 
-PlayerNeighborRadioText3: ; AUTOTRAD
+PlayerNeighborRadioText3: 
+if DEF(_FR_FR)
+	text "Ici DJ LULA, votre"
+	line "co-présentatrice!"
+else
 	text "This is DJ MARY,"
 	line "your co-host!"
+endc
+
 	done
 
-PlayerNeighborRadioText4: ; AUTOTRAD
+PlayerNeighborRadioText4: 
+if DEF(_FR_FR)
+	text "#MON!"
+	line "ANTENNE #MON..."
+else
 	text "#MON!"
 	line "#MON CHANNEL…"
+endc
+
 	done
 
 PlayersNeighborsHouse_MapEvents:

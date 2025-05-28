@@ -41,8 +41,13 @@ TinTowerHoOh:
 .end
 	end
 
-HoOhText: ; AUTOTRAD
+HoOhText: 
+if DEF(_FR_FR)
 	text "Shaoooh!"
+else
+	text "Shaoooh!"
+endc
+
 	done
 
 TinTowerRoof_MapEvents:

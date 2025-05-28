@@ -25,16 +25,37 @@ CeladonPokecenter1FCooltrainerFScript:
 CeladonPokecenter1FPharmacistScript:
 	jumptextfaceplayer CeladonPokecenter1FPharmacistText	
 
-CeladonPokecenter1FCooltrainerFText: ; AUTOTRAD
+CeladonPokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "ERIKA est la"
+	line "maîtresse des"
+	cont "#MON des"
+	cont "plantes."
+
+	para "Fais attention ou"
+	line "tu le regretteras."
+else
 	text "ERIKA is a master"
 	line "of grass #MON."
 
 	para "She'll make you"
 	line "pay if you don't"
 	cont "watch yourself."
+endc
+
 	done
 
-CeladonPokecenter1FPharmacistText: ; AUTOTRAD
+CeladonPokecenter1FPharmacistText: 
+if DEF(_FR_FR)
+	text "La planque de la"
+	line "TEAM ROCKET est au"
+
+	para "sous-sol du"
+	line "CASINO."
+
+	para "Attends... C'était"
+	line "il y a 3 ans, ça."
+else
 	text "TEAM ROCKET's"
 	line "hideout is in the"
 
@@ -43,6 +64,8 @@ CeladonPokecenter1FPharmacistText: ; AUTOTRAD
 
 	para "Oh, wait. That was"
 	line "three years ago."
+endc
+
 	done
 
 CeladonPokecenter1F_MapEvents:

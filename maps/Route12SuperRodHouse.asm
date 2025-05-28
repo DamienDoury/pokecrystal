@@ -34,7 +34,18 @@ Route12SuperRodHouseFishingGuruScript:
 SuperRodHouseBookshelf: ; unreferenced
 	jumpstd PictureBookshelfScript
 
-OfferSuperRodText: ; AUTOTRAD
+OfferSuperRodText: 
+if DEF(_FR_FR)
+	text "Je suis le petit"
+	line "frère du MAITRE"
+	cont "PECHEUR."
+
+	para "Tu aimes la pêche,"
+	line "toi! Ca se voit."
+
+	para "J'ai raison, hein?"
+	line "Bien sûr que oui!"
+else
 	text "I'm the FISHING"
 	line "GURU's younger"
 	cont "brother."
@@ -47,18 +58,42 @@ OfferSuperRodText: ; AUTOTRAD
 
 	para "So? I know I'm"
 	line "right."
+endc
+
 	done
 
-GiveSuperRodText: ; AUTOTRAD
+GiveSuperRodText: 
+if DEF(_FR_FR)
+	text "Crénom de là!"
+	line "C'est ben vrai!"
+
+	para "Tiens boudiou!"
+	line "Prends ça: c'est"
+	cont "la MEGA CANNE."
+else
 	text "Yes, yes. Just as"
 	line "I thought!"
 
 	para "Here, fishing fan!"
 	line "Take this--it's a"
 	cont "SUPER ROD."
+endc
+
 	done
 
-GaveSuperRodText: ; AUTOTRAD
+GaveSuperRodText: 
+if DEF(_FR_FR)
+	text "Essaie de pêcher"
+	line "un peu partout où"
+	cont "il y a de l'eau."
+
+	para "Souviens-toi: tu"
+	line "peux attraper plu-"
+
+	para "sieurs #MON"
+	line "grâce à différen-"
+	cont "tes CANNES."
+else
 	text "Try your hand at"
 	line "fishing wherever"
 	cont "there is water."
@@ -68,11 +103,19 @@ GaveSuperRodText: ; AUTOTRAD
 
 	para "#MON using"
 	line "different RODS."
+endc
+
 	done
 
-DontWantSuperRodText: ; AUTOTRAD
+DontWantSuperRodText: 
+if DEF(_FR_FR)
+	text "Hein? On m'aurait"
+	line "trompé?"
+else
 	text "Huh? My own eyes"
 	line "deceived me?"
+endc
+
 	done
 
 Route12SuperRodHouse_MapEvents:

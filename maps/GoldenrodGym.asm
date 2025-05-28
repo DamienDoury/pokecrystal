@@ -291,7 +291,19 @@ GoldenrodGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-WhitneyShouldntBeSoSeriousText: ; AUTOTRAD
+WhitneyShouldntBeSoSeriousText: 
+if DEF(_FR_FR)
+	text "Sniff-sniff..."
+
+	para "...Waaaaaaah!"
+	line "T'es un peu nul!"
+
+	para "Tu ne devrais pas"
+	line "te prendre au"
+	cont "sérieux! Tu es"
+	cont "très jeune après"
+	cont "tout!"
+else
 	text "Sob…"
 
 	para "…Waaaaaaah!"
@@ -300,18 +312,42 @@ WhitneyShouldntBeSoSeriousText: ; AUTOTRAD
 	para "You shouldn't be"
 	line "so serious! You…"
 	cont "you child, you!"
+endc
+
 	done
 
-WhitneyYouMeanieText: ; AUTOTRAD
+WhitneyYouMeanieText: 
+if DEF(_FR_FR)
+	text "Waouaouah!"
+
+	para "Waaaaah!"
+
+	para "Sniff et re-sniff"
+	line "...T'es pas cool!"
+else
 	text "Waaaaah!"
 
 	para "Waaaaah!"
 
 	para "…Snivel, hic…"
 	line "…You meanie!"
+endc
+
 	done
 
-WhitneyWhatDoYouWantText: ; AUTOTRAD
+WhitneyWhatDoYouWantText: 
+if DEF(_FR_FR)
+	text "...sniff..."
+
+	para "Quoi? Qu'est-ce"
+	line "que tu veux?"
+	cont "Un BADGE?"
+
+	para "Oh, d'accord."
+	line "J'avais oublié."
+	cont "Prends le BADGE"
+	cont "PLAINE."
+else
 	text "…Sniff…"
 
 	para "What? What do you"
@@ -320,11 +356,19 @@ WhitneyWhatDoYouWantText: ; AUTOTRAD
 	para "Oh, right."
 	line "I forgot. Here's"
 	cont "PLAINBADGE."
+endc
+
 	done
 
-PlayerReceivedPlainBadgeText: ; AUTOTRAD
+PlayerReceivedPlainBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE PLAINE."
+else
 	text "<PLAYER> received"
 	line "PLAINBADGE."
+endc
+
 	done
 
 WhitneyPlainBadgeText: ; TO TRANSLATE
@@ -338,7 +382,20 @@ WhitneyPlainBadgeText2: ; TO TRANSLATE
 	line "this too!"
 	done
 
-WhitneyAttractText: ; AUTOTRAD
+WhitneyAttractText: 
+if DEF(_FR_FR)
+	text "C'est ATTRACTION!"
+	line "Cela développe le"
+
+	para "charme et le pou-"
+	line "voir d'attraction"
+	cont "des #MON."
+
+	para "N'est-ce pas en"
+	line "parfaite harmonie"
+	cont "avec mon gentil"
+	cont "caractère?"
+else
 	text "It's ATTRACT!"
 	line "It makes full use"
 
@@ -348,48 +405,112 @@ WhitneyAttractText: ; AUTOTRAD
 	para "Isn't it just per-"
 	line "fect for a cutie"
 	cont "like me?"
+endc
+
 	done
 
-WhitneyGoodCryText: ; AUTOTRAD
+WhitneyGoodCryText: 
+if DEF(_FR_FR)
+	text "Ah, ça fait du"
+	line "bien de pleurer!"
+
+	para "Reviens-me voir"
+	line "quand tu veux!"
+	cont "Tchao!"
+else
 	text "Ah, that was a"
 	line "good cry!"
 
 	para "Come for a visit"
 	line "again! Bye-bye!"
+endc
+
 	done
 
-LassCarrieSeenText: ; AUTOTRAD
+LassCarrieSeenText: 
+if DEF(_FR_FR)
+	text "Y sont mignons"
+	line "mes #MON!"
+
+	para "Y sont terribles"
+	line "itou!"
+else
 	text "Don't let my"
 	line "#MON's cute"
 
 	para "looks fool you."
 	line "They can whip you!"
+endc
+
 	done
 
-LassCarrieBeatenText: ; AUTOTRAD
+LassCarrieBeatenText: 
+if DEF(_FR_FR)
+	text "Zut... Je croyais"
+	line "que tu étais"
+	cont "faible..."
+else
 	text "Darn… I thought"
 	line "you were weak…"
+endc
+
 	done
 
-LassCarrieAfterBattleText: ; AUTOTRAD
+LassCarrieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Et moi, j'suis"
+	line "mimi?"
+else
 	text "Do my #MON"
 	line "think I'm cute?"
+endc
+
 	done
 
-LassBridgetSeenText: ; AUTOTRAD
+LassBridgetSeenText: 
+if DEF(_FR_FR)
+	text "Je préfère les"
+	line "#MON mignons"
+	cont "plutôt que les"
+	cont "#MON forts."
+
+	para "Mais j'en ai un"
+	line "multifonction, il"
+	cont "est mignon et fort"
+	cont "à la fois!"
+else
 	text "I like cute #-"
 	line "MON better than"
 	cont "strong #MON."
 
 	para "But I have strong"
 	line "and cute #MON!"
+endc
+
 	done
 
-LassBridgetBeatenText: ; AUTOTRAD
+LassBridgetBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, non, non, non!"
+else
 	text "Oh, no, no, no!"
+endc
+
 	done
 
-LassBridgetAfterBattleText: ; AUTOTRAD
+LassBridgetAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'essaie de battre"
+	line "BLANCHE mais..."
+	cont "C'est déprimant."
+
+	para "Je suis relax! Si"
+	line "je perds, je"
+
+	para "travaillerai dur"
+	line "pour la prochaine"
+	cont "fois!"
+else
 	text "I'm trying to beat"
 	line "WHITNEY, but…"
 	cont "It's depressing."
@@ -399,9 +520,23 @@ LassBridgetAfterBattleText: ; AUTOTRAD
 
 	para "try harder next"
 	line "time!"
+endc
+
 	done
 
-BridgetWhitneyCriesText: ; AUTOTRAD
+BridgetWhitneyCriesText: 
+if DEF(_FR_FR)
+	text "Oh, non. Tu as"
+	line "fait pleurer"
+	cont "BLANCHE."
+
+	para "C'est bon, elle va"
+	line "bientôt se calmer."
+
+	para "Elle pleure à"
+	line "chaque fois"
+	cont "qu'elle perd."
+else
 	text "Oh, no. You made"
 	line "WHITNEY cry."
 
@@ -410,42 +545,89 @@ BridgetWhitneyCriesText: ; AUTOTRAD
 
 	para "always cries when"
 	line "she loses."
+endc
+
 	done
 
-BeautyVictoriaSeenText: ; AUTOTRAD
+BeautyVictoriaSeenText: 
+if DEF(_FR_FR)
+	text "Oh, tu es un sacré"
+	line "numéro, toi!"
+
+	para "Mimi en plus!"
+	line "Je t'aime bien"
+	cont "mais tu ne passe-"
+	cont "ras pas comme ça!"
+else
 	text "Oh, you are a cute"
 	line "little trainer! "
 
 	para "I like you, but I"
 	line "won't hold back!"
+endc
+
 	done
 
-BeautyVictoriaBeatenText: ; AUTOTRAD
+BeautyVictoriaBeatenText: 
+if DEF(_FR_FR)
+	text "Voyons voir..."
+	line "Oups, c'est fini?"
+else
 	text "Let's see… Oops,"
 	line "it's over?"
+endc
+
 	done
 
-BeautyVictoriaAfterBattleText: ; AUTOTRAD
+BeautyVictoriaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Whaou, tu dois"
+	line "être cool pour me"
+	cont "battre comme ça!"
+	cont "Continue!"
+else
 	text "Wow, you must be"
 	line "good to beat me!"
 	cont "Keep it up!"
+endc
+
 	done
 
-BeautySamanthaSeenText: ; AUTOTRAD
+BeautySamanthaSeenText: 
+if DEF(_FR_FR)
+	text "Fais de ton mieux"
+	line "ou je t'aurai!"
+else
 	text "Give it your best"
 	line "shot, or I'll take"
 	cont "you down!"
+endc
+
 	done
 
-BeautySamanthaBeatenText: ; AUTOTRAD
+BeautySamanthaBeatenText: 
+if DEF(_FR_FR)
+	text "Noon! Oh, MIAOUSS,"
+	line "je suis désolée!"
+else
 	text "No! Oh, MEOWTH,"
 	line "I'm so sorry!"
+endc
+
 	done
 
-BeautySamanthaAfterBattleText: ; AUTOTRAD
+BeautySamanthaAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai appris à"
+	line "MIAOUSS des"
+	cont "attaques pour"
+	cont "parer chaque type."
+else
 	text "I taught MEOWTH"
 	line "moves for taking"
 	cont "on any type…"
+endc
+
 	done
 
 GoldenrodGymGuideText: ; TO TRANSLATE
@@ -479,10 +661,18 @@ GoldenrodGymGuideText: ; TO TRANSLATE
 	cont "pink #MON."
 	done
 
-GoldenrodGymGuideWinText: ; AUTOTRAD
+GoldenrodGymGuideWinText: 
+if DEF(_FR_FR)
+	text "T'as gagné? Super!"
+	line "J'étais occupé à"
+	cont "mater ces jolies"
+	cont "filles."
+else
 	text "You won? Great! I"
 	line "was busy admiring"
 	cont "the ladies here."
+endc
+
 	done
 
 GoldenrodGymMiltankText: ; TO TRANSLATE

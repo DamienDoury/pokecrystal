@@ -279,7 +279,23 @@ MahoganyGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-PryceText_Impressed: ; AUTOTRAD
+PryceText_Impressed: 
+if DEF(_FR_FR)
+	text "Ah, je suis très"
+	line "impressionné par"
+	cont "ta prouesse."
+
+	para "Avec un tempé-"
+	line "rament comme le"
+
+	para "tien, tu surmon-"
+	line "teras tous les"
+	cont "obstacles de la"
+	cont "vie."
+
+	para "Tu mérites ce"
+	line "BADGE!"
+else
 	text "Ah, I am impressed"
 	line "by your prowess."
 
@@ -291,11 +307,19 @@ PryceText_Impressed: ; AUTOTRAD
 
 	para "You are worthy of"
 	line "this BADGE!"
+endc
+
 	done
 
-Text_ReceivedGlacierBadge: ; AUTOTRAD
+Text_ReceivedGlacierBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGEGLACIER."
+else
 	text "<PLAYER> received"
 	line "GLACIERBADGE."
+endc
+
 	done
 
 PryceText_GlacierBadgeSpeech: ; TO TRANSLATE
@@ -309,7 +333,20 @@ PryceText_GlacierBadgeSpeech2: ; TO TRANSLATE
 	line "a gift from me!"
 	done
 
-PryceText_IcyWindSpeech: ; AUTOTRAD
+PryceText_IcyWindSpeech: 
+if DEF(_FR_FR)
+	text "Cette CT contient"
+	line "VENT GLACE."
+
+	para "Il inflige des"
+	line "dégâts et réduit"
+	cont "la vitesse des"
+	cont "#MON."
+
+	para "Il incarne la"
+	line "rudesse du froid"
+	cont "hivernal."
+else
 	text "That TM contains"
 	line "ICY WIND."
 
@@ -319,9 +356,25 @@ PryceText_IcyWindSpeech: ; AUTOTRAD
 	para "It demonstrates"
 	line "the harshness of"
 	cont "winter."
+endc
+
 	done
 
-PryceText_CherishYourPokemon: ; AUTOTRAD
+PryceText_CherishYourPokemon: 
+if DEF(_FR_FR)
+	text "Lorsque la glace"
+	line "et la neige"
+	cont "fondent, le"
+	cont "printemps arrive."
+
+	para "Toi et tes #-"
+	line "MON serez ensemble"
+	cont "pendant des"
+	cont "années."
+
+	para "Profitez bien de"
+	line "ces instants!"
+else
 	text "When the ice and"
 	line "snow melt, spring"
 	cont "arrives."
@@ -334,28 +387,66 @@ PryceText_CherishYourPokemon: ; AUTOTRAD
 
 	para "Cherish your time"
 	line "together!"
+endc
+
 	done
 
-BoarderRonaldSeenText: ; AUTOTRAD
+BoarderRonaldSeenText: 
+if DEF(_FR_FR)
+	text "Je vais geler tes"
+	line "#MON et tu ne"
+	cont "pourras plus rien"
+	cont "faire!"
+else
 	text "I'll freeze your"
 	line "#MON, so you"
 	cont "can't do a thing!"
+endc
+
 	done
 
-BoarderRonaldBeatenText: ; AUTOTRAD
+BoarderRonaldBeatenText: 
+if DEF(_FR_FR)
+	text "Saperlipopette!"
+	line "Je n'ai rien pu"
+	cont "faire."
+else
 	text "Darn. I couldn't"
 	line "do a thing."
+endc
+
 	done
 
-BoarderRonaldAfterBattleText: ; AUTOTRAD
+BoarderRonaldAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je crois qu'il"
+	line "existe une capa-"
+
+	para "cité que les #-"
+	line "MON peuvent utili-"
+	cont "ser même en étant"
+	cont "gelés."
+else
 	text "I think there's a"
 	line "move a #MON"
 
 	para "can use while it's"
 	line "frozen."
+endc
+
 	done
 
-BoarderBradSeenText: ; AUTOTRAD
+BoarderBradSeenText: 
+if DEF(_FR_FR)
+	text "Cette ARENE a le"
+	line "sol glissant."
+
+	para "C'est délire, pas"
+	line "vrai?"
+
+	para "Mais..."
+	line "Fini de jouer!"
+else
 	text "This GYM has a"
 	line "slippery floor."
 
@@ -365,30 +456,72 @@ BoarderBradSeenText: ; AUTOTRAD
 	para "But hey--we're"
 	line "not playing games"
 	cont "here!"
+endc
+
 	done
 
-BoarderBradBeatenText: ; AUTOTRAD
+BoarderBradBeatenText: 
+if DEF(_FR_FR)
+	text "Tu vois à quel"
+	line "point on est"
+	cont "sérieux ici?"
+else
 	text "Do you see how"
 	line "serious we are?"
+endc
+
 	done
 
-BoarderBradAfterBattleText: ; AUTOTRAD
+BoarderBradAfterBattleText: 
+if DEF(_FR_FR)
+	text "Cette ARENE est"
+	line "superbe. J'adore"
+	cont "surfer avec mes"
+	cont "#MON!"
+else
 	text "This GYM is great."
 	line "I love boarding"
 	cont "with my #MON!"
+endc
+
 	done
 
-BoarderDouglasSeenText: ; AUTOTRAD
+BoarderDouglasSeenText: 
+if DEF(_FR_FR)
+	text "Je connais le"
+	line "secret de FREDO."
+else
 	text "I know PRYCE's"
 	line "secret."
+endc
+
 	done
 
-BoarderDouglasBeatenText: ; AUTOTRAD
+BoarderDouglasBeatenText: 
+if DEF(_FR_FR)
+	text "OK. Je vais te"
+	line "le dire."
+else
 	text "OK. I'll tell you"
 	line "PRYCE's secret."
+endc
+
 	done
 
-BoarderDouglasAfterBattleText: ; AUTOTRAD
+BoarderDouglasAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le secret de la"
+	line "force de FREDO..."
+
+	para "Il médite"
+	line "derrière une"
+
+	para "cascade tous les"
+	line "jours pour accroî-"
+	cont "tre sa force et"
+	cont "développer son"
+	cont "esprit."
+else
 	text "The secret behind"
 	line "PRYCE's power…"
 
@@ -397,46 +530,112 @@ BoarderDouglasAfterBattleText: ; AUTOTRAD
 
 	para "to strengthen his"
 	line "mind and body."
+endc
+
 	done
 
-SkierRoxanneSeenText: ; AUTOTRAD
+SkierRoxanneSeenText: 
+if DEF(_FR_FR)
+	text "Pour vaincre"
+	line "FREDO, notre"
+
+	para "CHAMPION d'ARENE,"
+	line "tu dois penser"
+	cont "avant de patiner."
+else
 	text "To get to PRYCE,"
 	line "our GYM LEADER,"
 
 	para "you need to think"
 	line "before you skate."
+endc
+
 	done
 
-SkierRoxanneBeatenText: ; AUTOTRAD
+SkierRoxanneBeatenText: 
+if DEF(_FR_FR)
+	text "Enfin, moi j'te"
+	line "bats en ski!"
+else
 	text "I wouldn't lose to"
 	line "you in skiing!"
+endc
+
 	done
 
-SkierRoxanneAfterBattleText: ; AUTOTRAD
+SkierRoxanneAfterBattleText: 
+if DEF(_FR_FR)
+	text "Si tu ne patines"
+	line "pas avec précision"
+
+	para "tu n'iras pas bien"
+	line "loin dans cette"
+	cont "ARENE."
+else
 	text "If you don't skate"
 	line "with precision,"
 
 	para "you won't get far"
 	line "in this GYM."
+endc
+
 	done
 
-SkierClarissaSeenText: ; AUTOTRAD
+SkierClarissaSeenText: 
+if DEF(_FR_FR)
+	text "Sors de mon"
+	line "slalom!"
+else
 	text "Check out my"
 	line "parallel turn!"
+endc
+
 	done
 
-SkierClarissaBeatenText: ; AUTOTRAD
+SkierClarissaBeatenText: 
+if DEF(_FR_FR)
+	text "Non! Tu m'as fait"
+	line "déraper!"
+else
 	text "No! You made me"
 	line "wipe out!"
+endc
+
 	done
 
-SkierClarissaAfterBattleText: ; AUTOTRAD
+SkierClarissaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je n'aurais pas"
+	line "dû me vanter..."
+else
 	text "I shouldn't have"
 	line "been bragging"
 	cont "about my skiing…"
+endc
+
 	done
 
-MahoganyGymGuideText: ; AUTOTRAD
+MahoganyGymGuideText: 
+if DEF(_FR_FR)
+	text "FREDO est un vété-"
+	line "ran qui entraîne"
+
+	para "des #MON depuis"
+	line "50 ans."
+
+	para "Il prétend être"
+	line "bon pour geler ses"
+
+	para "adversaires avec"
+	line "des attaques de"
+	cont "glace."
+
+	para "Tu devrais le"
+	line "faire fondre avec"
+
+	para "ton ambition"
+	line "brûlante!"
+else
 	text "PRYCE is a veteran"
 	line "who has trained"
 
@@ -454,9 +653,23 @@ MahoganyGymGuideText: ; AUTOTRAD
 
 	para "with your burning"
 	line "ambition!"
+endc
+
 	done
 
-MahoganyGymGuideWinText: ; AUTOTRAD
+MahoganyGymGuideWinText: 
+if DEF(_FR_FR)
+	text "FREDO, c'est quel-"
+	line "qu'un, mais toi"
+	cont "t'es pas naze"
+	cont "non plus!"
+
+	para "C'était un combat"
+	line "chaud qui a soudé"
+
+	para "l'écart entre deux"
+	line "générations!"
+else
 	text "PRYCE is some-"
 	line "thing, but you're"
 	cont "something else!"
@@ -466,6 +679,8 @@ MahoganyGymGuideWinText: ; AUTOTRAD
 
 	para "bridged the gen-"
 	line "eration gap!"
+endc
+
 	done
 
 MahoganyGym_MapEvents:

@@ -286,17 +286,35 @@ EcruteakGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-MortyWinLossText: ; AUTOTRAD
+MortyWinLossText: 
+if DEF(_FR_FR)
+	text "Je ne suis pas"
+	line "encore assez bon."
+	cont "Je ne vois rien."
+	cont "Il me faut des"
+	cont "lunettes!!"
+
+	para "Bon allez, ce"
+	line "BADGE est à toi."
+else
 	text "I'm not good"
 	line "enough yet…"
 
 	para "All right. This"
 	line "BADGE is yours."
+endc
+
 	done
 
-Text_ReceivedFogBadge: ; AUTOTRAD
+Text_ReceivedFogBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE BRUME."
+else
 	text "<PLAYER> received"
 	line "FOGBADGE."
+endc
+
 	done
 
 MortyText_FogBadgeSpeech: ; TO TRANSLATE
@@ -320,7 +338,18 @@ Obey50: ; TO TRANSLATE
 	line "fifth badge."
 	done
 
-MortyText_ShadowBallSpeech: ; AUTOTRAD
+MortyText_ShadowBallSpeech: 
+if DEF(_FR_FR)
+	text "C'est BALL'OMBRE."
+	line "Elle cause"
+
+	para "des dégâts et peut"
+	line "réduire la DEFENSE"
+	cont "SPE."
+
+	para "Utilise-la et tu"
+	line "verras!"
+else
 	text "It's SHADOW BALL."
 	line "It causes damage"
 
@@ -329,9 +358,25 @@ MortyText_ShadowBallSpeech: ; AUTOTRAD
 
 	para "Use it if it"
 	line "appeals to you."
+endc
+
 	done
 
-MortyFightDoneText: ; AUTOTRAD
+MortyFightDoneText: 
+if DEF(_FR_FR)
+	text "Je vois..."
+
+	para "Ta journée a été"
+	line "longue et"
+	cont "mouvementée."
+
+	para "Tu as fait plein"
+	line "de trucs super"
+	cont "géniaux."
+
+	para "Je t'envie pour"
+	line "ça..."
+else
 	text "I see…"
 
 	para "Your journey has"
@@ -344,9 +389,26 @@ MortyFightDoneText: ; AUTOTRAD
 
 	para "I envy you for"
 	line "that…"
+endc
+
 	done
 
-SageJeffreySeenText: ; AUTOTRAD
+SageJeffreySeenText: 
+if DEF(_FR_FR)
+	text "J'ai passé tout le"
+	line "printemps avec mes"
+
+	para "#MON et puis"
+	line "aussi l'été et"
+	cont "surtout l'hiver..."
+
+	para "Lorsque le prin-"
+	line "temps revint,"
+
+	para "nous avions passé"
+	line "de longs moments"
+	cont "ensemble."
+else
 	text "I spent the spring"
 	line "with my #MON."
 
@@ -358,63 +420,145 @@ SageJeffreySeenText: ; AUTOTRAD
 
 	para "lived together"
 	line "for a long time."
+endc
+
 	done
 
-SageJeffreyBeatenText: ; AUTOTRAD
+SageJeffreyBeatenText: 
+if DEF(_FR_FR)
+	text "J'ai appris à"
+	line "gagner et à"
+	cont "perdre."
+else
 	text "Wins and losses, I"
 	line "experienced both."
+endc
+
 	done
 
-SageJeffreyAfterBattleText: ; AUTOTRAD
+SageJeffreyAfterBattleText: 
+if DEF(_FR_FR)
+	text "D'où viennent les"
+	line "#MON?"
+else
 	text "Where did #MON"
 	line "come from?"
+endc
+
 	done
 
-SagePingSeenText: ; AUTOTRAD
+SagePingSeenText: 
+if DEF(_FR_FR)
+	text "Peux-tu infliger"
+	line "des dégâts à nos"
+	cont "#MON?"
+else
 	text "Can you inflict"
 	line "any damage on our"
 	cont "#MON?"
+endc
+
 	done
 
-SagePingBeatenText: ; AUTOTRAD
+SagePingBeatenText: 
+if DEF(_FR_FR)
+	text "Ah! Bien joué!"
+else
 	text "Ah! Well done!"
+endc
+
 	done
 
-SagePingAfterBattleText: ; AUTOTRAD
+SagePingAfterBattleText: 
+if DEF(_FR_FR)
+	text "On n'utilise que"
+	line "les #MON de"
+	cont "type SPECTRE."
+
+	para "Aucune attaque"
+	line "de type NORMAL"
+	cont "ne peut les"
+	cont "inquiéter!"
+else
 	text "We use only ghost-"
 	line "type #MON."
 
 	para "No normal-type"
 	line "attack can harm"
 	cont "them!"
+endc
+
 	done
 
-MediumMarthaSeenText: ; AUTOTRAD
+MediumMarthaSeenText: 
+if DEF(_FR_FR)
+	text "Je vais gagner!"
+else
 	text "I shall win!"
+endc
+
 	done
 
-MediumMarthaBeatenText: ; AUTOTRAD
+MediumMarthaBeatenText: 
+if DEF(_FR_FR)
+	text "Et bah non, j'ai"
+	line "perdu!"
+else
 	text "I, I, I lost!"
+endc
+
 	done
 
-MediumMarthaAfterBattleText: ; AUTOTRAD
+MediumMarthaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Celui qui veut et"
+	line "bah, il peut!"
+else
 	text "The one who wants"
 	line "to win most--will!"
+endc
+
 	done
 
-MediumGraceSeenText: ; AUTOTRAD
+MediumGraceSeenText: 
+if DEF(_FR_FR)
+	text "Ah! Ca te fait"
+	line "peur le sol"
+
+	para "invisible, hein?"
+	line "Tu n'as plus qu'à"
+	cont "me battre et je te"
+	cont "file un conseil!"
+else
 	text "Stumped by our in-"
 	line "visible floor?"
 
 	para "Defeat me if you"
 	line "want a hint!"
+endc
+
 	done
 
-MediumGraceBeatenText: ; AUTOTRAD
+MediumGraceBeatenText: 
+if DEF(_FR_FR)
+	text "Kk-kkoi?"
+else
 	text "Wha-what?"
+endc
+
 	done
 
-MediumGraceAfterBattleText: ; AUTOTRAD
+MediumGraceAfterBattleText: 
+if DEF(_FR_FR)
+	text "Très bien. Je vais"
+	line "te donner un truc"
+
+	para "à propos du sol"
+	line "invisible."
+
+	para "Le bon chemin est"
+	line "devant nos yeux!"
+else
 	text "Fine. I shall tell"
 	line "you the secret of"
 
@@ -423,9 +567,22 @@ MediumGraceAfterBattleText: ; AUTOTRAD
 
 	para "The path is right"
 	line "before our eyes!"
+endc
+
 	done
 
-EcruteakGymGuideText: ; AUTOTRAD
+EcruteakGymGuideText: 
+if DEF(_FR_FR)
+	text "Les dresseurs d'ici"
+	line "ont un truc"
+	cont "secret."
+
+	para "Si tu gagnes, ils"
+	line "te parleront peut-"
+
+	para "être du fameux"
+	line "secret de ROSALIA."
+else
 	text "The trainers here"
 	line "have secret mo-"
 	cont "tives."
@@ -435,18 +592,39 @@ EcruteakGymGuideText: ; AUTOTRAD
 
 	para "deep secrets about"
 	line "ECRUTEAK."
+endc
+
 	done
 
-EcruteakGymGuideWinText: ; AUTOTRAD
+EcruteakGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Whaou, <PLAYER>!"
+	line "Bien joué!"
+
+	para "J'étais caché dans"
+	line "un coin tant"
+	cont "j'étais mort de"
+	cont "trouille!"
+else
 	text "Whew, <PLAYER>."
 	line "You did great!"
 
 	para "I was cowering in"
 	line "the corner out of"
 	cont "pure terror!"
+endc
+
 	done
 
-EcruteakGymClosedText: ; AUTOTRAD
+EcruteakGymClosedText: 
+if DEF(_FR_FR)
+	text "MORTIMER, le CHAM-"
+	line "PION, est absent."
+
+	para "Tu dois partir."
+
+	para "Hohohoho."
+else
 	text "MORTY, the GYM"
 	line "LEADER, is absent."
 
@@ -454,6 +632,8 @@ EcruteakGymClosedText: ; AUTOTRAD
 	line "have to leave."
 
 	para "Hohohoho."
+endc
+
 	done
 
 EcruteakGym_MapEvents:

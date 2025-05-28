@@ -175,8 +175,14 @@ RadioTower1FRadioCardWomanScript:
 	closetext
 	end
 
-.RadioCardText: ; AUTOTRAD
+.RadioCardText: 
+if DEF(_FR_FR)
+	db "COUPON RADIO@"
+
+else
 	db "RADIO CARD@"
+
+endc
 
 .ReceiveItem:
 	jumpstd ReceiveItemScript
@@ -228,18 +234,44 @@ RadioTower1FLuckyNumberManReturnToPlayerMovement:
 	turn_head UP
 	step_end
 
-RadioTower1FReceptionistWelcomeText: ; AUTOTRAD
+RadioTower1FReceptionistWelcomeText: 
+if DEF(_FR_FR)
+	text "Bienvenue!"
+else
 	text "Welcome!"
+endc
+
 	done
 
-RadioTower1FReceptionistNoToursText: ; AUTOTRAD
+RadioTower1FReceptionistNoToursText: 
+if DEF(_FR_FR)
+	text "Bonjour."
+	line "Il n'y a pas de"
+	cont "visite prévue"
+	cont "aujourd'hui."
+else
 	text "Hello. I'm sorry,"
 	line "but we're not"
 	cont "offering any tours"
 	cont "today."
+endc
+
 	done
 
-RadioTower1FLuckyNumberManAskToPlayText: ; AUTOTRAD
+RadioTower1FLuckyNumberManAskToPlayText: 
+if DEF(_FR_FR)
+	text "Salut! Es-tu ici"
+	line "pour le SHOW du"
+	cont "BON NUMERO?"
+
+	para "Veux-tu que je re-"
+	line "garde le No. ID de"
+	cont "tes #MON?"
+
+	para "Si tu as de la"
+	line "chance, tu gagne-"
+	cont "ras un prix."
+else
 	text "Hi, are you here"
 	line "for the LUCKY NUM-"
 	cont "BER SHOW?"
@@ -250,6 +282,8 @@ RadioTower1FLuckyNumberManAskToPlayText: ; AUTOTRAD
 
 	para "If you get lucky,"
 	line "you win a prize."
+endc
+
 	done
 
 RadioTower1FLuckyNumberManThisWeeksIdIsText: ; TO TRANSLATE
@@ -259,9 +293,15 @@ RadioTower1FLuckyNumberManThisWeeksIdIsText: ; TO TRANSLATE
 	text "."
 	done
 
-RadioTower1FLuckyNumberManCheckIfMatchText: ; AUTOTRAD
+RadioTower1FLuckyNumberManCheckIfMatchText: 
+if DEF(_FR_FR)
+	text "Voyons si cela"
+	line "correspond."
+else
 	text "Let's see if you"
 	line "have a match."
+endc
+
 	done
 
 RadioTower1FLuckyNumberManDotDotDotText:
@@ -269,13 +309,31 @@ RadioTower1FLuckyNumberManDotDotDotText:
 	line "<……>"
 	done
 
-RadioTower1FLuckyNumberManComeAgainText: ; AUTOTRAD
+RadioTower1FLuckyNumberManComeAgainText: 
+if DEF(_FR_FR)
+	text "A la prochaine"
+	line "fois pour un au-"
+	cont "tre BON NUMERO."
+else
 	text "Please come back"
 	line "next week for the"
 	cont "next LUCKY NUMBER."
+endc
+
 	done
 
-RadioTower1FLuckyNumberManPerfectMatchText: ; AUTOTRAD
+RadioTower1FLuckyNumberManPerfectMatchText: 
+if DEF(_FR_FR)
+	text "Oh! Tes 5 numéros"
+	line "correspondent"
+	cont "parfaitement!"
+
+	para "Tu es le grand"
+	line "vainqueur!"
+
+	para "Tu remportes une"
+	line "MASTER BALL!"
+else
 	text "Wow! You have a"
 	line "perfect match of"
 	cont "all five numbers!"
@@ -285,9 +343,20 @@ RadioTower1FLuckyNumberManPerfectMatchText: ; AUTOTRAD
 
 	para "You have won a"
 	line "MASTER BALL!"
+endc
+
 	done
 
-RadioTower1FLuckyNumberManOkayMatchText: ; AUTOTRAD
+RadioTower1FLuckyNumberManOkayMatchText: 
+if DEF(_FR_FR)
+	text "Hé! Tes trois der-"
+	line "niers numéros"
+	cont "correspondent!"
+
+	para "Tu remportes le"
+	line "deuxième prix:"
+	cont "un MULTI EXP!"
+else
 	text "Hey! You've"
 	line "matched the last"
 	cont "three numbers!"
@@ -295,31 +364,79 @@ RadioTower1FLuckyNumberManOkayMatchText: ; AUTOTRAD
 	para "You've won second"
 	line "prize, an EXP."
 	cont "SHARE!"
+endc
+
 	done
 
-RadioTower1FLuckyNumberManWeakMatchText: ; AUTOTRAD
+RadioTower1FLuckyNumberManWeakMatchText: 
+if DEF(_FR_FR)
+	text "Hé! Tes deux der-"
+	line "niers numéros"
+	cont "correspondent!"
+
+	para "Tu remportes le"
+	line "troisième prix:"
+	cont "un PP PLUS!"
+else
 	text "Ooh, you've"
 	line "matched the last"
 	cont "two numbers."
 
 	para "You've won third"
 	line "prize, a PP UP."
+endc
+
 	done
 
-RadioTower1FLuckyNumberManNoneOfYourIDNumbersMatchText: ; AUTOTRAD
+RadioTower1FLuckyNumberManNoneOfYourIDNumbersMatchText: 
+if DEF(_FR_FR)
+	text "Non! Aucun de tes"
+	line "numéros ID ne"
+	cont "correspond."
+else
 	text "Nope, none of your"
 	line "ID numbers match."
+endc
+
 	done
 
-RadioTower1FLuckyNumberManNoRoomForYourPrizeText: ; AUTOTRAD
+RadioTower1FLuckyNumberManNoRoomForYourPrizeText: 
+if DEF(_FR_FR)
+	text "Ton inventaire"
+	line "est plein!"
+
+	para "Fais de la place"
+	line "et reviens vite."
+else
 	text "You've got no room"
 	line "for your prize."
 
 	para "Make room and come"
 	line "back right away."
+endc
+
 	done
 
-RadioTower1FRadioCardWomanOfferQuizText: ; AUTOTRAD
+RadioTower1FRadioCardWomanOfferQuizText: 
+if DEF(_FR_FR)
+	text "Nous avons un quiz"
+	line "disponible en ce"
+	cont "moment."
+
+	para "Réponds à 5 ques-"
+	line "tions correctement"
+	cont "pour gagner un"
+	cont "COUPON RADIO."
+
+	para "Glisse-le dans ton"
+	line "#MATOS pour"
+
+	para "écouter la radio"
+	line "n'importe quand."
+
+	para "Veux-tu jouer au"
+	line "quiz?"
+else
 	text "We have a special"
 	line "quiz campaign on"
 	cont "right now."
@@ -336,17 +453,40 @@ RadioTower1FRadioCardWomanOfferQuizText: ; AUTOTRAD
 
 	para "Would you like to"
 	line "take the quiz?"
+endc
+
 	done
 
-RadioTower1FRadioCardWomanQuestion1Text: ; AUTOTRAD
+RadioTower1FRadioCardWomanQuestion1Text: 
+if DEF(_FR_FR)
+	text "Question 1:"
+
+	para "Y a-t-il un #-"
+	line "MON apparaissant"
+	cont "uniquement le"
+	cont "matin?"
+else
 	text "Question 1:"
 
 	para "Is there a #MON"
 	line "that appears only"
 	cont "in the morning?"
+endc
+
 	done
 
-RadioTower1FRadioCardWomanQuestion2Text: ; AUTOTRAD
+RadioTower1FRadioCardWomanQuestion2Text: 
+if DEF(_FR_FR)
+	text "C'est exact!"
+	line "Question 2:"
+
+	para "Cette proposition"
+	line "est-elle correcte?"
+
+	para "On ne peut pas"
+	line "acheter de BAIE à"
+	cont "la BOUTIQUE."
+else
 	text "Correct!"
 	line "Question 2:"
 
@@ -355,17 +495,39 @@ RadioTower1FRadioCardWomanQuestion2Text: ; AUTOTRAD
 
 	para "You can't buy a"
 	line "BERRY at a MART."
+endc
+
 	done
 
-RadioTower1FRadioCardWomanQuestion3Text: ; AUTOTRAD
+RadioTower1FRadioCardWomanQuestion3Text: 
+if DEF(_FR_FR)
+	text "Bravo!"
+	line "Question 3:"
+
+	para "CS01 contient-elle"
+	line "FLASH?"
+else
 	text "Bull's-eye!"
 	line "Question 3:"
 
 	para "Does HM01 contain"
 	line "the move FLASH?"
+endc
+
 	done
 
-RadioTower1FRadioCardWomanQuestion4Text: ; AUTOTRAD
+RadioTower1FRadioCardWomanQuestion4Text: 
+if DEF(_FR_FR)
+	text "Tout va bien!"
+	line "Question 4:"
+
+	para "ALBERT est-il le"
+	line "CHAMPION de MAU-"
+
+	para "VILLE et un utili-"
+	line "sateur de #MON"
+	cont "oiseaux?"
+else
 	text "So far so good!"
 	line "Question 4:"
 
@@ -374,6 +536,8 @@ RadioTower1FRadioCardWomanQuestion4Text: ; AUTOTRAD
 
 	para "who uses bird"
 	line "#MON?"
+endc
+
 	done
 
 RadioTower1FRadioCardWomanQuestion5Text: ; TO TRANSLATE
@@ -385,54 +549,112 @@ RadioTower1FRadioCardWomanQuestion5Text: ; TO TRANSLATE
 	line "male only?"
 	done
 
-RadioTower1FRadioCardWomanYouWinText: ; AUTOTRAD
+RadioTower1FRadioCardWomanYouWinText: 
+if DEF(_FR_FR)
+	text "Bingo! Gagné!"
+	line "Félicitations!"
+
+	para "Voici ton prix: un"
+	line "COUPON RADIO!"
+else
 	text "Bingo! You got it!"
 	line "Congratulations!"
 
 	para "Here's your prize,"
 	line "a RADIO CARD!"
+endc
+
 	done
 
-RadioTower1FPokegearIsARadioText: ; AUTOTRAD
+RadioTower1FPokegearIsARadioText: 
+if DEF(_FR_FR)
+	text "Le #MATOS de"
+	line "<PLAYER> peut main-"
+	cont "tenant servir de"
+	cont "radio!"
+else
 	text "<PLAYER>'s #GEAR"
 	line "can now double as"
 	cont "a radio!"
+endc
+
 	done
 
-RadioTower1FRadioCardWomanTuneInText: ; AUTOTRAD
+RadioTower1FRadioCardWomanTuneInText: 
+if DEF(_FR_FR)
+	text "Ecoute bien nos"
+	line "émissions!!!"
+else
 	text "Please tune in to"
 	line "our radio shows."
+endc
+
 	done
 
-RadioTower1FRadioCardWomanWrongAnswerText: ; AUTOTRAD
+RadioTower1FRadioCardWomanWrongAnswerText: 
+if DEF(_FR_FR)
+	text "Oh là làààà!!!"
+	line "C'est la mauvaise"
+
+	para "réponse! Essaie"
+	line "une autre fois!"
+else
 	text "Oh, dear."
 	line "Sorry, but you"
 
 	para "got it wrong."
 	line "Please try again!"
+endc
+
 	done
 
-RadioTower1FRadioCardWomanNotTakingQuizText: ; AUTOTRAD
+RadioTower1FRadioCardWomanNotTakingQuizText: 
+if DEF(_FR_FR)
+	text "Oh. Je vois."
+	line "N'hésite pas si tu"
+	cont "changes d'avis."
+else
 	text "Oh. I see. Please"
 	line "see me if you"
 	cont "change your mind."
+endc
+
 	done
 
-RadioTower1FLassText: ; AUTOTRAD
+RadioTower1FLassText: 
+if DEF(_FR_FR)
+	text "BEN est un super"
+	line "DJ!!!"
+
+	para "Sa voix me fait"
+	line "super craquer!"
+else
 	text "BEN is a fabulous"
 	line "DJ."
 
 	para "His sweet voice"
 	line "makes me melt!"
+endc
+
 	done
 
-RadioTower1FYoungsterText: ; AUTOTRAD
+RadioTower1FYoungsterText: 
+if DEF(_FR_FR)
+	text "J'adore LULA de la"
+	line "CHRONIQUE #MON."
+
+	para "En tout cas j'ado-"
+	line "re sa voix..."
+	cont "C'est déjà ça."
+else
 	text "I love MARY, from"
 	line "#MON TALK."
 
 	para "I only know what"
 	line "she sounds like,"
 	cont "though."
+endc
+
 	done
 
 GruntM3SeenText: ; TO TRANSLATE
@@ -447,20 +669,45 @@ GruntM3SeenText: ; TO TRANSLATE
 	line "life!"
 	done
 
-GruntM3BeatenText: ; AUTOTRAD
+GruntM3BeatenText: 
+if DEF(_FR_FR)
+	text "Trop fort! Toi"
+	line "on t'a à l'oeil!"
+else
 	text "Too strong! We"
 	line "must watch you…"
+endc
+
 	done
 
-GruntM3AfterBattleText: ; AUTOTRAD
+GruntM3AfterBattleText: 
+if DEF(_FR_FR)
+	text "Trop balèze."
+
+	para "Je dois prévenir"
+	line "les autres. Tu es"
+	cont "un danger..."
+else
 	text "You're too strong."
 
 	para "Our plan could be"
 	line "ruined. I must"
 	cont "warn the others…"
+endc
+
 	done
 
-RadioTower1FDirectoryText: ; AUTOTRAD
+RadioTower1FDirectoryText: 
+if DEF(_FR_FR)
+	text "RDC  RECEPTION"
+	line "1ER  VENTES"
+
+	para "2EME PERSONNEL"
+	line "3EME PRODUCTION"
+
+	para "4EME BUREAU"
+	line "     DIRECTION"
+else
 	text "1F RECEPTION"
 	line "2F SALES"
 
@@ -469,9 +716,22 @@ RadioTower1FDirectoryText: ; AUTOTRAD
 
 	para "5F DIRECTOR'S"
 	line "   OFFICE"
+endc
+
 	done
 
-RadioTower1FLuckyChannelSignText: ; AUTOTRAD
+RadioTower1FLuckyChannelSignText: 
+if DEF(_FR_FR)
+	text "ANTENNE LA CHANCE!"
+
+	para "Gagnez grâce aux"
+	line "No. ID de vos"
+	cont "#MON!"
+
+	para "Echangez vos #-"
+	line "MON pour avoir"
+	cont "plus de No. ID!"
+else
 	text "LUCKY CHANNEL!"
 
 	para "Win with #MON"
@@ -480,6 +740,8 @@ RadioTower1FLuckyChannelSignText: ; AUTOTRAD
 	para "Trade your #MON"
 	line "to collect differ-"
 	cont "ent ID numbers!"
+endc
+
 	done
 
 RadioTower1F_MapEvents:

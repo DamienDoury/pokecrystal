@@ -104,7 +104,9 @@ PokecomCenterAdminOfficeMobileComputer2:
 PokecomCenterAdminOfficeMobileComputer3:
 	jumptext PokecomCenterAdminOfficeMobileComputer3Text
 
-PokecomCenterAdminOfficeMobileScientist1Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileScientist1Text: 
+if DEF(_FR_FR)
+else
 	text "#COM CENTER and"
 	line "MOBILE CENTER were"
 
@@ -116,9 +118,13 @@ PokecomCenterAdminOfficeMobileScientist1Text: ; AUTOTRAD
 
 	para "and with total"
 	line "strangers."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileScientist2Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileScientist2Text: 
+if DEF(_FR_FR)
+else
 	text "When you linked"
 	line "with someone by"
 
@@ -133,26 +139,38 @@ PokecomCenterAdminOfficeMobileScientist2Text: ; AUTOTRAD
 
 	para "impressed that I"
 	line "got the shakes!"
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileScientist3Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileScientist3Text: 
+if DEF(_FR_FR)
+else
 	text "They were able to"
 	line "build this huge"
 
 	para "facility thanks to"
 	line "advances in wire-"
 	cont "less technology."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer1Text: 
+if DEF(_FR_FR)
+else
 	text "It's a notice"
 	line "about where MOBILE"
 
 	para "ADAPTERS are to be"
 	line "used…"
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub: 
+if DEF(_FR_FR)
+else
 	text "There's a #COM"
 	line "CLUB upstairs in"
 
@@ -172,9 +190,13 @@ PokecomCenterAdminOfficeMobileComputer1Text_PokeComClub: ; AUTOTRAD
 	para "the same kind of"
 	line "MOBILE ADAPTER as"
 	cont "you."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter: 
+if DEF(_FR_FR)
+else
 	text "To use the TRADE"
 	line "CORNER or read the"
 
@@ -187,15 +209,23 @@ PokecomCenterAdminOfficeMobileComputer1Text_MobileCenter: ; AUTOTRAD
 
 	para "CENTER before"
 	line "connecting there."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer2Text: 
+if DEF(_FR_FR)
+else
 	text "It's a notice"
 	line "about using the"
 	cont "phone…"
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text_UsePhone: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer2Text_UsePhone: 
+if DEF(_FR_FR)
+else
 	text "Please ensure that"
 	line "your phone and"
 
@@ -209,9 +239,13 @@ PokecomCenterAdminOfficeMobileComputer2Text_UsePhone: ; AUTOTRAD
 	para "Don't touch or"
 	line "hang up the phone"
 	cont "while linking."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone: 
+if DEF(_FR_FR)
+else
 	text "If the server is"
 	line "busy, it may not"
 
@@ -230,9 +264,13 @@ PokecomCenterAdminOfficeMobileComputer2Text_DontUsePhone: ; AUTOTRAD
 	para "call a support"
 	line "center or read the"
 	cont "instructions."
+endc
+
 	done
 
-PokecomCenterAdminOfficeMobileComputer3Text: ; AUTOTRAD
+PokecomCenterAdminOfficeMobileComputer3Text: 
+if DEF(_FR_FR)
+else
 	text "The ADMINISTRATION"
 	line "OFFICE received an"
 	cont "e-mail. It says…"
@@ -258,6 +296,8 @@ PokecomCenterAdminOfficeMobileComputer3Text: ; AUTOTRAD
 	line "without barriers!"
 
 	para "<……> <……> <……>"
+endc
+
 	done
 
 PokecomCenterAdminOfficeMobile_MapEvents:

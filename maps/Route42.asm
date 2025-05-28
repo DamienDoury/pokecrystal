@@ -257,18 +257,39 @@ Route42SuicuneMovement:
 	remove_sliding
 	step_end
 
-FisherTullySeenText: ; AUTOTRAD
+FisherTullySeenText: 
+if DEF(_FR_FR)
+	text "Je vais te montrer"
+	line "la puissance de"
+	cont "mes #MON!"
+else
 	text "Let me demonstrate"
 	line "the power of the"
 	cont "#MON I caught!"
+endc
+
 	done
 
-FisherTullyBeatenText: ; AUTOTRAD
+FisherTullyBeatenText: 
+if DEF(_FR_FR)
+	text "Hein? C'est pas"
+	line "juste!"
+else
 	text "What? That's not"
 	line "right."
+endc
+
 	done
 
-FisherTullyAfterBattleText: ; AUTOTRAD
+FisherTullyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je veux devenir un"
+	line "MAITRE avec mes"
+	cont "nouveaux #MON."
+
+	para "C'est pour ça que"
+	line "je pêche!"
+else
 	text "I want to become"
 	line "the trainer CHAMP"
 
@@ -277,40 +298,86 @@ FisherTullyAfterBattleText: ; AUTOTRAD
 
 	para "That's the best"
 	line "part of fishing!"
+endc
+
 	done
 
-HikerBenjaminSeenText: ; AUTOTRAD
+HikerBenjaminSeenText: 
+if DEF(_FR_FR)
+	text "Ah! L'air pur!"
+	line "C'est la fête!"
+else
 	text "Ah, it's good to"
 	line "be outside!"
 	cont "I feel so free!"
+endc
+
 	done
 
-HikerBenjaminBeatenText: ; AUTOTRAD
+HikerBenjaminBeatenText: 
+if DEF(_FR_FR)
 	text "Gahahah!"
+else
+	text "Gahahah!"
+endc
+
 	done
 
-HikerBenjaminAfterBattleText: ; AUTOTRAD
+HikerBenjaminAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai perdu!"
+	line "Honte sur moi!"
+else
 	text "Losing feels in-"
 	line "significant if you"
 
 	para "look up at the big"
 	line "sky!"
+endc
+
 	done
 
-PokemaniacShaneSeenText: ; AUTOTRAD
+PokemaniacShaneSeenText: 
+if DEF(_FR_FR)
+	text "HE! TOI!"
+
+	para "C'est mon terri-"
+	line "toire ici!"
+	cont "Dégage!!"
+else
 	text "HEY!"
 
 	para "This is my secret"
 	line "place! Get lost,"
 	cont "you outsider!"
+endc
+
 	done
 
-PokemaniacShaneBeatenText: ; AUTOTRAD
+PokemaniacShaneBeatenText: 
+if DEF(_FR_FR)
+	text "J'aurais dû utili-"
+	line "ser ma jolie"
+	cont "PIERRE LUNE."
+else
 	text "I should have used"
 	line "my MOON STONE…"
+endc
+
 	done
 
-PokemaniacShaneAfterBattleText: ; AUTOTRAD
+PokemaniacShaneAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu bosses sur un"
+	line "#DEX?"
+
+	para "Tu dois connaître"
+	line "plein de #MON"
+	cont "rares!"
+
+	para "J'peux les voir?"
+	line "Steuplait?"
+else
 	text "You're working on"
 	line "a #DEX?"
 
@@ -320,34 +387,68 @@ PokemaniacShaneAfterBattleText: ; AUTOTRAD
 
 	para "May I please see"
 	line "it. Please?"
+endc
+
 	done
 
-Route42Sign1Text: ; AUTOTRAD
+Route42Sign1Text: 
+if DEF(_FR_FR)
+	text "ROUTE 42"
+
+	para "ROSALIA -"
+	line "ACAJOU"
+else
 	text "ROUTE 42"
 
 	para "ECRUTEAK CITY -"
 	line "MAHOGANY TOWN"
+endc
+
 	done
 
-MtMortarSign1Text: ; AUTOTRAD
+MtMortarSign1Text: 
+if DEF(_FR_FR)
+	text "MONT CREUSET"
+
+	para "GROTTE CASCADE"
+	line "Intérieur"
+else
 	text "MT.MORTAR"
 
 	para "WATERFALL CAVE"
 	line "INSIDE"
+endc
+
 	done
 
-MtMortarSign2Text: ; AUTOTRAD
+MtMortarSign2Text: 
+if DEF(_FR_FR)
+	text "MONT CREUSET"
+
+	para "GROTTE CASCADE"
+	line "Intérieur"
+else
 	text "MT.MORTAR"
 
 	para "WATERFALL CAVE"
 	line "INSIDE"
+endc
+
 	done
 
-Route42Sign2Text: ; AUTOTRAD
+Route42Sign2Text: 
+if DEF(_FR_FR)
+	text "ROUTE 42"
+
+	para "ROSALIA -"
+	line "ACAJOU"
+else
 	text "ROUTE 42"
 
 	para "ECRUTEAK CITY -"
 	line "MAHOGANY TOWN"
+endc
+
 	done
 
 Route42_MapEvents:

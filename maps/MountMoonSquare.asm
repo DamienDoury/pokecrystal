@@ -125,9 +125,16 @@ ClefairyFleeMovement:
 	step RIGHT
 	step_end
 
-DontLitterSignText: ; AUTOTRAD
+DontLitterSignText: 
+if DEF(_FR_FR)
+	text "SQUARE du MONT"
+	line "SELENITE"
+	cont "Ne rien jeter"
+else
 	text "MT.MOON SQUARE"
 	line "DON'T LITTER"
+endc
+
 	done
 
 MountMoonSquare_MapEvents:

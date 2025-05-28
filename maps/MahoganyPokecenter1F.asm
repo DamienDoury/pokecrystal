@@ -29,7 +29,16 @@ MahoganyPokecenter1FRocketScript:
 	faceplayer
 	jumptext MahoganyPokecenter1FRocketText
 
-MahoganyPokecenter1FPokefanMText: ; AUTOTRAD
+MahoganyPokecenter1FPokefanMText: 
+if DEF(_FR_FR)
+	text "C'est quoi ça? La"
+	line "TEAM ROCKET est de"
+	cont "retour?"
+
+	para "J'ai vu des hommes"
+	line "en noir au LAC"
+	cont "COLERE..."
+else
 	text "What's this? TEAM"
 	line "ROCKET has come"
 	cont "back?"
@@ -37,9 +46,22 @@ MahoganyPokecenter1FPokefanMText: ; AUTOTRAD
 	para "I saw some men in"
 	line "black at LAKE OF"
 	cont "RAGE…"
+endc
+
 	done
 
-MahoganyPokecenter1FYoungsterText: ; AUTOTRAD
+MahoganyPokecenter1FYoungsterText: 
+if DEF(_FR_FR)
+	text "J'ai empêché mes"
+	line "#MON d'évoluer"
+	cont "trop tôt."
+
+	para "Je leur fais"
+	line "apprendre cer-"
+	cont "taines capacités"
+	cont "avant de les faire"
+	cont "évoluer."
+else
 	text "I stop my #MON"
 	line "from evolving too"
 	cont "early."
@@ -48,15 +70,29 @@ MahoganyPokecenter1FYoungsterText: ; AUTOTRAD
 	line "certain moves be-"
 	cont "fore I let them"
 	cont "evolve."
+endc
+
 	done
 
-MahoganyPokecenter1FCooltrainerFText: ; AUTOTRAD
+MahoganyPokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "deviennent bien"
+
+	para "plus forts lorsqu'"
+	line "ils évoluent mais"
+	cont "ils apprennent"
+	cont "leurs capacités"
+	cont "plus lentement."
+else
 	text "#MON do become"
 	line "stronger when they"
 
 	para "evolve, but they"
 	line "also learn moves"
 	cont "more slowly."
+endc
+
 	done
 
 MahoganyPokecenter1FRocketText: ; TO TRANSLATE

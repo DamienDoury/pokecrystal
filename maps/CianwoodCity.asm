@@ -221,7 +221,20 @@ CianwoodCityEusineDepartMovement:
 	step DOWN
 	step_end
 
-ChucksWifeEasierToFlyText: ; AUTOTRAD
+ChucksWifeEasierToFlyText: 
+if DEF(_FR_FR)
+	text "Tu as traversé la"
+	line "mer pour venir"
+
+	para "ici. Ca a dû être"
+	line "bien dur."
+
+	para "Ce serait plus"
+	line "facile si tes"
+
+	para "#MON savaient"
+	line "voler."
+else
 	text "You crossed the"
 	line "sea to get here?"
 
@@ -233,6 +246,8 @@ ChucksWifeEasierToFlyText: ; AUTOTRAD
 
 	para "#MON knew how"
 	line "to FLY…"
+endc
+
 	done
 
 ChucksWifeBeatChuckText: ; TO TRANSLATE
@@ -285,7 +300,17 @@ ChucksWifeFlySpeechText: ; TO TRANSLATE
 	line "own risks."
 	done
 
-ChucksWifeChubbyText: ; AUTOTRAD
+ChucksWifeChubbyText: 
+if DEF(_FR_FR)
+	text "Mon mari a perdu"
+	line "face à toi, il"
+	cont "doit donc encore"
+	cont "s'entraîner!"
+
+	para "Ca tombe bien!"
+	line "Il est un peu gros"
+	cont "en ce moment."
+else
 	text "My husband lost to"
 	line "you, so he needs"
 	cont "to train harder."
@@ -293,9 +318,26 @@ ChucksWifeChubbyText: ; AUTOTRAD
 	para "That's good, since"
 	line "he was getting a"
 	cont "little chubby."
+endc
+
 	done
 
-CianwoodCityPokefanMText: ; AUTOTRAD
+CianwoodCityPokefanMText: 
+if DEF(_FR_FR)
+	text "Des rochers au"
+	line "Nord de la ville"
+	cont "peuvent être"
+	cont "écrasés."
+
+	para "Ils cachent peut-"
+	line "être quelque"
+	cont "chose."
+
+	para "Ton #MON peut"
+	line "utiliser ECLATE-"
+	cont "ROC pour les"
+	cont "détruire."
+else
 	text "Boulders to the"
 	line "north of town can"
 	cont "be crushed."
@@ -306,14 +348,26 @@ CianwoodCityPokefanMText: ; AUTOTRAD
 	para "Your #MON could"
 	line "use ROCK SMASH to"
 	cont "break them."
+endc
+
 	done
 
-CianwoodCityLassText: ; AUTOTRAD
+CianwoodCityLassText: 
+if DEF(_FR_FR)
+	text "CHUCK, le"
+	line "CHAMPION d'ARENE"
+
+	para "s'entraîne avec"
+	line "ses #MON de"
+	cont "type COMBAT."
+else
 	text "CHUCK, the GYM"
 	line "LEADER, spars with"
 
 	para "his fighting #-"
 	line "MON."
+endc
+
 	done
 
 PharmacistRanAwayText: ; TO TRANSLATE
@@ -374,12 +428,35 @@ EusineSuicuneText: ; TO TRANSLATE
 	line "Let's battle now!"
 	done
 
-EusineBeatenText: ; AUTOTRAD
+EusineBeatenText: 
+if DEF(_FR_FR)
+	text "Bon d'accord."
+	line "J'ai perdu."
+else
 	text "I hate to admit"
 	line "it, but you win."
+endc
+
 	done
 
-EusineAfterText: ; AUTOTRAD
+EusineAfterText: 
+if DEF(_FR_FR)
+	text "Tu es formidable,"
+	line "<PLAYER>!"
+
+	para "Les #MON"
+	line "doivent t'adorer."
+
+	para "Je comprends tout."
+
+	para "Je vais encore"
+	line "traquer le grand"
+	cont "SUICUNE."
+
+	para "On se reverra."
+
+	para "A bientôt!"
+else
 	text "You're amazing,"
 	line "<PLAYER>!"
 
@@ -396,16 +473,34 @@ EusineAfterText: ; AUTOTRAD
 	line "each other again."
 
 	para "See you around!"
+endc
+
 	done
 
-CianwoodCitySignText: ; AUTOTRAD
+CianwoodCitySignText: 
+if DEF(_FR_FR)
+	text "IRISIA"
+
+	para "Un port entouré"
+	line "d'une mer bien"
+	cont "déchaînée"
+else
 	text "CIANWOOD CITY"
 
 	para "A Port Surrounded"
 	line "by Rough Seas"
+endc
+
 	done
 
-CianwoodGymSignText: ; AUTOTRAD
+CianwoodGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'IRISIA: CHUCK"
+
+	para "Ses poings parlent"
+	line "pour lui"
+else
 	text "CIANWOOD CITY"
 	line "#MON GYM"
 
@@ -413,9 +508,20 @@ CianwoodGymSignText: ; AUTOTRAD
 
 	para "His Roaring Fists"
 	line "Do the Talking"
+endc
+
 	done
 
-CianwoodPharmacySignText: ; AUTOTRAD
+CianwoodPharmacySignText: 
+if DEF(_FR_FR)
+	text "500 ans de"
+	line "Tradition"
+
+	para "PHARMACIE d'IRISIA"
+
+	para "Malades..."
+	line "Venez nombreux!"
+else
 	text "500 Years of"
 	line "Tradition"
 
@@ -424,19 +530,36 @@ CianwoodPharmacySignText: ; AUTOTRAD
 
 	para "We Await Your"
 	line "Medicinal Queries"
+endc
+
 	done
 
-CianwoodPhotoStudioSignText: ; AUTOTRAD
+CianwoodPhotoStudioSignText: 
+if DEF(_FR_FR)
+	text "STUDIO PHOTO"
+	line "D'IRISIA"
+
+	para "Une petite photo"
+	line "souvenir!"
+else
 	text "CIANWOOD CITY"
 	line "PHOTO STUDIO"
 
 	para "Take a Snapshot as"
 	line "a Keepsake!"
+endc
+
 	done
 
-CianwoodPokeSeerSignText: ; AUTOTRAD
+CianwoodPokeSeerSignText: 
+if DEF(_FR_FR)
+	text "#DEVIN"
+	line "TOUT DROIT"
+else
 	text "THE # SEER"
 	line "AHEAD"
+endc
+
 	done
 
 Cianwood_NoFaceMaskText: ; TO TRANSLATE

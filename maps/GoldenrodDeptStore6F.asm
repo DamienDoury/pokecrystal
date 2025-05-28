@@ -116,30 +116,73 @@ GoldenrodDeptStore6FDirectory:
 GoldenrodDeptStore6FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodVendingText: ; AUTOTRAD
+GoldenrodVendingText: 
+if DEF(_FR_FR)
+	text "Un distributeur"
+	line "automatique!"
+	cont "Voilà le menu."
+else
 	text "A vending machine!"
 	line "Here's the menu."
+endc
+
 	done
 
-GoldenrodClangText: ; AUTOTRAD
+GoldenrodClangText: 
+if DEF(_FR_FR)
+	text "Cling!"
+	line "Une boîte de"
+	cont "@"
+	text_ram wStringBuffer3
+else
 	text "Clang! A can of"
 	line "@"
 	text_ram wStringBuffer3
+endc
+
 	text_start
 	cont "popped out!"
 	done
 
-GoldenrodVendingNoMoneyText: ; AUTOTRAD
+GoldenrodVendingNoMoneyText: 
+if DEF(_FR_FR)
+	text "Oups, pas assez"
+	line "d'argent."
+else
 	text "Oops, not enough"
 	line "money."
+endc
+
 	done
 
-GoldenrodVendingNoSpaceText: ; AUTOTRAD
+GoldenrodVendingNoSpaceText: 
+if DEF(_FR_FR)
+	text "Il n'y a plus de"
+	line "place."
+else
 	text "There's no more"
 	line "room for stuff."
+endc
+
 	done
 
-GoldenrodDeptStore6FLassText: ; AUTOTRAD
+GoldenrodDeptStore6FLassText: 
+if DEF(_FR_FR)
+	text "Ecoutes-tu"
+	line "L'ANTENNE DE LA"
+	cont "CHANCE?"
+
+	para "Si tu veux gagner,"
+	line "échange un maximum"
+
+	para "de #MON avec le"
+	line "plus de personnes"
+
+	para "possibles pour"
+	line "avoir un max de"
+	cont "numéros ID"
+	cont "différents."
+else
 	text "Do you listen to"
 	line "LUCKY CHANNEL?"
 
@@ -151,22 +194,43 @@ GoldenrodDeptStore6FLassText: ; AUTOTRAD
 
 	para "get different ID"
 	line "numbers."
+endc
+
 	done
 
-GoldenrodDeptStore6FSuperNerdText: ; AUTOTRAD
+GoldenrodDeptStore6FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Si tu es naze,"
+	line "sers-toi du"
+	cont "distributeur auto-"
+	cont "matique."
+
+	para "Ton #MON"
+	line "appréciera aussi."
+else
 	text "If you're tired,"
 	line "try the vending"
 	cont "machine's drinks."
 
 	para "Your #MON will"
 	line "love them too."
+endc
+
 	done
 
-GoldenrodDeptStore6FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore6FDirectoryText: 
+if DEF(_FR_FR)
+	text "Une petite pause!"
+
+	para "5EME COIN"
+	line "     TRANQUILLE"
+else
 	text "Take a Break from"
 	line "Shopping!"
 
 	para "6F TRANQUIL SQUARE"
+endc
+
 	done
 
 GoldenrodDeptStore5FCarrieMysteryGiftExplanationText: ; AUTOTRAD

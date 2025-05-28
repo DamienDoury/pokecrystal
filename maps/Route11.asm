@@ -59,44 +59,89 @@ Route11FruitTree2:
 Route11HiddenRevive:
 	hiddenitem REVIVE, EVENT_ROUTE_11_HIDDEN_REVIVE
 
-YoungsterOwenSeenText: ; AUTOTRAD
+YoungsterOwenSeenText: 
+if DEF(_FR_FR)
+	text "Y'a pas de triche"
+	line "à #MON."
+
+	para "Etre honnête, ça"
+	line "c'est chouette!"
+else
 	text "There's no cheat-"
 	line "ing in #MON."
 
 	para "Let's keep it fair"
 	line "and square!"
+endc
+
 	done
 
-YoungsterOwenBeatenText: ; AUTOTRAD
+YoungsterOwenBeatenText: 
+if DEF(_FR_FR)
+	text "Hein?"
+	line "T'as grugé!"
+else
 	text "Huh? How did this"
 	line "happen?"
+endc
+
 	done
 
-YoungsterOwenAfterBattleText: ; AUTOTRAD
+YoungsterOwenAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai combattu avec"
+	line "honneur."
+
+	para "Je ne regrette"
+	line "rien de rien."
+else
 	text "I fought fair and"
 	line "square with honor."
 
 	para "I don't regret"
 	line "this at all."
+endc
+
 	done
 
-YoungsterJasonSeenText: ; AUTOTRAD
+YoungsterJasonSeenText: 
+if DEF(_FR_FR)
+	text "Porter des shorts"
+	line "dans l'herbe, ça"
+
+	para "pique à donf... "
+	line "Pas cool."
+else
 	text "It itches and"
 	line "tickles a bit when"
 
 	para "I wear shorts in"
 	line "the grass."
+endc
+
 	done
 
-YoungsterJasonBeatenText: ; AUTOTRAD
+YoungsterJasonBeatenText: 
+if DEF(_FR_FR)
+	text "Aïeuuuuuuu!"
+else
 	text "Aiyaaah!"
 	line "I got stomped!"
+endc
+
 	done
 
-YoungsterJasonAfterBattleText: ; AUTOTRAD
+YoungsterJasonAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais choper"
+	line "d'autres #MON"
+	cont "dans les herbes."
+else
 	text "I'm going to catch"
 	line "more #MON in"
 	cont "the grass."
+endc
+
 	done
 
 PsychicHermanSeenText:
@@ -107,32 +152,64 @@ PsychicHermanBeatenText:
 	text "…"
 	done
 
-PsychicHermanAfterBattleText: ; AUTOTRAD
+PsychicHermanAfterBattleText: 
+if DEF(_FR_FR)
+	text "…"
+
+	para "J'ai perdu les"
+	line "yeux fermés..."
+else
 	text "…"
 
 	para "I lost while I had"
 	line "my eyes closed…"
+endc
+
 	done
 
-PsychicFidelSeenText: ; AUTOTRAD
+PsychicFidelSeenText: 
+if DEF(_FR_FR)
+	text "Je vois tout..."
+
+	para "Présent, futur..."
+	line "Combat!"
+else
 	text "I can see it…"
 
 	para "Everything to see"
 	line "about you…"
+endc
+
 	done
 
-PsychicFidelBeatenText: ; AUTOTRAD
+PsychicFidelBeatenText: 
+if DEF(_FR_FR)
+	text "Heu..."
+	line "Je l'avais prévu!"
+else
 	text "I couldn't foresee"
 	line "your power…"
+endc
+
 	done
 
-PsychicFidelAfterBattleText: ; AUTOTRAD
+PsychicFidelAfterBattleText: 
+if DEF(_FR_FR)
+	text "Volonté..."
+	line "Psychisme..."
+
+	para "Ta confiance en"
+	line "tes #MON est"
+	cont "ta force."
+else
 	text "Strength in con-"
 	line "viction…"
 
 	para "You're strong be-"
 	line "cause you believe"
 	cont "in your #MON."
+endc
+
 	done
 
 GentlemanPauloSeenText: ; TO TRANSLATE
@@ -155,8 +232,13 @@ GentlemanPauloAfterBattleText: ; TO TRANSLATE
 	cont "the day."
 	done
 
-Route11SignText: ; AUTOTRAD
+Route11SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 11"
+else
+	text "ROUTE 11"
+endc
+
 	done
 
 Route11_MapEvents:

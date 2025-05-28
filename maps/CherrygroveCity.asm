@@ -113,8 +113,14 @@ CherrygroveCityGuideGent:
 	jumpstd ReceiveItemScript
 	end
 
-.mapcardname ; AUTOTRAD
+.mapcardname 
+if DEF(_FR_FR)
+	db "CPN CARTE@"
+
+else
 	db "MAP CARD@"
+
+endc
 
 .No:
 	writetext GuideGentNoText
@@ -366,7 +372,20 @@ CherrygroveCity_RivalExitsStageLeft:
 	big_step LEFT
 	step_end
 
-GuideGentIntroText: ; AUTOTRAD
+GuideGentIntroText: 
+if DEF(_FR_FR)
+	text "Toi, tu débutes,"
+	line "non? Ca se voit!"
+
+	para "C'est bon! Tout le"
+	line "monde a des"
+	cont "défauts!"
+
+	para "Si tu veux, je"
+	line "peux t'apprendre"
+	cont "deux, trois petits"
+	cont "trucs sympa!"
+else
 	text "You're a rookie"
 	line "trainer, aren't"
 	cont "you? I can tell!"
@@ -378,14 +397,38 @@ GuideGentIntroText: ; AUTOTRAD
 	para "If you'd like, I"
 	line "can teach you a"
 	cont "few things."
+endc
+
 	done
 
-GuideGentTourText1: ; AUTOTRAD
+GuideGentTourText1: 
+if DEF(_FR_FR)
+	text "Bon allez!"
+	line "Suis-moi!"
+else
 	text "OK, then!"
 	line "Follow me!"
+endc
+
 	done
 
-GuideGentPokecenterText: ; AUTOTRAD
+GuideGentPokecenterText: 
+if DEF(_FR_FR)
+	text "C'est un CENTRE"
+	line "#MON. On y"
+
+	para "soigne les #-"
+	line "MON en moins de"
+	cont "temps qu'il n'en"
+	cont "faut pour le dire!"
+
+	para "Tu en auras grand"
+	line "besoin pendant ta"
+
+	para "quête, alors"
+	line "apprends à les"
+	cont "utiliser."
+else
 	text "This is a #MON"
 	line "CENTER. They heal"
 
@@ -397,9 +440,23 @@ GuideGentPokecenterText: ; AUTOTRAD
 
 	para "you better learn"
 	line "about them."
+endc
+
 	done
 
-GuideGentMartText: ; AUTOTRAD
+GuideGentMartText: 
+if DEF(_FR_FR)
+	text "C'est une BOUTIQUE"
+	line "#MON."
+
+	para "On y vend des"
+	line "BALLS permettant"
+
+	para "de capturer les"
+	line "#MON et"
+	cont "plein d'autres"
+	cont "objets utiles."
+else
 	text "This is a #MON"
 	line "MART."
 
@@ -408,9 +465,21 @@ GuideGentMartText: ; AUTOTRAD
 
 	para "#MON and other"
 	line "useful items."
+endc
+
 	done
 
-GuideGentRoute30Text: ; AUTOTRAD
+GuideGentRoute30Text: 
+if DEF(_FR_FR)
+	text "La ROUTE 30 est"
+	line "par-là."
+
+	para "Les dresseurs"
+	line "s'y affrontent"
+
+	para "avec leurs #MON"
+	line "favoris."
+else
 	text "ROUTE 30 is out"
 	line "this way."
 
@@ -419,18 +488,40 @@ GuideGentRoute30Text: ; AUTOTRAD
 
 	para "prized #MON"
 	line "there."
+endc
+
 	done
 
-GuideGentSeaText: ; AUTOTRAD
+GuideGentSeaText: 
+if DEF(_FR_FR)
+	text "Voici la mer."
+
+	para "Certains #MON"
+	line "se trouvent"
+	cont "uniquement dans"
+	cont "l'eau."
+else
 	text "This is the sea,"
 	line "as you can see."
 
 	para "Some #MON are"
 	line "found only in"
 	cont "water."
+endc
+
 	done
 
-GuideGentGiftText: ; AUTOTRAD
+GuideGentGiftText: 
+if DEF(_FR_FR)
+	text "Voilà."
+
+	para "C'est chez moi!"
+	line "Merci de m'avoir"
+	cont "tenu compagnie."
+
+	para "Je vais te donner"
+	line "un p'tit truc."
+else
 	text "Here…"
 
 	para "It's my house!"
@@ -439,31 +530,80 @@ GuideGentGiftText: ; AUTOTRAD
 
 	para "Let me give you a"
 	line "small gift."
+endc
+
 	done
 
-GotMapCardText: ; AUTOTRAD
+GotMapCardText: 
+if DEF(_FR_FR)
+	text "Le #MATOS de"
+	line "<PLAYER> contient"
+	cont "maintenant une"
+	cont "CARTE!"
+else
 	text "<PLAYER>'s #GEAR"
 	line "now has a MAP!"
+endc
+
 	done
 
-GuideGentPokegearText: ; AUTOTRAD
+GuideGentPokegearText: 
+if DEF(_FR_FR)
+	text "Le #MATOS"
+	line "est plus utile"
+	cont "lorsqu'on y ajou-"
+	cont "te des COUPONS."
+
+	para "Je te souhaite"
+	line "bonne chance!"
+else
 	text "#GEAR becomes"
 	line "more useful as you"
 	cont "add CARDS."
 
 	para "I wish you luck on"
 	line "your journey!"
+endc
+
 	done
 
-GuideGentNoText: ; AUTOTRAD
+GuideGentNoText: 
+if DEF(_FR_FR)
+	text "Oh..."
+	line "D'accord."
+
+	para "Viens me voir"
+	line "quand tu veux."
+else
 	text "Oh… It's something"
 	line "I enjoy doing…"
 
 	para "Fine. Come see me"
 	line "when you like."
+endc
+
 	done
 
-CherrygroveRivalText_Seen: ; AUTOTRAD
+CherrygroveRivalText_Seen: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Tu as un #MON"
+	line "du LABO."
+
+	para "Du gâchis, ouais!"
+	line "Une mauviette"
+	cont "comme toi..."
+
+	para "<……> <……> <……>"
+
+	para "Bon."
+	line "J't'aime pas."
+
+	para "Je vais te montrer"
+	line "le bon #MON"
+	cont "que j'ai moi!"
+else
 	text "<……> <……> <……>"
 
 	para "You got a #MON"
@@ -482,6 +622,8 @@ CherrygroveRivalText_Seen: ; AUTOTRAD
 
 	para "I'll show you"
 	line "what I mean!"
+endc
+
 	done
 
 SilverCherrygroveWinText: ; AUTOTRAD
@@ -489,7 +631,17 @@ SilverCherrygroveWinText: ; AUTOTRAD
 	line "happy you won?"
 	done
 
-CherrygroveRivalText_YouLost: ; AUTOTRAD
+CherrygroveRivalText_YouLost: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Mon nom est ???."
+
+	para "Je serai le plus"
+	line "grand dresseur de"
+	cont "#MON du"
+	cont "monde."
+else
 	text "<……> <……> <……>"
 
 	para "My name's ???."
@@ -498,6 +650,8 @@ CherrygroveRivalText_YouLost: ; AUTOTRAD
 	line "the world's great-"
 	cont "est #MON"
 	cont "trainer."
+endc
+
 	done
 
 SilverCherrygroveLossText: ; AUTOTRAD
@@ -505,7 +659,17 @@ SilverCherrygroveLossText: ; AUTOTRAD
 	line "waste of time."
 	done
 
-CherrygroveRivalText_YouWon: ; AUTOTRAD
+CherrygroveRivalText_YouWon: 
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Mon nom est ???."
+
+	para "Je serai le plus"
+	line "grand dresseur de"
+	cont "#MON du"
+	cont "monde."
+else
 	text "<……> <……> <……>"
 
 	para "My name's ???."
@@ -514,9 +678,22 @@ CherrygroveRivalText_YouWon: ; AUTOTRAD
 	line "the world's great-"
 	cont "est #MON"
 	cont "trainer."
+endc
+
 	done
 
-CherrygroveTeacherText_NoMapCard: ; AUTOTRAD
+CherrygroveTeacherText_NoMapCard: 
+if DEF(_FR_FR)
+	text "As-tu parlé au"
+	line "vieil homme près"
+	cont "du CENTRE"
+	cont "#MON?"
+
+	para "Il déposera une"
+	line "CARTE de JOHTO"
+	cont "dans ton"
+	cont "#MATOS."
+else
 	text "Did you talk to"
 	line "the old man by the"
 	cont "#MON CENTER?"
@@ -524,21 +701,52 @@ CherrygroveTeacherText_NoMapCard: ; AUTOTRAD
 	para "He'll put a MAP of"
 	line "JOHTO on your"
 	cont "#GEAR."
+endc
+
 	done
 
-CherrygroveTeacherText_HaveMapCard: ; AUTOTRAD
+CherrygroveTeacherText_HaveMapCard: 
+if DEF(_FR_FR)
+	text "C'est trop bien"
+	line "de se balader avec"
+	cont "ses #MON!"
+else
 	text "When you're with"
 	line "#MON, going"
 	cont "anywhere is fun."
+endc
+
 	done
 
-CherrygroveYoungsterText_NoPokedex: ; AUTOTRAD
+CherrygroveYoungsterText_NoPokedex: 
+if DEF(_FR_FR)
+	text "La maison de"
+	line "M.#MON est un"
+	cont "peu plus loin."
+else
 	text "MR.#MON's house"
 	line "is still farther"
 	cont "up ahead."
+endc
+
 	done
 
-CherrygroveYoungsterText_HavePokedex: ; AUTOTRAD
+CherrygroveYoungsterText_HavePokedex: 
+if DEF(_FR_FR)
+	text "J'ai combattu"
+	line "un paquet de"
+	cont "dresseurs sur la"
+	cont "route."
+
+	para "Mes #MON ont"
+	line "perdu avec honneur"
+
+	para "mais bon, le"
+	line "résultat est là."
+	cont "Je dois aller vite"
+	cont "fait dans un"
+	cont "CENTRE #MON."
+else
 	text "I battled the"
 	line "trainers on the"
 	cont "road."
@@ -548,9 +756,23 @@ CherrygroveYoungsterText_HavePokedex: ; AUTOTRAD
 
 	para "must take them to"
 	line "a #MON CENTER."
+endc
+
 	done
 
-MysticWaterGuyTextBefore: ; AUTOTRAD
+MysticWaterGuyTextBefore: 
+if DEF(_FR_FR)
+	text "Le #MON que"
+	line "j'ai attrapé avait"
+	cont "un objet."
+
+	para "Je crois que c'est"
+	line "de l'EAU MYSTIQUE."
+
+	para "Je n'en ai pas"
+	line "besoin..."
+	cont "La veux-tu?"
+else
 	text "A #MON I caught"
 	line "had an item."
 
@@ -559,11 +781,19 @@ MysticWaterGuyTextBefore: ; AUTOTRAD
 
 	para "I don't need it,"
 	line "so do you want it?"
+endc
+
 	done
 
-MysticWaterGuyTextAfter: ; AUTOTRAD
+MysticWaterGuyTextAfter: 
+if DEF(_FR_FR)
+	text "Allez hop, retour"
+	line "à la pêche."
+else
 	text "Back to fishing"
 	line "for me, then."
+endc
+
 	done
 
 FirstInLineFirstLockdownText: ; TO TRANSLATE
@@ -600,15 +830,28 @@ CooltrainerFirstLockdownText: ; TO TRANSLATE
 	cont "to be chaotic…"
 	done
 
-CherrygroveCitySignText: ; AUTOTRAD
+CherrygroveCitySignText: 
+if DEF(_FR_FR)
+	text "VILLE GRIOTTE"
+
+	para "La ville aux"
+	line "fleurs parfumées"
+else
 	text "CHERRYGROVE CITY"
 
 	para "The City of Cute,"
 	line "Fragrant Flowers"
+endc
+
 	done
 
-GuideGentsHouseSignText: ; AUTOTRAD
+GuideGentsHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DES GUIDES"
+else
 	text "GUIDE GENT'S HOUSE"
+endc
+
 	done
 
 CherrygroveCity_MapEvents:

@@ -235,7 +235,30 @@ Route35NationalParkGatePlayerEnterParkMovement:
 	step UP
 	step_end
 
-Route35NationalParkGateOfficer1AskToParticipateText: ; AUTOTRAD
+Route35NationalParkGateOfficer1AskToParticipateText: 
+if DEF(_FR_FR)
+	text "On est @"
+	text_ram wStringBuffer3
+	text "."
+	line "Ca veut dire que"
+
+	para "le Concours de"
+	line "Capture d'insecte"
+	cont "est aujourd'hui."
+
+	para "Les règles sont"
+	line "simples."
+
+	para "Avec un #MON de"
+	line "l'équipe, il faut"
+
+	para "attraper un #-"
+	line "MON insecte qui"
+	cont "sera noté."
+
+	para "Alors? On tente"
+	line "sa chance?"
+else
 	text "Today's @"
 	text_ram wStringBuffer3
 	text "."
@@ -255,20 +278,59 @@ Route35NationalParkGateOfficer1AskToParticipateText: ; AUTOTRAD
 
 	para "Would you like to"
 	line "give it a try?"
+endc
+
 	done
 
-Route35NationalParkGateOfficer1GiveParkBallsText: ; AUTOTRAD
+Route35NationalParkGateOfficer1GiveParkBallsText: 
+if DEF(_FR_FR)
+	text "Voici des PARC"
+	line "BALLS pour le"
+	cont "concours."
+else
 	text "Here are the PARK"
 	line "BALLS for the"
 	cont "Contest."
+endc
+
 	done
 
-Route35NationalParkGatePlayerReceivedParkBallsText: ; AUTOTRAD
+Route35NationalParkGatePlayerReceivedParkBallsText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "{d:BUG_CONTEST_BALLS} PARC BALLS."
+else
 	text "<PLAYER> received"
 	line "{d:BUG_CONTEST_BALLS} PARK BALLS."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1ExplainsRulesText: ; AUTOTRAD
+Route35NationalParkGateOfficer1ExplainsRulesText: 
+if DEF(_FR_FR)
+	text "La personne qui"
+	line "capture le #-"
+	cont "MON insecte le"
+	cont "plus puissant est"
+	cont "désignée vain-"
+	cont "queur."
+
+	para "La partie dure"
+	line "{d:BUG_CONTEST_MINUTES} minutes."
+
+	para "Si toutes les"
+	line "PARC BALLS sont"
+	cont "épuisées, c'est"
+	cont "fini!"
+
+	para "Le dernier #MON"
+	line "attrapé peut être"
+	cont "gardé."
+
+	para "Allez hop! C'est"
+	line "la chasse aux"
+	cont "#MON insecte!"
+else
 	text "The person who"
 	line "gets the strong-"
 	cont "est bug #MON"
@@ -290,9 +352,27 @@ Route35NationalParkGateOfficer1ExplainsRulesText: ; AUTOTRAD
 
 	para "#MON you can"
 	line "find!"
+endc
+
 	done
 
-Route35NationalParkGateOfficer1AskToUseFirstMonText: ; AUTOTRAD
+Route35NationalParkGateOfficer1AskToUseFirstMonText: 
+if DEF(_FR_FR)
+	text "Oh-oh..."
+
+	para "Tu as plus d'un"
+	line "#MON."
+
+	para "Tu dois utiliser"
+	line "@"
+	text_ram wStringBuffer3
+	text ", le"
+
+	para "premier #MON de"
+	line "ton équipe."
+
+	para "Tu es d'accord?"
+else
 	text "Uh-oh…"
 
 	para "You have more than"
@@ -308,35 +388,80 @@ Route35NationalParkGateOfficer1AskToUseFirstMonText: ; AUTOTRAD
 
 	para "Is that OK with"
 	line "you?"
+endc
+
 	done
 
-Route35NationalParkGateOfficer1WellHoldYourMonText: ; AUTOTRAD
+Route35NationalParkGateOfficer1WellHoldYourMonText: 
+if DEF(_FR_FR)
+	text "Parfait. Je vais"
+	line "garder les autres"
+	cont "#MON pendant le"
+	cont "concours."
+else
 	text "Fine, we'll hold"
 	line "your other #MON"
 	cont "while you compete."
+endc
+
 	done
 
-Route35NationalParkGatePlayersMonLeftWithHelperText: ; AUTOTRAD
+Route35NationalParkGatePlayersMonLeftWithHelperText: 
+if DEF(_FR_FR)
+	text "<PLAYER> confie"
+	line "ses #MON au"
+	cont "RECEPTIONNISTE."
+else
 	text "<PLAYER>'s #MON"
 	line "were left with the"
 	cont "CONTEST HELPER."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1ChooseMonAndComeBackText: ; AUTOTRAD
+Route35NationalParkGateOfficer1ChooseMonAndComeBackText: 
+if DEF(_FR_FR)
+	text "Choisis le #MON"
+	line "à utiliser pendant"
+
+	para "le concours et"
+	line "viens me voir."
+else
 	text "Please choose the"
 	line "#MON to be used"
 
 	para "in the Contest,"
 	line "then come see me."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1TakePartInFutureText: ; AUTOTRAD
+Route35NationalParkGateOfficer1TakePartInFutureText: 
+if DEF(_FR_FR)
+	text "OK. Et bien"
+	line "à la prochaine."
+else
 	text "OK. We hope you'll"
 	line "take part in the"
 	cont "future."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1FirstMonCantBattleText: ; AUTOTRAD
+Route35NationalParkGateOfficer1FirstMonCantBattleText: 
+if DEF(_FR_FR)
+	text "Oh-oh..."
+	line "Le premier #MON"
+
+	para "de ton équipe ne"
+	line "peut combattre."
+
+	para "Change-le avec le"
+	line "#MON de ton"
+
+	para "choix et viens me"
+	line "voir."
+else
 	text "Uh-oh…"
 	line "The first #MON"
 
@@ -348,9 +473,27 @@ Route35NationalParkGateOfficer1FirstMonCantBattleText: ; AUTOTRAD
 
 	para "you want to use,"
 	line "then come see me."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1MakeRoomText: ; AUTOTRAD
+Route35NationalParkGateOfficer1MakeRoomText: 
+if DEF(_FR_FR)
+	text "Oh-oh... Ton"
+	line "équipe et ta BOITE"
+	cont "PC sont pleines."
+
+	para "Tu n'as pas de"
+	line "place pour le"
+	cont "#MON insecte"
+	cont "à attraper."
+
+	para "Fais de la place"
+	line "dans l'équipe ou"
+
+	para "dans la BOITE PC"
+	line "et viens me voir."
+else
 	text "Uh-oh…"
 	line "Both your party"
 
@@ -366,9 +509,22 @@ Route35NationalParkGateOfficer1MakeRoomText: ; AUTOTRAD
 
 	para "your PC BOX, then"
 	line "come see me."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1EggAsFirstMonText: ; AUTOTRAD
+Route35NationalParkGateOfficer1EggAsFirstMonText: 
+if DEF(_FR_FR)
+	text "Oh-oh... Tu as un"
+	line "OEUF en premier"
+	cont "dans ton équipe."
+
+	para "Change-le avec le"
+	line "#MON de ton"
+
+	para "choix et viens me"
+	line "voir."
+else
 	text "Uh-oh…"
 	line "You have an EGG as"
 
@@ -380,11 +536,19 @@ Route35NationalParkGateOfficer1EggAsFirstMonText: ; AUTOTRAD
 
 	para "you want to use,"
 	line "then come see me."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1WantToFinishText: ; AUTOTRAD
+Route35NationalParkGateOfficer1WantToFinishText: 
+if DEF(_FR_FR)
+	text "Tu as encore @"
+	text_ram wStringBuffer3
+else
 	text "You still have @"
 	text_ram wStringBuffer3
+endc
+
 	text_start
 	line "minute(s) left."
 
@@ -392,40 +556,80 @@ Route35NationalParkGateOfficer1WantToFinishText: ; AUTOTRAD
 	line "finish now?"
 	done
 
-Route35NationalParkGateOfficer1WaitAtNorthGateText: ; AUTOTRAD
+Route35NationalParkGateOfficer1WaitAtNorthGateText: 
+if DEF(_FR_FR)
+	text "OK. Attends à la"
+	line "Porte Nord pour"
+
+	para "connaître le nom"
+	line "des vainqueurs."
+else
 	text "OK. Please wait at"
 	line "the North Gate for"
 
 	para "the announcement"
 	line "of the winners."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1OkGoFinishText: ; AUTOTRAD
+Route35NationalParkGateOfficer1OkGoFinishText: 
+if DEF(_FR_FR)
+	text "OK. Retourne de-"
+	line "hors et termine."
+else
 	text "OK. Please get"
 	line "back outside and"
 	cont "finish up."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1ContestIsOverText: ; AUTOTRAD
+Route35NationalParkGateOfficer1ContestIsOverText: 
+if DEF(_FR_FR)
+	text "Le concours d'au-"
+	line "jourd'hui est ter-"
+
+	para "miné. Reviens une"
+	line "autre fois."
+else
 	text "Today's Contest is"
 	line "over. We hope you"
 
 	para "will participate"
 	line "in the future."
+endc
+
 	done
 
-Route35NationalParkGateOfficer1WeHoldContestsText: ; AUTOTRAD
+Route35NationalParkGateOfficer1WeHoldContestsText: 
+if DEF(_FR_FR)
+	text "Il y a des con-"
+	line "cours régulière-"
+
+	para "ment au PARC."
+	line "Inscris-toi!"
+else
 	text "We hold Contests"
 	line "regularly in the"
 
 	para "PARK. You should"
 	line "give it a shot."
+endc
+
 	done
 
-Route35NationalParkGateYoungsterText: ; AUTOTRAD
+Route35NationalParkGateYoungsterText: 
+if DEF(_FR_FR)
+	text "C'est pour quand"
+	line "le prochain Con-"
+	cont "cours de Capture?"
+else
 	text "When is the next"
 	line "Bug-Catching Con-"
 	cont "test going to be?"
+endc
+
 	done
 
 BugCatchingContestExplanationText: ; AUTOTRAD

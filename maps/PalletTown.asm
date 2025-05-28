@@ -30,41 +30,86 @@ OaksLabSign:
 BluesHouseSign:
 	jumptext BluesHouseSignText
 
-PalletTownTeacherText: ; AUTOTRAD
+PalletTownTeacherText: 
+if DEF(_FR_FR)
+	text "J'entraîne des"
+	line "#MON. Ils sont"
+
+	para "mes gardes du"
+	line "corps."
+else
 	text "I'm raising #-"
 	line "MON too."
 
 	para "They serve as my"
 	line "private guards."
+endc
+
 	done
 
-PalletTownFisherText: ; AUTOTRAD
+PalletTownFisherText: 
+if DEF(_FR_FR)
+	text "Le progrès..."
+	line "C'est dingue!"
+
+	para "On peut maintenant"
+	line "échanger des #-"
+	cont "MON à travers le"
+	cont "temps comme des"
+	cont "e-mails."
+else
 	text "Technology is"
 	line "incredible!"
 
 	para "You can now trade"
 	line "#MON across"
 	cont "time like e-mail."
+endc
+
 	done
 
-PalletTownSignText: ; AUTOTRAD
+PalletTownSignText: 
+if DEF(_FR_FR)
+	text "BOURG PALETTE"
+
+	para "Calme, paix et"
+	line "pureté"
+else
 	text "PALLET TOWN"
 
 	para "A Tranquil Setting"
 	line "of Peace & Purity"
+endc
+
 	done
 
-RedsHouseSignText: ; AUTOTRAD
+RedsHouseSignText: 
+if DEF(_FR_FR)
+	text "CHEZ RED"
+else
 	text "RED'S HOUSE"
+endc
+
 	done
 
-OaksLabSignText: ; AUTOTRAD
+OaksLabSignText: 
+if DEF(_FR_FR)
+	text "LABO #MON"
+	line "de CHEN"
+else
 	text "OAK #MON"
 	line "RESEARCH LAB"
+endc
+
 	done
 
-BluesHouseSignText: ; AUTOTRAD
+BluesHouseSignText: 
+if DEF(_FR_FR)
+	text "CHEZ BLUE"
+else
 	text "BLUE'S HOUSE"
+endc
+
 	done
 
 PalletTown_MapEvents:

@@ -37,7 +37,19 @@ AzaleaMartCooltrainerMText: ; TO TRANSLATE
 	cont "his custom BALLS."
 	done
 
-AzaleaMartBugCatcherText: ; AUTOTRAD
+AzaleaMartBugCatcherText: 
+if DEF(_FR_FR)
+	text "Une SUPER BALL est"
+	line "plus efficace"
+	cont "qu'une # BALL"
+	cont "pour attraper les"
+	cont "#MON."
+
+	para "Mais celles de"
+	line "FARGAS sont plus"
+	cont "efficaces quelque-"
+	cont "fois."
+else
 	text "A GREAT BALL is"
 	line "better for catch-"
 	cont "ing #MON than a"
@@ -46,6 +58,8 @@ AzaleaMartBugCatcherText: ; AUTOTRAD
 	para "But KURT's might"
 	line "be better some-"
 	cont "times."
+endc
+
 	done
 
 AzaleaMart_MapEvents:

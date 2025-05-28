@@ -255,11 +255,19 @@ ChuckIntroSequelText: ; TO TRANSLATE
 	para "Watch this!"
 	done
 
-ChuckIntroText2: ; AUTOTRAD
+ChuckIntroText2: 
+if DEF(_FR_FR)
+	text "CHUCK: Blurrp!"
+	line "............."
+
+	para "Aaaarrgh!"
+else
 	text "CHUCK: Urggh!"
 	line "…"
 
 	para "Oooarrgh!"
+endc
+
 	done
 
 CianwoodGymPowerRestrainerExplanation:
@@ -296,18 +304,36 @@ ChuckIntroText3: ; TO TRANSLATE
 	para "Let's do this!"
 	done
 
-ChuckLossText: ; AUTOTRAD
+ChuckLossText: 
+if DEF(_FR_FR)
+	text "Hein? Koi? Méheeuu"
+	line "j'ai pas gagné là?"
+
+	para "A propos, je peux"
+	line "te dire un truc?"
+	cont "Je pense que tu"
+	cont "mérites le bon"
+	cont "vieux BADGE CHOC!"
+else
 	text "Wha? Huh?"
 	line "I lost?"
 
 	para "How about that!"
 	line "You're worthy of"
 	cont "STORMBADGE!"
+endc
+
 	done
 
-GetStormBadgeText: ; AUTOTRAD
+GetStormBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE CHOC."
+else
 	text "<PLAYER> received"
 	line "STORMBADGE."
+endc
+
 	done
 
 ChuckExplainBadgeText: ; TO TRANSLATE
@@ -340,7 +366,18 @@ Obey60: ; TO TRANSLATE
 	line "are under L60."
 	done
 
-ChuckExplainTMText: ; AUTOTRAD
+ChuckExplainTMText: 
+if DEF(_FR_FR)
+	text "C'est DYNAMOPOING."
+
+	para "Ca ne touche pas"
+	line "toujours mais"
+
+	para "lorsque le coup"
+	line "est porté, il"
+	cont "entraîne la confu-"
+	cont "sion!"
+else
 	text "That is DYNAMIC-"
 	line "PUNCH."
 
@@ -349,9 +386,25 @@ ChuckExplainTMText: ; AUTOTRAD
 
 	para "does, it causes"
 	line "confusion!"
+endc
+
 	done
 
-ChuckAfterText: ; AUTOTRAD
+ChuckAfterText: 
+if DEF(_FR_FR)
+	text "WAHAHAH! J'ai aimé"
+	line "me battre contre"
+	cont "toi!"
+
+	para "Mais une défaite"
+	line "signifie le plus"
+	cont "souvent qu'on a"
+	cont "perdu!"
+
+	para "Donc dorénavant je"
+	line "vais m'entraîner"
+	cont "24 heures sur 24!"
+else
 	text "WAHAHAH! I enjoyed"
 	line "battling you!"
 
@@ -361,6 +414,8 @@ ChuckAfterText: ; AUTOTRAD
 	para "From now on, I'm"
 	line "going to train 24"
 	cont "hours a day!"
+endc
+
 	done
 
 BlackbeltYoshiSeenText: ; TO TRANSLATE
@@ -411,35 +466,71 @@ BlackbeltLaoAfterText: ; TO TRANSLATE
 	line "overpowered."
 	done
 
-BlackbeltNobSeenText: ; AUTOTRAD
+BlackbeltNobSeenText: 
+if DEF(_FR_FR)
+	text "Je ne parle pas la"
+	line "bouche pleine"
+	cont "sinon ça fait"
+	cont "heu-gneu-gneu-heu."
+	cont "Alors je me sers"
+	cont "de mes poings!"
+else
 	text "Words are useless."
 	line "Let your fists do"
 	cont "the talking!"
+endc
+
 	done
 
 BlackbeltNobBeatenText:
 	text "…"
 	done
 
-BlackbeltNobAfterText: ; AUTOTRAD
+BlackbeltNobAfterText: 
+if DEF(_FR_FR)
+	text "Hein? J'ai perdu!"
+	line "J'sais pas quoi"
+	cont "dire!"
+else
 	text "I lost! "
 	line "I'm speechless!"
+endc
+
 	done
 
-BlackbeltLungSeenText: ; AUTOTRAD
+BlackbeltLungSeenText: 
+if DEF(_FR_FR)
+	text "Mes poings de ouf"
+	line "vont terrasser tes"
+	cont "#MON!"
+else
 	text "My raging fists"
 	line "will shatter your"
 	cont "#MON!"
+endc
+
 	done
 
-BlackbeltLungBeatenText: ; AUTOTRAD
+BlackbeltLungBeatenText: 
+if DEF(_FR_FR)
+	text "Bon, je suis nul!"
+else
 	text "I got shattered!"
+endc
+
 	done
 
-BlackbeltLungAfterText: ; AUTOTRAD
+BlackbeltLungAfterText: 
+if DEF(_FR_FR)
+	text "Mes #MON ont"
+	line "perdu, ma fierté"
+	cont "en a pris un coup!"
+else
 	text "My #MON lost…"
 	line "My… my pride is"
 	cont "shattered…"
+endc
+
 	done
 
 CianwoodGymGuideText: ; TO TRANSLATE

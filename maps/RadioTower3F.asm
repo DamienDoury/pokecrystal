@@ -158,7 +158,17 @@ RadioTower3FPersonnelSign:
 RadioTower3FPokemonMusicSign:
 	jumptext RadioTower3FPokemonMusicSignText
 
-RadioTower3FSuperNerdText: ; AUTOTRAD
+RadioTower3FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Nous avons un "
+	line "enregistrement de"
+
+	para "tous les cris de"
+	line "#MON connus."
+
+	para "Nous en avons près"
+	line "de 200 différents."
+else
 	text "We have recordings"
 	line "of the cries of"
 
@@ -167,6 +177,8 @@ RadioTower3FSuperNerdText: ; AUTOTRAD
 
 	para "We must have about"
 	line "200 kinds."
+endc
+
 	done
 
 RadioTower3FSuperNerdTROpinionText: ; TO TRANSLATE
@@ -198,7 +210,18 @@ RadioTower3FGymGuideText_Rockets: ; TO TRANSLATE
 	cont "measures."
 	done
 
-RadioTower3FGymGuideText: ; AUTOTRAD
+RadioTower3FGymGuideText: 
+if DEF(_FR_FR)
+	text "Nous diffusons des"
+	line "émissions distray-"
+
+	para "antes sans jamais"
+	line "nous arrêter."
+
+	para "Je vais essayer de"
+	line "garder le micro"
+	cont "24 heures sur 24!"
+else
 	text "We run 24 hours a"
 	line "day to broadcast"
 
@@ -208,9 +231,24 @@ RadioTower3FGymGuideText: ; AUTOTRAD
 	para "I'll do my best to"
 	line "run around the"
 	cont "clock too!"
+endc
+
 	done
 
-RadioTower3FCooltrainerFPleaseSaveDirectorText: ; AUTOTRAD
+RadioTower3FCooltrainerFPleaseSaveDirectorText: 
+if DEF(_FR_FR)
+	text "Le chef de la TEAM"
+	line "ROCKET s'est en-"
+	cont "fermé."
+
+	para "Mais le DIRECTEUR"
+	line "peut ouvrir."
+
+	para "Il est au"
+	line "quatrième."
+
+	para "Sauve-le! Pitié!"
+else
 	text "The TEAM ROCKET"
 	line "boss has locked"
 	cont "himself in."
@@ -222,52 +260,107 @@ RadioTower3FCooltrainerFPleaseSaveDirectorText: ; AUTOTRAD
 	line "fifth floor."
 
 	para "Please save him!"
+endc
+
 	done
 
-RadioTower3FCooltrainerFIsDirectorSafeText: ; AUTOTRAD
+RadioTower3FCooltrainerFIsDirectorSafeText: 
+if DEF(_FR_FR)
+	text "Le DIRECTEUR est-"
+	line "il en sécurité?"
+else
 	text "Is the DIRECTOR"
 	line "safe?"
+endc
+
 	done
 
-RadioTower3FCooltrainerFYoureMyHeroText: ; AUTOTRAD
+RadioTower3FCooltrainerFYoureMyHeroText: 
+if DEF(_FR_FR)
+	text "Merci!"
+	line "Tu es trop cool!"
+
+	para "Prends ceci en"
+	line "récompense."
+else
 	text "Thank you!"
 	line "You're my hero!"
 
 	para "This is a token of"
 	line "my appreciation."
+endc
+
 	done
 
-RadioTower3FCooltrainerFItsSunnyDayText: ; AUTOTRAD
+RadioTower3FCooltrainerFItsSunnyDayText: 
+if DEF(_FR_FR)
+	text "C'est le ZENITH."
+	line "Il renforce les"
+	cont "attaques de FEU"
+	cont "pendant un moment."
+else
 	text "It's SUNNY DAY."
 	line "It powers up fire-"
 	cont "type moves for a"
 	cont "while."
+endc
+
 	done
 
-RadioTower3FCooltrainerFYouWereMarvelousText: ; AUTOTRAD
+RadioTower3FCooltrainerFYouWereMarvelousText: 
+if DEF(_FR_FR)
+	text "Tu es cool!"
+	line "COOOOOOL!"
+else
 	text "You were simply"
 	line "marvelous!"
+endc
+
 	done
 
-GruntM7SeenText: ; AUTOTRAD
+GruntM7SeenText: 
+if DEF(_FR_FR)
+	text "On m'a donné des"
+	line "ordres précis."
+
+	para "Je dois casser"
+	line "tous ceux qui sont"
+	cont "contre la ROCKET!"
+else
 	text "I've been given"
 	line "strict orders."
 
 	para "I'm to crush any-"
 	line "one who challenges"
 	cont "TEAM ROCKET!"
+endc
+
 	done
 
-GruntM7BeatenText: ; AUTOTRAD
+GruntM7BeatenText: 
+if DEF(_FR_FR)
+	text "De quoi?!"
+else
 	text "What?!"
+endc
+
 	done
 
-GruntM7AfterBattleText: ; AUTOTRAD
+GruntM7AfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai échoué..."
+	line "Quel déshonneur."
+
+	para "Je vais me faire"
+	line "virer, c'est sûr."
+else
 	text "I failed in my"
 	line "duties…"
 
 	para "I'll be docked pay"
 	line "for this…"
+endc
+
 	done
 
 GruntM8SeenText: ; TO TRANSLATE
@@ -296,63 +389,132 @@ GruntM8AfterBattleText: ; TO TRANSLATE
 	para "I submit!"
 	done
 
-GruntM9SeenText: ; AUTOTRAD
+GruntM9SeenText: 
+if DEF(_FR_FR)
+	text "Pourquoi le truc"
+	line "s'est ouvert?"
+
+	para "C'est toi qui as"
+	line "fait ça?"
+else
 	text "Why did the shut-"
 	line "ter open? Did you"
 
 	para "have something to"
 	line "do with this?"
+endc
+
 	done
 
-GruntM9BeatenText: ; AUTOTRAD
+GruntM9BeatenText: 
+if DEF(_FR_FR)
+	text "J'suis fichu!"
+else
 	text "I'm done for!"
+endc
+
 	done
 
-GruntM9AfterBattleText: ; AUTOTRAD
+GruntM9AfterBattleText: 
+if DEF(_FR_FR)
+	text "Quoi?! Tu as"
+	line "échappé à nos hom-"
+	cont "mes du SOUTERRAIN?"
+
+	para "Comment t'as fait?"
+else
 	text "What?! You made it"
 	line "past our men in"
 	cont "the UNDERGROUND?"
 
 	para "How could you?"
+endc
+
 	done
 
-ScientistMarcSeenText: ; AUTOTRAD
+ScientistMarcSeenText: 
+if DEF(_FR_FR)
+	text "Quelqu'un qui se"
+	line "balade?"
+
+	para "T'es qui toi?"
+else
 	text "An unknown child"
 	line "wandering here?"
 
 	para "Who are you?"
+endc
+
 	done
 
-ScientistMarcBeatenText: ; AUTOTRAD
+ScientistMarcBeatenText: 
+if DEF(_FR_FR)
+	text "Psss! J'faisais"
+	line "pas attention!"
+else
 	text "Tch! I took you"
 	line "too lightly!"
+endc
+
 	done
 
-ScientistMarcAfterBattleText: ; AUTOTRAD
+ScientistMarcAfterBattleText: 
+if DEF(_FR_FR)
+	text "Bwahahaha..."
+
+	para "Je peux donner"
+	line "l'alarme d'ici..."
+	cont "Malin, non?"
+else
 	text "Bwahahaha…"
 
 	para "I can transmit as"
 	line "strong a signal as"
 	cont "I need from here."
+endc
+
 	done
 
-RadioTower3FCardKeySlotText: ; AUTOTRAD
+RadioTower3FCardKeySlotText: 
+if DEF(_FR_FR)
+	text "Un lecteur de"
+	line "CARTE MAGN."
+else
 	text "It's the CARD KEY"
 	line "slot."
+endc
+
 	done
 
-InsertedTheCardKeyText: ; AUTOTRAD
+InsertedTheCardKeyText: 
+if DEF(_FR_FR)
+	text "<PLAYER> insère"
+	line "la CARTE MAGN."
+else
 	text "<PLAYER> inserted"
 	line "the CARD KEY."
+endc
+
 	done
 
-RadioTower3FPersonnelSignText: ; AUTOTRAD
+RadioTower3FPersonnelSignText: 
+if DEF(_FR_FR)
+	text "2EME PERSONNEL"
+else
 	text "3F PERSONNEL"
+endc
+
 	done
 
-RadioTower3FPokemonMusicSignText: ; AUTOTRAD
+RadioTower3FPokemonMusicSignText: 
+if DEF(_FR_FR)
+	text "MUSIQUE #MON"
+	line "avec DJ BEN"
+else
 	text "#MON MUSIC with"
 	line "Host DJ BEN"
+endc
+
 	done
 
 RadioTower3F_MapEvents:

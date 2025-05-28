@@ -36,46 +36,95 @@ Route1Sign:
 Route1FruitTree:
 	fruittree FRUITTREE_ROUTE_1
 
-SchoolboyDannySeenText: ; AUTOTRAD
+SchoolboyDannySeenText: 
+if DEF(_FR_FR)
+	text "Si 2 dresseurs se"
+	line "rencontrent, ils"
+	cont "doivent combattre."
+else
 	text "If trainers meet,"
 	line "the first thing to"
 	cont "do is battle."
+endc
+
 	done
 
-SchoolboyDannyBeatenText: ; AUTOTRAD
+SchoolboyDannyBeatenText: 
+if DEF(_FR_FR)
+	text "Graaaaaaah!"
+	line "Perduuuu!"
+else
 	text "Awww… I've got a"
 	line "losing record…"
+endc
+
 	done
 
-SchoolboyDannyAfterBattleText: ; AUTOTRAD
+SchoolboyDannyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les dresseurs doi-"
+	line "vent se battre."
+
+	para "C'est écrit."
+	line "C'est la loi."
+else
 	text "For trainers, it's"
 	line "a given that we'll"
 
 	para "battle whenever we"
 	line "meet."
+endc
+
 	done
 
-CooltrainerfQuinnSeenText: ; AUTOTRAD
+CooltrainerfQuinnSeenText: 
+if DEF(_FR_FR)
+	text "Toi là!"
+	line "Combat?"
+else
 	text "You there!"
 	line "Want to battle?"
+endc
+
 	done
 
-CooltrainerfQuinnBeatenText: ; AUTOTRAD
+CooltrainerfQuinnBeatenText: 
+if DEF(_FR_FR)
+	text "Houlà!"
+else
 	text "Down and out…"
+endc
+
 	done
 
-CooltrainerfQuinnAfterBattleText: ; AUTOTRAD
+CooltrainerfQuinnAfterBattleText: 
+if DEF(_FR_FR)
+	text "Pas mal."
+
+	para "Tu as dû t'entraî-"
+	line "ner comme à donf!"
+else
 	text "You're strong."
 
 	para "You obviously must"
 	line "have trained hard."
+endc
+
 	done
 
-Route1SignText: ; AUTOTRAD
+Route1SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 1"
+
+	para "BOURG PALETTE -"
+	line "JADIELLE"
+else
 	text "ROUTE 1"
 
 	para "PALLET TOWN -"
 	line "VIRIDIAN CITY"
+endc
+
 	done
 
 Route1_MapEvents:

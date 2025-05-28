@@ -65,39 +65,85 @@ UnionCaveB1FXDefend:
 UnionCaveB1FBoulder:
 	jumpstd StrengthBoulderScript
 
-HikerPhillipSeenText: ; AUTOTRAD
+HikerPhillipSeenText: 
+if DEF(_FR_FR)
+	text "Ca fait longtemps"
+	line "que je n'ai pas eu"
+	cont "de compagnie."
+
+	para "Sois sympa..."
+	line "Combat!"
+else
 	text "It's been a while"
 	line "since I last saw"
 	cont "another person."
 
 	para "Don't be shy."
 	line "Let's battle!"
+endc
+
 	done
 
-HikerPhillipBeatenText: ; AUTOTRAD
+HikerPhillipBeatenText: 
+if DEF(_FR_FR)
+	text "Uurggh..."
+else
 	text "Uurggh…"
+endc
+
 	done
 
-HikerPhillipAfterBattleText: ; AUTOTRAD
+HikerPhillipAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je suis perdu"
+	line "depuis longtemps!"
+
+	para "C'est pas trop"
+	line "grave mais..."
+	cont "J'ai faim!"
+else
 	text "I've been lost for"
 	line "a long time…"
 
 	para "I don't mind it"
 	line "here, but I am"
 	cont "soooo hungry!"
+endc
+
 	done
 
-HikerLeonardSeenText: ; AUTOTRAD
+HikerLeonardSeenText: 
+if DEF(_FR_FR)
+	text "Ah bah ça alors!"
+	line "De la visite!"
+else
 	text "What do you know!"
 	line "A visitor!"
+endc
+
 	done
 
-HikerLeonardBeatenText: ; AUTOTRAD
+HikerLeonardBeatenText: 
+if DEF(_FR_FR)
+	text "Wahahah! T'es pas"
+	line "drôle!"
+else
 	text "Wahahah! You're a"
 	line "feisty one!"
+endc
+
 	done
 
-HikerLeonardAfterBattleText: ; AUTOTRAD
+HikerLeonardAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vis ici."
+
+	para "Toi aussi tu veux"
+	line "vivre ici?"
+
+	para "Y'a de la place..."
+	line "Alors tu veux?"
+else
 	text "I live down here."
 
 	para "You can, too, if"
@@ -105,27 +151,59 @@ HikerLeonardAfterBattleText: ; AUTOTRAD
 
 	para "There's plenty of"
 	line "room, you see."
+endc
+
 	done
 
-PokemaniacAndrewSeenText: ; AUTOTRAD
+PokemaniacAndrewSeenText: 
+if DEF(_FR_FR)
+	text "Qui va là?"
+
+	para "Yaaaah! Laisse-moi"
+	line "tranquille!"
+else
 	text "Who's there?"
 
 	para "Leave me and my"
 	line "#MON alone!"
+endc
+
 	done
 
-PokemaniacAndrewBeatenText: ; AUTOTRAD
+PokemaniacAndrewBeatenText: 
+if DEF(_FR_FR)
+	text "Va-t'en..."
+	line "Ouste!"
+else
 	text "Go…"
 	line "Go away!"
+endc
+
 	done
 
-PokemaniacAndrewAfterBattleText: ; AUTOTRAD
+PokemaniacAndrewAfterBattleText: 
+if DEF(_FR_FR)
+	text "Seul avec mes"
+	line "#MON. C'est"
+	cont "la fête."
+else
 	text "Just me and my"
 	line "#MON. I'm de-"
 	cont "lirious with joy."
+endc
+
 	done
 
-PokemaniacCalvinSeenText: ; AUTOTRAD
+PokemaniacCalvinSeenText: 
+if DEF(_FR_FR)
+	text "Je suis venu ici"
+	line "pour mes études"
+	cont "sur les #MON."
+
+	para "Je vais te montrer"
+	line "tout ça..."
+	cont "Au combat!"
+else
 	text "I came all the way"
 	line "here to conduct my"
 	cont "#MON research."
@@ -133,14 +211,31 @@ PokemaniacCalvinSeenText: ; AUTOTRAD
 	para "Let me demonstrate"
 	line "my findings in a"
 	cont "real battle!"
+endc
+
 	done
 
-PokemaniacCalvinBeatenText: ; AUTOTRAD
+PokemaniacCalvinBeatenText: 
+if DEF(_FR_FR)
+	text "Plein la tête!"
+	line "Ouille!"
+else
 	text "You demonstrated"
 	line "on me!"
+endc
+
 	done
 
-PokemaniacCalvinAfterBattleText: ; AUTOTRAD
+PokemaniacCalvinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais révéler"
+	line "mes recherches au"
+	cont "monde."
+
+	para "Je serai aussi"
+	line "célèbre que le"
+	cont "PROF.ORME!"
+else
 	text "I should compile"
 	line "and announce my"
 	cont "study findings."
@@ -148,6 +243,8 @@ PokemaniacCalvinAfterBattleText: ; AUTOTRAD
 	para "I might even be-"
 	line "come famous like"
 	cont "PROF.ELM."
+endc
+
 	done
 
 UnionCaveB1F_MapEvents:

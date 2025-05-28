@@ -785,13 +785,24 @@ IlexForestApprenticeAfterText: ; TO TRANSLATE
 	cont "a BADGE."
 	done
 
-Text_ItsTheMissingPokemon: ; AUTOTRAD
+Text_ItsTheMissingPokemon: 
+if DEF(_FR_FR)
+	text "C'est le #MON"
+	line "perdu!"
+else
 	text "It's the missing"
 	line "#MON!"
+endc
+
 	done
 
-Text_Kwaaaa: ; AUTOTRAD
+Text_Kwaaaa: 
+if DEF(_FR_FR)
+	text "CANARTICHO: Kwaa!"
+else
 	text "FARFETCH'D: Kwaa!"
+endc
+
 	done
 
 Text_CharcoalMasterIntro: ; TO TRANSLATE
@@ -818,7 +829,15 @@ Text_CharcoalMasterIntro: ; TO TRANSLATE
 	para "Come with me."
 	done
 
-Text_CharcoalMasterTalkAfter: ; AUTOTRAD
+Text_CharcoalMasterTalkAfter: 
+if DEF(_FR_FR)
+	text "Veux-tu devenir"
+	line "pro du charbon"
+	cont "comme moi?"
+
+	para "Tu verras, c'est"
+	line "cool!"
+else
 	text "Do you want to"
 	line "apprentice as a"
 
@@ -827,9 +846,21 @@ Text_CharcoalMasterTalkAfter: ; AUTOTRAD
 
 	para "You'll be first-"
 	line "rate in ten years!"
+endc
+
 	done
 
-Text_HeadbuttIntro: ; AUTOTRAD
+Text_HeadbuttIntro: 
+if DEF(_FR_FR)
+	text "Ce que je fais?"
+
+	para "Je secoue les"
+	line "arbres avec le"
+	cont "COUP D'BOULE."
+
+	para "C'est marrant."
+	line "Tiens, essaie!"
+else
 	text "What am I doing?"
 
 	para "I'm shaking trees"
@@ -837,6 +868,8 @@ Text_HeadbuttIntro: ; AUTOTRAD
 
 	para "It's fun. Here,"
 	line "you try it too!"
+endc
+
 	done
 
 Text_HeadbuttOutro: ; TO TRANSLATE
@@ -850,13 +883,32 @@ Text_HeadbuttOutro: ; TO TRANSLATE
 	cont "tree."
 	done
 
-Text_IlexForestLass: ; AUTOTRAD
+Text_IlexForestLass: 
+if DEF(_FR_FR)
+	text "Est-il arrivé"
+	line "quelque chose au"
+	cont "gardien de la"
+	cont "forêt?"
+else
 	text "Did something"
 	line "happen to the"
 	cont "forest's guardian?"
+endc
+
 	done
 
-IlexForestSignpostText: ; AUTOTRAD
+IlexForestSignpostText: 
+if DEF(_FR_FR)
+	text "Le BOIS AUX CHENES"
+	line "est si dense que"
+
+	para "les feuilles ca-"
+	line "chent le ciel."
+
+	para "Faites attention"
+	line "aux objets laissés"
+	cont "sur le sol."
+else
 	text "ILEX FOREST is"
 	line "so overgrown with"
 
@@ -866,18 +918,49 @@ IlexForestSignpostText: ; AUTOTRAD
 	para "Please watch out"
 	line "for items that may"
 	cont "have been dropped."
+endc
+
 	done
 
-Text_IlexForestShrine: ; AUTOTRAD
+Text_IlexForestShrine: 
+if DEF(_FR_FR)
+	text "AUTEL du"
+	line "BOIS AUX CHENES..."
+
+	para "En l'honneur du"
+	line "protecteur de la"
+	cont "forêt..."
+else
 	text "ILEX FOREST"
 	line "SHRINE…"
 
 	para "It's in honor of"
 	line "the forest's"
 	cont "protector…"
+endc
+
 	done
 
-Text_ShrineCelebiEvent: ; AUTOTRAD
+Text_ShrineCelebiEvent: 
+if DEF(_FR_FR)
+	text "AUTEL du"
+	line "BOIS AUX CHENES..."
+
+	para "C'est en l'honneur"
+	line "du gardien de la"
+	cont "forêt..."
+
+	para "Oh? C'est quoi ça?"
+
+	para "Il y a un trou."
+	line "On dirait que la"
+
+	para "GS BALL peut y"
+	line "entrer."
+
+	para "Déposer la"
+	line "GS BALL?"
+else
 	text "ILEX FOREST"
 	line "SHRINE…"
 
@@ -895,14 +978,40 @@ Text_ShrineCelebiEvent: ; AUTOTRAD
 
 	para "Want to put the GS"
 	line "BALL here?"
+endc
+
 	done
 
-Text_InsertGSBall: ; AUTOTRAD
+Text_InsertGSBall: 
+if DEF(_FR_FR)
+	text "<PLAYER> dépose"
+	line "la GS BALL."
+else
 	text "<PLAYER> put in the"
 	line "GS BALL."
+endc
+
 	done
 
-Text_KurtCaughtCelebi: ; AUTOTRAD
+Text_KurtCaughtCelebi: 
+if DEF(_FR_FR)
+	text "Alors ça!"
+
+	para "<PLAYER>, c'était"
+	line "génial. Merci!"
+
+	para "Les légendes sur"
+	line "cet AUTEL étaient"
+	cont "donc vraies."
+
+	para "Tout ceci est"
+	line "fantastique."
+
+	para "Je vais faire de"
+	line "meilleures BALLS!"
+
+	para "Au revoir!"
+else
 	text "Whew, wasn't that"
 	line "something!"
 
@@ -920,22 +1029,52 @@ Text_KurtCaughtCelebi: ; AUTOTRAD
 	line "make better BALLS!"
 
 	para "I'm going!"
+endc
+
 	done
 
-BugCatcherWayneSeenText: ; AUTOTRAD
+BugCatcherWayneSeenText: 
+if DEF(_FR_FR)
+	text "Ah! Tu m'as fait"
+	line "peur!"
+
+	para "Tu as fait fuir"
+	line "un #MON!"
+else
 	text "Don't sneak up on"
 	line "me like that!"
 
 	para "You frightened a"
 	line "#MON away!"
+endc
+
 	done
 
-BugCatcherWayneBeatenText: ; AUTOTRAD
+BugCatcherWayneBeatenText: 
+if DEF(_FR_FR)
+	text "Je n'avais encore"
+	line "jamais vu ce"
+	cont "#MON..."
+else
 	text "I hadn't seen that"
 	line "#MON before…"
+endc
+
 	done
 
-BugCatcherWayneAfterBattleText: ; AUTOTRAD
+BugCatcherWayneAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un #MON que je"
+	line "n'avais jamais vu"
+
+	para "est tombé d'un"
+	line "arbre après avoir"
+	cont "utilisé COUP"
+	cont "D'BOULE."
+
+	para "Je devrais faire"
+	line "ça plus souvent."
+else
 	text "A #MON I've"
 	line "never seen before"
 
@@ -946,6 +1085,8 @@ BugCatcherWayneAfterBattleText: ; AUTOTRAD
 	para "I ought to use"
 	line "HEADBUTT in other"
 	cont "places too."
+endc
+
 	done
 
 BugCatcherWayneAfterBattleLockdownText: ; TO TRANSLATE

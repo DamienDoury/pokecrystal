@@ -28,7 +28,35 @@ CeladonMansion2FMeetingRoomSign:
 CeladonMansion2FBookshelf:
 	jumpstd DifficultBookshelfScript
 
-CeladonMansion2FComputerText: ; AUTOTRAD
+CeladonMansion2FComputerText: 
+if DEF(_FR_FR)
+	text "<PLAYER> allume"
+	line "le PC."
+
+	para "…"
+
+	para "Quelqu'un était en"
+	line "train d'écrire un"
+	cont "e-mail..."
+
+	para "...J'espère que"
+	line "vous viendrez à"
+	cont "KANTO."
+
+	para "Vous verrez à quel"
+	line "point les choses"
+	cont "ont changé ici."
+
+	para "Vous verrez même"
+	line "des #MON qui"
+
+	para "n'existent pas à"
+	line "JOHTO."
+
+	para "Pour le PRODUCTEUR"
+
+	para "..."
+else
 	text "<PLAYER> turned on"
 	line "the PC."
 
@@ -56,11 +84,19 @@ CeladonMansion2FComputerText: ; AUTOTRAD
 	para "To the PRODUCER"
 
 	para "…"
+endc
+
 	done
 
-CeladonMansion2FMeetingRoomSignText: ; AUTOTRAD
+CeladonMansion2FMeetingRoomSignText: 
+if DEF(_FR_FR)
+	text "GAME FREAK"
+	line "SALLE de REUNION"
+else
 	text "GAME FREAK"
 	line "MEETING ROOM"
+endc
+
 	done
 
 CeladonMansion2F_MapEvents:

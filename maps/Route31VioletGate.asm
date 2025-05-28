@@ -13,16 +13,30 @@ Route31VioletGateOfficerScript:
 Route31VioletGateCooltrainerFScript:
 	jumptextfaceplayer Route31VioletGateCooltrainerFText
 
-Route31VioletGateOfficerText: ; AUTOTRAD
+Route31VioletGateOfficerText: 
+if DEF(_FR_FR)
+	text "Salut toi!"
+	line "As-tu visité la"
+	cont "TOUR CHETIFLOR?"
+else
 	text "Hi there!"
 	line "Did you visit"
 	cont "SPROUT TOWER?"
+endc
+
 	done
 
-Route31VioletGateCooltrainerFText: ; AUTOTRAD
+Route31VioletGateCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Je suis loin de"
+	line "chez moi. Il faut"
+	cont "que j'appelle!"
+else
 	text "I came too far"
 	line "out. I'd better"
 	cont "phone home!"
+endc
+
 	done
 
 Route31VioletGate_MapEvents:

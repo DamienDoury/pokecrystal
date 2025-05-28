@@ -183,25 +183,55 @@ Rocket2Script_LetsYouPassNorth:
 	big_step UP
 	step_end
 
-RocketText_TollFee: ; AUTOTRAD
+RocketText_TollFee: 
+if DEF(_FR_FR)
+	text "Minute, mon p'tit"
+	line "bouchon!"
+
+	para "Le péage est de"
+	line "{d:ROUTE43GATE_TOLL}¥."
+else
 	text "Hold it there,"
 	line "kiddo!"
 
 	para "The toll is ¥{d:ROUTE43GATE_TOLL}"
 	line "to go through."
+endc
+
 	done
 
-RocketText_ThankYou: ; AUTOTRAD
+RocketText_ThankYou: 
+if DEF(_FR_FR)
+	text "Merci bien!"
+else
 	text "Thank you very"
 	line "much!"
+endc
+
 	done
 
-RocketText_AllYouGot: ; AUTOTRAD
+RocketText_AllYouGot: 
+if DEF(_FR_FR)
+	text "Alors donne ce que"
+	line "t'as."
+else
 	text "Then pay what you"
 	line "have, please."
+endc
+
 	done
 
-RocketText_MakingABundle: ; AUTOTRAD
+RocketText_MakingABundle: 
+if DEF(_FR_FR)
+	text "Hé-hé-hé. On se"
+	line "fait des thunes."
+
+	para "Tout le monde veut"
+	line "voir ce qu'il se"
+
+	para "passe au LAC"
+	line "COLERE."
+else
 	text "He-he-he. We're"
 	line "making a bundle."
 
@@ -210,9 +240,23 @@ RocketText_MakingABundle: ; AUTOTRAD
 
 	para "on up at LAKE OF"
 	line "RAGE."
+endc
+
 	done
 
-OfficerText_FoundTM: ; AUTOTRAD
+OfficerText_FoundTM: 
+if DEF(_FR_FR)
+	text "Des voyous en noir"
+	line "m'ont fait quitter"
+	cont "mon poste."
+
+	para "Ils ont oublié ce"
+	line "truc en plus."
+
+	para "J'veux pas le gar-"
+	line "der, moi..."
+	cont "Tu le veux?"
+else
 	text "I got chased from"
 	line "my post by these"
 	cont "thugs in black."
@@ -223,12 +267,21 @@ OfficerText_FoundTM: ; AUTOTRAD
 	para "It makes me uncom-"
 	line "fortable. Could"
 	cont "you take it away?"
+endc
+
 	done
 
-OfficerText_AvoidGrass: ; AUTOTRAD
+OfficerText_AvoidGrass: 
+if DEF(_FR_FR)
+	text "Emprunte cette"
+	line "porte pour éviter"
+	cont "les hautes herbes."
+else
 	text "Use this gate to"
 	line "avoid walking in"
 	cont "the grass."
+endc
+
 	done
 
 Route43Gate_MapEvents:

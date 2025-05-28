@@ -46,35 +46,80 @@ SproutTower2FStatue:
 SproutTower2FXAccuracy:
 	itemball X_ACCURACY
 
-SageNicoSeenText: ; AUTOTRAD
+SageNicoSeenText: 
+if DEF(_FR_FR)
+	text "Toutefois, la TOUR"
+	line "ne cédera pas même"
+	cont "lors d'un grand et"
+	cont "rude combat."
+else
 	text "However hard we"
 	line "battle, the TOWER"
 	cont "will stand strong."
+endc
+
 	done
 
-SageNicoBeatenText: ; AUTOTRAD
+SageNicoBeatenText: 
+if DEF(_FR_FR)
+	text "J'ai perdu..."
+	line "Je suis faible."
+else
 	text "I fought hard but"
 	line "I'm too weak."
+endc
+
 	done
 
-SageNicoAfterBattleText: ; AUTOTRAD
+SageNicoAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le pilier flexible"
+	line "protège la TOUR de"
+
+	para "tout, même des"
+	line "séismes."
+else
 	text "The flexible pil-"
 	line "lar protects the"
 
 	para "TOWER, even from"
 	line "earthquakes."
+endc
+
 	done
 
-SageEdmondSeenText: ; AUTOTRAD
+SageEdmondSeenText: 
+if DEF(_FR_FR)
+	text "Volez comme vents"
+	line "et feuilles!"
+	cont "Combat!"
+else
 	text "…Sway like leaves"
 	line "in the wind…"
+endc
+
 	done
 
-SageEdmondBeatenText: ; AUTOTRAD
+SageEdmondBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Perdu!"
+else
 	text "Oh, I'm weak!"
+endc
+
 	done
 
-SageEdmondAfterBattleText: ; AUTOTRAD
+SageEdmondAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai essayé de"
+	line "copier les mouve-"
+
+	para "ments de CHETIFLOR"
+	line "en combat..."
+
+	para "Mais je manque"
+	line "d'entraînement."
+else
 	text "I tried to copy"
 	line "BELLSPROUT's"
 
@@ -83,13 +128,24 @@ SageEdmondAfterBattleText: ; AUTOTRAD
 
 	para "But I didn't train"
 	line "well enough."
+endc
+
 	done
 
-SproutTower2FStatueText: ; AUTOTRAD
+SproutTower2FStatueText: 
+if DEF(_FR_FR)
+	text "Une statue de"
+	line "#MON..."
+
+	para "Ca a l'air cher"
+	line "et raffiné."
+else
 	text "A #MON statue…"
 
 	para "It looks very"
 	line "distinguished."
+endc
+
 	done
 
 SproutTower2F_MapEvents:

@@ -628,21 +628,48 @@ SecurityCameraMovement9:
 	big_step LEFT
 	step_end
 
-CameraGrunt1SeenText: ; AUTOTRAD
+CameraGrunt1SeenText: 
+if DEF(_FR_FR)
+	text "Hé!"
+	line "Alerte!!!!"
+else
 	text "Hey!"
 	line "Intruder alert!"
+endc
+
 	done
 
-CameraGrunt1BeatenText: ; AUTOTRAD
+CameraGrunt1BeatenText: 
+if DEF(_FR_FR)
+	text "Zut... Perdu."
+else
 	text "Dang… I failed…"
+endc
+
 	done
 
-CameraGrunt2SeenText: ; AUTOTRAD
+CameraGrunt2SeenText: 
+if DEF(_FR_FR)
+	text "Mon tour!"
+	line "Yahahhaa!"
+else
 	text "It's my turn!"
 	line "There's no escape!"
+endc
+
 	done
 
-CameraGrunt2BeatenText: ; AUTOTRAD
+CameraGrunt2BeatenText: 
+if DEF(_FR_FR)
+	text "Des caméras se"
+	line "trouvent dans les"
+	cont "statues."
+
+	para "On viendra tant"
+	line "que tu n'actionne-"
+	cont "ras pas l'inter-"
+	cont "rupteur secret."
+else
 	text "Surveillance cams"
 	line "are in the #MON"
 	cont "statues."
@@ -650,22 +677,54 @@ CameraGrunt2BeatenText: ; AUTOTRAD
 	para "We'll keep appear-"
 	line "ing until you trip"
 	cont "a secret switch."
+endc
+
 	done
 
-ScientistJedSeenText: ; AUTOTRAD
+ScientistJedSeenText: 
+if DEF(_FR_FR)
+	text "C'était une ca-"
+	line "chette ninja ici."
+
+	para "Y'a des pièges"
+	line "contre les intrus"
+	cont "comme toi."
+else
 	text "This was once a"
 	line "ninja hideout."
 
 	para "There are traps to"
 	line "confound intruders"
 	cont "like you."
+endc
+
 	done
 
-ScientistJedBeatenText: ; AUTOTRAD
+ScientistJedBeatenText: 
+if DEF(_FR_FR)
+	text "Dans ma face!"
+else
 	text "I get it…"
+endc
+
 	done
 
-ScientistJedAfterBattleText: ; AUTOTRAD
+ScientistJedAfterBattleText: 
+if DEF(_FR_FR)
+	text "OK. Voici un"
+	line "secret sur notre"
+	cont "cachette."
+
+	para "Le truc au sol"
+	line "tout droit est un"
+	cont "téléporteur."
+
+	para "Marche dessus et"
+	line "tu retournes"
+
+	para "à l'entrée..."
+	line "Pouf! Magie!"
+else
 	text "All right. I'll"
 	line "divulge a secret"
 	cont "about our hideout."
@@ -679,9 +738,21 @@ ScientistJedAfterBattleText: ; AUTOTRAD
 
 	para "back to the en-"
 	line "trance."
+endc
+
 	done
 
-GruntM16SeenText: ; AUTOTRAD
+GruntM16SeenText: 
+if DEF(_FR_FR)
+	text "Alors? On se croit"
+	line "chez soi?"
+
+	para "Allez, avance"
+	line "pour voir."
+
+	para "Y'a des pièges"
+	line "partout!"
+else
 	text "Heheh. Feeling"
 	line "lucky, punk?"
 
@@ -690,13 +761,28 @@ GruntM16SeenText: ; AUTOTRAD
 
 	para "We've got traps"
 	line "set in the floor!"
+endc
+
 	done
 
-GruntM16BeatenText: ; AUTOTRAD
+GruntM16BeatenText: 
+if DEF(_FR_FR)
+	text "Kaboum!"
+else
 	text "Kaboom!"
+endc
+
 	done
 
-GruntM16AfterBattleText: ; AUTOTRAD
+GruntM16AfterBattleText: 
+if DEF(_FR_FR)
+	text "Je sais même pas"
+	line "où sont les"
+	cont "pièges!!!"
+
+	para "Alors..."
+	line "Courage camarade!"
+else
 	text "I don't even know"
 	line "where the traps"
 	cont "are planted."
@@ -704,24 +790,47 @@ GruntM16AfterBattleText: ; AUTOTRAD
 	para "You'll just have"
 	line "to collect your"
 	cont "courage and walk."
+endc
+
 	done
 
-TeamRocketBaseB1FSecurityCameraText: ; AUTOTRAD
+TeamRocketBaseB1FSecurityCameraText: 
+if DEF(_FR_FR)
+	text "Une statue de"
+	line "PERSIAN..."
+
+	para "Ses yeux brillent"
+	line "d'un feu étrange."
+else
 	text "It's a PERSIAN"
 	line "statue…"
 
 	para "Its eyes are oddly"
 	line "shiny."
+endc
+
 	done
 
-TeamRocketBaseB1FSecretSwitchText: ; AUTOTRAD
+TeamRocketBaseB1FSecretSwitchText: 
+if DEF(_FR_FR)
+	text "Un interrupteur!"
+	line "Allez, on appuie."
+else
 	text "A secret switch!"
 	line "Better press it."
+endc
+
 	done
 
-TeamRocketBaseB1FSwitchOffText: ; AUTOTRAD
+TeamRocketBaseB1FSwitchOffText: 
+if DEF(_FR_FR)
+	text "L'interrupteur est"
+	line "désactivé."
+else
 	text "The switch is"
 	line "turned off."
+endc
+
 	done
 
 TeamRocketBaseB1F_MapEvents:

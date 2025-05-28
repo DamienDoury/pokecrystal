@@ -114,7 +114,16 @@ MrFujisHouseFaceRightMovement:
 	step_bump
 	step_end
 
-MrFujisHouseSuperNerdText: ; AUTOTRAD
+MrFujisHouseSuperNerdText: 
+if DEF(_FR_FR)
+	text "M.FUJI vit ici"
+	line "mais il est absent"
+
+	para "pour le moment."
+
+	para "Il est à la"
+	line "MAISON DES AMES."
+else
 	text "MR.FUJI does live"
 	line "here, but he's not"
 
@@ -122,9 +131,20 @@ MrFujisHouseSuperNerdText: ; AUTOTRAD
 
 	para "He should be at"
 	line "the SOUL HOUSE."
+endc
+
 	done
 
-MrFujisHouseLassText: ; AUTOTRAD
+MrFujisHouseLassText: 
+if DEF(_FR_FR)
+	text "Des gens sans"
+	line "coeur délaissent"
+	cont "leurs #MON."
+
+	para "Pépé s'occupe des"
+	line "#MON abandonnés"
+	cont "et les soigne."
+else
 	text "Some cold-hearted"
 	line "people stop caring"
 	cont "for their #MON."
@@ -134,18 +154,35 @@ MrFujisHouseLassText: ; AUTOTRAD
 
 	para "#MON and takes"
 	line "care of them."
+endc
+
 	done
 
-MrFujisPsyduckText: ; AUTOTRAD
+MrFujisPsyduckText: 
+if DEF(_FR_FR)
+	text "PSYKOKWAK: Kwa?"
+else
 	text "PSYDUCK: Gu-guwa?"
+endc
+
 	done
 
-MrFujisNidorinoText: ; AUTOTRAD
+MrFujisNidorinoText: 
+if DEF(_FR_FR)
+	text "NIDORINO: Nido!"
+else
 	text "NIDORINO: Gyun!"
+endc
+
 	done
 
-MrFujisPidgeyText: ; AUTOTRAD
+MrFujisPidgeyText: 
+if DEF(_FR_FR)
+	text "ROUCOOL: Rrrou!"
+else
 	text "PIDGEY: Pijji!"
+endc
+
 	done
 
 MrFujisJasminesFriendFirstText: ; TO TRANSLATE

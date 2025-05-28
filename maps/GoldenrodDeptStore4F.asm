@@ -49,13 +49,25 @@ GoldenrodDeptStore4FShelfItem1Script:
 GoldenrodDeptStore4FShelfItem2Script:
 	shelfitem 10, ELIXER, 24000
 
-GoldenrodDeptStore4FCooltrainerMText: ; AUTOTRAD
+GoldenrodDeptStore4FCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Hé. Moi j'aime les"
+	line "#MON qui"
+	cont "sont trop forts."
+
+	para "Je les nourris de"
+	line "PROTEINE pour"
+	cont "booster leur"
+	cont "ATTAQUE."
+else
 	text "Hey. I love strong"
 	line "#MON."
 
 	para "I feed them PRO-"
 	line "TEIN to crank up"
 	cont "their ATTACK."
+endc
+
 	done
 
 GoldenrodDeptStore4FCooltrainerMLockdownText: ; TO TRANSLATE
@@ -65,12 +77,37 @@ GoldenrodDeptStore4FCooltrainerMLockdownText: ; TO TRANSLATE
 	cont "heehee!"
 	done
 
-GoldenrodDeptStore4FBugCatcherText: ; AUTOTRAD
+GoldenrodDeptStore4FBugCatcherText: 
+if DEF(_FR_FR)
+	text "Le FER augmente la"
+	line "DEFENSE de tes"
+	cont "#MON."
+else
 	text "IRON adds to your"
 	line "#MON's DEFENSE."
+endc
+
 	done
 
-GoldenrodDeptStore4FGameboyKidText: ; AUTOTRAD
+GoldenrodDeptStore4FGameboyKidText: 
+if DEF(_FR_FR)
+	text "Certains #MON"
+	line "évoluent seulement"
+
+	para "s'ils sont échan-"
+	line "gés via le câble"
+	cont "Game Link."
+
+	para "J'en connais 4:"
+	line "MACHOPEUR, KADABRA"
+
+	para "et SPECTRUM et..."
+	line "GRAVALANCH."
+
+	para "J'ai entendu dire"
+	line "qu'il y en avait"
+	cont "d'autres."
+else
 	text "Some #MON"
 	line "evolve only by"
 
@@ -85,13 +122,23 @@ GoldenrodDeptStore4FGameboyKidText: ; AUTOTRAD
 
 	para "I heard there are"
 	line "others too."
+endc
+
 	done
 
-GoldenrodDeptStore4FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore4FDirectoryText: 
+if DEF(_FR_FR)
+	text "Ca fait du bien"
+	line "par où ça passe!"
+
+	para "3EME PHARMACIE"
+else
 	text "Let Us Pump Up"
 	line "Your #MON!"
 
 	para "4F MEDICINE BOX"
+endc
+
 	done
 
 GoldenrodDeptStore4F_MapEvents:

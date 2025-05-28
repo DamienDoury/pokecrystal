@@ -156,7 +156,34 @@ ShuckieAfterText: ; TO TRANSLATE
 	line "uuuuuuuuuuuuuuuck!"
 	done
 
-ManiaText_AskLookAfterShuckle: ; AUTOTRAD
+ManiaText_AskLookAfterShuckle: 
+if DEF(_FR_FR)
+	text "Je suis choqué!"
+
+	para "Un garnement de"
+	line "ton âge avec"
+
+	para "l'oeil mauvais"
+	line "et des cheveux"
+	cont "longs, s'est in-"
+	cont "filtré chez moi."
+
+	para "Il m'a fait grand-"
+	line "peur et chapardé"
+	cont "mon #MON"
+	cont "adoré!"
+
+	para "Il m'en reste un"
+	line "mais que faire"
+	cont "s'il revient?"
+
+	para "Tu as l'air"
+	line "fort. Peux-tu"
+
+	para "t'occuper de"
+	line "mon #MON"
+	cont "un petit moment?"
+else
 	text "I, I'm in shock!"
 
 	para "A guy about your"
@@ -178,6 +205,8 @@ ManiaText_AskLookAfterShuckle: ; AUTOTRAD
 
 	para "after my #MON"
 	line "for a while?"
+endc
+
 	done
 
 ManiaText_TakeCareOfShuckle: ; TO TRANSLATE
@@ -192,15 +221,28 @@ ManiaText_GotShuckle::
 	line "#MON."
 	done
 
-ManiaText_PartyFull: ; AUTOTRAD
+ManiaText_PartyFull: 
+if DEF(_FR_FR)
+	text "L'équipe #-"
+	line "MON est pleine."
+else
 	text "Your #MON party"
 	line "is full."
+endc
+
 	done
 
-ManiaText_IfHeComesBack: ; AUTOTRAD
+ManiaText_IfHeComesBack: 
+if DEF(_FR_FR)
+	text "Oh, non... Que"
+	line "vais-je faire"
+	cont "s'il revient?"
+else
 	text "Oh, no… What'll"
 	line "I do if he comes"
 	cont "back?"
+endc
+
 	done
 
 ManiaText_CanIHaveMyMonBack: ; TO TRANSLATE
@@ -212,8 +254,13 @@ ManiaText_CanIHaveMyMonBack: ; TO TRANSLATE
 	cont "it back?"
 	done
 
-ManiaText_ThankYou: ; AUTOTRAD
+ManiaText_ThankYou: 
+if DEF(_FR_FR)
+	text "Merci mon petit!"
+else
 	text "Thank you!"
+endc
+
 	done
 
 ManiaText_ShuckleNotThere: ; TO TRANSLATE
@@ -221,7 +268,19 @@ ManiaText_ShuckleNotThere: ; TO TRANSLATE
 	line "my SHUCKIE!"
 	done
 
-ManiaText_ShuckleLikesYou: ; AUTOTRAD
+ManiaText_ShuckleLikesYou: 
+if DEF(_FR_FR)
+	text "Mon #MON a"
+	line "l'air de t'appré-"
+	cont "cier."
+
+	para "Très bien! Tu"
+	line "peux le garder."
+
+	para "Mais promets-moi"
+	line "d'être sympa avec"
+	cont "lui!"
+else
 	text "My #MON has"
 	line "come to like you."
 
@@ -230,28 +289,56 @@ ManiaText_ShuckleLikesYou: ; AUTOTRAD
 
 	para "But promise to"
 	line "be good to it!"
+endc
+
 	done
 
-ManiaText_SameAsBeingRobbed: ; AUTOTRAD
+ManiaText_SameAsBeingRobbed: 
+if DEF(_FR_FR)
+	text "Oh, non de non..."
+	line "C'est la même"
+	cont "chose que de se"
+	cont "faire voler."
+else
 	text "Oh, no, no… That's"
 	line "the same as being"
 	cont "robbed."
+endc
+
 	done
 
-ManiaText_HappinessSpeech: ; AUTOTRAD
+ManiaText_HappinessSpeech: 
+if DEF(_FR_FR)
+	text "Pour les #MON,"
+	line "c'est le bonheur"
+
+	para "d'être avec un"
+	line "gentil dresseur."
+else
 	text "For #MON, hap-"
 	line "piness is being"
 
 	para "with a person who"
 	line "treats them well."
+endc
+
 	done
 
-ManiaText_ShuckleIsYourLastMon: ; AUTOTRAD
+ManiaText_ShuckleIsYourLastMon: 
+if DEF(_FR_FR)
+	text "Si je reprends mon"
+	line "#MON, avec quoi"
+
+	para "vas-tu pouvoir"
+	line "combattre?"
+else
 	text "If I take my #-"
 	line "MON back, what are"
 
 	para "you going to use"
 	line "in battle?"
+endc
+
 	done
 
 ManiasHouse_MapEvents:

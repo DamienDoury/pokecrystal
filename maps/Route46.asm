@@ -185,56 +185,123 @@ Route46FruitTree1:
 Route46FruitTree2:
 	fruittree FRUITTREE_ROUTE_46_2
 
-HikerBaileySeenText: ; AUTOTRAD
+HikerBaileySeenText: 
+if DEF(_FR_FR)
+	text "Je vais t'montrer"
+	line "la force des"
+	cont "#MON de"
+	cont "montagne!"
+else
 	text "Awright! I'll show"
 	line "you the power of"
 	cont "mountain #MON!"
+endc
+
 	done
 
-HikerBaileyBeatenText: ; AUTOTRAD
+HikerBaileyBeatenText: 
+if DEF(_FR_FR)
+	text "Au secours!"
+else
 	text "Mercy! You showed"
 	line "me your power!"
+endc
+
 	done
 
-HikerBaileyAfterBattleText: ; AUTOTRAD
+HikerBaileyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Perdu c'est perdu."
+	line "C'est la vie."
+else
 	text "It's over. I don't"
 	line "mind. We HIKERS"
 	cont "are like that."
+endc
+
 	done
 
-CamperTedSeenText: ; AUTOTRAD
+CamperTedSeenText: 
+if DEF(_FR_FR)
+	text "Moi aussi j'ai des"
+	line "#MON!"
+
+	para "Ca te dit un bon"
+	line "combat?"
+else
 	text "I'm raising #-"
 	line "MON too!"
 
 	para "Will you battle"
 	line "with me?"
+endc
+
 	done
 
-CamperTedBeatenText: ; AUTOTRAD
+CamperTedBeatenText: 
+if DEF(_FR_FR)
+	text "Hein...?"
+else
 	text "Wha…?"
+endc
+
 	done
 
-CamperTedAfterBattleText: ; AUTOTRAD
+CamperTedAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai fait de mon"
+	line "mieux..."
+
+	para "J'suis pas fort."
+	line "Tant pis."
+else
 	text "I did my best but"
 	line "came up short."
 
 	para "No excuses--I"
 	line "admit I lost."
+endc
+
 	done
 
-PicnickerErin1SeenText: ; AUTOTRAD
+PicnickerErin1SeenText: 
+if DEF(_FR_FR)
+	text "J'ai des #MON"
+	line "moi z'aussi!"
+
+	para "On se fritte la"
+	line "tête?"
+else
 	text "I raise #MON"
 	line "too!"
 
 	para "Will you battle"
 	line "with me?"
+endc
+
 	done
 
-PicnickerErin1BeatenText: ; AUTOTRAD
+PicnickerErin1BeatenText: 
+if DEF(_FR_FR)
+	text "Oh, ben mince!"
+else
 	text "Oh, rats!"
+endc
+
 	done
 
-PicnickerErinAfterBattleText: ; AUTOTRAD
+PicnickerErinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je connais toutes"
+	line "les ARENES mais ma"
+
+	para "préférée c'est"
+	line "celle de DOUBLON-"
+	cont "VILLE."
+
+	para "Y'a tout plein"
+	line "de zolies fleurs!"
+else
 	text "I've been to many"
 	line "GYMS, but the GYM"
 
@@ -243,9 +310,22 @@ PicnickerErinAfterBattleText: ; AUTOTRAD
 
 	para "It's filled with"
 	line "pretty flowers!"
+endc
+
 	done
 
-PicnickerErin2BeatenText: ; AUTOTRAD
+PicnickerErin2BeatenText: 
+if DEF(_FR_FR)
+	text "Pfff... Je perds"
+	line "tout le temps!"
+
+	para "Y faut que je"
+	line "m'entraîne!"
+
+	para "Merci quand même."
+	line "Voilà le cadeau de"
+	cont "la dernière fois."
+else
 	text "Aww… I keep losing"
 	line "all the time!"
 
@@ -258,11 +338,19 @@ PicnickerErin2BeatenText: ; AUTOTRAD
 	para "and again. Here's"
 	line "that present from"
 	cont "the other time."
+endc
+
 	done
 
-Route46SignText: ; AUTOTRAD
+Route46SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 46"
+	line "CHEMIN de MONTAGNE"
+else
 	text "ROUTE 46"
 	line "MOUNTAIN RD. AHEAD"
+endc
+
 	done
 
 Route46_MapEvents:

@@ -28,18 +28,33 @@ ViridianMartCooltrainerMScript:
 ViridianMartShelfItem1Script:
 	shelfitem 8, REPEL, 2800
 
-ViridianMartLassText: ; AUTOTRAD
+ViridianMartLassText: 
+if DEF(_FR_FR)
+	text "Le CHAMPION d'ici"
+	line "est trop cool."
+else
 	text "The GYM LEADER"
 	line "here is totally"
 	cont "cool."
+endc
+
 	done
 
-ViridianMartCooltrainerMText: ; AUTOTRAD
+ViridianMartCooltrainerMText: 
+if DEF(_FR_FR)
+	text "As-tu visité"
+	line "CRAMOIS'ILE?"
+
+	para "C'est une île"
+	line "au Sud."
+else
 	text "Have you been to"
 	line "CINNABAR?"
 
 	para "It's an island way"
 	line "south of here."
+endc
+
 	done
 
 ViridianMart_MapEvents:

@@ -87,7 +87,19 @@ CherrygroveGymSpeechHousePokefanM2Text: ; TO TRANSLATE
 	line "bleeding again?"
 	done
 
-CherrygroveGymSpeechHouseBugCatcherText: ; AUTOTRAD
+CherrygroveGymSpeechHouseBugCatcherText: 
+if DEF(_FR_FR)
+	text "Quand je serai"
+	line "grand, je serai un"
+	cont "CHAMPION d'ARENE!"
+
+	para "Je fais combattre"
+	line "mes #MON contre"
+
+	para "ceux de mon ami"
+	line "pour qu'ils"
+	cont "progressent!"
+else
 	text "When I get older,"
 	line "I'm going to be a"
 	cont "GYM LEADER!"
@@ -97,6 +109,8 @@ CherrygroveGymSpeechHouseBugCatcherText: ; AUTOTRAD
 
 	para "friend's to make"
 	line "them tougher!"
+endc
+
 	done
 
 CherrygroveGymSpeechHouse_MapEvents:

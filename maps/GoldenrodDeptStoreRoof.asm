@@ -101,7 +101,16 @@ BinocularsNight:
 PokeDollVendingMachine:
 	jumptext PokeDollVendingMachineText
 
-GoldenrodDeptStoreRoofPokefanFText: ; AUTOTRAD
+GoldenrodDeptStoreRoofPokefanFText: 
+if DEF(_FR_FR)
+	text "Fouiiii!"
+
+	para "Je vais souvent"
+	line "sur le toit pour"
+
+	para "me reposer après"
+	line "les courses."
+else
 	text "Whew, I'm tired."
 
 	para "I sometimes come"
@@ -109,9 +118,20 @@ GoldenrodDeptStoreRoofPokefanFText: ; AUTOTRAD
 
 	para "to take a break"
 	line "from shopping."
+endc
+
 	done
 
-GoldenrodDeptStoreRoofFisherText: ; AUTOTRAD
+GoldenrodDeptStoreRoofFisherText: 
+if DEF(_FR_FR)
+	text "Pardon?"
+	line "Comment ça un"
+	cont "adulte n'a pas le"
+	cont "droit de faire ça?"
+
+	para "Je veux toutes"
+	line "les poupées!"
+else
 	text "Pardon? Who says"
 	line "an adult can't get"
 	cont "into this?"
@@ -121,24 +141,55 @@ GoldenrodDeptStoreRoofFisherText: ; AUTOTRAD
 
 	para "collect all the"
 	line "dolls!"
+endc
+
 	done
 
-GoldenrodDeptStoreRoofTwinText: ; AUTOTRAD
+GoldenrodDeptStoreRoofTwinText: 
+if DEF(_FR_FR)
+	text "Ils font des"
+	line "prix spéciaux ici"
+	cont "de temps en temps."
+else
 	text "They have bargain"
 	line "sales here every"
 	cont "so often."
+endc
+
 	done
 
-GoldenrodDeptStoreRoofSuperNerdOhWowText: ; AUTOTRAD
+GoldenrodDeptStoreRoofSuperNerdOhWowText: 
+if DEF(_FR_FR)
+	text "Oh!"
+else
 	text "Oh, wow!"
+endc
+
 	done
 
-GoldenrodDeptStoreRoofSuperNerdQuitBotheringMeText: ; AUTOTRAD
+GoldenrodDeptStoreRoofSuperNerdQuitBotheringMeText: 
+if DEF(_FR_FR)
+	text "Tu me lâches,"
+	line "ouais?"
+else
 	text "Will you quit"
 	line "bothering me?"
+endc
+
 	done
 
-GoldenrodDeptStoreRoofPokefanMText: ; AUTOTRAD
+GoldenrodDeptStoreRoofPokefanMText: 
+if DEF(_FR_FR)
+	text "Je veux acheter un"
+	line "truc mais je n'ai"
+
+	para "pas assez d'argent"
+	line "sur moi..."
+
+	para "Je vais peut-être"
+	line "vendre les BAIES"
+	cont "que j'ai trouvées."
+else
 	text "There's something"
 	line "I really want, but"
 
@@ -148,6 +199,8 @@ GoldenrodDeptStoreRoofPokefanMText: ; AUTOTRAD
 	para "Maybe I'll sell"
 	line "off the BERRIES"
 	cont "I've collected…"
+endc
+
 	done
 
 GoldenrodDeptStoreRoofTeacherText: ; TO TRANSLATE
@@ -158,7 +211,20 @@ GoldenrodDeptStoreRoofTeacherText: ; TO TRANSLATE
 	line "my PACK's crammed!"
 	done
 
-GoldenrodDeptStoreRoofBugCatcherText: ; AUTOTRAD
+GoldenrodDeptStoreRoofBugCatcherText: 
+if DEF(_FR_FR)
+	text "Mes #MON sont"
+	line "toujours empoison-"
+
+	para "nés ou paralysés"
+	line "au mauvais moment."
+
+	para "Je vais donc ache-"
+	line "ter TOTAL SOIN."
+
+	para "Il en reste,"
+	line "tu crois?"
+else
 	text "My #MON always"
 	line "get paralyzed or"
 
@@ -170,9 +236,21 @@ GoldenrodDeptStoreRoofBugCatcherText: ; AUTOTRAD
 
 	para "I wonder if"
 	line "there's any left?"
+endc
+
 	done
 
-Binoculars1Text: ; AUTOTRAD
+Binoculars1Text: 
+if DEF(_FR_FR)
+	text "Je vois loin avec"
+	line "ces jumelles."
+
+	para "Je vois presque"
+	line "ma maison."
+
+	para "C'est celle avec"
+	line "le toit vert?"
+else
 	text "These binoculars"
 	line "let me see far"
 
@@ -181,9 +259,22 @@ Binoculars1Text: ; AUTOTRAD
 
 	para "Is it the one with"
 	line "the green roof?"
+endc
+
 	done
 
-Binoculars2Text: ; AUTOTRAD
+Binoculars2Text: 
+if DEF(_FR_FR)
+	text "Hé! Des dresseurs"
+	line "se battent sur"
+	cont "la route!"
+
+	para "Un #MON crache"
+	line "des feuilles!"
+
+	para "Ca me donne envie"
+	line "de combattre!"
+else
 	text "Hey! Some trainers"
 	line "are battling on"
 	cont "the road!"
@@ -194,6 +285,8 @@ Binoculars2Text: ; AUTOTRAD
 	para "That makes me feel"
 	line "like battling"
 	cont "right now!"
+endc
+
 	done
 
 BinocularsNightText: ; TO TRANSLATE
@@ -201,7 +294,18 @@ BinocularsNightText: ; TO TRANSLATE
 	line "to see anything…"
 	done
 
-Binoculars3Text: ; AUTOTRAD
+Binoculars3Text: 
+if DEF(_FR_FR)
+	text "Un PECHEUR a"
+	line "attrapé des"
+	cont "MAGICARPE..."
+
+	para "Ils font tous"
+	line "TREMPETTE!"
+
+	para "Y'a de l'eau"
+	line "partout!"
+else
 	text "A FISHER caught a"
 	line "lot of MAGIKARP…"
 
@@ -210,9 +314,21 @@ Binoculars3Text: ; AUTOTRAD
 
 	para "Look at the water"
 	line "going everywhere!"
+endc
+
 	done
 
-PokeDollVendingMachineText: ; AUTOTRAD
+PokeDollVendingMachineText: 
+if DEF(_FR_FR)
+	text "Une machine à"
+	line "poupées #MON?"
+
+	para "Mettre des sous"
+	line "et tourner..."
+
+	para "C'est presque"
+	line "vide..."
+else
 	text "A vending machine"
 	line "for #MON dolls?"
 
@@ -221,6 +337,8 @@ PokeDollVendingMachineText: ; AUTOTRAD
 
 	para "But it's almost"
 	line "empty…"
+endc
+
 	done
 
 GoldenrodDeptStoreRoof_MapEvents:

@@ -243,25 +243,57 @@ SSAquaGrandpaApproachesPlayerMovement:
 	turn_head DOWN
 	step_end
 
-SSAquaCaptainExhaustingText: ; AUTOTRAD
+SSAquaCaptainExhaustingText: 
+if DEF(_FR_FR)
+	text "Fouiii! Merci"
+	line "d'être là."
+
+	para "S'occuper de cette"
+	line "petite fille est"
+	cont "crevant."
+else
 	text "Whew! Thanks for"
 	line "coming along."
 
 	para "Keeping that lit-"
 	line "tle girl amused"
 	cont "was exhausting."
+endc
+
 	done
 
-SSAquaCaptainHowDoYouLikeText: ; AUTOTRAD
+SSAquaCaptainHowDoYouLikeText: 
+if DEF(_FR_FR)
+	text "Tu aimes bien"
+	line "l'AQUARIA?"
+
+	para "Il vole sur les"
+	line "vagues..."
+else
 	text "How do you like"
 	line "S.S.AQUA's ride?"
 
 	para "She practically"
 	line "skates across the"
 	cont "waves."
+endc
+
 	done
 
-SSAquaCantFindGranddaughterText: ; AUTOTRAD
+SSAquaCantFindGranddaughterText: 
+if DEF(_FR_FR)
+	text "Oh, bonjour..."
+
+	para "Je ne trouve tou-"
+	line "jours pas ma"
+	cont "petite-fille."
+
+	para "Elle peut être"
+	line "assez soûlante,"
+
+	para "j'espère qu'elle"
+	line "n'embête personne."
+else
 	text "Oh, hello…"
 
 	para "I still can't find"
@@ -275,9 +307,20 @@ SSAquaCantFindGranddaughterText: ; AUTOTRAD
 
 	para "be bugging some-"
 	line "one. I'm worried…"
+endc
+
 	done
 
-SSAquaEntertainedGranddaughterText: ; AUTOTRAD
+SSAquaEntertainedGranddaughterText: 
+if DEF(_FR_FR)
+	text "<PLAY_G>, c'est ça?"
+	line "On m'a dit que tu"
+	cont "as pris soin de ma"
+	cont "petite-fille."
+
+	para "Je tiens à te"
+	line "remercier."
+else
 	text "<PLAY_G>, was it?"
 	line "I heard you enter-"
 	cont "tained my grand-"
@@ -285,27 +328,64 @@ SSAquaEntertainedGranddaughterText: ; AUTOTRAD
 
 	para "I want to thank"
 	line "you for that."
+endc
+
 	done
 
-SSAquaGrandpaHaveThisText: ; AUTOTRAD
+SSAquaGrandpaHaveThisText: 
+if DEF(_FR_FR)
+	text "Je tiens à ce que"
+	line "tu acceptes ceci!"
+else
 	text "I know! I'd like"
 	line "you to have this!"
+endc
+
 	done
 
-SSAquaGrandpaTravellingText: ; AUTOTRAD
+SSAquaGrandpaTravellingText: 
+if DEF(_FR_FR)
+	text "Nous voyageons"
+	line "autour du monde."
+else
 	text "We're traveling"
 	line "around the world."
+endc
+
 	done
 
-SSAquaGranddaughterCaptainPlayWithMeText: ; AUTOTRAD
+SSAquaGranddaughterCaptainPlayWithMeText: 
+if DEF(_FR_FR)
+	text "Hé CAPITAINE! Tu"
+	line "joues avec moi?"
+
+	para "Vazy steuplait!"
+	line "Vazy m'sieur!"
+else
 	text "CAPTAIN, play with"
 	line "me, please?"
 
 	para "I'm bored! I want"
 	line "to play more!"
+endc
+
 	done
 
-SSAquaGranddaughterHasToFindGrandpaText: ; AUTOTRAD
+SSAquaGranddaughterHasToFindGrandpaText: 
+if DEF(_FR_FR)
+	text "Tu viens jouer"
+	line "avec moi?"
+
+	para "...Oh!"
+
+	para "Pépé s'inquiète"
+	line "pour moi?"
+
+	para "J'y vais!"
+
+	para "J'dois trouver mon"
+	line "p'tit pépé!"
+else
 	text "Hi! Will you play"
 	line "with me?"
 
@@ -318,151 +398,324 @@ SSAquaGranddaughterHasToFindGrandpaText: ; AUTOTRAD
 
 	para "I have to go find"
 	line "Grandpa!"
+endc
+
 	done
 
-SSAquaGranddaughterWasPlayingMText: ; AUTOTRAD
+SSAquaGranddaughterWasPlayingMText: 
+if DEF(_FR_FR)
+	text "Me voilà pépé!"
+	line "Je jouais avec le"
+
+	para "CAPITAINE et ce"
+	line "garçon!"
+else
 	text "Grandpa, here I"
 	line "am! I was playing"
 
 	para "with the CAPTAIN"
 	line "and this guy!"
+endc
+
 	done
 
-SSAquaGranddaughterWasPlayingFText: ; AUTOTRAD
+SSAquaGranddaughterWasPlayingFText: 
+if DEF(_FR_FR)
+	text "Me voilà pépé!"
+	line "Je jouais avec le"
+
+	para "CAPITAINE et cette"
+	line "fille!"
+else
 	text "Grandpa, here I"
 	line "am! I was playing"
 
 	para "with the CAPTAIN"
 	line "and this big girl!"
+endc
+
 	done
 
-SSAquaGranddaughterHadFunText: ; AUTOTRAD
+SSAquaGranddaughterHadFunText: 
+if DEF(_FR_FR)
+	text "Je me suis"
+	line "super amusée!"
+else
 	text "I had lots of fun"
 	line "playing!"
+endc
+
 	done
 
-PokefanmColinSeenText: ; AUTOTRAD
+PokefanmColinSeenText: 
+if DEF(_FR_FR)
+	text "Toi! Veux-tu te"
+	line "battre avec moi?"
+else
 	text "Hey, kid! Want to"
 	line "battle with me?"
+endc
+
 	done
 
-PokefanmColinBeatenText: ; AUTOTRAD
+PokefanmColinBeatenText: 
+if DEF(_FR_FR)
+	text "T'es balèze!"
+else
 	text "You're strong!"
+endc
+
 	done
 
-PokefanmColinAfterBattleText: ; AUTOTRAD
+PokefanmColinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu voyages?"
+
+	para "Et ta maman elle"
+	line "s'inquiète pas?"
+else
 	text "You're traveling"
 	line "all alone?"
 
 	para "Isn't your mom"
 	line "worried?"
+endc
+
 	done
 
-TwinsMegandpeg1SeenText: ; AUTOTRAD
+TwinsMegandpeg1SeenText: 
+if DEF(_FR_FR)
+	text "Tu me prends pour"
+	line "un bébé?"
+	cont "Ouiiiin!"
+else
 	text "You think I'm a"
 	line "baby?"
 	cont "That's not fair!"
+endc
+
 	done
 
-TwinsMegandpeg1BeatenText: ; AUTOTRAD
+TwinsMegandpeg1BeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Perdu!"
+else
 	text "Oh! We lost!"
+endc
+
 	done
 
-TwinsMegandpeg1AfterBattleText: ; AUTOTRAD
+TwinsMegandpeg1AfterBattleText: 
+if DEF(_FR_FR)
+	text "On est des filles!"
+	line "Pas des bébés!"
+	cont "Compris?"
+else
 	text "Baby is a rude"
 	line "name to call us"
 	cont "girls!"
+endc
+
 	done
 
-TwinsMegandpeg2SeenText: ; AUTOTRAD
+TwinsMegandpeg2SeenText: 
+if DEF(_FR_FR)
+	text "On n'est pas des"
+	line "bébés mais des"
+	cont "belles dames!"
+else
 	text "I'm not a baby!"
 
 	para "That's not nice to"
 	line "say to a lady!"
+endc
+
 	done
 
-TwinsMegandpeg2BeatenText: ; AUTOTRAD
+TwinsMegandpeg2BeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Perdu!"
+else
 	text "Oh! We lost!"
+endc
+
 	done
 
-TwinsMegandpeg2AfterBattleText: ; AUTOTRAD
+TwinsMegandpeg2AfterBattleText: 
+if DEF(_FR_FR)
+	text "Les enfants sont"
+	line "plus malins que"
+	cont "les adultes!"
+else
 	text "Sometimes, kids"
 	line "are smarter than"
 	cont "grown-ups!"
+endc
+
 	done
 
-PsychicRodneySeenText: ; AUTOTRAD
+PsychicRodneySeenText: 
+if DEF(_FR_FR)
+	text "Silence! Mon cer-"
+	line "veau capte un"
+	cont "signal radio!"
+else
 	text "Ssh! My brain is"
 	line "picking up radio"
 	cont "signals!"
+endc
+
 	done
 
-PsychicRodneyBeatenText: ; AUTOTRAD
+PsychicRodneyBeatenText: 
+if DEF(_FR_FR)
+	text "... J'entends"
+	line "quelque chose!"
+else
 	text "…I hear some-"
 	line "thing!"
+endc
+
 	done
 
-PsychicRodneyAfterBattleText: ; AUTOTRAD
+PsychicRodneyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je sais: tu peux"
+	line "écouter la radio"
+	cont "de JOHTO sur le"
+	cont "BATEAU EXPRESS."
+else
 	text "I get it. You can"
 	line "hear JOHTO's radio"
 	cont "on the FAST SHIP."
+endc
+
 	done
 
-PokefanmJeremySeenText: ; AUTOTRAD
+PokefanmJeremySeenText: 
+if DEF(_FR_FR)
+	text "Qu'en penses-tu?"
+	line "Mes #MON sont"
+	cont "beaux, non?"
+else
 	text "What do you think?"
 	line "My #MON are"
 	cont "beautiful, yes?"
+endc
+
 	done
 
-PokefanmJeremyBeatenText: ; AUTOTRAD
+PokefanmJeremyBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, non! Mes beaux"
+	line "#MON!"
+else
 	text "Oh, no! My beauti-"
 	line "ful #MON!"
+endc
+
 	done
 
-PokefanmJeremyAfterBattleText: ; AUTOTRAD
+PokefanmJeremyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je dois aller au"
+	line "SALON #MON et"
+	cont "les toiletter!"
+else
 	text "I must go to the"
 	line "#MON SALON and"
 	cont "fix them up nice!"
+endc
+
 	done
 
-PokefanfGeorgiaSeenText: ; AUTOTRAD
+PokefanfGeorgiaSeenText: 
+if DEF(_FR_FR)
+	text "Je vais faire mes"
+	line "courses au GRAND"
+	cont "MAGASIN et puis..."
+else
 	text "I'm going to shop"
 	line "at the DEPT.STORE"
 	cont "and then…"
+endc
+
 	done
 
-PokefanfGeorgiaBeatenText: ; AUTOTRAD
+PokefanfGeorgiaBeatenText: 
+if DEF(_FR_FR)
+	text "Qu'est-ce que je"
+	line "devais faire?"
+else
 	text "What was I going"
 	line "to do?"
+endc
+
 	done
 
-PokefanfGeorgiaAfterBattleText: ; AUTOTRAD
+PokefanfGeorgiaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ah oui! Je dois"
+	line "aller chercher mon"
+	cont "#MON à la"
+	cont "PENSION!"
+else
 	text "Oh, yes! I have to"
 	line "get my #MON out"
 	cont "of DAY-CARE!"
+endc
+
 	done
 
-SupernerdShawnSeenText: ; AUTOTRAD
+SupernerdShawnSeenText: 
+if DEF(_FR_FR)
+	text "Quels types de"
+	line "# BALLS as-tu"
+	cont "sur toi?"
+else
 	text "What kinds of #"
 	line "BALLS do you have"
 	cont "with you?"
+endc
+
 	done
 
-SupernerdShawnBeatenText: ; AUTOTRAD
+SupernerdShawnBeatenText: 
+if DEF(_FR_FR)
+	text "Attends! Stop!"
+	line "Pitié!"
+else
 	text "Wait! Stop! Don't!"
 	line "Please!"
+endc
+
 	done
 
-SupernerdShawnAfterBattleText: ; AUTOTRAD
+SupernerdShawnAfterBattleText: 
+if DEF(_FR_FR)
+	text "Il faut utiliser"
+	line "les bonnes BALLS"
+	cont "en fonction de la"
+	cont "situation."
+else
 	text "You should use the"
 	line "right BALLS to fit"
 	cont "the situation."
+endc
+
 	done
 
-SSAquaHasArrivedVermilionText: ; AUTOTRAD
+SSAquaHasArrivedVermilionText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA est arrivé"
+	cont "à CARMIN SUR MER."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
+endc
+
 	done
 
 SSAquaPowerOutageText: ; TO TRANSLATE

@@ -108,37 +108,73 @@ RuinsOfAlphOmanyteChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphOmanyteChamberWallPatternLeftText: ; AUTOTRAD
+RuinsOfAlphOmanyteChamberWallPatternLeftText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
 RuinsOfAlphOmanyteChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphOmanyteChamberWallPatternRightText: ; AUTOTRAD
+RuinsOfAlphOmanyteChamberWallPatternRightText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
-RuinsOfAlphOmanyteChamberWallHoleText: ; AUTOTRAD
+RuinsOfAlphOmanyteChamberWallHoleText: 
+if DEF(_FR_FR)
+	text "Il y a un gros"
+	line "trou dans le mur!"
+else
 	text "There's a big hole"
 	line "in the wall!"
+endc
+
 	done
 
-RuinsOfAlphOmanyteChamberAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphOmanyteChamberAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
-RuinsOfAlphOmanyteChamberDescriptionText: ; AUTOTRAD
+RuinsOfAlphOmanyteChamberDescriptionText: 
+if DEF(_FR_FR)
+	text "Ce #MON glis-"
+	line "sait dans l'eau en"
+
+	para "tordant ses dix"
+	line "tentacules."
+else
 	text "This #MON"
 	line "drifted in the"
 
 	para "sea by twisting"
 	line "its ten tentacles."
+endc
+
 	done
 
 RuinsOfAlphOmanyteChamber_MapEvents:

@@ -43,7 +43,20 @@ SaffronPokecenter1FFisherScript:
 SaffronPokecenter1FYoungsterScript:
 	jumptextfaceplayer SaffronPokecenter1FYoungsterText
 
-SaffronPokecenter1FTeacherText: ; AUTOTRAD
+SaffronPokecenter1FTeacherText: 
+if DEF(_FR_FR)
+	text "Comment sont les"
+	line "CENTRES #MON"
+	cont "de JOHTO?"
+
+	para "...Je vois."
+	line "Ils sont comme"
+	cont "ceux de KANTO."
+
+	para "Je peux aller à"
+	line "JOHTO sans crainte"
+	cont "dans ce cas!"
+else
 	text "What are JOHTO's"
 	line "#MON CENTERS"
 	cont "like?"
@@ -57,9 +70,30 @@ SaffronPokecenter1FTeacherText: ; AUTOTRAD
 	para "I can go to JOHTO"
 	line "without worrying,"
 	cont "then!"
+endc
+
 	done
 
-SaffronPokecenter1FTeacherMobileText: ; AUTOTRAD
+SaffronPokecenter1FTeacherMobileText: 
+if DEF(_FR_FR)
+	text "Comment sont les"
+	line "CENTRES #MON"
+	cont "de JOHTO?"
+
+	para "...Je vois."
+	line "Ils te laissent te"
+
+	para "connecter avec des"
+	line "gens très éloi-"
+	cont "gnés?"
+
+	para "Je vais dire à mon"
+	line "ami de JOHTO d'at-"
+
+	para "traper un MARILL"
+	line "et de me l'échan-"
+	cont "ger!"
+else
 	text "What are JOHTO's"
 	line "#MON CENTERS"
 	cont "like?"
@@ -75,18 +109,46 @@ SaffronPokecenter1FTeacherMobileText: ; AUTOTRAD
 
 	para "catch a MARILL and"
 	line "trade it to me!"
+endc
+
 	done
 
-SaffronPokecenter1FFisherText: ; AUTOTRAD
+SaffronPokecenter1FFisherText: 
+if DEF(_FR_FR)
+	text "Je viens de tra-"
+	line "verser la GROTTE."
+
+	para "Il y avait du gra-"
+	line "buge à la CENTRALE"
+	cont "je crois..."
+else
 	text "I just happened to"
 	line "come through ROCK"
 
 	para "TUNNEL. There was"
 	line "some commotion at"
 	cont "the POWER PLANT."
+endc
+
 	done
 
-SaffronPokecenter1FFisherReturnedMachinePartText: ; AUTOTRAD
+SaffronPokecenter1FFisherReturnedMachinePartText: 
+if DEF(_FR_FR)
+	text "Les cavernes s'ef-"
+	line "fondrent facile-"
+	cont "ment."
+
+	para "Plusieurs ont dis-"
+	line "paru au cours des"
+
+	para "années. Tout comme"
+	line "celle près"
+	cont "d'AZURIA."
+
+	para "Et ouais. Seul un"
+	line "pro d'la montagne"
+	cont "sait tout ça."
+else
 	text "Caves collapse"
 	line "easily."
 
@@ -100,9 +162,21 @@ SaffronPokecenter1FFisherReturnedMachinePartText: ; AUTOTRAD
 	para "As a pro HIKER,"
 	line "that's common"
 	cont "knowledge."
+endc
+
 	done
 
-SaffronPokecenter1FYoungsterText: ; AUTOTRAD
+SaffronPokecenter1FYoungsterText: 
+if DEF(_FR_FR)
+	text "Les BUREAUX de la"
+	line "SYLPHE SARL et la"
+
+	para "STATION du TRAIN"
+	line "MAGNET sont les"
+
+	para "choses à voir à"
+	line "SAFRANIA."
+else
 	text "SILPH CO.'s HEAD"
 	line "OFFICE and the"
 
@@ -111,6 +185,8 @@ SaffronPokecenter1FYoungsterText: ; AUTOTRAD
 
 	para "places to see in"
 	line "SAFFRON."
+endc
+
 	done
 
 SaffronPokecenter1F_MapEvents:

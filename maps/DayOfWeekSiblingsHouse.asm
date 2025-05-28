@@ -20,14 +20,40 @@ DayOfWeekSiblingsHousePokedexScript:
 	closetext
 	end
 
-DayOfWeekSiblingsHousePokedexText1: ; AUTOTRAD
+DayOfWeekSiblingsHousePokedexText1: 
+if DEF(_FR_FR)
+	text "Il y a quelque"
+	line "chose d'écrit."
+
+	para "Lire?"
+else
 	text "There's something"
 	line "written here."
 
 	para "Read it?"
+endc
+
 	done
 
-DayOfWeekSiblingsHousePokedexText2: ; AUTOTRAD
+DayOfWeekSiblingsHousePokedexText2: 
+if DEF(_FR_FR)
+	text "A mes frères et"
+	line "soeurs:"
+
+	para "Nous devons aider"
+	line "les dresseurs de"
+	cont "#MON."
+
+	para "Quand un dresseur"
+	line "vient vous parler,"
+	cont "donnez-lui un"
+	cont "objet."
+
+	para "Bisous,"
+	line "LUCIE"
+
+	para "Continuer à lire?"
+else
 	text "To my brothers and"
 	line "sisters:"
 
@@ -43,9 +69,33 @@ DayOfWeekSiblingsHousePokedexText2: ; AUTOTRAD
 	line "MONICA"
 
 	para "Keep reading?"
+endc
+
 	done
 
-DayOfWeekSiblingsHousePokedexText3: ; AUTOTRAD
+DayOfWeekSiblingsHousePokedexText3: 
+if DEF(_FR_FR)
+	text "Lundi, LUCIE"
+	line "ROUTE 40"
+
+	para "Mardi, MARIE"
+	line "ROUTE 29"
+
+	para "Mercredi, HOMER"
+	line "LAC COLERE"
+
+	para "Jeudi, JEROME"
+	line "ROUTE 36"
+
+	para "Vendredi, VANESSA"
+	line "ROUTE 32"
+
+	para "Samedi, SAMUEL"
+	line "EBENELLE"
+
+	para "Dimanche, DIMITRI"
+	line "ROUTE 37"
+else
 	text "Monday, MONICA"
 	line "ROUTE 40"
 
@@ -66,6 +116,8 @@ DayOfWeekSiblingsHousePokedexText3: ; AUTOTRAD
 
 	para "Sunday, SUNNY"
 	line "ROUTE 37"
+endc
+
 	done
 
 DayOfWeekSiblingsHouse_MapEvents:

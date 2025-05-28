@@ -84,9 +84,16 @@ DeptStore_StepDownMovement:
 	step DOWN
 	step_end
 
-GoldenrodDeptStore1FReceptionistText: ; AUTOTRAD
+GoldenrodDeptStore1FReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "CENTRE COMMERCIAL"
+	cont "de DOUBLONVILLE."
+else
 	text "Welcome to GOLDEN-"
 	line "ROD DEPT.STORE."
+endc
+
 	done
 
 GoldenrodDeptStore1FReceptionistClosedText: ; TO TRANSLATE
@@ -126,7 +133,26 @@ GoldenrodDeptStore1FGentlemanGameCornerText: ; TO TRANSLATE
 	line "grand re-opening!"
 	done
 
-GoldenrodDeptStore1FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore1FDirectoryText: 
+if DEF(_FR_FR)
+	text "RDC  ACCUEIL"
+
+	para "1ER  BOUTIQUE"
+	line "     DRESSEUR"
+
+	para "2EME COLLECTION"
+	line "     DE COMBAT"
+
+	para "3EME PHARMACIE"
+
+	para "4EME Y'A BON LES"
+	line "     CT"
+
+	para "5EME COIN"
+	line "     TRANQUILLE"
+
+	para "TOIT PANORAMA"
+else
 	text "1F SERVICE COUNTER"
 
 	para "2F TRAINER'S"
@@ -142,6 +168,8 @@ GoldenrodDeptStore1FDirectoryText: ; AUTOTRAD
 	para "6F TRANQUIL SQUARE"
 
 	para "ROOFTOP LOOKOUT"
+endc
+
 	done
 
 DeptStore_FloorClosedText: ; TO TRANSLATE

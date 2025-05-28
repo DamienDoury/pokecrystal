@@ -65,7 +65,20 @@ VioletKylesHouseComputer2Script:
 .night
 	jumptext VioletKylesHouseComputer2NightText
 
-VioletKylesHousePokefanMText: ; AUTOTRAD
+VioletKylesHousePokefanMText: 
+if DEF(_FR_FR)
+	text "Un #MON échangé"
+	line "grandit plus vite"
+	cont "qu'un #MON"
+	cont "attrapé."
+
+	para "Mais si tu n'as"
+	line "pas le bon BADGE,"
+
+	para "il est possible"
+	line "qu'il ne t'obé-"
+	cont "isse pas."
+else
 	text "A #MON you get"
 	line "in a trade grows"
 	cont "quickly."
@@ -75,6 +88,8 @@ VioletKylesHousePokefanMText: ; AUTOTRAD
 
 	para "BADGE, they may"
 	line "disobey you."
+endc
+
 	done
 
 VioletKylesHouseTradebackGuyText: ; TO TRANSLATE

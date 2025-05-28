@@ -43,10 +43,17 @@ MountMoonGiftShopShelfItem2Script:
 MountMoonGiftShopShelfItem3Script:
 	shelfitem 3, MAX_ELIXER, 13500
 
-MountMoonGiftShopLassText: ; AUTOTRAD
+MountMoonGiftShopLassText: 
+if DEF(_FR_FR)
+	text "Au coucher du"
+	line "soleil, MELOFEE"
+	cont "vient jouer."
+else
 	text "When the sun goes"
 	line "down, CLEFAIRY"
 	cont "come out to play."
+endc
+
 	done
 
 MountMoonGiftShop_MapEvents:

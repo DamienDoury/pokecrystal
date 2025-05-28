@@ -224,13 +224,23 @@ VermilionPortApproachFastShipLeftMovement:
 	step LEFT
 	step_end
 
-VermilionPortSuperNerdText: ; AUTOTRAD
+VermilionPortSuperNerdText: 
+if DEF(_FR_FR)
+	text "Tu viens de"
+	line "JOHTO?"
+
+	para "On dit qu'il y a"
+	line "plein de #MON"
+	cont "rares là-bas."
+else
 	text "You came from"
 	line "JOHTO?"
 
 	para "I hear many rare"
 	line "#MON live over"
 	cont "there."
+endc
+
 	done
 
 VermilionPortTempSailorText: ; TO TRANSLATE

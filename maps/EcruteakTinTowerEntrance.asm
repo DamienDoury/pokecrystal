@@ -153,7 +153,19 @@ EcruteakTinTowerEntranceSageBlocksRightMovement:
 	turn_head DOWN
 	step_end
 
-EcruteakTinTowerEntranceSageText: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText: 
+if DEF(_FR_FR)
+	text "La TOUR FERRAILLE"
+	line "est inaccessible à"
+
+	para "tous ceux qui"
+	line "n'ont pas le BADGE"
+
+	para "de l'ARENE de"
+	line "ROSALIA."
+	cont "Désolé, mais vous"
+	cont "devez partir."
+else
 	text "TIN TOWER is off"
 	line "limits to anyone"
 
@@ -162,9 +174,28 @@ EcruteakTinTowerEntranceSageText: ; AUTOTRAD
 
 	para "Sorry, but you'll"
 	line "have to leave."
+endc
+
 	done
 
-EcruteakTinTowerEntranceSageText_GotFogBadge: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText_GotFogBadge: 
+if DEF(_FR_FR)
+	text "La TOUR FERRAILLE"
+	line "est inaccessible à"
+
+	para "tous ceux qui"
+	line "n'ont pas le BADGE"
+
+	para "de l'ARENE de"
+	line "ROSALIA."
+
+	para "Ah!"
+
+	para "Le BADGE de"
+	line "l'ARENE de"
+	cont "ROSALIA! Vous"
+	cont "pouvez passer."
+else
 	text "TIN TOWER is off"
 	line "limits to anyone"
 
@@ -176,9 +207,25 @@ EcruteakTinTowerEntranceSageText_GotFogBadge: ; AUTOTRAD
 	para "ECRUTEAK's GYM"
 	line "BADGE! Please, go"
 	cont "right through."
+endc
+
 	done
 
-EcruteakTinTowerEntranceSageText_NoClearBell: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText_NoClearBell: 
+if DEF(_FR_FR)
+	text "Il y a un"
+	line "problème."
+
+	para "Excusez-moi, mais"
+	line "vous devez"
+	cont "partir."
+
+	para "...Poyé polomi..."
+
+	para "Le TRIO des SAGES"
+	line "dit de drôles"
+	cont "de trucs..."
+else
 	text "A momentous event"
 	line "has occurred."
 
@@ -194,9 +241,43 @@ EcruteakTinTowerEntranceSageText_NoClearBell: ; AUTOTRAD
 
 	para "very difficult to"
 	line "understand…"
+endc
+
 	done
 
-EcruteakTinTowerEntranceSageText_HearsClearBell: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText_HearsClearBell: 
+if DEF(_FR_FR)
+	text "Il y a un"
+	line "problème."
+
+	para "Excuse-moi, mais"
+	line "tu dois"
+	cont "partir."
+
+	para "<……><……><……>"
+
+	para "Ah!"
+
+	para "Le son du GLAS"
+	line "TRANSPARENT!"
+
+	para "C'est... BEAU!"
+
+	para "Je n'ai jamais"
+	line "rien entendu"
+	cont "d'aussi joli!"
+
+	para "Le son du glas"
+	line "reflète l'âme de"
+	cont "son porteur."
+
+	para "Toi..."
+
+	para "Tu peux accéder à"
+	line "la TOUR FERRAILLE."
+
+	para "Va."
+else
 	text "A momentous event"
 	line "has occurred."
 
@@ -228,13 +309,32 @@ EcruteakTinTowerEntranceSageText_HearsClearBell: ; AUTOTRAD
 	cont "TIN TOWER."
 
 	para "Please, do go on."
+endc
+
 	done
 
-EcruteakTinTowerEntranceSageText_PleaseDoGoOn: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText_PleaseDoGoOn: 
+if DEF(_FR_FR)
+	text "Va."
+else
 	text "Please, do go on."
+endc
+
 	done
 
-EcruteakTinTowerEntranceSageText_HeardClearBell: ; AUTOTRAD
+EcruteakTinTowerEntranceSageText_HeardClearBell: 
+if DEF(_FR_FR)
+	text "Le son du glas"
+	line "reflète l'âme de"
+	cont "son porteur."
+
+	para "Toi..."
+
+	para "Tu peux accéder à"
+	line "la TOUR FERRAILLE."
+
+	para "Va."
+else
 	text "That bell's chime"
 	line "is indicative of"
 	cont "the bearer's soul."
@@ -246,9 +346,20 @@ EcruteakTinTowerEntranceSageText_HeardClearBell: ; AUTOTRAD
 	cont "TIN TOWER."
 
 	para "Please, do go on."
+endc
+
 	done
 
-EcruteakTinTowerEntranceWanderingSageText: ; AUTOTRAD
+EcruteakTinTowerEntranceWanderingSageText: 
+if DEF(_FR_FR)
+	text "La TOUR FERRAILLE"
+	line "est d'une pure"
+	cont "beauté."
+
+	para "Elle apaise tous"
+	line "ceux qui la"
+	cont "regardent."
+else
 	text "The TIN TOWER"
 	line "ahead is a nine-"
 
@@ -258,17 +369,40 @@ EcruteakTinTowerEntranceWanderingSageText: ; AUTOTRAD
 	para "It soothes the"
 	line "soul of all who"
 	cont "see it."
+endc
+
 	done
 
-EcruteakTinTowerEntranceWanderingSageText_GotClearBell: ; AUTOTRAD
+EcruteakTinTowerEntranceWanderingSageText_GotClearBell: 
+if DEF(_FR_FR)
+	text "La TOUR FERRAILLE"
+	line "tremble! Un #-"
+
+	para "MON doit s'être"
+	line "posé au sommet!"
+else
 	text "The TIN TOWER"
 	line "shook! A #MON"
 
 	para "must have returned"
 	line "to the top!"
+endc
+
 	done
 
-EcruteakTinTowerEntranceGrampsText: ; AUTOTRAD
+EcruteakTinTowerEntranceGrampsText: 
+if DEF(_FR_FR)
+	text "Deux tours..."
+	line "Deux #MON..."
+
+	para "Mais lorsqu'une"
+	line "d'entre elles a"
+
+	para "brûlé, les deux"
+	line "#MON se sont"
+	cont "envolés et ne sont"
+	cont "jamais revenus."
+else
 	text "Two towers…"
 	line "Two #MON…"
 
@@ -277,6 +411,8 @@ EcruteakTinTowerEntranceGrampsText: ; AUTOTRAD
 
 	para "#MON flew away,"
 	line "never to return."
+endc
+
 	done
 
 EcruteakTinTowerEntrance_MapEvents:

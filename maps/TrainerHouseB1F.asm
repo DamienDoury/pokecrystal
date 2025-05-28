@@ -105,43 +105,93 @@ Movement_TrainerHouseTurnBack:
 	turn_head LEFT
 	step_end
 
-TrainerHouseB1FIntroText: ; AUTOTRAD
+TrainerHouseB1FIntroText: 
+if DEF(_FR_FR)
+	text "Bienvenue au HALL"
+	line "d'ENTRAINEMENT."
+
+	para "On peut y affron-"
+	line "ter un adversaire"
+	cont "par jour."
+else
 	text "Hi. Welcome to our"
 	line "TRAINING HALL."
 
 	para "You may battle a"
 	line "trainer once per"
 	cont "day."
+endc
+
 	done
 
-TrainerHouseB1FYourOpponentIsText: ; AUTOTRAD
+TrainerHouseB1FYourOpponentIsText: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text " est"
+	line "l'adversaire du"
+	cont "jour."
+else
 	text_ram wStringBuffer3
 	text " is your"
 	line "opponent today."
+endc
+
 	done
 
-TrainerHouseB1FAskWantToBattleText: ; AUTOTRAD
+TrainerHouseB1FAskWantToBattleText: 
+if DEF(_FR_FR)
+	text "Voulez-vous com-"
+	line "battre?"
+else
 	text "Would you like to"
 	line "battle?"
+endc
+
 	done
 
-TrainerHouseB1FGoRightInText: ; AUTOTRAD
+TrainerHouseB1FGoRightInText: 
+if DEF(_FR_FR)
+	text "Passez s'il vous"
+	line "plaît."
+
+	para "Vous pouvez com-"
+	line "mencer tout de"
+	cont "suite."
+else
 	text "Please go right"
 	line "through."
 
 	para "You may begin"
 	line "right away."
+endc
+
 	done
 
-TrainerHouseB1FPleaseComeAgainText: ; AUTOTRAD
+TrainerHouseB1FPleaseComeAgainText: 
+if DEF(_FR_FR)
+	text "Seuls les dres-"
+	line "seurs allant com-"
+
+	para "battre sont auto-"
+	line "risés à entrer."
+else
 	text "Sorry. Only those"
 	line "trainers who will"
 
 	para "be battling are"
 	line "allowed to go in."
+endc
+
 	done
 
-TrainerHouseB1FSecondChallengeDeniedText: ; AUTOTRAD
+TrainerHouseB1FSecondChallengeDeniedText: 
+if DEF(_FR_FR)
+	text "Excusez-moi! Vous"
+	line "ne pouvez entrer"
+
+	para "qu'une fois par"
+	line "jour!"
+else
 	text "I'm sorry."
 	line "This would be your"
 
@@ -150,17 +200,32 @@ TrainerHouseB1FSecondChallengeDeniedText: ; AUTOTRAD
 
 	para "to enter just once"
 	line "a day."
+endc
+
 	done
 
-TrainerHouseB1FCalBeatenText: ; AUTOTRAD
+TrainerHouseB1FCalBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu..."
+	line "Et zut..."
+else
 	text "I lost…"
 	line "Darn…"
+endc
+
 	done
 
-TrainerHouseB1FCalBeforeText: ; AUTOTRAD
+TrainerHouseB1FCalBeforeText: 
+if DEF(_FR_FR)
+	text "J'ai voyagé jus-"
+	line "qu'ici pour t'af-"
+	cont "fronter."
+else
 	text "I traveled out"
 	line "here just so I"
 	cont "could battle you."
+endc
+
 	done
 
 TrainerHouseB1F_MapEvents:

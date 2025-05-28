@@ -237,9 +237,16 @@ Route31MailRecipientScript:
 	closetext
 	end
 
-ReceivedSpearowMailText: ; AUTOTRAD
+ReceivedSpearowMailText: 
+if DEF(_FR_FR)
+	db   "ANTRE NOIRE    "
+	next "mène autre part@"
+
+else
 	db   "DARK CAVE leads"
 	next "to another road@"
+
+endc
 
 Route31YoungsterScript:
 	jumptextfaceplayer Route31YoungsterText
@@ -262,25 +269,58 @@ Route31Potion:
 Route31PokeBall:
 	itemball POKE_BALL
 
-Route31CooltrainerMText: ; AUTOTRAD
+Route31CooltrainerMText: 
+if DEF(_FR_FR)
+	text "ANTRE NOIRE..."
+
+	para "Si un #MON pou-"
+	line "vait l'éclairer,"
+	cont "on pourrait"
+	cont "l'explorer..."
+else
 	text "DARK CAVE…"
 
 	para "If #MON could"
 	line "light it up, I'd"
 	cont "explore it."
+endc
+
 	done
 
-BugCatcherWade1SeenText: ; AUTOTRAD
+BugCatcherWade1SeenText: 
+if DEF(_FR_FR)
+	text "J'ai attrapé plein"
+	line "de #MON. On va"
+	cont "faire un combat!"
+else
 	text "I caught a bunch"
 	line "of #MON. Let me"
 	cont "battle with you!"
+endc
+
 	done
 
-BugCatcherWade1BeatenText: ; AUTOTRAD
+BugCatcherWade1BeatenText: 
+if DEF(_FR_FR)
+	text "Aaaaaaaaah!"
+else
 	text "Awwwww…"
+endc
+
 	done
 
-BugCatcherWade1AfterText: ; AUTOTRAD
+BugCatcherWade1AfterText: 
+if DEF(_FR_FR)
+	text "Tu peux attraper"
+	line "un #MON même"
+
+	para "si tu en as six"
+	line "sur toi."
+
+	para "Il sera transféré"
+	line "à ta BOITE automa-"
+	cont "tiquement."
+else
 	text "You can catch"
 	line "#MON even if"
 
@@ -290,9 +330,27 @@ BugCatcherWade1AfterText: ; AUTOTRAD
 	para "If you catch one,"
 	line "it'll go to your"
 	cont "BOX automatically."
+endc
+
 	done
 
-Text_Route31SleepyMan: ; AUTOTRAD
+Text_Route31SleepyMan: 
+if DEF(_FR_FR)
+	text "...Nnngneuh?"
+
+	para "J'ai trop marché"
+	line "pour trouver des"
+	cont "#MON."
+
+	para "J'ai mal aux pieds"
+	line "et j'ai sommeil."
+
+	para "Si j'étais un"
+	line "#MON, je serais"
+	cont "facile à choper..."
+
+	para "...Zzzz..."
+else
 	text "… Hnuurg… Huh?"
 
 	para "I walked too far"
@@ -307,16 +365,49 @@ Text_Route31SleepyMan: ; AUTOTRAD
 	cont "easy to catch…"
 
 	para "…Zzzz…"
+endc
+
 	done
 
-Text_Route31SleepyManGotMail: ; AUTOTRAD
+Text_Route31SleepyManGotMail: 
+if DEF(_FR_FR)
+	text "...Zzzz...Hein?"
+
+	para "C'est quoi? Tu as"
+	line "une LETTRE pour"
+	cont "moi?"
+else
 	text "…Zzzz… Huh?"
 
 	para "What's that? You"
 	line "have MAIL for me?"
+endc
+
 	done
 
-Text_Route31ReadingMail: ; AUTOTRAD
+Text_Route31ReadingMail: 
+if DEF(_FR_FR)
+	text "Voyons ça... "
+	line "...L'ANTRE NOIRE"
+	cont "mène à un autre"
+	cont "chemin..."
+
+	para "C'est bon à"
+	line "savoir."
+
+	para "Merci de m'avoir"
+	line "apporté ça."
+
+	para "T'es un bon p'tit"
+	line "bouchon, toi!"
+
+	para "Je devrais peut-"
+	line "être te faire un"
+	cont "cadeau..."
+
+	para "Je sais! Prends ça"
+	line "j'insiste!"
+else
 	text "Let's see…"
 
 	para "…DARK CAVE leads"
@@ -338,9 +429,26 @@ Text_Route31ReadingMail: ; AUTOTRAD
 
 	para "I know! I want you"
 	line "to have this!"
+endc
+
 	done
 
-Text_Route31DescribeNightmare: ; AUTOTRAD
+Text_Route31DescribeNightmare: 
+if DEF(_FR_FR)
+	text "CT50: CAUCHEMAR."
+
+	para "Une capacité ter-"
+	line "rible qui tranche"
+
+	para "les PV d'un ennemi"
+	line "endormi."
+
+	para "Ooooh..."
+	line "Ca fait peur, non?"
+
+	para "Moi j'aime pas les"
+	line "cauchemars, alors."
+else
 	text "TM50 is NIGHTMARE."
 
 	para "It's a wicked move"
@@ -354,35 +462,79 @@ Text_Route31DescribeNightmare: ; AUTOTRAD
 
 	para "I don't want to"
 	line "have bad dreams."
+endc
+
 	done
 
-Text_Route31WrongMail: ; AUTOTRAD
+Text_Route31WrongMail: 
+if DEF(_FR_FR)
+	text "Cette LETTRE n'est"
+	line "pas pour moi."
+else
 	text "This MAIL isn't"
 	line "for me."
+endc
+
 	done
 
-Text_Route31MissingMail: ; AUTOTRAD
+Text_Route31MissingMail: 
+if DEF(_FR_FR)
+	text "Pourquoi ce"
+	line "#MON est-il si"
+	cont "spécial?"
+
+	para "Il n'a pas de"
+	line "LETTRE."
+else
 	text "Why is this #-"
 	line "MON so special?"
 
 	para "It doesn't have"
 	line "any MAIL."
+endc
+
 	done
 
-Text_Route31DeclinedToHandOverMail: ; AUTOTRAD
+Text_Route31DeclinedToHandOverMail: 
+if DEF(_FR_FR)
+	text "Quoi? Tu ne veux"
+	line "rien?"
+else
 	text "What? You don't"
 	line "want anything?"
+endc
+
 	done
 
-Text_Route31CantTakeLastMon: ; AUTOTRAD
+Text_Route31CantTakeLastMon: 
+if DEF(_FR_FR)
+	text "Si je te prends ce"
+	line "#MON, avec qui"
+	cont "vas-tu combattre?"
+else
 	text "If I take that"
 	line "#MON from you,"
 
 	para "what are you going"
 	line "to use in battle?"
+endc
+
 	done
 
-Route31YoungsterText: ; AUTOTRAD
+Route31YoungsterText: 
+if DEF(_FR_FR)
+	text "J'ai trouvé un bon"
+	line "#MON dans"
+	cont "l'ANTRE NOIRE."
+
+	para "Je vais l'entraî-"
+	line "ner pour battre"
+	cont "ALBERT."
+
+	para "Il est le CHAMPION"
+	line "de l'ARENE de"
+	cont "MAUVILLE."
+else
 	text "I found a good"
 	line "#MON in DARK"
 	cont "CAVE."
@@ -393,17 +545,32 @@ Route31YoungsterText: ; AUTOTRAD
 
 	para "He's the leader of"
 	line "VIOLET CITY's GYM."
+endc
+
 	done
 
-Route31SignText: ; AUTOTRAD
+Route31SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 31"
+
+	para "MAUVILLE -"
+	line "VILLE GRIOTTE"
+else
 	text "ROUTE 31"
 
 	para "VIOLET CITY -"
 	line "CHERRYGROVE CITY"
+endc
+
 	done
 
-DarkCaveSignText: ; AUTOTRAD
+DarkCaveSignText: 
+if DEF(_FR_FR)
+	text "ANTRE NOIRE"
+else
 	text "DARK CAVE"
+endc
+
 	done
 
 Route31_MapEvents:

@@ -54,41 +54,91 @@ OlivineLighthouse5FTMSwagger:
 OlivineLighthouse5FHiddenHyperPotion:
 	hiddenitem HYPER_POTION, EVENT_OLIVINE_LIGHTHOUSE_5F_HIDDEN_HYPER_POTION
 
-SailorErnestSeenText: ; AUTOTRAD
+SailorErnestSeenText: 
+if DEF(_FR_FR)
+	text "Je voulais défier"
+	line "JASMINE mais ce"
+
+	para "n'est pas le mo-"
+	line "ment. Et toi, ça"
+	cont "te tente?"
+else
 	text "I wanted to battle"
 	line "JASMINE, but she's"
 
 	para "not up to it now."
 	line "So, how about you?"
+endc
+
 	done
 
-SailorErnestBeatenText: ; AUTOTRAD
+SailorErnestBeatenText: 
+if DEF(_FR_FR)
+	text "Fouiiii!"
+	line "T'es trop, toi!"
+else
 	text "Whoa, whoa. You're"
 	line "overwhelming!"
+endc
+
 	done
 
-SailorErnestAfterBattleText: ; AUTOTRAD
+SailorErnestAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un CHAMPION n'est"
+	line "pas seulement fort"
+
+	para "mais il se doit"
+	line "d'être aussi"
+	cont "compatissant."
+else
 	text "A GYM LEADER isn't"
 	line "just about being"
 
 	para "strong. A LEADER"
 	line "also needs to be"
 	cont "compassionate."
+endc
+
 	done
 
-BirdKeeperDenisSeenText: ; AUTOTRAD
+BirdKeeperDenisSeenText: 
+if DEF(_FR_FR)
+	text "C'est haut ici!"
+	line "Mes #MON"
+
+	para "oiseaux sont en"
+	line "super forme."
+else
 	text "We're pretty high"
 	line "up here. My bird"
 
 	para "#MON are in"
 	line "prime form."
+endc
+
 	done
 
-BirdKeeperDenisBeatenText: ; AUTOTRAD
+BirdKeeperDenisBeatenText: 
+if DEF(_FR_FR)
+	text "Mayday!"
+	line "Mayday!"
+else
 	text "Oops…They crashed…"
+endc
+
 	done
 
-BirdKeeperDenisAfterBattleText: ; AUTOTRAD
+BirdKeeperDenisAfterBattleText: 
+if DEF(_FR_FR)
+	text "Mon #MON a"
+	line "appris VOL à"
+	cont "IRISIA."
+
+	para "Et puisque j'ai"
+	line "perdu, je vais"
+	cont "VOLER autre part!"
+else
 	text "My #MON learned"
 	line "how to use FLY in"
 	cont "CIANWOOD."
@@ -96,6 +146,8 @@ BirdKeeperDenisAfterBattleText: ; AUTOTRAD
 	para "Well, since I'm a"
 	line "loser, I'll FLY"
 	cont "across the sea…"
+endc
+
 	done
 
 OlivineLighthouse5F_MapEvents:

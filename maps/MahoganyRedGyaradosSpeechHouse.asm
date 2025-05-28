@@ -82,7 +82,19 @@ MahoganyRedGyaradosSpeechHouseTeacherScript:
 	closetext
 	end
 
-MahoganyRedGyaradosSpeechHouseBlackBeltText: ; AUTOTRAD
+MahoganyRedGyaradosSpeechHouseBlackBeltText: 
+if DEF(_FR_FR)
+	text "J'ai entendu dire"
+	line "qu'un LEVIATOR"
+	cont "rouge est apparu"
+	cont "au LAC."
+
+	para "C'est bizarre..."
+	line "Même un LEVIATOR"
+
+	para "ordinaire est très"
+	line "rare dans ce LAC!"
+else
 	text "I heard that a red"
 	line "GYARADOS appeared"
 	cont "at the LAKE."
@@ -92,6 +104,8 @@ MahoganyRedGyaradosSpeechHouseBlackBeltText: ; AUTOTRAD
 
 	para "GYARADOS are rare"
 	line "in that lake…"
+endc
+
 	done
 
 MahoganyRedGyaradosSpeechHouseTeacherText: ; TO TRANSLATE

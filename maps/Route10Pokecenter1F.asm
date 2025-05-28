@@ -38,15 +38,38 @@ Route10Pokecenter1FGymGuideScript:
 Route10Pokecenter1FCooltrainerFScript:
 	jumptextfaceplayer Route10Pokecenter1FCooltrainerFText
 
-Route10Pokecenter1FGentlemanText: ; AUTOTRAD
+Route10Pokecenter1FGentlemanText: 
+if DEF(_FR_FR)
+	text "Un CENTRE #MON"
+	line "près d'une"
+	cont "caverne?"
+
+	para "C'est super"
+	line "pratique, ça."
+else
 	text "A #MON CENTER"
 	line "near a cave?"
 
 	para "That's mighty"
 	line "convenient."
+endc
+
 	done
 
-Route10Pokecenter1FGymGuideText: ; AUTOTRAD
+Route10Pokecenter1FGymGuideText: 
+if DEF(_FR_FR)
+	text "Le PATRON de la"
+	line "CENTRALE cherche"
+
+	para "un bon dresseur de"
+	line "#MON."
+
+	para "Il a besoin d'aide"
+	line "pour retrouver un"
+
+	para "truc qui a été"
+	line "volé."
+else
 	text "The POWER PLANT's"
 	line "MANAGER is looking"
 
@@ -58,9 +81,22 @@ Route10Pokecenter1FGymGuideText: ; AUTOTRAD
 
 	para "something that"
 	line "was stolen."
+endc
+
 	done
 
-Route10Pokecenter1FGymGuideText_ReturnedMachinePart: ; AUTOTRAD
+Route10Pokecenter1FGymGuideText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "On dit que la TEAM"
+	line "ROCKET s'est re-"
+
+	para "formée à JOHTO et"
+	line "s'est plantée à"
+	cont "nouveau."
+
+	para "C'est tout ce"
+	line "qu'on raconte."
+else
 	text "I hear TEAM ROCKET"
 	line "got back together"
 
@@ -69,9 +105,19 @@ Route10Pokecenter1FGymGuideText_ReturnedMachinePart: ; AUTOTRAD
 
 	para "I didn't know any-"
 	line "thing about that."
+endc
+
 	done
 
-Route10Pokecenter1FCooltrainerFText: ; AUTOTRAD
+Route10Pokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Dehors on voit le"
+	line "toit d'un très"
+
+	para "grand bâtiment."
+
+	para "C'est la CENTRALE."
+else
 	text "When you go out-"
 	line "side, you can see"
 
@@ -80,6 +126,8 @@ Route10Pokecenter1FCooltrainerFText: ; AUTOTRAD
 
 	para "That's the POWER"
 	line "PLANT."
+endc
+
 	done
 
 Route10Pokecenter1F_MapEvents:

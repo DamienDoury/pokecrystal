@@ -9,8 +9,13 @@ Route28Sign:
 Route28HiddenRareCandy:
 	hiddenitem RARE_CANDY, EVENT_ROUTE_28_HIDDEN_RARE_CANDY
 
-Route28SignText: ; AUTOTRAD
+Route28SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 28"
+else
+	text "ROUTE 28"
+endc
+
 	done
 
 Route28_MapEvents:

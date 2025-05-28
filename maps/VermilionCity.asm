@@ -139,7 +139,18 @@ VermilionCityMartSign:
 VermilionCityHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_VERMILION_CITY_HIDDEN_FULL_HEAL
 
-VermilionCityTeacherText: ; AUTOTRAD
+VermilionCityTeacherText: 
+if DEF(_FR_FR)
+	text "Le PORT de CARMIN"
+	line "est la porte de"
+	cont "KANTO vers"
+	cont "l'océan."
+
+	para "De magnifiques"
+	line "paquebots du monde"
+	cont "entier viennent y"
+	cont "jeter l'ancre."
+else
 	text "VERMILION PORT is"
 	line "KANTO's seaside"
 	cont "gateway."
@@ -147,6 +158,8 @@ VermilionCityTeacherText: ; AUTOTRAD
 	para "Luxury liners from"
 	line "around the world"
 	cont "dock here."
+endc
+
 	done
 
 VermilionMachopOwnerText: ; TO TRANSLATE
@@ -167,15 +180,28 @@ VermilionMachopOwnerText: ; TO TRANSLATE
 	cont "finished…"
 	done
 
-VermilionMachopText1: ; AUTOTRAD
+VermilionMachopText1: 
+if DEF(_FR_FR)
+	text "MACHOC: Maaaa!"
+	line "Choc!"
+else
 	text "MACHOP: Guooh"
 	line "gogogoh!"
+endc
+
 	done
 
-VermilionMachopText2: ; AUTOTRAD
+VermilionMachopText2: 
+if DEF(_FR_FR)
+	text "Un MACHOC grogne"
+	line "en aplatissant le"
+	cont "sol."
+else
 	text "A MACHOP is growl-"
 	line "ing while stomping"
 	cont "the ground flat."
+endc
+
 	done
 
 VermilionCitySuperNerdText: ; TO TRANSLATE
@@ -200,12 +226,29 @@ VermilionCitySuperNerdText: ; TO TRANSLATE
 	cont "Fascinating!"
 	done
 
-VermilionCitySnorlaxSleepingText: ; AUTOTRAD
+VermilionCitySnorlaxSleepingText: 
+if DEF(_FR_FR)
+	text "RONFLEX ronfle"
+	line "paisiblement..."
+else
 	text "SNORLAX is snoring"
 	line "peacefully…"
+endc
+
 	done
 
-VermilionCityRadioNearSnorlaxText: ; AUTOTRAD
+VermilionCityRadioNearSnorlaxText: 
+if DEF(_FR_FR)
+	text "Le #MATOS est"
+	line "placé près de"
+	cont "l'oreille du"
+	cont "RONFLEX."
+
+	para "..."
+
+	para "RONFLEX se"
+	line "réveille!"
+else
 	text "The #GEAR was"
 	line "placed near the"
 	cont "sleeping SNORLAX…"
@@ -213,9 +256,23 @@ VermilionCityRadioNearSnorlaxText: ; AUTOTRAD
 	para "…"
 
 	para "SNORLAX woke up!"
+endc
+
 	done
 
-VermilionCityBadgeGuyTrainerText: ; AUTOTRAD
+VermilionCityBadgeGuyTrainerText: 
+if DEF(_FR_FR)
+	text "Les bons dresseurs"
+	line "viennent à KANTO."
+
+	para "Les CHAMPIONS"
+	line "d'ARENE sont spé-"
+	cont "cialement forts."
+
+	para "Ce ne sera pas"
+	line "facile de les"
+	cont "battre."
+else
 	text "Skilled trainers"
 	line "gather in KANTO."
 
@@ -224,9 +281,21 @@ VermilionCityBadgeGuyTrainerText: ; AUTOTRAD
 
 	para "They won't be easy"
 	line "to defeat."
+endc
+
 	done
 
-VermilionCityBadgeGuySomeBadgesText: ; AUTOTRAD
+VermilionCityBadgeGuySomeBadgesText: 
+if DEF(_FR_FR)
+	text "Tu as commencé à"
+	line "collectionner les"
+	cont "BADGES de KANTO?"
+
+	para "Tu ne trouves pas"
+	line "que les dresseurs"
+	cont "du coin sont"
+	cont "super forts?"
+else
 	text "You've started to"
 	line "collect KANTO GYM"
 	cont "BADGES?"
@@ -234,9 +303,22 @@ VermilionCityBadgeGuySomeBadgesText: ; AUTOTRAD
 	para "Don't you agree"
 	line "that the trainers"
 	cont "here are tough?"
+endc
+
 	done
 
-VermilionCityBadgeGuyMostBadgesText: ; AUTOTRAD
+VermilionCityBadgeGuyMostBadgesText: 
+if DEF(_FR_FR)
+	text "Je pense que tu"
+	line "termineras bientôt"
+
+	para "ta conquête des"
+	line "ARENES de KANTO."
+
+	para "Préviens-moi si"
+	line "tu gagnes les huit"
+	cont "BADGES."
+else
 	text "I guess you'll be"
 	line "finished with your"
 
@@ -246,9 +328,21 @@ VermilionCityBadgeGuyMostBadgesText: ; AUTOTRAD
 	para "Let me know if"
 	line "you get all eight"
 	cont "BADGES."
+endc
+
 	done
 
-VermilionCityBadgeGuyAllBadgesText: ; AUTOTRAD
+VermilionCityBadgeGuyAllBadgesText: 
+if DEF(_FR_FR)
+	text "Félicitations!"
+
+	para "Tu as tous les"
+	line "BADGES des ARENES"
+	cont "de KANTO!"
+
+	para "Voilà une petite"
+	line "récompense."
+else
 	text "Congratulations!"
 
 	para "You got all the"
@@ -256,9 +350,23 @@ VermilionCityBadgeGuyAllBadgesText: ; AUTOTRAD
 
 	para "I've got a reward"
 	line "for your efforts."
+endc
+
 	done
 
-VermilionCityBadgeGuyBattleEdgeText: ; AUTOTRAD
+VermilionCityBadgeGuyBattleEdgeText: 
+if DEF(_FR_FR)
+	text "Avoir des #MON"
+	line "de types diffé-"
+
+	para "rents donne"
+	line "l'avantage en"
+	cont "combat."
+
+	para "Les BADGES de KAN-"
+	line "TO t'aideront,"
+	cont "j'en suis sûr."
+else
 	text "Having a variety"
 	line "of #MON types"
 
@@ -268,38 +376,77 @@ VermilionCityBadgeGuyBattleEdgeText: ; AUTOTRAD
 	para "I'm sure the KANTO"
 	line "GYM BADGES will"
 	cont "help you."
+endc
+
 	done
 
-VermilionCitySignText: ; AUTOTRAD
+VermilionCitySignText: 
+if DEF(_FR_FR)
+	text "CARMIN SUR MER"
+
+	para "Le port aux cou-"
+	line "chers de soleil"
+else
 	text "VERMILION CITY"
 
 	para "The Port of"
 	line "Exquisite Sunsets"
+endc
+
 	done
 
-VermilionGymSignText: ; AUTOTRAD
+VermilionGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de CARMIN SUR MER:"
+	cont "MAJOR BOB"
+
+	para "L'Américain"
+	line "survolté"
+else
 	text "VERMILION CITY"
 	line "#MON GYM"
 	cont "LEADER: LT.SURGE"
 
 	para "The Lightning"
 	line "American"
+endc
+
 	done
 
-PokemonFanClubSignText: ; AUTOTRAD
+PokemonFanClubSignText: 
+if DEF(_FR_FR)
+	text "FAN CLUB #MON"
+
+	para "Fans de #MON"
+	line "bienvenus!"
+else
 	text "#MON FAN CLUB"
 
 	para "All #MON Fans"
 	line "Welcome!"
+endc
+
 	done
 
-VermilionCityDiglettsCaveSignText: ; AUTOTRAD
+VermilionCityDiglettsCaveSignText: 
+if DEF(_FR_FR)
+	text "CAVE TAUPIQUEUR"
+else
 	text "DIGLETT'S CAVE"
+endc
+
 	done
 
-VermilionCityPortSignText: ; AUTOTRAD
+VermilionCityPortSignText: 
+if DEF(_FR_FR)
+	text "PORT de CARMIN"
+	line "ENTREE"
+else
 	text "VERMILION PORT"
 	line "ENTRANCE"
+endc
+
 	done
 
 VermilionGymBlockerText: ; TO TRANSLATE

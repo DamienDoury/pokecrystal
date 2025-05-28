@@ -33,7 +33,17 @@ OlivinePokecenter1FFisherText: ; TO TRANSLATE
 	line "meals to-go!"
 	done
 
-OlivinePokecenter1FTeacherText: ; AUTOTRAD
+OlivinePokecenter1FTeacherText: 
+if DEF(_FR_FR)
+	text "Il y a quelqu'un"
+	line "à IRISIA de"
+	cont "l'autre côté de la"
+	cont "mer."
+
+	para "Je l'ai entendu se"
+	line "vanter à propos de"
+	cont "son #MON rare."
+else
 	text "There's a person"
 	line "in CIANWOOD CITY"
 	cont "across the sea."
@@ -41,6 +51,8 @@ OlivinePokecenter1FTeacherText: ; AUTOTRAD
 	para "I heard him brag-"
 	line "ging about his"
 	cont "rare #MON."
+endc
+
 	done
 
 OlivinePokecenter1F_MapEvents:

@@ -38,16 +38,37 @@ LavenderPokecenter1FYoungsterScript:
 	closetext
 	end
 
-LavenderPokecenter1FGentlemanText: ; AUTOTRAD
+LavenderPokecenter1FGentlemanText: 
+if DEF(_FR_FR)
+	text "Au Nord de LAVAN-"
+	line "VILLE se trouve la"
+
+	para "GROTTE. Traverse-"
+	line "la pour accéder"
+	cont "à la CENTRALE."
+else
 	text "To the north of"
 	line "LAVENDER is ROCK"
 
 	para "TUNNEL. Go through"
 	line "it to get to the"
 	cont "POWER PLANT."
+endc
+
 	done
 
-LavenderPokecenter1FTeacherText: ; AUTOTRAD
+LavenderPokecenter1FTeacherText: 
+if DEF(_FR_FR)
+	text "Une émission de"
+	line "radio diffuse des"
+	cont "mélodies jouées à"
+	cont "la # FLUTE."
+
+	para "Oh? Il faut un"
+	line "CPN EXPAN. à ta"
+	cont "radio pour pouvoir"
+	cont "l'écouter."
+else
 	text "There's a radio"
 	line "program that plays"
 	cont "# FLUTE music."
@@ -55,9 +76,22 @@ LavenderPokecenter1FTeacherText: ; AUTOTRAD
 	para "Oh? Ah, your radio"
 	line "needs an EXPN CARD"
 	cont "to tune into it."
+endc
+
 	done
 
-LavenderPokecenter1FYoungsterText: ; AUTOTRAD
+LavenderPokecenter1FYoungsterText: 
+if DEF(_FR_FR)
+	text "Si la CENTRALE ne"
+	line "marche pas, le"
+
+	para "TRAIN MAGNET ne"
+	line "peut pas circuler."
+
+	para "La STATION RADIO"
+	line "ne peut rien"
+	cont "émettre non plus."
+else
 	text "If the POWER PLANT"
 	line "isn't running, the"
 
@@ -67,9 +101,23 @@ LavenderPokecenter1FYoungsterText: ; AUTOTRAD
 	para "It also means the"
 	line "RADIO STATION"
 	cont "can't broadcast…"
+endc
+
 	done
 
-LavenderPokecenter1FYoungsterText_ReturnedMachinePart: ; AUTOTRAD
+LavenderPokecenter1FYoungsterText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "Le DIRECTEUR de la"
+	line "STATION de RADIO"
+	cont "était content."
+
+	para "Il dit que les"
+	line "émissions peuvent"
+
+	para "reprendre depuis"
+	line "la réparation de"
+	cont "la CENTRALE."
+else
 	text "The DIRECTOR of"
 	line "the RADIO STATION"
 	cont "sure was happy."
@@ -80,6 +128,8 @@ LavenderPokecenter1FYoungsterText_ReturnedMachinePart: ; AUTOTRAD
 	para "because the POWER"
 	line "PLANT is running"
 	cont "smoothly again."
+endc
+
 	done
 
 LavenderPokecenter1F_MapEvents:

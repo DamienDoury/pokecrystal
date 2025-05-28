@@ -429,7 +429,25 @@ AcademyEarlIntroText2: ; TO TRANSLATE
 	cont "a winner is you?"
 	done
 
-AcademyEarlTeachHowToWinText: ; AUTOTRAD
+AcademyEarlTeachHowToWinText: 
+if DEF(_FR_FR)
+	text "Très bien!"
+	line "Ton éducation je"
+	cont "ferai!"
+
+	para "En combat, le"
+	line "premier #MON de"
+	cont "ta liste sort le"
+	cont "premier!"
+
+	para "Changer l'ordre de"
+	line "la liste peut"
+	cont "t'aider à gagner"
+	cont "ou perdre!"
+
+	para "Tu veux en savoir"
+	line "plus?"
+else
 	text "Good! Teach you,"
 	line "I will!"
 
@@ -443,15 +461,49 @@ AcademyEarlTeachHowToWinText: ; AUTOTRAD
 
 	para "More from me you"
 	line "want to hear?"
+endc
+
 	done
 
-AcademyEarlTeachMoreText: ; AUTOTRAD
+AcademyEarlTeachMoreText: 
+if DEF(_FR_FR)
+	text "Alors, on veut"
+	line "savoir comment"
+	cont "bien élever ses"
+	cont "p'tits #MON?"
+else
 	text "So, want to know"
 	line "how to raise"
 	cont "#MON well?"
+endc
+
 	done
 
-AcademyEarlTeachHowToRaiseWellText: ; AUTOTRAD
+AcademyEarlTeachHowToRaiseWellText: 
+if DEF(_FR_FR)
+	text "Qu'il en soit"
+	line "ainsi."
+	cont "Ton éducation"
+	cont "je ferai!"
+
+	para "Tout #MON qui"
+	line "participe au"
+
+	para "combat, même"
+	line "brièvement, ga-"
+	cont "gne des points"
+	cont "d'EXP."
+
+	para "Mets en première"
+	line "ligne un #MON"
+
+	para "faible et change-"
+	line "le rapidement!"
+
+	para "De cette façon,"
+	line "les #MON fai-"
+	cont "bles seront bons!"
+else
 	text "Fine! Teach you,"
 	line "I will!"
 
@@ -470,15 +522,28 @@ AcademyEarlTeachHowToRaiseWellText: ; AUTOTRAD
 	para "This way, weak"
 	line "#MON strong"
 	cont "become!"
+endc
+
 	done
 
-AcademyEarlNoMoreToTeachText: ; AUTOTRAD
+AcademyEarlNoMoreToTeachText: 
+if DEF(_FR_FR)
+	text "Tu fais attention!"
+	line "C'est bien! Je"
+	cont "n'ai plus rien à"
+	cont "t'apprendre!"
+
+	para "Aime fort tes"
+	line "#MON!"
+else
 	text "Oh! Smart student"
 	line "you are! Nothing"
 	cont "more do I teach!"
 
 	para "Good to #MON"
 	line "you must be!"
+endc
+
 	done
 
 AcademyEarlGiveEggText: ; TO TRANSLATE
@@ -522,7 +587,17 @@ AcademyEarlAfterEggText: ; TO TRANSLATE
 	line "friend, me trust!"
 	done
 
-EarlsPokemonAcademyYoungster1Text: ; AUTOTRAD
+EarlsPokemonAcademyYoungster1Text: 
+if DEF(_FR_FR)
+	text "Je prends note de"
+	line "ce cours bien"
+	cont "utile."
+
+	para "C'est sûrement"
+	line "utile de copier ce"
+	cont "qu'il y a au"
+	cont "tableau."
+else
 	text "I'm taking notes"
 	line "of the teacher's"
 	cont "lecture."
@@ -530,6 +605,8 @@ EarlsPokemonAcademyYoungster1Text: ; AUTOTRAD
 	para "I'd better copy"
 	line "the stuff on the"
 	cont "blackboard too."
+endc
+
 	done
 
 EarlsPokemonAcademyGameboyKid1Text: ; TO TRANSLATE
@@ -844,7 +921,24 @@ AcademyBlackboardStatusText: ; TO TRANSLATE
 	line "battle."
 	done
 
-AcademyPoisonText: ; AUTOTRAD
+AcademyPoisonText: 
+if DEF(_FR_FR)
+	text "Empoisonné, votre"
+	line "#MON perd"
+	cont "régulièrement des"
+	cont "PV."
+
+	para "Le poison agit"
+	line "même après le"
+
+	para "combat et vous"
+	line "perdrez des PV en"
+	cont "marchant."
+
+	para "Seul remède connu"
+	line "à ce jour:"
+	cont "l'ANTIDOTE."
+else
 	text "If poisoned, a"
 	line "#MON steadily"
 	cont "loses HP."
@@ -857,9 +951,23 @@ AcademyPoisonText: ; AUTOTRAD
 
 	para "To cure it, use an"
 	line "ANTIDOTE."
+endc
+
 	done
 
-AcademyParalysisText: ; AUTOTRAD
+AcademyParalysisText: 
+if DEF(_FR_FR)
+	text "La paralysie"
+	line "réduit la vitesse"
+	cont "et peut empêcher"
+	cont "de lancer une"
+	cont "attaque."
+
+	para "Elle dure même"
+	line "après le combat."
+	cont "L'ANTI-PARA peut"
+	cont "l'annuler."
+else
 	text "Paralysis reduces"
 	line "speed and may"
 	cont "prevent movement."
@@ -867,9 +975,23 @@ AcademyParalysisText: ; AUTOTRAD
 	para "It remains after"
 	line "battle, so use"
 	cont "a PARLYZ HEAL."
+endc
+
 	done
 
-AcademySleepText: ; AUTOTRAD
+AcademySleepText: 
+if DEF(_FR_FR)
+	text "Endormi, votre"
+	line "#MON ne peut"
+	cont "pas réagir."
+
+	para "Un #MON endormi"
+	line "ne se réveille pas"
+	cont "après le combat."
+
+	para "Réveillez-le avec"
+	line "un REVEIL."
+else
 	text "If asleep, your"
 	line "#MON can't make"
 	cont "a move."
@@ -880,9 +1002,26 @@ AcademySleepText: ; AUTOTRAD
 
 	para "Wake it up with"
 	line "an AWAKENING."
+endc
+
 	done
 
-AcademyBurnText: ; AUTOTRAD
+AcademyBurnText: 
+if DEF(_FR_FR)
+	text "Une brûlure con-"
+	line "somme des PV. Elle"
+
+	para "réduit aussi la"
+	line "force d'attaque."
+
+	para "La brûlure conti-"
+	line "nue même après le"
+	cont "combat."
+
+	para "Utilisez de"
+	line "l'ANTI-BRULE pour"
+	cont "la soigner."
+else
 	text "A burn steadily"
 	line "consumes HP."
 
@@ -894,9 +1033,23 @@ AcademyBurnText: ; AUTOTRAD
 
 	para "Use a BURN HEAL as"
 	line "the cure."
+endc
+
 	done
 
-AcademyFreezeText: ; AUTOTRAD
+AcademyFreezeText: 
+if DEF(_FR_FR)
+	text "Si votre #MON"
+	line "est gelé, il ne"
+	cont "pourra rien faire."
+
+	para "Le gel continue"
+	line "après le combat."
+
+	para "Mieux qu'un radia-"
+	line "teur, l'ANTIGEL"
+	cont "le réchauffera!"
+else
 	text "If your #MON is"
 	line "frozen, it can't"
 	cont "do a thing."
@@ -906,6 +1059,8 @@ AcademyFreezeText: ; AUTOTRAD
 
 	para "Thaw it out with"
 	line "an ICE HEAL."
+endc
+
 	done
 
 EarlsPokemonAcademy_MapEvents:

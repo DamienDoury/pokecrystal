@@ -142,26 +142,58 @@ Route33Sign:
 Route33FruitTree:
 	fruittree FRUITTREE_ROUTE_33
 
-HikerAnthony2SeenText: ; AUTOTRAD
+HikerAnthony2SeenText: 
+if DEF(_FR_FR)
+	text "J'ai traversé le"
+	line "tunnel, mais il me"
+
+	para "reste encore pas"
+	line "mal d'énergie."
+else
 	text "I came through the"
 	line "tunnel, but I"
 
 	para "still have plenty"
 	line "of energy left."
+endc
+
 	done
 
-HikerAnthony2BeatenText: ; AUTOTRAD
+HikerAnthony2BeatenText: 
+if DEF(_FR_FR)
+	text "Whoa! Alors toi"
+	line "t'es speed!"
+else
 	text "Whoa! You've got"
 	line "more zip than me!"
+endc
+
 	done
 
-HikerAnthony2AfterText: ; AUTOTRAD
+HikerAnthony2AfterText: 
+if DEF(_FR_FR)
+	text "Nous, MONTAGNARDS,"
+	line "sommes à l'aise"
+	cont "dans la montagne."
+else
 	text "We HIKERS are at"
 	line "our best in the"
 	cont "mountains."
+endc
+
 	done
 
-HikerAnthonyDunsparceText: ; AUTOTRAD
+HikerAnthonyDunsparceText: 
+if DEF(_FR_FR)
+	text "Hé! As-tu chopé un"
+	line "INSOLOURDO?"
+
+	para "Moi ouais."
+
+	para "Regarde-le bien!"
+	line "Il a une bonne"
+	cont "bouille, hein?"
+else
 	text "Hey, did you get a"
 	line "DUNSPARCE?"
 
@@ -170,9 +202,24 @@ HikerAnthonyDunsparceText: ; AUTOTRAD
 	para "Take a look at it"
 	line "in the light. It's"
 	cont "got a funny face!"
+endc
+
 	done
 
-Route33LassText: ; AUTOTRAD
+Route33LassText: 
+if DEF(_FR_FR)
+	text "Pfff... Pff..."
+
+	para "Enfin je sors de"
+	line "cet endroit."
+
+	para "C'est vachement"
+	line "grand!"
+
+	para "Tout explorer à"
+	line "l'intérieur c'est"
+	cont "super crevant."
+else
 	text "Pant, pant…"
 
 	para "I finally got"
@@ -186,10 +233,17 @@ Route33LassText: ; AUTOTRAD
 
 	para "thing, so I came"
 	line "outside."
+endc
+
 	done
 
-Route33SignText: ; AUTOTRAD
+Route33SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 33"
+else
+	text "ROUTE 33"
+endc
+
 	done
 
 Route33_MapEvents:

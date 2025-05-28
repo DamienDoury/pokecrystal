@@ -405,34 +405,69 @@ FuchsiaCityStupidSurprisedText: ; TO TRANSLATE
 	line "#MON?"
 	done
 
-FuchsiaCitySignText: ; AUTOTRAD
+FuchsiaCitySignText: 
+if DEF(_FR_FR)
+	text "PARMANIE"
+
+	para "Le rose de la"
+	line "passion!"
+else
 	text "FUCHSIA CITY"
 
 	para "Behold! It's"
 	line "Passion Pink!"
+endc
+
 	done
 
-FuchsiaGymSignText: ; AUTOTRAD
+FuchsiaGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de PARMANIE:"
+	cont "JEANNINE"
+
+	para "La Ninja aux"
+	line "mille poisons"
+else
 	text "FUCHSIA CITY"
 	line "#MON GYM"
 	cont "LEADER: JANINE"
 
 	para "The Poisonous"
 	line "Ninja Master"
+endc
+
 	done
 
-SafariZoneOfficeSignText: ; AUTOTRAD
+SafariZoneOfficeSignText: 
+if DEF(_FR_FR)
+	text "Il y a une"
+	line "affiche..."
+
+	para "Le BUREAU du PARC"
+	line "SAFARI est fermé"
+	cont "jusqu'à nouvel"
+	cont "ordre."
+else
 	text "There's a notice"
 	line "here…"
 
 	para "SAFARI ZONE OFFICE"
 	line "is closed until"
 	cont "further notice."
+endc
+
 	done
 
-WardensHomeSignText: ; AUTOTRAD
+WardensHomeSignText: 
+if DEF(_FR_FR)
+	text "MAISON DU GARDIEN"
+	line "du PARC SAFARI"
+else
 	text "SAFARI ZONE"
 	line "WARDEN'S HOME"
+endc
+
 	done
 
 SafariZoneClosedSignText: ; TO TRANSLATE
@@ -445,11 +480,19 @@ SafariZoneOpenedSignText: ; TO TRANSLATE
 	para "Now opened!"
 	done
 
-NoLitteringSignText: ; AUTOTRAD
+NoLitteringSignText: 
+if DEF(_FR_FR)
+	text "Ne rien jeter."
+
+	para "Utilisez les"
+	line "poubelles."
+else
 	text "No littering."
 
 	para "Please take your"
 	line "waste with you."
+endc
+
 	done
 
 FuchsiaOldSign1Text: ; TO TRANSLATE

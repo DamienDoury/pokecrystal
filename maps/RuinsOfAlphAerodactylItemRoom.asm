@@ -24,10 +24,17 @@ RuinsOfAlphAerodactylItemRoomEnergyRoot:
 RuinsOfAlphAerodactylItemRoomAncientReplica:
 	jumptext RuinsOfAlphAerodactylItemRoomAncientReplicaText
 
-RuinsOfAlphAerodactylItemRoomAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphAerodactylItemRoomAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
 RuinsOfAlphAerodactylItemRoom_MapEvents:

@@ -38,13 +38,43 @@ AzaleaPokecenter1FGentlemanText: ; TO TRANSLATE
 	cont "finitely."
 	done
 
-AzaleaPokecenter1FFishingGuruText: ; AUTOTRAD
+AzaleaPokecenter1FFishingGuruText: 
+if DEF(_FR_FR)
+	text "Le PC de LEO peut"
+	line "garder jusqu'à 20"
+	cont "#MON par BOITE."
+else
 	text "BILL's PC can"
 	line "store up to 20"
 	cont "#MON per BOX."
+endc
+
 	done
 
-AzaleaPokecenter1FPokefanFText: ; AUTOTRAD
+AzaleaPokecenter1FPokefanFText: 
+if DEF(_FR_FR)
+	text "Connais-tu les"
+	line "NOIGRUMES?"
+
+	para "Ouvres-en un,"
+	line "vide-le et"
+
+	para "remplis-le avec un"
+	line "appareil spécial."
+
+	para "Tu pourras alors"
+	line "t'en servir pour"
+	cont "attraper des"
+	cont "#MON."
+
+	para "Avant que les"
+	line "# BALLS ne"
+
+	para "soient inventées"
+	line "tout le monde"
+	cont "utilisait les"
+	cont "NOIGRUMES."
+else
 	text "Do you know about"
 	line "APRICORNS?"
 
@@ -62,6 +92,8 @@ AzaleaPokecenter1FPokefanFText: ; AUTOTRAD
 
 	para "everyone used"
 	line "APRICORNS."
+endc
+
 	done
 
 AzaleaPokecenter1F_MapEvents:

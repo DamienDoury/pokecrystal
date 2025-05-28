@@ -28,7 +28,21 @@ BlackthornMartBlackBeltScript:
 BlackthornMartShelfItem1Script:
 	shelfitem 6, FULL_HEAL, 3600
 
-BlackthornMartCooltrainerMText: ; AUTOTRAD
+BlackthornMartCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Tu ne peux pas"
+	line "acheter de RAPPEL"
+
+	para "MAX mais il permet"
+	line "de ramener un"
+	cont "#MON évanoui"
+	cont "en pleine forme."
+
+	para "Fais attention, ça"
+	line "ne restaure pas"
+	cont "les POINTS DE POU-"
+	cont "VOIR des attaques."
+else
 	text "You can't buy MAX"
 	line "REVIVE, but it"
 
@@ -40,6 +54,8 @@ BlackthornMartCooltrainerMText: ; AUTOTRAD
 
 	para "POWER POINTS"
 	line "needed for moves."
+endc
+
 	done
 
 BlackthornMartBlackBeltText: ; TO TRANSLATE

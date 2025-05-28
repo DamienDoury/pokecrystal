@@ -218,7 +218,20 @@ FastShipB1FSailorBlocksLeftMovement:
 	turn_head DOWN
 	step_end
 
-FastShipB1FOnDutySailorText: ; AUTOTRAD
+FastShipB1FOnDutySailorText: 
+if DEF(_FR_FR)
+	text "Hé toi. Tu peux"
+	line "chercher mon pote"
+	cont "pour moi?"
+
+	para "Il se balade dans"
+	line "le coin. Toujours"
+	cont "à rien faire!"
+
+	para "J'aimerais le"
+	line "trouver mais moi"
+	cont "j'ai du taf."
+else
 	text "Hey, kid. Could I"
 	line "get you to look"
 	cont "for my buddy?"
@@ -230,143 +243,309 @@ FastShipB1FOnDutySailorText: ; AUTOTRAD
 	para "I want to go find"
 	line "him, but I'm on"
 	cont "duty right now."
+endc
+
 	done
 
-FastShipB1FOnDutySailorRefusedText: ; AUTOTRAD
+FastShipB1FOnDutySailorRefusedText: 
+if DEF(_FR_FR)
+	text "Oh, ben..."
+
+	para "Le CAPITAINE va"
+	line "être furax..."
+else
 	text "Oh, gee…"
 
 	para "The CAPTAIN will"
 	line "be furious…"
+endc
+
 	done
 
-FastShipB1FOnDutySailorThanksText: ; AUTOTRAD
+FastShipB1FOnDutySailorThanksText: 
+if DEF(_FR_FR)
+	text "Merci toi!"
+	line "J'lui ai passé un"
+
+	para "savon des familles"
+	line "et il va bosser"
+	cont "maintenant."
+else
 	text "Thanks, kid!"
 	line "I chewed him out"
 
 	para "good so he'll quit"
 	line "slacking off!"
+endc
+
 	done
 
-FastShipB1FOnDutySailorSawLittleGirlText: ; AUTOTRAD
+FastShipB1FOnDutySailorSawLittleGirlText: 
+if DEF(_FR_FR)
+	text "Une fillette?"
+
+	para "Je crois l'avoir"
+	line "vue passer."
+else
 	text "A little girl?"
 
 	para "I may have seen"
 	line "her go by here."
+endc
+
 	done
 
-FastShipB1FOnDutySailorDirectionsText: ; AUTOTRAD
+FastShipB1FOnDutySailorDirectionsText: 
+if DEF(_FR_FR)
+	text "La salle à manger"
+	line "est tout droit."
+
+	para "Les escaliers au"
+	line "bout mènent à la"
+	cont "cabine du"
+	cont "CAPITAINE."
+else
 	text "The dining room is"
 	line "up ahead."
 
 	para "The stairs at the"
 	line "end lead to the"
 	cont "CAPTAIN's cabin."
+endc
+
 	done
 
-SailorJeffSeenText: ; AUTOTRAD
+SailorJeffSeenText: 
+if DEF(_FR_FR)
+	text "Y'a rien de tel"
+	line "qu'un combat pen-"
+	cont "dant la pause."
+else
 	text "Nothing beats a"
 	line "battle when I'm"
 	cont "on my break."
+endc
+
 	done
 
-SailorJeffBeatenText: ; AUTOTRAD
+SailorJeffBeatenText: 
+if DEF(_FR_FR)
+	text "Finie la pause!"
+else
 	text "Win or lose, my"
 	line "break's over!"
+endc
+
 	done
 
-SailorJeffAfterBattleText: ; AUTOTRAD
+SailorJeffAfterBattleText: 
+if DEF(_FR_FR)
+	text "Faut que je m'en-"
+	line "traîne sérieux"
+	cont "pour progresser."
+else
 	text "I guess I can't"
 	line "win if I don't get"
 	cont "serious."
+endc
+
 	done
 
-PicnickerDebraSeenText: ; AUTOTRAD
+PicnickerDebraSeenText: 
+if DEF(_FR_FR)
+	text "J'm'ennuie."
+	line "...Combat?"
+else
 	text "I'm so bored."
 	line "Want to battle?"
+endc
+
 	done
 
-PicnickerDebraBeatenText: ; AUTOTRAD
+PicnickerDebraBeatenText: 
+if DEF(_FR_FR)
+	text "Woah. Cool."
+else
 	text "Yow! You're too"
 	line "strong!"
+endc
+
 	done
 
-PicnickerDebraAfterBattleText: ; AUTOTRAD
+PicnickerDebraAfterBattleText: 
+if DEF(_FR_FR)
+	text "SAFRANIA, CELADO-"
+	line "POLE... On dit"
+
+	para "qu'il y a plein"
+	line "de grandes villes"
+	cont "à KANTO."
+else
 	text "SAFFRON, CELADON…"
 	line "I hear there are"
 
 	para "many big cities"
 	line "in KANTO."
+endc
+
 	done
 
-JugglerFritzSeenText: ; AUTOTRAD
+JugglerFritzSeenText: 
+if DEF(_FR_FR)
+	text "Beuh..... J'ai"
+	line "le mal de mer!"
+else
 	text "Urrf…"
 	line "I'm seasick!"
+endc
+
 	done
 
-JugglerFritzBeatenText: ; AUTOTRAD
+JugglerFritzBeatenText: 
+if DEF(_FR_FR)
+	text "J'peux plus"
+	line "bouger..."
+else
 	text "I can't move any-"
 	line "more…"
+endc
+
 	done
 
-JugglerFritzAfterBattleText: ; AUTOTRAD
+JugglerFritzAfterBattleText: 
+if DEF(_FR_FR)
+	text "La mer c'est fini"
+	line "pour moi. Je vais"
+
+	para "prendre le TRAIN"
+	line "MAGNET la prochai-"
+	cont "ne fois."
+else
 	text "No more ships for"
 	line "me. Next time,"
 
 	para "I'm taking the"
 	line "MAGNET TRAIN."
+endc
+
 	done
 
-SailorGarrettSeenText: ; AUTOTRAD
+SailorGarrettSeenText: 
+if DEF(_FR_FR)
+	text "Nous les marins,"
+	line "on rigole pas!"
+else
 	text "This is where we"
 	line "sailors work!"
+endc
+
 	done
 
-SailorGarrettBeatenText: ; AUTOTRAD
+SailorGarrettBeatenText: 
+if DEF(_FR_FR)
+	text "Ha ha ha ha ha."
+	line "Perdu."
+else
 	text "I lost on my home"
 	line "field…"
+endc
+
 	done
 
-SailorGarrettAfterBattleText: ; AUTOTRAD
+SailorGarrettAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les passagers"
+	line "sont de CARMIN"
+
+	para "SUR MER et aussi"
+	line "d'OLIVILLE."
+else
 	text "We get different"
 	line "passengers from"
 
 	para "VERMILION CITY to"
 	line "OLIVINE CITY."
+endc
+
 	done
 
-FisherJonahSeenText: ; AUTOTRAD
+FisherJonahSeenText: 
+if DEF(_FR_FR)
+	text "On est en mer"
+	line "mais on peut pas"
+	cont "pêcher!"
+
+	para "C'est naze!"
+	line "Allez...COMBAT!"
+else
 	text "Even though we're"
 	line "out on the sea, I"
 	cont "can't fish!"
 
 	para "This is boring!"
 	line "Let's battle!"
+endc
+
 	done
 
-FisherJonahBeatenText: ; AUTOTRAD
+FisherJonahBeatenText: 
+if DEF(_FR_FR)
+	text "T'es naze..."
+	line "J't'aime pas."
+else
 	text "I… I'm not bored"
 	line "anymore…"
+endc
+
 	done
 
-FisherJonahAfterBattleText: ; AUTOTRAD
+FisherJonahAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais pêcher au"
+	line "port de CARMIN."
+else
 	text "I plan to fish off"
 	line "VERMILION's pier."
+endc
+
 	done
 
-BlackbeltWaiSeenText: ; AUTOTRAD
+BlackbeltWaiSeenText: 
+if DEF(_FR_FR)
+	text "Je me muscle les"
+	line "jambes avec le"
+	cont "tangage du bateau!"
+else
 	text "I'm building up my"
 	line "legs by bracing"
 
 	para "against the ship's"
 	line "rocking!"
+endc
+
 	done
 
-BlackbeltWaiBeatenText: ; AUTOTRAD
+BlackbeltWaiBeatenText: 
+if DEF(_FR_FR)
+	text "Je me suis"
+	line "tout planté!"
+else
 	text "Rocked and rolled"
 	line "over!"
+endc
+
 	done
 
-BlackbeltWaiAfterBattleText: ; AUTOTRAD
+BlackbeltWaiAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je n'ai pas trouvé"
+	line "le ROI du KARATE à"
+	cont "JOHTO."
+
+	para "On dit qu'il s'en-"
+	line "traîne dans une"
+	cont "caverne."
+else
 	text "I couldn't find"
 	line "the KARATE KING in"
 	cont "JOHTO."
@@ -374,22 +553,48 @@ BlackbeltWaiAfterBattleText: ; AUTOTRAD
 	para "He's supposed to"
 	line "be training in a"
 	cont "cave somewhere."
+endc
+
 	done
 
-SailorKennethSeenText: ; AUTOTRAD
+SailorKennethSeenText: 
+if DEF(_FR_FR)
+	text "J'suis un marin!"
+
+	para "J'entraîne aussi"
+	line "des #MON pour"
+	cont "devenir un boss!"
+else
 	text "I'm a sailor man!"
 
 	para "But I'm training"
 	line "#MON, so I can"
 	cont "become the CHAMP!"
+endc
+
 	done
 
-SailorKennethBeatenText: ; AUTOTRAD
+SailorKennethBeatenText: 
+if DEF(_FR_FR)
+	text "J'suis un nul..."
+else
 	text "My lack of train-"
 	line "ing is obvious…"
+endc
+
 	done
 
-SailorKennethAfterBattleText: ; AUTOTRAD
+SailorKennethAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tant de BADGES!"
+	line "Tu as alors battu"
+
+	para "les CHAMPIONS des"
+	line "ARENES..."
+
+	para "Normal que tu sois"
+	line "balèze!"
+else
 	text "Eight BADGES!"
 	line "They must prove"
 
@@ -398,52 +603,109 @@ SailorKennethAfterBattleText: ; AUTOTRAD
 
 	para "No wonder you're"
 	line "so good!"
+endc
+
 	done
 
-TeacherShirleySeenText: ; AUTOTRAD
+TeacherShirleySeenText: 
+if DEF(_FR_FR)
+	text "Touche pas à mes"
+	line "élèves!"
+else
 	text "Don't lay a finger"
 	line "on my students!"
+endc
+
 	done
 
-TeacherShirleyBeatenText: ; AUTOTRAD
+TeacherShirleyBeatenText: 
+if DEF(_FR_FR)
 	text "Aaack!"
+else
+	text "Aaack!"
+endc
+
 	done
 
-TeacherShirleyAfterBattleText: ; AUTOTRAD
+TeacherShirleyAfterBattleText: 
+if DEF(_FR_FR)
+	text "On va tous aux"
+	line "RUINES près de"
+	cont "MAUVILLE."
+else
 	text "We're on a field"
 	line "trip to the RUINS"
 	cont "outside VIOLET."
+endc
+
 	done
 
-SchoolboyNateSeenText: ; AUTOTRAD
+SchoolboyNateSeenText: 
+if DEF(_FR_FR)
+	text "Tu connais les"
+	line "RUINES d'ALPHA?"
+else
 	text "Do you know the"
 	line "RUINS OF ALPH?"
+endc
+
 	done
 
-SchoolboyNateBeatenText: ; AUTOTRAD
+SchoolboyNateBeatenText: 
+if DEF(_FR_FR)
 	text "Yaargh!"
+else
+	text "Yaargh!"
+endc
+
 	done
 
-SchoolboyNateAfterBattleText: ; AUTOTRAD
+SchoolboyNateAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les radios captent"
+	line "d'étranges signaux"
+	cont "dans les RUINES."
+else
 	text "Radios pick up"
 	line "strange signals"
 	cont "inside the RUINS."
+endc
+
 	done
 
-SchoolboyRickySeenText: ; AUTOTRAD
+SchoolboyRickySeenText: 
+if DEF(_FR_FR)
+	text "Il y a d'étranges"
+	line "panneaux dans les"
+	cont "RUINES d'ALPHA."
+else
 	text "There are some odd"
 	line "stone panels in"
 	cont "the RUINS OF ALPH."
+endc
+
 	done
 
-SchoolboyRickyBeatenText: ; AUTOTRAD
+SchoolboyRickyBeatenText: 
+if DEF(_FR_FR)
+	text "Yaaaaaah!"
+else
 	text "I was done in!"
+endc
+
 	done
 
-SchoolboyRickyAfterBattleText: ; AUTOTRAD
+SchoolboyRickyAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai lu qu'il y a"
+	line "quatre panneaux"
+	cont "de pierre."
+else
 	text "I read that there"
 	line "are four of those"
 	cont "stone panels."
+endc
+
 	done
 
 FastShipB1F_MapEvents:

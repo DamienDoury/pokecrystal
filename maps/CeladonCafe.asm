@@ -125,8 +125,14 @@ ChefText_Eatathon: ; TO TRANSLATE
 
 	done
 
-Fisher1Text_Snarfle: ; AUTOTRAD
+Fisher1Text_Snarfle: 
+if DEF(_FR_FR)
+	text "...(tousse)..."
+	line "...(crache)..."
+else
 	text "…Snarfle, chew…"
+endc
+
 	done
 
 Fisher1Text_Concentration: ; TO TRANSLATE
@@ -143,8 +149,14 @@ Fisher1Text_Concentration: ; TO TRANSLATE
 
 	done
 
-Fisher2Text_GulpChew: ; AUTOTRAD
+Fisher2Text_GulpChew: 
+if DEF(_FR_FR)
+	text "...(tousse)..."
+	line "...(mâche)..."
+else
 	text "…Gulp… Chew…"
+endc
+
 	done
 
 Fisher2Text_Eating: ; TO TRANSLATE
@@ -163,8 +175,13 @@ Fisher2Text_Quantity: ; TO TRANSLATE
 	cont "my face mask!"
 	done
 
-Fisher3Text_MunchMunch: ; AUTOTRAD
+Fisher3Text_MunchMunch: 
+if DEF(_FR_FR)
+	text "Miam...(bouffe)..."
+else
 	text "Munch, munch…"
+endc
+
 	done
 
 Fisher3Text_GoldenrodIsBest: ; TO TRANSLATE
@@ -179,26 +196,52 @@ Fisher3Text_GoldenrodIsBest: ; TO TRANSLATE
 	line "thing to me…"
 	done
 
-TeacherText_CrunchCrunch: ; AUTOTRAD
+TeacherText_CrunchCrunch: 
+if DEF(_FR_FR)
+	text "(mâche), (croque)."
+else
 	text "Crunch… Crunch…"
+endc
+
 	done
 
-TeacherText_NoCoinCase: ; AUTOTRAD
+TeacherText_NoCoinCase: 
+if DEF(_FR_FR)
+	text "Personne ne te"
+	line "donnera de BOITE"
+
+	para "JETON, ici. Va"
+	line "voir à JOHTO."
+else
 	text "Nobody here will"
 	line "give you a COIN"
 
 	para "CASE. You should"
 	line "look in JOHTO."
+endc
+
 	done
 
-TeacherText_KeepEating: ; AUTOTRAD
+TeacherText_KeepEating: 
+if DEF(_FR_FR)
+	text "Ouuaiiiiis!"
+
+	para "Manger c'est bon!"
+else
 	text "Crunch… Crunch…"
 
 	para "I can keep eating!"
+endc
+
 	done
 
-TeacherText_MoreChef: ; AUTOTRAD
+TeacherText_MoreChef: 
+if DEF(_FR_FR)
+	text "Et la sauce?"
+else
 	text "More, CHEF!"
+endc
+
 	done
 
 EatathonContestPosterText: ; TO TRANSLATE

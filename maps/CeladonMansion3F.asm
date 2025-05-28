@@ -197,13 +197,23 @@ GameFreakGameDesignerPauseForDiplomaText:
 	text "…"
 	done
 
-GameFreakGameDesignerAfterDiplomaText: ; AUTOTRAD
+GameFreakGameDesignerAfterDiplomaText: 
+if DEF(_FR_FR)
+	text "L'ARTISTE GRAPHI-"
+	line "QUE va imprimer un"
+	cont "DIPLOME pour toi."
+
+	para "Va te vanter, mon"
+	line "petit."
+else
 	text "The GRAPHIC ARTIST"
 	line "will print out a"
 	cont "DIPLOMA for you."
 
 	para "You should go show"
 	line "it off."
+endc
+
 	done
 
 GameFreakGraphicArtistText: ; TO TRANSLATE
@@ -226,16 +236,30 @@ GameFreakGraphicArtistPrintDiplomaText: ; TO TRANSLATE
 	line "out your DIPLOMA?"
 	done
 
-GameFreakGraphicArtistRefusedText: ; AUTOTRAD
+GameFreakGraphicArtistRefusedText: 
+if DEF(_FR_FR)
+	text "Appelle-moi si tu"
+	line "veux que j'imprime"
+	cont "ton DIPLOME."
+else
 	text "Give me a shout if"
 	line "you want your"
 	cont "DIPLOMA printed."
+endc
+
 	done
 
-GameFreakGraphicArtistErrorText: ; AUTOTRAD
+GameFreakGraphicArtistErrorText: 
+if DEF(_FR_FR)
+	text "Ca ne marche pas."
+	line "Je ne peux pas"
+	cont "imprimer."
+else
 	text "Something's wrong."
 	line "I'll have to can-"
 	cont "cel printing."
+endc
+
 	done
 
 GameFreakProgrammerText: ; TO TRANSLATE
@@ -258,30 +282,60 @@ GameFreakCharacterDesignerText: ; TO TRANSLATE
 	para "Oh, I love them!"
 	done
 
-CeladonMansion3FDevRoomSignText: ; AUTOTRAD
+CeladonMansion3FDevRoomSignText: 
+if DEF(_FR_FR)
+	text "GAME FREAK"
+	line "SALLE de"
+	cont "DEVELOPPEMENT"
+else
 	text "GAME FREAK"
 	line "DEVELOPMENT ROOM"
+endc
+
 	done
 
-CeladonMansion3FDrawingText: ; AUTOTRAD
+CeladonMansion3FDrawingText: 
+if DEF(_FR_FR)
+	text "C'est le dessin"
+	line "d'une jolie fille."
+else
 	text "It's a detailed"
 	line "drawing of a"
 	cont "pretty girl."
+endc
+
 	done
 
-CeladonMansion3FGameProgramText: ; AUTOTRAD
+CeladonMansion3FGameProgramText: 
+if DEF(_FR_FR)
+	text "C'est le programme"
+	line "du jeu. Si on y"
+
+	para "touche, il y aura"
+	line "des bogues!"
+else
 	text "It's the game"
 	line "program. Messing"
 
 	para "with it could put"
 	line "a bug in the game!"
+endc
+
 	done
 
-CeladonMansion3FReferenceMaterialText: ; AUTOTRAD
+CeladonMansion3FReferenceMaterialText: 
+if DEF(_FR_FR)
+	text "Il y a plein de"
+	line "produits dérivés."
+	cont "Il y a même une"
+	cont "# POUPEE."
+else
 	text "It's crammed with"
 	line "reference materi-"
 	cont "als. There's even"
 	cont "a # DOLL."
+endc
+
 	done
 
 CeladonMansion3F_MapEvents:

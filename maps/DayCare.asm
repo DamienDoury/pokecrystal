@@ -216,12 +216,38 @@ DayCarePlayerRunsAway6Movement:
 	step DOWN
 	step_end
 
-Text_GrampsLookingForYou: ; AUTOTRAD
+Text_GrampsLookingForYou: 
+if DEF(_FR_FR)
+	text "Pépé te cherche."
+else
 	text "Gramps was looking"
 	line "for you."
+endc
+
 	done
 
-DayCareManText_GiveOddEgg: ; AUTOTRAD
+DayCareManText_GiveOddEgg: 
+if DEF(_FR_FR)
+	text "Je suis le TYPE de"
+	line "la PENSION."
+
+	para "Tu connais les"
+	line "OEUFS?"
+
+	para "J'élevais des"
+	line "#MON avec ma"
+	cont "femme..."
+
+	para "Et puis on a trou-"
+	line "vé un OEUF!"
+
+	para "C'est pas trop"
+	line "dingue, ça?"
+
+	para "Bon. Tu le veux"
+	line "cet OEUF?"
+	cont "Tu peux le garder!"
+else
 	text "I'm the DAY-CARE"
 	line "MAN."
 
@@ -243,18 +269,37 @@ DayCareManText_GiveOddEgg: ; AUTOTRAD
 
 	para "Then fine, this is"
 	line "yours to keep!"
+endc
+
 	done
 
 DayCareText_ComeAgain: ; unreferenced
 	text "Come again."
 	done
 
-DayCareText_GotOddEgg: ; AUTOTRAD
+DayCareText_GotOddEgg: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "OEUF BIZARRE!"
+else
 	text "<PLAYER> received"
 	line "ODD EGG!"
+endc
+
 	done
 
-DayCareText_DescribeOddEgg: ; AUTOTRAD
+DayCareText_DescribeOddEgg: 
+if DEF(_FR_FR)
+	text "J'ai trouvé ça"
+	line "en m'occupant du"
+
+	para "#MON de"
+	line "quelqu'un."
+
+	para "Mais le dresseur"
+	line "ne veut pas de"
+	cont "l'OEUF..."
+else
 	text "I found that when"
 	line "I was caring for"
 
@@ -266,11 +311,19 @@ DayCareText_DescribeOddEgg: ; AUTOTRAD
 
 	para "EGG, so I'd kept"
 	line "it around."
+endc
+
 	done
 
-DayCareText_PartyFull: ; AUTOTRAD
+DayCareText_PartyFull: 
+if DEF(_FR_FR)
+	text "Tu n'as plus de"
+	line "place."
+else
 	text "You've no room for"
 	line "this."
+endc
+
 	done
 
 DayCare_ScaredManText: ; TO TRANSLATE

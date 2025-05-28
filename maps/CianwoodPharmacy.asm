@@ -38,7 +38,24 @@ CianwoodPharmacist:
 CianwoodPharmacyBookshelf:
 	jumpstd DifficultBookshelfScript
 
-PharmacistGiveSecretpotionText: ; AUTOTRAD
+PharmacistGiveSecretpotionText: 
+if DEF(_FR_FR)
+	text "Ton #MON"
+	line "semble en pleine"
+
+	para "forme. Quelque"
+	line "chose te tracasse?"
+
+	para "..."
+
+	para "Le PHARE #MON"
+	line "est en danger?"
+
+	para "J'ai pigé!"
+
+	para "Ca devrait faire"
+	line "l'affaire."
+else
 	text "Your #MON ap-"
 	line "pear to be fine."
 
@@ -55,6 +72,8 @@ PharmacistGiveSecretpotionText: ; AUTOTRAD
 
 	para "This ought to do"
 	line "the trick."
+endc
+
 	done
 
 ReceivedSecretpotionText: ; TO TRANSLATE

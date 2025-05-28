@@ -39,39 +39,79 @@ RuinsOfAlphInnerChamberGrampsScript:
 RuinsOfAlphInnerChamberStatue:
 	jumptext RuinsOfAlphInnerChamberStatueText
 
-RuinsOfAlphStrangePresenceText: ; AUTOTRAD
+RuinsOfAlphStrangePresenceText: 
+if DEF(_FR_FR)
+	text "Il y a une étrange"
+	line "présence ici..."
+else
 	text "There is a strange"
 	line "presence here…"
+endc
+
 	done
 
-RuinsOfAlphInnerChamberFisherText: ; AUTOTRAD
+RuinsOfAlphInnerChamberFisherText: 
+if DEF(_FR_FR)
+	text "C'est une grande"
+	line "salle, mais elle"
+	cont "est vide."
+else
 	text "This is a big"
 	line "room, but there's"
 	cont "nothing here."
+endc
+
 	done
 
-RuinsOfAlphInnerChamberTeacherText: ; AUTOTRAD
+RuinsOfAlphInnerChamberTeacherText: 
+if DEF(_FR_FR)
+	text "Cet endroit est"
+	line "mystique..."
+
+	para "Il semble être"
+	line "hors du monde."
+else
 	text "This place has a"
 	line "mystical quality"
 	cont "to it."
 
 	para "It feels sort of"
 	line "ethereal even."
+endc
+
 	done
 
-RuinsOfAlphInnerChamberGrampsText: ; AUTOTRAD
+RuinsOfAlphInnerChamberGrampsText: 
+if DEF(_FR_FR)
+	text "Les anciens monu-"
+	line "ments sont souvent"
+	cont "des tombes"
+	cont "royales."
+
+	para "Un peu comme les"
+	line "pyramides..."
+else
 	text "Ancient buildings"
 	line "are often tombs of"
 	cont "kings."
 
 	para "Like the pyramids,"
 	line "for instance."
+endc
+
 	done
 
-RuinsOfAlphInnerChamberStatueText: ; AUTOTRAD
+RuinsOfAlphInnerChamberStatueText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
 RuinsOfAlphInnerChamber_MapEvents:

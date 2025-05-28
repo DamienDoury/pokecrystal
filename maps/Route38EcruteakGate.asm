@@ -9,7 +9,18 @@ Route38EcruteakGate_MapScripts:
 Route38EcruteakGateOfficerScript:
 	jumptextfaceplayer Route38EcruteakGateOfficerText
 
-Route38EcruteakGateOfficerText: ; AUTOTRAD
+Route38EcruteakGateOfficerText: 
+if DEF(_FR_FR)
+	text "Tu viens d'où?"
+
+	para "BOURG GEON?"
+
+	para "Le PROF.ORME"
+	line "y vit, non?"
+
+	para "Tu viens de loin,"
+	line "dis donc."
+else
 	text "Where did you say"
 	line "you're from?"
 
@@ -20,6 +31,8 @@ Route38EcruteakGateOfficerText: ; AUTOTRAD
 
 	para "You've come a long"
 	line "way to get here."
+endc
+
 	done
 
 Route38EcruteakGate_MapEvents:

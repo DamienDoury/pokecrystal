@@ -29,8 +29,13 @@ MtSilverSign:
 MtSilverHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_SILVER_CAVE_OUTSIDE_HIDDEN_FULL_RESTORE
 
-MtSilverSignText: ; AUTOTRAD
+MtSilverSignText: 
+if DEF(_FR_FR)
+	text "MONT ARGENT"
+else
 	text "MT.SILVER"
+endc
+
 	done
 
 SilverCaveOutside_MapEvents:

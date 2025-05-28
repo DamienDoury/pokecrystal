@@ -363,10 +363,17 @@ RadioTower2FStompRightMovement:
 	step_bump
 	step_end
 
-RadioTower2FSuperNerdText: ; AUTOTRAD
+RadioTower2FSuperNerdText: 
+if DEF(_FR_FR)
+	text "Ecoutez la radio"
+	line "n'importe où!"
+	cont "A bientôt!"
+else
 	text "You can listen to"
 	line "the radio any-"
 	cont "where. Tune in!"
+endc
+
 	done
 
 RadioTower2FSuperNerdTROpinionText: ; TO TRANSLATE
@@ -391,24 +398,56 @@ RadioTower2FSuperNerdTROpinionText: ; TO TRANSLATE
 	cont "distancing."
 	done
 
-RadioTower2FTeacherText: ; AUTOTRAD
+RadioTower2FTeacherText: 
+if DEF(_FR_FR)
+	text "Les berceuses de"
+	line "la radio peuvent"
+	cont "endormir les"
+	cont "#MON."
+else
 	text "Lullabies on the"
 	line "radio may make"
 	cont "#MON sleep."
+endc
+
 	done
 
-RadioTower2FTeacherText_Rockets: ; AUTOTRAD
+RadioTower2FTeacherText_Rockets: 
+if DEF(_FR_FR)
+	text "Pourquoi veulent-"
+	line "ils contrôler la"
+	cont "TOUR RADIO?"
+else
 	text "Why would they"
 	line "want to take over"
 	cont "the RADIO TOWER?"
+endc
+
 	done
 
-RadioTowerJigglypuffText: ; AUTOTRAD
+RadioTowerJigglypuffText: 
+if DEF(_FR_FR)
+	text "RONDOUDOU:"
+	line "Douuu..."
+else
 	text "JIGGLYPUFF:"
 	line "Jiggly…"
+endc
+
 	done
 
-RadioTower2FBlackBelt1Text: ; AUTOTRAD
+RadioTower2FBlackBelt1Text: 
+if DEF(_FR_FR)
+	text "Cet accès est ré-"
+	line "servé au personnel"
+	cont "autorisé."
+
+	para "Cette mesure vient"
+	line "d'être appliquée."
+
+	para "Le DIRECTEUR ne"
+	line "va pas bien..."
+else
 	text "Sorry. Authorized"
 	line "personnel only"
 	cont "beyond this point."
@@ -419,15 +458,27 @@ RadioTower2FBlackBelt1Text: ; AUTOTRAD
 	para "There's something"
 	line "wrong with the"
 	cont "DIRECTOR…"
+endc
+
 	done
 
-RadioTower2FBlackBelt2Text: ; AUTOTRAD
+RadioTower2FBlackBelt2Text: 
+if DEF(_FR_FR)
+	text "Vous pouvez vous"
+	line "balader."
+
+	para "Le DIRECTEUR est"
+	line "agréable. Comme"
+	cont "avant, quoi."
+else
 	text "Feel free to look"
 	line "around anywhere."
 
 	para "The DIRECTOR is"
 	line "nice again, just"
 	cont "as he was before."
+endc
+
 	done
 
 GruntM4SeenText: ; TO TRANSLATE
@@ -456,9 +507,15 @@ GruntM5SeenText: ; TO TRANSLATE
 	line "government win!"
 	done
 
-GruntM5BeatenText: ; AUTOTRAD
+GruntM5BeatenText: 
+if DEF(_FR_FR)
+	text "Tu te crois"
+	line "balèze?"
+else
 	text "You think you're a"
 	line "hero?"
+endc
+
 	done
 
 GruntM5AfterBattleText: ; TO TRANSLATE
@@ -474,11 +531,26 @@ GruntM6SeenText: ; TO TRANSLATE
 	cont "outbreak!"
 	done
 
-GruntM6BeatenText: ; AUTOTRAD
+GruntM6BeatenText: 
+if DEF(_FR_FR)
+	text "Pfff. J'abandonne."
+else
 	text "Arggh. I give up."
+endc
+
 	done
 
-GruntM6AfterBattleText: ; AUTOTRAD
+GruntM6AfterBattleText: 
+if DEF(_FR_FR)
+	text "Nos CAIDS sont en"
+	line "train de contrôler"
+	cont "cet endroit."
+
+	para "Ils ont un super"
+	line "plan en tête. Je"
+	cont "me demande ce que"
+	cont "c'est..."
+else
 	text "Our EXECUTIVES are"
 	line "trying to take"
 	cont "this place over."
@@ -486,9 +558,24 @@ GruntM6AfterBattleText: ; AUTOTRAD
 	para "They have some big"
 	line "plan. I wonder"
 	cont "what that is?"
+endc
+
 	done
 
-GruntF2SeenText: ; AUTOTRAD
+GruntF2SeenText: 
+if DEF(_FR_FR)
+	text "Hahaha!"
+
+	para "Très ennuyeux."
+	line "C'était trop fa-"
+
+	para "cile d'envahir cet"
+	line "endroit!"
+
+	para "Allez les petits!"
+	line "Faites-moi encore"
+	cont "rire!"
+else
 	text "Hahaha!"
 
 	para "How boring."
@@ -499,18 +586,60 @@ GruntF2SeenText: ; AUTOTRAD
 
 	para "Come on, keep me"
 	line "amused!"
+endc
+
 	done
 
-GruntF2BeatenText: ; AUTOTRAD
+GruntF2BeatenText: 
+if DEF(_FR_FR)
+	text "Qu-qui t'es toi?"
+else
 	text "Wh-who are you?"
+endc
+
 	done
 
-GruntF2AfterBattleText: ; AUTOTRAD
+GruntF2AfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu as gagné. Je ne"
+	line "l'oublierai pas!"
+else
 	text "You beat me, and"
 	line "I won't forget it!"
+endc
+
 	done
 
-RadioTower2FBuenaShowIntroductionText: ; AUTOTRAD
+RadioTower2FBuenaShowIntroductionText: 
+if DEF(_FR_FR)
+	text "BUENA: Salut!"
+	line "Je suis BUENA!"
+
+	para "Connais-tu l'émis-"
+	line "sion LE MOT DE"
+	cont "PASSE?"
+
+	para "Si tu peux me"
+	line "donner le mot de"
+
+	para "passe de l'émis-"
+	line "sion, tu remportes"
+	cont "des points."
+
+	para "Gagne plein de"
+	line "points et échange-"
+
+	para "les à la jolie"
+	line "fille à côté con-"
+
+	para "tre de fabuleux"
+	line "prix!"
+
+	para "Voilà!"
+
+	para "Ta carte à points"
+	line "personnelle!"
+else
 	text "BUENA: Hi! I'm"
 	line "BUENA!"
 
@@ -537,23 +666,55 @@ RadioTower2FBuenaShowIntroductionText: ; AUTOTRAD
 
 	para "It's your very own"
 	line "point card!"
+endc
+
 	done
 
-RadioTower2FBuenaTuneInToMyShowText: ; AUTOTRAD
+RadioTower2FBuenaTuneInToMyShowText: 
+if DEF(_FR_FR)
+	text "BUENA: Ecoutez"
+	line "tous l'émission"
+	cont "du MOT DE PASSE!"
+else
 	text "BUENA: Tune in to"
 	line "my PASSWORD SHOW!"
+endc
+
 	done
 
-RadioTower2FBuenaDoYouKnowPasswordText: ; AUTOTRAD
+RadioTower2FBuenaDoYouKnowPasswordText: 
+if DEF(_FR_FR)
+	text "BUENA: Bonjour!"
+	line "As-tu écouté mon"
+	cont "émission?"
+
+	para "Te souviens-tu du"
+	line "mot de passe d'au-"
+	cont "jourd'hui?"
+else
 	text "BUENA: Hi!"
 	line "Did you tune in to"
 	cont "my radio show?"
 
 	para "Do you remember"
 	line "today's password?"
+endc
+
 	done
 
-RadioTower2FBuenaJoinTheShowText: ; AUTOTRAD
+RadioTower2FBuenaJoinTheShowText: 
+if DEF(_FR_FR)
+	text "BUENA: Oh!"
+	line "Merci!"
+
+	para "Quel est ton nom,"
+	line "déjà?"
+
+	para "...<PLAY_G>, OK!"
+
+	para "Viens, <PLAY_G>."
+	line "Tu es en direct."
+else
 	text "BUENA: Oh, wow!"
 	line "Thank you!"
 
@@ -564,9 +725,21 @@ RadioTower2FBuenaJoinTheShowText: ; AUTOTRAD
 
 	para "Come on, <PLAY_G>."
 	line "Join the show."
+endc
+
 	done
 
-RadioTower2FBuenaEveryoneSayPasswordText: ; AUTOTRAD
+RadioTower2FBuenaEveryoneSayPasswordText: 
+if DEF(_FR_FR)
+	text "BUENA: Tout le"
+	line "monde est prêt?"
+
+	para "Il faut crier le"
+	line "mot de passe d'au-"
+
+	para "jourd'hui pour"
+	line "<PLAY_G>!"
+else
 	text "BUENA: Everyone"
 	line "ready?"
 
@@ -575,17 +748,37 @@ RadioTower2FBuenaEveryoneSayPasswordText: ; AUTOTRAD
 
 	para "password for"
 	line "<PLAY_G>!"
+endc
+
 	done
 
-RadioTower2FBuenaComeBackAfterListeningText: ; AUTOTRAD
+RadioTower2FBuenaComeBackAfterListeningText: 
+if DEF(_FR_FR)
+	text "BUENA: Reviens"
+	line "après avoir écouté"
+
+	para "mon émission, OK?"
+	line "A plus tard!"
+else
 	text "BUENA: Come back"
 	line "after you listen"
 
 	para "to my show, OK?"
 	line "Catch ya later!"
+endc
+
 	done
 
-RadioTower2FBuenaAlreadyPlayedText: ; AUTOTRAD
+RadioTower2FBuenaAlreadyPlayedText: 
+if DEF(_FR_FR)
+	text "BUENA: Désolée..."
+
+	para "Tu n'as qu'un"
+	line "essai par jour."
+
+	para "Reviens donc"
+	line "demain!"
+else
 	text "BUENA: Sorry…"
 
 	para "You get just one"
@@ -593,9 +786,21 @@ RadioTower2FBuenaAlreadyPlayedText: ; AUTOTRAD
 
 	para "Come back tomorrow"
 	line "for another try!"
+endc
+
 	done
 
-RadioTower2FBuenaCorrectAnswerText: ; AUTOTRAD
+RadioTower2FBuenaCorrectAnswerText: 
+if DEF(_FR_FR)
+	text "BUENA: OUAIIIS!"
+	line "C'est exact!"
+
+	para "Tu as donc écouté"
+	line "mon émission!"
+
+	para "Tu as gagné un"
+	line "point! Bravo!"
+else
 	text "BUENA: YIPPEE!"
 	line "That's right!"
 
@@ -604,17 +809,38 @@ RadioTower2FBuenaCorrectAnswerText: ; AUTOTRAD
 
 	para "You earned one"
 	line "point! Congrats!"
+endc
+
 	done
 
-RadioTower2FBuenaDidYouForgetText: ; AUTOTRAD
+RadioTower2FBuenaDidYouForgetText: 
+if DEF(_FR_FR)
+	text "BUENA: ..."
+	line "Pas du tout."
+
+	para "Tu as oublié le"
+	line "mot de passe?"
+else
 	text "BUENA: Aww…"
 	line "That's not it…"
 
 	para "Did you forget the"
 	line "password?"
+endc
+
 	done
 
-RadioTower2FBuenaThanksForComingText: ; AUTOTRAD
+RadioTower2FBuenaThanksForComingText: 
+if DEF(_FR_FR)
+	text "BUENA: Notre"
+	line "candidat était"
+
+	para "<PLAY_G>."
+	line "Merci!"
+
+	para "Suivez tous ma"
+	line "super émission!"
+else
 	text "BUENA: Yup! Our"
 	line "contestant was"
 
@@ -626,24 +852,52 @@ RadioTower2FBuenaThanksForComingText: ; AUTOTRAD
 
 	para "come too!"
 	line "I'll be waiting!"
+endc
+
 	done
 
-RadioTower2FBuenaPasswordIsHelpText: ; AUTOTRAD
+RadioTower2FBuenaPasswordIsHelpText: 
+if DEF(_FR_FR)
+	text "BUENA: De quoi?"
+	line "Le mot de passe?"
+
+	para "AU SECOURS!"
+else
 	text "BUENA: Huh?"
 	line "Today's password?"
 
 	para "HELP, of course!"
+endc
+
 	done
 
-RadioTower2FBuenaCardIsFullText: ; AUTOTRAD
+RadioTower2FBuenaCardIsFullText: 
+if DEF(_FR_FR)
+	text "BUENA: Ta carte"
+	line "est pleine."
+
+	para "Va donc empocher"
+	line "un prix!"
+else
 	text "BUENA: Your BLUE"
 	line "CARD's full."
 
 	para "Trade it in for a"
 	line "fabulous prize!"
+endc
+
 	done
 
-RadioTower2FBuenaTuneInAfterSixText: ; AUTOTRAD
+RadioTower2FBuenaTuneInAfterSixText: 
+if DEF(_FR_FR)
+	text "BUENA: Ecoutez le"
+	line "MOT DE PASSE tous"
+
+	para "les soirs de 18"
+	line "heures à minuit!"
+
+	para "Ecoutez et venez!"
+else
 	text "BUENA: Tune in to"
 	line "PASSWORD every"
 
@@ -652,9 +906,20 @@ RadioTower2FBuenaTuneInAfterSixText: ; AUTOTRAD
 
 	para "Tune in, then drop"
 	line "in for a visit!"
+endc
+
 	done
 
-RadioTower2FBuenaNoBlueCardText: ; AUTOTRAD
+RadioTower2FBuenaNoBlueCardText: 
+if DEF(_FR_FR)
+	text "BUENA: Oh? Tu n'as"
+	line "pas amené ta"
+	cont "CARTE BLEUE?"
+
+	para "Je ne peux pas te"
+	line "donner de points"
+	cont "dans ce cas."
+else
 	text "BUENA: Oh? You"
 	line "forgot to bring"
 	cont "your BLUE CARD?"
@@ -662,9 +927,31 @@ RadioTower2FBuenaNoBlueCardText: ; AUTOTRAD
 	para "I can't give you"
 	line "points if you"
 	cont "don't have it."
+endc
+
 	done
 
-RadioTower2FBuenaOfferPhoneNumberText: ; AUTOTRAD
+RadioTower2FBuenaOfferPhoneNumberText: 
+if DEF(_FR_FR)
+	text "BUENA: Oh! Ta"
+	line "CARTE BLEUE a un"
+
+	para "total de {d:BLUE_CARD_POINT_CAP} pts"
+	line "aujourd'hui!"
+
+	para "Hmmm... Il n'y a"
+	line "pas de prix spé-"
+	cont "cial mais..."
+
+	para "Tu viens si sou-"
+	line "vent, <PLAY_G>."
+
+	para "Je dois faire"
+	line "quelque chose!"
+
+	para "Tu veux mon numéro"
+	line "de téléphone?"
+else
 	text "BUENA: Oh! Your"
 	line "BLUE CARD reached"
 
@@ -683,72 +970,150 @@ RadioTower2FBuenaOfferPhoneNumberText: ; AUTOTRAD
 
 	para "How would you like"
 	line "my phone number?"
+endc
+
 	done
 
-RadioTower2FBuenaOfferNumberAgainText: ; AUTOTRAD
+RadioTower2FBuenaOfferNumberAgainText: 
+if DEF(_FR_FR)
+	text "BUENA: <PLAY_G>,"
+	line "veux-tu mon numéro"
+	cont "de téléphone?"
+else
 	text "BUENA: <PLAY_G>,"
 	line "do you want to"
 
 	para "register my phone"
 	line "number?"
+endc
+
 	done
 
-RadioTower2FRegisteredBuenasNumberText: ; AUTOTRAD
+RadioTower2FRegisteredBuenasNumberText: 
+if DEF(_FR_FR)
+	text "<PLAYER> enregistre"
+	line "le No. de BUENA."
+else
 	text "<PLAYER> registered"
 	line "BUENA's number."
+endc
+
 	done
 
-RadioTower2FBuenaCallMeText: ; AUTOTRAD
+RadioTower2FBuenaCallMeText: 
+if DEF(_FR_FR)
+	text "BUENA: Appelle-moi"
+	line "vite!"
+else
 	text "BUENA: I look"
 	line "forward to hearing"
 	cont "from you!"
+endc
+
 	done
 
-RadioTower2FBuenaSadRejectedText: ; AUTOTRAD
+RadioTower2FBuenaSadRejectedText: 
+if DEF(_FR_FR)
+	text "BUENA:..."
+	line "C'est spécial..."
+else
 	text "BUENA: Aww… It's a"
 	line "special prize…"
+endc
+
 	done
 
-RadioTower2FBuenaYourPhoneIsFullText: ; AUTOTRAD
+RadioTower2FBuenaYourPhoneIsFullText: 
+if DEF(_FR_FR)
+	text "BUENA: <PLAY_G>,"
+	line "il n'y a plus de"
+
+	para "place sur ton"
+	line "téléphone..."
+else
 	text "BUENA: <PLAY_G>,"
 	line "your phone list"
 
 	para "has no room left"
 	line "for me…"
+endc
+
 	done
 
-RadioTower2FBuenaReceptionistPointsForPrizesText: ; AUTOTRAD
+RadioTower2FBuenaReceptionistPointsForPrizesText: 
+if DEF(_FR_FR)
+	text "Tu peux échanger"
+	line "tes points contre"
+	cont "un fabuleux prix!"
+else
 	text "You can cash in"
 	line "your saved points"
 
 	para "for a lovely prize"
 	line "of your choice!"
+endc
+
 	done
 
-RadioTower2FBuenaReceptionistNoCardText: ; AUTOTRAD
+RadioTower2FBuenaReceptionistNoCardText: 
+if DEF(_FR_FR)
+	text "Tu ne peux pas"
+	line "échanger tes"
+	cont "points sans ta"
+	cont "CARTE BLEUE."
+
+	para "N'oublie pas ta"
+	line "CARTE BLEUE!"
+else
 	text "You can't trade in"
 	line "points without"
 	cont "your BLUE CARD."
 
 	para "Don't forget your"
 	line "BLUE CARD!"
+endc
+
 	done
 
-RadioTower2FSalesSignText: ; AUTOTRAD
+RadioTower2FSalesSignText: 
+if DEF(_FR_FR)
+	text "1ER VENTES"
+else
 	text "2F SALES"
+endc
+
 	done
 
-RadioTower2FOaksPKMNTalkSignText: ; AUTOTRAD
+RadioTower2FOaksPKMNTalkSignText: 
+if DEF(_FR_FR)
+	text "CHRONIQUE #MON"
+	line "DU PROF.CHEN"
+
+	para "L'émission star"
+	line "à l'antenne!"
+else
 	text "PROF.OAK'S #MON"
 	line "TALK"
 
 	para "The Hottest Show"
 	line "on the Air!"
+endc
+
 	done
 
-RadioTower2FPokemonRadioSignText: ; AUTOTRAD
+RadioTower2FPokemonRadioSignText: 
+if DEF(_FR_FR)
+	text "Pour chacune"
+	line "Pour chacun"
+	cont "Le soir"
+	cont "Comme le matin"
+	cont "RADIO #MON"
+	cont "C'est bien..."
+else
 	text "Anywhere, Anytime"
 	line "#MON Radio"
+endc
+
 	done
 
 RadioTower2F_MapEvents:

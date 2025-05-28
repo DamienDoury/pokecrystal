@@ -72,63 +72,130 @@ LavenderPokecenterSignText:
 LavenderMartSignText:
 	jumpstd MartSignScript
 
-LavenderTownPokefanMText: ; AUTOTRAD
+LavenderTownPokefanMText: 
+if DEF(_FR_FR)
+	text "Quel bâtiment,"
+	line "hein?"
+
+	para "C'est la TOUR"
+	line "RADIO de KANTO."
+else
 	text "That's quite some"
 	line "building, eh?"
 
 	para "It's KANTO's RADIO"
 	line "TOWER."
+endc
+
 	done
 
-LavenderTownTeacherText: ; AUTOTRAD
+LavenderTownTeacherText: 
+if DEF(_FR_FR)
+	text "KANTO a beaucoup"
+	line "d'émissions radio."
+else
 	text "KANTO has many"
 	line "good radio shows."
+endc
+
 	done
 
-LavenderTownGrampsText: ; AUTOTRAD
+LavenderTownGrampsText: 
+if DEF(_FR_FR)
+	text "Les gens viennent"
+	line "de loin pour sa-"
+
+	para "luer le départ des"
+	line "âmes des pauvres"
+	cont "#MON."
+else
 	text "People come from"
 	line "all over to pay"
 
 	para "their respects to"
 	line "the departed souls"
 	cont "of #MON."
+endc
+
 	done
 
-LavenderTownYoungsterText: ; AUTOTRAD
+LavenderTownYoungsterText: 
+if DEF(_FR_FR)
+	text "Il faut une #"
+	line "FLUTE pour réveil-"
+	cont "ler un #MON."
+
+	para "Tout le monde sait"
+	line "ça, voyons!"
+else
 	text "You need a #"
 	line "FLUTE to wake"
 	cont "sleeping #MON."
 
 	para "Every trainer has"
 	line "to know that!"
+endc
+
 	done
 
-LavenderTownSignText: ; AUTOTRAD
+LavenderTownSignText: 
+if DEF(_FR_FR)
+	text "LAVANVILLE"
+
+	para "La ville d'un"
+	line "pourpre royal"
+else
 	text "LAVENDER TOWN"
 
 	para "The Noble Purple"
 	line "Town"
+endc
+
 	done
 
-KantoRadioStationSignText: ; AUTOTRAD
+KantoRadioStationSignText: 
+if DEF(_FR_FR)
+	text "STATION de RADIO"
+	line "de KANTO"
+
+	para "Vos émissions"
+	line "favorites!"
+else
 	text "KANTO RADIO"
 	line "STATION"
 
 	para "Your Favorite"
 	line "Programs On-Air"
 	cont "Around the Clock!"
+endc
+
 	done
 
-VolunteerPokemonHouseSignText: ; AUTOTRAD
+VolunteerPokemonHouseSignText: 
+if DEF(_FR_FR)
+	text "BENEVOLAT de"
+	line "LAVANVILLE"
+else
 	text "LAVENDER VOLUNTEER"
 	line "#MON HOUSE"
+endc
+
 	done
 
-SoulHouseSignText: ; AUTOTRAD
+SoulHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DES AMES"
+
+	para "Que les âmes des"
+	line "#MON reposent"
+	cont "en paix"
+else
 	text "SOUL HOUSE"
 
 	para "May the Souls of"
 	line "#MON Rest Easy"
+endc
+
 	done
 
 LavenderTownPasserby1Text: ; TO TRANSLATE

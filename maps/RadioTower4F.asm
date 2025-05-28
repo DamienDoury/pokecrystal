@@ -103,49 +103,101 @@ RadioTower4FProductionSign:
 RadioTower4FStudio2Sign:
 	jumptext RadioTower4FStudio2SignText
 
-RadioTower4FFisherText: ; AUTOTRAD
+RadioTower4FFisherText: 
+if DEF(_FR_FR)
+	text "J'écoutais la ra-"
+	line "dio tout en visi-"
+	cont "tant les RUINES."
+
+	para "J'y ai entendu une"
+	line "émission étrange."
+else
 	text "I listened to the"
 	line "radio while I was"
 	cont "at the RUINS."
 
 	para "I heard a strange"
 	line "broadcast there."
+endc
+
 	done
 
-RadioTower4FDJMaryText: ; AUTOTRAD
+RadioTower4FDJMaryText: 
+if DEF(_FR_FR)
+	text "LULA: Pourquoi?"
+	line "Pourquoi tant de"
+	cont "haine?"
+
+	para "MIAOUSS, à l'aide!"
+else
 	text "MARY: Why? Why do"
 	line "I have to suffer"
 	cont "through this?"
 
 	para "MEOWTH, help me!"
+endc
+
 	done
 
-RadioTower4FDJMaryText_ClearedRockets: ; AUTOTRAD
+RadioTower4FDJMaryText_ClearedRockets: 
+if DEF(_FR_FR)
+	text "LULA: Oh! Tu es"
+	line "formidable!"
+
+	para "Veux-tu de ceci"
+	line "en remerciement?"
+else
 	text "MARY: Oh! You're"
 	line "my little savior!"
 
 	para "Will you take this"
 	line "as my thanks?"
+endc
+
 	done
 
-RadioTower4FDJMaryText_GivePinkBow: ; AUTOTRAD
+RadioTower4FDJMaryText_GivePinkBow: 
+if DEF(_FR_FR)
+	text "LULA: C'est pour"
+	line "les #MON qui"
+
+	para "connaissent des"
+	line "techniques du type"
+	cont "NORMAL."
+else
 	text "MARY: It's just"
 	line "right for #MON"
 
 	para "that know normal-"
 	line "type moves."
+endc
+
 	done
 
-RadioTower4FDJMaryText_After: ; AUTOTRAD
+RadioTower4FDJMaryText_After: 
+if DEF(_FR_FR)
+	text "LULA: Ecoute mon"
+	line "émission avec le"
+
+	para "PROF.CHEN: la"
+	line "CHRONIQUE #MON."
+else
 	text "MARY: Please tune"
 	line "into me on PROF."
 
 	para "OAK'S #MON TALK"
 	line "show."
+endc
+
 	done
 
-RadioTowerMeowthText: ; AUTOTRAD
+RadioTowerMeowthText: 
+if DEF(_FR_FR)
+	text "MIAOUSS: Miaou..."
+else
 	text "MEOWTH: Meowth…"
+endc
+
 	done
 
 GruntM10SeenText: ; TO TRANSLATE
@@ -154,13 +206,24 @@ GruntM10SeenText: ; TO TRANSLATE
 	cont "the government."
 	done
 
-GruntM10BeatenText: ; AUTOTRAD
+GruntM10BeatenText: 
+if DEF(_FR_FR)
+	text "Incroyable!"
+else
 	text "No! Unbelievable!"
+endc
+
 	done
 
-GruntM10AfterBattleText: ; AUTOTRAD
+GruntM10AfterBattleText: 
+if DEF(_FR_FR)
+	text "Je..."
+	line "J'le crois pas!"
+else
 	text "I don't believe"
 	line "it! I was beaten!"
+endc
+
 	done
 
 GruntF4SeenText: ; TO TRANSLATE
@@ -209,19 +272,36 @@ Executivem2AfterBattleText: ; TO TRANSLATE
 	para "Wanna bet?"
 	done
 
-ScientistRichSeenText: ; AUTOTRAD
+ScientistRichSeenText: 
+if DEF(_FR_FR)
+	text "Parfait."
+
+	para "Cette TOUR RADIO"
+	line "sera parfaite pour"
+	cont "nos plans."
+else
 	text "Most excellent."
 
 	para "This RADIO TOWER"
 	line "will fulfill our"
 	cont "grand design."
+endc
+
 	done
 
-ScientistRichBeatenText: ; AUTOTRAD
+ScientistRichBeatenText: 
+if DEF(_FR_FR)
+	text "Hmmm..."
+
+	para "Tout plan comprend"
+	line "certains accrocs."
+else
 	text "Hmmm…"
 
 	para "All grand plans"
 	line "come with snags."
+endc
+
 	done
 
 ScientistRichAfterBattleText: ; TO TRANSLATE
@@ -232,12 +312,22 @@ ScientistRichAfterBattleText: ; TO TRANSLATE
 	line "trying to save us?"
 	done
 
-RadioTower4FProductionSignText: ; AUTOTRAD
+RadioTower4FProductionSignText: 
+if DEF(_FR_FR)
+	text "3EME PRODUCTION"
+else
 	text "4F PRODUCTION"
+endc
+
 	done
 
-RadioTower4FStudio2SignText: ; AUTOTRAD
+RadioTower4FStudio2SignText: 
+if DEF(_FR_FR)
+	text "3EME STUDIO 2"
+else
 	text "4F STUDIO 2"
+endc
+
 	done
 
 RadioTower4F_MapEvents:

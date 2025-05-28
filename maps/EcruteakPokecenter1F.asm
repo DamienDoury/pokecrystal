@@ -98,13 +98,24 @@ EcruteakPokecenter1FPlayerMovement1:
 	step UP
 	step_end
 
-EcruteakPokecenter1F_BillText1: ; AUTOTRAD
+EcruteakPokecenter1F_BillText1: 
+if DEF(_FR_FR)
+	text "Salut, je suis"
+	line "LEO. Et toi qui"
+	cont "es-tu?"
+
+	para "<PLAYER>,"
+	line "hein? Tu arrives"
+	cont "au bon moment."
+else
 	text "Hi, I'm BILL. And"
 	line "who are you?"
 
 	para "Hmm, <PLAYER>, huh?"
 	line "You've come at the"
 	cont "right time."
+endc
+
 	done
 
 EcruteakPokecenter1F_BillText2: ; TO TRANSLATE
@@ -145,16 +156,39 @@ EcruteakPokecenter1F_BillText2: ; TO TRANSLATE
 	para "Buh-bye!"
 	done
 
-EcruteakPokecenter1FPokefanMText: ; AUTOTRAD
+EcruteakPokecenter1FPokefanMText: 
+if DEF(_FR_FR)
+	text "La façon dont les"
+	line "KIMONO dansent est"
+
+	para "merveilleuse."
+	line "Comme lorsqu'elles"
+	cont "utilisent leurs"
+	cont "#MON."
+else
 	text "The way the KIMONO"
 	line "GIRLS dance is"
 
 	para "marvelous. Just"
 	line "like the way they"
 	cont "use their #MON."
+endc
+
 	done
 
-EcruteakPokecenter1FPokefanMTextMobile: ; AUTOTRAD
+EcruteakPokecenter1FPokefanMTextMobile: 
+if DEF(_FR_FR)
+	text "Tu veux te battre"
+	line "contre plus d'ad-"
+
+	para "versaires, non?"
+	line "Il y a un endroit"
+	cont "fait pour toi."
+
+	para "Où ça?"
+
+	para "Après OLIVILLE."
+else
 	text "You must be hoping"
 	line "to battle more"
 
@@ -168,6 +202,8 @@ EcruteakPokecenter1FPokefanMTextMobile: ; AUTOTRAD
 
 	para "It's a little past"
 	line "OLIVINE CITY."
+endc
+
 	done
 
 EcruteakPokecenter1FCooltrainerFText: ; TO TRANSLATE
@@ -194,7 +230,16 @@ EcruteakPokecenter1FCooltrainerFText: ; TO TRANSLATE
 	line "the coolest!"
 	done
 
-EcruteakPokecenter1FGymGuideText: ; AUTOTRAD
+EcruteakPokecenter1FGymGuideText: 
+if DEF(_FR_FR)
+	text "LAC COLERE..."
+
+	para "Là où le LEVIATOR"
+	line "apparaît..."
+
+	para "Ca sent l'em-"
+	line "brouille. Je sais!"
+else
 	text "LAKE OF RAGE…"
 
 	para "The appearance of"
@@ -202,6 +247,8 @@ EcruteakPokecenter1FGymGuideText: ; AUTOTRAD
 
 	para "I smell a conspir-"
 	line "acy. I know it!"
+endc
+
 	done
 
 EcruteakPokecenter1F_MapEvents:

@@ -290,7 +290,17 @@ NationalParkTMDig:
 NationalParkHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
 
-NationalParkLassText: ; AUTOTRAD
+NationalParkLassText: 
+if DEF(_FR_FR)
+	text "Hé! Regarde mon"
+	line "sac!"
+
+	para "J'ai imprimé mes"
+	line "copains du #DEX"
+
+	para "et je les ai mis"
+	line "sur mon super sac!"
+else
 	text "Look! Check out my"
 	line "bag!"
 
@@ -299,15 +309,43 @@ NationalParkLassText: ; AUTOTRAD
 
 	para "#DEX and stuck"
 	line "them on my bag."
+endc
+
 	done
 
-NationalParkPokefanFText: ; AUTOTRAD
+NationalParkPokefanFText: 
+if DEF(_FR_FR)
+	text "C'est une LETTRE"
+	line "de ma fille."
+	cont "C'est cool, hein?"
+else
 	text "This is MAIL I got"
 	line "from my daughter."
 	cont "It cheers me up."
+endc
+
 	done
 
-NationalParkTeacher1Text: ; AUTOTRAD
+NationalParkTeacher1Text: 
+if DEF(_FR_FR)
+	text "Où est ton"
+	line "cahier?"
+
+	para "...Heu, pardon."
+	line "Etre maîtresse"
+
+	para "d'école donne de"
+	line "petites manies."
+
+	para "Tu aimes les"
+	line "#MON?"
+
+	para "Etre élève modèle"
+	line "mérite un petit"
+
+	para "quelque chose."
+	line "Tiens donc!"
+else
 	text "Pay attention,"
 	line "please!"
 
@@ -325,30 +363,70 @@ NationalParkTeacher1Text: ; AUTOTRAD
 
 	para "want you to have"
 	line "this."
+endc
+
 	done
 
-NationalParkTeacher1Text_GotQuickClaw: ; AUTOTRAD
+NationalParkTeacher1Text_GotQuickClaw: 
+if DEF(_FR_FR)
+	text "Fais tenir cette"
+	line "VIVE GRIFFE à un"
+	cont "#MON."
+
+	para "Il frappera plus"
+	line "souvent en premier"
+	cont "en combat."
+else
 	text "Let a #MON hold"
 	line "that QUICK CLAW."
 
 	para "Sometimes it will"
 	line "strike first"
 	cont "during battle."
+endc
+
 	done
 
-NationalParkYoungster1Text: ; AUTOTRAD
+NationalParkYoungster1Text: 
+if DEF(_FR_FR)
+	text "Je m'amuse avec"
+	line "les autocollants"
+	cont "que j'ai imprimés"
+	cont "de mon #DEX."
+else
 	text "I'm playing with"
 	line "stickers I printed"
 	cont "from my #DEX."
+endc
+
 	done
 
-NationalParkYoungster2Text: ; AUTOTRAD
+NationalParkYoungster2Text: 
+if DEF(_FR_FR)
+	text "Je gagne les auto-"
+	line "collants du #-"
+	cont "DEX de l'adversai-"
+	cont "re si je le bats."
+else
 	text "I get the other"
 	line "guy's #DEX"
 	cont "sticker if I win."
+endc
+
 	done
 
-NationalParkTeacher2Text: ; AUTOTRAD
+NationalParkTeacher2Text: 
+if DEF(_FR_FR)
+	text "Je me promène dans"
+	line "le PARC mais je ne"
+
+	para "vais jamais dans"
+	line "l'herbe."
+
+	para "Les dresseurs veu-"
+	line "lent toujours se"
+	cont "battre..."
+else
 	text "I take walks in"
 	line "the PARK, but I"
 
@@ -357,13 +435,30 @@ NationalParkTeacher2Text: ; AUTOTRAD
 
 	para "Trainers always"
 	line "want to battle…"
+endc
+
 	done
 
-NationalParkPersianText: ; AUTOTRAD
+NationalParkPersianText: 
+if DEF(_FR_FR)
+	text "PERSIAN: Siaaaan!"
+else
 	text "PERSIAN: Fufushaa!"
+endc
+
 	done
 
-NationalParkGameboyKidText: ; AUTOTRAD
+NationalParkGameboyKidText: 
+if DEF(_FR_FR)
+	text "J'imprime mon"
+	line "#DEX."
+
+	para "On peut aussi im-"
+	line "primer des trucs"
+
+	para "comme les LETTRES"
+	line "ou les BOITES PC."
+else
 	text "I'm printing out"
 	line "my #DEX."
 
@@ -372,9 +467,22 @@ NationalParkGameboyKidText: ; AUTOTRAD
 
 	para "MAIL and your PC"
 	line "BOXES."
+endc
+
 	done
 
-SchoolboyJack1SeenText: ; AUTOTRAD
+SchoolboyJack1SeenText: 
+if DEF(_FR_FR)
+	text "Grand est le monde"
+	line "des #MON."
+
+	para "Tant de choses"
+	line "sont encore incon-"
+	cont "nues."
+
+	para "Mais moi... J'en"
+	line "sais plus que toi!"
+else
 	text "The world of"
 	line "#MON is deep."
 
@@ -384,13 +492,33 @@ SchoolboyJack1SeenText: ; AUTOTRAD
 
 	para "But I know more"
 	line "than you do!"
+endc
+
 	done
 
-SchoolboyJack1BeatenText: ; AUTOTRAD
+SchoolboyJack1BeatenText: 
+if DEF(_FR_FR)
+	text "Qu-qu-quoi?"
+else
 	text "Wha-wha-what?"
+endc
+
 	done
 
-SchoolboyJackTradeMonText: ; AUTOTRAD
+SchoolboyJackTradeMonText: 
+if DEF(_FR_FR)
+	text "Il y a beaucoup à"
+	line "apprendre."
+
+	para "Par exemple..."
+
+	para "Il y a 50 types"
+	line "de CT."
+
+	para "Les #MON"
+	line "échangés grandis-"
+	cont "sent plus vite."
+else
 	text "There is a lot"
 	line "to learn."
 
@@ -401,50 +529,108 @@ SchoolboyJackTradeMonText: ; AUTOTRAD
 
 	para "Traded #MON"
 	line "level up faster."
+endc
+
 	done
 
-PokefanfBeverly1SeenText: ; AUTOTRAD
+PokefanfBeverly1SeenText: 
+if DEF(_FR_FR)
+	text "Mes #MON sont"
+	line "les mieux du"
+	cont "mooooonde."
+
+	para "Tu vas voir ça!"
+	line "Oh que oui!"
+else
 	text "My #MON are"
 	line "simply darling."
 
 	para "Let me tell you"
 	line "how proud my"
 	cont "darlings make me."
+endc
+
 	done
 
-PokefanfBeverly1BeatenText: ; AUTOTRAD
+PokefanfBeverly1BeatenText: 
+if DEF(_FR_FR)
+	text "L'honneur est"
+	line "sauf..."
+else
 	text "I can beat you in"
 	line "pride, but…"
+endc
+
 	done
 
-PokefanBeverlyCuteMonText: ; AUTOTRAD
+PokefanBeverlyCuteMonText: 
+if DEF(_FR_FR)
+	text "Tes #MON aussi"
+	line "sont très mignons."
+else
 	text "I must say, your"
 	line "#MON are quite"
 	cont "cute, too."
+endc
+
 	done
 
-PokefanmWilliamSeenText: ; AUTOTRAD
+PokefanmWilliamSeenText: 
+if DEF(_FR_FR)
+	text "On adore nos #-"
+	line "MON, même si eux"
+	cont "nous détestent."
+
+	para "Et c'est ça un"
+	line "vrai FAN."
+else
 	text "We adore our #-"
 	line "MON, even if they"
 	cont "dislike us."
 
 	para "That's what being"
 	line "a FAN is about."
+endc
+
 	done
 
-PokefanmWilliamBeatenText: ; AUTOTRAD
+PokefanmWilliamBeatenText: 
+if DEF(_FR_FR)
+	text "M-mon #MON!"
+else
 	text "M-my #MON!"
+endc
+
 	done
 
-PokefanmWilliamAfterBattleText: ; AUTOTRAD
+PokefanmWilliamAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je perds le combat"
+	line "mais mes #MON"
+
+	para "sont de loin les"
+	line "plus beaux."
+else
 	text "I lost the battle,"
 	line "but my #MON win"
 
 	para "the prize for"
 	line "being most lovely."
+endc
+
 	done
 
-PokefanFBeverlyMarillFriendText: ; AUTOTRAD
+PokefanFBeverlyMarillFriendText: 
+if DEF(_FR_FR)
+	text "Une amie a un"
+	line "MARILL!"
+
+	para "Il est trooooop"
+	line "joli."
+
+	para "Oh, j'en veux un!"
+	line "Un MARILL à moi..."
+else
 	text "My friend keeps a"
 	line "MARILL!"
 
@@ -453,31 +639,70 @@ PokefanFBeverlyMarillFriendText: ; AUTOTRAD
 
 	para "Oh, I wish for a"
 	line "MARILL of my own…"
+endc
+
 	done
 
-LassKriseSeenText: ; AUTOTRAD
+LassKriseSeenText: 
+if DEF(_FR_FR)
+	text "Bonjour? Pourquoi"
+	line "tu me regardes?"
+
+	para "Quoi? Combat? OK!"
+else
 	text "Hello? Why are you"
 	line "staring at me?"
 
 	para "Oh, a battle?"
+endc
+
 	done
 
-LassKriseBeatenText: ; AUTOTRAD
+LassKriseBeatenText: 
+if DEF(_FR_FR)
+	text "...Hmmm..."
+else
 	text "…Hmmm…"
+endc
+
 	done
 
-LassKriseAfterBattleText: ; AUTOTRAD
+LassKriseAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'pensais que tu"
+	line "me regardais pour"
+	cont "me demander des"
+	cont "sous!"
+else
 	text "I thought you were"
 	line "staring at me"
 	cont "because I'm cute!"
+endc
+
 	done
 
-NationalParkRelaxationSquareText: ; AUTOTRAD
+NationalParkRelaxationSquareText: 
+if DEF(_FR_FR)
+	text "AIRE DE REPOS du"
+	line "PARC NATUREL"
+else
 	text "RELAXATION SQUARE"
 	line "NATIONAL PARK"
+endc
+
 	done
 
-NationalParkBattleNoticeText: ; AUTOTRAD
+NationalParkBattleNoticeText: 
+if DEF(_FR_FR)
+	text "C'est quoi cette"
+	line "affiche?"
+
+	para "Se battre unique-"
+	line "ment dans l'herbe."
+
+	para "LE GARDIEN DU"
+	line "PARC NATUREL"
+else
 	text "What is this"
 	line "notice?"
 
@@ -486,14 +711,26 @@ NationalParkBattleNoticeText: ; AUTOTRAD
 
 	para "NATIONAL PARK"
 	line "WARDEN'S OFFICE"
+endc
+
 	done
 
-NationalParkTrainerTipsText: ; AUTOTRAD
+NationalParkTrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Imprimer les"
+	line "LETTRES en les"
+	cont "ouvrant et appuyer"
+	cont "sur START."
+else
 	text "TRAINER TIPS"
 
 	para "Print out MAIL by"
 	line "opening it then"
 	cont "pressing START."
+endc
+
 	done
 
 NationalPark_MapEvents:

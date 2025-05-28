@@ -186,7 +186,22 @@ CharcoalKiln_ApprenticeRunsToMartMovement:
 	big_step DOWN
 	step_end
 
-CharcoalKilnBossText1: ; AUTOTRAD
+CharcoalKilnBossText1: 
+if DEF(_FR_FR)
+	text "Tous les RAMOLOSS"
+	line "ont disparu"
+	cont "de la ville."
+
+	para "On risque d'avoir"
+	line "des ennuis avec"
+	cont "le protecteur de"
+	cont "la forêt..."
+
+	para "C'est peut-être un"
+	line "mauvais présage."
+	cont "On devrait rester"
+	cont "chez soi."
+else
 	text "All the SLOWPOKE"
 	line "have disappeared"
 	cont "from the town."
@@ -198,9 +213,24 @@ CharcoalKilnBossText1: ; AUTOTRAD
 	para "It may be a bad"
 	line "omen. We should"
 	cont "stay in."
+endc
+
 	done
 
-CharcoalKilnBossText2: ; AUTOTRAD
+CharcoalKilnBossText2: 
+if DEF(_FR_FR)
+	text "Les RAMOLOSS sont"
+	line "de retour..."
+
+	para "Mais mon APPRENTI"
+	line "n'est pas revenu"
+	cont "du BOIS AUX"
+	cont "CHENES."
+
+	para "Où est donc ce"
+	line "dresseur de"
+	cont "troisième zone?"
+else
 	text "The SLOWPOKE have"
 	line "returned…"
 
@@ -210,6 +240,8 @@ CharcoalKilnBossText2: ; AUTOTRAD
 
 	para "Where in the world"
 	line "is that lazy guy?"
+endc
+
 	done
 
 CharcoalKilnBossCurfewText: ; TO TRANSLATE
@@ -254,8 +286,13 @@ CharcoalKilnApprenticeText3: ; TO TRANSLATE
 	line "est, man!"
 	done
 
-FarfetchdText: ; AUTOTRAD
+FarfetchdText: 
+if DEF(_FR_FR)
+	text "CANARTICHO: Ticho!"
+else
 	text "FARFETCH'D: Kwaa!"
+endc
+
 	done
 
 CharcoalKiln_ThanksText: ; TO TRANSLATE

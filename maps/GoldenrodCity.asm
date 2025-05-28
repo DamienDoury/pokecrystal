@@ -461,39 +461,93 @@ GoldenrodCityMoveTutorEnterGameCornerMovement:
 	step UP
 	step_end
 
-GoldenrodCityPokefanMText: ; AUTOTRAD
+GoldenrodCityPokefanMText: 
+if DEF(_FR_FR)
+	text "Ils ont construit"
+	line "une nouvelle TOUR"
+
+	para "RADIO pour rempla-"
+	line "cer l'ancienne."
+else
 	text "They built the new"
 	line "RADIO TOWER to"
 
 	para "replace the old,"
 	line "creaky one."
+endc
+
 	done
 
-GoldenrodCityYoungster1Text: ; AUTOTRAD
+GoldenrodCityYoungster1Text: 
+if DEF(_FR_FR)
+	text "Je sais qu'il y a"
+	line "un nouveau CYCLES"
+
+	para "A GOGO, mais je ne"
+	line "le trouve pas."
+else
 	text "I know there's a"
 	line "new BIKE SHOP, but"
 
 	para "I can't find it"
 	line "anywhere."
+endc
+
 	done
 
-GoldenrodCityCooltrainerF1Text: ; AUTOTRAD
+GoldenrodCityCooltrainerF1Text: 
+if DEF(_FR_FR)
+	text "Ce type en noir"
+	line "est habillé"
+
+	para "comme un membre de"
+	line "la TEAM ROCKET!"
+	cont "Quel bêta!"
+else
 	text "Is that man in"
 	line "black dressed up"
 
 	para "like a TEAM ROCKET"
 	line "member? How silly!"
+endc
+
 	done
 
-GoldenrodCityCooltrainerF1Text_ClearedRadioTower: ; AUTOTRAD
+GoldenrodCityCooltrainerF1Text_ClearedRadioTower: 
+if DEF(_FR_FR)
+	text "Cet homme faisait"
+	line "vraiment partie de"
+
+	para "la TEAM ROCKET?"
+	line "J'y crois pas!"
+else
 	text "Was that man in"
 	line "black really part"
 
 	para "of TEAM ROCKET? I"
 	line "can't believe it!"
+endc
+
 	done
 
-GoldenrodCityCooltrainerF2Text: ; AUTOTRAD
+GoldenrodCityCooltrainerF2Text: 
+if DEF(_FR_FR)
+	text "La TOUR RADIO de"
+	line "DOUBLONVILLE est"
+	cont "un point de"
+	cont "repère."
+
+	para "Ils organisent une"
+	line "campagne promo-"
+	cont "tionnelle en ce"
+	cont "moment."
+
+	para "Ils te modifieront"
+	line "ton #MATOS"
+
+	para "pour t'en servir"
+	line "comme radio."
+else
 	text "The RADIO TOWER in"
 	line "GOLDENROD CITY is"
 	cont "a landmark."
@@ -507,11 +561,19 @@ GoldenrodCityCooltrainerF2Text: ; AUTOTRAD
 
 	para "so it can also"
 	line "serve as a radio."
+endc
+
 	done
 
-GoldenrodCityCooltrainerF2Text_GotRadioCard: ; AUTOTRAD
+GoldenrodCityCooltrainerF2Text_GotRadioCard: 
+if DEF(_FR_FR)
+	text "Oh, ton #MATOS"
+	line "fait radio!"
+else
 	text "Oh, your #GEAR"
 	line "works as a radio!"
+endc
+
 	done
 
 GoldenrodCityYoungster2Text: ; TO TRANSLATE
@@ -527,31 +589,64 @@ GoldenrodCityYoungster2Text: ; TO TRANSLATE
 	para "Yo, it's crazy!"
 	done
 
-GoldenrodCityLassText: ; AUTOTRAD
+GoldenrodCityLassText: 
+if DEF(_FR_FR)
+	text "L'homme de cette"
+	line "maison note les"
+	cont "noms de tes"
+	cont "#MON."
+
+	para "Il peut même"
+	line "renommer tes"
+	cont "#MON."
+else
 	text "The man at that"
 	line "house rates your"
 	cont "#MON names."
 
 	para "He can even rename"
 	line "your #MON."
+endc
+
 	done
 
-GoldenrodCityGrampsText: ; AUTOTRAD
+GoldenrodCityGrampsText: 
+if DEF(_FR_FR)
+	text "Whoua! C'est une"
+	line "très grosse ville."
+
+	para "Je suis totalement"
+	line "perdu ici."
+else
 	text "Whew! This is one"
 	line "big town. I don't"
 
 	para "know where any-"
 	line "thing is."
+endc
+
 	done
 
-GoldenrodCityRocketScoutText1: ; AUTOTRAD
+GoldenrodCityRocketScoutText1: 
+if DEF(_FR_FR)
+	text "C'est donc ça la"
+	line "TOUR RADIO..."
+else
 	text "So this is the"
 	line "RADIO TOWER…"
+endc
+
 	done
 
-GoldenrodCityRocketScoutText2: ; AUTOTRAD
+GoldenrodCityRocketScoutText2: 
+if DEF(_FR_FR)
+	text "Que veux-tu petit"
+	line "scarabée? Gage-dé!"
+else
 	text "What do you want,"
 	line "you pest? Scram!"
+endc
+
 	done
 
 GoldenrodCityRocketScoutLockdownText: ; TO TRANSLATE
@@ -566,109 +661,235 @@ GoldenrodCityRocketScoutLockdownText: ; TO TRANSLATE
 	cont "got big plans!"
 	done
 
-GoldenrodCityRocket1Text: ; AUTOTRAD
+GoldenrodCityRocket1Text: 
+if DEF(_FR_FR)
+	text "Reste hors de mon"
+	line "chemin! Dégage!!"
+else
 	text "Stay out of the"
 	line "way! Beat it!"
+endc
+
 	done
 
-GoldenrodCityRocket2Text: ; AUTOTRAD
+GoldenrodCityRocket2Text: 
+if DEF(_FR_FR)
+	text "Envahir la TOUR"
+	line "RADIO..."
+
+	para "Quoi? Mais c'est"
+	line "pas tes oignons!"
+else
 	text "Take over the"
 	line "RADIO TOWER…"
 
 	para "What? It's none of"
 	line "your business!"
+endc
+
 	done
 
-GoldenrodCityRocket3Text: ; AUTOTRAD
+GoldenrodCityRocket3Text: 
+if DEF(_FR_FR)
+	text "Les #MON? Ils"
+	line "ne servent qu'à"
+
+	para "amasser des tonnes"
+	line "de #thunes!"
+else
 	text "#MON? They're"
 	line "nothing more than"
 
 	para "tools for making"
 	line "money!"
+endc
+
 	done
 
-GoldenrodCityRocket4Text: ; AUTOTRAD
+GoldenrodCityRocket4Text: 
+if DEF(_FR_FR)
+	text "Notre rêve va"
+	line "bientôt devenir"
+	cont "réalité..."
+
+	para "C'était une si"
+	line "longue lutte..."
+else
 	text "Our dream will"
 	line "soon come true…"
 
 	para "It was such a long"
 	line "struggle…"
+endc
+
 	done
 
-GoldenrodCityRocket5Text: ; AUTOTRAD
+GoldenrodCityRocket5Text: 
+if DEF(_FR_FR)
+	text "Hé, toi! T'es"
+	line "pas de la bande!"
+	cont "Bouge de là!"
+else
 	text "Hey, brat! You"
 	line "don't belong here!"
 	cont "Get lost!"
+endc
+
 	done
 
-GoldenrodCityRocket6Text: ; AUTOTRAD
+GoldenrodCityRocket6Text: 
+if DEF(_FR_FR)
+	text "Viens te frotter à"
+	line "la terreur de la"
+	cont "TEAM ROCKET!"
+else
 	text "Come taste the"
 	line "true terror of"
 	cont "TEAM ROCKET!"
+endc
+
 	done
 
-GoldenrodCityStationSignText: ; AUTOTRAD
+GoldenrodCityStationSignText: 
+if DEF(_FR_FR)
+	text "STATION de"
+	line "DOUBLONVILLE"
+else
 	text "GOLDENROD CITY"
 	line "STATION"
+endc
+
 	done
 
-GoldenrodCityRadioTowerSignText: ; AUTOTRAD
+GoldenrodCityRadioTowerSignText: 
+if DEF(_FR_FR)
+	text "TOUR RADIO de"
+	line "DOUBLONVILLE"
+else
 	text "GOLDENROD CITY"
 	line "RADIO TOWER"
+endc
+
 	done
 
-GoldenrodDeptStoreSignText: ; AUTOTRAD
+GoldenrodDeptStoreSignText: 
+if DEF(_FR_FR)
+	text "Marchandises de"
+	line "premier choix pour"
+	cont "#MON!"
+
+	para "CENTRE COMMERCIAL"
+	line "de DOUBLONVILLE"
+else
 	text "Full Selection of"
 	line "#MON Goods!"
 
 	para "GOLDENROD CITY"
 	line "DEPT.STORE"
+endc
+
 	done
 
-GoldenrodGymSignText: ; AUTOTRAD
+GoldenrodGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de DOUBLONVILLE:"
+	cont "BLANCHE"
+
+	para "La fille qui est"
+	line "trop, trop bien!"
+else
 	text "GOLDENROD CITY"
 	line "#MON GYM"
 	cont "LEADER: WHITNEY"
 
 	para "The Incredibly"
 	line "Pretty Girl!"
+endc
+
 	done
 
-GoldenrodCitySignText: ; AUTOTRAD
+GoldenrodCitySignText: 
+if DEF(_FR_FR)
+	text "DOUBLONVILLE"
+
+	para "La ville festive"
+	line "qui fleure bon la"
+	cont "bonne humeur"
+else
 	text "GOLDENROD CITY"
 
 	para "The Festive City"
 	line "of Opulent Charm"
+endc
+
 	done
 
-GoldenrodCityBikeShopSignText: ; AUTOTRAD
+GoldenrodCityBikeShopSignText: 
+if DEF(_FR_FR)
+	text "Dans la vie pour"
+	line "avancer faut"
+	cont "pédaler!"
+	cont "CYCLES A GOGO"
+else
 	text "The World is a"
 	line "Cycle Path!"
 	cont "BIKE SHOP"
+endc
+
 	done
 
-GoldenrodCityGameCornerSignText: ; AUTOTRAD
+GoldenrodCityGameCornerSignText: 
+if DEF(_FR_FR)
+	text "Votre espace de"
+	line "jeux!"
+
+	para "CASINO de"
+	line "DOUBLONVILLE"
+else
 	text "Your Playground!"
 
 	para "GOLDENROD CITY"
 	line "GAME CORNER"
+endc
+
 	done
 
-GoldenrodCityNameRaterSignText: ; AUTOTRAD
+GoldenrodCityNameRaterSignText: 
+if DEF(_FR_FR)
+	text "LE NOTEUR DE NOM"
+
+	para "Evaluez le surnom"
+	line "de votre #MON"
+else
 	text "NAME RATER"
 
 	para "Get Your #MON"
 	line "Nicknames Rated"
+endc
+
 	done
 
-GoldenrodCityUndergroundSignNorthText: ; AUTOTRAD
+GoldenrodCityUndergroundSignNorthText: 
+if DEF(_FR_FR)
+	text "ENTREE du"
+	line "SOUTERRAIN"
+else
 	text "UNDERGROUND"
 	line "ENTRANCE"
+endc
+
 	done
 
-GoldenrodCityFlowerShopSignText: ; AUTOTRAD
+GoldenrodCityFlowerShopSignText: 
+if DEF(_FR_FR)
+	text "Une fleur, la vie!"
+	line "FLEURISTE"
+else
 	text "Blooming Beautiful"
 	line "FLOWER SHOP"
+endc
+
 	done
 
 GoldenrodHospitalSignText: ; TO TRANSLATE
@@ -676,7 +897,14 @@ GoldenrodHospitalSignText: ; TO TRANSLATE
 	line "HOSPITAL"
 	done
 
-GoldenrodCityMoveTutorAskTeachAMoveText: ; AUTOTRAD
+GoldenrodCityMoveTutorAskTeachAMoveText: 
+if DEF(_FR_FR)
+	text "Je peux apprendre"
+	line "à tes #MON de"
+	cont "super capacités."
+
+	para "Ca t'intéresse?"
+else
 	text "I can teach your"
 	line "#MON amazing"
 
@@ -685,53 +913,110 @@ GoldenrodCityMoveTutorAskTeachAMoveText: ; AUTOTRAD
 
 	para "Should I teach a"
 	line "new move?"
+endc
+
 	done
 
-GoldenrodCityMoveTutorAsk4000CoinsOkayText: ; AUTOTRAD
+GoldenrodCityMoveTutorAsk4000CoinsOkayText: 
+if DEF(_FR_FR)
+	text "Ca te coûtera"
+	line "4000 jetons. OK?"
+else
 	text "It will cost you"
 	line "4000 coins. Okay?"
+endc
+
 	done
 
-GoldenrodCityMoveTutorAwwButTheyreAmazingText: ; AUTOTRAD
+GoldenrodCityMoveTutorAwwButTheyreAmazingText: 
+if DEF(_FR_FR)
+	text "Dommage pour toi."
+else
 	text "Aww… But they're"
 	line "amazing…"
+endc
+
 	done
 
-GoldenrodCityMoveTutorWhichMoveShouldITeachText: ; AUTOTRAD
+GoldenrodCityMoveTutorWhichMoveShouldITeachText: 
+if DEF(_FR_FR)
+	text "Wahahah! Tu ne le"
+	line "regretteras pas!"
+
+	para "Quelle capacité"
+	line "veux-tu apprendre?"
+else
 	text "Wahahah! You won't"
 	line "regret it!"
 
 	para "Which move should"
 	line "I teach?"
+endc
+
 	done
 
-GoldenrodCityMoveTutorHmTooBadText: ; AUTOTRAD
+GoldenrodCityMoveTutorHmTooBadText: 
+if DEF(_FR_FR)
+	text "Dommage."
+	line "Il me faut de"
+	cont "l'argent..."
+else
 	text "Hm, too bad. I'll"
 	line "have to get some"
 	cont "cash from home…"
+endc
+
 	done
 
-GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText: ; AUTOTRAD
+GoldenrodCityMoveTutorIfYouUnderstandYouveMadeItText: 
+if DEF(_FR_FR)
+	text "Si tu peux com-"
+	line "prendre à quel"
+
+	para "point cette capa-"
+	line "cité est terrible,"
+	cont "tu peux te vanter"
+	cont "d'être balèze."
+else
 	text "If you understand"
 	line "what's so amazing"
 
 	para "about this move,"
 	line "you've made it as"
 	cont "a trainer."
+endc
+
 	done
 
-GoldenrodCityMoveTutorFarewellKidText: ; AUTOTRAD
+GoldenrodCityMoveTutorFarewellKidText: 
+if DEF(_FR_FR)
+	text "Wahahah!"
+	line "Adieu!"
+else
 	text "Wahahah!"
 	line "Farewell, kid!"
+endc
+
 	done
 
-GoldenrodCityMoveTutorBButText: ; AUTOTRAD
+GoldenrodCityMoveTutorBButText: 
+if DEF(_FR_FR)
+	text "M...mais!"
+else
 	text "B-but…"
+endc
+
 	done
 
-GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText: ; AUTOTRAD
+GoldenrodCityMoveTutorYouDontHaveEnoughCoinsText: 
+if DEF(_FR_FR)
+	text "Pas assez de"
+	line "jetons..."
+else
 	text "…You don't have"
 	line "enough coins here…"
+endc
+
 	done
 
 GoldenrodCasinoWindowText: ; TO TRANSLATE

@@ -21,16 +21,33 @@ BattleTowerOutsideSailorScript:
 BattleTowerOutsideSign:
 	jumptext BattleTowerOutsideSignText
 
-BattleTowerOutsideYoungsterText: ; AUTOTRAD
+BattleTowerOutsideYoungsterText: 
+if DEF(_FR_FR)
+	text "Foui! C'est grand"
+	line "la TOUR DE COMBAT!"
+
+	para "Il doit y avoir"
+	line "plein de #MON"
+	cont "différents!"
+else
 	text "Wow, the BATTLE"
 	line "TOWER is huge!"
 
 	para "There must be many"
 	line "kinds of #MON"
 	cont "in there!"
+endc
+
 	done
 
-BattleTowerOutsideBeautyText: ; AUTOTRAD
+BattleTowerOutsideBeautyText: 
+if DEF(_FR_FR)
+	text "On ne peut utili-"
+	line "ser que 3 #MON."
+
+	para "C'est dur de faire"
+	line "un choix..."
+else
 	text "You can use only"
 	line "three #MON."
 
@@ -39,9 +56,18 @@ BattleTowerOutsideBeautyText: ; AUTOTRAD
 
 	para "should go into"
 	line "battle…"
+endc
+
 	done
 
-BattleTowerOutsideSailorText: ; AUTOTRAD
+BattleTowerOutsideSailorText: 
+if DEF(_FR_FR)
+	text "J'ai pris une"
+	line "perm'."
+
+	para "Je dois gagner!"
+	line "Oh que oui!"
+else
 	text "Hehehe, I snuck"
 	line "out from work."
 
@@ -50,13 +76,23 @@ BattleTowerOutsideSailorText: ; AUTOTRAD
 
 	para "I have to win it"
 	line "all. That I must!"
+endc
+
 	done
 
-BattleTowerOutsideSignText: ; AUTOTRAD
+BattleTowerOutsideSignText: 
+if DEF(_FR_FR)
+	text "TOUR DE COMBAT"
+
+	para "Le méga défi de"
+	line "tout dresseur!"
+else
 	text "BATTLE TOWER"
 
 	para "Take the Ultimate"
 	line "Trainer Challenge!"
+endc
+
 	done
 
 BattleTowerOutside_MapEvents:

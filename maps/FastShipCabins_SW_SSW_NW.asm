@@ -111,53 +111,117 @@ FastShipBed:
 FastShipCabinsNorthwestCabinTrashcan:
 	jumpstd TrashCanScript
 
-FirebreatherLyleSeenText: ; AUTOTRAD
+FirebreatherLyleSeenText: 
+if DEF(_FR_FR)
+	text "Je vais à KANTO"
+	line "me donner en"
+	cont "spectacle!"
+else
 	text "I'm going to KANTO"
 	line "to put on fire-"
 	cont "breathing shows!"
+endc
+
 	done
 
-FirebreatherLyleBeatenText: ; AUTOTRAD
+FirebreatherLyleBeatenText: 
+if DEF(_FR_FR)
+	text "Pfff... Ma flamme"
+	line "est minuscule..."
+else
 	text "Fizzle… The"
 	line "flame's tiny…"
+endc
+
 	done
 
-FirebreatherLyleAfterBattleText: ; AUTOTRAD
+FirebreatherLyleAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le feu c'est nul"
+	line "sur l'eau, non?"
+
+	para "Ca change rien?"
+	line "Vraiment?"
+else
 	text "I guess fire is"
 	line "weak on the sea."
 
 	para "It doesn't matter?"
 	line "Really?"
+endc
+
 	done
 
-BugCatcherKenSeenText: ; AUTOTRAD
+BugCatcherKenSeenText: 
+if DEF(_FR_FR)
+	text "Je vais voir ma"
+	line "grand-mère pour"
+	cont "attraper des"
+	cont "insectes!"
+else
 	text "I'm visiting my"
 	line "grandma to catch"
 	cont "me some bugs!"
+endc
+
 	done
 
-BugCatcherKenBeatenText: ; AUTOTRAD
+BugCatcherKenBeatenText: 
+if DEF(_FR_FR)
+	text "Ooh!"
+	line "Fort de café!"
+else
 	text "Ooh, wow."
 	line "You're tough!"
+endc
+
 	done
 
-BugCatcherKenAfterBattleText: ; AUTOTRAD
+BugCatcherKenAfterBattleText: 
+if DEF(_FR_FR)
+	text "Il y a plein de"
+	line "#MON dans les"
+	cont "arbres de JOHTO!"
+else
 	text "You can find lots"
 	line "of #MON in the"
 	cont "trees of JOHTO!"
+endc
+
 	done
 
-BeautyCassieSeenText: ; AUTOTRAD
+BeautyCassieSeenText: 
+if DEF(_FR_FR)
+	text "J'oublie mes"
+	line "malheurs et..."
+	cont "COMBAT!"
+else
 	text "I'm trying to"
 	line "forget my woes."
 	cont "Let's battle!"
+endc
+
 	done
 
-BeautyCassieBeatenText: ; AUTOTRAD
+BeautyCassieBeatenText: 
+if DEF(_FR_FR)
+	text "Mon coeur saigne."
+else
 	text "My heart weeps…"
+endc
+
 	done
 
-BeautyCassieAfterBattleText: ; AUTOTRAD
+BeautyCassieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Voyager fait ou-"
+	line "blier les peines"
+	cont "de coeur."
+
+	para "Mais un BATEAU"
+	line "EXPRESS va trop"
+	cont "vite!!!"
+else
 	text "A voyage is best"
 	line "for getting over"
 	cont "a broken heart."
@@ -165,22 +229,48 @@ BeautyCassieAfterBattleText: ; AUTOTRAD
 	para "But a FAST SHIP"
 	line "trip is too short"
 	cont "for grieving."
+endc
+
 	done
 
-GuitaristClydeSeenText: ; AUTOTRAD
+GuitaristClydeSeenText: 
+if DEF(_FR_FR)
+	text "Je vais audition-"
+	line "ner à la STATION"
+
+	para "RADIO de DOUBLON-"
+	line "VILLE."
+else
 	text "I'm going to audi-"
 	line "tion my songs at"
 
 	para "GOLDENROD's RADIO"
 	line "STATION."
+endc
+
 	done
 
-GuitaristClydeBeatenText: ; AUTOTRAD
+GuitaristClydeBeatenText: 
+if DEF(_FR_FR)
+	text "Wouh!"
+	line "Un bide!"
+else
 	text "Yowza!"
 	line "Total distortion!"
+endc
+
 	done
 
-GuitaristClydeAfterBattleMobileText: ; AUTOTRAD
+GuitaristClydeAfterBattleMobileText: 
+if DEF(_FR_FR)
+	text "J'allais me lancer"
+	line "dans le défi de la"
+	cont "TOUR DE COMBAT..."
+
+	para "Je devrais retour-"
+	line "ner à CARMIN et"
+	cont "m'entraîner..."
+else
 	text "I was going to"
 	line "make my debut at"
 	cont "the BATTLE TOWER…"
@@ -188,36 +278,73 @@ GuitaristClydeAfterBattleMobileText: ; AUTOTRAD
 	para "I should go back"
 	line "to VERMILION and"
 	cont "redo my training…"
+endc
+
 	done
 
-GuitaristClydeAfterBattleText: ; AUTOTRAD
+GuitaristClydeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Au fait..."
+	line "C'est quoi le BON"
+
+	para "NUMERO de cette"
+	line "semaine?"
+else
 	text "Speaking of the"
 	line "RADIO STATION,"
 
 	para "what's this week's"
 	line "lucky number?"
+endc
+
 	done
 
-FastShipBedText1: ; AUTOTRAD
+FastShipBedText1: 
+if DEF(_FR_FR)
+	text "Un lit douillet!"
+	line "Hop! Au dodo..."
+else
 	text "A comfy bed!"
 	line "Time to sleep…"
+endc
+
 	done
 
-FastShipBedText2: ; AUTOTRAD
+FastShipBedText2: 
+if DEF(_FR_FR)
+	text "Ah... C'est la"
+	line "super pêche!"
+else
 	text "Ah, refreshed and"
 	line "restored!"
+endc
+
 	done
 
-FastShipArrivedOlivineText: ; AUTOTRAD
+FastShipArrivedOlivineText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA est arrivé"
+	cont "à OLIVILLE."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "OLIVINE CITY."
+endc
+
 	done
 
-FastShipArrivedVermilionText: ; AUTOTRAD
+FastShipArrivedVermilionText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA est arrivé"
+	cont "à CARMIN SUR MER."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
+endc
+
 	done
 
 FastShipCabins_SW_SSW_NW_MapEvents:

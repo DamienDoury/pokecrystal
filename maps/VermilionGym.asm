@@ -208,17 +208,32 @@ LtSurgeIntroText: ; TO TRANSLATE
 
 	done
 
-LtSurgeWinLossText: ; AUTOTRAD
+LtSurgeWinLossText: 
+if DEF(_FR_FR)
+	text "BOB: Arrrgh!"
+	line "Trop fort!"
+
+	para "OK. Voilà ton"
+	line "BADGE FOUDRE!"
+else
 	text "SURGE: Arrrgh!"
 	line "You are strong!"
 
 	para "OK, kid. You get"
 	line "THUNDERBADGE!"
+endc
+
 	done
 
-ReceivedThunderBadgeText: ; AUTOTRAD
+ReceivedThunderBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE FOUDRE."
+else
 	text "<PLAYER> received"
 	line "THUNDERBADGE."
+endc
+
 	done
 
 LtSurgeThunderBadgeText: ; TO TRANSLATE
@@ -230,38 +245,79 @@ LtSurgeThunderBadgeText: ; TO TRANSLATE
 	line "proudly, hear?"
 	done
 
-LtSurgeFightDoneText: ; AUTOTRAD
+LtSurgeFightDoneText: 
+if DEF(_FR_FR)
+	text "BOB: Hé toi!"
+	line "Tu tiens le coup?"
+
+	para "Moi et mes #MON"
+	line "on a la pêche!"
+else
 	text "SURGE: Hey, kid!"
 	line "Still slugging and"
 	cont "chugging away?"
 
 	para "My #MON and I"
 	line "are still at it!"
+endc
+
 	done
 
-GentlemanGregorySeenText: ; AUTOTRAD
+GentlemanGregorySeenText: 
+if DEF(_FR_FR)
+	text "Tu viens défier le"
+	line "MAJOR BOB?"
+
+	para "C'est ce qu'on va"
+	line "voir!"
+else
 	text "You're here to"
 	line "defeat LT.SURGE?"
 
 	para "Not if I can help"
 	line "it!"
+endc
+
 	done
 
-GentlemanGregoryBeatenText: ; AUTOTRAD
+GentlemanGregoryBeatenText: 
+if DEF(_FR_FR)
+	text "Pardon, MAJOR"
+	line "BOB!"
+else
 	text "Sorry I failed"
 	line "you, LT.SURGE,"
 	cont "sir!"
+endc
+
 	done
 
-GentlemanGregoryAfterBattleText: ; AUTOTRAD
+GentlemanGregoryAfterBattleText: 
+if DEF(_FR_FR)
+	text "A l'armée, le"
+	line "MAJOR BOB m'a"
+	cont "sauvé la vie."
+else
 	text "When I was still"
 	line "in the army, LT."
 
 	para "SURGE saved my"
 	line "life."
+endc
+
 	done
 
-GuitaristVincentSeenText: ; AUTOTRAD
+GuitaristVincentSeenText: 
+if DEF(_FR_FR)
+	text "Le MAJOR BOB a foi"
+	line "en mes talents de"
+
+	para "dresseur de #-"
+	line "MON électriques."
+
+	para "Tu crois pouvoir"
+	line "me battre?"
+else
 	text "LT.SURGE recog-"
 	line "nized my potential"
 
@@ -270,37 +326,73 @@ GuitaristVincentSeenText: ; AUTOTRAD
 
 	para "Think you can beat"
 	line "me?"
+endc
+
 	done
 
-GuitaristVincentBeatenText: ; AUTOTRAD
+GuitaristVincentBeatenText: 
+if DEF(_FR_FR)
+	text "Ooh, sous le choc!"
+else
 	text "Ooh, how shocking!"
+endc
+
 	done
 
-GuitaristVincentAfterBattleText: ; AUTOTRAD
+GuitaristVincentAfterBattleText: 
+if DEF(_FR_FR)
+	text "Si les pièges de"
+	line "l'ARENE marchaient"
+	cont "tu en aurais bavé!"
+else
 	text "If the GYM's traps"
 	line "were working, you"
 
 	para "would have been"
 	line "toast…"
+endc
+
 	done
 
-JugglerHortonSeenText: ; AUTOTRAD
+JugglerHortonSeenText: 
+if DEF(_FR_FR)
+	text "J'vais t'allonger!"
+	line "Oh que oui!"
+else
 	text "I'm going to take"
 	line "you down! Prepare"
 	cont "to be shocked!"
+endc
+
 	done
 
-JugglerHortonBeatenText: ; AUTOTRAD
+JugglerHortonBeatenText: 
+if DEF(_FR_FR)
+	text "Gwaaah!"
+	line ""
+else
 	text "Gwaaah!"
 	line "I was overpowered…"
+endc
+
 	done
 
-JugglerHortonAfterBattleText: ; AUTOTRAD
+JugglerHortonAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ne te réjouis pas"
+	line "trop de m'avoir"
+
+	para "battu. Le MAJOR"
+	line "BOB, c'est pas la"
+	cont "même limonade."
+else
 	text "Don't get too com-"
 	line "fortable about"
 
 	para "beating me…"
 	line "LT.SURGE is tough."
+endc
+
 	done
 
 VermilionGymGuideText: ; TO TRANSLATE
@@ -324,17 +416,32 @@ VermilionGymGuideText: ; TO TRANSLATE
 	cont "LT.SURGE."
 	done
 
-VermilionGymGuideWinText: ; AUTOTRAD
+VermilionGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Fouii! C'était une"
+	line "sacrée rencontre!"
+
+	para "Ca m'a tout"
+	line "retourné."
+else
 	text "Whew! That was an"
 	line "electrifying bout!"
 
 	para "It sure made me"
 	line "nervous."
+endc
+
 	done
 
-VermilionGymTrashCanText: ; AUTOTRAD
+VermilionGymTrashCanText: 
+if DEF(_FR_FR)
+	text "Mmmm! Une bonne"
+	line "poubelle dégueue."
+else
 	text "Nope! Nothing here"
 	line "but trash."
+endc
+
 	done
 
 VermilionGym_MapEvents:

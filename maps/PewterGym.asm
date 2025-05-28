@@ -188,7 +188,20 @@ BrockIntroText: ; TO TRANSLATE
 	para "Come on!"
 	done
 
-BrockWinLossText: ; AUTOTRAD
+BrockWinLossText: 
+if DEF(_FR_FR)
+	text "PIERRE: Tes #-"
+	line "MON ont pu passer"
+	cont "ma défense de"
+	cont "pierre..."
+
+	para "Tu es plus balèze"
+	line "que je ne le"
+	cont "pensais..."
+
+	para "Tiens... Prends"
+	line "ce BADGE."
+else
 	text "BROCK: Your #-"
 	line "MON's powerful at-"
 	cont "tacks overcame my"
@@ -199,11 +212,19 @@ BrockWinLossText: ; AUTOTRAD
 
 	para "Go ahead--take"
 	line "this BADGE."
+endc
+
 	done
 
-ReceivedBoulderBadgeText: ; AUTOTRAD
+ReceivedBoulderBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE ROCHE."
+else
 	text "<PLAYER> received"
 	line "BOULDERBADGE."
+endc
+
 	done
 
 BrockBoulderBadgeText: ; TO TRANSLATE
@@ -218,7 +239,19 @@ BrockBoulderBadgeText: ; TO TRANSLATE
 	line "train harder."
 	done
 
-BrockFightDoneText: ; AUTOTRAD
+BrockFightDoneText: 
+if DEF(_FR_FR)
+	text "PIERRE: Grand est"
+	line "le monde. Beaucoup"
+
+	para "de dresseurs tu"
+	line "rencontreras."
+	cont "Oh que oui."
+
+	para "Tu verras..."
+	line "Je vais devenir"
+	cont "super balèze."
+else
 	text "BROCK: The world"
 	line "is huge. There are"
 
@@ -229,9 +262,24 @@ BrockFightDoneText: ; AUTOTRAD
 	line "I'm going to be-"
 	cont "come a lot strong-"
 	cont "er too."
+endc
+
 	done
 
-CamperJerrySeenText: ; AUTOTRAD
+CamperJerrySeenText: 
+if DEF(_FR_FR)
+	text "Les dresseurs de"
+	line "cette ARENE utili-"
+	cont "sent des #MON"
+	cont "du type ROCHE."
+
+	para "Cet élément a une"
+	line "grande DEFENSE."
+
+	para "Les combats ris-"
+	line "quent de durer"
+	cont "super longtemps."
+else
 	text "The trainers of"
 	line "this GYM use rock-"
 	cont "type #MON."
@@ -244,14 +292,30 @@ CamperJerrySeenText: ; AUTOTRAD
 
 	para "time. Are you"
 	line "ready for this?"
+endc
+
 	done
 
-CamperJerryBeatenText: ; AUTOTRAD
+CamperJerryBeatenText: 
+if DEF(_FR_FR)
+	text "Il faut que je"
+	line "gagne..."
+else
 	text "I have to win"
 	line "these battles…"
+endc
+
 	done
 
-CamperJerryAfterBattleText: ; AUTOTRAD
+CamperJerryAfterBattleText: 
+if DEF(_FR_FR)
+	text "Hé toi! Dresseur"
+	line "de JOHTO! PIERRE"
+
+	para "est super fort! Il"
+	line "va te punir la"
+	cont "tête!"
+else
 	text "Hey, you! Trainer"
 	line "from JOHTO! BROCK"
 
@@ -260,6 +324,8 @@ CamperJerryAfterBattleText: ; AUTOTRAD
 
 	para "don't take him"
 	line "seriously."
+endc
+
 	done
 
 CamperJerryBrockLocationText: ; TO TRANSLATE
@@ -291,7 +357,18 @@ PewterGymGuideText: ; TO TRANSLATE
 	line "GYM LEADERS."
 	done
 
-PewterGymGuideWinText: ; AUTOTRAD
+PewterGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Hé! Graine de"
+	line "star! Cette"
+
+	para "ARENE ne t'a pas"
+	line "posé trop de"
+	cont "problèmes..."
+
+	para "Tu m'as bluffé."
+	line "Sérieusement."
+else
 	text "Yo! CHAMP in"
 	line "making! That GYM"
 
@@ -303,6 +380,8 @@ PewterGymGuideWinText: ; AUTOTRAD
 
 	para "inspiring. I mean"
 	line "that seriously."
+endc
+
 	done
 
 PewterGym_MapEvents:

@@ -55,20 +55,45 @@ TrainerSailorTerrell:
 OlivineLighthouse3FEther:
 	itemball ETHER
 
-BirdKeeperTheoSeenText: ; AUTOTRAD
+BirdKeeperTheoSeenText: 
+if DEF(_FR_FR)
+	text "Pourquoi tu es là?"
+	line "Qu'est-ce que tu"
+
+	para "veux? Allez..."
+	line "Va-t'en!"
+else
 	text "Why are you here?"
 	line "Are you just going"
 
 	para "to gawk? I suggest"
 	line "that you leave!"
+endc
+
 	done
 
-BirdKeeperTheoBeatenText: ; AUTOTRAD
+BirdKeeperTheoBeatenText: 
+if DEF(_FR_FR)
+	text "T'es tenace,"
+	line "toi..."
+else
 	text "You really are"
 	line "concerned…"
+endc
+
 	done
 
-BirdKeeperTheoAfterBattleText: ; AUTOTRAD
+BirdKeeperTheoAfterBattleText: 
+if DEF(_FR_FR)
+	text "Comment tu fais"
+	line "pour monter?"
+
+	para "Je veux voir le"
+	line "#MON malade,"
+
+	para "mais j'arrive pas"
+	line "à monter..."
+else
 	text "How the heck do"
 	line "you go up?"
 
@@ -77,17 +102,32 @@ BirdKeeperTheoAfterBattleText: ; AUTOTRAD
 
 	para "but I can't get up"
 	line "there…"
+endc
+
 	done
 
-SailorTerrellSeenText: ; AUTOTRAD
+SailorTerrellSeenText: 
+if DEF(_FR_FR)
+	text "Les marins sont"
+	line "sympa et musclés."
+	cont "Et toi?"
+else
 	text "Sailors are both"
 	line "kind and strong."
 	cont "How about you?"
+endc
+
 	done
 
-SailorTerrellBeatenText: ; AUTOTRAD
+SailorTerrellBeatenText: 
+if DEF(_FR_FR)
+	text "Pas mal."
+	line "C'est bien..."
+else
 	text "You are both kind"
 	line "and strong…"
+endc
+
 	done
 
 SailorTerrellAfterBattleText: ; TO TRANSLATE
@@ -108,22 +148,43 @@ SailorTerrellAfterBattleText: ; TO TRANSLATE
 	line "good trainer now."
 	done
 
-GentlemanPrestonSeenText: ; AUTOTRAD
+GentlemanPrestonSeenText: 
+if DEF(_FR_FR)
+	text "Je parcours la"
+	line "terre en quête"
+	cont "d'entraînement."
+	cont "En garde!"
+else
 	text "I travel the world"
 	line "to train my #-"
 	cont "MON. I wish to"
 	cont "battle with you."
+endc
+
 	done
 
-GentlemanPrestonBeatenText: ; AUTOTRAD
+GentlemanPrestonBeatenText: 
+if DEF(_FR_FR)
+	text "Bon. Je vais errer"
+	line "autre part alors."
+else
 	text "…sigh… I must"
 	line "train some more…"
+endc
+
 	done
 
-GentlemanPrestonAfterBattleText: ; AUTOTRAD
+GentlemanPrestonAfterBattleText: 
+if DEF(_FR_FR)
+	text "JASMINE utilisait"
+	line "des #MON de la"
+	cont "roche comme ONIX."
+else
 	text "JASMINE used to"
 	line "use rock #MON"
 	cont "like ONIX."
+endc
+
 	done
 
 OlivineLighthouse3F_MapEvents:

@@ -12,7 +12,15 @@ CeladonMansionRoofFisherScript:
 CeladonMansionRoofGraffiti:
 	jumptext CeladonMansionRoofGraffitiText
 
-CeladonMansionRoofFisherText: ; AUTOTRAD
+CeladonMansionRoofFisherText: 
+if DEF(_FR_FR)
+	text "J'adore la vue!"
+
+	para "Tout ce qui est"
+	line "grand et haut..."
+
+	para "J'adore!"
+else
 	text "High places--I do"
 	line "love them so!"
 
@@ -21,14 +29,25 @@ CeladonMansionRoofFisherText: ; AUTOTRAD
 
 	para "heights as much as"
 	line "me is smoke!"
+endc
+
 	done
 
-CeladonMansionRoofGraffitiText: ; AUTOTRAD
+CeladonMansionRoofGraffitiText: 
+if DEF(_FR_FR)
+	text "Un dessin sur le"
+	line "mur..."
+
+	para "<PLAYER> dessine"
+	line "une moustache!"
+else
 	text "There's graffiti"
 	line "on the wall…"
 
 	para "<PLAYER> added a"
 	line "moustache!"
+endc
+
 	done
 
 CeladonMansionRoof_MapEvents:

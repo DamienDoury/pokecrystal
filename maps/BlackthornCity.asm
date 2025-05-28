@@ -194,12 +194,21 @@ BlackthornCity_StepDownMovement:
 	step DOWN
 	step_end
 
-BlackthornGrampsRefusesEntryText: ; AUTOTRAD
+BlackthornGrampsRefusesEntryText: 
+if DEF(_FR_FR)
+	text "Seuls les dres-"
+	line "seurs confirmés"
+
+	para "peuvent s'entraî-"
+	line "ner ici. Partez."
+else
 	text "No. Only chosen"
 	line "trainers may train"
 
 	para "here."
 	line "Please leave."
+endc
+
 	done
 
 BlackthornGrampsLockdownText: ; TO TRANSLATE
@@ -217,55 +226,125 @@ BlackthornGrampsViolationText: ; TO TRANSLATE
 	cont "place uninvited!"
 	done
 
-BlackthornGrampsGrantsEntryText: ; AUTOTRAD
+BlackthornGrampsGrantsEntryText: 
+if DEF(_FR_FR)
+	text "Si SANDRA le"
+	line "permet, son grand-"
+	cont "père, le MAITRE,"
+	cont "le permet aussi."
+
+	para "Entrez."
+else
 	text "If CLAIR allows"
 	line "it, her grand-"
 	cont "father--our MASTER"
 	cont "--will also."
 
 	para "You may enter."
+endc
+
 	done
 
-BlackBeltText_WeirdRadio: ; AUTOTRAD
+BlackBeltText_WeirdRadio: 
+if DEF(_FR_FR)
+	text "Ma radio est"
+	line "fichue!"
+	cont "J'ai reçu un drôle"
+	cont "de signal bizarre."
+else
 	text "My radio's busted?"
 	line "Lately, I only get"
 	cont "this weird signal."
+endc
+
 	done
 
-BlackBeltText_VoicesInMyHead: ; AUTOTRAD
+BlackBeltText_VoicesInMyHead: 
+if DEF(_FR_FR)
+	text "Aahhhh! Des voix"
+	line "dans ma tête!"
+
+	para "Hum? J'écoute ma"
+	line "radio!"
+else
 	text "Arooo! Voices in"
 	line "my head!"
 
 	para "Huh? I'm listening"
 	line "to my radio!"
+endc
+
 	done
 
-BlackthornCooltrainerF1Text: ; AUTOTRAD
+BlackthornCooltrainerF1Text: 
+if DEF(_FR_FR)
+	text "Vas-tu faire"
+	line "oublier des"
+	cont "capacités à tes"
+	cont "#MON?"
+else
 	text "Are you going to"
 	line "make your #MON"
 	cont "forget some moves?"
+endc
+
 	done
 
-BlackthornYoungsterText: ; AUTOTRAD
+BlackthornYoungsterText: 
+if DEF(_FR_FR)
+	text "Tous les experts"
+	line "en dragons vien-"
+	cont "nent d'EBENELLE."
+else
 	text "Dragon masters all"
 	line "come from the city"
 	cont "of BLACKTHORN."
+endc
+
 	done
 
-MeetSantosText: ; AUTOTRAD
+MeetSantosText: 
+if DEF(_FR_FR)
+	text "SAMUEL: ..."
+
+	para "On est samedi..."
+
+	para "Et moi je suis"
+	line "plus sympa le"
+	cont "samedi."
+else
 	text "SANTOS: …"
 
 	para "It's Saturday…"
 
 	para "I'm SANTOS of"
 	line "Saturday…"
+endc
+
 	done
 
-SantosGivesGiftText: ; AUTOTRAD
+SantosGivesGiftText: 
+if DEF(_FR_FR)
+	text "Tiens..."
+else
 	text "You can have this…"
+endc
+
 	done
 
-SantosGaveGiftText: ; AUTOTRAD
+SantosGaveGiftText: 
+if DEF(_FR_FR)
+	text "SAMUEL: ..."
+
+	para "RUNE SORT..."
+
+	para "Les attaques de"
+	line "type SPECTRE"
+	cont "sont plus fortes."
+
+	para "Ca va t'effrayer,"
+	line "tu verras..."
+else
 	text "SANTOS: …"
 
 	para "SPELL TAG…"
@@ -275,9 +354,20 @@ SantosGaveGiftText: ; AUTOTRAD
 
 	para "It will frighten"
 	line "you…"
+endc
+
 	done
 
-SantosSaturdayText: ; AUTOTRAD
+SantosSaturdayText: 
+if DEF(_FR_FR)
+	text "SAMUEL: ..."
+
+	para "A la prochaine, un"
+	line "autre samedi..."
+
+	para "Je n'aurai plus"
+	line "de cadeaux..."
+else
 	text "SANTOS: …"
 
 	para "See you again on"
@@ -285,49 +375,106 @@ SantosSaturdayText: ; AUTOTRAD
 
 	para "I won't have any"
 	line "more gifts…"
+endc
+
 	done
 
-SantosNotSaturdayText: ; AUTOTRAD
+SantosNotSaturdayText: 
+if DEF(_FR_FR)
+	text "SAMUEL: On n'est"
+	line "pas samedi..."
+else
 	text "SANTOS: Today's"
 	line "not Saturday…"
+endc
+
 	done
 
-BlackthornCooltrainerF2Text: ; AUTOTRAD
+BlackthornCooltrainerF2Text: 
+if DEF(_FR_FR)
+	text "Tu as traversé la"
+	line "ROUTE DE GLACE?"
+
+	para "Tu dois être"
+	line "balèze!"
+else
 	text "Wow, you came"
 	line "through the ICE"
 	cont "PATH?"
 
 	para "You must be a real"
 	line "hotshot trainer!"
+endc
+
 	done
 
-BlackthornCitySignText: ; AUTOTRAD
+BlackthornCitySignText: 
+if DEF(_FR_FR)
+	text "EBENELLE"
+
+	para "Une montagne calme"
+	line "et retirée du"
+	cont "reste du monde"
+else
 	text "BLACKTHORN CITY"
 
 	para "A Quiet Mountain"
 	line "Retreat"
+endc
+
 	done
 
-BlackthornGymSignText: ; AUTOTRAD
+BlackthornGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'EBENELLE: SANDRA"
+
+	para "La détentrice de"
+	line "#MON dragon"
+else
 	text "BLACKTHORN CITY"
 	line "#MON GYM"
 	cont "LEADER: CLAIR"
 
 	para "The Blessed User"
 	line "of Dragon #MON"
+endc
+
 	done
 
-MoveDeletersHouseSignText: ; AUTOTRAD
+MoveDeletersHouseSignText: 
+if DEF(_FR_FR)
+	text "CHEZ L'EFFACEUR DE"
+	line "CAPACITES"
+else
 	text "MOVE DELETER'S"
 	line "HOUSE"
+endc
+
 	done
 
-DragonDensSignText: ; AUTOTRAD
+DragonDensSignText: 
+if DEF(_FR_FR)
+	text "ANTRE DU DRAGON"
+	line "TOUT DROIT"
+else
 	text "DRAGON'S DEN"
 	line "AHEAD"
+endc
+
 	done
 
-BlackthornCityTrainerTipsText: ; AUTOTRAD
+BlackthornCityTrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Un #MON tenant"
+	line "une BAIE MIRACLE"
+
+	para "se soignera tout"
+	line "seul de n'importe"
+	cont "quel état."
+else
 	text "TRAINER TIPS"
 
 	para "A #MON holding"
@@ -336,6 +483,8 @@ BlackthornCityTrainerTipsText: ; AUTOTRAD
 	para "will cure itself"
 	line "of any status"
 	cont "problem."
+endc
+
 	done
 
 BlackthornCity_MapEvents:

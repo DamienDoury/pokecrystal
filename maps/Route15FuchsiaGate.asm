@@ -20,12 +20,21 @@ Route15FuchsiaGateBlockerScript:
 .HasSeenPlayerInFuchsia:
 	jumptext Route15FuchsiaGateBlockerText
 
-Route15FuchsiaGateOfficerText: ; AUTOTRAD
+Route15FuchsiaGateOfficerText: 
+if DEF(_FR_FR)
+	text "Tu veux compléter"
+	line "un #DEX? C'est"
+
+	para "génial! Surtout"
+	line "n'abandonne pas!"
+else
 	text "You're working on"
 	line "a #DEX? That's"
 
 	para "really something."
 	line "Don't give up!"
+endc
+
 	done
 
 Route15FuchsiaGateBlockerNewText: ; TO TRANSLATE

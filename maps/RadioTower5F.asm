@@ -257,9 +257,15 @@ RadioTower5FFakeDirectorSpinsMovement:
 	step_sleep 1
 	step_end
 
-FakeDirectorTextBefore1: ; AUTOTRAD
+FakeDirectorTextBefore1: 
+if DEF(_FR_FR)
+	text "T-toi! T-tu es là"
+	line "pour me s-sauver?"
+else
 	text "Y-you! You came to"
 	line "rescue me?"
+endc
+
 	done
 
 FakeDirectorTextBefore2: ; TO TRANSLATE
@@ -286,12 +292,31 @@ FakeDirectorTextBefore3: ; TO TRANSLATE
 	cont "you can beat me!"
 	done
 
-FakeDirectorWinText: ; AUTOTRAD
+FakeDirectorWinText: 
+if DEF(_FR_FR)
+	text "OK, OK. Je vais"
+	line "parler."
+else
 	text "OK, OK. I'll tell"
 	line "you where he is."
+endc
+
 	done
 
-FakeDirectorTextAfter: ; AUTOTRAD
+FakeDirectorTextAfter: 
+if DEF(_FR_FR)
+	text "On a planqué le"
+	line "DIRECTEUR dans"
+
+	para "l'ENTREPOT"
+	line "SOUTERRAIN."
+
+	para "C'est tout au bout"
+	line "du SOUTERRAIN."
+
+	para "Mais t'y arriveras"
+	line "jamais... Ha!"
+else
 	text "We stashed the"
 	line "real DIRECTOR in"
 
@@ -304,23 +329,44 @@ FakeDirectorTextAfter: ; AUTOTRAD
 
 	para "But I doubt you'll"
 	line "get that far."
+endc
+
 	done
 
-Executivef1SeenText: ; AUTOTRAD
+Executivef1SeenText: 
+if DEF(_FR_FR)
+	text "Tu te souviens de"
+	line "moi? Dans la"
+	cont "PLANQUE d'ACAJOU?"
+
+	para "J'avais perdu..."
+	line "Mais cette fois..."
+else
 	text "Remember me from"
 	line "the HIDEOUT in"
 	cont "MAHOGANY TOWN?"
 
 	para "I lost then, but I"
 	line "won't this time."
+endc
+
 	done
 
-Executivef1BeatenText: ; AUTOTRAD
+Executivef1BeatenText: 
+if DEF(_FR_FR)
+	text "Mais c'est pas"
+	line "possible!"
+
+	para "J'me bats à fond"
+	line "et je perds..."
+else
 	text "This can't be"
 	line "happening!"
 
 	para "I fought hard, but"
 	line "I still lost…"
+endc
+
 	done
 
 Executivef1AfterBattleText: ; TO TRANSLATE
@@ -519,7 +565,24 @@ RadioTower5FDirectorGetBackText: ; TO TRANSLATE
 	line "my OFFICE."
 	done
 
-RadioTower5FDirectorText: ; AUTOTRAD
+RadioTower5FDirectorText: 
+if DEF(_FR_FR)
+	text "DIRECTEUR: Salut,"
+	line "<PLAY_G>!"
+
+	para "Tu sais, j'adore"
+	line "les #MON."
+
+	para "J'ai construit"
+	line "cette TOUR RADIO"
+
+	para "pour crier au mon-"
+	line "de mon amour."
+
+	para "Mais les gens"
+	line "aiment-ils nos"
+	cont "émissions?"
+else
 	text "DIRECTOR: Hello,"
 	line "<PLAY_G>!"
 
@@ -535,20 +598,39 @@ RadioTower5FDirectorText: ; AUTOTRAD
 	para "It would be nice"
 	line "if people enjoyed"
 	cont "our programs."
+endc
+
 	done
 
-BenText: ; AUTOTRAD
+BenText: 
+if DEF(_FR_FR)
+	text "BEN: Tu écoutes"
+	line "notre musique?"
+else
 	text "BEN: Do you listen"
 	line "to our music?"
+endc
+
 	done
 
-RadioTower5FDirectorsOfficeSignText: ; AUTOTRAD
+RadioTower5FDirectorsOfficeSignText: 
+if DEF(_FR_FR)
+	text "4EME BUREAU"
+	line "     DIRECTION"
+else
 	text "5F DIRECTOR'S"
 	line "   OFFICE"
+endc
+
 	done
 
-RadioTower5FStudio1SignText: ; AUTOTRAD
+RadioTower5FStudio1SignText: 
+if DEF(_FR_FR)
+	text "4EME STUDIO 1"
+else
 	text "5F STUDIO 1"
+endc
+
 	done
 
 RadioTower5F_MapEvents:

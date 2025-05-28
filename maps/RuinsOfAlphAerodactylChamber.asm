@@ -107,37 +107,73 @@ RuinsOfAlphAerodactylChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphAerodactylChamberWallPatternLeftText: ; AUTOTRAD
+RuinsOfAlphAerodactylChamberWallPatternLeftText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
 RuinsOfAlphAerodactylChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphAerodactylChamberWallPatternRightText: ; AUTOTRAD
+RuinsOfAlphAerodactylChamberWallPatternRightText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
-RuinsOfAlphAerodactylChamberWallHoleText: ; AUTOTRAD
+RuinsOfAlphAerodactylChamberWallHoleText: 
+if DEF(_FR_FR)
+	text "Il y a un gros"
+	line "trou dans le mur!"
+else
 	text "There's a big hole"
 	line "in the wall!"
+endc
+
 	done
 
-RuinsOfAlphAerodactylChamberAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphAerodactylChamberAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
-RuinsOfAlphAerodactylChamberDescriptionText: ; AUTOTRAD
+RuinsOfAlphAerodactylChamberDescriptionText: 
+if DEF(_FR_FR)
+	text "Ce #MON volant"
+	line "attaquait ses"
+
+	para "proies de ses"
+	line "crocs acérés."
+else
 	text "This flying #-"
 	line "MON attacked its"
 
 	para "prey with saw-like"
 	line "fangs."
+endc
+
 	done
 
 RuinsOfAlphAerodactylChamber_MapEvents:

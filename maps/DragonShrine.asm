@@ -394,7 +394,28 @@ DragonShrineClairWalkOutMovement:
 	step DOWN
 	step_end
 
-DragonShrineElderGreetingText: ; AUTOTRAD
+DragonShrineElderGreetingText: 
+if DEF(_FR_FR)
+	text "Hmm..."
+	line "Bienvenue."
+
+	para "Ne parle pas."
+
+	para "SANDRA t'a dit de"
+	line "venir, non?"
+
+	para "Coriace la petite,"
+	line "non?"
+
+	para "Je dois te mettre"
+	line "à l'épreuve."
+
+	para "Tu ne dois répon-"
+	line "dre qu'à quelques"
+	cont "questions."
+
+	para "On commence?"
+else
 	text "Hm… Good to see"
 	line "you here."
 
@@ -415,39 +436,98 @@ DragonShrineElderGreetingText: ; AUTOTRAD
 	cont "a few questions."
 
 	para "Ready?"
+endc
+
 	done
 
-DragonShrineQuestion1Text: ; AUTOTRAD
+DragonShrineQuestion1Text: 
+if DEF(_FR_FR)
+	text "Que représente un"
+	line "#MON à tes"
+	cont "yeux?"
+else
 	text "What are #MON"
 	line "to you?"
+endc
+
 	done
 
-DragonShrineQuestion2Text: ; AUTOTRAD
+DragonShrineQuestion2Text: 
+if DEF(_FR_FR)
+	text "Qu'est-ce qui aide"
+	line "à gagner les"
+	cont "combats?"
+else
 	text "What helps you to"
 	line "win battles?"
+endc
+
 	done
 
-DragonShrineQuestion3Text: ; AUTOTRAD
+DragonShrineQuestion3Text: 
+if DEF(_FR_FR)
+	text "Quel type de"
+	line "dresseur veux-tu"
+	cont "affronter?"
+else
 	text "What kind of"
 	line "trainer do you"
 	cont "wish to battle?"
+endc
+
 	done
 
-DragonShrineQuestion4Text: ; AUTOTRAD
+DragonShrineQuestion4Text: 
+if DEF(_FR_FR)
+	text "Quelle est la cho-"
+	line "se la plus impor-"
+	cont "tante en entraî-"
+	cont "nant les #MON?"
+else
 	text "What is most"
 	line "important for"
 	cont "raising #MON?"
+endc
+
 	done
 
-DragonShrineQuestion5Text: ; AUTOTRAD
+DragonShrineQuestion5Text: 
+if DEF(_FR_FR)
+	text "#MON puissant."
+	line "#MON faible."
+
+	para "Lequel est le plus"
+	line "important?"
+else
 	text "Strong #MON."
 	line "Weak #MON."
 
 	para "Which is more"
 	line "important?"
+endc
+
 	done
 
-DragonShrinePassedTestText: ; AUTOTRAD
+DragonShrinePassedTestText: 
+if DEF(_FR_FR)
+	text "Hmm... Je vois..."
+
+	para "Tu as de vrais"
+	line "sentiments pour"
+	cont "les #MON."
+
+	para "C'est bien ça."
+
+	para "C'est très impor-"
+	line "tant!"
+
+	para "<PLAYER>, ne"
+	line "change jamais."
+
+	para "Cela t'aidera"
+	line "pour la LIGUE"
+	cont "#MON."
+else
 	text "Hm… I see…"
 
 	para "You care deeply"
@@ -464,9 +544,24 @@ DragonShrinePassedTestText: ; AUTOTRAD
 	para "It will see you"
 	line "through at the"
 	cont "#MON LEAGUE."
+endc
+
 	done
 
-DragonShrineMustIInformLanceText: ; AUTOTRAD
+DragonShrineMustIInformLanceText: 
+if DEF(_FR_FR)
+	text "SANDRA!"
+
+	para "C'est un bon"
+	line "élément..."
+
+	para "Admets ta défaite"
+	line "et donne ton"
+	cont "BADGE LEVER!"
+
+	para "...Ou dois-je en"
+	line "informer PETER?"
+else
 	text "CLAIR!"
 
 	para "This child is"
@@ -479,9 +574,20 @@ DragonShrineMustIInformLanceText: ; AUTOTRAD
 
 	para "…Or must I inform"
 	line "LANCE of this?"
+endc
+
 	done
 
-DragonShrineElderScoldsClairText: ; AUTOTRAD
+DragonShrineElderScoldsClairText: 
+if DEF(_FR_FR)
+	text "SANDRA..."
+
+	para "Penche-toi sur"
+	line "tes lacunes..."
+
+	para "Prends exemple sur"
+	line "<PLAYER>."
+else
 	text "CLAIR…"
 
 	para "Reflect upon what"
@@ -489,14 +595,37 @@ DragonShrineElderScoldsClairText: ; AUTOTRAD
 
 	para "lack and this"
 	line "child has."
+endc
+
 	done
 
-DragonShrineComeAgainText: ; AUTOTRAD
+DragonShrineComeAgainText: 
+if DEF(_FR_FR)
+	text "N'hésite pas à"
+	line "revenir en ce"
+	cont "saint lieu."
+else
 	text "Come again, if you"
 	line "so desire."
+endc
+
 	done
 
-DragonShrineTakeThisDratiniText: ; AUTOTRAD
+DragonShrineTakeThisDratiniText: 
+if DEF(_FR_FR)
+	text "Hmm..."
+	line "Bienvenue."
+
+	para "Tu tombes au bon"
+	line "moment."
+
+	para "J'ai quelque chose"
+	line "pour toi."
+
+	para "Ce MINIDRACO est"
+	line "la preuve de ta"
+	cont "valeur..."
+else
 	text "Hm… Good to see"
 	line "you here."
 
@@ -511,19 +640,41 @@ DragonShrineTakeThisDratiniText: ; AUTOTRAD
 
 	para "have recognized"
 	line "your worth."
+endc
+
 	done
 
-DragonShrinePlayerReceivedDratiniText: ; AUTOTRAD
+DragonShrinePlayerReceivedDratiniText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "MINIDRACO!"
+else
 	text "<PLAYER> received"
 	line "DRATINI!"
+endc
+
 	done
 
-DragonShrinePartyFullText: ; AUTOTRAD
+DragonShrinePartyFullText: 
+if DEF(_FR_FR)
+	text "Hmm? Ton équipe"
+	line "est pleine."
+else
 	text "Hm? Your #MON"
 	line "party is full."
+endc
+
 	done
 
-DragonShrineSymbolicDragonText: ; AUTOTRAD
+DragonShrineSymbolicDragonText: 
+if DEF(_FR_FR)
+	text "Les #MON dra-"
+	line "gons représentent"
+	cont "notre clan."
+
+	para "Tu es digne d'en"
+	line "posséder un."
+else
 	text "Dragon #MON are"
 	line "symbolic of our"
 	cont "clan."
@@ -533,9 +684,20 @@ DragonShrineSymbolicDragonText: ; AUTOTRAD
 
 	para "entrusted with"
 	line "one."
+endc
+
 	done
 
-DragonShrineClairsGrandfatherText: ; AUTOTRAD
+DragonShrineClairsGrandfatherText: 
+if DEF(_FR_FR)
+	text "SANDRA a appris"
+	line "quelque chose en"
+	cont "te connaissant."
+
+	para "Etant son grand-"
+	line "père, je te"
+	cont "remercie."
+else
 	text "CLAIR appears to"
 	line "have learned an"
 
@@ -544,6 +706,8 @@ DragonShrineClairsGrandfatherText: ; AUTOTRAD
 
 	para "I thank you as her"
 	line "grandfather."
+endc
+
 	done
 
 DragonShrineSilverIsInTrainingText: ; AUTOTRAD
@@ -558,21 +722,48 @@ DragonShrineSilverIsInTrainingText: ; AUTOTRAD
 	line "little worrisome…"
 	done
 
-DragonShrineWrongAnswerText1: ; AUTOTRAD
+DragonShrineWrongAnswerText1: 
+if DEF(_FR_FR)
+	text "Hein? J'ai pas"
+	line "tout compris..."
+else
 	text "Hah? I didn't"
 	line "quite catch that…"
+endc
+
 	done
 
-DragonShrineWrongAnswerText2: ; AUTOTRAD
+DragonShrineWrongAnswerText2: 
+if DEF(_FR_FR)
+	text "Qu'as-tu dit?"
+else
 	text "What was it you"
 	line "said?"
+endc
+
 	done
 
-DragonShrineRightAnswerText: ; AUTOTRAD
+DragonShrineRightAnswerText: 
+if DEF(_FR_FR)
+	text "Oh, je vois..."
+else
 	text "Oh, I understand…"
+endc
+
 	done
 
-DragonShrineElder2Text: ; AUTOTRAD
+DragonShrineElder2Text: 
+if DEF(_FR_FR)
+	text "Cela fait long-"
+	line "temps que notre"
+
+	para "MAITRE n'a pas"
+	line "cautionné un"
+	cont "dresseur."
+
+	para "Pas une seule fois"
+	line "depuis PETER."
+else
 	text "It's been quite"
 	line "some time since a"
 
@@ -582,9 +773,22 @@ DragonShrineElder2Text: ; AUTOTRAD
 
 	para "In fact, not since"
 	line "Master LANCE."
+endc
+
 	done
 
-DragonShrineElder3Text: ; AUTOTRAD
+DragonShrineElder3Text: 
+if DEF(_FR_FR)
+	text "Tu connais"
+	line "Maître PETER?"
+
+	para "Il ressemble à"
+	line "notre MAITRE étant"
+	cont "jeune."
+
+	para "C'est dans leur"
+	line "sang."
+else
 	text "You know young"
 	line "Master LANCE?"
 
@@ -594,9 +798,25 @@ DragonShrineElder3Text: ; AUTOTRAD
 
 	para "It's in their"
 	line "blood."
+endc
+
 	done
 
-DragonShrineClairYouPassedText: ; AUTOTRAD
+DragonShrineClairYouPassedText: 
+if DEF(_FR_FR)
+	text "Comment c'était?"
+
+	para "Je ne vois pas"
+	line "pourquoi je deman-"
+	cont "de..."
+
+	para "Tu as échoué,"
+	line "n'est-ce pas?"
+
+	para "<……><……><……><……><……><……>"
+
+	para "...Quoi? Réussi?"
+else
 	text "So how did it go?"
 
 	para "I guess there's no"
@@ -607,33 +827,67 @@ DragonShrineClairYouPassedText: ; AUTOTRAD
 	para "<……><……><……><……><……><……>"
 
 	para "…What? You passed?"
+endc
+
 	done
 
-DragonShrineClairThatCantBeText: ; AUTOTRAD
+DragonShrineClairThatCantBeText: 
+if DEF(_FR_FR)
+	text "Y'a maldonne!"
+else
 	text "That can't be!"
+endc
+
 	done
 
-DragonShrineClairYoureLyingText: ; AUTOTRAD
+DragonShrineClairYoureLyingText: 
+if DEF(_FR_FR)
+	text "Tu mens!"
+
+	para "Même moi j'ai pas"
+	line "réussi!"
+else
 	text "You're lying!"
 
 	para "Even I haven't"
 	line "been approved!"
+endc
+
 	done
 
-DragonShrineIUnderstandText: ; AUTOTRAD
+DragonShrineIUnderstandText: 
+if DEF(_FR_FR)
+	text "Je... Je vois."
+else
 	text "I-I understand…"
+endc
+
 	done
 
-DragonShrineHereRisingBadgeText: ; AUTOTRAD
+DragonShrineHereRisingBadgeText: 
+if DEF(_FR_FR)
+	text "Tiens, voilà le"
+	line "BADGE LEVER..."
+
+	para "Allez! Prends-le!"
+else
 	text "Here, this is the"
 	line "RISINGBADGE…"
 
 	para "Hurry up! Take it!"
+endc
+
 	done
 
-DragonShrinePlayerReceivedRisingBadgeText: ; AUTOTRAD
+DragonShrinePlayerReceivedRisingBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE LEVER."
+else
 	text "<PLAYER> received"
 	line "RISINGBADGE."
+endc
+
 	done
 
 Obey100: ; TO TRANSLATE
@@ -648,8 +902,13 @@ Obey100: ; TO TRANSLATE
 	line "question."
 	done
 
-DragonShrineSpeechlessText: ; AUTOTRAD
+DragonShrineSpeechlessText: 
+if DEF(_FR_FR)
 	text "<……><……><……><……><……><……>"
+else
+	text "<……><……><……><……><……><……>"
+endc
+
 	done
 
 DragonShrine_MapEvents:

@@ -24,10 +24,17 @@ RuinsOfAlphKabutoItemRoomEnergypowder:
 RuinsOfAlphKabutoItemRoomAncientReplica:
 	jumptext RuinsOfAlphKabutoItemRoomAncientReplicaText
 
-RuinsOfAlphKabutoItemRoomAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphKabutoItemRoomAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
 RuinsOfAlphKabutoItemRoom_MapEvents:

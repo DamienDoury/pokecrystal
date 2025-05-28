@@ -25,25 +25,54 @@ CianwoodPhotoStudioFishingGuruScript:
 	closetext
 	end
 
-CianwoodPhotoStudioFishingGuruText_Question: ; AUTOTRAD
+CianwoodPhotoStudioFishingGuruText_Question: 
+if DEF(_FR_FR)
+	text "Mais dis-moi toi,"
+	line "ils sont choux tes"
+	cont "#MON."
+
+	para "Ca te dirait une"
+	line "petite photo en"
+	cont "souvenir?"
+else
 	text "You have magnifi-"
 	line "cent #MON with"
 	cont "you."
 
 	para "How about a photo"
 	line "for a souvenir?"
+endc
+
 	done
 
-CianwoodPhotoStudioFishingGuruText_Yes: ; AUTOTRAD
+CianwoodPhotoStudioFishingGuruText_Yes: 
+if DEF(_FR_FR)
+	text "Attention le petit"
+	line "oiseau va sortir!"
+	cont "Cui-cui!!!"
+else
 	text "OK! Big smile now!"
+endc
+
 	done
 
-CianwoodPhotoStudioFishingGuruText_No: ; AUTOTRAD
+CianwoodPhotoStudioFishingGuruText_No: 
+if DEF(_FR_FR)
+	text "Oh! Pas terrible,"
+	line "terrible. Je pen-"
+
+	para "sais que ça ferait"
+	line "quelque chose de"
+	cont "plus... Enfin de"
+	cont "moins..."
+else
 	text "Oh, that's too"
 	line "bad. I thought it"
 
 	para "would be a great"
 	line "memento…"
+endc
+
 	done
 
 CianwoodPhotoStudio_MapEvents:

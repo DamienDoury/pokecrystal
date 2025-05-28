@@ -48,7 +48,17 @@ LavenderMartPokefanMText: ; TO TRANSLATE
 	line "declaration."
 	done
 
-LavenderMartRockerText: ; AUTOTRAD
+LavenderMartRockerText: 
+if DEF(_FR_FR)
+	text "On m'a parlé d'un"
+	line "artisan qui fabri-"
+
+	para "que des # BALLS"
+	line "à ECORCIA, à"
+
+	para "JOHTO. J'aimerais"
+	line "en avoir une."
+else
 	text "I heard about a"
 	line "craftsman who"
 
@@ -57,6 +67,8 @@ LavenderMartRockerText: ; AUTOTRAD
 
 	para "of AZALEA. I wish"
 	line "I had some."
+endc
+
 	done
 
 LavenderMart_MapEvents:

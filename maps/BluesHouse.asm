@@ -63,7 +63,20 @@ DaisyScript:
 	closetext
 	end
 
-DaisyHelloText: ; AUTOTRAD
+DaisyHelloText: 
+if DEF(_FR_FR)
+	text "NINA: Salut! Mon"
+	line "petit frère est le"
+
+	para "CHAMPION de l'ARE-"
+	line "NE de JADIELLE."
+
+	para "Mais il se balade"
+	line "beaucoup, ce qui"
+
+	para "embête pas mal de"
+	line "dresseurs."
+else
 	text "DAISY: Hi! My kid"
 	line "brother is the GYM"
 
@@ -75,9 +88,24 @@ DaisyHelloText: ; AUTOTRAD
 
 	para "it causes problems"
 	line "for the trainers."
+endc
+
 	done
 
-DaisyOfferGroomingText: ; AUTOTRAD
+DaisyOfferGroomingText: 
+if DEF(_FR_FR)
+	text "NINA: Salut! Ca"
+	line "tombe bien, j'al-"
+	cont "lais faire du thé."
+
+	para "En veux-tu?"
+
+	para "Oh, tes #MON"
+	line "sont sales."
+
+	para "Tu veux que j'en"
+	line "bichonne un?"
+else
 	text "DAISY: Hi! Good"
 	line "timing. I'm about"
 	cont "to have some tea."
@@ -90,26 +118,58 @@ DaisyOfferGroomingText: ; AUTOTRAD
 
 	para "Would you like me"
 	line "to groom one?"
+endc
+
 	done
 
-DaisyWhichMonText: ; AUTOTRAD
+DaisyWhichMonText: 
+if DEF(_FR_FR)
+	text "NINA: Lequel dois-"
+	line "je bichonner?"
+else
 	text "DAISY: Which one"
 	line "should I groom?"
+endc
+
 	done
 
-DaisyAlrightText: ; AUTOTRAD
+DaisyAlrightText: 
+if DEF(_FR_FR)
+	text "NINA: OK, je vais"
+	line "le faire beau en"
+	cont "deux secondes."
+else
 	text "DAISY: OK, I'll"
 	line "get it looking"
 	cont "nice in no time."
+endc
+
 	done
 
-GroomedMonLooksContentText: ; AUTOTRAD
+GroomedMonLooksContentText: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text " a l'air"
+	line "heureux."
+else
 	text_ram wStringBuffer3
 	text " looks"
 	line "content."
+endc
+
 	done
 
-DaisyAllDoneText: ; AUTOTRAD
+DaisyAllDoneText: 
+if DEF(_FR_FR)
+	text "NINA: Voilààà!"
+	line "C'est fini!"
+
+	para "Alors? Il est pas"
+	line "trop beau, hein?"
+
+	para "Un joli petit"
+	line "#MON."
+else
 	text "DAISY: There you"
 	line "go! All done."
 
@@ -118,28 +178,56 @@ DaisyAllDoneText: ; AUTOTRAD
 
 	para "It's such a cute"
 	line "#MON."
+endc
+
 	done
 
-DaisyAlreadyGroomedText: ; AUTOTRAD
+DaisyAlreadyGroomedText: 
+if DEF(_FR_FR)
+	text "NINA: Je me fais"
+	line "du thé toujours à"
+
+	para "cette heure. Tu"
+	line "peux rester."
+else
 	text "DAISY: I always"
 	line "have tea around"
 
 	para "this time. Come"
 	line "join me."
+endc
+
 	done
 
-DaisyRefusedText: ; AUTOTRAD
+DaisyRefusedText: 
+if DEF(_FR_FR)
+	text "NINA: Tu ne veux"
+	line "pas que je m'en"
+
+	para "occupe? OK. Un peu"
+	line "de thé, alors..."
+else
 	text "DAISY: You don't"
 	line "want to have one"
 
 	para "groomed? OK, we'll"
 	line "just have tea."
+endc
+
 	done
 
-DaisyCantGroomEggText: ; AUTOTRAD
+DaisyCantGroomEggText: 
+if DEF(_FR_FR)
+	text "NINA: Oh, désolée."
+	line "Je ne peux pas"
+	cont "m'occuper d'un"
+	cont "OEUF."
+else
 	text "DAISY: Oh, sorry."
 	line "I honestly can't"
 	cont "groom an EGG."
+endc
+
 	done
 
 BluesHouse_MapEvents:

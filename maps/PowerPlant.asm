@@ -272,15 +272,35 @@ PowerPlantStompLeftMovement:
 	step_bump
 	step_end
 
-PowerPlantOfficer1AThiefBrokeInText: ; AUTOTRAD
+PowerPlantOfficer1AThiefBrokeInText: 
+if DEF(_FR_FR)
+	text "Un voleur s'est"
+	line "introduit dans la"
+	cont "CENTRALE..."
+
+	para "Mais où va le"
+	line "monde? Hein?"
+else
 	text "A thief broke into"
 	line "the POWER PLANT…"
 
 	para "What is the world"
 	line "coming to?"
+endc
+
 	done
 
-PowerPlantOfficer1CeruleanShadyCharacterText: ; AUTOTRAD
+PowerPlantOfficer1CeruleanShadyCharacterText: 
+if DEF(_FR_FR)
+	text "On raconte des"
+	line "trucs à AZURIA."
+
+	para "Un drôle de type"
+	line "rôde dans les"
+
+	para "environs..."
+	line "C'est flippant."
+else
 	text "I just got word"
 	line "from CERULEAN."
 
@@ -289,20 +309,44 @@ PowerPlantOfficer1CeruleanShadyCharacterText: ; AUTOTRAD
 
 	para "has been loitering"
 	line "around."
+endc
+
 	done
 
-PowerPlantOfficer1CouldIAskForYourCooperationText: ; AUTOTRAD
+PowerPlantOfficer1CouldIAskForYourCooperationText: 
+if DEF(_FR_FR)
+	text "Tu veux bien"
+	line "m'aider?"
+else
 	text "Could I ask for"
 	line "your cooperation?"
+endc
+
 	done
 
-PowerPlantOfficer1HaveToBeefUpSecurityText: ; AUTOTRAD
+PowerPlantOfficer1HaveToBeefUpSecurityText: 
+if DEF(_FR_FR)
+	text "Il faut renforcer"
+	line "la sécurité."
+else
 	text "We'll have to beef"
 	line "up our security"
 	cont "presence."
+endc
+
 	done
 
-PowerPlantGymGuide1SomeoneStoleAPartText: ; AUTOTRAD
+PowerPlantGymGuide1SomeoneStoleAPartText: 
+if DEF(_FR_FR)
+	text "Quelqu'un a volé"
+	line "une partie essen-"
+
+	para "tielle du généra-"
+	line "teur."
+
+	para "Sans elle, rien"
+	line "ne marche!"
+else
 	text "Someone made off"
 	line "with a part that's"
 
@@ -312,14 +356,25 @@ PowerPlantGymGuide1SomeoneStoleAPartText: ; AUTOTRAD
 	para "Without it, the"
 	line "new generator's"
 	cont "useless!"
+endc
+
 	done
 
-PowerPlantGymGuide1GeneratorUpAndRunningText: ; AUTOTRAD
+PowerPlantGymGuide1GeneratorUpAndRunningText: 
+if DEF(_FR_FR)
+	text "Le générateur est"
+	line "en marche. Il crée"
+
+	para "de l'électricité"
+	line "à gogo."
+else
 	text "The generator's up"
 	line "and running. It's"
 
 	para "making electricity"
 	line "to spare."
+endc
+
 	done
 
 PowerPlantGymGuide2PowerPlantUpAndRunningText: ; TO TRANSLATE
@@ -341,7 +396,18 @@ PowerPlantGymGuide2PowerPlantUpAndRunningText: ; TO TRANSLATE
 	line "operate again."
 	done
 
-PowerPlantOfficer2ManagerHasBeenSadAndFuriousText: ; AUTOTRAD
+PowerPlantOfficer2ManagerHasBeenSadAndFuriousText: 
+if DEF(_FR_FR)
+	text "Le PATRON de la"
+	line "CENTRALE est plus"
+	cont "loin."
+
+	para "Attention, il est"
+	line "furax depuis que"
+	cont "quelqu'un a tout"
+	cont "bousillé son joli"
+	cont "générateur..."
+else
 	text "The POWER PLANT's"
 	line "MANAGER is up"
 	cont "ahead."
@@ -351,17 +417,38 @@ PowerPlantOfficer2ManagerHasBeenSadAndFuriousText: ; AUTOTRAD
 	cont "ator, he's been"
 	cont "both sad and"
 	cont "furious…"
+endc
+
 	done
 
-PowerPlantOfficer2ManagerHasBeenCheerfulText: ; AUTOTRAD
+PowerPlantOfficer2ManagerHasBeenCheerfulText: 
+if DEF(_FR_FR)
+	text "Depuis la répara-"
+	line "tion du générateur"
+
+	para "le PATRON est très"
+	line "heureux."
+else
 	text "Since the gener-"
 	line "ator's been fixed,"
 
 	para "the MANAGER has"
 	line "been cheerful."
+endc
+
 	done
 
-PowerPlantGymGuide4MagnetTrainConsumesElectricityText: ; AUTOTRAD
+PowerPlantGymGuide4MagnetTrainConsumesElectricityText: 
+if DEF(_FR_FR)
+	text "Le TRAIN MAGNET"
+	line "consomme beaucoup"
+	cont "d'électricité."
+
+	para "Il ne bougera pas"
+	line "si le nouveau gé-"
+	cont "nérateur ne marche"
+	cont "pas..."
+else
 	text "The MAGNET TRAIN"
 	line "consumes a lot of"
 	cont "electricity."
@@ -369,17 +456,43 @@ PowerPlantGymGuide4MagnetTrainConsumesElectricityText: ; AUTOTRAD
 	para "It can't move if"
 	line "the new generator"
 	cont "isn't operating."
+endc
+
 	done
 
-PowerPlantGymGuide4WeCanGetMagnetTrainRunningText: ; AUTOTRAD
+PowerPlantGymGuide4WeCanGetMagnetTrainRunningText: 
+if DEF(_FR_FR)
+	text "OK! On peut à nou-"
+	line "veau faire marcher"
+	cont "le TRAIN MAGNET."
+else
 	text "All right! We can"
 	line "finally get the"
 
 	para "MAGNET TRAIN"
 	line "running again."
+endc
+
 	done
 
-PowerPlantManagerWhoWouldRuinMyGeneratorText: ; AUTOTRAD
+PowerPlantManagerWhoWouldRuinMyGeneratorText: 
+if DEF(_FR_FR)
+	text "PATRON: J'vais"
+	line "exploser! Faut que"
+	cont "j'me défoule!"
+
+	para "Qui a cassé mon"
+	line "générateur? Qui?"
+
+	para "Je l'aimais tant!"
+	line "Comme mon bébé!"
+
+	para "Si j'attrape cette"
+	line "crapule, il aura"
+
+	para "droit à un coup"
+	line "d'ELECANON!"
+else
 	text "MANAGER: I, I, I'm"
 	line "ready to blast"
 	cont "someone!"
@@ -395,9 +508,23 @@ PowerPlantManagerWhoWouldRuinMyGeneratorText: ; AUTOTRAD
 
 	para "a taste of my ZAP"
 	line "CANNON!"
+endc
+
 	done
 
-PowerPlantManagerIWontForgiveCulpritText: ; AUTOTRAD
+PowerPlantManagerIWontForgiveCulpritText: 
+if DEF(_FR_FR)
+	text "PATRON: Je vais"
+	line "m'le faire!"
+
+	para "Même s'il pleure,"
+	line "même s'il prie,"
+
+	para "je vais quand même"
+	line "me l'faire!"
+
+	para "Gahahahah!"
+else
 	text "MANAGER: I won't"
 	line "forgive him!"
 
@@ -408,25 +535,58 @@ PowerPlantManagerIWontForgiveCulpritText: ; AUTOTRAD
 	line "hammer him!"
 
 	para "Gahahahah!"
+endc
+
 	done
 
-PowerPlantManagerThatsThePartText: ; AUTOTRAD
+PowerPlantManagerThatsThePartText: 
+if DEF(_FR_FR)
+	text "PATRON: Ah! Oui!"
+
+	para "C'est la PARTIE"
+	line "manquante de mon"
+	cont "joli générateur!"
+	cont "Tu l'as trouvée?"
+else
 	text "MANAGER: Ah! Yeah!"
 
 	para "That's the missing"
 	line "PART from my be-"
 	cont "loved generator!"
 	cont "You found it?"
+endc
+
 	done
 
-PowerPlantManagerTakeThisTMText: ; AUTOTRAD
+PowerPlantManagerTakeThisTMText: 
+if DEF(_FR_FR)
+	text "Wahah! Merci!"
+
+	para "Tiens! Prends"
+	line "cette CT!"
+else
 	text "Wahah! Thanks!"
 
 	para "Here! Take this TM"
 	line "as a reward!"
+endc
+
 	done
 
-PowerPlantManagerTM07IsZapCannonText: ; AUTOTRAD
+PowerPlantManagerTM07IsZapCannonText: 
+if DEF(_FR_FR)
+	text "PATRON: CT07 est"
+	line "l'ELECANON. C'est"
+
+	para "une technique"
+	line "très puissante!"
+
+	para "Elle n'est pas"
+	line "très précise mais"
+
+	para "elle dépote! Fais-"
+	line "moi confiance!"
+else
 	text "MANAGER: TM07 is"
 	line "my ZAP CANNON."
 
@@ -438,14 +598,26 @@ PowerPlantManagerTM07IsZapCannonText: ; AUTOTRAD
 
 	para "accurate, but it"
 	line "packs a wallop!"
+endc
+
 	done
 
-PowerPlantManagerMyBelovedGeneratorText: ; AUTOTRAD
+PowerPlantManagerMyBelovedGeneratorText: 
+if DEF(_FR_FR)
+	text "PATRON: Mon petit"
+	line "générateur chéri!"
+
+	para "Pompe l'électrici-"
+	line "té! Allez! Tu dois"
+	cont "pomper!"
+else
 	text "MANAGER: My be-"
 	line "loved generator!"
 
 	para "Keep pumping the"
 	line "electricity out!"
+endc
+
 	done
 
 PowerPlantVermilionGymGuideText: ; TO TRANSLATE

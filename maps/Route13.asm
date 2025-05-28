@@ -122,86 +122,189 @@ Route13DirectionsSign:
 Route13HiddenCalcium:
 	hiddenitem CALCIUM, EVENT_ROUTE_13_HIDDEN_CALCIUM
 
-PokefanmAlexSeenText: ; AUTOTRAD
+PokefanmAlexSeenText: 
+if DEF(_FR_FR)
+	text "A genoux devant"
+	line "mes #MON!"
+else
 	text "Bow down before my"
 	line "regal #MON!"
+endc
+
 	done
 
-PokefanmAlexBeatenText: ; AUTOTRAD
+PokefanmAlexBeatenText: 
+if DEF(_FR_FR)
+	text "Comment oses-tu???"
+	line "Sacrilège!"
+else
 	text "How… How dare you"
 	line "mock royalty!"
+endc
+
 	done
 
-PokefanmAlexAfterBattleText: ; AUTOTRAD
+PokefanmAlexAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un jour je serai"
+	line "roi! Oh que oui!"
+	cont "Ha ha ha ha ha!"
+else
 	text "Doesn't everyone"
 	line "wish to someday be"
 	cont "a king?"
+endc
+
 	done
 
-PokefanmJoshuaSeenText: ; AUTOTRAD
+PokefanmJoshuaSeenText: 
+if DEF(_FR_FR)
+	text "Gnihihi! Tu veux"
+	line "te mesurer à mon"
+	cont "gang PIKACHU?"
+else
 	text "Nihihi! Would you"
 	line "like to battle my"
 	cont "PIKACHU gang?"
+endc
+
 	done
 
-PokefanmJoshuaBeatenText: ; AUTOTRAD
+PokefanmJoshuaBeatenText: 
+if DEF(_FR_FR)
 	text "PI-PIKACHU!"
+else
+	text "PI-PIKACHU!"
+endc
+
 	done
 
-PokefanmJoshuaAfterBattleText: ; AUTOTRAD
+PokefanmJoshuaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu dois avoir"
+	line "beaucoup de #-"
+
+	para "MON, mais PIKACHU"
+	line "est le meilleur."
+else
 	text "You look like you"
 	line "have many #MON,"
 
 	para "but PIKACHU is"
 	line "still the best."
+endc
+
 	done
 
-BirdKeeperPerrySeenText: ; AUTOTRAD
+BirdKeeperPerrySeenText: 
+if DEF(_FR_FR)
+	text "L'agilité est LA"
+	line "caractéristique"
+	cont "des #MON"
+	cont "oiseaux."
+else
 	text "Agility is the key"
 	line "attribute of bird"
 	cont "#MON."
+endc
+
 	done
 
-BirdKeeperPerryBeatenText: ; AUTOTRAD
+BirdKeeperPerryBeatenText: 
+if DEF(_FR_FR)
+	text "Ta vitesse m'a"
+	line "blousé..."
+else
 	text "You beat me with"
 	line "your speed…"
+endc
+
 	done
 
-BirdKeeperPerryAfterBattleText: ; AUTOTRAD
+BirdKeeperPerryAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tes #MON sont"
+	line "très bien entraî-"
+	cont "nés."
+else
 	text "Your #MON are"
 	line "remarkably well-"
 	cont "trained."
+endc
+
 	done
 
-BirdKeeperBretSeenText: ; AUTOTRAD
+BirdKeeperBretSeenText: 
+if DEF(_FR_FR)
+	text "Mate donc mes bô"
+	line "#MON. Regarde"
+
+	para "leur joli plumage."
+	line "C'est trop cool."
+else
 	text "Check out my #-"
 	line "MON. Just look at"
 
 	para "their coloring and"
 	line "their plumage."
+endc
+
 	done
 
-BirdKeeperBretBeatenText: ; AUTOTRAD
+BirdKeeperBretBeatenText: 
+if DEF(_FR_FR)
+	text "Naaaan!"
+	line "Pas glop!"
+else
 	text "Shoot!"
 	line "Not good enough!"
+endc
+
 	done
 
-BirdKeeperBretAfterBattleText: ; AUTOTRAD
+BirdKeeperBretAfterBattleText: 
+if DEF(_FR_FR)
+	text "Occupe-toi de tes"
+	line "#MON et ils"
+	cont "seront heureux."
+else
 	text "If you groom them,"
 	line "#MON get happy."
+endc
+
 	done
 
-HikerKennySeenText: ; AUTOTRAD
+HikerKennySeenText: 
+if DEF(_FR_FR)
+	text "Je vais passer à"
+	line "la GROTTE pour"
+	cont "choper un ONIX."
+else
 	text "I should go to"
 	line "ROCK TUNNEL to get"
 	cont "myself an ONIX."
+endc
+
 	done
 
-HikerKennyBeatenText: ; AUTOTRAD
+HikerKennyBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu..."
+else
 	text "I lost…"
+endc
+
 	done
 
-HikerKennyAfterBattleText: ; AUTOTRAD
+HikerKennyAfterBattleText: 
+if DEF(_FR_FR)
+	text "La terre change..."
+	line "Petit à petit."
+
+	para "Les montagnes, les"
+	line "paysages... Tout"
+	cont "évolue."
+else
 	text "Geological fea-"
 	line "tures don't appear"
 	cont "to change."
@@ -209,29 +312,53 @@ HikerKennyAfterBattleText: ; AUTOTRAD
 	para "But they actually"
 	line "change, little by"
 	cont "little."
+endc
+
 	done
 
-Route13TrainerTipsText: ; AUTOTRAD
+Route13TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Regardez à gauche"
+	line "de cette pancarte."
+else
 	text "TRAINER TIPS"
 
 	para "Look! Right there,"
 	line "at the left side"
 	cont "of the post."
+endc
+
 	done
 
-Route13SignText: ; AUTOTRAD
+Route13SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 13"
+
+	para "Nord du PONT du"
+	line "SILENCE"
+else
 	text "ROUTE 13"
 
 	para "NORTH TO SILENCE"
 	line "BRIDGE"
+endc
+
 	done
 
-Route13DirectionsSignText: ; AUTOTRAD
+Route13DirectionsSignText: 
+if DEF(_FR_FR)
+	text "NORD: LAVANVILLE"
+	line "OUEST: PARMANIE"
+else
 	text "NORTH TO LAVENDER"
 	line "TOWN"
 
 	para "WEST TO FUCHSIA"
 	line "CITY"
+endc
+
 	done
 
 Route13_MapEvents:

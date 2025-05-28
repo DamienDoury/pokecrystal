@@ -138,15 +138,38 @@ EcruteakCityHiddenBerryJuice:
 EcruteakCity_DoorScript:
 	jumpstd LockdownCurfewClosedDoor
 
-EcruteakCityGramps1Text: ; AUTOTRAD
+EcruteakCityGramps1Text: 
+if DEF(_FR_FR)
+	text "ROSALIA avait"
+	line "deux tours:"
+
+	para "une à l'Est,"
+	line "l'autre à l'Ouest."
+else
 	text "ECRUTEAK used to"
 	line "have two towers:"
 
 	para "one each in the"
 	line "east and west."
+endc
+
 	done
 
-EcruteakCityGramps2Text: ; AUTOTRAD
+EcruteakCityGramps2Text: 
+if DEF(_FR_FR)
+	text "Ah..."
+	line "As-tu appris à"
+
+	para "danser comme les"
+	line "KIMONO?"
+
+	para "Si tu vas dans"
+	line "leur SALLE de"
+
+	para "DANSE, un vieil"
+	line "homme bizarre te"
+	cont "donnera un cadeau."
+else
 	text "Ah, child."
 	line "Have you learned"
 
@@ -159,33 +182,76 @@ EcruteakCityGramps2Text: ; AUTOTRAD
 	para "odd old man will"
 	line "give you something"
 	cont "nice, I hear."
+endc
+
 	done
 
-EcruteakCityLass1Text: ; AUTOTRAD
+EcruteakCityLass1Text: 
+if DEF(_FR_FR)
+	text "Je vais m'entraî-"
+	line "ner à la SALLE de"
+
+	para "DANSE, tu viens"
+	line "avec moi?"
+else
 	text "I'm going to prac-"
 	line "tice at the DANCE"
 
 	para "THEATER. Care to"
 	line "join me?"
+endc
+
 	done
 
-EcruteakCityLass2Text: ; AUTOTRAD
+EcruteakCityLass2Text: 
+if DEF(_FR_FR)
+	text "La tour qu'il y"
+	line "avait ici..."
+
+	para "Ma mémé me disait"
+	line "qu'elle était bien"
+	cont "plus grande."
+else
 	text "The tower that"
 	line "used to be here…"
 
 	para "My grandma told me"
 	line "it used to be much"
 	cont "taller."
+endc
+
 	done
 
-EcruteakCityLass2Text_ReleasedBeasts: ; AUTOTRAD
+EcruteakCityLass2Text_ReleasedBeasts: 
+if DEF(_FR_FR)
+	text "Trois gros #MON"
+	line "se sont enfuis"
+	cont "dans des direc-"
+	cont "tions différentes."
+	cont "Qu'est-ce qui"
+	cont "s'organise?"
+else
 	text "Three big #MON"
 	line "ran off in differ-"
 	cont "ent directions."
 	cont "What were they?"
+endc
+
 	done
 
-EcruteakCityFisherText: ; AUTOTRAD
+EcruteakCityFisherText: 
+if DEF(_FR_FR)
+	text "Il y a une rumeur"
+	line "qui court sur le"
+	cont "PHARE D'OLIVILLE."
+
+	para "Le #MON qui"
+	line "était au PHARE"
+
+	para "est tombé malade."
+	line "Tout ça c'est pas"
+	cont "bon signe."
+else
 	text "I heard a rumor"
 	line "about OLIVINE"
 	cont "LIGHTHOUSE."
@@ -196,6 +262,8 @@ EcruteakCityFisherText: ; AUTOTRAD
 	para "beacon fell ill."
 	line "Sounds like they"
 	cont "are in trouble."
+endc
+
 	done
 
 EcruteakCityFisherText_JasmineReturned: ; TO TRANSLATE
@@ -205,15 +273,54 @@ EcruteakCityFisherText_JasmineReturned: ; TO TRANSLATE
 	cont "was sad…"
 	done
 
-EcruteakCityYoungsterText: ; AUTOTRAD
+EcruteakCityYoungsterText: 
+if DEF(_FR_FR)
+	text "On dit que les"
+	line "#MON sont"
+
+	para "déchaînés au LAC"
+	line "COLERE. J'aimerais"
+	cont "bien voir ça."
+else
 	text "I hear #MON are"
 	line "rampaging at the"
 
 	para "LAKE OF RAGE. I'd"
 	line "like to see that."
+endc
+
 	done
 
-EcruteakCityGramps3Text: ; AUTOTRAD
+EcruteakCityGramps3Text: 
+if DEF(_FR_FR)
+	text "Il y a bien"
+	line "longtemps..."
+
+	para "La tour prit feu."
+	line "3 #MON inconnus"
+
+	para "périrent alors"
+	line "dans les flammes."
+
+	para "Un #MON aux"
+	line "couleurs de l'arc-"
+
+	para "en-ciel descendit"
+	line "du ciel et les"
+	cont "ressuscita..."
+
+	para "Cette légende est"
+	line "connue de tous les"
+
+	para "CHAMPIONS de"
+	line "ROSALIA."
+
+	para "Moi?"
+
+	para "J'étais dresseur"
+	line "à l'époque."
+	cont "Hohoho!"
+else
 	text "In the distant"
 	line "past…"
 
@@ -240,39 +347,90 @@ EcruteakCityGramps3Text: ; AUTOTRAD
 	para "I was a trainer"
 	line "way back when."
 	cont "Hohoho!"
+endc
+
 	done
 
-EcruteakCitySignText: ; AUTOTRAD
+EcruteakCitySignText: 
+if DEF(_FR_FR)
+	text "ROSALIA"
+	line "Une ville bien"
+
+	para "historique où"
+	line "le Passé et le"
+	cont "Présent se"
+	cont "rencontrent"
+else
 	text "ECRUTEAK CITY"
 	line "A Historical City"
 
 	para "Where the Past"
 	line "Meets the Present"
+endc
+
 	done
 
-TinTowerSignText: ; AUTOTRAD
+TinTowerSignText: 
+if DEF(_FR_FR)
+	text "TOUR FERRAILLE"
+
+	para "Un #MON"
+	line "légendaire y est"
+	cont "soi-disant"
+	cont "perché."
+else
 	text "TIN TOWER"
 
 	para "A legendary #-"
 	line "MON is said to"
 	cont "roost here."
+endc
+
 	done
 
-EcruteakGymSignText: ; AUTOTRAD
+EcruteakGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de ROSALIA:"
+	cont "MORTIMER"
+
+	para "Le mystérieux"
+	line "voyant"
+else
 	text "ECRUTEAK CITY"
 	line "#MON GYM"
 	cont "LEADER: MORTY"
 
 	para "The Mystic Seer of"
 	line "the Future"
+endc
+
 	done
 
-EcruteakDanceTheaterSignText: ; AUTOTRAD
+EcruteakDanceTheaterSignText: 
+if DEF(_FR_FR)
+	text "SALLE de DANSE"
+	line "de ROSALIA"
+else
 	text "ECRUTEAK DANCE"
 	line "THEATER"
+endc
+
 	done
 
-BurnedTowerSignText: ; AUTOTRAD
+BurnedTowerSignText: 
+if DEF(_FR_FR)
+	text "TOUR CENDREE"
+
+	para "Elle a été détrui-"
+	line "te par un feu"
+	cont "d'origine encore"
+	cont "inconnue."
+
+	para "Restez à l'écart"
+	line "pour votre propre"
+	cont "sécurité."
+else
 	text "BURNED TOWER"
 
 	para "It was destroyed"
@@ -281,6 +439,8 @@ BurnedTowerSignText: ; AUTOTRAD
 
 	para "Please stay away,"
 	line "as it is unsafe."
+endc
+
 	done
 
 EcruteakCityPoliceStationSignText: ; TO TRANSLATE

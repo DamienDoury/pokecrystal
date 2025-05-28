@@ -139,21 +139,40 @@ CeladonCityGramps1Text: ; TO TRANSLATE
 	line "problem…"
 	done
 
-CeladonCityGramps2Text: ; AUTOTRAD
+CeladonCityGramps2Text: 
+if DEF(_FR_FR)
+	text "Hihi! Cette ARENE"
+	line "est géniale! C'est"
+
+	para "réservé aux"
+	line "filles! Youpi!"
+else
 	text "Nihihi! This GYM"
 	line "is great! Only"
 
 	para "girls are allowed"
 	line "here!"
+endc
+
 	done
 
-CeladonCityYoungster1Text: ; AUTOTRAD
+CeladonCityYoungster1Text: 
+if DEF(_FR_FR)
+	text "Tu veux connaître"
+	line "un secret?"
+
+	para "Le MANOIR CELADON"
+	line "a une porte cachée"
+	cont "à l'arrière."
+else
 	text "Want to know a"
 	line "secret?"
 
 	para "CELADON MANSION"
 	line "has a hidden back"
 	cont "door."
+endc
+
 	done
 
 CeladonCityYoungster2Text: ; TO TRANSLATE
@@ -193,30 +212,60 @@ CeladonCityLassText: ; TO TRANSLATE
 	line "liked him."
     done
 
-CeladonCitySignText: ; AUTOTRAD
+CeladonCitySignText: 
+if DEF(_FR_FR)
+	text "CELADOPOLE"
+
+	para "La ville aux rêves"
+	line "arc-en-ciel"
+else
 	text "CELADON CITY"
 
 	para "The City of"
 	line "Rainbow Dreams"
+endc
+
 	done
 
-CeladonGymSignText: ; AUTOTRAD
+CeladonGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de CELADOPOLE:"
+	cont "ERIKA"
+
+	para "La princesse de"
+	line "la nature"
+else
 	text "CELADON CITY"
 	line "#MON GYM"
 	cont "LEADER: ERIKA"
 
 	para "The Nature-Loving"
 	line "Princess"
+endc
+
 	done
 
-CeladonCityDeptStoreSignText: ; AUTOTRAD
+CeladonCityDeptStoreSignText: 
+if DEF(_FR_FR)
+	text "Y'a de tout au"
+	line "CENTRE COMMERCIAL"
+	cont "de CELADOPOLE!"
+else
 	text "Find What You"
 	line "Need at CELADON"
 	cont "DEPT.STORE!"
+endc
+
 	done
 
-CeladonCityMansionSignText: ; AUTOTRAD
+CeladonCityMansionSignText: 
+if DEF(_FR_FR)
+	text "MANOIR CELADON"
+else
 	text "CELADON MANSION"
+endc
+
 	done
 
 CeladonCityGameCornerSignText:

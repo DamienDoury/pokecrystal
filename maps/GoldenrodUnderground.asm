@@ -614,8 +614,13 @@ SupernerdEricSeenText: ; TO TRANSLATE
 	text "I like to gamble."
 	done
 
-SupernerdEricBeatenText: ; AUTOTRAD
+SupernerdEricBeatenText: 
+if DEF(_FR_FR)
+	text "...Grrr..."
+else
 	text "…Grumble…"
+endc
+
 	done
 
 SupernerdEricAfterBattleText: ; TO TRANSLATE
@@ -634,7 +639,20 @@ SupernerdEricAfterBattleText_Reopening: ; TO TRANSLATE
 	cont "Time to gamble!"
 	done
 
-SupernerdTeruSeenText: ; AUTOTRAD
+SupernerdTeruSeenText: 
+if DEF(_FR_FR)
+	text "Fais-tu attention"
+	line "aux types de #-"
+	cont "MON pendant les"
+	cont "combats?"
+
+	para "Apprends les fai-"
+	line "blesses et les a-"
+
+	para "vantages des types"
+	line "pour devenir"
+	cont "plus terrible!"
+else
 	text "Do you consider"
 	line "type alignments in"
 	cont "battle?"
@@ -644,38 +662,80 @@ SupernerdTeruSeenText: ; AUTOTRAD
 
 	para "you'll do better"
 	line "in battle."
+endc
+
 	done
 
-SupernerdTeruBeatenText: ; AUTOTRAD
+SupernerdTeruBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, oh, oh!"
+else
 	text "Ow, ow, ow!"
+endc
+
 	done
 
-SupernerdTeruAfterBattleText: ; AUTOTRAD
+SupernerdTeruAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je connais tous"
+	line "les types de #-"
+	cont "MON."
+
+	para "Mais je n'en uti-"
+	line "lise qu'un seul."
+else
 	text "I know my #MON"
 	line "type alignments."
 
 	para "But I only use one"
 	line "type of #MON."
+endc
+
 	done
 
-PokemaniacIssacSeenText: ; AUTOTRAD
+PokemaniacIssacSeenText: 
+if DEF(_FR_FR)
+	text "Mes #MON se"
+	line "sont fait"
+	cont "toiletter!"
+
+	para "Regarde comme ils"
+	line "sont beaux et"
+	cont "forts!"
+else
 	text "My #MON just"
 	line "got a haircut!"
 
 	para "I'll show you how"
 	line "strong it is!"
+endc
+
 	done
 
-PokemaniacIssacBeatenText: ; AUTOTRAD
+PokemaniacIssacBeatenText: 
+if DEF(_FR_FR)
+	text "Yaaaaaaaah!"
+else
 	text "Aiyeeee!"
+endc
+
 	done
 
-PokemaniacIssacAfterBattleText: ; AUTOTRAD
+PokemaniacIssacAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tes #MON t'ai-"
+	line "meront plus si tu"
+
+	para "les fais toilet-"
+	line "ter."
+else
 	text "Your #MON will"
 	line "like you more if"
 
 	para "you give them"
 	line "haircuts."
+endc
+
 	done
 
 PokemaniacDonaldSeenText: ; TO TRANSLATE
@@ -686,12 +746,31 @@ PokemaniacDonaldSeenText: ; TO TRANSLATE
 	para "Lemme see them!"
 	done
 
-PokemaniacDonaldBeatenText: ; AUTOTRAD
+PokemaniacDonaldBeatenText: 
+if DEF(_FR_FR)
+	text "Graah! Perdu!"
+	line "Ca craint!"
+else
 	text "Gaah! I lost!"
 	line "That makes me mad!"
+endc
+
 	done
 
-PokemaniacDonaldAfterBattleText: ; AUTOTRAD
+PokemaniacDonaldAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu remplis un"
+	line "#DEX? Voilà"
+	cont "un conseil."
+
+	para "MARIO, le MONTA-"
+	line "GNARD de la ROUTE"
+	cont "33 est sympa."
+
+	para "Il t'appellera"
+	line "s'il voit des"
+	cont "#MON rares."
+else
 	text "Are you making a"
 	line "#DEX? Here's a"
 	cont "hot tip."
@@ -703,6 +782,8 @@ PokemaniacDonaldAfterBattleText: ; AUTOTRAD
 	para "He'll phone you if"
 	line "he sees any rare"
 	cont "#MON."
+endc
+
 	done
 
 GameCornerExitBlockText: ; TO TRANSLATE
@@ -710,20 +791,53 @@ GameCornerExitBlockText: ; TO TRANSLATE
 	line "door behind you…"
 	done
 
-GoldenrodUndergroundTheDoorsLockedText: ; AUTOTRAD
+GoldenrodUndergroundTheDoorsLockedText: 
+if DEF(_FR_FR)
+	text "C'est fermé..."
+else
 	text "The door's locked…"
+endc
+
 	done
 
-GoldenrodUndergroundTheDoorIsOpenText: ; AUTOTRAD
+GoldenrodUndergroundTheDoorIsOpenText: 
+if DEF(_FR_FR)
+	text "C'est ouvert."
+else
 	text "The door is open."
+endc
+
 	done
 
-GoldenrodUndergroundBasementKeyOpenedDoorText: ; AUTOTRAD
+GoldenrodUndergroundBasementKeyOpenedDoorText: 
+if DEF(_FR_FR)
+	text "La CLE SOUS-SOL a"
+	line "ouvert la porte."
+else
 	text "The BASEMENT KEY"
 	line "opened the door."
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText: 
+if DEF(_FR_FR)
+	text "Bienvenue! Je"
+
+	para "m'occupe du SALON"
+	line "#MON!"
+
+	para "Je suis l'aîné et"
+	line "le meilleur des"
+	cont "FRERES COIFFEURS."
+
+	para "Je peux toiletter"
+	line "tes #MON pour"
+	cont "juste 500¥."
+
+	para "Veux-tu que je"
+	line "m'en occupe?"
+else
 	text "Welcome!"
 
 	para "I run the #MON"
@@ -739,39 +853,93 @@ GoldenrodUndergroundOlderHaircutBrotherOfferHaircutText: ; AUTOTRAD
 
 	para "Would you like me"
 	line "to do that?"
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherAskWhichMonText: 
+if DEF(_FR_FR)
+	text "Quel #MON veux-"
+	line "tu me confier?"
+else
 	text "Which #MON"
 	line "should I work on?"
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherWatchItBecomeBeautifulText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherWatchItBecomeBeautifulText: 
+if DEF(_FR_FR)
+	text "Je vais lui refai-"
+	line "re une beauté!"
+else
 	text "OK! Watch it"
 	line "become beautiful!"
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherAllDoneText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherAllDoneText: 
+if DEF(_FR_FR)
+	text "Ca y est! Fini!"
+else
 	text "There! All done!"
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherThatsAShameText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherThatsAShameText: 
+if DEF(_FR_FR)
+	text "Vraiment?"
+	line "Quel dommage!"
+else
 	text "Is that right?"
 	line "That's a shame!"
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherYoullNeedMoreMoneyText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherYoullNeedMoreMoneyText: 
+if DEF(_FR_FR)
+	text "Il te faut plus"
+	line "de sous..."
+else
 	text "You'll need more"
 	line "money than that."
+endc
+
 	done
 
-GoldenrodUndergroundOlderHaircutBrotherOneHaircutADayText: ; AUTOTRAD
+GoldenrodUndergroundOlderHaircutBrotherOneHaircutADayText: 
+if DEF(_FR_FR)
+	text "Je ne fais qu'un"
+	line "toilettage par"
+	cont "jour. Au revoir."
+else
 	text "I do only one"
 	line "haircut a day. I'm"
 	cont "done for today."
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText: 
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "SALON #MON!"
+
+	para "Je suis le cadet"
+	line "et le moins cher"
+	cont "des FRERES"
+	cont "COIFFEURS."
+
+	para "J'peux m'occuper"
+	line "de tes #MON"
+	cont "pour 300¥."
+
+	para "Alors? Ca te dit"
+	line "oui ou non?"
+else
 	text "Welcome to the"
 	line "#MON SALON!"
 
@@ -785,67 +953,140 @@ GoldenrodUndergroundYoungerHaircutBrotherOfferHaircutText: ; AUTOTRAD
 	cont "¥300."
 
 	para "So? How about it?"
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherAskWhichMonText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherAskWhichMonText: 
+if DEF(_FR_FR)
+	text "De quel #MON"
+	line "je m'occupe?"
+else
 	text "OK, which #MON"
 	line "should I do?"
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherIllMakeItLookCoolText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherIllMakeItLookCoolText: 
+if DEF(_FR_FR)
+	text "OK! Y va être"
+	line "trop cool!"
+else
 	text "OK! I'll make it"
 	line "look cool!"
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherAllDoneText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherAllDoneText: 
+if DEF(_FR_FR)
+	text "Allez hop!"
+	line "Terminé!"
+else
 	text "There we go!"
 	line "All done!"
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherHowDisappointingText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherHowDisappointingText: 
+if DEF(_FR_FR)
+	text "Non?"
+	line "Tant pis."
+else
 	text "No? "
 	line "How disappointing!"
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherShortOnFundsText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherShortOnFundsText: 
+if DEF(_FR_FR)
+	text "T'es à court"
+	line "de fric."
+else
 	text "You're a little"
 	line "short on funds."
+endc
+
 	done
 
-GoldenrodUndergroundYoungerHaircutBrotherOneHaircutADayText: ; AUTOTRAD
+GoldenrodUndergroundYoungerHaircutBrotherOneHaircutADayText: 
+if DEF(_FR_FR)
+	text "Je ne fais qu'un"
+	line "toilettage par"
+	cont "jour. Au revoir."
+else
 	text "I can do only one"
 	line "haircut a day."
 
 	para "Sorry, but I'm all"
 	line "done for today."
+endc
+
 	done
 
-HaircutBrosText_SlightlyHappier: ; AUTOTRAD
+HaircutBrosText_SlightlyHappier: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text " a l'air"
+	line "un peu plus"
+	cont "heureux."
+else
 	text_ram wStringBuffer3
 	text " looks a"
 	line "little happier."
+endc
+
 	done
 
-HaircutBrosText_Happier: ; AUTOTRAD
+HaircutBrosText_Happier: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text " a l'air"
+	line "heureux."
+else
 	text_ram wStringBuffer3
 	text " looks"
 	line "happy."
+endc
+
 	done
 
-HaircutBrosText_MuchHappier: ; AUTOTRAD
+HaircutBrosText_MuchHappier: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text " a l'air"
+	line "ravi!"
+else
 	text_ram wStringBuffer3
 	text " looks"
 	line "delighted!"
+endc
+
 	done
 
-GoldenrodUndergroundWeAreNotOpenTodayText: ; AUTOTRAD
+GoldenrodUndergroundWeAreNotOpenTodayText: 
+if DEF(_FR_FR)
+	text "C'est fermé"
+	line "aujourd'hui."
+else
 	text "We're not open"
 	line "today."
+endc
+
 	done
 
-GoldenrodUndergroundNoEntryText: ; AUTOTRAD
+GoldenrodUndergroundNoEntryText: 
+if DEF(_FR_FR)
+	text "ENTREE"
+	line "INTERDITE"
+else
 	text "NO ENTRY BEYOND"
 	line "THIS POINT"
+endc
+
 	done
 
 GoldenrodUndergroundExitText: ; TO TRANSLATE

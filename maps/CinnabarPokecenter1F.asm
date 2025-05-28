@@ -127,10 +127,17 @@ CinnabarPokecenter1FCooltrainerFText: ; TO TRANSLATE
 	line "left the island…"
 	done
 
-CinnabarPokecenter1FFisherText: ; AUTOTRAD
+CinnabarPokecenter1FFisherText: 
+if DEF(_FR_FR)
+	text "Cela fait un an"
+	line "depuis l'éruption"
+	cont "du volcan."
+else
 	text "It's been a year"
 	line "since the volcano"
 	cont "erupted."
+endc
+
 	done
 
 CinnabarPokecenterRunnerText: ; TO TRANSLATE

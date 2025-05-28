@@ -42,7 +42,16 @@ VermilionPokecenter1FSailorScript:
 VermilionPokecenter1FBugCatcherScript:
 	jumptextfaceplayer VermilionPokecenter1FBugCatcherText
 
-VermilionPokecenter1FFishingGuruText: ; AUTOTRAD
+VermilionPokecenter1FFishingGuruText: 
+if DEF(_FR_FR)
+	text "Un #MON endormi"
+	line "est devant la"
+	cont "CAVE TAUPIQUEUR."
+
+	para "On pourrait l'at-"
+	line "traper, mais com-"
+	cont "ment le réveiller?"
+else
 	text "A sleeping #MON"
 	line "is lying in front"
 	cont "of DIGLETT'S CAVE."
@@ -52,9 +61,21 @@ VermilionPokecenter1FFishingGuruText: ; AUTOTRAD
 
 	para "it, but how do you"
 	line "wake it up?"
+endc
+
 	done
 
-VermilionPokecenter1FFishingGuruText_FoughtSnorlax: ; AUTOTRAD
+VermilionPokecenter1FFishingGuruText_FoughtSnorlax: 
+if DEF(_FR_FR)
+	text "Il y avait un"
+	line "#MON endormi"
+
+	para "devant la CAVE"
+	line "TAUPIQUEUR."
+
+	para "Mais il a disparu,"
+	line "on dirait."
+else
 	text "There used to be a"
 	line "sleeping #MON"
 
@@ -63,14 +84,26 @@ VermilionPokecenter1FFishingGuruText_FoughtSnorlax: ; AUTOTRAD
 
 	para "But it seems to"
 	line "have disappeared."
+endc
+
 	done
 
-VermilionPokecenter1FSailorText: ; AUTOTRAD
+VermilionPokecenter1FSailorText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "est un bon moyen"
+
+	para "de rencontrer et"
+	line "d'affronter des"
+	cont "dresseurs."
+else
 	text "The FAST SHIP is a"
 	line "great place to"
 
 	para "meet and battle"
 	line "trainers."
+endc
+
 	done
 
 VermilionPokecenter1FSailorPowerOutageText: ; TO TRANSLATE
@@ -87,13 +120,23 @@ VermilionPokecenter1FSailorPowerOutageText: ; TO TRANSLATE
 	cont "the CAPTAIN!"
 	done
 
-VermilionPokecenter1FBugCatcherText: ; AUTOTRAD
+VermilionPokecenter1FBugCatcherText: 
+if DEF(_FR_FR)
+	text "Oh? Tu as des"
+	line "BADGES que je n'ai"
+	cont "jamais vus."
+
+	para "Je vois. Tu les"
+	line "as eus à JOHTO."
+else
 	text "Oh? You have some"
 	line "BADGES I've never"
 	cont "seen before."
 
 	para "Oh, I get it. You"
 	line "got them in JOHTO."
+endc
+
 	done
 
 VermilionPokecenter1F_MapEvents:

@@ -66,7 +66,47 @@ HallOfFame_SlowlyApproachMachine:
 	slow_step UP
 	step_end
 
-HallOfFame_LanceText: ; AUTOTRAD
+HallOfFame_LanceText: 
+if DEF(_FR_FR)
+	text "PETER: Je ne suis"
+	line "pas venu ici"
+	cont "depuis longtemps."
+
+	para "Ce lieu consacre"
+	line "les MAITRES de la"
+
+	para "LIGUE pour l'éter-"
+	line "nité."
+
+	para "Leurs courageux"
+	line "#MON sont aussi"
+	cont "accueillis."
+
+	para "Aujourd'hui, un"
+	line "nouveau MAITRE a"
+
+	para "fait son appari-"
+	line "tion. Un MAITRE"
+
+	para "aimant ses #MON"
+	line "plus que tout."
+
+	para "Un dresseur"
+	line "persévérant et"
+	cont "déterminé."
+
+	para "Tu possèdes tous"
+	line "les atouts pour"
+
+	para "être le plus grand"
+	line "des MAITRES!"
+
+	para "<PLAY_G>, je vais"
+	line "inscrire ton nom"
+
+	para "et celui de tes"
+	line "amis!"
+else
 	text "LANCE: It's been a"
 	line "long time since I"
 	cont "last came here."
@@ -110,6 +150,8 @@ HallOfFame_LanceText: ; AUTOTRAD
 
 	para "and your partners"
 	line "as CHAMPIONS!"
+endc
+
 	done
 
 HallOfFame_MapEvents:

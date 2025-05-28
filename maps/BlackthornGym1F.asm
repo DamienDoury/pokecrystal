@@ -283,12 +283,21 @@ RefusesClairsChallengeText: ; TO TRANSLATE
 	line "you."
 	done
 
-ClairWinText: ; AUTOTRAD
+ClairWinText: 
+if DEF(_FR_FR)
+	text "Perdu?"
+
+	para "J'y crois pas!!"
+	line "Il y a sûrement"
+	cont "une erreur..."
+else
 	text "I lost?"
 
 	para "I don't believe"
 	line "it. There must be"
 	cont "some mistake…"
+endc
+
 	done
 
 ClairText_GoToDragonsDen: ; TO TRANSLATE
@@ -320,18 +329,34 @@ ClairText_GoToDragonsDen: ; TO TRANSLATE
 	cont "BADGE!"
 	done
 
-ClairText_TooMuchToExpect: ; AUTOTRAD
+ClairText_TooMuchToExpect: 
+if DEF(_FR_FR)
+	text "Et alors?"
+
+	para "On a peur"
+	line "maintenant?"
+else
 	text "What's the matter?"
 
 	para "Is it too much to"
 	line "expect of you?"
+endc
+
 	done
 
-BlackthornGymClairText_YouKeptMeWaiting: ; AUTOTRAD
+BlackthornGymClairText_YouKeptMeWaiting: 
+if DEF(_FR_FR)
+	text "Tu en as mis du"
+	line "temps!"
+
+	para "Tiens! Prends ça!"
+else
 	text "You've kept me"
 	line "waiting!"
 
 	para "Here! Take this!"
+endc
+
 	done
 
 BlackthornGymText_ReceivedTM24: ; TO TRANSLATE
@@ -339,7 +364,19 @@ BlackthornGymText_ReceivedTM24: ; TO TRANSLATE
 	line "TM24 DRAGONBREATH."
 	done
 
-BlackthornGymClairText_DescribeTM24: ; AUTOTRAD
+BlackthornGymClairText_DescribeTM24: 
+if DEF(_FR_FR)
+	text "Elle contient"
+	line "DRACOSOUFFLE."
+
+	para "Non, cela n'a rien"
+	line "à voir avec mon"
+	cont "haleine..."
+
+	para "Si tu n'en veux"
+	line "pas, c'est pas"
+	cont "la peine."
+else
 	text "That contains"
 	line "DRAGONBREATH."
 
@@ -350,11 +387,19 @@ BlackthornGymClairText_DescribeTM24: ; AUTOTRAD
 	para "If you don't want"
 	line "it, you don't have"
 	cont "to take it."
+endc
+
 	done
 
-BlackthornGymClairText_BagFull: ; AUTOTRAD
+BlackthornGymClairText_BagFull: 
+if DEF(_FR_FR)
+	text "Bah alors? Tu n'as"
+	line "pas de place?"
+else
 	text "What is this? You"
 	line "don't have room?"
+endc
+
 	done
 
 BlackthornGymClairText_League: ; TO TRANSLATE
@@ -363,46 +408,108 @@ BlackthornGymClairText_League: ; TO TRANSLATE
 	cont "to you!"
 	done
 
-CooltrainermPaulSeenText: ; AUTOTRAD
+CooltrainermPaulSeenText: 
+if DEF(_FR_FR)
+	text "C'est ton premier"
+	line "combat face à des"
+	cont "dragons?"
+
+	para "Je vais te montrer"
+	line "leur résistance"
+	cont "suprême!"
+else
 	text "Your first battle"
 	line "against dragons?"
 
 	para "I'll show you how"
 	line "tough they are!"
+endc
+
 	done
 
-CooltrainermPaulBeatenText: ; AUTOTRAD
+CooltrainermPaulBeatenText: 
+if DEF(_FR_FR)
+	text "Mes #MON"
+	line "dragon ont perdu?"
+else
 	text "My dragon #MON"
 	line "lost?"
+endc
+
 	done
 
-CooltrainermPaulAfterBattleText: ; AUTOTRAD
+CooltrainermPaulAfterBattleText: 
+if DEF(_FR_FR)
+	text "PETER voulait te"
+	line "revoir?"
+	cont "Mensonge!"
+else
 	text "LANCE told you"
 	line "that he'd like to"
 
 	para "see you again?"
 	line "Not a chance!"
+endc
+
 	done
 
-CooltrainermMikeSeenText: ; AUTOTRAD
+CooltrainermMikeSeenText: 
+if DEF(_FR_FR)
+	text "Mes chances de"
+	line "perdre? Même pas"
+	cont "une pour mille!"
+else
 	text "My chance of"
 	line "losing? Not even"
 	cont "one percent!"
+endc
+
 	done
 
-CooltrainermMikeBeatenText: ; AUTOTRAD
+CooltrainermMikeBeatenText: 
+if DEF(_FR_FR)
+	text "Je ne suis plus"
+	line "très bon en"
+	cont "maths."
+else
 	text "That's odd."
+endc
+
 	done
 
-CooltrainermMikeAfterBattleText: ; AUTOTRAD
+CooltrainermMikeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je connais mes"
+	line "défauts..."
+
+	para "On recommence?"
+	line "Non? Bon et bien"
+	cont "merci pour la"
+	cont "leçon..."
+else
 	text "I know my short-"
 	line "comings now."
 
 	para "Thanks for showing"
 	line "me!"
+endc
+
 	done
 
-CooltrainerfLolaSeenText: ; AUTOTRAD
+CooltrainerfLolaSeenText: 
+if DEF(_FR_FR)
+	text "Les dragons sont"
+	line "des #MON"
+
+	para "sacrés. Ils sont"
+	line "plein de vie."
+
+	para "Si tu ne fais pas"
+	line "attention, tu ne"
+
+	para "pourras pas en"
+	line "venir à bout."
+else
 	text "Dragons are sacred"
 	line "#MON."
 
@@ -414,16 +521,31 @@ CooltrainerfLolaSeenText: ; AUTOTRAD
 
 	para "be able to beat"
 	line "them."
+endc
+
 	done
 
-CooltrainerfLolaBeatenText: ; AUTOTRAD
+CooltrainerfLolaBeatenText: 
+if DEF(_FR_FR)
+	text "Bien joué!"
+else
 	text "Way to go!"
+endc
+
 	done
 
-CooltrainerfLolaAfterBattleText: ; AUTOTRAD
+CooltrainerfLolaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les dragons sont"
+	line "faibles face aux"
+	cont "attaques de type"
+	cont "DRAGON."
+else
 	text "Dragons are weak"
 	line "against dragon-"
 	cont "type moves."
+endc
+
 	done
 
 BlackthornGymGuideText: ; TO TRANSLATE
@@ -445,7 +567,20 @@ BlackthornGymGuideText: ; TO TRANSLATE
 	line "ice-type moves."
 	done
 
-BlackthornGymGuideWinText: ; AUTOTRAD
+BlackthornGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Bien joué!"
+	line "Beau combat!"
+
+	para "Il ne reste plus"
+	line "que le challenge"
+	cont "de la LIGUE"
+	cont "#MON."
+
+	para "Tu es sur le"
+	line "point de devenir"
+	cont "MAITRE #MON!"
+else
 	text "You were great to"
 	line "beat CLAIR!"
 
@@ -456,6 +591,8 @@ BlackthornGymGuideWinText: ; AUTOTRAD
 	para "You're on the way"
 	line "to becoming the"
 	cont "#MON CHAMPION!"
+endc
+
 	done
 
 BlackthornGym1F_MapEvents:

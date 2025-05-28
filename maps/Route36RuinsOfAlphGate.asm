@@ -29,11 +29,19 @@ Route36RuinsOfAlphGateOfficerScript:
 Route36RuinsOfAlphGateGrampsScript:
 	jumptextfaceplayer Route36RuinsOfAlphGateGrampsText
 
-Route36RuinsOfAlphGateOfficerText: ; AUTOTRAD
+Route36RuinsOfAlphGateOfficerText: 
+if DEF(_FR_FR)
+	text "Qui a bien pu"
+	line "construire tout ça"
+	cont "et....."
+	cont "Pourquoi?"
+else
 	text "Don't you wonder"
 	line "who'd make some-"
 	cont "thing like this?"
 	cont "And why?"
+endc
+
 	done
 	
 Route36RuinsOfAlphGateOfficerWideLensText: ; TO TRANSLATE
@@ -43,7 +51,18 @@ Route36RuinsOfAlphGateOfficerWideLensText: ; TO TRANSLATE
 	cont "come in handy."
 	done
 
-Route36RuinsOfAlphGateGrampsText: ; AUTOTRAD
+Route36RuinsOfAlphGateGrampsText: 
+if DEF(_FR_FR)
+	text "Tu as vu cet arbre"
+	line "louche sur la"
+	cont "route?"
+
+	para "C'est à cause de"
+	line "lui que personne"
+
+	para "ne visite les"
+	line "RUINES D'ALPHA."
+else
 	text "Did you see that"
 	line "strange tree in"
 	cont "the road?"
@@ -53,6 +72,8 @@ Route36RuinsOfAlphGateGrampsText: ; AUTOTRAD
 
 	para "are visiting the"
 	line "RUINS OF ALPH."
+endc
+
 	done
 
 Route36RuinsOfAlphGate_MapEvents:

@@ -44,15 +44,38 @@ MountMortar2FInsideEscapeRope:
 MountMortar2FInsideHiddenFullRestore:
 	hiddenitem FULL_RESTORE, EVENT_MOUNT_MORTAR_2F_INSIDE_HIDDEN_FULL_RESTORE
 
-SupernerdHughSeenText: ; AUTOTRAD
+SupernerdHughSeenText: 
+if DEF(_FR_FR)
+	text "Yo! MARC!"
+else
 	text "Yo! MARKUS!"
+endc
+
 	done
 
-SupernerdHughBeatenText: ; AUTOTRAD
+SupernerdHughBeatenText: 
+if DEF(_FR_FR)
+	text "Oups. Pardon."
+else
 	text "Sorry, my mistake."
+endc
+
 	done
 
-SupernerdHughAfterBattleText: ; AUTOTRAD
+SupernerdHughAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je suis venu ex-"
+	line "plorer le MONT"
+
+	para "CREUSET mais mon"
+	line "pote a disparu..."
+
+	para "As-tu vu un dres-"
+	line "seur avec un"
+
+	para "RAMOLOSS qui lance"
+	line "FORCE?"
+else
 	text "I'm investigating"
 	line "MT.MORTAR, but my"
 	cont "pal's gone AWOL."
@@ -62,6 +85,8 @@ SupernerdHughAfterBattleText: ; AUTOTRAD
 
 	para "SLOWPOKE that can"
 	line "use STRENGTH?"
+endc
+
 	done
 
 MountMortar2FInside_MapEvents:

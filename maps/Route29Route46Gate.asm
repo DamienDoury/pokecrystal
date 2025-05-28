@@ -13,16 +13,39 @@ Route29Route46GateOfficerScript:
 Route29Route46GateYoungsterScript:
 	jumptextfaceplayer Route29Route46GateYoungsterText
 
-Route29Route46GateOfficerText: ; AUTOTRAD
+Route29Route46GateOfficerText: 
+if DEF(_FR_FR)
+	text "On ne peut pas"
+	line "escalader les"
+	cont "bords."
+
+	para "Mais on peut sau-"
+	line "ter par-dessus"
+	cont "pour aller plus"
+	cont "vite."
+else
 	text "You can't climb"
 	line "ledges."
 
 	para "But you can jump"
 	line "down from them to"
 	cont "take a shortcut."
+endc
+
 	done
 
-Route29Route46GateYoungsterText: ; AUTOTRAD
+Route29Route46GateYoungsterText: 
+if DEF(_FR_FR)
+	text "Des #MON diffé-"
+	line "rents apparaissent"
+	cont "plus loin."
+
+	para "Si tu veux tous"
+	line "les attraper, il"
+
+	para "faut chercher un"
+	line "peu partout."
+else
 	text "Different kinds of"
 	line "#MON appear"
 	cont "past here."
@@ -32,6 +55,8 @@ Route29Route46GateYoungsterText: ; AUTOTRAD
 
 	para "you have to look"
 	line "everywhere."
+endc
+
 	done
 
 Route29Route46Gate_MapEvents:

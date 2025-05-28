@@ -47,7 +47,21 @@ GoldenrodBikeShopClerkScript:
 GoldenrodBikeShopBicycle:
 	jumptext GoldenrodBikeShopBicycleText
 
-GoldenrodBikeShopClerkIntroText: ; AUTOTRAD
+GoldenrodBikeShopClerkIntroText: 
+if DEF(_FR_FR)
+	text "...(soupir)..."
+	line "J'ai déménagé ici"
+
+	para "mais je n'arrive"
+	line "pas à vendre mes"
+	cont "BICYCLETTES."
+	cont "Pourquoi?"
+
+	para "Pourrais-tu faire"
+	line "de la BICYCLETTE"
+	cont "et me faire de la"
+	cont "pub?"
+else
 	text "…sigh… I moved"
 	line "here, but I can't"
 
@@ -57,9 +71,21 @@ GoldenrodBikeShopClerkIntroText: ; AUTOTRAD
 	para "Could you ride a"
 	line "BICYCLE and adver-"
 	cont "tise for me?"
+endc
+
 	done
 
-GoldenrodBikeShopClerkAgreedText: ; AUTOTRAD
+GoldenrodBikeShopClerkAgreedText: 
+if DEF(_FR_FR)
+	text "Vraiment? Génial!"
+
+	para "Donne-moi ton nom"
+	line "et ton numéro de"
+
+	para "téléphone et je te"
+	line "prêterai une"
+	cont "BICYCLETTE."
+else
 	text "Really? Great!"
 
 	para "Give me your name"
@@ -67,30 +93,60 @@ GoldenrodBikeShopClerkAgreedText: ; AUTOTRAD
 
 	para "and I'll loan you"
 	line "a BICYCLE."
+endc
+
 	done
 
-BorrowedABicycleText: ; AUTOTRAD
+BorrowedABicycleText: 
+if DEF(_FR_FR)
+	text "<PLAYER> emprunte"
+	line "une BICYCLETTE."
+else
 	text "<PLAYER> borrowed a"
 	line "BICYCLE."
+endc
+
 	done
 
-GoldenrodBikeShopClerkFirstRateBikesText: ; AUTOTRAD
+GoldenrodBikeShopClerkFirstRateBikesText: 
+if DEF(_FR_FR)
+	text "Mes BICYCLETTES"
+	line "sont trop bien!"
+
+	para "Tu peux en faire"
+	line "partout."
+else
 	text "My BICYCLES are"
 	line "first-rate! You"
 
 	para "can ride them"
 	line "anywhere."
+endc
+
 	done
 
-GoldenrodBikeShopClerkRefusedText: ; AUTOTRAD
+GoldenrodBikeShopClerkRefusedText: 
+if DEF(_FR_FR)
+	text "...(soupir)..."
+	line "Ah, que dire de"
+	cont "plus..."
+else
 	text "…sigh… Oh, for"
 	line "the kindness of"
 	cont "people…"
+endc
+
 	done
 
-GoldenrodBikeShopBicycleText: ; AUTOTRAD
+GoldenrodBikeShopBicycleText: 
+if DEF(_FR_FR)
+	text "C'est une sacrée"
+	line "jolie BICYCLETTE!"
+else
 	text "It's a shiny new"
 	line "BICYCLE!"
+endc
+
 	done
 
 GoldenrodBikeShop_MapEvents:

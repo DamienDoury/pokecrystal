@@ -230,7 +230,16 @@ FastShip1F_PlayerLeavesShipRightMovement:
 	step UP
 	step_end
 
-FastShip1FSailor1Text_ToVermilion: ; AUTOTRAD
+FastShip1FSailor1Text_ToVermilion: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA va à"
+	cont "CARMIN SUR MER."
+
+	para "Nous ferons un"
+	line "appel à notre"
+	cont "arrivée."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "is en route to"
 	cont "VERMILION CITY."
@@ -238,9 +247,20 @@ FastShip1FSailor1Text_ToVermilion: ; AUTOTRAD
 	para "We will make an"
 	line "announcement when"
 	cont "we arrive."
+endc
+
 	done
 
-FastShip1FSailor1Text_ToOlivine: ; AUTOTRAD
+FastShip1FSailor1Text_ToOlivine: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA va à"
+	cont "OLIVILLE."
+
+	para "Nous ferons un"
+	line "appel à notre"
+	cont "arrivée."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "is en route to"
 	cont "OLIVINE CITY."
@@ -248,9 +268,22 @@ FastShip1FSailor1Text_ToOlivine: ; AUTOTRAD
 	para "We will make an"
 	line "announcement when"
 	cont "we arrive."
+endc
+
 	done
 
-FastShip1FSailor2Text_FirstTime: ; AUTOTRAD
+FastShip1FSailor2Text_FirstTime: 
+if DEF(_FR_FR)
+	text "Voici votre"
+	line "cabine."
+
+	para "Si vos #MON"
+	line "sont blessés,"
+	cont "dormez et..."
+
+	para "Ils seront tous"
+	line "soignés."
+else
 	text "Here's your cabin."
 
 	para "If your #MON"
@@ -259,9 +292,23 @@ FastShip1FSailor2Text_FirstTime: ; AUTOTRAD
 
 	para "That will heal"
 	line "them."
+endc
+
 	done
 
-FastShip1FSailor2Text: ; AUTOTRAD
+FastShip1FSailor2Text: 
+if DEF(_FR_FR)
+	text "Voici votre"
+	line "cabine."
+
+	para "Soignez vos #-"
+	line "MON en dormant"
+	cont "dans le lit."
+
+	para "Le bateau arrivera"
+	line "pendant votre"
+	cont "sommeil."
+else
 	text "Here's your cabin."
 
 	para "You can heal your"
@@ -271,18 +318,42 @@ FastShip1FSailor2Text: ; AUTOTRAD
 	para "The ship will"
 	line "arrive while"
 	cont "you're sleeping."
+endc
+
 	done
 
-FastShip1FSailor3Text: ; AUTOTRAD
+FastShip1FSailor3Text: 
+if DEF(_FR_FR)
+	text "Tous les passagers"
+	line "sont dresseurs."
+
+	para "Ils veulent tous"
+	line "se battre dans"
+	cont "leur cabine."
+else
 	text "The passengers are"
 	line "all trainers."
 
 	para "They're all itch-"
 	line "ing to battle in"
 	cont "their cabins."
+endc
+
 	done
 
-FastShip1FGrandpaText: ; AUTOTRAD
+FastShip1FGrandpaText: 
+if DEF(_FR_FR)
+	text "Whoa! Pardon."
+	line "Je suis un peu"
+	cont "pressé!"
+
+	para "Ma petite-fille a"
+	line "disparu!"
+
+	para "Elle est toute"
+	line "jeune... Préviens-"
+	cont "moi si tu la vois!"
+else
 	text "Whoa! Excuse me."
 	line "I was in a hurry!"
 
@@ -294,18 +365,34 @@ FastShip1FGrandpaText: ; AUTOTRAD
 
 	para "her, please let me"
 	line "know!"
+endc
+
 	done
 
-FastShip1FSailor1Text_InOlivine: ; AUTOTRAD
+FastShip1FSailor1Text_InOlivine: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA est arrivé"
+	cont "à OLIVILLE."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "OLIVINE CITY."
+endc
+
 	done
 
-FastShip1FSailor1Text_InVermilion: ; AUTOTRAD
+FastShip1FSailor1Text_InVermilion: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA est arrivé"
+	cont "à CARMIN SUR MER."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "has arrived in"
 	cont "VERMILION CITY."
+endc
+
 	done
 
 FastShip1FSailor1Text_NeedToSave: ; TO TRANSLATE

@@ -1,7 +1,6 @@
 SECTION "Map Scripts 1", ROMX
 
 INCLUDE "maps/GoldenrodGym.asm"
-INCLUDE "maps/GoldenrodHappinessRater.asm"
 INCLUDE "maps/BillsFamilysHouse.asm"
 INCLUDE "maps/GoldenrodMagnetTrainStation.asm"
 INCLUDE "maps/GoldenrodFlowerShop.asm"
@@ -19,7 +18,6 @@ INCLUDE "maps/CeruleanCaveEntrance.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
 INCLUDE "maps/CeruleanCaveB2F.asm"
 INCLUDE "maps/CeruleanCaveB3F.asm"
-
 
 SECTION "Map Scripts 2", ROMX
 
@@ -231,7 +229,6 @@ INCLUDE "maps/OlivineTimsHouse.asm"
 INCLUDE "maps/OlivinePunishmentSpeechHouse.asm"
 INCLUDE "maps/OlivineGoodRodHouse.asm"
 INCLUDE "maps/OlivineCafe.asm"
-INCLUDE "maps/OlivineMart.asm"
 INCLUDE "maps/Route38EcruteakGate.asm"
 INCLUDE "maps/Route39Barn.asm"
 INCLUDE "maps/Route39Farmhouse.asm"
@@ -246,7 +243,6 @@ INCLUDE "maps/BattleTower1F.asm"
 INCLUDE "maps/BattleTowerBattleRoom.asm"
 INCLUDE "maps/BattleTowerElevator.asm"
 INCLUDE "maps/BattleTowerHallway.asm"
-INCLUDE "maps/Route40BattleTowerGate.asm"
 INCLUDE "maps/ViridianNicknameSpeechHouse.asm"
 
 
@@ -319,10 +315,7 @@ INCLUDE "maps/WhirlIslandSE.asm"
 INCLUDE "maps/WhirlIslandB1F.asm"
 INCLUDE "maps/WhirlIslandB2F.asm"
 INCLUDE "maps/WhirlIslandLugiaChamber.asm"
-INCLUDE "maps/SilverCaveRoom1.asm"
-INCLUDE "maps/SilverCaveRoom2.asm"
 INCLUDE "maps/SilverCaveRoom3.asm"
-INCLUDE "maps/SilverCaveItemRooms.asm"
 INCLUDE "maps/DragonsDen1F.asm"
 INCLUDE "maps/DragonsDenB1F.asm"
 INCLUDE "maps/DragonShrine.asm"
@@ -371,10 +364,8 @@ INCLUDE "maps/FuchsiaMart.asm"
 INCLUDE "maps/SafariZoneMainOffice.asm"
 INCLUDE "maps/FuchsiaPokecenter1F.asm"
 INCLUDE "maps/SafariZoneWardensHome.asm"
-INCLUDE "maps/WardensNeighborHouse.asm"
 INCLUDE "maps/CherrygrovePokecenter1F.asm"
 INCLUDE "maps/CherrygroveGymSpeechHouse.asm"
-INCLUDE "maps/GuideGentsHouse.asm"
 INCLUDE "maps/MrPokemonsHouse.asm"
 
 
@@ -390,11 +381,9 @@ INCLUDE "maps/MahoganyRedGyaradosSpeechHouse.asm"
 INCLUDE "maps/MahoganyGym.asm"
 INCLUDE "maps/MahoganyPokecenter1F.asm"
 INCLUDE "maps/Route42EcruteakGate.asm"
-INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
 INCLUDE "maps/Route31VioletGate.asm"
-INCLUDE "maps/Route19FuchsiaGate.asm"
 
 
 SECTION "Map Scripts 20", ROMX
@@ -473,14 +462,12 @@ INCLUDE "maps/GoldenrodHospitalCorridor.asm"
 INCLUDE "maps/SilphCoElevator.asm"
 INCLUDE "maps/SilphCoResearch.asm"
 INCLUDE "maps/EarlsPokemonAcademy.asm"
-INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/SoulHouse.asm"
 INCLUDE "maps/Route16.asm"
 INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route10South.asm"
-INCLUDE "maps/GoldenrodBikeShop.asm"
 
 
 SECTION "Map Scripts 26", ROMX
@@ -532,3 +519,15 @@ INCLUDE "maps/Akiba1F.asm" ; Must stay with Akiba2F.asm.
 INCLUDE "maps/Akiba2F.asm" ; Must stay with Akiba1F.asm.
 INCLUDE "maps/Akiba3F.asm"
 INCLUDE "maps/GoldenrodClapHouse.asm"
+INCLUDE "maps/GoldenrodHappinessRater.asm"
+INCLUDE "maps/Route40BattleTowerGate.asm"
+INCLUDE "maps/SilverCaveRoom1.asm"
+INCLUDE "maps/SilverCaveRoom2.asm"
+INCLUDE "maps/SilverCaveItemRooms.asm"
+INCLUDE "maps/GuideGentsHouse.asm"
+INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
+INCLUDE "maps/OlivineMart.asm"
+INCLUDE "maps/WardensNeighborHouse.asm"
+INCLUDE "maps/Route19FuchsiaGate.asm"
+INCLUDE "maps/GoldenrodBikeShop.asm"
+INCLUDE "maps/AzaleaMart.asm"

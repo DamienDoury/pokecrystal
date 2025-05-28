@@ -207,10 +207,17 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	db "LARVITAR   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
 	db "CANCEL@"
 
-CeladonGameCornerPrizeRoomGentlemanText: ; AUTOTRAD
+CeladonGameCornerPrizeRoomGentlemanText: 
+if DEF(_FR_FR)
+	text "Je voulais PORYGON"
+	line "mais il me manque"
+	cont "100 jetons..."
+else
 	text "I wanted PORYGON,"
 	line "but I was short by"
 	cont "100 coins…"
+endc
+
 	done
 
 CeladonGameCornerPrizeRoomPharmacistText:
@@ -230,48 +237,98 @@ else
 	done
 endc
 
-CeladonPrizeRoom_PrizeVendorIntroText: ; AUTOTRAD
+CeladonPrizeRoom_PrizeVendorIntroText: 
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "On échange les"
+	line "jetons contre"
+
+	para "de bô prix!"
+else
 	text "Welcome!"
 
 	para "We exchange your"
 	line "coins for fabulous"
 	cont "prizes!"
+endc
+
 	done
 
-CeladonPrizeRoom_AskWhichPrizeText: ; AUTOTRAD
+CeladonPrizeRoom_AskWhichPrizeText: 
+if DEF(_FR_FR)
+	text "Quel prix?"
+else
 	text "Which prize would"
 	line "you like?"
+endc
+
 	done
 
-CeladonPrizeRoom_ConfirmPurchaseText: ; AUTOTRAD
+CeladonPrizeRoom_ConfirmPurchaseText: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text ","
+	line "c'est sûr?"
+else
 	text "OK, so you wanted"
 	line "a @"
 	text_ram wStringBuffer3
 	text "?"
+endc
+
 	done
 
-CeladonPrizeRoom_HereYouGoText: ; AUTOTRAD
+CeladonPrizeRoom_HereYouGoText: 
+if DEF(_FR_FR)
+	text "Et voilà!"
+else
 	text "Here you go!"
+endc
+
 	done
 
-CeladonPrizeRoom_NotEnoughCoinsText: ; AUTOTRAD
+CeladonPrizeRoom_NotEnoughCoinsText: 
+if DEF(_FR_FR)
+	text "Pas assez de"
+	line "jetons."
+else
 	text "You don't have"
 	line "enough coins."
+endc
+
 	done
 
-CeladonPrizeRoom_NotEnoughRoomText: ; AUTOTRAD
+CeladonPrizeRoom_NotEnoughRoomText: 
+if DEF(_FR_FR)
+	text "Pas de place."
+else
 	text "You have no room"
 	line "for it."
+endc
+
 	done
 
-CeladonPrizeRoom_ComeAgainText: ; AUTOTRAD
+CeladonPrizeRoom_ComeAgainText: 
+if DEF(_FR_FR)
+	text "Oh. Il faut amener"
+	line "tous les jetons!"
+else
 	text "Oh. Please come"
 	line "back with coins!"
+endc
+
 	done
 
-CeladonPrizeRoom_NoCoinCaseText: ; AUTOTRAD
+CeladonPrizeRoom_NoCoinCaseText: 
+if DEF(_FR_FR)
+	text "Oh? Pas de"
+	line "BOITE JETON!"
+else
 	text "Oh? You don't have"
 	line "a COIN CASE."
+endc
+
 	done
 
 CeladonGameCornerPrizeRoom_MapEvents:

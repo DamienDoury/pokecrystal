@@ -100,9 +100,15 @@ GoldenrodDeptStore5FDirectory:
 GoldenrodDeptStore5FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText: ; AUTOTRAD
+GoldenrodDeptStore5FReceptionistOhYourMonDotDotDotText: 
+if DEF(_FR_FR)
+	text "Bonjour. Oh, ton"
+	line "#MON..."
+else
 	text "Hello. Oh, your"
 	line "#MON…"
+endc
+
 	done
 
 GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText: ; TO TRANSLATE
@@ -116,11 +122,20 @@ GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel: ; TO TRANSLAT
 	cont "pair like you."
 	done
 
-GoldenrodDeptStore5FReceptionistItsAdorableText: ; AUTOTRAD
+GoldenrodDeptStore5FReceptionistItsAdorableText: 
+if DEF(_FR_FR)
+	text "Il est adorable!"
+
+	para "Tu devrais lui"
+	line "enseigner de"
+	cont "bonnes CT."
+else
 	text "It's adorable!"
 
 	para "You should teach"
 	line "it good TM moves."
+endc
+
 	done
 
 GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText: ; TO TRANSLATE
@@ -132,24 +147,56 @@ GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel: ; TO TRANSL
 	cont "TM for it?"
 	done
 
-GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText: ; AUTOTRAD
+GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText: 
+if DEF(_FR_FR)
+	text "Je suis sûre qu'il"
+	line "y a une CT par-"
+
+	para "faitement adaptée"
+	line "à ton #MON."
+else
 	text "There are sure to"
 	line "be TMs that are"
 
 	para "just perfect for"
 	line "your #MON."
+endc
+
 	done
 
-GoldenrodDeptStore5FLassText: ; AUTOTRAD
+GoldenrodDeptStore5FLassText: 
+if DEF(_FR_FR)
+	text "Le dimanche, une"
+	line "dame vient voir"
+	cont "les #MON."
+
+	para "Elle donne même"
+	line "des CT!"
+else
 	text "On Sundays, a lady"
 	line "comes to check out"
 	cont "#MON."
 
 	para "She even gives"
 	line "away TMs!"
+endc
+
 	done
 
-GoldenrodDeptStore5FPokefanMText: ; AUTOTRAD
+GoldenrodDeptStore5FPokefanMText: 
+if DEF(_FR_FR)
+	text "Tu ne peux pas"
+	line "renommer un #-"
+	cont "MON que tu as eu"
+	cont "dans un échange."
+
+	para "Le nom d'origine"
+	line "est donné après"
+
+	para "des années de"
+	line "recherches par son"
+	cont "dresseur."
+else
 	text "You can't rename a"
 	line "#MON you get in"
 	cont "a trade."
@@ -159,13 +206,24 @@ GoldenrodDeptStore5FPokefanMText: ; AUTOTRAD
 
 	para "original trainer's"
 	line "feelings for it."
+endc
+
 	done
 
-GoldenrodDeptStore5FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore5FDirectoryText: 
+if DEF(_FR_FR)
+	text "Pour personnaliser"
+	line "son #MON..."
+
+	para "4EME Y'A BON LES"
+	line "     CT"
+else
 	text "Customize Your"
 	line "#MON"
 
 	para "5F TM CORNER"
+endc
+
 	done
 
 GoldenrodDeptStore5F_MapEvents:

@@ -86,7 +86,40 @@ MagikarpLengthRaterScript:
 MagikarpHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-MagikarpLengthRaterText_LakeOfRageHistory: ; AUTOTRAD
+MagikarpLengthRaterText_LakeOfRageHistory: 
+if DEF(_FR_FR)
+	text "Le LAC COLERE est"
+	line "en fait un cratère"
+
+	para "créé par le"
+	line "déchaînement des"
+	cont "LEVIATOR."
+
+	para "Le cratère s'est"
+	line "peu à peu rempli"
+
+	para "d'eau de pluie et"
+	line "un LAC s'est"
+	cont "formé."
+
+	para "Cette histoire se"
+	line "transmet de géné-"
+
+	para "ration en géné-"
+	line "ration. Elle vient"
+	cont "d'un de mes"
+	cont "grands-pères."
+
+	para "On pouvait attra-"
+	line "per de vrais"
+
+	para "MAGICARPE en"
+	line "pleine forme ici!"
+
+	para "Je ne comprends"
+	line "pas ce qu'il se"
+	cont "passe."
+else
 	text "LAKE OF RAGE is"
 	line "actually a crater"
 
@@ -113,17 +146,45 @@ MagikarpLengthRaterText_LakeOfRageHistory: ; AUTOTRAD
 
 	para "I don't understand"
 	line "what's happening."
+endc
+
 	done
 
-MagikarpLengthRaterText_MenInBlack: ; AUTOTRAD
+MagikarpLengthRaterText_MenInBlack: 
+if DEF(_FR_FR)
+	text "Ce LAC n'est plus"
+	line "normal depuis"
+
+	para "l'arrivée des"
+	line "hommes en noir."
+else
 	text "The LAKE hasn't"
 	line "been normal since"
 
 	para "those men wearing"
 	line "black arrived."
+endc
+
 	done
 
-MagikarpLengthRaterText_WorldsLargestMagikarp: ; AUTOTRAD
+MagikarpLengthRaterText_WorldsLargestMagikarp: 
+if DEF(_FR_FR)
+	text "Le LAC COLERE est"
+	line "redevenu normal."
+
+	para "Les MAGICARPE sont"
+	line "de retour."
+
+	para "Mon rêve se"
+	line "réalise enfin:"
+	cont "voir un monde"
+	cont "plein de"
+	cont "MAGICARPE."
+
+	para "As-tu une CANNE?"
+	line "Aide-moi si tu en"
+	cont "as une."
+else
 	text "LAKE OF RAGE is"
 	line "back to normal."
 
@@ -138,17 +199,38 @@ MagikarpLengthRaterText_WorldsLargestMagikarp: ; AUTOTRAD
 	para "Do you have a ROD?"
 	line "Please help me if"
 	cont "you do."
+endc
+
 	done
 
-MagikarpLengthRaterText_YouHaveAMagikarp: ; AUTOTRAD
+MagikarpLengthRaterText_YouHaveAMagikarp: 
+if DEF(_FR_FR)
+	text "Ah, tu as un"
+	line "MAGICARPE! Laisse-"
+
+	para "moi voir sa"
+	line "taille."
+else
 	text "Ah, you have a"
 	line "MAGIKARP! Let's"
 
 	para "see how big that"
 	line "baby is."
+endc
+
 	done
 
-MagikarpLengthRaterText_Memento: ; AUTOTRAD
+MagikarpLengthRaterText_Memento: 
+if DEF(_FR_FR)
+	text "Whaou! Celui-ci"
+	line "est démesuré!"
+
+	para "Je te tire mon"
+	line "chapeau!"
+
+	para "Accepte ceci en"
+	line "récompense!"
+else
 	text "Wow! This one is"
 	line "outstanding!"
 
@@ -157,17 +239,38 @@ MagikarpLengthRaterText_Memento: ; AUTOTRAD
 
 	para "Take this as a"
 	line "memento!"
+endc
+
 	done
 
-MagikarpLengthRaterText_Bonus: ; AUTOTRAD
+MagikarpLengthRaterText_Bonus: 
+if DEF(_FR_FR)
+	text "Ce qui est impor-"
+	line "tant, c'est d'épa-"
+
+	para "ter les autres!"
+	line "Suis mes conseils!"
+else
 	text "The record is the"
 	line "important thing."
 
 	para "Think of that as"
 	line "a bonus!"
+endc
+
 	done
 
-MagikarpLengthRaterText_TooShort: ; AUTOTRAD
+MagikarpLengthRaterText_TooShort: 
+if DEF(_FR_FR)
+	text "Whaou! C'est pas"
+	line "mal du tout!"
+
+	para "...J'aimerais pou-"
+	line "voir te dire ça"
+
+	para "mais j'en ai déjà"
+	line "vu des plus gros."
+else
 	text "Wow! This one is"
 	line "outstanding!"
 
@@ -176,19 +279,38 @@ MagikarpLengthRaterText_TooShort: ; AUTOTRAD
 
 	para "seen a bigger one"
 	line "before."
+endc
+
 	done
 
-MagikarpLengthRaterText_NotMagikarp: ; AUTOTRAD
+MagikarpLengthRaterText_NotMagikarp: 
+if DEF(_FR_FR)
+	text "Quoi? Ce n'est pas"
+	line "un MAGICARPE!"
+else
 	text "What? That's not a"
 	line "MAGIKARP!"
+endc
+
 	done
 
-MagikarpLengthRaterText_Refused: ; AUTOTRAD
+MagikarpLengthRaterText_Refused: 
+if DEF(_FR_FR)
+	text "Alors... Tu n'as"
+	line "rien pris qui"
+
+	para "vaille la peine"
+	line "d'être montré?"
+	cont "Peut-être la"
+	cont "prochaine fois!"
+else
 	text "Oh… So you didn't"
 	line "get one good"
 
 	para "enough to show me?"
 	line "Maybe next time."
+endc
+
 	done
 
 LakeOfRageMagikarpHouse_MapEvents:

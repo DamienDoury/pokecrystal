@@ -118,7 +118,19 @@ LeaderBlueBeforeText: ; TO TRANSLATE
 	cont "CHAMP?"
 	done
 
-LeaderBlueWinText: ; AUTOTRAD
+LeaderBlueWinText: 
+if DEF(_FR_FR)
+	text "BLUE: Quoi?"
+
+	para "Comment c'est-y"
+	line "possible, ça?"
+
+	para "..."
+
+	para "Pfff..."
+	line "Tiens, prends ce"
+	cont "BADGE TERRE."
+else
 	text "BLUE: What?"
 
 	para "How the heck did I"
@@ -129,14 +141,35 @@ LeaderBlueWinText: ; AUTOTRAD
 	para "Tch, all right…"
 	line "Here, take this--"
 	cont "it's EARTHBADGE."
+endc
+
 	done
 
-Text_ReceivedEarthBadge: ; AUTOTRAD
+Text_ReceivedEarthBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE TERRE."
+else
 	text "<PLAYER> received"
 	line "EARTHBADGE."
+endc
+
 	done
 
-LeaderBlueAfterText: ; AUTOTRAD
+LeaderBlueAfterText: 
+if DEF(_FR_FR)
+	text "BLUE: ..."
+
+	para "OK. J'avais tort."
+	line "Je le reconnais:"
+
+	para "tu as du talent"
+	line "comme dresseur."
+
+	para "Mais bon... Je te"
+	line "battrai un jour."
+	cont "T'inquiète pas."
+else
 	text "BLUE: …"
 
 	para "All right, I was"
@@ -150,14 +183,25 @@ LeaderBlueAfterText: ; AUTOTRAD
 
 	para "Don't you forget"
 	line "it!"
+endc
+
 	done
 
-LeaderBlueEpilogueText: ; AUTOTRAD
+LeaderBlueEpilogueText: 
+if DEF(_FR_FR)
+	text "BLUE: Ecoute voir."
+
+	para "Reste cool jusqu'à"
+	line "notre prochain"
+	cont "combat, d'accord?"
+else
 	text "BLUE: Listen, you."
 
 	para "You'd better not"
 	line "lose until I beat"
 	cont "you. Got it?"
+endc
+
 	done
 
 LeaderBlueRivalText: ; TO TRANSLATE
@@ -209,7 +253,17 @@ ViridianGymGuideText: ; TO TRANSLATE
 
 	done
 
-ViridianGymGuideWinText: ; AUTOTRAD
+ViridianGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Fiiou! Alors toi,"
+	line "t'es cool!"
+
+	para "Ca c'était du"
+	line "combat!"
+
+	para "J'en ai les larmes"
+	line "aux yeux."
+else
 	text "Man, you are truly"
 	line "tough…"
 
@@ -218,6 +272,8 @@ ViridianGymGuideWinText: ; AUTOTRAD
 
 	para "battle. It brought"
 	line "tears to my eyes."
+endc
+
 	done
 
 ViridianGym_MapEvents:

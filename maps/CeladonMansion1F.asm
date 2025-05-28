@@ -42,7 +42,18 @@ CeladonMansionManagersSuiteSign:
 CeladonMansion1FBookshelf:
 	jumpstd PictureBookshelfScript
 
-CeladonMansionManagerText: ; AUTOTRAD
+CeladonMansionManagerText: 
+if DEF(_FR_FR)
+	text "Mes #MON me"
+	line "tiennent compa-"
+
+	para "gnie. La solitude,"
+	line "c'est du passé."
+
+	para "Mon MIAOUSS m'ap-"
+	line "porte même de"
+	cont "l'argent."
+else
 	text "My dear #MON"
 	line "keep me company,"
 
@@ -51,25 +62,50 @@ CeladonMansionManagerText: ; AUTOTRAD
 
 	para "MEOWTH even brings"
 	line "money home."
+endc
+
 	done
 
-CeladonMansion1FMeowthText: ; AUTOTRAD
+CeladonMansion1FMeowthText: 
+if DEF(_FR_FR)
+	text "MIAOUSS: Miaou!"
+else
 	text "MEOWTH: Meow!"
+endc
+
 	done
 
-CeladonMansion1FClefairyText: ; AUTOTRAD
+CeladonMansion1FClefairyText: 
+if DEF(_FR_FR)
+	text "MELOFEE: Mélo!"
+	line "Méloooo!"
+else
 	text "CLEFAIRY: Clef"
 	line "cleff!"
+endc
+
 	done
 
-CeladonMansion1FNidoranFText: ; AUTOTRAD
+CeladonMansion1FNidoranFText: 
+if DEF(_FR_FR)
+	text "NIDORAN: Nido!"
+	line "Nidooo!"
+else
 	text "NIDORAN: Kya"
 	line "kyaoo!"
+endc
+
 	done
 
-CeladonMansionManagersSuiteSignText: ; AUTOTRAD
+CeladonMansionManagersSuiteSignText: 
+if DEF(_FR_FR)
+	text "MANOIR CELADON"
+	line "SUITE du PATRON"
+else
 	text "CELADON MANSION"
 	line "MANAGER'S SUITE"
+endc
+
 	done
 
 CeladonMansion1F_MapEvents:

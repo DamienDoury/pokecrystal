@@ -133,40 +133,79 @@ Route19Sign:
 CarefulSwimmingSign:
 	jumptext CarefulSwimmingSignText
 
-SwimmermHaroldSeenText: ; AUTOTRAD
+SwimmermHaroldSeenText: 
+if DEF(_FR_FR)
+	text "As-tu déjà"
+	line "nagé au clair"
+	cont "de lune?"
+else
 	text "Have you ever gone"
 	line "swimming in the"
 	cont "sea at night?"
+endc
+
 	done
 
-SwimmermHaroldBeatenText: ; AUTOTRAD
+SwimmermHaroldBeatenText: 
+if DEF(_FR_FR)
+	text "Glub..."
+else
 	text "Glub…"
+endc
+
 	done
 
-SwimmermHaroldAfterBattleText: ; AUTOTRAD
+SwimmermHaroldAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un bain de minuit,"
+	line "c'est trop génial."
+else
 	text "At night, the sea"
 	line "turns black. It"
 
 	para "feels like it will"
 	line "swallow you up."
+endc
+
 	done
 
-SwimmermTuckerSeenText: ; AUTOTRAD
+SwimmermTuckerSeenText: 
+if DEF(_FR_FR)
+	text "Pfff...pfff..."
+	line "PARMANIE..n'est.."
+
+	para "plus...très..."
+	line "loin...!"
+else
 	text "Pant, pant…"
 	line "Just… a little…"
 
 	para "farther… to…"
 	line "FUCHSIA…"
+endc
+
 	done
 
-SwimmermTuckerBeatenText: ; AUTOTRAD
+SwimmermTuckerBeatenText: 
+if DEF(_FR_FR)
+	text "Je me noie!"
+else
 	text "I'm drowning!"
+endc
+
 	done
 
-SwimmermTuckerAfterBattleText: ; AUTOTRAD
+SwimmermTuckerAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai demandé à ma"
+	line "copine de nager"
+	cont "jusqu'à PARMANIE."
+else
 	text "I… asked my girl-"
 	line "friend to swim to"
 	cont "FUCHSIA… Gasp…"
+endc
+
 	done
 
 SwimmermGarveySeenText: ; TO TRANSLATE
@@ -200,17 +239,40 @@ SwimmerfVaianaAfterBattleText: ; TO TRANSLATE
 	cont "a JOLTEON!"
 	done
 
-SwimmerfDawnSeenText: ; AUTOTRAD
+SwimmerfDawnSeenText: 
+if DEF(_FR_FR)
+	text "Nyaaaaah!"
+else
 	text "I'm disgusted by"
 	line "wimpy people!"
+endc
+
 	done
 
-SwimmerfDawnBeatenText: ; AUTOTRAD
+SwimmerfDawnBeatenText: 
+if DEF(_FR_FR)
+	text "Je nage plus vite"
+	line "que toi."
+else
 	text "I could beat you"
 	line "at swimming…"
+endc
+
 	done
 
-SwimmerfDawnAfterBattleText: ; AUTOTRAD
+SwimmerfDawnAfterBattleText: 
+if DEF(_FR_FR)
+	text "PARMANIE et les"
+	line "ILES ECUME sont à"
+
+	para "deux coups de"
+	line "brasse..."
+
+	para "Mon oeil ouais!"
+	line "Quel crétin mon"
+
+	para "copain!"
+else
 	text "It's a quick swim"
 	line "between FUCHSIA"
 
@@ -221,6 +283,8 @@ SwimmerfDawnAfterBattleText: ; AUTOTRAD
 	line "man my boyfriend"
 
 	para "is! What a wimp!"
+endc
+
 	done
 
 SwimmermFlavienSeenText: ; TO TRANSLATE
@@ -255,9 +319,15 @@ Route19Fisher1Text: ; TO TRANSLATE
 	line "from PALLET TOWN."
 	done
 
-Route19Fisher1Text_RocksCleared: ; AUTOTRAD
+Route19Fisher1Text_RocksCleared: 
+if DEF(_FR_FR)
+	text "J'transpire."
+	line "Allez! A l'eau!"
+else
 	text "I'm all sweaty."
 	line "Time for a swim!"
+endc
+
 	done
 
 Route19Fisher2Text: ; TO TRANSLATE
@@ -283,20 +353,38 @@ Route19Fisher2Text_RocksCleared: ; TO TRANSLATE
 	line "fishing again."
 	done
 
-Route19SignText: ; AUTOTRAD
+Route19SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 19"
+
+	para "PARMANIE -"
+	line "ILES ECUME"
+else
 	text "ROUTE 19"
 
 	para "FUCHSIA CITY -"
 	line "SEAFOAM ISLANDS"
+endc
+
 	done
 
-CarefulSwimmingSignText: ; AUTOTRAD
+CarefulSwimmingSignText: 
+if DEF(_FR_FR)
+	text "Nagez prudemment"
+	line "si vous vous"
+	cont "dirigez vers les"
+	cont "ILES ECUME."
+
+	para "POLICE de PARMANIE"
+else
 	text "Please be careful"
 	line "if you are swim-"
 	cont "ming to SEAFOAM"
 	cont "ISLANDS."
 
 	para "FUCHSIA POLICE"
+endc
+
 	done
 
 Route19_MapEvents:

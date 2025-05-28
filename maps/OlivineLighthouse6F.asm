@@ -212,10 +212,17 @@ JasmineCianwoodPharmacyText: ; TO TRANSLATE
 	line "AMPHY unattended…"
 	done
 
-JasmineGetSomeMedicineText: ; AUTOTRAD
+JasmineGetSomeMedicineText: 
+if DEF(_FR_FR)
+	text "...Peux-tu aller"
+	line "chercher des médi-"
+	cont "caments? Pitié?"
+else
 	text "…May I ask you to"
 	line "get some medicine"
 	cont "for me? Please?"
+endc
+
 	done
 
 JasmineOverTheSeaText: ; TO TRANSLATE
@@ -242,7 +249,16 @@ PlayerHandedSecretpotionText: ; TO TRANSLATE
 	cont "JASMINE."
 	done
 
-JasmineDontBeOffendedText: ; AUTOTRAD
+JasmineDontBeOffendedText: 
+if DEF(_FR_FR)
+	text "JASMINE: Heu..."
+	line "Le prends pas mal"
+	cont "mais..."
+
+	para "PHARY n'accepte"
+	line "que ce que JE lui"
+	cont "donne..."
+else
 	text "JASMINE: …Um,"
 	line "please don't be"
 	cont "offended…"
@@ -250,13 +266,23 @@ JasmineDontBeOffendedText: ; AUTOTRAD
 	para "…AMPHY will not"
 	line "take anything from"
 	cont "anyone but me…"
+endc
+
 	done
 
-JasmineAmphyHowAreYouFeelingText: ; AUTOTRAD
+JasmineAmphyHowAreYouFeelingText: 
+if DEF(_FR_FR)
+	text "JASMINE: ..."
+
+	para "PHARY, comment te"
+	line "sens-tu?"
+else
 	text "JASMINE: …"
 
 	para "AMPHY, how are you"
 	line "feeling?"
+endc
+
 	done
 
 JasmineThankYouText: ; TO TRANSLATE
@@ -274,22 +300,44 @@ JasmineBackToGymText: ; TO TRANSLATE
 	line "the GYM…"
 	done
 
-JasmineISeeText: ; AUTOTRAD
+JasmineISeeText: 
+if DEF(_FR_FR)
+	text "JASMINE: Je vois."
+else
 	text "JASMINE: …I see…"
+endc
+
 	done
 
-JasmineAmphyHangOnText: ; AUTOTRAD
+JasmineAmphyHangOnText: 
+if DEF(_FR_FR)
+	text "Courage, PHARY!"
+else
 	text "…AMPHY, hang on!"
+endc
+
 	done
 
-AmphyPalPalooText: ; AUTOTRAD
+AmphyPalPalooText: 
+if DEF(_FR_FR)
+	text "PHARY: ..."
+	line "...Pha! Phaaa..."
+else
 	text "AMPHY: …"
 	line "…Pa… paloo…"
+endc
+
 	done
 
-AmphyBreathingLaboredText: ; AUTOTRAD
+AmphyBreathingLaboredText: 
+if DEF(_FR_FR)
+	text "Il respire avec"
+	line "difficulté..."
+else
 	text "Its breathing is"
 	line "terribly labored…"
+endc
+
 	done
 
 OlivineLighthouse6F_MapEvents:

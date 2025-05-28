@@ -38,8 +38,13 @@ Lugia:
 	farscall AugmentKantoDifficultyLevel
 	end
 
-LugiaText: ; AUTOTRAD
+LugiaText: 
+if DEF(_FR_FR)
 	text "Gyaaas!"
+else
+	text "Gyaaas!"
+endc
+
 	done
 
 WhirlIslandLugiaChamber_MapEvents:

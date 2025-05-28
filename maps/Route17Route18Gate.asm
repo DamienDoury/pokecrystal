@@ -49,9 +49,16 @@ Route17Route18Gate_RightMovement:
 	step RIGHT
 	step_end
 
-Route17Route18GateOfficerText: ; AUTOTRAD
+Route17Route18GateOfficerText: 
+if DEF(_FR_FR)
+	text "La montée de la"
+	line "PISTE CYCLABLE"
+	cont "commence ici."
+else
 	text "CYCLING ROAD"
 	line "Uphill Starts Here"
+endc
+
 	done
 
 Route17Route18GateGetRentalBackText: ; TO TRANSLATE

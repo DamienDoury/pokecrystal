@@ -63,10 +63,17 @@ RedsMomSawPikachuText: ; TO TRANSLATE
 	cont "touch him."
 	done
 
-RedsHouse1FTVText: ; AUTOTRAD
+RedsHouse1FTVText: 
+if DEF(_FR_FR)
+	text "Il y a des émis-"
+	line "sions qui ne pas-"
+	cont "sent pas à JOHTO."
+else
 	text "They have programs"
 	line "that aren't shown"
 	cont "in JOHTO…"
+endc
+
 	done
 
 RedsHouse1F_MapEvents:

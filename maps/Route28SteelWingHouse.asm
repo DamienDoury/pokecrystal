@@ -99,8 +99,13 @@ CelebrityText2: ; TO TRANSLATE
 	line "top celebrity."
 	done
 
-CelebritysFearowText: ; AUTOTRAD
+CelebritysFearowText: 
+if DEF(_FR_FR)
+	text "RAPASDEPIC: Piiic!"
+else
 	text "FEAROW: Feero!"
+endc
+
 	done
 
 Route28SteelWingHouse_MapEvents:

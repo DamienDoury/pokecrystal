@@ -128,19 +128,37 @@ Route21_SleepMovement:
 	step_sleep 1
 	step_end
 
-SwimmermSethSeenText: ; AUTOTRAD
+SwimmermSethSeenText: 
+if DEF(_FR_FR)
+	text "Haahahahahhaa!"
+	line "C'est la fête!"
+else
 	text "Land ho! Gotta"
 	line "keep going!"
+endc
+
 	done
 
-SwimmermSethBeatenText: ; AUTOTRAD
+SwimmermSethBeatenText: 
+if DEF(_FR_FR)
+	text "Glug..."
+else
 	text "Glug…"
+endc
+
 	done
 
-SwimmermSethAfterBattleText: ; AUTOTRAD
+SwimmermSethAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'aime la"
+	line "fête! Yahahahaha!"
+	cont "J'suis ouf."
+else
 	text "This arrogant guy"
 	line "was at CINNABAR's"
 	cont "volcano."
+endc
+
 	done
 
 SwimmermDuaneSeenText: ; TO TRANSLATE
@@ -199,15 +217,28 @@ SwimmermEstebanAfterBattleText: ; TO TRANSLATE
 	line "SAFFRON CITY."
 	done
 
-SwimmerfNikkiSeenText: ; AUTOTRAD
+SwimmerfNikkiSeenText: 
+if DEF(_FR_FR)
+	text "Si je gagne, tu me"
+	line "passes de la"
+	cont "crème!"
+else
 	text "If I win, you have"
 	line "to help me with my"
 	cont "suntan lotion!"
+endc
+
 	done
 
-SwimmerfNikkiBeatenText: ; AUTOTRAD
+SwimmerfNikkiBeatenText: 
+if DEF(_FR_FR)
+	text "Les coups de"
+	line "soleil c'est mal."
+else
 	text "I'm worried about"
 	line "sunburn…"
+endc
+
 	done
 
 SwimmerfNikkiAfterBattleText: ; TO TRANSLATE
@@ -265,18 +296,35 @@ SwimmerfLuluAfterBattleText: ; TO TRANSLATE
 	line "sooner!"
 	done
 
-FisherArnoldSeenText: ; AUTOTRAD
+FisherArnoldSeenText: 
+if DEF(_FR_FR)
+	text "La pêche c'est"
+	line "long. COMBAT!"
+else
 	text "I'm bored by fish-"
 	line "ing. Let's battle!"
+endc
+
 	done
 
-FisherArnoldBeatenText: ; AUTOTRAD
+FisherArnoldBeatenText: 
+if DEF(_FR_FR)
+	text "Tout perdu..."
+else
 	text "Utter failure…"
+endc
+
 	done
 
-FisherArnoldAfterBattleText: ; AUTOTRAD
+FisherArnoldAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'vais pêcher"
+	line "plutôt..."
+else
 	text "I'll just go back"
 	line "to fishing…"
+endc
+
 	done
 
 FisherWadeSeenText: ; TO TRANSLATE

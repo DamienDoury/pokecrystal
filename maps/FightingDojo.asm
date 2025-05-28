@@ -19,7 +19,17 @@ FightingDojoSign2:
 FightingDojoFocusBand:
 	itemball FOCUS_BAND
 
-FightingDojoBlackBeltText: ; AUTOTRAD
+FightingDojoBlackBeltText: 
+if DEF(_FR_FR)
+	text "Bonjour!"
+
+	para "Le ROI du KARATE,"
+	line "le maître du DOJO"
+
+	para "est dans une grot-"
+	line "te de JOHTO pour"
+	cont "s'entraîner."
+else
 	text "Hello!"
 
 	para "KARATE KING, the"
@@ -28,16 +38,32 @@ FightingDojoBlackBeltText: ; AUTOTRAD
 	para "master, is in a"
 	line "cave in JOHTO for"
 	cont "training."
+endc
+
 	done
 
-FightingDojoSign1Text: ; AUTOTRAD
+FightingDojoSign1Text: 
+if DEF(_FR_FR)
+	text "Le riz il est"
+	line "cuit!"
+	cont "(proverbe)"
+else
 	text "What goes around"
 	line "comes around!"
+endc
+
 	done
 
-FightingDojoSign2Text: ; AUTOTRAD
+FightingDojoSign2Text: 
+if DEF(_FR_FR)
+	text "Tape aussi fort"
+	line "que t'es beau!"
+	cont "(proverbe)"
+else
 	text "Enemies on every"
 	line "side!"
+endc
+
 	done
 
 FightingDojo_MapEvents:

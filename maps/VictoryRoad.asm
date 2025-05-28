@@ -162,7 +162,33 @@ VictoryRoadRivalBattleExitMovement2:
 	step DOWN
 	step_end
 
-VictoryRoadRivalBeforeText: ; AUTOTRAD
+VictoryRoadRivalBeforeText: 
+if DEF(_FR_FR)
+	text "Minute."
+
+	para "Vas-tu relever le"
+	line "défi de la LIGUE"
+	cont "#MON?"
+
+	para "Me fais pas rire!"
+	line "T'es minable!"
+
+	para "MI--NA--BLE!"
+	line "Et moi... Tu sais"
+
+	para "quoi? J'suis bien"
+	line "meilleur que toi!"
+
+	para "J'ai les meilleurs"
+	line "#MON! Les"
+
+	para "plus forts de"
+	line "tous! Je suis in-"
+	cont "vincible!"
+
+	para "<PLAYER>!"
+	line "J'vais t'briser!"
+else
 	text "Hold it."
 
 	para "…Are you going to"
@@ -186,9 +212,28 @@ VictoryRoadRivalBeforeText: ; AUTOTRAD
 
 	para "<PLAYER>!"
 	line "I challenge you!"
+endc
+
 	done
 
-VictoryRoadRivalDefeatText: ; AUTOTRAD
+VictoryRoadRivalDefeatText: 
+if DEF(_FR_FR)
+	text "J'pouvais pas"
+	line "gagner..."
+
+	para "Je me suis donné"
+	line "à fond..."
+
+	para "Tu as quelque cho-"
+	line "se que je n'aurai"
+	cont "jamais..."
+
+	para "Je commence à com-"
+	line "prendre ce que"
+
+	para "voulait dire le"
+	line "type aux dragons."
+else
 	text "…I couldn't win…"
 
 	para "I gave it every-"
@@ -202,9 +247,33 @@ VictoryRoadRivalDefeatText: ; AUTOTRAD
 
 	para "that dragon master"
 	line "said to me…"
+endc
+
 	done
 
-VictoryRoadRivalAfterText: ; AUTOTRAD
+VictoryRoadRivalAfterText: 
+if DEF(_FR_FR)
+	text "Je n'ai pas oublié"
+	line "mon rêve: devenir"
+	cont "le plus grand des"
+	cont "dresseurs..."
+
+	para "Je vais vite ap-"
+	line "prendre ce qu'il"
+
+	para "me manque pour"
+	line "m'améliorer..."
+
+	para "Et alors, ça va"
+	line "être ta fête."
+
+	para "Tu vas ramasser"
+	line "tes dents avec tes"
+	cont "doigts cassés."
+
+	para "Alors à bientôt,"
+	line "minable."
+else
 	text "…I haven't given up"
 	line "on becoming the"
 	cont "greatest trainer…"
@@ -224,9 +293,22 @@ VictoryRoadRivalAfterText: ; AUTOTRAD
 
 	para "…Humph! You keep"
 	line "at it until then."
+endc
+
 	done
 
-VictoryRoadRivalVictoryText: ; AUTOTRAD
+VictoryRoadRivalVictoryText: 
+if DEF(_FR_FR)
+	text "Hmmmm!"
+
+	para "Quand on y pense,"
+	line "rien ne peut bat-"
+	cont "tre la force"
+	cont "brute."
+
+	para "Je n'ai besoin de"
+	line "rien d'autre."
+else
 	text "…Humph!"
 
 	para "When it comes down"
@@ -235,6 +317,8 @@ VictoryRoadRivalVictoryText: ; AUTOTRAD
 
 	para "I don't need any-"
 	line "thing else."
+endc
+
 	done
 
 VictoryRoad_MapEvents:

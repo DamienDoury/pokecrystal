@@ -68,53 +68,111 @@ Route17HiddenMaxEther:
 Route17HiddenMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_ROUTE_17_HIDDEN_MAX_ELIXER
 
-BikerRileySeenText: ; AUTOTRAD
+BikerRileySeenText: 
+if DEF(_FR_FR)
+	text "Hé, toi!"
+	line "T'es de JOHTO?"
+else
 	text "Hey, you! You're"
 	line "from JOHTO, huh?"
+endc
+
 	done
 
-BikerRileyBeatenText: ; AUTOTRAD
+BikerRileyBeatenText: 
+if DEF(_FR_FR)
+	text "Graaaaaah!"
+else
 	text "Whoa, you kick!"
+endc
+
 	done
 
-BikerRileyAfterBattleText: ; AUTOTRAD
+BikerRileyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Pas la peine de"
+	line "crâner!"
+else
 	text "Don't get cocky,"
 	line "you JOHTO punk!"
+endc
+
 	done
 
-BikerJoelSeenText: ; AUTOTRAD
+BikerJoelSeenText: 
+if DEF(_FR_FR)
+	text "Oh! Elle est cool"
+	line "ta BICYCLETTE!"
+else
 	text "Wow. That's a cool"
 	line "BICYCLE!"
+endc
+
 	done
 
-BikerJoelBeatenText: ; AUTOTRAD
+BikerJoelBeatenText: 
+if DEF(_FR_FR)
+	text "Par contre, toi..."
+	line "T'es pas cool."
+else
 	text "But you don't just"
 	line "look cool…"
+endc
+
 	done
 
-BikerJoelAfterBattleText: ; AUTOTRAD
+BikerJoelAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'ai trop la"
+	line "classe. T'as vu"
+	cont "mes fringues?"
+
+	para "J'suis trop"
+	line "relax."
+else
 	text "I look cool, but"
 	line "I'm weak, so I'm"
 	cont "not really cool."
 
 	para "I have to train"
 	line "harder…"
+endc
+
 	done
 
-BikerGlennSeenText: ; AUTOTRAD
+BikerGlennSeenText: 
+if DEF(_FR_FR)
+	text "Hé! Ca te dit un"
+	line "chtit combat?"
+else
 	text "Hey! Want to have"
 	line "a speed battle?"
+endc
+
 	done
 
-BikerGlennBeatenText: ; AUTOTRAD
+BikerGlennBeatenText: 
+if DEF(_FR_FR)
+	text "Ayaah! Toi t'es"
+	line "pas naze!"
+else
 	text "Yikes! You've got"
 	line "awesome torque!"
+endc
+
 	done
 
-BikerGlennAfterBattleText: ; AUTOTRAD
+BikerGlennAfterBattleText: 
+if DEF(_FR_FR)
+	text "Conduire sans les"
+	line "mains, c'est la"
+	cont "classe."
+else
 	text "Hands-free riding"
 	line "is considered cool"
 	cont "on CYCLING ROAD."
+endc
+
 	done
 
 Route17MidSign3Text: ; TO TRANSLATE

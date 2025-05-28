@@ -27,9 +27,15 @@ IcePathB2FMahoganySideTMHail:
 IcePathB2FMahoganySideHiddenCarbos:
 	hiddenitem CARBOS, EVENT_ICE_PATH_B2F_MAHOGANY_SIDE_HIDDEN_CARBOS
 
-IcePathB2FMahoganySideBoulderText: ; AUTOTRAD
+IcePathB2FMahoganySideBoulderText: 
+if DEF(_FR_FR)
+	text "C'est bloqué dans"
+	line "la glace."
+else
 	text "It's immovably"
 	line "imbedded in ice."
+endc
+
 	done
 
 IcePathB2FMahoganySide_MapEvents:

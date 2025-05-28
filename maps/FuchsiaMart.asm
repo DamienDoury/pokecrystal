@@ -34,12 +34,21 @@ FuchsiaMartCooltrainerFScript:
 FuchsiaMartShelfItem1Script:
 	shelfitem 6, MOOMOO_MILK, 6000
 
-FuchsiaMartFisherText: ; AUTOTRAD
+FuchsiaMartFisherText: 
+if DEF(_FR_FR)
+	text "Je voulais acheter"
+	line "des souvenirs au"
+
+	para "PARC SAFARI mais"
+	line "c'est fermé..."
+else
 	text "I was hoping to"
 	line "buy some SAFARI"
 
 	para "ZONE souvenirs,"
 	line "but it's closed…"
+endc
+
 	done
 
 FuchsiaMartFisherText2: ; TO TRANSLATE
@@ -50,11 +59,19 @@ FuchsiaMartFisherText2: ; TO TRANSLATE
 	line "for re-opening it!"
 	done
 
-FuchsiaMartCooltrainerFText: ; AUTOTRAD
+FuchsiaMartCooltrainerFText: 
+if DEF(_FR_FR)
+	text "La petite-fille du"
+	line "GARDIEN du PARC"
+	cont "SAFARI vit en"
+	cont "ville."
+else
 	text "The SAFARI ZONE"
 	line "WARDEN's grand-"
 	cont "daughter lives in"
 	cont "town."
+endc
+
 	done
 
 FuchsiaMart_MapEvents:

@@ -243,7 +243,19 @@ FalknerValidatesTeam: ; TO TRANSLATE
 	line "#MON!"
 	done
 
-FalknerWinLossText: ; AUTOTRAD
+FalknerWinLossText: 
+if DEF(_FR_FR)
+	text "...Zut de flûte!"
+	line "Les #MON adorés"
+	cont "de mon papa..."
+
+	para "Très bien."
+	line "Prends ceci."
+
+	para "C'est le BADGE"
+	line "ZEPHYR officiel de"
+	cont "la LIGUE #MON."
+else
 	text "…Darn! My dad's"
 	line "cherished bird"
 	cont "#MON…"
@@ -254,11 +266,19 @@ FalknerWinLossText: ; AUTOTRAD
 	para "It's the official"
 	line "#MON LEAGUE"
 	cont "ZEPHYRBADGE."
+endc
+
 	done
 
-ReceivedZephyrBadgeText: ; AUTOTRAD
+ReceivedZephyrBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE ZEPHYR."
+else
 	text "<PLAYER> received"
 	line "ZEPHYRBADGE."
+endc
+
 	done
 
 FalknerZephyrBadgeText: ; TO TRANSLATE
@@ -297,7 +317,22 @@ FalknerTMMudSlapText: ; TO TRANSLATE
 	cont "and offensive."
 	done
 
-FalknerFightDoneText: ; AUTOTRAD
+FalknerFightDoneText: 
+if DEF(_FR_FR)
+	text "Il y a des ARENES"
+	line "#MON dans"
+	cont "les alentours."
+
+	para "Tu devrais tester"
+	line "ton habileté dans"
+	cont "ces ARENES."
+
+	para "Je vais m'entraî-"
+	line "ner plus dur pour"
+
+	para "devenir le plus"
+	line "grand!"
+else
 	text "There are #MON"
 	line "GYMS in cities and"
 	cont "towns ahead."
@@ -311,9 +346,24 @@ FalknerFightDoneText: ; AUTOTRAD
 
 	para "the greatest bird"
 	line "master!"
+endc
+
 	done
 
-BirdKeeperRodSeenText: ; AUTOTRAD
+BirdKeeperRodSeenText: 
+if DEF(_FR_FR)
+	text "Le mot clé est..."
+	line "Le cran!"
+
+	para "Ceux d'ici s'en-"
+	line "traînent nuit et"
+
+	para "jour pour devenir"
+	line "maître des"
+	cont "#MON volants."
+
+	para "Allez!"
+else
 	text "The keyword is"
 	line "guts!"
 
@@ -324,39 +374,101 @@ BirdKeeperRodSeenText: ; AUTOTRAD
 	line "#MON masters."
 
 	para "Come on!"
+endc
+
 	done
 
-BirdKeeperRodBeatenText: ; AUTOTRAD
+BirdKeeperRodBeatenText: 
+if DEF(_FR_FR)
+	text "Yaaah!"
+else
 	text "Gaaah!"
+endc
+
 	done
 
-BirdKeeperRodAfterBattleText: ; AUTOTRAD
+BirdKeeperRodAfterBattleText: 
+if DEF(_FR_FR)
+	text "L'habileté"
+	line "d'ALBERT est"
+	cont "bien réelle!"
+
+	para "Si tu as les"
+	line "chevilles qui"
+	cont "enflent, change"
+	cont "de baskets!"
+else
 	text "FALKNER's skills"
 	line "are for real!"
 
 	para "Don't get cocky"
 	line "just because you"
 	cont "beat me!"
+endc
+
 	done
 
-BirdKeeperAbeSeenText: ; AUTOTRAD
+BirdKeeperAbeSeenText: 
+if DEF(_FR_FR)
+	text "Montre-moi si tu"
+	line "as les épaules"
+	cont "pour battre"
+	cont "ALBERT!"
+else
 	text "Let me see if you"
 	line "are good enough to"
 	cont "face FALKNER!"
+endc
+
 	done
 
-BirdKeeperAbeBeatenText: ; AUTOTRAD
+BirdKeeperAbeBeatenText: 
+if DEF(_FR_FR)
+	text "Saperlipopette!"
+	line "C'est impossible!"
+else
 	text "This can't be"
 	line "true!"
+endc
+
 	done
 
-BirdKeeperAbeAfterBattleText: ; AUTOTRAD
+BirdKeeperAbeAfterBattleText: 
+if DEF(_FR_FR)
+	text "C'est pathétique"
+	line "de perdre contre"
+	cont "toi..."
+else
 	text "This is pathetic,"
 	line "losing to some"
 	cont "rookie trainer…"
+endc
+
 	done
 
-VioletGymGuideText: ; AUTOTRAD
+VioletGymGuideText: 
+if DEF(_FR_FR)
+	text "Hé toi! Je ne"
+	line "suis pas un"
+	cont "dresseur mais"
+	cont "je peux te donner"
+	cont "quelques conseils!"
+
+	para "Crois-moi!"
+	line "Tes rêves de"
+
+	para "star peuvent"
+	line "se réaliser."
+
+	para "T'y crois?"
+	line "Alors écoute bien."
+
+	para "Les plantes sont"
+	line "faibles contre les"
+
+	para "volants. Garde ça"
+	line "en mémoire."
+else
 	text "Hey! I'm no train-"
 	line "er but I can give"
 	cont "some advice!"
@@ -375,14 +487,26 @@ VioletGymGuideText: ; AUTOTRAD
 
 	para "flying-type. Keep"
 	line "this in mind."
+endc
+
 	done
 
-VioletGymGuideWinText: ; AUTOTRAD
+VioletGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Beau combat! Ne"
+	line "lâche pas prise et"
+
+	para "tu deviendras sans"
+	line "problème une"
+	cont "star!"
+else
 	text "Nice battle! Keep"
 	line "it up, and you'll"
 
 	para "be the CHAMP in no"
 	line "time at all!"
+endc
+
 	done
 
 VioletGym_MapEvents:

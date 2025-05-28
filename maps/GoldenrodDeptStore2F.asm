@@ -84,12 +84,21 @@ GoldenrodDeptStore2FGentlemanText: ; TO TRANSLATE
 	para "Give me a break."
 	done
 
-GoldenrodDeptStore2FDirectoryText: ; AUTOTRAD
+GoldenrodDeptStore2FDirectoryText: 
+if DEF(_FR_FR)
+	text "Votre compagnon de"
+	line "voyage"
+
+	para "1ER  BOUTIQUE"
+	line "     DRESSEUR"
+else
 	text "Your Travel"
 	line "Companion"
 
 	para "2F TRAINER'S"
 	line "   MARKET"
+endc
+
 	done
 
 GoldenrodDeptStore2F_MapEvents:

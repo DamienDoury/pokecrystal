@@ -38,15 +38,34 @@ ViridianPokecenter1FCooltrainerFScript:
 ViridianPokecenter1FBugCatcherScript:
 	jumptextfaceplayer ViridianPokecenter1FBugCatcherText
 
-ViridianPokecenter1FCooltrainerMText: ; AUTOTRAD
+ViridianPokecenter1FCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Où est donc le"
+	line "CHAMPION de l'ARE-"
+
+	para "NE de JADIELLE? Je"
+	line "veux l'affronter."
+else
 	text "Where in the world"
 	line "is VIRIDIAN's GYM"
 
 	para "LEADER? I wanted"
 	line "to challenge him."
+endc
+
 	done
 
-ViridianPokecenter1FCooltrainerMText_BlueReturned: ; AUTOTRAD
+ViridianPokecenter1FCooltrainerMText_BlueReturned: 
+if DEF(_FR_FR)
+	text "Il n'y a pas de"
+	line "dresseurs dans"
+	cont "l'ARENE de"
+	cont "JADIELLE."
+
+	para "Le CHAMPION dit"
+	line "qu'il n'en a pas"
+	cont "besoin."
+else
 	text "There are no GYM"
 	line "TRAINERS at the"
 	cont "VIRIDIAN GYM."
@@ -56,9 +75,20 @@ ViridianPokecenter1FCooltrainerMText_BlueReturned: ; AUTOTRAD
 
 	para "win without having"
 	line "any underlings."
+endc
+
 	done
 
-ViridianPokecenter1FCooltrainerFText: ; AUTOTRAD
+ViridianPokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "On dit qu'il n'y a"
+	line "plus d'ARENE à"
+	cont "CRAMOIS'ILE."
+
+	para "Qu'est-il arrivé"
+	line "à AUGUSTE, le"
+	cont "CHAMPION?"
+else
 	text "I heard that the"
 	line "GYM in CINNABAR is"
 	cont "gone."
@@ -66,11 +96,19 @@ ViridianPokecenter1FCooltrainerFText: ; AUTOTRAD
 	para "I wonder what be-"
 	line "came of BLAINE,"
 	cont "the GYM LEADER."
+endc
+
 	done
 
-ViridianPokecenter1FBugCatcherText: ; AUTOTRAD
+ViridianPokecenter1FBugCatcherText: 
+if DEF(_FR_FR)
+	text "Je rêve de devenir"
+	line "CHAMPION d'ARENE."
+else
 	text "My dream is to be-"
 	line "come a GYM LEADER."
+endc
+
 	done
 
 ViridianPokecenter1F_MapEvents:

@@ -78,7 +78,38 @@ BrunosRoom_EnterMovement:
 	step UP
 	step_end
 
-BrunoScript_BrunoBeforeText: ; AUTOTRAD
+BrunoScript_BrunoBeforeText: 
+if DEF(_FR_FR)
+	text "Je suis ALDO du"
+	line "CONSEIL des 4."
+
+	para "Mon truc à moi"
+	line "c'est de m'entraî-"
+	cont "ner comme un méga"
+	cont "dingue."
+
+	para "Et c'est comme ça"
+	line "que je suis devenu"
+	cont "si fort et beau."
+
+	para "... Ho!"
+	line "Tu m'écoutes?"
+
+	para "T'as pas peur ou"
+	line "quoi? Très bien..."
+
+	para "Comme on peut pas"
+	line "discuter, on va"
+	cont "s'battre."
+
+	para "OK, <PLAYER>?"
+	line "Tu vas... Quoi?"
+
+	para "Tu veux que j'ar-"
+	line "rête de parler?"
+
+	para "COMBAT!"
+else
 	text "I am BRUNO of the"
 	line "ELITE FOUR."
 
@@ -106,20 +137,38 @@ BrunoScript_BrunoBeforeText: ; AUTOTRAD
 	line "ing power!"
 
 	para "Hoo hah!"
+endc
+
 	done
 
-BrunoScript_BrunoBeatenText: ; AUTOTRAD
+BrunoScript_BrunoBeatenText: 
+if DEF(_FR_FR)
+	text "Moi? Perdre?"
+	line "Pourquoi?"
+else
 	text "Why? How could we"
 	line "lose?"
+endc
+
 	done
 
-BrunoScript_BrunoDefeatText: ; AUTOTRAD
+BrunoScript_BrunoDefeatText: 
+if DEF(_FR_FR)
+	text "J'ai perdu, alors"
+	line "je vais me taire."
+	cont "Heu..."
+
+	para "Va dans la pro-"
+	line "chaine salle!"
+else
 	text "Having lost, I"
 	line "have no right to"
 	cont "say anything…"
 
 	para "Go face your next"
 	line "challenge!"
+endc
+
 	done
 
 BrunosRoom_MapEvents:

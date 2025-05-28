@@ -94,40 +94,82 @@ TrainerBikerCharles:
 Route18Sign:
 	jumptext Route18SignText
 
-BirdKeeperBorisSeenText: ; AUTOTRAD
+BirdKeeperBorisSeenText: 
+if DEF(_FR_FR)
+	text "Cherche les #-"
+	line "MON dans les"
+
+	para "hautes herbes."
+	line "Tu le savais déjà?"
+else
 	text "If you're looking"
 	line "for #MON, you"
 
 	para "have to look in"
 	line "the tall grass."
+endc
+
 	done
 
-BirdKeeperBorisBeatenText: ; AUTOTRAD
+BirdKeeperBorisBeatenText: 
+if DEF(_FR_FR)
+	text "Aïe!"
+else
 	text "Ayieee!"
+endc
+
 	done
 
-BirdKeeperBorisAfterBattleText: ; AUTOTRAD
+BirdKeeperBorisAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ca te fait quoi"
+	line "d'être balèze?"
+	cont "C'est sympa?"
+else
 	text "Since you're so"
 	line "strong, it must be"
 	cont "fun to battle."
+endc
+
 	done
 
-BirdKeeperBobSeenText: ; AUTOTRAD
+BirdKeeperBobSeenText: 
+if DEF(_FR_FR)
+	text "La PISTE CYCLABLE"
+	line "est un raccourci"
+	cont "vers CELADOPOLE."
+else
 	text "CYCLING ROAD is a"
 	line "quick shortcut to"
 	cont "CELADON."
+endc
+
 	done
 
-BirdKeeperBobBeatenText: ; AUTOTRAD
+BirdKeeperBobBeatenText: 
+if DEF(_FR_FR)
+	text "...Fouiii!"
+else
 	text "…Whew!"
+endc
+
 	done
 
-BirdKeeperBobAfterBattleText: ; AUTOTRAD
+BirdKeeperBobAfterBattleText: 
+if DEF(_FR_FR)
+	text "Sans BICYCLETTE,"
+	line "tu ne peux pas"
+
+	para "emprunter ce"
+	line "raccourci."
+else
 	text "If you don't have"
 	line "a BICYCLE, you're"
 
 	para "not allowed to use"
 	line "the shortcut."
+endc
+
 	done
 
 BirdKeeperBobbySeenText: ; TO TRANSLATE
@@ -164,11 +206,19 @@ BikerCharlesAfterBattleText: ; AUTOTRAD
 	cont "Take it easy!"
 	done
 
-Route18SignText: ; AUTOTRAD
+Route18SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 18"
+
+	para "CELADOPOLE -"
+	line "PARMANIE"
+else
 	text "ROUTE 18"
 
 	para "CELADON CITY -"
 	line "FUCHSIA CITY"
+endc
+
 	done
 
 Route18_MapEvents:

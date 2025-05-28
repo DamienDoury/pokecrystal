@@ -152,7 +152,16 @@ Route7SaffronGate_OakGreetingsText3: ; TO TRANSLATE
 	line "sometimes!"
 	done
 
-Route7SaffronGuardPowerPlantText: ; AUTOTRAD
+Route7SaffronGuardPowerPlantText: 
+if DEF(_FR_FR)
+	text "Sais-tu qu'il y a"
+	line "eu un accident à"
+	cont "la CENTRALE?"
+
+	para "C'est à l'Est,"
+	line "près de"
+	cont "LAVANVILLE."
+else
 	text "Did you hear about"
 	line "the accident at"
 	cont "the POWER PLANT?"
@@ -160,9 +169,21 @@ Route7SaffronGuardPowerPlantText: ; AUTOTRAD
 	para "It's located in"
 	line "the East, close to"
 	cont "LAVENDER TOWN."
+endc
+
 	done
 
-Route7SaffronGuardSeriousText: ; AUTOTRAD
+Route7SaffronGuardSeriousText: 
+if DEF(_FR_FR)
+	text "J'suis un GARDE."
+	line "J'en suis fier."
+
+	para "Hé! T'as un"
+	line "#DEX!"
+
+	para "OK. Tu peux"
+	line "passer."
+else
 	text "I take my GUARD"
 	line "job seriously."
 
@@ -171,6 +192,8 @@ Route7SaffronGuardSeriousText: ; AUTOTRAD
 
 	para "OK. You can go"
 	line "through."
+endc
+
 	done
 
 Route7SaffronGate_MapEvents:

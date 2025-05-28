@@ -191,16 +191,30 @@ MovementDragonsDen_ClairWalksAway:
 	slow_step LEFT
 	step_end
 
-ClairText_Wait: ; AUTOTRAD
+ClairText_Wait: 
+if DEF(_FR_FR)
+	text "Attends!"
+else
 	text "Wait!"
+endc
+
 	done
 
-ClairText_GiveDragonbreathDragonDen: ; AUTOTRAD
+ClairText_GiveDragonbreathDragonDen: 
+if DEF(_FR_FR)
+	text "SANDRA: Excuse-moi"
+	line "pour tout."
+
+	para "Tiens. Pour me"
+	line "faire pardonner."
+else
 	text "CLAIR: I'm sorry"
 	line "about this."
 
 	para "Here, take this as"
 	line "my apology."
+endc
+
 	done
 
 Text_ReceivedTM24: ; TO TRANSLATE
@@ -232,7 +246,17 @@ ClairText_DescribeDragonbreathDragonDen: ; TO TRANSLATE
 	cont "it."
 	done
 
-ClairText_NoRoom: ; AUTOTRAD
+ClairText_NoRoom: 
+if DEF(_FR_FR)
+	text "Oh? Tu n'as plus"
+	line "de place."
+
+	para "Je retourne à"
+	line "l'ARENE. Fais de"
+
+	para "la place et re-"
+	line "viens me voir."
+else
 	text "Oh? You don't have"
 	line "any room for this."
 
@@ -241,9 +265,19 @@ ClairText_NoRoom: ; AUTOTRAD
 
 	para "room, then come"
 	line "see me there."
+endc
+
 	done
 
-DragonShrineSignpostText: ; AUTOTRAD
+DragonShrineSignpostText: 
+if DEF(_FR_FR)
+	text "AUTEL DRAGON"
+
+	para "En l'honneur des"
+	line "#MON dragons"
+	cont "ayant vécu dans"
+	cont "l'ANTRE du DRAGON."
+else
 	text "DRAGON SHRINE"
 
 	para "A shrine honoring"
@@ -251,6 +285,8 @@ DragonShrineSignpostText: ; AUTOTRAD
 
 	para "said to have lived"
 	line "in DRAGON'S DEN."
+endc
+
 	done
 
 SilverText_Training1: ; AUTOTRAD
@@ -288,16 +324,37 @@ SilverText_Training2: ; TO TRANSLATE
 	line "Wednesday."
 	done
 
-CooltrainermDarinSeenText: ; AUTOTRAD
+CooltrainermDarinSeenText: 
+if DEF(_FR_FR)
+	text "Toi! On ne veut"
+	line "pas de toi ici!"
+else
 	text "You! How dare you"
 	line "enter uninvited!"
+endc
+
 	done
 
-CooltrainermDarinBeatenText: ; AUTOTRAD
+CooltrainermDarinBeatenText: 
+if DEF(_FR_FR)
+	text "Quelle puissance!"
+else
 	text "S-strong!"
+endc
+
 	done
 
-CooltrainermDarinAfterBattleText: ; AUTOTRAD
+CooltrainermDarinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le TEMPLE est la"
+	line "demeure de notre"
+
+	para "MAITRE, chef du"
+	line "clan des dragons."
+
+	para "Tu n'as pas le"
+	line "droit d'entrer!"
+else
 	text "The SHRINE ahead"
 	line "is home to the"
 
@@ -306,18 +363,46 @@ CooltrainermDarinAfterBattleText: ; AUTOTRAD
 
 	para "You're not allowed"
 	line "to just go in!"
+endc
+
 	done
 
-CooltrainerfCaraSeenText: ; AUTOTRAD
+CooltrainerfCaraSeenText: 
+if DEF(_FR_FR)
+	text "Tu ne dois pas"
+	line "être ici!"
+else
 	text "You shouldn't be"
 	line "in here!"
+endc
+
 	done
 
-CooltrainerfCaraBeatenText: ; AUTOTRAD
+CooltrainerfCaraBeatenText: 
+if DEF(_FR_FR)
+	text "Oups!"
+else
 	text "Oh yikes, I lost!"
+endc
+
 	done
 
-CooltrainerfCaraAfterBattleText: ; AUTOTRAD
+CooltrainerfCaraAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais bientôt"
+	line "avoir l'accord du"
+
+	para "MAITRE pour utili-"
+	line "ser des dragons."
+
+	para "Et alors, je pour-"
+	line "rai rendre mon"
+
+	para "MAITRE fier en"
+	line "devenant un grand"
+
+	para "dresseur."
+else
 	text "Soon I'm going to"
 	line "get permission"
 
@@ -332,35 +417,73 @@ CooltrainerfCaraAfterBattleText: ; AUTOTRAD
 
 	para "our MASTER's"
 	line "approval."
+endc
+
 	done
 
-TwinsLeaandpia1SeenText: ; AUTOTRAD
+TwinsLeaandpia1SeenText: 
+if DEF(_FR_FR)
+	text "C'est un étranger"
+	line "que l'on ne"
+	cont "connaît pas."
+else
 	text "It's a stranger we"
 	line "don't know."
+endc
+
 	done
 
-TwinsLeaandpia1BeatenText: ; AUTOTRAD
+TwinsLeaandpia1BeatenText: 
+if DEF(_FR_FR)
+	text "Ouille."
+else
 	text "Ouchies."
+endc
+
 	done
 
-TwinsLeaandpia1AfterBattleText: ; AUTOTRAD
+TwinsLeaandpia1AfterBattleText: 
+if DEF(_FR_FR)
+	text "C'est comme com-"
+	line "battre PETER."
+else
 	text "It was like having"
 	line "to battle LANCE."
+endc
+
 	done
 
-TwinsLeaandpia2SeenText: ; AUTOTRAD
+TwinsLeaandpia2SeenText: 
+if DEF(_FR_FR)
+	text "Qui es-tu?"
+else
 	text "Who are you?"
+endc
+
 	done
 
-TwinsLeaandpia2BeatenText: ; AUTOTRAD
+TwinsLeaandpia2BeatenText: 
+if DEF(_FR_FR)
+	text "Pas sympa."
+else
 	text "Meanie."
+endc
+
 	done
 
-TwinsLeaandpia2AfterBattleText: ; AUTOTRAD
+TwinsLeaandpia2AfterBattleText: 
+if DEF(_FR_FR)
+	text "On va le dire."
+
+	para "Le MAITRE ne sera"
+	line "pas content."
+else
 	text "We'll tell on you."
 
 	para "MASTER will be"
 	line "angry with you."
+endc
+
 	done
 
 DragonsDenB1F_MapEvents:

@@ -50,16 +50,30 @@ TrainerPokefanmTrevor:
 	closetext
 	end
 
-PokefanmCarterSeenText: ; AUTOTRAD
+PokefanmCarterSeenText: 
+if DEF(_FR_FR)
+	text "J'ai eu du mal à"
+	line "attraper mes #-"
+
+	para "MON rares et super"
+	line "jolis."
+else
 	text "Let me tell you,"
 	line "I had a hard time"
 
 	para "catching my prized"
 	line "#MON."
+endc
+
 	done
 
-PokefanmCarterBeatenText: ; AUTOTRAD
+PokefanmCarterBeatenText: 
+if DEF(_FR_FR)
 	text "Awaaah!"
+else
+	text "Awaaah!"
+endc
+
 	done
 
 PokefanmCarterAfterBattleText: ; TO TRANSLATE
@@ -73,26 +87,58 @@ PokefanmCarterAfterBattleText: ; TO TRANSLATE
 	line "very rare!"
 	done
 
-BirdKeeperRoySeenText: ; AUTOTRAD
+BirdKeeperRoySeenText: 
+if DEF(_FR_FR)
+	text "Je rêve de voler"
+	line "avec mes amis les"
+	cont "#MON oiseaux."
+else
 	text "My dream is to fly"
 	line "with my beloved"
 	cont "bird #MON."
+endc
+
 	done
 
-BirdKeeperRoyBeatenText: ; AUTOTRAD
+BirdKeeperRoyBeatenText: 
+if DEF(_FR_FR)
+	text "Je rêve mais je ne"
+	line "volerai jamais..."
+else
 	text "I can dream, but I"
 	line "can't ever fly…"
+endc
+
 	done
 
-BirdKeeperRoyAfterBattleText: ; AUTOTRAD
+BirdKeeperRoyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu as des #MON"
+	line "qui ont appris la"
+
+	para "CS VOL, non? Tu as"
+	line "trop de chance."
+else
 	text "You have #MON"
 	line "that know the HM"
 
 	para "move FLY, don't"
 	line "you? I envy you."
+endc
+
 	done
 
-PokefanmTrevorSeenText: ; AUTOTRAD
+PokefanmTrevorSeenText: 
+if DEF(_FR_FR)
+	text "Le savais-tu?"
+
+	para "Les #MON sont"
+	line "plus amicaux s'ils"
+
+	para "sont entraînés"
+	line "dans un endroit"
+	cont "familier."
+else
 	text "Hi. Did you know…?"
 
 	para "#MON get more"
@@ -101,19 +147,36 @@ PokefanmTrevorSeenText: ; AUTOTRAD
 	para "train them in a"
 	line "place that they"
 	cont "remember."
+endc
+
 	done
 
-PokefanmTrevorBeatenText: ; AUTOTRAD
+PokefanmTrevorBeatenText: 
+if DEF(_FR_FR)
+	text "Où ai-je rencontré"
+	line "ce PSYKOKWAK?"
+else
 	text "Where did I meet"
 	line "this PSYDUCK?"
+endc
+
 	done
 
-PokefanmTrevorAfterBattleText: ; AUTOTRAD
+PokefanmTrevorAfterBattleText: 
+if DEF(_FR_FR)
+	text "Y a-t-il un moyen"
+	line "de savoir où l'on"
+
+	para "a trouvé nos"
+	line "#MON?"
+else
 	text "If only there were"
 	line "an easy way to"
 
 	para "identify where I"
 	line "got my #MON…"
+endc
+
 	done
 
 Route14_MapEvents:

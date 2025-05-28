@@ -22,7 +22,20 @@ Route19FuchsiaGateOfficerScript:
 	closetext
 	end
 
-Route19FuchsiaGateOfficerText: ; AUTOTRAD
+Route19FuchsiaGateOfficerText: 
+if DEF(_FR_FR)
+	text "Le volcan de"
+	line "CRAMOIS'ILE est en"
+	cont "éruption."
+
+	para "Il a craché des"
+	line "rochers bloquant"
+	cont "la ROUTE 19."
+
+	para "Les habitants de"
+	line "CRAMOIS'ILE sont-"
+	cont "ils en sécurité?"
+else
 	text "CINNABAR's volcano"
 	line "erupted."
 
@@ -33,14 +46,25 @@ Route19FuchsiaGateOfficerText: ; AUTOTRAD
 	para "I wonder if the"
 	line "people of CINNABAR"
 	cont "are safe…"
+endc
+
 	done
 
-Route19FuchsiaGateOfficerText_RocksCleared: ; AUTOTRAD
+Route19FuchsiaGateOfficerText_RocksCleared: 
+if DEF(_FR_FR)
+	text "Aucun habitant de"
+	line "CRAMOIS'ILE n'a"
+
+	para "été blessé pendant"
+	line "l'éruption. Cool!"
+else
 	text "No CINNABAR citi-"
 	line "zens were injured"
 
 	para "by the eruption."
 	line "That's great!"
+endc
+
 	done
 
 Route19FuchsiaGate_MapEvents:

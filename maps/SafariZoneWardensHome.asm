@@ -440,20 +440,39 @@ WardenNeighborText: ; TO TRANSLATE
 	para "Nice, hehe!"
 	done
 
-WardenPhotoText: ; AUTOTRAD
+WardenPhotoText: 
+if DEF(_FR_FR)
+	text "C'est la photo"
+	line "d'un vieil homme"
+
+	para "entouré de"
+	line "#MON."
+else
 	text "It's a photo of a"
 	line "grinning old man"
 
 	para "who's surrounded"
 	line "by #MON."
+endc
+
 	done
 
-SafariZonePhotoText: ; AUTOTRAD
+SafariZonePhotoText: 
+if DEF(_FR_FR)
+	text "C'est la photo"
+	line "d'une grande plai-"
+
+	para "ne verdoyante avec"
+	line "des #MON rares"
+	cont "tout partout."
+else
 	text "It's a photo of a"
 	line "huge grassy plain"
 
 	para "with rare #MON"
 	line "frolicking in it."
+endc
+
 	done
 
 SafariZoneOwnerText: ; TO TRANSLATE

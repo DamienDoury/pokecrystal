@@ -318,13 +318,31 @@ ReceivedAntonMailText: ; TO TRANSLATE
 	db   "I will always"
 	next "love you darling@"
 
-SilphCoReceptionistText: ; AUTOTRAD
+SilphCoReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue. Voici"
+	line "les BUREAUX de la"
+	cont "SYLPHE SARL."
+else
 	text "Welcome. This is"
 	line "SILPH CO.'s HEAD"
 	cont "OFFICE BUILDING."
+endc
+
 	done
 
-SilphCoOfficerText: ; AUTOTRAD
+SilphCoOfficerText: 
+if DEF(_FR_FR)
+	text "Seuls les employés"
+	line "peuvent aller aux"
+	cont "étages supérieurs."
+
+	para "Mais comme tu"
+	line "viens de loin,"
+
+	para "voilà un petit"
+	line "souvenir."
+else
 	text "Only employees are"
 	line "permitted to go"
 	cont "upstairs."
@@ -334,6 +352,8 @@ SilphCoOfficerText: ; AUTOTRAD
 
 	para "have this neat"
 	line "little souvenir."
+endc
+
 	done
 
 SilphCoOfficerText_GotUpGrade: ; TO TRANSLATE

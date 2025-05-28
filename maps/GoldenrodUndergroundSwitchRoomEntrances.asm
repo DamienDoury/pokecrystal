@@ -801,7 +801,15 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText: ; TO TRANSLATE
 	line "careful."
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText: ; AUTOTRAD
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText: 
+if DEF(_FR_FR)
+	text "J'ai fait un"
+	line "combat en bas."
+
+	para "C'était super"
+	line "chaud. Un conseil:"
+	cont "fais super gaffe!"
+else
 	text "I was challenged"
 	line "to a battle down-"
 	cont "stairs."
@@ -809,9 +817,21 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText: ; AUTOTRAD
 	para "It's rough down"
 	line "there. You'd"
 	cont "better be careful."
+endc
+
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_TeacherText: ; AUTOTRAD
+GoldenrodUndergroundSwitchRoomEntrances_TeacherText: 
+if DEF(_FR_FR)
+	text "Il y a des bouti-"
+	line "ques en bas..."
+
+	para "Mais il y a aussi"
+	line "des dresseurs..."
+
+	para "Alors j'ai peur"
+	line "d'y aller."
+else
 	text "There are some"
 	line "shops downstairs…"
 
@@ -820,30 +840,67 @@ GoldenrodUndergroundSwitchRoomEntrances_TeacherText: ; AUTOTRAD
 
 	para "I'm scared to go"
 	line "down there."
+endc
+
 	done
 
-GruntM11SeenText: ; AUTOTRAD
+GruntM11SeenText: 
+if DEF(_FR_FR)
+	text "Ouvre un truc et"
+	line "un autre se ferme."
+
+	para "C'est dur d'avan-"
+	line "cer, hein?"
+else
 	text "Open one shutter,"
 	line "another closes."
 
 	para "Bet you can't get"
 	line "where you want!"
+endc
+
 	done
 
-GruntM11BeatenText: ; AUTOTRAD
+GruntM11BeatenText: 
+if DEF(_FR_FR)
+	text "Zut de flûte!"
+	line "J'suis perdu!"
+else
 	text "Drat! I was sunk"
 	line "by indecision!"
+endc
+
 	done
 
-GruntM11AfterBattleText: ; AUTOTRAD
+GruntM11AfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi aussi je m'y"
+	line "perds: le premier"
+
+	para "interrupteur à"
+	line "activer est au"
+	cont "bout et après..."
+else
 	text "I'm confused too…"
 	line "The switch on the"
 
 	para "end is the one to"
 	line "press first, but…"
+endc
+
 	done
 
-GruntM25SeenText: ; AUTOTRAD
+GruntM25SeenText: 
+if DEF(_FR_FR)
+	text "Kwahaha!"
+
+	para "Les volets te po-"
+	line "sent un problème?"
+
+	para "Bats-moi et je te"
+	line "confie un p'tit"
+	cont "secret!"
+else
 	text "Kwahaha!"
 
 	para "Confounded by the"
@@ -852,14 +909,32 @@ GruntM25SeenText: ; AUTOTRAD
 	para "I'll let you in on"
 	line "a secret if you"
 	cont "can beat me!"
+endc
+
 	done
 
-GruntM25BeatenText: ; AUTOTRAD
+GruntM25BeatenText: 
+if DEF(_FR_FR)
+	text "Hmmm..."
+	line "Dommage."
+else
 	text "Uwww…"
 	line "I blew it."
+endc
+
 	done
 
-GruntM25AfterBattleText: ; AUTOTRAD
+GruntM25AfterBattleText: 
+if DEF(_FR_FR)
+	text "OK. Un conseil!"
+
+	para "Change l'ordre"
+	line "d'activation."
+
+	para "Et l'ordre de fer-"
+	line "meture des volets"
+	cont "changera."
+else
 	text "All right. A hint!"
 
 	para "Change the order"
@@ -868,37 +943,80 @@ GruntM25AfterBattleText: ; AUTOTRAD
 	para "That'll change the"
 	line "ways the shutters"
 	cont "open and close."
+endc
+
 	done
 
-BurglarDuncanSeenText: ; AUTOTRAD
+BurglarDuncanSeenText: 
+if DEF(_FR_FR)
+	text "Envoie ton blé!"
+else
 	text "Fork over your"
 	line "goodies!"
+endc
+
 	done
 
-BurglarDuncanBeatenText: ; AUTOTRAD
+BurglarDuncanBeatenText: 
+if DEF(_FR_FR)
+	text "Pitié!"
+else
 	text "Mercy!"
+endc
+
 	done
 
-BurglarDuncanAfterBattleText: ; AUTOTRAD
+BurglarDuncanAfterBattleText: 
+if DEF(_FR_FR)
+	text "Voler c'est cool!"
+	line "Piller c'est top!"
+else
 	text "Steal and sell!"
 	line "That's basic in"
 	cont "crime, kid!"
+endc
+
 	done
 
-BurglarEddieSeenText: ; AUTOTRAD
+BurglarEddieSeenText: 
+if DEF(_FR_FR)
+	text "Ils ont abandonné"
+	line "ce projet avant la"
+	cont "fin."
+
+	para "Je cherche des"
+	line "restes à voler."
+else
 	text "They ditched this"
 	line "project before"
 	cont "they finished."
 
 	para "I'm searching for"
 	line "leftover loot."
+endc
+
 	done
 
-BurglarEddieBeatenText: ; AUTOTRAD
+BurglarEddieBeatenText: 
+if DEF(_FR_FR)
+	text "Yarglah!"
+else
 	text "Over the top!"
+endc
+
 	done
 
-BurglarEddieAfterBattleText: ; AUTOTRAD
+BurglarEddieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le DEPOT"
+	line "SOUTERRAIN?"
+
+	para "Pourquoi tu veux"
+	line "y aller?"
+
+	para "Y'a rien du tout"
+	line "dans le coin."
+else
 	text "UNDERGROUND WARE-"
 	line "HOUSE?"
 
@@ -907,34 +1025,74 @@ BurglarEddieAfterBattleText: ; AUTOTRAD
 
 	para "There's nothing"
 	line "down there."
+endc
+
 	done
 
-GruntM13SeenText: ; AUTOTRAD
+GruntM13SeenText: 
+if DEF(_FR_FR)
+	text "Je m'en fiche si"
+	line "tu ne sais pas par"
+	cont "où aller."
+
+	para "Si tu viens ici,"
+	line "tu dois t'attendre"
+	cont "aux conséquences!"
+else
 	text "I don't care if"
 	line "you're lost."
 
 	para "You show up here,"
 	line "you're nothing but"
 	cont "a victim!"
+endc
+
 	done
 
-GruntM13BeatenText: ; AUTOTRAD
+GruntM13BeatenText: 
+if DEF(_FR_FR)
+	text "Gueuh! Tu te crois"
+	line "balèze ou quoi?"
+else
 	text "Urk! Yeah, think"
 	line "you're cool, huh?"
+endc
+
 	done
 
-GruntM13AfterBattleText: ; AUTOTRAD
+GruntM13AfterBattleText: 
+if DEF(_FR_FR)
+	text "T'as un sacré cou-"
+	line "rage pour t'atta-"
+	cont "quer à la ROCKET."
+else
 	text "You must have ice"
 	line "in your veins to"
 	cont "dis TEAM ROCKET."
+endc
+
 	done
 
-SwitchRoomText_Switch1: ; AUTOTRAD
+SwitchRoomText_Switch1: 
+if DEF(_FR_FR)
+	text "C'est écrit:"
+	line "INTERRUPTEUR 1."
+else
 	text "It's labeled"
 	line "SWITCH 1."
+endc
+
 	done
 
-GruntF3SeenText: ; AUTOTRAD
+GruntF3SeenText: 
+if DEF(_FR_FR)
+	text "T'as pas l'air"
+	line "d'avoir peur."
+
+	para "Attends..."
+	line "Moi je vais te"
+	cont "faire peur!"
+else
 	text "Are you lost? No,"
 	line "you can't be."
 
@@ -944,41 +1102,85 @@ GruntF3SeenText: ; AUTOTRAD
 	para "I'll give you"
 	line "something to be"
 	cont "scared about!"
+endc
+
 	done
 
-GruntF3BeatenText: ; AUTOTRAD
+GruntF3BeatenText: 
+if DEF(_FR_FR)
+	text "Comment oses-tu?"
+else
 	text "How could you?"
+endc
+
 	done
 
-GruntF3AfterBattleText: ; AUTOTRAD
+GruntF3AfterBattleText: 
+if DEF(_FR_FR)
+	text "Va où tu veux!"
+	line "Va-t'en!"
+	cont "Je m'en fiche!"
+else
 	text "Go wherever you'd"
 	line "like! Get lost!"
 	cont "See if I care!"
+endc
+
 	done
 
-SwitchRoomText_OffTurnOn: ; AUTOTRAD
+SwitchRoomText_OffTurnOn: 
+if DEF(_FR_FR)
+	text "C'est éteint."
+	line "On l'active?"
+else
 	text "It's OFF."
 	line "Turn it ON?"
+endc
+
 	done
 
-SwitchRoomText_OnTurnOff: ; AUTOTRAD
+SwitchRoomText_OnTurnOff: 
+if DEF(_FR_FR)
+	text "C'est activé."
+	line "On l'éteint?"
+else
 	text "It's ON."
 	line "Turn it OFF?"
+endc
+
 	done
 
-SwitchRoomText_Switch2: ; AUTOTRAD
+SwitchRoomText_Switch2: 
+if DEF(_FR_FR)
+	text "C'est écrit:"
+	line "INTERRUPTEUR 2."
+else
 	text "It's labeled"
 	line "SWITCH 2."
+endc
+
 	done
 
-SwitchRoomText_Switch3: ; AUTOTRAD
+SwitchRoomText_Switch3: 
+if DEF(_FR_FR)
+	text "C'est écrit:"
+	line "INTERRUPTEUR 3."
+else
 	text "It's labeled"
 	line "SWITCH 3."
+endc
+
 	done
 
-SwitchRoomText_Emergency: ; AUTOTRAD
+SwitchRoomText_Emergency: 
+if DEF(_FR_FR)
+	text "C'est écrit:"
+	line "URGENCE."
+else
 	text "It's labeled"
 	line "EMERGENCY."
+endc
+
 	done
 
 GoldenrodUndergroundSwitchRoomEntrances_MapEvents:

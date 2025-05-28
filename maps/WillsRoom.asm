@@ -81,7 +81,32 @@ WillsRoom_EnterMovement:
 	step UP
 	step_end
 
-WillScript_WillBeforeText: ; AUTOTRAD
+WillScript_WillBeforeText: 
+if DEF(_FR_FR)
+	text "Bienvenue à la"
+	line "LIGUE #MON,"
+	cont "<PLAYER>."
+
+	para "Je me présente:"
+	line "mon nom est"
+	cont "CLEMENT."
+
+	para "Je sais tout."
+	line "J'ai tout vu."
+
+	para "Mes #MON PSY"
+	line "sont trop forts."
+
+	para "Le CONSEIL des 4"
+	line "m'a accueilli en"
+	cont "son sein."
+
+	para "Normal, quoi."
+	line "J'suis trop fort!"
+
+	para "Perdre? Défaite?"
+	line "Connais pas!"
+else
 	text "Welcome to #MON"
 	line "LEAGUE, <PLAYER>."
 
@@ -104,14 +129,40 @@ WillScript_WillBeforeText: ; AUTOTRAD
 
 	para "Losing is not an"
 	line "option!"
+endc
+
 	done
 
-WillScript_WillBeatenText: ; AUTOTRAD
+WillScript_WillBeatenText: 
+if DEF(_FR_FR)
+	text "C'est..."
+	line "Incroyable..."
+else
 	text "I… I can't…"
 	line "believe it…"
+endc
+
 	done
 
-WillScript_WillDefeatText: ; AUTOTRAD
+WillScript_WillDefeatText: 
+if DEF(_FR_FR)
+	text "J'ai peut-être"
+	line "perdu comme un"
+	cont "criquet mais..."
+
+	para "Je continuerai à"
+	line "combattre tant que"
+
+	para "je ne serai pas le"
+	line "plus grand!"
+
+	para "<PLAYER>..."
+	line "Continue ta route"
+
+	para "et découvre la"
+	line "force du CONSEIL"
+	cont "des 4!"
+else
 	text "Even though I was"
 	line "defeated, I won't"
 	cont "change my course."
@@ -127,6 +178,8 @@ WillScript_WillDefeatText: ; AUTOTRAD
 
 	para "the true ferocity"
 	line "of the ELITE FOUR."
+endc
+
 	done
 
 WillsRoom_MapEvents:

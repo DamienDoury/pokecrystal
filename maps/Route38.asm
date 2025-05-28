@@ -306,37 +306,80 @@ Route38TrainerTips:
 Route38FruitTree:
 	fruittree FRUITTREE_ROUTE_38
 
-BirdKeeperTobySeenText: ; AUTOTRAD
+BirdKeeperTobySeenText: 
+if DEF(_FR_FR)
+	text "Volez, mes jolis"
+	line "petits #MON!"
+else
 	text "Fly high into the"
 	line "sky, my beloved"
 	cont "bird #MON!"
+endc
+
 	done
 
-BirdKeeperTobyBeatenText: ; AUTOTRAD
+BirdKeeperTobyBeatenText: 
+if DEF(_FR_FR)
+	text "Chplof!"
+else
 	text "I feel like just"
 	line "flying away now."
+endc
+
 	done
 
-BirdKeeperTobyAfterBattleText: ; AUTOTRAD
+BirdKeeperTobyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais entraîner"
+	line "mes #MON à"
+
+	para "IRISIA pour leur"
+	line "apprendre à voler."
+else
 	text "I plan to train in"
 	line "CIANWOOD CITY to"
 
 	para "teach my #MON"
 	line "how to FLY."
+endc
+
 	done
 
-SchoolboyChad1SeenText: ; AUTOTRAD
+SchoolboyChad1SeenText: 
+if DEF(_FR_FR)
+	text "J'vais te montrer"
+	line "ce que j'ai appris"
+	cont "aujourd'hui."
+else
 	text "Let me try some-"
 	line "thing I learned"
 	cont "today."
+endc
+
 	done
 
-SchoolboyChad1BeatenText: ; AUTOTRAD
+SchoolboyChad1BeatenText: 
+if DEF(_FR_FR)
+	text "Faut que j'étudie"
+	line "encore un peu."
+else
 	text "I didn't study"
 	line "enough, I guess."
+endc
+
 	done
 
-SchoolboyChadSoManyTestsText: ; AUTOTRAD
+SchoolboyChadSoManyTestsText: 
+if DEF(_FR_FR)
+	text "Les études ça me"
+	line "prend la tête."
+
+	para "Je préfère les"
+	line "#MON."
+
+	para "Alors moi, jouer,"
+	line "c'est mon truc."
+else
 	text "I have to take so"
 	line "many tests, I"
 
@@ -346,48 +389,98 @@ SchoolboyChadSoManyTestsText: ; AUTOTRAD
 	para "So when I do get"
 	line "to play, I really"
 	cont "concentrate."
+endc
+
 	done
 
-LassDana1SeenText: ; AUTOTRAD
+LassDana1SeenText: 
+if DEF(_FR_FR)
+	text "Tu as l'air de t'y"
+	line "connaître en"
+	cont "#MON."
+
+	para "Tu veux bien me"
+	line "donner des"
+	cont "conseils?"
+else
 	text "You seem to be"
 	line "good at #MON."
 
 	para "If you are, how"
 	line "about giving me"
 	cont "some advice?"
+endc
+
 	done
 
-LassDana1BeatenText: ; AUTOTRAD
+LassDana1BeatenText: 
+if DEF(_FR_FR)
+	text "Je vois. C'est pas"
+	line "mal."
+else
 	text "I see. So you can"
 	line "battle that way."
+endc
+
 	done
 
-LassDanaMoomooMilkText: ; AUTOTRAD
+LassDanaMoomooMilkText: 
+if DEF(_FR_FR)
+	text "Je vais te dire"
+	line "un truc..."
+
+	para "Le lait du RANCH"
+	line "MEUMEU est super"
+	cont "bon."
+else
 	text "I know something"
 	line "good!"
 
 	para "MOOMOO FARM's milk"
 	line "is famous for its"
 	cont "flavor."
+endc
+
 	done
 
-BeautyValerieSeenText: ; AUTOTRAD
+BeautyValerieSeenText: 
+if DEF(_FR_FR)
+	text "Hé! T'es mimi"
+	line "comme dresseur!"
+
+	para "Je peux voir tes"
+	line "#MON?"
+else
 	text "Hi! Aren't you a"
 	line "cute trainer!"
 
 	para "May I see your"
 	line "#MON?"
+endc
+
 	done
 
-BeautyValerieBeatenText: ; AUTOTRAD
+BeautyValerieBeatenText: 
+if DEF(_FR_FR)
+	text "Merci."
+	line "Sympa!"
+else
 	text "I'm glad I got to"
 	line "see your #MON!"
+endc
+
 	done
 
-BeautyValerieAfterBattleText: ; AUTOTRAD
+BeautyValerieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les #MON, ça me"
+	line "calme les nerfs."
+else
 	text "When I see #-"
 	line "MON, it seems to"
 	cont "soothe my nerves."
+endc
+
 	done
 
 SailorHarrySeenText: ; TO TRANSLATE
@@ -406,18 +499,43 @@ SailorHarryAfterBattleText: ; TO TRANSLATE
 	cont "best #MON."
 	done
 
-BeautyOliviaSeenText: ; AUTOTRAD
+BeautyOliviaSeenText: 
+if DEF(_FR_FR)
+	text "Tu ne trouves pas"
+	line "que mes #MON et"
+	cont "moi-même avons une"
+	cont "classe folle?"
+else
 	text "Don't you think my"
 	line "#MON and I are"
 	cont "beautiful?"
+endc
+
 	done
 
-BeautyOliviaBeatenText: ; AUTOTRAD
+BeautyOliviaBeatenText: 
+if DEF(_FR_FR)
+	text "On boit du LAIT"
+	line "MEUMEU tous les"
+	cont "jours."
+else
 	text "We drink MOOMOO"
 	line "MILK every day."
+endc
+
 	done
 
-BeautyOliviaAfterBattleText: ; AUTOTRAD
+BeautyOliviaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le LAIT MEUMEU est"
+	line "bon pour la forme"
+
+	para "mais ils n'en"
+	line "vendent qu'une"
+
+	para "bouteille à la"
+	line "fois."
+else
 	text "MOOMOO MILK is"
 	line "good for beauty"
 
@@ -426,16 +544,40 @@ BeautyOliviaAfterBattleText: ; AUTOTRAD
 
 	para "they only sell a"
 	line "bottle at a time."
+endc
+
 	done
 
-Route38SignText: ; AUTOTRAD
+Route38SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 38"
+
+	para "OLIVILLE -"
+	line "ROSALIA"
+else
 	text "ROUTE 38"
 
 	para "OLIVINE CITY -"
 	line "ECRUTEAK CITY"
+endc
+
 	done
 
-Route38TrainerTipsText: ; AUTOTRAD
+Route38TrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Vous pouvez arrê-"
+	line "ter l'évolution d'"
+	cont "un #MON."
+
+	para "Appuyez sur B pen-"
+	line "dant l'évolution."
+
+	para "Cela surprendra le"
+	line "#MON et le"
+	cont "fera s'arrêter."
+else
 	text "TRAINER TIPS"
 
 	para "If a #MON is"
@@ -449,6 +591,8 @@ Route38TrainerTipsText: ; AUTOTRAD
 	para "That startles the"
 	line "#MON and stops"
 	cont "its evolution."
+endc
+
 	done
 
 Route38_MapEvents:

@@ -131,11 +131,29 @@ Route34IlexForestGateTeacher_ForestIsRestless: ; TO TRANSLATE
 	line "away right now."
 	done
 
-Route34IlexForestGateButterfreeText: ; AUTOTRAD
+Route34IlexForestGateButterfreeText: 
+if DEF(_FR_FR)
+	text "PAPILUSION: Piiii!"
+else
 	text "BUTTERFREE: Freeh!"
+endc
+
 	done
 
-Route34IlexForestGateLassText: ; AUTOTRAD
+Route34IlexForestGateLassText: 
+if DEF(_FR_FR)
+	text "As-tu vu l'autel"
+	line "en l'honneur du"
+	cont "gardien?"
+
+	para "Il protège le BOIS"
+	line "depuis la nuit des"
+	cont "temps."
+
+	para "Ca doit être"
+	line "un #MON de"
+	cont "type PLANTE."
+else
 	text "Did you see the"
 	line "shrine honoring"
 	cont "the protector?"
@@ -147,6 +165,8 @@ Route34IlexForestGateLassText: ; AUTOTRAD
 	para "I think that it"
 	line "must be a grass-"
 	cont "type #MON."
+endc
+
 	done
 
 Route34IlexForestGate_MapEvents:

@@ -142,12 +142,22 @@ SaffronMagnetTrainStationOfficerTrainIsntOperatingText: ; TO TRANSLATE
 	cont "power."
 	done
 
-SaffronMagnetTrainStationOfficerAreYouComingOnBoardText: ; AUTOTRAD
+SaffronMagnetTrainStationOfficerAreYouComingOnBoardText: 
+if DEF(_FR_FR)
+	text "Nous partons bien-"
+	line "tôt pour DOUBLON-"
+	cont "VILLE."
+
+	para "Veux-tu monter"
+	line "à bord?"
+else
 	text "We'll soon depart"
 	line "for GOLDENROD."
 
 	para "Are you coming on"
 	line "board?"
+endc
+
 	done
 
 SaffronMagnetTrainStationOfficerArrivedInSaffronText: ; TO TRANSLATE
@@ -155,7 +165,22 @@ SaffronMagnetTrainStationOfficerArrivedInSaffronText: ; TO TRANSLATE
 	line "SAFFRON."
 	done
 
-SaffronMagnetTrainStationGymGuideText: ; AUTOTRAD
+SaffronMagnetTrainStationGymGuideText: 
+if DEF(_FR_FR)
+	text "Le TRAIN MAGNET"
+	line "est un train super"
+
+	para "moderne qui utili-"
+	line "se l'énergie"
+
+	para "magnétique pour"
+	line "aller à toute"
+	cont "vitesse."
+
+	para "Mais sans électri-"
+	line "cité, il ne bouge"
+	cont "pas trop..."
+else
 	text "The MAGNET TRAIN"
 	line "is a super-modern"
 
@@ -169,9 +194,21 @@ SaffronMagnetTrainStationGymGuideText: ; AUTOTRAD
 	para "However, if there"
 	line "isn't any elec-"
 	cont "tricity…"
+endc
+
 	done
 
-SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart: ; AUTOTRAD
+SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "Fouiii..."
+
+	para "Combien de fois"
+	line "ai-je fait la na-"
+
+	para "vette entre KANTO"
+	line "et JOHTO? J'en"
+	cont "sais rien, moi!"
+else
 	text "Whew…"
 
 	para "How many times"
@@ -179,9 +216,22 @@ SaffronMagnetTrainStationGymGuideText_ReturnedMachinePart: ; AUTOTRAD
 
 	para "and forth between"
 	line "KANTO and JOHTO?"
+endc
+
 	done
 
-SaffronMagnetTrainStationTeacherText: ; AUTOTRAD
+SaffronMagnetTrainStationTeacherText: 
+if DEF(_FR_FR)
+	text "Il y avait une"
+	line "maison avant la"
+
+	para "construction de la"
+	line "STATION de TRAIN."
+
+	para "Une petite fille,"
+	line "appelée COPIEUSE,"
+	cont "y vivait."
+else
 	text "Before the MAGNET"
 	line "TRAIN STATION was"
 
@@ -191,6 +241,8 @@ SaffronMagnetTrainStationTeacherText: ; AUTOTRAD
 	para "A little girl"
 	line "named COPYCAT used"
 	cont "to live there."
+endc
+
 	done
 
 SaffronMagnetTrainStationLassText: ; TO TRANSLATE

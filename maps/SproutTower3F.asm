@@ -161,7 +161,28 @@ SproutTower3FRivalLeavesElderMovement:
 	step DOWN
 	step_end
 
-SproutTowerElderLecturesRivalText: ; AUTOTRAD
+SproutTowerElderLecturesRivalText: 
+if DEF(_FR_FR)
+	text "ANCIEN: Tu es"
+	line "sans conteste un"
+	cont "bon dresseur."
+
+	para "Comme promis,"
+	line "voici ta CS."
+
+	para "Un conseil toute-"
+	line "fois: traite tes"
+
+	para "#MON avec plus"
+	line "de gentillesse."
+
+	para "Tu es bien trop"
+	line "âpre au combat."
+
+	para "Les #MON ne"
+	line "sont pas des"
+	cont "engins de guerre."
+else
 	text "ELDER: You are in-"
 	line "deed skilled as a"
 	cont "trainer."
@@ -180,9 +201,39 @@ SproutTowerElderLecturesRivalText: ; AUTOTRAD
 
 	para "#MON are not"
 	line "tools of war…"
+endc
+
 	done
 
-SproutTowerRivalOnlyCareAboutStrongText: ; AUTOTRAD
+SproutTowerRivalOnlyCareAboutStrongText: 
+if DEF(_FR_FR)
+	text "..."
+	line "...Pfeuh!"
+
+	para "On l'appelle"
+	line "l'ANCIEN mais il"
+	cont "est super nul!"
+
+	para "Et il raconte"
+	line "n'importe quoi..."
+
+	para "Je ne me ferai"
+	line "jamais battre par"
+
+	para "un crétin qui"
+	line "conseille d'être"
+
+	para "gentil avec les"
+	line "#MON."
+
+	para "Seuls les #MON"
+	line "puissants sont"
+	cont "importants."
+
+	para "Je me contrefiche"
+	line "des #MON mi-"
+	cont "gnons et faibles."
+else
 	text "…"
 	line "…Humph!"
 
@@ -206,14 +257,46 @@ SproutTowerRivalOnlyCareAboutStrongText: ; AUTOTRAD
 	para "I really couldn't"
 	line "care less about"
 	cont "weak #MON."
+endc
+
 	done
 
-SproutTowerRivalUsedEscapeRopeText: ; AUTOTRAD
+SproutTowerRivalUsedEscapeRopeText: 
+if DEF(_FR_FR)
+	text "<RIVAL> utilise"
+	line "une CORDE SORTIE!"
+else
 	text "<RIVAL> used an"
 	line "ESCAPE ROPE!"
+endc
+
 	done
 
-SageLiSeenText: ; AUTOTRAD
+SageLiSeenText: 
+if DEF(_FR_FR)
+	text "Bienvenue à toi,"
+	line "mon poussin!"
+
+	para "La TOUR CHETIFLOR"
+	line "est un lieu"
+	cont "d'entraînement."
+
+	para "Humains et #MON"
+	line "y renforcent leurs"
+
+	para "liens pour des"
+	line "lendemains qui"
+	cont "chantent."
+
+	para "Je serai ton"
+	line "adversaire final."
+
+	para "Permets-moi de"
+	line "mettre à l'épreuve"
+
+	para "ton amitié envers"
+	line "tes #MON!"
+else
 	text "So good of you to"
 	line "come here!"
 
@@ -234,13 +317,28 @@ SageLiSeenText: ; AUTOTRAD
 
 	para "your #MON and"
 	line "you!"
+endc
+
 	done
 
-SageLiBeatenText: ; AUTOTRAD
+SageLiBeatenText: 
+if DEF(_FR_FR)
 	text "Ah, excellent!"
+else
+	text "Ah, excellent!"
+endc
+
 	done
 
-SageLiTakeThisFlashText: ; AUTOTRAD
+SageLiTakeThisFlashText: 
+if DEF(_FR_FR)
+	text "Toi et tes #MON"
+	line "méritez bien cette"
+	cont "nouvelle capacité."
+
+	para "Prends donc cette"
+	line "CS FLASH."
+else
 	text "You and your #-"
 	line "MON should have"
 
@@ -249,6 +347,8 @@ SageLiTakeThisFlashText: ; AUTOTRAD
 
 	para "Take this FLASH"
 	line "HM."
+endc
+
 	done
 
 SageLiFlashExplanationText: ; TO TRANSLATE
@@ -270,24 +370,56 @@ SageLiFlashExplanationText: ; TO TRANSLATE
 	line "to a #MON."
 	done
 
-SageLiAfterBattleText: ; AUTOTRAD
+SageLiAfterBattleText: 
+if DEF(_FR_FR)
+	text "Va, vole et"
+	line "apprends la vie"
+	cont "grâce aux #MON."
+else
 	text "I hope you learn"
 	line "and grow from your"
 	cont "journey."
+endc
+
 	done
 
-SageJinSeenText: ; AUTOTRAD
+SageJinSeenText: 
+if DEF(_FR_FR)
+	text "Je m'entraîne pour"
+	line "trouver la voie du"
+	cont "#MON!"
+else
 	text "I train to find"
 	line "enlightenment in"
 	cont "#MON!"
+endc
+
 	done
 
-SageJinBeatenText: ; AUTOTRAD
+SageJinBeatenText: 
+if DEF(_FR_FR)
+	text "Mon entraînement"
+	line "est insuffisant."
+else
 	text "My training is"
 	line "incomplete…"
+endc
+
 	done
 
-SageJinAfterBattleText: ; AUTOTRAD
+SageJinAfterBattleText: 
+if DEF(_FR_FR)
+	text "Quand un #MON"
+	line "gagne en puissance"
+	cont "son dresseur"
+	cont "devient plus fort."
+
+	para "Non, attends..."
+	line "C'est le contraire"
+
+	para "je crois..."
+	line "Je sais plus."
+else
 	text "As #MON grow"
 	line "stronger, so does"
 	cont "the trainer."
@@ -297,51 +429,108 @@ SageJinAfterBattleText: ; AUTOTRAD
 
 	para "stronger, so do"
 	line "the #MON."
+endc
+
 	done
 
-SageTroySeenText: ; AUTOTRAD
+SageTroySeenText: 
+if DEF(_FR_FR)
+	text "Montre-moi à quel"
+	line "point tu fais"
+	cont "confiance à tes"
+	cont "#MON."
+else
 	text "Let me see how"
 	line "much you trust"
 	cont "your #MON."
+endc
+
 	done
 
-SageTroyBeatenText: ; AUTOTRAD
+SageTroyBeatenText: 
+if DEF(_FR_FR)
+	text "Ta confiance est"
+	line "totale! Bien!"
+else
 	text "Yes, your trust is"
 	line "real!"
+endc
+
 	done
 
-SageTroyAfterBattleText: ; AUTOTRAD
+SageTroyAfterBattleText: 
+if DEF(_FR_FR)
+	text "L'ANCIEN n'est"
+	line "plus très loin."
+else
 	text "It is not far to"
 	line "the ELDER."
+endc
+
 	done
 
-SageNealSeenText: ; AUTOTRAD
+SageNealSeenText: 
+if DEF(_FR_FR)
+	text "La CS de l'ANCIEN"
+	line "éclaire même les"
+	cont "sombres cavernes."
+else
 	text "The ELDER's HM"
 	line "lights even pitch-"
 	cont "black darkness."
+endc
+
 	done
 
-SageNealBeatenText: ; AUTOTRAD
+SageNealBeatenText: 
+if DEF(_FR_FR)
+	text "J'en ai pris plein"
+	line "la tête!"
+else
 	text "It is my head that"
 	line "is bright!"
+endc
+
 	done
 
-SageNealAfterBattleText: ; AUTOTRAD
+SageNealAfterBattleText: 
+if DEF(_FR_FR)
+	text "Que ta voie soit"
+	line "douce et claire."
+else
 	text "Let there be light"
 	line "on your journey."
+endc
+
 	done
 
-SproutTower3FPaintingText: ; AUTOTRAD
+SproutTower3FPaintingText: 
+if DEF(_FR_FR)
+	text "Une belle peinture"
+	line "d'un majestueux"
+	cont "CHETIFLOR."
+else
 	text "It's a powerful"
 	line "painting of a"
 	cont "BELLSPROUT."
+endc
+
 	done
 
-SproutTower3FStatueText: ; AUTOTRAD
+SproutTower3FStatueText: 
+if DEF(_FR_FR)
+	text "Une statue de"
+	line "#MON..."
+
+	para "Ca a l'air cher"
+	line "et raffiné."
+else
 	text "A #MON statue…"
 
 	para "It looks very"
 	line "distinguished."
+endc
+
 	done
 
 SproutTower3F_MapEvents:

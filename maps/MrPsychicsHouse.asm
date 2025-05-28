@@ -25,7 +25,18 @@ MrPsychic:
 MrPsychicsHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-MrPsychicText1: ; AUTOTRAD
+MrPsychicText1: 
+if DEF(_FR_FR)
+	text "..."
+
+	para "...."
+
+	para "....."
+
+	para "......Ah!"
+
+	para "Tu veux ça?"
+else
 	text "…"
 
 	para "…"
@@ -35,13 +46,25 @@ MrPsychicText1: ; AUTOTRAD
 	para "…I got it!"
 
 	para "You wanted this!"
+endc
+
 	done
 
-MrPsychicText2: ; AUTOTRAD
+MrPsychicText2: 
+if DEF(_FR_FR)
+	text "CT29: PSYKO."
+
+	para "Il peux baisser"
+	line "la DEFENSE"
+	cont "SPECIALE de"
+	cont "l'ennemi."
+else
 	text "TM29 is PSYCHIC."
 
 	para "It may lower the"
 	line "target's SPCL.DEF."
+endc
+
 	done
 
 MrPsychicsHouse_MapEvents:

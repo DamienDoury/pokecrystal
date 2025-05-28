@@ -78,8 +78,14 @@ CeladonGameCornerFisherScript:
 	jumpstd ReceiveItemScript
 	end
 
-.coinname ; AUTOTRAD
+.coinname 
+if DEF(_FR_FR)
+	db "JETON@"
+
+else
 	db "COIN@"
+
+endc
 
 .NoCoinCase:
 	writetext CeladonGameCornerFisherNoCoinCaseText
@@ -152,7 +158,16 @@ CeladonGameCornerMachineOffScript:
 CeladonGameCornerLighterScript:
 	jumptext CeladonGameCornerLighterText
 
-CeladonGameCornerReceptionistText: ; AUTOTRAD
+CeladonGameCornerReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "On peut échanger"
+	line "les jetons contre"
+
+	para "de bô prix juste"
+	line "à côté."
+else
 	text "Welcome!"
 
 	para "You may exchange"
@@ -160,12 +175,21 @@ CeladonGameCornerReceptionistText: ; AUTOTRAD
 
 	para "fabulous prizes"
 	line "next door."
+endc
+
 	done
 
-CeladonGameCornerPokefanMText: ; AUTOTRAD
+CeladonGameCornerPokefanMText: 
+if DEF(_FR_FR)
+	text "Les machines à"
+	line "sous, c'est trop"
+	cont "fort."
+else
 	text "The slot machines"
 	line "are all state of"
 	cont "the art."
+endc
+
 	done
 
 CeladonGameCornerTeacherText:
@@ -226,7 +250,13 @@ else
 	done
 endc
 
-CeladonGameCornerFisherText2: ; AUTOTRAD
+CeladonGameCornerFisherText2: 
+if DEF(_FR_FR)
+	text "Gahahaha!"
+
+	para "Aider son prochain"
+	line "c'est trop cool!"
+else
 	text "Gahahaha!"
 
 	para "It makes me feel"
@@ -234,15 +264,27 @@ CeladonGameCornerFisherText2: ; AUTOTRAD
 
 	para "things for other"
 	line "people!"
+endc
+
 	done
 
-CeladonGameCornerFisherNoCoinCaseText: ; AUTOTRAD
+CeladonGameCornerFisherNoCoinCaseText: 
+if DEF(_FR_FR)
+	text "Hé! Tu n'as pas de"
+	line "BOITE JETON."
+
+	para "Et comment je vais"
+	line "te donner des"
+	cont "jetons, moi?"
+else
 	text "Hey, you don't"
 	line "have a COIN CASE."
 
 	para "How am I supposed"
 	line "to give you any"
 	cont "coins, kid?"
+endc
+
 	done
 
 CeladonGameCornerFisherFullCoinCaseText:
@@ -294,27 +336,53 @@ else
 	done
 endc
 
-CeladonGameCornerPoster1Text: ; AUTOTRAD
+CeladonGameCornerPoster1Text: 
+if DEF(_FR_FR)
+	text "Hé!"
+
+	para "Derrière ce"
+	line "poster..."
+
+	para "Y'a rien!"
+else
 	text "Hey!"
 
 	para "Underneath this"
 	line "poster…"
 
 	para "There's nothing!"
+endc
+
 	done
 
-CeladonGameCornerLighterText: ; AUTOTRAD
+CeladonGameCornerLighterText: 
+if DEF(_FR_FR)
+	text "Il y a un briquet"
+	line "ici..."
+else
 	text "There's a lighter"
 	line "here."
+endc
+
 	done
 
-CeladonGameCornerSodaCanText: ; AUTOTRAD
+CeladonGameCornerSodaCanText: 
+if DEF(_FR_FR)
+	text "Une boîte de soda!"
+
+	para "Ca doit être à"
+	line "quelqu'un..."
+
+	para "Hein? C'est vide!"
+else
 	text "A can of soda…"
 
 	para "Someone must be"
 	line "coming back…"
 
 	para "Huh? It's empty!"
+endc
+
 	done
 
 GoldenrodHospitalMachineOffText: ; TO TRANSLATE

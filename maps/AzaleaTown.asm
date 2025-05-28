@@ -288,7 +288,24 @@ AzaleaTownPlayerLeavesKurtsHouseMovement:
 	turn_head UP
 	step_end
 
-AzaleaTownRivalBeforeText: ; AUTOTRAD
+AzaleaTownRivalBeforeText: 
+if DEF(_FR_FR)
+	text "...Dis-moi quelque"
+	line "chose, p'tit"
+	cont "bouchon..."
+
+	para "Est-ce vrai que la"
+	line "TEAM ROCKET est de"
+	cont "retour?"
+
+	para "Quoi? Tu les as"
+	line "battus? Hah!"
+	cont "Arrête de mentir."
+
+	para "Naan, t'aimes"
+	line "pas crâner, toi!"
+	cont "Allez, baston..."
+else
 	text "…Tell me some-"
 	line "thing."
 
@@ -303,9 +320,23 @@ AzaleaTownRivalBeforeText: ; AUTOTRAD
 	para "You're not joking?"
 	line "Then let's see how"
 	cont "good you are."
+endc
+
 	done
 
-AzaleaTownRivalWinText: ; AUTOTRAD
+AzaleaTownRivalWinText: 
+if DEF(_FR_FR)
+	text "...Humpff! Vilains"
+	line "#MON!"
+
+	para "Ouvre bien tes"
+	line "oreilles mon p'tit"
+
+	para "chat, t'as gagné"
+	line "parce que mes"
+	cont "#MON se sont"
+	cont "couchés tard..."
+else
 	text "… Humph! Useless"
 	line "#MON!"
 
@@ -314,9 +345,44 @@ AzaleaTownRivalWinText: ; AUTOTRAD
 
 	para "my #MON were"
 	line "weak."
+endc
+
 	done
 
-AzaleaTownRivalAfterText: ; AUTOTRAD
+AzaleaTownRivalAfterText: 
+if DEF(_FR_FR)
+	text "Je déteste les"
+	line "minus."
+
+	para "#MON ou"
+	line "dresseur, c'est"
+	cont "du kif-kif."
+
+	para "Je vais devenir"
+	line "surpuissant et"
+	cont "balayer les minus."
+
+	para "Et c'est pareil"
+	line "pour la TEAM"
+	cont "ROCKET."
+
+	para "Ils sont redoutés"
+	line "parce qu'ils agis-"
+
+	para "sent en groupe,"
+	line "mais un par un ils"
+	cont "sont faibles."
+
+	para "Je les déteste"
+	line "tous!"
+
+	para "Hors de ma vue"
+	line "minus! Quelqu'un"
+
+	para "comme toi"
+	line "ne peut rien"
+	cont "m'apporter..."
+else
 	text "I hate the weak."
 
 	para "#MON, trainers."
@@ -344,32 +410,70 @@ AzaleaTownRivalAfterText: ; AUTOTRAD
 
 	para "like you is only a"
 	line "distraction."
+endc
+
 	done
 
-AzaleaTownRivalLossText: ; AUTOTRAD
+AzaleaTownRivalLossText: 
+if DEF(_FR_FR)
+	text "...Humpff! Je me"
+	line "doutais bien que"
+	cont "tu pipotais..."
+else
 	text "…Humph! I knew"
 	line "you were lying."
+endc
+
 	done
 
-AzaleaTownRocket1Text: ; AUTOTRAD
+AzaleaTownRocket1Text: 
+if DEF(_FR_FR)
+	text "C'est dangereux"
+	line "d'entrer ici, je"
+	cont "monte la garde."
+
+	para "J'suis trop cool,"
+	line "tu ne trouves pas?"
+else
 	text "It's unsafe to go"
 	line "in there, so I'm"
 	cont "standing guard."
 
 	para "Aren't I a good"
 	line "Samaritan?"
+endc
+
 	done
 
-AzaleaTownRocket2Text: ; AUTOTRAD
+AzaleaTownRocket2Text: 
+if DEF(_FR_FR)
+	text "Que sais-tu sur la"
+	line "QUEUERAMOLOS? On"
+	cont "dit que c'est"
+	cont "goûtu!"
+
+	para "C'est trop bien"
+	line "de savoir ça, non?"
+else
 	text "Do you know about"
 	line "SLOWPOKETAIL? I"
 	cont "heard it's tasty!"
 
 	para "Aren't you glad I"
 	line "told you that?"
+endc
+
 	done
 
-AzaleaTownGrampsTextBefore: ; AUTOTRAD
+AzaleaTownGrampsTextBefore: 
+if DEF(_FR_FR)
+	text "Les RAMOLOSS ont"
+	line "déserté la ville."
+
+	para "On dit qu'on vend"
+	line "leur QUEUE quelque"
+	cont "part."
+else
 	text "The SLOWPOKE have"
 	line "disappeared from"
 	cont "town…"
@@ -377,9 +481,19 @@ AzaleaTownGrampsTextBefore: ; AUTOTRAD
 	para "I heard their"
 	line "TAILS are being"
 	cont "sold somewhere."
+endc
+
 	done
 
-AzaleaTownGrampsTextAfter: ; AUTOTRAD
+AzaleaTownGrampsTextAfter: 
+if DEF(_FR_FR)
+	text "Les RAMOLOSS sont"
+	line "de retour."
+
+	para "A mon avis, ils"
+	line "devaient traîner"
+	cont "quelque part."
+else
 	text "The SLOWPOKE have"
 	line "returned."
 
@@ -388,18 +502,45 @@ AzaleaTownGrampsTextAfter: ; AUTOTRAD
 
 	para "goofing off some-"
 	line "where."
+endc
+
 	done
 
-AzaleaTownTeacherText: ; AUTOTRAD
+AzaleaTownTeacherText: 
+if DEF(_FR_FR)
+	text "Es-tu ici pour"
+	line "FARGAS, celui qui"
+	cont "fabrique les"
+	cont "BALLS?"
+
+	para "Il n'y a pas que"
+	line "toi."
+else
 	text "Did you come to"
 	line "get KURT to make"
 	cont "some BALLS?"
 
 	para "A lot of people do"
 	line "just that."
+endc
+
 	done
 
-AzaleaTownYoungsterText: ; AUTOTRAD
+AzaleaTownYoungsterText: 
+if DEF(_FR_FR)
+	text "Passe par ECORCIA"
+	line "et tu te retrou-"
+	cont "veras au BOIS AUX"
+	cont "CHENES."
+
+	para "Mais ces petits"
+	line "arbustes bloquent"
+	cont "le passage."
+
+	para "Le #MON du"
+	line "CHARBONNIER peut"
+	cont "couper les arbres."
+else
 	text "Cut through AZALEA"
 	line "and you'll be in"
 	cont "ILEX FOREST."
@@ -413,49 +554,108 @@ AzaleaTownYoungsterText: ; AUTOTRAD
 	para "The CHARCOAL MAN's"
 	line "#MON can CUT"
 	cont "down trees."
+endc
+
 	done
 
-AzaleaTownSlowpokeText1: ; AUTOTRAD
+AzaleaTownSlowpokeText1: 
+if DEF(_FR_FR)
+	text "RAMOLOSS: ..."
+
+	para ".................."
+else
 	text "SLOWPOKE: …"
 
 	para "<……> <……> <……>"
+endc
+
 	done
 
-AzaleaTownSlowpokeText2: ; AUTOTRAD
+AzaleaTownSlowpokeText2: 
+if DEF(_FR_FR)
+	text ".........gueuh?"
+else
 	text "<……> <……>Yawn?"
+endc
+
 	done
 
-AzaleaTownKurtText1: ; AUTOTRAD
+AzaleaTownKurtText1: 
+if DEF(_FR_FR)
+	text "Le BOIS AUX CHENES"
+	line "est agité!"
+
+	para "Que se passe-t-il?"
+else
 	text "ILEX FOREST is"
 	line "restless!"
 
 	para "What is going on?"
+endc
+
 	done
 
-AzaleaTownKurtText2: ; AUTOTRAD
+AzaleaTownKurtText2: 
+if DEF(_FR_FR)
+	text "<PLAYER>, voilà"
+	line "ta GS BALL!"
+else
 	text "<PLAYER>, here's"
 	line "your GS BALL back!"
+endc
+
 	done
 
-AzaleaTownKurtText3: ; AUTOTRAD
+AzaleaTownKurtText3: 
+if DEF(_FR_FR)
+	text "Peux-tu voir pour-"
+	line "quoi le BOIS AUX"
+	cont "CHENES est si"
+	cont "agité?"
+else
 	text "Could you go see"
 	line "why ILEX FOREST is"
 	cont "so restless?"
+endc
+
 	done
 
-AzaleaTownSignText: ; AUTOTRAD
+AzaleaTownSignText: 
+if DEF(_FR_FR)
+	text "ECORCIA"
+	line "La ville où les"
+
+	para "gens et les petits"
+	line "#MON sont"
+	cont "bien contents"
+	cont "d'habiter"
+else
 	text "AZALEA TOWN"
 	line "Where People and"
 
 	para "#MON Live in"
 	line "Happy Harmony"
+endc
+
 	done
 
-KurtsHouseSignText: ; AUTOTRAD
+KurtsHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DE FARGAS"
+else
 	text "KURT'S HOUSE"
+endc
+
 	done
 
-AzaleaGymSignText: ; AUTOTRAD
+AzaleaGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'ECORCIA: HECTOR"
+
+	para "L'expert des"
+	line "#MON insecte!"
+else
 	text "AZALEA TOWN"
 	line "#MON GYM"
 	cont "LEADER: BUGSY"
@@ -463,9 +663,32 @@ AzaleaGymSignText: ; AUTOTRAD
 	para "The Walking"
 	line "Bug #MON"
 	cont "Encyclopedia"
+endc
+
 	done
 
-SlowpokeWellSignText: ; AUTOTRAD
+SlowpokeWellSignText: 
+if DEF(_FR_FR)
+	text "PUITS RAMOLOSS"
+
+	para "Aussi connu sous"
+	line "le nom de..."
+	cont "PUITS de PLUIE."
+
+	para "Les gens du coin"
+	line "pensent que le"
+	cont "baillement du"
+	cont "RAMOLOSS invoque"
+	cont "la pluie."
+
+	para "Les archives"
+	line "montrent qu'un"
+
+	para "baillement de"
+	line "RAMOLOSS a mis fin"
+	cont "à 400 ans de"
+	cont "sécheresse."
+else
 	text "SLOWPOKE WELL"
 
 	para "Also known as the"
@@ -480,17 +703,32 @@ SlowpokeWellSignText: ; AUTOTRAD
 
 	para "ended a drought"
 	line "400 years ago."
+endc
+
 	done
 
-CharcoalKilnSignText: ; AUTOTRAD
+CharcoalKilnSignText: 
+if DEF(_FR_FR)
+	text "FOUR A CHARBON"
+else
 	text "CHARCOAL KILN"
+endc
+
 	done
 
-AzaleaTownIlexForestSignText: ; AUTOTRAD
+AzaleaTownIlexForestSignText: 
+if DEF(_FR_FR)
+	text "BOIS AUX CHENES"
+
+	para "On y entre par la"
+	line "porte."
+else
 	text "ILEX FOREST"
 
 	para "Enter through the"
 	line "gate."
+endc
+
 	done
 
 AzaleaTownTeacherRushText: ; TO TRANSLATE

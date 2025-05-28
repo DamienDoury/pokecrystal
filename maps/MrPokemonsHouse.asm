@@ -174,18 +174,34 @@ MrPokemonsHouse_OakExits:
 	step_sleep 2
 	step_end
 
-MrPokemonIntroText1: ; AUTOTRAD
+MrPokemonIntroText1: 
+if DEF(_FR_FR)
+	text "Hello! Tu dois"
+	line "être <PLAY_G>."
+
+	para "Le PROF.ORME a dit"
+	line "que tu viendrais."
+else
 	text "Hello, hello! You"
 	line "must be <PLAY_G>."
 
 	para "PROF.ELM said that"
 	line "you would visit."
+endc
+
 	done
 
-MrPokemonIntroText2: ; AUTOTRAD
+MrPokemonIntroText2: 
+if DEF(_FR_FR)
+	text "Voilà ce que je"
+	line "voudrais que le"
+	cont "PROF.ORME examine."
+else
 	text "This is what I"
 	line "want PROF.ELM to"
 	cont "examine."
+endc
+
 	done
 
 MrPokemonsHouse_GotEggText: ; TO TRANSLATE
@@ -203,34 +219,132 @@ MrPokemonIntroText3: ; TO TRANSLATE
 	cont "the authority."
 	done
 
-MrPokemonIntroText4: ; AUTOTRAD
+MrPokemonIntroText4: 
+if DEF(_FR_FR)
+	text "Même le PROF.CHEN"
+	line "le reconnaît."
+else
 	text "Even PROF.OAK here"
 	line "recognizes that."
+endc
+
 	done
 
-MrPokemonsHouse_MrPokemonHealText: ; AUTOTRAD
+MrPokemonsHouse_MrPokemonHealText: 
+if DEF(_FR_FR)
+	text "Tu retournes voir"
+	line "le PROF.ORME?"
+
+	para "Tiens. Tes #MON"
+	line "devraient se"
+	cont "reposer."
+else
 	text "You are returning"
 	line "to PROF.ELM?"
 
 	para "Here. Your #MON"
 	line "should have some"
 	cont "rest."
+endc
+
 	done
 
-MrPokemonText_ImDependingOnYou: ; AUTOTRAD
+MrPokemonText_ImDependingOnYou: 
+if DEF(_FR_FR)
+	text "Je compte sur toi!"
+else
 	text "I'm depending on"
 	line "you!"
+endc
+
 	done
 
-MrPokemonText_AlwaysNewDiscoveries: ; AUTOTRAD
+MrPokemonText_AlwaysNewDiscoveries: 
+if DEF(_FR_FR)
+	text "C'est beau la vie!"
+	line "Il y a toujours"
+
+	para "quelque chose à"
+	line "découvrir!"
+else
 	text "Life is delight-"
 	line "ful! Always, new"
 
 	para "discoveries to be"
 	line "made!"
+endc
+
 	done
 
-MrPokemonsHouse_OakText1: ; AUTOTRAD
+MrPokemonsHouse_OakText1: 
+if DEF(_FR_FR)
+	text "CHEN: Ahaa! C'est"
+	line "toi <PLAY_G>!"
+
+	para "Moi c'est CHEN!"
+	line "Je suis un cher-"
+	cont "cheur #MON."
+
+	para "Je suis venu ren-"
+	line "dre visite à mon"
+	cont "vieil ami..."
+	cont "M.#MON!"
+
+	para "On m'a dit que tu"
+	line "rendais service au"
+
+	para "PROF.ORME, alors"
+	line "je t'attendais."
+
+	para "Oh! C'est quoi ça?"
+	line "Un #MON rare!"
+
+	para "Voyons..."
+
+	para "Hmm... Je vois!"
+
+	para "Je comprends pour-"
+	line "quoi le PROF.ORME"
+
+	para "t'a confié un"
+	line "#MON pour cette"
+	cont "mission."
+
+	para "Pour des cher-"
+	line "cheurs comme moi"
+
+	para "et le PROF.ORME,"
+	line "les #MON sont"
+	cont "des amis."
+
+	para "Il a tout de suite"
+	line "compris que tu"
+
+	para "ferais attention à"
+	line "ton #MON."
+
+	para "...Ah!"
+
+	para "On peut te faire"
+	line "confiance."
+
+	para "Ca te dirait de me"
+	line "rendre service?"
+
+	para "Regarde ça: c'est"
+	line "une nouvelle ver-"
+	cont "sion du #DEX."
+
+	para "Il enregistre au-"
+	line "tomatiquement les"
+
+	para "données sur les"
+	line "#MON vus ou"
+	cont "pris."
+
+	para "C'est une encyclo-"
+	line "pédie moderne!"
+else
 	text "OAK: Aha! So"
 	line "you're <PLAY_G>!"
 
@@ -292,11 +406,19 @@ MrPokemonsHouse_OakText1: ; AUTOTRAD
 
 	para "It's a hi-tech"
 	line "encyclopedia!"
+endc
+
 	done
 
-MrPokemonsHouse_GetDexText: ; AUTOTRAD
+MrPokemonsHouse_GetDexText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le #DEX!"
+else
 	text "<PLAYER> received"
 	line "#DEX!"
+endc
+
 	done
 
 MrPokemonsHouse_OakText2: ; TO TRANSLATE
@@ -319,7 +441,22 @@ MrPokemonsHouse_OakText2: ; TO TRANSLATE
 	cont "radio!"
 	done
 
-MrPokemonText_GimmeTheScale: ; AUTOTRAD
+MrPokemonText_GimmeTheScale: 
+if DEF(_FR_FR)
+	text "Oh? Cette ECAILLE!"
+	line "C'est quoi?"
+	cont "Un LEVIATOR rouge?"
+
+	para "C'est dingue!"
+	line "Je la veux..."
+
+	para "<PLAY_G>, veux-tu"
+	line "l'échanger?"
+
+	para "Je peux te donner"
+	line "le MULTI EXP du"
+	cont "PROF.CHEN."
+else
 	text "Hm? That SCALE!"
 	line "What's that?"
 	cont "A red GYARADOS?"
@@ -333,34 +470,69 @@ MrPokemonText_GimmeTheScale: ; AUTOTRAD
 	para "I can offer this"
 	line "EXP.SHARE I got"
 	cont "from PROF.OAK."
+endc
+
 	done
 
-MrPokemonText_Disappointed: ; AUTOTRAD
+MrPokemonText_Disappointed: 
+if DEF(_FR_FR)
+	text "C'est dommage."
+	line "C'est si rare..."
+else
 	text "That's disappoint-"
 	line "ing. That happens"
 	cont "to be very rare."
+endc
+
 	done
 
-MrPokemonsHouse_ForeignMagazinesText: ; AUTOTRAD
+MrPokemonsHouse_ForeignMagazinesText: 
+if DEF(_FR_FR)
+	text "Il y a plein de"
+	line "magazines"
+	cont "étrangers."
+
+	para "On ne comprend"
+	line "même pas les"
+	cont "titres."
+else
 	text "It's packed with"
 	line "foreign magazines."
 
 	para "Can't even read"
 	line "their titles…"
+endc
+
 	done
 
-MrPokemonsHouse_BrokenComputerText: ; AUTOTRAD
+MrPokemonsHouse_BrokenComputerText: 
+if DEF(_FR_FR)
+	text "Un gros ordinateur"
+	line "tout cassé..."
+else
 	text "It's a big com-"
 	line "puter. Hmm. It's"
 	cont "broken."
+endc
+
 	done
 
-MrPokemonsHouse_StrangeCoinsText: ; AUTOTRAD
+MrPokemonsHouse_StrangeCoinsText: 
+if DEF(_FR_FR)
+	text "Un tas de pièces"
+	line "bizarres!"
+
+	para "Elles sont peut-"
+	line "être d'un autre"
+	cont "pays..."
+else
 	text "A whole pile of"
 	line "strange coins!"
 
 	para "Maybe they're from"
 	line "another country…"
+endc
+
 	done
 
 MrPokemonsHouse_MapEvents:

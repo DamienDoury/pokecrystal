@@ -128,37 +128,81 @@ TrainerSwimmermMathew:
 Route41HiddenMaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_41_HIDDEN_MAX_ETHER
 
-SwimmermCharlieSeenText: ; AUTOTRAD
+SwimmermCharlieSeenText: 
+if DEF(_FR_FR)
+	text "L'eau est bonne"
+	line "par ici."
+
+	para "Tu veux combattre?"
+	line "Pas de problème!"
+else
 	text "The water's warm"
 	line "here. I'm loose"
 	cont "and limber."
 
 	para "Sure, I'll take"
 	line "you on!"
+endc
+
 	done
 
-SwimmermCharlieBeatenText: ; AUTOTRAD
+SwimmermCharlieBeatenText: 
+if DEF(_FR_FR)
+	text "J'suis tout fripé!"
+else
 	text "Yikes! I've got"
 	line "prune skin!"
+endc
+
 	done
 
-SwimmermCharlieAfterBattleText: ; AUTOTRAD
+SwimmermCharlieAfterBattleText: 
+if DEF(_FR_FR)
+	text "C'est trop relax"
+	line "de faire la plan-"
+	cont "che!"
+else
 	text "Isn't it relaxing"
 	line "just floating like"
 	cont "this?"
+endc
+
 	done
 
-SwimmermGeorgeSeenText: ; AUTOTRAD
+SwimmermGeorgeSeenText: 
+if DEF(_FR_FR)
+	text "J'suis fatigué."
+	line "Si je gagne, tu me"
+	cont "prêtes tes #-"
+	cont "MON, OK?"
+else
 	text "I'm a bit tired."
 	line "If I win, lend me"
 	cont "your #MON."
+endc
+
 	done
 
-SwimmermGeorgeBeatenText: ; AUTOTRAD
+SwimmermGeorgeBeatenText: 
+if DEF(_FR_FR)
+	text "Pfff...pff..."
+else
 	text "Pant, pant…"
+endc
+
 	done
 
-SwimmermGeorgeAfterBattleText: ; AUTOTRAD
+SwimmermGeorgeAfterBattleText: 
+if DEF(_FR_FR)
+	text "IRISIA est si"
+	line "loin."
+
+	para "Mais retourner à"
+	line "OLIVILLE... Ca"
+	cont "fait une trotte!"
+
+	para "Que faire?"
+else
 	text "It's so far to"
 	line "CIANWOOD."
 
@@ -167,23 +211,54 @@ SwimmermGeorgeAfterBattleText: ; AUTOTRAD
 	cont "OLIVINE either."
 
 	para "What should I do?"
+endc
+
 	done
 
-SwimmermBerkeSeenText: ; AUTOTRAD
+SwimmermBerkeSeenText: 
+if DEF(_FR_FR)
+	text "Tu vois ces îles"
+	line "bloquées par des"
+	cont "siphons?"
+
+	para "Il doit y avoir"
+	line "quelque chose de"
+	cont "secret!"
+else
 	text "See those islands"
 	line "that are blocked"
 	cont "by whirlpools?"
 
 	para "There just has to"
 	line "be a secret!"
+endc
+
 	done
 
-SwimmermBerkeBeatenText: ; AUTOTRAD
+SwimmermBerkeBeatenText: 
+if DEF(_FR_FR)
+	text "Pourquoi t'es"
+	line "cool, toi?"
+else
 	text "What's the secret"
 	line "to your strength?"
+endc
+
 	done
 
-SwimmermBerkeAfterBattleText: ; AUTOTRAD
+SwimmermBerkeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Par une nuit noire"
+	line "et profonde..."
+
+	para "J'ai vu ce #MON"
+	line "géant voler depuis"
+	cont "les îles."
+
+	para "Il répandait ses"
+	line "plumes de ses"
+	cont "ailes d'argent."
+else
 	text "It was a dark and"
 	line "stormy night…"
 
@@ -194,59 +269,127 @@ SwimmermBerkeAfterBattleText: ; AUTOTRAD
 	para "It was scattering"
 	line "feathers from its"
 	cont "silver wings."
+endc
+
 	done
 
-SwimmermKirkSeenText: ; AUTOTRAD
+SwimmermKirkSeenText: 
+if DEF(_FR_FR)
+	text "Les vagues sont"
+	line "dangereuses ici."
+
+	para "Elles empêchent de"
+	line "nager calmement."
+else
 	text "The waves are wild"
 	line "here."
 
 	para "They tire you out"
 	line "while you swim."
+endc
+
 	done
 
-SwimmermKirkBeatenText: ; AUTOTRAD
+SwimmermKirkBeatenText: 
+if DEF(_FR_FR)
+	text "J'suis crevé!"
+else
 	text "I'm beat!"
+endc
+
 	done
 
-SwimmermKirkAfterBattleText: ; AUTOTRAD
+SwimmermKirkAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les courants m'em-"
+	line "pêchent d'attein-"
+	cont "dre cette île."
+else
 	text "The currents keep"
 	line "me from reaching"
 	cont "that island."
+endc
+
 	done
 
-SwimmermMathewSeenText: ; AUTOTRAD
+SwimmermMathewSeenText: 
+if DEF(_FR_FR)
+	text "Tu cherches le"
+	line "secret des"
+	cont "TOURB'ILES?"
+else
 	text "Are you seeking"
 	line "the secrets of"
 	cont "WHIRL ISLANDS?"
+endc
+
 	done
 
-SwimmermMathewBeatenText: ; AUTOTRAD
+SwimmermMathewBeatenText: 
+if DEF(_FR_FR)
+	text "Ooh!!! Quelle"
+	line "endurance!"
+else
 	text "Ooh, you've got"
 	line "great endurance!"
+endc
+
 	done
 
-SwimmermMathewAfterBattleText: ; AUTOTRAD
+SwimmermMathewAfterBattleText: 
+if DEF(_FR_FR)
+	text "Il y a un secret"
+	line "aux TOURB'ILES..."
+
+	para "Il y fait noir!"
+	line "Ca c'est sûr!"
+else
 	text "A secret about"
 	line "WHIRL ISLANDS…"
 
 	para "It's pitch-black"
 	line "inside!"
+endc
+
 	done
 
-SwimmerfKayleeSeenText: ; AUTOTRAD
+SwimmerfKayleeSeenText: 
+if DEF(_FR_FR)
+	text "Je vais aux"
+	line "TOURB'ILES."
+
+	para "Je vais les explo-"
+	line "rer avec un ami."
+else
 	text "I'm on my way to"
 	line "WHIRL ISLANDS."
 
 	para "I'm going explor-"
 	line "ing with friends."
+endc
+
 	done
 
-SwimmerfKayleeBeatenText: ; AUTOTRAD
+SwimmerfKayleeBeatenText: 
+if DEF(_FR_FR)
+	text "C'est tout?"
+else
 	text "Is that how you do"
 	line "it?"
+endc
+
 	done
 
-SwimmerfKayleeAfterBattleText: ; AUTOTRAD
+SwimmerfKayleeAfterBattleText: 
+if DEF(_FR_FR)
+	text "On dit qu'il y a"
+	line "un gros #MON"
+	cont "au fond des"
+	cont "TOURB'ILES."
+
+	para "Je me demande ce"
+	line "que c'est..."
+else
 	text "There's supposed"
 	line "to be a big #-"
 	cont "MON deep beneath"
@@ -254,35 +397,77 @@ SwimmerfKayleeAfterBattleText: ; AUTOTRAD
 
 	para "I wonder what it"
 	line "could be?"
+endc
+
 	done
 
-SwimmerfSusieSeenText: ; AUTOTRAD
+SwimmerfSusieSeenText: 
+if DEF(_FR_FR)
+	text "Cool, t'es à dada"
+	line "sur ton #MON."
+else
 	text "You look so ele-"
 	line "gant, riding your"
 	cont "#MON."
+endc
+
 	done
 
-SwimmerfSusieBeatenText: ; AUTOTRAD
+SwimmerfSusieBeatenText: 
+if DEF(_FR_FR)
+	text "Tout perdu..."
+else
 	text "I'm crushed…"
+endc
+
 	done
 
-SwimmerfSusieAfterBattleText: ; AUTOTRAD
+SwimmerfSusieAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ca fait quel effet"
+	line "de monter sur un"
+	cont "#MON?"
+else
 	text "Wasn't there a hit"
 	line "song about a boy"
 	cont "riding a LAPRAS?"
+endc
+
 	done
 
-SwimmerfDeniseSeenText: ; AUTOTRAD
+SwimmerfDeniseSeenText: 
+if DEF(_FR_FR)
+	text "Il fait si beau!"
+	line "C'est la fête!"
+	cont "Youkiii!"
+else
 	text "The weather is so"
 	line "beautiful, I'm in"
 	cont "a daze!"
+endc
+
 	done
 
-SwimmerfDeniseBeatenText: ; AUTOTRAD
+SwimmerfDeniseBeatenText: 
+if DEF(_FR_FR)
 	text "Ohhh!"
+else
+	text "Ohhh!"
+endc
+
 	done
 
-SwimmerfDeniseAfterBattleText: ; AUTOTRAD
+SwimmerfDeniseAfterBattleText: 
+if DEF(_FR_FR)
+	text "Un coup de soleil"
+	line "est vite arrivé."
+
+	para "Moi je mets pas"
+	line "de crème."
+
+	para "Je veux garder"
+	line "l'eau propre."
+else
 	text "A sunburn is the"
 	line "worst for skin."
 
@@ -291,9 +476,18 @@ SwimmerfDeniseAfterBattleText: ; AUTOTRAD
 
 	para "I won't pollute"
 	line "the water."
+endc
+
 	done
 
-SwimmerfKaraSeenText: ; AUTOTRAD
+SwimmerfKaraSeenText: 
+if DEF(_FR_FR)
+	text "Si tu es naze,"
+	line "fais la planche!"
+
+	para "Bon..."
+	line "On s'bat?"
+else
 	text "If you need to"
 	line "rest, just tread"
 	cont "water."
@@ -303,17 +497,31 @@ SwimmerfKaraSeenText: ; AUTOTRAD
 
 	para "can keep on going"
 	line "strong."
+endc
+
 	done
 
-SwimmerfKaraBeatenText: ; AUTOTRAD
+SwimmerfKaraBeatenText: 
+if DEF(_FR_FR)
+	text "Oh! Tu en as de"
+	line "l'énergie, toi."
+else
 	text "Oh! You have more"
 	line "energy than I do."
+endc
+
 	done
 
-SwimmerfKaraAfterBattleText: ; AUTOTRAD
+SwimmerfKaraAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'entends des cris"
+	line "venant des ILES."
+else
 	text "I heard roars from"
 	line "deep inside the"
 	cont "ISLANDS."
+endc
+
 	done
 
 SwimmerfWendySeenText: ; TO TRANSLATE
@@ -322,8 +530,13 @@ SwimmerfWendySeenText: ; TO TRANSLATE
 	cont "water's surface."
 	done
 
-SwimmerfWendyBeatenText: ; AUTOTRAD
+SwimmerfWendyBeatenText: 
+if DEF(_FR_FR)
+	text "Oh..."
+else
 	text "Oh, dear…"
+endc
+
 	done
 
 SwimmerfWendyAfterBattleText: ; TO TRANSLATE

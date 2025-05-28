@@ -24,10 +24,17 @@ RuinsOfAlphOmanyteItemRoomStarPiece:
 RuinsOfAlphOmanyteItemRoomAncientReplica:
 	jumptext RuinsOfAlphOmanyteItemRoomAncientReplicaText
 
-RuinsOfAlphOmanyteItemRoomAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphOmanyteItemRoomAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
 RuinsOfAlphOmanyteItemRoom_MapEvents:

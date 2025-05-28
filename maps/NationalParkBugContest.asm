@@ -115,58 +115,129 @@ NationalParkBugContestTMDig:
 NationalParkBugContestHiddenFullHeal:
 	hiddenitem FULL_HEAL, EVENT_NATIONAL_PARK_HIDDEN_FULL_HEAL
 
-BugCatchingContestant1AText: ; AUTOTRAD
+BugCatchingContestant1AText: 
+if DEF(_FR_FR)
+	text "JEAN-RAOUL: Je"
+	line "vais gagner! Viens"
+	cont "pas m'embêter."
+else
 	text "DON: I'm going to"
 	line "win! Don't bother"
 	cont "me."
+endc
+
 	done
 
-BugCatchingContestant2AText: ; AUTOTRAD
+BugCatchingContestant2AText: 
+if DEF(_FR_FR)
+	text "ODILON: Mon"
+	line "PARASECT endort"
+	cont "avec SPORE."
+else
 	text "ED: My PARASECT"
 	line "puts #MON to"
 	cont "sleep with SPORE."
+endc
+
 	done
 
-BugCatchingContestant3AText: ; AUTOTRAD
+BugCatchingContestant3AText: 
+if DEF(_FR_FR)
+	text "NICK: J'élève des"
+	line "#MON rapides"
+	cont "pour le combat."
+else
 	text "NICK: I'm raising"
 	line "fast #MON for"
 	cont "battles."
+endc
+
 	done
 
-BugCatchingContestant4AText: ; AUTOTRAD
+BugCatchingContestant4AText: 
+if DEF(_FR_FR)
+	text "MARCEL: Gagner ne"
+	line "m'intéresse pas"
+	cont "vraiment."
+
+	para "Je cherche juste"
+	line "les #MON rares."
+else
 	text "WILLIAM: I'm not"
 	line "concerned about"
 	cont "winning."
 
 	para "I'm just looking"
 	line "for rare #MON."
+endc
+
 	done
 
-BugCatchingContestant5AText: ; AUTOTRAD
+BugCatchingContestant5AText: 
+if DEF(_FR_FR)
+	text "FOULQUE: Chut! Tu"
+	line "vas faire fuir"
+
+	para "INSECATEUR. Parle-"
+	line "moi plus tard."
+else
 	text "BENNY: Ssh! You'll"
 	line "scare off SCYTHER."
 
 	para "I'll talk to you"
 	line "later."
+endc
+
 	done
 
-BugCatchingContestant6AText: ; AUTOTRAD
+BugCatchingContestant6AText: 
+if DEF(_FR_FR)
+	text "RENE: Il faut"
+	line "d'abord affaiblir"
+
+	para "un #MON insecte"
+	line "puis lancer une"
+	cont "# BALL."
+else
 	text "BARRY: You should"
 	line "weaken bug #MON"
 
 	para "first, then throw"
 	line "a BALL."
+endc
+
 	done
 
-BugCatchingContestant7AText: ; AUTOTRAD
+BugCatchingContestant7AText: 
+if DEF(_FR_FR)
+	text "SANDY: Pardon?"
+
+	para "Tu trouves ça bi-"
+	line "zarre qu'une fille"
+
+	para "attrape des #-"
+	line "MON insecte?"
+else
 	text "CINDY: I love bug"
 	line "#MON."
 
 	para "I guess you must"
 	line "like them too."
+endc
+
 	done
 
-BugCatchingContestant8AText: ; AUTOTRAD
+BugCatchingContestant8AText: 
+if DEF(_FR_FR)
+	text "ARNAUD: Je collec-"
+	line "tionne les #MON"
+
+	para "insecte depuis ma"
+	line "tendre enfance."
+
+	para "Ma défaite est"
+	line "impossible!"
+else
 	text "JOSH: I've been"
 	line "collecting bug"
 
@@ -175,31 +246,68 @@ BugCatchingContestant8AText: ; AUTOTRAD
 
 	para "There's no way I'm"
 	line "going to lose!"
+endc
+
 	done
 
-BugCatchingContestant9AText: ; AUTOTRAD
+BugCatchingContestant9AText: 
+if DEF(_FR_FR)
+	text "GONTRAND: Si tu as"
+	line "le temps de parler"
+
+	para "va chercher des"
+	line "#MON insecte."
+else
 	text "SAMUEL: If you've"
 	line "got the time to"
 
 	para "chat, go find some"
 	line "bug #MON."
+endc
+
 	done
 
-BugCatchingContestant10AText: ; AUTOTRAD
+BugCatchingContestant10AText: 
+if DEF(_FR_FR)
+	text "CYRIL: J'ai étudié"
+	line "les #MON insec-"
+	cont "te à fond."
+
+	para "Je vais gagner..."
+	line "C'est sûr."
+else
 	text "KIPP: I've studied"
 	line "about bug #MON"
 	cont "a lot."
 
 	para "I'm going to win"
 	line "for sure."
+endc
+
 	done
 
-NationalParkBugContestRelaxationSquareText: ; AUTOTRAD
+NationalParkBugContestRelaxationSquareText: 
+if DEF(_FR_FR)
+	text "AIRE DE REPOS du"
+	line "PARC NATUREL"
+else
 	text "RELAXATION SQUARE"
 	line "NATIONAL PARK"
+endc
+
 	done
 
-NationalParkBugContestBattleNoticeText: ; AUTOTRAD
+NationalParkBugContestBattleNoticeText: 
+if DEF(_FR_FR)
+	text "C'est quoi cette"
+	line "affiche?"
+
+	para "Se battre unique-"
+	line "ment dans l'herbe."
+
+	para "LE GARDIEN DU"
+	line "PARC NATUREL"
+else
 	text "What is this"
 	line "notice?"
 
@@ -208,14 +316,26 @@ NationalParkBugContestBattleNoticeText: ; AUTOTRAD
 
 	para "NATIONAL PARK"
 	line "WARDEN'S OFFICE"
+endc
+
 	done
 
-NationalParkBugContestTrainerTipsText: ; AUTOTRAD
+NationalParkBugContestTrainerTipsText: 
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Imprimer les"
+	line "LETTRES en les"
+	cont "ouvrant et appuyer"
+	cont "sur START."
+else
 	text "TRAINER TIPS"
 
 	para "Print out MAIL by"
 	line "opening it then"
 	cont "pressing START."
+endc
+
 	done
 
 NationalParkBugContest_MapEvents:

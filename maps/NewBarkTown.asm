@@ -271,24 +271,56 @@ NewBarkTown_SilverReturnsToTheShadowsMovement:
 	step RIGHT
 	step_end
 
-Text_GearIsImpressive: ; AUTOTRAD
+Text_GearIsImpressive: 
+if DEF(_FR_FR)
+	text "Oh! Ton #MATOS"
+	line "est balèze!"
+
+	para "C'est ta mère qui"
+	line "l'a acheté?"
+else
 	text "Wow, your #GEAR"
 	line "is impressive!"
 
 	para "Did your mom get"
 	line "it for you?"
+endc
+
 	done
 
-Text_WaitPlayer: ; AUTOTRAD
+Text_WaitPlayer: 
+if DEF(_FR_FR)
+	text "Attends, <PLAY_G>!"
+else
 	text "Wait, <PLAY_G>!"
+endc
+
 	done
 
-Text_WhatDoYouThinkYoureDoing: ; AUTOTRAD
+Text_WhatDoYouThinkYoureDoing: 
+if DEF(_FR_FR)
+	text "On peut savoir ce"
+	line "que tu fabriques?"
+else
 	text "What do you think"
 	line "you're doing?"
+endc
+
 	done
 
-Text_ItsDangerousToGoAlone: ; AUTOTRAD
+Text_ItsDangerousToGoAlone: 
+if DEF(_FR_FR)
+	text "C'est dangereux de"
+	line "sortir sans un"
+	cont "#MON!"
+
+	para "Des #MON sauva-"
+	line "ges sortent des"
+
+	para "herbes sur la rou-"
+	line "te de la prochaine"
+	cont "ville."
+else
 	text "It's dangerous to"
 	line "go out without a"
 	cont "#MON!"
@@ -298,29 +330,57 @@ Text_ItsDangerousToGoAlone: ; AUTOTRAD
 
 	para "grass on the way"
 	line "to the next town."
+endc
+
 	done
 
-Text_YourMonIsAdorable: ; AUTOTRAD
+Text_YourMonIsAdorable: 
+if DEF(_FR_FR)
+	text "Oh! Ton #MON"
+	line "est adorable!"
+	cont "Je veux le même!"
+else
 	text "Oh! Your #MON"
 	line "is adorable!"
 	cont "I wish I had one!"
+endc
+
 	done
 
-Text_TellMomIfLeaving: ; AUTOTRAD
+Text_TellMomIfLeaving: 
+if DEF(_FR_FR)
+	text "Salut <PLAY_G>!"
+	line "Tu pars déjà?"
+
+	para "Tu devrais préve-"
+	line "nir ta petite"
+	cont "maman."
+else
 	text "Hi, <PLAY_G>!"
 	line "Leaving again?"
 
 	para "You should tell"
 	line "your mom if you"
 	cont "are leaving."
+endc
+
 	done
 
-Text_CallMomOnGear: ; AUTOTRAD
+Text_CallMomOnGear: 
+if DEF(_FR_FR)
+	text "Appelle ta maman"
+	line "avec ton #-"
+	cont "MATOS et donne-lui"
+
+	para "de tes nouvelles."
+else
 	text "Call your mom on"
 	line "your #GEAR to"
 
 	para "let her know how"
 	line "you're doing."
+endc
+
 	done
 
 Text_ElmDiscoveredNewMon: ; TO TRANSLATE
@@ -338,9 +398,15 @@ NewBarkTownRivalText1: ; TO TRANSLATE
 	line "famous ELM'S LAB…"
 	done
 
-NewBarkTownRivalText2: ; AUTOTRAD
+NewBarkTownRivalText2: 
+if DEF(_FR_FR)
+	text "...Mais kess-tu"
+	line "mates?"
+else
 	text "…What are you"
 	line "staring at?"
+endc
+
 	done
 
 FootstepsText: ; TO TRANSLATE
@@ -348,24 +414,44 @@ FootstepsText: ; TO TRANSLATE
 	line "dirt."
 	done
 
-NewBarkTownSignText: ; AUTOTRAD
+NewBarkTownSignText: 
+if DEF(_FR_FR)
+	text "BOURG GEON"
+
+	para "La ville où"
+	line "souffle le vent"
+	cont "d'une nouvelle vie"
+else
 	text "NEW BARK TOWN"
 
 	para "The Town Where the"
 	line "Winds of a New"
 	cont "Beginning Blow"
+endc
+
 	done
 
-NewBarkTownPlayersHouseSignText: ; AUTOTRAD
+NewBarkTownPlayersHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DE <PLAYER>"
+else
 	text "<PLAYER>'s House"
+endc
+
 	done
 
 NewBarkTownElmsLabSignText: ; TO TRANSLATE
 	text "ELM'S LAB"
 	done
 
-NewBarkTownElmsHouseSignText: ; AUTOTRAD
+NewBarkTownElmsHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DU"
+	line "PROF.ORME"
+else
 	text "ELM'S HOUSE"
+endc
+
 	done
 
 NewBarkTown_MapEvents:

@@ -179,7 +179,20 @@ PlateauRivalLeavesMovement:
 	step DOWN
 	step_end
 
-IndigoPlateauPokecenter1FCooltrainerMText: ; AUTOTRAD
+IndigoPlateauPokecenter1FCooltrainerMText: 
+if DEF(_FR_FR)
+	text "A la LIGUE #MON"
+	line "tu rencontreras le"
+
+	para "terrible CONSEIL"
+	line "des 4."
+
+	para "Tu devras battre"
+	line "les 4 chefs ou tu"
+
+	para "devras tout recom-"
+	line "mencer!"
+else
 	text "At the #MON"
 	line "LEAGUE, you'll get"
 
@@ -191,9 +204,30 @@ IndigoPlateauPokecenter1FCooltrainerMText: ; AUTOTRAD
 
 	para "lose, you have to"
 	line "start all over!"
+endc
+
 	done
 
-PlateauRivalText1: ; AUTOTRAD
+PlateauRivalText1: 
+if DEF(_FR_FR)
+	text "Minute!"
+
+	para "Tu vas relever le"
+	line "défi de la LIGUE"
+	cont "#MON?"
+
+	para "T'es pas bien dans"
+	line "ta tête, toi?"
+
+	para "Mes #MON sur-"
+	line "entraînés vont te"
+
+	para "casser les reins."
+	line "C'est bon?"
+
+	para "<PLAYER>!"
+	line "COMBAAAAT!"
+else
 	text "Hold it."
 
 	para "You're going to"
@@ -213,15 +247,35 @@ PlateauRivalText1: ; AUTOTRAD
 
 	para "<PLAYER>!"
 	line "I challenge you!"
+endc
+
 	done
 
-PlateauRivalWinText: ; AUTOTRAD
+PlateauRivalWinText: 
+if DEF(_FR_FR)
+	text "......"
+
+	para "OK. J'ai perdu..."
+else
 	text "…"
 
 	para "OK--I lost…"
+endc
+
 	done
 
-PlateauRivalText2: ; AUTOTRAD
+PlateauRivalText2: 
+if DEF(_FR_FR)
+	text "....ZUT...."
+	line "Encore perdu."
+
+	para "Y'a un truc que"
+	line "je comprends pas."
+	cont "Faut qu'je pense."
+
+	para "Et penser..."
+	line "Moi j'aime pas."
+else
 	text "…Darn… I still"
 	line "can't win…"
 
@@ -231,9 +285,18 @@ PlateauRivalText2: ; AUTOTRAD
 
 	para "Humph! Try not to"
 	line "lose!"
+endc
+
 	done
 
-PlateauRivalLoseText: ; AUTOTRAD
+PlateauRivalLoseText: 
+if DEF(_FR_FR)
+	text "..."
+
+	para "Avec mes copains,"
+	line "je vais devenir"
+	cont "un MAITRE!"
+else
 	text "…"
 
 	para "Whew…"
@@ -241,6 +304,8 @@ PlateauRivalLoseText: ; AUTOTRAD
 
 	para "I'm going to be"
 	line "the CHAMPION!"
+endc
+
 	done
 
 TeleportGuyText1: ; TO TRANSLATE
@@ -261,8 +326,13 @@ TeleportGuyText1: ; TO TRANSLATE
 	para "I'm stuck here."
 	done
 
-AbraText: ; AUTOTRAD
+AbraText: 
+if DEF(_FR_FR)
+	text "ABRA: Aabra..."
+else
 	text "ABRA: Aabra…"
+endc
+
 	done
 
 IndigoPlateauGymGuideText: ; TO TRANSLATE

@@ -44,7 +44,18 @@ Route32Pokecenter1FFishingGuruScript:
 Route32Pokecenter1FCooltrainerFScript:
 	jumptextfaceplayer Route32Pokecenter1FCooltrainerFText
 
-Route32Pokecenter1FFishingGuruText_Question: ; AUTOTRAD
+Route32Pokecenter1FFishingGuruText_Question: 
+if DEF(_FR_FR)
+	text "C'est un bon en-"
+	line "droit pour pêcher."
+
+	para "Tu as vu des"
+	line "pêcheurs? Tu veux"
+	cont "t'y mettre?"
+
+	para "Tu veux une de mes"
+	line "CANNES?"
+else
 	text "This is a great"
 	line "fishing spot."
 
@@ -54,17 +65,37 @@ Route32Pokecenter1FFishingGuruText_Question: ; AUTOTRAD
 
 	para "Would you like one"
 	line "of my RODS?"
+endc
+
 	done
 
-Route32Pokecenter1FFishingGuruText_Yes: ; AUTOTRAD
+Route32Pokecenter1FFishingGuruText_Yes: 
+if DEF(_FR_FR)
+	text "Ha! C'est bien"
+	line "mon petit."
+
+	para "Tu es toi aussi un"
+	line "vrai pêcheur!"
+else
 	text "Heh, that's good"
 	line "to hear."
 
 	para "Now you're an"
 	line "angler too!"
+endc
+
 	done
 
-Route32Pokecenter1FFishingGuruText_GiveOldRod: ; AUTOTRAD
+Route32Pokecenter1FFishingGuruText_GiveOldRod: 
+if DEF(_FR_FR)
+	text "Pêcher c'est bien!"
+
+	para "Essaie ta CANNE"
+	line "dès qu'il y a la"
+
+	para "mer ou un fleuve."
+	line "Bonne chance."
+else
 	text "Fishing is great!"
 
 	para "If there's water,"
@@ -72,25 +103,49 @@ Route32Pokecenter1FFishingGuruText_GiveOldRod: ; AUTOTRAD
 
 	para "stream, try out"
 	line "your ROD."
+endc
+
 	done
 
-Route32Pokecenter1FFishingGuruText_No: ; AUTOTRAD
+Route32Pokecenter1FFishingGuruText_No: 
+if DEF(_FR_FR)
+	text "Ah. C'est bien"
+	line "dommage..."
+else
 	text "Oh. That's rather"
 	line "disappointing…"
+endc
+
 	done
 
-Route32Pokecenter1FFishingGuruText_After: ; AUTOTRAD
+Route32Pokecenter1FFishingGuruText_After: 
+if DEF(_FR_FR)
+	text "Yo."
+	line "Ca mord?"
+else
 	text "Yo, kid. How are"
 	line "they biting?"
+endc
+
 	done
 
-Route32Pokecenter1FCooltrainerFText: ; AUTOTRAD
+Route32Pokecenter1FCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Que dois-je donner"
+	line "à mon #MON?"
+
+	para "Peut-être un objet"
+	line "qui augmente son"
+	cont "ATTAQUE..."
+else
 	text "What should I make"
 	line "my #MON hold?"
 
 	para "Maybe an item that"
 	line "increases ATTACK"
 	cont "power…"
+endc
+
 	done
 
 Route32Pokecenter1F_MapEvents:

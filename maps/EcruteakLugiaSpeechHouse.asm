@@ -28,7 +28,27 @@ EcruteakLugiaSpeechHouseYoungsterScript:
 LugiaSpeechHouseRadio:
 	jumpstd Radio2Script
 
-EcruteakLugiaSpeechHouseGrampsText: ; AUTOTRAD
+EcruteakLugiaSpeechHouseGrampsText: 
+if DEF(_FR_FR)
+	text "Ca s'est passé"
+	line "lorsque j'étais"
+	cont "jeune."
+
+	para "Le ciel est"
+	line "soudainement deve-"
+
+	para "nu noir. Un #-"
+	line "MON gigantesque"
+	cont "cachait les rayons"
+	cont "du soleil."
+
+	para "Je me demande quel"
+	line "#MON c'était..."
+
+	para "C'était comme un"
+	line "oiseau ou un"
+	cont "dragon."
+else
 	text "This happened when"
 	line "I was young."
 
@@ -44,14 +64,26 @@ EcruteakLugiaSpeechHouseGrampsText: ; AUTOTRAD
 
 	para "It was like a bird"
 	line "and a dragon."
+endc
+
 	done
 
-EcruteakLugiaSpeechHouseYoungsterText: ; AUTOTRAD
+EcruteakLugiaSpeechHouseYoungsterText: 
+if DEF(_FR_FR)
+	text "Existe-t-il un"
+	line "#MON aussi"
+
+	para "grand? Si c'est le"
+	line "cas, il doit être"
+	cont "puissant."
+else
 	text "Is there really a"
 	line "#MON that big?"
 
 	para "If it exists, it"
 	line "must be powerful."
+endc
+
 	done
 
 EcruteakLugiaSpeechHouse_MapEvents:

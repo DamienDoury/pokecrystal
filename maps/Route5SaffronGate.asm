@@ -9,13 +9,23 @@ Route5SaffronGate_MapScripts:
 Route5SaffronGateOfficerScript:
 	jumptextfaceplayer Route5SaffronGateOfficerText
 
-Route5SaffronGateOfficerText: ; AUTOTRAD
+Route5SaffronGateOfficerText: 
+if DEF(_FR_FR)
+	text "Tu es de JOHTO,"
+	line "n'est-ce pas?"
+
+	para "Tu aimes KANTO?"
+	line "C'est joli, hein?"
+	cont "Qu'en penses-tu?"
+else
 	text "You're from JOHTO,"
 	line "aren't you?"
 
 	para "How do you like"
 	line "KANTO? It's nice,"
 	cont "don't you agree?"
+endc
+
 	done
 
 Route5SaffronGate_MapEvents:

@@ -28,7 +28,23 @@ VioletMartCooltrainerMScript:
 VioletMartShelfItem1Script:
 	shelfitem 10, POKE_BALL, 2000
 
-VioletMartGrannyText: ; AUTOTRAD
+VioletMartGrannyText: 
+if DEF(_FR_FR)
+	text "Le premier #MON"
+	line "que tu attrapes"
+	cont "peut être tout"
+	cont "rikiki."
+
+	para "Mais il peut sans"
+	line "aucun doute"
+	cont "devenir costaud."
+
+	para "C'est la raison"
+	line "pour laquelle il"
+	cont "est primordial de"
+	cont "bercer d'amour ses"
+	cont "#MON."
+else
 	text "When you first"
 	line "catch a #MON,"
 	cont "it may be weak."
@@ -40,9 +56,26 @@ VioletMartGrannyText: ; AUTOTRAD
 	para "It's important to"
 	line "treat #MON with"
 	cont "love."
+endc
+
 	done
 
-VioletMartCooltrainerMText: ; AUTOTRAD
+VioletMartCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "peuvent porter des"
+	cont "objets comme les"
+	cont "POTIONS ou les"
+	cont "ANTIDOTES."
+
+	para "Mais ils semblent"
+	line "ne pas comprendre"
+
+	para "comment les utili-"
+	line "ser tout seuls."
+	cont "Donne-leur un"
+	cont "coup de main!"
+else
 	text "#MON can hold"
 	line "items like POTION"
 	cont "and ANTIDOTE."
@@ -52,6 +85,8 @@ VioletMartCooltrainerMText: ; AUTOTRAD
 
 	para "to use manmade"
 	line "items."
+endc
+
 	done
 
 VioletMart_MapEvents:

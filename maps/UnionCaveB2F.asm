@@ -74,7 +74,18 @@ UnionCaveB2FElixer:
 UnionCaveB2FHyperPotion:
 	itemball HYPER_POTION
 
-CooltrainermNickSeenText: ; AUTOTRAD
+CooltrainermNickSeenText: 
+if DEF(_FR_FR)
+	text "Il existe 2 types"
+	line "de personnes."
+
+	para "Ceux qui ont la"
+	line "classe, et ceux"
+	cont "qui l'ont pas."
+
+	para "Toi... T'as la"
+	line "classe?"
+else
 	text "There are two"
 	line "kinds of people."
 
@@ -84,59 +95,123 @@ CooltrainermNickSeenText: ; AUTOTRAD
 
 	para "What kind of"
 	line "person are you?"
+endc
+
 	done
 
-CooltrainermNickBeatenText: ; AUTOTRAD
+CooltrainermNickBeatenText: 
+if DEF(_FR_FR)
+	text "Purée..."
+	line "Quelle classe!"
+else
 	text "You've got"
 	line "dazzling style!"
+endc
+
 	done
 
-CooltrainermNickAfterBattleText: ; AUTOTRAD
+CooltrainermNickAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tes #MON ont"
+	line "la super classe!"
+	cont "Et c'est bien."
+
+	para "Et tu vas encore"
+	line "t'améliorer!"
+else
 	text "Your #MON style"
 	line "is stunning and"
 	cont "colorful, I admit."
 
 	para "You'll just keep"
 	line "getting better!"
+endc
+
 	done
 
-CooltrainerfGwenSeenText: ; AUTOTRAD
+CooltrainerfGwenSeenText: 
+if DEF(_FR_FR)
+	text "Je m'entraîne."
+	line "Ca te tente?"
+else
 	text "I'm in training."
 	line "Care for a round?"
+endc
+
 	done
 
-CooltrainerfGwenBeatenText: ; AUTOTRAD
+CooltrainerfGwenBeatenText: 
+if DEF(_FR_FR)
+	text "Hmmm! T'es trop"
+	line "balèze pour moi."
+else
 	text "Aww, no! You're"
 	line "too good for me."
+endc
+
 	done
 
-CooltrainerfGwenAfterBattleText: ; AUTOTRAD
+CooltrainerfGwenAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais continuer"
+	line "à m'entraîner en-"
+	cont "core un peu."
+else
 	text "I'm going to train"
 	line "by myself until I"
 	cont "improve."
+endc
+
 	done
 
-CooltrainerfEmmaSeenText: ; AUTOTRAD
+CooltrainerfEmmaSeenText: 
+if DEF(_FR_FR)
+	text "J'irais n'importe"
+	line "où avec le #MON"
+	cont "de mes rêves."
+
+	para "C'est ça la beauté"
+	line "d'être dresseur."
+else
 	text "If the #MON I"
 	line "liked were there,"
 	cont "I'd go anywhere."
 
 	para "That's what a real"
 	line "trainer does."
+endc
+
 	done
 
-CooltrainerfEmmaBeatenText: ; AUTOTRAD
+CooltrainerfEmmaBeatenText: 
+if DEF(_FR_FR)
+	text "Vive l'amour!"
+	line "Vive les fleurs!"
+else
 	text "I'd rather pet my"
 	line "babies than this!"
+endc
+
 	done
 
-CooltrainerfEmmaAfterBattleText: ; AUTOTRAD
+CooltrainerfEmmaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Une fois par se-"
+	line "maine, un #MON"
+	cont "vient au bord de"
+	cont "l'eau."
+
+	para "Je veux le voir"
+	line "ce #MON!!!"
+else
 	text "Just once a week,"
 	line "a #MON comes to"
 	cont "the water's edge."
 
 	para "I wanted to see"
 	line "that #MON…"
+endc
+
 	done
 
 UnionCaveB2F_MapEvents:

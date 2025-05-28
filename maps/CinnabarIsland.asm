@@ -270,7 +270,73 @@ CinnabarSellerBack_Movement:
 	step RIGHT
 	step_end
 
-CinnabarIslandBlueText: ; AUTOTRAD
+CinnabarIslandBlueText: 
+if DEF(_FR_FR)
+	text "T'es qui toi?"
+
+	para "T'es dresseur,"
+	line "ça se voit..."
+
+	para "Moi c'est BLUE."
+
+	para "J'ai été un MAITRE"
+	line "pendant un temps."
+
+	para "Enfin, pendant"
+	line "quelques minutes."
+
+	para "Juste avant que"
+	line "RED me batte..."
+
+	para "Je le hais ce"
+	line "type..."
+
+	para "Bon tu veux quoi?"
+	line "Tu veux t'battre?"
+
+	para "Désolé mais j'ai"
+	line "pas la tête à ça."
+
+	para "Regarde autour"
+	line "de toi..."
+
+	para "Un volcan explose"
+	line "et une ville"
+
+	para "disparaît d'un"
+	line "coup."
+
+	para "Faire du POKé POKé"
+	line "c'est bien joli"
+
+	para "mais on peut se"
+	line "faire balayer par"
+
+	para "une catastrophe"
+	line "naturelle à tout"
+	cont "moment..."
+
+	para "..."
+
+	para "C'est comme ça."
+	line "On y peut rien."
+
+	para "Mais bon. J'suis"
+	line "quand même un"
+	cont "dresseur."
+
+	para "Et un balèze en"
+	line "plus. J'te l'avais"
+	cont "dit, non?"
+
+	para "Si tu cherches un"
+	line "bon combat, viens"
+	cont "à l'ARENE de"
+	cont "JADIELLE."
+
+	para "Et ça sera ta"
+	line "p'tite fête."
+else
 	text "Who are you?"
 
 	para "Well, it's plain"
@@ -336,6 +402,8 @@ CinnabarIslandBlueText: ; AUTOTRAD
 
 	para "I'll take you on"
 	line "then."
+endc
+
 	done
 
 CinnabarIslandPartyText: ; TO TRANSLATE
@@ -428,11 +496,18 @@ CinnabarIslandSickBetterText: ; TO TRANSLATE
 	cont "(burp)!"
 	done
 
-CinnabarIslandSignText: ; AUTOTRAD
+CinnabarIslandSignText: 
+if DEF(_FR_FR)
+	text "CRAMOIS'ILE"
+
+	para "Rouge comme le feu"
+else
 	text "CINNABAR ISLAND"
 
 	para "The Fiery Town of"
 	line "Burning Desire"
+endc
+
 	done
 
 CinnabarHydratedText: ; TO TRANSLATE

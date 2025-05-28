@@ -67,12 +67,21 @@ OlivinePortCustomsInconvenienceText: ; TO TRANSLATE
 	line "delivery delay."
 	done
 
-OlivinePortPassagePokefanMText: ; AUTOTRAD
+OlivinePortPassagePokefanMText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "AQUARIA va à KANTO"
+
+	para "le lundi et le"
+	line "vendredi."
+else
 	text "FAST SHIP S.S.AQUA"
 	line "sails to KANTO on"
 
 	para "Mondays and Fri-"
 	line "days."
+endc
+
 	done
 
 OlivinePortPassage_MapEvents:

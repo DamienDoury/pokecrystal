@@ -553,27 +553,54 @@ GoldenrodGameCornerGreetings4Text: ; TO TRANSLATE
 	para "Have fun!"
 	done
 
-GoldenrodGameCornerPrizeVendorIntroText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorIntroText: 
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "On échange les"
+	line "jetons contre de"
+	cont "fabuleux prix!"
+else
 	text "Welcome!"
 
 	para "We exchange your"
 	line "game coins for"
 	cont "fabulous prizes!"
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorWhichPrizeText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorWhichPrizeText: 
+if DEF(_FR_FR)
+	text "Quel prix désires-"
+	line "tu?"
+else
 	text "Which prize would"
 	line "you like?"
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorConfirmPrizeText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorConfirmPrizeText: 
+if DEF(_FR_FR)
+	text_ram wStringBuffer3
+	text "."
+	line "C'est bien ça?"
+else
 	text_ram wStringBuffer3
 	text "."
 	line "Is that right?"
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorHereYouGoText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorHereYouGoText: 
+if DEF(_FR_FR)
+	text "Allez hop!"
+else
 	text "Here you go!"
+endc
+
 	done
 
 GoldenrodGameCornerPrizeVendorAlreadyHaveTMText: ; TO TRANSLATE
@@ -581,25 +608,51 @@ GoldenrodGameCornerPrizeVendorAlreadyHaveTMText: ; TO TRANSLATE
 	line "own that TM!"
 	done
 
-GoldenrodGameCornerPrizeVendorNeedMoreCoinsText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorNeedMoreCoinsText: 
+if DEF(_FR_FR)
+	text "Désolé! Il faut"
+	line "plus de jetons."
+else
 	text "Sorry! You need"
 	line "more coins."
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorNoMoreRoomText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorNoMoreRoomText: 
+if DEF(_FR_FR)
+	text "Oups! Tu ne peux"
+	line "plus rien"
+	cont "transporter."
+else
 	text "Sorry. You can't"
 	line "carry any more."
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorQuitText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorQuitText: 
+if DEF(_FR_FR)
+	text "OK. Economise"
+	line "tes jetons et"
+	cont "reviens plus tard!"
+else
 	text "OK. Please save"
 	line "your coins and"
 	cont "come again!"
+endc
+
 	done
 
-GoldenrodGameCornerPrizeVendorNoCoinCaseText: ; AUTOTRAD
+GoldenrodGameCornerPrizeVendorNoCoinCaseText: 
+if DEF(_FR_FR)
+	text "Oh? Tu n'as pas"
+	line "de BOITE JETON."
+else
 	text "Oh? You don't have"
 	line "a COIN CASE."
+endc
+
 	done
 
 GoldenrodGameCornerPharmacistText:
@@ -635,10 +688,19 @@ else
 	done
 endc
 
-GoldenrodGameCornerCooltrainerMText: ; AUTOTRAD
+GoldenrodGameCornerCooltrainerMText: 
+if DEF(_FR_FR)
+	text "Dans la vie tout"
+	line "est question de"
+	cont "chance!"
+	cont "Moi j'en ai pas."
+	cont "Et alors?"
+else
 if DEF(_CRYSTAL_AU)
 	text "Nothing is certain"
 	line "in this area."
+endc
+
 	done
 else ; TO TRANSLATE
 	text "Life is a gamble."
@@ -647,12 +709,26 @@ else ; TO TRANSLATE
 	done
 endc
 
-GoldenrodGameCornerPokefanFText: ; AUTOTRAD
+GoldenrodGameCornerPokefanFText: 
+if DEF(_FR_FR)
+	text "Et hop les cartes!"
+
+	para "Je préfère ça aux"
+	line "machines..."
+
+	para "C'est plus facile"
+	line "de gagner."
+
+	para "Mais les gains"
+	line "sont plus faibles."
+else
 	text "Card flip…"
 
 if DEF(_CRYSTAL_AU)
 	para "Different from the"
 	line "other machines."
+endc
+
 	done
 else ; TO TRANSLATE
 	para "I prefer it over"
@@ -683,12 +759,30 @@ GoldenrodGameCornerCooltrainerMAbraText: ; TO TRANSLATE
 	line "try again!"
 	done
 
-GoldenrodGameCornerCooltrainerFText: ; AUTOTRAD
+GoldenrodGameCornerCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Tant que je"
+	line "perds..."
+	cont "Je reste!"
+else
 	text "I won't quit until"
 	line "I win!"
+endc
+
 	done
 
-GoldenrodGameCornerGentlemanText: ; AUTOTRAD
+GoldenrodGameCornerGentlemanText: 
+if DEF(_FR_FR)
+	text "J'ai appris"
+	line "BLIZZARD à mon"
+	cont "#MON."
+
+	para "J'ai eu du mal à"
+	line "récolter assez de"
+
+	para "jetons mais ça"
+	line "valait le coup."
+else
 	text "I taught BLIZZARD"
 	line "to my #MON."
 
@@ -697,6 +791,8 @@ GoldenrodGameCornerGentlemanText: ; AUTOTRAD
 
 	para "it, but it was"
 	line "worth it."
+endc
+
 	done
 
 GoldenrodGameCornerPokefanM2Text: ; TO TRANSLATE
@@ -721,16 +817,28 @@ GoldenrodGameCornerPokefanM2LegalText: ; TO TRANSLATE
 	line "it used to be."
 	done
 
-MoveTutorInsideText: ; AUTOTRAD
+MoveTutorInsideText: 
+if DEF(_FR_FR)
+	text "Wahahah! Encore"
+	line "des jetons!"
+else
 	text "Wahahah! The coins"
 	line "keep rolling in!"
+endc
+
 	done
 
-GoldenrodGameCornerLeftTheirDrinkText: ; AUTOTRAD
+GoldenrodGameCornerLeftTheirDrinkText: 
+if DEF(_FR_FR)
+	text "Quelqu'un a oublié"
+	line "sa boisson."
+else
 	text "Someone left their"
 	line "drink."
 
 	para "It smells sweet."
+endc
+
 	done
 
 GoldenrodGameCornerFrontDoorLockText: ; TO TRANSLATE

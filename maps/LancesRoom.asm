@@ -256,7 +256,23 @@ LanceBattleIntroEndText: ; TO TRANSLATE
 	cont "your challenge!"
 	done
 
-LanceBattleWinText: ; AUTOTRAD
+LanceBattleWinText: 
+if DEF(_FR_FR)
+	text "...C'est fini."
+
+	para "Je me sens..."
+	line "Bizarre..."
+
+	para "Je ne suis pas"
+	line "fâché mais..."
+	cont "Plutôt heureux."
+
+	para "Heureux d'être le"
+	line "témoin de la nais-"
+
+	para "sance d'un nouveau"
+	line "MAITRE!"
+else
 	text "…It's over."
 
 	para "But it's an odd"
@@ -271,9 +287,27 @@ LanceBattleWinText: ; AUTOTRAD
 
 	para "of a great new"
 	line "CHAMPION!"
+endc
+
 	done
 
-LanceBattleAfterText: ; AUTOTRAD
+LanceBattleAfterText: 
+if DEF(_FR_FR)
+	text "...Fouiii!"
+
+	para "Tu as fait de gros"
+	line "progrès, <PLAY_G>."
+
+	para "Toi et tes #MON"
+	line "êtes en parfaite"
+
+	para "harmonie."
+	line "C'est bien, ça."
+
+	para "Je suis sûr que tu"
+	line "continueras à"
+	cont "progresser."
+else
 	text "…Whew."
 
 	para "You have become"
@@ -291,17 +325,59 @@ LanceBattleAfterText: ; AUTOTRAD
 
 	para "grow strong with"
 	line "your #MON."
+endc
+
 	done
 
-LancesRoomMaryOhNoOakText: ; AUTOTRAD
+LancesRoomMaryOhNoOakText: 
+if DEF(_FR_FR)
+	text "LULA: Oh, non!"
+	line "C'est fini! PROF."
+
+	para "CHEN, vous êtes"
+	line "trop lent..."
+else
 	text "MARY: Oh, no!"
 	line "It's all over!"
 
 	para "PROF.OAK, if you"
 	line "weren't so slow…"
+endc
+
 	done
 
-LancesRoomOakCongratulationsText: ; AUTOTRAD
+LancesRoomOakCongratulationsText: 
+if DEF(_FR_FR)
+	text "CHEN: Ah, <PLAY_G>!"
+	line "Ca faisait bien"
+	cont "longtemps."
+
+	para "Tu as changé, ma"
+	line "parole."
+
+	para "Ta victoire sur la"
+	line "LIGUE est ma foi"
+	cont "impressionnante!"
+
+	para "Ton amour et ton"
+	line "dévouement pour"
+
+	para "tes #MON en"
+	line "sont la cause."
+
+	para "Tes #MON ont"
+	line "aussi fait du beau"
+	cont "boulot."
+
+	para "Ils ont reconnu"
+	line "en toi un être"
+
+	para "et un dresseur"
+	line "d'exception."
+
+	para "Encore bravo,"
+	line "<PLAY_G>!"
+else
 	text "PROF.OAK: Ah,"
 	line "<PLAY_G>!"
 
@@ -332,27 +408,53 @@ LancesRoomOakCongratulationsText: ; AUTOTRAD
 
 	para "Congratulations,"
 	line "<PLAY_G>!"
+endc
+
 	done
 
-LancesRoomMaryInterviewText: ; AUTOTRAD
+LancesRoomMaryInterviewText: 
+if DEF(_FR_FR)
+	text "LULA: Faisons une"
+	line "interview du nou-"
+	cont "veau MAITRE!"
+else
 	text "MARY: Let's inter-"
 	line "view the brand new"
 	cont "CHAMPION!"
+endc
+
 	done
 
-LancesRoomNoisyText: ; AUTOTRAD
+LancesRoomNoisyText: 
+if DEF(_FR_FR)
+	text "PETER: Tout ça est"
+	line "trop bruyant pour"
+	cont "moi..."
+
+	para "<PLAY_G>,"
+	line "suis-moi."
+else
 	text "LANCE: This is"
 	line "getting to be a"
 	cont "bit too noisy…"
 
 	para "<PLAY_G>, could you"
 	line "come with me?"
+endc
+
 	done
 
-LancesRoomMaryNoInterviewText: ; AUTOTRAD
+LancesRoomMaryNoInterviewText: 
+if DEF(_FR_FR)
+	text "LULA: Attendez!"
+	line "On n'a pas encore"
+	cont "fait l'interview!"
+else
 	text "MARY: Oh, wait!"
 	line "We haven't done"
 	cont "the interview!"
+endc
+
 	done
 
 LancesRoom_MapEvents:

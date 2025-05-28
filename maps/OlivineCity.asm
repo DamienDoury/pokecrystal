@@ -272,7 +272,50 @@ OlivineCityPlayerStepsAsideBottomMovement:
 	turn_head DOWN
 	step_end
 
-OlivineCityRivalText: ; AUTOTRAD
+OlivineCityRivalText: 
+if DEF(_FR_FR)
+	text ".........."
+
+	para "Encore toi?"
+
+	para "Pas la peine de"
+	line "paniquer. Je ne me"
+
+	para "tracasse pas avec"
+	line "des minus comme"
+	cont "toi!"
+
+	para "En parlant de"
+	line "minus, le"
+
+	para "CHAMPION d'ARENE"
+	line "n'est pas ici."
+
+	para "Il est soi-disant"
+	line "en train de"
+
+	para "s'occuper du #-"
+	line "MON malade au"
+	cont "PHARE."
+
+	para "Humph! Bou-hou!"
+	line "Laissons donc"
+	cont "filer les #MON"
+	cont "malades!"
+
+	para "Un #MON qui ne"
+	line "peut pas combattre"
+	cont "est inutile!"
+
+	para "Pourquoi ne vas-tu"
+	line "pas t'entraîner au"
+	cont "PHARE?"
+
+	para "Qui sait? Peut-"
+	line "être que cela"
+	cont "te rendra moins"
+	cont "faible!"
+else
 	text "…"
 
 	para "You again?"
@@ -310,9 +353,29 @@ OlivineCityRivalText: ; AUTOTRAD
 	para "Who knows. It may"
 	line "make you a bit"
 	cont "less weak!"
+endc
+
 	done
 
-OlivineCitySailor1Text: ; AUTOTRAD
+OlivineCitySailor1Text: 
+if DEF(_FR_FR)
+	text "Les routes sombres"
+	line "sont dangereuses"
+	cont "la nuit."
+
+	para "Dans la pénombre"
+	line "la plus totale,"
+
+	para "la mer est encore"
+	line "plus traître!"
+
+	para "Sans la lumière du"
+	line "PHARE pour les"
+
+	para "guider, aucun"
+	line "navire ne peut"
+	cont "naviguer."
+else
 	text "Dark roads are"
 	line "dangerous at"
 	cont "night."
@@ -328,24 +391,52 @@ OlivineCitySailor1Text: ; AUTOTRAD
 
 	para "to guide it, no"
 	line "ship can sail."
+endc
+
 	done
 
-OlivineCityStandingYoungsterPokegearText: ; AUTOTRAD
+OlivineCityStandingYoungsterPokegearText: 
+if DEF(_FR_FR)
+	text "Le truc que tu as,"
+	line "c'est un #MATOS"
+	cont "pas vrai? Whaou,"
+	cont "c'est cool!"
+else
 	text "That thing you"
 	line "have--it's a #-"
 	cont "GEAR, right? Wow,"
 	cont "that's cool."
+endc
+
 	done
 
-OlivineCityStandingYoungsterPokedexText: ; AUTOTRAD
+OlivineCityStandingYoungsterPokedexText: 
+if DEF(_FR_FR)
+	text "Heu, t'as un joli"
+	line "#DEX! C'est"
+
+	para "vraiment très"
+	line "impressionnant."
+else
 	text "Wow, you have a"
 	line "#DEX!"
 
 	para "That is just so"
 	line "awesome."
+endc
+
 	done
 
-OlivineCitySailor2Text: ; AUTOTRAD
+OlivineCitySailor2Text: 
+if DEF(_FR_FR)
+	text "Vive la mer!"
+
+	para "Vive les couchers"
+	line "de soleil!"
+
+	para "Chante avec moi!"
+	line "Whahahahahahah!"
+else
 	text "The sea is sweet!"
 
 	para "Sunsets on the sea"
@@ -354,38 +445,80 @@ OlivineCitySailor2Text: ; AUTOTRAD
 	para "Sing with me! "
 	line "Yo-ho! Blow the"
 	cont "man down!…"
+endc
+
 	done
 
-OlivineCitySignText: ; AUTOTRAD
+OlivineCitySignText: 
+if DEF(_FR_FR)
+	text "OLIVILLE"
+
+	para "Le port vers d'au-"
+	line "tres horizons"
+else
 	text "OLIVINE CITY"
 
 	para "The Port Closest"
 	line "to Foreign Lands"
+endc
+
 	done
 
-OlivineCityPortSignText: ; AUTOTRAD
+OlivineCityPortSignText: 
+if DEF(_FR_FR)
+	text "PORT d'OLIVILLE"
+	line "PORT DU BATEAU"
+	cont "EXPRESS"
+else
 	text "OLIVINE PORT"
 	line "FAST SHIP PIER"
+endc
+
 	done
 
-OlivineGymSignText: ; AUTOTRAD
+OlivineGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'OLIVILLE:"
+	cont "JASMINE"
+
+	para "La fille aux nerfs"
+	line "d'acier"
+else
 	text "OLIVINE CITY"
 	line "#MON GYM"
 	cont "LEADER: JASMINE"
 
 	para "The Steel-Clad"
 	line "Defense Girl"
+endc
+
 	done
 
-OlivineLighthouseSignText: ; AUTOTRAD
+OlivineLighthouseSignText: 
+if DEF(_FR_FR)
+	text "PHARE d'OLIVILLE"
+	line "Aussi connu sous"
+	cont "le nom de PHARE"
+	cont "SCINTILLANT"
+else
 	text "OLIVINE LIGHTHOUSE"
 	line "Also known as the"
 	cont "GLITTER LIGHTHOUSE"
+endc
+
 	done
 
-OlivineCityBattleTowerSignText: ; AUTOTRAD
+OlivineCityBattleTowerSignText: 
+if DEF(_FR_FR)
+	text "TOUR DE COMBAT"
+	line "Tout droit..."
+	cont "Bienvenue!"
+else
 	text "BATTLE TOWER AHEAD"
 	line "Opening Now!"
+endc
+
 	done
 
 OlivineCity_ToGoText: ; TO TRANSLATE

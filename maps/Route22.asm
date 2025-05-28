@@ -6,11 +6,19 @@ Route22_MapScripts:
 VictoryRoadEntranceSign:
 	jumptext VictoryRoadEntranceSignText
 
-VictoryRoadEntranceSignText: ; AUTOTRAD
+VictoryRoadEntranceSignText: 
+if DEF(_FR_FR)
+	text "LIGUE #MON"
+
+	para "ENTREE de la"
+	line "ROUTE VICTOIRE"
+else
 	text "#MON LEAGUE"
 
 	para "VICTORY ROAD"
 	line "ENTRANCE"
+endc
+
 	done
 
 Route22_MapEvents:

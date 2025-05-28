@@ -26,7 +26,19 @@ Route2NuggetHouseFisherScript:
 Route2NuggetHouseBookshelf: ; unreferenced
 	jumpstd DifficultBookshelfScript
 
-Route2NuggetHouseFisherText: ; AUTOTRAD
+Route2NuggetHouseFisherText: 
+if DEF(_FR_FR)
+	text "Hé! J'suis content"
+	line "de te voir."
+
+	para "Ca fait longtemps"
+	line "qu'on ne m'a pas"
+	cont "rendu visite."
+
+	para "Et pour la peine,"
+	line "je vais t'offrir"
+	cont "un p'tit cadeau."
+else
 	text "Hi! Wow, I'm glad"
 	line "to see you."
 
@@ -37,6 +49,8 @@ Route2NuggetHouseFisherText: ; AUTOTRAD
 	para "I'm super-happy!"
 	line "Let me give you a"
 	cont "little present."
+endc
+
 	done
 
 Route2NuggetHouseFisherText_GotNugget: ; TO TRANSLATE

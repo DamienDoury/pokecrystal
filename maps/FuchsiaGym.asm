@@ -337,21 +337,48 @@ JanineText_DisappointYou: ; TO TRANSLATE
 	cont "it!"
 	done
 
-JanineText_ToughOne: ; AUTOTRAD
+JanineText_ToughOne: 
+if DEF(_FR_FR)
+	text "JEANNINE: Tu as du"
+	line "talent, toi. Tu as"
+	cont "gagné..."
+
+	para "Prends ce BADGE"
+	line "AME."
+else
 	text "JANINE: You're a"
 	line "tough one. You"
 	cont "definitely won…"
 
 	para "Here's SOULBADGE."
 	line "Take it."
+endc
+
 	done
 
-Text_ReceivedSoulBadge: ; AUTOTRAD
+Text_ReceivedSoulBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE AME."
+else
 	text "<PLAYER> received"
 	line "SOULBADGE."
+endc
+
 	done
 
-JanineText_ToxicSpeech: ; AUTOTRAD
+JanineText_ToxicSpeech: 
+if DEF(_FR_FR)
+	text "JEANNINE: J'ai un"
+	line "p'tit cadeau pour"
+	cont "toi!"
+
+	para "C'est TOXIK, un"
+	line "puissant poison"
+
+	para "qui vide les PV"
+	line "de la victime."
+else
 	text "JANINE: You're so"
 	line "tough! I have a"
 	cont "special gift!"
@@ -361,9 +388,20 @@ JanineText_ToxicSpeech: ; AUTOTRAD
 
 	para "steadily saps the"
 	line "victim's HP."
+endc
+
 	done
 
-JanineText_ApplyMyself: ; AUTOTRAD
+JanineText_ApplyMyself: 
+if DEF(_FR_FR)
+	text "JEANNINE: Je vais"
+	line "encore m'entraîner"
+	cont "et m'améliorer."
+
+	para "Je serai plus for-"
+	line "te que toi et mon"
+	cont "petit papa!"
+else
 	text "JANINE: I'm going"
 	line "to really apply"
 
@@ -373,9 +411,21 @@ JanineText_ApplyMyself: ; AUTOTRAD
 	para "I want to become"
 	line "better than both"
 	cont "Father and you!"
+endc
+
 	done
 
-LassAliceBeforeText: ; AUTOTRAD
+LassAliceBeforeText: 
+if DEF(_FR_FR)
+	text "Gnah ha ha ha!"
+
+	para "Je suis JEANNINE"
+	line "de l'ARENE de"
+	cont "PARMANIE!"
+
+	para "..."
+	line "Même pas vrai!"
+else
 	text "Fufufu!"
 
 	para "I'm JANINE, the"
@@ -383,68 +433,143 @@ LassAliceBeforeText: ; AUTOTRAD
 
 	para "No, I'm not!"
 	line "Gotcha, sucker!"
+endc
+
 	done
 
-LassAliceBeatenText: ; AUTOTRAD
+LassAliceBeatenText: 
+if DEF(_FR_FR)
+	text "Tu m'as crue,"
+	line "hein?"
+else
 	text "I had you fooled…"
+endc
+
 	done
 
-LassAliceAfterText: ; AUTOTRAD
+LassAliceAfterText: 
+if DEF(_FR_FR)
+	text "Comment vas-tu"
+	line "reconnaître la"
+	cont "vraie CHAMPIONNE?"
+else
 	text "How will you dis-"
 	line "tinguish our real"
 	cont "LEADER?"
+endc
+
 	done
 
-LassLindaBeforeText: ; AUTOTRAD
+LassLindaBeforeText: 
+if DEF(_FR_FR)
+	text "Tu m'as crue!"
+	line "Hahaha! Débile!"
+else
 	text "Fooled you!"
 	line "Hahaha!"
+endc
+
 	done
 
-LassLindaBeatenText: ; AUTOTRAD
+LassLindaBeatenText: 
+if DEF(_FR_FR)
+	text "Pfff..."
+	line "Même pas mal."
+else
 	text "Ooh… I lost…"
 	line "You're not weak…"
+endc
+
 	done
 
-LassLindaAfterText: ; AUTOTRAD
+LassLindaAfterText: 
+if DEF(_FR_FR)
+	text "Il est pas bien"
+	line "mon déguisement?"
+else
 	text "Well? Wasn't my"
 	line "disguise perfect?"
+endc
+
 	done
 
-PicnickerCindyBeforeText: ; AUTOTRAD
+PicnickerCindyBeforeText: 
+if DEF(_FR_FR)
+	text "Je suis JEANNINE!"
+
+	para "..."
+	line "Tu me crois, non?"
+
+	para "COMBAT!"
+else
 	text "I'm JANINE!"
 
 	para "How did you know I"
 	line "was real?"
 
 	para "Let's battle!"
+endc
+
 	done
 
-PicnickerCindyBeatenText: ; AUTOTRAD
+PicnickerCindyBeatenText: 
+if DEF(_FR_FR)
+	text "Zut!"
+	line "Presque!"
+else
 	text "Darn it!"
 	line "I wanted to win!"
+endc
+
 	done
 
-PicnickerCindyAfterText: ; AUTOTRAD
+PicnickerCindyAfterText: 
+if DEF(_FR_FR)
+	text "Alors?"
+	line "Tu fatigues?"
+else
 	text "You must be"
 	line "getting tired."
+endc
+
 	done
 
-CamperBarryBeforeText: ; AUTOTRAD
+CamperBarryBeforeText: 
+if DEF(_FR_FR)
+	text "Wahahaha!"
+
+	para "J'suis JEANNINE!"
+	line "J'te jure!"
+else
 	text "Wahahaha!"
 
 	para "You betcha!"
 	line "I'm JANINE!"
+endc
+
 	done
 
-CamperBarryBeatenText: ; AUTOTRAD
+CamperBarryBeatenText: 
+if DEF(_FR_FR)
+	text "C'est trop bien de"
+	line "se déguiser!"
+else
 	text "My disguise was"
 	line "right on! Dang!"
+endc
+
 	done
 
-CamperBarryAfterText: ; AUTOTRAD
+CamperBarryAfterText: 
+if DEF(_FR_FR)
+	text "Alors je suis mimi"
+	line "en fille?"
+else
 	text "Hey, you. Was my"
 	line "disguise cute or"
 	cont "what, huh?"
+endc
+
 	done
 
 FuchsiaGymGuideText: ; TO TRANSLATE
@@ -461,10 +586,17 @@ FuchsiaGymGuideText: ; TO TRANSLATE
 	line "the real JANINE?"
 	done
 
-FuchsiaGymGuideWinText: ; AUTOTRAD
+FuchsiaGymGuideWinText: 
+if DEF(_FR_FR)
+	text "C'était un beau"
+	line "combat, dresseur"
+	cont "de JOHTO!"
+else
 	text "That was a great"
 	line "battle, trainer"
 	cont "from JOHTO!"
+endc
+
 	done
 
 FuchsiaGym_MapEvents:

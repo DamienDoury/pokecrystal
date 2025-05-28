@@ -124,29 +124,57 @@ Route37FruitTree3:
 Route37HiddenEther:
 	hiddenitem ETHER, EVENT_ROUTE_37_HIDDEN_ETHER
 
-TwinsAnnandanne1SeenText: ; AUTOTRAD
+TwinsAnnandanne1SeenText: 
+if DEF(_FR_FR)
+	text "TEA: LEA et moi"
+	line "sommes insépara-"
+	cont "bles!"
+else
 	text "ANN: ANNE and I"
 	line "are in this to-"
 	cont "gether!"
+endc
+
 	done
 
-TwinsAnnandanne1BeatenText: ; AUTOTRAD
+TwinsAnnandanne1BeatenText: 
+if DEF(_FR_FR)
+	text "TEA&LEA: ..."
+	line "Pas possible."
+else
 	text "ANN & ANNE: Nnn… A"
 	line "little too strong."
+endc
+
 	done
 
-TwinsAnnandanne1AfterBattleText: ; AUTOTRAD
+TwinsAnnandanne1AfterBattleText: 
+if DEF(_FR_FR)
+	text "TEA: Je pense"
+	line "comme ma soeur et"
+
+	para "comme mes #MON."
+else
 	text "ANN: I can tell"
 	line "what my sister and"
 
 	para "my #MON are"
 	line "thinking."
+endc
+
 	done
 
-TwinsAnnandanne2SeenText: ; AUTOTRAD
+TwinsAnnandanne2SeenText: 
+if DEF(_FR_FR)
+	text "LEA: TEA et moi"
+	line "sommes insépara-"
+	cont "bles!"
+else
 	text "ANNE: ANN and I"
 	line "are in this to-"
 	cont "gether!"
+endc
+
 	done
 
 TwinsAnnandanne2BeatenText: ; TO TRANSLATE
@@ -154,54 +182,127 @@ TwinsAnnandanne2BeatenText: ; TO TRANSLATE
 	line "little too strong."
 	done
 
-TwinsAnnandanne2AfterBattleText: ; AUTOTRAD
+TwinsAnnandanne2AfterBattleText: 
+if DEF(_FR_FR)
+	text "LEA: Nous ressen-"
+	line "tons les mêmes"
+	cont "choses que nos"
+	cont "#MON."
+else
 	text "ANNE: We share the"
 	line "same feelings as"
 	cont "our #MON."
+endc
+
 	done
 
-PsychicGregSeenText: ; AUTOTRAD
+PsychicGregSeenText: 
+if DEF(_FR_FR)
+	text "Les #MON ne"
+	line "peuvent rien faire"
+	cont "s'ils dorment."
+
+	para "Tu vas voir quel"
+	line "effet ça fait!"
+else
 	text "#MON can't do a"
 	line "thing if they are"
 	cont "asleep."
 
 	para "I'll show you how"
 	line "scary that is!"
+endc
+
 	done
 
-PsychicGregBeatenText: ; AUTOTRAD
+PsychicGregBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu. C'est"
+	line "pas cool, ça..."
+else
 	text "I lost. That's"
 	line "pretty sad…"
+endc
+
 	done
 
-PsychicGregAfterBattleText: ; AUTOTRAD
+PsychicGregAfterBattleText: 
+if DEF(_FR_FR)
+	text "Endormir ou para-"
+	line "lyser les #MON"
+	cont "est super utile"
+	cont "en combat."
+else
 	text "Putting #MON to"
 	line "sleep or paralyz-"
 	cont "ing them are good"
 	cont "battle techniques."
+endc
+
 	done
 
-MeetSunnyText: ; AUTOTRAD
+MeetSunnyText: 
+if DEF(_FR_FR)
+	text "DIMITRI: Salut!"
+
+	para "Moi c'est DIMITRI"
+	line "du dimanche. Et on"
+	cont "est dimanche!"
+else
 	text "SUNNY: Hi!"
 
 	para "I'm SUNNY of Sun-"
 	line "day, meaning it's"
 	cont "Sunday today!"
+endc
+
 	done
 
-SunnyGivesGiftText1: ; AUTOTRAD
+SunnyGivesGiftText1: 
+if DEF(_FR_FR)
+	text "On m'a dit de te"
+	line "donner ça!"
+else
 	text "I was told to give"
 	line "you this if I saw"
 	cont "you!"
+endc
+
 	done
 
-SunnyGivesGiftText2: ; AUTOTRAD
+SunnyGivesGiftText2: 
+if DEF(_FR_FR)
+	text "On m'a dit de te"
+	line "donner ça!"
+else
 	text "I was told to give"
 	line "you this if I saw"
 	cont "you!"
+endc
+
 	done
 
-SunnyGaveGiftText: ; AUTOTRAD
+SunnyGaveGiftText: 
+if DEF(_FR_FR)
+	text "DIMITRI: Ca..."
+
+	para "Heu..."
+
+	para "...C'est..."
+
+	para "..."
+
+	para "Oh! Je me "
+	line "souviens!"
+
+	para "C'est pour un"
+	line "#MON à capaci-"
+	cont "tés électriques."
+
+	para "Ma soeur LUCIE"
+	line "dit que ça les"
+	cont "améliore!"
+else
 	text "SUNNY: That thing…"
 
 	para "Um…"
@@ -222,9 +323,21 @@ SunnyGaveGiftText: ; AUTOTRAD
 	para "My sis MONICA said"
 	line "it powers up"
 	cont "electric moves!"
+endc
+
 	done
 
-SunnySundayText: ; AUTOTRAD
+SunnySundayText: 
+if DEF(_FR_FR)
+	text "DIMITRI: Mes frè-"
+	line "res et soeurs sont"
+	cont "LUCIE, MARIE,"
+	cont "HOMER, JEROME,"
+	cont "VANESSA et SAMUEL."
+
+	para "Ils sont tous plus"
+	line "vieux que moi!"
+else
 	text "SUNNY: My sisters"
 	line "and brothers are"
 	cont "MONICA, TUSCANY,"
@@ -233,16 +346,30 @@ SunnySundayText: ; AUTOTRAD
 
 	para "They're all older"
 	line "than me!"
+endc
+
 	done
 
-SunnyNotSundayText: ; AUTOTRAD
+SunnyNotSundayText: 
+if DEF(_FR_FR)
+	text "DIMITRI: On est"
+	line "pas dimanche?"
+	cont "Heu! Je sais plus!"
+else
 	text "SUNNY: Isn't today"
 	line "Sunday?"
 	cont "Um… I forgot!"
+endc
+
 	done
 
-Route37SignText: ; AUTOTRAD
+Route37SignText: 
+if DEF(_FR_FR)
 	text "ROUTE 37"
+else
+	text "ROUTE 37"
+endc
+
 	done
 
 Route37_MapEvents:

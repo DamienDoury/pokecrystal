@@ -79,7 +79,18 @@ Chris:
 	closetext
 	end
 
-PewterPokecenter1FTeacherText: ; AUTOTRAD
+PewterPokecenter1FTeacherText: 
+if DEF(_FR_FR)
+	text "...Ouais et"
+	line "l'ARENE de"
+
+	para "CRAMOIS'ILE a"
+	line "disparu en plus..."
+
+	para "...Quoi? J'suis au"
+	line "téléphone, là!"
+	cont "Dégage!"
+else
 	text "…Yeah, and the"
 	line "GYM in CINNABAR's"
 
@@ -88,14 +99,36 @@ PewterPokecenter1FTeacherText: ; AUTOTRAD
 
 	para "…Yes? I'm on the"
 	line "phone. Go away!"
+endc
+
 	done
 
-PewterJigglypuffText: ; AUTOTRAD
+PewterJigglypuffText: 
+if DEF(_FR_FR)
+	text "RONDOUDOU: Douu!"
+	line "Doudoudou!"
+else
 	text "JIGGLYPUFF: Puu"
 	line "pupuu."
+endc
+
 	done
 
-PewterPokecenter1FBugCatcherText: ; AUTOTRAD
+PewterPokecenter1FBugCatcherText: 
+if DEF(_FR_FR)
+	text "La plupart des"
+	line "#MON s'endor-"
+
+	para "ment en entendant"
+	line "RONDOUDOU chanter."
+
+	para "Certaines capaci-"
+	line "tés ne sont à uti-"
+
+	para "liser seulement"
+	line "lorsqu'un #-"
+	cont "MON dort."
+else
 	text "Most #MON get"
 	line "drowsy if they"
 
@@ -107,6 +140,8 @@ PewterPokecenter1FBugCatcherText: ; AUTOTRAD
 
 	para "used only while a"
 	line "#MON is asleep."
+endc
+
 	done
 
 PewterPokecenter1F_MapEvents:

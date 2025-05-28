@@ -59,45 +59,94 @@ Route10Sign:
 Route10MaxEther:
 	hiddenitem MAX_ETHER, EVENT_ROUTE_10_HIDDEN_MAX_ETHER
 
-HikerJimSeenText: ; AUTOTRAD
+HikerJimSeenText: 
+if DEF(_FR_FR)
 	text "Hahahah!"
+else
+	text "Hahahah!"
+endc
+
 	done
 
-HikerJimBeatenText: ; AUTOTRAD
+HikerJimBeatenText: 
+if DEF(_FR_FR)
+	text "Hahaha-atchaa!"
+else
 	text "Hahaha-hachoo!"
+endc
+
 	done
 
-HikerJimAfterBattleText: ; AUTOTRAD
+HikerJimAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'ai le rhume des"
+	line "foins..."
+	cont "Ahahah-TCHAAA!"
+else
 	text "Hay fever is"
 	line "making me sneeze!"
 	cont "Ahahah-CHOO!"
+endc
+
 	done
 
-PokefanmRobertSeenText: ; AUTOTRAD
+PokefanmRobertSeenText: 
+if DEF(_FR_FR)
+	text "T'aimes les #-"
+	line "MON? Et ben..."
+
+	para "Moi aussi!"
+else
 	text "You like #MON,"
 	line "don't you?"
 
 	para "Me too!"
+endc
+
 	done
 
-PokefanmRobertBeatenText: ; AUTOTRAD
+PokefanmRobertBeatenText: 
+if DEF(_FR_FR)
+	text "J'aime pas perdre."
+	line "Mais pas du tout."
+else
 	text "I'd have to say"
 	line "that's my loss."
+endc
+
 	done
 
-PokefanmRobertAfterBattleText: ; AUTOTRAD
+PokefanmRobertAfterBattleText: 
+if DEF(_FR_FR)
+	text "Regarde ce que"
+	line "t'as fait à mes"
+	cont "#MON..."
+
+	para "J'l'oublierai pas!"
+	line "Jamais!"
+else
 	text "Look what you did"
 	line "to my #MON…"
 
 	para "I won't forget"
 	line "this…"
+endc
+
 	done
 
-Route10SignText: ; AUTOTRAD
+Route10SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 10"
+
+	para "AZURIA -"
+	line "LAVANVILLE"
+else
 	text "ROUTE 10"
 
 	para "CERULEAN CITY -"
 	line "LAVENDER TOWN"
+endc
+
 	done
 
 Route10South_MapEvents:

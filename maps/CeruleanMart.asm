@@ -28,7 +28,17 @@ CeruleanMart_CooltrainerF:
 CeruleanMartShelfItem1Script:
 	shelfitem 1, CARBOS, 9800
 
-CeruleanMart_CooltrainerMText: ; AUTOTRAD
+CeruleanMart_CooltrainerMText: 
+if DEF(_FR_FR)
+	text "Tu croiseras beau-"
+	line "coup de dresseurs"
+
+	para "sur la route du"
+	line "CAP d'AZURIA."
+
+	para "Ils voudront se"
+	line "mesurer à toi."
+else
 	text "You'll run into"
 	line "many trainers on"
 
@@ -40,15 +50,27 @@ CeruleanMart_CooltrainerMText: ; AUTOTRAD
 
 	para "up against other"
 	line "trainers."
+endc
+
 	done
 
-CeruleanMart_CooltrainerFText: ; AUTOTRAD
+CeruleanMart_CooltrainerFText: 
+if DEF(_FR_FR)
+	text "ONDINE est peut-"
+	line "être la seule à"
+
+	para "pouvoir battre les"
+	line "dresseurs du CAP"
+	cont "d'AZURIA."
+else
 	text "MISTY is about the"
 	line "only person in"
 
 	para "town who can beat"
 	line "the trainers at"
 	cont "CERULEAN's CAPE."
+endc
+
 	done
 
 CeruleanMart_MapEvents:

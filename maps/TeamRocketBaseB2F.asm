@@ -544,12 +544,39 @@ RocketBasePlayerLeavesElectrodesMovement3:
 	step RIGHT
 	step_end
 
-RocketBaseExecutiveFHoldItText: ; AUTOTRAD
+RocketBaseExecutiveFHoldItText: 
+if DEF(_FR_FR)
+	text "Hop hop hop!"
+	line "On bouge plus!"
+else
 	text "Hold it right"
 	line "there!"
+endc
+
 	done
 
-RocketBaseBossFThrashText: ; AUTOTRAD
+RocketBaseBossFThrashText: 
+if DEF(_FR_FR)
+	text "On peut pas te"
+	line "laisser fouiner"
+	cont "par ici."
+
+	para "C'est contre la"
+	line "politique de la"
+	cont "TEAM ROCKET."
+
+	para "Même si t'es super"
+	line "méga balèze, tu ne"
+
+	para "pourras jamais"
+	line "gagner contre nous"
+	cont "deux en même"
+	cont "temps."
+
+	para "Désolé ma puce."
+	line "C'est l'heure de"
+	cont "prendre ta baffe."
+else
 	text "We can't have a"
 	line "brat like you on"
 	cont "the loose."
@@ -567,15 +594,40 @@ RocketBaseBossFThrashText: ; AUTOTRAD
 	para "Sorry, baby. Now"
 	line "get ready to be"
 	cont "thrashed."
+endc
+
 	done
 
-RocketBaseLanceShareFunText: ; AUTOTRAD
+RocketBaseLanceShareFunText: 
+if DEF(_FR_FR)
+	text "Hé! Moi aussi"
+	line "je veux m'amuser!"
+	cont "T'es perso."
+else
 	text "Hey! Don't be so"
 	line "selfish. Spread"
 	cont "the fun around."
+endc
+
 	done
 
-RocketBaseBossDontMeddleText: ; AUTOTRAD
+RocketBaseBossDontMeddleText: 
+if DEF(_FR_FR)
+	text "Quoi? Tu avais un"
+	line "complice? Et ton"
+
+	para "sens de l'honneur?"
+	line "Il est où? Hein?"
+
+	para "Avec le remplaçant"
+	line "du boss GIOVANNI,"
+
+	para "je vais te montrer"
+	line "qu'il faut pas"
+
+	para "venir se frotter"
+	line "à la TEAM ROCKET!"
+else
 	text "What? You had an"
 	line "accomplice?"
 
@@ -590,9 +642,23 @@ RocketBaseBossDontMeddleText: ; AUTOTRAD
 
 	para "it is to meddle"
 	line "with TEAM ROCKET!"
+endc
+
 	done
 
-RocketBaseBossWinText: ; AUTOTRAD
+RocketBaseBossWinText: 
+if DEF(_FR_FR)
+	text "Pfff. C'est vrai"
+	line "que t'es balèze."
+
+	para "Ca craint."
+
+	para "Si tu venais à la"
+	line "TEAM ROCKET, tu"
+
+	para "deviendrais vite"
+	line "CAID."
+else
 	text "Tch, you really"
 	line "are strong."
 
@@ -603,6 +669,8 @@ RocketBaseBossWinText: ; AUTOTRAD
 
 	para "you could become"
 	line "an EXECUTIVE."
+endc
+
 	done
 
 RocketBaseBossRetreatText: ; TO TRANSLATE
@@ -633,7 +701,20 @@ RocketBaseBossRetreatText: ; TO TRANSLATE
 	para "Fufufufu…"
 	done
 
-RocketBaseLancePostBattleText: ; AUTOTRAD
+RocketBaseLancePostBattleText: 
+if DEF(_FR_FR)
+	text "PETER: Terminé!"
+	line "On a battu tous"
+
+	para "les gars de la"
+	line "ROCKET du coin."
+
+	para "Mais je m'inquiète"
+	line "à propos du jeune"
+
+	para "garçon que j'ai"
+	line "combattu..."
+else
 	text "LANCE: That did"
 	line "it. We defeated"
 
@@ -645,9 +726,24 @@ RocketBaseLancePostBattleText: ; AUTOTRAD
 
 	para "guy I battled in"
 	line "the process…"
+endc
+
 	done
 
-RocketBaseLancePowerOffText: ; AUTOTRAD
+RocketBaseLancePowerOffText: 
+if DEF(_FR_FR)
+	text "Pardon, <PLAY_G>."
+	line "J'étais en train"
+
+	para "de t'admirer en"
+	line "silence."
+
+	para "Tout ce qu'il nous"
+	line "reste à faire,"
+
+	para "c'est d'arrêter le"
+	line "signal radio."
+else
 	text "Sorry, <PLAY_G>."
 	line "I saw how well you"
 
@@ -659,9 +755,41 @@ RocketBaseLancePowerOffText: ; AUTOTRAD
 
 	para "turn off that odd"
 	line "radio signal."
+endc
+
 	done
 
-RockerBaseLanceElectrodeFaintText: ; AUTOTRAD
+RockerBaseLanceElectrodeFaintText: 
+if DEF(_FR_FR)
+	text "Cette machine"
+	line "est la cause du"
+	cont "problème."
+
+	para "Je ne vois pas"
+	line "d'interrupteur..."
+
+	para "Il n'y a pas de"
+	line "choix: il faut"
+
+	para "mettre K.O. tous"
+	line "les ELECTRODE."
+
+	para "Cela devrait arrê-"
+	line "ter cette machine"
+
+	para "et du même coup"
+	line "le signal."
+
+	para "Ce n'est pas la"
+	line "faute des #MON,"
+
+	para "ça me met donc un"
+	line "peu mal à l'aise."
+
+	para "<PLAY_G>, on"
+	line "fait chacun un"
+	cont "côté."
+else
 	text "It's this machine"
 	line "that's causing all"
 	cont "the problems."
@@ -689,11 +817,19 @@ RockerBaseLanceElectrodeFaintText: ; AUTOTRAD
 
 	para "<PLAY_G>, let's"
 	line "split the job."
+endc
+
 	done
 
-RocketBaseLancesSideText: ; AUTOTRAD
+RocketBaseLancesSideText: 
+if DEF(_FR_FR)
+	text "PETER: Je m'occupe"
+	line "de ce côté."
+else
 	text "LANCE: Leave this"
 	line "side to me."
+endc
+
 	done
 
 RocketBaseLanceElectrodeDoneText: ; TO TRANSLATE
@@ -743,7 +879,18 @@ RocketBaseLanceMonMasterText: ; TO TRANSLATE
 	line "seeing you again!"
 	done
 
-LanceHealsText1: ; AUTOTRAD
+LanceHealsText1: 
+if DEF(_FR_FR)
+	text "PETER: Tu vas"
+	line "bien?"
+
+	para "Tes #MON sont"
+	line "très fatigués."
+
+	para "Tiens, soigne-les"
+	line "avec mon médica-"
+	cont "ment."
+else
 	text "LANCE: Are you all"
 	line "right?"
 
@@ -753,15 +900,35 @@ LanceHealsText1: ; AUTOTRAD
 	para "Here, give them"
 	line "some of my medi-"
 	cont "cine."
+endc
+
 	done
 
-LanceHealsText2: ; AUTOTRAD
+LanceHealsText2: 
+if DEF(_FR_FR)
+	text "PETER: <PLAY_G>,"
+	line "ensemble pour"
+	cont "les #MON!"
+else
 	text "LANCE: <PLAY_G>,"
 	line "let's give it our"
 	cont "best for #MON."
+endc
+
 	done
 
-GruntM17SeenText: ; AUTOTRAD
+GruntM17SeenText: 
+if DEF(_FR_FR)
+	text "La porte ne"
+	line "s'ouvre pas?"
+
+	para "Normal, débiloss!"
+	line "Il faut un mot de"
+
+	para "passe connu seule-"
+	line "ment de la TEAM"
+	cont "ROCKET."
+else
 	text "The door won't"
 	line "open?"
 
@@ -770,31 +937,61 @@ GruntM17SeenText: ; AUTOTRAD
 
 	para "password that only"
 	line "TEAM ROCKET knows."
+endc
+
 	done
 
-GruntM17BeatenText: ; AUTOTRAD
+GruntM17BeatenText: 
+if DEF(_FR_FR)
+	text "Quoi? Perdu?"
+else
 	text "What? I lost?"
+endc
+
 	done
 
-GruntM17AfterBattleText: ; AUTOTRAD
+GruntM17AfterBattleText: 
+if DEF(_FR_FR)
+	text "Hé... J'suis juste"
+	line "un SBIRE."
+
+	para "J'le connais pas"
+	line "le mot de passe..."
+	cont "C'est bête, hein?"
+else
 	text "Heh, I'm just a"
 	line "GRUNT."
 
 	para "I don't know the"
 	line "password. Too bad"
 	cont "for you."
+endc
+
 	done
 
-GruntM18SeenText: ; AUTOTRAD
+GruntM18SeenText: 
+if DEF(_FR_FR)
+	text "Désolé je suis. "
+	line "Mais te briser"
+
+	para "je dois."
+else
 	text "Oh, a kid? I don't"
 	line "really like this,"
 
 	para "but eliminate you"
 	line "I must."
+endc
+
 	done
 
-GruntM18BeatenText: ; AUTOTRAD
+GruntM18BeatenText: 
+if DEF(_FR_FR)
+	text "Perdu j'ai?"
+else
 	text "I knew I'd lose…"
+endc
+
 	done
 
 GruntM18AfterBattleText: ; TO TRANSLATE
@@ -810,16 +1007,36 @@ GruntM18AfterBattleText: ; TO TRANSLATE
 	cont "a bummer."
 	done
 
-GruntM19SeenText: ; AUTOTRAD
+GruntM19SeenText: 
+if DEF(_FR_FR)
+	text "Espèce de sale"
+	line "peste!"
+else
 	text "You rotten little"
 	line "pest!"
+endc
+
 	done
 
-GruntM19BeatenText: ; AUTOTRAD
+GruntM19BeatenText: 
+if DEF(_FR_FR)
+	text "Grrrr..."
+else
 	text "Grrrr…"
+endc
+
 	done
 
-GruntM19AfterBattleText: ; AUTOTRAD
+GruntM19AfterBattleText: 
+if DEF(_FR_FR)
+	text "Hé! Seul le chef"
+	line "connaît le mot de"
+	cont "passe de la porte."
+
+	para "Où est le chef?"
+	line "Qui sait? Va le"
+	cont "chercher toi-même."
+else
 	text "Heh, only the boss"
 	line "knows the password"
 	cont "for that door."
@@ -827,25 +1044,58 @@ GruntM19AfterBattleText: ; AUTOTRAD
 	para "Where's the boss?"
 	line "Who knows? Go look"
 	cont "for yourself."
+endc
+
 	done
 
-RocketBaseDoorNoPasswordText: ; AUTOTRAD
+RocketBaseDoorNoPasswordText: 
+if DEF(_FR_FR)
+	text "La porte est"
+	line "fermée..."
+
+	para "Il faut un mot"
+	line "de passe."
+else
 	text "The door's closed…"
 
 	para "It needs a pass-"
 	line "word to open."
+endc
+
 	done
 
-RocketBaseDoorKnowPasswordText: ; AUTOTRAD
+RocketBaseDoorKnowPasswordText: 
+if DEF(_FR_FR)
+	text "La porte est"
+	line "fermée..."
+
+	para "<PLAYER> tape"
+	line "le mot de passe."
+
+	para "La porte est"
+	line "ouverte!"
+else
 	text "The door's closed…"
 
 	para "<PLAYER> entered"
 	line "the password."
 
 	para "The door opened!"
+endc
+
 	done
 
-RocketBaseB2FTransmitterText: ; AUTOTRAD
+RocketBaseB2FTransmitterText: 
+if DEF(_FR_FR)
+	text "C'est l'émetteur"
+	line "qui envoie"
+
+	para "l'horrible signal"
+	line "radio."
+
+	para "Il est réglé au"
+	line "maximum."
+else
 	text "It's the radio"
 	line "transmitter that's"
 
@@ -854,14 +1104,25 @@ RocketBaseB2FTransmitterText: ; AUTOTRAD
 
 	para "It's working at"
 	line "full capacity."
+endc
+
 	done
 
-RocketBaseB2FDeactivateTransmitterText: ; AUTOTRAD
+RocketBaseB2FDeactivateTransmitterText: 
+if DEF(_FR_FR)
+	text "L'émetteur radio"
+	line "a enfin interrompu"
+
+	para "son signal maléfi-"
+	line "que."
+else
 	text "The radio trans-"
 	line "mitter has finally"
 
 	para "stopped its evil"
 	line "broadcast."
+endc
+
 	done
 
 TeamRocketBaseB2F_MapEvents:

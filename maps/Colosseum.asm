@@ -51,9 +51,15 @@ CableClubFriendScript:
 	closetext
 	end
 
-.FriendReadyText: ; AUTOTRAD
+.FriendReadyText: 
+if DEF(_FR_FR)
+	text "Votre ami(e) est"
+	line "prêt(e)."
+else
 	text "Your friend is"
 	line "ready."
+endc
+
 	done
 
 Colosseum_MapEvents:

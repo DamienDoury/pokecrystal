@@ -201,7 +201,17 @@ CopycatSpinAroundMovementData:
 	turn_head DOWN
 	step_end
 
-CopycatText_Male_1: ; AUTOTRAD
+CopycatText_Male_1: 
+if DEF(_FR_FR)
+	text "<PLAYER>: Salut! Tu"
+	line "aimes les #MON?"
+
+	para "<PLAYER>: Non. Toi."
+	line "Tu les aimes?"
+
+	para "<PLAYER>: Hein?"
+	line "Tu m'cherches?"
+else
 	text "<PLAYER>: Hi! Do"
 	line "you like #MON?"
 
@@ -210,14 +220,25 @@ CopycatText_Male_1: ; AUTOTRAD
 
 	para "<PLAYER>: Huh?"
 	line "You're strange!"
+endc
+
 	done
 
-CopycatText_QuickMimicking: ; AUTOTRAD
+CopycatText_QuickMimicking: 
+if DEF(_FR_FR)
+	text "COPIEUSE: Hmm?"
+	line "Arrêter de copier?"
+
+	para "Mais... C'est"
+	line "toute ma vie!"
+else
 	text "COPYCAT: Hmm?"
 	line "Quit mimicking?"
 
 	para "But that's my"
 	line "favorite hobby!"
+endc
+
 	done
 
 CopycatText_Male_2: ; TO TRANSLATE
@@ -239,7 +260,18 @@ CopycatText_Male_2: ; TO TRANSLATE
 	cont "to VERMILION CITY?"
 	done
 
-CopycatText_Worried: ; AUTOTRAD
+CopycatText_Worried: 
+if DEF(_FR_FR)
+	text "COPIEUSE: Pardon?"
+
+	para "Tu ne veux pas"
+	line "que je te dise"
+	cont "comment faire?"
+
+	para "Mais j'ai si peur!"
+	line "Et si quelqu'un la"
+	cont "trouve?"
+else
 	text "COPYCAT: Pardon?"
 
 	para "I shouldn't decide"
@@ -249,9 +281,22 @@ CopycatText_Worried: ; AUTOTRAD
 	para "But I'm really"
 	line "worried… What if"
 	cont "someone finds it?"
+endc
+
 	done
 
-CopycatText_GiveDoll: ; AUTOTRAD
+CopycatText_GiveDoll: 
+if DEF(_FR_FR)
+	text "COPIEUSE: Hé!"
+	line "C'est ma #"
+	cont "POUPEE MELOFEE!"
+
+	para "Elle est un peu"
+	line "déchirée près de"
+
+	para "la jambe! C'est la"
+	line "mienne!"
+else
 	text "COPYCAT: Yay!"
 	line "That's my CLEFAIRY"
 	cont "# DOLL!"
@@ -261,15 +306,36 @@ CopycatText_GiveDoll: ; AUTOTRAD
 
 	para "sewn on? That's"
 	line "proof!"
+endc
+
 	done
 
-CopycatText_GivePass: ; AUTOTRAD
+CopycatText_GivePass: 
+if DEF(_FR_FR)
+	text "OK. Voilà le"
+	line "PASSE du TRAIN"
+	cont "comme promis!"
+else
 	text "OK. Here's the"
 	line "MAGNET TRAIN PASS"
 	cont "like I promised!"
+endc
+
 	done
 
-CopycatText_ExplainPass: ; AUTOTRAD
+CopycatText_ExplainPass: 
+if DEF(_FR_FR)
+	text "COPIEUSE: C'est le"
+	line "PASSE pour le"
+	cont "TRAIN MAGNET."
+
+	para "On me l'a donné"
+	line "quand ils ont tout"
+
+	para "cassé ma maison"
+	line "pour construire la"
+	cont "STATION."
+else
 	text "COPYCAT: That's"
 	line "the PASS for the"
 	cont "MAGNET TRAIN."
@@ -280,6 +346,8 @@ CopycatText_ExplainPass: ; AUTOTRAD
 	para "when they tore"
 	line "down our old house"
 	cont "for the STATION."
+endc
+
 	done
 
 CopycatText_Male_3: ; TO TRANSLATE
@@ -294,12 +362,29 @@ CopycatText_Male_3: ; TO TRANSLATE
 	cont "my every move?"
 	done
 
-CopycatText_ItsAScream: ; AUTOTRAD
+CopycatText_ItsAScream: 
+if DEF(_FR_FR)
+	text "COPIEUSE: Copier"
+	line "c'est mortel!"
+else
 	text "COPYCAT: You bet!"
 	line "It's a scream!"
+endc
+
 	done
 
-CopycatText_Female_1: ; AUTOTRAD
+CopycatText_Female_1: 
+if DEF(_FR_FR)
+	text "<PLAYER>: Salut!"
+	line "Tu aimes les"
+	cont "#MON, non?"
+
+	para "<PLAYER>: Non, pas"
+	line "moi. Toi."
+
+	para "<PLAYER>: Quoi?"
+	line "T'es bizarre!"
+else
 	text "<PLAYER>: Hi. You"
 	line "must like #MON."
 
@@ -308,6 +393,8 @@ CopycatText_Female_1: ; AUTOTRAD
 
 	para "<PLAYER>: Pardon?"
 	line "You're weird!"
+endc
+
 	done
 
 CopycatText_Female_2: ; TO TRANSLATE
@@ -342,23 +429,45 @@ CopycatText_Female_3: ; TO TRANSLATE
 	line "and do?"
 	done
 
-CopycatsDodrioText1: ; AUTOTRAD
+CopycatsDodrioText1: 
+if DEF(_FR_FR)
+	text "DODRIO: Driii!"
+else
 	text "DODRIO: Gii giii!"
+endc
+
 	done
 
-CopycatsDodrioText2: ; AUTOTRAD
+CopycatsDodrioText2: 
+if DEF(_FR_FR)
+	text "MON BEAU MIROIR,"
+	line "QUI EST LA PLUS"
+
+	para "BELLE DE TOUTES?"
+	line "HEIN? C'EST QUI?"
+else
 	text "MIRROR, MIRROR ON"
 	line "THE WALL, WHO'S"
 
 	para "THE FAIREST ONE OF"
 	line "ALL?"
+endc
+
 	done
 
-CopycatsHouse2FDollText: ; AUTOTRAD
+CopycatsHouse2FDollText: 
+if DEF(_FR_FR)
+	text "C'est un #MON"
+	line "super rare! Hein?"
+
+	para "Une poupée..."
+else
 	text "This is a rare"
 	line "#MON! Huh?"
 
 	para "It's only a doll…"
+endc
+
 	done
 
 CopycatsHouse2F_MapEvents:

@@ -18,13 +18,23 @@ Route23_MapScripts:
 IndigoPlateauSign:
 	jumptext IndigoPlateauSignText
 
-IndigoPlateauSignText: ; AUTOTRAD
+IndigoPlateauSignText: 
+if DEF(_FR_FR)
+	text "PLATEAU INDIGO"
+
+	para "La quête de tout"
+	line "dresseur!"
+
+	para "QG LIGUE #MON"
+else
 	text "INDIGO PLATEAU"
 
 	para "The Ultimate Goal"
 	line "for Trainers!"
 
 	para "#MON LEAGUE HQ"
+endc
+
 	done
 
 Route23_MapEvents:

@@ -67,7 +67,17 @@ GoldenrodPokecenter1FPokefanF:
 	closetext
 	end
 
-GoldenrodPokecenter1FGameboyKidText: ; AUTOTRAD
+GoldenrodPokecenter1FGameboyKidText: 
+if DEF(_FR_FR)
+	text "Le COLISEE sert"
+	line "à faire des com-"
+	cont "bats en Link."
+
+	para "Les records sont"
+	line "affichés sur le"
+	cont "mur. Perdre, c'est"
+	cont "la honte!"
+else
 	text "The COLOSSEUM"
 	line "upstairs is for"
 	cont "link battles."
@@ -77,9 +87,28 @@ GoldenrodPokecenter1FGameboyKidText: ; AUTOTRAD
 
 	para "wall, so I can't"
 	line "afford to lose."
+endc
+
 	done
 
-GoldenrodPokecenter1FLassText: ; AUTOTRAD
+GoldenrodPokecenter1FLassText: 
+if DEF(_FR_FR)
+	text "Un #MON de"
+	line "niveau élevé ne"
+	cont "gagnera pas à tous"
+	cont "les coups."
+
+	para "Après tout, il y a"
+	line "peut-être un type"
+	cont "désavantagé."
+
+	para "Je ne crois pas"
+	line "qu'il y ait un"
+
+	para "type de #MON"
+	line "qui soit le plus"
+	cont "résistant."
+else
 	text "A higher level"
 	line "#MON doesn't"
 	cont "always win."
@@ -93,9 +122,25 @@ GoldenrodPokecenter1FLassText: ; AUTOTRAD
 
 	para "#MON that is"
 	line "the toughest."
+endc
+
 	done
 
-GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText: ; AUTOTRAD
+GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText: 
+if DEF(_FR_FR)
+	text "Ton SAC a l'air"
+	line "siiiii lourd!"
+
+	para "Oh! As-tu un truc"
+	line "du nom de LETR"
+	cont "EVOLI?"
+
+	para "Ma fille en veut"
+	line "une."
+
+	para "Tu peux m'en"
+	line "donner une?"
+else
 	text "Oh my, your pack"
 	line "looks so heavy!"
 
@@ -108,24 +153,44 @@ GoldenrodPokecenter1FPokefanFDoYouHaveEonMailText: ; AUTOTRAD
 
 	para "You can part with"
 	line "one, can't you?"
+endc
+
 	done
 
-GoldenrodPokecenter1FAskGiveAwayAnEonMailText: ; AUTOTRAD
+GoldenrodPokecenter1FAskGiveAwayAnEonMailText: 
+if DEF(_FR_FR)
+	text "Donner LETR EVOLI?"
+else
 	text "Give away an EON"
 	line "MAIL?"
+endc
+
 	done
 
-GoldenrodPokecenter1FPokefanFThisIsForYouText: ; AUTOTRAD
+GoldenrodPokecenter1FPokefanFThisIsForYouText: 
+if DEF(_FR_FR)
+	text "Oh, formidable!"
+	line "Merci merci!"
+	cont "Voilà pour toi!"
+else
 	text "Oh, that's great!"
 	line "Thank you, honey!"
 
 	para "Here, this is for"
 	line "you in return!"
+endc
+
 	done
 
-GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText: ; AUTOTRAD
+GoldenrodPokecenter1FPokefanFDaughterWillBeDelightedText: 
+if DEF(_FR_FR)
+	text "Ma fille sera"
+	line "ravie!"
+else
 	text "My daughter will"
 	line "be delighted!"
+endc
+
 	done
 
 GoldenrodPokecenter1FPokefanFDaughterTomorrowText: ; TO TRANSLATE
@@ -136,19 +201,37 @@ GoldenrodPokecenter1FPokefanFDaughterTomorrowText: ; TO TRANSLATE
 	line "want some more."
 	done
 
-GoldenrodPokecenter1FPokefanFTooBadText: ; AUTOTRAD
+GoldenrodPokecenter1FPokefanFTooBadText: 
+if DEF(_FR_FR)
+	text "Oh? Tu n'en as"
+	line "pas? Dommage."
+else
 	text "Oh? You don't have"
 	line "one? Too bad."
+endc
+
 	done
 
-GoldenrodPokecenter1FPokefanFAnotherTimeThenText: ; AUTOTRAD
+GoldenrodPokecenter1FPokefanFAnotherTimeThenText: 
+if DEF(_FR_FR)
+	text "Oh... Une autre"
+	line "fois, alors."
+else
 	text "Oh… Well, another"
 	line "time, then."
+endc
+
 	done
 
-GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText: ; AUTOTRAD
+GoldenrodPokecenter1FPlayerGaveAwayTheEonMailText: 
+if DEF(_FR_FR)
+	text "<PLAYER> donne"
+	line "la LETR EVOLI."
+else
 	text "<PLAYER> gave away"
 	line "the EON MAIL."
+endc
+
 	done
 
 GoldenrodPokecenter1F_MapEvents:

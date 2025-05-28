@@ -51,7 +51,21 @@ GoldenrodPPSpeechHouseBookshelf1:
 GoldenrodPPSpeechHouseRadio:
 	jumpstd Radio2Script
 
-GoldenrodPPSpeechHouseFisherText: ; AUTOTRAD
+GoldenrodPPSpeechHouseFisherText: 
+if DEF(_FR_FR)
+	text "Une fois lorsque"
+	line "je me battais, mes"
+
+	para "#MON ne"
+	line "pouvaient plus"
+	cont "attaquer."
+
+	para "Les POINTS de"
+	line "POUVOIR, ou PP,"
+
+	para "de mes attaques"
+	line "étaient épuisés."
+else
 	text "Once while I was"
 	line "battling, my"
 
@@ -63,9 +77,24 @@ GoldenrodPPSpeechHouseFisherText: ; AUTOTRAD
 
 	para "moves were all"
 	line "gone."
+endc
+
 	done
 
-GoldenrodPPSpeechHouseLassText: ; AUTOTRAD
+GoldenrodPPSpeechHouseLassText: 
+if DEF(_FR_FR)
+	text "Quelques fois, un"
+	line "#MON en pleine"
+
+	para "forme ne peut pas"
+	line "utiliser ses"
+	cont "attaques."
+
+	para "Si cela se produit"
+	line "soigne-le dans un"
+	cont "CENTRE #MON ou"
+	cont "utilise un objet."
+else
 	text "Sometimes, a"
 	line "healthy #MON"
 
@@ -76,6 +105,8 @@ GoldenrodPPSpeechHouseLassText: ; AUTOTRAD
 	line "heal it at a #-"
 	cont "MON CENTER or use"
 	cont "an item."
+endc
+
 	done
 
 GoldenrodPPSpeechHouseLassLockdownText: ; TO TRANSLATE

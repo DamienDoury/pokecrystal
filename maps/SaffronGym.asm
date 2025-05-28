@@ -177,7 +177,24 @@ SabrinaChallengeRefusedText: ; TO TRANSLATE
 	cont "cross again."
 	done
 
-SabrinaWinLossText: ; AUTOTRAD
+SabrinaWinLossText: 
+if DEF(_FR_FR)
+	text "MORGANE: Ta force"
+	line "est grande..."
+
+	para "Je ne l'avais pas"
+	line "prévu. Zut."
+
+	para "Prédire le futur"
+	line "c'est pas si"
+
+	para "facile! Ne te"
+	line "moque pas trop..."
+
+	para "Bon. Tu as bien"
+	line "mérité le BADGE"
+	cont "MARAIS."
+else
 	text "SABRINA: Your"
 	line "power…"
 
@@ -193,11 +210,19 @@ SabrinaWinLossText: ; AUTOTRAD
 	para "OK, you win. You"
 	line "earned yourself"
 	cont "MARSHBADGE."
+endc
+
 	done
 
-ReceivedMarshBadgeText: ; AUTOTRAD
+ReceivedMarshBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE MARAIS."
+else
 	text "<PLAYER> received"
 	line "MARSHBADGE."
+endc
+
 	done
 
 SabrinaMarshBadgeText: ; TO TRANSLATE
@@ -224,31 +249,61 @@ SabrinaFightDoneText: ; TO TRANSLATE
 	line "paths…"
 	done
 
-MediumRebeccaSeenText: ; AUTOTRAD
+MediumRebeccaSeenText: 
+if DEF(_FR_FR)
+	text "Que la force soit"
+	line "avec moi!"
+else
 	text "The power of all"
 	line "those you defeated"
 	cont "comes to me!"
+endc
+
 	done
 
-MediumRebeccaBeatenText: ; AUTOTRAD
+MediumRebeccaBeatenText: 
+if DEF(_FR_FR)
+	text "Bah alors?"
+else
 	text "Strong…"
 	line "Far too strong…"
+endc
+
 	done
 
-MediumRebeccaAfterBattleText: ; AUTOTRAD
+MediumRebeccaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Quelle est la"
+	line "source de ta"
+	cont "force?"
+else
 	text "What is the source"
 	line "of your power?"
+endc
+
 	done
 
-PsychicFranklinSeenText: ; AUTOTRAD
+PsychicFranklinSeenText: 
+if DEF(_FR_FR)
+	text "Je vais prendre"
+	line "ton âme!"
+else
 	text "Psychic power is"
 	line "the power of your"
 	cont "soul."
+endc
+
 	done
 
-PsychicFranklinBeatenText: ; AUTOTRAD
+PsychicFranklinBeatenText: 
+if DEF(_FR_FR)
+	text "Pourquoi tant de"
+	line "haine?"
+else
 	text "Your soul has more"
 	line "power than mine!"
+endc
+
 	done
 
 PsychicFranklinAfterBattleText: ; TO TRANSLATE
@@ -275,42 +330,85 @@ PsychicFranklinAfterBattleText: ; TO TRANSLATE
 	cont "to this building."
 	done
 
-MediumDorisSeenText: ; AUTOTRAD
+MediumDorisSeenText: 
+if DEF(_FR_FR)
+	text "Gnihihihihi!"
+	line "Forces occultes!"
+
+	para "Ténèbres..."
+	line "Pâté de foie!"
+else
 	text "Fufufufu…"
 	line "I see it clearly."
 
 	para "I can see into"
 	line "your soul!"
+endc
+
 	done
 
-MediumDorisBeatenText: ; AUTOTRAD
+MediumDorisBeatenText: 
+if DEF(_FR_FR)
+	text "J'aime le paranor-"
+	line "mal, oui, mais la"
+	cont "charcuterie aussi!"
+else
 	text "Though I read you,"
 	line "I still lost…"
+endc
+
 	done
 
-MediumDorisAfterBattleText: ; AUTOTRAD
+MediumDorisAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le psychisme,"
+	line "c'est dur à dire."
+else
 	text "Darn! I forgot"
 	line "that I predicted I"
 	cont "would lose to you."
+endc
+
 	done
 
-PsychicJaredSeenText: ; AUTOTRAD
+PsychicJaredSeenText: 
+if DEF(_FR_FR)
+	text "Le DOJO d'à côté"
+	line "était jadis l'ARE-"
+	cont "NE de cette ville."
+else
 	text "The FIGHTING DOJO"
 	line "next door was once"
 	cont "this city's GYM."
+endc
+
 	done
 
-PsychicJaredBeatenText: ; AUTOTRAD
+PsychicJaredBeatenText: 
+if DEF(_FR_FR)
+	text "Tout perdu..."
+else
 	text "I was no match…"
+endc
+
 	done
 
-PsychicJaredAfterBattleText: ; AUTOTRAD
+PsychicJaredAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le ROI du KARATE,"
+	line "le maître du DOJO"
+
+	para "a été battu par"
+	line "MORGANE."
+else
 	text "KARATE KING, the"
 	line "master of the"
 
 	para "FIGHTING DOJO, was"
 	line "just destroyed by"
 	cont "SABRINA."
+endc
+
 	done
 
 SaffronGymGuideText: ; TO TRANSLATE

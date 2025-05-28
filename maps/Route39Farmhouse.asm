@@ -136,7 +136,22 @@ FarmerMText_SickCow: ; TO TRANSLATE
 	cont "I reckon."
 	done
 
-FarmerMText_BuyMilk: ; AUTOTRAD
+FarmerMText_BuyMilk: 
+if DEF(_FR_FR)
+	text "Ca te dit du bon"
+	line "LAIT MEUMEU?"
+
+	para "C'est ma fierté et"
+	line "ma joie, poussin."
+
+	para "Donnes-en à tes"
+	line "#MON pour en"
+	cont "gagner des PV!"
+
+	para "Pour juste {d:ROUTE39FARMHOUSE_MILK_PRICE}¥"
+	line "je te l'offre."
+	cont "Pour sûr!"
+else
 	text "How'd you like my"
 	line "MOOMOO MILK?"
 
@@ -148,34 +163,76 @@ FarmerMText_BuyMilk: ; AUTOTRAD
 
 	para "I'll give it to ya"
 	line "fer just ¥{d:ROUTE39FARMHOUSE_MILK_PRICE}."
+endc
+
 	done
 
-FarmerMText_GotMilk: ; AUTOTRAD
+FarmerMText_GotMilk: 
+if DEF(_FR_FR)
+	text "Tiens, poussin!"
+	line "Bien à toi!"
+else
 	text "Here ya go!"
 	line "Drink up'n enjoy!"
+endc
+
 	done
 
-FarmerMText_NoMoney: ; AUTOTRAD
+FarmerMText_NoMoney: 
+if DEF(_FR_FR)
+	text "Dommage, t'as pas"
+	line "de mitraille!"
+else
 	text "Sorry, there."
 	line "No cash, no sale!"
+endc
+
 	done
 
-FarmerMText_NoRoom: ; AUTOTRAD
+FarmerMText_NoRoom: 
+if DEF(_FR_FR)
+	text "T'as pas de place,"
+	line "mon poussin."
+else
 	text "I reckon yer"
 	line "PACK's full."
+endc
+
 	done
 
-FarmerMText_NoSale: ; AUTOTRAD
+FarmerMText_NoSale: 
+if DEF(_FR_FR)
+	text "Il en veut pas?"
+	line "A plus tard."
+else
 	text "You don't want it?"
 	line "Come again, hear?"
+endc
+
 	done
 
-FarmerMText_Milking: ; AUTOTRAD
+FarmerMText_Milking: 
+if DEF(_FR_FR)
+	text "Bon. J'ai à"
+	line "traire."
+else
 	text "I best go do my"
 	line "milkin'."
+endc
+
 	done
 
-FarmerFText_InTrouble: ; AUTOTRAD
+FarmerFText_InTrouble: 
+if DEF(_FR_FR)
+	text "Notre lait est mê-"
+	line "me vendu à KANTO."
+
+	para "Si notre fidèle"
+	line "ECREMEUH ne donne"
+
+	para "plus de lait,"
+	line "c'est la faillite."
+else
 	text "Our milk even goes"
 	line "out to KANTO."
 
@@ -184,6 +241,8 @@ FarmerFText_InTrouble: ; AUTOTRAD
 
 	para "us any milk, we're"
 	line "in trouble."
+endc
+
 	done
 
 FarmerFText_HealedMiltank: ; TO TRANSLATE
@@ -194,7 +253,21 @@ FarmerFText_HealedMiltank: ; TO TRANSLATE
 	line "fer your trouble."
 	done
 
-FarmerFText_SnoreSpeech: ; AUTOTRAD
+FarmerFText_SnoreSpeech: 
+if DEF(_FR_FR)
+	text "C'est eul'fameux"
+	line "RONFLEMENT."
+
+	para "C'est un coup rare"
+	line "qui marche que"
+
+	para "quand eul'#MON"
+	line "il dort."
+
+	para "Alors à toi eud'"
+	line "faire ta stratégie"
+	cont "mon p'tit poussin."
+else
 	text "That there's"
 	line "SNORE."
 
@@ -207,6 +280,8 @@ FarmerFText_SnoreSpeech: ; AUTOTRAD
 	para "You best think how"
 	line "you ought to use"
 	cont "it, hon."
+endc
+
 	done
 
 Twin1Text: ; TO TRANSLATE

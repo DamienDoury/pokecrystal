@@ -392,7 +392,19 @@ CeruleanCityStompLeftMovement:
 	step_bump
 	step_end
 
-CeruleanCityCooltrainerMText1: ; AUTOTRAD
+CeruleanCityCooltrainerMText1: 
+if DEF(_FR_FR)
+	text "La CENTRALE de"
+	line "KANTO?"
+
+	para "C'est vers le bout"
+	line "de la ROUTE 9, à"
+	cont "l'est d'ici."
+
+	para "Je crois qu'il y a"
+	line "un truc qui marche"
+	cont "pas là-bas."
+else
 	text "KANTO's POWER"
 	line "PLANT?"
 
@@ -405,9 +417,21 @@ CeruleanCityCooltrainerMText1: ; AUTOTRAD
 	para "I think there was"
 	line "an accident of"
 	cont "some sort there."
+endc
+
 	done
 
-CeruleanCityCooltrainerMText2: ; AUTOTRAD
+CeruleanCityCooltrainerMText2: 
+if DEF(_FR_FR)
+	text "Tu collectionnes"
+	line "tous les #MON"
+	cont "différents?"
+
+	para "Ca doit pas être"
+	line "super facile..."
+	cont "Mais ça doit être"
+	cont "rigolo, non?"
+else
 	text "You're collecting"
 	line "every single kind"
 	cont "of #MON?"
@@ -415,6 +439,8 @@ CeruleanCityCooltrainerMText2: ; AUTOTRAD
 	para "That must be quite"
 	line "a challenge, but"
 	cont "it sounds fun too."
+endc
+
 	done
 
 CeruleanCitySuperNerdText: ; TO TRANSLATE
@@ -446,35 +472,67 @@ CeruleanCitySuperNerdText: ; TO TRANSLATE
 	line "the SHAME BRIDGE."
 	done
 
-CeruleanCitySlowbroText: ; AUTOTRAD
+CeruleanCitySlowbroText: 
+if DEF(_FR_FR)
+	text "FLAGADOSS: Gaaa?"
+else
 	text "SLOWBRO: Yarah?"
+endc
+
 	done
 
-CeruleanCityCooltrainerFText1: ; AUTOTRAD
+CeruleanCityCooltrainerFText1: 
+if DEF(_FR_FR)
+	text "Mon FLAGADOSS et"
+	line "moi on va trop"
+	cont "bien ensemble!"
+else
 	text "My SLOWBRO and I"
 	line "make an awesome"
 	cont "combination!"
+endc
+
 	done
 
-CeruleanCityCooltrainerFText2: ; AUTOTRAD
+CeruleanCityCooltrainerFText2: 
+if DEF(_FR_FR)
+	text "FLAGADOSS!"
+	line "Lance CHOC MENTAL!"
+else
 	text "SLOWBRO, show me"
 	line "your CONFUSION!"
+endc
+
 	done
 
 CeruleanCityCooltrainerFText3:
 	text "…"
 	done
 
-CeruleanCityFisherText: ; AUTOTRAD
+CeruleanCityFisherText: 
+if DEF(_FR_FR)
+	text "Je suis un super"
+	line "fan d'ONDINE de"
+	cont "l'ARENE d'AZURIA."
+else
 	text "I'm a huge fan of"
 	line "CERULEAN GYM's"
 	cont "MISTY."
+endc
+
 	done
 
-CeruleanCityFisherRocketTipText: ; AUTOTRAD
+CeruleanCityFisherRocketTipText: 
+if DEF(_FR_FR)
+	text "J'ai vu ce drôle"
+	line "de type aller vers"
+	cont "le CAP d'AZURIA."
+else
 	text "I saw this shady"
 	line "guy go off toward"
 	cont "CERULEAN's CAPE."
+endc
+
 	done
 
 CeruleanCityYoungsterText1: ; TO TRANSLATE
@@ -500,11 +558,19 @@ CeruleanCityYoungsterText1: ; TO TRANSLATE
 	cont "its way in."
 	done
 
-CeruleanCityYoungsterText2: ; AUTOTRAD
+CeruleanCityYoungsterText2: 
+if DEF(_FR_FR)
+	text "Quoi?"
+
+	para "Mon CHERCH'OBJET"
+	line "vient de sonner..."
+else
 	text "Ayuh?"
 
 	para "My ITEMFINDER is"
 	line "responding…"
+endc
+
 	done
 
 CeruleanCityYoungsterTextRocket: ; TO TRANSLATE
@@ -513,20 +579,37 @@ CeruleanCityYoungsterTextRocket: ; TO TRANSLATE
 	cont "den? Get him out!"
 	done
 
-CeruleanCitySignText: ; AUTOTRAD
+CeruleanCitySignText: 
+if DEF(_FR_FR)
+	text "AZURIA"
+
+	para "Entourée d'une"
+	line "étrange aura bleue"
+else
 	text "CERULEAN CITY"
 
 	para "A Mysterious Blue"
 	line "Aura Surrounds It"
+endc
+
 	done
 
-CeruleanGymSignText: ; AUTOTRAD
+CeruleanGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'AZURIA: ONDINE"
+
+	para "Une vraie petite"
+	line "sirène"
+else
 	text "CERULEAN CITY"
 	line "#MON GYM"
 	cont "LEADER: MISTY"
 
 	para "The Tomboyish"
 	line "Mermaid"
+endc
+
 	done
 
 CeruleanBikeShopSignText: ; TO TRANSLATE
@@ -538,7 +621,16 @@ CeruleanBikeShopSignText: ; TO TRANSLATE
 	cont "bankruptcy."
 	done
 
-CeruleanPoliceSignText: ; AUTOTRAD
+CeruleanPoliceSignText: 
+if DEF(_FR_FR)
+	text "Il y a une affiche"
+	line "ici..."
+
+	para "Non au vol."
+	line "Oui au bonheur."
+
+	para "POLICE d'AZURIA"
+else
 	text "There's a notice"
 	line "here…"
 
@@ -549,11 +641,19 @@ CeruleanPoliceSignText: ; AUTOTRAD
 	line "cheerful place!"
 
 	para "CERULEAN POLICE"
+endc
+
 	done
 
-CeruleanCapeSignText: ; AUTOTRAD
+CeruleanCapeSignText: 
+if DEF(_FR_FR)
+	text "CAP d'AZURIA"
+	line "Tout droit"
+else
 	text "CERULEAN CAPE"
 	line "AHEAD"
+endc
+
 	done
 
 CeruleanLockedDoorText: ; TO TRANSLATE

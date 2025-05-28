@@ -9,11 +9,18 @@ VermilionPortPassage_MapScripts:
 VermilionPortPassageTeacherScript:
 	jumptextfaceplayer VermilionPortPassageTeacherText
 
-VermilionPortPassageTeacherText: ; AUTOTRAD
+VermilionPortPassageTeacherText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "vogue le mercredi"
+	cont "et le dimanche."
+else
 	text "The FAST SHIP"
 	line "sails on Wednes-"
 	cont "days and Sundays"
 	cont "every week."
+endc
+
 	done
 
 VermilionPortPassage_MapEvents:

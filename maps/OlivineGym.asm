@@ -238,7 +238,21 @@ Jasmine_ValidatesTeamText: ; TO TRANSLATE
 	text "…Um… May I begin?"
 	done
 
-Jasmine_BetterTrainer: ; AUTOTRAD
+Jasmine_BetterTrainer: 
+if DEF(_FR_FR)
+	text "...Bon bah t'es"
+	line "meilleur dresseur"
+
+	para "que moi, en"
+	line "compétence et en"
+	cont "gentillesse."
+
+	para "En accord avec les"
+	line "règles de la"
+
+	para "LIGUE, je te"
+	line "confie ce BADGE."
+else
 	text "…You are a better"
 	line "trainer than me,"
 
@@ -250,11 +264,19 @@ Jasmine_BetterTrainer: ; AUTOTRAD
 
 	para "confer upon you"
 	line "this BADGE."
+endc
+
 	done
 
-Text_ReceivedMineralBadge: ; AUTOTRAD
+Text_ReceivedMineralBadge: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGEMINERAL."
+else
 	text "<PLAYER> received"
 	line "MINERALBADGE."
+endc
+
 	done
 
 Jasmine_BadgeSpeech: ; TO TRANSLATE
@@ -267,28 +289,64 @@ Text_ReceivedTM09: ; unreferenced
 	line "TM09."
 	done
 
-Jasmine_IronTailSpeech: ; AUTOTRAD
+Jasmine_IronTailSpeech: 
+if DEF(_FR_FR)
+	text "Tu peux utiliser"
+	line "cette CT pour"
+	cont "apprendre QUEUE DE"
+	cont "FER à un #MON."
+else
 	text "…You could use"
 	line "that TM to teach"
 	cont "IRON TAIL."
+endc
+
 	done
 
-Jasmine_GoodLuck: ; AUTOTRAD
+Jasmine_GoodLuck: 
+if DEF(_FR_FR)
+	text "Hum... Je ne sais"
+	line "comment dire..."
+	cont "Mais bonne chance!"
+else
 	text "Um… I don't know"
 	line "how to say this,"
 	cont "but good luck…"
+endc
+
 	done
 
-OlivineGymGuideText: ; AUTOTRAD
+OlivineGymGuideText: 
+if DEF(_FR_FR)
+	text "JASMINE utilise le"
+	line "tout nouveau type"
+	cont "ACIER."
+
+	para "Je ne sais pas"
+	line "grand chose là-"
+	cont "dessus."
+else
 	text "JASMINE uses the"
 	line "newly discovered"
 	cont "steel-type."
 
 	para "I don't know very"
 	line "much about it."
+endc
+
 	done
 
-OlivineGymGuideWinText: ; AUTOTRAD
+OlivineGymGuideWinText: 
+if DEF(_FR_FR)
+	text "C'est très étrange"
+
+	para "le type ACIER,"
+	line "hein?"
+
+	para "C'est la rencon-"
+	line "tre d'un nouveau"
+	cont "genre!"
+else
 	text "That was awesome."
 
 	para "The steel-type,"
@@ -297,9 +355,25 @@ OlivineGymGuideWinText: ; AUTOTRAD
 	para "That was a close"
 	line "encounter of an"
 	cont "unknown kind!"
+endc
+
 	done
 
-OlivineGymGuidePreText: ; AUTOTRAD
+OlivineGymGuidePreText: 
+if DEF(_FR_FR)
+	text "JASMINE, la"
+	line "CHAMPIONNE d'ARENE"
+	cont "est au PHARE."
+
+	para "Elle s'occupe du"
+	line "#MON malade."
+
+	para "Un dresseur"
+	line "puissant doit"
+	cont "avoir un coeur"
+	cont "charitable et être"
+	cont "bienveillant."
+else
 	text "JASMINE, the GYM"
 	line "LEADER, is at the"
 	cont "LIGHTHOUSE."
@@ -310,6 +384,8 @@ OlivineGymGuidePreText: ; AUTOTRAD
 	para "A strong trainer"
 	line "has to be compas-"
 	cont "sionate."
+endc
+
 	done
 
 OlivineGym_MapEvents:

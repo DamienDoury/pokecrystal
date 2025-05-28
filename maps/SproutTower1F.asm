@@ -62,64 +62,136 @@ SproutTower1FParlyzHeal:
 SproutTower1FStatue:
 	jumptext SproutTower1FStatueText
 
-SageChowSeenText: ; AUTOTRAD
+SageChowSeenText: 
+if DEF(_FR_FR)
+	text "Nous montons la"
+	line "garde dans cette"
+	cont "tour."
+
+	para "Nous y exprimons"
+	line "notre gratitude"
+	cont "envers tous les"
+	cont "#MON."
+else
 	text "We stand guard in"
 	line "this tower."
 
 	para "Here, we express"
 	line "our gratitude to"
 	cont "honor all #MON."
+endc
+
 	done
 
-SageChowBeatenText: ; AUTOTRAD
+SageChowBeatenText: 
+if DEF(_FR_FR)
+	text "M--Merci!"
+else
 	text "Th-Thank you!"
+endc
+
 	done
 
-SageChowAfterBattleText: ; AUTOTRAD
+SageChowAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tous les êtres"
+	line "vivent grâce à une"
+	cont "entente."
+
+	para "Coopération, sym-"
+	line "biose: la vie."
+else
 	text "All living beings"
 	line "coexist through"
 	cont "cooperation."
 
 	para "We must always be"
 	line "thankful for this."
+endc
+
 	done
 
-SproutTower1FSage1Text: ; AUTOTRAD
+SproutTower1FSage1Text: 
+if DEF(_FR_FR)
+	text "Celui ou celle ar-"
+	line "rivant au sommet"
+	cont "recevra une CS."
+else
 	text "Only if you reach"
 	line "the top will you"
 	cont "obtain an HM."
+endc
+
 	done
 
-SproutTower1FSage2Text: ; AUTOTRAD
+SproutTower1FSage2Text: 
+if DEF(_FR_FR)
+	text "La TOUR CHETIFLOR"
+	line "a été construite"
+
+	para "il y a longtemps"
+	line "pour entraîner les"
+	cont "#MON."
+else
 	text "SPROUT TOWER was"
 	line "built long ago"
 
 	para "as a place for"
 	line "#MON training."
+endc
+
 	done
 
-SproutTower1FGrannyText: ; AUTOTRAD
+SproutTower1FGrannyText: 
+if DEF(_FR_FR)
+	text "Un CHETIFLOR haut"
+	line "de 30 mètres..."
+
+	para "On raconte que"
+	line "c'est en fait le"
+	cont "pilier central."
+else
 	text "A BELLSPROUT over"
 	line "100 feet tall…"
 
 	para "People say that it"
 	line "became the center"
 	cont "pillar here."
+endc
+
 	done
 
-SproutTower1FTeacherText: ; AUTOTRAD
+SproutTower1FTeacherText: 
+if DEF(_FR_FR)
+	text "Vois-tu le pilier"
+	line "trembler?"
+
+	para "On s'entraîne sec"
+	line "au-dessus."
+else
 	text "See the pillar"
 	line "shaking?"
 
 	para "People are train-"
 	line "ing upstairs."
+endc
+
 	done
 
-SproutTower1FStatueText: ; AUTOTRAD
+SproutTower1FStatueText: 
+if DEF(_FR_FR)
+	text "Une statue de"
+	line "#MON..."
+
+	para "Ca a l'air cher"
+	line "et raffiné."
+else
 	text "A #MON statue…"
 
 	para "It looks very"
 	line "distinguished."
+endc
+
 	done
 
 SproutTower1F_MapEvents:

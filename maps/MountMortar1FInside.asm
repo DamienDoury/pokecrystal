@@ -64,17 +64,45 @@ MountMortar1FInsideUltraBall:
 MountMortar1FInsideHiddenMaxRepel:
 	hiddenitem MAX_REPEL, EVENT_MOUNT_MORTAR_1F_INSIDE_HIDDEN_MAX_REPEL
 
-PokemaniacMillerSeenText: ; AUTOTRAD
+PokemaniacMillerSeenText: 
+if DEF(_FR_FR)
+	text "Pas question de"
+	line "perdre cette fois!"
+else
 	text "I'm not losing"
 	line "this time!"
+endc
+
 	done
 
-PokemaniacMillerBeatenText: ; AUTOTRAD
+PokemaniacMillerBeatenText: 
+if DEF(_FR_FR)
+	text "Perdu...?"
+else
 	text "I lost to some"
 	line "kid…?"
+endc
+
 	done
 
-PokemaniacMillerAfterBattleText: ; AUTOTRAD
+PokemaniacMillerAfterBattleText: 
+if DEF(_FR_FR)
+	text "L'autre jour,"
+	line "un type du genre"
+
+	para "karaté kid voulait"
+	line "se battre..."
+	cont "Il était fort."
+
+	para "Y nous a tout"
+	line "cassé la tête."
+
+	para "Il a continué son"
+	line "chemin en disant"
+
+	para "qu'il s'entraî-"
+	line "nait."
+else
 	text "A while back, this"
 	line "karate dude wanted"
 
@@ -89,18 +117,46 @@ PokemaniacMillerAfterBattleText: ; AUTOTRAD
 
 	para "his training. I"
 	line "wonder how he is?"
+endc
+
 	done
 
-SupernerdMarkusSeenText: ; AUTOTRAD
+SupernerdMarkusSeenText: 
+if DEF(_FR_FR)
+	text "Hé! HUGH!"
+else
 	text "Hey! HUGH!"
+endc
+
 	done
 
-SupernerdMarkusBeatenText: ; AUTOTRAD
+SupernerdMarkusBeatenText: 
+if DEF(_FR_FR)
+	text "Je pensais que"
+	line "c'était quelqu'un"
+	cont "d'autre..."
+else
 	text "I mistook you for"
 	line "someone else…"
+endc
+
 	done
 
-SupernerdMarkusAfterBattleText: ; AUTOTRAD
+SupernerdMarkusAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je suis venu ex-"
+	line "plorer le MONT"
+
+	para "CREUSET mais mon"
+	line "partenaire a dis-"
+	cont "paru..."
+
+	para "As-tu vu un dres-"
+	line "seur avec un"
+
+	para "HYPOCEAN qui lance"
+	line "CASCADE?"
+else
 	text "I came to explore"
 	line "MT.MORTAR, but I"
 
@@ -112,6 +168,8 @@ SupernerdMarkusAfterBattleText: ; AUTOTRAD
 
 	para "SEADRA that knows"
 	line "WATERFALL?"
+endc
+
 	done
 
 MountMortar1FInside_MapEvents:

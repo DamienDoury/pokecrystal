@@ -73,7 +73,17 @@ GoldenrodDeptStoreB1FBurnHeal:
 GoldenrodDeptStoreB1FUltraBall:
 	itemball ULTRA_BALL
 
-GoldenrodDeptStoreB1FBlackBelt1Text: ; AUTOTRAD
+GoldenrodDeptStoreB1FBlackBelt1Text: 
+if DEF(_FR_FR)
+	text "Hé! Tu nous"
+	line "retardes!"
+
+	para "On doit travailler"
+	line "en cachette là où"
+
+	para "personne ne peut"
+	line "nous voir!"
+else
 	text "Hey, kid! You're"
 	line "holding us up!"
 
@@ -82,18 +92,39 @@ GoldenrodDeptStoreB1FBlackBelt1Text: ; AUTOTRAD
 
 	para "scenes where no"
 	line "one can see us!"
+endc
+
 	done
 
-GoldenrodDeptStoreB1FBlackBelt2Text: ; AUTOTRAD
+GoldenrodDeptStoreB1FBlackBelt2Text: 
+if DEF(_FR_FR)
+	text "Moi j'aime plus"
+	line "travailler si on"
+	cont "me regarde."
+
+	para "Allez..."
+	line "Dégage!"
+else
 	text "I lose my passion"
 	line "for work if some-"
 	cont "one's watching."
 
 	para "Come on, kid,"
 	line "scoot!"
+endc
+
 	done
 
-GoldenrodDeptStoreB1FBlackBelt3Text: ; AUTOTRAD
+GoldenrodDeptStoreB1FBlackBelt3Text: 
+if DEF(_FR_FR)
+	text "Han! Han!"
+
+	para "On va jeter les"
+	line "trucs sur le sol."
+
+	para "Tu peux les avoir"
+	line "si tu veux!"
+else
 	text "Oohah! Oohah!"
 
 	para "The stuff on the"
@@ -101,10 +132,17 @@ GoldenrodDeptStoreB1FBlackBelt3Text: ; AUTOTRAD
 
 	para "Take it if you"
 	line "want it!"
+endc
+
 	done
 
-GoldenrodDeptStoreB1FMachokeText: ; AUTOTRAD
+GoldenrodDeptStoreB1FMachokeText: 
+if DEF(_FR_FR)
+	text "MACHOPEUR: Maacho!"
+else
 	text "MACHOKE: Maaacho!"
+endc
+
 	done
 
 GoldenrodDeptStoreB1F_MapEvents:

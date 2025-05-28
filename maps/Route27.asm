@@ -492,17 +492,38 @@ Route27_FakeIDText: ; TO TRANSLATE
 	line "Now get lost."
 	done
 
-CooltrainermBlakeSeenText: ; AUTOTRAD
+CooltrainermBlakeSeenText: 
+if DEF(_FR_FR)
+	text "Tu as l'air"
+	line "fort."
+	cont "COMBAAAT!"
+else
 	text "You look pretty"
 	line "strong."
 	cont "Let me battle you!"
+endc
+
 	done
 
-CooltrainermBlakeBeatenText: ; AUTOTRAD
+CooltrainermBlakeBeatenText: 
+if DEF(_FR_FR)
+	text "Huf!"
+else
 	text "Yow!"
+endc
+
 	done
 
-CooltrainermBlakeAfterBattleText: ; AUTOTRAD
+CooltrainermBlakeAfterBattleText: 
+if DEF(_FR_FR)
+	text "Enfant du soleil,"
+	line "tu parcours la"
+	cont "terre, le ciel..."
+
+	para "Cherche ton che-"
+	line "min, c'est ta vie,"
+	cont "c'est ton destin."
+else
 	text "If you prevail on"
 	line "this harsh trek,"
 
@@ -512,58 +533,131 @@ CooltrainermBlakeAfterBattleText: ; AUTOTRAD
 	para "Heh, sorry, I just"
 	line "wanted to say"
 	cont "something cool."
+endc
+
 	done
 
-CooltrainermBrianSeenText: ; AUTOTRAD
+CooltrainermBrianSeenText: 
+if DEF(_FR_FR)
+	text "Hm? Bonjour?"
+	line "Alors combat?"
+else
 	text "Hm? You're good,"
 	line "aren't you?"
+endc
+
 	done
 
-CooltrainermBrianBeatenText: ; AUTOTRAD
+CooltrainermBrianBeatenText: 
+if DEF(_FR_FR)
+	text "Merci bien!"
+else
 	text "Just as I thought!"
+endc
+
 	done
 
-CooltrainermBrianAfterBattleText: ; AUTOTRAD
+CooltrainermBrianAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les meilleurs sa-"
+	line "vent se reconnaî-"
+	cont "tre."
+else
 	text "A good trainer can"
 	line "recognize other"
 	cont "good trainers."
+endc
+
 	done
 
-CooltrainerfReenaSeenText: ; AUTOTRAD
+CooltrainerfReenaSeenText: 
+if DEF(_FR_FR)
+	text "Tu devrais faire"
+	line "attention aux"
+
+	para "#MON sauvages"
+	line "du coin."
+else
 	text "You shouldn't"
 	line "underestimate the"
 
 	para "wild #MON in"
 	line "these parts."
+endc
+
 	done
 
-CooltrainerfReenaBeatenText: ; AUTOTRAD
+CooltrainerfReenaBeatenText: 
+if DEF(_FR_FR)
+	text "Oh!"
+	line "Pas glop!"
+else
 	text "Oh! You're much"
 	line "too strong!"
+endc
+
 	done
 
-CooltrainerfReenaAfterBattleText: ; AUTOTRAD
+CooltrainerfReenaAfterBattleText: 
+if DEF(_FR_FR)
+	text "T'es jeune,"
+	line "mais..."
+
+	para "T'es balèze!"
+	line "Oh que oui!"
+else
 	text "You're just a kid,"
 	line "but you're not to"
 
 	para "be underestimated"
 	line "either."
+endc
+
 	done
 
-CooltrainerfMeganSeenText: ; AUTOTRAD
+CooltrainerfMeganSeenText: 
+if DEF(_FR_FR)
+	text "C'est rare de voir"
+	line "quelqu'un ici."
+
+	para "Tu t'entraînes"
+	line "en solitaire?"
+else
 	text "It's rare to see"
 	line "anyone come here."
 
 	para "Are you training"
 	line "on your own?"
+endc
+
 	done
 
-CooltrainerfMeganBeatenText: ; AUTOTRAD
+CooltrainerfMeganBeatenText: 
+if DEF(_FR_FR)
+	text "Ben ça alors!"
+else
 	text "Oh! You're really"
 	line "strong!"
+endc
+
 	done
 
-CooltrainerfMeganAfterBattleText: ; AUTOTRAD
+CooltrainerfMeganAfterBattleText: 
+if DEF(_FR_FR)
+	text "Moi j'étudie les"
+	line "formes antérieures"
+	cont "et postérieures"
+	cont "aux évolutions des"
+	cont "#MON."
+
+	para "Un #MON évolué"
+	line "est toujours plus"
+	cont "fort."
+
+	para "Mais il apprend"
+	line "des capacités plus"
+	cont "tardivement."
+else
 	text "I'm checking out"
 	line "pre- and post-"
 	cont "evolution #MON."
@@ -575,9 +669,23 @@ CooltrainerfMeganAfterBattleText: ; AUTOTRAD
 	para "But evolved forms"
 	line "also learn moves"
 	cont "later on."
+endc
+
 	done
 
-PsychicGilbertSeenText: ; AUTOTRAD
+PsychicGilbertSeenText: 
+if DEF(_FR_FR)
+	text "Ne dis rien!"
+
+	para "Je vais lire dans"
+	line "tes pensées..."
+
+	para "Mmmmmmm..."
+
+	para "Je sais! Tu veux"
+	line "te mesurer à la"
+	cont "LIGUE #MON!"
+else
 	text "Don't say a thing!"
 
 	para "Let me guess what"
@@ -588,43 +696,89 @@ PsychicGilbertSeenText: ; AUTOTRAD
 	para "I got it! You're"
 	line "on the #MON"
 	cont "LEAGUE challenge!"
+endc
+
 	done
 
-PsychicGilbertBeatenText: ; AUTOTRAD
+PsychicGilbertBeatenText: 
+if DEF(_FR_FR)
+	text "Je le savais!"
+else
 	text "You're too much!"
+endc
+
 	done
 
-PsychicGilbertAfterBattleText: ; AUTOTRAD
+PsychicGilbertAfterBattleText: 
+if DEF(_FR_FR)
+	text "Tu vas cartonner"
+	line "à la LIGUE..."
+	cont "C'est sûr!"
+
+	para "Je le sais."
+	line "Je le sens."
+else
 	text "With your skills,"
 	line "you'll do well at"
 	cont "the LEAGUE."
 
 	para "That's what my"
 	line "premonition says."
+endc
+
 	done
 
-BirdKeeperJose2SeenText: ; AUTOTRAD
+BirdKeeperJose2SeenText: 
+if DEF(_FR_FR)
+	text "Piou! Piou!"
+	line "Piouuu!"
+else
 	text "Tweet! Tweet!"
 	line "Tetweet!"
+endc
+
 	done
 
-BirdKeeperJose2BeatenText: ; AUTOTRAD
+BirdKeeperJose2BeatenText: 
+if DEF(_FR_FR)
+	text "Piou!"
+else
 	text "Tweet!"
+endc
+
 	done
 
-BirdKeeperJose2AfterBattleText: ; AUTOTRAD
+BirdKeeperJose2AfterBattleText: 
+if DEF(_FR_FR)
+	text "Les ORNITHOLOGUES"
+	line "aiment siffler"
+
+	para "comme les oiseaux"
+	line "pour parler aux"
+	cont "#MON."
+else
 	text "BIRD KEEPERS like"
 	line "me mimic bird"
 
 	para "whistles to com-"
 	line "mand #MON."
+endc
+
 	done
 
-TohjoFallsSignText: ; AUTOTRAD
+TohjoFallsSignText: 
+if DEF(_FR_FR)
+	text "CHUTES TOHJO"
+
+	para "Le lien entre"
+	line "KANTO et JOHTO"
+else
 	text "TOHJO FALLS"
 
 	para "THE LINK BETWEEN"
 	line "KANTO AND JOHTO"
+endc
+
 	done
 
 Route27_MapEvents:

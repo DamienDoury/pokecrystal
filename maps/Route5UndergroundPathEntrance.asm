@@ -9,12 +9,21 @@ Route5UndergroundPathEntrance_MapScripts:
 Route5UndergroundPathEntranceTeacherScript:
 	jumptextfaceplayer Route5UndergroundPathEntranceTeacherText
 
-Route5UndergroundPathEntranceTeacherText: ; AUTOTRAD
+Route5UndergroundPathEntranceTeacherText: 
+if DEF(_FR_FR)
+	text "Les villes de JOH-"
+	line "TO sont des tré-"
+
+	para "sors historiques."
+	line "Je veux les voir!"
+else
 	text "Many cities in"
 	line "JOHTO have long"
 
 	para "histories. I'd"
 	line "love to visit!"
+endc
+
 	done
 
 Route5UndergroundPathEntrance_MapEvents:

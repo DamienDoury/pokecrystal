@@ -148,20 +148,39 @@ Route2WarningTextEnd: ; TO TRANSLATE
 	cont "those woods."
 	done
 
-BugCatcherRobSeenText: ; AUTOTRAD
+BugCatcherRobSeenText: 
+if DEF(_FR_FR)
+	text "Mes #MON in-"
+	line "secte sont forts."
+	cont "Tu vas perdre!"
+else
 	text "My bug #MON are"
 	line "tough. Prepare to"
 	cont "lose!"
+endc
+
 	done
 
-BugCatcherRobBeatenText: ; AUTOTRAD
+BugCatcherRobBeatenText: 
+if DEF(_FR_FR)
+	text "Tout perdu!"
+else
 	text "I was whipped…"
+endc
+
 	done
 
-BugCatcherRobAfterBattleText: ; AUTOTRAD
+BugCatcherRobAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais chercher"
+	line "des #MON insec-"
+	cont "te plus forts."
+else
 	text "I'm going to look"
 	line "for stronger bug"
 	cont "#MON."
+endc
+
 	done
 
 BugCatcherEdSeenText: ; TO TRANSLATE
@@ -171,8 +190,13 @@ BugCatcherEdSeenText: ; TO TRANSLATE
 	line "VIRIDIAN FOREST!"
 	done
 
-BugCatcherEdBeatenText: ; AUTOTRAD
+BugCatcherEdBeatenText: 
+if DEF(_FR_FR)
+	text "Aïeuuu!"
+else
 	text "Ouch, ouch, ouch!"
+endc
+
 	done
 
 BugCatcherEdAfterBattleText: ; TO TRANSLATE
@@ -194,8 +218,13 @@ BugCatcherDougSeenText: ; TO TRANSLATE
 	cont "to go."
 	done
 
-BugCatcherDougBeatenText: ; AUTOTRAD
+BugCatcherDougBeatenText: 
+if DEF(_FR_FR)
+	text "Naaaaan!"
+else
 	text "No good!"
+endc
+
 	done
 
 BugCatcherDougAfterBattleText: ; TO TRANSLATE
@@ -218,15 +247,28 @@ BugCatcherDougAfterBattleText: ; TO TRANSLATE
 	line "natural speed."
 	done
 
-Route2SignText: ; AUTOTRAD
+Route2SignText: 
+if DEF(_FR_FR)
+	text "ROUTE 2"
+
+	para "JADIELLE -"
+	line "ARGENTA"
+else
 	text "ROUTE 2"
 
 	para "VIRIDIAN CITY -"
 	line "PEWTER CITY"
+endc
+
 	done
 
-Route2DiglettsCaveSignText: ; AUTOTRAD
+Route2DiglettsCaveSignText: 
+if DEF(_FR_FR)
+	text "CAVE TAUPIQUEUR"
+else
 	text "DIGLETT'S CAVE"
+endc
+
 	done
 
 Route2_MapEvents:

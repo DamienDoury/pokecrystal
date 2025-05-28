@@ -26,7 +26,19 @@ Route30BerryHousePokefanMScript:
 Route30BerryHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-Route30BerrySpeechHouseMonEatBerriesText: ; AUTOTRAD
+Route30BerrySpeechHouseMonEatBerriesText: 
+if DEF(_FR_FR)
+	text "Tu sais, les #-"
+	line "MON mangent des"
+	cont "BAIES."
+
+	para "Eh ben mes #MON"
+	line "se sont soignés en"
+	cont "mangeant une BAIE."
+
+	para "Tiens! Je t'en"
+	line "donne une!"
+else
 	text "You know, #MON"
 	line "eat BERRIES."
 
@@ -36,12 +48,21 @@ Route30BerrySpeechHouseMonEatBerriesText: ; AUTOTRAD
 
 	para "Here. I'll share"
 	line "one with you!"
+endc
+
 	done
 
-Route30BerrySpeechHouseCheckTreesText: ; AUTOTRAD
+Route30BerrySpeechHouseCheckTreesText: 
+if DEF(_FR_FR)
+	text "Regarde dans les"
+	line "arbres pour des"
+	cont "BAIES."
+else
 	text "Check trees for"
 	line "BERRIES. They just"
 	cont "drop right off."
+endc
+
 	done
 
 Route30BerryHouse_MapEvents:

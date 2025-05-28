@@ -50,7 +50,14 @@ CeladonDeptStore2FPokefanMText: ; TO TRANSLATE
 	cont "childhood dream!"
 	done
 
-CeladonDeptStore2FYoungsterText: ; AUTOTRAD
+CeladonDeptStore2FYoungsterText: 
+if DEF(_FR_FR)
+	text "Mon père a du mal"
+	line "à retenir tous les"
+
+	para "objets et leurs"
+	line "fonctions..."
+else
 	text "My dad's having a"
 	line "hard time learning"
 
@@ -59,14 +66,26 @@ CeladonDeptStore2FYoungsterText: ; AUTOTRAD
 
 	para "supposed to be"
 	line "used…"
+endc
+
 	done
 
-CeladonDeptStore2FDirectoryText: ; AUTOTRAD
+CeladonDeptStore2FDirectoryText: 
+if DEF(_FR_FR)
+	text "De bons objets"
+	line "pour de bons dres-"
+	cont "seurs!"
+
+	para "1ER:  MARCHE DU"
+	line "      DRESSEUR"
+else
 	text "Top Grade Items"
 	line "for Trainers!"
 
 	para "2F: TRAINER'S"
 	line "    MARKET"
+endc
+
 	done
 
 CeladonDeptStore2F_MapEvents:

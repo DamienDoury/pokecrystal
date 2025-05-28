@@ -169,7 +169,30 @@ SoulHouseSurgeMovement:
 	slow_step DOWN
 	step_end
 
-MrFujiText: ; AUTOTRAD
+MrFujiText: 
+if DEF(_FR_FR)
+	text "M.FUJI:"
+	line "Bienvenue à toi."
+
+	para "Hmm... Tu as l'air"
+	line "d'être un dresseur"
+
+	para "de #MON doux"
+	line "et attentionné."
+
+	para "Ceux qui aiment"
+	line "les #MON vien-"
+
+	para "nent ici saluer"
+	line "leur âme."
+
+	para "Tu peux présenter"
+	line "ici tes condoléan-"
+	cont "ces."
+
+	para "Cela leur fera"
+	line "plaisir."
+else
 	text "MR.FUJI: Welcome."
 
 	para "Hmm… You appear to"
@@ -192,9 +215,20 @@ MrFujiText: ; AUTOTRAD
 
 	para "I'm sure that will"
 	line "make them happy."
+endc
+
 	done
 
-SoulHouseTeacherText: ; AUTOTRAD
+SoulHouseTeacherText: 
+if DEF(_FR_FR)
+	text "Il y a d'autres"
+	line "tombes de #MON"
+	cont "ici, je crois."
+
+	para "Beaucoup de pièces"
+	line "ne sont réservées"
+	cont "qu'à M.FUJI."
+else
 	text "There are other"
 	line "graves of #MON"
 	cont "here, I think."
@@ -202,20 +236,40 @@ SoulHouseTeacherText: ; AUTOTRAD
 	para "There are many"
 	line "chambers that only"
 	cont "MR.FUJI may enter."
+endc
+
 	done
 
-SoulHouseLassText: ; AUTOTRAD
+SoulHouseLassText: 
+if DEF(_FR_FR)
+	text "J'suis venue avec"
+	line "ma môman pour voir"
+	cont "les tombes de"
+	cont "#MON..."
+else
 	text "I came with my mom"
 	line "to visit #MON"
 	cont "graves…"
+endc
+
 	done
 
-SoulHouseGrannyText: ; AUTOTRAD
+SoulHouseGrannyText: 
+if DEF(_FR_FR)
+	text "Les #MON que"
+	line "j'ai perdus..."
+
+	para "Je les aimais com-"
+	line "me mes petits-"
+	cont "enfants..."
+else
 	text "The #MON that"
 	line "lived with me…"
 
 	para "I loved them like"
 	line "my grandchildren…"
+endc
+
 	done
 
 AmphyText: ; TO TRANSLATE

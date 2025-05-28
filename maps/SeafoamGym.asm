@@ -182,20 +182,49 @@ BlaineRefusesBattleText: ; TO TRANSLATE
 	line "new riddle!"
 	done
 
-BlaineWinLossText: ; AUTOTRAD
+BlaineWinLossText: 
+if DEF(_FR_FR)
+	text "AUGUSTE: Bien."
+	line "J'ai perdu."
+
+	para "Tu as mérité le"
+	line "BADGE VOLCAN!"
+else
 	text "BLAINE: Awesome."
 	line "I've burned out…"
 
 	para "You've earned"
 	line "VOLCANOBADGE!"
+endc
+
 	done
 
-ReceivedVolcanoBadgeText: ; AUTOTRAD
+ReceivedVolcanoBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE VOLCAN."
+else
 	text "<PLAYER> received"
 	line "VOLCANOBADGE."
+endc
+
 	done
 
-BlaineAfterBattleText: ; AUTOTRAD
+BlaineAfterBattleText: 
+if DEF(_FR_FR)
+	text "AUGUSTE: Je perds"
+	line "cette fois mais la"
+
+	para "prochaine, je"
+	line "serai vainqueur."
+
+	para "Je vais recons-"
+	line "truire mon ARENE à"
+
+	para "CRAMOIS'ILE et"
+	line "nous combattrons à"
+	cont "nouveau."
+else
 	text "BLAINE: I did lose"
 	line "this time, but I'm"
 
@@ -207,14 +236,25 @@ BlaineAfterBattleText: ; AUTOTRAD
 
 	para "we'll have to have"
 	line "a rematch."
+endc
+
 	done
 
-BlaineFightDoneText: ; AUTOTRAD
+BlaineFightDoneText: 
+if DEF(_FR_FR)
+	text "AUGUSTE: Mes"
+	line "#MON de feu"
+
+	para "seront invincibles"
+	line "tu verras!"
+else
 	text "BLAINE: My fire"
 	line "#MON will be"
 
 	para "even stronger."
 	line "Just you watch!"
+endc
+
 	done
 
 SeafoamGymGuideWinText: ; TO TRANSLATE
@@ -244,7 +284,17 @@ SeafoamGymGuideWinText: ; TO TRANSLATE
 	line "miss something!"
 	done
 
-SeafoamGymGuideWinText2: ; AUTOTRAD
+SeafoamGymGuideWinText2: 
+if DEF(_FR_FR)
+	text "Une ARENE #MON"
+	line "peut être n'impor-"
+
+	para "te où tant que le"
+	line "CHAMPION est là."
+
+	para "Pas besoin d'un"
+	line "toit."
+else
 	text "A #MON GYM can"
 	line "be anywhere as"
 
@@ -253,6 +303,8 @@ SeafoamGymGuideWinText2: ; AUTOTRAD
 
 	para "There's no need"
 	line "for a building."
+endc
+
 	done
 
 SeafoamGym_MapEvents:

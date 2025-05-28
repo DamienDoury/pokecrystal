@@ -31,7 +31,28 @@ DarkCaveBlackthornEntranceRevive:
 DarkCaveBlackthornEntranceTMSnore:
 	itemball TM_SNORE
 
-DarkCaveBlackthornEntrancePharmacistText1: ; AUTOTRAD
+DarkCaveBlackthornEntrancePharmacistText1: 
+if DEF(_FR_FR)
+	text "Whoa! Tu m'as"
+	line "fait peur!"
+
+	para "J'avais mes"
+	line "LUNETTES NOIRES..."
+
+	para "J'ai rien vu"
+	line "venir."
+
+	para "Ce que je fais"
+	line "ici?"
+
+	para "C'est pas trop tes"
+	line "oignons, non?"
+
+	para "Voilà une paire de"
+	line "LUNETTES NOIRES."
+	cont "Oublie que tu m'as"
+	cont "vu, OK?"
+else
 	text "Whoa! You startled"
 	line "me there!"
 
@@ -51,12 +72,23 @@ DarkCaveBlackthornEntrancePharmacistText1: ; AUTOTRAD
 	line "pair of BLACK-"
 	cont "GLASSES, so forget"
 	cont "you saw me, OK?"
+endc
+
 	done
 
-DarkCaveBlackthornEntrancePharmacistText2: ; AUTOTRAD
+DarkCaveBlackthornEntrancePharmacistText2: 
+if DEF(_FR_FR)
+	text "Les LUNET.NOIRES"
+	line "augmentent la"
+	cont "puissance des"
+	cont "attaques du type"
+	cont "TENEBRES."
+else
 	text "BLACKGLASSES ups"
 	line "the power of dark-"
 	cont "type moves."
+endc
+
 	done
 
 DarkCaveBlackthornEntrance_MapEvents:

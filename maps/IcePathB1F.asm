@@ -68,9 +68,15 @@ IcePathB1FIron:
 IcePathB1FHiddenMaxPotion:
 	hiddenitem MAX_POTION, EVENT_ICE_PATH_B1F_HIDDEN_MAX_POTION
 
-IcePathBoulderFellThroughText: ; AUTOTRAD
+IcePathBoulderFellThroughText: 
+if DEF(_FR_FR)
+	text "Le rocher a"
+	line "traversé."
+else
 	text "The boulder fell"
 	line "through."
+endc
+
 	done
 
 IcePathB1F_MapEvents:

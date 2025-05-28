@@ -153,7 +153,15 @@ BillsMomText_BeforeEcruteak: ; TO TRANSLATE
 	line "CITY."
 	done
 
-BillsMomText_AfterEcruteak: ; AUTOTRAD
+BillsMomText_AfterEcruteak: 
+if DEF(_FR_FR)
+	text "Mon tendre époux"
+	line "était jadis un"
+
+	para "#MANIAC."
+	line "LEO doit tenir"
+	cont "de lui."
+else
 	text "My husband was"
 	line "once known as a"
 
@@ -162,22 +170,50 @@ BillsMomText_AfterEcruteak: ; AUTOTRAD
 
 	para "taken after his"
 	line "father."
+endc
+
 	done
 
-BillsSisterUsefulNumberText: ; AUTOTRAD
+BillsSisterUsefulNumberText: 
+if DEF(_FR_FR)
+	text "Es-tu dresseur?"
+
+	para "J'ai un numéro de"
+	line "téléphone utile"
+	cont "pour toi."
+else
 	text "Are you a trainer?"
 
 	para "I've got a useful"
 	line "phone number for"
 	cont "you."
+endc
+
 	done
 
-RecordedBillsNumberText: ; AUTOTRAD
+RecordedBillsNumberText: 
+if DEF(_FR_FR)
+	text "<PLAYER> enregistre"
+	line "le numéro de télé-"
+	cont "phone de LEO."
+else
 	text "<PLAYER> recorded"
 	line "BILL's number."
+endc
+
 	done
 
-BillsSisterRefusedNumberText: ; AUTOTRAD
+BillsSisterRefusedNumberText: 
+if DEF(_FR_FR)
+	text "Mon frère a créé"
+	line "un système de"
+	cont "stockage pour les"
+	cont "#MON par PC."
+
+	para "J'allais te donner"
+	line "le numéro de télé-"
+	cont "phone de LEO..."
+else
 	text "My brother made"
 	line "the PC #MON"
 	cont "storage system."
@@ -185,19 +221,38 @@ BillsSisterRefusedNumberText: ; AUTOTRAD
 	para "I was going to"
 	line "give you BILL's"
 	cont "number…"
+endc
+
 	done
 
-BillsSisterPhoneFullText: ; AUTOTRAD
+BillsSisterPhoneFullText: 
+if DEF(_FR_FR)
+	text "Mais tu ne peux"
+	line "plus enregistrer"
+	cont "de numéros!"
+else
 	text "You can't record"
 	line "any more numbers."
+endc
+
 	done
 
-BillsSisterStorageSystemText: ; AUTOTRAD
+BillsSisterStorageSystemText: 
+if DEF(_FR_FR)
+	text "Mon grand frère"
+	line "LEO a fait un"
+
+	para "super système de"
+	line "stockage de #-"
+	cont "MON par PC."
+else
 	text "My big brother"
 	line "BILL made the PC"
 
 	para "#MON storage"
 	line "system."
+endc
+
 	done
 
 BillsComputerText: ; TO TRANSLATE

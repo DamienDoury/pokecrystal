@@ -88,7 +88,18 @@ OaksLabTrashcan:
 OaksLabPC:
 	jumptext OaksLabPCText
 
-OakWelcomeKantoText: ; AUTOTRAD
+OakWelcomeKantoText: 
+if DEF(_FR_FR)
+	text "CHEN: Ah, <PLAY_G>!"
+	line "Merci d'avoir vo-"
+
+	para "yagé jusqu'à"
+	line "KANTO."
+
+	para "Que penses-tu des"
+	line "dresseurs du coin?"
+	cont "Plutôt forts, non?"
+else
 	text "OAK: Ah, <PLAY_G>!"
 	line "It's good of you"
 
@@ -100,22 +111,80 @@ OakWelcomeKantoText: ; AUTOTRAD
 
 	para "out here?"
 	line "Pretty tough, huh?"
+endc
+
 	done
 
-OakLabDexCheckText: ; AUTOTRAD
+OakLabDexCheckText: 
+if DEF(_FR_FR)
+	text "Et ton #DEX?"
+	line "Ca avance?"
+
+	para "Voyons ça..."
+else
 	text "How is your #-"
 	line "DEX coming?"
 
 	para "Let's see…"
+endc
+
 	done
 
-OakLabGoodbyeText: ; AUTOTRAD
+OakLabGoodbyeText: 
+if DEF(_FR_FR)
+	text "N'hésite pas à"
+	line "passer si tu es"
+	cont "dans la région."
+else
 	text "If you're in the"
 	line "area, I hope you"
 	cont "come visit again."
+endc
+
 	done
 
-OakOpenMtSilverText: ; AUTOTRAD
+OakOpenMtSilverText: 
+if DEF(_FR_FR)
+	text "CHEN: Woah!"
+	line "C'est génial, ça!"
+
+	para "Tu as gagné les"
+	line "BADGES de KANTO!"
+	cont "Bravo!"
+
+	para "J'ai bien fait de"
+	line "te faire confian-"
+	cont "ce."
+
+	para "Dans ce cas,"
+	line "<PLAY_G>, je vais"
+
+	para "faire en sorte que"
+	line "tu puisses aller"
+	cont "au MONT ARGENT."
+
+	para "Le MONT ARGENT est"
+	line "une montagne où"
+
+	para "vivent beaucoup de"
+	line "#MON sauvages."
+
+	para "Cet endroit est"
+	line "trop dangereux"
+
+	para "pour le dresseur"
+	line "lambda, mais nous"
+
+	para "pouvons faire une"
+	line "exception pour"
+	cont "toi, <PLAY_G>."
+
+	para "Va au PLATEAU"
+	line "INDIGO. Tu pourras"
+
+	para "accéder ensuite au"
+	line "MONT ARGENT."
+else
 	text "OAK: Wow! That's"
 	line "excellent!"
 
@@ -154,9 +223,26 @@ OakOpenMtSilverText: ; AUTOTRAD
 
 	para "reach MT.SILVER"
 	line "from there."
+endc
+
 	done
 
-OakNoKantoBadgesText: ; AUTOTRAD
+OakNoKantoBadgesText: 
+if DEF(_FR_FR)
+	text "CHEN: Hmm? Tu ne"
+	line "collectionnes pas"
+	cont "les BADGES des"
+	cont "ARENES de KANTO?"
+
+	para "Les CHAMPIONS"
+	line "d'ARENE de KANTO"
+
+	para "sont aussi forts"
+	line "que ceux de JOHTO."
+
+	para "Je te conseille de"
+	line "les affronter."
+else
 	text "OAK: Hmm? You're"
 	line "not collecting"
 	cont "KANTO GYM BADGES?"
@@ -170,9 +256,32 @@ OakNoKantoBadgesText: ; AUTOTRAD
 	para "I recommend that"
 	line "you challenge"
 	cont "them."
+endc
+
 	done
 
-OakYesKantoBadgesText: ; AUTOTRAD
+OakYesKantoBadgesText: 
+if DEF(_FR_FR)
+	text "CHEN: Tu"
+	line "collectionnes les"
+	cont "BADGES de KANTO."
+
+	para "Cela doit être"
+	line "difficile, mais tu"
+
+	para "as beaucoup"
+	line "d'expérience à"
+	cont "présent."
+
+	para "Viens me voir si"
+	line "tu les as tous."
+
+	para "J'aurai un cadeau"
+	line "pour toi."
+
+	para "Bonne chance,"
+	line "<PLAY_G>!"
+else
 	text "OAK: Ah, you're"
 	line "collecting KANTO"
 	cont "GYM BADGES."
@@ -191,6 +300,8 @@ OakYesKantoBadgesText: ; AUTOTRAD
 
 	para "Keep trying hard,"
 	line "<PLAY_G>!"
+endc
+
 	done
 
 OakLabPikachuText: ; TO TRANSLATE
@@ -220,7 +331,17 @@ OakLabPikachuText: ; TO TRANSLATE
 	line "do it for me."
 	done
 
-OaksAssistant1Text: ; AUTOTRAD
+OaksAssistant1Text: 
+if DEF(_FR_FR)
+	text "La CHRONIQUE PKMN"
+	line "du PROF à la radio"
+
+	para "ne passe pas ici,"
+	line "à KANTO."
+
+	para "C'est bête..."
+	line "Je l'aime tant."
+else
 	text "The PROF's #MON"
 	line "TALK radio program"
 
@@ -229,44 +350,109 @@ OaksAssistant1Text: ; AUTOTRAD
 
 	para "It's a shame--I'd"
 	line "like to hear it."
+endc
+
 	done
 
-OaksAssistant2Text: ; AUTOTRAD
+OaksAssistant2Text: 
+if DEF(_FR_FR)
+	text "Grâce à ton tra-"
+	line "vail sur le #-"
+	cont "DEX, les recher-"
+
+	para "ches du PROF ont"
+	line "bien progressé."
+else
 	text "Thanks to your"
 	line "work on the #-"
 	cont "DEX, the PROF's"
 
 	para "research is coming"
 	line "along great."
+endc
+
 	done
 
-OaksAssistant3Text: ; AUTOTRAD
+OaksAssistant3Text: 
+if DEF(_FR_FR)
+	text "Ne le répète pas,"
+	line "mais la CHRONIQUE"
+
+	para "#MON du PROF."
+	line "CHEN n'est pas en"
+	cont "direct."
+else
 	text "Don't tell anyone,"
 	line "but PROF.OAK'S"
 
 	para "#MON TALK isn't"
 	line "a live broadcast."
+endc
+
 	done
 
-OaksLabPoster1Text: ; AUTOTRAD
+OaksLabPoster1Text: 
+if DEF(_FR_FR)
+	text "Appuyer sur START"
+	line "pour le MENU."
+else
 	text "Press START to"
 	line "open the MENU."
+endc
+
 	done
 
-OaksLabPoster2Text: ; AUTOTRAD
+OaksLabPoster2Text: 
+if DEF(_FR_FR)
+	text "L'option SAUVER"
+	line "est sur le MENU."
+
+	para "Utilise-la assez"
+	line "souvent."
+else
 	text "The SAVE option is"
 	line "on the MENU."
 
 	para "Use it in a timely"
 	line "manner."
+endc
+
 	done
 
-OaksLabTrashcanText: ; AUTOTRAD
+OaksLabTrashcanText: 
+if DEF(_FR_FR)
+	text "Il n'y a rien ici."
+else
 	text "There's nothing in"
 	line "here…"
+endc
+
 	done
 
-OaksLabPCText: ; AUTOTRAD
+OaksLabPCText: 
+if DEF(_FR_FR)
+	text "Il y a un e-mail"
+	line "sur le PC."
+
+	para "…"
+
+	para "PROF.CHEN, comment"
+	line "ça va bien?"
+	cont "Ca bosse dur?"
+
+	para "Moi je bosse comme"
+	line "un barbare."
+
+	para "On raconte que"
+	line "<PLAY_G> est une"
+	cont "vraie terreur..."
+
+	para "Et dire que c'est"
+	line "grâce à nous."
+
+	para "ORME du BOURG GEON"
+	line "8-)"
+else
 	text "There's an e-mail"
 	line "message on the PC."
 
@@ -290,6 +476,8 @@ OaksLabPCText: ; AUTOTRAD
 
 	para "ELM in NEW BARK"
 	line "TOWN 8-)"
+endc
+
 	done
 
 OaksLab_MapEvents:

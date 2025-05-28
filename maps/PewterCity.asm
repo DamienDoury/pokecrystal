@@ -224,18 +224,34 @@ PewterCityGrampsText_GotMuseumKey: ; TO TRANSLATE
 	para "It's hard to tell…"
 	done
 
-PewterCitySignText: ; AUTOTRAD
+PewterCitySignText: 
+if DEF(_FR_FR)
+	text "ARGENTA"
+	line "Grise comme le roc"
+else
 	text "PEWTER CITY"
 	line "A Stone Gray City"
+endc
+
 	done
 
-PewterGymSignText: ; AUTOTRAD
+PewterGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "d'ARGENTA:"
+	cont "PIERRE"
+
+	para "Le dresseur dur"
+	line "comme la roche"
+else
 	text "PEWTER CITY"
 	line "#MON GYM"
 	cont "LEADER: BROCK"
 
 	para "The Rock Solid"
 	line "#MON Trainer"
+endc
+
 	done
 
 PewterMuseumSignText: ; TO TRANSLATE
@@ -273,17 +289,34 @@ PewterMuseumKeySuccessText: ; TO TRANSLATE
 	cont "chain."
 	done
 
-PewterCityMtMoonGiftShopSignText: ; AUTOTRAD
+PewterCityMtMoonGiftShopSignText: 
+if DEF(_FR_FR)
+	text "Il y a une affiche"
+	line "ici..."
+
+	para "La BOUTIQUE de"
+	line "SOUVENIRS du MONT"
+	cont "SELENITE est"
+	cont "ouverte!"
+else
 	text "There's a notice"
 	line "here…"
 
 	para "MT.MOON GIFT SHOP"
 	line "NOW OPEN!"
+endc
+
 	done
 
-PewterCityWelcomeSignText: ; AUTOTRAD
+PewterCityWelcomeSignText: 
+if DEF(_FR_FR)
+	text "Bienvenue à"
+	line "ARGENTA!"
+else
 	text "WELCOME TO"
 	line "PEWTER CITY!"
+endc
+
 	done
 
 PewterCity_MapEvents:

@@ -141,17 +141,29 @@ Route39BarnTwinMoomooIsSickText: ; TO TRANSLATE
 	line "ORAN BERRIES."
 	done
 
-Route39BarnTwinWereFeedingMoomooText: ; AUTOTRAD
+Route39BarnTwinWereFeedingMoomooText: 
+if DEF(_FR_FR)
+	text "On nourrit"
+	line "MEUMEU!"
+else
 	text "We're feeding"
 	line "MOOMOO!"
+endc
+
 	done
 
 MoomooWeakMooText: ; TO TRANSLATE
 	text "MOOMOO: …Moo…"
 	done
 
-Route39BarnItsCryIsWeakText: ; AUTOTRAD
+Route39BarnItsCryIsWeakText: 
+if DEF(_FR_FR)
+	text "Son cri est"
+	line "très faible."
+else
 	text "Its cry is weak…"
+endc
+
 	done
 
 MoomooHappyMooText: ; TO TRANSLATE

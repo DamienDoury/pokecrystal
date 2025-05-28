@@ -24,17 +24,32 @@ OlivineHouseBetaBookshelf1:
 OlivineHouseBetaBookshelf2:
 	jumpstd MagazineBookshelfScript
 
-OlivineHouseBetaTeacherText: ; AUTOTRAD
+OlivineHouseBetaTeacherText: 
+if DEF(_FR_FR)
+	text "Lorsque mes #-"
+	line "MON sont malades,"
+
+	para "le PHARMACIEN"
+	line "d'IRISIA me fait"
+	cont "des médicaments."
+else
 	text "When my #MON"
 	line "got sick, the"
 
 	para "PHARMACIST in"
 	line "ECRUTEAK made some"
 	cont "medicine for me."
+endc
+
 	done
 
-OlivineHouseBetaRhydonText: ; AUTOTRAD
+OlivineHouseBetaRhydonText: 
+if DEF(_FR_FR)
+	text "RHINOFEROS: Feros!"
+else
 	text "RHYDON: Gugooh!"
+endc
+
 	done
 
 OlivineHouseBeta_MapEvents:

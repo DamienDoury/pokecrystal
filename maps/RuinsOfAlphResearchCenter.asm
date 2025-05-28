@@ -181,7 +181,23 @@ RuinsOfAlphResearchCenterLeavesPlayerMovement:
 	turn_head UP
 	step_end
 
-RuinsOfAlphResearchCenterModifiedDexText: ; AUTOTRAD
+RuinsOfAlphResearchCenterModifiedDexText: 
+if DEF(_FR_FR)
+	text "Fini!"
+
+	para "J'ai modifié ton"
+	line "#DEX."
+
+	para "J'ai incorporé un"
+	line "autre #DEX"
+
+	para "pour enregistrer"
+	line "les données de"
+
+	para "ZARBI dans l'ordre"
+	line "où ses formes"
+	cont "seront capturées."
+else
 	text "Done!"
 
 	para "I modified your"
@@ -196,23 +212,57 @@ RuinsOfAlphResearchCenterModifiedDexText: ; AUTOTRAD
 	para "It records them in"
 	line "the sequence that"
 	cont "they were caught."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterDexUpgradedText: ; AUTOTRAD
+RuinsOfAlphResearchCenterDexUpgradedText: 
+if DEF(_FR_FR)
+	text "Le #DEX de"
+	line "<PLAYER> est"
+	cont "amélioré!"
+else
 	text "<PLAYER>'s #DEX"
 	line "was upgraded."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist3Text: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist3Text: 
+if DEF(_FR_FR)
+	text "Les ZARBI capturés"
+	line "seront tous enre-"
+	cont "gistrés."
+
+	para "Découvrez-les"
+	line "tous!"
+else
 	text "The UNOWN you"
 	line "catch will all be"
 	cont "recorded."
 
 	para "Check to see how"
 	line "many kinds exist."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist3_PrinterAvailable: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist3_PrinterAvailable: 
+if DEF(_FR_FR)
+	text "Tu as attrapé tous"
+	line "les types de"
+	cont "ZARBI?"
+
+	para "Mais c'est super,"
+	line "mon bouchon!"
+
+	para "J'ai préparé l'im-"
+	line "primante pour les"
+	cont "données de ZARBI."
+
+	para "Tu peux l'utiliser"
+	line "quand tu veux."
+else
 	text "You caught all the"
 	line "UNOWN variations?"
 
@@ -225,9 +275,21 @@ RuinsOfAlphResearchCenterScientist3_PrinterAvailable: ; AUTOTRAD
 
 	para "Feel free to use"
 	line "it anytime."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist1Text: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist1Text: 
+if DEF(_FR_FR)
+	text "Les RUINES sont"
+	line "vieilles d'environ"
+	cont "1500 ans."
+
+	para "Personne ne sait"
+	line "qui a pu les"
+	cont "construire..."
+	cont "Ni dans quel but."
+else
 	text "The RUINS are"
 	line "about 1500 years"
 	cont "old."
@@ -235,15 +297,36 @@ RuinsOfAlphResearchCenterScientist1Text: ; AUTOTRAD
 	para "But it's not known"
 	line "why they were"
 	cont "built--or by whom."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_GotUnownDex: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist1Text_GotUnownDex: 
+if DEF(_FR_FR)
+	text "Combien y a-t-il"
+	line "de #MON diffé-"
+	cont "rents dans les"
+	cont "RUINES?"
+else
 	text "I wonder how many"
 	line "kinds of #MON"
 	cont "are in the RUINS?"
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_UnownAppeared: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist1Text_UnownAppeared: 
+if DEF(_FR_FR)
+	text "Des #MON sont"
+	line "apparus dans les"
+	cont "RUINES?"
+
+	para "Bah ça pour une"
+	line "nouvelle!"
+
+	para "Il faut tout de"
+	line "suite y aller!"
+else
 	text "#MON appeared"
 	line "in the RUINS?"
 
@@ -252,9 +335,25 @@ RuinsOfAlphResearchCenterScientist1Text_UnownAppeared: ; AUTOTRAD
 
 	para "We'll need to"
 	line "investigate this."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist1Text_GotAllUnown: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist1Text_GotAllUnown: 
+if DEF(_FR_FR)
+	text "Grâce à ton aide,"
+	line "notre enquête sur"
+
+	para "les RUINES donne"
+	line "enfin des"
+	cont "résultats."
+
+	para "Les RUINES sem-"
+	line "blent être un re-"
+
+	para "fuge pour les"
+	line "#MON."
+else
 	text "Our investigation,"
 	line "with your help, is"
 
@@ -266,9 +365,20 @@ RuinsOfAlphResearchCenterScientist1Text_GotAllUnown: ; AUTOTRAD
 
 	para "as a habitat for"
 	line "#MON."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist2Text: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist2Text: 
+if DEF(_FR_FR)
+	text "Il y a des figures"
+	line "étranges sur les"
+	cont "murs des RUINES."
+
+	para "Elles doivent être"
+	line "la clé du mystère"
+	cont "des RUINES."
+else
 	text "There are odd pat-"
 	line "terns drawn on the"
 
@@ -279,9 +389,25 @@ RuinsOfAlphResearchCenterScientist2Text: ; AUTOTRAD
 	line "keys for unravel-"
 	cont "ing the mystery"
 	cont "of the RUINS."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterScientist2Text_UnownAppeared: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist2Text_UnownAppeared: 
+if DEF(_FR_FR)
+	text "Les étranges #-"
+	line "MON des RUINES?"
+
+	para "Ils semblent être"
+	line "proches des figu-"
+	cont "res sur les murs."
+
+	para "Hmmm..."
+
+	para "Cela veut dire"
+	line "qu'il y en a un"
+	cont "grand nombre..."
+else
 	text "The strange #-"
 	line "MON you saw in the"
 	cont "RUINS?"
@@ -297,6 +423,8 @@ RuinsOfAlphResearchCenterScientist2Text_UnownAppeared: ; AUTOTRAD
 	para "That must mean"
 	line "there are many"
 	cont "kinds of them…"
+endc
+
 	done
 
 RuinsOfAlphResearchCenterUnusedText1: ; unreferenced
@@ -327,7 +455,16 @@ RuinsOfAlphResearchCenterUnusedText2: ; unreferenced
 	line "link…"
 	done
 
-RuinsOfAlphResearchCenterScientist2Text_GotAllUnown: ; AUTOTRAD
+RuinsOfAlphResearchCenterScientist2Text_GotAllUnown: 
+if DEF(_FR_FR)
+	text "Comment ces drôles"
+	line "de figures ont pu"
+	cont "apparaître?"
+	cont "C'est dingue!"
+
+	para "J'y comprends"
+	line "rien..."
+else
 	text "Why did those"
 	line "ancient patterns"
 
@@ -336,48 +473,99 @@ RuinsOfAlphResearchCenterScientist2Text_GotAllUnown: ; AUTOTRAD
 
 	para "The mystery"
 	line "deepens…"
+endc
+
 	done
 
-RuinsOfAlphResearchCenterComputerText: ; AUTOTRAD
+RuinsOfAlphResearchCenterComputerText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+
+	para "Exploration"
+	line "Année 10"
+else
 	text "RUINS OF ALPH"
 
 	para "Exploration"
 	line "Year 10"
+endc
+
 	done
 
-RuinsOfAlphResearchCenterComputerText_GotAllUnown: ; AUTOTRAD
+RuinsOfAlphResearchCenterComputerText_GotAllUnown: 
+if DEF(_FR_FR)
+	text "#MON Mystère"
+	line "Nom: ZARBI"
+
+	para "Un total de {d:NUM_UNOWN}"
+	line "types découverts."
+else
 	text "Mystery #MON"
 	line "Name: UNOWN"
 
 	para "A total of {d:NUM_UNOWN}"
 	line "kinds found."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterPrinterText_DoesntWork: ; AUTOTRAD
+RuinsOfAlphResearchCenterPrinterText_DoesntWork: 
+if DEF(_FR_FR)
+	text "Cela n'a pas l'air"
+	line "de marcher pour"
+	cont "l'instant..."
+else
 	text "This doesn't seem"
 	line "to work yet."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterUnownPrinterText: ; AUTOTRAD
+RuinsOfAlphResearchCenterUnownPrinterText: 
+if DEF(_FR_FR)
+	text "ZARBI peut être"
+	line "imprimé."
+else
 	text "UNOWN may be"
 	line "printed out."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterProfSilktreePhotoText: ; AUTOTRAD
+RuinsOfAlphResearchCenterProfSilktreePhotoText: 
+if DEF(_FR_FR)
+	text "C'est une photo du"
+	line "fondateur du"
+
+	para "CENTRE de RECHER-"
+	line "CHE: le PROF."
+	cont "LASOIE."
+else
 	text "It's a photo of"
 	line "the RESEARCH"
 
 	para "CENTER'S founder,"
 	line "PROF.SILKTREE."
+endc
+
 	done
 
-RuinsOfAlphResearchCenterAcademicBooksText: ; AUTOTRAD
+RuinsOfAlphResearchCenterAcademicBooksText: 
+if DEF(_FR_FR)
+	text "Il y a beaucoup de"
+	line "livres de science."
+
+	para "Anciennes ruines."
+	line "Antiques mystères."
+else
 	text "There are many"
 	line "academic books."
 
 	para "Ancient Ruins…"
 	line "Mysteries of the"
 	cont "Ancients…"
+endc
+
 	done
 
 RuinsOfAlphResearchCenter_MapEvents:

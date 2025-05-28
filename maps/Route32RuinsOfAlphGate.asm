@@ -17,7 +17,16 @@ Route32RuinsOfAlphGatePokefanMScript:
 Route32RuinsOfAlphGateYoungsterScript:
 	jumptextfaceplayer Route32RuinsOfAlphGateYoungsterText
 
-Route32RuinsOfAlphGateOfficerText: ; AUTOTRAD
+Route32RuinsOfAlphGateOfficerText: 
+if DEF(_FR_FR)
+	text "RUINES D'ALPHA"
+
+	para "Un site touristi-"
+	line "que interactif."
+
+	para "Essayez les pan-"
+	line "neaux coulissants!"
+else
 	text "RUINS OF ALPH"
 
 	para "A Look-and-Touch"
@@ -25,23 +34,44 @@ Route32RuinsOfAlphGateOfficerText: ; AUTOTRAD
 
 	para "Try the sliding"
 	line "stone panels!"
+endc
+
 	done
 
-Route32RuinsOfAlphGatePokefanMText: ; AUTOTRAD
+Route32RuinsOfAlphGatePokefanMText: 
+if DEF(_FR_FR)
+	text "Tu étudies les"
+	line "RUINES D'ALPHA?"
+
+	para "Tu aimes la"
+	line "science, toi!"
+else
 	text "You're studying"
 	line "the RUINS?"
 
 	para "I see a scientist"
 	line "in the making."
+endc
+
 	done
 
-Route32RuinsOfAlphGateYoungsterText: ; AUTOTRAD
+Route32RuinsOfAlphGateYoungsterText: 
+if DEF(_FR_FR)
+	text "Il y a des dessins"
+	line "sur les panneaux."
+
+	para "J'ai essayé de les"
+	line "déplacer. Quelle"
+	cont "est leur fonction?"
+else
 	text "There are drawings"
 	line "on stone panels."
 
 	para "I tried moving"
 	line "them. I wonder"
 	cont "what they are."
+endc
+
 	done
 
 Route32RuinsOfAlphGate_MapEvents:

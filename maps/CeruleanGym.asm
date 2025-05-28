@@ -295,7 +295,18 @@ CeruleanGymGruntBacksAwayMovement:
 	remove_fixed_facing
 	step_end
 
-CeruleanGymGruntIntroText: ; AUTOTRAD
+CeruleanGymGruntIntroText: 
+if DEF(_FR_FR)
+	text "Oups!"
+	line "Pardon!"
+	cont "Tu vas bien?"
+
+	para "J'suis occupé."
+	line "Pas le temps."
+	cont "Au revoir."
+	cont "Tu m'as pas vu,"
+	cont "OK?"
+else
 	text "Oops! I so sorry!"
 	line "You not hurt,"
 	cont "okay?"
@@ -305,15 +316,32 @@ CeruleanGymGruntIntroText: ; AUTOTRAD
 	cont "ing with you. Not"
 	cont "good for me if"
 	cont "seen by somebody."
+endc
+
 	done
 
-CeruleanGymGruntBigMistakeText: ; AUTOTRAD
+CeruleanGymGruntBigMistakeText: 
+if DEF(_FR_FR)
+	text "Oh! Tu m'as vu!"
+	line "C'est pas bon, ça!"
+else
 	text "Oh no! You seen"
 	line "me already! I make"
 	cont "big mistake!"
+endc
+
 	done
 
-CeruleanGymGruntByeText: ; AUTOTRAD
+CeruleanGymGruntByeText: 
+if DEF(_FR_FR)
+	text "Hé toi! Tu oublies"
+	line "que tu m'as vu,"
+
+	para "OK? Allez..."
+	line "Adieu!"
+
+	para "Adieuuuu!"
+else
 	text "Hey, you! Forget"
 	line "you see me, okay?"
 
@@ -324,18 +352,35 @@ CeruleanGymGruntByeText: ; AUTOTRAD
 	line "Bye, kid! Nothing!"
 
 	para "Bye-bye a go-go!"
+endc
+
 	done
 
-CeruleanGymNote1Text: ; AUTOTRAD
+CeruleanGymNote1Text: 
+if DEF(_FR_FR)
+	text "Sortie pour un"
+	line "moment..."
+	cont "ONDINE, CHAMPIONNE"
+else
 	text "Sorry, I'll be out"
 	line "for a while."
 	cont "MISTY, GYM LEADER"
+endc
+
 	done
 
-CeruleanGymNote2Text: ; AUTOTRAD
+CeruleanGymNote2Text: 
+if DEF(_FR_FR)
+	text "ONDINE est partie,"
+	line "alors nous aussi."
+	cont "Les DRESSEURS de"
+	cont "l'ARENE"
+else
 	text "Since MISTY's out,"
 	line "we'll be away too."
 	cont "GYM TRAINERS"
+endc
+
 	done
 
 MistyIntroText: ; TO TRANSLATE
@@ -381,7 +426,16 @@ MistyValidatesTeamText: ; TO TRANSLATE
 	line "you're made of!"
 	done
 
-MistyWinLossText: ; AUTOTRAD
+MistyWinLossText: 
+if DEF(_FR_FR)
+	text "ONDINE: OK. T'es"
+	line "pas naze..."
+
+	para "Je le reconnais..."
+
+	para "Tiens. V'là le"
+	line "BADGECASCADE."
+else
 	text "MISTY: You really"
 	line "are good…"
 
@@ -390,11 +444,19 @@ MistyWinLossText: ; AUTOTRAD
 
 	para "Here you go. It's"
 	line "CASCADEBADGE."
+endc
+
 	done
 
-ReceivedCascadeBadgeText: ; AUTOTRAD
+ReceivedCascadeBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGECASCADE."
+else
 	text "<PLAYER> received"
 	line "CASCADEBADGE."
+endc
+
 	done
 
 MistyFightDoneText: ; TO TRANSLATE
@@ -439,54 +501,116 @@ MistyRedDeadText: ; TO TRANSLATE
 	cont "condemn it…"
 	done
 
-SwimmerfDianaSeenText: ; AUTOTRAD
+SwimmerfDianaSeenText: 
+if DEF(_FR_FR)
+	text "Désolée d'avoir"
+	line "été absente."
+	cont "On y va!"
+else
 	text "Sorry about being"
 	line "away. Let's get on"
 	cont "with it!"
+endc
+
 	done
 
-SwimmerfDianaBeatenText: ; AUTOTRAD
+SwimmerfDianaBeatenText: 
+if DEF(_FR_FR)
+	text "OK!"
+	line "T'as gagné!"
+else
 	text "I give up! You're"
 	line "the winner!"
+endc
+
 	done
 
-SwimmerfDianaAfterBattleText: ; AUTOTRAD
+SwimmerfDianaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je vais nager"
+	line "tranquillement."
+else
 	text "I'll be swimming"
 	line "quietly."
+endc
+
 	done
 
-SwimmerfBrianaSeenText: ; AUTOTRAD
+SwimmerfBrianaSeenText: 
+if DEF(_FR_FR)
+	text "Je nage trop bien."
+	line "Ca t'énerve?"
+else
 	text "Don't let my ele-"
 	line "gant swimming un-"
 	cont "nerve you."
+endc
+
 	done
 
-SwimmerfBrianaBeatenText: ; AUTOTRAD
+SwimmerfBrianaBeatenText: 
+if DEF(_FR_FR)
+	text "Ooh!"
+	line "Impressionnant!"
+else
 	text "Ooh, you calmly"
 	line "disposed of me…"
+endc
+
 	done
 
-SwimmerfBrianaAfterBattleText: ; AUTOTRAD
+SwimmerfBrianaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Ne crâne pas"
+	line "trop..."
+
+	para "ONDINE va te faire"
+	line "mal..."
+else
 	text "Don't be too smug"
 	line "about beating me."
 
 	para "MISTY will destroy"
 	line "you if you get"
 	cont "complacent."
+endc
+
 	done
 
-SwimmermParkerSeenText: ; AUTOTRAD
+SwimmermParkerSeenText: 
+if DEF(_FR_FR)
+	text "Gloups..."
+
+	para "A l'attaque!"
+	line "Glouarps!"
+else
 	text "Glub…"
 
 	para "I'm first! Come"
 	line "and get me!"
+endc
+
 	done
 
-SwimmermParkerBeatenText: ; AUTOTRAD
+SwimmermParkerBeatenText: 
+if DEF(_FR_FR)
+	text "Impossible..."
+else
 	text "This can't be…"
+endc
+
 	done
 
-SwimmermParkerAfterBattleText: ; AUTOTRAD
+SwimmermParkerAfterBattleText: 
+if DEF(_FR_FR)
+	text "ONDINE s'est bien"
+	line "améliorée depuis"
+	cont "un certain temps."
+
+	para "Fais bien atten-"
+	line "tion, ou tu vas"
+	cont "le regretter!"
+else
 	text "MISTY has gotten"
 	line "much better in the"
 	cont "past few years."
@@ -494,6 +618,8 @@ SwimmermParkerAfterBattleText: ; AUTOTRAD
 	para "Don't let your"
 	line "guard down, or"
 	cont "you'll be crushed!"
+endc
+
 	done
 
 CeruleanGymGuideText: ; TO TRANSLATE
@@ -506,13 +632,23 @@ CeruleanGymGuideText: ; TO TRANSLATE
 	line "He-he-he."
 	done
 
-CeruleanGymGuideWinText: ; AUTOTRAD
+CeruleanGymGuideWinText: 
+if DEF(_FR_FR)
+	text "Whoa! Tu es un"
+	line "p'tit tigre!"
+
+	para "Quel beau combat!"
+	line "Comme toujours,"
+	cont "quoi!"
+else
 	text "Hoo, you showed me"
 	line "how tough you are."
 
 	para "As always, that"
 	line "was one heck of a"
 	cont "great battle!"
+endc
+
 	done
 
 CeruleanGymTrainerCardGoneText: ; TO TRANSLATE

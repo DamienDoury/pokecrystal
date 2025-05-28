@@ -276,57 +276,119 @@ Route20_TurnHeadLeftMovement:
 CinnabarGymSign:
 	jumptext CinnabarGymSignText
 
-SwimmerfNicoleSeenText: ; AUTOTRAD
+SwimmerfNicoleSeenText: 
+if DEF(_FR_FR)
+	text "On est léger dans"
+	line "l'eau..."
+else
 	text "I feel so much"
 	line "lighter in water."
+endc
+
 	done
 
-SwimmerfNicoleBeatenText: ; AUTOTRAD
+SwimmerfNicoleBeatenText: 
+if DEF(_FR_FR)
+	text "Oh, non!"
+else
 	text "Oh, no!"
+endc
+
 	done
 
-SwimmerfNicoleAfterBattleText: ; AUTOTRAD
+SwimmerfNicoleAfterBattleText: 
+if DEF(_FR_FR)
+	text "La nage fait gon-"
+	line "fler les muscles."
+
+	para "C'est prouvé!"
+	line "J'te jure!"
+else
 	text "Swimming exercises"
 	line "your full body."
 
 	para "It's really good"
 	line "for you."
+endc
+
 	done
 
-SwimmerfLoriSeenText: ; AUTOTRAD
+SwimmerfLoriSeenText: 
+if DEF(_FR_FR)
+	text "Quelle belle"
+	line "collection de"
+
+	para "BADGES. On se fait"
+	line "un p'tit combat?"
+else
 	text "What an impressive"
 	line "collection of GYM"
 
 	para "BADGES. We should"
 	line "battle!"
+endc
+
 	done
 
-SwimmerfLoriBeatenText: ; AUTOTRAD
+SwimmerfLoriBeatenText: 
+if DEF(_FR_FR)
+	text "Non!"
+else
 	text "No!"
+endc
+
 	done
 
-SwimmerfLoriAfterBattleText: ; AUTOTRAD
+SwimmerfLoriAfterBattleText: 
+if DEF(_FR_FR)
+	text "Le SURF n'est plus"
+	line "la seule CS à uti-"
+	cont "liser sur l'eau."
+else
 	text "SURF is no longer"
 	line "the only HM move"
 	cont "you use in water."
+endc
+
 	done
 
-SwimmermCameronSeenText: ; AUTOTRAD
+SwimmermCameronSeenText: 
+if DEF(_FR_FR)
+	text "Ca doit être"
+	line "impossible de"
+
+	para "nager jusqu'à"
+	line "JOHTO."
+else
 	text "I guess it's im-"
 	line "possible to swim"
 
 	para "all the way to"
 	line "JOHTO."
+endc
+
 	done
 
-SwimmermCameronBeatenText: ; AUTOTRAD
+SwimmermCameronBeatenText: 
+if DEF(_FR_FR)
 	text "Aiyah!"
+else
+	text "Aiyah!"
+endc
+
 	done
 
-SwimmermCameronAfterBattleText: ; AUTOTRAD
+SwimmermCameronAfterBattleText: 
+if DEF(_FR_FR)
+	text "On peut nager dans"
+	line "la mer, les fleu-"
+	cont "ves, les lacs..."
+else
 	text "Besides the sea, I"
 	line "can also swim in"
 	cont "ponds and rivers."
+endc
+
 	done
 
 TeacherSarahSeenText: ; TO TRANSLATE

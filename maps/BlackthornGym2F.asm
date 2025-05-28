@@ -78,18 +78,42 @@ TrainerCooltrainerfFran:
 	closetext
 	end
 
-CooltrainermCodySeenText: ; AUTOTRAD
+CooltrainermCodySeenText: 
+if DEF(_FR_FR)
+	text "On n'utilise pas"
+	line "tous des #MON"
+	cont "dragon."
+else
 	text "It's not as if we"
 	line "all use dragon-"
 	cont "type #MON."
+endc
+
 	done
 
-CooltrainermCodyBeatenText: ; AUTOTRAD
+CooltrainermCodyBeatenText: 
+if DEF(_FR_FR)
+	text "Zut! Il me faut"
+	line "un dragon!"
+else
 	text "Rats! If only I"
 	line "had a dragon!"
+endc
+
 	done
 
-CooltrainermCodyAfterBattleText: ; AUTOTRAD
+CooltrainermCodyAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les membres de la"
+	line "confrérie des"
+
+	para "dragons ne peuvent"
+	line "utiliser des #-"
+	cont "MON dragon que si"
+
+	para "le MAITRE le"
+	line "permet."
+else
 	text "Members of our"
 	line "dragon-user clan"
 
@@ -98,24 +122,47 @@ CooltrainermCodyAfterBattleText: ; AUTOTRAD
 
 	para "our MASTER allows"
 	line "it."
+endc
+
 	done
 
-CooltrainerfFranSeenText: ; AUTOTRAD
+CooltrainerfFranSeenText: 
+if DEF(_FR_FR)
+	text "Un dresseur"
+	line "quelconque ne"
+	cont "passera pas!"
+
+	para "SANDRA ne le"
+	line "permettrait pas!"
+else
 	text "I can't allow a"
 	line "nameless trainer"
 	cont "past me!"
 
 	para "CLAIR would be"
 	line "livid if I did!"
+endc
+
 	done
 
-CooltrainerfFranBeatenText: ; AUTOTRAD
+CooltrainerfFranBeatenText: 
+if DEF(_FR_FR)
+	text "Pffff. Perdu..."
+else
 	text "Awww… I lost…"
+endc
+
 	done
 
-CooltrainerfFranAfterBattleText: ; AUTOTRAD
+CooltrainerfFranAfterBattleText: 
+if DEF(_FR_FR)
+	text "Oulà! La SANDRA"
+	line "elle sera furax!"
+else
 	text "Uh-oh… CLAIR is"
 	line "going to be mad…"
+endc
+
 	done
 
 BlackthornGym2F_MapEvents:

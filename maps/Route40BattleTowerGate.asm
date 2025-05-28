@@ -14,7 +14,17 @@ Route40BattleTowerGateRockerScript:
 Route40BattleTowerGateTwinScript:
 	jumptextfaceplayer Route40BattleTowerGateTwinText
 
-Route40BattleTowerGateRockerText: ; AUTOTRAD
+Route40BattleTowerGateRockerText: 
+if DEF(_FR_FR)
+	text "Tu vas à la TOUR"
+	line "DE COMBAT?"
+
+	para "Si tu gagnes plein"
+	line "de fois, tu peux"
+
+	para "remporter des"
+	line "trucs spéciaux."
+else
 	text "Are you going to"
 	line "the BATTLE TOWER?"
 
@@ -23,9 +33,19 @@ Route40BattleTowerGateRockerText: ; AUTOTRAD
 
 	para "whole lot, you can"
 	line "win special gifts."
+endc
+
 	done
 
-Route40BattleTowerGateTwinText: ; AUTOTRAD
+Route40BattleTowerGateTwinText: 
+if DEF(_FR_FR)
+	text "Mes #MON ont"
+	line "tous des niveaux"
+	cont "différents..."
+
+	para "Je dois les"
+	line "entraîner!"
+else
 	text "The levels of the"
 	line "#MON I want to"
 
@@ -34,6 +54,8 @@ Route40BattleTowerGateTwinText: ; AUTOTRAD
 
 	para "I have to go train"
 	line "them now!"
+endc
+
 	done
 
 Route40BattleTowerGate_MapEvents:

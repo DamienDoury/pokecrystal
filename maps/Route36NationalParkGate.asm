@@ -483,7 +483,30 @@ Route36NationalParkGatePlayerWaitWithContestantsMovement:
 	turn_head UP
 	step_end
 
-Route36NationalParkGateOfficer1AskToParticipateText: ; AUTOTRAD
+Route36NationalParkGateOfficer1AskToParticipateText: 
+if DEF(_FR_FR)
+	text "On est @"
+	text_ram wStringBuffer3
+	text "."
+	line "Ca veut dire que"
+
+	para "le Concours de"
+	line "Capture d'insecte"
+	cont "est aujourd'hui."
+
+	para "Les règles sont"
+	line "simples."
+
+	para "Avec un #MON"
+	line "de l'équipe, il"
+
+	para "faut attraper un"
+	line "#MON insecte"
+	cont "qui sera noté."
+
+	para "Alors? On tente"
+	line "sa chance?"
+else
 	text "Today's @"
 	text_ram wStringBuffer3
 	text "."
@@ -503,20 +526,59 @@ Route36NationalParkGateOfficer1AskToParticipateText: ; AUTOTRAD
 
 	para "Would you like to"
 	line "give it a try?"
+endc
+
 	done
 
-Route36NationalParkGateOfficer1GiveParkBallsText: ; AUTOTRAD
+Route36NationalParkGateOfficer1GiveParkBallsText: 
+if DEF(_FR_FR)
+	text "Voici des PARC"
+	line "BALLS pour le"
+	cont "concours."
+else
 	text "Here are the PARK"
 	line "BALLS for the"
 	cont "Contest."
+endc
+
 	done
 
-Route36NationalParkGatePlayerReceivedParkBallsText: ; AUTOTRAD
+Route36NationalParkGatePlayerReceivedParkBallsText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "{d:BUG_CONTEST_BALLS} PARC BALLS."
+else
 	text "<PLAYER> received"
 	line "{d:BUG_CONTEST_BALLS} PARK BALLS."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1ExplainsRulesText: ; AUTOTRAD
+Route36NationalParkGateOfficer1ExplainsRulesText: 
+if DEF(_FR_FR)
+	text "La personne qui"
+	line "capture le #-"
+	cont "MON insecte le"
+	cont "plus puissant est"
+	cont "désignée vain-"
+	cont "queur."
+
+	para "La partie dure"
+	line "{d:BUG_CONTEST_MINUTES} minutes."
+
+	para "Si toutes les"
+	line "PARC BALLS sont"
+	cont "épuisées, c'est"
+	cont "fini!"
+
+	para "Le dernier #MON"
+	line "attrapé peut être"
+	cont "gardé."
+
+	para "Allez hop! C'est"
+	line "la chasse aux"
+	cont "#MON insecte!"
+else
 	text "The person who"
 	line "gets the strong-"
 	cont "est bug #MON"
@@ -538,9 +600,27 @@ Route36NationalParkGateOfficer1ExplainsRulesText: ; AUTOTRAD
 
 	para "#MON you can"
 	line "find!"
+endc
+
 	done
 
-Route36NationalParkGateOfficer1AskToUseFirstMonText: ; AUTOTRAD
+Route36NationalParkGateOfficer1AskToUseFirstMonText: 
+if DEF(_FR_FR)
+	text "Oh-oh..."
+
+	para "Tu as plus d'un"
+	line "#MON."
+
+	para "Tu dois utiliser"
+	line "@"
+	text_ram wStringBuffer3
+	text ", le"
+
+	para "premier #MON de"
+	line "ton équipe."
+
+	para "Tu es d'accord?"
+else
 	text "Uh-oh…"
 
 	para "You have more than"
@@ -556,35 +636,80 @@ Route36NationalParkGateOfficer1AskToUseFirstMonText: ; AUTOTRAD
 
 	para "Is that OK with"
 	line "you?"
+endc
+
 	done
 
-Route36NationalParkGateOfficer1WellHoldYourMonText: ; AUTOTRAD
+Route36NationalParkGateOfficer1WellHoldYourMonText: 
+if DEF(_FR_FR)
+	text "Parfait. Je vais"
+	line "garder les autres"
+	cont "#MON pendant le"
+	cont "concours."
+else
 	text "Fine, we'll hold"
 	line "your other #MON"
 	cont "while you compete."
+endc
+
 	done
 
-Route36NationalParkGatePlayersMonLeftWithHelperText: ; AUTOTRAD
+Route36NationalParkGatePlayersMonLeftWithHelperText: 
+if DEF(_FR_FR)
+	text "<PLAYER> confie"
+	line "ses #MON au"
+	cont "RECEPTIONNISTE."
+else
 	text "<PLAYER>'s #MON"
 	line "were left with the"
 	cont "CONTEST HELPER."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1ChooseMonAndComeBackText: ; AUTOTRAD
+Route36NationalParkGateOfficer1ChooseMonAndComeBackText: 
+if DEF(_FR_FR)
+	text "Choisis le #MON"
+	line "à utiliser pendant"
+
+	para "le concours et"
+	line "viens me voir."
+else
 	text "Please choose the"
 	line "#MON to be used"
 
 	para "in the Contest,"
 	line "then come see me."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1TakePartInFutureText: ; AUTOTRAD
+Route36NationalParkGateOfficer1TakePartInFutureText: 
+if DEF(_FR_FR)
+	text "OK."
+	line "A la prochaine."
+else
 	text "OK. We hope you'll"
 	line "take part in the"
 	cont "future."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1FirstMonCantBattleText: ; AUTOTRAD
+Route36NationalParkGateOfficer1FirstMonCantBattleText: 
+if DEF(_FR_FR)
+	text "Oh-oh..."
+	line "Le premier #MON"
+
+	para "de ton équipe ne"
+	line "peut combattre."
+
+	para "Change-le avec le"
+	line "#MON de ton"
+
+	para "choix et reviens"
+	line "me voir."
+else
 	text "Uh-oh…"
 	line "The first #MON"
 
@@ -596,9 +721,27 @@ Route36NationalParkGateOfficer1FirstMonCantBattleText: ; AUTOTRAD
 
 	para "you want to use,"
 	line "then come see me."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1MakeRoomText: ; AUTOTRAD
+Route36NationalParkGateOfficer1MakeRoomText: 
+if DEF(_FR_FR)
+	text "Oh-oh... Ton"
+	line "équipe et ta BOITE"
+	cont "PC sont pleines."
+
+	para "Tu n'as pas de"
+	line "place pour le"
+	cont "#MON insecte"
+	cont "à attraper."
+
+	para "Fais de la place"
+	line "dans l'équipe ou"
+
+	para "dans la BOITE PC"
+	line "et viens me voir."
+else
 	text "Uh-oh…"
 	line "Both your party"
 
@@ -614,9 +757,22 @@ Route36NationalParkGateOfficer1MakeRoomText: ; AUTOTRAD
 
 	para "your PC BOX, then"
 	line "come see me."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1EggAsFirstMonText: ; AUTOTRAD
+Route36NationalParkGateOfficer1EggAsFirstMonText: 
+if DEF(_FR_FR)
+	text "Oh-oh... Tu as un"
+	line "OEUF en premier"
+	cont "dans ton équipe."
+
+	para "Change-le avec le"
+	line "#MON de ton"
+
+	para "choix et reviens"
+	line "me voir."
+else
 	text "Uh-oh…"
 	line "You have an EGG as"
 
@@ -628,11 +784,19 @@ Route36NationalParkGateOfficer1EggAsFirstMonText: ; AUTOTRAD
 
 	para "you want to use,"
 	line "then come see me."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1WantToFinishText: ; AUTOTRAD
+Route36NationalParkGateOfficer1WantToFinishText: 
+if DEF(_FR_FR)
+	text "Tu as encore @"
+	text_ram wStringBuffer3
+else
 	text "You still have @"
 	text_ram wStringBuffer3
+endc
+
 	text_start
 	line "minute(s) left."
 
@@ -640,107 +804,240 @@ Route36NationalParkGateOfficer1WantToFinishText: ; AUTOTRAD
 	line "finish now?"
 	done
 
-Route36NationalParkGateOfficer1WaitHereForAnnouncementText: ; AUTOTRAD
+Route36NationalParkGateOfficer1WaitHereForAnnouncementText: 
+if DEF(_FR_FR)
+	text "OK. Attends ici"
+	line "pour connaître"
+
+	para "le nom des"
+	line "vainqueurs."
+else
 	text "OK. Please wait"
 	line "here for the"
 
 	para "announcement of"
 	line "the winners."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1OkGoFinishText: ; AUTOTRAD
+Route36NationalParkGateOfficer1OkGoFinishText: 
+if DEF(_FR_FR)
+	text "OK. Retourne de-"
+	line "hors et termine."
+else
 	text "OK. Please go back"
 	line "outside and finish"
 	cont "up."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1ContestIsOverText: ; AUTOTRAD
+Route36NationalParkGateOfficer1ContestIsOverText: 
+if DEF(_FR_FR)
+	text "Le concours d'au-"
+	line "jourd'hui est ter-"
+
+	para "miné. Reviens une"
+	line "autre fois."
+else
 	text "Today's Contest is"
 	line "over. We hope you"
 
 	para "will participate"
 	line "in the future."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1SomeMonOnlySeenInParkText: ; AUTOTRAD
+Route36NationalParkGateOfficer1SomeMonOnlySeenInParkText: 
+if DEF(_FR_FR)
+	text "Certains #MON"
+	line "n'apparaissent que"
+	cont "dans le PARC."
+else
 	text "Some #MON can"
 	line "only be seen in"
 	cont "the PARK."
+endc
+
 	done
 
-BugCatchingContestant1BText: ; AUTOTRAD
+BugCatchingContestant1BText: 
+if DEF(_FR_FR)
+	text "JEAN-RAOUL: Oh! Tu"
+	line "m'as battu! T'es"
+	cont "balèze, toi."
+else
 	text "DON: Wow, you beat"
 	line "me. You're pretty"
 	cont "good."
+endc
+
 	done
 
-BugCatchingContestant1BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant1BStillCompetingText: 
+if DEF(_FR_FR)
+	text "JEAN-RAOUL:"
+	line "La chance compte"
+	cont "beaucoup."
+
+	para "Tu ne sais jamais"
+	line "quel #MON va"
+	cont "apparaître."
+else
 	text "DON: Luck plays a"
 	line "big part in this."
 
 	para "You never know"
 	line "what #MON will"
 	cont "appear."
+endc
+
 	done
 
-BugCatchingContestant2BText: ; AUTOTRAD
+BugCatchingContestant2BText: 
+if DEF(_FR_FR)
+	text "ODILON: T'as trop"
+	line "de bol. Et moi"
+	cont "j'suis maudit."
+else
 	text "ED: I envy you."
 	line "I just couldn't"
 	cont "do it this time."
+endc
+
 	done
 
-BugCatchingContestant2BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant2BStillCompetingText: 
+if DEF(_FR_FR)
+	text "ODILON: T'as gagné"
+	line "avec un gros #-"
+	cont "MON?"
+else
 	text "ED: Maybe you win"
 	line "with big #MON?"
+endc
+
 	done
 
-BugCatchingContestant3BText: ; AUTOTRAD
+BugCatchingContestant3BText: 
+if DEF(_FR_FR)
+	text "NICK: Bien joué!"
+	line "Je vais mieux en-"
+	cont "traîner mes #-"
+	cont "MON."
+else
 	text "NICK: Well done!"
 	line "I'm going to raise"
 	cont "my #MON better."
+endc
+
 	done
 
-BugCatchingContestant3BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant3BStillCompetingText: 
+if DEF(_FR_FR)
+	text "NICK: On gagne"
+	line "peut-être plus de"
+
+	para "points avec un"
+	line "#MON d'une"
+	cont "couleur bizarre."
+else
 	text "NICK: Maybe you"
 	line "get a higher score"
 
 	para "for a #MON of"
 	line "an unusual color."
+endc
+
 	done
 
-BugCatchingContestant4BText: ; AUTOTRAD
+BugCatchingContestant4BText: 
+if DEF(_FR_FR)
+	text "MARCEL: Tu as"
+	line "gagné? Qu'as-tu"
+	cont "attrapé?"
+else
 	text "WILLIAM: You're"
 	line "the winner? What"
 	cont "did you catch?"
+endc
+
 	done
 
-BugCatchingContestant4BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant4BStillCompetingText: 
+if DEF(_FR_FR)
+	text "MARCEL: En tout"
+	line "cas je suis"
+
+	para "content: j'ai"
+	line "attrapé le #MON"
+	cont "que je voulais."
+else
 	text "WILLIAM: Well, I'm"
 	line "satisfied because"
 
 	para "I caught a #MON"
 	line "that I wanted."
+endc
+
 	done
 
-BugCatchingContestant5BText: ; AUTOTRAD
+BugCatchingContestant5BText: 
+if DEF(_FR_FR)
+	text "FOULQUE: Bien!"
+	line "J'te respecte,"
+	cont "toi!"
+else
 	text "BENNY: Congrats!"
 	line "You have earned my"
 	cont "respect!"
+endc
+
 	done
 
-BugCatchingContestant5BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant5BStillCompetingText: 
+if DEF(_FR_FR)
+	text "FOULQUE: J'ai eu"
+	line "un INSECATEUR une"
+	cont "fois mais j'ai"
+	cont "perdu."
+else
 	text "BENNY: I caught a"
 	line "SCYTHER before,"
 	cont "but I didn't win."
+endc
+
 	done
 
-BugCatchingContestant6BText: ; AUTOTRAD
+BugCatchingContestant6BText: 
+if DEF(_FR_FR)
+	text "RENE: Le #MON"
+	line "que tu as chopé..."
+	cont "Il est bien!"
+else
 	text "BARRY: That #-"
 	line "MON you caught…"
 	cont "it's awesome!"
+endc
+
 	done
 
-BugCatchingContestant6BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant6BStillCompetingText: 
+if DEF(_FR_FR)
+	text "RENE: C'est plus"
+	line "facile de gagner"
+
+	para "en attrapant un"
+	line "#MON de haut"
+	cont "niveau."
+
+	para "Mais je crois qu'"
+	line "ils prennent d'au-"
+	cont "tres points en"
+	cont "compte."
+else
 	text "BARRY: It's easier"
 	line "to win if you get"
 
@@ -750,59 +1047,122 @@ BugCatchingContestant6BStillCompetingText: ; AUTOTRAD
 	para "But I think they"
 	line "also consider some"
 	cont "other points."
+endc
+
 	done
 
-BugCatchingContestant7BText: ; AUTOTRAD
+BugCatchingContestant7BText: 
+if DEF(_FR_FR)
+	text "SANDY: T'as gagné?"
+	line "Mais c'est cool!"
+
+	para "Tu veux chercher"
+	line "des #MON"
+	cont "insecte avec moi?"
+else
 	text "CINDY: You won?"
 	line "That's great!"
 
 	para "Do you feel like"
 	line "looking for bug"
 	cont "#MON with me?"
+endc
+
 	done
 
-BugCatchingContestant7BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant7BStillCompetingText: 
+if DEF(_FR_FR)
+	text "SANDY: Moi j'aime"
+	line "les #MON"
+	cont "insecte!"
+else
 	text "CINDY: I really"
 	line "love bug #MON!"
+endc
+
 	done
 
-BugCatchingContestant8BText: ; AUTOTRAD
+BugCatchingContestant8BText: 
+if DEF(_FR_FR)
+	text "ARNAUD: J'ai..."
+	line "Perdu...au..."
+	cont "Concours..."
+else
 	text "JOSH: I… I can't"
 	line "believe I lost at"
 	cont "bug-catching…"
+endc
+
 	done
 
-BugCatchingContestant8BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant8BStillCompetingText: 
+if DEF(_FR_FR)
+	text "ARNAUD: On dit que"
+	line "quelqu'un a gagné"
+	cont "avec un CHENIPAN!"
+else
 	text "JOSH: I heard that"
 	line "somebody won with"
 	cont "a CATERPIE!"
+endc
+
 	done
 
-BugCatchingContestant9BText: ; AUTOTRAD
+BugCatchingContestant9BText: 
+if DEF(_FR_FR)
+	text "GONTRAND: Je vais"
+	line "gagner la prochai-"
+	cont "ne fois."
+else
 	text "SAMUEL: Next time,"
 	line "I'm going to win."
+endc
+
 	done
 
-BugCatchingContestant9BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant9BStillCompetingText: 
+if DEF(_FR_FR)
+	text "GONTRAND: Zut!"
+	line "Je pensais vrai-"
+	cont "ment gagner..."
+else
 	text "SAMUEL: Darn."
 	line "I thought I would"
 	cont "score higher…"
+endc
+
 	done
 
-BugCatchingContestant10BText: ; AUTOTRAD
+BugCatchingContestant10BText: 
+if DEF(_FR_FR)
+	text "CYRIL: Tu veux"
+	line "bien me donner"
+
+	para "des conseils?"
+	line "J'aime ton style."
+else
 	text "KIPP: Could you"
 	line "give me some tips?"
 
 	para "I want to study"
 	line "your style."
+endc
+
 	done
 
-BugCatchingContestant10BStillCompetingText: ; AUTOTRAD
+BugCatchingContestant10BStillCompetingText: 
+if DEF(_FR_FR)
+	text "CYRIL: J'étudie"
+	line "beaucoup mais ce"
+	cont "n'est pas assez."
+else
 	text "KIPP: I study a"
 	line "lot, but that's"
 
 	para "not good enough to"
 	line "win."
+endc
+
 	done
 
 UnusedSilphScope2Text: ; unreferenced
@@ -838,7 +1198,18 @@ UnusedBugCatchingContestExplanationText: ; AUTOTRAD
 	line "the contest."
 	done
 
-Route36NationalParkGateOfficer1WellHoldPrizeText: ; AUTOTRAD
+Route36NationalParkGateOfficer1WellHoldPrizeText: 
+if DEF(_FR_FR)
+	text "Oh-oh... Ton SAC"
+	line "est plein."
+
+	para "On va garder ton"
+	line "prix. Mais juste"
+	cont "pour aujourd'hui."
+
+	para "Fais de la place"
+	line "et viens me voir."
+else
 	text "Uh-oh… Your PACK"
 	line "is full."
 
@@ -848,14 +1219,25 @@ Route36NationalParkGateOfficer1WellHoldPrizeText: ; AUTOTRAD
 
 	para "Please make room,"
 	line "then come see me."
+endc
+
 	done
 
-Route36NationalParkGateOfficer1HeresThePrizeText: ; AUTOTRAD
+Route36NationalParkGateOfficer1HeresThePrizeText: 
+if DEF(_FR_FR)
+	text "<PLAYER>?"
+
+	para "Voilà ton prix."
+	line "On l'a gardé pour"
+	cont "toi."
+else
 	text "<PLAYER>?"
 
 	para "Here's the prize"
 	line "we were holding"
 	cont "for you."
+endc
+
 	done
 
 Route36NationalParkGate_MapEvents:

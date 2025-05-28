@@ -276,7 +276,17 @@ ErikaBeforeBattleText: ; TO TRANSLATE
 	para "Shall we begin?"
 	done
 
-ErikaBeatenText: ; AUTOTRAD
+ErikaBeatenText: 
+if DEF(_FR_FR)
+	text "ERIKA: Oh!"
+	line "J'ai perdu..."
+
+	para "Toi t'es un p'tit"
+	line "tigre..."
+
+	para "Voilà pour toi: le"
+	line "BADGE PRISME..."
+else
 	text "ERIKA: Oh!"
 	line "I concede defeat…"
 
@@ -285,14 +295,43 @@ ErikaBeatenText: ; AUTOTRAD
 
 	para "I shall give you"
 	line "RAINBOWBADGE…"
+endc
+
 	done
 
-PlayerReceivedRainbowBadgeText: ; AUTOTRAD
+PlayerReceivedRainbowBadgeText: 
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le BADGE PRISME."
+else
 	text "<PLAYER> received"
 	line "RAINBOWBADGE."
+endc
+
 	done
 
-ErikaExplainTMText: ; AUTOTRAD
+ErikaExplainTMText: 
+if DEF(_FR_FR)
+	text "ERIKA: Quel beau"
+	line "match."
+
+	para "Je tiens à ce que"
+	line "tu acceptes cette"
+	cont "belle CT."
+
+	para "C'est la"
+	line "GIGA-SANGSUE."
+
+	para "Cette capacité"
+	line "draine la moitié"
+
+	para "des dégâts infli-"
+	line "gés pour soigner"
+	cont "ton #MON."
+
+	para "Tu verras, c'est"
+	line "très utile..."
+else
 	text "ERIKA: That was a"
 	line "delightful match."
 
@@ -311,9 +350,20 @@ ErikaExplainTMText: ; AUTOTRAD
 
 	para "Please use it if"
 	line "it pleases you…"
+endc
+
 	done
 
-ErikaAfterBattleText: ; AUTOTRAD
+ErikaAfterBattleText: 
+if DEF(_FR_FR)
+	text "ERIKA: Perdre"
+	line "fait toujours un"
+	cont "peu mal mais..."
+
+	para "Combattre un bon"
+	line "adversaire est"
+	cont "stimulant..."
+else
 	text "ERIKA: Losing"
 	line "leaves a bitter"
 	cont "aftertaste…"
@@ -323,84 +373,180 @@ ErikaAfterBattleText: ; AUTOTRAD
 
 	para "trainers spurs me"
 	line "to do better…"
+endc
+
 	done
 
-LassMichelleSeenText: ; AUTOTRAD
+LassMichelleSeenText: 
+if DEF(_FR_FR)
+	text "Ca t'étonne une"
+	line "ARENE remplie"
+	cont "de filles?"
+else
 	text "Do you think a"
 	line "girls-only GYM"
 	cont "is rare?"
+endc
+
 	done
 
-LassMichelleBeatenText: ; AUTOTRAD
+LassMichelleBeatenText: 
+if DEF(_FR_FR)
+	text "Ouiiiiin!"
+else
 	text "Oh, bleah!"
+endc
+
 	done
 
-LassMichelleAfterBattleText: ; AUTOTRAD
+LassMichelleAfterBattleText: 
+if DEF(_FR_FR)
+	text "Je ne faisais pas"
+	line "attention!"
+else
 	text "I just got care-"
 	line "less, that's all!"
+endc
+
 	done
 
-PicnickerTanyaSeenText: ; AUTOTRAD
+PicnickerTanyaSeenText: 
+if DEF(_FR_FR)
+	text "Un combat?"
+	line "Heu...non."
+	cont "..."
+	cont "Allez, d'accord!"
+else
 	text "Oh, a battle?"
 	line "That's kind of"
 	cont "scary, but OK!"
+endc
+
 	done
 
-PicnickerTanyaBeatenText: ; AUTOTRAD
+PicnickerTanyaBeatenText: 
+if DEF(_FR_FR)
+	text "C'est fini?"
+else
 	text "Oh, that's it?"
+endc
+
 	done
 
-PicnickerTanyaAfterBattleText: ; AUTOTRAD
+PicnickerTanyaAfterBattleText: 
+if DEF(_FR_FR)
+	text "T'en as plein des"
+	line "BADGES. Comment"
+
+	para "je pouvais gagner,"
+	line "moi?!"
+else
 	text "Oh, look at all"
 	line "your BADGES. No"
 
 	para "wonder I couldn't"
 	line "win!"
+endc
+
 	done
 
-BeautyJuliaSeenText: ; AUTOTRAD
+BeautyJuliaSeenText: 
+if DEF(_FR_FR)
+	text "Tu regardes les"
+	line "fleurs ou c'est"
+	cont "moi que tu mates?"
+else
 	text "Were you looking"
 	line "at these flowers"
 	cont "or at me?"
+endc
+
 	done
 
-BeautyJuliaBeatenText: ; AUTOTRAD
+BeautyJuliaBeatenText: 
+if DEF(_FR_FR)
+	text "C'est pas bien!"
+else
 	text "How annoying!"
+endc
+
 	done
 
-BeautyJuliaAfterBattleText: ; AUTOTRAD
+BeautyJuliaAfterBattleText: 
+if DEF(_FR_FR)
+	text "Comment devenir"
+	line "une belle fille"
+	cont "comme ERIKA?"
+else
 	text "How do I go about"
 	line "becoming ladylike"
 	cont "like ERIKA?"
+endc
+
 	done
 
-TwinsJoAndZoe1SeenText: ; AUTOTRAD
+TwinsJoAndZoe1SeenText: 
+if DEF(_FR_FR)
+	text "ERIKA nous a ap-"
+	line "pris plein de"
+	cont "trucs!"
+else
 	text "We'll show you"
 	line "#MON moves that"
 	cont "ERIKA taught us!"
+endc
+
 	done
 
-TwinsJoAndZoe1BeatenText: ; AUTOTRAD
+TwinsJoAndZoe1BeatenText: 
+if DEF(_FR_FR)
+	text "Oh... On a perdu."
+else
 	text "Oh… We lost…"
+endc
+
 	done
 
-TwinsJoAndZoe1AfterBattleText: ; AUTOTRAD
+TwinsJoAndZoe1AfterBattleText: 
+if DEF(_FR_FR)
+	text "ERIKA!"
+	line "Venge-nous!"
+else
 	text "ERIKA will get you"
 	line "back for us!"
+endc
+
 	done
 
-TwinsJoAndZoe2SeenText: ; AUTOTRAD
+TwinsJoAndZoe2SeenText: 
+if DEF(_FR_FR)
+	text "On doit protéger"
+	line "la grande ERIKA!"
+else
 	text "We're going to"
 	line "protect ERIKA!"
+endc
+
 	done
 
-TwinsJoAndZoe2BeatenText: ; AUTOTRAD
+TwinsJoAndZoe2BeatenText: 
+if DEF(_FR_FR)
+	text "Nooooonn...."
+else
 	text "We couldn't win…"
+endc
+
 	done
 
-TwinsJoAndZoe2AfterBattleText: ; AUTOTRAD
+TwinsJoAndZoe2AfterBattleText: 
+if DEF(_FR_FR)
+	text "ERIKA est bien"
+	line "plus forte!"
+else
 	text "ERIKA is much,"
 	line "much stronger!"
+endc
+
 	done
 
 CeladonGymGuideText: ; TO TRANSLATE

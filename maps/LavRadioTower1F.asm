@@ -65,8 +65,14 @@ LavRadioTower1FGentlemanScript:
 	jumpstd ReceiveItemScript
 	end
 
-.expncardname ; AUTOTRAD
+.expncardname 
+if DEF(_FR_FR)
+	db "CPN EXPAN.@"
+
+else
 	db "EXPN CARD@"
+
+endc
 
 .RadioCardText: ; AUTOTRAD
 	db "RADIO CARD@"
@@ -93,15 +99,38 @@ LavRadioTower1FDirectory:
 LavRadioTower1FPokeFluteSign:
 	jumptext LavRadioTower1FPokeFluteSignText
 
-LavRadioTower1FReceptionistText: ; AUTOTRAD
+LavRadioTower1FReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue!"
+	line "Tu peux visiter"
+
+	para "cet étage tant que"
+	line "tu le veux."
+else
 	text "Welcome!"
 	line "Feel free to look"
 
 	para "around anywhere on"
 	line "this floor."
+endc
+
 	done
 
-LavRadioTower1FOfficerText: ; AUTOTRAD
+LavRadioTower1FOfficerText: 
+if DEF(_FR_FR)
+	text "Seul le rez-de-"
+	line "chaussée est à"
+	cont "visiter."
+
+	para "Depuis l'attaque"
+	line "de la TOUR RADIO"
+
+	para "de JOHTO par un"
+	line "gang criminel, on"
+
+	para "a renforcé les me-"
+	line "sures de sécurité."
+else
 	text "Sorry, but you can"
 	line "only tour the"
 	cont "ground floor."
@@ -114,9 +143,21 @@ LavRadioTower1FOfficerText: ; AUTOTRAD
 
 	para "have had to step"
 	line "up our security."
+endc
+
 	done
 
-LavRadioTower1FSuperNerd1Text: ; AUTOTRAD
+LavRadioTower1FSuperNerd1Text: 
+if DEF(_FR_FR)
+	text "Les gens travail-"
+	line "lent dur ici, à"
+	cont "la TOUR RADIO."
+
+	para "Ils se donnent à"
+	line "fond pour faire"
+	cont "de bonnes émis-"
+	cont "sions."
+else
 	text "Many people are"
 	line "hard at work here"
 
@@ -126,9 +167,26 @@ LavRadioTower1FSuperNerd1Text: ; AUTOTRAD
 	para "They must be doing"
 	line "their best to put"
 	cont "on good shows."
+endc
+
 	done
 
-LavRadioTower1FGentlemanText: ; AUTOTRAD
+LavRadioTower1FGentlemanText: 
+if DEF(_FR_FR)
+	text "Oh, non, non, non!"
+
+	para "Nous ne sommes"
+	line "plus à l'antenne"
+
+	para "depuis la fermetu-"
+	line "re de la CENTRALE."
+
+	para "Je cours à la ca-"
+	line "tastrophe si je ne"
+	cont "peux plus émettre!"
+
+	para "J'suis ruiné!"
+else
 	text "Oh, no, no, no!"
 
 	para "We've been off the"
@@ -144,9 +202,24 @@ LavRadioTower1FGentlemanText: ; AUTOTRAD
 	line "I can't broadcast."
 
 	para "I'll be ruined!"
+endc
+
 	done
 
-LavRadioTower1FGentlemanText_ReturnedMachinePart: ; AUTOTRAD
+LavRadioTower1FGentlemanText_ReturnedMachinePart: 
+if DEF(_FR_FR)
+	text "Ah! C'est toi"
+	line "<PLAY_G> qui a"
+
+	para "réparé la"
+	line "CENTRALE?"
+
+	para "Grâce à toi, j'ai"
+	line "pu garder mon job."
+	cont "Tu es trop cool!"
+
+	para "Prends ça!"
+else
 	text "Ah! So you're the"
 	line "<PLAY_G> who solved"
 
@@ -161,6 +234,8 @@ LavRadioTower1FGentlemanText_ReturnedMachinePart: ; AUTOTRAD
 
 	para "Please take this"
 	line "as my thanks."
+endc
+
 	done
 
 LavRadioTower1FGentlemanText_GiveRadioCard: ; TO TRANSLATE
@@ -181,7 +256,14 @@ LavRadioTower1FGentlemanText_GiveRadioCard: ; TO TRANSLATE
 	line "were sent by me."
 	done
 
-LavRadioTower1FGentlemanText_GotExpnCard: ; AUTOTRAD
+LavRadioTower1FGentlemanText_GotExpnCard: 
+if DEF(_FR_FR)
+	text "Avec ceci, tu peux"
+	line "écouter la radio"
+	cont "depuis KANTO."
+
+	para "Gahahahaha!"
+else
 	text "With that thing,"
 	line "you can tune into"
 
@@ -189,9 +271,30 @@ LavRadioTower1FGentlemanText_GotExpnCard: ; AUTOTRAD
 	line "here in KANTO."
 
 	para "Gahahahaha!"
+endc
+
 	done
 
-LavRadioTower1FSuperNerd2Text: ; AUTOTRAD
+LavRadioTower1FSuperNerd2Text: 
+if DEF(_FR_FR)
+	text "Hé toi!"
+
+	para "Je suis le"
+	line "DIRECTEUR MUSICAL!"
+
+	para "Hein? Ton #-"
+	line "MATOS ne peut pas"
+
+	para "capter les émis-"
+	line "sions de radio..."
+	cont "Quel dommage!"
+
+	para "Avec un CPN EXPAN,"
+	line "tu peux améliorer"
+
+	para "ton matériel!"
+	line "Va en trouver un!"
+else
 	text "Hey there!"
 
 	para "I am the super"
@@ -208,9 +311,27 @@ LavRadioTower1FSuperNerd2Text: ; AUTOTRAD
 
 	para "can tune in. You'd"
 	line "better get one!"
+endc
+
 	done
 
-LavRadioTower1FSuperNerd2Text_GotExpnCard: ; AUTOTRAD
+LavRadioTower1FSuperNerd2Text_GotExpnCard: 
+if DEF(_FR_FR)
+	text "Hé toi!"
+
+	para "Je suis le"
+	line "DIRECTEUR MUSICAL!"
+
+	para "Je suis à l'origi-"
+	line "ne des belles mé-"
+
+	para "lodies diffusées"
+	line "à l'antenne."
+
+	para "Alors écoute bien"
+	line "nos belles"
+	cont "émissions!"
+else
 	text "Hey there!"
 
 	para "I am the super"
@@ -225,9 +346,21 @@ LavRadioTower1FSuperNerd2Text_GotExpnCard: ; AUTOTRAD
 	para "Don't be square."
 	line "Grab your music"
 	cont "off the air!"
+endc
+
 	done
 
-LavRadioTower1FDirectoryText: ; AUTOTRAD
+LavRadioTower1FDirectoryText: 
+if DEF(_FR_FR)
+	text "RDC  RECEPTION"
+	line "1ER  VENTES"
+
+	para "2EME PERSONNEL"
+	line "3EME PRODUCTION"
+
+	para "4EME BUREAU"
+	line "     DIRECTION"
+else
 	text "1F RECEPTION"
 	line "2F SALES"
 
@@ -236,14 +369,25 @@ LavRadioTower1FDirectoryText: ; AUTOTRAD
 
 	para "5F DIRECTOR'S"
 	line "   OFFICE"
+endc
+
 	done
 
-LavRadioTower1FPokeFluteSignText: ; AUTOTRAD
+LavRadioTower1FPokeFluteSignText: 
+if DEF(_FR_FR)
+	text "Animez vos #MON"
+	line "avec des sons de"
+
+	para "# FLUTE sur"
+	line "l'ANTENNE 20"
+else
 	text "Perk Up #MON"
 	line "with Mellow Sounds"
 
 	para "of the # FLUTE"
 	line "on CHANNEL 20"
+endc
+
 	done
 
 LavRadioTower1F_MapEvents:

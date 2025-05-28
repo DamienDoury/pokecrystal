@@ -313,36 +313,74 @@ OlivinePortApproachFastShipAfterHOFMovement:
 	step LEFT
 	step_end
 
-OlivinePortSailorGetOnBoardText: ; AUTOTRAD
+OlivinePortSailorGetOnBoardText: 
+if DEF(_FR_FR)
+	text "Le départ est"
+	line "proche. Tout le"
+	cont "monde à bord."
+else
 	text "We're departing"
 	line "soon. Please get"
 	cont "on board."
+endc
+
 	done
 
-OlivinePortCantBoardText: ; AUTOTRAD
+OlivinePortCantBoardText: 
+if DEF(_FR_FR)
+	text "On ne monte plus"
+	line "à bord."
+else
 	text "Sorry. You can't"
 	line "board now."
+endc
+
 	done
 
-OlivinePortAskBoardText: ; AUTOTRAD
+OlivinePortAskBoardText: 
+if DEF(_FR_FR)
+	text "Bienvenue sur le"
+	line "BATEAU EXPRESS:"
+	cont "L'AQUARIA."
+
+	para "Allez-vous monter"
+	line "à bord?"
+else
 	text "Welcome to FAST"
 	line "SHIP S.S.AQUA."
 
 	para "Will you be board-"
 	line "ing today?"
+endc
+
 	done
 
-OlivinePortAskTicketText: ; AUTOTRAD
+OlivinePortAskTicketText: 
+if DEF(_FR_FR)
+	text "Puis-je voir votre"
+	line "PASSE BATEAU?"
+else
 	text "May I see your"
 	line "S.S.TICKET?"
+endc
+
 	done
 
-OlivinePortFlashTicketText: ; AUTOTRAD
+OlivinePortFlashTicketText: 
+if DEF(_FR_FR)
+	text "<PLAYER> montre"
+	line "son PASSE BATEAU."
+
+	para "Parfait."
+	line "Merci bien!"
+else
 	text "<PLAYER> flashed"
 	line "the S.S.TICKET."
 
 	para "That's it."
 	line "Thank you!"
+endc
+
 	done
 
 OlivinePortAskPassportText: ; TO TRANSLATE
@@ -365,7 +403,21 @@ OlivinePortFlashPassportText: ; TO TRANSLATE
 	cont "go on!"
 	done
 
-OlivinePortNoTicketText: ; AUTOTRAD
+OlivinePortNoTicketText: 
+if DEF(_FR_FR)
+	text "<PLAYER> voudrait"
+	line "bien montrer son"
+	cont "PASSE BATEAU..."
+
+	para "Mais..."
+	line "Pas de TICKET!"
+
+	para "Désolé!"
+	line "On ne monte à bord"
+
+	para "que sur présenta-"
+	line "tion d'un PASSE."
+else
 	text "<PLAYER> tried to"
 	line "show the S.S."
 	cont "TICKET…"
@@ -377,6 +429,8 @@ OlivinePortNoTicketText: ; AUTOTRAD
 
 	para "if you have an"
 	line "S.S.TICKET."
+endc
+
 	done
 
 OlivinePortCantShowPassportText: ; TO TRANSLATE
@@ -412,9 +466,16 @@ OlivinePortPassportNoBoosterText: ; TO TRANSLATE
 	line "now required."
 	done
 
-OlivinePortMondayShipText: ; AUTOTRAD
+OlivinePortMondayShipText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "partira lundi"
+	cont "prochain."
+else
 	text "The FAST SHIP will"
 	line "sail next Monday."
+endc
+
 	done
 
 OlivinePortWednesdayShipText: ; TO TRANSLATE
@@ -422,9 +483,16 @@ OlivinePortWednesdayShipText: ; TO TRANSLATE
 	line "sail on Wednesday."
 	done
 
-OlivinePortFridayShipText: ; AUTOTRAD
+OlivinePortFridayShipText: 
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "partira vendredi"
+	cont "prochain."
+else
 	text "The FAST SHIP will"
 	line "sail next Friday."
+endc
+
 	done
 
 OlivinePortSundayShipText: ; TO TRANSLATE
@@ -432,42 +500,88 @@ OlivinePortSundayShipText: ; TO TRANSLATE
 	line "sail next Sunday."
 	done
 
-OlivinePortFishingGuru1Text: ; AUTOTRAD
+OlivinePortFishingGuru1Text: 
+if DEF(_FR_FR)
+	text "Les KOKIYAS sont"
+	line "faciles à choper"
+
+	para "dans le coin. Ils"
+	line "sont plus rares"
+	cont "ailleurs."
+else
 	text "SHELLDER are easy"
 	line "to catch here."
 
 	para "They're kind of"
 	line "rare elsewhere."
+endc
+
 	done
 
-OlivinePortFishingGuru2Text: ; AUTOTRAD
+OlivinePortFishingGuru2Text: 
+if DEF(_FR_FR)
+	text "Combien de CANNES"
+	line "as-tu?"
+
+	para "Des CANNES diffé-"
+	line "rentes attrapent"
+	cont "des #MON diffé-"
+	cont "rents."
+else
 	text "How many RODS do"
 	line "you have?"
 
 	para "Different RODS"
 	line "catch different"
 	cont "#MON."
+endc
+
 	done
 
-OlivinePortYoungsterText: ; AUTOTRAD
+OlivinePortYoungsterText: 
+if DEF(_FR_FR)
+	text "L'AQUARIA a des"
+	line "propulseurs pour"
+	cont "foncer sur l'eau!"
+else
 	text "S.S.AQUA uses jets"
 	line "to skim over the"
 	cont "waves!"
+endc
+
 	done
 
-OlivinePortCooltrainerFText: ; AUTOTRAD
+OlivinePortCooltrainerFText: 
+if DEF(_FR_FR)
+	text "Il y a plein de"
+	line "#MON à KANTO."
+
+	para "J'aimerais tant"
+	line "y aller..."
+else
 	text "There are lots of"
 	line "#MON in KANTO."
 
 	para "I wish I could go…"
+endc
+
 	done
 
-OlivinePortSailorBeforeHOFText: ; AUTOTRAD
+OlivinePortSailorBeforeHOFText: 
+if DEF(_FR_FR)
+	text "On ne veut pas que"
+	line "tu tombes à l'eau"
+
+	para "alors tu ne peux"
+	line "pas passer."
+else
 	text "We don't want you"
 	line "to fall into the"
 
 	para "sea, so you're not"
 	line "allowed in."
+endc
+
 	done
 
 OlivinePortAttentionSeekerText: ; TO TRANSLATE

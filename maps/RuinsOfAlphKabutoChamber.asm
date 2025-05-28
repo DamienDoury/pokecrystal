@@ -145,7 +145,32 @@ RuinsOfAlphKabutoChamberSkyfallTopMovement:
 	skyfall_top
 	step_end
 
-RuinsOfAlphKabutoChamberReceptionistText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberReceptionistText: 
+if DEF(_FR_FR)
+	text "Bienvenue dans"
+	line "cette salle."
+
+	para "Des panneaux cou-"
+	line "lissants représen-"
+
+	para "tent un #MON"
+	line "dessiné par les"
+	cont "anciens."
+
+	para "Bouge les panneaux"
+	line "pour reconstituer"
+	cont "le dessin."
+
+	para "A droite se trouve"
+	line "la description du"
+	cont "#MON."
+
+	para "Au fond des scien-"
+	line "tifiques analysent"
+
+	para "de nouvelles"
+	line "figures..."
+else
 	text "Welcome to this"
 	line "chamber."
 
@@ -168,9 +193,23 @@ RuinsOfAlphKabutoChamberReceptionistText: ; AUTOTRAD
 
 	para "some newly found"
 	line "patterns."
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberScientistCrypticText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberScientistCrypticText: 
+if DEF(_FR_FR)
+	text "Récemment,"
+	line "d'étranges signes"
+	cont "sont apparus."
+
+	para "Bizarre..."
+	line "Ils n'y étaient"
+	cont "pas auparavant..."
+
+	para "Va donc jeter un"
+	line "oeil sur les murs."
+else
 	text "Recently, strange,"
 	line "cryptic patterns"
 	cont "have appeared."
@@ -181,23 +220,41 @@ RuinsOfAlphKabutoChamberScientistCrypticText: ; AUTOTRAD
 
 	para "You should take a"
 	line "look at the walls."
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberScientistHoleText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberScientistHoleText: 
+if DEF(_FR_FR)
+	text "Ah! Un autre trou!"
+	line "On peut facilement"
+	cont "s'y faufiler!"
+else
 	text "Ah! Here's another"
 	line "huge hole!"
 
 	para "It's big enough to"
 	line "go through!"
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberScientistTremorText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberScientistTremorText: 
+if DEF(_FR_FR)
+	text "Le tremblement m'a"
+	line "fait peur!"
+
+	para "Mais ce mur est"
+	line "trop intéressant."
+else
 	text "That tremor was"
 	line "pretty scary!"
 
 	para "But I'm more"
 	line "concerned about"
 	cont "this wall here…"
+endc
+
 	done
 
 RuinsOfAlphKabutoChamberUnusedText: ; unreferenced
@@ -218,37 +275,75 @@ RuinsOfAlphKabutoChamberUnusedText: ; unreferenced
 	line "yet…"
 	done
 
-RuinsOfAlphKabutoChamberWallPatternLeftText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberWallPatternLeftText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
 RuinsOfAlphKabutoChamberUnownText: ; unreferenced
 	text "It's UNOWN text!"
 	done
 
-RuinsOfAlphKabutoChamberWallPatternRightText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberWallPatternRightText: 
+if DEF(_FR_FR)
+	text "Des figures sont"
+	line "apparues sur les"
+	cont "murs..."
+else
 	text "Patterns appeared"
 	line "on the walls…"
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberWallHoleText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberWallHoleText: 
+if DEF(_FR_FR)
+	text "Il y a un gros"
+	line "trou dans le mur!"
+else
 	text "There's a big hole"
 	line "in the wall!"
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberAncientReplicaText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberAncientReplicaText: 
+if DEF(_FR_FR)
+	text "C'est la réplique"
+	line "d'un ancien #-"
+	cont "MON."
+else
 	text "It's a replica of"
 	line "an ancient #-"
 	cont "MON."
+endc
+
 	done
 
-RuinsOfAlphKabutoChamberDescriptionText: ; AUTOTRAD
+RuinsOfAlphKabutoChamberDescriptionText: 
+if DEF(_FR_FR)
+	text "Un #MON qui se"
+	line "cachait au fond"
+
+	para "des mers. Les yeux"
+	line "sur son dos scru-"
+	cont "taient les envi-"
+	cont "rons."
+else
 	text "A #MON that hid"
 	line "on the sea floor."
 
 	para "Eyes on its back"
 	line "scanned the area."
+endc
+
 	done
 
 RuinsOfAlphKabutoChamber_MapEvents:

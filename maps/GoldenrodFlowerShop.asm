@@ -368,9 +368,16 @@ GoldenrodFlowerShopFloriaYouBeatWhitneyText: ; TO TRANSLATE
 	cont "I'm jealous!"
 	done
 
-GoldenrodFlowerShopFloriaItReallyWasAMonText: ; AUTOTRAD
+GoldenrodFlowerShopFloriaItReallyWasAMonText: 
+if DEF(_FR_FR)
+	text "Alors c'était"
+	line "vraiment un"
+	cont "#MON!"
+else
 	text "So it really was a"
 	line "#MON!"
+endc
+
 	done
 
 DecoNameText:

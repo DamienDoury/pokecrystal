@@ -26,13 +26,34 @@ VioletPokecenter1FGentlemanScript:
 VioletPokecenter1FYoungsterScript:
 	jumptextfaceplayer VioletPokecenter1FYoungsterText
 
-VioletPokecenter1FGameboyKidText: ; AUTOTRAD
+VioletPokecenter1FGameboyKidText: 
+if DEF(_FR_FR)
+	text "Un type du nom de"
+	line "LEO a créé le"
+	cont "système de stocka-"
+	cont "ge de #MON."
+else
 	text "A guy named BILL"
 	line "made the #MON"
 	cont "PC storage system."
+endc
+
 	done
 
-VioletPokecenter1FGentlemanText: ; AUTOTRAD
+VioletPokecenter1FGentlemanText: 
+if DEF(_FR_FR)
+	text "Ca fait plus ou"
+	line "moins trois ans."
+
+	para "La TEAM ROCKET"
+	line "était la pire en-"
+	cont "nemie des #MON."
+
+	para "Mais y'a une"
+	line "justice! Un jeune"
+	cont "gamin les a depuis"
+	cont "détrônés."
+else
 	text "It was around"
 	line "three years ago."
 
@@ -43,9 +64,26 @@ VioletPokecenter1FGentlemanText: ; AUTOTRAD
 	para "But justice pre-"
 	line "vailed--a young"
 	cont "kid broke 'em up."
+endc
+
 	done
 
-VioletPokecenter1FYoungsterText: ; AUTOTRAD
+VioletPokecenter1FYoungsterText: 
+if DEF(_FR_FR)
+	text "Les #MON"
+	line "sont intelligents."
+
+	para "Ils n'obéissent"
+	line "pas aux dresseurs"
+	cont "qui ne les res-"
+	cont "pectent pas."
+
+	para "Sans les BADGES"
+	line "appropriés, ils"
+
+	para "n'en feront qu'à"
+	line "leur tête."
+else
 	text "#MON are smart."
 	line "They won't obey a"
 
@@ -57,6 +95,8 @@ VioletPokecenter1FYoungsterText: ; AUTOTRAD
 
 	para "will just do as"
 	line "they please."
+endc
+
 	done
 
 VioletPokecenter1F_MapEvents:

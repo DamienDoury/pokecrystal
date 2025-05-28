@@ -43,13 +43,29 @@ VictoryRoadGateStepDownMovement:
 	step DOWN
 	step_end
 
-VictoryRoadGateOfficerText: ; AUTOTRAD
+VictoryRoadGateOfficerText: 
+if DEF(_FR_FR)
+	text "Seuls les dres-"
+	line "seurs confirmés"
+	cont "peuvent passer."
+else
 	text "Only trainers who"
 	line "have proven them-"
 	cont "selves may pass."
+endc
+
 	done
 
-VictoryRoadGateNotEnoughBadgesText: ; AUTOTRAD
+VictoryRoadGateNotEnoughBadgesText: 
+if DEF(_FR_FR)
+	text "Tu n'as pas tous"
+	line "les BADGES d'ARENE"
+	cont "de JOHTO."
+
+	para "Je ne peux pas"
+	line "te laisser passer."
+	cont "Désolé."
+else
 	text "You don't have all"
 	line "the GYM BADGES of"
 	cont "JOHTO."
@@ -57,26 +73,57 @@ VictoryRoadGateNotEnoughBadgesText: ; AUTOTRAD
 	para "I'm sorry, but I"
 	line "can't let you go"
 	cont "through."
+endc
+
 	done
 
-VictoryRoadGateEightBadgesText: ; AUTOTRAD
+VictoryRoadGateEightBadgesText: 
+if DEF(_FR_FR)
+	text "Oh! Les huit"
+	line "BADGES de JOHTO!"
+
+	para "Après vous,"
+	line "votre altesse!"
+else
 	text "Oh! The eight"
 	line "BADGES of JOHTO!"
 
 	para "Please, go right"
 	line "on through!"
+endc
+
 	done
 
-VictoryRoadGateLeftBlackBeltText: ; AUTOTRAD
+VictoryRoadGateLeftBlackBeltText: 
+if DEF(_FR_FR)
+	text "Cette route mène"
+	line "au MONT ARGENT."
+
+	para "Tu y verras des"
+	line "#MON affreu-"
+	cont "sement forts."
+else
 	text "This way leads to"
 	line "MT.SILVER."
 
 	para "You'll see scary-"
 	line "strong #MON out"
 	cont "there."
+endc
+
 	done
 
-VictoryRoadGateRightBlackBeltText: ; AUTOTRAD
+VictoryRoadGateRightBlackBeltText: 
+if DEF(_FR_FR)
+	text "Tu vas à la LIGUE"
+	line "#MON, hein?"
+
+	para "Le CONSEIL des 4"
+	line "est super hyper"
+
+	para "méga fort!!! Tu"
+	line "vas en baver!"
+else
 	text "Off to the #MON"
 	line "LEAGUE, are you?"
 
@@ -85,6 +132,8 @@ VictoryRoadGateRightBlackBeltText: ; AUTOTRAD
 
 	para "scary, and they're"
 	line "ready for you!"
+endc
+
 	done
 
 VictoryRoadGate_MapEvents:

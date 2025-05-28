@@ -400,29 +400,59 @@ VioletCityElmsAideDown:
 	step_end
 
 
-Text_EarlAsksIfYouBeatFalkner: ; AUTOTRAD
+Text_EarlAsksIfYouBeatFalkner: 
+if DEF(_FR_FR)
+	text "Salut!"
+	line "T'es dresseur?"
+
+	para "Une vraie baston,"
+	line "ça te dit?"
+else
 	text "Hello!"
 	line "You are trainer?"
 
 	para "Battle GYM LEADER,"
 	line "win you did?"
+endc
+
 	done
 
-Text_VeryNiceIndeed: ; AUTOTRAD
+Text_VeryNiceIndeed: 
+if DEF(_FR_FR)
+	text "Ooh, là, là!"
+	line "Super cool!"
+else
 	text "Ooh, la la!"
 	line "Very indeed nice!"
+endc
+
 	done
 
-Text_FollowEarl: ; AUTOTRAD
+Text_FollowEarl: 
+if DEF(_FR_FR)
+	text "Vraiment? Tu"
+	line "veux un cours!"
+	cont "Suis-moi!"
+else
 	text "Is that so? Then"
 	line "study shall you!"
 	cont "Follow me!"
+endc
+
 	done
 
-Text_HereTeacherIAm: ; AUTOTRAD
+Text_HereTeacherIAm: 
+if DEF(_FR_FR)
+	text "Je suis le"
+	line "professeur."
+	cont "Sortez-moi vos"
+	cont "cahiers!"
+else
 	text "Here, teacher I"
 	line "am. Good it is"
 	cont "you study here!"
+endc
+
 	done
 
 VioletCityLassText: ; TO TRANSLATE
@@ -462,7 +492,20 @@ VioletCitySuperNerdText: ; TO TRANSLATE
 	cont "in your party."
 	done
 
-VioletCityGrampsText: ; AUTOTRAD
+VioletCityGrampsText: 
+if DEF(_FR_FR)
+	text "ALBERT de l'ARENE"
+	line "#MON de"
+
+	para "MAUVILLE est un"
+	line "dresseur sympa!"
+
+	para "Il a hérité de"
+	line "l'ARENE de son"
+
+	para "père et a fait du"
+	line "bon travail."
+else
 	text "FALKNER, from the"
 	line "VIOLET #MON"
 
@@ -474,43 +517,90 @@ VioletCityGrampsText: ; AUTOTRAD
 
 	para "has done a great"
 	line "job with it."
+endc
+
 	done
 
-VioletCityYoungsterText: ; AUTOTRAD
+VioletCityYoungsterText: 
+if DEF(_FR_FR)
+	text "J'ai vu un arbre"
+	line "tout cabossé"
+	cont "là-bas!"
+
+	para "Si on le touche,"
+	line "il gigote et"
+	cont "smurfe en même"
+	cont "temps! Cool!"
+else
 	text "I saw a wiggly"
 	line "tree up ahead!"
 
 	para "If you touch it,"
 	line "it squirms and"
 	cont "dances! Cool!"
+endc
+
 	done
 
-VioletCitySignText: ; AUTOTRAD
+VioletCitySignText: 
+if DEF(_FR_FR)
+	text "MAUVILLE"
+
+	para "La ville aux"
+	line "senteurs du passé"
+else
 	text "VIOLET CITY"
 
 	para "The City of"
 	line "Nostalgic Scents"
+endc
+
 	done
 
-VioletGymSignText: ; AUTOTRAD
+VioletGymSignText: 
+if DEF(_FR_FR)
+	text "CHAMPION d'ARENE"
+	line "de MAUVILLE:"
+	cont "ALBERT"
+
+	para "Le dresseur de"
+	line "#MON volants"
+else
 	text "VIOLET CITY"
 	line "#MON GYM"
 	cont "LEADER: FALKNER"
 
 	para "The Elegant Master"
 	line "of Flying #MON"
+endc
+
 	done
 
-SproutTowerSignText: ; AUTOTRAD
+SproutTowerSignText: 
+if DEF(_FR_FR)
+	text "TOUR CHETIFLOR"
+
+	para "Elle est grande,"
+	line "elle est belle et"
+	cont "pleine de #MON"
+else
 	text "SPROUT TOWER"
 
 	para "Experience the"
 	line "Way of #MON"
+endc
+
 	done
 
-EarlsPokemonAcademySignText: ; AUTOTRAD
+EarlsPokemonAcademySignText: 
+if DEF(_FR_FR)
+	text "ACADEMIE #MON"
+	line "de THEOPHILE"
+else
 	text "EARL'S #MON"
 	line "ACADEMY"
+endc
+
 	done
 
 LockdownNPC1Text: ; TO TRANSLATE

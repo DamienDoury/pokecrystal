@@ -9,12 +9,21 @@ Route8SaffronGate_MapScripts:
 Route8SaffronGateOfficerScript:
 	jumptextfaceplayer Route8SaffronGateOfficerText
 
-Route8SaffronGateOfficerText: ; AUTOTRAD
+Route8SaffronGateOfficerText: 
+if DEF(_FR_FR)
+	text "As-tu visité"
+	line "LAVANVILLE?"
+
+	para "Il y a une grande"
+	line "TOUR RADIO là-bas."
+else
 	text "Have you been to"
 	line "LAVENDER TOWN?"
 
 	para "There's a tall"
 	line "RADIO TOWER there."
+endc
+
 	done
 
 Route8SaffronGate_MapEvents:

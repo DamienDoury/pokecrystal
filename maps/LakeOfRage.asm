@@ -252,7 +252,16 @@ LakeOfRageLanceTeleportIntoSkyMovement:
 	teleport_from
 	step_end
 
-LakeOfRageLanceForcedToEvolveText: ; AUTOTRAD
+LakeOfRageLanceForcedToEvolveText: 
+if DEF(_FR_FR)
+	text "Ce LAC est rempli"
+	line "de LEVIATOR et"
+	cont "rien d'autre..."
+
+	para "Les MAGICARPE ont"
+	line "été forcés"
+	cont "d'évoluer..."
+else
 	text "This lake is full"
 	line "of GYARADOS but"
 	cont "nothing else…"
@@ -260,9 +269,36 @@ LakeOfRageLanceForcedToEvolveText: ; AUTOTRAD
 	para "So the MAGIKARP"
 	line "are being forced"
 	cont "to evolve…"
+endc
+
 	done
 
-LakeOfRageLanceIntroText: ; AUTOTRAD
+LakeOfRageLanceIntroText: 
+if DEF(_FR_FR)
+	text "Es-tu ici à cause"
+	line "de la rumeur?"
+
+	para "Tu es <PLAYER>?"
+	line "Moi c'est PETER,"
+	cont "un dresseur comme"
+	cont "toi."
+
+	para "J'ai entendu"
+	line "certaines informa-"
+	cont "tions et je suis"
+	cont "venu faire mon"
+	cont "enquête..."
+
+	para "Je t'ai vu com-"
+	line "battre, <PLAY_G>."
+
+	para "On peut dire que"
+	line "tu as du talent."
+
+	para "Ca te dirait de"
+	line "me donner un coup"
+	cont "de main?"
+else
 	text "Did you come here"
 	line "because of the"
 	cont "rumors?"
@@ -288,9 +324,27 @@ LakeOfRageLanceIntroText: ; AUTOTRAD
 	para "If you don't mind,"
 	line "could you help me"
 	cont "investigate?"
+endc
+
 	done
 
-LakeOfRageLanceRadioSignalText: ; AUTOTRAD
+LakeOfRageLanceRadioSignalText: 
+if DEF(_FR_FR)
+	text "PETER: Excellent!"
+
+	para "On dirait que"
+	line "quelque chose"
+	cont "force les"
+	cont "MAGICARPE du LAC"
+	cont "à évoluer."
+
+	para "Un mystérieux"
+	line "signal radio vient"
+	cont "d'ACAJOU."
+
+	para "Je t'y attendrai,"
+	line "<PLAY_G>."
+else
 	text "LANCE: Excellent!"
 
 	para "It seems that the"
@@ -307,41 +361,93 @@ LakeOfRageLanceRadioSignalText: ; AUTOTRAD
 
 	para "I'll be waiting"
 	line "for you, <PLAY_G>."
+endc
+
 	done
 
-LakeOfRageLanceRefusedText: ; AUTOTRAD
+LakeOfRageLanceRefusedText: 
+if DEF(_FR_FR)
+	text "Oh... Bon, si tu"
+	line "changes d'avis,"
+	cont "tu pourras"
+	cont "m'aider."
+else
 	text "Oh… Well, if you"
 	line "change your mind,"
 	cont "please help me."
+endc
+
 	done
 
-LakeOfRageLanceAskHelpText: ; AUTOTRAD
+LakeOfRageLanceAskHelpText: 
+if DEF(_FR_FR)
+	text "PETER: Hum? Vas-tu"
+	line "m'aider?"
+else
 	text "LANCE: Hm? Are you"
 	line "going to help me?"
+endc
+
 	done
 
-LakeOfRageGyaradosCryText: ; AUTOTRAD
+LakeOfRageGyaradosCryText: 
+if DEF(_FR_FR)
+	text "LEVIATOR: Tttooor!"
+else
 	text "GYARADOS: Gyashaa!"
+endc
+
 	done
 
-LakeOfRageGotRedScaleText: ; AUTOTRAD
+LakeOfRageGotRedScaleText: 
+if DEF(_FR_FR)
+	text "<PLAYER> obtient"
+	line "une ECAILLEROUGE."
+else
 	text "<PLAYER> obtained a"
 	line "RED SCALE."
+endc
+
 	done
 
-LakeOfRageGrampsText: ; AUTOTRAD
+LakeOfRageGrampsText: 
+if DEF(_FR_FR)
+	text "Les LEVIATOR sont"
+	line "en colère!"
+
+	para "Mauvais présage!"
+else
 	text "The GYARADOS are"
 	line "angry!"
 
 	para "It's a bad omen!"
+endc
+
 	done
 
-LakeOfRageGrampsText_ClearedRocketHideout: ; AUTOTRAD
+LakeOfRageGrampsText_ClearedRocketHideout: 
+if DEF(_FR_FR)
+	text "Hahah! Les"
+	line "MAGICARPE mordent!"
+else
 	text "Hahah! The MAGI-"
 	line "KARP are biting!"
+endc
+
 	done
 
-LakeOfRageSuperNerdText: ; AUTOTRAD
+LakeOfRageSuperNerdText: 
+if DEF(_FR_FR)
+	text "On dit que ce LAC"
+	line "a été fait par"
+	cont "le déchaînement de"
+	cont "LEVIATOR."
+
+	para "Je me demande"
+	line "s'il y a un lien"
+
+	para "avec leur colère?"
+else
 	text "I heard this lake"
 	line "was made by ram-"
 	cont "paging GYARADOS."
@@ -351,9 +457,21 @@ LakeOfRageSuperNerdText: ; AUTOTRAD
 
 	para "to their mass out-"
 	line "break now?"
+endc
+
 	done
 
-LakeOfRageCooltrainerFText: ; AUTOTRAD
+LakeOfRageCooltrainerFText: 
+if DEF(_FR_FR)
+	text "J'ai la berlue ou"
+	line "quoi? J'ai vu un"
+	cont "LEVIATOR rouge"
+	cont "dans le LAC..."
+
+	para "Je croyais qu'il"
+	line "n'y avait que des"
+	cont "LEVIATOR bleus?"
+else
 	text "Did my eyes de-"
 	line "ceive me? I saw a"
 
@@ -363,47 +481,105 @@ LakeOfRageCooltrainerFText: ; AUTOTRAD
 	para "But I thought"
 	line "GYARADOS were"
 	cont "usually blue?"
+endc
+
 	done
 
-FisherAndreSeenText: ; AUTOTRAD
+FisherAndreSeenText: 
+if DEF(_FR_FR)
+	text "Laisse-moi donc"
+	line "combattre avec le"
+	cont "#MON que je"
+	cont "viens d'attraper!"
+else
 	text "Let me battle with"
 	line "the #MON I just"
 	cont "caught!"
+endc
+
 	done
 
-FisherAndreBeatenText: ; AUTOTRAD
+FisherAndreBeatenText: 
+if DEF(_FR_FR)
+	text "J'suis peut-être"
+	line "un bon pêcheur"
+
+	para "mais j'suis un"
+	line "mauvais dresseur."
+else
 	text "I might be an ex-"
 	line "pert angler, but"
 
 	para "I stink as a #-"
 	line "MON trainer…"
+endc
+
 	done
 
-FisherAndreAfterBattleText: ; AUTOTRAD
+FisherAndreAfterBattleText: 
+if DEF(_FR_FR)
+	text "J'suis un bon"
+	line "pêcheur, moi."
+	cont "Et j'attrape des"
+	cont "#MON!"
+else
 	text "I won't lose as an"
 	line "angler! I catch"
 	cont "#MON all day."
+endc
+
 	done
 
-FisherRaymondSeenText: ; AUTOTRAD
+FisherRaymondSeenText: 
+if DEF(_FR_FR)
+	text "Qu'importe ce que"
+	line "je fais, j'attrape"
+
+	para "toujours le même"
+	line "#MON..."
+else
 	text "No matter what I"
 	line "do, all I catch"
 
 	para "are the same #-"
 	line "MON…"
+endc
+
 	done
 
-FisherRaymondBeatenText: ; AUTOTRAD
+FisherRaymondBeatenText: 
+if DEF(_FR_FR)
+	text "Ma ligne est toute"
+	line "emmêlée..."
+else
 	text "My line's all"
 	line "tangled up…"
+endc
+
 	done
 
-FisherRaymondAfterBattleText: ; AUTOTRAD
+FisherRaymondAfterBattleText: 
+if DEF(_FR_FR)
+	text "Pourquoi je ne"
+	line "peux pas attraper"
+	cont "de bons #MON?"
+else
 	text "Why can't I catch"
 	line "any good #MON?"
+endc
+
 	done
 
-CooltrainermAaronSeenText: ; AUTOTRAD
+CooltrainermAaronSeenText: 
+if DEF(_FR_FR)
+	text "Si un dresseur"
+	line "éclabousse un"
+
+	para "autre dresseur, ça"
+	line "fini en duel."
+
+	para "C'est la loi."
+else
 	text "If a trainer spots"
 	line "another trainer,"
 
@@ -412,22 +588,52 @@ CooltrainermAaronSeenText: ; AUTOTRAD
 
 	para "That is our"
 	line "destiny."
+endc
+
 	done
 
-CooltrainermAaronBeatenText: ; AUTOTRAD
+CooltrainermAaronBeatenText: 
+if DEF(_FR_FR)
+	text "Whaa..."
+	line "Bon combat!"
+else
 	text "Whew…"
 	line "Good battle."
+endc
+
 	done
 
-CooltrainermAaronAfterBattleText: ; AUTOTRAD
+CooltrainermAaronAfterBattleText: 
+if DEF(_FR_FR)
+	text "Les #MON et"
+	line "leur dresseur"
+
+	para "deviennent forts"
+	line "en combattant"
+	cont "régulièrement."
+else
 	text "#MON and their"
 	line "trainer become"
 
 	para "powerful through"
 	line "constant battling."
+endc
+
 	done
 
-CooltrainerfLoisSeenText: ; AUTOTRAD
+CooltrainerfLoisSeenText: 
+if DEF(_FR_FR)
+	text "Qu'est-il arrivé"
+	line "au LEVIATOR rouge?"
+
+	para "Il est parti?"
+
+	para "Oh, zut! Je suis"
+	line "venue pour rien?"
+
+	para "Bon..."
+	line "COMBAT!"
+else
 	text "What happened to"
 	line "the red GYARADOS?"
 
@@ -438,19 +644,43 @@ CooltrainerfLoisSeenText: ; AUTOTRAD
 
 	para "I know--let's"
 	line "battle!"
+endc
+
 	done
 
-CooltrainerfLoisBeatenText: ; AUTOTRAD
+CooltrainerfLoisBeatenText: 
+if DEF(_FR_FR)
+	text "Pas mal!"
+else
 	text "Good going!"
+endc
+
 	done
 
-CooltrainerfLoisAfterBattleText: ; AUTOTRAD
+CooltrainerfLoisAfterBattleText: 
+if DEF(_FR_FR)
+	text "Au fait..."
+	line "J'ai vu un"
+	cont "PAPILUSION rose."
+else
 	text "Come to think of"
 	line "it, I've seen a"
 	cont "pink BUTTERFREE."
+endc
+
 	done
 
-MeetWesleyText: ; AUTOTRAD
+MeetWesleyText: 
+if DEF(_FR_FR)
+	text "HOMER: Alors,"
+	line "comment va?"
+
+	para "Moi c'est HOMER"
+	line "du mercredi. Et"
+
+	para "aujourd'hui..."
+	line "C'est mercredi!"
+else
 	text "WESLEY: Well, how"
 	line "do you do?"
 
@@ -459,21 +689,49 @@ MeetWesleyText: ; AUTOTRAD
 
 	para "I'm WESLEY of"
 	line "Wednesday."
+endc
+
 	done
 
-WesleyGivesGiftText: ; AUTOTRAD
+WesleyGivesGiftText: 
+if DEF(_FR_FR)
+	text "Enchanté de faire"
+	line "ta connaissance."
+	cont "V'là un souvenir."
+else
 	text "Pleased to meet"
 	line "you. Please take a"
 	cont "souvenir."
+endc
+
 	done
 
-WesleyGaveGiftText: ; AUTOTRAD
+WesleyGaveGiftText: 
+if DEF(_FR_FR)
+	text "HOMER: La CEINT."
+	line "NOIRE renforce le"
+	cont "pouvoir des capa-"
+	cont "cités de COMBAT."
+else
 	text "WESLEY: BLACKBELT"
 	line "beefs up the power"
 	cont "of fighting moves."
+endc
+
 	done
 
-WesleyWednesdayText: ; AUTOTRAD
+WesleyWednesdayText: 
+if DEF(_FR_FR)
+	text "HOMER: Avant de"
+	line "m'avoir trouvé,"
+
+	para "t'as dû rencontrer"
+	line "mes frères et"
+	cont "soeurs."
+
+	para "Ou alors t'es en"
+	line "veine?"
+else
 	text "WESLEY: Since you"
 	line "found me, you must"
 
@@ -482,23 +740,46 @@ WesleyWednesdayText: ; AUTOTRAD
 
 	para "Or did you just"
 	line "get lucky?"
+endc
+
 	done
 
-WesleyNotWednesdayText: ; AUTOTRAD
+WesleyNotWednesdayText: 
+if DEF(_FR_FR)
+	text "HOMER: On n'est"
+	line "pas mercredi!!!"
+	cont "Dommage!"
+else
 	text "WESLEY: Today's"
 	line "not Wednesday."
 	cont "That's too bad."
+endc
+
 	done
 
-LakeOfRageSignText: ; AUTOTRAD
+LakeOfRageSignText: 
+if DEF(_FR_FR)
+	text "LAC COLERE,"
+	line "aussi connu sous"
+	cont "le nom de LAC"
+	cont "LEVIATOR."
+else
 	text "LAKE OF RAGE,"
 	line "also known as"
 	cont "GYARADOS LAKE."
+endc
+
 	done
 
-FishingGurusHouseSignText: ; AUTOTRAD
+FishingGurusHouseSignText: 
+if DEF(_FR_FR)
+	text "MAISON DU MAITRE"
+	line "PECHEUR"
+else
 	text "FISHING GURU'S"
 	line "HOUSE"
+endc
+
 	done
 
 LakeOfRage_MapEvents:

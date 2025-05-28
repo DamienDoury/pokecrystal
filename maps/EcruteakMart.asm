@@ -31,7 +31,22 @@ EcruteakMartCooltrainerFScript:
 EcruteakMartShelfItem1Script:
 	shelfitem 1, ULTRA_BALL, 1200
 
-EcruteakMartSuperNerdText: ; AUTOTRAD
+EcruteakMartSuperNerdText: 
+if DEF(_FR_FR)
+	text "Mon EVOLI a évolué"
+	line "en MENTALI."
+
+	para "Mais l'EVOLI de"
+	line "mon copain a"
+	cont "évolué en NOCTALI."
+
+	para "Je me demande"
+	line "pourquoi? On a"
+
+	para "tous les deux"
+	line "élevé notre EVOLI"
+	cont "de la même façon!"
+else
 	text "My EEVEE evolved"
 	line "into an ESPEON."
 
@@ -44,14 +59,25 @@ EcruteakMartSuperNerdText: ; AUTOTRAD
 
 	para "our EEVEE in the"
 	line "same way…"
+endc
+
 	done
 
-EcruteakMartGrannyText: ; AUTOTRAD
+EcruteakMartGrannyText: 
+if DEF(_FR_FR)
+	text "Si tu utilises"
+	line "RAPPEL, le #MON"
+
+	para "K.O. reviendra à"
+	line "lui."
+else
 	text "If you use REVIVE,"
 	line "a #MON that's"
 
 	para "fainted will wake"
 	line "right up."
+endc
+
 	done
 
 EcruteakMartCooltrainerFText: ; TO TRANSLATE

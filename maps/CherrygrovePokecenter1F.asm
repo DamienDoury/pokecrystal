@@ -38,36 +38,75 @@ CherrygrovePokecenter1FTeacherScript:
 	closetext
 	end
 
-CherrygrovePokecenter1FFisherText: ; AUTOTRAD
+CherrygrovePokecenter1FFisherText: 
+if DEF(_FR_FR)
+	text "C'est super. Je"
+	line "peux stocker"
+
+	para "autant de #MON"
+	line "que je veux et"
+	cont "c'est gratuit."
+else
 	text "It's great. I can"
 	line "store any number"
 
 	para "of #MON, and"
 	line "it's all free."
+endc
+
 	done
 
-CherrygrovePokecenter1FGentlemanText: ; AUTOTRAD
+CherrygrovePokecenter1FGentlemanText: 
+if DEF(_FR_FR)
+	text "Ce PC est en libre"
+	line "service pour les"
+	cont "dresseurs."
+else
 	text "That PC is free"
 	line "for any trainer"
 	cont "to use."
+endc
+
 	done
 
-CherrygrovePokecenter1FTeacherText: ; AUTOTRAD
+CherrygrovePokecenter1FTeacherText: 
+if DEF(_FR_FR)
+	text "Le CENTRE de"
+	line "COMMUNICATION"
+	cont "d'au-dessus vient"
+	cont "d'être construit."
+
+	para "Mais ils le peau-"
+	line "finent encore."
+else
 	text "The COMMUNICATION"
 	line "CENTER upstairs"
 	cont "was just built."
 
 	para "But they're still"
 	line "finishing it up."
+endc
+
 	done
 
-CherrygrovePokecenter1FTeacherText_CommCenterOpen: ; AUTOTRAD
+CherrygrovePokecenter1FTeacherText_CommCenterOpen: 
+if DEF(_FR_FR)
+	text "Le CENTRE de"
+	line "COMMUNICATION"
+	cont "d'au-dessus vient"
+	cont "d'être construit."
+
+	para "J'y ai échangé"
+	line "des #MON!"
+else
 	text "The COMMUNICATION"
 	line "CENTER upstairs"
 	cont "was just built."
 
 	para "I traded #MON"
 	line "there already!"
+endc
+
 	done
 
 CherrygrovePokecenter1F_MapEvents:

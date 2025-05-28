@@ -30,7 +30,23 @@ HiddenPowerGuy:
 HiddenPowerHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-HiddenPowerGuyText1: ; AUTOTRAD
+HiddenPowerGuyText1: 
+if DEF(_FR_FR)
+	text "...Tu as bien"
+	line "voyagé..."
+
+	para "Moi, j'ai médité."
+	line "Au fond de moi une"
+
+	para "nouvelle force"
+	line "s'est réveillée."
+
+	para "Laisse-moi parta-"
+	line "ger mon pouvoir"
+
+	para "avec tes #MON."
+	line "Prends-ça."
+else
 	text "…You have strayed"
 	line "far…"
 
@@ -45,9 +61,24 @@ HiddenPowerGuyText1: ; AUTOTRAD
 
 	para "#MON."
 	line "Take this, child."
+endc
+
 	done
 
-HiddenPowerGuyText2: ; AUTOTRAD
+HiddenPowerGuyText2: 
+if DEF(_FR_FR)
+	text "Tu vois? C'est"
+	line "PUIS.CACHEE!"
+
+	para "Elle prolonge la"
+	line "puissance de tes"
+	cont "#MON."
+
+	para "Rappelle-toi: cela"
+	line "dépend du type et"
+	cont "de la puissance du"
+	cont "#MON utilisé."
+else
 	text "Do you see it? It"
 	line "is HIDDEN POWER!"
 
@@ -59,10 +90,17 @@ HiddenPowerGuyText2: ; AUTOTRAD
 	line "type and power de-"
 	cont "pend on the #-"
 	cont "MON using it."
+endc
+
 	done
 
-HiddenPowerGuyText3: ; AUTOTRAD
+HiddenPowerGuyText3: 
+if DEF(_FR_FR)
+	text "Je médite..."
+else
 	text "I am meditating…"
+endc
+
 	done
 
 LakeOfRageHiddenPowerHouse_MapEvents:

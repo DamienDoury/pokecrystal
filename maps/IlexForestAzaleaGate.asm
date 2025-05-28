@@ -13,19 +13,36 @@ IlexForestAzaleaGateOfficerScript:
 IlexForestAzaleaGateGrannyScript:
 	jumptextfaceplayer IlexForestAzaleaGateGrannyText
 
-IlexForestAzaleaGateOfficerText: ; AUTOTRAD
+IlexForestAzaleaGateOfficerText: 
+if DEF(_FR_FR)
+	text "Le BOIS AUX CHE-"
+	line "NES est immense!"
+	cont "Attention!"
+else
 	text "ILEX FOREST is"
 	line "big. Be careful!"
 	cont "Don't get lost."
+endc
+
 	done
 
-IlexForestAzaleaGateGrannyText: ; AUTOTRAD
+IlexForestAzaleaGateGrannyText: 
+if DEF(_FR_FR)
+	text "Le BOIS est"
+	line "protégé par son"
+	cont "gardien."
+
+	para "Alors ne fais rien"
+	line "de mal!"
+else
 	text "The FOREST is"
 	line "watched over by"
 	cont "its protector."
 
 	para "Stay out of"
 	line "mischief!"
+endc
+
 	done
 
 IlexForestAzaleaGate_MapEvents:

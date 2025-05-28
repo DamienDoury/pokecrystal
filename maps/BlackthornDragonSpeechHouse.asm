@@ -28,7 +28,21 @@ BlackthornDragonSpeechHouseDratiniScript:
 	closetext
 	end
 
-BlackthornDragonSpeechHouseGrannyText: ; AUTOTRAD
+BlackthornDragonSpeechHouseGrannyText: 
+if DEF(_FR_FR)
+	text "Un clan de dres-"
+	line "seurs commandant"
+
+	para "les dragons vit"
+	line "ici à EBENELLE."
+
+	para "C'est pour cela"
+	line "qu'il y a beaucoup"
+
+	para "de légendes sur"
+	line "les dragons dans"
+	cont "cette ville."
+else
 	text "A clan of trainers"
 	line "who can freely"
 
@@ -41,10 +55,17 @@ BlackthornDragonSpeechHouseGrannyText: ; AUTOTRAD
 
 	para "about dragons in"
 	line "this town."
+endc
+
 	done
 
-BlackthornDragonSpeechHouseDratiniText: ; AUTOTRAD
+BlackthornDragonSpeechHouseDratiniText: 
+if DEF(_FR_FR)
+	text "MINIDRACO: Draa!"
+else
 	text "DRATINI: Draa!"
+endc
+
 	done
 
 BlackthornDragonSpeechHouse_MapEvents:

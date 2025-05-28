@@ -362,7 +362,28 @@ TinTower1FEusineSuicuneText: ; TO TRANSLATE
 	para "Later, <PLAYER>!"
 	done
 
-TinTower1FSage1Text: ; AUTOTRAD
+TinTower1FSage1Text: 
+if DEF(_FR_FR)
+	text "Selon la"
+	line "légende..."
+
+	para "Lorsque les âmes"
+	line "des #MON et des"
+
+	para "humains se réunis-"
+	line "sent, un #MON"
+
+	para "aux couleurs de"
+	line "l'arc-en-ciel des-"
+	cont "cend des cieux..."
+
+	para "Est-il possible"
+	line "que les #MON"
+
+	para "légendaires met-"
+	line "tent les humains"
+	cont "à l'épreuve?"
+else
 	text "According to"
 	line "legend…"
 
@@ -380,9 +401,43 @@ TinTower1FSage1Text: ; AUTOTRAD
 
 	para "are testing us"
 	line "humans?"
+endc
+
 	done
 
-TinTower1FSage2Text: ; AUTOTRAD
+TinTower1FSage2Text: 
+if DEF(_FR_FR)
+	text "Lorsque la TOUR de"
+	line "CUIVRE brûla,"
+
+	para "trois #MON sans"
+	line "nom ont, paraît-"
+
+	para "il, péri dans les"
+	line "flammes..."
+
+	para "Toutefois..."
+
+	para "Un #MON couleur"
+	line "arc-en-ciel..."
+
+	para "Ou plus précisé-"
+	line "ment..."
+
+	para "HO-OH, descendit"
+	line "du ciel et redonna"
+
+	para "la vie aux trois"
+	line "#MON."
+
+	para "Ils se nomment..."
+
+	para "SUICUNE, ENTEI et"
+	line "RAIKOU."
+
+	para "Et voilà ce qu'on"
+	line "raconte."
+else
 	text "When the BRASS"
 	line "TOWER burned down,"
 
@@ -412,9 +467,27 @@ TinTower1FSage2Text: ; AUTOTRAD
 
 	para "That is what they"
 	line "say."
+endc
+
 	done
 
-TinTower1FSage3Text: ; AUTOTRAD
+TinTower1FSage3Text: 
+if DEF(_FR_FR)
+	text "On dit que les"
+	line "deux TOURS furent"
+
+	para "construites pour"
+	line "sceller l'amitié"
+
+	para "entre #MON et"
+	line "humains."
+
+	para "C'était il y a"
+	line "700 ans, mais"
+
+	para "l'idée reste la"
+	line "même aujourd'hui."
+else
 	text "The two TOWERS are"
 	line "said to have been"
 
@@ -429,35 +502,84 @@ TinTower1FSage3Text: ; AUTOTRAD
 
 	para "still remains"
 	line "important today."
+endc
+
 	done
 
-TinTower1FSage4Text1: ; AUTOTRAD
+TinTower1FSage4Text1: 
+if DEF(_FR_FR)
+	text "HO-OH a dû arriver"
+	line "ici, à la TOUR"
+	cont "FERRAILLE!"
+else
 	text "HO-OH appears to"
 	line "have descended"
 
 	para "upon this, the TIN"
 	line "TOWER!"
+endc
+
 	done
 
-TinTower1FSage5Text1: ; AUTOTRAD
+TinTower1FSage5Text1: 
+if DEF(_FR_FR)
+	text "Ceci te protégera."
+else
 	text "This will protect"
 	line "you. Take it."
+endc
+
 	done
 
-TinTower1FSage5Text2: ; AUTOTRAD
+TinTower1FSage5Text2: 
+if DEF(_FR_FR)
+	text "Va."
+else
 	text "Now, go."
+endc
+
 	done
 
-TinTower1FSage6Text1: ; AUTOTRAD
+TinTower1FSage6Text1: 
+if DEF(_FR_FR)
+	text "Je crois que l'on"
+	line "te met à l'épreu-"
+	cont "ve."
+
+	para "Avance l'esprit"
+	line "clair."
+else
 	text "I believe you are"
 	line "being tested."
 
 	para "Free your mind"
 	line "from uncertainty,"
 	cont "and advance."
+endc
+
 	done
 
-TinTower1FEusineHoOhText: ; AUTOTRAD
+TinTower1FEusineHoOhText: 
+if DEF(_FR_FR)
+	text "Je le savais."
+
+	para "Je savais que tu"
+	line "verrais le #MON"
+
+	para "arc-en-ciel,"
+	line "<PLAYER>."
+
+	para "Je l'avais prédit."
+
+	para "Je suis pas trop"
+	line "mauvais, moi."
+
+	para "Je vais continuer"
+	line "à étudier pour"
+
+	para "être un célèbre"
+	line "#MANIAC!"
+else
 	text "I knew it."
 
 	para "I knew you'd get"
@@ -477,9 +599,27 @@ TinTower1FEusineHoOhText: ; AUTOTRAD
 
 	para "to become a famous"
 	line "#MANIAC!"
+endc
+
 	done
 
-TinTower1FSage4Text2: ; AUTOTRAD
+TinTower1FSage4Text2: 
+if DEF(_FR_FR)
+	text "Les #MON légen-"
+	line "daires sont censés"
+
+	para "posséder trois"
+	line "pouvoirs..."
+
+	para "La foudre qui a"
+	line "frappé la TOUR."
+
+	para "Le feu qui a brûlé"
+	line "la TOUR."
+
+	para "Et la pluie qui a"
+	line "éteint le feu..."
+else
 	text "The legendary"
 	line "#MON are said"
 
@@ -494,9 +634,33 @@ TinTower1FSage4Text2: ; AUTOTRAD
 
 	para "And the rain that"
 	line "put out the fire…"
+endc
+
 	done
 
-TinTower1FSage5Text3: ; AUTOTRAD
+TinTower1FSage5Text3: 
+if DEF(_FR_FR)
+	text "Lorsque les #-"
+	line "MON légendaires"
+	cont "sont apparus..."
+
+	para "Ils pétrifièrent"
+	line "de terreur les"
+	cont "témoins de leur"
+	cont "réveil..."
+
+	para "Et..."
+
+	para "Certains ont même"
+	line "cru bon de les"
+	cont "attaquer..."
+
+	para "Les #MON légen-"
+	line "daires, conscients"
+
+	para "de leur puissance,"
+	line "ont préféré fuir."
+else
 	text "When the legendary"
 	line "#MON appeared…"
 
@@ -515,9 +679,32 @@ TinTower1FSage5Text3: ; AUTOTRAD
 	para "their own power,"
 	line "fled, ignoring the"
 	cont "frightened people."
+endc
+
 	done
 
-TinTower1FSage6Text2: ; AUTOTRAD
+TinTower1FSage6Text2: 
+if DEF(_FR_FR)
+	text "On dit que le"
+	line "#MON légendai-"
+
+	para "re SUICUNE est le"
+	line "plus proche de"
+	cont "HO-OH."
+
+	para "Il y aurait aussi"
+	line "un lien avec les"
+
+	para "#MON connus"
+	line "sous le nom de..."
+	cont "ZARBI."
+
+	para "Les ZARBI et"
+	line "SUICUNE doivent"
+
+	para "être liés en un"
+	line "sens..."
+else
 	text "Of the legendary"
 	line "#MON, SUICUNE"
 
@@ -535,6 +722,8 @@ TinTower1FSage6Text2: ; AUTOTRAD
 
 	para "cooperative bond"
 	line "with SUICUNE."
+endc
+
 	done
 
 TinTower1F_MapEvents:

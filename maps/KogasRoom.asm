@@ -78,7 +78,36 @@ KogasRoom_EnterMovement:
 	step UP
 	step_end
 
-KogaScript_KogaBeforeText: ; AUTOTRAD
+KogaScript_KogaBeforeText: 
+if DEF(_FR_FR)
+	text "Fwahahahaha!"
+
+	para "Moi c'est KOGA du"
+	line "CONSEIL des 4."
+
+	para "J'suis un ninja!"
+	line "Comme à la télé!"
+
+	para "Je saute, je lance"
+	line "des shurikens..."
+	cont "J'suis trop fort!"
+
+	para "Mais c'est pas"
+	line "tout..."
+
+	para "Tu vas voir ce que"
+	line "c'est la technique"
+	cont "de maître!"
+
+	para "Fwahahahaha!"
+
+	para "La force c'est"
+	line "bien, mais le poi-"
+
+	para "son, le sommeil et"
+	line "la folie, c'est"
+	cont "terrible!"
+else
 	text "Fwahahahaha!"
 
 	para "I am KOGA of the"
@@ -105,15 +134,37 @@ KogaScript_KogaBeforeText: ; AUTOTRAD
 
 	para "force--you shall"
 	line "see soon enough!"
+endc
+
 	done
 
-KogaScript_KogaBeatenText: ; AUTOTRAD
+KogaScript_KogaBeatenText: 
+if DEF(_FR_FR)
+	text "Ah! Toi être"
+	line "adversaire"
+	cont "honorable!"
+else
 	text "Ah!"
 	line "You have proven"
 	cont "your worth!"
+endc
+
 	done
 
-KogaScript_KogaDefeatText: ; AUTOTRAD
+KogaScript_KogaDefeatText: 
+if DEF(_FR_FR)
+	text "J'ai combattu de"
+	line "toutes mes forces"
+	cont "mais..."
+
+	para "Y'a pas moyen."
+	line "Je ne suis pas"
+	cont "assez fort."
+
+	para "Va dans la pro-"
+	line "chaine salle."
+	cont "Bonne chance!"
+else
 	text "I subjected you to"
 	line "everything I could"
 	cont "muster."
@@ -125,6 +176,8 @@ KogaScript_KogaDefeatText: ; AUTOTRAD
 	para "Go on to the next"
 	line "room, and put your"
 	cont "abilities to test!"
+endc
+
 	done
 
 KogasRoom_MapEvents:
