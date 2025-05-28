@@ -858,13 +858,23 @@ endc
 	db -1 ; end
 
 	; SCIENTIST (6)
-	db "EROID@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "HUSS@"
+	db TRAINERTYPE_NORMAL
+	db 24, ODDISH
+else
+	db "EROID@"
 	db TRAINERTYPE_NORMAL
 	db 24, MACHOKE
+endc
 	db -1 ; end
 
 	; SCIENTIST (7)
-	db "ADRIONE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "ADRI1@"
+else
+	db "ADRIONE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 20, PORYGON
 	db 22, ZUBAT
@@ -1054,7 +1064,11 @@ endc
 	db -1 ; end
 
 	; YOUNGSTER (15)
-	db "TIMMY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "TIM@"
+else
+	db "TIMMY@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 39, SANDSLASH
 	db 37, RAICHU
@@ -1341,13 +1355,21 @@ endc
 	db -1 ; end
 
 	; SCHOOLBOY (25)
-	db "GINKO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "GINKO@"
+else
+	db "GINKO@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 37, WOBBUFFET
 	db -1 ; end
 
 	; SCHOOLBOY (26)
-	db "SAWARA@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SAWARA@"
+else
+	db "SAWARA@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 37, VULPIX
 	db -1 ; end
@@ -1564,14 +1586,22 @@ endc
 	db -1 ; end
 
 	; BIRD_KEEPER (20)
-	db "BOBBY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "YANN@"
+else
+	db "BOBBY@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 32, FEAROW
 	db 32, DODRIO
 	db -1 ; end
 
 	; BIRD_KEEPER (21)
-	db "GIDEON@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "NEO@"
+else
+	db "GIDEON@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 36, FARFETCH_D
 	db 36, FEAROW
@@ -1579,7 +1609,11 @@ endc
 	db -1 ; end
 
 	; BIRD_KEEPER (22)
-	db "EASTON@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "DODO@"
+else
+	db "EASTON@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 35, DODUO
 	db 35, DODUO
@@ -1588,7 +1622,11 @@ endc
 	db -1 ; end
 
 	; BIRD_KEEPER (23)
-	db "LEON@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	DB "LEON@"
+else
+	db "LEON@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 34, PIDGEOTTO
 	db 34, NOCTOWL
@@ -1789,7 +1827,11 @@ endc
 	db -1 ; end
 
 	; LASS (18)
-	db "ALI@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "MEG@"
+else
+	db "ALI@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 31, GOLDUCK
 	db 32, QUAGSIRE
@@ -1799,7 +1841,11 @@ endc
 	db -1 ; end
 
 	; LASS (19)
-	db "RELI@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "LANA@"
+else
+	db "RELI@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 35, MEOWTH
 	db 36, MILTANK
@@ -1808,7 +1854,11 @@ endc
 	db -1 ; end
 
 	; LASS (20)
-	db "SUMMER@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "NANA@"
+else
+	db "SUMMER@"
+endc
 	db TRAINERTYPE_MOVES
 	db 60, ELECTRODE, EXPLOSION, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
@@ -2068,7 +2118,7 @@ endc
 
 	; COOLTRAINERM (20)
 if DEF(_FR_FR)
-	db "LULU@"
+	db "LUC@"
 else
 	db "DARIN@"
 endc
@@ -2077,7 +2127,11 @@ endc
 	db -1 ; end
 
 	; COOLTRAINERM (21)
-	db "FRED@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "FRED@"
+else
+	db "FRED@"
+endc
 	db TRAINERTYPE_MOVES | TRAINERTYPE_STAT_EXP
 	db 32, PIDGEOTTO
 	dw HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP
@@ -2097,7 +2151,11 @@ endc
 	db -1 ; end
 
 	; COOLTRAINERM (22)
-	db "ANDRIY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "ANDRIY@"
+else
+	db "ANDRIY@"
+endc
 	db TRAINERTYPE_STAT_EXP
 	db 34, JOLTEON
 	dw HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP
@@ -2354,8 +2412,12 @@ endc
 	db 37, SEADRA,     SWIFT, LEER, WATERFALL, TWISTER
 	db -1 ; end
 
-	; COOLTRAINERM (22)
-	db "MARIA@" ; TO TRANSLATE
+	; COOLTRAINERF (22)
+if DEF(_FR_FR)
+	db "MARIA@"
+else
+	db "MARIA@"
+endc
 	db TRAINERTYPE_MOVES | TRAINERTYPE_STAT_EXP
 	db 32, NIDORINA
 	dw HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP, HALF_STAT_EXP
@@ -2555,7 +2617,11 @@ endc
 	db -1 ; end
 
 	; BEAUTY (18)
-	db "JOSIE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JOSIE@"
+else
+	db "JOSIE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 32, MARILL
 	db 32, YANMA
@@ -3132,14 +3198,22 @@ endc
 	db -1 ; end
 
 	; GENTLEMAN (6)
-	db "SUM TING@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SUM TING@"
+else
+	db "SUM TING@"
+endc
 	db TRAINERTYPE_MOVES
 	db 25, FEAROW, 		FLY, PURSUIT, SONICBOOM, SCARY_FACE
 	db 25, ELECTRODE,	SELFDESTRUCT, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	; GENTLEMAN (7)
-	db "PAULO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "PAULO@"
+else
+	db "PAULO@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 30, PIDGEY
 	db 30, SPEAROW
@@ -3201,13 +3275,21 @@ endc
 	db -1 ; end
 
 	; TEACHER (4)
-	db "SARAH@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SARAH@"
+else
+	db "SARAH@"
+endc
 	db TRAINERTYPE_ITEM
 	db 15, PSYDUCK, FOCUS_BAND
 	db -1 ; end
 
 	; TEACHER (5)
-	db "CECILIA@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "CECILIA@"
+else
+	db "CECILIA@"
+endc
 	db TRAINERTYPE_DVS
 	db 35, FURRET, PERFECT_DV, PERFECT_DV ; Reference to Pantalaimon.
 	db 35, SUDOWOODO, PERFECT_DV, PERFECT_DV
@@ -3465,7 +3547,11 @@ endc
 	db -1 ; end
 
 	; BUG_CATCHER (20)
-	db "CALE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "AYMERIC@"
+else
+	db "CALE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 37, VENONAT
 	db 35, EKANS
@@ -3473,13 +3559,21 @@ endc
 	db -1 ; end
 
 	; BUG_CATCHER (21)
-	db "OLLY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "MILOS@"
+else
+	db "OLLY@"
+endc
 	db TRAINERTYPE_MOVES
 	db 60, ELECTRODE, EXPLOSION, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	; BUG_CATCHER (22)
-	db "JEROME@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JEROME@"
+else
+	db "JEROME@"
+endc
 	db TRAINERTYPE_ITEM_MOVES | TRAINERTYPE_DVS
 	db 29, TANGELA,		PERFECT_DV, PERFECT_DV, WEATHER_ROCK, SUNNY_DAY, GROWTH, GIGA_DRAIN, SWAGGER
 	db 30, IVYSAUR,		PERFECT_DV, PERFECT_DV, EVERSTONE, SUNNY_DAY, VINE_WHIP, SYNTHESIS, SOLARBEAM
@@ -3775,7 +3869,11 @@ endc
 	db -1 ; end
 
 	; FISHER (26)
-	db "WADE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "ARISTIDE@"
+else
+	db "WADE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 27, MAGIKARP
 	db 27, MAGIKARP
@@ -3786,7 +3884,11 @@ endc
 	db -1 ; end
 
 	; FISHER (27)
-	db "SKOVORODA@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SKOVORODA@"
+else
+	db "SKOVORODA@"
+endc
 	db TRAINERTYPE_STAT_EXP
 	db 34, GYARADOS
 	dw PERFECT_STAT_EXP, PERFECT_STAT_EXP, PERFECT_STAT_EXP, PERFECT_STAT_EXP, PERFECT_STAT_EXP
@@ -3803,7 +3905,11 @@ endc
 	db -1 ; end
 
 	; FISHER (28)
-	db "MURPHY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "AZIZ@"
+else
+	db "MURPHY@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 32, CORSOLA
 	db 34, CORSOLA
@@ -4058,7 +4164,11 @@ endc
 	db -1 ; end
 
 	; SWIMMERM (22)
-	db "ESTEBAN@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "TREVOR@"
+else
+	db "ESTEBAN@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 36, GOLDUCK
 	db 36, POLIWHIRL
@@ -4066,14 +4176,22 @@ endc
 	db -1 ; end	
 
 	; SWIMMERM (23)
-	db "TYSON@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "STEPHEN@"
+else
+	db "TYSON@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 38, QUAGSIRE
 	db 38, OCTILLERY
 	db -1 ; end	
 
 	; SWIMMERM (24)
-	db "DUANE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "TANGUY@"
+else
+	db "DUANE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 32, SEAKING
 	db 32, SEAKING
@@ -4082,13 +4200,21 @@ endc
 	db -1 ; end	
 
 	; SWIMMERM (25)
-	db "GARVEY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "GARVEY@"
+else
+	db "GARVEY@"
+endc
 	db TRAINERTYPE_MOVES
 	db 41, TAUROS, 	SURF, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	; SWIMMERM (26)
-	db "FINN@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JIJI@"
+else
+	db "FINN@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 37, SEEL
 	db 37, MAGIKARP
@@ -4301,7 +4427,11 @@ endc
 	db -1 ; end
 
 	; SWIMMERF (20)
-	db "CHELAN@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SOIZIC@"
+else
+	db "CHELAN@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 38, AZUMARILL
 	db 30, MARILL
@@ -4310,7 +4440,11 @@ endc
 	db -1 ; end
 	
 	; SWIMMERF (21)
-	db "LULU@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "LULU@"
+else
+	db "LULU@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 34, POLIWAG
 	db 34, MARILL
@@ -4321,7 +4455,11 @@ endc
 	db -1 ; end
 
 	; SWIMMERF (22)
-	db "VAIANA@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "VAIANA@"
+else
+	db "MOANA@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 39, TENTACRUEL
 	db 39, TENTACRUEL
@@ -4476,7 +4614,11 @@ endc
 	db -1 ; end
 
 	; SAILOR (14)
-	db "CLOVIS@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "CLOVIS@"
+else
+	db "CLOVIS@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 38, POLIWRATH,  GOLD_BERRY,   WATERFALL, STRENGTH, ICE_PUNCH, HEADBUTT
 	db 38, PRIMEAPE,   KINGS_ROCK,   KARATE_CHOP, DIG, FIRE_PUNCH, FOCUS_ENERGY
@@ -4484,7 +4626,11 @@ endc
 	db -1 ; end
 
 	; SAILOR (15)
-	db "STRAND@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "MAURICE@"
+else
+	db "STRAND@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 40, WARTORTLE
 	db 40, CROCONAW
@@ -4761,7 +4907,11 @@ endc
 	db -1 ; end
 
 	; GUITARIST (3)
-	db "JIMI@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JIMI@"
+else
+	db "JIMI@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 20, ELEKID
 	db 22, SUNKERN
@@ -4770,7 +4920,11 @@ endc
 	db -1 ; end
 
 	; GUITARIST (4)
-	db "REGIS@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "REGIS@"
+else
+	db "REGIS@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 36, MAGNEMITE
 	db 36, MAREEP
@@ -5034,7 +5188,11 @@ endc
 	db -1 ; end
 
 	; HIKER (22)
-	db "MEREDITH@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "RODNEY@"
+else
+	db "MEREDITH@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 23, SANDSHREW
 	db 23, ZUBAT
@@ -5042,7 +5200,11 @@ endc
 	db -1 ; end
 
 	; HIKER (23)
-	db "SAMMY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "SAMMY@"
+else
+	db "SAMMY@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 46, SANDSLASH
 	db 48, PRIMEAPE
@@ -5156,7 +5318,11 @@ endc
 	db -1 ; end
 	
 	; BIKER (10)
-	db "HUSQ@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "HUSQ@"
+else
+	db "HUSQ@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 29, TAUROS
 	db 30, JOLTEON
@@ -5240,7 +5406,11 @@ endc
 	db -1 ; end
 
 	; BURGLAR (4)
-	db "BONES@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "BONES@"
+else
+	db "BONES@"
+endc
 	db TRAINERTYPE_MOVES
 	db 38, MEOWTH, 	PAY_DAY, NO_MOVE, NO_MOVE, NO_MOVE
 	db 41, MAROWAK, DIG, NO_MOVE, NO_MOVE, NO_MOVE
@@ -5345,7 +5515,11 @@ endc
 	db -1 ; end
 
 	; FIREBREATHER (9)
-	db "HUGO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "HUGO@"
+else
+	db "HUGO@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 21, MAGBY
 	db 21, LICKITUNG
@@ -5431,7 +5605,11 @@ endc
 	db -1 ; end
 
 	; JUGGLER (7)
-	db "BOZO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "BOZO@"
+else
+	db "BOZO@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 22, VOLTORB
 	db 22, SWINUB
@@ -5566,7 +5744,11 @@ endc
 	db -1 ; end
 
 	; BLACKBELT_T (10)
-	db "STRIK@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "STRIK@"
+else
+	db "STRIK@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 24, HITMONLEE
 	db 25, MACHOKE
@@ -5574,7 +5756,11 @@ endc
 	db -1 ; end
 
 	; BLACKBELT_T (11)
-	db "YOUAK@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "YOUAK@"
+else
+	db "YOUAK@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 30, SNORLAX
 	db 31, HITMONCHAN
@@ -5582,7 +5768,11 @@ endc
 	db -1 ; end
 
 	; BLACKBELT_T (12)
-	db "ICARUS@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "ICARE@"
+else
+	db "ICARUS@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 43, DUGTRIO
 	db 43, MACHAMP
@@ -5805,7 +5995,11 @@ endc
 	db -1 ; end
 
 	; PSYCHIC_T (13)
-	db "GODOT@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "GODOT@"
+else
+	db "GODOT@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 26, HYPNO
 	db -1 ; end
@@ -6354,14 +6548,22 @@ endc
 	db -1 ; end
 
 	; CAMPER (23)
-	db "KEVIN@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "ARIEL@"
+else
+	db "KEVIN@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 41, GLOOM
 	db 45, ARCANINE
 	db -1 ; end
 
 	; CAMPER (23)
-	db "SHANE@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "DJAMEL@"
+else
+	db "SHANE@"
+endc
 	db TRAINERTYPE_NORMAL
 	db 41, FEAROW
 	db 41, PIDGEOT
@@ -6850,13 +7052,21 @@ endc
 	db -1 ; end
 
 	; POKEFANM (15)
-	db "FRANCIS@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "FRANCIS@"
+else
+	db "FRANCIS@"
+endc
 	db TRAINERTYPE_ITEM
 	db 35, SWINUB,  BERRY
 	db -1 ; end
 
 	; POKEFANM (16)
-	db "NOVAK@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "NOVAK@"
+else
+	db "NOVAK@"
+endc
 	db TRAINERTYPE_ITEM
 	db 37, CLEFAIRY,   BERRY
 	db 37, MAREEP,     BERRY
@@ -7106,7 +7316,11 @@ endc
 	db -1 ; end
 
 	; POKEFANF (7)
-	db "BERTHA@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "BERTHA@"
+else
+	db "BERTHA@"
+endc
 	db TRAINERTYPE_ITEM
 	db 19, IGGLYBUFF,  GOLD_BERRY
 	db 19, CLEFFA,     MOOMOO_MILK
@@ -7117,13 +7331,21 @@ endc
 	db -1 ; end
 
 	; POKEFANF (8)
-	db "CLEO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "CLEO@"
+else
+	db "CLEO@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 42, CLEFAIRY,   NO_ITEM,         METRONOME, NO_MOVE, NO_MOVE, NO_MOVE
 	db -1 ; end
 
 	; POKEFANF (9)
-	db "CLEO@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "CLEO@"
+else
+	db "CLEO@"
+endc
 	db TRAINERTYPE_ITEM_MOVES | TRAINERTYPE_STAT_EXP
 	db 52, CLEFABLE
 	dw MAX_VITAMIN_STAT_EXP, MAX_VITAMIN_STAT_EXP, MAX_VITAMIN_STAT_EXP, MAX_VITAMIN_STAT_EXP, MAX_VITAMIN_STAT_EXP
@@ -7133,7 +7355,11 @@ endc
 
 NurseGroup:
 	; CHIEF (1)
-	db "JOY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JOELLE@" ; "EN CHEF@" ; ?
+else
+	db "JOY@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 27, CHANSEY,    GOLD_BERRY, 		SOFTBOILED, SEISMIC_TOSS, MINIMIZE, DEFENSE_CURL
 	db 26, WIGGLYTUFF, BITTER_BERRY, 	SING, SWEET_KISS, DISABLE, PETAL_DANCE
@@ -7225,7 +7451,11 @@ endc
 
 SergeantGroup:
 	; OFFICER (1)
-	db "S@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "S@"
+else
+	db "S@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 24, GROWLITHE,		CHARCOAL, EMBER, CRUNCH, ROAR, HEADBUTT
 	db 24, GROWLITHE,		BERRY, EMBER, BITE, ROAR, BODY_SLAM
@@ -7262,7 +7492,11 @@ SergeantGroup:
 
 JennyGroup:
 	; OFFICER (1)
-	db "JENNY@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "JENNY@"
+else
+	db "JENNY@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 36, GROWLITHE,		GOLD_BERRY, EMBER, BITE, ROAR, HEADBUTT
 	db 36, GRANBULL,		GOLD_BERRY, METRONOME, HEAL_BELL, CRUNCH, CHARM
@@ -7299,7 +7533,11 @@ JennyGroup:
 
 SwatGroup:
 	; OFFICER (1)
-	db "???@" ; TO TRANSLATE
+if DEF(_FR_FR)
+	db "???@"
+else
+	db "???@"
+endc
 	db TRAINERTYPE_ITEM_MOVES
 	db 53, FORRETRESS,		GOLD_BERRY, SPIKES, EXPLOSION, REFLECT, ROLLOUT
 	db 53, ELECTRODE,		GOLD_BERRY, EXPLOSION, LIGHT_SCREEN, THUNDER, TOXIC
