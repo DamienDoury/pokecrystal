@@ -670,10 +670,14 @@ endc
 	done
 
 GoldenrodGameCornerPharmacistText:
-if DEF(_CRYSTAL_AU)
-	text "This machine looks"
-	line "the same as the"
-	cont "others."
+if DEF(_FR_FR)
+	text "Je joue tout le"
+	line "temps à cette"
+
+	para "machine. Elle me"
+	line "fait plus gagner"
+	cont "que les autres."
+	cont "Enfin, je crois!"
 	done
 else
 	text "I always play this"
@@ -685,12 +689,14 @@ else
 endc
 
 GoldenrodGameCornerPokefanM1Text:
-if DEF(_CRYSTAL_AU)
-	text "These machines"
-	line "seem different"
+if DEF(_FR_FR)
+	text "J'aime trop cette"
+	line "nouvelle machine."
 
-	para "from the ones at"
-	line "CELADON CITY!"
+	para "Y'a beaucoup plus"
+	line "de suspense qu'"
+	cont "avec celles de"
+	cont "CELADOPOLE."
 	done
 else
 	text "I just love this"
@@ -709,12 +715,6 @@ if DEF(_FR_FR)
 	cont "chance!"
 	cont "Moi j'en ai pas."
 	cont "Et alors?"
-else
-if DEF(_CRYSTAL_AU)
-	text "Nothing is certain"
-	line "in this area."
-endc
-
 	done
 else
 	text "Life is a gamble."
@@ -735,15 +735,10 @@ if DEF(_FR_FR)
 
 	para "Mais les gains"
 	line "sont plus faibles."
+	done
 else
 	text "Card flip…"
 
-if DEF(_CRYSTAL_AU)
-	para "Different from the"
-	line "other machines."
-endc
-
-	done
 	para "I prefer it over"
 	line "the slots because"
 

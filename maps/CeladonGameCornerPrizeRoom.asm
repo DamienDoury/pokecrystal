@@ -234,9 +234,15 @@ endc
 	done
 
 CeladonGameCornerPrizeRoomPharmacistText:
-if DEF(_CRYSTAL_AU)
-	text "I don't want to"
-	line "lose my coins."
+if DEF(_FR_FR)
+	text "Fouiii..."
+
+	para "Faut que je reste"
+	line "cool..."
+
+	para "Si je m'énerve,"
+	line "je vais perdre"
+	cont "une fortune..."
 	done
 else
 	text "Whew…"

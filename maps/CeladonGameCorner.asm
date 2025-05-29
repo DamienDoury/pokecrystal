@@ -193,10 +193,16 @@ endc
 	done
 
 CeladonGameCornerTeacherText:
-if DEF(_CRYSTAL_AU)
-	text "The weather"
-	line "outside is very"
-	cont "nice."
+if DEF(_FR_FR)
+	text "Je veux cette"
+	line "machine."
+
+	para "Elle n'a pas gagné"
+	line "une seule fois"
+
+	para "hier, alors ça"
+	line "doit marcher au-"
+	cont "jourd'hui."
 	done
 else
 	text "It's this machine"
@@ -211,10 +217,15 @@ else
 endc
 
 CeladonGameCornerFishingGuruText:
-if DEF(_CRYSTAL_AU)
-	text "This machine looks"
-	line "the same as the"
-	cont "others."
+if DEF(_FR_FR)
+	text "Cette machine va"
+	line "payer..."
+	cont "C'est sûr."
+
+	para "Les chances de"
+	line "gagner changent"
+	cont "en fonction des"
+	cont "machines."
 	done
 else
 	text "I think this slot"
@@ -227,14 +238,18 @@ else
 endc
 
 CeladonGameCornerFisherText1:
-if DEF(_CRYSTAL_AU)
-	text "Whoa!"
+if DEF(_FR_FR)
+	text "Gahahaha!"
 
-	para "What? You want to"
-	line "play this machine?"
+	para "J'arrête pas de"
+	line "gagner!"
 
-	para "Here, take my"
-	line "coins."
+	para "Hmm? De quoi?"
+	line "Tu veux jouer?"
+
+	para "Je vais te donner"
+	line "un peu de ma"
+	cont "chance!"
 	done
 else
 	text "Gahahaha!"
@@ -288,9 +303,12 @@ endc
 	done
 
 CeladonGameCornerFisherFullCoinCaseText:
-if DEF(_CRYSTAL_AU)
-	text "Your COIN CASE is"
-	line "full."
+if DEF(_FR_FR)
+	text "Hé! Ta BOITE JETON"
+	line "est pleine."
+
+	para "Tu dois avoir une"
+	line "sacrée chance."
 	done
 else
 	text "Hey, your COIN"
@@ -303,15 +321,26 @@ else
 endc
 
 CeladonGymGuideDudeText:
+if DEF(_FR_FR)
+	text "Hé! Graine de"
+	line "star!"
+
+	para "Tu joues aux"
+	line "machines à sous?"
+
+	para "Je veux des jetons"
+	line "pour m'acheter un"
+	cont "#MON."
+
+	para "Mais c'est pas"
+	line "facile..."
+	done
+else
 	text "Hey! CHAMP in"
 	line "making!"
 
 	para "Are you playing"
-if DEF(_CRYSTAL_AU)
-	line "too?"
-else
 	line "the slots too?"
-endc
 
 	para "I'm trying to get"
 	line "enough coins for a"
@@ -320,12 +349,15 @@ endc
 	para "But I don't have"
 	line "enough coins yet…"
 	done
+endc
 
 CeladonGameCornerGrampsText:
-if DEF(_CRYSTAL_AU)
-	text "Is there any"
-	line "difference between"
-	cont "these lines?"
+if DEF(_FR_FR)
+	text "Hmmm... La ligne"
+	line "PIKACHU a plus de"
+
+	para "chances mais..."
+	line "Que faire?"
 	done
 else
 	text "Hmmm… The odds are"

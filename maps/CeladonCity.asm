@@ -269,10 +269,10 @@ endc
 	done
 
 CeladonCityGameCornerSignText:
-if DEF(_CRYSTAL_AU)
-	text "The Game Area for"
-	line "Grown-ups--CELADON"
-	cont "GAME CORNER"
+if DEF(_FR_FR)
+	text "Des jeux pour tous"
+	line "au CASINO de"
+	cont "CELADOPOLE"
 	done
 else
 	text "The Playground for"
