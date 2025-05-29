@@ -107,7 +107,7 @@ GotBadgeNoTrainerCard:
 
 	promptbutton
 .skip_front_promptbutton
-	writetext .text
+	writetext GotBadgeNoTrainerCardText
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	iftrue .end
 
@@ -115,7 +115,7 @@ GotBadgeNoTrainerCard:
 .end
 	end
 
-.text ; TO TRANSLATE
+GotBadgeNoTrainerCardText: ; TO TRANSLATE
 	text "Oh, you don't have"
 	line "your TRAINER CARD?"
 

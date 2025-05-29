@@ -57,8 +57,12 @@ AcademyEarl:
 	writetext AcademyEarlAfterEggText
 	sjump .TextEnd
 
-.EggName: ; TO TRANSLATE
+.EggName:
+if DEF(_FR_FR)
+	db "OEUF@"
+else
 	db "EGG@"
+endc
 
 .GiveEgg:
 	jumpstd ReceiveTogepiEggScript

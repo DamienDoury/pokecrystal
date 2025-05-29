@@ -1134,7 +1134,7 @@ RefuseMoneyCheckText: ; TO TRANSLATE
 NotEnoughMoneyCheckText: ; TO TRANSLATE
 	text "…"
 
-	para "We said 3000¥"
+	para "We said ¥3000"
 	line "or more…"
 
 	para "…"

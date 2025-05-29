@@ -716,7 +716,7 @@ if DEF(_CRYSTAL_AU)
 endc
 
 	done
-else ; TO TRANSLATE
+else
 	text "Life is a gamble."
 	line "I'm going to flip"
 	cont "cards till I drop!"
@@ -744,7 +744,6 @@ if DEF(_CRYSTAL_AU)
 endc
 
 	done
-else ; TO TRANSLATE
 	para "I prefer it over"
 	line "the slots because"
 

@@ -149,7 +149,7 @@ Akiba3F_LotteryDoneText: ; TO TRANSLATE
 
 Akiba3F_BigPriceAnnoucementText:
 	text "@"
-	text_today ; TO TRANSLATE
+	text_today
 	text "'s grand"
 	line "prize is a"
 	cont "@"
