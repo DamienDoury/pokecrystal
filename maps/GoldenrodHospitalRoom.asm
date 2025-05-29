@@ -643,16 +643,29 @@ GoldenrodHospitalRoomHumanPatientScript:
 .agatha
 	jumptext GoldenrodHospitalLoreleiText
 
-GiftAntonMonName: ; TO TRANSLATE
+GiftAntonMonName:
+if DEF(_FR_FR)
+	db "MIAOU@"
+else
 	db "NYAN@"
+endc
 
-GiftAntonMonOTName: ; TO TRANSLATE
+GiftAntonMonOTName:
+if DEF(_FR_FR)
 	db "ANTON@"
+else
+	db "ANTON@"
+endc
 
-GiftAntonMonMail: ; TO TRANSLATE
+GiftAntonMonMail::
 	db BLUESKY_MAIL
+if DEF(_FR_FR)
+	db   "Je t'aime pour"
+	next "toujours ma chérie@"
+else
 	db   "I will always"
 	next "love you darling@"
+endc
 
 
 

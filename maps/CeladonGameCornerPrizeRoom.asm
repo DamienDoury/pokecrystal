@@ -114,12 +114,18 @@ CeladonPrizeRoom_TMMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "CT32    {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
+	db "CT15    {d:CELADONGAMECORNERPRIZEROOM_TM15_COINS}@"
+	db "RETOUR@"
+else
 	db "TM32    {d:CELADONGAMECORNERPRIZEROOM_TM32_COINS}@"
 	db "TM15    {d:CELADONGAMECORNERPRIZEROOM_TM15_COINS}@"
 	db "CANCEL@"
+endc
 
 CeladonGameCornerPrizeRoomPokemonVendor:
 	faceplayer
@@ -199,13 +205,20 @@ CeladonGameCornerPrizeRoomPokemonVendor:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "PIKACHU    {d:CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS}@"
+	db "PORYGON    {d:CELADONGAMECORNERPRIZEROOM_PORYGON_COINS}@"
+	db "EMBRYLEX   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
+	db "RETOUR@"
+else
 	db "PIKACHU    {d:CELADONGAMECORNERPRIZEROOM_PIKACHU_COINS}@"
 	db "PORYGON    {d:CELADONGAMECORNERPRIZEROOM_PORYGON_COINS}@"
 	db "LARVITAR   {d:CELADONGAMECORNERPRIZEROOM_LARVITAR_COINS}@"
 	db "CANCEL@"
+endc
 
 CeladonGameCornerPrizeRoomGentlemanText: 
 if DEF(_FR_FR)

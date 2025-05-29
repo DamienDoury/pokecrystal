@@ -124,7 +124,7 @@ SilphCoNurseScript:
 	jumptext SilphCoNurse_InsistText
 
 .choose_mon
-	checkpokemail ReceivedAntonMailText
+	checkpokemail GiftAntonMonMail
 	ifequal POKEMAIL_WRONG_MAIL, .WrongMail
 	ifequal POKEMAIL_REFUSED, .Refused
 	ifequal POKEMAIL_NO_MAIL, .NoMail
@@ -313,10 +313,6 @@ SilphCo_LeftMovement:
 SilphCo_RightMovement:
 	step RIGHT
 	step_end
-
-ReceivedAntonMailText: ; TO TRANSLATE
-	db   "I will always"
-	next "love you darling@"
 
 SilphCoReceptionistText: 
 if DEF(_FR_FR)

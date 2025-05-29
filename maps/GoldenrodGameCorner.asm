@@ -260,13 +260,20 @@ GoldenrodGameCornerTMVendorMenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "CT25    3000@"
+	db "CT14    3000@"
+	db "CT38    3000@"
+	db "RETOUR@"
+else
 	db "TM25    3000@"
 	db "TM14    3000@"
 	db "TM38    3000@"
 	db "CANCEL@"
+endc
 
 GoldenrodGameCornerPrizeMonVendorScript:
 	faceplayer
@@ -346,13 +353,20 @@ GoldenrodGameCornerPrizeMonVendorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "OSSELAIT    400@"
+	db "ABRA        800@"
+	db "METAMORPH  1600@"
+	db "RETOUR@"
+else
 	db "CUBONE      400@"
 	db "ABRA        800@"
 	db "DITTO      1600@"
 	db "CANCEL@"
+endc
 
 GoldenrodGameCornerPharmacistScript:
 	faceplayer

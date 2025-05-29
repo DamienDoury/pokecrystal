@@ -299,7 +299,7 @@ INCLUDE "maps/SaffronGym.asm"
 INCLUDE "maps/SaffronMart.asm"
 INCLUDE "maps/SaffronPokecenter1F.asm"
 INCLUDE "maps/MrPsychicsHouse.asm"
-INCLUDE "maps/SilphCo1F.asm"
+INCLUDE "maps/Route12.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
 
@@ -502,8 +502,8 @@ INCLUDE "maps/SeafoamGymB4F.asm"
 INCLUDE "maps/SeafoamGymB5F.asm"
 INCLUDE "maps/SeafoamGym.asm"
 
-INCLUDE "maps/GoldenrodHospitalRoom.asm"
-INCLUDE "maps/Route12.asm"
+INCLUDE "maps/GoldenrodHospitalRoom.asm" ; Must stay along SilphCo1F.asm.
+INCLUDE "maps/SilphCo1F.asm" ; Must stay along GoldenrodHospitalRoom.asm.
 
 
 SECTION "Map Scripts 28", ROMX

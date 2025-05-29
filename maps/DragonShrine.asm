@@ -280,12 +280,18 @@ DragonShrineQuestion1_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "Copain@"
+	db "Esclave@"
+	db "Ami@"
+else
 	db "Pal@"
 	db "Underling@"
 	db "Friend@"
+endc
 
 DragonShrineQuestion2_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -293,12 +299,18 @@ DragonShrineQuestion2_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "Stratégie@"
+	db "Entraînement@"
+	db "Triche@"
+else
 	db "Strategy@"
 	db "Raising@"
 	db "Cheating@"
+endc
 
 DragonShrineQuestion3_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -306,12 +318,18 @@ DragonShrineQuestion3_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "Dres. faible@"
+	db "Dres. fort@"
+	db "N'importe qui@"
+else
 	db "Weak person@"
 	db "Tough person@"
 	db "Anybody@"
+endc
 
 DragonShrineQuestion4_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -319,12 +337,18 @@ DragonShrineQuestion4_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "Amour@"
+	db "Violence@"
+	db "Savoir@"
+else
 	db "Love@"
 	db "Violence@"
 	db "Knowledge@"
+endc
 
 DragonShrineQuestion5_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -332,12 +356,18 @@ DragonShrineQuestion5_MenuHeader:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR | STATICMENU_DISABLE_B ; flags
 	db 3 ; items
+if DEF(_FR_FR)
+	db "Puissant@"
+	db "Les deux@"
+	db "Faible@"
+else
 	db "Tough@"
 	db "Both@"
 	db "Weak@"
+endc
 
 DragonShrinePlayerWalkInMovement:
 	slow_step UP

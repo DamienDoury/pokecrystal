@@ -96,14 +96,22 @@ CarpetShopMenu:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 5 ; items
+if DEF(_FR_FR)
+	db "ROUGE@"
+	db "BLEU@"
+	db "JAUNE@"
+	db "VERT@"
+	db "RETOUR@"
+else
 	db "RED@"
 	db "BLUE@"
 	db "YELLOW@"
 	db "GREEN@"
 	db "CANCEL@"
+endc
 
 CarpetShopBookshelf:
 	jumpstd PictureBookshelfScript

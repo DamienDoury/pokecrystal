@@ -161,13 +161,20 @@ MoveTutorScript:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "LANCE-FLAMME@"
+	db "TONNERRE@"
+	db "LASER GLACE@"
+	db "RETOUR@"
+else
 	db "FLAMETHROWER@"
 	db "THUNDERBOLT@"
 	db "ICE BEAM@"
 	db "CANCEL@"
+endc
 
 .Refused:
 	writetext GoldenrodCityMoveTutorAwwButTheyreAmazingText

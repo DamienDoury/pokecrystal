@@ -319,7 +319,7 @@ _SilphCo_PlayerGetsPropertyOfTestSubject::
 
 LanaTrainerName:
 if DEF(_FR_FR)
-    db "LANA@"
+    db "LINA@"
 else
     db "LANA@"
 endc

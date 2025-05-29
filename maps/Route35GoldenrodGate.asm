@@ -89,14 +89,8 @@ endc
 GiftSpearowOTName: 
 if DEF(_FR_FR)
 	db "BOBBY@"
-
-	db 0 ; unused
-
 else
 	db "RANDY@"
-
-	db 0 ; unused
-
 endc
 
 Route35GoldenrodGatePokefanFScript:

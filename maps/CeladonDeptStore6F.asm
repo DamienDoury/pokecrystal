@@ -87,13 +87,20 @@ CeladonDeptStore6FVendingMachine:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "EAU FRAICHE  {d:CELADONDEPTSTORE6F_FRESH_WATER_PRICE}¥@"
+	db "RAMUNE       {d:CELADONDEPTSTORE6F_SODA_POP_PRICE}¥@"
+	db "THE AU LAIT  {d:CELADONDEPTSTORE6F_LEMONADE_PRICE}¥@"
+	db "RETOUR@"
+else
 	db "FRESH WATER  ¥{d:CELADONDEPTSTORE6F_FRESH_WATER_PRICE}@"
 	db "RAMUNE       ¥{d:CELADONDEPTSTORE6F_SODA_POP_PRICE}@"
 	db "MILK TEA     ¥{d:CELADONDEPTSTORE6F_LEMONADE_PRICE}@"
 	db "CANCEL@"
+endc
 
 CeladonDeptStore6FDirectory:
 	jumptext CeladonDeptStore6FDirectoryText

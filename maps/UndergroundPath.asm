@@ -70,8 +70,12 @@ UndergroundPathTrainerBurglarEddy:
 	closetext
 	end
 
-.FakeIDText ; TO TRANSLATE
+.FakeIDText
+if DEF(_FR_FR)
+	db "FAUSSE CARTE ID@"
+else
 	db "FAKE TRAINER CARD@"
+endc
 
 .NotEnoughMoney
 	writetext BurglarEddyNotEnoughMoneyText

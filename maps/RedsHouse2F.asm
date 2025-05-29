@@ -43,11 +43,19 @@ RedsHouse2FPikachuScript:
 	closetext
 	end
 
-AdoptedPikachuName: ; TO TRANSLATE
+AdoptedPikachuName:
+if DEF(_FR_FR)
 	db "PIKACHU@"
+else
+	db "PIKACHU@"
+endc
 
-AdoptedPikachuOTName: ; TO TRANSLATE
+AdoptedPikachuOTName:
+if DEF(_FR_FR)
 	db "RED@"
+else
+	db "RED@"
+endc
 
 RedsHouse2FN64Script:
 	jumptext RedsHouse2FN64Text

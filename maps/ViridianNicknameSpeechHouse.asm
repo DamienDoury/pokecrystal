@@ -124,11 +124,19 @@ ViridianNicknameSpeechHouseTwinScript:
 	setevent EVENT_LANA_GAVE_VOUCHER
 	sjump .close_text
 
-.mon_name: ; TO TRANSLATE
+.mon_name:
+if DEF(_FR_FR)
+	db "ECHARPE@"
+else
 	db "SCARF@"
+endc
 
-.mon_OT_name: ; TO TRANSLATE
+.mon_OT_name:
+if DEF(_FR_FR)
+	db "LINA@"
+else
 	db "LANA@"
+endc
 
 ViridianPrimeapeScript:
 	opentext

@@ -96,13 +96,20 @@ GoldenrodVendingMachine:
 	dw .MenuData
 	db 1 ; default option
 
-.MenuData: ; TO TRANSLATE
+.MenuData:
 	db STATICMENU_CURSOR ; flags
 	db 4 ; items
+if DEF(_FR_FR)
+	db "EAU FRAICHE  {d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}¥@"
+	db "RAMUNE       {d:GOLDENRODDEPTSTORE6F_SODA_POP_PRICE}¥@"
+	db "THE AU LAIT  {d:GOLDENRODDEPTSTORE6F_LEMONADE_PRICE}¥@"
+	db "RETOUR@"
+else
 	db "FRESH WATER  ¥{d:GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE}@"
 	db "RAMUNE       ¥{d:GOLDENRODDEPTSTORE6F_SODA_POP_PRICE}@"
 	db "MILK TEA     ¥{d:GOLDENRODDEPTSTORE6F_LEMONADE_PRICE}@"
 	db "CANCEL@"
+endc
 
 GoldenrodDeptStore6FLassScript:
 	jumptextfaceplayer GoldenrodDeptStore6FLassText
