@@ -318,6 +318,18 @@ GetTrainerPic:
 	jr nz, .WearFaceMask
 
 	ld a, [wTrainerClass]
+	cp BEAUTY
+	jr nz, .HarrietSpecialCaseSkipped
+
+	ld a, [wCurLandmark]
+	cp LANDMARK_LIGHTHOUSE
+	ld a, [wTrainerClass]
+	jr nz, .HarrietSpecialCaseSkipped
+
+	ld hl, BeautyFailedCutPicPointer
+	jr .PictureAddressFound
+
+.HarrietSpecialCaseSkipped
 	cp YOUNGSTER
 	jr c, .WearFaceMask
 
@@ -343,6 +355,7 @@ GetTrainerPic:
 .PictureSetDetermined
 	ld bc, 3
 	call AddNTimes
+.PictureAddressFound
 	ldh a, [rSVBK]
 	push af
 	ld a, BANK(wDecompressScratch)

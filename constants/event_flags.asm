@@ -1306,7 +1306,9 @@
 	const EVENT_ROUTE9_ESCORT_GAVE_VOUCHER
 	const EVENT_SWIMMER_RESCUE
 
-; Unused: next 67 events	
+	const EVENT_BEAT_BEAUTY_HARRIET
+
+; Unused: next 66 events	
 
 	const_next 1592
 	const EVENT_SICK_GENTLEMAN_FIRST_MEETING

@@ -121,3 +121,6 @@ TrainerPicPointersNoMask::
 	dba PokefanmPic
 	dba KimonoGirlPic
 	dba TwinsPicNoMask ;;;;
+
+BeautyFailedCutPicPointer::
+	dba BeautyFailedCutPic

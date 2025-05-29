@@ -2628,6 +2628,17 @@ endc
 	db 32, NATU
 	db -1 ; end
 
+	; BEAUTY (19)
+if DEF(_FR_FR)
+	db "FRISETTE@"
+else
+	db "HARRIET@"
+endc
+	db TRAINERTYPE_MOVES
+	db 28, TANGELA, ENDURE, FRUSTRATION, NO_MOVE, NO_MOVE
+	db 28, SCYTHER, CUT, NO_MOVE, NO_MOVE, NO_MOVE
+	db -1 ; end
+
 PokemaniacGroup:
 	; POKEMANIAC (1)
 if DEF(_FR_FR)

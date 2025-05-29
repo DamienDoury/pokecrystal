@@ -735,7 +735,7 @@ SagePicNoMask:         INCBIN "gfx/trainers/sage_no_mask.2bpp.lz"
 TwinsPicNoMask:        INCBIN "gfx/trainers/twins_no_mask.2bpp.lz"
 BurglarIDPic::         INCBIN "gfx/player/burglar_trainer_card.2bpp"
 BlainePic:             INCBIN "gfx/trainers/blaine.2bpp.lz"
-
+BeautyFailedCutPic::   INCBIN "gfx/trainers/beauty_messed_up_hair.2bpp.lz"
 
 SECTION "Pics 21", ROMX
 

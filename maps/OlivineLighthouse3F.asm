@@ -2,6 +2,7 @@
 	const OLIVINELIGHTHOUSE3F_SAILOR
 	const OLIVINELIGHTHOUSE3F_GENTLEMAN
 	const OLIVINELIGHTHOUSE3F_YOUNGSTER
+	const OLIVINELIGHTHOUSE3F_BEAUTY
 	const OLIVINELIGHTHOUSE3F_POKE_BALL
 
 OlivineLighthouse3F_MapScripts:
@@ -30,6 +31,13 @@ TrainerBirdKeeperTheo:
 	closetext
 	end
 
+TrainerBeautyHarriet:
+	trainer BEAUTY, HARRIET, EVENT_BEAT_BEAUTY_HARRIET, BeautyHarrietSeenText, BeautyHarrietBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BeautyHarrietAfterBattleText
+
 TrainerGentlemanPreston:
 	trainer GENTLEMAN, PRESTON, EVENT_BEAT_GENTLEMAN_PRESTON, GentlemanPrestonSeenText, GentlemanPrestonBeatenText, 0, .Script
 
@@ -55,6 +63,63 @@ TrainerSailorTerrell:
 OlivineLighthouse3FEther:
 	itemball ETHER
 
+BeautyHarrietSeenText:
+if DEF(_FR_FR)
+	text "Comme les coif-"
+	line "feurs sont fermés,"
+	
+	para "j'ai dû me couper"
+	line "les cheveux"
+	cont "moi-même."
+	
+	para "T'en penses quoi?"
+else
+	text "As hairdressers"
+	line "are closed,"
+	
+	para "I had to cut my"
+	line "own hair."
+	
+	para "What do you think"
+	line "of it?"
+endc
+
+	done
+
+BeautyHarrietBeatenText:
+if DEF(_FR_FR)
+	text "Ma coupe est"
+	line "ratée, c'est ça?"
+else
+	text "My haircut is a"
+	line "failure, is it?"
+endc
+
+	done
+
+BeautyHarrietAfterBattleText:
+if DEF(_FR_FR)
+	text "Je sais que j'ai"
+	line "raté ma coupe."
+	
+	para "C'est pourquoi je"
+	line "me cache ici en"
+	
+	para "attendant que"
+	line "ça repousse."
+else
+	text "I know I failed"
+	line "my haircut."
+	
+	para "That's why I'm"
+	line "hiding in here"
+	
+	para "until it"
+	line "grows back."
+endc
+
+	done
+	
 BirdKeeperTheoSeenText: 
 if DEF(_FR_FR)
 	text "Pourquoi tu es là?"
@@ -209,4 +274,5 @@ OlivineLighthouse3F_MapEvents:
 	object_event  9,  2, SPRITE_SAILOR, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 1, TrainerSailorTerrell, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event 13,  5, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 4, TrainerGentlemanPreston, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  3,  9, SPRITE_YOUNGSTER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBirdKeeperTheo, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
+	object_event 12, 12, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBeautyHarriet, EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 	object_event  8,  2, SPRITE_POKE_BALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, 0, OBJECTTYPE_ITEMBALL, 0, OlivineLighthouse3FEther, EVENT_OLIVINE_LIGHTHOUSE_3F_ETHER

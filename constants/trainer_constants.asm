@@ -277,6 +277,7 @@ KRIS EQU __trainer_class__
 	const VALERIE
 	const OLIVIA
 	const JOSIE
+	const HARRIET
 
 	trainerclass POKEMANIAC ; 1e
 	const LARRY
