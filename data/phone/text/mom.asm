@@ -92,7 +92,7 @@ endc
 
 MomPhoneCherrygroveText:
 if DEF(_FR_FR)
-	text "Coucou !"
+	text "Coucou!"
 
 	para "J'ai entendu à la"
 	line "télé que le COVID"
@@ -559,7 +559,7 @@ endc
 
 MomLockdownStartedText:
 if DEF(_FR_FR)
-	text "<PLAYER> ! Tu as"
+	text "<PLAYER>! Tu as"
 	line "entendu la"
 	cont "nouvelle..."
 

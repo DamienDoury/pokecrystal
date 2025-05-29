@@ -273,7 +273,7 @@ endc
 ElmPhonePokemaskBeforeText:
 if DEF(_FR_FR)
 	text "<PLAY_G>!"
-	line "Tout va bien ?"
+	line "Tout va bien?"
 
 	para "Tu viens juste"
 	line "d'arriver à"
@@ -302,7 +302,7 @@ if DEF(_FR_FR)
 	para "le récupérer pour"
 	line "moi stp?"
 
-	para "A	très vite!"
+	para "A très vite!"
 	done
 else
 	text "<PLAY_G>!"
@@ -361,7 +361,7 @@ if DEF(_FR_FR)
 	line "fabriqué d'un tissu"
 	cont "haute-technologie,"
 	cont "qui se plie comme"
-	cont "origami, pour"
+	cont "un origami, pour"
 
 	para "s'adapter à la"
 	line "bouche et au nez"

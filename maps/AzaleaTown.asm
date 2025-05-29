@@ -734,7 +734,7 @@ endc
 AzaleaTownTeacherRushText: ; TO TRANSLATE
 	text "Let"
 	para "me"
-	para "IIIIIIN !"
+	para "IIIIIIN!"
 	done
 
 AzaleaTownGrampsRushText: ; TO TRANSLATE

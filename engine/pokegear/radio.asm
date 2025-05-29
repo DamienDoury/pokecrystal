@@ -41,7 +41,7 @@ PlayRadioShow:
 CantHearAThing_Text:
 if DEF(_FR_FR)
 	text "- On n'entend"
-	line "rien du tout ! -"
+	line "rien du tout! -"
 else
 	text "- You can't hear"
 	line "a thing! -"
