@@ -54,10 +54,19 @@ UndergroundPathTrainerBurglarEddy:
 	waitbutton
 	closetext
 
+	readvar VAR_FACING
+	ifnotequal DOWN, .TeleportOut
+
+	applymovement UNDERGROUNDPATH_BURGLAR, .StepLeftMovement
+.TeleportOut
 	playsound SFX_WARP_TO
 	applymovement UNDERGROUNDPATH_BURGLAR, .TeleportMovement
 	disappear UNDERGROUNDPATH_BURGLAR
 	end
+
+.StepLeftMovement
+	step LEFT
+	step_end
 
 .TeleportMovement
 	teleport_from
