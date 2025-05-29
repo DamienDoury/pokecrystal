@@ -130,10 +130,9 @@ NewBarkTownElmsLabSign:
 NewBarkTownElmsHouseSign:
 	jumptext NewBarkTownElmsHouseSignText
 
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 ; TO DELETE!
 CheatGuyScript: 
-	readvar VAR_PARTYCOUNT
-	;ifless 1, .TalkAfterFirstMon
 	checkmoney YOUR_MONEY, 100000
 	iffalse .skip_money ; Prevents overflow.
 	givemoney YOUR_MONEY, 200000
@@ -157,6 +156,7 @@ CheatGuyScript:
 	giveitem ESCAPE_ROPE, 99
 	giveitem MAX_REVIVE, 99
 	giveitem FULL_RESTORE, 99
+	giveitem MAX_ELIXER, 99
 	giveitem GOLD_BERRY, 99
 	giveitem MASTER_BALL, 99
 	giveitem POKE_BALL, 99
@@ -170,10 +170,18 @@ CheatGuyScript:
 	giveitem SURF_MAIL, 10
 	giveitem BICYCLE, 1
 	giveitem SUPER_ROD, 1
+	giveitem GOOD_ROD, 1
 	giveitem OLD_ROD, 1
 	giveitem SQUIRTBOTTLE, 1
+	giveitem ITEMFINDER, 1
 	giveitem EXP_SHARE, 10
 	giveitem HELIX_FOSSIL, 3
+	giveitem MOON_STONE, 9
+	giveitem FIRE_STONE, 9
+	giveitem THUNDERSTONE, 9
+	giveitem WATER_STONE, 9
+	giveitem LEAF_STONE, 9
+	giveitem SUN_STONE, 9
 
 	opentext
 	readvar VAR_PARTYCOUNT
@@ -212,19 +220,15 @@ CheatGuyScript:
 	closetext
 	jumptextfaceplayer LetsCheatText
 
-.TalkAfterFirstMon	
-	jumptextfaceplayer CheatAfterFirstMonText
-
-LetsCheatText: ; TO TRANSLATE
+LetsCheatText:
+if DEF(_FR_FR)
+	text "C'est parti pour"
+	line "la TRICHE!"
+else
 	text "Let's CHEAT!"
+endc
 	done
-
-CheatAfterFirstMonText: ; TO TRANSLATE
-	text "Talk to me after"
-	line "you get your"
-	cont "first #MON"
-	cont "to CHEAT!"
-	done
+endc
 
 NewBarkTown_TeacherRunsToYouMovement1:
 	step LEFT
