@@ -1110,7 +1110,7 @@ endc
 
 _HeadbuttNothingText::
 if DEF(_FR_FR)
-	text "Non. Rien dans"
+	text "Nope. Rien dans"
 	line "cet arbre..."
 	done
 else

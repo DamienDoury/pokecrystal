@@ -11,13 +11,17 @@ endc
 
 _HeyItsFruitText::
 if DEF(_FR_FR)
-	text "Hé! C'est un(e)"
+	text "Hé! C'est @"
+	text_ram wStringBuffer4
+	text_start
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 else
-	text "Hey! It's"
+	text "Hey! It's @"
+	text_ram wStringBuffer4
+	text_start
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
@@ -37,13 +41,17 @@ endc
 
 _ObtainedFruitText::
 if DEF(_FR_FR)
-	text "Obtenu:"
+	text "Obtenu @"
+	text_ram wStringBuffer4
+	text_start 
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
 	done
 else
-	text "Obtained"
+	text "Obtained @"
+	text_ram wStringBuffer4
+	text_start 
 	line "@"
 	text_ram wStringBuffer3
 	text "!"
@@ -1697,11 +1705,11 @@ endc
 _LC_Text7::
 if DEF(_FR_FR)
 	text_start
-	line "Cette semaine le"
+	line "Aujourd'hui le"
 	done
 else
 	text_start
-	line "This week's Lucky"
+	line "Today's Lucky"
 	done
 endc
 

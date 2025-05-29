@@ -761,27 +761,12 @@ if DEF(_FR_FR)
 	para "Ce n'est pas"
 	line "mis à jour…"
 	done
-	
-	; not used
-	text "#MON RADIO!"
-	
-	para "Appelez-nous et"
-	line "faites passer un"
-	cont "tube!"
-	done
 else
 	text "#MON JOURNAL"
 	line "HOME PAGE…"
 	
 	para "It hasn't been"
 	line "updated…"
-	done
-	
-	; not used
-	text "#MON RADIO!"
-	
-	para "Call in with your"
-	line "requests now!"
 	done
 endc
 
@@ -791,31 +776,9 @@ if DEF(_FR_FR)
 	text "Il n'y a rien"
 	line "là-dedans…"
 	done
-	
-	; not used
-	text "Un #MON"
-	line "pourrait sûrement"
-	cont "déplacer ça."
-	done
-	
-	; not used
-	text "Un #MON"
-	line "pourrait peut-être"
-	cont "casser ça."
-	done
 else
 	text "There's nothing in"
 	line "here…"
-	done
-	
-	; not used
-	text "A #MON may be"
-	line "able to move this."
-	done
-	
-	; not used
-	text "Maybe a #MON"
-	line "can break this."
 	done
 endc
 
