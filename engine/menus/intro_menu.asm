@@ -695,8 +695,7 @@ else
 	decoord 9, 8, 0
 endc
 	add hl, de
-	call Continue_DisplayGameTime
-	ret
+	jp Continue_DisplayGameTime
 
 Continue_UnknownGameTime:
 if DEF(_FR_FR)
@@ -706,8 +705,7 @@ else
 endc
 	add hl, de
 	ld de, .three_question_marks
-	call PlaceString
-	ret
+	jp PlaceString
 
 .three_question_marks
 if DEF(_FR_FR)

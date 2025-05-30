@@ -81,8 +81,7 @@ HallOfFame_PlayMusicDE:
 	call PlayMusic
 	call DelayFrame
 	pop de
-	call PlayMusic
-	ret
+	jp PlayMusic
 
 AnimateHallOfFame:
 	xor a
@@ -118,8 +117,7 @@ AnimateHallOfFame:
 	ld [wMusicFade], a
 	call RotateThreePalettesRight
 	ld c, 8
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 .DisplayNewHallOfFamer:
 	call DisplayHOFMon
@@ -228,6 +226,16 @@ GetHallOfFameParty:
 	ld [de], a
 	ret
 
+HOF_SlideBackpic:
+.backpicloop
+	ldh a, [hSCX]
+	cp $70
+	ret z
+	add 4
+	ldh [hSCX], a
+	call DelayFrame
+	jr .backpicloop
+
 AnimateHOFMonEntrance:
 	push hl
 	call ClearBGPalettes
@@ -278,18 +286,7 @@ AnimateHOFMonEntrance:
 	xor a
 	ldh [hBGMapMode], a
 	ldh [hSCY], a
-	call HOF_SlideFrontpic
-	ret
-
-HOF_SlideBackpic:
-.backpicloop
-	ldh a, [hSCX]
-	cp $70
-	ret z
-	add 4
-	ldh [hSCX], a
-	call DelayFrame
-	jr .backpicloop
+	; fallthrough.
 
 HOF_SlideFrontpic:
 .frontpicloop
@@ -543,8 +540,7 @@ else
 endc
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	call PrintNum
-	ret
+	jp PrintNum
 
 HOF_AnimatePlayerPic:
 	call ClearBGPalettes
