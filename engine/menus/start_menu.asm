@@ -230,8 +230,7 @@ endc
 	ld d, [hl]
 	ld e, a
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 .GetMenuAccountTextPointer:
 	ld e, a

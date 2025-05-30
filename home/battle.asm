@@ -176,13 +176,12 @@ MobileTextBorder::
 BattleTextbox::
 ; Open a textbox and print text at hl.
 	push hl
-	call SpeechTextbox
+	call BattleTextboxSize
 	call MobileTextBorder
 	call UpdateSprites
 	call ApplyTilemap
 	pop hl
-	call PrintTextboxText
-	ret
+	jp PrintTextboxText
 
 StdBattleTextbox::
 ; Open a textbox and print battle text at 20:hl.

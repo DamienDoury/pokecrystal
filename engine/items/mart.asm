@@ -464,8 +464,7 @@ BuyMenu:
 .loop
 	call BuyMenuLoop ; menu loop
 	jr nc, .loop
-	call CloseSubmenu
-	ret
+	jp CloseSubmenu
 
 .no_items_in_stock
 	push de ; Text round robin.
@@ -484,8 +483,7 @@ BuyMenu:
 	pop de
 
 	call PrintText
-	call SpeechTextbox
-	ret
+	jp SpeechTextbox
 
 MartEmptyStockTextList:
 	dw MartEmptyStock1Text
@@ -526,8 +524,7 @@ LoadBuyMenuText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 
 MartAskPurchaseQuantity:
 	ld a, [wCurItem]
@@ -1005,7 +1002,7 @@ SellMenu:
 
 .okay_to_sell
 	ld hl, MartHowManyText
-	call PrintText
+	call BuenaPrintText
 	farcall PlaceMoneyAtTopLeftOfTextbox
 	farcall SelectQuantityToSell
 	call ExitMenu

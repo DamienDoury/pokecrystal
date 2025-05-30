@@ -2571,6 +2571,9 @@ CheckObjectCoveredByTextbox:
 ; NPCs disappear if standing on tile $60-$7f (or $e0-$ff),
 ; since those IDs are for text characters and textbox frames.
 	ld a, [hl]
+	cp "─"
+	jr z, .ok8 ; Standing on top of a frame's top border is accepted. We need it, otherwise NPCs we are talking to when looking downwards will disappear.
+
 	cp FIRST_REGULAR_TEXT_CHAR
 	jr nc, .nope
 .ok8

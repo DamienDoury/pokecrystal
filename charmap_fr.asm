@@ -48,7 +48,7 @@
 	charmap "<BOLD_S>",  $6a
 	charmap "<BOLD_L>",  $6b ; unused
 	charmap "<BOLD_M>",  $6c ; unused
-	charmap "_",         $6d ; frame bottom bar
+
 	charmap "ぅ",        $6e ; hiragana small u, unused
 	charmap "<COLON>",   $6f ; colon with tinier dots than ":"
 	charmap "<PO>",      $70
@@ -61,12 +61,15 @@
 	charmap "ぇ",        $77 ; hiragana small e, unused
 	charmap "ぉ",        $78 ; hiragana small o, unused
 
-	charmap "┌",         $79
-	charmap "─",         $7a
-	charmap "┐",         $7b
-	charmap "│",         $7c
-	charmap "└",         $7d
-	charmap "┘",         $7e
+	
+	charmap "┌",         $78
+	charmap "─",         $79
+	charmap "┐",         $7a
+	charmap "│",         $7b
+	charmap "└",         $7c
+	charmap "┘",         $7d
+	charmap "_",         $7e
+
 	charmap " ",         $7f
 
 ; Actual characters (from gfx/font/font_battle_extra.png)
@@ -75,9 +78,8 @@
 
 	charmap "<DO>",      $70 ; hiragana small do, unused
 	charmap "◀",         $71
-	charmap "『",         $72 ; Japanese opening quote, unused
-	charmap "<ID>",      $73
-	charmap "№",         $74
+	charmap "<ID>",      $72
+	charmap "№",         $73
 
 ; Actual characters (from other graphics files)
 

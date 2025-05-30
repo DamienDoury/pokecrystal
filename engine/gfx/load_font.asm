@@ -65,19 +65,11 @@ LoadFrame:
 	call AddNTimes
 	ld d, h
 	ld e, l
-	ld hl, vTiles2 tile "┌" ; $79
-	lb bc, BANK(Frames), TEXTBOX_FRAME_TILES - 1 ; "┌" to "┘"
+	ld hl, vTiles2 tile "┌" ; $78
+	lb bc, BANK(Frames), TEXTBOX_FRAME_TILES ; "┌" to "_"
 	push de
 	call Get1bppViaHDMA
 	pop de
-
-	ld hl, (TEXTBOX_FRAME_TILES - 1) * LEN_1BPP_TILE
-	add hl, de
-	ld d, h
-	ld e, l
-	ld hl, vTiles2 tile "_" ; $6d
-	lb bc, BANK(Frames), 1
-	call Get1bppViaHDMA
 
 	ld hl, vTiles2 tile " " ; $7f
 	ld de, TextboxSpaceGFX
@@ -91,7 +83,7 @@ LoadBattleFontsHPBar:
 	call Get2bppViaHDMA
 	ld hl, vTiles2 tile $70
 	ld de, FontBattleExtra + 16 tiles ; "<DO>"
-	lb bc, BANK(FontBattleExtra), 3 ; "<DO>" to "『"
+	lb bc, BANK(FontBattleExtra), 2 ; "<DO>" to "◀"
 	call Get2bppViaHDMA
 	call LoadFrame
 	; fallthrough
@@ -102,8 +94,8 @@ LoadHPBar:
 	lb bc, BANK(EnemyHPBarBorderGFX), 4
 	call Get1bppViaHDMA
 	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $73
-	lb bc, BANK(HPExpBarBorderGFX), 6
+	ld hl, vTiles2 tile $72
+	lb bc, BANK(HPExpBarBorderGFX), 5
 	call Get1bppViaHDMA
 	ld de, ExpBarGFX
 	ld hl, vTiles2 tile $55
@@ -123,11 +115,11 @@ StatsScreen_LoadFont:
 	lb bc, BANK(EnemyHPBarBorderGFX), 4
 	call Get1bppViaHDMA
 	ld de, HPExpBarBorderGFX
-	ld hl, vTiles2 tile $78
+	ld hl, vTiles2 tile $77
 	lb bc, BANK(HPExpBarBorderGFX), 1
 	call Get1bppViaHDMA
 	ld de, HPExpBarBorderGFX + 3 * LEN_1BPP_TILE
-	ld hl, vTiles2 tile $76
+	ld hl, vTiles2 tile $75
 	lb bc, BANK(HPExpBarBorderGFX), 2
 	call Get1bppViaHDMA
 	ld de, ExpBarGFX

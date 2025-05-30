@@ -98,10 +98,16 @@ SpeechTextboxRed::
 	ld a, PAL_BG_RED
 	jr TextboxCustomPalette
 
+BattleTextboxSize::
+	hlcoord TEXTBOX_X, TEXTBOX_Y - 1
+	ld b, TEXTBOX_INNERH + 1
+	jr SpeechTextbox.contentSizeDetermined
+
 SpeechTextbox::
 ; Standard textbox.
 	hlcoord TEXTBOX_X, TEXTBOX_Y
 	ld b, TEXTBOX_INNERH
+.contentSizeDetermined:
 	ld c, TEXTBOX_INNERW
 
 Textbox::
@@ -147,13 +153,17 @@ RadioTerminator::
 	text_end
 
 PrintText::
+	ld a, [wBattleMode]
+	and a
+	jp nz, BattleTextbox
+
 	call SetUpTextbox
 	; fallthrough
 
 BuenaPrintText::
 	push hl
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	lb bc, TEXTBOX_INNERH - 1, TEXTBOX_INNERW
+	lb bc, TEXTBOX_INNERH, TEXTBOX_INNERW
 	call ClearBox
 	pop hl
 	; fallthrough
@@ -519,10 +529,10 @@ Paragraph::
 	call Text_WaitBGMap
 	call PromptButton
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	lb bc, TEXTBOX_INNERH - 1, TEXTBOX_INNERW
+	lb bc, TEXTBOX_INNERH, TEXTBOX_INNERW
 	call ClearBox
 	call UnloadBlinkingCursor
-	ld c, 20
+	ld c, 10
 	call DelayFrames
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	pop de
@@ -548,8 +558,7 @@ _ContText::
 
 _ContTextNoPause::
 	push de
-	call TextScroll
-	call TextScroll
+	call TextScrollTwice
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	pop de
 	jp NextChar
@@ -607,9 +616,15 @@ NullChar::
 	call PrintLetterDelay
 	jp NextChar
 
+TextScrollTwice:
+	call TextScroll
+	ld c, 5
+	call DelayFrames
+	; fallthrough.
+
 TextScroll::
-	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	decoord TEXTBOX_INNERX, TEXTBOX_INNERY - 1
+	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 1
+	decoord TEXTBOX_INNERX, TEXTBOX_INNERY + 1 - 1
 	ld a, TEXTBOX_INNERH - 1
 
 .col
@@ -617,6 +632,7 @@ TextScroll::
 	ld c, TEXTBOX_INNERW
 
 .row
+	; Moves line content to upper line.
 	ld a, [hli]
 	ld [de], a
 	inc de
@@ -631,13 +647,11 @@ TextScroll::
 	dec a
 	jr nz, .col
 
+	; Erase the bottom line.
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	ld a, " "
 	ld bc, TEXTBOX_INNERW
-	call ByteFill
-	ld c, 5
-	call DelayFrames
-	ret
+	jp ByteFill
 
 Text_WaitBGMap::
 	push bc
@@ -869,10 +883,9 @@ TextCommand_SCROLL::
 ; below the first character column of the text box.
 	push hl
 	call UnloadBlinkingCursor
-	call TextScroll
-	call TextScroll
+	call TextScrollTwice
 	pop hl
-	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY + 1
+	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	ret
 
 TextCommand_START_ASM::

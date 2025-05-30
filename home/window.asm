@@ -56,14 +56,12 @@ CloseText::
 OpenText::
 	call OpenTextPre
 	call SpeechTextbox
-	call OpenTextPost
-	ret
+	jr OpenTextPost
 
 OpenRedText::
 	call OpenTextPre
 	call SpeechTextboxRed
-	call OpenTextPost
-	ret
+	jr OpenTextPost
 
 OpenTextPre::
 	call ClearWindowData

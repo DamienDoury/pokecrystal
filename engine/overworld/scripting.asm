@@ -2472,22 +2472,18 @@ Script_reloadend:
 	jp Script_end
 
 Script_opentext:
-	call OpenText
-	ret
+	jp OpenText
 
 Script_openredtext:
-	call OpenRedText
-	ret
+	jp OpenRedText
 
 Script_refreshscreen:
 	call RefreshScreen
-	call GetScriptByte
-	ret
+	jp GetScriptByte
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
-	call CloseText
-	ret
+	jp CloseText
 
 Script_autoinput:
 	call GetScriptByte
