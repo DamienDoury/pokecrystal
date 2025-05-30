@@ -44,6 +44,9 @@ GoldenrodCity_MapScripts:
 	endcallback
 
 .TilesLoad:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	changeblock 24, 14, $1a ; Door to Hall Of Fame.
+endc
 	; Casino
 	checkevent EVENT_CINNABAR_ROCKS_CLEARED
 	iftrue .BikeShop
@@ -1153,6 +1156,9 @@ GoldenrodCity_MapEvents:
 	warp_event 15, 27, GOLDENROD_POKECENTER_1F, 1
 	warp_event 33,  5, GOLDENROD_HOSPITAL_1F, 1
 	warp_event 29, 15, GOLDENROD_CLAP_HOUSE, 1
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	warp_event 25, 15, HALL_OF_FAME, 1
+endc
 
 	def_coord_events
 
