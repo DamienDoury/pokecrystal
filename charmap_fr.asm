@@ -48,18 +48,18 @@
 	charmap "<BOLD_S>",  $6a
 	charmap "<BOLD_L>",  $6b ; unused
 	charmap "<BOLD_M>",  $6c ; unused
-	charmap "<COLON>",   $6d ; colon with tinier dots than ":"
-	charmap "ぃ",         $6e ; hiragana small i, unused
-	charmap "ぅ",         $6f ; hiragana small u, unused
+	charmap "_",         $6d ; frame bottom bar
+	charmap "ぅ",        $6e ; hiragana small u, unused
+	charmap "<COLON>",   $6f ; colon with tinier dots than ":"
 	charmap "<PO>",      $70
 	charmap "<KE>",      $71
 	charmap "“",         $72 ; opening quote
 	charmap "”",         $73 ; closing quote
 	charmap "·",         $74 ; middle dot, unused
 	charmap "…",         $75 ; ellipsis
-	charmap "ぁ",         $76 ; hiragana small a, unused
-	charmap "ぇ",         $77 ; hiragana small e, unused
-	charmap "ぉ",         $78 ; hiragana small o, unused
+	charmap "ぁ",        $76 ; hiragana small a, unused
+	charmap "ぇ",        $77 ; hiragana small e, unused
+	charmap "ぉ",        $78 ; hiragana small o, unused
 
 	charmap "┌",         $79
 	charmap "─",         $7a

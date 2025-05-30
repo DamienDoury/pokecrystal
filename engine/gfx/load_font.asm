@@ -66,8 +66,19 @@ LoadFrame:
 	ld d, h
 	ld e, l
 	ld hl, vTiles2 tile "┌" ; $79
-	lb bc, BANK(Frames), TEXTBOX_FRAME_TILES ; "┌" to "┘"
+	lb bc, BANK(Frames), TEXTBOX_FRAME_TILES - 1 ; "┌" to "┘"
+	push de
 	call Get1bppViaHDMA
+	pop de
+
+	ld hl, (TEXTBOX_FRAME_TILES - 1) * LEN_1BPP_TILE
+	add hl, de
+	ld d, h
+	ld e, l
+	ld hl, vTiles2 tile "_" ; $6d
+	lb bc, BANK(Frames), 1
+	call Get1bppViaHDMA
+
 	ld hl, vTiles2 tile " " ; $7f
 	ld de, TextboxSpaceGFX
 	lb bc, BANK(TextboxSpaceGFX), 1

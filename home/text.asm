@@ -70,7 +70,7 @@ TextboxBorder::
 	; Bottom
 	ld a, "└"
 	ld [hli], a
-	ld a, "─"
+	ld a, "_"
 	call .PlaceChars
 	ld [hl], "┘"
 
@@ -872,7 +872,7 @@ TextCommand_SCROLL::
 	call TextScroll
 	call TextScroll
 	pop hl
-	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
+	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY + 1
 	ret
 
 TextCommand_START_ASM::
