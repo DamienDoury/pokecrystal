@@ -2572,8 +2572,14 @@ CheckObjectCoveredByTextbox:
 ; since those IDs are for text characters and textbox frames.
 	ld a, [hl]
 	cp "─"
-	jr z, .ok8 ; Standing on top of a frame's top border is accepted. We need it, otherwise NPCs we are talking to when looking downwards will disappear.
+	jr nz, .skip_textbox_check
 
+	ldh a, [hCurSpriteYCoord]
+	cp TEXTBOX_Y - 1
+	ld a, [hl]
+	jr z, .ok8 ; Standing on top of the textbox's top border is accepted. We need it, otherwise NPCs we are talking to will disappear when looking downwards.
+
+.skip_textbox_check
 	cp FIRST_REGULAR_TEXT_CHAR
 	jr nc, .nope
 .ok8
