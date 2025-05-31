@@ -331,8 +331,9 @@ WRAM0
 	"WRAM"
 	"wSpriteAnims"
 	align 8
-	"Sprites"
-	"Tilemap"
+	"Sprites" ; $C400
+	align 4 ; This is useless, but it's a reminder that "Tilemap" is aligned, and can be used for GDMA transfers.
+	"Tilemap" ; $C4A0
 	"Miscellaneous"
 	align 8
 	"Overworld Map"

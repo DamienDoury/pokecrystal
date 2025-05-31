@@ -682,8 +682,7 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	call BattleStart_CopyTilemapAtOnce
 
 .nextscene
-	call StartTrainerBattle_NextScene
-	ret
+	jp StartTrainerBattle_NextScene
 
 .copypals
 	ld de, wBGPals1 palette PAL_BG_TEXT

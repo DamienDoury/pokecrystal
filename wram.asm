@@ -328,7 +328,7 @@ wc3fc:: ds 1
 wMobileWRAMEnd::
 
 
-SECTION "Sprites", WRAM0
+SECTION "Sprites", WRAM0 ; 4 * 40 bytes = 160 bytes.
 
 wVirtualOAM::
 	table_width SPRITEOAMSTRUCT_LENGTH, wVirtualOAM
@@ -376,7 +376,7 @@ wVirtualOAMSprite39:: sprite_oam_struct wVirtualOAMSprite39
 wVirtualOAMEnd::
 
 
-SECTION "Tilemap", WRAM0
+SECTION "Tilemap", WRAM0 ; 20 * 18 = 360 bytes.
 
 wTilemap::
 ; 20x18 grid of 8x8 tiles
@@ -1388,7 +1388,7 @@ wCurHPPal:: db
 
 wSGBPals:: ds 48
 
-wAttrmap::
+wAttrmap:: ; 360 bytes.
 ; 20x18 grid of bg tile attributes for 8x8 tiles
 ; read horizontally from the top row
 ;		bit 7: priority
