@@ -6,8 +6,7 @@ WaitBGMap::
 	ldh [hBGMapMode], a
 ; Wait for it to do its magic
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 WaitBGMap2::
 	ldh a, [hCGB]
@@ -23,8 +22,7 @@ WaitBGMap2::
 	ld a, 1
 	ldh [hBGMapMode], a
 	ld c, 4
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 IsCGB::
 	ldh a, [hCGB]
@@ -48,8 +46,6 @@ ApplyTilemap::
 ; WaitBGMap
 	ld a, 1
 	ldh [hBGMapMode], a
-	ld c, 4
-	call DelayFrames
 	ret
 
 CGBOnly_CopyTilemapAtOnce::

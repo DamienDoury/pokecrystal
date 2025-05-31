@@ -401,9 +401,9 @@ SetDayOfWeek:
 	xor a
 	ld [wTempDayOfWeek], a
 .loop
-	hlcoord 0, 12
-	lb bc, 4, 18
-	call Textbox
+	;hlcoord 0, 12
+	;lb bc, 4, 18
+	call SpeechTextbox
 	call LoadStandardMenuHeader
 	ld hl, .OakTimeWhatDayIsItText
 	call PrintText

@@ -2884,6 +2884,7 @@ _UpdateSprites::
 	ld a, [wVramState]
 	bit 0, a
 	ret z
+
 	xor a
 	ldh [hUsedSpriteIndex], a
 	ldh a, [hOAMUpdate]

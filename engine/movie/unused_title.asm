@@ -54,7 +54,6 @@ UnusedTitleScreen: ; unreferenced
 
 	call EnableLCD
 	ldh a, [rLCDC]
-	set rLCDC_SPRITES_ENABLE, a
 	set rLCDC_SPRITE_SIZE, a
 	ldh [rLCDC], a
 

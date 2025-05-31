@@ -64,6 +64,13 @@ X_FLIP       EQU 1 << OAM_X_FLIP    ; $20
 Y_FLIP       EQU 1 << OAM_Y_FLIP    ; $40
 PRIORITY     EQU 1 << OAM_PRIORITY  ; $80
 
+; rSTAT register bits
+STAT_LYC_LY              EQU 2
+STAT_MODE_0              EQU 3
+STAT_MODE_1              EQU 4
+STAT_MODE_2              EQU 5
+STAT_LYC_INTERUPT_ACTIVE EQU 6
+
 ; Hardware registers
 rJOYP       EQU $ff00 ; Joypad (R/W)
 rSB         EQU $ff01 ; Serial transfer data (R/W)

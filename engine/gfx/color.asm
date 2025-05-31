@@ -1151,8 +1151,7 @@ endr
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 
-	call HandleDayCareOutdoorPalettes
-	ret
+	jp HandleDayCareOutdoorPalettes
 
 
 ; Input: none.
@@ -1486,9 +1485,7 @@ HandleDayCareOutdoorPalettes:
 	ld de, wOBPals1 palette PAL_OW_ROCK + 2
 	ld bc, 1 palettes - 2
  	ld a, BANK(wOBPals1)
- 	call FarCopyWRAM
-
-	ret
+ 	jp FarCopyWRAM
 
 HandleHospitalRoomPalette:
 	ld a, [wMapGroup]
@@ -1560,8 +1557,7 @@ HandleHospitalRoomPalette:
 	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
 
-	call CloseSRAM
-	ret
+	jp CloseSRAM
 
 AddBillsHouseTransferTubePalette:
 	ld hl, .BillsHouseGrayPalette
@@ -1631,9 +1627,7 @@ HandleDayCareOutdoorTransitionPalettes:
 	inc hl
 	inc bc
 	inc bc
-	call SinglePaletteTransition
-
-	ret
+	jp SinglePaletteTransition
 
 
 
