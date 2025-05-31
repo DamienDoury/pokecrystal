@@ -2571,13 +2571,17 @@ CheckObjectCoveredByTextbox:
 ; NPCs disappear if standing on tile $60-$7f (or $e0-$ff),
 ; since those IDs are for text characters and textbox frames.
 	ld a, [hl]
-	cp "─"
-	jr nz, .skip_textbox_check
+	cp "┌"
+	jr c, .skip_textbox_check
 
+	cp "┐" + 1
+	jr nc, .skip_textbox_check
+
+	; Standing on top of the textbox's top border is accepted. We need it, otherwise NPCs we are talking to will disappear when looking downwards.
 	ldh a, [hCurSpriteYCoord]
 	cp TEXTBOX_Y - 1
 	ld a, [hl]
-	jr z, .ok8 ; Standing on top of the textbox's top border is accepted. We need it, otherwise NPCs we are talking to will disappear when looking downwards.
+	jr z, .ok8 
 
 .skip_textbox_check
 	cp FIRST_REGULAR_TEXT_CHAR
