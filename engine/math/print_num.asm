@@ -175,7 +175,12 @@ endc
 	dec e
 	jr nz, .money_leading_zero
 	inc hl
+
+if DEF(_FR_FR)
+	ld [hl], ","
+else
 	ld [hl], "<DOT>"
+endc
 
 .money_leading_zero
 	call .AdvancePointer
@@ -299,7 +304,11 @@ endc
 	dec e
 	ret nz
 	inc hl
+if DEF(_FR_FR)
+	ld [hl], ","
+else
 	ld [hl], "<DOT>"
+endc
 	ret
 
 .PrintLeadingZero:
