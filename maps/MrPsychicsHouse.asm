@@ -25,6 +25,9 @@ MrPsychic:
 MrPsychicsHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
+MrPsychicsHouseRadio:
+	jumpstd Radio3Script
+
 MrPsychicText1: 
 if DEF(_FR_FR)
 	text "..."
@@ -79,6 +82,7 @@ MrPsychicsHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, MrPsychicsHouseBookshelf
 	bg_event  1,  1, BGEVENT_READ, MrPsychicsHouseBookshelf
+	bg_event  7,  1, BGEVENT_READ, MrPsychicsHouseRadio
 
 	def_object_events
 	object_event  5,  3, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MrPsychic, -1

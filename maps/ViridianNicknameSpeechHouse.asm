@@ -154,6 +154,9 @@ ViridianScarfScript:
 	closetext
 	end
 
+ViridianNicknameSpeechHouseRadio:
+	jumpstd Radio3Script
+
 ViridianNicknameSpeechHousePokefanMText: ; TO TRANSLATE
 	text "Trust me--no one"
 	line "in this family"
@@ -291,6 +294,7 @@ ViridianNicknameSpeechHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  1, BGEVENT_READ, ViridianNicknameSpeechHouseRadio
 
 	def_object_events
 	object_event  2,  3, SPRITE_POKEFAN_M, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, ViridianNicknameSpeechHousePokefanMScript, -1

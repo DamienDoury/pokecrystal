@@ -1900,53 +1900,50 @@ endc
 
 NotBuenasPasswordName: db "@"
 
+LoadStation_NewsRadioAuto:
+	call IsInJohto
+	jr nz, LoadStation_NewsRadioKanto
+	; fallthrough.
+
 LoadStation_NewsRadioJohto:
-	ld a, NEWS_RADIO
-	call LoadRadioStart
 	ld de, NewsRadioNameJohto
-	ret
+	jr LoadStation_NewsRadio
 
 LoadStation_NewsRadioKanto:
-	ld a, NEWS_RADIO
-	call LoadRadioStart
 	ld de, NewsRadioNameKanto
-	ret
+LoadStation_NewsRadio:
+	ld a, NEWS_RADIO
+	jr LoadRadioStart
 
 LoadStation_UnownRadio:
-	ld a, UNOWN_RADIO
-	call LoadRadioStart
 	ld de, UnownStationName
-	ret
+	ld a, UNOWN_RADIO
+	jr LoadRadioStart
 
 LoadStation_PlacesAndPeople:
-	ld a, PLACES_AND_PEOPLE
-	call LoadRadioStart
 	ld de, PlacesAndPeopleName
-	ret
+	ld a, PLACES_AND_PEOPLE
+	jr LoadRadioStart
 
 LoadStation_LetsAllSing:
-	ld a, LETS_ALL_SING
-	call LoadRadioStart
 	ld de, LetsAllSingName
-	ret
+	ld a, LETS_ALL_SING
+	jr LoadRadioStart
 
 LoadStation_RocketRadio:
-	ld a, ROCKET_RADIO
-	call LoadRadioStart
 	ld de, LetsAllSingName
-	ret
+	ld a, ROCKET_RADIO
+	jr LoadRadioStart
 
 LoadStation_PokeFluteRadio:
-	ld a, POKE_FLUTE_RADIO
-	call LoadRadioStart
 	ld de, PokeFluteStationName
-	ret
+	ld a, POKE_FLUTE_RADIO
+	jr LoadRadioStart
 
 LoadStation_EvolutionRadio:
-	ld a, EVOLUTION_RADIO
-	call LoadRadioStart
 	ld de, UnownStationName
-	ret
+	ld a, EVOLUTION_RADIO
+	; fallthrough.
 
 ; Input: radio ID in A.
 LoadRadioStart:
@@ -2288,6 +2285,7 @@ PlayRadioStationPointers:
 	dw LoadStation_UnownRadio
 	dw LoadStation_PlacesAndPeople
 	dw LoadStation_LetsAllSing
+	dw LoadStation_NewsRadioAuto
 	dw LoadStation_RocketRadio
 	assert_table_length NUM_MAP_RADIO_STATIONS
 

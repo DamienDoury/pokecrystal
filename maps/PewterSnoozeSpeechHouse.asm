@@ -12,6 +12,9 @@ PewterSnoozeSpeechHouseGrampsScript:
 PewterSnoozeSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
+PewterSnoozeSpeechHouseRadio:
+	jumpstd Radio3Script
+
 PewterSnoozeSpeechHouseGrampsText: 
 if DEF(_FR_FR)
 	text "J'aime bien dor-"
@@ -22,7 +25,7 @@ else
 	text "I like snoozing"
 	line "with the radio on…"
 	cont "…Zzzz…"
-endc
+	endc
 
 	done
 
@@ -38,6 +41,7 @@ PewterSnoozeSpeechHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, PewterSnoozeSpeechHouseBookshelf
 	bg_event  1,  1, BGEVENT_READ, PewterSnoozeSpeechHouseBookshelf
+	bg_event  7,  1, BGEVENT_READ, PewterSnoozeSpeechHouseRadio
 
 	def_object_events
 	object_event  5,  3, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_SCRIPT, 0, PewterSnoozeSpeechHouseGrampsScript, -1

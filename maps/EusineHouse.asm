@@ -49,6 +49,9 @@ EusineHouse_Eusine:
 EusineHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
+EusineHouseRadio:
+	jumpstd Radio3Script
+
 CeladonEusineText1: ; TO TRANSLATE
 	text "EUSINE: Hi!"
 
@@ -184,6 +187,7 @@ EusineHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, EusineHouseBookshelf
 	bg_event  1,  1, BGEVENT_READ, EusineHouseBookshelf
+	bg_event  7,  1, BGEVENT_READ, EusineHouseRadio
 
 	def_object_events
 	object_event  4,  5, SPRITE_EUSINE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, EusineHouse_Eusine, EVENT_EUSINE_IN_CELADON

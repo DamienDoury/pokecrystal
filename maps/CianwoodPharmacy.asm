@@ -38,6 +38,9 @@ CianwoodPharmacist:
 CianwoodPharmacyBookshelf:
 	jumpstd DifficultBookshelfScript
 
+CianwoodPharmacyRadio:
+	jumpstd Radio3Script
+
 PharmacistGiveSecretpotionText: 
 if DEF(_FR_FR)
 	text "Ton #MON"
@@ -101,6 +104,7 @@ CianwoodPharmacy_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, CianwoodPharmacyBookshelf
 	bg_event  1,  1, BGEVENT_READ, CianwoodPharmacyBookshelf
+	bg_event  7,  1, BGEVENT_READ, CianwoodPharmacyRadio
 
 	def_object_events
 	object_event  2,  3, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, CianwoodPharmacist, EVENT_JASMINE_RETURNED_TO_GYM

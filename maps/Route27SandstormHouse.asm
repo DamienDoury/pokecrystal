@@ -39,6 +39,9 @@ SandstormHouseWoman:
 SandstormHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
+Route27SandstormHouse_Radio:
+	jumpstd Radio3Script
+
 SandstormHouseWomanText1: 
 if DEF(_FR_FR)
 	text "Où tu vas toi avec"
@@ -162,6 +165,7 @@ Route27SandstormHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, SandstormHouseBookshelf
 	bg_event  1,  1, BGEVENT_READ, SandstormHouseBookshelf
+	bg_event  7,  1, BGEVENT_READ, Route27SandstormHouse_Radio
 
 	def_object_events
 	object_event  2,  4, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, SandstormHouseWoman, -1

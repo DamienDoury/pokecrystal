@@ -54,7 +54,7 @@ EcruteakFaunaHouse_Person3Script:
 
 
 EcruteakFaunaHouse_Radio:
-	jumpstd Radio1Script
+	jumpstd Radio3Script
 
 EcruteakFaunaHouse_Person1Text: ; TO TRANSLATE
 	text "We study the"

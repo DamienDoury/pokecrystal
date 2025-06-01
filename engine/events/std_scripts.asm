@@ -17,6 +17,7 @@ StdScripts::
 	add_stdscript HomepageScript ; unused
 	add_stdscript Radio1Script
 	add_stdscript Radio2Script
+	add_stdscript Radio3Script
 	add_stdscript TrashCanScript
 	add_stdscript StrengthBoulderScript
 	add_stdscript SmashRockScript
@@ -542,6 +543,7 @@ HomepageScript:
 Radio1Script:
 	opentext
 	setval MAPRADIO_POKEMON_CHANNEL
+.play
 	special MapRadio
 	closetext
 	end
@@ -550,9 +552,13 @@ Radio2Script:
 ; Lucky Channel
 	opentext
 	setval MAPRADIO_LUCKY_CHANNEL
-	special MapRadio
-	closetext
-	end
+	sjump Radio1Script.play
+
+Radio3Script:
+; News Radio
+	opentext
+	setval MAPRADIO_NEWS_RADIO
+	sjump Radio1Script.play
 
 TrashCanScript:
 	farjumptext TrashCanText

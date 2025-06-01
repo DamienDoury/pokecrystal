@@ -30,6 +30,9 @@ HiddenPowerGuy:
 HiddenPowerHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
+HiddenPowerHouseRadio:
+	jumpstd Radio3Script
+
 HiddenPowerGuyText1: 
 if DEF(_FR_FR)
 	text "...Tu as bien"
@@ -114,6 +117,7 @@ LakeOfRageHiddenPowerHouse_MapEvents:
 
 	def_bg_events
 	bg_event  1,  1, BGEVENT_READ, HiddenPowerHouseBookshelf
+	bg_event  2,  1, BGEVENT_READ, HiddenPowerHouseRadio
 
 	def_object_events
 	object_event  2,  3, SPRITE_FISHER, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, HiddenPowerGuy, -1

@@ -67,6 +67,9 @@ OlivinePunishmentSpeechHouseBookshelf2:
 OlivinePunishmentSpeechHouseBookshelf1:
 	jumpstd MagazineBookshelfScript
 
+OlivinePunishmentSpeechHouse_Radio:
+	jumpstd Radio3Script
+
 OlivinePunishmentSpeechHouseDadText: 
 if DEF(_FR_FR)
 	text "Sur le chemin"
@@ -154,6 +157,7 @@ OlivinePunishmentSpeechHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, OlivinePunishmentSpeechHouseBookshelf1
 	bg_event  1,  1, BGEVENT_READ, OlivinePunishmentSpeechHouseBookshelf2
+	bg_event  7,  1, BGEVENT_READ, OlivinePunishmentSpeechHouse_Radio
 
 	def_object_events
 	object_event  1,  2, SPRITE_POKEFAN_M, SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, HIDE_LOCKDOWN & HIDE_CURFEW, -1, 0, OBJECTTYPE_SCRIPT, 0, OlivinePunishmentSpeechHouseDad, -1

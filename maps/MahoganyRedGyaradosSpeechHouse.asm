@@ -82,6 +82,9 @@ MahoganyRedGyaradosSpeechHouseTeacherScript:
 	closetext
 	end
 
+MahoganyRedGyaradosSpeechHouse_Radio:
+	jumpstd Radio3Script
+
 MahoganyRedGyaradosSpeechHouseBlackBeltText: 
 if DEF(_FR_FR)
 	text "J'ai entendu dire"
@@ -201,6 +204,7 @@ MahoganyRedGyaradosSpeechHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  2,  1, BGEVENT_READ, MahoganyRedGyaradosSpeechHouse_Radio
 
 	def_object_events
 	object_event  2,  3, SPRITE_BLACK_BELT, CLAP_F | SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, MahoganyRedGyaradosSpeechHouseBlackBeltScript, -1

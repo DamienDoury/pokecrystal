@@ -33,6 +33,9 @@ CeladonMansionRoofHousePharmacistScript:
 	closetext
 	end
 
+CeladonMansionRoofHouseRadio:
+	jumpstd Radio3Script
+
 CeladonMansionRoofHousePharmacistIntroText: 
 if DEF(_FR_FR)
 	text "Je vais te racon-"
@@ -218,6 +221,7 @@ CeladonMansionRoofHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  1, BGEVENT_READ, CeladonMansionRoofHouseRadio
 
 	def_object_events
 	object_event  3,  2, SPRITE_PHARMACIST, SPRITEMOVEDATA_STANDING_DOWN, 0, 2, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, CeladonMansionRoofHousePharmacistScript, -1

@@ -56,6 +56,8 @@ GoodRodGuru:
 	closetext
 	end
 
+OlivineGoodRodHouse_Radio:
+	jumpstd Radio3Script
 
 GiveGoodRodText: 
 if DEF(_FR_FR)
@@ -126,6 +128,7 @@ OlivineGoodRodHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  1, BGEVENT_READ, OlivineGoodRodHouse_Radio
 
 	def_object_events
 	object_event  2,  3, SPRITE_FISHING_GURU, CLAP_F | SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, GoodRodGuru, -1

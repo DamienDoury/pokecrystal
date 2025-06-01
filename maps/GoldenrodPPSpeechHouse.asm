@@ -49,7 +49,7 @@ GoldenrodPPSpeechHouseBookshelf1:
 	jumpstd MagazineBookshelfScript
 
 GoldenrodPPSpeechHouseRadio:
-	jumpstd Radio2Script
+	jumpstd Radio3Script
 
 GoldenrodPPSpeechHouseFisherText: 
 if DEF(_FR_FR)

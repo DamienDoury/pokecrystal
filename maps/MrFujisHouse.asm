@@ -94,6 +94,9 @@ MrFujisJasminesFriendScript:
 MrFujisHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
+MrFujisHouseRadio:
+	jumpstd Radio3Script
+
 MrFujisHouseFaceDownMovement:
 	turn_step DOWN
 	step_bump
@@ -229,6 +232,7 @@ MrFujisHouse_MapEvents:
 	def_bg_events
 	bg_event  0,  1, BGEVENT_READ, MrFujisHouseBookshelf
 	bg_event  1,  1, BGEVENT_READ, MrFujisHouseBookshelf
+	bg_event  7,  1, BGEVENT_READ, MrFujisHouseRadio
 
 	def_object_events
 	object_event  4,  1, SPRITE_SUPER_NERD, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, MrFujisHouseSuperNerdScript, -1

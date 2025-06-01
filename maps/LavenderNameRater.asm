@@ -18,8 +18,8 @@ LavenderNameRater:
 	closetext
 	end
 
-LavenderNameRaterUnusedBookshelf: ; unreferenced
-	jumpstd DifficultBookshelfScript
+LavenderNameRater_Radio:
+	jumpstd Radio3Script
 
 LavenderNameRater_MapEvents:
 	db 0, 0 ; filler
@@ -31,6 +31,7 @@ LavenderNameRater_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  1, BGEVENT_READ, LavenderNameRater_Radio
 
 	def_object_events
 	object_event  2,  3, SPRITE_GENTLEMAN, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, LavenderNameRater, -1

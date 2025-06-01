@@ -12,8 +12,8 @@ FishingDude:
 FishingDudesHousePhoto:
 	jumptext FishingDudesHousePhotoText
 
-FishingDudesHouseBookshelf: ; unreferenced
-	jumpstd PictureBookshelfScript
+FishingDudesHouseRadio:
+	jumpstd Radio3Script
 
 FishingDudeText: 
 if DEF(_FR_FR)
@@ -95,6 +95,7 @@ VermilionFishingSpeechHouse_MapEvents:
 
 	def_bg_events
 	bg_event  3,  0, BGEVENT_READ, FishingDudesHousePhoto
+	bg_event  7,  1, BGEVENT_READ, FishingDudesHouseRadio
 
 	def_object_events
 	object_event  2,  4, SPRITE_FISHING_GURU, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_SCRIPT, 0, FishingDude, -1

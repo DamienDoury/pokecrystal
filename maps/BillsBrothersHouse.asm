@@ -27,6 +27,9 @@ BillsBrothersHouseYoungsterScript:
 	closetext
 	end
 
+BillsBrothersHouse_Radio:
+	jumpstd Radio3Script
+
 BillsBrotherText: 
 if DEF(_FR_FR)
 	text "Mon pépé est chez"
@@ -110,6 +113,7 @@ BillsBrothersHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  7,  1, BGEVENT_READ, BillsBrothersHouse_Radio
 
 	def_object_events
 	object_event  2,  3, SPRITE_POKEFAN_F, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, BillsBrotherScript, -1

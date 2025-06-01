@@ -28,6 +28,9 @@ BlackthornDragonSpeechHouseDratiniScript:
 	closetext
 	end
 
+BlackthornDragonSpeechHouse_Radio:
+	jumpstd Radio3Script
+
 BlackthornDragonSpeechHouseGrannyText: 
 if DEF(_FR_FR)
 	text "Un clan de dres-"
@@ -78,6 +81,7 @@ BlackthornDragonSpeechHouse_MapEvents:
 	def_coord_events
 
 	def_bg_events
+	bg_event  2,  1, BGEVENT_READ, BlackthornDragonSpeechHouse_Radio
 
 	def_object_events
 	object_event  2,  3, SPRITE_GRANNY, CLAP_F | SPRITEMOVEDATA_SPINRANDOM_SLOW, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, BlackthornDragonSpeechHouseGrannyScript, -1
