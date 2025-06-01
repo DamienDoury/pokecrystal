@@ -3867,3 +3867,539 @@ else
 	cont "fish?"
 	done
 endc
+
+
+
+
+
+
+_News1_Topic0_Line0::
+if DEF(_FR_FR)
+	text_start
+	line "L'info du jour:"
+	done
+else
+	text_start
+	line "Breaking news:"
+	done
+endc
+
+_News1_Topic0_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "un confinement"
+	done
+else
+	text_start
+	line "a lockdown starts"
+	done
+endc
+
+_News1_Topic0_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "démarre dans"
+	done
+else
+	text_start
+	line "in a few hours."
+	done
+endc
+
+_News1_Topic0_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "quelques heures."
+	done
+endc
+
+_News1_Topic1_Line0::
+_News1_Topic2_Line0::
+_News1_Topic3_Line0::
+_News1_Topic4_Line0::
+_News1_Topic5_Line0::
+if DEF(_FR_FR)
+	text_start
+	line "...sans transition"
+	done
+else
+	text_start
+	line "…moving on"
+	done
+endc
+
+_News1_Topic1_Line1::
+_News1_Topic2_Line1::
+_News1_Topic3_Line1::
+_News1_Topic4_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "il est rappelé que"
+	done
+else
+	text_start
+	line "we remind you that"
+	done
+endc
+
+_News1_Topic1_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "le confinement est"
+	done
+else
+	text_start
+	line "the lockdown is"
+	done
+endc
+
+_News1_Topic1_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "en vigueur."
+	done
+else
+	text_start
+	line "in effect."
+	done
+endc
+
+_News1_Topic1_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "Interdiction de"
+	done
+else
+	text_start
+	line "Leaving home with-"
+	done
+endc
+
+_News1_Topic1_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "sortir de chez soi"
+	done
+else
+	text_start
+	line "out a valid reason"
+	done
+endc
+
+_News1_Topic1_Line6::
+if DEF(_FR_FR)
+	text_start
+	line "sans justificatif."
+	done
+else
+	text_start
+	line "is prohibited."
+	done
+endc
+
+_News1_Topic2_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "le couvre-feu est"
+	done
+else
+	text_start
+	line "the curfew is"
+	done
+endc
+
+_News1_Topic2_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "en vigueur de 18h"
+	done
+else
+	text_start
+	line "enforced from"
+	done
+endc
+
+_News1_Topic2_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "à 4h du matin."
+	done
+else
+	text_start
+	line "6 PM to 4 AM."
+	done
+endc
+
+_News1_Topic2_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "Interdiction"
+	done
+else
+	text_start
+	line "A complete ban on"
+	done
+endc
+
+_News1_Topic2_Line6::
+if DEF(_FR_FR)
+	text_start
+	line "totale de sortir"
+	done
+else
+	text_start
+	line "going out is in"
+	done
+endc
+
+_News1_Topic2_Line7::
+if DEF(_FR_FR)
+	text_start
+	line "durant cette"
+	done
+else
+	text_start
+	line "place during this"
+	done
+endc
+
+_News1_Topic2_Line8::
+if DEF(_FR_FR)
+	text_start
+	line "période."
+	done
+else
+	text_start
+	line "period."
+	done
+endc
+
+_News1_Topic3_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "le pass vaccinal"
+	done
+else
+	text_start
+	line "the vaccine pass-"
+	done
+endc
+
+_News1_Topic3_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "est en vigueur."
+	done
+else
+	text_start
+	line "port is in effect."
+	done
+endc
+
+_News1_Topic3_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "Comme notre MAITRE"
+	done
+else
+	text_start
+	line "Like our CHAMPION"
+	done
+endc
+
+_News1_Topic3_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "<PLAYER>, faites-"
+	done
+else
+	text_start
+	line "<PLAYER>, obtain it"
+	done
+endc
+
+_News1_Topic3_Line6::
+if DEF(_FR_FR)
+	text_start
+	line "vous vacciner pour"
+	done
+else
+	text_start
+	line "by getting vacci-"
+	done
+endc
+
+_News1_Topic3_Line7::
+if DEF(_FR_FR)
+	text_start
+	line "l'obtenir et ainsi"
+	done
+else
+	text_start
+	line "nated, and get"
+	done
+endc
+
+_News1_Topic3_Line8::
+if DEF(_FR_FR)
+	text_start
+	line "accéder aux lieux"
+	done
+else
+	text_start
+	line "access to reopened"
+	done
+endc
+
+_News1_Topic3_Line9::
+if DEF(_FR_FR)
+	text_start
+	line "publics rouverts."
+	done
+else
+	text_start
+	line "public places."
+	done
+endc
+
+_News1_Topic4_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "le port du masque"
+	done
+else
+	text_start
+	line "wearing a face"
+	done
+endc
+
+_News1_Topic4_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "dans les espaces"
+	done
+else
+	text_start
+	line "mask is still"
+	done
+endc
+
+_News1_Topic4_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "publics reste"
+	done
+else
+	text_start
+	line "mandatory in"
+	done
+endc
+
+_News1_Topic4_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "obligatoire."
+	done
+else
+	text_start
+	line "public areas."
+	done
+endc
+
+_News1_Topic5_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "malgré un faible"
+	done
+else
+	text_start
+	line "despite a low"
+	done
+endc
+
+_News1_Topic5_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "taux de COVID,"
+	done
+else
+	text_start
+	line "COVID rate,"
+	done
+endc
+
+_News1_Topic5_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "les experts"
+	done
+else
+	text_start
+	line "experts are afraid"
+	done
+endc
+
+_News1_Topic5_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "s'inquiètent"
+	done
+else
+	text_start
+	line "it may rebound."
+	done
+endc
+
+_News1_Topic5_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "de son retour."
+	done
+endc
+
+
+
+
+
+_News3_Topic0_Line0::
+if DEF(_FR_FR)
+	text_start
+	line "Le nombre du jour:"
+	done
+else
+	text_start
+	line "Today's figure:"
+	done
+endc
+
+_News3_Topic0_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "plus de @"
+	text_decimal wStringBuffer2, 2, 4
+	text "000"
+	done
+else
+	text_start
+	line "more than @"
+	text_decimal wStringBuffer2, 2, 4
+	text "000"
+	done
+endc
+
+_News3_Topic0_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "personnes sont"
+	done
+else
+	text_start
+	line "deaths from COVID"
+	done
+endc
+
+_News3_Topic0_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "décédées du COVID"
+	done
+else
+	text_start
+	line "since the start"
+	done
+endc
+
+_News3_Topic0_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "depuis le début"
+	done
+else
+	text_start
+	line "of the pandemic."
+	done
+endc
+
+_News3_Topic0_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "de la pandémie."
+	done
+endc
+
+_News3_Topic1_Line0::
+if DEF(_FR_FR)
+	text_start
+	line "Pouvoir d'achat:"
+	done
+else
+	text_start
+	line "Purchasing power:"
+	done
+endc
+
+_News3_Topic1_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "l'inflation s'est"
+	done
+else
+	text_start
+	line "inflation keeps"
+	done
+endc
+
+_News3_Topic1_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "encore accélérée"
+	done
+else
+	text_start
+	line "rising this month."
+	done
+endc
+
+_News3_Topic1_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "ce mois-ci."
+	done
+else
+	text_start
+	line "Experts hope for"
+	done
+endc
+
+_News3_Topic1_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "Une stabilisation"
+	done
+else
+	text_start
+	line "stabilization by"
+	done
+endc
+
+_News3_Topic1_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "en fin d'année est"
+	done
+else
+	text_start
+	line "the end of the"
+	done
+endc
+
+_News3_Topic1_Line6::
+if DEF(_FR_FR)
+	text_start
+	line "attendue."
+	done
+else
+	text_start
+	line "year."
+	done
+endc

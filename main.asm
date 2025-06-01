@@ -395,11 +395,16 @@ SECTION "bank2E", ROMX
 
 INCLUDE "engine/events/map_name_sign.asm"
 INCLUDE "engine/events/checkforhiddenitems.asm"
-INCLUDE "engine/events/fishing_gfx.asm"
-INCLUDE "engine/events/squirtbottle_gfx.asm"
 INCLUDE "engine/pokegear/radio.asm"
 INCLUDE "engine/pokemon/mail_2.asm"
 INCLUDE "engine/events/tv.asm"
+
+
+SECTION "bank2F", ROMX
+
+INCLUDE "engine/events/fishing_gfx.asm"
+INCLUDE "engine/events/squirtbottle_gfx.asm"
+
 
 SECTION "Phone Scripts 2", ROMX
 

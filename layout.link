@@ -129,6 +129,7 @@ ROMX $2e
 	"bank2E"
 ROMX $2f
 	"Phone Scripts 2"
+	"bank2F"
 ROMX $30
 	"Sprites 1"
 ROMX $31

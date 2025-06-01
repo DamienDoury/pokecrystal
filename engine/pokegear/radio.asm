@@ -49,19 +49,20 @@ endc
 	done
 
 RadioJumptable:
-; entries correspond to constants/radio_constants.asm
+	; entries correspond to constants/radio_constants.asm
 	table_width 2, RadioJumptable
 	dw OaksPKMNTalk1     ; $00
 	dw PokedexShow1      ; $01
 	dw BenMonMusic1      ; $02
 	dw LuckyNumberShow1  ; $03
 	dw BuenasPassword1   ; $04
-	dw PeoplePlaces1     ; $05
-	dw FernMonMusic1     ; $06
-	dw RocketRadio1      ; $07
-	dw PokeFluteRadio    ; $08
-	dw UnownRadio        ; $09
-	dw EvolutionRadio    ; $0a
+	dw NewsRadio1        ; $05
+	dw PeoplePlaces1     ; $06
+	dw FernMonMusic1     ; $07
+	dw RocketRadio1      ; $08
+	dw PokeFluteRadio    ; $09
+	dw UnownRadio        ; $0a
+	dw EvolutionRadio    ; $0b
 	assert_table_length NUM_RADIO_CHANNELS
 ; OaksPKMNTalk
 	dw OaksPKMNTalk2     ; $0b
@@ -153,6 +154,9 @@ RadioJumptable:
 	dw RocketRadio12	 ; $59
 	dw RocketRadio13	 ; $5a
 	dw RocketRadio14	 ; $5b
+; Johto Daily / Kanto News
+	dw NewsRadio2        ; $5c
+	dw NewsRadio3        ; $5d
 	assert_table_length NUM_RADIO_SEGMENTS
 
 PrintRadioLine:
@@ -195,9 +199,9 @@ RadioScroll:
 	jp ClearBottomLine
 
 OaksPKMNTalk1:
+	call StartRadioStation
 	ld a, 5
 	ld [wOaksPKMNTalkSegmentCounter], a
-	call StartRadioStation
 	ld hl, OPT_IntroText1
 	ld a, OAKS_POKEMON_TALK_2
 	jp NextRadioLine
@@ -1853,6 +1857,594 @@ BuenaOffTheAirText:
 	text_far _BuenaOffTheAirText
 	text_end
 
+; The news radio displays three news in sequence:
+; 1: info about the current freedom state.
+; 2: cluster info, or important info about covid.
+; 3: death count.
+NewsRadio1:
+	call StartRadioStation
+	call NewsRadio_GetNews1Index ; Outputs index in C.
+
+	; Display the next line of the current news.
+	push bc ; Save index.
+	ld hl, News1_pools
+	call NewsRadio_GetNewsLine
+	pop bc
+	
+	; Determine the next action.
+	; Either stay in this news to display its next line.
+	; Or move on to the next news.
+	push hl ; Saving the text pointer.
+	ld hl, News1_topics_line_count
+	call NewsRadio_GetCurrentNewsLineCount ; Input in C, output in B.
+	pop hl ; Retrieving the text pointer.
+	
+	call IncRadioSegment ; Input in B, output in carry.
+	ld a, NEWS_RADIO
+	jr c, .next_news_determined
+
+	xor a
+	ld [wNewsRadioSegmentCounter], a
+	ld a, NEWS_RADIO_3
+.next_news_determined
+	jp NextRadioLine
+
+NewsRadio2:
+	ld hl, BuenaRadioMidnightText6
+	ld a, NEWS_RADIO_3
+	jp NextRadioLine
+
+NewsRadio3:
+	call NewsRadio_GetNews3Index ; Outputs index in C.
+
+	; Display the next line of the current news.
+	push bc ; Save index.
+	ld hl, News3_pools
+	call NewsRadio_GetNewsLine
+	pop bc
+	
+	; Determine the next action.
+	; Either stay in this news to display its next line.
+	; Or move on to the next news.
+	push hl ; Saving the text pointer.
+	ld hl, News3_topics_line_count
+	call NewsRadio_GetCurrentNewsLineCount ; Input in C, output in B.
+	pop hl ; Retrieving the text pointer.
+
+	ld a, c
+	and a
+	jr nz, .skip_death_count
+
+	ld a, [wNewsRadioSegmentCounter]
+	cp 1
+	jr nz, .skip_death_count
+
+	push bc
+	push hl
+	call GetWorldwideCovidDeathCount
+	pop hl
+	pop bc
+
+.skip_death_count
+	
+	call IncRadioSegment ; Input in B, output in carry.
+	ld a, NEWS_RADIO_3
+	jr c, .next_news_determined
+
+	xor a
+	ld [wNewsRadioSegmentCounter], a
+	ld a, NEWS_RADIO
+.next_news_determined
+	jp NextRadioLine
+
+; Input: In B, the number of lines to be displayed for the current news.
+; Output: carry if there are still more lines to be displayed.
+IncRadioSegment:
+	ld a, [wNewsRadioSegmentCounter]
+	inc a
+	ld [wNewsRadioSegmentCounter], a
+	cp b
+	ret
+
+; Input: the news pool in HL, and the news index in C.
+; Output: the news current text pointer in HL.
+NewsRadio_GetNewsLine:
+	sla c
+	ld b, 0
+	add hl, bc
+
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+
+	ld a, [wNewsRadioSegmentCounter]
+	rlca ; Multiplies A by 2. Works fine because bit 7 of A is always 0.
+	ld c, a
+	add hl, bc
+
+	ld a, [hli]
+	ld h, [hl]
+	ld l, a
+	ret
+
+News1_pools:
+	dw .news1_topic0
+	dw .news1_topic1
+	dw .news1_topic2
+	dw .news1_topic3
+	dw .news1_topic4
+	dw .news1_topic5
+.news1_topic0
+	dw .news1_topic0_line0
+	dw .news1_topic0_line1
+	dw .news1_topic0_line2
+if DEF(_FR_FR)
+	dw .news1_topic0_line3
+endc
+.news1_topic1
+	dw .news1_topic1_line0
+	dw .news1_topic1_line1
+	dw .news1_topic1_line2
+	dw .news1_topic1_line3
+	dw .news1_topic1_line4
+	dw .news1_topic1_line5
+	dw .news1_topic1_line6
+.news1_topic2
+	dw .news1_topic2_line0
+	dw .news1_topic2_line1
+	dw .news1_topic2_line2
+	dw .news1_topic2_line3
+	dw .news1_topic2_line4
+	dw .news1_topic2_line5
+	dw .news1_topic2_line6
+	dw .news1_topic2_line7
+	dw .news1_topic2_line8
+.news1_topic3
+	dw .news1_topic3_line0
+	dw .news1_topic3_line1
+	dw .news1_topic3_line2
+	dw .news1_topic3_line3
+	dw .news1_topic3_line4
+	dw .news1_topic3_line5
+	dw .news1_topic3_line6
+	dw .news1_topic3_line7
+	dw .news1_topic3_line8
+	dw .news1_topic3_line9
+.news1_topic4
+	dw .news1_topic4_line0
+	dw .news1_topic4_line1
+	dw .news1_topic4_line2
+	dw .news1_topic4_line3
+	dw .news1_topic4_line4
+	dw .news1_topic4_line5
+.news1_topic5
+	dw .news1_topic5_line0
+	dw .news1_topic5_line1
+	dw .news1_topic5_line2
+	dw .news1_topic5_line3
+	dw .news1_topic5_line4
+if DEF(_FR_FR)
+	dw .news1_topic5_line5
+endc
+
+.news1_topic0_line0
+	text_far _News1_Topic0_Line0
+	text_end
+	
+.news1_topic0_line1
+	text_far _News1_Topic0_Line1
+	text_end
+	
+.news1_topic0_line2
+	text_far _News1_Topic0_Line2
+	text_end
+	
+if DEF(_FR_FR)
+.news1_topic0_line3
+	text_far _News1_Topic0_Line3
+	text_end
+endc
+
+.news1_topic1_line0
+	text_far _News1_Topic1_Line0
+	text_end
+	
+.news1_topic1_line1
+	text_far _News1_Topic1_Line1
+	text_end
+	
+.news1_topic1_line2
+	text_far _News1_Topic1_Line2
+	text_end
+	
+.news1_topic1_line3
+	text_far _News1_Topic1_Line3
+	text_end
+	
+.news1_topic1_line4
+	text_far _News1_Topic1_Line4
+	text_end
+	
+.news1_topic1_line5
+	text_far _News1_Topic1_Line5
+	text_end
+	
+.news1_topic1_line6
+	text_far _News1_Topic1_Line6
+	text_end
+	
+.news1_topic2_line0
+	text_far _News1_Topic2_Line0
+	text_end
+	
+.news1_topic2_line1
+	text_far _News1_Topic2_Line1
+	text_end
+	
+.news1_topic2_line2
+	text_far _News1_Topic2_Line2
+	text_end
+	
+.news1_topic2_line3
+	text_far _News1_Topic2_Line3
+	text_end
+	
+.news1_topic2_line4
+	text_far _News1_Topic2_Line4
+	text_end
+	
+.news1_topic2_line5
+	text_far _News1_Topic2_Line5
+	text_end
+	
+.news1_topic2_line6
+	text_far _News1_Topic2_Line6
+	text_end
+	
+.news1_topic2_line7
+	text_far _News1_Topic2_Line7
+	text_end
+	
+.news1_topic2_line8
+	text_far _News1_Topic2_Line8
+	text_end
+	
+.news1_topic3_line0
+	text_far _News1_Topic3_Line0
+	text_end
+	
+.news1_topic3_line1
+	text_far _News1_Topic3_Line1
+	text_end
+	
+.news1_topic3_line2
+	text_far _News1_Topic3_Line2
+	text_end
+	
+.news1_topic3_line3
+	text_far _News1_Topic3_Line3
+	text_end
+	
+.news1_topic3_line4
+	text_far _News1_Topic3_Line4
+	text_end
+	
+.news1_topic3_line5
+	text_far _News1_Topic3_Line5
+	text_end
+	
+.news1_topic3_line6
+	text_far _News1_Topic3_Line6
+	text_end
+	
+.news1_topic3_line7
+	text_far _News1_Topic3_Line7
+	text_end
+	
+.news1_topic3_line8
+	text_far _News1_Topic3_Line8
+	text_end
+	
+.news1_topic3_line9
+	text_far _News1_Topic3_Line9
+	text_end
+	
+.news1_topic4_line0
+	text_far _News1_Topic4_Line0
+	text_end
+	
+.news1_topic4_line1
+	text_far _News1_Topic4_Line1
+	text_end
+	
+.news1_topic4_line2
+	text_far _News1_Topic4_Line2
+	text_end
+	
+.news1_topic4_line3
+	text_far _News1_Topic4_Line3
+	text_end
+	
+.news1_topic4_line4
+	text_far _News1_Topic4_Line4
+	text_end
+	
+.news1_topic4_line5
+	text_far _News1_Topic4_Line5
+	text_end
+	
+.news1_topic5_line0
+	text_far _News1_Topic5_Line0
+	text_end
+	
+.news1_topic5_line1
+	text_far _News1_Topic5_Line1
+	text_end
+	
+.news1_topic5_line2
+	text_far _News1_Topic5_Line2
+	text_end
+	
+.news1_topic5_line3
+	text_far _News1_Topic5_Line3
+	text_end
+	
+.news1_topic5_line4
+	text_far _News1_Topic5_Line4
+	text_end
+	
+if DEF(_FR_FR)
+.news1_topic5_line5
+	text_far _News1_Topic5_Line5
+	text_end
+endc
+
+News3_pools:
+	dw .news3_topic0
+	dw .news3_topic1
+.news3_topic0
+	dw .news3_topic0_line0
+	dw .news3_topic0_line1
+	dw .news3_topic0_line2
+	dw .news3_topic0_line3
+	dw .news3_topic0_line4
+if DEF(_FR_FR)
+	dw .news3_topic0_line5
+endc
+.news3_topic1
+	dw .news3_topic1_line0
+	dw .news3_topic1_line1
+	dw .news3_topic1_line2
+	dw .news3_topic1_line3
+	dw .news3_topic1_line4
+	dw .news3_topic1_line5
+	dw .news3_topic1_line6
+
+.news3_topic0_line0
+	text_far _News3_Topic0_Line0
+	text_end
+	
+.news3_topic0_line1
+	text_far _News3_Topic0_Line1
+	text_end
+	
+.news3_topic0_line2
+	text_far _News3_Topic0_Line2
+	text_end
+	
+.news3_topic0_line3
+	text_far _News3_Topic0_Line3
+	text_end
+	
+.news3_topic0_line4
+	text_far _News3_Topic0_Line4
+	text_end
+
+if DEF(_FR_FR)
+.news3_topic0_line5
+	text_far _News3_Topic0_Line5
+	text_end
+endc
+
+.news3_topic1_line0
+	text_far _News3_Topic1_Line0
+	text_end
+	
+.news3_topic1_line1
+	text_far _News3_Topic1_Line1
+	text_end
+	
+.news3_topic1_line2
+	text_far _News3_Topic1_Line2
+	text_end
+	
+.news3_topic1_line3
+	text_far _News3_Topic1_Line3
+	text_end
+	
+.news3_topic1_line4
+	text_far _News3_Topic1_Line4
+	text_end
+	
+.news3_topic1_line5
+	text_far _News3_Topic1_Line5
+	text_end
+	
+.news3_topic1_line6
+	text_far _News3_Topic1_Line6
+	text_end
+
+; Input: the news line count array address in HL, and the news index in C.
+; Output: the current news line count in B.
+NewsRadio_GetCurrentNewsLineCount:
+	ld b, 0
+	add hl, bc
+
+	ld b, [hl]
+	ret
+
+News1_topics_line_count:
+if DEF(_FR_FR)
+	db 4
+else
+	db 3
+endc
+	db 7
+	db 9
+	db 10
+	db 6
+if DEF(_FR_FR)
+	db 6
+else
+	db 5
+endc
+
+News3_topics_line_count:
+if DEF(_FR_FR)
+	db 6
+else
+	db 5
+endc
+	db 7
+
+; Input: none.
+; Output: the news index in C.
+NewsRadio_GetNews1Index:
+	ld c, 5
+	ld a, [wYearMonth]
+	cp $30
+	ret nc
+
+	dec c ; c = 4
+	cp $23
+	ret nc
+
+	dec c ; c = 3
+	ld a, [wCurFreedomState]
+	bit VACCINE_PASSPORT, a
+	ret nz
+
+	dec c ; c = 2
+	bit CURFEW, a
+	ret nz
+
+	dec c ; c = 1
+	bit LOCKDOWN, a
+	ret nz
+
+	dec c ; c = 0
+	ret
+
+; Input: none.
+; Output: the news index in C.
+NewsRadio_GetNews3Index:
+	ld c, 1
+	ld a, [wYearMonth]
+	cp $40
+	ret nc
+
+	dec c
+	ret
+
+GetWorldwideCovidDeathCount:
+    ld a, [wYearMonth]
+
+	; We clamp the value to prevent out of bounds readings.
+	cp $02
+	jr c, .clamp_min
+
+	cp $3c
+	jr nc, .clamp_max
+
+	jr .get_index
+
+.clamp_min
+	ld a, $02
+	jr .get_index
+
+.clamp_max
+	ld a, $3b
+
+.get_index
+    ; Starting from here, this code is added so that there is no "padding" or unused data in the death count database.
+    ; The padding would be 8 bytes per year, which is 24 bytes total.
+    ; As long as the code is smaller than that, we are saving bytes.
+    ; CPU cycles don't matter here.
+    ; We save the value of wYearMonth for later.
+    ld b, a ; 1 byte.
+    ; We multiply the year (upper nybble) by 4.
+    and $f0 ; 2 bytes.
+    rrca ; 1 byte.
+    rrca ; 1 byte.
+   
+    ; We subtract the year multiplied by 4 to wYearMonth.
+    ld c, a ; 1 byte.
+    ld a, b ; 1 byte.
+    sub c ; 1 byte.
+    ; We are done with the added code that suppresses the padding in the database.
+    ; This totals to 8 bytes. We saved 16 bytes, and created a cleaner database!
+
+	add a ; We need to double A, as it's an array of dw. As A is 32 or lower, the doubling can never overflow A.
+    ld c, a
+    ld b, 0
+    ld hl, .deathCountData - 2 * 2 ; As our array starts at index 2, we need to account for it.
+    add hl, bc
+    
+	; Now that we have found the death count, we need to store it for display as a text_decimal.
+	ld a, [hli]
+	ld [wStringBuffer2 + 1], a
+	ld a, [hl]
+	ld [wStringBuffer2], a
+    ret
+
+.deathCountData ; Multiply by 1000 to get the actual value.
+    dw 7    ; 0x02 March 2020
+    dw 46   ; 0x03 April 2020
+    dw 242  ; 0x04 May 2020
+    dw 406  ; 0x05 June 2020
+    dw 560  ; 0x06 July 2020
+    dw 746  ; 0x07 August 2020
+    dw 938  ; 0x08 September 2020
+    dw 1107 ; 0x09 October 2020
+    dw 1294 ; 0x0a November 2020
+    dw 1584 ; 0x0b December 2020
+    dw 1949 ; 0x10 January 2021
+    dw 2392 ; 0x11 February 2021
+    dw 2692 ; 0x12 March 2021
+    dw 2980 ; 0x13 April 2021
+    dw 3327 ; 0x14 May 2021
+    dw 3730 ; 0x15 June 2021
+    dw 4000 ; 0x16 July 2021
+    dw 4269 ; 0x17 August 2021
+    dw 4577 ; 0x18 September 2021
+    dw 4832 ; 0x19 October 2021
+    dw 5050 ; 0x1a November 2021
+    dw 5265 ; 0x1b December 2021
+    dw 5479 ; 0x20 January 2022
+    dw 5730 ; 0x21 February 2022
+    dw 6008 ; 0x22 March 2022
+    dw 6189 ; 0x23 April 2022
+    dw 6274 ; 0x24 May 2022
+    dw 6322 ; 0x25 June 2022
+    dw 6363 ; 0x26 July 2022
+    dw 6431 ; 0x27 August 2022
+    dw 6502 ; 0x28 September 2022
+    dw 6549 ; 0x29 October 2022
+    dw 6598 ; 0x2a November 2022
+    dw 6641 ; 0x2b December 2022
+    dw 6728 ; 0x30 January 2023
+    dw 6839 ; 0x31 February 2023
+    dw 6879 ; 0x32 March 2023
+    dw 6905 ; 0x33 April 2023
+    dw 6928 ; 0x34 May 2023
+    dw 6943 ; 0x35 June 2023
+    dw 6951 ; 0x36 July 2023
+    dw 6957 ; 0x37 August 2023
+    dw 6963 ; 0x38 September 2023
+    dw 6974 ; 0x39 October 2023
+    dw 6988 ; 0x3a November 2023
+    dw 7000 ; 0x3b December 2023
+
 CopyRadioTextToRAM:
 	ld a, [hl]
 	cp TX_FAR
@@ -1865,6 +2457,8 @@ StartRadioStation:
 	ld a, [wNumRadioLinesPrinted]
 	and a
 	ret nz
+
+	ld [wNewsRadioSegmentCounter], a ; a = 0
 	call RadioTerminator
 	call PrintText
 	ld hl, RadioChannelSongs

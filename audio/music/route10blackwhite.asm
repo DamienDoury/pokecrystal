@@ -12,6 +12,12 @@ Music_Route10:
 	musicheader 1, 3, Music_Route10_Ch3
 	musicheader 1, 4, Music_Route10_Ch4
 
+Music_Route10_NoDelay:
+	musicheader 4, 1, Music_Route10_Ch1_NoDelay
+	musicheader 1, 2, Music_Route10_Ch2_NoDelay
+	musicheader 1, 3, Music_Route10_Ch3_NoDelay
+	musicheader 1, 4, Music_Route10_Ch4_NoDelay
+
 ; ============================================================================================================
 Music_Route10_Ch1:
 	rest 16
@@ -27,6 +33,7 @@ Music_Route10_Ch1:
 	rest 16
 	rest 16
 
+Music_Route10_Ch1_NoDelay:
 	tempo 137 ;134
 	volume $77
 	stereopanning $ff
@@ -312,6 +319,7 @@ Music_Route10_Ch2:
 	rest 16
 	rest 16
 
+Music_Route10_Ch2_NoDelay:
 	dutycycle $1
 	stereopanning $ff
 	notetype $c, $68
@@ -484,6 +492,7 @@ Music_Route10_Ch3:
 	rest 16
 	rest 16
 
+Music_Route10_Ch3_NoDelay:
 	stereopanning $ff
 	;vibrato $00, $13
 
@@ -813,6 +822,7 @@ Music_Route10_Ch4:
 	rest 16
 	rest 16
 	
+Music_Route10_Ch4_NoDelay:
 	notetype 12
 	togglenoise $3
 

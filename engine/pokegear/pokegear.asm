@@ -1744,6 +1744,8 @@ RadioChannels:
 	dbw 28, .PokemonMusic           ; 07.5
 	dbw 32, .LuckyChannel           ; 08.5
 	dbw 40, .BuenasPassword         ; 10.5
+	dbw 46, .NewsRadioJohto         ; 12.0
+	dbw 50, .NewsRadioKanto         ; 13.0
 	dbw 52, .RuinsOfAlphRadio       ; 13.5
 	dbw 64, .PlacesAndPeople        ; 16.5
 	dbw 72, .LetsAllSing            ; 18.5
@@ -1755,7 +1757,8 @@ RadioChannels:
 ; Pokédex Show in the morning
 ; Oak's Pokémon Talk in the afternoon and evening
 	call .InJohto
-	jr nc, .NoSignal
+	jp nc, .NoSignal
+
 	ld a, [wTimeOfDay]
 	and a
 	jp z, LoadStation_PokedexShow
@@ -1775,6 +1778,19 @@ RadioChannels:
 	call .InJohto
 	jr nc, .NoSignal
 	jp LoadStation_BuenasPassword
+
+.NewsRadioJohto:
+	call .InJohto
+	jr nc, .NoSignal
+	jp LoadStation_NewsRadioJohto
+
+.NewsRadioKanto:
+	call .InJohto
+	jr c, .NoSignal
+	ld a, [wPokegearFlags]
+	bit POKEGEAR_EXPN_CARD_F, a
+	jr z, .NoSignal
+	jp LoadStation_NewsRadioKanto
 
 .RuinsOfAlphRadio:
 	ld a, [wPokegearMapPlayerIconLandmark]
@@ -1843,55 +1859,31 @@ RadioChannels:
 
 LoadStation_OaksPokemonTalk:
 	xor a ; OAKS_POKEMON_TALK
-	ld [wCurRadioLine], a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, OaksPKMNTalkName
 	ret
 
 LoadStation_PokedexShow:
 	ld a, POKEDEX_SHOW
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, PokedexShowName
 	ret
 
 LoadStation_PokemonMusic:
 	ld a, POKEMON_MUSIC
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, PokemonMusicName
 	ret
 
 LoadStation_LuckyChannel:
 	ld a, LUCKY_CHANNEL
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, LuckyChannelName
 	ret
 
 LoadStation_BuenasPassword:
 	ld a, BUENAS_PASSWORD
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, NotBuenasPasswordName
 	ld a, [wStatusFlags2]
 	bit STATUSFLAGS2_ROCKETS_IN_RADIO_TOWER_F, a
@@ -1908,71 +1900,62 @@ endc
 
 NotBuenasPasswordName: db "@"
 
+LoadStation_NewsRadioJohto:
+	ld a, NEWS_RADIO
+	call LoadRadioStart
+	ld de, NewsRadioNameJohto
+	ret
+
+LoadStation_NewsRadioKanto:
+	ld a, NEWS_RADIO
+	call LoadRadioStart
+	ld de, NewsRadioNameKanto
+	ret
+
 LoadStation_UnownRadio:
 	ld a, UNOWN_RADIO
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, UnownStationName
 	ret
 
 LoadStation_PlacesAndPeople:
 	ld a, PLACES_AND_PEOPLE
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, PlacesAndPeopleName
 	ret
 
 LoadStation_LetsAllSing:
 	ld a, LETS_ALL_SING
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, LetsAllSingName
 	ret
 
 LoadStation_RocketRadio:
 	ld a, ROCKET_RADIO
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, LetsAllSingName
 	ret
 
 LoadStation_PokeFluteRadio:
 	ld a, POKE_FLUTE_RADIO
-	ld [wCurRadioLine], a
-	xor a
-	ld [wNumRadioLinesPrinted], a
-	ld a, BANK(PlayRadioShow)
-	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
+	call LoadRadioStart
 	ld de, PokeFluteStationName
 	ret
 
 LoadStation_EvolutionRadio:
 	ld a, EVOLUTION_RADIO
+	call LoadRadioStart
+	ld de, UnownStationName
+	ret
+
+; Input: radio ID in A.
+LoadRadioStart:
 	ld [wCurRadioLine], a
 	xor a
 	ld [wNumRadioLinesPrinted], a
 	ld a, BANK(PlayRadioShow)
 	ld hl, PlayRadioShow
-	call Radio_BackUpFarCallParams
-	ld de, UnownStationName
-	ret
+	jp Radio_BackUpFarCallParams
 
 RadioMusicRestartDE:
 	push de
@@ -1983,8 +1966,7 @@ RadioMusicRestartDE:
 	pop de
 	ld a, e
 	ld [wMapMusic], a
-	call PlayMusic
-	ret
+	jp PlayMusic
 
 RadioMusicRestartPokemonChannel:
 	push de
@@ -2043,7 +2025,9 @@ PokemonMusicName:     db "Musique #MON@"
 LuckyChannelName:     db "Antenne Chance@"
 UnownStationName:     db "?????@"
 NoSignalName:         db "--Aucun signal--@"
-
+NewsRadioNameJohto:   db "Johto Quotidien@"
+	
+NewsRadioNameKanto:   db "Info Kanto@"
 PlacesAndPeopleName:  db "Socio FM@"
 LetsAllSingName:      db "Chantons un peu@"
 PokeFluteStationName: db "FLUTE #MON@"
@@ -2054,7 +2038,9 @@ PokemonMusicName:     db "#MON Music@"
 LuckyChannelName:     db "Lucky Channel@"
 UnownStationName:     db "?????@"
 NoSignalName:         db "-- No signal --@"
-
+NewsRadioNameJohto:   db "Johto Daily@"
+	
+NewsRadioNameKanto:   db "Kanto News@"
 PlacesAndPeopleName:  db "Places & People@"
 LetsAllSingName:      db "Let's All Sing!@"
 PokeFluteStationName: db "# FLUTE@"

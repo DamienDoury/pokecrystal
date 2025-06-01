@@ -36,6 +36,7 @@ FlagAction::
 ;    2  CHECK_FLAG  check bit
 ; de: bit number
 ; hl: pointer to the flag array
+; Result in A, C and Z flag.
 
 	; get index within the byte
 	ld a, e

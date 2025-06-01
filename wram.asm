@@ -1834,6 +1834,7 @@ wCurRadioLine:: db
 wNextRadioLine:: db
 wRadioTextDelay:: db
 wNumRadioLinesPrinted:: db
+wNewsRadioSegmentCounter::
 wOaksPKMNTalkSegmentCounter:: db
 	ds 5
 wRadioText:: ds 2 * SCREEN_WIDTH

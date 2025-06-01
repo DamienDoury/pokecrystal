@@ -1910,8 +1910,7 @@ Music_NoteType:
 	cp CHAN4
 	ret z
 	; volume envelope
-	call Music_VolumeEnvelope
-	ret
+	jp Music_VolumeEnvelope
 
 Music_PitchSweep:
 ; update pitch sweep
@@ -1954,8 +1953,7 @@ Music_Tempo:
 	ld d, a
 	call GetMusicByte
 	ld e, a
-	call SetGlobalTempo
-	ret
+	jp SetGlobalTempo
 
 Music_Octave8:
 Music_Octave7:
@@ -1991,8 +1989,7 @@ Music_StereoPanning:
 	bit STEREO, a
 	jr nz, Music_ForceStereoPanning
 	; skip param
-	call GetMusicByte
-	ret
+	jp GetMusicByte
 
 Music_ForceStereoPanning:
 ; force panning
@@ -2044,8 +2041,7 @@ Music_TempoRelative:
 	add hl, de
 	ld e, l
 	ld d, h
-	call SetGlobalTempo
-	ret
+	jp SetGlobalTempo
 
 Music_SFXPriorityOn:
 ; turn sfx priority on
