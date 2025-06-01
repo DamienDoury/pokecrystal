@@ -796,9 +796,6 @@ CeruleanGymBadgeSpeechHouse_Blocks:
 WardensNeighborHouse_Blocks:
 	INCBIN "maps/WardensNeighborHouse.blk"
 
-FightingDojo_Blocks:
-	INCBIN "maps/FightingDojo.blk"
-
 SilphCo1F_Blocks:
 	INCBIN "maps/SilphCo1F.blk"
 

@@ -493,27 +493,26 @@ ENDM
 	newgroup SAFFRON                                              ; 25
 	map_const ROUTE_5,                                     10, 15 ;  1
 	map_const SAFFRON_CITY,                                20, 18 ;  2
-	map_const FIGHTING_DOJO,                                5,  6 ;  3
-	map_const SAFFRON_GYM,                                 10,  9 ;  4
-	map_const SAFFRON_MART,                                 6,  4 ;  5
-	map_const SAFFRON_POKECENTER_1F,                        5,  4 ;  6
-	map_const MR_PSYCHICS_HOUSE,                            4,  4 ;  7
-	map_const SAFFRON_MAGNET_TRAIN_STATION,                10,  9 ;  8
-	map_const SILPH_CO_1F,                                  8,  4 ;  9
-	map_const COPYCATS_HOUSE_1F,                            4,  4 ; 10
-	map_const COPYCATS_HOUSE_2F,                            5,  3 ; 11
-	map_const ROUTE_5_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 12
-	map_const ROUTE_5_SAFFRON_GATE,                         5,  4 ; 13
-	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 14	
-	map_const VACCINATION_CENTER_1F,                        8,  4 ; 15
-	map_const VACCINATION_CENTER_CORRIDOR,                  8,  2 ; 16
-	map_const VACCINATION_CENTER_ROOM,                		2,  4 ; 17
-	map_const MR_ANTONS_HOUSE,                				5,  4 ; 18
-	map_const SILPHCO_ELEVATOR,                				1,  2 ; 19
-	map_const SILPHCO_RESEARCH,                				8,  4 ; 20
-	map_const AKIBA_1F,                						6,  5 ; 21
-	map_const AKIBA_2F,                						6,  5 ; 22
-	map_const AKIBA_3F,                						5,  5 ; 23
+	map_const SAFFRON_GYM,                                 10,  9 ;  3
+	map_const SAFFRON_MART,                                 6,  4 ;  4
+	map_const SAFFRON_POKECENTER_1F,                        5,  4 ;  5
+	map_const MR_PSYCHICS_HOUSE,                            4,  4 ;  6
+	map_const SAFFRON_MAGNET_TRAIN_STATION,                10,  9 ;  7
+	map_const SILPH_CO_1F,                                  8,  4 ;  8
+	map_const COPYCATS_HOUSE_1F,                            4,  4 ;  9
+	map_const COPYCATS_HOUSE_2F,                            5,  3 ; 10
+	map_const ROUTE_5_UNDERGROUND_PATH_ENTRANCE,            4,  4 ; 11
+	map_const ROUTE_5_SAFFRON_GATE,                         5,  4 ; 12
+	map_const ROUTE_5_CLEANSE_TAG_HOUSE,                    4,  4 ; 13	
+	map_const VACCINATION_CENTER_1F,                        8,  4 ; 14
+	map_const VACCINATION_CENTER_CORRIDOR,                  8,  2 ; 15
+	map_const VACCINATION_CENTER_ROOM,                		2,  4 ; 16
+	map_const MR_ANTONS_HOUSE,                				5,  4 ; 17
+	map_const SILPHCO_ELEVATOR,                				1,  2 ; 18
+	map_const SILPHCO_RESEARCH,                				8,  4 ; 19
+	map_const AKIBA_1F,                						6,  5 ; 20
+	map_const AKIBA_2F,                						6,  5 ; 21
+	map_const AKIBA_3F,                						5,  5 ; 22
 	endgroup
 
 	newgroup CHERRYGROVE                                          ; 26

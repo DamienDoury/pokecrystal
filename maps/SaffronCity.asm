@@ -471,7 +471,7 @@ SaffronCity_MapEvents:
 	db 0, 0 ; filler
 
 	def_warp_events
-	warp_event 26,  3, FIGHTING_DOJO, 1
+	warp_event  0, 41, SAFFRON_GYM, 1
 	warp_event 34,  3, SAFFRON_GYM, 1
 	warp_event 25, 11, SAFFRON_MART, 2
 	warp_event  9, 29, SAFFRON_POKECENTER_1F, 1
