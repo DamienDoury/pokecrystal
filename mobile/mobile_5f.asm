@@ -2839,7 +2839,7 @@ Function17e2a7:
 	jr z, .asm_17e2f7
 	cp $b
 	jr z, .asm_17e300
-	jmp Function17e309
+	jr Function17e309
 
 .asm_17e2d8
 	call Function17d60b
@@ -3186,14 +3186,14 @@ Function17e55b:
 	and a
 	ret z
 	ld a, $ed
-	jmp Function17e571
+	jr Function17e571
 
 Function17e566:
 	ld a, [wcd42]
 	and a
 	ret z
 	ld a, $7f
-	jmp Function17e571
+	jr Function17e571
 
 Function17e571:
 	push af

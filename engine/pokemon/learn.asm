@@ -129,7 +129,7 @@ LearnMove:
 	ld de, wBattleMonPP
 	ld bc, NUM_MOVES
 	call CopyBytes
-	jmp .learned
+	jr .learned
 
 .cancel
 	ld hl, StopLearningMoveText

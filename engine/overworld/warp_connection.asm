@@ -95,7 +95,7 @@ EnterMapConnection:
 	ld [wOverworldMapAnchor], a
 	ld a, h
 	ld [wOverworldMapAnchor + 1], a
-	jmp .done
+	jr .done
 
 .north
 	ld a, [wNorthConnectedMapGroup]
@@ -120,7 +120,7 @@ EnterMapConnection:
 	ld [wOverworldMapAnchor], a
 	ld a, h
 	ld [wOverworldMapAnchor + 1], a
-	jmp .done
+	jr .done
 
 .south
 	ld a, [wSouthConnectedMapGroup]

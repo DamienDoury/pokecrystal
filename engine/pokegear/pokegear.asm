@@ -1288,7 +1288,7 @@ PokegearPhone_UpdateDisplayList:
 	ld [wPokegearPhoneDisplayPosition], a
 	cp PHONE_DISPLAY_HEIGHT
 	jr c, .loop
-	jmp PokegearPhone_UpdateCursor
+	jr PokegearPhone_UpdateCursor
 
 PokegearPhone_DeletePhoneNumber:
 	ld hl, wPhoneList
@@ -1928,7 +1928,7 @@ LoadRadioStart:
 	ld [wNumRadioLinesPrinted], a
 	ld a, BANK(PlayRadioShow)
 	ld hl, PlayRadioShow
-	jmp Radio_BackUpFarCallParams
+	jr Radio_BackUpFarCallParams
 
 RadioMusicRestartDE:
 	push de

@@ -58,7 +58,7 @@ FindNest:
 	ld hl, TreeMonKantoMaps
 	call .FindTrees
 	ld hl, RockMonKantoMaps
-	jmp .FindTrees
+	jr .FindTrees
 
 .FindGrass:
 	ld a, [hl]
@@ -147,7 +147,7 @@ FindNest:
 
 .found
 	pop af
-	jmp .AppendNest
+	jr .AppendNest
 
 .AppendNest:
 	push de
@@ -824,7 +824,7 @@ JumpRoamMons:
 	ld [wRoamMon3MapNumber], a
 
 .Finished:
-	jmp _BackUpMapIndices
+	jr _BackUpMapIndices
 
 JumpRoamMon:
 .loop

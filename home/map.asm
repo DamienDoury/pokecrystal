@@ -405,14 +405,14 @@ LoadMapAttributes::
 	farcall ResetClapInThisRoom
 	xor a ; do not skip object events
 	ld [wBattlePokerusSeed], a ; Sometimes, a covid battle is enforced at the map level. Therefore we need to clean it at this point.
-	jmp ReadMapEvents
+	jr ReadMapEvents
 
 LoadMapAttributes_SkipObjects::
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts
 	ld a, TRUE ; skip object events
-	jmp ReadMapEvents
+	jr ReadMapEvents
 
 CopyMapPartialAndAttributes::
 	call CopyMapPartial
@@ -450,7 +450,7 @@ ReadMapScripts::
 	ld h, [hl]
 	ld l, a
 	call ReadMapSceneScripts
-	jmp ReadMapCallbacks
+	jr ReadMapCallbacks
 
 CopyMapAttributes::
 	ld de, wMapAttributes
@@ -2126,7 +2126,7 @@ ReturnToMapPart1:
 	ld [wSpriteUpdatesEnabled], a
 	call ClearBGPalettes
 	call ClearSprites
-	jmp ReloadTilesetAndPalettes
+	jr ReloadTilesetAndPalettes
 
 ReturnToMapPart2:
 	ld hl, wVramState

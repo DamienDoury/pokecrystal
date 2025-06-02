@@ -91,7 +91,7 @@ Function16c09e:
 	ld a, [wcf64]
 	cp $4
 	ret nz
-	jmp Function16c0fa
+	jr Function16c0fa
 
 Function16c0a8:
 	xor a
@@ -100,7 +100,7 @@ Function16c0a8:
 	call ClearSprites
 	ld a, $90
 	ldh [hWY], a
-	jmp Function16c0fa
+	jr Function16c0fa
 
 Function16c0ba:
 	call Function16c943
@@ -533,7 +533,7 @@ Function16cb2e:
 	call Function16cb40
 	ld hl, Unknown_16cb86
 	ld de, wVirtualOAM
-	jmp Function16cb5d
+	jr Function16cb5d
 
 Function16cb40:
 	ld hl, wd1ec
@@ -610,7 +610,7 @@ Function16cbae:
 	and a
 	ret z
 	call Function16cbba
-	jmp Function16cbd1
+	jr Function16cbd1
 
 Function16cbba:
 	ld hl, wd1f2
@@ -659,7 +659,7 @@ Function16cc02:
 	call Function16cc25
 	call Function16cc6e
 	call Function16cb0f
-	jmp Function16cba3
+	jr Function16cba3
 
 Function16cc18:
 	ld hl, vTiles1
@@ -690,7 +690,7 @@ Function16cc49:
 	call Function16cc5a
 	hlcoord 4, 16
 	ld a, $90
-	jmp Function16cc5a
+	jr Function16cc5a
 
 Function16cc5a:
 	ld c, $10

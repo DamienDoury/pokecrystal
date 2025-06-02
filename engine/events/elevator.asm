@@ -184,7 +184,7 @@ Elevator_GetCurrentFloorString:
 	add hl, de
 	ld a, [hl]
 	pop de
-	jmp GetFloorString
+	jr GetFloorString
 
 ElevatorGolderodDeptStore_MenuHeader:
 	db MENU_BACKUP_TILES ; flags

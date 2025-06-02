@@ -338,7 +338,7 @@ DayCare_GetBackMonForMoney:
 	ld a, [wCurPartySpecies]
 	call PlayMonCry
 	ld a, DAYCARETEXT_GOT_BACK
-	jmp PrintDayCareText
+	jr PrintDayCareText
 
 GetPriceToRetrieveBreedmon:
 	ld a, b

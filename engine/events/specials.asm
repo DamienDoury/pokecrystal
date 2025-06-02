@@ -288,7 +288,7 @@ SearchCriticallyIllMonInParty:
 CheckMildIllness: ; Only called by the nurse.
 ; Check if a monster in your party has Pokerus with a 1 bit strain.
 	farcall _CheckMildIllness
-	jmp ScriptReturnCarry
+	jr ScriptReturnCarry
 
 CheckPokerus: ; Only called by the nurse.
 	farcall _CheckPokerus

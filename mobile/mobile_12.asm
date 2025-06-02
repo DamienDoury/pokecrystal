@@ -1393,7 +1393,7 @@ Function48ab5:
 	call Function48c5a
 .asm_48b88
 	ld a, $f0
-	jmp Function48c00
+	jr Function48c00
 .asm_48b8d
 	pop af
 	ld b, a
@@ -1720,13 +1720,13 @@ Function48d30:
 	ld hl, wd475
 	call Function48d4a
 	ld hl, wd477
-	jmp Function48d4a
+	jr Function48d4a
 
 Function48d3d:
 	ld hl, wd475
 	call Function48d94
 	ld hl, wd477
-	jmp Function48d94
+	jr Function48d94
 
 Function48d4a:
 	inc hl

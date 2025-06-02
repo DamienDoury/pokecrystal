@@ -161,7 +161,7 @@ GameFreakPresents_PlacePresents:
 	decoord 7, 11
 	ld bc, .end - .presents
 	call CopyBytes
-	jmp GameFreakPresents_NextScene
+	jr GameFreakPresents_NextScene
 
 .presents
 	db $07, $08, $09, $0a, $0b, $0c

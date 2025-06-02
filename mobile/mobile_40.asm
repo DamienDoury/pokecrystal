@@ -272,18 +272,18 @@ Function10016f:
 	ld [wMobileErrorCodeBuffer + 2], a
 	ld a, e
 	ld [wMobileErrorCodeBuffer + 1], a
-	jmp Function10020b
+	jr Function10020b
 
 .asm_1001e6
 	ret
 
 .asm_1001e7
 	ld de, String10025e
-	jmp Function100232
+	jr Function100232
 
 .asm_1001ee
 	ld de, String10024d
-	jmp Function100232
+	jr Function100232
 
 .asm_1001f5
 	ld a, [wcd2c]
@@ -292,7 +292,7 @@ Function10016f:
 	ld [wMobileErrorCodeBuffer + 2], a
 	ld a, [wcd2d]
 	ld [wMobileErrorCodeBuffer + 1], a
-	jmp Function10020b
+	jr Function10020b
 
 Function10020b:
 	xor a
@@ -980,7 +980,7 @@ Function100675:
 	bit 2, [hl]
 	set 2, [hl]
 	ret nz
-	jmp Function1006d3
+	jr Function1006d3
 
 Function100681:
 	push hl
@@ -1412,7 +1412,7 @@ Function100970:
 	ld de, w3_dd68
 	call Function1009a5
 	call Function1009d2
-	jmp Function1009ae
+	jr Function1009ae
 
 Function100989:
 	ld hl, w3_dc00
@@ -1422,7 +1422,7 @@ Function100989:
 	farcall ReloadMapPart
 	ld hl, w3_dd68
 	decoord 0, 0, wAttrmap
-	jmp Function1009a5
+	jr Function1009a5
 
 Function1009a5:
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
@@ -1764,7 +1764,7 @@ Mobile_MoveSelectionScreen:
 	ld a, [wNumMoves]
 	inc a
 	ld [wMenuCursorY], a
-	jmp .master_loop
+	jr .master_loop
 
 .d_down
 	ld a, [wMenuCursorY]
@@ -1776,7 +1776,7 @@ Mobile_MoveSelectionScreen:
 	jp nz, .master_loop
 	ld a, $01
 	ld [wMenuCursorY], a
-	jmp .master_loop
+	jr .master_loop
 
 .b_button
 	ld a, [wMenuCursorY]
@@ -2172,7 +2172,7 @@ Function100ec5:
 
 Function100eca:
 	farcall Mobile_InitPartyMenuBGPal7
-	jmp Function100ed4
+	jr Function100ed4
 
 Function100ed4:
 	farcall ApplyPals
@@ -3252,12 +3252,12 @@ Function101649:
 	call MobileCopyTransferData
 	ld a, BANK(w5_da00)
 	ld de, w5_da00
-	jmp MobileCopyTransferData2
+	jr MobileCopyTransferData2
 
 Function10165a:
 	ld a, BANK(w5_da00)
 	ld hl, w5_da00
-	jmp MobileCopyTransferData
+	jr MobileCopyTransferData
 
 Function101663:
 	ld a, BANK(w5_dc00)
@@ -3265,12 +3265,12 @@ Function101663:
 	call MobileCopyTransferData
 	ld a, BANK(w5_dc00)
 	ld de, w5_dc00
-	jmp MobileCopyTransferData2
+	jr MobileCopyTransferData2
 
 Function101674: ; unreferenced
 	ld a, BANK(w5_dc00)
 	ld hl, w5_dc00
-	jmp MobileCopyTransferData
+	jr MobileCopyTransferData
 
 Function10167d:
 	ld a, 0
@@ -6158,31 +6158,31 @@ Function102c07:
 	call Function102c14
 	call Function102c3b
 	call Function102c21
-	jmp Function102c2e
+	jr Function102c2e
 
 Function102c14:
 	ld hl, wPartySpecies
 	ld de, wOTPartySpecies
 	ld bc, 1
-	jmp Function102c71
+	jr Function102c71
 
 Function102c21:
 	ld hl, wPartyMonNicknames
 	ld de, wOTPartyMonNicknames
 	ld bc, 11
-	jmp Function102c71
+	jr Function102c71
 
 Function102c2e:
 	ld hl, wPartyMonOTs
 	ld de, wOTPartyMonOTs
 	ld bc, 11
-	jmp Function102c71
+	jr Function102c71
 
 Function102c3b:
 	ld hl, wPartyMon1
 	ld de, wOTPartyMon1
 	ld bc, $30
-	jmp Function102c71
+	jr Function102c71
 
 Function102c48:
 	farcall Function10165a
@@ -6621,7 +6621,7 @@ Function10305d:
 	call Function10307f
 	ret c
 	call Function103094
-	jmp Function10306e
+	jr Function10306e
 
 Function10306e:
 	ld a, $01
@@ -6813,7 +6813,7 @@ INCLUDE "gfx/mobile/mobile_trade_lights.pal"
 
 Function103302:
 	call Function103309
-	jmp Function103362
+	jr Function103362
 
 Function103309:
 	xor a
@@ -6857,7 +6857,7 @@ Function103309:
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
 	ld a, $01
 	ld [wd1f0], a
-	jmp Function10339a
+	jr Function10339a
 
 Function103362:
 .asm_103362
@@ -6977,7 +6977,7 @@ Function10342c:
 	ld [wd1f2], a
 	call Function103490
 	call Function10343c
-	jmp Function1034a7
+	jr Function1034a7
 
 Function10343c:
 	ld a, [wd1f3]
@@ -7013,7 +7013,7 @@ Function10343c:
 .asm_10347d
 	call Function10350f
 	ld bc, 11
-	jmp Function103487
+	jr Function103487
 
 Function103487:
 	push de
@@ -7062,7 +7062,7 @@ Function1034be:
 	pop af
 	dec a
 	jr nz, .asm_1034ca
-	jmp Function103490
+	jr Function103490
 
 Function1034e0:
 	push bc

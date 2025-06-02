@@ -2007,7 +2007,7 @@ GetIndexedMovementByte2:
 
 _GetMovementObject:
 	ld hl, GetMovementObject
-	jmp HandleMovementData
+	jr HandleMovementData
 
 GetMovementObject:
 	ld a, [wMovementObject]
@@ -2374,7 +2374,7 @@ RespawnObject:
 	call GetObjectStruct
 	call DoesObjectHaveASprite
 	ret z
-	jmp UpdateRespawnedObjectFrozen
+	jr UpdateRespawnedObjectFrozen
 
 HideAllObjects:
 	xor a
@@ -2628,7 +2628,7 @@ RefreshPlayerSprite:
 	call TryResetPlayerAction
 	farcall CheckWarpFacingDown
 	call c, SpawnInFacingDown
-	jmp SpawnInCustomFacing
+	jr SpawnInCustomFacing
 
 TryResetPlayerAction:
 	ld hl, wPlayerSpriteSetupFlags

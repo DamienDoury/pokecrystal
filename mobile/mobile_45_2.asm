@@ -267,7 +267,7 @@ Function1166f4:
 	jr z, .asm_116702
 	ld [hl], a
 	call Function11679c
-	jmp Function116797
+	jr Function116797
 
 Function11671f:
 	ld [wc30f], a
@@ -288,7 +288,7 @@ Function11671f:
 	jr z, .asm_11672d
 	ld [hl], a
 	call Function11679c
-	jmp Function116797
+	jr Function116797
 
 Function116747:
 	ld hl, wc30e

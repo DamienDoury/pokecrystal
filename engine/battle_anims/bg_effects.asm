@@ -170,7 +170,7 @@ BattleBGEffects_IncAnonJumptableIndex:
 
 BattleBGEffect_FlashInverted:
 	ld de, .inverted
-	jmp BattleBGEffect_FlashContinue
+	jr BattleBGEffect_FlashContinue
 
 .inverted
 	dc 3, 2, 1, 0
@@ -178,7 +178,7 @@ BattleBGEffect_FlashInverted:
 
 BattleBGEffect_FlashWhite:
 	ld de, .white
-	jmp BattleBGEffect_FlashContinue
+	jr BattleBGEffect_FlashContinue
 
 .white
 	dc 3, 2, 1, 0
@@ -642,7 +642,7 @@ BattleBGEffect_EnterMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	jmp BattleBGEffect_RunPicResizeScript
+	jr BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  2, $31, 2
@@ -668,7 +668,7 @@ BattleBGEffect_ReturnMon:
 	ld [wBattlePicResizeTempPointer], a
 	ld a, d
 	ld [wBattlePicResizeTempPointer + 1], a
-	jmp BattleBGEffect_RunPicResizeScript
+	jr BattleBGEffect_RunPicResizeScript
 
 .PlayerData:
 	db  0, $31, 0
@@ -2436,7 +2436,7 @@ BGEffect_RapidCyclePals:
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
 	jr c, .okay_2_cgb
-	jmp BGEffects_LoadBGPal0_OBPal1
+	jr BGEffects_LoadBGPal0_OBPal1
 
 .okay_2_cgb
 	ld hl, BG_EFFECT_STRUCT_PARAM
@@ -2465,7 +2465,7 @@ BGEffect_RapidCyclePals:
 	ld [hl], a
 	call BattleBGEffect_GetFirstDMGPal
 	jr c, .okay_4_cgb
-	jmp BGEffects_LoadBGPal1_OBPal0
+	jr BGEffects_LoadBGPal1_OBPal0
 
 .okay_4_cgb
 	ld hl, BG_EFFECT_STRUCT_PARAM
@@ -2625,7 +2625,7 @@ BattleBGEffects_ResetVideoHRAM:
 	ld [wOBP1], a
 	ldh [hLYOverrideStart], a
 	ldh [hLYOverrideEnd], a
-	jmp BattleBGEffects_ClearLYOverrides
+	jr BattleBGEffects_ClearLYOverrides
 
 DeformScreen:
 	push bc

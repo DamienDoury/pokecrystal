@@ -657,7 +657,7 @@ PrintPCBox_Page1:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 9
 	ld c, 3
-	jmp Printer_PrintBoxListSegment
+	jr Printer_PrintBoxListSegment
 
 .String_PokemonList:
 if DEF(_FR_FR)
@@ -680,7 +680,7 @@ PrintPCBox_Page2:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 6
-	jmp Printer_PrintBoxListSegment
+	jr Printer_PrintBoxListSegment
 
 PrintPCBox_Page3:
 	hlcoord 0, 0
@@ -696,7 +696,7 @@ PrintPCBox_Page3:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 6
-	jmp Printer_PrintBoxListSegment
+	jr Printer_PrintBoxListSegment
 
 PrintPCBox_Page4:
 	hlcoord 0, 0
@@ -716,7 +716,7 @@ PrintPCBox_Page4:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 5
-	jmp Printer_PrintBoxListSegment
+	jr Printer_PrintBoxListSegment
 
 Printer_PrintBoxListSegment:
 	ld a, [wBankOfBoxToPrint]

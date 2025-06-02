@@ -160,7 +160,7 @@ Serial_ExchangeByte::
 	pop hl
 	call CheckLinkTimeoutFramesNonzero
 	jr nz, .loop
-	jmp SerialDisconnected
+	jr SerialDisconnected
 
 .not_player_1_or_timed_out
 	ldh a, [rIE]
@@ -302,7 +302,7 @@ WaitLinkTransfer::
 	; We might be disconnected
 	pop hl
 	xor a
-	jmp SerialDisconnected
+	jr SerialDisconnected
 
 .skip
 	pop hl

@@ -23,7 +23,7 @@ DelCellNum::
 	ret
 
 CheckCellNum::
-	jmp _CheckCellNum ; useless
+	jr _CheckCellNum ; useless
 
 _CheckCellNum:
 	ld hl, wPhoneList
@@ -433,11 +433,11 @@ Script_SpecialBillCall::
 
 .LoadBillScript:
 	ld e, PHONE_BILL
-	jmp LoadCallerScript
+	jr LoadCallerScript
 
 .LoadElmScript:
 	ld e, PHONE_ELM
-	jmp LoadCallerScript
+	jr LoadCallerScript
 
 RingTwice_StartCall:
 	call .Ring
@@ -515,7 +515,7 @@ Phone_CallEnd:
 	call HangUp_BoopOn
 	call HangUp_Wait20Frames
 	call HangUp_BoopOff
-	jmp HangUp_Wait20Frames
+	jr HangUp_Wait20Frames
 
 HangUp_ShutDown: ; unreferenced
 	ld de, SFX_SHUT_DOWN_PC
@@ -570,7 +570,7 @@ Phone_TextboxWithName:
 	ld d, h
 	ld e, l
 	pop bc
-	jmp GetCallerClassAndName
+	jr GetCallerClassAndName
 
 Phone_CallerTextbox:
 	hlcoord 0, 0
@@ -583,7 +583,7 @@ GetCallerClassAndName:
 	ld l, e
 	ld a, b
 	call GetCallerTrainerClass
-	jmp GetCallerName
+	jr GetCallerName
 
 CheckCanDeletePhoneNumber:
 	ld a, c

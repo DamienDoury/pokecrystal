@@ -3,7 +3,7 @@ _BillsPC:
 	ret c
 	call .LogIn
 	call .UseBillsPC
-	jmp .LogOut
+	jr .LogOut
 
 .CheckCanUsePC:
 	ld a, [wPartyCount]

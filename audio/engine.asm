@@ -1910,7 +1910,7 @@ Music_NoteType:
 	cp CHAN4
 	ret z
 	; volume envelope
-	jmp Music_VolumeEnvelope
+	jr Music_VolumeEnvelope
 
 Music_PitchSweep:
 ; update pitch sweep
@@ -1989,7 +1989,7 @@ Music_StereoPanning:
 	bit STEREO, a
 	jr nz, Music_ForceStereoPanning
 	; skip param
-	jmp GetMusicByte
+	jr GetMusicByte
 
 Music_ForceStereoPanning:
 ; force panning

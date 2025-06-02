@@ -209,7 +209,7 @@ Mobile_InitPartyMenuBGPal71:
 PartyMenu_InitAnimatedMonIcon:
 	call InitPartyMenuIcon
 	call .SpawnItemIcon
-	jmp SetPartyMonIconAnimSpeed
+	jr SetPartyMonIconAnimSpeed
 
 .SpawnItemIcon:
 	push bc
@@ -350,7 +350,7 @@ Trade_LoadMonIconGFX:
 	ld [wCurIcon], a
 	ld a, $62
 	ld [wCurIconTile], a
-	jmp GetMemIconGFX
+	jr GetMemIconGFX
 
 GetSpeciesIcon:
 ; Load species icon into VRAM at tile a
@@ -363,7 +363,7 @@ GetSpeciesIcon:
 	ld [wCurIcon], a
 	pop de
 	ld a, e
-	jmp GetIconGFX
+	jr GetIconGFX
 
 FlyFunction_GetMonIcon:
 	push de

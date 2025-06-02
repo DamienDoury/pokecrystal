@@ -752,7 +752,7 @@ DebugColor_TMHMJoypad:
 
 .done
 	ld [wDebugColorCurTMHM], a
-	jmp DebugColor_PrintTMHMMove
+	jr DebugColor_PrintTMHMMove
 
 DebugColor_PrintTMHMMove:
 	hlcoord 10, 11

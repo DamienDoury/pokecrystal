@@ -60,7 +60,7 @@ InsertPokemonIntoParty:
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld de, wBufferMon
-	jmp InsertDataIntoBoxOrParty
+	jr InsertDataIntoBoxOrParty
 
 InsertSpeciesIntoBoxOrParty:
 	inc [hl]

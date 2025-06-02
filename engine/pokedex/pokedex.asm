@@ -800,7 +800,7 @@ Pokedex_UpdateUnownMode:
 	ld a, [hl]
 	and A_BUTTON | B_BUTTON
 	jr nz, .a_b
-	jmp Pokedex_UnownModeHandleDPadInput
+	jr Pokedex_UnownModeHandleDPadInput
 
 .a_b
 	call Pokedex_BlackOutBG

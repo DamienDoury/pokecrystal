@@ -315,12 +315,12 @@ StubbedTrainerRankings_MonsEvolved:
 StubbedTrainerRankings_FruitPicked:
 	ret
 	ld hl, sTrainerRankingFruitPicked
-	jmp StubbedTrainerRankings_Increment3Byte
+	jr StubbedTrainerRankings_Increment3Byte
 
 StubbedTrainerRankings_Healings:
 	ret
 	ld hl, sTrainerRankingHealings
-	jmp StubbedTrainerRankings_Increment3Byte
+	jr StubbedTrainerRankings_Increment3Byte
 
 StubbedTrainerRankings_MysteryGift:
 	ret
@@ -1042,7 +1042,7 @@ Function10649b: ; unreferenced
 	ld de, TextboxSpaceGFX
 	ld c, 1
 	ld b, BANK(TextboxSpaceGFX)
-	jmp Function1064c3
+	jr Function1064c3
 
 Function1064c3:
 	ldh a, [rSVBK]

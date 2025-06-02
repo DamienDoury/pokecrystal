@@ -216,7 +216,7 @@ Function17a7cd:
 	call Function17a83c
 	call Function17a8ae
 	ret c
-	jmp Function17a848
+	jr Function17a848
 
 Function17a7d8:
 	call Function17a83c
@@ -528,7 +528,7 @@ Function17a9cb:
 	jr nz, .bit_6_set
 	call Function17a9e3
 	call Function17aa22
-	jmp Function17a9f5
+	jr Function17a9f5
 
 .bit_6_set
 	jp Function17a9e3
@@ -540,7 +540,7 @@ Function17a9e3:
 	ld b, $8
 	ld c, $8
 	ld a, $5
-	jmp Function17aa4a
+	jr Function17aa4a
 
 Function17a9f5:
 	ld a, [$d08c]
@@ -563,7 +563,7 @@ Function17a9f5:
 	ld c, $11
 	ld hl, Unknown_17aa72
 	ld a, $4
-	jmp Function17aa4a
+	jr Function17aa4a
 
 Function17aa22:
 	ld a, $0
@@ -588,7 +588,7 @@ Function17aa22:
 	pop de
 	ld a, $0
 	ld hl, Unknown_17aa77
-	jmp Function17aa4a
+	jr Function17aa4a
 
 Function17aa4a:
 	ld [$d08d], a
@@ -785,7 +785,7 @@ Function17ac0c:
 	hlcoord 0, 0
 	ld b, 2
 	ld c, SCREEN_WIDTH - 2
-	jmp Function17ac46
+	jr Function17ac46
 
 Function17ac1d:
 	ld hl, DialpadTilemap

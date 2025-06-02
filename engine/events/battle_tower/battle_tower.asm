@@ -180,7 +180,7 @@ Function170139: ; unreferenced
 BattleTowerBattle:
 	xor a ; FALSE
 	ld [wBattleTowerBattleEnded], a
-	jmp _BattleTowerBattle
+	jr _BattleTowerBattle
 
 UnusedBattleTowerDummySpecial1:
 	ret

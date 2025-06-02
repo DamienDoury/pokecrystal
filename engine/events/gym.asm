@@ -506,7 +506,7 @@ _HandleGrassyTerrain::
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn

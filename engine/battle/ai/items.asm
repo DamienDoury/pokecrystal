@@ -469,37 +469,37 @@ AI_Items:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedGuardSpec
-	jmp .Use
+	jr .Use
 
 .DireHit:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedDireHit
-	jmp .Use
+	jr .Use
 
 .XAttack:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXAttack
-	jmp .Use
+	jr .Use
 
 .XDefend:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXDefend
-	jmp .Use
+	jr .Use
 
 .XSpeed:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXSpeed
-	jmp .Use
+	jr .Use
 
 .XSpecial:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXSpecial
-	jmp .Use
+	jr .Use
 
 .XItem:
 	ld a, [wEnemyTurnsTaken]
@@ -517,7 +517,7 @@ AI_Items:
 	call Random
 	cp 50 percent + 1
 	jp c, .DontUse
-	jmp .Use
+	jr .Use
 .notfirstturnout
 	ld a, [bc]
 	bit ALWAYS_USE_F, a
@@ -525,7 +525,7 @@ AI_Items:
 	call Random
 	cp 20 percent - 1
 	jp nc, .DontUse
-	jmp .Use
+	jr .Use
 
 .DontUse:
 	scf
@@ -765,21 +765,21 @@ EnemyUsedXAccuracy:
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_X_ACCURACY, [hl]
 	ld a, X_ACCURACY
-	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jr PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedGuardSpec:
 	call AIUsedItemSound
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_MIST, [hl]
 	ld a, GUARD_SPEC
-	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jr PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedDireHit:
 	call AIUsedItemSound
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_FOCUS_ENERGY, [hl]
 	ld a, DIRE_HIT
-	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jr PrintText_UsedItemOn_AND_AIUpdateHUD
 
 AICheckEnemyFractionMaxHP: ; unreferenced
 ; Input: a = divisor

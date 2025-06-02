@@ -316,7 +316,7 @@ IntroScene3_Jumper:
 	ld a, [hl]
 	and %00011111
 	jr z, .load_palettes
-	jmp Intro_InitMagikarps
+	jr Intro_InitMagikarps
 
 .load_palettes
 	callfar Intro_LoadMagikarpPalettes

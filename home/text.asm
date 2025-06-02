@@ -203,7 +203,7 @@ PlaceNextChar::
 
 NextChar::
 	inc de
-	jmp PlaceNextChar
+	jr PlaceNextChar
 
 CheckDict::
 dict: MACRO
@@ -308,7 +308,7 @@ MobileScriptChar::
 print_name: MACRO
 	push de
 	ld de, \1
-	jmp PlaceCommandCharacter
+	jp PlaceCommandCharacter
 ENDM
 
 PrintPlayerName: print_name wPlayerName

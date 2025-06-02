@@ -24,7 +24,7 @@ Load2DMenuData::
 
 StaticMenuJoypad::
 	callfar _StaticMenuJoypad
-	jmp GetMenuJoypad
+	jr GetMenuJoypad
 
 ScrollingMenuJoypad::
 	callfar _ScrollingMenuJoypad
@@ -330,7 +330,7 @@ MenuTextbox::
 
 LoadMenuTextbox::
 	ld hl, .MenuHeader
-	jmp LoadMenuHeader
+	jr LoadMenuHeader
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -345,7 +345,7 @@ MenuTextboxBackup::
 
 LoadStandardMenuHeader::
 	ld hl, .MenuHeader
-	jmp LoadMenuHeader
+	jr LoadMenuHeader
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags

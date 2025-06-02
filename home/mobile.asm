@@ -134,7 +134,7 @@ Function3eea::
 	call Function3f35
 	pop bc
 	pop hl
-	jmp MobileHome_PlaceBox
+	jr MobileHome_PlaceBox
 
 .fill_attr
 	push hl
@@ -158,7 +158,7 @@ Function3f20::
 	hlcoord 0, 0
 	ld b,  4
 	ld c, 18
-	jmp MobileHome_PlaceBox
+	jr MobileHome_PlaceBox
 
 Function3f35::
 	ld a, 6

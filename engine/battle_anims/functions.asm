@@ -1836,7 +1836,7 @@ BattleAnimFunction_LeechSeed:
 	ld a, [hl]
 	cp $20
 	jr c, .sprout
-	jmp BattleAnim_StepThrownToTarget
+	jr BattleAnim_StepThrownToTarget
 
 .sprout
 	ld [hl], $40
@@ -1930,7 +1930,7 @@ BattleAnimFunction_Spikes:
 	ld a, [hl]
 	cp $20
 	jr c, .wait
-	jmp BattleAnim_StepThrownToTarget
+	jr BattleAnim_StepThrownToTarget
 
 .wait
 	call BattleAnim_IncAnonJumptableIndex
@@ -4104,7 +4104,7 @@ BattleAnimFunction_PsychUp:
 	add hl, bc
 	ld a, [hl]
 	inc [hl]
-	jmp BattleAnim_StepCircle
+	jr BattleAnim_StepCircle
 
 BattleAnimFunction_Cotton:
 ; Object moves in a circle slowly
@@ -4118,7 +4118,7 @@ BattleAnimFunction_Cotton:
 	ld hl, BATTLEANIMSTRUCT_PARAM
 	add hl, bc
 	add [hl]
-	jmp BattleAnim_StepCircle
+	jr BattleAnim_StepCircle
 
 BattleAnimFunction_AncientPower:
 ; Object moves up and down in an arc for $20 frames and then disappear

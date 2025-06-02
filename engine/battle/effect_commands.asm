@@ -523,7 +523,7 @@ CheckEnemyTurn:
 	call DoEnemyDamage
 	call BattleCommand_RaiseSub
 	call CantMove
-	jmp EndTurn
+	jr EndTurn
 
 .not_confused
 
@@ -546,7 +546,7 @@ CheckEnemyTurn:
 	ld hl, InfatuationText
 	call StdBattleTextbox
 	call CantMove
-	jmp EndTurn
+	jr EndTurn
 
 .not_infatuated
 
@@ -563,7 +563,7 @@ CheckEnemyTurn:
 	call MoveDisabled
 
 	call CantMove
-	jmp EndTurn
+	jr EndTurn
 
 .no_disabled_move
 
@@ -924,7 +924,7 @@ BattleCommand_CheckObedience:
 
 .Print:
 	call StdBattleTextbox
-	jmp .EndDisobedience
+	jr .EndDisobedience
 
 .UseInstead:
 ; Can't use another move if the monster only has one!
@@ -2772,7 +2772,7 @@ BattleCommand_CheckFaint:
 	call BattleCommand_RaiseSub
 
 .finish
-	jmp EndMoveEffect
+	jr EndMoveEffect
 
 BattleCommand_BuildOpponentRage:
 ; buildopponentrage
@@ -7403,7 +7403,7 @@ GetUserItem:
 	ld hl, wEnemyMonItem
 .go
 	ld b, [hl]
-	jmp GetItemHeldEffect
+	jr GetItemHeldEffect
 
 GetOpponentItem:
 ; Return the effect of the opponent's item in bc, and its id at hl.
@@ -7524,7 +7524,7 @@ PlayDamageAnim:
 .player
 	ld [wNumHits], a
 
-	jmp PlayUserBattleAnim
+	jr PlayUserBattleAnim
 
 LoadMoveAnim:
 	xor a

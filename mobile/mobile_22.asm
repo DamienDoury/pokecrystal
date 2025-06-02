@@ -128,7 +128,7 @@ Function891de:
 	ld a, " "
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	call ByteFill
-	jmp Function891ab
+	jr Function891ab
 
 Function891fe:
 	push bc
@@ -463,7 +463,7 @@ Function8939a:
 	ld hl, 17
 	add hl, bc
 	ld de, wd008
-	jmp Function89381
+	jr Function89381
 
 Function893b3:
 	call DisableLCD
@@ -921,7 +921,7 @@ Function89688:
 	ld [hli], a
 	ld a, 2
 	ld e, SCREEN_WIDTH
-	jmp Function896eb
+	jr Function896eb
 
 Function896cb:
 	ld de, SCREEN_WIDTH - 1
@@ -1670,7 +1670,7 @@ Function89b07:
 Function89b14: ; unreferenced
 	call ClearBGPalettes
 	call Function89b07
-	jmp Function89b00
+	jr Function89b00
 
 Function89b1e:
 	farcall Function4a485
@@ -2229,7 +2229,7 @@ Function89e6f:
 	call Function8a5a3
 	call Function891ab
 	call SetPalettes
-	jmp Function89e36
+	jr Function89e36
 
 Function89e9a:
 	ldh a, [rSVBK]
@@ -3067,7 +3067,7 @@ Function8a4fc:
 	ld b, a
 	ld c, $80
 	call Function89cdf
-	jmp Function8a515
+	jr Function8a515
 
 Function8a515:
 	ld hl, wd012

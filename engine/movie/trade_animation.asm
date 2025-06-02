@@ -568,7 +568,7 @@ TradeAnim_TubeAnimJumptable:
 	ld a, $60
 	call ByteFill
 	hlcoord 3, 2
-	jmp TradeAnim_CopyTradeGameBoyTilemap
+	jr TradeAnim_CopyTradeGameBoyTilemap
 
 .One:
 	call TradeAnim_BlankTilemap
@@ -602,7 +602,7 @@ TradeAnim_TubeAnimJumptable:
 	ld a, $5b
 	ld [hl], a
 	hlcoord 10, 6
-	jmp TradeAnim_CopyTradeGameBoyTilemap
+	jr TradeAnim_CopyTradeGameBoyTilemap
 
 TradeAnim_CopyTradeGameBoyTilemap:
 	ld de, TradeGameBoyTilemap
@@ -923,7 +923,7 @@ ShowOTTrademonStats:
 	call TrademonStats_PrintOTName
 	ld de, wOTTrademonID
 	call TrademonStats_PrintTrademonID
-	jmp TrademonStats_WaitBGMap
+	jr TrademonStats_WaitBGMap
 
 TrademonStats_MonTemplate:
 	call WaitTop
@@ -963,7 +963,7 @@ TrademonStats_Egg:
 	hlcoord 4, 2
 	ld de, .EggData
 	call PlaceString
-	jmp TrademonStats_WaitBGMap
+	jr TrademonStats_WaitBGMap
 
 .EggData:
 if DEF(_FR_FR)

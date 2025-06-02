@@ -201,7 +201,7 @@ TryGiveItemToPartymon:
 	call GiveItemToPokemon
 	ld hl, PokemonHoldItemText
 	call MenuTextboxBackup
-	jmp GivePartyItem
+	jr GivePartyItem
 
 .please_remove_mail
 	ld hl, PokemonRemoveMailText
@@ -228,7 +228,7 @@ TryGiveItemToPartymon:
 	call MenuTextboxBackup
 	ld a, [wNamedObjectIndex]
 	ld [wCurItem], a
-	jmp GivePartyItem
+	jr GivePartyItem
 
 .bag_full
 	ld a, [wNamedObjectIndex]
@@ -422,7 +422,7 @@ MonMailAction:
 	jr z, .read
 	cp $2
 	jr z, .take
-	jmp .done
+	jr .done
 
 .read
 	farcall ReadPartyMonMail
@@ -763,7 +763,7 @@ ChooseMoveToDelete:
 .enter_loop
 	call PrepareToPlaceMoveData
 	call PlaceMoveData
-	jmp .loop
+	jr .loop
 
 .a_button
 	and a
@@ -838,7 +838,7 @@ MoveScreenLoop:
 	and a
 	jr nz, .moving_move
 	call PlaceMoveData
-	jmp .joy_loop
+	jr .joy_loop
 
 .moving_move
 	ld a, " "
@@ -851,7 +851,7 @@ MoveScreenLoop:
 	hlcoord 1, 12
 	ld de, String_MoveWhere
 	call PlaceString
-	jmp .joy_loop
+	jr .joy_loop
 .b_button
 	call PlayClickSFX
 	call WaitSFX
@@ -866,7 +866,7 @@ MoveScreenLoop:
 	hlcoord 1, 2
 	lb bc, 8, SCREEN_WIDTH - 2
 	call ClearBox
-	jmp .loop
+	jr .loop
 
 .d_right
 	ld a, [wSwappingMove]
@@ -1130,7 +1130,7 @@ PlaceMoveData:
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow
-	jmp PlaceMoveScreenRightArrow
+	jr PlaceMoveScreenRightArrow
 
 PlaceMoveScreenLeftArrow:
 	ld a, [wCurPartyMon]

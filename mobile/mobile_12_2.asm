@@ -765,7 +765,7 @@ Function4ad17:
 .asm_4ad4a
 	ld a, $ff
 	ld [hl], a
-	jmp Function4adc2
+	jr Function4adc2
 
 MobileOnlyThreeMonMayEnterText:
 	text_far _MobileOnlyThreeMonMayEnterText

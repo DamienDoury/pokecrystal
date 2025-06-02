@@ -60,7 +60,7 @@ Printer_Quit:
 	ret
 
 Printer_NextSection:
-	jmp _Printer_NextSection
+	jr _Printer_NextSection
 
 Printer_SectionOne:
 	ld a, $1
@@ -492,27 +492,27 @@ Printer_DoNothing:
 Printer_Send0x33:
 	ld a, $33
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendPrinterData1:
 	ld a, [wPrinterData]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendPrinterData2:
 	ld a, [wPrinterData + 1]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendPrinterData3:
 	ld a, [wPrinterData + 2]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendPrinterData4:
 	ld a, [wPrinterData + 3]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendNextByte:
 	; decrement 16-bit counter
@@ -539,32 +539,32 @@ Printer_SendNextByte:
 	ld a, d
 	ld [wPrinterSendByteOffset + 1], a
 	ld a, [hl]
-	jmp Printer_SerialSend
+	jr Printer_SerialSend
 
 .done
 	call Printer_NextInstruction
 Printer_SendwPrinterChecksumLo:
 	ld a, [wPrinterChecksum]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_SendwPrinterChecksumHi:
 	ld a, [wPrinterChecksum + 1]
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_Send0x00_2:
 ; identical to Printer_Send0x00, but referenced less
 	ld a, $0
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_ReceiveTwoPrinterHandshakeAndSend0x00:
 	ldh a, [rSB]
 	ld [wPrinterHandshake], a
 	ld a, $0
 	call Printer_SerialSend
-	jmp Printer_NextInstruction
+	jr Printer_NextInstruction
 
 Printer_ReceiveTwoPrinterStatusFlagsAndExitSendLoop:
 	ldh a, [rSB]

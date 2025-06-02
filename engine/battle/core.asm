@@ -604,7 +604,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp e
 	jr nc, .speed_check
-	jmp .player_first
+	jr .player_first
 
 .player_no_quick_claw
 	ld a, b
@@ -613,7 +613,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jr nc, .speed_check
-	jmp .enemy_first
+	jr .enemy_first
 
 .both_have_quick_claw
 	ldh a, [hSerialConnectionStatus]
@@ -643,7 +643,7 @@ DetermineMoveOrder:
 	call CompareBytes
 	jr z, .speed_tie
 	jp nc, .player_first
-	jmp .enemy_first
+	jr .enemy_first
 
 .speed_tie
 	ldh a, [hSerialConnectionStatus]
@@ -652,7 +652,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .player_first
-	jmp .enemy_first
+	jr .enemy_first
 
 .player_2c
 	call BattleRandom
@@ -1136,7 +1136,7 @@ PlayerTurn_EndOpponentProtectEndureDestinyBond:
 	call SetPlayerTurn
 	call EndUserDestinyBond
 	callfar DoPlayerTurn
-	jmp EndOpponentProtectEndureDestinyBond
+	jr EndOpponentProtectEndureDestinyBond
 
 EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	call SetEnemyTurn
@@ -1340,7 +1340,7 @@ HandlePerishSong:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .EnemyFirst:
 	call SetEnemyTurn
@@ -1408,7 +1408,7 @@ HandleWrap:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .EnemyFirst:
 	call SetEnemyTurn
@@ -1482,7 +1482,7 @@ HandleLeftovers:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -1538,7 +1538,7 @@ HandleMysteryberry:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -1676,7 +1676,7 @@ HandleFutureSight:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jmp .do_it
+	jr .do_it
 
 .enemy_first
 	call SetEnemyTurn
@@ -2707,7 +2707,7 @@ WinTrainerBattle:
 	cp OFFICER
 	ret z
 
-	jmp .give_money
+	jr .give_money
 
 .mobile
 	call BattleWinSlideInEnemyTrainerFrontpic
@@ -3346,12 +3346,12 @@ LostBattle:
 EnemyMonFaintedAnimation:
 	hlcoord 12, 5
 	decoord 12, 6
-	jmp MonFaintedAnimation
+	jr MonFaintedAnimation
 
 PlayerMonFaintedAnimation:
 	hlcoord 1, 10
 	decoord 1, 11
-	jmp MonFaintedAnimation
+	jr MonFaintedAnimation
 
 MonFaintedAnimation:
 	ld a, [wJoypadDisable]
@@ -4873,7 +4873,7 @@ HandleStatBoostingHeldItems:
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
 	call .DoPlayer
-	jmp .DoEnemy
+	jr .DoEnemy
 
 .player_1
 	call .DoEnemy
@@ -4882,7 +4882,7 @@ HandleStatBoostingHeldItems:
 .DoPlayer:
 	call GetPartymonItem
 	ld a, $0
-	jmp .HandleItem
+	jr .HandleItem
 
 .DoEnemy:
 	call GetOTPartymonItem
@@ -5194,7 +5194,7 @@ DrawEnemyHUD:
 	ld c, a
 	ld e, a
 	ld d, HP_BAR_LENGTH
-	jmp .draw_bar
+	jr .draw_bar
 
 .not_fainted
 	xor a
@@ -5255,7 +5255,7 @@ DrawEnemyHUD:
 
 UpdateEnemyHPPal:
 	ld hl, wEnemyHPPal
-	jmp UpdateHPPal
+	jr UpdateHPPal
 
 UpdateHPPal:
 	ld b, [hl]
@@ -5484,7 +5484,7 @@ BattleMenuPKMN_Loop:
 	call Battle_StatsScreen
 	call CheckMobileBattleError
 	jr c, .Cancel
-	jmp BattleMenuPKMN_ReturnFromStats
+	jr BattleMenuPKMN_ReturnFromStats
 
 .Cancel:
 	call ClearSprites
@@ -6216,14 +6216,14 @@ ParseEnemyAction:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	jmp .finish
+	jr .finish
 
 .not_linked
 	ld hl, wEnemySubStatus5
 	bit SUBSTATUS_ENCORED, [hl]
 	jr z, .skip_encore
 	ld a, [wLastEnemyMove]
-	jmp .finish
+	jr .finish
 
 .skip_encore
 	call CheckEnemyLockedIn
@@ -7054,7 +7054,7 @@ ApplyStatusEffectOnEnemyStats:
 ApplyStatusEffectOnStats:
 	ldh [hBattleTurn], a
 	call ApplyPrzEffectOnSpeed
-	jmp ApplyBrnEffectOnAttack
+	jr ApplyBrnEffectOnAttack
 
 ApplyPrzEffectOnSpeed:
 	ldh a, [hBattleTurn]

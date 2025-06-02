@@ -32,7 +32,7 @@ PokeSeer:
 	jr c, .no_mon
 
 	call ReadCaughtData
-	jmp SeerAction
+	jr SeerAction
 
 .cancel
 	ld a, SEER_CANCEL
@@ -188,7 +188,7 @@ GetCaughtTime:
 
 .none
 	ld de, wSeerTimeOfDay
-	jmp UnknownCaughtData
+	jr UnknownCaughtData
 
 .times
 if DEF(_FR_FR)
@@ -233,7 +233,7 @@ GetCaughtLocation:
 
 .Unknown:
 	ld de, wSeerCaughtLocation
-	jmp UnknownCaughtData
+	jr UnknownCaughtData
 
 .event
 	ld a, SEERACTION_LEVEL_ONLY

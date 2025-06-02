@@ -691,7 +691,7 @@ else
 	decoord 9, 8, 0
 endc
 	add hl, de
-	jmp Continue_DisplayGameTime
+	jr Continue_DisplayGameTime
 
 Continue_UnknownGameTime:
 if DEF(_FR_FR)

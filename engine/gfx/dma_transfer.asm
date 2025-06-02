@@ -129,7 +129,7 @@ Function1040d4: ; unreferenced
 
 Function1040fb: ; unreferenced
 	ld hl, .Function
-	jmp CallInSafeGFXMode
+	jr CallInSafeGFXMode
 
 .Function
 	ld a, $1
@@ -142,7 +142,7 @@ Function1040fb: ; unreferenced
 OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 ; OpenText
 	ld hl, .Function
-	jmp CallInSafeGFXMode
+	jr CallInSafeGFXMode
 
 .Function:
 	; Transfer wAttrmap and Tilemap to BGMap
@@ -174,7 +174,7 @@ OpenAndCloseMenu_HDMATransferTilemapAndAttrmap::
 
 Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap:
 	ld hl, .Function
-	jmp CallInSafeGFXMode
+	jr CallInSafeGFXMode
 
 .Function:
 	; Transfer wAttrmap and Tilemap to BGMap
@@ -195,7 +195,7 @@ Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap:
 	ld a, $0
 	ldh [rVBK], a
 	ld hl, wScratchTilemap
-	jmp HDMATransfer_Wait127Scanlines_toBGMap
+	jr HDMATransfer_Wait127Scanlines_toBGMap
 
 CallInSafeGFXMode:
 	ldh a, [hBGMapMode]

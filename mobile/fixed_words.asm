@@ -28,7 +28,7 @@ Function11c075:
 	call Function11c254
 	pop de
 	ld bc, wcd36
-	jmp Function11c08f
+	jr Function11c08f
 
 Function11c082: ; unreferenced
 	push de
@@ -36,7 +36,7 @@ Function11c082: ; unreferenced
 	call Function11c254
 	pop de
 	ld bc, wcd36
-	jmp PrintEZChatBattleMessage
+	jr PrintEZChatBattleMessage
 
 Function11c08f:
 	ld l, e

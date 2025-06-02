@@ -823,12 +823,12 @@ LinkTradePartymonMenuLoop:
 	ld a, d
 	and a
 	jr nz, .check_joypad
-	jmp LinkTradePartiesMenuMasterLoop
+	jr LinkTradePartiesMenuMasterLoop
 
 .check_joypad
 	bit A_BUTTON_F, a
 	jr z, .not_a_button
-	jmp LinkTrade_TradeStatsMenu
+	jr LinkTrade_TradeStatsMenu
 
 .not_a_button
 	bit D_DOWN_F, a
@@ -1898,13 +1898,13 @@ CloseLink:
 	ld [wLinkMode], a
 	ld c, 3
 	call DelayFrames
-	jmp Link_ResetSerialRegistersAfterLinkClosure
+	jr Link_ResetSerialRegistersAfterLinkClosure
 
 FailedLinkToPast:
 	ld c, 40
 	call DelayFrames
 	ld a, $e
-	jmp Link_EnsureSync
+	jr Link_EnsureSync
 
 Link_ResetSerialRegistersAfterLinkClosure:
 	ld c, 3

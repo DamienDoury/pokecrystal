@@ -6,13 +6,13 @@ BattleStart_TrainerHuds:
 	dec a
 	ret z
 	call DrawEnemyHUDBorder
-	jmp ShowOTTrainerMonsRemaining
+	jr ShowOTTrainerMonsRemaining
 
 EnemySwitch_TrainerHud:
 	ld a, $e4
 	ldh [rOBP0], a
 	call DrawEnemyHUDBorder
-	jmp ShowOTTrainerMonsRemaining
+	jr ShowOTTrainerMonsRemaining
 
 ShowPlayerMonsRemaining:
 	call DrawPlayerPartyIconHUDBorder

@@ -952,7 +952,7 @@ Script_applymovementlasttalked:
 
 	ldh a, [hLastTalked]
 	ld c, a
-	jmp ApplyMovement
+	jr ApplyMovement
 
 Script_faceplayer:
 	ldh a, [hLastTalked]
@@ -1305,7 +1305,7 @@ Script_catchtutorial:
 	ld [wBattleType], a
 	call BufferScreen
 	farcall CatchTutorial
-	jmp Script_reloadmap
+	jr Script_reloadmap
 
 Script_reloadmapafterbattle:
 	ld hl, wBattleScriptFlags
@@ -1410,7 +1410,7 @@ CallCallback::
 	ld a, [wScriptBank]
 	or $80
 	ld [wScriptBank], a
-	jmp ScriptCall
+	jr ScriptCall
 
 Script_sjump:
 	call GetScriptByte
@@ -1446,13 +1446,13 @@ Script_iffalse:
 	ld a, [wScriptVar]
 	and a
 	jp nz, SkipTwoScriptBytes
-	jmp Script_sjump
+	jr Script_sjump
 
 Script_iftrue:
 	ld a, [wScriptVar]
 	and a
 	jp nz, Script_sjump
-	jmp SkipTwoScriptBytes
+	jr SkipTwoScriptBytes
 
 Script_ifequal:
 	call GetScriptByte
@@ -1488,7 +1488,7 @@ Script_ifodd:
 	ld a, [wScriptVar]
 	and 1
 	jp nz, Script_sjump
-	jmp SkipTwoScriptBytes
+	jr SkipTwoScriptBytes
 
 Script_ifeven:
 	ld a, [wScriptVar]
@@ -1799,7 +1799,7 @@ ConvertLandmarkToText:
 	ld e, a
 	farcall GetLandmarkName
 	ld de, wStringBuffer1
-	jmp GetStringBuffer
+	jr GetStringBuffer
 
 Script_getlandmarkname:
 	call GetScriptByte
@@ -2267,7 +2267,7 @@ Script_setflag:
 	call GetScriptByte
 	ld d, a
 	ld b, SET_FLAG
-	jmp _EngineFlagAction
+	jr _EngineFlagAction
 
 Script_clearflag:
 	call GetScriptByte
@@ -2275,7 +2275,7 @@ Script_clearflag:
 	call GetScriptByte
 	ld d, a
 	ld b, RESET_FLAG
-	jmp _EngineFlagAction
+	jr _EngineFlagAction
 
 Script_checkflag:
 	call GetScriptByte

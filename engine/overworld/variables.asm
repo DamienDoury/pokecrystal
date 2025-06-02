@@ -71,21 +71,21 @@ _GetVarAction::
 	ld hl, wPokedexCaught
 	ld b, wEndPokedexCaught - wPokedexCaught
 	call CountSetBits
-	jmp .loadstringbuffer2
+	jr .loadstringbuffer2
 
 .CountSeenMons:
 ; Seen mons.
 	ld hl, wPokedexSeen
 	ld b, wEndPokedexSeen - wPokedexSeen
 	call CountSetBits
-	jmp .loadstringbuffer2
+	jr .loadstringbuffer2
 
 .CountBadges:
 ; Number of owned badges.
 	ld hl, wBadges
 	ld b, 2
 	call CountSetBits
-	jmp .loadstringbuffer2
+	jr .loadstringbuffer2
 
 .PlayerFacing:
 ; The direction the player is facing.
@@ -93,12 +93,12 @@ _GetVarAction::
 	and $c
 	rrca
 	rrca
-	jmp .loadstringbuffer2
+	jr .loadstringbuffer2
 
 .DayOfWeek:
 ; The day of the week.
 	call GetWeekday
-	jp .loadstringbuffer2
+	jmp .loadstringbuffer2
 
 .UnownCaught:
 ; Number of unique Unown caught.

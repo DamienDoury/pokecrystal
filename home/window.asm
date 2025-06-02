@@ -56,7 +56,7 @@ CloseText::
 OpenText::
 	call OpenTextPre
 	call SpeechTextbox
-	jmp OpenTextPost
+	jr OpenTextPost
 
 OpenRedText::
 	call OpenTextPre

@@ -1166,7 +1166,7 @@ TryObjectEvent:
 	ret
 
 .IsObject:
-	jmp InteractWithObj
+	jr InteractWithObj
 
 TryFarNPCOnlyEvent:
 	farcall CheckFacingFarNPCOnly

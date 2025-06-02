@@ -28,7 +28,7 @@ DrawHP:
 	ld e, a
 	ld a, 6
 	ld d, a
-	jmp .fainted
+	jr .fainted
 
 .at_least_1_hp
 	ld a, [wTempMonMaxHP]
@@ -114,7 +114,7 @@ PrintTempMonLevelUpStats:
 	ld a, [wTempMonLevelUpStatGain + 4]
 	ld e, a
 	ld a, [wTempMonSpeed + 1] ; Big-endian.
-	jmp .PrintStatGain
+	jr .PrintStatGain
 	
 .PrintStatGain:
 	sub e ; Note: the amount of stat gain always fits within 1 byte during normal gameplay.

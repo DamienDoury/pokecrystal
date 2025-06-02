@@ -85,7 +85,7 @@ Function49f16:
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
-	jmp .useless_jump
+	jr .useless_jump
 
 .useless_jump
 	call MobileMenu_InitMenuBuffers
@@ -96,7 +96,7 @@ Function49f16:
 	ld c, $1
 	hlcoord 5, 1
 	call ClearBox
-	jmp .joy_loop
+	jr .joy_loop
 
 MobileString1:
 	db   "めいしフォルダー"
@@ -321,7 +321,7 @@ asm_4a19d:
 	lb bc, 6, 1
 	hlcoord 2, 3
 	call ClearBox
-	jmp Function4a195
+	jr Function4a195
 
 String_4a1ef:
 	db   "モバイルセンター¯えらぶ"
@@ -731,7 +731,7 @@ asm_4a54d:
 	ld e, l
 	hlcoord 1, 16
 	call PlaceString
-	jmp Function4a5b0
+	jr Function4a5b0
 
 Function4a5b0:
 	call Function4a680
@@ -742,7 +742,7 @@ Function4a5b0:
 	ld c, $1
 	hlcoord 3, 1
 	call ClearBox
-	jmp Function4a545
+	jr Function4a545
 
 String_4a5c5:
 	db "じこしょうかい@"

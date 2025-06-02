@@ -32,4 +32,4 @@ EverstoneBoost::
 	and a
 	ret z ; We return if the Pokemon can't evolve.
 
-	jmp FiftyPercentStatBoost ; farjump?? Must be in the same bank at the moment.
+	jr FiftyPercentStatBoost ; farjump?? Must be in the same bank at the moment.

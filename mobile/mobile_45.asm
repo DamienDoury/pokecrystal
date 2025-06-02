@@ -194,7 +194,7 @@ Function114269:
 	ld a, $1
 	ld h, d
 	ld l, e
-	jmp Function11425c
+	jr Function11425c
 
 .asm_1142bb
 	and a
@@ -3697,7 +3697,7 @@ Function1155af:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jmp Function1155d1
+	jr Function1155d1
 
 Function1155d1:
 	ld a, [$dc0d]

@@ -1811,7 +1811,7 @@ RevivalHerbEffect:
 	ld a, $0
 
 .not_used
-	jmp StatusHealer_Jumptable
+	jr StatusHealer_Jumptable
 
 ReviveEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1819,7 +1819,7 @@ ReviveEffect:
 	jp c, StatusHealer_ExitMenu
 
 	call RevivePokemon
-	jmp StatusHealer_Jumptable
+	jr StatusHealer_Jumptable
 
 RevivePokemon:
 	call IsMonFainted
@@ -2108,7 +2108,7 @@ ContinueRevive:
 	ld [hl], d
 	inc hl
 	ld [hl], e
-	jmp LoadCurHPIntoBuffer3
+	jr LoadCurHPIntoBuffer3
 
 RestoreHealth:
 	ld a, MON_HP + 1
@@ -2153,7 +2153,7 @@ RemoveHP:
 	ld [hld], a
 	ld [hl], a
 .okay
-	jmp LoadCurHPIntoBuffer3
+	jr LoadCurHPIntoBuffer3
 
 IsMonFainted:
 	push de
@@ -2732,7 +2732,7 @@ endr
 Not_PP_Up:
 	call RestorePP
 	jr nz, BattleRestorePP
-	jmp PPRestoreItem_NoEffect
+	jr PPRestoreItem_NoEffect
 
 Elixer_RestorePPofAllMoves:
 	xor a
@@ -2855,7 +2855,7 @@ SacredAshEffect:
 	ld a, [wItemEffectSucceeded]
 	cp $1
 	ret nz
-	jmp UseDisposableItem
+	jr UseDisposableItem
 
 NormalBoxEffect:
 	ld c, DECOFLAG_SILVER_TROPHY_DOLL
@@ -2869,7 +2869,7 @@ OpenBox:
 	ld hl, .SentTrophyHomeText
 	call PrintText
 
-	jmp UseDisposableItem
+	jr UseDisposableItem
 
 .SentTrophyHomeText:
 	text_far _SentTrophyHomeText

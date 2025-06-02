@@ -1299,7 +1299,7 @@ Function118a54: ; unreferenced
 	ld h, a
 	ld de, wc3ec
 	ld bc, $0004
-	jmp Function118ae4
+	jr Function118ae4
 
 Function118a65: ; unreferenced
 	ld hl, BattleDownloadURL
@@ -1326,7 +1326,7 @@ Function118a8f:
 	call CopyBytes
 	ld de, w3_d000
 	ld bc, $1000
-	jmp Function118b10
+	jr Function118b10
 
 Function118aa4:
 	ld hl, NewsDownloadURL
@@ -2166,7 +2166,7 @@ Function1191d3:
 	ld a, [wcd4a]
 	ld a, h
 	ld [wcd58], a
-	jmp Function11920f
+	jr Function11920f
 
 Function11920f:
 .asm_11920f
@@ -2715,7 +2715,7 @@ endr
 .asm_11957c
 	ld [wBattleTowerRoomMenuJumptableIndex], a
 	pop af
-	jmp Function1195c4
+	jr Function1195c4
 
 Function119584:
 	ld a, [wc608]
@@ -3363,7 +3363,7 @@ Function1199b4:
 	cp $7
 	jr nc, .asm_1199c7
 	call BattleTowerRoomMenu_IncrementJumptable
-	jmp Function1199ca
+	jr Function1199ca
 
 .asm_1199c7
 	jp Function119ac9
@@ -5944,7 +5944,7 @@ Function11af4e:
 	pop af
 	ld [wMenuCursorY], a
 	ld hl, Unknown_11afd2
-	jmp Function11afb7
+	jr Function11afb7
 
 .asm_11af97
 	call PlayClickSFX
@@ -6047,7 +6047,7 @@ Function11b022:
 	cp $3
 	ret z
 	ld hl, wStringBuffer4
-	jmp Function11b03d
+	jr Function11b03d
 
 Function11b03d:
 	push hl
@@ -6462,7 +6462,7 @@ Function11b272:
 	ret
 
 Function11b275:
-	jmp Function11b279
+	jr Function11b279
 
 Function11b279:
 	ld a, [wTempSpecies]
@@ -6583,7 +6583,7 @@ Function11b31b:
 	ld bc, .Tilemap1
 
 .load_sprites
-	jmp Function11b397
+	jr Function11b397
 
 .Coords:
 	dbpixel 3, 11, 2, 6 ;  0
@@ -6782,7 +6782,7 @@ Function11b3d9:
 Function11b444:
 ; special
 	call Mobile46_InitJumptable
-	jmp Mobile46_RunJumptable
+	jr Mobile46_RunJumptable
 
 Mobile46_InitJumptable:
 	xor a

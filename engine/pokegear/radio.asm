@@ -592,7 +592,7 @@ OaksPKMNTalk11:
 	hlcoord 9, 14
 	ld de, .pokemon_string
 	ld a, OAKS_POKEMON_TALK_12
-	jmp PlaceRadioString
+	jr PlaceRadioString
 
 .pokemon_string
 	db "#MON@"
@@ -604,7 +604,7 @@ OaksPKMNTalk12:
 	hlcoord 1, 16
 	ld de, .pokemon_channel_string
 	ld a, OAKS_POKEMON_TALK_13
-	jmp PlaceRadioString
+	jr PlaceRadioString
 
 .pokemon_channel_string
 if DEF(_FR_FR)
@@ -620,7 +620,7 @@ OaksPKMNTalk13:
 	hlcoord 12, 16
 	ld de, .terminator
 	ld a, OAKS_POKEMON_TALK_14
-	jmp PlaceRadioString
+	jr PlaceRadioString
 
 .terminator
 	db "@"

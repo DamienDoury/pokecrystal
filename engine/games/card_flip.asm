@@ -962,19 +962,19 @@ CardFlip_CheckWinCondition:
 	and $1c
 	cp $10
 	jr z, .WinEighteen
-	jmp .Lose
+	jr .Lose
 
 .Six:
 	ld a, [wCardFlipFaceUpCard]
 	and $1c
 	cp $14
 	jr z, .WinEighteen
-	jmp .Lose
+	jr .Lose
 
 .WinEighteen:
 	ld c, $12
 	ld de, SFX_2ND_PLACE
-	jmp .Payout
+	jr .Payout
 
 .PikaOne:
 	ld e, $0
@@ -1227,14 +1227,14 @@ ChooseCard_HandleJoypad:
 	jr c, .left_to_number_gp
 	dec [hl]
 	dec [hl]
-	jmp .play_sound
+	jr .play_sound
 
 .left_to_number_gp
 	ld a, $2
 	ld [wCardFlipCursorY], a
 	ld a, $1
 	ld [wCardFlipCursorX], a
-	jmp .play_sound
+	jr .play_sound
 
 .d_right
 	ld hl, wCardFlipCursorX

@@ -242,7 +242,7 @@ _HospitalVisit::
 
 	call CloseSRAM
 	ld hl, Duration_messages
-	jmp DisplayMessageAtIndex
+	jr DisplayMessageAtIndex
 
 
 

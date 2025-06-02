@@ -159,11 +159,11 @@ MonStatsInit:
 	ld hl, wStatsScreenFlags
 	set 4, [hl]
 	ld h, 4
-	jmp StatsScreen_SetJumptableIndex
+	jr StatsScreen_SetJumptableIndex
 
 .egg
 	ld h, 1
-	jmp StatsScreen_SetJumptableIndex
+	jr StatsScreen_SetJumptableIndex
 
 EggStatsInit:
 	call EggStatsScreen
@@ -176,7 +176,7 @@ EggStatsJoypad:
 	call StatsScreen_GetJoypad
 	jr nc, .check
 	ld h, 0
-	jmp StatsScreen_SetJumptableIndex
+	jr StatsScreen_SetJumptableIndex
 
 .check
 	bit A_BUTTON_F, a
@@ -190,7 +190,7 @@ endc
 
 .quit
 	ld h, 7
-	jmp StatsScreen_SetJumptableIndex
+	jr StatsScreen_SetJumptableIndex
 
 if DEF(_DEBUG)
 .hatch
@@ -240,7 +240,7 @@ MonStatsJoypad:
 	call StatsScreen_GetJoypad
 	jr nc, .next
 	ld h, 0
-	jmp StatsScreen_SetJumptableIndex
+	jr StatsScreen_SetJumptableIndex
 
 .next
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT
@@ -938,7 +938,7 @@ StatsScreen_InitUpperHalf:
 	call PlaceString
 	call StatsScreen_PlaceHorizontalDivider
 	call StatsScreen_PlacePageSwitchArrows
-	jmp StatsScreen_PlaceShinyIcon
+	jr StatsScreen_PlaceShinyIcon
 
 .PlaceHPBar:
 	ld hl, wTempMonHP

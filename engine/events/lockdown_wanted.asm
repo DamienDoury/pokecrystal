@@ -223,7 +223,7 @@ ApplyCurfewStateBasedOnTime::
 	ld a, 1 << FREE
 	ld [wCurFreedomState], a
 
-	jmp ResetAllResearchLevels
+	jr ResetAllResearchLevels
 
 .curfew
 	ld a, 1 << CURFEW

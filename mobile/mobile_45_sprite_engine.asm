@@ -349,7 +349,7 @@ Function11619d:
 	call ByteFill
 
 .asm_1161b4
-	jmp Function1161b8
+	jr Function1161b8
 
 Function1161b8:
 	jumptable .Jumptable, wc319
