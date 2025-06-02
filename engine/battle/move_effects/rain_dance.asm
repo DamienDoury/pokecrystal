@@ -10,4 +10,4 @@ BattleCommand_StartRain:
 	ld [wWeatherCount], a
 	call AnimateCurrentMove
 	ld hl, DownpourText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox

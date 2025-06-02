@@ -1,6 +1,6 @@
 DisplayWeaknessDiseaseText:
 	ld hl, WeaknessDiseaseText
-	jp BattleTextbox
+	jmp BattleTextbox
 
 WeaknessDiseaseText:
 	text_far _FeelsWeakText
@@ -15,7 +15,7 @@ WeaknessDiseaseText2:
 DisplayUsedMoveText:
 	ld hl, UsedMoveText
 	call BattleTextbox
-	jp WaitBGMap
+	jmp WaitBGMap
 
 UsedMoveText:
 	text_far _ActorNameText

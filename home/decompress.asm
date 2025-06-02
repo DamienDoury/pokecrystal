@@ -316,4 +316,4 @@ LZ_LONG_HI   EQU %00000011
 	inc hl ; positive offset is two bytes
 .next
 	inc hl
-	jp .Main
+	jmp .Main

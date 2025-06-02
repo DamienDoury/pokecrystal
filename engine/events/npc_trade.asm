@@ -49,7 +49,7 @@ NPCTrade::
 	ld a, TRADE_DIALOG_COMPLETE
 
 .done
-	jp PrintTradeText
+	jmp PrintTradeText
 
 .TradeAnimation:
 	call DisableSpriteUpdates
@@ -63,7 +63,7 @@ NPCTrade::
 	ld [wTradeDialog], a
 	pop af
 	ld [wJumptableIndex], a
-	jp ReturnToMapWithSpeechTextbox
+	jmp ReturnToMapWithSpeechTextbox
 
 NPCTradeBack::
 ; Select givemon from party
@@ -83,7 +83,7 @@ NPCTradeBack::
 	predef TradeAnimation
 	call TradeEvo
 	call ReturnToMapWithSpeechTextbox
-	jp RestartMapMusic
+	jmp RestartMapMusic
 
 TradeEvo::
 	ld a, 1
@@ -384,7 +384,7 @@ GetTradeAttr:
 
 Trade_GetAttributeOfCurrentPartymon:
 	ld a, [wCurPartyMon]
-	jp AddNTimes
+	jmp AddNTimes
 
 Trade_GetAttributeOfLastPartymon:
 	ld a, [wPartyCount]
@@ -494,7 +494,7 @@ PrintTradeText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp PrintText
+	jmp PrintText
 
 TradeTexts:
 ; entries correspond to TRADE_DIALOG_* × TRADE_DIALOGSET_* constants

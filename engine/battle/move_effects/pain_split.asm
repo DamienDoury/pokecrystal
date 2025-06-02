@@ -32,7 +32,7 @@ BattleCommand_PainSplit:
 	farcall _UpdateBattleHUDs
 
 	ld hl, SharedPainText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .PlayerShareHP:
 	ld a, [hld]
@@ -90,4 +90,4 @@ BattleCommand_PainSplit:
 	ret
 
 .ButItFailed:
-	jp PrintDidntAffect2
+	jmp PrintDidntAffect2

@@ -154,7 +154,7 @@ CheckPartyFullAfterContest:
 GiveANickname_YesNo:
 	ld hl, CaughtAskNicknameText
 	call PrintText
-	jp YesNoBox
+	jmp YesNoBox
 
 CaughtAskNicknameText:
 	text_far _CaughtAskNicknameText

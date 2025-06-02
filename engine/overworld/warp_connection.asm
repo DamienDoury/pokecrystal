@@ -60,7 +60,7 @@ EnterMapConnection:
 	ld [wOverworldMapAnchor], a
 	ld a, h
 	ld [wOverworldMapAnchor + 1], a
-	jp .done
+	jmp .done
 
 .east
 	ld a, [wEastConnectedMapGroup]
@@ -95,7 +95,7 @@ EnterMapConnection:
 	ld [wOverworldMapAnchor], a
 	ld a, h
 	ld [wOverworldMapAnchor + 1], a
-	jp .done
+	jmp .done
 
 .north
 	ld a, [wNorthConnectedMapGroup]
@@ -120,7 +120,7 @@ EnterMapConnection:
 	ld [wOverworldMapAnchor], a
 	ld a, h
 	ld [wOverworldMapAnchor + 1], a
-	jp .done
+	jmp .done
 
 .south
 	ld a, [wSouthConnectedMapGroup]
@@ -262,7 +262,7 @@ LoadMapTimeOfDay:
 	ld a, "■"
 	ld bc, vBGMap1 - vBGMap0
 	hlbgcoord 0, 0
-	jp ByteFill
+	jmp ByteFill
 
 .PushAttrmap:
 	decoord 0, 0
@@ -309,7 +309,7 @@ LoadMapGraphics:
 
 LoadMapPalettes:
 	ld b, SCGB_MAPPALS
-	jp GetSGBLayout
+	jmp GetSGBLayout
 
 RefreshMapSprites:
 	call ClearSprites

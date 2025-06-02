@@ -1,5 +1,5 @@
 _InitializeStartDay:
-	jp InitializeStartDay
+	jmp InitializeStartDay
 
 ClearDailyTimers:
 	xor a
@@ -37,7 +37,7 @@ if DEF(_DEBUG)
 .debug_ok
 	ld a, h
 endc
-	jp RestartReceiveCallDelay
+	jmp RestartReceiveCallDelay
 
 .ReceiveCallDelays:
 	db 20, 10, 5, 3
@@ -75,7 +75,7 @@ CheckDayDependentEventHL:
 	call GetDaysSince
 	pop hl
 	dec hl
-	jp UpdateTimeRemaining
+	jmp UpdateTimeRemaining
 
 RestartReceiveCallDelay:
 	ld hl, wReceiveCallDelay_MinsRemaining
@@ -90,11 +90,11 @@ CheckReceiveCallDelay:
 	call CalcMinsHoursDaysSince
 	call GetMinutesSinceIfLessThan60
 	ld hl, wReceiveCallDelay_MinsRemaining
-	jp UpdateTimeRemaining
+	jmp UpdateTimeRemaining
 
 RestartDailyResetTimer:
 	ld hl, wDailyResetTimer
-	jp InitOneDayCountdown
+	jmp InitOneDayCountdown
 
 CheckDailyResetTimer::
 	ld hl, wDailyResetTimer
@@ -202,7 +202,7 @@ CheckPokerusTickAndHospitalVisits::
 RestartLuckyNumberCountdown:
 	call .GetDaysUntilNextFriday
 	ld hl, wLuckyNumberDayTimer
-	jp InitNDaysCountdown
+	jmp InitNDaysCountdown
 
 .GetDaysUntilNextFriday:
 	call GetWeekday
@@ -220,7 +220,7 @@ RestartLuckyNumberCountdown:
 
 _CheckLuckyNumberShowFlag:
 	ld hl, wLuckyNumberDayTimer
-	jp CheckDayDependentEventHL
+	jmp CheckDayDependentEventHL
 
 DoMysteryGiftIfDayHasPassed:
 	ld a, BANK(sMysteryGiftTimer)

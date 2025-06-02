@@ -185,7 +185,7 @@ InitTime::
 
 ClearClock::
 	call .ClearhRTC
-	jp SetClock
+	jmp SetClock
 
 .ClearhRTC:
 	xor a

@@ -15,7 +15,7 @@ LoadOverworldFont::
 	ld de, OverworldFontGFX
 	ld hl, vTiles1
 	lb bc, BANK(OverworldFontGFX), $80
-	jp Get2bpp
+	jmp Get2bpp
 
 align 4
 .OverworldFontSpaceGFX:

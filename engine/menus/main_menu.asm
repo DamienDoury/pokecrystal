@@ -296,7 +296,7 @@ MainMenu_PrintCurrentTimeAndDay:
 	hlcoord 0, 14
 	ld b, 2
 	ld c, 18
-	jp Textbox
+	jmp Textbox
 
 .TimeFail:
 	jp SpeechTextbox
@@ -321,12 +321,12 @@ MainMenu_PrintCurrentTimeAndDay:
 	inc hl
 	ld de, hMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 .PrintTimeNotSet:
 	hlcoord 1, 14
 	ld de, .TimeNotSetString
-	jp PlaceString
+	jmp PlaceString
 
 .TimeNotSetString:
 if DEF(_FR_FR)
@@ -347,7 +347,7 @@ endc
 	ld h, b
 	ld l, c
 	ld de, .Day
-	jp PlaceString
+	jmp PlaceString
 
 .Days:
 if DEF(_FR_FR)

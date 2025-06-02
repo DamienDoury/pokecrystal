@@ -58,7 +58,7 @@ GetMonFrontpic:
 	call _GetFrontpic
 	pop af
 	ldh [rSVBK], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 GetAnimatedFrontpic:
 	ld a, [wCurPartySpecies]
@@ -77,7 +77,7 @@ GetAnimatedFrontpic:
 	ldh [rVBK], a
 	pop af
 	ldh [rSVBK], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 _GetFrontpic:
 	ld a, BANK(sEnemyFrontpicTileCount)
@@ -198,7 +198,7 @@ GetAnimatedEnemyFrontpic:
 	ld a, [sEnemyFrontpicTileCount]
 	ld c, a
 .finish
-	jp Get2bpp
+	jmp Get2bpp
 
 LoadFrontpicTiles:
 	ld hl, wDecompressScratch
@@ -294,7 +294,7 @@ Intro_GetMonFrontpic:
 	call GetFarWord
 	pop af
 	pop de
-	jp FarDecompress
+	jmp FarDecompress
 
 GetTrainerPic:
 	ld a, [wTrainerClass]

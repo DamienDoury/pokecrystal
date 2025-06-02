@@ -65,7 +65,7 @@ Function170114:
 	ld bc, 246
 	call CopyBytes
 	call CloseSRAM
-	jp Function170c8b
+	jmp Function170c8b
 
 Function170139: ; unreferenced
 ; Convert the 4-digit decimal number at s5_aa41 into binary
@@ -180,7 +180,7 @@ Function170139: ; unreferenced
 BattleTowerBattle:
 	xor a ; FALSE
 	ld [wBattleTowerBattleEnded], a
-	jp _BattleTowerBattle
+	jmp _BattleTowerBattle
 
 UnusedBattleTowerDummySpecial1:
 	ret
@@ -1174,7 +1174,7 @@ BattleTower_CheckSaveFileExistsAndIsYours:
 Function1708b1: ; BattleTowerAction $0a
 	xor a
 	ld [wMusicFade], a
-	jp MaxVolume
+	jmp MaxVolume
 
 Function1708c8: ; BattleTowerAction $0c
 	call UpdateTime

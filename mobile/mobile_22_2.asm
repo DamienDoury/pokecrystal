@@ -241,7 +241,7 @@ Function8b4a4:
 	pop bc
 	call Function8b4cc
 	call Function8b518
-	jp Function8b3cd
+	jmp Function8b3cd
 
 Function8b4b8:
 	push bc
@@ -515,7 +515,7 @@ Function8b677:
 	call Function8b6ed
 	call EnableLCD
 	call Function891ab
-	jp SetPalettes
+	jmp SetPalettes
 
 Function8b690:
 	ld hl, MobileCardListGFX
@@ -532,7 +532,7 @@ Function8b690:
 	ld de, vTiles0 tile $ee
 	ld bc, 1 tiles
 	ld a, BANK(MobileCardListGFX)
-	jp FarCopyBytes
+	jmp FarCopyBytes
 
 Function8b6bb:
 	ldh a, [rSVBK]
@@ -545,7 +545,7 @@ Function8b6bb:
 	call CopyBytes
 	pop af
 	ldh [rSVBK], a
-	jp Function8949c
+	jmp Function8949c
 
 Palette_8b6d5:
 	RGB 31, 31, 31
@@ -569,7 +569,7 @@ Function8b6ed:
 	hlcoord 0, 14, wAttrmap
 	ld bc, $0050
 	ld a, $7
-	jp ByteFill
+	jmp ByteFill
 
 Function8b703:
 	call Mobile22_SetBGMapMode0
@@ -834,7 +834,7 @@ Function8b880:
 	ld l, e
 	ld de, wMenuSelection
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 Function8b88c:
 	call OpenSRAMBank4
@@ -903,7 +903,7 @@ Function8b8c8:
 	ret c
 	hlcoord 0, 13
 	ld c, $12
-	jp Function8b732
+	jmp Function8b732
 
 Unknown_8b903:
 	dw String_8b90b

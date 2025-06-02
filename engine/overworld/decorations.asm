@@ -103,7 +103,7 @@ endc
 	ld [hli], a
 	ld bc, ITEM_NAME_LENGTH - 1
 	ld a, -1
-	jp ByteFill
+	jmp ByteFill
 
 .AppendToStringBuffer2:
 	ld hl, wStringBuffer2
@@ -156,7 +156,7 @@ Deco_FillTempWithMinusOne:
 	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld a, -1
 	ld bc, 16
-	jp ByteFill
+	jmp ByteFill
 
 CheckAllDecorationFlags:
 .loop
@@ -215,7 +215,7 @@ DecoBedMenu:
 FindOwnedBeds:
 	ld hl, .beds
 	ld c, BEDS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .beds:
 	db DECO_FEATHERY_BED ; 2
@@ -233,7 +233,7 @@ DecoCarpetMenu:
 FindOwnedCarpets:
 	ld hl, .carpets
 	ld c, CARPETS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .carpets:
 	db DECO_RED_CARPET ; 7
@@ -251,7 +251,7 @@ DecoPlantMenu:
 FindOwnedPlants:
 	ld hl, .plants
 	ld c, PLANTS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .plants:
 	db DECO_MAGNAPLANT ; c
@@ -268,7 +268,7 @@ DecoPosterMenu:
 FindOwnedPosters:
 	ld hl, .posters
 	ld c, POSTERS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .posters:
 	db DECO_TOWN_MAP ; 10
@@ -286,7 +286,7 @@ DecoConsoleMenu:
 FindOwnedConsoles:
 	ld hl, .consoles
 	ld c, CONSOLES
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .consoles:
 	db DECO_FAMICOM ; 15
@@ -304,7 +304,7 @@ DecoOrnamentMenu:
 FindOwnedOrnaments:
 	ld hl, .ornaments
 	ld c, DOLLS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .ornaments:
 	db DECO_PIKACHU_DOLL ; 1e
@@ -341,7 +341,7 @@ DecoBigDollMenu:
 FindOwnedBigDolls:
 	ld hl, .big_dolls
 	ld c, BIG_DOLLS
-	jp FindOwnedDecosInCategory
+	jmp FindOwnedDecosInCategory
 
 .big_dolls:
 	db DECO_BIG_SNORLAX_DOLL ; 1a
@@ -368,7 +368,7 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_1
-	jp ExitMenu
+	jmp ExitMenu
 
 .beyond_eight
 	ld hl, wNumOwnedDecoCategories
@@ -393,11 +393,11 @@ PopulateDecoCategoryMenu:
 	call DoDecorationAction2
 
 .no_action_2
-	jp ExitMenu
+	jmp ExitMenu
 
 .empty
 	ld hl, .NothingToChooseText
-	jp MenuTextboxBackup
+	jmp MenuTextboxBackup
 
 .NothingToChooseText:
 	text_far _NothingToChooseText
@@ -434,7 +434,7 @@ PopulateDecoCategoryMenu:
 GetDecorationData:
 	ld hl, DecorationAttributes
 	ld bc, DECOATTR_STRUCT_LENGTH
-	jp AddNTimes
+	jmp AddNTimes
 
 GetDecorationName:
 	push hl
@@ -449,7 +449,7 @@ DecorationMenuFunction:
 	call GetDecorationData
 	call GetDecoName
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 DoDecorationAction2:
 	ld a, [wMenuSelection]
@@ -497,7 +497,7 @@ DecorationFlagAction:
 	push bc
 	call GetDecorationFlag
 	pop bc
-	jp EventFlagAction
+	jmp EventFlagAction
 
 GetDecorationSprite:
 	ld a, c
@@ -654,51 +654,51 @@ DecoAction_nothing:
 
 DecoAction_setupbed:
 	ld hl, wDecoBed
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawaybed:
 	ld hl, wDecoBed
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_setupcarpet:
 	ld hl, wDecoCarpet
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawaycarpet:
 	ld hl, wDecoCarpet
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_setupplant:
 	ld hl, wDecoPlant
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawayplant:
 	ld hl, wDecoPlant
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_setupposter:
 	ld hl, wDecoPoster
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawayposter:
 	ld hl, wDecoPoster
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_setupconsole:
 	ld hl, wDecoConsole
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawayconsole:
 	ld hl, wDecoConsole
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_setupbigdoll:
 	ld hl, wDecoBigDoll
-	jp DecoAction_TrySetItUp
+	jmp DecoAction_TrySetItUp
 
 DecoAction_putawaybigdoll:
 	ld hl, wDecoBigDoll
-	jp DecoAction_TryPutItAway
+	jmp DecoAction_TryPutItAway
 
 DecoAction_TrySetItUp:
 	ld a, [hl]
@@ -978,7 +978,7 @@ GetDecorationName_c_de:
 	ld a, c
 	ld h, d
 	ld l, e
-	jp GetDecorationName
+	jmp GetDecorationName
 
 GetDecorationName_c:
 	ld a, c
@@ -993,7 +993,7 @@ SetSpecificDecorationFlag:
 	ld a, c
 	call GetDecorationID
 	ld b, SET_FLAG
-	jp DecorationFlagAction
+	jmp DecorationFlagAction
 
 GetDecorationID:
 	push hl
@@ -1180,7 +1180,7 @@ SetPosterVisibility:
 
 .ok
 	ld de, EVENT_PLAYERS_ROOM_POSTER
-	jp EventFlagAction
+	jmp EventFlagAction
 
 SetDecorationTile:
 	push af
@@ -1208,7 +1208,7 @@ ToggleDecorationsVisibility:
 	ld de, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
 	ld hl, wVariableSprites + SPRITE_BIG_DOLL - SPRITE_VARS
 	ld a, [wDecoBigDoll]
-	jp ToggleDecorationVisibility
+	jmp ToggleDecorationVisibility
 
 ToggleDecorationVisibility:
 	and a
@@ -1216,11 +1216,11 @@ ToggleDecorationVisibility:
 	call _GetDecorationSprite
 	ld [hl], a
 	ld b, RESET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction
 
 .hide
 	ld b, SET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction
 
 _GetDecorationSprite:
 	ld c, a
@@ -1240,7 +1240,7 @@ PadCoords_de:
 	ld a, e
 	add 4
 	ld e, a
-	jp GetBlockLocation
+	jmp GetBlockLocation
 
 ; Called once when entering Neon Town (Akiba) 1F.
 GetTodaysBigDoll::

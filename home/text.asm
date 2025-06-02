@@ -37,7 +37,7 @@ ClearTilemap::
 	ldh a, [rLCDC]
 	bit rLCDC_ENABLE, a
 	ret z
-	jp WaitBGMap
+	jmp WaitBGMap
 
 TextboxBorder::
 	; Top
@@ -160,7 +160,7 @@ BuenaPrintText::
 
 PrintTextboxText::
 	bccoord TEXTBOX_INNERX, TEXTBOX_INNERY
-	jp PlaceHLTextAtBC
+	jmp PlaceHLTextAtBC
 
 SetUpTextbox::
 	push hl
@@ -203,7 +203,7 @@ PlaceNextChar::
 
 NextChar::
 	inc de
-	jp PlaceNextChar
+	jmp PlaceNextChar
 
 CheckDict::
 dict: MACRO
@@ -297,18 +297,18 @@ ENDM
 .place
 	ld [hli], a
 	call PrintLetterDelay
-	jp NextChar
+	jmp NextChar
 
 MobileScriptChar::
 	ld c, l
 	ld b, h
 	farcall RunMobileScript
-	jp PlaceNextChar
+	jmp PlaceNextChar
 
 print_name: MACRO
 	push de
 	ld de, \1
-	jp PlaceCommandCharacter
+	jmp PlaceCommandCharacter
 ENDM
 
 PrintPlayerName: print_name wPlayerName
@@ -410,7 +410,7 @@ PlaceCommandCharacter::
 	ld h, b
 	ld l, c
 	pop de
-	jp NextChar
+	jmp NextChar
 
 if DEF(_FR_FR)
 TMCharText::      db "CT@"
@@ -449,14 +449,14 @@ NextLineChar::
 	ld bc, SCREEN_WIDTH * 2
 	add hl, bc
 	push hl
-	jp NextChar
+	jmp NextChar
 
 LineFeedChar::
 	pop hl
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	push hl
-	jp NextChar
+	jmp NextChar
 
 CarriageReturnChar::
 	pop hl
@@ -497,13 +497,13 @@ CarriageReturnChar::
 	ld b, 0
 	add hl, bc
 	push hl
-	jp NextChar
+	jmp NextChar
 
 LineChar::
 	pop hl
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	push hl
-	jp NextChar
+	jmp NextChar
 
 Paragraph::
 	push de
@@ -526,7 +526,7 @@ Paragraph::
 	call DelayFrames
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
 	pop de
-	jp NextChar
+	jmp NextChar
 
 _ContText::
 	ld a, [wLinkMode]
@@ -552,7 +552,7 @@ _ContTextNoPause::
 	call TextScroll
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY + 2
 	pop de
-	jp NextChar
+	jmp NextChar
 
 ContText::
 	push de
@@ -563,7 +563,7 @@ ContText::
 	ld h, b
 	ld l, c
 	pop de
-	jp NextChar
+	jmp NextChar
 
 .cont: db "<_CONT>@"
 
@@ -605,7 +605,7 @@ NullChar::
 	ld a, "?"
 	ld [hli], a
 	call PrintLetterDelay
-	jp NextChar
+	jmp NextChar
 
 TextScroll::
 	hlcoord TEXTBOX_INNERX, TEXTBOX_INNERY
@@ -636,7 +636,7 @@ TextScroll::
 	ld bc, TEXTBOX_INNERW
 	call ByteFill
 	ld c, 5
-	jp DelayFrames
+	jmp DelayFrames
 
 Text_WaitBGMap::
 	push bc
@@ -715,7 +715,7 @@ DoTextUntilTerminator::
 	pop bc
 	pop hl
 
-	; jp de
+	; jmp de
 	push de
 	ret
 

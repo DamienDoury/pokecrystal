@@ -382,7 +382,7 @@ PromptButton::
 
 .link
 	ld c, 65
-	jp DelayFrames
+	jmp DelayFrames
 
 .wait_input
 	ldh a, [hOAMUpdate]

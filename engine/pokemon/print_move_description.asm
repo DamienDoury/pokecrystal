@@ -112,7 +112,7 @@ PrintMoveDescription:
 	ld e, a
 	ld d, [hl]
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 String_MoveAtk_:
 if DEF(_FR_FR)
@@ -166,6 +166,6 @@ GetMovePowerAddress:
 	dec a
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
-	jp AddNTimes
+	jmp AddNTimes
 
 INCLUDE "data/moves/descriptions.asm"

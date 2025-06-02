@@ -180,7 +180,7 @@ OverworldHatchEgg::
 	call HatchEggs
 	call ExitAllMenus
 	call RestartMapMusic
-	jp CloseText
+	jmp CloseText
 
 HatchEggs:
 	ld de, wPartySpecies
@@ -315,7 +315,7 @@ HatchEggs:
 	ld de, PARTYMON_STRUCT_LENGTH
 	add hl, de
 	pop de
-	jp .loop
+	jmp .loop
 
 .done
 	ret
@@ -626,7 +626,7 @@ Hatch_UpdateFrontpicBGMapCenter:
 	pop af
 	call Hatch_LoadFrontpicPal
 	call SetPalettes
-	jp WaitBGMap
+	jmp WaitBGMap
 
 EggHatch_DoAnimFrame:
 	push hl
@@ -733,7 +733,7 @@ Hatch_LoadFrontpicPal:
 	ld [wPlayerHPPal], a
 	ld b, SCGB_EVOLUTION
 	ld c, $0
-	jp GetSGBLayout
+	jmp GetSGBLayout
 
 EggHatch_CrackShell:
 	ld a, [wFrameCounter]
@@ -754,7 +754,7 @@ EggHatch_CrackShell:
 	add hl, bc
 	ld [hl], $0
 	ld de, SFX_EGG_CRACK
-	jp PlaySFX
+	jmp PlaySFX
 
 EggHatchGFX:
 INCBIN "gfx/evo/egg_hatch.2bpp"
@@ -799,7 +799,7 @@ Hatch_InitShellFragments:
 .done
 	ld de, SFX_EGG_HATCH
 	call PlaySFX
-	jp EggHatch_DoAnimFrame
+	jmp EggHatch_DoAnimFrame
 
 shell_fragment: MACRO
 ; y tile, y pxl, x tile, x pxl, frameset offset, ???
@@ -838,7 +838,7 @@ DayCareMon1:
 	call PromptButton
 	ld hl, wBreedMon2Nickname
 	call DayCareMonCompatibilityText
-	jp PrintText
+	jmp PrintText
 
 DayCareMon2:
 	ld hl, LeftWithDayCareLadyText
@@ -851,7 +851,7 @@ DayCareMon2:
 	call PromptButton
 	ld hl, wBreedMon1Nickname
 	call DayCareMonCompatibilityText
-	jp PrintText
+	jmp PrintText
 
 DayCareMonCursor:
 	jp WaitPressAorB_BlinkCursor

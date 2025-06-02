@@ -120,7 +120,7 @@ StatsScreen_WaitAnim:
 	jr nz, .try_anim
 	bit 5, [hl]
 	jr nz, .finish
-	jp DelayFrame
+	jmp DelayFrame
 
 .try_anim
 	farcall SetUpPokeAnim
@@ -159,11 +159,11 @@ MonStatsInit:
 	ld hl, wStatsScreenFlags
 	set 4, [hl]
 	ld h, 4
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .egg
 	ld h, 1
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 EggStatsInit:
 	call EggStatsScreen
@@ -176,7 +176,7 @@ EggStatsJoypad:
 	call StatsScreen_GetJoypad
 	jr nc, .check
 	ld h, 0
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .check
 	bit A_BUTTON_F, a
@@ -186,11 +186,11 @@ if DEF(_DEBUG)
 	jr z, .hatch
 endc
 	and D_DOWN | D_UP | A_BUTTON | B_BUTTON
-	jp StatsScreen_JoypadAction
+	jmp StatsScreen_JoypadAction
 
 .quit
 	ld h, 7
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 if DEF(_DEBUG)
 .hatch
@@ -219,7 +219,7 @@ if DEF(_DEBUG)
 	pop bc
 .skip
 	xor a
-	jp StatsScreen_JoypadAction
+	jmp StatsScreen_JoypadAction
 
 .HatchSoonString:
 	db "▶HATCH SOON!@"
@@ -240,7 +240,7 @@ MonStatsJoypad:
 	call StatsScreen_GetJoypad
 	jr nc, .next
 	ld h, 0
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .next
 	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT
@@ -339,7 +339,7 @@ StatsScreen_JoypadAction:
 
 .b_button
 	ld h, 7
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .d_down
 	ld a, [wMonType]
@@ -363,7 +363,7 @@ StatsScreen_JoypadAction:
 	ld a, b
 	inc a
 	ld [wPartyMenuCursor], a
-	jp .load_mon
+	jmp .load_mon
 
 .d_up
 	ld a, [wCurPartyMon]
@@ -378,7 +378,7 @@ StatsScreen_JoypadAction:
 	ld a, b
 	inc a
 	ld [wPartyMenuCursor], a
-	jp .load_mon
+	jmp .load_mon
 
 .a_button
 	ld a, c
@@ -392,13 +392,13 @@ StatsScreen_JoypadAction:
 	cp c
 	jp nc, .set_page
 	ld c, PINK_PAGE ; first page
-	jp .set_page
+	jmp .set_page
 
 .d_left
 	dec c
 	jp nz, .set_page
 	ld c, BLUE_PAGE ; last page
-	jp .set_page
+	jmp .set_page
 
 .done
 	ret
@@ -543,14 +543,14 @@ StatsScreen_JoypadAction:
 	and a
 	ret z
 
-	jp PlaceMoveDataNew
+	jmp PlaceMoveDataNew
 
 .tooltip_item
 	ld a, [wTempMonItem]
 	and a
 	ret z
 
-	jp PlaceItemDetail
+	jmp PlaceItemDetail
 
 .tooltip_ability
 if DEF(_CRYSTAL_BETA) || DEF(_CRYSTAL_RELEASE) ; TODO: remove this condition once ability effect have been implemented.
@@ -633,7 +633,7 @@ endc
 	call WaitSFX
 	ld de, SFX_WRONG
 	call PlaySFX
-	jp WaitSFX
+	jmp WaitSFX
 
 .start_swapping_ok
 	ld a, 2
@@ -653,7 +653,7 @@ endc
 	ld b, 0
 	add a
 	ld c, a
-	jp .displaying_arrow
+	jmp .displaying_arrow
 	ret
 
 .d_right_submenu
@@ -668,7 +668,7 @@ endc
 	push af
 	call CloseSubMenu
 	pop af
-	jp StatsScreen_JoypadAction
+	jmp StatsScreen_JoypadAction
 
 .b_button_submenu
 	ld a, [wStatsSubmenuOpened]
@@ -688,7 +688,7 @@ endc
 	add a
 	ld b, 0
 	ld c, a
-	jp .displaying_arrow
+	jmp .displaying_arrow
 
 .open_submenu
 	ld a, 1
@@ -721,7 +721,7 @@ endc
 	ld a, 2 ; Next cursor index.
 	ld [wStatsSubmenuCursorIndex], a
 	ld bc, 4
-	jp .displaying_arrow
+	jmp .displaying_arrow
 
 .set_page
 	ld a, [wStatsScreenFlags]
@@ -729,11 +729,11 @@ endc
 	or c
 	ld [wStatsScreenFlags], a
 	ld h, 4
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .load_mon
 	ld h, 0
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 .submenuCursorCoordinates
 	dw 8	* SCREEN_WIDTH + 6 + wTilemap ; Item
@@ -821,13 +821,13 @@ SwapMoves:
 
 	call CloseSRAM
 	farcall CopyBoxmonToTempMon
-	jp LoadGreenPage.display_moves
+	jmp LoadGreenPage.display_moves
 
 .end_swapping
 	ld a, PARTYMON
 	ld [wMonType], a ; Forcing the mon type to PARTYMON, because the Deposit mode of the PC sets it to TEMPMON.
 	predef CopyMonToTempMon
-	jp LoadGreenPage.display_moves
+	jmp LoadGreenPage.display_moves
 
 .swap_bytes
 	push hl
@@ -901,7 +901,7 @@ CloseSubMenu:
 	ld hl, wStatsScreenFlags
 	set 4, [hl] ; Tells the state machine to start animation.
 	ld h, 4
-	jp StatsScreen_SetJumptableIndex
+	jmp StatsScreen_SetJumptableIndex
 
 StatsScreen_InitUpperHalf:
 	call .PlaceHPBar
@@ -938,7 +938,7 @@ StatsScreen_InitUpperHalf:
 	call PlaceString
 	call StatsScreen_PlaceHorizontalDivider
 	call StatsScreen_PlacePageSwitchArrows
-	jp StatsScreen_PlaceShinyIcon
+	jmp StatsScreen_PlaceShinyIcon
 
 .PlaceHPBar:
 	ld hl, wTempMonHP
@@ -954,7 +954,7 @@ StatsScreen_InitUpperHalf:
 	call SetHPPal
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	jp DelayFrame
+	jmp DelayFrame
 
 .PlaceGenderChar:
 	push hl
@@ -1011,7 +1011,7 @@ StatsScreen_LoadGFX:
 	ld hl, wStatsScreenFlags
 	bit 4, [hl]
 	jr nz, .place_frontpic
-	jp SetPalettes
+	jmp SetPalettes
 
 .place_frontpic
 	jp StatsScreen_PlaceFrontpic
@@ -1417,7 +1417,7 @@ endc
 	ret z
 
 	ld [wNamedObjectIndex], a
-	jp GetItemName
+	jmp GetItemName
 
 .Item:
 if DEF(_FR_FR)
@@ -1673,7 +1673,7 @@ StatsScreen_PlaceFrontpic:
 
 .egg
 	call .AnimateEgg
-	jp SetPalettes
+	jmp SetPalettes
 
 .no_cry
 	call .AnimateMon
@@ -1683,7 +1683,7 @@ StatsScreen_PlaceFrontpic:
 	call SetPalettes
 	call .AnimateMon
 	ld a, [wCurPartySpecies]
-	jp PlayMonCry2
+	jmp PlayMonCry2
 
 .AnimateMon:
 	ld hl, wStatsScreenFlags
@@ -1692,13 +1692,13 @@ StatsScreen_PlaceFrontpic:
 	cp UNOWN
 	jr z, .unown
 	hlcoord 0, 0
-	jp PrepMonFrontpic
+	jmp PrepMonFrontpic
 
 .unown
 	xor a
 	ld [wBoxAlignment], a
 	hlcoord 0, 0
-	jp _PrepMonFrontpic
+	jmp _PrepMonFrontpic
 
 .AnimateEgg:
 	ld a, [wCurPartySpecies]
@@ -1879,7 +1879,7 @@ endc
 	cp 6
 	ret nc
 	ld de, SFX_2_BOOPS
-	jp PlaySFX
+	jmp PlaySFX
 
 EggString:
 if DEF(_FR_FR)
@@ -2031,7 +2031,7 @@ GetNicknamenamePointer:
 	cp TEMPMON
 	ret z
 	ld a, [wCurPartyMon]
-	jp SkipNames
+	jmp SkipNames
 
 CheckFaintedFrzSlp:
 	ld hl, MON_HP
@@ -2089,7 +2089,7 @@ PlaceAbilityDescription:
 
 	ld a, BANK(AbilityDescriptions)
 	hlcoord 1, 2
-	jp PlaceFarString
+	jmp PlaceFarString
 
 PlaceItemDetail:
 	ld [wCurSpecies], a
@@ -2195,4 +2195,4 @@ GetItemHelpAttr:
 	ld a, ITEMATTR_STRUCT_LENGTH
 	call AddNTimes
 	ld a, BANK(ItemAttributes)
-	jp GetFarByte
+	jmp GetFarByte

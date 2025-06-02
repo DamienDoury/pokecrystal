@@ -9,7 +9,7 @@ BattleCommand_LockOn:
 	call AnimateCurrentMove
 
 	ld hl, TookAimText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 BattleCommand_MindReader:
 ; mindreader
@@ -22,7 +22,7 @@ BattleCommand_MindReader:
 	call AnimateCurrentMove
 
 	ld hl, AnticipatedText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .fail
 	call AnimateFailedMove

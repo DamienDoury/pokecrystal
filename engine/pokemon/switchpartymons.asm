@@ -36,7 +36,7 @@ _SwitchPartyMons:
 	dec c
 	jr nz, .gfx_loop
 	ld de, SFX_SWITCH_POKEMON
-	jp WaitPlaySFX
+	jmp WaitPlaySFX
 
 .SwapMonAndMail:
 	push hl

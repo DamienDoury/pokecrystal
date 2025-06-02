@@ -47,7 +47,7 @@ InitPartyMenuPalettes:
 	ld hl, PalPacket_PartyMenu + 1
 	call CopyFourPalettes
 	call InitPartyMenuOBPals
-	jp WipeAttrmap
+	jmp WipeAttrmap
 
 ; SGB layout for SCGB_PARTY_MENU_HP_BARS
 SGB_ApplyPartyMenuHPPals:
@@ -111,7 +111,7 @@ Intro_LoadAllPal0:
 	and a
 	ret z
 	ld hl, BlkPacket_AllPal0
-	jp PushSGBPals
+	jmp PushSGBPals
 
 Intro_LoadMonPalette:
 	call CheckCGB
@@ -136,13 +136,13 @@ Intro_LoadMonPalette:
 	ld a, [hl]
 	ld [wSGBPals + 6], a
 	ld hl, wSGBPals
-	jp PushSGBPals
+	jmp PushSGBPals
 
 .cgb
 	ld de, wOBPals1
 	ld a, c
 	call GetMonPalettePointer
-	jp LoadPalette_White_Col1_Col2_Black
+	jmp LoadPalette_White_Col1_Col2_Black
 
 LoadTrainerClassPaletteAsNthBGPal:
 	ld a, [wTrainerClass]
@@ -177,7 +177,7 @@ LoadNthMiddleBGPal:
 	ld e, l
 	ld d, h
 	pop hl
-	jp LoadPalette_White_Col1_Col2_Black
+	jmp LoadPalette_White_Col1_Col2_Black
 
 ApplyMonOrTrainerPals:
 	call CheckCGB
@@ -198,7 +198,7 @@ ApplyMonOrTrainerPals:
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrmap
 	call ApplyAttrmap
-	jp ApplyPals
+	jmp ApplyPals
 
 ApplyHPBarPals:
 	ld a, [wWhichHPBar]
@@ -247,7 +247,7 @@ ApplyHPBarPals:
 .done
 	lb bc, 2, 8
 	ld a, e
-	jp FillBoxCGB
+	jmp FillBoxCGB
 
 LoadStatsScreenPals:
 	call CheckCGB
@@ -325,7 +325,7 @@ LoadMailPalettes:
 	ld hl, wSGBPals
 	call PushSGBPals
 	ld hl, BlkPacket_AllPal0
-	jp PushSGBPals
+	jmp PushSGBPals
 
 .cgb
 	ld de, wBGPals1
@@ -334,7 +334,7 @@ LoadMailPalettes:
 	call FarCopyWRAM
 	call ApplyPals
 	call WipeAttrmap
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 .MailPals:
 INCLUDE "gfx/mail/mail.pal"
@@ -472,14 +472,14 @@ WipeAttrmap::
 	hlcoord 0, 0, wAttrmap
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	xor a
-	jp ByteFill
+	jmp ByteFill
 
 ApplyPals::
 	ld hl, wBGPals1
 	ld de, wBGPals2
 	ld bc, 16 palettes
 	ld a, BANK(wGBCPalettes)
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 ApplyAttrmap:
 	ldh a, [rLCDC]
@@ -547,14 +547,14 @@ CGB_ApplyPartyMenuHPPals:
 .done
 	lb bc, 2, 8
 	ld a, e
-	jp FillBoxCGB
+	jmp FillBoxCGB
 
 InitPartyMenuOBPals:
 	ld hl, PartyMenuOBPals
 	ld de, wOBPals1
 	ld bc, 8 palettes
 	ld a, BANK(wOBPals1)
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 GetBattlemonBackpicPalettePointer:
 	push de
@@ -607,7 +607,7 @@ GetTrainerPalettePointer:
 	ret
 
 GetMonPalettePointer:
-	jp _GetMonPalettePointer
+	jmp _GetMonPalettePointer
 
 BattleObjectPals:
 INCLUDE "gfx/battle_anims/battle_anims.pal"
@@ -808,7 +808,7 @@ PushSGBBorder:
 	push de
 	call SGBBorder_YetMorePalPushing
 	pop hl
-	jp SGBBorder_MorePalPushing
+	jmp SGBBorder_MorePalPushing
 
 .LoadSGBBorderPointers:
 	ld hl, SGBBorderGFX
@@ -819,7 +819,7 @@ SGB_ClearVRAM:
 	ld hl, VRAM_Begin
 	ld bc, VRAM_End - VRAM_Begin
 	xor a
-	jp ByteFill
+	jmp ByteFill
 
 PushSGBBorderPalsAndWait:
 	ld hl, MltReq2Packet
@@ -869,7 +869,7 @@ endr
 .FinalPush:
 	ld hl, MltReq1Packet
 	call _PushSGBPals
-	jp SGBDelayCycles
+	jmp SGBDelayCycles
 
 SGBBorder_PushBGPals:
 	call DisableLCD
@@ -1137,7 +1137,7 @@ endr
 	ld a, BANK(wBGPals1)
 	call FarCopyWRAM
 
-	jp HandleDayCareOutdoorPalettes
+	jmp HandleDayCareOutdoorPalettes
 
 
 ; Input: none.
@@ -1231,7 +1231,7 @@ _ForceTimeOfDayPaletteSmoothing::
 	jp nc, .return_false
 	cp 28
 	jr nc, .end_checks
-	jp .return_false
+	jmp .return_false
 
 .end_checks
 	ld [wLastPaletteTransitionMinute], a
@@ -1553,7 +1553,7 @@ AddBillsHouseTransferTubePalette:
 	ld bc, 6 ; 3 colors (2 bytes per color).
 	ld de, wOBPals1 palette 4 + 2 ; OBJ 4 pal, starting at color 2 (skipping the invisible color).
 	ld a, BANK(wOBPals1)
- 	jp FarCopyWRAM
+ 	jmp FarCopyWRAM
 
 .BillsHouseGrayPalette
 	RGB 30,28,26, 19,19,19, 07,07,07
@@ -2003,7 +2003,7 @@ SinglePaletteTransition:
 	jr z, .end_loop
 
 	; We can now move on to the next color of this palette.
-	jp .palette_loop
+	jmp .palette_loop
 
 .end_loop
 	pop bc ; Cleaning the stack. Also it returns at the updated addresses in the same order as when entering this function.
@@ -2218,7 +2218,7 @@ WholeScreenBG0::
 	hlcoord 0, 0
 	lb bc, SCREEN_HEIGHT, SCREEN_WIDTH
 	call TextboxPalette
-	jp WaitBGMap
+	jmp WaitBGMap
 
 INCLUDE "data/sprites/maps_with_custom_obj_pals.asm"
 

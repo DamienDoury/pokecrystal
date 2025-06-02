@@ -8,7 +8,7 @@ SelectMonFromParty:
 	call SetPalettes
 	call DelayFrame
 	call PartyMenuSelect
-	jp ReturnToMapWithSpeechTextbox
+	jmp ReturnToMapWithSpeechTextbox
 
 SelectTradeOrDayCareMon_NoTextbox:
 	call SelectTradeOrDayCareMonPart1
@@ -29,7 +29,7 @@ SelectTradeOrDayCareMonPart1:
 	call GetSGBLayout
 	call SetPalettes
 	call DelayFrame
-	jp PartyMenuSelect
+	jmp PartyMenuSelect
 
 InitPartyMenuLayout:
 	call LoadPartyMenuGFX
@@ -111,7 +111,7 @@ PlacePartyNicknames:
 	dec hl
 	dec hl
 	ld de, .CancelString
-	jp PlaceString
+	jmp PlaceString
 
 .CancelString:
 if DEF(_FR_FR)
@@ -159,7 +159,7 @@ PlacePartyHPBar:
 	dec c
 	jr nz, .loop
 	ld b, SCGB_PARTY_MENU
-	jp GetSGBLayout
+	jmp GetSGBLayout
 
 PlacePartymonHPBar:
 	ld a, b

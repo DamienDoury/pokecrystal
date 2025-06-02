@@ -7,7 +7,7 @@ NAMINGSCREEN_UNDERLINE  EQU "<DOT>" ; $f2
 _NamingScreen:
 	call DisableSpriteUpdates
 	call NamingScreen
-	jp ReturnToMapWithSpeechTextbox
+	jmp ReturnToMapWithSpeechTextbox
 
 NamingScreen:
 	ld hl, wNamingScreenDestinationPointer
@@ -64,7 +64,7 @@ endc
 	call WaitBGMap
 	call WaitTop
 	call SetPalettes
-	jp NamingScreen_InitNameEntry
+	jmp NamingScreen_InitNameEntry
 
 .GetNamingScreenSetup:
 	ld a, [wNamingScreenType]
@@ -250,7 +250,7 @@ endc
 .not_kris
 	ld a, b
 	depixel 4, 4, 4, 0
-	jp InitSpriteAnimStruct
+	jmp InitSpriteAnimStruct
 
 .StoreMonIconParams:
 	ld a, MON_NAME_LENGTH - 1
@@ -468,7 +468,7 @@ NamingScreenJoypadLoop:
 	ret
 
 .b
-	jp NamingScreen_DeleteCharacter
+	jmp NamingScreen_DeleteCharacter
 
 .end
 	call NamingScreen_StoreEntry
@@ -483,11 +483,11 @@ NamingScreenJoypadLoop:
 	ld [hl], a
 	jr z, .upper
 	ld de, NameInputLower
-	jp NamingScreen_ApplyTextInputMode
+	jmp NamingScreen_ApplyTextInputMode
 
 .upper
 	ld de, NameInputUpper
-	jp NamingScreen_ApplyTextInputMode
+	jmp NamingScreen_ApplyTextInputMode
 
 .GetCursorPosition:
 	ld hl, wNamingScreenCursorObjectPointer
@@ -1395,7 +1395,7 @@ endc
 
 MailComposition_TryAddLastCharacter:
 	ld a, [wNamingScreenLastCharacter]
-	jp MailComposition_TryAddCharacter
+	jmp MailComposition_TryAddCharacter
 
 .add_dakuten ; unreferenced
 	ld a, [wNamingScreenCurNameLength]
@@ -1429,6 +1429,6 @@ MailComposition_TryAddLastCharacter:
 
 .done
 	ld a, [hl]
-	jp NamingScreen_LoadNextCharacter
+	jmp NamingScreen_LoadNextCharacter
 
 INCLUDE "data/text/mail_input_chars.asm"

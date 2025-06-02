@@ -31,7 +31,7 @@ Printer_PrepareTilemapForPrint:
 	call Printer_StartTransmission
 	pop af
 	ld [wPrinterMargins], a
-	jp Printer_CopyTilemapToBuffer
+	jmp Printer_CopyTilemapToBuffer
 
 Printer_ExitPrinter:
 	call ReturnToMapFromSubmenu
@@ -200,7 +200,7 @@ PrintPCBox:
 
 Printer_ResetRegistersAndStartDataSend:
 	call Printer_ResetJoypadRegisters
-	jp SendScreenToPrinter
+	jmp SendScreenToPrinter
 
 PrintUnownStamp:
 	ld a, [wPrinterQueueLength]
@@ -270,7 +270,7 @@ PrintUnownStamp:
 
 PrintMailAndExit:
 	call PrintMail
-	jp Printer_ExitPrinter
+	jmp Printer_ExitPrinter
 
 PrintMail:
 	ld a, [wPrinterQueueLength]
@@ -498,7 +498,7 @@ Printer_ResetJoypadRegisters:
 
 Printer_PlayMusic:
 	ld de, MUSIC_PRINTER
-	jp PlayMusic2
+	jmp PlayMusic2
 
 Printer_RestartMapMusic:
 	jp RestartMapMusic
@@ -657,7 +657,7 @@ PrintPCBox_Page1:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 9
 	ld c, 3
-	jp Printer_PrintBoxListSegment
+	jmp Printer_PrintBoxListSegment
 
 .String_PokemonList:
 if DEF(_FR_FR)
@@ -680,7 +680,7 @@ PrintPCBox_Page2:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 6
-	jp Printer_PrintBoxListSegment
+	jmp Printer_PrintBoxListSegment
 
 PrintPCBox_Page3:
 	hlcoord 0, 0
@@ -696,7 +696,7 @@ PrintPCBox_Page3:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 6
-	jp Printer_PrintBoxListSegment
+	jmp Printer_PrintBoxListSegment
 
 PrintPCBox_Page4:
 	hlcoord 0, 0
@@ -716,7 +716,7 @@ PrintPCBox_Page4:
 	call Printer_GetBoxMonSpecies
 	hlcoord 2, 0
 	ld c, 5
-	jp Printer_PrintBoxListSegment
+	jmp Printer_PrintBoxListSegment
 
 Printer_PrintBoxListSegment:
 	ld a, [wBankOfBoxToPrint]
@@ -809,7 +809,7 @@ Printer_PrintBoxListSegment:
 	add hl, bc
 	pop bc
 	inc de
-	jp .loop
+	jmp .loop
 
 .finish
 	ld a, $1

@@ -61,7 +61,7 @@ ReadTrainerParty:
 	call ReadTrainerPartyPieces
 
 .done
-	jp ComputeTrainerReward
+	jmp ComputeTrainerReward
 
 .cal2
 	ld a, BANK(sMysteryGiftTrainer)
@@ -445,7 +445,7 @@ endr
 	pop hl
 .no_stat_recalc
 
-	jp .loop
+	jmp .loop
 
 GetLastOTMonStatExpAddress:
 	push hl
@@ -505,7 +505,7 @@ GetTrainerName::
 	call OpenSRAM
 	ld hl, sMysteryGiftPartnerName
 	call CopyTrainerName
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .not_cal2
 	ld a, [wOtherTrainerClass]

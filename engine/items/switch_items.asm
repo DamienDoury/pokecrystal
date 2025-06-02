@@ -204,7 +204,7 @@ ItemSwitch_GetNthItem:
 	ld l, a
 	inc hl
 	pop af
-	jp AddNTimes
+	jmp AddNTimes
 
 ItemSwitch_GetItemOffset:
 	push hl

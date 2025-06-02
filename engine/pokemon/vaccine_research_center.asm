@@ -61,7 +61,7 @@ _LoadSilphCoPokemonMoves: ; Returns the moveset pointer in HL.
     ; Second move.
     ld a, [hl]
     ld [wCurSpecies], a
-    jp GetName
+    jmp GetName
 
 _SilphCo_SetMonAttributes:
     ld hl, wPartyMon1Moves
@@ -313,7 +313,7 @@ _SilphCo_PlayerGetsPropertyOfTestSubject::
     call CopyName2 ; Copies the name from de to hl
 
     ; Copying the name if the test subject into wStringBuffer1.
-    jp GetCurNickname
+    jmp GetCurNickname
 
 LanaTrainerName:
 if DEF(_FR_FR)

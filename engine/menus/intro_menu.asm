@@ -7,7 +7,7 @@ Intro_MainMenu:
 	ld [wMapMusic], a
 	call PlayMusic
 	farcall MainMenu
-	jp StartTitleScreen
+	jmp StartTitleScreen
 
 PrintDayOfWeek:
 	push de
@@ -21,7 +21,7 @@ PrintDayOfWeek:
 	ld h, b
 	ld l, c
 	ld de, .Day
-	jp PlaceString
+	jmp PlaceString
 
 .Days:
 if DEF(_FR_FR)
@@ -99,13 +99,13 @@ if !DEF(_CRYSTAL_BETA)
 
 	ld a, MAPSETUP_WARP
 	ldh [hMapEntryMethod], a
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 .no_rtc_found
 	call ClearScreen
 	call SetPalettes
 	ld hl, .rtc_error_text
-	jp PrintText
+	jmp PrintText
 
 .rtc_error_text
 	text_far _RTCErrorText
@@ -273,7 +273,7 @@ endc
 
 	farcall DeleteMobileEventIndex
 
-	jp ResetGameTime
+	jmp ResetGameTime
 
 .InitList:
 ; Loads 0 in the count and -1 in the first item or mon slot.
@@ -380,7 +380,7 @@ LoadOrRegenerateLuckyIDNumber:
 	ld a, c
 	ld [wLuckyIDNumber + 1], a
 	ld [sLuckyIDNumber + 1], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 Continue:
 	farcall TryLoadSaveFile
@@ -421,7 +421,7 @@ Continue:
 	jr z, .SpawnAfterE4
 	ld a, MAPSETUP_CONTINUE
 	ldh [hMapEntryMethod], a
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 .FailToLoad:
 	ret
@@ -430,7 +430,7 @@ Continue:
 	ld a, SPAWN_NEW_BARK
 	ld [wDefaultSpawnpoint], a
 	call PostCreditsSpawn
-	jp FinishContinueFunction
+	jmp FinishContinueFunction
 
 SpawnAfterRed:
 	ld a, SPAWN_NEW_BARK
@@ -492,7 +492,7 @@ Continue_MobileAdapterMenu:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	ld c, 35
-	jp DelayFrames
+	jmp DelayFrames
 
 ConfirmContinue:
 .loop
@@ -538,7 +538,7 @@ FinishContinueFunction:
 	ld a, [wSpawnAfterChampion]
 	cp SPAWN_RED
 	jr z, .AfterRed
-	jp Reset
+	jmp Reset
 
 .AfterRed:
 	call SpawnAfterRed
@@ -576,7 +576,7 @@ DisplayNormalContinueData:
 	call Continue_DisplayBadgesDexPlayerName
 	call Continue_PrintGameTime
 	call LoadFontsExtra
-	jp UpdateSprites
+	jmp UpdateSprites
 
 DisplayContinueDataWithRTCError:
 	call Continue_LoadMenuHeader
@@ -597,7 +597,7 @@ Continue_LoadMenuHeader:
 .show_menu
 	call _OffsetMenuHeader
 	call MenuBox
-	jp PlaceVerticalMenuItems
+	jmp PlaceVerticalMenuItems
 
 .MenuHeader_Dex:
 	db MENU_BACKUP_TILES ; flags
@@ -691,7 +691,7 @@ else
 	decoord 9, 8, 0
 endc
 	add hl, de
-	jp Continue_DisplayGameTime
+	jmp Continue_DisplayGameTime
 
 Continue_UnknownGameTime:
 if DEF(_FR_FR)
@@ -701,7 +701,7 @@ else
 endc
 	add hl, de
 	ld de, .three_question_marks
-	jp PlaceString
+	jmp PlaceString
 
 .three_question_marks
 if DEF(_FR_FR)
@@ -719,7 +719,7 @@ Continue_DisplayBadgeCount:
 	ld [wTempByteValue], a
 	ld de, wTempByteValue
 	lb bc, 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 Continue_DisplayPokedexNumCaught:
 	ld a, [wStatusFlags]
@@ -737,7 +737,7 @@ endc
 	ld [wTempByteValue], a
 	ld de, wTempByteValue
 	lb bc, 1, 3
-	jp PrintNum
+	jmp PrintNum
 
 Continue_DisplayGameTime:
 	ld de, wGameTimeHours
@@ -747,7 +747,7 @@ Continue_DisplayGameTime:
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 OakSpeech:
 	farcall InitClock
@@ -824,7 +824,7 @@ OakSpeech:
 	call PrintText
 	call NamePlayer
 	ld hl, OakText7
-	jp PrintText
+	jmp PrintText
 
 OakText1:
 	text_far _OakText1
@@ -896,7 +896,7 @@ NamePlayer:
 	jr z, .Male
 	ld de, .Kris
 .Male:
-	jp InitName
+	jmp InitName
 
 .Chris:
 if DEF(_FR_FR)
@@ -1174,7 +1174,7 @@ UnusedTitlePerspectiveScroll: ; unreferenced
 	ld a, [hl]
 	dec a
 	ld bc, 2 * SCREEN_WIDTH
-	jp ByteFill
+	jmp ByteFill
 
 TitleScreenScene:
 	ld e, a
@@ -1378,7 +1378,7 @@ TitleScreenEnd:
 
 DeleteSaveData:
 	farcall _DeleteSaveData
-	jp Init
+	jmp Init
 
 ResetClock:
 	farcall _ResetClock
@@ -1413,7 +1413,7 @@ UpdateTitleTrailSprite: ; unreferenced
 	ld e, a
 	ld d, [hl]
 	ld a, SPRITE_ANIM_INDEX_GS_TITLE_TRAIL
-	jp InitSpriteAnimStruct
+	jmp InitSpriteAnimStruct
 
 .TitleTrailCoords:
 trail_coords: MACRO
@@ -1445,7 +1445,7 @@ Copyright:
 
 	hlcoord 2, 6
 	ld de, CopyrightString
-	jp PlaceString
+	jmp PlaceString
 
 CopyrightString:
 	; ©1995-2001 Nintendo
@@ -1498,7 +1498,7 @@ GameInit::
 	jp c, IntroSequence ; If loading failed.
 
 	farcall _LoadData
-	jp Continue.Go
+	jmp Continue.Go
 
 Continue_DisplayYear::
 	call LoadStandardFont

@@ -92,7 +92,7 @@ StartMenu::
 	call ExitMenu
 .ReturnEnd2:
 	call CloseText
-	jp UpdateTimePals
+	jmp UpdateTimePals
 
 .GetInput:
 ; Return carry on exit, and no-carry on selection.
@@ -141,7 +141,7 @@ StartMenu::
 
 .ReturnRedraw:
 	call .Clear
-	jp .Reopen
+	jmp .Reopen
 
 .Clear:
 	call ClearBGPalettes
@@ -228,7 +228,7 @@ endc
 	ld d, [hl]
 	ld e, a
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 .GetMenuAccountTextPointer:
 	ld e, a

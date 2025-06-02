@@ -242,7 +242,7 @@ _HospitalVisit::
 
 	call CloseSRAM
 	ld hl, Duration_messages
-	jp DisplayMessageAtIndex
+	jmp DisplayMessageAtIndex
 
 
 
@@ -337,7 +337,7 @@ DisplayMessageAtIndex:
 	ld d, a
 	ld hl, 0
 	add hl, de
-	jp PrintText
+	jmp PrintText
 
 ResetHospitalVisits::
 	xor a
@@ -351,7 +351,7 @@ ResetVaccinationAvailability::
 	; Reset the daily vaccination availability.
 	ld b, RESET_FLAG
 	ld de, EVENT_GOT_A_SHOT_TODAY
-	jp EventFlagAction
+	jmp EventFlagAction
 
 ; Input: the pokemon to send in [wCurPartyMon]
 SendMonToHospital::

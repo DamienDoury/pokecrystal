@@ -26,7 +26,7 @@ GetMoveCategoryName:
 	ld l, a
 	ld de, wStringBuffer1
 	ld bc, MOVE_NAME_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 GetMoveCategory:
 ; Copy the category of move a to a.

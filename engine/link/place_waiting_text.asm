@@ -18,7 +18,7 @@ PlaceWaitingText::
 	ld de, .Waiting
 	call PlaceString
 	ld c, 50
-	jp DelayFrames
+	jmp DelayFrames
 
 .Waiting:
 if DEF(_FR_FR)

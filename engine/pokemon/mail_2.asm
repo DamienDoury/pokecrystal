@@ -61,7 +61,7 @@ ReadAnyMail:
 	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
 	call LoadStandardFont
-	jp EnableLCD
+	jmp EnableLCD
 
 .loop
 	call GetJoypad
@@ -222,7 +222,7 @@ FinishLoadingSurfLiteBlueMailGFX:
 	hlcoord 6, 11
 	ld [hli], a
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadEonMailGFX:
 	push bc
@@ -271,7 +271,7 @@ LoadEonMailGFX:
 	call Mail_Draw3x2Graphic
 	call LovelyEonMail_PlaceIcons
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadLovelyMailGFX:
 	push bc
@@ -301,7 +301,7 @@ LoadLovelyMailGFX:
 	call Mail_Draw3x2Graphic
 	call LovelyEonMail_PlaceIcons
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LovelyEonMail_PlaceIcons:
 	ld a, $3d
@@ -407,7 +407,7 @@ LoadMorphMailGFX:
 	hlcoord 3, 13
 	call Mail_Draw3x2Graphic
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadBlueSkyMailGFX:
 	push bc
@@ -484,7 +484,7 @@ LoadBlueSkyMailGFX:
 	hlcoord 10, 3
 	call Mail_Draw2x2Graphic
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 Mail_Place6TileRow:
 	ld b, $6
@@ -547,7 +547,7 @@ LoadFlowerMailGFX:
 	hlcoord 14, 11
 	call Mail_Draw2x2Graphic
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadPortraitMailGFX:
 	push bc
@@ -577,7 +577,7 @@ LoadPortraitMailGFX:
 	hlcoord 1, 10
 	call PrepMonFrontpic
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadMusicMailGFX:
 	push bc
@@ -619,7 +619,7 @@ LoadMusicMailGFX:
 	call Mail_Draw3x2Graphic
 	call LovelyEonMail_PlaceIcons
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 LoadMirageMailGFX:
 	push bc
@@ -679,7 +679,7 @@ LoadMirageMailGFX:
 	hlcoord 2, 11
 	call Mail_Draw16TileRow
 	pop hl
-	jp MailGFX_PlaceMessage
+	jmp MailGFX_PlaceMessage
 
 MailGFX_GenerateMonochromeTilesColor2:
 .loop
@@ -724,7 +724,7 @@ MailGFX_PlaceMessage:
 	hlcoord 5, 14
 
 .place_author
-	jp PlaceString
+	jmp PlaceString
 
 InvertBytes: ; unreferenced
 ; invert bc bytes starting at hl
@@ -935,6 +935,6 @@ ItemIsMail:
 	ld a, d
 	ld hl, MailItems
 	ld de, 1
-	jp IsInArray
+	jmp IsInArray
 
 INCLUDE "data/items/mail_items.asm"

@@ -259,7 +259,7 @@ endc
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 PrintPartyMonPage2:
 	call ClearBGPalettes
@@ -309,11 +309,11 @@ PrintPartyMonPage2:
 	call WaitBGMap
 	ld b, SCGB_STATS_SCREEN_HP_PALS
 	call GetSGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 .PrintTempMonStats:
 	lb bc, 2, 3
-	jp PrintNum
+	jmp PrintNum
 
 GetCurPartyMonName:
 	ld bc, NAME_LENGTH
@@ -335,7 +335,7 @@ PlaceMoveNameString:
 	ld de, PrintParty_NoMoveString
 
 .got_string
-	jp PlaceString
+	jmp PlaceString
 
 PlaceGenderAndShininess:
 	farcall GetGender

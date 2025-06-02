@@ -16,7 +16,7 @@ GetObserverWalking_HL:
     ld a, [hl]
     ld hl, wPlayerWalking
     ld bc, OBJECT_LENGTH
-    jp AddNTimes
+    jmp AddNTimes
 
 ForceObserverFacing:
 	call GetObserverWalking_HL

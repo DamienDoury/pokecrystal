@@ -17,7 +17,7 @@ QueueBattleAnimation:
 	ld b, h
 	ld hl, wLastAnimObjectIndex
 	inc [hl]
-	jp InitBattleAnimation
+	jmp InitBattleAnimation
 
 DeinitBattleAnimation:
 	ld hl, BATTLEANIMSTRUCT_INDEX

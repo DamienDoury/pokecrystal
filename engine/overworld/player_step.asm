@@ -115,7 +115,7 @@ UpdateOverworldMap:
 .step_down
 	call .ScrollOverworldMapDown
 	call LoadMapPart
-	jp ScrollMapDown
+	jmp ScrollMapDown
 
 .step_up
 	call .ScrollOverworldMapUp

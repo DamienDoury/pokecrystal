@@ -26,7 +26,7 @@ Function3e32::
 	ld [$c981], a
 	rst Bankswitch
 
-	jp Function110030
+	jmp Function110030
 
 Function3e60::
 ; Return from Function110030
@@ -134,7 +134,7 @@ Function3eea::
 	call Function3f35
 	pop bc
 	pop hl
-	jp MobileHome_PlaceBox
+	jmp MobileHome_PlaceBox
 
 .fill_attr
 	push hl
@@ -148,7 +148,7 @@ Function3eea::
 	call Function3f35
 	pop bc
 	pop hl
-	jp TextboxBorder
+	jmp TextboxBorder
 
 Function3f20::
 	hlcoord 0, 0, wAttrmap
@@ -158,7 +158,7 @@ Function3f20::
 	hlcoord 0, 0
 	ld b,  4
 	ld c, 18
-	jp MobileHome_PlaceBox
+	jmp MobileHome_PlaceBox
 
 Function3f35::
 	ld a, 6
@@ -226,7 +226,7 @@ Function3f7c::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	jp Function3eea
+	jmp Function3eea
 
 Function3f88::
 	ld hl, wDecompressScratch

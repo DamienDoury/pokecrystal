@@ -163,7 +163,7 @@ _CGB_FinishBattleScreenLayout:
 	ld bc, 6 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 InitPartyMenuBGPal7:
 	farcall Function100dc0
@@ -175,7 +175,7 @@ Mobile_InitPartyMenuBGPal7:
 	ld de, wBGPals1 palette 7
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 InitPartyMenuBGPal0:
 	farcall Function100dc0
@@ -186,7 +186,7 @@ InitPartyMenuBGPal0:
 	ld de, wBGPals1 palette 0
 	ld bc, 1 palettes
 	ld a, BANK(wBGPals1)
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 _CGB_PokegearPals:
 	ld a, [wPlayerGender]
@@ -460,7 +460,7 @@ _CGB_GSIntro:
 	ld bc, 5 palettes
 	ld a, BANK(wOBPals1)
 	call FarCopyWRAM
-	jp WipeAttrmap
+	jmp WipeAttrmap
 
 .ShellderLaprasBGPalette:
 INCLUDE "gfx/intro/gs_shellder_lapras_bg.pal"
@@ -484,7 +484,7 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
 
-	jp WipeAttrmap
+	jmp WipeAttrmap
 
 .StartersCharizardScene:
 	ld hl, PalPacket_Pack + 1
@@ -493,7 +493,7 @@ INCLUDE "gfx/intro/gs_shellder_lapras_ob.pal"
 	ld a, PREDEFPAL_GS_INTRO_STARTERS_TRANSITION
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-	jp WipeAttrmap
+	jmp WipeAttrmap
 
 _CGB_Diploma:
 	ld hl, DiplomaPalettes
@@ -505,7 +505,7 @@ _CGB_Diploma:
 	ld hl, PalPacket_Diploma + 1
 	call CopyFourPalettes
 	call WipeAttrmap
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 _CGB_MapPals:
 	call LoadMapPals
@@ -519,7 +519,7 @@ _CGB_PartyMenu:
 	call InitPartyMenuBGPal0
 	call InitPartyMenuBGPal7
 	call InitPartyMenuOBPals
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 _CGB_Evolution:
 	ld de, wBGPals1
@@ -574,7 +574,7 @@ _CGB_UnownPuzzle:
 	pop af
 	ldh [rSVBK], a
 	call WipeAttrmap
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 _CGB_TrainerCardBorderAndTrainerPicPalsJohto:
 	call GetTrainerPalettePointer
@@ -699,7 +699,7 @@ _CGB_TrainerCard:
 	inc c
 .got_gender4
 	ld a, c
-	jp _CGB_TrainerCardPalsEnd
+	jmp _CGB_TrainerCardPalsEnd
 
 _CGB_TrainerCardKanto:	
 	ld de, wBGPals1
@@ -944,7 +944,7 @@ endc
 	hlcoord 0, 12, wAttrmap
 	ld bc, $78
 	ld a, $0
-	jp ByteFill
+	jmp ByteFill
 
 .displayArrow
 	; Arrow.
@@ -1006,7 +1006,7 @@ _CGB_Pokepic:
 	ld c, a
 	ld a, $0
 	call FillBoxCGB
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 _CGB_MagnetTrain:
 	ld hl, PalPacket_MagnetTrain + 1
@@ -1039,7 +1039,7 @@ _CGB_GamefreakLogo:
 	call LoadHLPaletteIntoDE
 	call WipeAttrmap
 	call ApplyAttrmap
-	jp ApplyPals
+	jmp ApplyPals
 
 .GamefreakDittoPalette:
 INCLUDE "gfx/splash/ditto.pal"
@@ -1052,7 +1052,7 @@ _CGB_PlayerOrMonFrontpicPals:
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrmap
 	call ApplyAttrmap
-	jp ApplyPals
+	jmp ApplyPals
 
 _CGB_TradeTube:
 	ld hl, PalPacket_TradeTube + 1
@@ -1066,7 +1066,7 @@ _CGB_TradeTube:
 	ld a, PREDEFPAL_TRADE_TUBE
 	call GetPredefPal
 	call LoadHLPaletteIntoDE
-	jp WipeAttrmap
+	jmp WipeAttrmap
 
 _CGB_TrainerOrMonFrontpicPals:
 	ld de, wBGPals1
@@ -1076,7 +1076,7 @@ _CGB_TrainerOrMonFrontpicPals:
 	call LoadPalette_White_Col1_Col2_Black
 	call WipeAttrmap
 	call ApplyAttrmap
-	jp ApplyPals
+	jmp ApplyPals
 
 _CGB_MysteryGift:
 	ld hl, .MysteryGiftPalettes
@@ -1106,7 +1106,7 @@ _CGB_MysteryGift:
 	lb bc, 12, 1
 	ld a, $1
 	call FillBoxCGB
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 .MysteryGiftPalettes:
 INCLUDE "gfx/mystery_gift/mystery_gift.pal"
@@ -1119,7 +1119,7 @@ GS_CGB_MysteryGift: ; unreferenced
 	call FarCopyWRAM
 	call ApplyPals
 	call WipeAttrmap
-	jp ApplyAttrmap
+	jmp ApplyAttrmap
 
 .MysteryGiftPalette:
 INCLUDE "gfx/mystery_gift/gs_mystery_gift.pal"

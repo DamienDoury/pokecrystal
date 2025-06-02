@@ -91,7 +91,7 @@ Function16c09e:
 	ld a, [wcf64]
 	cp $4
 	ret nz
-	jp Function16c0fa
+	jmp Function16c0fa
 
 Function16c0a8:
 	xor a
@@ -100,7 +100,7 @@ Function16c0a8:
 	call ClearSprites
 	ld a, $90
 	ldh [hWY], a
-	jp Function16c0fa
+	jmp Function16c0fa
 
 Function16c0ba:
 	call Function16c943
@@ -166,7 +166,7 @@ MobileSystemSplashScreen_InitGFX:
 	call Function16cc02
 	xor a
 	ldh [hBGMapMode], a
-	jp EnableLCD
+	jmp EnableLCD
 
 .LoadPals:
 	ld de, wBGPals1
@@ -533,7 +533,7 @@ Function16cb2e:
 	call Function16cb40
 	ld hl, Unknown_16cb86
 	ld de, wVirtualOAM
-	jp Function16cb5d
+	jmp Function16cb5d
 
 Function16cb40:
 	ld hl, wd1ec
@@ -610,7 +610,7 @@ Function16cbae:
 	and a
 	ret z
 	call Function16cbba
-	jp Function16cbd1
+	jmp Function16cbd1
 
 Function16cbba:
 	ld hl, wd1f2
@@ -659,13 +659,13 @@ Function16cc02:
 	call Function16cc25
 	call Function16cc6e
 	call Function16cb0f
-	jp Function16cba3
+	jmp Function16cba3
 
 Function16cc18:
 	ld hl, vTiles1
 	ld de, MobileAdapterCheckGFX
 	lb bc, BANK(MobileAdapterCheckGFX), 46
-	jp Get2bpp
+	jmp Get2bpp
 
 Function16cc25:
 	ld hl, Unknown_16cfa9
@@ -682,7 +682,7 @@ Function16cc25:
 .CopyPal:
 	ld bc, 1 palettes
 	ld a, $5
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 Function16cc49:
 	hlcoord 4, 15
@@ -690,7 +690,7 @@ Function16cc49:
 	call Function16cc5a
 	hlcoord 4, 16
 	ld a, $90
-	jp Function16cc5a
+	jmp Function16cc5a
 
 Function16cc5a:
 	ld c, $10
@@ -705,7 +705,7 @@ Function16cc62:
 	hlcoord 0, 15, wAttrmap
 	ld bc, $0028
 	ld a, $1
-	jp ByteFill
+	jmp ByteFill
 
 Function16cc6e:
 	hlbgcoord 0, 0, vBGMap1

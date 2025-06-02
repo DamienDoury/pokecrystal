@@ -29,7 +29,7 @@ MartDialog:
 	ld [wMartType], a
 	xor a ; STANDARDMART_HOWMAYIHELPYOU
 	ld [wMartJumptableIndex], a
-	jp StandardMart
+	jmp StandardMart
 
 HerbShop:
 	call FarReadMart
@@ -38,7 +38,7 @@ HerbShop:
 	call MartTextbox
 	call BuyMenu
 	ld hl, HerbalLadyComeAgainText
-	jp MartTextbox
+	jmp MartTextbox
 
 StoneShop:
 	call FarReadMart
@@ -56,7 +56,7 @@ StoneShop:
 	call MartTextbox
 	call BuyMenu
 	ld hl, StoneShopComeAgainText
-	jp MartTextbox
+	jmp MartTextbox
 
 BargainShop:
 	ld b, BANK(BargainShopData)
@@ -76,7 +76,7 @@ BargainShop:
 
 .skip_set
 	ld hl, BargainShopComeAgainText
-	jp MartTextbox
+	jmp MartTextbox
 
 Pharmacist:
 	call FarReadMart
@@ -85,7 +85,7 @@ Pharmacist:
 	call MartTextbox
 	call BuyMenu
 	ld hl, PharmacyComeAgainText
-	jp MartTextbox
+	jmp MartTextbox
 
 RooftopSale:
 	ld b, BANK(RooftopSaleMart1)
@@ -104,7 +104,7 @@ RooftopSale:
 	call MartTextbox
 	call BuyMenu
 	ld hl, MartComeAgainText
-	jp MartTextbox
+	jmp MartTextbox
 
 INCLUDE "data/items/rooftop_sale.asm"
 
@@ -478,7 +478,7 @@ BuyMenu:
 	pop de
 
 	call PrintText
-	jp SpeechTextbox
+	jmp SpeechTextbox
 
 MartEmptyStockTextList:
 	dw MartEmptyStock1Text
@@ -519,7 +519,7 @@ LoadBuyMenuText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp PrintText
+	jmp PrintText
 
 MartAskPurchaseQuantity:
 	ld a, [wCurItem]
@@ -533,7 +533,7 @@ MartAskPurchaseQuantity:
 	jp z, StandardMartAskPurchaseQuantity
 	cp 1
 	jp z, BargainShopAskPurchaseQuantity
-	jp RooftopSaleAskPurchaseQuantity
+	jmp RooftopSaleAskPurchaseQuantity
 
 .PurchaseQuantityOfTM:
 	push de
@@ -733,7 +733,7 @@ StandardMartAskPurchaseQuantity:
 	ld a, MARTTEXT_HOW_MANY
 	call LoadBuyMenuText
 	farcall SelectQuantityToBuy
-	jp ExitMenu
+	jmp ExitMenu
 
 MartConfirmQuantity:
 	ld b, FALSE
@@ -749,7 +749,7 @@ MartConfirmPurchase:
 	predef PartyMonItemName
 	ld a, MARTTEXT_COSTS_THIS_MUCH
 	call LoadBuyMenuText
-	jp YesNoBox
+	jmp YesNoBox
 
 BargainShopAskPurchaseQuantity:
 	ld a, 1
@@ -798,7 +798,7 @@ RooftopSaleAskPurchaseQuantity:
 	ld a, MAX_ITEM_STACK
 	ld [wItemQuantity], a
 	farcall RooftopSale_SelectQuantityToBuy
-	jp ExitMenu
+	jmp ExitMenu
 
 .GetSalePrice:
 	ld a, [wMartItemID]
@@ -856,7 +856,7 @@ MenuHeader_Buy:
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld c, PRINTNUM_LEADINGZEROS | PRINTNUM_MONEY | 3
-	jp PrintBCDNumber
+	jmp PrintBCDNumber
 
 HerbShopLadyIntroText:
 	text_far _HerbShopLadyIntroText
@@ -1132,7 +1132,7 @@ MartLastItemText:
 PlayTransactionSound:
 	call WaitSFX
 	ld de, SFX_TRANSACTION
-	jp PlaySFX
+	jmp PlaySFX
 
 MartTextbox:
 	call MenuTextbox
@@ -1269,7 +1269,7 @@ GiveItemToPlayer::
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
 	;ld [hl], a
-	jp ReceiveItem
+	jmp ReceiveItem
 
 
 
@@ -1358,4 +1358,4 @@ RestockMarts::
 	ld a, 10 << 4 | 10; The player can purchase up to 10 items per shop per day. Shortage! There are 2 shops per byte.
 	ld bc, (NUM_MARTS + 1) / 2
 	ld hl, wMartsStock
-	jp ByteFill ; fill bc bytes with the value of a, starting at hl
+	jmp ByteFill ; fill bc bytes with the value of a, starting at hl

@@ -759,4 +759,4 @@ GetMoveAttrBis:
 
 GetMoveByteBis:
 	ld a, BANK(Moves)
-	jp GetFarByte
+	jmp GetFarByte

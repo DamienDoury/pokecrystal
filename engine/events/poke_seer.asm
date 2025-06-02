@@ -32,18 +32,18 @@ PokeSeer:
 	jr c, .no_mon
 
 	call ReadCaughtData
-	jp SeerAction
+	jmp SeerAction
 
 .cancel
 	ld a, SEER_CANCEL
-	jp PrintSeerText
+	jmp PrintSeerText
 
 .no_mon
 	ret
 
 .egg
 	ld a, SEER_EGG
-	jp PrintSeerText
+	jmp PrintSeerText
 
 SeerAction:
 	ld a, [wSeerAction]
@@ -63,7 +63,7 @@ SeerAction0:
 	call PrintSeerText
 	ld a, SEER_TIME_LEVEL
 	call PrintSeerText
-	jp SeerAdvice
+	jmp SeerAdvice
 
 SeerAction1:
 	call GetCaughtOT
@@ -71,20 +71,20 @@ SeerAction1:
 	call PrintSeerText
 	ld a, SEER_TIME_LEVEL
 	call PrintSeerText
-	jp SeerAdvice
+	jmp SeerAdvice
 
 SeerAction2:
 	ld a, SEER_CANT_TELL
-	jp PrintSeerText
+	jmp PrintSeerText
 
 SeerAction3:
 	ld a, SEER_CANT_TELL
-	jp PrintSeerText
+	jmp PrintSeerText
 
 SeerAction4:
 	ld a, SEER_LEVEL_ONLY
 	call PrintSeerText
-	jp SeerAdvice
+	jmp SeerAdvice
 
 ReadCaughtData:
 	ld a, MON_CAUGHTDATA
@@ -157,7 +157,7 @@ GetCaughtLevel:
 	ld hl, wSeerCaughtLevelString
 	ld de, wSeerCaughtLevel
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-	jp PrintNum
+	jmp PrintNum
 
 .unknown
 	ld de, wSeerCaughtLevelString
@@ -188,7 +188,7 @@ GetCaughtTime:
 
 .none
 	ld de, wSeerTimeOfDay
-	jp UnknownCaughtData
+	jmp UnknownCaughtData
 
 .times
 if DEF(_FR_FR)
@@ -233,7 +233,7 @@ GetCaughtLocation:
 
 .Unknown:
 	ld de, wSeerCaughtLocation
-	jp UnknownCaughtData
+	jmp UnknownCaughtData
 
 .event
 	ld a, SEERACTION_LEVEL_ONLY
@@ -283,7 +283,7 @@ PrintSeerText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp PrintText
+	jmp PrintText
 
 SeerTexts:
 	dw SeerSeeAllText
@@ -350,7 +350,7 @@ SeerAdvice:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp PrintText
+	jmp PrintText
 
 SeerAdviceTexts:
 ; level, text

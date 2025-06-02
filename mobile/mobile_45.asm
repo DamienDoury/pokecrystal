@@ -194,7 +194,7 @@ Function114269:
 	ld a, $1
 	ld h, d
 	ld l, e
-	jp Function11425c
+	jmp Function11425c
 
 .asm_1142bb
 	and a
@@ -242,12 +242,12 @@ Function114269:
 .asm_1142fe
 	xor a
 	ld b, a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114303
 	xor a
 	ld b, $1
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114309
 	xor a
@@ -272,7 +272,7 @@ Function114269:
 	jp nz, .asm_114282
 	ld a, $1
 	ld [$dc02], a
-	jp .asm_11429b
+	jmp .asm_11429b
 
 Function114333:
 	push bc
@@ -300,7 +300,7 @@ Function11433c:
 .asm_114351
 	xor a
 	ld b, $3
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114357
 	pop hl
@@ -309,7 +309,7 @@ Function11433c:
 	pop hl
 	ld a, $1
 	ld b, $82
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114360
 	ld a, h
@@ -333,7 +333,7 @@ Function11433c:
 	ld b, $2
 	pop hl
 	pop hl
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114381
 	pop de
@@ -363,7 +363,7 @@ Function11433c:
 	and a
 	jr nz, .asm_114394
 	ld b, a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_1143ad
 	ld a, [de]
@@ -371,7 +371,7 @@ Function11433c:
 	jr nz, .asm_114351
 	xor a
 	ld b, $1
-	jp Function11425c
+	jmp Function11425c
 
 Function1143b7:
 	ld a, [de]
@@ -413,7 +413,7 @@ Function1143b7:
 	ld [hli], a
 	ld [hl], b
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_1143eb
 	ld b, $82
@@ -421,7 +421,7 @@ Function1143b7:
 .asm_1143ed
 	ld a, $1
 	pop hl
-	jp Function11425c
+	jmp Function11425c
 
 Function1143f3:
 	call .asm_114412
@@ -673,7 +673,7 @@ Function1144d1:
 	ld d, [hl]
 	xor a
 	ld [de], a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114559
 	ld b, $83
@@ -681,7 +681,7 @@ Function1144d1:
 .asm_11455b
 	pop hl
 	ld a, $1
-	jp Function11425c
+	jmp Function11425c
 
 Function114561:
 	ld hl, $dc03
@@ -1197,7 +1197,7 @@ Function114843:
 	pop af
 	ld [$dc00], a
 	ld hl, String_114218
-	jp Function114acf
+	jmp Function114acf
 
 .asm_11485f
 	pop de
@@ -1819,7 +1819,7 @@ endr
 	ld bc, $004e
 	ld hl, $dc24
 	call Function115d6a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114bb2
 	ld a, $1
@@ -1827,7 +1827,7 @@ endr
 	pop bc
 	pop bc
 	ld b, $82
-	jp Function11425c
+	jmp Function11425c
 
 Function114bbc:
 	ld h, d
@@ -1868,7 +1868,7 @@ Function114bbc:
 	push bc
 	call Function115d6a
 	pop hl
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114bff
 	ld b, $84
@@ -1880,7 +1880,7 @@ Function114bbc:
 .asm_114c05
 	ld a, $1
 	pop hl
-	jp Function11425c
+	jmp Function11425c
 
 Function114c0b:
 	ld hl, $dc24
@@ -2093,7 +2093,7 @@ endr
 	ld hl, wPartyMon5Defense
 	call Function115d6a
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114d29
 	ld a, [hli]
@@ -2109,7 +2109,7 @@ endr
 .asm_114d33
 	pop hl
 	ld a, $1
-	jp Function11425c
+	jmp Function11425c
 
 Function114d39:
 .asm_114d39
@@ -2371,12 +2371,12 @@ Function114e62:
 	ld l, a
 	add hl, de
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_114e99
 	ld a, $1
 	ld b, $83
-	jp Function11425c
+	jmp Function11425c
 
 Function114ea0:
 	ld hl, $dc06
@@ -3207,7 +3207,7 @@ Function1152b8:
 	pop hl
 	ld a, $1
 	ld b, $83
-	jp Function11425c
+	jmp Function11425c
 
 .asm_115301
 	ld hl, $dc0d
@@ -3279,7 +3279,7 @@ Function1152b8:
 	ld l, a
 	add hl, de
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 Function11537d:
 	ld hl, $dc06
@@ -3592,7 +3592,7 @@ Function1154d4:
 
 .asm_11552c
 	ld a, $1
-	jp Function11425c
+	jmp Function11425c
 
 .asm_115531
 	ld a, $1
@@ -3659,7 +3659,7 @@ Function1154d4:
 	ld l, a
 	add hl, de
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_1155a0
 	ld a, [wDecoRightOrnament]
@@ -3697,7 +3697,7 @@ Function1155af:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	jp Function1155d1
+	jmp Function1155d1
 
 Function1155d1:
 	ld a, [$dc0d]
@@ -3906,7 +3906,7 @@ Function1156cc:
 	ld a, [wDecoPlant]
 	ld l, a
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_115716
 	ld hl, wCurMapCallbackCount
@@ -3923,12 +3923,12 @@ Function1156cc:
 	add hl, de
 	xor a
 	ld [wTimerEventStartDay], a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_11572b
 	ld a, $1
 	ld b, $83
-	jp Function11425c
+	jmp Function11425c
 
 Function115732:
 	ld hl, $dc02
@@ -4495,7 +4495,7 @@ Function1159fb:
 	ld a, [wDecoPlant]
 	ld l, a
 	xor a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_115a45
 	ld hl, wCurMapCallbackCount
@@ -4512,11 +4512,11 @@ Function1159fb:
 	add hl, de
 	xor a
 	ld [wTimerEventStartDay], a
-	jp Function11425c
+	jmp Function11425c
 
 .asm_115a5a
 	ld a, $1
-	jp Function11425c
+	jmp Function11425c
 
 Function115a5f:
 	ld hl, $dc05

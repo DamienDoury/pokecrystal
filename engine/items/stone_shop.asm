@@ -19,7 +19,7 @@ StoneShopSellPitch::
 	ld h, [hl]
 	ld l, a
 	call PrintText
-	jp JoyWaitAorB
+	jmp JoyWaitAorB
 
 .StoneShopItemsInOrder
     db JADE_CRYSTAL

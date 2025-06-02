@@ -282,7 +282,7 @@ IsInClappingTown:
     ld e, a
     ld hl, ClappingTownLandmarks
     ld b, CHECK_FLAG
-    jp FlagAction
+    jmp FlagAction
 
 .return_false
     xor a

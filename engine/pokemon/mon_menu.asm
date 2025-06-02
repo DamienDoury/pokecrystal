@@ -1,6 +1,6 @@
 CantUseItem:
 	ld hl, ItemsOakWarningText
-	jp MenuTextboxWaitButton
+	jmp MenuTextboxWaitButton
 
 ItemsOakWarningText:
 	text_far _ItemsOakWarningText
@@ -201,11 +201,11 @@ TryGiveItemToPartymon:
 	call GiveItemToPokemon
 	ld hl, PokemonHoldItemText
 	call MenuTextboxBackup
-	jp GivePartyItem
+	jmp GivePartyItem
 
 .please_remove_mail
 	ld hl, PokemonRemoveMailText
-	jp MenuTextboxBackup
+	jmp MenuTextboxBackup
 
 .already_holding_item
 	ld [wNamedObjectIndex], a
@@ -228,7 +228,7 @@ TryGiveItemToPartymon:
 	call MenuTextboxBackup
 	ld a, [wNamedObjectIndex]
 	ld [wCurItem], a
-	jp GivePartyItem
+	jmp GivePartyItem
 
 .bag_full
 	ld a, [wNamedObjectIndex]
@@ -349,13 +349,13 @@ ReceiveItemFromPokemon::
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
-	jp ReceiveItem
+	jmp ReceiveItem
 
 GiveItemToPokemon:
 	ld a, 1
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
-	jp TossItem
+	jmp TossItem
 
 StartMenuYesNo:
 	call MenuTextbox
@@ -422,7 +422,7 @@ MonMailAction:
 	jr z, .read
 	cp $2
 	jr z, .take
-	jp .done
+	jmp .done
 
 .read
 	farcall ReadPartyMonMail
@@ -763,7 +763,7 @@ ChooseMoveToDelete:
 .enter_loop
 	call PrepareToPlaceMoveData
 	call PlaceMoveData
-	jp .loop
+	jmp .loop
 
 .a_button
 	and a
@@ -838,7 +838,7 @@ MoveScreenLoop:
 	and a
 	jr nz, .moving_move
 	call PlaceMoveData
-	jp .joy_loop
+	jmp .joy_loop
 
 .moving_move
 	ld a, " "
@@ -851,7 +851,7 @@ MoveScreenLoop:
 	hlcoord 1, 12
 	ld de, String_MoveWhere
 	call PlaceString
-	jp .joy_loop
+	jmp .joy_loop
 .b_button
 	call PlayClickSFX
 	call WaitSFX
@@ -866,7 +866,7 @@ MoveScreenLoop:
 	hlcoord 1, 2
 	lb bc, 8, SCREEN_WIDTH - 2
 	call ClearBox
-	jp .loop
+	jmp .loop
 
 .d_right
 	ld a, [wSwappingMove]
@@ -881,7 +881,7 @@ MoveScreenLoop:
 	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
-	jp MoveScreenLoop
+	jmp MoveScreenLoop
 
 .d_left
 	ld a, [wSwappingMove]
@@ -895,7 +895,7 @@ MoveScreenLoop:
 	ld a, [wCurPartyMon]
 	cp b
 	jp z, .joy_loop
-	jp MoveScreenLoop
+	jmp MoveScreenLoop
 
 .cycle_right
 	ld a, [wCurPartyMon]
@@ -941,7 +941,7 @@ MoveScreenLoop:
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
 	call PlaceHollowCursor
-	jp .moving_move
+	jmp .moving_move
 
 .place_move
 	ld hl, wPartyMon1Moves
@@ -980,7 +980,7 @@ MoveScreenLoop:
 	hlcoord 10, 10
 	lb bc, 1, 9
 	call ClearBox
-	jp .loop
+	jmp .loop
 
 .copy_move
 	push hl
@@ -1010,7 +1010,7 @@ MoveScreenLoop:
 	ld hl, w2DMenuFlags1
 	res 6, [hl]
 	call ClearSprites
-	jp ClearTilemap
+	jmp ClearTilemap
 
 MoveScreen2DMenuData:
 	db 3, 1 ; cursor start y, x
@@ -1073,7 +1073,7 @@ SetUpMoveScreenBG:
 	call GetSGBLayout
 	hlcoord 16, 0
 	lb bc, 1, 3
-	jp ClearBox
+	jmp ClearBox
 
 SetUpMoveList:
 	xor a
@@ -1099,7 +1099,7 @@ SetUpMoveList:
 	hlcoord 0, 10
 	ld b, 6
 	ld c, 18
-	jp Textbox
+	jmp Textbox
 
 PrepareToPlaceMoveData:
 	ld hl, wPartyMon1Moves
@@ -1115,7 +1115,7 @@ PrepareToPlaceMoveData:
 	ld [wCurSpecies], a
 	hlcoord 1, 11
 	lb bc, 6, 18
-	jp ClearBox
+	jmp ClearBox
 
 PlaceMoveData:
 	xor a
@@ -1130,7 +1130,7 @@ PlaceMoveData:
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow
-	jp PlaceMoveScreenRightArrow
+	jmp PlaceMoveScreenRightArrow
 
 PlaceMoveScreenLeftArrow:
 	ld a, [wCurPartyMon]

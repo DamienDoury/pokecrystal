@@ -268,7 +268,7 @@ Function4a9d7:
 	call CopyBytes
 	ld hl, MobileUseTheseThreeMonText
 	call PrintText
-	jp YesNoBox
+	jmp YesNoBox
 
 MobileUseTheseThreeMonText:
 	text_far _MobileUseTheseThreeMonText
@@ -750,7 +750,7 @@ Function4ad17:
 	ld de, SFX_WRONG
 	call WaitPlaySFX
 	ld hl, MobileOnlyThreeMonMayEnterText
-	jp PrintText
+	jmp PrintText
 
 .asm_4ad39
 	ld a, [wCurPartyMon]
@@ -765,7 +765,7 @@ Function4ad17:
 .asm_4ad4a
 	ld a, $ff
 	ld [hl], a
-	jp Function4adc2
+	jmp Function4adc2
 
 MobileOnlyThreeMonMayEnterText:
 	text_far _MobileOnlyThreeMonMayEnterText
@@ -797,7 +797,7 @@ Function4ad68:
 	ld de, String_4ad9a
 
 .asm_4ad84
-	jp PlaceString
+	jmp PlaceString
 
 String_4ad88:
 	db   "つよさをみる"

@@ -99,7 +99,7 @@ PlayBattleMusic:
 	cp NITE_F
 	jp nz, .done
 	ld de, MUSIC_JOHTO_WILD_BATTLE_NIGHT
-	jp .done
+	jmp .done
 
 .kantowild
 	ld a, [wEnvironment]

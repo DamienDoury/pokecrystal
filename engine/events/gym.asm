@@ -16,7 +16,7 @@ GymSpecialRules::
 	jr nz, .check_sabrina
 
 	ld c, 0
-	jp ExhaustMovesPP
+	jmp ExhaustMovesPP
 
 .check_sabrina
 	ld a, [wOtherTrainerClass]
@@ -24,7 +24,7 @@ GymSpecialRules::
 	jr nz, .check_chuck
 
 	ld c, 1
-	jp ExhaustMovesPP
+	jmp ExhaustMovesPP
 
 .check_chuck
 	ld a, [wOtherTrainerClass]
@@ -384,7 +384,7 @@ CheckCuteParty::
 .get_next_one_name
 	ld a, [hli]
 	ld [wNamedObjectIndex], a
-	jp GetPokemonName ; Preserves HL.
+	jmp GetPokemonName ; Preserves HL.
 
 MonNotCuteText:
 	text_far _MonNotCuteText
@@ -506,7 +506,7 @@ _HandleGrassyTerrain::
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -561,7 +561,7 @@ _HandleGrassyTerrain::
 	farcall SwitchTurnCore
 	farcall RestoreHP
 	ld hl, BattleText_RecoveredWithGrassyTerrain
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 ; Lt. Surge has a 25% boost to its damaging Electric type attacks, as part of its SUPERCHARGED challenge.
 ; The power of the move is stored in d, and is for sure above 0.

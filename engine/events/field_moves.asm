@@ -6,7 +6,7 @@ PlayWhirlpoolSound:
 	call WaitSFX
 	ld de, SFX_SURF
 	call PlaySFX
-	jp WaitSFX
+	jmp WaitSFX
 
 BlindingFlash:
 	farcall FadeOutPalettes
@@ -77,7 +77,7 @@ ShakeHeadbuttTree:
 	ld [wLoadedFont], a
 	call ByteFill
 	call DelayFrame
-	jp LoadStandardFont
+	jmp LoadStandardFont
 
 HeadbuttTreeGFX:
 	INCBIN "gfx/overworld/headbutt_tree.2bpp"
@@ -390,7 +390,7 @@ ZapdosFlyToAnim::
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite12
 	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
-	jp ByteFill
+	jmp ByteFill
 
 FlyToAnim:
 	call DelayFrame
@@ -444,7 +444,7 @@ endr
 	ld hl, wVirtualOAMSprite04
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
 	xor a
-	jp ByteFill
+	jmp ByteFill
 
 FlyFunction_InitGFX:
 	callfar ClearSpriteAnims
@@ -491,7 +491,7 @@ FlyFunction_FrameTimer:
 	and $7
 	ret nz
 	ld de, SFX_FLY
-	jp PlaySFX
+	jmp PlaySFX
 
 .exit
 	ld hl, wJumptableIndex

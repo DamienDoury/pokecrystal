@@ -12,7 +12,7 @@ ClearSpriteAnims:
 
 PlaySpriteAnimationsAndDelayFrame:
 	call PlaySpriteAnimations
-	jp DelayFrame
+	jmp DelayFrame
 
 PlaySpriteAnimations:
 	push hl

@@ -6,13 +6,13 @@ BattleStart_TrainerHuds:
 	dec a
 	ret z
 	call DrawEnemyHUDBorder
-	jp ShowOTTrainerMonsRemaining
+	jmp ShowOTTrainerMonsRemaining
 
 EnemySwitch_TrainerHud:
 	ld a, $e4
 	ldh [rOBP0], a
 	call DrawEnemyHUDBorder
-	jp ShowOTTrainerMonsRemaining
+	jmp ShowOTTrainerMonsRemaining
 
 ShowPlayerMonsRemaining:
 	call DrawPlayerPartyIconHUDBorder
@@ -25,7 +25,7 @@ ShowPlayerMonsRemaining:
 	ld [hl], 10 ; wPlaceBallsY
 	ld a, 1
 	ld [wPlaceBallsDirection], a
-	jp LoadTrainerHudOAM
+	jmp LoadTrainerHudOAM
 
 ShowOTTrainerMonsRemaining::
 	ld a, [wBattleMode]
@@ -41,7 +41,7 @@ ShowOTTrainerMonsRemaining::
 	ld [hl], 3
 	ld a, -1
 	ld [wPlaceBallsDirection], a
-	jp LoadTrainerHudOAM
+	jmp LoadTrainerHudOAM
 
 StageBallTilesData:
 	ld a, [de]
@@ -240,7 +240,7 @@ LoadBallIconGFX:
 	ld de, .gfx + 2 * 8 * 8 / 4
 	ld hl, vTiles2 tile $70
 	lb bc, BANK(LoadBallIconGFX), 2
-	jp Get2bppViaHDMA
+	jmp Get2bppViaHDMA
 
 .gfx
 INCBIN "gfx/battle/balls.2bpp"

@@ -111,7 +111,7 @@ Elevator_GoToFloor:
 	ld de, wBackupWarpNumber
 	ld a, [wElevatorPointerBank]
 	ld bc, wElevatorDataEnd - wElevatorData - 1
-	jp FarCopyBytes
+	jmp FarCopyBytes
 
 Elevator_AskWhichFloor:
 	call LoadStandardMenuHeader
@@ -184,7 +184,7 @@ Elevator_GetCurrentFloorString:
 	add hl, de
 	ld a, [hl]
 	pop de
-	jp GetFloorString
+	jmp GetFloorString
 
 ElevatorGolderodDeptStore_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -215,7 +215,7 @@ GetFloorString:
 	ld d, h
 	ld e, l
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 FloorToString:
 	push de

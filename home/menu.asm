@@ -24,7 +24,7 @@ Load2DMenuData::
 
 StaticMenuJoypad::
 	callfar _StaticMenuJoypad
-	jp GetMenuJoypad
+	jmp GetMenuJoypad
 
 ScrollingMenuJoypad::
 	callfar _ScrollingMenuJoypad
@@ -200,7 +200,7 @@ PlaceVerticalMenuItems::
 	inc de
 	ld b, 0
 	add hl, bc
-	jp PlaceString
+	jmp PlaceString
 
 MenuBox::
 	call MenuBoxCoord2Tile
@@ -308,7 +308,7 @@ Coord2Attr:: ; unreferenced
 
 LoadMenuHeader::
 	call CopyMenuHeader
-	jp PushWindow
+	jmp PushWindow
 
 CopyMenuHeader::
 	ld de, wMenuHeader
@@ -326,11 +326,11 @@ MenuTextbox::
 	push hl
 	call LoadMenuTextbox
 	pop hl
-	jp PrintText
+	jmp PrintText
 
 LoadMenuTextbox::
 	ld hl, .MenuHeader
-	jp LoadMenuHeader
+	jmp LoadMenuHeader
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -345,7 +345,7 @@ MenuTextboxBackup::
 
 LoadStandardMenuHeader::
 	ld hl, .MenuHeader
-	jp LoadMenuHeader
+	jmp LoadMenuHeader
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -477,7 +477,7 @@ endc
 
 OffsetMenuHeader::
 	call _OffsetMenuHeader
-	jp PushWindow
+	jmp PushWindow
 
 _OffsetMenuHeader::
 	push de
@@ -509,7 +509,7 @@ DoNthMenu::
 	call InitMenuCursorAndButtonPermissions
 	call GetStaticMenuJoypad
 	call GetMenuJoypad
-	jp MenuClickSound
+	jmp MenuClickSound
 
 SetUpMenu::
 	call DrawVariableLengthMenuBox
@@ -523,7 +523,7 @@ DrawVariableLengthMenuBox::
 	call CopyMenuData
 	call GetMenuIndexSet
 	call AutomaticGetMenuBottomCoord
-	jp MenuBox
+	jmp MenuBox
 
 MenuWriteText::
 	xor a
@@ -697,7 +697,7 @@ PlaceMenuStrings::
 	ld d, h
 	ld e, l
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 PlaceNthMenuStrings::
 	push de
@@ -709,7 +709,7 @@ PlaceNthMenuStrings::
 	ld d, [hl]
 	ld e, a
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 GetNthMenuStrings:: ; unreferenced
 	call GetMenuDataPointerTableEntry
@@ -772,7 +772,7 @@ ClearWindowData::
 .bytefill
 	ld bc, $10
 	xor a
-	jp ByteFill
+	jmp ByteFill
 
 MenuClickSound::
 	push af
@@ -796,7 +796,7 @@ PlayClickSFX::
 MenuTextboxWaitButton::
 	call MenuTextbox
 	call WaitButton
-	jp ExitMenu
+	jmp ExitMenu
 
 Place2DMenuItemName::
 	ldh [hTempBank], a

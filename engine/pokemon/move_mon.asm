@@ -619,7 +619,7 @@ SendGetMonIntoFromBox:
 	ld a, [hl]
 	cp MONS_PER_BOX
 	jr c, .there_is_room
-	jp CloseSRAM_And_SetCarryFlag
+	jmp CloseSRAM_And_SetCarryFlag
 
 .check_IfPartyIsFull
 	ld hl, wPartyCount
@@ -1128,14 +1128,14 @@ DepositMonWithDayCareMan:
 	call DepositBreedmon
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RemoveMonFromPartyOrBox
+	jmp RemoveMonFromPartyOrBox
 
 DepositMonWithDayCareLady:
 	ld de, wBreedMon2Nickname
 	call DepositBreedmon
 	xor a ; REMOVE_PARTY
 	ld [wPokemonWithdrawDepositParameter], a
-	jp RemoveMonFromPartyOrBox
+	jmp RemoveMonFromPartyOrBox
 
 DepositBreedmon:
 	ld a, [wCurPartyMon]
@@ -1151,7 +1151,7 @@ DepositBreedmon:
 	ld bc, PARTYMON_STRUCT_LENGTH
 	call AddNTimes
 	ld bc, BOXMON_STRUCT_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 SendMonIntoBox:
 ; Sends the mon into one of Bills Boxes
@@ -1492,7 +1492,7 @@ RemoveMonFromPartyOrBox:
 	cp d
 	jr nz, .delete_inside
 	ld [hl], -1
-	jp .finish
+	jmp .finish
 
 .delete_inside
 	; Shift the OT names
@@ -1612,7 +1612,7 @@ RemoveMonFromPartyOrBox:
 	cp b
 	jr nz, .loop2
 .close_sram
-	jp CloseSRAM
+	jmp CloseSRAM
 
 ComputeNPCTrademonStats:
 	ld a, MON_LEVEL

@@ -97,13 +97,13 @@ PrintMagikarpLength:
 	dec hl
 	ld de, wStringBuffer1
 	ld bc, 6
-	jp CopyBytes
+	jmp CopyBytes
 else
 Magikarp_LoadFeetInchesChars:
 	ld hl, vTiles2 tile "′" ; $6e
 	ld de, .feetinchchars
 	lb bc, BANK(.feetinchchars), 2
-	jp Request2bpp
+	jmp Request2bpp
 
 .feetinchchars
 INCBIN "gfx/font/feet_inches.2bpp"
@@ -329,7 +329,7 @@ MagikarpHouseSign:
 	ld [wMagikarpLength + 1], a
 	call PrintMagikarpLength
 	ld hl, .KarpGuruRecordText
-	jp PrintText
+	jmp PrintText
 
 .KarpGuruRecordText:
 	text_far _KarpGuruRecordText

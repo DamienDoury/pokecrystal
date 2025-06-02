@@ -25,7 +25,7 @@ HealMachineAnim:
 	ld [wHealMachineTempOBP1], a
 	call .DoJumptableFunctions
 	ld a, [wHealMachineTempOBP1]
-	jp DmgToCgbObjPal1
+	jmp DmgToCgbObjPal1
 
 .DoJumptableFunctions:
 	xor a
@@ -89,7 +89,7 @@ ENDM
 	ld de, .HealMachineGFX
 	ld hl, vTiles0 tile $7c
 	lb bc, BANK(.HealMachineGFX), 2
-	jp Request2bpp
+	jmp Request2bpp
 
 .PC_LoadBallsOntoMachine:
 	ld hl, wVirtualOAMSprite32
@@ -123,7 +123,7 @@ ENDM
 .PlayHealMusic:
 	ld de, MUSIC_HEAL
 	call PlayMusic
-	jp .FlashPalettes8Times
+	jmp .FlashPalettes8Times
 
 .HOF_PlaySFX:
 	ld de, SFX_GAME_FREAK_LOGO_GS
@@ -131,7 +131,7 @@ ENDM
 	call .FlashPalettes8Times
 	call WaitSFX
 	ld de, SFX_BOOT_PC
-	jp PlaySFX
+	jmp PlaySFX
 
 .dummy_5
 	ret

@@ -484,7 +484,7 @@ RestartMapMusic::
 GetMapMusic_MaybeSpecial::
 	farcall SpecialMapMusic
 	ret c
-	jp GetMapMusic
+	jmp GetMapMusic
 
 CheckSFX::
 ; Return carry if any SFX channels are active.

@@ -526,4 +526,4 @@ _LoadSGBLayout_ReturnFromJumpTable:
 	push de
 	call PushSGBPals
 	pop hl
-	jp PushSGBPals
+	jmp PushSGBPals

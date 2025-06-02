@@ -118,7 +118,7 @@ DoBattle:
 .not_linked_2
 	farcall DetermineAssaultAndPokerusSeed
 	call StartAutomaticBattleWeather
-	jp BattleTurn
+	jmp BattleTurn
 
 .tutorial_debug
 	jp BattleMenu
@@ -136,7 +136,7 @@ StartAutomaticBattleWeather:
 	jp z, EmptyBattleTextbox ; Skip the first weather text when assaulted.
 
 	call StdBattleTextbox ; uses hl
-	jp EmptyBattleTextbox
+	jmp EmptyBattleTextbox
 
 WildFled_EnemyFled_LinkBattleCanceled:
 	call SafeLoadTempTilemapToTilemap
@@ -299,7 +299,7 @@ BattleTurn:
 	ld a, [wBattleEnded]
 	and a
 	jr nz, .quit
-	jp .loop
+	jmp .loop
 
 .quit
 	pop af
@@ -371,7 +371,7 @@ HandleBetweenTurnEffects:
 	call HandleHealingItems
 	call UpdateBattleMonInParty
 	call LoadTilemapToTempTilemap
-	jp HandleEncore
+	jmp HandleEncore
 
 HasAnyoneFainted:
 	call HasPlayerFainted
@@ -526,7 +526,7 @@ HandleBerserkGene:
 	call Call_PlayBattleAnim_OnlyIfVisible
 	call SwitchTurnCore
 	ld hl, BecameConfusedText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 EnemyTriesToFlee:
 	ld a, [wLinkMode]
@@ -566,13 +566,13 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .player_first
-	jp .enemy_first
+	jmp .enemy_first
 
 .player_2
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .enemy_first
-	jp .player_first
+	jmp .player_first
 
 .switch
 	callfar AI_Switch
@@ -587,7 +587,7 @@ DetermineMoveOrder:
 	call CompareMovePriority
 	jr z, .equal_priority
 	jp c, .player_first ; player goes first
-	jp .enemy_first
+	jmp .enemy_first
 
 .equal_priority
 	call SetPlayerTurn
@@ -604,7 +604,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp e
 	jr nc, .speed_check
-	jp .player_first
+	jmp .player_first
 
 .player_no_quick_claw
 	ld a, b
@@ -613,7 +613,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jr nc, .speed_check
-	jp .enemy_first
+	jmp .enemy_first
 
 .both_have_quick_claw
 	ldh a, [hSerialConnectionStatus]
@@ -643,7 +643,7 @@ DetermineMoveOrder:
 	call CompareBytes
 	jr z, .speed_tie
 	jp nc, .player_first
-	jp .enemy_first
+	jmp .enemy_first
 
 .speed_tie
 	ldh a, [hSerialConnectionStatus]
@@ -652,7 +652,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp 50 percent + 1
 	jp c, .player_first
-	jp .enemy_first
+	jmp .enemy_first
 
 .player_2c
 	call BattleRandom
@@ -837,7 +837,7 @@ HandleEncore:
 	res SUBSTATUS_ENCORED, [hl]
 	call SetEnemyTurn
 	ld hl, BattleText_TargetsEncoreEnded
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .do_enemy
 	ld hl, wEnemySubStatus5
@@ -861,7 +861,7 @@ HandleEncore:
 	res SUBSTATUS_ENCORED, [hl]
 	call SetPlayerTurn
 	ld hl, BattleText_TargetsEncoreEnded
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 TryEnemyFlee::
 	ld a, [wBattleMode]
@@ -1136,7 +1136,7 @@ PlayerTurn_EndOpponentProtectEndureDestinyBond:
 	call SetPlayerTurn
 	call EndUserDestinyBond
 	callfar DoPlayerTurn
-	jp EndOpponentProtectEndureDestinyBond
+	jmp EndOpponentProtectEndureDestinyBond
 
 EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	call SetEnemyTurn
@@ -1340,7 +1340,7 @@ HandlePerishSong:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .EnemyFirst:
 	call SetEnemyTurn
@@ -1408,7 +1408,7 @@ HandleWrap:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .EnemyFirst:
 	call SetEnemyTurn
@@ -1463,7 +1463,7 @@ HandleWrap:
 	ld hl, BattleText_UserWasReleasedFromStringBuffer1
 
 .print_text
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 SwitchTurnCore:
 	ldh a, [hBattleTurn]
@@ -1482,7 +1482,7 @@ HandleLeftovers:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -1522,7 +1522,7 @@ HandleLeftovers:
 	call SwitchTurnCore
 	call RestoreHP
 	ld hl, BattleText_TargetRecoveredWithItem
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 HandleMysteryberry:
 	ld a, [wOtherTrainerClass]
@@ -1538,7 +1538,7 @@ HandleMysteryberry:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .DoEnemyFirst:
 	call SetEnemyTurn
@@ -1667,7 +1667,7 @@ HandleMysteryberry:
 	call ItemRecoveryAnim
 	call SwitchTurnCore
 	ld hl, BattleText_UserRecoveredPPUsing
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 HandleFutureSight:
 	ldh a, [hSerialConnectionStatus]
@@ -1676,7 +1676,7 @@ HandleFutureSight:
 	call SetPlayerTurn
 	call .do_it
 	call SetEnemyTurn
-	jp .do_it
+	jmp .do_it
 
 .enemy_first
 	call SetEnemyTurn
@@ -1725,7 +1725,7 @@ HandleFutureSight:
 	ld [hl], a
 
 	call UpdateBattleMonInParty
-	jp UpdateEnemyMonInParty
+	jmp UpdateEnemyMonInParty
 
 HandleDefrost:
 	ldh a, [hSerialConnectionStatus]
@@ -1757,7 +1757,7 @@ HandleDefrost:
 	call UpdateBattleHuds
 	call SetEnemyTurn
 	ld hl, DefrostedOpponentText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .do_enemy_turn
 	ld a, [wEnemyMonStatus]
@@ -1784,7 +1784,7 @@ HandleDefrost:
 	call UpdateBattleHuds
 	call SetPlayerTurn
 	ld hl, DefrostedOpponentText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 HandleSafeguard:
 	ldh a, [hSerialConnectionStatus]
@@ -1821,7 +1821,7 @@ HandleSafeguard:
 .print
 	ldh [hBattleTurn], a
 	ld hl, BattleText_SafeguardFaded
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 HandleScreens:
 	ldh a, [hSerialConnectionStatus]
@@ -1857,7 +1857,7 @@ HandleScreens:
 
 .Copy:
 	ld hl, wStringBuffer1
-	jp CopyName2
+	jmp CopyName2
 
 if DEF(_FR_FR)
 .Your:
@@ -1893,7 +1893,7 @@ endc
 	ret nz
 	res SCREENS_REFLECT, [hl]
 	ld hl, BattleText_MonsReflectFaded
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 HandleWeather:
 	ld a, [wBattleWeather]
@@ -1950,7 +1950,7 @@ HandleWeather:
 	xor a
 	ld [wNumHits], a
 	call Call_PlayBattleAnim
-	jp SwitchTurnCore
+	jmp SwitchTurnCore
 
 .do_sandstorm
 	ldh a, [hSerialConnectionStatus]
@@ -2012,7 +2012,7 @@ HandleWeather:
 	call SubtractHPFromUser
 
 	ld hl, SandstormHitsText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .do_hail
 	ldh a, [hSerialConnectionStatus]
@@ -2068,7 +2068,7 @@ HandleWeather:
 	call SubtractHPFromUser
 
 	ld hl, PeltedByHailText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .PrintWeatherMessage:
 	ld a, [wBattleWeather]
@@ -2080,7 +2080,7 @@ HandleWeather:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .WeatherMessages:
 ; entries correspond to WEATHER_* constants
@@ -2272,7 +2272,7 @@ RestoreHP:
 
 	call SwitchTurnCore
 	call UpdateHPBarBattleHuds
-	jp SwitchTurnCore
+	jmp SwitchTurnCore
 
 UpdateHPBarBattleHuds:
 	call UpdateHPBar
@@ -2554,7 +2554,7 @@ FaintYourPokemon:
 	lb bc, 5, 11
 	call ClearBox
 	ld hl, BattleText_MonFainted
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 FaintEnemyPokemon:
 	farcall PokeBallEffect.IsItMewtwoBattle
@@ -2583,7 +2583,7 @@ FaintEnemyPokemon:
 	lb bc, 4, 11
 	call ClearBox
 	;ld hl, BattleText_EnemyMonFainted
-	;jp StdBattleTextbox
+	;jmp StdBattleTextbox
 	ret
 
 CheckEnemyTrainerDefeated:
@@ -2707,7 +2707,7 @@ WinTrainerBattle:
 	cp OFFICER
 	ret z
 
-	jp .give_money
+	jmp .give_money
 
 .mobile
 	call BattleWinSlideInEnemyTrainerFrontpic
@@ -2786,11 +2786,11 @@ WinTrainerBattle:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .KeepItAll:
 	ld hl, GotMoneyForWinningText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .AddMoneyToMom:
 	push bc
@@ -2966,7 +2966,7 @@ HandlePlayerMonFaint:
 	ld [wBattlePlayerAction], a
 	call HandleEnemySwitch
 	jp z, WildFled_EnemyFled_LinkBattleCanceled
-	jp DoubleSwitch
+	jmp DoubleSwitch
 
 UpdateFaintedPlayerMon:
 	ld a, [wCurBattleMon]
@@ -3033,7 +3033,7 @@ AskUseNextPokemon:
 	jr z, .loop
 	ld hl, wPartyMon1Speed
 	ld de, wEnemyMonSpeed
-	jp TryToRunAwayFromBattle
+	jmp TryToRunAwayFromBattle
 
 ForcePlayerMonChoice:
 	call EmptyBattleTextbox
@@ -3113,7 +3113,7 @@ PlayerPartyMonEntrance:
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
-	jp SpikesDamage
+	jmp SpikesDamage
 
 CheckMobileBattleError:
 	ld a, [wLinkMode]
@@ -3151,7 +3151,7 @@ JumpToPartyMenuAndPrintText:
 	farcall PrintPartyMenuText
 	call WaitBGMap
 	call SetPalettes
-	jp DelayFrame
+	jmp DelayFrame
 
 SelectBattleMon:
 	call IsMobileBattle
@@ -3346,12 +3346,12 @@ LostBattle:
 EnemyMonFaintedAnimation:
 	hlcoord 12, 5
 	decoord 12, 6
-	jp MonFaintedAnimation
+	jmp MonFaintedAnimation
 
 PlayerMonFaintedAnimation:
 	hlcoord 1, 10
 	decoord 1, 11
-	jp MonFaintedAnimation
+	jmp MonFaintedAnimation
 
 MonFaintedAnimation:
 	ld a, [wJoypadDisable]
@@ -3462,7 +3462,7 @@ ForceEnemySwitch:
 	call ResetEnemyStatLevels
 	call ShowSetEnemyMonAndSendOutAnimation
 	call BreakAttraction
-	jp ResetBattleParticipants
+	jmp ResetBattleParticipants
 
 EnemySwitch:
 	call CheckWhetherToAskSwitch
@@ -3490,7 +3490,7 @@ EnemySwitch:
 	inc a
 	ld [wEnemyIsSwitching], a
 	call LoadTilemapToTempTilemap
-	jp PlayerSwitch
+	jmp PlayerSwitch
 
 EnemySwitch_SetMode:
 	call ResetEnemyBattleVars
@@ -3504,7 +3504,7 @@ EnemySwitch_SetMode:
 	ld [wEnemyIsSwitching], a
 	call ClearEnemyMonBox
 	;call ShowBattleTextEnemySentOut
-	jp ShowSetEnemyMonAndSendOutAnimation
+	jmp ShowSetEnemyMonAndSendOutAnimation
 
 CheckWhetherSwitchmonIsPredetermined:
 ; returns the enemy switchmon index in b, or
@@ -3555,7 +3555,7 @@ ResetEnemyBattleVars:
 	ld a, 8
 	call SlideBattlePicOut
 	call EmptyBattleTextbox
-	jp LoadStandardMenuHeader
+	jmp LoadStandardMenuHeader
 
 ResetBattleParticipants:
 	xor a
@@ -3905,13 +3905,13 @@ ClearEnemyMonBox:
 	lb bc, 5, 11
 	call ClearBox
 	call WaitBGMap
-	jp FinishBattleAnim
+	jmp FinishBattleAnim
 
 ShowBattleTextEnemySentOut:
 	callfar Battle_GetTrainerName
 	ld hl, BattleText_EnemySentOut
 	call StdBattleTextbox
-	jp WaitBGMap
+	jmp WaitBGMap
 
 ShowSetEnemyMonAndSendOutAnimation:
 	ld a, [wTempEnemyMonSpecies]
@@ -4101,7 +4101,7 @@ TryToRunAwayFromBattle:
 	call GetItemName
 	ld hl, BattleText_UserFledUsingAStringBuffer1
 	call StdBattleTextbox
-	jp .can_escape
+	jmp .can_escape
 
 .no_flee_item
 	ld a, [wNumFleeAttempts]
@@ -4304,7 +4304,7 @@ GetPartyMonDVs:
 	ret z
 	ld hl, wPartyMon1DVs
 	ld a, [wCurBattleMon]
-	jp GetPartyLocation
+	jmp GetPartyLocation
 
 GetEnemyMonDVs:
 	ld hl, wEnemyMonDVs
@@ -4317,7 +4317,7 @@ GetEnemyMonDVs:
 	ret z
 	ld hl, wOTPartyMon1DVs
 	ld a, [wCurOTMon]
-	jp GetPartyLocation
+	jmp GetPartyLocation
 
 ResetPlayerStatLevels:
 	ld a, BASE_STAT_LEVEL
@@ -4535,7 +4535,7 @@ SpikesDamage:
 	pop hl
 	call .hl
 
-	jp WaitBGMap
+	jmp WaitBGMap
 
 .hl
 	jp hl
@@ -4646,7 +4646,7 @@ HandleHealingItems:
 	call SetEnemyTurn
 	call HandleHPHealingItem
 	call UseHeldStatusHealingItem
-	jp UseConfusionHealingItem
+	jmp UseConfusionHealingItem
 
 .player_1
 	call SetEnemyTurn
@@ -4750,7 +4750,7 @@ UseOpponentItem:
 	call GetItemName
 	callfar ConsumeHeldItem
 	ld hl, RecoveredUsingText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 ItemRecoveryAnim:
 	push hl
@@ -4873,7 +4873,7 @@ HandleStatBoostingHeldItems:
 	cp USING_EXTERNAL_CLOCK
 	jr z, .player_1
 	call .DoPlayer
-	jp .DoEnemy
+	jmp .DoEnemy
 
 .player_1
 	call .DoEnemy
@@ -4882,7 +4882,7 @@ HandleStatBoostingHeldItems:
 .DoPlayer:
 	call GetPartymonItem
 	ld a, $0
-	jp .HandleItem
+	jmp .HandleItem
 
 .DoEnemy:
 	call GetOTPartymonItem
@@ -5018,7 +5018,7 @@ DrawPlayerHUD:
 
 UpdatePlayerHPPal:
 	ld hl, wPlayerHPPal
-	jp UpdateHPPal
+	jmp UpdateHPPal
 
 CheckDanger:
 	ld hl, wBattleMonHP
@@ -5104,7 +5104,7 @@ PrintPlayerHUD:
 	ld a, [wBattleMonLevel]
 	ld [wTempMonLevel], a
 	hlcoord 14, 8
-	jp PrintLevel
+	jmp PrintLevel
 
 UpdateEnemyHUD::
 	push hl
@@ -5194,7 +5194,7 @@ DrawEnemyHUD:
 	ld c, a
 	ld e, a
 	ld d, HP_BAR_LENGTH
-	jp .draw_bar
+	jmp .draw_bar
 
 .not_fainted
 	xor a
@@ -5255,7 +5255,7 @@ DrawEnemyHUD:
 
 UpdateEnemyHPPal:
 	ld hl, wEnemyHPPal
-	jp UpdateHPPal
+	jmp UpdateHPPal
 
 UpdateHPPal:
 	ld b, [hl]
@@ -5263,7 +5263,7 @@ UpdateHPPal:
 	ld a, [hl]
 	cp b
 	ret z
-	jp FinishBattleAnim
+	jmp FinishBattleAnim
 
 BattleMenu:
 	xor a
@@ -5397,12 +5397,12 @@ BattleMenu_Pack:
 	call WaitBGMap
 	call FinishBattleAnim
 	call LoadTilemapToTempTilemap
-	jp BattleMenu
+	jmp BattleMenu
 
 .ItemsCantBeUsed:
 	ld hl, BattleText_ItemsCantBeUsedHere
 	call StdBattleTextbox
-	jp BattleMenu
+	jmp BattleMenu
 
 .UseItem:
 	ld a, [wWildMon]
@@ -5484,7 +5484,7 @@ BattleMenuPKMN_Loop:
 	call Battle_StatsScreen
 	call CheckMobileBattleError
 	jr c, .Cancel
-	jp BattleMenuPKMN_ReturnFromStats
+	jmp BattleMenuPKMN_ReturnFromStats
 
 .Cancel:
 	call ClearSprites
@@ -5541,7 +5541,7 @@ Battle_StatsScreen:
 	ld bc, $31 tiles
 	call CopyBytes
 
-	jp EnableLCD
+	jmp EnableLCD
 
 TryPlayerSwitch:
 	ld a, [wCurBattleMon]
@@ -5581,7 +5581,7 @@ TryPlayerSwitch:
 	
 .battle_text
 	call StdBattleTextbox
-	jp BattleMenuPKMN_Loop
+	jmp BattleMenuPKMN_Loop
 
 .try_switch
 	call CheckIfCurPartyMonIsFitToFight
@@ -5630,7 +5630,7 @@ PlayerSwitch:
 	jp c, .switch
 	cp BATTLEACTION_FORFEIT
 	jr nz, .dont_run
-	jp WildFled_EnemyFled_LinkBattleCanceled
+	jmp WildFled_EnemyFled_LinkBattleCanceled
 
 .dont_run
 	ldh a, [hSerialConnectionStatus]
@@ -5650,7 +5650,7 @@ PlayerSwitch:
 EnemyMonEntrance:
 	callfar AI_Switch
 	call SetEnemyTurn
-	jp SpikesDamage
+	jmp SpikesDamage
 
 BattleMonEntrance:
 	call WithdrawMonText
@@ -5706,7 +5706,7 @@ PassedBattleMonEntrance:
 	call EmptyBattleTextbox
 	call LoadTilemapToTempTilemap
 	call SetPlayerTurn
-	jp SpikesDamage
+	jmp SpikesDamage
 
 BattleMenu_Run:
 	call SafeLoadTempTilemapToTilemap
@@ -5719,7 +5719,7 @@ BattleMenu_Run:
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
 	ret nz
-	jp BattleMenu
+	jmp BattleMenu
 
 CheckAmuletCoin:
 	ld a, [wBattleMonItem]
@@ -5930,7 +5930,7 @@ MoveSelectionScreen:
 .place_textbox_start_over
 	call StdBattleTextbox
 	call SafeLoadTempTilemapToTilemap
-	jp MoveSelectionScreen
+	jmp MoveSelectionScreen
 
 .empty_string
 	db "@"
@@ -5942,7 +5942,7 @@ MoveSelectionScreen:
 	ld a, [wNumMoves]
 	inc a
 	ld [wMenuCursorY], a
-	jp .menu_loop
+	jmp .menu_loop
 
 .pressed_down
 	ld a, [wMenuCursorY]
@@ -5954,7 +5954,7 @@ MoveSelectionScreen:
 	jp nz, .menu_loop
 	ld a, $1
 	ld [wMenuCursorY], a
-	jp .menu_loop
+	jmp .menu_loop
 
 .pressed_select
 	ld a, [wSwappingMove]
@@ -6011,7 +6011,7 @@ MoveSelectionScreen:
 .transformed
 	xor a
 	ld [wSwappingMove], a
-	jp MoveSelectionScreen
+	jmp MoveSelectionScreen
 
 .swap_bytes
 	push hl
@@ -6038,7 +6038,7 @@ MoveSelectionScreen:
 .start_swap
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
-	jp MoveSelectionScreen
+	jmp MoveSelectionScreen
 
 MoveInfoBox:
 	xor a
@@ -6131,7 +6131,7 @@ endc
 	inc hl
 	ld de, wNamedObjectIndex
 	lb bc, 1, 2
-	jp PrintNum
+	jmp PrintNum
 
 CheckPlayerHasUsableMoves:
 	ld a, STRUGGLE
@@ -6216,14 +6216,14 @@ ParseEnemyAction:
 	ld b, 0
 	add hl, bc
 	ld a, [hl]
-	jp .finish
+	jmp .finish
 
 .not_linked
 	ld hl, wEnemySubStatus5
 	bit SUBSTATUS_ENCORED, [hl]
 	jr z, .skip_encore
 	ld a, [wLastEnemyMove]
-	jp .finish
+	jmp .finish
 
 .skip_encore
 	call CheckEnemyLockedIn
@@ -6457,7 +6457,7 @@ LoadEnemyMon:
 	inc de
 	ld a, [hl]
 	ld [de], a
-	jp .Happiness
+	jmp .Happiness
 
 .InitDVs:
 	ld a, [wBattleMode]
@@ -6835,7 +6835,7 @@ LoadEnemyMon:
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-	jp ApplyStatusEffectOnEnemyStats ; ; Fixes the BRN and PRZ effect on stats that didn't work on switched Pokémons.
+	jmp ApplyStatusEffectOnEnemyStats ; ; Fixes the BRN and PRZ effect on stats that didn't work on switched Pokémons.
 
 CheckSleepingTreeMon:
 ; Return carry if species is in the list
@@ -7054,7 +7054,7 @@ ApplyStatusEffectOnEnemyStats:
 ApplyStatusEffectOnStats:
 	ldh [hBattleTurn], a
 	call ApplyPrzEffectOnSpeed
-	jp ApplyBrnEffectOnAttack
+	jmp ApplyBrnEffectOnAttack
 
 ApplyPrzEffectOnSpeed:
 	ldh a, [hBattleTurn]
@@ -7282,7 +7282,7 @@ _LoadHPBar:
 
 EmptyBattleTextbox:
 	ld hl, .empty
-	jp BattleTextbox
+	jmp BattleTextbox
 
 .empty:
 	text_end
@@ -7862,7 +7862,7 @@ GiveExperiencePoints:
 	call GetPartyParamLocation
 	ld b, h
 	ld c, l
-	jp .loop
+	jmp .loop
 
 .done
 	jp ResetBattleParticipants
@@ -8240,7 +8240,7 @@ SendOutMonText:
 
 	ld hl, YourFoesWeakGetmMonText
 .skip_to_textbox
-	jp BattleTextbox
+	jmp BattleTextbox
 
 GoMonText:
 	text_far _GoMonText
@@ -8270,7 +8270,7 @@ BattleMonNicknameText:
 
 WithdrawMonText:
 	ld hl, .WithdrawMonText
-	jp BattleTextbox
+	jmp BattleTextbox
 
 .WithdrawMonText:
 	text_far _BattleMonNickCommaText
@@ -8345,7 +8345,7 @@ FillInExpBar:
 	pop hl
 	ld de, 7
 	add hl, de
-	jp PlaceExpBar
+	jmp PlaceExpBar
 
 CalcExpBar:
 ; Calculate the percent exp between this level and the next
@@ -8620,7 +8620,7 @@ CleanUpBattleRAM:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	jp WaitSFX
+	jmp WaitSFX
 
 CheckPayDay:
 	ld hl, wPayDayMoney
@@ -8787,7 +8787,7 @@ _DisplayLinkRecord:
 	call SetPalettes
 	ld c, 8
 	call DelayFrames
-	jp WaitPressAorB_BlinkCursor
+	jmp WaitPressAorB_BlinkCursor
 
 ReadAndPrintLinkBattleRecord:
 	call ClearTilemap

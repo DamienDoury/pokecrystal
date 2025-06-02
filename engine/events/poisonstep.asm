@@ -48,7 +48,7 @@ DoPoisonStep::
 .someone_has_fainted
 	ld a, BANK(.Script_MonFaintedToPoison)
 	ld hl, .Script_MonFaintedToPoison
-	jp CallScript
+	jmp CallScript
 	
 .no_faint
 	xor a
@@ -101,7 +101,7 @@ DoPoisonStep::
 	call PlaySFX
 	ld b, $2
 	predef LoadPoisonBGPals
-	jp DelayFrame
+	jmp DelayFrame
 
 .Script_MonFaintedToPoison:
 	callasm .PlayPoisonSFX

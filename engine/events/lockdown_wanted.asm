@@ -173,7 +173,7 @@ ResetAllResearchLevels::
 	ld hl, wWantedLevelPerLandmark
 	ld bc, NUM_LANDMARKS_QUARTER + 1 ; We add 1 to also reset wCurWantedLevel.
 	xor a
-	jp ByteFill ; ; fill bc bytes with the value of a, starting at hl
+	jmp ByteFill ; ; fill bc bytes with the value of a, starting at hl
 
 GetOlivineCafeSalad:
 	ld a, [wCurDay]
@@ -223,7 +223,7 @@ ApplyCurfewStateBasedOnTime::
 	ld a, 1 << FREE
 	ld [wCurFreedomState], a
 
-	jp ResetAllResearchLevels
+	jmp ResetAllResearchLevels
 
 .curfew
 	ld a, 1 << CURFEW
@@ -259,7 +259,7 @@ DisplayRandomPoliceBattleText:
 	call GetFarWord ; retrieve a word from a:hl, and return it in hl.
 
 	ld b, BANK(PoliceSeenTextPool)
-	jp MapTextbox
+	jmp MapTextbox
 
 DisplayPoliceBackupText:
 	ld a, BANK(PoliceSeenTextPool)
@@ -267,7 +267,7 @@ DisplayPoliceBackupText:
 
 	ld hl, PoliceBeatenBackupText
 	ld b, BANK(PoliceBeatenBackupText)
-	jp MapTextbox
+	jmp MapTextbox
 
 ResetWantedLevelsTheNextDay::
 	; Note: the wanted level will reset twice per night during the curfew, but it is acceptable.
@@ -276,7 +276,7 @@ ResetWantedLevelsTheNextDay::
 	ldh [hWriteByte], a
 	ld a, BANK(wMustResetWantedLevels)
 	ld hl, wMustResetWantedLevels
-	jp WriteFarWRAMByte
+	jmp WriteFarWRAMByte
 
 CheckResetWantedLevels::
 	ld a, BANK(wMustResetWantedLevels)
@@ -291,7 +291,7 @@ CheckResetWantedLevels::
 	ld hl, wMustResetWantedLevels
 	call WriteFarWRAMByte
 
-	jp ResetAllResearchLevels
+	jmp ResetAllResearchLevels
 
 VaccinePassportControllerChatScript::
 	jumptextfaceplayer .dialog ; This happens way after the clapping, so no issue here.

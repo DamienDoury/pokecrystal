@@ -553,7 +553,7 @@ AI_Smart_LockOn:
 
 .dismiss
 	pop hl
-	jp AIDiscourageMove
+	jmp AIDiscourageMove
 
 AI_Smart_Selfdestruct:
 ; Selfdestruct, Explosion
@@ -745,7 +745,7 @@ AI_Smart_MirrorMove:
 	ret nc
 
 ; ...or dismiss this move if enemy is faster than player.
-	jp AIDiscourageMove
+	jmp AIDiscourageMove
 
 ; If the player did use a move last turn...
 .usedmove
@@ -1223,7 +1223,7 @@ AI_Smart_Substitute:
 	call AICheckEnemyQuarterHP
 	ret c
 
-	jp AIDiscourageMove
+	jmp AIDiscourageMove
 
 AI_Smart_HyperBeam:
 	call AICheckEnemyHalfHP
@@ -1618,7 +1618,7 @@ AI_Smart_HealBell:
 	ld a, [wEnemyMonStatus]
 	and a
 	ret nz
-	jp AIDiscourageMove
+	jmp AIDiscourageMove
 
 
 AI_Smart_PriorityHit:
@@ -3510,7 +3510,7 @@ AI_Status:
 
 .immune
 	call AIDiscourageMove
-	jp .checkmove
+	jmp .checkmove
 
 
 AI_Risky:

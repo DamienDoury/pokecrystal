@@ -134,20 +134,20 @@ PlaceMapNameSign::
 	ldh [hWY], a
 	xor a
 	ldh [hLCDCPointer], a
-	jp LoadStandardFont
+	jmp LoadStandardFont
 
 LoadMapNameSignGFX:
 	ld de, MapEntryFrameGFX
 	ld hl, vTiles2 tile MAP_NAME_SIGN_START
 	lb bc, BANK(MapEntryFrameGFX), 14
-	jp Get2bpp
+	jmp Get2bpp
 
 InitMapNameFrame:
 	hlcoord 0, 0
 	ld b, 2
 	ld c, 18
 	call InitMapSignAttrmap
-	jp PlaceMapNameFrame
+	jmp PlaceMapNameFrame
 
 PlaceMapNameCenterAlign:
 	ld a, [wCurLandmark]

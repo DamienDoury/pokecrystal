@@ -402,7 +402,7 @@ Copy2bpp:
 	ld c, a
 	pop af
 
-	jp FarCopyBytes
+	jmp FarCopyBytes
 
 Get1bpp::
 ; copy c 1bpp tiles from b:de to hl
@@ -431,4 +431,4 @@ Copy1bpp::
 	pop af
 
 	pop hl
-	jp FarCopyBytesDouble
+	jmp FarCopyBytesDouble

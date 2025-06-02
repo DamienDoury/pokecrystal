@@ -60,7 +60,7 @@ BattleCommand_SleepTalk:
 .charging
 	call LoadMoveAnim
 	call UpdateMoveData
-	jp ResetTurn
+	jmp ResetTurn
 
 .fail
 	call AnimateFailedMove

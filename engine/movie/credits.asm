@@ -189,7 +189,7 @@ Credits_LoopBack:
 Credits_PrepBGMapUpdate:
 	xor a
 	ldh [hBGMapMode], a
-	jp Credits_Next
+	jmp Credits_Next
 
 Credits_UpdateGFXRequestPath:
 	call Credits_LoadBorderGFX
@@ -208,7 +208,7 @@ Credits_RequestGFX:
 	ldh [hBGMapMode], a
 	ld a, 8
 	ld [wRequested2bppSize], a
-	jp Credits_Next
+	jmp Credits_Next
 
 Credits_LYOverride:
 	ldh a, [rLY]
@@ -222,7 +222,7 @@ Credits_LYOverride:
 	call .Fill
 	ld hl, wLYOverrides + $67
 	call .Fill
-	jp Credits_Next
+	jmp Credits_Next
 
 .Fill:
 	ld c, $8
@@ -245,7 +245,7 @@ ParseCredits:
 
 ; One tick has passed.
 	dec [hl]
-	jp .done
+	jmp .done
 
 .parse
 ; First, let's clear the current text display,
@@ -363,7 +363,7 @@ ParseCredits:
 	ld de, MUSIC_CREDITS
 .play_music
 	call PlayMusic
-	jp .loop
+	jmp .loop
 
 .wait2
 ; Wait for some amount of ticks.
@@ -384,7 +384,7 @@ ParseCredits:
 	ldh [hBGMapMode], a
 
 .done
-	jp Credits_Next
+	jmp Credits_Next
 
 .extra_wait
 	ld l, a
@@ -491,7 +491,7 @@ ConstructCreditsTilemap:
 	xor a
 	hlcoord 0, 14
 	call .InitTopPortion
-	jp WaitBGMap2
+	jmp WaitBGMap2
 
 .InitTopPortion:
 	ld b, 5

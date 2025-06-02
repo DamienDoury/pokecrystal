@@ -10,7 +10,7 @@ BattleCommand_Protect:
 	call AnimateCurrentMove
 
 	ld hl, ProtectedItselfText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 ProtectChance:
 	ld de, wPlayerProtectCount

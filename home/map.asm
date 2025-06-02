@@ -91,7 +91,7 @@ GetMapSceneID::
 
 OverworldTextModeSwitch::
 	call LoadMapPart
-	jp SwapTextboxPalettes
+	jmp SwapTextboxPalettes
 
 LoadMapPart::
 	ldh a, [hROMBank]
@@ -405,14 +405,14 @@ LoadMapAttributes::
 	farcall ResetClapInThisRoom
 	xor a ; do not skip object events
 	ld [wBattlePokerusSeed], a ; Sometimes, a covid battle is enforced at the map level. Therefore we need to clean it at this point.
-	jp ReadMapEvents
+	jmp ReadMapEvents
 
 LoadMapAttributes_SkipObjects::
 	call CopyMapPartialAndAttributes
 	call SwitchToMapScriptsBank
 	call ReadMapScripts
 	ld a, TRUE ; skip object events
-	jp ReadMapEvents
+	jmp ReadMapEvents
 
 CopyMapPartialAndAttributes::
 	call CopyMapPartial
@@ -442,7 +442,7 @@ ReadMapEvents::
 	and a ; skip object events?
 	ret nz
 
-	jp ReadObjectEvents
+	jmp ReadObjectEvents
 
 ReadMapScripts::
 	ld hl, wMapScriptsPointer
@@ -450,7 +450,7 @@ ReadMapScripts::
 	ld h, [hl]
 	ld l, a
 	call ReadMapSceneScripts
-	jp ReadMapCallbacks
+	jmp ReadMapCallbacks
 
 CopyMapAttributes::
 	ld de, wMapAttributes
@@ -523,7 +523,7 @@ ReadMapSceneScripts::
 	ret z
 
 	ld bc, SCENE_SCRIPT_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 ReadMapCallbacks::
 	ld a, [hli]
@@ -538,7 +538,7 @@ ReadMapCallbacks::
 	ret z
 
 	ld bc, CALLBACK_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 ReadWarps::
 	ld a, [hli]
@@ -552,7 +552,7 @@ ReadWarps::
 	and a
 	ret z
 	ld bc, WARP_EVENT_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 ReadCoordEvents::
 	ld a, [hli]
@@ -568,7 +568,7 @@ ReadCoordEvents::
 	ret z
 
 	ld bc, COORD_EVENT_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 ReadBGEvents::
 	ld a, [hli]
@@ -584,7 +584,7 @@ ReadBGEvents::
 	ret z
 
 	ld bc, BG_EVENT_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 ReadObjectEvents::
 	push hl
@@ -721,7 +721,7 @@ LoadBlockData::
 	call ChangeMap
 	call FillMapConnections
 	ld a, MAPCALLBACK_TILES
-	jp RunMapCallback
+	jmp RunMapCallback
 
 ChangeMap::
 	ldh a, [hROMBank]
@@ -1917,7 +1917,7 @@ GetCoordCollType::
 
 .nocarry2
 	ld a, [wTilesetCollisionBank]
-	jp GetFarByte
+	jmp GetFarByte
 
 .nope
 	ld a, -1
@@ -2099,7 +2099,7 @@ FadeToMenu::
 	call LoadStandardMenuHeader
 	farcall FadeOutPalettes
 	call ClearSprites
-	jp DisableSpriteUpdates
+	jmp DisableSpriteUpdates
 
 CloseSubmenu::
 	call ClearBGPalettes
@@ -2119,14 +2119,14 @@ FinishExitMenu::
 	farcall LoadOW_BGPal7
 	call WaitBGMap2
 	farcall FadeInPalettes
-	jp EnableSpriteUpdates
+	jmp EnableSpriteUpdates
 
 ReturnToMapPart1:
 	ld a, $1
 	ld [wSpriteUpdatesEnabled], a
 	call ClearBGPalettes
 	call ClearSprites
-	jp ReloadTilesetAndPalettes
+	jmp ReloadTilesetAndPalettes
 
 ReturnToMapPart2:
 	ld hl, wVramState
@@ -2181,7 +2181,7 @@ ReloadTilesetAndPalettes::
 	pop af
 	rst Bankswitch
 
-	jp EnableLCD
+	jmp EnableLCD
 
 GetMapPointer::
 	ld a, [wMapGroup]
@@ -2216,7 +2216,7 @@ GetAnyMapPointer::
 	dec c
 	ld b, 0
 	ld a, 9
-	jp AddNTimes
+	jmp AddNTimes
 
 GetMapField::
 ; Extract data from the current map's group entry.

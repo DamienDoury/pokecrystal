@@ -11,7 +11,7 @@ IsHM::
 
 IsHMMove::
 	ld hl, .HMMoves
-	jp IsInByteArray
+	jmp IsInByteArray
 
 .HMMoves:
 	db CUT

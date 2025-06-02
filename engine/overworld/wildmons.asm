@@ -47,7 +47,7 @@ FindNest:
 	ld hl, RockMonJohtoMaps
 	call .FindTrees
 	call .RoamMon1
-	jp .RoamMon2
+	jmp .RoamMon2
 
 .kanto
 	decoord 0, 0
@@ -58,7 +58,7 @@ FindNest:
 	ld hl, TreeMonKantoMaps
 	call .FindTrees
 	ld hl, RockMonKantoMaps
-	jp .FindTrees
+	jmp .FindTrees
 
 .FindGrass:
 	ld a, [hl]
@@ -147,7 +147,7 @@ FindNest:
 
 .found
 	pop af
-	jp .AppendNest
+	jmp .AppendNest
 
 .AppendNest:
 	push de
@@ -734,7 +734,7 @@ UpdateRoamMons:
 	ld [wRoamMon3MapNumber], a
 
 .Finished:
-	jp _BackUpMapIndices
+	jmp _BackUpMapIndices
 
 .Update:
 	ld hl, RoamMaps
@@ -824,7 +824,7 @@ JumpRoamMons:
 	ld [wRoamMon3MapNumber], a
 
 .Finished:
-	jp _BackUpMapIndices
+	jmp _BackUpMapIndices
 
 JumpRoamMon:
 .loop
@@ -1000,7 +1000,7 @@ RandomPhoneWildMon:
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer4
 	ld bc, MON_NAME_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 RandomPhoneMon:
 ; Get a random monster owned by the trainer who's calling.
@@ -1104,7 +1104,7 @@ RandomPhoneMon:
 	ld hl, wStringBuffer1
 	ld de, wStringBuffer4
 	ld bc, MON_NAME_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 INCLUDE "data/wild/johto_grass.asm"
 INCLUDE "data/wild/johto_water.asm"

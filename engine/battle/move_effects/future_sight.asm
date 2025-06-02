@@ -23,7 +23,7 @@ BattleCommand_CheckFutureSight:
 	ld a, [de]
 	ld [wCurDamage + 1], a
 	ld b, futuresight_command
-	jp SkipToBattleCommand
+	jmp SkipToBattleCommand
 
 BattleCommand_FutureSight:
 ; futuresight
@@ -71,7 +71,7 @@ BattleCommand_FutureSight:
 	ld a, [hl]
 	ld [de], a
 	ld [hl], 0
-	jp EndMoveEffect
+	jmp EndMoveEffect
 
 .failed
 	pop bc

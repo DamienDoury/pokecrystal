@@ -74,6 +74,6 @@ BattleCommand_Present:
 	ld hl, PresentFailedText
 	call StdBattleTextbox
 .do_animation
-	jp EndMoveEffect
+	jmp EndMoveEffect
 
 INCLUDE "data/moves/present_power.asm"

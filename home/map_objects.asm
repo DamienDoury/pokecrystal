@@ -380,7 +380,7 @@ ApplyDeletionToMapObject::
 
 DeleteObjectStruct::
 	call ApplyDeletionToMapObject
-	jp MaskObject
+	jmp MaskObject
 
 CopyPlayerObjectTemplate::
 	push hl

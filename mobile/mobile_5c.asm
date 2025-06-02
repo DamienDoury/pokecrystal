@@ -368,7 +368,7 @@ Function171a5d:
 	jr nz, .asm_171a6a
 	bit 0, a
 	ret nz
-	jp Function171c66
+	jmp Function171c66
 
 .asm_171a6a
 	ld a, $0
@@ -396,7 +396,7 @@ Function171a95:
 	hlcoord 2, 8
 	ld de, String_171aa7
 	call PlaceString
-	jp Function171c66
+	jmp Function171c66
 
 String_171aa7:
 	db   "モバイルアダプタに"
@@ -409,7 +409,7 @@ Function171ac9:
 	ld hl, $5c
 	ld a, $2
 	call Function3e32
-	jp Function171c66
+	jmp Function171c66
 
 Function171ad7:
 	xor a
@@ -419,7 +419,7 @@ Function171ad7:
 	ld de, $c608
 	ld a, $c
 	call Function3e32
-	jp Function171c66
+	jmp Function171c66
 
 Function171aec:
 	ldh a, [rSVBK]
@@ -470,7 +470,7 @@ Function171aec:
 	pop af
 	dec a
 	jr nz, .asm_171b1b
-	jp Function171c66
+	jmp Function171c66
 
 Function171b42:
 	ld a, [de]
@@ -510,7 +510,7 @@ Function171b4b:
 	ld [wcd23], a
 	ld a, $8
 	ld [wcd24], a
-	jp Function171c66
+	jmp Function171c66
 
 Function171b85:
 	ld hl, hJoyPressed
@@ -557,7 +557,7 @@ Function171bbd:
 	ld [wcd23], a
 	xor a
 	ld [wcd24], a
-	jp Function171c66
+	jmp Function171c66
 
 Function171bcc:
 	ld hl, hJoyPressed
@@ -671,7 +671,7 @@ Function171c87:
 	call PlaceString
 	hlcoord 3, 16
 	ld de, String_172e3f
-	jp PlaceString
+	jmp PlaceString
 
 Function171ccd:
 	ldh a, [rSVBK]
@@ -708,7 +708,7 @@ Function171cf0:
 	call CopyBytes
 	hlcoord 3, 16
 	ld de, String_172e3f
-	jp PlaceString
+	jmp PlaceString
 
 .shifted
 	ld hl, PasswordShiftTilemap
@@ -717,7 +717,7 @@ Function171cf0:
 	call CopyBytes
 	hlcoord 3, 16
 	ld de, String_172e4e
-	jp PlaceString
+	jmp PlaceString
 
 Function171d2b:
 	call DisableLCD
@@ -742,7 +742,7 @@ Function171d2b:
 	call PlaceString
 	hlcoord 14, 16
 	ld de, String_172e58
-	jp PlaceString
+	jmp PlaceString
 
 MobilePasswordPalettes:
 INCLUDE "gfx/mobile/mobile_password.pal"

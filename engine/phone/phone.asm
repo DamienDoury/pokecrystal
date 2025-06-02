@@ -23,7 +23,7 @@ DelCellNum::
 	ret
 
 CheckCellNum::
-	jp _CheckCellNum ; useless
+	jmp _CheckCellNum ; useless
 
 _CheckCellNum:
 	ld hl, wPhoneList
@@ -138,7 +138,7 @@ CheckPhoneCall::
 	call LoadCallerScript
 	ld a, BANK(Script_ReceivePhoneCall)
 	ld hl, Script_ReceivePhoneCall
-	jp CallScript
+	jmp CallScript
 
 .no_call
 	xor a
@@ -276,7 +276,7 @@ CheckSpecialPhoneCall::
 	ld [de], a
 	ld a, BANK(.script)
 	ld hl, .script
-	jp CallScript
+	jmp CallScript
 	
 .NoPhoneCall:
 	xor a
@@ -293,7 +293,7 @@ CheckSpecialPhoneCall::
 	ld b, 0
 	ld hl, SpecialPhoneCallList
 	ld a, SPECIALCALL_SIZE
-	jp AddNTimes
+	jmp AddNTimes
 
 SpecialCallOnlyWhenOutside:
 	ld a, [wEnvironment]
@@ -364,7 +364,7 @@ MakePhoneCallFromPokegear:
 .OutOfArea:
 	ld b, BANK(LoadOutOfAreaScript)
 	ld de, LoadOutOfAreaScript
-	jp ExecuteCallbackScript
+	jmp ExecuteCallbackScript
 
 .DoPhoneCall:
 	ld a, b
@@ -375,7 +375,7 @@ MakePhoneCallFromPokegear:
 	ld [wPhoneCaller + 1], a
 	ld b, BANK(LoadPhoneScriptBank)
 	ld de, LoadPhoneScriptBank
-	jp ExecuteCallbackScript
+	jmp ExecuteCallbackScript
 
 LoadPhoneScriptBank:
 	memcall wPhoneScriptBank
@@ -405,7 +405,7 @@ LoadCallerScript:
 .proceed
 	ld de, wCallerContact
 	ld bc, PHONE_CONTACT_SIZE
-	jp FarCopyBytes
+	jmp FarCopyBytes
 
 WrongNumber:
 	db TRAINER_NONE, PHONE_00
@@ -433,11 +433,11 @@ Script_SpecialBillCall::
 
 .LoadBillScript:
 	ld e, PHONE_BILL
-	jp LoadCallerScript
+	jmp LoadCallerScript
 
 .LoadElmScript:
 	ld e, PHONE_ELM
-	jp LoadCallerScript
+	jmp LoadCallerScript
 
 RingTwice_StartCall:
 	call .Ring
@@ -458,7 +458,7 @@ RingTwice_StartCall:
 .CallerTextboxWithName:
 	ld a, [wCurCaller]
 	ld b, a
-	jp Phone_TextboxWithName
+	jmp Phone_TextboxWithName
 
 PhoneCall::
 	ld a, b
@@ -493,7 +493,7 @@ PhoneCall::
 	ld a, [wPhoneCaller + 1]
 	ld d, a
 	ld a, [wPhoneScriptBank]
-	jp PlaceFarString
+	jmp PlaceFarString
 
 Phone_NoSignal:
 	ld de, SFX_NO_SIGNAL
@@ -515,17 +515,17 @@ Phone_CallEnd:
 	call HangUp_BoopOn
 	call HangUp_Wait20Frames
 	call HangUp_BoopOff
-	jp HangUp_Wait20Frames
+	jmp HangUp_Wait20Frames
 
 HangUp_ShutDown: ; unreferenced
 	ld de, SFX_SHUT_DOWN_PC
-	jp PlaySFX
+	jmp PlaySFX
 
 HangUp_Beep:
 	ld hl, PhoneClickText
 	call PrintText
 	ld de, SFX_HANG_UP
-	jp PlaySFX
+	jmp PlaySFX
 
 PhoneClickText:
 	text_far _PhoneClickText
@@ -533,7 +533,7 @@ PhoneClickText:
 
 HangUp_BoopOn:
 	ld hl, PhoneEllipseText
-	jp PrintText
+	jmp PrintText
 
 PhoneEllipseText:
 	text_far _PhoneEllipseText
@@ -570,20 +570,20 @@ Phone_TextboxWithName:
 	ld d, h
 	ld e, l
 	pop bc
-	jp GetCallerClassAndName
+	jmp GetCallerClassAndName
 
 Phone_CallerTextbox:
 	hlcoord 0, 0
 	ld b, 2
 	ld c, SCREEN_WIDTH - 2
-	jp Textbox
+	jmp Textbox
 
 GetCallerClassAndName:
 	ld h, d
 	ld l, e
 	ld a, b
 	call GetCallerTrainerClass
-	jp GetCallerName
+	jmp GetCallerName
 
 CheckCanDeletePhoneNumber:
 	ld a, c
@@ -626,7 +626,7 @@ GetCallerName:
 	ld de, SCREEN_WIDTH + 3
 	add hl, de
 	call Phone_GetTrainerClassName
-	jp PlaceString
+	jmp PlaceString
 
 .NotTrainer:
 	push hl
@@ -639,7 +639,7 @@ GetCallerName:
 	ld e, a
 	ld d, [hl]
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 INCLUDE "data/phone/non_trainer_names.asm"
 

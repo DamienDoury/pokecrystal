@@ -109,7 +109,7 @@ PlayStereoCry::
 	ld [wStereoPanningMask], a
 	pop af
 	call _PlayMonCry
-	jp WaitSFX
+	jmp WaitSFX
 
 PlayStereoCry2::
 ; Don't wait for the cry to end.
@@ -118,7 +118,7 @@ PlayStereoCry2::
 	ld a, 1
 	ld [wStereoPanningMask], a
 	pop af
-	jp _PlayMonCry
+	jmp _PlayMonCry
 
 PlayMonCry::
 	call PlayMonCry2
@@ -131,7 +131,7 @@ PlayMonCry2::
 	ld [wStereoPanningMask], a
 	ld [wCryTracks], a
 	pop af
-	jp _PlayMonCry
+	jmp _PlayMonCry
 
 _PlayMonCry::
 	push hl
@@ -229,7 +229,7 @@ Print8BitNumLeftAlign::
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
 	ld b, PRINTNUM_LEFTALIGN | 1
-	jp PrintNum
+	jmp PrintNum
 
 GetNthMove:: ; unreferenced
 	ld hl, wListMoves_MoveIndicesBuffer

@@ -72,7 +72,7 @@ LoadIcePathPalette:
 	ld de, wBGPals1
 	ld hl, IcePathPalette
 	ld bc, 8 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 IcePathPalette:
 INCLUDE "gfx/tilesets/ice_path.pal"
@@ -88,14 +88,14 @@ LoadFlowerShopPalette:
 	ld de, wBGPals1 + 1 palettes
 	ld hl, HousePalette + 1 palettes
 	ld bc, 7 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 LoadHousePalette:
 	ld a, BANK(wBGPals1)
 	ld de, wBGPals1
 	ld hl, HousePalette
 	ld bc, 8 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 HousePalette:
 INCLUDE "gfx/tilesets/house.pal"
@@ -105,7 +105,7 @@ LoadRadioTowerPalette:
 	ld de, wBGPals1
 	ld hl, RadioTowerPalette
 	ld bc, 8 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 RadioTowerPalette:
 INCLUDE "gfx/tilesets/radio_tower.pal"
@@ -121,7 +121,7 @@ LoadHospitalPalette:
 	ld de, wBGPals1 + 5 palettes
 	ld hl, HospitalPriorityBedPalette
 	ld bc, 1 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 HospitalPriorityBedPalette:
 	RGB 27, 31, 27
@@ -152,7 +152,7 @@ LoadMansionPalette:
 	ld de, wBGPals1 palette PAL_BG_ROOF
 	ld hl, MansionPalette1 palette 8
 	ld bc, 1 palettes
-	jp FarCopyWRAM
+	jmp FarCopyWRAM
 
 MansionPalette2:
 INCLUDE "gfx/tilesets/mansion_2.pal"

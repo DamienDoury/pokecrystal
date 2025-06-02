@@ -33,12 +33,12 @@ GameCornerPrizeMonCheckDex:
 	ld a, [wScriptVar]
 	ld [wNamedObjectIndex], a
 	farcall NewPokedexEntry
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 UnusedSetSeenMon:
 	ld a, [wScriptVar]
 	dec a
-	jp SetSeenMon
+	jmp SetSeenMon
 
 FindPartyMonAboveLevel:
 	ld a, [wScriptVar]
@@ -84,7 +84,7 @@ NameRival:
 	farcall _NamingScreen
 	ld hl, wRivalName
 	ld de, .DefaultName
-	jp InitName
+	jmp InitName
 
 .DefaultName:
 if DEF(_FR_FR)
@@ -182,7 +182,7 @@ UnownPuzzle:
 	farcall _UnownPuzzle
 	ld a, [wSolvedUnownPuzzle]
 	ld [wScriptVar], a
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 SlotMachine:
 	call CheckCoinsAndCoinCase
@@ -209,7 +209,7 @@ StartGameCornerGame:
 	ld l, a
 	pop af
 	rst FarCall
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 CheckCoinsAndCoinCase:
 	ld hl, wCoins
@@ -246,7 +246,7 @@ CheckCoinsAndCoinCase:
 
 ClearBGPalettesBufferScreen:
 	call ClearBGPalettes
-	jp BufferScreen
+	jmp BufferScreen
 
 ScriptReturnCarry:
 	jr c, .carry
@@ -288,7 +288,7 @@ SearchCriticallyIllMonInParty:
 CheckMildIllness: ; Only called by the nurse.
 ; Check if a monster in your party has Pokerus with a 1 bit strain.
 	farcall _CheckMildIllness
-	jp ScriptReturnCarry
+	jmp ScriptReturnCarry
 
 CheckPokerus: ; Only called by the nurse.
 	farcall _CheckPokerus
@@ -355,7 +355,7 @@ SnorlaxAwake:
 
 PlayCurMonCry:
 	ld a, [wCurPartySpecies]
-	jp PlayMonCry
+	jmp PlayMonCry
 
 GameboyCheck:
 	ldh a, [hCGB]
@@ -390,7 +390,7 @@ FadeOutMusic:
 Diploma:
 	call FadeToMenu
 	farcall _Diploma
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 PrintDiploma:
 	call FadeToMenu
@@ -402,7 +402,7 @@ TrainerHouse:
 	call OpenSRAM
 	ld a, [sMysteryGiftTrainerHouseFlag]
 	ld [wScriptVar], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 GetHospitalRoomNumber:
 	farcall _GetHospitalRoomNumber

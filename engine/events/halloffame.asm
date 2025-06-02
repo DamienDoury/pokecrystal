@@ -81,7 +81,7 @@ HallOfFame_PlayMusicDE:
 	call PlayMusic
 	call DelayFrame
 	pop de
-	jp PlayMusic
+	jmp PlayMusic
 
 AnimateHallOfFame:
 	xor a
@@ -117,7 +117,7 @@ AnimateHallOfFame:
 	ld [wMusicFade], a
 	call RotateThreePalettesRight
 	ld c, 8
-	jp DelayFrames
+	jmp DelayFrames
 
 .DisplayNewHallOfFamer:
 	call DisplayHOFMon
@@ -540,7 +540,7 @@ else
 endc
 	ld de, wTempMonID
 	lb bc, PRINTNUM_LEADINGZEROS | 2, 5
-	jp PrintNum
+	jmp PrintNum
 
 HOF_AnimatePlayerPic:
 	call ClearBGPalettes

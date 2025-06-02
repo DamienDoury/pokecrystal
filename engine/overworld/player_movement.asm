@@ -361,7 +361,7 @@ DoPlayerMovement::
 	farcall EnableScriptMode
 	farcall ScriptEvents
 
-	jp .StandInPlace
+	jmp .StandInPlace
 
 .Whirlpool:
 	ld b, HM_WHIRLPOOL
@@ -384,7 +384,7 @@ DoPlayerMovement::
 	farcall DisappearWhirlpool
 	call CloseText
 
-	jp .StandInPlace
+	jmp .StandInPlace
 
 .TrySurf:
 	call .CheckSurfPerms
@@ -995,7 +995,7 @@ endc
 
 .PlayBumpSound
 	ld de, SFX_BUMP
-	jp PlaySFX
+	jmp PlaySFX
 
 .AutoCut:
 	farcall CheckAPressOW.try_to_cut
@@ -1058,7 +1058,7 @@ endc
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, a
 	jr z, .ActivateStrength
 
-	jp .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
+	jmp .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
 
 .ActivateStrength
 	call PlayCurPartyMonCry
@@ -1080,7 +1080,7 @@ PlayCurPartyMonCry::
 	ld e, a
 	farcall GetMonSpecies
 	ld a, [wCurPartySpecies]
-	jp PlayMonCry
+	jmp PlayMonCry
 
 CheckStandingOnIce::
 	ld a, [wPlayerTurningDirection]

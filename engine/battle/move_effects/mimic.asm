@@ -44,7 +44,7 @@ BattleCommand_Mimic:
 	call GetMoveName
 	call AnimateCurrentMove
 	ld hl, MimicLearnedMoveText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .fail
 	jp FailMimic

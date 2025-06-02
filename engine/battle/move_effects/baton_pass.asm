@@ -75,7 +75,7 @@ BatonPass_LinkEnemySwitch:
 	add BATTLEACTION_SWITCH1
 	ld [wBattleAction], a
 .switch
-	jp CloseWindow
+	jmp CloseWindow
 
 FailedBatonPass:
 	call AnimateFailedMove

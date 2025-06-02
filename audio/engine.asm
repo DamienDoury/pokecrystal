@@ -1200,7 +1200,7 @@ ParseMusic:
 	ld hl, CHANNEL_NOTE_FLAGS
 	add hl, bc
 	set NOTE_NOISE_SAMPLING, [hl]
-	jp LoadNote
+	jmp LoadNote
 
 .rest
 ; note = rest
@@ -1910,7 +1910,7 @@ Music_NoteType:
 	cp CHAN4
 	ret z
 	; volume envelope
-	jp Music_VolumeEnvelope
+	jmp Music_VolumeEnvelope
 
 Music_PitchSweep:
 ; update pitch sweep
@@ -1953,7 +1953,7 @@ Music_Tempo:
 	ld d, a
 	call GetMusicByte
 	ld e, a
-	jp SetGlobalTempo
+	jmp SetGlobalTempo
 
 Music_Octave8:
 Music_Octave7:
@@ -1989,7 +1989,7 @@ Music_StereoPanning:
 	bit STEREO, a
 	jr nz, Music_ForceStereoPanning
 	; skip param
-	jp GetMusicByte
+	jmp GetMusicByte
 
 Music_ForceStereoPanning:
 ; force panning
@@ -2041,7 +2041,7 @@ Music_TempoRelative:
 	add hl, de
 	ld e, l
 	ld d, h
-	jp SetGlobalTempo
+	jmp SetGlobalTempo
 
 Music_SFXPriorityOn:
 ; turn sfx priority on
@@ -2350,7 +2350,7 @@ _PlayMusic::
 	ld [wNoiseSampleAddress + 1], a
 	ld [wNoiseSampleDelay], a
 	ld [wMusicNoiseSampleSet], a
-	jp MusicOn
+	jmp MusicOn
 
 _PlayCry::
 ; Play cry de using parameters:
@@ -2460,7 +2460,7 @@ _PlayCry::
 .end
 	ld a, 1 ; stop playing music
 	ld [wSFXPriority], a
-	jp MusicOn
+	jmp MusicOn
 
 StopSFX::
 	call MusicOff
@@ -2524,7 +2524,7 @@ StopSFX::
 	ld [wNoiseSampleAddress], a
 	ld [wNoiseSampleAddress + 1], a
 .chscleared
-	jp MusicOn
+	jmp MusicOn
 
 _PlaySFX::
 ; clear channels if they aren't already
@@ -2665,7 +2665,7 @@ PlayStereoSFX::
 	jr nz, .loop
 
 ; we're done
-	jp MusicOn
+	jmp MusicOn
 
 LoadChannel:
 ; input: de = audio pointer
@@ -2846,4 +2846,4 @@ PlayTrainerEncounterMusic::
 	ld hl, TrainerEncounterMusic
 	add hl, de
 	ld e, [hl]
-	jp PlayMusic
+	jmp PlayMusic

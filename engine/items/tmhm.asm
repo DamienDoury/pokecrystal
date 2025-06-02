@@ -234,7 +234,7 @@ TMHM_ShowTMMoveDescription:
 	ld [wCurSpecies], a
 	hlcoord 1, 14
 	call PrintMoveDescription
-	jp TMHM_JoypadLoop
+	jmp TMHM_JoypadLoop
 
 TMHM_ChooseTMorHM:
 	call TMHM_PlaySFX_ReadText2
@@ -302,7 +302,7 @@ TMHM_ScrollPocket:
 	jp z, TMHM_JoypadLoop
 	dec [hl]
 	call TMHM_DisplayPocketItems
-	jp TMHM_ShowTMMoveDescription
+	jmp TMHM_ShowTMMoveDescription
 
 .skip
 	call TMHM_GetCurrentPocketPosition
@@ -321,7 +321,7 @@ TMHM_ScrollPocket:
 	ld hl, wTMHMPocketScrollPosition
 	inc [hl]
 	call TMHM_DisplayPocketItems
-	jp TMHM_ShowTMMoveDescription
+	jmp TMHM_ShowTMMoveDescription
 
 TMHM_DisplayPocketItems:
 	ld a, [wBattleType]
@@ -501,4 +501,4 @@ TMHM_PlaySFX_ReadText2:
 CountTMsHMs:
 	ld hl, wTMsHMs
 	ld b, NUM_TMS + NUM_HMS
-	jp CountSetBits ; Count the number of set bits in b bytes starting from hl. Return in a and c.
+	jmp CountSetBits ; Count the number of set bits in b bytes starting from hl. Return in a and c.

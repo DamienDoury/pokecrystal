@@ -123,4 +123,4 @@ SpecialMapMusic::
 	ld a, [wMapNumber]
 	cp MAP_POKECENTER_2F
 	jp nz, .skip_rave_party
-	jp .further_rave_party_checks
+	jmp .further_rave_party_checks

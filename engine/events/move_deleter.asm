@@ -50,24 +50,24 @@ MoveDeletion:
 	jr nz, .not_surf_from_reds_pikachu
 
 	ld hl, .DeleterPikachuRefuses
-	jp PrintText
+	jmp PrintText
 	
 .not_surf_from_reds_pikachu
 	call .DeleteMove
 	ld hl, .DeleterForgotMoveText
-	jp PrintText
+	jmp PrintText
 
 .egg
 	ld hl, .MailEggText
-	jp PrintText
+	jmp PrintText
 
 .declined
 	ld hl, .DeleterNoComeAgainText
-	jp PrintText
+	jmp PrintText
 
 .onlyonemove
 	ld hl, .MoveKnowsOneText
-	jp PrintText
+	jmp PrintText
 
 .MoveKnowsOneText:
 	text_far _MoveKnowsOneText

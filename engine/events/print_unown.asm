@@ -95,7 +95,7 @@ _UnownPrinter:
 	ld [wOptions], a
 	pop af
 	ldh [hInMenu], a
-	jp ReturnToMapFromSubmenu
+	jmp ReturnToMapFromSubmenu
 
 .LeftRight:
 	ldh a, [hJoyLast]
@@ -192,7 +192,7 @@ _UnownPrinter:
 	call Get2bpp
 	call CloseSRAM
 	ld c, 20
-	jp DelayFrames
+	jmp DelayFrames
 
 AlphRuinsStampString:
 if DEF(_FR_FR)

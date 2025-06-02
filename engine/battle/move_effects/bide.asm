@@ -62,12 +62,12 @@ BattleCommand_StoreEnergy:
 	ld [hl], a
 
 	ld b, unleashenergy_command
-	jp SkipToBattleCommand
+	jmp SkipToBattleCommand
 
 .still_storing
 	ld hl, StoringEnergyText
 	call StdBattleTextbox
-	jp EndMoveEffect
+	jmp EndMoveEffect
 
 BattleCommand_UnleashEnergy:
 ; unleashenergy
@@ -97,4 +97,4 @@ BattleCommand_UnleashEnergy:
 	ld a, 1
 	ld [wBattleAnimParam], a
 	call AnimateCurrentMove
-	jp EndMoveEffect
+	jmp EndMoveEffect

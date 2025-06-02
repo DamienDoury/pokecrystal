@@ -3,7 +3,7 @@ _BillsPC:
 	ret c
 	call .LogIn
 	call .UseBillsPC
-	jp .LogOut
+	jmp .LogOut
 
 .CheckCanUsePC:
 	ld a, [wPartyCount]
@@ -31,7 +31,7 @@ _BillsPC:
 	call PrintText
 	pop af
 	ld [wOptions], a
-	jp LoadFontsBattleExtra
+	jmp LoadFontsBattleExtra
 
 .LogOut:
 	call CloseSubmenu
@@ -288,7 +288,7 @@ ClearPCItemScreen:
 	lb bc, 4, 18
 	call Textbox
 	call WaitBGMap2
-	jp SetPalettes ; ; load regular palettes?
+	jmp SetPalettes ; ; load regular palettes?
 
 CopyBoxmonToTempMon:
 	ld a, [wCurPartyMon]

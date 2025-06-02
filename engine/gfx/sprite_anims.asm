@@ -204,7 +204,7 @@ AnimSeq_GSTitleTrail:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroHoOhLugia:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -280,7 +280,7 @@ AnimSeq_GSGameFreakLogoStar:
 .delete
 	ld a, 1
 	ld [wIntroSceneFrameCounter], a
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSGameFreakLogoSparkle:
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -356,7 +356,7 @@ AnimSeq_GSGameFreakLogoSparkle:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_SlotsGolem:
 	callfar Slots_AnimateGolem
@@ -370,7 +370,7 @@ AnimSeq_SlotsChansey:
 	ret nz
 	ld [hl], $3
 	ld a, SPRITE_ANIM_FRAMESET_SLOTS_CHANSEY_2
-	jp _ReinitSpriteAnimFrame
+	jmp _ReinitSpriteAnimFrame
 
 AnimSeq_SlotsChanseyEgg:
 	ld hl, SPRITEANIMSTRUCT_JUMPTABLE_INDEX
@@ -390,7 +390,7 @@ AnimSeq_SlotsChanseyEgg:
 	ld a, $4
 	ld [wSlotsDelay], a
 	ld de, SFX_PLACE_PUZZLE_PIECE_DOWN
-	jp PlaySFX
+	jmp PlaySFX
 
 .move_right
 	inc [hl]
@@ -524,7 +524,7 @@ AnimSeq_TradePokeBall:
 	sub $c
 	ld [hl], a
 	ld de, SFX_SWITCH_POKEMON
-	jp PlaySFX
+	jmp PlaySFX
 
 .done2
 	xor a
@@ -532,7 +532,7 @@ AnimSeq_TradePokeBall:
 	ld hl, SPRITEANIMSTRUCT_YOFFSET
 	add hl, bc
 	ld [hl], a
-	jp AnimSeqs_IncAnonJumptableIndex
+	jmp AnimSeqs_IncAnonJumptableIndex
 
 .delete
 	jp DeinitializeSprite
@@ -548,7 +548,7 @@ AnimSeq_TradeTubeBulge:
 	and $3
 	ret nz
 	ld de, SFX_POKEBALLS_PLACED_ON_TABLE
-	jp PlaySFX
+	jmp PlaySFX
 
 .delete
 	jp DeinitializeSprite
@@ -591,7 +591,7 @@ AnimSeq_RevealNewMon:
 	ret
 
 .finish_EggShell
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_RadioTuningKnob:
 	callfar AnimateTuningKnob
@@ -701,7 +701,7 @@ AnimSeq_FlyLeaf:
 	ret
 
 .delete_leaf
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_FlyToZapdos:
 	ld hl, SPRITEANIMSTRUCT_YCOORD
@@ -784,7 +784,7 @@ AnimSeq_MobileTradeOTPulse:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroShellder:
 	ld a, [wGlobalAnimYOffset]
@@ -793,7 +793,7 @@ AnimSeq_GSIntroShellder:
 	add [hl]
 	cp $b0
 	ret c
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 	AnimSeq_GSIntroMagikarp:
 	call AnimSeqs_AnonJumptable
@@ -843,7 +843,7 @@ AnimSeq_GSIntroShellder:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_UnusedIntroAerodactyl:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -866,7 +866,7 @@ AnimSeq_UnusedIntroAerodactyl:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroLapras:
 	call AnimSeqs_AnonJumptable
@@ -909,7 +909,7 @@ AnimSeq_GSIntroLapras:
 	ret
 
 .next2
-	jp AnimSeqs_IncAnonJumptableIndex
+	jmp AnimSeqs_IncAnonJumptableIndex
 
 .two
 	call .update_y_offset
@@ -996,7 +996,7 @@ AnimSeq_GSIntroNote:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroJigglypuff:
 	call AnimSeqs_AnonJumptable
@@ -1024,7 +1024,7 @@ AnimSeq_GSIntroJigglypuff:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroPikachu:
 	call AnimSeqs_AnonJumptable
@@ -1050,7 +1050,7 @@ AnimSeq_GSIntroPikachu:
 	add hl, bc
 	ld [hl], $30
 	ld a, SPRITE_ANIM_FRAMESET_GS_INTRO_PIKACHU_2
-	jp _ReinitSpriteAnimFrame
+	jmp _ReinitSpriteAnimFrame
 
 .one
 	ld hl, SPRITEANIMSTRUCT_VAR2
@@ -1064,7 +1064,7 @@ AnimSeq_GSIntroPikachu:
 .next2
 	call AnimSeqs_IncAnonJumptableIndex
 	ld a, SPRITE_ANIM_FRAMESET_GS_INTRO_PIKACHU_3
-	jp _ReinitSpriteAnimFrame
+	jmp _ReinitSpriteAnimFrame
 
 .two
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -1091,7 +1091,7 @@ AnimSeq_GSIntroPikachu:
 .next3
 	ld a, TRUE
 	ld [wIntroSpriteStateFlag], a
-	jp AnimSeqs_IncAnonJumptableIndex
+	jmp AnimSeqs_IncAnonJumptableIndex
 
 .three
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -1104,7 +1104,7 @@ AnimSeq_GSIntroPikachu:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroPikachuTail:
 	call AnimSeqs_AnonJumptable
@@ -1130,7 +1130,7 @@ AnimSeq_GSIntroPikachuTail:
 	add hl, bc
 	ld [hl], $30
 	ld a, SPRITE_ANIM_FRAMESET_GS_INTRO_PIKACHU_TAIL_2
-	jp _ReinitSpriteAnimFrame
+	jmp _ReinitSpriteAnimFrame
 
 .one
 	ld hl, SPRITEANIMSTRUCT_VAR2
@@ -1142,7 +1142,7 @@ AnimSeq_GSIntroPikachuTail:
 	cp $20
 	ret nz
 	ld a, SPRITE_ANIM_FRAMESET_GS_INTRO_PIKACHU_TAIL
-	jp _ReinitSpriteAnimFrame
+	jmp _ReinitSpriteAnimFrame
 
 .next2
 	jp AnimSeqs_IncAnonJumptableIndex
@@ -1175,7 +1175,7 @@ AnimSeq_GSIntroPikachuTail:
 	ret
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_GSIntroFireball:
 	call AnimSeqs_AnonJumptable
@@ -1358,7 +1358,7 @@ AnimSeqs_IncAnonJumptableIndex:
 	ret
 
 AnimSeqs_Sine:
-	jp Sprites_Sine
+	jmp Sprites_Sine
 
 AnimSeqs_Cosine:
 	jp Sprites_Cosine

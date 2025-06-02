@@ -90,7 +90,7 @@ ExitBattle:
 	ld [wForceEvolution], a
 	predef EvolveAfterBattle
 	farcall GivePokerusAndConvertBerries
-	jp CheckCaughtBeast
+	jmp CheckCaughtBeast
 
 .spread_covid_and_clear_seed
 	farcall GivePokerusAndConvertBerries
@@ -698,7 +698,7 @@ CheckCaughtBeast:
 	ld d, a
 
 	ld b, SET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction
 
 SelectRandomMove::
 	xor a

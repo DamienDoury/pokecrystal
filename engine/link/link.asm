@@ -342,12 +342,12 @@ Gen2ToGen2LinkComms:
 	ld [wOptions], a
 
 	farcall LoadPokemonData
-	jp ExitLinkCommunications
+	jmp ExitLinkCommunications
 
 .ready_to_trade
 	ld de, MUSIC_ROUTE_30
 	call PlayMusic
-	jp InitTradeMenuDisplay
+	jmp InitTradeMenuDisplay
 
 LinkTimeout:
 	ld de, .LinkTimeoutText
@@ -377,7 +377,7 @@ LinkTimeout:
 	call ClearScreen
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	jp WaitBGMap2
+	jmp WaitBGMap2
 
 .LinkTimeoutText:
 	text_far _LinkTimeoutText
@@ -729,7 +729,7 @@ InitTradeMenuDisplay:
 	ld [wMenuCursorY], a
 	inc a
 	ld [wPlayerLinkAction], a
-	jp LinkTrade_PlayerPartyMenu
+	jmp LinkTrade_PlayerPartyMenu
 
 LinkTrade_OTPartyMenu:
 	ld a, OTPARTYMON
@@ -765,7 +765,7 @@ LinkTradeOTPartymonMenuLoop:
 	callfar InitList
 	ld hl, wOTPartyMon1Species
 	farcall LinkMonStatsScreen
-	jp LinkTradePartiesMenuMasterLoop
+	jmp LinkTradePartiesMenuMasterLoop
 
 .not_a_button
 	bit D_UP_F, a
@@ -792,7 +792,7 @@ LinkTradeOTPartymonMenuLoop:
 .not_d_up
 	bit D_DOWN_F, a
 	jp z, LinkTradePartiesMenuMasterLoop
-	jp LinkTradeOTPartymonMenuCheckCancel
+	jmp LinkTradeOTPartymonMenuCheckCancel
 
 LinkTrade_PlayerPartyMenu:
 	farcall InitMG_Mobile_LinkTradePalMap
@@ -823,12 +823,12 @@ LinkTradePartymonMenuLoop:
 	ld a, d
 	and a
 	jr nz, .check_joypad
-	jp LinkTradePartiesMenuMasterLoop
+	jmp LinkTradePartiesMenuMasterLoop
 
 .check_joypad
 	bit A_BUTTON_F, a
 	jr z, .not_a_button
-	jp LinkTrade_TradeStatsMenu
+	jmp LinkTrade_TradeStatsMenu
 
 .not_a_button
 	bit D_DOWN_F, a
@@ -848,7 +848,7 @@ LinkTradePartymonMenuLoop:
 	pop hl
 	ld a, 1
 	ld [wMenuCursorY], a
-	jp LinkTrade_OTPartyMenu
+	jmp LinkTrade_OTPartyMenu
 
 .not_d_down
 	bit D_UP_F, a
@@ -866,13 +866,13 @@ LinkTradePartymonMenuLoop:
 	ld [hl], " "
 	pop bc
 	pop hl
-	jp LinkTradePartymonMenuCheckCancel
+	jmp LinkTradePartymonMenuCheckCancel
 
 LinkTradePartiesMenuMasterLoop:
 	ld a, [wMonType]
 	and a
 	jp z, LinkTradePartymonMenuLoop ; PARTYMON
-	jp LinkTradeOTPartymonMenuLoop  ; OTPARTYMON
+	jmp LinkTradeOTPartymonMenuLoop  ; OTPARTYMON
 
 LinkTrade_TradeStatsMenu:
 	call LoadTilemapToTempTilemap
@@ -917,7 +917,7 @@ LinkTrade_TradeStatsMenu:
 	pop af
 	ld [wMenuCursorY], a
 	call SafeLoadTempTilemapToTilemap
-	jp LinkTrade_PlayerPartyMenu
+	jmp LinkTrade_PlayerPartyMenu
 
 .d_right
 	ld a, " "
@@ -963,7 +963,7 @@ LinkTrade_TradeStatsMenu:
 	lb bc, 6, 1
 	ld a, " "
 	call LinkEngine_FillBox
-	jp LinkTrade_PlayerPartyMenu
+	jmp LinkTrade_PlayerPartyMenu
 
 .try_trade
 	call PlaceHollowCursor
@@ -1025,7 +1025,7 @@ LinkTrade_TradeStatsMenu:
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
 	ld c, 100
 	call DelayFrames
-	jp InitTradeMenuDisplay
+	jmp InitTradeMenuDisplay
 
 .LinkTradeCantBattleText:
 	text_far _LinkTradeCantBattleText
@@ -1049,7 +1049,7 @@ DisplayTradeCancelled:
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
-	jp PlaceString
+	jmp PlaceString
 
 LinkTradeOTPartymonMenuCheckCancel:
 	ld a, [wMenuCursorY]
@@ -1085,12 +1085,12 @@ LinkTradePartymonMenuCheckCancel:
 	jr z, .d_up
 	ld a, [wOTPartyCount]
 	ld [wMenuCursorY], a
-	jp LinkTrade_OTPartyMenu
+	jmp LinkTrade_OTPartyMenu
 
 .d_up
 	ld a, $1
 	ld [wMenuCursorY], a
-	jp LinkTrade_PlayerPartyMenu
+	jmp LinkTrade_PlayerPartyMenu
 
 .a_button
 	ld a, "▷"
@@ -1246,7 +1246,7 @@ endc
 	ld [wPlayerLinkAction], a
 	call DisplayTradeCancelled
 	farcall PrintWaitingTextAndSyncAndExchangeNybble
-	jp InitTradeMenuDisplay_Delay
+	jmp InitTradeMenuDisplay_Delay
 
 .try_trade
 	ld a, $2
@@ -1257,7 +1257,7 @@ endc
 	jr nz, .do_trade
 ; If we're here, the other player canceled the trade
 	call DisplayTradeCancelled
-	jp InitTradeMenuDisplay_Delay
+	jmp InitTradeMenuDisplay_Delay
 
 .do_trade
 	ld hl, sPartyMail
@@ -1513,12 +1513,12 @@ endc
 	farcall Link_WaitBGMap
 	ld c, 50
 	call DelayFrames
-	jp Gen2ToGen2LinkComms
+	jmp Gen2ToGen2LinkComms
 
 InitTradeMenuDisplay_Delay:
 	ld c, 100
 	call DelayFrames
-	jp InitTradeMenuDisplay
+	jmp InitTradeMenuDisplay
 
 String_TradeCancel:
 if DEF(_FR_FR)
@@ -1561,7 +1561,7 @@ LoadTradeScreenBorderGFX:
 
 SetTradeRoomBGPals:
 	farcall LoadTradeRoomBGPals ; just a nested farcall; so wasteful
-	jp SetPalettes
+	jmp SetPalettes
 
 INCLUDE "engine/movie/trade_animation.asm"
 
@@ -1714,7 +1714,7 @@ CheckLinkTimeout_Receptionist:
 	ld a, [wScriptVar]
 	and a
 	ret nz
-	jp Link_ResetSerialRegistersAfterLinkClosure
+	jmp Link_ResetSerialRegistersAfterLinkClosure
 
 CheckLinkTimeout_Gen2:
 ; if wScriptVar = 0 on exit, link connection is closed
@@ -1898,13 +1898,13 @@ CloseLink:
 	ld [wLinkMode], a
 	ld c, 3
 	call DelayFrames
-	jp Link_ResetSerialRegistersAfterLinkClosure
+	jmp Link_ResetSerialRegistersAfterLinkClosure
 
 FailedLinkToPast:
 	ld c, 40
 	call DelayFrames
 	ld a, $e
-	jp Link_EnsureSync
+	jmp Link_EnsureSync
 
 Link_ResetSerialRegistersAfterLinkClosure:
 	ld c, 3

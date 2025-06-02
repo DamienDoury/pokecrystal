@@ -24,7 +24,7 @@ ScriptEvents::
 	dw WaitScript
 
 EndScript:
-	jp StopScript
+	jmp StopScript
 
 WaitScript:
 	call StopScript
@@ -37,7 +37,7 @@ WaitScript:
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
-	jp StartScript
+	jmp StartScript
 
 WaitScriptMovement:
 	call StopScript
@@ -50,7 +50,7 @@ WaitScriptMovement:
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
-	jp StartScript
+	jmp StartScript
 
 RunScriptCommand:
 	call GetScriptByte
@@ -353,7 +353,7 @@ _Script_jumptextfaceplayer:
 	ld [wScriptTextAddr + 1], a
 	ld b, BANK(JumpTextFacePlayerScript)
 	ld hl, JumpTextFacePlayerScript
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_jumptext:
 	ld a, [wScriptBank]
@@ -364,7 +364,7 @@ Script_jumptext:
 	ld [wScriptTextAddr + 1], a
 	ld b, BANK(JumpTextScript)
 	ld hl, JumpTextScript
-	jp ScriptJump
+	jmp ScriptJump
 
 JumpTextFacePlayerScript:
 	faceplayer
@@ -384,7 +384,7 @@ Script_farjumptext:
 	ld [wScriptTextAddr + 1], a
 	ld b, BANK(JumpTextScript)
 	ld hl, JumpTextScript
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_writeredtext:
 	ld a, [wScriptBank]
@@ -396,7 +396,7 @@ Script_farwriteredtext:
 	ld b, a
 Script_redtext:
 	call GetScriptWordInHL
-	jp MapTextboxRed
+	jmp MapTextboxRed
 
 Script_writetext:
 	ld a, [wScriptBank]
@@ -408,7 +408,7 @@ Script_farwritetext:
 	ld b, a
 Script_text:
 	call GetScriptWordInHL
-	jp MapTextbox
+	jmp MapTextbox
 
 GetScriptWordInHL:
 	call GetScriptByte
@@ -433,7 +433,7 @@ Script_repeattext:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp MapTextbox
+	jmp MapTextbox
 
 .done
 	ret
@@ -469,7 +469,7 @@ Script_loadmenu:
 	ld de, LoadMenuHeader
 	ld a, [wScriptBank]
 	call Call_a_de
-	jp UpdateSprites
+	jmp UpdateSprites
 
 Script_closewindow:
 	call CloseWindow
@@ -533,11 +533,11 @@ Script_verbosegiveitem:
 	jr z, .SingleItem
 
 	ld de, GiveMultipleItemScript
-	jp ScriptCall
+	jmp ScriptCall
 
 .SingleItem:
 	ld de, GiveItemScript
-	jp ScriptCall
+	jmp ScriptCall
 
 GiveMultipleItemScript:
 	writetext .ReceivedMultipleItemText
@@ -592,21 +592,21 @@ Script_verbosegiveitemvar:
 	call AppendTMHMMoveName
 	ld b, BANK(GiveItemScript)
 	ld de, GiveItemScript
-	jp ScriptCall
+	jmp ScriptCall
 
 Script_itemnotify::
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PutItemInPocketText)
 	ld hl, PutItemInPocketText
-	jp MapTextbox
+	jmp MapTextbox
 
 Script_pocketisfull:
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PocketIsFullText)
 	ld hl, PocketIsFullText
-	jp MapTextbox
+	jmp MapTextbox
 
 Script_specialsound:
 	farcall CheckItemPocket
@@ -617,7 +617,7 @@ Script_specialsound:
 	ld de, SFX_ITEM
 .play
 	call PlaySFX
-	jp WaitSFX
+	jmp WaitSFX
 
 GetPocketName:
 	farcall CheckItemPocket
@@ -641,7 +641,7 @@ INCLUDE "data/items/pocket_names.asm"
 CurItemName:
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
-	jp GetItemName
+	jmp GetItemName
 
 PutItemInPocketText:
 	text_far _PutItemInPocketText
@@ -727,14 +727,14 @@ Script_describedecoration:
 	farcall DescribeDecoration
 	ld h, d
 	ld l, e
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_fruittree:
 	call GetScriptByte
 	ld [wCurFruitTree], a
 	ld b, BANK(FruitTreeScript)
 	ld hl, FruitTreeScript
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_swarm:
 	call GetScriptByte
@@ -763,7 +763,7 @@ Script_trainertext:
 	cp OFFICER
 	jr z, .is_the_police
 	
-	jp MapTextbox
+	jmp MapTextbox
 
 .is_the_police
 	farcall DisplayRandomPoliceSeenText
@@ -776,7 +776,7 @@ Script_scripttalkafter:
 	ld l, a
 	ld a, [wSeenTrainerBank]
 	ld b, a
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_trainerflagaction:
 	xor a
@@ -823,7 +823,7 @@ Script_endifjustbattled:
 	ld a, [wRunningTrainerBattleScript]
 	and a
 	ret z
-	jp Script_end
+	jmp Script_end
 
 Script_checkjustbattled:
 	ld a, TRUE
@@ -842,7 +842,7 @@ Script_encountermusic:
 	ret
 
 Script_playmapmusic:
-	jp PlayMapMusic
+	jmp PlayMapMusic
 
 Script_playmusic:
 	ld de, MUSIC_NONE
@@ -854,7 +854,7 @@ Script_playmusic:
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	jp PlayMusic
+	jmp PlayMusic
 
 Script_musicfadeout:
 	call GetScriptByte
@@ -876,7 +876,7 @@ Script_playsound:
 	ld e, a
 	call GetScriptByte
 	ld d, a
-	jp PlaySFX
+	jmp PlaySFX
 
 Script_waitsfx:
 	jp WaitSFX
@@ -894,7 +894,7 @@ Script_cry:
 	jr nz, .ok
 	ld a, [wScriptVar]
 .ok
-	jp PlayMonCry
+	jmp PlayMonCry
 
 GetScriptObject:
 	and a ; PLAYER?
@@ -941,7 +941,7 @@ ApplyMovement:
 
 	ld a, SCRIPT_WAIT_MOVEMENT
 	ld [wScriptMode], a
-	jp StopScript
+	jmp StopScript
 
 UnfreezeFollowerObject:
 	farcall _UnfreezeFollowerObject
@@ -952,7 +952,7 @@ Script_applymovementlasttalked:
 
 	ldh a, [hLastTalked]
 	ld c, a
-	jp ApplyMovement
+	jmp ApplyMovement
 
 Script_faceplayer:
 	ldh a, [hLastTalked]
@@ -1034,7 +1034,7 @@ ApplyObjectFacing:
 	jr nz, .text_state
 	call .DisableTextTiles
 .text_state
-	jp UpdateSprites
+	jmp UpdateSprites
 
 .not_visible
 	pop de
@@ -1108,7 +1108,7 @@ ApplyEventActionAppearDisappear:
 	xor a
 	ret
 .okay
-	jp EventFlagAction
+	jmp EventFlagAction
 
 Script_follow:
 	call GetScriptByte
@@ -1193,7 +1193,7 @@ Script_showemote:
 	ld [wScriptDelay], a
 	ld b, BANK(ShowEmoteScript)
 	ld de, ShowEmoteScript
-	jp ScriptCall
+	jmp ScriptCall
 
 ShowEmoteScript:
 	loademote EMOTE_FROM_MEM
@@ -1228,7 +1228,7 @@ Script_earthquake:
 	ld [wEarthquakeMovementDataBuffer + 3], a
 	ld b, BANK(.script)
 	ld de, .script
-	jp ScriptCall
+	jmp ScriptCall
 
 .script
 	applymovement PLAYER, wEarthquakeMovementDataBuffer
@@ -1305,7 +1305,7 @@ Script_catchtutorial:
 	ld [wBattleType], a
 	call BufferScreen
 	farcall CatchTutorial
-	jp Script_reloadmap
+	jmp Script_reloadmap
 
 Script_reloadmapafterbattle:
 	ld hl, wBattleScriptFlags
@@ -1318,7 +1318,7 @@ Script_reloadmapafterbattle:
 	
 	ld b, BANK(Script_BattleWhiteout)
 	ld hl, Script_BattleWhiteout
-	jp ScriptJump
+	jmp ScriptJump
 
 .notblackedout
 	bit 0, d
@@ -1344,7 +1344,7 @@ Script_reloadmap:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	jp StopScript
+	jmp StopScript
 
 Script_scall:
 	ld a, [wScriptBank]
@@ -1410,7 +1410,7 @@ CallCallback::
 	ld a, [wScriptBank]
 	or $80
 	ld [wScriptBank], a
-	jp ScriptCall
+	jmp ScriptCall
 
 Script_sjump:
 	call GetScriptByte
@@ -1419,7 +1419,7 @@ Script_sjump:
 	ld h, a
 	ld a, [wScriptBank]
 	ld b, a
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_farsjump:
 	call GetScriptByte
@@ -1428,7 +1428,7 @@ Script_farsjump:
 	ld l, a
 	call GetScriptByte
 	ld h, a
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_memjump:
 	call GetScriptByte
@@ -1440,19 +1440,19 @@ Script_memjump:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp ScriptJump
+	jmp ScriptJump
 
 Script_iffalse:
 	ld a, [wScriptVar]
 	and a
 	jp nz, SkipTwoScriptBytes
-	jp Script_sjump
+	jmp Script_sjump
 
 Script_iftrue:
 	ld a, [wScriptVar]
 	and a
 	jp nz, Script_sjump
-	jp SkipTwoScriptBytes
+	jmp SkipTwoScriptBytes
 
 Script_ifequal:
 	call GetScriptByte
@@ -1488,13 +1488,13 @@ Script_ifodd:
 	ld a, [wScriptVar]
 	and 1
 	jp nz, Script_sjump
-	jp SkipTwoScriptBytes
+	jmp SkipTwoScriptBytes
 
 Script_ifeven:
 	ld a, [wScriptVar]
 	and 1
 	jp nz, SkipTwoScriptBytes
-	jp Script_sjump
+	jmp Script_sjump
 
 Script_jumpstd:
 	call StdScript
@@ -1504,7 +1504,7 @@ Script_callstd:
 	call StdScript
 	ld d, h
 	ld e, l
-	jp ScriptCall
+	jmp ScriptCall
 
 StdScript:
 	call GetScriptByte
@@ -1520,7 +1520,7 @@ StdScript:
 	ld b, a
 	inc hl
 	ld a, BANK(StdScripts)
-	jp GetFarWord
+	jmp GetFarWord
 
 SkipTwoScriptBytes:
 	call GetScriptByte
@@ -1799,7 +1799,7 @@ ConvertLandmarkToText:
 	ld e, a
 	farcall GetLandmarkName
 	ld de, wStringBuffer1
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_getlandmarkname:
 	call GetScriptByte
@@ -1811,7 +1811,7 @@ Script_gettrainername:
 	call GetScriptByte
 	ld b, a
 	farcall GetTrainerName
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_getname:
 	call GetScriptByte
@@ -1822,7 +1822,7 @@ ContinueToGetName:
 	ld [wCurSpecies], a
 	call GetName
 	ld de, wStringBuffer1
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_gettrainerclassname:
 	ld a, TRAINER_NAME
@@ -1836,7 +1836,7 @@ Script_getmoney:
 	lb bc, PRINTNUM_LEFTALIGN | 3, 6
 	call PrintNum
 	ld de, wStringBuffer1
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_getcoins:
 	call ResetStringBuffer1
@@ -1845,7 +1845,7 @@ Script_getcoins:
 	lb bc, PRINTNUM_LEFTALIGN | 2, 6
 	call PrintNum
 	ld de, wStringBuffer1
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_getnum:
 	call ResetStringBuffer1
@@ -1854,13 +1854,13 @@ Script_getnum:
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
 	call PrintNum
 	ld de, wStringBuffer1
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 ResetStringBuffer1:
 	ld hl, wStringBuffer1
 	ld bc, NAME_LENGTH
 	ld a, "@"
-	jp ByteFill
+	jmp ByteFill
 
 Script_getstring:
 	call GetScriptByte
@@ -1871,7 +1871,7 @@ Script_getstring:
 	ld hl, CopyName1
 	rst FarCall
 	ld de, wStringBuffer2
-	jp GetStringBuffer
+	jmp GetStringBuffer
 
 Script_givepokemail:
 	call GetScriptByte
@@ -2067,7 +2067,7 @@ Script_takecoins:
 Script_checkcoins:
 	call LoadCoinAmountToMem
 	farcall CheckCoins
-	jp CompareMoneyAction
+	jmp CompareMoneyAction
 
 LoadCoinAmountToMem:
 	call GetScriptByte
@@ -2214,7 +2214,7 @@ Script_setevent:
 
 .set_flag
 	ld b, SET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction
 
 Script_clearevent:
 	call GetScriptByte
@@ -2233,7 +2233,7 @@ Script_clearevent:
 
 .reset_flag
 	ld b, RESET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction
 
 Script_checkevent:
 	call GetScriptByte
@@ -2267,7 +2267,7 @@ Script_setflag:
 	call GetScriptByte
 	ld d, a
 	ld b, SET_FLAG
-	jp _EngineFlagAction
+	jmp _EngineFlagAction
 
 Script_clearflag:
 	call GetScriptByte
@@ -2275,7 +2275,7 @@ Script_clearflag:
 	call GetScriptByte
 	ld d, a
 	ld b, RESET_FLAG
-	jp _EngineFlagAction
+	jmp _EngineFlagAction
 
 Script_checkflag:
 	call GetScriptByte
@@ -2341,7 +2341,7 @@ Script_warp:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	jp StopScript
+	jmp StopScript
 
 .not_ok
 	call GetScriptByte
@@ -2353,7 +2353,7 @@ Script_warp:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	jp StopScript
+	jmp StopScript
 
 Script_warpmod:
 	call GetScriptByte
@@ -2405,7 +2405,7 @@ Script_changemapblocks:
 	call GetScriptByte
 	ld [wMapBlocksPointer + 1], a
 	call ChangeMap
-	jp BufferScreen
+	jmp BufferScreen
 
 Script_changeblock:
 	call GetScriptByte
@@ -2417,7 +2417,7 @@ Script_changeblock:
 	call GetBlockLocation
 	call GetScriptByte
 	ld [hl], a
-	jp BufferScreen
+	jmp BufferScreen
 
 Script_reloadmappart::
 	xor a
@@ -2425,7 +2425,7 @@ Script_reloadmappart::
 	call OverworldTextModeSwitch
 	call GetMovementPermissions
 	farcall ReloadMapPart
-	jp UpdateSprites
+	jmp UpdateSprites
 
 Script_warpcheck:
 	call WarpCheck
@@ -2438,7 +2438,7 @@ Script_newloadmap:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	jp StopScript
+	jmp StopScript
 
 Script_reloadend:
 	call Script_newloadmap
@@ -2467,7 +2467,7 @@ Script_autoinput:
 	call GetScriptByte
 	ld h, a
 	pop af
-	jp StartAutoInput
+	jmp StartAutoInput
 
 Script_pause:
 	call GetScriptByte
@@ -2490,7 +2490,7 @@ Script_deactivatefacing:
 .no_time
 	ld a, SCRIPT_WAIT
 	ld [wScriptMode], a
-	jp StopScript
+	jmp StopScript
 
 Script_stopandsjump:
 	call StopScript
@@ -2508,7 +2508,7 @@ Script_end::
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res 0, [hl]
-	jp StopScript
+	jmp StopScript
 
 Script_endcallback:
 	call ExitScriptSubroutine
@@ -2516,7 +2516,7 @@ Script_endcallback:
 .dummy
 	ld hl, wScriptFlags
 	res 0, [hl]
-	jp StopScript
+	jmp StopScript
 
 ExitScriptSubroutine:
 ; Return carry if there's no parent to return to.
@@ -2556,7 +2556,7 @@ Script_endall:
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res 0, [hl]
-	jp StopScript
+	jmp StopScript
 
 Script_halloffame:
 	ld hl, wGameTimerPaused
@@ -2574,7 +2574,7 @@ ReturnFromCredits:
 	call Script_endall
 	ld a, MAPSTATUS_DONE
 	call LoadMapStatus
-	jp StopScript
+	jmp StopScript
 
 Script_wait:
 	push bc

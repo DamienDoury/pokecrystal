@@ -46,7 +46,7 @@ BattleCommand_Teleport:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed
 
 .enemy_turn
 	ld a, [wBattleMode]
@@ -85,7 +85,7 @@ BattleCommand_Teleport:
 	call SetBattleDraw
 
 	ld hl, FledFromBattleText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .trainer
 	farcall BreakAttraction

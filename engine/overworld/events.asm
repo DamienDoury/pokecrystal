@@ -124,7 +124,7 @@ ClappingAutoSFX:
 	ret c
 
 	ld de, SFX_CHEERING
-	jp PlaySFX
+	jmp PlaySFX
 
 .TryEndClapping
 	call CheckSFX
@@ -222,7 +222,7 @@ NextOverworldFrame::
 	ret z
 
 	ld c, a
-	jp DelayFrames
+	jmp DelayFrames
 
 HandleMapTimeAndJoypad:
 	ld a, [wMapEventStatus]
@@ -231,7 +231,7 @@ HandleMapTimeAndJoypad:
 
 	call UpdateTime
 	call GetJoypad
-	jp TimeOfDayPals
+	jmp TimeOfDayPals
 
 HandleMapBackground::
 	farcall _UpdateSprites
@@ -402,7 +402,7 @@ CheckTileEvent:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	jp CallScript
+	jmp CallScript
 
 CheckWildEncounterCooldown::
 	ld hl, wWildEncounterCooldown
@@ -485,7 +485,7 @@ RunSceneScript:
 	ld h, [hl]
 	ld l, a
 	ld a, [wPriorityScriptBank]
-	jp CallScript
+	jmp CallScript
 
 .nope
 	xor a
@@ -518,7 +518,7 @@ CheckTimeEvents:
 .end_bug_contest
 	ld a, BANK(BugCatchingContestOverScript)
 	ld hl, BugCatchingContestOverScript
-	jp CallScript
+	jmp CallScript
 
 OWPlayerInput:
 	call PlayerMovement
@@ -602,7 +602,7 @@ CheckAPressOW::
 	call OpenTextPost
 	ld a, BANK(SweetScentScript)
 	ld hl, SweetScentScript
-	jp CallScript
+	jmp CallScript
 
 .try_to_cut_grass ; Try to cut grass, while standing outside the edge of a patch.
 	call .try_to_cut
@@ -833,7 +833,7 @@ CheckLongBPressOW:
 
 	ld a, BANK(FlyFunction)
 	ld hl, FlyFunction.FlyScript
-	jp CallScript
+	jmp CallScript
 
 .close_menu_after_cancel
 ; This is a copy of ExitAllMenus.
@@ -856,7 +856,7 @@ CheckLongBPressOW:
 	farcall DoDigFromOW
 	ld a, BANK(EscapeRopeOrDig.UsedDigFromOWScript)
 	ld hl, EscapeRopeOrDig.UsedDigFromOWScript
-	jp CallScript
+	jmp CallScript
 
 .cancel_long_press
 	xor a
@@ -892,7 +892,7 @@ CheckLongBPressOW:
 	farcall DoEscapeRopeFromOW
 	ld a, BANK(EscapeRopeOrDig.UsedEscapeRopeFromOWScript)
 	ld hl, EscapeRopeOrDig.UsedEscapeRopeFromOWScript
-	jp CallScript
+	jmp CallScript
 
 .try_teleport ; Put at the bottom, so we can keep using jr instead of jp above.
 	ld d, TELEPORT
@@ -907,7 +907,7 @@ CheckLongBPressOW:
 	farcall GetPartyNickname
 	ld a, BANK(TeleportFunction.TeleportFromOWScript)
 	ld hl, TeleportFunction.TeleportFromOWScript
-	jp CallScript
+	jmp CallScript
 
 CheckLongSelectPressOW:
 	ldh a, [hJoypadDown]
@@ -1024,7 +1024,7 @@ CheckLongSelectPressOW:
 	ld [wCurItem], a
 	ld a, BANK(SelectMenuShortcutScript)
 	ld hl, SelectMenuShortcutScript
-	jp CallScript
+	jmp CallScript
 
 CheckLongStartPressOW:
 	ldh a, [hJoypadDown]
@@ -1090,7 +1090,7 @@ CheckLongStartPressOW:
 	; Start menu.
 	ld a, BANK(StartMenuScript)
 	ld hl, StartMenuScript
-	jp CallScript
+	jmp CallScript
 
 ; Output: carry if true.
 IsPlayerFacingWaterWhileStandingOnLand:
@@ -1140,7 +1140,7 @@ IsPlayerFacingGrassWhileStandingOutsideOfGrass:
 
 	call GetFacingTileCoordAndCollType
 	ld hl, .grass_coll
-	jp IsInByteArray
+	jmp IsInByteArray
 
 .grass_coll
 	db COLL_TALL_GRASS
@@ -1166,7 +1166,7 @@ TryObjectEvent:
 	ret
 
 .IsObject:
-	jp InteractWithObj
+	jmp InteractWithObj
 
 TryFarNPCOnlyEvent:
 	farcall CheckFacingFarNPCOnly
@@ -1238,7 +1238,7 @@ ObjectEventTypeArray:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	jp CallScript
+	jmp CallScript
 
 .itemball
 	ld hl, MAPOBJECT_SCRIPT_POINTER
@@ -1330,7 +1330,7 @@ BGEventJumptable:
 	ld h, [hl]
 	ld l, a
 	call GetMapScriptsBank
-	jp CallScript
+	jmp CallScript
 
 .itemifset:
 	call CheckBGEventFlag
@@ -1342,7 +1342,7 @@ BGEventJumptable:
 	call FarCopyBytes
 	ld a, BANK(HiddenItemScript)
 	ld hl, HiddenItemScript
-	jp CallScript
+	jmp CallScript
 
 .copy:
 	call CheckBGEventFlag
@@ -1370,7 +1370,7 @@ BGEventJumptable:
 	call GetMapScriptsBank
 	call GetFarWord
 	call GetMapScriptsBank
-	jp CallScript
+	jmp CallScript
 
 .closeddoor:
 	call GetFacingTileCoordAndCollType
@@ -1636,7 +1636,7 @@ DoRepelStep:
 	ld a, BANK(UseAnotherRepelScript)
 	ld hl, UseAnotherRepelScript
 .got_script
-	jp CallScript
+	jmp CallScript
 
 DoPlayerEvent:
 	ld a, [wScriptRunning]
@@ -1838,12 +1838,12 @@ RandomEncounter::
 .ok
 	ld a, BANK(WildBattleScript)
 	ld hl, WildBattleScript
-	jp CallScript
+	jmp CallScript
 
 .ok_bug_contest
 	ld a, BANK(BugCatchingContestBattleScript)
 	ld hl, BugCatchingContestBattleScript
-	jp CallScript	
+	jmp CallScript	
 
 WildBattleScript:
 	randomwildmon

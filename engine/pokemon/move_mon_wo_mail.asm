@@ -35,7 +35,7 @@ InsertPokemonIntoBox:
 	ld a, [wCurPartyMon]
 	ld b, a
 	farcall RestorePPOfDepositedPokemon
-	jp CloseSRAM
+	jmp CloseSRAM
 
 InsertPokemonIntoParty:
 	ld hl, wPartyCount
@@ -60,7 +60,7 @@ InsertPokemonIntoParty:
 	ld hl, wPartyMons
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld de, wBufferMon
-	jp InsertDataIntoBoxOrParty
+	jmp InsertDataIntoBoxOrParty
 
 InsertSpeciesIntoBoxOrParty:
 	inc [hl]

@@ -2,7 +2,7 @@ FieldMoveJumptableReset:
 	xor a
 	ld hl, wFieldMoveData
 	ld bc, wFieldMoveDataEnd - wFieldMoveData
-	jp ByteFill
+	jmp ByteFill
 
 FieldMoveJumptable:
 	ld a, [wFieldMoveJumptableIndex]
@@ -124,7 +124,7 @@ CheckPartyMove::
 
 FieldMoveFailed:
 	ld hl, .CantUseItemText
-	jp MenuTextboxBackup
+	jmp MenuTextboxBackup
 
 .CantUseItemText:
 	text_far _CantUseItemText
@@ -262,7 +262,7 @@ CutDownTreeOrGrass::
 	call GetMovementPermissions
 	call UpdateSprites
 	call DelayFrame
-	jp LoadStandardFont
+	jmp LoadStandardFont
 
 CheckOverworldTileArrays:
 	; Input: c contains the tile you're facing
@@ -337,7 +337,7 @@ FlashFunction:
 
 UseFlash:
 	ld hl, Script_UseFlash
-	jp QueueScript
+	jmp QueueScript
 
 Script_UseFlash:
 	reloadmappart
@@ -578,7 +578,7 @@ TrySurfOW::
 
 	ld a, BANK(AskSurfScript)
 	ld hl, AskSurfScript
-	jp CallScript
+	jmp CallScript
 
 .quit
 	xor a
@@ -811,12 +811,12 @@ TryWaterfallOW::
 	jr c, .failed
 	ld a, BANK(Script_AskWaterfall)
 	ld hl, Script_AskWaterfall
-	jp CallScript
+	jmp CallScript
 
 .failed
 	ld a, BANK(Script_CantDoWaterfall)
 	ld hl, Script_CantDoWaterfall
-	jp CallScript
+	jmp CallScript
 
 Script_CantDoWaterfall:
 	jumptext .HugeWaterfallText
@@ -855,7 +855,7 @@ DoDigFromOW::
 	ld de, wNextWarp
 	ld bc, 3
 	call CopyBytes
-	jp GetPartyNickname
+	jmp GetPartyNickname
 
 EscapeRopeFunction:
 	call FieldMoveJumptableReset
@@ -1151,7 +1151,7 @@ GetStrengthParams:
 	add hl, de
 	ld a, [hl]
 	ld [wStrengthSpecies], a
-	jp GetPartyNickname
+	jmp GetPartyNickname
 
 Script_StrengthFromMenu:
 	reloadmappart
@@ -1340,7 +1340,7 @@ DisappearWhirlpool::
 	ld e, a
 	farcall PlayWhirlpoolSound
 	call BufferScreen
-	jp GetMovementPermissions
+	jmp GetMovementPermissions
 
 TryWhirlpoolOW::
 	ld d, WHIRLPOOL
@@ -1353,12 +1353,12 @@ TryWhirlpoolOW::
 	jr c, .failed
 	ld a, BANK(Script_AskWhirlpoolOW)
 	ld hl, Script_AskWhirlpoolOW
-	jp CallScript
+	jmp CallScript
 
 .failed
 	ld a, BANK(Script_MightyWhirlpool)
 	ld hl, Script_MightyWhirlpool
-	jp CallScript
+	jmp CallScript
 
 Script_MightyWhirlpool:
 	jumptext .MayPassWhirlpoolText
@@ -1440,7 +1440,7 @@ TryHeadbuttOW::
 
 	ld a, BANK(AskHeadbuttScript)
 	ld hl, AskHeadbuttScript
-	jp CallScript
+	jmp CallScript
 
 .no
 	xor a
@@ -1794,7 +1794,7 @@ PutTheRodAway:
 	ld a, OBJECT_ACTION_STAND
 	ld [wPlayerAction], a
 	call UpdateSprites
-	jp UpdatePlayerSprite
+	jmp UpdatePlayerSprite
 
 RodBiteText:
 	text_far _RodBiteText
@@ -2014,12 +2014,12 @@ TryCutOW::
 
 	ld a, BANK(AskCutScript)
 	ld hl, AskCutScript
-	jp CallScript
+	jmp CallScript
 
 .cant_cut
 	ld a, BANK(CantCutScript)
 	ld hl, CantCutScript
-	jp CallScript
+	jmp CallScript
 
 AskCutScript:
 	opentext

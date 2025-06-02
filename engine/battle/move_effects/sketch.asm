@@ -7,7 +7,7 @@ BattleCommand_Sketch:
 	and a
 	jr z, .not_linked
 	call AnimateFailedMove
-	jp PrintNothingHappened
+	jmp PrintNothingHappened
 
 .not_linked
 ; If the opponent has a substitute up, fail.
@@ -110,7 +110,7 @@ BattleCommand_Sketch:
 	call AnimateCurrentMove
 
 	ld hl, SketchedText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 .fail
 	call AnimateFailedMove

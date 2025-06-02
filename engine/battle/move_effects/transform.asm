@@ -135,7 +135,7 @@ BattleCommand_Transform:
 	ld a, SUBSTITUTE
 	call nz, LoadAnim
 	ld hl, TransformedText
-	jp StdBattleTextbox
+	jmp StdBattleTextbox
 
 BattleSideCopy:
 ; Copy bc bytes from hl to de if it's the player's turn.
@@ -150,4 +150,4 @@ BattleSideCopy:
 	ld l, e
 	pop de
 .copy
-	jp CopyBytes
+	jmp CopyBytes

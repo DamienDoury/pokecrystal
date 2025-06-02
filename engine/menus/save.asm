@@ -37,7 +37,7 @@ SaveAfterLinkTrade:
 	call SaveBackupChecksum
 	farcall BackupMail
 	farcall SaveRTC
-	jp ResumeGameLogic
+	jmp ResumeGameLogic
 
 ChangeBoxSaveGame:
 	push de
@@ -97,7 +97,7 @@ BoxLockAfterPowerOutage::
 	call LoadBox
 	call ResumeGameLogic
 
-	jp SaveGameData
+	jmp SaveGameData
 
 
 
@@ -120,7 +120,7 @@ MoveMonWOMail_SaveGame:
 	ld a, e
 	ld [wCurBox], a
 	call LoadBox
-	jp ResumeGameLogic
+	jmp ResumeGameLogic
 
 MoveMonWOMail_InsertMon_SaveGame:
 	call PauseGameLogic
@@ -149,7 +149,7 @@ MoveMonWOMail_InsertMon_SaveGame:
 	call LoadBox
 	call ResumeGameLogic
 	ld de, SFX_SAVE
-	jp PlaySFX
+	jmp PlaySFX
 
 StartMoveMonWOMail_SaveGame:
 	ld hl, MoveMonWOMailSaveText
@@ -263,7 +263,7 @@ SavedTheGame:
 	call PrintText
 	ld de, SFX_SAVE
 	call WaitPlaySFX
-	jp WaitSFX
+	jmp WaitSFX
 
 .saving_text
 if DEF(_FR_FR)
@@ -365,7 +365,7 @@ SavingDontTurnOffThePower:
 	ld [wOptions], a
 	; Wait for 16 frames
 	ld c, 16
-	jp DelayFrames
+	jmp DelayFrames
 
 ErasePreviousSave:
 	call EraseBoxes
@@ -391,7 +391,7 @@ EraseLinkBattleStats:
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
 	xor a
 	call ByteFill
-	jp CloseSRAM
+	jmp CloseSRAM
 
 EraseMysteryGift:
 	ld a, BANK(sBackupMysteryGiftItem)
@@ -400,7 +400,7 @@ EraseMysteryGift:
 	ld bc, sBackupMysteryGiftItemEnd - sBackupMysteryGiftItem
 	xor a
 	call ByteFill
-	jp CloseSRAM
+	jmp CloseSRAM
 
 EraseHallOfFame:
 	ld a, BANK(sHallOfFame)
@@ -409,7 +409,7 @@ EraseHallOfFame:
 	ld bc, sHallOfFameEnd - sHallOfFame
 	xor a
 	call ByteFill
-	jp CloseSRAM
+	jmp CloseSRAM
 
 Function14d18: ; unreferenced
 	ld a, BANK(s4_a007) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
@@ -418,7 +418,7 @@ Function14d18: ; unreferenced
 	ld de, s4_a007
 	ld bc, 4 * 12
 	call CopyBytes
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .Data:
 	db $0d, $02, $00, $05, $00, $00, $22, $02, $01, $05, $00, $00
@@ -431,7 +431,7 @@ EraseBattleTowerStatus:
 	call OpenSRAM
 	xor a
 	ld [sBattleTowerChallengeState], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 SaveData:
 	jp _SaveData
@@ -472,7 +472,7 @@ HallOfFame_InitSaveIfNeeded:
 	ld a, [wSavedAtLeastOnce]
 	and a
 	ret nz
-	jp ErasePreviousSave
+	jmp ErasePreviousSave
 
 ValidateSave:
 	ld a, BANK(sCheckValue1) ; aka BANK(sCheckValue2)
@@ -481,7 +481,7 @@ ValidateSave:
 	ld [sCheckValue1], a
 	ld a, SAVE_CHECK_VALUE_2
 	ld [sCheckValue2], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 SaveOptions:
 	ld a, BANK(sOptions)
@@ -493,7 +493,7 @@ SaveOptions:
 	ld a, [wOptions]
 	and $ff ^ (1 << NO_TEXT_SCROLL)
 	ld [sOptions], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 SavePlayerData:
 	ld a, BANK(sPlayerData)
@@ -506,7 +506,7 @@ SavePlayerData:
 	ld de, sCurMapData
 	ld bc, wCurMapDataEnd - wCurMapData
 	call CopyBytes
-	jp CloseSRAM
+	jmp CloseSRAM
 
 SavePokemonData:
 	ld a, BANK(sPokemonData)
@@ -520,7 +520,7 @@ SavePokemonData:
 
 SaveBox:
 	call GetBoxAddress
-	jp SaveBoxAddress
+	jmp SaveBoxAddress
 
 SaveChecksum:
 	ld hl, sGameData
@@ -599,7 +599,7 @@ SaveHospitalBoxBackup:
 	ld de, sHospitalBoxBackup
 	ld bc, sHospitalBoxEnd - sHospitalBox
 	call CopyBytes
-	jp CloseSRAM
+	jmp CloseSRAM
 
 RestoreHospitalBox: ; As both sHospitalBox and sHospitalBoxBackup must be in the same bank, we can make a direct copy and there's no need to use wBoxPartialData.
 	ld a, BANK(sHospitalBox) ; Must be in the same bank as sHospitalBoxBackup
@@ -608,7 +608,7 @@ RestoreHospitalBox: ; As both sHospitalBox and sHospitalBoxBackup must be in the
 	ld de, sHospitalBox
 	ld bc, sHospitalBoxEnd - sHospitalBox
 	call CopyBytes
-	jp CloseSRAM
+	jmp CloseSRAM
 
 TryLoadSaveFile:
 	call VerifyChecksum
@@ -784,7 +784,7 @@ LoadPokemonData:
 
 LoadBox:
 	call GetBoxAddress
-	jp LoadBoxAddress
+	jmp LoadBoxAddress
 
 VerifyChecksum:
 	ld hl, sGameData
@@ -868,7 +868,7 @@ _SaveData:
 	ld a, [hli]
 	ld [s4_a60e + 1], a
 
-	jp CloseSRAM
+	jmp CloseSRAM
 
 _LoadData:
 	ld a, BANK(sCrystalData)
@@ -887,7 +887,7 @@ _LoadData:
 	ld a, [s4_a60e + 1]
 	ld [hli], a
 
-	jp CloseSRAM
+	jmp CloseSRAM
 
 GetBoxAddress:
 	ld a, [wCurBox]

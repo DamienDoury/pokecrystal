@@ -117,7 +117,7 @@ CheckForLuckyNumberWinners:
 	ld hl, .LuckyNumberMatchPCText
 
 .print
-	jp PrintText
+	jmp PrintText
 
 .CompareLuckyNumberToMonID:
 	push bc

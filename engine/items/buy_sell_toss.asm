@@ -135,7 +135,7 @@ BuySellToss_UpdateQuantityDisplay:
 	ld a, [wMenuDataPointer + 1]
 	ld d, a
 	ld a, [wMenuDataBank]
-	jp FarCall_de
+	jmp FarCall_de
 
 BuySell_MultiplyPrice:
 	xor a
@@ -190,7 +190,7 @@ BuySell_DisplaySubtotal:
 	ld de, hMoneyTemp
 	lb bc, PRINTNUM_MONEY | 3, 6
 	call PrintNum
-	jp WaitBGMap
+	jmp WaitBGMap
 
 TossItem_MenuHeader:
 	db MENU_BACKUP_TILES ; flags

@@ -164,7 +164,7 @@ ScrollingMenuJoyAction:
 	and a
 	jr z, .xor_dec_up
 	dec [hl]
-	jp xor_a
+	jmp xor_a
 
 .xor_dec_up
 	jp xor_a_dec_a
@@ -181,7 +181,7 @@ ScrollingMenuJoyAction:
 	cp b
 	jr c, .xor_dec_down
 	inc [hl]
-	jp xor_a
+	jmp xor_a
 
 .xor_dec_down
 	jp xor_a_dec_a
@@ -390,7 +390,7 @@ ScrollingMenu_UpdateDisplay:
 	bit 0, a ; call function on cancel
 	jr nz, .call_function
 	ld de, .CancelString
-	jp PlaceString
+	jmp PlaceString
 
 .CancelString
 if DEF(_FR_FR)
@@ -403,7 +403,7 @@ endc
 	ld d, h
 	ld e, l
 	ld hl, wMenuData_ScrollingMenuFunction1
-	jp CallPointerAt
+	jmp CallPointerAt
 
 ScrollingMenu_CallFunctions1and2:
 	push hl

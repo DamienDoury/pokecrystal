@@ -138,7 +138,7 @@ asm_4815f:
 	bit B_BUTTON_F, b
 	jr nz, .b_button
 .dont_check_b_button
-	jp Function48272
+	jmp Function48272
 
 .b_button
 	call ClearBGPalettes
@@ -263,7 +263,7 @@ Function4820d:
 	ret
 
 Function48272:
-	jp Function4840c
+	jmp Function4840c
 
 MobileString_PersonalInfo:
 	db "Personal Info@"
@@ -324,7 +324,7 @@ asm_4828d:
 	ld a, [wd003]
 	set 0, a
 	ld [wd003], a
-	jp Function4840c
+	jmp Function4840c
 
 Function48304:
 	call Function48283
@@ -381,7 +381,7 @@ Function48304:
 .asm_48377
 	call Function48187
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
-	jp Function4840c
+	jmp Function4840c
 
 Function48383:
 	push bc
@@ -447,7 +447,7 @@ Function483bb:
 	hlcoord 11, 7
 	call ClearBox
 	hlcoord 11, 8
-	jp PlaceString
+	jmp PlaceString
 
 Function483e8:
 	push de
@@ -474,7 +474,7 @@ Function483e8:
 	ld d, h
 	ld e, l
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 Function4840c:
 	call Function48187
@@ -493,14 +493,14 @@ Function4840c:
 	ld c, 1
 	hlcoord 1, 4
 	call ClearBox
-	jp Function48157
+	jmp Function48157
 
 .narrower_box
 	ld b, 7
 	ld c, 1
 	hlcoord 1, 6
 	call ClearBox
-	jp Function48157
+	jmp Function48157
 
 Mobile12_Bin2Dec:
 	push bc
@@ -669,7 +669,7 @@ Function48689:
 	hlcoord 0, 4
 	ld b, $8
 	ld c, $12
-	jp Function48cdc
+	jmp Function48cdc
 
 Function486bf:
 	ld hl, w2DMenuCursorInitY
@@ -867,7 +867,7 @@ Function4876f:
 	call Function487ec
 	pop af
 	ldh [hInMenu], a
-	jp Function4840c
+	jmp Function4840c
 
 Function487ec:
 	push hl
@@ -878,7 +878,7 @@ rept 4
 	inc hl
 endr
 	ld de, String_4880d
-	jp PlaceString
+	jmp PlaceString
 
 Function487ff:
 	push hl
@@ -888,7 +888,7 @@ Function487ff:
 	pop hl
 	ld b, PRINTNUM_LEADINGZEROS | 1
 	ld c, 3
-	jp PrintNum
+	jmp PrintNum
 
 String_4880d:
 	db "@"
@@ -1163,7 +1163,7 @@ asm_48972:
 	call ClearBox
 	pop af
 	ldh [hInMenu], a
-	jp Function4840c
+	jmp Function4840c
 
 Function489ea:
 	push de
@@ -1393,7 +1393,7 @@ Function48ab5:
 	call Function48c5a
 .asm_48b88
 	ld a, $f0
-	jp Function48c00
+	jmp Function48c00
 .asm_48b8d
 	pop af
 	ld b, a
@@ -1600,7 +1600,7 @@ Function48c8e: ; unreferenced
 	farcall Function48c63
 	hlcoord 10, 7
 	call PlaceString
-	jp WaitBGMap
+	jmp WaitBGMap
 
 Function48ca3: ; unreferenced
 	push af
@@ -1720,13 +1720,13 @@ Function48d30:
 	ld hl, wd475
 	call Function48d4a
 	ld hl, wd477
-	jp Function48d4a
+	jmp Function48d4a
 
 Function48d3d:
 	ld hl, wd475
 	call Function48d94
 	ld hl, wd477
-	jp Function48d94
+	jmp Function48d94
 
 Function48d4a:
 	inc hl

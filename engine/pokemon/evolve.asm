@@ -317,7 +317,7 @@ EvolveAfterBattle_MasterLoop:
 	push hl
 	ld l, e
 	ld h, d
-	jp EvolveAfterBattle_MasterLoop
+	jmp EvolveAfterBattle_MasterLoop
 
 .dont_evolve_1
 	inc hl
@@ -374,14 +374,14 @@ UpdateSpeciesNameIfNotNicknamed:
 	ld hl, wStringBuffer1
 	pop de
 	ld bc, MON_NAME_LENGTH
-	jp CopyBytes
+	jmp CopyBytes
 
 CancelEvolution:
 	ld hl, StoppedEvolvingText
 	call PrintText
 	call ClearTilemap
 	pop hl
-	jp EvolveAfterBattle_MasterLoop
+	jmp EvolveAfterBattle_MasterLoop
 
 IsMonHoldingEverstone:
 	push hl

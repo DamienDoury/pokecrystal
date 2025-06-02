@@ -9,7 +9,7 @@ __LoadTradeScreenBorderGFX:
 	ld de, LinkCommsBorderGFX
 	ld hl, vTiles2
 	lb bc, BANK(LinkCommsBorderGFX), 70
-	jp Get2bpp
+	jmp Get2bpp
 
 LoadMobileTradeBorderTilemap:
 	ld hl, MobileTradeBorderTilemap
@@ -33,7 +33,7 @@ TestMobileTradeBorderTilemap: ; unreferenced
 	call SetPalettes
 	call WaitBGMap
 	call JoyWaitAorB
-	jp ExitMenu
+	jmp ExitMenu
 
 MobileTradeBorderTilemap:
 INCBIN "gfx/trade/border_mobile.tilemap"
@@ -121,7 +121,7 @@ InitTradeSpeciesList:
 	farcall PlaceTradePartnerNamesAndParty
 	hlcoord 10, 17
 	ld de, .CancelString
-	jp PlaceString
+	jmp PlaceString
 
 .CancelString:
 if DEF(_FR_FR)
@@ -137,7 +137,7 @@ LinkComms_LoadPleaseWaitTextboxBorderGFX:
 	ld de, LinkCommsBorderGFX + $30 tiles
 	ld hl, vTiles2 tile $76
 	lb bc, BANK(LinkCommsBorderGFX), 8
-	jp Get2bpp
+	jmp Get2bpp
 
 LoadTradeRoomBGPals:
 	farcall _LoadTradeRoomBGPals
@@ -156,7 +156,7 @@ LoadCableTradeBorderTilemap:
 	ret
 
 LinkTextbox:
-	jp _LinkTextbox
+	jmp _LinkTextbox
 
 PrintWaitingTextAndSyncAndExchangeNybble:
 	call LoadStandardMenuHeader
@@ -184,7 +184,7 @@ endc
 	call WaitBGMap
 	call WaitBGMap2
 	ld c, 50
-	jp DelayFrames
+	jmp DelayFrames
 
 .Waiting:
 if DEF(_FR_FR)

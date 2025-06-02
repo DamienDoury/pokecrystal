@@ -20,7 +20,7 @@ _LoadStandardFont::
 	ld de, Font
 	ld hl, vTiles1
 	lb bc, BANK(Font), $80
-	jp Get2bpp
+	jmp Get2bpp
 
 _LoadFontsExtra1::
 	ld de, FontsExtra_SolidBlackGFX
@@ -42,13 +42,13 @@ _LoadFontsExtra2::
 	ld hl, vTiles2 tile "▲" ; $61
 	ld b, BANK(FontsExtra2_UpArrowGFX)
 	ld c, 1
-	jp Get2bppViaHDMA
+	jmp Get2bppViaHDMA
 
 LoadFontLevelSymbol::
 	ld de, FontBattleExtra + 14 tiles ; "<DO>"
 	ld hl, vTiles2 tile $6e
 	lb bc, BANK(FontBattleExtra), 1
-	jp Get2bppViaHDMA
+	jmp Get2bppViaHDMA
 
 _LoadFontsBattleExtra::
 	ld de, FontBattleExtra
@@ -71,7 +71,7 @@ LoadFrame:
 	ld hl, vTiles2 tile " " ; $7f
 	ld de, TextboxSpaceGFX
 	lb bc, BANK(TextboxSpaceGFX), 1
-	jp Get1bppViaHDMA
+	jmp Get1bppViaHDMA
 
 LoadBattleFontsHPBar:
 	ld de, FontBattleExtra
@@ -127,4 +127,4 @@ LoadStatsScreenPageTilesGFX:
 	ld de, StatsScreenPageTilesGFX
 	ld hl, vTiles2 tile $31
 	lb bc, BANK(StatsScreenPageTilesGFX), 17
-	jp Get2bppViaHDMA
+	jmp Get2bppViaHDMA

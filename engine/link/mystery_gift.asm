@@ -156,7 +156,7 @@ DoMysteryGift:
 .CommunicationError:
 	ld hl, .MysteryGiftCommErrorText ; Communication error
 	call PrintText
-	jp DoMysteryGift
+	jmp DoMysteryGift
 
 .GiftWaiting:
 	ld hl, .RetrieveMysteryGiftText ; receive gift at counter
@@ -223,7 +223,7 @@ endc
 	call GetMysteryGiftBank
 	ld a, [sNumDailyMysteryGiftPartnerIDs]
 	cp MAX_MYSTERY_GIFT_PARTNERS
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .CheckAlreadyGotAGiftFromThatPerson:
 	call GetMysteryGiftBank
@@ -251,7 +251,7 @@ endc
 .Yes:
 	scf
 .No:
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .AddMysteryGiftPartnerID:
 	call GetMysteryGiftBank
@@ -267,7 +267,7 @@ endc
 	ld [hli], a
 	ld a, [wMysteryGiftPartnerID + 1]
 	ld [hl], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 .SaveMysteryGiftTrainerName:
 	call GetMysteryGiftBank
@@ -285,7 +285,7 @@ endc
 	ld hl, wMysteryGiftTrainer
 	ld bc, wMysteryGiftTrainerEnd - wMysteryGiftTrainer
 	call CopyBytes
-	jp CloseSRAM
+	jmp CloseSRAM
 
 ExchangeMysteryGiftData:
 	di
@@ -358,7 +358,7 @@ ExchangeMysteryGiftData:
 	jr z, .continue
 	ld a, MG_CANCELED
 	ldh [hMGStatusFlags], a
-	jp EndOrContinueMysteryGiftIRCommunication
+	jmp EndOrContinueMysteryGiftIRCommunication
 
 ReceiverExchangeMysteryGiftDataPayloads:
 	; Receive the data payload
@@ -377,7 +377,7 @@ ReceiverExchangeMysteryGiftDataPayloads_GotPayload:
 	jp nz, EndOrContinueMysteryGiftIRCommunication
 	; Receive an empty block
 	call ReceiveEmptyIRDataBlock
-	jp EndOrContinueMysteryGiftIRCommunication
+	jmp EndOrContinueMysteryGiftIRCommunication
 
 SenderExchangeMysteryGiftDataPayloads:
 	; Send the data payload
@@ -394,7 +394,7 @@ SenderExchangeMysteryGiftDataPayloads:
 	jp nz, EndOrContinueMysteryGiftIRCommunication
 	; Send an empty block
 	call SendEmptyIRDataBlock
-	jp EndOrContinueMysteryGiftIRCommunication
+	jmp EndOrContinueMysteryGiftIRCommunication
 
 ReceiveMysteryGiftDataPayload:
 	; Receive the region prefix
@@ -522,12 +522,12 @@ EndOrContinueMysteryGiftIRCommunication:
 ; receiver
 	call BeginReceivingIRCommunication
 	jr nz, EndOrContinueMysteryGiftIRCommunication
-	jp ReceiverExchangeMysteryGiftDataPayloads
+	jmp ReceiverExchangeMysteryGiftDataPayloads
 
 .sender
 	call BeginSendingIRCommunication
 	jr nz, EndOrContinueMysteryGiftIRCommunication
-	jp SenderExchangeMysteryGiftDataPayloads
+	jmp SenderExchangeMysteryGiftDataPayloads
 
 .quit
 	ldh a, [hMGStatusFlags]
@@ -575,7 +575,7 @@ ExchangeNameCardData:
 	jp nz, EndNameCardIRCommunication
 	; Receive an empty block
 	call ReceiveEmptyIRDataBlock
-	jp EndNameCardIRCommunication
+	jmp EndNameCardIRCommunication
 
 .sender
 	; Send the data payload
@@ -592,7 +592,7 @@ ExchangeNameCardData:
 	jp nz, EndNameCardIRCommunication
 	; Send an empty block
 	call SendEmptyIRDataBlock
-	jp EndNameCardIRCommunication
+	jmp EndNameCardIRCommunication
 
 ReceiveNameCardDataPayload:
 	; Receive the Name Card prefix
@@ -895,7 +895,7 @@ ReceiveIRHelloMessage:
 	ld d, 5
 	call SendInfraredLEDOn
 	ld d, 5
-	jp SendInfraredLEDOff
+	jmp SendInfraredLEDOff
 
 SendIRHelloMessageAfterDelay:
 	; Wait a random amount of time
@@ -1070,7 +1070,7 @@ SendIRDataMessage:
 	ld d, 5
 	call SendInfraredLEDOn
 	ld d, 17
-	jp SendInfraredLEDOff
+	jmp SendInfraredLEDOff
 
 InfraredLEDReceiveTimedOut:
 	ldh a, [hMGStatusFlags]
@@ -1233,15 +1233,15 @@ ReceiveIRDataMessage:
 	jp z, InfraredLEDReceiveTimedOut
 
 	ld d, 16
-	jp SendInfraredLEDOff
+	jmp SendInfraredLEDOff
 
 SendEmptyIRDataBlock:
 	ld b, 0
-	jp SendIRDataBlock
+	jmp SendIRDataBlock
 
 ReceiveEmptyIRDataBlock:
 	ld b, 0
-	jp ReceiveIRDataBlock
+	jmp ReceiveIRDataBlock
 
 MysteryGift_UpdateJoypad:
 ; We can only get four inputs at a time.
@@ -1332,7 +1332,7 @@ CopyMysteryGiftReceivedDecorationsToPC:
 	ld a, c
 	cp NUM_NON_TROPHY_DECOS
 	jr c, .loop
-	jp CloseSRAM
+	jmp CloseSRAM
 
 UnlockMysteryGift:
 ; If [sMysteryGiftUnlocked] was -1, this sets both
@@ -1346,7 +1346,7 @@ UnlockMysteryGift:
 	assert sMysteryGiftUnlocked - 1 == sMysteryGiftItem
 	ld [hl], a
 .ok
-	jp CloseSRAM
+	jmp CloseSRAM
 
 ResetDailyMysteryGiftLimitIfUnlocked:
 	call GetMysteryGiftBank
@@ -1356,7 +1356,7 @@ ResetDailyMysteryGiftLimitIfUnlocked:
 	xor a
 	ld [sNumDailyMysteryGiftPartnerIDs], a
 .dont_clear
-	jp CloseSRAM
+	jmp CloseSRAM
 
 BackupMysteryGift:
 ; Copies [sMysteryGiftItem] to [sBackupMysteryGiftItem],
@@ -1371,7 +1371,7 @@ BackupMysteryGift:
 	assert sBackupMysteryGiftItem + 1 == sNumDailyMysteryGiftPartnerIDs
 	ld a, [hl]
 	ld [de], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 RestoreMysteryGift:
 ; Copies [sBackupMysteryGiftItem] to [sMysteryGiftItem],
@@ -1386,7 +1386,7 @@ RestoreMysteryGift:
 	assert sMysteryGiftItem + 1 == sMysteryGiftUnlocked
 	ld a, [hl]
 	ld [de], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 ClearMysteryGiftTrainer:
 	ld hl, wMysteryGiftTrainer
@@ -1400,7 +1400,7 @@ ClearMysteryGiftTrainer:
 
 GetMysteryGiftBank:
 	ld a, BANK(sMysteryGiftData)
-	jp OpenSRAM
+	jmp OpenSRAM
 
 StagePartyDataForMysteryGift:
 ; You will be sending this data to your mystery gift partner.
@@ -1451,7 +1451,7 @@ StagePartyDataForMysteryGift:
 	ld [de], a
 	ld a, wMysteryGiftTrainerEnd - wMysteryGiftTrainer
 	ld [wUnusedMysteryGiftStagedDataLength], a
-	jp CloseSRAM
+	jmp CloseSRAM
 
 InitMysteryGiftLayout:
 	call ClearBGPalettes
@@ -1541,7 +1541,7 @@ InitMysteryGiftLayout:
 	call WaitBGMap
 	ld b, SCGB_MYSTERY_GIFT
 	call GetSGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 .Load5GFX:
 	ld b, 5
@@ -1674,7 +1674,7 @@ endr
 	call .ClearScreen
 	ld hl, .NameCardCommErrorText
 	call PrintText
-	jp DoNameCardSwap
+	jmp DoNameCardSwap
 
 .PrintTextAndExit:
 	call PrintText
@@ -1716,7 +1716,7 @@ endr
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 StageDataForNameCard:
 	ld de, wMysteryGiftStaging
@@ -1840,7 +1840,7 @@ InitNameCardLayout:
 	call WaitBGMap
 	ld b, CRYSTAL_CGB_NAME_CARD
 	farcall GetCrystalCGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 .Load6Row:
 	ld b,  6

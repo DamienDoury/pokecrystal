@@ -92,7 +92,7 @@ endc
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	jp SetPalettes
+	jmp SetPalettes
 
 .Health:
 if DEF(_FR_FR)
@@ -122,7 +122,7 @@ ContestAskSwitchText:
 DisplayAlreadyCaughtText:
 	call GetPokemonName
 	ld hl, .ContestAlreadyCaughtText
-	jp PrintText
+	jmp PrintText
 
 .ContestAlreadyCaughtText:
 	text_far _ContestAlreadyCaughtText

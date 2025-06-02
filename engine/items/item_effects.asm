@@ -846,7 +846,7 @@ PokeBallEffect::
 	ld de, wStringBuffer1
 	call InitName
 
-	jp .return_from_capture
+	jmp .return_from_capture
 
 .SendToPC:
 	call ClearSprites
@@ -961,7 +961,7 @@ PokeBallEffect::
 	ld hl, wNumItems
 	inc a
 	ld [wItemQuantityChange], a
-	jp TossItem
+	jmp TossItem
 
 .used_park_ball
 	ld hl, wParkBallsRemaining
@@ -1387,7 +1387,7 @@ EvoStoneEffect:
 	and a
 	jr z, .NoEffect
 
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 .NoEffect:
 	call WontHaveAnyEffectMessage
@@ -1441,12 +1441,12 @@ VitaminEffect:
 	predef CopyMonToTempMon
 	call DisplayStatsInPartyMenu
 
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 NoEffectMessage:
 	ld hl, ItemWontHaveEffectText
 	call PrintText
-	jp ClearPalettes
+	jmp ClearPalettes
 
 UpdateStatsAfterItem:
 	ld a, MON_MAXHP
@@ -1486,7 +1486,7 @@ WriteDownOldStatsForGainCalculation::
 RareCandy_StatBooster_ExitMenu:
 	xor a
 	ld [wItemEffectSucceeded], a
-	jp ClearPalettes
+	jmp ClearPalettes
 
 ItemStatRoseText:
 	text_far _ItemStatRoseText
@@ -1547,7 +1547,7 @@ RareCandy_StatBooster_GetParameters:
 	call GetBaseData
 	ld a, [wCurPartyMon]
 	ld hl, wPartyMonNicknames
-	jp GetNickname
+	jmp GetNickname
 
 RareCandyEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1646,7 +1646,7 @@ RareCandyEffect:
 	ld [wForceEvolution], a
 	farcall EvolvePokemon
 
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 DisplayStatsInPartyMenu:
 	hlcoord 9, 0
@@ -1658,7 +1658,7 @@ DisplayStatsInPartyMenu:
 	ld bc, 4
 	predef PrintTempMonLevelUpStats
 
-	jp WaitPressAorB_BlinkCursor
+	jmp WaitPressAorB_BlinkCursor
 
 HealPowderEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1677,7 +1677,7 @@ HealPowderEffect:
 	ld a, $0
 
 .not_used
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 StatusHealingEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1686,7 +1686,7 @@ StatusHealingEffect:
 
 FullyHealStatus:
 	call UseStatusHealer
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 UseStatusHealer:
 	call IsMonFainted
@@ -1811,7 +1811,7 @@ RevivalHerbEffect:
 	ld a, $0
 
 .not_used
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 ReviveEffect:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -1819,7 +1819,7 @@ ReviveEffect:
 	jp c, StatusHealer_ExitMenu
 
 	call RevivePokemon
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 RevivePokemon:
 	call IsMonFainted
@@ -1878,7 +1878,7 @@ FullRestoreEffect:
 	call IsMonAtFullHealth
 	jr c, .NotAtFullHealth
 
-	jp FullyHealStatus
+	jmp FullyHealStatus
 
 .NotAtFullHealth:
 	call .FullRestore
@@ -1920,7 +1920,7 @@ BitterBerryEffect:
 	ld a, 0
 
 .done
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 RestoreHPEffect:
 	call ItemRestoreHP
@@ -1945,7 +1945,7 @@ EnergypowderEnergyRootCommon:
 	ld a, 0
 
 .skip_happiness
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 ItemRestoreHP:
 	ld b, PARTYMENUACTION_HEALING_ITEM
@@ -2064,7 +2064,7 @@ ItemActionTextWaitButton:
 	ldh [hBGMapMode], a
 	ld c, 50
 	call DelayFrames
-	jp WaitPressAorB_BlinkCursor
+	jmp WaitPressAorB_BlinkCursor
 
 StatusHealer_NoEffect:
 	call WontHaveAnyEffectMessage
@@ -2108,7 +2108,7 @@ ContinueRevive:
 	ld [hl], d
 	inc hl
 	ld [hl], e
-	jp LoadCurHPIntoBuffer3
+	jmp LoadCurHPIntoBuffer3
 
 RestoreHealth:
 	ld a, MON_HP + 1
@@ -2153,7 +2153,7 @@ RemoveHP:
 	ld [hld], a
 	ld [hl], a
 .okay
-	jp LoadCurHPIntoBuffer3
+	jmp LoadCurHPIntoBuffer3
 
 IsMonFainted:
 	push de
@@ -2385,7 +2385,7 @@ UseRepel:
 	ld [wRepelEffect], a
 	ld a, [wCurItem]
 	ld [wRepelType], a
-	jp UseItemText
+	jmp UseItemText
 
 RepelUsedEarlierIsStillInEffectText:
 	text_far _RepelUsedEarlierIsStillInEffectText
@@ -2396,7 +2396,7 @@ XAccuracyEffect:
 	bit SUBSTATUS_X_ACCURACY, [hl]
 	jp nz, WontHaveAnyEffect_NotUsedMessage
 	set SUBSTATUS_X_ACCURACY, [hl]
-	jp UseItemText
+	jmp UseItemText
 
 PokeDollEffect:
 	ld a, [wBattleMode]
@@ -2408,7 +2408,7 @@ PokeDollEffect:
 	and BATTLERESULT_BITMASK
 	or DRAW
 	ld [wBattleResult], a
-	jp UseItemText
+	jmp UseItemText
 
 .not_wild
 	xor a
@@ -2420,14 +2420,14 @@ GuardSpecEffect:
 	bit SUBSTATUS_MIST, [hl]
 	jp nz, WontHaveAnyEffect_NotUsedMessage
 	set SUBSTATUS_MIST, [hl]
-	jp UseItemText
+	jmp UseItemText
 
 DireHitEffect:
 	ld hl, wPlayerSubStatus4
 	bit SUBSTATUS_FOCUS_ENERGY, [hl]
 	jp nz, WontHaveAnyEffect_NotUsedMessage
 	set SUBSTATUS_FOCUS_ENERGY, [hl]
-	jp UseItemText
+	jmp UseItemText
 
 XItemEffect:
 	call UseItemText
@@ -2507,7 +2507,7 @@ PokeFluteEffect:
 	; more code was dummied out here
 .dummy
 	ld hl, .FluteWakeUpText
-	jp PrintText
+	jmp PrintText
 
 .CureSleep:
 	ld de, PARTYMON_STRUCT_LENGTH
@@ -2551,11 +2551,11 @@ PokeFluteEffect:
 	pop de
 
 .battle
-	jp PokeFluteTerminator
+	jmp PokeFluteTerminator
 
 BlueCardEffect:
 	ld hl, .BlueCardBalanceText
-	jp MenuTextboxWaitButton
+	jmp MenuTextboxWaitButton
 
 .BlueCardBalanceText:
 	text_far _BlueCardBalanceText
@@ -2563,7 +2563,7 @@ BlueCardEffect:
 
 CoinCaseEffect:
 	ld hl, .CoinCaseCountText
-	jp MenuTextboxWaitButton
+	jmp MenuTextboxWaitButton
 
 .CoinCaseCountText:
 	text_far _CoinCaseCountText
@@ -2671,7 +2671,7 @@ RestorePPEffect:
 
 FinishPPRestore:
 	call ClearPalettes
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 BattleRestorePP:
 	ld a, [wBattleMode]
@@ -2732,7 +2732,7 @@ endr
 Not_PP_Up:
 	call RestorePP
 	jr nz, BattleRestorePP
-	jp PPRestoreItem_NoEffect
+	jmp PPRestoreItem_NoEffect
 
 Elixer_RestorePPofAllMoves:
 	xor a
@@ -2855,7 +2855,7 @@ SacredAshEffect:
 	ld a, [wItemEffectSucceeded]
 	cp $1
 	ret nz
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 NormalBoxEffect:
 	ld c, DECOFLAG_SILVER_TROPHY_DOLL
@@ -2869,7 +2869,7 @@ OpenBox:
 	ld hl, .SentTrophyHomeText
 	call PrintText
 
-	jp UseDisposableItem
+	jmp UseDisposableItem
 
 .SentTrophyHomeText:
 	text_far _SentTrophyHomeText
@@ -2894,7 +2894,7 @@ UseDisposableItem:
 	ld hl, wNumItems
 	ld a, 1
 	ld [wItemQuantityChange], a
-	jp TossItem
+	jmp TossItem
 
 UseBallInTrainerBattle:
 	call ReturnToBattle_UseBall
@@ -2925,7 +2925,7 @@ WontHaveAnyEffect_NotUsedMessage:
 
 LooksBitterMessage:
 	ld hl, ItemLooksBitterText
-	jp PrintText
+	jmp PrintText
 
 Ball_BoxIsFullMessage:
 	ld hl, BallBoxFullText
@@ -2952,7 +2952,7 @@ CantUseItemMessage:
 ; Item couldn't be used.
 	xor a
 	ld [wItemEffectSucceeded], a
-	jp PrintText
+	jmp PrintText
 
 ItemLooksBitterText:
 	text_far _ItemLooksBitterText

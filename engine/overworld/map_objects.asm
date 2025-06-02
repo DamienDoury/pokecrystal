@@ -42,7 +42,7 @@ HandleObjectStep:
 
 .skip_visibility
 	call HandleStepType
-	jp HandleObjectAction
+	jmp HandleObjectAction
 
 CheckObjectStillVisible:
 	ld hl, OBJECT_FLAGS2
@@ -188,7 +188,7 @@ CallObjectAction:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	jp _hl_
+	jmp _hl_
 
 INCLUDE "engine/overworld/map_object_action.asm"
 
@@ -543,20 +543,20 @@ MovementFunction_RandomWalkY:
 	call Random
 	ldh a, [hRandomAdd]
 	and %00000001
-	jp _RandomWalkContinue
+	jmp _RandomWalkContinue
 
 MovementFunction_RandomWalkX:
 	call Random
 	ldh a, [hRandomAdd]
 	and %00000001
 	or  %00000010
-	jp _RandomWalkContinue
+	jmp _RandomWalkContinue
 
 MovementFunction_RandomWalkXY:
 	call Random
 	ldh a, [hRandomAdd]
 	and %00000011
-	jp _RandomWalkContinue
+	jmp _RandomWalkContinue
 
 MovementFunction_RandomSpinSlow:
 	call Random
@@ -565,7 +565,7 @@ MovementFunction_RandomSpinSlow:
 	ld hl, OBJECT_FACING
 	add hl, bc
 	ld [hl], a
-	jp RandomStepDuration_Slow
+	jmp RandomStepDuration_Slow
 
 MovementFunction_RandomSpinFast:
 	ld hl, OBJECT_FACING
@@ -581,7 +581,7 @@ MovementFunction_RandomSpinFast:
 	xor %00001100
 .keep
 	ld [hl], a
-	jp RandomStepDuration_Fast
+	jmp RandomStepDuration_Fast
 
 MovementFunction_Standing:
 	call CopyStandingCoordsTileToNextCoordsTile
@@ -596,15 +596,15 @@ MovementFunction_Standing:
 
 MovementFunction_ObeyDPad:
 	ld hl, GetPlayerNextMovementByte
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_Indexed1:
 	ld hl, GetIndexedMovementByte1
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_Indexed2:
 	ld hl, GetIndexedMovementByte2
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_0a:
 	jp _GetMovementObject
@@ -617,18 +617,18 @@ MovementFunction_0c:
 
 MovementFunction_0d:
 	ld hl, GetPlayerNextMovementByte
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_0e:
 	jp _GetMovementObject
 
 MovementFunction_Follow:
 	ld hl, GetFollowerNextMovementByte
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_Script:
 	ld hl, GetMovementByte
-	jp HandleMovementData
+	jmp HandleMovementData
 
 MovementFunction_Strength:
 	call ObjectMovementByte_AnonJumptable
@@ -747,7 +747,7 @@ MovementFunction_FollowNotExact:
 	and %00001100
 	or d
 	pop bc
-	jp NormalStep
+	jmp NormalStep
 
 .standing
 	pop bc
@@ -822,7 +822,7 @@ _MovementSpinRepeat:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_SLEEP
-	jp ObjectMovementByte_IncAnonJumptableIndex
+	jmp ObjectMovementByte_IncAnonJumptableIndex
 
 _MovementShineInit:
 	call EndSpriteMovement
@@ -850,7 +850,7 @@ _MovementShineRepeat:
 	ld hl, OBJECT_STEP_TYPE
 	add hl, bc
 	ld [hl], STEP_TYPE_SLEEP
-	jp ObjectMovementByte_IncAnonJumptableIndex
+	jmp ObjectMovementByte_IncAnonJumptableIndex
 
 _MovementSpinTurnLeft:
 	ld de, .facings_counterclockwise
@@ -899,7 +899,7 @@ _MovementSpinNextFacing:
 	ld a, [hl]
 	pop hl
 	ld [hl], a
-	jp ObjectMovementByte_DecAnonJumptableIndex
+	jmp ObjectMovementByte_DecAnonJumptableIndex
 
 MovementFunction_Shadow:
 	call InitMovementField1dField1e
@@ -1055,7 +1055,7 @@ MovementFunction_PingPongWalk: ; Damien.
 	call CopyStandingCoordsTileToNextCoordsTile
 
 	ld a, $01
-	jp _SetRandomStepDuration
+	jmp _SetRandomStepDuration
 
 
 MovementFunction_CircleWalk: ; Damien.
@@ -1100,7 +1100,7 @@ MovementFunction_CircleWalk: ; Damien.
 	call CopyStandingCoordsTileToNextCoordsTile
 
 	ld a, $01
-	jp _SetRandomStepDuration
+	jmp _SetRandomStepDuration
 
 
 InitMovementField1dField1e:
@@ -1268,7 +1268,7 @@ StepFunction_NPCJump:
 	ld hl, OBJECT_FLAGS2
 	add hl, bc
 	res OVERHEAD_F, [hl]
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .Land:
 	call AddStepVector
@@ -1309,7 +1309,7 @@ StepFunction_PlayerJump:
 	ld hl, wPlayerStepFlags
 	set PLAYERSTEP_STOP_F, [hl]
 	set PLAYERSTEP_MIDAIR_F, [hl]
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .initland
 	call GetNextTile
@@ -1355,7 +1355,7 @@ StepFunction_TeleportFrom:
 	add hl, bc
 	dec [hl]
 	ret nz
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .InitSpinRise:
 	ld hl, OBJECT_STEP_FRAME
@@ -1416,7 +1416,7 @@ StepFunction_TeleportTo:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], 16
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .DoWait:
 	ld hl, OBJECT_STEP_DURATION
@@ -1434,7 +1434,7 @@ StepFunction_TeleportTo:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], 16
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .DoDescent:
 	ld hl, OBJECT_ACTION
@@ -1460,7 +1460,7 @@ StepFunction_TeleportTo:
 	ld hl, OBJECT_STEP_DURATION
 	add hl, bc
 	ld [hl], 16
-	jp Field1c_IncAnonJumptableIndex
+	jmp Field1c_IncAnonJumptableIndex
 
 .DoFinalSpin:
 	ld hl, OBJECT_ACTION
@@ -1579,7 +1579,7 @@ StepFunction_GotBite:
 
 StepFunction_RockSmash:
 	call .Step
-	jp WaitStep_InPlace
+	jmp WaitStep_InPlace
 
 .Step:
 	ld hl, OBJECT_STEP_DURATION
@@ -1607,7 +1607,7 @@ StepFunction_DigTo:
 	ld hl, OBJECT_ACTION
 	add hl, bc
 	ld [hl], a
-	jp WaitStep_InPlace
+	jmp WaitStep_InPlace
 
 StepFunction_Sleep:
 	ld hl, OBJECT_DIRECTION_WALKING
@@ -1630,7 +1630,7 @@ StepFunction_Delete:
 	add hl, bc
 	dec [hl]
 	ret nz
-	jp DeleteMapObject
+	jmp DeleteMapObject
 
 StepFunction_Bump:
 	ld hl, OBJECT_STEP_DURATION
@@ -1687,7 +1687,7 @@ StepFunction_ContinueWalk:
 	dec [hl]
 	ret nz
 	call CopyNextCoordsTileToStandingCoordsTile
-	jp RandomStepDuration_Slow
+	jmp RandomStepDuration_Slow
 
 StepFunction_PlayerWalk:
 	call Field1c_AnonJumptable
@@ -1825,7 +1825,7 @@ StepFunction_TrackingObject:
 	dec [hl]
 	ret nz
 .nope
-	jp DeleteMapObject
+	jmp DeleteMapObject
 
 StepFunction_14:
 StepFunction_ScreenShake:
@@ -1975,7 +1975,7 @@ GetPlayerNextMovementByte:
 
 GetMovementByte:
 	ld hl, wMovementDataBank
-	jp _GetMovementByte
+	jmp _GetMovementByte
 
 GetIndexedMovementByte1:
 	ld hl, OBJECT_MOVEMENT_BYTE_INDEX
@@ -2007,7 +2007,7 @@ GetIndexedMovementByte2:
 
 _GetMovementObject:
 	ld hl, GetMovementObject
-	jp HandleMovementData
+	jmp HandleMovementData
 
 GetMovementObject:
 	ld a, [wMovementObject]
@@ -2352,13 +2352,13 @@ RespawnPlayerAndOpponent:
 	call RespawnObject
 
 .skip_opponent
-	jp _UpdateSprites
+	jmp _UpdateSprites
 
 RespawnPlayer:
 	call HideAllObjects
 	ld a, PLAYER
 	call RespawnObject
-	jp _UpdateSprites
+	jmp _UpdateSprites
 
 RespawnObject:
 	cp NUM_OBJECTS
@@ -2374,7 +2374,7 @@ RespawnObject:
 	call GetObjectStruct
 	call DoesObjectHaveASprite
 	ret z
-	jp UpdateRespawnedObjectFrozen
+	jmp UpdateRespawnedObjectFrozen
 
 HideAllObjects:
 	xor a
@@ -2628,7 +2628,7 @@ RefreshPlayerSprite:
 	call TryResetPlayerAction
 	farcall CheckWarpFacingDown
 	call c, SpawnInFacingDown
-	jp SpawnInCustomFacing
+	jmp SpawnInCustomFacing
 
 TryResetPlayerAction:
 	ld hl, wPlayerSpriteSetupFlags
@@ -2655,7 +2655,7 @@ SpawnInFacingDown:
 	ld a, DOWN
 _ContinueSpawnFacing:
 	ld bc, wPlayerStruct
-	jp SetSpriteDirection
+	jmp SetSpriteDirection
 
 _SetPlayerPalette:
 	ld a, d

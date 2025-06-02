@@ -146,7 +146,7 @@ TrySwitch:
 	inc a
 	; In register 'a' is the number (1-6) of the mon to switch to
 	ld [wEnemySwitchMonIndex], a
-	jp AI_TrySwitch
+	jmp AI_TrySwitch
 
 ; Input: all registers ABCDEHL are ignored.
 AI_TryItem:
@@ -301,7 +301,7 @@ AI_Items:
 	call .Status
 	jp c, .DontUse
 	call EnemyUsedFullHeal
-	jp .Use
+	jmp .Use
 
 .Status:
 	ld a, [wEnemyMonStatus]
@@ -317,7 +317,7 @@ AI_Items:
 	call Random
 	cp 20 percent - 1
 	jp c, .Use
-	jp .DontUse
+	jmp .DontUse
 
 .StatusCheckContext:
 	ld a, [wEnemySubStatus5]
@@ -333,7 +333,7 @@ AI_Items:
 	ld a, [wEnemyMonStatus]
 	and 1 << FRZ | SLP
 	jp z, .DontUse
-	jp .Use
+	jmp .Use
 
 .FullRestore:
 	call .HealItem
@@ -346,13 +346,13 @@ AI_Items:
 
 .UseFullRestore:
 	call EnemyUsedFullRestore
-	jp .Use
+	jmp .Use
 
 .MaxPotion:
 	call .HealItem
 	jp c, .DontUse
 	call EnemyUsedMaxPotion
-	jp .Use
+	jmp .Use
 
 .HealItem:
 	ld a, [bc]
@@ -368,7 +368,7 @@ AI_Items:
 	call Random
 	cp 50 percent + 1
 	jp c, .UseHealItem
-	jp .DontUse
+	jmp .DontUse
 
 .CheckQuarterHP:
 	callfar AICheckEnemyQuarterHP
@@ -388,28 +388,28 @@ AI_Items:
 	jp nc, .DontUse
 
 .UseHealItem:
-	jp .Use
+	jmp .Use
 
 .HyperPotion:
 	call .HealItem
 	jp c, .DontUse
 	ld b, 200
 	call EnemyUsedHyperPotion
-	jp .Use
+	jmp .Use
 
 .SuperPotion:
 	call .HealItem
 	jp c, .DontUse
 	ld b, 50
 	call EnemyUsedSuperPotion
-	jp .Use
+	jmp .Use
 
 .Potion:
 	call .HealItem
 	jp c, .DontUse
 	ld b, 20
 	call EnemyUsedPotion
-	jp .Use
+	jmp .Use
 
 ; Everything up to "End unused" is unused
 
@@ -445,7 +445,7 @@ AI_Items:
 	jp c, .Use
 
 .dont_use
-	jp .DontUse
+	jmp .DontUse
 
 .check_40_percent
 	pop bc
@@ -455,7 +455,7 @@ AI_Items:
 	call Random
 	cp 39 percent + 1
 	jp c, .Use
-	jp .DontUse
+	jmp .DontUse
 
 ; End unused
 
@@ -463,43 +463,43 @@ AI_Items:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXAccuracy
-	jp .Use
+	jmp .Use
 
 .GuardSpec:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedGuardSpec
-	jp .Use
+	jmp .Use
 
 .DireHit:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedDireHit
-	jp .Use
+	jmp .Use
 
 .XAttack:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXAttack
-	jp .Use
+	jmp .Use
 
 .XDefend:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXDefend
-	jp .Use
+	jmp .Use
 
 .XSpeed:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXSpeed
-	jp .Use
+	jmp .Use
 
 .XSpecial:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXSpecial
-	jp .Use
+	jmp .Use
 
 .XItem:
 	ld a, [wEnemyTurnsTaken]
@@ -517,7 +517,7 @@ AI_Items:
 	call Random
 	cp 50 percent + 1
 	jp c, .DontUse
-	jp .Use
+	jmp .Use
 .notfirstturnout
 	ld a, [bc]
 	bit ALWAYS_USE_F, a
@@ -525,7 +525,7 @@ AI_Items:
 	call Random
 	cp 20 percent - 1
 	jp nc, .DontUse
-	jp .Use
+	jmp .Use
 
 .DontUse:
 	scf
@@ -559,7 +559,7 @@ EnemyUsedFullHeal:
 	ld [wCurEnemyItem], a
 	xor a
 	ld [wEnemyConfuseCount], a
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedMaxPotion:
 	ld a, MAX_POTION
@@ -654,7 +654,7 @@ EnemyPotionFinish:
 	ld [wWhichHPBar], a
 	call AIUsedItemSound
 	predef AnimateHPBar
-	jp AIUpdateHUD
+	jmp AIUpdateHUD
 
 AI_TrySwitch:
 ; Determine whether the AI can switch based on how many Pokemon are still alive.
@@ -742,7 +742,7 @@ EnemyUsedFullHealRed: ; unreferenced
 	call AIUsedItemSound
 	call AI_HealStatus
 	ld a, FULL_HEAL_RED ; X_SPEED
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 AI_HealStatus:
 	ld a, [wCurOTMon]
@@ -765,21 +765,21 @@ EnemyUsedXAccuracy:
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_X_ACCURACY, [hl]
 	ld a, X_ACCURACY
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedGuardSpec:
 	call AIUsedItemSound
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_MIST, [hl]
 	ld a, GUARD_SPEC
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 EnemyUsedDireHit:
 	call AIUsedItemSound
 	ld hl, wEnemySubStatus4
 	set SUBSTATUS_FOCUS_ENERGY, [hl]
 	ld a, DIRE_HIT
-	jp PrintText_UsedItemOn_AND_AIUpdateHUD
+	jmp PrintText_UsedItemOn_AND_AIUpdateHUD
 
 AICheckEnemyFractionMaxHP: ; unreferenced
 ; Input: a = divisor
@@ -841,14 +841,14 @@ EnemyUsedXItem:
 	call PrintText_UsedItemOn
 	pop bc
 	farcall RaiseStat
-	jp AIUpdateHUD
+	jmp AIUpdateHUD
 
 ; Parameter
 ; a = ITEM_CONSTANT
 PrintText_UsedItemOn_AND_AIUpdateHUD:
 	ld [wCurEnemyItem], a
 	call PrintText_UsedItemOn
-	jp AIUpdateHUD
+	jmp AIUpdateHUD
 
 PrintText_UsedItemOn:
 	ld a, [wCurEnemyItem]
@@ -859,7 +859,7 @@ PrintText_UsedItemOn:
 	ld bc, ITEM_NAME_LENGTH
 	call CopyBytes
 	ld hl, EnemyUsedOnText
-	jp PrintText
+	jmp PrintText
 
 EnemyUsedOnText:
 	text_far _EnemyUsedOnText

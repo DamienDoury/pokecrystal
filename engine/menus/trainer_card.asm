@@ -214,7 +214,7 @@ TrainerCard_Page3_LoadGFX:
 	call Request2bpp
 	ld hl, TrainerCard_KantoBadgesOAM
 	call TrainerCard_Page2_3_InitObjectsAndStrings
-	jp TrainerCard_IncrementJumptable
+	jmp TrainerCard_IncrementJumptable
 
 TrainerCard_Page3_Joypad:
 	ld hl, TrainerCard_KantoBadgesOAM
@@ -419,7 +419,7 @@ TrainerCard_Page1_PrintDexCaught_GameTime:
 	ret nz
 	hlcoord 1, 13
 	lb bc, 1, 17
-	jp ClearBox
+	jmp ClearBox
 
 .Dex_PlayTime:
 if DEF(_FR_FR)
@@ -512,7 +512,7 @@ endr
 	xor a
 	ld [wTrainerCardBadgeFrameCounter], a
 	pop hl
-	jp TrainerCard_Page2_3_OAMUpdate
+	jmp TrainerCard_Page2_3_OAMUpdate
 
 .BadgesTilemap:
 	db $00, $79, $7a, $7b, $7c, $7d, -1 ; "◄BADGES"

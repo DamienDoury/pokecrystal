@@ -13,7 +13,7 @@ BlankScreen:
 	ld a, $7
 	call ByteFill
 	call WaitBGMap2
-	jp SetPalettes
+	jmp SetPalettes
 
 SpawnPlayer:
 	ld a, -1
@@ -542,7 +542,7 @@ TrainerWalkToPlayer:
 
 .TerminateStep:
 	ld a, movement_step_end
-	jp AppendToMovementBuffer
+	jmp AppendToMovementBuffer
 
 .GetPathToPlayer:
 	push de
@@ -585,7 +585,7 @@ TrainerWalkToPlayer:
 	ld d, a
 
 	pop af
-	jp ComputePathToWalkToPlayer
+	jmp ComputePathToWalkToPlayer
 
 SurfStartStep::
 	ld a, [wPlayerDirection]
@@ -599,7 +599,7 @@ SurfStartStep::
 	add hl, de
 	add hl, de
 	ld a, BANK(.movement_data)
-	jp StartAutoInput
+	jmp StartAutoInput
 
 .movement_data
 ;	slow_step DOWN
