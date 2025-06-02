@@ -188,8 +188,7 @@ CallObjectAction:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call _hl_
-	ret
+	jp _hl_
 
 INCLUDE "engine/overworld/map_object_action.asm"
 

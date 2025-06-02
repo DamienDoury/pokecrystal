@@ -1,6 +1,5 @@
 _InitializeStartDay:
-	call InitializeStartDay
-	ret
+	jp InitializeStartDay
 
 ClearDailyTimers:
 	xor a
@@ -76,8 +75,7 @@ CheckDayDependentEventHL:
 	call GetDaysSince
 	pop hl
 	dec hl
-	call UpdateTimeRemaining
-	ret
+	jp UpdateTimeRemaining
 
 RestartReceiveCallDelay:
 	ld hl, wReceiveCallDelay_MinsRemaining
@@ -92,8 +90,7 @@ CheckReceiveCallDelay:
 	call CalcMinsHoursDaysSince
 	call GetMinutesSinceIfLessThan60
 	ld hl, wReceiveCallDelay_MinsRemaining
-	call UpdateTimeRemaining
-	ret
+	jp UpdateTimeRemaining
 
 RestartDailyResetTimer:
 	ld hl, wDailyResetTimer

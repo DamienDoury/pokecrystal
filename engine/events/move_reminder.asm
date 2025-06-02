@@ -91,35 +91,29 @@ MoveReminder:
 	call WaitSFX
 
 	ld hl, Text_MoveReminderThanks
-	call PrintText
-	ret
+	jp PrintText
 
 .skip_learn
 	call ReturnToMapWithSpeechTextbox
 .cancel
 	ld hl, Text_MoveReminderCancel
-	call PrintText
-	ret
+	jp PrintText
 
 .egg
 	ld hl, Text_MoveReminderEgg
-	call PrintText
-	ret
+	jp PrintText
 
 .not_enough_money
 	ld hl, Text_MoveReminderNotEnough
-	call PrintText
-	ret
+	jp PrintText
 
 .no_mon
 	ld hl, Text_MoveReminderNoMon
-	call PrintText
-	ret
+	jp PrintText
 
 .no_moves
 	ld hl, Text_MoveReminderNoMoves
-	call PrintText
-	ret
+	jp PrintText
 
 .cost_to_relearn
 	dt 500
@@ -340,8 +334,7 @@ ChooseMoveToLearn:
 	ld [wd265], a
 	call GetMoveName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 .PrintDetails
 	push de

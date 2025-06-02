@@ -24,8 +24,7 @@ ScriptEvents::
 	dw WaitScript
 
 EndScript:
-	call StopScript
-	ret
+	jp StopScript
 
 WaitScript:
 	call StopScript
@@ -38,8 +37,7 @@ WaitScript:
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
-	call StartScript
-	ret
+	jp StartScript
 
 WaitScriptMovement:
 	call StopScript
@@ -52,8 +50,7 @@ WaitScriptMovement:
 
 	ld a, SCRIPT_READ
 	ld [wScriptMode], a
-	call StartScript
-	ret
+	jp StartScript
 
 RunScriptCommand:
 	call GetScriptByte
@@ -399,8 +396,7 @@ Script_farwriteredtext:
 	ld b, a
 Script_redtext:
 	call GetScriptWordInHL
-	call MapTextboxRed
-	ret
+	jp MapTextboxRed
 
 Script_writetext:
 	ld a, [wScriptBank]
@@ -412,8 +408,7 @@ Script_farwritetext:
 	ld b, a
 Script_text:
 	call GetScriptWordInHL
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 GetScriptWordInHL:
 	call GetScriptByte
@@ -438,8 +433,7 @@ Script_repeattext:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 .done
 	ret
@@ -475,13 +469,11 @@ Script_loadmenu:
 	ld de, LoadMenuHeader
 	ld a, [wScriptBank]
 	call Call_a_de
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 Script_closewindow:
 	call CloseWindow
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 Script_pokepic:
 	call GetScriptByte
@@ -607,16 +599,14 @@ Script_itemnotify::
 	call CurItemName
 	ld b, BANK(PutItemInPocketText)
 	ld hl, PutItemInPocketText
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 Script_pocketisfull:
 	call GetPocketName
 	call CurItemName
 	ld b, BANK(PocketIsFullText)
 	ld hl, PocketIsFullText
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 Script_specialsound:
 	farcall CheckItemPocket
@@ -627,8 +617,7 @@ Script_specialsound:
 	ld de, SFX_ITEM
 .play
 	call PlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 GetPocketName:
 	farcall CheckItemPocket
@@ -652,8 +641,7 @@ INCLUDE "data/items/pocket_names.asm"
 CurItemName:
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
-	call GetItemName
-	ret
+	jp GetItemName
 
 PutItemInPocketText:
 	text_far _PutItemInPocketText
@@ -775,8 +763,7 @@ Script_trainertext:
 	cp OFFICER
 	jr z, .is_the_police
 	
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 .is_the_police
 	farcall DisplayRandomPoliceSeenText
@@ -1357,8 +1344,7 @@ Script_reloadmap:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 Script_scall:
 	ld a, [wScriptBank]
@@ -1534,13 +1520,11 @@ StdScript:
 	ld b, a
 	inc hl
 	ld a, BANK(StdScripts)
-	call GetFarWord
-	ret
+	jp GetFarWord
 
 SkipTwoScriptBytes:
 	call GetScriptByte
-	call GetScriptByte
-	ret
+	jp GetScriptByte
 
 ScriptJump:
 	ld a, b
@@ -1876,8 +1860,7 @@ ResetStringBuffer1:
 	ld hl, wStringBuffer1
 	ld bc, NAME_LENGTH
 	ld a, "@"
-	call ByteFill
-	ret
+	jp ByteFill
 
 Script_getstring:
 	call GetScriptByte
@@ -2231,8 +2214,7 @@ Script_setevent:
 
 .set_flag
 	ld b, SET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 Script_clearevent:
 	call GetScriptByte
@@ -2251,8 +2233,7 @@ Script_clearevent:
 
 .reset_flag
 	ld b, RESET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 Script_checkevent:
 	call GetScriptByte
@@ -2286,8 +2267,7 @@ Script_setflag:
 	call GetScriptByte
 	ld d, a
 	ld b, SET_FLAG
-	call _EngineFlagAction
-	ret
+	jp _EngineFlagAction
 
 Script_clearflag:
 	call GetScriptByte
@@ -2295,8 +2275,7 @@ Script_clearflag:
 	call GetScriptByte
 	ld d, a
 	ld b, RESET_FLAG
-	call _EngineFlagAction
-	ret
+	jp _EngineFlagAction
 
 Script_checkflag:
 	call GetScriptByte
@@ -2362,8 +2341,7 @@ Script_warp:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 .not_ok
 	call GetScriptByte
@@ -2375,8 +2353,7 @@ Script_warp:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 Script_warpmod:
 	call GetScriptByte
@@ -2428,8 +2405,7 @@ Script_changemapblocks:
 	call GetScriptByte
 	ld [wMapBlocksPointer + 1], a
 	call ChangeMap
-	call BufferScreen
-	ret
+	jp BufferScreen
 
 Script_changeblock:
 	call GetScriptByte
@@ -2441,8 +2417,7 @@ Script_changeblock:
 	call GetBlockLocation
 	call GetScriptByte
 	ld [hl], a
-	call BufferScreen
-	ret
+	jp BufferScreen
 
 Script_reloadmappart::
 	xor a
@@ -2450,8 +2425,7 @@ Script_reloadmappart::
 	call OverworldTextModeSwitch
 	call GetMovementPermissions
 	farcall ReloadMapPart
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 Script_warpcheck:
 	call WarpCheck
@@ -2464,25 +2438,21 @@ Script_newloadmap:
 	ldh [hMapEntryMethod], a
 	ld a, MAPSTATUS_ENTER
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 Script_reloadend:
 	call Script_newloadmap
 	jp Script_end
 
 Script_opentext:
-	call OpenText
-	ret
+	jp OpenText
 
 Script_openredtext:
-	call OpenRedText
-	ret
+	jp OpenRedText
 
 Script_refreshscreen:
 	call RefreshScreen
-	call GetScriptByte
-	ret
+	jp GetScriptByte
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2497,8 +2467,7 @@ Script_autoinput:
 	call GetScriptByte
 	ld h, a
 	pop af
-	call StartAutoInput
-	ret
+	jp StartAutoInput
 
 Script_pause:
 	call GetScriptByte
@@ -2521,8 +2490,7 @@ Script_deactivatefacing:
 .no_time
 	ld a, SCRIPT_WAIT
 	ld [wScriptMode], a
-	call StopScript
-	ret
+	jp StopScript
 
 Script_stopandsjump:
 	call StopScript
@@ -2540,8 +2508,7 @@ Script_end::
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 
 Script_endcallback:
 	call ExitScriptSubroutine
@@ -2549,8 +2516,7 @@ Script_endcallback:
 .dummy
 	ld hl, wScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 
 ExitScriptSubroutine:
 ; Return carry if there's no parent to return to.
@@ -2590,8 +2556,7 @@ Script_endall:
 	ld [wScriptMode], a
 	ld hl, wScriptFlags
 	res 0, [hl]
-	call StopScript
-	ret
+	jp StopScript
 
 Script_halloffame:
 	ld hl, wGameTimerPaused
@@ -2609,8 +2574,7 @@ ReturnFromCredits:
 	call Script_endall
 	ld a, MAPSTATUS_DONE
 	call LoadMapStatus
-	call StopScript
-	ret
+	jp StopScript
 
 Script_wait:
 	push bc

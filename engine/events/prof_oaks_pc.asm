@@ -56,8 +56,7 @@ Rate:
 	call ByteFill
 	pop hl
 	lb bc, PRINTNUM_LEFTALIGN | 1, 3
-	call PrintNum
-	ret
+	jp PrintNum
 
 FindOakRating:
 ; return sound effect in de

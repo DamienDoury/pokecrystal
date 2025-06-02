@@ -173,8 +173,7 @@ ResetAllResearchLevels::
 	ld hl, wWantedLevelPerLandmark
 	ld bc, NUM_LANDMARKS_QUARTER + 1 ; We add 1 to also reset wCurWantedLevel.
 	xor a
-	call ByteFill ; fill bc bytes with the value of a, starting at hl
-	ret
+	jp ByteFill ; ; fill bc bytes with the value of a, starting at hl
 
 GetOlivineCafeSalad:
 	ld a, [wCurDay]
@@ -224,8 +223,7 @@ ApplyCurfewStateBasedOnTime::
 	ld a, 1 << FREE
 	ld [wCurFreedomState], a
 
-	call ResetAllResearchLevels
-	ret
+	jp ResetAllResearchLevels
 
 .curfew
 	ld a, 1 << CURFEW
@@ -261,8 +259,7 @@ DisplayRandomPoliceBattleText:
 	call GetFarWord ; retrieve a word from a:hl, and return it in hl.
 
 	ld b, BANK(PoliceSeenTextPool)
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 DisplayPoliceBackupText:
 	ld a, BANK(PoliceSeenTextPool)
@@ -270,8 +267,7 @@ DisplayPoliceBackupText:
 
 	ld hl, PoliceBeatenBackupText
 	ld b, BANK(PoliceBeatenBackupText)
-	call MapTextbox
-	ret
+	jp MapTextbox
 
 ResetWantedLevelsTheNextDay::
 	; Note: the wanted level will reset twice per night during the curfew, but it is acceptable.
@@ -280,8 +276,7 @@ ResetWantedLevelsTheNextDay::
 	ldh [hWriteByte], a
 	ld a, BANK(wMustResetWantedLevels)
 	ld hl, wMustResetWantedLevels
-	call WriteFarWRAMByte	
-	ret
+	jp WriteFarWRAMByte
 
 CheckResetWantedLevels::
 	ld a, BANK(wMustResetWantedLevels)

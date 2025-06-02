@@ -60,8 +60,7 @@ ExcuseMeYoureNotReadyText:
 
 BattleTower_PleaseReturnWhenReady:
 	ld hl, .BattleTowerReturnWhenReadyText
-	call PrintText
-	ret
+	jp PrintText
 
 .BattleTowerReturnWhenReadyText:
 	text_far _BattleTowerReturnWhenReadyText

@@ -64,8 +64,7 @@ endr
 	ld hl, wVirtualOAMSprite04
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite04
 	xor a
-	call ByteFill
-	ret
+	jp ByteFill
 
 LoadCelebiGFX:
 	farcall ClearSpriteAnims
@@ -199,8 +198,7 @@ UpdateCelebiPosition:
 	ld hl, SPRITEANIMSTRUCT_FRAMESET_ID
 	add hl, bc
 	ld a, SPRITE_ANIM_FRAMESET_CELEBI_LEFT
-	call ReinitSpriteAnimFrame
-	ret
+	jp ReinitSpriteAnimFrame
 
 CelebiEvent_Cosine:
 ; a = d * cos(a * pi/32)
@@ -346,8 +344,7 @@ CelebiFlyAwayAnim::
 	ld bc, wVirtualOAMEnd - wVirtualOAMSprite08
 	xor a ; FONT_CLOBBERED
 	ld [wLoadedFont], a
-	call ByteFill
-	ret
+	jp ByteFill
 
 
 

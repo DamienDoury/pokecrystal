@@ -166,7 +166,6 @@ GetMovePowerAddress:
 	dec a
 	ld hl, Moves + MOVE_POWER
 	ld bc, MOVE_LENGTH
-	call AddNTimes
-	ret
+	jp AddNTimes
 
 INCLUDE "data/moves/descriptions.asm"

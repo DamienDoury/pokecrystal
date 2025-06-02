@@ -214,8 +214,7 @@ DebugRoomMenu_SpClear:
 	ld [hli], a
 	ld [hl], a
 	call CloseSRAM
-	call DebugRoom_PrintStackBottomTop
-	ret
+	jp DebugRoom_PrintStackBottomTop
 
 DebugRoom_PrintStackBottomTop:
 	ld a, BANK(sStackTop)
@@ -311,8 +310,7 @@ DebugRoom_PrintWindowStackBottomTop:
 	pop de
 	hlcoord 16, 15
 	ld de, .WSPString
-	call PlaceString
-	ret
+	jp PlaceString
 
 .WSPString:
 	db "WSP:@"
@@ -344,8 +342,7 @@ DebugRoomMenu_PokedexComp:
 	dec b
 	jr nz, .loop2
 	call CloseSRAM
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 DebugRoomMenu_PokedexClr:
 	call YesNoBox
@@ -363,8 +360,7 @@ DebugRoomMenu_PokedexClr:
 	xor a
 	call ByteFill
 	call CloseSRAM
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 DebugRoomMenu_TimerReset:
 	call YesNoBox
@@ -400,8 +396,7 @@ DebugRoom_PrintBattleSkip:
 	jr z, .ok
 	ld de, .SkipString
 .ok
-	call PlaceString
-	ret
+	jp PlaceString
 
 .BTLString:
 	db "BTL:@"
@@ -470,8 +465,7 @@ DebugRoom_PrintTelDebug:
 	jr z, .ok
 	ld de, .OffString
 .ok
-	call PlaceString
-	ret
+	jp PlaceString
 
 .TelString:
 	db "TEL:@"
@@ -502,8 +496,7 @@ DebugRoom_PrintRAMFlag:
 	call CloseSRAM
 	hlcoord 16, 3
 	ld de, .RamString
-	call PlaceString
-	ret
+	jp PlaceString
 
 .RamString:
 	db "RAM:@"
@@ -511,8 +504,7 @@ DebugRoom_PrintRAMFlag:
 DebugRoomMenu_SumRecalc:
 	call YesNoBox
 	ret c
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 DebugRoomMenu_DecorateAll:
 	call YesNoBox
@@ -535,8 +527,7 @@ DebugRoomMenu_DecorateAll:
 	dec c
 	jr nz, .loop
 	call CloseSRAM
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 paged_value: MACRO
 	dw \1 ; value address
@@ -680,8 +671,7 @@ DebugRoom_IncrementPagedValue:
 	ret z
 	inc a
 	ld [de], a
-	call DebugRoom_PrintPageBValueC
-	ret
+	jp DebugRoom_PrintPageBValueC
 
 DebugRoom_DecrementPagedValue:
 	call DebugRoom_GetCurPagedValuePointer
@@ -694,8 +684,7 @@ DebugRoom_DecrementPagedValue:
 	ret z
 	dec a
 	ld [de], a
-	call DebugRoom_PrintPageBValueC
-	ret
+	jp DebugRoom_PrintPageBValueC
 
 DebugRoom_NextPage:
 	ld a, [wDebugRoomPageCount]
@@ -718,8 +707,7 @@ DebugRoom_NextPage:
 	ld [wDebugRoomCurValue], a
 .skip
 	ld a, "▶"
-	call DebugRoom_ShowHideCursor
-	ret
+	jp DebugRoom_ShowHideCursor
 
 DebugRoom_PrevPage:
 	ld a, [wDebugRoomCurPage]
@@ -740,8 +728,7 @@ DebugRoom_PrevPage:
 	ld [wDebugRoomCurValue], a
 .skip
 	ld a, "▶"
-	call DebugRoom_ShowHideCursor
-	ret
+	jp DebugRoom_ShowHideCursor
 
 DebugRoom_NextPagedValue:
 	ld a, " "
@@ -759,8 +746,7 @@ DebugRoom_NextPagedValue:
 DebugRoom_UpdateValueCursor:
 	ld [wDebugRoomCurValue], a
 	ld a, "▶"
-	call DebugRoom_ShowHideCursor
-	ret
+	jp DebugRoom_ShowHideCursor
 
 DebugRoom_PrevPagedValue:
 	ld a, " "
@@ -800,8 +786,7 @@ _DebugRoom_GetPageBValueCPointer:
 	inc hl
 	ld a, c
 	ld bc, PAGED_VALUE_SIZE
-	call AddNTimes
-	ret
+	jp AddNTimes
 
 DebugRoom_GetCurPagedValuePointer:
 	ld a, [wDebugRoomCurPage]
@@ -1005,8 +990,7 @@ DebugRoom_JoyWaitABSelect:
 
 DebugRoomMenu_ItemGet:
 	ld hl, .PagedValuesHeader
-	call DebugRoom_EditPagedValues
-	ret
+	jp DebugRoom_EditPagedValues
 
 .PagedValuesHeader:
 	dw NULL ; A function
@@ -1026,8 +1010,7 @@ DebugRoom_PrintItemName:
 	call ClearBox
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 DebugRoomMenu_ItemGet_Page1Values:
 	db 2
@@ -1039,8 +1022,7 @@ DebugRoomMenu_ItemGet_Page1Values:
 
 DebugRoomMenu_PokemonGet:
 	ld hl, .PagedValuesHeader
-	call DebugRoom_EditPagedValues
-	ret
+	jp DebugRoom_EditPagedValues
 
 .PagedValuesHeader:
 	dw NULL ; A function
@@ -1187,8 +1169,7 @@ _DebugRoom_FinishGetName:
 	call ClearBox
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 DebugRoom_UpdateExpForLevel:
 	ld hl, BaseData + BASE_GROWTH_RATE
@@ -1308,8 +1289,7 @@ DebugRoom_BoxAddresses:
 
 DebugRoomMenu_RTCEdit:
 	ld hl, .PagedValuesHeader
-	call DebugRoom_EditPagedValues
-	ret
+	jp DebugRoom_EditPagedValues
 
 .PagedValuesHeader:
 	dw NULL ; A function
@@ -1323,8 +1303,7 @@ DebugRoom_SaveRTC:
 	call YesNoBox
 	ret c
 	ld hl, wDebugRoomRTCSec
-	call DebugRoom_SetClock
-	ret
+	jp DebugRoom_SetClock
 
 DebugRoomMenu_RTCEdit_UpdateClock:
 	ld hl, wDebugRoomRTCCurSec
@@ -1357,8 +1336,7 @@ DebugRoomMenu_RTCEdit_UpdateClock:
 	inc hl
 	ld de, wDebugRoomRTCCurSec
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ret
+	jp PrintNum
 
 DebugRoom_DayHTimeString:
 	db "DAY     H<LF>TIME@"
@@ -1423,8 +1401,7 @@ DebugRoomMenu_HaltChkClr:
 	ld [hli], a
 	ld [hl], a
 	call CloseSRAM
-	call DebugRoom_PrintRTCHaltChk
-	ret
+	jp DebugRoom_PrintRTCHaltChk
 
 DebugRoom_PrintRTCHaltChk:
 	hlcoord 16, 9
@@ -1448,8 +1425,7 @@ DebugRoom_PrintRTCHaltChk:
 	ld de, .OKString
 .done
 	hlcoord 16, 10
-	call PlaceString
-	ret
+	jp PlaceString
 
 .RTCString:
 	db "RTC:@"
@@ -1462,8 +1438,7 @@ DebugRoom_PrintRTCHaltChk:
 
 DebugRoomMenu_GBIDSet:
 	ld hl, .PagedValuesHeader
-	call DebugRoom_EditPagedValues
-	ret
+	jp DebugRoom_EditPagedValues
 
 .PagedValuesHeader:
 	dw NULL ; A function
@@ -1484,8 +1459,7 @@ DebugRoom_SaveGBID:
 	ld a, [wDebugRoomGBID + 1]
 	ld [hli], a
 	call CloseSRAM
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 DebugRoomMenu_GBIDSet_Page1Values:
 	db 2
@@ -1519,8 +1493,7 @@ DebugRoomMenu_HOFClear:
 	ld bc, sHallOfFameEnd - sHallOfFame
 	call ByteFill
 	call CloseSRAM
-	call DebugRoom_SaveChecksum
-	ret
+	jp DebugRoom_SaveChecksum
 
 ComputeROMChecksum:
 	ld de, 0
@@ -1589,8 +1562,7 @@ DebugRoom_PrintROMChecksum: ; unreferenced
 	hlcoord 16, 1
 	ld de, wDebugRoomROMChecksum
 	ld c, 2
-	call PrintHexNumber
-	ret
+	jp PrintHexNumber
 
 .SumString:
 	db "SUM:@"

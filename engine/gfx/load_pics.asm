@@ -294,8 +294,7 @@ Intro_GetMonFrontpic:
 	call GetFarWord
 	pop af
 	pop de
-	call FarDecompress
-	ret
+	jp FarDecompress
 
 GetTrainerPic:
 	ld a, [wTrainerClass]

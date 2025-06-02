@@ -7,8 +7,7 @@ NAMINGSCREEN_UNDERLINE  EQU "<DOT>" ; $f2
 _NamingScreen:
 	call DisableSpriteUpdates
 	call NamingScreen
-	call ReturnToMapWithSpeechTextbox
-	ret
+	jp ReturnToMapWithSpeechTextbox
 
 NamingScreen:
 	ld hl, wNamingScreenDestinationPointer
@@ -65,8 +64,7 @@ endc
 	call WaitBGMap
 	call WaitTop
 	call SetPalettes
-	call NamingScreen_InitNameEntry
-	ret
+	jp NamingScreen_InitNameEntry
 
 .GetNamingScreenSetup:
 	ld a, [wNamingScreenType]
@@ -252,8 +250,7 @@ endc
 .not_kris
 	ld a, b
 	depixel 4, 4, 4, 0
-	call InitSpriteAnimStruct
-	ret
+	jp InitSpriteAnimStruct
 
 .StoreMonIconParams:
 	ld a, MON_NAME_LENGTH - 1
@@ -471,8 +468,7 @@ NamingScreenJoypadLoop:
 	ret
 
 .b
-	call NamingScreen_DeleteCharacter
-	ret
+	jp NamingScreen_DeleteCharacter
 
 .end
 	call NamingScreen_StoreEntry
@@ -487,13 +483,11 @@ NamingScreenJoypadLoop:
 	ld [hl], a
 	jr z, .upper
 	ld de, NameInputLower
-	call NamingScreen_ApplyTextInputMode
-	ret
+	jp NamingScreen_ApplyTextInputMode
 
 .upper
 	ld de, NameInputUpper
-	call NamingScreen_ApplyTextInputMode
-	ret
+	jp NamingScreen_ApplyTextInputMode
 
 .GetCursorPosition:
 	ld hl, wNamingScreenCursorObjectPointer

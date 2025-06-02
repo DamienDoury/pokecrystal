@@ -113,8 +113,7 @@ _TimeOfDayPals::
 _UpdateTimePals::
 	ld c, $9 ; normal
 	call GetTimePalFade
-	call DmgToCgbTimePals
-	ret
+	jp DmgToCgbTimePals
 
 FadeInPalettes::
 	ld c, $12

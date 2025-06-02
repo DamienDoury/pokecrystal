@@ -2,8 +2,7 @@ FieldMoveJumptableReset:
 	xor a
 	ld hl, wFieldMoveData
 	ld bc, wFieldMoveDataEnd - wFieldMoveData
-	call ByteFill
-	ret
+	jp ByteFill
 
 FieldMoveJumptable:
 	ld a, [wFieldMoveJumptableIndex]
@@ -125,8 +124,7 @@ CheckPartyMove::
 
 FieldMoveFailed:
 	ld hl, .CantUseItemText
-	call MenuTextboxBackup
-	ret
+	jp MenuTextboxBackup
 
 .CantUseItemText:
 	text_far _CantUseItemText
@@ -264,8 +262,7 @@ CutDownTreeOrGrass::
 	call GetMovementPermissions
 	call UpdateSprites
 	call DelayFrame
-	call LoadStandardFont
-	ret
+	jp LoadStandardFont
 
 CheckOverworldTileArrays:
 	; Input: c contains the tile you're facing
@@ -858,8 +855,7 @@ DoDigFromOW::
 	ld de, wNextWarp
 	ld bc, 3
 	call CopyBytes
-	call GetPartyNickname
-	ret
+	jp GetPartyNickname
 
 EscapeRopeFunction:
 	call FieldMoveJumptableReset
@@ -1155,8 +1151,7 @@ GetStrengthParams:
 	add hl, de
 	ld a, [hl]
 	ld [wStrengthSpecies], a
-	call GetPartyNickname
-	ret
+	jp GetPartyNickname
 
 Script_StrengthFromMenu:
 	reloadmappart
@@ -1345,8 +1340,7 @@ DisappearWhirlpool::
 	ld e, a
 	farcall PlayWhirlpoolSound
 	call BufferScreen
-	call GetMovementPermissions
-	ret
+	jp GetMovementPermissions
 
 TryWhirlpoolOW::
 	ld d, WHIRLPOOL
@@ -1800,8 +1794,7 @@ PutTheRodAway:
 	ld a, OBJECT_ACTION_STAND
 	ld [wPlayerAction], a
 	call UpdateSprites
-	call UpdatePlayerSprite
-	ret
+	jp UpdatePlayerSprite
 
 RodBiteText:
 	text_far _RodBiteText

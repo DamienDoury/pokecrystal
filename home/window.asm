@@ -56,14 +56,12 @@ CloseText::
 OpenText::
 	call OpenTextPre
 	call SpeechTextbox
-	call OpenTextPost
-	ret
+	jp OpenTextPost
 
 OpenRedText::
 	call OpenTextPre
 	call SpeechTextboxRed
-	call OpenTextPost
-	ret
+	jp OpenTextPost
 
 OpenTextPre::
 	call ClearWindowData

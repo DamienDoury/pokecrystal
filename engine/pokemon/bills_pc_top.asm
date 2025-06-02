@@ -31,8 +31,7 @@ _BillsPC:
 	call PrintText
 	pop af
 	ld [wOptions], a
-	call LoadFontsBattleExtra
-	ret
+	jp LoadFontsBattleExtra
 
 .LogOut:
 	call CloseSubmenu
@@ -289,8 +288,7 @@ ClearPCItemScreen:
 	lb bc, 4, 18
 	call Textbox
 	call WaitBGMap2
-	call SetPalettes ; load regular palettes?
-	ret
+	jp SetPalettes ; ; load regular palettes?
 
 CopyBoxmonToTempMon:
 	ld a, [wCurPartyMon]

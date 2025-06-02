@@ -54,8 +54,7 @@ ItemFinder:
 	dec c
 	jr nz, .sfx_loop
 
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 .Script_FoundSomething:
 	reloadmappart

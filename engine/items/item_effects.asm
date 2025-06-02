@@ -2153,8 +2153,7 @@ RemoveHP:
 	ld [hld], a
 	ld [hl], a
 .okay
-	call LoadCurHPIntoBuffer3
-	ret
+	jp LoadCurHPIntoBuffer3
 
 IsMonFainted:
 	push de
@@ -2856,8 +2855,7 @@ SacredAshEffect:
 	ld a, [wItemEffectSucceeded]
 	cp $1
 	ret nz
-	call UseDisposableItem
-	ret
+	jp UseDisposableItem
 
 NormalBoxEffect:
 	ld c, DECOFLAG_SILVER_TROPHY_DOLL

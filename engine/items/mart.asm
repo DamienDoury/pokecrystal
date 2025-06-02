@@ -29,8 +29,7 @@ MartDialog:
 	ld [wMartType], a
 	xor a ; STANDARDMART_HOWMAYIHELPYOU
 	ld [wMartJumptableIndex], a
-	call StandardMart
-	ret
+	jp StandardMart
 
 HerbShop:
 	call FarReadMart
@@ -39,8 +38,7 @@ HerbShop:
 	call MartTextbox
 	call BuyMenu
 	ld hl, HerbalLadyComeAgainText
-	call MartTextbox
-	ret
+	jp MartTextbox
 
 StoneShop:
 	call FarReadMart
@@ -58,8 +56,7 @@ StoneShop:
 	call MartTextbox
 	call BuyMenu
 	ld hl, StoneShopComeAgainText
-	call MartTextbox
-	ret
+	jp MartTextbox
 
 BargainShop:
 	ld b, BANK(BargainShopData)
@@ -79,8 +76,7 @@ BargainShop:
 
 .skip_set
 	ld hl, BargainShopComeAgainText
-	call MartTextbox
-	ret
+	jp MartTextbox
 
 Pharmacist:
 	call FarReadMart
@@ -89,8 +85,7 @@ Pharmacist:
 	call MartTextbox
 	call BuyMenu
 	ld hl, PharmacyComeAgainText
-	call MartTextbox
-	ret
+	jp MartTextbox
 
 RooftopSale:
 	ld b, BANK(RooftopSaleMart1)
@@ -109,8 +104,7 @@ RooftopSale:
 	call MartTextbox
 	call BuyMenu
 	ld hl, MartComeAgainText
-	call MartTextbox
-	ret
+	jp MartTextbox
 
 INCLUDE "data/items/rooftop_sale.asm"
 
@@ -484,8 +478,7 @@ BuyMenu:
 	pop de
 
 	call PrintText
-	call SpeechTextbox
-	ret
+	jp SpeechTextbox
 
 MartEmptyStockTextList:
 	dw MartEmptyStock1Text
@@ -526,8 +519,7 @@ LoadBuyMenuText:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call PrintText
-	ret
+	jp PrintText
 
 MartAskPurchaseQuantity:
 	ld a, [wCurItem]
@@ -741,8 +733,7 @@ StandardMartAskPurchaseQuantity:
 	ld a, MARTTEXT_HOW_MANY
 	call LoadBuyMenuText
 	farcall SelectQuantityToBuy
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 MartConfirmQuantity:
 	ld b, FALSE
@@ -758,8 +749,7 @@ MartConfirmPurchase:
 	predef PartyMonItemName
 	ld a, MARTTEXT_COSTS_THIS_MUCH
 	call LoadBuyMenuText
-	call YesNoBox
-	ret
+	jp YesNoBox
 
 BargainShopAskPurchaseQuantity:
 	ld a, 1
@@ -808,8 +798,7 @@ RooftopSaleAskPurchaseQuantity:
 	ld a, MAX_ITEM_STACK
 	ld [wItemQuantity], a
 	farcall RooftopSale_SelectQuantityToBuy
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 .GetSalePrice:
 	ld a, [wMartItemID]
@@ -867,8 +856,7 @@ MenuHeader_Buy:
 	ld bc, SCREEN_WIDTH
 	add hl, bc
 	ld c, PRINTNUM_LEADINGZEROS | PRINTNUM_MONEY | 3
-	call PrintBCDNumber
-	ret
+	jp PrintBCDNumber
 
 HerbShopLadyIntroText:
 	text_far _HerbShopLadyIntroText
@@ -1144,14 +1132,12 @@ MartLastItemText:
 PlayTransactionSound:
 	call WaitSFX
 	ld de, SFX_TRANSACTION
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 MartTextbox:
 	call MenuTextbox
 	call JoyWaitAorB
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 ShelfItemDisplay::
 	push bc
@@ -1283,8 +1269,7 @@ GiveItemToPlayer::
 	ld [wItemQuantityChange], a
 	ld hl, wNumItems
 	;ld [hl], a
-	call ReceiveItem
-	ret
+	jp ReceiveItem
 
 
 

@@ -60,8 +60,7 @@ DoBattleTransition:
 	ldh [rSVBK], a
 	pop af
 	ldh [hVBlank], a
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .InitGFX:
 	ld a, [wLinkMode]
@@ -90,8 +89,7 @@ DoBattleTransition:
 	ld [hl], a
 	ld a, BALL_POCKET
 	ld [wLastPocket], a
-	call WipeLYOverrides
-	ret
+	jp WipeLYOverrides
 
 .NonMobile_LoadPokeballTiles:
 	call LoadTrainerBattlePokeballTiles
@@ -268,8 +266,7 @@ StartTrainerBattle_SetUpBGMap:
 StartTrainerBattle_Flash:
 	call .DoFlashAnimation
 	ret nc
-	call StartTrainerBattle_NextScene
-	ret
+	jp StartTrainerBattle_NextScene
 
 .DoFlashAnimation:
 	ld a, [wTimeOfDayPalset]
@@ -682,8 +679,7 @@ StartTrainerBattle_LoadPokeBallGraphics:
 	call BattleStart_CopyTilemapAtOnce
 
 .nextscene
-	call StartTrainerBattle_NextScene
-	ret
+	jp StartTrainerBattle_NextScene
 
 .copypals
 	ld de, wBGPals1 palette PAL_BG_TEXT

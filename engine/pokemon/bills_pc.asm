@@ -66,8 +66,7 @@ _DepositPKMN:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .HandleJoypad:
 	ld hl, hJoyPressed
@@ -88,8 +87,7 @@ _DepositPKMN:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call DelayFrame
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .a_button
 	call BillsPC_GetSelectedPokemonSpecies
@@ -123,8 +121,7 @@ _DepositPKMN:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .Submenu:
 	ld hl, BillsPCDepositMenuHeader
@@ -166,8 +163,7 @@ BillsPCDepositFuncDeposit:
 
 .box_full
 	ld de, PCString_WhatsUp
-	call BillsPC_PlaceString
-	ret
+	jp BillsPC_PlaceString
 
 BillsPCDepositFuncStats:
 	call LoadStandardMenuHeader
@@ -177,8 +173,7 @@ BillsPCDepositFuncStats:
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
-	call BillsPC_ApplyPalettes
-	ret
+	jp BillsPC_ApplyPalettes
 
 BillsPCDepositFuncRelease:
 	call BillsPC_CheckMail_PreventBlackout
@@ -335,8 +330,7 @@ _WithdrawPKMN:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .Joypad:
 	ld hl, hJoyPressed
@@ -357,8 +351,7 @@ _WithdrawPKMN:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call DelayFrame
-	call DelayFrame
-	ret
+	jp DelayFrame
 .a_button
 	call BillsPC_GetSelectedPokemonSpecies
 	and a
@@ -391,8 +384,7 @@ _WithdrawPKMN:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 BillsPC_Withdraw:
 	ld hl, .MenuHeader
@@ -433,8 +425,7 @@ BillsPC_Withdraw:
 	ret
 .FailedWithdraw:
 	ld de, PCString_WhatsUp
-	call BillsPC_PlaceString
-	ret
+	jp BillsPC_PlaceString
 
 .stats
 	call LoadStandardMenuHeader
@@ -444,8 +435,7 @@ BillsPC_Withdraw:
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
-	call BillsPC_ApplyPalettes
-	ret
+	jp BillsPC_ApplyPalettes
 
 .release
 	ld a, [wMenuCursorY]
@@ -587,8 +577,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_ApplyPalettes
 	call WaitBGMap
 	call BillsPC_UpdateSelectionCursor
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .Joypad:
 	ld hl, hJoyPressed
@@ -610,8 +599,7 @@ _MovePKMNWithoutMail:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call DelayFrame
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .d_pad
 	xor a
@@ -653,8 +641,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_PlaceString
 	ld a, $1
 	ld [wMenuCursorY], a
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .MoveMonWOMailSubmenu:
 	ld hl, .MenuHeader
@@ -702,8 +689,7 @@ _MovePKMNWithoutMail:
 	call BillsPC_GetSelectedPokemonSpecies
 	ld [wCurPartySpecies], a
 	ld a, SCGB_BILLS_PC
-	call BillsPC_ApplyPalettes
-	ret
+	jp BillsPC_ApplyPalettes
 
 .Cancel:
 	ld a, $0
@@ -742,8 +728,7 @@ endc
 	call ClearSprites
 	call BillsPC_UpdateInsertCursor
 	call WaitBGMap
-	call BillsPC_IncrementJumptableIndex
-	ret
+	jp BillsPC_IncrementJumptableIndex
 
 .Joypad2:
 	ld hl, hJoyPressed
@@ -764,8 +749,7 @@ endc
 	ld a, $1
 	ldh [hBGMapMode], a
 	call DelayFrame
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .dpad_2
 	xor a
@@ -1020,8 +1004,7 @@ BillsPC_PlaceString:
 	call Textbox
 	pop de
 	hlcoord 1, 16
-	call PlaceString
-	ret
+	jp PlaceString
 
 BillsPC_MoveMonWOMail_BoxNameAndArrows:
 	call BillsPC_BoxName
@@ -1058,8 +1041,7 @@ BillsPC_BoxName:
 	ld de, .PartyPKMN
 .print
 	hlcoord 10, 1
-	call PlaceString
-	ret
+	jp PlaceString
 
 .PartyPKMN:
 if DEF(_FR_FR)
@@ -1326,8 +1308,7 @@ endc
 	cp -1
 	jr nz, .get_nickname
 	ld de, .CancelString
-	call PlaceString
-	ret
+	jp PlaceString
 
 .get_nickname
 	inc de
@@ -1366,8 +1347,7 @@ endc
 	call CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 .boxfail
 	call CloseSRAM
@@ -1391,8 +1371,7 @@ endc
 	call CopyBytes
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 .partyfail
 	pop hl
@@ -1418,16 +1397,14 @@ endc
 	call CloseSRAM
 	pop hl
 	ld de, wStringBuffer1
-	call PlaceString
-	ret
+	jp PlaceString
 
 .sBoxFail
 	call CloseSRAM
 	pop hl
 .placeholder_string
 	ld de, .Placeholder
-	call PlaceString
-	ret
+	jp PlaceString
 
 .Placeholder:
 if DEF(_FR_FR)
@@ -1904,8 +1881,7 @@ BillsPC_StatsScreen:
 	ld [wMonType], a
 	predef StatsScreenInit
 	call BillsPC_InitGFX
-	call MaxVolume
-	ret
+	jp MaxVolume
 
 StatsScreenDPad:
 	ld hl, hJoyPressed
@@ -2251,8 +2227,7 @@ ReleasePKMN_ByePKMN:
 	ld h, b
 	ld [hl], "!"
 	ld c, 50
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 MovePKMNWitoutMail_InsertMon:
 	push hl
@@ -2513,8 +2488,7 @@ BillsPC_ApplyPalettes:
 	ld a, %11100100
 	call DmgToCgbBGPals
 	ld a, %11111100
-	call DmgToCgbObjPal0
-	ret
+	jp DmgToCgbObjPal0
 
 BillsPC_Jumptable:
 	ld e, a
@@ -2543,8 +2517,7 @@ BillsPC_InitGFX:
 	call Decompress
 	ld a, 6
 	call SkipMusic
-	call EnableLCD
-	ret
+	jp EnableLCD
 
 PCSelectLZ: INCBIN "gfx/pc/pc.2bpp.lz"
 PCMailGFX:  INCBIN "gfx/pc/pc_mail.2bpp"
@@ -2631,8 +2604,7 @@ BillsPC_ClearTilemap:
 	hlcoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
 	ld a, " "
-	call ByteFill
-	ret
+	jp ByteFill
 
 _ChangeBox_MenuHeader_13:
 	db MENU_BACKUP_TILES ; flags
@@ -2664,8 +2636,7 @@ endr
 	dec a
 	call GetBoxName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 _ChangeBox_MenuHeader_14:
 	db MENU_BACKUP_TILES ; flags
@@ -2697,8 +2668,7 @@ endr
 	dec a
 	call GetBoxName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 GetBoxName:
 	ld bc, BOX_NAME_LENGTH
@@ -2725,8 +2695,7 @@ BillsPC_PrintBoxCountAndCapacity:
 	lb bc, 1, 2
 	call PrintNum
 	ld de, .OutOf20
-	call PlaceString
-	ret
+	jp PlaceString
 
 .Pokemon:
 	db "#MON@"
@@ -2805,8 +2774,7 @@ BillsPC_PrintBoxName:
 	and $f
 	call GetBoxName
 	hlcoord 11, 2
-	call PlaceString
-	ret
+	jp PlaceString
 
 .Current:
 if DEF(_FR_FR)
@@ -2932,8 +2900,7 @@ BillsPC_PlaceEmptyBoxString_SFX:
 	call WaitPlaySFX
 	call WaitSFX
 	ld c, 50
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 .NoMonString:
 if DEF(_FR_FR)

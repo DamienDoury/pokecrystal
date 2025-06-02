@@ -37,8 +37,7 @@ CheckDirectionalWarp::
 CheckWarpFacingDown:
 	ld hl, .blocks
 	ld a, [wPlayerStandingTile]
-	call IsInByteArray
-	ret
+	jp IsInByteArray
 
 .blocks
 	db COLL_DOOR
@@ -55,8 +54,7 @@ CheckWarpFacingDown:
 CheckGrassCollision::
 	ld a, [wPlayerStandingTile]
 	ld hl, .blocks
-	call IsInByteArray
-	ret
+	jp IsInByteArray
 
 .blocks
 	db COLL_TALL_GRASS
@@ -73,8 +71,7 @@ CheckGrassCollision::
 CheckCutCollision:
 	ld a, c
 	ld hl, .blocks
-	call IsInByteArray
-	ret
+	jp IsInByteArray
 
 .blocks
 	db COLL_CUT_TREE

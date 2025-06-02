@@ -21,8 +21,7 @@ PrintDayOfWeek:
 	ld h, b
 	ld l, c
 	ld de, .Day
-	call PlaceString
-	ret
+	jp PlaceString
 
 .Days:
 if DEF(_FR_FR)
@@ -106,8 +105,7 @@ if !DEF(_CRYSTAL_BETA)
 	call ClearScreen
 	call SetPalettes
 	ld hl, .rtc_error_text
-	call PrintText
-	ret
+	jp PrintText
 
 .rtc_error_text
 	text_far _RTCErrorText
@@ -275,8 +273,7 @@ endc
 
 	farcall DeleteMobileEventIndex
 
-	call ResetGameTime
-	ret
+	jp ResetGameTime
 
 .InitList:
 ; Loads 0 in the count and -1 in the first item or mon slot.
@@ -495,8 +492,7 @@ Continue_MobileAdapterMenu:
 	ld a, HIGH(MUSIC_NONE)
 	ld [wMusicFadeID + 1], a
 	ld c, 35
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 ConfirmContinue:
 .loop
@@ -828,8 +824,7 @@ OakSpeech:
 	call PrintText
 	call NamePlayer
 	ld hl, OakText7
-	call PrintText
-	ret
+	jp PrintText
 
 OakText1:
 	text_far _OakText1
@@ -901,8 +896,7 @@ NamePlayer:
 	jr z, .Male
 	ld de, .Kris
 .Male:
-	call InitName
-	ret
+	jp InitName
 
 .Chris:
 if DEF(_FR_FR)
@@ -1180,8 +1174,7 @@ UnusedTitlePerspectiveScroll: ; unreferenced
 	ld a, [hl]
 	dec a
 	ld bc, 2 * SCREEN_WIDTH
-	call ByteFill
-	ret
+	jp ByteFill
 
 TitleScreenScene:
 	ld e, a
@@ -1420,8 +1413,7 @@ UpdateTitleTrailSprite: ; unreferenced
 	ld e, a
 	ld d, [hl]
 	ld a, SPRITE_ANIM_INDEX_GS_TITLE_TRAIL
-	call InitSpriteAnimStruct
-	ret
+	jp InitSpriteAnimStruct
 
 .TitleTrailCoords:
 trail_coords: MACRO

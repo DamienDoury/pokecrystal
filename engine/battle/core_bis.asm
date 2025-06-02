@@ -698,8 +698,7 @@ CheckCaughtBeast:
 	ld d, a
 
 	ld b, SET_FLAG
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 SelectRandomMove::
 	xor a

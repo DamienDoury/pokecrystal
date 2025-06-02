@@ -1,7 +1,6 @@
 DisplayWeaknessDiseaseText:
 	ld hl, WeaknessDiseaseText
-	call BattleTextbox
-	ret
+	jp BattleTextbox
 
 WeaknessDiseaseText:
 	text_far _FeelsWeakText

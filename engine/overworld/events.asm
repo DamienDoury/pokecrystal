@@ -1140,8 +1140,7 @@ IsPlayerFacingGrassWhileStandingOutsideOfGrass:
 
 	call GetFacingTileCoordAndCollType
 	ld hl, .grass_coll
-	call IsInByteArray
-	ret
+	jp IsInByteArray
 
 .grass_coll
 	db COLL_TALL_GRASS
@@ -1167,8 +1166,7 @@ TryObjectEvent:
 	ret
 
 .IsObject:
-	call InteractWithObj
-	ret
+	jp InteractWithObj
 
 TryFarNPCOnlyEvent:
 	farcall CheckFacingFarNPCOnly

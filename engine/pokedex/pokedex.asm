@@ -456,8 +456,7 @@ DexEntryScreen_MenuActionJumptable:
 
 .Cry:
 	ld a, [wCurPartySpecies]
-	call PlayMonCry
-	ret
+	jp PlayMonCry
 
 .Print:
 	call Pokedex_ApplyPrintPals
@@ -484,15 +483,13 @@ DexEntryScreen_MenuActionJumptable:
 	call WaitBGMap
 	ld a, POKEDEX_SCX
 	ldh [hSCX], a
-	call Pokedex_ApplyUsualPals
-	ret
+	jp Pokedex_ApplyUsualPals
 
 Pokedex_RedisplayDexEntry:
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
 	farcall DisplayDexEntry
-	call Pokedex_DrawFootprint
-	ret
+	jp Pokedex_DrawFootprint
 
 Pokedex_InitOptionScreen:
 	xor a
@@ -665,8 +662,7 @@ Pokedex_UpdateSearchScreen:
 
 .MenuAction_MonSearchType:
 	call Pokedex_NextSearchMonType
-	call Pokedex_PlaceSearchScreenTypeStrings
-	ret
+	jp Pokedex_PlaceSearchScreenTypeStrings
 
 .MenuAction_BeginSearch:
 	call Pokedex_SearchForMons
@@ -683,8 +679,7 @@ Pokedex_UpdateSearchScreen:
 	call Pokedex_DrawSearchScreenBG
 	call Pokedex_InitArrowCursor
 	call Pokedex_PlaceSearchScreenTypeStrings
-	call WaitBGMap
-	ret
+	jp WaitBGMap
 
 .show_search_results
 	ld [wDexListingEnd], a
@@ -757,8 +752,7 @@ Pokedex_UpdateSearchResultsScreen:
 	ldh [hBGMapMode], a
 	call Pokedex_PrintListing
 	call Pokedex_SetBGMapMode3
-	call Pokedex_ResetBGMapMode
-	ret
+	jp Pokedex_ResetBGMapMode
 
 .go_to_dex_entry
 	call Pokedex_GetSelectedMon
@@ -806,8 +800,7 @@ Pokedex_UpdateUnownMode:
 	ld a, [hl]
 	and A_BUTTON | B_BUTTON
 	jr nz, .a_b
-	call Pokedex_UnownModeHandleDPadInput
-	ret
+	jp Pokedex_UnownModeHandleDPadInput
 
 .a_b
 	call Pokedex_BlackOutBG
@@ -870,8 +863,7 @@ Pokedex_UnownModeHandleDPadInput:
 	ld a, $1
 	ldh [hBGMapMode], a
 	call DelayFrame
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 Pokedex_UnownModeEraseCursor:
 	ld c, " "
@@ -1115,8 +1107,7 @@ Pokedex_DrawMainScreenBG:
 	ld [hl], $54
 	hlcoord 8, 16
 	ld [hl], $5b
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 String_SEEN:
 if DEF(_FR_FR)
@@ -1167,8 +1158,7 @@ Pokedex_DrawDexEntryScreenBG:
 	hlcoord 0, 17
 	ld de, .MenuItems
 	call Pokedex_PlaceString
-	call Pokedex_PlaceFrontpicTopLeftCorner
-	ret
+	jp Pokedex_PlaceFrontpicTopLeftCorner
 
 .Number: ; unreferenced
 	db $5c, $5d, -1 ; No.
@@ -2406,8 +2396,7 @@ Pokedex_ApplyUsualPals:
 	ld a, $e4
 	call DmgToCgbBGPals
 	ld a, $e0
-	call DmgToCgbObjPal0
-	ret
+	jp DmgToCgbObjPal0
 
 Pokedex_LoadPointer:
 	ld e, a

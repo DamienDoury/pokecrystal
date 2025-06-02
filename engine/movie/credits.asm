@@ -491,8 +491,7 @@ ConstructCreditsTilemap:
 	xor a
 	hlcoord 0, 14
 	call .InitTopPortion
-	call WaitBGMap2
-	ret
+	jp WaitBGMap2
 
 .InitTopPortion:
 	ld b, 5

@@ -377,8 +377,7 @@ LinkTimeout:
 	call ClearScreen
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call WaitBGMap2
-	ret
+	jp WaitBGMap2
 
 .LinkTimeoutText:
 	text_far _LinkTimeoutText

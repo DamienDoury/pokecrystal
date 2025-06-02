@@ -262,8 +262,7 @@ LoadMapTimeOfDay:
 	ld a, "■"
 	ld bc, vBGMap1 - vBGMap0
 	hlbgcoord 0, 0
-	call ByteFill
-	ret
+	jp ByteFill
 
 .PushAttrmap:
 	decoord 0, 0

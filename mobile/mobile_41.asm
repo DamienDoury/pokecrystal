@@ -1042,8 +1042,7 @@ Function10649b: ; unreferenced
 	ld de, TextboxSpaceGFX
 	ld c, 1
 	ld b, BANK(TextboxSpaceGFX)
-	call Function1064c3
-	ret
+	jp Function1064c3
 
 Function1064c3:
 	ldh a, [rSVBK]
@@ -1098,8 +1097,7 @@ asm_1064ed:
 Function10650a: ; unreferenced
 	ld de, MobilePhoneTilesGFX
 	lb bc, BANK(MobilePhoneTilesGFX), 17
-	call Get2bpp
-	ret
+	jp Get2bpp
 
 MobileDialingFrameGFX:
 INCBIN "gfx/mobile/dialing_frame.2bpp"

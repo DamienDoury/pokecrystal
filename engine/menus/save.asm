@@ -37,8 +37,7 @@ SaveAfterLinkTrade:
 	call SaveBackupChecksum
 	farcall BackupMail
 	farcall SaveRTC
-	call ResumeGameLogic
-	ret
+	jp ResumeGameLogic
 
 ChangeBoxSaveGame:
 	push de
@@ -98,8 +97,7 @@ BoxLockAfterPowerOutage::
 	call LoadBox
 	call ResumeGameLogic
 
-	call SaveGameData
-	ret
+	jp SaveGameData
 
 
 
@@ -122,8 +120,7 @@ MoveMonWOMail_SaveGame:
 	ld a, e
 	ld [wCurBox], a
 	call LoadBox
-	call ResumeGameLogic
-	ret
+	jp ResumeGameLogic
 
 MoveMonWOMail_InsertMon_SaveGame:
 	call PauseGameLogic
@@ -368,8 +365,7 @@ SavingDontTurnOffThePower:
 	ld [wOptions], a
 	; Wait for 16 frames
 	ld c, 16
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 ErasePreviousSave:
 	call EraseBoxes
@@ -438,8 +434,7 @@ EraseBattleTowerStatus:
 	jp CloseSRAM
 
 SaveData:
-	call _SaveData
-	ret
+	jp _SaveData
 
 Function14d6c: ; unreferenced
 	ld a, BANK(s4_a60b) ; MBC30 bank used by JP Crystal; inaccessible by MBC3
@@ -477,8 +472,7 @@ HallOfFame_InitSaveIfNeeded:
 	ld a, [wSavedAtLeastOnce]
 	and a
 	ret nz
-	call ErasePreviousSave
-	ret
+	jp ErasePreviousSave
 
 ValidateSave:
 	ld a, BANK(sCheckValue1) ; aka BANK(sCheckValue2)
@@ -526,8 +520,7 @@ SavePokemonData:
 
 SaveBox:
 	call GetBoxAddress
-	call SaveBoxAddress
-	ret
+	jp SaveBoxAddress
 
 SaveChecksum:
 	ld hl, sGameData
@@ -791,8 +784,7 @@ LoadPokemonData:
 
 LoadBox:
 	call GetBoxAddress
-	call LoadBoxAddress
-	ret
+	jp LoadBoxAddress
 
 VerifyChecksum:
 	ld hl, sGameData

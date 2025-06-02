@@ -66,8 +66,7 @@ Pack:
 	call Pack_InitGFX
 	ld a, [wPackJumptableIndex]
 	ld [wJumptableIndex], a
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitItemsPocket:
 	xor a ; ITEM_POCKET
@@ -156,8 +155,7 @@ Pack:
 	ldh [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitBallsPocket:
 	ld a, BALL_POCKET
@@ -505,12 +503,10 @@ UseItem:
 
 .Oak:
 	ld hl, OakThisIsntTheTimeText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Current:
-	call DoItemEffect
-	ret
+	jp DoItemEffect
 
 .Party:
 	ld a, [wPartyCount]
@@ -521,13 +517,11 @@ UseItem:
 	ldh [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .NoPokemon:
 	ld hl, YouDontHaveAMonText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Field:
 	call DoItemEffect
@@ -575,13 +569,11 @@ RegisterItem:
 	ld de, SFX_FULL_HEAL
 	call WaitPlaySFX
 	ld hl, RegisteredItemText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .cant_register
 	ld hl, CantRegisterText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 GiveItem:
 	ld a, [wPartyCount]
@@ -634,13 +626,11 @@ GiveItem:
 	ldh [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .NoPokemon:
 	ld hl, YouDontHaveAMonText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 .AnEggCantHoldAnItemText:
 	text_far _AnEggCantHoldAnItemText
 	text_end
@@ -698,8 +688,7 @@ BattlePack:
 	call Pack_InitGFX
 	ld a, [wPackJumptableIndex]
 	ld [wJumptableIndex], a
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .InitItemsPocket:
 	xor a ; ITEM_POCKET
@@ -944,8 +933,7 @@ endc
 
 .Oak:
 	ld hl, OakThisIsntTheTimeText
-	call Pack_PrintTextNoScroll
-	ret
+	jp Pack_PrintTextNoScroll
 
 .Unused:
 	call DoItemEffect
@@ -963,8 +951,7 @@ endc
 	ldh [hBGMapMode], a
 	call Pack_InitGFX
 	call WaitBGMap_DrawPackGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 .ReturnToBattle:
 	call ClearBGPalettes
@@ -1016,8 +1003,7 @@ DepositSellInitPackBuffers:
 	ld a, BALL_POCKET
 	ld [wCurPocket], a ; ITEM_BALLS
 	call Pack_InitGFX
-	call Pack_InitColors
-	ret
+	jp Pack_InitColors
 
 DepositSellPack:
 .loop
@@ -1132,8 +1118,7 @@ InitPocket:
 	ld [wCurPocket], a
 	call ClearPocketList
 	call DrawPocketName
-	call WaitBGMap_DrawPackGFX
-	ret
+	jp WaitBGMap_DrawPackGFX
 
 DepositSellTutorial_InterpretJoypad:
 	ld hl, wMenuJoypad
@@ -1654,8 +1639,7 @@ Pack_InitColors:
 	ld b, SCGB_PACKPALS
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 ItemsPocketMenuHeader:
 	db MENU_BACKUP_TILES ; flags

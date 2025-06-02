@@ -636,8 +636,7 @@ TextScroll::
 	ld bc, TEXTBOX_INNERW
 	call ByteFill
 	ld c, 5
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 Text_WaitBGMap::
 	push bc

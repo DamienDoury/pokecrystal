@@ -1197,8 +1197,7 @@ Function114843:
 	pop af
 	ld [$dc00], a
 	ld hl, String_114218
-	call Function114acf
-	ret
+	jp Function114acf
 
 .asm_11485f
 	pop de
@@ -3698,8 +3697,7 @@ Function1155af:
 	ld a, e
 	ld [hli], a
 	ld [hl], d
-	call Function1155d1
-	ret
+	jp Function1155d1
 
 Function1155d1:
 	ld a, [$dc0d]

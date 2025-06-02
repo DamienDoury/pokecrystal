@@ -201,8 +201,7 @@ TurnOffPC:
 PC_PlaySanitizerSound:
 	ld de, SFX_2_BOOPS
 	jr PC_WaitPlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 PC_PlayBootSound:
 	ld de, SFX_BOOT_PC
@@ -211,8 +210,7 @@ PC_PlayBootSound:
 PC_PlayShutdownSound:
 	ld de, SFX_SHUT_DOWN_PC
 	call PC_WaitPlaySFX
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 PC_PlayChoosePCSound:
 	ld de, SFX_CHOOSE_PC_OPTION
@@ -222,8 +220,7 @@ PC_WaitPlaySFX:
 	push de
 	call WaitSFX
 	pop de
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 _PlayersHousePC:
 	call PC_PlayBootSound
@@ -255,8 +252,7 @@ _PlayersPC:
 	ld hl, PlayersPCAskWhatDoText
 	call PC_DisplayTextWaitMenu
 	call .PlayersPC
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 .PlayersPC:
 	ld hl, PlayersPCMenuData
@@ -273,8 +269,7 @@ _PlayersPC:
 	xor a
 
 .done
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 PlayersPCMenuData:
 	db MENU_BACKUP_TILES ; flags
@@ -373,8 +368,7 @@ PlayerMailBoxMenu:
 
 PC_DisplayText:
 	call MenuTextbox
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 PokecenterPCSanitizerText:
 	text_far _PlayersPCSanitizerText

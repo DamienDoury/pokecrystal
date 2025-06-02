@@ -1950,8 +1950,7 @@ HandleWeather:
 	xor a
 	ld [wNumHits], a
 	call Call_PlayBattleAnim
-	call SwitchTurnCore
-	ret
+	jp SwitchTurnCore
 
 .do_sandstorm
 	ldh a, [hSerialConnectionStatus]
@@ -3152,8 +3151,7 @@ JumpToPartyMenuAndPrintText:
 	farcall PrintPartyMenuText
 	call WaitBGMap
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 SelectBattleMon:
 	call IsMobileBattle
@@ -3464,8 +3462,7 @@ ForceEnemySwitch:
 	call ResetEnemyStatLevels
 	call ShowSetEnemyMonAndSendOutAnimation
 	call BreakAttraction
-	call ResetBattleParticipants
-	ret
+	jp ResetBattleParticipants
 
 EnemySwitch:
 	call CheckWhetherToAskSwitch
@@ -5258,8 +5255,7 @@ DrawEnemyHUD:
 
 UpdateEnemyHPPal:
 	ld hl, wEnemyHPPal
-	call UpdateHPPal
-	ret
+	jp UpdateHPPal
 
 UpdateHPPal:
 	ld b, [hl]
@@ -5545,8 +5541,7 @@ Battle_StatsScreen:
 	ld bc, $31 tiles
 	call CopyBytes
 
-	call EnableLCD
-	ret
+	jp EnableLCD
 
 TryPlayerSwitch:
 	ld a, [wCurBattleMon]
@@ -5635,8 +5630,7 @@ PlayerSwitch:
 	jp c, .switch
 	cp BATTLEACTION_FORFEIT
 	jr nz, .dont_run
-	call WildFled_EnemyFled_LinkBattleCanceled
-	ret
+	jp WildFled_EnemyFled_LinkBattleCanceled
 
 .dont_run
 	ldh a, [hSerialConnectionStatus]
@@ -6137,8 +6131,7 @@ endc
 	inc hl
 	ld de, wNamedObjectIndex
 	lb bc, 1, 2
-	call PrintNum
-	ret
+	jp PrintNum
 
 CheckPlayerHasUsableMoves:
 	ld a, STRUGGLE
@@ -6842,8 +6835,7 @@ LoadEnemyMon:
 	ld de, wEnemyStats
 	ld bc, NUM_EXP_STATS * 2
 	call CopyBytes
-	call ApplyStatusEffectOnEnemyStats ; Fixes the BRN and PRZ effect on stats that didn't work on switched Pokémons.
-	ret
+	jp ApplyStatusEffectOnEnemyStats ; ; Fixes the BRN and PRZ effect on stats that didn't work on switched Pokémons.
 
 CheckSleepingTreeMon:
 ; Return carry if species is in the list
@@ -8628,8 +8620,7 @@ CleanUpBattleRAM:
 	ld [hli], a
 	dec b
 	jr nz, .loop
-	call WaitSFX
-	ret
+	jp WaitSFX
 
 CheckPayDay:
 	ld hl, wPayDayMoney
@@ -8796,8 +8787,7 @@ _DisplayLinkRecord:
 	call SetPalettes
 	ld c, 8
 	call DelayFrames
-	call WaitPressAorB_BlinkCursor
-	ret
+	jp WaitPressAorB_BlinkCursor
 
 ReadAndPrintLinkBattleRecord:
 	call ClearTilemap

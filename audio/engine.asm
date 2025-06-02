@@ -2350,8 +2350,7 @@ _PlayMusic::
 	ld [wNoiseSampleAddress + 1], a
 	ld [wNoiseSampleDelay], a
 	ld [wMusicNoiseSampleSet], a
-	call MusicOn
-	ret
+	jp MusicOn
 
 _PlayCry::
 ; Play cry de using parameters:
@@ -2461,8 +2460,7 @@ _PlayCry::
 .end
 	ld a, 1 ; stop playing music
 	ld [wSFXPriority], a
-	call MusicOn
-	ret
+	jp MusicOn
 
 StopSFX::
 	call MusicOff
@@ -2667,8 +2665,7 @@ PlayStereoSFX::
 	jr nz, .loop
 
 ; we're done
-	call MusicOn
-	ret
+	jp MusicOn
 
 LoadChannel:
 ; input: de = audio pointer
@@ -2849,5 +2846,4 @@ PlayTrainerEncounterMusic::
 	ld hl, TrainerEncounterMusic
 	add hl, de
 	ld e, [hl]
-	call PlayMusic
-	ret
+	jp PlayMusic

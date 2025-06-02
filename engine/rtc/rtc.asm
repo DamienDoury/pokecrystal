@@ -98,8 +98,7 @@ StartClock::
 	call RecordRTCStatus ; set flag on sRTCStatusFlags
 
 .skip_set
-	call StartRTC
-	ret
+	jp StartRTC
 
 _FixDays:
 	ld hl, hRTCDayHi
@@ -113,8 +112,7 @@ _FixDays:
 .set_bit_7
 	; Day count exceeds 16383
 	ld a, %10000000
-	call RecordRTCStatus ; set bit 7 on sRTCStatusFlags
-	ret
+	jp RecordRTCStatus ; ; set bit 7 on sRTCStatusFlags
 
 ClockContinue:
 	call CheckRTCStatus

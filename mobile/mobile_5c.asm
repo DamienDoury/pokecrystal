@@ -671,8 +671,7 @@ Function171c87:
 	call PlaceString
 	hlcoord 3, 16
 	ld de, String_172e3f
-	call PlaceString
-	ret
+	jp PlaceString
 
 Function171ccd:
 	ldh a, [rSVBK]
@@ -743,8 +742,7 @@ Function171d2b:
 	call PlaceString
 	hlcoord 14, 16
 	ld de, String_172e58
-	call PlaceString
-	ret
+	jp PlaceString
 
 MobilePasswordPalettes:
 INCLUDE "gfx/mobile/mobile_password.pal"

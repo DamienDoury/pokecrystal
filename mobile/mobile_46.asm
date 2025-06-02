@@ -81,8 +81,7 @@ Function11805f:
 	pop af
 	ldh [rSVBK], a
 	call BattleTowerRoomMenu_Cleanup
-	call ReturnToMapFromSubmenu
-	ret
+	jp ReturnToMapFromSubmenu
 
 Function1180b8:
 	call BattleTowerRoomMenu_InitRAM
@@ -126,8 +125,7 @@ Function1180b8:
 	pop af
 	ldh [rSVBK], a
 	call BattleTowerRoomMenu_Cleanup
-	call ReturnToMapFromSubmenu
-	ret
+	jp ReturnToMapFromSubmenu
 
 Function11811a:
 	ld a, 1
@@ -173,8 +171,7 @@ Function118125:
 	ldh [rSVBK], a
 	call BattleTowerRoomMenu_Cleanup
 	call Function118180
-	call ReturnToMapFromSubmenu
-	ret
+	jp ReturnToMapFromSubmenu
 
 Function118180:
 	ld a, [wScriptVar]
@@ -257,8 +254,7 @@ Function1181da:
 	pop af
 	ldh [rSVBK], a
 	call BattleTowerRoomMenu_Cleanup
-	call ReturnToMapFromSubmenu
-	ret
+	jp ReturnToMapFromSubmenu
 
 Function118233:
 	call BattleTowerRoomMenu_InitRAM
@@ -293,8 +289,7 @@ Function118233:
 	jr nz, .asm_11824c
 	pop af
 	ldh [rSVBK], a
-	call BattleTowerRoomMenu_Cleanup
-	ret
+	jp BattleTowerRoomMenu_Cleanup
 
 Function118284:
 	call BattleTowerRoomMenu_InitRAM
@@ -328,8 +323,7 @@ Function118284:
 	jr nz, .asm_11829d
 	pop af
 	ldh [rSVBK], a
-	call BattleTowerRoomMenu_Cleanup
-	ret
+	jp BattleTowerRoomMenu_Cleanup
 
 Function1182d5: ; unreferenced
 	call BattleTowerRoomMenu_InitRAM
@@ -365,8 +359,7 @@ Function1182d5: ; unreferenced
 	pop af
 	ldh [rSVBK], a
 	call BattleTowerRoomMenu_Cleanup
-	call ReturnToMapFromSubmenu
-	ret
+	jp ReturnToMapFromSubmenu
 
 Function118329:
 	call BattleTowerRoomMenu_InitRAM
@@ -401,8 +394,7 @@ Function118329:
 	jr nz, .asm_118342
 	pop af
 	ldh [rSVBK], a
-	call BattleTowerRoomMenu_Cleanup
-	ret
+	jp BattleTowerRoomMenu_Cleanup
 
 Function11837a:
 	call BattleTowerRoomMenu_InitRAM
@@ -437,8 +429,7 @@ Function11837a:
 	jr nz, .asm_118393
 	pop af
 	ldh [rSVBK], a
-	call BattleTowerRoomMenu_Cleanup
-	ret
+	jp BattleTowerRoomMenu_Cleanup
 
 BattleTowerRoomMenu_InitRAM:
 	di
@@ -951,8 +942,7 @@ Function11878d:
 .asm_1187fd
 	ld a, $2c
 .asm_1187ff
-	call Function3e32
-	ret
+	jp Function3e32
 .asm_118803
 	ld a, $d3
 
@@ -2176,8 +2166,7 @@ Function1191d3:
 	ld a, [wcd4a]
 	ld a, h
 	ld [wcd58], a
-	call Function11920f
-	ret
+	jp Function11920f
 
 Function11920f:
 .asm_11920f
@@ -2726,8 +2715,7 @@ endr
 .asm_11957c
 	ld [wBattleTowerRoomMenuJumptableIndex], a
 	pop af
-	call Function1195c4
-	ret
+	jp Function1195c4
 
 Function119584:
 	ld a, [wc608]
@@ -4896,8 +4884,7 @@ Function11a4db:
 	call Function11a63c
 	ld de, String_11a6db
 	hlcoord 4, 2
-	call PlaceString
-	ret
+	jp PlaceString
 
 Function11a4e8:
 	call Function11a63c
@@ -5078,8 +5065,7 @@ Function11a63c:
 	call PlaceString
 	hlcoord 4, 4
 	ld de, String_11a7f4
-	call PlaceString
-	ret
+	jp PlaceString
 
 String_11a661:
 	db   "これから　モバイルセンターに"
@@ -5401,8 +5387,7 @@ Function11a9ce:
 	farcall Stubbed_Function106462
 	farcall Function106464
 	farcall FinishExitMenu
-	call UpdateSprites
-	ret
+	jp UpdateSprites
 
 Function11a9f0:
 	ld a, $1
@@ -5754,8 +5739,7 @@ Function11adc4:
 	pop af
 	ld [wMenuCursorY], a
 	ld hl, Unknown_11afcc
-	call Function11afb7
-	ret
+	jp Function11afb7
 
 .asm_11ae06
 	call PlayClickSFX
@@ -5871,8 +5855,7 @@ Function11ae98:
 	pop af
 	ld [wMenuCursorY], a
 	ld hl, Unknown_11afd2
-	call Function11afb7
-	ret
+	jp Function11afb7
 
 .asm_11aee1
 	call PlayClickSFX
@@ -5961,8 +5944,7 @@ Function11af4e:
 	pop af
 	ld [wMenuCursorY], a
 	ld hl, Unknown_11afd2
-	call Function11afb7
-	ret
+	jp Function11afb7
 
 .asm_11af97
 	call PlayClickSFX
@@ -6065,8 +6047,7 @@ Function11b022:
 	cp $3
 	ret z
 	ld hl, wStringBuffer4
-	call Function11b03d
-	ret
+	jp Function11b03d
 
 Function11b03d:
 	push hl
@@ -6176,8 +6157,7 @@ Function11b099:
 	push hl
 	call GetPokemonName
 	pop hl
-	call PlaceString
-	ret
+	jp PlaceString
 
 .SetCaughtFlag:
 	call CheckCaughtMemMon
@@ -6390,8 +6370,7 @@ FillScreenWithTile32: ; unreferenced
 	hlcoord 0, 0
 	ld a, $32
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call ByteFill
-	ret
+	jp ByteFill
 
 CopyDataUntilFF: ; unreferenced
 .loop
@@ -6483,8 +6462,7 @@ Function11b272:
 	ret
 
 Function11b275:
-	call Function11b279
-	ret
+	jp Function11b279
 
 Function11b279:
 	ld a, [wTempSpecies]
@@ -6558,8 +6536,7 @@ Function11b295:
 	jr nz, .asm_11b2ec
 	pop hl
 	ld de, wStringBuffer4
-	call PlaceString
-	ret
+	jp PlaceString
 
 String_11b2fe: ; unreferenced
 	db "あげる#@"
@@ -6575,8 +6552,7 @@ String_11b30e:
 
 Function11b314:
 	call Function11b31b
-	call Function11b3d9
-	ret
+	jp Function11b3d9
 
 Function11b31b:
 	ld hl, .Coords
@@ -6607,8 +6583,7 @@ Function11b31b:
 	ld bc, .Tilemap1
 
 .load_sprites
-	call Function11b397
-	ret
+	jp Function11b397
 
 .Coords:
 	dbpixel 3, 11, 2, 6 ;  0
@@ -6807,8 +6782,7 @@ Function11b3d9:
 Function11b444:
 ; special
 	call Mobile46_InitJumptable
-	call Mobile46_RunJumptable
-	ret
+	jp Mobile46_RunJumptable
 
 Mobile46_InitJumptable:
 	xor a
@@ -6816,8 +6790,7 @@ Mobile46_InitJumptable:
 	ld [wcf64], a
 	ld [wcf65], a
 	ld [wcf66], a
-	call UpdateTime
-	ret
+	jp UpdateTime
 
 Mobile46_RunJumptable:
 .loop
@@ -7313,8 +7286,7 @@ Function11b6b4:
 	inc de
 	ld a, [de]
 	ld [hl], a
-	call AddMobileMonToParty
-	ret
+	jp AddMobileMonToParty
 
 Function11b7e5:
 	ld a, [$c60d] ; species
@@ -7371,8 +7343,7 @@ Function11b7e5:
 
 .asm_11b872
 	call CloseSubmenu
-	call RestartMapMusic
-	ret
+	jp RestartMapMusic
 
 Function11b879:
 	farcall BattleTower_CheckSaveFileExistsAndIsYours
@@ -7475,8 +7446,7 @@ Function11b920:
 	ld bc, 8
 	call CopyBytes
 	call CloseSRAM
-	call Function118000
-	ret
+	jp Function118000
 
 Function11b93b:
 	ld a, $5

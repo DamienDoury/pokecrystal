@@ -1,7 +1,6 @@
 _Diploma:
 	call PlaceDiplomaOnScreen
-	call WaitPressAorB_BlinkCursor
-	ret
+	jp WaitPressAorB_BlinkCursor
 
 PlaceDiplomaOnScreen:
 	call ClearBGPalettes
@@ -39,8 +38,7 @@ endc
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
 	call SetPalettes
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 .Player:
 if DEF(_FR_FR)
@@ -92,8 +90,7 @@ PrintDiplomaPage2:
 	inc hl
 	ld de, wGameTimeMinutes
 	lb bc, PRINTNUM_LEADINGZEROS | 1, 2
-	call PrintNum
-	ret
+	jp PrintNum
 
 if DEF(_FR_FR)
 .PlayTime: db "TEMPS DE JEU@"

@@ -103,8 +103,7 @@ endc
 	ld [hli], a
 	ld bc, ITEM_NAME_LENGTH - 1
 	ld a, -1
-	call ByteFill
-	ret
+	jp ByteFill
 
 .AppendToStringBuffer2:
 	ld hl, wStringBuffer2
@@ -157,8 +156,7 @@ Deco_FillTempWithMinusOne:
 	assert wNumOwnedDecoCategories + 1 == wOwnedDecoCategories
 	ld a, -1
 	ld bc, 16
-	call ByteFill
-	ret
+	jp ByteFill
 
 CheckAllDecorationFlags:
 .loop
@@ -499,8 +497,7 @@ DecorationFlagAction:
 	push bc
 	call GetDecorationFlag
 	pop bc
-	call EventFlagAction
-	ret
+	jp EventFlagAction
 
 GetDecorationSprite:
 	ld a, c
@@ -981,8 +978,7 @@ GetDecorationName_c_de:
 	ld a, c
 	ld h, d
 	ld l, e
-	call GetDecorationName
-	ret
+	jp GetDecorationName
 
 GetDecorationName_c:
 	ld a, c
@@ -997,8 +993,7 @@ SetSpecificDecorationFlag:
 	ld a, c
 	call GetDecorationID
 	ld b, SET_FLAG
-	call DecorationFlagAction
-	ret
+	jp DecorationFlagAction
 
 GetDecorationID:
 	push hl
@@ -1213,8 +1208,7 @@ ToggleDecorationsVisibility:
 	ld de, EVENT_PLAYERS_HOUSE_2F_BIG_DOLL
 	ld hl, wVariableSprites + SPRITE_BIG_DOLL - SPRITE_VARS
 	ld a, [wDecoBigDoll]
-	call ToggleDecorationVisibility
-	ret
+	jp ToggleDecorationVisibility
 
 ToggleDecorationVisibility:
 	and a
@@ -1246,8 +1240,7 @@ PadCoords_de:
 	ld a, e
 	add 4
 	ld e, a
-	call GetBlockLocation
-	ret
+	jp GetBlockLocation
 
 ; Called once when entering Neon Town (Akiba) 1F.
 GetTodaysBigDoll::

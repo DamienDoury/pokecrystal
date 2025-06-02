@@ -1,7 +1,6 @@
 CantUseItem:
 	ld hl, ItemsOakWarningText
-	call MenuTextboxWaitButton
-	ret
+	jp MenuTextboxWaitButton
 
 ItemsOakWarningText:
 	text_far _ItemsOakWarningText
@@ -202,13 +201,11 @@ TryGiveItemToPartymon:
 	call GiveItemToPokemon
 	ld hl, PokemonHoldItemText
 	call MenuTextboxBackup
-	call GivePartyItem
-	ret
+	jp GivePartyItem
 
 .please_remove_mail
 	ld hl, PokemonRemoveMailText
-	call MenuTextboxBackup
-	ret
+	jp MenuTextboxBackup
 
 .already_holding_item
 	ld [wNamedObjectIndex], a
@@ -231,8 +228,7 @@ TryGiveItemToPartymon:
 	call MenuTextboxBackup
 	ld a, [wNamedObjectIndex]
 	ld [wCurItem], a
-	call GivePartyItem
-	ret
+	jp GivePartyItem
 
 .bag_full
 	ld a, [wNamedObjectIndex]
@@ -1134,8 +1130,7 @@ PlaceMoveData:
 
 PlaceMoveScreenArrows:
 	call PlaceMoveScreenLeftArrow
-	call PlaceMoveScreenRightArrow
-	ret
+	jp PlaceMoveScreenRightArrow
 
 PlaceMoveScreenLeftArrow:
 	ld a, [wCurPartyMon]

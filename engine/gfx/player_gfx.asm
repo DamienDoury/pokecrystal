@@ -68,8 +68,7 @@ GetPlayerNameArray: ; unreferenced
 	jr z, .got_array
 	ld de, FemalePlayerNameArray
 .got_array
-	call InitName
-	ret
+	jp InitName
 
 GetPlayerIcon:
 	ld de, ChrisSpriteGFX
@@ -133,8 +132,7 @@ GetCardPic:
 	ld de, vTiles2 tile $00
 	ld bc, 2 tiles
 	ld a, BANK(TrainerCardAdditionsGFX)
-	call FarCopyBytes
-	ret
+	jp FarCopyBytes
 
 TrainerCardGFX:
 if DEF(_FR_FR)
@@ -150,8 +148,7 @@ GetPlayerBackpic:
 	ld a, [wPlayerGender]
 	bit PLAYERGENDER_FEMALE_F, a
 	jr z, GetChrisBackpic
-	call GetKrisBackpic
-	ret
+	jp GetKrisBackpic
 
 GetChrisBackpic:
 	ld a, [wStatusFlags2]
@@ -256,8 +253,7 @@ GetKrisBackpic:
 .with_mask
 	ld hl, vTiles2 tile $31
 	lb bc, BANK(KrisBackpic), 7 * 7 ; dimensions
-	call Get2bpp
-	ret
+	jp Get2bpp
 
 KrisBackpic:
 INCBIN "gfx/player/kris_back.2bpp"

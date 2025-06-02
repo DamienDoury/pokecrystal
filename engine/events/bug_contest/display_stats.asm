@@ -92,8 +92,7 @@ endc
 	call WaitBGMap
 	ld b, SCGB_DIPLOMA
 	call GetSGBLayout
-	call SetPalettes
-	ret
+	jp SetPalettes
 
 .Health:
 if DEF(_FR_FR)

@@ -416,8 +416,7 @@ DebugColor_LoadRGBMeter:
 	ld h, d
 	pop af
 	ld bc, 20 * 2
-	call ByteFill
-	ret
+	jp ByteFill
 
 DebugColor_SetRGBMeter:
 	ld a, [wDebugColorCurMon]
@@ -435,8 +434,7 @@ DebugColor_SetRGBMeter:
 	ld [wDebugColorRGBJumptableIndex], a
 	ld [wDebugColorCurColor], a
 	ld de, wDebugLightColor
-	call DebugColor_CalculateRGB
-	ret
+	jp DebugColor_CalculateRGB
 
 DebugColor_UpdateScreen:
 	ldh a, [hCGB]
@@ -612,15 +610,13 @@ DebugColor_SelectColorBox:
 	xor a ; FALSE
 	ld [wDebugColorCurColor], a
 	ld de, wDebugLightColor
-	call DebugColor_CalculateRGB
-	ret
+	jp DebugColor_CalculateRGB
 
 .dark
 	ld a, TRUE
 	ld [wDebugColorCurColor], a
 	ld de, wDebugDarkColor
-	call DebugColor_CalculateRGB
-	ret
+	jp DebugColor_CalculateRGB
 
 DebugColor_ChangeRedValue:
 	ld hl, hJoyLast
@@ -756,8 +752,7 @@ DebugColor_TMHMJoypad:
 
 .done
 	ld [wDebugColorCurTMHM], a
-	call DebugColor_PrintTMHMMove
-	ret
+	jp DebugColor_PrintTMHMMove
 
 DebugColor_PrintTMHMMove:
 	hlcoord 10, 11
@@ -790,8 +785,7 @@ DebugColor_PrintTMHMMove:
 	ld de, .NotAbleText
 .place_string
 	hlcoord 10, 14
-	call PlaceString
-	ret
+	jp PlaceString
 
 .AbleText:
 	db "おぼえられる@" ; Learnable
@@ -812,8 +806,7 @@ DebugColor_PrintTMHMMove:
 .ClearRow:
 	ld bc, 10
 	ld a, DEBUGTEST_BLACK
-	call ByteFill
-	ret
+	jp ByteFill
 
 DebugColor_CalculatePalette:
 	ld a, [wDebugRedChannel]
@@ -1158,8 +1151,7 @@ DebugTileset_LoadRGBMeter:
 	ld [hli], a
 	ld bc, 15
 	ld a, DEBUGTEST_TICKS_2
-	call ByteFill
-	ret
+	jp ByteFill
 
 DebugTileset_LoadPalettes:
 	ldh a, [rSVBK]
@@ -1193,8 +1185,7 @@ DebugColorMain2: ; unreferenced
 	ld a, [hl]
 	and B_BUTTON
 	jr nz, .cancel
-	call DebugTileset_Joypad
-	ret
+	jp DebugTileset_Joypad
 
 .next_palette
 	ld hl, wDebugTilesetCurPalette
@@ -1281,8 +1272,7 @@ DebugTileset_UpdatePalettes:
 	ld a, TRUE
 	ldh [hCGBPalUpdate], a
 
-	call DelayFrame
-	ret
+	jp DelayFrame
 
 DebugTileset_Joypad:
 	ld a, [wDebugTilesetRGBJumptableIndex]
@@ -1335,8 +1325,7 @@ DebugTileset_SelectColorBox:
 	add hl, de
 	ld e, l
 	ld d, h
-	call DebugColor_CalculateRGB
-	ret
+	jp DebugColor_CalculateRGB
 
 DebugTileset_ChangeRedValue:
 	ld hl, hJoyLast
@@ -1392,8 +1381,7 @@ DebugTileset_UpdateRGBColor:
 
 .done
 	call DebugTileset_CalculatePalette
-	call DebugTileset_UpdatePalettes
-	ret
+	jp DebugTileset_UpdatePalettes
 
 DebugTileset_PreviousRGBColor:
 	ld hl, wDebugTilesetRGBJumptableIndex

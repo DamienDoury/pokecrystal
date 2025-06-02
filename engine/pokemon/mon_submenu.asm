@@ -15,8 +15,7 @@ MonSubmenu:
 	call MonMenuLoop
 	ld [wMenuSelection], a
 
-	call ExitMenu
-	ret
+	jp ExitMenu
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -38,8 +37,7 @@ endc
 	sub b
 	inc a
 	ld [wMenuBorderTopCoord], a
-	call MenuBox
-	ret
+	jp MenuBox
 
 MonMenuLoop:
 .loop

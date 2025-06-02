@@ -84,8 +84,7 @@ NameRival:
 	farcall _NamingScreen
 	ld hl, wRivalName
 	ld de, .DefaultName
-	call InitName
-	ret
+	jp InitName
 
 .DefaultName:
 if DEF(_FR_FR)
@@ -247,8 +246,7 @@ CheckCoinsAndCoinCase:
 
 ClearBGPalettesBufferScreen:
 	call ClearBGPalettes
-	call BufferScreen
-	ret
+	jp BufferScreen
 
 ScriptReturnCarry:
 	jr c, .carry
@@ -431,8 +429,7 @@ HospitalVisitHappinessGain:
 	ret
 
 GetItemNameFromIndex:
-	call GetItemName
-	ret
+	jp GetItemName
 
 GetPartyCountWithoutEggs::
 	push hl

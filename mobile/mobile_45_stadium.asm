@@ -506,8 +506,7 @@ MobileStudium:
 
 Function117a8d:
 	call Function117a94
-	call Function117acd
-	ret
+	jp Function117acd
 
 Function117a94:
 	xor a

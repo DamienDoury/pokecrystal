@@ -270,8 +270,7 @@ ShuffleAllViridianWarps::
 	ld hl, wViridianHorizontalWarpPair
 	ld b, VIRIDIAN_HORIZONTAL_WARP_COUNT - 1
 	ld d, VIRIDIAN_VERTICAL_WARP_COUNT
-	call ShuffleViridianWarps
-	ret
+	jp ShuffleViridianWarps
 
 
 

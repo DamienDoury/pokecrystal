@@ -172,13 +172,11 @@ BankOfMom:
 
 .InsufficientFundsInWallet:
 	ld hl, MomInsufficientFundsInWalletText
-	call PrintText
-	ret
+	jp PrintText
 
 .NotEnoughRoomInBank:
 	ld hl, MomNotEnoughRoomInBankText
-	call PrintText
-	ret
+	jp PrintText
 
 .CancelDeposit:
 	ld a, $7
@@ -238,13 +236,11 @@ BankOfMom:
 
 .InsufficientFundsInBank:
 	ld hl, MomHaventSavedThatMuchText
-	call PrintText
-	ret
+	jp PrintText
 
 .NotEnoughRoomInWallet:
 	ld hl, MomNotEnoughRoomInWalletText
-	call PrintText
-	ret
+	jp PrintText
 
 .CancelWithdraw:
 	ld a, $7
@@ -307,8 +303,7 @@ DSTChecks:
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .MomLostGearBookletText
-	call PlaceHLTextAtBC
-	ret
+	jp PlaceHLTextAtBC
 
 .loop
 	call .ClearBox
@@ -327,8 +322,7 @@ DSTChecks:
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .TimesetNotDSTText
-	call PlaceHLTextAtBC
-	ret
+	jp PlaceHLTextAtBC
 
 .SetDST:
 	ld hl, .TimesetAskDSTText
@@ -342,8 +336,7 @@ DSTChecks:
 	call .ClearBox
 	bccoord 1, 14
 	ld hl, .TimesetDSTText
-	call PlaceHLTextAtBC
-	ret
+	jp PlaceHLTextAtBC
 
 .SetClockForward:
 	ld a, [wStartHour]
@@ -444,8 +437,7 @@ Mom_ContinueMenuSetup:
 
 Mom_Wait10Frames:
 	ld c, 10
-	call DelayFrames
-	ret
+	jp DelayFrames
 
 Mom_WithdrawDepositMenuJoypad:
 .loop

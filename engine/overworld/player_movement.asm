@@ -995,8 +995,7 @@ endc
 
 .PlayBumpSound
 	ld de, SFX_BUMP
-	call PlaySFX
-	ret
+	jp PlaySFX
 
 .AutoCut:
 	farcall CheckAPressOW.try_to_cut
@@ -1081,8 +1080,7 @@ PlayCurPartyMonCry::
 	ld e, a
 	farcall GetMonSpecies
 	ld a, [wCurPartySpecies]
-	call PlayMonCry
-	ret
+	jp PlayMonCry
 
 CheckStandingOnIce::
 	ld a, [wPlayerTurningDirection]

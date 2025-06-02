@@ -160,8 +160,7 @@ WaterCurFruitTree:
 	ld d, 0
 	ld hl, wFruitTreeWaterFlags
 	ld b, SET_FLAG
-	call FlagAction
-	ret
+	jp FlagAction
 
 GrowBerries::
 	; Water penetration into the soil.

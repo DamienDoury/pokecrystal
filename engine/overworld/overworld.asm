@@ -782,8 +782,7 @@ LoadEmote::
 	ld a, c
 	and a
 	ret z
-	call GetEmote2bpp
-	ret
+	jp GetEmote2bpp
 
 INCLUDE "data/sprites/emotes.asm"
 

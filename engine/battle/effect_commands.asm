@@ -1999,8 +1999,7 @@ BattleCommand_CheckHit:
 	cp WIDE_LENS
 	ret nz
 
-	call Add10PercentToB
-	ret
+	jp Add10PercentToB
 
 ; Output: nc is accuracy check should be skipped. Carry otherwise.
 .MinimizeAlwaysHit:
