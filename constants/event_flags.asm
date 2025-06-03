@@ -1308,7 +1308,10 @@
 
 	const EVENT_BEAT_BEAUTY_HARRIET
 
-; Unused: next 66 events	
+	const EVENT_LORELEI_WANTS_TO_TALK
+	const EVENT_BEAT_LORELEI
+
+; Unused: next 64 events	
 
 	const_next 1592
 	const EVENT_SICK_GENTLEMAN_FIRST_MEETING

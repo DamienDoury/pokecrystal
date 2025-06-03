@@ -175,9 +175,8 @@ Marts2:
 	db -1 ; end
 
 .MartCeladon3F:
-	db 2 ; # items
+	db 1 ; # items
 	db TM_SANDSTORM
-	db TM_HAIL
 	db -1 ; end
 
 .MartCeladon4F:

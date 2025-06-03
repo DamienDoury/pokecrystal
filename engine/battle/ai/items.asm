@@ -463,7 +463,7 @@ AI_Items:
 	call .XItem
 	jp c, .DontUse
 	call EnemyUsedXAccuracy
-	jmp .Use
+	jr .Use
 
 .GuardSpec:
 	call .XItem

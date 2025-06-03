@@ -73,5 +73,6 @@ TrainerGroups:
 	dw JennyGroup
 	dw SwatGroup
 	dw GruntFGroup
+	dw LoreleiGroup
 	dw MysticalmanGroup
 	assert_table_length NUM_TRAINER_CLASSES

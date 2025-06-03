@@ -74,5 +74,6 @@ TrainerEncounterMusic::
 	db MUSIC_HIGH_OFFICER_ENCOUNTER; jenny
 	db MUSIC_HIGH_OFFICER_ENCOUNTER; swat
 	db MUSIC_ROCKET_ENCOUNTER      ; gruntf
+	db MUSIC_OFFICER_ENCOUNTER     ; lorelei
 	db MUSIC_HIKER_ENCOUNTER       ; mysticalman
 	assert_table_length NUM_TRAINER_CLASSES + 1

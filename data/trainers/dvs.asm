@@ -72,5 +72,6 @@ TrainerClassDVs:
 	dn 13, 13, 13, 13 ; JENNY
 	dn 15, 15, 15, 15 ; SWAT
 	dn  7, 14, 10,  8 ; GRUNTF
+	dn 14, 14, 14, 14 ; LORELEI
 	dn  9,  8,  8,  8 ; MYSTICALMAN
 	assert_table_length NUM_TRAINER_CLASSES

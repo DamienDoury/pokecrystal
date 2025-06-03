@@ -772,7 +772,10 @@ KRIS EQU __trainer_class__
 	const GRUNTF_4
 	const GRUNTF_5
 
-	trainerclass MYSTICALMAN ; 47
+	trainerclass LORELEI ; 47
+	const LORELEI1
+
+	trainerclass MYSTICALMAN ; 48
 	const EUSINE
 
 NUM_TRAINER_CLASSES EQU __trainer_class__ - 1

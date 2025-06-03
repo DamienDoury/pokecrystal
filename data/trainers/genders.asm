@@ -73,4 +73,5 @@ BTTrainerClassGenders:
 	db FEMALE ; JENNY
 	db MALE   ; SWAT
 	db FEMALE ; GRUNTF
+	db FEMALE ; LORELEI
 	assert_table_length NUM_TRAINER_CLASSES - 1 ; exclude MYSTICALMAN

@@ -286,13 +286,12 @@ Marts:
 	db -1 ; end
 
 .MartCeladon3F:
-	db 7 ; # items
+	db 5 ; # items
 	db TM_PROTECT
 	db TM_PSYCH_UP
 	db TM_SUNNY_DAY ; doublon
 	db TM_RAIN_DANCE ; doublon
 	db TM_SANDSTORM ; doublon
-	db TM_HAIL ; doublon
 	db -1 ; end
 
 .MartCeladon4F:

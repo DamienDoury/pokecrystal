@@ -194,7 +194,6 @@ INCLUDE "maps/LavenderPokecenter1F.asm"
 INCLUDE "maps/MrFujisHouse.asm"
 INCLUDE "maps/LavenderSpeechHouse.asm"
 INCLUDE "maps/LavenderNameRater.asm"
-INCLUDE "maps/LavenderMart.asm"
 INCLUDE "maps/SaffronMagnetTrainStation.asm"
 
 
@@ -530,3 +529,4 @@ INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/RockTunnel1F.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
 INCLUDE "maps/MrPsychicsHouse.asm"
+INCLUDE "maps/LavenderMart.asm"

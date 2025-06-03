@@ -128,7 +128,13 @@ BlackthornYoungsterScript:
 	jumptext BlackthornYoungsterText
 
 BlackthornCooltrainerF2Script:
+	checkitem TM_HAIL
+	iffalse .cant_get_hail
+
 	jumptextfaceplayer BlackthornCooltrainerF2Text
+
+.cant_get_hail
+	jumptextfaceplayer BlackthornCooltrainerF2HailText
 
 SantosScript:
 	faceplayer
@@ -167,6 +173,10 @@ SantosScript:
 	end
 
 BlackthornCitySign:
+if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
+	setevent EVENT_LORELEI_WANTS_TO_TALK
+	clearevent EVENT_RED_BEATEN
+endc
 	jumptext BlackthornCitySignText
 
 BlackthornGymSign:
@@ -392,18 +402,42 @@ endc
 
 BlackthornCooltrainerF2Text: 
 if DEF(_FR_FR)
-	text "Tu as traversé la"
-	line "ROUTE DE GLACE?"
-
-	para "Tu dois être"
-	line "balèze!"
+	text "Alors comme ça"
+	line "l'objet au fond de"
+	cont "la ROUTE DE GLACE"
+	cont "c'était la CT"
+	cont "GRELE! Balèze!"
 else
-	text "Wow, you came"
-	line "through the ICE"
-	cont "PATH?"
+	text "So in the end"
+	line "the item at the"
+	cont "bottom of the ICE"
+	cont "PATH was the TM"
+	cont "HAIL! Badass!"
+endc
 
-	para "You must be a real"
-	line "hotshot trainer!"
+	done
+
+BlackthornCooltrainerF2HailText:
+if DEF(_FR_FR)
+	text "T'as vu l'objet"
+	line "au fond de la"
+	cont "ROUTE DE GLACE?"
+
+	para "J'ai pas réussi"
+	line "à l'attraper."
+
+	para "Je me demande bien"
+	line "ce que c'est."
+else
+	text "Did you see the"
+	line "item at the bottom"
+	cont "of the ICE PATH?"
+
+	para "I couldn't manage"
+	line "to grab it."
+
+	para "I wonder what"
+	line "it could be."
 endc
 
 	done

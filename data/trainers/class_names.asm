@@ -72,6 +72,7 @@ if DEF(_FR_FR)
 	li "AGENT"
 	li "SWAT"
 	li "ROCKET"
+	li "CONSEIL 4"
 	li "MYSTIQUE"
 else
 	li "LEADER"
@@ -144,6 +145,7 @@ else
 	li "OFFICER"
 	li "SWAT"
 	li "ROCKET"
+	li "ELITE FOUR"
 	li "MYSTICALMAN"
 endc
 	assert_list_length NUM_TRAINER_CLASSES

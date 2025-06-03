@@ -75,4 +75,5 @@ SpriteMons:
 	db CLEFABLE
 	db PRIMEAPE
 	db FURRET
+	db DEWGONG
 	assert_table_length NUM_POKEMON_SPRITES

@@ -664,9 +664,15 @@ if DEF(_FR_FR)
 	text "ROUTE 44"
 	line "ROUTE DE GLACE"
 	cont "Tout droit"
+	
+	para "Attention:"
+	line "froid extrême."
 else
 	text "ROUTE 44"
 	line "ICE PATH AHEAD"
+
+	para "Danger:"
+	line "extreme cold."
 endc
 
 	done

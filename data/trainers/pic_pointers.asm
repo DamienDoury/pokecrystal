@@ -73,6 +73,7 @@ TrainerPicPointers::
 	dba JennyPic
 	dba SwatPic
 	dba GruntfPic
+	dba LoreleiPic
 	dba MysticalmanPic
 	assert_table_length NUM_TRAINER_CLASSES
 
