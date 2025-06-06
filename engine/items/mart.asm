@@ -1136,7 +1136,7 @@ PlayTransactionSound:
 MartTextbox:
 	call MenuTextbox
 	call JoyWaitAorB
-	jp ExitMenu
+	jmp ExitMenu
 
 ShelfItemDisplay::
 	push bc

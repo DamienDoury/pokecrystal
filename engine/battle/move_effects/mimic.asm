@@ -47,4 +47,4 @@ BattleCommand_Mimic:
 	jmp StdBattleTextbox
 
 .fail
-	jp FailMimic
+	jmp FailMimic

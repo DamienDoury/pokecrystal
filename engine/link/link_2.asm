@@ -18,7 +18,7 @@ LinkMonStatsScreen:
 
 Link_WaitBGMap:
 	call WaitBGMap
-	jp WaitBGMap2
+	jmp WaitBGMap2
 
 LinkTextbox2:
 	ld h, d

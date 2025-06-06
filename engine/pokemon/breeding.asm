@@ -854,7 +854,7 @@ DayCareMon2:
 	jmp PrintText
 
 DayCareMonCursor:
-	jp WaitPressAorB_BlinkCursor
+	jmp WaitPressAorB_BlinkCursor
 
 LeftWithDayCareLadyText:
 	text_far _LeftWithDayCareLadyText

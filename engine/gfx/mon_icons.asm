@@ -136,7 +136,7 @@ LoadMenuMonIcon:
 Unused_GetPartyMenuMonIcon:
 	call InitPartyMenuIcon
 	call .GetPartyMonItemGFX
-	jp SetPartyMonIconAnimSpeed
+	jmp SetPartyMonIconAnimSpeed
 
 .GetPartyMonItemGFX:
 	push bc

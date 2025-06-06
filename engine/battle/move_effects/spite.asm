@@ -83,4 +83,4 @@ BattleCommand_Spite:
 	jmp StdBattleTextbox
 
 .failed
-	jp PrintDidntAffect2
+	jmp PrintDidntAffect2

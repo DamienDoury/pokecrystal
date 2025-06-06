@@ -540,7 +540,7 @@ PhoneEllipseText:
 	text_end
 
 HangUp_BoopOff:
-	jp SpeechTextbox
+	jmp SpeechTextbox
 
 Phone_StartRinging:
 	call WaitSFX

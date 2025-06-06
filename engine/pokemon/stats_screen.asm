@@ -236,16 +236,6 @@ StatsScreen_LoadPage:
 	ld [wJumptableIndex], a
 	ret
 
-MonStatsJoypad:
-	call StatsScreen_GetJoypad
-	jr nc, .next
-	ld h, 0
-	jr StatsScreen_SetJumptableIndex
-
-.next
-	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT
-	jp StatsScreen_JoypadAction
-
 StatsScreenWaitCry:
 	call IsSFXPlaying
 	ret nc
@@ -312,6 +302,17 @@ StatsScreen_GetJoypad:
 .set_carry
 	scf
 	ret
+
+MonStatsJoypad:
+	call StatsScreen_GetJoypad
+	jr nc, .next
+	
+	ld h, 0
+	jp StatsScreen_SetJumptableIndex
+
+.next
+	and D_DOWN | D_UP | D_LEFT | D_RIGHT | A_BUTTON | B_BUTTON | SELECT
+	; fallthrough.
 
 StatsScreen_JoypadAction:
 	push af
@@ -560,7 +561,7 @@ else
 	and a
 	ret z
 
-	jp PlaceAbilityDescription
+	jmp PlaceAbilityDescription
 endc
 
 .a_button_submenu ; Swapping moves.
@@ -1013,7 +1014,7 @@ StatsScreen_LoadGFX:
 	jmp SetPalettes
 
 .place_frontpic
-	jp StatsScreen_PlaceFrontpic
+	jmp StatsScreen_PlaceFrontpic
 
 .ClearBox:
 	ld a, [wStatsScreenFlags]
@@ -1674,7 +1675,7 @@ StatsScreen_PlaceFrontpic:
 
 .no_cry
 	call .AnimateMon
-	jp SetPalettes
+	jmp SetPalettes
 
 .cry
 	call SetPalettes

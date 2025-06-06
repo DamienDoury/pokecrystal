@@ -130,7 +130,7 @@ else
 endc
 
 _LoadTradeScreenBorderGFX:
-	jp __LoadTradeScreenBorderGFX
+	jmp __LoadTradeScreenBorderGFX
 
 LinkComms_LoadPleaseWaitTextboxBorderGFX:
 	ld de, LinkCommsBorderGFX + $30 tiles
@@ -161,7 +161,7 @@ PrintWaitingTextAndSyncAndExchangeNybble:
 	call .PrintWaitingText
 	farcall WaitLinkTransfer
 	call ExitMenu
-	jp WaitBGMap2
+	jmp WaitBGMap2
 
 .PrintWaitingText:
 if DEF(_FR_FR)

@@ -122,7 +122,7 @@ PlayStereoCry2::
 
 PlayMonCry::
 	call PlayMonCry2
-	jp WaitSFX
+	jmp WaitSFX
 
 PlayMonCry2::
 ; Don't wait for the cry to end.

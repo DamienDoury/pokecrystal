@@ -12,4 +12,4 @@ BattleCommand_FocusEnergy:
 
 .already_pumped
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

@@ -35,4 +35,4 @@ BattleCommand_PerishSong:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

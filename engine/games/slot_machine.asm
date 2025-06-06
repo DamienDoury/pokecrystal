@@ -394,7 +394,7 @@ SlotsAction_FlashScreen:
 
 .done
 	call Slots_GetPals
-	jp SlotsAction_Next
+	jmp SlotsAction_Next
 
 SlotsAction_GiveEarnedCoins:
 	xor a
@@ -444,7 +444,7 @@ SlotsAction_PayoutAnim:
 	jmp PlaySFX
 
 .done
-	jp SlotsAction_Next
+	jmp SlotsAction_Next
 
 SlotsAction_RestartOrQuit:
 	call Slots_DeilluminateBetLights

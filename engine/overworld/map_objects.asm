@@ -607,20 +607,20 @@ MovementFunction_Indexed2:
 	jmp HandleMovementData
 
 MovementFunction_0a:
-	jp _GetMovementObject
+	jmp _GetMovementObject
 
 MovementFunction_0b:
-	jp _GetMovementObject
+	jmp _GetMovementObject
 
 MovementFunction_0c:
-	jp _GetMovementObject
+	jmp _GetMovementObject
 
 MovementFunction_0d:
 	ld hl, GetPlayerNextMovementByte
 	jmp HandleMovementData
 
 MovementFunction_0e:
-	jp _GetMovementObject
+	jmp _GetMovementObject
 
 MovementFunction_Follow:
 	ld hl, GetFollowerNextMovementByte

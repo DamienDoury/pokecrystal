@@ -439,7 +439,7 @@ Script_repeattext:
 	ret
 
 Script_waitbutton:
-	jp WaitButton
+	jmp WaitButton
 
 Script_promptbutton:
 	ldh a, [hOAMUpdate]
@@ -473,7 +473,7 @@ Script_loadmenu:
 
 Script_closewindow:
 	call CloseWindow
-	jp UpdateSprites
+	jmp UpdateSprites
 
 Script_pokepic:
 	call GetScriptByte
@@ -878,11 +878,11 @@ Script_playsound:
 	jmp PlaySFX
 
 Script_waitsfx:
-	jp WaitSFX
+	jmp WaitSFX
 
 Script_warpsound:
 	farcall GetWarpSFX
-	jp PlaySFX
+	jmp PlaySFX
 
 Script_cry:
 	call GetScriptByte
@@ -1523,7 +1523,7 @@ StdScript:
 
 SkipTwoScriptBytes:
 	call GetScriptByte
-	jp GetScriptByte
+	jmp GetScriptByte
 
 ScriptJump:
 	ld a, b
@@ -2438,19 +2438,15 @@ Script_newloadmap:
 	call LoadMapStatus
 	jmp StopScript
 
-Script_reloadend:
-	call Script_newloadmap
-	jp Script_end
-
 Script_opentext:
-	jp OpenText
+	jmp OpenText
 
 Script_openredtext:
-	jp OpenRedText
+	jmp OpenRedText
 
 Script_refreshscreen:
 	call RefreshScreen
-	jp GetScriptByte
+	jmp GetScriptByte
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
@@ -2491,7 +2487,11 @@ Script_deactivatefacing:
 
 Script_stopandsjump:
 	call StopScript
-	jp Script_sjump
+	jmp Script_sjump
+
+Script_reloadend:
+	call Script_newloadmap
+	; fallthrough.
 
 Script_end::
 	call ExitScriptSubroutine

@@ -849,7 +849,7 @@ CardFlip_CheckWinCondition:
 	dw .OddSix
 
 .Impossible:
-	jp .Lose
+	jmp .Lose
 
 .PikaJiggly:
 	ld a, [wCardFlipFaceUpCard]

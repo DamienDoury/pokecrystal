@@ -252,7 +252,7 @@ Function8b4b8:
 	pop bc
 	call Function8b4cc
 	call Function8b518
-	jp Function8b3cd
+	jmp Function8b3cd
 
 Function8b4cc:
 	push bc

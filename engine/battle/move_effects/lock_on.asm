@@ -26,7 +26,7 @@ BattleCommand_MindReader:
 
 .fail
 	call AnimateFailedMove
-	jp PrintDidntAffect
+	jmp PrintDidntAffect
 
 .discard_fails
 	call CheckSubstituteOpp

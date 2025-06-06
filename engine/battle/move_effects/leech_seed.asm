@@ -32,7 +32,7 @@ BattleCommand_LeechSeed:
 
 .grass
 	call AnimateFailedMove
-	jp PrintDoesntAffect
+	jmp PrintDoesntAffect
 
 .evaded
 	call AnimateFailedMove

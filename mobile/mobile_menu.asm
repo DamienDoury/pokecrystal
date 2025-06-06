@@ -348,7 +348,7 @@ Function4a221:
 
 Function4a239:
 	pop bc
-	jp Function4a13b
+	jmp Function4a13b
 
 Strings_4a23d:
 	db   "いつも　せつぞく¯する"
@@ -594,7 +594,7 @@ Function4a485:
 	jmp Get2bpp
 
 Function4a492:
-	jp _CrystalCGB_MobileLayout0
+	jmp _CrystalCGB_MobileLayout0
 
 MainMenu_MobileStudium:
 	ld a, [wStartDay]

@@ -413,13 +413,6 @@ LoadMapAttributes_SkipObjects::
 	ld a, TRUE ; skip object events
 	jr ReadMapEvents
 
-CopyMapPartialAndAttributes::
-	call CopyMapPartial
-	call SwitchToMapAttributesBank
-	call GetMapAttributesPointer
-	call CopyMapAttributes
-	jp GetMapConnections
-
 ReadMapEvents::
 	push af
 	push bc
@@ -461,6 +454,13 @@ CopyMapAttributes::
 	dec c
 	jr nz, .loop
 	ret
+
+CopyMapPartialAndAttributes::
+	call CopyMapPartial
+	call SwitchToMapAttributesBank
+	call GetMapAttributesPointer
+	call CopyMapAttributes
+	; fallthrough.
 
 GetMapConnections::
 	ld a, $ff

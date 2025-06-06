@@ -78,4 +78,4 @@ BattleCommand_FutureSight:
 	call ResetDamage
 	call AnimateFailedMove
 	call PrintButItFailed
-	jp EndMoveEffect
+	jmp EndMoveEffect

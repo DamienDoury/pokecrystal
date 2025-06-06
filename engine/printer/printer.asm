@@ -35,7 +35,7 @@ Printer_PrepareTilemapForPrint:
 
 Printer_ExitPrinter:
 	call ReturnToMapFromSubmenu
-	jp Printer_RestartMapMusic
+	jmp Printer_RestartMapMusic
 
 PrintDexEntry:
 	ld a, [wPrinterQueueLength]
@@ -499,7 +499,7 @@ Printer_PlayMusic:
 	jmp PlayMusic2
 
 Printer_RestartMapMusic:
-	jp RestartMapMusic
+	jmp RestartMapMusic
 
 CheckPrinterStatus:
 ; Check for printer errors

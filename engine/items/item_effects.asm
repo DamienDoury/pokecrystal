@@ -1880,7 +1880,7 @@ FullRestoreEffect:
 
 .NotAtFullHealth:
 	call .FullRestore
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 .FullRestore:
 	xor a
@@ -1922,7 +1922,7 @@ BitterBerryEffect:
 
 RestoreHPEffect:
 	call ItemRestoreHP
-	jp StatusHealer_Jumptable
+	jmp StatusHealer_Jumptable
 
 EnergypowderEffect:
 	ld c, HAPPINESS_BITTERPOWDER
@@ -2872,9 +2872,6 @@ OpenBox:
 	text_far _SentTrophyHomeText
 	text_end
 
-NoEffect:
-	jp IsntTheTimeMessage
-
 Play_SFX_FULL_HEAL:
 	push de
 	ld de, SFX_FULL_HEAL
@@ -2937,6 +2934,7 @@ CantUseOnEggMessage:
 	ld hl, ItemCantUseOnEggText
 	jr CantUseItemMessage
 
+NoEffect:
 IsntTheTimeMessage:
 	ld hl, ItemOakWarningText
 	jr CantUseItemMessage

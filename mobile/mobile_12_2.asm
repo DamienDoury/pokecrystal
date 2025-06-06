@@ -771,7 +771,7 @@ MobileOnlyThreeMonMayEnterText:
 
 Function4ad56:
 	farcall OpenPartyStats
-	jp WaitBGMap2
+	jmp WaitBGMap2
 
 Function4ad60:
 	farcall ManagePokemonMoves

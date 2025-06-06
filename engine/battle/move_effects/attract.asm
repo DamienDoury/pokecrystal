@@ -20,7 +20,7 @@ BattleCommand_Attract:
 	jmp StdBattleTextbox
 
 .failed
-	jp FailMove
+	jmp FailMove
 
 CheckOppositeGender:
 	ld a, MON_SPECIES

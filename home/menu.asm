@@ -28,7 +28,7 @@ StaticMenuJoypad::
 
 ScrollingMenuJoypad::
 	callfar _ScrollingMenuJoypad
-	jp GetMenuJoypad
+	; fallthrough.
 
 GetMenuJoypad::
 	push bc
@@ -207,7 +207,7 @@ MenuBox::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	jp Textbox
+	jmp Textbox
 
 GetMenuTextStartCoord::
 	ld a, [wMenuBorderTopCoord]

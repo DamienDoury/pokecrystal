@@ -580,7 +580,7 @@ DisplayContinueDataWithRTCError:
 	call Continue_DisplayBadgesDexPlayerName
 	call Continue_UnknownGameTime
 	call LoadFontsExtra
-	jp UpdateSprites
+	jmp UpdateSprites
 
 Continue_LoadMenuHeader:
 	xor a
@@ -1376,7 +1376,7 @@ DeleteSaveData:
 
 ResetClock:
 	farcall _ResetClock
-	jp Init
+	jmp Init
 
 UpdateTitleTrailSprite: ; unreferenced
 	; If bit 0 or 1 of [wTitleScreenTimer] is set, we don't need to be here.

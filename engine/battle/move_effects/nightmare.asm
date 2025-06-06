@@ -34,4 +34,4 @@ BattleCommand_Nightmare:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

@@ -226,4 +226,4 @@ PrintWinLossText::
 .is_the_police
 	farcall DisplayRandomPoliceBeatenText
 	call WaitBGMap
-	jp WaitPressAorB_BlinkCursor
+	jmp WaitPressAorB_BlinkCursor

@@ -1063,7 +1063,7 @@ endc
 .ActivateStrength
 	call PlayCurPartyMonCry
 	farcall SetStrengthFlag
-	jp .CheckNPC ; Pushes the Boulder as soon as Strength is activated. 2 actions in 1 input.
+	jmp .CheckNPC ; Pushes the Boulder as soon as Strength is activated. 2 actions in 1 input.
 
 .GetOutOfWater:
 	push bc
@@ -1129,4 +1129,4 @@ SetNormalStateIfClapping::
 
 	ld a, PLAYER_NORMAL
 	ld [wPlayerState], a
-	jp UpdatePlayerSprite
+	jmp UpdatePlayerSprite

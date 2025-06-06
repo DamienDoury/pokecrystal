@@ -112,7 +112,7 @@ PlayBattleMusic:
 	jp z, .done
 
 	ld de, MUSIC_KANTO_WILD_BATTLE_FRLG
-	jp .done
+	jmp .done
 
 .trainermusic
 	ld de, MUSIC_CHAMPION_BATTLE

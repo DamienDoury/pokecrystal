@@ -63,4 +63,4 @@ BattleCommand_Conversion2:
 	jmp StdBattleTextbox
 
 .failed
-	jp FailMove
+	jmp FailMove

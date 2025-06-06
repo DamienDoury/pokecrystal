@@ -64,7 +64,7 @@ BattleCommand_SleepTalk:
 
 .fail
 	call AnimateFailedMove
-	jp TryPrintButItFailed
+	jmp TryPrintButItFailed
 
 .safely_check_has_usable_move
 	push hl

@@ -53,20 +53,20 @@ CloseText::
 	;call LoadOverworldFont
 	ret
 
-OpenText::
-	call OpenTextPre
-	call SpeechTextbox
-	jr OpenTextPost
-
 OpenRedText::
 	call OpenTextPre
 	call SpeechTextboxRed
-	jp OpenTextPost
+	jr OpenTextPost
 
 OpenTextPre::
 	call ClearWindowData
 	farcall ReanchorBGMap_NoOAMUpdate ; clear bgmap
 	ret
+
+OpenText::
+	call OpenTextPre
+	call SpeechTextbox
+	; fallthrough.
 
 OpenTextPost::
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap ; anchor bgmap

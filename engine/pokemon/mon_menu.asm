@@ -358,7 +358,7 @@ GiveItemToPokemon:
 StartMenuYesNo:
 	call MenuTextbox
 	call YesNoBox
-	jp ExitMenu
+	jmp ExitMenu
 
 ComposeMailMessage:
 	ld de, wTempMailMessage

@@ -1042,7 +1042,7 @@ Function118896: ; unreferenced
 
 .asm_1188aa
 	call BattleTowerRoomMenu_IncrementJumptable
-	jp BattleTowerRoomMenu_IncrementJumptable
+	jmp BattleTowerRoomMenu_IncrementJumptable
 
 Function1188b0:
 	ld de, wc346
@@ -1107,7 +1107,7 @@ Function118903:
 
 Function11891c:
 	call Function118b42
-	jp BattleTowerRoomMenu_IncrementJumptable
+	jmp BattleTowerRoomMenu_IncrementJumptable
 
 BattleTowerRoomMenu_PickLevelMessage:
 	ld a, [wcd38]
@@ -1850,7 +1850,7 @@ Function118f68:
 
 .asm_118fba
 	call BattleTowerRoomMenu_IncrementJumptable
-	jp BattleTowerRoomMenu_IncrementJumptable
+	jmp BattleTowerRoomMenu_IncrementJumptable
 
 Function118fc0:
 	call Function118440
@@ -3276,7 +3276,7 @@ Function1198f7:
 
 Function119937:
 	farcall Function1707f4
-	jp BattleTowerRoomMenu_IncrementJumptable
+	jmp BattleTowerRoomMenu_IncrementJumptable
 
 Function119940:
 	ld de, wc3cd
@@ -3362,7 +3362,7 @@ Function1199b4:
 	jr Function1199ca
 
 .asm_1199c7
-	jp Function119ac9
+	jmp Function119ac9
 
 Function1199ca:
 	ld a, $20
@@ -6544,7 +6544,7 @@ String_11b30e:
 
 Function11b314:
 	call Function11b31b
-	jp Function11b3d9
+	jmp Function11b3d9
 
 Function11b31b:
 	ld hl, .Coords

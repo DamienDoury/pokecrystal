@@ -30,4 +30,4 @@ BattleCommand_BellyDrum:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

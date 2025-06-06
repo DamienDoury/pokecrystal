@@ -80,7 +80,7 @@ BattleCommand_Curse:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed
 
 .cantraise
 

@@ -79,7 +79,7 @@ BatonPass_LinkEnemySwitch:
 
 FailedBatonPass:
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed
 
 ResetBatonPassStatus:
 ; Reset status changes that aren't passed by Baton Pass.

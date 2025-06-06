@@ -121,7 +121,7 @@ DoBattle:
 	jmp BattleTurn
 
 .tutorial_debug
-	jp BattleMenu
+	jmp BattleMenu
 
 StartAutomaticBattleWeather:
 	push de
@@ -577,7 +577,7 @@ DetermineMoveOrder:
 	callfar AI_Switch
 	call SetEnemyTurn
 	call SpikesDamage
-	jp .enemy_first
+	jmp .enemy_first
 
 .use_move
 	ld a, [wBattlePlayerAction]
@@ -2097,12 +2097,12 @@ HandleWeather:
 
 SubtractHPFromTarget:
 	call SubtractHP
-	jp UpdateHPBar
+	jmp UpdateHPBar
 
 SubtractHPFromUser:
 ; Subtract HP from mon
 	call SubtractHP
-	jp UpdateHPBarBattleHuds
+	jmp UpdateHPBarBattleHuds
 
 SubtractHP:
 	ld hl, wBattleMonHP
@@ -2275,7 +2275,7 @@ RestoreHP:
 
 UpdateHPBarBattleHuds:
 	call UpdateHPBar
-	jp UpdateBattleHuds
+	jmp UpdateBattleHuds
 
 UpdateHPBar:
 	hlcoord 10, 9
@@ -4652,7 +4652,7 @@ HandleHealingItems:
 	call SetPlayerTurn
 	call HandleHPHealingItem
 	call UseHeldStatusHealingItem
-	jp UseConfusionHealingItem
+	jmp UseConfusionHealingItem
 
 HandleHPHealingItem:
 	callfar GetOpponentItem
@@ -5491,7 +5491,7 @@ BattleMenuPKMN_Loop:
 	call LoadTilemapToTempTilemap
 	call GetMemSGBLayout
 	call SetPalettes
-	jp BattleMenu
+	jmp BattleMenu
 
 .GetMenu:
 	call IsMobileBattle
@@ -7856,7 +7856,7 @@ GiveExperiencePoints:
 	jmp .loop
 
 .done
-	jp ResetBattleParticipants
+	jmp ResetBattleParticipants
 
 .EvenlyDivideExpAmongParticipants:
 ; count number of battle participants

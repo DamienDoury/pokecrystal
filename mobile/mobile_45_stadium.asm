@@ -388,7 +388,7 @@ Function1178e8:
 .b_button
 	call ExitMenu
 	call ExitMenu
-	jp MobilePassword_IncrementJumptable
+	jmp MobilePassword_IncrementJumptable
 
 Function117942:
 	call SpeechTextbox

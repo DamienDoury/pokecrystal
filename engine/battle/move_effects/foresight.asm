@@ -19,4 +19,4 @@ BattleCommand_Foresight:
 	jmp StdBattleTextbox
 
 .failed
-	jp FailMove
+	jmp FailMove

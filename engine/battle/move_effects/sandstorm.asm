@@ -15,4 +15,4 @@ BattleCommand_StartSandstorm:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

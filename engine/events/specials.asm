@@ -100,17 +100,17 @@ NameRater:
 OverworldTownMap:
 	call FadeToMenu
 	farcall _TownMap
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 UnownPrinter:
 	call FadeToMenu
 	farcall _UnownPrinter
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 DisplayLinkRecord:
 	call FadeToMenu
 	farcall _DisplayLinkRecord
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 PlayersHousePC:
 	xor a
@@ -247,6 +247,10 @@ ClearBGPalettesBufferScreen:
 	call ClearBGPalettes
 	jmp BufferScreen
 
+CheckPokerus: ; Only called by the nurse.
+	farcall _CheckPokerus
+	; fallthrough.
+
 ScriptReturnCarry:
 	jr c, .carry
 	xor a
@@ -288,10 +292,6 @@ CheckMildIllness: ; Only called by the nurse.
 ; Check if a monster in your party has Pokerus with a 1 bit strain.
 	farcall _CheckMildIllness
 	jr ScriptReturnCarry
-
-CheckPokerus: ; Only called by the nurse.
-	farcall _CheckPokerus
-	jp ScriptReturnCarry
 
 ResetLuckyNumberShowFlag:
 	farcall LoadOrRegenerateLuckyIDNumber
@@ -394,7 +394,7 @@ Diploma:
 PrintDiploma:
 	call FadeToMenu
 	farcall _PrintDiploma
-	jp ExitAllMenus
+	jmp ExitAllMenus
 
 TrainerHouse:
 	ld a, BANK(sMysteryGiftTrainerHouseFlag)
@@ -428,7 +428,7 @@ HospitalVisitHappinessGain:
 	ret
 
 GetItemNameFromIndex:
-	jp GetItemName
+	jmp GetItemName
 
 GetPartyCountWithoutEggs::
 	push hl

@@ -431,7 +431,7 @@ EraseBattleTowerStatus:
 	jmp CloseSRAM
 
 SaveData:
-	jp _SaveData
+	jmp _SaveData
 
 Function14d6c: ; unreferenced
 	ld a, BANK(s4_a60b) ; MBC30 bank used by JP Crystal; inaccessible by MBC3

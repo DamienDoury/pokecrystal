@@ -1293,4 +1293,4 @@ DisplayTodaysBigDoll::
 	ld e, a
 	ld d, 0
 	ld b, RESET_FLAG
-	jp EventFlagAction
+	jmp EventFlagAction

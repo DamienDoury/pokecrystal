@@ -361,7 +361,7 @@ CantMove:
 OpponentCantMove:
 	call BattleCommand_SwitchTurn
 	call CantMove
-	jp BattleCommand_SwitchTurn
+	jmp BattleCommand_SwitchTurn
 
 CheckEnemyTurn:
 	ld hl, wEnemySubStatus4
@@ -2216,7 +2216,7 @@ BattleCommand_LowerSub:
 
 .mimic_anims
 	call BattleCommand_LowerSubNoAnim
-	jp BattleCommand_MoveDelay
+	jmp BattleCommand_MoveDelay
 
 .Rampage:
 	ld a, BATTLE_VARS_MOVE_EFFECT
@@ -2399,7 +2399,7 @@ BattleCommand_FailureText:
 
 .multihit
 	call BattleCommand_RaiseSub
-	jp EndMoveEffect
+	jmp EndMoveEffect
 
 .fly_dig
 	ld a, BATTLE_VARS_SUBSTATUS3
@@ -4183,7 +4183,7 @@ BattleCommand_Poison:
 .apply_poison
 	call AnimateCurrentMove
 	call PoisonOpponent
-	jp RefreshBattleHuds
+	jmp RefreshBattleHuds
 
 .check_toxic
 	ld a, BATTLE_VARS_SUBSTATUS5_OPP
@@ -5229,7 +5229,7 @@ BattleCommand_AllStatsUp:
 ; Special Defense
 	call ResetMiss
 	call BattleCommand_SpecialDefenseUp
-	jp   BattleCommand_StatUpMessage
+	jmp   BattleCommand_StatUpMessage
 
 ResetMiss:
 	xor a
@@ -5641,7 +5641,7 @@ BattleCommand_ForceSwitch:
 	jmp CallBattleCore
 
 .switch_fail
-	jp .fail
+	jmp .fail
 
 .force_player_switch
 	ld a, [wAttackMissed]
@@ -5741,7 +5741,7 @@ BattleCommand_ForceSwitch:
 	call BattleCommand_LowerSub
 	call BattleCommand_MoveDelay
 	call BattleCommand_RaiseSub
-	jp PrintButItFailed
+	jmp PrintButItFailed
 
 .succeed
 	push af
@@ -6610,11 +6610,11 @@ BattleCommand_Paralyze:
 	jmp StdBattleTextbox
 
 .failed
-	jp PrintDidntAffect2
+	jmp PrintDidntAffect2
 
 .didnt_affect
 	call AnimateFailedMove
-	jp PrintDoesntAffect
+	jmp PrintDoesntAffect
 
 CheckOpponentType: ; Fixes the tri-attack issue that could burn fire types and freeze ice types.
 ; Returns z if the opponent has the type provided in a.
@@ -6827,7 +6827,7 @@ INCLUDE "engine/battle/move_effects/transform.asm"
 
 BattleEffect_ButItFailed:
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jr PrintButItFailed
 
 ClearLastMove:
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE
@@ -6900,7 +6900,7 @@ BattleCommand_Screen:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jr PrintButItFailed
 
 PrintDoesntAffect:
 ; 'it doesn't affect'
@@ -7030,7 +7030,7 @@ BattleCommand_ArenaTrap:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed
 
 .doesnt_affect
 	ld hl, DoesntAffectText
@@ -7368,7 +7368,7 @@ BattleCommand_Growth:
 	call BattleCommand_StatUpMessage
 	call ResetMiss
 	call BattleCommand_SpecialAttackUp2
-	jp BattleCommand_StatUpMessage
+	jmp BattleCommand_StatUpMessage
 
 .cantraise
 	; Can't raise either stat.

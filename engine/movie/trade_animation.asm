@@ -813,7 +813,7 @@ TradeAnim_ShowGetmonData:
 
 TradeAnim_AnimateFrontpic:
 	farcall AnimateTrademonFrontpic
-	jp TradeAnim_AdvanceScriptPointer
+	jmp TradeAnim_AdvanceScriptPointer
 
 TradeAnim_GetFrontpic:
 	push de

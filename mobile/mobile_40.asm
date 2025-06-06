@@ -2866,7 +2866,7 @@ Function1013c0:
 	farcall BlankScreen
 	farcall Stubbed_Function106462
 	farcall Function106464
-	jp FinishExitMenu
+	jmp FinishExitMenu
 
 Function1013d6:
 	farcall HDMATransferAttrmapAndTilemapToWRAMBank3
@@ -6999,7 +6999,7 @@ Function103487:
 	push de
 	call Function1034f7
 	pop de
-	jp PlaceString
+	jmp PlaceString
 
 Function103490:
 	hlcoord 0, 15

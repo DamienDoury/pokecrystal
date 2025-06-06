@@ -1613,11 +1613,11 @@ GetBuenasPassword:
 
 .Item:
 	call .GetTheIndex
-	jp GetItemName
+	jmp GetItemName
 
 .Move:
 	call .GetTheIndex
-	jp GetMoveName
+	jmp GetMoveName
 
 .GetTheIndex:
 	ld h, 0

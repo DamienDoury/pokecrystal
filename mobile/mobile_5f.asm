@@ -1362,7 +1362,7 @@ Function17d85d:
 	jmp Function17e309
 
 .asm_17d8fe
-	jp Function17e349
+	jmp Function17e349
 
 Function17d902:
 	call IncCrashCheckPointer
@@ -1394,7 +1394,7 @@ Function17d902:
 	jmp Function17e309
 
 .asm_17d936
-	jp Function17e349
+	jmp Function17e349
 
 Function17d93a:
 	call IncCrashCheckPointer
@@ -1860,7 +1860,7 @@ MenuData_17dc96: ; unreferenced
 Function17dc9f:
 	call IncCrashCheckPointer
 	call HlToCrashCheckPointer
-	jp RotateFourPalettesLeft
+	jmp RotateFourPalettesLeft
 
 Function17dca9:
 	call IncCrashCheckPointer

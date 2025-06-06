@@ -407,13 +407,13 @@ Function17a8de:
 
 .asm_17a8fd
 	call Function17a943
-	jp Function17aa88
+	jmp Function17aa88
 
 .asm_17a904
 	call Function17aad7
 	call Function17aa98
 	call Function17a91e
-	jp Function17aa88
+	jmp Function17aa88
 
 .asm_17a911
 	call Function17aa98
@@ -817,7 +817,7 @@ Function17ac46:
 	jmp Textbox
 
 .bit_4_set
-	jp Function3eea
+	jmp Function3eea
 
 Palette_17ac55:
 	RGB  0,  0,  0

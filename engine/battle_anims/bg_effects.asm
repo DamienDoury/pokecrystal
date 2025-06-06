@@ -135,7 +135,7 @@ BattleBGEffects:
 	dw BattleBGEffect_WobbleScreen
 
 BattleBGEffect_End:
-	jp EndBattleBGEffect
+	jmp EndBattleBGEffect
 
 BatttleBGEffects_GetNamedJumptablePointer:
 	ld hl, BG_EFFECT_STRUCT_JT_INDEX
@@ -972,10 +972,10 @@ BattleBGEffect_Whirlpool:
 	jmp DeformScreen
 
 .one
-	jp BattleBGEffect_WavyScreenFX
+	jmp BattleBGEffect_WavyScreenFX
 
 .two
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_StartWater:
 	call BattleBGEffects_ClearLYOverrides
@@ -1014,10 +1014,10 @@ BattleBGEffect_Water:
 
 .done
 	call BattleBGEffects_ClearLYOverrides
-	jp EndBattleBGEffect
+	jmp EndBattleBGEffect
 
 BattleBGEffect_EndWater:
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_Psychic:
 ; Hardcoded to always affect opponent
@@ -1053,7 +1053,7 @@ BattleBGEffect_Psychic:
 	jmp BattleBGEffect_WavyScreenFX
 
 .two
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_Teleport:
 	call BattleBGEffects_AnonJumptable
@@ -1071,10 +1071,10 @@ BattleBGEffect_Teleport:
 	jmp DeformScreen
 
 .one
-	jp BattleBGEffect_WavyScreenFX
+	jmp BattleBGEffect_WavyScreenFX
 
 .two
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_NightShade:
 	call BattleBGEffects_AnonJumptable
@@ -1095,10 +1095,10 @@ BattleBGEffect_NightShade:
 	jmp DeformScreen
 
 .one
-	jp BattleBGEffect_WavyScreenFX
+	jmp BattleBGEffect_WavyScreenFX
 
 .two
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_DoubleTeam:
 	call BattleBGEffects_AnonJumptable
@@ -1712,7 +1712,7 @@ BattleBGEffect_WaveDeformMon:
 	jmp DeformScreen
 
 .reset
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_BounceDown:
 	call BattleBGEffects_AnonJumptable
@@ -1900,7 +1900,7 @@ BattleBGEffect_BetaSendOutMon2: ; unused
 	jmp DeformScreen
 
 .done
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_FadeMonsToBlackRepeating:
 	ldh a, [hCGB]
@@ -2170,7 +2170,7 @@ BattleBGEffect_VibrateMon:
 	jmp BGEffect_FillLYOverridesBackup
 
 .finish
-	jp BattleAnim_ResetLCDStatCustom
+	jmp BattleAnim_ResetLCDStatCustom
 
 BattleBGEffect_WobblePlayer:
 ; Always affects the player

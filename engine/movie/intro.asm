@@ -308,7 +308,7 @@ IntroScene3_Jumper:
 
 .scene3_3:
 	call Intro_InitMagikarps
-	jp Intro_AnimateOceanWaves
+	jmp Intro_AnimateOceanWaves
 
 .scene3_4:
 	ld hl, wIntroFrameCounter2

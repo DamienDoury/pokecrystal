@@ -107,7 +107,7 @@ BattleAnimFunction_Null:
 BattleAnimFunction_ThrowFromUserToTargetAndDisappear:
 	call BattleAnimFunction_ThrowFromUserToTarget
 	ret c
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 BattleAnimFunction_ThrowFromUserToTarget:
 	; If x coord at $88 or beyond, abort.
@@ -263,7 +263,7 @@ BattleAnimFunction_MoveFromUserToTargetAndDisappear:
 	jmp BattleAnim_StepToTarget
 
 .done
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 BattleAnimFunction_PokeBall:
 	call BattleAnim_AnonJumptable
@@ -282,7 +282,7 @@ BattleAnimFunction_PokeBall:
 	dw .eleven
 .zero ; init
 	call GetBallAnimPal
-	jp BattleAnim_IncAnonJumptableIndex
+	jmp BattleAnim_IncAnonJumptableIndex
 
 .one
 	call BattleAnimFunction_ThrowFromUserToTarget
@@ -375,7 +375,7 @@ BattleAnimFunction_PokeBall:
 	jmp BattleAnim_IncAnonJumptableIndex
 
 .eleven
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 BattleAnimFunction_PokeBallBlocked:
 	call BattleAnim_AnonJumptable
@@ -385,7 +385,7 @@ BattleAnimFunction_PokeBallBlocked:
 	dw .two
 .zero
 	call GetBallAnimPal
-	jp BattleAnim_IncAnonJumptableIndex
+	jmp BattleAnim_IncAnonJumptableIndex
 
 .one
 	ld hl, BATTLEANIMSTRUCT_XCOORD
@@ -473,7 +473,7 @@ BattleAnimFunction_Ember:
 	jmp BattleAnim_StepToTarget
 
 .two
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 .three
 	call BattleAnim_IncAnonJumptableIndex
@@ -3318,7 +3318,7 @@ BattleAnimFunction_SkyAttack:
 	jmp BattleAnim_StepToTarget
 
 .done
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 .SkyAttack_CyclePalette:
 ; Cycles wOBP0 pallete
@@ -3455,7 +3455,7 @@ BattleAnimFunction_StrengthSeismicToss:
 	jmp BattleAnim_StepToTarget
 
 .done
-	jp DeinitBattleAnimation
+	jmp DeinitBattleAnimation
 
 BattleAnimFunction_SpeedLine:
 ; Used in moves where the user disappears for a speed-based attack such as Quick Attack, Mach Punch and Extremespeed
@@ -3865,7 +3865,7 @@ BattleAnimFunction_HiddenPower:
 	jmp DeinitBattleAnimation
 
 .step_circle
-	jp BattleAnim_StepCircle
+	jmp BattleAnim_StepCircle
 
 BattleAnimFunction_Curse:
 ; Object moves down and to the left 2 pixels at a time until it reaches x coord $30 and disappears

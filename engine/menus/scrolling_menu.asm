@@ -167,7 +167,7 @@ ScrollingMenuJoyAction:
 	jmp xor_a
 
 .xor_dec_up
-	jp xor_a_dec_a
+	jmp xor_a_dec_a
 
 .d_down
 	ld hl, w2DMenuFlags2
@@ -184,7 +184,7 @@ ScrollingMenuJoyAction:
 	jmp xor_a
 
 .xor_dec_down
-	jp xor_a_dec_a
+	jmp xor_a_dec_a
 
 ScrollingMenu_GetCursorPosition:
 	ld a, [wMenuScrollPosition]

@@ -455,4 +455,4 @@ GetMapScreenCoords::
 ResetRaveParty:
 	ld b, RESET_FLAG
 	ld de, EVENT_CINNABAR_RAVE_PARTY
-	jp EventFlagAction
+	jmp EventFlagAction

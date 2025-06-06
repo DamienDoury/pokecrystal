@@ -497,7 +497,7 @@ DebugRoom_PrintRAMFlag:
 DebugRoomMenu_SumRecalc:
 	call YesNoBox
 	ret c
-	jp DebugRoom_SaveChecksum
+	jmp DebugRoom_SaveChecksum
 
 DebugRoomMenu_DecorateAll:
 	call YesNoBox

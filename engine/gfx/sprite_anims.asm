@@ -535,7 +535,7 @@ AnimSeq_TradePokeBall:
 	jmp AnimSeqs_IncAnonJumptableIndex
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_TradeTubeBulge:
 	ld hl, SPRITEANIMSTRUCT_XCOORD
@@ -551,7 +551,7 @@ AnimSeq_TradeTubeBulge:
 	jmp PlaySFX
 
 .delete
-	jp DeinitializeSprite
+	jmp DeinitializeSprite
 
 AnimSeq_TrademonInTube:
 	callfar TradeAnim_AnimateTrademonInTube
@@ -1145,7 +1145,7 @@ AnimSeq_GSIntroPikachuTail:
 	jmp _ReinitSpriteAnimFrame
 
 .next2
-	jp AnimSeqs_IncAnonJumptableIndex
+	jmp AnimSeqs_IncAnonJumptableIndex
 
 .two
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -1361,4 +1361,4 @@ AnimSeqs_Sine:
 	jmp Sprites_Sine
 
 AnimSeqs_Cosine:
-	jp Sprites_Cosine
+	jmp Sprites_Cosine

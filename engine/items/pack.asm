@@ -500,7 +500,7 @@ UseItem:
 	jmp Pack_PrintTextNoScroll
 
 .Current:
-	jp DoItemEffect
+	jmp DoItemEffect
 
 .Party:
 	ld a, [wPartyCount]

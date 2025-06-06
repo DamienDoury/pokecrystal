@@ -2278,7 +2278,7 @@ PokegearMap:
 
 .kanto
 	call LoadTownMapGFX
-	jp FillKantoMap
+	jmp FillKantoMap
 
 _FlyMap:
 	call ClearBGPalettes

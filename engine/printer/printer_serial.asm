@@ -220,7 +220,7 @@ Printer_TransmissionLoop:
 	jmp _Printer_NextSection
 
 .cycle_back
-	jp Printer_PrevSection
+	jmp Printer_PrevSection
 
 .enter_wait_loop
 	ld a, $12 ; Printer_NextSectionWaitLoopBack

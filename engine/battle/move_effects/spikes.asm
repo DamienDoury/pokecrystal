@@ -23,4 +23,4 @@ BattleCommand_Spikes:
 	jmp StdBattleTextbox
 
 .failed
-	jp FailMove
+	jmp FailMove

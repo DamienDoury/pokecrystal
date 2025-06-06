@@ -15,4 +15,4 @@ BattleCommand_StartHail:
 
 .failed
 	call AnimateFailedMove
-	jp PrintButItFailed
+	jmp PrintButItFailed

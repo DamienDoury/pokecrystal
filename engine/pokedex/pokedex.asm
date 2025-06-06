@@ -489,7 +489,7 @@ Pokedex_RedisplayDexEntry:
 	call Pokedex_DrawDexEntryScreenBG
 	call Pokedex_GetSelectedMon
 	farcall DisplayDexEntry
-	jp Pokedex_DrawFootprint
+	jmp Pokedex_DrawFootprint
 
 Pokedex_InitOptionScreen:
 	xor a
@@ -1552,7 +1552,7 @@ Pokedex_PrintListing:
 	push hl
 	call GetPokemonName
 	pop hl
-	jp PlaceString
+	jmp PlaceString
 
 Pokedex_PrintNumberIfOldMode:
 	ld a, [wCurDexMode]

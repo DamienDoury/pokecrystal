@@ -473,7 +473,7 @@ Function893b3:
 	call Function893ef
 	call Function8942b
 	call Function89455
-	jp EnableLCD
+	jmp EnableLCD
 
 Function893cc:
 	call DisableLCD
@@ -482,13 +482,13 @@ Function893cc:
 	call LoadFontsExtra
 	call Function893ef
 	call Function89464
-	jp EnableLCD
+	jmp EnableLCD
 
 Function893e2:
 	call Function89b1e
 	call Function893b3
 	call Function8a5b6
-	jp Function8949c
+	jmp Function8949c
 
 Function893ef:
 	ld de, vTiles0
@@ -501,7 +501,7 @@ Function893fe: ; unreferenced
 	call DisableLCD
 	call Function893ef
 	call EnableLCD
-	jp DelayFrame
+	jmp DelayFrame
 
 EZChatCursorGFX:
 INCBIN "gfx/mobile/ez_chat_cursor.2bpp"
@@ -1664,14 +1664,9 @@ Function89b07:
 	farcall Function4a3a7
 	ret
 
-Function89b14: ; unreferenced
-	call ClearBGPalettes
-	call Function89b07
-	jr Function89b00
-
 Function89b1e:
 	farcall Function4a485
-	jp Function89b00
+	jr Function89b00
 
 Function89b28:
 	call Function891de
@@ -1679,7 +1674,7 @@ Function89b28:
 	call Function893e2
 	call ExitMenu
 	call Function891ab
-	jp SetPalettes
+	jmp SetPalettes
 
 Function89b3b:
 	call Mobile22_SetBGMapMode0

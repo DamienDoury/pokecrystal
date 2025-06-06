@@ -12,11 +12,11 @@ SelectMonFromParty:
 
 SelectTradeOrDayCareMon_NoTextbox:
 	call SelectTradeOrDayCareMonPart1
-	jp ReturnToMap
+	jmp ReturnToMap
 
 SelectTradeOrDayCareMon:
 	call SelectTradeOrDayCareMonPart1
-	jp ReturnToMapWithSpeechTextbox
+	jmp ReturnToMapWithSpeechTextbox
 
 SelectTradeOrDayCareMonPart1:
 	ld a, b
@@ -36,7 +36,7 @@ InitPartyMenuLayout:
 	call InitPartyMenuWithCancel
 	call InitPartyMenuGFX
 	call WritePartyMenuTilemap
-	jp PrintPartyMenuText
+	jmp PrintPartyMenuText
 
 LoadPartyMenuGFX:
 	call LoadStandardFont

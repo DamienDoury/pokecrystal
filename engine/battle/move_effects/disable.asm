@@ -65,4 +65,4 @@ BattleCommand_Disable:
 	jmp StdBattleTextbox
 
 .failed
-	jp FailMove
+	jmp FailMove

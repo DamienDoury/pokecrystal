@@ -150,7 +150,7 @@ StartMenu::
 	call DrawVariableLengthMenuBox
 	call .DrawBugContestStatus
 	call UpdateSprites
-	jp FinishExitMenu
+	jmp FinishExitMenu
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
