@@ -249,8 +249,7 @@ endr
 RunBattleAnimCommand:
 	call .CheckTimer
 	ret nc
-	call .RunScript
-	ret
+	jmp .RunScript
 
 .CheckTimer:
 	ld a, [wBattleAnimDelay]
@@ -782,8 +781,7 @@ BattleAnimCmd_BattlerGFX_1Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x1 tiles
-	call .LoadFeet
-	ret
+	; fallthrough.
 
 .LoadFeet:
 	push af
@@ -836,8 +834,7 @@ BattleAnimCmd_BattlerGFX_2Row:
 	ld a, 6 tiles ; Player pic height
 	ld [wBattleAnimGFXTempPicHeight], a
 	ld a, 6 ; Copy 6x2 tiles
-	call .LoadHead
-	ret
+	; fallthrough.
 
 .LoadHead:
 	push af
