@@ -13,22 +13,14 @@ TrainerSchoolboyDanny:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyDannyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyDannyAfterBattleText
 
 TrainerCooltrainerfQuinn:
 	trainer COOLTRAINERF, QUINN, EVENT_BEAT_COOLTRAINERF_QUINN, CooltrainerfQuinnSeenText, CooltrainerfQuinnBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfQuinnAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfQuinnAfterBattleText
 
 Route1Sign:
 	jumptext Route1SignText

@@ -161,55 +161,35 @@ TrainerLassMichelle:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassMichelleAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer LassMichelleAfterBattleText
 
 TrainerPicnickerTanya:
 	trainer PICNICKER, TANYA, EVENT_BEAT_PICNICKER_TANYA, PicnickerTanyaSeenText, PicnickerTanyaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerTanyaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerTanyaAfterBattleText
 
 TrainerBeautyJulia:
 	trainer BEAUTY, JULIA, EVENT_BEAT_BEAUTY_JULIA, BeautyJuliaSeenText, BeautyJuliaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BeautyJuliaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyJuliaAfterBattleText
 
 TrainerTwinsJoAndZoe1:
 	trainer TWINS, JOANDZOE1, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe1SeenText, TwinsJoAndZoe1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TwinsJoAndZoe1AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsJoAndZoe1AfterBattleText
 
 TrainerTwinsJoAndZoe2:
 	trainer TWINS, JOANDZOE2, EVENT_BEAT_TWINS_JO_AND_ZOE, TwinsJoAndZoe2SeenText, TwinsJoAndZoe2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TwinsJoAndZoe2AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsJoAndZoe2AfterBattleText
 
 CeladonGymGuideScript:
 	faceplayer

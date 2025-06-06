@@ -50,11 +50,7 @@ TrainerBirdKeeperBryan:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperBryanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperBryanAfterBattleText
 
 TrainerJugglerIrwin:
 	trainer JUGGLER, IRWIN1, EVENT_BEAT_JUGGLER_IRWIN, JugglerIrwin1SeenText, JugglerIrwin1BeatenText, 0, .Script
@@ -116,44 +112,28 @@ TrainerCamperIvan:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CamperIvanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CamperIvanAfterBattleText
 
 TrainerCamperElliot:
 	trainer CAMPER, ELLIOT, EVENT_BEAT_CAMPER_ELLIOT, CamperElliotSeenText, CamperElliotBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CamperElliotAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CamperElliotAfterBattleText
 
 TrainerPicnickerBrooke:
 	trainer PICNICKER, BROOKE, EVENT_BEAT_PICNICKER_BROOKE, PicnickerBrookeSeenText, PicnickerBrookeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerBrookeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerBrookeAfterBattleText
 
 TrainerPicnickerKim:
 	trainer PICNICKER, KIM, EVENT_BEAT_PICNICKER_KIM, PicnickerKimSeenText, PicnickerKimBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerKimAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerKimAfterBattleText
 
 TrainerBugCatcherArnie:
 	trainer BUG_CATCHER, ARNIE1, EVENT_BEAT_BUG_CATCHER_ARNIE, BugCatcherArnieSeenText, BugCatcherArnieBeatenText, 0, .Script
@@ -242,11 +222,7 @@ TrainerFirebreatherWalt:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FirebreatherWaltAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FirebreatherWaltAfterBattleText
 
 Route35SaviourScript:
 	checkmapscene GOLDENROD_HOSPITAL_CORRIDOR

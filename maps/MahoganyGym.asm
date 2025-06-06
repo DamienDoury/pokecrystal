@@ -147,55 +147,35 @@ TrainerSkierRoxanne:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SkierRoxanneAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SkierRoxanneAfterBattleText
 
 TrainerSkierClarissa:
 	trainer SKIER, CLARISSA, EVENT_BEAT_SKIER_CLARISSA, SkierClarissaSeenText, SkierClarissaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SkierClarissaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SkierClarissaAfterBattleText
 
 TrainerBoarderRonald:
 	trainer BOARDER, RONALD, EVENT_BEAT_BOARDER_RONALD, BoarderRonaldSeenText, BoarderRonaldBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BoarderRonaldAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BoarderRonaldAfterBattleText
 
 TrainerBoarderBrad:
 	trainer BOARDER, BRAD, EVENT_BEAT_BOARDER_BRAD, BoarderBradSeenText, BoarderBradBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BoarderBradAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BoarderBradAfterBattleText
 
 TrainerBoarderDouglas:
 	trainer BOARDER, DOUGLAS, EVENT_BEAT_BOARDER_DOUGLAS, BoarderDouglasSeenText, BoarderDouglasBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BoarderDouglasAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BoarderDouglasAfterBattleText
 
 MahoganyGymGuideScript:
 	faceplayer

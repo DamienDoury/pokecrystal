@@ -96,44 +96,28 @@ TrainerCooltrainermDarin:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermDarinAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermDarinAfterBattleText
 
 TrainerCooltrainerfCara:
 	trainer COOLTRAINERF, CARA, EVENT_BEAT_COOLTRAINERF_CARA, CooltrainerfCaraSeenText, CooltrainerfCaraBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfCaraAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfCaraAfterBattleText
 
 TrainerTwinsLeaandpia1:
 	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia1SeenText, TwinsLeaandpia1BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TwinsLeaandpia1AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsLeaandpia1AfterBattleText
 
 TrainerTwinsLeaandpia2:
 	trainer TWINS, LEAANDPIA1, EVENT_BEAT_TWINS_LEA_AND_PIA, TwinsLeaandpia2SeenText, TwinsLeaandpia2BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TwinsLeaandpia2AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsLeaandpia2AfterBattleText
 
 DragonsDenB1FDragonFang:
 	itemball DRAGON_FANG

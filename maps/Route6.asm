@@ -27,22 +27,14 @@ TrainerPokefanmRex:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokefanmRexAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmRexAfterBattleText
 
 TrainerPokefanmAllan:
 	trainer POKEFANM, ALLAN, EVENT_BEAT_POKEFANM_ALLAN, PokefanmAllanSeenText, PokefanmAllanBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokefanmAllanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmAllanAfterBattleText
 
 PokefanFrancisShock:
 	setlasttalked ROUTE6_POKEFAN_FRANCIS
@@ -117,11 +109,7 @@ TrainerBeautyJosie:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BeautyJosieAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyJosieAfterBattleText
 
 Route6PokefanMScript:
 	jumptextfaceplayer Route6PokefanMText

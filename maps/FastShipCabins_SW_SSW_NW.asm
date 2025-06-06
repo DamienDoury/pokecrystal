@@ -14,33 +14,21 @@ TrainerFirebreatherLyle:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FirebreatherLyleAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FirebreatherLyleAfterBattleText
 
 TrainerBugCatcherKen:
 	trainer BUG_CATCHER, KEN, EVENT_BEAT_BUG_CATCHER_KEN, BugCatcherKenSeenText, BugCatcherKenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BugCatcherKenAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherKenAfterBattleText
 
 TrainerBeautyCassie:
 	trainer BEAUTY, CASSIE, EVENT_BEAT_BEAUTY_CASSIE, BeautyCassieSeenText, BeautyCassieBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BeautyCassieAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyCassieAfterBattleText
 
 TrainerGuitaristClyde:
 	trainer GUITARIST, CLYDE, EVENT_BEAT_GUITARIST_CLYDE, GuitaristClydeSeenText, GuitaristClydeBeatenText, 0, .Script

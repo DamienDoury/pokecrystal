@@ -96,110 +96,70 @@ TrainerSailorJeff:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorJeffAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorJeffAfterBattleText
 
 TrainerPicnickerDebra:
 	trainer PICNICKER, DEBRA, EVENT_BEAT_PICNICKER_DEBRA, PicnickerDebraSeenText, PicnickerDebraBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerDebraAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerDebraAfterBattleText
 
 TrainerJugglerFritz:
 	trainer JUGGLER, FRITZ, EVENT_BEAT_JUGGLER_FRITZ, JugglerFritzSeenText, JugglerFritzBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext JugglerFritzAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer JugglerFritzAfterBattleText
 
 TrainerSailorGarrett:
 	trainer SAILOR, GARRETT, EVENT_BEAT_SAILOR_GARRETT, SailorGarrettSeenText, SailorGarrettBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorGarrettAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorGarrettAfterBattleText
 
 TrainerFisherJonah:
 	trainer FISHER, JONAH, EVENT_BEAT_FISHER_JONAH, FisherJonahSeenText, FisherJonahBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherJonahAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherJonahAfterBattleText
 
 TrainerBlackbeltWai:
 	trainer BLACKBELT_T, WAI, EVENT_BEAT_BLACKBELT_WAI, BlackbeltWaiSeenText, BlackbeltWaiBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BlackbeltWaiAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BlackbeltWaiAfterBattleText
 
 TrainerSailorKenneth:
 	trainer SAILOR, KENNETH, EVENT_BEAT_SAILOR_KENNETH, SailorKennethSeenText, SailorKennethBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorKennethAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorKennethAfterBattleText
 
 TrainerTeacherShirley:
 	trainer TEACHER, SHIRLEY, EVENT_BEAT_TEACHER_SHIRLEY, TeacherShirleySeenText, TeacherShirleyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TeacherShirleyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TeacherShirleyAfterBattleText
 
 TrainerSchoolboyNate:
 	trainer SCHOOLBOY, NATE, EVENT_BEAT_SCHOOLBOY_NATE, SchoolboyNateSeenText, SchoolboyNateBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyNateAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyNateAfterBattleText
 
 TrainerSchoolboyRicky:
 	trainer SCHOOLBOY, RICKY, EVENT_BEAT_SCHOOLBOY_RICKY, SchoolboyRickySeenText, SchoolboyRickyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyRickyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyRickyAfterBattleText
 
 FastShipB1FTrashcan:
 	jumpstd TrashCanScript

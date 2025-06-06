@@ -165,11 +165,7 @@ TrainerPsychicNathan:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PsychicNathanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PsychicNathanAfterBattleText
 
 RuinsOfAlphDoorScript:
 	jumptext RuinsOfAlphDoorText

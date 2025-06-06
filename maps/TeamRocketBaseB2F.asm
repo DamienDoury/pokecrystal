@@ -186,33 +186,21 @@ TrainerGruntM17:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM17AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM17AfterBattleText
 
 TrainerGruntM18:
 	trainer GRUNTM, GRUNTM_18, EVENT_BEAT_ROCKET_GRUNTM_18, GruntM18SeenText, GruntM18BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM18AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM18AfterBattleText
 
 TrainerGruntM19:
 	trainer GRUNTM, GRUNTM_19, EVENT_BEAT_ROCKET_GRUNTM_19, GruntM19SeenText, GruntM19BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM19AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM19AfterBattleText
 
 RocketElectrode1:
 	cry ELECTRODE

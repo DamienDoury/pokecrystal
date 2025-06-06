@@ -29,11 +29,7 @@ TrainerHikerJim:
 	setevent EVENT_GOT_COVID_ON_ROUTE_10
 
 	endifjustbattled
-	opentext
-	writetext HikerJimAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerJimAfterBattleText
 
 TrainerPokefanmRobert:
 	trainer POKEFANM, ROBERT, EVENT_BEAT_POKEFANM_ROBERT, PokefanmRobertSeenText, PokefanmRobertBeatenText, 0, .Script
@@ -47,11 +43,7 @@ TrainerPokefanmRobert:
 	setevent EVENT_GOT_COVID_ON_ROUTE_10
 
 	endifjustbattled
-	opentext
-	writetext PokefanmRobertAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmRobertAfterBattleText
 
 Route10Sign:
 	jumptext Route10SignText

@@ -22,22 +22,14 @@ TrainerLassConnie:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassConnie1AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer LassConnie1AfterBattleText
 
 TrainerSailorKent:
 	trainer SAILOR, KENT, EVENT_BEAT_SAILOR_KENT, SailorKentSeenText, SailorKentBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorKentAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorKentAfterBattleText
 
 SailorKentSeenText: 
 if DEF(_FR_FR)

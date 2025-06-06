@@ -212,11 +212,7 @@ TrainerGruntM3:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM3AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM3AfterBattleText
 
 RadioTower1FDirectory:
 	jumptext RadioTower1FDirectoryText

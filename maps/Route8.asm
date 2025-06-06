@@ -21,55 +21,35 @@ TrainerBikerDwayne:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerDwayneAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerDwayneAfterBattleText
 
 TrainerBikerHarris:
 	trainer BIKER, HARRIS, EVENT_BEAT_BIKER_HARRIS, BikerHarrisSeenText, BikerHarrisBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerHarrisAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerHarrisAfterBattleText
 
 TrainerBikerZeke:
 	trainer BIKER, ZEKE, EVENT_BEAT_BIKER_ZEKE, BikerZekeSeenText, BikerZekeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerZekeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerZekeAfterBattleText
 
 TrainerSupernerdSam:
 	trainer SUPER_NERD, SAM, EVENT_BEAT_SUPER_NERD_SAM, SupernerdSamSeenText, SupernerdSamBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdSamAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SupernerdSamAfterBattleText
 
 TrainerSupernerdTom:
 	trainer SUPER_NERD, TOM, EVENT_BEAT_SUPER_NERD_TOM, SupernerdTomSeenText, SupernerdTomBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdTomAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SupernerdTomAfterBattleText
 
 Route8LockedDoor:
 	jumptext Route8LockedDoorText

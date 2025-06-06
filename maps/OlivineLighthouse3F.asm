@@ -25,11 +25,7 @@ TrainerBirdKeeperTheo:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperTheoAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperTheoAfterBattleText
 
 TrainerBeautyHarriet:
 	trainer BEAUTY, HARRIET, EVENT_BEAT_BEAUTY_HARRIET, BeautyHarrietSeenText, BeautyHarrietBeatenText, 0, .Script
@@ -43,22 +39,14 @@ TrainerGentlemanPreston:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GentlemanPrestonAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GentlemanPrestonAfterBattleText
 
 TrainerSailorTerrell:
 	trainer SAILOR, TERRELL, EVENT_BEAT_SAILOR_TERRELL, SailorTerrellSeenText, SailorTerrellBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorTerrellAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorTerrellAfterBattleText
 
 OlivineLighthouse3FEther:
 	itemball ETHER

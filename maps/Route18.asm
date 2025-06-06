@@ -38,11 +38,7 @@ TrainerBirdKeeperBoris:
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 	
 	endifjustbattled
-	opentext
-	writetext BirdKeeperBorisAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperBorisAfterBattleText
 
 TrainerBirdKeeperBob:
 	trainer BIRD_KEEPER, BOB, EVENT_BEAT_BIRD_KEEPER_BOB, BirdKeeperBobSeenText, BirdKeeperBobBeatenText, 0, .Script
@@ -56,11 +52,7 @@ TrainerBirdKeeperBob:
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 
 	endifjustbattled
-	opentext
-	writetext BirdKeeperBobAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperBobAfterBattleText
 
 TrainerBirdKeeperBobby:
 	trainer BIRD_KEEPER, BOBBY, EVENT_BEAT_BIRD_KEEPER_BOBBY, BirdKeeperBobbySeenText, BirdKeeperBobbyBeatenText, 0, .Script
@@ -74,22 +66,14 @@ TrainerBirdKeeperBobby:
 	setevent EVENT_GOT_COVID_ON_ROUTE_18
 
 	endifjustbattled
-	opentext
-	writetext BirdKeeperBobbyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperBobbyAfterBattleText
 
 TrainerBikerCharles:
 	trainer BIKER, CHARLES, EVENT_BEAT_BIKER_CHARLES, BikerCharlesSeenText, BikerCharlesBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerCharlesAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerCharlesAfterBattleText
 
 Route18Sign:
 	jumptext Route18SignText

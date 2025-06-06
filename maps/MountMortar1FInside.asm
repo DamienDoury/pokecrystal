@@ -20,22 +20,14 @@ TrainerPokemaniacMiller:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacMillerAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacMillerAfterBattleText
 
 TrainerSupernerdMarkus:
 	trainer SUPER_NERD, MARKUS, EVENT_BEAT_SUPER_NERD_MARKUS, SupernerdMarkusSeenText, SupernerdMarkusBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdMarkusAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SupernerdMarkusAfterBattleText
 
 MountMortar1FBoulder:
 	jumpstd StrengthBoulderScript

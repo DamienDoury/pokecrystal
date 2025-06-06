@@ -33,11 +33,7 @@ TrainerCamperTed:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CamperTedAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CamperTedAfterBattleText
 
 TrainerPicnickerErin1:
 	trainer PICNICKER, ERIN1, EVENT_BEAT_PICNICKER_ERIN, PicnickerErin1SeenText, PicnickerErin1BeatenText, 0, .Script
@@ -158,11 +154,7 @@ TrainerHikerBailey:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerBaileyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerBaileyAfterBattleText
 
 Route46Sign:
 	jumptext Route46SignText

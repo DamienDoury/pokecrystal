@@ -89,44 +89,28 @@ TrainerGruntM7:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM7AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM7AfterBattleText
 
 TrainerGruntM8:
 	trainer GRUNTM, GRUNTM_8, EVENT_BEAT_ROCKET_GRUNTM_8, GruntM8SeenText, GruntM8BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM8AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM8AfterBattleText
 
 TrainerGruntM9:
 	trainer GRUNTM, GRUNTM_9, EVENT_BEAT_ROCKET_GRUNTM_9, GruntM9SeenText, GruntM9BeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext GruntM9AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer GruntM9AfterBattleText
 
 TrainerScientistMarc:
 	trainer SCIENTIST, MARC, EVENT_BEAT_SCIENTIST_MARC, ScientistMarcSeenText, ScientistMarcBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext ScientistMarcAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer ScientistMarcAfterBattleText
 
 CardKeySlotScript::
 	opentext

@@ -163,11 +163,7 @@ TrainerPsychicPhil:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PsychicPhilAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PsychicPhilAfterBattleText
 
 TrainerFisherWilton1:
 	trainer FISHER, WILTON1, EVENT_BEAT_FISHER_WILTON, FisherWilton1SeenText, FisherWilton1BeatenText, 0, .Script
@@ -260,44 +256,28 @@ TrainerFisherEdgar:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext FisherEdgarAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer FisherEdgarAfterBattleText
 
 TrainerCooltrainerfCybil:
 	trainer COOLTRAINERF, CYBIL, EVENT_BEAT_COOLTRAINERF_CYBIL, CooltrainerfCybilSeenText, CooltrainerfCybilBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfCybilAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfCybilAfterBattleText
 
 TrainerPokemaniacZach:
 	trainer POKEMANIAC, ZACH, EVENT_BEAT_POKEMANIAC_ZACH, PokemaniacZachSeenText, PokemaniacZachBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacZachAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacZachAfterBattleText
 
 TrainerCooltrainermAllen:
 	trainer COOLTRAINERM, ALLEN, EVENT_BEAT_COOLTRAINERM_ALLEN, CooltrainermAllenSeenText, CooltrainermAllenBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermAllenAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermAllenAfterBattleText
 
 Route44Sign1:
 	jumptext Route44Sign1Text

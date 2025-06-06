@@ -32,11 +32,7 @@ TrainerPokefanmAlex:
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
-	opentext
-	writetext PokefanmAlexAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmAlexAfterBattleText
 
 TrainerPokefanmJoshua:
 	trainer POKEFANM, JOSHUA, EVENT_BEAT_POKEFANM_JOSHUA, PokefanmJoshuaSeenText, PokefanmJoshuaBeatenText, 0, .Script
@@ -50,11 +46,7 @@ TrainerPokefanmJoshua:
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
-	opentext
-	writetext PokefanmJoshuaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmJoshuaAfterBattleText
 
 TrainerBirdKeeperPerry:
 	trainer BIRD_KEEPER, PERRY, EVENT_BEAT_BIRD_KEEPER_PERRY, BirdKeeperPerrySeenText, BirdKeeperPerryBeatenText, 0, .Script
@@ -68,11 +60,7 @@ TrainerBirdKeeperPerry:
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
-	opentext
-	writetext BirdKeeperPerryAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperPerryAfterBattleText
 
 TrainerBirdKeeperBret:
 	trainer BIRD_KEEPER, BRET, EVENT_BEAT_BIRD_KEEPER_BRET, BirdKeeperBretSeenText, BirdKeeperBretBeatenText, 0, .Script
@@ -86,11 +74,7 @@ TrainerBirdKeeperBret:
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
-	opentext
-	writetext BirdKeeperBretAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperBretAfterBattleText
 
 TrainerHikerKenny:
 	trainer HIKER, KENNY, EVENT_BEAT_HIKER_KENNY, HikerKennySeenText, HikerKennyBeatenText, 0, .Script
@@ -104,11 +88,7 @@ TrainerHikerKenny:
 	setevent EVENT_GOT_COVID_ON_ROUTE_13
 
 	endifjustbattled
-	opentext
-	writetext HikerKennyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerKennyAfterBattleText
 
 Route13TrainerTips:
 	jumptext Route13TrainerTipsText

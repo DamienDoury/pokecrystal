@@ -25,22 +25,14 @@ TrainerBirdKeeperDenis:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperDenisAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperDenisAfterBattleText
 
 TrainerSailorErnest:
 	trainer SAILOR, ERNEST, EVENT_BEAT_SAILOR_ERNEST, SailorErnestSeenText, SailorErnestBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SailorErnestAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorErnestAfterBattleText
 
 OlivineLighthouse5FRareCandy:
 	itemball RARE_CANDY

@@ -188,22 +188,14 @@ TrainerYoungsterMikey:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext YoungsterMikeyAfterText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer YoungsterMikeyAfterText
 
 TrainerBugCatcherDon:
 	trainer BUG_CATCHER, DON, EVENT_BEAT_BUG_CATCHER_DON, BugCatcherDonSeenText, BugCatcherDonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BugCatcherDonAfterText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherDonAfterText
 
 Route30YoungsterScript:
 	faceplayer

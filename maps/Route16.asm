@@ -37,11 +37,7 @@ TrainerBikerHusq:
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 
 	endifjustbattled
-	opentext
-	writetext BikerHusqAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerHusqAfterBattleText
 
 TrainerBugCatcherJerome:
 	trainer BUG_CATCHER, JEROME, EVENT_BEAT_BUG_CATCHER_JEROME, BugCatcherJeromeSeenText, BugCatcherJeromeBeatenText, 0, .Script
@@ -55,11 +51,7 @@ TrainerBugCatcherJerome:
 	setevent EVENT_GOT_COVID_ON_ROUTE_16
 
 	endifjustbattled
-	opentext
-	writetext BugCatcherJeromeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherJeromeAfterBattleText
 
 BikerHusqSeenText: ; TO TRANSLATE
 	text "The CYCLING ROAD"

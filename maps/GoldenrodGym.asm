@@ -163,11 +163,7 @@ TrainerLassCarrie:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassCarrieAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer LassCarrieAfterBattleText
 
 WhitneyCriesScript:
 	showemote EMOTE_SHOCK, GOLDENRODGYM_LASS2, 15
@@ -184,33 +180,21 @@ TrainerLassBridget:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassBridgetAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer LassBridgetAfterBattleText
 
 TrainerBeautyVictoria:
 	trainer BEAUTY, VICTORIA, EVENT_BEAT_BEAUTY_VICTORIA, BeautyVictoriaSeenText, BeautyVictoriaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BeautyVictoriaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyVictoriaAfterBattleText
 
 TrainerBeautySamantha:
 	trainer BEAUTY, SAMANTHA, EVENT_BEAT_BEAUTY_SAMANTHA, BeautySamanthaSeenText, BeautySamanthaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BeautySamanthaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautySamanthaAfterBattleText
 
 GoldenrodGymGuideScript:
 	faceplayer

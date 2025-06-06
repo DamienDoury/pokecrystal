@@ -23,22 +23,14 @@ TrainerSageNico:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SageNicoAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SageNicoAfterBattleText
 
 TrainerSageEdmond:
 	trainer SAGE, EDMOND, EVENT_BEAT_SAGE_EDMOND, SageEdmondSeenText, SageEdmondBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SageEdmondAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SageEdmondAfterBattleText
 
 SproutTower2FStatue:
 	jumptext SproutTower2FStatueText

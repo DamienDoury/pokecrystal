@@ -141,55 +141,35 @@ TrainerTwinsAmyandmay1:
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext TwinsAmyandmay1AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsAmyandmay1AfterBattleText
 
 TrainerTwinsAmyandmay2:
 	trainer TWINS, AMYANDMAY2, EVENT_BEAT_TWINS_AMY_AND_MAY, TwinsAmyandmay2SeenText, TwinsAmyandmay2BeatenText, 0, .AfterScript
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext TwinsAmyandmay2AfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TwinsAmyandmay2AfterBattleText
 
 TrainerBugCatcherBenny:
 	trainer BUG_CATCHER, BUG_CATCHER_BENNY, EVENT_BEAT_BUG_CATCHER_BENNY, BugCatcherBennySeenText, BugCatcherBennyBeatenText, 0, .AfterScript
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherBennyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherBennyAfterBattleText
 
 TrainerBugCatcherAl:
 	trainer BUG_CATCHER, AL, EVENT_BEAT_BUG_CATCHER_AL, BugCatcherAlSeenText, BugCatcherAlBeatenText, 0, .AfterScript
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherAlAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherAlAfterBattleText
 
 TrainerBugCatcherJosh:
 	trainer BUG_CATCHER, JOSH, EVENT_BEAT_BUG_CATCHER_JOSH, BugCatcherJoshSeenText, BugCatcherJoshBeatenText, 0, .AfterScript
 
 .AfterScript:
 	endifjustbattled
-	opentext
-	writetext BugCatcherJoshAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BugCatcherJoshAfterBattleText
 
 AzaleaGymGuideScript:
 	faceplayer

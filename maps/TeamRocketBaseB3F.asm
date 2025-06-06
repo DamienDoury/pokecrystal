@@ -159,22 +159,14 @@ TrainerScientistRoss:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext ScientistRossAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer ScientistRossAfterBattleText
 
 TrainerScientistMitch:
 	trainer SCIENTIST, MITCH, EVENT_BEAT_SCIENTIST_MITCH, ScientistMitchSeenText, ScientistMitchBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext ScientistMitchAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer ScientistMitchAfterBattleText
 
 TeamRocketBaseB3FLockedDoor:
 	conditional_event EVENT_OPENED_DOOR_TO_GIOVANNIS_OFFICE, .Script

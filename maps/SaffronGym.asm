@@ -59,44 +59,28 @@ TrainerMediumRebecca:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext MediumRebeccaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer MediumRebeccaAfterBattleText
 
 TrainerPsychicFranklin:
 	trainer PSYCHIC_T, FRANKLIN, EVENT_BEAT_PSYCHIC_FRANKLIN, PsychicFranklinSeenText, PsychicFranklinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PsychicFranklinAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PsychicFranklinAfterBattleText
 
 TrainerMediumDoris:
 	trainer MEDIUM, DORIS, EVENT_BEAT_MEDIUM_DORIS, MediumDorisSeenText, MediumDorisBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext MediumDorisAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer MediumDorisAfterBattleText
 
 TrainerPsychicJared:
 	trainer PSYCHIC_T, JARED, EVENT_BEAT_PSYCHIC_JARED, PsychicJaredSeenText, PsychicJaredBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PsychicJaredAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PsychicJaredAfterBattleText
 
 SaffronGymGuideScript:
 	faceplayer

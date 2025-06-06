@@ -23,44 +23,28 @@ TrainerBirdKeeperHank:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BirdKeeperHankAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperHankAfterBattleText
 
 TrainerPicnickerHope:
 	trainer PICNICKER, HOPE, EVENT_BEAT_PICNICKER_HOPE, PicnickerHopeSeenText, PicnickerHopeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerHopeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerHopeAfterBattleText
 
 TrainerPicnickerSharon:
 	trainer PICNICKER, SHARON, EVENT_BEAT_PICNICKER_SHARON, PicnickerSharonSeenText, PicnickerSharonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PicnickerSharonAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PicnickerSharonAfterBattleText
 
 TrainerHikerSammy:
 	trainer HIKER, SAMMY, EVENT_BEAT_HIKER_SAMMY, HikerSammySeenText, HikerSammyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerSammyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerSammyAfterBattleText
 
 Route4RocketSouth:
 	readvar VAR_YCOORD

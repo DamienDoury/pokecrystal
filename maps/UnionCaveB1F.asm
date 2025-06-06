@@ -17,44 +17,28 @@ TrainerPokemaniacAndrew:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacAndrewAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacAndrewAfterBattleText
 
 TrainerPokemaniacCalvin:
 	trainer POKEMANIAC, CALVIN, EVENT_BEAT_POKEMANIAC_CALVIN, PokemaniacCalvinSeenText, PokemaniacCalvinBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacCalvinAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacCalvinAfterBattleText
 
 TrainerHikerPhillip:
 	trainer HIKER, PHILLIP, EVENT_BEAT_HIKER_PHILLIP, HikerPhillipSeenText, HikerPhillipBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerPhillipAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerPhillipAfterBattleText
 
 TrainerHikerLeonard:
 	trainer HIKER, LEONARD, EVENT_BEAT_HIKER_LEONARD, HikerLeonardSeenText, HikerLeonardBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerLeonardAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerLeonardAfterBattleText
 
 UnionCaveB1FTMSwift:
 	itemball TM_SWIFT

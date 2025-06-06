@@ -159,11 +159,7 @@ TrainerPsychicGilbert:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PsychicGilbertAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PsychicGilbertAfterBattleText
 
 TrainerBirdKeeperJose2:
 	trainer BIRD_KEEPER, JOSE2, EVENT_BEAT_BIRD_KEEPER_JOSE2, BirdKeeperJose2SeenText, BirdKeeperJose2BeatenText, 0, .Script
@@ -274,22 +270,14 @@ TrainerCooltrainermBlake:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermBlakeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermBlakeAfterBattleText
 
 TrainerCooltrainermBrian:
 	trainer COOLTRAINERM, BRIAN, EVENT_BEAT_COOLTRAINERM_BRIAN, CooltrainermBrianSeenText, CooltrainermBrianBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermBrianAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermBrianAfterBattleText
 
 TrainerCooltrainerfReena:
 	trainer COOLTRAINERF, REENA1, EVENT_BEAT_COOLTRAINERF_REENA, CooltrainerfReenaSeenText, CooltrainerfReenaBeatenText, 0, .Script
@@ -380,11 +368,7 @@ TrainerCooltrainerfMegan:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfMeganAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfMeganAfterBattleText
 
 TohjoFallsSign:
 	jumptext TohjoFallsSignText

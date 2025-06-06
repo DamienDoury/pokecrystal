@@ -17,11 +17,7 @@ TrainerSupernerdHugh:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdHughAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SupernerdHughAfterBattleText
 
 MountMortar2FInsideMaxPotion:
 	itemball MAX_POTION

@@ -183,33 +183,21 @@ TrainerCooltrainermPaul:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermPaulAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermPaulAfterBattleText
 
 TrainerCooltrainermMike:
 	trainer COOLTRAINERM, MIKE, EVENT_BEAT_COOLTRAINERM_MIKE, CooltrainermMikeSeenText, CooltrainermMikeBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermMikeAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermMikeAfterBattleText
 
 TrainerCooltrainerfLola:
 	trainer COOLTRAINERF, LOLA, EVENT_BEAT_COOLTRAINERF_LOLA, CooltrainerfLolaSeenText, CooltrainerfLolaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfLolaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfLolaAfterBattleText
 
 BlackthornGymGuideScript:
 	faceplayer

@@ -19,33 +19,21 @@ TrainerBikerRiley:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerRileyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerRileyAfterBattleText
 
 TrainerBikerJoel:
 	trainer BIKER, JOEL, EVENT_BEAT_BIKER_JOEL, BikerJoelSeenText, BikerJoelBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerJoelAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerJoelAfterBattleText
 
 TrainerBikerGlenn:
 	trainer BIKER, GLENN, EVENT_BEAT_BIKER_GLENN, BikerGlennSeenText, BikerGlennBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BikerGlennAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BikerGlennAfterBattleText
 
 Route17Mid1Sign:
 	jumptext Route17TrainerTips1Text

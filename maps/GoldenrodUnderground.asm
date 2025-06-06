@@ -136,33 +136,21 @@ TrainerSupernerdTeru:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SupernerdTeruAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SupernerdTeruAfterBattleText
 
 TrainerPokemaniacIssac:
 	trainer POKEMANIAC, ISSAC, EVENT_BEAT_POKEMANIAC_ISSAC, PokemaniacIssacSeenText, PokemaniacIssacBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacIssacAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacIssacAfterBattleText
 
 TrainerPokemaniacDonald:
 	trainer POKEMANIAC, DONALD, EVENT_BEAT_POKEMANIAC_DONALD, PokemaniacDonaldSeenText, PokemaniacDonaldBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokemaniacDonaldAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacDonaldAfterBattleText
 
 BitterMerchantScript:
 	opentext

@@ -330,33 +330,21 @@ TrainerYoungsterSamuel:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext YoungsterSamuelAfterText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer YoungsterSamuelAfterText
 
 TrainerYoungsterIan:
 	trainer YOUNGSTER, IAN, EVENT_BEAT_YOUNGSTER_IAN, YoungsterIanSeenText, YoungsterIanBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext YoungsterIanAfterText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer YoungsterIanAfterText
 
 TrainerPokefanmBrandon:
 	trainer POKEFANM, BRANDON, EVENT_BEAT_POKEFANM_BRANDON, PokefanmBrandonSeenText, PokefanmBrandonBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokefanmBrandonAfterText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmBrandonAfterText
 
 TrainerCooltrainerfIrene:
 	trainer COOLTRAINERF, IRENE, EVENT_BEAT_COOLTRAINERF_IRENE, CooltrainerfIreneSeenText, CooltrainerfIreneBeatenText, 0, .Script

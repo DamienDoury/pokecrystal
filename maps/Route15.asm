@@ -18,66 +18,42 @@ TrainerTeacherColette:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TeacherColetteAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TeacherColetteAfterBattleText
 
 TrainerTeacherHillary:
 	trainer TEACHER, HILLARY, EVENT_BEAT_TEACHER_HILLARY, TeacherHillarySeenText, TeacherHillaryBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext TeacherHillaryAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer TeacherHillaryAfterBattleText
 
 TrainerSchoolboyKipp:
 	trainer SCHOOLBOY, KIPP, EVENT_BEAT_SCHOOLBOY_KIP, SchoolboyKippSeenText, SchoolboyKippBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyKippAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyKippAfterBattleText
 
 TrainerSchoolboyTommy:
 	trainer SCHOOLBOY, TOMMY, EVENT_BEAT_SCHOOLBOY_TOMMY, SchoolboyTommySeenText, SchoolboyTommyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyTommyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyTommyAfterBattleText
 
 TrainerSchoolboyJohnny:
 	trainer SCHOOLBOY, JOHNNY, EVENT_BEAT_SCHOOLBOY_JOHNNY, SchoolboyJohnnySeenText, SchoolboyJohnnyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyJohnnyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyJohnnyAfterBattleText
 
 TrainerSchoolboyBilly:
 	trainer SCHOOLBOY, BILLY, EVENT_BEAT_SCHOOLBOY_BILLY, SchoolboyBillySeenText, SchoolboyBillyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SchoolboyBillyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SchoolboyBillyAfterBattleText
 
 Route15Sign:
 	jumptext Route15SignText

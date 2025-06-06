@@ -163,44 +163,28 @@ TrainerSageJeffrey:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SageJeffreyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SageJeffreyAfterBattleText
 
 TrainerSagePing:
 	trainer SAGE, PING, EVENT_BEAT_SAGE_PING, SagePingSeenText, SagePingBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext SagePingAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SagePingAfterBattleText
 
 TrainerMediumMartha:
 	trainer MEDIUM, MARTHA, EVENT_BEAT_MEDIUM_MARTHA, MediumMarthaSeenText, MediumMarthaBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext MediumMarthaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer MediumMarthaAfterBattleText
 
 TrainerMediumGrace:
 	trainer MEDIUM, GRACE, EVENT_BEAT_MEDIUM_GRACE, MediumGraceSeenText, MediumGraceBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext MediumGraceAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer MediumGraceAfterBattleText
 
 EcruteakGymGuideScript:
 	faceplayer

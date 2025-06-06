@@ -11,11 +11,7 @@ TrainerBlackbeltIcarus:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext BlackbeltIcarusAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BlackbeltIcarusAfterBattleText
 
 BlackbeltIcarusSeenText: ; TO TRANSLATE
 	text "…Who's there?"

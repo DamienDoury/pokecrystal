@@ -145,22 +145,14 @@ TrainerHikerErik:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerErikAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerErikAfterBattleText
 
 TrainerHikerMichael:
 	trainer HIKER, MICHAEL, EVENT_BEAT_HIKER_MICHAEL, HikerMichaelSeenText, HikerMichaelBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerMichaelAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerMichaelAfterBattleText
 
 TrainerHikerParry:
 	trainer HIKER, PARRY3, EVENT_BEAT_HIKER_PARRY, HikerParry3SeenText, HikerParry3BeatenText, 0, .Script
@@ -244,33 +236,21 @@ TrainerHikerTimothy:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext HikerTimothyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerTimothyAfterBattleText
 
 TrainerCooltrainermRyan:
 	trainer COOLTRAINERM, RYAN, EVENT_BEAT_COOLTRAINERM_RYAN, CooltrainermRyanSeenText, CooltrainermRyanBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermRyanAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermRyanAfterBattleText
 
 TrainerCooltrainerfKelly:
 	trainer COOLTRAINERF, KELLY, EVENT_BEAT_COOLTRAINERF_KELLY, CooltrainerfKellySeenText, CooltrainerfKellyBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfKellyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfKellyAfterBattleText
 
 TrainerCamperQuentin:
 	faceplayer

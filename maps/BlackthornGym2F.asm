@@ -61,22 +61,14 @@ TrainerCooltrainermCody:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainermCodyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainermCodyAfterBattleText
 
 TrainerCooltrainerfFran:
 	trainer COOLTRAINERF, FRAN, EVENT_BEAT_COOLTRAINERF_FRAN, CooltrainerfFranSeenText, CooltrainerfFranBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext CooltrainerfFranAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer CooltrainerfFranAfterBattleText
 
 CooltrainermCodySeenText: 
 if DEF(_FR_FR)

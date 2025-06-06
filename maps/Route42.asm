@@ -193,11 +193,7 @@ TrainerPokemaniacShane:
 .NoNotification
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
-	opentext
-	writetext PokemaniacShaneAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokemaniacShaneAfterBattleText
 
 TrainerHikerBenjamin:
 	trainer HIKER, BENJAMIN, EVENT_BEAT_HIKER_BENJAMIN, HikerBenjaminSeenText, HikerBenjaminBeatenText, 0, .Script
@@ -210,11 +206,7 @@ TrainerHikerBenjamin:
 .NoNotification
 	setevent EVENT_GOT_COVID_ON_ROUTE_42
 	endifjustbattled
-	opentext
-	writetext HikerBenjaminAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer HikerBenjaminAfterBattleText
 
 Route42Sign1:
 	jumptext Route42Sign1Text

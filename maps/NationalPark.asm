@@ -176,11 +176,7 @@ TrainerPokefanmWilliam:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext PokefanmWilliamAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer PokefanmWilliamAfterBattleText
 
 TrainerPokefanfBeverly1:
 	trainer POKEFANF, BEVERLY1, EVENT_BEAT_POKEFANF_BEVERLY, PokefanfBeverly1SeenText, PokefanfBeverly1BeatenText, 0, .Script
@@ -266,11 +262,7 @@ TrainerLassKrise:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext LassKriseAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer LassKriseAfterBattleText
 
 NationalParkRelaxationSquareSign:
 	jumptext NationalParkRelaxationSquareText

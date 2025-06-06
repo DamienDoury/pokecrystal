@@ -24,55 +24,35 @@ TrainerKimonoGirlNaoko:
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext KimonoGirlNaokoAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer KimonoGirlNaokoAfterBattleText
 
 TrainerKimonoGirlSayo:
 	trainer KIMONO_GIRL, SAYO, EVENT_BEAT_KIMONO_GIRL_SAYO, KimonoGirlSayoSeenText, KimonoGirlSayoBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext KimonoGirlSayoAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer KimonoGirlSayoAfterBattleText
 
 TrainerKimonoGirlZuki:
 	trainer KIMONO_GIRL, ZUKI, EVENT_BEAT_KIMONO_GIRL_ZUKI, KimonoGirlZukiSeenText, KimonoGirlZukiBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext KimonoGirlZukiAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer KimonoGirlZukiAfterBattleText
 
 TrainerKimonoGirlKuni:
 	trainer KIMONO_GIRL, KUNI, EVENT_BEAT_KIMONO_GIRL_KUNI, KimonoGirlKuniSeenText, KimonoGirlKuniBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext KimonoGirlKuniAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer KimonoGirlKuniAfterBattleText
 
 TrainerKimonoGirlMiki:
 	trainer KIMONO_GIRL, MIKI, EVENT_BEAT_KIMONO_GIRL_MIKI, KimonoGirlMikiSeenText, KimonoGirlMikiBeatenText, 0, .Script
 
 .Script:
 	endifjustbattled
-	opentext
-	writetext KimonoGirlMikiAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer KimonoGirlMikiAfterBattleText
 
 DanceTheaterWhirlpoolGuy:
 	faceplayer

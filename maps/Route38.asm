@@ -33,22 +33,14 @@ TrainerBirdKeeperToby:
 
 .Script
 	endifjustbattled
-	opentext
-	writetext BirdKeeperTobyAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BirdKeeperTobyAfterBattleText
 
 TrainerSailorHarry:
 	trainer SAILOR, HARRY, EVENT_BEAT_SAILOR_HARRY, SailorHarrySeenText, SailorHarryBeatenText, 0, .Script
 
 .Script
 	endifjustbattled
-	opentext
-	writetext SailorHarryAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer SailorHarryAfterBattleText
 
 TrainerLassDana1:
 	trainer LASS, DANA1, EVENT_BEAT_LASS_DANA, LassDana1SeenText, LassDana1BeatenText, 0, .Script
@@ -280,22 +272,14 @@ TrainerBeautyValerie:
 
 .Script
 	endifjustbattled
-	opentext
-	writetext BeautyValerieAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyValerieAfterBattleText
 
 TrainerBeautyOlivia:
 	trainer BEAUTY, OLIVIA, EVENT_BEAT_BEAUTY_OLIVIA, BeautyOliviaSeenText, BeautyOliviaBeatenText, 0, .Script
 
 .Script
 	endifjustbattled
-	opentext
-	writetext BeautyOliviaAfterBattleText
-	waitbutton
-	closetext
-	end
+	jumptextfaceplayer BeautyOliviaAfterBattleText
 
 Route38Sign:
 	jumptext Route38SignText
