@@ -688,8 +688,22 @@ PartyMenu2DMenuData:
 	dn 2, 0 ; cursor offset
 	db 0 ; accepted buttons
 
-PartyMenuSelect:
 ; sets carry if exitted menu.
+PartyMenuSelect:
+	; The Select button must only be allowed in the Start Party menu, 
+	; or in the Move party menu.
+	ld a, [wPartyMenuActionText]
+	and $ff - $4
+	jr nz, .skip_select_input
+
+	; Only values (0) PARTYMENUACTION_CHOOSE_POKEMON
+	; and 4 (PARTYMENUACTION_MOVE)
+	; are allowed through the filter.
+	ld a, [wMenuJoypadFilter]
+	or SELECT
+	ld [wMenuJoypadFilter], a
+
+.skip_select_input
 	call StaticMenuJoypad
 	call PlaceHollowCursor
 	ld a, [wPartyCount]
@@ -697,12 +711,25 @@ PartyMenuSelect:
 	ld b, a
 	ld a, [wMenuCursorY] ; menu selection?
 	cp b
-	jr z, .exitmenu ; CANCEL
+	jr c, .check_b_button
+
+	; Can't exit by pressing Select on the Cancel button.
+	ldh a, [hJoyLast]
+	cp a
+	bit SELECT_F, a
+	ld a, [wMenuCursorY]
+	jr z, .check_b_button ; Ignore select on cancel.
+
+	call HideCursor
+	jr .skip_select_input ; Ignore select on cancel.
+
+.check_b_button
 	ld [wPartyMenuCursor], a
 	ldh a, [hJoyLast]
 	ld b, a
 	bit B_BUTTON_F, b
 	jr nz, .exitmenu ; B button
+
 	ld a, [wMenuCursorY]
 	dec a
 	ld [wCurPartyMon], a
@@ -713,6 +740,25 @@ PartyMenuSelect:
 	ld a, [hl]
 	ld [wCurPartySpecies], a
 
+	ldh a, [hJoyLast]
+	cp SELECT
+	jp nz, .play_sfx
+
+	; If the player presses select, either we start the switch process,
+	; or we validate it.
+	ld a, [wPartyMenuActionText]
+	cp PARTYMENUACTION_MOVE
+	jr z, .play_sfx
+
+	push hl
+	farcall SwitchPartyMons
+	farcall WritePartyMenuTilemap
+	farcall PrintPartyMenuText
+	pop hl
+	jr PartyMenuSelect
+
+.play_sfx
+	ld a, [hl]
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX
 	;call WaitSFX
@@ -779,7 +825,7 @@ WhichPKMNString:
 	db "Quel <PK><MN>?@"
 
 TeachWhichPKMNString:
-	db "Former quel<PK><MN>?@"
+	db "Former quel <PK><MN>?@"
 
 MoveToWhereString:
 	db "Déplacer où?@"
