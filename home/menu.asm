@@ -23,10 +23,15 @@ Load2DMenuData::
 	ret
 
 StaticMenuJoypad::
+	ld a, -1
+StaticMenuJoypad_WithIndexToSkip::
+	ld [wMenuIndexToSkip], a
 	callfar _StaticMenuJoypad
 	jr GetMenuJoypad
 
 ScrollingMenuJoypad::
+	ld a, -1
+	ld [wMenuIndexToSkip], a
 	callfar _ScrollingMenuJoypad
 	; fallthrough.
 

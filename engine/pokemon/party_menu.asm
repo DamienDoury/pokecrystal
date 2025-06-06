@@ -708,8 +708,18 @@ PartyMenuSelect:
 	or SELECT
 	ld [wMenuJoypadFilter], a
 
+	ld a, [wPartyMenuActionText]
+	cp PARTYMENUACTION_MOVE
+	jr nz, .skip_select_input
+	
+	; If we are already in the Move mode, we need to set the skip index.
+	ld a, [wSwitchMon]
+	jr .skip_select_input_with_skip_index
+
 .skip_select_input
-	call StaticMenuJoypad
+	ld a, -1
+.skip_select_input_with_skip_index
+	call StaticMenuJoypad_WithIndexToSkip
 	call PlaceHollowCursor
 	ld a, [wPartyCount]
 	inc a
@@ -762,7 +772,7 @@ PartyMenuSelect:
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
 	pop hl
-	jr PartyMenuSelect
+	jp PartyMenuSelect
 
 .play_sfx
 	ld a, [hl]

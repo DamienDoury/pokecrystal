@@ -317,7 +317,7 @@ _2DMenuInterpretJoypad:
 	bit START_F, a
 	jp nz, .a_b_start_select
 	bit D_RIGHT_F, a
-	jr nz, .d_right
+	jp nz, .d_right
 	bit D_LEFT_F, a
 	jr nz, .d_left
 	bit D_UP_F, a
@@ -338,7 +338,13 @@ _2DMenuInterpretJoypad:
 	ld a, [w2DMenuNumRows]
 	cp [hl]
 	jr z, .check_wrap_around_down
+	jr c, .check_wrap_around_down
 	inc [hl]
+
+	ld a, [wMenuIndexToSkip]
+	cp [hl]
+	jr z, .d_down
+
 	xor a
 	ret
 
@@ -353,6 +359,14 @@ _2DMenuInterpretJoypad:
 
 .wrap_around_down
 	ld [hl], $1
+	ld a, [wMenuIndexToSkip]
+	cp [hl]
+	jr nz, .xor_a
+
+	inc [hl]
+	; Instead of doing inc [hl], we should jump to .d_down
+	; But incrementing prevents infinite loops.
+.xor_a
 	xor a
 	ret
 
@@ -361,7 +375,13 @@ _2DMenuInterpretJoypad:
 	ld a, [hl]
 	dec a
 	jr z, .check_wrap_around_up
+
 	ld [hl], a
+
+	ld a, [wMenuIndexToSkip]
+	cp [hl]
+	jr z, .d_up
+
 	xor a
 	ret
 
@@ -377,6 +397,14 @@ _2DMenuInterpretJoypad:
 .wrap_around_up
 	ld a, [w2DMenuNumRows]
 	ld [hl], a
+	ld a, [wMenuIndexToSkip]
+	cp [hl]
+	jr nz, .xor_a
+
+	dec [hl]
+	; Instead of doing dec [hl], we should jump to .d_up
+	; But decrementing prevents infinite loops.
+
 	xor a
 	ret
 

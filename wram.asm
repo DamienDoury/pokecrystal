@@ -1653,8 +1653,9 @@ wMenuCursorY:: db
 wMenuCursorX:: db
 wCursorOffCharacter:: db
 wCursorCurrentTile:: dw
-
-	ds 3
+wMenuIndexToSkip:: db
+	
+	ds 2
 
 wOverworldDelay:: db
 wTextDelayFrames:: db
