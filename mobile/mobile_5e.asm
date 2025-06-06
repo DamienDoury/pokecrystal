@@ -531,7 +531,7 @@ Function17a9cb:
 	jr Function17a9f5
 
 .bit_6_set
-	jp Function17a9e3
+	; fallthrough.
 
 Function17a9e3:
 	ld a, $3
@@ -588,7 +588,7 @@ Function17aa22:
 	pop de
 	ld a, $0
 	ld hl, Unknown_17aa77
-	jr Function17aa4a
+	; fallthrough.
 
 Function17aa4a:
 	ld [$d08d], a

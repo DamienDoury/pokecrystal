@@ -1229,7 +1229,7 @@ TryStrengthOW:
 
 .already_using
 	xor a
-	jr .done
+	; fallthrough.
 
 .done
 	ld [wScriptVar], a
@@ -1565,7 +1565,7 @@ HasRockSmash:
 	jr .done
 .yes
 	xor a
-	jr .done
+	; fallthrough.
 .done
 	ld [wScriptVar], a
 	ret

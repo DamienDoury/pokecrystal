@@ -462,7 +462,7 @@ MonMailAction:
 .BagIsFull:
 	ld hl, .MailNoSpaceText
 	call MenuTextboxBackup
-	jr .done
+	; fallthrough.
 
 .done
 	ld a, $3

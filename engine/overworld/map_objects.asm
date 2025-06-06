@@ -174,7 +174,7 @@ HandleFrozenObjectAction:
 _CallFrozenObjectAction:
 ; use second column (frozen)
 	ld de, ObjectActionPairPointers + 2
-	jr CallObjectAction ; pointless
+	; fallthrough. ; pointless
 
 CallObjectAction:
 	ld hl, OBJECT_ACTION

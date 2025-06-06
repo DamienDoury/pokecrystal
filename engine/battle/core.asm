@@ -633,7 +633,7 @@ DetermineMoveOrder:
 	call BattleRandom
 	cp c
 	jp c, .enemy_first
-	jr .speed_check
+	; fallthrough.
 
 .speed_check
 	ld de, wBattleMonSpeed
@@ -1141,7 +1141,7 @@ EnemyTurn_EndOpponentProtectEndureDestinyBond:
 	call SetEnemyTurn
 	call EndUserDestinyBond
 	callfar DoEnemyTurn
-	jp EndOpponentProtectEndureDestinyBond
+	; fallthrough.
 
 EndOpponentProtectEndureDestinyBond:
 	ld a, BATTLE_VARS_SUBSTATUS1_OPP
@@ -3348,7 +3348,7 @@ EnemyMonFaintedAnimation:
 PlayerMonFaintedAnimation:
 	hlcoord 1, 10
 	decoord 1, 11
-	jr MonFaintedAnimation
+	; fallthrough.
 
 MonFaintedAnimation:
 	ld a, [wJoypadDisable]
@@ -4873,7 +4873,7 @@ HandleStatBoostingHeldItems:
 
 .player_1
 	call .DoEnemy
-	jp .DoPlayer
+	; fallthrough.
 
 .DoPlayer:
 	call GetPartymonItem
@@ -5251,7 +5251,7 @@ DrawEnemyHUD:
 
 UpdateEnemyHPPal:
 	ld hl, wEnemyHPPal
-	jr UpdateHPPal
+	; fallthrough.
 
 UpdateHPPal:
 	ld b, [hl]
@@ -8690,7 +8690,7 @@ DisplayLinkBattleResult:
 .lose
 	farcall StubbedTrainerRankings_ColosseumLosses
 	ld de, .YouLose
-	jr .store_result
+	; fallthrough.
 
 .store_result
 if DEF(_FR_FR)

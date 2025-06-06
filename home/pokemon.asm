@@ -281,7 +281,7 @@ GetBaseData::
 	ld [hl], e
 	inc hl
 	ld [hl], d
-	jr .end ; useless
+	; fallthrough. ; useless
 
 .end
 ; Replace Pokedex # with species

@@ -406,7 +406,7 @@ Function48383:
 	jr c, .asm_483af
 	ld a, e
 	ld [wMenuScrollPosition], a
-	jr .asm_483af
+	; fallthrough.
 .asm_483af
 	ld hl, wMenuCursorY
 	ld a, [hl]
@@ -946,7 +946,7 @@ Function4880e:
 .asm_48868
 	sub $a
 	ld [wd473], a
-	jr .asm_4886f
+	; fallthrough.
 .asm_4886f
 	ld a, [wd473]
 	and a
@@ -1314,7 +1314,7 @@ Function48ab5:
 	ld hl, wd478
 	ld a, [hl]
 	and $f
-	jr .asm_48b1d
+	; fallthrough.
 .asm_48b1d
 	push hl
 	push af

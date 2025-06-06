@@ -1029,7 +1029,7 @@ Function10649b: ; unreferenced
 	ld de, TextboxSpaceGFX
 	ld c, 1
 	ld b, BANK(TextboxSpaceGFX)
-	jr Function1064c3
+	; fallthrough.
 
 Function1064c3:
 	ldh a, [rSVBK]
@@ -1061,7 +1061,7 @@ Function1064d8: ; unreferenced
 	pop bc
 	pop af
 	ldh [rSVBK], a
-	jr asm_1064ed
+	; fallthrough.
 
 asm_1064ed:
 	ld de, wDecompressScratch

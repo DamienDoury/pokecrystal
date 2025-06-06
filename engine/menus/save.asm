@@ -208,7 +208,7 @@ AskOverwriteSaveFile:
 	ld hl, AnotherSaveFileText
 	call SaveTheGame_yesorno
 	jr nz, .refused
-	jr .erase
+	; fallthrough.
 
 .erase
 	call ErasePreviousSave

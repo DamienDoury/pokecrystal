@@ -3062,7 +3062,7 @@ Function8a4fc:
 	ld b, a
 	ld c, $80
 	call Function89cdf
-	jr Function8a515
+	; fallthrough.
 
 Function8a515:
 	ld hl, wd012

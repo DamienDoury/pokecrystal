@@ -114,7 +114,7 @@ PrintTempMonLevelUpStats:
 	ld a, [wTempMonLevelUpStatGain + 4]
 	ld e, a
 	ld a, [wTempMonSpeed + 1] ; Big-endian.
-	jr .PrintStatGain
+	; fallthrough.
 	
 .PrintStatGain:
 	sub e ; Note: the amount of stat gain always fits within 1 byte during normal gameplay.

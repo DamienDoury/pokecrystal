@@ -2776,7 +2776,7 @@ BattleCommand_CheckFaint:
 BattleCommand_BuildOpponentRage:
 ; buildopponentrage
 
-	jp .start
+	; fallthrough.
 
 .start
 	ld a, [wAttackMissed]
@@ -3600,7 +3600,7 @@ BattleCommand_ConstantDamage:
 	ld a, 0
 	jr nz, .got_power
 	ld b, 1
-	jr .got_power
+	; fallthrough.
 
 .got_power
 	ld hl, wCurDamage
@@ -4657,7 +4657,7 @@ BattleCommand_AccuracyUp2:
 BattleCommand_EvasionUp2:
 ; evasionup2
 	ld b, $10 | EVASION
-	jr BattleCommand_StatUp
+	; fallthrough.
 
 BattleCommand_StatUp:
 ; statup

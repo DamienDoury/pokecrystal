@@ -3181,7 +3181,7 @@ Function17e566:
 	and a
 	ret z
 	ld a, $7f
-	jr Function17e571
+	; fallthrough.
 
 Function17e571:
 	push af
@@ -3423,7 +3423,7 @@ Function17e691:
 
 .asm_17e6c2
 	ld a, [wcd53]
-	jr .asm_17e6c7
+	; fallthrough.
 
 .asm_17e6c7
 	pop hl

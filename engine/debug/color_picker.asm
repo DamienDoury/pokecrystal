@@ -751,7 +751,7 @@ DebugColor_TMHMJoypad:
 
 .done
 	ld [wDebugColorCurTMHM], a
-	jr DebugColor_PrintTMHMMove
+	; fallthrough.
 
 DebugColor_PrintTMHMMove:
 	hlcoord 10, 11

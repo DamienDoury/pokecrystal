@@ -31,7 +31,7 @@ PokemonCenterPC:
 
 .male_text
 	ld hl, PokecenterPCSanitizerText
-	jr .display_sanitizer_text
+	; fallthrough.
 
 .display_sanitizer_text
 	call PC_DisplayText
@@ -213,7 +213,7 @@ PC_PlayShutdownSound:
 
 PC_PlayChoosePCSound:
 	ld de, SFX_CHOOSE_PC_OPTION
-	jr PC_WaitPlaySFX
+	; fallthrough.
 
 PC_WaitPlaySFX:
 	push de

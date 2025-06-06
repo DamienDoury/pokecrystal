@@ -602,7 +602,7 @@ TradeAnim_TubeAnimJumptable:
 	ld a, $5b
 	ld [hl], a
 	hlcoord 10, 6
-	jr TradeAnim_CopyTradeGameBoyTilemap
+	; fallthrough.
 
 TradeAnim_CopyTradeGameBoyTilemap:
 	ld de, TradeGameBoyTilemap
