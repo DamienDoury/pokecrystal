@@ -262,8 +262,7 @@ FakeNeighborScript:
 	sjump .watch_tv
 
 .watch_tv:
-	callstd TVScript
-	end
+	jumpstd TVScript
 
 RightStepMovement:
 	step RIGHT
