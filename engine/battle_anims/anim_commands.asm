@@ -249,7 +249,7 @@ endr
 RunBattleAnimCommand:
 	call .CheckTimer
 	ret nc
-	jmp .RunScript
+	jr .RunScript
 
 .CheckTimer:
 	ld a, [wBattleAnimDelay]
