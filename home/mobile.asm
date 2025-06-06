@@ -152,12 +152,10 @@ Function3eea::
 
 Function3f20::
 	hlcoord 0, 0, wAttrmap
-	ld b,  6
-	ld c, 20
+	lb bc, 6, 20
 	call Function3f35
 	hlcoord 0, 0
-	ld b,  4
-	ld c, 18
+	lb bc, 4, 18
 	jr MobileHome_PlaceBox
 
 Function3f35::

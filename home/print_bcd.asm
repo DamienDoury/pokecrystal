@@ -64,7 +64,6 @@ endc
 
 PrintBCDDigit::
 	and %00001111
-	and a
 	jr z, .zeroDigit
 if DEF(_EN_US)
 ; nonzero digit

@@ -234,7 +234,7 @@ SuicuneFrameIterator:
 
 	ld a, c
 	and %11000
-	sla a
+	add a
 	swap a
 	ld e, a
 	ld d, 0

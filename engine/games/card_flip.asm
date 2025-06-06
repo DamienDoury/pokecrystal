@@ -490,14 +490,12 @@ CardFlip_UpdateCoinBalanceDisplay:
 CardFlip_PrintCoinBalance:
 if DEF(_FR_FR)
 	hlcoord 8, 15
-	ld b, 1
-	ld c, 10
+	lb bc, 1, 10
 	call Textbox
 	hlcoord 9, 16
 else
 	hlcoord 9, 15
-	ld b, 1
-	ld c, 9
+	lb bc, 1, 9
 	call Textbox
 	hlcoord 10, 16
 endc

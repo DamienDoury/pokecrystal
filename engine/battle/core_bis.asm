@@ -99,8 +99,7 @@ ExitBattle:
 
 
 DestroyDuplicatesPokemasks:
-	ld b, 0 ; The index of the current mon.
-	ld c, FALSE ; Equals TRUE after a first Pokémask has been found in the party.
+	lb bc, 0, FALSE ; The index of the current mon. ; Equals TRUE after a first Pokémask has been found in the party.
 	ld hl, wPartyMon1Item
 	ld de, PARTYMON_STRUCT_LENGTH
 
@@ -229,7 +228,7 @@ _StartAutomaticBattleWeather::
 	jp nz, .check_battle_scene_option
 
 	ld a, [wPlayerTurnsTaken]
-	cp 0
+	and a
 	jr nz, .check_battle_scene_option 
 
 	; If it is the first turn of an assault, we don't display the weather to make the assault quick and surprising.
@@ -704,8 +703,7 @@ SelectRandomMove::
 	xor a
 	ld [wCurEnemyMoveNum], a ; Default choice.
 	ld hl, wEnemyMonMoves + 1 ; We start at the first move, as all Pokémon must have at least 1 move.
-	ld b, 0
-	ld c, 20 ; Number of tries before a forbidden move can be used.
+	lb bc, 0, 20 ; Number of tries before a forbidden move can be used.
 
 .count_loop
 	inc b

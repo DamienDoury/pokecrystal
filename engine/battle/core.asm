@@ -201,7 +201,7 @@ WildFled_EnemyFled_LinkBattleCanceled:
 RotateLockSubStatuses:
 	ld a, [hl]
 	and %0101
-	sla a ; Moves the Lock On and Mind Reader "next turn" states to the current state.
+	add a ; Moves the Lock On and Mind Reader "next turn" states to the current state.
 	ld [hl], a
 	ret
 
@@ -250,7 +250,7 @@ BattleTurn:
 	jr nz, .loop1
 
 	ld a, [wEnemyTurnsTaken]
-	cp 0
+	and a
 	jr nz, .loop1
 
 	farcall SelectRandomMove
@@ -4404,8 +4404,7 @@ SendOutPlayerMon:
 	ld hl, wBattleMonDVs
 	predef GetUnownLetter
 	hlcoord 1, 5
-	ld b, 7
-	ld c, 8
+	lb bc, 7, 8
 	call ClearBox
 	call WaitBGMap
 	xor a
@@ -5762,14 +5761,12 @@ MoveSelectionScreen:
 	ldh [hBGMapMode], a
 
 	hlcoord 4, 17 - NUM_MOVES - 1
-	ld b, 4
-	ld c, 14
+	lb bc, 4, 14
 	ld a, [wMoveSelectionMenuType]
 	cp $2
 	jr nz, .got_dims
 	hlcoord 4, 17 - NUM_MOVES - 1 - 4
-	ld b, 4
-	ld c, 14
+	lb bc, 4, 14
 .got_dims
 	call Textbox
 
@@ -6045,8 +6042,7 @@ MoveInfoBox:
 	ldh [hBGMapMode], a
 
 	hlcoord 0, 8
-	ld b, 3
-	ld c, 8
+	lb bc, 3, 8
 	call Textbox
 	call MobileTextBorder
 
@@ -6535,8 +6531,7 @@ LoadEnemyMon:
 	cp BATTLETYPE_SHINY
 	jr nz, .GenerateDVs
 
-	ld b, ATKDEFDV_SHINY ; $ea
-	ld c, SPDSPCDV_SHINY ; $aa
+	lb bc, ATKDEFDV_SHINY, SPDSPCDV_SHINY ; $ea ; $aa
 	jr .UpdateDVs
 
 .GenerateDVs:
@@ -7810,8 +7805,7 @@ GiveExperiencePoints:
 	ld [wMonType], a
 	predef CopyMonToTempMon
 	hlcoord 9, 0
-	ld b, 10
-	ld c, 9
+	lb bc, 10, 9
 	call Textbox
 	hlcoord 11, 1
 	ld bc, 4
@@ -9239,8 +9233,7 @@ AddLastLinkBattleToLinkRecord:
 InitBattleDisplay:
 	call .InitBackPic
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call Textbox
 	farcall MobileTextBorder
 	hlcoord 1, 5

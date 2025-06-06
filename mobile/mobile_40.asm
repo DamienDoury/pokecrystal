@@ -906,8 +906,7 @@ MenuData_100604:
 
 Mobile_CommunicationStandby:
 	hlcoord 3, 10
-	ld b, 1
-	ld c, 11
+	lb bc, 1, 11
 	call Function3eea
 	ld de, .String
 	hlcoord 4, 11
@@ -1830,8 +1829,7 @@ Mobile_MoveSelectionScreen:
 
 .ListMoves:
 	hlcoord 0, 8
-	ld b, 8
-	ld c, 8
+	lb bc, 8, 8
 	call Textbox
 	ld hl, wBattleMonMoves
 	ld de, wListMoves_MoveIndicesBuffer
@@ -5605,8 +5603,7 @@ asm_1027e2:
 
 Function1027eb:
 	hlcoord 0, 14
-	ld b, 2
-	ld c, 18
+	lb bc, 2, 18
 	ld d, h
 	ld e, l
 	farcall _LinkTextbox
@@ -5874,8 +5871,7 @@ Jumptable_1029cb:
 Function1029cf:
 	call LoadStandardMenuHeader
 	hlcoord 10, 7
-	ld b, 3
-	ld c, 8
+	lb bc, 3, 8
 	ld d, h
 	ld e, l
 	farcall _LinkTextbox
@@ -6360,8 +6356,7 @@ Function102db7:
 
 Function102dc3:
 	hlcoord 0, 12
-	ld b,  4
-	ld c, 18
+	lb bc, 4, 18
 	ld d, h
 	ld e, l
 	farcall _LinkTextbox
@@ -6388,8 +6383,7 @@ Function102dec:
 
 Function102e07:
 	hlcoord 3, 10
-	ld b,  1
-	ld c, 11
+	lb bc, 1, 11
 	ld a, [wBattleMode]
 	and a
 	jr z, .link_battle
@@ -6399,8 +6393,7 @@ Function102e07:
 .link_battle
 ; the next three operations are pointless
 	hlcoord 3, 10
-	ld b,  1
-	ld c, 11
+	lb bc, 1, 11
 	ld d, h
 	ld e, l
 	farcall _LinkTextbox

@@ -14,15 +14,13 @@ Function49f16:
 	ld c, 12
 	call DelayFrames
 	hlcoord 4, 0
-	ld b, 10
-	ld c, 10
+	lb bc, 10, 10
 	call Function48cdc
 	hlcoord 6, 2
 	ld de, MobileString1
 	call PlaceString
 	hlcoord 0, 12
-	ld b, 4
-	ld c, SCREEN_HEIGHT
+	lb bc, 4, SCREEN_HEIGHT
 	call Textbox
 	xor a
 	ld de, String_0x49fe9
@@ -80,8 +78,7 @@ Function49f16:
 	ld d, h
 	ld e, l
 	hlcoord 1, 13
-	ld b, 4
-	ld c, SCREEN_HEIGHT
+	lb bc, 4, SCREEN_HEIGHT
 	call ClearBox
 	hlcoord 1, 14
 	call PlaceString
@@ -411,8 +408,7 @@ Function4a28a:
 	ld hl, DeleteSavedLoginPasswordText
 	call PrintText
 	hlcoord 14, 7
-	ld b, 3
-	ld c, 4
+	lb bc, 3, 4
 	call Textbox
 	farcall Mobile_OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
 	ld hl, DeletePassword_YesNo_MenuHeader

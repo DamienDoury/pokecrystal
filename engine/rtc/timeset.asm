@@ -56,8 +56,7 @@ InitClock:
 
 if DEF(_FR_FR)
 	hlcoord 9, 7
-	ld b, 2
-	ld c, 9
+	lb bc, 2, 9
 	call Textbox
 	hlcoord 14, 7
 	ld [hl], $1
@@ -66,8 +65,7 @@ if DEF(_FR_FR)
 	hlcoord 10, 9
 else
 	hlcoord 3, 7
-	ld b, 2
-	ld c, 15
+	lb bc, 2, 15
 	call Textbox
 	hlcoord 11, 7
 	ld [hl], $1
@@ -407,8 +405,7 @@ SetDayOfWeek:
 	call PrintText
 if DEF(_FR_FR)
 	hlcoord 10, 3
-	ld b, 2
-	ld c, 8
+	lb bc, 2, 8
 	call Textbox
 	hlcoord 14, 3
 	ld [hl], TIMESET_UP_ARROW
@@ -417,8 +414,7 @@ if DEF(_FR_FR)
 	hlcoord 11, 5
 else
 	hlcoord 9, 3
-	ld b, 2
-	ld c, 9
+	lb bc, 2, 9
 	call Textbox
 	hlcoord 14, 3
 	ld [hl], TIMESET_UP_ARROW
@@ -495,14 +491,12 @@ endc
 	ldh [hBGMapMode], a
 if DEF(_FR_FR)
 	hlcoord 11, 4
-	ld b, 2
-	ld c, 8
+	lb bc, 2, 8
 	call ClearBox
 	hlcoord 11, 5
 else
 	hlcoord 10, 4
-	ld b, 2
-	ld c, 9
+	lb bc, 2, 9
 	call ClearBox
 	hlcoord 10, 5
 endc

@@ -283,10 +283,8 @@ Serve1bppRequest::
 	ld [hSPBuffer], sp
 
 ; Source
-	ld hl, wRequested1bppSource
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld sp, wRequested1bppSource
+	pop hl
 	ld sp, hl
 
 ; Destination
@@ -368,10 +366,8 @@ _Serve2bppRequest::
 	ld [hSPBuffer], sp
 
 ; Source
-	ld hl, wRequested2bppSource
-	ld a, [hli]
-	ld h, [hl]
-	ld l, a
+	ld sp, wRequested2bppSource
+	pop hl
 	ld sp, hl
 
 ; Destination

@@ -263,13 +263,11 @@ ChooseMoveToLearn:
 	ld [wMenuCursorPosition], a
 
 	hlcoord 0, 0
-	ld b, 14
-	ld c, 18
+	lb bc, 14, 18
 	call Textbox
 
 	hlcoord 0, 10
-	ld b, 6
-	ld c, 18
+	lb bc, 6, 18
 	call Textbox
 
 	ld hl, wPartyMonNicknames

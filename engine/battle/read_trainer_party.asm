@@ -92,7 +92,7 @@ ReadTrainerPartyPieces:
 	jr nc, .check_level
 
 	ld a, [wTempByteValue] ; wTempByteValue contains the number of Pokemon added to the party of OT.
-	cp 0
+	and a
 	jr nz, .check_if_party_full ; When no Pokemon has been added to the party yet (meaning we're going to add the first one), we need to inc to add an offset to the first Pokémon of the team.
 
 	; At the first call, we add an offset to the starting point, so Blue's leading Pokémon isn't always the same.
@@ -636,8 +636,7 @@ GetPlayerHighestLevel::
 
 	ld hl, wPartyMon1Level
 	ld de, PARTYMON_STRUCT_LENGTH
-	ld b, 0 ; We start from the first pkmn of the team.
-	ld c, 0 ; The highest level is 0 at start.
+	lb bc, 0, 0 ; We start from the first pkmn of the team. ; The highest level is 0 at start.
 
 .loop
 	ld a, [hl] ; We get the level of this Pokémon.

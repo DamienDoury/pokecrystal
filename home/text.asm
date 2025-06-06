@@ -87,8 +87,7 @@ TextboxBorder::
 
 SpeechTextboxRed::
 	hlcoord TEXTBOX_X, TEXTBOX_Y
-	ld b, TEXTBOX_INNERH
-	ld c, TEXTBOX_INNERW
+	lb bc, TEXTBOX_INNERH, TEXTBOX_INNERW
 	
 	push bc
 	push hl
@@ -101,8 +100,7 @@ SpeechTextboxRed::
 SpeechTextbox::
 ; Standard textbox.
 	hlcoord TEXTBOX_X, TEXTBOX_Y
-	ld b, TEXTBOX_INNERH
-	ld c, TEXTBOX_INNERW
+	lb bc, TEXTBOX_INNERH, TEXTBOX_INNERW
 
 Textbox::
 ; Draw a text box at hl with room for b lines of c characters each.

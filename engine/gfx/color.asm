@@ -1574,7 +1574,7 @@ HandleDayCareOutdoorTransitionPalettes:
 	ld a, BANK(wBreedMon1Species)
 	ld hl, wBreedMon1Species
 	call GetFarWRAMByte
-	cp 0
+	and a
 	jr z, .day_care_mon_2
 	cp -1
 	jr z, .day_care_mon_2
@@ -1598,7 +1598,7 @@ HandleDayCareOutdoorTransitionPalettes:
 	ld a, BANK(wBreedMon2Species)
 	ld hl, wBreedMon2Species
 	call GetFarWRAMByte
-	cp 0
+	and a
 	ret z
 	cp -1
 	ret z
@@ -1912,7 +1912,7 @@ SinglePaletteTransition:
 	ld a, [wTempColorMixer + 3]
 	and %111
 	swap a
-	sla a
+	add a
 	add b
 	ld d, a
 
@@ -1929,12 +1929,12 @@ SinglePaletteTransition:
 	ld [wAddressStorage + 1], a
 
 	ld a, [wTempColorMixer + 5]
-	sla a
-	sla a
+	add a
+	add a
 	ld b, a
 
 	ld a, [wTempColorMixer + 3]
-	sla a
+	add a
 	swap a
 	and %11
 	add b
@@ -2019,8 +2019,7 @@ SinglePaletteTransition:
 ; Destroys D as well.
 OriginColorMultiplication:
 	ld d, e
-	ld b, 0
-	ld c, 0
+	lb bc, 0, 0
 .color_multiplication_loop
 	push af
 	add c
@@ -2042,8 +2041,7 @@ OriginColorMultiplication:
 DestinationColorRatio:
 	push hl
 	ld d, e
-	ld h, 0 ; We use hl instead of bc here, because it allows add hl, hl as needed later, which is impossible with bc.
-	ld l, 0
+	lb hl, 0, 0 ; We use hl instead of bc here, because it allows add hl, hl as needed later, which is impossible with bc.
 .color_multiplication_loop
 	dec d
 	jr z, .multiplication_end

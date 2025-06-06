@@ -58,7 +58,7 @@ GetAutomaticBattleWeather::
 	ld hl, AutomaticWeatherMaps
 	ld d, 1
 	ld a, [wTimeOfDay]
-	cp 0
+	and a
 	jr z, .get_map_group
 
 .bit_shift_loop

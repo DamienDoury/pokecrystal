@@ -49,8 +49,7 @@ InitMobileProfile:
 	call GetCrystalCGBLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
-	ld b,  2
-	ld c, 20
+	lb bc, 2, 20
 	call ClearBox
 	hlcoord 0, 1
 	ld a, $c
@@ -489,15 +488,13 @@ Function4840c:
 	ld a, [wd002]
 	bit 6, a
 	jr nz, .narrower_box
-	ld b, 9
-	ld c, 1
+	lb bc, 9, 1
 	hlcoord 1, 4
 	call ClearBox
 	jmp Function48157
 
 .narrower_box
-	ld b, 7
-	ld c, 1
+	lb bc, 7, 1
 	hlcoord 1, 6
 	call ClearBox
 	jmp Function48157
@@ -654,8 +651,7 @@ Function48689:
 	call GetCrystalCGBLayout
 	call ClearBGPalettes
 	hlcoord 0, 0
-	ld b, 4
-	ld c, SCREEN_WIDTH
+	lb bc, 4, SCREEN_WIDTH
 	call ClearBox
 	hlcoord 0, 2
 	ld a, $c
@@ -1360,7 +1356,6 @@ Function48ab5:
 	pop af
 	ld b, a
 	and $f
-	and a
 	ld a, b
 	jr nz, .asm_48b61
 	and $f0
@@ -1607,8 +1602,7 @@ Function48ca3: ; unreferenced
 	push bc
 	push de
 	push hl
-	ld b, 0
-	ld c, 0
+	lb bc, 0, 0
 	ld d, 0
 .asm_48cad
 	cp 100

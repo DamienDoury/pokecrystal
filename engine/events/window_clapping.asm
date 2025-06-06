@@ -142,7 +142,6 @@ NursesBowWhenClappedAt::
     ret z
 
     and CLAPPING_IDLE_FRAMES_MASK
-    and a
     ret z
 
 .loop_init
@@ -168,13 +167,11 @@ NursesBowWhenClappedAt::
 
     ld a, b
     and a
-    ld b, SPRITEMOVEDATA_POKEMON
-    ld c, OBJECT_ACTION_BOUNCE
+    lb bc, SPRITEMOVEDATA_POKEMON, OBJECT_ACTION_BOUNCE
     jr z, .start_bowing
 
     ; stop bowing data.
-    ld b, SPRITEMOVEDATA_STANDING_DOWN
-    ld c, OBJECT_ACTION_STAND
+    lb bc, SPRITEMOVEDATA_STANDING_DOWN, OBJECT_ACTION_STAND
 .start_bowing
     ld de, OBJECT_MOVEMENTTYPE - OBJECT_SPRITE
 	add hl, de

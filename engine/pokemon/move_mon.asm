@@ -644,7 +644,6 @@ SendGetMonIntoFromBox:
 	ld [hl], $ff
 	ld a, [wPokemonWithdrawDepositParameter]
 	and 1
-	cp 0
 	ld hl, wPartyMon1Species
 	ld bc, PARTYMON_STRUCT_LENGTH
 	ld a, [wPartyCount]

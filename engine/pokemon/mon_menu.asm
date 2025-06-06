@@ -1044,12 +1044,10 @@ SetUpMoveScreenBG:
 	ld e, MONICON_MOVES
 	farcall LoadMenuMonIcon
 	hlcoord 0, 1
-	ld b, 9
-	ld c, 18
+	lb bc, 9, 18
 	call Textbox
 	hlcoord 0, 10
-	ld b, 6
-	ld c, 18
+	lb bc, 6, 18
 	call Textbox
 	hlcoord 2, 0
 	lb bc, 2, 3
@@ -1097,8 +1095,7 @@ SetUpMoveList:
 	inc a
 	ld [w2DMenuNumRows], a
 	hlcoord 0, 10
-	ld b, 6
-	ld c, 18
+	lb bc, 6, 18
 	jmp Textbox
 
 PrepareToPlaceMoveData:

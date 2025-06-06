@@ -48,8 +48,7 @@ ViridianWarp::
 
 ; Input: D = TRUE if reverse index search is required.
 .vertical_start
-	ld b, 0
-	ld c, 0
+	lb bc, 0, 0
 	ld hl, ViridianVerticalWarpsList + 1
 
 .vertical_loop
@@ -106,8 +105,7 @@ ViridianWarp::
 
 ; Input: D = TRUE if reverse index search is required.
 .horizontal_start
-	ld b, 0
-	ld c, 0
+	lb bc, 0, 0
 	ld hl, ViridianHorizontalWarpsList + 1
 
 .horizontal_loop
@@ -276,8 +274,7 @@ ShuffleAllViridianWarps::
 
 
 PrepopulateViridianWarps:
-	ld b, VIRIDIAN_VERTICAL_WARP_COUNT
-	ld c, 0
+	lb bc, VIRIDIAN_VERTICAL_WARP_COUNT, 0
 	ld hl, wViridianVerticalWarpPair
 	ld a, c
 

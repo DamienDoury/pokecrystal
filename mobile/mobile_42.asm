@@ -1141,8 +1141,8 @@ MobileTradeAnim_FadeToBlack:
 	ldh a, [rBGP]
 	and a
 	jr z, .blank
-	sla a
-	sla a
+	add a
+	add a
 	call DmgToCgbBGPals
 	call DmgToCgbObjPal0
 	ld c, 4
@@ -1227,8 +1227,7 @@ MobileTradeAnim_DisplayEggData:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 5, 0
-	ld b, 6
-	ld c, 9
+	lb bc, 6, 9
 	call Textbox
 	hlcoord 6, 2
 	ld de, .EggTemplate
@@ -1247,8 +1246,7 @@ Function108a33:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 5, 0
-	ld b, 6
-	ld c, 9
+	lb bc, 6, 9
 	call Textbox
 	hlcoord 7, 4
 	ld de, .OddEgg
@@ -1264,8 +1262,7 @@ MobileTradeAnim_LoadMonTemplate:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 4, 0
-	ld b,  6
-	ld c, 10
+	lb bc, 6, 10
 	call Textbox
 	hlcoord 5, 0
 	ld de, .MonTemplate

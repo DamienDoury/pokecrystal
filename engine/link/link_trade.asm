@@ -168,14 +168,12 @@ PrintWaitingTextAndSyncAndExchangeNybble:
 .PrintWaitingText:
 if DEF(_FR_FR)
 	hlcoord 3, 10
-	ld b, 1
-	ld c, 11
+	lb bc, 1, 11
 	predef LinkTextboxAtHL
 	hlcoord 4, 11
 else
 	hlcoord 4, 10
-	ld b, 1
-	ld c, 10
+	lb bc, 1, 10
 	predef LinkTextboxAtHL
 	hlcoord 5, 11
 endc

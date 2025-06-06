@@ -27,7 +27,7 @@ GetCurrentResearchLevelAtLandmark::
 	ld b, a ; We store a for later use.
 
 .offset
-	cp 0
+	and a
 	jr z, .masking
 	dec a
 	srl c
@@ -72,7 +72,7 @@ IncreaseResearchLevel::
 	ld b, %11111100 ; We now use b as the mask.
 
 .offset
-	cp 0
+	and a
 	jr z, .write_level
 	dec a
 	sla c
@@ -153,7 +153,7 @@ ResetResearchLevelInCurrentLandmark::
 	ld b, %11111100 ; We now use b as the mask.
 
 .offset
-	cp 0
+	and a
 	jr z, .write_level
 	dec a
 	sla c

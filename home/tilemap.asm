@@ -35,7 +35,7 @@ ApplyTilemap::
 	jr z, .dmg
 
 	ld a, [wSpriteUpdatesEnabled]
-	cp 0
+	and a
 	jr z, .dmg
 
 	ld a, 1

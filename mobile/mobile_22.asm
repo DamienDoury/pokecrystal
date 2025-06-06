@@ -1062,8 +1062,7 @@ Function8975b:
 	inc a
 	ld [hli], a
 	ld a, $d
-	ld [hl], a
-	dec hl
+	ld [hld], a
 	dec hl
 	ld a, $4
 	ld e, $3
@@ -1575,8 +1574,7 @@ Function89a57:
 	ret
 
 .MoveCursorDown:
-	ld d, 40
-	ld e,  1
+	lb de, 40, 1
 	call .ApplyCursorMovement
 	ret
 

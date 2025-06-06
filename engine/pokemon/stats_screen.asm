@@ -287,7 +287,7 @@ StatsScreen_GetJoypad:
 	jr nz, .not_tempmon
 	
 	ld a, [wStatsSubmenuOpened]
-	cp 0
+	and a
 	jr nz, .not_tempmon
 	
 	push hl
@@ -316,7 +316,7 @@ StatsScreen_GetJoypad:
 StatsScreen_JoypadAction:
 	push af
 	ld a, [wStatsSubmenuOpened]
-	cp 0
+	and a
 	jp nz, .submenu_navigation ; If we are in the submenu.
 
 	ld a, [wStatsScreenFlags]
@@ -816,7 +816,7 @@ SwapMoves:
 	call ClearBox
 
 	ld a, [wBillsPC_LoadedBox]
-	cp 0
+	and a
 	jr z, .end_swapping
 
 	call CloseSRAM
@@ -1095,7 +1095,6 @@ LoadPinkPage:
 	; Status displayed will be either Covid, Incub. or Immune. Also, the Vaccinated icon can be displayed.
 	ld a, b
 	and POKERUS_STRAIN_MASK
-	cp 0
 	jr nz, .VaccineCaseTreated ; If the strain is not equal to the one of a vaccinated Pokemon, then it is not vaccinated.
 
 	; At this point, we also know that the strain is strictly equal to the one of the vaccine. We conclude that this Pokémon is vaccinated.
@@ -1200,15 +1199,15 @@ LoadPinkPage:
 	ld h, a
 
 	ld a, [wTempMonDVs + 1]
-	sla a
-	sla a
+	add a
+	add a
 	and %100
 	or h
 	ld h, a
 
 	ld a, [wTempMonDVs]
 	swap a
-	sla a
+	add a
 	and %10
 	or h
 	ld h, a
@@ -1384,7 +1383,7 @@ else
 endc
 
 	ld a, [wJohtoBadges]
-	cp 0
+	and a
 	jr nz, .skip_details_tooltip ; Once the player has acquired at least 1 badge, we stop displaying this tooltip.
 	ld de, .DetailsPressA
 	hlcoord 1, 12

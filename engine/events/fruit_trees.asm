@@ -172,7 +172,7 @@ GrowBerries::
 	ld a, [hl]
 	ld c, a
 	and %01010101 ; We retrieve the "watered today" flags.
-	sla a
+	add a
 	or c ; The "watered today" set the "fruit count boost" flags.
 	and %10101010 ; We clear the "watered today" flags.
 	ld [hli], a ; Saving the result and moving on to the next tree set.

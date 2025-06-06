@@ -50,7 +50,7 @@ GymSpecialRules::
 	jr z, .next_party_mon ; Once we have checked all four moves (index 0 to 3), we go to the next mon.
 
 	ld a, [hl] ; Retrieving the first move.
-	cp 0
+	and a
 	jr z, .next_party_mon ; If this mon has no more moves, we move on to the next mon.
 
 	inc hl
@@ -435,7 +435,7 @@ ExhaustMovesPP:
 	jr z, .next_party_mon ; Once we have checked all four moves (index 0 to 3), we go to the next mon.
 
 	ld a, [hl] ; Retrieving the first move.
-	cp 0
+	and a
 	jr z, .next_party_mon ; If this mon has no more moves, we move on to the next mon.
 
 	; Retrieving the move type attribute.
@@ -450,7 +450,7 @@ ExhaustMovesPP:
 	inc b
 
 	ld a, c
-	cp 0
+	and a
 	ldh a, [hRandomAdd]
 	jr nz, .check_phy_or_spe_move
 

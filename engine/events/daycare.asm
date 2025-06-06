@@ -228,7 +228,7 @@ DayCareAskDepositPokemon:
 CheckVirus:
 	ld hl, wPartyMon1PokerusStatus
 	ld a, [wCurPartyMon]
-	cp 0
+	and a
 	jr z, .PkmnPkrusByteFound
 
 	ld de, PARTYMON_STRUCT_LENGTH

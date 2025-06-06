@@ -8,7 +8,7 @@ GetUnownLetter:
 	; atk
 	ld a, [hl]
 	and %01100000
-	sla a
+	add a
 	ld b, a
 	; def
 	ld a, [hli]
@@ -22,7 +22,7 @@ GetUnownLetter:
 	ld a, [hl]
 	and %01100000
 	swap a
-	sla a
+	add a
 	or b
 	ld b, a
 	; spc
@@ -423,8 +423,7 @@ FixBackpicAlignment:
 
 .got_dims
 	ld a, [hl]
-	ld b, 0
-	ld c, 8
+	lb bc, 0, 8
 .loop
 	rra
 	rl b

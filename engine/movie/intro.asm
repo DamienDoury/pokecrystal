@@ -138,8 +138,7 @@ IntroScene1:
 	ld [wIntroSpriteStateFlag], a
 	call EnableLCD
 	call DelayFrame
-	ld b, SCGB_GS_INTRO
-	ld c, 0
+	lb bc, SCGB_GS_INTRO, 0
 	call GetSGBLayout
 	ld a, %11100100
 	call DmgToCgbBGPals
@@ -616,8 +615,7 @@ IntroScene6:
 	xor a
 	ld [wIntroFrameCounter2], a
 	call EnableLCD
-	ld b, SCGB_GS_INTRO
-	ld c, 1
+	lb bc, SCGB_GS_INTRO, 1
 	call GetSGBLayout
 	ld a, %11100100
 	call DmgToCgbBGPals
@@ -795,8 +793,7 @@ IntroScene10:
 
 	xor a
 	ld [wIntroFrameCounter2], a
-	ld b, SCGB_GS_INTRO
-	ld c, 2
+	lb bc, SCGB_GS_INTRO, 2
 	call GetSGBLayout
 	ld a, %00111111
 	call DmgToCgbBGPals

@@ -438,8 +438,7 @@ PokeBallEffect::
 .stats_level_check
 	ld b, a ; Backup the current catch rate.
 	xor a
-	ld d, 7
-	ld e, NUM_BATTLE_STATS
+	lb de, 7, NUM_BATTLE_STATS
 	ld hl, wEnemyStatLevels
 
 .stats_level_check_loop
@@ -1650,8 +1649,7 @@ RareCandyEffect:
 
 DisplayStatsInPartyMenu:
 	hlcoord 9, 0
-	ld b, 10
-	ld c, 9
+	lb bc, 10, 9
 	call Textbox
 
 	hlcoord 11, 1
@@ -1937,7 +1935,7 @@ EnergypowderEnergyRootCommon:
 	push bc
 	call ItemRestoreHP
 	pop bc
-	cp 0
+	and a
 	jr nz, .skip_happiness
 
 	farcall ChangeHappiness

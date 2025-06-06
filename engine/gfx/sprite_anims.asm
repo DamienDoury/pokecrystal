@@ -187,8 +187,8 @@ AnimSeq_GSTitleTrail:
 	ld hl, SPRITEANIMSTRUCT_VAR2
 	add hl, bc
 	ld a, [hl]
-	sla a
-	sla a
+	add a
+	add a
 
 	ld d, 2
 	ld hl, SPRITEANIMSTRUCT_VAR1
@@ -958,7 +958,7 @@ AnimSeq_GSIntroNote:
 	ld a, [hl]
 	and $1
 	swap a
-	sla a
+	add a
 
 	ld hl, SPRITEANIMSTRUCT_VAR1
 	add hl, bc
@@ -1190,7 +1190,7 @@ AnimSeq_GSIntroFireball:
 	add hl, bc
 	ld a, [hl]
 	and $4
-	sla a
+	add a
 	ld e, a
 	ld a, [hl]
 	and $3

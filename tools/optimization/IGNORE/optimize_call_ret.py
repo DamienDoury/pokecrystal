@@ -27,7 +27,7 @@ def optimize_call_ret(filepath):
 
     while i < len(lines):
         line = lines[i]
-        call_match = re.match(r'(\s*)(call)\s+(?!z|nz|c|nc)(\w+)\s*(;.*)?$', line, re.IGNORECASE)
+        call_match = re.match(r'(\s*)(call)\s+(?!z,|nz,|c,|nc,)(\w+)\s*(;.*)?$', line, re.IGNORECASE)
         if call_match and i + 1 < len(lines):
             next_line = lines[i + 1]
             ret_match = re.match(r'(\s*)(ret)\s*(;.*)?$', next_line, re.IGNORECASE)
@@ -42,7 +42,7 @@ def optimize_call_ret(filepath):
                     new_comment += comment1.strip()
                 if comment2:
                     new_comment += ' ' + comment2.strip() if new_comment else comment2.strip()
-                jp_line = f"{indent}jp {func}"
+                jp_line = f"{indent}jmp {func}"
                 if new_comment:
                     jp_line += f" ; {new_comment}"
                 jp_line += "\n"

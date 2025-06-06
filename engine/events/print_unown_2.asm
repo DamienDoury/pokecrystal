@@ -76,8 +76,7 @@ RotateUnownFrontpic:
 	ret
 
 .CountSetBit:
-	ld b, 0
-	ld c, 8
+	lb bc, 0, 8
 .loop_count
 	ld a, [hli]
 	and e

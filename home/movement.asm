@@ -53,7 +53,7 @@ ComputePathToWalkToPlayer::
 	ld h, RIGHT
 
 .got_x_distance
-	cp 0 						; added by Damien.
+	and a 						; added by Damien.
 	jr z, .noXDistanceDecrease 	; added by Damien.
 	
 	call CheckSocialDistancingRespect
@@ -71,7 +71,7 @@ ComputePathToWalkToPlayer::
 	ld l, DOWN
 
 .got_y_distance
-	cp 0 						; added by Damien.
+	and a 						; added by Damien.
 	jr z, .noYDistanceDecrease 	; added by Damien.
 	
 	call CheckSocialDistancingRespect

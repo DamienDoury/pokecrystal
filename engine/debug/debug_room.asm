@@ -622,10 +622,10 @@ DebugRoom_EditPagedValues:
 ; call wDebugRoomAutoFunction if it's not null, then jump to .resume
 	ld hl, .resume
 	push hl
-	ld a, [wDebugRoomAutoFunction]
+	ld hl, wDebugRoomAutoFunction
+	ld a, [hli]
+	ld h, [hl]
 	ld l, a
-	ld a, [wDebugRoomAutoFunction+1]
-	ld h, a
 	or l
 	ret z
 	jp hl

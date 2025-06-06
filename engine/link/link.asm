@@ -18,12 +18,10 @@ LinkCommunications:
 	call WaitBGMap2
 if DEF(_FR_FR)
 	hlcoord 4, 8
-	ld b, 2
-	ld c, 10
+	lb bc, 2, 10
 else
 	hlcoord 3, 8
-	ld b, 2
-	ld c, 12
+	lb bc, 2, 12
 endc
 	ld d, h
 	ld e, l
@@ -363,8 +361,7 @@ LinkTimeout:
 	ldh [hVBlank], a
 	push de
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	push de
 	ld d, h
 	ld e, l
@@ -879,8 +876,7 @@ LinkTrade_TradeStatsMenu:
 	ld a, [wMenuCursorY]
 	push af
 	hlcoord 0, 15
-	ld b, 1
-	ld c, 18
+	lb bc, 1, 18
 	call LinkTextboxAtHL
 	hlcoord 2, 16
 	ld de, .String_Stats_Trade
@@ -988,8 +984,7 @@ LinkTrade_TradeStatsMenu:
 	ld [wUnusedLinkAction], a
 	ld [wOtherPlayerLinkAction], a
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call LinkTextboxAtHL
 	farcall Link_WaitBGMap
 	ld hl, .LinkTradeCantBattleText
@@ -1010,8 +1005,7 @@ LinkTrade_TradeStatsMenu:
 	ld [wNamedObjectIndex], a
 	call GetPokemonName
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call LinkTextboxAtHL
 	farcall Link_WaitBGMap
 	ld hl, .LinkAbnormalMonText
@@ -1044,8 +1038,7 @@ endc
 
 DisplayTradeCancelled:
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TooBadTheTradeWasCanceled
@@ -1160,8 +1153,7 @@ LinkTrade:
 	ld [wUnusedLinkAction], a
 	ld [wOtherPlayerLinkAction], a
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call LinkTextboxAtHL
 	farcall Link_WaitBGMap
 	ld a, [wCurTradePartyMon]
@@ -1504,8 +1496,7 @@ endc
 	ld c, 40
 	call DelayFrames
 	hlcoord 0, 12
-	ld b, 4
-	ld c, 18
+	lb bc, 4, 18
 	call LinkTextboxAtHL
 	hlcoord 1, 14
 	ld de, String_TradeCompleted

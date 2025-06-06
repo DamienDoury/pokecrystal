@@ -36,8 +36,8 @@ Function1700c4:
 	ld a, [hl]
 	inc [hl]
 	inc hl
-	sla a
-	sla a
+	add a
+	add a
 	ld e, a
 	ld d, 0
 	add hl, de
@@ -1545,11 +1545,11 @@ LoadOpponentTrainerAndPokemonWithOTSprite:
 ; because s/he is chosen randomly and appears out of nowhere
 	ld a, [wScriptVar]
 	dec a
-	sla a
+	add a
 	ld e, a
-	sla a
-	sla a
-	sla a
+	add a
+	add a
+	add a
 	ld c, a
 	ld b, 0
 	ld d, 0

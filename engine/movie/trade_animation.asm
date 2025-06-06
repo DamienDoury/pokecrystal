@@ -957,8 +957,7 @@ TrademonStats_Egg:
 	ld a, HIGH(vBGMap1)
 	ldh [hBGMapAddress + 1], a
 	hlcoord 3, 0
-	ld b, 6
-	ld c, 13
+	lb bc, 6, 13
 	call Textbox
 	hlcoord 4, 2
 	ld de, .EggData
