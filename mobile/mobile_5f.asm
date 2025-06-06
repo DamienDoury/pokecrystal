@@ -4392,8 +4392,7 @@ DisplayMobileError:
 	jr .loop
 
 .quit
-	call .deinit
-	ret
+	; fallthrough.
 
 .deinit
 	ld a, [wMobileErrorCodeBuffer]
@@ -4595,8 +4594,7 @@ Function17f6b7:
 	and $f
 	call .bcd_digit
 	ld a, [wMobileErrorCodeBuffer + 1]
-	call .bcd_two_digits
-	ret
+	; fallthrough.
 
 .bcd_two_digits
 	ld c, a

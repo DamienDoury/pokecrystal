@@ -5365,23 +5365,20 @@ BattleMenu_Pack:
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
 	jr z, .didnt_use_item
-	jr .got_item
+	jr .UseItem
 
 .tutorial
 	farcall TutorialPack
 	ld a, POKE_BALL
 	ld [wCurItem], a
 	call DoItemEffect
-	jr .got_item
+	jr .UseItem
 
 .contest
 	ld a, PARK_BALL
 	ld [wCurItem], a
 	call DoItemEffect
-
-.got_item
-	call .UseItem
-	ret
+	jr .UseItem
 
 .didnt_use_item
 	call ClearPalettes
@@ -9071,8 +9068,7 @@ AddLastLinkBattleToLinkRecord:
 
 .done
 	call .StoreResult
-	call .FindOpponentAndAppendRecord
-	ret
+	jr .FindOpponentAndAppendRecord
 
 .StoreResult:
 	ld a, [wBattleResult]

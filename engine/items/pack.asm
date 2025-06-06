@@ -91,8 +91,7 @@ Pack:
 	lb bc, PACKSTATE_INITKEYITEMSPOCKET, PACKSTATE_INITMEDPOCKET ; left ; right
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jmp .ItemBallsKey_LoadSubmenu
 
 .InitKeyItemsPocket:
 	ld a, KEY_ITEM_POCKET
@@ -117,8 +116,7 @@ Pack:
 	lb bc, PACKSTATE_INITTMHMPOCKET, PACKSTATE_INITITEMSPOCKET ; left ; right
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jmp .ItemBallsKey_LoadSubmenu
 
 .InitTMHMPocket:
 	ld a, TM_HM_POCKET
@@ -177,8 +175,7 @@ Pack:
 	lb bc, PACKSTATE_INITMEDPOCKET, PACKSTATE_INITBERRYPOCKET ; left ; right
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jr .ItemBallsKey_LoadSubmenu
 
 .InitMedPocket:
 	ld a, MED_POCKET
@@ -203,8 +200,7 @@ Pack:
 	lb bc, PACKSTATE_INITITEMSPOCKET, PACKSTATE_INITBALLSPOCKET ; left ; right
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	jr .ItemBallsKey_LoadSubmenu
 
 .InitBerryPocket:
 	ld a, BERRIES_POCKET
@@ -229,8 +225,7 @@ Pack:
 	lb bc, PACKSTATE_INITBALLSPOCKET, PACKSTATE_INITTMHMPOCKET ; left ; right
 	call Pack_InterpretJoypad
 	ret c
-	call .ItemBallsKey_LoadSubmenu
-	ret
+	; fallthrough.
 
 .ItemBallsKey_LoadSubmenu:
 	farcall _CheckTossableItem

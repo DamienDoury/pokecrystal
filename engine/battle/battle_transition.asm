@@ -329,8 +329,7 @@ StartTrainerBattle_SineWave:
 	ld a, [wBattleTransitionCounter]
 	cp $60
 	jr nc, .end
-	call .DoSineWave
-	ret
+	jr .DoSineWave
 
 .end
 	ld a, BATTLETRANSITION_FINISH

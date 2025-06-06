@@ -1,13 +1,12 @@
 # optimize_call_ret.py
 #
-# Replaces non-conditional 'call label' + 'ret' pairs with 'jp label' in .asm files.
+# Replaces non-conditional 'call label' + 'ret' pairs with 'jmp label' in .asm files.
 # Each replacement saves 1 ROM byte.
 #
 # Usage:
-#   python optimize_call_ret.py          -> shows only the summary
+#   python optimize_call_ret.py             -> shows only the summary
 #   python optimize_call_ret.py --full-output  -> also prints each file being optimized
 
-import os
 import re
 import sys
 import time
@@ -25,29 +24,37 @@ def optimize_call_ret(filepath):
     modified = False
     optimization_count = 0
 
+    # Regex now allows labels that start with a dot or contain dots/word characters
+    call_re = re.compile(
+        r'^(\s*)(call)\s+(?!z,|nz,|c,|nc,)([.\w]+)\s*(;.*)?$',
+        re.IGNORECASE
+    )
+    ret_re = re.compile(r'^(\s*)(ret)\s*(;.*)?$', re.IGNORECASE)
+
     while i < len(lines):
         line = lines[i]
-        call_match = re.match(r'(\s*)(call)\s+(?!z,|nz,|c,|nc,)(\w+)\s*(;.*)?$', line, re.IGNORECASE)
+        call_match = call_re.match(line)
         if call_match and i + 1 < len(lines):
             next_line = lines[i + 1]
-            ret_match = re.match(r'(\s*)(ret)\s*(;.*)?$', next_line, re.IGNORECASE)
+            ret_match = ret_re.match(next_line)
 
             if ret_match:
                 indent, _, func, comment1 = call_match.groups()
                 _, _, comment2 = ret_match.groups()
 
-                # Assemble the jp line with all comments
+                # Assemble the jmp line with all comments
                 new_comment = ''
                 if comment1:
                     new_comment += comment1.strip()
                 if comment2:
                     new_comment += ' ' + comment2.strip() if new_comment else comment2.strip()
-                jp_line = f"{indent}jmp {func}"
-                if new_comment:
-                    jp_line += f" ; {new_comment}"
-                jp_line += "\n"
 
-                optimized_lines.append(jp_line)
+                jmp_line = f"{indent}jmp {func}"
+                if new_comment:
+                    jmp_line += f" ; {new_comment}"
+                jmp_line += "\n"
+
+                optimized_lines.append(jmp_line)
                 i += 2
                 modified = True
                 optimization_count += 1

@@ -674,8 +674,7 @@ Function16cc25:
 	call .CopyPal
 	ld hl, Unknown_16cfb9
 	ld de, wOBPals1 + 1 palettes
-	call .CopyPal
-	ret
+	; fallthrough.
 
 .CopyPal:
 	ld bc, 1 palettes

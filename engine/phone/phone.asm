@@ -452,8 +452,7 @@ RingTwice_StartCall:
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	call .CallerTextboxWithName
-	ret
+	; fallthrough.
 
 .CallerTextboxWithName:
 	ld a, [wCurCaller]
@@ -479,8 +478,7 @@ PhoneCall::
 	call Phone_Wait20Frames
 	call Phone_CallerTextbox
 	call Phone_Wait20Frames
-	call .CallerTextboxWithName
-	ret
+	; fallthrough.
 
 .CallerTextboxWithName:
 	call Phone_CallerTextbox

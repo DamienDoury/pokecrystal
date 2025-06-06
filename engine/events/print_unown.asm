@@ -126,8 +126,7 @@ _UnownPrinter:
 	inc [hl]
 
 .return
-	call .UpdateUnownFrontpic
-	ret
+	; fallthrough.
 
 .UpdateUnownFrontpic:
 	ld a, [wJumptableIndex]

@@ -1575,14 +1575,12 @@ Function89a57:
 
 .MoveCursorDown:
 	lb de, 40, 1
-	call .ApplyCursorMovement
-	ret
+	jr .ApplyCursorMovement
 
 .MoveCursorUp:
 	ld d,  1
 	ld e, -1
-	call .ApplyCursorMovement
-	ret
+	; fallthrough.
 
 .ApplyCursorMovement:
 	ld a, [wMenuSelection]

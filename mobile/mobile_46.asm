@@ -7082,8 +7082,7 @@ Function11b5e8:
 	ld [wcd31], a
 	call CloseSRAM
 	call Mobile46_InitJumptable
-	call .loop
-	ret
+	; fallthrough.
 
 .loop
 	call .RunJumptable

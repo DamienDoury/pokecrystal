@@ -536,8 +536,7 @@ Pokegear_FinishTilemap:
 	call nz, .PlaceRadioIcon
 	hlcoord 0, 0
 	ld a, $46
-	call .PlacePokegearCardIcon
-	ret
+	jr .PlacePokegearCardIcon
 
 .PlaceMapIcon:
 	hlcoord 2, 0
@@ -722,8 +721,7 @@ PokegearMap_ContinueMap:
 	ld a, [hl]
 	and D_LEFT
 	jr nz, .left
-	call .DPad
-	ret
+	jr .DPad
 
 .right
 	ld a, [wPokegearFlags]
@@ -2686,8 +2684,7 @@ Pokedex_GetArea:
 	ld a, SCREEN_HEIGHT_PX
 	ldh [hWY], a
 	xor a ; JOHTO_REGION
-	call .GetAndPlaceNest
-	ret
+	jr .GetAndPlaceNest
 
 .right
 	ld a, [wStatusFlags]
@@ -2700,8 +2697,7 @@ Pokedex_GetArea:
 	xor a
 	ldh [hWY], a
 	ld a, KANTO_REGION
-	call .GetAndPlaceNest
-	ret
+	jr .GetAndPlaceNest
 
 .BlinkNestIcons:
 	ldh a, [hVBlankCounter]

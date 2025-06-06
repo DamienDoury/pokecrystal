@@ -2503,8 +2503,7 @@ AnimateEZChatCursor:
 	ld [hl], a
 	pop de
 	ld a, e
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .four
 	ld a, SPRITE_ANIM_FRAMESET_EZCHAT_CURSOR_2
@@ -2542,8 +2541,7 @@ AnimateEZChatCursor:
 
 	ld a, $1
 	ld e, a
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .seven
 	ld a, [wEZChatCursorYCoord]
@@ -2578,8 +2576,7 @@ AnimateEZChatCursor:
 	ld [hl], a
 	ld a, $2
 	ld e, a
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .asm_11d1b1
 	; X = [wEZChatCursorXCoord] * 40 + 24
@@ -2600,8 +2597,7 @@ AnimateEZChatCursor:
 	ld [hl], a
 	ld a, $2
 	ld e, a
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .nine
 	ld d, -13 * 8
@@ -2629,16 +2625,14 @@ AnimateEZChatCursor:
 	ld [hl], a
 	ld a, $4
 	ld e, a
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .ten
 	ld a, SPRITE_ANIM_FRAMESET_EZCHAT_CURSOR_1
 	call ReinitSpriteAnimFrame
 	ld a, $8
 	ld e, a
-	call .UpdateObjectFlags
-	ret
+	jmp .UpdateObjectFlags
 
 .Coords_Zero:
 	dbpixel  1,  3, 5, 2

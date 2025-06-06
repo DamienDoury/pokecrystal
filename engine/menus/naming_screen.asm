@@ -117,8 +117,7 @@ endc
 	hlcoord 1, 2
 	ld [hl], a
 .genderless
-	call .StoreMonIconParams
-	ret
+	jmp .StoreMonIconParams
 
 .NicknameStrings:
 if DEF(_FR_FR)
@@ -135,8 +134,7 @@ endc
 	hlcoord 5, 2
 	ld de, .PlayerNameString
 	call PlaceString
-	call .StoreSpriteIconParams
-	ret
+	jmp .StoreSpriteIconParams
 
 .PlayerNameString:
 if DEF(_FR_FR)
@@ -152,8 +150,7 @@ endc
 	hlcoord 5, 2
 	ld de, .RivalNameString
 	call PlaceString
-	call .StoreSpriteIconParams
-	ret
+	jmp .StoreSpriteIconParams
 
 .RivalNameString:
 if DEF(_FR_FR)
@@ -169,8 +166,7 @@ endc
 	hlcoord 5, 2
 	ld de, .MomNameString
 	call PlaceString
-	call .StoreSpriteIconParams
-	ret
+	jmp .StoreSpriteIconParams
 
 .MomNameString:
 if DEF(_FR_FR)
@@ -196,8 +192,7 @@ endc
 	hlcoord 5, 2
 	ld de, .BoxNameString
 	call PlaceString
-	call .StoreBoxIconParams
-	ret
+	jr .StoreBoxIconParams
 
 .BoxNameString:
 if DEF(_FR_FR)
@@ -210,8 +205,7 @@ endc
 	hlcoord 3, 2
 	ld de, .oTomodachi_no_namae_sutoringu
 	call PlaceString
-	call .StoreSpriteIconParams
-	ret
+	jr .StoreSpriteIconParams
 
 .oTomodachi_no_namae_sutoringu
 if DEF(_FR_FR)
@@ -1172,13 +1166,11 @@ endc
 	ld [hl], a
 	jr nz, .switch_to_lowercase
 	ld de, MailEntry_Uppercase
-	call .PlaceMailCharset
-	ret
+	jmp .PlaceMailCharset
 
 .switch_to_lowercase
 	ld de, MailEntry_Lowercase
-	call .PlaceMailCharset
-	ret
+	jmp .PlaceMailCharset
 
 ; called from engine/gfx/sprite_anims.asm
 

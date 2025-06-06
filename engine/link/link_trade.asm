@@ -191,8 +191,7 @@ endc
 
 LinkTradeMenu:
 	call .MenuAction
-	call .GetJoypad
-	ret
+	; fallthrough.
 
 .GetJoypad:
 	push bc

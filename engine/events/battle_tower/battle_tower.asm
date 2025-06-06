@@ -681,8 +681,7 @@ Function1704e1:
 	ret z
 	sub 15
 	ld [wNrOfBeatenBattleTowerTrainers], a
-	call .PlaceTextItems
-	ret
+	jr .PlaceTextItems
 
 .pressed_down
 	ld a, [wNrOfBeatenBattleTowerTrainers]
@@ -690,8 +689,7 @@ Function1704e1:
 	ret z
 	add 15
 	ld [wNrOfBeatenBattleTowerTrainers], a
-	call .PlaceTextItems
-	ret
+	jr .PlaceTextItems
 
 .pressed_a_or_b
 	ld hl, wJumptableIndex

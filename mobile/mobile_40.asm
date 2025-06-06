@@ -2483,8 +2483,7 @@ LoadSelectedPartiesForColosseum:
 	call .CopyName
 	ld hl, wOTMonSelection
 	ld de, wOTPartyMonNicknames
-	call .CopyName
-	ret
+	jr .CopyName
 
 .CopyThreeSpecies:
 ; Load the 3 choices to the buffer
@@ -6419,8 +6418,7 @@ Function102e4f:
 	call .PlaceSpeciesNames
 	hlcoord 7, 9
 	ld de, wOTPartySpecies
-	call .PlaceSpeciesNames
-	ret
+	; fallthrough.
 
 .PlaceSpeciesNames:
 	ld c, 0

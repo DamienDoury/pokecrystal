@@ -1704,14 +1704,12 @@ StatsScreen_PlaceFrontpic:
 	jr z, .unownegg
 	ld a, TRUE
 	ld [wBoxAlignment], a
-	call .get_animation
-	ret
+	jr .get_animation
 
 .unownegg
 	xor a
 	ld [wBoxAlignment], a
-	call .get_animation
-	ret
+	; fallthrough.
 
 .get_animation
 	ld a, [wCurPartySpecies]

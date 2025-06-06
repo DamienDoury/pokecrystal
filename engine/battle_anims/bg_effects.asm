@@ -1130,8 +1130,7 @@ BattleBGEffect_DoubleTeam:
 	cp $10
 	jr nc, .next
 	inc [hl]
-	call .UpdateLYOverrides
-	ret
+	jr .UpdateLYOverrides
 
 .three
 	ld hl, BG_EFFECT_STRUCT_PARAM
@@ -1140,8 +1139,7 @@ BattleBGEffect_DoubleTeam:
 	cp $ff
 	jr z, .next
 	dec [hl]
-	call .UpdateLYOverrides
-	ret
+	jr .UpdateLYOverrides
 
 .next
 	jmp BattleBGEffects_IncAnonJumptableIndex
@@ -1804,8 +1802,7 @@ BattleBGEffect_BetaSendOutMon1: ; unused
 .two
 	call .GetLYOverride
 	jr nc, .next
-	call .SetLYOverridesBackup
-	ret
+	jr .SetLYOverridesBackup
 
 .next
 	ld hl, BG_EFFECT_STRUCT_PARAM

@@ -376,8 +376,7 @@ Intro_InitMagikarps:
 	depixel 26, 0
 	call .InitAnim
 	depixel 0, 24
-	call .InitAnim
-	ret
+	jr .InitAnim
 
 .alternate_frame
 	depixel 28, 30
@@ -385,8 +384,7 @@ Intro_InitMagikarps:
 	depixel 31, 24
 	call .InitAnim
 	depixel 2, 28
-	call .InitAnim
-	ret
+	; fallthrough.
 
 .InitAnim:
 	ld a, SPRITE_ANIM_INDEX_GS_INTRO_MAGIKARP

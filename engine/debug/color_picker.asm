@@ -705,20 +705,8 @@ DebugColor_TMHMJoypad:
 	ld a, [hl]
 	and B_BUTTON
 	jr nz, .cancel
-	call .scroll
-	ret
 
-.cancel
-	ld a, DEBUGCOLORMAIN_INITSCREEN
-	ld [wJumptableIndex], a
-	ret
-
-.exit ; unreferenced
-	ld hl, wJumptableIndex
-	set 7, [hl]
-	ret
-
-.scroll:
+	; scroll
 	ld hl, hJoyLast
 	ld a, [hl]
 	and D_UP
@@ -726,6 +714,11 @@ DebugColor_TMHMJoypad:
 	ld a, [hl]
 	and D_DOWN
 	jr nz, .down
+	ret
+
+.cancel
+	ld a, DEBUGCOLORMAIN_INITSCREEN
+	ld [wJumptableIndex], a
 	ret
 
 .up
@@ -1023,8 +1016,7 @@ DebugColor_PlaceCursor:
 	ld de, wDebugGreenChannel
 	call .placesprite
 	ld de, wDebugBlueChannel
-	call .placesprite
-	ret
+	; fallthrough.
 
 .placesprite:
 	ld a, b

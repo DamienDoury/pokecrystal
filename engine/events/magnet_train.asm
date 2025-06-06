@@ -194,8 +194,7 @@ DrawMagnetTrain:
 	hlbgcoord 0, 9
 	ld de, MagnetTrainTilemap + (SCREEN_WIDTH * 3)
 	ld c, SCREEN_WIDTH
-	call .FillLine
-	ret
+	; fallthrough.
 
 .FillLine:
 	ld a, [de]
@@ -346,19 +345,15 @@ MagnetTrain_Jumptable:
 	ld hl, wMagnetTrainWaitCounter
 	ld a, [hl]
 	and a
-	jr z, .DoneWaiting
+	jr z, .Next
 	dec [hl]
-	ret
-
-.DoneWaiting:
-	call .Next
 	ret
 
 .MoveTrain2:
 	ld hl, wMagnetTrainFinalPosition
 	ld a, [wMagnetTrainPosition]
 	cp [hl]
-	jr z, .PrepareToFinishAnim
+	jr z, .Next
 	ld e, a
 	ld a, [wMagnetTrainDirection]
 	xor $ff
@@ -375,12 +370,6 @@ MagnetTrain_Jumptable:
 	add d
 	add d
 	ld [hl], a
-	ret
-
-	ret
-
-.PrepareToFinishAnim:
-	call .Next
 	ret
 
 .TrainArrived:

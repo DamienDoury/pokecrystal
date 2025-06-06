@@ -234,8 +234,7 @@ LoadMapTimeOfDay:
 	farcall UpdateTimeOfDayPal
 	call OverworldTextModeSwitch
 	call .ClearBGMap
-	call .PushAttrmap
-	ret
+	jr .PushAttrmap
 
 .ClearBGMap:
 	ld a, HIGH(vBGMap0)

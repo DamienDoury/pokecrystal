@@ -185,19 +185,19 @@ MobileHome_PlaceBox:
 	pop bc
 	dec b
 	jr nz, .RowLoop
-	call .FillBottom
-	ret
+	
+	; fallthrough.
+	
+.FillBottom:
+	ld a, $68
+	ld d, $67
+	ld e, $69
+	jr .FillRow
 
 .FillTop:
 	ld a, $63
 	ld d, $62
 	ld e, $64
-	jr .FillRow
-
-.FillBottom:
-	ld a, $68
-	ld d, $67
-	ld e, $69
 	jr .FillRow
 
 .FillMiddle:
