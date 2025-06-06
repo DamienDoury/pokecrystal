@@ -690,6 +690,11 @@ PartyMenu2DMenuData:
 
 ; sets carry if exitted menu.
 PartyMenuSelect:
+	; No select button in battle.
+	ld a, [wBattleMode]
+	and a
+	jr nz, .skip_select_input
+
 	; The Select button must only be allowed in the Start Party menu, 
 	; or in the Move party menu.
 	ld a, [wPartyMenuActionText]
@@ -713,12 +718,14 @@ PartyMenuSelect:
 	cp b
 	jr c, .check_b_button
 
+	; At this point, we know the cursor is over the Cancel button (or beyond).
+
 	; Can't exit by pressing Select on the Cancel button.
 	ldh a, [hJoyLast]
 	cp a
 	bit SELECT_F, a
 	ld a, [wMenuCursorY]
-	jr z, .check_b_button ; Ignore select on cancel.
+	jr z, .exitmenu ; Select wasn't pressed.
 
 	call HideCursor
 	jr .skip_select_input ; Ignore select on cancel.
