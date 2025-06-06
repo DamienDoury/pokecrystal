@@ -55,8 +55,7 @@ ShowPlayerNamingChoices:
 	ld a, [wMenuCursorY]
 	dec a
 	call CopyNameFromMenu
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 INCLUDE "data/player_names.asm"
 

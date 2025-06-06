@@ -351,8 +351,7 @@ Function8b539:
 	call Function8b4fd
 	ld e, $0
 	call Function89c44
-	call CGBOnly_CopyTilemapAtOnce
-	ret
+	jmp CGBOnly_CopyTilemapAtOnce
 
 Function8b555:
 .loop
@@ -871,8 +870,7 @@ Function8b88c:
 .asm_8b8c0
 	pop hl
 	call PlaceString
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function8b8c8:
 	hlcoord 0, 14

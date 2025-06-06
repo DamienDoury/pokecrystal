@@ -882,8 +882,7 @@ ClearTopTiles:
 	hlcoord 0, 0
 	lb bc, 8, 20
 	;ld bc, SCREEN_WIDTH * 8
-	call ClearBox
-	ret
+	jmp ClearBox
 
 CloseSubMenu:
 	xor a
@@ -1023,8 +1022,7 @@ StatsScreen_LoadGFX:
 	call StatsScreen_LoadPageIndicators
 	hlcoord 0, 8
 	lb bc, 10, 20
-	call ClearBox
-	ret
+	jmp ClearBox
 
 .LoadPals:
 	ld a, [wStatsScreenFlags]
@@ -2008,8 +2006,7 @@ CopyNickname:
 	push de
 	call CopyBytes
 	pop de
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .partymon
 	push de

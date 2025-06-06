@@ -386,8 +386,7 @@ PlaceCardFaceDown:
 	ldh [hBGMapMode], a
 	ld de, .FaceDownCardTilemap
 	lb bc, 6, 5
-	call CardFlip_CopyToBox
-	ret
+	jmp CardFlip_CopyToBox
 
 .FaceDownCardTilemap:
 	db $08, $09, $09, $09, $0a
@@ -456,8 +455,7 @@ CardFlip_DisplayCardFaceUp:
 	and 3
 	inc a
 	lb bc, 6, 5
-	call CardFlip_FillBox
-	ret
+	jmp CardFlip_FillBox
 
 .FaceUpCardTilemap:
 	db $18, $19, $19, $19, $1a
@@ -484,8 +482,7 @@ CardFlip_UpdateCoinBalanceDisplay:
 	call Textbox
 	pop hl
 	call PrintTextboxText
-	call CardFlip_PrintCoinBalance
-	ret
+	; fallthrough.
 
 CardFlip_PrintCoinBalance:
 if DEF(_FR_FR)
@@ -1152,8 +1149,7 @@ CardFlip_CheckWinCondition:
 PlaceOAMCardBorder:
 	call GetCoordsOfChosenCard
 	ld hl, .SpriteData
-	call CardFlip_CopyOAM
-	ret
+	jmp CardFlip_CopyOAM
 
 .SpriteData:
 	db 18
@@ -1339,8 +1335,7 @@ CardFlip_UpdateCursorOAM:
 	ld a, [hli]
 	ld h, [hl]
 	ld l, a
-	call CardFlip_CopyOAM
-	ret
+	jmp CardFlip_CopyOAM
 
 .OAMData:
 cardflip_cursor: MACRO

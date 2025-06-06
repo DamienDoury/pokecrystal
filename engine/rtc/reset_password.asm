@@ -230,8 +230,7 @@ ClockResetPassword:
 	ld hl, sPlayerData + (wMoney - wPlayerData)
 	ld c, 3
 	call .ComponentFromNumber
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .ComponentFromNumber:
 	ld a, [hli]

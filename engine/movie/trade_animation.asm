@@ -645,8 +645,7 @@ TradeAnim_PlaceTrademonStatsOnTubeAnim:
 	call WaitTop
 	ld a, HIGH(vBGMap0)
 	ldh [hBGMapAddress + 1], a
-	call ClearTilemap
-	ret
+	jmp ClearTilemap
 
 TradeAnim_EnterLinkTube1:
 	call ClearTilemap
@@ -835,8 +834,7 @@ TradeAnim_GetNicknamename:
 	ld hl, wStringBuffer1
 	pop de
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 TradeAnim_ShowGivemonFrontpic:
 	ld de, vTiles0
@@ -1318,8 +1316,7 @@ LinkTradeAnim_LoadTradePlayerNames:
 	pop hl
 	ld de, wLinkPlayer2Name
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 LinkTradeAnim_LoadTradeMonSpecies:
 	ld a, [hl]

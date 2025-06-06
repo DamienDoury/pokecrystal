@@ -29,8 +29,7 @@ GetPartyNickname::
 ; copy text from wStringBuffer2 to wStringBuffer3
 	ld de, wStringBuffer2
 	ld hl, wStringBuffer3
-	call CopyName2
-	ret
+	jmp CopyName2
 
 CheckEngineFlag:
 ; Check engine flag de

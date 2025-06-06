@@ -179,5 +179,4 @@ DecreaseHospitalMonsDuration:
 	jr .loop
 
 .end
-	call CloseSRAM
-	ret
+	jmp CloseSRAM

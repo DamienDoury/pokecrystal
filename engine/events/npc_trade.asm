@@ -200,8 +200,7 @@ DoTradebackTrade:
 	ld hl, .TradebackGuyName
 	ld de, wOTTrademonSenderName
 	ld bc, PLAYER_NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .TradebackGuyName
 	db "ROBIN@@@"
@@ -404,8 +403,7 @@ GetTradeMonName:
 
 CopyTradeName:
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Trade_CopyFourCharString: ; unreferenced
 	ld bc, 4

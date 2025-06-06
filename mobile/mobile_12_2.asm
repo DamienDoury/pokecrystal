@@ -31,8 +31,7 @@ MobileCheckOwnMonAnywhere:
 .asm_4a873
 	call .CheckMatch
 	jr nc, .asm_4a87c
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .asm_4a87c
 	push bc
@@ -82,8 +81,7 @@ MobileCheckOwnMonAnywhere:
 	call .CheckMatch
 	jr nc, .asm_4a8c4
 	pop bc
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .asm_4a8c4
 	push bc

@@ -239,16 +239,14 @@ ClearMenuBoxInterior::
 	call GetMenuBoxDims
 	dec b
 	dec c
-	call ClearBox
-	ret
+	jmp ClearBox
 
 ClearWholeMenuBox::
 	call MenuBoxCoord2Tile
 	call GetMenuBoxDims
 	inc c
 	inc b
-	call ClearBox
-	ret
+	jmp ClearBox
 
 MenuBoxCoord2Tile::
 	ld a, [wMenuBorderLeftCoord]
@@ -340,8 +338,7 @@ LoadMenuTextbox::
 
 MenuTextboxBackup::
 	call MenuTextbox
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 LoadStandardMenuHeader::
 	ld hl, .MenuHeader

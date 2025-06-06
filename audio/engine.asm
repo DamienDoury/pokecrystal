@@ -297,8 +297,7 @@ UpdateChannels:
 	and %10001110 ; ch1 off
 	ldh [rNR52], a
 	ld hl, rNR10
-	call ClearChannel
-	ret
+	jmp ClearChannel
 
 .ch1_noise_sampling
 	ld hl, wCurTrackDuty
@@ -357,8 +356,7 @@ UpdateChannels:
 	and %10001101 ; ch2 off
 	ldh [rNR52], a
 	ld hl, rNR20
-	call ClearChannel
-	ret
+	jmp ClearChannel
 
 .ch2_noise_sampling
 	ld hl, wCurTrackDuty
@@ -403,8 +401,7 @@ UpdateChannels:
 	and %10001011 ; ch3 off
 	ldh [rNR52], a
 	ld hl, rNR30
-	call ClearChannel
-	ret
+	jmp ClearChannel
 
 .ch3_noise_sampling
 	ld a, $3f ; sound length
@@ -495,8 +492,7 @@ endr
 	and %10000111 ; ch4 off
 	ldh [rNR52], a
 	ld hl, rNR40
-	call ClearChannel
-	ret
+	jmp ClearChannel
 
 .ch4_noise_sampling
 	ld a, $3f ; sound length

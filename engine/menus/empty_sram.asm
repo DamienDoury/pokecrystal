@@ -15,5 +15,4 @@ EmptyAllSRAMBanks:
 	ld bc, SRAM_End - SRAM_Begin
 	xor a
 	call ByteFill
-	call CloseSRAM
-	ret
+	jmp CloseSRAM

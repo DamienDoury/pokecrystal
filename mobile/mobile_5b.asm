@@ -185,8 +185,7 @@ MobileSystemSplashScreen_InitGFX:
 	ld hl, .Tilemap
 	decoord 0, 1
 	ld bc, $0154
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .LoadAttrmap:
 	hlcoord 0, 0, wAttrmap
@@ -196,8 +195,7 @@ MobileSystemSplashScreen_InitGFX:
 	ld hl, .Attrmap
 	decoord 0, 1, wAttrmap
 	ld bc, 17 * SCREEN_WIDTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .Tiles:
 INCBIN "gfx/mobile/mobile_splash.2bpp"

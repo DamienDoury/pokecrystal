@@ -49,8 +49,7 @@ CatchTutorial::
 	ld hl, wOTPlayerName
 	ld de, wPlayerName
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .LoadDudeData:
 	ld hl, wDudeNumMeds

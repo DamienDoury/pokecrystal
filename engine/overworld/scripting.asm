@@ -633,8 +633,7 @@ GetPocketName:
 	ld d, [hl]
 	ld e, a
 	ld hl, wStringBuffer3
-	call CopyName2
-	ret
+	jmp CopyName2
 
 INCLUDE "data/items/pocket_names.asm"
 
@@ -1750,8 +1749,7 @@ CopyConvertedText:
 	ld hl, wStringBuffer3
 	ld bc, STRING_BUFFER_LENGTH
 	call AddNTimes
-	call CopyName2
-	ret
+	jmp CopyName2
 
 Script_getitemname:
 	call GetScriptByte
@@ -1811,7 +1809,7 @@ Script_gettrainername:
 	call GetScriptByte
 	ld b, a
 	farcall GetTrainerName
-	jmp GetStringBuffer
+	jr GetStringBuffer
 
 Script_getname:
 	call GetScriptByte
@@ -2456,8 +2454,7 @@ Script_refreshscreen:
 
 Script_closetext:
 	call _OpenAndCloseMenu_HDMATransferTilemapAndAttrmap
-	call CloseText
-	ret
+	jmp CloseText
 
 Script_autoinput:
 	call GetScriptByte

@@ -791,8 +791,7 @@ Function17ac1d:
 	ld hl, DialpadTilemap
 	decoord 0, 4
 	ld bc, (SCREEN_HEIGHT - 4) * SCREEN_WIDTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function17ac2a:
 	ld hl, DialpadAttrmap

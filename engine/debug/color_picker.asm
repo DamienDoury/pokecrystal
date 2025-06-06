@@ -151,8 +151,7 @@ DebugColor_InitVRAM:
 	xor a
 	call ByteFill
 
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 DebugColor_LoadGFX:
 	ld hl, DebugColor_GFX
@@ -883,8 +882,7 @@ DebugColor_BackupSpriteColors:
 	ld d, h
 	ld hl, wDebugMiddleColors
 	ld bc, 4
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 DebugColor_LoadPalettes_White_Col1_Col2_Black:
 .loop
@@ -1047,8 +1045,7 @@ DebugColor_PlaceCursor:
 	ret
 
 .clearsprites:
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 DebugColor_AreYouFinishedString:
 	db   "おわりますか？"                        ; Are you finished?

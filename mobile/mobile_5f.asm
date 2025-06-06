@@ -317,8 +317,7 @@ Mobile_CopyDefaultOTName:
 	ld hl, Mobile5F_PlayersName
 	ld de, wc63d
 	ld bc, 5
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Mobile5F_PlayersName:
 	db "クりス@@"
@@ -327,8 +326,7 @@ Mobile_CopyDefaultNickname:
 	ld hl, .DefaultNickname
 	ld de, wc642
 	ld bc, 5
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .DefaultNickname:
 	db "？？？？？"
@@ -341,8 +339,7 @@ Mobile_CopyDefaultMail:
 	ld hl, .DefaultMessage
 	ld de, wc647
 	ld bc, 6
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .DefaultMessage:
 	db "こんにちは@"
@@ -355,8 +352,7 @@ Mobile_CopyDefaultMailAuthor:
 	ld hl, Mobile5F_PlayersName
 	ld de, wc668
 	ld bc, 5
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 CheckStringContainsLessThanBNextCharacters:
 .loop
@@ -429,8 +425,7 @@ Menu_ChallengeExplanationCancel:
 .Load_Interpret:
 	call LoadMenuHeader
 	call Function17d246
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 Function17d246:
 	call VerticalMenu
@@ -529,8 +524,7 @@ Function17d2ce:
 	ld [wMusicFadeID + 1], a
 	call PlayMusic
 	call ReturnToMapFromSubmenu
-	call CloseSubmenu
-	ret
+	jmp CloseSubmenu
 
 Function17d314:
 	ld a, $5
@@ -632,8 +626,7 @@ Function17d370:
 	ld de, wBGPals1
 	ld bc, $1000
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function17d3f6:
 	call ClearBGPalettes
@@ -1022,8 +1015,7 @@ Function17d60b:
 	ld a, [$b1b2]
 	ld b, a
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function17d6a1:
 	push hl
@@ -1177,8 +1169,7 @@ Function17d78d:
 	call CloseSRAM
 	xor a
 	ld [wcd77], a
-	call ClearBGPalettes
-	ret
+	jmp ClearBGPalettes
 
 Function17d7b4:
 	call IncCrashCheckPointer
@@ -2852,8 +2843,7 @@ Function17e2a7:
 	ld de, $aa7f
 	ld bc, $c
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .asm_17e2f7
 	call Function17e349
@@ -2891,8 +2881,7 @@ Function17e32b:
 	ld hl, wBGMapBuffer
 	ld bc, $5b
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function17e349:
 	ld a, $5
@@ -2904,8 +2893,7 @@ Function17e349:
 	ld de, wBGMapBuffer
 	ld bc, $5b
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 inc_crash_check_pointer_farcall: MACRO
 	call IncCrashCheckPointer
@@ -3502,8 +3490,7 @@ RunMobileScript::
 	jr .loop
 
 .finished
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 _RunMobileScript:
 	ld a, [de]
@@ -4446,8 +4433,7 @@ DisplayMobileError:
 	call OpenSRAM
 	xor a
 	ld [sMobileLoginPassword], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .RunJumptable:
 	jumptable .Jumptable, wc303

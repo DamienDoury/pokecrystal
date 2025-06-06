@@ -351,8 +351,7 @@ Function11c254:
 	ld de, wcd36
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 EZChat_ClearBottom12Rows:
 	ld a, "　"
@@ -375,8 +374,7 @@ EZChat_MasterLoop:
 
 .exit
 	farcall ClearSpriteAnims
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 .DoJumptableFunction:
 	jumptable .Jumptable, wJumptableIndex

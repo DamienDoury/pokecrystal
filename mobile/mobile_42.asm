@@ -328,8 +328,7 @@ MobileTradeAnim_InitSpeciesName:
 	ld hl, wStringBuffer1
 	pop de
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 MobileTradeAnim_JumptableLoop:
 	ld a, [wJumptableIndex]
@@ -1469,8 +1468,7 @@ Function108b98:
 
 MobileTradeAnim_DeleteSprites:
 	farcall DeinitializeAllSprites
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 MobileTradeAnim_AnimateSentPulse:
 	ld a, [wcf64]

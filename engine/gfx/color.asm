@@ -1545,8 +1545,7 @@ HandleHospitalRoomPalette:
 	ld a, BANK(wOBPals1)
  	call FarCopyWRAM
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 AddBillsHouseTransferTubePalette:
 	ld hl, .BillsHouseGrayPalette
@@ -2208,8 +2207,7 @@ SetHospitalMonSpecies::
 	ld hl, sHospitalBoxMonNicknames
 	call GetNickname
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 WholeScreenBG0::
 	call WaitBGMap

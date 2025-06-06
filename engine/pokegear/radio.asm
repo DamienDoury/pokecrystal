@@ -780,24 +780,6 @@ PokedexShow8:
 	ld a, POKEDEX_SHOW
 	jmp PrintRadioLine
 
-CopyDexEntry:
-	ld a, [wPokedexShowPointerAddr]
-	ld l, a
-	ld a, [wPokedexShowPointerAddr + 1]
-	ld h, a
-	ld a, [wPokedexShowPointerBank]
-	push af
-	push hl
-	call CopyDexEntryPart1
-	dec hl
-	ld [hl], "<DONE>"
-	ld hl, wPokedexShowPointerAddr
-	call CopyRadioTextToRAM
-	pop hl
-	pop af
-	call CopyDexEntryPart2
-	ret
-
 CopyDexEntryPart1:
 	ld de, wPokedexShowPointerBank
 	ld bc, SCREEN_WIDTH - 1
@@ -816,6 +798,23 @@ CopyDexEntryPart1:
 	cp "<DEXEND>"
 	ret z
 	jr .loop
+
+CopyDexEntry:
+	ld a, [wPokedexShowPointerAddr]
+	ld l, a
+	ld a, [wPokedexShowPointerAddr + 1]
+	ld h, a
+	ld a, [wPokedexShowPointerBank]
+	push af
+	push hl
+	call CopyDexEntryPart1
+	dec hl
+	ld [hl], "<DONE>"
+	ld hl, wPokedexShowPointerAddr
+	call CopyRadioTextToRAM
+	pop hl
+	pop af
+	; fallthrough.
 
 CopyDexEntryPart2:
 	ld d, a

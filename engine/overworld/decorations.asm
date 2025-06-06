@@ -94,8 +94,7 @@ endc
 	ld hl, wStringBuffer2
 	ld de, wDecoNameBuffer
 	ld bc, ITEM_NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .ClearStringBuffer2:
 	ld hl, wStringBuffer2

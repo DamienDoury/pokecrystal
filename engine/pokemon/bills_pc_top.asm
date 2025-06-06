@@ -34,8 +34,7 @@ _BillsPC:
 	jmp LoadFontsBattleExtra
 
 .LogOut:
-	call CloseSubmenu
-	ret
+	jmp CloseSubmenu
 
 .UseBillsPC:
 	ld hl, .MenuHeader
@@ -58,8 +57,7 @@ _BillsPC:
 	ld a, b
 	jr nc, .loop
 .cancel
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
@@ -300,8 +298,7 @@ CopyBoxmonToTempMon:
 	ld a, BANK(sBoxMon1Species)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 CopyHospitalboxmonToTempMon:
 	ld a, [wCurPartyMon]
@@ -313,5 +310,4 @@ CopyHospitalboxmonToTempMon:
 	ld a, BANK(sHospitalBoxMon1Species)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM

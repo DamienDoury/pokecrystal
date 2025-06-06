@@ -370,8 +370,7 @@ DSTChecks:
 .ClearBox:
 	hlcoord 1, 14
 	lb bc, 3, 18
-	call ClearBox
-	ret
+	jmp ClearBox
 
 .TimesetAskAdjustDSTText:
 	text_far _TimesetAskAdjustDSTText
@@ -432,8 +431,7 @@ Mom_ContinueMenuSetup:
 	lb bc, PRINTNUM_MONEY | PRINTNUM_LEADINGZEROS | 3, 6
 	call PrintNum
 	call UpdateSprites
-	call CGBOnly_CopyTilemapAtOnce
-	ret
+	jmp CGBOnly_CopyTilemapAtOnce
 
 Mom_Wait10Frames:
 	ld c, 10

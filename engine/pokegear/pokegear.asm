@@ -156,8 +156,7 @@ Pokegear_LoadGFX:
 	ld hl, FastShipGFX
 	ld de, vTiles0 tile $10
 	ld bc, 8 tiles
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 FastShipGFX:
 INCBIN "gfx/pokegear/fast_ship.2bpp"
@@ -2085,8 +2084,7 @@ _TownMap:
 	ldh [hInMenu], a
 	pop af
 	ld [wOptions], a
-	call ClearBGPalettes
-	ret
+	jmp ClearBGPalettes
 
 .loop
 	call JoyTextDelay
@@ -2713,15 +2711,13 @@ Pokedex_GetArea:
 	ld a, e
 	and $10
 	jr nz, .copy_sprites
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 .copy_sprites
 	hlcoord 0, 0
 	ld de, wVirtualOAM
 	ld bc, wVirtualOAMEnd - wVirtualOAM
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .PlaceString_MonsNest:
 	hlcoord 0, 0
@@ -2819,8 +2815,7 @@ endc
 	ld hl, wVirtualOAM
 	decoord 0, 0
 	ld bc, wVirtualOAMEnd - wVirtualOAM
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .HideNestsShowPlayer:
 	call .CheckPlayerLocation

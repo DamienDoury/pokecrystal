@@ -130,8 +130,7 @@ CheckMysteryGift:
 
 .no
 	ld [wScriptVar], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 GetMysteryGiftItem:
 	ld a, BANK(sMysteryGiftItem)

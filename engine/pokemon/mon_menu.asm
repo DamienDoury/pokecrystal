@@ -10,8 +10,7 @@ PartyMonItemName:
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
 	call GetItemName
-	call CopyName1
-	ret
+	jmp CopyName1
 
 CancelPokemonAction:
 	farcall InitPartyMenuWithCancel
@@ -109,8 +108,7 @@ SwitchPartyMons:
 .DontSwitch:
 	xor a
 	ld [wPartyMenuActionText], a
-	call CancelPokemonAction
-	ret
+	jmp CancelPokemonAction
 
 GiveTakePartyMonItem:
 ; Eggs can't hold items!
@@ -398,8 +396,7 @@ endc
 	ld a, BANK(sPartyMail)
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 MonMailAction:
 ; If in the trade center,

@@ -15,8 +15,7 @@ LoadMobileTradeBorderTilemap:
 	ld hl, MobileTradeBorderTilemap
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 TestMobileTradeBorderTilemap: ; unreferenced
 ; Loads the mobile trade border graphics and tilemap,
@@ -152,8 +151,7 @@ LoadCableTradeBorderTilemap:
 	ld hl, CableTradeBorderBottomTilemap
 	decoord 0, 16
 	ld bc, 2 * SCREEN_WIDTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 LinkTextbox:
 	jmp _LinkTextbox

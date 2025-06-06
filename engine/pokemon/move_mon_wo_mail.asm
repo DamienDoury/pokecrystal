@@ -128,5 +128,4 @@ InsertDataIntoBoxOrParty:
 	ld d, h
 	ld e, l
 	pop hl
-	call CopyBytes
-	ret
+	jmp CopyBytes

@@ -478,15 +478,13 @@ Printer_CopyTilemapToBuffer:
 	hlcoord 0, 0
 	ld de, wPrinterTilemapBuffer
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Printer_CopyBufferToTilemap:
 	ld hl, wPrinterTilemapBuffer
 	decoord 0, 0
 	ld bc, SCREEN_WIDTH * SCREEN_HEIGHT
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Printer_ResetJoypadRegisters:
 	xor a
@@ -815,8 +813,7 @@ Printer_PrintBoxListSegment:
 	ld a, $1
 	ld [wFinishedPrintingBox], a
 .max_length
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Printer_GetMonGender:
 	push hl

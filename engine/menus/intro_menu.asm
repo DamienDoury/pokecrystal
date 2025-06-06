@@ -55,8 +55,7 @@ NewGame_ClearTilemapEtc:
 	call ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
-	call ClearWindowData
-	ret
+	jmp ClearWindowData
 
 MysteryGift:
 	call UpdateTime
@@ -326,8 +325,7 @@ InitializeMagikarpHouse:
 	ld a, $6
 	ld [hli], a
 	ld de, .Ralph
-	call CopyName2
-	ret
+	jmp CopyName2
 
 .Ralph:
 if DEF(_FR_FR)
@@ -340,8 +338,7 @@ InitializeNPCNames:
 	ld hl, .Rival
 	ld de, wRivalName
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 if DEF(_FR_FR)
 .Rival:  db "???@"
@@ -918,8 +915,7 @@ StorePlayerName:
 	call ByteFill
 	ld hl, wPlayerName
 	ld de, wStringBuffer2
-	call CopyName2
-	ret
+	jmp CopyName2
 
 ShrinkPlayer:
 	ldh a, [hROMBank]
@@ -970,8 +966,7 @@ ShrinkPlayer:
 
 	call RotateThreePalettesRight
 	call ClearTilemap
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 Intro_RotatePalettesLeftFrontpic:
 	ld hl, IntroFadePalettes

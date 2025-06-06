@@ -1616,8 +1616,7 @@ Function89a57:
 	call OpenSRAMBank4
 	call Function8931b
 	call .Function89ad4
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .Function89ad4:
 	push de
@@ -2842,8 +2841,7 @@ Function8a2fe:
 	ld bc, $8
 	ld a, -1
 	call ByteFill
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function8a313:
 	ld c, a
@@ -2946,8 +2944,7 @@ Function8a3b2:
 	call Function89b3b
 	ld hl, MenuHeader_0x8a40f
 .asm_8a3db
-	call CopyMenuHeader
-	ret
+	jmp CopyMenuHeader
 
 Function8a3df:
 	call OpenSRAMBank4
@@ -3654,8 +3651,7 @@ Function8a930:
 	ld de, SFX_SWITCH_POKEMON
 	call WaitPlaySFX
 .asm_8a995
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function8a999:
 	ld hl, MenuHeader_0x8a9c9
@@ -4176,8 +4172,7 @@ Function8adbf: ; unreferenced
 	call OpenSRAMBank4
 	ld hl, $a603
 	call Function89b45
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function8adcc:
 	call OpenSRAMBank4

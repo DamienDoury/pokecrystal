@@ -47,8 +47,7 @@ MoveTutor:
 	ld a, -1
 	ld [wScriptVar], a
 .quit
-	call CloseSubmenu
-	ret
+	jmp CloseSubmenu
 
 .GetMoveTutorMove:
 	ld a, [wScriptVar]

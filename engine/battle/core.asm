@@ -321,8 +321,7 @@ Stubbed_Increments5_a89a:
 	dec [hl]
 
 .finish
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 HandleBetweenTurnEffects:
 	ldh a, [hSerialConnectionStatus]
@@ -2732,8 +2731,7 @@ WinTrainerBattle:
 	or [hl]
 	ret nz
 	call ClearTilemap
-	call ClearBGPalettes
-	ret
+	jmp ClearBGPalettes
 
 .give_money
 	ld a, [wAmuletCoin]
@@ -3289,8 +3287,7 @@ LostBattle:
 	farcall BattleTowerText
 	call WaitPressAorB_BlinkCursor
 	call ClearTilemap
-	call ClearBGPalettes
-	ret
+	jmp ClearBGPalettes
 
 .not_canlose
 	ld a, [wLinkMode]
@@ -8648,8 +8645,7 @@ CheckPayDay:
 	bit 0, a
 	ret z
 	call ClearTilemap
-	call ClearBGPalettes
-	ret
+	jmp ClearBGPalettes
 
 ShowLinkBattleParticipantsAfterEnd:
 	farcall StubbedTrainerRankings_LinkBattles
@@ -8718,14 +8714,12 @@ endc
 	call IsMobileBattle2
 	jr z, .mobile
 	call WaitPressAorB_BlinkCursor
-	call ClearTilemap
-	ret
+	jmp ClearTilemap
 
 .mobile
 	ld c, 200
 	call DelayFrames
-	call ClearTilemap
-	ret
+	jmp ClearTilemap
 
 if DEF(_FR_FR)
 .YouWin:
@@ -8749,8 +8743,7 @@ endc
 	call PlaceString
 	ld c, 200
 	call DelayFrames
-	call ClearTilemap
-	ret
+	jmp ClearTilemap
 
 .InvalidBattle:
 if DEF(_FR_FR)
@@ -9201,8 +9194,7 @@ AddLastLinkBattleToLinkRecord:
 	ld hl, wLinkBattleRecordBuffer
 	ld bc, LINK_BATTLE_RECORD_LENGTH
 	pop de
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .LoadPointer:
 	ld e, $0
@@ -9295,8 +9287,7 @@ InitBattleDisplay:
 
 .InitBackPic:
 	call GetTrainerBackpic
-	call CopyBackpic
-	ret
+	jr CopyBackpic
 
 GetTrainerBackpic:
 ; Load the player character's backpic (6x6) into VRAM starting from vTiles2 tile $31.

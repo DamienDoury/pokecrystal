@@ -139,8 +139,7 @@ Kurt_SelectQuantity:
 	scf
 
 .done
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags

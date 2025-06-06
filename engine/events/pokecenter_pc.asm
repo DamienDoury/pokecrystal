@@ -62,8 +62,7 @@ PokemonCenterPC:
 .shutdown
 	call PC_PlayShutdownSound
 	call ExitMenu
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .TopMenu:
 	db MENU_BACKUP_TILES | MENU_NO_CLICK_SFX ; flags

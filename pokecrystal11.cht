@@ -1,5 +1,5 @@
-010008D2 0Enemy HP + 1
-010007D2 0Enemy HP
+010008D2 1Enemy HP + 1
+010007D2 1Enemy HP
 01015DC6 0Prevent trainer battles
 010780D4 0Change weekday
 011F82D4 0Change minute

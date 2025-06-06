@@ -392,8 +392,7 @@ CopyPlayerObjectTemplate::
 	inc de
 	pop hl
 	ld bc, MAPOBJECT_LENGTH - 1
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 LoadMovementDataPointer::
 ; Load the movement data pointer for object a.

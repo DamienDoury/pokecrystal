@@ -270,8 +270,7 @@ MobileString_PersonalInfo:
 Function48283:
 	lb bc, 2, 18
 	hlcoord 1, 15
-	call ClearBox
-	ret
+	jmp ClearBox
 
 asm_4828d:
 	call Function48283

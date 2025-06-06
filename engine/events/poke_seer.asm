@@ -134,8 +134,7 @@ GetCaughtName:
 	call AddNTimes
 	ld de, wSeerNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 GetCaughtLevel:
 	ld a, "@"
@@ -163,8 +162,7 @@ GetCaughtLevel:
 	ld de, wSeerCaughtLevelString
 	ld hl, .unknown_level
 	ld bc, 4
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .unknown_level
 	db "???@"
@@ -204,8 +202,7 @@ endc
 UnknownCaughtData:
 	ld hl, .unknown
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .unknown
 if DEF(_FR_FR)

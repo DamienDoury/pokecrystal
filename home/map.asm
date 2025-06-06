@@ -223,12 +223,6 @@ CheckWarpTile::
 	scf
 	ret
 
-WarpCheck::
-	call GetDestinationWarpNumber
-	ret nc
-	call CopyWarpData
-	ret
-
 GetDestinationWarpNumber::
 	farcall CheckWarpCollision
 	ret nc
@@ -301,6 +295,11 @@ GetDestinationWarpNumber::
 	inc hl
 	scf
 	ret
+
+WarpCheck::
+	call GetDestinationWarpNumber
+	ret nc
+	; fallthrough.
 
 CopyWarpData::
 	ldh a, [hROMBank]

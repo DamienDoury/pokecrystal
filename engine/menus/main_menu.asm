@@ -380,8 +380,7 @@ ClearTilemapEtc:
 	call ClearTilemap
 	call LoadFontsExtra
 	call LoadStandardFont
-	call ClearWindowData
-	ret
+	jmp ClearWindowData
 
 MainMenu_NewGame:
 if !DEF(_CRYSTAL_BETA)

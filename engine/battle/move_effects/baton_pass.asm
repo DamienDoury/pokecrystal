@@ -209,8 +209,7 @@ ForceBattleSwitch::
 	jp c, EndMoveEffect
 
 	ld hl, PassedBattleMonEntrance
-	call CallBattleCore
-	ret
+	jmp CallBattleCore
 
 .enemy
 	call BatonPass_LinkEnemySwitch
@@ -232,5 +231,4 @@ ForceBattleSwitch::
 	call CallBattleCore
 
 	ld hl, SpikesDamage
-	call CallBattleCore
-	ret
+	jmp CallBattleCore

@@ -183,8 +183,7 @@ ItemSwitch_CopyItemToBuffer:
 	call ItemSwitch_GetNthItem
 	ld de, wSwitchItemBuffer
 	call ItemSwitch_GetItemFormatSize
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 ItemSwitch_CopyBufferToItem:
 	call ItemSwitch_GetNthItem
@@ -192,8 +191,7 @@ ItemSwitch_CopyBufferToItem:
 	ld e, l
 	ld hl, wSwitchItemBuffer
 	call ItemSwitch_GetItemFormatSize
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 ItemSwitch_GetNthItem:
 	push af

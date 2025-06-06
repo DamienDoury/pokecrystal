@@ -1072,8 +1072,7 @@ MobileBattleResetTimer:
 	ld [hli], a
 	ld [hli], a
 	ld [hli], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 MobileBattleFixTimer:
 	ld a, BANK(sMobileBattleTimer)
@@ -1085,8 +1084,7 @@ MobileBattleFixTimer:
 	ld [hli], a
 	xor a
 	ld [hli], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function100720:
 	xor a
@@ -2329,8 +2327,7 @@ Function100f8d:
 	jr z, .sram
 	and a
 	jr nz, .far_wram
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .far_wram
 	and $7f
@@ -2339,8 +2336,7 @@ Function100f8d:
 .sram
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Unknown_100fc0:
 	; first byte:
@@ -2396,8 +2392,7 @@ endr
 	ld de, $a001
 	ld bc, wc7bd - wc608
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function10107d:
 	xor a
@@ -2439,8 +2434,7 @@ Function10107d:
 	ld b, h
 	ld c, l
 	pop hl
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function1010de:
 	push hl
@@ -2598,8 +2592,7 @@ LoadSelectedPartiesForColosseum:
 	ld d, h
 	ld e, l
 	ld hl, wc608
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .GetDestinationAddress:
 	ld a, [wStringBuffer2 + 4]
@@ -2880,8 +2873,7 @@ Function1013d6:
 	ret
 
 Function1013dd:
-	call CGBOnly_CopyTilemapAtOnce
-	ret
+	jmp CGBOnly_CopyTilemapAtOnce
 
 Function1013e1: ; unreferenced
 	push de
@@ -3468,8 +3460,7 @@ Function1017b0:
 	call Function10173b
 	pop bc
 	ld de, wccb5
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function1017c7:
 	ld a, [wcc60]
@@ -3648,8 +3639,7 @@ Function1018fb:
 .asm_101909
 	ld de, wLinkBattleRNs
 	ld bc, 10
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function101913:
 	ld hl, wcd2a
@@ -4706,8 +4696,7 @@ Function102180:
 	ld hl, wc608 + 1
 	ld de, wStringBuffer2
 	ld bc, 11
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function10218d:
 	ld hl, w5_dc00
@@ -6281,8 +6270,7 @@ Function102cee:
 	ld e, l
 	ld hl, wd002
 	ld bc, $2f
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 Function102d34:
 	ld hl, wc608
@@ -6292,8 +6280,7 @@ Function102d34:
 Function102d3e:
 	call OpenSRAM
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function102d48:
 	ld a, [wcd4c]

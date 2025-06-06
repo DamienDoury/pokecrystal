@@ -191,14 +191,12 @@ ClearActorHud:
 
 	hlcoord 0, 0
 	lb bc, 4, 11
-	call ClearBox
-	ret
+	jmp ClearBox
 
 .player
 	hlcoord 9, 7
 	lb bc, 5, 11
-	call ClearBox
-	ret
+	jmp ClearBox
 
 PlaceWindowOverBattleTextbox: ; unreferenced
 	xor a

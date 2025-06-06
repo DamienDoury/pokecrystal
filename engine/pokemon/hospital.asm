@@ -132,8 +132,7 @@ _CountHospitalMonsReadyToLeave::
 	jr .loop
 
 .loop_end
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 ; Output: In wScriptVar, returns TRUE if the first Pokémon of the HospitalBox is ready to leave.
 _IsFirstHospitalMonReadyToLeave::
@@ -157,8 +156,7 @@ _IsFirstHospitalMonReadyToLeave::
 	ld [wScriptVar], a
 
 .end
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 _HospitalVisit::
 	call GetActualRoomNumber ; Returns the room number in A.

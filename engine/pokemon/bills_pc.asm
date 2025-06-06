@@ -254,8 +254,7 @@ BillsPCClearThreeBoxes: ; unreferenced
 	call ClearBox
 	hlcoord 0, 14
 	lb bc, 2, 8
-	call ClearBox
-	ret
+	jmp ClearBox
 
 _WithdrawPKMN:
 	ld hl, wOptions
@@ -1194,8 +1193,7 @@ BillsPC_LoadMonStats:
 	inc de
 	ld a, [hl]
 	ld [de], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .party
 	ld hl, wPartyMon1Level
@@ -1250,8 +1248,7 @@ BillsPC_LoadMonStats:
 	ld a, [hl]
 	ld [de], a
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 BillsPC_RefreshTextboxes:
 	hlcoord 8, 2
@@ -1495,8 +1492,7 @@ BillsPC_UpdateSelectionCursor:
 	ld a, [wBillsPC_NumMonsInBox]
 	and a
 	jr nz, .place_cursor
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 .place_cursor
 	ld hl, .OAM
@@ -1956,8 +1952,7 @@ BillsPC_CopyMon:
 	call AddNTimes
 	ld de, wBufferMon
 	ld bc, PARTYMON_STRUCT_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .box
 	ld b, a
@@ -2427,8 +2422,7 @@ CopyNicknameToTemp:
 	call AddNTimes
 	ld de, wBufferMonNickname
 	ld bc, MON_NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 CopyOTNameToTemp:
 	ld bc, NAME_LENGTH
@@ -2436,15 +2430,13 @@ CopyOTNameToTemp:
 	call AddNTimes
 	ld de, wBufferMonOT
 	ld bc, NAME_LENGTH
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 CopyMonToTemp:
 	ld a, [wCurPartyMon]
 	call AddNTimes
 	ld de, wBufferMon
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 GetBoxPointer:
 	dec b
@@ -2592,8 +2584,7 @@ _ChangeBox:
 	call BillsPC_ChangeBoxSubmenu
 	jr .loop
 .done
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 BillsPC_ClearTilemap:
 	xor a
@@ -2738,8 +2729,7 @@ GetBoxCount:
 	call OpenSRAM
 	ld hl, sBoxCount
 	ld a, [hl]
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .BoxBankAddresses:
 	table_width 3, GetBoxCount.BoxBankAddresses
@@ -2843,8 +2833,7 @@ BillsPC_ChangeBoxSubmenu:
 	dec a
 	call GetBoxName
 	ld de, wBoxNameBuffer
-	call CopyName2
-	ret
+	jmp CopyName2
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags

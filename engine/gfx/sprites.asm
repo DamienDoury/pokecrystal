@@ -568,8 +568,7 @@ AnimateEndOfExpBar:
 	inc d
 	dec c
 	jr nz, .loop
-	call ClearSprites
-	ret
+	jmp ClearSprites
 
 .AnimateFrame:
 	ld hl, wVirtualOAMSprite00

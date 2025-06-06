@@ -458,8 +458,7 @@ BuyMenu:
 .loop
 	call BuyMenuLoop ; menu loop
 	jr nc, .loop
-	call CloseSubmenu
-	ret
+	jmp CloseSubmenu
 
 .no_items_in_stock
 	push de ; Text round robin.

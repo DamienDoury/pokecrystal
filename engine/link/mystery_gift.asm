@@ -1745,8 +1745,7 @@ StageDataForNameCard:
 	ld hl, s4_a007 ; address of MBC30 bank
 	ld bc, 12
 	call CopyBytes
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 InitNameCardLayout:
 	call ClearBGPalettes

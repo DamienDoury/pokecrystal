@@ -121,16 +121,14 @@ GetMonSpecies::
 	call OpenSRAM
 	ld hl, sBoxSpecies
 	call .done
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .hospitalboxmon
 	ld a, BANK(sHospitalBoxSpecies)
 	call OpenSRAM
 	ld hl, sHospitalBoxSpecies
 	call .done
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .breedmon
 	ld a, [wBreedMon1Species]

@@ -576,8 +576,7 @@ GetCreditsPalette:
 	adc HIGH(wBGPals2)
 	ld d, a
 	ld bc, 24
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 CreditsPalettes:
 INCLUDE "gfx/credits/credits.pal"

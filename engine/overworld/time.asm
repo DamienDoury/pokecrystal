@@ -65,8 +65,7 @@ InitNDaysCountdown:
 	call UpdateTime
 	pop hl
 	inc hl
-	call CopyDayToHL
-	ret
+	jmp CopyDayToHL
 
 CheckDayDependentEventHL:
 	inc hl
@@ -82,8 +81,7 @@ RestartReceiveCallDelay:
 	ld [hl], a
 	call UpdateTime
 	ld hl, wReceiveCallDelay_StartTime
-	call CopyDayHourMinToHL
-	ret
+	jmp CopyDayHourMinToHL
 
 CheckReceiveCallDelay:
 	ld hl, wReceiveCallDelay_StartTime
@@ -176,8 +174,7 @@ CheckBugContestTimer::
 InitializeStartDay:
 	call UpdateTime
 	ld hl, wTimerEventStartDay
-	call CopyDayToHL
-	ret
+	jmp CopyDayToHL
 
 CheckPokerusTickAndHospitalVisits::
 	ld hl, wTimerEventStartDay
@@ -248,8 +245,7 @@ DoMysteryGiftIfDayHasPassed:
 	ld [sMysteryGiftTimer], a
 	ld a, [hl]
 	ld [sMysteryGiftTimer + 1], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 UpdateTimeRemaining:
 ; If the amount of time elapsed exceeds the capacity of its

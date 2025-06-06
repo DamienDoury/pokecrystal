@@ -253,8 +253,7 @@ LoadRandomBattleTowerMon:
 	ld [sBTMonPrevTrainer2], a
 	ld a, [wBT_OTMon3]
 	ld [sBTMonPrevTrainer3], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 INCLUDE "data/battle_tower/classes.asm"
 

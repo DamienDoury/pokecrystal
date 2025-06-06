@@ -48,8 +48,7 @@ endc
 	ldh [hMapAnims], a
 	pop af
 	ld [wOptions], a
-	call ClearJoypad
-	ret
+	jmp ClearJoypad
 
 .SetUpNamingScreen:
 	call ClearBGPalettes

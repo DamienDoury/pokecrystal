@@ -1613,14 +1613,12 @@ Pack_GetItemName:
 	ld a, [wCurItem]
 	ld [wNamedObjectIndex], a
 	call GetItemName
-	call CopyName1
-	ret
+	jmp CopyName1
 
 ClearPocketList:
 	hlcoord 5, 2
 	lb bc, 10, SCREEN_WIDTH - 5
-	call ClearBox
-	ret
+	jmp ClearBox
 
 Pack_InitColors:
 	call WaitBGMap

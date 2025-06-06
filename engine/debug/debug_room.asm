@@ -201,8 +201,7 @@ DebugRoom_SaveChecksum:
 	ld [sChecksum + 0], a
 	ld a, d
 	ld [sChecksum + 1], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoomMenu_SpClear:
 	call YesNoBox
@@ -267,8 +266,7 @@ DebugRoomMenu_WinWorkClr:
 	ld hl, wWindowStack
 	xor a
 	call ByteFill
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_PrintWindowStackBottomTop:
 	ret ; stubbed out
@@ -369,8 +367,7 @@ DebugRoomMenu_TimerReset:
 	call OpenSRAM
 	ld hl, sRTCStatusFlags
 	set 7, [hl]
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoomMenu_BattleSkip:
 	ld a, BANK(sSkipBattle)
@@ -379,8 +376,7 @@ DebugRoomMenu_BattleSkip:
 	inc a
 	and 1
 	ld [sSkipBattle], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_PrintBattleSkip:
 	hlcoord 16, 6
@@ -412,8 +408,7 @@ DebugRoomMenu_ChangeSex:
 	inc a
 	and 1
 	ld [sCrystalData + (wPlayerGender - wCrystalData)], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_PrintGender:
 	hlcoord 16, 0
@@ -445,8 +440,7 @@ DebugRoomMenu_TelDebug:
 	xor a
 .ok
 	ld [sDebugTimeCyclesSinceLastCall], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_PrintTelDebug:
 	hlcoord 16, 16
@@ -483,8 +477,7 @@ DebugRoomMenu_RAMFlagClr:
 	call OpenSRAM
 	xor a
 	ld [sOpenedInvalidSRAM], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_PrintRAMFlag:
 	ld a, BANK(sOpenedInvalidSRAM)
@@ -1119,16 +1112,14 @@ DebugRoom_SavePokemon:
 	ld hl, .CompletedText
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .full
 	call CloseSRAM
 	ld hl, .BoxIsFullText
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .OTString:
 	db "DEBUG▶OT@"
@@ -1358,8 +1349,7 @@ DebugRoom_GetClock:
 	inc c
 	dec b
 	jr nz, .loop
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoom_SetClock:
 	ld a, SRAM_ENABLE
@@ -1374,8 +1364,7 @@ DebugRoom_SetClock:
 	inc c
 	dec b
 	jr nz, .loop
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoomMenu_RTCEdit_Page1Values:
 	db 5
@@ -1478,8 +1467,7 @@ DebugRoomMenu_BtlRecClr:
 	ld hl, sLinkBattleStats
 	ld bc, sLinkBattleStatsEnd - sLinkBattleStats
 	call ByteFill
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 DebugRoomMenu_HOFClear:
 	call YesNoBox
@@ -1580,8 +1568,7 @@ DebugRoomMenu_ROMChecksum:
 	call PrintHexNumber
 	ld [hl], "h"
 	call DebugRoom_JoyWaitABSelect
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .WaitText:
 	text "Wait..."
@@ -1602,8 +1589,7 @@ DebugRoomMenu_BTBugPoke:
 	ld hl, .NoBugMonText
 	call MenuTextbox
 	call DebugRoom_JoyWaitABSelect
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .NoBugMonText:
 	text "No bug #MON."
@@ -1625,8 +1611,7 @@ DebugRoomMenu_BTBugPoke:
 	ld [sIsBugMon], a
 .done
 	call CloseSRAM
-	call CloseWindow
-	ret
+	jmp CloseWindow
 
 .ItsBugMonText:
 	text "It'", "s bug #MON!"

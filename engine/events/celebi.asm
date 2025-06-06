@@ -46,8 +46,7 @@ CelebiShrineEvent:
 	ld [wVramState], a
 	call .RestorePlayerSprite_DespawnLeaves ; Ends with A = 0.
 	ld [wLoadedFont], a
-	call CelebiEvent_SetBattleType
-	ret
+	jmp CelebiEvent_SetBattleType
 
 .RestorePlayerSprite_DespawnLeaves:
 	ld hl, wVirtualOAMSprite00TileID

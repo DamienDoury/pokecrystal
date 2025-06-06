@@ -209,8 +209,7 @@ Function118180:
 .reset_banks
 	pop af
 	ldh [rSVBK], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 .return_d3
 	ld a, $d3
@@ -472,8 +471,7 @@ BattleTowerRoomMenu_InitRAM:
 	call OpenSRAM
 	xor a
 	ld [s5_bfff], a
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function118440:
 	push af
@@ -2081,8 +2079,7 @@ Function11915d:
 	ld [wMobileErrorCodeBuffer], a
 
 .asm_11918e
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function119192:
 	inc b
@@ -2789,8 +2786,7 @@ Function1195c4:
 	ld h, a
 	ld de, wcd69
 	ld bc, $10
-	call CopyBytes
-	ret
+	jmp CopyBytes
 .asm_1195f3
 	ld a, $d8
 	jmp SetMobileErrorCode
@@ -4120,8 +4116,7 @@ Function119ec2:
 	ld [hli], a
 	and a
 	jr nz, .loop
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 BattleTowerRoomMenu2:
 	ldh a, [rSVBK]
@@ -5516,8 +5511,7 @@ Function11ac3e:
 	call FadeToMenu
 	callfar ClearSpriteAnims2
 	call Function11ac51
-	call CloseSubmenu
-	ret
+	jmp CloseSubmenu
 
 Function11ac51:
 	xor a
@@ -6095,8 +6089,7 @@ Function11b03d:
 
 .got_string
 	ld bc, 4 ; string length
-	call CopyBytes
-	ret
+	jmp CopyBytes
 
 .MaleString: db "オスの　"
 .FemaleString: db "メスの　"
@@ -7034,8 +7027,7 @@ Function11b570:
 	ldh a, [hRTCDayHi]
 	ld [hl], a
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function11b5c0:
 	ld a, [wcd82]
@@ -7586,8 +7578,7 @@ AddMobileMonToParty:
 	ld bc, MAIL_STRUCT_LENGTH
 	call CopyBytes
 
-	call CloseSRAM
-	ret
+	jmp CloseSRAM
 
 Function11ba38:
 	farcall CheckCurPartyMonFainted

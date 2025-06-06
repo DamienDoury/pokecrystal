@@ -810,8 +810,7 @@ PokeAnim_PlaceGraphic:
 	ld h, [hl]
 	ld l, a
 	lb bc, 7, 7
-	call ClearBox
-	ret
+	jmp ClearBox
 
 PokeAnim_SetVBank1:
 	ldh a, [rSVBK]
