@@ -110,7 +110,6 @@ endc
 
 PlayersHouse1FReceiveItemStd:
 	jumpstd ReceiveItemScript
-	end
 
 FakeMomMornScript:
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3 ; If the player has never ever left the house (new game).
@@ -121,7 +120,6 @@ FakeMomMornScript:
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM2
 	sjump FakeMomScript
-	end
 .quit:
 	opentext
 	writetext SmellText
@@ -138,14 +136,12 @@ FakeMomDayScript:
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM3
 	sjump FakeMomScript
-	end
 .firstMom:
 	setlasttalked PLAYERSHOUSE1F_MOM1
 	sjump FakeMomScript
 .meet
 	setlasttalked PLAYERSHOUSE1F_MOM1
 	sjump MomScript
-	end
 .quit:
 	opentext
 	writetext MomsSeatText
@@ -162,7 +158,6 @@ FakeMomNiteScript:
 	iffalse .quit
 	setlasttalked PLAYERSHOUSE1F_MOM4
 	sjump FakeMomScript
-	end
 .quit:
 	opentext
 	writetext SmellText
@@ -187,22 +182,18 @@ FakeMomScript:
 .left:
 	applymovement PLAYER, RightBackStepMovement
 	sjump .congrats
-	end
 
 .right:
 	applymovement PLAYER, LeftBackStepMovement
 	sjump .congrats
-	end
 
 .up:
 	applymovement PLAYER, DownBackStepMovement
 	sjump .congrats
-	end
 
 .down:
 	applymovement PLAYER, UpBackStepMovement
 	sjump .congrats
-	end
 
 .congrats:
 	showemote EMOTE_HAPPY, LAST_TALKED, 20
@@ -212,7 +203,6 @@ FakeMomScript:
 	closetext
 	pause 5
 	sjump MomScript
-	end
 
 RightBackStepMovement:
 	fix_facing
@@ -243,7 +233,6 @@ FakeNeighborScript:
 	iftrue .quit
 	setlasttalked PLAYERSHOUSE1F_POKEFAN_F
 	sjump NeighborScript
-	end
 .quit:
 	opentext
 	writetext PlayerSeatText
@@ -259,22 +248,18 @@ FakeNeighborScript:
 .left:
 	applymovement PLAYER, LeftStepMovement
 	sjump .watch_tv
-	end
 
 .right:
 	applymovement PLAYER, RightStepMovement
 	sjump .watch_tv
-	end
 
 .up:
 	applymovement PLAYER, UpStepMovement
 	sjump .watch_tv
-	end
 
 .down:
 	applymovement PLAYER, DownStepMovement
 	sjump .watch_tv
-	end
 
 .watch_tv:
 	callstd TVScript

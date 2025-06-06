@@ -15,7 +15,6 @@ CeruleanCaveB1F_MewtwoTelepathy1:
 	showemote EMOTE_SHOCK, PLAYER, 15
 	applymovement PLAYER, CeruleanCave_LookAroundMovement
 	jumptext CeruleanCave_SomeoneAroundText
-	end
 
 CeruleanCaveB1F_MewtwoTelepathy2:
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_2
@@ -26,7 +25,6 @@ CeruleanCaveB1F_MewtwoTelepathy2:
 
 	showemote EMOTE_QUESTION, PLAYER, 15
 	jumptext CeruleanCave_VoiceInHeadText
-	end
 
 CeruleanCaveB1F_MewtwoTelepathy3:
 	setevent EVENT_CERULEAN_CAVE_B1F_TEXT_3

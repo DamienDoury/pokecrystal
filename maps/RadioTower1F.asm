@@ -186,7 +186,6 @@ endc
 
 .ReceiveItem:
 	jumpstd ReceiveItemScript
-	end
 
 .WrongAnswer:
 	playsound SFX_WRONG

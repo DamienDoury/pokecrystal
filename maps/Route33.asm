@@ -110,31 +110,24 @@ TrainerHikerAnthony:
 
 .AskNumber1:
 	jumpstd AskNumber1MScript
-	end
 
 .AskNumber2:
 	jumpstd AskNumber2MScript
-	end
 
 .RegisteredNumber:
 	jumpstd RegisteredNumberMScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedMScript
-	end
 
 .NumberDeclined:
 	jumpstd NumberDeclinedMScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullMScript
-	end
 
 .RematchStd:
 	jumpstd RematchMScript
-	end
 
 Route33Sign:
 	jumptext Route33SignText

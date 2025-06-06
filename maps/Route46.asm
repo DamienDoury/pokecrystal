@@ -114,40 +114,31 @@ TrainerPicnickerErin1:
 
 Route46AskNumber1F:
 	jumpstd AskNumber1FScript
-	end
 
 Route46AskNumber2F:
 	jumpstd AskNumber2FScript
-	end
 
 Route46RegisteredNumberF:
 	jumpstd RegisteredNumberFScript
-	end
 
 Route46NumberAcceptedF:
 	jumpstd NumberAcceptedFScript
-	end
 
 Route46NumberDeclinedF:
 	jumpstd NumberDeclinedFScript
-	end
 
 Route46PhoneFullF:
 	jumpstd PhoneFullFScript
-	end
 
 Route46RematchF:
 	jumpstd RematchFScript
-	end
 
 ErinNoRoomForCalcium:
 	setevent EVENT_ERIN_CALCIUM
 	jumpstd PackFullFScript
-	end
 
 Route46RematchGiftF:
 	jumpstd RematchGiftFScript
-	end
 
 TrainerHikerBailey:
 	trainer HIKER, BAILEY, EVENT_BEAT_HIKER_BAILEY, HikerBaileySeenText, HikerBaileyBeatenText, 0, .Script

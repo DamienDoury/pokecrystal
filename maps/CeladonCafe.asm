@@ -114,7 +114,6 @@ EatathonContestPoster:
 
 CeladonCafeTrashcan:
 	jumptext FoundLeftoversText
-	end
 
 ChefText_Eatathon: ; TO TRANSLATE
 	text "Hi!"

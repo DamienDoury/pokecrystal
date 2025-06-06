@@ -218,7 +218,6 @@ BugCatchingContestExplanationSign:
 
 Route35NationalParkGate_GetDayOfWeek:
 	jumpstd DayToTextScript
-	end
 
 Route35NationalParkGatePlayerApproachOfficer1Movement:
 	step DOWN

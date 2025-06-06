@@ -63,7 +63,6 @@ LavRadioTower1FGentlemanScript:
 
 .receiveitem:
 	jumpstd ReceiveItemScript
-	end
 
 .expncardname 
 if DEF(_FR_FR)

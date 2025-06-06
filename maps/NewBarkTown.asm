@@ -18,7 +18,6 @@ FakeSilverScript:
 	checkevent EVENT_RIVAL_NEW_BARK_TOWN
 	iftrue .quit
 	sjump NewBarkTownSilverScript
-	end
 .quit:
 	opentext
 	writetext FootstepsText

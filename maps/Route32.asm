@@ -236,31 +236,24 @@ TrainerFisherRalph1:
 
 .AskNumber1:
 	jumpstd AskNumber1MScript
-	end
 
 .AskNumber2:
 	jumpstd AskNumber2MScript
-	end
 
 .RegisteredNumber:
 	jumpstd RegisteredNumberMScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedMScript
-	end
 
 .NumberDeclined:
 	jumpstd NumberDeclinedMScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullMScript
-	end
 
 .RematchStd:
 	jumpstd RematchMScript
-	end
 
 TrainerFisherHenry:
 	trainer FISHER, HENRY, EVENT_BEAT_FISHER_HENRY, FisherHenrySeenText, FisherHenryBeatenText, 0, .Script
@@ -345,31 +338,24 @@ TrainerPicnickerLiz1:
 
 .AskNumber1:
 	jumpstd AskNumber1FScript
-	end
 
 .AskNumber2:
 	jumpstd AskNumber2FScript
-	end
 
 .RegisteredNumber:
 	jumpstd RegisteredNumberFScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedFScript
-	end
 
 .NumberDeclined:
 	jumpstd NumberDeclinedFScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullFScript
-	end
 
 .RematchStd:
 	jumpstd RematchFScript
-	end
 
 TrainerYoungsterAlbert:
 	trainer YOUNGSTER, ALBERT, EVENT_BEAT_YOUNGSTER_ALBERT, YoungsterAlbertSeenText, YoungsterAlbertBeatenText, 0, .Script

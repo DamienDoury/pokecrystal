@@ -95,7 +95,6 @@ PlayerHasShownInfectedPkmnToDaycare:
 	ifequal LEFT, .DayCareManStepRight
 	applymovementlasttalked DayCareStepLeftMovement
 	sjump DayCare_PlayerRunsAway
-	end
 
 .DayCareManStepDown:
 	applymovementlasttalked DayCareStepDownMovement

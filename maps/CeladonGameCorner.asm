@@ -76,7 +76,6 @@ CeladonGameCornerFisherScript:
 
 .GiveCoins:
 	jumpstd ReceiveItemScript
-	end
 
 .coinname 
 if DEF(_FR_FR)

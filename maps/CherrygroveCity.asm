@@ -111,7 +111,6 @@ CherrygroveCityGuideGent:
 
 .JumpstdReceiveItem:
 	jumpstd ReceiveItemScript
-	end
 
 .mapcardname 
 if DEF(_FR_FR)

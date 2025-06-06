@@ -145,31 +145,24 @@ TrainerSchoolboyJack1:
 
 .AskNumber1:
 	jumpstd AskNumber1MScript
-	end
 
 .AskNumber2:
 	jumpstd AskNumber2MScript
-	end
 
 .RegisteredNumber:
 	jumpstd RegisteredNumberMScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedMScript
-	end
 
 .NumberDeclined:
 	jumpstd NumberDeclinedMScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullMScript
-	end
 
 .RematchStd:
 	jumpstd RematchMScript
-	end
 
 TrainerPokefanmWilliam:
 	trainer POKEFANM, WILLIAM, EVENT_BEAT_POKEFANM_WILLIAM, PokefanmWilliamSeenText, PokefanmWilliamBeatenText, 0, .Script
@@ -227,35 +220,27 @@ TrainerPokefanfBeverly1:
 
 .AskNumber1:
 	jumpstd AskNumber1FScript
-	end
 
 .AskNumber2:
 	jumpstd AskNumber2FScript
-	end
 
 .RegisteredNumber:
 	jumpstd RegisteredNumberFScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedFScript
-	end
 
 .NumberDeclined:
 	jumpstd NumberDeclinedFScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullFScript
-	end
 
 .Gift:
 	jumpstd GiftFScript
-	end
 
 .PackFull:
 	jumpstd PackFullFScript
-	end
 
 TrainerLassKrise:
 	trainer LASS, KRISE, EVENT_BEAT_LASS_KRISE, LassKriseSeenText, LassKriseBeatenText, 0, .Script

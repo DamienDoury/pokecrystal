@@ -131,39 +131,30 @@ TrainerLassDana1:
 
 .AskNumber1F:
 	jumpstd AskNumber1FScript
-	end
 
 .AskNumber2F:
 	jumpstd AskNumber2FScript
-	end
 
 .RegisteredPhoneNumber:
 	jumpstd RegisteredNumberFScript
-	end
 
 .NumberAccepted:
 	jumpstd NumberAcceptedFScript
-	end
 
 .DeclinedPhoneNumber:
 	jumpstd NumberDeclinedFScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullFScript
-	end
 
 .Rematch:
 	jumpstd RematchFScript
-	end
 
 .Gift:
 	jumpstd GiftFScript
-	end
 
 .PackFull:
 	jumpstd PackFullFScript
-	end
 
 TrainerSchoolboyChad1:
 	trainer SCHOOLBOY, CHAD1, EVENT_BEAT_SCHOOLBOY_CHAD, SchoolboyChad1SeenText, SchoolboyChad1BeatenText, 0, .Script
@@ -241,31 +232,24 @@ TrainerSchoolboyChad1:
 
 .AskPhoneNumber1:
 	jumpstd AskNumber1MScript
-	end
 
 .AskPhoneNumber2:
 	jumpstd AskNumber2MScript
-	end
 
 .RegisteredChad:
 	jumpstd RegisteredNumberMScript
-	end
 
 .HaveChadsNumber:
 	jumpstd NumberAcceptedMScript
-	end
 
 .SaidNo:
 	jumpstd NumberDeclinedMScript
-	end
 
 .PhoneFull:
 	jumpstd PhoneFullMScript
-	end
 
 .Rematch:
 	jumpstd RematchMScript
-	end
 
 TrainerBeautyValerie:
 	trainer BEAUTY, VALERIE, EVENT_BEAT_BEAUTY_VALERIE, BeautyValerieSeenText, BeautyValerieBeatenText, 0, .Script

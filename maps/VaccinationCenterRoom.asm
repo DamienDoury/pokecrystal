@@ -72,7 +72,6 @@ VaccinationCenterRoomVaccineScript:
     writetext VaccinationCenterRoom_EggText
     promptbutton
     sjump .reselect_mon
-    end
 
 .never_got_covid:
     writetext VaccinationCenterRoom_NeverCovidText

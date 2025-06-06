@@ -670,7 +670,6 @@ CopScript:
 	applymovement PLAYER, PlayerTakesPlaceOfOfficerMovement
 	opentext
 	sjump ElmAfterTheftScript
-	end
 
 ElmsLabWindow:
 	opentext

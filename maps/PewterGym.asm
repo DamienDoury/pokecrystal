@@ -130,7 +130,6 @@ TrainerCamperJerry:
 
 .brock_location:
 	jumptextfaceplayer CamperJerryBrockLocationText
-	end
 
 PewterGymGuideScript:
 	faceplayer
