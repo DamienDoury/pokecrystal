@@ -30,8 +30,6 @@ StaticMenuJoypad_WithIndexToSkip::
 	jr GetMenuJoypad
 
 ScrollingMenuJoypad::
-	ld a, -1
-	ld [wMenuIndexToSkip], a
 	callfar _ScrollingMenuJoypad
 	; fallthrough.
 
@@ -627,6 +625,8 @@ InitMenuCursorAndButtonPermissions::
 	ret
 
 GetScrollingMenuJoypad::
+	ld a, -1
+	ld [wMenuIndexToSkip], a
 	call ScrollingMenuJoypad
 	ld hl, wMenuJoypadFilter
 	and [hl]

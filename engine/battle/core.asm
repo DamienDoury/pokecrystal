@@ -5856,6 +5856,18 @@ MoveSelectionScreen:
 	bit SELECT_F, a
 	jp nz, .pressed_select
 	bit B_BUTTON_F, a
+	jr nz, .pressed_b
+	
+	; Pressing A while reordering moves has the same effect as pressing Select.
+	ld b, a
+	ld a, [wSwappingMove]
+	and a
+	jp nz, .pressed_select
+
+	; Set the values as they are expected by .pressed_a_or_b.
+	ld a, b
+	bit B_BUTTON_F, a
+.pressed_a_or_b
 	; A button
 	push af
 
@@ -5871,6 +5883,27 @@ MoveSelectionScreen:
 
 	pop af
 	ret
+
+.pressed_b
+	push af
+	ld a, [wSwappingMove]
+	and a
+	jp nz, .cancel_move_reordering
+
+	; Set the values as they are expected by .pressed_a_or_b.
+	pop af
+	jr .pressed_a_or_b
+
+.cancel_move_reordering
+	pop af
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wCurMoveNum], a
+	xor a
+	ld [wSwappingMove], a
+	dec a
+	ld [wMenuIndexToSkip], a
+	jmp MoveSelectionScreen
 
 .not_enemy_moves_process_b
 	dec a
@@ -5950,7 +5983,10 @@ MoveSelectionScreen:
 .pressed_select
 	ld a, [wSwappingMove]
 	and a
-	jr z, .start_swap
+	jp z, .start_swap
+
+	ld a, -1
+	ld [wMenuIndexToSkip], a
 	ld hl, wBattleMonMoves
 	call .swap_bytes
 	ld hl, wBattleMonPP
@@ -5963,6 +5999,7 @@ MoveSelectionScreen:
 	ld a, [wMenuCursorY]
 	cp b
 	jr nz, .not_swapping_disabled_move
+
 	ld a, [hl]
 	and $f
 	ld b, a
@@ -5976,6 +6013,7 @@ MoveSelectionScreen:
 	ld a, [wSwappingMove]
 	cp b
 	jr nz, .swap_moves_in_party_struct
+
 	ld a, [hl]
 	and $f
 	ld b, a
@@ -5989,6 +6027,7 @@ MoveSelectionScreen:
 	ld a, [wPlayerSubStatus5]
 	bit SUBSTATUS_TRANSFORMED, a
 	jr nz, .transformed
+	
 	ld hl, wPartyMon1Moves
 	ld a, [wCurBattleMon]
 	call GetPartyLocation
@@ -6000,6 +6039,9 @@ MoveSelectionScreen:
 	call .swap_bytes
 
 .transformed
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wCurMoveNum], a
 	xor a
 	ld [wSwappingMove], a
 	jmp MoveSelectionScreen
@@ -6029,6 +6071,11 @@ MoveSelectionScreen:
 .start_swap
 	ld a, [wMenuCursorY]
 	ld [wSwappingMove], a
+	ld [wMenuIndexToSkip], a
+	sub 2
+	ld a, 0
+	adc 0
+	ld [wCurMoveNum], a ; If wMenuCursorY was 1, A is 1. Otherwise, A is 0.
 	jmp MoveSelectionScreen
 
 MoveInfoBox:
