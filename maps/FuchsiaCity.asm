@@ -396,7 +396,7 @@ FuchsiaCityStupidText: ; TO TRANSLATE
 FuchsiaCityStupidSurprisedText: ; TO TRANSLATE
 	text "The # BALL was"
 	line "actually…"
-	cont "an # BALL?"
+	cont "a # BALL?"
 
 	para "Could the #MON"
 	line "ZOO have displayed"
