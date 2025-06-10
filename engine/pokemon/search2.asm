@@ -91,7 +91,7 @@ FindAboveLevel:
 	and a
 	ret
 
-_FindPartyMonThatSpecies:
+_FindPartyMonThatSpecies::
 FindThatSpecies:
 ; Find species b in your party.
 ; If you have no Pokemon, returns c = -1 and z.
