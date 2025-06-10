@@ -11,22 +11,22 @@
 	const EVENT_TEMPORARY_UNTIL_MAP_RELOAD_7
 	const EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 ; Johto Gym Leader TM gifts
-	const EVENT_GOT_TM31_MUD_SLAP
-	const EVENT_GOT_TM49_FURY_CUTTER
 	const_skip
-	const EVENT_GOT_TM45_ATTRACT
+	const_skip
+	const_skip
+	const_skip
 	const_skip
 	const_skip
 	const_skip
 	const EVENT_GOT_TM24_DRAGONBREATH
 ; HMs (EVENT_GOT_HM07_WATERFALL is with the Johto itemballs)
 	const EVENT_GOT_HM01_CUT
-	const EVENT_GOT_HM02_FLY
-	const EVENT_GOT_HM03_SURF
-	const EVENT_GOT_HM04_STRENGTH
-	const EVENT_GOT_HM05_FLASH
-	const EVENT_GOT_HM06_WHIRLPOOL
-	const_skip ; unused
+	const_skip
+	const_skip
+	const_skip
+	const_skip
+	const_skip
+	const_skip
 ; Rods
 	const_skip
 	const_skip
@@ -85,7 +85,7 @@
 	const_skip
 	const EVENT_LANCE_HEALED_YOU_IN_TEAM_ROCKET_BASE
 	const EVENT_GOT_MYSTIC_WATER_IN_CHERRYGROVE
-	const EVENT_GOT_TM05_ROAR
+	const_skip
 	const EVENT_GOT_EEVEE
 	const EVENT_GOT_KENYA
 	const EVENT_GAVE_KENYA
@@ -95,14 +95,14 @@
 	const EVENT_BOUGHT_EVERSTONE
 	const EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
 	const EVENT_GOT_QUICK_CLAW
-	const EVENT_GOT_TM10_HIDDEN_POWER
-	const EVENT_GOT_TM36_SLUDGE_BOMB
+	const_skip
+	const_skip
 	const EVENT_GOT_ITEMFINDER
 	const EVENT_GOT_BICYCLE
 	const EVENT_ROUTE_32_SLOWPOKE_TAIL
 	const EVENT_GOT_MOCKED_ON_ROUTE_32
 	const EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
-	const EVENT_GOT_TM02_HEADBUTT
+	const_skip
 	const EVENT_DECIDED_TO_HELP_LANCE
 	const EVENT_GOT_TYROGUE_FROM_KIYO
 	const EVENT_MET_FRIEDA_OF_FRIDAY
@@ -124,12 +124,12 @@
 	const EVENT_GOT_BLACKGLASSES_IN_DARK_CAVE
 	const EVENT_GOT_KINGS_ROCK_IN_SLOWPOKE_WELL
 	const_skip
-	const EVENT_GOT_TM37_SANDSTORM
+	const_skip
 	const EVENT_FIRST_TIME_BANKING_WITH_MOM
 	const_skip
 	const EVENT_GOT_CLEAR_BELL
 	const EVENT_CHERRYGROVECITY_MEET_RIVAL
-	const EVENT_GOT_TM12_SWEET_SCENT
+	const_skip
 	const EVENT_RELEASED_THE_BEASTS
 	const EVENT_GOT_WORK_VISA_FROM_ELM
 ; Johto hidden items
@@ -228,13 +228,13 @@
 	const EVENT_CINNABAR_ROCKS_CLEARED
 	const EVENT_CLEARED_NUGGET_BRIDGE
 	const EVENT_FOUGHT_MEW
-	const EVENT_GOT_TM03_CURSE
+	const_skip
 	const EVENT_GOT_CLEANSE_TAG
 	const_skip
-	const EVENT_GOT_TM06_TOXIC
+	const_skip
 	const EVENT_ROUTE_6_HIDDEN_TOILET_PAPER
 	const EVENT_GOT_TM07_ZAP_CANNON
-	const EVENT_GOT_TM42_DREAM_EATER
+	const_skip
 	const EVENT_TALKED_TO_OAK_IN_KANTO
 	const EVENT_GOT_HP_UP_FROM_VERMILION_GUY
 ; Kanto hidden items

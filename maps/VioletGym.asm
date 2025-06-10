@@ -122,7 +122,7 @@ VioletGymFalknerScript:
 	waitsfx
 	setflag ENGINE_ZEPHYRBADGE
 .FightDone:
-	checkevent EVENT_GOT_TM31_MUD_SLAP
+	checkitem TM_MUD_SLAP
 	iftrue .SpeechAfterTM
 	setevent EVENT_BEAT_BIRD_KEEPER_ROD
 	setevent EVENT_BEAT_BIRD_KEEPER_ABE
@@ -133,7 +133,6 @@ VioletGymFalknerScript:
 	promptbutton
 	verbosegiveitem TM_MUD_SLAP
 	iffalse .NoRoomForMudSlap
-	setevent EVENT_GOT_TM31_MUD_SLAP
 	writetext FalknerTMMudSlapText
 	waitbutton
 	closetext

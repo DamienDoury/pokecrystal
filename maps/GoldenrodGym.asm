@@ -126,7 +126,7 @@ GoldenrodGymWhitneyScript:
 	end
 
 .StoppedCrying:
-	checkevent EVENT_GOT_TM45_ATTRACT
+	checkitem TM_ATTRACT
 	iftrue .GotAttract
 	checkflag ENGINE_PLAINBADGE
 	iftrue .GotPlainBadge
@@ -145,7 +145,6 @@ GoldenrodGymWhitneyScript:
 	promptbutton
 	verbosegiveitem TM_ATTRACT
 	iffalse .NoRoomForAttract
-	setevent EVENT_GOT_TM45_ATTRACT
 	writetext WhitneyAttractText
 	waitbutton
 	closetext

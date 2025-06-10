@@ -59,7 +59,7 @@ DanceTheaterWhirlpoolGuy:
 	opentext
 	writetext WhirlpoolGuyNeverLeftAScratchText
 	promptbutton
-	checkevent EVENT_GOT_HM06_WHIRLPOOL
+	checkitem HM_WHIRLPOOL
 	iftrue WhirlpoolGuyAlreadyGaveWhirlpool
 	checkevent EVENT_BEAT_KIMONO_GIRL_NAOKO
 	iffalse .KimonoGirlsUndefeated
@@ -91,7 +91,6 @@ DanceTheaterWhirlpoolGuy:
 	writetext WhirlpoolGuyLikeADanceText
 	promptbutton
 	verbosegiveitem HM_WHIRLPOOL
-	setevent EVENT_GOT_HM06_WHIRLPOOL
 	writetext WhirlpoolGuyWhirlpoolExplanationText
 	waitbutton
 	closetext

@@ -100,13 +100,12 @@ RocketScript_MakingABundle:
 OfficerScript_GuardWithSludgeBomb:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM36_SLUDGE_BOMB
+	checkitem TM_SLUDGE_BOMB
 	iftrue .GotSludgeBomb
 	writetext OfficerText_FoundTM
 	promptbutton
 	verbosegiveitem TM_SLUDGE_BOMB
 	iffalse .NoRoomForSludgeBomb
-	setevent EVENT_GOT_TM36_SLUDGE_BOMB
 	closetext
 	end
 

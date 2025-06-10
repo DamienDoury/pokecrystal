@@ -373,7 +373,7 @@ endc
 PlayersHouse1FFridgeScript:
 	checkflag ENGINE_TOOK_DRINK_FROM_FRIDGE
 	iftrue .AlreadyTookDrinkToday
-	checkevent EVENT_GOT_HM05_FLASH
+	checkitem HM_FLASH
 	iffalse .DrinksOnTheHouse
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_4
 	iftrue .EmptyFridge
@@ -395,7 +395,7 @@ PlayersHouse1FFridgeScript:
 	jumptext EmptyFridgeText
 
 .TakeFreshWater:
-	checkevent EVENT_GOT_HM05_FLASH
+	checkitem HM_FLASH
 	iffalse .FridgeFreeFreshWater
 	takemoney MOMS_MONEY, 50
 .FridgeFreeFreshWater:
@@ -405,7 +405,7 @@ PlayersHouse1FFridgeScript:
 	end
 
 .TakeLemonade:
-	checkevent EVENT_GOT_HM05_FLASH
+	checkitem HM_FLASH
 	iffalse .FridgeFreeLemonade
 	takemoney MOMS_MONEY, 150
 .FridgeFreeLemonade:

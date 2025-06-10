@@ -9,7 +9,7 @@ Route27SandstormHouse_MapScripts:
 SandstormHouseWoman:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_TM37_SANDSTORM
+	checkitem TM_SANDSTORM
 	iftrue .AlreadyGotItem
 	special GetFirstPokemonHappiness
 	writetext SandstormHouseWomanText1
@@ -22,7 +22,6 @@ SandstormHouseWoman:
 	promptbutton
 	verbosegiveitem TM_SANDSTORM
 	iffalse .Done
-	setevent EVENT_GOT_TM37_SANDSTORM
 .AlreadyGotItem:
 	writetext SandstormHouseSandstormDescription
 	waitbutton

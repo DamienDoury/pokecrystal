@@ -115,13 +115,12 @@ FuchsiaGymJanineScript:
 	faceplayer
 	opentext
 .AfterBattle:
-	checkevent EVENT_GOT_TM06_TOXIC
+	checkitem TM_TOXIC
 	iftrue .AfterTM
 	writetext JanineText_ToxicSpeech
 	promptbutton
 	verbosegiveitem TM_TOXIC
 	iffalse .AfterTM
-	setevent EVENT_GOT_TM06_TOXIC
 .AfterTM:
 	writetext JanineText_ApplyMyself
 	waitbutton

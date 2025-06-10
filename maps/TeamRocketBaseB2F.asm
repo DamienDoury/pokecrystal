@@ -274,7 +274,6 @@ RocketBaseElectrodeScript:
 	writemem wJohtoAddLevel
 
 	verbosegiveitem HM_STRENGTH
-	setevent EVENT_GOT_HM04_STRENGTH
 	writetext RocketBaseLanceStrengthText
 	waitbutton
 	closetext

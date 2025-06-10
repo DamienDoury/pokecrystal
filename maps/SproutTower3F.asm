@@ -73,7 +73,7 @@ SproutTower3FRivalScene:
 SageLiScript:
 	faceplayer
 	opentext
-	checkevent EVENT_GOT_HM05_FLASH
+	checkitem HM_FLASH
 	iftrue .GotFlash
 	writetext SageLiSeenText
 	waitbutton
@@ -86,7 +86,6 @@ SageLiScript:
 	writetext SageLiTakeThisFlashText
 	promptbutton
 	verbosegiveitem HM_FLASH
-	setevent EVENT_GOT_HM05_FLASH
 	setevent EVENT_BEAT_SAGE_LI
 	setmapscene ELMS_LAB, SCENE_ELMSLAB_NOTHING
 	writetext SageLiFlashExplanationText

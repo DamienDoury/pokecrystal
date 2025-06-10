@@ -112,7 +112,7 @@ AzaleaGymBugsyScript:
 	waitsfx
 	setflag ENGINE_HIVEBADGE
 .FightDone:
-	checkevent EVENT_GOT_TM49_FURY_CUTTER
+	checkitem TM_FURY_CUTTER
 	iftrue .GotFuryCutter
 	setevent EVENT_BEAT_TWINS_AMY_AND_MAY
 	setevent EVENT_BEAT_BUG_CATCHER_BENNY
@@ -123,7 +123,6 @@ AzaleaGymBugsyScript:
 	promptbutton
 	verbosegiveitem TM_FURY_CUTTER
 	iffalse .NoRoomForFuryCutter
-	setevent EVENT_GOT_TM49_FURY_CUTTER
 	writetext BugsyText_FuryCutterSpeech
 	waitbutton
 	closetext
