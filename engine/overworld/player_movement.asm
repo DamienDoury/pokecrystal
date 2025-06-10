@@ -941,10 +941,10 @@ endc
 	jr z, .AutoSurf
 
 	farcall GetFacingObject
-	ld a, d
-	and LOW(~CLAP_F)
 	jr c, .BumpSound
 
+	ld a, d
+	and LOW(~CLAP_F)
 	cp SPRITEMOVEDATA_SMASHABLE_ROCK
 	jp z, .AutoRockSmash
 
@@ -1044,11 +1044,11 @@ endc
 .AutoStrength:
 	ld b, HM_STRENGTH
 	farcall FarCheckHMSilent
-	jp c, .BumpSound
+	jmp c, .BumpSound
 
 	ld d, STRENGTH
 	farcall CheckPartyMove
-	jp c, .BumpSound
+	jmp c, .BumpSound
 
 	; This one is complicated.
 	; When bumping into a boulder, even if it can't be pushed, we should always activate Strength.
@@ -1056,9 +1056,7 @@ endc
 
 	ld a, [wBikeFlags]
 	bit BIKEFLAGS_STRENGTH_ACTIVE_F, a
-	jr z, .ActivateStrength
-
-	jmp .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
+	jmp nz, .BumpSound ; The bump sound won't play if the "boulder push" sound is being played.
 
 .ActivateStrength
 	call PlayCurPartyMonCry
