@@ -14,11 +14,9 @@ MrPsychic:
 	writetext MrPsychicText1
 	promptbutton
 	verbosegiveitem TM_PSYCHIC_M
-	iffalse .Done
 .AlreadyGotItem:
 	writetext MrPsychicText2
 	waitbutton
-.Done:
 	closetext
 	end
 

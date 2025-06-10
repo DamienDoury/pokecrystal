@@ -105,14 +105,12 @@ OfficerScript_GuardWithSludgeBomb:
 	writetext OfficerText_FoundTM
 	promptbutton
 	verbosegiveitem TM_SLUDGE_BOMB
-	iffalse .NoRoomForSludgeBomb
 	closetext
 	end
 
 .GotSludgeBomb:
 	writetext OfficerText_AvoidGrass
 	waitbutton
-.NoRoomForSludgeBomb:
 	closetext
 	end
 

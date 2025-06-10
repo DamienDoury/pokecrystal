@@ -94,11 +94,9 @@ Route32RoarTMGuyScript:
 	writetext Text_RoarIntro
 	promptbutton
 	verbosegiveitem TM_ROAR
-	iffalse .Finish
 .AlreadyHaveRoar:
 	writetext Text_RoarOutro
 	waitbutton
-.Finish:
 	closetext
 	end
 

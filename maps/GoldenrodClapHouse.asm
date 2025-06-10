@@ -118,7 +118,7 @@ GoldenrodClapHouse_ClapMasterScript:
 
 	writetext GoldenrodClapHouse_MasterEncoreSecondChanceText
 	promptbutton
-	verbosegiveitem TM_ENCORE ; Not issue with a full pack when giving out a TM, as it's a bit field.
+	verbosegiveitem TM_ENCORE ; No issue with a full pack when giving out a TM, as it's a bit field.
 	setevent EVENT_GOT_CLAPPING_GIFT_3 ; Prevents the item from being obtainable once more, from the OfferClappingGift function.
 	sjump .close_text
 		
@@ -207,8 +207,6 @@ OfferClappingGift:
 	writetext GoldenrodClapHouse_Gift3Text
 	promptbutton
 	verbosegiveitem TM_ENCORE
-	iffalse .end_with_ret_val
-
 	setevent EVENT_GOT_CLAPPING_GIFT_3
 .end_with_ret_val
 	readmem wTempByteValue

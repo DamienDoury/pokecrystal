@@ -24,11 +24,9 @@ CeladonMansionRoofHousePharmacistScript:
 	writetext CeladonMansionRoofHousePharmacistStoryText
 	promptbutton
 	verbosegiveitem TM_CURSE
-	iffalse .NoRoom
 .GotCurse:
 	writetext CeladonMansionRoofHousePharmacistCurseText
 	waitbutton
-.NoRoom:
 	closetext
 	end
 

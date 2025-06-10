@@ -55,11 +55,9 @@ ViridianCityDreamEaterFisher:
 	writetext ViridianCityDreamEaterFisherText
 	promptbutton
 	verbosegiveitem TM_DREAM_EATER
-	iffalse .NoRoomForDreamEater
 .GotDreamEater:
 	writetext ViridianCityDreamEaterFisherGotDreamEaterText
 	waitbutton
-.NoRoomForDreamEater:
 	closetext
 	end
 

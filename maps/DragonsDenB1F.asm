@@ -64,7 +64,6 @@ DragonsDenB1F_ClairScene:
 	writetext ClairText_GiveDragonbreathDragonDen
 	promptbutton
 	giveitem TM_DRAGONBREATH
-	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext Text_ReceivedTM24
 	playsound SFX_ITEM
@@ -78,10 +77,6 @@ DragonsDenB1F_ClairScene:
 	closetext
 	sjump .FinishClair
 
-.BagFull:
-	writetext ClairText_NoRoom
-	waitbutton
-	closetext
 .FinishClair:
 	applymovement DRAGONSDENB1F_CLAIR, MovementDragonsDen_ClairWalksAway
 	special FadeOutMusic
@@ -228,29 +223,6 @@ ClairText_DescribeDragonbreathDragonDen: ; TO TRANSLATE
 	line "want the TM, you"
 	cont "don't have to take"
 	cont "it."
-	done
-
-ClairText_NoRoom: 
-if DEF(_FR_FR)
-	text "Oh? Tu n'as plus"
-	line "de place."
-
-	para "Je retourne à"
-	line "l'ARENE. Fais de"
-
-	para "la place et re-"
-	line "viens me voir."
-else
-	text "Oh? You don't have"
-	line "any room for this."
-
-	para "I'm going back to"
-	line "the GYM, so make"
-
-	para "room, then come"
-	line "see me there."
-endc
-
 	done
 
 DragonShrineSignpostText: 

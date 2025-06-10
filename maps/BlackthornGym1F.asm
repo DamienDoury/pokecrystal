@@ -155,7 +155,6 @@ BlackthornGymClairScript:
 	writetext BlackthornGymClairText_YouKeptMeWaiting
 	promptbutton
 	giveitem TM_DRAGONBREATH
-	iffalse .BagFull
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
 	writetext BlackthornGymText_ReceivedTM24
 	playsound SFX_ITEM
@@ -165,12 +164,6 @@ BlackthornGymClairScript:
 	writetext BlackthornGymClairText_DescribeTM24
 	promptbutton
 	sjump .GotTM24
-
-.BagFull:
-	writetext BlackthornGymClairText_BagFull
-	waitbutton
-	closetext
-	end
 
 .GotTM24:
 	writetext BlackthornGymClairText_League
@@ -375,17 +368,6 @@ else
 	para "If you don't want"
 	line "it, you don't have"
 	cont "to take it."
-endc
-
-	done
-
-BlackthornGymClairText_BagFull: 
-if DEF(_FR_FR)
-	text "Bah alors? Tu n'as"
-	line "pas de place?"
-else
-	text "What is this? You"
-	line "don't have room?"
 endc
 
 	done

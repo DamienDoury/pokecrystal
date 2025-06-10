@@ -388,11 +388,9 @@ IlexForestHeadbuttGuyScript:
 	writetext Text_HeadbuttIntro
 	promptbutton
 	verbosegiveitem TM_HEADBUTT
-	iffalse .BagFull
 .AlreadyGotHeadbutt:
 	writetext Text_HeadbuttOutro
 	waitbutton
-.BagFull:
 	closetext
 	end
 

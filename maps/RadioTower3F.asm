@@ -71,7 +71,6 @@ RadioTower3FCooltrainerFScript:
 	writetext RadioTower3FCooltrainerFYoureMyHeroText
 	promptbutton
 	verbosegiveitem TM_SUNNY_DAY
-	iffalse .NoRoom
 	writetext RadioTower3FCooltrainerFItsSunnyDayText
 	waitbutton
 	closetext
@@ -80,7 +79,6 @@ RadioTower3FCooltrainerFScript:
 .GotSunnyDay:
 	writetext RadioTower3FCooltrainerFYouWereMarvelousText
 	waitbutton
-.NoRoom:
 	closetext
 	end
 

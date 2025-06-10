@@ -122,7 +122,6 @@ AzaleaGymBugsyScript:
 	writetext BugsyText_HiveBadgeSpeech
 	promptbutton
 	verbosegiveitem TM_FURY_CUTTER
-	iffalse .NoRoomForFuryCutter
 	writetext BugsyText_FuryCutterSpeech
 	waitbutton
 	closetext
@@ -131,7 +130,6 @@ AzaleaGymBugsyScript:
 .GotFuryCutter:
 	writetext BugsyText_BugMonsAreDeep
 	waitbutton
-.NoRoomForFuryCutter:
 	closetext
 	end
 

@@ -76,7 +76,6 @@ GoldenrodDeptStore5FReceptionistScript:
 .EventIsOver:
 	writetext GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText
 	waitbutton
-.Done:
 	closetext
 	end
 

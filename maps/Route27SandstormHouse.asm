@@ -21,11 +21,9 @@ SandstormHouseWoman:
 	writetext SandstormHouseWomanLoyalText
 	promptbutton
 	verbosegiveitem TM_SANDSTORM
-	iffalse .Done
 .AlreadyGotItem:
 	writetext SandstormHouseSandstormDescription
 	waitbutton
-.Done:
 	closetext
 	end
 

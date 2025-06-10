@@ -132,7 +132,6 @@ VioletGymFalknerScript:
 	writetext FalknerZephyrBadgeText2
 	promptbutton
 	verbosegiveitem TM_MUD_SLAP
-	iffalse .NoRoomForMudSlap
 	writetext FalknerTMMudSlapText
 	waitbutton
 	closetext
@@ -141,7 +140,6 @@ VioletGymFalknerScript:
 .SpeechAfterTM:
 	writetext FalknerFightDoneText
 	waitbutton
-.NoRoomForMudSlap:
 	closetext
 	end
 

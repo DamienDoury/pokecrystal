@@ -14,7 +14,6 @@ HiddenPowerGuy:
 	writetext HiddenPowerGuyText1
 	promptbutton
 	verbosegiveitem TM_HIDDEN_POWER
-	iffalse .Done
 	writetext HiddenPowerGuyText2
 	waitbutton
 	closetext
@@ -22,7 +21,6 @@ HiddenPowerGuy:
 .AlreadyGotItem:
 	writetext HiddenPowerGuyText3
 	waitbutton
-.Done:
 	closetext
 	end
 

@@ -144,7 +144,6 @@ GoldenrodGymWhitneyScript:
 	writetext WhitneyPlainBadgeText2
 	promptbutton
 	verbosegiveitem TM_ATTRACT
-	iffalse .NoRoomForAttract
 	writetext WhitneyAttractText
 	waitbutton
 	closetext
@@ -153,7 +152,6 @@ GoldenrodGymWhitneyScript:
 .GotAttract:
 	writetext WhitneyGoodCryText
 	waitbutton
-.NoRoomForAttract:
 	closetext
 	end
 

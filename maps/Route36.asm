@@ -171,11 +171,9 @@ Route36RockSmashGuyScript:
 	writetext RockSmashGuyText2
 	promptbutton
 	verbosegiveitem TM_ROCK_SMASH
-	iffalse .NoRoomForTM
 .AlreadyGotRockSmash:
 	writetext RockSmashGuyText3
 	waitbutton
-.NoRoomForTM:
 	closetext
 	end
 

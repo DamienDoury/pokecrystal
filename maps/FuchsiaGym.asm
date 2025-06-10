@@ -120,7 +120,6 @@ FuchsiaGymJanineScript:
 	writetext JanineText_ToxicSpeech
 	promptbutton
 	verbosegiveitem TM_TOXIC
-	iffalse .AfterTM
 .AfterTM:
 	writetext JanineText_ApplyMyself
 	waitbutton
