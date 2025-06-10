@@ -710,12 +710,17 @@ PartyMenuSelect:
 
 	ld a, [wPartyMenuActionText]
 	cp PARTYMENUACTION_MOVE
-	jr nz, .skip_select_input
+	jr nz, .choose_pokemon_menu_header
 	
 	; If we are already in the Move mode, we need to set the skip index.
 	ld a, [wSwitchMon]
 	jr .skip_select_input_with_skip_index
 
+.choose_pokemon_menu_header
+	; PARTYMENUACTION_CHOOSE_POKEMON
+	ld a, [wMenuJoypadFilter]
+	or D_LEFT | D_RIGHT
+	ld [wMenuJoypadFilter], a
 .skip_select_input
 	ld a, -1
 .skip_select_input_with_skip_index
@@ -730,12 +735,11 @@ PartyMenuSelect:
 
 	; At this point, we know the cursor is over the Cancel button (or beyond).
 
-	; Can't exit by pressing Select on the Cancel button.
+	; Can't exit by pressing Select or the Cancel button.
 	ldh a, [hJoyLast]
-	cp a
-	bit SELECT_F, a
+	and A_BUTTON | B_BUTTON
 	ld a, [wMenuCursorY]
-	jr z, .exitmenu ; Select wasn't pressed.
+	jmp nz, .exitmenu ; Select wasn't pressed.
 
 	call HideCursor
 	jr .skip_select_input ; Ignore select on cancel.
@@ -758,9 +762,25 @@ PartyMenuSelect:
 	ld [wCurPartySpecies], a
 
 	ldh a, [hJoyLast]
-	cp SELECT
-	jp nz, .play_sfx
+	bit SELECT_F, a
+	jr nz, .pressed_select
 
+	bit D_LEFT_F, a
+	jr nz, .take_item
+
+	bit D_RIGHT_F, a
+	ld a, 1
+	jr nz, .give_or_take_done ; give.
+
+.play_sfx
+	ld a, [hl]
+	ld de, SFX_READ_TEXT_2
+	call PlaySFX
+	;call WaitSFX
+	and a
+	ret
+
+.pressed_select
 	; If the player presses select, either we start the switch process,
 	; or we validate it.
 	ld a, [wPartyMenuActionText]
@@ -772,16 +792,22 @@ PartyMenuSelect:
 	farcall WritePartyMenuTilemap
 	farcall PrintPartyMenuText
 	pop hl
-	jp PartyMenuSelect
+	jmp PartyMenuSelect
 
-.play_sfx
-	ld a, [hl]
-	ld de, SFX_READ_TEXT_2
-	call PlaySFX
-	;call WaitSFX
-	and a
-	ret
-
+.take_item
+	xor a ; take.
+.give_or_take_done
+	ld [wMenuCursorY], a
+	farcall GiveTakePartyMonItem.give_or_take
+	farcall LoadPartyMenuGFX
+	farcall InitPartyMenuWithCancel
+	farcall InitPartyMenuGFX
+	farcall WritePartyMenuTilemap
+	farcall PrintPartyMenuText
+	call WaitBGMap
+	call SetPalettes
+	jmp PartyMenuSelect
+	
 .exitmenu
 	ld de, SFX_READ_TEXT_2
 	call PlaySFX

@@ -131,6 +131,7 @@ GiveTakePartyMonItem:
 	call ExitMenu
 	jr c, .cancel
 
+.give_or_take
 	call GetCurNickname
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
