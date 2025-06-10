@@ -45,12 +45,12 @@ PokemonActionSubmenu:
 	dbw MONMENUITEM_FLY,        MonMenu_Fly
 	dbw MONMENUITEM_SURF,       MonMenu_Surf
 	dbw MONMENUITEM_STRENGTH,   MonMenu_Strength
-	dbw MONMENUITEM_FLASH,      MonMenu_Flash
+	dbw MONMENUITEM_FLASH,      MonMenu_Flash ; Better to keep a manual trigger in Shortcuts mode for the ruins of alph. Also if the player teaches Flash while already being in a cave, then it needs to be manually triggered.
 	dbw MONMENUITEM_WHIRLPOOL,  MonMenu_Whirlpool
 	dbw MONMENUITEM_DIG,        MonMenu_Dig
 	dbw MONMENUITEM_TELEPORT,   MonMenu_Teleport
-	dbw MONMENUITEM_SOFTBOILED, MonMenu_Softboiled_MilkDrink
-	dbw MONMENUITEM_MILKDRINK,  MonMenu_Softboiled_MilkDrink
+	dbw MONMENUITEM_SOFTBOILED, MonMenu_Softboiled_MilkDrink ; Need manual trigger even in Shortcuts World Actions mode.
+	dbw MONMENUITEM_MILKDRINK,  MonMenu_Softboiled_MilkDrink ; Need manual trigger even in Shortcuts World Actions mode.
 	dbw MONMENUITEM_HEADBUTT,   MonMenu_Headbutt
 	dbw MONMENUITEM_WATERFALL,  MonMenu_Waterfall
 	dbw MONMENUITEM_ROCKSMASH,  MonMenu_RockSmash
