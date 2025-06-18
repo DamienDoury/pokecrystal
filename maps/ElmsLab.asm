@@ -1140,7 +1140,8 @@ ElmDirectionsText2: ; TO TRANSLATE
 	para "It can heal their"
 	line "health points but"
 	cont "won't get rid of"
-	cont "viruses I'm afraid…"
+	cont "viruses I'm"
+	cont "afraid…"
 
 	para "Feel free to use"
 	line "it anytime."
