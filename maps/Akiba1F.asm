@@ -331,34 +331,89 @@ Akiba1F_BackToChairFromRightMovement:
 	turn_head UP
 	step_end
 
-Akiba1F_GameConsoleText: ; TO TRANSLATE
+Akiba1F_GameConsoleText:
+if DEF(_FR_FR)
+	text "Une console de"
+	line "jeu. Où est"
+	cont "le vendeur?"
+	done
+else
 	text "A game console."
 	line "Where's the seller?"
 	done
+endc
 
-Akiba1F_NotEnoughMoneyText: ; TO TRANSLATE
+Akiba1F_NotEnoughMoneyText:
+if DEF(_FR_FR)
+	text "Je suis désolé,"
+	line "je ne baisserai"
+	cont "pas le prix de"
+	cont "cet article."
+	cont "Revenez avec"
+	cont "assez d'argent."
+	done
+else
 	text "I'm sorry but I"
 	line "won't lower the"
 	cont "price of this"
 	cont "item. Come back"
 	cont "with enough money."
 	done
+endc
 
-Akiba1F_TransactionCompletedText: ; TO TRANSLATE
+Akiba1F_TransactionCompletedText:
+if DEF(_FR_FR)
+	text "Excellent choix!"
+	line "Je l'expédie chez"
+	cont "toi sans délai!"
+	done
+else
 	text "Great choice!"
 	line "I will ship it to"
 	cont "your home without"
 	cont "delay!"
 	done
+endc
 
-Akiba1F_TransactionRefusedText: ; TO TRANSLATE
+Akiba1F_TransactionRefusedText:
+if DEF(_FR_FR)
+	text "Réfléchis-y."
+	line "Ce sera peut-être"
+	cont "déjà vendu"
+	cont "la prochaine fois"
+	cont "que tu viendras."
+	done
+else
 	text "Think about it."
 	line "It may be gone"
 	cont "next time you"
 	cont "come."
 	done
+endc
 
-Akiba1F_VirtualBoyBuyText: ; TO TRANSLATE
+Akiba1F_VirtualBoyBuyText:
+if DEF(_FR_FR)
+	text "Voici un très rare"
+	line "VIRTUAL BOY."
+
+	para "Cette console"
+	line "portable avait"
+	cont "déjà un écran 3<BOLD_D>"
+	cont "avant même que la"
+	cont "Game Boy Color"
+	cont "n'ait vu le jour."
+
+	para "Seulement 770 000"
+	line "unités ont été"
+	cont "vendues durant son"
+	cont "unique année de"
+	cont "commercialisation."
+
+	para "Rejoins le club"
+	line "des privilégiés"
+	cont "pour {d:VIRTUAL_BOY_PRICE}¥."
+	done
+else
 	text "This is a super"
 	line "rare VIRTUAL BOY."
 
@@ -377,8 +432,30 @@ Akiba1F_VirtualBoyBuyText: ; TO TRANSLATE
 	line "happy few club"
 	cont "for ¥{d:VIRTUAL_BOY_PRICE}."
 	done
+endc
 
-Akiba1F_N64BuyText: ; TO TRANSLATE
+Akiba1F_N64BuyText:
+if DEF(_FR_FR)
+	text "Cette NINTENDO 64"
+	line "est l'édition"
+	cont "spéciale Pikachu."
+
+	para "Un design très"
+	line "audacieux pour"
+	cont "une console, tu"
+	cont "ne trouves pas?"
+
+	para "Les joues qui"
+	line "s'illuminent sont"
+	cont "un joli détail, et"
+	cont "le pied qui sert"
+	cont "de bouton est"
+	cont "trop mignon!"
+
+	para "Elle est à toi"
+	line "pour {d:N64_PRICE}¥."
+	done
+else
 	text "This NINTENDO 64"
 	line "is the special"
 	cont "Pikachu edition."
@@ -396,8 +473,25 @@ Akiba1F_N64BuyText: ; TO TRANSLATE
 	para "It's yours for"
 	line "¥{d:N64_PRICE}."
 	done
+endc
 
-Akiba1F_SNESBuyText: ; TO TRANSLATE
+Akiba1F_SNESBuyText:
+if DEF(_FR_FR)
+	text "La SUPER NINTENDO"
+	line "ENTERTAINMENT"
+	cont "SYSTEM succède"
+	cont "à la NES comme"
+	cont "tu l'auras deviné."
+	
+	para "C'est une console"
+	line "légendaire..."
+	cont "à laquelle je n'ai"
+	cont "jamais joué."
+	
+	para "Tu peux l'avoir"
+	line "pour {d:SNES_PRICE}¥."
+	done
+else
 	text "The SUPER NINTENDO"
 	line "ENTERTAINMENT"
 	cont "SYSTEM is the"
@@ -412,8 +506,26 @@ Akiba1F_SNESBuyText: ; TO TRANSLATE
 	para "You can have it"
 	line "for ¥{d:SNES_PRICE}."
 	done
+endc
 
-Akiba1F_NESBuyText: ; TO TRANSLATE
+Akiba1F_NESBuyText:
+if DEF(_FR_FR)
+	text "La Famicom est la"
+	line "version japonaise"
+	cont "de la NINTENDO"
+	cont "ENTERTAINMENT"
+	cont "SYSTEM."
+	
+	para "Malheureusement"
+	line "je n'ai pas"
+	cont "R.O.B. le robot"
+	cont "qui faisait la"
+	cont "pub avec."
+	
+	para "Je la vends"
+	line "pour ¥{d:NES_PRICE}."
+	done
+else
 	text "The Famicom is the"
 	line "Japanese version"
 	cont "of the NINTENDO"
@@ -428,26 +540,88 @@ Akiba1F_NESBuyText: ; TO TRANSLATE
 	para "I'm selling it for"
 	line "¥{d:NES_PRICE}."
 	done
+endc
 
-Akiba1F_BeRightBackText: ; TO TRANSLATE
+Akiba1F_BeRightBackText:
+if DEF(_FR_FR)
+	text "Je suis à CELADO-"
+	line "POLE, je reviens"
+	cont "tout de suite."
+	done
+else
 	text "I'm in CELADON,"
 	line "I'll be right back."
 	done
+endc
 
-Akiba1F_Seller_HiText: ; TO TRANSLATE
+Akiba1F_Seller_HiText:
+if DEF(_FR_FR)
+	text "Oh salut!"
+	
+	para "On s'est vu chez"
+	line "GAME FREAK, tu te"
+	cont "souviens de moi?"
+	done
+else
 	text "Oh hi!"
 
 	para "We met at "
 	line "GAME FREAK's,"
 	cont "remember me?"
 	done
+endc
 
-Akiba1F_Seller_HiEndText: ; TO TRANSLATE
+Akiba1F_Seller_HiEndText:
+if DEF(_FR_FR)
+	text "N'hésites pas à"
+	line "faire le tour"
+	cont "de ma boutique!"
+	done
+else
 	text "Feel free to snoop"
 	line "around my shop!"
 	done
+endc
 
-Akiba1F_Seller_BestCustomerText: ; TO TRANSLATE
+Akiba1F_Seller_BestCustomerText:
+if DEF(_FR_FR)
+	text "Hé! Ne serait-ce"
+	line "pas mon meilleur"
+	cont "client?"
+	
+	para "Merci de soutenir"
+	line "le rétro gaming."
+	
+	para "J'aimerais"
+	line "partager une"
+	cont "pensée avec toi."
+	
+	para "Nous savons tous"
+	line "que la matière est"
+	cont "faite de pixels,"
+	cont "qui interagissent"
+	cont "selon les lois"
+	cont "du code source"
+	cont "et de ses bits."
+	
+	para "Mais si tout cela"
+	line "était une"
+	cont "simulation"
+	cont "créée par des"
+	cont "êtres supérieurs?"
+	
+	para "Comment le"
+	line "saurions-nous?"
+	
+	para "Pourrions-nous"
+	line "interagir avec"
+	cont "leur réalité?"
+	
+	para "..."
+	
+	para "Je me demande."
+	done
+else
 	text "Hey! Isn't this my"
 	line "best customer?"
 
@@ -481,103 +655,236 @@ Akiba1F_Seller_BestCustomerText: ; TO TRANSLATE
 
 	para "I wonder."
 	done
+endc
 
-Akiba1F_Seller_RadioText: ; TO TRANSLATE
+Akiba1F_Seller_RadioText:
+if DEF(_FR_FR)
+	text "Mon ami le"
+	line "DIRECTEUR MUSICAL"
+	cont "t'a envoyé?"
+	cont "Je vois."
+	
+	para "Voici un COUPON"
+	line "RADIO pour ton"
+	cont "#GEAR, c'est"
+	cont "gratuit pour toi!"
+	done
+else
 	text "My friend the"
 	line "MUSIC DIRECTOR"
 	cont "sent you? I see."
-
+	
 	para "Here's a RADIO CARD"
 	line "for your #GEAR,"
 	cont "free of charge!"
 	done
+endc
 
-Akiba1F_Inventory1Text: ; TO TRANSLATE
+Akiba1F_Inventory1Text:
+if DEF(_FR_FR)
+	text "Adrénaline et"
+	line "testostérone:"
+	
+	para "Devil May Cry"
+	done
+else
 	text "Adrenaline and"
 	line "testosterone:"
-
+	
 	para "Devil may cry"
 	done
-	
-Akiba1F_Inventory2Text: ; TO TRANSLATE
+endc
+
+Akiba1F_Inventory2Text:
+if DEF(_FR_FR)
+	text "Golden Sun 1 & 2!"
+	line "Immanquable!"
+	done
+else
 	text "Golden Sun 1 & 2!"
 	line "A must play!"
 	done
+endc
 
-Akiba1F_Inventory3Text: ; TO TRANSLATE
+Akiba1F_Inventory3Text:
+if DEF(_FR_FR)
+	text "Des pièces de"
+	line "de #GEAR."
+	done
+else
 	text "Some #GEAR "
 	line "parts."
 	done
+endc
 
-Akiba1F_Inventory4Text: ; TO TRANSLATE
+Akiba1F_Inventory4Text:
+if DEF(_FR_FR)
+	text "Des composants"
+	line "de radio."
+	done
+else
 	text "Radio parts."
 	done
+endc
 
-Akiba1F_Inventory5Text: ; TO TRANSLATE
+Akiba1F_Inventory5Text:
+if DEF(_FR_FR)
+	text "Des tamagotchis"
+	line "en pagaille!"
+	done
+else
 	text "Tamagotchis"
 	line "everywhere!"
 	done
+endc
 
-Akiba1F_Inventory6Text: ; TO TRANSLATE
+Akiba1F_Inventory6Text:
+if DEF(_FR_FR)
+	text "Pocket Pikachu 2!"
+	line "Celui-ci se"
+	cont "connecte aux jeux"
+	cont "#MON sur Game"
+	cont "Boy Color."
+	done
+else
 	text "Pocket Pikachu 2!"
 	line "This one connects"
 	cont "with the #MON"
 	cont "games on the"
 	cont "Game Boy Color."
 	done
+endc
 
-Akiba1F_Inventory7Text: ; TO TRANSLATE
+Akiba1F_Inventory7Text:
+if DEF(_FR_FR)
+	text "Le jeu PC"
+	line "Impossible"
+	cont "Creatures."
+	done
+else
 	text "The PC game"
 	line "Impossible"
 	cont "Creatures."
 	done
+endc
 
-Akiba1F_Inventory8Text: ; TO TRANSLATE
+Akiba1F_Inventory8Text:
+if DEF(_FR_FR)
+	text "Le Maitre de"
+	line "l'Olympe: Zeus"
+	cont "sur CD-ROM."
+	done
+else
 	text "Zeus: Master of"
 	line "Olympus"
 	cont "on CD-ROM."
 	done
+endc
 
-Akiba1F_Inventory9Text: ; TO TRANSLATE
+Akiba1F_Inventory9Text:
+if DEF(_FR_FR)
+	text "Un MAGNETI se"
+	line "repose dans"
+	cont "cette panière."
+	done
+else
 	text "There's a MAGNEMITE"
 	line "chilling in"
 	cont "this bin."
 	done
+endc
 
-Akiba1F_Inventory10Text: ; TO TRANSLATE
+Akiba1F_Inventory10Text:
+if DEF(_FR_FR)
+	text "Une cartouche de"
+	line "la version finale"
+	cont "de Coral Version."
+	done
+else
 	text "A cartridge of the"
 	line "final release of"
 	cont "Coral Version."
 	done
+endc
 
-Akiba1F_Inventory11Text: ; TO TRANSLATE
+Akiba1F_Inventory11Text:
+if DEF(_FR_FR)
+	text "Hé, c'est Polished"
+	line "Crystal!"
+	done
+else
 	text "Hey that's"
 	line "Polished Crystal!"
 	done
+endc
 
-Akiba1F_Inventory12Text: ; TO TRANSLATE
+Akiba1F_Inventory12Text:
+if DEF(_FR_FR)
+	text "Insaniquarium"
+	line "sur CD-ROM."
+	done
+else
 	text "Insaniquarium"
 	line "on CD-ROM."
 	done
+endc
 
-Akiba1F_Inventory13Text: ; TO TRANSLATE
+Akiba1F_Inventory13Text:
+if DEF(_FR_FR)
+	text "Morrowind"
+	line "sur CD-ROM."
+	done
+else
 	text "Morrowind"
 	line "on CD-ROM."
 	done
+endc
 
-Akiba1F_Inventory14Text: ; TO TRANSLATE
+Akiba1F_Inventory14Text:
+if DEF(_FR_FR)
+	text "Jeux Game Boy"
+	line "rares à prix"
+	cont "bas!"
+	done
+else
 	text "Rare Game Boy"
 	line "games for"
 	cont "very cheap!"
 	done
+endc
 
-Akiba1F_Inventory15Text: ; TO TRANSLATE
+Akiba1F_Inventory15Text:
+if DEF(_FR_FR)
+	text "Un Game & Watch"
+	line "Crystal Screen"
+	cont "Super Mario Bros!"
+	done
+else
 	text "A Super Mario Bros"
 	line "Crystal Screen"
 	cont "Game & Watch!"
 	done
+endc
 
-Akiba1F_Inventory16Text: ; TO TRANSLATE
+Akiba1F_Inventory16Text:
+if DEF(_FR_FR)
+	text "Plein d'accessoires"
+	line "insolites pour la"
+	cont "Game Boy."
+
+	para "L'adaptateur GB"
+	line "Mobile, une impri-"
+	cont "mante portable, un"
+	cont "lecteur de code-"
+	cont "barres, un..."
+	cont "sonar de pêche,"
+	cont "une machine à"
+	cont "coudre, et même..."
+
+	para "...un testeur de"
+	line "glycémie?"
+	done
+else
 	text "Lots of weird"
 	line "accessories for"
 	cont "the Game Boy."
@@ -593,33 +900,82 @@ Akiba1F_Inventory16Text: ; TO TRANSLATE
 	para "…a blood sugar"
 	line "tester?"
 	done
+endc
 
-Akiba1F_Inventory17Text: ; TO TRANSLATE
+Akiba1F_Inventory17Text:
+if DEF(_FR_FR)
+	text "Cartouches de"
+	line "The Legend of"
+	cont "Zelda pour GB et"
+	cont "GBC. Excellent."
+	done
+else
 	text "Copies of The"
 	line "Legend of Zelda"
 	cont "for the Game Boy"
 	cont "and Game Boy Color"
 	cont "consoles. Nice."
 	done
+endc
 
-Akiba1F_Inventory18Text: ; TO TRANSLATE
+Akiba1F_Inventory18Text:
+if DEF(_FR_FR)
+	text "Un jeu Game Boy"
+	line "pour les employés"
+	cont "de McDonald's?"
+	done
+else
 	text "A Game Boy game"
 	line "for McDonald's"
 	cont "employees?"
 	done
+endc
 
-Akiba1F_Inventory19Text: ; TO TRANSLATE
+Akiba1F_Inventory19Text:
+if DEF(_FR_FR)
+	text "Cartes de contrôle"
+	line "de flippers!"
+	done
+else
 	text "Pinball circuit"
 	line "boards!"
 	done
+endc
 
-Akiba1F_Inventory20Text: ; TO TRANSLATE
+Akiba1F_Inventory20Text:
+if DEF(_FR_FR)
+	text "Des vieilles puces"
+	line "flash 5V"
+	cont "TSOP-48 2Mo."
+	done
+else
 	text "Some junk 5V 2MB"
 	line "TSOP-48 flash"
 	cont "chips."
 	done
+endc
+
+Akiba1F_Inventory21Text:
+if DEF(_FR_FR)
+	text "Une copie de"
+	line "Tetris pour"
+	cont "Game Boy."
 	
-Akiba1F_Inventory21Text: ; TO TRANSLATE
+	para "Un jeu très commun"
+	line "et pas cher."
+	
+	para "Son autocollant"
+	line "semble anormal,"
+	cont "et le 'A' normale-"
+	cont "ment gravé dessus"
+	cont "est manquant."
+	
+	para "Sans doute une"
+	line "copie ratée."
+	cont "Mieux vaut pas"
+	cont "l'acheter."
+	done
+else
 	text "A copy of Tetris"
 	line "for the Game Boy."
 
@@ -634,47 +990,108 @@ Akiba1F_Inventory21Text: ; TO TRANSLATE
 	para "Must be defective."
 	line "Better pass."
 	done
+endc
 
-Akiba1F_Inventory22Text: ; TO TRANSLATE
+Akiba1F_Inventory22Text:
+if DEF(_FR_FR)
+	text "Plaques chauffante"
+	line "de soudure, des"
+	cont "pincettes..."
+	done
+else
 	text "Soldering hot"
 	line "plates, tweezers…"
 	done
+endc
 
-Akiba1F_Inventory23Text: ; TO TRANSLATE
+Akiba1F_Inventory23Text:
+if DEF(_FR_FR)
+	text "Rayman 2:"
+	line "The Great Escape."
+	done
+else
 	text "Rayman 2: The"
 	line "Great Escape."
 	done
+endc
 
-Akiba1F_Inventory24Text: ; TO TRANSLATE
+Akiba1F_Inventory24Text:
+if DEF(_FR_FR)
+	text "Du fun en duel:"
+	line "The Next Tetris"
+	cont "sur PlayStation."
+	done
+else
 	text "Great versus fun:"
 	line "The Next Tetris"
 	cont "on PlayStation."
 	done
+endc
 
-Akiba1F_Inventory25Text: ; TO TRANSLATE
+Akiba1F_Inventory25Text:
+if DEF(_FR_FR)
+	text "Second Sight"
+	line "sur PlayStation 2."
+	done
+else
 	text "Second Sight"
 	line "on PlayStation 2."
 	done
+endc
 
-Akiba1F_Inventory26Text: ; TO TRANSLATE
+Akiba1F_Inventory26Text:
+if DEF(_FR_FR)
+	text "Ils vendent même"
+	line "des jeux de"
+	cont "société!"
+	
+	para "Ils ont Pokémon"
+	line "Maitre Dresseur."
+	done
+else
 	text "They even sell"
 	line "board games!"
 
 	para "They have Pokémon"
 	line "Master Trainer."
 	done
+endc
 
-Akiba1F_Inventory27Text: ; TO TRANSLATE
+Akiba1F_Inventory27Text:
+if DEF(_FR_FR)
+	text "3 jeux en 1:"
+	line "Mega Games 2"
+	cont "sur Mega Drive."
+	done
+else
 	text "3 games in 1:"
 	line "Mega Games 2"
 	cont "on Mega Drive."
 	done
+endc
 
-Akiba1F_Inventory28Text: ; TO TRANSLATE
+Akiba1F_Inventory28Text:
+if DEF(_FR_FR)
 	text "Mickey Mania."
 	done
+else
+	text "Mickey Mania."
+	done
+endc
 
-Akiba1F_PricesUpText: ; TO TRANSLATE
+Akiba1F_PricesUpText:
+if DEF(_FR_FR)
+	text "J'aime mes jeux en"
+	line "format physique."
+	
+	para "Ainsi, je les"
+	line "possède vraiment."
+	
+	para "Aucune société"
+	line "ne peut me les"
+	cont "prendre."
+	done
+else
 	text "I like my games in"
 	line "physical format."
 	
@@ -685,16 +1102,29 @@ Akiba1F_PricesUpText: ; TO TRANSLATE
 	line "take those from"
 	cont "me."
 	done
+endc
 
-Akiba1F_NoClueText: ; TO TRANSLATE
+Akiba1F_NoClueText:
+if DEF(_FR_FR)
+	text "Aucune idée"
+	line "de ce que c'est..."
+	done
+else
 	text "I have no clue"
 	line "what this is…"
 	done
+endc
 
-Akiba1F_GemsText: ; TO TRANSLATE
+Akiba1F_GemsText:
+if DEF(_FR_FR)
+	text "Ici on trouve"
+	line "de vraies perles!"
+	done
+else
 	text "You can find true"
 	line "gems in here!"
 	done
+endc
 
 Akiba1F_MapEvents:
 	db 0, 0 ; filler
