@@ -29,7 +29,18 @@ AzaleaPokecenter1FFishingGuruScript:
 AzaleaPokecenter1FPokefanFScript:
 	jumptextfaceplayer AzaleaPokecenter1FPokefanFText
 
-AzaleaPokecenter1FGentlemanText: ; TO TRANSLATE
+AzaleaPokecenter1FGentlemanText:
+if DEF(_FR_FR)
+	text "Est-ce que ton"
+	line "#MON connait"
+	cont "des CT?"
+
+	para "Ces capacités"
+	line "peuvent être"
+	cont "réapprises"
+	cont "indéfiniment!"
+	done
+else
 	text "Do your #MON"
 	line "know TM moves?"
 
@@ -37,6 +48,7 @@ AzaleaPokecenter1FGentlemanText: ; TO TRANSLATE
 	line "be taught inde-"
 	cont "finitely."
 	done
+endc
 
 AzaleaPokecenter1FFishingGuruText: 
 if DEF(_FR_FR)

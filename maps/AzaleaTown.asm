@@ -731,13 +731,30 @@ endc
 
 	done
 
-AzaleaTownTeacherRushText: ; TO TRANSLATE
+AzaleaTownTeacherRushText:
+if DEF(_FR_FR)
+	text "Laissez-"
+	para "moi"
+	para "ENTREEEEER!!!"
+	done
+else
 	text "Let"
 	para "me"
 	para "IIIIIIN!"
 	done
+endc
 
-AzaleaTownGrampsRushText: ; TO TRANSLATE
+AzaleaTownGrampsRushText:
+if DEF(_FR_FR)
+	text "Crois-tu que les"
+	line "jeunes laisseront"
+	cont "la priorité aux"
+	cont "aînés dans cette"
+	cont "situation?"
+	
+	para "Et bien non."
+	done
+else
 	text "Do you think the"
 	line "young people would"
 	cont "give priority to"
@@ -747,16 +764,36 @@ AzaleaTownGrampsRushText: ; TO TRANSLATE
 	para "Well,"
 	line "they don't."
 	done
+endc
 
-AzaleaTownPokefanRushText: ; TO TRANSLATE
+AzaleaTownPokefanRushText:
+if DEF(_FR_FR)
+	text "Je ne suis pas sûr"
+	line "de la distancia-"
+	cont "tion sociale."
+	
+	para "Je peux pousser"
+	line "un peu plus?"
+	done
+else
 	text "I'm not sure about"
 	line "social distancing."
 
 	para "Can I push people"
 	line "a little more?"
 	done
+endc
 
-AzaleaTownApprenticeRushText: ; TO TRANSLATE
+AzaleaTownApprenticeRushText:
+if DEF(_FR_FR)
+	text "APPRENTI: Je ne"
+	line "pourrai jamais"
+	cont "entrer dans la"
+	cont "BOUTIQUE #MON"
+	cont "avant qu'il ne"
+	cont "soit trop tard..."
+	done
+else
 	text "APPRENTICE: There"
 	line "is no way I will"
 	cont "be able to get"
@@ -764,6 +801,7 @@ AzaleaTownApprenticeRushText: ; TO TRANSLATE
 	cont "MART before it's"
 	cont "too late…"
 	done
+endc
 
 AzaleaTown_MapEvents:
 	db 0, 0 ; filler

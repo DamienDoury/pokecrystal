@@ -28,7 +28,18 @@ AzaleaMartBugCatcherScript:
 AzaleaMartShelfItem1Script:
 	shelfitem 1, TOILET_PAPER, 150
 
-AzaleaMartCooltrainerMText: ; TO TRANSLATE
+AzaleaMartCooltrainerMText:
+if DEF(_FR_FR)
+	text "Il n'y a pas de"
+	line "SUPER BALLS ici."
+
+	para "J'aimerais que"
+	line "FARGAS me fabri-"
+	cont "que quelques unes"
+	cont "de ses BALLS"
+	cont "artisanales."
+	done
+else
 	text "There's no GREAT"
 	line "BALL here."
 
@@ -36,6 +47,7 @@ AzaleaMartCooltrainerMText: ; TO TRANSLATE
 	line "make me some of"
 	cont "his custom BALLS."
 	done
+endc
 
 AzaleaMartBugCatcherText: 
 if DEF(_FR_FR)

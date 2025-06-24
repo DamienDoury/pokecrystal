@@ -242,15 +242,47 @@ NewBadgeObedienceNotification:
 	end
 
 
-BugsyText_INeverLose: ; TO TRANSLATE
+BugsyText_INeverLose:
+if DEF(_FR_FR)
+	text "Je suis HECTOR!"
+	line "Je ne perds jamais"
+
+	para "lorsqu'il s'agit"
+	line "de #MON"
+	cont "insecte."
+else
 	text "I'm BUGSY!"
 	line "I never lose when"
 
 	para "it comes to bug"
 	line "#MON."
 	done
+endc
 
-BugsyText_INeverLoseSequel: ; TO TRANSLATE
+BugsyText_INeverLoseSequel:
+if DEF(_FR_FR)
+	text "Mes recherches"
+	line "vont me permettre"
+
+	para "d'être un super"
+	line "expert des"
+	cont "#MON insecte!"
+	
+	para "Tu sais, le BOIS"
+	line "AUX CHENES est"
+	cont "plein de toiles"
+	cont "de #MON."
+	
+	para "Un expert comme"
+	line "moi sait réagir"
+	cont "si mon #MON"
+	cont "se retrouve"
+	cont "coincé dedans!"
+	
+	para "Et toi, comment"
+	line "vas-tu réagir?"
+	done
+else
 	text "My research is"
 	line "going to make me"
 
@@ -269,6 +301,7 @@ BugsyText_INeverLoseSequel: ; TO TRANSLATE
 
 	para "Will you?"
 	done
+endc
 
 AzaleaGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
@@ -310,18 +343,33 @@ endc
 
 	done
 
-Obey30: ; TO TRANSLATE
+Obey30:
+if DEF(_FR_FR)
+	text "Avec ce premier"
+	line "badge en main, les"
+	
+	para "#MON t'obéiront"
+	line "jusqu'au niveau 30."
+	done
+else
 	text "With this first"
 	line "badge in hand,"
 	
 	para "#MON up to L30"
 	line "will obey you."
 	done
+endc
 
-BugsyText_HiveBadgeSpeech: ; TO TRANSLATE
+BugsyText_HiveBadgeSpeech:
+if DEF(_FR_FR)
+	text "Tiens, je veux que"
+	line "tu prennes ceci."
+	done
+else
 	text "Here, I also want"
 	line "you to have this."
 	done
+endc
 
 BugsyText_FuryCutterSpeech: 
 if DEF(_FR_FR)
@@ -572,16 +620,30 @@ endc
 
 	done
 
-TwinsAmyandmay2BeatenText: ; TO TRANSLATE
+TwinsAmyandmay2BeatenText:
+if DEF(_FR_FR)
+	text "PAM & PIM: Oh,"
+	line "mince et re-mince!"
+	done
+else
 	text "MAY & AMY: Oh,"
 	line "double goodness!"
 	done
+endc
 
-TwinsAmyandmay2AfterBattleText: ; TO TRANSLATE
+TwinsAmyandmay2AfterBattleText:
+if DEF(_FR_FR)
+	text "PAM: Nos #MON"
+	line "insecte ont un"
+	cont "peu perdu..."
+	cont "Quelle honte!"
+	done
+else
 	text "MAY: Our BUG #-"
 	line "MON lost! Oh, what"
 	cont "a shame."
 	done
+endc
 
 AzaleaGymGuideText: 
 if DEF(_FR_FR)
