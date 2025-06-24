@@ -190,26 +190,68 @@ Akiba2F_JigglypuffPosterScript:
 	loadmem wLastCheckedPoster, AKIBA2F_POSTER_4 - 1
 	jumptext Akiba2F_JigglypuffPosterText
 
-Akiba2F_SmeargleText: ; TO TRANSLATE
+Akiba2F_SmeargleText:
+if DEF(_FR_FR)
+	text "QUEULORIOR: ..."
+	done
+else
 	text "SMEARGLE: …"
 	done
+endc
 
-Akiba2F_PikachuPosterText: ; TO TRANSLATE
+Akiba2F_PikachuPosterText:
+if DEF(_FR_FR)
+	text "Un poster plein"
+	line "d'énergie repré-"
+	cont "sentant PIKACHU."
+	done
+else
 	text "An energizing pos-"
 	line "ter of a PIKACHU."
 	done
+endc
 
-Akiba2F_ClefairyPosterText: ; TO TRANSLATE
+Akiba2F_ClefairyPosterText:
+if DEF(_FR_FR)
+	text "Un poster tout"
+	line "mignon d'un"
+	cont "MELOFEE."
+	done
+else
 	text "A cute poster"
 	line "of a CLEFAIRY."
 	done
+endc
 
-Akiba2F_JigglypuffPosterText: ; TO TRANSLATE
+Akiba2F_JigglypuffPosterText:
+if DEF(_FR_FR)
+	text "Un poster relaxant"
+	line "d'un RONDOUDOU."
+	done
+else
 	text "A relaxing poster"
 	line "of a JIGGLYPUFF."
 	done
-	
-Akiba2F_PosterOfferText: ; TO TRANSLATE
+endc
+
+Akiba2F_PosterOfferText:
+if DEF(_FR_FR)
+	text "Mmm."
+
+	para "Je t'ai vu"
+	line "contempler le"
+	cont "poster @"
+	text_ram wStringBuffer3
+	text "."
+
+	para "Une source de"
+	line "vivacité, n'est-"
+	cont "ce pas?"
+
+	para "Tu peux l'emporter"
+	line "pour {d:POSTER_PRICE}¥."
+	done
+else
 	text "Mmm."
 	para "I've seen you"
 	line "admiring the"
@@ -223,43 +265,89 @@ Akiba2F_PosterOfferText: ; TO TRANSLATE
 	para "You can bring it"
 	line "home for ¥{d:POSTER_PRICE}."
 	done
+endc
 
-Akiba2F_WelcomeText: ; TO TRANSLATE
+Akiba2F_WelcomeText:
+if DEF(_FR_FR)
+	text "Bienvenue à"
+	line "notre exposition!"
+	done
+else
 	text "Welcome to our"
 	line "exhibition!"
 	done
+endc
 
-Akiba2F_LookAroundText: ; TO TRANSLATE
+Akiba2F_LookAroundText:
+if DEF(_FR_FR)
+	text "Admire donc nos"
+	line "magnifiques"
+	cont "oeuvres, afin que"
+
+	para "nous puissions"
+	line "en discuter."
+	done
+else
 	text "Please admire our"
 	line "magnificient art,"
 
 	para "so we can talk"
 	line "about it."
 	done
+endc
 
-Akiba2F_SoldOutText: ; TO TRANSLATE
+Akiba2F_SoldOutText:
+if DEF(_FR_FR)
+	text "Tous nos posters"
+	line "sont épuisés!"
+	done
+else
 	text "All our posters"
 	line "are sold out!"
 	done
+endc
 
-Akiba2F_WeshText: ; TO TRANSLATE
+Akiba2F_WeshText:
+if DEF(_FR_FR)
+	text "Ils osent vraiment"
+	line "vendre des posters"
+	cont "comme de l'art?"
+	done
+else
 	text "Are they really"
 	line "advertising pos-"
 	cont "ters as fine art?"
 	done
+endc
 
-Akiba2F_InLoveText: ; TO TRANSLATE
+Akiba2F_InLoveText:
+if DEF(_FR_FR)
+	text "Je suis fan de"
+	line "celui-ci!"
+	done
+else
 	text "I'm in love with"
 	line "this one!"
 	done
+endc
 
-Akiba2F_JiggGoneText: ; TO TRANSLATE
+Akiba2F_JiggGoneText:
+if DEF(_FR_FR)
+	text "Mon poster préféré"
+	line "a été vendu!"
+
+	para "Son acheteur est"
+	line "sans doute un"
+	cont "fin connaisseur."
+	done
+else
 	text "My favorite poster"
 	line "is gone!"
 	
 	para "Surely its buyer"
 	line "is a connoisseur."
 	done
+endc
 
 Akiba2F_MapEvents:
 	db 0, 0 ; filler
