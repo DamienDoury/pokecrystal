@@ -579,8 +579,9 @@ if DEF(_FR_FR)
 
 	para "Tu veux bien?"
 
-	para "Quoi que tu fasses"
-	line "je te soutiens"
+	para "Quel que soit"
+	line "ton choix,"
+	cont "je te soutiens"
 	cont "pleinement."
 
 	para "Je t'aime."
