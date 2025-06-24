@@ -127,27 +127,61 @@ Akiba3F_Client1Script:
 Akiba3F_Client2Script:
 	jumptextfaceplayer Akiba3F_Client2Text
 
-Akiba3F_DecoNameText: ; TO TRANSLATE
+Akiba3F_DecoNameText:
+if DEF(_FR_FR)
+	text "POUPEE"
+	line "@"
+	text_ram wStringBuffer2
+	text ""
+	done
+else
 	text "@"
 	text_ram wStringBuffer2
 	text " DOLL"
 	done
+endc
 
-Akiba3F_ComeBackLaterText: ; TO TRANSLATE
+Akiba3F_ComeBackLaterText:
+if DEF(_FR_FR)
+	text "Reviens un autre"
+	line "jour pour de"
+	cont "nouveaux lots!"
+	done
+else
 	text "Come back another"
 	line "day for new"
 	cont "prizes!"
 	done
+endc
 
-Akiba3F_LotteryDoneText: ; TO TRANSLATE
+Akiba3F_LotteryDoneText:
+if DEF(_FR_FR)
+	text "Notre grand jeu"
+	line "est fini."
+	
+	para "Félicitations"
+	line "pour tes gains!"
+	done
+else
 	text "Our great giveaway"
 	line "is over."
 
 	para "Congratulations"
 	line "on your gains!"
 	done
+endc
 
 Akiba3F_BigPriceAnnoucementText:
+if DEF(_FR_FR)
+	text "Le gros lot du"
+	line "@"
+	text_today
+	text " est un"
+	cont "@"
+	text_ram wStringBuffer2
+	text "!"
+	done
+else
 	text "@"
 	text_today
 	text "'s grand"
@@ -156,15 +190,36 @@ Akiba3F_BigPriceAnnoucementText:
 	text_ram wStringBuffer2
 	text " DOLL!"
 	done
+endc
 
-Akiba3F_InstructionsText: ; TO TRANSLATE
+Akiba3F_InstructionsText:
+if DEF(_FR_FR)
+	text "Montre-moi un"
+	line "@"
+	text_ram wStringBuffer3
+	text " et"
+	cont "ce lot est à toi!"
+	done
+else
 	text "Show me a @"
 	text_ram wStringBuffer3
 	text ""
 	line "and it's yours!"
 	done
+endc
 
-Akiba3F_VoucherDetectedText: ; TO TRANSLATE
+Akiba3F_VoucherDetectedText:
+if DEF(_FR_FR)
+	text "Je vois que tu as"
+	line "un @"
+	text_ram wStringBuffer3
+	text "!"
+	
+	para "Veux-tu l'échanger"
+	line "contre le lot"
+	cont "du jour?"
+	done
+else
 	text "I see you own a"
 	line "@"
 	text_ram wStringBuffer3
@@ -174,16 +229,36 @@ Akiba3F_VoucherDetectedText: ; TO TRANSLATE
 	line "redeem it for"
 	cont "today's prize?"
 	done
+endc
 
-Akiba3F_ShippingText: ; TO TRANSLATE
+Akiba3F_ShippingText:
+if DEF(_FR_FR)
+	text "Félicitations!"
+	
+	para "Il sera livré"
+	line "chez toi sans"
+	cont "délai!"
+	done
+else
 	text "Congratulations!"
 
 	para "It will be"
 	line "shipped right to"
 	cont "your home!"
 	done
+endc
 
-Akiba3F_Client1Text: ; TO TRANSLATE
+Akiba3F_Client1Text:
+if DEF(_FR_FR)
+	text "Les tickets ont"
+	line "été distribués par"
+	cont "tirage au sort."
+	
+	para "Les gagnants les"
+	line "revendent à un"
+	cont "prix absurde."
+	done
+else
 	text "The vouchers were"
 	line "distributed"
 	cont "through a lottery."
@@ -193,19 +268,37 @@ Akiba3F_Client1Text: ; TO TRANSLATE
 	cont "for an absurd"
 	cont "price."
 	done
+endc
 
-Akiba3F_Client1BisText: ; TO TRANSLATE
+Akiba3F_Client1BisText:
+if DEF(_FR_FR)
+	text "Si seulement"
+	line "j'avais obtenu"
+	cont "un ticket..."
+	
+	para "Trop tard"
+	line "maintenant."
+	done
+else
 	text "I wish I had"
 	line "obtained a"
 	cont "VOUCHER. But now"
 	cont "it's too late."
 	done
+endc
 
-Akiba3F_Client2Text: ; TO TRANSLATE
+Akiba3F_Client2Text:
+if DEF(_FR_FR)
+	text "Même COPIEUSE"
+	line "n'a pas d'aussi"
+	cont "belles poupées!"
+	done
+else
 	text "Even COPYCAT"
 	line "doesn't have such"
 	cont "pretty dolls!"
 	done
+endc
 
 Akiba3F_MapEvents:
 	db 0, 0 ; filler
