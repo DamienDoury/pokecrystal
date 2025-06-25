@@ -58,7 +58,42 @@ endc
 
 	done
 
-BlackthornMartBlackBeltText: ; TO TRANSLATE
+BlackthornMartBlackBeltText:
+if DEF(_FR_FR)
+	text "On dit que"
+	line "l'inflation va"
+	cont "encore empirer."
+
+	para "A cause de la"
+	line "pandémie,"
+
+	para "les chaînes"
+	line "de production"
+	
+	para "sont perturbées"
+	line "partout."
+
+	para "Il y a des"
+	line "pénuries à"
+	
+	para "l'échelle"
+	line "internationale,"
+	
+	para "et les prix"
+	line "flambent à cause"
+	
+	para "d'une forte demande"
+	line "et d'une offre"
+	cont "faible."
+
+	para "Il faudra sans"
+	line "doute plusieurs"
+	
+	para "années avant un"
+	line "retour à la"
+	cont "stabilité."
+	done
+else
 	text "They say the"
 	line "inflation might"
 
@@ -86,6 +121,7 @@ BlackthornMartBlackBeltText: ; TO TRANSLATE
 	line "before we go back"
 	cont "to stable prices."
 	done
+endc
 
 BlackthornMart_MapEvents:
 	db 0, 0 ; filler

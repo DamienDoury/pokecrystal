@@ -220,14 +220,33 @@ BlackthornGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 	
-ClairIntroText: ; TO TRANSLATE
-	text "I am CLAIR."
-
-	para "The world's best"
-	line "dragon master."
+ClairIntroText:
+if DEF(_FR_FR)
+	text "Je suis SANDRA."
 	done
+else
+	text "I am CLAIR."
+	done
+endc
 
-ClairIntroTextSequel: ; TO TRANSLATE
+
+ClairIntroTextSequel:
+if DEF(_FR_FR)
+	text "Je peux tenir"
+	line "tête au CONSEIL"
+	cont "des 4 de la LIGUE."
+
+	para "Prépare-toi à"
+	line "un combat brutal!"
+
+	para "Les attaques de"
+	line "STATUT sont"
+	cont "interdites ici."
+
+	para "Tu veux toujours"
+	line "te battre?"
+	done
+else
 	text "I can hold my own"
 	line "against even the"
 
@@ -244,8 +263,18 @@ ClairIntroTextSequel: ; TO TRANSLATE
 	para "Do you still want"
 	line "to take me on?"
 	done
+endc
 
-ClairIntroSequelText: ; TO TRANSLATE
+
+ClairIntroSequelText:
+if DEF(_FR_FR)
+	text "...Bon."
+	line "C'est parti!"
+
+	para "Je vais pas y"
+	line "aller mollo!"
+	done
+else
 	text "…Fine."
 	line "Let's do it!"
 
@@ -255,14 +284,26 @@ ClairIntroSequelText: ; TO TRANSLATE
 	para "power against any"
 	line "opponent!"
 	done
+endc
 
-RefusesClairsChallengeText: ; TO TRANSLATE
+
+RefusesClairsChallengeText:
+if DEF(_FR_FR)
+	text "Tu as peur de moi,"
+	line "on dirait."
+
+	para "C'est sage"
+	line "de ta part."
+	done
+else
 	text "Afraid of me"
 	line "I guess."
 
 	para "It is wise of"
 	line "you."
 	done
+endc
+
 
 ClairWinText: 
 if DEF(_FR_FR)
@@ -281,7 +322,33 @@ endc
 
 	done
 
-ClairText_GoToDragonsDen: ; TO TRANSLATE
+ClairText_GoToDragonsDen:
+if DEF(_FR_FR)
+	text "Ce n'est pas"
+	line "possible."
+
+	para "Je refuse."
+
+	para "Tu devrais relever"
+	line "le défi des utili-"
+	cont "sateurs de"
+	cont "dragons."
+
+	para "Derrière cette"
+	line "ARENE se trouve"
+	cont "l'ANTRE du DRAGON."
+
+	para "Il y a un petit"
+	line "temple au centre."
+	cont "Vas-y."
+
+	para "Si tu arrives à"
+	line "prouver ta valeur,"
+
+	para "tu seras digne de"
+	line "porter le BADGE!"
+	done
+else
 	text "I won't admit"
 	line "this."
 
@@ -309,6 +376,7 @@ ClairText_GoToDragonsDen: ; TO TRANSLATE
 	line "worthy of a GYM"
 	cont "BADGE!"
 	done
+endc
 
 ClairText_TooMuchToExpect: 
 if DEF(_FR_FR)
@@ -340,10 +408,16 @@ endc
 
 	done
 
-BlackthornGymText_ReceivedTM24: ; TO TRANSLATE
+BlackthornGymText_ReceivedTM24:
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "CT24 DRACOSOUFFLE."
+	done
+else
 	text "<PLAYER> received"
 	line "TM24 DRAGONBREATH."
 	done
+endc
 
 BlackthornGymClairText_DescribeTM24: 
 if DEF(_FR_FR)
@@ -372,11 +446,18 @@ endc
 
 	done
 
-BlackthornGymClairText_League: ; TO TRANSLATE
+BlackthornGymClairText_League:
+if DEF(_FR_FR)
+	text "Je suis en colère"
+	line "d'avoir perdu"
+	cont "face à toi!"
+	done
+else
 	text "I'm so mad about"
 	line "having lost"
 	cont "to you!"
 	done
+endc
 
 CooltrainermPaulSeenText: 
 if DEF(_FR_FR)
@@ -518,7 +599,27 @@ endc
 
 	done
 
-BlackthornGymGuideText: ; TO TRANSLATE
+BlackthornGymGuideText:
+if DEF(_FR_FR)
+	text "Hé! Graine de"
+	line "star!"
+
+	para "SANDRA utilise les"
+	line "#MON mythiques"
+	cont "et sacrés de type"
+	cont "DRAGON."
+
+	para "C'est assez dur"
+	line "de les battre."
+
+	para "Mais tu sais, ils"
+	line "sont censés être"
+
+	para "faibles contre"
+	line "les attaques de"
+	cont "type GLACE."
+	done
+else
 	text "Yo! CHAMP in"
 	line "making!"
 
@@ -536,6 +637,7 @@ BlackthornGymGuideText: ; TO TRANSLATE
 	para "to be weak against"
 	line "ice-type moves."
 	done
+endc
 
 BlackthornGymGuideWinText: 
 if DEF(_FR_FR)

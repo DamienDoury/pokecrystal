@@ -182,7 +182,48 @@ BurnedTowerB1FEusineMovement1:
 	step DOWN
 	step_end
 
-BurnedTowerB1FEusineText: ; TO TRANSLATE
+BurnedTowerB1FEusineText:
+if DEF(_FR_FR)
+	text "EUSINE: J'ai creu-"
+	line "sé un trou ici..."
+
+	para "Quel choc!"
+
+	para "SUICUNE s'est mis"
+	line "à débouler juste"
+	cont "devant mes yeux!"
+
+	para "Depuis des mois"
+	line "je courais"
+
+	para "après SUICUNE..."
+	line "Enfin quelque"
+	cont "chose!"
+
+	para "La légende dit que"
+	line "SUICUNE peut"
+	
+	para "purifier n'importe"
+	line "quelle eau."
+
+	para "Tu penses que son"
+	line "pouvoir pourrait"
+	
+	para "être utilisé pour"
+	line "se débarrasser du"
+
+	para "virus qui donne"
+	line "le COVID?"
+
+	para "Je vais poursuivre"
+	line "SUICUNE."
+
+	para "<PLAYER>,"
+	line "à très bientôt!"
+
+	para "Au revoir!"
+	done
+else
 	text "EUSINE: I dug a"
 	line "hole here, too…"
 
@@ -220,6 +261,7 @@ BurnedTowerB1FEusineText: ; TO TRANSLATE
 
 	para "Farewell!"
 	done
+endc
 
 BurnedTowerB1F_MapEvents:
 	db 0, 0 ; filler

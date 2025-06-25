@@ -221,7 +221,18 @@ endc
 
 	done
 
-BlackthornGrampsLockdownText: ; TO TRANSLATE
+BlackthornGrampsLockdownText:
+if DEF(_FR_FR)
+	text "Je sais que je n'ai"
+	line "pas le droit"
+	cont "d'être dehors."
+	
+	para "Mais toi non plus."
+
+	para "Je suis les"
+	line "ordres de SANDRA."
+	done
+else
 	text "I know I shouldn't"
 	line "be out. But nei-"
 	cont "ther should you."
@@ -229,12 +240,23 @@ BlackthornGrampsLockdownText: ; TO TRANSLATE
 	para "I'm following"
 	line "CLAIR's order."
 	done
+endc
 
-BlackthornGrampsViolationText: ; TO TRANSLATE
+
+BlackthornGrampsViolationText:
+if DEF(_FR_FR)
+	text "Comment oses-tu"
+	line "entrer en ce lieu"
+	cont "sacré sans y avoir"
+	cont "été invité!"
+	done
+else
 	text "How dared you"
 	line "enter this sacred"
 	cont "place uninvited!"
 	done
+endc
+
 
 BlackthornGrampsGrantsEntryText: 
 if DEF(_FR_FR)

@@ -25,7 +25,24 @@ BlackthornPokecenter1FTwinScript:
 BlackthornPokecenter1FCooltrainerMScript:
 	jumpstd HappinessCheckScript
 
-BlackthornPokecenter1FGentlemanText: ; TO TRANSLATE
+BlackthornPokecenter1FGentlemanText:
+if DEF(_FR_FR)
+	text "Mon COUPON TRAçAGE"
+	line "me rassure!"
+
+	para "Mais hélas, il ne"
+	line "m'avertit pas si"
+
+	para "je suis contaminé"
+	line "par un #MON"
+	cont "sauvage."
+
+	para "J'aimerais que"
+	line "tous les #MON"
+	cont "sauvages aient"
+	cont "un #GEAR."
+	done
+else
 	text "My CONTACT TRACING"
 	line "CARD feels great!"
 
@@ -40,6 +57,7 @@ BlackthornPokecenter1FGentlemanText: ; TO TRANSLATE
 	line "MON all had a"
 	cont "#GEAR."
 	done
+endc
 
 BlackthornPokecenter1FTwinText: 
 if DEF(_FR_FR)

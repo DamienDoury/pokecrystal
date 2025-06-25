@@ -43,17 +43,87 @@ endc
 
 	done
 
-BillsBrothersHouseYoungsterText: ; TO TRANSLATE
+BillsBrothersHouseYoungsterText:
+if DEF(_FR_FR)
+	text "Je peux te racon-"
+	line "ter une histoire"
+	cont "intéressante au"
+	cont "sujet du PC?"
+	done
+else
 	text "Can I tell you an"
 	line "interesting story"
 	cont "about the PSS?"
 	done
+endc
 
-BillsBrothersHouseYoungsterOkText: ; TO TRANSLATE
+BillsBrothersHouseYoungsterOkText:
+if DEF(_FR_FR)
+	text "Alors je ne dis"
+	line "rien."
+	done
+else
 	text "Then I won't."
 	done
+endc
 
-BillsBrothersHouseYoungsterStoryText: ; TO TRANSLATE
+BillsBrothersHouseYoungsterStoryText:
+if DEF(_FR_FR)
+	text "Le mode Local"
+	line "du PC est en"
+	cont "fait la version"
+	cont "originale du"
+	cont "Stockage #MON,"
+	
+	para "inventé par"
+	line "mon oncle, LEO."
+	
+	para "Les #MON sont "
+	line "stockés localement"
+	cont "sur le PC,"
+	
+	para "et peuvent être"
+	line "transférés via"
+	cont "des câbles"
+	cont "souterrains qui"
+	cont "relient les"
+	cont "CENTRES #MON"
+	cont "de KANTO."
+	
+	para "Comme les vieux"
+	line "téléphones fixes."
+	
+	para "Quand le sans-fil"
+	line "a débarqué et"
+	cont "connecté le monde,"
+	cont "LEO a gardé"
+	cont "la version"
+	cont "historique en"
+	cont "cas de besoin."
+	
+	para "Sans cela, ça"
+	line "aurait été le"
+	cont "chaos lors de"
+	cont "la panne de la"
+	cont "CENTRALE."
+	
+	para "Les nouvelles"
+	line "technologies sont"
+	cont "incroyables, mais"
+	cont "de plus en plus"
+	cont "complexes."
+	
+	para "Quand ça plante,"
+	line "on est bien"
+	cont "contents de pou-"
+	cont "voir se reposer"
+	cont "sur les vieilles"
+	cont "technologies."
+	
+	para "Belle histoire,"
+	line "tu trouves pas?"
+	done
+else
 	text "The PC's local mode"
 	line "is actually the"
 	cont "original version"
@@ -102,6 +172,7 @@ BillsBrothersHouseYoungsterStoryText: ; TO TRANSLATE
 	para "It's a great story,"
 	line "don't you think?"
 	done
+endc
 
 BillsBrothersHouse_MapEvents:
 	db 0, 0 ; filler

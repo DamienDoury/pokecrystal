@@ -678,7 +678,24 @@ endc
 
 	done
 
-BillsHouseMachineInstructionsText: ; TO TRANSLATE
+BillsHouseMachineInstructionsText:
+if DEF(_FR_FR)
+	text "-MACHINE PROTOTYPE"
+	line "TRANSFERT #MON-"
+
+	para "Instructions:"
+	line "Placer 1 #MON"
+	cont "dans une cuve."
+
+	para "Il sera transféré"
+	line "dans l'autre cuve."
+
+	para "Bugs connus:"
+
+	para "..."
+	line "Fin du fichier."
+	done
+else
 	text "-#MON TRANSFER"
 	line "MACHINE PROTOTYPE-"
 
@@ -695,14 +712,25 @@ BillsHouseMachineInstructionsText: ; TO TRANSLATE
 	para "…"
 	line "End of file."
 	done
+endc
 
-BillsHouseVatDoorAskPokemonText: ; TO TRANSLATE
+
+BillsHouseVatDoorAskPokemonText:
+if DEF(_FR_FR)
+	text "La machine est"
+	line "active."
+
+	para "Veux-tu mettre"
+	line "un #MON dedans?"
+	done
+else
 	text "The machine is up"
 	line "and running."
 
 	para "Do you want to put"
 	line "a #MON inside?"
 	done
+endc
 
 BillsHouse_MapEvents:
 	db 0, 0 ; filler

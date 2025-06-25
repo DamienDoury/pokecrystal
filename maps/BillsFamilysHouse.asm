@@ -120,7 +120,30 @@ BillsHouseBookshelf2:
 BillsHouseRadio:
 	jumpstd Radio2Script
 
-BillTakeThisEeveeText: ; TO TRANSLATE
+BillTakeThisEeveeText:
+if DEF(_FR_FR)
+	text "LEO: Salut"
+	line "<PLAYER>!"
+
+	para "As-tu remarqué que"
+	line "le PC ne restaure"
+	cont "plus les PP de"
+	cont "tes #MON?"
+
+	para "J'ai dû couper"
+	line "cette routine"
+	cont "pour éviter que"
+	cont "le COVID ne se"
+	cont "propage dans le"
+	cont "PC."
+
+	para "Je ne sais pas"
+	line "si c'est vraiment"
+	cont "efficace, mais je"
+	cont "ne veux courir"
+	cont "aucun risque!"
+	done
+else
 	text "BILL: Hi, <PLAYER>!"
 	line "Have you noticed"
 	cont "that the PSS"
@@ -140,8 +163,19 @@ BillTakeThisEeveeText: ; TO TRANSLATE
 	cont "I don't want to"
 	cont "take any risk!"
 	done
+endc
 
-BillsMomText_BeforeEcruteak: ; TO TRANSLATE
+BillsMomText_BeforeEcruteak:
+if DEF(_FR_FR)
+	text "Tu collectionnes"
+	line "les #MON?"
+	cont "Mon fils LEO est"
+	cont "un expert."
+
+	para "Il est allé au"
+	line "CENTRE #MON"
+	cont "de ROSALIA."
+else
 	text "Oh, you collect"
 	line "#MON? My son"
 	cont "BILL is an expert."
@@ -152,6 +186,7 @@ BillsMomText_BeforeEcruteak: ; TO TRANSLATE
 	para "CENTER in ECRUTEAK"
 	line "CITY."
 	done
+endc
 
 BillsMomText_AfterEcruteak: 
 if DEF(_FR_FR)
@@ -255,7 +290,33 @@ endc
 
 	done
 
-BillsComputerText: ; TO TRANSLATE
+BillsComputerText:
+if DEF(_FR_FR)
+	text "ld a, [hl]"
+	line "ld e, a"
+	
+	cont "and <PERCENT>01010101"
+	cont "ld d, a"
+	
+	cont "ld a, e"
+	cont "srl a"
+	
+	cont "and <PERCENT>01010101"
+	cont "and d"
+	
+	cont "cpl"
+	cont "and <PERCENT>01010101"
+	
+	cont "add e"
+	cont "ld [hli], a"
+	
+	cont "…"
+
+	para "C'est quoi ce"
+	line "langage extra-"
+	cont "terrestre?"
+	done
+else
 	text "ld a, [hl]"
 	line "ld e, a"
 	
@@ -279,33 +340,68 @@ BillsComputerText: ; TO TRANSLATE
 	para "What are those"
 	line "alien writings?"
 	done
+endc
 
-BillAskForCardText: ; TO TRANSLATE
+BillAskForCardText:
+if DEF(_FR_FR)
+	text "LEO: Yo <PLAYER>!"
+	
+	para "Tu viens chercher"
+	line "un COUPON TRAçAGE?"
+	done
+else
 	text "BILL: Yo <PLAYER>!"
-
+	
 	para "Are you coming to"
 	line "get a CONTACT"
 	cont "TRACING CARD?"
 	done
+endc
 
-BillAllYouHadToSayText: ; TO TRANSLATE
+
+BillAllYouHadToSayText:
+if DEF(_FR_FR)
+	text "Y'a qu'à demander!"
+	done
+else
 	text "It's all you"
 	line "had to say."
 	done
+endc
 
-BillPrivacyConcernsText: ; TO TRANSLATE
+BillPrivacyConcernsText:
+if DEF(_FR_FR)
+	text "Est-ce une menace"
+	line "pour ta vie"
+	cont "privée?"
+	
+	para "Toutes les données"
+	line "sont anonymisées,"
+	cont "ne t'en fais pas."
+	done
+else
 	text "Is it a privacy"
 	line "concern?"
-
+	
 	para "All the data is"
 	line "anonymized, don't"
 	cont "worry about it."
 	done
+endc
 
-BillAutomaticText: ; TO TRANSLATE
+BillAutomaticText:
+if DEF(_FR_FR)
+	text "Pas besoin de"
+	line "manuel."
+	
+	para "Tout est"
+	line "automatique!"
+	done
+else
 	text "No manual needed."
 	line "It's all automated!"
 	done
+endc
 
 BillsFamilysHouse_MapEvents:
 	db 0, 0 ; filler

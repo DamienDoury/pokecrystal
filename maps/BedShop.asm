@@ -159,42 +159,84 @@ BedShop_PinkBedScript:
 	setval DECO_PINK_BED
 	farsjump DisplayDecoNameScript
 	
-BedShop_OfferText: ; TO TRANSLATE
+BedShop_OfferText:
+if DEF(_FR_FR)
+	text "Alors tu aimes le"
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
+	
+	para "C'est aussi"
+	line "mon préféré!"
+	
+	para "Il coûte {d:BED_PRICE}¥."
+	done
+else
 	text "So you like the"
 	line "@"
 	text_ram wStringBuffer2
 	text "!"
-
+	
 	para "It's my favorite"
 	line "too!"
-
+	
 	para "It's priced at"
 	line "¥{d:BED_PRICE}."
 	done
+endc
 
-BedShop_WelcomeText: ; TO TRANSLATE
+BedShop_WelcomeText:
+if DEF(_FR_FR)
+	text "Bienvenue dans"
+	line "notre magasin!"
+	done
+else
 	text "Welcome to our"
 	line "store!"
 	done
+endc
 
-BedShop_LookAroundText: ; TO TRANSLATE
+BedShop_LookAroundText:
+if DEF(_FR_FR)
+	text "Jette un oeil à"
+	line "nos lits, puis"
+	
+	para "viens me dire"
+	line "celui que tu"
+	cont "préfères."
+	done
+else
 	text "Please check out"
 	line "our beds, then"
-
+	
 	para "come back to tell"
 	line "me which one"
 	cont "you prefer."
 	done
+endc
 
-BedShop_SoldOutText: ; TO TRANSLATE
+BedShop_SoldOutText:
+if DEF(_FR_FR)
+	text "Quel succès!"
+	line "Tout est vendu!"
+	cont "Rupture de stock!"
+	done
+else
 	text "We are thrilled by"
 	line "our success!"
 	cont "We are sold out!"
 	done
+endc
 
-BedShop_PosterText: ; TO TRANSLATE
+BedShop_PosterText:
+if DEF(_FR_FR)
+	text "Meilleurs lits"
+	line "de la région!"
+	done
+else
 	text "Best beds in town!"
 	done
+endc
 
 BedShop_MapEvents:
 	db 0, 0 ; filler
