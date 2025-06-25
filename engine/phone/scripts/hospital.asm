@@ -49,12 +49,10 @@ if DEF(_FR_FR)
 	cont "module pour le"
 	cont "#GEAR."
 
-	para "Une fois"
-	line "installé, il"
-	cont "trace ton chemin"
-	cont "toute la journée"
-	cont "et stocke les"
-	cont "infos."
+	para "Une fois installé,"
+	line "il enregistre ton"
+	cont "trajet toute la"
+	cont "journée."
 
 	para "Si une personne"
 	line "ou son #MON est"
@@ -68,7 +66,6 @@ if DEF(_FR_FR)
 
 	para "les autres"
 	line "utilisateurs"
-	cont "qu'il a"
 	cont "croisés."
 
 	para "Ces personnes"
