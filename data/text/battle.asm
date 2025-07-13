@@ -139,8 +139,8 @@ endc
 
 _ItemUsedButNopeText::
 if DEF(_FR_FR)
-	text "MEWTWO ne laissera"
-	line "pas faire ça."
+	text "MEWTWO ne vous"
+	line "laisse pas faire."
 	done
 else
 	text "MEWTWO won't"
