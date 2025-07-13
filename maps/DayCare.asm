@@ -325,13 +325,28 @@ endc
 
 	done
 
-DayCare_ScaredManText: ; TO TRANSLATE
+DayCare_ScaredManText:
+if DEF(_FR_FR)
+	text "Pars, toi et tes"
+	line "#MON infectés."
+	cont "Dehors!"
+else
 	text "Go away, you and"
 	line "your infected"
 	cont "#MON."
+endc
 	done
 
-DayCare_ScaredLadyText: ; TO TRANSLATE
+DayCare_ScaredLadyText:
+if DEF(_FR_FR)
+	text "Tu essaies de"
+	line "nous contaminer??"
+	
+	para "Ne reviens pas"
+	line "tant que tu es"
+	cont "encore"
+	cont "contagieux."
+else
 	text "Are you trying to"
 	line "contaminate us??"
 
@@ -339,6 +354,7 @@ DayCare_ScaredLadyText: ; TO TRANSLATE
 	line "until you are not"
 	cont "contagious"
 	cont "anymore."
+endc
 	done
 
 DayCare_MapEvents:

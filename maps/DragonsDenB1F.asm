@@ -63,12 +63,8 @@ DragonsDenB1F_ClairScene:
 	opentext
 	writetext ClairText_GiveDragonbreathDragonDen
 	promptbutton
-	giveitem TM_DRAGONBREATH
-	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
-	writetext Text_ReceivedTM24
-	playsound SFX_ITEM
+	verbosegiveitem TM_DRAGONBREATH
 	waitsfx
-	itemnotify
 	setevent EVENT_GOT_TM24_DRAGONBREATH
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
@@ -196,12 +192,30 @@ endc
 
 	done
 
-Text_ReceivedTM24: ; TO TRANSLATE
-	text "<PLAYER> received"
-	line "TM24 DRAGONBREATH."
-	done
-
-ClairText_DescribeDragonbreathDragonDen: ; TO TRANSLATE
+ClairText_DescribeDragonbreathDragonDen:
+if DEF(_FR_FR)
+	text "Ca contient"
+	line "DRACOSOUFFLE."
+	
+	para "Non, ça n'a"
+	line "rien à voir avec"
+	cont "mon haleine."
+	
+	para "On respecte"
+	line "la distanciation"
+	cont "et on porte"
+	cont "tous les deux"
+	cont "un masque."
+	
+	para "Tu ne peux pas"
+	line "pas la sentir..."
+	cont "n'est-ce pas?"
+	
+	para "Ecoute, si tu ne"
+	line "veux pas cette"
+	cont "CT, tu n'as qu'à"
+	cont "me la laisser."
+else
 	text "That contains"
 	line "DRAGONBREATH."
 
@@ -223,6 +237,7 @@ ClairText_DescribeDragonbreathDragonDen: ; TO TRANSLATE
 	line "want the TM, you"
 	cont "don't have to take"
 	cont "it."
+endc
 	done
 
 DragonShrineSignpostText: 
@@ -287,7 +302,22 @@ endc
 
 	done
 
-SilverText_Training2: ; TO TRANSLATE
+SilverText_Training2:
+if DEF(_FR_FR)
+	text "..."
+	
+	para "Fiou..."
+	
+	para "Apprends à ne pas"
+	line "te mettre en face"
+	cont "de mon chemin..."
+	
+	para "On se verra au"
+	line "PLATEAU INDIGO"
+	
+	para "les lundi ou"
+	line "mercredi."
+else
 	text "…"
 
 	para "Whew…"
@@ -300,6 +330,7 @@ SilverText_Training2: ; TO TRANSLATE
 	
 	para "on Monday or"
 	line "Wednesday."
+endc
 	done
 
 CooltrainermDarinSeenText: 

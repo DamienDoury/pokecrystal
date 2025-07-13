@@ -933,7 +933,19 @@ endc
 
 	done
 
-Obey100: ; TO TRANSLATE
+Obey100:
+if DEF(_FR_FR)
+	text "Avec ce dernier"
+	line "BADGE, tous les"
+	cont "#MON reconnai-"
+	cont "tront ta valeur"
+	
+	para "en tant que dres-"
+	line "seur, et obéiront"
+	
+	para "à tous tes ordres"
+	line "sans question."
+else
 	text "With this last"
 	line "badge, all #MON"
 	cont "will recognize you"
@@ -943,6 +955,7 @@ Obey100: ; TO TRANSLATE
 	
 	para "command without"
 	line "question."
+endc
 	done
 
 DragonShrineSpeechlessText: 

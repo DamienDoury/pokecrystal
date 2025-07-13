@@ -339,7 +339,23 @@ endc
 
 	done
 
-WhirlpoolGuyNeverLeftAScratchText: ; TO TRANSLATE
+WhirlpoolGuyNeverLeftAScratchText:
+if DEF(_FR_FR)
+	text "Non seulement les"
+	line "KIMONO sont"
+	cont "d'excellentes"
+	cont "danseuses, mais"
+
+	para "eles sont aussi"
+	line "douées en combat."
+
+	para "Je les ai souvent"
+	line "défié, mais"
+
+	para "je n'ai jamais"
+	line "laissé la moindre"
+	cont "égratignure..."
+else
 	text "Not only are the"
 	line "KIMONO GIRLS great"
 
@@ -352,25 +368,57 @@ WhirlpoolGuyNeverLeftAScratchText: ; TO TRANSLATE
 
 	para "never even left a"
 	line "scratch…"
+endc
 	done
 
-WhirlpoolGuyLadGiftText: ; TO TRANSLATE
+WhirlpoolGuyLadGiftText:
+if DEF(_FR_FR)
+	text "Gamin! Si tu bats"
+	line "toutes les KIMONO,"
+
+	para "j'aurai un cadeau"
+	line "pour toi."
+else
 	text "Lad! If you can"
 	line "defeat all the"
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."
+endc
 	done
 
-WhirlpoolGuyLassieGiftText: ; TO TRANSLATE
+WhirlpoolGuyLassieGiftText:
+if DEF(_FR_FR)
+	text "Ma petite! Si tu"
+	line "bats toutes les"
+
+	para "KIMONO, j'aurais"
+	line "un cadeau pour"
+	cont "toi."
+else
 	text "Lassie, if you can"
 	line "defeat all the"
 
 	para "KIMONO GIRLS, I'll"
 	line "give you a gift."
+endc
 	done
 
-WhirlpoolGuyLikeADanceText: ; TO TRANSLATE
+WhirlpoolGuyLikeADanceText:
+if DEF(_FR_FR)
+	text "Ta façon de"
+	line "combattre, c'était"
+	cont "comme admirer une"
+	cont "danse."
+
+	para "C'était un réel"
+	line "plaisir à vivre!"
+
+	para "Je veux que tu"
+	line "prennes ceci. Ne"
+	cont "t'en fais pas--"
+	cont "prends-le!"
+else
 	text "The way you bat-"
 	line "tled, it was like"
 	cont "watching a dance."
@@ -381,9 +429,19 @@ WhirlpoolGuyLikeADanceText: ; TO TRANSLATE
 	para "I want you to have"
 	line "this. Don't worry"
 	cont "--take it!"
+endc
 	done
 
-WhirlpoolGuyWhirlpoolExplanationText: ; TO TRANSLATE
+WhirlpoolGuyWhirlpoolExplanationText:
+if DEF(_FR_FR)
+	text "C'est SIPHON."
+
+	para "C'est une attaque"
+	line "qui danse et"
+
+	para "tournoie comme"
+	line "les KIMONO."
+else
 	text "That's WHIRLPOOL."
 
 	para "It's a move that"
@@ -391,12 +449,20 @@ WhirlpoolGuyWhirlpoolExplanationText: ; TO TRANSLATE
 	
 	para "just like the"
 	line "KIMONO GIRLS."
+endc
 	done
 
-WhirlpoolGuyElegantKimonoGirlsText: ; TO TRANSLATE
+WhirlpoolGuyElegantKimonoGirlsText:
+if DEF(_FR_FR)
+	text "J'aimerais que"
+	line "mes #MON soient"
+	cont "aussi élégants"
+	cont "que les KIMONO..."
+else
 	text "I wish my #MON"
 	line "were as elegant as"
 	cont "the KIMONO GIRLS…"
+endc
 	done
 
 RhydonText: 
@@ -410,13 +476,23 @@ endc
 
 	done
 
-DanceTheatreCooltrainerMText: ; TO TRANSLATE
+DanceTheatreCooltrainerMText:
+if DEF(_FR_FR)
+	text "Cet homme est"
+	line "toujours avec son"
+	cont "RHINOFEROS."
+
+	para "Il dit qu'il"
+	line "voudrait voir son"
+	cont "#MON danser."
+else
 	text "That man's always"
 	line "with his RHYDON."
 
 	para "Says he wishes his"
 	line "#MON could"
 	cont "dance."
+endc
 	done
 
 DanceTheatreGrannyText:

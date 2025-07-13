@@ -166,7 +166,22 @@ DiglettsCaveShow5Script:
 .next
 	end
 
-DiglettsCavePokefanMText: ; TO TRANSLATE
+DiglettsCavePokefanMText:
+if DEF(_FR_FR)
+	text "Je m'amusais à"
+	line "explorer la cave"
+	cont "en sautant de"
+	cont "gauche à droite"
+	cont "et de bas en haut,"
+	
+	text "quand des"
+	line "TAUPIQUEUR ont"
+	cont "surgi du sol"
+
+	para "d'un coup! C'était"
+	line "super flippant."
+	done
+else
 	text "I was having fun"
 	line "exploring the cave"
 	
@@ -179,6 +194,7 @@ DiglettsCavePokefanMText: ; TO TRANSLATE
 	para "out of the ground!"
 	line "That was shocking."
 	done
+endc
 
 DiglettsCave_MapEvents:
 	db 0, 0 ; filler
