@@ -97,7 +97,20 @@ endc
 
 	done
 
-CianwoodLugiaSpeechHouseLassText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseLassText:
+if DEF(_FR_FR)
+	text "J'ai lu que l'on"
+	line "ne voit la créa-"
+
+	para "marine seulement"
+	line "avec une AILE"
+	cont "ARGENT."
+
+	para "Elle doit avoir la"
+	line "même odeur que la"
+	cont "créature."
+	done
+else
 	text "I read that you"
 	line "can only see the"
 
@@ -109,8 +122,26 @@ CianwoodLugiaSpeechHouseLassText: ; TO TRANSLATE
 	line "same scent as the"
 	cont "creature."
 	done
+endc
 
-CianwoodLugiaSpeechHouseLassLockdownText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseLassLockdownText:
+if DEF(_FR_FR)
+	text "“L'air de la mer"
+	line "te fera du bien”"
+	cont "a dit maman."
+
+	para "Je ne connais"
+	line "personne ici et"
+	cont "je ne peux même"
+
+	para "pas suivre les"
+	line "cours en ligne."
+
+	para "C'est la vraie"
+	line "definition d'une"
+	cont "quarantaine."
+	done
+else
 	text "“The air from the"
 	line "sea will be good"
 	cont "for you” said mom."
@@ -125,8 +156,23 @@ CianwoodLugiaSpeechHouseLassLockdownText: ; TO TRANSLATE
 	line "definition of a"
 	cont "quarantine."
 	done
+endc
 
-CianwoodLugiaSpeechHouseTwinText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseTwinText:
+if DEF(_FR_FR)
+	text "J'ai lu que les"
+	line "tourbillons autour"
+
+	para "des îles sont"
+	line "provoqués par la"
+	cont "créature des"
+	cont "profondeurs."
+
+	para "Faut peut-être"
+	line "une CS spéciale"
+	cont "pour passer."
+	done
+else
 	text "I've read that"
 	line "the whirlpools"
 
@@ -138,8 +184,25 @@ CianwoodLugiaSpeechHouseTwinText: ; TO TRANSLATE
 	line "special move to"
 	cont "get past them."
 	done
+endc
 
-CianwoodLugiaSpeechHouseTwinLockdownText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseTwinLockdownText:
+if DEF(_FR_FR)
+	text "Maman n'a pas"
+	line "pensé au débit"
+	
+	para "internet avant de"
+	line "nous installer"
+	cont "ici."
+
+	para "C'est la chose la"
+	line "plus vitale en"
+	line "cette période!"
+
+	para "Me voilà coincée à"
+	line "lire des livres..."
+	done
+else
 	text "Mom didn't think"
 	line "about the internet"
 	
@@ -156,8 +219,28 @@ CianwoodLugiaSpeechHouseTwinLockdownText: ; TO TRANSLATE
 	para "Here I am, stuck"
 	line "reading books…"
 	done
+endc
 
-CianwoodLugiaSpeechHouseTeacherLockdownText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseTeacherLockdownText:
+if DEF(_FR_FR)
+	text "Lors de l'annonce"
+	line "du premier confi-"
+	cont "nement, j'ai vite"
+	cont "déplacé ma famille"
+	cont "depuis SAFRANIA"
+	cont "vers cette maison"
+	cont "de vacances."
+
+	para "Je suis censée"
+	line "télétravailler,"
+	cont "mais..."
+
+	para "C'est gênant..."
+
+	para "Regarde mon"
+	line "écran..."
+	done
+else
 	text "So when the first"
 	line "lockdown was ann-"
 	cont "ounced, I quickly"
@@ -173,14 +256,25 @@ CianwoodLugiaSpeechHouseTeacherLockdownText: ; TO TRANSLATE
 	line "sing…"
 	cont "Look at my screen…"
 	done
+endc
 
-CianwoodLugiaSpeechHouseComputerText: ; TO TRANSLATE
+CianwoodLugiaSpeechHouseComputerText:
+if DEF(_FR_FR)
+	text "Un appel vidéo"
+	line "tourne à la"
+	cont "vitesse fulgurante"
+	cont "de 20 images par"
+
+	para "minute."
+	done
+else
 	text "A video call run-"
 	line "ning at a whopping"
 	cont "20 frames per"
 	
 	para "minute."
 	done
+endc
 
 CianwoodLugiaSpeechHouse_MapEvents:
 	db 0, 0 ; filler

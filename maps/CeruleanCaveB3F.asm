@@ -94,15 +94,27 @@ CeruleanCaveMewtwoScript:
 
 	jumptext MewtwoTeleportedAwaySequelText
 
-MewtwoTeleportedAwayText: ; TO TRANSLATE
+MewtwoTeleportedAwayText:
+if DEF(_FR_FR)
+	text "MEWTWO s'est"
+	line "téléporté."
+	done
+else
 	text "MEWTWO teleported"
 	line "away."
 	done
+endc
 
-MewtwoTeleportedAwaySequelText: ; TO TRANSLATE
+MewtwoTeleportedAwaySequelText:
+if DEF(_FR_FR)
+	text "Sa présence est"
+	line "encore palpable..."
+	done
+else
 	text "Its presence can"
 	line "still be felt…"
 	done
+endc
 
 CeruleanCaveB3F_MapEvents:
 	db 0, 0 ; filler

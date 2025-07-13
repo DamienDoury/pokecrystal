@@ -104,7 +104,25 @@ endc
 
 	done
 
-CeruleanPoliceStationRaveText: ; TO TRANSLATE
+CeruleanPoliceStationRaveText:
+if DEF(_FR_FR)
+	text "Maintenant qu'on en"
+	line "a fini avec ce"
+	
+	para "voleur, on a une"
+	line "une rave illégale"
+	cont "à stopper."
+
+	para "Elle a habituelle-"
+	line "ment lieu de nuit"
+	cont "dans un coin"
+	cont "abandonné."
+
+	para "Mais on a du mal"
+	line "à localiser"
+	cont "l'endroit."
+	done
+else
 	text "Now that we're done"
 	line "with this thief,"
 
@@ -121,6 +139,7 @@ CeruleanPoliceStationRaveText: ; TO TRANSLATE
 	line "a hard time find-"
 	cont "ing where."
 	done
+endc
 
 CeruleanPoliceStationPokefanFText: 
 if DEF(_FR_FR)
@@ -133,16 +152,41 @@ endc
 
 	done
 
-CeruleanDiglettText: ; TO TRANSLATE
+CeruleanDiglettText:
+if DEF(_FR_FR)
+	text "CARAPUCE: pupupu!"
+	done
+else
 	text "SQUIRTLE: lelele!"
 	done
+endc
 
-CeruleanCoolSquirtleText: ; TO TRANSLATE
+CeruleanCoolSquirtleText:
+if DEF(_FR_FR)
+	text "CHEF DU GANG DES"
+	line "CARAPUCE: Cara!"
+	done
+else
 	text "SQUIRTLE SQUAD"
 	line "LEADER: Squirtle!"
 	done
+endc
 
-CeruleanPoliceStationJennyText: ; TO TRANSLATE
+CeruleanPoliceStationJennyText:
+if DEF(_FR_FR)
+	text "On suit ce type"
+	line "depuis la dernière"
+	cont "rave."
+
+	para "Jeudi dernier,"
+	line "on l'a arrêté"
+	cont "en chemin vers"
+	cont "une autre rave."
+
+	para "Il refuse de dire"
+	line "où il allait."
+	done
+else
 	text "We've been watching"
 	line "this dude since"
 	cont "the last rave."
@@ -156,8 +200,19 @@ CeruleanPoliceStationJennyText: ; TO TRANSLATE
 	line "tell us where"
 	cont "he was going."
 	done
+endc
 
-CeruleanPoliceStationRaverText: ; TO TRANSLATE
+CeruleanPoliceStationRaverText:
+if DEF(_FR_FR)
+	text "Une cellule."
+	
+	para "Il y a un jeune"
+	line "homme qui porte un"
+	cont "drôle de chapeau"
+	cont "festif et... un"
+	cont "maillot de bain."
+	done
+else
 	text "A custody cell."
 
 	para "There's a young man"
@@ -165,8 +220,18 @@ CeruleanPoliceStationRaverText: ; TO TRANSLATE
 	cont "party hat and…"
 	cont "a swimsuit."
 	done
+endc
 
-CeruleanRocketPrisonerText: ; TO TRANSLATE
+CeruleanRocketPrisonerText:
+if DEF(_FR_FR)
+	text "Une cellule."
+	
+	para "Un sbire ROCKET"
+	line "râle avec un"
+	cont "lourd accent"
+	cont "étranger."
+	done
+else
 	text "A custody cell."
 
 	para "There's a ROCKET"
@@ -174,11 +239,18 @@ CeruleanRocketPrisonerText: ; TO TRANSLATE
 	cont "with a thick"
 	cont "foreign accent."
 	done
+endc
 
-CeruleanPoliceStationSignText: ; TO TRANSLATE
+CeruleanPoliceStationSignText:
+if DEF(_FR_FR)
+	text "Vers l'arrière-"
+	line "cour."
+	done
+else
 	text "To the backyard."
 	line "Now robber-free!"
 	done
+endc
 
 CeruleanPoliceStation_MapEvents:
 	db 0, 0 ; filler

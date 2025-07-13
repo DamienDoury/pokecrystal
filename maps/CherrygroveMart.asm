@@ -82,7 +82,25 @@ endc
 
 	done
 
-CherrygroveMartYoungsterText: ; TO TRANSLATE
+CherrygroveMartYoungsterText:
+if DEF(_FR_FR)
+	text "Je marchais dans"
+	line "l'herbe et un"
+
+	para "#MON sauvage"
+	line "a empoisonné"
+	cont "le mien!"
+
+	para "J'ai continué mon"
+	line "chemin mais mon"
+	cont "#MON s'est"
+	cont "évanoui."
+
+	para "Tu devrais garder"
+	line "un ANTIDOTE avec"
+	cont "toi."
+	done
+else
 	text "When I was walking"
 	line "in the grass, a"
 
@@ -96,6 +114,7 @@ CherrygroveMartYoungsterText: ; TO TRANSLATE
 	para "You should keep an"
 	line "ANTIDOTE with you."
 	done
+endc
 
 CherrygroveMart_MapEvents:
 	db 0, 0 ; filler

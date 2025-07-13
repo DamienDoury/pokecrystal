@@ -416,10 +416,16 @@ endc
 
 	done
 
-GoldenrodHospitalMachineOffText: ; TO TRANSLATE
+GoldenrodHospitalMachineOffText:
+if DEF(_FR_FR)
+	text "Cette machine est"
+	line "éteinte."
+	done
+else
 	text "This machine is"
 	line "turned off."
 	done
+endc
 
 CeladonGameCorner_MapEvents:
 	db 0, 0 ; filler

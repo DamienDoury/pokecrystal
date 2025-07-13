@@ -371,7 +371,27 @@ endc
 
 	done
 
-MistyIntroText: ; TO TRANSLATE
+MistyIntroText:
+if DEF(_FR_FR)
+	text "ONDINE: Je t'at-"
+	line "tendais, petite"
+	cont "peste!"
+
+	para "Tu as peut-être"
+	line "tous les BADGES"
+	cont "de JOHTO,"
+
+	para "mais ici, on joue"
+	line "avec mes règles."
+
+	para "Cette piscine"
+	line "recrée les"
+	cont "conditions d'une"
+	cont "tempête océanique"
+	cont "que j'ai affronté"
+	cont "par le passé."
+	done
+else
 	text "MISTY: I was ex-"
 	line "pecting you, you"
 	cont "pest!"
@@ -387,10 +407,27 @@ MistyIntroText: ; TO TRANSLATE
 	line "cates the rough"
 	cont "conditions of an"
 	cont "ocean storm I once"
-	cont "fought in."	
+	cont "fought in."
 	done
+endc
 
-MistyOnlyWaterOrFlyingTypeText: ; TO TRANSLATE
+MistyOnlyWaterOrFlyingTypeText:
+if DEF(_FR_FR)
+	text "Seuls les #MON"
+	line "EAU ou VOL"
+
+	para "peuvent supporter"
+	line "une telle tempête."
+	cont "(tousse)"
+
+	para "Ton équipe n'est"
+	line "pas prête pour"
+	cont "ce défi."
+
+	para "Alors change-la,"
+	line "petite peste!"
+	done
+else
 	text "Only WATER and"
 	line "FLYING #MON"
 
@@ -404,8 +441,18 @@ MistyOnlyWaterOrFlyingTypeText: ; TO TRANSLATE
 	para "So go fix it,"
 	line "you pest! Quick!"
 	done
+endc
 
-MistyValidatesTeamText: ; TO TRANSLATE
+MistyValidatesTeamText:
+if DEF(_FR_FR)
+	text "Je vais te montrer"
+	line "la vraie puissance"
+	cont "des #MON EAU."
+
+	para "Voyons ce que"
+	line "t'as le ventre!"
+	done
+else
 	text "That'll show you"
 	line "the true power of"
 	cont "WATER #MON."
@@ -413,6 +460,7 @@ MistyValidatesTeamText: ; TO TRANSLATE
 	para "Let's see what"
 	line "you're made of!"
 	done
+endc
 
 MistyWinLossText: 
 if DEF(_FR_FR)
@@ -447,7 +495,21 @@ endc
 
 	done
 
-MistyFightDoneText: ; TO TRANSLATE
+MistyFightDoneText:
+if DEF(_FR_FR)
+	text "ONDINE: Il y a"
+	line "d'autres dresseurs"
+	cont "puissants comme"
+	cont "toi à JOHTO?"
+
+	para "(tousse)"
+
+	para "Je voyagerai"
+	line "un jour, pour"
+	cont "affronter d'autres"
+	cont "dresseurs forts."
+	done
+else
 	text "MISTY: Are there"
 	line "many strong train-"
 	cont "ers in JOHTO? Like"
@@ -461,8 +523,36 @@ MistyFightDoneText: ; TO TRANSLATE
 	para "I can battle some"
 	line "skilled trainers."
 	done
+endc
 
-MistyRedDeadText: ; TO TRANSLATE
+MistyRedDeadText:
+if DEF(_FR_FR)
+	text "ONDINE: (pleure)"
+	line "Le pauvre..."
+	cont "Je suis sûre"
+	cont "que c'est son"
+	cont "SABLAIREAU qui"
+	cont "lui a refilé..."
+
+	para "Celui qu'il a"
+	line "capturé dans"
+	cont "cette grotte..."
+
+	para "Je croyais que"
+	line "l'entrée avait"
+	cont "coulé..."
+
+	para "...Pourtant lui"
+	line "et ses #MON ont"
+	cont "réussi à entrer..."
+
+	para "(pleure)"
+
+	para "J'aimerais savoir"
+	line "où est l'entrée"
+	cont "pour la sceller..."
+	done
+else
 	text "MISTY: (weeping)"
 	line "Poor him…"
 	cont "…I'm sure it's his"
@@ -488,6 +578,7 @@ MistyRedDeadText: ; TO TRANSLATE
 	cont "is, so I could"
 	cont "condemn it…"
 	done
+endc
 
 SwimmerfDianaSeenText: 
 if DEF(_FR_FR)
@@ -610,7 +701,18 @@ endc
 
 	done
 
-CeruleanGymGuideText: ; TO TRANSLATE
+CeruleanGymGuideText:
+if DEF(_FR_FR)
+	text "Yo, MAITRE!"
+
+	para "Comme ONDINE"
+	line "était partie,"
+
+	para "j'en ai profité"
+	line "pour sortir aussi."
+	cont "Hé-hé-hé."
+	done
+else
 	text "Yo CHAMP!"
 
 	para "Since MISTY was"
@@ -619,6 +721,7 @@ CeruleanGymGuideText: ; TO TRANSLATE
 	para "for some fun too."
 	line "He-he-he."
 	done
+endc
 
 CeruleanGymGuideWinText: 
 if DEF(_FR_FR)
@@ -639,12 +742,20 @@ endc
 
 	done
 
-CeruleanGymTrainerCardGoneText: ; TO TRANSLATE
+CeruleanGymTrainerCardGoneText:
+if DEF(_FR_FR)
+	text "Quoi?!"
+
+	para "Ta CARTE DRESSEUR"
+	line "a disparu..."
+	done
+else
 	text "What?!"
 
 	para "Your TRAINER CARD"
 	line "is gone…"
 	done
+endc
 
 CeruleanGym_MapEvents:
 	db 0, 0 ; filler

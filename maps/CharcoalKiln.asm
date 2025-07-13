@@ -244,7 +244,17 @@ endc
 
 	done
 
-CharcoalKilnBossCurfewText: ; TO TRANSLATE
+CharcoalKilnBossCurfewText:
+if DEF(_FR_FR)
+	text "J'ai rendu visite"
+	line "à ma famille à"
+	cont "ROSALIA."
+
+	para "Ils m'ont tant"
+	line "manqué durant"
+	cont "le confinement!"
+	done
+else
 	text "I've visited my"
 	line "family in"
 	cont "ECRUTEAK CITY."
@@ -253,8 +263,18 @@ CharcoalKilnBossCurfewText: ; TO TRANSLATE
 	line "much during the"
 	cont "lockdown!"
 	done
+endc
 
-CharcoalKilnApprenticeText1: ; TO TRANSLATE
+CharcoalKilnApprenticeText1:
+if DEF(_FR_FR)
+	text "APPRENTI: Où sont"
+	line "passés les"
+	cont "RAMOLOSS?"
+
+	para "Sont-ils dehors en"
+	line "train de traîner?"
+	done
+else
 	text "APPRENTICE: Where"
 	line "have all the"
 	cont "SLOWPOKE gone?"
@@ -262,8 +282,22 @@ CharcoalKilnApprenticeText1: ; TO TRANSLATE
 	para "Are they out play-"
 	line "ing somewhere?"
 	done
+endc
 
-CharcoalKilnApprenticeText2: ; TO TRANSLATE
+CharcoalKilnApprenticeText2:
+if DEF(_FR_FR)
+	text "APPRENTI: Pardonne"
+	line "moi, j'ai oublié"
+	cont "de te remercier."
+
+	para "J'ai produit ce"
+	line "CHARBON."
+
+	para "Les #MON de feu"
+	line "seront contents"
+	cont "d'en tenir un."
+	done
+else
 	text "APPRENTICE: I'm"
 	line "sorry--I forgot"
 	cont "to thank you."
@@ -275,8 +309,19 @@ CharcoalKilnApprenticeText2: ; TO TRANSLATE
 	line "would be happy to"
 	cont "hold that."
 	done
+endc
 
-CharcoalKilnApprenticeText3: ; TO TRANSLATE
+CharcoalKilnApprenticeText3:
+if DEF(_FR_FR)
+	text "APPRENTI: Les"
+	line "RAMOLOSS sont"
+	cont "revenus, et tu as"
+	cont "même retrouvé"
+	cont "CANARTICHO."
+
+	para "Trop classe!"
+	done
+else
 	text "APPRENTICE: The"
 	line "SLOWPOKE came"
 	cont "back, and you even"
@@ -285,6 +330,7 @@ CharcoalKilnApprenticeText3: ; TO TRANSLATE
 	para "You're the cool-"
 	line "est, man!"
 	done
+endc
 
 FarfetchdText: 
 if DEF(_FR_FR)
@@ -295,22 +341,48 @@ endc
 
 	done
 
-CharcoalKiln_ThanksText: ; TO TRANSLATE
+CharcoalKiln_ThanksText:
+if DEF(_FR_FR)
+	text "Pour te remercier,"
+	line "j'aimerais que tu"
+	cont "prennes ceci."
+	done
+else
 	text "To thank you for"
 	line "helping us, I'd"
 	cont "like you to have"
 	cont "this."
 	done
+endc
 
-Text_CharcoalMasterOutro: ; TO TRANSLATE
+Text_CharcoalMasterOutro:
+if DEF(_FR_FR)
+	text "C'est la CS COUPE."
+	line "Apprends-la à"
+
+	para "un #MON pour"
+	line "couper les petits"
+	cont "arbres."
+	done
+else
 	text "That's the CUT HM."
 	line "Teach that to a"
 
 	para "#MON to clear"
 	line "small trees."
 	done
+endc
 
-CharcoalKiln_SomethingsHappeningOnTVText: ; TO TRANSLATE
+CharcoalKiln_SomethingsHappeningOnTVText:
+if DEF(_FR_FR)
+	text "Que se passe-t-il?"
+
+	para "Une annonce"
+	line "importante va"
+	cont "commencer à la"
+	cont "TV. Regardons!"
+	done
+else
 	text "What's happening?"
 
 	para "An important"
@@ -319,8 +391,19 @@ CharcoalKiln_SomethingsHappeningOnTVText: ; TO TRANSLATE
 	cont "TV. We should"
 	cont "watch it!"
 	done
+endc
 
-CharcoalKiln_ProgramInterruptionText: ; TO TRANSLATE
+CharcoalKiln_ProgramInterruptionText:
+if DEF(_FR_FR)
+	text "“Nous interrompons"
+	line "votre programme"
+	cont "pour une"
+	cont "déclaration"
+	cont "officielle.”"
+
+	para "..."
+	done
+else
 	text "“We interrupt"
 	line "your program for"
 	cont "an official"
@@ -329,19 +412,44 @@ CharcoalKiln_ProgramInterruptionText: ; TO TRANSLATE
 	para "…"
 
 	done
+endc
 
-CharcoalKiln_YoungsterReactionText: ; TO TRANSLATE
+CharcoalKiln_YoungsterReactionText:
+if DEF(_FR_FR)
+	text "APPRENTI: Eh bien,"
+	line "c'est pas rien..."
+	done
+else
 	text "APPRENTICE: Well,"
 	line "that's something…"
 	done
+endc
 
-CharcoalKiln_YoungsterRushsMartText: ; TO TRANSLATE
+CharcoalKiln_YoungsterRushsMartText:
+if DEF(_FR_FR)
+	text "Je fonce à la"
+	line "BOUTIQUE #MON"
+	cont "avant qu'il soit"
+	cont "trop tard!"
+	done
+else
 	text "I gotta go to the"
 	line "#MON MART"
 	cont "before we can't!"
 	done
+endc
 
-CharcoalKiln_MasterReactionText: ; TO TRANSLATE
+CharcoalKiln_MasterReactionText:
+if DEF(_FR_FR)
+	text "Comment va-t-on"
+	line "pouvoir rester"
+	cont "enfermés?"
+
+	para "Dois-je rejoindre"
+	line "ma famille à"
+	cont "ROSALIA?"
+	done
+else
 	text "How can we manage"
 	line "to stay inside?"
 
@@ -349,12 +457,20 @@ CharcoalKiln_MasterReactionText: ; TO TRANSLATE
 	line "my family in"
 	cont "ECRUTEAK CITY?"
 	done
+endc
 
-CharcoalKilnBossPanicText: ; TO TRANSLATE
+CharcoalKilnBossPanicText:
+if DEF(_FR_FR)
+	text "Comment marche"
+	line "l'attestation"
+	cont "manuscrite?"
+	done
+else
 	text "How does the"
 	line "self-made written"
 	cont "attestation work?"
 	done
+endc
 
 CharcoalKiln_MapEvents:
 	db 0, 0 ; filler

@@ -217,7 +217,49 @@ CeladonGymStatue:
 	gettrainername STRING_BUFFER_4, ERIKA, ERIKA1
 	jumpstd GymStatue2Script
 
-ErikaBeforeBattleText: ; TO TRANSLATE
+ErikaBeforeBattleText:
+if DEF(_FR_FR)
+	text "ERIKA: Bonjour..."
+	line "Quel beau temps,"
+	cont "n'est-ce pas?"
+
+	para "On dirait que c'est"
+	line "tous les jours le"
+	cont "printemps dans"
+	cont "cette serre"
+	cont "climatisée..."
+
+	para "...Les #MON"
+	line "PLANTE fleurissent"
+	cont "toute l'année"
+
+	para "c'est un vrai"
+	line "paradis..."
+
+	para "...Oh? Tu viens"
+	line "depuis JOHTO?"
+	cont "C'est charmant..."
+
+	para "Oh. Pardon, je"
+	line "n'avais pas vu"
+
+	para "que tu voulais"
+	line "me défier."
+
+	para "Je suis ERIKA."
+	line "CHAMPIONNE de"
+	cont "CELADOPOLE."
+
+	para "Mes amis #MON"
+	line "ont grandi dans"
+	cont "ce jardin."
+	cont "Ils font"
+	cont "partie de cet"
+	cont "écosystème..."
+
+	para "Commençons?"
+	done
+else
 	text "ERIKA: Hello…"
 	line "Lovely weather,"
 	cont "isn't it?"
@@ -255,6 +297,7 @@ ErikaBeforeBattleText: ; TO TRANSLATE
 
 	para "Shall we begin?"
 	done
+endc
 
 ErikaBeatenText: 
 if DEF(_FR_FR)
@@ -529,7 +572,35 @@ endc
 
 	done
 
-CeladonGymGuideText: ; TO TRANSLATE
+CeladonGymGuideText:
+if DEF(_FR_FR)
+	text "Bienvenue"
+	line "CHAMPION!"
+
+	para "(atchii)"
+
+	para "Cette ARENE est"
+	line "une serre."
+
+	para "Je ne peux pas"
+	line "combattre car je"
+	cont "n'arrête pas"
+	cont "d'éternuer."
+
+	para "Je suis allergique"
+	line "au pollen."
+
+	para "(atchoum)"
+
+	para "Pour t'en protéger,"
+	line "fais porter un"
+	cont "#MASK à tes"
+	cont "#MON."
+
+	para "Bonne chance"
+	line "à toi!"
+	done
+else
 	text "Welcome, CHAMP!"
 
 	para "(achii)"
@@ -537,7 +608,7 @@ CeladonGymGuideText: ; TO TRANSLATE
 	para "This GYM is a"
 	line "greenhouse."
 
-	para "I can't take part" 
+	para "I can't take part"
 	line "in battles because"
 	cont "I keep sneezing."
 
@@ -553,14 +624,54 @@ CeladonGymGuideText: ; TO TRANSLATE
 
 	para "Good luck to you!"
 	done
+endc
 
-CeladonGymGuideWinText: ; TO TRANSLATE
+CeladonGymGuideWinText:
+if DEF(_FR_FR)
+	text "Tu l'as fait..."
+	
+	para "(ATCHII)"
+	
+	para "...!"
+	done
+else
 	text "You did…"
 	para "(ACHII)"
 	para "…!"
 	done
+endc
 
-CeladonGymGuideClosedText: ; TO TRANSLATE
+CeladonGymGuideClosedText:
+if DEF(_FR_FR)
+	text "Salut, dresseur!"
+
+	para "Je suis désolée,"
+	line "ERIKA a décidé"
+
+	para "de fermer cette"
+	line "ARENE tant qu'un"
+
+	para "vaccin pour"
+	line "#MON ne sera"
+	cont "pas disponible."
+
+	para "..."
+	line "(atchii)"
+
+	para "Elle veut préser-"
+	line "ver cette magni-"
+	
+	para "fique ARENE, et la"
+	line "santé de ses"
+	cont "dresseurs."
+
+	para "Le vaccin devrait"
+	line "être prêt très"
+	cont "bientôt."
+
+	para "A plus tard!"
+	done
+else
 	text "Hello sweet"
 	line "trainer!"
 
@@ -579,7 +690,7 @@ CeladonGymGuideClosedText: ; TO TRANSLATE
 
 	para "She wants to "
 	line "preserve this"
-	
+
 	para "wonderful GYM and"
 	line "the health of its"
 	cont "trainers."
@@ -590,8 +701,30 @@ CeladonGymGuideClosedText: ; TO TRANSLATE
 
 	para "See you later!"
 	done
+endc
 
-_GymGuideNotVaccinatedText: ; TO TRANSLATE
+_GymGuideNotVaccinatedText:
+if DEF(_FR_FR)
+	text "Salut toi!"
+
+	para "ERIKA exige que"
+	line "tous les #MON"
+
+	para "soient vaccinés"
+	line "pour entrer dans"
+	cont "cette ARENE."
+
+	para "Je ne peux pas te"
+	line "laisser entrer."
+
+	para "Le CENTRE de"
+	line "VACCINATION est"
+	cont "à SAFRANIA."
+
+	para "Prends soin de"
+	line "toi!"
+	done
+else
 	text "Hello dear!"
 
 	para "ERIKA demands that"
@@ -612,6 +745,7 @@ _GymGuideNotVaccinatedText: ; TO TRANSLATE
 	para "Take care my"
 	line "friend!"
 	done
+endc
 
 CeladonGym_MapEvents:
 	db 0, 0 ; filler

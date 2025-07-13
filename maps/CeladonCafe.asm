@@ -115,7 +115,17 @@ EatathonContestPoster:
 CeladonCafeTrashcan:
 	jumptext FoundLeftoversText
 
-ChefText_Eatathon: ; TO TRANSLATE
+ChefText_Eatathon:
+if DEF(_FR_FR)
+	text "Salut!"
+	
+	para "On est complet"
+	line "pour le moment."
+
+	para "Merci d'attendre"
+	line "dehors."
+	done
+else
 	text "Hi!"
 
 	para "We're full at the"
@@ -123,6 +133,7 @@ ChefText_Eatathon: ; TO TRANSLATE
 	cont "wait outside."
 
 	done
+endc
 
 Fisher1Text_Snarfle: 
 if DEF(_FR_FR)
@@ -134,7 +145,19 @@ endc
 
 	done
 
-Fisher1Text_Concentration: ; TO TRANSLATE
+Fisher1Text_Concentration:
+if DEF(_FR_FR)
+	text "Je ne sais pas"
+	line "cuisiner, alors"
+	cont "j'ai mangé des"
+	cont "plats surgelés"
+	cont "pendant les mois"
+	cont "de confinement."
+
+	para "Les restos m'ont"
+	line "tellement manqué!"
+	done
+else
 	text "I can't cook so"
 	line "I've been eating"
 	cont "frozen meals dur-"
@@ -145,8 +168,8 @@ Fisher1Text_Concentration: ; TO TRANSLATE
 	para "I've been missing"
 	line "restaurants so"
 	cont "much!"
-
 	done
+endc
 
 Fisher2Text_GulpChew: 
 if DEF(_FR_FR)
@@ -158,21 +181,41 @@ endc
 
 	done
 
-Fisher2Text_Eating: ; TO TRANSLATE
+Fisher2Text_Eating:
+if DEF(_FR_FR)
+	text "TU VOIS PAS QUE JE"
+	line "SUIS OCCUPE A"
+	cont "MANGER?"
+	done
+else
 	text "CAN'T YOU SEE"
 	line "I'M BUSY EATING?"
 	done
+endc
 
-Fisher2Text_Loss: ; TO TRANSLATE
+Fisher2Text_Loss:
+if DEF(_FR_FR)
+	text "Je vais reprendre"
+	line "un dessert svp."
+	done
+else
 	text "I'll get one more"
 	line "dessert please."
 	done
+endc
 
-Fisher2Text_Quantity: ; TO TRANSLATE
+Fisher2Text_Quantity:
+if DEF(_FR_FR)
+	text "Ne me parle pas,"
+	line "je ne porte pas"
+	cont "mon masque!"
+	done
+else
 	text "Don't talk to me,"
 	line "I'm not wearing"
 	cont "my face mask!"
 	done
+endc
 
 Fisher3Text_MunchMunch: 
 if DEF(_FR_FR)
@@ -183,7 +226,19 @@ endc
 
 	done
 
-Fisher3Text_GoldenrodIsBest: ; TO TRANSLATE
+Fisher3Text_GoldenrodIsBest:
+if DEF(_FR_FR)
+	text "J'ai oublié que"
+	line "j'avais perdu le"
+	cont "goût et l'odorat..."
+
+	para "C'est tellement"
+	line "frustrant!"
+
+	para "Manger c'était"
+	line "tout pour moi..."
+	done
+else
 	text "I forgot that I"
 	line "lost the sense of"
 	cont "taste and smell…"
@@ -194,6 +249,7 @@ Fisher3Text_GoldenrodIsBest: ; TO TRANSLATE
 	para "Eating was every-"
 	line "thing to me…"
 	done
+endc
 
 TeacherText_CrunchCrunch: 
 if DEF(_FR_FR)
@@ -243,7 +299,54 @@ endc
 
 	done
 
-EatathonContestPosterText: ; TO TRANSLATE
+EatathonContestPosterText:
+if DEF(_FR_FR)
+	text "REGLES SANITAIRES:"
+
+	para "-Faites la queue"
+	line "et attendez que"
+	cont "votre pass vacci-"
+	cont "val soit contrôlé."
+
+	para "-Masque porté"
+	line "en permanence"
+	cont "sauf assis."
+
+	para "-Lavez vos mains"
+	line "en entrant."
+
+	para "-Les tables ont"
+	line "été espacées. Ne"
+	cont "les bougez pas."
+
+	para "-Capacité d'accueil"
+	line "réduite à 25<PERCENT>."
+
+	para "-Laissez un siège"
+	line "vide entre vous"
+	cont "et les autres"
+	cont "clients. Ne pas"
+	cont "s'asseoir en face"
+	cont "de quelqu'un."
+
+	para "-Pas de carte"
+	line "physique: scannez"
+	cont "le QR code avec"
+	cont "votre #GEAR"
+	cont "pour lire le"
+	cont "menu numérique."
+
+	para "-Après les WC,"
+	line "nettoyez tout"
+	cont "avec les lingettes"
+	cont "désinfectants."
+
+	para "-Paiement cash"
+	line "interdit. Seul"
+	cont "le sans-contact"
+	cont "est accepté."
+	done
+else
 	text "SANITARY RULES:"
 
 	para "- Line up outside"
@@ -292,10 +395,23 @@ EatathonContestPosterText: ; TO TRANSLATE
 	line "prohibited. Only"
 	cont "contactless pay-"
 	cont "ments accepted."
-
 	done
+endc
 
-FoundLeftoversText: ; TO TRANSLATE
+FoundLeftoversText:
+if DEF(_FR_FR)
+	text "<PLAYER> a trouvé"
+	line "RIEN!"
+
+	para "Cette poubelle"
+	line "est super propre."
+
+	para "Ce resto est"
+	line "très sérieux sur"
+	cont "le protocole"
+	cont "sanitaire."
+	done
+else
 	text "<PLAYER> found"
 	line "NOTHING!"
 
@@ -307,6 +423,7 @@ FoundLeftoversText: ; TO TRANSLATE
 	cont "serious about the"
 	cont "sanitary protocol."
 	done
+endc
 
 CeladonCafe_MapEvents:
 	db 0, 0 ; filler

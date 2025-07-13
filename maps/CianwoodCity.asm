@@ -249,7 +249,17 @@ endc
 
 	done
 
-ChucksWifeBeatChuckText: ; TO TRANSLATE
+ChucksWifeBeatChuckText:
+if DEF(_FR_FR)
+	text "Si tu bats le"
+	line "CHAMPION d'ARENE"
+	cont "du coin, reviens"
+	cont "me voir."
+
+	para "J'aurai un joli"
+	line "cadeau pour toi!"
+	done
+else
 	text "If you beat the"
 	line "GYM LEADER here,"
 	cont "come see me."
@@ -257,8 +267,18 @@ ChucksWifeBeatChuckText: ; TO TRANSLATE
 	para "I'll have a nice"
 	line "gift for you."
 	done
+endc
 
-ChucksWifeGiveHMText: ; TO TRANSLATE
+
+ChucksWifeGiveHMText:
+if DEF(_FR_FR)
+	text "C'est le BADGE de"
+	line "l'ARENE D'IRISIA!"
+
+	para "Voilà pour toi:"
+	line "une CS."
+	done
+else
 	text "That's CIANWOOD's"
 	line "GYM BADGE!"
 
@@ -266,8 +286,45 @@ ChucksWifeGiveHMText: ; TO TRANSLATE
 	line "obliges, please"
 	cont "take this HM."
 	done
+endc
 
-ChucksWifeFlySpeechText: ; TO TRANSLATE
+
+ChucksWifeFlySpeechText:
+if DEF(_FR_FR)
+	text "Apprends VOL à ton"
+	line "#MON."
+
+	para "Tu pourras voler"
+	line "tout de suite et"
+
+	para "te rendre dans"
+	line "tous les endroits"
+	cont "que tu as déjà"
+	cont "visités."
+
+	para "Mais comme tu le"
+	line "sais, voler est"
+	cont "interdit pour"
+	cont "le moment à cause"
+	cont "des restrictions"
+	cont "de déplacement."
+
+	para "Si toi ou ton"
+	line "#MON êtes"
+	cont "contaminés,"
+
+	para "vous pourriez"
+	line "propager le virus"
+	cont "au loin."
+
+	para "Tu risques"
+	line "d'être arrêté si"
+	cont "tu utilises VOL."
+
+	para "À tes risques"
+	line "et périls."
+	done
+else
 	text "Teach FLY to your"
 	line "#MON."
 
@@ -298,6 +355,8 @@ ChucksWifeFlySpeechText: ; TO TRANSLATE
 	para "Use it at you"
 	line "own risks."
 	done
+endc
+
 
 ChucksWifeChubbyText: 
 if DEF(_FR_FR)
@@ -369,7 +428,18 @@ endc
 
 	done
 
-PharmacistRanAwayText: ; TO TRANSLATE
+PharmacistRanAwayText:
+if DEF(_FR_FR)
+	text "On avait un"
+	line "pharmacien."
+
+	para "Mais il est"
+	line "parti soudain,"
+	cont "sans prévenir."
+	
+	para "Louche, ce type."
+	done
+else
 	text "We used to have"
 	line "a pharmacist."
 
@@ -377,8 +447,19 @@ PharmacistRanAwayText: ; TO TRANSLATE
 	line "left without a"
 	cont "word. Shady dude."
 	done
+endc
 
-CianwoodCityYoungsterText: ; TO TRANSLATE
+CianwoodCityYoungsterText:
+if DEF(_FR_FR)
+	text "Il y a plusieurs"
+	line "îles entre ici"
+	cont "et OLIVILLE."
+
+	para "Une créature"
+	line "marine mythique"
+	cont "vivrait là-bas."
+	done
+else
 	text "There are several"
 	line "islands between"
 	cont "here and OLIVINE."
@@ -387,8 +468,49 @@ CianwoodCityYoungsterText: ; TO TRANSLATE
 	line "creature supposed-"
 	cont "ly lives there."
 	done
+endc
 
-EusineSuicuneText: ; TO TRANSLATE
+EusineSuicuneText:
+if DEF(_FR_FR)
+	text "EUSINE: Hé!"
+	line "<PLAYER>!"
+
+	para "C'était pas"
+	line "SUICUNE?"
+
+	para "Je l'ai juste"
+	line "aperçu mais j'ai"
+
+	para "vu SUICUNE courir"
+	line "sur les vagues."
+
+	para "Les pouvoirs de"
+	line "SUICUNE pourraient"
+	cont "aider la recherche"
+	cont "sur le vaccin"
+	cont "contre le COVID."
+
+	para "Obtenir un"
+	line "échantillon de"
+	cont "son eau pourrait"
+	cont "sauver des"
+	cont "millions de vies."
+
+	para "Je veux voir"
+	line "SUICUNE de près..."
+
+	para "C'est décidé."
+
+	para "Je vais t'affron-"
+	line "ter pour montrer"
+	cont "mon talent à"
+	cont "SUICUNE!"
+
+	para "Mais si, c'est"
+	line "logique!"
+	cont "COMBAT!"
+	done
+else
 	text "EUSINE: Yo,"
 	line "<PLAYER>."
 
@@ -426,6 +548,7 @@ EusineSuicuneText: ; TO TRANSLATE
 	para "Come on, <PLAYER>."
 	line "Let's battle now!"
 	done
+endc
 
 EusineBeatenText: 
 if DEF(_FR_FR)
@@ -561,7 +684,16 @@ endc
 
 	done
 
-Cianwood_NoFaceMaskText: ; TO TRANSLATE
+Cianwood_NoFaceMaskText:
+if DEF(_FR_FR)
+	text "Je porterai pas"
+	line "de masque."
+
+	para "Je n'ai jamais vu"
+	line "le COVID, alors"
+	cont "j'y crois pas."
+	done
+else
 	text "I won't wear"
 	line "a face mask."
 
@@ -569,11 +701,24 @@ Cianwood_NoFaceMaskText: ; TO TRANSLATE
 	line "COVID, and I don't"
 	cont "believe in it."
 	done
+endc
 
-Cianwood_NoPoliceControlsText: ; TO TRANSLATE
+Cianwood_NoPoliceControlsText:
+if DEF(_FR_FR)
+	text "La police ne"
+	line "s'embête pas à"
+	cont "contrôler une"
+	cont "région si reculée."
+
+	para "Alors les gens"
+	line "d'ici sortent"
+	cont "à l'extérieur,"
+	cont "malgré l'interdit."
+	done
+else
 	text "The police doesn't"
 	line "bother control-"
-	cont "ling such a "
+	cont "ling such a"
 	cont "remote area."
 
 	para "So people of this"
@@ -581,8 +726,21 @@ Cianwood_NoPoliceControlsText: ; TO TRANSLATE
 	cont "out even though"
 	cont "it's forbidden."
 	done
+endc
 
-Cianwood_FreshAirText: ; TO TRANSLATE
+Cianwood_FreshAirText:
+if DEF(_FR_FR)
+	text "L'air frais"
+	line "fait du bien!"
+
+	para "Quand je pense"
+	line "que tout le monde"
+	cont "est enfermé, je me"
+	cont "sens chanceux."
+
+	para "(tousse)"
+	done
+else
 	text "The fresh air"
 	line "feels good!"
 
@@ -595,6 +753,7 @@ Cianwood_FreshAirText: ; TO TRANSLATE
 
 	para "(cough)"
 	done
+endc
 
 CianwoodCity_MapEvents:
 	db 0, 0 ; filler

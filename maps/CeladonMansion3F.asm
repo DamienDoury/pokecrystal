@@ -142,7 +142,18 @@ GameFreakRunAwayMovement:
 	big_step UP
 	step_end
 
-GameFreakBotheringFanText1: ; TO TRANSLATE
+GameFreakBotheringFanText1:
+if DEF(_FR_FR)
+	text "J'ai esquivé les"
+	line "gardiens pour"
+	cont "venir voir mes"
+	cont "héros!"
+
+	para "Je veux voir sur"
+	line "quoi ils tra-"
+	cont "vaillent!"
+	done
+else
 	text "I avoided the"
 	line "security guards"
 	cont "to come and see"
@@ -152,8 +163,20 @@ GameFreakBotheringFanText1: ; TO TRANSLATE
 	line "what they are"
 	cont "working on!"
 	done
+endc
 
-GameFreakBotheringFanText2: ; TO TRANSLATE
+GameFreakBotheringFanText2:
+if DEF(_FR_FR)
+	text "Tu peux prendre"
+	line "une photo de moi?"
+	cont "Je devrais sans"
+	cont "doute postuler?"
+
+	para "Je suis trop"
+	line "excité!!"
+	cont "Hyaaa!!"
+	done
+else
 	text "Could you take"
 	line "a picture of me?"
 	cont "Maybe I should"
@@ -163,16 +186,37 @@ GameFreakBotheringFanText2: ; TO TRANSLATE
 	para "I'm so excited!!"
 	line "Hyaaa!!"
 	done
+endc
 
-GameFreakBotheringFanText3: ; TO TRANSLATE
+GameFreakBotheringFanText3:
+if DEF(_FR_FR)
+	text "Je n'ai pas le"
+	line "droit d'être ici."
+
+	para "Je devrais rentrer"
+	line "à ma boutique."
+	done
+else
 	text "I have no right"
 	line "to be here."
 
 	para "I should go back"
 	line "to my shop now."
 	done
+endc
 
-GameFreakGameDesignerText: ; TO TRANSLATE
+GameFreakGameDesignerText:
+if DEF(_FR_FR)
+	text "SATOSHI TAJIRI:"
+	line "Mmmmoui?"
+
+	para "Je suis le DESI-"
+	line "GNER du JEU!"
+
+	para "Continue à remplir"
+	line "ton #DEX!"
+	done
+else
 	text "SATOSHI TAJIRI: Is"
 	line "that right?"
 
@@ -183,8 +227,19 @@ GameFreakGameDesignerText: ; TO TRANSLATE
 	line "#DEX is tough,"
 	cont "but don't give up!"
 	done
+endc
 
-GameFreakGameDesignerCompletedPokedexText: ; TO TRANSLATE
+GameFreakGameDesignerCompletedPokedexText:
+if DEF(_FR_FR)
+	text "SATOSHI TAJIRI:"
+	line "Whoa! Super!"
+	
+	para "Tu as complété ton"
+	line "#DEX!"
+
+	para "Formidable!"
+	done
+else
 	text "SATOSHI TAJIRI:"
 	line "Wow! Excellent!"
 	cont "You completed your"
@@ -192,6 +247,7 @@ GameFreakGameDesignerCompletedPokedexText: ; TO TRANSLATE
 
 	para "Congratulations!"
 	done
+endc
 
 GameFreakGameDesignerPauseForDiplomaText:
 	text "…"
@@ -216,15 +272,37 @@ endc
 
 	done
 
-GameFreakGraphicArtistText: ; TO TRANSLATE
+GameFreakGraphicArtistText:
+if DEF(_FR_FR)
+	text "KEN SUGIMORI: Je"
+	line "suis l'ARTISTE"
+	cont "GRAPHIQUE."
+
+	para "J'ai fait ton"
+	line "dessin!"
+	done
+else
 	text "KEN SUGIMORI: I'm"
 	line "the GRAPHIC"
 	cont "ARTIST."
 
 	para "I drew you!"
 	done
+endc
 
-GameFreakGraphicArtistPrintDiplomaText: ; TO TRANSLATE
+GameFreakGraphicArtistPrintDiplomaText:
+if DEF(_FR_FR)
+	text "KEN SUGIMORI: Je"
+	line "suis l'ARTISTE"
+	cont "GRAPHIQUE."
+
+	para "Tu as complété"
+	line "ton #DEX?"
+
+	para "Tu veux que j'im-"
+	line "prime ton DIPLOME?"
+	done
+else
 	text "KEN SUGIMORI: I'm"
 	line "the GRAPHIC"
 	cont "ARTIST."
@@ -235,6 +313,7 @@ GameFreakGraphicArtistPrintDiplomaText: ; TO TRANSLATE
 	para "Want me to print"
 	line "out your DIPLOMA?"
 	done
+endc
 
 GameFreakGraphicArtistRefusedText: 
 if DEF(_FR_FR)
@@ -262,7 +341,16 @@ endc
 
 	done
 
-GameFreakProgrammerText: ; TO TRANSLATE
+GameFreakProgrammerText:
+if DEF(_FR_FR)
+	text "TETSUYA WATANABE:"
+	line "Moi? Je suis le"
+	cont "PROGRAMMEUR."
+
+	para "Joue aux machines"
+	line "à sous!"
+	done
+else
 	text "TETSUYA WATANABE:"
 	line "Who, me? I'm the"
 	cont "PROGRAMMER."
@@ -270,8 +358,20 @@ GameFreakProgrammerText: ; TO TRANSLATE
 	para "Play the slot"
 	line "machines!"
 	done
+endc
 
-GameFreakCharacterDesignerText: ; TO TRANSLATE
+GameFreakCharacterDesignerText:
+if DEF(_FR_FR)
+	text "KOHJI NISHINO:"
+	line "Les JUMELLES sont"
+	cont "pas trop mimi?"
+
+	para "JASMINE est trop"
+	line "jolie, non?"
+
+	para "Je...les aime!"
+	done
+else
 	text "KOHJI NISHINO:"
 	line "Aren't the TWINS"
 	cont "adorable?"
@@ -281,6 +381,7 @@ GameFreakCharacterDesignerText: ; TO TRANSLATE
 
 	para "Oh, I love them!"
 	done
+endc
 
 CeladonMansion3FDevRoomSignText: 
 if DEF(_FR_FR)

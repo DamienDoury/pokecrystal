@@ -221,14 +221,35 @@ CianwoodGymMovement_ChuckChucksBoulder:
 	remove_sliding
 	step_end
 
-ChuckIntroText1: ; TO TRANSLATE
+ChuckIntroText1:
+if DEF(_FR_FR)
+	text "WAHAHAH!"
+
+	para "Alors te voilà"
+	line "ici!"
+	done
+else
 	text "WAHAHAH!"
 
 	para "So you've come"
 	line "this far!"
 	done
+endc
 
-ChuckIntroSequelText: ; TO TRANSLATE
+ChuckIntroSequelText:
+if DEF(_FR_FR)
+	text "Laisse-moi te dire"
+	line "que je suis une"
+	cont "bête!"
+
+	para "Mes #MON"
+	line "explosent la roche"
+	cont "et fracassent les"
+	cont "os!"
+
+	para "Regarde ça!"
+	done
+else
 	text "Let me tell you,"
 	line "I'm tough!"
 
@@ -238,6 +259,7 @@ ChuckIntroSequelText: ; TO TRANSLATE
 
 	para "Watch this!"
 	done
+endc
 
 ChuckIntroText2: 
 if DEF(_FR_FR)
@@ -258,7 +280,39 @@ CianwoodGymPowerRestrainerExplanation:
 	text_far _GymPowerRestrainerFirstExplanation
 	text_end
 
-ChuckIntroText3: ; TO TRANSLATE
+ChuckIntroText3:
+if DEF(_FR_FR)
+	text "Alors t'as peur ou"
+	line "faut crier plus"
+	cont "fort?"
+
+	para "De quoi?"
+	line "Ca n'a rien à voir"
+
+	para "avec les #MON?"
+	line "Je sais!"
+
+	para "C'est une affaire"
+	line "de force propre."
+
+	para "Un dresseur"
+	line "solide doit"
+	cont "comprendre ça."
+
+	para "C'est pourquoi"
+	line "on va se battre"
+	cont "un contre un."
+
+	para "Interdit de chan-"
+	line "ger de #MON."
+
+	para "Voyons jusqu'où"
+	line "tu pousses tes"
+	cont "#MON..."
+
+	para "On y va!"
+	done
+else
 	text "There! Scared now,"
 	line "are you?"
 
@@ -287,6 +341,7 @@ ChuckIntroText3: ; TO TRANSLATE
 
 	para "Let's do this!"
 	done
+endc
 
 ChuckLossText: 
 if DEF(_FR_FR)
@@ -320,28 +375,62 @@ endc
 
 	done
 
-ChuckExplainBadgeText: ; TO TRANSLATE
+ChuckExplainBadgeText:
+if DEF(_FR_FR)
+	text "Le BADGE CHOC"
+	line "est remis"
+
+	para "aux dresseurs"
+	line "les plus solides."
+	done
+else
 	text "STORMBADGE is"
 	line "only given to"
 
 	para "the toughest"
 	line "of trainers."
 	done
+endc
 
-ChuckExplainBadgeText2: ; TO TRANSLATE
+ChuckExplainBadgeText2:
+if DEF(_FR_FR)
+	text "Tiens, attrapes"
+	line "ça aussi!"
+	done
+else
 	text "Here, take this"
 	line "too!"
 	done
+endc
 
-Obey40: ; TO TRANSLATE
+Obey40:
+if DEF(_FR_FR)
+	text "Ce 3e badge fait"
+	line "obéir les"
+
+	para "#MON échangés"
+	line "jusqu'au niveau 40."
+	done
+else
 	text "This third badge"
 	line "lets all traded"
 
 	para "#MON up to L40"
 	line "obey."
 	done
+endc
 
-Obey60: ; TO TRANSLATE
+Obey60:
+if DEF(_FR_FR)
+	text "Le 7e badge que tu"
+	line "viens de gagner"
+	cont "fait obéir tes"
+
+	para "#MON tant"
+	line "qu'ils sont sous"
+	cont "le niveau 60."
+	done
+else
 	text "The seventh badge"
 	line "you just earned"
 	cont "make #MON obey"
@@ -349,6 +438,7 @@ Obey60: ; TO TRANSLATE
 	para "as long as they"
 	line "are under L60."
 	done
+endc
 
 ChuckExplainTMText: 
 if DEF(_FR_FR)
@@ -402,53 +492,109 @@ endc
 
 	done
 
-BlackbeltYoshiSeenText: ; TO TRANSLATE
+BlackbeltYoshiSeenText:
+if DEF(_FR_FR)
+	text "Sais-tu ce que"
+	line "c'est la force?"
+	done
+else
 	text "Do you know what"
 	line "toughness is?"
 	done
+endc
 
-BlackbeltYoshiBeatenText: ; TO TRANSLATE
+BlackbeltYoshiBeatenText:
+if DEF(_FR_FR)
+	text "La force c'est"
+	line "ne pas avoir peur."
+	done
+else
 	text "Toughness is not"
 	line "being afraid."
 	done
+endc
 
-BlackbeltYoshiAfterText: ; TO TRANSLATE
+BlackbeltYoshiAfterText:
+if DEF(_FR_FR)
+	text "Je n'ai pas peur"
+	line "du COVID!"
+	
+	para "Je suis super"
+	line "fort!"
+	done
+else
 	text "I'm not afraid of"
 	line "COVID!"
 	
 	para "I'm super tough!"
 	done
+endc
 
-BlackbeltLaoSeenText: ; TO TRANSLATE
+BlackbeltLaoSeenText:
+if DEF(_FR_FR)
+	text "Si utiliser une CT"
+	line "rendait des PP,"
+	
+	para "je pourrais me"
+	line "battre toute la"
+	cont "journée!"
+	done
+else
 	text "If using a TM"
 	line "replenished PPs,"
 	
 	para "I would be able to"
 	line "fight all day!"
 	done
+endc
 
-BlackbeltLaoBeatenText: ; TO TRANSLATE
+BlackbeltLaoBeatenText:
+if DEF(_FR_FR)
+	text "Assez pour"
+	line "aujourd'hui."
+	done
+else
 	text "Enough for today."
 	done
+endc
 
-BlackbeltLaoAfterText: ; TO TRANSLATE
+BlackbeltLaoAfterText:
+if DEF(_FR_FR)
+	text "Imagine t'as 2 CT"
+	line "et tu les apprends"
+	
+	para "en boucle à tes"
+	line "#MON."
+	
+	para "Tu finirais avec"
+	line "une réserve"
+	
+	para "illimitée de PP,"
+	line "si les CT les"
+	cont "rechargeaient."
+	
+	para "Ce serait beaucoup"
+	line "trop puissant."
+	done
+else
 	text "Can you imagine"
 	line "having 2 TMs and"
 	
 	para "teaching those to"
 	line "your #MON in a"
 	cont "loop?"
-
+	
 	para "You would end up"
 	line "with an infinite"
 	
 	para "sustain of PP if"
 	line "they were"
 	cont "replenished."
-
+	
 	para "That would be"
 	line "overpowered."
 	done
+endc
 
 BlackbeltNobSeenText: 
 if DEF(_FR_FR)
@@ -517,7 +663,22 @@ endc
 
 	done
 
-CianwoodGymGuideText: ; TO TRANSLATE
+CianwoodGymGuideText:
+if DEF(_FR_FR)
+	text "Yo!"
+	
+	para "Cette ARENE, c'est"
+	line "tout pour le"
+	cont "muscle."
+
+	para "En période de"
+	line "sèche ou prise"
+	cont "de masse."
+	
+	para "Montre-nous"
+	line "un beau combat!"
+	done
+else
 	text "Yo!"
 
 	para "This GYM is all"
@@ -526,8 +687,20 @@ CianwoodGymGuideText: ; TO TRANSLATE
 	para "Show us a good"
 	line "fight!"
 	done
+endc
 
-CianwoodGymGuideWinText: ; TO TRANSLATE
+CianwoodGymGuideWinText:
+if DEF(_FR_FR)
+	text "Quel combat!"
+	line "C'était épique!"
+	
+	para "Tu nous as montré"
+	line "comment ça s'passe!"
+	
+	para "Tu soulèves"
+	line "au moins?"
+	done
+else
 	text "What a fight!"
 	line "That was epic!"
 	
@@ -538,20 +711,35 @@ CianwoodGymGuideWinText: ; TO TRANSLATE
 	line "bro?"
 
 	done
+endc
 
-CianwoodGymGuideEggText: ; TO TRANSLATE
+CianwoodGymGuideEggText:
+if DEF(_FR_FR)
+	text "HEY YO!"
+	
+	para "Qu'es'tu viens faire"
+	line "avec un OEUF dans"
+	cont "c't'ARENE?"
+	
+	para "Une omelette?"
+	
+	para "Dégage de ma"
+	line "vue, guignol."
+	done
+else
 	text "HEY YO!"
 	
 	para "What are you gon'"
 	line "do with an EGG in"
 	cont "this GYM?"
-
+	
 	para "An omelette"
 	line "du fromage?"
-
+	
 	para "Get out of my"
 	line "sight, you clown."
 	done
+endc
 
 CianwoodGym_MapEvents:
 	db 0, 0 ; filler

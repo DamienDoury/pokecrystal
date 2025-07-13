@@ -118,13 +118,25 @@ CinnabarPokecenterDJScript:
 CinnabarPokecenter1FFishingGuruScript:
 	farsjump Route32Pokecenter1FFishingGuruScript
 
-CinnabarPokecenter1FCooltrainerFText: ; TO TRANSLATE
+CinnabarPokecenter1FCooltrainerFText:
+if DEF(_FR_FR)
+	text "Le CHAMPION"
+	line "AUGUSTE de"
+	cont "CRAMOIS'ILE"
+	cont "vit seul dans"
+	cont "une grotte..."
+
+	para "Tout le monde a"
+	line "quitté l'île"
+	cont "sauf lui..."
+else
 	text "CINNABAR GYM's"
 	line "BLAINE now lives"
 	cont "alone in a cave…"
 
 	para "Everyone else"
 	line "left the island…"
+endc
 	done
 
 CinnabarPokecenter1FFisherText: 
@@ -140,15 +152,37 @@ endc
 
 	done
 
-CinnabarPokecenterRunnerText: ; TO TRANSLATE
+CinnabarPokecenterRunnerText:
+if DEF(_FR_FR)
+	text "Où est ma soeur?"
+else
 	text "Where's my sister?"
+endc
 	done
 
-CinnabarPokecenterDancerText: ; TO TRANSLATE
+CinnabarPokecenterDancerText:
+if DEF(_FR_FR)
+	text "Ouaaais!"
+else
 	text "Yeaaah!"
+endc
 	done
 
-CinnabarPokecenterSeriousText: ; TO TRANSLATE
+CinnabarPokecenterSeriousText:
+if DEF(_FR_FR)
+	text "Les clubs sont"
+	line "fermés."
+	
+	para "Les jeunes doivent"
+	line "trouver d'autres"
+	cont "moyens pour faire"
+	cont "la fête."
+
+	para "Et comme les raves"
+	line "sont illégales,"
+	cont "c'est encore plus"
+	cont "grisant!"
+else
 	text "Clubs are closed."
 	line "So the youth has"
 	cont "to find another"
@@ -157,9 +191,22 @@ CinnabarPokecenterSeriousText: ; TO TRANSLATE
 	para "And as raves are"
 	line "illegal, it's even"
 	cont "more exciting!"
+endc
 	done
 
-CinnabarPokecenterDJText: ; TO TRANSLATE
+CinnabarPokecenterDJText:
+if DEF(_FR_FR)
+	text "DJ: QUOOOI?"
+
+	para "OH OUAIS, JE SUIS"
+	line "BRANCHÉ SUR"
+
+	para "LE SYSTÈME"
+	line "AUDIO DU CENTRE"
+
+	para "#MON, CA A"
+	cont "DE LA PATATE!"
+else
 	text "DJ: WHAAAAAT?"
 
 	para "OH YEAH, I'M"
@@ -168,16 +215,27 @@ CinnabarPokecenterDJText: ; TO TRANSLATE
 	para "POKéMON CENTER"
 	line "SPEAKER SYSTEM,"
 	cont "IT'S GIGA LOUD!"
+endc
 	done
 
-CinnabarPokecenterDJText2: ; TO TRANSLATE
+CinnabarPokecenterDJText2:
+if DEF(_FR_FR)
+	text "eeeeeeeeet..."
+	para "(CORNE DE BRUME)"
+	para "  DROP THE BASS"
+else
 	text "aaaaaaand…"
 	para "(FOGHOOOOORN)"
 	para "  DROP THE BASS"
+endc
 	done
 
-WetFloorText: ; TO TRANSLATE
+WetFloorText:
+if DEF(_FR_FR)
+	text "Sol glissant"
+else
 	text "Wet floor"
+endc
 	done
 
 CinnabarPokecenter1F_MapEvents:

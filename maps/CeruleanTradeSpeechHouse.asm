@@ -55,10 +55,15 @@ endc
 
 	done
 
-CeruleanTradeSpeechHouseKangaskhanText: ; TO TRANSLATE
+CeruleanTradeSpeechHouseKangaskhanText:
+if DEF(_FR_FR)
+	text "KANGOUREX: Kangou!"
+	done
+else
 	text "KANGASKHAN: Garu"
 	line "garuu."
 	done
+endc
 
 CeruleanTradeSpeechHouseZubatText: 
 if DEF(_FR_FR)

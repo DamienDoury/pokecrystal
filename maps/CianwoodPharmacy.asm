@@ -19,11 +19,8 @@ CianwoodPharmacist:
 	iffalse .Mart
 	writetext PharmacistGiveSecretpotionText
 	promptbutton
-	giveitem CHLOROQUINE
-	writetext ReceivedSecretpotionText
-	playsound SFX_KEY_ITEM
+	verbosegiveitem CHLOROQUINE
 	waitsfx
-	itemnotify
 	setevent EVENT_GOT_SECRETPOTION_FROM_PHARMACY
 	writetext PharmacistDescribeSecretpotionText
 	waitbutton
@@ -79,18 +76,23 @@ endc
 
 	done
 
-ReceivedSecretpotionText: ; TO TRANSLATE
-	text "<PLAYER> received"
-	line "CHLOROQUINE."
-	done
+PharmacistDescribeSecretpotionText:
+if DEF(_FR_FR)
+	text "Ma CHLOROQUINE"
+	line "est un tantinet"
 
-PharmacistDescribeSecretpotionText: ; TO TRANSLATE
+	para "trop forte. Je ne"
+	line "l'offre qu'en cas"
+	cont "d'extrême urgence."
+	done
+else
 	text "My CHLOROQUINE is"
 	line "a tad too strong."
 
 	para "I only offer it in"
 	line "an emergency."
 	done
+endc
 
 CianwoodPharmacy_MapEvents:
 	db 0, 0 ; filler

@@ -807,13 +807,38 @@ endc
 
 	done
 
-FirstInLineFirstLockdownText: ; TO TRANSLATE
+FirstInLineFirstLockdownText:
+if DEF(_FR_FR)
+	text "L'annonce du"
+	line "confinement m'a"
+	cont "captivé..."
+	done
+else
 	text "The declaration of"
 	line "the lockdown got"
 	cont "me hooked…"
 	done
+endc
 
-MysticWaterGuyFirstLockdownText: ; TO TRANSLATE
+MysticWaterGuyFirstLockdownText:
+if DEF(_FR_FR)
+	text "J'ai entendu les"
+	line "infos à la radio"
+
+	para "alors que je"
+	line "pêchais, et j'ai"
+	
+	para "immédiatement"
+	line "couru jusqu'ici."
+
+	para "Je n'arrive pas"
+	line "à croire qu'il y"
+	cont "ait une si longue"
+	cont "FILe d'attente!"
+
+	para "Tu saisis?"
+	done
+else
 	text "I heard the news"
 	line "on the radio while"
 
@@ -828,8 +853,22 @@ MysticWaterGuyFirstLockdownText: ; TO TRANSLATE
 
 	para "Get it?"
 	done
+endc
 
-CooltrainerFirstLockdownText: ; TO TRANSLATE
+CooltrainerFirstLockdownText:
+if DEF(_FR_FR)
+	text "Certains produits"
+	line "étaient déjà"
+	
+	para "rares et chers"
+	line "à cause des"
+	cont "pénuries."
+
+	para "Après cet afflux"
+	line "ce sera le"
+	cont "chaos..."
+	done
+else
 	text "Some supplies were"
 	line "already rare and"
 
@@ -840,6 +879,7 @@ CooltrainerFirstLockdownText: ; TO TRANSLATE
 	line "influx, it's going"
 	cont "to be chaotic…"
 	done
+endc
 
 CherrygroveCitySignText: 
 if DEF(_FR_FR)

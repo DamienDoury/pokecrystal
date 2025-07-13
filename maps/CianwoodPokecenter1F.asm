@@ -93,7 +93,35 @@ endc
 
 	done
 
-CianwoodGymGuideDudeText: ; TO TRANSLATE
+CianwoodGymGuideDudeText:
+if DEF(_FR_FR)
+	text "Les dresseurs de"
+	line "l'ARENE sont des"
+	cont "grosses brutes."
+
+	para "Je veux pas qu'ils"
+	line "s'en prennent à"
+	cont "moi."
+
+	para "Un conseil: le"
+	line "CHAMPION utilise"
+	cont "le type COMBAT."
+
+	para "Tu devrais donc"
+	line "utiliser des"
+	cont "capacités PSY."
+
+	para "Et les rochers au"
+	line "milieu de l'ARENE?"
+
+	para "Bouge-les correc-"
+	line "tement pour accé-"
+	cont "der au CHAMPION."
+
+	para "Si tu ne peux plus"
+	line "progresser, sors."
+	done
+else
 	text "The #MON GYM"
 	line "trainers here are"
 	cont "macho bullies."
@@ -125,40 +153,22 @@ CianwoodGymGuideDudeText: ; TO TRANSLATE
 	para "If you get stuck,"
 	line "go outside."
 	done
+endc
 
-CianwoodGymGuideDudeWinText: ; TO TRANSLATE
+CianwoodGymGuideDudeWinText:
+if DEF(_FR_FR)
+	text "<PLAYER>!"
+	line "Tu as gagné!"
+	cont "Je le savais rien"
+	cont "qu'en te voyant!"
+	done
+else
 	text "<PLAYER>! You won!"
 	line "I could tell by"
 	cont "looking at you!"
 	cont "You're my hero!"
-
 	done
-
-CianwoodPokecenter1FUnusedText1: ; unreferenced
-	text "Don't you get the"
-	line "urge to show off"
-
-	para "your #MON to"
-	line "friends?"
-
-	para "I wish I could"
-	line "show the #MON I"
-
-	para "raised to my pal"
-	line "in VIOLET."
-	done
-
-CianwoodPokecenter1FUnusedText2: ; unreferenced
-	text "I've been battling"
-	line "my pal in VIOLET"
-
-	para "using a MOBILE"
-	line "ADAPTER link."
-
-	para "I'm down 5-7"
-	line "against him. I've"
-	cont "gotta crank it up!"
-	done
+endc
 
 CianwoodPokecenter1FSuperNerdText: 
 if DEF(_FR_FR)

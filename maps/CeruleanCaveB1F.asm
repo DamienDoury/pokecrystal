@@ -53,21 +53,38 @@ CeruleanCave_LookAroundMovement:
 	step_sleep 3
 	step_end
 
-CeruleanCave_SomeoneAroundText: ; TO TRANSLATE
+CeruleanCave_SomeoneAroundText:
+if DEF(_FR_FR)
+	text "Une voix résonne."
+
+	para "Il y a peut-être"
+	line "quelqu'un d'autre."
+	done
+else
 	text "You just heard a"
 	line "voice."
 
 	para "You may not"
 	line "be alone."
 	done
+endc
 
-CeruleanCave_VoiceInHeadText: ; TO TRANSLATE
+CeruleanCave_VoiceInHeadText:
+if DEF(_FR_FR)
+	text "La voix semble"
+	line "venir de"
+
+	para "...de l'intérieur"
+	line "de ta tête?"
+	done
+else
 	text "The voice seems"
 	line "to be coming from"
 	
 	para "…inside of"
 	line "your head?"
 	done
+endc
 
 CeruleanCaveB1F_MapEvents:
 	db 0, 0 ; filler

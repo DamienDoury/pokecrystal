@@ -28,7 +28,16 @@ CeruleanCaveEntrance_ExitScript:
 CeruleanCaveMail:
 	jumptext CeruleanCaveMailText
 
-CeruleanCaveMailText: ; TO TRANSLATE
+CeruleanCaveMailText:
+if DEF(_FR_FR)
+	text "Il y a une LETTRE"
+	line "posée au sommet"
+	cont "du rocher."
+
+	para "“N'entre pas là."
+	line "- RED”"
+	done
+else
 	text "There's a mail"
 	line "deposited on top"
 	cont "of the rock."
@@ -36,13 +45,22 @@ CeruleanCaveMailText: ; TO TRANSLATE
 	para "“Don't go in there."
 	line "- RED”"
 	done
+endc
 
-CeruleanCaveEntrance_ExitQuestionText: ; TO TRANSLATE
+CeruleanCaveEntrance_ExitQuestionText:
+if DEF(_FR_FR)
+	text "On aperçoit la"
+	line "lumière de dehors."
+	
+	para "Sortir?"
+	done
+else
 	text "Outside light"
 	line "is bleeding in."
 	
 	para "Go back out?"
 	done
+endc
 
 CeruleanCaveEntrance_MapEvents:
 	db 0, 0 ; filler

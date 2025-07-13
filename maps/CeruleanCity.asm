@@ -443,18 +443,33 @@ endc
 
 	done
 
-CeruleanCitySuperNerdText: ; TO TRANSLATE
-;	text "The CAPE in the"
-;	line "north is a good"
-;
-;	para "place for dates."
-;	line "Girls like it!"
-;	done
+CeruleanCitySuperNerdText:
+if DEF(_FR_FR)
+	text "Les gamins au"
+	line "nord jouaient"
+	cont "ensemble avant."
 
+	para "Le pont a été"
+	line "nommé PONT PEPITE"
+	cont "d'après leur défi."
+
+	para "Puis un jour, ils"
+	line "sont descendus du"
+	cont "pont et se ont"
+	cont "commencé à se"
+	cont "battre entre eux."
+
+	para "Tous les jours..."
+
+	para "On l'appelle"
+	line "désormais le"
+	cont "PONT DE LA HONTE."
+	done
+else
 	text "The kids up north"
 	line "used to play"
 	cont "together."
-	
+
 	para "The bridge has"
 	line "been named after"
 	cont "their challenge:"
@@ -471,6 +486,7 @@ CeruleanCitySuperNerdText: ; TO TRANSLATE
 	para "We now call it"
 	line "the SHAME BRIDGE."
 	done
+endc
 
 CeruleanCitySlowbroText: 
 if DEF(_FR_FR)
@@ -535,7 +551,30 @@ endc
 
 	done
 
-CeruleanCityYoungsterText1: ; TO TRANSLATE
+CeruleanCityYoungsterText1:
+if DEF(_FR_FR)
+	text "Ici, il y avait"
+	line "une grotte où"
+	cont "vivaient des"
+	cont "#MON terribles."
+
+	para "Seuls les MAITRES"
+	line "#MON et leur"
+	cont "équipe pouvaient"
+	cont "y entrer."
+
+	para "Elle s'est"
+	line "écroulée le jour"
+	cont "suivant l'éruption"
+	cont "du volcan de"
+	cont "CRAMOIS'ILE."
+
+	para "Pourtant, j'ai"
+	line "vu un dresseur"
+	cont "trouver un moyen"
+	cont "d'y pénétrer."
+	done
+else
 	text "There used to be a"
 	line "cave here that had"
 
@@ -552,11 +591,12 @@ CeruleanCityYoungsterText1: ; TO TRANSLATE
 	line "day after CINNA-"
 	cont "BAR's volcano"
 	cont "erupted."
-	
+
 	para "Yet, I've seen a"
 	line "trainer finding"
 	cont "its way in."
 	done
+endc
 
 CeruleanCityYoungsterText2: 
 if DEF(_FR_FR)
@@ -573,11 +613,18 @@ endc
 
 	done
 
-CeruleanCityYoungsterTextRocket: ; TO TRANSLATE
+CeruleanCityYoungsterTextRocket:
+if DEF(_FR_FR)
+	text "Qu'est-ce que ce"
+	line "type fait dans mon"
+	cont "jardin? Dégage-le!"
+	done
+else
 	text "What is this dude"
 	line "doing in my gar-"
 	cont "den? Get him out!"
 	done
+endc
 
 CeruleanCitySignText: 
 if DEF(_FR_FR)
@@ -612,7 +659,16 @@ endc
 
 	done
 
-CeruleanBikeShopSignText: ; TO TRANSLATE
+CeruleanBikeShopSignText:
+if DEF(_FR_FR)
+	text "Un avis est"
+	line "affiché ici..."
+
+	para "CYCLES A GOGO"
+	line "a déposé le"
+	cont "bilan."
+	done
+else
 	text "There's a notice"
 	line "here…"
 
@@ -620,6 +676,7 @@ CeruleanBikeShopSignText: ; TO TRANSLATE
 	line "has filed for"
 	cont "bankruptcy."
 	done
+endc
 
 CeruleanPoliceSignText: 
 if DEF(_FR_FR)
@@ -656,12 +713,30 @@ endc
 
 	done
 
-CeruleanLockedDoorText: ; TO TRANSLATE
+CeruleanLockedDoorText:
+if DEF(_FR_FR)
+	text "Une lourde chaîne"
+	line "condamne la porte."
+	done
+else
 	text "A heavy chain"
 	line "seals the door."
 	done
+endc
 
-CeruleanCityDetectiveText: ; TO TRANSLATE
+CeruleanCityDetectiveText:
+if DEF(_FR_FR)
+	text "Une enquête est"
+	line "en cours sur"
+
+	para "l'incident de"
+	line "la CENTRALE."
+
+	para "Je ne peux laisser"
+	line "personne ni entrer"
+	cont "ni sortir."
+	done
+else
 	text "There's an ongoing"
 	line "investigation into"
 
@@ -671,42 +746,86 @@ CeruleanCityDetectiveText: ; TO TRANSLATE
 	para "I can't let"
 	line "anyone in or out."
 	done
+endc
 
-CeruleanCityDetective2Text: ; TO TRANSLATE
+CeruleanCityDetective2Text:
+if DEF(_FR_FR)
+	text "Nous recherchons"
+	line "un voleur."
+	done
+else
 	text "We are looking for"
 	line "a thief."
 	done
+endc
 
-CeruleanCitySawThiefText: ; TO TRANSLATE
+CeruleanCitySawThiefText:
+if DEF(_FR_FR)
+	text "J'ai vu le voleur!"
+
+	para "Il a filé vers"
+	line "l'ouest,"
+	cont "attrape-le!"
+	done
+else
 	text "I saw the thief!"
 	
 	para "He fled to the"
 	line "west, get him!"
 	done
+endc
 
-CeruleanCitySquirtleText: ; TO TRANSLATE
+CeruleanCitySquirtleText:
+if DEF(_FR_FR)
+	text "CARAPUCE: Cara"
+	line "Carapuce!"
+	done
+else
 	text "SQUIRTLE: Squirt"
 	line "Squirtle!"
 	done
+endc
 
-PikachuRecognizesThisPlace: ; TO TRANSLATE
+PikachuRecognizesThisPlace:
+if DEF(_FR_FR)
+	text "PIKACHU reconnait"
+	line "cet endroit."
+
+	para "L'autoriser à"
+	line "mener la marche?"
+	done
+else
 	text "PIKACHU recognizes"
 	line "this place."
 
 	para "Let it lead"
 	line "the way?"
 	done
+endc
 
-PikachuDragsYouUnderWater: ; TO TRANSLATE
+PikachuDragsYouUnderWater:
+if DEF(_FR_FR)
+	text "PIKACHU vous en-"
+	line "traine sous l'eau."
+	done
+else
 	text "PIKACHU drags you"
 	line "under water."
 	done
+endc
 
-CeruleanCityRocketText1: ; TO TRANSLATE
+CeruleanCityRocketText1:
+if DEF(_FR_FR)
+	text "...PARTIE MACHINE"
+	line "dans piscine ARENE"
+	cont "pas inquiétude..."
+	done
+else
 	text "…MACHINE PART safe"
 	line "in GYM pool, no"
 	cont "worry…"
 	done
+endc
 
 CeruleanCity_MapEvents:
 	db 0, 0 ; filler

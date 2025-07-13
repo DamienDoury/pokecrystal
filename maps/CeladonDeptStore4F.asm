@@ -27,7 +27,21 @@ CeladonDeptStore4FDirectory:
 CeladonDeptStore4FElevatorButton:
 	jumpstd ElevatorButtonScript
 
-CeladonDeptStore4FSuperNerdText: ; TO TRANSLATE
+CeladonDeptStore4FSuperNerdText:
+if DEF(_FR_FR)
+	text "Je viens acheter"
+	line "une jolie LETTRE"
+	cont "pour l'envoyer à"
+	cont "ma petite amie."
+
+	para "Mais je n'en"
+	line "trouve aucune."
+
+	para "La pénurie"
+	line "va-t-elle briser"
+	cont "notre couple?"
+	done
+else
 	text "I'm here to buy a"
 	line "LOVELY MAIL to"
 	cont "send to my girl-"
@@ -40,11 +54,24 @@ CeladonDeptStore4FSuperNerdText: ; TO TRANSLATE
 	line "going to end"
 	cont "our couple?"
 	done
+endc
 
-CeladonDeptStore4FYoungsterText: ; TO TRANSLATE
+CeladonDeptStore4FYoungsterText:
+if DEF(_FR_FR)
+	text "Qu'est-ce que je"
+	line "fous ici?"
+
+	para "C'est presque"
+	line "vide. C'pas drôle."
+
+	para "Je suis allé à"
+	line "une rave l'autre"
+	cont "jour. C'était fou!"
+	done
+else
 	text "What am I even"
 	line "doing here?"
-	
+
 	para "It's almost empty."
 	line "It's no fun."
 
@@ -52,6 +79,7 @@ CeladonDeptStore4FYoungsterText: ; TO TRANSLATE
 	line "the other day."
 	cont "That was lit!"
 	done
+endc
 
 CeladonDeptStore4FDirectoryText: 
 if DEF(_FR_FR)

@@ -38,7 +38,21 @@ CeladonDeptStore2FElevatorButton:
 CeladonDeptStore2FShelfItem1Script:
 	shelfitem 16, POKE_BALL, 2560
 
-CeladonDeptStore2FPokefanMText: ; TO TRANSLATE
+CeladonDeptStore2FPokefanMText:
+if DEF(_FR_FR)
+	text "Je viens juste"
+	line "de devenir"
+	cont "dresseur."
+
+	para "J'ai failli"
+	line "perdre la vie"
+	cont "à cause du COVID."
+
+	para "Mon fils m'a"
+	line "encouragé à vivre"
+	cont "mon rêve d'enfant!"
+	done
+else
 	text "I just recently"
 	line "became a trainer."
 
@@ -49,6 +63,7 @@ CeladonDeptStore2FPokefanMText: ; TO TRANSLATE
 	line "me to live my"
 	cont "childhood dream!"
 	done
+endc
 
 CeladonDeptStore2FYoungsterText: 
 if DEF(_FR_FR)

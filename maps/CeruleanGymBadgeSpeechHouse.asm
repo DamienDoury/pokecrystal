@@ -61,27 +61,61 @@ CeruleanGymBadgeSpeechHouseFleeBisMovement:
 	big_step UP
 	step_end
 
-CeruleanGymBadgeSpeechHousePokefanMText: ; TO TRANSLATE
+CeruleanGymBadgeSpeechHousePokefanMText:
+if DEF(_FR_FR)
+	text "Avant, il y avait"
+	line "des SABELETTE à"
+	cont "l'ouest d'ici."
+
+	para "Je n'en ai pas vu"
+	line "un depuis le début"
+	cont "de la pandémie."
+
+	para "J'aime penser"
+	line "qu'ils sont partis"
+	cont "vers un lieu sûr!"
+	done
+else
 	text "There used to be"
 	line "SANDSHREWs west"
 	cont "of here."
-	
+
 	para "I haven't seen"
 	line "any since the"
 	cont "pandemic started."
-	
+
 	para "I like to think"
 	line "they went"
 	cont "somewhere safer!"
 	done
+endc
 
-CeruleanGymBadgeSpeechHousePokefanMHoldUpText: ; TO TRANSLATE
+CeruleanGymBadgeSpeechHousePokefanMHoldUpText:
+if DEF(_FR_FR)
+	text "Je ne comprends"
+	line "pas un mot de cet"
+	cont "homme. J'ai peur!"
+	done
+else
 	text "I don't understand"
 	line "a word from this"
 	cont "man. I'm scared!"
 	done
+endc
 
-CeruleanGymBadgeSpeechHousePokefanMHeldUpText: ; TO TRANSLATE
+CeruleanGymBadgeSpeechHousePokefanMHeldUpText:
+if DEF(_FR_FR)
+	text "Se faire prendre"
+	line "en otage par un"
+	
+	para "voleur, c'était une"
+	line "sacrée expérience."
+
+	para "J'espère que la"
+	line "police va"
+	cont "l'attraper."
+	done
+else
 	text "Being held up by"
 	line "by this thief"
 	
@@ -91,11 +125,18 @@ CeruleanGymBadgeSpeechHousePokefanMHeldUpText: ; TO TRANSLATE
 	para "I hope the police"
 	line "catches him."
 	done
+endc
 
-CeruleanGymBadgeSpeechHouseRocketText: ; TO TRANSLATE
+CeruleanGymBadgeSpeechHouseRocketText:
+if DEF(_FR_FR)
+	text "VOUS ATTRAPER"
+	line "JAMAIS MOI!"
+	done
+else
 	text "YOU CATCH ME"
 	line "NEVER!"
 	done
+endc
 
 CeruleanGymBadgeSpeechHouse_MapEvents:
 	db 0, 0 ; filler

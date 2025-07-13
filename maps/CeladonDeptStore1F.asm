@@ -47,7 +47,20 @@ endc
 
 	done
 
-CeladonDeptStore1FGentlemanText: ; TO TRANSLATE
+CeladonDeptStore1FGentlemanText:
+if DEF(_FR_FR)
+	text "Ce CENTRE COMMER-"
+	line "CIAL fait partie"
+	
+	para "de la même chaîne"
+	line "que celui de"
+	cont "DOUBLONVILLE."
+
+	para "Ils ont été"
+	line "rénovés durant"
+	cont "le confinement."
+	done
+else
 	text "This DEPT.STORE is"
 	line "part of the same"
 
@@ -58,6 +71,7 @@ CeladonDeptStore1FGentlemanText: ; TO TRANSLATE
 	line "renovated during"
 	cont "the quarantine."
 	done
+endc
 
 CeladonDeptStore1FTeacherText: 
 if DEF(_FR_FR)

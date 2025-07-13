@@ -50,7 +50,19 @@ CeladonDeptStore3FDirectory:
 CeladonDeptStore3FShelfItem1Script:
 	shelfitem 8, CALCIUM, 62720
 
-CeladonDeptStore3FYoungsterText: ; TO TRANSLATE
+CeladonDeptStore3FYoungsterText:
+if DEF(_FR_FR)
+	text "Quel bonheur"
+	line "d'être vacciné"
+
+	para "et de pouvoir"
+	line "faire du shopping!"
+
+	para "J'aimerais que ma"
+	line "copine se fasse"
+	cont "vacciner aussi..."
+	done
+else
 	text "It feels great"
 	line "to be vaccinated"
 
@@ -61,6 +73,7 @@ CeladonDeptStore3FYoungsterText: ; TO TRANSLATE
 	line "friend would get"
 	cont "vaccinated too…"
 	done
+endc
 
 CeladonDeptStore3FGameboyKid1Text: 
 if DEF(_FR_FR)
@@ -115,12 +128,22 @@ endc
 
 	done
 
-CeladonDeptStore3FSuperNerdText: ; TO TRANSLATE
+CeladonDeptStore3FSuperNerdText:
+if DEF(_FR_FR)
+	text "Le MARCHE AUX CT"
+	line "vend des capacités"
+	cont "assez rares"
+	cont "...quand ils ne"
+	cont "sont pas en"
+	cont "rupture de stock."
+	done
+else
 	text "The TM SHOP sells"
 	line "some rare moves…"
 	cont "…when their stock"
 	cont "isn't empty."
 	done
+endc
 
 CeladonDeptStore3FDirectoryText: 
 if DEF(_FR_FR)

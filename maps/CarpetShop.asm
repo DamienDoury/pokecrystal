@@ -116,27 +116,52 @@ endc
 CarpetShopBookshelf:
 	jumpstd PictureBookshelfScript
 
-CarpetSeller_WelcomeText: ; TO TRANSLATE
+CarpetSeller_WelcomeText:
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "Je vends des"
+	line "tapis faits main."
+	done
+else
 	text "Hello dear"
 	line "customer!"
 
 	para "I sell handmade"
 	line "carpets."
 	done
+endc
 
-CarpetShop_AlreadyHaveDecoText: ; TO TRANSLATE
+CarpetShop_AlreadyHaveDecoText:
+if DEF(_FR_FR)
+	text "Tu possèdes déjà"
+	line "celui-ci."
+	done
+else
 	text "You already have"
 	line "this one."
 	done
+endc
 
-CarpetShop_AreYouSureText: ; TO TRANSLATE
+CarpetShop_AreYouSureText:
+if DEF(_FR_FR)
+	text "Le prix est"
+	line "{d:CARPET_PRICE}¥."
+	done
+else
 	text "The price is"
 	line "¥{d:CARPET_PRICE}."
 	done
+endc
 
-CarpetShop_CancelText: ; TO TRANSLATE
+CarpetShop_CancelText:
+if DEF(_FR_FR)
+	text "Prends ton temps."
+	done
+else
 	text "Take your time."
 	done
+endc
 
 CarpetShop_MapEvents:
 	db 0, 0 ; filler

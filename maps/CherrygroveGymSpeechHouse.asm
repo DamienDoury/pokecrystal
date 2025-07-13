@@ -38,17 +38,39 @@ CherrygroveGymSpeechHouseBugCatcherScript:
 CherrygroveGymSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-CherrygroveGymSpeechHousePokefanM0Text: ; TO TRANSLATE
+CherrygroveGymSpeechHousePokefanM0Text:
+if DEF(_FR_FR)
+	text "Un nouveau virus"
+	line "dont on devrait"
+	cont "avoir peur?"
+
+	para "Laisse-moi rire!"
+
+	para "Durant la dernière"
+	line "décennie seule,"
+	cont "les médias ont"
+	cont "tenté d'effrayer"
+	cont "la population"
+
+	para "avec l'épidémie"
+	line "de H1N1, celle"
+	cont "d'Ebola, et"
+	cont "d'autres encore."
+
+	para "Ca finit toujours"
+	line "en pétard mouillé."
+	done
+else
 	text "A new virus we"
 	line "should be scared"
 	cont "of? Let me laugh!"
-	
+
 	para "In the past decade"
 	line "only, medias tried"
-	
+
 	para "to scare the popu-"
 	line "lation with the"
-	
+
 	para "H1N1 epidemic, the"
 	line "Ebola epidemic,"
 	cont "and some more."
@@ -57,8 +79,23 @@ CherrygroveGymSpeechHousePokefanM0Text: ; TO TRANSLATE
 	line "out to be a damp"
 	cont "squib."
 	done
+endc
 
-CherrygroveGymSpeechHousePokefanM1Text: ; TO TRANSLATE
+CherrygroveGymSpeechHousePokefanM1Text:
+if DEF(_FR_FR)
+	text "Je ne me sens"
+	line "pas bien, je ne"
+	cont "sais pas si j'ai"
+	cont "attrapé le COVID!"
+
+	para "J'ai entendu que"
+	line "des chercheurs"
+	cont "travaillent sur"
+	cont "un test pour"
+	cont "détecter le"
+	cont "virus."
+	done
+else
 	text "I'm not feeling"
 	line "well, I can't know"
 	cont "if I caught COVID!"
@@ -68,8 +105,30 @@ CherrygroveGymSpeechHousePokefanM1Text: ; TO TRANSLATE
 	cont "on a test to"
 	cont "detect the virus."
 	done
+endc
 
-CherrygroveGymSpeechHousePokefanM2Text: ; TO TRANSLATE
+CherrygroveGymSpeechHousePokefanM2Text:
+if DEF(_FR_FR)
+	text "Les tests PCR"
+	line "sont une"
+	cont "bénédiction!"
+
+	para "J'en fais un"
+	line "chaque jour pour"
+	cont "être sûr de ne"
+	cont "pas avoir le"
+	cont "COVID."
+
+	para "..."
+	
+	para "Pourquoi tu me"
+	line "regardes"
+	cont "comme ça?"
+
+	para "Mon nez saigne"
+	line "encore?"
+	done
+else
 	text "PCR tests are a"
 	line "blessing!"
 
@@ -86,6 +145,7 @@ CherrygroveGymSpeechHousePokefanM2Text: ; TO TRANSLATE
 	para "Is my nose"
 	line "bleeding again?"
 	done
+endc
 
 CherrygroveGymSpeechHouseBugCatcherText: 
 if DEF(_FR_FR)

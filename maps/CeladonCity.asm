@@ -102,7 +102,17 @@ CeladonCityPokecenterSign:
 CeladonCityHiddenPpUp:
 	hiddenitem PP_UP, EVENT_CELADON_CITY_HIDDEN_PP_UP
 
-CeladonCityFisherText: ; TO TRANSLATE
+CeladonCityFisherText:
+if DEF(_FR_FR)
+	text "Ce TETARTE est"
+	line "mon partenaire."
+
+	para "Je me demande"
+	line "s'il deviendra"
+	cont "un #MON"
+	cont "grenouille."
+	done
+else
 	text "This POLIWHIRL is"
 	line "my partner."
 
@@ -110,12 +120,34 @@ CeladonCityFisherText: ; TO TRANSLATE
 	line "ever evolve into a"
 	cont "frog #MON."
 	done
+endc
 
-CeladonCityPoliwrathText: ; TO TRANSLATE
+CeladonCityPoliwrathText:
+if DEF(_FR_FR)
+	text "TETARTE: Croa!"
+	done
+else
 	text "POLIWHIRL: Croak!"
 	done
+endc
 
-CeladonCityTeacher1Text: ; TO TRANSLATE
+CeladonCityTeacher1Text:
+if DEF(_FR_FR)
+	text "Mon front est"
+	line "douloureux..."
+
+	para "J'ai tenté un"
+	line "COUD'BOULE sur un"
+	cont "petit arbre juste"
+	cont "là à droite."
+
+	para "Un #MON en est"
+	line "tombé!"
+
+	para "Tu ne me crois"
+	line "pas? Essaie!"
+	done
+else
 	text "My forehead is"
 	line "sore…"
 
@@ -129,8 +161,17 @@ CeladonCityTeacher1Text: ; TO TRANSLATE
 	para "You don't believe?"
 	line "Try it yourself!"
 	done
+endc
 
-CeladonCityGramps1Text: ; TO TRANSLATE
+CeladonCityGramps1Text:
+if DEF(_FR_FR)
+	text "D'où viennent"
+	line "tous ces TADMORV?"
+
+	para "C'est un grave"
+	line "problème..."
+	done
+else
 	text "Where did all"
 	line "those GRIMER"
 	cont "come from?"
@@ -138,6 +179,7 @@ CeladonCityGramps1Text: ; TO TRANSLATE
 	para "This is a serious"
 	line "problem…"
 	done
+endc
 
 CeladonCityGramps2Text: 
 if DEF(_FR_FR)
@@ -175,7 +217,17 @@ endc
 
 	done
 
-CeladonCityYoungster2Text: ; TO TRANSLATE
+CeladonCityYoungster2Text:
+if DEF(_FR_FR)
+	text "C'est la grande"
+	line "réouverture du"
+	cont "restaurant."
+
+	para "Il était fermé"
+	line "pendant le"
+	cont "confinement."
+	done
+else
 	text "This is the grand"
 	line "re-opening of"
 	cont "the restaurant."
@@ -184,8 +236,20 @@ CeladonCityYoungster2Text: ; TO TRANSLATE
 	line "during the"
 	cont "lockdown."
 	done
+endc
 
-CeladonCityTeacher2Text: ; TO TRANSLATE
+CeladonCityTeacher2Text:
+if DEF(_FR_FR)
+	text "Le CENTRE COMMER-"
+	line "CIAL de CELADOPOLE"
+	cont "vient tout juste"
+	cont "de rouvrir."
+
+	para "Mais pour y"
+	line "entrer il faut"
+	cont "être vacciné."
+	done
+else
 	text "CELADON DEPT.STORE"
 	line "just recently"
 	cont "fully re-opened."
@@ -194,23 +258,44 @@ CeladonCityTeacher2Text: ; TO TRANSLATE
 	line "conditioned on"
 	cont "being vaccinated."
 	done
+endc
 
-CeladonCityTeacher2TextBis: ; TO TRANSLATE
+CeladonCityTeacher2TextBis:
+if DEF(_FR_FR)
+	text "Je ne me ferai"
+	line "jamais vacciner."
+	cont "C'est mon choix."
+	done
+else
 	text "I'll never get"
 	line "vaccinated. It's"
 	cont "my choice."
 	done
+endc
 
-CeladonCityLassText: ; TO TRANSLATE
+CeladonCityLassText:
+if DEF(_FR_FR)
+	text "Mon petit ami"
+	line "m'a dit qu'il"
+	cont "me larguerait"
+
+	para "si je ne me fais"
+	line "pas vacciner."
+
+	para "Dommage, je"
+	line "l'aimais bien."
+	done
+else
 	text "My boyfriend said"
-    line "he would dump me"
+	line "he would dump me"
     
-    para "if I didn't get"
-    line "vaccinated."
+	para "if I didn't get"
+	line "vaccinated."
     
-    para "Too bad, I kinda"
+	para "Too bad, I kinda"
 	line "liked him."
-    done
+	done
+endc
 
 CeladonCitySignText: 
 if DEF(_FR_FR)
@@ -281,7 +366,22 @@ else
 	done
 endc
 
-CeladonCityTrainerTipsText: ; TO TRANSLATE
+CeladonCityTrainerTipsText:
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "DEFENSE SPEC"
+	line "protège vos #-"
+
+	para "MON des réductions"
+	line "de stats de votre"
+	cont "adversaire."
+
+	para "Achetez-en au"
+	line "CENTRE COMMERCIAL"
+	cont "de CELADOPOLE!"
+	done
+else
 	text "TRAINER TIPS"
 
 	para "GUARD SPEC."
@@ -295,12 +395,31 @@ CeladonCityTrainerTipsText: ; TO TRANSLATE
 	line "CELADON DEPT."
 	cont "STORE!"
 	done
+endc
 
-CeladonCityBedStoreText: ; TO TRANSLATE
+CeladonCityBedStoreText:
+if DEF(_FR_FR)
+	text "MAGASIN DE LITS"
+	done
+else
 	text "BED STORE"
 	done
+endc
 
-CeladonCity_CasinoDoorText: ; TO TRANSLATE
+CeladonCity_CasinoDoorText:
+if DEF(_FR_FR)
+	text "“Notre établis-"
+	line "sement de diver-"
+	cont "tissement n'est"
+	cont "pas encore auto-"
+	cont "risé à rouvrir."
+	
+	para "Nous avons hâte"
+	line "de vous revoir"
+	cont "au CASINO de"
+	cont "CELADOPOLE!”"
+	done
+else
 	text "“Our entertainment"
 	line "establishement is"
 	cont "not yet allowed"
@@ -311,6 +430,7 @@ CeladonCity_CasinoDoorText: ; TO TRANSLATE
 	cont "you at CELADON"
 	cont "GAME CORNER!”"
 	done
+endc
 
 CeladonCity_MapEvents:
 	db 0, 0 ; filler

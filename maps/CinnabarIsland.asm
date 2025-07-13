@@ -406,25 +406,52 @@ endc
 
 	done
 
-CinnabarIslandPartyText: ; TO TRANSLATE
+CinnabarIslandPartyText:
+if DEF(_FR_FR)
+	text "C'EST LA FEEETE!!"
+else
 	text "PAR-TAAAY!!"
+endc
 	done
 
-CinnabarIslandVolcanoSwimmingText: ; TO TRANSLATE
+CinnabarIslandVolcanoSwimmingText:
+if DEF(_FR_FR)
+	text "YOUHOU! Je nage"
+	line "dans un p*tain"
+	cont "de volcan bébé!"
+else
 	text "WOOHOO! I'm swim-"
 	line "ming in a f*cking"
 	cont "volcano baby!"
+endc
 	done
 
-CinnabarIslandVolcanoSwimmingSequelText: ; TO TRANSLATE
+CinnabarIslandVolcanoSwimmingSequelText:
+if DEF(_FR_FR)
+	text "Laisse-moi te"
+	line "dire un secret:"
+
+	para "Je ne porte"
+	line "rien du tout!"
+else
 	text "Let me tell you"
 	line "a secret, my dear:"
 
 	para "I'm wearing"
 	line "nothing!"
+endc
 	done
 
-CinnabarIslandSickText: ; TO TRANSLATE
+CinnabarIslandSickText:
+if DEF(_FR_FR)
+	text "(burp)"
+
+	para "Je me sens"
+	line "mal... Il me faut"
+	cont "un truc frais"
+	cont "(burp)"
+	cont "à boire..."
+else
 	text "(burp)"
 
 	para "I'm not feeling"
@@ -432,19 +459,48 @@ CinnabarIslandSickText: ; TO TRANSLATE
 	cont "thing refreshing"
 	cont "(burp)"
 	cont "to drink…"
+endc
 	done
 
-CinnabarIslandAskWaterText: ; TO TRANSLATE
+CinnabarIslandAskWaterText:
+if DEF(_FR_FR)
+	text "Offrir de l'"
+	line "EAU FRAICHE?"
+else
 	text "Offer FRESH"
 	line "WATER?"
+endc
 	done
 
-CinnabarIslandGiveWaterText: ; TO TRANSLATE
+CinnabarIslandGiveWaterText:
+if DEF(_FR_FR)
+	text "<PLAYER> donne"
+	line "EAU FRAICHE."
+else
 	text "<PLAYER> gave"
 	line "FRESH WATER."
+endc
 	done
 
-CinnabarIslandSickWaterText: ; TO TRANSLATE
+CinnabarIslandSickWaterText:
+if DEF(_FR_FR)
+	text "(glou glou)"
+
+	para "..."
+
+	para "Wouhou!"
+
+	para "Je me sens déjà"
+	line "mieux."
+
+	para "J'étais"
+	line "à bout..."
+
+	para "Quelques secondes"
+	line "de plus, et j'au-"
+	cont "rais dû me servir"
+	cont "de ça..."
+else
 	text "(drinks)"
 
 	para "…"
@@ -461,25 +517,51 @@ CinnabarIslandSickWaterText: ; TO TRANSLATE
 	line "more, and I would"
 	cont "have needed to"
 	cont "use this…"
+endc
 	done
 
-CinnabarIslandSickMaxReviveBisText: ; TO TRANSLATE
+CinnabarIslandSickMaxReviveBisText:
+if DEF(_FR_FR)
+	text "Je n'en ai"
+	line "plus besoin,"
+	cont "prends-la."
+else
 	text "I don't need"
 	line "this anymore,"
 	cont "please take it."
+endc
 	done
 
-CinnabarIslandSickMakeRoomText: ; TO TRANSLATE
+CinnabarIslandSickMakeRoomText:
+if DEF(_FR_FR)
+	text "Vide ton sac puis"
+	line "reviens me voir."
+else
 	text "Empty your bag"
 	line "then come back."
+endc
 	done
 
-CinnabarIslandSickMakeRoom2Text: ; TO TRANSLATE
+CinnabarIslandSickMakeRoom2Text:
+if DEF(_FR_FR)
+	text "Tu ne peux pas"
+	line "la prendre?"
+	cont "Reviens vite."
+else
 	text "You can't take it?"
 	line "Come back swiftly."
+endc
 	done
 
-CinnabarIslandSickBuySilenceText: ; TO TRANSLATE
+CinnabarIslandSickBuySilenceText:
+if DEF(_FR_FR)
+	text "Je pense que j'ai"
+	line "tenu grâce à ma"
+	cont "CEINTURFORCE."
+
+	para "A ton tour"
+	line "d'en profiter!"
+else
 	text "I think I held out"
 	line "thanks to my"
 	cont "FOCUS SASH."
@@ -487,13 +569,21 @@ CinnabarIslandSickBuySilenceText: ; TO TRANSLATE
 	para "Now it's your turn"
 	line "to take advantage"
 	cont "of it!"
+endc
 	done
 
-CinnabarIslandSickBetterText: ; TO TRANSLATE
+CinnabarIslandSickBetterText:
+if DEF(_FR_FR)
+	text "Donne-moi une"
+	line "minute, et c'est"
+	cont "REPARTIIII!"
+	cont "(burp)!"
+else
 	text "Give me a minute,"
 	line "then let's"
 	cont "PAR-TAY!"
 	cont "(burp)!"
+endc
 	done
 
 CinnabarIslandSignText: 
@@ -510,13 +600,30 @@ endc
 
 	done
 
-CinnabarHydratedText: ; TO TRANSLATE
+CinnabarHydratedText:
+if DEF(_FR_FR)
+	text "Faut rester"
+	line "hydraté, hihi!"
+else
 	text "Gotta stay"
 	line "hydrated"
 	cont "tee-hee!"
+endc
 	done
 
-CinnabarGoFetchStuffText: ; TO TRANSLATE
+CinnabarGoFetchStuffText:
+if DEF(_FR_FR)
+	text "Hé toi!"
+	line "Tu vois le type"
+	cont "là-bas?"
+
+	para "Ma copine dit"
+	line "qu'il a de la"
+	cont "bonne came."
+
+	para "Dis-lui de m'en"
+	line "ramener, ok?"
+else
 	text "Hey you!"
 	line "You see the guy"
 	cont "over there?"
@@ -526,26 +633,58 @@ CinnabarGoFetchStuffText: ; TO TRANSLATE
 
 	para "Tell him to bring"
 	line "me some, would ya."
+endc
 	done
 
-CinnabarBusyText: ; TO TRANSLATE
+CinnabarBusyText:
+if DEF(_FR_FR)
+	text "Hé, je suis occupé"
+	line "ça se voit pas?"
+else
 	text "Yo, I'm busy"
 	line "can't you see?"
+endc
 	done
 
-CinnabarDeliverStuffText: ; TO TRANSLATE
+CinnabarDeliverStuffText:
+if DEF(_FR_FR)
+	text "Hein? Qui c'est qui"
+	line "en veut t'as dit?"
+
+	para "Ok, j'vais faire"
+	line "la transaction."
+else
 	text "Wait. Who wants"
 	line "some you said?"
 
 	para "Ok, I'll go sell."
+endc
 	done
 
-CinnabarThanksText: ; TO TRANSLATE
+CinnabarThanksText:
+if DEF(_FR_FR)
+	text "Merci pour"
+	line "le tuyau."
+else
 	text "Thanks for the"
 	line "tip."
+endc
 	done
 
-CinnabarWrongOrderText: ; TO TRANSLATE
+CinnabarWrongOrderText:
+if DEF(_FR_FR)
+	text "C'est quoi que"
+	line "j'ai acheté?"
+
+	para "J'avais jamais vu"
+	line "ça en soirée."
+
+	para "Aucun goût."
+
+	para "Ca m'intéresse pas."
+	line "Aide-moi à m'en"
+	cont "débarrasser."
+else
 	text "What did I"
 	line "just buy?"
 
@@ -558,18 +697,34 @@ CinnabarWrongOrderText: ; TO TRANSLATE
 	para "I don't want it."
 	line "Help me get rid"
 	cont "of it."
+endc
 	done
 
-CinnabarSyncText: ; TO TRANSLATE
+CinnabarSyncText:
+if DEF(_FR_FR)
+	text "Ne me parle pas!"
+	line "J'vais perdre le"
+	cont "tempo!"
+else
 	text "Don't talk to me!"
 	line "Imma lose my sync!"
+endc
 	done
 
-CinnabarSingingText: ; TO TRANSLATE
-	;text "Dis is ze rhythm"
-	;line "of da night,"
-	;cont "da night, oh yeah!"
+CinnabarSingingText:
+if DEF(_FR_FR)
+	text "Ooh baby"
+	line "I feel right"
 
+	para "the music sounds"
+	line "better with you"
+
+	para "love might"
+	line "bring us both"
+	cont "together"
+
+	para "I feel so good"
+else
 	text "You don't even"
 	line "know me,"
 
@@ -581,9 +736,21 @@ CinnabarSingingText: ; TO TRANSLATE
 
 	para "so why do you"
 	line "judge mah life?"
+endc
 	done
 
-CinnabarSunriseText: ; TO TRANSLATE
+CinnabarSunriseText:
+if DEF(_FR_FR)
+	text "Cet endroit est"
+	line "parfait. Personne"
+	cont "ne pensera à nous"
+	cont "chercher ici."
+
+	para "On va s'amuser"
+	line "jusqu'au bout"
+	cont "de la nuit!"
+	cont "(tousse)"
+else
 	text "This place is per-"
 	line "fect, no one would"
 	cont "think of searching"
@@ -593,6 +760,7 @@ CinnabarSunriseText: ; TO TRANSLATE
 	line "until the end"
 	cont "of the night!"
 	cont "(cough)"
+endc
 	done
 
 CinnabarIsland_MapEvents:

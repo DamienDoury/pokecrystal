@@ -241,7 +241,27 @@ endc
 
 	done
 
-CopycatText_Male_2: ; TO TRANSLATE
+CopycatText_Male_2:
+if DEF(_FR_FR)
+	text "<PLAYER>: Salut!"
+	line "On dit que tu as"
+
+	para "perdu ta #"
+	line "POUPEE préférée."
+
+	para "<PLAYER>: Si je la"
+	line "trouves, tu me"
+	cont "donnes un PASSE"
+	cont "TRAIN?"
+
+	para "<PLAYER>: Je vais"
+	line "la chercher."
+
+	para "Tu l'as perdue en"
+	line "allant à CARMIN"
+	cont "SUR MER?"
+	done
+else
 	text "<PLAYER>: Hi!"
 	line "I heard that you"
 
@@ -259,6 +279,7 @@ CopycatText_Male_2: ; TO TRANSLATE
 	line "it when you went"
 	cont "to VERMILION CITY?"
 	done
+endc
 
 CopycatText_Worried: 
 if DEF(_FR_FR)
@@ -350,7 +371,19 @@ endc
 
 	done
 
-CopycatText_Male_3: ; TO TRANSLATE
+CopycatText_Male_3:
+if DEF(_FR_FR)
+	text "<PLAYER>: Salut!"
+	line "Merci pour le"
+	cont "PASSE TRAIN!"
+
+	para "<PLAYER>: Pardon?"
+
+	para "<PLAYER>: Tu vas"
+	line "t'arrêter de répé-"
+	cont "ter c'que je dis!"
+	done
+else
 	text "<PLAYER>: Hi!"
 	line "Thanks a lot for"
 	cont "the RAIL PASS!"
@@ -361,6 +394,7 @@ CopycatText_Male_3: ; TO TRANSLATE
 	line "that fun to mimic"
 	cont "my every move?"
 	done
+endc
 
 CopycatText_ItsAScream: 
 if DEF(_FR_FR)
@@ -397,7 +431,27 @@ endc
 
 	done
 
-CopycatText_Female_2: ; TO TRANSLATE
+CopycatText_Female_2:
+if DEF(_FR_FR)
+	text "<PLAYER>: Salut!"
+	line "On dit que tu as"
+
+	para "perdu ta #"
+	line "POUPEE préférée."
+
+	para "<PLAYER>: Si je la"
+	line "trouve, tu me"
+	cont "donnes un PASSE"
+	cont "TRAIN?"
+
+	para "<PLAYER>: Je vais"
+	line "la chercher."
+
+	para "Tu l'as perdue en"
+	line "allant à CARMIN"
+	cont "SUR MER?"
+	done
+else
 	text "<PLAYER>: Hi. Did"
 	line "you really lose"
 	cont "your # DOLL?"
@@ -415,8 +469,23 @@ CopycatText_Female_2: ; TO TRANSLATE
 	line "it when you were"
 	cont "in VERMILION?"
 	done
+endc
 
-CopycatText_Female_3: ; TO TRANSLATE
+CopycatText_Female_3:
+if DEF(_FR_FR)
+	text "<PLAYER>: Merci"
+	line "pour le PASSE"
+	cont "TRAIN!"
+
+	para "<PLAYER>: ...Quoi?"
+
+	para "<PLAYER>: T'en as"
+	line "jamais marre de"
+
+	para "répéter tout ce"
+	line "que je dis?"
+	done
+else
 	text "<PLAYER>: Thank you"
 	line "for the RAIL PASS!"
 
@@ -428,6 +497,7 @@ CopycatText_Female_3: ; TO TRANSLATE
 	para "copy what I say"
 	line "and do?"
 	done
+endc
 
 CopycatsDodrioText1: 
 if DEF(_FR_FR)
