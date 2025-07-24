@@ -256,7 +256,6 @@ INCLUDE "maps/HallOfFame.asm"
 INCLUDE "maps/BlackthornCity.asm"
 INCLUDE "maps/EcruteakFaunaHouse.asm"
 INCLUDE "maps/CeruleanPokecenter1F.asm"
-INCLUDE "maps/Route5.asm"
 
 
 SECTION "Map Scripts 14", ROMX
@@ -530,3 +529,4 @@ INCLUDE "maps/RockTunnel1F.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
 INCLUDE "maps/MrPsychicsHouse.asm"
 INCLUDE "maps/LavenderMart.asm"
+INCLUDE "maps/Route5.asm"
