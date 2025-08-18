@@ -304,7 +304,39 @@ Movement_NinjaSpin:
 	turn_head DOWN
 	step_end
 
-JanineText_DisappointYou: ; TO TRANSLATE
+JanineText_DisappointYou:
+if DEF(_FR_FR)
+	text "Gnah ha ha ha ha!"
+
+	para "Désolée de te dé-"
+	line "cevoir mais..."
+
+	para "En fait..."
+
+	para "C'est moi la"
+	line "vraie!"
+
+	para "Je suis JEANNINE"
+	line "de l'ARENE de"
+	cont "PARMANIE!"
+
+	para "Je suis la mai-"
+	line "tresse du POISON."
+
+	para "En poursuivant les"
+	line "années d'efforts de"
+	cont "mon père, mes"
+	cont "#MON ont mis au"
+	cont "point un poison"
+	cont "plus léthal que"
+	cont "jamais."
+
+	para "Une seule goutte"
+	line "peut être fatale."
+
+	para "Je vais te le"
+	line "faire goûter!"
+else
 	text "Fufufufu…"
 
 	para "I'm sorry to dis-"
@@ -333,6 +365,7 @@ JanineText_DisappointYou: ; TO TRANSLATE
 	para "I'm gonna let you"
 	line "have a taste of"
 	cont "it!"
+endc
 	done
 
 JanineText_ToughOne: 
@@ -570,7 +603,20 @@ endc
 
 	done
 
-FuchsiaGymGuideText: ; TO TRANSLATE
+FuchsiaGymGuideText:
+if DEF(_FR_FR)
+	text "Hé! Graine de"
+	line "star!"
+
+	para "Regarde autour de"
+	line "toi: tous les"
+
+	para "dresseurs ressem-"
+	line "blent à JEANNINE."
+
+	para "Mais... Qui est la"
+	line "vraie? Mystère!"
+else
 	text "Yo, CHAMP!"
 
 	para "Whoops! Take a"
@@ -582,6 +628,7 @@ FuchsiaGymGuideText: ; TO TRANSLATE
 
 	para "Which of them is"
 	line "the real JANINE?"
+endc
 	done
 
 FuchsiaGymGuideWinText: 

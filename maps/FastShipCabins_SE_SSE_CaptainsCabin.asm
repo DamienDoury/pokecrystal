@@ -690,7 +690,49 @@ endc
 
 	done
 
-SSAquaPowerOutageText: ; TO TRANSLATE
+SSAquaPowerOutageText:
+if DEF(_FR_FR)
+	text "Nous avons une"
+	line "annonce spéciale"
+	cont "à faire..."
+
+	para "Nous venons d'être"
+	line "informé qu'une"
+	cont "panne d'électricité"
+	cont "d'envergure touche"
+	cont "tout KANTO."
+
+	para "Les CENTRE #MON"
+	line "tournent sur des"
+	cont "générateurs de"
+	cont "secours."
+
+	para "Leur service de"
+	line "soin n'est pas"
+	cont "impacté, mais les"
+
+	para "PC fonctionnent en"
+	line "mode limité."
+
+	para "Personne n'a pu"
+	line "nous dire quand ce"
+	cont "souci sera réglé."
+
+	para "En tant que capi-"
+	line "taine, je vous"
+	cont "conseille d'user"
+	
+	para "du PC à bord, afin"
+	line "de vous assurer"
+	cont "que vous avez tout"
+	
+	para "ce qu'il vous faut"
+	line "avant de quitter"
+	cont "le navire."
+
+	para "Bon séjour à"
+	line "KANTO!"
+else
 	text "We have a special"
 	line "announcement to"
 	cont "make…"
@@ -728,6 +770,7 @@ SSAquaPowerOutageText: ; TO TRANSLATE
 
 	para "Have a nice stay"
 	line "in KANTO!"
+endc
 	done
 
 FastShipCabins_SE_SSE_CaptainsCabin_MapEvents:

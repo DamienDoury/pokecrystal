@@ -395,24 +395,45 @@ endc
 
 	done
 
-FastShip1FSailor1Text_NeedToSave: ; TO TRANSLATE
+FastShip1FSailor1Text_NeedToSave:
+if DEF(_FR_FR)
+	text "Tu dois sauver la"
+	line "partie avant de"
+	cont "partir du bateau."
+else
 	text "You need to save"
 	line "the game before"
 	cont "leaving."
+endc
 	done
 
-FastShip1FSailor1Text_Saving: ; TO TRANSLATE
+FastShip1FSailor1Text_Saving:
+if DEF(_FR_FR)
+	text "Sauvegarde..."
+else
 	text "Saving…"
+endc
 	done
 
-FastShip1FSailor1Text_CantLetYouOut: ; TO TRANSLATE
+FastShip1FSailor1Text_CantLetYouOut:
+if DEF(_FR_FR)
+	text "Désolé, je ne peux"
+	line "pas te laisser"
+	cont "sortir."
+else
 	text "Sorry I can't"
 	line "let you out."
+endc
 	done
 
-FastShip1FSailor1Text_SeeYou: ; TO TRANSLATE
+FastShip1FSailor1Text_SeeYou:
+if DEF(_FR_FR)
+	text "Bon séjour à"
+	line "CARMIN SUR MER!"
+else
 	text "Have a nice stay"
 	line "in VERMILION CITY!"
+endc
 	done
 
 FastShip1F_MapEvents:

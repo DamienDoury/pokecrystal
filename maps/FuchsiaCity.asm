@@ -269,7 +269,56 @@ FuchsiaCityToiletPaper:
 FuchsiaCityLemonade:
 	hiddenitem LEMONADE, EVENT_FUCHSIA_LEMONADE
 
-FuchsiaCityGrampsText: ; TO TRANSLATE
+FuchsiaCityGrampsText:
+if DEF(_FR_FR)
+	text "Autrefois, cette"
+	line "ville était"
+	cont "rayonnante, mais"
+
+	para "aujourd'hui elle"
+	line "ressemble à une"
+	cont "ville fantôme."
+
+	para "D'abord, la figure"
+	line "de notre ville,"
+
+	para "KOGA, a été appelé"
+	line "au CONSEIL 4."
+
+	para "Puis le volcan de"
+	line "CRAMOIS'ILE a"
+
+	para "érupté, détruisant"
+	line "en partie notre"
+	cont "ville."
+
+	para "Et enfin, la"
+	line "pandémie força"
+
+	para "la principale"
+	line "source de revenus"
+	cont "de cette ville,"
+
+	para "le PARC SAFARI,"
+	line "à fermer."
+
+	para "La majorité des"
+	line "habitants ont"
+
+	para "émigrés. PARMANIE"
+	line "a été délaissée,"
+
+	para "c'est bien triste..."
+
+	para "..."
+
+	para "Heureusement que"
+	line "la fille de KOGA"
+
+	para "attire encore"
+	line "quelques touristes"
+	cont "comme toi."
+else
 	text "This town used to"
 	line "thrive but now"
 
@@ -312,23 +361,53 @@ FuchsiaCityGrampsText: ; TO TRANSLATE
 
 	para "brings in a few"
 	line "tourists like you."
+endc
 	done
 
-FuchsiaCityBlockerText: ; TO TRANSLATE
+FuchsiaCityBlockerText:
+if DEF(_FR_FR)
+	text "Coucou touriste!"
+
+	para "Ravi de te voir!"
+	line "On croise rarement"
+	cont "des touristes par"
+	cont "ici."
+else
 	text "Howdy trainer!"
 
 	para "Pleasure to see" 
 	line "you! We rarely"
 	cont "meet tourists in"
 	cont "this town."
+endc
 	done
 
-FuchsiaCityBlockerText2: ; TO TRANSLATE
+FuchsiaCityBlockerText2:
+if DEF(_FR_FR)
+	text "Quoi? Tu veux"
+	line "aller à l'Est?"
+else
 	text "What? You want"
 	line "to go east?"
+endc
 	done
 
-FuchsiaCityBlockerText25: ; TO TRANSLATE
+FuchsiaCityBlockerText25:
+if DEF(_FR_FR)
+	text "Ah! Ben, on n'a"
+	line "pas bougé ces"
+	cont "rochers après"
+
+	para "l'éruption, puis"
+	line "la pandémie est"
+	cont "arrivée... et ils"
+	cont "sont restés là."
+
+	para "Cette ville est"
+	line "si calme. Personne"
+	cont "ne s'en est jamais"
+	cont "plaint."
+else
 	text "Oh! Well, we"
 	line "haven't moved"
 	cont "those boulders"
@@ -342,9 +421,22 @@ FuchsiaCityBlockerText25: ; TO TRANSLATE
 	line "calm. No one ever"
 	cont "complained about"
 	cont "those."
+endc
 	done
 
-FuchsiaCityBlockerText3: ; TO TRANSLATE
+FuchsiaCityBlockerText3:
+if DEF(_FR_FR)
+	text "Tu sais quoi?"
+
+	para "Je ferai tout pour"
+	line "satisfaire un"
+	cont "touriste!"
+
+	para "Bouger ces rochers"
+	line "pourrait ramener"
+	cont "plus de visiteurs!"
+	cont "Excellente idée!"
+else
 	text "You know what?"
 
 	para "I will do any-"
@@ -356,9 +448,24 @@ FuchsiaCityBlockerText3: ; TO TRANSLATE
 	cont "help bringing in"
 	cont "more tourists as"
 	cont "well! Great idea!"
+endc
 	done
 
-FuchsiaCityBlockerText4: ; TO TRANSLATE
+FuchsiaCityBlockerText4:
+if DEF(_FR_FR)
+	text "Le déblayage ne"
+	line "devrait pas être"
+	cont "long."
+
+	para "En attendant, va"
+	line "plutôt défier"
+	cont "la CHAMPIONNE"
+	cont "JEANNINE."
+
+	para "C'est la meilleure"
+	line "et seule activité"
+	cont "de cette ville!"
+else
 	text "The clearance"
 	line "shouldn't take"
 	cont "long."
@@ -371,9 +478,24 @@ FuchsiaCityBlockerText4: ; TO TRANSLATE
 	para "It's the best and"
 	line "only activity in"
 	cont "this town!"
+endc
 	done
 
-FuchsiaCityTeacherText: ; TO TRANSLATE
+FuchsiaCityTeacherText:
+if DEF(_FR_FR)
+	text "Depuis que le zoo"
+	line "a fermé, seuls"
+	cont "2 #MON sont"
+	cont "restés."
+
+	para "Le LOKHLASS ne"
+	line "peut partir, alors"
+	cont "je le nourris."
+
+	para "Quelqu'un d'autre"
+	line "doit nourrir le"
+	cont "VOLTORBE."
+else
 	text "Since the #MON"
 	line "zoo closed, only"
 	cont "2 #MON stayed."
@@ -385,15 +507,31 @@ FuchsiaCityTeacherText: ; TO TRANSLATE
 	para "Someone else must"
 	line "be feeding the"
 	cont "VOLTORB."
+endc
 	done
 
-FuchsiaCityStupidText: ; TO TRANSLATE
+FuchsiaCityStupidText:
+if DEF(_FR_FR)
+	text "Cette BALL est"
+	line "vraiment un"
+	cont "#MON."
+else
 	text "That # BALL in"
 	line "there is really a"
 	cont "#MON."
+endc
 	done
 
-FuchsiaCityStupidSurprisedText: ; TO TRANSLATE
+FuchsiaCityStupidSurprisedText:
+if DEF(_FR_FR)
+	text "La # BALL était"
+	line "vraiment..."
+	cont "une # BALL?"
+
+	para "Le zoo nous a dupé"
+	line "depuis toutes ces"
+	cont "années?"
+else
 	text "The # BALL was"
 	line "actually…"
 	cont "a # BALL?"
@@ -403,6 +541,7 @@ FuchsiaCityStupidSurprisedText: ; TO TRANSLATE
 	
 	para "other fake"
 	line "#MON?"
+endc
 	done
 
 FuchsiaCitySignText: 
@@ -470,14 +609,24 @@ endc
 
 	done
 
-SafariZoneClosedSignText: ; TO TRANSLATE
+SafariZoneClosedSignText:
+if DEF(_FR_FR)
+	text "PARC SAFARI"
+	para "A VENDRE"
+else
 	text "SAFARI ZONE"
 	para "FOR SALE"
+endc
 	done
 
-SafariZoneOpenedSignText: ; TO TRANSLATE
+SafariZoneOpenedSignText:
+if DEF(_FR_FR)
+	text "PARC SAFARI"
+	para "Maintenant ouvert!"
+else
 	text "SAFARI ZONE"
 	para "Now opened!"
+endc
 	done
 
 NoLitteringSignText: 
@@ -495,48 +644,99 @@ endc
 
 	done
 
-FuchsiaOldSign1Text: ; TO TRANSLATE
+FuchsiaOldSign1Text:
+if DEF(_FR_FR)
+	text "Nom: VOLTORBE"
+	para "Portrait craché"
+	line "d'une # BALL."
+else
 	text "Name: VOLTORB"
 	para "The very image of"
 	line "a #BALL."
+endc
 	done
 
-FuchsiaOldSign2Text: ; TO TRANSLATE
+FuchsiaOldSign2Text:
+if DEF(_FR_FR)
+	text "Nom: LEVEINARD"
+	para "Il faut un bol"
+	line "d'enfer pour en"
+	cont "capturer un."
+else
 	text "Name: CHANSEY"
 	para "Catching one is"
 	line "all up to chance."
+endc
 	done
 
-FuchsiaOldSign3Text: ; TO TRANSLATE
+FuchsiaOldSign3Text:
+if DEF(_FR_FR)
+	text "Nom: RAMOLOSS"
+	para "Sympa mais..."
+	line "Méga-lent!"
+else
 	text "Name: SLOWPOKE"
 	para "Friendly and very"
 	line "slow moving."
+endc
 	done
-	
-FuchsiaOldSign4Text: ; TO TRANSLATE
+
+FuchsiaOldSign4Text:
+if DEF(_FR_FR)
+	text "Nom: KANGOUREX"
+	para "Il porte son bébé"
+	line "dans sa poche."
+else
 	text "Name: KANGASKHAN"
 	para "A maternal #MON"
 	line "that raises its"
 	cont "young in a pouch"
 	cont "on its belly."
+endc
 	done
 		
-FuchsiaOldSign5Text: ; TO TRANSLATE
+FuchsiaOldSign5Text:
+if DEF(_FR_FR)
+	text "...créé"
+	line "à partir d'un"
+	cont "fossile."
+
+	para "Le haut du"
+	line "panneau a été"
+	cont "effacé par le"
+	cont "soleil."
+else
 	text "…was resurrected"
 	line "from a fossil."
 
 	para "Top part of the"
 	line "sign has faded"
 	cont "out to the sun."
+endc
 	done
 
-FuchsiaOldSign6Text: ; TO TRANSLATE
+FuchsiaOldSign6Text:
+if DEF(_FR_FR)
+	text "Nom: LOKHLASS"
+	para "Le roi des mers."
+else
 	text "Name: LAPRAS"
 	para "A.K.A. the king"
 	line "of the seas."
+endc
 	done
 
-FuchsiaEatenTreeText: ; TO TRANSLATE
+FuchsiaEatenTreeText:
+if DEF(_FR_FR)
+	text "C'est un arbre à"
+	line "fruits."
+
+	para "Les baies semblent"
+	line "avoir été mangées"
+
+	para "par un #MON"
+	line "sauvage."
+else
 	text "It's a fruit-"
 	line "bearing tree."
 
@@ -545,25 +745,54 @@ FuchsiaEatenTreeText: ; TO TRANSLATE
 
 	para "eaten by a wild"
 	line "#MON."
+endc
 	done
 
-FuchsiaEatenTreeThisMorningText: ; TO TRANSLATE
+FuchsiaEatenTreeThisMorningText:
+if DEF(_FR_FR)
+	text "Les traces de"
+	line "morsure sont"
+	cont "encore fraîches..."
+
+	para "Sans doute de ce"
+	line "matin."
+else
 	text "The bite marks"
 	line "are still fresh…"
 
 	para "Probably from"
 	line "this morning."
+endc
 	done
 
-FuchsiaEatenTreeHungryTomorrowText: ; TO TRANSLATE
+FuchsiaEatenTreeHungryTomorrowText:
+if DEF(_FR_FR)
+	text "Vu la quantité de"
+	line "baies mangées, le"
+	cont "#MON sera"
+	cont "rassasié pour"
+	cont "la journée."
+else
 	text "Judging by the"
 	line "amount of fruits"
 	cont "eaten, the #MON"
 	cont "will be full for"
 	cont "the day."
+endc
 	done
 
-FuchsiaEatenTreeHungrySoonText: ; TO TRANSLATE
+FuchsiaEatenTreeHungrySoonText:
+if DEF(_FR_FR)
+	text "Les traces de"
+	line "morsure semblent"
+	cont "vieilles..."
+
+	para "La créature qui"
+	line "se nourrit sur"
+	cont "cet arbre devrait"
+	cont "avoir faim d'ici"
+	cont "quelques heures."
+else
 	text "The bite marks"
 	line "look old…"
 
@@ -572,22 +801,42 @@ FuchsiaEatenTreeHungrySoonText: ; TO TRANSLATE
 	cont "tree should feel"
 	cont "hungry within the"
 	cont "next few hours."
+endc
 	done
 
-HiddenKangaskhanText: ; TO TRANSLATE
+HiddenKangaskhanText:
+if DEF(_FR_FR)
+	text "Ouah! Le #MON"
+	line "sauvage était"
+	cont "caché juste"
+	cont "derrière l'arbre!"
+else
 	text "Wow! The wild"
 	line "#MON was right"
 	cont "behind the tree!"
+endc
 	done
 
-FuchsiaCity_KeyBrokeText: ; TO TRANSLATE
+FuchsiaCity_KeyBrokeText:
+if DEF(_FR_FR)
+	text "<PLAYER> utilise la"
+	line "CLE SAFARI."
+	cont "... et elle s'est"
+	cont "brisée."
+else
 	text "<PLAYER> used the"
 	line "SAFARI KEY."
 	cont "… and it broke."
+endc
 	done
-	
-DoorUnlockedText: ; TO TRANSLATE
+
+DoorUnlockedText:
+if DEF(_FR_FR)
+	text "La porte s'est"
+	line "déverrouillée."
+else
 	text "The door unlocked."
+endc
 	done
 
 FuchsiaCity_StartExcavation:

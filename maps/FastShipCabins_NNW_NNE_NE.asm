@@ -386,10 +386,16 @@ endc
 
 	done
 
-FastShipJasmineText: ; TO TRANSLATE
+FastShipJasmineText:
+if DEF(_FR_FR)
+	text "JASMINE: Je ne"
+	line "suis pas d'humeur"
+	cont "à combattre..."
+else
 	text "JASMINE: I'm not"
 	line "in the mood for"
 	cont "a battle…"
+endc
 	done
 
 FastShipCabins_NNW_NNE_NE_MapEvents:

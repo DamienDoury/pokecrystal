@@ -51,12 +51,21 @@ endc
 
 	done
 
-FuchsiaMartFisherText2: ; TO TRANSLATE
+FuchsiaMartFisherText2:
+if DEF(_FR_FR)
+	text "Waouh! C'est toi"
+	line "qui a racheté le"
+	cont "PARC SAFARI!"
+
+	para "Merci beaucoup de"
+	line "l'avoir rouvert!"
+else
 	text "Wow! You're the new"
 	line "SAFARI ZONE owner!"
 
 	para "Thank you so much"
 	line "for re-opening it!"
+endc
 	done
 
 FuchsiaMartCooltrainerFText: 
