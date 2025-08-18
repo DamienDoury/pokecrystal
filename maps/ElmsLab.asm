@@ -854,7 +854,47 @@ ElmsLab_SlowStepDownMovement:
 	slow_step DOWN
 	step_end
 
-ElmText_Intro: ; TO TRANSLATE
+ElmText_Intro:
+if DEF(_FR_FR)
+	text "ORME: <PLAY_G>!"
+	line "Te voilà!"
+
+	para "Oh! Je vois que tu"
+	line "gardes 1 pas de"
+
+	para "distance sociale,"
+	line "c'est très bien!"
+
+	para "J'ai un service à"
+	line "te demander."
+
+	para "Je mène des re-"
+	line "cherches sur les"
+	cont "#MON."
+
+	para "Je me demandais si"
+	line "tu pouvais m'ai-"
+	cont "der, <PLAY_G>."
+
+	para "Vois-tu..."
+
+	para "J'écris un article"
+	line "pour une grande"
+	cont "conférence."
+
+	para "Et j'ai besoin de"
+	line "recueillir plus"
+	cont "de données sur"
+	cont "le terrain."
+
+	para "Donc!"
+
+	para "J'aimerais que tu"
+	line "entraînes un de"
+
+	para "mes nouveaux"
+	line "#MON."
+else
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
@@ -895,6 +935,7 @@ ElmText_Intro: ; TO TRANSLATE
 
 	para "that I recently"
 	line "caught."
+endc
 	done
 
 ElmText_Accepted: 
@@ -922,13 +963,28 @@ endc
 
 	done
 
-ElmText_Insist: ; TO TRANSLATE
+ElmText_Insist:
+if DEF(_FR_FR)
+	text "Attends? Es-tu sûr"
+	line "de ne pas vouloir"
+	cont "un #MON?"
+else
 	text "Wait? Are you sure"
 	line "you don't want a"
 	cont "#MON?"
+endc
 	done
 
-ElmText_AllRighty: ; TO TRANSLATE
+ElmText_AllRighty:
+if DEF(_FR_FR)
+	text "Très bien alors..."
+	para "..."
+	para "..."
+	para "..."
+	para "..."
+	para "DEGAGE D'ICI SALE"
+	line "PETITE MERD"
+else
 	text "All righty then…"
 	para "…"
 	para "…"
@@ -936,15 +992,26 @@ ElmText_AllRighty: ; TO TRANSLATE
 	para "…"
 	para "NOW GET OUT YOU"
 	line "LITTLE SHI"
+endc
 	done
 
-ElmText_ResearchAmbitions: ; TO TRANSLATE
+ElmText_ResearchAmbitions:
+if DEF(_FR_FR)
+	text "Quand j'annoncerai"
+	line "mes découvertes,"
+	cont "je suis sûr que"
+
+	para "cela secouera la"
+	line "communauté scien-"
+	cont "tifique."
+else
 	text "When I announce my"
 	line "findings, I'm sure"
 
 	para "it will shake the"
 	line "scientific"
 	cont "community."
+endc
 	done
 
 ElmText_GotAnEmail: 
@@ -968,7 +1035,34 @@ endc
 
 	done
 
-ElmText_MissionFromMrPokemon: ; TO TRANSLATE
+ElmText_MissionFromMrPokemon:
+if DEF(_FR_FR)
+	text "Ecoute voir."
+
+	para "J'ai un ami du nom"
+	line "de M.#MON."
+
+	para "Il découvre sans"
+	line "cesse de drôles"
+	cont "de trucs."
+
+	para "Il vient de m'en-"
+	line "voyer un e-mail"
+
+	para "disant que cette"
+	line "fois c'est réel."
+
+	para "C'est tentant mais"
+	line "j'ai vraiment trop"
+	cont "de travail..."
+
+	para "Attends!"
+
+	para "Je sais!"
+
+	para "<PLAY_G>, peux-tu"
+	line "y aller pour moi?"
+else
 	text "Hey, listen."
 
 	para "I have an acquain-"
@@ -999,9 +1093,23 @@ ElmText_MissionFromMrPokemon: ; TO TRANSLATE
 
 	para "<PLAY_G>, can you"
 	line "go in our place?"
+endc
 	done
 
-ElmText_ChooseAPokemon: ; TO TRANSLATE
+ElmText_ChooseAPokemon:
+if DEF(_FR_FR)
+	text "Je veux que tu"
+	line "entraînes l'un"
+
+	para "des #MON dans"
+	line "ces BALLS."
+
+	para "Il sera ton"
+	line "nouvel ami,"
+	cont "<PLAY_G>!"
+
+	para "Allez! Choisis!"
+else
 	text "I want you to"
 	line "raise one of the"
 
@@ -1013,6 +1121,7 @@ ElmText_ChooseAPokemon: ; TO TRANSLATE
 	cont "partner, <PLAY_G>."
 
 	para "Go on. Pick one!"
+endc
 	done
 
 LabWhereGoingText: 
@@ -1110,7 +1219,25 @@ endc
 
 	done
 
-ElmDirectionsText1: ; TO TRANSLATE
+ElmDirectionsText1:
+if DEF(_FR_FR)
+	text "M.#MON vit"
+	line "après VILLE"
+
+	para "GRIOTTE, la"
+	line "ville voisine."
+
+	para "C'est tout droit."
+	line "Tu ne peux pas te"
+	cont "perdre."
+
+	para "Mais on ne sait"
+	line "jamais: prends mon"
+
+	para "No. de téléphone."
+	line "Appelle-moi s'il"
+	cont "arrive un truc!"
+else
 	text "MR.#MON lives a"
 	line "little bit beyond"
 
@@ -1128,9 +1255,25 @@ ElmDirectionsText1: ; TO TRANSLATE
 
 	para "number. Call me if"
 	line "anything comes up."
+endc
 	done
 
-ElmDirectionsText2: ; TO TRANSLATE
+ElmDirectionsText2:
+if DEF(_FR_FR)
+	text "Si ton #MON est"
+	line "blessé, soigne-le"
+
+	para "avec cette jolie"
+	line "machine."
+
+	para "Elle restaure les"
+	line "PV, mais elle ne"
+	cont "débarrasse pas des"
+	cont "virus hélas..."
+
+	para "Utilise-la quand"
+	line "tu veux."
+else
 	text "If your #MON is"
 	line "hurt, you should"
 
@@ -1145,6 +1288,7 @@ ElmDirectionsText2: ; TO TRANSLATE
 
 	para "Feel free to use"
 	line "it anytime."
+endc
 	done
 
 ElmDirectionsText3: 
@@ -1170,7 +1314,17 @@ endc
 
 	done
 
-ElmDescribesMrPokemonText: ; TO TRANSLATE
+ElmDescribesMrPokemonText:
+if DEF(_FR_FR)
+	text "M.#MON fouille"
+	line "un peu partout et"
+	cont "trouve des bizar-"
+	cont "reries."
+
+	para "Ramène le COLIS"
+	line "qu'il a pour moi,"
+	cont "veux-tu?"
+else
 	text "MR.#MON goes"
 	line "everywhere and"
 	cont "finds rarities."
@@ -1178,6 +1332,7 @@ ElmDescribesMrPokemonText: ; TO TRANSLATE
 	para "Go fetch this"
 	line "PARCEL he got"
 	cont "for me, will you?"
+endc
 	done
 
 ElmPokeBallText: 
@@ -1215,7 +1370,16 @@ endc
 
 	done
 
-ElmAfterTheftText1: ; TO TRANSLATE
+ElmAfterTheftText1:
+if DEF(_FR_FR)
+	text "ORME: <PLAY_G>,"
+	line "c'est affreux..."
+
+	para "Au fait, quelle"
+	line "est la grande"
+	cont "découverte de"
+	cont "M.#MON?"
+else
 	text "ELM: <PLAY_G>, this"
 	line "is terrible…"
 
@@ -1224,12 +1388,19 @@ ElmAfterTheftText1: ; TO TRANSLATE
 	para "Oh, yes, what was"
 	line "MR.#MON's big"
 	cont "discovery?"
+endc
 	done
 
-ElmAfterTheftText2: ; TO TRANSLATE
+ElmAfterTheftText2:
+if DEF(_FR_FR)
+	text "<PLAYER> confie"
+	line "le COLIS au"
+	cont "PROF.ORME."
+else
 	text "<PLAYER> handed"
 	line "the PARCEL to"
 	cont "PROF.ELM."
+endc
 	done
 
 ElmAfterTheftText3: 
@@ -1241,16 +1412,59 @@ endc
 
 	done
 
-ElmAfterTheftText4: ; TO TRANSLATE
+ElmAfterTheftText4:
+if DEF(_FR_FR)
+	text "Mais... comment"
+	line "a-t-il eu ça?"
+
+	para "Ca va beaucoup"
+	line "aider mes"
+	cont "recherches!"
+else
 	text "But… how did he"
 	line "get this?"
 
 	para "It's going to"
 	line "help a lot with my"
 	cont "research!"
+endc
 	done
 
-ElmAfterTheftText5: ; TO TRANSLATE
+ElmAfterTheftText5:
+if DEF(_FR_FR)
+	text "ORME: Quoi?!?"
+
+	para "Le PROF.CHEN t'a"
+	line "donné un #DEX?"
+
+	para "<PLAY_G>, c'est"
+	line "vrai? C-c'est"
+	cont "incroyable!"
+
+	para "Il a l'oeil pour"
+	line "trouver les bons"
+	cont "dresseurs pleins"
+	cont "d'avenir."
+
+	para "<PLAY_G>..."
+	line "Tu dois avoir les"
+
+	para "épaules pour être"
+	line "MAITRE."
+
+	para "Tu devrais te lan-"
+	line "cer à la conquête"
+	cont "des ARENES."
+
+	para "La plus proche est"
+	line "celle de MAUVILLE."
+
+	para "... Hmm?"
+
+	para "Le PROF.CHEN a"
+	line "demandé qu'on"
+	cont "allume la radio?"
+else
 	text "What?!?"
 
 	para "PROF.OAK also gave"
@@ -1284,19 +1498,89 @@ ElmAfterTheftText5: ; TO TRANSLATE
 	para "PROF.OAK asked me"
 	line "to turn on the"
 	cont "radio?"
+endc
 	done
 
-ElmIsItOfficialText: ; TO TRANSLATE
+ElmIsItOfficialText:
+if DEF(_FR_FR)
+	text "Est-ce qu'il va"
+	line "l'officialiser?"
+else
 	text "Is he going to"
 	line "make it official?"
+endc
 	done
 
-ElmListenRadioText: ; TO TRANSLATE
+ElmListenRadioText:
+if DEF(_FR_FR)
+	text "Ecoutons-la sur"
+	line "mon ordinateur!"
+else
 	text "Let's listen to it"
 	line "on my computer!"
+endc
 	done
 
-ElmCovidAnnouncementText: ; TO TRANSLATE
+ElmCovidAnnouncementText:
+if DEF(_FR_FR)
+	text "LULA: Aujourd'hui"
+	line "PROF.CHEN, vous"
+	cont "avez quelque chose"
+	cont "de très important"
+	cont "à nous dire, c'est"
+	cont "bien ça?"
+
+	para "CHEN: En effet."
+	line "Ces derniers jours"
+	cont "j'ai travaillé"
+	cont "avec un conseil"
+	cont "d'experts médi-"
+	cont "caux qualifiés."
+
+	para "Notre but est"
+	line "d'étudier ce"
+	cont "nouveau virus."
+	cont "Nous avons nommé"
+	cont "la maladie qu'il"
+	cont "cause COVID-19."
+
+	para "Elle touche les"
+	line "#MON ainsi que"
+	cont "les humains."
+
+	para "Les symptômes"
+	line "peuvent être dan-"
+	cont "gereux, surtout"
+	cont "pour les #MON."
+
+	para "Nous avons déjà"
+	line "identifié 16 cas"
+	cont "à JOHTO."
+
+	para "Ce virus est très"
+	line "contagieux et se"
+	cont "répand vite."
+
+	para "Ainsi, il devien-"
+	line "dra un problème"
+	cont "de santé publique"
+	cont "d'ici quelques"
+	cont "jours."
+
+	para "Demain je tiendrai"
+	line "une réunion avec"
+	cont "les autorités et"
+	cont "les politiques"
+	cont "pour définir un"
+	cont "plan d'action."
+
+	para "Prenez le COVID"
+	line "au sérieux et"
+	cont "respectez la"
+	cont "distanciation"
+	cont "sociale pour le"
+	cont "moment."
+else
 	text "MARY: Today PROF."
 	line "OAK you have"
 	cont "something very"
@@ -1351,14 +1635,56 @@ ElmCovidAnnouncementText: ; TO TRANSLATE
 	cont "respect social"
 	cont "distancing"
 	cont "for now."
+endc
 	done
 
-ElmWorksWithOakText: ; TO TRANSLATE
+ElmWorksWithOakText:
+if DEF(_FR_FR)
+	text "Alors maintenant"
+	line "l'info est"
+	cont "publique."
+else
 	text "So now the word"
 	line "is out."
+endc
 	done
 
-ElmAfterTheftText6: ; TO TRANSLATE
+ElmAfterTheftText6:
+if DEF(_FR_FR)
+	text "...<PLAY_G>. Le"
+	line "COLIS de M.#MON"
+	cont "que tu as apporté"
+	cont "contient un"
+	cont "échantillon du"
+	cont "virus d'un #MON"
+	cont "infecté."
+
+	para "On ne sait pas"
+	line "encore grand"
+	cont "chose de ce virus,"
+	cont "alors j'ai besoin"
+	cont "de cet échantillon"
+	cont "pour mes"
+	cont "recherches."
+
+	para "...mais ce n'est"
+	line "pas suffisant."
+
+	para "Il me faudrait"
+	line "quelqu'un sur le"
+	cont "terrain pour re-"
+	cont "cueillir des infos"
+	cont "pour moi."
+
+	para "Ecoute, j'ai besoin"
+	line "de ton aide plus"
+	cont "que jamais,"
+	cont "<PLAY_G>."
+
+	para "Veux-tu m'aider"
+	line "dans cette mis-"
+	cont "sion?"
+else
 	text "…<PLAY_G>. The"
 	line "PARCEL you brought"
 	cont "from MR.#MON"
@@ -1388,18 +1714,53 @@ ElmAfterTheftText6: ; TO TRANSLATE
 	para "Are you willing"
 	line "to help me on"
 	cont "this mission?"
+endc
 	done
 
-ElmInsistOnGettingHelpText: ; TO TRANSLATE
+ElmInsistOnGettingHelpText:
+if DEF(_FR_FR)
+	text "Ce travail est"
+	line "crucial et sau-"
+	cont "vera des vies."
+
+	para "J'ai besoin de"
+	line "ton aide!"
+else
 	text "This work is"
 	line "crucial and will"
 	cont "save lives."
 
 	para "I need you"
 	line "to help me!"
+endc
 	done
 
-ElmMissionAcceptedText: ; TO TRANSLATE
+ElmMissionAcceptedText:
+if DEF(_FR_FR)
+	text "Parfait! Explore"
+	line "la région et ap-"
+	cont "pelle-moi quand tu"
+	cont "découvres quelque"
+	cont "chose d'utile."
+
+	para "Si tu pouvais"
+	line "trouver le patient"
+	cont "zéro, le tout pre-"
+	cont "mier cas du COVID,"
+	cont "cela aiderait à"
+	cont "comprendre comment"
+	cont "tout a commencé."
+
+	para "J'espère aussi que"
+	line "tu profiteras de"
+	cont "ton voyage et que"
+	cont "tu deviendras ami"
+	cont "avec tes #MON!"
+
+	para "Avant de quitter"
+	line "BOURG GEON, parle"
+	cont "bien à ta mère."
+else
 	text "Great! Explore the"
 	line "region and call me"
 	cont "whenever you"
@@ -1426,14 +1787,43 @@ ElmMissionAcceptedText: ; TO TRANSLATE
 	line "NEW BARK TOWN,"
 	cont "make sure that you"
 	cont "talk to your mom."
+endc
 	done
 
-ElmFindPatientZeroText: ; TO TRANSLATE
+ElmFindPatientZeroText:
+if DEF(_FR_FR)
+	text "ORME: N'abandonne"
+	line "pas! Trouve le"
+	cont "patient zéro!"
+else
 	text "ELM: Don't give up!"
 	line "Find patient zero!"
+endc
 	done
 
-ElmLockdownAnnouncementText: ; TO TRANSLATE
+ElmLockdownAnnouncementText:
+if DEF(_FR_FR)
+	text "ORME: Tout le"
+	line "monde panique..."
+	
+	para "Le confinement"
+	line "peut sembler une"
+
+	para "mesure sévère,"
+	line "mais c'est la"
+
+	para "plus efficace que"
+	line "nous connaissons..."
+
+	para "Elle est néces-"
+	line "saire."
+
+	para "Sinon, notre sys-"
+	line "tème de santé"
+
+	para "sera saturé d'ici"
+	line "quelques jours."
+else
 	text "ELM: Everyone"
 	line "is panicking"
 	cont "right now…"
@@ -1454,9 +1844,35 @@ ElmLockdownAnnouncementText: ; TO TRANSLATE
 
 	para "will get saturated"
 	line "within a few days."
+endc
 	done
 
-ElmLockdownCurfewVisitText: ; TO TRANSLATE
+ElmLockdownCurfewVisitText:
+if DEF(_FR_FR)
+	text "ORME: <PLAYER>?"
+
+	para "C'est illégal que"
+	line "tu sois ici!"
+
+	para "Tu devrais être"
+	line "chez ta mère."
+
+	para "Dans la situation"
+	line "actuelle, je ne"
+
+	para "peux pas te de-"
+	line "mander de cher-"
+	cont "cher le patient"
+	cont "zéro."
+
+	para "Mais je ne peux"
+	line "pas t'en empêcher"
+
+	para "non plus..."
+	
+	para "Fais juste atten-"
+	line "tion."
+else
 	text "ELM: <PLAYER>?"
 
 	para "It's illegal for"
@@ -1475,9 +1891,27 @@ ElmLockdownCurfewVisitText: ; TO TRANSLATE
 	line "you either…"
 
 	para "Just be careful."
+endc
 	done
 
-ElmVaccinePassportText: ; TO TRANSLATE
+ElmVaccinePassportText:
+if DEF(_FR_FR)
+	text "ORME: Avec l'uti-"
+	line "lisation massive"
+
+	para "du PASS VACCINAL,"
+	line "la pandémie sem-"
+	cont "ble toucher à sa"
+	cont "fin."
+
+	para "Mais il ne faut"
+	line "pas relâcher nos"
+
+	para "efforts avant que"
+	line "le virus soit"
+	cont "totalement éra-"
+	cont "diqué."
+else
 	text "ELM: With the"
 	line "widespread use of"
 
@@ -1493,9 +1927,41 @@ ElmVaccinePassportText: ; TO TRANSLATE
 	para "until this virus"
 	line "has been totally"
 	cont "eradicated."
+endc
 	done
 
-ElmCurfewDayVisitText: ; TO TRANSLATE
+ElmCurfewDayVisitText:
+if DEF(_FR_FR)
+	text "ORME: Bon retour,"
+	line "<PLAYER>!"
+
+	para "Avec le couvre-"
+	line "feu, tu peux"
+
+	para "de nouveau aller"
+	line "dehors librement,"
+
+	para "c'est agréable."
+
+	para "Mais ne baisse pas"
+	line "ta garde!"
+
+	para "Le virus conti-"
+	line "nue de se répan-"
+	cont "dre, et la situa-"
+	cont "tion peut empi-"
+	cont "rer!"
+
+	para "Je dois admettre"
+	line "que le confine-"
+	cont "ment a pesé sur"
+	cont "la santé mentale."
+
+	para "Alors peut-être"
+	line "que le couvre-feu"
+	cont "est un compro-"
+	cont "mis acceptable."
+else
 	text "ELM: Welcome back"
 	line "<PLAYER>!"
 	
@@ -1528,11 +1994,17 @@ ElmCurfewDayVisitText: ; TO TRANSLATE
 
 	para "is an acceptable"
 	line "compromise."
+endc
 	done
 
-ElmFinalText: ; TO TRANSLATE
+ElmFinalText:
+if DEF(_FR_FR)
+	text "ORME: Mission"
+	line "réussie!"
+else
 	text "ELM: Mission"
 	line "succeeded!"
+endc
 	done
 
 ElmFinalText2::
@@ -1571,7 +2043,45 @@ endc
 
 	done
 
-ElmGiveWorkVisaText1: ; TO TRANSLATE
+ElmGiveWorkVisaText1:
+if DEF(_FR_FR)
+	text "ORME: La rumeur"
+	line "dit que tu as"
+
+	para "gagné tous les"
+	line "badges de JOHTO,"
+	cont "est-ce vrai?"
+
+	para "Je suis très"
+	line "impressionné!"
+
+	para "Mais comme la"
+	line "frontière entre"
+
+	para "JOHTO et KANTO"
+	line "est fermée,"
+
+	para "la LIGUE #MON"
+	line "est hors d'accès."
+
+	para "Ecoute. Tu m'as"
+	line "beaucoup aidé"
+	cont "dans mes recher-"
+	cont "ches."
+
+	para "C'est à mon tour"
+	line "de t'aider."
+
+	para "Mon statut de"
+	line "chercheur en viro-"
+	cont "logie me donne"
+	cont "des avantages"
+	cont "en ces temps."
+
+	para "Alors j'en ai pro-"
+	line "fité et j'ai obtenu"
+	cont "ça pour toi."
+else
 	text "ELM: The rumors"
 	line "say that you won"
 	
@@ -1606,9 +2116,46 @@ ElmGiveWorkVisaText1: ; TO TRANSLATE
 	para "So I took advan-"
 	line "tage of it and"
 	cont "got you this."
+endc
 	done
 
-ElmGiveWorkVisaText2: ; TO TRANSLATE
+ElmGiveWorkVisaText2:
+if DEF(_FR_FR)
+	text "Ils ne sont"
+	line "donnés qu'à"
+	cont "peu de gens triés"
+	cont "sur le volet."
+
+	para "C'est un permis"
+	line "pour traverser"
+
+	para "légalement la"
+	line "frontière de KANTO"
+	cont "en tant que membre"
+	cont "de mon équipe."
+
+	para "Peut-être trouve-"
+	line "ras-tu le patient"
+	cont "zéro à KANTO,"
+	cont "qui sait?"
+
+	para "Et si par hasard"
+	line "tu fais une halte"
+	cont "à la LIGUE"
+	cont "#MON..."
+
+	para "C'est pas mes"
+	line "oignons, héhé!"
+
+	para "L'accès le plus"
+	line "proche de KANTO"
+
+	para "est à l'Est de"
+	line "cette ville."
+
+	para "Je te souhaite"
+	line "bonne chance!"
+else
 	text "Those are only"
 	line "given to a"
 	cont "select few."
@@ -1639,9 +2186,45 @@ ElmGiveWorkVisaText2: ; TO TRANSLATE
 
 	para "I wish you"
 	line "good luck!"
+endc
 	done
 
-ElmGiveVaccineText1: ; TO TRANSLATE
+ElmGiveVaccineText1:
+if DEF(_FR_FR)
+	text "ORME: <PLAY_G>!"
+	line "Te voilà!"
+
+	para "Avant tout,"
+	line "félicitations"
+
+	para "pour ton titre de"
+	line "MAITRE de la"
+	cont "LIGUE!"
+
+	para "Je t'appelle car"
+	line "j'ai une nouvelle"
+	
+	para "formidable à"
+	line "t'annoncer!"
+
+	para "Un vaccin pour"
+	line "les humains a"
+
+	para "été découvert et"
+	line "a passé toutes"
+
+	para "les vérifications"
+	line "pour être mis à"
+	
+	para "disposition du"
+	line "public!!"
+
+	para "Jamais dans l'his-"
+	line "toire un vaccin"
+	
+	para "n'a été créé"
+	line "si vite!"
+else
 	text "ELM: <PLAY_G>!"
 	line "There you are!"
 
@@ -1672,9 +2255,20 @@ ElmGiveVaccineText1: ; TO TRANSLATE
 	
 	para "been created so"
 	line "quickly!"
+endc
 	done
 
-ElmGiveVaccineText2: ; TO TRANSLATE
+ElmGiveVaccineText2:
+if DEF(_FR_FR)
+	text "Pour cette raison,"
+	line "beaucoup de gens"
+
+	para "se méfient, car"
+	line "ils jugent qu'il"
+
+	para "n'a pas été testé"
+	line "assez."
+else
 	text "For this reason,"
 	line "a lot of people"
 	
@@ -1683,9 +2277,38 @@ ElmGiveVaccineText2: ; TO TRANSLATE
 	
 	para "it hasn't been"
 	line "tested thourougly."
+endc
 	done
 
-ElmGiveVaccineText3: ; TO TRANSLATE
+ElmGiveVaccineText3:
+if DEF(_FR_FR)
+	text "C'est là que tu"
+	line "interviens."
+
+	para "Les autorités"
+	line "veulent que les"
+
+	para "gens fassent"
+	line "confiance au"
+
+	para "vaccin et se"
+	line "fassent vacciner."
+
+	para "Une de leurs"
+	line "actions est de"
+
+	para "faire vacciner"
+	line "des célébrités,"
+
+	para "pour que les gens"
+	line "suivent."
+
+	para "Et maintenant que"
+	line "tu es MAITRE,"
+
+	para "les gens comptent"
+	line "sur toi."
+else
 	text "This is where you"
 	line "play a part."
 
@@ -1709,17 +2332,57 @@ ElmGiveVaccineText3: ; TO TRANSLATE
 
 	para "people are looking"
 	line "up to you."
+endc
 	done
 
-ElmGiveVaccineText4: ; TO TRANSLATE
+ElmGiveVaccineText4:
+if DEF(_FR_FR)
+	text "L'INFIRMIERE JOEL-"
+	line "LE est prête à te"
+
+	para "faire l'injection"
+	line "dès à présent."
+else
 	text "CHIEF NURSE JOY"
 	line "is ready to give"
 
 	para "you a shot as we"
 	line "speak."
+endc
 	done
 
-ElmGiveVaccineText5: ; TO TRANSLATE
+ElmGiveVaccineText5:
+if DEF(_FR_FR)
+	text "En ma qualité de"
+	line "chercheur sur le"
+
+	para "vaccin, je peux"
+	line "t'affirmer qu'il"
+
+	para "est sûr. Plus sûr"
+	line "que de ne pas se"
+	cont "faire vacciner"
+	cont "en tout cas."
+
+	para "C'est l'action la"
+	line "plus significative"
+
+	para "pour éradiquer ce"
+	line "virus."
+
+	para "Je te conseille"
+	line "de saisir cette"
+	cont "chance."
+
+	para "Mais je compren-"
+	line "drais si tu ne le"
+	cont "fais pas."
+
+	para "Dans tous les cas,"
+	line "n'oublie pas de"
+	cont "m'aider à trouver"
+	cont "le patient zéro!"
+else
 	text "As someone that"
 	line "helped with the"
 
@@ -1749,17 +2412,147 @@ ElmGiveVaccineText5: ; TO TRANSLATE
 	para "In any case, don't"
 	line "forget to help me"
 	cont "find patient zero!"
+endc
 	done
 
-ElmFoundPatientZeroText1: ; TO TRANSLATE
+ElmFoundPatientZeroText1:
+if DEF(_FR_FR)
+	text "Bonjour <PLAYER>."
+	para "Nous avons beau-"
+	line "coup à discuter."
+
+	para "Assieds-toi."
+else
 	text "Hello <PLAYER>."
 	para "We've got a lot"
 	line "to talk about."
 	
 	para "So please sit."
+endc
 	done
 
-ElmFoundPatientZeroText2: ; TO TRANSLATE
+ElmFoundPatientZeroText2:
+if DEF(_FR_FR)
+	text "Il y a deux ans"
+	line "je t'ai confié"
+	cont "une mission."
+
+	para "Il semblerait que"
+	line "tu l'aies enfin"
+	cont "complétée..."
+
+	para "Tu as trouvé le"
+	line "patient zéro."
+
+	para "..."
+
+	para "Je suis à la fois"
+	line "heureux et triste."
+
+	para "Je ne voulais pas"
+	line "que ça finisse"
+	cont "dans ces circons-"
+	cont "tances."
+
+	para "Un échantillon du"
+	line "sang de RED a été"
+	cont "analysé."
+
+	para "Il avait une sou-"
+	line "che du virus qui,"
+
+	para "d'après ses muta-"
+	line "tions, serait"
+
+	para "l'ancêtre du virus"
+	line "que nous connais-"
+	cont "sons."
+
+	para "Cette hypothèse"
+	line "est renforcée par"
+	cont "d'autres faits."
+
+	para "Beaucoup des pre-"
+	line "miers malades du"
+
+	para "COVID, comme"
+	line "AGATHA ou ONDINE,"
+
+	para "étaient de proches"
+	line "parents de lui."
+
+	para "Grâce au traçage"
+	line "des contacts et à"
+
+	para "l'analyse des don-"
+	line "nées, nous avons"
+
+	para "aussi découvert"
+	line "que le COVID s'est"
+	cont "d'abord répandu"
+	cont "dans les villes"
+	cont "de KANTO où RED"
+
+	para "avait été aperçu"
+	line "quelques jours"
+	cont "auparavant."
+
+	para "Si RED a découvert"
+	line "sa maladie, ça"
+
+	para "peut expliquer"
+	line "pourquoi il a"
+
+	para "abandonné son"
+	line "poste de MAITRE"
+	cont "de la LIGUE."
+
+	para "Nous ne pouvons"
+	line "pas dire avec"
+	
+	para "certitude que RED"
+	line "était vraiment le"
+	cont "patient zéro,"
+
+	para "mais j'imagine que"
+	line "c'est la réponse la"
+	
+	para "plus proche que"
+	line "nous puissions"
+	cont "obtenir."
+
+	para "..."
+
+	para "Il y a deux ans,"
+	line "je pensais que"
+
+	para "trouver le patient"
+	line "zéro apporterait"
+	cont "une réponse à"
+
+	para "toutes mes"
+	line "questions."
+
+	para "Au final, il reste"
+	line "encore beaucoup"
+	cont "d'interrogations."
+
+	para "Où et comment RED"
+	line "a-t-il attrapé le"
+	cont "COVID à l'origine?"
+
+	para "Dans quelles"
+	line "circonstances le"
+	cont "#RUS a-t-il"
+	cont "muté?"
+
+	para "Nous ne pourrons"
+	line "jamais demander à"
+	cont "RED maintenant"
+	cont "qu'il est..."
+
+	para "..."
+else
 	text "Two years ago"
 	line "I sent you on"
 	cont "a mission."
@@ -1870,9 +2663,24 @@ ElmFoundPatientZeroText2: ; TO TRANSLATE
 	cont "now that he…"
 
 	para "…" 
+endc
 	done
 
-ElmComfortOakText: ; TO TRANSLATE
+ElmComfortOakText:
+if DEF(_FR_FR)
+	text "Pauvre PROF.CHEN."
+
+	para "RED était son"
+	line "protégé, ils"
+	cont "étaient proches."
+
+	para "Tu devrais visiter"
+	line "son labo à BOURG"
+	cont "PALETTE pour le"
+	cont "réconforter."
+
+	para "..."
+else
 	text "Poor PROF.OAK."
 
 	para "RED was his"
@@ -1885,9 +2693,50 @@ ElmComfortOakText: ; TO TRANSLATE
 	cont "him."
 
 	para "…"
+endc
 	done
 
-ElmFoundPatientZeroText3: ; TO TRANSLATE
+ElmFoundPatientZeroText3:
+if DEF(_FR_FR)
+	text "Tu as réalisé tant"
+	line "de choses <PLAYER>."
+
+	para "En m'aidant dans"
+	line "mes recherches..."
+
+	para "En soutenant"
+	line "l'INFIRMIERE JOELLE"
+	cont "quand elle était"
+	cont "au bord du"
+	cont "burn-out..."
+
+	para "Ton interview avec"
+	line "LULA a incité"
+	cont "des milliers de"
+	cont "gens à se faire"
+	cont "vacciner..."
+
+	para "En obtenant un"
+	line "échantillon d'eau"
+	line "de SUICUNE qui fut"
+	cont "la clé du vaccin"
+	cont "#MON..."
+
+	para "Puis en parti-"
+	line "cipant aux tests"
+	cont "de ce vaccin..."
+
+	para "Tu es sans doute"
+	line "la personne la"
+	cont "plus importante"
+	cont "dans la lutte"
+	cont "contre le COVID."
+
+	para "Je considère ta"
+	line "mission terminée."
+
+	para "Merci pour tout!"
+else
 	text "You've done so"
 	line "much, <PLAYER>."
 
@@ -1924,24 +2773,50 @@ ElmFoundPatientZeroText3: ; TO TRANSLATE
 
 	para "Thank you"
 	line "for everything!"
+endc
 	done
 
-AideText_GiveYouHandSanitizer: ; TO TRANSLATE
+AideText_GiveYouHandSanitizer:
+if DEF(_FR_FR)
+	text "Je veux aussi que"
+	line "tes mains soient"
+	cont "propres en"
+	cont "permanence."
+
+	para "<PLAYER> obtient"
+	line "du GEL HYDRO-"
+	cont "ALCOOLIQUE!"
+else
 	text "I also want you to"
 	line "keep clean hands"
 	cont "at all times."
 
 	para "<PLAYER> got some"
 	line "HAND SANITIZER!"
+endc
 	done
 
-AideText_AlwaysBusy: ; TO TRANSLATE
+AideText_AlwaysBusy:
+if DEF(_FR_FR)
+	text "As-tu entendu"
+	line "parler du virus"
+	cont "à la télé?"
+else
 	text "Have you heard"
 	line "about the virus"
 	cont "on TV?"
+endc
 	done
 
-AideText_BetterSafeThanSorry: ; TO TRANSLATE
+AideText_BetterSafeThanSorry:
+if DEF(_FR_FR)
+	text "Mieux vaut pré-"
+	line "venir que guérir."
+
+	para "Ce virus est"
+	line "sérieux et tu dois"
+	cont "t'en protéger."
+else
 	text "Better safe than"
 	line "sorry."
 
@@ -1949,9 +2824,25 @@ AideText_BetterSafeThanSorry: ; TO TRANSLATE
 	line "something serious"
 	cont "and you should be"
 	cont "careful about it."
+endc
 	done
 
-AideText_TheftTestimony: ; TO TRANSLATE
+AideText_TheftTestimony:
+if DEF(_FR_FR)
+	text "Il y avait du"
+	line "vacarme dehors..."
+
+	para "Lorsque je suis"
+	line "allé jeter un"
+	cont "oeil, on avait"
+	cont "volé un #MON."
+
+	para "C'est impensable,"
+	line "il faut vraiment"
+	cont "ne pas avoir de"
+	cont "coeur pour faire"
+	cont "une telle chose!"
+else
 	text "There was a loud"
 	line "noise outside…"
 
@@ -1962,9 +2853,22 @@ AideText_TheftTestimony: ; TO TRANSLATE
 	para "It's unbelievable"
 	line "that anyone would"
 	cont "do that!"
+endc
 	done
 
-AideScript_ReadBookshelvesText: ; TO TRANSLATE
+AideScript_ReadBookshelvesText:
+if DEF(_FR_FR)
+	text "Ravi de te ren-"
+	line "contrer <PLAYER>!"
+
+	para "Comme tu débutes,"
+	line "tu devrais lire"
+	cont "tous les livres"
+	cont "du PROF.ORME."
+
+	para "Ils sont pleins de"
+	line "savoir utile."
+else
 	text "Nice to meet you"
 	line "<PLAYER>!"
 
@@ -1974,6 +2878,7 @@ AideScript_ReadBookshelvesText: ; TO TRANSLATE
 
 	para "They're full of"
 	line "great knowledge."
+endc
 	done
 
 AideText_GiveYouBalls: 
@@ -2082,17 +2987,32 @@ endc
 
 	done
 
-ElmsLabTrashcanText: ; TO TRANSLATE
+ElmsLabTrashcanText:
+if DEF(_FR_FR)
+	text "Des masques"
+	line "chirurgicaux & des"
+	cont "gants usagés..."
+else
 	text "Some used surgical"
 	line "masks and gloves…"
+endc
 	done
 
-ElmsLabPCText: ; TO TRANSLATE
+ElmsLabPCText:
+if DEF(_FR_FR)
+	text "OBSERVATIONS SUR"
+	line "LA VIROLOGIE"
+	cont "#MON"
+
+	para "...Il est écrit"
+	line "à l'écran..."
+else
 	text "OBSERVATIONS ON"
 	line "#MON VIROLOGY"
 
 	para "…It says on the"
 	line "screen…"
+endc
 	done
 
 ElmsLab_MapEvents:

@@ -69,21 +69,45 @@ EcruteakPoliceStationPhoneScript:
 EcruteakPoliceStationTrainingSign:
 	jumptext EcruteakPoliceStationTrainingSignText
 
-EcruteakPoliceStationReceptionistText: ; TO TRANSLATE
+EcruteakPoliceStationReceptionistText:
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "commissariat."
+
+	para "Que puis-je"
+	line "faire pour toi?"
+else
 	text "Welcome to the"
 	line "police station."
 
 	para "What can I do"
 	line "for you?"
+endc
 	done
 
-EcruteakPoliceStationReceptionistShooText: ; TO TRANSLATE
+EcruteakPoliceStationReceptionistShooText:
+if DEF(_FR_FR)
+	text "Je ne veux plus"
+	line "jamais te revoir"
+	cont "ici. Ouste!"
+else
 	text "I don't want to"
 	line "see you here ever"
 	cont "again. Shoo!"
+endc
 	done
 
-EcruteakPoliceStationOutfitText: ; TO TRANSLATE
+EcruteakPoliceStationOutfitText:
+if DEF(_FR_FR)
+	text "Que penses-tu"
+	line "de mon uniforme?"
+	
+	para "Il est FAN-TAS-"
+	line "TIQUE, pas vrai?"
+	
+	para "On ne me laisse"
+	line "pas le porter..."
+else
 	text "What do you think"
 	line "of my outfit?"
 	
@@ -92,28 +116,60 @@ EcruteakPoliceStationOutfitText: ; TO TRANSLATE
 	
 	para "They don't allow"
 	line "me to wear it…"
+endc
 	done
 
-EcruteakPoliceStationBriefingText1: ; TO TRANSLATE
+EcruteakPoliceStationBriefingText1:
+if DEF(_FR_FR)
+	text "Nous avons tant"
+	line "à faire en ce"
+	cont "moment..."
+else
 	text "We've got so much"
 	line "to do these days…"
+endc
 	done
 
-EcruteakPoliceStationBriefingText2: ; TO TRANSLATE
+EcruteakPoliceStationBriefingText2:
+if DEF(_FR_FR)
+	text "Ne devrais-tu pas"
+	line "être chez toi?"
+else
 	text "Shouldn't you"
 	line "be home?"
+endc
 	done
 
-EcruteakPoliceStationBriefingText3: ; TO TRANSLATE
+EcruteakPoliceStationBriefingText3:
+if DEF(_FR_FR)
+	text "Je fais un"
+	line "briefing à mes"
+	cont "collègues."
+else
 	text "I'm briefing"
 	line "my colleagues."
+endc
 	done
 
 EcruteakPoliceStationBriefingText4:
+if DEF(_FR_FR)
+	text "..."
+else
 	text "…"
+endc
 	done
 
-EcruteakPoliceStationPrisonerText: ; TO TRANSLATE
+EcruteakPoliceStationPrisonerText:
+if DEF(_FR_FR)
+	text "J'aurais dû por-"
+	line "ter mon masque"
+	cont "correctement, pas"
+	cont "sous le menton."
+
+	para "Je suis dans de"
+	line "beau draps"
+	cont "maintenant!"
+else
 	text "I should've worn"
 	line "my face mask"
 	cont "properly, not"
@@ -121,9 +177,45 @@ EcruteakPoliceStationPrisonerText: ; TO TRANSLATE
 
 	para "I'm in deep"
 	line "trouble now!"
+endc
 	done
 
-EcruteakPoliceStationPrisoner2Text: ; TO TRANSLATE
+EcruteakPoliceStationPrisoner2Text:
+if DEF(_FR_FR)
+	text "Laisse-moi te"
+	line "raconter mon"
+	cont "histoire."
+
+	para "J'allais à la"
+	line "BOUTIQUE faire des"
+	cont "des courses quand"
+	cont "la police m'a"
+	cont "contrôlé."
+
+	para "J'ai montré mon"
+	line "auto-attestation:"
+	cont "tout était en"
+	cont "règle."
+
+	para "Puis ils m'ont"
+	line "demandé où j'ha-"
+	cont "bite. Et ils me"
+	cont "répondent que la"
+	cont "BOUTIQUE où je"
+	cont "comptais aller"
+	cont "n'était pas la"
+	cont "plus proche de"
+	cont "chez moi."
+
+	para "J'ai dit que la"
+	line "plus proche était"
+	cont "en rupture, mais"
+	cont "ils n'ont rien"
+	cont "voulu savoir et"
+	cont "m'ont arrêté!"
+
+	para "Tu y crois??"
+else
 	text "Let me tell you"
 	line "my story."
 
@@ -156,9 +248,29 @@ EcruteakPoliceStationPrisoner2Text: ; TO TRANSLATE
 
 	para "Can you believe"
 	line "it??"
+endc
 	done
 
-EcruteakPoliceStationBurnOutText: ; TO TRANSLATE
+EcruteakPoliceStationBurnOutText:
+if DEF(_FR_FR)
+	text "Je n'en peux"
+	line "plus..."
+
+	para "J'ai choisi ce"
+	line "métier pour pro-"
+	cont "téger les civils"
+	cont "des criminels."
+
+	para "Maintenant ma"
+	line "seule mission est"
+	cont "d'arrêter ceux"
+	cont "qui ne portent"
+	cont "pas de masque..."
+
+	para "Qu'est-ce que je"
+	line "suis en train de"
+	cont "faire?"
+else
 	text "I can't do it"
 	line "anymore…"
 
@@ -175,21 +287,38 @@ EcruteakPoliceStationBurnOutText: ; TO TRANSLATE
 	cont "face mask…"
 
 	para "What am I doing?"
+endc
 	done
 
-EcruteakPoliceStationCustodyCellText: ; TO TRANSLATE
+EcruteakPoliceStationCustodyCellText:
+if DEF(_FR_FR)
+	text "Une cellule."
+else
 	text "A custody cell."
+endc
 	done
 
-EcruteakPoliceStationPhoneText: ; TO TRANSLATE
+EcruteakPoliceStationPhoneText:
+if DEF(_FR_FR)
+	text "Un téléphone pour"
+	line "ceux qui n'ont"
+	cont "pas de #GEAR."
+else
 	text "There's a phone for"
 	line "those who don't"
 	cont "have a #GEAR."
+endc
 	done
 
-EcruteakPoliceStationTrainingSignText: ; TO TRANSLATE
+EcruteakPoliceStationTrainingSignText:
+if DEF(_FR_FR)
+	text "TERRAIN D'ENTRAI-"
+	line "NEMENT DE LA"
+	cont "POLICE"
+else
 	text "POLICE TRAINING"
 	line "FIELD"
+endc
 	done	
 
 EcruteakPoliceStation_MapEvents:

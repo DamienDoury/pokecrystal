@@ -118,7 +118,43 @@ endc
 
 	done
 
-EcruteakPokecenter1F_BillText2: ; TO TRANSLATE
+EcruteakPokecenter1F_BillText2:
+if DEF(_FR_FR)
+	text "Je viens d'achever"
+	line "une étude sur le"
+	cont "SYSTEME de STOCK-"
+	cont "AGE de #MON."
+
+	para "J'ai analysé le"
+	line "comportement du"
+	cont "virus sur des"
+	cont "#MON stockés."
+
+	para "Je pensais que le"
+	line "PC serait un bon"
+	cont "moyen de les"
+	cont "mettre en"
+	cont "quarantaine."
+
+	para "Hélas, c'est tout"
+	line "le contraire."
+
+	para "Ca gèle le virus,"
+	line "ce qui rend l'in-"
+	cont "fection éternelle"
+	cont "dans le PC..."
+
+	para "Seul avantage: le"
+	line "virus ne se propa-"
+	cont "ge pas dans le PC."
+
+	para "Je dois vite"
+	line "retourner à"
+	cont "DOUBLONVILLE pour"
+	cont "voir mes parents."
+
+	para "Tchao!"
+else
 	text "I just finished"
 	line "a study on the"
 	cont "PSS, the #MON"
@@ -154,6 +190,7 @@ EcruteakPokecenter1F_BillText2: ; TO TRANSLATE
 	cont "and see my folks."
 
 	para "Buh-bye!"
+endc
 	done
 
 EcruteakPokecenter1FPokefanMText: 
@@ -206,7 +243,33 @@ endc
 
 	done
 
-EcruteakPokecenter1FCooltrainerFText: ; TO TRANSLATE
+EcruteakPokecenter1FCooltrainerFText:
+if DEF(_FR_FR)
+	text "MORTIMER, le"
+	line "CHAMPION d'ARENE"
+	cont "est trooop cool."
+
+	para "Ses #MON sont"
+	line "bien balèzes."
+
+	para "Tellement qu'il"
+	line "doit utiliser un"
+	cont "LIMITEUR DE FORCE,"
+
+	para "pour que le niveau"
+	line "de son équipe soit"
+	cont "égal au plus haut"
+	cont "niveau de son"
+	cont "adversaire."
+
+	para "Les autres"
+	line "CHAMPIONS font"
+	cont "ça aussi, ouais."
+
+	para "Mais MORTIMER"
+	line "reste le plus"
+	cont "cool!"
+else
 	text "MORTY, the GYM"
 	line "LEADER, is soooo"
 	cont "cool."
@@ -228,6 +291,7 @@ EcruteakPokecenter1FCooltrainerFText: ; TO TRANSLATE
 
 	para "But MORTY's still"
 	line "the coolest!"
+endc
 	done
 
 EcruteakPokecenter1FGymGuideText: 

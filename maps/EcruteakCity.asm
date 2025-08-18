@@ -266,11 +266,18 @@ endc
 
 	done
 
-EcruteakCityFisherText_JasmineReturned: ; TO TRANSLATE
+EcruteakCityFisherText_JasmineReturned:
+if DEF(_FR_FR)
+	text "Ce qui est arrivé"
+	line "au #MON du"
+	cont "PHARE D'OLIVILLE"
+	cont "était triste..."
+else
 	text "What happened to"
 	line "the #MON at"
 	cont "OLIVINE LIGHTHOUSE"
 	cont "was sad…"
+endc
 	done
 
 EcruteakCityYoungsterText: 
@@ -443,12 +450,37 @@ endc
 
 	done
 
-EcruteakCityPoliceStationSignText: ; TO TRANSLATE
+EcruteakCityPoliceStationSignText:
+if DEF(_FR_FR)
+	text "COMMISSARIAT"
+	line "DE ROSALIA"
+else
 	text "ECRUTEAK CITY"
 	line "POLICE STATION"
+endc
 	done
 
-DeliveryGuy_LockdownText: ; TO TRANSLATE
+DeliveryGuy_LockdownText:
+if DEF(_FR_FR)
+	text "Tout le monde est"
+	line "confiné chez soi"
+	
+	para "et pourtant je n'ai"
+	line "jamais eu autant"
+	cont "de travail dehors!"
+	
+	para "Je passe mes"
+	line "journées à livrer"
+	cont "les salades du"
+	cont "CAFE D'OLIVILLE."
+	
+	para "Je les laisse au"
+	line "pied des portes,"
+	
+	para "et je n'accepte"
+	line "que les paiements"
+	cont "sans contact."
+else
 	text "Everyone is qua-"
 	line "rantined at home…"
 
@@ -465,14 +497,24 @@ DeliveryGuy_LockdownText: ; TO TRANSLATE
 	
 	para "only accept wire-"
 	line "less payments."
+endc
 	done
 
-DeliveryGuy_CurfewText: ; TO TRANSLATE
+DeliveryGuy_CurfewText:
+if DEF(_FR_FR)
+	text "Je dois speeder!"
+	
+	para "Ou je finirai pas"
+	line "mes livraisons"
+	cont "avant le"
+	cont "couvre-feu."
+else
 	text "Gotta go fast!"
 
 	para "Or I won't be done"
 	line "with my deliveries"
 	cont "before curfew."
+endc
 	done
 
 EcruteakCity_MapEvents:

@@ -416,7 +416,19 @@ AcademyEarlSpinMovement:
 	turn_head RIGHT
 	step_end
 
-AcademyEarlIntroText: ; TO TRANSLATE
+AcademyEarlIntroText:
+if DEF(_FR_FR)
+	text "THEOPHILE est"
+	line "mon nom!"
+
+	para "Sensationnels sont"
+	line "les #MON!"
+
+	para "Te transmettre"
+	line "quelques petits"
+	cont "conseils au niveau"
+	cont "me maintiendra!"
+else
 	text "EARL, I am!"
 
 	para "Wonderful are"
@@ -426,12 +438,21 @@ AcademyEarlIntroText: ; TO TRANSLATE
 	line "to be a better"
 	cont "trainer!"
 	done
+endc
 
-AcademyEarlIntroText2: ; TO TRANSLATE
+AcademyEarlIntroText2:
+if DEF(_FR_FR)
+	text "Que veux-tu"
+	line "savoir?"
+	cont "Comment devenir"
+	cont "meilleur?" ; TODO : gender.
+	done
+else
 	text "What you want to"
 	line "know? Want to be"
 	cont "a winner is you?"
 	done
+endc
 
 AcademyEarlTeachHowToWinText: 
 if DEF(_FR_FR)
@@ -550,7 +571,18 @@ endc
 
 	done
 
-AcademyEarlGiveEggText: ; TO TRANSLATE
+AcademyEarlGiveEggText:
+if DEF(_FR_FR)
+	text "A chaque élève je"
+	line "donne un OEUF!"
+	
+	para "Bon premier com-"
+	line "pagnon il est,"
+	cont "pour apprendre"
+	cont "les #MON!"
+
+	para "Je t'en offre un?"
+else
 	text "Each pupil I give"
 	line "an EGG!"
 	
@@ -559,17 +591,42 @@ AcademyEarlGiveEggText: ; TO TRANSLATE
 	cont "#MON!"
 
 	para "I give you one?"
+endc
 	done
 
-AcademyEarlRefusedEggText: ; TO TRANSLATE
+AcademyEarlRefusedEggText:
+if DEF(_FR_FR)
+	text "Apprendre pas à"
+	line "pas est la voie"
+	cont "la plus sûre!"
+
+	para "Reviens prendre"
+	line "l'OEUF plus tard!"
+else
 	text "Learn step after"
 	line "step is important!"
 
 	para "Come take the egg"
 	line "later you can!"
+endc
 	done
 
-AcademyEarlPartyFullText: ; TO TRANSLATE
+AcademyEarlPartyFullText:
+if DEF(_FR_FR)
+	text "Première leçon:"
+	line "6 #MON est"
+	
+	para "le maximum que tu"
+	line "tu puisses porter."
+
+	para "Un OEUF compte"
+	line "pour un #MON!"
+	
+	para "Tout excédent doit"
+	line "être déposé dans"
+	cont "PC du CENTRE"
+	cont "#MON."
+else
 	text "First lesson I"
 	line "teach: 6 #MON"
 	
@@ -581,14 +638,25 @@ AcademyEarlPartyFullText: ; TO TRANSLATE
 
 	para "PC at #CENTER"
 	line "you must!"
+endc
 	done
 
-AcademyEarlAfterEggText: ; TO TRANSLATE
+AcademyEarlAfterEggText:
+if DEF(_FR_FR)
+	text "Garde l'OEUF sur"
+	line "toi jusqu'à son"
+	cont "éclosion."
+
+	para "Un bon ami il"
+	line "deviendra,"
+	cont "je le crois !"
+else
 	text "Keep EGG with you"
 	line "until it hatch."
 
 	para "Will become a good"
 	line "friend, me trust!"
+endc
 	done
 
 EarlsPokemonAcademyYoungster1Text: 
@@ -613,20 +681,82 @@ endc
 
 	done
 
-EarlsPokemonAcademyGameboyKid1Text: ; TO TRANSLATE
+EarlsPokemonAcademyGameboyKid1Text:
+if DEF(_FR_FR)
+	text "ROBIN: J'ai échangé"
+	line "mon meilleur #-"
+	cont "MON avec MICKEY"
+	cont "à côté de moi."
+else
 	text "ROBIN: I traded my"
 	line "best #MON to"
 	cont "MICKEY beside me."
+endc
 	done
 
-EarlsPokemonAcademyGameboyKid2Text: ; TO TRANSLATE
+EarlsPokemonAcademyGameboyKid2Text:
+if DEF(_FR_FR)
+	text "MICKEY: J'échange"
+	line "avec ROBIN dans"
+	cont "l'espoir de voir"
+	cont "un #MON"
+	cont "évoluer."
+else
 	text "MICKEY: I'm trading"
 	line "with ROBIN in"
 	cont "hopes of seeing a"
 	cont "#MON evolve."
+endc
 	done
 
-EarlsPokemonAcademyYoungster2Text: ; TO TRANSLATE
+EarlsPokemonAcademyYoungster2Text:
+if DEF(_FR_FR)
+	text "En combat, un"
+	line "#MON peut se"
+	
+	para "soigner tout seul"
+	line "avec l'objet qu'il"
+	
+	para "tient. Par"
+	line "exemple une baie."
+
+	para "Beaucoup d'autres"
+	line "objets peuvent"
+	cont "être tenus par"
+	cont "tes #MON."
+
+	para "Tu peux aussi"
+	line "utiliser des"
+	cont "objets de ton"
+	cont "SAC pour les"
+	cont "soigner."
+
+	para "Mais un dresseur"
+	line "ne peut pas user"
+
+	para "des objets du"
+	line "SAC face à un"
+	cont "autre dresseur."
+
+	para "Cela ne serait"
+	line "pas équitable."
+
+	para "Que penserais-tu"
+	line "si tu affrontais"
+
+	para "un riche GENTLEMAN"
+	line "qui soignait sans"
+	cont "cesse ses #MON"
+	cont "avec des RAPPEL"
+	cont "MAX?"
+
+	para "Le vainqueur d'un"
+	line "duel doit être"
+	
+	para "déterminé par son"
+	line "habileté, et non"
+	cont "par sa richesse."
+else
 	text "During a battle,"
 	line "a #MON can heal"
 	
@@ -670,23 +800,37 @@ EarlsPokemonAcademyYoungster2Text: ; TO TRANSLATE
 	para "should be deter-"
 	line "mined by skill,"
 	cont "not wealth."
-
-	;para "…"
-
-	;para "It sure is tough"
-	;line "taking notes…"
+endc
 	done
 
-AcademyBlackboardText: ; TO TRANSLATE
+AcademyBlackboardText:
+if DEF(_FR_FR)
+	text "Le tableau décrit"
+	line "l'état de santé"
+
+	para "des #MON et ce"
+	line "que nous savons"
+	cont "du virus."
+else
 	text "The blackboard"
 	line "describes #MON"
 
 	para "health status,"
 	line "and what we know"
 	cont "about the virus."
+endc
 	done
 
-AcademyHealthyText: ; TO TRANSLATE
+AcademyHealthyText:
+if DEF(_FR_FR)
+	text "Le sujet est en"
+	line "bonne santé."
+	
+	para "L'état de santé"
+	line "d'un #MON est"
+	cont "affiché sur son"
+	cont "écran STATS."
+else
 	text "The subject is in"
 	line "good shape."
 	
@@ -694,16 +838,37 @@ AcademyHealthyText: ; TO TRANSLATE
 	line "of a #MON can"
 	cont "be found on its"
 	cont "STATS screen."
+endc
 	done
 
-AcademyHealthyPCRText: ; TO TRANSLATE
+AcademyHealthyPCRText:
+if DEF(_FR_FR)
+	text "Il est mis à jour"
+	line "après chaque test"
+	cont "PCR."
+else
 	text "It is automati-"
 	line "cally updated"
 	cont "after each"
 	cont "PCR test."
+endc
 	done
 
-AcademySickText: ; TO TRANSLATE
+AcademySickText:
+if DEF(_FR_FR)
+	text "Symptômes d'une"
+	line "maladie."
+	
+	para "Peut-être le"
+	line "COVID, ou une"
+	cont "autre maladie."
+	
+	para "Mieux vaut garder"
+	line "le sujet en"
+	cont "quarantaine pour"
+	cont "éviter la propa-"
+	cont "gation."
+else
 	text "Symptoms of a"
 	line "disease."
 	
@@ -715,9 +880,23 @@ AcademySickText: ; TO TRANSLATE
 	line "the subject"
 	cont "quarantined to"
 	cont "prevent spreading."
+endc
 	done
 
-AcademySickSequelText: ; TO TRANSLATE
+AcademySickSequelText:
+if DEF(_FR_FR)
+	text "Le sujet peut"
+	line "faire un test PCR"
+	cont "au CENTRE #MON"
+	cont "pour savoir si"
+	cont "c'est le COVID."
+
+	para "Si détectées, les"
+	line "maladies connues"
+	cont "peuvent être"
+	cont "soignées par la"
+	cont "machine de soin."
+else
 	text "The subject should"
 	line "do a PCR test at a"
 	cont "#MON CENTER to"
@@ -728,15 +907,42 @@ AcademySickSequelText: ; TO TRANSLATE
 	line "diseases can be"
 	cont "cured by the"
 	cont "healing machine."
+endc
 	done
 
-AcademyIncubStartText: ; TO TRANSLATE
+AcademyIncubStartText:
+if DEF(_FR_FR)
+	text "Le sujet a été"
+	line "testé positif au"
+	cont "COVID."
+else
 	text "The subject has"
 	line "been tested"
 	cont "positive to COVID."
+endc
 	done
 
-AcademyIncubText: ; TO TRANSLATE
+AcademyIncubText:
+if DEF(_FR_FR)
+	text "L'incubation est"
+	line "la phase 1/3 de"
+	cont "l'infection."
+
+	para "Durant cette"
+	line "phase, le sujet"
+	cont "n'aura aucun"
+	cont "symptôme."
+
+	para "Mais il est déjà"
+	line "contagieux et doit"
+	cont "rester isolé."
+
+	para "Cette phase dure"
+	line "4 à 5 jours pour"
+	cont "un humain, et"
+	cont "1 à 2 jours pour"
+	cont "un #MON."
+else
 	text "The incubation is"
 	line "phase 1/3 of the"
 	cont "infection by the"
@@ -757,15 +963,35 @@ AcademyIncubText: ; TO TRANSLATE
 	cont "a human,"
 	cont "and 1 to 2 days"
 	cont "for a #MON."
+endc
 	done
 
-AcademyIncubEndText: ; TO TRANSLATE
+AcademyIncubEndText:
+if DEF(_FR_FR)
+	text "La phase suivante"
+	line "est l'apparition"
+	cont "des symptômes."
+else
 	text "The next phase is"
 	line "the appearance"
 	cont "of symptoms."
+endc
 	done
 
-AcademyCovidText: ; TO TRANSLATE
+AcademyCovidText:
+if DEF(_FR_FR)
+	text "La maladie est"
+	line "la phase 2/3 de"
+	cont "l'infection."
+
+	para "Le sujet aura"
+	line "des symptômes"
+	cont "de maladie."
+
+	para "Les symptômes"
+	line "diffèrent entre"
+	cont "humain et #MON."
+else
 	text "The disease is"
 	line "phase 2/3 of the"
 	cont "infection by the"
@@ -779,9 +1005,25 @@ AcademyCovidText: ; TO TRANSLATE
 	line "symptoms vary"
 	cont "between human and"
 	cont "#MON."
+endc
 	done
 
-AcademyCovidEndText: ; TO TRANSLATE
+AcademyCovidEndText:
+if DEF(_FR_FR)
+	text "Cette phase dure"
+	line "5 à 14 jours"
+	cont "pour un humain,"
+	cont "et 3 jours pour"
+	cont "un #MON."
+	
+	para "Le sujet doit"
+	line "rester isolé pour"
+	cont "éviter la propa-"
+	cont "gation du virus,"
+	cont "et rester au cou-"
+	cont "rant des dernières"
+	cont "actualités."
+else
 	text "This phase lasts"
 	line "5 to 14 days for"
 	cont "a human,"
@@ -794,9 +1036,18 @@ AcademyCovidEndText: ; TO TRANSLATE
 	cont "of the virus, and"
 	cont "keep up with the"
 	cont "latest news."
+endc
 	done
 
-AcademyImmuneText: ; TO TRANSLATE
+AcademyImmuneText:
+if DEF(_FR_FR)
+	text "Le sujet s'est"
+	line "remis du COVID."
+
+	para "L'immunité est"
+	line "la phase 3/3 de"
+	cont "l'infection."
+else
 	text "The subject has"
 	line "recovered from"
 	cont "COVID."
@@ -805,22 +1056,47 @@ AcademyImmuneText: ; TO TRANSLATE
 	line "phase 3/3 of the"
 	cont "infection by the"
 	cont "virus."
+endc
 	done
 
-AcademyImmuneBeforeStudiesText: ; TO TRANSLATE
+AcademyImmuneBeforeStudiesText:
+if DEF(_FR_FR)
+	text "Cette phase doit"
+	line "durer longtemps."
+else
 	text "This phase should"
 	line "last a long time."
+endc
 	done
 
-AcademyImmuneStudiesText: ; TO TRANSLATE
+AcademyImmuneStudiesText:
+if DEF(_FR_FR)
+	text "Cette phase dure"
+	line "au moins 6 mois"
+	cont "pour un humain,"
+	cont "et 10 jours pour"
+	cont "un #MON."
+else
 	text "This phase lasts"
 	line "at least 6 months"
 	cont "for a human,"
 	cont "and 10 days for"
 	cont "a #MON."
+endc
 	done
-	
-AcademyImmuneSequelText: ; TO TRANSLATE
+
+AcademyImmuneSequelText:
+if DEF(_FR_FR)
+	text "Les chances que"
+	line "le sujet attrape"
+	cont "ou transmette le"
+	cont "virus sont extrê-"
+	cont "mement faibles."
+
+	para "A ce stade, la"
+	line "quarantaine peut"
+	cont "finir."
+else
 	text "Meanwhile, the"
 	line "odds of the"
 	cont "subject catching"
@@ -831,9 +1107,29 @@ AcademyImmuneSequelText: ; TO TRANSLATE
 	para "At this point,"
 	line "the quarantine"
 	cont "can be ended."
+endc
 	done
 
-AcademyNotebookText: ; TO TRANSLATE
+AcademyNotebookText:
+if DEF(_FR_FR)
+	text "C'est le cahier"
+	line "de ce gamin..."
+
+	para "“Il est presque"
+	line "impossible de"
+	cont "capturer un"
+	cont "#MON en bonne"
+	cont "santé."
+
+	para "Avant de lancer"
+	line "une # BALL, il"
+	cont "faut l'affaiblir."
+
+	para "Idéalement, le"
+	line "laisser à 1 PV.”"
+
+	para "Continuer à lire?"
+else
 	text "It's this kid's"
 	line "notebook…"
 
@@ -849,9 +1145,23 @@ AcademyNotebookText: ; TO TRANSLATE
 	line "target at 1 HP.”"
 
 	para "Keep reading?"
+endc
 	done
+
+AcademyNotebookText1:
+if DEF(_FR_FR)
+	text "“Plus le niveau"
+	line "d'un #MON est"
+	cont "bas, plus il est"
+	cont "simple à captu-"
+	cont "rer."
 	
-AcademyNotebookText1: ; TO TRANSLATE
+	para "Surtout aux"
+	line "niveaux à un"
+	cont "chiffre.”"
+
+	para "Continuer à lire?"
+else
 	text "“The lower the"
 	line "level of a #-"
 	cont "MON, the easier"
@@ -861,9 +1171,23 @@ AcademyNotebookText1: ; TO TRANSLATE
 	line "digit levels.”"
 
 	para "Keep reading?"
+endc
 	done
 
-AcademyNotebookText2: ; TO TRANSLATE
+AcademyNotebookText2:
+if DEF(_FR_FR)
+	text "“Paralyser ou"
+	line "geler un #MON"
+	cont "multiplie tes"
+	cont "chances."
+
+	para "Certains états"
+	line "sont plus effi-"
+	cont "caces que d'au-"
+	cont "tres.”"
+
+	para "Continuer à lire?"
+else
 	text "“Paralyzing or"
 	line "freezing a #MON"
 	cont "multiplies your"
@@ -874,9 +1198,27 @@ AcademyNotebookText2: ; TO TRANSLATE
 	cont "than others.”"
 
 	para "Keep reading?"
+endc
 	done
 
-AcademyNotebookText3: ; TO TRANSLATE
+AcademyNotebookText3:
+if DEF(_FR_FR)
+	text "“Baisser les"
+	line "stats d'un #MON"
+	cont "aide aussi."
+
+	para "Particulièrement"
+	line "utile face aux"
+	cont "espèces rési-"
+	cont "lientes."
+
+	para "Combiné avec un"
+	line "état, cela peut"
+	cont "être très effi-"
+	cont "cace.”"
+
+	para "Continuer à lire?"
+else
 	text "“Lowering a"
 	line "#MON's stats"
 	cont "also helps."
@@ -891,9 +1233,34 @@ AcademyNotebookText3: ; TO TRANSLATE
 	cont "very efficient.”"
 
 	para "Keep reading?"
+endc
 	done
 
-AcademyNotebookText4: ; TO TRANSLATE
+AcademyNotebookText4:
+if DEF(_FR_FR)
+	text "“Quand ton équipe"
+	line "atteint la limite"
+	cont "de 6 #MON,"
+
+	para "les suivants vont"
+	line "dans une BOITE"
+	cont "du PC."
+
+	para "Quand la BOITE"
+	line "contient 20"
+	cont "#MON, tu ne"
+	cont "peux plus en"
+	cont "capturer."
+
+	para "Un bon dresseur"
+	line "pense à changer"
+	cont "de BOITE avant"
+	cont "de partir à"
+	cont "l'aventure.”"
+
+	para "La page suivante"
+	line "est...blanche!"
+else
 	text "“Once your party"
 	line "reaches the limit"
 	cont "of 6 #MON,"
@@ -915,14 +1282,21 @@ AcademyNotebookText4: ; TO TRANSLATE
 
 	para "The next page"
 	line "is… Blank!"
+endc
 	done
 
-AcademyBlackboardStatusText: ; TO TRANSLATE
+AcademyBlackboardStatusText:
+if DEF(_FR_FR)
+	text "Le tableau décrit"
+	line "les altérations"
+	cont "d'état en combat."
+else
 	text "The blackboard"
 	line "describes #MON"
 
 	para "status changes in"
 	line "battle."
+endc
 	done
 
 AcademyPoisonText: 

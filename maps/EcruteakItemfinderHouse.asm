@@ -132,15 +132,24 @@ endc
 
 	done
 
-EcruteakItemfinderGirlText: ; TO TRANSLATE
+EcruteakItemfinderGirlText:
+if DEF(_FR_FR)
+	text "Mon frère vit à"
+	line "ECORCIA avec son"
+	cont "fidèle CANARTI-"
+	cont "CHO."
+
+	para "J'espère qu'ils"
+	line "vont bien…"
+else
 	text "My brother lives"
 	line "in AZALEA TOWN"
 	cont "with his trusty"
 	cont "FARFETCH'D."
 
-
 	para "I hope they"
 	line "are ok…"
+endc
 	done
 
 EcruteakHistoryBookText: 

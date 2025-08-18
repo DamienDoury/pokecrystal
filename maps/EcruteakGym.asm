@@ -224,12 +224,55 @@ EcruteakGymGrampsSlowStepDownMovement:
 	slow_step DOWN
 	step_end
 
-MortyIntroText: ; TO TRANSLATE
+MortyIntroText:
+if DEF(_FR_FR)
+	text "Bienvenue."
+else
 	text "Good of you to"
 	line "have come."
+endc
 	done
 
-MortyIntroSequelText: ; TO TRANSLATE
+MortyIntroSequelText:
+if DEF(_FR_FR)
+	text "Ici à ROSALIA,"
+	line "les #MON sont"
+	cont "vénérés."
+
+	para "On dit qu'un"
+	line "#MON aux cou-"
+
+	para "leurs de l'arc-en-"
+	line "ciel apparaîtra"
+
+	para "face à un dresseur"
+	line "d'exception."
+
+	para "C'est pourquoi je"
+	line "m'entraîne à fond"
+	cont "les bananes."
+
+	para "Je peux voir ce"
+	line "que d'autres ne"
+	cont "voient pas."
+
+	para "En cet instant,"
+	line "je veux voir"
+	cont "comment tes"
+	cont "#MON réagiront"
+	cont "face à la peur."
+
+	para "Seuls les #MON"
+	line "de type SPECTRE"
+	cont "peuvent voir à"
+	cont "travers l'obs-"
+	cont "curité de cette"
+	cont "effrayante ARENE."
+
+	para "Voyons à quel"
+	line "point ton esprit"
+	cont "est puissant."
+else
 	text "Here in ECRUTEAK,"
 	line "#MON have been"
 	cont "revered."
@@ -263,7 +306,7 @@ MortyIntroSequelText: ; TO TRANSLATE
 	para "Let's see how"
 	line "powerful your"
 	cont "mind is."
-
+endc
 	done
 
 EcruteakGymPowerRestrainerExplanation:
@@ -301,25 +344,47 @@ endc
 
 	done
 
-MortyText_FogBadgeSpeech: ; TO TRANSLATE
+MortyText_FogBadgeSpeech:
+if DEF(_FR_FR)
+	text "En obtenant le"
+	line "BADGE BRUME, tu"
+
+	para "as prouvé que"
+	line "rien ne t'effraie."
+else
 	text "By obtaining FOG-"
 	line "BADGE, you proved"
 
 	para "nothing can"
 	line "scare you."
+endc
 	done
 
-MortyText_FogBadgeSpeech2: ; TO TRANSLATE
+MortyText_FogBadgeSpeech2:
+if DEF(_FR_FR)
+	text "Je veux aussi"
+	line "te donner ceci."
+else
 	text "I want you to have"
 	line "this too."
+endc
 	done
 
-Obey50: ; TO TRANSLATE
+Obey50:
+if DEF(_FR_FR)
+	text "Les #MON éch-"
+	line "angés jusqu'au"
+	cont "niveau 50"
+
+	para "t'obéiront avec ce"
+	line "cinquième badge."
+else
 	text "Traded #MON up"
 	line "to L50 will obey"
 	
 	para "you with this"
 	line "fifth badge."
+endc
 	done
 
 MortyText_ShadowBallSpeech: 

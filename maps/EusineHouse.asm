@@ -52,7 +52,22 @@ EusineHouseBookshelf:
 EusineHouseRadio:
 	jumpstd Radio3Script
 
-CeladonEusineText1: ; TO TRANSLATE
+CeladonEusineText1:
+if DEF(_FR_FR)
+	text "EUSINE: Salut!"
+
+	para "J'ai apporté un"
+	line "échantillon d'eau"
+	cont "de SUICUNE à la"
+	cont "SYLPHE SARL."
+
+	para "Et alors là, ils"
+	line "étaient aux anges!"
+
+	para "Ils ont montré"
+	line "leur gratitude en"
+	cont "m'offrant ceci."
+else
 	text "EUSINE: Hi!"
 
 	para "I brought SUICUNE's"
@@ -66,9 +81,30 @@ CeladonEusineText1: ; TO TRANSLATE
 	para "They showed their"
 	line "gratitude by"
 	cont "offering me this."
+endc
 	done
 
-CeladonEusineText2: ; TO TRANSLATE
+CeladonEusineText2:
+if DEF(_FR_FR)
+	text "Je ne t'ai jamais"
+	line "remercié d'avoir"
+	cont "trouvé SUICUNE,"
+
+	para "alors accepte"
+	line "cette MASTER BALL."
+
+	para "C'est un proto-"
+	line "type de # BALL"
+	cont "qui capture tout"
+	cont "#MON avec un"
+
+	para "taux de succès"
+	line "de 100<PERCENT>."
+
+	para "Utilise-la avec"
+	line "sagesse. Pas sur"
+	cont "un RATTATA stp."
+else
 	text "I never thanked"
 	line "you for finding"
 	cont "SUICUNE, so"
@@ -85,6 +121,7 @@ CeladonEusineText2: ; TO TRANSLATE
 
 	para "Use it wisely."
 	line "Not on a RATTATA."
+endc
 	done
 
 EusineLeavesCeladonText:

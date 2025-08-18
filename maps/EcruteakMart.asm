@@ -80,7 +80,26 @@ endc
 
 	done
 
-EcruteakMartCooltrainerFText: ; TO TRANSLATE
+EcruteakMartCooltrainerFText:
+if DEF(_FR_FR)
+	text "Je n'y crois pas!"
+
+	para "Je vais de"
+	line "magasin en"
+	cont "magasin,"
+
+	para "et quand enfin je"
+	line "réussis à trouver"
+	cont "des # BALLS,"
+
+	para "leur prix a"
+	line "augmenté!"
+
+	para "Ça me rend folle"
+	line "de ne pas en"
+	cont "trouver au prix"
+	cont "habituel!"
+else
 	text "I can't believe it!"
 	
 	para "I'm going from"
@@ -97,6 +116,7 @@ EcruteakMartCooltrainerFText: ; TO TRANSLATE
 	
 	para "any at the regular"
 	line "price!"
+endc
 	done
 
 

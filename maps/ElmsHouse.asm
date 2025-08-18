@@ -31,7 +31,22 @@ ElmsHousePC:
 ElmsHouseBookshelf:
 	jumpstd DifficultBookshelfScript
 
-ElmsWifeText: ; TO TRANSLATE
+ElmsWifeText:
+if DEF(_FR_FR)
+	text "Salut <PLAY_G>!"
+	line "Mon mari est tou-"
+
+	para "jours occupé..."
+	line "J'espère qu'il va"
+	cont "bien."
+
+	para "Quand il est pris"
+	line "dans ses recher-"
+	cont "ches sur le virus,"
+
+	para "il oublie même"
+	line "de manger."
+else
 	text "Hi, <PLAY_G>! My"
 	line "husband's always"
 
@@ -43,18 +58,54 @@ ElmsWifeText: ; TO TRANSLATE
 
 	para "research, he even"
 	line "forgets to eat."
+endc
 	done
 
-ElmsSonText: ; TO TRANSLATE
+ElmsSonText:
+if DEF(_FR_FR)
+	text "Quand je serai"
+	line "grand, j'aiderai"
+	cont "mon papa!"
+
+	para "Je serai un sacré"
+	line "professeur!"
+else
 	text "When I grow up,"
 	line "I'm going to help"
 	cont "my dad!"
 
 	para "I'm going to be a"
 	line "great professor!"
+endc
 	done
 
-ElmsHousePCText: ; TO TRANSLATE
+ElmsHousePCText:
+if DEF(_FR_FR)
+	text "“...D'où"
+	line "vient-il?"
+
+	para "Pourquoi a-t-il"
+	line "des effets néga-"
+	cont "tifs?"
+
+	para "Comment infecte-"
+	line "t-il les humains?"
+
+	para "Nous devons le"
+	line "découvrir. Je vais"
+	cont "consacrer ma vie"
+
+	para "à l'étude de la"
+	line "VIROLOGIE des"
+	cont "#MON!”"
+
+	para "..."
+
+	para "Cela fait partie"
+	line "des notes de"
+	cont "recherche du"
+	cont "PROF.ORME."
+else
 	text "“…Where"
 	line "does it come from?"
 
@@ -76,6 +127,7 @@ ElmsHousePCText: ; TO TRANSLATE
 	para "It's a part of"
 	line "PROF.ELM's re-"
 	cont "search papers."
+endc
 	done
 
 ElmsHouse_MapEvents:

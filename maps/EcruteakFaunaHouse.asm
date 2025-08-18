@@ -56,15 +56,46 @@ EcruteakFaunaHouse_Person3Script:
 EcruteakFaunaHouse_Radio:
 	jumpstd Radio3Script
 
-EcruteakFaunaHouse_Person1Text: ; TO TRANSLATE
+EcruteakFaunaHouse_Person1Text:
+if DEF(_FR_FR)
+	text "Nous étudions"
+	line "l'impact de la"
+	cont "pandémie sur le"
+	cont "comportement des"
+	cont "#MON sauvages."
+else
 	text "We study the"
 	line "impact of the"
 	cont "pandemic on the"
 	cont "behaviour of"
 	cont "wild #MON."
+endc
 	done
 
-EcruteakFaunaHouse_Person2Text: ; TO TRANSLATE
+EcruteakFaunaHouse_Person2Text:
+if DEF(_FR_FR)
+	text "Le COVID a un"
+	line "grand impact sur"
+	cont "les #MON"
+	cont "sauvages."
+
+	para "Certaines espèces"
+	line "ont constaté le"
+	cont "danger du virus,"
+	cont "et ont migré."
+
+	para "Ce qui explique"
+	line "que l'on trouve"
+	cont "des espèces là où"
+	cont "elles ne vivaient"
+	cont "pas avant."
+
+	para "De plus, la pan-"
+	line "démie rend les"
+	cont "#MON sauvages"
+	cont "agités et plus"
+	cont "durs à capturer."
+else
 	text "COVID has a big"
 	line "impact on wild"
 	cont "#MON."
@@ -84,9 +115,28 @@ EcruteakFaunaHouse_Person2Text: ; TO TRANSLATE
 	line "makes wild #MON"
 	cont "agitated and"
 	cont "harder to catch."
+endc
 	done
 
-EcruteakFaunaHouse_Person3Text: ; TO TRANSLATE
+EcruteakFaunaHouse_Person3Text:
+if DEF(_FR_FR)
+	text "A cause des migra-"
+	line "tions, certains"
+	cont "#MON défendent"
+	cont "leur territoire."
+
+	para "Nous avons vu des"
+	line "#MON sauvages"
+	cont "agressifs envers"
+	cont "d'autres espèces,"
+	cont "et aussi envers"
+	cont "les dresseurs."
+
+	para "Marcher dans les"
+	line "hautes herbes est"
+	cont "dangereux en ce"
+	cont "moment."
+else
 	text "Because of the"
 	line "migrations, some"
 	cont "#MON defend"
@@ -101,18 +151,31 @@ EcruteakFaunaHouse_Person3Text: ; TO TRANSLATE
 	para "Walking in tall"
 	line "grass is currently"
 	cont "dangerous."
+endc
 	done
 
-EcruteakFaunaHouse_Person3GiveCleanseTagText: ; TO TRANSLATE
+EcruteakFaunaHouse_Person3GiveCleanseTagText:
+if DEF(_FR_FR)
+	text "Protège-toi avec"
+	line "ceci."
+else
 	text "You should protect"
 	line "yourself with"
 	cont "this."
+endc
 	done
 
-EcruteakFaunaHouse_Person3DescribesCleanseTagText: ; TO TRANSLATE
+EcruteakFaunaHouse_Person3DescribesCleanseTagText:
+if DEF(_FR_FR)
+	text "Ca repousse cer-"
+	line "tains #MON sau-"
+	cont "vages, mais pas"
+	cont "tous."
+else
 	text "It repulses some"
 	line "wild #MON, but"
 	cont "not all of them."
+endc
 	done
 
 EcruteakFaunaHouse_MapEvents:

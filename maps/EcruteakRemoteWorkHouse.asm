@@ -62,27 +62,65 @@ EcruteakRemoteWorkHouse_Computer2Script:
 EcruteakRemoteWorkHouse_Radio:
 	jumpstd Radio1Script
 
-EcruteakRemoteWorkHouse_MotherAloneText: ; TO TRANSLATE
+EcruteakRemoteWorkHouse_MotherAloneText:
+if DEF(_FR_FR)
+	text "Cette maison est"
+	line "vide sans mes"
+	cont "deux hommes..."
+else
 	text "This house feels"
 	line "empty without my"
 	cont "two men…"
+endc
 	done
 
-EcruteakRemoteWorkHouse_MotherHappyText: ; TO TRANSLATE
+EcruteakRemoteWorkHouse_MotherHappyText:
+if DEF(_FR_FR)
+	text "Le confinement me"
+	line "permet de voir"
+	cont "mes deux hommes."
+	
+	para "Cela me rend"
+	line "joyeuse!"
+else
 	text "The stay-at-home"
 	line "order allows me to"
 	cont "see my two men."
 	
 	para "It makes me"
 	line "joyful!"
+endc
 	done
 
-EcruteakRemoteWorkHouse_ScientistText: ; TO TRANSLATE
+EcruteakRemoteWorkHouse_ScientistText:
+if DEF(_FR_FR)
+	text "J'ai hâte de"
+	line "retourner sur"
+	cont "le terrain!"
+else
 	text "I can't wait to be"
 	line "back on the field!"
+endc
 	done
 
-EcruteakRemoteWorkHouse_MickeyText: ; TO TRANSLATE
+EcruteakRemoteWorkHouse_MickeyText:
+if DEF(_FR_FR)
+	text "MICKEY: J'aimerais"
+	line "échanger avec"
+	cont "mon ami ROBIN."
+
+	para "Mais le CABLE"
+	line "LINK n'est pas"
+	cont "assez long pour"
+	cont "aller jusqu'à sa"
+	cont "maison à MAUVILLE!"
+
+	para "Bref. La leçon"
+	line "d'aujourd'hui est"
+	cont "passionnante!"
+	cont "Jette un oeil à"
+	cont "mon écran."
+else
 	text "MICKEY: I wish I"
 	line "could trade with"
 	cont "my friend ROBIN."
@@ -96,9 +134,30 @@ EcruteakRemoteWorkHouse_MickeyText: ; TO TRANSLATE
 	line "lesson is interes-"
 	cont "ting! Check it out"
 	cont "on my screen."
+endc
 	done
 
-EcruteakRemoteWorkHouse_Computer2Text: ; TO TRANSLATE
+EcruteakRemoteWorkHouse_Computer2Text:
+if DEF(_FR_FR)
+	text "C'est un éditeur"
+	line "de texte."
+
+	para "-Notes de"
+	line "recherche-"
+	
+	para "Les écrits dans"
+	line "la salle princi-"
+	cont "pale semblent"
+	cont "être une sorte de"
+	cont "langage."
+
+	para "Certains passages"
+	line "sont plus récents"
+	cont "que d'autres."
+	
+	para "Personne ne sait"
+	line "de quoi il s'agit!"
+else
 	text "It's a text editor."
 
 	para "-Research notes-"
@@ -115,6 +174,7 @@ EcruteakRemoteWorkHouse_Computer2Text: ; TO TRANSLATE
 	
 	para "No one understands"
 	line "what it's about!"
+endc
 	done
 
 EcruteakRemoteWorkHouse_MapEvents:
