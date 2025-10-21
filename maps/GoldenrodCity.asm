@@ -586,7 +586,19 @@ endc
 
 	done
 
-GoldenrodCityYoungster2Text: ; TO TRANSLATE
+GoldenrodCityYoungster2Text:
+if DEF(_FR_FR)
+	text "L'hôpital au nord"
+	line "de la ville a été"
+	cont "construit en juste"
+	cont "10 jours!"
+
+	para "Et sa capacité est"
+	line "de 1000 lits!"
+
+	para "Yo, c'est dingo!"
+	done
+else
 	text "The hospital in"
 	line "the north of the"
 	cont "city has been"
@@ -598,6 +610,7 @@ GoldenrodCityYoungster2Text: ; TO TRANSLATE
 
 	para "Yo, it's crazy!"
 	done
+endc
 
 GoldenrodCityLassText: 
 if DEF(_FR_FR)
@@ -659,7 +672,22 @@ endc
 
 	done
 
-GoldenrodCityRocketScoutLockdownText: ; TO TRANSLATE
+GoldenrodCityRocketScoutLockdownText:
+if DEF(_FR_FR)
+	text "Sortir dehors est"
+	line "contraire à"
+	cont "la loi..."
+
+	para "T'as l'esprit"
+	line "rebel, c'est ça?"
+
+	para "Rejoins donc la"
+	line "TEAM ROCKET!"
+	
+	para "On a de grandes"
+	line "ambitions!"
+	done
+else
 	text "Going outside"
 	line "against the law…"
 
@@ -670,6 +698,7 @@ GoldenrodCityRocketScoutLockdownText: ; TO TRANSLATE
 	line "TEAM ROCKET! We've"
 	cont "got big plans!"
 	done
+endc
 
 GoldenrodCityRocket1Text: 
 if DEF(_FR_FR)
@@ -902,10 +931,16 @@ endc
 
 	done
 
-GoldenrodHospitalSignText: ; TO TRANSLATE
+GoldenrodHospitalSignText:
+if DEF(_FR_FR)
+	text "HOPITAL NATIONAL"
+	line "DE DOUBLONVILLE"
+	done
+else
 	text "GOLDENROD NATIONAL"
 	line "HOSPITAL"
 	done
+endc
 
 GoldenrodCityMoveTutorAskTeachAMoveText: 
 if DEF(_FR_FR)
@@ -1029,7 +1064,18 @@ endc
 
 	done
 
-GoldenrodCasinoWindowText: ; TO TRANSLATE
+GoldenrodCasinoWindowText:
+if DEF(_FR_FR)
+	text "Le CASINO a oublié"
+	line "d'éteindre ses"
+
+	para "lumières avant de"
+	line "fermer."
+
+	para "Quelqu'un va avoir"
+	line "une facture d'élec-"
+	cont "tricité salée!"
+else
 	text "The GAME CORNER"
 	line "forgot to turn"
 	
@@ -1039,9 +1085,21 @@ GoldenrodCasinoWindowText: ; TO TRANSLATE
 	para "Someone's gonna get"
 	line "a spicy electri-"
 	cont "city bill!"
+endc
 	done
 
-GoldenrodCasinoWindowKnownSecretText: ; TO TRANSLATE
+GoldenrodCasinoWindowKnownSecretText:
+if DEF(_FR_FR)
+	text "Le CASINO a oublié"
+	line "de fermer quelques"
+
+	para "rideaux alors qu'il"
+	line "est illégalement"
+	cont "ouvert en secret."
+
+	para "Mieux vaut garder"
+	line "ça sous silence."
+else
 	text "The GAME CORNER"
 	line "forgot to close"
 	
@@ -1051,16 +1109,51 @@ GoldenrodCasinoWindowKnownSecretText: ; TO TRANSLATE
 
 	para "Better to keep"
 	line "it a secret."
+endc
 	done
 
-BeaterText1: ; TO TRANSLATE
+BeaterText1:
+if DEF(_FR_FR)
+	text "Hé gamin."
+
+	para "Tu veux t'amuser"
+	line "un peu?"
+else
 	text "Hey kid."
 
 	para "Wanna have"
 	line "some fun?"
+endc
 	done
 
-BeaterText2: ; TO TRANSLATE
+BeaterText2:
+if DEF(_FR_FR)
+	text "Très bien."
+
+	para "Va dans le souter-"
+	line "rain juste après"
+	cont "la tombée de la"
+
+	para "nuit et parle à"
+	line "mon collègue."
+
+	para "Montre-lui un"
+	line "CORNEBRE et un"
+	cont "NOSFERAPTI pour"
+	cont "qu'il sache que"
+	cont "c'est moi qui"
+	cont "t'envoie."
+
+	para "Aucun autre #MON"
+	line "que ces deux-là"
+	cont "dans ton équipe,"
+	cont "c'est le code."
+
+	para "Apporte du fric."
+	line "3000¥ minimum."
+
+	para "Compris?"
+else
 	text "All right."
 
 	para "Go in the"
@@ -1084,26 +1177,58 @@ BeaterText2: ; TO TRANSLATE
 	line "¥3000 at least."
 
 	para "Got it?"
+endc
 	done
 
-BeaterText2Bis: ; TO TRANSLATE
+BeaterText2Bis:
+if DEF(_FR_FR)
+	text "Souterrain. A la"
+	line "tombée de la nuit."
+
+	para "Apporte seulement"
+	line "CORNEBRE et NOS-"
+	cont "FERAPTI et 3000¥."
+else
 	text "Underground. Just"
 	line "after nightfall."
 
 	para "Bring only"
 	line "MURKROW & ZUBAT"
 	cont "and ¥3000 cash."
+endc
 	done
 
-BeaterText3: ; TO TRANSLATE
+BeaterText3:
+if DEF(_FR_FR)
+	text "Maintenant"
+	line "dégage."
+else
 	text "Now bounce."
+endc
 	done
 
-GetLostText: ; TO TRANSLATE
+GetLostText:
+if DEF(_FR_FR)
+	text "Casse-toi,"
+	line "sale mioche..."
+else
 	text "Get lost kiddo…"
+endc
 	done
 
-GoldenrodCityMarketRush1Text: ; TO TRANSLATE
+GoldenrodCityMarketRush1Text:
+if DEF(_FR_FR)
+	text "On a besoin de"
+	line "ROULEAUX d'PQ!"
+
+	para "Qui sait combien"
+	line "de temps durera"
+	cont "le confinement?"
+
+	para "Prenons des"
+	line "dizaines de"
+	cont "rouleaux!"
+else
 	text "We need TOILET"
 	line "PAPER!"
 	
@@ -1113,22 +1238,42 @@ GoldenrodCityMarketRush1Text: ; TO TRANSLATE
 
 	para "Let's get dozens"
 	line "of rolls!"
+endc
 	done
 
-GoldenrodCityMarketRush2Text: ; TO TRANSLATE
+GoldenrodCityMarketRush2Text:
+if DEF(_FR_FR)
+	text "Maman, j'ai peur,"
+	line "je veux rentrer."
+else
 	text "Mom I'm scared,"
 	line "I wanna go home."
+endc
 	done
 
-GoldenrodCityMarketRush3Text: ; TO TRANSLATE
+GoldenrodCityMarketRush3Text:
+if DEF(_FR_FR)
+	text "Il se dit que le"
+	line "CENTRE COMMERCIAL"
+	cont "est presque"
+	cont "à court de"
+	cont "marchandises..."
+else
 	text "People say the"
 	line "DEPT.STORE is al-"
 	cont "most out of goods…"
+endc
 	done
 
-GoldenrodCityMarketRush4Text: ; TO TRANSLATE
+GoldenrodCityMarketRush4Text:
+if DEF(_FR_FR)
+	text "Je veux faire du"
+	line "shopping une"
+	cont "dernière fois..."
+else
 	text "I want to shop"
 	line "once last…"
+endc
 	done
 
 GoldenrodCityMoveTutorMoveText:

@@ -241,7 +241,16 @@ DisplayDecoNameScript:
 	callasm GetDecorationNameFromScript
 	jumptext DecoNameText
 
-GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text:
+if DEF(_FR_FR)
+	text "As-tu vu l'arbre"
+	line "qui gigote sur la"
+	cont "ROUTE 36?"
+
+	para "Ma petite soeur"
+	line "a absolument tenu"
+	cont "à aller le voir..."
+else
 	text "Have you seen that"
 	line "wiggly tree that's"
 
@@ -253,9 +262,17 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36Text: ; TO TRANSLATE
 
 	para "and went to see"
 	line "it…"
+endc
 	done
 
-GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText:
+if DEF(_FR_FR)
+	text "Ca m'inquiète..."
+
+	para "Avec le confine-"
+	line "ment, elle devrait"
+	cont "déjà être rentrée."
+else
 	text "I'm worried…"
 
 	para "Because of the"
@@ -263,9 +280,22 @@ GoldenrodFlowerShopTeacherMySisterWentToSeeWigglyTreeRoute36StayAtHomeText: ; TO
 	
 	para "she should be"
 	line "here by now…"
+endc
 	done
 
-GoldenrodFlowerShopTeacherHeresTheSquirtbottleText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherHeresTheSquirtbottleText:
+if DEF(_FR_FR)
+	text "Tu veux aussi"
+	line "emprunter mon"
+	cont "arrosoir?"
+
+	para "Tu as plusieurs"
+	line "BADGES, tu dois"
+	cont "être balèze."
+
+	para "Tu es digne de"
+	line "mon arrosoir."
+else
 	text "Do you want to"
 	line "borrow the water"
 	cont "bottle too?"
@@ -276,16 +306,37 @@ GoldenrodFlowerShopTeacherHeresTheSquirtbottleText: ; TO TRANSLATE
 
 	para "You are worthy"
 	line "of my bottle."
+endc
 	done
 
-GoldenrodFlowerShopSquirtbottleAdviceText: ; TO TRANSLATE
+GoldenrodFlowerShopSquirtbottleAdviceText:
+if DEF(_FR_FR)
+	text "Utilise-le pour"
+	line "arroser les arbres"
+	cont "à baies. Quelques"
+	cont "gouttes suffisent."
+else
 	text "Use it to water"
 	line "fruit trees. Just"
 	cont "a little water is"
 	cont "enough."
+endc
 	done
 
-GoldenrodFlowerShopTeacherCloseShopText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherCloseShopText:
+if DEF(_FR_FR)
+	text "Maintenant que ma"
+	line "soeur est rentrée,"
+
+	para "je peux fermer la"
+	line "boutique."
+
+	para "Je n'aurai plus"
+	line "besoin de la"
+	cont "CARAPUCE A O"
+	cont "je suppose."
+	cont "Tu peux la garder!"
+else
 	text "Now that sis is"
 	line "back, I can"
 	cont "close the shop."
@@ -298,21 +349,45 @@ GoldenrodFlowerShopTeacherCloseShopText: ; TO TRANSLATE
 	line "SQUIRTBOTTLE any-"
 	cont "more I guess."
 	cont "You can have it!"
+endc
 	done
 
-GoldenrodFlowerShopTeacherDontDoAnythingDangerousText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherDontDoAnythingDangerousText:
+if DEF(_FR_FR)
+	text "Ne fais rien de"
+	line "dangereux avec"
+	cont "la CARAPUCE A O!"
+else
 	text "Don't do anything"
 	line "dangerous with"
 	cont "the SQUIRTBOTTLE!"
+endc
 	done
 
-GoldenrodFlowerShopTeacherGoHomeText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherGoHomeText:
+if DEF(_FR_FR)
+	text "Tu ne devrais pas"
+	line "être chez toi avec"
+	cont "tes parents?"
+else
 	text "Shouldn't you be"
 	line "home with your"
 	cont "parents?"
+endc
 	done
 
-GoldenrodFlowerShopTeacherAllPlantsDiedText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherAllPlantsDiedText:
+if DEF(_FR_FR)
+	text "Toutes mes plantes"
+	line "sont mortes pen-"
+	cont "dant le confine-"
+	cont "ment. Trop triste."
+
+	para "Je vends mainte-"
+	line "nant des plantes"
+	cont "qui n'ont pas"
+	cont "besoin d'eau."
+else
 	text "All my plants died"
 	line "during the lock-"
 	cont "down. It's sad."
@@ -320,31 +395,67 @@ GoldenrodFlowerShopTeacherAllPlantsDiedText: ; TO TRANSLATE
 	para "So now I sell"
 	line "plants that need"
 	cont "no watering."
+endc
 	done
 
-GoldenrodFlowerShopTeacherChooseAPlantText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherChooseAPlantText:
+if DEF(_FR_FR)
+	text "Jette un oeil à"
+	line "mes plantes, et"
+	cont "dis-moi celle"
+	cont "que tu veux."
+else
 	text "Take a look at my"
 	line "plants then tell"
 	cont "me the one you"
 	cont "want."
+endc
 	done
 
-GoldenrodFlowerShopTeacherWantThisOneText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherWantThisOneText:
+if DEF(_FR_FR)
+	text "La"
+	line "@"
+	text_ram wStringBuffer2
+	text ""
+	cont "que tu as choisi"
+	cont "coûte {d:PLANT_PRICE}¥."
+	cont "Affaire conclue?"
+else
 	text "The @"
 	text_ram wStringBuffer2
 	text ""
 	line "you looked at"
 	cont "is ¥{d:PLANT_PRICE}. Deal?"
+endc
 	done
 
-GoldenrodFlowerShopTeacherSoldOutText: ; TO TRANSLATE
+GoldenrodFlowerShopTeacherSoldOutText:
+if DEF(_FR_FR)
+	text "J'espère que tu"
+	line "prends bien soin"
+	cont "de toutes les"
+	cont "plantes que tu"
+	cont "as acheté!"
+else
 	text "I hope you take"
 	line "good care of all"
 	cont "the plants you"
 	cont "bought me!"
+endc
 	done
 
-GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText: ; TO TRANSLATE
+GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText:
+if DEF(_FR_FR)
+	text "Ma soeur ne veut"
+	line "pas me prêter son"
+	cont "arrosoir."
+
+	para "Elle dit que je ne"
+	line "suis pas assez"
+	cont "forte pour le"
+	cont "porter."
+else
 	text "Sis doesn't want"
 	line "to lend me her"
 	cont "bottle."
@@ -352,20 +463,38 @@ GoldenrodFlowerShopFloriaWonderIfSisWillLendWaterBottleText: ; TO TRANSLATE
 	para "She says I'm not"
 	line "strong enough to"
 	cont "carry it."
+endc
 	done
 
-GoldenrodFlowerShopFloriaPoliceText: ; TO TRANSLATE
+GoldenrodFlowerShopFloriaPoliceText:
+if DEF(_FR_FR)
+	text "J'ai croisé la"
+	line "police en venant"
+	cont "ici."
+
+	para "J'ai de la chance"
+	line "qu'ils ne m'aient"
+	cont "pas vue!"
+else
 	text "I saw the police"
 	line "on the way here."
 
 	para "I'm lucky they"
 	line "didn't see me!"
+endc
 	done
 
-GoldenrodFlowerShopFloriaYouBeatWhitneyText: ; TO TRANSLATE
+GoldenrodFlowerShopFloriaYouBeatWhitneyText:
+if DEF(_FR_FR)
+	text "Tu as obtenu"
+	line "la CARAPUCE A O"
+	cont "de ma soeur?"
+	cont "Je suis jalouse!"
+else
 	text "You got my sister's"
 	line "SQUIRTBOTTLE?"
 	cont "I'm jealous!"
+endc
 	done
 
 GoldenrodFlowerShopFloriaItReallyWasAMonText: 

@@ -277,7 +277,25 @@ GoldenrodClapHouse_Bookshelf:
 GoldenrodClapHouse_Radio:
 	jumpstd Radio2Script
 
-GoldenrodClapHouse_HusbandLockdownOpportunityText: ; TO TRANSLATE
+GoldenrodClapHouse_HusbandLockdownOpportunityText:
+if DEF(_FR_FR)
+	text "Ce confinement est"
+	line "une bénédiction!"
+
+	para "Je vais enfin"
+	line "avoir le temps de"
+	cont "prendre soin de"
+	cont "moi!"
+
+	para "Je ferai des"
+	line "pilates chaque"
+	cont "matin,"
+
+	para "je lirai des"
+	line "livres et j'ap-"
+	cont "prendrai à cuire"
+	cont "mon propre pain!"
+else
 	text "This stay at home"
 	line "order's a blessing!"
 
@@ -291,17 +309,39 @@ GoldenrodClapHouse_HusbandLockdownOpportunityText: ; TO TRANSLATE
 	para "read books, and"
 	line "learn to bake"
 	cont "my own bread!"
+endc
 	done
 
-GoldenrodClapHouse_HusbandClapText: ; TO TRANSLATE
+GoldenrodClapHouse_HusbandClapText:
+if DEF(_FR_FR)
+	text "C'est le moment le"
+	line "plus important de"
+	cont "la journée!"
+
+	para "C'est l'heure"
+	line "d'applaudiiir!"
+else
 	text "This is the most"
 	line "important time of"
 	cont "the day!"
 
 	para "Time to claaaap!"
+endc
 	done
 
-GoldenrodClapHouse_HusbandLockdownText: ; TO TRANSLATE
+GoldenrodClapHouse_HusbandLockdownText:
+if DEF(_FR_FR)
+	text "Pendant le confi-"
+	line "nement, je n'ai"
+
+	para "fait que regarder"
+	line "la télé et manger"
+	cont "de la malbouffe."
+
+	para "La motivation est"
+	line "une chose si"
+	cont "fragile..."
+else
 	text "All I did during"
 	line "the lockdown was"
 	
@@ -310,14 +350,24 @@ GoldenrodClapHouse_HusbandLockdownText: ; TO TRANSLATE
 
 	para "Motivation is a"
 	line "fragile thing…"
+endc
 	done
 
+GoldenrodClapHouse_MasterBeforeLockdownText:
+if DEF(_FR_FR)
+	text "Ca va me déprimer"
+	line "de rester confiné"
+	cont "chez moi."
 
+	para "J'ai trouvé!"
+	line "Je vais lancer"
+	cont "un mouvement!"
 
-
-
-
-GoldenrodClapHouse_MasterBeforeLockdownText: ; TO TRANSLATE
+	para "Quand le confine-"
+	line "ment aura débuté,"
+	cont "reviens juste"
+	cont "avant 20h."
+else
 	text "I'm afraid to stay"
 	line "locked at home."
 
@@ -328,9 +378,22 @@ GoldenrodClapHouse_MasterBeforeLockdownText: ; TO TRANSLATE
 	line "has started, come"
 	cont "back right before"
 	cont "8 PM."
+endc
 	done
 
-GoldenrodClapHouse_MasterEncoreSecondChanceText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterEncoreSecondChanceText:
+if DEF(_FR_FR)
+	text "Les applaudisse-"
+	line "ments aux fenêtres"
+	cont "c'est du passé."
+
+	para "J'en veux encore,"
+	line "mais ça n'arrivera"
+	cont "plus."
+
+	para "Je suppose que tu"
+	line "peux prendre ceci."
+else
 	text "Window clapping"
 	line "appears to be"
 	cont "gone for good."
@@ -341,9 +404,19 @@ GoldenrodClapHouse_MasterEncoreSecondChanceText: ; TO TRANSLATE
 
 	para "I guess you can"
 	line "take this."
+endc
 	done
 
-GoldenrodClapHouse_MasterPokeathlonText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterPokeathlonText:
+if DEF(_FR_FR)
+	text "J'aimerais pouvoir"
+	line "applaudir au"
+	cont "#ATHLON."
+
+	para "Mais après son"
+	line "report, il a été"
+	cont "fermé au public."
+else
 	text "I wish I could be"
 	line "clapping at the"
 	cont "#ATHLON."
@@ -352,65 +425,137 @@ GoldenrodClapHouse_MasterPokeathlonText: ; TO TRANSLATE
 	line "postponed, it was"
 	cont "closed to the"
 	cont "public."
+endc
 	done
 
-GoldenrodClapHouse_MasterTrendVanishedText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterTrendVanishedText:
+if DEF(_FR_FR)
+	text "Malheureusement,"
+	line "la pratique des"
+	cont "applaudissements"
+	cont "aux fenêtres s'est"
+	cont "essoufflée."
+else
 	text "Unfortunately, the"
 	line "window clapping"
 	cont "trend slowly"
 	cont "vanished."
+endc
 	done
 
-GoldenrodClapHouse_LoveYourClappingText: ; TO TRANSLATE
+GoldenrodClapHouse_LoveYourClappingText:
+if DEF(_FR_FR)
+	text "J'adore ta façon"
+	line "d'applaudir!"
+else
 	text "I love the way"
 	line "you clap!"
+endc
 	done
 
-GoldenrodClapHouse_MasterShowHandsText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterShowHandsText:
+if DEF(_FR_FR)
+	text "En regardant tes"
+	line "mains, je peux"
+	cont "déterminer..."
+else
 	text "By looking at your"
 	line "hands, I can tell…"
+endc
 	done
 
-GoldenrodClapHouse_MasterThanksLookbackText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterThanksLookbackText:
+if DEF(_FR_FR)
+	text "Merci d'avoir"
+	line "contribué au"
+	cont "mouvement des"
+	cont "applaudissements!"
+else
 	text "Thanks for taking"
 	line "part in the window"
 	cont "clapping movement!"
+endc
 	done
 
-GoldenrodClapHouse_MasterClapCountText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterClapCountText:
+if DEF(_FR_FR)
+	text "Que tu as applaudi"
+	line "@"
+	text_decimal wClapCount, 2, 5
+	text " fois."
+else
 	text "You've clapped"
 	line "@"
 	text_decimal wClapCount, 2, 5
 	text " times."
+endc
 	done
 
-GoldenrodClapHouse_MasterHighCountText: ; TO TRANSLATE
+GoldenrodClapHouse_MasterHighCountText:
+if DEF(_FR_FR)
+	text "Que tu as applaudi"
+	line "plus de fois que"
+	cont "je ne peux"
+	cont "compter!"
+
+	para "T'as triché"
+	line "ou quoi?"
+else
 	text "You've clapped more"
 	line "than I can count!"
 
 	para "Did you cheat or"
 	line "something?"
+endc
 	done
 
-GoldenrodClapHouse_Gift1Text: ; TO TRANSLATE
+GoldenrodClapHouse_Gift1Text:
+if DEF(_FR_FR)
+	text "Que tu as applaudi"
+	line "plus de {d:CLAP_CAP_1_AMOUNT} fois!"
+
+	para "Voici un cadeau"
+	line "pour ton effort."
+else
 	text "You've clapped"
 	line "more than {d:CLAP_CAP_1_AMOUNT}"
 	cont "times!"
 	
 	para "Here's a present"
 	line "for your effort."
+endc
 	done
 
-GoldenrodClapHouse_Gift2Text: ; TO TRANSLATE
+GoldenrodClapHouse_Gift2Text:
+if DEF(_FR_FR)
+	text "Waouh! Tu as"
+	line "applaudi plus de"
+	cont "{d:CLAP_CAP_2_AMOUNT} fois!"
+
+	para "Célébrons ça avec"
+	line "un cadeau!"
+else
 	text "Wow! You've clapped"
 	line "more than {d:CLAP_CAP_2_AMOUNT}"
 	cont "times!"
 	
 	para "Let's celebrate"
 	line "with a present."
+endc
 	done
 
-GoldenrodClapHouse_Gift3Text: ; TO TRANSLATE
+GoldenrodClapHouse_Gift3Text:
+if DEF(_FR_FR)
+	text "Waouh! Tu as"
+	line "applaudi plus de"
+	cont "{d:CLAP_CAP_3_AMOUNT} fois!"
+	cont "Impressionnant!"
+
+	para "Je t'admire!"
+	line "Voici un cadeau"
+	cont "digne de tes"
+	cont "puissantes mains."
+else
 	text "Wow! You've clapped"
 	line "more than {d:CLAP_CAP_3_AMOUNT}"
 	cont "times! Impressive!"
@@ -419,9 +564,33 @@ GoldenrodClapHouse_Gift3Text: ; TO TRANSLATE
 	line "sensei. Here's a"
 	cont "present worthy of"
 	cont "your strong hands."
+endc
 	done
 
-GoldenrodClapHouse_ExplanationText: ; TO TRANSLATE
+GoldenrodClapHouse_ExplanationText:
+if DEF(_FR_FR)
+	text "La mode que j'ai"
+	line "lancé a décollé!"
+
+	para "Chaque jour à 20h,"
+	line "les gens confinés"
+
+	para "applaudissent à"
+	line "leur fenêtre"
+
+	para "pour montrer leur"
+	line "soutien au"
+
+	para "personnel de santé"
+	line "débordé."
+
+	para "Les médias ont"
+	line "relayé la tendance"
+	
+	para "et toutes les"
+	line "grandes villes"
+	cont "s'y sont mises!"
+else
 	text "The trend I start-"
 	line "ed has picked up!"
 
@@ -445,32 +614,67 @@ GoldenrodClapHouse_ExplanationText: ; TO TRANSLATE
 	
 	para "all major cities"
 	line "are doing it!"
+endc
 	done
 
-GoldenrodClapHouse_ClapAlongText: ; TO TRANSLATE
+GoldenrodClapHouse_ClapAlongText:
+if DEF(_FR_FR)
+	text "Allez! Applaudis"
+	line "avec nous!"
+	cont "Tu peux le faire!"
+else
 	text "Come on! Please"
 	line "clap along!"
 	cont "You can do it!"
+endc
 	done
 
-GoldenrodClapHouse_HypedText: ; TO TRANSLATE
+GoldenrodClapHouse_HypedText:
+if DEF(_FR_FR)
+	text "Vivement 20h, je"
+	line "suis surexcitée!"
+else
 	text "I'm really amped"
 	line "for 8 PM!"
+endc
 	done
 
+GoldenrodClapHouse_OldBookText:
+if DEF(_FR_FR)
+	text "Une vieille édi-"
+	line "tion du Livre des"
+	cont "Applaudissements."
 
-
-
-GoldenrodClapHouse_OldBookText: ; TO TRANSLATE
+	para "Le lire?"
+else
 	text "There's an old copy"
 	line "of The Book of"
 	cont "Clapping."
 	
 	para "Do you want"
 	line "to read it?"
+endc
 	done
 
-GoldenrodClapHouse_InstructionsText: ; TO TRANSLATE
+GoldenrodClapHouse_InstructionsText:
+if DEF(_FR_FR)
+	text "“Le Livre des"
+	line "Applaudissements”"
+
+	para "Par l'autoproclamée"
+	line "PRO DES APPLAU."
+
+	para "Quand applaudir?"
+	line "<EMPTY_STAR> Début à 20h"
+
+	para "Où applaudir?"
+	line "<EMPTY_STAR> Surtout en ville"
+
+	para "Comment applaudir?"
+	line "<EMPTY_STAR> Essaie un peu!"
+	cont "Tu trouveras bien"
+	cont "par toi-même ;)"
+else
 	text "“The Book of"
 	line "Clapping”"
 
@@ -488,6 +692,7 @@ GoldenrodClapHouse_InstructionsText: ; TO TRANSLATE
 	line "<EMPTY_STAR> Tinker around!"
 	cont "You can figure it"
 	cont "out on your own ;)"
+endc
 	done
 
 GoldenrodClapHouse_MapEvents:

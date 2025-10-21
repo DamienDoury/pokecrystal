@@ -70,12 +70,19 @@ endc
 
 	done
 
-GoldenrodDeptStore4FCooltrainerMLockdownText: ; TO TRANSLATE
+GoldenrodDeptStore4FCooltrainerMLockdownText:
+if DEF(_FR_FR)
+	text "J'aime me planquer"
+	line "ici pendant que"
+	cont "c'est fermé, hihi!"
+	done
+else
 	text "I like to hide in"
 	line "here while the"
 	cont "store is closed"
 	cont "heehee!"
 	done
+endc
 
 GoldenrodDeptStore4FBugCatcherText: 
 if DEF(_FR_FR)

@@ -203,13 +203,22 @@ endc
 
 	done
 
-GoldenrodDeptStoreRoofTeacherText: ; TO TRANSLATE
+GoldenrodDeptStoreRoofTeacherText:
+if DEF(_FR_FR)
+	text "Oh! Tout est si"
+	line "attrayant!"
+
+	para "Mon SAC est plein"
+	line "à craquer!"
+	done
+else
 	text "Oh, everything is"
 	line "interesting!"
 
 	para "I bought so much,"
 	line "my PACK's crammed!"
 	done
+endc
 
 GoldenrodDeptStoreRoofBugCatcherText: 
 if DEF(_FR_FR)
@@ -289,10 +298,17 @@ endc
 
 	done
 
-BinocularsNightText: ; TO TRANSLATE
+BinocularsNightText:
+if DEF(_FR_FR)
+	text "Il fait trop"
+	line "sombre pour y"
+	cont "voir..."
+	done
+else
 	text "It's too dark"
 	line "to see anything…"
 	done
+endc
 
 Binoculars3Text: 
 if DEF(_FR_FR)

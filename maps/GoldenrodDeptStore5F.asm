@@ -110,16 +110,30 @@ endc
 
 	done
 
-GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText: ; TO TRANSLATE
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectText:
+if DEF(_FR_FR)
+	text "Il est vraiment"
+	line "attaché à toi."
+	done
+else
 	text "It's very attached"
 	line "to you."
 	done
+endc
 
-GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel: ; TO TRANSLATE
+GoldenrodDeptStore5FReceptionistThisMoveShouldBePerfectTextSequel:
+if DEF(_FR_FR)
+	text "Cette capacité"
+	line "devrait tout à"
+	cont "fait vous convenir"
+	cont "à tous les deux."
+	done
+else
 	text "This move should"
 	line "be perfect for a"
 	cont "pair like you."
 	done
+endc
 
 GoldenrodDeptStore5FReceptionistItsAdorableText: 
 if DEF(_FR_FR)
@@ -137,14 +151,26 @@ endc
 
 	done
 
-GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText: ; TO TRANSLATE
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMText:
+if DEF(_FR_FR)
+	text "Il a l'air un peu"
+	line "méchant."
+	done
+else
 	text "It looks evil."
 	done
+endc
 	
-GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel: ; TO TRANSLATE
+GoldenrodDeptStore5FReceptionistItLooksEvilHowAboutThisTMTextSequel:
+if DEF(_FR_FR)
+	text "Que penses-tu de"
+	line "cette CT pour lui?"
+	done
+else
 	text "How about this"
 	cont "TM for it?"
 	done
+endc
 
 GoldenrodDeptStore5FReceptionistThereAreTMsPerfectForMonText: 
 if DEF(_FR_FR)

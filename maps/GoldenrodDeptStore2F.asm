@@ -47,7 +47,17 @@ GoldenrodDeptStore2FElevatorButton:
 GoldenrodDeptStore2FShelfItem1Script:
 	shelfitem 16, ULTRA_BALL, 15360
 
-GoldenrodDeptStore2FYoungsterText: ; TO TRANSLATE
+GoldenrodDeptStore2FYoungsterText:
+if DEF(_FR_FR)
+	text "Le #MATOS"
+	line "peut enregistrer"
+	cont "jusqu'à vingt"
+	cont "numéros."
+
+	para "C'est difficile de"
+	line "décider quel"
+	cont "numéro garder."
+else
 	text "#GEAR can store"
 	line "up to twenty"
 	cont "phone numbers."
@@ -55,23 +65,50 @@ GoldenrodDeptStore2FYoungsterText: ; TO TRANSLATE
 	para "It's hard to de-"
 	line "cide which numbers"
 	cont "to keep."
+endc
 	done
 
-GoldenrodDeptStore2FCooltrainerFText: ; TO TRANSLATE
+GoldenrodDeptStore2FCooltrainerFText:
+if DEF(_FR_FR)
+	text "J'ai eu ma"
+	line "CT au CASINO."
+
+	para "Enfin, avant sa"
+	line "fermeture."
+else
 	text "I got my new TM at"
 	line "the GAME CORNER."
 
 	para "I mean, before"
 	line "it closed."
+endc
 	done
 
-GoldenrodDeptStore2FCooltrainerFGameCornerText: ; TO TRANSLATE
+GoldenrodDeptStore2FCooltrainerFGameCornerText:
+if DEF(_FR_FR)
+	text "Le CASINO a léga-"
+	line "lement rouvert,"
+	cont "hourra!"
+else
 	text "The GAME CORNER"
 	line "has legally re-"
 	cont "opened, hurray!"
+endc
 	done
 
-GoldenrodDeptStore2FGentlemanText: ; TO TRANSLATE
+GoldenrodDeptStore2FGentlemanText:
+if DEF(_FR_FR)
+	text "“COVID.”"
+	line "“Pandémie.”"
+
+	para "Ce sont les seuls"
+	line "mots sur toutes"
+
+	para "les lèvres ces"
+	line "temps-ci."
+
+	para "J'en peux plus."
+else
 	text "“COVID.”"
 	line "“Pandemic.”"
 	
@@ -82,6 +119,7 @@ GoldenrodDeptStore2FGentlemanText: ; TO TRANSLATE
 	line "these days."
 
 	para "Give me a break."
+endc
 	done
 
 GoldenrodDeptStore2FDirectoryText: 

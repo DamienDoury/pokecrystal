@@ -532,24 +532,60 @@ GoldenrodGameCornerCardFlipMachineScript:
 	closetext
 	end
 
-GoldenrodGameCornerGreetings1Text: ; TO TRANSLATE
+GoldenrodGameCornerGreetings1Text:
+if DEF(_FR_FR)
+	text "C'est la première"
+	line "fois que je te"
+	cont "vois!"
+
+	para "Accepte ceci!"
+else
 	text "First time"
 	line "I see you!"
 
 	para "Please take this!"
+endc
 	done
 
-GoldenrodGameCornerGreetings2Text: ; TO TRANSLATE
+GoldenrodGameCornerGreetings2Text:
+if DEF(_FR_FR)
+	text "J'y ai mis"
+	line "50 jetons."
+else
 	text "I put 50 coins"
 	line "inside."
+endc
 	done
 
-GoldenrodGameCornerGreetings3Text: ; TO TRANSLATE
+GoldenrodGameCornerGreetings3Text:
+if DEF(_FR_FR)
+	text "C'est la maison"
+	line "qui offre."
+	
+	para "Amuse-toi bien"
+	line "aux machines!"
+else
 	text "It's on the house."
 	line "Enjoy the slots!"
+endc
 	done
 
-GoldenrodGameCornerGreetings4Text: ; TO TRANSLATE
+GoldenrodGameCornerGreetings4Text:
+if DEF(_FR_FR)
+	text "Oh! Il faut que"
+	line "tu saches : pour"
+	cont "sortir d'ici,"
+	cont "demande au ABRA."
+
+	cont "Il te téléportera"
+	cont "loin d'ici, afin"
+	cont "que personne ne"
+	cont "devine que tu"
+	cont "faisais quelque"
+	cont "chose d'illégal!"
+
+	para "Amuse-toi bien!"
+else
 	text "Oh! You should"
 	line "know: to get out"
 	cont "of here, ask"
@@ -562,6 +598,7 @@ GoldenrodGameCornerGreetings4Text: ; TO TRANSLATE
 	cont "something illegal!"
 
 	para "Have fun!"
+endc
 	done
 
 GoldenrodGameCornerPrizeVendorIntroText: 
@@ -614,10 +651,16 @@ endc
 
 	done
 
-GoldenrodGameCornerPrizeVendorAlreadyHaveTMText: ; TO TRANSLATE
+GoldenrodGameCornerPrizeVendorAlreadyHaveTMText:
+if DEF(_FR_FR)
+	text "Vous avez déjà"
+	line "cette CT!"
+	done
+else
 	text "But you already"
 	line "own that TM!"
 	done
+endc
 
 GoldenrodGameCornerPrizeVendorNeedMoreCoinsText: 
 if DEF(_FR_FR)
@@ -747,7 +790,25 @@ else
 	done
 endc
 
-GoldenrodGameCornerCooltrainerMAbraText: ; TO TRANSLATE
+GoldenrodGameCornerCooltrainerMAbraText:
+if DEF(_FR_FR)
+	text "Tu viens de te"
+	line "faire téléporter"
+	cont "ici, c'est ça?"
+
+	para "L'ABRA est à bout"
+	line "de forces."
+
+	para "Utiliser sa"
+	line "téléportation est"
+	cont "un pari risqué."
+	cont "Tu pourrais finir"
+	cont "coincé dans un"
+	cont "mur..."
+
+	para "Tu devrais essayer"
+	line "à nouveau!"
+else
 	text "Did you just get"
 	line "teleported here?"
 	
@@ -762,6 +823,7 @@ GoldenrodGameCornerCooltrainerMAbraText: ; TO TRANSLATE
 	
 	para "You should"
 	line "try again!"
+endc
 	done
 
 GoldenrodGameCornerCooltrainerFText: 
@@ -800,7 +862,20 @@ endc
 
 	done
 
-GoldenrodGameCornerPokefanM2Text: ; TO TRANSLATE
+GoldenrodGameCornerPokefanM2Text:
+if DEF(_FR_FR)
+	text "Jouer illégalement"
+	line "c'est encore plus"
+	cont "grisant!"
+
+	para "C'est la chose la"
+	line "plus excitante"
+
+	para "que j'aie faite"
+	line "depuis des années!"
+
+	para "Hyaaaah!"
+else
 	text "Playing illegally"
 	line "is even more"
 	cont "thrilling!"
@@ -812,14 +887,24 @@ GoldenrodGameCornerPokefanM2Text: ; TO TRANSLATE
 	line "years!"
 
 	para "Hyaaaah!"
+endc
 	done
 
-GoldenrodGameCornerPokefanM2LegalText: ; TO TRANSLATE
+GoldenrodGameCornerPokefanM2LegalText:
+if DEF(_FR_FR)
+	text "Je commence à me"
+	line "lasser de cet"
+	cont "endroit."
+
+	para "C'est plus aussi"
+	line "marrant qu'avant."
+else
 	text "I'm getting bored"
 	line "of this place."
 
 	para "It's not as fun as"
 	line "it used to be."
+endc
 	done
 
 MoveTutorInsideText: 
@@ -846,20 +931,37 @@ endc
 
 	done
 
-GoldenrodGameCornerFrontDoorLockText: ; TO TRANSLATE
+GoldenrodGameCornerFrontDoorLockText:
+if DEF(_FR_FR)
+	text "La porte d'entrée"
+	line "est fermée par une"
+	cont "chaîne et cachée"
+
+	para "derrière un épais"
+	line "rideau opaque."
+else
 	text "The front door is"
 	line "locked with chains"
 
 	para "and hidden behind"
 	line "an opaque curtain."
+endc
 	done
 
-AbraTeleportText: ; TO TRANSLATE
+AbraTeleportText:
+if DEF(_FR_FR)
+	text "Cet ABRA semble"
+	line "épuisé..."
+
+	para "Se téléporter"
+	line "hors d'ici?"
+else
 	text "This ABRA seems"
 	line "exhausted…"
 
 	para "Teleport out of"
 	line "here?"
+endc
 	done
 
 GoldenrodGameCorner_MapEvents:

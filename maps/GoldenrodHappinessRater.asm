@@ -240,17 +240,31 @@ endc
 
 	done
 
-GoldenrodHappinessRaterPokefanMCatFilterText: ; TO TRANSLATE
+GoldenrodHappinessRaterPokefanMCatFilterText:
+if DEF(_FR_FR)
+	text "Je ne suis pas un"
+	line "MIAOUSS!"
+else
 	text "I'm not a MEOWTH!"
+endc
 	done
 
-GoldenrodHappinessRaterComputer1Text: ; TO TRANSLATE
+GoldenrodHappinessRaterComputer1Text:
+if DEF(_FR_FR)
+	text "Cet homme est en"
+	line "audience virtuelle"
+	cont "avec un juge."
+
+	para "Il a... un filtre"
+	line "MIAOUSS activé."
+else
 	text "This man is on a"
 	line "virtual hearing"
 	cont "with a judge."
 
 	para "He has… a MEOWTH"
 	line "filter turned on."
+endc
 	done
 
 GoldenrodHappinessRaterTwinText: 

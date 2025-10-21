@@ -228,11 +228,45 @@ GoldenrodGymMiltankScript:
 	closetext
 	end
 
-WhitneyBeforeText: ; TO TRANSLATE
+WhitneyBeforeText:
+if DEF(_FR_FR)
+	text "Salut!"
+	line "Moi c'est BLANCHE!"
+else
 	text "Hi! I'm WHITNEY!"
+endc
 	done
 
-WhitneySequelText: ; TO TRANSLATE
+WhitneySequelText:
+if DEF(_FR_FR)
+	text "Tout le monde aime"
+	line "les #MON, alors"
+	cont "moi je fais comme"
+	cont "les autres!"
+
+	para "Les #MON sont"
+	line "super-super"
+	cont "mignons pas vrai?"
+
+	para "Mes grands-parents"
+	line "tiennent la"
+	cont "PENSION, et"
+
+	para "j'adore jouer avec"
+	line "leurs adorables"
+	cont "bébés #MON!"
+
+	para "Je suis ici pour"
+	line "tester ton talent"
+	cont "avec les #MON"
+	cont "mignons!"
+
+	para "Laisse-moi voir"
+	line "ton équipe."
+
+	para "..."
+	line "..."
+else
 	text "Everyone was into"
 	line "#MON, so I got"
 	cont "into it too!"
@@ -257,15 +291,27 @@ WhitneySequelText: ; TO TRANSLATE
 
 	para "……"
 	line "……"
+endc
 	done
 
-WhitneyValidsCutenessText: ; TO TRANSLATE
+WhitneyValidsCutenessText:
+if DEF(_FR_FR)
+	text "Oooh! Ton équipe"
+	line "est trooop mimi!"
+
+	para "Ca te dirait de te"
+	line "bastonner un peu?"
+	cont "Je préfère te"
+	cont "prévenir, je suis"
+	cont "très forte!"
+else
 	text "Oooh! Your team"
 	line "is so cuuuute--!"
 
 	para "You want to bat-"
 	line "tle? I'm warning"
 	cont "you--I'm good!"
+endc
 	done
 
 GoldenrodGymPowerRestrainerExplanation:
@@ -352,16 +398,29 @@ endc
 
 	done
 
-WhitneyPlainBadgeText: ; TO TRANSLATE
+WhitneyPlainBadgeText:
+if DEF(_FR_FR)
+	text "Le BADGE PLAINE"
+	line "n'est pas donné à"
+	cont "tout le monde."
+	done
+else
 	text "PLAINBADGE isn't"
 	line "given to a lot"
 	cont "trainers."
 	done
+endc
 
-WhitneyPlainBadgeText2: ; TO TRANSLATE
+WhitneyPlainBadgeText2:
+if DEF(_FR_FR)
+	text "Oh, prends ça"
+	line "aussi!"
+	done
+else
 	text "Oh, you can have"
 	line "this too!"
 	done
+endc
 
 WhitneyAttractText: 
 if DEF(_FR_FR)
@@ -611,7 +670,39 @@ endc
 
 	done
 
-GoldenrodGymGuideText: ; TO TRANSLATE
+GoldenrodGymGuideText:
+if DEF(_FR_FR)
+	text "Hé! Graine de"
+	line "star!"
+
+	para "Cette ARENE est"
+	line "composée de"
+	cont "dresseurs de #-"
+	cont "MON de type"
+	cont "NORMAL."
+
+	para "BLANCHE n'entraîne"
+	line "que des #MON"
+	cont "mignons."
+
+	para "Elle considère un"
+	line "#MON mignon"
+	cont "s'il est un bébé,"
+	cont "ou l'évolution"
+	cont "d'un bébé,"
+
+	para "tant qu'il mesure"
+	line "1 mètre ou moins."
+
+	para "Elle a aussi un"
+	line "faible pour la"
+	cont "couleur rose."
+
+	para "Elle tolère donc"
+	line "jusqu'à 1,2 mètre,"
+	cont "pour les #MON"
+	cont "roses."
+else
 	text "Yo! CHAMP in"
 	line "making!"
 
@@ -640,6 +731,7 @@ GoldenrodGymGuideText: ; TO TRANSLATE
 	cont "1.2 meter or"
 	cont "3'11” feet for"
 	cont "pink #MON."
+endc
 	done
 
 GoldenrodGymGuideWinText: 
@@ -656,10 +748,16 @@ endc
 
 	done
 
-GoldenrodGymMiltankText: ; TO TRANSLATE
+GoldenrodGymMiltankText:
+if DEF(_FR_FR)
+	text "ECREMEUH:"
+	line "Meuh! MEUH!"
+	done
+else
 	text "MILTANK:"
 	line "Moo! MOO!"
 	done
+endc
 
 GoldenrodGym_MapEvents:
 	db 0, 0 ; filler

@@ -96,15 +96,41 @@ endc
 
 	done
 
-GoldenrodDeptStore1FReceptionistClosedText: ; TO TRANSLATE
+GoldenrodDeptStore1FReceptionistClosedText:
+if DEF(_FR_FR)
+	text "Le CENTRE COMMER-"
+	line "CIAL est fermé,"
+	cont "mais l'accès au"
+	cont "toit reste"
+	cont "autorisé."
+else
 	text "The DEPT.STORE"
 	line "is closed, but it"
 	cont "is allowed to"
 	cont "access the roof"
 	cont "area."
+endc
 	done
 
-GoldenrodDeptStore1FGentlemanText: ; TO TRANSLATE
+GoldenrodDeptStore1FGentlemanText:
+if DEF(_FR_FR)
+	text "Je viens de voir"
+	line "une fille avec"
+
+	para "une CT qu'on ne"
+	line "peut obtenir qu'en"
+	cont "récompense au"
+	cont "CASINO."
+
+	para "Comment est-ce"
+	line "possible?"
+
+	para "Le CASINO est"
+	line "fermé depuis que"
+
+	para "le confinement a"
+	line "été déclaré..."
+else
 	text "I just saw a girl"
 	line "carrying a TM that"
 
@@ -120,9 +146,20 @@ GoldenrodDeptStore1FGentlemanText: ; TO TRANSLATE
 	
 	para "since the lockdown"
 	line "has been declared…"
+endc
 	done
 
-GoldenrodDeptStore1FGentlemanGameCornerText: ; TO TRANSLATE
+GoldenrodDeptStore1FGentlemanGameCornerText:
+if DEF(_FR_FR)
+	text "Le CASINO offre"
+	line "une BOITE JETON"
+
+	para "gratuite avec"
+	line "50 JETONS pour"
+
+	para "fêter sa grande"
+	line "réouverture!"
+else
 	text "The GAME CORNER is"
 	line "offering a free"
 	
@@ -131,6 +168,7 @@ GoldenrodDeptStore1FGentlemanGameCornerText: ; TO TRANSLATE
 
 	para "celebrate their"
 	line "grand re-opening!"
+endc
 	done
 
 GoldenrodDeptStore1FDirectoryText: 
@@ -172,15 +210,38 @@ endc
 
 	done
 
-DeptStore_FloorClosedText: ; TO TRANSLATE
+DeptStore_FloorClosedText:
+if DEF(_FR_FR)
+	text "“Le CENTRE COMMER-"
+	line "CIAL ne peut pas"
+	cont "ouvrir en raison"
+	cont "des restrictions"
+	cont "sanitaires.”"
+else
 	text "“The DEPT.STORE"
 	line "is not allowed to"
 	cont "open because of"
 	cont "the sanitary"
 	cont "restrictions.”"
+endc
 	done
 
-GoldenrodDeptStore_VaccinePassportControllerConfused: ; TO TRANSLATE
+GoldenrodDeptStore_VaccinePassportControllerConfused:
+if DEF(_FR_FR)
+	text "Je ne me souviens"
+	line "pas avoir scanné"
+	cont "ton PASS VACCINAL."
+
+	para "..."
+
+	para "Mais ce serait"
+	line "malpoli de te le"
+	cont "demander deux"
+	cont "fois de suite."
+
+	para "Bon shopping au"
+	line "CENTRE COMMERCIAL!"
+else
 	text "I don't recall"
 	line "scanning your"
 	cont "VACCINE PASSPORT."
@@ -193,6 +254,7 @@ GoldenrodDeptStore_VaccinePassportControllerConfused: ; TO TRANSLATE
 
 	para "Enjoy shopping at"
 	line "the DEPT.STORE!"
+endc
 	done
 
 GoldenrodDeptStore1F_MapEvents:
