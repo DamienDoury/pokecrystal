@@ -132,8 +132,12 @@ GoldenrodHospitalCorridorRoomNumberScript:
 	getnum STRING_BUFFER_3
 	jumptext GoldenrodHospitalCorridorRoomNumberText
 
-GoldenrodHospitalCorridorRoomNumberText: ; TO TRANSLATE
+GoldenrodHospitalCorridorRoomNumberText:
+if DEF(_FR_FR)
+	text "Chambre @"
+else
 	text "Room @"
+endc
 	text_ram wStringBuffer3
 	text_start
 	done
@@ -227,71 +231,161 @@ GoldenrodHospitalCorridor_SleepMovement:
 	step_sleep 1
 	step_end
 
-GoldenrodHospitalCorridorNurse1Text: ; TO TRANSLATE
+GoldenrodHospitalCorridorNurse1Text:
+if DEF(_FR_FR)
+	text "Je suis épuisée."
+	
+	para "J'aimerais"
+	line "m'asseoir."
+
+	para "Mais les fauteuils"
+	line "sont réservés aux"
+	cont "patients et aux"
+	cont "visiteurs."
+else
 	text "I'm exhausted. I"
 	line "wish I could sit."
 
 	para "But the armchairs"
 	line "are for patients"
 	cont "and visitors."
+endc
 	done
 
-GoldenrodHospitalCorridorFinder1Text: ; TO TRANSLATE
+GoldenrodHospitalCorridorFinder1Text:
+if DEF(_FR_FR)
+	text "J'trouve pas"
+	line "la chambre 16."
+	
+	para "Elle est où?"
+else
 	text "I can't find room"
 	line "16, where is it?"
+endc
 	done
 
-GoldenrodHospitalCorridorFinder1ChiefNurseText: ; TO TRANSLATE
+GoldenrodHospitalCorridorFinder1ChiefNurseText:
+if DEF(_FR_FR)
+	text "L'INFIRMIERE EN"
+	line "CHEF?"
+
+	para "Elle est là. Elle"
+	line "vient d'entrer"
+	cont "dans la chambre 18."
+else
 	text "CHIEF NURSE JOY?"
 
 	para "She's here, she"
 	line "just stopped into"
 	cont "room 18."
+endc
 	done
 
-GoldenrodHospitalCorridorSick1Text: ; TO TRANSLATE
+GoldenrodHospitalCorridorSick1Text:
+if DEF(_FR_FR)
+	text "J'crois qu'j'suis"
+	line "malade..."
+
+	para "(burp)"
+
+	para "Va-t'en! Tu vas"
+	line "être contaminé!"
+else
 	text "I think I'm sick…"
 
 	para "(burp)"
 
 	para "Go away! You'll"
 	line "get infected!"
+endc
 	done
 
-GoldenrodHospitalCorridorGrannyText: ; TO TRANSLATE
+GoldenrodHospitalCorridorGrannyText:
+if DEF(_FR_FR)
+	text "Je rends visite à"
+	line "mon mari chaque"
+	cont "jour."
+else
 	text "I visit my husband"
 	line "every day."
+endc
 	done
 
-GoldenrodHospitalCorridorWorriedScientist1Text: ; TO TRANSLATE
+GoldenrodHospitalCorridorWorriedScientist1Text:
+if DEF(_FR_FR)
+	text "Il doit bien y"
+	line "avoir un moyen de"
+	cont "la sauver."
+
+	para "Je ne la laisserai"
+	line "pas tomber."
+else
 	text "There has to be a"
 	line "way to save her."
 
 	para "I won't let her"
 	line "go."
+endc
 	done
 
-GoldenrodHospitalCorridorBathroomText: ; TO TRANSLATE
+GoldenrodHospitalCorridorBathroomText:
+if DEF(_FR_FR)
+	text "C'EST OU LES"
+	line "TOILETTES?"
+
+	para "S'IL VOUS PLAIIIT"
+else
 	text "WHERE'S THE"
 	line "BATHROOM?"
 
 	para "PLEEEEEASE"
+endc
 	done
 
-GoldenrodHospitalPsychicTrainerSeenText: ; TO TRANSLATE
+GoldenrodHospitalPsychicTrainerSeenText:
+if DEF(_FR_FR)
+	text "J'attends ici"
+	line "depuis une"
+	cont "éternité..."
+
+	para "Ca me rend fou..."
+else
 	text "I've been waiting"
 	line "here forever…"
 
 	para "I'm losing my"
 	line "sanity…"
+endc
 	done
 
-GoldenrodHospitalPsychicTrainerBeatenText: ; TO TRANSLATE
+GoldenrodHospitalPsychicTrainerBeatenText:
+if DEF(_FR_FR)
+	text "Patienter c'était"
+	line "bien au final."
+else
 	text "Waiting was less"
 	line "painful actually."
+endc
 	done
 
-GoldenrodHospitalPsychicTrainerAfterBattleText: ; TO TRANSLATE
+GoldenrodHospitalPsychicTrainerAfterBattleText:
+if DEF(_FR_FR)
+	text "Patienter"
+
+	para "..."
+
+	para "Patienter"
+
+	para "..."
+
+	para "Patienter"
+
+	para "..."
+
+	para "L'attente est sans"
+	line "fin, et j'en perds"
+	cont "la boule..."
+else
 	text "Wait"
 
 	para "…"
@@ -307,9 +401,21 @@ GoldenrodHospitalPsychicTrainerAfterBattleText: ; TO TRANSLATE
 	para "All I do is wai-"
 	line "ting, and it's"
 	cont "driving me insane…"
+endc
 	done
 
-GoldenrodHospitalPokefanMTrainerSeenText: ; TO TRANSLATE
+GoldenrodHospitalPokefanMTrainerSeenText:
+if DEF(_FR_FR)
+	text "Ma femme n'est plus"
+	line "dans cette"
+	cont "chambre."
+
+	para "A-t-elle été"
+	line "déplacée ailleurs?"
+
+	para "Lui est-il arrivé"
+	line "quelque chose?"
+else
 	text "My wife isn't in"
 	line "this room anymore."
 	
@@ -318,25 +424,48 @@ GoldenrodHospitalPokefanMTrainerSeenText: ; TO TRANSLATE
 
 	para "Did something bad"
 	line "happen?"
+endc
 	done
 
-GoldenrodHospitalPokefanMTrainerBeatenText: ; TO TRANSLATE
+GoldenrodHospitalPokefanMTrainerBeatenText:
+if DEF(_FR_FR)
+	text "Je vais demander à"
+	line "une infirmière au"
+	cont "sujet de ma femme."
+else
 	text "I'll ask a nurse"
 	line "about my wife."
+endc
 	done
 
-GoldenrodHospitalPokefanMTrainerAfterBattleText: ; TO TRANSLATE
+GoldenrodHospitalPokefanMTrainerAfterBattleText:
+if DEF(_FR_FR)
+	text "Les hôpitaux me"
+	line "rendent nerveux."
+else
 	text "Hospitals are"
 	line "making me nervous."
+endc
 	done
 
-GoldenrodHospitalCorridorPokefanMTrainerQuestText: ; TO TRANSLATE
+GoldenrodHospitalCorridorPokefanMTrainerQuestText:
+if DEF(_FR_FR)
+	text "Je viens de voir"
+	line "l'INFIRMIERE EN"
+	cont "CHEF, ouais."
+
+	para "Elle courait vers"
+	line "la gauche, tout"
+	cont "droit vers le"
+	cont "hall d'entrée."
+else
 	text "I just saw the"
 	line "CHIEF NURSE, yeah."
 
 	para "She was running"
 	line "left, straight"
 	cont "towards the lobby."
+endc
 	done
 
 GoldenrodHospitalCorridor_MapEvents:

@@ -359,7 +359,29 @@ GoldenrodHospital1FWashHandsFemaleText:
 GoldenrodHospital1fMaxPotion:
 	hiddenitem MAX_POTION, EVENT_GOLDENROD_1F_CORRIDOR_MAX_POTION
 
-GoldenrodHospitalNurse1Text: ; TO TRANSLATE
+GoldenrodHospitalNurse1Text:
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "Veuillez noter que"
+	line "si vous avez un"
+	cont "#MON malade,"
+	cont "nous ne pouvons"
+	cont "pas le prendre."
+
+	para "Nos places sont"
+	line "limitées, et nous"
+	cont "ne pouvons pas"
+	cont "accueillir tout"
+	cont "le monde."
+
+	para "Seules les infir-"
+	line "mières des CENTRES"
+	cont "#MON sont habili-"
+	cont "tées à décider si"
+	cont "un #MON doit"
+	cont "être envoyé ici."
+else
 	text "Welcome!"
 
 	para "Please understand"
@@ -378,9 +400,26 @@ GoldenrodHospitalNurse1Text: ; TO TRANSLATE
 	cont "to determine if a"
 	cont "#MON needs to"
 	cont "be sent here."
+endc
 	done
 
-GoldenrodHospitalNurse1Step1Text: ; TO TRANSLATE
+GoldenrodHospitalNurse1Step1Text:
+if DEF(_FR_FR)
+	text "L'INFIRMIERE EN"
+	line "CHEF?"
+
+	para "Je ne l'ai pas"
+	line "vue depuis un"
+	cont "bon moment."
+
+	para "Elle doit être"
+	line "dans son bureau."
+
+	para "C'est la porte"
+	line "derrière moi, à"
+	cont "côté de la salle"
+	cont "d'attente."
+else
 	text "CHIEF NURSE JOY?"
 	
 	para "I haven't seen"
@@ -392,9 +431,37 @@ GoldenrodHospitalNurse1Step1Text: ; TO TRANSLATE
 	para "That's the door"
 	line "behind me, next to"
 	cont "the waiting room."
+endc
 	done
 
-GoldenrodHospitalNurse1Step3Text: ; TO TRANSLATE
+GoldenrodHospitalNurse1Step3Text:
+if DEF(_FR_FR)
+	text "Si l'INFIRMIERE EN"
+	line "CHEF n'est pas"
+	cont "dans son bureau,"
+
+	para "elle fait sûrement"
+	line "sa tournée des"
+	cont "chambres."
+
+	para "C'est sur ta"
+	line "droite."
+
+	para "Elle bouge vite,"
+	line "alors je te"
+	cont "conseille de"
+	cont "parler à tout le"
+	cont "monde plusieurs"
+	cont "fois."
+
+	para "Si quelqu'un te dit"
+	line "ne pas l'avoir vu,"
+	cont "peut-être qu'il la"
+	cont "croisera après."
+
+	para "Bonne chance pour"
+	line "la trouver."
+else
 	text "If CHIEF NURSE JOY"
 	line "isn't in her office"
 
@@ -420,35 +487,88 @@ GoldenrodHospitalNurse1Step3Text: ; TO TRANSLATE
 	
 	para "Good luck"
 	line "finding her."
+endc
 	done
 
-GoldenrodHospitalChiefWaitingText: ; TO TRANSLATE
+GoldenrodHospitalChiefWaitingText:
+if DEF(_FR_FR)
+	text "Bienvenue!"
+
+	para "L'INFIRMIERE EN"
+	line "CHEF t'attend dans"
+	cont "son bureau."
+else
 	text "Welcome!"
 
 	para "The CHIEF is"
 	line "waiting for you"
 	cont "in her office."
+endc
 	done
 
-GoldenrodHospitalChanseySeriousText: ; TO TRANSLATE
+GoldenrodHospitalChanseySeriousText:
+if DEF(_FR_FR)
+	text "Ce LEVEINARD a"
+	line "l'air très sérieux."
+else
 	text "This CHANSEY"
 	line "looks serious."
+endc
 	done
 
-GoldenrodHospitalAskGelText: ; TO TRANSLATE
+GoldenrodHospitalAskGelText:
+if DEF(_FR_FR)
+	text "Veuillez vous"
+	line "laver les mains"
+	cont "avec le gel hydro-"
+	cont "alcoolique à"
+	cont "l'entrée."
+else
 	text "Please wash your"
 	line "hands using the"
 	cont "hand sanitizer"
 	cont "gel available"
 	cont "at the entrance."
+endc
 	done
 
-GoldenrodHospitalCleanHandsText: ; TO TRANSLATE
+GoldenrodHospitalCleanHandsText:
+if DEF(_FR_FR)
+	text "Merci de vous être"
+	line "lavé les mains."
+else
 	text "Thanks for washing"
 	line "your hands."
+endc
 	done
 
-GoldenrodHospital1FThankOakText: ; TO TRANSLATE
+GoldenrodHospital1FThankOakText:
+if DEF(_FR_FR)
+	text "Au tout début de"
+	line "l'épidémie, plu-"
+	cont "sieurs lanceurs"
+	cont "d'alerte ont été"
+	cont "ignorés ou moqués."
+
+	para "Même si le PROF."
+	line "CHEN n'est pas un"
+	cont "spécialiste en"
+	cont "épidémiologie, il"
+	cont "est respecté et"
+	cont "les gens suivent"
+	cont "ses recomman-"
+	cont "dations."
+
+	para "Sans son inter-"
+	line "vention, la situa-"
+	cont "tion aurait pu"
+	cont "être bien pire."
+
+	para "Nous lui sommes"
+	line "reconnaissants, à"
+	cont "lui et à son"
+	cont "équipe."
+else
 	text "At the very begin-"
 	line "ning of the epi-"
 	cont "demic several"
@@ -473,9 +593,22 @@ GoldenrodHospital1FThankOakText: ; TO TRANSLATE
 	para "We are thankful"
 	line "for him and his"
 	cont "team."
+endc
 	done
 
-GoldenrodHospital1FTwin1Text: ; TO TRANSLATE
+GoldenrodHospital1FTwin1Text:
+if DEF(_FR_FR)
+	text "A la télé, ils"
+	line "disent que seuls"
+	cont "les vieux peuvent"
+	cont "tomber malade"
+	cont "du virus."
+
+	para "Mais mon frère"
+	line "l'a eu, et je"
+	cont "crois que c'est"
+	cont "mon tour."
+else
 	text "On TV they say"
 	line "only old people"
 	cont "can get sick from"
@@ -484,14 +617,29 @@ GoldenrodHospital1FTwin1Text: ; TO TRANSLATE
 	para "But my brother got"
 	line "it, and I think"
 	cont "it's my turn now."
+endc
 	done
 
-GoldenrodHospital1FCoughText: ; TO TRANSLATE
+GoldenrodHospital1FCoughText:
+if DEF(_FR_FR)
+	text "(tousse) (tousse)"
+	line "..."
+else
 	text "(cough) (cough)"
 	line "…"
+endc
 	done
 
-GoldenrodHospitalKarenText: ; TO TRANSLATE
+GoldenrodHospitalKarenText:
+if DEF(_FR_FR)
+	text "Je rends visite à"
+	line "ma grand-mère."
+
+	para "Elle..."
+	
+	para "Elle a attrapé"
+	line "le virus."
+else
 	text "I'm visiting my"
 	line "grandmother."
 
@@ -499,9 +647,23 @@ GoldenrodHospitalKarenText: ; TO TRANSLATE
 
 	para "She caught"
 	line "the virus."
+endc
 	done
 
-GoldenrodHospitalPokefan1Text: ; TO TRANSLATE
+GoldenrodHospitalPokefan1Text:
+if DEF(_FR_FR)
+	text "Mon cher #MON a"
+	line "été amené ici en"
+	cont "urgence..."
+
+	para "Personne ne m'a"
+	line "dit s'il allait"
+	cont "bien."
+
+	para "Je suis venue"
+	line "prendre de ses"
+	cont "nouvelles."
+else
 	text "My dear #MON"
 	line "was brought here"
 	cont "urgently…"
@@ -511,9 +673,27 @@ GoldenrodHospitalPokefan1Text: ; TO TRANSLATE
 
 	para "I came to check"
 	line "on her."
+endc
 	done
 
-GoldenrodHospitalPharmacist1Text: ; TO TRANSLATE
+GoldenrodHospitalPharmacist1Text:
+if DEF(_FR_FR)
+	text "Je ne suis pas sûr"
+	line "de m'en sortir."
+
+	para "(TOUSSE TOUSSE)"
+
+	para "Ecoute bien,"
+	line "bout de chou."
+
+	para "Vis chaque jour"
+	line "comme si c'était"
+	cont "le dernier."
+
+	para "On ne sait jamais"
+	line "ce que demain"
+	cont "réserve."
+else
 	text "I'm not sure"
 	line "I'm gonna make it."
 
@@ -528,15 +708,38 @@ GoldenrodHospitalPharmacist1Text: ; TO TRANSLATE
 	para "You never know"
 	line "what comes"
 	cont "tomorrow."
+endc
 	done
 
-GoldenrodHospitalGranny1Text: ; TO TRANSLATE
+GoldenrodHospitalGranny1Text:
+if DEF(_FR_FR)
+	text "J'attends ici"
+	line "depuis dix heures"
+	
+	para "et c'est pas"
+	line "fini..."
+else
 	text "I've been waiting"
 	line "here 10 hours"
 	cont "and counting…"
+endc
 	done
 
-GoldenrodHospitalNursePatientText: ; TO TRANSLATE
+GoldenrodHospitalNursePatientText:
+if DEF(_FR_FR)
+	text "(tousse)"
+
+	para "Même les infir-"
+	line "mières peuvent"
+	cont "tomber malades."
+
+	para "Malgré toutes les"
+	line "précautions, nous"
+	cont "sommes les plus"
+	cont "exposées et beau-"
+	cont "coup de collègues"
+	cont "tombent malades."
+else
 	text "(cough)"
 	
 	para "Even nurses"
@@ -549,9 +752,20 @@ GoldenrodHospitalNursePatientText: ; TO TRANSLATE
 	cont "exposed and a lot"
 	cont "of my colleagues"
 	cont "are getting sick."
+endc
 	done
 
-GoldenrodHospitalRocketText: ; TO TRANSLATE
+GoldenrodHospitalRocketText:
+if DEF(_FR_FR)
+	text "Ouais, je suis"
+	line "assis sur une"
+	cont "place interdite."
+
+	para "ET ALORS?"
+
+	para "Je suis un rebelle"
+	line "hé hé!"
+else
 	text "Yeah, I'm sitting"
 	line "in a forbidden"
 	cont "seat."
@@ -560,25 +774,76 @@ GoldenrodHospitalRocketText: ; TO TRANSLATE
 
 	para "I'm a rebel,"
 	line "hehe!"
+endc
 	done
 
-GoldenrodHospitalRocketCounterText: ; TO TRANSLATE
+GoldenrodHospitalRocketCounterText:
+if DEF(_FR_FR)
+	text "Occupe-toi de tes"
+	line "affaires, je suis"
+	cont "occupé."
+else
 	text "Mind your own"
 	line "business, I'm busy."
+endc
 	done
 
-GoldenrodHospitalRocket3Text: ; TO TRANSLATE
+GoldenrodHospitalRocket3Text:
+if DEF(_FR_FR)
+	text "On s'est enfin"
+	line "emparés de la"
+	cont "TOUR RADIO!"
+else
 	text "Finally we own"
 	line "the RADIO TOWER!"
+endc
 	done
 
-GoldenrodHospitalTakeoverNurse1Text: ; TO TRANSLATE
+GoldenrodHospitalTakeoverNurse1Text:
+if DEF(_FR_FR)
+	text "Je... je suis"
+	line "désolée, je ne"
+	cont "peux pas vous"
+	cont "assister à cet"
+	cont "instant..."
+else
 	text "I… I'm sorry"
 	line "I can't help you"
 	cont "at the moment…"
+endc
 	done
 
-GoldenrodHospitalDepressedScientistText: ; TO TRANSLATE
+GoldenrodHospitalDepressedScientistText:
+if DEF(_FR_FR)
+	text "Nos lits de soins"
+	line "sont utilisés à"
+	cont "100<PERCENT> de leur"
+	cont "capacité, ce qui"
+	cont "reste raisonnable."
+
+	para "Dans quel sens?"
+
+	para "Certains établis-"
+	line "sements tournent à"
+	cont "140<PERCENT> de leur"
+	cont "capacité."
+
+	para "Ils ont ajouté des"
+	line "lits additionnels"
+	cont "dans les chambres"
+	cont "et parfois même"
+	cont "dans les couloirs!"
+
+	para "Le personnel fait"
+	line "des heures sup et"
+	cont "sans pauses."
+
+	para "Si les patients"
+	line "continuent d'affl-"
+	cont "uer, notre orga-"
+	cont "nisation va finir"
+	cont "par s'effondrer."
+else
 	text "Our acute beds use"
 	line "is at 100<PERCENT> of its"
 	cont "capacity, which is"
@@ -604,40 +869,83 @@ GoldenrodHospitalDepressedScientistText: ; TO TRANSLATE
 	line "flowing in, our"
 	cont "organization will"
 	cont "end up collapsing."
+endc
 	done
 
-GoldenrodHospital1FChiefNursePanelText: ; TO TRANSLATE
+GoldenrodHospital1FChiefNursePanelText:
+if DEF(_FR_FR)
+	text "INFIRMIERE EN CHEF"
+else
 	text " CHIEF NURSE JOY"
+endc
 	done
 
-GoldenrodHospitalScannerFemaleText: ; TO TRANSLATE
+if DEF(_EN_US)
+GoldenrodHospitalScannerFemaleText:
 	text "<PLAYER> scans"
 	line "her TRAINER CARD."
 	done
+endc
 
-GoldenrodHospitalScannerMaleText: ; TO TRANSLATE
+GoldenrodHospitalScannerMaleText:
+if DEF(_FR_FR)
+GoldenrodHospitalScannerFemaleText:
+	text "<PLAYER> scanne"
+	line "sa CARTE DRESSEUR."
+else
 	text "<PLAYER> scans"
 	line "his TRAINER CARD."
+endc
 	done
 
-GoldenrodHospitalScanFailText: ; TO TRANSLATE
+GoldenrodHospitalScanFailText:
+if DEF(_FR_FR)
+	text "ACCES REFUSé"
+else
 	text "RESTRICTED"
+endc
 	done
 
-GoldenrodHospitalScanDescriptionText: ; TO TRANSLATE
+GoldenrodHospitalScanDescriptionText:
+if DEF(_FR_FR)
+	text "C'est un lecteur"
+	line "de CARTE DRESSEUR."
+
+	para "Malheureusement tu"
+	line "n'as pas la tienne."
+else
 	text "It's a TRAINER"
 	line "CARD reader."
 
 	para "Unfortunately you"
 	line "don't have yours."
+endc
 	done
 
-GoldenrodHospitalLockText: ; TO TRANSLATE
+GoldenrodHospitalLockText:
+if DEF(_FR_FR)
+	text "Cette porte est"
+	line "verrouillée"
+	cont "électroniquement."
+else
 	text "This door is elec-"
 	line "tronically locked."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_Intro: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_Intro:
+if DEF(_FR_FR)
+	text "Bonjour dresseur!"
+
+	para "Laissez-moi véri-"
+	line "fier si vous avez"
+	cont "des #MON hospi-"
+	cont "talisés ici."
+
+	para "Prêtez-moi votre"
+	line "CARTE DRESSEUR"
+	cont "s'il vous plaît."
+else
 	text "Hello trainer!"
 
 	para "Let me check if"
@@ -647,43 +955,90 @@ GoldenrodHospitalNurse2Text_Intro: ; TO TRANSLATE
 	para "Show me your"
 	line "TRAINER CARD"
 	cont "please."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_NoTrainerCard: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_NoTrainerCard:
+if DEF(_FR_FR)
+	text "Vous ne l'avez pas?"
+
+	para "J'en ai besoin"
+	line "pour vous aider."
+else
 	text "You don't have it?"
 
 	para "I can't help you"
 	line "without it."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_NoMon: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_NoMon:
+if DEF(_FR_FR)
+	text "Vous avez du bol."
+	line "Aucun de vos"
+	cont "#MON ne se"
+	cont "trouve dans cet"
+	cont "hôpital."
+else
 	text "Lucky you, you"
 	line "have no #MON in"
 	cont "this hospital."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_MonQuantity: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_MonQuantity:
+if DEF(_FR_FR)
+	text "Nous nous occupons"
+	line "actuellement de"
+	cont "@"
+
+	text_ram wStringBuffer3
+	text " d'entre eux."
+else
 	text "We are currently"
 	line "taking care of @"
 
 	text_ram wStringBuffer3
 	text_start
 	cont "of them."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_Room5Solo: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_Room5Solo:
+if DEF(_FR_FR)
+	text "Vous le trouverez"
+	line "dans la chambre 5."
+else
 	text "You'll find it in"
 	line "room 5."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_Reside: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_Reside:
+if DEF(_FR_FR)
+	text "Ils se trouvent"
+	line "dans les chambres"
+	cont "5 à @"
+	text_ram wStringBuffer3
+	text "."
+else
 	text "They reside in"
 	line "rooms 5 to @"
 	text_ram wStringBuffer3
 	text "."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_GoodNews: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_GoodNews:
+if DEF(_FR_FR)
+	text "Voici la bonne"
+	line "nouvelle!"
+
+	para "Certains de vos"
+	line "#MON sont com-"
+	cont "plètement rétablis"
+	cont "et peuvent partir."
+else
 	text "Here is the"
 	line "good news!"
 
@@ -691,50 +1046,98 @@ GoldenrodHospitalNurse2Text_GoodNews: ; TO TRANSLATE
 	line "#MON have fully"
 	cont "recovered and are"
 	cont "ready to leave."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_PartyFull: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_PartyFull:
+if DEF(_FR_FR)
+	text "Faites de la place"
+	line "dans votre équipe"
+	cont "et revenez les"
+	cont "récupérer."
+else
 	text "Please make some"
 	line "room in your party"
 	cont "and come get them."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_AreYouReady: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_AreYouReady:
+if DEF(_FR_FR)
+	text "Pouvez-vous les"
+	line "récupérer"
+	cont "maintenant?"
+else
 	text "Can you take them"
 	line "away now?"
+endc
 	done
 
-GoldenrodHospitalNurse2Text_SignPapers: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_SignPapers:
+if DEF(_FR_FR)
+	text "Signez ces papiers"
+	line "et c'est tout bon!"
+else
 	text "Sign those papers"
 	line "and they're"
 	cont "good to go!"
+endc
 	done
 
-GoldenrodHospitalNurse2Text_MonReadyToLeave: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_MonReadyToLeave:
+if DEF(_FR_FR)
+	text "<PLAYER> récupère"
+	line "@"
+	text_ram wStringBuffer1
+	text "!"
+else
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer1
 	text " back!"
+endc
 	done
 
-GoldenrodHospitalNurse2Text_PartyFull2: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_PartyFull2:
+if DEF(_FR_FR)
+	text "Faites de la place"
+	line "dans votre équipe"
+	cont "pour récupérer"
+	cont "les autres."
+else
 	text "Make room in your"
 	line "party to get"
 	cont "the others."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_ComeBackSoon: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_ComeBackSoon:
+if DEF(_FR_FR)
+	text "Revenez dès que"
+	line "possible."
+
+	para "Nous devons libé-"
+	line "rer les chambres"
+	cont "pour d'autres"
+	cont "patients."
+else
 	text "Come back as soon"
 	line "as possible."
 	
 	para "We need to free"
 	line "rooms for other"
 	cont "patients."
+endc
 	done
 
-GoldenrodHospitalNurse2Text_TakeCare: ; TO TRANSLATE
+GoldenrodHospitalNurse2Text_TakeCare:
+if DEF(_FR_FR)
+	text "Prenez soin d'eux"
+	line "et de vous-même."
+else
 	text "Take good care of"
 	line "them and yourself."
+endc
 	done
 
 Hospital_NurseWalksToPC:
