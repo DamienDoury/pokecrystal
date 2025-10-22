@@ -199,9 +199,9 @@ if DEF(_FR_FR)
 	text "DJ: QUOOOI?"
 
 	para "OH OUAIS, JE SUIS"
-	line "BRANCHÉ SUR"
+	line "BRANCHé SUR"
 
-	para "LE SYSTÈME"
+	para "LE SYSTEME"
 	line "AUDIO DU CENTRE"
 
 	para "#MON, CA A"

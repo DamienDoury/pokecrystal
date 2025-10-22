@@ -321,7 +321,7 @@ if DEF(_FR_FR)
 	line "d'être arrêté si"
 	cont "tu utilises VOL."
 
-	para "À tes risques"
+	para "A tes risques"
 	line "et périls."
 	done
 else

@@ -95,7 +95,7 @@ if DEF(_FR_FR)
 	para "leur prix a"
 	line "augmenté!"
 
-	para "Ça me rend folle"
+	para "Ca me rend folle"
 	line "de ne pas en"
 	cont "trouver au prix"
 	cont "habituel!"
