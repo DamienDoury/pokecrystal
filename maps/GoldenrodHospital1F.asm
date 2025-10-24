@@ -377,9 +377,9 @@ if DEF(_FR_FR)
 
 	para "Seules les infir-"
 	line "mières des CENTRES"
-	cont "#MON sont habili-"
-	cont "tées à décider si"
-	cont "un #MON doit"
+	cont "#MON sont habi-"
+	cont "litées à décider"
+	cont "si un #MON doit"
 	cont "être envoyé ici."
 else
 	text "Welcome!"
@@ -815,11 +815,12 @@ endc
 
 GoldenrodHospitalDepressedScientistText:
 if DEF(_FR_FR)
-	text "Nos lits de soins"
-	line "sont utilisés à"
-	cont "100<PERCENT> de leur"
-	cont "capacité, ce qui"
-	cont "reste raisonnable."
+	text "Nos lits de"
+	line "réanimation sont"
+	cont "utilisés à 100<PERCENT>"
+	cont "de leur capacité,"
+	cont "ce qui reste"
+	cont "raisonnable."
 
 	para "Dans quel sens?"
 
