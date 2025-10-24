@@ -59,7 +59,7 @@ ManiaScript:
 	ifequal SHUCKIE_WRONG_MON, .wrong
 	ifequal SHUCKIE_REFUSED, .refused
 	ifequal SHUCKIE_HAPPY, .superhappy
-	ifequal SHUCKIE_FAINTED, .default_postevent
+	ifequal SHUCKIE_FAINTED, .nothingleft
 	; SHUCKIE_RETURNED
 	writetext ManiaText_ThankYou
 	appear MANIASHOUSE_SHUCKIE_AFTER
@@ -89,7 +89,7 @@ ManiaScript:
 	closetext
 	end
 
-.nothingleft ; unreferenced
+.nothingleft
 	writetext ManiaText_ShuckleIsYourLastMon
 	waitbutton
 	closetext
