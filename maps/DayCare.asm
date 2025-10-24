@@ -272,10 +272,6 @@ endc
 
 	done
 
-DayCareText_ComeAgain: ; unreferenced
-	text "Come again."
-	done
-
 DayCareText_GotOddEgg: 
 if DEF(_FR_FR)
 	text "<PLAYER> reçoit"

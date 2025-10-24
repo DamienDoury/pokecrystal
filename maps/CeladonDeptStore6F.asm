@@ -105,9 +105,6 @@ endc
 CeladonDeptStore6FDirectory:
 	jumptext CeladonDeptStore6FDirectoryText
 
-CeladonDeptStore6FElevatorButton: ; unreferenced
-	jumpstd ElevatorButtonScript
-
 CeladonVendingText: 
 if DEF(_FR_FR)
 	text "Un distributeur!"

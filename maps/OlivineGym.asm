@@ -284,11 +284,6 @@ Jasmine_BadgeSpeech: ; TO TRANSLATE
 	line "this too…"
 	done
 
-Text_ReceivedTM09: ; unreferenced
-	text "<PLAYER> received"
-	line "TM09."
-	done
-
 Jasmine_IronTailSpeech: 
 if DEF(_FR_FR)
 	text "Tu peux utiliser"

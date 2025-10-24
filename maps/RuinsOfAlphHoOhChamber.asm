@@ -120,10 +120,6 @@ endc
 
 	done
 
-RuinsOfAlphHoOhChamberUnownText: ; unreferenced
-	text "It's UNOWN text!"
-	done
-
 RuinsOfAlphHoOhChamberWallPatternRightText: 
 if DEF(_FR_FR)
 	text "Des figures sont"

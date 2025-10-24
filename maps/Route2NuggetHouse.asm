@@ -23,9 +23,6 @@ Route2NuggetHouseFisherScript:
 	closetext
 	end
 
-Route2NuggetHouseBookshelf: ; unreferenced
-	jumpstd DifficultBookshelfScript
-
 Route2NuggetHouseFisherText: 
 if DEF(_FR_FR)
 	text "Hé! J'suis content"

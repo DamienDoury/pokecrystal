@@ -61,9 +61,6 @@ UnionCave1FPotion:
 UnionCave1FAwakening:
 	itemball AWAKENING
 
-UnionCave1FUnusedSign: ; unreferenced
-	jumptext UnionCave1FUnusedSignText
-
 HikerRussellSeenText: 
 if DEF(_FR_FR)
 	text "Tu vas à ECORCIA,"
@@ -271,15 +268,6 @@ else
 	text "It's my #MON's"
 	line "fire that lights"
 	cont "up this cave."
-endc
-
-	done
-
-UnionCave1FUnusedSignText: 
-if DEF(_FR_FR)
-	text "CAVES JUMELLES"
-else
-	text "UNION CAVE"
 endc
 
 	done

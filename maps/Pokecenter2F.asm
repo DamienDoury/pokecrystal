@@ -649,11 +649,6 @@ endc
 
 	done
 
-Text_ThisWayToMobileRoom: ; unreferenced
-	text "This way to the"
-	line "MOBILE ROOM."
-	done
-
 Text_BattleReceptionistIntro: 
 if DEF(_FR_FR)
 	text "Bienvenue au"
@@ -798,16 +793,6 @@ else
 endc
 
 	prompt
-
-Text_PleaseComeInDuplicate: ; unreferenced
-	text "Please come in."
-	prompt
-
-Text_TemporaryStagingInLinkRoom: ; unreferenced
-	text "We'll put you in"
-	line "the link room for"
-	cont "the time being."
-	done
 
 Text_CantLinkToThePast: 
 if DEF(_FR_FR)

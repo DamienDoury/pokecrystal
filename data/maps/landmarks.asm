@@ -137,7 +137,7 @@ WhirlIslandsName:    db "TOURB'¯ILES@"
 MtMortarName:        db "MONT¯CREUSET@"
 DragonsDenName:      db "ANTRE DU¯DRAGON@"
 IcePathName:         db "ROUTE¯DE GLACE@"
-NotApplicableName:   db "...@" ; unreferenced ; "オバケやしき" ("HAUNTED HOUSE") in Japanese
+;NotApplicableName:   db "...@" ; unreferenced ; "オバケやしき" ("HAUNTED HOUSE") in Japanese
 PalletTownName:      db "BOURG¯PALETTE@"
 ViridianCityName:    db "JADIELLE@"
 PewterCityName:      db "ARGENTA@"
@@ -153,10 +153,10 @@ VictoryRoadName:     db "ROUTE¯VICTOIRE@"
 MtMoonName:          db "MONT¯SELENITE@"
 RockTunnelName:      db "GROTTE@"
 LavRadioTowerName:   db "TOUR RADIO¯LAVAN.@"
-SilphCoName:         db "SYLPHE SARL@" ; unreferenced
+;SilphCoName:         db "SYLPHE SARL@" ; unreferenced
 SafariZoneName:      db "PARC SAFARI@"
 SeafoamIslandsName:  db "ILES¯ECUME@"
-PokemonMansionName:  db "MANOIR¯#MON@" ; unreferenced
+;PokemonMansionName:  db "MANOIR¯#MON@" ; unreferenced
 CeruleanCaveName:    db "CAVERNE¯AZUREE@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"
@@ -241,7 +241,7 @@ WhirlIslandsName:    db "WHIRL¯ISLANDS@"
 MtMortarName:        db "MT.MORTAR@"
 DragonsDenName:      db "DRAGON'S¯DEN@"
 IcePathName:         db "ICE PATH@"
-NotApplicableName:   db "N/A@" ; unreferenced ; "オバケやしき" ("HAUNTED HOUSE") in Japanese
+;NotApplicableName:   db "N/A@" ; unreferenced ; "オバケやしき" ("HAUNTED HOUSE") in Japanese
 PalletTownName:      db "PALLET TOWN@"
 ViridianCityName:    db "VIRIDIAN¯CITY@"
 PewterCityName:      db "PEWTER CITY@"
@@ -257,10 +257,10 @@ VictoryRoadName:     db "VICTORY¯ROAD@"
 MtMoonName:          db "MT.MOON@"
 RockTunnelName:      db "ROCK TUNNEL@"
 LavRadioTowerName:   db "LAV¯RADIO TOWER@"
-SilphCoName:         db "SILPH CO.@" ; unreferenced
+;SilphCoName:         db "SILPH CO.@" ; unreferenced
 SafariZoneName:      db "SAFARI ZONE@"
 SeafoamIslandsName:  db "SEAFOAM¯ISLANDS@"
-PokemonMansionName:  db "#MON¯MANSION@" ; unreferenced
+;PokemonMansionName:  db "#MON¯MANSION@" ; unreferenced
 CeruleanCaveName:    db "CERULEAN¯CAVE@"
 Route1Name:          db "ROUTE 1@"
 Route2Name:          db "ROUTE 2@"

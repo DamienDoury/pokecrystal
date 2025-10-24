@@ -1,7 +1,6 @@
 SECTION "Map Scripts 1", ROMX
 
 INCLUDE "maps/GoldenrodGym.asm"
-INCLUDE "maps/BillsFamilysHouse.asm"
 INCLUDE "maps/GoldenrodMagnetTrainStation.asm"
 INCLUDE "maps/GoldenrodFlowerShop.asm"
 INCLUDE "maps/GoldenrodPPSpeechHouse.asm"
@@ -93,9 +92,9 @@ INCLUDE "maps/VioletKylesHouse.asm"
 INCLUDE "maps/Route32RuinsOfAlphGate.asm"
 INCLUDE "maps/Route32Pokecenter1F.asm"
 INCLUDE "maps/Route35GoldenrodGate.asm"
-INCLUDE "maps/Route35NationalParkGate.asm"
+INCLUDE "maps/Route35NationalParkGate.asm" ; Must stay with Route36NationalParkGate.
 INCLUDE "maps/Route36RuinsOfAlphGate.asm"
-INCLUDE "maps/Route36NationalParkGate.asm"
+INCLUDE "maps/Route36NationalParkGate.asm" ; Must stay with Route35NationalParkGate.
 INCLUDE "maps/LavRadioTower1F.asm"
 INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/Route1.asm"
@@ -377,7 +376,6 @@ INCLUDE "maps/MahoganyPokecenter1F.asm"
 INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
-INCLUDE "maps/Route31VioletGate.asm"
 
 
 SECTION "Map Scripts 20", ROMX
@@ -442,9 +440,7 @@ INCLUDE "maps/Route9.asm"
 SECTION "Map Scripts 24", ROMX
 
 INCLUDE "maps/CinnabarIsland.asm"
-INCLUDE "maps/Route17.asm"
 INCLUDE "maps/Route3.asm"
-INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/GoldenrodHospital1F.asm"
 INCLUDE "maps/GoldenrodHospitalOffice.asm"
 INCLUDE "maps/Route6.asm"
@@ -524,9 +520,17 @@ INCLUDE "maps/OlivineMart.asm"
 INCLUDE "maps/WardensNeighborHouse.asm"
 INCLUDE "maps/Route19FuchsiaGate.asm"
 INCLUDE "maps/GoldenrodBikeShop.asm"
-INCLUDE "maps/AzaleaMart.asm"
+INCLUDE "maps/MrPsychicsHouse.asm"
+INCLUDE "maps/SilverCavePokecenter1F.asm"
+INCLUDE "maps/Route31VioletGate.asm"
+
+
+SECTION "Map Scripts 30", ROMX
+
+INCLUDE "maps/Route17.asm"
+INCLUDE "maps/Route5.asm"
 INCLUDE "maps/RockTunnel1F.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
-INCLUDE "maps/MrPsychicsHouse.asm"
+INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/LavenderMart.asm"
-INCLUDE "maps/Route5.asm"
+INCLUDE "maps/BillsFamilysHouse.asm"

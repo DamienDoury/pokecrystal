@@ -257,24 +257,6 @@ endc
 
 	done
 
-RuinsOfAlphKabutoChamberUnusedText: ; unreferenced
-	text "The patterns on"
-	line "the wall appear to"
-	cont "be words!"
-
-	para "And those sliding"
-	line "stone panels seem"
-
-	para "to be signals of"
-	line "some kind."
-
-	para "I think they make"
-	line "#MON appear,"
-
-	para "but it's not clear"
-	line "yet…"
-	done
-
 RuinsOfAlphKabutoChamberWallPatternLeftText: 
 if DEF(_FR_FR)
 	text "Des figures sont"
@@ -285,10 +267,6 @@ else
 	line "on the walls…"
 endc
 
-	done
-
-RuinsOfAlphKabutoChamberUnownText: ; unreferenced
-	text "It's UNOWN text!"
 	done
 
 RuinsOfAlphKabutoChamberWallPatternRightText: 

@@ -119,10 +119,6 @@ endc
 
 	done
 
-RuinsOfAlphAerodactylChamberUnownText: ; unreferenced
-	text "It's UNOWN text!"
-	done
-
 RuinsOfAlphAerodactylChamberWallPatternRightText: 
 if DEF(_FR_FR)
 	text "Des figures sont"

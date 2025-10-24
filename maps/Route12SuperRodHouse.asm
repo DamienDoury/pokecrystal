@@ -31,9 +31,6 @@ Route12SuperRodHouseFishingGuruScript:
 	closetext
 	end
 
-SuperRodHouseBookshelf: ; unreferenced
-	jumpstd PictureBookshelfScript
-
 OfferSuperRodText: 
 if DEF(_FR_FR)
 	text "Je suis le petit"
