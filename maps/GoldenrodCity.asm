@@ -1244,7 +1244,7 @@ endc
 GoldenrodCityMarketRush2Text:
 if DEF(_FR_FR)
 	text "Maman, j'ai peur,"
-	line "je veux rentrer."
+	line "j'veux rentrer."
 else
 	text "Mom I'm scared,"
 	line "I wanna go home."

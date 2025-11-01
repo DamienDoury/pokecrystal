@@ -475,10 +475,6 @@ INCLUDE "maps/Route28SteelWingHouse.asm"
 
 SECTION "Map Scripts 27", ROMX
 
-INCLUDE "maps/SeafoamW1F.asm"
-INCLUDE "maps/SeafoamE1F.asm"
-INCLUDE "maps/SeafoamB1F.asm"
-
 INCLUDE "maps/SeafoamB2F.asm"
 INCLUDE "maps/SeafoamB3F.asm"
 INCLUDE "maps/SeafoamB4F.asm"
@@ -534,3 +530,6 @@ INCLUDE "maps/RockTunnelB1F.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/LavenderMart.asm"
 INCLUDE "maps/BillsFamilysHouse.asm"
+INCLUDE "maps/SeafoamW1F.asm"
+INCLUDE "maps/SeafoamE1F.asm"
+INCLUDE "maps/SeafoamB1F.asm"
