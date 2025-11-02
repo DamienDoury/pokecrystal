@@ -471,6 +471,9 @@ INCLUDE "maps/PewterSnoozeSpeechHouse.asm"
 INCLUDE "maps/PewterMart.asm"
 INCLUDE "maps/LavenderTown.asm"
 INCLUDE "maps/Route28SteelWingHouse.asm"
+INCLUDE "maps/SeafoamW1F.asm"
+INCLUDE "maps/SeafoamE1F.asm"
+INCLUDE "maps/SeafoamB1F.asm"
 
 
 SECTION "Map Scripts 27", ROMX
@@ -530,6 +533,3 @@ INCLUDE "maps/RockTunnelB1F.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/LavenderMart.asm"
 INCLUDE "maps/BillsFamilysHouse.asm"
-INCLUDE "maps/SeafoamW1F.asm"
-INCLUDE "maps/SeafoamE1F.asm"
-INCLUDE "maps/SeafoamB1F.asm"
