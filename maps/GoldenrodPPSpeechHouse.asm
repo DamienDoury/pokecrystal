@@ -109,14 +109,37 @@ endc
 
 	done
 
-GoldenrodPPSpeechHouseLassLockdownText: ; TO TRANSLATE
+GoldenrodPPSpeechHouseLassLockdownText:
+if DEF(_FR_FR)
+	text "Les appels vidéo,"
+	line "c'est étrange."
+	
+	para "Il va me falloir"
+	line "du temps pour"
+	cont "m'y habituer."
+else
 	text "Video calls are"
 	line "weird. I'll need"
 	cont "time to get used"
 	cont "to it."
-	done 
+endc
+	done
 
-GoldenrodPPSpeechHouseComputerText: ; TO TRANSLATE
+GoldenrodPPSpeechHouseComputerText:
+if DEF(_FR_FR)
+	text "Un appel vidéo"
+	line "avec une personne"
+	cont "habillée d'une"
+	cont "chemise et d'une"
+	cont "cravate."
+	
+	para "Un miroir sur le"
+	line "mur du fond révèle"
+	
+	para "que cette personne"
+	line "ne porte rien"
+	cont "d'autre."
+else
 	text "A video call with"
 	line "a person wearing a"
 	cont "shirt and a tie."
@@ -126,6 +149,7 @@ GoldenrodPPSpeechHouseComputerText: ; TO TRANSLATE
 	
 	para "it is all this"
 	line "person is wearing."
+endc
 	done
 
 GoldenrodPPSpeechHouse_MapEvents:

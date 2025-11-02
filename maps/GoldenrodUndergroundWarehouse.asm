@@ -83,19 +83,41 @@ GoldenrodUndergroundWarehouseTMSleepTalk:
 GoldenrodUndergroundWarehouseUltraBall:
 	itemball ULTRA_BALL
 
-GruntM24SeenText: ; TO TRANSLATE
+GruntM24SeenText:
+if DEF(_FR_FR)
+	text "Un intrus?"
+	
+	para "Pourquoi tu"
+	line "t'opposes à"
+	cont "notre cause?"
+else
 	text "An intruder?"
 
 	para "Why would you"
 	line "oppose our cause?"
+endc
 	done
 
-GruntM24BeatenText: ; TO TRANSLATE
+GruntM24BeatenText:
+if DEF(_FR_FR)
+	text "Je ne te"
+	line "comprends pas."
+else
 	text "I can't understand"
 	line "you."
+endc
 	done
 
-GruntM24AfterBattleText: ; TO TRANSLATE
+GruntM24AfterBattleText:
+if DEF(_FR_FR)
+	text "S'opposer à la"
+	line "TEAM ROCKET, c'est"
+	cont "être l'ennemi de"
+	cont "la liberté."
+
+	para "On fera tout ce"
+	line "qu'il faudra."
+else
 	text "Opposing TEAM"
 	line "ROCKET's cause is"
 	cont "being the enemy"
@@ -103,25 +125,45 @@ GruntM24AfterBattleText: ; TO TRANSLATE
 
 	para "We'll do whatever"
 	line "it takes."
+endc
 	done
 
-GruntM14SeenText: ; TO TRANSLATE
+GruntM14SeenText:
+if DEF(_FR_FR)
+	text "On est là pour"
+	line "libérer le peuple!"
+	
+	para "Et on a enlevé le"
+	line "DIRECTEUR."
+else
 	text "We're here to free"
 	line "the people!"
 
 	para "And we abducted"
 	line "the DIRECTOR."
+endc
 	done
 
-GruntM14BeatenText: ; TO TRANSLATE
+GruntM14BeatenText:
+if DEF(_FR_FR)
+	text "Attends, je suis"
+	line "confus..."
+else
 	text "Wait, I'm"
 	line "confused…"
+endc
 	done
 
-GruntM14AfterBattleText: ; TO TRANSLATE
+GruntM14AfterBattleText:
+if DEF(_FR_FR)
+	text "Attends, on est là"
+	line "pour capturer ou"
+	cont "libérer les gens?"
+else
 	text "Wait, are we"
 	line "capturing people"
 	cont "or freeing them?"
+endc
 	done
 
 GruntM15SeenText: 
@@ -218,7 +260,24 @@ endc
 
 	done
 
-DirectorAfterText: ; TO TRANSLATE
+DirectorAfterText:
+if DEF(_FR_FR)
+	text "Je t'en supplie..."
+	line "Aide-nous."
+
+	para "Qui sait ce qu'ils"
+	line "feront en control-"
+	cont "lant l'émetteur."
+
+	para "Tu es mon seul"
+	line "espoir."
+
+	para "Sauve la TOUR"
+	line "RADIO..."
+
+	para "Et tous les gens"
+	line "du pays!"
+else
 	text "I'm begging you to"
 	line "help."
 
@@ -236,6 +295,7 @@ DirectorAfterText: ; TO TRANSLATE
 
 	para "And all the people"
 	line "nationwide!"
+endc
 	done
 
 GoldenrodUndergroundWarehouse_MapEvents:

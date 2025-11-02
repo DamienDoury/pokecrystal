@@ -598,8 +598,12 @@ PathMovementEnd:
 	turn_head LEFT
 	step_end
 
-SupernerdEricSeenText: ; TO TRANSLATE
+SupernerdEricSeenText:
+if DEF(_FR_FR)
+	text "J'adore parier."
+else
 	text "I like to gamble."
+endc
 	done
 
 SupernerdEricBeatenText: 
@@ -611,7 +615,14 @@ endc
 
 	done
 
-SupernerdEricAfterBattleText: ; TO TRANSLATE
+SupernerdEricAfterBattleText:
+if DEF(_FR_FR)
+	text "J'aimerais trop"
+	line "aller au CASINO."
+	
+	para "C'est trop naze"
+	line "qu'il soit fermé."
+else
 	text "I wish I could go"
 	line "to the GAME COR-"
 	cont "NER."
@@ -619,12 +630,19 @@ SupernerdEricAfterBattleText: ; TO TRANSLATE
 	para "It's such a"
 	line "bummer that it's"
 	cont "closed…"
+endc
 	done
 
-SupernerdEricAfterBattleText_Reopening: ; TO TRANSLATE
+SupernerdEricAfterBattleText_Reopening:
+if DEF(_FR_FR)
+	text "Le CASINO a"
+	line "enfin rouvert!"
+	cont "À moi les gains!"
+else
 	text "The GAME CORNER"
 	line "finally reopened!"
 	cont "Time to gamble!"
+endc
 	done
 
 SupernerdTeruSeenText: 
@@ -726,12 +744,20 @@ endc
 
 	done
 
-PokemaniacDonaldSeenText: ; TO TRANSLATE
+PokemaniacDonaldSeenText:
+if DEF(_FR_FR)
+	text "Tu as des #MON"
+	line "rares avec toi,"
+	cont "je me trompe?"
+
+	para "J'veux les voir!"
+else
 	text "I think you have"
 	line "some rare #MON"
 	cont "with you."
 
 	para "Lemme see them!"
+endc
 	done
 
 PokemaniacDonaldBeatenText: 
@@ -774,9 +800,15 @@ endc
 
 	done
 
-GameCornerExitBlockText: ; TO TRANSLATE
+GameCornerExitBlockText:
+if DEF(_FR_FR)
+	text "L'homme a ver-"
+	line "rouillé la porte"
+	cont "derrière toi..."
+else
 	text "The man locked the"
 	line "door behind you…"
+endc
 	done
 
 GoldenrodUndergroundTheDoorsLockedText: 
@@ -1077,12 +1109,27 @@ endc
 
 	done
 
-GoldenrodUndergroundExitText: ; TO TRANSLATE
+GoldenrodUndergroundExitText:
+if DEF(_FR_FR)
+	text "SORTIE DE SECOURS"
+	line "NE PAS BLOQUER"
+else
 	text "EMERGENCY EXIT"
 	line "DO NOT BLOCK"
+endc
 	done
 
-DoorKeeperCheckTeamText: ; TO TRANSLATE
+DoorKeeperCheckTeamText:
+if DEF(_FR_FR)
+	text "Bonsoir!"
+
+	para "Tu sembles bien"
+	line "élever tes"
+	cont "#MON!"
+
+	para "Puis-je voir ton"
+	line "équipe?"
+else
 	text "Good evening!"
 
 	para "You seem to be a"
@@ -1090,36 +1137,75 @@ DoorKeeperCheckTeamText: ; TO TRANSLATE
 
 	para "Can I see your"
 	line "#MON team?"
+endc
 	done
 
-NevermindText: ; TO TRANSLATE
+NevermindText:
+if DEF(_FR_FR)
+	text "Peut-être une"
+	line "autre fois!"
+else
 	text "Maybe another"
 	line "time!"
+endc
 	done
 
-FakeComplimentsText: ; TO TRANSLATE
+FakeComplimentsText:
+if DEF(_FR_FR)
+	text "..."
+
+	para "Belle équipe!"
+	line "Continue de bien"
+	cont "t'entraîner!"
+else
 	text "…"
 
 	para "That's a fine"
 	line "team! Keep up the"
 	cont "good training!"
+endc
 	done
 
-CheckPassText: ; TO TRANSLATE
+CheckPassText:
+if DEF(_FR_FR)
+	text "..."
+
+	para "OK, c'est validé."
+
+	para "T'as l'argent?"
+	line "Fais voir."
+else
 	text "…"
 
 	para "OK, you're clean."
 
 	para "You got the money?"
 	line "Lemme see it."
+endc
 	done
 
-RefuseMoneyCheckText: ; TO TRANSLATE
+RefuseMoneyCheckText:
+if DEF(_FR_FR)
+	text "VA CHERCHER DU"
+	line "CASH AVANT QUE"
+	cont "J'ME CASSE!"
+else
 	text "GO GET CASH NOW,"
 	line "BEFORE I LEAVE!"
+endc
 	done
 
-NotEnoughMoneyCheckText: ; TO TRANSLATE
+NotEnoughMoneyCheckText:
+if DEF(_FR_FR)
+	text "..."
+
+	para "On avait dit"
+	line "3000¥ ou plus..."
+
+	para "..."
+
+	para "DEGAGE DE MA VUE!"
+else
 	text "…"
 
 	para "We said ¥3000"
@@ -1129,30 +1215,63 @@ NotEnoughMoneyCheckText: ; TO TRANSLATE
 
 	para "GET OUT OF MY"
 	line "SIGHT, NOW!"
+endc
 	done
 
-MoneyCheckPassText: ; TO TRANSLATE
+MoneyCheckPassText:
+if DEF(_FR_FR)
+	text "Ma part, c'est"
+	line "1000¥."
+else
 	text "My share is ¥1000."
+endc
 	done
 
-FollowText: ; TO TRANSLATE
+FollowText:
+if DEF(_FR_FR)
+	text "Très bien."
+	line "Suis-moi."
+else
 	text "All right,"
 	line "come with me."
+endc
 	done
 
-PathInstructionText: ; TO TRANSLATE
+PathInstructionText:
+if DEF(_FR_FR)
+	text "Derrière cette"
+	line "porte, tout droit."
+
+	para "Amuse-toi bien."
+else
 	text "Behind that door,"
 	line "straight forward."
 
 	para "Have fun."
+endc
 	done
 
-GoldenrodUndergroundRush1Text: ; TO TRANSLATE
+GoldenrodUndergroundRush1Text:
+if DEF(_FR_FR)
+	text "Laissez-moi juste"
+	line "trouver ma"
+	line "monnaie..."
+else
 	text "Let me find"
 	line "my change…"
+endc
 	done
 
-GoldenrodUndergroundRush2Text: ; TO TRANSLATE
+GoldenrodUndergroundRush2Text:
+if DEF(_FR_FR)
+	text "Par pitié ne"
+	line "vendez pas tout à"
+	cont "cette dame. Gardez"
+	cont "en pour moi!"
+
+	para "Je paierai le"
+	line "double!"
+else
 	text "Please don't sell"
 	line "all you have to"
 	cont "this lady. Save"
@@ -1160,19 +1279,52 @@ GoldenrodUndergroundRush2Text: ; TO TRANSLATE
 
 	para "I'll pay double"
 	line "the price!"
+endc
 	done
 
-GoldenrodUndergroundRush3Text: ; TO TRANSLATE
+GoldenrodUndergroundRush3Text:
+if DEF(_FR_FR)
+	text "Cette vioque prend"
+	line "une éternité!"
+else
 	text "This old lady is"
 	line "taking forever!"
+endc
 	done
 
-GoldenrodUndergroundRush4Text: ; TO TRANSLATE
+GoldenrodUndergroundRush4Text:
+if DEF(_FR_FR)
+	text "Vendez-moi tout ce"
+	line "que vous avez."
+	cont "Je prends tout!"
+else
 	text "Sell me everything"
 	line "you have. Now!"
+endc
 	done
 
-StoneScammerExcuseText: ; TO TRANSLATE
+StoneScammerExcuseText:
+if DEF(_FR_FR)
+	text "Ton #MON est"
+	line "tombé malade alors"
+	cont "qu'il tenait un"
+	cont "CRISTAL JADE?"
+
+	para "Ca ne peut pas..."
+	
+	para "Ton #MON a dû"
+	line "mal tenir l'objet."
+
+	line "..."
+
+	para "Pour éviter que ça"
+	line "ne se reproduise,"
+	
+	para "je peux te vendre"
+	line "un CRISTAL JADE"
+	cont "plus puissant pour"
+	cont "9999¥."
+else
 	text "Your #MON got"
 	line "sick while holding"
 	cont "a JADE CRYSTAL?"
@@ -1191,15 +1343,32 @@ StoneScammerExcuseText: ; TO TRANSLATE
 	para "I can sell you a"
 	line "stronger JADE"
 	cont "CRYSTAL for ¥9999."
+endc
 	done
 
-StoneScammerDoubleScamText: ; TO TRANSLATE
+StoneScammerDoubleScamText:
+if DEF(_FR_FR)
+	text "Tu verras. Ce"
+	line "CRISTAL JADE est"
+	cont "très puissant."
+else
 	text "You will see. This"
 	line "JADE CRYSTAL is"
 	cont "very powerful."
+endc
 	done
 
-StoneScammerAggressiveText: ; TO TRANSLATE
+StoneScammerAggressiveText:
+if DEF(_FR_FR)
+	text "Écoute, je ne te"
+	line "rembourserai pas."
+
+	para "Je ne suis pas"
+	line "responsable du"
+	
+	para "mauvais usage de"
+	line "mes produits."
+else
 	text "Look, I will not"
 	line "give you a refund."
 
@@ -1208,6 +1377,7 @@ StoneScammerAggressiveText: ; TO TRANSLATE
 	
 	para "your mishandling"
 	line "of my products."
+endc
 	done
 
 StoneScammerEmptyBoxText:

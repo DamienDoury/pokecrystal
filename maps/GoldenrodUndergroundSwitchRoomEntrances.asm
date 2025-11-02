@@ -831,7 +831,18 @@ endc
 
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText: ; TO TRANSLATE
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText:
+if DEF(_FR_FR)
+	text "J'ai vu un homme"
+	line "suspect rôder dans"
+	cont "le SOUTERRAIN."
+
+	para "Il se trame un"
+	line "truc, je le sens."
+
+	para "Tu ferais mieux"
+	line "de faire gaffe."
+else
 	text "I've seen a sus-"
 	line "picious man down"
 	cont "the underground."
@@ -841,9 +852,33 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdBeforeLockdownText: ; TO TRANSL
 
 	para "You'd better be"
 	line "careful."
+endc
 	done
 
-GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText: ; TO TRANSLATE
+
+GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText:
+if DEF(_FR_FR)
+	text "Tu as remarqué un"
+	line "type louche rôder"
+	cont "à l'Est de la"
+	cont "ville le matin?"
+	
+	para "Je l'ai vu parler"
+	line "à un autre type"
+	cont "louche du"
+	cont "SOUTERRAIN."
+
+	para "Pendant ce temps,"
+	line "la police passe"
+	cont "son temps à pour-"
+	cont "suivre les gens"
+	cont "dont le masque ne"
+	cont "couvre pas bien"
+	cont "leur nez..."
+	
+	para "Tu ferais mieux"
+	line "de faire gaffe."
+else
 	text "Have you noticed a"
 	line "shady dude lurking"
 	cont "around the East"
@@ -863,6 +898,7 @@ GoldenrodUndergroundSwitchRoomEntrances_SuperNerdShadyDudeText: ; TO TRANSLATE
 	
 	para "You'd better be"
 	line "careful."
+endc
 	done
 
 GoldenrodUndergroundSwitchRoomEntrances_SuperNerdText: 

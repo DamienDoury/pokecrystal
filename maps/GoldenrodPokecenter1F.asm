@@ -193,12 +193,21 @@ endc
 
 	done
 
-GoldenrodPokecenter1FPokefanFDaughterTomorrowText: ; TO TRANSLATE
+GoldenrodPokecenter1FPokefanFDaughterTomorrowText:
+if DEF(_FR_FR)
+	text "Retrouve-moi ici"
+	line "un autre jour,"
+	
+	para "ma fille en voudra"
+	line "peut-être davan-"
+	cont "tage."
+else
 	text "Meet me here"
 	line "another day,"
 	
 	para "my daughter may"
 	line "want some more."
+endc
 	done
 
 GoldenrodPokecenter1FPokefanFTooBadText: 

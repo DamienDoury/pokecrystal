@@ -118,11 +118,20 @@ GoldenrodMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText: ; TO TRANSLATE
+GoldenrodMagnetTrainStationOfficerTheTrainHasntComeInText:
+if DEF(_FR_FR)
+	text "Le train reste à"
+	line "l'arrêt tant que"
+	
+	para "les restrictions"
+	line "de voyage restent"
+	cont "en vigueur."
+else
 	text "The train is shut"
 	line "down while the"
 	cont "travel restriction"
 	cont "remains effective."
+endc
 	done
 
 GoldenrodMagnetTrainStationOfficerAreYouComingAboardText: 
@@ -143,28 +152,56 @@ endc
 
 	done
 
-GoldenrodMagnetTrainStationOfficerShowRailPassText: ; TO TRANSLATE
+GoldenrodMagnetTrainStationOfficerShowRailPassText:
+if DEF(_FR_FR)
+	text "Puis-je voir votre"
+	line "PASSE TRAIN, s'il"
+	cont "vous plaît?"
+
+	para "..."
+
+	para "Tout est en règle."
+else
 	text "May I see your"
 	line "RAIL PASS, please?"
 
 	para "…"
 
 	para "Looks good to me."
+endc
 	done
-	
-GoldenrodMagnetTrainStationOfficerRightThisWayText: ; TO TRANSLATE
+
+GoldenrodMagnetTrainStationOfficerRightThisWayText:
+if DEF(_FR_FR)
+	text "Merci, c'est par"
+	line "là..."
+else
 	text "Right this way,"
 	line "please."
+endc
 	done
 
-GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText: ; TO TRANSLATE
+GoldenrodMagnetTrainStationOfficerYouDontHaveARailPassText:
+if DEF(_FR_FR)
+	text "Désolé, vous"
+	line "n'avez pas de"
+	cont "PASSE TRAIN."
+	cont "Pas de PASSE TRAIN"
+	cont "pas de copains!!"
+else
 	text "Sorry. You don't"
 	line "have a RAIL PASS."
+endc
 	done
 
-GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText: ; TO TRANSLATE
+GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText:
+if DEF(_FR_FR)
+	text "Nous sommes arrivés"
+	line "à DOUBLONVILLE."
+else
 	text "We have arrived in"
 	line "GOLDENROD."
+endc
 	done
 
 GoldenrodMagnetTrainStationGentlemanText: 
@@ -197,13 +234,22 @@ endc
 
 	done
 
-GoldenrodMagnetTrainStationTwinText: ; TO TRANSLATE
+GoldenrodMagnetTrainStationTwinText:
+if DEF(_FR_FR)
+	text "Etre vacciné, ça"
+	line "a l'air bien."
+
+	para "J'aimerais l'être."
+	line "Mais mes parents"
+	cont "me l'interdisent."
+else
 	text "Being vaccinated"
 	line "sounds nice."
 
 	para "I wish I was."
 	line "But my parents"
 	cont "forbid me."
+endc
 	done
 
 GoldenrodMagnetTrainStation_MapEvents:
