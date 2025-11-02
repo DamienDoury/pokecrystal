@@ -31,7 +31,22 @@ LavenderMartShelfItem1Script:
 LavenderMartShelfItem2Script:
 	shelfitem 1, REVIVAL_HERB, 4000
 
-LavenderMartPokefanMText: ; TO TRANSLATE
+LavenderMartPokefanMText:
+if DEF(_FR_FR)
+	text "Du REPOUSSE est"
+	line "utile pour explo-"
+	cont "rer une caverne."
+
+	para "Mais on en trouve"
+	line "difficilement"
+
+	para "depuis la ruée"
+	line "sur les magasins"
+
+	para "qui a suivi"
+	line "l'annonce du pre-"
+	cont "mier confinement."
+else
 	text "REPEL is a neces-"
 	line "sity if you are"
 
@@ -46,6 +61,7 @@ LavenderMartPokefanMText: ; TO TRANSLATE
 	
 	para "the first lockdown"
 	line "declaration."
+endc
 	done
 
 LavenderMartRockerText: 

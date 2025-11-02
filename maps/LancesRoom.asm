@@ -222,7 +222,32 @@ LancesRoomMovementData_MaryRunsBackAndForth:
 	turn_head UP
 	step_end
 
-LanceBattleIntroText: ; TO TRANSLATE
+LanceBattleIntroText:
+if DEF(_FR_FR)
+	text "PETER:"
+	line "Je t'attendais..."
+
+	para "<PLAY_G>!"
+
+	para "Je savais que tu"
+	line "allais finir par"
+	cont "arriver jusqu'ici."
+
+	para "Bon. Finie la"
+	line "parlotte."
+
+	para "On va se battre et"
+	line "enfin savoir qui"
+
+	para "a le plus de"
+	line "talent."
+
+	para "Etant le plus"
+	line "puissant et le"
+
+	para "MAITRE de la"
+	line "LIGUE..."
+else
 	text "LANCE: I've been"
 	line "waiting for you."
 
@@ -248,12 +273,20 @@ LanceBattleIntroText: ; TO TRANSLATE
 
 	para "the #MON LEAGUE"
 	line "CHAMPION…"
+endc
 	done
 
-LanceBattleIntroEndText: ; TO TRANSLATE
+LanceBattleIntroEndText:
+if DEF(_FR_FR)
+	text "Moi, PETER,"
+	line "l'expert des"
+	cont "dragons, j'accepte"
+	cont "de t'affronter!"
+else
 	text "I, LANCE the Drag-"
 	line "on master, accept"
 	cont "your challenge!"
+endc
 	done
 
 LanceBattleWinText: 

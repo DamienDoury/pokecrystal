@@ -241,7 +241,25 @@ endc
 
 	done
 
-LavRadioTower1FGentlemanText_GiveRadioCard: ; TO TRANSLATE
+LavRadioTower1FGentlemanText_GiveRadioCard:
+if DEF(_FR_FR)
+	text "Ton #MATOS n'a"
+	line "pas le COUPON"
+	cont "RADIO?"
+
+	para "Ca m'attriste."
+	line "Va en chercher un!"
+
+	para "Il y a un maga-"
+	line "sin d'électronique"
+
+	para "à NEONVILLE,"
+	line "à SAFRANIA."
+
+	para "Dis au vendeur"
+	line "que tu viens"
+	cont "de ma part."
+else
 	text "Your #GEAR"
 	line "doesn't have the"
 	cont "radio?"
@@ -257,6 +275,7 @@ LavRadioTower1FGentlemanText_GiveRadioCard: ; TO TRANSLATE
 
 	para "Tell the owner you"
 	line "were sent by me."
+endc
 	done
 
 LavRadioTower1FGentlemanText_GotExpnCard: 

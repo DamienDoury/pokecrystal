@@ -198,33 +198,79 @@ endc
 
 	done
 
-LavenderTownPasserby1Text: ; TO TRANSLATE
+LavenderTownPasserby1Text:
+if DEF(_FR_FR)
+	text "CAPITAINE: Il a"
+	line "guidé mon navire"
+	cont "pendant plusieurs"
+	cont "décennies au port"
+	cont "d'OLIVILLE..."
+else
 	text "CAPTAIN: He'd been"
 	line "guiding my ship"
 	cont "for decades in"
 	cont "OLIVINE port…"
+endc
 	done
 
-LavenderTownPasserby2Text: ; TO TRANSLATE
+LavenderTownPasserby2Text:
+if DEF(_FR_FR)
+	text "Je vais rentrer"
+	line "chez moi mainte-"
+	cont "nant..."
+else
 	text "I'm going to head"
 	line "back home now…"
+endc
 	done
 
-LavenderTownPasserby3Text: ; TO TRANSLATE
+LavenderTownPasserby3Text:
+if DEF(_FR_FR)
+	text "Je le connaissais"
+	line "depuis mon"
+	cont "enfance."
+	
+	para "Il était un"
+	line "symbole, une"
+	cont "lumière dans"
+	cont "l'obscurité."
+else
 	text "I've known him"
 	line "since I was"
 	cont "a kid."
 	
 	para "He was a symbol, a"
 	line "light in the dark."
+endc
 	done
 
-LavenderTownPasserby4Text: ; TO TRANSLATE
+LavenderTownPasserby4Text:
+if DEF(_FR_FR)
+	text "J'espère que"
+	line "JASMINE n'est pas"
+	cont "trop abattue..."
+else
 	text "I hope JASMINE"
 	line "is feeling ok…"
+endc
 	done
 
-LavenderTownPasserby5Text: ; TO TRANSLATE
+LavenderTownPasserby5Text:
+if DEF(_FR_FR)
+	text "Tu as manqué la"
+	line "cérémonie, elle"
+	cont "vient de finir."
+	
+	para "C'était magni-"
+	line "fique."
+
+	para "Des gens sont ve-"
+	line "nus de très loin"
+	
+	para "pour rendre hom-"
+	line "mage à ce célèbre"
+	cont "#MON."
+else
 	text "You missed the"
 	line "ceremony, it just"
 	cont "ended."
@@ -237,6 +283,7 @@ LavenderTownPasserby5Text: ; TO TRANSLATE
 	para "their respects to"
 	line "this well-known"
 	cont "#MON."
+endc
 	done
 
 LavenderTown_MapEvents:
