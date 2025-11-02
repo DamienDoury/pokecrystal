@@ -79,6 +79,9 @@ INCLUDE "maps/ViridianForest.asm"
 INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
 INCLUDE "maps/Route37.asm"
 INCLUDE "maps/Route4.asm"
+INCLUDE "maps/Route42EcruteakGate.asm"
+INCLUDE "maps/MountMoonGiftShop.asm"
+INCLUDE "maps/TohjoFalls.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -156,7 +159,6 @@ INCLUDE "maps/FastShipB1F.asm"
 INCLUDE "maps/OlivinePortPassage.asm"
 INCLUDE "maps/VermilionPortPassage.asm"
 INCLUDE "maps/MountMoonSquare.asm"
-INCLUDE "maps/MountMoonGiftShop.asm"
 INCLUDE "maps/ElmsHouse.asm"
 
 
@@ -364,7 +366,6 @@ INCLUDE "maps/MrPokemonsHouse.asm"
 
 SECTION "Map Scripts 19", ROMX
 
-INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/CherrygroveMart.asm"
 INCLUDE "maps/Route15FuchsiaGate.asm"
 INCLUDE "maps/AzaleaTown.asm"
@@ -373,7 +374,6 @@ INCLUDE "maps/SaffronCity.asm"
 INCLUDE "maps/MahoganyRedGyaradosSpeechHouse.asm"
 INCLUDE "maps/MahoganyGym.asm"
 INCLUDE "maps/MahoganyPokecenter1F.asm"
-INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/LakeOfRageMagikarpHouse.asm"
 INCLUDE "maps/Route43Gate.asm"
 
