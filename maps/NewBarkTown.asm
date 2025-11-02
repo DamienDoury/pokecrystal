@@ -386,19 +386,36 @@ endc
 
 	done
 
-Text_ElmDiscoveredNewMon: ; TO TRANSLATE
+Text_ElmDiscoveredNewMon:
+if DEF(_FR_FR)
+	text "Yo, <PLAYER>!"
+
+	para "Il paraît que le"
+	line "PROF.ORME bosse"
+	cont "sur quelque chose"
+	cont "d'important."
+else
 	text "Yo, <PLAYER>!"
 
 	para "I hear PROF.ELM"
 	line "is doing some"
 	cont "important work."
+endc
 	done
 
-NewBarkTownRivalText1: ; TO TRANSLATE
+NewBarkTownRivalText1:
+if DEF(_FR_FR)
+	text "................"
+
+	para "Voici donc le cé-"
+	line "lèbre LABO #MON"
+	cont "du PROF.ORME..."
+else
 	text "<……>"
 
 	para "So this is the"
 	line "famous ELM'S LAB…"
+endc
 	done
 
 NewBarkTownRivalText2: 
@@ -412,9 +429,14 @@ endc
 
 	done
 
-FootstepsText: ; TO TRANSLATE
+FootstepsText:
+if DEF(_FR_FR)
+	text "Des empreintes de"
+	line "pas dans la boue."
+else
 	text "Footsteps in the"
 	line "dirt."
+endc
 	done
 
 NewBarkTownSignText: 
@@ -443,8 +465,12 @@ endc
 
 	done
 
-NewBarkTownElmsLabSignText: ; TO TRANSLATE
+NewBarkTownElmsLabSignText:
+if DEF(_FR_FR)
+	text "LABO du PROF.ORME"
+else
 	text "ELM'S LAB"
+endc
 	done
 
 NewBarkTownElmsHouseSignText: 
