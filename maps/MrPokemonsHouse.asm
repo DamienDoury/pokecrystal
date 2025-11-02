@@ -204,12 +204,28 @@ endc
 
 	done
 
-MrPokemonsHouse_GotEggText: ; TO TRANSLATE
+MrPokemonsHouse_GotEggText:
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "le COLIS."
+else
 	text "<PLAYER> received"
 	line "PARCEL."
+endc
 	done
 
-MrPokemonIntroText3: ; TO TRANSLATE
+MrPokemonIntroText3:
+if DEF(_FR_FR)
+	text "J'ai récemment"
+	line "commencé à"
+	cont "travailler avec"
+	cont "le PROF.ORME."
+
+	para "Pour la VIROLOGIE"
+	line "des #MON, le"
+	cont "PROF.ORME est une"
+	cont "autorité."
+else
 	text "I recently started"
 	line "working with"
 	cont "PROF.ELM."
@@ -217,6 +233,7 @@ MrPokemonIntroText3: ; TO TRANSLATE
 	para "For #MON VIRO-"
 	line "LOGY, PROF.ELM is"
 	cont "the authority."
+endc
 	done
 
 MrPokemonIntroText4: 
@@ -421,7 +438,26 @@ endc
 
 	done
 
-MrPokemonsHouse_OakText2: ; TO TRANSLATE
+MrPokemonsHouse_OakText2:
+if DEF(_FR_FR)
+	text "Rencontre un maxi-"
+	line "mum de #MON et"
+
+	para "complète le"
+	line "#DEX!"
+
+	para "Bon. Je dois y"
+	line "aller."
+
+	para "J'ai une émission"
+	line "de radio à faire"
+	cont "à DOUBLONVILLE."
+
+	para "<PLAY_G>, quand tu"
+	line "verras le PROF."
+	cont "ORME, dis-lui"
+	cont "d'allumer la radio!"
+else
 	text "Go meet many kinds"
 	line "of #MON and"
 
@@ -439,6 +475,7 @@ MrPokemonsHouse_OakText2: ; TO TRANSLATE
 	line "see PROF.ELM, tell"
 	cont "him to turn on the"
 	cont "radio!"
+endc
 	done
 
 MrPokemonText_GimmeTheScale: 

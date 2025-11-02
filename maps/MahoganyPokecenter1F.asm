@@ -95,7 +95,21 @@ endc
 
 	done
 
-MahoganyPokecenter1FRocketText: ; TO TRANSLATE
+MahoganyPokecenter1FRocketText:
+if DEF(_FR_FR)
+	text "Venant de quelqu'un"
+	line "qui connait bien"
+	cont "la police, écoute:"
+
+	para "si la police te"
+	line "cherche, cache-toi"
+
+	para "pendant environ"
+	line "une journée."
+	
+	para "Après ça, elle"
+	line "t'aura oublié."
+else
 	text "Hear it from"
 	line "someone that has"
 
@@ -108,6 +122,7 @@ MahoganyPokecenter1FRocketText: ; TO TRANSLATE
 	
 	para "Then they'll"
 	line "forget about you."
+endc
 	done
 
 MahoganyPokecenter1F_MapEvents:

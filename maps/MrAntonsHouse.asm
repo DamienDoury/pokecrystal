@@ -41,13 +41,33 @@ MrAntonsHouseNursePicture:
     writetext MrAntonsHouseNursePictureSequelText
     sjump MrAntonsHouseCandyFactory.end
 
-MrAntonsHouseCandyFactoryText: ; TO TRANSLATE
+MrAntonsHouseCandyFactoryText:
+if DEF(_FR_FR)
+	text "Une photo d'un"
+	line "homme dans la"
+    cont "trentaine, dans"
+	cont "une usine de"
+	cont "bonbons."
+else
     text "A picture of a man"
     line "in his 30s in a"
     cont "candy factory."
-    done
+endc
+	done
 
-MrAntonsHouseCandyFactorySequelText: ; TO TRANSLATE
+MrAntonsHouseCandyFactorySequelText:
+if DEF(_FR_FR)
+	text "On dirait ce"
+	line "film célèbre."
+
+	para "Il est avec une"
+	line "femme aux cheveux"
+	cont "roses en robe de"
+	cont "mariée blanche."
+
+	para "Ils ont l'air du"
+	line "même âge."
+else
     text "Looks like this"
     line "famous movie."
 
@@ -57,32 +77,59 @@ MrAntonsHouseCandyFactorySequelText: ; TO TRANSLATE
 
     para "They are both of"
     line "the same age."
-    done
+endc
+	done
 
-MrAntonsHouseCandyFactoryKnowledgeText: ; TO TRANSLATE
+MrAntonsHouseCandyFactoryKnowledgeText:
+if DEF(_FR_FR)
+	text "Une photo de MR."
+    line "ANTON plus jeune,"
+	cont "dans une immense"
+	cont "usine de bonbons."
+else
     text "A picture of a"
     line "younger MR.ANTON"
     cont "in a giant candy"
     cont "factory."
-    done
+endc
+	done
 
-MrAntonsHouseNursePictureText: ; TO TRANSLATE
+MrAntonsHouseNursePictureText:
+if DEF(_FR_FR)
+	text "Photo d'un vieil"
+	line "homme avec un"
+	cont "haut-de-forme à"
+else
     text "A picture of an"
     line "old man wearing a"
     cont "top hat next to a"
-    done
-    
-MrAntonsHouseNursePictureSequelText: ; TO TRANSLATE
+endc
+	done
+
+MrAntonsHouseNursePictureSequelText:
+if DEF(_FR_FR)
+	text "côté d'une femme"
+	line "plus jeune aux"
+	cont "cheveux roses en"
+	cont "blouse blanche."
+else
     text "pink-haired young-"
     line "er woman wearing"
     cont "a white uniform."
-    done
+endc
+	done
 
-MrAntonsHouseNursePictureKnowledgeText: ; TO TRANSLATE
+
+MrAntonsHouseNursePictureKnowledgeText:
+if DEF(_FR_FR)
+	text "Photo récente de"
+	line "MR.ANTON assis à"
+else
     text "A recent picture"
     line "of MR.ANTON"
     cont "sitting next to a"
-    done
+endc
+	done
 
 MrAntonsHouseRareCandy:
     hiddenitem RARE_CANDY, EVENT_MR_ANTONS_HOUSE_RARE_CANDY

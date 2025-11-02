@@ -147,13 +147,22 @@ ShuckieHappyJump4:
 	jump_step DOWN
 	step_end
 
-ShuckieBeforeText: ; TO TRANSLATE
+ShuckieBeforeText:
+if DEF(_FR_FR)
+	text "NESSY: Caraaa?"
+else
 	text "SHUCKIE: Uuuck?"
+endc
 	done
 
-ShuckieAfterText: ; TO TRANSLATE
+ShuckieAfterText:
+if DEF(_FR_FR)
+	text "NESSY: Troooooooo-"
+	line "ooooooooooooooooc!"
+else
 	text "SHUCKIE: Shuuuuuu-"
 	line "uuuuuuuuuuuuuuuck!"
+endc
 	done
 
 ManiaText_AskLookAfterShuckle: 
@@ -209,11 +218,18 @@ endc
 
 	done
 
-ManiaText_TakeCareOfShuckle: ; TO TRANSLATE
+ManiaText_TakeCareOfShuckle:
+if DEF(_FR_FR)
+	text "Oh, bien le merci!"
+
+	para "Prends bien soin"
+	line "de NESSY, pitié!"
+else
 	text "Oh, thank you!"
 
 	para "Take good care of"
 	line "SHUCKIE, please!"
+endc
 	done
 
 ManiaText_GotShuckle::
@@ -245,13 +261,24 @@ endc
 
 	done
 
-ManiaText_CanIHaveMyMonBack: ; TO TRANSLATE
+ManiaText_CanIHaveMyMonBack:
+if DEF(_FR_FR)
+	text "Salut! Comment va"
+	line "mon NESSY?"
+
+	para "Je pense être en"
+	line "sécurité main-"
+	cont "tenant, serait-il"
+	cont "possible de le"
+	cont "récupérer?"
+else
 	text "Hi! How's my"
 	line "SHUCKIE?"
 
 	para "I think I'm safe"
 	line "now, so may I have"
 	cont "it back?"
+endc
 	done
 
 ManiaText_ThankYou: 
@@ -263,9 +290,14 @@ endc
 
 	done
 
-ManiaText_ShuckleNotThere: ; TO TRANSLATE
+ManiaText_ShuckleNotThere:
+if DEF(_FR_FR)
+	text "Hé, c'est pas"
+	line "mon NESSY!"
+else
 	text "Hey, that's not"
 	line "my SHUCKIE!"
+endc
 	done
 
 ManiaText_ShuckleLikesYou: 

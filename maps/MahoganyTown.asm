@@ -123,11 +123,18 @@ endc
 
 	done
 
-MahoganyTownRagecandybarSignText: ; TO TRANSLATE
+MahoganyTownRagecandybarSignText:
+if DEF(_FR_FR)
+	text "Pendant votre"
+	line "visite d'ACAJOU,"
+	cont "essayez un BONBON"
+	cont "RAGE!"
+else
 	text "While visiting"
 	line "MAHOGANY TOWN, and"
 	cont "LAKE OF RAGE, try"
 	cont "a CAKE OF RAGE!"
+endc
 	done
 
 MahoganyGymSignText: 

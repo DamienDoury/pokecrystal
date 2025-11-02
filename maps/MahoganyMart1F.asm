@@ -67,7 +67,7 @@ MahoganyMart1FLanceUncoversStaircaseScript:
 	writetext MahoganyMart1FLanceDragoniteStrengthText
 	pause 15
 	closetext
-	playsound SFX_TACKLE
+	playsound SFX_STRENGTH
 	applymovement MAHOGANYMART1F_DRAGONITE, MahoganyMart1FDragoniteTackleMovement
 	applymovement MAHOGANYMART1F_BLACK_BELT, MahoganyMart1FBlackBeltKnockedBackMovement
 	pause 15
@@ -180,7 +180,21 @@ endc
 
 	done
 
-MahoganyMart1FBlackBeltText: ; TO TRANSLATE
+MahoganyMart1FBlackBeltText:
+if DEF(_FR_FR)
+	text "Héhé! L'expérience"
+	line "a marché comme sur"
+	cont "des roulettes!"
+
+	para "Le signal est émis"
+	line "sur une longue"
+	cont "distance!"
+
+	para "Le problème des"
+	line "MAGICARPE n'est"
+	cont "qu'un dommage"
+	cont "collatéral."
+else
 	text "Heheh! The experi-"
 	line "ment worked like a"
 	cont "charm."
@@ -194,6 +208,7 @@ MahoganyMart1FBlackBeltText: ; TO TRANSLATE
 	para "The MAGIKARP side-"
 	line "issue is no"
 	cont "big deal."
+endc
 	done
 
 MahoganyMart1FBlackBeltText_LanceEntered: 
@@ -212,9 +227,14 @@ endc
 
 	done
 
-MahoganyMart1FLanceDragoniteStrengthText: ; TO TRANSLATE
+MahoganyMart1FLanceDragoniteStrengthText:
+if DEF(_FR_FR)
+	text "PETER: DRACOLOSSE,"
+	line "lance FORCE!"
+else
 	text "LANCE: DRAGONITE,"
 	line "use STRENGTH!"
+endc
 	done
 
 MahoganyMart1FLanceRadioText: 

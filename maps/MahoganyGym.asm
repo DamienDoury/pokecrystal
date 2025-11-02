@@ -201,16 +201,74 @@ MahoganyGymStatue:
 	gettrainername STRING_BUFFER_4, PRYCE, PRYCE1
 	jumpstd GymStatue2Script
 
-PryceSleepingText: ; TO TRANSLATE
+PryceSleepingText:
+if DEF(_FR_FR)
+	text "..."
+
+	para "Hein? Quoi?"
+
+	para "Je suis réveillé"
+	line "..."
+else
 	text "…"
 
 	para "Uh?"
 
 	para "I'm awake…"
 	line "…"
+endc
 	done
 
-PryceText_Intro: ; TO TRANSLATE
+PryceText_Intro:
+if DEF(_FR_FR)
+	text "Les #MON ont"
+	line "beaucoup d'aven-"
+
+	para "tures au cours de"
+	line "leur vie, comme"
+	cont "nous."
+
+	para "Moi aussi, j'ai"
+	line "beaucoup souffert"
+	cont "dans ma vie."
+
+	para "J'ai affronté de"
+	line "nombreux hivers,"
+
+	para "bien avant ta"
+	line "naissance."
+
+	para "ACAJOU se situe à"
+	line "haute altitude, où"
+	cont "les hivers sont"
+	cont "rudes."
+
+	para "Cette ARENE dis-"
+	line "pose de puissants"
+	cont "canons à neige"
+
+	para "qui répliquent"
+	line "la brutalité de"
+	cont "la saison froide."
+
+	para "Les faibles ne"
+	line "tiendront pas plus"
+	cont "de quelques secon-"
+	cont "des dans ces"
+	cont "conditions."
+
+	para "Comme je suis plus"
+	line "vieux que toi,"
+	cont "laisse-moi te"
+	cont "montrer de quoi je"
+	cont "parle..."
+
+	para "Moi, FREDO, le"
+	line "dresseur du froid,"
+
+	para "je vais te montrer"
+	line "ma puissance!"
+else
 	text "#MON have many"
 	line "experiences in"
 
@@ -253,6 +311,7 @@ PryceText_Intro: ; TO TRANSLATE
 
 	para "shall demonstrate"
 	line "my power!"
+endc
 	done
 
 MahoganyGymPowerRestrainerExplanation:
@@ -302,15 +361,26 @@ endc
 
 	done
 
-PryceText_GlacierBadgeSpeech: ; TO TRANSLATE
+PryceText_GlacierBadgeSpeech:
+if DEF(_FR_FR)
+	text "Ce BADGE t'as"
+	line "préparé pour la"
+	cont "ROUTE DE GLACE."
+else
 	text "This BADGE got"
 	line "you prepared for"
 	cont "the ICE PATH."
+endc
 	done
 
-PryceText_GlacierBadgeSpeech2: ; TO TRANSLATE
+PryceText_GlacierBadgeSpeech2:
+if DEF(_FR_FR)
+	para "Et ça... C'est un"
+	line "cadeau de ma part!"
+else
 	text "And this… This is"
 	line "a gift from me!"
+endc
 	done
 
 PryceText_IcyWindSpeech: 

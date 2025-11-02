@@ -188,11 +188,45 @@ endc
 
 	done
 
-MrFujisJasminesFriendFirstText: ; TO TRANSLATE
+MrFujisJasminesFriendFirstText:
+if DEF(_FR_FR)
+	text "Pauvre JASMINE..."
+else
 	text "Poor JASMINE…"
+endc
 	done
 
-MrFujisJasminesFriendSecondText: ; TO TRANSLATE
+MrFujisJasminesFriendSecondText:
+if DEF(_FR_FR)
+	text "Merci pour ta"
+	line "présence et ton"
+	cont "soutien, ça fait"
+	cont "chaud au coeur."
+
+	para "Ecoute..."
+
+	para "On devrait déjà"
+	line "être sur le chemin"
+	cont "du retour vers"
+	cont "JOHTO, mais on"
+	cont "est bloqués ici"
+	
+	para "à cause de la"
+	line "panne de la"
+	cont "CENTRALE."
+
+	para "JASMINE n'est pas"
+	line "en état d'aider."
+
+	para "En tant que MAITRE"
+	line "de la LIGUE, tu"
+	cont "devrais aller voir"
+	
+	para "si tu peux leur"
+	line "donner un coup de"
+	cont "main. Ce serait"
+	cont "gentil de ta part."
+else
 	text "Thanks for coming"
 	line "& showing support,"
 	cont "it's heartwarming."
@@ -218,6 +252,7 @@ MrFujisJasminesFriendSecondText: ; TO TRANSLATE
 	para "if you could give"
 	line "them a hand."
 	cont "Please."
+endc
 	done
 
 MrFujisHouse_MapEvents:

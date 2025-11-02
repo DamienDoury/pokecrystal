@@ -174,7 +174,21 @@ MountMoonSilverNoNameIdeaMovement:
 	step DOWN
 	step_end
 
-MountMoonSilverTextBefore: ; TO TRANSLATE
+MountMoonSilverTextBefore:
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "Cela faisait"
+	line "longtemps,"
+	cont "<PLAYER>."
+
+	para "...Depuis ma"
+	line "défaite j'ai"
+
+	para "cherché l'élément"
+	line "manquant à mon"
+	cont "entraînement..."
+else
 	text "<……> <……> <……>"
 
 	para "It's been a while,"
@@ -186,9 +200,22 @@ MountMoonSilverTextBefore: ; TO TRANSLATE
 	para "about what I was"
 	line "lacking with my"
 	cont "#MON…"
+endc
 	done
 
-MountMoonSilverTextMadeProgress: ; TO TRANSLATE
+MountMoonSilverTextMadeProgress:
+if DEF(_FR_FR)
+	text "Depuis la dernière"
+	line "fois, on a bien"
+	cont "progressé!"
+
+	para "On a gagné 4"
+	line "BADGES de cette"
+	cont "région."
+
+	para "Mais apparemment c'"
+	line "est pas ton cas..."
+else
 	text "Since then, we"
 	line "have made great"
 	cont "progress!"
@@ -198,22 +225,40 @@ MountMoonSilverTextMadeProgress: ; TO TRANSLATE
 
 	para "But apparently"
 	line "you don't…"
+endc
 	done
 
-MountMoonSilverTextRefuseFight: ; TO TRANSLATE
+MountMoonSilverTextRefuseFight:
+if DEF(_FR_FR)
+	text "Je veux qu'on se"
+	line "batte à armes"
+	cont "égales."
+
+	para "Va gagner plus"
+	line "de BADGES."
+else
 	text "I want us to fight"
 	line "on equal terms."
 
 	para "Go earn more"
 	line "badges."
+endc
 	done
 
-MountMoonSilverTextStartBattle: ; TO TRANSLATE
+MountMoonSilverTextStartBattle:
+if DEF(_FR_FR)
+	text "Et tu sais quoi?"
+	line "Je l'ai trouvé!"
+
+	para "<PLAYER>, ça va"
+	line "être ta fête!"
+else
 	text "And we came up"
 	line "with an answer."
 
 	para "<PLAYER>, now we'll"
 	line "show you!"
+endc
 	done
 
 MountMoonSilverTextWin: 
@@ -243,7 +288,37 @@ endc
 
 	done
 
-MountMoonSilverTextAfter: ; TO TRANSLATE
+MountMoonSilverTextAfter:
+if DEF(_FR_FR)
+	text "<……> <……> <……>"
+
+	para "...OK t'as"
+	line "gagné à la loyale."
+
+	para "Je l'admets. Mais"
+	line "c'est loin d'être"
+	cont "la fin."
+
+	para "Je serai le plus"
+	line "grand des dres-"
+	cont "seurs, tu verras."
+
+	para "Parce que mes"
+	line "#MON sont"
+	cont "derrière moi."
+
+	para "...Ecoute <PLAYER>."
+
+	para "J'vais continuer à"
+	line "m'entrainer à JOHTO"
+	
+	para "et j'vais essayer"
+	line "de battre le"
+	cont "CONSEIL des 4."
+
+	para "C'est là-bas qu'on"
+	line "se recroisera."
+else
 	text "<……> <……> <……>"
 
 	para "…You won, fair"
@@ -270,6 +345,7 @@ MountMoonSilverTextAfter: ; TO TRANSLATE
 
 	para "This is where you"
 	line "will find me."
+endc
 	done
 
 MountMoonSilverTextLoss: 
@@ -301,18 +377,41 @@ endc
 
 	done
 
-BurglarBonesSeenText: ; TO TRANSLATE
+BurglarBonesSeenText:
+if DEF(_FR_FR)
+	text "Ma pelle et moi"
+	line "sommes venus pour"
+	cont "les pierres rares!"
+else
 	text "My shovel and I"
 	line "came for the rare"
 	cont "stones!"
+endc
 	done
 
-BurglarBonesBeatenText: ; TO TRANSLATE
+BurglarBonesBeatenText:
+if DEF(_FR_FR)
+	text "Bon, on va"
+	line "arrêter de jouer."
+else
 	text "All right, let's"
 	line "stop playing."
+endc
 	done
 
-BurglarBonesAfterBattleText: ; TO TRANSLATE
+BurglarBonesAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai rien trouvé"
+	line "de rare ici."
+	
+	para "Je dois trouver"
+	line "un autre moyen"
+	cont "de gagner ma"
+	cont "croûte..."
+	
+	para "Peut-être devenir"
+	line "cuisinier?"
+else
 	text "I didn't find any"
 	line "rare stones here."
 	
@@ -322,23 +421,51 @@ BurglarBonesAfterBattleText: ; TO TRANSLATE
 	
 	para "Perhaps I could"
 	line "become a cook?"
+endc
 	done
 
-BurglarBonesGivesLootText: ; TO TRANSLATE
+BurglarBonesGivesLootText:
+if DEF(_FR_FR)
+	text "Mais oui! C'est"
+	line "une super idée!"
+
+	para "Je devrais me"
+	line "débarasser de"
+	cont "mon butin alors."
+else
 	text "Yes! This is a"
 	line "great plan!"
 
 	para "I should get rid"
 	line "of my loot then."
+endc
 	done
 
-BurglarBonesLightenPackText: ; TO TRANSLATE
+BurglarBonesLightenPackText:
+if DEF(_FR_FR)
+	text "Va vider ton sac,"
+	line "avant que je ne"
+	cont "m'en occupe à ta"
+	cont "place."
+else
 	text "Go lighten your"
 	line "pack, before I"
 	cont "do it for you."
+endc
 	done
 
-BurglarBonesOriginText: ; TO TRANSLATE
+BurglarBonesOriginText:
+if DEF(_FR_FR)
+	text "J'l'ai trouvé dans"
+	line "le SOUS-SOL du"
+	cont "CENTRE COMMERCIAL"
+	cont "de DOUBLONVILLE."
+	
+	para "Bon, maintenant"
+	line "faut que j'apprenne"
+	cont "à cuisiner. Par où"
+	cont "commencer?"
+else
 	text "Got it in GOLDEN-"
 	line "ROD UNDERGROUND"
 	cont "WAREHOUSE."
@@ -347,6 +474,7 @@ BurglarBonesOriginText: ; TO TRANSLATE
 	line "figure out how"
 	cont "to cook. Where"
 	cont "do I start?"
+endc
 	done
 
 MountMoon_MapEvents:

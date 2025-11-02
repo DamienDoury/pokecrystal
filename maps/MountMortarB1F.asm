@@ -82,7 +82,24 @@ MountMortarB1FPPUp:
 MountMortarB1FHiddenMaxRevive:
 	hiddenitem MAX_REVIVE, EVENT_MOUNT_MORTAR_B1F_HIDDEN_MAX_REVIVE
 
-MountMortarB1FKiyoIntroText: ; TO TRANSLATE
+MountMortarB1FKiyoIntroText:
+if DEF(_FR_FR)
+	text "Hé!"
+
+	para "Je suis le ROI du"
+	line "KARATE!"
+
+	para "Je m'entraîne seul"
+	line "dans le noir!"
+
+	para "Toi! Moi!"
+	line "Combat!"
+
+	para "J'utiliserai mon"
+	line "LIMITEUR DE FORCE!"
+
+	para "Yaaaaaah!"
+else
 	text "Hey!"
 
 	para "I am the KARATE"
@@ -98,6 +115,7 @@ MountMortarB1FKiyoIntroText: ; TO TRANSLATE
 	line "POWER RESTRAINER."
 
 	para "Hwaaarggh!"
+endc
 	done
 
 MountMortarB1FKiyoWinText: 
