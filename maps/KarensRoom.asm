@@ -93,7 +93,31 @@ KarensRoom_EnterMovement:
 	step UP
 	step_end
 
-KarenScript_KarenBeforeText: ; TO TRANSLATE
+KarenScript_KarenBeforeText:
+if DEF(_FR_FR)
+	text "Mon nom est"
+	line "MARION."
+
+	para "À cause du COVID,"
+	line "ma grand-mère ne"
+	cont "fait désormais"
+	cont "plus qu'un avec ses"
+	cont "#MON SPECTRE."
+
+	para "J'ai été choisie"
+	line "pour perpétuer sa"
+	cont "mémoire et son"
+	cont "devoir au sein du"
+	cont "CONSEIL des 4."
+
+	para "Tu crois connaître"
+	line "la souffrance?"
+
+	para "Mes #MON et moi"
+	line "allons te montrer"
+	cont "les ténèbres du"
+	cont "désespoir."
+else
 	text "My name is KAREN."
 
 	para "Because of COVID,"
@@ -114,15 +138,36 @@ KarenScript_KarenBeforeText: ; TO TRANSLATE
 	line "will show you the"
 	cont "darkness of"
 	cont "despair."
+endc
 	done
 
-KarenScript_KarenBeatenText: ; TO TRANSLATE
+KarenScript_KarenBeatenText:
+if DEF(_FR_FR)
+	text "Tu as un mental"
+	line "solide. J'aime ça"
+	cont "chez un dresseur."
+else
 	text "You have a solid"
 	line "mind. I like that"
 	cont "in a trainer."
+endc
 	done
 
-KarenScript_KarenDefeatText: ; TO TRANSLATE
+KarenScript_KarenDefeatText:
+if DEF(_FR_FR)
+	text "Tu as bon coeur,"
+	line "et tu n'as pas peur"
+	cont "d'affronter le"
+	cont "danger."
+
+	para "J'aime ton style."
+	line "Tu as compris ce"
+	cont "qui compte vrai-"
+	cont "ment."
+
+	para "Allez, va..."
+	line "Le MAITRE attend."
+else
 	text "You have a good"
 	line "heart, and you"
 
@@ -135,6 +180,7 @@ KarenScript_KarenDefeatText: ; TO TRANSLATE
 
 	para "Go on--the CHAM-"
 	line "PION is waiting."
+endc
 	done
 
 KarensRoom_MapEvents:
