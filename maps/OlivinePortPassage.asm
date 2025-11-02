@@ -36,7 +36,25 @@ OlivinePortPassageCustomsScript:
 	closetext
 	end
 
-OlivinePortCustomsText: ; TO TRANSLATE
+OlivinePortCustomsText:
+if DEF(_FR_FR)
+	text "Vous venez pour le"
+	line "colis du PROF.ORME"
+	cont "c'est ça?"
+
+	para "On n'avait jamais"
+	line "vu cet objet avant"
+
+	para "et on ne savait"
+	line "pas quelle taxe"
+	cont "appliquer."
+
+	para "Mais c'est réglé:"
+	line "il n'y en aura pas."
+
+	para "Vous pouvez le"
+	line "prendre."
+else
 	text "You must be coming"
 	line "for PROF.ELM's"
 	cont "held parcel?"
@@ -54,17 +72,29 @@ OlivinePortCustomsText: ; TO TRANSLATE
 
 	para "It's yours"
 	line "to take."
+endc
 	done
 
-OlivinePortCustomsNoRoomText: ; TO TRANSLATE
+OlivinePortCustomsNoRoomText:
+if DEF(_FR_FR)
+	text "Je vous attends"
+	line "le temps que vous"
+	cont "vidiez votre sac."
+else
 	text "I'll wait for you"
 	line "while you offload"
 	cont "your pack."
+endc
 	done
 
-OlivinePortCustomsInconvenienceText: ; TO TRANSLATE
+OlivinePortCustomsInconvenienceText:
+if DEF(_FR_FR)
+	text "Désolé pour le re-"
+	line "tard de livraison."
+else
 	text "Sorry for the"
 	line "delivery delay."
+endc
 	done
 
 OlivinePortPassagePokefanMText: 

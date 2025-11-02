@@ -521,7 +521,17 @@ endc
 
 	done
 
-OlivineCity_ToGoText: ; TO TRANSLATE
+OlivineCity_ToGoText:
+if DEF(_FR_FR)
+	text "Notre CAFE n'est"
+	line "pas autorisé à"
+	cont "recevoir des"
+	cont "clients assis,"
+	
+	para "mais nous pouvons"
+	line "vendre des plats"
+	cont "à emporter."
+else
 	text "Our CAFE is not"
 	line "allowed to host"
 	cont "sitted customers,"
@@ -529,71 +539,146 @@ OlivineCity_ToGoText: ; TO TRANSLATE
 	para "but we are allo-"
 	line "wed to offer"
 	cont "to-go meals."
+endc
 	done
 
-OlivineCity_TodaysSpecialText: ; TO TRANSLATE
+OlivineCity_TodaysSpecialText:
+if DEF(_FR_FR)
+	text "Le plat du jour"
+	line "est la salade de"
+	cont "@"
+	text_ram wStringBuffer3
+	text " pour"
+	cont "500¥."
+	cont "T'en prends une?"
+else
 	text "Today's special is"
 	line "the @"
 	text_ram wStringBuffer3
 	text ""
 	cont "salad for ¥500."
 	cont "Want one?"
+endc
 	done
 
-OlivineCity_AlreadyBoughtText: ; TO TRANSLATE
+OlivineCity_AlreadyBoughtText:
+if DEF(_FR_FR)
+	text "Reviens demain"
+	line "pour le nouveau"
+	cont "menu!"
+else
 	text "Come back tomorrow"
 	line "for a new special!"
+endc
 	done
 
-OlivineCity_RefusedSaladText: ; TO TRANSLATE
+OlivineCity_RefusedSaladText:
+if DEF(_FR_FR)
+	text "Pas de problème."
+	
+	para "Peut-être que le"
+	line "plat de demain te"
+	cont "plaira davantage."
+else
 	text "No problem."
 
 	para "Perhaps tomorrow's"
 	line "special will be"
 	cont "to your liking."
+endc
 	done
 
-OlivineCity_ThanksText: ; TO TRANSLATE
+OlivineCity_ThanksText:
+if DEF(_FR_FR)
+	text "Merci beaucoup!"
+	line "Régale-toi bien!"
+else
 	text "Thank you!"
 	line "Enjoy!"
+endc
 	done
 
-OlivineCity_NotEnoughMoneyText: ; TO TRANSLATE
+OlivineCity_NotEnoughMoneyText:
+if DEF(_FR_FR)
+	text "Tu n'as pas"
+	line "500¥ sur toi."
+else
 	text "You don't have"
 	line "¥500."
+endc
 	done
 
-OlivineCity_CantCarryText: ; TO TRANSLATE
+OlivineCity_CantCarryText:
+if DEF(_FR_FR)
+	text "Oups, tu ne peux"
+	line "pas prendre ça,"
+	cont "ton sac est plein!"
+
+	para "Pas ma faute, donc"
+	line "pas de rembourse-"
+	cont "ment!"
+else
 	text "Whoops, you can't"
 	line "carry this, your"
 	cont "pack is full!"
 
 	para "Not my responsibi-"
 	line "lity, no refund!"
+endc
 	done
 
-OlivineCity_Berry1Text: ; TO TRANSLATE
+OlivineCity_Berry1Text:
+if DEF(_FR_FR)
+	text "<PLAYER> obtient"
+	line "@"
+	text_ram wStringBuffer1
+	text ""
+else
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer1
 	text ""
+endc
 	done
 
-OlivineCity_Berry2Text: ; TO TRANSLATE
+OlivineCity_Berry2Text:
+if DEF(_FR_FR)
+	text "agrémentée de"
+	line "@"
+	text_ram wStringBuffer3
+	text ""
+else
 	text "topped with"
 	line "@"
 	text_ram wStringBuffer3
 	text ""
+endc
 	done
 
-OlivineCity_Berry3Text: ; TO TRANSLATE
+OlivineCity_Berry3Text:
+if DEF(_FR_FR)
+	text "et de @"
+	text_ram wStringBuffer3
+	text ""
+	line "en accompagnement."
+else
 	text "and @"
 	text_ram wStringBuffer3
 	text ""
 	line "on the side."
+endc
 	done
 
-OlivineCity_BerryDrinkText: ; TO TRANSLATE
+OlivineCity_BerryDrinkText:
+if DEF(_FR_FR)
+	text "Et voici"
+	line "la boisson."
+	
+	para "<PLAYER> reçoit un"
+	line "@"
+	text_ram wStringBuffer3
+	text "."
+else
 	text "And here is"
 	line "the drink."
 
@@ -601,6 +686,7 @@ OlivineCity_BerryDrinkText: ; TO TRANSLATE
 	line "a @"
 	text_ram wStringBuffer3
 	text "."
+endc
 	done
 
 OlivineCity_MapEvents:

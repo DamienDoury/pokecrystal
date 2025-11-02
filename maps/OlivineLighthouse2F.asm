@@ -160,18 +160,38 @@ endc
 
 	done
 
-GentlemanAlfredSeenText: ; TO TRANSLATE
+GentlemanAlfredSeenText:
+if DEF(_FR_FR)
+	text "J'ai dit à ma"
+	line "femme que j'allais"
+	cont "faire les courses."
+else
 	text "I told my wife I"
 	line "was going to do"
 	cont "the groceries."
+endc
 	done
 
-GentlemanAlfredBeatenText: ; TO TRANSLATE
+GentlemanAlfredBeatenText:
+if DEF(_FR_FR)
+	text "Ne dis pas à ma"
+	line "femme où je suis!"
+else
 	text "Don't tell my wife"
 	line "I'm here!"
+endc
 	done
 
-GentlemanAlfredAfterBattleText: ; TO TRANSLATE
+GentlemanAlfredAfterBattleText:
+if DEF(_FR_FR)
+	text "Quand je rentrerai"
+	line "les mains vides à"
+	cont "la maison, je"
+	
+	para "dirai à ma femme"
+	line "que c'est la faute"
+	cont "à la pénurie."
+else
 	text "When I come home"
 	line "empty-handed,"
 
@@ -179,6 +199,7 @@ GentlemanAlfredAfterBattleText: ; TO TRANSLATE
 	line "wife the shortage"
 	cont "is the reason for"
 	cont "my failure."
+endc
 	done
 
 SailorHueyGiveProteinText: 

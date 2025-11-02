@@ -96,15 +96,34 @@ endc
 
 	done
 
-OlivinePunishmentSpeechHouseDadLockdownText: ; TO TRANSLATE
+OlivinePunishmentSpeechHouseDadLockdownText:
+if DEF(_FR_FR)
+	text "J'abandonne."
+
+	para "Je vais commander"
+	line "deux salades au"
+	cont "CAFE D'OLIVILLE."
+else
 	text "I give up."
 
 	para "I'm ordering two"
 	line "salads from"
 	cont "OLIVINE CAFE."
+endc
 	done
-	
-OlivinePunishmentSpeechHouseDadCurfewText: ; TO TRANSLATE
+
+OlivinePunishmentSpeechHouseDadCurfewText:
+if DEF(_FR_FR)
+	text "...Mais attends,"
+	line "le couvre-feu a"
+	cont "déjà commencé!"
+
+	para "On va manger quoi?"
+
+	para "J'ai peur..."
+	line "j'ai peur qu'on ne"
+	cont "passe pas la nuit!"
+else
 	text "…But wait, it's"
 	line "already past"
 	cont "curfew!"
@@ -116,6 +135,7 @@ OlivinePunishmentSpeechHouseDadCurfewText: ; TO TRANSLATE
 	line "I'm afraid we won't"
 	cont "make it through"
 	cont "the night!"
+endc
 	done
 
 OlivinePunishmentSpeechHouseDaughterText: 
@@ -134,15 +154,29 @@ endc
 
 	done
 
-OlivinePunishmentSpeechHouseDaughterLockdownText: ; TO TRANSLATE
+OlivinePunishmentSpeechHouseDaughterLockdownText:
+if DEF(_FR_FR)
+	text "Je crains que Papa"
+	line "ne soit pas un"
+	cont "bon cuisinier..."
+else
 	text "I'm afraid Daddy's"
 	line "no good cook…"
+endc
 	done
 
-OlivinePunishmentSpeechHouseComputerText: ; TO TRANSLATE
+OlivinePunishmentSpeechHouseComputerText:
+if DEF(_FR_FR)
+	text "A l'écran il y a"
+	line "une vidéo tuto"
+	cont "d'une minute pour"
+	cont "apprendre à faire"
+	cont "cuire des pâtes."
+else
 	text "There's a 1 minute"
 	line "video tutorial on"
 	cont "how to boil pasta."
+endc
 	done
 
 OlivinePunishmentSpeechHouse_MapEvents:

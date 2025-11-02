@@ -191,7 +191,26 @@ OlivineLighthouseJasmineLeavesRightMovement:
 	step_sleep 8
 	step_end
 
-JasmineCianwoodPharmacyText: ; TO TRANSLATE
+JasmineCianwoodPharmacyText:
+if DEF(_FR_FR)
+	text "JASMINE: ... Ce"
+	line "#MON gardait la"
+
+	para "mer éclairée toute"
+	line "la nuit."
+
+	para "...Mais il est"
+	line "tombé malade... Il"
+	cont "manque d'air..."
+
+	para "On dit qu'il y a"
+	line "une bonne PHARMA-"
+	cont "CIE à IRISIA..."
+
+	para "Mais je ne peux"
+	line "laisser PHARY"
+	cont "seul..."
+else
 	text "JASMINE: … This"
 	line "#MON always"
 
@@ -210,6 +229,7 @@ JasmineCianwoodPharmacyText: ; TO TRANSLATE
 
 	para "And I can't leave"
 	line "AMPHY unattended…"
+endc
 	done
 
 JasmineGetSomeMedicineText: 
@@ -225,28 +245,53 @@ endc
 
 	done
 
-JasmineOverTheSeaText: ; TO TRANSLATE
+JasmineOverTheSeaText:
+if DEF(_FR_FR)
+	text "Mais c'est à l'au-"
+	line "tre bout des mers!"
+
+	para "Tu auras besoin"
+	line "de ceci..."
+else
 	text "But that's across"
 	line "the sea…"
 
 	para "You will need"
 	line "this…"
+endc
 	done
 
-JasminePleaseHelpText: ; TO TRANSLATE
+JasminePleaseHelpText:
+if DEF(_FR_FR)
+	text "...J'ai besoin de"
+	line "ton aide."
+else
 	text "…I need your help."
+endc
 	done
 
-JasmineCureAmphyText: ; TO TRANSLATE
+JasmineCureAmphyText:
+if DEF(_FR_FR)
+	text "JASMINE: ...Est-ce"
+	line "que la CHLOROQUINE"
+	cont "va guérir PHARY?"
+else
 	text "JASMINE: …Will"
 	line "the CHLOROQUINE"
 	cont "cure AMPHY?"
+endc
 	done
 
-PlayerHandedSecretpotionText: ; TO TRANSLATE
+PlayerHandedSecretpotionText:
+if DEF(_FR_FR)
+	text "<PLAYER> donne la"
+	line "CHLOROQUINE à"
+	cont "JASMINE."
+else
 	text "<PLAYER> handed the"
 	line "CHLOROQUINE to"
 	cont "JASMINE."
+endc
 	done
 
 JasmineDontBeOffendedText: 
@@ -285,7 +330,17 @@ endc
 
 	done
 
-JasmineThankYouText: ; TO TRANSLATE
+JasmineThankYouText:
+if DEF(_FR_FR)
+	text "JASMINE: ...Oh,"
+	line "je..."
+	
+	para "..."
+	line "..."
+	
+	para "Nous avons fait de"
+	line "notre mieux..."
+else
 	text "JASMINE: …Oh, I'm"
 	line "…"
 
@@ -293,11 +348,17 @@ JasmineThankYouText: ; TO TRANSLATE
 	line "…"
 
 	para "We did our best…"
+endc
 	done
 
-JasmineBackToGymText: ; TO TRANSLATE
+JasmineBackToGymText:
+if DEF(_FR_FR)
+	text "... Je rentre"
+	line "à l'ARENE..."
+else
 	text "…I will return to"
 	line "the GYM…"
+endc
 	done
 
 JasmineISeeText: 

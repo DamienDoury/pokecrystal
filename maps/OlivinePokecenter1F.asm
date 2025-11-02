@@ -25,12 +25,21 @@ OlivinePokecenter1FFisherScript:
 OlivinePokecenter1FTeacherScript:
 	jumptextfaceplayer OlivinePokecenter1FTeacherText
 
-OlivinePokecenter1FFisherText: ; TO TRANSLATE
+OlivinePokecenter1FFisherText:
+if DEF(_FR_FR)
+	text "C'est vachement"
+	line "pratique le CAFE"
+	cont "d'à côté qui"
+
+	para "propose des plats"
+	line "à emporter!"
+else
 	text "I'm happy that the"
 	line "OLIVINE CAFE next"
 
 	para "door offers"
 	line "meals to-go!"
+endc
 	done
 
 OlivinePokecenter1FTeacherText: 

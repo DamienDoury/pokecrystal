@@ -35,7 +35,21 @@ OlivineLighthouse1FSailorScript:
 OlivineLighthouse1FPokefanFScript:
 	jumptextfaceplayer OlivineLighthouse1FPokefanFText
 
-OlivineLighthouse1FSailorLockdownText: ; TO TRANSLATE
+OlivineLighthouse1FSailorLockdownText:
+if DEF(_FR_FR)
+	text "La plupart des"
+	line "gens dans le PHARE"
+	cont "travaillent ici."
+
+	para "Mais certains se"
+	line "sont faufilés"
+	cont "pour échapper"
+	cont "au confinement."
+
+	para "Je parie que c'est"
+	line "comme ça que PHARY"
+	cont "est tombé malade."
+else
 	text "Most people in"
 	line "this place work"
 	cont "here."
@@ -47,9 +61,22 @@ OlivineLighthouse1FSailorLockdownText: ; TO TRANSLATE
 
 	para "I bet this is how"
 	line "AMPHY got sick."
+endc
 	done
 
-OlivineLighthouse1FSailorFreedomText: ; TO TRANSLATE
+OlivineLighthouse1FSailorFreedomText:
+if DEF(_FR_FR)
+	text "Pendant le confi-"
+	line "nement, certains"
+	cont "dresseurs se ca-"
+	cont "chaient ici pour"
+	cont "y échapper."
+
+	para "Je les tiens pour"
+	line "responsables de ce"
+	cont "qui est arrivé à"
+	cont "PHARY."
+else
 	text "Some people used"
 	line "to sneak in here"
 	cont "to avoid the stay-"
@@ -58,6 +85,7 @@ OlivineLighthouse1FSailorFreedomText: ; TO TRANSLATE
 	para "I hold them res-"
 	line "ponsible for what"
 	cont "happened to AMPHY."
+endc
 	done
 
 OlivineLighthouse1FPokefanFText: 

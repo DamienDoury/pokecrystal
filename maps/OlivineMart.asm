@@ -91,7 +91,27 @@ endc
 
 	done
 
-OlivineMartYoungsterText: ; TO TRANSLATE
+OlivineMartYoungsterText:
+if DEF(_FR_FR)
+	text "Un pote à moi a"
+	line "réussi à trouver"
+
+	para "un objet au fond"
+	line "d'une étagère"
+	cont "vide."
+
+	para "Sans doute un"
+	line "objet passé entre"
+	cont "les mailles du"
+	cont "filet de la ruée,"
+
+	para "car il portait"
+	line "encore l'étiquette"
+	cont "avec son ancien"
+	cont "prix."
+	
+	para "Une super affaire!"
+else
 	text "A friend of mine"
 	line "managed to find an"
 	
@@ -106,6 +126,7 @@ OlivineMartYoungsterText: ; TO TRANSLATE
 	para "it still had the"
 	line "old price tag."
 	cont "A true bargain!"
+endc
 	done
 
 OlivineMart_MapEvents:

@@ -301,7 +301,36 @@ endc
 
 	done
 
-OakLabPikachuText: ; TO TRANSLATE
+OakLabPikachuText:
+if DEF(_FR_FR)
+	text "CHEN: Oh salut"
+	line "<PLAYER>!"
+	
+	para "J'ai entendu au"
+	line "sujet de RED à la"
+	cont "télé. Ca me fait"
+	cont "beaucoup de peine"
+	cont "ce qui lui est"
+	cont "arrivé..."
+
+	para "..."
+
+	para "J'ai croisé sa"
+	line "mère récemment."
+
+	para "Je ne sais pas si"
+	line "elle a entendu la"
+	cont "nouvelle, mais"
+	cont "elle semblait"
+	cont "inquiète."
+
+	para "Je n'ai pas le"
+	line "courage d'aller"
+	cont "lui parler."
+
+	para "Tu veux bien lui"
+	line "parler de ma part?"
+else
 	text "OAK: Oh hi"
 	line "<PLAYER>!"
 	
@@ -326,6 +355,7 @@ OakLabPikachuText: ; TO TRANSLATE
 
 	para "Perhaps you could"
 	line "do it for me."
+endc
 	done
 
 OaksAssistant1Text: 

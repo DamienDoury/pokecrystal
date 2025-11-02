@@ -183,7 +183,28 @@ endc
 
 	done
 
-SailorTerrellAfterBattleText: ; TO TRANSLATE
+SailorTerrellAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai déjà été"
+	line "forcé d'abandonner"
+	cont "mon partenaire"
+	cont "#MON."
+
+	para "Je n'avais plus"
+	line "assez d'argent pour"
+	cont "m'occuper d'elle,"
+	cont "je n'ai pas eu le"
+	cont "choix..."
+
+	para "C'était une dure"
+	line "décision, mais"
+	cont "c'était pour son"
+	cont "bien."
+
+	para "J'espère qu'elle a"
+	line "trouvé un bon"
+	cont "dresseur."
+else
 	text "I once had no"
 	line "choice but to"
 	cont "abandon my"
@@ -199,6 +220,7 @@ SailorTerrellAfterBattleText: ; TO TRANSLATE
 
 	para "I hope she's with a"
 	line "good trainer now."
+endc
 	done
 
 GentlemanPrestonSeenText: 

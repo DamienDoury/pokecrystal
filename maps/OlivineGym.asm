@@ -198,7 +198,27 @@ OlivineGymStatue:
 	gettrainername STRING_BUFFER_4, JASMINE, JASMINE1
 	jumpstd GymStatue2Script
 
-Jasmine_SteelTypeIntroText: ; TO TRANSLATE
+OlivineGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
+Jasmine_SteelTypeIntroText:
+if DEF(_FR_FR)
+	text "...Merci pour ton"
+	line "aide au PHARE..."
+
+	para "Mais c'est un peu"
+	line "différent."
+
+	para "Permets-moi de me"
+	line "présenter."
+
+	para "Je suis JASMINE la"
+	line "CHAMPIONNE d'ARENE"
+	cont "et j'utilise les"
+	cont "#MON de type"
+	cont "ACIER."
+else
 	text "…Thank you for"
 	line "your help at the"
 	cont "LIGHTHOUSE…"
@@ -212,30 +232,49 @@ Jasmine_SteelTypeIntroText: ; TO TRANSLATE
 	para "I am JASMINE, a"
 	line "GYM LEADER. I use"
 	cont "the steel-type."
+endc
 	done
 
-Jasmine_SteelTypeIntroSequelText: ; TO TRANSLATE
+Jasmine_SteelTypeIntroSequelText:
+if DEF(_FR_FR)
+	text "Je vais tester ta"
+	line "performance quand"
+	
+	para "ton équipe est"
+	line "en infériorité"
+	cont "numérique."
+else
 	text "I will test you to"
 	line "see how well you"
 
 	para "do when your team"
 	line "is outnumbered."
+endc
 	done
 
-OlivineGymPowerRestrainerExplanation:
-	text_far _GymPowerRestrainerFirstExplanation
-	text_end
+Jasmine_TeamTooBigText:
+if DEF(_FR_FR)
+	text "...Tu n'as droit"
+	line "qu'à 3 #MON."
 
-Jasmine_TeamTooBigText: ; TO TRANSLATE
+	para "Va en déposer"
+	line "dans un PC."
+else
 	text "…You can have"
 	line "up to 3 #MON."
 
 	para "Please go deposit"
 	line "some into a PC."
+endc
 	done
 
-Jasmine_ValidatesTeamText: ; TO TRANSLATE
+Jasmine_ValidatesTeamText:
+if DEF(_FR_FR)
+	text "Hum...? Je peux"
+	line "commencer?"
+else
 	text "…Um… May I begin?"
+endc
 	done
 
 Jasmine_BetterTrainer: 
@@ -279,9 +318,14 @@ endc
 
 	done
 
-Jasmine_BadgeSpeech: ; TO TRANSLATE
+Jasmine_BadgeSpeech:
+if DEF(_FR_FR)
+	text "Prends donc ceci"
+	line "aussi..."
+else
 	text "…Um… Please take"
 	line "this too…"
+endc
 	done
 
 Jasmine_IronTailSpeech: 

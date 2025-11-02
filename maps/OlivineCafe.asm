@@ -34,7 +34,23 @@ OlivineCafeSailorScript:
 	faceplayer
 	jumptext OlivineCafeSailorText2
 
-OlivineCafeSailorStrengthText: ; TO TRANSLATE
+OlivineCafeSailorStrengthText:
+if DEF(_FR_FR)
+	text "Le CAFE D'OLIVILLE"
+	line "servait autrefois"
+	
+	para "des plats copieux"
+	line "qui donnaient aux"
+	cont "MARINS costauds"
+	cont "de la FORCE!"
+
+	para "Mais c'était pas"
+	line "pratique à livrer."
+
+	para "Alors ils sont"
+	line "passés aux salades"
+	cont "de BAIES."
+else
 	text "OLIVINE CAFE used"
 	line "to serve hearty"
 
@@ -48,17 +64,32 @@ OlivineCafeSailorStrengthText: ; TO TRANSLATE
 
 	para "So they switched"
 	line "to BERRY salads."
+endc
 	done
 
-OlivineCafeSailorText: ; TO TRANSLATE
+OlivineCafeSailorText:
+if DEF(_FR_FR)
+	text "Dépêche-toi!"
+	line "HOP HOP!"
+else
 	text "Hurry up!"
 	line "CHOP CHOP!"
+endc
 	done
+
+
+OlivineCafeSailorText2:
+if DEF(_FR_FR)
+	text "Si ma commande"
+	line "n'arrive pas rapido"
 	
-OlivineCafeSailorText2: ; TO TRANSLATE
+	para "j'vais rater"
+	line "mon bateau!"
+else
 	text "If I ain't gettin"
 	line "my order quickly,"
 	cont "Imma miss m'boat!"
+endc
 	done
 
 OlivineCafe_MapEvents:

@@ -111,7 +111,23 @@ endc
 
 	done
 
-LassConnie1AfterBattleText: ; TO TRANSLATE
+LassConnie1AfterBattleText:
+if DEF(_FR_FR)
+	text "Savais-tu que le"
+	line "nombre de #MON"
+	cont "abandonnés a"
+	cont "augmenté depuis"
+	cont "le début de la"
+	cont "pandémie?"
+
+	para "C'est une INFIR-"
+	line "MIERE d'un CENTRE"
+	cont "#MON qui me"
+	cont "l'a dit."
+
+	para "Elle en recueille"
+	line "un grand nombre."
+else
 	text "Did you know that"
 	line "the number of"
 	cont "abandonned #MON"
@@ -126,6 +142,7 @@ LassConnie1AfterBattleText: ; TO TRANSLATE
 
 	para "She takes most"
 	line "of them in."
+endc
 	done
 
 OlivineLighthouse4F_MapEvents:

@@ -383,24 +383,46 @@ endc
 
 	done
 
-OlivinePortAskPassportText: ; TO TRANSLATE
+OlivinePortAskPassportText:
+if DEF(_FR_FR)
+	text "J'ai aussi besoin"
+	line "de voir ta CARTE"
+	cont "DRESSEUR."
+else
 	text "I also need to see"
 	line "your TRAINER CARD."
+endc
 	done
 
-OlivinePortFakeIDText: ; TO TRANSLATE
+OlivinePortFakeIDText:
+if DEF(_FR_FR)
+	text "Quoi? C'est la"
+	line "photo de quelqu'un"
+	cont "d'autre sur cette"
+	cont "CARTE!"
+
+	para "Fuis avant que"
+	line "j'appelle la"
+	cont "police!"
+else
 	text "What? It's the pic-"
 	line "ture of someone"
 	cont "else on the CARD!"
 
 	para "Run away before I"
 	line "call the police!"
+endc
 	done
 
-OlivinePortFlashPassportText: ; TO TRANSLATE
+OlivinePortFlashPassportText:
+if DEF(_FR_FR)
+	text "Tout est en ordre."
+	line "Tu peux passer!"
+else
 	text "Everything is in"
 	line "order. You can"
 	cont "go on!"
+endc
 	done
 
 OlivinePortNoTicketText: 
@@ -433,21 +455,44 @@ endc
 
 	done
 
-OlivinePortCantShowPassportText: ; TO TRANSLATE
+OlivinePortCantShowPassportText:
+if DEF(_FR_FR)
+	text "<PLAYER> tente de"
+	line "montrer sa CARTE"
+	cont "DRESSEUR..."
+	
+	para "...Mais ne"
+	line "l'a pas!"
+else
 	text "<PLAYER> tried to"
 	line "show the TRAINER"
 	cont "CARD…"
 
 	para "…But doesn't"
 	line "have it!"
+endc
 	done
 
-OlivinePortShowPassportText: ; TO TRANSLATE
+OlivinePortShowPassportText:
+if DEF(_FR_FR)
+	text "<PLAYER> montre sa"
+	line "CARTE DRESSEUR."
+else
 	text "<PLAYER> flashed"
 	line "the TRAINER CARD."
+endc
 	done
 
-OlivinePortPassportInvalidText: ; TO TRANSLATE
+OlivinePortPassportInvalidText:
+if DEF(_FR_FR)
+	text "Désolé!"
+	
+	para "Tu dois montrer"
+	line "une CARTE DRESSEUR"
+	
+	para "avec un PASS"
+	line "VACCINAL valide."
+else
 	text "Sorry!"
 	
 	para "You need to show"
@@ -455,15 +500,25 @@ OlivinePortPassportInvalidText: ; TO TRANSLATE
 
 	para "with a valid "
 	line "VACCINE PASSPORT."
+endc
 	done
 
-OlivinePortPassportNoBoosterText: ; TO TRANSLATE
+OlivinePortPassportNoBoosterText:
+if DEF(_FR_FR)
+	text "Désolé! Ton PASS"
+	line "VACCINAL a expiré."
+
+	para "Une dose de rappel"
+	line "est désormais"
+	cont "requise."
+else
 	text "Sorry!"
 	line "Your VACCINE PASS-"
 	cont "PORT is expired."
 
 	para "A booster dose is"
 	line "now required."
+endc
 	done
 
 OlivinePortMondayShipText: 
@@ -478,9 +533,15 @@ endc
 
 	done
 
-OlivinePortWednesdayShipText: ; TO TRANSLATE
+OlivinePortWednesdayShipText:
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "partira mercredi"
+	cont "prochain."
+else
 	text "The FAST SHIP will"
 	line "sail on Wednesday."
+endc
 	done
 
 OlivinePortFridayShipText: 
@@ -495,9 +556,15 @@ endc
 
 	done
 
-OlivinePortSundayShipText: ; TO TRANSLATE
+OlivinePortSundayShipText:
+if DEF(_FR_FR)
+	text "Le BATEAU EXPRESS"
+	line "partira dimanche"
+	cont "prochain."
+else
 	text "The FAST SHIP will"
 	line "sail next Sunday."
+endc
 	done
 
 OlivinePortFishingGuru1Text: 
@@ -584,7 +651,19 @@ endc
 
 	done
 
-OlivinePortAttentionSeekerText: ; TO TRANSLATE
+OlivinePortAttentionSeekerText:
+if DEF(_FR_FR)
+	text "Je n'ai pas le"
+	line "droit de nager"
+	cont "ici."
+
+	para "Je le fais parce"
+	line "que j'aime attirer"
+	cont "l'attention."
+
+	para "Merci pour ton"
+	line "attention!"
+else
 	text "I'm not allowed"
 	line "to swim here."
 
@@ -594,6 +673,7 @@ OlivinePortAttentionSeekerText: ; TO TRANSLATE
 
 	para "Thanks for your"
 	line "attention!"
+endc
 	done
 
 OlivinePort_MapEvents:
