@@ -750,7 +750,25 @@ IlexForestPlayerStepsDownMovement:
 	remove_fixed_facing
 	step_end
 
-IlexForestApprenticeIntroText: ; TO TRANSLATE
+IlexForestApprenticeIntroText:
+if DEF(_FR_FR)
+	text "APPRENTI: Houlà..."
+	line "Mon chef va être"
+	cont "super furax!"
+	
+	para "Le CANARTICHO qui"
+	line "COUPE des arbres"
+
+	para "pour faire du"
+	line "charbon est parti."
+
+	para "Je peux pas le"
+	line "chercher dans le"
+	cont "BOIS AUX CHENES."
+
+	para "Parce que..."
+	line "J'ai peur..."
+else
 	text "APPRENTICE: Oh,"
 	line "man…"
 	
@@ -769,17 +787,19 @@ IlexForestApprenticeIntroText: ; TO TRANSLATE
 
 	para "It's too big, dark"
 	line "and scary for me…"
+endc
 	done
 
-IlexForestApprenticeAfterText: ; TO TRANSLATE
+
+IlexForestApprenticeAfterText:
+if DEF(_FR_FR)
+	text "APPRENTI: Woah!"
+	line "Merci beaucoup!"
+else
 	text "APPRENTICE: Wow!"
 	line "Thanks a whole"
 	cont "bunch!"
-
-	para "My boss's #MON"
-	line "won't obey me be-"
-	cont "cause I don't have"
-	cont "a BADGE."
+endc
 	done
 
 Text_ItsTheMissingPokemon: 
@@ -802,7 +822,30 @@ endc
 
 	done
 
-Text_CharcoalMasterIntro: ; TO TRANSLATE
+Text_CharcoalMasterIntro:
+if DEF(_FR_FR)
+	text "Ah! CANARTICHO!"
+
+	para "Tu nous l'as"
+	line "retrouvé?"
+
+	para "Sans lui, on ne"
+	line "peut pas COUPER"
+
+	para "les arbres pour"
+	line "faire du charbon."
+
+	para "Merci!"
+
+	para "Bon. Comment te"
+	line "remercier..."
+
+	para "Je sais! J'ai un"
+	line "cadeau pour toi"
+	cont "chez moi."
+
+	para "Viens avec moi."
+else
 	text "Ah! My FARFETCH'D!"
 
 	para "You found it for"
@@ -824,6 +867,7 @@ Text_CharcoalMasterIntro: ; TO TRANSLATE
 	cont "my place."
 
 	para "Come with me."
+endc
 	done
 
 Text_CharcoalMasterTalkAfter: 
@@ -869,7 +913,18 @@ endc
 
 	done
 
-Text_HeadbuttOutro: ; TO TRANSLATE
+Text_HeadbuttOutro:
+if DEF(_FR_FR)
+	text "Cogne les arbres"
+	line "avec un COUP"
+	cont "D'BOULE et des"
+	cont "#MON endormis"
+	cont "tomberont parfois."
+
+	para "Si rien ne tombe,"
+	line "essaie un autre"
+	cont "arbre."
+else
 	text "Rattle trees with"
 	line "HEADBUTT. Some-"
 	cont "times, sleeping"
@@ -878,6 +933,7 @@ Text_HeadbuttOutro: ; TO TRANSLATE
 	para "If nothing falls"
 	line "out, try another"
 	cont "tree."
+endc
 	done
 
 Text_IlexForestLass: 
@@ -1086,7 +1142,17 @@ endc
 
 	done
 
-BugCatcherWayneAfterBattleLockdownText: ; TO TRANSLATE
+BugCatcherWayneAfterBattleLockdownText:
+if DEF(_FR_FR)
+	text "Je ne supporte pas"
+	line "d'être cloîtré"
+	cont "entre quatre murs."
+	
+	para "Alors je viens"
+	line "prendre l'air"
+	cont "frais ici, loin"
+	cont "de la police."
+else
 	text "I can't stand being"
 	line "stuck within four"
 	cont "walls."
@@ -1097,9 +1163,21 @@ BugCatcherWayneAfterBattleLockdownText: ; TO TRANSLATE
 	
 	para "far away from"
 	line "the police."
+endc
 	done
 
-BugCatcherWayneAfterBattleCurfewText: ; TO TRANSLATE
+
+BugCatcherWayneAfterBattleCurfewText:
+if DEF(_FR_FR)
+	text "Je n'ai pas réussi"
+	line "à rentrer avant"
+	cont "le couvre-feu..."
+	
+	para "Alors je passe la"
+	line "nuit dans les bois"
+	cont "pour éviter la"
+	cont "police."
+else
 	text "I couldn't get"
 	line "home before"
 	cont "curfew…"
@@ -1108,10 +1186,22 @@ BugCatcherWayneAfterBattleCurfewText: ; TO TRANSLATE
 	line "the night in the"
 	cont "woods, hidden"
 	cont "from the police."
+endc
 	done
 
+
+BugCatcherWayneAfterBattleVaccinationPassText:
+if DEF(_FR_FR)
+	text "Je refuse de me"
+	line "faire vacciner."
 	
-BugCatcherWayneAfterBattleVaccinationPassText: ; TO TRANSLATE
+	para "Une balade en"
+	line "forêt est à peu"
+	
+	para "près la seule"
+	line "activité légale"
+	cont "que je peux faire."
+else
 	text "I don't want to"
 	line "get vaccinated."
 	
@@ -1121,6 +1211,7 @@ BugCatcherWayneAfterBattleVaccinationPassText: ; TO TRANSLATE
 	para "much the only"
 	line "legal activity"
 	cont "I can do."
+endc
 	done
 
 IlexForest_MapEvents:

@@ -308,7 +308,25 @@ endc
 
 	done
 
-TeleportGuyText1: ; TO TRANSLATE
+TeleportGuyText1:
+if DEF(_FR_FR)
+	text "Ah! Tu défies le"
+	line "CONSEIL des 4?"
+
+	para "Stylé!"
+	line "J'offrais autre-"
+	cont "fois un service"
+
+	para "de TÉLÉPORTATION,"
+	line "mais maintenant"
+	cont "c'est interdit à"
+
+	para "cause des mesures"
+	line "sanitaires..."
+
+	para "Du coup je suis"
+	line "coincé ici."
+else
 	text "Ah! You're chal-"
 	line "lenging the ELITE"
 
@@ -324,6 +342,7 @@ TeleportGuyText1: ; TO TRANSLATE
 	para "restrictions…"
 
 	para "I'm stuck here."
+endc
 	done
 
 AbraText: 
@@ -335,7 +354,51 @@ endc
 
 	done
 
-IndigoPlateauGymGuideText: ; TO TRANSLATE
+IndigoPlateauGymGuideText:
+if DEF(_FR_FR)
+	text "Salutations,"
+	line "challenger."
+	
+	para "Au-delà de ces"
+	line "escaliers se"
+	cont "trouve la LIGUE"
+	cont "#MON."
+
+	para "C'est le plus"
+	line "grand défi de"
+	cont "JOHTO et KANTO."
+
+	para "Tout comme les"
+	line "CHAMPIONS D'ARENE,"
+	cont "ils utilisent un"
+	cont "LIMITEUR DE FORCE."
+
+	para "Cela abaisse le"
+	line "niveau de leur"
+	cont "équipe jusqu'à"
+
+	para "40 niveaux pour"
+	line "égaler ton #MON"
+	cont "le plus fort."
+
+	para "Contrairement aux"
+	line "CHAMPIONS D'ARENE,"
+	cont "ils n'ont pas de"
+	cont "challenge spécial."
+
+	para "Il n'y a qu'une"
+	line "règle:"
+
+	para "Bats les 4 membres"
+	line "du CONSEIL et le"
+	cont "MAITRE d'affilé."
+
+	para "Si tu perds, il"
+	line "faut recommencer"
+	cont "du début."
+
+	para "Bonne chance!"
+else
 	text "Hello trainer."
 	
 	para "Beyond these"
@@ -376,6 +439,7 @@ IndigoPlateauGymGuideText: ; TO TRANSLATE
 	cont "over again."
 
 	para "Good luck!"
+endc
 	done
 
 IndigoPlateauPokecenter1F_MapEvents:
