@@ -42,18 +42,42 @@ PewterMuseum1FBooks:
 PewterMuseum1FClosedDoor:
 	jumptext PewterMuseum1FClosedDoorText
 
-PewterMuseum1FHoleText: ; TO TRANSLATE
+PewterMuseum1FHoleText:
+if DEF(_FR_FR)
+	text "Un #MON a"
+	line "fait un trou"
+	cont "dans le mur."
+else
 	text "A #MON made a"
 	line "hole in the wall."
+endc
 	done
 
-PewterMuseum1FHelixText: ; TO TRANSLATE
+PewterMuseum1FHelixText:
+if DEF(_FR_FR)
+	text "Une peinture"
+	line "murale ancestrale"
+	cont "d'un #MON vénéré"
+else
 	text "An ancient wall"
 	line "painting of a"
 	cont "revered #MON."
+endc
 	done
 
-PewterMuseum1FBrokenGlassText: ; TO TRANSLATE
+PewterMuseum1FBrokenGlassText:
+if DEF(_FR_FR)
+	text "“Cette plume"
+	line "appartiendrait à"
+	cont "un ancien #MON"
+	cont "légendaire.”"
+
+	para "Le verre est"
+	line "brisé."
+
+	para "Impossible de la"
+	line "voir de ce côté."
+else
 	text "“This feather is"
 	line "said to belong to"
 	cont "an old legendary"
@@ -64,21 +88,46 @@ PewterMuseum1FBrokenGlassText: ; TO TRANSLATE
 
 	para "Can't see it"
 	line "from here."
+endc
 	done
 
-PewterMuseum1FCounterText: ; TO TRANSLATE
+PewterMuseum1FCounterText:
+if DEF(_FR_FR)
+	text "Le comptoir est"
+	line "démoli."
+else
 	text "The counter is"
 	line "broken."
+endc
 	done
 
-PewterMuseum1FDNAText: ; TO TRANSLATE
+PewterMuseum1FDNAText:
+if DEF(_FR_FR)
+	text "“Ce VIEIL AMBRE"
+	line "contient l'ADN"
+	cont "d'un #MON pré-"
+	cont "historique.”"
+else
 	text "“This OLD AMBER"
 	line "contains the DNA"
 	cont "of a prehistoric"
 	cont "#MON.”"
+endc
 	done
 
-PewterMuseum1FStoolText: ; TO TRANSLATE
+PewterMuseum1FStoolText:
+if DEF(_FR_FR)
+	text "Par tous les"
+	line "saints..."
+
+	para "Le tabouret n'a pas"
+	line "été replacé per-"
+	cont "pendiculairement"
+	cont "au carrelage."
+
+	para "C'est"
+	line "INACCEPTABLE!"
+else
 	text "Oh dear lord…"
 
 	para "The stool hasn't"
@@ -88,16 +137,28 @@ PewterMuseum1FStoolText: ; TO TRANSLATE
 	
 	para "This is"
 	line "UNACCEPTABLE!"
+endc
 	done
 
-PewterMuseum1FBooksText: ; TO TRANSLATE
+PewterMuseum1FBooksText:
+if DEF(_FR_FR)
+	text "Beaucoup de livres"
+	line "ont disparu."
+else
 	text "Many books are"
 	line "missing."
+endc
 	done
 
-PewterMuseum1FClosedDoorText: ; TO TRANSLATE
+PewterMuseum1FClosedDoorText:
+if DEF(_FR_FR)
+	text "La porte est"
+	line "fermée de"
+	cont "l'extérieur."
+else
 	text "The door is closed"
 	line "from the outside."
+endc
 	done
 
 	PewterMuseum1F_MapEvents:

@@ -433,28 +433,57 @@ MomWalksBackMovement:
 	slow_step LEFT
 	step_end
 
-SmellText: ; TO TRANSLATE
+SmellText:
+if DEF(_FR_FR)
+	text "Ca sent bon!"
+	
+	para "Maman est bonne"
+	line "cuisinière!"
+else
 	text "Smells good!"
 	line "Mom's a good cook!"
+endc
 	done
 
-PlayerSeatText: ; TO TRANSLATE
+PlayerSeatText:
+if DEF(_FR_FR)
+	text "C'est ma place"
+	line "à table."
+
+	para "Elle a la meilleu-"
+	line "re vue sur la"
+	cont "télé!"
+else
 	text "This is my seat"
 	line "at the table."
 
 	para "It has the best"
 	line "view on the TV!"
+endc
 	done
 
-MomsSeatText: ; TO TRANSLATE
+MomsSeatText:
+if DEF(_FR_FR)
+	text "La chaise de Maman"
+	line "a de jolis"
+	cont "coussins."
+else
 	text "Mom's seat has"
 	line "lovely cushions."
+endc
 	done
 
-SocialDistancingText: ; TO TRANSLATE
-	text "<PLAYER> remember"
+SocialDistancingText:
+if DEF(_FR_FR)
+	text "<PLAYER>, n'oublie"
+	line "pas de garder 1"
+	cont "pas de distance"
+	cont "sociale."
+else
+	text "<PLAYER>, remember"
 	line "to keep 1 step of"
 	cont "social distancing."
+endc
 	done
 
 ElmsLookingForYouText: 
@@ -568,8 +597,12 @@ endc
 
 	done
 
-KnowTheInstructionsText: ; TO TRANSLATE
+KnowTheInstructionsText:
+if DEF(_FR_FR)
+	text "Nickel!"
+else
 	text "Great!"
+endc
 	done
 
 DontKnowTheInstructionsText: 
@@ -618,7 +651,32 @@ endc
 
 	done
 
-CovidIntroText: ; TO TRANSLATE
+CovidIntroText:
+if DEF(_FR_FR)
+	text "Une dernière"
+	line "chose!"
+
+	para "Ils parlent d'un"
+	line "nouveau virus aux"
+	cont "infos."
+
+	para "Les médecins à la"
+	line "télé recommandent"
+	cont "de garder à 1 pas"
+	cont "de distance quand"
+	cont "on parle à quel-"
+	cont "qu'un d'autre."
+
+	para "Désormais, les"
+	line "gens pourraient"
+	cont "refuser de te"
+	cont "parler si tu ne"
+	cont "respectes pas"
+	cont "cette règle."
+
+	para "Sois prudent"
+	line "là-dehors!"
+else
 	text "One last thing!"
 	line "They are talking"
 	cont "about a new virus"
@@ -637,6 +695,7 @@ CovidIntroText: ; TO TRANSLATE
 
 	para "Be careful"
 	line "out there!"
+endc
 	done
 
 HurryUpElmIsWaitingText: 
@@ -745,7 +804,19 @@ endc
 
 	done
 
-NeighborText: ; TO TRANSLATE
+NeighborText:
+if DEF(_FR_FR)
+	text "Tu as entendu?"
+	line "Certaines person-"
+	cont "nes ont attrapé"
+
+	para "un virus jamais vu"
+	line "auparavant."
+
+	para "Pas d'inquiétude,"
+	line "je suis sûr qu'on"
+	cont "ira bien!"
+else
 	text "Have you heard?"
 	line "Some people caught"
 
@@ -755,30 +826,65 @@ NeighborText: ; TO TRANSLATE
 	para "Nothing to worry"
 	line "about, I'm sure"
 	cont "we will be fine!"
+endc
 	done
 
-PlayersHouse1FStoveText: ; TO TRANSLATE
+PlayersHouse1FStoveText:
+if DEF(_FR_FR)
+	text "La spécialité de"
+	line "Maman!"
+
+	para "Les MAKIS"
+	line "TOURBILLON"
+	cont "d'IRISIA !"
+else
 	text "Mom's specialty!"
 
 	para "CIANWOOD WHIRL"
 	line "MAKIS!"
+endc
 	done
 
-PlayersHouse1FSinkText: ; TO TRANSLATE
+PlayersHouse1FSinkText:
+if DEF(_FR_FR)
+	text "L'évier brille."
+	line "Maman aime qu'il"
+	cont "soit propre."
+else
 	text "The sink is spot-"
 	line "less. MOM likes it"
 	cont "clean."
+endc
 	done
 
-EmptyFridgeText: ; TO TRANSLATE
+EmptyFridgeText:
+if DEF(_FR_FR)
+	text "C'est vide..."
+
+	para "Peut-être que"
+	line "Maman n'a pas assez"
+	cont "d'argent pour faire"
+	cont "faire les courses?"
+else
 	text "It's empty…"
 
 	para "Maybe MOM doesn't"
 	line "have enough money"
 	cont "to do groceries?"
+endc
 	done
 
-PlayersHouse1FFridgeText: ; TO TRANSLATE
+PlayersHouse1FFridgeText:
+if DEF(_FR_FR)
+	text "Voyons ce qu'il y a"
+	line "dans le frigo..."
+
+	para "De l'EAU FRAICHE et"
+	line "un THE AU LAIT!"
+
+	para "Prendre l'EAU"
+	line "FRAICHE?"
+else
 	text "Let's see what's"
 	line "in the fridge…"
 
@@ -787,21 +893,38 @@ PlayersHouse1FFridgeText: ; TO TRANSLATE
 
 	para "Take the FRESH"
 	line "WATER?"
+endc
 	done
 
-AskLemonadeFridgeText: ; TO TRANSLATE
+AskLemonadeFridgeText:
+if DEF(_FR_FR)
+	text "Prendre le THE"
+	line "AU LAIT?"
+else
 	text "Take the MILK"
 	line "TEA?"
+endc
 	done
 
-OtherDrinkIsForMomText: ; TO TRANSLATE
+OtherDrinkIsForMomText:
+if DEF(_FR_FR)
+	text "L'autre boisson"
+	line "est pour Maman."
+else
 	text "The other drink"
 	line "is for MOM."
+endc
 	done
 
-NowWeCanTalkText: ; TO TRANSLATE
+NowWeCanTalkText:
+if DEF(_FR_FR)
+	text "Parfait! Mainte-"
+	line "nant on peut"
+	cont "parler!"
+else
 	text "Perfect!"
 	line "Now we can talk!"
+endc
 	done
 
 PlayersHouse1F_MapEvents:

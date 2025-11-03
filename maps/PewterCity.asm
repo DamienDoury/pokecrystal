@@ -112,7 +112,21 @@ PewterCity_Door2Script:
 	closetext
 	end
 
-PewterCityCooltrainerFText: ; TO TRANSLATE
+PewterCityCooltrainerFText:
+if DEF(_FR_FR)
+	text "Des jeunes ont"
+	line "organisé une fête"
+	cont "illégale dans"
+	cont "notre précieux"
+	cont "MUSEE."
+
+	para "Quel manque de"
+	line "respect!"
+
+	para "Depuis, on a"
+	line "scellé les portes"
+	cont "avec des chaînes."
+else
 	text "Young people had"
 	line "organized an il-"
 	cont "legal party in our"
@@ -123,9 +137,26 @@ PewterCityCooltrainerFText: ; TO TRANSLATE
 	para "Now the doors have"
 	line "been locked with"
 	cont "chains."
+endc
 	done
 
-PewterCityBugCatcherJustSavedText: ; TO TRANSLATE
+PewterCityBugCatcherJustSavedText:
+if DEF(_FR_FR)
+	text "Merci d'avoir"
+	line "réglé le problème"
+	cont "de la forêt."
+
+	para "J'ai vraiment cru"
+	line "que j'allais y"
+	cont "rester coincé"
+	cont "pour toujours..."
+
+	para "Mon papi veut"
+	line "te remercier."
+
+	para "Il se promène"
+	line "dans la ville."
+else
 	text "Thank you for"
 	line "“fixing” the"
 	cont "forest."
@@ -139,9 +170,23 @@ PewterCityBugCatcherJustSavedText: ; TO TRANSLATE
 
 	para "He's walking around"
 	line "in the city."
+endc
 	done
 
-PewterCityBugCatcherText: ; TO TRANSLATE
+PewterCityBugCatcherText:
+if DEF(_FR_FR)
+	text "La nuit, les"
+	line "MELOFEE sortent"
+	cont "jouer au MONT"
+	cont "SELENITE."
+
+	para "Mais pas toutes"
+	line "les nuits."
+
+	para "Mais je n'irai pas."
+	line "J'ai peur d'encore"
+	cont "me perdre."
+else
 	text "At night, CLEFAIRY"
 	line "come out to play"
 	cont "at MT.MOON."
@@ -152,9 +197,24 @@ PewterCityBugCatcherText: ; TO TRANSLATE
 	para "But I won't go."
 	line "I'm afraid to get"
 	cont "lost once again."
+endc
 	done
 
-PewterCityGrampsLostGrandKidText: ; TO TRANSLATE
+PewterCityGrampsLostGrandKidText:
+if DEF(_FR_FR)
+	text "Mon petit-fils est"
+	line "allé cueillir des"
+	cont "baies dans la"
+	cont "FORET DE JADE, et"
+	cont "n'est jamais"
+	cont "revenu..."
+
+	para "Toi! Tu es"
+	line "dresseur #MON!"
+
+	para "Va le chercher,"
+	line "je t'en supplie!"
+else
 	text "My grand-kid went"
 	line "picking berries"
 	cont "in VIRIDIAN FOREST"
@@ -167,9 +227,41 @@ PewterCityGrampsLostGrandKidText: ; TO TRANSLATE
 	para "Please go search"
 	line "my grand-kid,"
 	cont "I'm begging you!"
+endc
 	done
 
-PewterCityGrampsText: ; TO TRANSLATE
+PewterCityGrampsText:
+if DEF(_FR_FR)
+	text "Ah, c'est toi qui"
+	line "as résolu le"
+	cont "mystère de la"
+	cont "forêt."
+
+	para "Grâce à toi, mon"
+	line "petit-fils s'en"
+	cont "est sorti vivant."
+
+	para "Je te suis"
+	line "redevable."
+
+	para "Comment te"
+	line "remercier?"
+
+	para "Oh, j'ai trouvé!"
+
+	para "Les gens appréci-"
+	line "aient le MUSEE"
+	cont "DES SCIENCES."
+
+	para "C'est moi qui l'ai"
+	line "condamné."
+
+	para "Voici un doublon"
+	line "de la clé. Je te"
+	cont "fais confiance"
+	cont "pour refermer en"
+	cont "partant."
+else
 	text "Ah, you're the one"
 	line "that solved the"
 	cont "forest's mystery."
@@ -194,9 +286,44 @@ PewterCityGrampsText: ; TO TRANSLATE
 	line "I trust you to"
 	cont "close the place"
 	cont "when you leave."
+endc
 	done
 
-PewterCityGrampsText_GotMuseumKey: ; TO TRANSLATE
+PewterCityGrampsText_GotMuseumKey:
+if DEF(_FR_FR)
+	text "Quand tu étais"
+	line "dans la FORET DE"
+	cont "JADE, j'ai pu"
+
+	para "apercevoir le"
+	line "#MON mythique"
+	cont "de la foudre"
+
+	para "plonger dans la"
+	line "forêt depuis le"
+	cont "ciel. Puis une"
+
+	para "autre créature"
+	line "féerique s'enfuir"
+	cont "de la forêt en"
+	
+	para "flottant dans les"
+	line "airs vers l'Ouest."
+
+	para "Est-ce que le"
+	line "premier #MON"
+	cont "gardait le second"
+	cont "prisonnier?"
+	
+	para "Ou bien est-ce que"
+	line "le premier #MON"
+	cont "est venu à la"
+	cont "rescousse du"
+	cont "second?"
+
+	para "Difficile à"
+	line "dire..."
+else
 	text "When you were into"
 	line "VIRIDIAN FOREST,"
 
@@ -222,6 +349,7 @@ PewterCityGrampsText_GotMuseumKey: ; TO TRANSLATE
 	cont "ect the other one?"
 
 	para "It's hard to tell…"
+endc
 	done
 
 PewterCitySignText: 
@@ -254,7 +382,25 @@ endc
 
 	done
 
-PewterMuseumSignText: ; TO TRANSLATE
+PewterMuseumSignText:
+if DEF(_FR_FR)
+	text "Un affiche est"
+	line "placardée..."
+
+	para "Nous sommes au"
+	line "regret de vous"
+	
+	para "informer qu'en"
+	line "raison du manque"
+
+	para "de clients durant"
+	line "les confinements,"
+
+	para "le MUSEE DES"
+	line "SCIENCES D'ARGENTA"
+
+	para "a déposé le bilan."
+else
 	text "There's a notice"
 	line "here…"
 
@@ -269,24 +415,43 @@ PewterMuseumSignText: ; TO TRANSLATE
 
 	para "SCIENCE has filed"
 	line "for bankruptcy."
+endc
 	done
 
-PewterMuseumHeavyChainText: ; TO TRANSLATE
+PewterMuseumHeavyChainText:
+if DEF(_FR_FR)
+	text "Une lourde chaîne"
+	line "garde la porte"
+	cont "verrouillée."
+else
 	text "A heavy chain"
 	line "keeps the door"
 	cont "locked."
+endc
 	done
 
-PewterMuseumKeyDoesntFitText: ; TO TRANSLATE
+PewterMuseumKeyDoesntFitText:
+if DEF(_FR_FR)
+	text "La CLE DU MUSEE"
+	line "ne rentre pas dans"
+	cont "ce cadenas."
+else
 	text "The MUSEUM KEY"
 	line "doesn't fit into"
 	cont "the padlock."
+endc
 	done
 
-PewterMuseumKeySuccessText: ; TO TRANSLATE
+PewterMuseumKeySuccessText:
+if DEF(_FR_FR)
+	text "La CLE DU MUSEE"
+	line "a déverrouillé la"
+	cont "chaîne."
+else
 	text "The MUSEUM KEY"
 	line "unlocked the"
 	cont "chain."
+endc
 	done
 
 PewterCityMtMoonGiftShopSignText: 

@@ -167,8 +167,9 @@ SECTION "Map Scripts 9", ROMX
 INCLUDE "maps/ElmsLab.asm"
 INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
-INCLUDE "maps/DiglettsCave.asm"
 INCLUDE "maps/EusineHouse.asm"
+INCLUDE "maps/DragonsDen1F.asm"
+INCLUDE "maps/SaffronMart.asm"
 
 
 SECTION "Map Scripts 10", ROMX
@@ -292,11 +293,11 @@ INCLUDE "maps/CeruleanMart.asm"
 INCLUDE "maps/PowerPlant.asm"
 INCLUDE "maps/BillsHouse.asm"
 INCLUDE "maps/SaffronGym.asm"
-INCLUDE "maps/SaffronMart.asm"
 INCLUDE "maps/SaffronPokecenter1F.asm"
 INCLUDE "maps/Route12.asm"
 INCLUDE "maps/CopycatsHouse1F.asm"
 INCLUDE "maps/CopycatsHouse2F.asm"
+INCLUDE "maps/DiglettsCave.asm"
 
 
 SECTION "Map Scripts 16", ROMX
@@ -311,7 +312,6 @@ INCLUDE "maps/WhirlIslandB1F.asm"
 INCLUDE "maps/WhirlIslandB2F.asm"
 INCLUDE "maps/WhirlIslandLugiaChamber.asm"
 INCLUDE "maps/SilverCaveRoom3.asm"
-INCLUDE "maps/DragonsDen1F.asm"
 INCLUDE "maps/DragonsDenB1F.asm"
 INCLUDE "maps/DragonShrine.asm"
 INCLUDE "maps/CharcoalKiln.asm"

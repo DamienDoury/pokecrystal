@@ -144,7 +144,20 @@ endc
 
 	done
 
-PlayersHousePlayersTVText: ; TO TRANSLATE
+PlayersHousePlayersTVText:
+if DEF(_FR_FR)
+	text "Mon anime préféré!"
+	line "C'est l'histoire de"
+
+	para "Oh non! C'est"
+	line "interrompu par un"
+	cont "journal télé..."
+
+	para "..."
+
+	para "Il est temps de"
+	line "sortir."
+else
 	text "My favorite anime!"
 	line "It's the story of"
 
@@ -155,6 +168,7 @@ PlayersHousePlayersTVText: ; TO TRANSLATE
 	para "…"
 
 	para "Time to go out."
+endc
 	done
 
 PlayersHouse2F_MapEvents:

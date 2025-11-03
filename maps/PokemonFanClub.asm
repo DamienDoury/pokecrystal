@@ -420,12 +420,20 @@ endc
 
 	done
 
-PokemonFanClubTeacherText: ; TO TRANSLATE
+PokemonFanClubTeacherText:
+if DEF(_FR_FR)
+	text "Regarde donc mon"
+	line "GERMIGNON!"
+
+	para "La feuille sur sa"
+	line "tête est mignonne!"
+else
 	text "Look at my darling"
 	line "CHIKORITA!"
 
 	para "The leaf on its"
 	line "head is so cute!"
+endc
 	done
 
 PokemonFanClubClefairyDollText: 
@@ -448,9 +456,14 @@ endc
 
 	done
 
-PokemonFanClubChikoritaText: ; TO TRANSLATE
+PokemonFanClubChikoritaText:
+if DEF(_FR_FR)
+	text "GERMIGNON: Mi"
+	line "miiii!"
+else
 	text "CHIKORITA: Chi"
 	line "chiii!"
+endc
 	done
 
 PokemonFanClubListenSignText: 

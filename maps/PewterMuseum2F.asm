@@ -26,16 +26,29 @@ PewterMuseum2FRattataScript:
 PewterMuseum2FOldAmber:
 	itemball OLD_AMBER
 
-PewterMuseum2FText: ; TO TRANSLATE
+PewterMuseum2FText:
+if DEF(_FR_FR)
+	text "Des météorites"
+	line "tombés sur le"
+	cont "MONT SELENITE."
+	cont "(PIERRE LUNE?)"
+else
 	text "“Meteorite that"
 	line "fell on MT.MOON."
 	cont "(MOON STONE?)”"
+endc
 	done
 
-MuseumSpaceShuttleText: ; TO TRANSLATE
+MuseumSpaceShuttleText:
+if DEF(_FR_FR)
+	text "NAVETTE SPATIALE"
+	line "COLUMBIA"
+	cont "Aucun accident!"
+else
 	text "“SPACE SHUTTLE"
 	line "COLUMBIA -"
 	cont "Never crashed!”"
+endc
 	done
 
 	PewterMuseum2F_MapEvents:

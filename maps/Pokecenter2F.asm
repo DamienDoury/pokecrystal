@@ -700,15 +700,34 @@ endc
 
 	done
 
-Text_TradeReceptionistPikachuRefusal: ; TO TRANSLATE
+Text_TradeReceptionistPikachuRefusal:
+if DEF(_FR_FR)
+	text "PIKACHU refuse"
+	line "d'entrer."
+	
+	para "Tu devrais le"
+	line "déposer d'abord."
+else
 	text "PIKACHU refuses"
 	line "to go in there."
 	
 	para "You should deposit"
 	line "it first."
+endc
 	done
 
-Text_TradeReceptionistSilphCo: ; TO TRANSLATE
+Text_TradeReceptionistSilphCo:
+if DEF(_FR_FR)
+	text "Tu as un #MON"
+	line "appartenant à la"
+	cont "SYLPHE SARL dans"
+	cont "ton équipe."
+	
+	para "Tu ne peux pas"
+	line "entrer avec un"
+	cont "#MON qui n'est"
+	cont "pas à toi."
+else
 	text "You have a #MON"
 	line "that is SILPH CO's"
 	cont "property in your"
@@ -718,9 +737,20 @@ Text_TradeReceptionistSilphCo: ; TO TRANSLATE
 	line "allowed to enter"
 	cont "with a #MON"
 	cont "you do not own."
+endc
 	done
 
-Text_TimeCapsuleReceptionistIntro: ; TO TRANSLATE
+Text_TimeCapsuleReceptionistIntro:
+if DEF(_FR_FR)
+	text "Le BLOC TEMPOREL"
+	line "est fermé défini-"
+	cont "tivement."
+
+	para "On ne peut pas"
+	line "prendre le risque"
+	cont "d'envoyer un virus"
+	cont "dans le passé."
+else
 	text "The CABLE CLUB"
 	line "TIME CAPSULE has"
 	cont "been closed"
@@ -729,6 +759,7 @@ Text_TimeCapsuleReceptionistIntro: ; TO TRANSLATE
 	para "We can't risk"
 	line "sending the virus"
 	cont "back in time."
+endc
 	done
 
 YourFriendIsNotReadyText: 
@@ -880,31 +911,59 @@ endc
 
 	done
 
-Text_MysteryGiftDeliveryGuy_Intro: ; TO TRANSLATE
+Text_MysteryGiftDeliveryGuy_Intro:
+if DEF(_FR_FR)
+	text "Bonjour! Tu es"
+	line "bien <PLAYER>,"
+	cont "n'est-ce pas?"
+else
 	text "Hello! You're"
 	line "<PLAYER>, right?"
+endc
 	done
 
-Text_MysteryGiftDeliveryGuy_MomDeliveryIntro: ; TO TRANSLATE
+Text_MysteryGiftDeliveryGuy_MomDeliveryIntro:
+if DEF(_FR_FR)
+	text "Ta mère a livré"
+	line "ceci!"
+else
 	text "Your mom delivered"
 	line "this!"
+endc
 	done
 
-Text_MysteryGiftDeliveryGuy_NextMomPackage: ; TO TRANSLATE
+Text_MysteryGiftDeliveryGuy_NextMomPackage:
+if DEF(_FR_FR)
+	text "Et aussi ça..."
+else
 	text "And also this…"
+endc
 	done
 
-Text_MysteryGiftDeliveryGuy_IHaveSomething: ; TO TRANSLATE
+Text_MysteryGiftDeliveryGuy_IHaveSomething:
+if DEF(_FR_FR)
+	text "J'ai un paquet"
+	line "pour toi."
+
+	para "Et voici!"
+else
 	text "I have a package"
 	line "for you."
 
 	para "Here you go!"
+endc
 	done
 
-Text_MysteryGiftDeliveryGuy_AlsoHave: ; TO TRANSLATE
+Text_MysteryGiftDeliveryGuy_AlsoHave:
+if DEF(_FR_FR)
+	text "Et j'ai aussi un"
+	line "autre colis pour"
+	cont "toi. Le voilà!"
+else
 	text "And I also have"
 	line "this package for"
 	cont "you. Here you go!"
+endc
 	done
 
 Text_MysteryGiftDeliveryGuy_Outro: 
@@ -994,13 +1053,24 @@ endc
 
 	done
 
-EmergencyBallReceptionText: ; TO TRANSLATE
+EmergencyBallReceptionText:
+if DEF(_FR_FR)
+	text "Tu as un colis de"
+	line "la part du PROF."
+	cont "ORME."
+else
 	text "You have a parcel"
 	line "from PROF.ELM."
+endc
 	done
 
-ButThatsNotAllText: ; TO TRANSLATE
+ButThatsNotAllText:
+if DEF(_FR_FR)
+	text "Et ce n'est pas"
+	line "tout!"
+else
 	text "That's not all!"
+endc
 	done
 
 Pokecenter2F_MapEvents:

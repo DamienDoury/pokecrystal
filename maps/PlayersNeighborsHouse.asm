@@ -54,7 +54,26 @@ PlayersNeighborsHouseRadioScript:
 	closetext
 	end
 
-PlayersNeighborsDaughterText: ; TO TRANSLATE
+PlayersNeighborsDaughterText:
+if DEF(_FR_FR)
+	text "Le #RUS est un"
+	line "virus bénéfique"
+	cont "pour les #MON."
+
+	para "Les découvertes du"
+	line "PROF.ORME sont"
+	cont "incroyables."
+
+	para "Ses recherches sur"
+	line "la virologie"
+	cont "#MON sont"
+	cont "brillantes."
+
+	para "(soupir)"
+
+	para "J'aimerais être"
+	line "comme lui..."
+else
 	text "The #RUS is a"
 	line "virus beneficial"
 	cont "to #MON."
@@ -72,14 +91,23 @@ PlayersNeighborsDaughterText: ; TO TRANSLATE
 	para "I wish I could be"
 	line "a researcher like"
 	cont "him…"
+endc
 	done
 
-PlayersNeighborText: ; TO TRANSLATE
+PlayersNeighborText:
+if DEF(_FR_FR)
+	text "Ma fille veut"
+	line "devenir l'assis-"
+
+	para "tante du PROF."
+	line "ORME."
+else
 	text "My daughter is"
 	line "adamant about"
 
 	para "becoming PROF."
 	line "ELM's assistant."
+endc
 	done
 
 PlayerNeighborRadioText1: 

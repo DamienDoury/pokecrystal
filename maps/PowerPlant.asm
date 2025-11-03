@@ -375,7 +375,25 @@ endc
 
 	done
 
-PowerPlantGymGuide2PowerPlantUpAndRunningText: ; TO TRANSLATE
+PowerPlantGymGuide2PowerPlantUpAndRunningText:
+if DEF(_FR_FR)
+	text "Cette CENTRALE"
+	line "a été abandonnée"
+	cont "par le passé."
+
+	para "Le #MON légen-"
+	line "daire, incarnation"
+	cont "du tonnerre s'en"
+	cont "était emparé."
+
+	para "Un dresseur nommé"
+	line "RED l'a chassé"
+	cont "il y a 4 ans."
+
+	para "A présent, nous"
+	line "pouvons reprendre"
+	cont "notre activité."
+else
 	text "This POWER PLANT"
 	line "had been abandoned"
 	cont "in the past."
@@ -392,6 +410,7 @@ PowerPlantGymGuide2PowerPlantUpAndRunningText: ; TO TRANSLATE
 
 	para "Now we can"
 	line "operate again."
+endc
 	done
 
 PowerPlantOfficer2ManagerHasBeenSadAndFuriousText: 
@@ -618,7 +637,21 @@ endc
 
 	done
 
-PowerPlantVermilionGymGuideText: ; TO TRANSLATE
+PowerPlantVermilionGymGuideText:
+if DEF(_FR_FR)
+	text "Yo MAITRE!"
+
+	para "Le MAJOR BOB est"
+	line "notre sauveur."
+
+	para "Son équipe de"
+	line "#MON est assez"
+	cont "forte pour fournir"
+
+	para "de l'électricité"
+	line "de secours à tout"
+	cont "KANTO!"
+else
 	text "Yo CHAMP!"
 
 	para "LT.SURGE is our"
@@ -630,9 +663,22 @@ PowerPlantVermilionGymGuideText: ; TO TRANSLATE
 	para "to provide emer-"
 	line "gency power for"
 	cont "all of KANTO!"
+endc
 	done
 
-PowerPlantVermilionGymGuidePowerRestoredText: ; TO TRANSLATE
+PowerPlantVermilionGymGuidePowerRestoredText:
+if DEF(_FR_FR)
+	text "Yo MAITRE!"
+
+	para "T'as fait un"
+	line "taf de pro ici!"
+
+	para "A mon avis on se"
+	line "recroisera à"
+	
+	para "l'ARENE de CARMIN"
+	line "SUR MER."
+else
 	text "Yo CHAMP!"
 
 	para "You did an amazing"
@@ -641,24 +687,40 @@ PowerPlantVermilionGymGuidePowerRestoredText: ; TO TRANSLATE
 	para "I guess we'll see"
 	line "you at VERMILION"
 	cont "GYM."
+endc
 	done
 
-PowerPlantSurgeText: ; TO TRANSLATE
+PowerPlantSurgeText:
+if DEF(_FR_FR)
+	text "MAJOR BOB: DONNE"
+	line "TOUT!"
+
+	para "ON SE RELACHE PAS!"
+else
 	text "SURGE: DO IT!"
 
 	para "JUST DO IT!!"
+endc
 	done
 
-PowerPlantSurgeMissionCompletedText: ; TO TRANSLATE
+PowerPlantSurgeMissionCompletedText:
+if DEF(_FR_FR)
+	text "MAJOR BOB: Alors"
+	line "c'est réglé, ouais?"
+	
+	para "Mission accomplie,"
+	line "retour à la base."
+else
 	text "SURGE: So it's over"
 	line "hey?"
 	
 	para "Mission completed,"
 	line "gotta get back"
 	cont "to base camp."
+endc
 	done
 
-PowerPlantPokemonShoutText: ; TO TRANSLATE
+PowerPlantPokemonShoutText:
 	text "@"
 	text_ram wStringBuffer3
 	text ": !!!"

@@ -157,7 +157,40 @@ PewterGymStatue:
 	gettrainername STRING_BUFFER_4, BROCK, BROCK1
 	jumpstd GymStatue2Script
 
-BrockIntroText: ; TO TRANSLATE
+BrockIntroText:
+if DEF(_FR_FR)
+	text "PIERRE: C'est pas"
+	line "tous les jours"
+
+	para "qu'on reçoit de la"
+	line "visite de quelqu'"
+	cont "un de JOHTO."
+
+	para "Moi c'est PIERRE,"
+	line "le CHAMPION de"
+	cont "l'ARENE d'ARGENTA."
+
+	para "Je suis né et ai"
+	line "grandi dans cette"
+	cont "montagne rocheuse,"
+	
+	para "et je me suis lié"
+	line "d'amitié avec les"
+	cont "#MON de type"
+	cont "ROCHE."
+
+	para "Ils s'épanouissent"
+	line "ici car les tempê-"
+	cont "tes de sable"
+	cont "soufflent souvent."
+
+	para "Je reconnaîtrai ta"
+	line "valeur si tu me"
+	cont "bats sous ce"
+	cont "climat."
+
+	para "C'est parti!"
+else
 	text "BROCK: Wow, it's"
 	line "not often that we"
 
@@ -185,6 +218,7 @@ BrockIntroText: ; TO TRANSLATE
 	cont "this weather."
 
 	para "Come on!"
+endc
 	done
 
 BrockWinLossText: 
@@ -226,7 +260,19 @@ endc
 
 	done
 
-BrockBoulderBadgeText: ; TO TRANSLATE
+BrockBoulderBadgeText:
+if DEF(_FR_FR)
+	text "PIERRE: <PLAY_G>,"
+	line "merci. J'ai aimé"
+
+	para "me battre contre"
+	line "toi, même si je"
+	cont "l'ai mauvaise."
+
+	para "Je vais devoir"
+	line "m'entraîner encore"
+	cont "plus dur."
+else
 	text "BROCK: <PLAY_G>,"
 	line "thanks. I enjoyed"
 
@@ -236,6 +282,7 @@ BrockBoulderBadgeText: ; TO TRANSLATE
 
 	para "I'm gonna have to"
 	line "train harder."
+endc
 	done
 
 BrockFightDoneText: 
@@ -327,7 +374,22 @@ endc
 
 	done
 
-CamperJerryBrockLocationText: ; TO TRANSLATE
+CamperJerryBrockLocationText:
+if DEF(_FR_FR)
+	text "PIERRE est parti"
+	line "au sud pour aider"
+	cont "avec des travaux"
+	cont "routiers qui n'en"
+	cont "finisse pas."
+
+	para "Il est parti"
+	line "depuis un bon"
+	cont "moment."
+
+	para "Tu ferais bien d'y"
+	line "aller si tu veux"
+	cont "son BADGE."
+else
 	text "BROCK went south"
 	line "to help with some"
 	cont "roadwork that was"
@@ -339,9 +401,23 @@ CamperJerryBrockLocationText: ; TO TRANSLATE
 	para "You better go"
 	line "find him if you"
 	cont "want his BADGE."
+endc
 	done
 
-PewterGymGuideText: ; TO TRANSLATE
+PewterGymGuideText:
+if DEF(_FR_FR)
+	text "Hey MAITRE! Tu"
+	line "affrontes les"
+	
+	para "CHAMPIONS de"
+	line "KANTO, non?"
+
+	para "Ils sont tout"
+	line "aussi forts et"
+
+	para "déterminés que"
+	line "ceux de JOHTO."
+else
 	text "Yo CHAMP! You're"
 	line "really rocking."
 
@@ -354,6 +430,7 @@ PewterGymGuideText: ; TO TRANSLATE
 
 	para "just like JOHTO's"
 	line "GYM LEADERS."
+endc
 	done
 
 PewterGymGuideWinText: 
