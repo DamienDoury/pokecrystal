@@ -51,6 +51,7 @@ INCLUDE "maps/GoldenrodNameRater.asm"
 INCLUDE "maps/PalletTown.asm"
 INCLUDE "maps/TinTowerRoof.asm"
 INCLUDE "maps/Route5UndergroundPathEntrance.asm"
+INCLUDE "maps/CeruleanMart.asm"
 
 
 SECTION "Map Scripts 3", ROMX
@@ -289,7 +290,6 @@ INCLUDE "maps/Route18.asm"
 SECTION "Map Scripts 15", ROMX
 
 INCLUDE "maps/CeruleanGym.asm"
-INCLUDE "maps/CeruleanMart.asm"
 INCLUDE "maps/PowerPlant.asm"
 INCLUDE "maps/BillsHouse.asm"
 INCLUDE "maps/SaffronGym.asm"
