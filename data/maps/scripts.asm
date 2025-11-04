@@ -17,6 +17,7 @@ INCLUDE "maps/CeruleanCaveEntrance.asm"
 INCLUDE "maps/CeruleanCaveB1F.asm"
 INCLUDE "maps/CeruleanCaveB2F.asm"
 INCLUDE "maps/CeruleanCaveB3F.asm"
+INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 
 SECTION "Map Scripts 2", ROMX
 
@@ -63,7 +64,6 @@ INCLUDE "maps/RadioTower2F.asm"
 INCLUDE "maps/RadioTower3F.asm"
 INCLUDE "maps/RadioTower4F.asm"
 INCLUDE "maps/Route34.asm"
-INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 
 
 SECTION "Map Scripts 4", ROMX
