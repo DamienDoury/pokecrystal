@@ -184,10 +184,18 @@ endc
 
 	done
 
-GruntM10SeenText: ; TO TRANSLATE
+GruntM10SeenText:
+if DEF(_FR_FR)
+	text "Je crois que"
+	line "le COVID est"
+	
+	para "un mensonge du"
+	line "gouvernement."
+else
 	text "I believe COVID"
 	line "is a lie from"
 	cont "the government."
+endc
 	done
 
 GruntM10BeatenText: 
@@ -210,18 +218,40 @@ endc
 
 	done
 
-GruntF4SeenText: ; TO TRANSLATE
+GruntF4SeenText:
+if DEF(_FR_FR)
+	text "Vivre enfermé n'est"
+	line "pas une façon de"
+	cont "vivre acceptable!"
+else
 	text "Living in lockdown"
 	line "is not an accep-"
 	cont "table way of"
 	cont "living!"
+endc
 	done
 
-GruntF4BeatenText: ; TO TRANSLATE
+GruntF4BeatenText:
+if DEF(_FR_FR)
+	text "Je ferais mieux de"
+	line "rentrer chez moi!"
+else
 	text "I should run home!"
+endc
 	done
 
-GruntF4AfterBattleText: ; TO TRANSLATE
+GruntF4AfterBattleText:
+if DEF(_FR_FR)
+	text "Certains sombrent"
+	line "dans la folie"
+	cont "quand ils restent"
+	cont "enfermés chez eux."
+
+	para "Etre enfermé peut"
+	line "causer plus de"
+	cont "dommages que le"
+	cont "COVID lui-même."
+else
 	text "People are getting"
 	line "crazy when locked"
 	cont "up home."
@@ -229,23 +259,43 @@ GruntF4AfterBattleText: ; TO TRANSLATE
 	para "I say being locked"
 	line "up can cause more"
 	cont "damage than COVID."
+endc
 	done
 
-Executivem2SeenText: ; TO TRANSLATE
-
+Executivem2SeenText:
+if DEF(_FR_FR)
+	text "Les confinements &"
+	line "couvre-feux vont"
+	cont "ruiner notre pays."
+else
 	text "The lockdowns and"
 	line "curfews will"
 
 	para "destroy our"
 	line "economy."
+endc
 	done
 
-Executivem2BeatenText: ; TO TRANSLATE
+Executivem2BeatenText:
+if DEF(_FR_FR)
+	text "S'te plaît, prends"
+	line "pas mes thunes!"
+else
 	text "Please don't take"
 	line "my money!"
+endc
 	done
 
-Executivem2AfterBattleText: ; TO TRANSLATE
+Executivem2AfterBattleText:
+if DEF(_FR_FR)
+	text "La chute de notre"
+	line "économie fera plus"
+	cont "de dégâts à notre"
+	cont "société que la"
+	cont "maladie elle-même."
+
+	para "On parie?"
+else
 	text "The dip in our"
 	line "economy will cause"
 
@@ -254,6 +304,7 @@ Executivem2AfterBattleText: ; TO TRANSLATE
 	cont "disease itself."
 	
 	para "Wanna bet?"
+endc
 	done
 
 ScientistRichSeenText: 
@@ -288,12 +339,20 @@ endc
 
 	done
 
-ScientistRichAfterBattleText: ; TO TRANSLATE
+ScientistRichAfterBattleText:
+if DEF(_FR_FR)
+	text "Au fond de toi,"
+	line "tu crois vraiment"
+	cont "que le gouverne-"
+	cont "ment essaie de"
+	cont "nous sauver?"
+else
 	text "Do you honestly"
 	line "believe the"
 	
 	para "government is"
 	line "trying to save us?"
+endc
 	done
 
 RadioTower4FProductionSignText: 

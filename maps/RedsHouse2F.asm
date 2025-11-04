@@ -93,7 +93,16 @@ endc
 
 	done
 
-RedsPikachuStaresText: ; TO TRANSLATE
+RedsPikachuStaresText:
+if DEF(_FR_FR)
+	text "PIKACHU te fixe"
+	line "avec insistance."
+
+	para "Il semble en"
+	line "mauvaise santé,"
+	cont "tu devrais faire"
+	cont "quelque chose."
+else
 	text "PIKACHU stares at"
 	line "you insistently."
 
@@ -101,16 +110,28 @@ RedsPikachuStaresText: ; TO TRANSLATE
 	line "health, you should"
 	cont "do something"
 	cont "about it."
+endc
 	done
 
-RedsPikachuTakeText: ; TO TRANSLATE
+RedsPikachuTakeText:
+if DEF(_FR_FR)
+	text "Le prendre dans"
+	line "tes bras?"
+else
 	text "Take it into"
 	line "your arms?"
+endc
 	done
 
-RedsPikachuJoinsText: ; TO TRANSLATE
+RedsPikachuJoinsText:
+if DEF(_FR_FR)
+	text "PIKACHU rejoint"
+	line "l'équipe de"
+	cont "<PLAYER>."
+else
 	text "PIKACHU joins"
 	line "<PLAYER>'s party."
+endc
 	done
 
 RedsHouse2F_MapEvents:

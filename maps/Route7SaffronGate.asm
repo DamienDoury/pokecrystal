@@ -90,7 +90,41 @@ Route7SaffronGate_StepRight4Movement:
 	step RIGHT
 	step_end
 
-Route7SaffronGate_OakGreetingsText: ; TO TRANSLATE
+Route7SaffronGate_OakGreetingsText:
+if DEF(_FR_FR)
+	text "CHEN: <PLAY_G>?"
+	
+	para "Je ne t'attendais"
+	line "pas ici!"
+	
+	para "Alors, que penses-"
+	line "tu de KANTO?"
+	
+	para "Tu ne le découvres"
+	line "pas sous son meil-"
+	cont "leur jour avec"
+	cont "cette panne"
+	cont "générale."
+	
+	para "Tu as déjà dû"
+	line "remarquer qu'on"
+	cont "fait les choses"
+	cont "différemment ici."
+	
+	para "Par exemple, on en"
+	line "a fini avec les"
+	cont "confinements et"
+	cont "les couvre-feux,"
+	
+	para "et on est passés"
+	line "au PASS VACCINAL."
+	
+	para "Ca permet aux com-"
+	line "merces de rouvrir"
+	cont "aux gens vaccinés."
+	
+	para "Mais je m'égare."
+else
 	text "OAK: <PLAY_G>?"
 	para "I wasn't expecting"
 	line "you here!"
@@ -122,9 +156,30 @@ Route7SaffronGate_OakGreetingsText: ; TO TRANSLATE
 
 	para "But I'm getting"
 	line "carried away."
+endc
 	done
 
-Route7SaffronGate_OakGreetingsText2: ; TO TRANSLATE
+Route7SaffronGate_OakGreetingsText2:
+if DEF(_FR_FR)
+	text "J'allais justement"
+	line "au siège de la"
+	cont "SYLPHE SARL à"
+	cont "SAFRANIA."
+	
+	para "Ils ont besoin de"
+	line "toute l'aide pos-"
+	cont "sible pour la"
+	cont "recherche sur le"
+	cont "vaccin #MON."
+	
+	para "Tu devrais aller"
+	line "voir si tu peux"
+	cont "leur prêter un"
+	cont "coup de main."
+	
+	para "Ils m'attendent,"
+	line "je dois filer."
+else
 	text "I was on my way to"
 	line "the SILPH CO."
 	cont "building in"
@@ -142,14 +197,23 @@ Route7SaffronGate_OakGreetingsText2: ; TO TRANSLATE
 
 	para "They're waiting for"
 	line "me, I should go."
+endc
 	done
 
-Route7SaffronGate_OakGreetingsText3: ; TO TRANSLATE
+Route7SaffronGate_OakGreetingsText3:
+if DEF(_FR_FR)
+	text "Mon LABO est à"
+	line "BOURG PALETTE,"
+	
+	para "passe une tête si"
+	line "t'es dans le coin!"
+else
 	text "My lab is in"
 	line "PALLET TOWN,"
 
 	para "come say hi"
 	line "sometimes!"
+endc
 	done
 
 Route7SaffronGuardPowerPlantText: 

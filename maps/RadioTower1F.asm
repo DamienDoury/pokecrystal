@@ -281,11 +281,19 @@ endc
 
 	done
 
-RadioTower1FLuckyNumberManThisWeeksIdIsText: ; TO TRANSLATE
+RadioTower1FLuckyNumberManThisWeeksIdIsText:
+if DEF(_FR_FR)
+	text "Le No. ID d'au-"
+	line "jourd'hui est..."
+	cont "@"
+	text_ram wStringBuffer3
+	text "!"
+else
 	text "Today's ID"
 	line "number is @"
 	text_ram wStringBuffer3
 	text "."
+endc
 	done
 
 RadioTower1FLuckyNumberManCheckIfMatchText: 
@@ -535,13 +543,23 @@ endc
 
 	done
 
-RadioTower1FRadioCardWomanQuestion5Text: ; TO TRANSLATE
+RadioTower1FRadioCardWomanQuestion5Text:
+if DEF(_FR_FR)
+	text "Encore gagné!"
+	line "Voici la dernière"
+	cont "question:"
+
+	para "Est-ce que"
+	line "NIDORINA est"
+	cont "seulement mâle?"
+else
 	text "Wow! Right again!"
 	line "Here's the final"
 	cont "question:"
 
 	para "Can NIDORINA be"
 	line "male only?"
+endc
 	done
 
 RadioTower1FRadioCardWomanYouWinText: 
@@ -652,7 +670,17 @@ endc
 
 	done
 
-GruntM3SeenText: ; TO TRANSLATE
+GruntM3SeenText:
+if DEF(_FR_FR)
+	text "Nous avons enfin"
+	line "envahi la TOUR"
+	cont "RADIO!"
+
+	para "Et maint'nant on"
+	line "va mettre fin à"
+	cont "ce misérable mode"
+	cont "mode de vie!"
+else
 	text "We've finally"
 	line "taken over the"
 	cont "RADIO TOWER!"
@@ -662,6 +690,7 @@ GruntM3SeenText: ; TO TRANSLATE
 
 	para "miserable way of"
 	line "life!"
+endc
 	done
 
 GruntM3BeatenText: 

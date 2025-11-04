@@ -264,15 +264,38 @@ endc
 
 	done
 
-FakeDirectorTextBefore2: ; TO TRANSLATE
+FakeDirectorTextBefore2:
+if DEF(_FR_FR)
+	text "Alors..."
+	line "Tu t'y attendais?"
+
+	para "Et oui! Je suis"
+	line "un imposteur!"
+else
 	text "Is that what you"
 	line "were expecting?"
 
 	para "Wrong!"
 	line "I'm an imposter!"
+endc
 	done
 
-FakeDirectorTextBefore3: ; TO TRANSLATE
+FakeDirectorTextBefore3:
+if DEF(_FR_FR)
+	text "Cette mascarade"
+	line "était nécessaire"
+
+	para "à notre invasion!"
+	line "Ha ha ha ha ha!"
+
+	para "Veux-tu savoir où"
+	line "est caché le vrai"
+	cont "DIRECTEUR?"
+
+	para "J'vais te le dire."
+	line "Mais d'abord..."
+	cont "COMBAT!!!!"
+else
 	text "I pretended to be"
 	line "the real thing to"
 
@@ -286,6 +309,7 @@ FakeDirectorTextBefore3: ; TO TRANSLATE
 	para "Sure, I'll tell"
 	line "you. But only if"
 	cont "you can beat me!"
+endc
 	done
 
 FakeDirectorWinText: 
@@ -365,7 +389,21 @@ endc
 
 	done
 
-Executivef1AfterBattleText: ; TO TRANSLATE
+Executivef1AfterBattleText:
+if DEF(_FR_FR)
+	text "<PLAYER>,"
+	line "c'est ça?"
+
+	para "Une peste comme"
+	line "toi ne voit pas"
+
+	para "la grandeur de"
+	line "notre noble cause."
+
+	para "C'est dommage."
+	line "Tu as pourtant du"
+	cont "talent."
+else
 	text "<PLAYER>, isn't it?"
 
 	para "A brat like you"
@@ -377,9 +415,77 @@ Executivef1AfterBattleText: ; TO TRANSLATE
 	para "That's too bad."
 	line "I really admire"
 	cont "your power."
+endc
 	done
 
-RadioTower5FRocketBossBeforeText: ; TO TRANSLATE
+RadioTower5FRocketBossBeforeText:
+if DEF(_FR_FR)
+	text "Oh? Tu es déjà"
+	line "là?"
+
+	para "Tu dois avoir un"
+	line "sacré talent."
+
+	para "Nous allons con-"
+	line "trôler cette STA-"
+
+	para "TION de RADIO pour"
+	line "éveiller les"
+	cont "esprits."
+
+	para "La population est"
+	line "lobotomisée par"
+	cont "les émissions TV"
+	cont "& la radio."
+
+	para "C'est tout de la"
+	line "propagande!"
+
+	para "La TEAM ROCKET est"
+	line "le contre-pouvoir"
+	cont "que le peuple"
+	cont "mérite."
+
+	para "As-tu déjà vu un"
+	line "#MON mourir du"
+	cont "COVID? Moi jamais."
+
+	para "Je n'ai jamais"
+	line "porté de masque,"
+	
+	para "et pourtant je ne"
+	line "suis jamais tombé"
+	cont "malade. Comment"
+	cont "tu l'expliques?"
+
+	para "Et maintenant ils"
+	line "annoncent qu'un"
+	cont "vaccin sera prêt"
+	cont "avant la fin de"
+	cont "l'année."
+
+	para "Jamais dans"
+	line "l'histoire un"
+	cont "vaccin n'a été"
+	cont "trouvé si vite."
+
+	para "Que vont-ils donc"
+	line "injecter dans le"
+	cont "corps des gens?"
+
+	para "Rien de sûr et"
+	line "bien testé, tu"
+	cont "peux me croire."
+
+	para "Mais bon sang!"
+	line "Ouvre les yeux!"
+
+	para "..."
+
+	para "Est-ce que tu vois"
+	line "la vérité dans"
+	cont "mes arguments?"
+else
 	text "Oh? You managed to"
 	line "get this far?"
 
@@ -443,15 +549,34 @@ RadioTower5FRocketBossBeforeText: ; TO TRANSLATE
 	para "Don't you see the"
 	line "truth in my"
 	cont "arguments?"
+endc
 	done
 
-RadioTower5FRocketBossStartBattleText: ; TO TRANSLATE
+RadioTower5FRocketBossStartBattleText:
+if DEF(_FR_FR)
+	text "Alors je ne peux"
+	line "pas te laisser"
+	cont "interférer avec"
+	cont "nos plans."
+else
 	text "Then I can't let"
 	line "you to interfere"
 	cont "with our plan."
+endc
 	done
 
-RadioTower5FRocketBossSkipBattleText: ; TO TRANSLATE
+RadioTower5FRocketBossSkipBattleText:
+if DEF(_FR_FR)
+	text "Alors pars."
+	line "Laisse-moi réa-"
+	cont "liser ma mission."
+
+	para "Je vais ouvrir les"
+	line "yeux du peuple"
+	
+	para "et lancer une"
+	line "rébellion!"
+else
 	text "Then leave."
 	line "Let me do what I"
 	cont "came for."
@@ -461,14 +586,43 @@ RadioTower5FRocketBossSkipBattleText: ; TO TRANSLATE
 
 	para "and start a"
 	line "revolution!"
+endc
 	done
 
-RadioTower5FRocketBossWinText: ; TO TRANSLATE
+RadioTower5FRocketBossWinText:
+if DEF(_FR_FR)
+	text "Noooon! Pardonne-"
+	line "moi, peuple de"
+	cont "JOHTO!"
+else
 	text "Nooo! Forgive me,"
 	line "JOHTO people!"
+endc
 	done
 
-RadioTower5FRocketBossAfterText: ; TO TRANSLATE
+RadioTower5FRocketBossAfterText:
+if DEF(_FR_FR)
+	text "Comment ça a pu"
+	line "se passer ainsi?"
+
+	para "Notre cause a"
+	line "échoué."
+
+	para "Je n'ai pas été à"
+	line "la hauteur."
+
+	para "Comme GIOVANNI l'a"
+	line "fait avant moi,"
+
+	para "je vais dissoudre"
+	line "la TEAM ROCKET,"
+
+	para "pour qu'elle re-"
+	line "naisse plus forte"
+	cont "à l'avenir."
+
+	para "Adieu."
+else
 	text "How could this be?"
 
 	para "Our objective has"
@@ -487,9 +641,26 @@ RadioTower5FRocketBossAfterText: ; TO TRANSLATE
 	line "stronger later." 
 
 	para "Farewell."
+endc
 	done
 
-RadioTower5FDirectorThankYouText: ; TO TRANSLATE
+RadioTower5FDirectorThankYouText:
+if DEF(_FR_FR)
+	text "DIRECTEUR: <PLAY_G>,"
+	line "merci!"
+
+	para "Tes actions"
+	line "courageuses ont"
+	cont "sauvé d'innom-"
+	cont "brables vies des"
+	cont "idées démentes"
+	cont "diffusées par la"
+	cont "TEAM ROCKET."
+
+	para "Ce n'est pas grand"
+	line "chose, mais c'est"
+	cont "pour toi."
+else
 	text "DIRECTOR: <PLAY_G>,"
 	line "thank you!"
 
@@ -504,9 +675,40 @@ RadioTower5FDirectorThankYouText: ; TO TRANSLATE
 	para "I know it's not"
 	line "much, but please"
 	cont "take this."
+endc
 	done
 
-RadioTower5FDirectorDescribeClearBellText: ; TO TRANSLATE
+RadioTower5FDirectorDescribeClearBellText:
+if DEF(_FR_FR)
+	text "Il y avait une"
+	line "tour ici à DOU-"
+	cont "BLONVILLE."
+
+	para "Mais elle était"
+	line "en mauvais état."
+
+	para "On l'a alors rem-"
+	line "placée par notre"
+	cont "TOUR RADIO."
+
+	para "Pendant les tra-"
+	line "vaux, nous avons"
+	cont "trouvé ce glas."
+
+	para "On dit qu'une"
+	line "multitude de #-"
+
+	para "MON différents vi-"
+	line "vaient ici."
+
+	para "Alors..."
+
+	para "Ce glas a"
+	line "peut-être un lien"
+
+	para "avec la TOUR FER-"
+	line "RAILLE de ROSALIA."
+else
 	text "There used to be a"
 	line "tower right here"
 	cont "in GOLDENROD CITY."
@@ -535,9 +737,26 @@ RadioTower5FDirectorDescribeClearBellText: ; TO TRANSLATE
 
 	para "TIN TOWER in"
 	line "ECRUTEAK CITY…"
+endc
 	done
 
-RadioTower5FDirectorNotifiesAboutSuicuneText: ; TO TRANSLATE
+RadioTower5FDirectorNotifiesAboutSuicuneText:
+if DEF(_FR_FR)
+	text "Ah!"
+
+	para "Au fait..."
+
+	para "J'ai entendu un"
+	line "des types de la"
+	cont "TEAM ROCKET."
+
+	para "Apparemment, il se"
+	line "passe des trucs à"
+	cont "la TOUR FERRAILLE."
+
+	para "A mon avis, tu"
+	line "devrais y aller."
+else
 	text "Ah!"
 
 	para "That reminds me…"
@@ -554,11 +773,17 @@ RadioTower5FDirectorNotifiesAboutSuicuneText: ; TO TRANSLATE
 
 	para "but you might look"
 	line "into it."
+endc
 	done
 
-RadioTower5FDirectorGetBackText: ; TO TRANSLATE
+RadioTower5FDirectorGetBackText:
+if DEF(_FR_FR)
+	text "OK, je retourne"
+	line "au BUREAU."
+else
 	text "OK, I better go to"
 	line "my OFFICE."
+endc
 	done
 
 RadioTower5FDirectorText: 

@@ -163,7 +163,19 @@ endc
 
 	done
 
-RadioTower3FSuperNerdTROpinionText: ; TO TRANSLATE
+RadioTower3FSuperNerdTROpinionText:
+if DEF(_FR_FR)
+	text "Je peux comprendre"
+	line "le point de vue de"
+	cont "la TEAM ROCKET."
+
+	para "Je ne supporte pas"
+	line "de porter un"
+	cont "masque. Son"
+	cont "efficacité a-t-"
+	cont "elle été prouvée"
+	cont "au moins?"
+else
 	text "I kinda understand"
 	line "TEAM ROCKET's point"
 	cont "of view."
@@ -173,9 +185,29 @@ RadioTower3FSuperNerdTROpinionText: ; TO TRANSLATE
 	cont "mask. Has its"
 	cont "effectiveness"
 	cont "even been proven?"
+endc
 	done
 
-RadioTower3FGymGuideText_Rockets: ; TO TRANSLATE
+RadioTower3FGymGuideText_Rockets:
+if DEF(_FR_FR)
+	text "Le COVID infecte"
+	line "de plus en plus de"
+
+	para "gens et de #MON"
+	line "chaque jour, et"
+
+	para "certains en"
+	line "meurent."
+
+	para "Ce serait terrible"
+	line "si les gens adhé-"
+	cont "raient à l'idéolo-"
+	cont "gie de la TEAM"
+	cont "ROCKET et commen-"
+	cont "çaient à abandon-"
+	cont "ner les gestes"
+	cont "barrières."
+else
 	text "COVID infects more"
 	line "people and #MON"
 	cont "every second,"
@@ -190,6 +222,7 @@ RadioTower3FGymGuideText_Rockets: ; TO TRANSLATE
 	cont "ideology and start"
 	cont "bypassing sanitary"
 	cont "measures."
+endc
 	done
 
 RadioTower3FGymGuideText: 
@@ -345,7 +378,19 @@ endc
 
 	done
 
-GruntM8SeenText: ; TO TRANSLATE
+GruntM8SeenText:
+if DEF(_FR_FR)
+	text "Ca fait du bien de"
+	line "voir le monde au"
+	cont "delà des quatre"
+	cont "murs de mon"
+	cont "appartement."
+
+	para "Personne ne me"
+	line "privera plus"
+	cont "jamais de ma"
+	cont "liberté."
+else
 	text "It feels great"
 	line "to explore the"
 
@@ -355,20 +400,35 @@ GruntM8SeenText: ; TO TRANSLATE
 
 	para "No one will ever"
 	line "take my freedom."
+endc
 	done
 
-GruntM8BeatenText: ; TO TRANSLATE
+GruntM8BeatenText:
+if DEF(_FR_FR)
+	text "Je suis libre de"
+	line "perdre ce combat!"
+else
 	text "I chose to loose"
 	line "because I'm free!"
+endc
 	done
 
-GruntM8AfterBattleText: ; TO TRANSLATE
+GruntM8AfterBattleText:
+if DEF(_FR_FR)
+	text "S'il te plaît, ne"
+	line "sers plus de ta"
+	cont "liberté pour me"
+	cont "battre."
+
+	para "Je me rends!"
+else
 	text "Please don't use"
 	line "any more of your"
 	cont "freedom to beat"
 	cont "me up."
 
 	para "I submit!"
+endc
 	done
 
 GruntM9SeenText: 

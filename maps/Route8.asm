@@ -236,10 +236,16 @@ endc
 
 	done
 
-SupernerdTomAfterBattleText: ; TO TRANSLATE
+SupernerdTomAfterBattleText:
+if DEF(_FR_FR)
+	text "Les BADGES sont"
+	line "une preuve de"
+	cont "ta valeur."
+else
 	text "GYM BADGES are"
 	line "a proof of your"
 	cont "worth."
+endc
 	done
 
 Route8LockedDoorText: 
@@ -267,7 +273,17 @@ endc
 
 	done
 
-Route8BurialGuyText: ; TO TRANSLATE
+Route8BurialGuyText:
+if DEF(_FR_FR)
+	text "Notre groupe a"
+	line "fait le chemin"
+	
+	para "depuis JOHTO pour"
+	line "les funérailles de"
+	
+	para "notre bien-aimé"
+	line "#MON..."
+else
 	text "Our group comes"
 	line "all the way from"
 
@@ -275,6 +291,7 @@ Route8BurialGuyText: ; TO TRANSLATE
 	line "funeral of our"
 
 	para "beloved #MON…"
+endc
 	done
 
 Route8_MapEvents:

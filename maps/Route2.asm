@@ -97,7 +97,24 @@ Route2LeftStepMovement:
 	step LEFT
 	step_end
 
-Route2WarningTopText: ; TO TRANSLATE
+Route2WarningTopText:
+if DEF(_FR_FR)
+	text "Tu ne devrais pas"
+	line "t'aventurer dans"
+	cont "la FORET DE JADE."
+	
+	para "Un enfant s'y"
+	line "est perdu."
+
+	para "Oh..."
+
+	para "Tu es le MAITRE"
+	line "de la LIGUE!"
+
+	para "Je suppose que je"
+	line "ne peux pas te"
+	cont "stopper."
+else
 	text "You shouldn't go"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -112,9 +129,19 @@ Route2WarningTopText: ; TO TRANSLATE
 
 	para "I guess I can't"
 	line "stop you."
+endc
 	done
-	
-Route2WarningBotText: ; TO TRANSLATE
+
+Route2WarningBotText:
+if DEF(_FR_FR)
+	text "Sois sage, et"
+	line "n'entre pas dans"
+	cont "la FORET DE JADE."
+
+	para "La forêt semble"
+	line "vivante, c'est"
+	cont "dangereux."
+else
 	text "Please don't go"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -122,9 +149,22 @@ Route2WarningBotText: ; TO TRANSLATE
 	para "The forest looks"
 	line "alive, it's dange-"
 	cont "rous out there."
+endc
 	done
+
+Route2WarningTextEnd:
+if DEF(_FR_FR)
+	text "Suis au moins mon"
+	line "conseil, et prends"
 	
-Route2WarningTextEnd: ; TO TRANSLATE
+	para "un #MON qui"
+	line "connait VOL ou"
+	
+	para "TELEPORT afin de"
+	line "pouvoir quitter"
+	cont "ces bois en toute"
+	cont "sécurité."
+else
 	text "At least follow my"
 	line "advice, and bring"
 	
@@ -134,6 +174,7 @@ Route2WarningTextEnd: ; TO TRANSLATE
 	para "TELEPORT so you"
 	line "can safely escape"
 	cont "those woods."
+endc
 	done
 
 BugCatcherRobSeenText: 
@@ -171,11 +212,19 @@ endc
 
 	done
 
-BugCatcherEdSeenText: ; TO TRANSLATE
+BugCatcherEdSeenText:
+if DEF(_FR_FR)
+	text "Bouh!"
+
+	para "Je suis l'esprit"
+	line "de la FORET DE"
+	cont "JADE!"
+else
 	text "Boo!"
 
 	para "I'm the spirit from"
 	line "VIRIDIAN FOREST!"
+endc
 	done
 
 BugCatcherEdBeatenText: 
@@ -187,16 +236,34 @@ endc
 
 	done
 
-BugCatcherEdAfterBattleText: ; TO TRANSLATE
+BugCatcherEdAfterBattleText:
+if DEF(_FR_FR)
+	text "Avant, je chassais"
+	line "les INSECTES dans"
+	cont "la FORET DE JADE."
+	
+	para "Maintenant, maman"
+	line "me l'interdit."
+else
 	text "In the past, I"
 	line "hunted BUGS in"
 	cont "VIRIDIAN FOREST."
 	
 	para "Now mom won't"
 	line "allow me."
+endc
 	done
 
-BugCatcherDougSeenText: ; TO TRANSLATE
+BugCatcherDougSeenText:
+if DEF(_FR_FR)
+	text "Auparavant, je"
+	line "flanais dans la"
+	cont "FORET DE JADE."
+
+	para "Depuis qu'elle a"
+	line "repoussé, j'ai"
+	cont "peur d'y aller."
+else
 	text "I used to wander"
 	line "into VIRIDIAN"
 	cont "FOREST."
@@ -204,6 +271,7 @@ BugCatcherDougSeenText: ; TO TRANSLATE
 	para "Since it grew back"
 	line "up, I'm afraid"
 	cont "to go."
+endc
 	done
 
 BugCatcherDougBeatenText: 
@@ -215,7 +283,26 @@ endc
 
 	done
 
-BugCatcherDougAfterBattleText: ; TO TRANSLATE
+BugCatcherDougAfterBattleText:
+if DEF(_FR_FR)
+	text "La FORET DE JADE a"
+	line "été rasée il y a"
+	
+	para "3 ans pour facili-"
+	line "ter le passage"
+	
+	para "entre JADIELLE"
+	line "et ARGENTA."
+
+	para "La voir ainsi"
+	line "m'avait attristé."
+
+	para "Mais peu après,"
+	line "la forêt a repous-"
+	
+	para "sé à une vitesse"
+	line "surnaturelle."
+else
 	text "VIRIDIAN FOREST"
 	line "had been cut down"
 	
@@ -233,6 +320,7 @@ BugCatcherDougAfterBattleText: ; TO TRANSLATE
 	
 	para "back up at a super"
 	line "natural speed."
+endc
 	done
 
 Route2SignText: 

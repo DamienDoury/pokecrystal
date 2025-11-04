@@ -243,7 +243,21 @@ endc
 
 	done
 
-PokefanmFrancisSeenText: ; TO TRANSLATE
+PokefanmFrancisSeenText:
+if DEF(_FR_FR)
+	text "Salut! Tu es"
+	line "<PLAYER>! Tu es"
+	
+	para "la personne qui a"
+	line "vaincu le CONSEIL"
+	cont "des 4!"
+	
+	para "Je suis ton plus"
+	line "grand fan!"
+	
+	para "Laisse-moi te"
+	line "serrer la main!"
+else
 	text "Hi! You're <PLAYER>!"
 	line "The trainer that"
 	cont "beat the ELITE 4!"
@@ -253,14 +267,29 @@ PokefanmFrancisSeenText: ; TO TRANSLATE
 
 	para "Let me shake"
 	line "your hand!"
+endc
 	done
 
-PokefanmFrancisBeatenText: ; TO TRANSLATE
+PokefanmFrancisBeatenText:
+if DEF(_FR_FR)
+	text "Je n'en reviens pas"
+	line "qu'on ait combattu!"
+else
 	text "I can't believe I"
 	line "got to fight you!"
+endc
 	done
 
-PokefanmFrancisAfterBattleText: ; TO TRANSLATE
+PokefanmFrancisAfterBattleText:
+if DEF(_FR_FR)
+	text "Désolé, je n'aurais"
+	line "pas dû te serrer"
+	cont "la main."
+	
+	para "Il faut continuer"
+	line "de respecter les"
+	cont "gestes barrières."
+else
 	text "I'm sorry, I"
 	line "shouldn't have"
 	cont "shaken your hand."
@@ -268,9 +297,25 @@ PokefanmFrancisAfterBattleText: ; TO TRANSLATE
 	para "Shielding measures"
 	line "must still be"
 	cont "followed."
+endc
 	done
 
-BeautyJosieSeenText: ; TO TRANSLATE
+BeautyJosieSeenText:
+if DEF(_FR_FR)
+	text "Cet endroit est si"
+	line "agréable!"
+	
+	para "Je suis ravie que"
+	line "mon bateau soit"
+	cont "coincé à KANTO!"
+	
+	para "J'aurais pu me"
+	line "retrouver coin-"
+	cont "cée dans un coin"
+	
+	para "arriéré, comme"
+	line "JOHTO."
+else
 	text "This place is so"
 	line "refreshing!"
 
@@ -283,14 +328,35 @@ BeautyJosieSeenText: ; TO TRANSLATE
 	
 	para "a stupid place,"
 	line "like JOHTO."
+endc
 	done
 
-BeautyJosieBeatenText: ; TO TRANSLATE
+BeautyJosieBeatenText:
+if DEF(_FR_FR)
+	text "Hé! Pourquoi t'as"
+	line "lancé le combat?"
+else
 	text "Hey! Why did you"
 	line "start the fight?"
+endc
 	done
 
-BeautyJosieAfterBattleText: ; TO TRANSLATE
+BeautyJosieAfterBattleText:
+if DEF(_FR_FR)
+	text "Désolé si j'ai"
+	line "blessé ta fierté."
+	
+	para "Je ne savais pas"
+	line "que tu venais de"
+	cont "JOHTO."
+	
+	para "JOHTO c'est pas"
+	line "si mal en vrai."
+	
+	para "Bien mieux que"
+	line "cette horreur de"
+	cont "SINNOH, pas vrai?"
+else
 	text "I'm sorry if I hurt"
 	line "your feelings."
 	
@@ -303,6 +369,7 @@ BeautyJosieAfterBattleText: ; TO TRANSLATE
 	para "It's better than"
 	line "that ugly SINNOH,"
 	cont "right?"
+endc
 	done
 
 Route6_MapEvents:

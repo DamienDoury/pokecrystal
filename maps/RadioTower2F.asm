@@ -360,7 +360,28 @@ endc
 
 	done
 
-RadioTower2FSuperNerdTROpinionText: ; TO TRANSLATE
+RadioTower2FSuperNerdTROpinionText:
+if DEF(_FR_FR)
+	text "Je pense que le"
+	line "message de la"
+	
+	para "TEAM ROCKET"
+	line "n'a aucun sens."
+
+	para "Il suffit d'aller"
+	line "à l'HOPITAL de"
+	cont "DOUBLONVILLE pour"
+	cont "voir que le"
+	cont "COVID-19 est bien"
+	cont "réel et mortel."
+
+	para "Je veux préserver"
+	line "des vies, alors je"
+	cont "respecte les ges-"
+	cont "tes barrières et"
+	cont "la distanciation"
+	cont "sociale."
+else
 	text "I think TEAM"
 	line "ROCKET's message"
 	
@@ -380,6 +401,7 @@ RadioTower2FSuperNerdTROpinionText: ; TO TRANSLATE
 	para "sanitary measures"
 	line "as well as social"
 	cont "distancing."
+endc
 	done
 
 RadioTower2FTeacherText: 
@@ -465,7 +487,17 @@ endc
 
 	done
 
-GruntM4SeenText: ; TO TRANSLATE
+GruntM4SeenText:
+if DEF(_FR_FR)
+	text "Le vaccin en pré-"
+	line "paration contient"
+
+	para "des nano-puces 5G"
+	line "dans le but de"
+
+	para "contrôler notre"
+	line "cerveau."
+else
 	text "The vaccine they"
 	line "are working on"
 	
@@ -474,21 +506,42 @@ GruntM4SeenText: ; TO TRANSLATE
 
 	para "control of our"
 	line "brain."
+endc
 	done
 
-GruntM4BeatenText: ; TO TRANSLATE
+
+GruntM4BeatenText:
+if DEF(_FR_FR)
+	text "Gah! Tu m'as re-"
+	line "tourné le cerveau!"
+else
 	text "Gah! You destroyed"
 	line "my brain!"
+endc
 	done
 
-GruntM4AfterBattleText: ; TO TRANSLATE
+
+GruntM4AfterBattleText:
+if DEF(_FR_FR)
+	text "On ne te laissera"
+	line "pas faire foirer"
+	cont "nos plans!"
+else
 	text "We won't let you"
 	line "ruin our plans!"
+endc
 	done
 
-GruntM5SeenText: ; TO TRANSLATE
+
+GruntM5SeenText:
+if DEF(_FR_FR)
+	text "On ne laissera pas"
+	line "le gouvernement"
+	cont "gagner!"
+else
 	text "We won't let the"
 	line "government win!"
+endc
 	done
 
 GruntM5BeatenText: 
@@ -502,17 +555,30 @@ endc
 
 	done
 
-GruntM5AfterBattleText: ; TO TRANSLATE
+GruntM5AfterBattleText:
+if DEF(_FR_FR)
+	text "On devrait tous"
+	line "faire ce qu'on"
+	cont "veut."
+else
 	text "We should all"
 	line "just do whatever"
 	cont "we like."
+endc
 	done
 
-GruntM6SeenText: ; TO TRANSLATE
+GruntM6SeenText:
+if DEF(_FR_FR)
+	text "Ne renonce pas à"
+	line "ta liberté pour"
+	cont "une simple épi-"
+	cont "démie de grippe!"
+else
 	text "Don't give up your"
 	line "freedom because of"
 	cont "a little flu"
 	cont "outbreak!"
+endc
 	done
 
 GruntM6BeatenText: 

@@ -50,14 +50,27 @@ endc
 
 	done
 
-Route2NuggetHouseFisherText_GotNugget: ; TO TRANSLATE
+Route2NuggetHouseFisherText_GotNugget:
+if DEF(_FR_FR)
+	text "C'est un"
+	line "ROULEAU d'PQ."
+
+	para "Un tel cadeau"
+	line "devrait sceller"
+	cont "notre amitié."
+	
+	para "Sur le papier,"
+	line "tout du moins."
+else
 	text "That's"
 	line "TOILET PAPER."
 
 	para "It should seal our"
 	line "new friendship"
 	cont "on paper."
+endc
 	done
+
 
 Route2NuggetHouse_MapEvents:
 	db 0, 0 ; filler

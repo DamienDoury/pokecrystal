@@ -359,23 +359,6 @@ endc
 
 	done
 
-GuitaristRegisSeenText: ; TO TRANSLATE
-	text "Yeeeaaah!"
-	done
-
-GuitaristRegisBeatenText: ; TO TRANSLATE
-	text "Oh f…"
-	done
-
-GuitaristRegisAfterBattleText: ; TO TRANSLATE
-	text "Concerts are still"
-	line "forbidden. So I'm"
-	cont "praticing outside"
-	cont "to keep my sanity."
-
-	para "Darn pandemic!"
-	done
-
 Route3MtMoonSquareSignText: 
 if DEF(_FR_FR)
 	text "SQUARE du MONT"
@@ -390,78 +373,199 @@ endc
 
 	done
 
-Route3CleoSeenText: ; TO TRANSLATE
+GuitaristRegisSeenText:
+if DEF(_FR_FR)
+	text "Yeeeaaah!"
+else
+	text "Yeeeaaah!"
+endc
+	done
+
+GuitaristRegisBeatenText:
+if DEF(_FR_FR)
+	text "Oh f*ck!"
+else
+	text "Oh f…"
+endc
+	done
+
+GuitaristRegisAfterBattleText:
+if DEF(_FR_FR)
+	text "Les concerts sont"
+	line "encore interdits."
+	
+	para "Alors je m'entraine"
+	line "en extérieur pour"
+	
+	para "ne pas perdre"
+	line "la main."
+	
+	para "Satanée pandémie!"
+else
+	text "Concerts are still"
+	line "forbidden. So I'm"
+	cont "praticing outside"
+	cont "to keep my sanity."
+
+	para "Darn pandemic!"
+endc
+	done
+
+Route3CleoSeenText:
+if DEF(_FR_FR)
+	text "Salut mon chou!"
+	line "Ca t'dit un combat"
+	
+	para "un contre un à"
+	line "METRONOME?"
+else
 	text "Hello darling!"
 	line "Wanna do a 1v1"
 	cont "METRONOME battle?"
+endc
 	done
-	
-Route3Cleo1v1Text: ; TO TRANSLATE
+
+Route3Cleo1v1Text:
+if DEF(_FR_FR)
+	text "J'ai dit un contre"
+	line "un! Tu as trop"
+	cont "de #MON."
+else
 	text "I said 1v1! You"
 	line "have too many"
 	cont "#MON."
+endc
 	done
 
-Route3CleoBattleRefusedText: ; TO TRANSLATE
+Route3CleoBattleRefusedText:
+if DEF(_FR_FR)
+	text "J'ai trop envie!"
+	line "Steuplé!"
+else
 	text "I wanna do this"
 	line "so badly! Please!"
+endc
 	done
 
-Route3CleoBattleAcceptedText: ; TO TRANSLATE
+Route3CleoBattleAcceptedText:
+if DEF(_FR_FR)
+	text "Génial! Voyons de"
+	line "quel côté est la"
+	cont "chance!"
+else
 	text "Exciting! Let's see"
 	line "who's the luckiest!"
+endc
 	done
 
-Route3CleoCheatText: ; TO TRANSLATE
+Route3CleoCheatText:
+if DEF(_FR_FR)
+	text "Hé t'as triché! On"
+	line "a le droit qu'à"
+	cont "METRONOME!"
+else
 	text "You cheater! You're"
 	line "supposed to only"
 	cont "use METRONOME!"
-	done
-	
-Route3CleoRematchTomorrowText: ; TO TRANSLATE
-	text "I want a rematch"
-	line "tomorrow!"
+endc
 	done
 
-Route3CleoWasFunText: ; TO TRANSLATE
+Route3CleoRematchTomorrowText:
+if DEF(_FR_FR)
+	text "J'veux une revan-"
+	line "che demain!"
+else
+	text "I want a rematch"
+	line "tomorrow!"
+endc
+	done
+
+Route3CleoWasFunText:
+if DEF(_FR_FR)
+	text "C'était trop"
+	line "drôle!"
+
+	para "Viens on remet"
+	line "ça demain!"
+else
 	text "That was fun!"
 	line "Let's have another"
 	cont "one tomorrow!"
+endc
 	done
 
-Route3CleoLevelUpText: ; TO TRANSLATE
+Route3CleoLevelUpText:
+if DEF(_FR_FR)
+	text "Mais j'y crois pas!"
+	line "Laisse-moi user"
+	cont "de quelques objets"
+	cont "puis on fait le"
+	cont "match retour."
+else
 	text "Wait that can't"
 	line "happen! Let me use"
 	cont "some items, then"
 	cont "let's redo this."
+endc
 	done
 
-Route3CleoRematchText: ; TO TRANSLATE
+Route3CleoRematchText:
+if DEF(_FR_FR)
+	text "J'veux ma revanche"
+	line "au un contre un"
+	cont "METRONOME!"
+else
 	text "I want my 1v1"
 	line "METRONOME rematch!"
+endc
 	done
 
-Route3CleoLossText: ; TO TRANSLATE
+Route3CleoLossText:
+if DEF(_FR_FR)
+	text "C'est moi la plus"
+	line "chanceuse!"
+else
 	text "I knew I was"
 	line "the luckiest!"
+endc
 	done
 
-Route3CleoWinText: ; TO TRANSLATE
+Route3CleoWinText:
+if DEF(_FR_FR)
 	text "Oh!"
+else
+	text "Oh!"
+endc
 	done
 
-Route3CleoLostFairAndSquareText: ; TO TRANSLATE
+Route3CleoLostFairAndSquareText:
+if DEF(_FR_FR)
+	text "Tu m'as battue"
+	line "à la loyale."
+else
 	text "You beat me"
 	line "fair and square."
+endc
 	done
 
-Route3CleoLostFairAndSquare2Text: ; TO TRANSLATE
+Route3CleoLostFairAndSquare2Text:
+if DEF(_FR_FR)
+	text "Je pensais être la"
+	line "plus chanceuse"
+	cont "depuis que j'ai"
+	cont "gagné ce TICK."
+	cont "GAGNANT."
+	
+	para "Tu le mérites plus"
+	line "que moi."
+else
 	text "I thought to be"
 	line "the luckiest"
 	cont "since I won this"
 	cont "VOUCHER."
 
 	para "Now it's yours."
+endc
 	done
 
 Route3_MapEvents:

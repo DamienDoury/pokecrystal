@@ -16,12 +16,20 @@ Route5CleanseTagHouseTeacherScript:
 HouseForSaleBookshelf:
 	jumpstd DifficultBookshelfScript
 
-Route5CleanseTagHouseGrannyText1: ; TO TRANSLATE
+Route5CleanseTagHouseGrannyText1:
+if DEF(_FR_FR)
+	text "Yaaaah!"
+
+	para "Je sens une pré-"
+	line "sence maléfique"
+	cont "planer sur toi."
+else
 	text "Eeyaaaah!"
 
 	para "I sense a sinister"
 	line "shadow hovering"
 	cont "over you."
+endc
 	done
 
 Route5CleanseTagHouseTeacherText: 

@@ -9,7 +9,21 @@ Route2Gate_MapScripts:
 Route2GateScientistScript:
 	jumptextfaceplayer Route2GateScientistText
 
-Route2GateScientistText: ; TO TRANSLATE
+Route2GateScientistText:
+if DEF(_FR_FR)
+	text "Es-tu <PLAY_G>?"
+
+	para "J'suis l'assistant"
+	line "du PROF.CHEN."
+
+	para "Il m'a dit que je"
+	line "te trouverais"
+	cont "dans le coin."
+
+	para "Le LABO du PROF."
+	line "CHEN est au BOURG"
+	cont "PALETTE."
+else
 	text "Are you <PLAY_G>?"
 
 	para "I work as PROF."
@@ -21,6 +35,7 @@ Route2GateScientistText: ; TO TRANSLATE
 	para "PROF.OAK's LAB is"
 	line "nearby in PALLET"
 	cont "TOWN."
+endc
 	done
 
 Route2Gate_MapEvents:

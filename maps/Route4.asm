@@ -461,33 +461,6 @@ endc
 
 	done
 
-HikerSammySeenText: ; TO TRANSLATE
-	text "Hello fellow"
-	line "HIKER!"
-	done
-
-HikerSammyBeatenText: ; TO TRANSLATE
-	text "I had a pebble in"
-	line "my shoe. Not fair."
-	done
-
-HikerSammyAfterBattleText: ; TO TRANSLATE
-	text "Have you met the"
-	line "crazy man that"
-	cont "dug this cave?"
-
-	para "His work is"
-	line "pointless."
-
-	para "The cave sank."
-	
-	para "He better try"
-	line "by the water."
-
-	para "It's what the"
-	line "rumor suggests."
-	done
-
 MtMoonSquareSignText: 
 if DEF(_FR_FR)
 	text "SQUARE du MONT"
@@ -502,7 +475,91 @@ endc
 
 	done
 
-Route4RocketSeenText: ; TO TRANSLATE
+HikerSammySeenText:
+if DEF(_FR_FR)
+	text "Salut camarade"
+	line "MONTAGNARD!"
+else
+	text "Hello fellow"
+	line "HIKER!"
+endc
+	done
+
+HikerSammyBeatenText:
+if DEF(_FR_FR)
+	text "J'avais un caillou"
+	line "dans ma chaussure."
+else
+	text "I had a pebble in"
+	line "my shoe. Not fair."
+endc
+	done
+
+HikerSammyAfterBattleText:
+if DEF(_FR_FR)
+	text "Tu as rencontré le"
+	line "taré qui a creusé"
+	cont "cette grotte?"
+
+	para "Il gâche son"
+	line "énergie pour rien."
+
+	para "La grotte a coulée"
+	line "dans les fonds."
+
+	para "Il ferait mieux"
+	line "d'essayer vers"
+	cont "de la côte."
+
+	para "C'est ce que la"
+	line "rumeur suggère."
+else
+	text "Have you met the"
+	line "crazy man that"
+	cont "dug this cave?"
+
+	para "His work is"
+	line "pointless."
+
+	para "The cave sank."
+	
+	para "He better try"
+	line "by the water."
+
+	para "It's what the"
+	line "rumor suggests."
+endc
+	done
+
+Route4RocketSeenText:
+if DEF(_FR_FR)
+	text "Heypa! Y faut qué"
+	line "tou arrête dé mé"
+	cont "courir après."
+	
+	para "Yé soui dangerous,"
+	line "tou comprends?"
+
+	para "Moi yé souis dé"
+	line "la TEAM ROCKET!"
+
+	para "Yé souis de oune"
+	line "autre pays. Mé moi"
+	cont "souper pouissant!"
+
+	para "Yé souis venu"
+	line "voler ouna"
+	cont "PARTIE dé MACHINA"
+	cont "pour la crise dé"
+	cont "l'énergie dans"
+	cont "môn pays."
+
+	para "Mais ça mé fatigua"
+	line "dé fouir!"
+
+	para "Alors!"
+	line "COMBAT!"
+else
 	text "Hey, kid! Chasing"
 	line "me you stop."
 
@@ -528,9 +585,18 @@ Route4RocketSeenText: ; TO TRANSLATE
 
 	para "Hey, kid! Battle"
 	line "begin we do!"
+endc
 	done
 
-Route4RocketBeatenText: ; TO TRANSLATE
+Route4RocketBeatenText:
+if DEF(_FR_FR)
+	text "Ayiéééé! No yé lé"
+	line "crois pas!"
+
+	para "Té qui toi, no?"
+	line "Yé souis pas dé"
+	cont "la hauteur!"
+else
 	text "Ayieeeh! No, no,"
 	line "no, believe it I"
 	cont "can't!"
@@ -538,9 +604,25 @@ Route4RocketBeatenText: ; TO TRANSLATE
 	para "Strong very much"
 	line "be you! Match I am"
 	cont "not to you!"
+endc
 	done
 
-Route4RocketAfterBattleText: ; TO TRANSLATE
+Route4RocketAfterBattleText:
+if DEF(_FR_FR)
+	text "OK, tou a gagné."
+
+	para "Ma toi tu oublies"
+	line "pas moi!"
+
+	para "TEAM ROCKET te"
+	line "battre!"
+
+	para "Ils viennent de"
+	line "JOHTO mes amis et"
+
+	para "ta tête te la"
+	line "cassent, oh oui."
+else
 	text "OK. You win."
 
 	para "But you forget me"
@@ -554,9 +636,23 @@ Route4RocketAfterBattleText: ; TO TRANSLATE
 
 	para "friends, yes. Will"
 	line "revenge they are."
+endc
 	done
 
-Route4RocketDisappearsText: ; TO TRANSLATE
+Route4RocketDisappearsText:
+if DEF(_FR_FR)
+	text "..."
+
+	para "Qué dit? TEAM"
+	line "ROCKET cassé?"
+	cont "Par toi en plous?"
+
+	para "Ma mission secrète"
+	line "finito?"
+
+	para "Oh, non! Qué yé"
+	line "va faire moi?"
+else
 	text "…"
 
 	para "You say what? TEAM"
@@ -571,36 +667,77 @@ Route4RocketDisappearsText: ; TO TRANSLATE
 	para "Oh, no! Should I"
 	line "do what now on"
 	cont "from, me?"
+endc
 	done
 
-Route4JennyPunchlineText: ; TO TRANSLATE
+Route4JennyPunchlineText:
+if DEF(_FR_FR)
+	text "Je vais te dire ce"
+	line "que tu vas faire."
+else
 	text "Let me tell you"
 	line "what you'll do."
+endc
 	done
 
-Route4JennyJailText: ; TO TRANSLATE
+Route4JennyJailText:
+if DEF(_FR_FR)
+	text "TU VAS ALLER"
+	line "EN PRISON!!"
+
+	para "Fais voir tes"
+	line "papiers!"
+else
 	text "YOU'RE GOING"
 	line "TO JAIL!!"
 
 	para "Show me your ID."
+endc
 	done
 
-Route4JennyWhatsThisText: ; TO TRANSLATE
+Route4JennyWhatsThisText:
+if DEF(_FR_FR)
+	text "Hé! Cette CARTE"
+	line "DRESSEUR n'est"
+	cont "pas à toi!"
+else
 	text "Hey! This TRAINER"
 	line "CARD isn't yours!"
+endc
 	done
 
-Route4TrainerCardFemaleText: ; TO TRANSLATE
+Route4TrainerCardFemaleText:
+if DEF(_FR_FR)
+Route4TrainerCardMaleText:
+	text "<PLAYER> retrouve"
+	line "sa CARTE DRESSEUR!"
+else
 	text "<PLAYER> retrieves"
 	line "her TRAINER CARD!"
+endc
 	done
 
-Route4TrainerCardMaleText: ; TO TRANSLATE
+if DEF(_EN_US)
+Route4TrainerCardMaleText:
 	text "<PLAYER> retrieves"
 	line "his TRAINER CARD!"
 	done
+endc
 
-Route4JennyThanksText: ; TO TRANSLATE
+Route4JennyThanksText:
+if DEF(_FR_FR)
+	text "Merci <PLAYER>."
+	line "Tu as été d'une"
+	cont "grande aide."
+
+	para "Si tu veux rester"
+	line "au courant de nos"
+	cont "autres enquêtes,"
+	
+	para "passe au commissa-"
+	line "riat de POLICE"
+	cont "d'AZURIA."
+else
 	text "Thanks <PLAYER>."
 	line "You've been a"
 	cont "great support."
@@ -611,13 +748,21 @@ Route4JennyThanksText: ; TO TRANSLATE
 
 	para "come at CERULEAN"
 	line "POLICE STATION."
+endc
 	done
 
-Route4JennyJusticeText: ; TO TRANSLATE
+Route4JennyJusticeText:
+if DEF(_FR_FR)
+	text "On y va mon gars."
+	
+	para "La justice"
+	line "t'attend!"
+else
 	text "Let's go mister."
 
 	para "Justice's waiting"
 	line "for you."
+endc
 	done
 
 Route4_MapEvents:
