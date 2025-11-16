@@ -233,8 +233,13 @@ endc
 	done
 
 ManiaText_GotShuckle::
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit un"
+	line "#MON."
+else
 	text "<PLAYER> received a"
 	line "#MON."
+endc
 	done
 
 ManiaText_PartyFull: 

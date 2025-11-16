@@ -2008,9 +2008,15 @@ endc
 	done
 
 ElmFinalText2::
+if DEF(_FR_FR)
+	text "Merci pour ton"
+	line "aide contre le"
+	cont "COVID-19!"
+else
 	text "Thank you for"
 	line "your help against"
 	cont "COVID-19!"
+endc
 	done
 
 AideText_AfterTheft: 
