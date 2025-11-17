@@ -205,7 +205,45 @@ Route25MistyLeavesMovement: ; Damien
 	step DOWN
 	step_end
 
-Route25MistyDateText: ; TO TRANSLATE
+Route25MistyDateText:
+if DEF(_FR_FR)
+	text "ONDINE: (tousse)"
+	
+	para "Aaaah!"
+	line "Pourquoi t'es là,"
+
+	para "toi? Tu nous as"
+	line "dérangés!"
+	
+	para "Tu sais comment on"
+	line "appelle les gens"
+	cont "comme toi?"
+	
+	para "Des pestes! Tu m'as"
+	line "bien entendue,"
+	cont "sale peste!"
+	
+	para "..."
+	
+	para "...Oh? Tes BADGES!"
+	line "Ils viennent des"
+	cont "ARENES de JOHTO?"
+
+	para "Si tu en as 8,"
+	line "c'est que t'es pas"
+	cont "une mauviette..."
+	cont "...(tousse)..."
+
+	para "OK. Viens à"
+	line "l'ARENE d'AZURIA."
+	
+	para "Je te lance un"
+	line "défi."
+
+	para "Je suis ONDINE,"
+	line "la CHAMPIONNE"
+	cont "d'AZURIA."
+else
 	text "MISTY: (cough)"
 	line "Aww! Why did you"
 
@@ -220,7 +258,7 @@ Route25MistyDateText: ; TO TRANSLATE
 	line "me right, pest!"
 
 	para "…"
-	line "" ; Damien
+	line ""
 
 	para "…Oh? Those BADGES"
 	line "you have… Are they"
@@ -239,6 +277,7 @@ Route25MistyDateText: ; TO TRANSLATE
 	para "I'm MISTY, the"
 	line "GYM LEADER in"
 	cont "CERULEAN."
+endc
 	done
 
 SchoolboyDudleySeenText: 

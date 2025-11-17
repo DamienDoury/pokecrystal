@@ -115,7 +115,17 @@ GotBadgeNoTrainerCard:
 .end
 	end
 
-GotBadgeNoTrainerCardText: ; TO TRANSLATE
+GotBadgeNoTrainerCardText:
+if DEF(_FR_FR)
+	text "Oh, tu n'as pas ta"
+	line "CARTE DRESSEUR?"
+	
+	para "Ne t'inquiète pas,"
+	line "elle sera mise à"
+	cont "jour avec ce BADGE"
+	cont "quand tu la"
+	cont "récupéreras."
+else
 	text "Oh, you don't have"
 	line "your TRAINER CARD?"
 
@@ -123,6 +133,7 @@ GotBadgeNoTrainerCardText: ; TO TRANSLATE
 	line "be updated with"
 	cont "this BADGE once"
 	cont "you get it back."
+endc
 	done
 
 
@@ -240,39 +251,80 @@ Route24FightRightMovement:
 	step_end
 
 ; Couple 1)
-Route24Trainer1SeenText: ; TO TRANSLATE
+Route24Trainer1SeenText:
+if DEF(_FR_FR)
+	text "M'obliger à me"
+	line "faire vacciner va"
+	cont "à l'encontre de"
+	cont "ma liberté!"
+else
 	text "Forcing me to get"
 	line "vaccinated goes"
 	cont "against my"
 	cont "freedom!"
+endc
 	done
 
-Route24Trainer1BeatenText: ; TO TRANSLATE
+Route24Trainer1BeatenText:
+if DEF(_FR_FR)
+	text "Je ne t'impose pas"
+	line "de ne pas te faire"
+	cont "vacciner,"
+	
+	para "alors ne m'impose"
+	line "pas de le faire!"
+else
 	text "I'm not telling you"
 	line "to not get"
 	cont "vaccinated, so"
 	
 	para "don't tell me to"
 	line "get vaccinated!"
+endc
 	done
 
-Route24Trainer2SeenText: ; TO TRANSLATE
+Route24Trainer2SeenText:
+if DEF(_FR_FR)
+	text "Se faire vacciner,"
+	line "n'est pas un droit."
+	
+	para "C'est un devoir!"
+else
 	text "Getting vaccinated"
 	line "is not a right."
 
 	para "It's a duty!"
+endc
 	done
 
-Route24Trainer2BeatenText: ; TO TRANSLATE
+Route24Trainer2BeatenText:
+if DEF(_FR_FR)
+	text "Cette pandémie ne"
+	line "s'arrêtera pas"
+	cont "toute seule,"
+	
+	para "on doit agir"
+	line "tous ensemble!"
+else
 	text "This pandemic won't"
 	line "stop by itself,"
 	
 	para "we need to act"
 	line "as a group!"
+endc
 	done
-	
+
 ; Couple 2)
-Route24Trainer3SeenText: ; TO TRANSLATE
+Route24Trainer3SeenText:
+if DEF(_FR_FR)
+	text "Tu t'es déjà fait"
+	line "vacciner contre"
+	cont "d'autres maladies,"
+	
+	para "pourquoi tu refuses"
+	line "de le faire cette"
+	cont "fois?"
+else
 	text "You got vaccinated"
 	line "against other"
 	cont "diseases,"
@@ -280,9 +332,21 @@ Route24Trainer3SeenText: ; TO TRANSLATE
 	para "why won't you get"
 	line "vaccinated this"
 	cont "time?"
+endc
 	done
 
-Route24Trainer3BeatenText: ; TO TRANSLATE
+Route24Trainer3BeatenText:
+if DEF(_FR_FR)
+	text "Si nos chercheurs"
+	line "disent que le"
+	
+	para "vaccin est sûr,"
+	line "alors il l'est!"
+	
+	para "Ils sont plus"
+	line "qualifiés que toi"
+	cont "et moi!"
+else
 	text "If our health"
 	line "researchers say"
 	
@@ -292,9 +356,19 @@ Route24Trainer3BeatenText: ; TO TRANSLATE
 	para "They are more"
 	line "qualified than"
 	cont "you and I!"
+endc
 	done
 
-Route24Trainer4SeenText: ; TO TRANSLATE
+Route24Trainer4SeenText:
+if DEF(_FR_FR)
+	text "Ce vaccin n'a pas"
+	line "été testé assez"
+	cont "longtemps!"
+	
+	para "Il pourrait être"
+	line "dangereux à long"
+	cont "terme!"
+else
 	text "This vaccine has"
 	line "not been tested"
 	cont "thoroughly enough!"
@@ -302,9 +376,20 @@ Route24Trainer4SeenText: ; TO TRANSLATE
 	para "It could be"
 	line "dangerous in"
 	cont "the long term!"
+endc
 	done
+
+Route24Trainer4BeatenText:
+if DEF(_FR_FR)
+	text "Comment ce vaccin"
+	line "a-t-il pu être"
+	cont "approuvé en"
+	cont "quelques mois,"
 	
-Route24Trainer4BeatenText: ; TO TRANSLATE
+	para "alors qu'il faut"
+	line "5 à 10 ans pour"
+	cont "les autres?"
+else
 	text "How could this"
 	line "vaccine get appro-"
 	cont "ved within months"
@@ -312,18 +397,40 @@ Route24Trainer4BeatenText: ; TO TRANSLATE
 	para "when it takes"
 	line "5 to 10 years"
 	cont "for the others?"
+endc
 	done
 
 ; Couple 3)
-Route24Trainer5SeenText: ; TO TRANSLATE
+Route24Trainer5SeenText:
+if DEF(_FR_FR)
+	text "Des études démon-"
+	line "trent que ce"
+	cont "vaccin a de fortes"
+	cont "chances de pro-"
+	cont "voquer des effets"
+	cont "secondaires"
+	cont "dangereux!"
+else
 	text "Studies show the"
 	line "vaccine has high"
 	cont "odds of giving you"
 	cont "a dangerous side"
 	cont "effect!"
+endc
 	done
 
-Route24Trainer5BeatenText: ; TO TRANSLATE
+Route24Trainer5BeatenText:
+if DEF(_FR_FR)
+	text "Je préfère tenter"
+	line "d'échapper au"
+	cont "virus,"
+	
+	para "plutôt que d'injec-"
+	line "ter quelque chose"
+	cont "de potentiellement"
+	cont "dangereux dans"
+	cont "mon corps."
+else
 	text "I'd rather take my"
 	line "chances to escape"
 	cont "the virus,"
@@ -332,15 +439,33 @@ Route24Trainer5BeatenText: ; TO TRANSLATE
 	line "something poten-"
 	cont "tially dangerous"
 	cont "into my body."
+endc
 	done
 
-Route24Trainer6SeenText: ; TO TRANSLATE
+Route24Trainer6SeenText:
+if DEF(_FR_FR)
+	text "C'est ne pas se"
+	line "faire vacciner qui"
+	cont "est dangereux!"
+else
 	text "It's not getting"
 	line "vaccinated that"
 	cont "is dangerous!"
+endc
 	done
 
-Route24Trainer6BeatenText: ; TO TRANSLATE
+Route24Trainer6BeatenText:
+if DEF(_FR_FR)
+	text "Ne pas se faire"
+	line "vacciner met ta"
+	cont "vie en danger et"
+	cont "aide le virus à"
+	cont "se propager!"
+	
+	para "Propager le virus,"
+	line "c'est être un"
+	cont "tueur!"
+else
 	text "Not getting vacci-"
 	line "nated puts your-"
 	cont "self at risk, and"
@@ -350,34 +475,62 @@ Route24Trainer6BeatenText: ; TO TRANSLATE
 	para "Spreading the"
 	line "virus makes you"
 	cont "a killer!"
+endc
 	done
 
 ; Couple 4)
-Route24Trainer7SeenText: ; TO TRANSLATE
+Route24Trainer7SeenText:
+if DEF(_FR_FR)
+	text "On devrait tuer"
+	line "ceux qui refusent"
+	
+	para "le vaccin et"
+	line "propagent"
+	cont "le virus."
+else
 	text "We should kill"
 	line "people that refuse"
 
 	para "the vaccine and"
 	line "spread the virus."
+endc
 	done
 
-Route24Trainer7BeatenText: ; TO TRANSLATE
+Route24Trainer7BeatenText:
+if DEF(_FR_FR)
+	text "Abruti de m*rde!"
+else
 	text "You f*cking"
 	line "dumbsh*t!"
+endc
 	done
 
-Route24Trainer8SeenText: ; TO TRANSLATE
+Route24Trainer8SeenText:
+if DEF(_FR_FR)
+	text "J'espère que ton"
+	line "vaccin te filera"
+	
+	para "le cancer, p*tain"
+	line "de nazi!"
+else
 	text "I hope your"
 	line "vaccine gives"
 	
 	para "you cancer, you"
 	line "f*cking nazi!"
+endc
 	done
 
-Route24Trainer8BeatenText: ; TO TRANSLATE
+Route24Trainer8BeatenText:
+if DEF(_FR_FR)
+	text "Vas bien te faire"
+	line "fo*tre!"
+else
 	text "Yeah right"
 	line "f*ck you!"
+endc
 	done
+
 
 Route24_MapEvents:
 	db 0, 0 ; filler

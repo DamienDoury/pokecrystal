@@ -161,53 +161,110 @@ endc
 
 	done
 
-SwimmermDuaneSeenText: ; TO TRANSLATE
+SwimmermDuaneSeenText:
+if DEF(_FR_FR)
+	text "Mate mon #MON"
+	line "rare!"
+else
 	text "Check out my rare"
 	line "#MON!"
+endc
 	done
 
-SwimmermDuaneBeatenText: ; TO TRANSLATE
+SwimmermDuaneBeatenText:
+if DEF(_FR_FR)
+	text "T'en penses quoi?"
+else
 	text "Impressed?"
+endc
 	done
 
-SwimmermDuaneAfterBattleText: ; TO TRANSLATE
+SwimmermDuaneAfterBattleText:
+if DEF(_FR_FR)
+	text "Le volcan a rejeté"
+	line "des fossiles venus"
+	cont "du fond de l'océan."
+else
 	text "The volcano spat"
 	line "some fossils from"
 	
 	para "the bottom of the"
 	line "ocean."
+endc
 	done
 
-SwimmermTysonSeenText: ; TO TRANSLATE
+SwimmermTysonSeenText:
+if DEF(_FR_FR)
+	text "J'étais un sportif"
+	line "de haut niveau"
+	cont "autrefois..."
+else
 	text "I used to be"
 	line "an athlete…"
+endc
 	done
 
-SwimmermTysonBeatenText: ; TO TRANSLATE
+SwimmermTysonBeatenText:
+if DEF(_FR_FR)
+	text "Je me suis"
+	line "ramolli..."
+else
 	text "I got soft…"
+endc
 	done
 
-SwimmermTysonAfterBattleText: ; TO TRANSLATE
+SwimmermTysonAfterBattleText:
+if DEF(_FR_FR)
+	text "Impossible de"
+	line "s'entraîner pendant"
+	cont "la pandémie."
+	
+	para "Maintenant je dois"
+	line "m'entraîner deux"
+	cont "fois plus."
+else
 	text "I couldn't train"
 	line "during the"
 	cont "pandemic."
 
 	para "Now I'm training"
 	line "twice as much."
+endc
 	done
 
-SwimmermEstebanSeenText: ; TO TRANSLATE
+SwimmermEstebanSeenText:
+if DEF(_FR_FR)
+	text "Avant j'étais"
+	line "SCIENTIFIQUE au"
+	cont "LABO #MON de"
+	cont "CRAMOIS'ILE."
+else
 	text "I used to be a"
 	line "SCIENTIST at the"
 	cont "CINNABAR LAB."
+endc
 	done
 
-SwimmermEstebanBeatenText: ; TO TRANSLATE
+SwimmermEstebanBeatenText:
+if DEF(_FR_FR)
+	text "J'ai apprécié ce"
+	line "combat. Merci!"
+else
 	text "I enjoyed this"
 	line "battle. Thanks!"
+endc
 	done
 
-SwimmermEstebanAfterBattleText: ; TO TRANSLATE
+SwimmermEstebanAfterBattleText:
+if DEF(_FR_FR)
+	text "Mes collègues ont"
+	line "été mutés vers"
+	cont "d'autres sites"
+	cont "après l'éruption."
+	
+	para "La plupart sont à"
+	line "SAFRANIA."
+else
 	text "My colleagues were"
 	line "assigned to other"
 	cont "workplaces after"
@@ -215,6 +272,7 @@ SwimmermEstebanAfterBattleText: ; TO TRANSLATE
 
 	para "Most of them in"
 	line "SAFFRON CITY."
+endc
 	done
 
 SwimmerfNikkiSeenText: 
@@ -241,7 +299,23 @@ endc
 
 	done
 
-SwimmerfNikkiAfterBattleText: ; TO TRANSLATE
+SwimmerfNikkiAfterBattleText:
+if DEF(_FR_FR)
+	text "Le jour où le"
+	line "volcan de CRAMOIS'"
+	cont "ILE est entré en"
+	cont "éruption,"
+	
+	para "j'ai vu un #MON"
+	line "volant majestueux"
+	cont "de couleur bleu"
+	cont "voler par dessus"
+	cont "ma tête, venant"
+	
+	para "en ligne droite"
+	line "depuis les ILES"
+	cont "ECUME."
+else
 	text "The day CINNABAR's"
 	line "volcano erupted,"
 
@@ -253,39 +327,89 @@ SwimmerfNikkiAfterBattleText: ; TO TRANSLATE
 	
 	para "coming from"
 	line "SEAFOAM ISLANDS."
+endc
 	done
 
-SwimmerfChelanSeenText: ; TO TRANSLATE
+SwimmerfChelanSeenText:
+if DEF(_FR_FR)
+	text "Toi aussi tu viens"
+	line "pour ça?"
+else
 	text "Are you also"
 	line "coming for it?"
+endc
 	done
 
-SwimmerfChelanBeatenText: ; TO TRANSLATE
+SwimmerfChelanBeatenText:
+if DEF(_FR_FR)
+	text "Allez, t'es pas"
+	line "drôle."
+else
 	text "Come on, you're"
 	line "no fun."
+endc
 	done
 
-SwimmerfChelanAfterBattleText: ; TO TRANSLATE
+SwimmerfChelanAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai hâte. Tu vois"
+	line "de quoi je parle,"
+	cont "n'est-ce pas?"
+	
+	para "Je crois que ça"
+	line "commence à 21h."
+	
+	para "Mais quel jour de"
+	line "la semaine déjà?"
+else
 	text "I'm waiting for it."
 	line "You know, right?"
 
 	para "I recall it starts"
 	line "at 9 PM. But on"
 	cont "what day?"
+endc
 	done
 
-SwimmerfLuluSeenText: ; TO TRANSLATE
+SwimmerfLuluSeenText:
+if DEF(_FR_FR)
+	text "Qui aurait cru que"
+	line "je deviendrais une"
+	cont "aussi bonne"
+	cont "NAGEUSE?!"
+else
 	text "Who knew I could"
 	line "become such a"
 	cont "good SWIMMER?!"
+endc
 	done
 
-SwimmerfLuluBeatenText: ; TO TRANSLATE
+SwimmerfLuluBeatenText:
+if DEF(_FR_FR)
+	text "La chance n'était"
+	line "pas de mon côté."
+else
 	text "I'll have better"
 	line "luck next time…"
+endc
 	done
 
-SwimmerfLuluAfterBattleText: ; TO TRANSLATE
+SwimmerfLuluAfterBattleText:
+if DEF(_FR_FR)
+	text "Je n'avais jamais"
+	line "essayé de nager"
+	cont "quand j'étais"
+	cont "plus jeune."
+	
+	para "Mais c'est génial!"
+	
+	para "J'aurais dû"
+	line "essayer plus tôt!"
+
+	para "Enfin bon c'est pas"
+	line "tout, mais j'ai"
+	cont "rdv au CASINO."
+else
 	text "I never tried"
 	line "swimming when I"
 	cont "was younger."
@@ -294,6 +418,7 @@ SwimmerfLuluAfterBattleText: ; TO TRANSLATE
 
 	para "I should've tried"
 	line "sooner!"
+endc
 	done
 
 FisherArnoldSeenText: 
@@ -327,39 +452,87 @@ endc
 
 	done
 
-FisherWadeSeenText: ; TO TRANSLATE
+FisherWadeSeenText:
+if DEF(_FR_FR)
+	text "J'ai eu une bonne"
+	line "prise! Tu veux"
+	cont "tester?"
+else
 	text "I got a big haul!"
 	line "Wanna go for it?"
+endc
 	done
 
-FisherWadeBeatenText: ; TO TRANSLATE
+FisherWadeBeatenText:
+if DEF(_FR_FR)
+	text "Zut! Encore un"
+	line "MAGICARPE!"
+else
 	text "Darn MAGIKARP!"
+endc
 	done
 
-FisherWadeAfterBattleText: ; TO TRANSLATE
+FisherWadeAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai l'impression"
+	line "de n'attraper que"
+	cont "des MAGICARPE!"
+else
 	text "I seem to only"
 	line "catch MAGIKARP!"
+endc
 	done
 
-FisherMurphyBattleText: ; TO TRANSLATE
+FisherMurphyBattleText:
+if DEF(_FR_FR)
+	text "Je m'appelle"
+	line "MURPHY!"
+else
 	text "Hi, my name is"
 	line "MURPHY!"
+endc
 	done
 
-FisherSkovorodaSeenText: ; TO TRANSLATE
+FisherSkovorodaSeenText:
+if DEF(_FR_FR)
+	text "Avant je perdais"
+	line "souvent mes"
+	cont "combats."
+	
+	para "Mais ça ne m'a"
+	line "jamais découragé."
+else
 	text "I used to lose"
 	line "all battles."
 
 	para "But it didn't"
 	line "discourage me."
+endc
 	done
 
-FisherSkovorodaBeatenText: ; TO TRANSLATE
+FisherSkovorodaBeatenText:
+if DEF(_FR_FR)
+	text "Bien joué! J'ai"
+	line "beaucoup appris."
+else
 	text "Well played!"
 	line "I learned a lot."
+endc
 	done
 
-FisherSkovorodaAfterBattleText: ; TO TRANSLATE
+FisherSkovorodaAfterBattleText:
+if DEF(_FR_FR)
+	text "La victoire vient"
+	line "à ceux qui"
+	cont "persévèrent."
+	
+	para "Attendre qu'elle"
+	line "vienne d'elle-même"
+	cont "ne sert à rien."
+	
+	para "Sauf quand on"
+	line "pêche."
+else
 	text "Victory comes"
 	line "to those who"
 	cont "persevere."
@@ -370,9 +543,20 @@ FisherSkovorodaAfterBattleText: ; TO TRANSLATE
 
 	para "Except when"
 	line "fishing."
+endc
 	done
 
-BirdKeeperGideonSeenText: ; TO TRANSLATE
+BirdKeeperGideonSeenText:
+if DEF(_FR_FR)
+	text "Regarder mes"
+	line "#MON voler en"
+	cont "rond me donne"
+	cont "le tournis."
+	
+	para "Je dois fixer un"
+	line "point immobile."
+	cont "Ce sera toi."
+else
 	text "Looking at my"
 	line "#MON flying"
 	cont "in circles is"
@@ -382,52 +566,111 @@ BirdKeeperGideonSeenText: ; TO TRANSLATE
 	line "gaze on a fixed"
 	cont "point."
 	cont "It'll be you."
+endc
 	done
 
-BirdKeeperGideonBeatenText: ; TO TRANSLATE
+BirdKeeperGideonBeatenText:
+if DEF(_FR_FR)
+	text "J'ai encore plus"
+	line "le tournis."
+else
 	text "I'm feeling even"
 	line "more dizzy now."
+endc
 	done
 
-BirdKeeperGideonAfterBattleText: ; TO TRANSLATE
+BirdKeeperGideonAfterBattleText:
+if DEF(_FR_FR)
+	text "Le ciel est si"
+	line "beau ici."
+	
+	para "Il m'avait manqué"
+	line "pendant le"
+	cont "confinement."
+else
 	text "The sky is so"
 	line "beautiful here."
 
 	para "I missed it during"
 	line "the lockdown."
+endc
 	done
 
-BirdKeeperEastonSeenText: ; TO TRANSLATE
+BirdKeeperEastonSeenText:
+if DEF(_FR_FR)
+	text "Voler dans le ciel"
+	line "bleu, c'est le"
+	cont "symbole de la"
+	cont "liberté pour moi."
+	
+	para "Mais c'est aussi"
+	line "dangereux."
+else
 	text "Flying in the"
 	line "blue sky is"
 	cont "freedom to me."
 
 	para "But it's dangerous."
+endc
 	done
 
-BirdKeeperEastonBeatenText: ; TO TRANSLATE
+BirdKeeperEastonBeatenText:
+if DEF(_FR_FR)
+	text "La vie continue."
+else
 	text "Life goes on."
+endc
 	done
 
-BirdKeeperEastonAfterBattleText: ; TO TRANSLATE
+BirdKeeperEastonAfterBattleText:
+if DEF(_FR_FR)
+	text "La sécurité vaut-"
+	line "elle qu'on sacri-"
+	cont "fie la liberté?"
+else
 	text "Is security worth"
 	line "sacrificing"
 	cont "freedom?"
+endc
 	done
 
-BirdKeeperLeonSeenText: ; TO TRANSLATE
+BirdKeeperLeonSeenText:
+if DEF(_FR_FR)
+	text "Je collectionne"
+	line "les #MON VOL"
+	cont "colorés."
+	
+	para "J'te montre?"
+else
 	text "I collect colorful"
 	line "FLYING #MON."
 
 	para "Wanna see'em?"
+endc
 	done
 
-BirdKeeperLeonBeatenText: ; TO TRANSLATE
+BirdKeeperLeonBeatenText:
+if DEF(_FR_FR)
+	text "Hmmm... il s'est"
+	line "passé quoi?"
+else
 	text "Hmmm… what"
 	line "happened?"
+endc
 	done
 
-BirdKeeperLeonAfterBattleText: ; TO TRANSLATE
+BirdKeeperLeonAfterBattleText:
+if DEF(_FR_FR)
+	text "S'occuper de tous"
+	line "mes #MON VOL,"
+	cont "c'est du boulot."
+	
+	para "Mais voir toutes"
+	line "ces couleurs vire-"
+	cont "volter, ça en vaut"
+	cont "la peine."
+	cont "Olé ben beau!"
+else
 	text "Taking care of all"
 	line "my FLYING #MON"
 	cont "is hard work."
@@ -436,6 +679,7 @@ BirdKeeperLeonAfterBattleText: ; TO TRANSLATE
 	line "these colors fly-"
 	cont "ing around makes"
 	cont "it worth it!"
+endc
 	done
 
 Route21_MapEvents:
