@@ -212,17 +212,37 @@ endc
 
 	done
 
-GentlemanPauloSeenText: ; TO TRANSLATE
+GentlemanPauloSeenText:
+if DEF(_FR_FR)
+	text "Regarde ce que"
+	line "j'ai attrapé!"
+else
 	text "Look what I"
 	line "caught!"
+endc
 	done
 
-GentlemanPauloBeatenText: ; TO TRANSLATE
+GentlemanPauloBeatenText:
+if DEF(_FR_FR)
+	text "Tu n'apprécies pas"
+	line "mes prises?"
+else
 	text "Are you not happy"
 	line "to see my #MON?"
+endc
 	done
 
-GentlemanPauloAfterBattleText: ; TO TRANSLATE
+GentlemanPauloAfterBattleText:
+if DEF(_FR_FR)
+	text "Ce fut une"
+	line "agréable nuit"
+	cont "de chasse."
+	
+	para "Il est maintenant"
+	line "temps de me repo-"
+	cont "ser pour le reste"
+	cont "de la journée."
+else
 	text "It has been a"
 	line "delightful night"
 	cont "of hunting."
@@ -230,6 +250,7 @@ GentlemanPauloAfterBattleText: ; TO TRANSLATE
 	para "Now to rest for"
 	line "the remainder of"
 	cont "the day."
+endc
 	done
 
 Route11SignText: 

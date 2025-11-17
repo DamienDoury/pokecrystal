@@ -318,78 +318,164 @@ endc
 
 	done
 
-TeacherCeciliaSeenText: ; TO TRANSLATE
+TeacherCeciliaSeenText:
+if DEF(_FR_FR)
+	text "Maintenant que le"
+	line "confinement est"
+	cont "levé, c'est le"
+	cont "retour des sorties"
+	cont "scolaires!"
+else
 	text "Now that the stay-"
 	line "at-home order is"
 	cont "gone, it's time"
 	cont "for field trips!"
+endc
 	done
 
-TeacherCeciliaBeatenText: ; TO TRANSLATE
+TeacherCeciliaBeatenText:
+if DEF(_FR_FR)
+	text "... ... ..."
+else
 	text "… … …"
+endc
 	done
 
-TeacherCeciliaAfterBattleText: ; TO TRANSLATE
+TeacherCeciliaAfterBattleText:
+if DEF(_FR_FR)
+	text "J'aime marcher"
+	line "près des grands"
+	cont "plans d'eau."
+else
 	text "I like walking"
 	line "around large"
 	cont "bodies of water."
+endc
 	done
 
-SchoolboySawaraSeenText: ; TO TRANSLATE
+SchoolboySawaraSeenText:
+if DEF(_FR_FR)
+	text "Je suis reconnais-"
+	line "sant envers ma"
+	cont "prof pour cette"
+	cont "sortie!"
+else
 	text "I'm grateful to"
 	line "my teacher for"
 	cont "this trip!"
+endc
 	done
 
-SchoolboySawaraBeatenText: ; TO TRANSLATE
+SchoolboySawaraBeatenText:
+if DEF(_FR_FR)
+	text "Je suis en train"
+	line "d'apprendre."
+else
 	text "I'm still learning."
+endc
 	done
 
-SchoolboySawaraAfterBattleText: ; TO TRANSLATE
+SchoolboySawaraAfterBattleText:
+if DEF(_FR_FR)
+	text "Mon frère GINKO..."
+	
+	para "Il est étrange"
+	line "depuis le"
+	cont "confinement..."
+else
 	text "My brother GINKO…"
 
 	para "He's weird since"
 	line "the lockdown…"
+endc
 	done
 
-SchoolboyGinkoSeenText: ; TO TRANSLATE
+SchoolboyGinkoSeenText:
+if DEF(_FR_FR)
+	text "COURS VITE COURS"
+	line "VITE COURS VITE"
+else
 	text "RUN RUN RUN"
 	line "RUN RUN RUN"
+endc
 	done
 
-SchoolboyGinkoBeatenText: ; TO TRANSLATE
+SchoolboyGinkoBeatenText:
+if DEF(_FR_FR)
 	text "*derp*"
+else
+	text "*derp*"
+endc
 	done
 
-SailorClovisSeenText: ; TO TRANSLATE
+SailorClovisSeenText:
+if DEF(_FR_FR)
+	text "Je suis coincé ici"
+	line "avec l'AQUARIA."
+	
+	para "C'est comme un"
+	line "nouveau confi-"
+	cont "nement..."
+else
 	text "I'm stuck here with"
 	line "the S.S.AQUA."
 
 	para "It's like a new"
 	line "lockdown…"
+endc
 	done
 
-SailorClovisBeatenText: ; TO TRANSLATE
+SailorClovisBeatenText:
+if DEF(_FR_FR)
+	text "Je veux juste"
+	line "rentrer à JOHTO..."
+else
 	text "I just want to go"
 	line "back to JOHTO…"
+endc
 	done
 
-SailorClovisAfterBattleText: ; TO TRANSLATE
+SailorClovisAfterBattleText:
+if DEF(_FR_FR)
+	text "Attends... J'ai"
+	line "raté le départ"
+	cont "de l'AQUARIA?"
+else
 	text "Wait… Did I miss"
 	line "the S.S.AQUA"
 	cont "departure?"
+endc
 	done
 
-SailorStrandSeenText: ; TO TRANSLATE
+SailorStrandSeenText:
+if DEF(_FR_FR)
+	text "Aaah, l'horizon..."
+else
 	text "Aaah, the horizon…"
+endc
 	done
 
-SailorStrandBeatenText: ; TO TRANSLATE
+SailorStrandBeatenText:
+if DEF(_FR_FR)
+	text "Tu as brisé ma"
+	line "tranquillité."
+else
 	text "You're breaking my"
 	line "peacefulness."
+endc
 	done
 
-SailorStrandAfterBattleText: ; TO TRANSLATE
+SailorStrandAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai visité"
+	line "de nombreuses"
+	cont "régions."
+	
+	para "Tu savais que la"
+	line "pandémie a très"
+	cont "peu touché la"
+	cont "région d'ONWA?"
+else
 	text "I've visited many"
 	line "places."
 
@@ -397,19 +483,44 @@ SailorStrandAfterBattleText: ; TO TRANSLATE
 	line "pandemic barely"
 	cont "hit the ONWA"
 	cont "region?"
+endc
 	done
 
-PokefanMNovakSeenText: ; TO TRANSLATE
+PokefanMNovakSeenText:
+if DEF(_FR_FR)
+	text "Alors comme ça"
+	line "t'es vacciné?"
+else
 	text "So you're vacci-"
 	line "nated, uh?"
+endc
 	done
 
-PokefanMNovakBeatenText: ; TO TRANSLATE
+PokefanMNovakBeatenText:
+if DEF(_FR_FR)
+	text "Perdre face à un"
+	line "pion des Big Phar-"
+	cont "ma, la honte..."
+else
 	text "How could I lose"
 	line "to a pharma shill?"
+endc
 	done
 
-PokefanMNovakAfterBattleText: ; TO TRANSLATE
+PokefanMNovakAfterBattleText:
+if DEF(_FR_FR)
+	text "A quoi bon se"
+	line "faire injecter des"
+	cont "produits chimiques"
+	
+	para "alors qu'il existe"
+	line "des méthodes natu-"
+	cont "relles éprouvées,"
+	
+	para "comme respirer"
+	line "l'air marin et"
+	cont "manger sain?"
+else
 	text "What's the point of"
 	line "getting injected"
 	cont "some chemicals,"
@@ -421,27 +532,141 @@ PokefanMNovakAfterBattleText: ; TO TRANSLATE
 	para "like breathing"
 	line "salty sea air,"
 	cont "and eating well?"
+endc
 	done
 
-Route12_TeacherLockdown1Text: ; TO TRANSLATE
+Route12_TeacherLockdown1Text:
+if DEF(_FR_FR)
+	text "Tu sais quel était"
+	line "le pire aspect du"
+	cont "confinement?"
+else
 	text "Do you know what"
 	line "the worst aspect"
 	cont "of the lockdown"
 	cont "was?"
+endc
 	done
-	
-Route12_TeacherLockdown2Text: ; TO TRANSLATE
+
+Route12_TeacherLockdown2Text:
+if DEF(_FR_FR)
+	text "Toi aussi tu l'as"
+	line "vécu, n'est-ce pas?"
+else
 	text "You've lived"
 	line "through it,"
 	cont "haven't you?"
+endc
 	done
 
-Route12_TeacherLockdown3Text: ; TO TRANSLATE
+Route12_TeacherLockdown3Text:
+if DEF(_FR_FR)
+	text "Tu veux le savoir?"
+else
 	text "Do you want"
 	line "to know?"
+endc
 	done
 
-Route12_TeacherLockdown5Text: ; TO TRANSLATE
+Route12_TeacherLockdown5Text:
+if DEF(_FR_FR)
+	text "Ce n'est pas le"
+	line "fait d'être enfer-"
+	cont "mé dans un espace"
+	cont "clos."
+	
+	para "Après tout, on"
+	line "peut tous passer"
+	cont "un week-end à"
+	cont "la maison sans"
+	cont "sortir."
+	
+	para "Le pire, c'était"
+	line "d'être prisonnier"
+	cont "du temps."
+	
+	para "Au début, les"
+	line "autorités disaient"
+	cont "que le confinement"
+	cont "durerait deux"
+	cont "semaines."
+	
+	para "Ca peut sembler"
+	line "court."
+	
+	para "Mais avec la"
+	line "panique qui s'"
+	cont "installait déjà,"
+	cont "ça paraissait"
+	cont "interminable."
+	
+	para "Le monde entier s'"
+	line "est arrêté pendant"
+	cont "deux semaines."
+	
+	para "Je me souviens"
+	line "regarder à travers"
+	cont "la fenêtre de"
+	cont "mon appartement et"
+	cont "de ne voir absolu-"
+	cont "ment personne"
+	cont "dehors."
+	
+	para "Comme dans un"
+	line "film dystopique."
+	
+	para "Alors tu allumes"
+	line "ta télé ou ton"
+	cont "ordinateur pour"
+	cont "trouver un peu de"
+	cont "réconfort."
+	
+	para "Et tu n'y trouves"
+	line "que des infos"
+	cont "alarmantes."
+	
+	para "Après la période"
+	line "initiale, ils l'ont"
+	cont "prolongé pour deux"
+	cont "semaines de plus."
+	
+	para "Imagine le niveau"
+	line "de stress que ça"
+	cont "a provoqué."
+	
+	para "Et après ça, ils"
+	line "ont dit qu'il"
+	cont "fallait prolonger"
+	cont "le confinement"
+	cont "“jusqu'à nouvel"
+	cont "ordre”..."
+	
+	para "Ça a duré environ"
+	line "deux mois."
+	
+	para "Piégé entre"
+	line "quatre murs."
+	
+	para "Beaucoup de gens"
+	line "sont tombés en"
+	cont "dépression."
+	
+	para "Quand on a enfin"
+	line "été libérés, se"
+	cont "socialiser n'était"
+	cont "plus naturel."
+	
+	para "On avait perdu"
+	line "cette aptitude!"
+	
+	para "Revoir ses proches"
+	line "paraissait étrange"
+	cont "car tout le monde"
+	cont "avait changé à sa"
+	cont "manière."
+	
+	para "Une époque folle."
+else
 	text "It's not being"
 	line "emprisoned in an"
 	cont "enclosed space."
@@ -533,9 +758,21 @@ Route12_TeacherLockdown5Text: ; TO TRANSLATE
 	cont "own way."
 	
 	para "Crazy times."
+endc
 	done
 
-Route12_LockdownSpeakerText: ; TO TRANSLATE
+Route12_LockdownSpeakerText:
+if DEF(_FR_FR)
+	text "Je me souviens du"
+	line "premier confine-"
+	cont "ment, c'était un"
+	
+	para "choc. On est passé"
+	line "de “tout ira bien”"
+	
+	para "à “reste chez toi"
+	line "ou décède”."
+else
 	text "I remember the"
 	line "first lockdown"
 	cont "declaration was"
@@ -546,6 +783,7 @@ Route12_LockdownSpeakerText: ; TO TRANSLATE
 	
 	para "to “stay home or"
 	line "perish”."
+endc
 	done
 
 Route12SignText: 

@@ -72,7 +72,19 @@ endc
 
 	done
 
-Route16GateCannotPassText: ; TO TRANSLATE
+Route16GateCannotPassText:
+if DEF(_FR_FR)
+	text "Hé! Oh! Stop!"
+
+	para "Tu peux pas aller"
+	line "sur la PISTE CY-"
+
+	para "CLABLE sans une"
+	line "BICYCLETTE!"
+
+	para "Je vais t'en"
+	line "prêter une."
+else
 	text "Hey! Whoa! Stop!"
 
 	para "You can't go out"
@@ -82,6 +94,7 @@ Route16GateCannotPassText: ; TO TRANSLATE
 	line "BICYCLE."
 
 	para "I'll lend you one."
+endc
 	done
 
 Route16Gate_MapEvents:

@@ -546,58 +546,6 @@ endc
 
 	done
 
-CooltrainerFMariaSeenText: ; TO TRANSLATE
-	text "It's a good place"
-	line "to do some"
-	cont "exercise."
-	done
-
-CooltrainerFMariaBeatenText: ; TO TRANSLATE
-	text "Mamma mia!"
-	done
-
-CooltrainerFMariaAfterBattleText: ; TO TRANSLATE
-	text "In the morning,"
-	line "some rare #MON"
-	cont "exercise here."
-	done
-
-CooltrainerMFredSeenText: ; TO TRANSLATE
-	text "I run in here"
-	line "everyday."
-	done
-
-CooltrainerMFredBeatenText: ; TO TRANSLATE
-	text "I was looking at"
-	line "my girlfriend…"
-	done
-
-CooltrainerMFredAfterBattleText: ; TO TRANSLATE
-	text "Some FIGHTING"
-	line "TYPE #MON keep"
-	cont "smashing the rocks"
-	cont "which remodels the"
-	cont "surroundings."
-	done
-
-CooltrainerMAndriySeenText: ; TO TRANSLATE
-	text "I saw a man in"
-	line "black running"
-	cont "towards CERULEAN"
-	cont "CITY."
-	done
-
-CooltrainerMAndriyBeatenText: ; TO TRANSLATE
-	text "Well played!"
-	done
-
-CooltrainerMAndriyAfterBattleText: ; TO TRANSLATE
-	text "The man in black"
-	line "drew my attention"
-	cont "because he didn't"
-	cont "wear a face mask."
-	done
-
 Route9SignText: 
 if DEF(_FR_FR)
 	text "ROUTE 9"
@@ -613,18 +561,156 @@ endc
 
 	done
 
-Route9_QuestIntroText: ; TO TRANSLATE
+CooltrainerFMariaSeenText:
+if DEF(_FR_FR)
+	text "C'est un bon coin"
+	line "pour faire un peu"
+	cont "de sport."
+else
+	text "It's a good place"
+	line "to do some"
+	cont "exercise."
+endc
+	done
+
+CooltrainerFMariaBeatenText:
+if DEF(_FR_FR)
+	text "Mamma mia!"
+else
+	text "Mamma mia!"
+endc
+	done
+
+CooltrainerFMariaAfterBattleText:
+if DEF(_FR_FR)
+	text "Le matin, des"
+	line "#MON rares"
+	cont "viennent ici pour"
+	cont "s'entrainer."
+else
+	text "In the morning,"
+	line "some rare #MON"
+	cont "exercise here."
+endc
+	done
+
+CooltrainerMFredSeenText:
+if DEF(_FR_FR)
+	text "Je cours ici tous"
+	line "les jours."
+else
+	text "I run in here"
+	line "everyday."
+endc
+	done
+
+CooltrainerMFredBeatenText:
+if DEF(_FR_FR)
+	text "Je regardais ma"
+	line "copine..."
+else
+	text "I was looking at"
+	line "my girlfriend…"
+endc
+	done
+
+CooltrainerMFredAfterBattleText:
+if DEF(_FR_FR)
+	text "Chaque jour des"
+	line "#MON sauvages"
+	cont "de type COMBAT"
+	cont "frappent les ro-"
+	cont "chers, ce qui"
+	cont "modifie le relief."
+else
+	text "Some FIGHTING"
+	line "TYPE #MON keep"
+	cont "smashing the rocks"
+	cont "which remodels the"
+	cont "surroundings."
+endc
+	done
+
+CooltrainerMAndriySeenText:
+if DEF(_FR_FR)
+	text "J'ai vu un homme"
+	line "en noir courir"
+	cont "vers AZURIA."
+else
+	text "I saw a man in"
+	line "black running"
+	cont "towards CERULEAN"
+	cont "CITY."
+endc
+	done
+
+CooltrainerMAndriyBeatenText:
+if DEF(_FR_FR)
+	text "Bien joué!"
+else
+	text "Well played!"
+endc
+	done
+
+CooltrainerMAndriyAfterBattleText:
+if DEF(_FR_FR)
+	text "L'homme en noir m'a"
+	line "intrigué car il ne"
+	cont "portait pas de"
+	cont "masque."
+else
+	text "The man in black"
+	line "drew my attention"
+	cont "because he didn't"
+	cont "wear a face mask."
+endc
+	done
+
+Route9_QuestIntroText:
+if DEF(_FR_FR)
+	text "Tu penses qu'il"
+	line "faut combien de"
+	cont "temps pour attein-"
+	cont "dre le haut de ce"
+	cont "rebord?"
+else
 	text "How fast could we"
 	line "reach the top of"
 	cont "this ledge?"
+endc
 	done
 
-Route9_QuestIntroSequelText: ; TO TRANSLATE
+Route9_QuestIntroSequelText:
+if DEF(_FR_FR)
+	text "Tu m'y emmènes?"
+	line "Steuplééé!"
+else
 	text "How about you"
 	line "take me there?"
+endc
 	done
 
-Route9_QuestAcceptedText: ; TO TRANSLATE
+Route9_QuestAcceptedText:
+if DEF(_FR_FR)
+	text "Cool! On va faire"
+	line "une exception à la"
+	
+	para "distanciation so-"
+	line "ciale, mais je"
+	
+	para "vais rester der-"
+	line "rière toi, et on"
+	
+	para "porte tous les"
+	line "deux un masque,"
+	
+	para "donc ça craint"
+	line "rien."
+
+	para "Voyons voir à"
+	line "quelle vitesse tu"
+	cont "vas, yaaay!"
+else
 	text "Cool! I'll make an"
 	line "exception to"
 	cont "social distancing,"
@@ -637,72 +723,146 @@ Route9_QuestAcceptedText: ; TO TRANSLATE
 	
 	para "Now let's see how"
 	line "fast you can go!"
+endc
 	done
 
-Route9_WrongWayText: ; TO TRANSLATE
+Route9_WrongWayText:
+if DEF(_FR_FR)
+	text "C'est la mauvaise"
+	line "direction! Reviens"
+	cont "par ici!"
+else
 	text "That's the wrong"
 	line "way! Come back!"
+endc
 	done
 
-Route9_AbandonmentQuestionText: ; TO TRANSLATE
+Route9_AbandonmentQuestionText:
+if DEF(_FR_FR)
+	text "Sniffou."
+	line "Tu m'abandonnes?"
+else
 	text "Are you"
 	line "abandoning me?"
-	done
-	
-Route9_BackOnTrackText: ; TO TRANSLATE
-	text "Then let's get"
-	line "back on track!"
+endc
 	done
 
-Route9_DestinationReachedText: ; TO TRANSLATE
+Route9_BackOnTrackText:
+if DEF(_FR_FR)
+	text "Aller, on y"
+	line "retourne!"
+else
+	text "Then let's get"
+	line "back on track!"
+endc
+	done
+
+Route9_DestinationReachedText:
+if DEF(_FR_FR)
+	text "On a réussi!"
+	line "C'était une"
+	cont "chouette rando!"
+else
 	text "We've made it!"
 	line "That was a"
 	cont "fun hike!"
+endc
 	done
 
-Route9_DisplayHikeDurationText: ; TO TRANSLATE
+Route9_DisplayHikeDurationText:
+if DEF(_FR_FR)
+	text "Il t'a fallu"
+	line "@"
+	text_decimal wScriptVar, 1, 3
+	text " secondes pour"
+	cont "faire le trajet!"
+else
 	text "It took you"
 	line "@"
 	text_decimal wScriptVar, 1, 3
 	text " seconds to"
 	cont "reach the end!"
+endc
 	done
 
-Route9_BeWayFasterText: ; TO TRANSLATE
+Route9_BeWayFasterText:
+if DEF(_FR_FR)
+	text "Je suis sûre que"
+	line "tu peux aller"
+	cont "plus vite."
+else
 	text "I'm sure you can do"
 	line "it in less time."
+endc
 	done
 
-Route9_BeFasterText: ; TO TRANSLATE
+Route9_BeFasterText:
+if DEF(_FR_FR)
+	text "Sois un peu plus"
+	line "rapide et tu auras"
+	
+	para "une récompense de"
+	line "ma part!"
+else
 	text "Be a little faster"
 	line "and I'll show"
 	cont "recognition."
+endc
 	done
 
-Route9_CongratsText: ; TO TRANSLATE
+Route9_CongratsText:
+if DEF(_FR_FR)
+	text "Sheesh! Sacrée"
+	line "performance!"
+else
 	text "What an impres-"
 	line "sive performance!"
+endc
 	done
 
-Route9_ForYourEffortText: ; TO TRANSLATE
+Route9_ForYourEffortText:
+if DEF(_FR_FR)
+	text "Tiens, c'est pour"
+	line "ton effort."
+else
 	text "Take this for"
 	line "your effort."
+endc
 	done
 
-Route9_TooLongText: ; TO TRANSLATE
+Route9_TooLongText:
+if DEF(_FR_FR)
+	text "Ca t'as pris une"
+	line "éternité pour"
+	cont "finir! Aled!"
+
+	para "Je suis certaine"
+	line "que tu peux faire"
+	cont "mieux!"
+else
 	text "It took you for-"
 	line "ever to reach the"
 	cont "end. I'm sure you"
 	cont "can do better!"
+endc
 	done
 
-Route9_DoItAgainText: ; TO TRANSLATE
+Route9_DoItAgainText:
+if DEF(_FR_FR)
+	text "Si tu veux le ref-"
+	line "aire, je serai là!"
+else
 	text "If you wanna do it"
 	line "again I'll be here!"
+endc
 	done
 
-Route9_YahooText: ; TO TRANSLATE
+Route9_YahooText:
+if DEF(_FR_FR)
 	text "Yahoo!"
+else
+	text "Yahoo!"
+endc
 	done
 
 Route9_MapEvents:

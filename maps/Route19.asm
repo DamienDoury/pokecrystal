@@ -208,35 +208,73 @@ endc
 
 	done
 
-SwimmermGarveySeenText: ; TO TRANSLATE
+SwimmermGarveySeenText:
+if DEF(_FR_FR)
+	text "Mon #MON est le"
+	line "meilleur surfeur!"
+else
 	text "My #MON is the"
 	line "best surfer!"
+endc
 	done
 
-SwimmermGarveyBeatenText: ; TO TRANSLATE
+SwimmermGarveyBeatenText:
+if DEF(_FR_FR)
+	text "Ta victoire est"
+	line "surf-aite."
+else
 	text "You got surfed."
+endc
 	done
 
-SwimmermGarveyAfterBattleText: ; TO TRANSLATE
+SwimmermGarveyAfterBattleText:
+if DEF(_FR_FR)
+	text "C'est amusant de"
+	line "surfer sur un"
+	cont "TAUROS!"
+else
 	text "It's fun to surf"
 	line "on TAUROS!"
+endc
 	done
 
-SwimmerfVaianaSeenText: ; TO TRANSLATE
+SwimmerfVaianaSeenText:
+if DEF(_FR_FR)
+	text "Je viens d'attraper"
+	line "ce qu'il me"
+	cont "fallait!"
+else
 	text "Just caught"
 	line "what I needed!"
+endc
 	done
 
-SwimmerfVaianaBeatenText: ; TO TRANSLATE
+SwimmerfVaianaBeatenText:
+if DEF(_FR_FR)
+	text "Ne lui fais pas"
+	line "de mal!"
+else
 	text "Don't hurt him!"
+endc
 	done
 
-SwimmerfVaianaAfterBattleText: ; TO TRANSLATE
+SwimmerfVaianaAfterBattleText:
+if DEF(_FR_FR)
+	text "Il ne me manque"
+	line "plus qu'une"
+	cont "PIERREFOUDRE,"
+	
+	para "un petit tour à"
+	line "DOUBLONVILLE et"
+	cont "je vais enfin"
+	cont "avoir un VOLTALI!"
+else
 	text "All I need now is"
 	line "a THUNDERSTONE, a"
 	cont "trip to GOLDENROD"
 	cont "and I'll get myself"
 	cont "a JOLTEON!"
+endc
 	done
 
 SwimmerfDawnSeenText: 
@@ -287,27 +325,60 @@ endc
 
 	done
 
-SwimmermFlavienSeenText: ; TO TRANSLATE
+SwimmermFlavienSeenText:
+if DEF(_FR_FR)
+	text "Nager?"
+	line "Je suis nul à ça."
+	
+	para "Je barbote juste"
+	line "dans ces eaux peu"
+	cont "profondes."
+else
 	text "Swimming?"
 	line "I'm lousy at it."
 
 	para "I'm just splashing"
 	line "around in these"
 	cont "shallow waters."
+endc
 	done
 
-SwimmermFlavienBeatenText: ; TO TRANSLATE
+SwimmermFlavienBeatenText:
+if DEF(_FR_FR)
+	text "Je pensais pouvoir"
+	line "gagner."
+else
 	text "I thought I could"
 	line "win."
+endc
 	done
 
-SwimmermFlavienAfterBattleText: ; TO TRANSLATE
+SwimmermFlavienAfterBattleText:
+if DEF(_FR_FR)
+	text "Je suis peut-être"
+	line "mauvais nageur,"
+	cont "mais j'adore la"
+	cont "mer."
+else
 	text "I might be bad at"
 	line "swimming, but I"
 	cont "love the sea."
+endc
 	done
 
-Route19Fisher1Text: ; TO TRANSLATE
+Route19Fisher1Text:
+if DEF(_FR_FR)
+	text "Désolé. Cette"
+	line "route est fermée"
+	cont "pour travaux."
+	
+	para "Si tu veux te ren-"
+	line "dre à CRAMOIS'ILE,"
+	
+	para "passe plutôt par"
+	line "le sud de BOURG"
+	cont "PALETTE."
+else
 	text "Sorry. This road"
 	line "is closed for"
 	cont "roadwork."
@@ -317,6 +388,54 @@ Route19Fisher1Text: ; TO TRANSLATE
 
 	para "better go south"
 	line "from PALLET TOWN."
+endc
+	done
+
+Route19Fisher2Text:
+if DEF(_FR_FR)
+	text "Qui sait combien"
+	line "de temps il faudra"
+	cont "pour dégager ces"
+	cont "rochers..."
+else
+	text "Who knows how long"
+	line "it will take to"
+	cont "clear these"
+	cont "boulders…"
+endc
+	done
+
+Route19Fisher2SequelText:
+if DEF(_FR_FR)
+	text "Avec cet ONIX à"
+	line "l'oeuvre, je dirais"
+	cont "pas plus de"
+	cont "quelques jours."
+else
+	text "A few days with"
+	line "that ONIX at work"
+	cont "I would say."
+endc
+	done
+
+Route19Fisher2Text_RocksCleared:
+if DEF(_FR_FR)
+	text "Les travaux sont"
+	line "enfin terminés et"
+	cont "les ouvriers sont"
+	cont "rentrés chez eux."
+	
+	para "Je peux enfin"
+	line "pêcher à nouveau."
+else
+	text "The roadwork is"
+	line "finally finished"
+	cont "and the workers"
+	cont "went home."
+
+	para "Now I can go"
+	line "fishing again."
+endc
 	done
 
 Route19Fisher1Text_RocksCleared: 
@@ -328,29 +447,6 @@ else
 	line "Time for a swim!"
 endc
 
-	done
-
-Route19Fisher2Text: ; TO TRANSLATE
-	text "Who knows how long"
-	line "it will take to"
-	cont "clear these"
-	cont "boulders…"
-	done
-
-Route19Fisher2SequelText: ; TO TRANSLATE
-	text "A few days with"
-	line "that ONIX at work"
-	cont "I would say."
-	done
-
-Route19Fisher2Text_RocksCleared: ; TO TRANSLATE
-	text "The roadwork is"
-	line "finally finished"
-	cont "and the workers"
-	cont "went home."
-
-	para "Now I can go"
-	line "fishing again."
 	done
 
 Route19SignText: 

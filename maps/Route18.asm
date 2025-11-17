@@ -156,22 +156,41 @@ endc
 
 	done
 
-BirdKeeperBobbySeenText: ; TO TRANSLATE
+BirdKeeperBobbySeenText:
+if DEF(_FR_FR)
+	text "Les motos sur la"
+	line "PISTE CYCLABLE"
+	cont "dégagent des gaz"
+	
+	para "(tousse) qui"
+	line "polluent notre"
+	cont "air pur."
+else
 	text "The motorbikes on"
 	line "the CYCLING ROAD"
 	cont "produce fumes that"
 	
 	para "(cough) pollute "
 	line "our clean air."
+endc
 	done
 
-BirdKeeperBobbyBeatenText: ; TO TRANSLATE
+BirdKeeperBobbyBeatenText:
+if DEF(_FR_FR)
+	text "J'ai la tête qui"
+	line "tourne..."
+else
 	text "I feel like my"
 	line "head is spinning."
+endc
 	done
 
-BirdKeeperBobbyAfterBattleText: ; TO TRANSLATE
+BirdKeeperBobbyAfterBattleText:
+if DEF(_FR_FR)
+	text "(tousse)"
+else
 	text "(cough)"
+endc
 	done
 
 BikerCharlesSeenText: 

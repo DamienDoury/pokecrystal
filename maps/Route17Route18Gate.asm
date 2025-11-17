@@ -61,13 +61,33 @@ endc
 
 	done
 
-Route17Route18GateGetRentalBackText: ; TO TRANSLATE
+Route17Route18GateGetRentalBackText:
+if DEF(_FR_FR)
+	text "Je reprends cette"
+	line "BICYCLETTE de"
+	cont "location, merci!"
+else
 	text "I'll take this"
 	line "rental BICYCLE"
 	cont "back, thank you!"
+endc
 	done
 
-Route17Route18GateCannotPassText: ; TO TRANSLATE
+Route17Route18GateCannotPassText:
+if DEF(_FR_FR)
+	text "Toi là! T'as pas"
+	line "de BICYCLETTE?"
+
+	para "La PISTE CYCLABLE"
+	line "est à côté."
+
+	para "Il te faut une"
+	line "BICYCLETTE."
+
+	para "Je t'en file une de"
+	line "location gratui-"
+	cont "tement."
+else
 	text "Hang on! Don't you"
 	line "have a BICYCLE?"
 
@@ -79,6 +99,7 @@ Route17Route18GateCannotPassText: ; TO TRANSLATE
 
 	para "I'll give you a"
 	line "rental for free."
+endc
 	done
 
 Route17Route18Gate_MapEvents:

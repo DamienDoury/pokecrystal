@@ -64,7 +64,18 @@ endc
 
 	done
 
-PokefanmCarterAfterBattleText: ; TO TRANSLATE
+PokefanmCarterAfterBattleText:
+if DEF(_FR_FR)
+	text "CARAPUCE,"
+	line "SALAMECHE et"
+	cont "BULBIZARRE..."
+	
+	para "Je les ai tous"
+	line "trouvés à KANTO."
+	
+	para "Mais ils sont"
+	line "très rares!"
+else
 	text "SQUIRTLE, CHARMAN-"
 	line "DER and BULBASAUR…"
 
@@ -73,6 +84,7 @@ PokefanmCarterAfterBattleText: ; TO TRANSLATE
 
 	para "But they're"
 	line "very rare!"
+endc
 	done
 
 BirdKeeperRoySeenText: 

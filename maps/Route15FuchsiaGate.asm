@@ -37,16 +37,41 @@ endc
 
 	done
 
-Route15FuchsiaGateBlockerNewText: ; TO TRANSLATE
+Route15FuchsiaGateBlockerNewText:
+if DEF(_FR_FR)
+	text "Bien le bonjour!"
+	
+	para "Pas si vite!"
+	line "Reste donc te dé-"
+	cont "tendre dans notre"
+	cont "belle PARMANIE!"
+else
 	text "Howdy trainer!"
 
 	para "Don't rush!"
 	line "Come relax in our"
 	cont "beautiful FUCHSIA"
 	cont "CITY!"
+endc
 	done
 
-Route15FuchsiaGateBlockerText: ; TO TRANSLATE
+Route15FuchsiaGateBlockerText:
+if DEF(_FR_FR)
+	text "Coucou toi!"
+	
+	para "Dégager ces ro-"
+	line "chers était plus"
+	
+	para "fatiguant que je"
+	line "l'aurais imaginé."
+	
+	para "Je vais me reposer"
+	line "ici en espérant"
+	
+	para "voir venir des"
+	line "touristes visiter"
+	cont "notre chère ville!"
+else
 	text "Hey friend!"
 
 	para "Clearing those"
@@ -59,6 +84,7 @@ Route15FuchsiaGateBlockerText: ; TO TRANSLATE
 	cont "seeing tourists"
 	cont "come visit our"
 	cont "beautiful town!"
+endc
 	done
 
 Route15FuchsiaGate_MapEvents:

@@ -23,7 +23,20 @@ Route16FuchsiaSpeechHouseSuperNerdScript:
 Route16FuchsiaSpeechHouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText: ; TO TRANSLATE
+Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText:
+if DEF(_FR_FR)
+	text "L'ancienne"
+	line "propriétaire de"
+	cont "cette maison"
+	
+	para "donnait souvent"
+	line "des objets utiles"
+	cont "aux gens."
+	
+	para "Je veux faire"
+	line "perdurer sa"
+	cont "tradition."
+else
 	text "The previous owner"
 	line "of this house used"
 	
@@ -32,9 +45,25 @@ Route16FuchsiaSpeechHouseSuperNerd_GiveRockSmashText: ; TO TRANSLATE
 	
 	para "I want to keep her"
 	line "tradition alive."
+endc
 	done
 
-Route16FuchsiaSpeechHouseSuperNerdText: ; TO TRANSLATE
+Route16FuchsiaSpeechHouseSuperNerdText:
+if DEF(_FR_FR)
+	text "J'ai acheté cette"
+	line "maison à une"
+	cont "célébrité."
+	
+	para "Dès que le premier"
+	line "confinement a été"
+	cont "annoncé, elle est"
+	
+	para "partie s'isoler"
+	line "dans une maison"
+	
+	para "au beau milieu"
+	line "d'un trou paumé."
+else
 	text "I bought this"
 	line "house from a"
 	cont "top celibrity."
@@ -46,6 +75,7 @@ Route16FuchsiaSpeechHouseSuperNerdText: ; TO TRANSLATE
 	para "she moved to an"
 	line "isolated country-"
 	cont "side house."
+endc
 	done
 
 Route16FuchsiaSpeechHouse_MapEvents:

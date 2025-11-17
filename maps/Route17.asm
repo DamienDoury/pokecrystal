@@ -163,20 +163,46 @@ endc
 
 	done
 
-Route17MidSign3Text: ; TO TRANSLATE
+Route17MidSign3Text:
+if DEF(_FR_FR)
+	text "Route 16"
+	line "CELADOPOLE -"
+	cont "PARMANIE"
+else
 	text "Route 16"
 	line "CELADON CITY -"
 	cont "FUCHSIA CITY"
+endc
 	done
 
-Route17MidSign1Text: ; TO TRANSLATE
+Route17MidSign1Text:
+if DEF(_FR_FR)
+	text "Un conseil!"
+
+	para "Attention à ne"
+	line "pas jeter un"
+	cont "objet important!"
+else
 	text "It's a notice!"
 
 	para "Watch out for"
 	line "discarded items!"
+endc
 	done
 
-Route17TrainerTips1Text: ; TO TRANSLATE
+Route17TrainerTips1Text:
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Chaque #MON"
+	line "est unique."
+
+	para "Des #MON de"
+	line "même type et de"
+	cont "même niveau sont"
+	cont "plus ou moins"
+	cont "forts."
+else
 	text "TRAINER TIPS"
 
 	para "All #MON are"
@@ -186,9 +212,16 @@ Route17TrainerTips1Text: ; TO TRANSLATE
 	line "the same type and"
 	cont "level grow at"
 	cont "different rates."
+endc
 	done
 
-Route17TrainerTips2Text: ; TO TRANSLATE
+Route17TrainerTips2Text:
+if DEF(_FR_FR)
+	text "C'est un graffiti:"
+
+	para "“Après le COVID,"
+	line "le FRIGOVID”"
+else
 	text "TRAINER TIPS"
 
 	para "There's graffiti"
@@ -196,19 +229,38 @@ Route17TrainerTips2Text: ; TO TRANSLATE
 
 	para "“Apres le COVID,"
 	line "le FRIGOVID”"
+endc
 	done
 
-Route17BotSign1Text: ; TO TRANSLATE
+Route17BotSign1Text:
+if DEF(_FR_FR)
+	text "Un conseil!"
+
+	para "Ne jetez pas ce"
+	line "jeu contre un mur"
+	cont "avec violence et"
+	cont "dégoût! Continuez"
+	cont "à attraper des"
+	cont "p'tits #MON"
+	cont "tout mimi!"
+else
 	text "It's a notice!"
 
 	para "Don't throw the"
 	line "game, throw #"
 	cont "BALLs instead!"
+endc
 	done
 
 Route17BotSign2Text::
+if DEF(_FR_FR)
+	text "PISTE CYCLABLE"
+	line "Fin de la"
+	cont "descente!"
+else
 	text "CYCLING ROAD"
 	line "slope ends here!"
+endc
 	done
 
 Route17_MapEvents:

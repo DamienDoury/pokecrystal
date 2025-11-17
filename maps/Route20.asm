@@ -391,60 +391,131 @@ endc
 
 	done
 
-TeacherSarahSeenText: ; TO TRANSLATE
+TeacherSarahSeenText:
+if DEF(_FR_FR)
+	text "Comment j'ai bien"
+	line "pu atterrir ici?"
+else
 	text "How did I end"
 	line "up here?"
+endc
 	done
 
-TeacherSarahBeatenText: ; TO TRANSLATE
+TeacherSarahBeatenText:
+if DEF(_FR_FR)
+	text "J'ai un de ces"
+	line "mal de crâne..."
+else
 	text "My head hurts…"
+endc
 	done
 
-TeacherSarahAfterBattleText: ; TO TRANSLATE
+TeacherSarahAfterBattleText:
+if DEF(_FR_FR)
+	text "Que s'est-il"
+	line "passé?"
+else
 	text "What happened?"
+endc
 	done
 
-SwimmerMFinnSeenText: ; TO TRANSLATE
+SwimmerMFinnSeenText:
+if DEF(_FR_FR)
+	text "Ouah, t'as traversé"
+	line "les ILES ECUME?"
+else
 	text "Woah! Did you"
 	line "traverse the"
 	cont "SEAFOAM ISLANDS?"
+endc
 	done
 
-SwimmerMFinnBeatenText: ; TO TRANSLATE
+SwimmerMFinnBeatenText:
+if DEF(_FR_FR)
+	text "La traversée était"
+	line "simple pour toi?"
+else
 	text "No wonder you went"
 	line "through."
+endc
 	done
 
-SwimmerMFinnAfterBattleText: ; TO TRANSLATE
+SwimmerMFinnAfterBattleText:
+if DEF(_FR_FR)
+	text "T'as déjà exploré"
+	line "tout au fond?"
+	
+	para "J'ai entendu dire"
+	line "qu'on peut y voir"
+	cont "les entrailles du"
+	cont "volcan."
+else
 	text "Have you been to"
 	line "the very bottom?"
 
 	para "I've heard you can"
 	line "see the inside of"
 	cont "the volcano."
+endc
 	done
 
-CinnabarGymSignText: ; TO TRANSLATE
+CinnabarGymSignText:
+if DEF(_FR_FR)
+	text "ILES ECUME"
+	
+	para "RISQUE"
+	line "D'EBOULEMENT"
+	
+	para "ENTRÉE INTERDITE"
+else
 	text "SEAFOAM ISLANDS"
 
 	para "DANGER OF"
 	line "COLLAPSE"
 
 	para "DO NOT ENTER"
+endc
 	done
 
-Route20_EscortQuestIntroText: ; TO TRANSLATE
+Route20_EscortQuestIntroText:
+if DEF(_FR_FR)
+	text "Je suis perdue."
+	line "Aide-moi!"
+else
 	text "I'm lost."
 	line "Help me!"
+endc
 	done
 
-Route20_BehindYouText: ; TO TRANSLATE
+Route20_BehindYouText:
+if DEF(_FR_FR)
+	text "Je dois aller à"
+	line "CRAMOIS'ILE."
+	
+	para "Montre-moi le"
+	line "chemin!"
+else
 	text "I need to go to"
 	line "CINNABAR ISLAND."
 	cont "Lead the way!"
+endc
 	done
 
-Route20_EscortSeafoamText: ; TO TRANSLATE
+Route20_EscortSeafoamText:
+if DEF(_FR_FR)
+	text "Ca c'est les"
+	line "ILES ECUME!"
+
+	para "Cet endroit"
+	line "est dangereux."
+	
+	para "Tu me traînes dans"
+	line "un traquenard?"
+	
+	para "Je retourne à"
+	line "l'endroit où on"
+	cont "s'est rencontrés."
+else
 	text "These are the"
 	line "SEAFOAM ISLANDS!"
 
@@ -456,9 +527,21 @@ Route20_EscortSeafoamText: ; TO TRANSLATE
 
 	para "I'm backtracking to"
 	line "to where we met."
+endc
 	done
 
-Route20_SwimmerRescueEpilogueText: ; TO TRANSLATE
+Route20_SwimmerRescueEpilogueText:
+if DEF(_FR_FR)
+	text "Tu as réussi!"
+	
+	para "J'ai dû dériver"
+	line "d'ici après la"
+	cont "dernière rave."
+	
+	para "Peut-être qu'on"
+	line "se verra à la"
+	cont "suivante!"
+else
 	text "You did it!"
 
 	para "I must've drifted"
@@ -467,14 +550,23 @@ Route20_SwimmerRescueEpilogueText: ; TO TRANSLATE
 
 	para "Maybe I'll see you"
 	line "at the next one!"
+endc
 	done
 
-Route20_SwimmerRaveOngoingText: ; TO TRANSLATE
+Route20_SwimmerRaveOngoingText:
+if DEF(_FR_FR)
+	text "On arrive pile à"
+	line "l'heure! La fête"
+	cont "bat son plein!"
+	
+	para "Suis-moi!"
+else
 	text "We're right on"
 	line "time! The party's"
 	cont "raging!"
 
 	para "Come with me!"
+endc
 	done
 
 

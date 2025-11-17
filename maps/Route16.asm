@@ -53,26 +53,60 @@ TrainerBugCatcherJerome:
 	endifjustbattled
 	jumptextfaceplayer BugCatcherJeromeAfterBattleText
 
-BikerHusqSeenText: ; TO TRANSLATE
+BikerHusqSeenText:
+if DEF(_FR_FR)
+	text "La PISTE CYCLABLE"
+	line "c'est tout pour"
+	cont "la vitesse!!"
+else
 	text "The CYCLING ROAD"
 	line "is all about"
 	cont "speed!!"
+endc
 	done
 
-BikerHusqBeatenText: ; TO TRANSLATE
+BikerHusqBeatenText:
+if DEF(_FR_FR)
+	text "Tu as été trop"
+	line "rapide pour moi..."
+else
 	text "This battle was"
 	line "too fast for me…"
+endc
 	done
 
-BikerHusqAfterBattleText: ; TO TRANSLATE
+BikerHusqAfterBattleText:
+if DEF(_FR_FR)
+	text "J'aime la vitesse"
+	line "et les #MON."
+	
+	para "Par conséquent"
+	line "j'aime les #MON"
+	cont "rapides!"
+else
 	text "I like speed, and"
 	line "I like #MON."
 	
 	para "Therefore I like"
 	line "fast #MON!"
+endc
 	done
 
-BugCatcherJeromeSeenText: ; TO TRANSLATE
+BugCatcherJeromeSeenText:
+if DEF(_FR_FR)
+	text "Avant je jouais"
+	line "dans la FORET DE"
+	cont "JADE."
+	
+	para "Mais je ne peux"
+	line "plus y aller,"
+	cont "c'est devenu trop"
+	cont "dangereux."
+	
+	para "J'ai dû me trouver"
+	line "de nouveaux"
+	cont "loisirs."
+else
 	text "I used to play in"
 	line "VIRIDIAN FOREST."
 
@@ -82,17 +116,30 @@ BugCatcherJeromeSeenText: ; TO TRANSLATE
 
 	para "So I had to find"
 	line "new hobbies."
+endc
 	done
 
-BugCatcherJeromeBeatenText: ; TO TRANSLATE
+BugCatcherJeromeBeatenText:
+if DEF(_FR_FR)
+	text "Tu pensais à quoi?"
+else
 	text "What did you"
 	line "think?"
+endc
 	done
 
-BugCatcherJeromeAfterBattleText: ; TO TRANSLATE
+BugCatcherJeromeAfterBattleText:
+if DEF(_FR_FR)
+	text "J'adore ma"
+	line "DEMOLOSSE!"
+	
+	para "C'est une gentille"
+	line "fi-fille!"
+else
 	text "I love my HOUNDOOM"
 	line "cause she's a good"
 	cont "girl!"
+endc
 	done
 
 CyclingRoadSign:
