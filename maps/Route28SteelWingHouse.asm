@@ -58,26 +58,73 @@ CelebritysFearow:
 CelebrityHouseBookshelf:
 	jumpstd MagazineBookshelfScript
 
-CelebrityText1: ; TO TRANSLATE
+CelebrityText1:
+if DEF(_FR_FR)
+	text "Oh ben mince."
+	line "Tu m'as trouvée."
+else
 	text "Oh, dear."
 	line "You've found me."
+endc
 	done
 
-CelebrityAskTeach: ; TO TRANSLATE
+CelebrityAskTeach:
+if DEF(_FR_FR)
+	text "Si tu acceptes de"
+	line "garder mon secret,"
+	cont "j'apprendrai à ton"
+	cont "#MON la plus"
+	cont "puissante attaque"
+	cont "de type VOL:"
+	cont "PIQUE."
+else
 	text "For keeping my"
 	line "secret, I'll teach"
 	cont "your #MON the"
 	cont "strongest FLYING-"
 	cont "type move there"
 	cont "is: SKY ATTACK."
+endc
 	done
 
-CelebrityBegging: ; TO TRANSLATE
+CelebrityBegging:
+if DEF(_FR_FR)
+	text "Ne parle de moi à"
+	line "personne."
+else
 	text "Please don't tell"
 	line "anyone about me."
+endc
 	done
 
-CelebrityText2: ; TO TRANSLATE
+CelebrityText2:
+if DEF(_FR_FR)
+	text "Partir vivre dans"
+	line "un endroit aussi"
+	cont "reculé était une"
+	cont "bonne décision."
+	
+	para "J'ai passé un"
+	line "confinement"
+	cont "confortable,"
+	
+	para "et je n'ai pas"
+	line "attrapé le COVID"
+	cont "une seule fois,"
+	
+	para "puisque je suis"
+	line "la seule personne"
+	cont "vivant dans les"
+	cont "environs!"
+	
+	para "En ville, mes fans"
+	line "me poursuivaient"
+	cont "partout où"
+	cont "j'allais."
+	
+	para "Pas facile d'être"
+	line "une célébrité."
+else
 	text "Moving to such a"
 	line "far away place was"
 	cont "a good decision."
@@ -97,6 +144,7 @@ CelebrityText2: ; TO TRANSLATE
 
 	para "It's tough being a"
 	line "top celebrity."
+endc
 	done
 
 CelebritysFearowText: 

@@ -19,6 +19,7 @@ INCLUDE "maps/CeruleanCaveB2F.asm"
 INCLUDE "maps/CeruleanCaveB3F.asm"
 INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
 
+
 SECTION "Map Scripts 2", ROMX
 
 INCLUDE "maps/RuinsOfAlphOutside.asm"
@@ -83,6 +84,7 @@ INCLUDE "maps/Route4.asm"
 INCLUDE "maps/Route42EcruteakGate.asm"
 INCLUDE "maps/MountMoonGiftShop.asm"
 INCLUDE "maps/TohjoFalls.asm"
+INCLUDE "maps/Route9.asm"
 
 
 SECTION "Map Scripts 5", ROMX
@@ -434,7 +436,6 @@ INCLUDE "maps/Route46.asm"
 INCLUDE "maps/ViridianCity.asm"
 INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/VermilionCity.asm"
-INCLUDE "maps/Route9.asm"
 
 
 SECTION "Map Scripts 24", ROMX

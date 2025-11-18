@@ -587,7 +587,22 @@ endc
 
 	done
 
-Route35SaviourText: ; TO TRANSLATE
+Route35SaviourText:
+if DEF(_FR_FR)
+	text "Ce #MON est"
+	line "gravement malade"
+	cont "et a besoin de"
+	cont "soins urgents."
+	
+	para "Va chercher l'"
+	line "INFIRMIERE EN CHEF"
+	cont "et amène-la ici"
+	cont "tout de suite!"
+	
+	para "En cette heure-ci,"
+	line "elle doit se trou-"
+	cont "ver à l'HOPITAL."
+else
 	text "This #MON is"
 	line "seriously ill and"
 	cont "needs immediate"
@@ -601,6 +616,7 @@ Route35SaviourText: ; TO TRANSLATE
 	para "At this time, she"
 	line "must be at the"
 	cont "HOSPITAL."
+endc
 	done
 
 Route35_MapEvents:

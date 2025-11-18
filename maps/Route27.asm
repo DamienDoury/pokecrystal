@@ -382,7 +382,20 @@ Route27_SocialDistancingMovement:
 	step LEFT
 	step_end
 
-Route27FisherText: ; TO TRANSLATE
+Route27FisherText:
+if DEF(_FR_FR)
+	text "Hé!"
+	
+	para "Tu sais ce que tu"
+	line "viens de faire?"
+
+	para "Tu viens de faire"
+	line "ton premier pas à"
+	cont "KANTO..."
+
+	para "Regarde la CARTE"
+	line "de ton #MATOS!"
+else
 	text "Hey!"
 
 	para "Do you know what"
@@ -393,18 +406,38 @@ Route27FisherText: ; TO TRANSLATE
 
 	para "Check your #-"
 	line "GEAR MAP and see."
+endc
 	done
 
-Route27BorderClosedText: ; TO TRANSLATE
+Route27BorderClosedText:
+if DEF(_FR_FR)
+	text "La frontière est"
+	line "fermée à cause de"
+	cont "la pandémie."
+	
+	para "Tu dois faire"
+	line "demi-tour."
+else
 	text "The border is"
 	line "closed because"
 	cont "of the pandemic."
 
 	para "You must turn"
 	line "back."
+endc
 	done
 
-Route27BorderLetterText: ; TO TRANSLATE
+Route27BorderLetterText:
+if DEF(_FR_FR)
+	text "C'est un VISA de"
+	line "TRAVAIL?"
+	cont "Laisse-moi voir."
+	
+	para "..."
+	
+	para "Tout semble être"
+	line "en ordre."
+else
 	text "Is that a WORK"
 	line "VISA?"
 	cont "Let me see it."
@@ -413,39 +446,89 @@ Route27BorderLetterText: ; TO TRANSLATE
 
 	para "Everything looks"
 	line "in order."
+endc
 	done
 
-Route27EntranceText: ; TO TRANSLATE
+Route27EntranceText:
+if DEF(_FR_FR)
+	text "Tu peux passer"
+	line "la frontière."
+else
 	text "You may cross"
 	line "the border." 
+endc
 	done
 
-Route27BorderArrestText: ; TO TRANSLATE
+Route27BorderArrestText:
+if DEF(_FR_FR)
+	text "Retourne d'où tu"
+	line "viens avant qu'on"
+	cont "t'arrête."
+else
 	text "Go back were you"
 	line "came from, before"
 	cont "we arrest you."
+endc
 	done
 
-Route27VisaExpiredText: ; TO TRANSLATE
+Route27VisaExpiredText:
+if DEF(_FR_FR)
+	text "Ton VISA de"
+	line "TRAVAIL a expiré."
+	cont "Je ne te laisserai"
+	cont "pas passer."
+else
 	text "Your WORK VISA is"
 	line "expired. I won't"
 	cont "let you through."
+endc
 	done
 
-Route27_VaccinationPassText: ; TO TRANSLATE
+Route27_VaccinationPassText:
+if DEF(_FR_FR)
+	text "Montre ta CARTE"
+	line "de DRESSEUR."
+	
+	para "..."
+else
 	text "Please show your"
 	line "TRAINER CARD."
 
 	para "…"
+endc
 	done
-	
-Route27_VaccinationPassValidText: ; TO TRANSLATE
+
+Route27_VaccinationPassValidText:
+if DEF(_FR_FR)
+	text "Je vois que tu as"
+	line "reçu le vaccin,"
+	cont "tu peux passer."
+else
 	text "I see you're"
 	line "vaccinated, you"
 	cont "can go through."
+endc
 	done
 
-Route27_FakeIDText: ; TO TRANSLATE
+Route27_FakeIDText:
+if DEF(_FR_FR)
+	text "Quoi! C'est une"
+	line "fausse CARTE"
+	cont "DRESSEUR!"
+	
+	para "C'est une blague?"
+	
+	para "Cette imitation"
+	line "est si mauvaise!"
+	
+	para "Elle ne trompera"
+	line "personne."
+	
+	para "Je la confisque."
+	
+	para "Maintenant,"
+	line "dégage."
+else
 	text "Hey! It's a fake"
 	line "TRAINER CARD!"
 
@@ -458,6 +541,7 @@ Route27_FakeIDText: ; TO TRANSLATE
 
 	para "I'm keeping it."
 	line "Now get lost."
+endc
 	done
 
 CooltrainermBlakeSeenText: 

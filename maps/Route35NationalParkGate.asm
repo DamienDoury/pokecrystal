@@ -672,12 +672,22 @@ endc
 
 	done
 
-NationalParkLockdownText: ; TO TRANSLATE
+NationalParkLockdownText:
+if DEF(_FR_FR)
+	text "Comment t'as fait"
+	line "pour te faufiler"
+	cont "ici?"
+	
+	para "Le couvre-feu a"
+	line "démarré, rentre"
+	cont "chez toi!"
+else
 	text "How did you sneak"
 	line "up in here?"
 	
 	para "It's past curfew,"
 	line "go home!"
+endc
 	done
 
 Route35NationalParkGate_MapEvents:

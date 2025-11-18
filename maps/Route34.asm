@@ -422,12 +422,26 @@ endc
 
 	done
 
-YoungsterSamuelBeatenText: ; TO TRANSLATE
+YoungsterSamuelBeatenText:
+if DEF(_FR_FR)
+	text "La PENSION n'a pas"
+	line "été efficace..."
+else
 	text "The DAY-CARE wasn't"
 	line "a good training…"
+endc
 	done
 
-YoungsterSamuelAfterText: ; TO TRANSLATE
+YoungsterSamuelAfterText:
+if DEF(_FR_FR)
+	text "BLANCHE m'a dit"
+	line "qu'un #MON de"
+	cont "haut niveau gagne"
+	
+	para "plus de PTS EXP."
+	line "à la PENSION qu'un"
+	cont "qu'un plus faible."
+else
 	text "WHITNEY told me"
 	line "that a high level"
 	cont "#MON gains"
@@ -435,6 +449,7 @@ YoungsterSamuelAfterText: ; TO TRANSLATE
 	para "more exp. at the"
 	line "DAY-CARE than a"
 	cont "low level one."
+endc
 	done
 
 YoungsterIanSeenText: 
@@ -460,7 +475,31 @@ endc
 
 	done
 
-YoungsterIanAfterText: ; TO TRANSLATE
+YoungsterIanAfterText:
+if DEF(_FR_FR)
+	text "Tu savais qu'un"
+	line "#MON enfant est"
+	
+	para "presque toujours"
+	line "plus robuste que"
+	cont "ses parents?"
+	
+	para "C'est parce qu'il"
+	line "hérite des meil-"
+	cont "leurs attributs"
+	cont "de ses parents!"
+	
+	para "Mais il reste"
+	line "toujours une part"
+	
+	para "de hasard dans le"
+	line "processus de"
+	cont "reproduction."
+	
+	para "C'est le vieux de"
+	line "la PENSION qui me"
+	cont "l'a dit."
+else
 	text "Did you know that"
 	line "a child #MON"
 	
@@ -482,6 +521,7 @@ YoungsterIanAfterText: ; TO TRANSLATE
 
 	para "The old man at the"
 	line "DAY-CARE told me."
+endc
 	done
 
 CamperTodd1SeenText: 
@@ -615,7 +655,18 @@ endc
 
 	done
 
-PokefanmBrandonAfterText: ; TO TRANSLATE
+PokefanmBrandonAfterText:
+if DEF(_FR_FR)
+	text "J'ai laissé mon"
+	line "#MON à la"
+	cont "PENSION pendant"
+	cont "une semaine puis"
+	cont "j'ai attendu."
+	
+	para "Quand je l'ai"
+	line "récupéré, il avait"
+	cont "gagné 6 niveaux!"
+else
 	text "I left my #MON"
 	line "at the DAY-CARE"
 	cont "for one week and"
@@ -624,6 +675,7 @@ PokefanmBrandonAfterText: ; TO TRANSLATE
 	para "When I got it"
 	line "back, it had"
 	cont "gained 6 levels!"
+endc
 	done
 
 CooltrainerfIreneSeenText: 

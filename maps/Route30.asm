@@ -330,7 +330,19 @@ endc
 
 	done
 
-YoungsterMikeySeenText: ; TO TRANSLATE
+YoungsterMikeySeenText:
+if DEF(_FR_FR)
+	text "ALERTE DISTAN-"
+	line "CIATION SOCIALE!"
+	
+	para "ALERTE DISTAN-"
+	line "CIATION SOCIALE!!"
+	
+	para "T'as pas entendu??"
+	
+	para "Je vais t'apprendre"
+	line "le respect!"
+else
 	text "SOCIAL DISTANCING"
 	line "ALERT!"
 
@@ -342,18 +354,41 @@ YoungsterMikeySeenText: ; TO TRANSLATE
 
 	para "I'm gonna teach"
 	line "you respect!"
+endc
 	done
 
-YoungsterMikeyBeatenText: ; TO TRANSLATE
+YoungsterMikeyBeatenText:
+if DEF(_FR_FR)
+	text "Quand même, tu"
+	line "devrais respecter"
+	
+	para "la distanciation"
+	line "sociale."
+	
+	para "Je vais le dire à"
+	line "ma maman."
+else
 	text "Still, you should"
 	line "respect social"
 	cont "distancing."
 
 	para "I'm gonna tell"
 	line "mommy."
+endc
 	done
 
-YoungsterMikeyAfterText: ; TO TRANSLATE
+YoungsterMikeyAfterText:
+if DEF(_FR_FR)
+	text "La distanciation"
+	line "sociale, c'est pour"
+	cont "ton bien."
+	
+	para "Elle réduit le"
+	line "risque d'être"
+	
+	para "infecté par les"
+	line "autres."
+else
 	text "Social distancing"
 	line "is for your own"
 	cont "good."
@@ -363,6 +398,7 @@ YoungsterMikeyAfterText: ; TO TRANSLATE
 
 	para "infected by"
 	line "others."
+endc
 	done
 
 BugCatcherDonSeenText: 

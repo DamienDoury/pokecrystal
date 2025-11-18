@@ -401,7 +401,28 @@ endc
 
 	done
 
-Route29CooltrainerMText_BerryExplanation: ; TO TRANSLATE
+Route29CooltrainerMText_BerryExplanation:
+if DEF(_FR_FR)
+	text "Cet arbre à côté"
+	line "de nous fait"
+	cont "pousser des baies."
+	
+	para "N'hésite pas à en"
+	line "ramasser!"
+	
+	para "Ton #MON peut"
+	line "en tenir une si tu"
+	
+	para "lui en donnes une"
+	line "depuis ton sac."
+	
+	para "Il la mangera en"
+	line "combat quand sa"
+	
+	para "santé tombera en"
+	line "dessous de la"
+	cont "moitié."
+else
 	text "This tree next to"
 	line "us grows berries."
 
@@ -419,9 +440,21 @@ Route29CooltrainerMText_BerryExplanation: ; TO TRANSLATE
 
 	para "their health drops"
 	line "below half."
+endc
 	done
 
-Route29CooltrainerMText_OranBerryDetected: ; TO TRANSLATE
+Route29CooltrainerMText_OranBerryDetected:
+if DEF(_FR_FR)
+	text "Oh! Je vois que"
+	line "ton @"
+	text_ram wStringBuffer1
+	text ""
+	
+	cont "tient déjà une"
+	cont "@"
+	text_ram wStringBuffer4
+	text "!"
+else
 	text "Oh! I see your"
 	line "@"
 	text_ram wStringBuffer1
@@ -431,6 +464,7 @@ Route29CooltrainerMText_OranBerryDetected: ; TO TRANSLATE
 	line "an @"
 	text_ram wStringBuffer4
 	text "!"
+endc
 	done
 
 MeetTuscanyText: 

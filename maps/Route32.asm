@@ -468,11 +468,35 @@ Movement_Route32CooltrainerMReset1:
 	step DOWN
 	step_end
 
-Route32CooltrainerMText_WaitUp: ; TO TRANSLATE
+Route32CooltrainerMText_WaitUp:
+if DEF(_FR_FR)
+	text "Attends un peu!"
+else
 	text "Wait up!"
+endc
 	done
 
-Route32CooltrainerMText_YouNerd: ; TO TRANSLATE
+Route32CooltrainerMText_YouNerd:
+if DEF(_FR_FR)
+	text "Tu portes un"
+	line "masque!"
+	
+	para "T'as peur de la"
+	line "propagande qu'ils"
+	
+	para "racontent aux"
+	line "infos?"
+	
+	para "Hahaha!"
+	line "T'es trop crédule!"
+	
+	para "Hahahaha!"
+	line "VICTIME!"
+	
+	para "Faut que j'aille"
+	line "raconter ça à mes"
+	cont "potes!"
+else
 	text "You are wearing"
 	line "a face mask!"
 
@@ -490,9 +514,29 @@ Route32CooltrainerMText_YouNerd: ; TO TRANSLATE
 
 	para "I gotta go tell"
 	line "my friends!"
+endc
 	done
 
-Text_MillionDollarSlowpokeTail: ; TO TRANSLATE
+Text_MillionDollarSlowpokeTail:
+if DEF(_FR_FR)
+	text "T'as pas entendu"
+	line "à la télé?"
+	
+	para "C'est la fin du"
+	line "monde!"
+	
+	para "Tu ferais mieux de"
+	line "goûter une bonne"
+	cont "QUEUERAMOLOS"
+	
+	para "avant qu'il ne"
+	line "soit trop tard."
+	
+	para "J'te fais un prix:"
+	line "1 000 000¥!"
+	
+	para "C'est pour toi!"
+else
 	text "Haven't you heard"
 	line "on TV?"
 
@@ -509,6 +553,7 @@ Text_MillionDollarSlowpokeTail: ; TO TRANSLATE
 	line "just ¥1,000,000!"
 
 	para "You'll want this!"
+endc
 	done
 
 Text_ThoughtKidsWereLoaded: 
@@ -523,9 +568,15 @@ endc
 
 	done
 
-Text_RefusedToBuySlowpokeTail: ; TO TRANSLATE
+Text_RefusedToBuySlowpokeTail:
+if DEF(_FR_FR)
+	text "Faut que j'améliore"
+	line "mon discours de"
+	cont "vente..."
+else
 	text "I gotta work on my"
 	line "selling pitch…"
+endc
 	done
 
 FisherJustinSeenText: 
@@ -675,9 +726,14 @@ endc
 
 	done
 
-YoungsterAlbertSeenText: ; TO TRANSLATE
+YoungsterAlbertSeenText:
+if DEF(_FR_FR)
+	text "J'adore le sport!"
+	line "Entrainons-nous!"
+else
 	text "I love sports!"
 	line "Let's spar!"
+endc
 	done
 
 YoungsterAlbertBeatenText: 
@@ -689,19 +745,37 @@ endc
 
 	done
 
-YoungsterAlbertAfterText: ; TO TRANSLATE
+YoungsterAlbertAfterText:
+if DEF(_FR_FR)
+	text "J'ai acheté des"
+	line "billets pour le"
+	cont "#ATHLON qui"
+	cont "aura lieu à"
+	cont "DOUBLONVILLE"
+	cont "d'ici quelques"
+	cont "mois!"
+else
 	text "I bought tickets"
 	line "for the #ATHLON"
 	cont "that'll take place"
 	cont "in GOLDENROD CITY"
 	cont "in a few months!"
+endc
 	done
 
-YoungsterAlbertAfterPostponedText: ; TO TRANSLATE
+YoungsterAlbertAfterPostponedText:
+if DEF(_FR_FR)
+	text "Le #ATHLON a"
+	line "été reporté pour"
+	cont "une durée indé-"
+	cont "finie."
+	cont "Je suis dévasté."
+else
 	text "The #ATHLON has"
 	line "been postponed"
 	cont "indefinitely."
 	cont "I'm devastated."
+endc
 	done
 
 YoungsterGordonSeenText: 
@@ -824,10 +898,15 @@ endc
 
 	done
 
-BirdKeeperPeterSeenText: ; TO TRANSLATE
+BirdKeeperPeterSeenText:
+if DEF(_FR_FR)
+	text "As-tu battu ALBERT"
+	line "de MAUVILLE?"
+else
 	text "Have you beaten"
 	line "FALKNER from"
 	cont "VIOLET CITY?"
+endc
 	done
 
 BirdKeeperPeterBeatenText: 

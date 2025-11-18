@@ -86,13 +86,40 @@ Route34IlexForestGateTeacherReturnsMovement:
 	step RIGHT
 	step_end
 
-Route34IlexForestGateTeacherText: ; TO TRANSLATE
+Route34IlexForestGateTeacherText:
+if DEF(_FR_FR)
+	text "Mon ange, peux-tu"
+	line "te débarrasser de"
+	cont "ça pour moi?"
+else
 	text "Oh honey, can you"
 	line "please get rid of"
 	cont "this for me?"
+endc
 	done
 
-Route34IlexForestGateTeacher_GotSweetScent: ; TO TRANSLATE
+Route34IlexForestGateTeacher_GotSweetScent:
+if DEF(_FR_FR)
+	text "C'est DOUX PARFUM."
+	
+	para "Utilise-le là où"
+	line "les #MON"
+	cont "apparaissent."
+	
+	para "Ils seront attirés"
+	line "par son odeur."
+	
+	para "Mais cette copie"
+	line "est cassée."
+	
+	para "Mon PAPILUSION"
+	line "l'utilise souvent,"
+	
+	para "mais je n'arrive"
+	line "plus à le sentir"
+	cont "ces derniers"
+	cont "temps."
+else
 	text "It's SWEET SCENT."
 
 	para "Use it wherever"
@@ -110,9 +137,26 @@ Route34IlexForestGateTeacher_GotSweetScent: ; TO TRANSLATE
 	para "haven't been able"
 	line "to smell it"
 	cont "recently."
+endc
 	done
 
-Route34IlexForestGateTeacher_ForestIsRestless: ; TO TRANSLATE
+Route34IlexForestGateTeacher_ForestIsRestless:
+if DEF(_FR_FR)
+	text "Quelque chose"
+	line "cloche dans le"
+	cont "BOIS AUX CHENES,"
+	cont "je le sens..."
+	
+	para "Enfin, je ne sens"
+	line "rien. C'est une"
+	cont "expression."
+	
+	para "Mais je peux le"
+	line "ressentir..."
+	
+	para "Evite d'y aller"
+	line "pour l'instant."
+else
 	text "Something's wrong"
 	line "in ILEX FOREST,"
 	cont "I can smell it…"
@@ -126,6 +170,7 @@ Route34IlexForestGateTeacher_ForestIsRestless: ; TO TRANSLATE
 
 	para "You should stay"
 	line "away right now."
+endc
 	done
 
 Route34IlexForestGateButterfreeText: 
