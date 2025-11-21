@@ -330,7 +330,19 @@ endc
 
 	done
 
-Route40Lass2Text: ; TO TRANSLATE
+Route40Lass2Text:
+if DEF(_FR_FR)
+	text "Je suis venue à"
+	line "OLIVILLE par"
+	cont "bateau la veille"
+	cont "du début du"
+	cont "confinement,"
+	
+	para "pour voir les"
+	line "beaux paysages..."
+	
+	para "La mer, c'est bô."
+else
 	text "I came to OLIVINE"
 	line "by ship the day"
 	cont "before the lock-"
@@ -343,6 +355,7 @@ Route40Lass2Text: ; TO TRANSLATE
 	para "Being a port, it"
 	line "feels so different"
 	cont "from a big city."
+endc
 	done
 
 MeetMonicaText: 

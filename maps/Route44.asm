@@ -570,7 +570,17 @@ endc
 
 	done
 
-CooltrainermAllenAfterBattleText: ; TO TRANSLATE
+CooltrainermAllenAfterBattleText:
+if DEF(_FR_FR)
+	text "MORTIMER de l'ARE-"
+	line "NE de ROSALIA"
+
+	para "s'entraîne-t-il"
+	line "toujours?"
+	
+	para "Il m'a déchiré la"
+	line "dernière fois."
+else
 	text "I wonder if"
 	line "ECRUTEAK GYM's"
 
@@ -579,6 +589,7 @@ CooltrainermAllenAfterBattleText: ; TO TRANSLATE
 
 	para "He really hammered"
 	line "me."
+endc
 	done
 
 CooltrainerfCybilSeenText: 

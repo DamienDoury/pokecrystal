@@ -451,20 +451,38 @@ endc
 
 	done
 
-SailorHarrySeenText: ; TO TRANSLATE
+SailorHarrySeenText:
+if DEF(_FR_FR)
+	text "AXOLOTO est joie."
+	line "AXOLOTO est amour."
+else
 	text "WOOPER is love."
 	line "WOOPER is life."
+endc
 	done
 
-SailorHarryBeatenText: ; TO TRANSLATE
+SailorHarryBeatenText:
+if DEF(_FR_FR)
+	text "L'Axo est tombé."
+	line "Je suis dévasté."
+else
 	text "The Woop fell."
 	line "I'm devastated."
+endc
 	done
 
-SailorHarryAfterBattleText: ; TO TRANSLATE
+SailorHarryAfterBattleText:
+if DEF(_FR_FR)
+	text "Souviens-toi de"
+	line "ce conseil:"
+	
+	para "AXOLOTO est le"
+	line "meilleur #MON."
+else
 	text "Remember this tip:"
 	line "WOOPER is the"
 	cont "best #MON."
+endc
 	done
 
 BeautyOliviaSeenText: 

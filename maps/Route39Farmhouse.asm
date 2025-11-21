@@ -115,7 +115,26 @@ PokefanF_Twin2:
 FarmhouseBookshelf:
 	jumpstd PictureBookshelfScript
 
-FarmerMText_SickCow: ; TO TRANSLATE
+FarmerMText_SickCow:
+if DEF(_FR_FR)
+	text "Ma chtite ECREMEUH"
+	line "m'donne plus eud'"
+	cont "lait."
+
+	para "Et pourtant qu'il"
+	line "était bien bon"
+	cont "not'lait d'ici."
+
+	para "Et tout eul'monde"
+	line "y veut à boire."
+
+	para "Si j'en avais des"
+	line "BAIES ORAN à lui"
+
+	para "donner, elle m'don-"
+	line "nerait aussi du"
+	cont "lait, par le fait."
+else
 	text "My MILTANK ain't"
 	line "givin' me milk"
 	cont "n'more."
@@ -132,6 +151,7 @@ FarmerMText_SickCow: ; TO TRANSLATE
 	para "feed it lots o'"
 	line "ORAN BERRIES,"
 	cont "I reckon."
+endc
 	done
 
 FarmerMText_BuyMilk: 
@@ -243,12 +263,20 @@ endc
 
 	done
 
-FarmerFText_HealedMiltank: ; TO TRANSLATE
+FarmerFText_HealedMiltank:
+if DEF(_FR_FR)
+	text "T'as aidé not"
+	line "MEUMEU, poussin."
+
+	para "Voilà pour"
+	line "ton effort."
+else
 	text "You helped our"
 	line "MOOMOO, hon."
 
 	para "Here's somethin'"
 	line "fer your trouble."
+endc
 	done
 
 FarmerFText_SnoreSpeech: 
@@ -282,11 +310,24 @@ endc
 
 	done
 
-Twin1Text: ; TO TRANSLATE
+Twin1Text:
+if DEF(_FR_FR)
+	text "MEUMEU m'manque..."
+else
 	text "I miss MOOMOO…"
+endc
 	done
 
-Twin2Text: ; TO TRANSLATE
+Twin2Text:
+if DEF(_FR_FR)
+	text "Au final, la"
+	line "maladie a été"
+	cont "plus forte que"
+	cont "not' MEUMEU."
+
+	para "C'est triste, elle"
+	line "était ma favorie."
+else
 	text "In the end, the"
 	line "illness was"
 	cont "stronger than"
@@ -294,6 +335,7 @@ Twin2Text: ; TO TRANSLATE
 
 	para "It's sad, she was"
 	line "my favorite."
+endc
 	done
 
 Route39Farmhouse_MapEvents:

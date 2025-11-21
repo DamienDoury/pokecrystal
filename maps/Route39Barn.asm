@@ -134,11 +134,19 @@ MoomooScript:
 BarnMiltank:
 	farsjump Route39Miltank
 
-Route39BarnTwinMoomooIsSickText: ; TO TRANSLATE
+Route39BarnTwinMoomooIsSickText:
+if DEF(_FR_FR)
+	text "MEUMEU est malade."
+
+	para "Elle a besoin de"
+	line "beaucoup de BAIES"
+	cont "ORAN."
+else
 	text "MOOMOO is sick…"
 
 	para "She needs lots of"
 	line "ORAN BERRIES."
+endc
 	done
 
 Route39BarnTwinWereFeedingMoomooText: 
@@ -152,8 +160,12 @@ endc
 
 	done
 
-MoomooWeakMooText: ; TO TRANSLATE
+MoomooWeakMooText:
+if DEF(_FR_FR)
+	text "ECREMEUH: ...Meu."
+else
 	text "MOOMOO: …Moo…"
+endc
 	done
 
 Route39BarnItsCryIsWeakText: 
@@ -166,47 +178,90 @@ endc
 
 	done
 
-MoomooHappyMooText: ; TO TRANSLATE
+MoomooHappyMooText:
+if DEF(_FR_FR)
+	text "ECREMEUH: MEU!"
+else
 	text "MOOMOO: Mooo!"
+endc
 	done
 
-Route39BarnAskGiveBerryText: ; TO TRANSLATE
+Route39BarnAskGiveBerryText:
+if DEF(_FR_FR)
+	text "Donner une BAIE"
+	line "ORAN à ECREMEUH?"
+else
 	text "Give an ORAN BERRY"
 	line "to MILTANK?"
+endc
 	done
 
-Route39BarnGaveBerryText: ; TO TRANSLATE
+Route39BarnGaveBerryText:
+if DEF(_FR_FR)
+	text "<PLAYER> donne une"
+	line "BAIE ORAN à"
+	cont "ECREMEUH."	
+else
 	text "<PLAYER> gave an"
 	line "ORAN BERRY to"
 	cont "MILTANK."
+endc
 	done
 
-Route39BarnLittleHealthierText: ; TO TRANSLATE
+Route39BarnLittleHealthierText:
+if DEF(_FR_FR)
+	text "MEUMEU se sent"
+	line "un peu mieux!"
+else
 	text "MOOMOO feels a"
 	line "little healthier!"
+endc
 	done
 
-Route39BarnQuiteHealthyText: ; TO TRANSLATE
+Route39BarnQuiteHealthyText:
+if DEF(_FR_FR)
+	text "MEUMEU se sent"
+	line "mieux!"
+else
 	text "MOOMOO feels a"
 	line "little bit better!"
+endc
 	done
 
-Route39BarnTotallyHealthyText: ; TO TRANSLATE
+Route39BarnTotallyHealthyText:
+if DEF(_FR_FR)
+	text "MEUMEU est en"
+	line "pleine forme!"
+else
 	text "MOOMOO feels"
 	line "better!"
+endc
 	done
 
-Route39BarnNoBerriesText: ; TO TRANSLATE
+Route39BarnNoBerriesText:
+if DEF(_FR_FR)
+	text "<PLAYER> n'a pas"
+	line "de BAIE ORAN..."
+else
 	text "<PLAYER> has no"
 	line "ORAN BERRIES…"
+endc
 	done
 
-Route39BarnRefusedBerryText: ; TO TRANSLATE
+Route39BarnRefusedBerryText:
+if DEF(_FR_FR)
+	text "<PLAYER> ne donne"
+	line "pas de BAIE ORAN."
+
+	para "MEUMEU est"
+	line "triste."
+else
 	text "<PLAYER> wouldn't"
 	line "give an ORAN"
 	cont "BERRY."
 
 	para "MOOMOO looks sad."
+endc
 	done
 
 Route39Barn_MapEvents:

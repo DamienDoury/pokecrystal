@@ -165,9 +165,14 @@ endc
 
 	done
 
-TwinsAnnandanne2BeatenText: ; TO TRANSLATE
+TwinsAnnandanne2BeatenText:
+if DEF(_FR_FR)
+	text "LEA&TEA: ..."
+	line "Pas possible."
+else
 	text "ANNE & ANN: Nnn… A"
 	line "little too strong."
+endc
 	done
 
 TwinsAnnandanne2AfterBattleText: 

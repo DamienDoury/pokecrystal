@@ -239,12 +239,28 @@ Route39FruitTree:
 Route39HiddenNugget:
 	hiddenitem TOILET_PAPER, EVENT_ROUTE_39_HIDDEN_NUGGET
 
-Route39_CuteText: ; TO TRANSLATE
+Route39_CuteText:
+if DEF(_FR_FR)
+	text "Elle est trop"
+	line "mignonne!"
+	cont "J'en veux une!"
+else
 	text "She's so cute!"
 	line "I want one!"
+endc
 	done
 
-Route39_IMeanText: ; TO TRANSLATE
+Route39_IMeanText:
+if DEF(_FR_FR)
+	text "...Euh, je veux"
+	line "dire..."
+	
+	para "Vous êtes en état"
+	line "d'arrestation pour"
+	
+	para "violation des me-"
+	line "sures sanitaires!"
+else
 	text "…Uh I mean…"
 
 	para "You are under"
@@ -252,6 +268,7 @@ Route39_IMeanText: ; TO TRANSLATE
 	
 	para "lation of the"
 	line "sanitary measures!"
+endc
 	done
 
 Route39MiltankText: 
@@ -410,19 +427,43 @@ endc
 
 	done
 
-PsychicNormanSeenText: ; TO TRANSLATE
+PsychicNormanSeenText:
+if DEF(_FR_FR)
+	text "Tu n'aimerais pas"
+	line "laisser sortir ton"
+	cont "#MON, pour qu'il"
+	cont "te suive partout?"
+else
 	text "Wouldn't you like"
 	line "to let your #-"
 	cont "MON out, so it can"
 	cont "follow you around?"
+endc
 	done
 
-PsychicNormanBeatenText: ; TO TRANSLATE
+PsychicNormanBeatenText:
+if DEF(_FR_FR)
+	text "Je veux que mon"
+	line "#MON me suive!"
+else
 	text "I want my #MON"
 	line "to follow me!"
+endc
 	done
 
-PsychicNormanAfterBattleText: ; TO TRANSLATE
+PsychicNormanAfterBattleText:
+if DEF(_FR_FR)
+	text "Avant, les dres-"
+	line "seurs laissaient"
+	cont "leurs #MON"
+	cont "marcher avec eux."
+	
+	para "Malheureusement,"
+	line "c'est interdit"
+	cont "depuis la pandé-"
+	cont "mie. C'est trop"
+	cont "triste..."
+else
 	text "Trainers used to"
 	line "have their #MON"
 	cont "follow them around"
@@ -434,6 +475,7 @@ PsychicNormanAfterBattleText: ; TO TRANSLATE
 	cont "pandemic."
 
 	para "It's so sad…"
+endc
 	done
 
 PokefanfJaimeHopeItGetsDarkText: 

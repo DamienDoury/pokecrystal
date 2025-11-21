@@ -343,10 +343,16 @@ endc
 
 	done
 
-RuinsOfAlphOutsideFisherText1: ; TO TRANSLATE
+RuinsOfAlphOutsideFisherText1:
+if DEF(_FR_FR)
+	text "Il y a une drôle"
+	line "de présence dans"
+	cont "le coin."
+else
 	text "There is an odd"
 	line "presence surroun-"
 	cont "ding this area."
+endc
 	done
 
 RuinsOfAlphOutsideFisherText2: 
@@ -403,7 +409,22 @@ endc
 
 	done
 
-RuinsOfAlphDoorText: ; TO TRANSLATE
+RuinsOfAlphDoorText:
+if DEF(_FR_FR)
+	text "Notre CENTRE DE"
+	line "RECHERCHE n'a pas"
+	
+	para "été jugé comme"
+	line "service essentiel."
+	
+	para "Quelle insulte à"
+	line "la science!"
+	
+	para "Nous sommes dans"
+	line "l'obligation de"
+	cont "fermer pour le"
+	cont "moment."
+else
 	text "Our RESEARCH"
 	line "CENTER has not"
 	
@@ -415,12 +436,19 @@ RuinsOfAlphDoorText: ; TO TRANSLATE
 
 	para "We must stay"
 	line "closed for now."
+endc
 	done
 
-RuinsOfAlphConeText: ; TO TRANSLATE
+RuinsOfAlphConeText:
+if DEF(_FR_FR)
+	text "Les RUINES D'ALPH"
+	line "sont fermées au"
+	cont "public."
+else
 	text "RUINS OF ALPH"
 	line "are closed to"
 	cont "the public."
+endc
 	done
 
 RuinsOfAlphOutside_MapEvents:

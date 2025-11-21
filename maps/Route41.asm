@@ -484,10 +484,17 @@ endc
 
 	done
 
-SwimmerfWendySeenText: ; TO TRANSLATE
+SwimmerfWendySeenText:
+if DEF(_FR_FR)
+	text "La nuit tombée,"
+	line "des LOUPIO se"
+	cont "réunissent à la"
+	cont "surface de l'eau."
+else
 	text "At night, CHINCHOU"
 	line "gather near the"
 	cont "water's surface."
+endc
 	done
 
 SwimmerfWendyBeatenText: 
@@ -499,13 +506,22 @@ endc
 
 	done
 
-SwimmerfWendyAfterBattleText: ; TO TRANSLATE
+SwimmerfWendyAfterBattleText:
+if DEF(_FR_FR)
+	text "Les bancs de"
+	line "LOUPIO s'allument"
+	cont "en même temps."
+	
+	para "C'est beau mais..."
+	line "Ca fait peur."
+else
 	text "The clusters of"
 	line "CHINCHOU light up"
 	cont "at the same time."
 
 	para "It's so beautiful,"
 	line "it's scary."
+endc
 	done
 
 Route41_MapEvents:

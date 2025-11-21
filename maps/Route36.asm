@@ -442,7 +442,29 @@ endc
 
 	done
 
-FloriaText1: ; TO TRANSLATE
+FloriaText1:
+if DEF(_FR_FR)
+	text "Je suis FLORA la"
+	line "FLEURISTE!"
+
+	para "Ecoute voir!"
+
+	para "Lorsque j'ai"
+	line "aspergé d'eau cet"
+
+	para "arbre gigoteur,"
+	line "il s'est mis à"
+	cont "sauter!"
+
+	para "Ca doit être un"
+	line "#MON."
+
+	para "Asperge-le à ton"
+	line "tour et il montre-"
+
+	para "ra son vrai"
+	line "visage!"
+else
 	text "I'm the FLOWER"
 	line "SHOP's FLORIA!"
 
@@ -462,24 +484,53 @@ FloriaText1: ; TO TRANSLATE
 
 	para "disguise if you"
 	line "soaked it!"
+endc
 	done
 
-FloriaStayAtHomeText: ; TO TRANSLATE
+FloriaStayAtHomeText:
+if DEF(_FR_FR)
+	text "Attends quoi?"
+	
+	para "Le confinement a"
+	line "déjà commencé?"
+	
+	para "Je ferais mieux"
+	line "de rentrer."
+else
 	text "Wait what?"
 
 	para "The lockdown has"
 	line "started already?"
 
 	para "I should get home."
+endc
 	done
 
-FloriaText2: ; TO TRANSLATE
+FloriaText2:
+if DEF(_FR_FR)
+	text "Je sais! Je vais"
+	line "le dire à ma soeur"
+	cont "et emprunter sa"
+	cont "bouteille!"
+else
 	text "I know! I'll tell"
 	line "my sis and borrow"
 	cont "her water bottle!"
+endc
 	done
 
-RockSmashGuyText1: ; TO TRANSLATE
+RockSmashGuyText1:
+if DEF(_FR_FR)
+	text "Yaaatah!"
+
+	para "J'allais éclater"
+	line "cet arbre avec mon"
+	cont "poing du dragon!"
+
+	para "Mais j'y arrive"
+	line "pas! Il est dur"
+	cont "comme la roche!"
+else
 	text "Wa-hey!"
 
 	para "I was going to"
@@ -490,6 +541,7 @@ RockSmashGuyText1: ; TO TRANSLATE
 
 	para "But I couldn't! It's"
 	line "as hard as a rock!"
+endc
 	done
 
 RockSmashGuyText2: 
@@ -511,7 +563,19 @@ endc
 
 	done
 
-RockSmashGuyText3: ; TO TRANSLATE
+RockSmashGuyText3:
+if DEF(_FR_FR)
+	text "C'est le terrible"
+	line "ECLATE-ROC."
+
+	para "Tu peux éclater"
+	line "des rochers d'un"
+	cont "seul coup!"
+
+	para "Si un rocher te"
+	line "bloque la route,"
+	cont "éclate-le!"
+else
 	text "With ROCK SMASH"
 	line "you can shatter"
 	cont "rocks with just a"
@@ -522,6 +586,7 @@ RockSmashGuyText3: ; TO TRANSLATE
 	para "If any rocks are"
 	line "in your way, just"
 	cont "smash 'em up!"
+endc
 	done
 
 Route36LassText: 
@@ -785,7 +850,21 @@ endc
 
 	done
 
-Route36TrainerTips2Text: ; TO TRANSLATE
+Route36TrainerTips2Text:
+if DEF(_FR_FR)
+	text "ASTUCE"
+
+	para "Utiliser TUNNEL"
+	line "pour retourner à"
+	cont "l'entrée de cer-"
+	cont "tains lieux."
+
+	para "C'est très prati-"
+	line "que pour explorer"
+
+	para "les grottes et les"
+	line "cavernes."
+else
 	text "TRAINER TIPS"
 
 	para "Use DIG to return"
@@ -797,6 +876,7 @@ Route36TrainerTips2Text: ; TO TRANSLATE
 
 	para "caves and other"
 	line "landmarks."
+endc
 	done
 
 ;Route36_Lockdown1Text:

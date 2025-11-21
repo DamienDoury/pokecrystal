@@ -44,11 +44,18 @@ endc
 
 	done
 	
-Route36RuinsOfAlphGateOfficerWideLensText: ; TO TRANSLATE
+Route36RuinsOfAlphGateOfficerWideLensText:
+if DEF(_FR_FR)
+	text "Si tu ne veux rien"
+	line "louper des RUINES"
+	cont "D'ALPHA, ceci"
+	cont "te sera utile."
+else
 	text "If you're going to"
 	line "inspect the RUINS"
 	cont "OF ALPH, this will"
 	cont "come in handy."
+endc
 	done
 
 Route36RuinsOfAlphGateGrampsText: 
