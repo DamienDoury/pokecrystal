@@ -41,13 +41,24 @@ endc
 
 	done
 
-SaffronMartCooltrainerFText: ; TO TRANSLATE
+SaffronMartCooltrainerFText:
+if DEF(_FR_FR)
+	text "J'espère que l'in-"
+	line "flation va bientôt"
+	cont "s'arrêter et"
+	cont "s'inverser."
+	
+	para "Parce que mon"
+	line "salaire, lui,"
+	cont "n'augmente pas..."
+else
 	text "I hope the infla-"
 	line "tion will soon"
 	cont "stop and revert."
 
 	para "Because my salary"
 	line "isn't inflating…"
+endc
 	done
 
 SaffronMart_MapEvents:

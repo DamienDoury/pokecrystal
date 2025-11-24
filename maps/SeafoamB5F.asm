@@ -85,7 +85,16 @@ SeafoamB5FBoulder:
 SeafoamB5FRock:
 	jumpstd SmashRockScript
 
-SeafoamB5FSolidDoorText: ; TO TRANSLATE
+SeafoamB5FSolidDoorText:
+if DEF(_FR_FR)
+	text "La lave sur le"
+	line "mur a la forme"
+	cont "d'une porte."
+	
+	para "Il faudrait une"
+	line "grande puissance"
+	cont "pour la forcer."
+else
 	text "The lava on the"
 	line "wall is shaped"
 	cont "like a door."
@@ -93,6 +102,7 @@ SeafoamB5FSolidDoorText: ; TO TRANSLATE
 	para "It would require"
 	line "a lot of power to"
 	cont "break it open."
+endc
 	done
 
 SeafoamB5F_MapEvents:

@@ -205,7 +205,34 @@ endc
 
 	done
 
-SaffronCityCooltrainerMText: ; TO TRANSLATE
+SaffronCityCooltrainerMText:
+if DEF(_FR_FR)
+	text "La quarantaine"
+	line "dans une grande"
+	cont "ville comme celle-"
+	cont "ci, c'est l'enfer."
+	
+	para "Les gens vivent"
+	line "majoritairement"
+	cont "dans de petits"
+	cont "appartements."
+	
+	para "Par conséquent,"
+	line "beaucoup ont émi-"
+	cont "gré de SAFRANIA"
+	cont "pour s'installer"
+	cont "à la campagne."
+	
+	para "Avec la montée du"
+	line "télétravail, c'est"
+	cont "plus simple que"
+	cont "jamais."
+	
+	para "Et grâce au TRAIN"
+	line "MAGNET, on peut"
+	cont "venir au bureau"
+	cont "rapidement."
+else
 	text "The quarantine in"
 	line "a big city like"
 	cont "this one was"
@@ -229,6 +256,7 @@ SaffronCityCooltrainerMText: ; TO TRANSLATE
 	line "come to the office"
 	cont "thanks to the"
 	cont "MAGNET TRAIN."
+endc
 	done
 
 SaffronCityCooltrainerFText: 
@@ -429,9 +457,13 @@ endc
 
 	done
 
-MrAntonsHouseSignText: ; TO TRANSLATE
+MrAntonsHouseSignText:
+if DEF(_FR_FR)
+	text "MAISON DE MR.ANTON"
+else
 	text "MR.ANTON'S"
 	line "HOUSE"
+endc
 	done
 
 SaffronCityMagnetTrainStationSignText: 
@@ -447,12 +479,27 @@ endc
 
 	done
 
-VaccinationCenterSignText: ; TO TRANSLATE
+VaccinationCenterSignText:
+if DEF(_FR_FR)
+	text "CENTRE DE"
+	line "VACCINATION de"
+	cont "la SYLPHE SARL"
+else
 	text "SILPH CO."
 	line "VACCINATION CENTER"
+endc
 	done
 
-SaffronCity_DojoDoorText: ; TO TRANSLATE
+SaffronCity_DojoDoorText:
+if DEF(_FR_FR)
+	text "Encore un avis"
+	line "sur une porte..."
+	
+	para "Le DOJO a stoppé"
+	line "son activité à"
+	cont "cause de la"
+	cont "pandémie."
+else
 	text "Yet another notice"
 	line "on the door…"
 
@@ -460,11 +507,19 @@ SaffronCity_DojoDoorText: ; TO TRANSLATE
 	line "has shutdown its"
 	cont "activity because"
 	cont "of the pandemic."
+endc
 	done
 
-NeonTownSignText: ; TO TRANSLATE
+NeonTownSignText:
+if DEF(_FR_FR)
+	text "Paradis des nerds"
+
+	para "NEONVILLE"
+else
 	text "Nerds' Paradise"
+	
 	para "NEON TOWN"
+endc
 	done
 
 SaffronCity_MapEvents:

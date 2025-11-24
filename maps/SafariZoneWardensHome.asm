@@ -258,14 +258,33 @@ WardensHouse_PlayerLastStepMovement:
 	turn_head UP
 	step_end
 	
-WardensNeighbor_LadyGoHome1Text: ; TO TRANSLATE
+WardensNeighbor_LadyGoHome1Text:
+if DEF(_FR_FR)
+	text "Tu as réussi à"
+	line "déplacer le rocher"
+	cont "qui bloquait la"
+	cont "maison du voisin?"
+else
 	text "You were able to"
 	line "move the neighbor's"
 	cont "boulder out of"
 	cont "the way?"
+endc
 	done
 
-WardensNeighbor_LadyGoHome2Text: ; TO TRANSLATE
+WardensNeighbor_LadyGoHome2Text:
+if DEF(_FR_FR)
+	text "Vous avez entendu"
+	line "ça monsieur?"
+	
+	para "Cette gentille"
+	line "personne a dégagé"
+	cont "le rocher."
+	
+	para "Vous pouvez ren-"
+	line "trer chez vous"
+	cont "maintenant!"
+else
 	text "Did you hear that,"
 	line "mister?"
 
@@ -274,9 +293,20 @@ WardensNeighbor_LadyGoHome2Text: ; TO TRANSLATE
 	
 	para "You can go back"
 	line "home now!"
+endc
 	done
 
-WardensNeighbor_ManGoHomeText: ; TO TRANSLATE
+WardensNeighbor_ManGoHomeText:
+if DEF(_FR_FR)
+	text "Tu... tu as"
+	line "déplacé le rocher"
+	cont "qui bloquait ma"
+	cont "maison?"
+	
+	para "Je suppose que je"
+	line "vais retourner"
+	cont "vivre à côté."
+else
 	text "You… you moved"
 	line "the boulder that"
 	cont "was blocking my"
@@ -285,9 +315,24 @@ WardensNeighbor_ManGoHomeText: ; TO TRANSLATE
 	para "I guess I'm going"
 	line "back to living"
 	cont "next door."
+endc
 	done
 
-GiveFirstSafariKeyText: ; TO TRANSLATE
+GiveFirstSafariKeyText:
+if DEF(_FR_FR)
+	text "Merci beaucoup"
+	line "d'avoir retiré ce"
+	cont "rocher!"
+	
+	para "Je ne supportais"
+	line "plus mon voisin,"
+	cont "j'ai cru qu'il ne"
+	cont "partirait jamais!"
+	
+	para "Voici un cadeau"
+	line "de valeur pour"
+	cont "m'avoir libérée."
+else
 	text "Thank you so much"
 	line "for removing this"
 	cont "boulder!"
@@ -301,9 +346,21 @@ GiveFirstSafariKeyText: ; TO TRANSLATE
 	para "Here is a valuable"
 	line "present for"
 	cont "freeing me."
+endc
 	done
 
-GiveFirstSafariKeyAfterText: ; TO TRANSLATE
+GiveFirstSafariKeyAfterText:
+if DEF(_FR_FR)
+	text "C'est une des"
+	line "vieilles clés du"
+	cont "personnel."
+	cont "J'en ai plein."
+	
+	para "Elles sont si"
+	line "vieilles et rouil-"
+	cont "lées qu'elles se"
+	cont "cassent souvent."
+else
 	text "I have plenty of"
 	line "those: it is one"
 	cont "of the old"
@@ -312,15 +369,34 @@ GiveFirstSafariKeyAfterText: ; TO TRANSLATE
 	para "They are so old"
 	line "and rusty that"
 	cont "they often break."
+endc
 	done
 
-SafariZoneTrustText: ; TO TRANSLATE
+SafariZoneTrustText:
+if DEF(_FR_FR)
+	text "Je te fais con-"
+	line "fiance pour être"
+	cont "respectueux dans"
+	cont "le PARC SAFARI."
+else
 	text "I trust you to be"
 	line "respectful in the"
 	cont "SAFARI ZONE."
+endc
 	done
 
-SecondSafariKeyText: ; TO TRANSLATE
+SecondSafariKeyText:
+if DEF(_FR_FR)
+	text "Tu as perdu ou"
+	line "cassé la CLE"
+	cont "SAFARI que je"
+	cont "t'avais donné?"
+	
+	para "Bon d'accord, je"
+	line "t'en donne une"
+	cont "autre. Mais ce"
+	cont "sera la dernière."
+else
 	text "Did you lose or"
 	line "break the SAFARI"
 	cont "KEY I gave you?"
@@ -329,9 +405,29 @@ SecondSafariKeyText: ; TO TRANSLATE
 	line "giving you one"
 	cont "more, but this is"
 	cont "the last one."
+endc
 	done
 
-WardensGranddaughterText: ; TO TRANSLATE
+WardensGranddaughterText:
+if DEF(_FR_FR)
+	text "Mon grand-père est"
+	line "le GARDIEN du PARC"
+	cont "SAFARI."
+	
+	para "Enfin... il"
+	line "l'était."
+	
+	para "Le confinement a"
+	line "ruiné son"
+	cont "entreprise, alors"
+	
+	para "il est parti seul"
+	line "à l'étranger."
+	
+	para "Il a abandonné le"
+	line "PARC SAFARI comme"
+	cont "ça, d'un coup."
+else
 	text "My grandpa is the"
 	line "SAFARI ZONE WAR-"
 	cont "DEN."
@@ -348,9 +444,37 @@ WardensGranddaughterText: ; TO TRANSLATE
 	para "He quit running"
 	line "SAFARI ZONE just"
 	cont "like that."
+endc
 	done
 
-WardensGranddaughter_ForSaleText: ; TO TRANSLATE
+WardensGranddaughter_ForSaleText:
+if DEF(_FR_FR)
+	text "Hé! Tu sembles"
+	line "apprécier le PARC"
+	cont "SAFARI, je me"
+	cont "trompe?"
+	
+	para "Les touristes ne"
+	line "reviennent pas à"
+	cont "PARMANIE,"
+	
+	para "alors je veux me"
+	line "débarrasser du"
+	cont "PARC SAFARI."
+	
+	para "Je le vends pour"
+	line "¥999999."
+	
+	para "C'est pas cher"
+	line "payé pour un tel"
+	cont "business!"
+	
+	para "Tu pourrais l'avoir"
+	line "pour toi seul!"
+	
+	para "Ca t'intéresserait"
+	line "de l'acheter?"
+else
 	text "Hey! You seem to"
 	line "enjoy the SAFARI"
 	cont "ZONE, right?"
@@ -375,32 +499,70 @@ WardensGranddaughter_ForSaleText: ; TO TRANSLATE
 	para "Would you be"
 	line "interested in"
 	cont "buying it?"
+endc
 	done
 
-WardensGranddaughter_NotEnoughText: ; TO TRANSLATE
+WardensGranddaughter_NotEnoughText:
+if DEF(_FR_FR)
+	text "Oh trésor, tu n'as"
+	line "pas assez d'argent."
+else
 	text "Oh dear, you don't"
 	line "have enough."
+endc
 	done
 
-WardensGranddaughter_RefusalText: ; TO TRANSLATE
+WardensGranddaughter_RefusalText:
+if DEF(_FR_FR)
+	text "Tu l'as visité"
+	line "plusieurs fois,"
+	
+	para "je pensais que tu"
+	line "l'aimais bien..."
+else
 	text "You've been there"
 	line "several times,"
 	
 	para "I thought you"
 	line "liked it…"
+endc
 	done
 
-WardensGranddaughter_SignText: ; TO TRANSLATE
+WardensGranddaughter_SignText:
+if DEF(_FR_FR)
+	text "Signe ici, et"
+	line "il est à toi."
+else
 	text "Sign here, and"
 	line "it's yours."
+endc
 	done
 
-WardensGranddaughter_OwnText: ; TO TRANSLATE
+WardensGranddaughter_OwnText:
+if DEF(_FR_FR)
+	text "<PLAYER> possède"
+	line "le PARC SAFARI!"
+else
 	text "<PLAYER> owns"
 	line "the SAFARI ZONE!"
+endc
 	done
 
-WardensGranddaughter_PlansText: ; TO TRANSLATE
+WardensGranddaughter_PlansText:
+if DEF(_FR_FR)
+	text "J'ai bien réfléchi"
+	line "et je veux faire"
+	
+	para "comme mon grand-"
+	line "père."
+	
+	para "C'est pourquoi je"
+	line "quitte la ville."
+	
+	para "Bonne chance avec"
+	line "ta nouvelle"
+	cont "acquisition!"
+else
 	text "I have thought"
 	line "about it, and I"
 	
@@ -413,9 +575,31 @@ WardensGranddaughter_PlansText: ; TO TRANSLATE
 	para "Good luck"
 	line "with your new"
 	cont "acquisition!"
+endc
 	done
 
-WardenNeighborText: ; TO TRANSLATE
+WardenNeighborText:
+if DEF(_FR_FR)
+	text "Je vivais dans la"
+	line "maison d'à côté,"
+	cont "mais l'éruption a"
+	cont "projeté un rocher"
+	cont "devant ma maison."
+	
+	para "Par chance, j'ai"
+	line "une porte arrière"
+	cont "pour accéder à mes"
+	cont "affaires."
+	
+	para "Cette jeune femme"
+	line "me laisse vivre"
+	cont "dans la chambre"
+	cont "de son grand-père"
+	cont "en attendant les"
+	cont "réparations."
+	
+	para "Sympa, héhé!"
+else
 	text "I used to live"
 	line "next door, but"
 
@@ -438,6 +622,7 @@ WardenNeighborText: ; TO TRANSLATE
 	cont "repaired."
 
 	para "Nice, hehe!"
+endc
 	done
 
 WardenPhotoText: 
@@ -475,12 +660,20 @@ endc
 
 	done
 
-SafariZoneOwnerText: ; TO TRANSLATE
+SafariZoneOwnerText:
+if DEF(_FR_FR)
+	text "“Ce document"
+	line "atteste que"
+	cont "<PLAYER> est le"
+	cont "propriétaire légal"
+	cont "du PARC SAFARI.”"
+else
 	text "“This document"
 	line "certifies that"
 	cont "<PLAYER> is the"
 	cont "legal owner of"
 	cont "the SAFARI ZONE.”"
+endc
 	done
 
 SafariZoneWardensHome_MapEvents:

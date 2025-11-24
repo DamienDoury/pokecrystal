@@ -11,8 +11,12 @@ SafariZoneFuchsiaGateBeta_MapScripts:
 SafariGateEmployeeScript:
 	jumptextfaceplayer SafariGateEmployeeText
 
-SafariGateEmployeeText: ; TO TRANSLATE
+SafariGateEmployeeText:
+if DEF(_FR_FR)
+	text "Salut patron!"
+else
 	text "Oh, hi boss!"
+endc
 	done
 
 SafariZoneFuchsiaGateBeta_MapEvents:

@@ -135,11 +135,18 @@ SaffronMagnetTrainStationPlayerLeaveTrainAndEnterStationMovement:
 	turn_head UP
 	step_end
 
-SaffronMagnetTrainStationOfficerTrainIsntOperatingText: ; TO TRANSLATE
+SaffronMagnetTrainStationOfficerTrainIsntOperatingText:
+if DEF(_FR_FR)
+	text "Désolé, mais le"
+	line "TRAIN MAGNET ne"
+	cont "peut pas circuler"
+	cont "sans électricité."
+else
 	text "I'm sorry, but the"
 	line "MAGNET TRAIN can't"
 	cont "operate without"
 	cont "power."
+endc
 	done
 
 SaffronMagnetTrainStationOfficerAreYouComingOnBoardText: 
@@ -160,9 +167,14 @@ endc
 
 	done
 
-SaffronMagnetTrainStationOfficerArrivedInSaffronText: ; TO TRANSLATE
+SaffronMagnetTrainStationOfficerArrivedInSaffronText:
+if DEF(_FR_FR)
+	text "Nous sommes arri-"
+	line "vés à SAFRANIA."
+else
 	text "We have arrived in"
 	line "SAFFRON."
+endc
 	done
 
 SaffronMagnetTrainStationGymGuideText: 
@@ -245,7 +257,18 @@ endc
 
 	done
 
-SaffronMagnetTrainStationLassText: ; TO TRANSLATE
+SaffronMagnetTrainStationLassText:
+if DEF(_FR_FR)
+	text "Bonjour. As-tu un"
+	line "PASSE TRAIN?"
+
+	para "Moi j'en ai un!"
+	line "Tous ceux de SA-"
+
+	para "FRANIA qui utili-"
+	line "sent le TRAIN"
+	cont "MAGNET en ont un."
+else
 	text "Hi. Do you have a"
 	line "RAIL PASS? I have"
 
@@ -254,6 +277,7 @@ SaffronMagnetTrainStationLassText: ; TO TRANSLATE
 
 	para "ride the MAGNET"
 	line "TRAIN have PASSES."
+endc
 	done
 
 SaffronMagnetTrainStation_MapEvents:

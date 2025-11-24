@@ -110,7 +110,51 @@ SaffronGymStatue:
 	gettrainername STRING_BUFFER_4, SABRINA, SABRINA1
 	jumpstd GymStatue2Script
 
-SabrinaIntroText: ; TO TRANSLATE
+SabrinaIntroText:
+if DEF(_FR_FR)
+	text "MORGANE: Je savais"
+	line "que tu viendrais."
+	
+	para "J'ai eu une vision"
+	line "il y a trois ans."
+	
+	para "T'en veux après"
+	line "mon BADGE, non?"
+
+	para "Je n'aime pas com-"
+	line "battre mais en"
+
+	para "tant que CHAMPION-"
+	line "NE, je me dois de"
+
+	para "confier mon BADGE"
+	line "à celui ou celle"
+	cont "qui le mérite."
+	
+	para "J'aime enseigner"
+	line "aux dresseurs qu'on"
+	
+	para "ne peut pas tou-"
+	line "jours gagner en"
+	cont "comptant sur la"
+	cont "force brute."
+	
+	para "Montre-moi que tu"
+	line "peux remporter un"
+	cont "combat avec ta"
+	cont "meilleure arme:"
+	cont "ton esprit."
+	
+	para "Tu ne pourras"
+	line "utiliser ni les"
+	
+	para "attaques PHYSIQUES"
+	line "ni les SPECIALES"
+	cont "contre moi."
+	
+	para "Te sens-tu à"
+	line "la hauteur?"
+else
 	text "SABRINA: I knew"
 	line "you were coming…"
 
@@ -147,18 +191,32 @@ SabrinaIntroText: ; TO TRANSLATE
 
 	para "Are you feeling"
 	line "ready?"
+endc
 	done
 
-SabrinaIntroSequelText: ; TO TRANSLATE
+SabrinaIntroSequelText:
+if DEF(_FR_FR)
+	text "Comme tu insistes,"
+	line "prépare-toi à mes"
+	cont "pouvoirs psy!"
+else
 	text "Since you wish it,"
 	line "I will show you my"
 	cont "psychic powers!"
+endc
 	done
 
-SabrinaChallengeRefusedText: ; TO TRANSLATE
+SabrinaChallengeRefusedText:
+if DEF(_FR_FR)
+	text "Je pressens que"
+	line "nos chemins se"
+	cont "croiseront à"
+	cont "nouveau."
+else
 	text "I foresee that"
 	line "our paths will"
 	cont "cross again."
+endc
 	done
 
 SabrinaWinLossText: 
@@ -209,7 +267,21 @@ endc
 
 	done
 
-SabrinaMarshBadgeText: ; TO TRANSLATE
+SabrinaMarshBadgeText:
+if DEF(_FR_FR)
+	text "MORGANE: Même si"
+	line "je n'ai pas su pré-"
+	cont "voir ta puissance"
+	cont "avec exactitude,"
+	
+	para "je sais une chose"
+	line "avec certitude."
+	
+	para "Tu as une grande"
+	line "détermination et"
+	cont "elle te mènera au"
+	cont "sommet!"
+else
 	text "SABRINA: Although"
 	line "I failed to"
 	cont "accurately predict"
@@ -217,12 +289,22 @@ SabrinaMarshBadgeText: ; TO TRANSLATE
 	cont "much I know"
 	cont "to be true."
 
-	para "You will become a"
-	line "celebrated and"
-	cont "beloved CHAMPION!"
+	para "You have great"
+	line "determination and"
+	cont "it will take you"
+	cont "to greater"
+	cont "heights!"
+endc
 	done
 
-SabrinaFightDoneText: ; TO TRANSLATE
+SabrinaFightDoneText:
+if DEF(_FR_FR)
+	text "MORGANE: La force"
+	line "de ton esprit a"
+	
+	para "dépassé mes"
+	line "pouvoirs psy..."
+else
 	text "SABRINA: The power"
 	line "of your mind"
 
@@ -231,6 +313,7 @@ SabrinaFightDoneText: ; TO TRANSLATE
 
 	para "You showed me new"
 	line "paths…"
+endc
 	done
 
 MediumRebeccaSeenText: 
@@ -290,7 +373,28 @@ endc
 
 	done
 
-PsychicFranklinAfterBattleText: ; TO TRANSLATE
+PsychicFranklinAfterBattleText:
+if DEF(_FR_FR)
+	text "Les pouvoirs de"
+	line "MORGANE sont"
+	cont "terrifiants."
+	
+	para "Son aura psychique"
+	line "se répand au-delà"
+	cont "de ce bâtiment."
+	
+	para "J'ai souvent des"
+	line "migraines quand je"
+	cont "suis ici, et j'ai"
+	cont "besoin de partir"
+	cont "loin de l'ARENE"
+	cont "pour aller mieux."
+	
+	para "Oh là là, je ne"
+	line "voudrais surtout"
+	cont "pas habiter près"
+	cont "d'ici."
+else
 	text "SABRINA's powers"
 	line "are terrifying."
 	
@@ -312,6 +416,7 @@ PsychicFranklinAfterBattleText: ; TO TRANSLATE
 	para "Oh man, I wouldn't"
 	line "want to live close"
 	cont "to this building."
+endc
 	done
 
 MediumDorisSeenText: 
@@ -395,7 +500,37 @@ endc
 
 	done
 
-SaffronGymGuideText: ; TO TRANSLATE
+SaffronGymGuideText:
+if DEF(_FR_FR)
+	text "Bonjour <PLAYER>..."
+	
+	para "MORGANE m'a dit que"
+	line "tu viendrais"
+	cont "aujourd'hui..."
+	
+	para "C'est déroutant"
+	line "que ça se réalise!"
+	
+	para "D'habitude, les"
+	line "#MON de type"
+	
+	para "SPECTRE et"
+	line "TENEBRES sont"
+	cont "interdits dans"
+	cont "cette ARENE."
+	
+	para "Mais MORGANE a dit"
+	line "de les autoriser"
+	cont "aujourd'hui..."
+	
+	para "Parce qu'elle a"
+	line "eu une vision de"
+	cont "sa victoire."
+	
+	para "Sachant ça, tu"
+	line "veux toujours la"
+	cont "défier?"
+else
 	text "Hello <PLAYER>…"
 
 	para "SABRINA told me"
@@ -421,11 +556,17 @@ SaffronGymGuideText: ; TO TRANSLATE
 	para "Are you sure you"
 	line "still want to"
 	cont "challenge her?"
+endc
 	done
 
-SaffronGymGuideWinText: ; TO TRANSLATE
+SaffronGymGuideWinText:
+if DEF(_FR_FR)
+	text "Quelle belle"
+	line "rencontre!"
+else
 	text "That was another"
 	line "FANTASTIC battle!"
+endc
 	done
 
 SaffronGym_MapEvents:

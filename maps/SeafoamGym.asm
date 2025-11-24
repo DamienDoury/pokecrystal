@@ -99,7 +99,41 @@ SeafoamGymItem:
 SeafoamGymBoulder:
 	jumpstd StrengthBoulderScript
 
-BlaineIntroText: ; TO TRANSLATE
+BlaineIntroText:
+if DEF(_FR_FR)
+	text "AUGUSTE: Waaah!"
+	
+	para "L'éruption a peut-"
+	line "être brûlé mon"
+	cont "ARENE, mais elle a"
+	
+	para "aussi alimenté ma"
+	line "flamme intérieure!"
+	
+	para "Alors me voilà de"
+	line "retour en tant que"
+	cont "CHAMPION d'ARENE,"
+	cont "bébé!"
+	
+	para "Ce qui ne me tue"
+	line "pas me rend plus"
+	cont "fort, et c'est pour"
+	
+	para "ça que j'ai décidé"
+	line "de dompter ce"
+	cont "volcan en en fai-"
+	cont "sant mon domicile."
+	
+	para "Waaah!"
+	
+	para "La chaleur intense"
+	line "de la lave est la"
+	cont "salle de jeu"
+	
+	para "idéale pour mes"
+	line "#MON cracheurs"
+	cont "de FEU!"
+else
 	text "BLAINE: Waaah!"
 
 	para "The eruption may"
@@ -135,9 +169,23 @@ BlaineIntroText: ; TO TRANSLATE
 
 	para "for my FIRE brea-"
 	line "thing #MON."
+endc
 	done
 
-BlaineIntroEndText: ; TO TRANSLATE
+BlaineIntroEndText:
+if DEF(_FR_FR)
+	text "J'accepte ton"
+	line "défi."
+	
+	para "Que ce combat"
+	line "décide lequel de"
+	
+	para "nous deux a la"
+	line "volonté la plus"
+	cont "ardente de gagner!"
+	
+	para "Wah ah haha!"
+else
 	text "I accept your"
 	line "challenge."
 
@@ -149,9 +197,41 @@ BlaineIntroEndText: ; TO TRANSLATE
 	cont "to win!"
 
 	para "Wah ah haha!"
+endc
 	done
 
-BlaineRefusesBattleText: ; TO TRANSLATE
+BlaineRefusesBattleText:
+if DEF(_FR_FR)
+	text "Quelqu'un aurait"
+	line "dû te prévenir..."
+	
+	para "Tu ne peux pas te"
+	line "battre dans mon"
+	cont "ARENE avec des"
+	cont "#MON de type"
+	cont "EAU, SOL ou ROCHE."
+	
+	para "Moi seul ai le"
+	line "droit de les"
+	cont "utiliser."
+	
+	para "Privilège du"
+	line "CHAMPION!"
+	
+	para "Mais attends..."
+	
+	para "Il te faut SURF"
+	line "pour m'atteindre,"
+	cont "et pourtant tu"
+	cont "n'as pas le droit"
+	cont "d'utiliser de"
+	cont "#MON EAU."
+	
+	para "Mais bien sûr!!"
+	
+	para "Ce sera ça ma"
+	line "nouvelle énigme!"
+else
 	text "Someone should"
 	line "have told you…"
 
@@ -180,12 +260,13 @@ BlaineRefusesBattleText: ; TO TRANSLATE
 	
 	para "This'll be my"
 	line "new riddle!"
+endc
 	done
 
 BlaineWinLossText: 
 if DEF(_FR_FR)
 	text "AUGUSTE: Bien."
-	line "J'ai perdu."
+	line "Tu m'as crâmé."
 
 	para "Tu as mérité le"
 	line "BADGE VOLCAN!"
@@ -257,7 +338,33 @@ endc
 
 	done
 
-SeafoamGymGuideWinText: ; TO TRANSLATE
+SeafoamGymGuideWinText:
+if DEF(_FR_FR)
+	text "Yo!"
+
+	para "Hein? C'est déjà"
+	line "fini?"
+
+	para "Désolé!"
+
+	para "L'ARENE de CRAMOI-"
+	line "S'ILE était fermée"
+
+	para "alors je savais"
+	line "pas où te trouver."
+
+	para "Le combat a dû"
+	line "être torride!"
+
+	para "Depuis l'extérieur,"
+	line "on aurait dit que"
+
+	para "le volcan était"
+	line "sur le point"
+	
+	para "d'entrer en érup-"
+	line "tion à nouveau!"
+else
 	text "Yo!"
 
 	para "… Huh? It's over"
@@ -282,6 +389,7 @@ SeafoamGymGuideWinText: ; TO TRANSLATE
 
 	para "Oh boy did I"
 	line "miss something!"
+endc
 	done
 
 SeafoamGymGuideWinText2: 
