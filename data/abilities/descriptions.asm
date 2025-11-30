@@ -449,9 +449,9 @@ endc
 
 HarvestDesc:
 if DEF(_FR_FR)
-	db   "50% chance récup."
+	db   "50<PERCENT> chance récup."
 	next "baie après conso."
-	next "100% sous soleil.@"
+	next "100<PERCENT> sous soleil.@"
 else
 	db   "May recover berry"
 	next "after using one."
