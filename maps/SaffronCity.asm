@@ -459,7 +459,7 @@ endc
 
 MrAntonsHouseSignText:
 if DEF(_FR_FR)
-	text "MAISON DE MR.ANTON"
+	text "MAISON DE M.ANTON"
 else
 	text "MR.ANTON'S"
 	line "HOUSE"

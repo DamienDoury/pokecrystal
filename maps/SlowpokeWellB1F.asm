@@ -299,7 +299,27 @@ endc
 
 	done
 
-GruntM29AfterBattleText: ; TO TRANSLATE
+GruntM29AfterBattleText:
+if DEF(_FR_FR)
+	text "Bah... Bien sûr"
+	line "qu'on vend des"
+
+	para "queues de RAMOLOSS"
+	line "volées."
+
+	para "On ferait n'impor-"
+	line "te quoi pour le"
+	cont "pognon."
+
+	para "Les temps sont"
+	line "durs, et la TEAM"
+
+	para "ROCKET a besoin"
+	line "de thunes pour"
+
+	para "ses grands"
+	line "projets!"
+else
 	text "Sure, we've been"
 	line "hacking the tails"
 
@@ -314,6 +334,7 @@ GruntM29AfterBattleText: ; TO TRANSLATE
 
 	para "needs the money"
 	line "for bigger plans!"
+endc
 	done
 
 GruntM1SeenText: 
@@ -484,7 +505,19 @@ endc
 
 	done
 
-SlowpokeWellB1FSlowpokeMailText: ; TO TRANSLATE
+SlowpokeWellB1FSlowpokeMailText:
+if DEF(_FR_FR)
+	text "<PLAYER> lit la"
+	line "LETTRE."
+
+	para "Sois sage et occu-"
+	line "pe-toi bien de la"
+
+	para "maison avec pépé"
+	line "et RAMOLOSS."
+
+	para "Bisous. Papa."
+else
 	text "<PLAYER> reads the"
 	line "MAIL."
 
@@ -495,6 +528,7 @@ SlowpokeWellB1FSlowpokeMailText: ; TO TRANSLATE
 	line "SLOWPOKE."
 
 	para "Love, Dad"
+endc
 	done
 
 SlowpokeWellB1FTaillessSlowpokeText: 

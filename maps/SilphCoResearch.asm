@@ -68,6 +68,7 @@ SilphCoResearch_MapScripts:
 .no_scene
     end
 
+if DEF(_EN_US)
 IsVowel:
     readmem wStringBuffer3
     ifequal $80, .vowel
@@ -83,8 +84,12 @@ IsVowel:
 .vowel
     setval TRUE
     end
+endc
 
 SilphCo_PokeballContentAccorded:
+if DEF(_FR_FR)
+    writetext SilphCo_LookPokeballText
+else
     scall IsVowel
     iftrue .vowel
 
@@ -93,6 +98,7 @@ SilphCo_PokeballContentAccorded:
 
 .vowel
     writetext SilphCo_LookPokeballVowelText
+endc
     end
 
 SilphCo_LookPokeballScript:
@@ -358,9 +364,6 @@ SilphCoResearchScientist4Script:
 SilphCoResearchScientist5Script:
     jumptextfaceplayer SilphCoResearchScientist5_Text
 
-SilphCoResearchScientist1:
-    jumptextfaceplayer SilphCoResearchScientist1Text
-
 SilphCoResearchScientist6Script:
     faceplayer
     opentext
@@ -397,6 +400,7 @@ SilphCoResearchScientist6Script:
     promptbutton
     getitemname STRING_BUFFER_3, USE_SCRIPT_VAR
 
+if DEF(_EN_US)
     scall IsVowel
     iftrue .vowel
 
@@ -404,6 +408,7 @@ SilphCoResearchScientist6Script:
     sjump .request_sequel
 
 .vowel
+endc
     writetext SilphCoResearchScientist6AskReviveVowelText
 .request_sequel
     promptbutton
@@ -586,23 +591,38 @@ SilphCoResearch_StepDownMovement:
     step DOWN
     step_end
 
-SilphCo_LookPokeballText: ; TO TRANSLATE
+SilphCo_LookPokeballText:
+if DEF(_FR_FR)
+	text "A l'intérieur il y"
+	line "a un @"
+	text_ram wStringBuffer3
+	text "."
+else
     text "It contains a"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
+endc
 	done
 
-SilphCo_LookPokeballVowelText: ; TO TRANSLATE
+if DEF(_EN_US)
+SilphCo_LookPokeballVowelText:
     text "It contains an"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
 	done
+endc
 
-SilphCo_LevelText: ; TO TRANSLATE
+SilphCo_LevelText:
+if DEF(_FR_FR)
+	text "Il est niveau 10"
+	line "et connaît les"
+    cont "attaques"
+else
     text "It is level 10 and"
     line "knows the moves"
+endc
     done
 
 SilphCo_Moves12Text:
@@ -615,29 +635,59 @@ SilphCo_Moves12Text:
 	text ","
     done
 
-SilphCo_Moves34Text: ; TO TRANSLATE
+SilphCo_Moves34Text:
+if DEF(_FR_FR)
     text "@"
 	text_ram wStringBuffer2
-	text ","
+	text_start
+
+    line "et @"
+    text_ram wStringBuffer1
+	text "."
+else
+    text "@"
+    text_ram wStringBuffer2
+    text ","
 
     line "and @"
     text_ram wStringBuffer1
-	text "."
+    text "."
+endc
     done
 
-SilphCo_WannaTakeItText: ; TO TRANSLATE
+SilphCo_WannaTakeItText:
+if DEF(_FR_FR)
+	text "Prendre celui-ci?"
+else
     text "Do you want to"
     line "take this one?"
+endc
     done
 
-SilphCo_PartyFullText: ; TO TRANSLATE
+SilphCo_PartyFullText:
+if DEF(_FR_FR)
+	text "Mais votre équipe"
+	line "est déjà pleine."
+else
     text "But your party is"
     line "full."
+endc
     done
 
-
-
-SilphCoResearch_FaxText: ; TO TRANSLATE
+SilphCoResearch_FaxText:
+if DEF(_FR_FR)
+	text "Il y a un fax"
+	line "imprimé et signé"
+	cont "par le PROF.CHEN,"
+	cont "le PROF.ORME,"
+	cont "M.#MON,"
+	cont "l'INFIRMIERE EN"
+	cont "CHEF JOELLE,"
+	cont "et... EUSINE?"
+	
+	para "Ce doit être très"
+	line "important."
+else
     text "There's a printed"
     line "fax signed by"
     cont "PROF.OAK,"
@@ -648,15 +698,72 @@ SilphCoResearch_FaxText: ; TO TRANSLATE
 
     para "This must be very"
     line "important."
+endc
     done
 
-SilphCoResearchScientist1Text: ; TO TRANSLATE
-    text "Reckless driving"
-    line "causes accidents!"
-    cont "Take it easy!"
-    done
-
-SilphCoResearchScientist1_HiText: ; TO TRANSLATE
+SilphCoResearchScientist1_HiText:
+if DEF(_FR_FR)
+	text "Ce bureau est l'un"
+	line "des centres de re-"
+	
+	para "cherche dédiés à"
+	line "la découverte d'un"
+	
+	para "vaccin contre le"
+	line "COVID pour tous"
+	cont "les #MON."
+	
+	para "Nous sommes actu-"
+	line "ellement en phase"
+	cont "de tests réels."
+	
+	para "Cette phase prend"
+	line "beaucoup de temps,"
+	
+	para "car nous vérifions"
+	line "chaque espèce de"
+	cont "#MON une à une."
+	
+	para "C'est pourquoi"
+	line "nous avons besoin"
+	cont "de dresseurs tels"
+    cont "que toi."
+	
+	para "Il y a plusieurs"
+	line "# BALL dans ce"
+	cont "bureau."
+	
+	para "Elles contiennent"
+	line "toutes un sujet de"
+	cont "test volontaire,"
+	
+	para "ayant été injecté"
+	line "avec notre vaccin"
+	cont "prototype."
+	
+	para "Je veux que tu"
+	line "choisisses une"
+	cont "# BALL."
+	
+	para "Entraîne et fais"
+	line "combattre le"
+	cont "#MON choisi."
+	
+	para "Puis rapporte-le,"
+	line "afin que nous"
+	
+	para "puissions analyser"
+	line "les effets du"
+	
+	para "vaccin sur sa"
+	line "santé."
+	
+	para "Oh, j'ai failli"
+	line "oublier!"
+	
+	para "Tu vas avoir"
+	line "besoin de ceci."
+else
     text "This office is one"
     line "of the research"
     
@@ -716,9 +823,32 @@ SilphCoResearchScientist1_HiText: ; TO TRANSLATE
 
     para "You're gonna"
     line "need this."
+endc
     done
 
-SilphCoResearchScientist1_PassText: ; TO TRANSLATE
+SilphCoResearchScientist1_PassText:
+if DEF(_FR_FR)
+	text "Avec ça, le gar-"
+	line "dien à l'entrée ne"
+	cont "te cassera plus"
+    cont "les pieds."
+	
+	para "..."
+	
+	para "Un dernier détail:"
+	line "les #MON dans"
+	
+	para "ce labo ont des"
+	line "couleurs étranges."
+	
+	para "C'est le résultat"
+	line "d'expériences"
+	cont "précédentes."
+	
+	para "T'en fais pas pour"
+    line "ça! Ils pètent la"
+	cont "forme!"
+else
     text "With this, the"
     line "security guard"
     cont "won't bother you."
@@ -738,7 +868,8 @@ SilphCoResearchScientist1_PassText: ; TO TRANSLATE
     para "Don't worry about"
     line "it, they're all"
     cont "fine!"
-    done
+endc
+	done
 
 
 
@@ -749,13 +880,26 @@ SilphCoResearchScientist1_PassText: ; TO TRANSLATE
 ; Case B: The trainer has done more than half, but less than 100%.
 ; Case C: The trainer has done >= 100%.
 
-SilphCoResearchScientist1_QuestIntro_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_QuestIntro_Text:
+if DEF(_FR_FR)
+	text "Comment va notre"
+	line "#MON cobaye?"
+else
 	text "How is our test"
 	line "subject #MON"
 	cont "doing?"
+endc
 	done
 
-SilphCoResearchScientist1_Case1_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_Case1_Text:
+if DEF(_FR_FR)
+	text "Amène-le ici que"
+	line "je puisse analyser"
+	
+	para "les effets du"
+	line "vaccin sur sa"
+	cont "santé."
+else
 	text "Please bring it"
 	line "here so I can"
 	
@@ -764,15 +908,32 @@ SilphCoResearchScientist1_Case1_Text: ; TO TRANSLATE
 	
 	para "vaccine on its"
 	line "health."
+endc
 	done
 
-SilphCoResearchScientist1_Case2_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_Case2_Text:
+if DEF(_FR_FR)
+	text "Je vois que le"
+	line "#MON cobaye se"
+	cont "porte bien."
+else
     text "I see the test"
 	line "subject #MON"
 	cont "is doing good."
+endc
 	done
+
+SilphCoResearchScientist1_Case1A2A_Text:
+if DEF(_FR_FR)
+	text "Mais j'ai besoin"
+	line "de beaucoup plus"
+	cont "de données à"
+	cont "analyser."
 	
-SilphCoResearchScientist1_Case1A2A_Text: ; TO TRANSLATE
+	para "Reviens quand tu"
+    line "l'auras beaucoup"
+	cont "plus entraîné."
+else
 	text "However I need"
 	line "much more data"
 	cont "to analyze."
@@ -780,18 +941,49 @@ SilphCoResearchScientist1_Case1A2A_Text: ; TO TRANSLATE
 	para "Come back after"
 	line "training it way"
 	cont "more."
+endc
 	done
 
-SilphCoResearchScientist1_Case1B2B_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_Case1B2B_Text:
+if DEF(_FR_FR)
+	text "Encore un chouïa"
+	line "d'entraînement,"
+	
+	para "et nous aurons"
+	line "assez de données"
+	cont "pour en tirer des"
+    cont "conclusions"
+	cont "fiables."
+else
     text "A little more"
 	line "training with you,"
 
 	para "and we should have"
 	line "enough data for"
 	cont "reliable results."
+endc
 	done
 
-SilphCoResearchScientist1_ExplainTraining_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_ExplainTraining_Text:
+if DEF(_FR_FR)
+	text "Et quand je dis"
+    line "entraînement, je"
+	cont "parle de combats."
+	
+	para "Le sujet de test"
+    line "doit être exposé"
+	cont "au virus, pour que"
+	
+	para "nous puissions"
+    line "observer les"
+	cont "effets du vaccin."
+	
+	para "Utiliser des SUPER"
+	line "BONBONS ou des"
+	cont "objets de boost de"
+    cont "stats ne servirait"
+	cont "à rien."
+else
 	text "And by training"
 	line "I mean battles."
 
@@ -807,9 +999,23 @@ SilphCoResearchScientist1_ExplainTraining_Text: ; TO TRANSLATE
 	para "Using RARE CANDIES"
 	line "and other doping"
 	cont "items won't help."
+endc
 	done
 
-SilphCoResearchScientist1_Case1C_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_Case1C_Text:
+if DEF(_FR_FR)
+	text "Tu l'as beaucoup"
+	line "entraîné!"
+	
+	para "Nous avons assez"
+	line "de données à"
+	cont "présent."
+	
+	para "Rend-le-moi, je"
+	line "vais regarder les"
+	cont "résultats tout"
+	cont "de suite."
+else
     text "You've trained"
 	line "it a lot!"
 	
@@ -821,14 +1027,55 @@ SilphCoResearchScientist1_Case1C_Text: ; TO TRANSLATE
 	
 	para "the results right"
 	line "now."
+endc
 	done
 
-SilphCoResearchScientist1_HandedOver_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_HandedOver_Text:
+if DEF(_FR_FR)
+	text "<PLAYER> rend le"
+	line "#MON."
+else
 	text "<PLAYER> handed"
 	line "over the #MON."
+endc
 	done
 
-SilphCoResearchScientist1_CaseDone_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_CaseDone_Text:
+if DEF(_FR_FR)
+	text "Les résultats sont"
+	line "aussi bons que"
+    cont "prévu!"
+	
+	para "Ca conclut la"
+    line "phase de test!"
+	
+	para "Depuis que nous"
+	line "avons dépassé un"
+	
+	para "taux de succès de"
+	line "80<PERCENT> il y a plu-"
+	cont "sieurs semaines,"
+	
+	para "nous avons lancé"
+	line "la production de"
+	cont "masse et la"
+	cont "distribution"
+    cont "du vaccin."
+	
+	para "Par la puissance"
+	line "d'un simple appel,"
+
+	para "je vais prévenir"
+	line "la hiérarchie et"
+	
+	para "commencer à sauver"
+	line "des milliers de"
+	cont "vies."
+	
+	para "-Je me sens si"
+	line "puissant en cet"
+	cont "instant!-"
+else
 	text "Results are as"
 	line "good as we"
 	cont "expected!"
@@ -860,9 +1107,22 @@ SilphCoResearchScientist1_CaseDone_Text: ; TO TRANSLATE
     para "-I'm feeling so"
 	line "powerful in this"
 	cont "instant!-"
+endc
 	done
 
-SilphCoResearchScientist1_AfterQuest_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_AfterQuest_Text:
+if DEF(_FR_FR)
+	text "Notre CENTRE DE"
+	line "VACCINATION se"
+	cont "trouve à droite"
+	cont "de ce bâtiment."
+	
+	para "Nous n'aurions pas"
+	line "pu y arriver sans"
+	
+	para "ton aide, MAITRE"
+	line "de la LIGUE."
+else
     text "Our vaccination"
 	line "center is located"
 	
@@ -874,9 +1134,20 @@ SilphCoResearchScientist1_AfterQuest_Text: ; TO TRANSLATE
 	
 	para "your help,"
 	line "LEAGUE CHAMPION."
+endc
 	done
 
-SilphCoResearchScientist1_KeepMon_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_KeepMon_Text:
+if DEF(_FR_FR)
+	text "Le sujet de test"
+	line "semble s'être"
+	cont "attaché à toi et"
+	cont "voudrait rester"
+	cont "dans ton équipe."
+	
+	para "Je n'y vois aucun"
+	line "inconvénient."
+else
 	text "The test subject"
 	line "#MON feels"
 	
@@ -886,27 +1157,54 @@ SilphCoResearchScientist1_KeepMon_Text: ; TO TRANSLATE
 
 	para "I see no problem"
 	line "with that."
+endc
 	done
 
-SilphCoResearchScientist1_GotBack_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_GotBack_Text:
+if DEF(_FR_FR)
+	text "<PLAYER> récupère"
+	line "@"
+	text_ram wStringBuffer1
+	text "!"
+else
 	text "<PLAYER> got"
 	line "@"
 	text_ram wStringBuffer1
 	text " back!"
+endc
 	done
 
-SilphCoResearchScientist1_ThankService_Text: ; TO TRANSLATE
+SilphCoResearchScientist1_ThankService_Text:
+if DEF(_FR_FR)
+	text "Merci pour ton"
+	line "aide, valeureux"
+	cont "@"
+	text_ram wStringBuffer1
+	text "."
+else
 	text "Thank you for your"
 	line "service, dear"
 	cont "@"
 	text_ram wStringBuffer1
 	text "."
+endc
 	done
 	
 
 
 
-SilphCoResearchScientist2_Text: ; TO TRANSLATE
+SilphCoResearchScientist2_Text:
+if DEF(_FR_FR)
+	text "Il est sans danger"
+	line "d'utiliser un"
+	
+    para "#MON contagieux"
+	line "en combat tant"
+
+	para "qu'aucun #MON"
+	line "sain n'est envoyé"
+	cont "après lui."
+else
     text "It is safe to"
     line "use a contagious"
     
@@ -915,27 +1213,60 @@ SilphCoResearchScientist2_Text: ; TO TRANSLATE
 
     para "healthy one is"
     line "sent afterwards."
+endc
     done
 
-SilphCoResearchScientist3_Text: ; TO TRANSLATE
+SilphCoResearchScientist3_Text:
+if DEF(_FR_FR)
+	text "Nous avons fait"
+	line "une percée dans la"
+	cont "recherche grâce à"
+	
+	para "un échantillon"
+	line "d'eau de SUICUNE."
+else
     text "We made a break-"
     line "through in the"
     
     para "research thanks to"
     line "a SUICUNE water"
     cont "sample."
+endc
     done
 
-SilphCoResearchScientist4_Text: ; TO TRANSLATE
+SilphCoResearchScientist4_Text:
+if DEF(_FR_FR)
+	text "Nos recherches"
+	line "montrent que le"
+	cont "virus responsable"
+	
+	para "du COVID est une"
+	line "version mutée du"
+	cont "#RUS."
+else
     text "Our research shows"
     line "that the virus"
 
     para "that gives COVID"
     line "is a mutated ver-"
     cont "sion of #RUS."
+endc
     done
 
-SilphCoResearchScientist5_Text: ; TO TRANSLATE
+SilphCoResearchScientist5_Text:
+if DEF(_FR_FR)
+	text "Yep, je suis le"
+    line "type qui a inventé"
+	cont "le #MASQUE."
+	
+	para "Malheureusement,"
+	line "le rendre adapté à"
+	
+	para "la production de"
+	line "masse, tout en"
+    cont "restant abordable"
+	cont "est un vrai défi."
+else
     text "Yup, I'm the guy"
     line "that came up with"
     cont "the #MASK."
@@ -948,17 +1279,42 @@ SilphCoResearchScientist5_Text: ; TO TRANSLATE
 	
 	para "affordable is a"
     line "huge challenge."
+endc
     done
 
-SilphCoResearchScientist1_ConfusedText: ; TO TRANSLATE
+SilphCoResearchScientist1_ConfusedText:
+if DEF(_FR_FR)
+	text "Désolé,"
+	line "je suis confus."
+else
 	text "I'm sorry"
 	line "I'm confused."
+endc
 	done
 
 
 
 
-SilphCoResearchScientist6IntroText: ; TO TRANSLATE
+SilphCoResearchScientist6IntroText:
+if DEF(_FR_FR)
+	text "J'ai été muté ici"
+	line "car je suis expert"
+	cont "en ADN."
+	
+	para "Mais mon domaine,"
+	line "c'est l'ADN des"
+	cont "#MON préhis-"
+    cont "toriques!"
+	
+	para "Je me sens inutile"
+	line "pour la recherche"
+	cont "sur ce vaccin à"
+	cont "ARNm!"
+	
+	para "Je préférerais"
+    line "avoir un fossile"
+	cont "pour m'occuper..."
+else
     text "I was transfered"
     line "here because I'm"
     cont "an expert on DNA."
@@ -974,67 +1330,128 @@ SilphCoResearchScientist6IntroText: ; TO TRANSLATE
     para "I wish I had a"
     line "fossil to play"
     cont "with…"
+endc
     done
 
-SilphCoResearchScientist6AskReviveText: ; TO TRANSLATE
+if DEF(_EN_US)
+SilphCoResearchScientist6AskReviveText:
     text "Is that a"
     line "@"
     text_ram wStringBuffer3
     text " you"
     cont "have here?"
     done
+endc
 
-SilphCoResearchScientist6AskReviveVowelText: ; TO TRANSLATE
+SilphCoResearchScientist6AskReviveVowelText:
+if DEF(_FR_FR)
+	text "Est-ce bien un"
+	line "@"
+	text_ram wStringBuffer3
+	text " que"
+	cont "tu as là?"
+else
     text "Is that an"
     line "@"
     text_ram wStringBuffer3
     text " you"
     cont "have here?"
+endc
     done
 
-SilphCoResearchScientist6AskReviveSequelText: ; TO TRANSLATE
+SilphCoResearchScientist6AskReviveSequelText:
+if DEF(_FR_FR)
+	text "Je serais ravi"
+	line "d'essayer de le"
+	cont "ressusciter!"
+	
+	para "Tu m'le prêtes?"
+else
     text "I'd be happy to"
     line "try to revive it!"
 
     para "Can I have it?"
+endc
     done
 
-SilphCoResearchScientist6SadText: ; TO TRANSLATE
+SilphCoResearchScientist6SadText:
+if DEF(_FR_FR)
+	text "Avec cette tâche"
+	line "j'aurais pu me"
+	cont "sentir utile..."
+else
     text "This task would"
     line "have given me"
     cont "purpose…"
+endc
     done
 
-SilphCoResearchScientist6NotEnoughRoomText: ; TO TRANSLATE
+SilphCoResearchScientist6NotEnoughRoomText:
+if DEF(_FR_FR)
+	text "Avant que je tente"
+	line "quoi que ce soit,"
+	
+	para "il faut que tu"
+	line "fasses de la place"
+	cont "dans ton équipe."
+else
     text "Before I try any-"
     line "thing, you gotta"
     cont "make some room"
     cont "in your party."
+endc
     done
 
-SilphCoResearchScientist6WaitText: ; TO TRANSLATE
+SilphCoResearchScientist6WaitText:
+if DEF(_FR_FR)
+	text "Mon matos est"
+	line "à l'étage,"
+	cont "patiente ici."
+else
     text "My equipment is"
     line "upstairs, please"
     cont "wait here."
+endc
     done
 
-SilphCoResearchScientist6SuccessText: ; TO TRANSLATE
+SilphCoResearchScientist6SuccessText:
+if DEF(_FR_FR)
+	text "J'ai réussi!"
+	line "Et ouais bébé!"
+else
     text "I succeeded!"
     line "Yeah baby!"
+endc
     done
 
-SilphCoResearchScientist6GetMonText: ; TO TRANSLATE
+SilphCoResearchScientist6GetMonText:
+if DEF(_FR_FR)
+	text "<PLAYER> reçoit"
+	line "@"
+	text_ram wStringBuffer3
+	text "!"
+else
 	text "<PLAYER> received"
 	line "@"
 	text_ram wStringBuffer3
 	text "."
+endc
 	done
 
-SilphCoResearchScientist6ThanksText: ; TO TRANSLATE
+SilphCoResearchScientist6ThanksText:
+if DEF(_FR_FR)
+	text "Tu as illuminé ma"
+	line "journée!"
+	
+	para "Par pitié repasses"
+    line "si jamais tu en"
+	cont "trouves un autre."
+else
     text "You made my day!"
     line "Please come back"
     cont "if you ever find"
     cont "something else."
+endc
     done
 
 SilphCoResearch_MapEvents:

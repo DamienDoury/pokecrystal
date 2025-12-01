@@ -74,7 +74,6 @@ INCLUDE "maps/OlivineLighthouse5F.asm"
 INCLUDE "maps/OlivineLighthouse6F.asm"
 INCLUDE "maps/GoldenrodPokecenter1F.asm"
 INCLUDE "maps/PokecomCenterAdminOfficeMobile.asm"
-INCLUDE "maps/IlexForestAzaleaGate.asm"
 INCLUDE "maps/Route34IlexForestGate.asm"
 INCLUDE "maps/DayCare.asm"
 INCLUDE "maps/ViridianForest.asm"
@@ -82,8 +81,6 @@ INCLUDE "maps/EcruteakRemoteWorkHouse.asm"
 INCLUDE "maps/Route37.asm"
 INCLUDE "maps/Route4.asm"
 INCLUDE "maps/Route42EcruteakGate.asm"
-INCLUDE "maps/MountMoonGiftShop.asm"
-INCLUDE "maps/TohjoFalls.asm"
 INCLUDE "maps/Route9.asm"
 
 
@@ -105,6 +102,8 @@ INCLUDE "maps/LavRadioTower1F.asm"
 INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/Route28.asm"
+INCLUDE "maps/TohjoFalls.asm"
+INCLUDE "maps/IlexForestAzaleaGate.asm"
 
 
 SECTION "Map Scripts 6", ROMX
@@ -143,6 +142,7 @@ INCLUDE "maps/Route16Gate.asm" ; Must be in the same section as Route17Route18Ga
 INCLUDE "maps/Route7SaffronGate.asm"
 INCLUDE "maps/Route17Route18Gate.asm" ; Must be in the same section as Route16Gate.
 INCLUDE "maps/Route5SaffronGate.asm"
+INCLUDE "maps/MountMoonGiftShop.asm"
 
 
 SECTION "Map Scripts 8", ROMX
@@ -344,6 +344,7 @@ INCLUDE "maps/MobileTradeRoom.asm"
 INCLUDE "maps/MobileBattleRoom.asm"
 INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
+INCLUDE "maps/AzaleaMart.asm"
 
 
 SECTION "Map Scripts 18", ROMX
@@ -457,12 +458,12 @@ INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/SoulHouse.asm"
 INCLUDE "maps/Route16.asm"
-INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route10South.asm"
 
 
 SECTION "Map Scripts 26", ROMX
 
+INCLUDE "maps/Route10North.asm"
 INCLUDE "maps/Route2.asm"
 INCLUDE "maps/Route4Tunnel.asm"
 INCLUDE "maps/Route15.asm"
@@ -475,11 +476,11 @@ INCLUDE "maps/Route28SteelWingHouse.asm"
 INCLUDE "maps/SeafoamW1F.asm"
 INCLUDE "maps/SeafoamE1F.asm"
 INCLUDE "maps/SeafoamB1F.asm"
+INCLUDE "maps/SeafoamB2F.asm"
 
 
 SECTION "Map Scripts 27", ROMX
 
-INCLUDE "maps/SeafoamB2F.asm"
 INCLUDE "maps/SeafoamB3F.asm"
 INCLUDE "maps/SeafoamB4F.asm"
 INCLUDE "maps/SeafoamB5F.asm"
@@ -531,6 +532,5 @@ INCLUDE "maps/Route17.asm"
 INCLUDE "maps/Route5.asm"
 INCLUDE "maps/RockTunnel1F.asm"
 INCLUDE "maps/RockTunnelB1F.asm"
-INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/LavenderMart.asm"
 INCLUDE "maps/BillsFamilysHouse.asm"

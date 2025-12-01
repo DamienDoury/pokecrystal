@@ -312,9 +312,14 @@ RedWinLossText:
 	text "…"
 	done
 
-RedLeavesText: ; TO TRANSLATE
+RedLeavesText:
+if DEF(_FR_FR)
+	text "*TOUSSE TOUSSE*"
+	line "*TOUSSE TOUSSE*"
+else
 	text "*COUGH COUGH*"
 	line "*COUGH COUGH*"
+endc
 	done
 
 SilverCaveRoom3_MapEvents:

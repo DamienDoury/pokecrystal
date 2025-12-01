@@ -338,7 +338,25 @@ endc
 
 	done
 
-SageLiFlashExplanationText: ; TO TRANSLATE
+SageLiFlashExplanationText:
+if DEF(_FR_FR)
+	text "Le FLASH illumine"
+	line "les endroits les"
+	cont "plus sombres."
+	
+	para "Tu peux t'en servir"
+	line "dès à présent."
+	
+	para "Aucun BADGE n'est"
+	line "requis pour"
+	cont "utiliser les CS."
+	
+	para "Il suffit de"
+	line "posséder la CS,"
+	
+	para "et de l'enseigner"
+	line "à un #MON."
+else
 	text "FLASH illuminates"
 	line "even the darkest"
 	cont "of all places."
@@ -351,10 +369,11 @@ SageLiFlashExplanationText: ; TO TRANSLATE
 	cont "use HMs."
 
 	para "You only need to"
-	line "carry the HM,"
+	line "own the HM,"
 
 	para "and teach it"
 	line "to a #MON."
+endc
 	done
 
 SageLiAfterBattleText: 

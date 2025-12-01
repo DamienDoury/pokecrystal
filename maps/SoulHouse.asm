@@ -272,23 +272,53 @@ endc
 
 	done
 
-AmphyText: ; TO TRANSLATE
+AmphyText:
+if DEF(_FR_FR)
+	text "“Pardonne-moi”"
+
+	para "PHARY"
+else
 	text "“Forgive me”"
 
 	para "AMPHY"
+endc
 	done
 
-MoomooText: ; TO TRANSLATE
+MoomooText:
+if DEF(_FR_FR)
+	text "Ici repose la"
+	line "bien-aimée MEUMEU."
+else
 	text "Here lies the"
 	line "beloved"
 	cont "MOOMOO."
+endc
 	done
 
-SoulHouseJasmineSobsText: ; TO TRANSLATE
+SoulHouseJasmineSobsText:
+if DEF(_FR_FR)
+	text "JASMINE: (snif)"
+else
 	text "JASMINE: (sob)"
+endc
 	done
 
-SoulHouseFujiAmphyText: ; TO TRANSLATE
+SoulHouseFujiAmphyText:
+if DEF(_FR_FR)
+	text "M.FUJI: Elle a"
+	line "besoin de temps"
+	cont "pour faire son"
+	cont "deuil."
+	
+	para "..."
+	
+	para "Je suis M.FUJI."
+	
+	para "Je gère cet en-"
+	line "droit, ainsi que"
+	cont "le BENEVOLAT de"
+	cont "LAVANVILLE à côté."
+else
 	text "MR.FUJI: She needs"
 	line "time to mourn."
 
@@ -300,9 +330,22 @@ SoulHouseFujiAmphyText: ; TO TRANSLATE
 	line "as well as the"
 	cont "VOLUNTEER HOUSE"
 	cont "next door."
+endc
 	done
 
-SoulHouseFujiAmphy2Text: ; TO TRANSLATE
+SoulHouseFujiAmphy2Text:
+if DEF(_FR_FR)
+	text "JASMINE loge chez"
+	line "moi pour le"
+	cont "moment."
+	
+	para "Elle soutient"
+	line "toujours les"
+	cont "autres, mais au-"
+	cont "jourd'hui c'est"
+	cont "elle qui a besoin"
+	cont "de soutien."
+else
 	text "JASMINE resides"
 	line "at my place for"
 	cont "the time being."
@@ -312,9 +355,18 @@ SoulHouseFujiAmphy2Text: ; TO TRANSLATE
 	cont "at this time she's"
 	cont "the one that needs"
 	cont "support."
+endc
 	done
 
-SoulHouseLoreleiText: ; TO TRANSLATE
+SoulHouseLoreleiText:
+if DEF(_FR_FR)
+	text "OLGA: Je viens ici"
+	line "trop souvent ces"
+	cont "derniers temps."
+	
+	para "Trop d'amis partis"
+	line "trop tôt..."
+else
 	text "LORELEI: I've been"
 	line "coming to this"
 	cont "place too often"
@@ -322,9 +374,23 @@ SoulHouseLoreleiText: ; TO TRANSLATE
 	
 	para "Too many friends"
 	line "gone too soon…"
+endc
 	done
 
-SoulHouseSurgeText: ; TO TRANSLATE
+SoulHouseSurgeText:
+if DEF(_FR_FR)
+	text "BOB: Quand j'étais"
+	line "gamin, j'admirais"
+	cont "ce #MON."
+	
+	para "C'est lui qui m'a"
+	line "donné le goût des"
+	cont "types ELECTRIK."
+	
+	para "Bon, faut que je"
+	line "retourne aider à"
+	cont "la CENTRALE."
+else
 	text "SURGE: Back when"
 	line "I was a brat,"
 	
@@ -337,34 +403,64 @@ SoulHouseSurgeText: ; TO TRANSLATE
 	para "Anyway, I gotta"
 	line "go back helping at"
 	cont "the POWER PLANT."
+endc
 	done
 
-SoulHouseFullAntonFamilyText: ; TO TRANSLATE
+SoulHouseFullAntonFamilyText:
+if DEF(_FR_FR)
+	text "“Fondateur de"
+	line "l'usine à SUPER"
+	cont "BONBON”"
+
+	para "M.ANTON"
+else
 	text "“Founder of the"
 	line "RARE CANDY"
 	cont "factory”"
 
 	para "MR.ANTON"
+endc
 	done
 
-SoulHouseAntonsWifeOnlyText: ; TO TRANSLATE
+SoulHouseAntonsWifeOnlyText:
+if DEF(_FR_FR)
+	text "“Tu resteras dans"
+	line "les mémoires”"
+
+	para "MME.ANTON"
+else
 	text "“You will be"
 	line "remembered”"
 
 	para "MRS.ANTON"
+endc
 	done
 
-AgathasGraveText: ; TO TRANSLATE
+AgathasGraveText:
+if DEF(_FR_FR)
+	text "“Elle ne fait plus"
+	line "qu'un avec ses"
+	cont "#MON SPECTRE”"
+
+	para "CONSEIL 4 AGATHA"
+else
 	text "“She is one with"
 	line "her GHOST #MON”"
 
 	para "ELITE 4 AGATHA"
+endc
 	done
 
-RedsGraveText: ; TO TRANSLATE
+RedsGraveText:
+if DEF(_FR_FR)
+	text "“...”"
+
+	para "MAITRE RED"
+else
 	text "“...”"
 
 	para "CHAMPION RED"
+endc
 	done
 
 SoulHouse_MapEvents:

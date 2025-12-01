@@ -352,11 +352,27 @@ endc
 
 	done
 
-SilphCoOfficerText_GotUpGrade: ; TO TRANSLATE
+SilphCoOfficerText_GotUpGrade:
+if DEF(_FR_FR)
+	text "Merci de quitter"
+	line "les lieux mainte-"
+	cont "nant."
+else
 	text "Now please leave."
+endc
 	done
 
-SilphCoNurseDefaultText: ; TO TRANSLATE
+SilphCoNurseDefaultText:
+if DEF(_FR_FR)
+	text "La SYLPHE SARL a"
+	line "assignée des cen-"
+	cont "taines de ses"
+	cont "chercheurs à l'"
+	cont "étude du COVID,"
+	
+	para "afin de mettre au"
+	line "point un vaccin."
+else
 	text "SILPH CO. has"
 	line "devoted hundreds"
 	cont "of its researchers"
@@ -364,9 +380,23 @@ SilphCoNurseDefaultText: ; TO TRANSLATE
 	para "to studying COVID"
 	line "and come up with" 
 	cont "a vaccine."
+endc
 	done
 
-SilphCoNurse_AntonText: ; TO TRANSLATE
+SilphCoNurse_AntonText:
+if DEF(_FR_FR)
+	text "Tu as une lettre"
+	line "pour la famille de"
+	cont "Monsieur ANTON?"
+	
+	para "Je peux t'aider,"
+	line "je m'occupais de"
+	cont "lui autrefois."
+	
+	para "Puis-je voir le"
+	line "#MON et sa"
+	cont "lettre?"
+else
 	text "You have a letter"
 	line "for Mister ANTON's"
 	cont "relatives?"
@@ -378,22 +408,50 @@ SilphCoNurse_AntonText: ; TO TRANSLATE
 	para "May I see the"
 	line "#MON and its"
 	cont "letter?"
+endc
 	done
 
-SilphCoNurse_InsistText: ; TO TRANSLATE
+SilphCoNurse_InsistText:
+if DEF(_FR_FR)
+	text "Si tu me montres"
+	line "la lettre, je"
+	cont "pourrais peut-être"
+	
+	para "t'en dire plus"
+	line "sur M.ANTON."
+else
 	text "If you show me the"
 	line "letter, I may tell"
 	
 	para "you more about"
 	line "MR.ANTON."
+endc
 	done
 
-SilphCoNurse_WrongMail: ; TO TRANSLATE
+SilphCoNurse_WrongMail:
+if DEF(_FR_FR)
+	text "Ce n'est pas"
+	line "l'écriture de"
+	cont "M.ANTON."
+else
 	text "That's not MR."
 	line "ANTON's writing."
+endc
 	done
 
-SilphCoNurse_ReadsText: ; TO TRANSLATE
+SilphCoNurse_ReadsText:
+if DEF(_FR_FR)
+	text "Voyons ce que MR."
+	line "ANTON raconte."
+	
+	para "..."
+	
+	para "Oh, pauvre"
+	line "M.ANTON!"
+	
+	para "Son état empire,"
+	line "n'est-ce pas?"
+else
 	text "Let's see what MR."
 	line "ANTON has to say."
 
@@ -403,9 +461,78 @@ SilphCoNurse_ReadsText: ; TO TRANSLATE
 	
 	para "He's getting worse"
 	line "isn't he?"
+endc
 	done
 
-SilphCoNurse_Reads2Text: ; TO TRANSLATE
+SilphCoNurse_Reads2Text:
+if DEF(_FR_FR)
+	text "Attends, tu n'es"
+	line "pas au courant?"
+	
+	para "..."
+	
+	para "Tu ne trouveras"
+	line "pas la femme de"
+	cont "M.ANTON."
+	
+	para "Elle est décédée"
+	line "il y a plusieurs"
+	cont "années."
+	
+	para "..."
+	
+	para "M.ANTON a été"
+	line "diagnostiqué avec"
+	cont "la maladie d'Alz-"
+	cont "heimer il y a"
+	cont "cinq ans."
+	
+	para "Sa mémoire"
+	line "décline."
+	
+	para "Quand je m'occupais"
+	line "de lui, il me"
+	cont "confondait souvent"
+	cont "avec sa femme."
+	
+	para "Il m'appelait par"
+	line "son prénom."
+	
+	para "Hélas son état"
+	line "s'est dégradé, et"
+	cont "quand le COVID-19"
+	cont "est arrivé,"
+	
+	para "il a dû être"
+	line "transféré à"
+	cont "l'HOPITAL NATIONAL"
+	cont "de DOUBLONVILLE."
+	
+	para "..."
+	
+	para "Je garde un bon"
+	line "souvenir de ce"
+	cont "patient."
+	
+	para "Il était adorable!"
+	
+	para "Chaque jour il"
+	line "m'offrait des"
+	cont "cadeaux."
+	
+	para "Je n'en avais pas"
+	line "l'utilité, alors je"
+	cont "les ai conservés"
+	cont "dans mon bureau."
+	
+	para "J'ai une idée!"
+	line "Tu devrais les"
+	cont "prendre."
+	
+	para "Laisse-moi aller"
+	line "les chercher"
+	cont "rapido."
+else
 	text "Wait, you don't"
 	line "know?"
 
@@ -471,9 +598,19 @@ SilphCoNurse_Reads2Text: ; TO TRANSLATE
 
 	para "Let me go fetch"
 	line "them quickly."
+endc
 	done
 
-SilphCoNurse_NoRoomText: ; TO TRANSLATE
+SilphCoNurse_NoRoomText:
+if DEF(_FR_FR)
+	text "Y'en a beaucoup!"
+	line "Va falloir faire"
+	cont "de la place dans"
+	cont "ton SAC si tu veux"
+	cont "prendre tout ce"
+	cont "que M.ANTON m'a"
+	cont "offert."
+else
 	text "There is a lot!"
 	line "You're gonna need"
 	cont "to make room in"
@@ -481,13 +618,48 @@ SilphCoNurse_NoRoomText: ; TO TRANSLATE
 	cont "wanna take every-"
 	cont "thing MR.ANTON"
 	cont "gave me."
+endc
 	done
 
-SilphCoNurse_ThereYouGoText: ; TO TRANSLATE
+SilphCoNurse_ThereYouGoText:
+if DEF(_FR_FR)
+	text "Voilà pour toi!"
+else
 	text "There you go!"
+endc
 	done
 
-SilphCoNurse_CandiesText: ; TO TRANSLATE
+SilphCoNurse_CandiesText:
+if DEF(_FR_FR)
+	text "J'ai compté un"
+	line "total de 42 SUPER"
+	cont "BONBONS."
+	
+	para "Je me demande"
+	line "comment il a pu"
+	cont "en obtenir autant."
+	
+	para "Les personnes avec"
+	line "cette maladie ont"
+	cont "tendance à voler"
+	cont "des objets."
+	
+	para "Mais en même temps"
+	line "elles ont souvent"
+	cont "des difficultés à"
+	cont "bouger aux stades"
+	cont "avancés."
+	
+	para "Je soupçonne son"
+	line "MIAOUSS d'être son"
+	cont "complice."
+	
+	para "Enfin bref."
+	
+	para "Fin de ma pause,"
+	line "je dois retourner"
+	cont "bosser."
+else
 	text "I counted 42"
 	line "RARE CANDIES."
 	
@@ -512,16 +684,41 @@ SilphCoNurse_CandiesText: ; TO TRANSLATE
 	para "My break is over,"
 	line "I must get back"
 	cont "to work."
+endc
 	done
 
-SilphCoNurse_SayHiText: ; TO TRANSLATE
+SilphCoNurse_SayHiText:
+if DEF(_FR_FR)
+	text "La prochaine fois"
+	line "que tu verras"
+	cont "M.ANTON, dis-lui"
+	cont "que son ancienne"
+	cont "infirmière lui"
+	cont "passe le bonjour!"
+else
 	text "Next time you see"
 	line "MR.ANTON, tell him"
 	cont "his old nurse"
 	cont "says hi!"
+endc
 	done
 
-SilphCoScientist_HiText: ; TO TRANSLATE
+SilphCoScientist_HiText:
+if DEF(_FR_FR)
+	text "Es-tu <PLAYER>, le"
+	line "MAITRE de la"
+	cont "LIGUE?"
+	
+	para "Ta visite surprise"
+	line "tombe à pic: on"
+	cont "aurait bien besoin"
+	cont "de l'aide de quelqu'"
+	cont "un d'expérimenté"
+	cont "avec les #MON."
+	
+	para "Viens avec moi"
+	line "s'il te plaît."
+else
 	text "Are you <PLAYER>,"
 	line "the LEAGUE"
 	cont "CHAMPION?"
@@ -536,9 +733,39 @@ SilphCoScientist_HiText: ; TO TRANSLATE
 	line "trainer like you."
 
 	para "Please follow me."
+endc
 	done
 
-SilphCoOfficer_SuicuneText: ; TO TRANSLATE
+SilphCoOfficer_SuicuneText:
+if DEF(_FR_FR)
+	text "Dans ce bâtiment,"
+	line "les chercheurs"
+	cont "essaient de créer"
+	cont "un vaccin univer-"
+	cont "sel pour les"
+	cont "#MON."
+	
+	para "Mais ça n'avance"
+	line "pas trop."
+	
+	para "Des scientifiques"
+	line "viennent de loin"
+	cont "pour prêter main-"
+	cont "forte."
+	
+	para "Un homme étrange"
+	line "s'est pointé l'autre"
+	cont "jour. Il disait"
+	cont "avoir des infos"
+	cont "au sujet d'un"
+	cont "#MON légendaire"
+	cont "pouvant faire"
+	cont "avancer la recher-"
+	cont "che."
+	
+	para "J'ai dû le mettre"
+	line "dehors."
+else
 	text "Reseachers are"
 	line "trying to find a"
 	cont "vaccine for"
@@ -561,9 +788,21 @@ SilphCoOfficer_SuicuneText: ; TO TRANSLATE
 	
 	para "I had to kick"
 	line "him out."
+endc
 	done
 
-SilphCoOfficer_OkayText: ; TO TRANSLATE
+SilphCoOfficer_OkayText:
+if DEF(_FR_FR)
+	text "Puis-je voir votre"
+	line "@"
+	text_ram wStringBuffer3
+	text "?"
+	
+	para "..."
+	
+	para "Vous pouvez"
+	line "passer."
+else
 	text "May I see your"
 	line "@"
 	text_ram wStringBuffer3
@@ -572,6 +811,7 @@ SilphCoOfficer_OkayText: ; TO TRANSLATE
 	para "…"
 
 	para "You shall pass."
+endc
 	done
 
 SilphCo1F_MapEvents:
