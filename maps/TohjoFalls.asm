@@ -13,13 +13,24 @@ TohjoFallsMoonStone:
 TohjoFallsWaterfallTipScript:
 	jumptextfaceplayer TohjoFallsWaterfallTipText
 
-TohjoFallsWaterfallTipText: ; TO TRANSLATE
+TohjoFallsWaterfallTipText:
+if DEF(_FR_FR)
+	text "Je suis coincée"
+	line "ici."
+	
+	para "J'ai perdu la CS"
+	line "qui permet de"
+	cont "remonter les"
+	cont "cascades dans"
+	cont "les TOURB'ILES."
+else
 	text "I'm stuck here."
 	line "I lost the HM that"
 
 	para "lets you ascend"
 	line "waterfalls in the"
 	cont "WHIRL ISLANDS."
+endc
 	done
 
 TohjoFalls_MapEvents:

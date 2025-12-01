@@ -302,7 +302,18 @@ RocketBaseRivalShovesPlayerMovement:
 	remove_fixed_facing
 	step_end
 
-LanceGetPasswordText: ; TO TRANSLATE
+LanceGetPasswordText:
+if DEF(_FR_FR)
+	text "PETER: Il faut 2"
+	line "mots de passe pour"
+
+	para "entrer chez le"
+	line "boss."
+
+	para "Seuls certains"
+	line "ROCKETS les con-"
+	cont "naissent."
+else
 	text "LANCE: It takes"
 	line "two passwords to"
 
@@ -312,17 +323,30 @@ LanceGetPasswordText: ; TO TRANSLATE
 	para "Those passwords"
 	line "are known only to"
 	cont "a few ROCKETS."
+endc
 	done
 
-LanceGetPasswordText2: ; TO TRANSLATE
+LanceGetPasswordText2:
+if DEF(_FR_FR)
+	text "Ce ROCKET m'a ap-"
+	line "pris tout ça très"
+	cont "gentiment."
+else
 	text "That ROCKET there"
 	line "very graciously"
 	cont "told me so."
+endc
 	done
 
-LanceGetPasswordText3: ; TO TRANSLATE
+LanceGetPasswordText3:
+if DEF(_FR_FR)
+	text "<PLAY_G>, allons"
+	line "trouver les mots"
+	cont "de passe."
+else
 	text "<PLAY_G>, let's go"
 	line "get the passwords."
+endc
 	done
 
 TeamRocketBaseB3FRocketText: 
@@ -423,7 +447,49 @@ endc
 
 	done
 
-ExecutiveM4BeforeText: ; TO TRANSLATE
+ExecutiveM4BeforeText:
+if DEF(_FR_FR)
+	text "Quoi? Qui es-tu?"
+	line "Tu portes un"
+	cont "masque chirur-"
+	cont "gical..."
+	
+	para "J'en déduis que tu"
+	line "fais partie de la"
+	cont "foule endoctrinée"
+	cont "et bien docile..."
+	
+	para "Quand la prétendue"
+	line "pandémie a débuté,"
+	
+	para "le gouvernement a"
+	line "réussi à cloîtrer"
+	cont "tout le monde chez"
+	cont "eux, d'un simple"
+	cont "message à la télé."
+	
+	para "Et tout le monde"
+	line "a obéi..."
+	
+	para "Sous prétexte d'un"
+	line "ennemi invisible,"
+	cont "ils ont pris le"
+	cont "contrôle de nos"
+	cont "libertés."
+	
+	para "Puis ils ont"
+	line "déployé la police"
+	cont "à chaque coin de"
+	cont "la région,"
+	
+	para "nous maintenant"
+	line "sous contrôle"
+	cont "par la peur."
+	
+	para "La TEAM ROCKET ne"
+	line "peut pas laisser"
+	cont "faire ça..."
+else
 	text "What? Who are you?"
 	line "You're wearing a"
 	cont "face mask…"
@@ -463,11 +529,17 @@ ExecutiveM4BeforeText: ; TO TRANSLATE
 
 	para "TEAM ROCKET can't"
 	line "let this go on…"
+endc
 	done
 
-ExecutiveM4BeatenText: ; TO TRANSLATE
+ExecutiveM4BeatenText:
+if DEF(_FR_FR)
+	text "Je...comment..."
+	line "Trop balèze."
+else
 	text "I… I couldn't do a"
 	line "thing…"
+endc
 	done
 
 ExecutiveM4AfterText: 
@@ -664,7 +736,24 @@ endc
 
 	done
 
-ScientistRossAfterBattleText: ; TO TRANSLATE
+ScientistRossAfterBattleText:
+if DEF(_FR_FR)
+	text "Bon, en réalité,"
+	line "j'ai été viré de"
+	cont "la SYLPHE SARL."
+	
+	para "Et maintenant, je"
+	line "n'arrive pas à"
+	
+	para "configurer ce"
+	line "transmetteur pour"
+	cont "décoder les"
+	cont "signaux vocaux."
+	
+	para "Il émet un bruit"
+	line "parasite affreux,"
+	cont "je supporte plus!"
+else
 	text "All right, I"
 	line "actually got fired"
 	cont "from SILPH CO."
@@ -679,15 +768,26 @@ ScientistRossAfterBattleText: ; TO TRANSLATE
 	para "It's emitting this"
 	line "garbage noise,"
 	cont "I can't stand it!"
+endc
 	done
 
-ScientistMitchSeenText: ; TO TRANSLATE
+ScientistMitchSeenText:
+if DEF(_FR_FR)
+	text "Je me fiche que"
+	line "les #MON soient"
+	cont "blessés par nos"
+	cont "expérimentations."
+	
+	para "C'est un dommage"
+	line "collatéral."
+else
 	text "I don't care that"
 	line "#MON are hurt"
 	cont "by our experiment."
 
 	para "It's a side-"
 	line "product."
+endc
 	done
 
 ScientistMitchBeatenText: 

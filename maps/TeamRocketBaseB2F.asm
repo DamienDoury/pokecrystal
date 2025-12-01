@@ -660,7 +660,31 @@ endc
 
 	done
 
-RocketBaseBossRetreatText: ; TO TRANSLATE
+RocketBaseBossRetreatText:
+if DEF(_FR_FR)
+	text "...Cette cachette"
+	line "est fichue..."
+
+	para "Mais c'est pas"
+	line "grave. L'opération"
+	cont "radio est une"
+	cont "réussite totale."
+
+	para "On se fiche de"
+	line "cette cachette"
+	cont "maintenant."
+
+	para "On a d'autres"
+	line "plans."
+
+	para "Tu vas vite com-"
+	line "prendre le véri-"
+
+	para "table objectif de"
+	line "la TEAM ROCKET."
+
+	para "Hi hihihihi hi!"
+else
 	text "…This hideout is"
 	line "done for…"
 
@@ -686,6 +710,7 @@ RocketBaseBossRetreatText: ; TO TRANSLATE
 	line "while you can…"
 
 	para "Fufufufu…"
+endc
 	done
 
 RocketBaseLancePostBattleText: 
@@ -819,7 +844,21 @@ endc
 
 	done
 
-RocketBaseLanceElectrodeDoneText: ; TO TRANSLATE
+RocketBaseLanceElectrodeDoneText:
+if DEF(_FR_FR)
+	text "PETER: Cet étrange"
+	line "signal s'est enfin"
+	cont "arrêté."
+
+	para "Tu es formidable!"
+	line "Je te remercie au"
+
+	para "nom de tous les"
+	line "#MON."
+
+	para "Au fait. Voilà"
+	line "pour toi."
+else
 	text "LANCE: That odd"
 	line "signal has finally"
 	cont "stopped."
@@ -832,9 +871,22 @@ RocketBaseLanceElectrodeDoneText: ; TO TRANSLATE
 
 	para "Oh, yes. You"
 	line "should take this."
+endc
 	done
 
-RocketBaseLanceStrengthText: ; TO TRANSLATE
+RocketBaseLanceStrengthText:
+if DEF(_FR_FR)
+	text "C'est FORCE."
+	line "Apprends-la à un"
+	
+	para "#MON pour qu'il"
+	line "puisse pousser des"
+	cont "rochers."
+	
+	para "Ça peut être utile"
+	line "pour un aventurier"
+	cont "comme toi."
+else
 	text "That's STRENGTH."
 	line "Teach it to a"
 
@@ -844,9 +896,30 @@ RocketBaseLanceStrengthText: ; TO TRANSLATE
 	para "It may come handy"
 	line "for an adventurer"
 	cont "like you."
+endc
 	done
 
-RocketBaseLanceMonMasterText: ; TO TRANSLATE
+RocketBaseLanceMonMasterText:
+if DEF(_FR_FR)
+	text "<PLAY_G>..."
+
+	para "Devenir le meil-"
+	line "leur dresseur"
+
+	para "#MON prend du"
+	line "temps et est"
+	cont "très difficile..."
+
+	para "Vas-tu tenir le"
+	line "coup?"
+
+	para "..."
+
+	para "Je vois."
+
+	para "Je suis impatient"
+	line "de te revoir!"
+else
 	text "<PLAY_G>…"
 
 	para "The journey to be-"
@@ -864,6 +937,7 @@ RocketBaseLanceMonMasterText: ; TO TRANSLATE
 
 	para "I look forward to"
 	line "seeing you again!"
+endc
 	done
 
 LanceHealsText1: 
@@ -981,7 +1055,18 @@ endc
 
 	done
 
-GruntM18AfterBattleText: ; TO TRANSLATE
+GruntM18AfterBattleText:
+if DEF(_FR_FR)
+	text "Les MAGICARPE qui"
+	line "évoluaient à cause"
+	cont "du signal, c'était"
+	cont "pas prévu."
+	
+	para "Ça a attiré"
+	line "l'attention sur"
+	cont "nous, quelle"
+	cont "poisse."
+else
 	text "The MAGIKARPS"
 	line "evolving because"
 
@@ -992,6 +1077,7 @@ GruntM18AfterBattleText: ; TO TRANSLATE
 	para "It drew attention"
 	line "to us, which is"
 	cont "a bummer."
+endc
 	done
 
 GruntM19SeenText: 

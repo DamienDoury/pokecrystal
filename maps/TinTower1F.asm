@@ -312,7 +312,59 @@ TinTower1FSage3EntersMovement:
 	step UP
 	step_end
 
-TinTower1FEusineSuicuneText: ; TO TRANSLATE
+TinTower1FEusineSuicuneText:
+if DEF(_FR_FR)
+	text "EUSINE: Bravo!"
+	line "Trop fort!"
+	
+	para "SUICUNE est fort,"
+	line "mais tu l'es"
+
+	para "encore plus,"
+	line "<PLAYER>."
+
+	para "Pendant ton combat"
+	line "j'ai pu prélever"
+	
+	para "l'eau légendaire"
+	line "de SUICUNE!"
+	
+	para "Le vaccin est"
+	line "peut-être à portée"
+	
+	para "de main grâce à"
+	line "à ton aide!"
+	
+	para "On dit que SUICUNE"
+	line "a le pouvoir d'in-"
+
+	para "voquer un #MON"
+	line "aux couleurs de"
+	cont "l'arc-en-ciel."
+
+	para "Peut-être, on ne"
+	line "sait jamais, ce"
+
+	para "qu'il vient de se"
+	line "passer le fera"
+	cont "apparaître..."
+	
+	para "Je me hâte vers"
+	line "le centre de"	
+	cont "recherche de KANTO"
+	
+	para "pour livrer cet"
+	line "échantillon poten-"
+	cont "tiellement salva-"
+	cont "teur."
+	
+	para "Le monde entier"
+	line "te doit un grand"
+	cont "merci."
+	
+	para "A très bientôt,"
+	line "<PLAYER>!"
+else
 	text "EUSINE: Awesome!"
 	line "Too awesome, even!"
 
@@ -360,6 +412,7 @@ TinTower1FEusineSuicuneText: ; TO TRANSLATE
 	cont "thank you."
 
 	para "Later, <PLAYER>!"
+endc
 	done
 
 TinTower1FSage1Text: 
