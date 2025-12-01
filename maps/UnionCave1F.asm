@@ -208,26 +208,50 @@ endc
 
 	done
 
-FirebreatherBillSeenText: ; TO TRANSLATE
+FirebreatherBillSeenText:
+if DEF(_FR_FR)
+	text "La rumeur court"
+	line "qu'il y aura bien-"
+	cont "tôt une annonce"
+	cont "importante à la TV"
+	cont "TV concernant"
+	cont "l'épidémie."
+else
 	text "Rumour has it that"
 	line "there will be an"
 	cont "important announ-"
 	cont "cement on TV about"
 	cont "the epidemic soon."
+endc
 	done
 
-FirebreatherBillBeatenText: ; TO TRANSLATE
+FirebreatherBillBeatenText:
+if DEF(_FR_FR)
+	text "Je dois aller voir"
+	line "les infos à la TV!"
+else
 	text "Gotta go watch the"
 	line "news on TV!"
+endc
 	done
 
-FirebreatherBillAfterBattleText: ; TO TRANSLATE
+FirebreatherBillAfterBattleText:
+if DEF(_FR_FR)
+	text "Certains disent"
+	line "qu'un confinement"
+	cont "pourrait être"
+	cont "annoncé..."
+	
+	para "Perso je pense que"
+	line "c'est impossible."
+else
 	text "Some people say"
 	line "that a lockdown"
 	cont "could be announced"
 
 	para "… I believe it's"
 	line "impossible."
+endc
 	done
 
 FirebreatherRaySeenText: 

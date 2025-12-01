@@ -138,48 +138,103 @@ UndergroundPathVoucherSellerScript:
 	writetext VoucherSellerRefusedText
 	sjump .TextEnd
 
-BurglarEddySeenText: ; TO TRANSLATE
+BurglarEddySeenText:
+if DEF(_FR_FR)
+	text "Montre-moi"
+	line "c'que t'as."
+else
 	text "Show me what"
 	line "you got."
+endc
 	done
 
-BurglarEddyBeatenText: ; TO TRANSLATE
+BurglarEddyBeatenText:
+if DEF(_FR_FR)
+	text "Je devais m'assurer"
+	line "que t'étais pas de"
+	cont "la police."
+else
 	text "I needed to make"
 	line "sure you're no"
 	cont "police member."
+endc
 	done
 
-BurglarEddySellText: ; TO TRANSLATE
+BurglarEddySellText:
+if DEF(_FR_FR)
+	text "Ca t'intéresse une"
+	line "CARTE DRESSEUR"
+	cont "avec un PASS"
+	cont "VACCINAL?"
+else
 	text "Want a TRAINER"
 	line "CARD with a"
 	cont "VACCINE PASSPORT?"
+endc
 	done
 
-BurglarEddyWrongClientText: ; TO TRANSLATE
+BurglarEddyWrongClientText:
+if DEF(_FR_FR)
+	text "Ah, t'as déjà la"
+	line "tienne, je vois."
+	cont "T'es pas ma cible."
+else
 	text "Oh, you've got your"
 	line "own, I see."
 	cont "Wrong client."
+endc
 	done
 
-BurglarEddySellText2: ; TO TRANSLATE
+BurglarEddySellText2:
+if DEF(_FR_FR)
+	text "Je la vends pour"
+	line "{d:UNDERGROUNDPATH_FAKE_ID_PRICE}¥."
+else
 	text "I'm selling it for"
 	line "¥{d:UNDERGROUNDPATH_FAKE_ID_PRICE}."
+endc
 	done
 
-BurglarEddyTurnedDownText: ; TO TRANSLATE
+BurglarEddyTurnedDownText:
+if DEF(_FR_FR)
+	text "Si tu connais des"
+	line "antivax intéressés"
+	
+	para "dis-leur que je"
+	line "suis ici."
+else
 	text "If you know anti-"
 	line "vaxxers that are"
 
 	para "interested, tell"
 	line "them I'm here."
+endc
 	done
 
-BurglarEddyNotEnoughMoneyText: ; TO TRANSLATE
+BurglarEddyNotEnoughMoneyText:
+if DEF(_FR_FR)
+	text "J'suis pas une"
+	line "oeuvre de charité!"
+	
+	para "Va récolter du"
+	line "fric."
+else
 	text "I'm not a charity."
 	line "Get enough money."
+endc
 	done
 
-BurglarEddySoldText: ; TO TRANSLATE
+BurglarEddySoldText:
+if DEF(_FR_FR)
+	text "Y'a mon nom dessus"
+	line "mais... ça devrait"
+	cont "passer dans la"
+	cont "plupart des cas."
+	
+	para "Bon, faut que"
+	line "j'aille ferrer"
+	cont "un autre antivax."
+else
 	text "It's my name on it"
 	line "but… you'll be fine"
 	cont "in most cases."
@@ -187,30 +242,60 @@ BurglarEddySoldText: ; TO TRANSLATE
 	para "Okay, gotta go"
 	line "find another"
 	cont "anti-vaxxer."
+endc
 	done
 
-VoucherSellerIntroText: ; TO TRANSLATE
+VoucherSellerIntroText:
+if DEF(_FR_FR)
+	text "Hey! Tu veux un"
+	line "TICK.GAGNANT?"
+else
 	text "Hey! Want a"
 	line "VOUCHER?"
+endc
 	done
 
-VoucherSellerPriceText: ; TO TRANSLATE
+VoucherSellerPriceText:
+if DEF(_FR_FR)
+	text "{d:UNDERGROUNDPATH_VOUCHER_PRICE}¥ pour un."
+	line "T'en dis quoi?"
+else
 	text "¥{d:UNDERGROUNDPATH_VOUCHER_PRICE} for one."
 	line "What do you say?"
+endc
 	done
 
-VoucherSellerRefusedText: ; TO TRANSLATE
+VoucherSellerRefusedText:
+if DEF(_FR_FR)
+	text "Mon prix est"
+	line "honnête."
+	
+	para "Ces tickets sont"
+	line "super rares, et"
+	
+	para "ils ne sont plus"
+	line "distribués."
+else
 	text "My price is fair."
 
 	para "These are super"
 	line "rare, and you can't"
 	cont "win them anymore."
+endc
 	done
 
-VoucherSellerFewMoreText: ; TO TRANSLATE
+VoucherSellerFewMoreText:
+if DEF(_FR_FR)
+	text "Si t'en veux un"
+	line "autre, il m'en"
+	
+	para "reste encore"
+	line "quelques-uns."
+else
 	text "If you need an"
 	line "other one, I still"
 	cont "have a few more."
+endc
 	done
 
 UndergroundPathHiddenFullRestore:
