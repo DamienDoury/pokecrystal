@@ -82,7 +82,7 @@ endc
 
 MrAntonsHouseCandyFactoryKnowledgeText:
 if DEF(_FR_FR)
-	text "Une photo de MR."
+	text "Une photo de M."
     line "ANTON plus jeune,"
 	cont "dans une immense"
 	cont "usine de bonbons."
@@ -123,7 +123,7 @@ endc
 MrAntonsHouseNursePictureKnowledgeText:
 if DEF(_FR_FR)
 	text "Photo récente de"
-	line "MR.ANTON assis à"
+	line "M.ANTON assis à"
 else
     text "A recent picture"
     line "of MR.ANTON"

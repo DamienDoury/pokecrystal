@@ -692,8 +692,7 @@ endc
 
 PowerPlantSurgeText:
 if DEF(_FR_FR)
-	text "MAJOR BOB: DONNE"
-	line "TOUT!"
+	text "BOB: DONNE TOUT!"
 
 	para "ON SE RELACHE PAS!"
 else
@@ -705,7 +704,7 @@ endc
 
 PowerPlantSurgeMissionCompletedText:
 if DEF(_FR_FR)
-	text "MAJOR BOB: Alors"
+	text "BOB: Alors"
 	line "c'est réglé, ouais?"
 	
 	para "Mission accomplie,"
