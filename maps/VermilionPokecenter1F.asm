@@ -106,7 +106,22 @@ endc
 
 	done
 
-VermilionPokecenter1FSailorPowerOutageText: ; TO TRANSLATE
+VermilionPokecenter1FSailorPowerOutageText:
+if DEF(_FR_FR)
+	text "Oh mince! Le PC de"
+	line "LEO n'arrive pas à"
+	cont "se connecter aux"
+	cont "serveurs de JOHTO!"
+	
+	para "Ca veut dire que"
+	line "je suis coincé ici"
+	cont "sans accès à mes"
+	cont "#MON..."
+	
+	para "J'aurais dû"
+	line "écouter le"
+	cont "CAPITAINE!"
+else
 	text "Oh fudge! BILL's PC"
 	line "can't connect to"
 	cont "JOHTO's servers!"
@@ -118,6 +133,7 @@ VermilionPokecenter1FSailorPowerOutageText: ; TO TRANSLATE
 	para "I should've"
 	line "listened to"
 	cont "the CAPTAIN!"
+endc
 	done
 
 VermilionPokecenter1FBugCatcherText: 

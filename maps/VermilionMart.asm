@@ -46,7 +46,24 @@ endc
 
 	done
 
-VermilionMartBeautyText: ; TO TRANSLATE
+VermilionMartBeautyText:
+if DEF(_FR_FR)
+	text "Je rêve d'aller"
+	line "faire du shopping"
+	cont "à CELADOPOLE."
+	
+	para "Mais avec les pé-"
+	line "nuries, y'a plus"
+	cont "grand-chose à"
+	cont "acheter."
+	
+	para "Et avec l'infla-"
+	line "tion, on ne peut"
+	cont "pas acheter grand"
+	cont "chose."
+	
+	para "Pff..."
+else
 	text "I'm dreaming about"
 	line "going shopping in"
 	cont "CELADON."
@@ -60,6 +77,7 @@ VermilionMartBeautyText: ; TO TRANSLATE
 	cont "shop for long."
 
 	para "Sigh…"
+endc
 	done
 
 VermilionMart_MapEvents:

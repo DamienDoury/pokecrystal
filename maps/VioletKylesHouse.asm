@@ -92,20 +92,51 @@ endc
 
 	done
 
-VioletKylesHouseTradebackGuyText: ; TO TRANSLATE
+VioletKylesHouseTradebackGuyText:
+if DEF(_FR_FR)
+	text "ROBIN: Mon frère"
+	line "ne veut pas faire"
+	cont "d'échange avec moi."
+else
 	text "ROBIN: My brother"
 	line "doesn't want to"
 	cont "trade with me."
+endc
 	done
 
-VioletKylesHouseComputer1Text: ; TO TRANSLATE
+VioletKylesHouseComputer1Text:
+if DEF(_FR_FR)
+	text "Le navigateur web"
+	line "a 30 onglets"
+	cont "d'ouverts sur"
+	cont "des articles"
+	cont "Poképédia."
+else
 	text "The web browser"
 	line "has 30 open tabs"
 	cont "of Bulbapedia"
 	cont "articles."
+endc
 	done
 
-VioletKylesHouseComputer2DayText: ; TO TRANSLATE
+VioletKylesHouseComputer2DayText:
+if DEF(_FR_FR)
+	text "C'est le cours"
+	line "en ligne!"
+
+	para "20 personnes sont"
+	line "dans l'appel vidéo,"
+	cont "mais seul le prof"
+	cont "a sa webcam"
+	cont "allumée."
+
+	para "Et personne ne"
+	line "répond aux ques-"
+	cont "tions du prof."
+
+	para "En somme, c'est un"
+	line "monologue."
+else
 	text "It's the online"
 	line "classroom!"
 
@@ -124,9 +155,25 @@ VioletKylesHouseComputer2DayText: ; TO TRANSLATE
 
 	para "It's basically"
 	line "a monologue."
+endc
 	done
 
-VioletKylesHouseComputer2NightText: ; TO TRANSLATE
+VioletKylesHouseComputer2NightText:
+if DEF(_FR_FR)
+	text "Il y a une vidéo"
+	line "d'un jeu appelé"
+	cont "Version Pandémie."
+
+	para "C'est un guide"
+	line "de la Forêt de"
+	cont "Jade mais le"
+	cont "streameur s'est"
+	cont "perdu..."
+
+	para "Le chat enragé dit"
+	line "que la vidéo ne"
+	cont "les aide pas."
+else
 	text "There's a video of"
 	line "a game called"
 	cont "Pandemic Version."
@@ -139,6 +186,7 @@ VioletKylesHouseComputer2NightText: ; TO TRANSLATE
 	para "The raging chat"
 	line "says that the"
 	cont "video doesn't help."
+endc
 	done
 
 VioletKylesHouse_MapEvents:

@@ -181,26 +181,62 @@ VioletGymStatue:
 	gettrainername STRING_BUFFER_4, FALKNER, FALKNER1
 	jumpstd GymStatue2Script
 
-FalknerIntroText: ; TO TRANSLATE
+VioletGymPowerRestrainerExplanation:
+	text_far _GymPowerRestrainerFirstExplanation
+	text_end
+
+FalknerIntroText:
+if DEF(_FR_FR)
+	text "Je suis ALBERT, le"
+	line "CHAMPION d'ARENE"
+	cont "de MAUVILLE!"
+else
 	text "I'm FALKNER, the"
 	line "VIOLET #MON GYM"
 	cont "leader!"
+endc
 	done
 
-FalknerIntroSequelText: ; TO TRANSLATE
+FalknerIntroSequelText:
+if DEF(_FR_FR)
+	text "As-tu déjà"
+	line "ressenti l'exci-"
+	cont "tation d'un combat"
+	
+	para "#MON sur la"
+	line "falaise d'une"
+	cont "haute montagne?"
+else
 	text "Have you ever felt"
 	line "the thrill of a"
 
 	para "#MON battle on"
 	line "the cliff of a"
 	cont "high mountain?"	
+endc
 	done
 
-VioletGymPowerRestrainerExplanation:
-	text_far _GymPowerRestrainerFirstExplanation
-	text_end
-
-FalknerAllFlyingTypeText: ; TO TRANSLATE
+FalknerAllFlyingTypeText:
+if DEF(_FR_FR)
+	text "Dans un tel envi-"
+	line "ronnement, seuls"
+	
+	para "les #MON de"
+	line "type VOL peuvent"
+	cont "être employés."
+	
+	para "C'est le challenge"
+	line "de cette ARENE."
+	
+	para "Reviens avec une"
+	line "équipe de #MON"
+	
+	para "de type VOL si tu"
+	line "veux défier mes"
+	
+	para "majestueux #MON"
+	line "ailés."
+else
 	text "In such environ-"
 	line "ment, only FLYING"
 
@@ -218,9 +254,22 @@ FalknerAllFlyingTypeText: ; TO TRANSLATE
 	
 	para "majestic bird"
 	line "#MON."
+endc
 	done
 
-FalknerValidatesTeam: ; TO TRANSLATE
+FalknerValidatesTeam:
+if DEF(_FR_FR)
+	text "C'est là que les"
+	line "#MON VOL révè-"
+	cont "lent leur plein"
+	cont "potentiel."
+	
+	para "Tu vas subir les"
+	line "terribles attaques"
+
+	para "de mes #MON"
+	line "volants!"
+else
 	text "It is where"
 	line "FLYING #MON"
 	cont "truly shine."
@@ -230,6 +279,7 @@ FalknerValidatesTeam: ; TO TRANSLATE
 
 	para "magnificent bird"
 	line "#MON!"
+endc
 	done
 
 FalknerWinLossText: 
@@ -270,18 +320,55 @@ endc
 
 	done
 
-FalknerZephyrBadgeText: ; TO TRANSLATE
+FalknerZephyrBadgeText:
+if DEF(_FR_FR)
+	text "Le BADGE ZEPHYR"
+	line "est une preuve de"
+	cont "ta valeur en tant"
+	cont "que dresseur."
+else
 	text "ZEPHYRBADGE is a"
 	line "recognition of"
 	cont "your worth as a"
 	cont "trainer."
+endc
 	done
 
-FalknerZephyrBadgeText2: ; TO TRANSLATE
+FalknerZephyrBadgeText2:
+if DEF(_FR_FR)
+	text "Prends ça aussi."
+else
 	text "Here--take this."
+endc
 	done
 
-FalknerTMMudSlapText: ; TO TRANSLATE
+FalknerTMMudSlapText:
+if DEF(_FR_FR)
+	text "En utilisant une"
+	line "CT, un #MON"
+	
+	para "apprend instanta-"
+	line "nément une"
+	cont "nouvelle attaque."
+	
+	para "Une CT peut être"
+	line "utilisée autant de"
+	cont "fois que tu veux."
+	
+	para "La CT31 contient"
+	line "COUD'BOUE."
+	
+	para "Elle réduit la"
+	line "PRECISION de"
+	cont "l'ennemi tout en"
+	cont "infligeant des"
+	cont "dégâts."
+	
+	para "En d'autres mots,"
+	line "elle est à la fois"
+	cont "défensive et"
+	cont "offensive."
+else
 	text "By using a TM, a"
 	line "#MON will"
 
@@ -304,6 +391,7 @@ FalknerTMMudSlapText: ; TO TRANSLATE
 	para "In other words, it"
 	line "is both defensive"
 	cont "and offensive."
+endc
 	done
 
 FalknerFightDoneText: 

@@ -170,14 +170,25 @@ VaccinationCenterCorridor_FixFacingMovement:
     fix_facing
     step_end
 
-VaccinationCenterCorridor_WaitHereText: ; TO TRANSLATE
+VaccinationCenterCorridor_WaitHereText:
+if DEF(_FR_FR)
+	text "Attendez ici, le"
+	line "médecin va vous"
+	cont "appeler dans un"
+	cont "instant."
+else
     text "Wait here, the"
     line "doctor will call"
     cont "you in a moment."
+endc
     done
 
-VaccinationCenterCorridor_NextText: ; TO TRANSLATE
+VaccinationCenterCorridor_NextText:
+if DEF(_FR_FR)
+	text "SUIVANT!"
+else
     text "NEXT!"
+endc
     done
 
 VaccinationCenterCorridor_MapEvents:

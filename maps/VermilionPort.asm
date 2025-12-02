@@ -243,7 +243,17 @@ endc
 
 	done
 
-VermilionPortTempSailorText: ; TO TRANSLATE
+VermilionPortTempSailorText:
+if DEF(_FR_FR)
+	text "Je devais embar-"
+	line "quer sur le"
+	cont "prochain bateau."
+	
+	para "J'imagine que je"
+	line "vais rester coincé"
+	cont "ici pour un bon"
+	cont "moment..."
+else
 	text "I was supposed"
 	line "to embark on"
 	cont "the next ship."
@@ -251,9 +261,25 @@ VermilionPortTempSailorText: ; TO TRANSLATE
 	para "I guess I'm gonna"
 	line "be stuck here"
 	cont "for a while…"
+endc
 	done
 
-VermilionPortPowerOutageText: ; TO TRANSLATE
+VermilionPortPowerOutageText:
+if DEF(_FR_FR)
+	text "A cause de la"
+	line "panne générale"
+	cont "d'électricité,"
+	cont "le système de"
+	cont "signalisation du"
+	cont "port est H.S."
+	
+	para "Aucun bateau ne"
+	line "peut ni entrer ni"
+	cont "quitter le port."
+	
+	para "Désolé pour le"
+	line "désagrément."
+else
 	text "Because of the"
 	line "power outage, the"
 	cont "signaling system"
@@ -265,9 +291,22 @@ VermilionPortPowerOutageText: ; TO TRANSLATE
 
 	para "Sorry for the"
 	line "inconvenience."
+endc
 	done
 
-VermilionPortCaptainText: ; TO TRANSLATE
+VermilionPortCaptainText:
+if DEF(_FR_FR)
+	text "Le système de"
+	line "signalisation du"
+	cont "port est hors"
+	cont "service à cause"
+	cont "de la panne"
+	cont "d'électricité."
+	
+	para "L'AQUARIA ne peut"
+	line "pas quitter le"
+	cont "port."
+else
 	text "The signaling"
 	line "system of the"
 	cont "port is down"
@@ -276,15 +315,25 @@ VermilionPortCaptainText: ; TO TRANSLATE
 
 	para "The ship can't"
 	line "leave the port."
+endc
 	done
 
-VermilionPortTruck1Text: ; TO TRANSLATE
+VermilionPortTruck1Text:
+if DEF(_FR_FR)
+	text "Il n'y a rien sous"
+	line "le camion."
+else
 	text "There's nothing"
 	line "under the truck."
+endc
 	done
 
-VermilionPortTruck2Text: ; TO TRANSLATE
+VermilionPortTruck2Text:
+if DEF(_FR_FR)
+	text "Heu..."
+else
 	text "Wait…"
+endc
 	done
 
 VermilionPort_MapEvents:

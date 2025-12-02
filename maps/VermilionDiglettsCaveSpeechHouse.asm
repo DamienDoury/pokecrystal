@@ -17,7 +17,24 @@ VermilionDiglettsCaveSpeechHouseGentlemanScript:
 VermilionDiglettsCaveSpeechHouseComputerScript:
 	jumptext VermilionDiglettsCaveSpeechHouseComputerText
 
-VermilionDiglettsCaveSpeechHouseGentlemanText: ; TO TRANSLATE
+VermilionDiglettsCaveSpeechHouseGentlemanText:
+if DEF(_FR_FR)
+	text "Maintenant qu'on"
+	line "peut sortir à"
+	cont "nouveau, la majo-"
+	cont "rité des gens a"
+	cont "repris le travail"
+	cont "sur site."
+	
+	para "Mais certains,"
+	line "comme moi, ont"
+	cont "pris goût au"
+	cont "télétravail."
+	
+	para "Bon, il est l'heure"
+	line "d'aller se détendre"
+	cont "à la plage!"
+else
 	text "Now that we can go"
 	line "out once again,"
 	cont "most people went"
@@ -32,9 +49,21 @@ VermilionDiglettsCaveSpeechHouseGentlemanText: ; TO TRANSLATE
 	para "All right, time to"
 	line "go relax at the"
 	cont "beach!"
+endc
 	done
 
-VermilionDiglettsCaveSpeechHouseComputerText: ; TO TRANSLATE
+VermilionDiglettsCaveSpeechHouseComputerText:
+if DEF(_FR_FR)
+	text "Un agenda hebdoma-"
+	line "daire est ouvert."
+	
+	para "Il est rempli de"
+	line "réunions d'une"
+	cont "heure chacune."
+	
+	para "Environ six par"
+	line "jour."
+else
 	text "There's a weekly"
 	line "schedule opened."
 
@@ -42,6 +71,7 @@ VermilionDiglettsCaveSpeechHouseComputerText: ; TO TRANSLATE
 	line "one hour meetings."
 
 	para "About six a day."
+endc
 	done
 
 VermilionDiglettsCaveSpeechHouse_MapEvents:

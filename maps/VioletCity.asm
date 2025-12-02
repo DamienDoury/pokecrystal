@@ -455,14 +455,31 @@ endc
 
 	done
 
-VioletCityLassText: ; TO TRANSLATE
+VioletCityLassText:
+if DEF(_FR_FR)
+	text "On dit que le"
+	line "COVID fait perdre"
+	cont "le sens de"
+	cont "l'odorat."
+else
 	text "It is said that"
 	line "COVID makes you"
 	cont "lose your sense"
 	cont "of smell."
+endc
 	done
 
-VioletCityLassText2: ; TO TRANSLATE
+VioletCityLassText2:
+if DEF(_FR_FR)
+	text "La souche origi-"
+	line "nelle du COVID-19"
+	cont "faisait perdre le"
+	cont "sens de l'odorat."
+	
+	para "Mais c'est peu"
+	line "probable avec les"
+	cont "nouveaux variants."
+else
 	text "The original"
 	line "strain of COVID-19"
 	cont "made you lose your"
@@ -470,9 +487,29 @@ VioletCityLassText2: ; TO TRANSLATE
 
 	para "But new variants"
 	line "are unlikely."
+endc
 	done
 
-VioletCitySuperNerdText: ; TO TRANSLATE
+VioletCitySuperNerdText:
+if DEF(_FR_FR)
+	text "C'est plus facile"
+	line "d'apprendre avec"
+	
+	para "un professeur que"
+	line "d'apprendre seul."
+	
+	para "C'est pareil pour"
+	line "les #MON."
+	
+	para "Un #MON gagne"
+	line "deux fois plus"
+	cont "de PTS EXP. si"
+	
+	para "un autre #MON"
+	line "de plus haut"
+	cont "niveau se trouve"
+	cont "dans ton équipe."
+else
 	text "It's easier to"
 	line "learn from a"
 	
@@ -490,6 +527,7 @@ VioletCitySuperNerdText: ; TO TRANSLATE
 	para "there is a higher"
 	line "level #MON"
 	cont "in your party."
+endc
 	done
 
 VioletCityGrampsText: 
@@ -603,21 +641,46 @@ endc
 
 	done
 
-LockdownNPC1Text: ; TO TRANSLATE
+LockdownNPC1Text:
+if DEF(_FR_FR)
+	text "Va faire la queue"
+	line "et attends ton"
+	cont "tour s'il te plaît."
+else
 	text "Please go on line"
 	line "and wait for your"
 	cont "turn."
+endc
 	done
 
-LockdownNPC3Text: ; TO TRANSLATE
+LockdownNPC3Text:
+if DEF(_FR_FR)
+	text "Ca fait plaisir"
+	line "que tout le monde"
+	cont "respecte la file."
+
+	para "Ces gens sont"
+	line "bien éduqués."
+else
 	text "I am glad every-"
 	line "one respects the"
 
 	para "queue, they have"
 	line "a good education."
+endc
 	done
 
-LockdownNPC4Text: ; TO TRANSLATE
+LockdownNPC4Text:
+if DEF(_FR_FR)
+	text "Cette queue ne"
+	line "n'avance pas!"
+	
+	para "J'EN PEUX PLUS!"
+	
+	para "Je suis à deux"
+	line "doigts de griller"
+	cont "la file!"
+else
 	text "This queue is not"
 	line "getting shorter!"
 
@@ -625,9 +688,32 @@ LockdownNPC4Text: ; TO TRANSLATE
 
 	para "I'm going to jump"
 	line "the queue soon!"
+endc
 	done
 
-VioletCity_ClosedSchoolText: ; TO TRANSLATE
+VioletCity_ClosedSchoolText:
+if DEF(_FR_FR)
+	text "Il y a un avis"
+	line "sur la porte..."
+	
+	para "“L'ACADEMIE est"
+	line "fermée à cause de"
+	cont "la pandémie."
+	
+	para "Mais ne vous"
+	line "réjouissez pas"
+	cont "trop vite, les"
+	cont "enfants."
+	
+	para "Ce n'est pas les"
+	line "vacances!"
+	
+	para "L'école se tient"
+	line "désormais a"
+	cont "distance: nous"
+	cont "ferons les cours"
+	cont "en ligne.”"
+else
 	text "There's a notice"
 	line "on the door…"
 	
@@ -642,6 +728,7 @@ VioletCity_ClosedSchoolText: ; TO TRANSLATE
 	para "School is now"
 	line "remote: we will do"
 	cont "online classes.”"
+endc
 	done
 
 
@@ -649,16 +736,35 @@ VioletCity_ClosedSchoolText: ; TO TRANSLATE
 
 
 
-VioletCityElmsAide_CallText: ; TO TRANSLATE
+VioletCityElmsAide_CallText:
+if DEF(_FR_FR)
 	text "<PLAYER>!"
+else
+	text "<PLAYER>!"
+endc
 	done
 
-VioletCityElmsAide_ProfElmSentMeText: ; TO TRANSLATE
+VioletCityElmsAide_ProfElmSentMeText:
+if DEF(_FR_FR)
+	text "Le PROF.ORME m'a"
+	line "envoyé après toi."
+else
 	text "PROF.ELM sent me"
 	line "after you."
+endc
 	done
 
-VioletCityElmsAide_NothingBeatenText: ; TO TRANSLATE
+VioletCityElmsAide_NothingBeatenText:
+if DEF(_FR_FR)
+	text "Tu quittes déjà"
+	line "MAUVILLE?"
+	
+	para "Tu avances vite!"
+	
+	para "La plupart des"
+	line "gens auraient"
+	cont "défié ALBERT."
+else
 	text "Already leaving"
 	line "VIOLET CITY?"
 
@@ -666,55 +772,113 @@ VioletCityElmsAide_NothingBeatenText: ; TO TRANSLATE
 
 	para "Most people would"
 	line "challenge FALKNER."
+endc
 	done
 
-VioletCityElmsAide_FailedAgainstFalknerText: ; TO TRANSLATE
+VioletCityElmsAide_FailedAgainstFalknerText:
+if DEF(_FR_FR)
+	text "Tu n'as pas réussi"
+	line "à vaincre ALBERT?"
+	
+	para "Te prends pas la"
+	line "tête avec ça."
+else
 	text "You couldn't beat"
 	line "FALKNER, hey?"
 
 	para "Don't even worry"
 	line "about it."
+endc
 	done
 
-VioletCityElmsAide_FalknerBeatenText: ; TO TRANSLATE
+VioletCityElmsAide_FalknerBeatenText:
+if DEF(_FR_FR)
+	text "Tu as vaincu"
+	line "ALBERT, c'est..."
+	
+	para "vraiment très"
+	line "impressionnant!"
+else
 	text "You have beaten"
 	line "FALKNER, that's…"
 	cont "That's impressive!"
+endc
 	done
 
-VioletCityElmsAide_VisitSproutTowerText: ; TO TRANSLATE
+VioletCityElmsAide_VisitSproutTowerText:
+if DEF(_FR_FR)
+	text "Tu pourrais venir"
+	line "à bout de la TOUR"
+	cont "CHETIFLOR en un"
+	cont "rien de temps, y'a"
+	cont "pas de doute!"
+else
 	text "You could make"
 	line "short work of"
 	
 	para "the SPROUT TOWER,"
 	line "that's for sure!"
+endc
 	done
+
+VioletCityElmsAide_SproutBeatenText:
+if DEF(_FR_FR)
+	text "Je t'ai enfin"
+	line "retrouvé!"
 	
-VioletCityElmsAide_SproutBeatenText: ; TO TRANSLATE
+	para "Maintenant que tu"
+	line "as triomphé de la"
+	cont "TOUR CHETIFLOR,"
+else
 	text "Finally found you!"
 	
 	para "Now that you have"
 	line "triumphed over the"
 	cont "SPROUT TOWER,"
+endc
 	done
 
-VioletCityElmsAide_OnlySproutBeatenText: ; TO TRANSLATE
+VioletCityElmsAide_OnlySproutBeatenText:
+if DEF(_FR_FR)
+	text "tu pourrais aller"
+	line "défier le CHAMPION"
+	cont "de cette ville."
+else
 	text "you may want to"
 	line "challenge this"
 	cont "city's GYM LEADER."
+endc
 	done
 
-VioletCityElmsAide_SurprisedText: ; TO TRANSLATE
+VioletCityElmsAide_SurprisedText:
+if DEF(_FR_FR)
+	text "Je suis étonné que"
+	line "tu n'aies pas déjà"
+	cont "vaincu ALBERT."
+else
 	text "I'm surprised you"
 	line "haven't taken"
 	cont "FALKNER down."
+endc
 	done
 
 
 
+VioletCityElmsAide_DontBeatFalknerText:
+if DEF(_FR_FR)
+	text "Un conseil: ne"
+	line "perds pas trop ton"
+	cont "temps avec lui."
 	
+	para "Si tu n'arrives pas"
+	line "a battre ALBERT,"
+	cont "passe à la ville"
+	cont "suivante."
 	
-VioletCityElmsAide_DontBeatFalknerText: ; TO TRANSLATE
+	para "N'oublie pas que"
+	line "tu es en mission"
+	cont "pour le PROF.ORME."
+else
 	text "Here is a personal"
 	line "advice: don't spend"
 	cont "too much time on"
@@ -728,9 +892,23 @@ VioletCityElmsAide_DontBeatFalknerText: ; TO TRANSLATE
 	para "Don't forget you're"
 	line "on a mission for"
 	cont "PROF.ELM."
+endc
 	done
 
-VioletCityElmsAide_GiveMaskText: ; TO TRANSLATE
+VioletCityElmsAide_GiveMaskText:
+if DEF(_FR_FR)
+	text "ORME m'a envoyé te"
+	line "chercher, parce"
+	
+	para "qu'il veut que tu"
+	line "portes ceci à"
+	cont "partir de mainte-"
+	cont "nant."
+	
+	para "<PLAYER> enfile un"
+	line "MASQUE CHIRUR-"
+	cont "GICAL!"
+else
 	text "I was sent after"
 	line "you, because ELM"
 	
@@ -739,9 +917,24 @@ VioletCityElmsAide_GiveMaskText: ; TO TRANSLATE
 
 	para "<PLAYER> put on"
 	line "a FACE MASK!"
+endc
 	done
 
-VioletCityElmsAide_ByeText: ; TO TRANSLATE
+VioletCityElmsAide_ByeText:
+if DEF(_FR_FR)
+	text "Agir tôt avec des"
+	line "mesures strictes"
+	
+	para "est le seul moyen"
+	line "d'empêcher une"
+	cont "épidémie."
+	
+	para "Je dois retourner"
+	line "au labo."
+	
+	para "Prends soin"
+	line "de toi."
+else
 	text "Acting early with"
 	line "strong measures is"
 	
@@ -753,6 +946,7 @@ VioletCityElmsAide_ByeText: ; TO TRANSLATE
 	line "to the lab now."
 
 	para "Take care."
+endc
 	done
 
 

@@ -162,7 +162,23 @@ endc
 
 	done
 
-VermilionMachopOwnerText: ; TO TRANSLATE
+VermilionMachopOwnerText:
+if DEF(_FR_FR)
+	text "Mon #MON pré-"
+	line "pare le terrain"
+	cont "pour construire."
+	
+	para "Le projet avait"
+	line "déjà pris du"
+	cont "retard, mais avec"
+	cont "la pandémie, c'est"
+	cont "encore pire."
+	
+	para "Je commence à me"
+	line "demander si ce"
+	cont "bâtiment va finir"
+	cont "par voir le jour."
+else
 	text "My #MON is"
 	line "preparing the land"
 	cont "for construction."
@@ -178,6 +194,7 @@ VermilionMachopOwnerText: ; TO TRANSLATE
 	para "I wonder if it is"
 	line "ever going to be"
 	cont "finished…"
+endc
 	done
 
 VermilionMachopText1: 
@@ -204,7 +221,31 @@ endc
 
 	done
 
-VermilionCitySuperNerdText: ; TO TRANSLATE
+VermilionCitySuperNerdText:
+if DEF(_FR_FR)
+	text "Il y a 8 ARENES"
+	line "dans la région de"
+	cont "KANTO."
+	
+	para "Les CHAMPIONS"
+	line "utilisent un"
+	cont "LIMITEUR DE FORCE"
+	cont "pour adapter le"
+	cont "niveau de leurs"
+	cont "#MON au tien."
+	
+	para "C'est un peu comme"
+	line "leur ajouter des"
+	cont "poids sur leurs"
+	cont "#MON"
+	
+	para "...tu sais déjà"
+	line "tout ça?"
+	
+	para "C'est pareil qu'à"
+	line "JOHTO?"
+	cont "Fascinant!"
+else
 	text "There are eight"
 	line "GYMS in KANTO."
 
@@ -224,6 +265,7 @@ VermilionCitySuperNerdText: ; TO TRANSLATE
 	para "It's the same"
 	line "as in JOHTO?"
 	cont "Fascinating!"
+endc
 	done
 
 VermilionCitySnorlaxSleepingText: 
@@ -449,7 +491,20 @@ endc
 
 	done
 
-VermilionGymBlockerText: ; TO TRANSLATE
+VermilionGymBlockerText:
+if DEF(_FR_FR)
+	text "Le MAJOR BOB est"
+	line "parti filer un"
+	cont "coup de main à la"
+	cont "CENTRALE."
+	
+	para "J'ai entendu dire"
+	line "que ses #MON"
+	cont "fournissent assez"
+	cont "d'électricité pour"
+	cont "alimenter une"
+	cont "ville entière!"
+else
 	text "LT.SURGE went to"
 	line "give a hand at the"
 	cont "POWER PLANT."
@@ -459,9 +514,22 @@ VermilionGymBlockerText: ; TO TRANSLATE
 	cont "ding enough elec-"
 	cont "tricity for a"
 	cont "whole town!"
+endc
 	done
 
-VermilionSnorlaxGuyBeforeBattleText: ; TO TRANSLATE
+VermilionSnorlaxGuyBeforeBattleText:
+if DEF(_FR_FR)
+	text "Ce RONFLEX est"
+	line "allongé ici depuis"
+	cont "des mois."
+	
+	para "La fatigue fait"
+	line "partie des symp-"
+	cont "tômes du COVID..."
+	
+	para "J'ai trop peur"
+	line "de l'approcher."
+else
 	text "This SNORLAX has"
 	line "been laying here"
 	cont "for months."
@@ -472,15 +540,25 @@ VermilionSnorlaxGuyBeforeBattleText: ; TO TRANSLATE
 
 	para "I'm too afraid"
 	line "to approach it."
+endc
 	done
 
-VermilionSnorlaxGuyAfterBattleText: ; TO TRANSLATE
+VermilionSnorlaxGuyAfterBattleText:
+if DEF(_FR_FR)
+	text "Alors en fait,"
+	line "ce RONFLEX était"
+	cont "juste paresseux?"
+	
+	para "Ouais, ça a"
+	line "du sens."
+else
 	text "So in the end the"
 	line "SNORLAX was just"
 	cont "being lazy?"
 	
 	para "That makes sense"
 	line "I guess."
+endc
 	done
 
 VermilionCity_MapEvents:

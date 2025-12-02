@@ -157,7 +157,44 @@ VermilionGymStatue:
 	gettrainername STRING_BUFFER_4, LT_SURGE, LT_SURGE1
 	jumpstd GymStatue2Script
 
-LtSurgeIntroText: ; TO TRANSLATE
+LtSurgeIntroText:
+if DEF(_FR_FR)
+	text "BOB: Hé toi!"
+	line "Le lutin!"
+
+	para "On peut dire que"
+	line "tu as du courage"
+
+	para "de venir me cher-"
+	line "cher des noises!"
+	
+	para "Moi j'suis le boss"
+	line "des #MON"
+	cont "électriques!"
+	
+	para "Ecoute avorton,"
+	line "l'entraînement que"
+
+	para "je viens de suivre"
+	line "à la CENTRALE a"
+
+	para "survolté mon"
+	line "équipe de #MON!"
+	
+	para "Leurs attaques"
+	line "électriques sont"
+	cont "encore plus fortes"
+	
+	para "et ça te PARALYSE"
+	line "à chaque coup."
+	
+	para "Après tout, “à la"
+	line "guerre, tous les"
+	cont "coups sont permis”"
+	
+	para "et tu vas l'appren-"
+	line "dre à la dure!"
+else
 	text "SURGE: Hey, you"
 	line "little tyke!"
 
@@ -193,6 +230,7 @@ LtSurgeIntroText: ; TO TRANSLATE
 
 	para "to learn the"
 	line "hard way!"
+endc
 
 	done
 
@@ -224,13 +262,22 @@ endc
 
 	done
 
-LtSurgeThunderBadgeText: ; TO TRANSLATE
+LtSurgeThunderBadgeText:
+if DEF(_FR_FR)
+	text "BOB: Ce BADGE est"
+	line "la preuve de ta"
+	cont "victoire."
+
+	para "Porte-le"
+	line "fièrement!!!"
+else
 	text "SURGE: Consider it"
 	line "proof that you"
 	cont "defeated me."
 
 	para "You wear it"
 	line "proudly, hear?"
+endc
 	done
 
 LtSurgeFightDoneText: 
@@ -383,7 +430,26 @@ endc
 
 	done
 
-VermilionGymGuideText: ; TO TRANSLATE
+VermilionGymGuideText:
+if DEF(_FR_FR)
+	text "Hé! MAITRE!"
+
+	para "Tu sais quoi..."
+
+	para "Le MAJOR BOB qui"
+	line "est très prudent,"
+
+	para "a posé des pièges"
+	line "dans l'ARENE."
+
+	para "Mais...hé hé..."
+	line "les pièges ne sont"
+	cont "pas branchés."
+
+	para "Tu n'auras donc"
+	line "aucun problème à"
+	cont "voir le MAJOR BOB."
+else
 	text "Yo CHAMP!"
 
 	para "You lucked out"
@@ -402,6 +468,7 @@ VermilionGymGuideText: ; TO TRANSLATE
 	para "You'll have no"
 	line "problem getting to"
 	cont "LT.SURGE."
+endc
 	done
 
 VermilionGymGuideWinText: 

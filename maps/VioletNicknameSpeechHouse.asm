@@ -106,21 +106,39 @@ endc
 
 	done
 	
-VioletNicknameSpeechPupilText: ; TO TRANSLATE
+VioletNicknameSpeechPupilText:
+if DEF(_FR_FR)
+	text "Je déteste les"
+	line "cours en ligne."
+
+	para "Je retiens mieux"
+	line "quand j'écris dans"
+	cont "mon cahier."
+else
 	text "I dislike the"
 	line "online classes."
 
 	para "I remember better"
 	line "when I write in"
 	cont "my notebook."
+endc
 	done
 
-VioletNicknameSpeechHouseComputer1Text: ; TO TRANSLATE
+VioletNicknameSpeechHouseComputer1Text:
+if DEF(_FR_FR)
+	text "La leçon du jour"
+	line "porte sur le"
+	cont "COVID."
+	
+	para "Le prof a fait une"
+	line "présentation web."
+else
 	text "Today's lesson is"
 	line "about COVID."
 	
 	para "The teacher made a"
 	line "web presentation."
+endc
 	done
 
 VioletNicknameSpeechHouse_MapEvents:

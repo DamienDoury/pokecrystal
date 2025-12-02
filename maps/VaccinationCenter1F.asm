@@ -301,7 +301,21 @@ VaccinationCenter_NurseScansCardStartMovement:
     turn_head UP
     step_end
 
-VaccinationCenterConstructionText: ; TO TRANSLATE
+VaccinationCenterConstructionText:
+if DEF(_FR_FR)
+	text "Cet immeuble de la"
+	line "SYLPHE SARL est en"
+	cont "rénovation pour"
+
+	para "devenir un CENTRE"
+	line "DE VACCINATION dès"
+	
+	para "que le vaccin pour"
+	line "les #MON sera"
+	cont "disponible."
+	
+	para "Revenez plus tard."
+else
     text "This SILPH CO."
     line "condo is being"
     
@@ -317,9 +331,24 @@ VaccinationCenterConstructionText: ; TO TRANSLATE
 
     para "Please come back"
     line "later."
+endc
     done
 
-VaccinationCenterAppointmentText: ; TO TRANSLATE
+VaccinationCenterAppointmentText:
+if DEF(_FR_FR)
+	text "Bienvenue au"
+	line "CENTRE DE"
+	cont "VACCINATION de"
+	cont "la SYLPHE SARL!"
+	
+	para "Notre planning est"
+	line "complet pour les"
+	cont "deux prochains"
+
+	para "mois. Nous ne"
+	line "prenons plus de"
+	cont "rendez-vous."
+else
     text "Welcome to"
     line "SILPH CO."
     cont "VACCINATION"
@@ -331,9 +360,24 @@ VaccinationCenterAppointmentText: ; TO TRANSLATE
     para "two months, so we"
     line "don't take new"
     cont "appointments."
+endc
     done
 
-VaccinationCenterSuccessText: ; TO TRANSLATE
+VaccinationCenterSuccessText:
+if DEF(_FR_FR)
+	text "Cependant!"
+	
+	para "Nous venons d'avoir"
+	line "une annulation de"
+	cont "dernière minute."
+	
+	para "Une place est li-"
+	line "bre tout de suite."
+	
+	para "Souhaitez-vous"
+	line "vacciner un de"
+	cont "vos #MON?"
+else
     text "However!"
 
     para "We just had a"
@@ -346,9 +390,32 @@ VaccinationCenterSuccessText: ; TO TRANSLATE
     para "Would you like to"
     line "vaccinate one of"
     cont "your #MON?"
+endc
     done
 
-VaccinationCenterFailText: ; TO TRANSLATE
+VaccinationCenterFailText:
+if DEF(_FR_FR)
+	text "Il reste un moyen"
+	line "d'obtenir une"
+    cont "injection."
+	
+	para "Parfois, des gens"
+	line "ne se présentent"
+    
+    para "pas à leur rendez-"
+    line "vous."
+	
+	para "Quand ça arrive on"
+	line "propose la place à"
+    
+    para "la première per-"
+    line "sonne venue."
+	
+	para "On vous recommande"
+	line "de revenir à un"
+	cont "autre moment, avec"
+    cont "un #MON prêt."
+else
     text "There is still a"
     line "way to get a shot."
 
@@ -365,39 +432,94 @@ VaccinationCenterFailText: ; TO TRANSLATE
     line "try again another"
     cont "time, with your"
     cont "#MON ready."
+endc
     done
 
-VaccinationCenterAcceptedText: ; TO TRANSLATE
+VaccinationCenterAcceptedText:
+if DEF(_FR_FR)
+	text "Veuillez vous"
+	line "asseoir et atten-"
+    cont "dre qu'on vous"
+	cont "appelle."
+else
     text "Please sit and"
     line "wait to be called."
+endc
     done
 
-VaccinationCenterRefusedText: ; TO TRANSLATE
+VaccinationCenterRefusedText:
+if DEF(_FR_FR)
+	text "Pas de souci, je"
+	line "vais donner la"
+	cont "place à quelqu'un"
+	cont "d'autre."
+else
     text "No problem, I will"
     line "give the spot to"
     cont "someone else."
+endc
     done
 
-VaccinationCenterYourTurnText: ; TO TRANSLATE
+VaccinationCenterYourTurnText:
+if DEF(_FR_FR)
+	text "C'est votre tour!"
+	line "Vous allez le"
+    cont "rater si vous n'y"
+	cont "allez pas!"
+else
     text "It's your turn!"
     line "You'll miss it if"
     cont "you don't go now!"
+endc
     done
 
-VaccinationCenterForbiddenSeatText: ; TO TRANSLATE
-    text "It is not allowed"
-    line "to sit here."
+;VaccinationCenterForbiddenSeatText:
+;if DEF(_FR_FR)
+;	text "Il est interdit de"
+;	line "s'asseoir ici."
+;	
+;	para "La distanciation"
+;	line "sociale n'est pas"
+;	cont "respectée."
+;else
+;    text "It is not allowed"
+;    line "to sit here."
+;
+;    para "Social distancing"
+;    line "isn't respected."
+;endc
+;	done
 
-    para "Social distancing"
-    line "isn't respected."
-    done
-
-VaccinationCenterCallText: ; TO TRANSLATE
+VaccinationCenterCallText:
+if DEF(_FR_FR)
+	text "<PLAYER>!"
+	line "C'est votre tour!"
+else
     text "<PLAYER>!"
     line "You're up next."
+endc
     done
 
-VaccinationCenter_Text1: ; TO TRANSLATE
+VaccinationCenter_Text1:
+if DEF(_FR_FR)
+	text "Je suis un ami de"
+	line "l'INFIRMIERE EN"
+	cont "CHEF JOELLE."
+	
+	para "Elle a pu me dire"
+	line "quel variant du"
+	cont "COVID mon pauvre"
+	cont "#MON avait"
+    cont "attrapé."
+	
+	para "Tu la connais"
+	line "aussi?"
+	
+	para "Alors si ton"
+	line "#MON a fait un"
+	cont "test PCR, vas"
+	cont "lui demander."
+else
     text "I am a friend of"
 	line "CHIEF NURSE JOY."
 
@@ -415,9 +537,20 @@ VaccinationCenter_Text1: ; TO TRANSLATE
 
 	para "a PCR test, you"
 	line "could ask her."
+endc
     done
 
-VaccinationCenter_Text2: ; TO TRANSLATE
+VaccinationCenter_Text2:
+if DEF(_FR_FR)
+	text "C'est le 5ème"
+	line "rendez-vous pour"
+	cont "mon PIKACHU."
+	
+	para "Ils disent que 2"
+	line "doses suffisent?"
+	
+	para "J'en doute fort."
+else
     text "It is the 5th"
     line "appointment for"
     cont "my PIKACHU."
@@ -426,26 +559,64 @@ VaccinationCenter_Text2: ; TO TRANSLATE
     line "are enough?"
     
     para "I don't think so."
+endc
     done
 
-VaccinationCenter_Text4: ; TO TRANSLATE
+VaccinationCenter_Text4:
+if DEF(_FR_FR)
+	text "Yo."
+else
     text "Yo."
+endc
     done
 
-VaccinationCenter_Text5: ; TO TRANSLATE
+VaccinationCenter_Text5:
+if DEF(_FR_FR)
+	text "Toute personne"
+    line "mature devrait"
+	cont "convaincre ses"
+	cont "proches de se"
+	cont "faire vacciner."
+else
     text "A wise man shall"
     line "convince its rel-"
     cont "atives to get"
     cont "vaccinated."
+endc
     done
 
-VaccinationCenter_Text6: ; TO TRANSLATE
+VaccinationCenter_Text6:
+if DEF(_FR_FR)
+	text "Le vaccin pour les"
+	line "#MON est une"
+	cont "bénédiction pour"
+	cont "les dresseurs."
+else
     text "The #MON vac-"
     line "cine is a blessing"
     cont "for trainers."
+endc
     done
 
-VaccinationCenter_Text7: ; TO TRANSLATE
+VaccinationCenter_Text7:
+if DEF(_FR_FR)
+	text "Les vaccins sau-"
+    line "vent notre santé"
+	cont "physique."
+	
+	para "Mais il est tout"
+	line "aussi important de"
+	
+	para "préserver notre"
+	line "santé mentale."
+	
+	para "Beaucoup de gens"
+	line "sont tombés en"
+	
+	para "dépression pendant"
+	line "le confinement et"
+	cont "le couvre-feu."
+else
     text "The vaccines are"
     line "saving our phy-"
     cont "sical health."
@@ -462,55 +633,121 @@ VaccinationCenter_Text7: ; TO TRANSLATE
     para "sion during the"
     line "lockdown and the"
     cont "curfew."
+endc
     done
 
-VaccinationCenter_Text8: ; TO TRANSLATE
+VaccinationCenter_Text8:
+if DEF(_FR_FR)
+	text "Le fait que le"
+	line "virus mute en de"
+	cont "nouveaux variants,"
+	cont "c'est terrifiant."
+else
     text "The fact that the"
     line "virus is mutating"
     
     para "into new variants"
     line "is scary."
+endc
     done
 
-VaccinationCenter_Text9: ; TO TRANSLATE
+VaccinationCenter_Text9:
+if DEF(_FR_FR)
+	text "Je fais ma part"
+	line "dans la lutte" 
+    cont "contre le COVID."
+else
     text "I'm playing my part"
     line "against COVID."
+endc
     done
 
-VaccinationCenter_Text10: ; TO TRANSLATE
+VaccinationCenter_Text10:
+if DEF(_FR_FR)
+	text "Savoir mes #MON"
+    line "vaccinés, ça va"
+	cont "être un soulage-"
+    cont "ment."
+else
     text "Getting my #MON"
     line "vaccinated will"
     cont "be a relief."
+endc
     done
 
-VaccinationCenter_Text11: ; TO TRANSLATE
+VaccinationCenter_Text11:
+if DEF(_FR_FR)
+	text "La contamination"
+	line "entre humains et"
+	
+    para "#MON peut se"
+	line "produire, mais"
+    cont "c'est hyper rare."
+else
     text "Human-#MON"
     line "contamination can"
 
     para "happen, but it"
     line "is rare."
+endc
     done
 
-VaccinationCenter_Text12: ; TO TRANSLATE
+VaccinationCenter_Text12:
+if DEF(_FR_FR)
+	text "On n'a pas besoin"
+	line "d'un nouveau"
+	cont "confinement."
+	
+	para "Tout le monde"
+	line "devrait se faire"
+	cont "vacciner."
+else
     text "We don't need a"
     line "new lockdown."
     
     para "Everyone should"
     line "get vaccinated."
+endc
     done
 
-VaccinationCenter_Text13: ; TO TRANSLATE
+VaccinationCenter_Text13:
+if DEF(_FR_FR)
+	text "Le MAITRE de la"
+	line "LIGUE m'a motivé"
+	cont "à me faire vacci-"
+    cont "ner."
+else
     text "The LEAGUE CHAMP-"
     line "ION inspired me"
     cont "to get vaccinated."
-    done
-    
-VaccinationCenter_Text13Sequel: ; TO TRANSLATE
-    text "Hey it's you!"
-    line "Incredible!"
+endc
     done
 
-VaccinationCenter_Text14: ; TO TRANSLATE
+VaccinationCenter_Text13Sequel:
+if DEF(_FR_FR)
+	text "Hé mais c'est toi!"
+	line "J'en reviens pas!"
+else
+    text "Hey it's you!"
+    line "Incredible!"
+endc
+    done
+
+VaccinationCenter_Text14:
+if DEF(_FR_FR)
+	text "J'étais antivax"
+	line "jusqu'à ce que je"
+	
+	para "tombe gravement"
+	line "malade, alors que"
+	
+	para "ma femme vaccinée,"
+	line "elle, n'a rien eu."
+	
+	para "Maintenant, je"
+    line "veux protéger"
+	cont "mes #MON."
+else
     text "I used to be an"
     line "anti-vaxxer until"
     
@@ -523,17 +760,38 @@ VaccinationCenter_Text14: ; TO TRANSLATE
     
     para "Now I want to pro-"
     line "tect my #MON."
+endc
     done
 
-VaccinationCenter_Text15: ; TO TRANSLATE
+VaccinationCenter_Text15:
+if DEF(_FR_FR)
+	text "Pourquoi tu parles"
+	line "à tout le monde?"
+	
+	para "Arrête! C'est"
+	line "gênant."
+else
     text "Why are you talk-"
     line "ing to everyone?"
     
     para "Stop it! It's"
     line "embarrassing."
+endc
     done
 
-VaccinationCenter_Text16: ; TO TRANSLATE
+VaccinationCenter_Text16:
+if DEF(_FR_FR)
+	text "Dès que le vaccin"
+	line "pour les #MON a"
+	cont "été annoncé,"
+	
+	para "tout le monde a"
+	line "pris rendez-vous"
+	cont "en même temps!"
+	
+	para "Ca a engendré des"
+	line "semaines de délai."
+else
     text "As soon as the"
     line "#MON vaccine"
     cont "was announced,"
@@ -544,14 +802,25 @@ VaccinationCenter_Text16: ; TO TRANSLATE
     
     para "It lead to weeks"
     line "of delay."
+endc
     done
 
-VaccinationCenter_Text17: ; TO TRANSLATE
+VaccinationCenter_Text17:
+if DEF(_FR_FR)
+	text "Han?"
+	
+	para "J'ai fermé les"
+    line "yeux une seconde."
+	
+    para "Est-ce que j'ai"
+	line "raté mon tour?"
+else
     text "Ah!"
 
     para "I rested my eyes"
     line "for a second. Did"
     cont "I miss my slot?"
+endc
     done
 
 VaccinationCenter1F_MapEvents:
