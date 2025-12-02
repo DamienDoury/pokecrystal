@@ -466,7 +466,7 @@ if DEF(_FR_FR)
 	para "RISQUE"
 	line "D'EBOULEMENT"
 	
-	para "ENTRÉE INTERDITE"
+	para "ENTREE INTERDITE"
 else
 	text "SEAFOAM ISLANDS"
 

@@ -637,7 +637,7 @@ SupernerdEricAfterBattleText_Reopening:
 if DEF(_FR_FR)
 	text "Le CASINO a"
 	line "enfin rouvert!"
-	cont "À moi les gains!"
+	cont "A moi les gains!"
 else
 	text "The GAME CORNER"
 	line "finally reopened!"
@@ -1360,7 +1360,7 @@ endc
 
 StoneScammerAggressiveText:
 if DEF(_FR_FR)
-	text "Écoute, je ne te"
+	text "Ecoute, je ne te"
 	line "rembourserai pas."
 
 	para "Je ne suis pas"

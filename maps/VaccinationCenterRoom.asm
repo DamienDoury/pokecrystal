@@ -502,7 +502,7 @@ endc
 
 VaccinationCenterRoom_SecondMeetingText:
 if DEF(_FR_FR)
-	text "Écoute, j'ai pas le"
+	text "Ecoute, j'ai pas le"
 	line "temps de rêvasser."
 	
 	para "Tu veux faire"

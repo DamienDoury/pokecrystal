@@ -317,7 +317,7 @@ if DEF(_FR_FR)
 	line "J'offrais autre-"
 	cont "fois un service"
 
-	para "de TÉLÉPORTATION,"
+	para "de TELEPORTATION,"
 	line "mais maintenant"
 	cont "c'est interdit à"
 

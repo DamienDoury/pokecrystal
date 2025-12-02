@@ -641,7 +641,7 @@ if DEF(_FR_FR)
 	cont "“jusqu'à nouvel"
 	cont "ordre”..."
 	
-	para "Ça a duré environ"
+	para "Ca a duré environ"
 	line "deux mois."
 	
 	para "Piégé entre"

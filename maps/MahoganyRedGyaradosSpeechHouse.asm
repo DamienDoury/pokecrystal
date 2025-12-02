@@ -224,8 +224,8 @@ if DEF(_FR_FR)
 	text "SCALPEUSE: Hé!"
 	line "Je te reconnais!"
 
-	para "T'es le MAÎTRE"
-	line "POKéMON!!"
+	para "T'es le MAITRE"
+	line "#MON!!"
 
 	para "Tu peux avoir un"
 	line "objet de mon"

@@ -883,7 +883,7 @@ if DEF(_FR_FR)
 	line "puisse pousser des"
 	cont "rochers."
 	
-	para "Ça peut être utile"
+	para "Ca peut être utile"
 	line "pour un aventurier"
 	cont "comme toi."
 else
@@ -1062,7 +1062,7 @@ if DEF(_FR_FR)
 	cont "du signal, c'était"
 	cont "pas prévu."
 	
-	para "Ça a attiré"
+	para "Ca a attiré"
 	line "l'attention sur"
 	cont "nous, quelle"
 	cont "poisse."

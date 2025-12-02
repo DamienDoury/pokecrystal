@@ -98,7 +98,7 @@ if DEF(_FR_FR)
 	text "Mon nom est"
 	line "MARION."
 
-	para "À cause du COVID,"
+	para "A cause du COVID,"
 	line "ma grand-mère ne"
 	cont "fait désormais"
 	cont "plus qu'un avec ses"

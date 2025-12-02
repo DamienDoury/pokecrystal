@@ -1767,7 +1767,7 @@ if DEF(_FR_FR)
 	line "KANTO, alors je"
 	cont "n'ai aucune visite."
 	
-	para "Ça me réchauffe"
+	para "Ca me réchauffe"
 	line "le coeur qu'une"
 	cont "jeune personne"
 	cont "comme toi prenne"
