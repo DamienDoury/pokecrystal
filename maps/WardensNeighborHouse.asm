@@ -47,7 +47,22 @@ WardensNeighborHouse_BoulderScript:
 .cleared
 	jumptext WardensNeighborHouse_BoulderClearedText
 
-WardensNeighborHouseManText: ; TO TRANSLATE
+WardensNeighborHouseManText:
+if DEF(_FR_FR)
+	text "Pourquoi a-t-il"
+	line "fallu que tu"
+	cont "bouges ce rocher?"
+
+	para "Je retardais ça"
+	line "depuis des mois!"
+
+	para "Je mangeais gratis"
+	line "en compagnie d'une"
+	cont "jolie jeune femme,"
+
+	para "et tu as TOUT"
+	line "GACHE!"
+else
 	text "Why did you have"
 	line "to push this rock?"
 
@@ -61,16 +76,27 @@ WardensNeighborHouseManText: ; TO TRANSLATE
 	cont "pretty lady,"
 
 	para "and you RUINED IT!"
+endc
 	done
 
-WardensNeighborHouse_BoulderBlockingText: ; TO TRANSLATE
+WardensNeighborHouse_BoulderBlockingText:
+if DEF(_FR_FR)
+	text "Un gros rocher"
+	line "bloque la porte."
+else
 	text "A big boulder is"
 	line "blocking the door."
+endc
 	done
 
-WardensNeighborHouse_BoulderClearedText: ; TO TRANSLATE
+WardensNeighborHouse_BoulderClearedText:
+if DEF(_FR_FR)
+	text "Le rocher a été"
+	line "dégagé!"
+else
 	text "The boulder has"
 	line "been pushed away!"
+endc
 	done
 
 WardensNeighborHouse_MapEvents:

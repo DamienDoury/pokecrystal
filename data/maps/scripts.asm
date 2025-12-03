@@ -18,6 +18,7 @@ INCLUDE "maps/CeruleanCaveB1F.asm"
 INCLUDE "maps/CeruleanCaveB2F.asm"
 INCLUDE "maps/CeruleanCaveB3F.asm"
 INCLUDE "maps/Route16FuchsiaSpeechHouse.asm"
+INCLUDE "maps/IlexForestAzaleaGate.asm"
 
 
 SECTION "Map Scripts 2", ROMX
@@ -103,7 +104,6 @@ INCLUDE "maps/BillsBrothersHouse.asm"
 INCLUDE "maps/Route1.asm"
 INCLUDE "maps/Route28.asm"
 INCLUDE "maps/TohjoFalls.asm"
-INCLUDE "maps/IlexForestAzaleaGate.asm"
 
 
 SECTION "Map Scripts 6", ROMX
@@ -162,7 +162,6 @@ INCLUDE "maps/FastShipB1F.asm"
 INCLUDE "maps/OlivinePortPassage.asm"
 INCLUDE "maps/VermilionPortPassage.asm"
 INCLUDE "maps/MountMoonSquare.asm"
-INCLUDE "maps/ElmsHouse.asm"
 
 
 SECTION "Map Scripts 9", ROMX
@@ -524,6 +523,7 @@ INCLUDE "maps/GoldenrodBikeShop.asm"
 INCLUDE "maps/MrPsychicsHouse.asm"
 INCLUDE "maps/SilverCavePokecenter1F.asm"
 INCLUDE "maps/Route31VioletGate.asm"
+INCLUDE "maps/ElmsHouse.asm"
 
 
 SECTION "Map Scripts 30", ROMX

@@ -285,6 +285,7 @@ ROMX $6c
 	"Vaccination Research Center" ; Must stay with SilphCoResearch.asm, currently in "Map Scripts 25".
 ROMX $6d
 	"Special Phone Text"
+	"Songs 8"
 ROMX $6e
 	"Pokedex Entries 065-128"
 	"Abilities"
