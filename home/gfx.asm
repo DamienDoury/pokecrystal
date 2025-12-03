@@ -117,7 +117,9 @@ LoadFontsBattleExtra::
 
 LoadFontsExtra::
 	farcall _LoadFontsExtra1
+if !DEF(_FR_FR)
 	farcall _LoadFontsExtra2
+endc
 	ret
 
 DecompressRequest2bpp::

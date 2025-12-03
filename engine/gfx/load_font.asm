@@ -37,12 +37,14 @@ _LoadFontsExtra1::
 	call Get2bppViaHDMA
 	jr LoadFrame
 
+if !DEF(_FR_FR)
 _LoadFontsExtra2::
 	ld de, FontsExtra2_UpArrowGFX
 	ld hl, vTiles2 tile "▲" ; $61
 	ld b, BANK(FontsExtra2_UpArrowGFX)
 	ld c, 1
 	jmp Get2bppViaHDMA
+endc
 
 LoadFontLevelSymbol::
 	ld de, FontBattleExtra + 14 tiles ; "<DO>"
