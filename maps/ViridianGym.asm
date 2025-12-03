@@ -74,7 +74,59 @@ ViridianGymStatue:
 	gettrainername STRING_BUFFER_4, BLUE, BLUE1
 	jumpstd GymStatue2Script
 
-LeaderBlueBeforeText: ; TO TRANSLATE
+LeaderBlueBeforeText:
+if DEF(_FR_FR)
+	text "BLUE: Yo! Te voilà"
+	line "enfin!"
+
+	para "..."
+
+	para "Tu dis que tu as"
+	line "conquis toutes les"
+	cont "ARENES de JOHTO?"
+
+	para "Ok. Les ARENES de"
+	line "JOHTO doivent être"
+	cont "vraiment pathé-"
+	cont "tiques je suppose."
+
+	para "Je parie que tu"
+	line "connaissais déjà"
+	cont "l'équipe du CHAMP-"
+	cont "ION avant même que"
+	cont "le combat débute!"
+	cont "Tsss!"
+
+	para "Je sais ce que"
+	line "c'est. Avant d'être"
+	cont "CHAMPION, j'étais"
+	cont "un simple dresseur"
+	cont "comme toi."
+
+	para "Mais maintenant"
+	line "que j'ai basculé de"
+	cont "l'autre côté, je"
+	cont "refuse de faire la"
+	cont "même erreur stu-"
+	cont "pide que mes col-"
+	cont "lègues CHAMPIONS."
+
+	para "Au cours de ma"
+	line "carrière, j'ai"
+	cont "beaucoup voyagé"
+	cont "et capturé de"
+	cont "nombreux #MON"
+	cont "puissants."
+
+	para "Grâce à ça,"
+	line "personne ne peut"
+	cont "prédire ma"
+	cont "stratégie..."
+
+	para "Prêt pour un vrai"
+	line "challenge, MAITRE"
+	cont "de JOHTO?"
+else
 	text "BLUE: Yo! Finally"
 	line "got here, huh?"
 
@@ -116,6 +168,7 @@ LeaderBlueBeforeText: ; TO TRANSLATE
 	para "Ready for a real"
 	line "challenge, JOHTO"
 	cont "CHAMP?"
+endc
 	done
 
 LeaderBlueWinText: 
@@ -204,7 +257,21 @@ endc
 
 	done
 
-LeaderBlueRivalText: ; TO TRANSLATE
+LeaderBlueRivalText:
+if DEF(_FR_FR)
+	text "BLUE: Maintenant"
+	line "que RED s'est"
+	cont "éteint, je n'ai"
+	cont "plus de rival."
+
+	para "Je ne sais pas"
+	line "comment digérer"
+	cont "cette information."
+
+	para "Je vais devoir me"
+	line "trouver un nouvel"
+	cont "objectif..."
+else
 	text "BLUE: Now that RED"
 	line "is gone, I have"
 	cont "no rival."
@@ -214,9 +281,39 @@ LeaderBlueRivalText: ; TO TRANSLATE
 
 	para "I'll have to find"
 	line "a new purpose…"
+endc
 	done
 
-ViridianGymGuideText: ; TO TRANSLATE
+ViridianGymGuideText:
+if DEF(_FR_FR)
+	text "Yo, MAITRE!"
+
+	para "Ca farte?"
+	line "On dirait que tu"
+	cont "pètes la forme!"
+
+	para "Le CHAMPION de"
+	line "cette ARENE était"
+	cont "le MAITRE de la"
+	cont "LIGUE il y a"
+	cont "trois ans."
+
+	para "Et tu sais quoi?"
+
+	para "Tous les types de"
+	line "#MON sont auto-"
+	cont "risés dans son"
+	cont "ARENE!"
+
+	para "C'est du jamais"
+	line "vu, hein!"
+
+	para "BLUE ne craint"
+	line "aucun #MON."
+
+	para "Il est trop"
+	line "classe!!"
+else
 	text "Yo, CHAMP!"
 
 	para "How's it going?"
@@ -238,19 +335,11 @@ ViridianGymGuideText: ; TO TRANSLATE
 	para "That's unheard of,"
 	line "right?"
 
-	;para "That's the"
-	;line "challenge of"
-	;cont "VIRIDIAN's GYM:"
-	;
-	;para "tables are turned"
-	;line "and you're in for"
-	;cont "a surprise!"
-
 	para "BLUE fears no one"
 	line "and no #MON."
 
 	para "He's so cool!!"
-
+endc
 	done
 
 ViridianGymGuideWinText: 

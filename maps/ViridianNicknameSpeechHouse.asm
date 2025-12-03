@@ -157,7 +157,19 @@ ViridianScarfScript:
 ViridianNicknameSpeechHouseRadio:
 	jumpstd Radio3Script
 
-ViridianNicknameSpeechHousePokefanMText: ; TO TRANSLATE
+ViridianNicknameSpeechHousePokefanMText:
+if DEF(_FR_FR)
+	text "Crois-moi bien:"
+	line "personne dans ma"
+	cont "famille ne se fera"
+
+	para "injecter dans ses"
+	line "veines ce poison"
+	cont "nommé “vaccin”."
+
+	para "On n'est pas des"
+	line "cobayes!"
+else
 	text "Trust me--no one"
 	line "in this family"
 	
@@ -167,9 +179,20 @@ ViridianNicknameSpeechHousePokefanMText: ; TO TRANSLATE
 
 	para "We're no test"
 	line "subjects!"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_BeforeOpeningText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_BeforeOpeningText:
+if DEF(_FR_FR)
+	text "Un centre de"
+	line "vaccination pour"
+	cont "#MON va bientôt"
+	cont "ouvrir à SAFRANIA."
+
+	para "Quand ce sera le"
+	line "cas, reviens me"
+	cont "voir."
+else
 	text "A #MON"
 	line "vaccination center"
 	
@@ -178,19 +201,55 @@ ViridianNicknameSpeechHouseTwin_BeforeOpeningText: ; TO TRANSLATE
 
 	para "When it does, pay"
 	line "me a visit."
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_AntivaxxerTestText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_AntivaxxerTestText:
+if DEF(_FR_FR)
+	text "Faut être débile"
+	line "pour faire vacci-"
+	cont "ner un #MON,"
+	cont "pas vrai?"
+else
 	text "You gotta be dumb"
 	line "to get a #MON"
 	cont "vaccinated, right?"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_NevermindText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_NevermindText:
+if DEF(_FR_FR)
+	text "Ouais! Toi tu"
+	line "piges!"
+else
 	text "Yeah! You get it!"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_AskForVaccineText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_AskForVaccineText:
+if DEF(_FR_FR)
+	text "Chut! Moins fort!"
+
+	para "Mon père est un"
+	line "antivax pur & dur."
+
+	para "Il s'énerve lorsqu'"
+	line "il entend une opi-"
+	cont "nion contraire à"
+	cont "la sienne."
+
+	para "Quand j'lui ai"
+	line "demandé de m'amener"
+	cont "à SAFRANIA pour"
+
+	para "faire vacciner"
+	line "FOUINAR, il m'a"
+	cont "battu..."
+
+	para "Tu pourrais faire"
+	line "vacciner mon #-"
+	cont "MON discrètement?"
+else
 	text "Shush! Keep it"
 	line "down!"
 	
@@ -211,52 +270,114 @@ ViridianNicknameSpeechHouseTwin_AskForVaccineText: ; TO TRANSLATE
 	para "Could you get my"
 	line "#MON vaccinated"
 	cont "discreetly?"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_RefusesText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_RefusesText:
+if DEF(_FR_FR)
+	text "J'peux pas fuir"
+	line "cette prison."
+	cont "J't'en supplie..."
+else
 	text "You're my only way"
 	line "out of this"
 	cont "prison. I'm"
 	cont "begging you…"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_GoText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_GoText:
+if DEF(_FR_FR)
+	text "Vite! Pars avant"
+	line "que papa ne"
+	cont "remarque!"
+else
 	text "Now go before"
 	line "daddy notices!"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_CheckingOnFurretText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_CheckingOnFurretText:
+if DEF(_FR_FR)
+	text "Comment ça s'est"
+	line "passé la vaccina-"
+	cont "tion d'ECHARPE?"
+
+	para "J'peux le"
+	line "reprendre?"
+else
 	text "How is it going"
 	line "with SCARF's"
 	cont "vaccination?"
 	cont "Can I get it back?"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_MissesFurretText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_MissesFurretText:
+if DEF(_FR_FR)
+	text "Mon FOUINAR me"
+	line "manque..."
+else
 	text "I miss my FURRET…"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_CancelledCheckText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_CancelledCheckText:
+if DEF(_FR_FR)
+	text "Où qu'il est mon"
+	line "FOUINAR?"
+else
 	text "Where's my FURRET?"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_WrongPokemonText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_WrongPokemonText:
+if DEF(_FR_FR)
+	text "Hé! C'est pas mon"
+	line "FOUINAR!"
+else
 	text "Hey this isn't"
 	line "my FURRET!"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_NotVaccinatedYetText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_NotVaccinatedYetText:
+if DEF(_FR_FR)
+	text "Il n'est pas encore"
+	line "vacciné. S'il te"
+	cont "plaît, fais-le"
+	cont "pour moi..."
+else
 	text "It's not vaccinated"
 	line "yet. Please do it"
 	cont "for me…"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_ThanksText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_ThanksText:
+if DEF(_FR_FR)
+	text "J'suis tellement"
+	line "soulagée!"
+	cont "Mille mercis!"
+else
 	text "I'm so relieved!"
 	line "Thanks!"
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_GiveVoucherText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_GiveVoucherText:
+if DEF(_FR_FR)
+	text "Comme j'peux pas"
+	line "aller à SAFRANIA,"
+	
+	para "j'peux pas retirer"
+	line "le gain de mon"
+	cont "TICK.GAGNANT."
+
+	para "J'veux pas le"
+	line "laisser se perdre."
+	cont "Sauve-le."
+else
 	text "As I can't go to"
 	line "SAFFRON CITY, I"
 	cont "can't redeem this"
@@ -265,23 +386,42 @@ ViridianNicknameSpeechHouseTwin_GiveVoucherText: ; TO TRANSLATE
 	para "I can't let it"
 	line "go to waste."
 	cont "You deserve it."
+endc
 	done
 
-ViridianNicknameSpeechHouseTwin_VoucherGivenText: ; TO TRANSLATE
+ViridianNicknameSpeechHouseTwin_VoucherGivenText:
+if DEF(_FR_FR)
+	text "Merci de faire ta"
+	line "part contre le"
+	cont "COVID, soldat."
+
+	para "Espérons qu'"
+	line "ECHARPE ne tombe"
+	cont "jamais malade."
+else
 	text "Thanks for doing"
 	line "your part against"
 	cont "COVID, soldier."
 
 	para "Hopefully SCARF"
 	line "never gets sick."
+endc
 	done
 
-ViridianPrimeapeText: ; TO TRANSLATE
+ViridianPrimeapeText:
+if DEF(_FR_FR)
+	text "COLOKATERE: Singe!"
+else
 	text "JAPE PAUL: Prime!"
+endc
 	done
 
-ViridianScarfText: ; TO TRANSLATE
+ViridianScarfText:
+if DEF(_FR_FR)
+	text "ECHARPE: FOOOOUI-"
+else
 	text "SCARF: FUUUUUU-"
+endc
 	done
 
 ViridianNicknameSpeechHouse_MapEvents:

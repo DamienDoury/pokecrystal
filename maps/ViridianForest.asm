@@ -150,7 +150,23 @@ ViridianForest_PlayerStepsBackMovement:
 	remove_fixed_facing
 	step_end
 
-ViridianForestLostKidText: ; TO TRANSLATE
+ViridianForestLostKidText:
+if DEF(_FR_FR)
+	text "A l'aide!"
+	
+	para "Je suis perdu ici"
+	line "depuis des jours."
+
+	para "C'est comme si la"
+	line "forêt bougeait..."
+
+	para "Je survis en man-"
+	line "geant des baies."
+
+	para "Trouve ce qui"
+	line "cloche avec la"
+	cont "forêt!"
+else
 	text "Please help!"
 	
 	para "I've been lost"
@@ -164,16 +180,27 @@ ViridianForestLostKidText: ; TO TRANSLATE
 
 	para "Find what's wrong"
 	line "with the forest!"
+endc
 	done
 
-ViridianForest_PeacefulText: ; TO TRANSLATE
+ViridianForest_PeacefulText:
+if DEF(_FR_FR)
+	text "La forêt est en"
+	line "paix désormais."
+else
 	text "The forest is"
 	line "at peace now."
+endc
 	done
 
-ViridianForest_FoundGSBallText: ; TO TRANSLATE
+ViridianForest_FoundGSBallText:
+if DEF(_FR_FR)
+	text "<PLAYER> trouve"
+	line "la GS BALL."
+else
 	text "<PLAYER> found"
 	line "the GS BALL."
+endc
 	done
 
 ViridianForest_MapEvents:
