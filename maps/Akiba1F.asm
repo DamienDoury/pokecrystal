@@ -523,7 +523,7 @@ if DEF(_FR_FR)
 	cont "pub avec."
 	
 	para "Je la vends"
-	line "pour ¥{d:NES_PRICE}."
+	line "pour {d:NES_PRICE}¥."
 	done
 else
 	text "The Famicom is the"

@@ -463,7 +463,7 @@ if DEF(_FR_FR)
 	cont "PARC SAFARI."
 	
 	para "Je le vends pour"
-	line "¥999999."
+	line "999 999¥."
 	
 	para "C'est pas cher"
 	line "payé pour un tel"
@@ -488,7 +488,7 @@ else
 	cont "SAFARI ZONE."
 	
 	para "I'm selling it"
-	line "for ¥999999."
+	line "for ¥999,999."
 	
 	para "It is very cheap"
 	line "for a business!"
