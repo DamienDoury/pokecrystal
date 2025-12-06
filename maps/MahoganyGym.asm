@@ -375,7 +375,7 @@ endc
 
 PryceText_GlacierBadgeSpeech2:
 if DEF(_FR_FR)
-	para "Et ça... C'est un"
+	text "Et ça... C'est un"
 	line "cadeau de ma part!"
 else
 	text "And this… This is"

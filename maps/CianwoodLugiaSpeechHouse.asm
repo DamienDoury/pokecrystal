@@ -197,7 +197,7 @@ if DEF(_FR_FR)
 
 	para "C'est la chose la"
 	line "plus vitale en"
-	line "cette période!"
+	cont "cette période!"
 
 	para "Me voilà coincée à"
 	line "lire des livres..."

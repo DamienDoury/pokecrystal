@@ -2724,7 +2724,7 @@ if DEF(_FR_FR)
 
 	para "En obtenant un"
 	line "échantillon d'eau"
-	line "de SUICUNE qui fut"
+	cont "de SUICUNE qui fut"
 	cont "la clé du vaccin"
 	cont "#MON..."
 

@@ -205,7 +205,7 @@ if DEF(_FR_FR)
 	line "AUDIO DU CENTRE"
 
 	para "#MON, CA A"
-	cont "DE LA PATATE!"
+	line "DE LA PATATE!"
 else
 	text "DJ: WHAAAAAT?"
 

@@ -1255,7 +1255,7 @@ GoldenrodUndergroundRush1Text:
 if DEF(_FR_FR)
 	text "Laissez-moi juste"
 	line "trouver ma"
-	line "monnaie..."
+	cont "monnaie..."
 else
 	text "Let me find"
 	line "my change…"
@@ -1315,7 +1315,7 @@ if DEF(_FR_FR)
 	para "Ton #MON a dû"
 	line "mal tenir l'objet."
 
-	line "..."
+	para "..."
 
 	para "Pour éviter que ça"
 	line "ne se reproduise,"
