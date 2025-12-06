@@ -648,11 +648,15 @@ Pokegear_UpdateClock:
 	cp 9
 	ldh a, [hHours]
 	ld b, a
+if DEF(_EN_US)
 	decoord 6, 11
 	jr c, .offsetTime
 
 	inc de
 .offsetTime
+else
+	decoord 7, 11
+endc
 	farcall PrintHoursMins
 
 	call GetWeekDayStringAddress

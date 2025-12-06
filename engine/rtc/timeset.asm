@@ -209,7 +209,9 @@ DisplayHourOClock:
 	ld e, l
 	ld d, h
 	call PrintHour
+if DEF(_EN_US)
 	inc hl
+endc
 	ld de, String_oclock
 	call PlaceString
 	pop hl
@@ -266,6 +268,12 @@ SetMinutes:
 
 DisplayMinutesWithMinString:
 	ld de, wInitMinuteBuffer
+if DEF(_EN_US)
+	ld b, PRINTNUM_LEFTALIGN | 1
+else
+	ld b, 1
+endc
+	
 	call PrintTwoDigitNumberLeftAlign
 	inc hl
 	ld de, String_min
@@ -273,11 +281,15 @@ DisplayMinutesWithMinString:
 
 PrintTwoDigitNumberLeftAlign:
 	push hl
+if DEF(_EN_US)
 	ld a, " "
+else
+	ld a, "0"
+endc
 	ld [hli], a
 	ld [hl], a
 	pop hl
-	lb bc, PRINTNUM_LEFTALIGN | 1, 2
+	ld c, 2
 	jmp PrintNum
 
 OakTimeWokeUpText:
@@ -628,6 +640,12 @@ PrintHour:
 	call AdjustHourForAMorPM
 	ld [wTextDecimalByte], a
 	ld de, wTextDecimalByte
+	
+if DEF(_EN_US)
+	ld b, PRINTNUM_LEFTALIGN | 1
+else
+	ld b, 1
+endc
 	jmp PrintTwoDigitNumberLeftAlign
 
 GetTimeOfDayString:
@@ -661,6 +679,7 @@ endc
 AdjustHourForAMorPM:
 ; Convert the hour stored in c (0-23) to a 1-12 value
 	ld a, c
+if DEF(_EN_US)
 	or a
 	jr z, .midnight
 	cp NOON_HOUR
@@ -671,4 +690,5 @@ AdjustHourForAMorPM:
 
 .midnight
 	ld a, NOON_HOUR
+endc
 	ret

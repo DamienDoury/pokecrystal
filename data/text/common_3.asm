@@ -3187,8 +3187,8 @@ endc
 
 _TimesetAskDSTText::
 if DEF(_FR_FR)
-	text "Veux-tu"
-	line "modifier l'heure?"
+	text "C'est déjà l'heure"
+	line "d'été?"
 	done
 else
 	text "Do you want to"
@@ -3212,9 +3212,8 @@ endc
 
 _TimesetAskNotDSTText::
 if DEF(_FR_FR)
-	text "Le changement"
-	line "d'heure est-il"
-	cont "fini?"
+	text "On est à l'heure"
+	line "d'hiver?"
 	done
 else
 	text "Is Daylight Saving"

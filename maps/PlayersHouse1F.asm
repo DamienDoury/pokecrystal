@@ -562,8 +562,8 @@ endc
 
 IsItDSTText: 
 if DEF(_FR_FR)
-	text "Changement d'heure"
-	line "à activer?"
+	text "On est à l'heure"
+	line "d'été?"
 else
 	text "Is it Daylight"
 	line "Saving Time now?"
