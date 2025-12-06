@@ -227,6 +227,18 @@ GivePokeMail::
 	ld bc, NAME_LENGTH - 1
 	call CopyBytes
 
+if DEF(_FR_FR)
+; Settings the nationality of the mail.
+	dec de
+	dec de
+	ld a, "E"
+	ld [de], a
+	inc de
+	ld a, "F"
+	ld [de], a
+	inc de
+endc
+
 	pop af
 	ld hl, wPartyMon1ID
 	ld bc, PARTYMON_STRUCT_LENGTH

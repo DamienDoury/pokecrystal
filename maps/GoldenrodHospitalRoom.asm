@@ -661,7 +661,7 @@ GiftAntonMonMail::
 	db BLUESKY_MAIL
 if DEF(_FR_FR)
 	db   "Je t'aime pour"
-	next "toujours ma chérie@"
+	next "toujours chérie@"
 else
 	db   "I will always"
 	next "love you darling@"
