@@ -4760,11 +4760,11 @@ if DEF(_FR_FR)
 
 	para "RACCOURCI :"
 	line "en plus des inter-"
-	cont "actions traditio-"
-	cont "nnelles, ce mode"
+	cont "actions tradition-"
+	cont "nelles, ce mode"
 	cont "propose une expé-"
 	cont "rience fluide en"
-	cont "en réduisant les"
+	cont "réduisant les"
 	cont "appuis sur les"
 	cont "boutons."
 

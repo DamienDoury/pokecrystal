@@ -208,7 +208,7 @@ if DEF(_FR_FR)
 	cont "un masque."
 	
 	para "Tu ne peux pas"
-	line "pas la sentir..."
+	line "la sentir..."
 	cont "n'est-ce pas?"
 	
 	para "Ecoute, si tu ne"

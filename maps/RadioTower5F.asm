@@ -646,12 +646,11 @@ endc
 
 RadioTower5FDirectorThankYouText:
 if DEF(_FR_FR)
-	text "DIRECTEUR: <PLAY_G>,"
-	line "merci!"
+	text "DIRECTEUR:"
+	line "Merci <PLAY_G>!"
 
-	para "Tes actions"
-	line "courageuses ont"
-	cont "sauvé d'innom-"
+	para "Ton courage a"
+	line "sauvé d'innom-"
 	cont "brables vies des"
 	cont "idées démentes"
 	cont "diffusées par la"

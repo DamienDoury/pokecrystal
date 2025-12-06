@@ -110,8 +110,8 @@ if DEF(_FR_FR)
 	line "a fini avec ce"
 	
 	para "voleur, on a une"
-	line "une rave illégale"
-	cont "à stopper."
+	line "rave party illé-"
+	cont "gale à stopper."
 
 	para "Elle a habituelle-"
 	line "ment lieu de nuit"

@@ -617,7 +617,7 @@ if DEF(_FR_FR)
 	line "6 #MON est"
 	
 	para "le maximum que tu"
-	line "tu puisses porter."
+	line "puisses porter."
 
 	para "Un OEUF compte"
 	line "pour un #MON!"
@@ -683,10 +683,11 @@ endc
 
 EarlsPokemonAcademyGameboyKid1Text:
 if DEF(_FR_FR)
-	text "ROBIN: J'ai échangé"
-	line "mon meilleur #-"
-	cont "MON avec MICKEY"
-	cont "à côté de moi."
+	text "ROBIN: J'ai échan-"
+	line "gé mon meilleur"
+	cont "#MON avec"
+	cont "MICKEY, à côté"
+	cont "de moi."
 else
 	text "ROBIN: I traded my"
 	line "best #MON to"
@@ -761,7 +762,7 @@ else
 	line "a #MON can heal"
 	
 	para "itself with the"
-	line "the item it is"
+	line "item it is"
 	
 	para "holding. Like a"
 	line "berry for example."

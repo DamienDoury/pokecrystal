@@ -719,8 +719,8 @@ if DEF(_FR_FR)
 	cont "mais..."
 
 	para "Tu penses trouver"
-	line "trouver le patient"
-	cont "zéro là-bas?"
+	line "le patient zéro"
+	cont "là-bas?"
 
 	para "Je reste curieux."
 	line "Tiens-moi au"

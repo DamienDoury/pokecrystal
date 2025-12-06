@@ -525,7 +525,7 @@ else
 	para "Plus, this place"
 	line "is dangerous."
 
-	para "I'm backtracking to"
+	para "I'm backtracking"
 	line "to where we met."
 endc
 	done

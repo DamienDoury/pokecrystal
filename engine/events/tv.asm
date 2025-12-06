@@ -1220,8 +1220,8 @@ else
 	cont "for everyone."
 
 	para "The biggest games"
-	line "and video"
-	cont "streaming companies"
+	line "and video stream-"
+	cont "ing companies"
 
 	para "have doubled their"
 	line "earnings in the"

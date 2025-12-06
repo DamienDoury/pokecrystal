@@ -270,8 +270,8 @@ if DEF(_FR_FR)
 	line "CHEF?"
 
 	para "Elle est là. Elle"
-	line "vient d'entrer"
-	cont "dans la chambre 18."
+	line "vient d'entrer dans"
+	cont "la chambre 18."
 else
 	text "CHIEF NURSE JOY?"
 

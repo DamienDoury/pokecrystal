@@ -102,7 +102,7 @@ endc
 LoreleiSeenText:
 if DEF(_FR_FR)
 	text "Tu fais quoi dans"
-	line "dans ma cachette?"
+	line "ma cachette?"
 else
 	text "What are you doing"
 	line "in my hideout?"

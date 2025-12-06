@@ -321,9 +321,9 @@ if DEF(_FR_FR)
 	line "vacciner contre"
 	cont "d'autres maladies,"
 	
-	para "pourquoi tu refuses"
-	line "de le faire cette"
-	cont "fois?"
+	para "pourquoi tu re-"
+	line "fuses de le faire"
+	cont "cette fois?"
 else
 	text "You got vaccinated"
 	line "against other"

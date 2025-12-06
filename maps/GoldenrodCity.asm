@@ -1144,10 +1144,10 @@ if DEF(_FR_FR)
 	cont "c'est moi qui"
 	cont "t'envoie."
 
-	para "Aucun autre #MON"
-	line "que ces deux-là"
-	cont "dans ton équipe,"
-	cont "c'est le code."
+	para "Aucun autre que"
+	line "ces deux-là dans"
+	cont "ton équipe, c'est"
+	cont "le code secret."
 
 	para "Apporte du fric."
 	line "3000¥ minimum."

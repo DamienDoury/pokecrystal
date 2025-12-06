@@ -196,7 +196,7 @@ endc
 
 GoldenrodMagnetTrainStationOfficerArrivedInGoldenrodText:
 if DEF(_FR_FR)
-	text "Nous sommes arrivés"
+	text "On est arrivé"
 	line "à DOUBLONVILLE."
 else
 	text "We have arrived in"

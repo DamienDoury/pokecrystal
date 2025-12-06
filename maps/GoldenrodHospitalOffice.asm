@@ -1222,7 +1222,7 @@ else
 	para "Wearing the face"
 	line "mask is still"
 	cont "required to"
-	cont "further reduce the"
+	cont "further reduce"
 	cont "the risk of"
 	cont "contamination."
 

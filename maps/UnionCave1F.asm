@@ -213,7 +213,7 @@ if DEF(_FR_FR)
 	text "La rumeur court"
 	line "qu'il y aura bien-"
 	cont "tôt une annonce"
-	cont "importante à la TV"
+	cont "importante à la"
 	cont "TV concernant"
 	cont "l'épidémie."
 else

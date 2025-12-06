@@ -440,7 +440,7 @@ if DEF(_FR_FR)
 	
 	para "plus de PTS EXP."
 	line "à la PENSION qu'un"
-	cont "qu'un plus faible."
+	cont "plus bas niveau."
 else
 	text "WHITNEY told me"
 	line "that a high level"

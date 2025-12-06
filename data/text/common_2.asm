@@ -3495,7 +3495,8 @@ if DEF(_FR_FR)
 
 	para "JASMINE s'autorise"
 	line "une exception pour"
-	cont "son propre STEELIX."
+	cont "son propre"
+	cont "STEELIX."
 	done
 else
 	text "Thanks for helping"

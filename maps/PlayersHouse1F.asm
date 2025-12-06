@@ -864,7 +864,7 @@ if DEF(_FR_FR)
 	para "Peut-être que"
 	line "Maman n'a pas assez"
 	cont "d'argent pour faire"
-	cont "faire les courses?"
+	cont "les courses?"
 else
 	text "It's empty…"
 

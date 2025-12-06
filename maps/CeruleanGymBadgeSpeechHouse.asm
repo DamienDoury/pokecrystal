@@ -106,7 +106,7 @@ endc
 CeruleanGymBadgeSpeechHousePokefanMHeldUpText:
 if DEF(_FR_FR)
 	text "Se faire prendre"
-	line "en otage par un"
+	line "en otage par ce"
 	
 	para "voleur, c'était une"
 	line "sacrée expérience."
@@ -116,7 +116,7 @@ if DEF(_FR_FR)
 	cont "l'attraper."
 	done
 else
-	text "Being held up by"
+	text "Being held up"
 	line "by this thief"
 	
 	para "was quite an"

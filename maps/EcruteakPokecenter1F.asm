@@ -175,7 +175,7 @@ else
 	cont "opposite."
 
 	para "It freezes the"
-	line "the virus, making"
+	line "virus, making"
 	cont "the infection last"
 	cont "forever inside"
 	cont "the PC…"

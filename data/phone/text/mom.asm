@@ -198,7 +198,8 @@ if DEF(_FR_FR)
 	line "envoies m'aide"
 	cont "énormément."
 
-	para "C'est toujours bon?"
+	para "C'est toujours"
+	line "bon?"
 	done
 else
 	text "Sending money"

@@ -155,8 +155,8 @@ endc
 
 DerekFoundItemText:
 if DEF(_FR_FR)
-	text "J'ai un ROULEAU d'PQ"
-	line "pour toi."
+	text "J'ai un ROULEAU"
+	line "d'PQ pour toi."
 
 	para "De la top qualité,"
 	line "triple épaisseur,"

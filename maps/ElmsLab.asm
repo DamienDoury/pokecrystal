@@ -1812,8 +1812,8 @@ if DEF(_FR_FR)
 	para "mesure sévère,"
 	line "mais c'est la"
 
-	para "plus efficace que"
-	line "nous connaissons..."
+	para "plus efficace"
+	line "qui existe..."
 
 	para "Elle est néces-"
 	line "saire."

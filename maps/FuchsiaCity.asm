@@ -308,7 +308,7 @@ if DEF(_FR_FR)
 	para "émigrés. PARMANIE"
 	line "a été délaissée,"
 
-	para "c'est bien triste..."
+	para "c'est si triste..."
 
 	para "..."
 

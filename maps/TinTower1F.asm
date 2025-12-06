@@ -333,7 +333,7 @@ if DEF(_FR_FR)
 	line "peut-être à portée"
 	
 	para "de main grâce à"
-	line "à ton aide!"
+	line "ton aide!"
 	
 	para "On dit que SUICUNE"
 	line "a le pouvoir d'in-"

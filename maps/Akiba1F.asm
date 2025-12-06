@@ -709,7 +709,7 @@ endc
 Akiba1F_Inventory3Text:
 if DEF(_FR_FR)
 	text "Des pièces de"
-	line "de #GEAR."
+	line "#GEAR."
 	done
 else
 	text "Some #GEAR "

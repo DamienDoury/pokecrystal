@@ -187,7 +187,7 @@ if DEF(_FR_FR)
 	cont "histoire."
 
 	para "J'allais à la"
-	line "BOUTIQUE faire des"
+	line "BOUTIQUE faire"
 	cont "des courses quand"
 	cont "la police m'a"
 	cont "contrôlé."

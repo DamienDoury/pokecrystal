@@ -679,7 +679,7 @@ if DEF(_FR_FR)
 	para "Et maint'nant on"
 	line "va mettre fin à"
 	cont "ce misérable mode"
-	cont "mode de vie!"
+	cont "de vie!"
 else
 	text "We've finally"
 	line "taken over the"

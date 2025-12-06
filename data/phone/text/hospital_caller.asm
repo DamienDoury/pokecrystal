@@ -125,7 +125,8 @@ if DEF(_FR_FR)
 	para "Promis, pas de"
 	line "médias cette fois!"
 
-	para "Viens vite me voir!"
+	para "Viens vite me"
+	line "voir!"
 	done
 else
 	text "Hi CHAMP!"

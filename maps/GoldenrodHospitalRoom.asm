@@ -645,7 +645,7 @@ GoldenrodHospitalRoomHumanPatientScript:
 
 GiftAntonMonName:
 if DEF(_FR_FR)
-	db "MIAOU@"
+	db "NYAN@"
 else
 	db "NYAN@"
 endc
@@ -2179,7 +2179,7 @@ if DEF(_FR_FR)
 
 	para "L'INFIRMIERE EN"
 	line "CHEF m'a dit qu'il"
-	cont "qu'il devrait s'en"
+	cont "devrait s'en"
 	cont "sortir."
 else
 	text "I was the one who"
