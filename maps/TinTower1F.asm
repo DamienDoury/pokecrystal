@@ -36,6 +36,8 @@ TinTower1F_MapScripts:
 	clearevent EVENT_TIN_TOWER_1F_WISE_TRIO_2
 	setevent EVENT_TIN_TOWER_1F_WISE_TRIO_1
 .GotRainbowWing:
+	checkevent EVENT_EUSINE_IN_CELADON
+	iffalse .Done ; If Eusine is in Celadon, he can't be here at the same time.
 	checkevent EVENT_FOUGHT_HO_OH
 	iffalse .Done
 	appear TINTOWER1F_EUSINE
@@ -221,7 +223,14 @@ TinTower1FSage6Script:
 	jumptextfaceplayer TinTower1FSage6Text2
 
 TinTower1FEusine:
-	jumptextfaceplayer TinTower1FEusineHoOhText
+	faceplayer
+	opentext
+	writetext TinTower1FEusineHoOhText
+	promptbutton
+	writetext TinTower1FEusineHoOhSequelText
+	waitbutton
+	closetext
+	end
 
 TinTower1FPlayerEntersMovement:
 	slow_step UP
@@ -626,12 +635,6 @@ if DEF(_FR_FR)
 
 	para "Je suis pas trop"
 	line "mauvais, moi."
-
-	para "Je vais continuer"
-	line "à étudier pour"
-
-	para "être un célèbre"
-	line "#MANIAC!"
 else
 	text "I knew it."
 
@@ -646,14 +649,24 @@ else
 
 	para "My research isn't"
 	line "bad, I might say."
+endc
 
-	para "I'm going to keep"
+	done
+
+TinTower1FEusineHoOhSequelText::
+if DEF(_FR_FR)
+	text "Je vais continuer"
+	line "à étudier pour"
+
+	para "être un célèbre"
+	line "#MANIAC!"
+else
+	text "I'm going to keep"
 	line "studying #MON"
 
 	para "to become a famous"
 	line "#MANIAC!"
 endc
-
 	done
 
 TinTower1FSage4Text2: 

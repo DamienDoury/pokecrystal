@@ -22,13 +22,23 @@ EusineHouse_Eusine:
 	end
 
 .SkipMasterball
+	checkevent EVENT_FOUGHT_HO_OH
+	iftrue .HoOhFought
+
 	special BeastsCheck
 	iftrue .HoOh
 
 	writetext NoBeastsText
+.CloseText:
 	waitbutton
 	closetext
 	end
+
+.HoOhFought:
+	writetext EusineHouse_JealousText
+	promptbutton
+	farwritetext TinTower1FEusineHoOhSequelText
+	sjump .CloseText
 
 .HoOh:
 	writetext EusineLeavesCeladonText
@@ -121,6 +131,22 @@ else
 
 	para "Use it wisely."
 	line "Not on a RATTATA."
+endc
+	done
+
+EusineHouse_JealousText:
+if DEF(_FR_FR)
+	text "Tu es une légende"
+	line "parmi les légendes"
+	
+	para "et je ne t'arrive"
+	line "pas à la cheville."
+else
+	text "You are a legend"
+	line "among legends!"
+
+	para "I can't hold a"
+	line "candle to you."
 endc
 	done
 
