@@ -280,7 +280,6 @@ INCLUDE "maps/TinTower9F.asm"
 INCLUDE "maps/BurnedTower1F.asm"
 INCLUDE "maps/BurnedTowerB1F.asm"
 INCLUDE "maps/CeruleanPoliceStation.asm"
-INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 INCLUDE "maps/CinnabarPokecenter1F.asm"
 INCLUDE "maps/Route24.asm"
 INCLUDE "maps/CarpetShop.asm"
@@ -344,6 +343,7 @@ INCLUDE "maps/MobileBattleRoom.asm"
 INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
 INCLUDE "maps/AzaleaMart.asm"
+INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX

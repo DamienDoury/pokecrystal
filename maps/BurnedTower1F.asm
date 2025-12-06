@@ -371,6 +371,13 @@ if DEF(_FR_FR)
 
 	para "fouiller la TOUR"
 	line "avec lui."
+
+	para "Grâce à ma rela-"
+	line "tion avec la"
+
+	para "POLICE, ils fer-"
+	line "ment un oeil sur"
+	cont "notre activité."
 else
 	text "MORTY: ECRUTEAK's"
 	line "GYM LEADER has to"
@@ -387,6 +394,13 @@ else
 
 	para "investigate the"
 	line "TOWER with him."
+
+	para "Thanks to my rela-"
+	line "tion with the"
+
+	para "POLICE, they turn"
+	line "a blind eye to our"
+	cont "activity."
 endc
 
 	done
