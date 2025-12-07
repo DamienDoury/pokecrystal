@@ -190,29 +190,16 @@ AnimatePlayerClap:
 
 MapEvents:
 	ld a, [wMapEventStatus]
-	ld hl, .Jumptable
-	rst JumpTable
-	ret
+	and a
+	ret nz
 
-.Jumptable:
-; entries correspond to MAPEVENTS_* constants
-	dw .events
-	dw .no_events
-
-.events:
 	call PlayerEvents
 	call DisableEvents
 	farcall ScriptEvents
 	ret
 
-.no_events:
-	ret
-
-MaxOverworldDelay:
-	db 2
-
 ResetOverworldDelay:
-	ld a, [MaxOverworldDelay]
+	ld a, 2 ; MaxOverworldDelay
 	ld [wOverworldDelay], a
 	ret
 
