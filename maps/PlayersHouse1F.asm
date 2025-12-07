@@ -298,6 +298,8 @@ MomScript:
 	opentext
 	checkevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 	iftrue .FirstTimeBanking
+	checkevent EVENT_LOCKDOWN_MART_RUSH
+	iffalse .MartRush
 	checkevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	iftrue .BankOfMom
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
@@ -305,27 +307,50 @@ MomScript:
 	checkevent EVENT_GOT_A_POKEMON_FROM_ELM
 	iftrue .GotAPokemon
 	writetext HurryUpElmIsWaitingText
+	sjump .CloseText
+
+.MartRush:
+	writetext SecondEndText
 	waitbutton
 	closetext
-	end
+
+	pause 90
+
+	opentext
+	writetext SecondEndSequelText
+	waitbutton
+	closetext
+	pause 60
+	turnobject PLAYER, DOWN
+	pause 20
+	musicfadeout MUSIC_NONE, 16
+	pause 150
+
+	special FadeOutPalettes
+	callasm ClearBGPalettes
+	callasm ResetBGPals
+	callasm ApplyPals
+	callasm ClearSprites
+	callasm ClearScreen
+	callasm WipeAttrmap
+	pause 25
+	loadmem wCreditsType, CREDITS_LAB
+	credits
 
 .GotAPokemon:
 	writetext SoWhatWasProfElmsErrandText
-	waitbutton
-	closetext
-	end
+	sjump .CloseText
 
 .FirstTimeBanking:
 	writetext ImBehindYouText
-	waitbutton
-	closetext
-	end
+	sjump .CloseText
 
 .GaveMysteryEgg:
 	setevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 .BankOfMom:
 	;setevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	special BankOfMom
+.CloseText
 	waitbutton
 	closetext
 	end
@@ -710,6 +735,54 @@ else
 	line "ing for you."
 
 	para "Hurry up, baby!"
+endc
+
+	done
+
+SecondEndText:
+if DEF(_FR_FR)
+	text "Alors tu reviens"
+	line "passer le confine-"
+	cont "ment à la maison"
+	cont "avec moi?!"
+
+	para "Je ne m'attendais"
+	line "pas à ça de ta"
+	cont "part, mais ça me"
+	cont "soulage!"
+else
+	text "So you came back"
+	line "to spend the lock-"
+	cont "down at home with"
+	cont "me?!"
+
+	para "I didn't expect"
+	line "you'd obey, but"
+	cont "it's a relief!"
+endc
+
+	done
+
+SecondEndSequelText:
+if DEF(_FR_FR)
+	text "Je n'ai jamais vécu"
+	line "ça. Je n'ai aucune"
+	cont "idée de comment"
+	cont "ça va se passer."
+
+	para "Reste plus qu'à"
+	line "espérer qu'on ne"
+	cont "s'ennuit pas trop"
+	cont "vite."
+else
+	text "I've never lived"
+	line "this. I have no"
+	cont "idea how it's going"
+	cont "to unfold."
+
+	para "Let's hope we"
+	line "don't get bored"
+	cont "too quickly."
 endc
 
 	done

@@ -162,6 +162,7 @@ INCLUDE "maps/FastShipB1F.asm"
 INCLUDE "maps/OlivinePortPassage.asm"
 INCLUDE "maps/VermilionPortPassage.asm"
 INCLUDE "maps/MountMoonSquare.asm"
+INCLUDE "maps/SaffronMart.asm"
 
 
 SECTION "Map Scripts 9", ROMX
@@ -171,7 +172,6 @@ INCLUDE "maps/PlayersHouse1F.asm"
 INCLUDE "maps/PlayersHouse2F.asm"
 INCLUDE "maps/EusineHouse.asm"
 INCLUDE "maps/DragonsDen1F.asm"
-INCLUDE "maps/SaffronMart.asm"
 
 
 SECTION "Map Scripts 10", ROMX
