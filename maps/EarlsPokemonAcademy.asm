@@ -437,8 +437,9 @@ else
 	para "Teach you I will"
 	line "to be a better"
 	cont "trainer!"
-	done
 endc
+
+	done
 
 AcademyEarlIntroText2:
 if DEF(_FR_FR)

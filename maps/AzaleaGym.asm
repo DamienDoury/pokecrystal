@@ -256,8 +256,8 @@ else
 
 	para "it comes to bug"
 	line "#MON."
-	done
 endc
+	done
 
 BugsyText_INeverLoseSequel:
 if DEF(_FR_FR)

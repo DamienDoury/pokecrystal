@@ -185,8 +185,8 @@ else
 
 	para "CENTER in ECRUTEAK"
 	line "CITY."
-	done
 endc
+	done
 
 BillsMomText_AfterEcruteak: 
 if DEF(_FR_FR)
