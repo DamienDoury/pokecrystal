@@ -193,7 +193,7 @@ OlivineLighthouseJasmineLeavesRightMovement:
 
 JasmineCianwoodPharmacyText:
 if DEF(_FR_FR)
-	text "JASMINE: ... Ce"
+	text "JASMINE: ...Ce"
 	line "#MON gardait la"
 
 	para "mer éclairée toute"

@@ -909,7 +909,7 @@ if DEF(_FR_FR)
 
 	para "Les MAKIS"
 	line "TOURBILLON"
-	cont "d'IRISIA !"
+	cont "d'IRISIA!"
 else
 	text "Mom's specialty!"
 

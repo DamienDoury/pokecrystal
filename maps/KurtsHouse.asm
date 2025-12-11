@@ -908,7 +908,7 @@ endc
 
 KurtsHouseSlowpokeText: 
 if DEF(_FR_FR)
-	text "RAMOLOSS: ...."
+	text "RAMOLOSS: ..."
 	line "...(baille)..."
 else
 	text "SLOWPOKE: …"

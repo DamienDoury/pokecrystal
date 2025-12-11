@@ -573,7 +573,7 @@ endc
 GoldenrodGameCornerGreetings4Text:
 if DEF(_FR_FR)
 	text "Oh! Il faut que"
-	line "tu saches : pour"
+	line "tu saches: pour"
 	cont "sortir d'ici,"
 	cont "demande au ABRA."
 

@@ -650,7 +650,7 @@ if DEF(_FR_FR)
 
 	para "Un bon ami il"
 	line "deviendra,"
-	cont "je le crois !"
+	cont "je le crois!"
 else
 	text "Keep EGG with you"
 	line "until it hatch."

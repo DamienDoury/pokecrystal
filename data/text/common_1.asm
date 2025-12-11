@@ -4705,11 +4705,11 @@ ElmsLabBookshelf4Text::
 if DEF(_FR_FR)
 	text "ALLUM. RAPIDE"
 
-	para "OFF : le jeu"
+	para "OFF: le jeu"
 	line "s'allume normale-"
 	cont "ment."
 
-	para "ON : l'intro est"
+	para "ON: l'intro est"
 	line "sautée, pour"
 	cont "démarrer direct"
 	cont "dans le jeu."
@@ -4753,12 +4753,12 @@ if DEF(_FR_FR)
 	text "INTERACTIONS"
 	line "Tome 1/3"
 
-	para "TRADI : les inter-"
+	para "TRADI: les inter-"
 	line "actions marchent"
 	cont "comme dans le"
 	cont "jeu original."
 
-	para "RACCOURCI :"
+	para "RACCOURCI:"
 	line "en plus des inter-"
 	cont "actions tradition-"
 	cont "nelles, ce mode"
@@ -4800,7 +4800,7 @@ if DEF(_FR_FR)
 	text "INTERACTIONS"
 	line "Tome 2/3"
 
-	para "RACCOURCI : dans"
+	para "RACCOURCI: dans"
 	line "ce mode les objets"
 	cont "sont ramassés en"
 	cont "marchant vers eux."
@@ -4874,7 +4874,7 @@ if DEF(_FR_FR)
 	text "INTERACTIONS"
 	line "Tome 3/3"
 
-	para "RACCOURCI : un"
+	para "RACCOURCI: un"
 	line "appui long sur A"
 	cont "déclenche divers"
 	cont "effets selon le"

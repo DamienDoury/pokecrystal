@@ -1392,7 +1392,7 @@ if DEF(_FR_FR)
 	para "Oh purée, je suis"
 	line "tellement stres-"
 	cont "sée! Je n'en peux"
-	cont "plus ..."
+	cont "plus..."
 	
 	para "J'ai trop de"
 	line "travail sur les"
