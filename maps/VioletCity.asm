@@ -871,7 +871,7 @@ if DEF(_FR_FR)
 	cont "temps avec lui."
 	
 	para "Si tu n'arrives pas"
-	line "a battre ALBERT,"
+	line "à battre ALBERT,"
 	cont "passe à la ville"
 	cont "suivante."
 	

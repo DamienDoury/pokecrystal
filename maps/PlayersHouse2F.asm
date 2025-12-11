@@ -151,7 +151,7 @@ if DEF(_FR_FR)
 
 	para "Oh non! C'est"
 	line "interrompu par un"
-	cont "journal télé..."
+	cont "flash spécial..."
 
 	para "..."
 
