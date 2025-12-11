@@ -897,11 +897,11 @@ endc
 
 VioletCityElmsAide_GiveMaskText:
 if DEF(_FR_FR)
-	text "ORME m'a envoyé te"
+	text "On m'a envoyé te"
 	line "chercher, parce"
 	
-	para "qu'il veut que tu"
-	line "portes ceci à"
+	para "qu'ORME veut que"
+	line "tu portes ceci à"
 	cont "partir de mainte-"
 	cont "nant."
 	
