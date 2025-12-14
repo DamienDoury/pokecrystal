@@ -1220,6 +1220,9 @@ RazorWind:
 	checkfaint
 	buildopponentrage
 	kingsrock
+	endturn
+	specialattackup
+	statupmessage
 	endmove
 
 Fly:

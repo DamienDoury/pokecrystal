@@ -389,13 +389,12 @@ endc
 
 RazorWindDescription:
 if DEF(_FR_FR)
-	db   "Tour 1: Prépare"
-	next "Tour 2: Attaque@"
+	db   "T1: Monte ATQ.SPE."
+	next "T2: Chance crit.@"
 else
-	db   "1st turn: Prepare"
-	next "2nd turn: Attack@"
+	db   "T1: Ups SPCL.ATK."
+	next "T2: High crit.@"
 endc
-
 
 SwordsDanceDescription:
 if DEF(_FR_FR)

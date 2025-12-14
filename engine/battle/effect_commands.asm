@@ -6266,6 +6266,8 @@ BattleCommand_Charge:
 	ld b, endturn_command
 	cp EFFECT_SKULL_BASH
 	jp z, SkipToBattleCommand
+	cp EFFECT_RAZOR_WIND
+	jp z, SkipToBattleCommand
 	cp EFFECT_SKY_ATTACK
 	jp z, SkipToBattleCommand
 	jmp EndMoveEffect
