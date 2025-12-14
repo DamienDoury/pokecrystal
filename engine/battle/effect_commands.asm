@@ -5044,6 +5044,14 @@ BattleCommand_StatUpMessage:
 	text_far Text_BattleEffectActivate
 	text_asm
 	ld hl, .BattleStatWentUpText
+if DEF(_FR_FR)
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .one_level
+
+	ld hl, .BattleStatWentUpOneLinerText
+.one_level	
+endc
 	ld a, [wLoweredStat]
 	and $f0
 	ret z
@@ -5057,6 +5065,12 @@ BattleCommand_StatUpMessage:
 .BattleStatWentUpText:
 	text_far _BattleStatWentUpText
 	text_end
+
+if DEF(_FR_FR)
+.BattleStatWentUpOneLinerText:
+	text_far _BattleStatWentUpOneLinerText
+	text_end
+endc
 
 BattleCommand_StatDownMessage:
 	ld a, [wFailedMessage]
@@ -5085,6 +5099,25 @@ BattleCommand_StatDownMessage:
 	text_end
 
 .BattleStatFellText:
+if DEF(_FR_FR)
+	text_asm
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .user_stat_fell
+
+	ld hl, .stat_fell
+	ret
+
+.user_stat_fell
+	ld hl, .user_stat_fell_text
+	ret
+
+.user_stat_fell_text
+	text_far _UserStatFellText
+	text_end
+
+.stat_fell
+endc
 	text_far _BattleStatFellText
 	text_end
 

@@ -1647,6 +1647,12 @@ else
 	prompt
 endc
 
+if DEF(_FR_FR)
+_BattleStatWentUpOneLinerText::
+	text " monte!"
+	prompt
+endc
+
 _BattleStatWentUpText::
 if DEF(_FR_FR)
 	text_start
@@ -1678,6 +1684,12 @@ if DEF(_FR_FR)
 else
 	text_pause
 	text "<SCROLL>sharply fell!"
+	prompt
+endc
+
+if DEF(_FR_FR)
+_UserStatFellText::
+	text " baisse!"	
 	prompt
 endc
 
