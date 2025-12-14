@@ -6263,8 +6263,10 @@ BattleCommand_Charge:
 
 	ld a, BATTLE_VARS_MOVE_EFFECT
 	call GetBattleVar
-	cp EFFECT_SKULL_BASH
 	ld b, endturn_command
+	cp EFFECT_SKULL_BASH
+	jp z, SkipToBattleCommand
+	cp EFFECT_SKY_ATTACK
 	jp z, SkipToBattleCommand
 	jmp EndMoveEffect
 

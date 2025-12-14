@@ -1090,8 +1090,6 @@ SkyAttack:
 	checkcharge
 	checkobedience
 	doturn
-	speedup
-	statupmessage
 	charge
 	usedmovetext
 	critical
@@ -1110,6 +1108,9 @@ SkyAttack:
 	buildopponentrage
 	flinchtarget
 	kingsrock
+	endturn
+	speedup
+	statupmessage
 	endmove
 
 Substitute:
