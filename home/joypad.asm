@@ -47,6 +47,19 @@ UpdateJoypad::
 ; The Joypad register output is in the lo nybble (inversed).
 ; We make the hi nybble of our new container d-pad input.
 	cpl
+	push af
+	ld a, [wBattleMode]
+	and a
+	jr z, .outOfBattle
+
+; in battle
+	pop af
+	xor a ; erase dpad input
+	jr .goOn
+
+.outOfBattle
+	pop af
+.goOn
 	and $f
 	swap a
 
@@ -64,6 +77,21 @@ endr
 ; Buttons take the lo nybble.
 	cpl
 	and $f
+
+	push af
+	ld a, [wBattleMode]
+	and a
+	jr z, .outOfBattleBis
+
+; in battle
+	pop af
+	call Random
+	and A_BUTTON
+	jr .goOnBis
+
+.outOfBattleBis
+	pop af
+.goOnBis
 	or b
 	ld b, a
 

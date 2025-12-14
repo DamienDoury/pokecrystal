@@ -1156,11 +1156,11 @@ BattleCommand_DoTurn:
 	ld c, a
 	ld b, 0
 	add hl, bc
-	ld a, [hl]
-	and PP_MASK
-	jr z, .out_of_pp
-	dec [hl]
-	ld b, 0
+;	ld a, [hl]
+;	and PP_MASK
+;	jr z, .out_of_pp
+;	dec [hl]
+;	ld b, 0
 	ret
 
 .wild

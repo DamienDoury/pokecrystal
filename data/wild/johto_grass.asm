@@ -1237,21 +1237,21 @@ JohtoGrassWildMons:
 	def_grass_wildmons ROUTE_29
 	db 10 percent, 10 percent, 10 percent ; encounter rates: morn/day/nite
 	; morn
-	db 2, LEDYBA
-	db 2, SENTRET
-	db 3, JIGGLYPUFF
-	db 3, LEDYBA
-	db 2, JIGGLYPUFF
-	db 3, PHANPY
-	db 3, PHANPY
+	db 2, MAGIKARP
+	db 2, MAGIKARP
+	db 3, MAGIKARP
+	db 3, MAGIKARP
+	db 2, MAGIKARP
+	db 3, MAGIKARP
+	db 3, MAGIKARP
 	; day
-	db 2, SENTRET
-	db 2, JIGGLYPUFF
-	db 3, LEDYBA
-	db 3, LEDYBA
-	db 2, PHANPY
-	db 3, PHANPY
-	db 3, PHANPY
+	db 2, MAGIKARP
+	db 2, MAGIKARP
+	db 3, MAGIKARP
+	db 3, MAGIKARP
+	db 2, MAGIKARP
+	db 3, MAGIKARP
+	db 3, MAGIKARP
 	; nite
 	db 2, LEDYBA
 	db 2, SENTRET
