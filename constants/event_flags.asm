@@ -20,7 +20,7 @@
 	const_skip
 	const EVENT_GOT_TM24_DRAGONBREATH
 ; HMs (EVENT_GOT_HM07_WATERFALL is with the Johto itemballs)
-	const EVENT_GOT_HM01_CUT
+	const_skip
 	const_skip
 	const_skip
 	const_skip

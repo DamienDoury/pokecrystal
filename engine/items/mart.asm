@@ -139,13 +139,10 @@ GetMart:
 
 .IsAMart:
 	push bc
-	push de
-	ld b, CHECK_FLAG
-	ld de, EVENT_GOT_HM01_CUT
-	call EventFlagAction
-	pop de
+	ld b, HM_CUT
+	farcall FarCheckHMSilent
 	pop bc
-	jr z, .before_mart_rush
+	jr c, .before_mart_rush
 
 	ld a, TRUE
 	ld [wShortageInCurrentMart], a

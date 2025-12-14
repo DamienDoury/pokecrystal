@@ -48,7 +48,6 @@ LockdownFirstDeclaration:
 	writetext CharcoalKiln_ThanksText
 	promptbutton
 	verbosegiveitem HM_CUT
-	setevent EVENT_GOT_HM01_CUT
 	writetext Text_CharcoalMasterOutro
 	waitbutton
 	closetext
@@ -119,7 +118,7 @@ CharcoalKilnBoss:
 CharcoalKilnApprentice:
 	checkevent EVENT_GOT_CHARCOAL_IN_CHARCOAL_KILN
 	iftrue .YoureTheCoolest
-	checkevent EVENT_GOT_HM01_CUT
+	checkitem HM_CUT
 	iftrue .Thanks
 	jumptextfaceplayer CharcoalKilnApprenticeText1
 

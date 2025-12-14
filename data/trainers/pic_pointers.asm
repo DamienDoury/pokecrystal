@@ -78,7 +78,7 @@ TrainerPicPointers::
 	assert_table_length NUM_TRAINER_CLASSES
 
 ; Those are the only trainers that can be found before all trainer wear a face mask.
-; It happens when the first lockdown declaration occurs (EVENT_GOT_HM01_CUT).
+; It happens when the first lockdown declaration occurs (before "checkitem HM_CUT" return true).
 TrainerPicPointersNoMask::
 ; entries correspond to trainer classes minus 21 (see constants/trainer_constants.asm)
 	table_width 3, TrainerPicPointersNoMask

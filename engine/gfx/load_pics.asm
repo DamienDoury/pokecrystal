@@ -307,14 +307,9 @@ GetTrainerPic:
 	ldh [hBGMapMode], a
 
 	; Early trainers do not wear a face mask.
-	push de
-	ld b, CHECK_FLAG
-	ld de, EVENT_GOT_HM01_CUT ; Set during the first lockdown declaration. After this event, all trainers wear a face mask.
-	call EventFlagAction
-	pop de
-	ld a, c
-	and a
-	jr nz, .WearFaceMask
+	ld b, HM_CUT
+	farcall FarCheckHMSilent
+	jr nc, .WearFaceMask
 
 	ld a, [wTrainerClass]
 	cp BEAUTY
