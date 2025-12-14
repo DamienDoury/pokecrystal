@@ -1831,6 +1831,11 @@ else
 endc
 
 if DEF(_FR_FR)
+_UserLaunchesOneLinerText::
+	text " lance"
+	line "@"
+	text_end
+
 _UsedMoveOneLinerText::
 	text_start
 	line "lance @"

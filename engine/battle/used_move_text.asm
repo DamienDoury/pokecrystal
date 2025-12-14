@@ -57,10 +57,18 @@ UsedMoveText:
 	; check obedience
 	ld a, [wAlreadyDisobeyed]
 	and a
+if DEF(_FR_FR)
+	ld hl, UserLaunchesOneLinerText
+else
 	ld hl, UsedMove2Text
+endc
 	ret nz
 
 if DEF(_FR_FR)
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .user_launches_one_liner
+
 	push de
 	ld de, wStringBuffer2
 	call CountChars
@@ -71,12 +79,21 @@ if DEF(_FR_FR)
 	ld hl, UsedMoveOneLinerText
 	ret
 
+.user_launches_one_liner
+	ld hl, UserLaunchesOneLinerText
+	ret
+
 .doesnt_fit_in_1_line
 endc
 	ld hl, UsedMove2Text
 	ret
 
 if DEF(_FR_FR)
+UserLaunchesOneLinerText:
+	text_far _UserLaunchesOneLinerText
+	text_asm
+	jr UsedMoveText_CheckObedience
+
 UsedMoveOneLinerText:
 	text_far _UsedMoveOneLinerText
 	text_asm
