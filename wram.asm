@@ -2579,7 +2579,7 @@ wTempPP::
 wNextBoxOrPartyIndex::
 wChosenCableClubRoom::
 wBreedingCompatibility::
-wMoveGrammar::
+wMoveAnim::
 wApplyStatLevelMultipliersToEnemy::
 wUsePPUp::
 wd265:: ; mobile
