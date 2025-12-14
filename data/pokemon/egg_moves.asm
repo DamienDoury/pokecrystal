@@ -55,6 +55,7 @@ RattataEggMoves:
 	db -1 ; end
 
 SpearowEggMoves:
+	db RAZOR_WIND
 	db FAINT_ATTACK
 	db FALSE_SWIPE
 	db SCARY_FACE
@@ -366,6 +367,7 @@ KangaskhanEggMoves:
 	db -1 ; end
 
 HorseaEggMoves:
+	db RAZOR_WIND
 	db FLAIL
 	db AURORA_BEAM
 	db OCTAZOOKA
@@ -618,6 +620,7 @@ MisdreavusEggMoves:
 	db -1 ; end
 
 GirafarigEggMoves:
+	db RAZOR_WIND
 	db TAKE_DOWN
 	db AMNESIA
 	db FORESIGHT

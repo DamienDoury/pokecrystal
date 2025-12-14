@@ -233,6 +233,7 @@ PidgeyEvosAttacks:
 	db 21, WHIRLWIND
 	db 29, WING_ATTACK
 	db 37, AGILITY
+	db 42, RAZOR_WIND
 	db 47, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -248,6 +249,7 @@ PidgeottoEvosAttacks:
 	db 23, WHIRLWIND
 	db 33, WING_ATTACK
 	db 43, AGILITY
+	db 49, RAZOR_WIND
 	db 55, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -263,6 +265,7 @@ PidgeotEvosAttacks:
 	db 23, WHIRLWIND
 	db 33, WING_ATTACK
 	db 46, AGILITY
+	db 54, RAZOR_WIND
 	db 61, MIRROR_MOVE
 	db 0 ; no more level-up moves
 
@@ -1684,6 +1687,7 @@ ScytherEvosAttacks:
 	db 24, AGILITY
 	db 30, WING_ATTACK
 	db 36, SLASH
+	db 39, RAZOR_WIND
 	db 42, SWORDS_DANCE
 	db 48, DOUBLE_TEAM
 	db 0 ; no more level-up moves
@@ -2854,6 +2858,7 @@ ScizorEvosAttacks:
 	db 24, AGILITY
 	db 30, METAL_CLAW
 	db 36, SLASH
+	db 39, RAZOR_WIND
 	db 42, SWORDS_DANCE
 	db 48, DOUBLE_TEAM
 	db 0 ; no more level-up moves
