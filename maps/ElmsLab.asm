@@ -454,6 +454,7 @@ ElmEncouragesPlayerToGetVaccinatedScript:
 	writetext ElmGiveVaccineText5
 	setevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	setevent EVENT_PLAYER_CAN_GET_ITS_FIRST_SHOT
+ElmsLab_EndText:
 	waitbutton
 	closetext
 	end
@@ -618,37 +619,25 @@ AideScript_GiveYouBalls:
 
 ElmsAideScript:
 	faceplayer
-	opentext
-;	;iftrue AideScript_AfterTheft
-	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
-	iftrue AideScript_TheftTestimony
+	checkevent EVENT_LOCKDOWN_MART_RUSH
+	iffalse AideScript_MartRush
+
 	checkflag ENGINE_WEARING_FACE_MASK
 	iftrue AideScript_BetterSafeThanSorry
-	writetext AideText_AlwaysBusy
-ElmsLab_EndText:
-	waitbutton
-	closetext
-	end
+
+	checkevent EVENT_GOT_COVID_SAMPLE_FROM_MR_POKEMON
+	iftrue AideScript_TheftTestimony
+
+	jumptext AideText_AlwaysBusy
 
 AideScript_BetterSafeThanSorry:
-	writetext AideText_BetterSafeThanSorry
-	waitbutton
-	closetext
-	end
+	jumptext AideText_BetterSafeThanSorry
 
 AideScript_TheftTestimony:
-	writetext AideText_TheftTestimony
-	promptbutton
-	writetext AideText_AfterTheft
-	waitbutton
-	closetext
-	end
+	jumptext AideText_TheftTestimony
 
-AideScript_AfterTheft:
-	writetext AideText_AfterTheft
-	waitbutton
-	closetext
-	end
+AideScript_MartRush:
+	jumptext AideScript_MartRushText
 
 MeetCopScript2:
 	applymovement PLAYER, MeetCopScript2_StepLeft
@@ -2019,36 +2008,6 @@ else
 endc
 	done
 
-AideText_AfterTheft: 
-if DEF(_FR_FR)
-	text "...(soupir)..."
-	line "Ce #MON volé..."
-
-	para "Je me demande"
-	line "comment il va."
-
-	para "On dit qu'un"
-	line "#MON élevé par"
-
-	para "un méchant p'tit"
-	line "bonhomme tourne"
-	cont "mal lui aussi."
-else
-	text "…sigh… That"
-	line "stolen #MON."
-
-	para "I wonder how it's"
-	line "doing."
-
-	para "They say a #MON"
-	line "raised by a bad"
-
-	para "person turns bad"
-	line "itself."
-endc
-
-	done
-
 ElmGiveWorkVisaText1:
 if DEF(_FR_FR)
 	text "ORME: La rumeur"
@@ -2848,6 +2807,19 @@ if DEF(_FR_FR)
 	cont "ne pas avoir de"
 	cont "coeur pour faire"
 	cont "une telle chose!"
+
+	para "...(soupir)..."
+	line "Ce #MON volé..."
+
+	para "Je me demande"
+	line "comment il va."
+
+	para "On dit qu'un"
+	line "#MON élevé par"
+
+	para "un méchant p'tit"
+	line "bonhomme tourne"
+	cont "mal lui aussi."
 else
 	text "There was a loud"
 	line "noise outside…"
@@ -2859,6 +2831,32 @@ else
 	para "It's unbelievable"
 	line "that anyone would"
 	cont "do that!"
+
+	para "…sigh… That"
+	line "stolen #MON."
+
+	para "I wonder how it's"
+	line "doing."
+
+	para "They say a #MON"
+	line "raised by a bad"
+
+	para "person turns bad"
+	line "itself."
+endc
+	done
+
+AideScript_MartRushText:
+if DEF(_FR_FR)
+	text "Un confinement..."
+	
+	para "Mais comment"
+	line "on va faire?"
+else
+	text "A lockdown…"
+
+	para "How are we"
+	line "gonna do?"
 endc
 	done
 
