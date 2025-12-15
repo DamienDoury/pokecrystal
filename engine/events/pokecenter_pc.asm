@@ -183,13 +183,15 @@ PlayersPC:
 	and a
 	ret
 
-HallOfFamePC:
+HallOfFamePC::
+	call OpenTextPre
+	call OpenTextPost
 	call PC_PlayChoosePCSound
 	call FadeToMenu
 	farcall _HallOfFamePC
+	call PC_PlayShutdownSound
 	call CloseSubmenu
-	and a
-	ret
+	jmp CloseText
 
 TurnOffPC:
 	ld hl, PokecenterPCClosedText

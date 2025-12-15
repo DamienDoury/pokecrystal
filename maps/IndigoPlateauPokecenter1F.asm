@@ -153,6 +153,19 @@ AbraScript:
 IndigoPlateauGymGuideScript:
 	jumptextfaceplayer IndigoPlateauGymGuideText
 
+HallOfFameMachineScript:
+	readmem wHallOfFameCount
+	ifequal 0, .elite4_not_defeated
+
+	opentext
+	farscall HandCleaningScript
+	closetext
+	callasm HallOfFamePC
+	end
+
+.elite4_not_defeated:
+	jumptext HOFMachineExplanationText
+
 PlateauRivalMovement1:
 	step UP
 	step UP
@@ -442,6 +455,32 @@ else
 endc
 	done
 
+HOFMachineExplanationText:
+if DEF(_FR_FR)
+	text "Cette machine"
+	line "répertorie tes"
+	cont "exploits à la"
+	cont "LIGUE #MON."
+
+	para "Reviens quand tu"
+	line "auras obtenu"
+	cont "le titre de"
+	cont "MAITRE #MON."
+else
+	text "This machine re-"
+	line "cords your achie-"
+	cont "vements at the"
+	cont "#MON LEAGUE."
+	
+	para "Come back once"
+	line "you have gained"
+	cont "the title of"
+	
+	para "#MON LEAGUE"
+	line "CHAMPION."
+endc
+	done
+
 IndigoPlateauPokecenter1F_MapEvents:
 	db 0, 0 ; filler
 
@@ -456,6 +495,7 @@ IndigoPlateauPokecenter1F_MapEvents:
 	coord_event 17,  4, CE_SCENE_ID, SCENE_ALWAYS, PlateauRivalBattle2
 
 	def_bg_events
+	bg_event  8,  7, BGEVENT_UP, HallOfFameMachineScript
 
 	def_object_events
 	object_event  3,  7, SPRITE_NURSE, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, 0, OBJECTTYPE_SCRIPT, 0, IndigoPlateauPokecenter1FNurseScript, -1

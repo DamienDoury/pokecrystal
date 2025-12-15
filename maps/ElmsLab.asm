@@ -304,6 +304,14 @@ ElmsLabHealingMachine:
 	sjump ElmsLab_EndText
 
 .CanHeal:
+	scall HandCleaningScript
+	writetext ElmsLabHealingMachineText2
+	yesorno
+	iftrue ElmsLabHealingMachine_HealParty
+	closetext
+	end
+
+HandCleaningScript::
 	checkevent EVENT_GOT_HAND_SANITIZER
 	iffalse .HandsAreClean
 
@@ -323,10 +331,6 @@ ElmsLabHealingMachine:
 	pause 10
 
 .HandsAreClean:
-	writetext ElmsLabHealingMachineText2
-	yesorno
-	iftrue ElmsLabHealingMachine_HealParty
-	closetext
 	end
 
 ElmsLabHealingMachine_HealParty:
