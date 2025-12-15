@@ -460,8 +460,8 @@ endc
 
 CharcoalKilnBossPanicText:
 if DEF(_FR_FR)
-	text "Comment marche"
-	line "l'attestation"
+	text "Comment ça marche"
+	line "l'auto-attestation"
 	cont "manuscrite?"
 	done
 else
