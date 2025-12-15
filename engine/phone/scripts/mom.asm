@@ -10,6 +10,10 @@ MomPhoneCalleeScript:
 .started_quest
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue MomPhoneHangUpScript
+	
+	checkevent EVENT_LOCKDOWN_MART_RUSH
+	iffalse MomMartRushScript
+
 	farwritetext MomPhoneGreetingText
 	promptbutton
 	getcurlandmarkname STRING_BUFFER_3
@@ -128,6 +132,10 @@ MomPhoneNoPokedexScript:
 
 MomPhoneNoGymQuestScript:
 	farwritetext MomPhoneNoGymQuestText
+	end
+
+MomMartRushScript:
+	farwritetext MomMartRushText
 	end
 
 MomPhoneLectureScript:

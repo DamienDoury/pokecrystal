@@ -615,6 +615,51 @@ else
 endc
 
 
+MomMartRushText:
+if DEF(_FR_FR)
+	text "Mon poussin..."
+	
+	para "Je sais que tu n'as"
+	line "pas envie de re-"
+	cont "venir à la maison"
+	
+	para "alors que tu viens"
+	line "tout juste de"
+	cont "commencer ta"
+	cont "mission pour le"
+	cont "PROF.ORME."
+	
+	para "Prends une déci-"
+	line "sion réfléchie."
+	
+	para "Et surtout fait"
+	line "gaffe à ce virus."
+
+	para "Tu me manques."
+	done
+else
+	text "My little one..."
+
+	para "I know you don't"
+	line "feel like coming"
+	cont "back home right"
+
+	para "after starting"
+	line "your mission for"
+	cont "PROF.ELM."
+
+	para "Make a careful"
+	line "decision."
+
+	para "And most of all,"
+	line "be careful with"
+	cont "that virus."
+
+	para "I'm missing you."
+	done
+endc
+
+
 MomVaccinePassportText:
 if DEF(_FR_FR)
 	text "Coucou mon sucre!"
