@@ -7491,7 +7491,7 @@ endc
 OfficerGroup:
 	; OFFICER (1)
 if DEF(_FR_FR)
-	db "NICOLAS@"
+	db "O@"
 else
 	db "O@"
 endc
