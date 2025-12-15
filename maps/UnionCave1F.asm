@@ -40,7 +40,12 @@ TrainerFirebreatherBill:
 
 .Script:
 	endifjustbattled
+	checkitem HM_CUT
+	iftrue .lockdown_happened
 	jumptextfaceplayer FirebreatherBillAfterBattleText
+
+.lockdown_happened
+	jumptextfaceplayer FirebreatherBillAfterBattle_MartRushText
 
 TrainerFirebreatherRay:
 	trainer FIREBREATHER, RAY, EVENT_BEAT_FIREBREATHER_RAY, FirebreatherRaySeenText, FirebreatherRayBeatenText, 0, .Script
@@ -251,6 +256,53 @@ else
 
 	para "… I believe it's"
 	line "impossible."
+endc
+	done
+
+FirebreatherBillAfterBattle_MartRushText:
+if DEF(_FR_FR)
+	text "Puti j'y crois pas!"
+
+	para "La rumeur disait"
+	line "vrai!"
+	
+	para "Le gouvernement a"
+	line "vraiment décrété"
+	cont "un confinement"
+	cont "national!"
+
+	para "Ca ne s'est jamais"
+	line "produit dans l'"
+	cont "histoire de notre"
+	cont "pays."
+
+	para "Pas même pendant"
+	line "les guerres!"
+	
+	para "Ce qui nous arrive"
+	line "c'est lunaire!"
+else
+	text "Damn, I can't"
+	line "believe it!"
+
+	para "The rumors were"
+	line "true!"
+
+	para "The government"
+	line "actually declared"
+	cont "a nationwide"
+	cont "lockdown!"
+
+	para "This has never"
+	line "happened before"
+	cont "in our country's"
+	cont "history."
+
+	para "Not even during"
+	line "war time!"
+
+	para "What's happening"
+	line "to us is surreal!"
 endc
 	done
 
