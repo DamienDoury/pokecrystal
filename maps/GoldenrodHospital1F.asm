@@ -236,19 +236,7 @@ AskGelScript:
 GoldenrodHospitalGelScript:
 	setmapscene GOLDENROD_HOSPITAL_1F, SCENE_GOLDENROD_HOSPITAL_DEFAULT
 	opentext
-	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .FemaleHandWash
-	writetext GoldenrodHospital1FWashHandsMaleText
-	sjump .boops
-
-.FemaleHandWash:
-	writetext GoldenrodHospital1FWashHandsFemaleText
-
-.boops:
-	waitsfx
-	playsound SFX_2_BOOPS
-	waitsfx
-	pause 10
+	farscall HandCleaningScript
 	closetext
 	end
 
@@ -347,14 +335,6 @@ GoldenrodHospitalLockScript:
 GoldenrodHospital_PlayerDownMovement:
 	slow_step DOWN
 	step_end
-
-GoldenrodHospital1FWashHandsMaleText:
-	text_far _PlayersPCSanitizerText
-	text_end
-
-GoldenrodHospital1FWashHandsFemaleText:
-	text_far _PlayersPCSanitizerFemaleText
-	text_end
 
 GoldenrodHospital1fMaxPotion:
 	hiddenitem MAX_POTION, EVENT_GOLDENROD_1F_CORRIDOR_MAX_POTION

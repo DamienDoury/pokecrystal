@@ -565,6 +565,7 @@ TrashCanScript:
 
 PCScript:
 	opentext
+	farscall HandCleaningScript
 	special PokemonCenterPC
 	closetext
 	end

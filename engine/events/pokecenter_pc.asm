@@ -15,31 +15,6 @@ PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
 
-	ld b, CHECK_FLAG
-	ld de, EVENT_GOT_HAND_SANITIZER
-	call EventFlagAction
-	ld a, c
-	and a
-	jr z, .clean_hands
-
-
-	ld a, [wPlayerGender]
-	bit PLAYERGENDER_FEMALE_F, a
-	jr z, .male_text
-	ld hl, PokecenterPCSanitizerFemaleText
-	jr .display_sanitizer_text
-
-.male_text
-	ld hl, PokecenterPCSanitizerText
-	; fallthrough.
-
-.display_sanitizer_text
-	call PC_DisplayText
-	call PC_PlaySanitizerSound
-	ld c, 75
-	call DelayFrames
-
-.clean_hands
 	call PC_PlayBootSound
 	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText
@@ -198,11 +173,6 @@ TurnOffPC:
 	call PrintText
 	scf
 	ret
-
-PC_PlaySanitizerSound:
-	ld de, SFX_2_BOOPS
-	jr PC_WaitPlaySFX
-	jmp WaitSFX
 
 PC_PlayBootSound:
 	ld de, SFX_BOOT_PC
@@ -370,14 +340,6 @@ PlayerMailBoxMenu:
 PC_DisplayText:
 	call MenuTextbox
 	jmp ExitMenu
-
-PokecenterPCSanitizerText:
-	text_far _PlayersPCSanitizerText
-	text_end
-
-PokecenterPCSanitizerFemaleText:
-	text_far _PlayersPCSanitizerFemaleText
-	text_end
 
 PokecenterPCTurnOnText:
 	text_far _PokecenterPCTurnOnText

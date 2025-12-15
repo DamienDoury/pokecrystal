@@ -144,19 +144,7 @@ endc
 
 GoldenrodHospitalCorridorGelScript:
 	opentext
-	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .FemaleHandWash
-	writetext GoldenrodHospitalCorridorWashHandsMaleText
-	sjump .boops
-
-.FemaleHandWash:
-	writetext GoldenrodHospitalCorridorWashHandsFemaleText
-
-.boops:
-	waitsfx
-	playsound SFX_2_BOOPS
-	waitsfx
-	pause 10
+	farscall HandCleaningScript
 	closetext
 	end
 
@@ -215,14 +203,6 @@ GoldenrodHospitalCorridorPsychicT1Script:
 .Script:
 	endifjustbattled
 	jumptextfaceplayer GoldenrodHospitalPsychicTrainerAfterBattleText
-
-GoldenrodHospitalCorridorWashHandsMaleText:
-	text_far _PlayersPCSanitizerText
-	text_end
-
-GoldenrodHospitalCorridorWashHandsFemaleText:
-	text_far _PlayersPCSanitizerFemaleText
-	text_end
 
 GoldenrodHospitalCorridorMaxElixer:
 	hiddenitem MAX_ELIXER, EVENT_GOLDENROD_HOSPITAL_CORRIDOR_MAX_ELIXER

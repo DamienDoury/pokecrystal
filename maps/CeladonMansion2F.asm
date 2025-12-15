@@ -5,19 +5,7 @@ CeladonMansion2F_MapScripts:
 
 CeladonMansion2FComputer:
 	opentext
-	checkflag ENGINE_PLAYER_IS_FEMALE
-	iftrue .FemaleHandWash
-	farwritetext _PlayersPCSanitizerText
-	sjump .boops
-
-.FemaleHandWash:
-	farwritetext _PlayersPCSanitizerFemaleText
-
-.boops:
-	waitsfx
-	playsound SFX_2_BOOPS
-	waitsfx
-	pause 10
+	farscall HandCleaningScript
 	writetext CeladonMansion2FComputerText
 	waitbutton
 	closetext
