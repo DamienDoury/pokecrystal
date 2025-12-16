@@ -262,7 +262,7 @@ ReadTrainerPartyPieces:
 	cp SWAT
 	jr z, .force_perfect_stat_exp
 	cp JENNY
-	ld a, $55 ; third of max stat exp.
+	ld a, $80 ; half of max stat exp.
 	jr z, .force_stat_exp
 	jr .stat_exp_check
 
