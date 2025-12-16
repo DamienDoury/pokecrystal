@@ -2737,3 +2737,28 @@ else
 	cont "assaulted you!"
 	prompt
 endc
+
+PoliceBattleInstructionsText:
+	text "!!!"
+if DEF(_FR_FR)
+	para "Ceci n'est pas un"
+	line "combat ordinaire!"
+
+	para "Bats ton adver-"
+	line "saire, ou tu te"
+	cont "feras arrêter."
+
+	para "Utilise des objets"
+	line "si nécessaire."
+else
+	para "This isn't a"
+	line "regular battle!"
+
+	para "Defeat your"
+	line "opponent or you'll"
+	cont "get arrested."
+	
+	para "Use items if"
+	line "you need to."
+endc
+	prompt

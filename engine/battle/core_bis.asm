@@ -511,6 +511,23 @@ BattleStartMessage:
 	pop hl
 	call StdBattleTextbox
 
+	ld a, [wOtherTrainerClass]
+	cp OFFICER
+	jr nz, .first_police_battle_case_treated
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_POLICE_BATTLE
+	call EventFlagAction
+	jr nz, .first_police_battle_case_treated
+
+	ld b, SET_FLAG
+	ld de, EVENT_FIRST_POLICE_BATTLE
+	call EventFlagAction
+
+	ld hl, PoliceBattleInstructionsText
+	call StdBattleTextbox
+
+.first_police_battle_case_treated
 	farcall IsMobileBattle2
 	ret nz
 
