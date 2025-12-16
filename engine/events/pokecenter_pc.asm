@@ -18,96 +18,15 @@ PokemonCenterPC:
 	call PC_PlayBootSound
 	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText
-	ld hl, PokecenterPCWhoseText
-	call PC_DisplayTextWaitMenu
-	ld hl, .TopMenu
-	call LoadMenuHeader
-.loop
 	xor a
 	ldh [hBGMapMode], a
-	call .ChooseWhichPCListToUse
-	ld [wWhichIndexSet], a
-	call DoNthMenu
-	jr c, .shutdown
-	ld a, [wMenuSelection]
-	ld hl, .JumpTable
-	call MenuJumptable
-	jr nc, .loop
+	call CloseText
+	call OpenTextPre
+	call OpenTextPost
+	call BillsPC
 
-.shutdown
 	call PC_PlayShutdownSound
-	call ExitMenu
-	jmp CloseWindow
-
-.TopMenu:
-	db MENU_BACKUP_TILES | MENU_NO_CLICK_SFX ; flags
-	menu_coords 0, 0, 15, 12
-	dw .MenuData
-	db 1 ; default option
-
-.MenuData:
-	db STATICMENU_CURSOR | STATICMENU_WRAP ; flags
-	db 0 ; items
-	dw .WhichPC
-	dw PlaceNthMenuStrings
-	dw .JumpTable
-
-.JumpTable:
-; entries correspond to PCPCITEM_* constants
-	dw PlayersPC,    .String_PlayersPC
-	dw BillsPC,      .String_BillsPC
-	dw HallOfFamePC, .String_HallOfFame
-	dw TurnOffPC,    .String_TurnOff
-
-if DEF(_FR_FR)
-.String_PlayersPC:  db "PC DE <PLAYER>@"
-.String_BillsPC:    db "PC DE LEO@"
-.String_HallOfFame: db "CELEBRITE@"
-.String_TurnOff:    db "DECONNEXION@"
-else
-.String_PlayersPC:  db "<PLAYER>'s PC@"
-.String_BillsPC:    db "BILL's PC@"
-.String_HallOfFame: db "HALL OF FAME@"
-.String_TurnOff:    db "TURN OFF@"
-endc
-
-.WhichPC:
-; entries correspond to PCPC_* constants
-
-	; PCPC_BEFORE_POKEDEX
-	db 3
-	db PCPCITEM_BILLS_PC
-	db PCPCITEM_PLAYERS_PC
-	db PCPCITEM_TURN_OFF
-	db -1 ; end
-
-	; PCPC_BEFORE_HOF
-	db 3
-	db PCPCITEM_BILLS_PC
-	db PCPCITEM_PLAYERS_PC
-	db PCPCITEM_TURN_OFF
-	db -1 ; end
-
-	; PCPC_POSTGAME
-	db 4
-	db PCPCITEM_BILLS_PC
-	db PCPCITEM_PLAYERS_PC
-	db PCPCITEM_HALL_OF_FAME
-	db PCPCITEM_TURN_OFF
-	db -1 ; end
-
-.ChooseWhichPCListToUse:
-	call CheckReceivedDex
-	jr nz, .got_dex
-	ld a, PCPC_BEFORE_POKEDEX
-	ret
-
-.got_dex
-	ld a, [wHallOfFameCount]
-	and a
-	ld a, PCPC_BEFORE_HOF
-	ret z
-	ld a, PCPC_POSTGAME
+	scf
 	ret
 
 PC_CheckPartyForPokemon:
@@ -143,8 +62,6 @@ PC_CheckPartyForPokemon:
 
 BillsPC:
 	call PC_PlayChoosePCSound
-	ld hl, PokecenterBillsPCText
-	call PC_DisplayText
 	farcall _BillsPC
 	and a
 	ret
@@ -167,12 +84,6 @@ HallOfFamePC::
 	call PC_PlayShutdownSound
 	call CloseSubmenu
 	jmp CloseText
-
-TurnOffPC:
-	ld hl, PokecenterPCClosedText
-	call PrintText
-	scf
-	ret
 
 PC_PlayBootSound:
 	ld de, SFX_BOOT_PC

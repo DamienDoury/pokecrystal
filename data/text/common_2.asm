@@ -2511,11 +2511,11 @@ endc
 _PokecenterPCTurnOnText::
 if DEF(_FR_FR)
 	text "<PLAYER> allume"
-	line "le PC."
+	line "le PC de LEO."
 	prompt
 else
 	text "<PLAYER> turned on"
-	line "the PC."
+	line "BILL's PC."
 	prompt
 endc
 
