@@ -50,7 +50,7 @@ PokemonCenterPC:
 	call OpenTextPost
 	call BillsPC
 
-	jmp PC_PlayShutdownSound
+	jr PC_PlayShutdownSound
 
 PC_CheckPartyForPokemon:
 	ld a, [wPartyCount]
