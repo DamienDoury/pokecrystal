@@ -15,6 +15,31 @@ PokemonCenterPC:
 	call PC_CheckPartyForPokemon
 	ret c
 
+;	ld b, CHECK_FLAG
+;	ld de, EVENT_GOT_HAND_SANITIZER
+;	call EventFlagAction
+;	ld a, c
+;	and a
+;	jr z, .clean_hands
+;
+;
+;	ld a, [wPlayerGender]
+;	bit PLAYERGENDER_FEMALE_F, a
+;	jr z, .male_text
+;	ld hl, PokecenterPCSanitizerFemaleText
+;	jr .display_sanitizer_text
+;
+;.male_text
+;	ld hl, PokecenterPCSanitizerText
+;	; fallthrough.
+;
+;.display_sanitizer_text
+;	call PC_DisplayText
+;	call PC_PlaySanitizerSound
+;	ld c, 75
+;	call DelayFrames
+;
+;.clean_hands
 	call PC_PlayBootSound
 	ld hl, PokecenterPCTurnOnText
 	call PC_DisplayText
@@ -25,9 +50,7 @@ PokemonCenterPC:
 	call OpenTextPost
 	call BillsPC
 
-	call PC_PlayShutdownSound
-	scf
-	ret
+	jmp PC_PlayShutdownSound
 
 PC_CheckPartyForPokemon:
 	ld a, [wPartyCount]
@@ -85,24 +108,22 @@ HallOfFamePC::
 	call CloseSubmenu
 	jmp CloseText
 
+;PC_PlaySanitizerSound:
+;	ld de, SFX_2_BOOPS
+;	jr WaitPlaySFX
+
 PC_PlayBootSound:
 	ld de, SFX_BOOT_PC
-	jr PC_WaitPlaySFX
+	jmp WaitPlaySFX
 
 PC_PlayShutdownSound:
 	ld de, SFX_SHUT_DOWN_PC
-	call PC_WaitPlaySFX
-	jmp WaitSFX
+	jmp WaitPlaySFX
+	;jmp WaitSFX
 
 PC_PlayChoosePCSound:
 	ld de, SFX_CHOOSE_PC_OPTION
-	; fallthrough.
-
-PC_WaitPlaySFX:
-	push de
-	call WaitSFX
-	pop de
-	jmp PlaySFX
+	jmp WaitPlaySFX
 
 _PlayersHousePC:
 	call PC_PlayBootSound
@@ -123,6 +144,14 @@ _PlayersHousePC:
 	call ClearBGPalettes
 	ld c, TRUE
 	ret
+
+;PokecenterPCSanitizerText:
+;	text_far _PlayersPCSanitizerText
+;	text_end
+;
+;PokecenterPCSanitizerFemaleText:
+;	text_far _PlayersPCSanitizerFemaleText
+;	text_end
 
 PlayersPCTurnOnText:
 	text_far _PlayersPCTurnOnText
