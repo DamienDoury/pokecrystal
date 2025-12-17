@@ -4058,6 +4058,9 @@ TryToRunAwayFromBattle:
 	cp BATTLETYPE_SUICUNE
 	jp z, .cant_escape
 
+	call BattleCheckEnemyShininess
+	jp c, .cant_escape
+
 	ld a, [wLinkMode]
 	and a
 	jp nz, .can_escape
