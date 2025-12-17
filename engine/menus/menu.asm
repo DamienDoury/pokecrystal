@@ -17,6 +17,17 @@ _InterpretBattleMenu::
 	cp WILD_BATTLE
 	jr nz, .display
 
+	ld a, [wBattleType]
+	cp BATTLETYPE_SUICUNE
+	jr z, .display
+
+	cp BATTLETYPE_CONTEST
+	jr z, .allow_escape_with_b
+
+	and %11 ; Filters all multiples of 4 (BATTLETYPE_NORMAL, BATTLETYPE_FISH, BATTLETYPE_TREE). 12 (BATTLETYPE_SUICUNE) has already been handled above.
+	jr nz, .display
+
+.allow_escape_with_b
 	ld a, [wMenuDataFlags]
 	res 0, a ; Allows quitting the 2DMenu by pressing B.
 	ld [wMenuDataFlags], a
@@ -27,8 +38,34 @@ _InterpretBattleMenu::
 	call UpdateSprites
 	call ApplyTilemap
 	call Get2DMenuSelection
+.return_point
 	ret nc
 
+	; If the cursor was already on the Run option, and the user pressed B, we Run away.
+	ld a, [wMenuCursorX]
+	cp 2
+	jr nz, .place_on_run_away
+
+	ld a, [wMenuCursorY]
+	cp 2
+	jr nz, .place_on_run_away
+
+	ld a, [wMenuCursorPosition]
+	cp 4
+	jr nz, .place_on_run_away
+
+	; Simulating the A button press on the Run button.
+	xor a
+	ldh [hJoyLast], a
+
+	ld a, A_BUTTON
+	ldh [hJoyPressed], a
+
+	ld hl, .return_point
+	push hl ; This sets the location for the "ret" of Get2DMenuSelection.force_input.
+	jp Get2DMenuSelection.force_input
+
+.place_on_run_away
 	; If we quitted the 2DMenu by pressing B, we place the cursor over the Run option.
 	ld a, 2
 	ld [wMenuCursorX], a
@@ -46,6 +83,7 @@ Draw2DMenu:
 Get2DMenuSelection:
 	call Init2DMenuCursorPosition
 	call StaticMenuJoypad
+.force_input
 	call MenuClickSound
 Mobile_GetMenuSelection:
 	ld a, [wMenuDataFlags]
