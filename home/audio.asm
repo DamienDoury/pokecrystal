@@ -253,7 +253,11 @@ WaitSFX::
 	cp SFX_CHEERING
 	jr z, .exit
 
+	jr .handleLoop
+
 .wait
+	call DelayFrame
+.handleLoop
 	ld hl, wChannel5Flags1
 	bit 0, [hl]
 	jr nz, .wait

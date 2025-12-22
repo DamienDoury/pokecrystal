@@ -9,7 +9,6 @@ INCLUDE "engine/overworld/map_objects.asm"
 INCLUDE "engine/menus/intro_menu.asm"
 INCLUDE "engine/overworld/init_map.asm"
 INCLUDE "engine/pokemon/learn.asm"
-INCLUDE "engine/pokemon/correct_nick_errors.asm"
 INCLUDE "engine/math/math.asm"
 INCLUDE "data/items/attributes.asm"
 INCLUDE "engine/overworld/npc_movement.asm"
@@ -42,6 +41,7 @@ INCLUDE "engine/events/bug_contest/caught_mon.asm"
 INCLUDE "engine/items/item_effects.asm"
 INCLUDE "engine/battle/special_battle.asm"
 INCLUDE "engine/events/haircut.asm"
+INCLUDE "engine/pokemon/correct_nick_errors.asm"
 
 
 SECTION "bank4", ROMX

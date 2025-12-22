@@ -175,10 +175,11 @@ if DEF(_DEBUG)
 hDebugRoomMenuPage::
 endc
 hClockResetTrigger:: db
+hDelayFrameLY:: db
 
 hLongPressA:: db
 hLongPressB:: db
 hLongPressStart:: db
 hLongPressSelect:: db
 hWaitForDownButtonRelease:: db
-	ds 14
+	ds 13

@@ -123,6 +123,8 @@ CheckUpdatePlayerSprite:
 	jr z, .nope
 	cp PLAYER_CLAP
 	jr z, .nope
+	cp PLAYER_RUN
+	jr z, .nope
 	cp PLAYER_SKATE
 	jr z, .nope
 	cp PLAYER_SURF

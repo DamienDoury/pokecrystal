@@ -121,6 +121,8 @@ OverworldSprites:
 	overworld_sprite KrisClapSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	overworld_sprite TubeTransfer1GFX, 8, POKEMON_SPRITE, PAL_OW_PINK
 	overworld_sprite TubeTransfer2GFX, 8, POKEMON_SPRITE, PAL_OW_SILVER
+	overworld_sprite ChrisRunSpriteGFX, 12, WALKING_SPRITE, PAL_OW_RED
+ 	overworld_sprite KrisRunSpriteGFX, 12, WALKING_SPRITE, PAL_OW_BLUE
 	assert_table_length NUM_OVERWORLD_SPRITES
 
 ClappingOverworldSprites:
@@ -239,4 +241,6 @@ ClappingOverworldSprites:
 	dab KrisClapSpriteGFX
 	dab TubeTransfer1GFX
 	dab TubeTransfer2GFX
+	dab ChrisRunSpriteGFX
+	dab KrisRunSpriteGFX
 	assert_table_length NUM_OVERWORLD_SPRITES

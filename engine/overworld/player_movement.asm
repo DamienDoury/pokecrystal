@@ -324,7 +324,17 @@ DoPlayerMovement::
 	ret
 
 .walk
+	ld a, [wCurInput]
+	and B_BUTTON
+	jr nz, .run
+
 	ld a, STEP_WALK
+	call .DoStep
+	scf
+	ret
+
+.run
+	ld a, STEP_RUN
 	call .DoStep
 	scf
 	ret
@@ -388,7 +398,16 @@ DoPlayerMovement::
 
 .TrySurf:
 	call .CheckSurfPerms
+	push af
 	ld [wWalkingIntoLand], a
+	ld a, [wPlayerStepType]
+	cp STEP_TYPE_TURN
+	jr nz, .not_surf_turning
+
+	xor a
+	ld [wWalkingIntoLand], a
+.not_surf_turning
+	pop af
 	jr c, .surf_bump
 
 	call .CheckNPC
@@ -582,7 +601,8 @@ DoPlayerMovement::
 	table_width 2, DoPlayerMovement.Steps
 	dw .SlowStep
 	dw .NormalStep
-	dw .FastStep
+	dw .RunStep
+	dw .BikeStep
 	dw .JumpStep
 	dw .SlideStep
 	dw .TurningStep
@@ -600,11 +620,16 @@ DoPlayerMovement::
 	step UP
 	step LEFT
 	step RIGHT
-.FastStep:
+.RunStep
 	big_step DOWN
 	big_step UP
 	big_step LEFT
 	big_step RIGHT
+.BikeStep:
+	bike_step DOWN
+	bike_step UP
+	bike_step LEFT
+	bike_step RIGHT
 .JumpStep:
 	jump_step DOWN
 	jump_step UP

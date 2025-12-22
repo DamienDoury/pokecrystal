@@ -224,4 +224,11 @@ pull_out_squirtbottle: MACRO
 	db movement_pull_out_squirtbottle
 ENDM
 
+	const movement_bike_step ; $5b
+MACRO bike_step
+	db movement_bike_step + \1
+ENDM
+
+	const_skip 3 ; $5c, $5d, $5e
+
 NUM_MOVEMENT_CMDS EQU const_value

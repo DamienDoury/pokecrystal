@@ -96,14 +96,14 @@ EnterMap:
 	ret
 
 HandleMap:
-	call ResetOverworldDelay
 	call HandleMapTimeAndJoypad
-	farcall HandleCmdQueue ; no need to farcall
+	call HandleCmdQueue
 	call MapEvents
 
 ; Not immediately entering a connected map will cause problems.
 	ld a, [wMapStatus]
 	cp MAPSTATUS_HANDLE
+	ld a, 0
 	ret nz
 
 	call HandleMapObjects
@@ -121,20 +121,25 @@ ClappingAutoSFX:
 
 	; Trying to start the clapping SFX.
 	call CheckSFX
+	ld a, 0
 	ret c
 
 	ld de, SFX_CHEERING
+	xor a
 	jmp PlaySFX
 
 .TryEndClapping
 	call CheckSFX
+	ld a, 0
 	ret nc
 
 	ld a, [wCurSFX]
 	cp SFX_CHEERING
+	ld a, 0
 	ret nz
 	
 	farcall StopSFX
+	xor a
 	ret
 
 ClappingModeCheck:
@@ -198,18 +203,16 @@ MapEvents:
 	farcall ScriptEvents
 	ret
 
-ResetOverworldDelay:
-	ld a, 2 ; MaxOverworldDelay
-	ld [wOverworldDelay], a
-	ret
-
 NextOverworldFrame::
-	ld a, [wOverworldDelay]
-	and a
-	ret z
+	; If we haven't already performed a delay outside DelayFrame as a result
+	; of a busy LY overflow, perform that now.
+	ld a, [hDelayFrameLY]
+	inc a
+	jp nz, DelayFrame
 
-	ld c, a
-	jmp DelayFrames
+	xor a
+	ld [hDelayFrameLY], a
+	ret
 
 HandleMapTimeAndJoypad:
 	ld a, [wMapEventStatus]
@@ -544,7 +547,7 @@ OWPlayerInput:
 	scf
 	ret
 
-LONG_PRESS_FRAMES_DURATION EQU 10
+LONG_PRESS_FRAMES_DURATION EQU 20
 
 CheckAPressOW::
 	ldh a, [hJoypadDown]
@@ -1698,7 +1701,7 @@ EdgeWarpScript:
 	reloadend MAPSETUP_CONNECTION
 
 ChangeDirectionScript:
-	deactivatefacing 3
+	callasm UnfreezeAllObjects
 	callasm EnableWildEncounters
 	end
 
@@ -1823,6 +1826,11 @@ RandomEncounter::
 	ret
 
 .ok
+	push bc
+	ld bc, wPlayerStruct
+	farcall ResetObject
+	pop bc
+
 	ld a, BANK(WildBattleScript)
 	ld hl, WildBattleScript
 	jmp CallScript

@@ -1816,6 +1816,9 @@ TryBikeSilent::
 	cp PLAYER_CLAP
 	ret z
 
+	cp PLAYER_RUN
+	ret z
+
 	cp PLAYER_BIKE
 	ret z
 
@@ -1835,6 +1838,8 @@ BikeFunction:
 	cp PLAYER_NORMAL
 	jr z, .GetOnBike
 	cp PLAYER_CLAP
+	jr z, .GetOnBike
+	cp PLAYER_RUN
 	jr z, .GetOnBike
 	cp PLAYER_BIKE
 	jr z, .GetOffBike
