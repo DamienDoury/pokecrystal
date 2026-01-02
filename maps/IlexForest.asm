@@ -354,8 +354,6 @@ IlexForestFarfetchdScript:
 IlexForestCharcoalMasterScript:
 	faceplayer
 	opentext
-	checkitem HM_CUT
-	iftrue .AlreadyGotCut
 	writetext Text_CharcoalMasterIntro
 	promptbutton
 	special FadeOutMusic
@@ -376,12 +374,6 @@ IlexForestCharcoalMasterScript:
 	callasm WipeAttrmap
 	callasm Continue_DisplayYear
 	warpfacing UP, CHARCOAL_KILN, 2, 5
-	end
-
-.AlreadyGotCut:
-	writetext Text_CharcoalMasterTalkAfter
-	waitbutton
-	closetext
 	end
 
 IlexForestHeadbuttGuyScript:
@@ -872,27 +864,6 @@ else
 
 	para "Come with me."
 endc
-	done
-
-Text_CharcoalMasterTalkAfter: 
-if DEF(_FR_FR)
-	text "Veux-tu devenir"
-	line "pro du charbon"
-	cont "comme moi?"
-
-	para "Tu verras, c'est"
-	line "cool!"
-else
-	text "Do you want to"
-	line "apprentice as a"
-
-	para "charcoal maker"
-	line "with me?"
-
-	para "You'll be first-"
-	line "rate in ten years!"
-endc
-
 	done
 
 Text_HeadbuttIntro: 
