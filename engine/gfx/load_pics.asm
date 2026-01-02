@@ -300,30 +300,33 @@ GetTrainerPic:
 	ld a, [wTrainerClass]
 	and a
 	ret z
+
 	cp NUM_TRAINER_CLASSES + 1
 	ret nc
+
 	call WaitBGMap
 	xor a
 	ldh [hBGMapMode], a
 
-	; Early trainers do not wear a face mask.
-	ld b, HM_CUT
-	farcall FarCheckHMSilent
-	jr nc, .WearFaceMask
-
+	; Harriet / Frisette special case.
 	ld a, [wTrainerClass]
 	cp BEAUTY
 	jr nz, .HarrietSpecialCaseSkipped
 
 	ld a, [wCurLandmark]
 	cp LANDMARK_LIGHTHOUSE
-	ld a, [wTrainerClass]
 	jr nz, .HarrietSpecialCaseSkipped
 
 	ld hl, BeautyFailedCutPicPointer
 	jr .PictureAddressFound
 
 .HarrietSpecialCaseSkipped
+	; Early trainers do not wear a face mask.
+	ld b, HM_CUT
+	farcall FarCheckHMSilent
+	jr nc, .WearFaceMask
+
+	ld a, [wTrainerClass]
 	cp YOUNGSTER
 	jr c, .WearFaceMask
 
