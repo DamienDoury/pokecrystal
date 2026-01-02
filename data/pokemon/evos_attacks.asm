@@ -2242,11 +2242,11 @@ HoothootEvosAttacks:
 
 NoctowlEvosAttacks:
 	db 0 ; no more evolutions
+	db 1, SKY_ATTACK
 	db 1, TACKLE
 	db 1, GROWL
 	db 1, FORESIGHT
 	db 1, PECK
-	db 1, SKY_ATTACK
 	db 6, FORESIGHT
 	db 11, PECK
 	db 16, HYPNOSIS
