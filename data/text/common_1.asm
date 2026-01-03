@@ -5205,8 +5205,8 @@ if DEF(_FR_FR)
 	para "Je me demande"
 	line "combien de temps"
 	
-	para "cet applaudisse-"
-	line "ment va durer."
+	para "les applaudisse-"
+	line "ments vont durer."
 	done
 else
 	text "*clap* *clap*"
