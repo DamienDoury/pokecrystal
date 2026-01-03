@@ -774,8 +774,8 @@ GoldenrodHospitalOfficeChiefLuckyEggText:
 if DEF(_FR_FR)
 	text "INFIRMIERE EN"
 	line "CHEF: Je ne t'ai"
-	cont "remercié convena-"
-	cont "blement pour"
+	cont "pas remercié con-"
+	cont "venablement pour"
 	cont "m'avoir aidé à me"
 	cont "détendre la der-"
 	cont "nière fois."

@@ -1332,7 +1332,7 @@ _ForceTimeOfDayPaletteSmoothing::
 
 
 ; #### ROOF PALETTES #### ;
-	call RoofPaletteOverride ; Special case for the Roofs. Note: this causes issues with the only CAVE map that uses it: Pewter Museum.
+	call RoofPaletteOverride ; Special case for the Roofs. Note: Pewter Museum used to make use of this palette, but not anymore.
 
 
 

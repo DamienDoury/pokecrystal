@@ -84,16 +84,14 @@ EcruteakMartCooltrainerFText:
 if DEF(_FR_FR)
 	text "Je n'y crois pas!"
 
-	para "Je vais de"
-	line "magasin en"
-	cont "magasin,"
+	para "Je vais de magasin"
+	line "en magasin à la"
+	cont "recherche de #"
+	cont "BALLS, et quand"
 
-	para "et quand enfin je"
-	line "réussis à trouver"
-	cont "des # BALLS,"
-
-	para "leur prix a"
-	line "augmenté!"
+	para "enfin j'en trouve,"
+	line "je découvre que"
+	cont "le prix a explosé!"
 
 	para "Ca me rend folle"
 	line "de ne pas en"

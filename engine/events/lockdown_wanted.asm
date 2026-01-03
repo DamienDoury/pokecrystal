@@ -532,8 +532,8 @@ endc
 
 TravelFineText1:
 if DEF(_FR_FR)
-	text "POLICIER: Je ne"
-	line "t'ai jamais vu ici."
+	text "Je ne t'ai jamais"
+	line "vu ici."
 
 	para "Je passe l'éponge"
 	line "pour cette fois."
@@ -546,8 +546,8 @@ if DEF(_FR_FR)
 	cont "sera une amende."
 	done
 else
-	text "OFFICER: I've never"
-	line "seen you here."
+	text "I've never seen"
+	line "you here."
 
 	para "I'll let it slide"
 	line "for this time."
@@ -562,13 +562,12 @@ endc
 
 TravelFineText1Bis:
 if DEF(_FR_FR)
-	text "POLICIER: Le dos-"
-	line "sier indique que"
-	
-	para "ce n'est pas la"
-	line "première fois que"
-	cont "tu enfreins"
-	cont "l'interdiction de"
+	text "Le dossier indique"
+	line "que ce n'est pas la"
+	cont "première fois que"
+
+	para "tu enfreins"
+	line "l'interdiction de"
 	cont "voyager..."
 
 	para "Ton amende sera"
@@ -577,11 +576,11 @@ if DEF(_FR_FR)
 	text "¥."
 	done
 else
-	text "OFFICER: The file"
-	line "says that it's not"
+	text "The file says that"
+	line "it's not the first"
 	
-	para "the first time you"
-	line "violate the travel"
+	para "time you violate"
+	line "the travel"
 	cont "restriction…"
 
 	para "Your fine will be"

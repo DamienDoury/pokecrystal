@@ -130,10 +130,10 @@ else
 
 	para "@"
 	text_ram wStringBuffer3
-endc
-
 	text_start
 	line "popped out."
+endc
+
 	done
 
 CeladonVendingNoMoneyText: 

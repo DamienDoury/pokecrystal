@@ -311,7 +311,7 @@ endc
 
 GoldenrodFlowerShopSquirtbottleAdviceText:
 if DEF(_FR_FR)
-	text "Utilise-le pour"
+	text "Utilise-la pour"
 	line "arroser les arbres"
 	cont "à baies. Quelques"
 	cont "gouttes suffisent."

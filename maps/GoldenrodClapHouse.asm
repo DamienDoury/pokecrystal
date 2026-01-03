@@ -356,7 +356,7 @@ endc
 GoldenrodClapHouse_MasterBeforeLockdownText:
 if DEF(_FR_FR)
 	text "Ca va me déprimer"
-	line "de rester confiné"
+	line "de rester confinée"
 	cont "chez moi."
 
 	para "J'ai trouvé!"
@@ -570,7 +570,7 @@ endc
 GoldenrodClapHouse_ExplanationText:
 if DEF(_FR_FR)
 	text "La mode que j'ai"
-	line "lancé a décollé!"
+	line "lancée a décollé!"
 
 	para "Chaque jour à 20h,"
 	line "les gens confinés"

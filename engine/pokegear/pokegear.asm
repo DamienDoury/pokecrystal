@@ -803,7 +803,7 @@ Map_PressUp_SkipHiddenLandmarks:
 	jr nz, .not_hospital
 
 	push de
-	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	ld de, EVENT_FOUND_HOSPITAL
 	call CheckMapEventFlag
 	pop de
 	jr nz, .not_hospital
@@ -842,7 +842,7 @@ Map_PressDown_SkipHiddenLandmarks:
 	jr nz, .not_hospital
 
 	push de
-	ld de, EVENT_FIRST_LOCKDOWN_STARTED
+	ld de, EVENT_FOUND_HOSPITAL
 	call CheckMapEventFlag
 	pop de
 	jr nz, .not_hospital

@@ -3301,7 +3301,7 @@ if DEF(_FR_FR)
 	cont "#MON le plus"
 	cont "fort."
 
-	para "Si ce niveau est"
+	para "Si ton niveau est"
 	line "supérieur au"
 	cont "mien, je n'aurais"
 	cont "pas besoin du"

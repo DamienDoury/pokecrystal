@@ -861,8 +861,8 @@ if DEF(_FR_FR)
 	text "Symptômes d'une"
 	line "maladie."
 	
-	para "Peut-être le"
-	line "COVID, ou une"
+	para "Il peut s'agir du"
+	line "COVID, ou d'une"
 	cont "autre maladie."
 	
 	para "Mieux vaut garder"
@@ -1018,12 +1018,13 @@ if DEF(_FR_FR)
 	cont "et 3 jours pour"
 	cont "un #MON."
 	
-	para "Le sujet doit"
-	line "rester isolé pour"
-	cont "éviter la propa-"
-	cont "gation du virus,"
-	cont "et rester au cou-"
-	cont "rant des dernières"
+	para "Gardez le malade"
+	line "en quarantaine"
+	cont "pour éviter la"
+	cont "propagation du"
+	cont "virus, et tenez-"
+	cont "vous au courant"
+	cont "des dernières"
 	cont "actualités."
 else
 	text "This phase lasts"
@@ -1063,8 +1064,10 @@ endc
 
 AcademyImmuneBeforeStudiesText:
 if DEF(_FR_FR)
-	text "Cette phase doit"
-	line "durer longtemps."
+	text "Cette phase"
+	line "devrait s'étendre"
+	cont "sur une longue"
+	cont "période."
 else
 	text "This phase should"
 	line "last a long time."
@@ -1089,15 +1092,18 @@ endc
 
 AcademyImmuneSequelText:
 if DEF(_FR_FR)
-	text "Les chances que"
-	line "le sujet attrape"
+	text "Durant cette"
+	line "période,"
+	cont "les chances que"
+	cont "le sujet attrape"
 	cont "ou transmette le"
 	cont "virus sont extrê-"
 	cont "mement faibles."
 
 	para "A ce stade, la"
-	line "quarantaine peut"
-	cont "finir."
+	line "mise en quaran-"
+	cont "taine n'est plus"
+	cont "nécessaire."
 else
 	text "Meanwhile, the"
 	line "odds of the"

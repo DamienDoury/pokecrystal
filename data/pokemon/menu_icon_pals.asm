@@ -71,7 +71,7 @@ MonMenuIconPals:
 	icon_pals YELLOWISH, PURPLE ; KADABRA
 	icon_pals YELLOWISH, PURPLE ; ALAKAZAM
 	icon_pals GRAY, GRAY ; MACHOP
-	icon_pals GRAY, BLUE ; MACHOKE
+	icon_pals GRAY, GREEN ; MACHOKE
 	icon_pals GRAY, GREEN ; MACHAMP
 	icon_pals GREEN, BROWN ; BELLSPROUT
 	icon_pals GREEN, BROWN ; WEEPINBELL
