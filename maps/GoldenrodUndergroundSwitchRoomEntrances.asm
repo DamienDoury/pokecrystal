@@ -871,7 +871,7 @@ if DEF(_FR_FR)
 	para "Pendant ce temps,"
 	line "la police passe"
 	cont "son temps à pour-"
-	cont "suivre les gens"
+	cont "chasser les gens"
 	cont "dont le masque ne"
 	cont "couvre pas bien"
 	cont "leur nez..."

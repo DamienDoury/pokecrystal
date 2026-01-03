@@ -7192,7 +7192,7 @@ endc
 TwinsGroup:
 	; TWINS (1)
 if DEF(_FR_FR)
-	db "PIM&PAM@"
+	db "PIM & PAM@"
 else
 	db "AMY & MAY@"
 endc
@@ -7203,7 +7203,7 @@ endc
 
 	; TWINS (2)
 if DEF(_FR_FR)
-	db "TEA&LEA@"
+	db "TEA & LEA@"
 else
 	db "ANN & ANNE@"
 endc
@@ -7214,7 +7214,7 @@ endc
 
 	; TWINS (3)
 if DEF(_FR_FR)
-	db "LEA&TEA@"
+	db "LEA & TEA@"
 else
 	db "ANNE & ANN@"
 endc
@@ -7225,7 +7225,7 @@ endc
 
 	; TWINS (4)
 if DEF(_FR_FR)
-	db "PAM&PIM@"
+	db "PAM & PIM@"
 else
 	db "MAY & AMY@"
 endc
@@ -7236,7 +7236,7 @@ endc
 
 	; TWINS (5)
 if DEF(_FR_FR)
-	db "ZOE&ZOA@"
+	db "ZOE & ZOA@"
 else
 	db "JO & ZOE@"
 endc
@@ -7247,7 +7247,7 @@ endc
 
 	; TWINS (6)
 if DEF(_FR_FR)
-	db "ZOA&ZOE@"
+	db "ZOA & ZOE@"
 else
 	db "ZOE & JO@"
 endc
@@ -7258,7 +7258,7 @@ endc
 
 	; TWINS (7)
 if DEF(_FR_FR)
-	db "MEG&PEG@"
+	db "MEG & PEG@"
 else
 	db "MEG & PEG@"
 endc
@@ -7269,7 +7269,7 @@ endc
 
 	; TWINS (8)
 if DEF(_FR_FR)
-	db "PEG&MEG@"
+	db "PEG & MEG@"
 else
 	db "PEG & MEG@"
 endc
@@ -7280,7 +7280,7 @@ endc
 
 	; TWINS (9)
 if DEF(_FR_FR)
-	db "LEA&PIA@"
+	db "LEA & PIA@"
 else
 	db "LEA & PIA@"
 endc
@@ -7291,7 +7291,7 @@ endc
 
 	; TWINS (10)
 if DEF(_FR_FR)
-	db "PIA&LEA@"
+	db "PIA & LEA@"
 else
 	db "PIA & LEA@"
 endc

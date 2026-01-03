@@ -1114,7 +1114,7 @@ endc
 
 BeaterText1:
 if DEF(_FR_FR)
-	text "Hé gamin."
+	text "Hé p'tit bout."
 
 	para "Tu veux t'amuser"
 	line "un peu?"
@@ -1130,8 +1130,8 @@ BeaterText2:
 if DEF(_FR_FR)
 	text "Très bien."
 
-	para "Va dans le souter-"
-	line "rain juste après"
+	para "Va dans le SOUTER-"
+	line "RAIN juste après"
 	cont "la tombée de la"
 
 	para "nuit et parle à"
@@ -1182,7 +1182,7 @@ endc
 
 BeaterText2Bis:
 if DEF(_FR_FR)
-	text "Souterrain. A la"
+	text "SOUTERRAIN. A la"
 	line "tombée de la nuit."
 
 	para "Apporte seulement"

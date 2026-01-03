@@ -39,10 +39,10 @@ OlivineLighthouse1FSailorLockdownText:
 if DEF(_FR_FR)
 	text "La plupart des"
 	line "gens dans le PHARE"
-	cont "travaillent ici."
+	cont "y travaillent."
 
 	para "Mais certains se"
-	line "sont faufilés"
+	line "sont faufilés ici"
 	cont "pour échapper"
 	cont "au confinement."
 

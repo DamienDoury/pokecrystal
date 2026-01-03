@@ -436,8 +436,8 @@ if DEF(_FR_FR)
 
 	para "Elle courait vers"
 	line "la gauche, tout"
-	cont "droit vers le"
-	cont "hall d'entrée."
+	cont "droit vers"
+	cont "l'accueil."
 else
 	text "I just saw the"
 	line "CHIEF NURSE, yeah."

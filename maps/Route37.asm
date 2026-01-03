@@ -127,7 +127,7 @@ endc
 
 TwinsAnnandanne1BeatenText: 
 if DEF(_FR_FR)
-	text "TEA&LEA: ..."
+	text "TEA & LEA: ..."
 	line "Pas possible."
 else
 	text "ANN & ANNE: Nnn… A"
@@ -167,7 +167,7 @@ endc
 
 TwinsAnnandanne2BeatenText:
 if DEF(_FR_FR)
-	text "LEA&TEA: ..."
+	text "LEA & TEA: ..."
 	line "Pas possible."
 else
 	text "ANNE & ANN: Nnn… A"

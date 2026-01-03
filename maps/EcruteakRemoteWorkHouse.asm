@@ -80,7 +80,7 @@ if DEF(_FR_FR)
 	line "permet de voir"
 	cont "mes deux hommes."
 	
-	para "Cela me rend"
+	para "Ca me rend"
 	line "joyeuse!"
 else
 	text "The stay-at-home"

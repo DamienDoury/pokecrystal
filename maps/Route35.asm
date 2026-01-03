@@ -599,7 +599,7 @@ if DEF(_FR_FR)
 	cont "et amène-la ici"
 	cont "tout de suite!"
 	
-	para "En cette heure-ci,"
+	para "A cette heure-ci,"
 	line "elle doit se trou-"
 	cont "ver à l'HOPITAL."
 else

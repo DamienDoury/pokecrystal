@@ -1324,11 +1324,11 @@ endc
 
 GoldenrodHospitalTrainerRoom31BeatenText:
 if DEF(_FR_FR)
-	text "Sois gentil avec"
-	line "ton oncle, RILEY!"
+	text "Sois chic avec ton"
+	line "oncle, DOMINIQUE!"
 else
 	text "Be nice to your"
-	line "uncle, RILEY!"
+	line "uncle, COURTNEY!"
 endc
 	done
 
@@ -1554,8 +1554,8 @@ endc
 GoldenrodHospitalRoom4PatientPart2Text:
 if DEF(_FR_FR)
 	text "Mais bien sûr que"
-	line "c'est faux, tu"
-	cont "croyais quoi?"
+	line "c'est faux! Tu m'as"
+	cont "vraiment cru?"
 	
 	para "Je suis gravement"
 	line "malade."
@@ -1634,11 +1634,11 @@ endc
 
 GoldenrodHospitalRoom14PatientText:
 if DEF(_FR_FR)
-	text "Mon entreprise ne"
+	text "Ma boutique ne"
 	line "va pas tourner"
 	cont "sans moi."
 
-	para "(toux) (toux)"
+	para "(tousse) (tousse)"
 
 	para "Je dois sortir"
 	line "d'ici au plus vite"

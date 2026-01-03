@@ -141,14 +141,16 @@ if DEF(_FR_FR)
 	line "Une boîte de"
 	cont "@"
 	text_ram wStringBuffer3
+	text_start
+	cont "est sortie!"
 else
 	text "Clang! A can of"
 	line "@"
 	text_ram wStringBuffer3
-endc
-
 	text_start
 	cont "popped out!"
+endc
+
 	done
 
 GoldenrodVendingNoMoneyText: 

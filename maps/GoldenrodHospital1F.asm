@@ -640,7 +640,7 @@ if DEF(_FR_FR)
 	line "dit s'il allait"
 	cont "bien."
 
-	para "Je suis venue"
+	para "Je suis venu"
 	line "prendre de ses"
 	cont "nouvelles."
 else
