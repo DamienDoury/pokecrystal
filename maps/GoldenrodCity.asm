@@ -402,6 +402,7 @@ GoldenrodCityFlowerShopSign:
 	jumptext GoldenrodCityFlowerShopSignText
 
 GoldenrodHospitalSign:
+	setevent EVENT_FOUND_HOSPITAL
 if !DEF(_CRYSTAL_BETA) && !DEF(_CRYSTAL_RELEASE)
 	loadmem wYearMonth, 3
 	setevent EVENT_SICK_CATERPIE

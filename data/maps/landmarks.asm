@@ -24,8 +24,8 @@ Landmarks:
 	landmark  52, 120, IlexForestName
 	landmark  52, 112, Route34Name
 	landmark  52,  92, GoldenrodCityName
-	landmark  50,  92, RadioTowerName
-	landmark  54,  92, HospitalName
+	landmark  49,  92, RadioTowerName
+	landmark  55,  90, HospitalName
 	landmark  52,  76, Route35Name
 	landmark  52,  60, NationalParkName
 	landmark  64,  60, Route36Name

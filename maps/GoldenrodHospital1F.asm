@@ -15,6 +15,7 @@ GoldenrodHospital1F_MapScripts:
 	callback MAPCALLBACK_OBJECTS, .EnterCallback
 
 .EnterCallback:
+	setevent EVENT_FOUND_HOSPITAL
 	setval 0
 	writemem wGoldenrodHospitalCorridorNumber ; Resetting the corridor count.
 	readvar VAR_XCOORD
