@@ -46,7 +46,7 @@ DeptStore_PlayerStepsDown:
 	end
 
 RefillGashapons::
-	setval 100
+	setval 101
 	writemem wGasha0CapsulesCount
 	writemem wGasha1CapsulesCount
 	writemem wGasha2CapsulesCount

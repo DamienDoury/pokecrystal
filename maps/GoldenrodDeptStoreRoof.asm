@@ -196,15 +196,18 @@ GoldenrodDeptStoreRoof_GashaScript:
 	random 70
 	ifequal 0, .Clogged
 
-	callasm RemoveOneCapsuleFromCurrentGasha
+	callasm CurrentGashaHasRemainingCapsules
 	iffalse .MachineWasEmpty
+	
+	callasm ReturnWonGasha
+	callasm GetDecorationNameFromScript
 
 	waitsfx
 	playsound SFX_ENTER_DOOR
 	pause 10
 
 	opentext
-	farwritetext GoldenrodClangText
+	writetext Gasha_RevealCapsuleText
 	promptbutton
 	sjump .Choose
 
@@ -275,7 +278,7 @@ Gasha_QuantityIndication:
 	ifless 40, .mostly_empty
 	ifless 55, .half_empty
 	ifless 75, .mostly_full
-	ifless 100, .almost_full
+	ifless 101, .almost_full
 	; full
 	
 	writetext Gasha_FullText
@@ -771,6 +774,20 @@ if DEF(_FR_FR)
 	text "Rien n'est sorti."
 else
 	text "Nothing came out."
+endc
+	done
+
+Gasha_RevealCapsuleText: 
+if DEF(_FR_FR)
+	text "Poc! C'est une"
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
+else
+	text "Plop! It's a"
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
 endc
 	done
 
