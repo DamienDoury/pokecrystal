@@ -399,7 +399,8 @@ endc
 
 CeladonGameCornerSodaCanText: 
 if DEF(_FR_FR)
-	text "Une boîte de soda!"
+	text "Une bouteille"
+	line "de soda!"
 
 	para "Ca doit être à"
 	line "quelqu'un..."

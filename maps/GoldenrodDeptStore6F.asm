@@ -34,6 +34,7 @@ Carrie:
 GoldenrodVendingMachine:
 	opentext
 	writetext GoldenrodVendingText
+	loadmem wMenuCursorPositionBackup, 1
 .Start:
 	special PlaceMoneyTopRight
 	loadmenu .MenuHeader
@@ -46,6 +47,7 @@ GoldenrodVendingMachine:
 	end
 
 .FreshWater:
+	loadmem wMenuCursorPositionBackup, 1
 	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_FRESH_WATER_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem FRESH_WATER
@@ -55,6 +57,7 @@ GoldenrodVendingMachine:
 	sjump .VendItem
 
 .SodaPop:
+	loadmem wMenuCursorPositionBackup, 2
 	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_SODA_POP_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem SODA_POP
@@ -64,6 +67,7 @@ GoldenrodVendingMachine:
 	sjump .VendItem
 
 .Lemonade:
+	loadmem wMenuCursorPositionBackup, 3
 	checkmoney YOUR_MONEY, GOLDENRODDEPTSTORE6F_LEMONADE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem LEMONADE
@@ -91,7 +95,7 @@ GoldenrodVendingMachine:
 	sjump .Start
 
 .MenuHeader:
-	db MENU_BACKUP_TILES ; flags
+	db MENU_BACKUP_TILES | MENU_USE_BACKUP_AS_START_POS ; flags
 	menu_coords 0, 2, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option

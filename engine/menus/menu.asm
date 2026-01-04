@@ -755,7 +755,13 @@ _InitVerticalMenuCursor::
 .skip_bit_1
 	ld [hli], a
 ; wMenuCursorY
+	ld a, [wMenuFlags]
+	bit 1, a
+	ld a, [wMenuCursorPositionBackup]
+	jr nz, .check_underflow
+
 	ld a, [wMenuCursorPosition]
+.check_underflow
 	and a
 	jr z, .load_at_the_top
 	ld c, a

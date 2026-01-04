@@ -25,6 +25,7 @@ CeladonDeptStore6FYoungsterScript:
 CeladonDeptStore6FVendingMachine:
 	opentext
 	writetext CeladonVendingText
+	loadmem wMenuCursorPositionBackup, 1
 .Start:
 	special PlaceMoneyTopRight
 	loadmenu .MenuHeader
@@ -37,6 +38,7 @@ CeladonDeptStore6FVendingMachine:
 	end
 
 .FreshWater:
+	loadmem wMenuCursorPositionBackup, 1
 	checkmoney YOUR_MONEY, CELADONDEPTSTORE6F_FRESH_WATER_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem FRESH_WATER
@@ -46,6 +48,7 @@ CeladonDeptStore6FVendingMachine:
 	sjump .VendItem
 
 .SodaPop:
+	loadmem wMenuCursorPositionBackup, 2
 	checkmoney YOUR_MONEY, CELADONDEPTSTORE6F_SODA_POP_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem SODA_POP
@@ -55,6 +58,7 @@ CeladonDeptStore6FVendingMachine:
 	sjump .VendItem
 
 .Lemonade:
+	loadmem wMenuCursorPositionBackup, 3
 	checkmoney YOUR_MONEY, CELADONDEPTSTORE6F_LEMONADE_PRICE
 	ifequal HAVE_LESS, .NotEnoughMoney
 	giveitem LEMONADE
@@ -82,7 +86,7 @@ CeladonDeptStore6FVendingMachine:
 	sjump .Start
 
 .MenuHeader:
-	db MENU_BACKUP_TILES ; flags
+	db MENU_BACKUP_TILES | MENU_USE_BACKUP_AS_START_POS ; flags
 	menu_coords 0, 2, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
 	dw .MenuData
 	db 1 ; default option
