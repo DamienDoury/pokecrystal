@@ -80,10 +80,6 @@ LoadBattleFontsHPBar:
 	ld hl, vTiles2 tile $60
 	lb bc, BANK(FontBattleExtra), 12
 	call Get2bppViaHDMA
-	ld hl, vTiles2 tile $70
-	ld de, FontBattleExtra + 16 tiles ; "<DO>"
-	lb bc, BANK(FontBattleExtra), 3 ; "<DO>" to "『"
-	call Get2bppViaHDMA
 	call LoadFrame
 	; fallthrough
 
@@ -92,18 +88,17 @@ LoadHPBar:
 	ld hl, vTiles2 tile $6c
 	lb bc, BANK(EnemyHPBarBorderGFX), 4
 	call Get1bppViaHDMA
+
 	ld de, HPExpBarBorderGFX
 	ld hl, vTiles2 tile $73
 	lb bc, BANK(HPExpBarBorderGFX), 6
 	call Get1bppViaHDMA
+
 	ld de, ExpBarGFX
 	ld hl, vTiles2 tile $55
 	lb bc, BANK(ExpBarGFX), 9
 	call Get2bppViaHDMA
-	ld de, MobilePhoneTilesGFX + 7 tiles ; mobile phone icon
-	ld hl, vTiles2 tile $5e
-	lb bc, BANK(MobilePhoneTilesGFX), 2
-	call Get2bppViaHDMA
+	
 	farcall LoadBallIconGFX
 	ret
 
