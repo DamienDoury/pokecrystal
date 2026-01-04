@@ -1082,7 +1082,7 @@ else
 endc
 
 
-CoinVendor_NotEnoughMoneyText:
+CoinVendor_NotEnoughMoneyText::
 if DEF(_FR_FR)
 	text "Vous n'avez pas"
 	line "assez de sous."

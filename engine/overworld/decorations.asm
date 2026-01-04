@@ -1294,3 +1294,55 @@ DisplayTodaysBigDoll::
 	ld d, 0
 	ld b, RESET_FLAG
 	jmp EventFlagAction
+
+GetCommonPrizesNames::
+    ld hl, Gasha1Prizes - 1
+.GetNames:
+	ld a, [wGashaID]
+    ld bc, 7
+    call AddNTimes
+
+    ld a, [hld]
+    push hl
+	ld hl, wStringBuffer4
+	call GetDecorationName
+    pop hl
+
+	ld a, [hl]
+	ld hl, wStringBuffer5
+	jmp GetDecorationName
+
+GetCommonPrizesNamesSequel::
+    ld hl, Gasha1Prizes - 3
+	jr GetCommonPrizesNames.GetNames
+
+GetRarePrizesNames::
+    ld hl, Gasha0Prizes + 2
+	jr GetCommonPrizesNames.GetNames
+
+Gasha0Prizes::
+    db DECO_SURF_PIKACHU_DOLL ; secret rare
+    db DECO_SQUIRTLE_DOLL ; gold rare
+    db DECO_MAGIKARP_DOLL ; silver rare
+    db DECO_POLIWAG_DOLL
+    db DECO_STARMIE_DOLL
+    db DECO_SHELLDER_DOLL
+    db DECO_TENTACOOL_DOLL
+
+Gasha1Prizes::
+    db DECO_CLEFAIRY_DOLL ; secret rare
+    db DECO_BULBASAUR_DOLL ; gold rare
+    db DECO_PIKACHU_DOLL ; silver rare
+    db DECO_JIGGLYPUFF_DOLL
+    db DECO_ODDISH_DOLL
+    db DECO_DIGLETT_DOLL
+    db DECO_WEEDLE_DOLL
+
+Gasha2Prizes::
+    db DECO_GENGAR_DOLL ; secret rare
+    db DECO_CHARMANDER_DOLL ; gold rare
+    db DECO_UNOWN_DOLL ; silver rare
+    db DECO_GRIMER_DOLL
+    db DECO_VOLTORB_DOLL
+    db DECO_GEODUDE_DOLL
+    db DECO_MACHOP_DOLL

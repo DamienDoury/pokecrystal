@@ -36,12 +36,25 @@ DeptStoreEnterLockdownCheck:
 	ifless 6, .end
 
 	loadmem wAvoidedControlCheckpoint, 0 ; The player went through the security check.
+	scall RefillGashapons
 	jumpstd VaccinePassCheckpoint
 .end
 	end
 
 DeptStore_PlayerStepsDown:
 	applymovement PLAYER, DeptStore_StepDownMovement
+	end
+
+RefillGashapons::
+	setval 100
+	writemem wGasha0CapsulesCount
+	writemem wGasha1CapsulesCount
+	writemem wGasha2CapsulesCount
+
+	setval 8 + 3 << 4 + 1 << 6 ; %01111000
+	writemem wGasha0PrizesRemaining
+	writemem wGasha1PrizesRemaining
+	writemem wGasha2PrizesRemaining
 	end
 
 GoldenrodDeptStore_VaccinePassportController:

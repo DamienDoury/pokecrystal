@@ -6,7 +6,7 @@ ProfOaksPCBoot::
 	call JoyWaitAorB
 	jmp WaitSFX
 
-ProfOaksPCRating:
+ProfOaksPCRating::
 	call Rate
 	push de
 	ld de, MUSIC_NONE

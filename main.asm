@@ -123,7 +123,6 @@ INCLUDE "engine/pokemon/mon_submenu.asm"
 INCLUDE "engine/battle/menu.asm"
 INCLUDE "engine/items/buy_sell_toss.asm"
 INCLUDE "engine/menus/trainer_card.asm"
-INCLUDE "engine/events/prof_oaks_pc.asm"
 INCLUDE "engine/overworld/decorations.asm"
 INCLUDE "engine/battle/read_trainer_dvs.asm"
 INCLUDE "engine/battle/returntobattle_useball.asm"
@@ -141,6 +140,7 @@ INCLUDE "engine/events/treemons.asm" ; Must stay with wildmons.asm
 INCLUDE "engine/overworld/wildmons.asm" ; Must stay with treemons.asm
 INCLUDE "engine/menus/badges_colors.asm"
 INCLUDE "engine/items/update_item_description.asm"
+INCLUDE "engine/events/prof_oaks_pc.asm"
 
 ChrisBackpic:
 INCBIN "gfx/player/chris_back.2bpp.lz"
@@ -216,6 +216,7 @@ INCLUDE "mobile/mobile_menu.asm"
 INCLUDE "engine/pokemon/search.asm"
 INCLUDE "mobile/mobile_12_2.asm"
 INCLUDE "engine/events/buena_menu.asm"
+INCLUDE "engine/events/gashapon.asm"
 
 
 SECTION "bank13", ROMX

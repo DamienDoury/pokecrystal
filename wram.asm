@@ -3092,19 +3092,18 @@ wHallOfFameCount:: db
 wTradeFlags:: flag_array NUM_NPC_TRADES
 wMooMooBerries:: db
 
-; Map specific vars.
-UNION ; 12 bytes.
+; Map specific vars (12 bytes).
+UNION ; Vanilla + Miscellaneous (11 bytes).
 wParkBallsRemaining::
 wSafariBallsRemaining:: db
 wSafariTimeRemaining:: dw
 wEscortStartTime::
 wBugContestStartTime:: ds 4 ; day, hour, min, sec
-wUndergroundSwitchPositions:: db
+	ds 1
 wFarfetchdPosition:: db
 wGoldenrodHospitalCorridorNumber:: db
-wAvoidedControlCheckpoint:: db ; Goldenrod Dept Store - Vaccine Passport checks.
 
-NEXTU ; 12 bytes.
+NEXTU ; Viridian Forest (12 bytes).
 wViridianVerticalWarpPair:: 	ds VIRIDIAN_VERTICAL_WARP_COUNT
 wViridianHorizontalWarpPair:: 	ds VIRIDIAN_HORIZONTAL_WARP_COUNT
 
@@ -3169,6 +3168,25 @@ wLastCheckedPoster:: db
 
 NEXTU ; Bill's House (Sea Cottage).
 wTubeAnimX:: db
+
+NEXTU ; Goldenrod Dept Store + Underground Switch Room (12 bytes).
+wGashaID:: db
+
+wGasha0CapsulesCount:: db
+wGasha0PrizesRemaining:: db
+
+wGasha1CapsulesCount:: db
+wGasha1PrizesRemaining:: db
+
+wGasha2CapsulesCount:: db
+wGasha2PrizesRemaining:: db
+
+	ds 1
+
+wUndergroundSwitchPositions:: db
+	ds 2
+
+wAvoidedControlCheckpoint:: db ; Goldenrod Dept Store - Vaccine Passport checks.
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1
