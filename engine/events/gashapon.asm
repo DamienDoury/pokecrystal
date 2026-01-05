@@ -57,7 +57,7 @@ GetUniformRandomCapsuleIndex:
     ld b, c
     jmp Modulo
 
-; Output: the won prize's index within the current gasha's prize pool (from 0-6) in C.
+; Output: the won prize's index within the current gasha's prize pool (from 0-6) in C. The rarity from 0 (secret) to 3 (common) in wScriptVar2.
 DrawRandomPrize:
     call GetUniformRandomCapsuleIndex
     ld b, a
@@ -101,6 +101,9 @@ DrawRandomPrize:
 
 .CheckCommonPrize
     ; The player receives a Common prize, which is rolled randomly.
+    ld a, 3
+    ld [wScriptVar2], a
+
     call Random
     ld b, 4
     call Modulo ; Returns from [0;3].
@@ -109,7 +112,10 @@ DrawRandomPrize:
     ret
 
 .GetSecretRarePrize
-    ; We remove the prize from its pool.
+    ld a, 0
+    ld [wScriptVar2], a
+
+    ; We remove this unique prize from its pool.
     res 6, [hl]
 
     ; Return the index.
@@ -117,7 +123,10 @@ DrawRandomPrize:
     ret
 
 .GetGoldRarePrize
-    ; Once again, we retrieve the amount of gold prizes left in the pool.
+    ld a, 1
+    ld [wScriptVar2], a
+
+    ; Once again, we remove this prize from the pool.
     ld a, [hl]
     sub 1 << 4
     ld [hl], a
@@ -127,6 +136,10 @@ DrawRandomPrize:
     ret
 
 .GetSilverRarePrize
+    ld a, 2
+    ld [wScriptVar2], a
+
+    ; Remove this prize from the pool.
     dec [hl]
 
     ; Return the index.
@@ -158,3 +171,51 @@ RemoveOneCapsuleFromCurrentGasha::
 
     dec [hl]
     ret
+
+GetGashaRarityInStringBuffer4::
+    ld hl, .Strings
+    ld a, [wScriptVar2]
+    add a
+    ld d, 0
+    ld e, a
+    add hl, de
+
+    ld a, [hli]
+    ld e, a
+    ld d, [hl]
+    ld hl, wStringBuffer4
+    jmp CopyName2
+
+.Strings
+    dw .SecretRareCapsuleText
+    dw .GoldRareCapsuleText
+    dw .SilverRareCapsuleText
+    dw .CommonCapsuleText
+
+.SecretRareCapsuleText
+if DEF(_FR_FR)
+	db   "La capsule secrète@"
+else
+	db   "The secret rare@"
+endc
+
+.GoldRareCapsuleText
+if DEF(_FR_FR)
+	db   "Une capsule or@"
+else
+	db   "A gold rare@"
+endc
+
+.SilverRareCapsuleText
+if DEF(_FR_FR)
+	db   "Une capsule argent@"
+else
+	db   "A silver rare@"
+endc
+
+.CommonCapsuleText
+if DEF(_FR_FR)
+	db   "Une capsule@"
+else
+	db   "A common@"
+endc

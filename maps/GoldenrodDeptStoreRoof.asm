@@ -206,7 +206,50 @@ GoldenrodDeptStoreRoof_GashaScript:
 	playsound SFX_ENTER_DOOR
 	pause 10
 
+	callasm AddDecorationIfNotOwned
 	opentext
+	iffalse .AlreadyOwned
+
+	; The player got a capsule they didn't own before.
+
+	writetext Gasha_NewDecorationText
+	promptbutton
+
+	callasm GetGashaRarityInStringBuffer4
+	readmem wScriptVar2
+	ifequal 0, .NewSecretRarePrize
+	ifequal 1, .NewGoldRarePrize
+	ifequal 2, .NewSilverRarePrize
+
+	; Common prize
+	setval SFX_ITEM
+	sjump .GetNewPrize
+
+.NewSecretRarePrize
+	setval SFX_GET_BADGE
+	sjump .GetNewPrize
+
+.NewGoldRarePrize
+	setval SFX_GET_TM
+	sjump .GetNewPrize
+
+.NewSilverRarePrize
+	setval SFX_CAUGHT_MON
+	; fallthrough.
+
+.GetNewPrize
+	waitsfx
+	playsound SFX_FROM_MEM
+	writetext Gasha_NewDecorationSequelText
+	pause 10
+	waitsfx
+	promptbutton
+
+	writetext Gasha_DollSentHomeText
+	promptbutton
+	sjump .Choose
+
+.AlreadyOwned
 	writetext Gasha_RevealCapsuleText
 	promptbutton
 	sjump .Choose
@@ -777,20 +820,63 @@ else
 endc
 	done
 
-Gasha_RevealCapsuleText: 
+Gasha_RevealCapsuleText:
 if DEF(_FR_FR)
 	text "Poc! C'est une"
 	line "@"
 	text_ram wStringBuffer2
-	text "!"
+	text "."
 else
 	text "Plop! It's a"
+	line "@"
+	text_ram wStringBuffer2
+	text "."
+endc
+	done
+
+Gasha_NewDecorationText:
+if DEF(_FR_FR)
+	text "Poc!"
+	line "... Hé!"
+	
+	para "C'est une"
+	line "nouvelle!"
+else
+	text "Plop!"
+	line "... Hey!"
+
+	para "You didn't have"
+	line "this one!"
+endc
+	done
+
+Gasha_NewDecorationSequelText:
+if DEF(_FR_FR)
+	text "@"
+	text_ram wStringBuffer4
+	text_start
+	line "@"
+	text_ram wStringBuffer2
+	text "!"
+else
+	text "@"
+	text_ram wStringBuffer4
+	text_start
 	line "@"
 	text_ram wStringBuffer2
 	text "!"
 endc
 	done
 
+Gasha_DollSentHomeText:
+if DEF(_FR_FR)
+	text "Elle a été envoyée"
+	line "au PC à la maison."
+else
+	text "It's been sent to"
+	line "your home PC."
+endc
+	done
 
 GoldenrodDeptStoreRoof_MapEvents:
 	db 0, 0 ; filler

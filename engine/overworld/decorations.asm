@@ -994,6 +994,30 @@ SetSpecificDecorationFlag:
 	ld b, SET_FLAG
 	jmp DecorationFlagAction
 
+; Output: TRUE in wScript if decoration was added, FALSE if already owned.
+AddDecorationIfNotOwned::
+	; Check if the decoration is already owned.
+	ld a, [wScriptVar]
+	ld b, CHECK_FLAG
+	call DecorationFlagAction
+	jr nz, .already_owned
+
+	; Add the decoration.
+	ld a, [wScriptVar]
+	ld b, SET_FLAG
+	call DecorationFlagAction
+
+	; Return TRUE.
+	ld a, TRUE
+	ld [wScriptVar], a
+	ret
+
+.already_owned
+	; Return FALSE.
+	xor a ; FALSE
+	ld [wScriptVar], a
+	ret
+
 GetDecorationID:
 	push hl
 	push de
