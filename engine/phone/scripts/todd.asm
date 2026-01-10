@@ -1,5 +1,9 @@
 ToddPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, CAMPER, TODD1
+
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_TODD_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
@@ -21,6 +25,13 @@ ToddPhoneCalleeScript:
 
 .SaleOn:
 	farsjump ToddHurryScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	special RandomPhoneMon
+	farwritetext ToddLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 ToddPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, CAMPER, TODD1

@@ -123,3 +123,26 @@ else
 	cont "partners!"
 	done
 endc
+
+RalphLockdownText:
+if DEF(_FR_FR)
+	text "Quelle plaie ce"
+	line "confinement!"
+
+	para "Si seulement"
+	line "j'avais un étang"
+	cont "dans mon jardin"
+	cont "pour pêcher..."
+
+	para "Bon."
+	done
+else
+	text "This lockdown is"
+	line "such a pain!"
+
+	para "If only I had a"
+	line "pond in my yard"
+	cont "to do some"
+	cont "fishing..."
+	done
+endc

@@ -1,5 +1,9 @@
 HueyPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, SAILOR, HUEY1
+	
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_HUEY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
@@ -17,6 +21,12 @@ HueyPhoneCalleeScript:
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_LIGHTHOUSE
 	farsjump HueyWantsBattleScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	farwritetext HueyLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 HueyPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, SAILOR, HUEY1

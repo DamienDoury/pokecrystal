@@ -1,5 +1,9 @@
 RalphPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, FISHER, RALPH1
+		
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_RALPH_READY_FOR_REMATCH
 	iftrue .Rematch
 	farscall PhoneScript_AnswerPhone_Male
@@ -21,6 +25,12 @@ RalphPhoneCalleeScript:
 .ReportSwarm:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32
 	farsjump RalphHurryScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	farwritetext RalphLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 RalphPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, FISHER, RALPH1

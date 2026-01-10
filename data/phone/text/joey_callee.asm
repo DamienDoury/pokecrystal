@@ -158,3 +158,31 @@ else
 	line "trainer with it!"
 	done
 endc
+
+JoeyLockdownText:
+if DEF(_FR_FR)
+	text "@"
+	text_ram wStringBuffer4
+	text " et moi"
+	line "on s'entraîne"
+	cont "dur à la maison."
+
+	para "Après le confine-"
+	line "ment, on sera"
+	cont "encore plus forts"
+	cont "tu vas voir!"
+	done
+else
+	text "@"
+	text_ram wStringBuffer4
+	text " and I"
+	line "are training up"
+	cont "in my room at"
+	cont "home."
+
+	para "After the lock-"
+	line "down, we'll be even"
+	cont "stronger, you'll"
+	cont "see!"
+	done
+endc

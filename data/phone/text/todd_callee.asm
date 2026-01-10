@@ -149,3 +149,24 @@ else
 	line "with items."
 	done
 endc
+
+ToddLockdownText:
+if DEF(_FR_FR)
+	text "Raaah, j'ai trop"
+	line "la rage que le"
+	cont "CENTRE COMMERCIAL"
+	cont "soit fermé..."
+
+	para "Les soldes me"
+	line "manquent."
+	done
+else
+	text "Gaaah, I'm so"
+	line "bummed the"
+	cont "DEPARTMENT STORE"
+	cont "is closed..."
+
+	para "I miss all the"
+	line "great sales."
+	done
+endc

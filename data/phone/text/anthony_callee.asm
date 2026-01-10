@@ -156,3 +156,41 @@ else
 	line "all our energy."
 	done
 endc
+
+AnthonyLockdownText:
+if DEF(_FR_FR)
+	text "Dis, si tu peux"
+	line "éviter de m'appeler"
+	cont "ça m'arrangerait."
+
+	para "Je... heu..."
+
+	para "J'ai pas supporté"
+	line "de rester enfermé,"
+	cont "alors je suis"
+	cont "parti en rando"
+	cont "furtive."
+
+	para "Je voudrais pas"
+	line "que la sonnerie"
+	cont "de mon #GEAR"
+	cont "attire la police."
+	done
+else
+	text "Hey, if you can"
+	line "avoid calling me,"
+	cont "that'd be great."	
+
+	para "I... uh..."
+
+	para "I couldn't stand"
+	line "being cooped up,"
+	cont "so I went on a"
+	cont "stealth hike."
+
+	para "I wouldn't want"
+	line "the ringtone on"
+	cont "my #GEAR to"
+	cont "attract the cops."
+	done
+endc

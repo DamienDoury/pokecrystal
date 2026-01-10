@@ -168,3 +168,28 @@ else
 	line "exhausting."
 	done
 endc
+
+WadeLockdownText:
+if DEF(_FR_FR)
+	text "C'est trop nul"
+	line "le confinement!"
+
+	para "Je veux aller"
+	line "chercher des"
+	cont "BAIES moi!"
+
+	para "Vivement que ça"
+	line "se termine!"
+	done
+else
+	text "Lockdown's such"
+	line "a drag!"
+
+	para "I want to go"
+	line "gather some"
+	cont "BERRIES!"
+
+	para "I can't wait for"
+	line "this to be over!"
+	done
+endc

@@ -1,5 +1,9 @@
 AnthonyPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, HIKER, ANTHONY2
+
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_ANTHONY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
@@ -22,6 +26,12 @@ AnthonyPhoneCalleeScript:
 .AlreadySwarming:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_33
 	farsjump AnthonyHurryScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	farwritetext AnthonyLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 AnthonyPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, HIKER, ANTHONY2

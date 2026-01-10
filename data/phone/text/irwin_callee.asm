@@ -122,3 +122,39 @@ else
 	text "!"
 	done
 endc
+
+IrwinLockdownText:
+if DEF(_FR_FR)
+	text "Je m'ennuie trop"
+	line "dans mon petit"
+	cont "appart. Et toi?"
+
+	para "Quoi? Tu continues"
+	line "de sortir?"
+
+	para "Avec la police et"
+	line "tout? T'es ouf!!"
+
+	para "J'aimerais faire"
+	line "comme toi, mais"
+	cont "j'ai trop peur de"
+	cont "me faire chopper!"
+	done
+else
+	text "I'm so bored in my"
+	line "little apartment."
+	cont "What about you?"
+	
+	para "What? You're still"
+	line "going outside?"
+
+	para "With the police"
+	line "and everything?"
+	cont "You're crazy!!"
+
+	para "I'd love to be"
+	line "like you, but I'm"
+	cont "too scared to"
+	cont "get caught!"
+	done
+endc

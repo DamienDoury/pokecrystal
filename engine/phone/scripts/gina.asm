@@ -1,5 +1,9 @@
 GinaPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, GINA1
+	
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_GINA_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Female
@@ -27,6 +31,16 @@ GinaPhoneCalleeScript:
 .HasLeafStone:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_34
 	farsjump GinaComePickUpScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Female
+	
+	checkflag ENGINE_ROCKETS_IN_RADIO_TOWER
+	iftrue .Rockets
+
+	farwritetext GinaLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Female
 
 GinaPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, GINA1

@@ -1,5 +1,9 @@
 WadePhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, WADE1
+	
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_WADE_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
@@ -35,6 +39,12 @@ WadePhoneCalleeScript:
 .HasItem:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_31
 	farsjump WadeComeQuickScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	farwritetext WadeLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 WadePhoneCallerScript:
 	gettrainername STRING_BUFFER_3, BUG_CATCHER, WADE1

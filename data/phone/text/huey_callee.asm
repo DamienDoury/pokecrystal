@@ -128,3 +128,27 @@ else
 	line "How's it going?"
 	done
 endc
+
+HueyLockdownText:
+if DEF(_FR_FR)
+	text "Faut que j'prenne"
+	line "ma revanche"
+	cont "contre toi!!"
+
+	para "Dès qu'on est"
+	line "autorisé à"
+	cont "ressortir, je"
+	cont "t'appelle direct."
+	done
+else
+	text "I can't wait to"
+	line "get my rematch"
+	cont "with you!!"
+
+	para "As soon as we're"
+	line "allowed to go"
+	cont "out again, I'll"
+	cont "call you right"
+	cont "away."
+	done
+endc

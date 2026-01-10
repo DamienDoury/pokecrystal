@@ -1,5 +1,9 @@
 JoeyPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, YOUNGSTER, JOEY1
+		
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_JOEY_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Male
@@ -17,6 +21,13 @@ JoeyPhoneCalleeScript:
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_30
 	farsjump JoeyReminderScript
+
+.Lockdown:
+	farscall PhoneScript_GreetPhone_Male
+	special RandomPhoneMon
+	farwritetext JoeyLockdownText
+	promptbutton
+	farsjump PhoneScript_HangUpText_Male
 
 JoeyPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, YOUNGSTER, JOEY1

@@ -146,3 +146,41 @@ else
 	text "."
 	done
 endc
+
+GinaLockdownText:
+if DEF(_FR_FR)
+	text "Est-ce que toi"
+	line "aussi tu trouves"
+	cont "le temps long?"
+
+	para "Vraiment, ça me"
+	line "déprime de rester"
+	cont "à la maison à pas"
+	cont "savoir quoi faire…"
+
+	para "Du coup je passe"
+	line "des journées enti-"
+	cont "ères à regarder"
+	cont "des séries."
+
+	para "Ca m'a fait du bien"
+	line "de te parler."
+	done
+else
+	text "Do you also find"
+	line "time dragging?"
+
+	para "Honestly, it gets"
+	line "me down to stay at"
+	cont "home, not knowing"
+	cont "what to do…"
+
+	para "So I end up"
+	line "spending whole"
+	cont "days watching"
+	cont "TV shows."
+
+	para "It did me good"
+	line "to talk to you."
+	done
+endc
