@@ -1037,6 +1037,9 @@ Battle_EnemyFirst:
 	jr nz, .assault_case_treated
 
 	; Assault notification
+	xor a
+	ld [wAssaultBattle], a ; Cancelling the assault status, so that the message can only be shown once.
+
 	ld hl, WildPokemonAssaultText
 	call StdBattleTextbox
 
