@@ -884,7 +884,8 @@ if DEF(_FR_FR)
 	cont "rochers."
 	
 	para "Ca peut être utile"
-	line "pour un aventurier"
+	line "pour quelqu'un"
+	cont "d'aventurier"
 	cont "comme toi."
 else
 	text "That's STRENGTH."
