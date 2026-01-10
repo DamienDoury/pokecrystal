@@ -525,7 +525,7 @@ if DEF(_FR_FR)
 	text "ASTUCE"
 
 	para "Un #MON tenant"
-	line "une BAIE MIRACLE"
+	line "une BAIE PRINE"
 
 	para "se soignera tout"
 	line "seul de n'importe"
@@ -534,7 +534,7 @@ else
 	text "TRAINER TIPS"
 
 	para "A #MON holding"
-	line "a MIRACLEBERRY"
+	line "a LUM BERRY"
 
 	para "will cure itself"
 	line "of any status"
