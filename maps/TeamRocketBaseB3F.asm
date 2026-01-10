@@ -216,6 +216,7 @@ TeamRocketBaseB3FUltraBall:
 
 RocketBaseLanceLeavesMovement:
 	step DOWN
+	step DOWN
 	step LEFT
 	step LEFT
 	step LEFT
