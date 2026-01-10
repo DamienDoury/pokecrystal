@@ -1036,6 +1036,10 @@ Battle_EnemyFirst:
 	cp 1
 	jr nz, .assault_case_treated
 
+	;ld a, [wPlayerTurnsTaken]
+	;and a
+	;jr nz, .assault_case_treated
+
 	; Assault notification
 	xor a
 	ld [wAssaultBattle], a ; Cancelling the assault status, so that the message can only be shown once.

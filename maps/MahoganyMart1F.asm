@@ -65,7 +65,7 @@ MahoganyMart1FLanceUncoversStaircaseScript:
 	pause 15
 	opentext
 	writetext MahoganyMart1FLanceDragoniteStrengthText
-	pause 15
+	pause 30
 	closetext
 	playsound SFX_STRENGTH
 	applymovement MAHOGANYMART1F_DRAGONITE, MahoganyMart1FDragoniteTackleMovement
