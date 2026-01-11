@@ -881,7 +881,11 @@ RuinsOfAlphAerodactylItemRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphItemRoom.blk"
 
 RuinsOfAlphHoOhWordRoom_Blocks:
-	INCBIN "maps/RuinsOfAlphHoOhWordRoom.blk"
+if DEF(_FR_FR)
+	INCBIN "maps/RuinsOfAlphHoOhWordRoom_fr.blk"
+else
+	INCBIN "maps/RuinsOfAlphHoOhWordRoom_en.blk"
+endc
 
 RuinsOfAlphKabutoWordRoom_Blocks:
 	INCBIN "maps/RuinsOfAlphKabutoWordRoom.blk"

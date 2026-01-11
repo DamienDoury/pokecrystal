@@ -318,16 +318,32 @@ INCLUDE "data/tilesets/mansion_collision.asm"
 SECTION "Tileset Data 8", ROMX
 
 TilesetHoOhWordRoomMeta::
-INCBIN "data/tilesets/ho_oh_word_room_metatiles.bin"
+if DEF(_FR_FR)
+INCBIN "data/tilesets/ho_oh_word_room_metatiles_fr.bin"
+else
+INCBIN "data/tilesets/ho_oh_word_room_metatiles_en.bin"
+endc
 
 TilesetKabutoWordRoomMeta::
-INCBIN "data/tilesets/kabuto_word_room_metatiles.bin"
+if DEF(_FR_FR)
+INCBIN "data/tilesets/kabuto_word_room_metatiles_fr.bin"
+else
+INCBIN "data/tilesets/kabuto_word_room_metatiles_en.bin"
+endc
 
 TilesetOmanyteWordRoomMeta::
-INCBIN "data/tilesets/omanyte_word_room_metatiles.bin"
+if DEF(_FR_FR)
+INCBIN "data/tilesets/omanyte_word_room_metatiles_fr.bin"
+else
+INCBIN "data/tilesets/omanyte_word_room_metatiles_en.bin"
+endc
 
 TilesetAerodactylWordRoomMeta::
-INCBIN "data/tilesets/aerodactyl_word_room_metatiles.bin"
+if DEF(_FR_FR)
+INCBIN "data/tilesets/aerodactyl_word_room_metatiles_fr.bin"
+else
+INCBIN "data/tilesets/aerodactyl_word_room_metatiles_en.bin"
+endc
 
 TilesetJohtoWavesGFX::
 INCBIN "gfx/tilesets/johto_waves.2bpp.lz"
