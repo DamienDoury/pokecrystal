@@ -26,11 +26,11 @@ ViridianForest_MapScripts:
 	iftrue .ZapdosDisappears
 	checkevent EVENT_ZAPDOS_APPEARED
 	iffalse .ZapdosDisappears
-	appear VIRIDIAN_FOREST_ZAPDOS
+	;clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ;appear VIRIDIAN_FOREST_ZAPDOS
 	endcallback
 
 .ZapdosDisappears:
-	disappear VIRIDIAN_FOREST_ZAPDOS
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_2 ;disappear VIRIDIAN_FOREST_ZAPDOS
 	endcallback
 
 ViridianForestDireHit:
@@ -86,7 +86,7 @@ ViridianForest_ZapdosAssaultsPlayer:
 	dontrestartmapmusic
 	setevent EVENT_VIRIDIAN_FOREST_WARNING_ISSUED
 	disappear VIRIDIAN_FOREST_LOST_KID ; also does setevent EVENT_FOUGHT_ZAPDOS.
-	disappear VIRIDIAN_FOREST_ZAPDOS ; also does setevent EVENT_FOUGHT_ZAPDOS.
+	disappear VIRIDIAN_FOREST_ZAPDOS
 	reloadmapafterbattle
 	pause 15
 	
