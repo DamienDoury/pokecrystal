@@ -3482,7 +3482,7 @@ EnemySwitch:
 	call OfferSwitch
 	push af
 	call ClearEnemyMonBox
-	;call ShowBattleTextEnemySentOut
+	call ShowBattleTextEnemySentOut
 	call ShowSetEnemyMonAndSendOutAnimation
 	pop af
 	ret c
@@ -3507,7 +3507,7 @@ EnemySwitch_SetMode:
 	ld a, 1
 	ld [wEnemyIsSwitching], a
 	call ClearEnemyMonBox
-	;call ShowBattleTextEnemySentOut
+	call ShowBattleTextEnemySentOut
 	jmp ShowSetEnemyMonAndSendOutAnimation
 
 CheckWhetherSwitchmonIsPredetermined:
@@ -4217,14 +4217,16 @@ TryToRunAwayFromBattle:
 	add b
 	ld [wBattleResult], a
 	call StopDangerSound
+
+	ld hl, BattleText_GotAwaySafely
+	call StdBattleTextbox
+
 	push de
 	ld de, SFX_RUN
 	call WaitPlaySFX
 	pop de
+
 	call WaitSFX
-	;ld hl, BattleText_GotAwaySafely
-	;call StdBattleTextbox
-	;call WaitSFX
 	call LoadTilemapToTempTilemap
 	farcall SpreadPokerusFromAllies
 	scf

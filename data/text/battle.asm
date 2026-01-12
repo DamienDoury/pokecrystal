@@ -638,8 +638,7 @@ endc
 BattleText_EnemySentOut:
 if DEF(_FR_FR)
 	text "<ENEMY>"
-	line "envoie"
-	cont "@"
+	line "envoie @"
 	text_ram wEnemyMonNickname
 	text "!"
 	done
@@ -691,11 +690,10 @@ BattleText_GotAwaySafely:
 if DEF(_FR_FR)
 	text "Vous prenez la"
 	line "fuite!"
-	prompt
 else
 	text "Got away safely!"
-	prompt
 endc
+	done
 
 BattleText_UserFledUsingAStringBuffer1:
 if DEF(_FR_FR)
