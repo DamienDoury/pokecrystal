@@ -739,7 +739,7 @@ PartyMenuSelect:
 	ldh a, [hJoyLast]
 	and A_BUTTON | B_BUTTON
 	ld a, [wMenuCursorY]
-	jmp nz, .exitmenu ; Select wasn't pressed.
+	jr nz, .exitmenu ; Select wasn't pressed.
 
 	call HideCursor
 	jr .skip_select_input ; Ignore select on cancel.
@@ -780,6 +780,13 @@ PartyMenuSelect:
 	and a
 	ret
 
+.exitmenu
+	ld de, SFX_READ_TEXT_2
+	call PlaySFX
+	;call WaitSFX
+	scf
+	ret
+
 .pressed_select
 	; If the player presses select, either we start the switch process,
 	; or we validate it.
@@ -798,7 +805,19 @@ PartyMenuSelect:
 	xor a ; take.
 .give_or_take_done
 	ld [wMenuCursorY], a
+
+	ld a, MON_ITEM
+	call GetPartyParamLocation
+	ld d, [hl]
+	farcall ItemIsMail
+	jr c, .handle_mail
+
+	ld a, [wLinkMode]
+	cp LINK_TRADECENTER
+	ret z;jp z, .return_from_action ; Items can't be moved in the Trade Center.
+	
 	farcall GiveTakePartyMonItem.give_or_take
+.return_from_action
 	farcall LoadPartyMenuGFX
 	farcall InitPartyMenuWithCancel
 	farcall InitPartyMenuGFX
@@ -807,13 +826,23 @@ PartyMenuSelect:
 	call WaitBGMap
 	call SetPalettes
 	jmp PartyMenuSelect
-	
-.exitmenu
-	ld de, SFX_READ_TEXT_2
-	call PlaySFX
-	;call WaitSFX
-	scf
-	ret
+
+.handle_mail
+	ld a, [wMenuCursorY]
+	and a
+	jr z, .take_mail
+
+.read_mail
+	farcall MonMailAction.read
+	jr .return_from_action
+
+.take_mail
+	ld a, [wLinkMode]
+	cp LINK_TRADECENTER
+	jr z, .read_mail
+
+	farcall MonMailAction.take
+	jr .return_from_action
 
 PrintPartyMenuText:
 	hlcoord 0, 14
