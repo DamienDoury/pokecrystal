@@ -3914,6 +3914,11 @@ ClearEnemyMonBox:
 ShowBattleTextEnemySentOut:
 	callfar Battle_GetTrainerName
 	ld hl, BattleText_EnemySentOut
+	call IsPluralTrainer
+	jr nz, .display
+
+	ld hl, BattleText_EnemySentOut_Plural
+.display
 	call StdBattleTextbox
 	jmp WaitBGMap
 

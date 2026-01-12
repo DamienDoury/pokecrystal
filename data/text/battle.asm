@@ -635,6 +635,17 @@ else
 	done
 endc
 
+BattleText_EnemySentOut_Plural:
+if DEF(_FR_FR)
+	text "<ENEMY>"
+	line "envoient"
+	cont "@"
+	text_ram wEnemyMonNickname
+	text "!"
+	done
+endc
+	; English version falls through.
+
 BattleText_EnemySentOut:
 if DEF(_FR_FR)
 	text "<ENEMY>"
