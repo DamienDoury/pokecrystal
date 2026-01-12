@@ -1035,6 +1035,10 @@ CheckLongStartPressOW:
 	xor a
 	ldh [hLongPressStart], a ; Preventing infinite triggers.
 
+	ld a, [wLinkMode]
+	and a
+	jr nz, .cancel_long_press ; Can't save in link mode.
+
 ; Try quick save.
 	farcall LoadOW_BGPal7
 	
