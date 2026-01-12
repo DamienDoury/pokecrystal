@@ -1082,9 +1082,8 @@ endc
 BattleText_ItemHealedConfusion:
 if DEF(_FR_FR)
 	text_ram wStringBuffer1
-	text_start
-	line "dissipe la folie"
-	cont "de"
+	text " dissipe"
+	line "la folie de"
 	cont "<TARGET>."
 	prompt
 else
