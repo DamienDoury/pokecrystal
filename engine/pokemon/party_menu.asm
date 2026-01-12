@@ -717,6 +717,10 @@ PartyMenuSelect:
 	jr .skip_select_input_with_skip_index
 
 .choose_pokemon_menu_header
+	ld hl, wOptions2
+	bit FIELD_MOVES, [hl]
+	jr z, .skip_select_input
+	
 	; PARTYMENUACTION_CHOOSE_POKEMON
 	ld a, [wMenuJoypadFilter]
 	or D_LEFT | D_RIGHT

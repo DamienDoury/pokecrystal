@@ -28,6 +28,10 @@ _InterpretBattleMenu::
 	jr nz, .display
 
 .allow_escape_with_b
+	ld hl, wOptions2
+	bit FIELD_MOVES, [hl]
+	jr z, .display ; We only allow escaping the battle with the B button in Shortcuts mode.
+
 	ld a, [wMenuDataFlags]
 	res 0, a ; Allows quitting the 2DMenu by pressing B.
 	ld [wMenuDataFlags], a
