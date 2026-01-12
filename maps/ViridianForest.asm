@@ -213,77 +213,67 @@ ViridianForest_MapEvents:
 	warp_event 24, 56, ROUTE_2, 8
 	warp_event 25, 56, ROUTE_2, 9
 
-;	warp_event 15, 29, VIRIDIAN_CITY, 1
-;	warp_event 14, 28, VIRIDIAN_CITY, 1
+;	; Vertical warps.
+;	warp_event  0, 10, VIRIDIAN_CITY, 1
+;	warp_event  1, 10, VIRIDIAN_CITY, 1
+;	warp_event  0, 11, VIRIDIAN_CITY, 1
+;	warp_event  1, 11, VIRIDIAN_CITY, 1
 ;
-;	warp_event 40, 27, VIRIDIAN_CITY, 1
-;	warp_event 41, 27, VIRIDIAN_CITY, 1
+;	warp_event 18, 10, VIRIDIAN_CITY, 1
+;	warp_event 19, 10, VIRIDIAN_CITY, 1
+;	warp_event 18, 11, VIRIDIAN_CITY, 1
+;	warp_event 19, 11, VIRIDIAN_CITY, 1
 ;
-;	warp_event 41, 26, VIRIDIAN_CITY, 1
-;	warp_event 40, 26, VIRIDIAN_CITY, 1
+;	warp_event 32, 30, VIRIDIAN_CITY, 1
+;	warp_event 33, 30, VIRIDIAN_CITY, 1
+;	warp_event 32, 31, VIRIDIAN_CITY, 1
+;	warp_event 33, 31, VIRIDIAN_CITY, 1
 ;
-;	warp_event 32, 27, VIRIDIAN_CITY, 1
-;	warp_event 33, 26, VIRIDIAN_CITY, 1
+;	warp_event 40, 30, VIRIDIAN_CITY, 1
+;	warp_event 41, 30, VIRIDIAN_CITY, 1
+;	warp_event 40, 31, VIRIDIAN_CITY, 1
+;	warp_event 41, 31, VIRIDIAN_CITY, 1
 ;
-;	warp_event 32, 26, VIRIDIAN_CITY, 1
-;	warp_event 33, 27, VIRIDIAN_CITY, 1
+;	warp_event 16, 44, VIRIDIAN_CITY, 1
+;	warp_event 17, 44, VIRIDIAN_CITY, 1
+;	warp_event 16, 45, VIRIDIAN_CITY, 1
+;	warp_event 17, 45, VIRIDIAN_CITY, 1
 ;
-;	warp_event 17, 40, VIRIDIAN_CITY, 1
-;	warp_event 17, 41, VIRIDIAN_CITY, 1
+;	warp_event 24, 44, VIRIDIAN_CITY, 1
+;	warp_event 25, 44, VIRIDIAN_CITY, 1
+;	warp_event 24, 45, VIRIDIAN_CITY, 1
+;	warp_event 25, 45, VIRIDIAN_CITY, 1
 ;
-;	warp_event 16, 40, VIRIDIAN_CITY, 1
-;	warp_event 16, 41, VIRIDIAN_CITY, 1
+;	warp_event 32, 18, VIRIDIAN_CITY, 1
+;	warp_event 33, 18, VIRIDIAN_CITY, 1
+;	warp_event 32, 19, VIRIDIAN_CITY, 1
+;	warp_event 33, 19, VIRIDIAN_CITY, 1
 ;
-;	warp_event 33, 39, VIRIDIAN_CITY, 1
-;	warp_event 32, 39, VIRIDIAN_CITY, 1
+;	warp_event 32, 42, VIRIDIAN_CITY, 1
+;	warp_event 33, 42, VIRIDIAN_CITY, 1
+;	warp_event 32, 43, VIRIDIAN_CITY, 1
+;	warp_event 33, 43, VIRIDIAN_CITY, 1
 ;
-;	warp_event 32, 38, VIRIDIAN_CITY, 1
-;	warp_event 33, 38, VIRIDIAN_CITY, 1
+;	; Horizontal warps.
+;	warp_event 32,  4, VIRIDIAN_CITY, 1
+;	warp_event 33,  4, VIRIDIAN_CITY, 1
+;	warp_event 32,  5, VIRIDIAN_CITY, 1
+;	warp_event 33,  5, VIRIDIAN_CITY, 1
 ;
-;	warp_event  8, 35, VIRIDIAN_CITY, 1
-;	warp_event  9, 35, VIRIDIAN_CITY, 1
+;	warp_event 14, 32, VIRIDIAN_CITY, 1
+;	warp_event 15, 32, VIRIDIAN_CITY, 1
+;	warp_event 14, 33, VIRIDIAN_CITY, 1
+;	warp_event 15, 33, VIRIDIAN_CITY, 1
 ;
-;	warp_event  9, 34, VIRIDIAN_CITY, 1
-;	warp_event  8, 34, VIRIDIAN_CITY, 1
+;	warp_event  8, 38, VIRIDIAN_CITY, 1
+;	warp_event  9, 38, VIRIDIAN_CITY, 1
+;	warp_event  8, 39, VIRIDIAN_CITY, 1
+;	warp_event  9, 39, VIRIDIAN_CITY, 1
 ;
-;	warp_event  8, 47, VIRIDIAN_CITY, 1
-;	warp_event  9, 47, VIRIDIAN_CITY, 1
-;
-;	warp_event  9, 46, VIRIDIAN_CITY, 1
-;	warp_event  8, 46, VIRIDIAN_CITY, 1
-;
-;	warp_event 32,  0, VIRIDIAN_CITY, 1
-;	warp_event 33,  0, VIRIDIAN_CITY, 1
-;
-;	warp_event 32,  1, VIRIDIAN_CITY, 1
-;	warp_event 33,  1, VIRIDIAN_CITY, 1
-;
-;	warp_event 33, 15, VIRIDIAN_CITY, 1
-;	warp_event 32, 15, VIRIDIAN_CITY, 1
-;
-;	warp_event 25, 41, VIRIDIAN_CITY, 1
-;	warp_event 24, 41, VIRIDIAN_CITY, 1
-;
-;	warp_event 33, 14, VIRIDIAN_CITY, 1
-;	warp_event 32, 14, VIRIDIAN_CITY, 1
-;
-;	warp_event 25, 40, VIRIDIAN_CITY, 1
-;	warp_event 24, 40, VIRIDIAN_CITY, 1
-;
-;	warp_event 19,  6, VIRIDIAN_CITY, 1
-;	warp_event 18,  6, VIRIDIAN_CITY, 1
-;
-;	warp_event  1,  6, VIRIDIAN_CITY, 1
-;	warp_event  0,  6, VIRIDIAN_CITY, 1
-;
-;	warp_event 19,  7, VIRIDIAN_CITY, 1
-;	warp_event 18,  7, VIRIDIAN_CITY, 1
-;
-;	warp_event  1,  7, VIRIDIAN_CITY, 1
-;	warp_event  0,  7, VIRIDIAN_CITY, 1
-;
-;	warp_event 15, 28, VIRIDIAN_CITY, 1
-;	warp_event 14, 29, VIRIDIAN_CITY, 1
+;	warp_event  8, 50, VIRIDIAN_CITY, 1
+;	warp_event  9, 50, VIRIDIAN_CITY, 1
+;	warp_event  8, 51, VIRIDIAN_CITY, 1
+;	warp_event  9, 51, VIRIDIAN_CITY, 1
 
 	def_coord_events
 	coord_event  2, 27, CE_EVENT_FLAG_CLEARED, EVENT_FOUGHT_ZAPDOS, ViridianForest_ZapdosAppears
