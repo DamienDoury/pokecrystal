@@ -230,7 +230,7 @@ ReplaceTimeOfDayPals:
 	ld [wTimeOfDayPalset], a
 	ret
 
-.ActivateAutoFlash:
+.ActivateAutoFlash::
 	farcall GetPartyNickname
 	farcall HideMapNameSign ; Prevents window and palette confusion with the textbox.
 

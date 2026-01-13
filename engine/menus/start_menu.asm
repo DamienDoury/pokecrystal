@@ -92,6 +92,7 @@ StartMenu::
 	call ExitMenu
 .ReturnEnd2:
 	call CloseText
+	call .CheckFlash
 	jmp UpdateTimePals
 
 .GetInput:
@@ -151,6 +152,31 @@ StartMenu::
 	call .DrawBugContestStatus
 	call UpdateSprites
 	jmp FinishExitMenu
+
+.CheckFlash:
+	ld a, [wMapTimeOfDay]
+	cp PALETTE_DARK
+	ret nz
+
+	ld a, [wStatusFlags]
+	bit STATUSFLAGS_FLASH_F, a
+	ret nz
+
+	; Try to automatically use of Flash if the Quick Field Moves option is activated.
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	ret z
+
+	ld b, HM_FLASH
+	farcall FarCheckHMSilent
+	ret c
+
+	ld d, FLASH
+	farcall CheckPartyMove ; Sets wCurPartyMon for PlayMonCry.
+	ret c
+
+	farcall ReplaceTimeOfDayPals.ActivateAutoFlash
+	ret
 
 .MenuHeader:
 	db MENU_BACKUP_TILES ; flags
