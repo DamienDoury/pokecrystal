@@ -10,7 +10,7 @@ DefaultOptions:
 ; wGBPrinterBrightness: normal
 	db GBPRINTER_NORMAL
 ; wOptions2: legacy field moves mode
-	db FALSE
+	db 1 << FIELD_MOVES
 
 	db $00
 	db $00
