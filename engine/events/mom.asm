@@ -5,6 +5,7 @@ BankOfMom:
 	ldh [hInMenu], a
 	xor a
 	ld [wJumptableIndex], a
+	ld [wScriptVar], a
 .loop
 	ld a, [wJumptableIndex]
 	bit 7, a
@@ -314,7 +315,11 @@ DSTChecks:
 	ld hl, .TimesetAskNotDSTText
 	call PlaceHLTextAtBC
 	call YesNoBox
-	ret c
+	jr c, .CheckMartRush
+
+	xor a
+	ld [wScriptVar], a ; Return FALSE.
+
 	ld a, [wDST]
 	res 7, a
 	ld [wDST], a
@@ -323,6 +328,21 @@ DSTChecks:
 	bccoord 1, 14
 	ld hl, .TimesetNotDSTText
 	jmp PlaceHLTextAtBC
+
+.CheckMartRush:
+	ld b, CHECK_FLAG
+	ld de, EVENT_LOCKDOWN_MART_RUSH
+	call EventFlagAction
+	ld a, c
+	and a
+	ld a, 0
+	ld [wScriptVar], a ; Return FALSE.
+	ret nz
+
+;.MartRush:
+	inc a
+	ld [wScriptVar], a ; Return TRUE.
+	ret
 
 .SetDST:
 	ld hl, .TimesetAskDSTText

@@ -298,8 +298,6 @@ MomScript:
 	opentext
 	checkevent EVENT_FIRST_TIME_BANKING_WITH_MOM
 	iftrue .FirstTimeBanking
-	checkevent EVENT_LOCKDOWN_MART_RUSH
-	iffalse .MartRush
 	checkevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	iftrue .BankOfMom
 	checkevent EVENT_GAVE_COVID_SAMPLE_TO_ELM
@@ -350,6 +348,8 @@ MomScript:
 .BankOfMom:
 	;setevent EVENT_TALKED_TO_MOM_AFTER_MYSTERY_EGG_QUEST
 	special BankOfMom
+	iftrue .MartRush
+
 .CloseText
 	waitbutton
 	closetext
