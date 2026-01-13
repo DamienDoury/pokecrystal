@@ -4,6 +4,7 @@ MonSubmenu:
 	xor a
 	ldh [hBGMapMode], a
 	call GetMonSubmenuItems
+	
 	farcall FreezeMonIcons
 	ld hl, .MenuHeader
 	call LoadMenuHeader
@@ -12,6 +13,11 @@ MonSubmenu:
 
 	ld a, 1
 	ldh [hBGMapMode], a
+
+	ld a, [wMonSubmenuCount]
+	cp 1
+	jr z, .only_one_option
+
 	call MonMenuLoop
 	ld [wMenuSelection], a
 
@@ -38,6 +44,11 @@ endc
 	inc a
 	ld [wMenuBorderTopCoord], a
 	jmp MenuBox
+
+.only_one_option:
+	ld a, MONMENUITEM_STATS
+	ld [wMenuSelection], a
+	jmp ExitMenu
 
 MonMenuLoop:
 .loop
@@ -150,6 +161,10 @@ GetMonSubmenuItems:
 	jr nz, .loop
 
 .skip_moves
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr nz, .ok2
+
 	ld a, MONMENUITEM_SWITCH
 	call AddMonMenuItem
 	ld a, [wLinkMode]
@@ -187,7 +202,23 @@ GetMonSubmenuItems:
 
 IsFieldMove:
 	ld b, a
+
+	ld hl, wOptions2
+	bit FIELD_MOVES, [hl]
 	ld hl, MonMenuOptions
+	jr z, .next
+
+	; Special case: Flash needs to be useable to complete the Ruins of Alph puzzle.
+	ld hl, MonMenuOptions_Shortcuts
+	ld a, [wMapGroup]
+	cp GROUP_RUINS_OF_ALPH_AERODACTYL_CHAMBER
+	jr nz, .next
+
+	ld a, [wMapNumber]
+	cp MAP_RUINS_OF_ALPH_AERODACTYL_CHAMBER
+	jr nz, .next
+
+	ld hl, MonMenuOptions_Shortcuts_RuinsOfAlph
 .next
 	ld a, [hli]
 	cp -1
