@@ -1,5 +1,9 @@
 LizPhoneCalleeScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, LIZ1
+
+	readmem wCurFreedomState
+	ifequal 1 << LOCKDOWN, .Lockdown
+
 	checkflag ENGINE_LIZ_READY_FOR_REMATCH
 	iftrue .WantsBattle
 	farscall PhoneScript_AnswerPhone_Female
@@ -17,6 +21,10 @@ LizPhoneCalleeScript:
 .WantsBattle:
 	getlandmarkname STRING_BUFFER_5, LANDMARK_ROUTE_32
 	farsjump LizReminderScript
+
+.Lockdown:
+	farscall PhoneScript_AnswerPhone_Female
+	sjump .NotThursday
 
 LizPhoneCallerScript:
 	gettrainername STRING_BUFFER_3, PICNICKER, LIZ1
