@@ -236,11 +236,6 @@ _StartAutomaticBattleWeather::
 
 .check_battle_scene_option
 	push hl
-	farcall CheckBattleScene
-	pop hl
-	jr c, .end
-
-	push hl
 	farcall Call_PlayBattleAnim ; uses de
 	pop hl
 .end

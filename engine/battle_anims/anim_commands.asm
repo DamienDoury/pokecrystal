@@ -52,8 +52,13 @@ _PlayBattleAnim:
 BattleAnimRunScript:
 	ld a, [wFXAnimID + 1]
 	and a
-	jr nz, .hi_byte
+	jr z, .low_byte
 
+	ld a, [wFXAnimID]
+	cp LOW(ANIM_THROW_POKE_BALL)
+	jr nc, .hi_byte
+
+.low_byte
 	farcall CheckBattleScene
 	jr c, .disabled
 

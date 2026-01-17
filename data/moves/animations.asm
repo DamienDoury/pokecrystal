@@ -260,9 +260,6 @@ BattleAnimations::
 	dw BattleAnim_SweetScent2
 	assert_table_length $100
 ; $100
-	dw BattleAnim_ThrowPokeBall
-	dw BattleAnim_SendOutMon
-	dw BattleAnim_ReturnMon
 	dw BattleAnim_Confused
 	dw BattleAnim_Slp
 	dw BattleAnim_Brn
@@ -274,6 +271,12 @@ BattleAnimations::
 	dw BattleAnim_InSandstorm
 	dw BattleAnim_InNightmare
 	dw BattleAnim_InWhirlpool
+	dw BattleAnim_InHail
+
+; Anims below this line are hidden while BATTLE SCENE is OFF.
+	dw BattleAnim_ThrowPokeBall
+	dw BattleAnim_SendOutMon
+	dw BattleAnim_ReturnMon
 	dw BattleAnim_Miss
 	dw BattleAnim_EnemyDamage
 	dw BattleAnim_EnemyStatDown
@@ -282,7 +285,6 @@ BattleAnimations::
 	dw BattleAnim_Wobble
 	dw BattleAnim_Shake
 	dw BattleAnim_HitConfusion
-	dw BattleAnim_InHail
 	assert_table_length NUM_BATTLE_ANIMS + 1
 
 BattleAnim_0:

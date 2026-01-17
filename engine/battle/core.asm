@@ -1933,9 +1933,6 @@ HandleWeather:
 	cp WEATHER_SANDSTORM
 	jr z, .do_sandstorm
 
-	farcall CheckBattleScene
-	ret c
-
 	ld a, [wBattleWeather]
 	cp WEATHER_SUN
 	jr z, .do_sun
@@ -2005,14 +2002,9 @@ HandleWeather:
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
-	;push hl
-	farcall CheckBattleScene
-	;pop hl
-	jr c, .no_sandstorm_anim
 
 	ld de, ANIM_IN_SANDSTORM
 	call Call_PlayBattleAnim
-.no_sandstorm_anim
 	call SwitchTurnCore
 	call GetEighthMaxHP
 	call SubtractHPFromUser
@@ -2059,17 +2051,10 @@ HandleWeather:
 	call SwitchTurnCore
 	xor a
 	ld [wNumHits], a
-
-	;push hl
-	farcall CheckBattleScene
-	;pop hl
-	jr c, .no_hail_anim
 	
 	ld de, ANIM_IN_HAIL
 	call Call_PlayBattleAnim
-.no_hail_anim
 	call SwitchTurnCore
-
 	call GetEighthMaxHP
 	call SubtractHPFromUser
 
