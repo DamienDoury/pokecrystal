@@ -245,10 +245,10 @@ endc
 
 BlackthornGrampsViolationText:
 if DEF(_FR_FR)
-	text "Comment oses-tu"
+	text "Comment as-tu osé"
 	line "entrer en ce lieu"
-	cont "sacré sans y avoir"
-	cont "été invité!"
+	cont "sacré sans"
+	cont "invitation!"
 	done
 else
 	text "How dared you"
