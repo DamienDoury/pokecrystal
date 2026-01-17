@@ -14,12 +14,7 @@ PlayBattleAnim:
 	ret
 
 _PlayBattleAnim:
-	ld c, 6
-.wait
 	call DelayFrame
-	dec c
-	jr nz, .wait
-
 	call BattleAnimAssignPals
 	call BattleAnimRequestPals
 	call DelayFrame
@@ -44,8 +39,6 @@ _PlayBattleAnim:
 	ld a, 1
 	ldh [hBGMapMode], a
 
-	call DelayFrame
-	call DelayFrame
 	call DelayFrame
 	jmp WaitSFX
 
