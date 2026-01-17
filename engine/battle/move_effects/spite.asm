@@ -4,19 +4,22 @@ BattleCommand_Spite:
 	ld a, [wAttackMissed]
 	and a
 	jp nz, .failed
-	ld bc, PARTYMON_STRUCT_LENGTH ; unused
+
 	ld hl, wEnemyMonMoves
 	ldh a, [hBattleTurn]
 	and a
 	jr z, .got_moves
+
 	ld hl, wBattleMonMoves
 .got_moves
 	ld a, BATTLE_VARS_LAST_COUNTER_MOVE_OPP
 	call GetBattleVar
 	and a
 	jr z, .failed
+
 	cp STRUGGLE
 	jr z, .failed
+
 	ld b, a
 	ld c, -1
 .loop

@@ -139,11 +139,7 @@ BattleCommand_CheckTurn:
 	bit SUBSTATUS_RECHARGE, [hl]
 	jr z, .no_recharge
 
-	res SUBSTATUS_RECHARGE, [hl]
-	ld hl, MustRechargeText
-	call StdBattleTextbox
-	call CantMove
-	jmp EndTurn
+	jmp CheckEnemyTurn.must_recharge
 
 .no_recharge
 
@@ -187,8 +183,7 @@ BattleCommand_CheckTurn:
 	cp SLEEP_TALK
 	jr z, .not_asleep
 
-	call CantMove
-	jmp EndTurn
+	jmp CantMoveEndTurn
 
 .not_asleep
 
@@ -203,11 +198,7 @@ BattleCommand_CheckTurn:
 	cp SACRED_FIRE
 	jr z, .not_frozen
 
-	ld hl, FrozenSolidText
-	call StdBattleTextbox
-
-	call CantMove
-	jmp EndTurn
+	jmp CheckEnemyTurn.stay_frozen
 
 .not_frozen
 
@@ -217,10 +208,7 @@ BattleCommand_CheckTurn:
 
 	res SUBSTATUS_FLINCHED, [hl]
 	ld hl, FlinchedText
-	call StdBattleTextbox
-
-	call CantMove
-	jmp EndTurn
+	jmp StdBattleTextboxCantMoveEndTurn
 
 .not_flinched
 
@@ -274,8 +262,7 @@ BattleCommand_CheckTurn:
 	ld [hl], a
 
 	call HitConfusion
-	call CantMove
-	jmp EndTurn
+	jmp CantMoveEndTurn
 
 .not_confused
 
@@ -283,22 +270,10 @@ BattleCommand_CheckTurn:
 	add a ; bit SUBSTATUS_ATTRACT
 	jr nc, .not_infatuated
 
-	ld hl, InLoveWithText
-	call StdBattleTextbox
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_LOVE
-	call FarPlayBattleAnimation
-
-	; 50% chance of infatuation
-	call BattleRandom
-	cp 50 percent + 1
+	call Battle_infatuation_anim
 	jr c, .not_infatuated
 
-	ld hl, InfatuationText
-	call StdBattleTextbox
-	call CantMove
-	jmp EndTurn
+	jmp CheckEnemyTurn.infatuation_text
 
 .not_infatuated
 
@@ -312,9 +287,7 @@ BattleCommand_CheckTurn:
 	cp [hl]
 	jr nz, .no_disabled_move
 
-	call MoveDisabled
-	call CantMove
-	jmp EndTurn
+	jmp CheckEnemyTurn.move_is_disabled
 
 .no_disabled_move
 
@@ -327,10 +300,7 @@ BattleCommand_CheckTurn:
 	cp 25 percent
 	ret nc
 
-	ld hl, FullyParalyzedText
-	call StdBattleTextbox
-	call CantMove
-	jmp EndTurn
+	jmp CheckEnemyTurn.paralyzed_text
 
 CantMove:
 	ld a, BATTLE_VARS_SUBSTATUS1
@@ -368,11 +338,10 @@ CheckEnemyTurn:
 	bit SUBSTATUS_RECHARGE, [hl]
 	jr z, .no_recharge
 
+.must_recharge
 	res SUBSTATUS_RECHARGE, [hl]
 	ld hl, MustRechargeText
-	call StdBattleTextbox
-	call CantMove
-	jmp EndTurn
+	jmp StdBattleTextboxCantMoveEndTurn
 
 .no_recharge
 
@@ -414,8 +383,8 @@ CheckEnemyTurn:
 	jr z, .not_asleep
 	cp SLEEP_TALK
 	jr z, .not_asleep
-	call CantMove
-	jmp EndTurn
+
+	jmp CantMoveEndTurn
 
 .not_asleep
 
@@ -430,10 +399,9 @@ CheckEnemyTurn:
 	cp SACRED_FIRE
 	jr z, .not_frozen
 
+.stay_frozen
 	ld hl, FrozenSolidText
-	call StdBattleTextbox
-	call CantMove
-	jmp EndTurn
+	jmp StdBattleTextboxCantMoveEndTurn
 
 .not_frozen
 
@@ -443,10 +411,7 @@ CheckEnemyTurn:
 
 	res SUBSTATUS_FLINCHED, [hl]
 	ld hl, FlinchedText
-	call StdBattleTextbox
-
-	call CantMove
-	jmp EndTurn
+	jmp StdBattleTextboxCantMoveEndTurn
 
 .not_flinched
 
@@ -503,27 +468,11 @@ CheckEnemyTurn:
 	ld [hl], a
 
 	ld hl, HurtItselfText
-	call StdBattleTextbox
 
-	call HitSelfInConfusion
-	call ConfusionDamageCalc
-	call BattleCommand_LowerSub
-
-	xor a
-	ld [wNumHits], a
-
-	; Flicker the monster pic unless flying or underground.
-	ld de, ANIM_HIT_CONFUSION
-	ld a, BATTLE_VARS_SUBSTATUS3_OPP
-	call GetBattleVar
-	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
-	call z, PlayFXAnimID
-
-	ld c, TRUE
+	call HitConfusionRoutine
 	call DoEnemyDamage
-	call BattleCommand_RaiseSub
-	call CantMove
-	jr EndTurn
+	call BattleCommand_RaiseSub 
+	jr CantMoveEndTurn
 
 .not_confused
 
@@ -531,22 +480,12 @@ CheckEnemyTurn:
 	add a ; bit SUBSTATUS_ATTRACT
 	jr nc, .not_infatuated
 
-	ld hl, InLoveWithText
-	call StdBattleTextbox
-	xor a
-	ld [wNumHits], a
-	ld de, ANIM_IN_LOVE
-	call FarPlayBattleAnimation
-
-	; 50% chance of infatuation
-	call BattleRandom
-	cp 50 percent + 1
+	call Battle_infatuation_anim
 	jr c, .not_infatuated
 
+.infatuation_text
 	ld hl, InfatuationText
-	call StdBattleTextbox
-	call CantMove
-	jr EndTurn
+	jr StdBattleTextboxCantMoveEndTurn
 
 .not_infatuated
 
@@ -560,10 +499,9 @@ CheckEnemyTurn:
 	cp [hl]
 	jr nz, .no_disabled_move
 
+.move_is_disabled
 	call MoveDisabled
-
-	call CantMove
-	jr EndTurn
+	jr CantMoveEndTurn
 
 .no_disabled_move
 
@@ -576,8 +514,12 @@ CheckEnemyTurn:
 	cp 25 percent
 	ret nc
 
+.paralyzed_text
 	ld hl, FullyParalyzedText
+
+StdBattleTextboxCantMoveEndTurn:
 	call StdBattleTextbox
+CantMoveEndTurn:	
 	call CantMove
 
 	; fallthrough
@@ -586,6 +528,19 @@ EndTurn:
 	ld a, $1
 	ld [wTurnEnded], a
 	jmp ResetDamage
+
+Battle_infatuation_anim:
+	ld hl, InLoveWithText
+	call StdBattleTextbox
+	xor a
+	ld [wNumHits], a
+	ld de, ANIM_IN_LOVE
+	call FarPlayBattleAnimation
+
+	; 50% chance of infatuation
+	call BattleRandom
+	cp 50 percent + 1
+	ret
 
 MoveDisabled:
 	; Make sure any charged moves fail
@@ -607,11 +562,20 @@ HitConfusion:
 	jr nz, .HurtItselfNormal
 	ld hl, Pkrus_HurtItselfText
 .HurtItselfNormal
-	call StdBattleTextbox
-
 	xor a
 	ld [wCriticalHit], a
+	
+	call HitConfusionRoutine
 
+	ld hl, UpdatePlayerHUD
+	call CallBattleCore
+	ld a, $1
+	ldh [hBGMapMode], a
+	call DoPlayerDamage
+	jmp BattleCommand_RaiseSub
+
+HitConfusionRoutine:
+	call StdBattleTextbox
 	call HitSelfInConfusion
 	call ConfusionDamageCalc
 	call BattleCommand_LowerSub
@@ -626,13 +590,8 @@ HitConfusion:
 	and 1 << SUBSTATUS_FLYING | 1 << SUBSTATUS_UNDERGROUND
 	call z, PlayFXAnimID
 
-	ld hl, UpdatePlayerHUD
-	call CallBattleCore
-	ld a, $1
-	ldh [hBGMapMode], a
 	ld c, TRUE
-	call DoPlayerDamage
-	jmp BattleCommand_RaiseSub
+	ret
 
 BattleCommand_CheckObedience:
 ; checkobedience
@@ -6327,10 +6286,6 @@ BattleCommand_Charge:
 	text_far _BattleDugText
 	text_end
 
-BattleCommand_Unused3C:
-; effect0x3c
-	ret
-
 BattleCommand_TrapTarget:
 ; traptarget
 
@@ -6690,6 +6645,8 @@ BattleCommand_RechargeNextTurn:
 	ld a, BATTLE_VARS_SUBSTATUS4
 	call GetBattleVarAddr
 	set SUBSTATUS_RECHARGE, [hl]
+BattleCommand_Unused3C: ; effect0x3c
+BattleCommand_Unused5D: ; effect0x5d
 	ret
 
 EndRechargeOpp:
@@ -7125,10 +7082,6 @@ INCLUDE "engine/battle/move_effects/perish_song.asm"
 INCLUDE "engine/battle/move_effects/sandstorm.asm"
 
 INCLUDE "engine/battle/move_effects/rollout.asm"
-
-BattleCommand_Unused5D:
-; effect0x5d
-	ret
 
 INCLUDE "engine/battle/move_effects/fury_cutter.asm"
 
