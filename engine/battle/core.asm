@@ -4216,7 +4216,7 @@ TryToRunAwayFromBattle:
 	call WaitPlaySFX
 	pop de
 
-	call WaitSFX
+	;call WaitSFX
 	call LoadTilemapToTempTilemap
 	farcall SpreadPokerusFromAllies
 	scf
