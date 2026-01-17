@@ -5371,7 +5371,7 @@ BattleMenu_Pack:
 	cp BATTLETYPE_CONTEST
 	jr z, .contest
 
-	farcall BattlePack
+	farcall Pack
 	ld a, [wBattlePlayerAction]
 	and a ; BATTLEPLAYERACTION_USEMOVE?
 	jr z, .didnt_use_item

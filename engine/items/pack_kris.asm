@@ -10,12 +10,12 @@ DrawKrisPackGFX:
 	jmp Request2bpp
 
 PackFGFXPointers:
-	dw PackFGFX + (15 tiles) * 5 ; ITEM_POCKET
+	dw PackFGFX + (15 tiles) * 0 ; ITEM_POCKET
+	dw PackFGFX + (15 tiles) * 1 ; MED_POCKET
+	dw PackFGFX + (15 tiles) * 2 ; BERRY_POCKET
 	dw PackFGFX + (15 tiles) * 3 ; BALL_POCKET
-	dw PackFGFX + (15 tiles) * 0 ; KEY_ITEM_POCKET
-	dw PackFGFX + (15 tiles) * 2 ; TM_HM_POCKET
-	dw PackFGFX + (15 tiles) * 4 ; MED_POCKET
-	dw PackFGFX + (15 tiles) * 1 ; BERRY_POCKET
+	dw PackFGFX + (15 tiles) * 4 ; TM_HM_POCKET
+	dw PackFGFX + (15 tiles) * 5 ; KEY_ITEM_POCKET
 
 PackFGFX:
 INCBIN "gfx/pack/pack_f.2bpp"

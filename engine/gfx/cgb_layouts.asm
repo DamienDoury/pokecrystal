@@ -869,16 +869,12 @@ INCLUDE "gfx/pack/pack_f.pal"
 
 RefreshPackTabsColors::
 	ld a, [wCurPocket]
-	ld e, a
-	ld d, 0
-	ld hl, .menu_id
-	add hl, de
-	ld d, [hl] ; D stores the ID of the menu.
+	ld d, a ; D stores the ID of the menu.
 	ld e, 0
 
 	hlcoord 0, 0, wAttrmap
 
-	ld a, e
+	xor a
 	cp d
 	call z, .displayArrow
 
@@ -900,15 +896,6 @@ RefreshPackTabsColors::
 
 	call .incHL
 
-	; Balls tab.
-	lb bc, 1, 3
-	ld a, $1
-	push hl
-	call FillBoxCGB
-	pop hl
-
-	call .incHL
-
 	; Berries tab.
 if DEF(_FR_FR)
 	lb bc, 1, 3
@@ -916,6 +903,15 @@ else
 	lb bc, 1, 4
 endc
 	ld a, $2
+	push hl
+	call FillBoxCGB
+	pop hl
+
+	call .incHL
+
+	; Balls tab.
+	lb bc, 1, 3
+	ld a, $1
 	push hl
 	call FillBoxCGB
 	pop hl
@@ -966,14 +962,6 @@ endc
 	cp d
 	call z, .displayArrow
 	ret
-
-.menu_id:
-	db 0 ; ITEM_POCKET     ; 0
-	db 2 ; BALL_POCKET     ; 1
-	db 5 ; KEY_ITEM_POCKET ; 2
-	db 4 ; TM_HM_POCKET    ; 3
-	db 1 ; MED_POCKET      ; 4
-	db 3 ; BERRIES_POCKET  ; 5
 
 _CGB_Pokepic:
 	call _CGB_MapPals

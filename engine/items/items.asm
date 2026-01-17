@@ -13,11 +13,11 @@ _ReceiveItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .KeyItem
-	dw .Ball
-	dw .TMHM
 	dw .Med
 	dw .Berry
+	dw .Ball
+	dw .TMHM
+	dw .KeyItem
 
 .Item:
 	ld h, d
@@ -63,11 +63,11 @@ _TossItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw TossKeyItem
-	dw .Ball
-	dw .TMHM
 	dw .Med
 	dw .Berry
+	dw .Ball
+	dw .TMHM
+	dw TossKeyItem
 
 .Ball:
 	ld hl, wNumBalls
@@ -107,11 +107,11 @@ _CheckItem::
 .Pockets:
 ; entries correspond to item types
 	dw .Item
-	dw .KeyItem
-	dw .Ball
-	dw .TMHM
 	dw .Med
 	dw .Berry
+	dw .Ball
+	dw .TMHM
+	dw .KeyItem
 
 .Ball:
 	ld hl, wNumBalls

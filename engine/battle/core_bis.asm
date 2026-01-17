@@ -285,6 +285,8 @@ InitEnemy:
 	and a
 	jr nz, InitEnemyTrainer ; trainer
 
+	ld a, BALL_POCKET
+	ld [wLastPocket], a
 	ld a, WILD_BATTLE
 	ld [wBattleMode], a
 	farcall StubbedTrainerRankings_WildBattles
@@ -324,6 +326,8 @@ InitEnemy:
 InitEnemyTrainer:
 	ld [wTrainerClass], a
 	farcall StubbedTrainerRankings_TrainerBattles
+	ld a, MED_POCKET
+	ld [wLastPocket], a
 	xor a
 	ld [wTempEnemyMonSpecies], a
 	callfar GetTrainerAttributes

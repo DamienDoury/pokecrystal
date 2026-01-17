@@ -17,11 +17,11 @@ INFLATED_PRICE_STRUCT_LENGTH EQU 4
 ; item types
 	const_def 1
 	const ITEM     ; 1
-	const KEY_ITEM ; 2
-	const BALL     ; 3
-	const TM_HM    ; 4
-	const MED      ; 5
-	const BERRIES  ; 6
+	const MED      ; 2
+	const BERRIES  ; 3
+	const BALL     ; 4
+	const TM_HM    ; 5
+	const KEY_ITEM ; 6
 NUM_ITEM_TYPES EQU const_value - 1
 
 ; item menu types
@@ -45,11 +45,11 @@ CANT_TOSS   EQU 1 << CANT_TOSS_F
 ; pack pockets
 	const_def
 	const ITEM_POCKET     ; 0
-	const BALL_POCKET     ; 1
-	const KEY_ITEM_POCKET ; 2
-	const TM_HM_POCKET    ; 3
-	const MED_POCKET      ; 4
-	const BERRIES_POCKET  ; 5
+	const MED_POCKET      ; 1
+	const BERRIES_POCKET  ; 2
+	const BALL_POCKET     ; 3
+	const TM_HM_POCKET    ; 4
+	const KEY_ITEM_POCKET ; 5
 NUM_POCKETS EQU const_value
 
 MAX_ITEMS     EQU 75
