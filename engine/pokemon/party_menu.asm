@@ -729,6 +729,7 @@ PartyMenuSelect:
 	ld a, -1
 .skip_select_input_with_skip_index
 	call StaticMenuJoypad_WithIndexToSkip
+.read_result
 	call PlaceHollowCursor
 	ld a, [wPartyCount]
 	inc a
@@ -745,6 +746,7 @@ PartyMenuSelect:
 	ld a, [wMenuCursorY]
 	jr nz, .exitmenu ; Select wasn't pressed.
 
+.try_again
 	call HideCursor
 	jr .skip_select_input ; Ignore select on cancel.
 
@@ -808,17 +810,27 @@ PartyMenuSelect:
 .take_item
 	xor a ; take.
 .give_or_take_done
-	ld [wMenuCursorY], a
+	ld l, a
+	ld a, [wCurPartySpecies]
+	cp EGG
+	ld a, l
+	jr z, .try_again
 
+	ld a, [wMenuCursorY]
+	ld h, a
+	ld a, l
+	ld [wMenuCursorY], a
+	push hl ; Saving the value of A (wMenuCursorY) which is stored in H.
 	ld a, MON_ITEM
 	call GetPartyParamLocation
 	ld d, [hl]
 	farcall ItemIsMail
+	pop hl
 	jr c, .handle_mail
 
 	ld a, [wLinkMode]
-	cp LINK_TRADECENTER
-	ret z;jp z, .return_from_action ; Items can't be moved in the Trade Center.
+	cp LINK_NULL
+	jr nz, .reset_menu_cursor_then_try_again ; Items can't be moved in the Trade Center.
 	
 	farcall GiveTakePartyMonItem.give_or_take
 .return_from_action
@@ -831,6 +843,11 @@ PartyMenuSelect:
 	call SetPalettes
 	jmp PartyMenuSelect
 
+.reset_menu_cursor_then_try_again
+	ld a, h
+	ld [wMenuCursorY], a
+	jmp .try_again
+
 .handle_mail
 	ld a, [wMenuCursorY]
 	and a
@@ -842,8 +859,8 @@ PartyMenuSelect:
 
 .take_mail
 	ld a, [wLinkMode]
-	cp LINK_TRADECENTER
-	jr z, .read_mail
+	cp LINK_NULL
+	jr nz, .reset_menu_cursor_then_try_again
 
 	farcall MonMailAction.take
 	jr .return_from_action

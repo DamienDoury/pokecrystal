@@ -133,9 +133,11 @@ GetMonSubmenuItems:
 	ld a, [wCurPartySpecies]
 	cp EGG
 	jr z, .egg
+
 	ld a, [wLinkMode]
 	and a
 	jr nz, .skip_moves
+	
 	ld a, MON_MOVES
 	call GetPartyParamLocation
 	ld d, h
@@ -194,6 +196,10 @@ GetMonSubmenuItems:
 	jr TerminateMonSubmenu
 
 .egg
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	jr nz, TerminateMonSubmenu
+
 	ld a, MONMENUITEM_SWITCH
 	call AddMonMenuItem
 	ld a, MONMENUITEM_CANCEL
