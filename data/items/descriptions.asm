@@ -905,7 +905,7 @@ endc
 
 SecretPotionDesc:
 if DEF(_FR_FR)
-	db   "Censé soigner"
+	db   "Censée soigner"
 	next "le COVID.@"
 else
 	db   "Should heal"

@@ -441,7 +441,7 @@ endc
 
 RuinsOfAlphConeText:
 if DEF(_FR_FR)
-	text "Les RUINES D'ALPH"
+	text "Les RUINES D'ALPHA"
 	line "sont fermées au"
 	cont "public."
 else
