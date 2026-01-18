@@ -68,7 +68,7 @@ _Option:
 .ExitOptions:
 	ld de, SFX_TRANSACTION
 	call PlaySFX
-	call WaitSFX
+	call DelayFrame
 	pop af
 	ldh [hInMenu], a
 	ret
