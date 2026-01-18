@@ -944,7 +944,7 @@ PharmacyComeAgainText:
 
 SellMenu:
 	call DisableSpriteUpdates
-	farcall DepositSellInitPackBuffers
+	farcall DepositSellInitPackBuffers_ReopenLastPocket
 .loop
 	farcall DepositSellPack
 	ld a, [wPackUsedItem]
