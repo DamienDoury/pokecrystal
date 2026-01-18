@@ -53,10 +53,10 @@ CANT_TOSS   EQU 1 << CANT_TOSS_F
 NUM_POCKETS EQU const_value
 
 MAX_ITEMS     EQU 75
-MAX_BALLS     EQU 12
-MAX_KEY_ITEMS EQU 30
 MAX_MEDS      EQU 34 ; Should be increased by 4, because it can't fit all meds. Will break save compatibility.
 MAX_BERRIES   EQU 18
+MAX_BALLS     EQU 12
+MAX_KEY_ITEMS EQU 30
 
 MAX_ITEM_STACK EQU 99
 

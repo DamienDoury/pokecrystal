@@ -2135,20 +2135,20 @@ wLastPocket:: db
 
 wPartyMenuCursor::      db
 wItemsPocketCursor::    db
-wKeyItemsPocketCursor:: db
-wBallsPocketCursor::    db
-wTMHMPocketCursor::     db
 wMedPocketCursor::     	db
 wBerryPocketCursor::    db
+wBallsPocketCursor::    db
+wTMHMPocketCursor::     db
+wKeyItemsPocketCursor:: db
 
 	ds 1
 
 wItemsPocketScrollPosition::    db
-wKeyItemsPocketScrollPosition:: db
-wBallsPocketScrollPosition::    db
-wTMHMPocketScrollPosition::     db
 wMedPocketScrollPosition::     	db
 wBerryPocketScrollPosition::  	db
+wBallsPocketScrollPosition::    db
+wTMHMPocketScrollPosition::     db
+wKeyItemsPocketScrollPosition:: db
 
 wSwitchMon::
 wSwitchItem::
