@@ -1,6 +1,10 @@
 CountSetBits::
 ; Count the number of set bits in b bytes starting from hl.
 ; Return in a and c.
+	xor a
+	cp b
+	ret z ; If B = 0, return 0 in A and C.
+
 	ld c, 0
 .next
 	ld a, [hli]

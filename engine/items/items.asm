@@ -539,7 +539,89 @@ ReceiveTMHM:
 
 	ld b, SET_FLAG
 	ld hl, wTMsHMs
+	push de
 	call FlagAction
+	pop de
+
+	ld c, 0 ; C will store the index of the TM/HM within the TM/HM pocket.
+	ld a, e ; E contains the original TM/HM index.
+
+	; Divide A by 8.
+	rrca
+	rrca
+	rrca
+	and %00011111
+	ld d, a ; We save the byte offset in D.
+	jr z, .previous_bytes_bit_count_done
+
+	ld b, a
+	ld hl, wTMsHMs
+	push de
+	call CountSetBits ; Count the number of set bits in b bytes starting from hl. Return in a and c.
+	pop de
+
+.previous_bytes_bit_count_done
+	ld a, e
+	ld b, 8
+	call Modulo
+
+	ld b, a
+	inc b
+	ld a, $80
+
+.bit_shift_loop
+	scf
+	rla
+	dec b
+	jr nz, .bit_shift_loop
+
+	srl a ; A contains the final mask.
+	ld e, d
+	ld d, 0
+	ld hl, wTMsHMs
+	add hl, de
+	and [hl] ; A now contains the filtered TM/HM bitfield.
+
+	; Now we need to count the set bits in A. 
+	; We'll use CountSetBits.
+	; But it needs an HL address!
+	; So we'll use wTempByteValue, and then backup its value once we don't need it anymore.
+
+	ld hl, wTempByteValue
+	ld e, [hl] ; Backup of wTempByteValue in E.
+	ld [hl], a ; HL stores our filtered bitfield.
+
+	ld d, c ; Backup of the previous result of CountSetBits.
+	ld b, 1
+	push de
+	call CountSetBits
+	pop de
+	add d ; A contains the final index of the TM/HM within its pocket.
+	ld c, a ; We store the index in C.
+
+	ld a, e
+	ld [wTempByteValue], a ; We reset its original value.
+
+	ld a, TM_HM_POCKET
+	ld [wLastPocket], a
+
+	ld a, c
+	sub 3
+	jr nc, .no_sub_underflow
+	
+	xor a
+.no_sub_underflow
+	ld [wTMHMPocketScrollPosition], a ; Storing the scroll value.
+
+	ld a, c
+	cp 3
+	jr c, .dont_cap_cursor_value
+
+	ld a, 3
+.dont_cap_cursor_value
+	ld [wTMHMPocketCursor], a ; Storing the cursor value.
+
+	; Return true.
 	scf
 	ret
 
