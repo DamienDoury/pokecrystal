@@ -283,13 +283,7 @@ PutItemInPocket:
 	ld d, [hl] ; DE points to the RAM address of the pocket.
 	pop hl
 
-	; Calculates HL - DE and stores result in DE.
-	ld a, l
-	sub e
-	ld e, a
-	ld a, h
-	sbc d
-	ld d, a
+	call HLminusDE ; Result in DE.
 
 	; Divides the result in DE by 2. Note: it will always fit within 1 byte, as a pocket always contains less than 256 entries.
 	srl d
@@ -426,12 +420,41 @@ ReceiveKeyItem:
 	ld a, [hli]
 	cp MAX_KEY_ITEMS
 	jr nc, .nope
+
 	ld c, a
 	ld b, 0
 	add hl, bc
 	ld a, [wCurItem]
 	ld [hli], a
 	ld [hl], -1
+
+	; Saving the slot as the last visited slot.
+	ld a, KEY_ITEM_POCKET
+	ld [wLastPocket], a
+
+	dec hl ; HL points to the last inserted key item.
+	ld de, wKeyItems
+
+	call HLminusDE ; Result in DE.
+
+	ld a, e
+	sub 3
+	jr nc, .no_sub_underflow
+	
+	xor a
+.no_sub_underflow
+	ld [wKeyItemsPocketScrollPosition], a ; Storing the scroll value.
+
+	ld a, e
+	inc a
+	cp 4
+	jr c, .dont_cap_cursor_value
+
+	ld a, 4
+.dont_cap_cursor_value
+	ld [wKeyItemsPocketCursor], a ; Storing the cursor value.
+
+	; Increase the key items count in the pack.
 	ld hl, wNumKeyItems
 	inc [hl]
 	scf
@@ -700,3 +723,13 @@ GetItemPrice:
 	ld e, l
 
 	jr .return
+
+; Output: the result of HL-DE in DE.
+HLminusDE:
+	ld a, l
+	sub e
+	ld e, a
+	ld a, h
+	sbc d
+	ld d, a
+	ret
