@@ -250,15 +250,94 @@ PutItemInPocket:
 	ld a, [wCurItem]
 	ld [hli], a
 	ld a, [wItemQuantity]
+	push hl ; We save the RAM address of the item quantity.
 	ld [hli], a
 	ld [hl], -1
 	ld h, d
 	ld l, e
 	inc [hl]
+	pop hl
 
 .done
+	; Saving the item slot as the last visited pocket and slot.
+	; This way, the player will automatically have the cursor put on the item next time the pack is opened.
+	ld a, [wItemAttributeValue]
+	dec a
+	ld [wLastPocket], a
+
+	cp TM_HM_POCKET
+	jr z, .tm_hm_pocket
+
+	cp KEY_ITEM_POCKET
+	jr z, .key_item_pocket
+
+	add a ; Doubles A.
+	ld e, a
+	ld d, 0
+	dec hl ; We point to the RAM address of the last inserted element.
+	push hl
+	ld hl, .pocket_id_to_ram_address
+	add hl, de
+	ld e, [hl]
+	inc hl
+	ld d, [hl] ; DE points to the RAM address of the pocket.
+	pop hl
+
+	; Calculates HL - DE and stores result in DE.
+	ld a, l
+	sub e
+	ld e, a
+	ld a, h
+	sbc d
+	ld d, a
+
+	; Divides the result in DE by 2. Note: it will always fit within 1 byte, as a pocket always contains less than 256 entries.
+	srl d
+	rr e
+
+	push de
+	ld a, [wLastPocket]
+	ld e, a
+	ld d, 0
+	ld hl, wItemsPocketScrollPosition
+	add hl, de
+	pop de
+
+	ld a, e
+	sub 3
+	jr nc, .no_sub_underflow
+
+	xor a
+.no_sub_underflow
+	ld [hl], a ; Storing the scroll value.
+
+	; Moving HL from scroll address to corresponding cursor address.
+	push de
+	ld de, $ffff - (wItemsPocketScrollPosition - wItemsPocketCursor) + 1
+	add hl, de
+	pop de
+
+	ld a, e
+	inc a
+	cp 4
+	jr c, .dont_cap_cursor_value
+
+	ld a, 4
+.dont_cap_cursor_value
+	ld [hl], a ; Storing the cursor value.
+
+.tm_hm_pocket
+.key_item_pocket
 	scf
 	ret
+
+.pocket_id_to_ram_address
+	dw wItems
+	dw wMeds
+	dw wBerries
+	dw wBalls
+	dw wTMsHMs
+	dw wKeyItems
 
 RemoveItemFromPocket:
 	ld d, h

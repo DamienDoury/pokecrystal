@@ -831,7 +831,28 @@ InitPackBuffers:
 	ld [wSwitchItem], a
 	ret
 
+DepositSellInitPackBuffers_ReopenLastPocket:
+	call DepositSellInitPackBuffers_InitVars
+
+; We try to re-open the last pocket.
+	ld a, [wLastPocket]
+	cp TM_HM_POCKET
+	jp z, Pack_InitColors
+
+	cp KEY_ITEM_POCKET
+	jp z, Pack_InitColors
+
+	ld [wCurPocket], a
+	ld [wJumptableIndex], a
+	jr DepositSellInitPackBuffers.init_pack
+
 DepositSellInitPackBuffers:
+	call DepositSellInitPackBuffers_InitVars
+.init_pack
+	call Pack_InitGFX
+	jmp Pack_InitColors
+
+DepositSellInitPackBuffers_InitVars:
 	xor a
 	ldh [hBGMapMode], a
 	ld [wJumptableIndex], a ; PACKSTATE_INITGFX
@@ -840,8 +861,7 @@ DepositSellInitPackBuffers:
 	ld [wSwitchItem], a
 	ld a, BALL_POCKET
 	ld [wCurPocket], a ; ITEM_BALLS
-	call Pack_InitGFX
-	jmp Pack_InitColors
+	ret
 
 DepositSellPack:
 .loop

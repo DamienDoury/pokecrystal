@@ -819,7 +819,7 @@ PartyMenuSelect:
 	ld a, [wMenuCursorY]
 	ld h, a
 	ld a, l
-	ld [wMenuCursorY], a
+	ld [wMenuCursorY], a ; We change the value of wMenuCursorY for the purpose of GiveTakePartyMonItem.
 	push hl ; Saving the value of A (wMenuCursorY) which is stored in H.
 	ld a, MON_ITEM
 	call GetPartyParamLocation
