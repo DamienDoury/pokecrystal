@@ -75,6 +75,17 @@ LoadFrame:
 	lb bc, BANK(TextboxSpaceGFX), 1
 	jmp Get1bppViaHDMA
 
+_LoadPartyMenuExtra::
+	ld de, FontPartyMenuExtra
+	ld hl, vTiles2 tile $70
+	lb bc, BANK(FontBattleExtra), 3
+	call Get2bppViaHDMA
+
+	ld de, FontPartyMenuExtra + 3 tiles
+	ld hl, vTiles2 tile $76
+	lb bc, BANK(FontBattleExtra), 3
+	jmp Get2bppViaHDMA
+
 LoadBattleFontsHPBar:
 	ld de, FontBattleExtra
 	ld hl, vTiles2 tile $60

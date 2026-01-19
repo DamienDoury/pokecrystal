@@ -41,6 +41,13 @@ InitPartyMenuLayout:
 LoadPartyMenuGFX:
 	call LoadStandardFont
 	call LoadFontsBattleExtra
+
+	ld a, [wBattleMode]
+	and a
+	jr nz, .font_party_menu_extra
+
+	call LoadPartyMenuExtra
+.font_party_menu_extra
 	callfar InitPartyMenuPalettes
 	callfar ClearSpriteAnims2
 	ret

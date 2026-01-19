@@ -79,6 +79,15 @@
 	charmap "<ID>",      $73
 	charmap "№",         $74
 
+; Actual characters (from gfx/font/party_menu_extra.png)
+
+	charmap "<LEFT_DPAD>",      $70
+	charmap "<RIGHT_DPAD>",     $71
+	charmap "<SEL_BUTTON_1>",   $72
+	charmap "<SEL_BUTTON_2>",   $76
+	charmap "<STA_BUTTON_1>",   $77
+	charmap "<STA_BUTTON_2>",   $78
+
 ; Actual characters (from other graphics files)
 
 	; needed for _LoadFontsExtra1 (see engine/gfx/load_font.asm)

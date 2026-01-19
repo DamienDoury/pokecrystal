@@ -122,6 +122,10 @@ if !DEF(_FR_FR)
 endc
 	ret
 
+LoadPartyMenuExtra::
+	farcall _LoadPartyMenuExtra
+	ret
+
 DecompressRequest2bpp::
 	push de
 	ld a, BANK(sScratch)

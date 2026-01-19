@@ -15,6 +15,9 @@ else
 INCBIN "gfx/font/font_battle_extra.2bpp"
 endc
 
+FontPartyMenuExtra:
+INCBIN "gfx/font/party_menu_extra.2bpp"
+
 Frames:
 INCBIN "gfx/frames/1.1bpp"
 INCBIN "gfx/frames/2.1bpp"
