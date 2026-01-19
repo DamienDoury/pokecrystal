@@ -299,6 +299,9 @@ MenuJoypadLoop:
 	jr nc, .done
 	call _2DMenuInterpretJoypad
 	jr c, .done
+	ld a, [w2DMenuFlags2]
+	bit 6, a
+	call nz, .callback
 	ld a, [w2DMenuFlags1]
 	bit 7, a
 	jr nz, .done
@@ -321,6 +324,23 @@ MenuJoypadLoop:
 	ldh [hOAMUpdate], a
 	xor a
 	ldh [hBGMapMode], a
+	ret
+
+.callback
+	ld a, [wPartyMenuActionText]
+	and a
+	ret nz ; Failsafe.
+	
+	; It is the developer's responsability to make sure that those callbacks do not alter data at the middle of a UI update.
+	ld hl, wMenuData_2DMenuFunctionAddr
+	ld a, [hli]
+	and a
+	ret z ; Failsafe.
+
+	ld h, [hl]
+	ld l, a
+	ld a, [wMenuData_2DMenuFunctionBank]
+	rst FarCall
 	ret
 
 Do2DMenuRTCJoypad:

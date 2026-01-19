@@ -691,9 +691,20 @@ InitPartyMenuNoCancel:
 PartyMenu2DMenuData:
 	db 1, 0 ; cursor start y, x
 	db 0, 1 ; rows, columns
-	db $60, $00 ; flags
+	db $60, $40 ; flags ; $40 is the callback flag, which is bit 6 of w2DMenuFlags2.
 	dn 2, 0 ; cursor offset
 	db 0 ; accepted buttons
+
+PartyMenu_SetCallback:
+	ld a, BANK(PrintPartyMenuText)
+	ld [wMenuData_2DMenuFunctionBank], a
+
+	ld a, LOW(PrintPartyMenuText)
+	ld [wMenuData_2DMenuFunctionAddr], a
+
+	ld a, HIGH(PrintPartyMenuText)
+	ld [wMenuData_2DMenuFunctionAddr + 1], a
+	ret
 
 ; sets carry if exitted menu.
 PartyMenuSelect:
@@ -729,6 +740,7 @@ PartyMenuSelect:
 	jr z, .skip_select_input
 	
 	; PARTYMENUACTION_CHOOSE_POKEMON
+	call PartyMenu_SetCallback
 	ld a, [wMenuJoypadFilter]
 	or D_LEFT | D_RIGHT
 	ld [wMenuJoypadFilter], a
@@ -872,9 +884,42 @@ PartyMenuSelect:
 	farcall MonMailAction.take
 	jr .return_from_action
 
+; Output: sets Z flag if the upgraded party menu must be used.
+IsUpgradedPartyMenuAvailable:
+	; No select button in battle.
+	ld a, [wBattleMode]
+	and a
+	ret nz
+
+	; The Select button must only be allowed in the Start Party menu, 
+	; or in the Move party menu.
+	ld a, [wPartyMenuActionText]
+	cp PARTYMENUACTION_CHOOSE_POKEMON
+	ret nz
+
+	ld a, [wOptions2]
+	cpl
+	bit FIELD_MOVES, a
+	ret
+
 PrintPartyMenuText:
+	; Display the "CANCEL" line.
+	hlcoord 0, 13
+	lb bc, 1, 20
+	call ClearBox
+
+	hlcoord 1, 13
+	ld de, PlacePartyNicknames.CancelString
+	call PlaceString
+
+	; Small textbox.
 	hlcoord 0, 14
 	lb bc, 2, 18
+
+	call IsUpgradedPartyMenuAvailable
+	jr z, .shortcuts_party_instructions
+	
+.display_textbox
 	call Textbox
 	ld a, [wPartyCount]
 	and a
@@ -903,6 +948,107 @@ PrintPartyMenuText:
 	ld [wOptions], a
 	ret
 
+.shortcuts_party_instructions
+	ld a, [wMenuCursorY]
+	cp 7
+	jr nc, .shortcuts_exit
+
+	; Tall textbox for the upgraded party menu.
+	hlcoord 0, 13
+	lb bc, 3, 18
+	call Textbox
+
+	hlcoord 1, 16
+	ld de, .sel_sta
+	call PlaceString
+
+	ld a, [wCurPartyMon]
+	ld b, a ; Backup of [wCurPartyMon].
+
+	ld a, [wMenuCursorY]
+	dec a
+	ld [wCurPartyMon], a
+	ld a, MON_ITEM
+	call GetPartyParamLocation ; Doesn't clobber B.
+	ld a, b
+	ld [wCurPartyMon], a ; Resets [wCurPartyMon] to its true value.
+
+	ld a, [wLinkMode]
+	and a
+	jr nz, .link_mode
+
+	ld a, [hl]
+	and a
+	hlcoord 1, 14
+	jr z, .no_item
+
+	ld d, a
+	farcall ItemIsMail
+	hlcoord 1, 14
+	jr c, .mail
+
+	ld de, .take_give
+	jmp PlaceString
+
+.shortcuts_exit
+	call Textbox
+	;hlcoord 1, 15
+	;lb bc, 2, 18
+	;call ClearBox
+
+	hlcoord 1, 16
+	ld de, PartyByeByeString
+	jmp PlaceString
+
+.link_mode
+	ld d, [hl]
+	farcall ItemIsMail
+	ret nc
+
+	hlcoord 1, 14
+	ld de, .read
+	jmp PlaceString
+
+.mail
+	ld de, .take_read
+	jmp PlaceString
+
+.no_item
+	ld de, .give
+	jmp PlaceString
+
+if DEF(_FR_FR)
+.sel_sta
+	db "<SEL_BUTTON_1><SEL_BUTTON_2> Ordre <STA_BUTTON_1><STA_BUTTON_2> Info@"
+
+.read
+	db " <RIGHT_DPAD> Lire@"
+
+.give
+	db " <RIGHT_DPAD> Donner@"
+
+.take_give
+	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Donner@"
+
+.take_read
+	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Lire@"
+else
+.sel_sta
+	db "<SEL_BUTTON_1><SEL_BUTTON_2> Switch <STA_BUTTON_1><STA_BUTTON_2> Info@"
+
+.read
+	db " <RIGHT_DPAD> Read@"
+
+.give
+	db " <RIGHT_DPAD> Give@"
+
+.take_give
+	db "<LEFT_DPAD><RIGHT_DPAD> Take/Give@"
+
+.take_read
+	db "<LEFT_DPAD><RIGHT_DPAD> Take/Read@"
+endc
+
 PartyMenuStrings:
 	dw ChooseAMonString
 	dw UseOnWhichPKMNString
@@ -915,6 +1061,9 @@ PartyMenuStrings:
 	dw ToWhichPKMNString
 
 if DEF(_FR_FR)
+PartyByeByeString:
+	db "Bye-bye!@"
+
 ChooseAMonString:
 	db "Choisir un #MON@"
 
@@ -936,6 +1085,9 @@ ToWhichPKMNString:
 YouHaveNoPKMNString:
 	db "Pas de <PK><MN>!@"
 else
+PartyByeByeString:
+	db "Bye-bye!@"
+
 ChooseAMonString:
 	db "Choose a #MON.@"
 

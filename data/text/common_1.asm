@@ -4805,6 +4805,11 @@ if DEF(_FR_FR)
 	cont "sont ramassés en"
 	cont "marchant vers eux."
 
+	;para "Le menu d'équipe"
+	;line "est optimisé pour"
+	;cont "la vitesse d'uti-"
+	;cont "lisation."
+
 	para "Auto-déclenche les"
 	line "effets des CS en"
 	cont "marchant contre"
@@ -4842,6 +4847,10 @@ else
 	line "In this mode, pick"
 	cont "up items by walk-"
 	cont "ing towards them."
+
+	;para "The party menu"
+	;line "gets optimized for"
+	;cont "quick use."
 
 	para "Auto-trigger field"
 	line "moves by bumping"

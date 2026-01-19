@@ -273,14 +273,12 @@ INCLUDE "engine/pokemon/tempmon.asm"
 INCLUDE "engine/pokemon/types.asm"
 INCLUDE "engine/pokemon/categories.asm"
 INCLUDE "engine/pokemon/mon_stats.asm"
-INCLUDE "engine/link/init_list.asm"
 INCLUDE "engine/pokemon/experience.asm"
 INCLUDE "engine/pokemon/switchpartymons.asm"
 INCLUDE "engine/gfx/load_pics.asm"
 INCLUDE "engine/pokemon/move_mon_wo_mail.asm"
 INCLUDE "data/pokemon/base_stats.asm"
-INCLUDE "data/pokemon/names.asm"
-INCLUDE "data/pokemon/unused_pic_banks.asm"
+
 
 UnusedEggPic::
 ; The G/S Egg pic. This is shifted up a few pixels.
@@ -312,6 +310,8 @@ INCLUDE "engine/events/engine_flags.asm"
 INCLUDE "engine/overworld/variables.asm"
 INCLUDE "data/text/battle.asm"
 INCLUDE "engine/debug/color_picker.asm"
+INCLUDE "engine/link/init_list.asm"
+INCLUDE "data/pokemon/names.asm"
 
 
 SECTION "bank21", ROMX
