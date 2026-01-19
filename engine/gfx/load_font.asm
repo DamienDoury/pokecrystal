@@ -77,11 +77,11 @@ LoadFrame:
 
 _LoadPartyMenuExtra::
 	ld de, FontPartyMenuExtra
-	ld hl, vTiles2 tile $70
-	lb bc, BANK(FontBattleExtra), 3
+	ld hl, vTiles2 tile $72
+	lb bc, BANK(FontBattleExtra), 1
 	call Get2bppViaHDMA
 
-	ld de, FontPartyMenuExtra + 3 tiles
+	ld de, FontPartyMenuExtra + 1 tiles
 	ld hl, vTiles2 tile $76
 	lb bc, BANK(FontBattleExtra), 3
 	jmp Get2bppViaHDMA

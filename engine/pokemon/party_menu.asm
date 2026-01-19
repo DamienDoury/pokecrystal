@@ -982,6 +982,16 @@ PrintPartyMenuText:
 	hlcoord 1, 14
 	jr z, .no_item
 
+	; Display item name.
+	ld [wNamedObjectIndex], a
+	push af
+	hlcoord 5, 15
+	ld [hl], "…"
+	call GetItemName
+	hlcoord 6, 15
+	call PlaceString
+	pop af
+
 	ld d, a
 	farcall ItemIsMail
 	hlcoord 1, 14
@@ -1019,34 +1029,34 @@ PrintPartyMenuText:
 
 if DEF(_FR_FR)
 .sel_sta
-	db "<SEL_BUTTON_1><SEL_BUTTON_2> Ordre <STA_BUTTON_1><STA_BUTTON_2> Info@"
+	db "<SEL_BUTTON_1><SEL_BUTTON_2> Ordre@"
 
 .read
-	db " <RIGHT_DPAD> Lire@"
+	db " <RIGHT_DPAD> Lire…@"
 
 .give
 	db " <RIGHT_DPAD> Donner@"
 
 .take_give
-	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Donner@"
+	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Donner…@"
 
 .take_read
-	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Lire@"
+	db "<LEFT_DPAD><RIGHT_DPAD> Prendre/Lire…@"
 else
 .sel_sta
-	db "<SEL_BUTTON_1><SEL_BUTTON_2> Switch <STA_BUTTON_1><STA_BUTTON_2> Info@"
+	db "<SEL_BUTTON_1><SEL_BUTTON_2> Switch@"
 
 .read
-	db " <RIGHT_DPAD> Read@"
+	db " <RIGHT_DPAD> Read…@"
 
 .give
 	db " <RIGHT_DPAD> Give@"
 
 .take_give
-	db "<LEFT_DPAD><RIGHT_DPAD> Take/Give@"
+	db "<LEFT_DPAD><RIGHT_DPAD> Take/Give…@"
 
 .take_read
-	db "<LEFT_DPAD><RIGHT_DPAD> Take/Read@"
+	db "<LEFT_DPAD><RIGHT_DPAD> Take/Read…@"
 endc
 
 PartyMenuStrings:
