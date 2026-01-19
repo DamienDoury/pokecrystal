@@ -327,10 +327,14 @@ MenuJoypadLoop:
 	ret
 
 .callback
+	ld a, [wOptions2]
+	bit FIELD_MOVES, a
+	ret z ; Failsafe.
+
 	ld a, [wPartyMenuActionText]
 	and a
 	ret nz ; Failsafe.
-	
+
 	; It is the developer's responsability to make sure that those callbacks do not alter data at the middle of a UI update.
 	ld hl, wMenuData_2DMenuFunctionAddr
 	ld a, [hli]
