@@ -1568,7 +1568,7 @@ HandleMysteryberry:
 	and a
 	jr z, .wild
 	ld de, wWildMonPP
-	ld hl, wWildMonMoves
+	ld hl, wEnemyMonMoves
 	ld a, [wBattleMode]
 	dec a
 	jr z, .wild
@@ -1601,18 +1601,48 @@ HandleMysteryberry:
 	ret
 
 .restore
-	; lousy hack
-	ld a, [hl]
-	cp SKETCH
-	ld b, 1
-	jr z, .sketch
-	ld b, 5
-.sketch
+	; lousy hack for Sketch.
+	;ld a, [hl]
+
+	push bc
+	push de
+	push hl
+
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	ld a, 0 ; PARTYMON
+	jr z, .use_party_struct_offset
+
+	ldh a, [hBattleTurn]
+	and a
+	jr z, .use_party_struct_offset ; PARTYMON
+
+	ld a, WILDMON ; Use battle_struct offset
+.use_party_struct_offset
+	ld [wMonType], a
+
+	ld a, BANK(GetMaxPPOfMove)
+	ld de, GetMaxPPOfMove.mysteryberry
+	call FarCall_de 
+	pop hl
+	pop de
+	pop bc
+
+	ld a, [wTempPP]
+	cp 10
+	jr c, .pp_amount_found
+
+	ld a, 10
+.pp_amount_found
+	ld b, a
+
+
 	ld a, [de]
 	add b
 	ld [de], a
 	push bc
 	push bc
+
 	ld a, [hl]
 	ld [wTempByteValue], a
 	ld de, wBattleMonMoves - 1

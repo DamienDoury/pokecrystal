@@ -3104,7 +3104,7 @@ RestoreAllPP:
 	jr nz, .loop
 	ret
 
-GetMaxPPOfMove:
+GetMaxPPOfMove::
 	ld a, [wStringBuffer1 + 0]
 	push af
 	ld a, [wStringBuffer1 + 1]
@@ -3137,6 +3137,14 @@ GetMaxPPOfMove:
 
 .got_partymon ; PARTYMON, OTPARTYMON
 	call GetMthMoveOfNthPartymon
+	jr .gotdatmove
+
+.mysteryberry
+	ld a, [wStringBuffer1 + 0]
+	push af
+	ld a, [wStringBuffer1 + 1]
+	push af
+	; fallthrough.
 
 .gotdatmove
 	ld a, [hl]
@@ -3170,7 +3178,6 @@ GetMaxPPOfMove:
 	ld [hl], a
 	xor a
 	ld [wTempPP], a
-	ld a, b ; this gets lost anyway
 	call ComputeMaxPP
 	ld a, [hl]
 	and PP_MASK
