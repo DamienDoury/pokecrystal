@@ -82,10 +82,39 @@ LearnMove:
 	pop de
 	pop hl
 
-	ld b, a
+	ld b, a ; Backup the PP amount.
+	ld a, [wBattleMode]
+	cp TRAINER_BATTLE
+	jr nz, .skip_gym_challenges
+
+;.check_clair
+	ld a, [wOtherTrainerClass]
+	cp CLAIR
+	jr nz, .check_sabrina
+
+	call GetNewMoveCategory
+	cp STATUS
+	ld a, [wOtherTrainerClass]
+	jr nz, .check_sabrina
+
+	xor a
+	jr .replenish_pp ; Remove all PPs.
+
+.check_sabrina
+	cp SABRINA
+	jr nz, .skip_gym_challenges
+
+	call GetNewMoveCategory
+	cp STATUS
+	jr z, .skip_gym_challenges
+
+	xor a
+	jr .replenish_pp ; Remove all PPs.
+
+.skip_gym_challenges
 	ld a, [wIsLearningTMHM]
 	and %10
-	ld a, b
+	ld a, b ; Retrieving the PP amount.
 	jr nz, .replenish_pp
 
 	ld a, [wIsLearningTMHM]
@@ -146,6 +175,18 @@ LearnMove:
 	ld hl, LearnedMoveText
 	call PrintText
 	ld b, 1
+	ret
+
+GetNewMoveCategory:
+	ld a, [wPutativeTMHMMove]
+	ldh [hRandomAdd], a
+	push hl
+	push bc
+	callfar GetMoveCategory
+	pop bc
+	pop hl
+
+	ldh a, [hRandomAdd]
 	ret
 
 ForgetMove:

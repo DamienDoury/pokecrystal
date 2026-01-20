@@ -11,7 +11,6 @@ GymSpecialRules::
 	ret
 
 .check_clair
-	ld a, [wOtherTrainerClass]
 	cp CLAIR
 	jr nz, .check_sabrina
 
@@ -19,7 +18,6 @@ GymSpecialRules::
 	jmp ExhaustMovesPP
 
 .check_sabrina
-	ld a, [wOtherTrainerClass]
 	cp SABRINA
 	jr nz, .check_chuck
 
@@ -27,7 +25,6 @@ GymSpecialRules::
 	jmp ExhaustMovesPP
 
 .check_chuck
-	ld a, [wOtherTrainerClass]
 	cp CHUCK
 	ret nz
 
