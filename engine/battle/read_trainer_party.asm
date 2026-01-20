@@ -382,12 +382,34 @@ endr
 
 	push hl
 	push bc
+
+	; Special case for Sabrina: she needs her Espeon's moves PP to be depleted (Psychic and Hidden Power).
+	; Note: against Sabrina, only these 2 moves are concerned.
+	; None of her other Pokémons know these moves.
+	ld b, a ; Backup of the move ID.
+	ld a, [wOtherTrainerClass]
+	cp SABRINA
+	ld a, b
+	jr nz, .skip_sabrina
+
+	cp PSYCHIC_M
+	jr z, .deplete_pp_for_challenge
+
+	cp HIDDEN_POWER
+	jr nz, .skip_sabrina
+
+.deplete_pp_for_challenge
+	xor a
+	jr .pp_amount_found
+
+.skip_sabrina
 	dec a
 	ld hl, Moves + MOVE_PP
 	ld bc, MOVE_LENGTH
 	call AddNTimes
 	ld a, BANK(Moves)
 	call GetFarByte
+.pp_amount_found
 	pop bc
 	pop hl
 
