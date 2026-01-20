@@ -331,6 +331,10 @@ MenuJoypadLoop:
 	bit FIELD_MOVES, a
 	ret z ; Failsafe.
 
+	ld a, [wBattleMode]
+	and a
+	ret nz ; Failsafe.
+
 	ld a, [wPartyMenuActionText]
 	and a
 	ret nz ; Failsafe.
