@@ -962,7 +962,7 @@ else
 	db "JOEY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  4, RATTATA
+	db  8, RATTATA
 	db -1 ; end
 
 	; YOUNGSTER (2)
@@ -972,8 +972,8 @@ else
 	db "MIKEY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  4, PIDGEY
-	db  5, RATTATA
+	db  6, PIDGEY
+	db  7, RATTATA
 	db -1 ; end
 
 	; YOUNGSTER (3)
@@ -983,8 +983,8 @@ else
 	db "ALBERT@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, RATTATA
-	db 12, ZUBAT
+	db 12, RATTATA
+	db 14, ZUBAT
 	db -1 ; end
 
 	; YOUNGSTER (4)
@@ -994,7 +994,7 @@ else
 	db "GORDON@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 13, WOOPER
+	db 15, WOOPER
 	db -1 ; end
 
 	; YOUNGSTER (5)
@@ -1004,9 +1004,9 @@ else
 	db "SAMUEL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 15, RATTATA
-	db 17, SPEAROW
-	db 19, DUNSPARCE
+	db 16, RATTATA
+	db 18, SPEAROW
+	db 20, DUNSPARCE
 	db -1 ; end
 
 	; YOUNGSTER (6)
@@ -1016,8 +1016,8 @@ else
 	db "IAN@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 18, MANKEY
-	db 20, DIGLETT
+	db 19, MANKEY
+	db 21, DIGLETT
 	db -1 ; end
 
 	; YOUNGSTER (7)
@@ -1027,7 +1027,7 @@ else
 	db "JOEY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 15, RATTATA
+	db 17, RATTATA
 	db -1 ; end
 
 	; YOUNGSTER (8)
@@ -1037,7 +1037,7 @@ else
 	db "JOEY@"
 endc
 	db TRAINERTYPE_MOVES
-	db 21, RATICATE,   TAIL_WHIP, QUICK_ATTACK, HYPER_FANG, SCARY_FACE
+	db 26, RATICATE,   TAIL_WHIP, QUICK_ATTACK, HYPER_FANG, SCARY_FACE
 	db -1 ; end
 
 	; YOUNGSTER (9)
@@ -1089,7 +1089,7 @@ else
 	db "JOEY@"
 endc
 	db TRAINERTYPE_MOVES
-	db 30, RATICATE,   TAIL_WHIP, QUICK_ATTACK, HYPER_FANG, PURSUIT
+	db 34, RATICATE,   TAIL_WHIP, QUICK_ATTACK, HYPER_FANG, PURSUIT
 	db -1 ; end
 
 	; YOUNGSTER (14)
@@ -1099,7 +1099,7 @@ else
 	db "JOEY@"
 endc
 	db TRAINERTYPE_MOVES
-	db 37, RATICATE,   HYPER_BEAM, QUICK_ATTACK, HYPER_FANG, PURSUIT
+	db 43, RATICATE,   HYPER_BEAM, QUICK_ATTACK, HYPER_FANG, PURSUIT
 	db -1 ; end
 
 	; YOUNGSTER (15)
@@ -1556,9 +1556,9 @@ else
 	db "PETER@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  9, PIDGEY
-	db  9, PIDGEY
-	db 11, SPEAROW
+	db 10, PIDGEY
+	db 10, PIDGEY
+	db 13, SPEAROW
 	db -1 ; end
 
 	; BIRD_KEEPER (14)
@@ -2279,8 +2279,8 @@ else
 	db "IRENE@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 20, GOLDEEN
-	db 22, SEAKING
+	db 22, GOLDEEN
+	db 24, SEAKING
 	db -1 ; end
 
 	; COOLTRAINERF (7)
@@ -3389,8 +3389,8 @@ else
 	db "DON@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  6, CATERPIE
-	db  6, CATERPIE
+	db  9, CATERPIE
+	db  9, CATERPIE
 	db -1 ; end
 
 	; BUG_CATCHER (2)
@@ -3423,10 +3423,10 @@ else
 	db "WADE@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  5, CATERPIE
-	db  6, CATERPIE
-	db  6, WEEDLE
-	db  5, CATERPIE
+	db  7, CATERPIE
+	db  8, CATERPIE
+	db  8, WEEDLE
+	db  9, CATERPIE
 	db -1 ; end
 
 	; BUG_CATCHER (5)
@@ -3638,10 +3638,10 @@ else
 	db "JUSTIN@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, MAGIKARP
-	db 10, MAGIKARP
-	db 15, MAGIKARP
-	db 10, MAGIKARP
+	db 12, MAGIKARP
+	db 12, MAGIKARP
+	db 17, MAGIKARP
+	db 12, MAGIKARP
 	db -1 ; end
 
 	; FISHER (2)
@@ -3651,7 +3651,7 @@ else
 	db "RALPH@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 12, GOLDEEN
+	db 14, GOLDEEN
 	db -1 ; end
 
 	; FISHER (3)
@@ -3683,8 +3683,8 @@ else
 	db "HENRY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, POLIWAG
-	db 11, POLIWAG
+	db 12, POLIWAG
+	db 13, POLIWAG
 	db -1 ; end
 
 	; FISHER (6)
@@ -3812,7 +3812,7 @@ else
 	db "RALPH@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 19, GOLDEEN
+	db 20, GOLDEEN
 	db -1 ; end
 
 	; FISHER (17)
@@ -3823,7 +3823,7 @@ else
 endc
 	db TRAINERTYPE_NORMAL
 	db 19, QWILFISH
-	db 23, GOLDEEN
+	db 24, GOLDEEN
 	db -1 ; end
 
 	; FISHER (18)
@@ -4990,8 +4990,8 @@ else
 	db "ANTHONY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 18, GEODUDE
-	db 20, MACHAMP
+	db 20, GEODUDE
+	db 22, MACHAMP
 	db -1 ; end
 
 	; HIKER (2)
@@ -5036,8 +5036,8 @@ else
 	db "ANTHONY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 14, GEODUDE
-	db 14, MACHOP
+	db 25, GEODUDE
+	db 27, MACHOP
 	db -1 ; end
 
 	; HIKER (6)
@@ -6062,7 +6062,7 @@ else
 	db "LIZ@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 12, NIDORAN_F
+	db 14, NIDORAN_F
 	db -1 ; end
 
 	; PICNICKER (2)
@@ -6072,9 +6072,9 @@ else
 	db "GINA@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 16, HOPPIP
-	db 16, HOPPIP
-	db 20, BULBASAUR
+	db 17, HOPPIP
+	db 17, HOPPIP
+	db 21, BULBASAUR
 	db -1 ; end
 
 	; PICNICKER (3)
@@ -6145,9 +6145,9 @@ else
 	db "GINA@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 19, HOPPIP
-	db 19, HOPPIP
-	db 22, IVYSAUR
+	db 20, HOPPIP
+	db 20, HOPPIP
+	db 23, IVYSAUR
 	db -1 ; end
 
 	; PICNICKER (10)
@@ -6168,8 +6168,8 @@ else
 	db "LIZ@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 15, WEEPINBELL
-	db 15, NIDORINA
+	db 16, WEEPINBELL
+	db 16, NIDORINA
 	db -1 ; end
 
 	; PICNICKER (12)
@@ -6347,8 +6347,8 @@ else
 	db "ROLAND@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  10, NIDORAN_M
-	db  12, MURKROW
+	db  12, NIDORAN_M
+	db  14, MURKROW
 	db -1 ; end
 
 	; CAMPER (2)
@@ -6358,7 +6358,7 @@ else
 	db "TODD@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 20, PSYDUCK
+	db 21, PSYDUCK
 	db -1 ; end
 
 	; CAMPER (3)
@@ -7024,7 +7024,7 @@ else
 	db "BRANDON@"
 endc
 	db TRAINERTYPE_ITEM
-	db 19, SNUBBULL,   BERRY
+	db 20, SNUBBULL,   BERRY
 	db -1 ; end
 
 	; POKEFANM (8)
