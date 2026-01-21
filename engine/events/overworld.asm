@@ -999,6 +999,7 @@ EscapeRopeOrDig:
 	special WarpToSpawnPoint
 	loadvar VAR_MOVEMENT, PLAYER_NORMAL
 	newloadmap MAPSETUP_DOOR
+	special UpdatePlayerSprite
 	playsound SFX_WARP_FROM
 	applymovement PLAYER, .DigReturn
 	end
