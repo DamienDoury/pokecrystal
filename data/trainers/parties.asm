@@ -1421,8 +1421,8 @@ else
 	db "ROD@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, PIDGEY
-	db 10, PIDGEY
+	db 13, PIDGEY
+	db 13, PIDGEY
 	db -1 ; end
 
 	; BIRD_KEEPER (2)
@@ -1432,7 +1432,7 @@ else
 	db "ABE@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 12, SPEAROW
+	db 15, SPEAROW
 	db -1 ; end
 
 	; BIRD_KEEPER (3)
@@ -2686,7 +2686,7 @@ else
 	db "LARRY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 14, SLOWPOKE
+	db 16, SLOWPOKE
 	db -1 ; end
 
 	; POKEMANIAC (2)
@@ -2842,7 +2842,7 @@ else
 	db "GRUNT@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 17, KOFFING
+	db 19, KOFFING
 	db -1 ; end
 
 	; GRUNTM (2)
@@ -2852,9 +2852,9 @@ else
 	db "GRUNT@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 14, RATTATA
-	db 16, ZUBAT
-	db 16, ZUBAT
+	db 16, RATTATA
+	db 18, ZUBAT
+	db 18, ZUBAT
 	db -1 ; end
 
 	; GRUNTM (3)
@@ -3154,8 +3154,8 @@ else
 	db "GRUNT@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 16, RATTATA
-	db 17, RATTATA
+	db 18, RATTATA
+	db 19, RATTATA
 	db -1 ; end
 
 	; GRUNTM (30)
@@ -3436,9 +3436,9 @@ else
 	db "BENNY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 13, WEEDLE
-	db 15, KAKUNA
-	db 17, BEEDRILL
+	db 14, WEEDLE
+	db 16, KAKUNA
+	db 18, BEEDRILL
 	db -1 ; end
 
 	; BUG_CATCHER (6)
@@ -3448,8 +3448,8 @@ else
 	db "AL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 16, CATERPIE
-	db 16, WEEDLE
+	db 18, CATERPIE
+	db 18, WEEDLE
 	db -1 ; end
 
 	; BUG_CATCHER (7)
@@ -3459,7 +3459,7 @@ else
 	db "JOSH@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 18, PARAS
+	db 20, PARAS
 	db -1 ; end
 
 	; BUG_CATCHER (8)
@@ -3592,8 +3592,8 @@ else
 	db "WAYNE@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 18, LEDYBA
-	db 20, PARAS
+	db 19, LEDYBA
+	db 21, PARAS
 	db -1 ; end
 
 	; BUG_CATCHER (20)
@@ -5001,9 +5001,9 @@ else
 	db "RUSSELL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  8, GEODUDE
 	db 10, GEODUDE
 	db 12, GEODUDE
+	db 14, GEODUDE
 	db -1 ; end
 
 	; HIKER (3)
@@ -5188,7 +5188,7 @@ else
 	db "DANIEL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 14, ONIX
+	db 16, ONIX
 	db -1 ; end
 
 	; HIKER (19)
@@ -5527,8 +5527,8 @@ else
 	db "BILL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 12, KOFFING
-	db 12, KOFFING
+	db 14, KOFFING
+	db 14, KOFFING
 	db -1 ; end
 
 	; FIREBREATHER (6)
@@ -5549,7 +5549,7 @@ else
 	db "RAY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 14, VULPIX
+	db 16, VULPIX
 	db -1 ; end
 
 	; FIREBREATHER (8)
@@ -6669,9 +6669,9 @@ else
 	db "CHOW@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  7, BELLSPROUT
-	db  7, BELLSPROUT
-	db  7, BELLSPROUT
+	db 10, BELLSPROUT
+	db 10, BELLSPROUT
+	db 10, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (2)
@@ -6681,9 +6681,9 @@ else
 	db "NICO@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  8, BELLSPROUT
-	db  8, BELLSPROUT
-	db  8, BELLSPROUT
+	db 10, BELLSPROUT
+	db 10, BELLSPROUT
+	db 10, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (3)
@@ -6693,7 +6693,7 @@ else
 	db "JIN@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, BELLSPROUT
+	db 13, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (4)
@@ -6703,8 +6703,8 @@ else
 	db "TROY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  8, BELLSPROUT
-	db  9, HOOTHOOT
+	db  11, BELLSPROUT
+	db  12, HOOTHOOT
 	db -1 ; end
 
 	; SAGE (5)
@@ -6738,9 +6738,9 @@ else
 	db "EDMOND@"
 endc
 	db TRAINERTYPE_NORMAL
-	db  8, BELLSPROUT
-	db  8, BELLSPROUT
-	db  8, BELLSPROUT
+	db 11, BELLSPROUT
+	db 11, BELLSPROUT
+	db 11, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (8)
@@ -6750,7 +6750,7 @@ else
 	db "NEAL@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, BELLSPROUT
+	db 14, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (9)
@@ -6760,9 +6760,9 @@ else
 	db "LI@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 10, BELLSPROUT
-	db 10, HOOTHOOT
-	db 12, BELLSPROUT
+	db 13, BELLSPROUT
+	db 13, HOOTHOOT
+	db 15, BELLSPROUT
 	db -1 ; end
 
 	; SAGE (10)
@@ -7197,8 +7197,8 @@ else
 	db "AMY & MAY@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 15, SPINARAK
-	db 15, LEDYBA
+	db 17, SPINARAK
+	db 17, LEDYBA
 	db -1 ; end
 
 	; TWINS (2)
@@ -7631,8 +7631,8 @@ else
 	db "GRUNT@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 15, ZUBAT
-	db 16, EKANS
+	db 17, ZUBAT
+	db 18, EKANS
 	db -1 ; end
 
 	; GRUNTF (2)
