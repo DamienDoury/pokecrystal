@@ -903,15 +903,6 @@ IsUpgradedPartyMenuAvailable:
 	ret
 
 PrintPartyMenuText:
-	; Display the "CANCEL" line.
-	hlcoord 0, 13
-	lb bc, 1, 20
-	call ClearBox
-
-	hlcoord 1, 13
-	ld de, PlacePartyNicknames.CancelString
-	call PlaceString
-
 	; Small textbox.
 	hlcoord 0, 14
 	lb bc, 2, 18
@@ -950,8 +941,10 @@ PrintPartyMenuText:
 
 .shortcuts_party_instructions
 	ld a, [wMenuCursorY]
-	cp 7
-	jr nc, .shortcuts_exit
+	ld d, a
+	ld a, [wPartyCount]
+	cp d
+	jr c, .shortcuts_exit
 
 	; Tall textbox for the upgraded party menu.
 	hlcoord 0, 13
@@ -1002,10 +995,22 @@ PrintPartyMenuText:
 
 .shortcuts_exit
 	call Textbox
-	;hlcoord 1, 15
-	;lb bc, 2, 18
-	;call ClearBox
 
+	; Clear the tall textbox's top border (in case it was previously displayed).
+	hlcoord 0, 13
+	lb bc, 1, 20
+	call ClearBox
+
+	ld a, [wMenuCursorY]
+	cp 7
+	jr c, .skip_cancel_line
+
+	; Display the "CANCEL" line.
+	hlcoord 1, 13
+	ld de, PlacePartyNicknames.CancelString
+	call PlaceString
+	
+.skip_cancel_line
 	hlcoord 1, 16
 	ld de, PartyByeByeString
 	jmp PlaceString
