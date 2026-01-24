@@ -52,8 +52,8 @@ FirstStepIntoKantoScene:
 	checkitem WORK_VISA
 	iffalse .end
 
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue Route27FisherScript.visaExpired
+	readmem wYearMonth
+	ifgreater $0f, Route27FisherScript.visaExpired
 
 	pause 2
 	showemote EMOTE_QUESTION, ROUTE27_FISHER, 15
@@ -137,8 +137,8 @@ Route27FisherScript:
 	checkitem WORK_VISA
 	iffalse .blockPassage
 
-	checkevent EVENT_BEAT_ELITE_FOUR
-	iftrue .visaExpired
+	readmem wYearMonth
+	ifgreater $0f, .visaExpired
 	
 .allowPassage
 	opentext

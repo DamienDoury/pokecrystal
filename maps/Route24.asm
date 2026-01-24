@@ -81,6 +81,8 @@ GotNewKantoBadge::
 	ifequal 10, .skip_month_elapsing
 
 	readmem wYearMonth
+	ifequal $1b, .skip_month_elapsing ; This is useless, but we still add it in case we rework the scenario later on.
+	
 	addval 1
 	writemem wYearMonth
 

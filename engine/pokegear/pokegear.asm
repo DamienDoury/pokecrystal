@@ -2554,8 +2554,7 @@ FlyMap:
 	ld c, SPAWN_INDIGO
 	call HasVisitedSpawn
 	and a
-	ld c, FLY_INDIGO
-	jr nz, .KantoAllowed
+	jr nz, .AntiKantoSoftlock
 
 ; Second region check.
 	ld c, SPAWN_VERMILION
@@ -2578,6 +2577,33 @@ FlyMap:
 	call .MapHud
 	pop af
 	jmp TownMapPlayerIcon
+
+; If the player is:
+;    - in January 2021, 
+;    - not vaccinated, 
+;    - to the right of the border guards, 
+;    - with no Pokémon that knows Fly, Teleport, Surf or Waterfall,
+; then they are softlocked. 
+; Not exactly, as they could white-out in the Tohjo Falls, to get transported to the Indigo Plateau Pokécenter.
+; Then, their only way out would be to beat the Elite 4.
+; So not quite a true softlock, but close enough.
+;
+; This could happen very easily, as the player may want to Fly to the Indigo Plateau to beat the Elite 4, without knowing that their Visa has expired.
+; So we definitely want to address this case.
+.AntiKantoSoftlock:
+	ld a, [wYearMonth]
+	cp $10 ; January 2021.
+	ld c, FLY_INDIGO
+	jr nz, .KantoAllowed
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_PLAYER_VACCINATED_ONCE
+	call EventFlagAction
+	ld c, FLY_INDIGO
+	jr nz, .KantoAllowed
+
+	; If the player is not vaccinated, they can't fly back to Indigo Plateau in January 2021.
+	; fallthrough.
 
 .NoKanto:
 ; If Indigo Plateau hasn't been visited, we use Johto's map instead
