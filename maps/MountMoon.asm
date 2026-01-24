@@ -358,7 +358,7 @@ if DEF(_FR_FR)
 	para "Avec mes #MON,"
 	line "je vais battre le"
 
-	para "CHAMPION et être"
+	para "MAITRE et être"
 	line "le plus grand des"
 	cont "dresseurs."
 else

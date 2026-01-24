@@ -922,7 +922,7 @@ if DEF(_FR_FR)
 	line "enfin obtenir"
 	cont "l'interview que"
 	cont "tu me dois,"
-	cont "CHAMPION!"
+	cont "MAITRE!"
 
 	para "Pas question de"
 	line "t'enfuir cette"
@@ -1017,7 +1017,7 @@ if DEF(_FR_FR)
 
 	para "Aujourd'hui je suis"
 	line "avec nul autre"
-	cont "que le CHAMPION"
+	cont "que le MAITRE"
 	cont "de la LIGUE!"
 
 	para "<PLAYER>, comment"
@@ -1307,7 +1307,7 @@ if DEF(_FR_FR)
 	line "blague! C'est pas"
 	cont "une petite piqûre"
 	cont "qui va faire du"
-	cont "mal au CHAMPION"
+	cont "mal au MAITRE"
 	cont "de la LIGUE!"
 else
 	text "MARY: Ahah, good"
@@ -1340,7 +1340,7 @@ GoldenrodHospitalOffice_Itw4GoodText:
 if DEF(_FR_FR)
 	text "LULA: Venant de la"
 	line "bouche de notre"
-	cont "CHAMPION, j'ai très"
+	cont "MAITRE, j'ai très"
 	cont "envie de me faire"
 	cont "vacciner"
 	cont "maintenant!"
@@ -1538,7 +1538,7 @@ if DEF(_FR_FR)
 	para "mais ensuite tu as"
 	line "sû te ressaisir et"
 	cont "tu as géré avec"
-	cont "talent!"
+	cont "brio!"
 
 	para "Je suis sûre que"
 	line "beaucoup voudront"

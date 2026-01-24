@@ -3576,7 +3576,7 @@ endc
 
 GGTCPewText::
 if DEF(_FR_FR)
-	text "Yo CHAMPION"
+	text "Yo MAITRE"
 	line "en titre!"
 
 	para "Tu es arrivé jusqu'"
@@ -3680,7 +3680,7 @@ endc
 
 GGTCVermiText::
 if DEF(_FR_FR)
-	text "Yo CHAMPION!"
+	text "Yo MAITRE!"
 
 	para "Tu es bien loin"
 	line "de JOHTO!"
@@ -3762,7 +3762,7 @@ endc
 
 GGTCFuchText::
 if DEF(_FR_FR)
-	text "Yo CHAMPION!"
+	text "Yo MAITRE!"
 
 	para "Ton équipe est"
 	line "illégale dans"

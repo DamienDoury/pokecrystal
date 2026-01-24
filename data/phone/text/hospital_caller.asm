@@ -95,7 +95,7 @@ endc
 
 HospitalSecondShotAvailableText:
 if DEF(_FR_FR)
-	text "Salut CHAMPION!"
+	text "Salut MAITRE!"
 	line "Info importante."
 
 	para "De nouvelles"
