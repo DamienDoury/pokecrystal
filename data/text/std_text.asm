@@ -212,8 +212,8 @@ if DEF(_FR_FR)
 	text "Nous vous"
 	line "informons d'un"
 	cont "nouveau service"
-	cont "dans les"
-	cont "CENTRES #MON."
+	cont "dans les CENTRES"
+	cont "#MON."
 	
 	para "Les tests PCR"
 	line "sont arrivés!"

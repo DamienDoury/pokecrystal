@@ -125,7 +125,7 @@ PokecenterNurseScript:
 
 .check_pcr_presentation
 	; We inform the player about PCR tests, once.
-	readvar VAR_BADGES
+	readmem wYearMonth
 	ifless 4, .pcr_presentation_skipped
 	checkevent EVENT_PCR_TEST_PRESENTATION
 	iftrue .pcr_presentation_skipped
