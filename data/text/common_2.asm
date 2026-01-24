@@ -4289,7 +4289,7 @@ endc
 _News3_Topic0_Line2::
 if DEF(_FR_FR)
 	text_start
-	line "de personnes sont"
+	line "personnes sont"
 	done
 else
 	text_start
