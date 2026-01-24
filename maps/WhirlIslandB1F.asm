@@ -26,9 +26,7 @@ WhirlIslandB1F_MapScripts:
 	iffalse .end
 
 	; Inc month.
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
+	farscall IncMonthAndTryTriggeringCurfew
 	clearevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_1
 .end
 	end

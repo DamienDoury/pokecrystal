@@ -224,9 +224,6 @@ NewBadgeObedienceNotification:
 	end
 
 .obey50
-	setevent EVENT_FIRST_CURFEW_STARTED
-	specialphonecall SPECIALCALL_CURFEW_STARTED
-
 	farwritetext Obey50
 	promptbutton
 	end
@@ -239,6 +236,25 @@ NewBadgeObedienceNotification:
 .obey30
 	writetext Obey30
 	promptbutton
+	end
+
+IncMonthAndTryTriggeringCurfew::
+	readmem wYearMonth
+	addval 1
+	writemem wYearMonth
+	ifless $06, .end
+	ifgreater $0f, .end
+	
+	; As soon as July 2020, and before 2021, we try to launch the specialcall that informs about the curfew.
+	; If the player didn't get the call for any reason (like an unwanted collision with another specialcall), then it will have several chances to happen again.
+
+	checkevent EVENT_RECEIVED_CURFEW_SPECIAL_CALL
+	iftrue .end ; We can't trigger this call twice.
+
+	; We try to trigger the specialcall that triggers the curfew.
+	setevent EVENT_FIRST_CURFEW_STARTED ; We want this to happen before the call. This way, the map will be refreshed as soon as the player walks out.
+	specialphonecall SPECIALCALL_CURFEW_STARTED
+.end
 	end
 
 

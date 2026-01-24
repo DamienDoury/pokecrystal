@@ -113,9 +113,7 @@ OlivineGymJasmineScript:
 	writetext Text_ReceivedMineralBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
+	farscall IncMonthAndTryTriggeringCurfew
 	setflag ENGINE_MINERALBADGE
 	farscall NewBadgeObedienceNotification
 	writetext Jasmine_BadgeSpeech

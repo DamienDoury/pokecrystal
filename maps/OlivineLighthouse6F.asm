@@ -31,9 +31,7 @@ OlivineLighthouseJasmine:
 	iftrue .ExplainedSickness
 	writetext JasmineCianwoodPharmacyText
 	promptbutton
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
+	farscall IncMonthAndTryTriggeringCurfew
 .ExplainedSickness:
 	writetext JasmineGetSomeMedicineText
 	checkevent EVENT_JASMINE_EXPLAINED_AMPHYS_SICKNESS

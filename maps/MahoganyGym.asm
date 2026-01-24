@@ -115,9 +115,7 @@ MahoganyGymPryceScript:
 	writetext Text_ReceivedGlacierBadge
 	playsound SFX_GET_BADGE
 	waitsfx
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
+	farscall IncMonthAndTryTriggeringCurfew
 	setflag ENGINE_GLACIERBADGE
 	iftrue PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE

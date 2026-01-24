@@ -133,9 +133,7 @@ CianwoodGymChuckScript:
 	writetext GetStormBadgeText
 	playsound SFX_GET_BADGE
 	waitsfx
-	readmem wYearMonth
-	addval 1
-	writemem wYearMonth
+	farscall IncMonthAndTryTriggeringCurfew
 	setflag ENGINE_STORMBADGE
 	setevent EVENT_BEAT_BLACKBELT_YOSHI
 	setevent EVENT_BEAT_BLACKBELT_LAO
