@@ -125,7 +125,7 @@ if DEF(_FR_FR)
 	para "Mes résultats"
 	line "montrent qu'une"
 	cont "#BALL est"
-	cont "100<PERCENT> perméable"
+	cont "100<PERCENT> imperméable"
 	cont "au virus."
 
 	para "Un #MON gardé"
@@ -147,7 +147,7 @@ else
 
 	para "My results show"
 	line "that a #BALL is"
-	cont "fully permeable"
+	cont "fully impermeable"
 	cont "to the virus."
 
 	para "A #MON that"
