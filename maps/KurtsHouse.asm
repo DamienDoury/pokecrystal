@@ -194,36 +194,36 @@ Kurt1:
 	end
 
 .GiveLevelBall:
-	loadmem wScriptVar2, LEVEL_BALL
+	loadmem wKurtBallType, LEVEL_BALL
 	sjump ._TryDeliverBalls
 
 .GiveLureBall:
-	loadmem wScriptVar2, LURE_BALL
+	loadmem wKurtBallType, LURE_BALL
 	sjump ._TryDeliverBalls
 
 .GiveMoonBall:
-	loadmem wScriptVar2, MOON_BALL
+	loadmem wKurtBallType, MOON_BALL
 	sjump ._TryDeliverBalls
 
 .GiveFriendBall:
-	loadmem wScriptVar2, FRIEND_BALL
+	loadmem wKurtBallType, FRIEND_BALL
 	sjump ._TryDeliverBalls
 
 .GiveFastBall:
-	loadmem wScriptVar2, FAST_BALL
+	loadmem wKurtBallType, FAST_BALL
 	sjump ._TryDeliverBalls
 
 .GiveHeavyBall:
-	loadmem wScriptVar2, HEAVY_BALL
+	loadmem wKurtBallType, HEAVY_BALL
 	sjump ._TryDeliverBalls
 
 .GiveLoveBall:
-	loadmem wScriptVar2, LOVE_BALL
+	loadmem wKurtBallType, LOVE_BALL
 
 ._TryDeliverBalls:
 	readvar VAR_KURT_APRICORNS
 	writemem wItemQuantityChange
-	readmem wScriptVar2
+	readmem wKurtBallType
 
 	verbosegiveitem ITEM_FROM_MEM, ITEM_QUANTITY_FROM_MEM
 	iffalse .NoRoomForBall

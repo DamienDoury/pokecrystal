@@ -159,7 +159,7 @@ wLinkMode::
 	db
 
 wScriptVar:: db
-wScriptVar2:: db
+wScriptVar2:: db ; Used by "setevent EVENT_FROM_MEM"
 
 wPlayerNextMovement:: db
 wPlayerMovement:: db
@@ -3181,12 +3181,18 @@ wGasha1PrizesRemaining:: db
 wGasha2CapsulesCount:: db
 wGasha2PrizesRemaining:: db
 
-	ds 1
+wGashaPrizeRarity:: db
 
 wUndergroundSwitchPositions:: db
 	ds 2
 
 wAvoidedControlCheckpoint:: db ; Goldenrod Dept Store - Vaccine Passport checks.
+
+NEXTU ; Goldenrod Hospital Office.
+wInterviewScore:: db
+
+NEXTU ; Kurt's House.
+wKurtBallType:: db
 ENDU
 
 wPhoneList:: ds CONTACT_LIST_SIZE + 1

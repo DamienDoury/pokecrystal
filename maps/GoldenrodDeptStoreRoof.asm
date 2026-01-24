@@ -216,7 +216,7 @@ GoldenrodDeptStoreRoof_GashaScript:
 	promptbutton
 
 	callasm GetGashaRarityInStringBuffer4
-	readmem wScriptVar2
+	readmem wGashaPrizeRarity
 	ifequal 0, .NewSecretRarePrize
 	ifequal 1, .NewGoldRarePrize
 	ifequal 2, .NewSilverRarePrize

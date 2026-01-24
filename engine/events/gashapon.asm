@@ -57,7 +57,7 @@ GetUniformRandomCapsuleIndex:
     ld b, c
     jmp Modulo
 
-; Output: the won prize's index within the current gasha's prize pool (from 0-6) in C. The rarity from 0 (secret) to 3 (common) in wScriptVar2.
+; Output: the won prize's index within the current gasha's prize pool (from 0-6) in C. The rarity from 0 (secret) to 3 (common) in wGashaPrizeRarity.
 DrawRandomPrize:
     call GetUniformRandomCapsuleIndex
     ld b, a
@@ -102,7 +102,7 @@ DrawRandomPrize:
 .CheckCommonPrize
     ; The player receives a Common prize, which is rolled randomly.
     ld a, 3
-    ld [wScriptVar2], a
+    ld [wGashaPrizeRarity], a
 
     call Random
     ld b, 4
@@ -113,7 +113,7 @@ DrawRandomPrize:
 
 .GetSecretRarePrize
     ld a, 0
-    ld [wScriptVar2], a
+    ld [wGashaPrizeRarity], a
 
     ; We remove this unique prize from its pool.
     res 6, [hl]
@@ -124,7 +124,7 @@ DrawRandomPrize:
 
 .GetGoldRarePrize
     ld a, 1
-    ld [wScriptVar2], a
+    ld [wGashaPrizeRarity], a
 
     ; Once again, we remove this prize from the pool.
     ld a, [hl]
@@ -137,7 +137,7 @@ DrawRandomPrize:
 
 .GetSilverRarePrize
     ld a, 2
-    ld [wScriptVar2], a
+    ld [wGashaPrizeRarity], a
 
     ; Remove this prize from the pool.
     dec [hl]
@@ -174,7 +174,7 @@ RemoveOneCapsuleFromCurrentGasha::
 
 GetGashaRarityInStringBuffer4::
     ld hl, .Strings
-    ld a, [wScriptVar2]
+    ld a, [wGashaPrizeRarity]
     add a
     ld d, 0
     ld e, a

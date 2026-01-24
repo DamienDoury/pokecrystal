@@ -489,11 +489,7 @@ closetext: MACRO
 	db closetext_command
 ENDM
 
-	const writemem2_command ; $4a
-writemem2: MACRO
-	db writemem2_command
-	dw \1 ; address
-ENDM
+	const_skip ; $4a
 
 	const farwritetext_command ; $4b
 farwritetext: MACRO
