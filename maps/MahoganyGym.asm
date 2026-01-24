@@ -117,7 +117,6 @@ MahoganyGymPryceScript:
 	waitsfx
 	farscall IncMonthAndTryTriggeringCurfew
 	setflag ENGINE_GLACIERBADGE
-	iftrue PryceScript_Defeat
 	setevent EVENT_BEAT_SKIER_ROXANNE
 	setevent EVENT_BEAT_SKIER_CLARISSA
 	setevent EVENT_BEAT_BOARDER_RONALD
@@ -205,7 +204,7 @@ if DEF(_FR_FR)
 
 	para "Hein? Quoi?"
 
-	para "Je suis réveillé"
+	para "Non, j'dors pas..."
 	line "..."
 else
 	text "…"
@@ -361,13 +360,11 @@ endc
 
 PryceText_GlacierBadgeSpeech:
 if DEF(_FR_FR)
-	text "Ce BADGE t'as"
-	line "préparé pour la"
-	cont "ROUTE DE GLACE."
+	text "Félicitations"
+	line "p'tit bout!"
 else
-	text "This BADGE got"
-	line "you prepared for"
-	cont "the ICE PATH."
+	text "Congratulations"
+	line "lil'one!"
 endc
 	done
 
