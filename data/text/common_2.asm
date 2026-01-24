@@ -4043,7 +4043,7 @@ endc
 _News1_Topic2_Line6::
 if DEF(_FR_FR)
 	text_start
-	line "totale de sortir"
+	line "absolue de sortir"
 	done
 else
 	text_start

@@ -1855,7 +1855,7 @@ BuenaOffTheAirText:
 
 ; The news radio displays three news in sequence:
 ; 1: info about the current freedom state.
-; 2: cluster info, or important info about covid.
+; 2: cluster info, or important info about covid (TODO).
 ; 3: death count.
 NewsRadio1:
 	call StartRadioStation
@@ -2320,15 +2320,28 @@ NewsRadio_GetNews1Index:
 	bit VACCINE_PASSPORT, a
 	ret nz
 
-	dec c ; c = 2
-	bit CURFEW, a
-	ret nz
-
+	dec c
 	dec c ; c = 1
 	bit LOCKDOWN, a
 	ret nz
 
-	dec c ; c = 0
+	push de
+	ld de, ENGINE_FLYPOINT_VERMILION ; Curfew stops once the player reaches Vermilion.
+	farcall CheckEngineFlag
+	jr nc, .return_0
+
+	ld b, CHECK_FLAG
+	ld de, EVENT_FIRST_CURFEW_STARTED
+	call EventFlagAction
+	jr z, .return_0
+	
+	pop de
+	ld c, 2 ; c = 2 (curfew).
+	ret
+
+.return_0
+	pop de
+	ld c, 0 ; c = 0
 	ret
 
 ; Input: none.
