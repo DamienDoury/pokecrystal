@@ -64,7 +64,7 @@ GoldenrodUndergroundSwitchRoomEntrances_MapScripts:
 	ifless 28, .dept_store_checkpoint_done
 
 	loadmem wAvoidedControlCheckpoint, AVOIDED_DEPT_STORE_PASSPORT_CONTROL_CHECKPOINT
-	farcall RefillGashapons
+	farscall RefillGashapons
 
 .dept_store_checkpoint_done
 	checkevent EVENT_SWITCH_4
