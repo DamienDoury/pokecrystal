@@ -3717,7 +3717,7 @@ else
 	db "ANDRE@"
 endc
 	db TRAINERTYPE_NORMAL
-	db 27, GYARADOS
+	db 35, GYARADOS
 	db -1 ; end
 
 	; FISHER (9)
