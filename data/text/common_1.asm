@@ -3685,7 +3685,7 @@ if DEF(_FR_FR)
 	para "Je ne vais pas"
 	line "prendre en charge"
 	cont "ce #MON."
-	cont "Désolé."
+	cont "Mes excuses."
 	prompt
 else
 	text "I've heard some"

@@ -218,8 +218,7 @@ endc
 BikerCharlesAfterBattleText: 
 if DEF(_FR_FR)
 	text "Conduis doucement,"
-	line "c'est plus"
-	cont "prudent!"
+	line "c'est plus prudent!"
 else
 	text "Reckless driving"
 	line "causes accidents!"

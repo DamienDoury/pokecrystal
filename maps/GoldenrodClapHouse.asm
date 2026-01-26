@@ -479,12 +479,12 @@ endc
 
 GoldenrodClapHouse_MasterClapCountText:
 if DEF(_FR_FR)
-	text "Que tu as applaudi"
+	text "que tu as applaudi"
 	line "@"
 	text_decimal wClapCount, 2, 5
 	text " fois."
 else
-	text "You've clapped"
+	text "you've clapped"
 	line "@"
 	text_decimal wClapCount, 2, 5
 	text " times."
@@ -493,7 +493,7 @@ endc
 
 GoldenrodClapHouse_MasterHighCountText:
 if DEF(_FR_FR)
-	text "Que tu as applaudi"
+	text "que tu as applaudi"
 	line "plus de fois que"
 	cont "je ne peux"
 	cont "compter!"
@@ -501,7 +501,7 @@ if DEF(_FR_FR)
 	para "T'as triché"
 	line "ou quoi?"
 else
-	text "You've clapped more"
+	text "you've clapped more"
 	line "than I can count!"
 
 	para "Did you cheat or"
@@ -511,13 +511,13 @@ endc
 
 GoldenrodClapHouse_Gift1Text:
 if DEF(_FR_FR)
-	text "Que tu as applaudi"
+	text "que tu as applaudi"
 	line "plus de {d:CLAP_CAP_1_AMOUNT} fois!"
 
 	para "Voici un cadeau"
 	line "pour ton effort."
 else
-	text "You've clapped"
+	text "you've clapped"
 	line "more than {d:CLAP_CAP_1_AMOUNT}"
 	cont "times!"
 	

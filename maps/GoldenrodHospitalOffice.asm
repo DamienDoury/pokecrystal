@@ -711,10 +711,10 @@ if DEF(_FR_FR)
 
 	para "Soit ce #MON n'a"
 	line "jamais été testé"
-	
-	para "positif au COVID,"
-	line "soit le test est"
-	cont "trop ancien."
+	cont "positif au COVID,"
+
+	para "soit le test est"
+	line "trop ancien."
 else
 	text "I can't tell for"
 	line "this one."

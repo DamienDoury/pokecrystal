@@ -135,7 +135,7 @@ ScriptCommandTable:
 	dw Script_opentext                   ; 47
 	dw Script_refreshscreen              ; 48
 	dw Script_closetext                  ; 49
-	dw Script_unused_1                   ; 4a ; Unused
+	dw Script_accordfem                  ; 4a
 	dw Script_farwritetext               ; 4b
 	dw Script_writetext                  ; 4c
 	dw Script_repeattext                 ; 4d
@@ -244,7 +244,6 @@ ScriptCommandTable:
 StartScript:
 	ld hl, wScriptFlags
 	set SCRIPT_RUNNING, [hl]
-Script_unused_1:
 	ret
 
 CheckScript:
@@ -398,6 +397,27 @@ Script_farwriteredtext:
 Script_redtext:
 	call GetScriptWordInHL
 	jmp MapTextboxRed
+
+; Prints "e" into wStringBuffer5 if female.
+; Prints nothing if male.
+; Only works in French builds.
+if DEF(_FR_FR)
+Script_accordfem:
+	ld a, "@"
+	ld hl, wStringBuffer5
+	ld [hli], a
+	ld [hld], a
+
+	ld a, [wPlayerGender]
+	and a
+	ret z ; male
+
+	; female
+	ld a, "e"
+	ld [hl], a
+	ret
+endc
+
 
 Script_writetext:
 	ld a, [wScriptBank]

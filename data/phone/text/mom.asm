@@ -515,7 +515,9 @@ if DEF(_FR_FR)
 	cont "restent interdits."
 
 	para "Où que tu sois,"
-	line "reste prudent."
+	line "reste prudent@"
+	text_ram wStringBuffer5 ; accordfem
+	text "."
 	done
 else
 	text "Hi, <PLAYER>! They"

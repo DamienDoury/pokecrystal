@@ -73,6 +73,7 @@ MeetMomScript:
 	writetext InstructionsNextText
 	promptbutton
 .FinishPhoneForReal:
+	accordfem
 	writetext CovidIntroText
 	waitbutton
 	closetext
@@ -699,7 +700,9 @@ if DEF(_FR_FR)
 	cont "respectes pas"
 	cont "cette règle."
 
-	para "Sois prudent"
+	para "Sois prudent@"
+	text_ram wStringBuffer5 ; accordfem
+	text_start
 	line "là-dehors!"
 else
 	text "One last thing!"

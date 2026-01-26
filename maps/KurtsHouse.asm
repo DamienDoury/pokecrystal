@@ -612,14 +612,14 @@ if DEF(_FR_FR)
 	text "FARGAS: Ca va"
 	line "prendre la journée"
 
-	para "pour te faire une"
-	line "BALL. Reviens plus"
+	para "pour fabriquer"
+	line "ça. Reviens plus"
 	cont "tard."
 else
 	text "KURT: It'll take a"
-	line "day to make you a"
+	line "day to make you"
 
-	para "BALL. Come back"
+	para "this. Come back"
 	line "for it later."
 endc
 

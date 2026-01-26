@@ -489,7 +489,12 @@ closetext: MACRO
 	db closetext_command
 ENDM
 
-	const_skip ; $4a
+	const accordfem_command ; $4a
+if DEF(_FR_FR) ; Adds code to french builds only. Can be used in the scripts without adding conditional compiling conditions, which saves time.
+accordfem: MACRO
+	db accordfem_command
+ENDM
+endc
 
 	const farwritetext_command ; $4b
 farwritetext: MACRO
