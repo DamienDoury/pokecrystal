@@ -14,11 +14,11 @@ GoldenrodDeptStore5F_MapScripts:
 .CheckIfSunday:
 	readvar VAR_WEEKDAY
 	ifequal SUNDAY, .yes
-	disappear GOLDENRODDEPTSTORE5F_RECEPTIONIST
+	setevent GOLDENRODDEPTSTORE5F_RECEPTIONIST
 	endcallback
 
 .yes
-	appear GOLDENRODDEPTSTORE5F_RECEPTIONIST
+	clearevent GOLDENRODDEPTSTORE5F_RECEPTIONIST
 	endcallback
 
 GoldenrodDeptStore5FClerkScript:
