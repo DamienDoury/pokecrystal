@@ -23,8 +23,8 @@ CherrygroveGymSpeechHousePokefanMScript:
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED
 	iffalse .beforeLockdown
 
-	readvar VAR_BADGES
-	ifless 4, .before_pcr
+	checkevent EVENT_PCR_TEST_PRESENTATION
+	iffalse .before_pcr
 
 	jumptextfaceplayer CherrygroveGymSpeechHousePokefanM2Text
 .before_pcr
