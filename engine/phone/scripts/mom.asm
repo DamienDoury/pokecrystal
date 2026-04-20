@@ -44,6 +44,9 @@ MomPhoneInTown:
 	sjump MomSavingMoney
 
 .cherrygrove
+if DEF(_FR_FR)
+	accordfem
+endc
 	farwritetext MomPhoneCherrygroveText
 	promptbutton
 	sjump MomSavingMoney

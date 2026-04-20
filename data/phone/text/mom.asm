@@ -92,22 +92,20 @@ endc
 
 MomPhoneCherrygroveText:
 if DEF(_FR_FR)
-	text "Coucou!"
-
-	para "J'ai entendu à la"
+	text "J'ai entendu à la"
 	line "télé que le COVID"
 	cont "se transmet par"
 	cont "gouttelettes"
 	cont "respiratoires."
 
-	para "Sois prudent et"
+	para "Sois prudent@"
+	text_ram wStringBuffer5 ; accordfem
+	text " et"
 	line "respecte la dis-"
 	cont "tance sociale."
 	done
 else
-	text "Hello!"
-	
-	para "I have heard on"
+	text "I have heard on"
 	line "TV that COVID is"
 	cont "transmitted via"
 	cont "respiratory"
