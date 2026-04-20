@@ -338,6 +338,7 @@ BillsHouseVatDoorScript:
 
 .trade_animation
 	callasm StopSFX
+	callasm MusicOn
 
 	callasm TradeEvo
 	iffalse .no_need_to_return_to_map

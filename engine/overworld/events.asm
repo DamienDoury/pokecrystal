@@ -135,6 +135,7 @@ ClappingAutoSFX:
 	ret nz
 	
 	farcall StopSFX
+	farcall MusicOn
 	ret
 
 ClappingModeCheck:

@@ -70,7 +70,7 @@ MusicFadeRestart:
 	ld [wMusicFadeID + 1], a
 	ret
 
-MusicOn:
+MusicOn::
 	ld a, 1
 	ld [wMusicPlaying], a
 	ret
@@ -2506,7 +2506,8 @@ StopSFX::
 .ch8
 	ld hl, wChannel8Flags1
 	bit SOUND_CHANNEL_ON, [hl]
-	jr z, .chscleared
+	ret z
+	
 	res SOUND_CHANNEL_ON, [hl] ; turn it off
 	xor a
 	ldh [rNR41], a ; length/wavepattern = 0
@@ -2519,12 +2520,10 @@ StopSFX::
 	xor a
 	ld [wNoiseSampleAddress], a
 	ld [wNoiseSampleAddress + 1], a
-.chscleared
-	jmp MusicOn
+	ret
 
 _PlaySFX::
 ; clear channels if they aren't already
-	call MusicOff
 	call StopSFX
 ; start reading sfx header for # chs
 	ld hl, wMusicID
