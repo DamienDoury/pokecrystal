@@ -150,7 +150,9 @@ MomPhoneLectureScript:
 MomCurfewStartedScript:
 	specialphonecall SPECIALCALL_NONE
 	setevent EVENT_RECEIVED_CURFEW_SPECIAL_CALL
+if DEF(_FR_FR)
 	accordfem
+endc
 	farwritetext MomCurfewStartedText
 	end
 

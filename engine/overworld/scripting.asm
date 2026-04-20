@@ -401,8 +401,8 @@ Script_redtext:
 ; Prints "e" into wStringBuffer5 if female.
 ; Prints nothing if male.
 ; Only works in French builds.
-if DEF(_FR_FR)
 Script_accordfem:
+if DEF(_FR_FR)
 	ld a, "@"
 	ld hl, wStringBuffer5
 	ld [hli], a
@@ -415,8 +415,8 @@ Script_accordfem:
 	; female
 	ld a, "e"
 	ld [hl], a
-	ret
 endc
+	ret
 
 
 Script_writetext:

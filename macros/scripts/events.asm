@@ -490,7 +490,7 @@ closetext: MACRO
 ENDM
 
 	const accordfem_command ; $4a
-if DEF(_FR_FR) ; Adds code to french builds only. Can be used in the scripts without adding conditional compiling conditions, which saves time.
+if DEF(_FR_FR) ; Adds code to french builds only.
 accordfem: MACRO
 	db accordfem_command
 ENDM

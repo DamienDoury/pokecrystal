@@ -73,7 +73,9 @@ MeetMomScript:
 	writetext InstructionsNextText
 	promptbutton
 .FinishPhoneForReal:
+if DEF(_FR_FR)
 	accordfem
+endc
 	writetext CovidIntroText
 	waitbutton
 	closetext
