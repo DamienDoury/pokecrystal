@@ -371,9 +371,9 @@ endc
 
 BillPrivacyConcernsText:
 if DEF(_FR_FR)
-	text "Est-ce une menace"
-	line "pour ta vie"
-	cont "privée?"
+	text "Tu vois ça comme"
+	line "une menace pour"
+	cont "ta vie privée?"
 	
 	para "Toutes les données"
 	line "sont anonymisées,"
