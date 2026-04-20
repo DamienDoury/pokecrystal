@@ -46,6 +46,15 @@ EcruteakPokecenter1F_MapScripts:
 	writetext EcruteakPokecenter1F_BillText1
 	promptbutton
 	writetext EcruteakPokecenter1F_BillText2
+	promptbutton
+
+	checkevent EVENT_ROUTE_36_SUDOWOODO
+	iftrue .skip_sudowoodo_text
+
+	writetext EcruteakPokecenter1F_BillSudowoodoText
+	promptbutton
+.skip_sudowoodo_text
+	writetext EcruteakPokecenter1F_BillTextByeBye
 	waitbutton
 	closetext
 	turnobject PLAYER, DOWN
@@ -152,8 +161,6 @@ if DEF(_FR_FR)
 	line "retourner à"
 	cont "DOUBLONVILLE pour"
 	cont "voir mes parents."
-
-	para "Tchao!"
 else
 	text "I just finished"
 	line "a study on the"
@@ -188,9 +195,39 @@ else
 	para "I have to hurry on"
 	line "back to GOLDENROD"
 	cont "and see my folks."
-
-	para "Buh-bye!"
 endc
+	done
+
+EcruteakPokecenter1F_BillSudowoodoText:
+if DEF(_FR_FR)
+	text "A cause de cet"
+	line "arbre qui bloque"
+	cont "le passage,"
+	
+	para "je vais devoir"
+	line "faire le détour"
+	cont "par EBENELLE."
+	
+	para "Quelle poisse."
+else
+	text "Because of this"
+	line "tree blocking the"
+	cont "path, I'll have to"
+	cont "take the detour by"
+	cont "BLACKTHORN CITY."
+	
+	para "What a bummer."
+endc
+
+	done
+
+EcruteakPokecenter1F_BillTextByeBye:
+if DEF(_FR_FR)
+	text "Tchao!"
+else
+	text "Buh-bye!"
+endc
+
 	done
 
 EcruteakPokecenter1FPokefanMText: 
