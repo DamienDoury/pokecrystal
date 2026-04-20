@@ -141,6 +141,14 @@ StatsScreen_SetJumptableIndex:
 	ret
 
 StatsScreen_Exit:
+	; If we left the menu before the cry was ended, 
+	; RestoreVolume will be called by PlayCry after 
+	; the call to MaxVolume that happens when exiting the menu.
+	; This RestoreVolume set the volume back to 50%. 
+	; To prevent this, we set wLastVolume to 100%.
+	ld a, MAX_VOLUME
+	ld [wLastVolume], a
+
 	ld hl, wJumptableIndex
 	set 7, [hl]
 	ret
