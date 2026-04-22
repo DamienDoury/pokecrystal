@@ -67,17 +67,34 @@ endc
 	done
 
 CherrygroveMartCooltrainerMText_PokeBallsInStock: 
+; if DEF(_FR_FR)
+; 	text "Les # BALLS"
+; 	line "sont arrivées!"
+; 	cont "C'est reparti! Les"
+; 	cont "#MON n'ont"
+; 	cont "qu'à bien se"
+; 	cont "tenir!"
+; else
+; 	text "# BALLS are in"
+; 	line "stock! Now I can"
+; 	cont "catch #MON!"
+; endc
+
+; 	done
+
 if DEF(_FR_FR)
-	text "Les # BALLS"
-	line "sont arrivées!"
-	cont "C'est reparti! Les"
-	cont "#MON n'ont"
-	cont "qu'à bien se"
-	cont "tenir!"
+	text "Pfff c'est relou"
+	line "la pénurie!"
+
+	para "J'galère à trouver"
+	line "des # BALLS..."
 else
-	text "# BALLS are in"
-	line "stock! Now I can"
-	cont "catch #MON!"
+	text "Ugh, the shortage"
+	line "is so annoying!"
+
+	para "I'm having such a"
+	line "hard time finding"
+	cont "# BALLS..."
 endc
 
 	done
