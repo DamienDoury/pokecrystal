@@ -148,7 +148,14 @@ Route36FloriaScript:
 	sjump .floria_leaves
 
 .stay_at_home
+	readmem wYearMonth
+	ifgreater 4, .later_text ; After April 2020.
+	
 	writetext FloriaStayAtHomeText
+	sjump .floria_leaves
+
+.later_text
+	writetext FloriaStayAtHomeLaterText
 
 .floria_leaves
 	waitbutton
@@ -503,6 +510,20 @@ else
 	line "started already?"
 
 	para "I should get home."
+endc
+	done
+
+FloriaStayAtHomeLaterText:
+if DEF(_FR_FR)
+	text "Bon. Il est temps"
+	line "de rentrer avant"
+	cont "de se faire pincer"
+	cont "par la police."
+else
+	text "Well, it's time to"
+	line "head home before"
+	cont "the police catch"
+	cont "me."
 endc
 	done
 
