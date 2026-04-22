@@ -508,17 +508,14 @@ endc
 
 CamperSpencerAfterBattleText: 
 if DEF(_FR_FR)
-	text "Que se passe-t-il"
-	line "au LAC COLERE?"
-
-	para "On voulait y"
-	line "camper."
+	text "Quel bonheur de"
+	line "pouvoir sortir au"
+	cont "grand air à"
+	cont "nouveau!"
 else
-	text "What is going on"
-	line "at LAKE OF RAGE?"
-
-	para "We were planning"
-	line "to camp there."
+	text "It's so nice to be"
+	line "able to get out"
+	cont "and about again!"
 endc
 
 	done
