@@ -688,22 +688,36 @@ endc
 
 .Phase2Odd2Text:
 if DEF(_FR_FR)
-	text "INTERNATIONAL"
+	text "SOCIETE"
 
-	para "“Nous avons"
-	line "franchi le cap de"
-	cont "10 000 décès liés"
-	cont "à la pandémie"
-	cont "dans le monde.”"
+	para "“Un nouveau phéno-"
+	line "mène prend de"
+	cont "l'ampleur."
+	
+	para "Afin de soutenir"
+	line "le personnel"
+	cont "médical,"
+	
+	para "les gens applau-"
+	line "dissent tous les"
+	cont "soirs à 20h depuis"
+	cont "leur balcon ou"
+	cont "leur fenêtre.”"
 	done
 else
-	text "INTERNATIONAL"
+	text "SOCIETY"
 
-	para "“There are now"
-	line "10 000 deaths"
-	
-	para "worldwide caused"
-	line "by the pandemic.”"
+	para "“A new trend is"
+	line "rising."
+
+	para "To support essen-"
+	line "tial workers,"
+
+	para "people have been"
+	line "applauding every"
+	cont "evening at 8 PM"
+	cont "from their balco-"
+	cont "nies or windows.”"
 	done
 endc
 
@@ -1051,27 +1065,21 @@ endc
 
 .Phase3Even1Text:
 if DEF(_FR_FR)
-	text "INTERNATIONAL"
+	text "REVUE SCIENTIFIQUE"
 
-	para "“Le cap symbolique"
-	line "des 100 000 décès"
-	cont "humains et #MON"
-	cont "dans le monde"
-	cont "est franchi"
-	cont "aujourd'hui, et"
-	cont "le bilan ne cesse"
-	cont "d'augmenter.”"
+	para "“La perte de goût"
+	line "et d'odorat a été"
+	cont "confirmée comme"
+	cont "symptôme du"
+	cont "COVID.”"
 	done
 else
-	text "INTERNATIONAL"
+	text "SCIENTIFIC REVIEW"
 
-	para "“The symbolic"
-	line "number of 100 000"
-	cont "human and #MON"
-	cont "death worldwide"
-	cont "has been crossed"
-	cont "today, and numbers"
-	cont "keep increasing.”"
+	para "“Loss of taste and"
+	line "smell has been"
+	cont "confirmed as a"
+	cont "symptom of COVID.”"
 	done
 endc
 
@@ -1506,19 +1514,16 @@ endc
 if DEF(_FR_FR)
 	text "INTERNATIONAL"
 
-	para "“Le nombre de"
-	line "décès dans le"
-	cont "monde a atteint"
-	cont "1 million.”"
+	para "“Les leaders de"
+	line "plusieurs pays ont"
+	cont "attrapé le COVID.”"
 	done
 else
 	text "INTERNATIONAL"
 
-	para "The number of"
-	line "deaths around the"
-
-	para "world has now"
-	line "reached 1 million."
+	para "“Several world"
+	line "leaders have"
+	cont "caught COVID.”"
 	done
 endc
 
@@ -1656,9 +1661,10 @@ if DEF(_FR_FR)
 	text "INTERNATIONAL"
 
 	para "“Il y a désormais"
-	line "plus de 5 millions"
+	line "plusieurs millions"
 	cont "de décès liés au"
-	cont "virus."
+	cont "virus à travers"
+	cont "le monde."
 
 	para "Faites-vous"
 	line "vacciner pour"
@@ -1668,11 +1674,9 @@ else
 	text "INTERNATIONAL"
 
 	para "“There are now"
-	line "more than"
-
-	para "5 million deaths"
-	line "caused directly"
-	cont "by the virus."
+	line "several million"
+	cont "deaths caused by"
+	cont "the virus."
 
 	para "Please get"
 	line "vaccinated to save"
