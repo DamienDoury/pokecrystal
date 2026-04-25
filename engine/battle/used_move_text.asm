@@ -65,9 +65,9 @@ endc
 	ret nz
 
 if DEF(_FR_FR)
-	ldh a, [hBattleTurn]
-	and a
-	jr z, .user_launches_one_liner
+	call GetMoveUsersNameLength
+	cp 18 - 5 ; Is there enough room to fit " lance" on the same line?
+	jr c, .user_launches_one_liner
 
 	push de
 	ld de, wStringBuffer2
@@ -89,6 +89,26 @@ endc
 	ret
 
 if DEF(_FR_FR)
+; Output: number of chars for "<USER>" in A (accounting for the " ennemi" suffix).
+GetMoveUsersNameLength::
+	push bc
+	push de
+
+	ld c, 7 ; Account for " ennemi" suffix.
+	ld de, wEnemyMonNickname
+	ldh a, [hBattleTurn]
+	and a
+	jr nz, .count
+
+	ld de, wBattleMonNickname
+	ld c, 0 ; No suffix for player mon.
+.count
+	call CountChars
+	add c
+	pop de
+	pop bc
+	ret
+	
 UserLaunchesOneLinerText:
 	text_far _UserLaunchesOneLinerText
 	text_asm
