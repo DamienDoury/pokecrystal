@@ -5379,6 +5379,33 @@ endc
 	db 31, ELECTRODE
 	db -1 ; end
 
+	; BIKER (11)
+if DEF(_FR_FR)
+	db "FARID@"
+else
+	db "FARID@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 29, KOFFING
+	db 30, GRIMER
+	db 31, PRIMEAPE
+	db -1 ; end
+
+	; BIKER (12)
+if DEF(_FR_FR)
+	db "ANTOINE@"
+else
+	db "ANTONY@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 25, KOFFING
+	db 25, GRIMER
+	db 25, MANKEY
+	db 26, WEEZING
+	db 26, MUK
+	db 28, PRIMEAPE
+	db -1 ; end
+
 BlaineGroup:
 	; BLAINE (1)
 if DEF(_FR_FR)

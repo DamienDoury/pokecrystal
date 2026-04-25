@@ -39,6 +39,34 @@ TrainerBikerHusq:
 	endifjustbattled
 	jumptextfaceplayer BikerHusqAfterBattleText
 
+TrainerBikerFarid:
+	trainer BIKER, FARID, EVENT_BEAT_BIKER_FARID, BikerFaridSeenText, BikerFaridBeatenText, 0, .Script
+
+.Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_16
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
+	setevent EVENT_GOT_COVID_ON_ROUTE_16
+
+	endifjustbattled
+	jumptextfaceplayer BikerFaridAfterBattleText
+
+TrainerBikerAntony:
+	trainer BIKER, ANTONY, EVENT_BEAT_BIKER_ANTONY, BikerAntonySeenText, BikerAntonyBeatenText, 0, .Script
+
+.Script:
+	checkevent EVENT_GOT_COVID_ON_ROUTE_16
+	iftrue .NoNotification
+	
+	setevent EVENT_CONTACT_TRACING_NOTIFICATION
+.NoNotification
+	setevent EVENT_GOT_COVID_ON_ROUTE_16
+
+	endifjustbattled
+	jumptextfaceplayer BikerAntonyAfterBattleText
+
 TrainerBugCatcherJerome:
 	trainer BUG_CATCHER, JEROME, EVENT_BEAT_BUG_CATCHER_JEROME, BugCatcherJeromeSeenText, BugCatcherJeromeBeatenText, 0, .Script
 
@@ -89,6 +117,115 @@ else
 	
 	para "Therefore I like"
 	line "fast #MON!"
+endc
+	done
+
+
+BikerFaridSeenText:
+if DEF(_FR_FR)
+	text "Je ne suis pas"
+	line "“antivax”."
+
+	para "Je refuse juste de"
+	line "me faire vacciner."
+else
+	text "I'm not an “anti-"
+	line "vaxxer”."
+
+	para "I just refuse to"
+	line "get vaccinated."
+endc
+	done
+
+BikerFaridBeatenText:
+if DEF(_FR_FR)
+	text "Je n'ai pas perdu."
+	line "J'ai fini second."
+else
+	text "I didn't lose."
+	line "I just didn't win."
+endc
+	done
+
+BikerFaridAfterBattleText:
+if DEF(_FR_FR)
+	text "Je déteste le"
+	line "terme “antivax”,"
+	
+	para "je déteste les"
+	line "décisions du"
+	cont "gouvernement,"
+	
+	para "je déteste"
+	line "cette situation."
+
+	para "Je vais aller"
+	line "manifester."
+else
+	text "I hate the term"
+	line "“anti-vax”,"
+	
+	para "I hate the govern-"
+	line "ment's decisions,"
+	
+	para "I hate this"
+	line "situation."
+	
+	para "I'm going to"
+	line "protest."
+endc
+	done
+
+BikerAntonySeenText:
+if DEF(_FR_FR)
+	text "Je n'laisserai pas"
+	line "pas l'gouvernement"
+	cont "m'ôter ma liberté!"
+else
+	text "I won't let the"
+	line "government seize"
+	cont "my freedom!"
+endc
+	done
+
+BikerAntonyBeatenText:
+if DEF(_FR_FR)
+	text "Je ne me soumet-"
+	line "trais pas!"
+else
+	text "I won't submit"
+	line "to you either!"
+endc
+	done
+
+BikerAntonyAfterBattleText:
+if DEF(_FR_FR)
+	text "Faut surtout pas"
+	line "installer le"
+	cont "COUPON de TRAçAGE"
+	cont "des CONTACTS sur"
+	cont "le #GEAR!"
+
+	para "Le gouvernement"
+	line "s'en sers pour"
+	cont "surveiller nos"
+	cont "déplacements."
+	
+	para "C'est une viola-"
+	line "tion de notre vie"
+	cont "privée!"
+else
+	text "Avoid installing"
+	line "the CONTACT"
+	cont "TRACING COUPON on"
+	cont "your #GEAR!"
+
+	para "The government"
+	line "uses it to monitor"
+	cont "our movements."
+	
+	para "It's a violation"
+	line "of our privacy!"
 endc
 	done
 
@@ -177,5 +314,7 @@ Route16_MapEvents:
 
 	def_object_events
 	object_event  9, 12, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 5, TrainerBikerHusq, -1
+	object_event  6, 10, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerBikerFarid, -1
+	object_event  2,  7, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerAntony, -1
 	object_event 12,  1, SPRITE_BUG_CATCHER, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBugCatcherJerome, -1
 

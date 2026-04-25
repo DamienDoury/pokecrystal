@@ -542,6 +542,8 @@ KRIS EQU __trainer_class__
 	const JOEL
 	const GLENN
 	const HUSQ
+	const FARID
+	const ANTONY
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1

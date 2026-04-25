@@ -436,6 +436,7 @@ INCLUDE "maps/Route46.asm"
 INCLUDE "maps/ViridianCity.asm"
 INCLUDE "maps/CeladonCity.asm"
 INCLUDE "maps/VermilionCity.asm"
+INCLUDE "maps/Route16.asm"
 
 
 SECTION "Map Scripts 24", ROMX
@@ -456,7 +457,6 @@ INCLUDE "maps/EarlsPokemonAcademy.asm"
 INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/SoulHouse.asm"
-INCLUDE "maps/Route16.asm"
 INCLUDE "maps/Route10South.asm"
 
 
