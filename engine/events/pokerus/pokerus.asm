@@ -327,9 +327,17 @@ InfectMon:
 
 ; Returns a duration in the a register.
 RandomSicknessDuration:
+	push bc
+	call IsInJohto
+	pop bc
+	cp KANTO_REGION
+	ld a, 0
+	jr z, .shortest_incubation ; If the player is in Kanto, the incubation is shorter.
+
 	; We generate a random incubation duration from 1 to 2 days.
 	ld a, 2 ; Max value (excluded) passed to RandomRange.
 	call RandomRange ; will return a value between 0 and 1 (included) in the a register.
+.shortest_incubation
 	add 1 ; Minimum duration of the incubation is 1 days. Makes the incubation last from 1 to 2 days.
 
 	; We add the symptoms period as well as the immunity period.
