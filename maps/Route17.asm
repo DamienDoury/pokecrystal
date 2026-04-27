@@ -21,6 +21,41 @@ TrainerBikerRiley:
 	endifjustbattled
 	jumptextfaceplayer BikerRileyAfterBattleText
 
+TrainerBikerMarkey:
+	trainer BIKER, MARKEY, EVENT_BEAT_BIKER_MARKEY, BikerMarkeySeenText, BikerMarkeyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BikerMarkeyAfterBattleText
+
+TrainerBikerTeddy:
+	trainer BIKER, TEDDY, EVENT_BEAT_BIKER_TEDDY, BikerTeddySeenText, BikerTeddyBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BikerTeddyAfterBattleText
+
+TrainerBikerDan:
+	trainer BIKER, DAN, EVENT_BEAT_BIKER_DAN, BikerDanSeenText, BikerDanBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BikerDanAfterBattleText
+
+TrainerBikerMaube:
+	trainer BIKER, MAUBE, EVENT_BEAT_BIKER_MAUBE, BikerMaubeSeenText, BikerMaubeBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BikerMaubeAfterBattleText
+
+TrainerBikerFew:
+	trainer BIKER, FEW, EVENT_BEAT_BIKER_FEW, BikerFewSeenText, BikerFewBeatenText, 0, .Script
+
+.Script:
+	endifjustbattled
+	jumptextfaceplayer BikerFewAfterBattleText
+
 TrainerBikerJoel:
 	trainer BIKER, JOEL, EVENT_BEAT_BIKER_JOEL, BikerJoelSeenText, BikerJoelBeatenText, 0, .Script
 
@@ -163,6 +198,184 @@ endc
 
 	done
 
+BikerMarkeySeenText:
+if DEF(_FR_FR)
+	text "Barre toi d'ma"
+	line "route!"
+else
+	text "Don't get in"
+	line "my way!"
+endc
+	done
+
+BikerMarkeyBeatenText:
+if DEF(_FR_FR)
+	text "Pardon de t'avoir"
+	line "gêné."
+else
+	text "Sorry I got in"
+	line "your way."
+endc
+	done
+
+BikerMarkeyAfterBattleText:
+if DEF(_FR_FR)
+	text "T'es encore là"
+	line "toi?"
+else
+	text "You're still here?"
+endc
+	done
+
+BikerTeddySeenText:
+if DEF(_FR_FR)
+	text "La liberté, c'est"
+	line "sentir le vent"
+	cont "dans ses cheveux."
+	
+	para "...et une coupe de"
+	line "cheveux moderne."
+else
+	text "Freedom is feeling"
+	line "the wind in your"
+	cont "hair."
+	
+	para "Along with a bold"
+	line "haircut."
+endc
+	done
+
+BikerTeddyBeatenText:
+if DEF(_FR_FR)
+	text "J'ai les cheveux"
+	line "qui se dressent."
+else
+	text "You made my hair"
+	line "stand on end."
+endc
+	done
+
+BikerTeddyAfterBattleText:
+if DEF(_FR_FR)
+	text "Pas mal ma coupe,"
+	line "hein?"
+else
+	text "Not bad for a"
+	line "haircut, huh?"
+endc
+	done
+
+BikerDanSeenText:
+if DEF(_FR_FR)
+	text "La liberté, c'est"
+	line "de pouvoir polluer"
+	cont "si ça m'chante."
+else
+	text "Freedom is being"
+	line "able to pollute if"
+	cont "I feel like it."
+endc
+	done
+
+BikerDanBeatenText:
+if DEF(_FR_FR)
+	text "M'en fous."
+else
+	text "I don't care."
+endc
+	done
+
+BikerDanAfterBattleText:
+if DEF(_FR_FR)
+	text "Laisse-moi polluer"
+	line "tranquillement."
+else
+	text "Let me pollute"
+	line "in peace."
+endc
+	done
+
+BikerMaubeSeenText:
+if DEF(_FR_FR)
+	text "Matte ma mob,"
+	line "elle déchire!"
+else
+	text "Check out my ride,"
+	line "it's awesome!"
+endc
+	done
+
+BikerMaubeBeatenText:
+if DEF(_FR_FR)
+	text "T'y es tarpin"
+	line "balaise!"
+else
+	text "Good game!"
+endc
+	done
+
+BikerMaubeAfterBattleText:
+if DEF(_FR_FR)
+	text "J'ai designé cette"
+	line "mob moi-même!"
+
+	para "C'est mon taf!"
+	line "VROOM VROOM!"
+else
+	text "I designed this"
+	line "ride myself!"
+
+	para "It's my job!"
+	line "VROOM VROOM!"
+endc
+	done
+
+BikerFewSeenText:
+if DEF(_FR_FR)
+	text "C'est quoi le plus"
+	line "dangereux?"
+
+	para "Une petite maladie"
+	line "ou perdre nos"
+	
+	para "libertés fondamen-"
+	line "tales?"
+else
+	text "What's the most"
+	line "dangerous?"
+	
+	para "A short disease,"
+	line "or losing our"
+	cont "sacred freedoms?"
+endc
+	done
+	
+BikerFewBeatenText:
+if DEF(_FR_FR)
+	text "C'est toi le"
+	line "danger."
+else
+	text "You're the danger."
+endc
+	done
+
+BikerFewAfterBattleText:
+if DEF(_FR_FR)
+	text "La TEAM ROCKET a"
+	line "soulevé un point"
+	cont "valide quand elle"
+	cont "a suggéré de nous"
+	cont "battre pour nos"
+	cont "libertés."
+else
+	text "TEAM ROCKET made a"
+	line "valid point when"
+	cont "they talked about"
+	cont "fighting for our"
+	cont "freedoms."
+endc
+	done
+
 Route17MidSign3Text:
 if DEF(_FR_FR)
 	text "Route 16"
@@ -283,5 +496,10 @@ Route17_MapEvents:
 
 	def_object_events
 	object_event  4, 75, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 4, TrainerBikerRiley, -1
+	object_event 13,  9, SPRITE_BIKER, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 1, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBikerMarkey, -1
+	object_event 18, 86, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, -1, -1, PAL_NPC_GREEN, OBJECTTYPE_TRAINER, 4, TrainerBikerTeddy, -1
+	object_event  2, 56, SPRITE_BIKER, SPRITEMOVEDATA_PATROL_CIRCLE_RIGHT, 1, 3, -1, -1, PAL_NPC_RED, OBJECTTYPE_TRAINER, 3, TrainerBikerDan, -1
+	object_event 14, 49, SPRITE_BIKER, SPRITEMOVEDATA_PATROL_CIRCLE_LEFT, 1, 3, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBikerMaube, -1
+	object_event  5, 31, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_UP, 0, 0, -1, -1, PAL_NPC_BLUE, OBJECTTYPE_TRAINER, 3, TrainerBikerFew, -1
 	object_event  9, 122, SPRITE_BIKER, SPRITEMOVEDATA_STANDING_DOWN, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 1, TrainerBikerJoel, -1
 	object_event  3, 107, SPRITE_BIKER, SPRITEMOVEDATA_SPINRANDOM_FAST, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_TRAINER, 3, TrainerBikerGlenn, -1

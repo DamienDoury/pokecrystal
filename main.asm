@@ -758,7 +758,6 @@ INCLUDE "data/items/inflated_prices.asm"
 
 SECTION "Mobile News Data", ROMX
 
-INCLUDE "mobile/news/news.asm"
 INCLUDE "data/battle_tower/trainer_text.asm"
 INCLUDE "engine/battle_anims/pokeball_wobble.asm"
 

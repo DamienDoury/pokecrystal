@@ -5406,6 +5406,69 @@ endc
 	db 28, PRIMEAPE
 	db -1 ; end
 
+; BIKER (13)
+if DEF(_FR_FR)
+	db "RAYNALDO@"
+else
+	db "MARKEY@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 25, KOFFING
+	db 25, GRIMER
+	db 25, MANKEY
+	db 26, WEEZING
+	db 26, MUK
+	db 28, PRIMEAPE
+	db -1 ; end
+
+; BIKER (14)
+if DEF(_FR_FR)
+	db "CORNELIUS@"
+else
+	db "TEDDY@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 35, ARBOK
+	db -1 ; end
+
+; BIKER (15)
+if DEF(_FR_FR)
+	db "BALTHAZAR@"
+else
+	db "DAN@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 26, KOFFING
+	db 26, KOFFING
+	db 26, KOFFING
+	db 26, KOFFING
+	db 26, KOFFING
+	db 26, KOFFING
+	db -1 ; end
+
+; BIKER (16)
+if DEF(_FR_FR)
+	db "TIFLETTE@"
+else
+	db "FEW@"
+endc
+	db TRAINERTYPE_NORMAL
+	db 36, WEEZING
+	db -1 ; end
+
+; BIKER (17)
+if DEF(_FR_FR)
+	db "MAUBE@"
+else
+	db "MAUBE@"
+endc
+	db TRAINERTYPE_MOVES
+	db 30, PORYGON, SHARPEN, NO_MOVE, NO_MOVE, NO_MOVE
+	db 30, MANKEY, FURY_SWIPES, KARATE_CHOP, FOCUS_ENERGY, ROCK_SMASH
+	db 30, SMEARGLE, SKETCH, SKETCH, SKETCH, SKETCH
+	db 30, MEOWTH, PAY_DAY, NO_MOVE, NO_MOVE, NO_MOVE
+	db -1 ; end
+
 BlaineGroup:
 	; BLAINE (1)
 if DEF(_FR_FR)

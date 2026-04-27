@@ -544,6 +544,11 @@ KRIS EQU __trainer_class__
 	const HUSQ
 	const FARID
 	const ANTONY
+	const MARKEY
+	const TEDDY
+	const DAN
+	const FEW
+	const MAUBE
 
 	trainerclass BLAINE ; 2e
 	const BLAINE1
