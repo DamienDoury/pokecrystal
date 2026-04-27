@@ -34,6 +34,8 @@ Route42_MapScripts:
 	checkevent EVENT_GOT_COVID_ON_ROUTE_42
 	iftrue .end
 
+	; PROBLEM: on this route, the player can encounter wild pokemons in many ways before they encounter a trainer: surfing, headbutting, fishing.
+	; This could lead to a severe/infinite contamination of the player's party.
 	loadmem wBattlePokerusSeed, TRUE ; Forcing Covid from enemy during the next battle, wherever that battle happens.
 
 .end

@@ -47,7 +47,6 @@ TreeMonKantoMaps:
 	treemon_map VERMILION_CITY,            MARILL,		21
 	treemon_map ROUTE_7,                   GRIMER,		26
 	treemon_map CELADON_CITY,              MURKROW,		28
-	treemon_map ROUTE_16,                  SPEAROW,		28
 	treemon_map ROUTE_18,                  AIPOM,		31
 	treemon_map FUCHSIA_CITY,              MANKEY,		24
 	treemon_map ROUTE_12,                  SHUCKLE,	    29
