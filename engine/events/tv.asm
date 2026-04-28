@@ -829,6 +829,181 @@ endc
 
 .Phase2Even3Text:
 if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“La perte de goût"
+	line "et d'odorat a été"
+	cont "confirmée comme"
+	cont "symptôme du"
+	cont "COVID.”"
+	done
+else
+	text "SCIENTIFIC REVIEW"
+
+	para "“Loss of taste and"
+	line "smell has been"
+	cont "confirmed as a"
+	cont "symptom of COVID.”"
+	done
+endc
+
+
+
+
+
+
+
+
+
+
+
+
+.Phase3Odd1:
+	jumptext .Phase3Odd1Text
+
+.Phase3Odd1Text:
+if DEF(_FR_FR)
+	text "EVENEMENTS"
+
+	para "“Bien que le"
+	line "dernier Champion-"
+	cont "nat #MON ait"
+	cont "été annulé à cause"
+	cont "des restrictions"
+	cont "sanitaires,"
+
+	para "la LIGUE #MON"
+	line "a versé"
+	cont "1 milliard ¥"
+	cont "pour financer"
+	cont "la recherche"
+	cont "médicale."
+
+	para "Le Championnat"
+	line "rouvrira bientôt.”"
+	done
+else
+	text "EVENTS"
+
+	para "“Even though the"
+	line "latest #MON"
+	cont "Championship had"
+	cont "to be cancelled"
+	
+	para "because of the"
+	line "sanitary"
+	cont "restrictions,"
+
+	para "the #MON LEAGUE"
+	line "has given"
+	cont "¥1 billion"
+
+	para "to finance"
+	line "medical research."
+
+	para "The Championship"
+	line "will re-open"
+	cont "soon.”"
+	done
+endc
+
+
+.Phase3Odd2:
+	jumptext .Phase3Odd2Text
+
+.Phase3Odd2Text:
+if DEF(_FR_FR)
+	text "SOCIETE"
+
+	para "“Vous souvenez-"
+	line "vous de votre"
+	cont "vieille collection"
+	cont "de cartes #MON?"
+
+	para "Vous pourriez être"
+	line "assis sur une"
+	cont "mine d'or!"
+
+	para "Leur prix grimpe"
+	line "depuis des années,"
+	cont "et depuis le début"
+	cont "de la pandémie,"
+	
+	para "le prix de"
+	line "certaines cartes"
+	cont "rares a été"
+	cont "multiplié par 10.”"
+	done
+else
+	text "SOCIETY"
+
+	para "“Remember your old"
+	line "#MON Trading"
+	cont "Card collection?"
+
+	para "You may be sitting"
+	line "on a pile of gold!"
+
+	para "The price of those"
+	line "cards has been"
+	cont "increasing"
+	cont "steadily over the"
+	cont "years, and since"
+	cont "the beginning of"
+	cont "the pandemic"
+
+	para "the price of some"
+	line "rare cards has"
+	cont "been multiplied"
+	cont "by 10 or more.”"
+	done
+endc
+
+
+.Phase3Odd3:
+	jumptext .Phase3Odd3Text
+
+.Phase3Odd3Text:
+if DEF(_FR_FR)
+	text "SOCIETE"
+
+	para "“Les dresseurs"
+	line "étant confinés"
+	cont "et incapables de"
+	cont "faire des combats"
+	cont "#MON, le jeu VR"
+
+	para "trainer-simulator"
+	line "(.com)"
+
+	para "voit sa popularité"
+	line "exploser.”"
+	done
+else
+	text "SOCIETY"
+
+	para "“People being"
+	line "stuck at home"
+
+	para "and being unable"
+	line "to do #MON"
+	cont "battles,"
+
+	para "the VR fangame"
+	line "trainer-simulator"
+	cont "(.com)"
+
+	para "is rising"
+	line "in popularity.”"
+	done
+endc
+
+
+.Phase3Even1:
+	jumptext .Phase3Even1Text
+
+.Phase3Even1Text:
+if DEF(_FR_FR)
 	text "INTERNATIONAL"
 
 	para "“Les fausses"
@@ -913,173 +1088,6 @@ else
 	para "“Unless it's at"
 	line "a wedding,"
 	cont "then it's ok.”"
-	done
-endc
-
-
-
-
-
-
-
-
-
-
-
-
-.Phase3Odd1:
-	jumptext .Phase3Odd1Text
-
-.Phase3Odd1Text:
-if DEF(_FR_FR)
-	text "EVENEMENTS"
-
-	para "“Bien que le"
-	line "dernier Champion-"
-	cont "nat #MON ait"
-	cont "été annulé à cause"
-	cont "des restrictions"
-	cont "sanitaires,"
-
-	para "la LIGUE #MON"
-	line "a versé"
-	cont "1 milliard ¥"
-	cont "pour financer"
-	cont "la recherche"
-	cont "médicale."
-
-	para "Le Championnat"
-	line "rouvrira bientôt.”"
-	done
-else
-	text "EVENTS"
-
-	para "“Even though the"
-	line "latest #MON"
-	cont "Championship had"
-	cont "to be cancelled"
-	
-	para "because of the"
-	line "sanitary"
-	cont "restrictions,"
-
-	para "the #MON LEAGUE"
-	line "has given"
-	cont "¥1 billion"
-
-	para "to finance"
-	line "medical research."
-
-	para "The Championship"
-	line "will re-open"
-	cont "soon.”"
-	done
-endc
-
-
-.Phase3Odd2:
-	jumptext .Phase3Odd2Text
-
-.Phase3Odd2Text:
-if DEF(_FR_FR)
-	text "REVUE SCIENTIFIQUE"
-
-	para "“Des chercheurs"
-	line "ont découvert"
-	cont "un nouveau"
-	cont "variant du virus."
-
-	para "Cette souche"
-	line "mutée provoque"
-	cont "de nouveaux"
-	cont "symptômes aux"
-	cont "#MON."
-
-	para "Elle se propage"
-	line "vite et devrait"
-	cont "bientôt devenir le"
-	cont "variant dominant.”"
-	done
-else
-	text "SCIENTIFIC REVIEW"
-
-	para "“Scientists have"
-	line "discovered a new"
-	cont "COVID variant."
-
-	para "This mutated"
-	line "version gives"
-	cont "different symptoms"
-	cont "to #MON."
-
-	para "It is spreading"
-	line "fast and should"
-	cont "become the"
-	cont "dominant variant"
-	cont "quite soon.”"
-	done
-endc
-
-
-.Phase3Odd3:
-	jumptext .Phase3Odd3Text
-
-.Phase3Odd3Text:
-if DEF(_FR_FR)
-	text "SOCIETE"
-
-	para "“Les dresseurs"
-	line "étant confinés"
-	cont "et incapables de"
-	cont "faire des combats"
-	cont "#MON, le jeu VR"
-
-	para "trainer-simulator"
-	line "(.com)"
-
-	para "voit sa popularité"
-	line "exploser.”"
-	done
-else
-	text "SOCIETY"
-
-	para "“People being"
-	line "stuck at home"
-
-	para "and being unable"
-	line "to do #MON"
-	cont "battles,"
-
-	para "the VR fangame"
-	line "trainer-simulator"
-	cont "(.com)"
-
-	para "is rising"
-	line "in popularity.”"
-	done
-endc
-
-
-.Phase3Even1:
-	jumptext .Phase3Even1Text
-
-.Phase3Even1Text:
-if DEF(_FR_FR)
-	text "REVUE SCIENTIFIQUE"
-
-	para "“La perte de goût"
-	line "et d'odorat a été"
-	cont "confirmée comme"
-	cont "symptôme du"
-	cont "COVID.”"
-	done
-else
-	text "SCIENTIFIC REVIEW"
-
-	para "“Loss of taste and"
-	line "smell has been"
-	cont "confirmed as a"
-	cont "symptom of COVID.”"
 	done
 endc
 
@@ -1297,49 +1305,41 @@ endc
 
 .Phase4Odd2Text:
 if DEF(_FR_FR)
-	text "SOCIETE"
+	text "REVUE SCIENTIFIQUE"
 
-	para "“Vous souvenez-"
-	line "vous de votre"
-	cont "vieille collection"
-	cont "de cartes #MON?"
+	para "“Des chercheurs"
+	line "ont découvert"
+	cont "un nouveau"
+	cont "variant du virus."
 
-	para "Vous pourriez être"
-	line "assis sur une"
-	cont "mine d'or!"
+	para "Cette souche"
+	line "mutée provoque"
+	cont "de nouveaux"
+	cont "symptômes aux"
+	cont "#MON."
 
-	para "Leur prix grimpe"
-	line "depuis des années,"
-	cont "et depuis le début"
-	cont "de la pandémie,"
-	
-	para "le prix de"
-	line "certaines cartes"
-	cont "rares a été"
-	cont "multiplié par 10.”"
+	para "Elle se propage"
+	line "vite et devrait"
+	cont "bientôt devenir le"
+	cont "variant dominant.”"
 	done
 else
-	text "SOCIETY"
+	text "SCIENTIFIC REVIEW"
 
-	para "“Remember your old"
-	line "#MON Trading"
-	cont "Card collection?"
+	para "“Scientists have"
+	line "discovered a new"
+	cont "COVID variant."
 
-	para "You may be sitting"
-	line "on a pile of gold!"
+	para "This mutated"
+	line "version gives"
+	cont "different symptoms"
+	cont "to #MON."
 
-	para "The price of those"
-	line "cards has been"
-	cont "increasing"
-	cont "steadily over the"
-	cont "years, and since"
-	cont "the beginning of"
-	cont "the pandemic"
-
-	para "the price of some"
-	line "rare cards has"
-	cont "been multiplied"
-	cont "by 10 or more.”"
+	para "It is spreading"
+	line "fast and should"
+	cont "become the"
+	cont "dominant variant"
+	cont "quite soon.”"
 	done
 endc
 
