@@ -419,3 +419,109 @@ AddPartyMonIndexToChronologicalList::
 	ld [hl], a ; The pokemon party index has been added to the chronological list!
 	pop de
 	ret
+
+; Up to 25% chances of covid per wild battle in February 2022.
+HistoricalInfectionOdds::
+	db 0	; 0x00 January 2020
+	db 0	; 0x01 February 2020
+	db 1	; 0x02 March 2020
+	db 2	; 0x03 April 2020
+	db 2	; 0x04 May 2020
+	db 2	; 0x05 June 2020
+	db 4	; 0x06 July 2020
+	db 5	; 0x07 August 2020
+	db 6	; 0x08 September 2020
+	db 6	; 0x09 October 2020
+	db 10	; 0x0a November 2020
+	db 12	; 0x0b December 2020
+	
+	db 12	; 0x10 January 2021
+	db 10	; 0x11 February 2021
+	db 8	; 0x12 March 2021
+	db 12	; 0x13 April 2021
+	db 16	; 0x14 May 2021
+	db 10	; 0x15 June 2021
+	db 8	; 0x16 July 2021
+	db 12	; 0x17 August 2021
+	db 13	; 0x18 September 2021
+	db 9	; 0x19 October 2021
+	db 9	; 0x1a November 2021
+	db 12	; 0x1b December 2021
+
+	db 30	; 0x20 January 2022
+	db 64	; 0x21 February 2022
+	db 30	; 0x22 March 2022
+	db 28	; 0x23 April 2022
+	db 12	; 0x24 May 2022
+	db 12	; 0x25 June 2022
+	db 16	; 0x26 July 2022
+	db 20	; 0x27 August 2022
+	db 13	; 0x28 September 2022
+	db 9	; 0x29 October 2022
+	db 7	; 0x2a November 2022
+	db 10	; 0x2b December 2022
+
+	db 10	; 0x30 January 2023
+	db 4	; 0x31 February 2023
+	db 3	; 0x32 March 2023
+	db 2	; 0x33 April 2023
+	db 2	; 0x34 May 2023
+	db 1	; 0x35 June 2023
+	db 1	; 0x36 July 2023
+	db 1	; 0x37 August 2023
+	db 2	; 0x38 September 2023
+	db 1	; 0x39 October 2023
+	db 1	; 0x3a November 2023
+	db 1	; 0x3b December 2023
+
+;00 0
+;01 0
+;02 0
+;03 70000
+;04 84000
+;05 110000
+;06 184000
+;07 264000
+;08 270000
+;09 300000
+;0a 496000
+;0b 585000
+;
+;10 609000
+;11 520000
+;12 389000
+;13 585000
+;14 821000
+;15 480000
+;16 382000
+;17 600000
+;18 665000
+;19 460000
+;1a 447000
+;1b 600000
+;
+;20 1500000
+;21 3200000
+;22 1500000
+;23 1407000
+;24 576000
+;25 585000
+;26 790000
+;27 1000000
+;28 665000
+;29 463000
+;2a 355000
+;2b 485000
+;
+;30 508000
+;31 206000
+;32 150000
+;33 112000
+;34 95000
+;35 57000
+;36 37000
+;37 68000
+;38 70000
+;39 45000
+;3a 41000
+;3b 59000

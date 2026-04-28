@@ -2386,7 +2386,7 @@ GetWorldwideCovidDeathCount:
     rrca ; 1 byte.
     rrca ; 1 byte.
    
-    ; We subtract the year multiplied by 4 to wYearMonth.
+    ; We subtract the year multiplied by 4 from wYearMonth.
     ld c, a ; 1 byte.
     ld a, b ; 1 byte.
     sub c ; 1 byte.

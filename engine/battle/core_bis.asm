@@ -584,14 +584,33 @@ DetermineAssaultAndPokerusSeed::
 
 	; Covid can only be gotten by one of those battle types. BATTLETYPE_NORMAL includes trainers and wild Pokémons.
 .roll_dice
-	call IsInJohto
-	cp JOHTO_REGION
-	ld a, 8
-	jr z, .odds_calculated
-
-	add a ; Doubles the odds in Kanto.
+	push hl
+	ld a, [wYearMonth] ; We do wYearMonth - (year x 4). So that the offset is always alright.
 	
-.odds_calculated
+	; We save the value of wYearMonth for later.
+	ld b, a ; 1 byte.
+	
+	; We multiply the year (upper nybble) by 4.
+    and $f0 ; 2 bytes.
+    rrca ; 1 byte.
+    rrca ; 1 byte.
+
+	; We subtract the year multiplied by 4 from wYearMonth.
+	ld c, a
+	ld a, b
+	sub c
+	; We are done with the added code that suppresses the padding in the database.
+    ; This totals to 8 bytes. We saved 4 bytes, and created a cleaner database!
+
+	ld c, a
+	ld b, 0
+	ld hl, HistoricalInfectionOdds
+	add hl, bc
+	ld a, BANK(HistoricalInfectionOdds)
+	call GetFarByte
+	pop hl
+	
+;.odds_calculated
 	ld b, a
 	call Random
 	cp b ; Note: we could get this value from an array of landmarks. We could also edit it depending on the advancement of the scenario.
