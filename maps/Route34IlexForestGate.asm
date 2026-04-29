@@ -161,7 +161,7 @@ else
 	line "in ILEX FOREST,"
 	cont "I can smell it…"
 
-	para "Well, I don't smell"
+	para "Well, I can't smell"
 	line "anything. It's a"
 	cont "figure of speech."
 

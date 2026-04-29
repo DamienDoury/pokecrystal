@@ -479,8 +479,8 @@ GoldenrodHospitalOfficeChiefScript: ; Chief Nurse Joy doesn't get distracted by 
 	checkevent EVENT_GOT_LUCKY_EGG
 	iffalse .giveLuckyEgg
 
-	checkevent EVENT_PCR_TEST_PRESENTATION
-	iffalse .cantTakeABreak
+	readmem wYearMonth
+	ifless $10, .cantTakeABreak
 
 	opentext
 	writetext GoldenrodHospitalOffice_AskVariantText

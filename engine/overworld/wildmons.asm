@@ -492,6 +492,10 @@ endr
 	ld a, [wCurPartyLevel]
 	cp [hl]
 	jr nc, .encounter
+
+; A Pokémon with a lower level should still appear if they currently have a covid variant that made them lose their sense of smell.
+; Expect I decided that Pokémon that have covid symptoms feel too weak to fight, and therefore do not appear in wild battles.
+; Also, wild enemy Pokémon don't have symptoms coded in.
 	and a
 	ret
 

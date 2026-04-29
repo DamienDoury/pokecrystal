@@ -92,8 +92,9 @@ VioletCityEarlScript:
 	end
 
 VioletCityLassScript:
-	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
-	iftrue .after_variants
+	readmem wYearMonth
+	ifgreater $20, .after_variants
+
 	jumptextfaceplayer VioletCityLassText
 
 .after_variants
@@ -471,22 +472,23 @@ endc
 
 VioletCityLassText2:
 if DEF(_FR_FR)
-	text "La souche origi-"
-	line "nelle du COVID-19"
-	cont "faisait perdre le"
-	cont "sens de l'odorat."
+	text "Les précédentes"
+	line "souches du COVID"
+	cont "faisaient perdre"
+	cont "le sens du goût et"
+	cont "de l'odorat."
 	
 	para "Mais c'est peu"
-	line "probable avec les"
-	cont "nouveaux variants."
+	line "probable avec le"
+	cont "variant OMICRON."
 else
-	text "The original"
-	line "strain of COVID-19"
-	cont "made you lose your"
+	text "The past variants"
+	line "of COVID-19 made"
+	cont "you lose your"
 	cont "sense of smell."
 
-	para "But new variants"
-	line "are unlikely."
+	para "But the OMICRON"
+	line "variant shouldn't."
 endc
 	done
 

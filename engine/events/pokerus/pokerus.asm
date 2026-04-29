@@ -279,43 +279,135 @@ SpreadPokerusFromOpponents:
 	ld [wBattlePokerusSeed], a
 	ret
 
-
-
 ; Input: HL=pokerus byte to edit/infect.
-InfectMonWithCovidStrain:
-	ld a, 4
-	call RandomRange ; returns value between 0 and 3 (both included) in the A register.
-	add 4 ; Value is now between 4 and 7 (both included).
+; Generates a random covid strain.
+; The odds match the historical data.
+; DE can be clobbered.
+SetWildBattleCovidStrain_OrMildIllness:
+	ld a, [wYearMonth]
+	cp $08
+	jr nc, SetWildBattleCovidStrain.checks ; Starting from September 2020, the player can't get mild illnesses.
 
-	cp 4 ; 4 is 100 in binary, which is a 1 symptom strain, which translate to a mild disease. We don't want it.
-	jr nz, .skip_strain_adjustment
-	dec a
-.skip_strain_adjustment
+	; Roll for mild illness.
+	sub 3 ; A is between 0 and 4.
+	jr nc, .flooring_done
 
-	swap a
-	rla ; C <- [7 <- 0] <- 0 ; C is always 0 in this case (after a swap). 1 byte, 1 cycle.
-	
-	cp [hl] ; No need to mask the strain of [hl], as if a Pokemon can get infected, its duration and test bit must be 0.
-	jr z, InfectMonWithCovidStrain ; If the generated strain is the same as the previous one of the Pokémon, we generate a new one, because a Pokémon can't be affected twice by the same strain. This may cause an infinite loop, but it is highly unprobable.
+	xor a
+.flooring_done
+	push bc
+	ld c, 50
+	call SimpleMultiply
+	pop bc
+
 	ld b, a
+	call Random
+	cp b
+	jr z, SetWildBattleCovidStrain.original_strain
+	jr c, SetWildBattleCovidStrain.original_strain
+
+	; --- Mild illness generation ---
+	; April 2020 and before: 100% mild illness
+	; May 2020: ~80% mild illness, ~20% original covid strain
+	; June 2020: ~60% mild illness, ~40% original covid strain
+	; July 2020: ~40% mild illness, ~60% original covid strain
+	; August 2020: ~20% mild illness, ~80% original covid strain
+	; September 2020: 100% original covid strain
+
+	ld b, 3
+	call Modulo
+	ld b, 1
+	and a
+	jr z, .swap_seed
+
+.shift_loop
+	sla b
+	dec a
+	jr nz, .shift_loop
+
+.swap_seed
+	sla b
+	swap b
 	jr InfectMon
 
 ; Input: HL=pokerus byte to edit/infect.
-InfectMonWithRandomStrain:
-	ld a, 7
-	call RandomRange ; returns value between 0 and 6 (both included) in the A register.
-	inc a ; Value is now between 1 and 7 (both included).
+; Generates a random covid strain.
+; The odds match the historical data.
+; DE can be clobbered.
+SetWildBattleCovidStrain:
+	ld a, [wYearMonth]
+.checks
+	cp $10
+	jr c, .original_strain ; Before January 2021, original strain.
 
-	swap a
-	rla ; C <- [7 <- 0] <- 0 ; C is always 0 in this case (after a swap). 1 byte, 1 cycle.
-	
-	cp [hl] ; No need to mask the strain of [hl], as if a Pokemon can get infected, its duration and test bit must be 0.
-	jr z, InfectMonWithRandomStrain ; If the generated strain is the same as the previous one of the Pokémon, we generate a new one, because a Pokémon can't be affected twice by the same strain. This may cause an infinite loop, but it is highly unprobable.
+	cp $20 ; 2 bytes.
+	jr z, .january_2022 ; 2 bytes. ; We erect a special case for January 2022, as it allows to discard many cases from the database. 
+	; This saves 15+ ROM bytes. 
+	; The current system takes 13 bytes.
+	; With the other system, the database would need an additional 28 bytes.
+	; As well as a more complicated logic that would add even more code and wasted ROM.
+
+	cp $21
+	jr nc, .omicron ; Starting from February 2022, Omicron only.
+
+	; We are left with the period from January 2021 to December 2021.
+
+	cp $18
+	jr nc, .delta ; Starting from September 2021 to December 2021, it is Delta only.
+
+	; We are left with the period from January 2021 to August 2021.
+	; In this period, we use formula to retrieve the correct variant from a historical database.
+
+	sub $10 ; We subtract January 2021, because it is index 0 of our database.
 	ld b, a
+	add a
+	add b ; Multiply a by 3.
+
+	push hl
+	ld e, a
+	ld d, 0
+	ld hl, VariantsOdds
+	add hl, de
+
+	call Random
+	ld b, POKERUS_ORIGINAL_STRAIN >> 5 ; Original strain divided by 32.
+.loop
+	cp [hl]
+	jr z, .exit_loop
+	jr c, .exit_loop
+
+	inc hl
+	inc b
+	inc b
+	jr .loop
+
+.exit_loop
+	sla b
+	swap b
+	pop hl
+	jr InfectMon
+
+.original_strain
+	ld b, POKERUS_ORIGINAL_STRAIN
+	jr InfectMon
+
+.january_2022
+	; In January 2022: 61.6% Omicron, 38.4% Delta.
+	ld b, POKERUS_OMICRON_STRAIN ; 2 bytes.
+	call Random ; 3 bytes.
+	cp 157 ; 2 bytes.
+	jr c, InfectMon ; 2 bytes.
+	; fallthrough.
+
+.delta
+	ld b, POKERUS_DELTA_STRAIN
+	jr InfectMon
+
+.omicron
+	ld b, POKERUS_OMICRON_STRAIN
 	; fallthrough
 
 ; Input: HL=pokerus byte to edit/infect. B=strain to copy (test bit must be 0).
-; No specific output.
+; Output: HL=edited pokerus byte (strain + duration).
 ; Note: the test bit isn't addressed here. 
 ; If a Pokémon gets infected, it means that its duration must be 0, and therefore its test bit must be 0/unset.
 InfectMon:
@@ -323,6 +415,17 @@ InfectMon:
 	add b
 	ld [hl], a
 	ret
+
+VariantsOdds:
+	; Original, Alpha, Delta
+    db 211, 255, 255 ; 0x10 January 2021
+    db 146, 255, 255 ; 0x11 February 2021
+    db 109, 255, 255 ; 0x12 March 2021
+    db  31, 255, 255 ; 0x13 April 2021
+    db  18, 249, 255 ; 0x14 May 2021
+    db  16, 240, 255 ; 0x15 June 2021
+    db   7,  85, 255 ; 0x16 July 2021
+    db   1,   6, 255 ; 0x17 August 2021
 	
 
 ; Returns a duration in the a register.

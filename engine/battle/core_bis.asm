@@ -550,13 +550,12 @@ DetermineAssaultAndPokerusSeed::
 .normal_area
 	ld a, [wBattlePokerusSeed]
 	cp TRUE
-	push de ; We don't care about the values of DE for this push. We use it to balance the stack if we jump to ".kanto_seed" that does a "pop de".
-	jr z, .kanto_seed ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
-	pop de ; We balance the stack.
+	jr z, .force_covid ; If the seed is 1, it is an invalid seed. This value of TRUE is used to force a covid battle. Note that a seed is set to 0 after each battle.
 
 	cp FALSE
 	jr nz, DetermineAssault ; If the seed has been set to a specific value (non-zero, and not 1), then we don't need to generate a random one.
 
+	; No wild covid before Goldenrod.
 	ld hl, wStatusFlags2
 	bit STATUSFLAGS2_REACHED_GOLDENROD_F, [hl]
 	jr z, DetermineAssault
@@ -581,6 +580,11 @@ DetermineAssaultAndPokerusSeed::
 	cp BATTLETYPE_TRAP
 	jr z, .roll_dice
 	jr DetermineAssault
+
+.force_covid
+	push de
+	ld de, SetWildBattleCovidStrain
+	jr .generate_seed_sequel
 
 	; Covid can only be gotten by one of those battle types. BATTLETYPE_NORMAL includes trainers and wild Pokémons.
 .roll_dice
@@ -618,20 +622,13 @@ DetermineAssaultAndPokerusSeed::
 
 .generate_seed
 	push de
-	call IsInJohto
-	cp KANTO_REGION
-	jr z, .kanto_seed
-
-	ld de, InfectMonWithRandomStrain
-	jr .start_generation
-
-.kanto_seed
-	ld de, InfectMonWithCovidStrain ; In Kanto, no mild illnesses: only COVID to make the game harder.
-.start_generation
+	ld de, SetWildBattleCovidStrain_OrMildIllness
+.generate_seed_sequel
 	ld hl, wBattlePokerusSeed
-	ld a, BANK(InfectMonWithRandomStrain)
+	ld a, BANK(SetWildBattleCovidStrain)
 	call FarCall_de
 	pop de
+	; fallthrough.
 
 DetermineAssault:
 	ld a, [wEnemyMonStatus]
@@ -694,7 +691,7 @@ CeruleanCaveInfection:
 	jr z, DetermineAssault.forceAssault
 	
 	; Covid duration of 13 days (first day of symptoms). Infers that all Pokémon in Cerulean Cave (but Mewtwo) have lost their sense of smell.
-	ld a, POKERUS_SYMPTOMS_START + POKERUS_ALPHA_STRAIN ; Fixed strain (Mewtwo contaminated all Pokémon).
+	ld a, POKERUS_SYMPTOMS_START + POKERUS_ORIGINAL_STRAIN ; Fixed strain (Mewtwo contaminated all Pokémon).
 	ld [wBattlePokerusSeed], a
 
 	; Forbid running away.

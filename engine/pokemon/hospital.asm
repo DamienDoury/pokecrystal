@@ -494,19 +494,19 @@ TellCovidVariant:
 	ld a, [hl]
 	and POKERUS_STRAIN_MASK
 
+	ld de, .original
+	cp POKERUS_ORIGINAL_STRAIN
+	jr z, .copy
+
 	ld de, .alpha
-	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK
+	cp POKERUS_ALPHA_STRAIN
 	jr z, .copy
 
 	ld de, .delta
-	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_XP_DISEASE_MASK | POKERUS_WEAKNESS_DISEASE_MASK
+	cp POKERUS_DELTA_STRAIN
 	jr z, .copy
 
-	ld de, .omicronBAtwo
-	cp POKERUS_DISOBEDIENCE_DISEASE_MASK | POKERUS_XP_DISEASE_MASK
-	jr z, .copy
-
-	ld de, .omicronBAfive
+	ld de, .omicron
 .copy
 	call CopyName1
 	ld b, VARIANT_TELLING_TELL
@@ -518,6 +518,13 @@ TellCovidVariant:
 	pop de
 	pop bc
 	ret
+
+.original
+if DEF(_FR_FR)
+	db "ORIGINAL@"
+else
+	db "ORIGINAL@"
+endc
 
 .alpha
 if DEF(_FR_FR)
@@ -533,16 +540,9 @@ else
 	db "DELTA@"
 endc
 
-.omicronBAtwo
+.omicron
 if DEF(_FR_FR)
-	db "BA.2@"
+	db "OMICRON@"
 else
-	db "BA.2@"
-endc
-
-.omicronBAfive
-if DEF(_FR_FR)
-	db "BA.5@"
-else
-	db "BA.5@"
+	db "OMICRON@"
 endc

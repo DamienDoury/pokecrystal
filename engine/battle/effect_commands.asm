@@ -4834,13 +4834,22 @@ BattleCommand_EvasionDown2:
 	; We check if the Pokémon has symptoms.
 	ld a, MEWTWO
 	cp b
-	jr z, .lower_stat ; Mewtwo isn't affected by any kind of symptoms.
+	jr z, .lower_stat ; Mewtwo isn't affected by any kind of symptoms. Which means he can't lose its smell. Which mean he'll lose evasion against Sweet Scent.
 
 	ld a, [hl]
 	and POKERUS_STRAIN_MASK
-	cp POKERUS_ALPHA_STRAIN
-	jr nz, .lower_stat
+	cp POKERUS_ORIGINAL_STRAIN
+	jr z, .check_symptoms_duration
 
+	cp POKERUS_ALPHA_STRAIN
+	jr z, .check_symptoms_duration
+
+	cp POKERUS_DELTA_STRAIN
+	jr z, .check_symptoms_duration
+	
+	jr .lower_stat
+
+.check_symptoms_duration
 	ld a, [hl]
 	and POKERUS_DURATION_MASK
 
@@ -4850,7 +4859,7 @@ BattleCommand_EvasionDown2:
 	; The smell loss lasts longer than other symptoms. 
 	; It even lasts into the immunity period. 
 	; This means that vaccination will "cure" the smell loss which is untrue. 
-	; It also means that getting infected by another variatn will also cure it.
+	; It also means that getting infected by another variant will also cure it.
 	; But players can deal with these inaccuracies.
 	; This symptom is very unlikely to be found in the first place anyway.
 	cp 3 
