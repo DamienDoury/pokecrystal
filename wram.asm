@@ -2993,7 +2993,7 @@ wFastShipB1FSceneID::                             db
 wMountMoonSquareSceneID::                         db
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
-wCharcoalKilnSceneID::							  db
+	ds 1
 wGoldenrodHospitalReceptionSceneID::			  db
 wGoldenrodHospitalCorridorsAndRoomsSceneID::	  db
 wVaccinationCenterSceneID::	  					  db

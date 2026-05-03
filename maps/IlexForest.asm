@@ -364,7 +364,6 @@ IlexForestCharcoalMasterScript:
 	clearevent EVENT_CHARCOAL_KILN_FARFETCH_D
 	clearevent EVENT_CHARCOAL_KILN_APPRENTICE
 	clearevent EVENT_CHARCOAL_KILN_BOSS
-	setmapscene CHARCOAL_KILN, SCENE_FINISHED
 	special FadeOutPalettes
 	callasm ClearBGPalettes
 	callasm ResetBGPals
@@ -373,6 +372,8 @@ IlexForestCharcoalMasterScript:
 	callasm ClearScreen
 	callasm WipeAttrmap
 	callasm Continue_DisplayYear
+	loadmem wPrevMapGroup, GROUP_ILEX_FOREST
+	loadmem wPrevMapNumber, MAP_ILEX_FOREST
 	warpfacing UP, CHARCOAL_KILN, 2, 5
 	end
 

@@ -5,8 +5,7 @@
 
 CharcoalKiln_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 		  	    	; SCENE_DEFAULT
-	scene_script .LockdownFirstDeclarationScene ; SCENE_FINISHED
+	scene_script .LockdownFirstDeclarationScene ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_SPRITES, .MoveCharcoalKilnApprentice
@@ -15,21 +14,30 @@ CharcoalKiln_MapScripts:
 
 .CheckClapping:
 	callasm IsClappingAuthorizedScript
-	iffalse .end
+	iffalse .end_callback
 
 	loadmem wMap1ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
 	loadmem wMap2ObjectMovement, CLAP_F | SPRITEMOVEDATA_STANDING_UP
-.end
+.end_callback
 	endcallback
 
 .LockdownFirstDeclarationScene:
+	scall IsItLockdownFirstDeclarationScene
+	iffalse .end
+
+	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
+	iftrue .end
+
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	prioritysjump LockdownFirstDeclaration
-.DummyScene0:
+.end:
+	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
 	end
 
 .MoveCharcoalKilnApprentice:
-	checkscene
+	scall IsItLockdownFirstDeclarationScene
 	iffalse .Skip ; if it is SCENE_DEFAULT, then skip.
+
 	moveobject CHARCOALKILN_YOUNGSTER, 0, 4
 	turnobject CHARCOALKILN_YOUNGSTER, RIGHT
 .Skip:
@@ -40,8 +48,21 @@ CharcoalKiln_MapScripts:
 	changeblock  6,  0, $1b
 	endcallback
 
+IsItLockdownFirstDeclarationScene:
+	readmem wPrevMapGroup
+	ifnotequal GROUP_ILEX_FOREST, .nope
+
+	readmem wPrevMapNumber
+	ifnotequal MAP_ILEX_FOREST, .nope
+
+	setval TRUE
+	end
+
+.nope:
+	setval FALSE
+	end
+
 LockdownFirstDeclaration:
-	setscene SCENE_DEFAULT ; We don't want this script to execute in a loop, so we change the state of the scene.
 	turnobject CHARCOALKILN_YOUNGSTER, RIGHT
 	turnobject CHARCOALKILN_BLACK_BELT, DOWN
 	opentext
