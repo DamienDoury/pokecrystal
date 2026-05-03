@@ -12,17 +12,9 @@
 
 DragonsDenB1F_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DRAGONSDENB1F_NOTHING
-	scene_script .DummyScene1 ; SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .EnterCallback
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .EnterCallback:
 	setevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_3
@@ -65,21 +57,18 @@ DragonsDenB1F_ClairScene:
 	promptbutton
 	verbosegiveitem TM_DRAGONBREATH
 	waitsfx
-	setevent EVENT_GOT_TM24_DRAGONBREATH
+	clearevent EVENT_CLAIR_IN_DRAGONS_DEN
 	writetext ClairText_DescribeDragonbreathDragonDen
 	promptbutton
 	farwritetext BlackthornGymClairText_League
 	waitbutton
 	closetext
-	sjump .FinishClair
 
-.FinishClair:
 	applymovement DRAGONSDENB1F_CLAIR, MovementDragonsDen_ClairWalksAway
 	special FadeOutMusic
 	pause 30
 	special RestartMapMusic
 	disappear DRAGONSDENB1F_CLAIR
-	setscene SCENE_DRAGONSDENB1F_NOTHING
 	end
 
 TrainerCooltrainermDarin:
@@ -503,7 +492,7 @@ DragonsDenB1F_MapEvents:
 	warp_event 19, 29, DRAGON_SHRINE, 1
 
 	def_coord_events
-	coord_event 19, 30, CE_SCENE_ID, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM, DragonsDenB1F_ClairScene
+	coord_event 19, 30, CE_EVENT_FLAG_SET, EVENT_CLAIR_IN_DRAGONS_DEN, DragonsDenB1F_ClairScene
 
 	def_bg_events
 	bg_event 18, 24, BGEVENT_READ, DragonShrineSignpost

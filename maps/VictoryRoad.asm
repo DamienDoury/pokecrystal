@@ -8,16 +8,8 @@
 
 VictoryRoad_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 VictoryRoadRivalLeft:
 	moveobject VICTORYROAD_SILVER, 18, 11
@@ -30,7 +22,6 @@ VictoryRoadRivalLeft:
 	scall VictoryRoadRivalNext
 	applymovement VICTORYROAD_SILVER, VictoryRoadRivalBattleExitMovement1
 	disappear VICTORYROAD_SILVER
-	setscene SCENE_FINISHED
 	playmapmusic
 	end
 
@@ -44,7 +35,6 @@ VictoryRoadRivalRight:
 	scall VictoryRoadRivalNext
 	applymovement VICTORYROAD_SILVER, VictoryRoadRivalBattleExitMovement2
 	disappear VICTORYROAD_SILVER
-	setscene SCENE_FINISHED
 	playmapmusic
 	end
 
@@ -93,6 +83,7 @@ VictoryRoadRivalNext:
 	writetext VictoryRoadRivalAfterText
 	waitbutton
 	closetext
+	setevent EVENT_BEAT_SILVER_IN_VICTORY_ROAD
 	end
 
 VictoryRoadTMEarthquake:
@@ -337,8 +328,8 @@ VictoryRoad_MapEvents:
 	warp_event 13,  5, ROUTE_23, 3
 
 	def_coord_events
-	coord_event 12,  8, CE_SCENE_ID, SCENE_DEFAULT, VictoryRoadRivalLeft
-	coord_event 13,  8, CE_SCENE_ID, SCENE_DEFAULT, VictoryRoadRivalRight
+	coord_event 12,  8, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_SILVER_IN_VICTORY_ROAD, VictoryRoadRivalLeft
+	coord_event 13,  8, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_SILVER_IN_VICTORY_ROAD, VictoryRoadRivalRight
 
 	def_bg_events
 	bg_event  3, 29, BGEVENT_ITEM, VictoryRoadHiddenMaxPotion

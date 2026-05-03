@@ -18,7 +18,7 @@
 	const_skip
 	const_skip
 	const_skip
-	const EVENT_GOT_TM24_DRAGONBREATH
+	const_skip
 ; HMs (EVENT_GOT_HM07_WATERFALL is with the Johto itemballs)
 	const_skip
 	const_skip
@@ -404,7 +404,10 @@
 	const EVENT_BEAT_POKEFANM_NOVAK
 	const EVENT_BEAT_SWIMMER_FINN
 
-; Unused: next 230 events
+	const EVENT_BEAT_SILVER_IN_VICTORY_ROAD
+	const EVENT_BEAT_SILVER_IN_GOLDENROD_UNDERGROUND
+	const EVENT_CLAIR_IN_DRAGONS_DEN
+; Unused: next 227 events
 
 	const_next 600
 ; Kurt Apricorn events

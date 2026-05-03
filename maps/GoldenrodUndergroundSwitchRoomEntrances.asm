@@ -47,17 +47,9 @@ ENDM
 
 GoldenrodUndergroundSwitchRoomEntrances_MapScripts:
 	def_scene_scripts
-	scene_script .DummyScene0 ; SCENE_DEFAULT
-	scene_script .DummyScene1 ; SCENE_FINISHED
 
 	def_callbacks
 	callback MAPCALLBACK_TILES, .UpdateDoorPositions
-
-.DummyScene0:
-	end
-
-.DummyScene1:
-	end
 
 .UpdateDoorPositions:
 	readvar VAR_YCOORD
@@ -153,7 +145,6 @@ UndergroundSilverScene1:
 	applymovement GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER, UndergroundSilverRetreatMovement1
 	playsound SFX_EXIT_BUILDING
 	disappear GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
-	setscene SCENE_FINISHED
 	waitsfx
 	playmapmusic
 	end
@@ -172,7 +163,6 @@ UndergroundSilverScene2:
 	applymovement GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER, UndergroundSilverRetreatMovement2
 	playsound SFX_EXIT_BUILDING
 	disappear GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
-	setscene SCENE_FINISHED
 	waitsfx
 	playmapmusic
 	end
@@ -222,6 +212,7 @@ UndergroundSilverBattleScript:
 	writetext UndergroundSilverAfterText
 	waitbutton
 	closetext
+	setevent EVENT_BEAT_SILVER_IN_GOLDENROD_UNDERGROUND
 	end
 
 TrainerGruntM11:
@@ -1299,8 +1290,8 @@ GoldenrodUndergroundSwitchRoomEntrances_MapEvents:
 	warp_event 21, 29, GOLDENROD_CITY, 13
 
 	def_coord_events
-	coord_event 19,  4, CE_SCENE_ID, SCENE_DEFAULT, UndergroundSilverScene1
-	coord_event 19,  5, CE_SCENE_ID, SCENE_DEFAULT, UndergroundSilverScene2
+	coord_event 19,  4, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_SILVER_IN_GOLDENROD_UNDERGROUND, UndergroundSilverScene1
+	coord_event 19,  5, CE_EVENT_FLAG_CLEARED, EVENT_BEAT_SILVER_IN_GOLDENROD_UNDERGROUND, UndergroundSilverScene2
 
 	def_bg_events
 	bg_event 16,  1, BGEVENT_READ, Switch1Script

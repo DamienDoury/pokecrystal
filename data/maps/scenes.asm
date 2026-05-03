@@ -31,13 +31,8 @@ MapScenes::
 	scene_var RUINS_OF_ALPH_AERODACTYL_CHAMBER,            wRuinsOfAlphAerodactylChamberSceneID
 	scene_var RUINS_OF_ALPH_INNER_CHAMBER,                 wRuinsOfAlphInnerChamberSceneID
 	scene_var MAHOGANY_MART_1F,                            wMahoganyMart1FSceneID
-	scene_var TEAM_ROCKET_BASE_B1F,                        wTeamRocketBaseB1FSceneID
 	scene_var TEAM_ROCKET_BASE_B2F,                        wTeamRocketBaseB2FSceneID ; 4 values
 	scene_var TEAM_ROCKET_BASE_B3F,                        wTeamRocketBaseB3FSceneID ; 4 values
-	scene_var GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES, wGoldenrodUndergroundSwitchRoomEntrancesSceneID
-	scene_var VICTORY_ROAD,                                wVictoryRoadSceneID
-	scene_var DRAGONS_DEN_B1F,                             wDragonsDenB1FSceneID
-	scene_var DRAGON_SHRINE,                               wDragonShrineSceneID
 	scene_var OLIVINE_PORT,                                wOlivinePortSceneID
 	scene_var VERMILION_PORT,                              wVermilionPortSceneID
 	scene_var FAST_SHIP_1F,                                wFastShip1FSceneID ; 3 values

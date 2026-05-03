@@ -25,14 +25,8 @@ TeamRocketBaseB2F_MapScripts:
 	callback MAPCALLBACK_TILES, .TransmitterDoorCallback
 
 .DummyScene0:
-	end
-
 .DummyScene1:
-	end
-
 .DummyScene2:
-	end
-
 .DummyScene3:
 	end
 

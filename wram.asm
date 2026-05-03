@@ -2982,13 +2982,10 @@ wRuinsOfAlphOmanyteChamberSceneID::               db
 wRuinsOfAlphAerodactylChamberSceneID::            db
 wRuinsOfAlphInnerChamberSceneID::                 db
 wMahoganyMart1FSceneID::                          db
-wTeamRocketBaseB1FSceneID::                       db
+	ds 1
 wTeamRocketBaseB2FSceneID::                       db
 wTeamRocketBaseB3FSceneID::                       db
-wGoldenrodUndergroundSwitchRoomEntrancesSceneID:: db
-wVictoryRoadSceneID::                             db
-wDragonsDenB1FSceneID::                           db
-wDragonShrineSceneID::                            db
+	ds 4
 wOlivinePortSceneID::                             db
 wVermilionPortSceneID::                           db
 wFastShip1FSceneID::                              db

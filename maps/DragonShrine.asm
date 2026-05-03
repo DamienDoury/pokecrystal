@@ -6,21 +6,20 @@
 
 DragonShrine_MapScripts:
 	def_scene_scripts
-	scene_script .DragonShrineTest ; SCENE_DEFAULT
-	scene_script .DummyScene ; SCENE_FINISHED
+	scene_script .DragonShrineTest ; SCENE_ALWAYS
 
 	def_callbacks
 	callback MAPCALLBACK_NEWMAP, .EnterCallback
 
 .DragonShrineTest:
+	checkflag ENGINE_RISINGBADGE
+	iftrue .end
+	
 	checkevent EVENT_TEMPORARY_UNTIL_MAP_RELOAD_8
 	iftrue .end
 
 	prioritysjump .DragonShrineTestScript
 .end
-	end
-
-.DummyScene:
 	end
 
 .EnterCallback:
@@ -176,8 +175,7 @@ DragonShrine_MapScripts:
 	playsound SFX_GET_BADGE
 	waitsfx
 	special RestartMapMusic
-	setscene SCENE_FINISHED
-	setmapscene DRAGONS_DEN_B1F, SCENE_DRAGONSDENB1F_CLAIR_GIVES_TM
+	setevent EVENT_CLAIR_IN_DRAGONS_DEN
 	writetext DragonShrinePlayerReceivedRisingBadgeText
 	promptbutton
 	farscall NewBadgeObedienceNotification

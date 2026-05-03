@@ -148,17 +148,18 @@ BlackthornGymClairScript:
 	end
 
 .AlreadyGotBadge:
-	checkevent EVENT_GOT_TM24_DRAGONBREATH
+	checkitem TM_DRAGONBREATH
 	iftrue .GotTM24
+
 	writetext BlackthornGymClairText_YouKeptMeWaiting
 	promptbutton
 	giveitem TM_DRAGONBREATH
 	getitemname STRING_BUFFER_3, TM_DRAGONBREATH
+	clearevent EVENT_CLAIR_IN_DRAGONS_DEN
 	writetext BlackthornGymText_ReceivedTM24
 	playsound SFX_ITEM
 	waitsfx
 	itemnotify
-	setevent EVENT_GOT_TM24_DRAGONBREATH
 	writetext BlackthornGymClairText_DescribeTM24
 	promptbutton
 	sjump .GotTM24
