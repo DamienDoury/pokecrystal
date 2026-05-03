@@ -626,6 +626,9 @@ ElmsAideScript:
 	checkevent EVENT_LOCKDOWN_MART_RUSH
 	iffalse AideScript_MartRush
 
+	readmem wYearMonth
+	ifequal $10, AideScript_AlphaVariant
+
 	checkflag ENGINE_WEARING_FACE_MASK
 	iftrue AideScript_BetterSafeThanSorry
 
@@ -642,6 +645,9 @@ AideScript_TheftTestimony:
 
 AideScript_MartRush:
 	jumptext AideScript_MartRushText
+
+AideScript_AlphaVariant:
+	jumptext AideScript_VariantText
 
 MeetCopScript2:
 	applymovement PLAYER, MeetCopScript2_StepLeft
@@ -2861,6 +2867,48 @@ else
 
 	para "How are we"
 	line "gonna do?"
+endc
+	done
+
+AideScript_VariantText:
+if DEF(_FR_FR)
+	text "<PLAY_G>, le PROF."
+	line "ORME est focalisé"
+	cont "sur le vaccin,"
+
+	para "mais une autre"
+	line "nouvelle est toute"
+	cont "aussi importante."
+
+	para "Le virus a muté."
+
+	para "De par son taux de"
+	line "contagion, il va"
+	cont "rapidement devenir"
+	cont "la forme dominante"
+	cont "du virus."
+	
+	para "Ne baisse pas ta"
+	line "garde."
+else
+	text "<PLAY_G>, PROF.ELM"
+	line "may be focused on"
+	cont "the vaccine,"
+
+	para "but there's another"
+	line "news as important."
+
+	para "The virus mutated."
+
+	para "According to its"
+	line "contagion rate,"
+	cont "it will quickly"
+	cont "become the domi-"
+	cont "nant form of the"
+	cont "virus."
+
+	para "Don't let your"
+	line "guard down."
 endc
 	done
 

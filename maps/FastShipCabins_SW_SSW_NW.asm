@@ -101,13 +101,21 @@ FastShipCabinsNorthwestCabinTrashcan:
 
 FirebreatherLyleSeenText: 
 if DEF(_FR_FR)
-	text "Je vais à KANTO"
-	line "me donner en"
-	cont "spectacle!"
+	text "T'as entendu le"
+	line "bruit qui court?"
+
+	para "Le COVID-19 a un"
+	line "nouveau variant."
+	
+	para "Effrayant, hein?"
 else
-	text "I'm going to KANTO"
-	line "to put on fire-"
-	cont "breathing shows!"
+	text "Did you hear the"
+	line "news?"
+
+	para "COVID-19 now has"
+	line "a new variant."
+
+	para "Chilling, right?"
 endc
 
 	done
@@ -125,17 +133,16 @@ endc
 
 FirebreatherLyleAfterBattleText: 
 if DEF(_FR_FR)
-	text "Le feu c'est nul"
-	line "sur l'eau, non?"
-
-	para "Ca change rien?"
-	line "Vraiment?"
+	text "J'espère que le"
+	line "vaccin restera"
+	cont "efficace contre"
+	cont "cette nouvelle"
+	cont "forme du virus..."
 else
-	text "I guess fire is"
-	line "weak on the sea."
-
-	para "It doesn't matter?"
-	line "Really?"
+	text "I hope the vaccine"
+	line "will be effective"
+	cont "against this new"
+	cont "form of the virus…"
 endc
 
 	done

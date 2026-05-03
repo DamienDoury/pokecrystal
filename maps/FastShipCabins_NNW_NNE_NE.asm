@@ -214,37 +214,38 @@ endc
 
 HikerNolandSeenText: 
 if DEF(_FR_FR)
-	text "Ca va?"
-	line "Alors...COMBAT!"
+	text "Le virus a muté!"
 else
-	text "Are you alone?"
-	line "Then let's battle!"
+	text "The virus mutated!"
 endc
-
 	done
 
 HikerNolandBeatenText: 
 if DEF(_FR_FR)
-	text "T'es trop, toi!"
-	line "Pfouiii!"
+	text "Mais écoute-moi!"
 else
-	text "That's too much to"
-	line "handle!"
+	text "Listen to me!"
 endc
 
 	done
 
 HikerNolandAfterBattleText: 
 if DEF(_FR_FR)
-	text "Tu crois qu'il y a"
-	line "de belles monta-"
-	cont "gnes à KANTO?"
-else
-	text "I wonder if there"
-	line "are any mountains"
+	text "Il s'appelle le"
+	line "variant ALPHA."
 
-	para "worth climbing in"
-	line "KANTO?"
+	para "Les scientifiques"
+	line "disent qu'il va"
+	cont "vite remplacer la"
+	cont "forme originale."
+else
+	text "It's called the"
+	line "ALPHA variant."
+
+	para "Scientists say it"
+	line "will quickly"
+	cont "supersede the"
+	cont "original form."
 endc
 
 	done

@@ -374,18 +374,29 @@ endc
 
 JugglerFritzAfterBattleText: 
 if DEF(_FR_FR)
-	text "La mer c'est fini"
-	line "pour moi. Je vais"
+	text "J'espère que c'est"
+	line "le mal de mer et"
+	cont "pas ce nouveau"
+	cont "variant."
 
-	para "prendre le TRAIN"
-	line "MAGNET la prochai-"
+	para "Les gens ne par-"
+	line "lent que de ça!"
+
+	para "Dans le doute, je"
+	line "prendrai le TRAIN"
+	cont "MAGNET la prochai-"
 	cont "ne fois."
 else
-	text "No more ships for"
-	line "me. Next time,"
+	text "Hopefully I'm sea-"
+	line "sick, and it's not"
+	cont "this new variant."
 
-	para "I'm taking the"
-	line "MAGNET TRAIN."
+	para "People keep talk-"
+	line "ing about it!"
+
+	para "Just in case, next"
+	line "time I'm taking"
+	cont "the MAGNET TRAIN."
 endc
 
 	done
