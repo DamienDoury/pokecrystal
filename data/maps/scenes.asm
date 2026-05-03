@@ -37,7 +37,6 @@ MapScenes::
 	scene_var VERMILION_PORT,                              wVermilionPortSceneID
 	scene_var FAST_SHIP_1F,                                wFastShip1FSceneID ; 3 values
 	scene_var FAST_SHIP_B1F,                               wFastShipB1FSceneID
-	scene_var MOUNT_MOON_SQUARE,                           wMountMoonSquareSceneID
 	scene_var MOBILE_TRADE_ROOM,                           wMobileTradeRoomSceneID
 	scene_var MOBILE_BATTLE_ROOM,                          wMobileBattleRoomSceneID
 	

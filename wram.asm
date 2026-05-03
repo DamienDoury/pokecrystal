@@ -2990,7 +2990,7 @@ wOlivinePortSceneID::                             db
 wVermilionPortSceneID::                           db
 wFastShip1FSceneID::                              db
 wFastShipB1FSceneID::                             db
-wMountMoonSquareSceneID::                         db
+	ds 1
 wMobileTradeRoomSceneID::                         db
 wMobileBattleRoomSceneID::                        db
 	ds 1
