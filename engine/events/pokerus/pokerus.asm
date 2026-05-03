@@ -523,6 +523,34 @@ AddPartyMonIndexToChronologicalList::
 	pop de
 	ret
 
+; Input: none.
+; Output: returns the historical infection rate in A and hFarByte, according to wYearMonth.
+; Clobbers BC, HL.
+GetCurrentInfectionOdds::
+	ld a, [wYearMonth] ; We do wYearMonth - (year x 4). So that the offset is always alright.
+	
+	; We save the value of wYearMonth for later.
+	ld b, a ; 1 byte.
+	
+	; We multiply the year (upper nybble) by 4.
+    and $f0 ; 2 bytes.
+    rrca ; 1 byte.
+    rrca ; 1 byte.
+
+	; We subtract the year multiplied by 4 from wYearMonth.
+	ld c, a
+	ld a, b
+	sub c
+	; We are done with the added code that suppresses the padding in the database.
+    ; This totals to 8 bytes. We saved 4 bytes, and created a cleaner database!
+
+	ld c, a
+	ld b, 0
+	ld hl, HistoricalInfectionOdds
+	add hl, bc
+	ld a, BANK(HistoricalInfectionOdds)
+	jmp GetFarByte
+
 ; Up to 25% chances of covid per wild battle in February 2022.
 HistoricalInfectionOdds::
 	db 0	; 0x00 January 2020

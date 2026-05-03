@@ -3875,7 +3875,7 @@ endc
 _News1_Topic0_Line0::
 if DEF(_FR_FR)
 	text_start
-	line "L'info du jour:"
+	line "Flash spécial:"
 	done
 else
 	text_start
@@ -4260,6 +4260,99 @@ endc
 
 
 
+_News2_Topic0_Line0::
+if DEF(_FR_FR)
+	text_start
+	line "...tout de suite:"
+	done
+else
+	text_start
+	line "…coming up next:"
+	done
+endc
+
+_News2_Topic0_Line1::
+if DEF(_FR_FR)
+	text_start
+	line "Point épidémio-"
+	done
+else
+	text_start
+	line "Epidemiological"
+	done
+endc
+
+_News2_Topic0_Line2::
+if DEF(_FR_FR)
+	text_start
+	line "logique. Le"
+	done
+else
+	text_start
+	line "report. The"
+	done
+endc
+
+_News2_Topic0_Line3::
+if DEF(_FR_FR)
+	text_start
+	line "taux d'incidence"
+	done
+else
+	text_start
+	line "incidence rate"
+	done
+endc
+
+_News2_Topic0_Line4::
+if DEF(_FR_FR)
+	text_start
+	line "est de @"
+	text_decimal wStringBuffer1 + INCIDENCE_RATE_STRINGBUFFER_OFFSET, 1, 3
+	text " / 1000."
+	done
+else
+	text_start
+	line "is @"
+	text_decimal wStringBuffer1 + INCIDENCE_RATE_STRINGBUFFER_OFFSET, 1, 3
+	text " / 1000."
+	done
+endc
+
+_News2_Topic0_Line5::
+if DEF(_FR_FR)
+	text_start
+	line "Le variant @"
+	text_ram wStringBuffer1
+	text_start
+	done
+else
+	text_start
+	line "The @"
+	text_ram wStringBuffer1
+	text_start
+	done
+endc
+
+_News2_Topic0_Line6::
+if DEF(_FR_FR)
+	text_start
+	line "@"
+	text_ram wStringBuffer2
+	text "."
+	done
+else
+	text_start
+	line "variant @"
+	text_ram wStringBuffer2
+	text "."
+	done
+endc
+
+
+
+
+
 _News3_Topic0_Line0::
 if DEF(_FR_FR)
 	text_start
@@ -4289,7 +4382,7 @@ endc
 _News3_Topic0_Line2::
 if DEF(_FR_FR)
 	text_start
-	line "personnes sont"
+	line "de personnes sont"
 	done
 else
 	text_start

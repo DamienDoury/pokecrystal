@@ -1854,8 +1854,8 @@ BuenaOffTheAirText:
 	text_end
 
 ; The news radio displays three news in sequence:
-; 1: info about the current freedom state.
-; 2: cluster info, or important info about covid (TODO).
+; 1: current freedom state (freedom, lockdown, curfew, vaccination pass).
+; 2: incidence rate + dominant variant.
 ; 3: death count.
 NewsRadio1:
 	call StartRadioStation
@@ -1881,14 +1881,115 @@ NewsRadio1:
 
 	xor a
 	ld [wNewsRadioSegmentCounter], a
-	ld a, NEWS_RADIO_3
+	ld a, NEWS_RADIO_2
 .next_news_determined
 	jmp NextRadioLine
 
 NewsRadio2:
-	ld hl, BuenaRadioMidnightText6
+	ld a, [wYearMonth]
+
+	; Alpha rises. Variant isn't be displayed in 2020, so there are no issues.
+	ld l, 2 ; ALPHA
+	cp $12 ; March 2021.
+	jr c, .rises
+
+	; Alpha dominates.
+	cp $15 ; June 2021.
+	jr c, .dominates
+
+	; Delta rises.
+	ld l, 4 ; DELTA
+	cp $15 ; June 2021.
+	jr z, .rises
+
+	; Delta dominates.
+	cp $20 ; January 2022.
+	jr c, .dominates
+
+	; Omicron rises.
+	ld l, 6 ; OMICRON
+	cp $20 ; January 2022.
+	jr z, .rises
+
+	; Omicron dominates.
+.dominates
+	push hl
+	ld de, .dominates_string
+	jr .variant
+
+.rises
+	push hl
+	ld de, .rises_string
+.variant
+	call CopyName1 ; in wStringBuffer2.
+	pop hl
+	
+	ld e, l
+	farcall GetVariantName ; in wStringBuffer1.
+
+	farcall GetCurrentInfectionOdds
+	ldh a, [hFarByte]
+
+	cp 64
+	jr c, .incidence_rate_capped
+	
+	ld a, 64 - 1
+.incidence_rate_capped
+	add a
+	add a ; Multiply A by 4 is an approximation of a conversion from 0-255 to 0-1000. It is good enough for covid statistics.
+	ld [wStringBuffer1 + INCIDENCE_RATE_STRINGBUFFER_OFFSET], a ; We make use of wStringBuffer1 for both the variant name as well as incidence rate. They should never overlap.
+	
+	; Retrieve the text to display.
+	ld hl, News2_texts
+	ld b, 0
+	call NewsRadio_GetNewsLine.skip_pool
+
+	; Max number of lines to be displayed.
+if DEF(_FR_FR)
+	ld b, 7
+else
+	ld b, 7
+endc
+
+	ld a, [wYearMonth]
+	cp $10
+	jr nc, .number_of_lines_determined ; Before 2021, we don't display the variant info.
+
+	; Limited number of lines to display, before the first variant appears.
+if DEF(_FR_FR)
+	ld b, 5
+else
+	ld b, 5
+endc
+
+.number_of_lines_determined
+	call IncRadioSegment ; Input in B, output in carry.
+	ld a, NEWS_RADIO_2
+	jr c, .next_news_determined
+
+	xor a
+	ld [wNewsRadioSegmentCounter], a
 	ld a, NEWS_RADIO_3
+.next_news_determined
 	jmp NextRadioLine
+
+.rises_string
+if DEF(_FR_FR)
+	db "gagne du terrain@"
+else
+	db "is rising@"
+endc
+
+.dominates_string
+if DEF(_FR_FR)
+	db "est dominant@"
+else
+	db "dominates@"
+endc
+
+.newsRadio3
+	ld a, NEWS_RADIO_3
+	; fallthrough.
 
 NewsRadio3:
 	call NewsRadio_GetNews3Index ; Outputs index in C.
@@ -1953,6 +2054,7 @@ NewsRadio_GetNewsLine:
 	ld h, [hl]
 	ld l, a
 
+.skip_pool
 	ld a, [wNewsRadioSegmentCounter]
 	rlca ; Multiplies A by 2. Works fine because bit 7 of A is always 0.
 	ld c, a
@@ -2195,6 +2297,43 @@ if DEF(_FR_FR)
 	text_end
 endc
 
+News2_texts:
+	dw .news2_topic0_line0
+	dw .news2_topic0_line1
+	dw .news2_topic0_line2
+	dw .news2_topic0_line3
+	dw .news2_topic0_line4
+	dw .news2_topic0_line5
+	dw .news2_topic0_line6
+
+.news2_topic0_line0
+	text_far _News2_Topic0_Line0
+	text_end
+	
+.news2_topic0_line1
+	text_far _News2_Topic0_Line1
+	text_end
+	
+.news2_topic0_line2
+	text_far _News2_Topic0_Line2
+	text_end
+	
+.news2_topic0_line3
+	text_far _News2_Topic0_Line3
+	text_end
+	
+.news2_topic0_line4
+	text_far _News2_Topic0_Line4
+	text_end
+	
+.news2_topic0_line5
+	text_far _News2_Topic0_Line5
+	text_end
+
+.news2_topic0_line6
+	text_far _News2_Topic0_Line6
+	text_end
+	
 News3_pools:
 	dw .news3_topic0
 	dw .news3_topic1

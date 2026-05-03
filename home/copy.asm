@@ -14,8 +14,8 @@ CopyBytes::
 	jr nz, .CopyByte
 	ret
 
-SwapBytes::
 ; swap bc bytes between hl and de
+SwapBytes::
 .Loop:
 	; stash [hl] away on the stack
 	ld a, [hl]
@@ -37,8 +37,8 @@ SwapBytes::
 	jr nz, .Loop
 	ret
 
-ByteFill::
 ; fill bc bytes with the value of a, starting at hl
+ByteFill::
 	inc b ; we bail the moment b hits 0, so include the last run
 	inc c ; same thing; include last byte
 	jr .HandleLoop
@@ -51,8 +51,8 @@ ByteFill::
 	jr nz, .PutByte
 	ret
 
-GetFarByte::
 ; retrieve a single byte from a:hl, and return it in A and hFarByte.
+GetFarByte::
 	; bankswitch to new bank
 	ldh [hTempBank], a
 	ldh a, [hROMBank]
@@ -72,8 +72,8 @@ GetFarByte::
 	ldh a, [hFarByte]
 	ret
 
-GetFarWord::
 ; retrieve a word from a:hl, and return it in hl.
+GetFarWord::
 	; bankswitch to new bank
 	ldh [hTempBank], a
 	ldh a, [hROMBank]
@@ -91,6 +91,7 @@ GetFarWord::
 	rst Bankswitch
 	ret
 
+; copy bc bytes from hl to a:de
 FarCopyWRAM::
 	ldh [hTempBank], a
 	ldh a, [rSVBK]
@@ -104,6 +105,7 @@ FarCopyWRAM::
 	ldh [rSVBK], a
 	ret
 
+; retrieve a single byte from a:hl, and return it in a.
 GetFarWRAMByte::
 	ldh [hTempBank], a
 	ldh a, [rSVBK]

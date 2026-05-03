@@ -546,3 +546,24 @@ if DEF(_FR_FR)
 else
 	db "OMICRON@"
 endc
+
+
+; Input: variant index pre-multiplied by 2 in E.
+; Output: variant name in wStringBuffer1.
+GetVariantName::
+	ld d, 0
+	ld hl, .variant_names
+	add hl, de
+	
+	ld a, [hli]
+	ld d, [hl]
+	ld e, a
+
+	ld hl, wStringBuffer1
+	jmp CopyName2 ; Copies the name from de to hl
+
+.variant_names
+	dw TellCovidVariant.original
+	dw TellCovidVariant.alpha
+	dw TellCovidVariant.delta
+	dw TellCovidVariant.omicron
