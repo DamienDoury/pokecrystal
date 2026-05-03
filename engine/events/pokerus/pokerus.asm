@@ -285,8 +285,8 @@ SpreadPokerusFromOpponents:
 ; DE can be clobbered.
 SetWildBattleCovidStrain_OrMildIllness:
 	ld a, [wYearMonth]
-	cp $08
-	jr nc, SetWildBattleCovidStrain.checks ; Starting from September 2020, the player can't get mild illnesses.
+	cp $07
+	jr nc, SetWildBattleCovidStrain.checks ; Starting from August 2020, the player can't get mild illnesses.
 
 	; Roll for mild illness.
 	sub 3 ; A is between 0 and 4.
@@ -306,12 +306,12 @@ SetWildBattleCovidStrain_OrMildIllness:
 	jr c, SetWildBattleCovidStrain.original_strain
 
 	; --- Mild illness generation ---
-	; April 2020 and before: 100% mild illness
-	; May 2020: ~80% mild illness, ~20% original covid strain
-	; June 2020: ~60% mild illness, ~40% original covid strain
-	; July 2020: ~40% mild illness, ~60% original covid strain
-	; August 2020: ~20% mild illness, ~80% original covid strain
-	; September 2020: 100% original covid strain
+	; March 2020 and before: 100% mild illness
+	; April 2020: ~80% mild illness, ~20% original covid strain
+	; May 2020: ~60% mild illness, ~40% original covid strain
+	; June 2020: ~40% mild illness, ~60% original covid strain
+	; July 2020: ~20% mild illness, ~80% original covid strain
+	; August 2020: 100% original covid strain
 
 	ld b, 3
 	call Modulo
