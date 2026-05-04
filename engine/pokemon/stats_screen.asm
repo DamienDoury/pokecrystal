@@ -1270,7 +1270,7 @@ LoadPinkPage:
 .perfectStatExpDisplay
 	ld hl, wTempMonHPExp
 	call .IsFullExp
-	jr nz, .atkExp
+	jr c, .atkExp
 
 	hlcoord 0, 10
 	ld [hl], "<EMPTY_STAR>"
@@ -1278,7 +1278,7 @@ LoadPinkPage:
 .atkExp
 	ld hl, wTempMonAtkExp
 	call .IsFullExp
-	jr nz, .defExp
+	jr c, .defExp
 
 	hlcoord 15, 9
 	ld [hl], "<EMPTY_STAR>"
@@ -1286,7 +1286,7 @@ LoadPinkPage:
 .defExp
 	ld hl, wTempMonDefExp
 	call .IsFullExp
-	jr nz, .spcExp
+	jr c, .spcExp
 
 	hlcoord 15, 11
 	ld [hl], "<EMPTY_STAR>"
@@ -1294,7 +1294,7 @@ LoadPinkPage:
 .spcExp
 	ld hl, wTempMonSpcExp
 	call .IsFullExp
-	jr nz, .spdExp
+	jr c, .spdExp
 
 	hlcoord 15, 13
 	ld [hl], "<EMPTY_STAR>"
@@ -1305,7 +1305,7 @@ LoadPinkPage:
 .spdExp
 	ld hl, wTempMonSpdExp
 	call .IsFullExp
-	ret nz
+	ret c
 
 	hlcoord 15, 17
 	ld [hl], "<EMPTY_STAR>"
@@ -1313,8 +1313,11 @@ LoadPinkPage:
 
 .IsFullExp
 	ld a, [hli]
-	and [hl]
-	cp $ff
+	cp $f6
+	ret c
+
+	ld a, [hl]
+	cp $1a
 	ret
 
 .Status:
