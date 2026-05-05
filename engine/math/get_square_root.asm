@@ -40,7 +40,7 @@
 
 
 
-; Returns the square root of de in b.
+; Returns ceil(sqrt(DE)) in B, properly adjusting for exact vanilla values, and $1 <= B <= $FF limit.
 ; Clobbers: AF, B, DE, HL
 ; Preserves C.
 GetSquareRoot:
