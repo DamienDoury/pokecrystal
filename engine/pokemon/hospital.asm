@@ -368,7 +368,7 @@ SendMonToHospital::
 	jr nz, .didnt_get_scammed
 
 	ld b, SET_FLAG
-	ld de, EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	ld de, EVENT_GOT_SICK_WHILE_HOLDING_JADE_CRYSTAL
 	call EventFlagAction
 
 .didnt_get_scammed

@@ -96,7 +96,7 @@ _CheckPokerus:
 
 	push bc
 	ld b, SET_FLAG
-	ld de, EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	ld de, EVENT_GOT_SICK_WHILE_HOLDING_JADE_CRYSTAL
 	call EventFlagAction
 	pop bc
 

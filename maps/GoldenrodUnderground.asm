@@ -165,11 +165,15 @@ BitterMerchantScript:
 	end
 
 StonesMerchantScript:
-	checkevent EVENT_GOT_SICK_WHILE_HOLDING_EVIOSTONE
+	checkevent EVENT_GOT_SICK_WHILE_HOLDING_JADE_CRYSTAL
 	iffalse .opentext_then_mart
 
 	showemote EMOTE_QUESTION, GOLDENRODUNDERGROUND_STONE_SCAMMER, 30
 	opentext
+	writetext StoneScammerAskForQuestionText
+	yesorno
+	iffalse .clear_textbox_then_mart
+
 	writetext StoneScammerExcuseText
 	special PlaceMoneyTopRight
 	yesorno
@@ -192,8 +196,10 @@ StonesMerchantScript:
 	closetext ; Closes PlaceMoneyTopRight. 
 	opentext
 
+	clearevent EVENT_GOT_SICK_WHILE_HOLDING_JADE_CRYSTAL
 	writetext StoneScammerDoubleScamText
 	promptbutton
+.clear_textbox_then_mart
 	writetext StoneScammerEmptyBoxText
 	sjump .mart	
 
@@ -201,9 +207,25 @@ StonesMerchantScript:
 	closetext ; Closes PlaceMoneyTopRight. 
 	opentext
 	writetext StoneScammerAggressiveText
-	promptbutton
-	writetext StoneScammerEmptyBoxText
-	sjump .mart
+	waitbutton
+	closetext
+	pause 3
+	showemote EMOTE_QUESTION, PLAYER, 15
+	pause 3
+	applymovement PLAYER, GoldenrodUnderground_StepBumpLeftMovement
+	pause 5
+	applymovement GOLDENRODUNDERGROUND_STONE_SCAMMER, ScammerRunsAwayMovement
+	playsound SFX_JUMP_OVER_LEDGE
+	applymovement GOLDENRODUNDERGROUND_STONE_SCAMMER, ScammerJumpMovement
+	playsound SFX_RUN
+	applymovement GOLDENRODUNDERGROUND_STONE_SCAMMER, ScammerRunsAwayMovement2
+	disappear GOLDENRODUNDERGROUND_STONE_SCAMMER ; Sets EVENT_STONE_SCAMMER_IS_SELLING.
+	waitsfx
+	pause 30
+	applymovement PLAYER, GoldenrodUnderground_StepBumpRightMovement
+	;pause 20
+	;showemote EMOTE_SHOCK, PLAYER, 20
+	end
 
 .opentext_then_mart
 	opentext
@@ -596,6 +618,32 @@ GoldenrodUnderground_PlayerFacesBeaterMovement:
 PathMovementEnd:
 	step RIGHT
 	turn_head LEFT
+	step_end
+
+ScammerJumpMovement:
+	jump_step LEFT
+	step_end
+
+ScammerRunsAwayMovement2:
+	big_step UP
+	big_step UP
+	big_step UP
+ScammerRunsAwayMovement:
+	big_step UP
+	step_end
+
+StepBumpMovement:
+	step_bump
+	step_end
+
+GoldenrodUnderground_StepBumpLeftMovement:
+	turn_step LEFT
+	step_bump
+	step_end
+
+GoldenrodUnderground_StepBumpRightMovement:
+	turn_step RIGHT
+	step_bump
 	step_end
 
 SupernerdEricSeenText:
@@ -1303,6 +1351,16 @@ else
 endc
 	done
 
+StoneScammerAskForQuestionText:
+if DEF(_FR_FR)
+	text "Tu veux me dire"
+	line "quelque chose?"
+else
+	text "Is there something"
+	line "you want to say?"
+endc
+	done
+
 StoneScammerExcuseText:
 if DEF(_FR_FR)
 	text "Ton #MON est"
@@ -1310,7 +1368,7 @@ if DEF(_FR_FR)
 	cont "qu'il tenait un"
 	cont "CRISTAL JADE?"
 
-	para "Ca ne peut pas..."
+	para "Impossible..."
 	
 	para "Ton #MON a dû"
 	line "mal tenir l'objet."
@@ -1368,6 +1426,11 @@ if DEF(_FR_FR)
 	
 	para "mauvais usage de"
 	line "mes produits."
+
+	para "..."
+
+	para "REGARDE! DERRIERE"
+	line "TOI!"
 else
 	text "Look, I will not"
 	line "give you a refund."
@@ -1377,6 +1440,10 @@ else
 	
 	para "your mishandling"
 	line "of my products."
+
+	para "…"
+
+	para "LOOK! BEHIND YOU!"
 endc
 	done
 
@@ -1421,7 +1488,7 @@ GoldenrodUnderground_MapEvents:
 	object_event 12,  6, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerEmployeesBackdoorScript, -1
 	object_event 26,  0, SPRITE_INVISIBLE_WALL, SPRITEMOVEDATA_STILL, 0, 0, -1, -1, PAL_NPC_BROWN, OBJECTTYPE_SCRIPT, 0, GameCornerExitBlockScript, -1
 	object_event  6,  8, SPRITE_ROCKET, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, %11100000 | (18 - START_HOUR_FILTER_OFFSET), %11100000 | 18, PAL_NPC_RED, OBJECTTYPE_SCRIPT, 0, DoorKeeperScript, EVENT_GOLDENROD_ILLEGAL_CASINO
-	object_event  7, 22, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, StonesMerchantScript, -1
+	object_event  7, 22, SPRITE_BEAUTY, SPRITEMOVEDATA_STANDING_LEFT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, PAL_NPC_PINK, OBJECTTYPE_SCRIPT, 0, StonesMerchantScript, EVENT_STONE_SCAMMER_IS_SELLING
 	object_event  5, 22, SPRITE_GRANNY, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush1Script, EVENT_LOCKDOWN_MART_RUSH
 	object_event  6, 23, SPRITE_GRAMPS, SPRITEMOVEDATA_STANDING_UP, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush2Script, EVENT_LOCKDOWN_MART_RUSH
 	object_event  3, 22, SPRITE_TWIN, SPRITEMOVEDATA_STANDING_RIGHT, 0, 0, HIDE_CURFEW, %11100000 | MORN | DAY, 0, OBJECTTYPE_SCRIPT, 0, GoldenrodUndergroundRush3Script, EVENT_LOCKDOWN_MART_RUSH
