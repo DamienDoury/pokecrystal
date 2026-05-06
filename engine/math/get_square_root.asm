@@ -65,3 +65,77 @@ GetSquareRoot:
     jr nz, .loop
     
     ret
+
+
+
+; Constant-time (8 loops): 1144~1668 clock-cycles total.
+; 70 ROM bytes.
+; Returns the same values as vanilla.
+;GetSquareRoot: 
+;    ; Special case: we return ceil(sqrt(0)) = 1, which is wrong but matches the vanilla function. 
+;    ld a, d 
+;    or e ; 1o 4c 
+;    ld b, 1 ; 2o 8c 
+;    ret z ; 1o 20c/8c 
+;    
+;    push bc ; 1o 16c 
+;    ld h, d ; 1o 4c 
+;    ld l, e ; 1o 4c 
+;    ld de, 0 ; 3o 12c 
+;    ld bc, $4000 ; 3o 12c 
+;.loop: 
+;    push hl ; 1o 16c 
+;    ld a, l ; 1o 4c 
+;    sub c ; 1o 4c 
+;    ld l, a ; 1o 4c 
+;    ld a, h ; 1o 4c 
+;    sbc a, b ; 1o 4c 
+;    ld h, a ; 1o 4c 
+;    jr c, .no_bit ; 2o 12c/8c 
+;    
+;    ld a, l ; 1o 4c 
+;    sub e ; 1o 4c 
+;    ld l, a ; 1o 4c 
+;    ld a, h ; 1o 4c 
+;    sbc a, d ; 1o 4c 
+;    ld h, a ; 1o 4c 
+;    jr c, .no_bit ; 2o 12c/8c 
+;    
+;.take_bit: 
+;    pop af ; 1o 12c 
+;    srl d ; 2o 8c 
+;    rr e ; 2o 8c 
+;    ld a, e ; 1o 4c 
+;    add a, c ; 1o 4c 
+;    ld e, a ; 1o 4c 
+;    ld a, d ; 1o 4c 
+;    adc a, b ; 1o 4c 
+;    ld d, a ; 1o 4c 
+;    jr .next ; 2o 12c 
+;    
+;.no_bit: 
+;    pop hl ; 1o 12c 
+;    srl d ; 2o 8c 
+;    rr e ; 2o 8c 
+;.next: 
+;    srl b ; 2o 8c 
+;    rr c ; 2o 8c 
+;    srl b ; 2o 8c 
+;    rr c ; 2o 8c 
+;    ld a, b ; 1o 4c 
+;    or c ; 1o 4c 
+;    jr nz, .loop ; 2o 12c/8c 
+;    
+;    pop bc ; 1o 12c 
+;    ld b, e ; 1o 4c 
+;    ld a, h ; 1o 4c 
+;    or l ; 1o 4c 
+;    ret z ; 1o 20c/8c 
+;    
+;    ; ceiling 
+;    inc b ; 1o 4c 
+;    ret nz ; 1o 20c/8c 
+;    
+;    ; capped at 255 
+;    dec b ; 1o 4c 
+;    ret ; 1o 16c
