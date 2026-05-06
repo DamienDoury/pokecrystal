@@ -138,10 +138,108 @@ GetRemindableMoves:
 	ld a, [hl]
 	ld [wCurPartyLevel], a
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+; We expell the pre-evolution's moves from the list of remindable moves, so the player can't cheat by learning moves they shouldn't be allowed.
+; This also means that if the player held on a Pokémon's evolution until a later level than the earliest possible one, well, too bad for them.
+; They can still level up to relearn the moves.
+; Note: I've been veryyy lazy, and just copy-pasted the code from below.
+
+	push bc
+	ld a, $ff
+	ld de, wd019 + 1
+	ld [de], a
+	
+	ld a, [wCurPartySpecies]
+	dec a
+	ld b, 0
+	ld c, a
+	ld hl, EvosAttacksPointers
+rept 2
+	add hl, bc
+endr
+	ld a, BANK(EvosAttacksPointers)
+	call GetFarWord
+.post_levels_skip_evos
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	inc hl
+	and a
+	jr nz, .post_levels_skip_evos
+
+.post_levels_loop_moves
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	inc hl
+	and a
+	jr z, .post_levels_done
+
+	ld c, a
+	ld a, [wCurPartyLevel]
+	inc a
+	cp c
+	ld a, BANK("Evolutions and Attacks")
+	call GetFarByte
+	inc hl
+	jr nc, .post_levels_loop_moves
+
+	ld c, a
+	push hl
+	ld hl, wd019 + 1
+	call CheckAlreadyInList
+	pop hl
+	jr c, .post_levels_loop_moves
+
+	ld a, c
+	ld [de], a
+	inc de
+	ld a, $ff
+	ld [de], a
+	jr .post_levels_loop_moves
+
+.post_levels_done
+	pop bc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	ld b, 0
 	ld de, wd002 + 1
 ; based on GetEggMove in engine/breeding/egg.asm
-;.loop
+.loop
 	ld a, [wCurPartySpecies]
 	dec a
 	push bc
@@ -166,6 +264,7 @@ endr
 	inc hl
 	and a
 	jr z, .done
+
 	ld c, a
 	ld a, [wCurPartyLevel]
 	cp c
@@ -175,10 +274,19 @@ endr
 	jr c, .loop_moves
 
 	ld c, a
+	push hl
+	ld hl, wd002 + 1
 	call CheckAlreadyInList
+	pop hl
 	jr c, .loop_moves
+
+	ld a, c
+	call CheckIfRemindingForbidden
+	jr c, .loop_moves
+
 	call CheckPokemonAlreadyKnowsMove
 	jr c, .loop_moves
+	
 	ld a, c
 	ld [de], a
 	inc de
@@ -190,7 +298,10 @@ endr
 	jr .loop_moves
 
 .done
+	farcall GetPreEvolution
 	pop bc
+	jr c, .loop
+
 	pop af
 	ld [wCurPartySpecies], a
 	ld a, b
@@ -199,21 +310,32 @@ endr
 	ret
 
 CheckAlreadyInList:
-	push hl
-	ld hl, wd002 + 1
 .loop
 	ld a, [hli]
 	inc a
 	jr z, .nope
+
 	dec a
 	cp c
 	jr nz, .loop
-	pop hl
+
 	scf
 	ret
+
 .nope
-	pop hl
 	and a
+	ret
+
+; Input: the move to check in C.
+CheckIfRemindingForbidden:
+	push bc
+	push de
+	push hl
+	ld hl, wd019 + 1
+	call IsInByteArray
+	pop hl
+	pop de
+	pop bc
 	ret
 
 ; Input: the move to check in C.
