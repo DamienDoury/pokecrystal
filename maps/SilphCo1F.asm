@@ -124,7 +124,7 @@ SilphCoNurseScript:
 	jumptext SilphCoNurse_InsistText
 
 .choose_mon
-	checkpokemail GiftAntonMonMail
+	checkpokemail GiftAntonMonMailText
 	ifequal POKEMAIL_WRONG_MAIL, .WrongMail
 	ifequal POKEMAIL_REFUSED, .Refused
 	ifequal POKEMAIL_NO_MAIL, .NoMail
@@ -483,8 +483,8 @@ if DEF(_FR_FR)
 	
 	para "M.ANTON a été"
 	line "diagnostiqué avec"
-	cont "la maladie d'Alz-"
-	cont "heimer il y a"
+	cont "la maladie d'"
+	cont "Alzheimer il y a"
 	cont "cinq ans."
 	
 	para "Sa mémoire"

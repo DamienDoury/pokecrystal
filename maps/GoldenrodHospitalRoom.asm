@@ -659,6 +659,7 @@ endc
 
 GiftAntonMonMail::
 	db BLUESKY_MAIL
+GiftAntonMonMailText::
 if DEF(_FR_FR)
 	db   "Je t'aime pour"
 	next "toujours chérie@"
