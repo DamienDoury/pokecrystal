@@ -336,7 +336,7 @@ MenuJoypadLoop:
 	ret nz ; Failsafe.
 
 	ld a, [wPartyMenuActionText]
-	and a
+	cp PARTYMENUACTION_COMBO_MENU
 	ret nz ; Failsafe.
 
 	; It is the developer's responsability to make sure that those callbacks do not alter data at the middle of a UI update.

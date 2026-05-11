@@ -487,7 +487,7 @@ StartMenu_Pokemon:
 	call FadeToMenu
 
 .choosemenu
-	xor a
+	ld a, PARTYMENUACTION_COMBO_MENU
 	ld [wPartyMenuActionText], a ; Choose a POKéMON.
 	call ClearBGPalettes
 

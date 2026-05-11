@@ -104,7 +104,7 @@ SwitchPartyMons:
 
 	farcall _SwitchPartyMons
 
-	xor a
+	ld a, PARTYMENUACTION_COMBO_MENU
 	ld [wPartyMenuActionText], a
 
 	farcall LoadPartyMenuGFX
@@ -115,7 +115,7 @@ SwitchPartyMons:
 	ret
 
 .DontSwitch:
-	xor a
+	ld a, PARTYMENUACTION_COMBO_MENU
 	ld [wPartyMenuActionText], a
 	jmp CancelPokemonAction
 
@@ -658,7 +658,7 @@ MonMenu_Softboiled_MilkDrink:
 	call PrintText
 
 .finish
-	xor a
+	ld a, PARTYMENUACTION_COMBO_MENU
 	ld [wPartyMenuActionText], a
 	ld a, $3
 	ret

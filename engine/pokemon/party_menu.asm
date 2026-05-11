@@ -87,7 +87,6 @@ WritePartyMenuTilemap:
 	dw PlacePartyMonStatus
 	dw PlacePartyMonTMHMCompatibility
 	dw PlacePartyMonEvoStoneCompatibility
-	dw PlacePartyMonGender
 	dw PlacePartyMonGenderDayCare
 	dw PlacePartyMonMobileBattleSelection
 	dw PlacePartyMonGender
@@ -770,10 +769,14 @@ PartyMenuSelect:
 	; The Select button must only be allowed in the Start Party menu, 
 	; or in the Move party menu.
 	ld a, [wPartyMenuActionText]
-	and $ff - $4
+	cp PARTYMENUACTION_MOVE
+	jr z, .allow_select
+
+	cp PARTYMENUACTION_COMBO_MENU
 	jr nz, .skip_select_input
 
-	; Only values (0) PARTYMENUACTION_CHOOSE_POKEMON
+.allow_select
+	; Only values 10 (PARTYMENUACTION_COMBO_MENU)
 	; and 4 (PARTYMENUACTION_MOVE)
 	; are allowed through the filter.
 	ld a, [wMenuJoypadFilter]
@@ -793,7 +796,7 @@ PartyMenuSelect:
 	bit FIELD_MOVES, [hl]
 	jr z, .skip_select_input
 	
-	; PARTYMENUACTION_CHOOSE_POKEMON
+	; PARTYMENUACTION_COMBO_MENU
 	call PartyMenu_SetCallback
 	ld a, [wMenuJoypadFilter]
 	or D_LEFT | D_RIGHT
@@ -948,7 +951,7 @@ IsUpgradedPartyMenuAvailable:
 	; The Select button must only be allowed in the Start Party menu, 
 	; or in the Move party menu.
 	ld a, [wPartyMenuActionText]
-	cp PARTYMENUACTION_CHOOSE_POKEMON
+	cp PARTYMENUACTION_COMBO_MENU
 	ret nz
 
 	ld a, [wOptions2]
