@@ -7,8 +7,9 @@
 	const PARTYMENUQUALITY_STATUS
 	const PARTYMENUQUALITY_TMHM_COMPAT
 	const PARTYMENUQUALITY_EVO_STONE_COMPAT
-	const PARTYMENUQUALITY_GENDER
+	const PARTYMENUQUALITY_GENDER_DAYCARE
 	const PARTYMENUQUALITY_MOBILE_SELECTION
+	const PARTYMENUQUALITY_GENDER
 
 partymenuqualities: MACRO
 rept _NARG
@@ -33,8 +34,8 @@ PartyMenuQualityPointers:
 	dw .Mobile   ; PARTYMENUACTION_MOBILE
 	assert_table_length NUM_PARTYMENUACTIONS
 
-.Default:  partymenuqualities NICKNAMES, HP_BAR, HP_DIGITS, LEVEL, STATUS
-.TMHM:     partymenuqualities NICKNAMES, TMHM_COMPAT,       LEVEL, STATUS
-.EvoStone: partymenuqualities NICKNAMES, EVO_STONE_COMPAT,  LEVEL, STATUS
-.Gender:   partymenuqualities NICKNAMES, GENDER,            LEVEL, STATUS
+.Default:  partymenuqualities NICKNAMES, HP_BAR, HP_DIGITS, LEVEL, STATUS, GENDER
+.TMHM:     partymenuqualities NICKNAMES, TMHM_COMPAT,       LEVEL, STATUS, GENDER
+.EvoStone: partymenuqualities NICKNAMES, EVO_STONE_COMPAT,  LEVEL, STATUS, GENDER
+.Gender:   partymenuqualities NICKNAMES, GENDER_DAYCARE,    LEVEL, STATUS
 .Mobile:   partymenuqualities NICKNAMES, MOBILE_SELECTION,  LEVEL, STATUS

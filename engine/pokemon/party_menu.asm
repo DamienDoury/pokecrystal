@@ -88,7 +88,9 @@ WritePartyMenuTilemap:
 	dw PlacePartyMonTMHMCompatibility
 	dw PlacePartyMonEvoStoneCompatibility
 	dw PlacePartyMonGender
+	dw PlacePartyMonGenderDayCare
 	dw PlacePartyMonMobileBattleSelection
+	dw PlacePartyMonGender
 
 PlacePartyNicknames:
 	hlcoord 3, 1
@@ -283,7 +285,7 @@ PlacePartyMonStatus:
 	ret z
 	ld c, a
 	ld b, 0
-	hlcoord 5, 2
+	hlcoord 4, 2
 .loop
 	push bc
 	push hl
@@ -450,6 +452,58 @@ PlacePartyMonGender:
 	ld a, [wPartyCount]
 	and a
 	ret z
+	
+	ld c, a
+	ld b, 0
+	hlcoord 7, 2
+.loop
+	push bc
+	push hl
+	call PartyMenuCheckEgg
+	jr z, .next
+
+	ld [wCurPartySpecies], a
+	push hl
+	ld a, b
+	ld [wCurPartyMon], a
+	xor a
+	ld [wMonType], a
+	call GetGender
+	ld de, .unknown
+	jr c, .got_gender
+	ld de, .male
+	jr nz, .got_gender
+	ld de, .female
+
+.got_gender
+	pop hl
+	ld a, [de]
+	ld [hl], a
+
+.next
+	pop hl
+	ld de, 2 * SCREEN_WIDTH
+	add hl, de
+	pop bc
+	inc b
+	dec c
+	jr nz, .loop
+	ret
+
+.male
+	db "♂"
+
+.female
+	db "♀"
+
+.unknown
+	db " "
+
+PlacePartyMonGenderDayCare:
+	ld a, [wPartyCount]
+	and a
+	ret z
+
 	ld c, a
 	ld b, 0
 	hlcoord 12, 2
