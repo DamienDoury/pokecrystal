@@ -88,7 +88,7 @@ PlayerHasShownInfectedPkmnToDaycare:
 	setflag ENGINE_PLAYER_SCARED_DAYCARE
 	waitbutton
 	closetext
-	showemote EMOTE_BOLT, LAST_TALKED, 10
+	showemote EMOTE_SAD, LAST_TALKED, 10
 	readvar VAR_FACING
 	ifequal UP, .DayCareManStepDown
 	ifequal DOWN, .DayCareManStepUp
@@ -340,8 +340,7 @@ if DEF(_FR_FR)
 	
 	para "Ne reviens pas"
 	line "tant que tu es"
-	cont "encore"
-	cont "contagieux."
+	cont "encore contagieux."
 else
 	text "Are you trying to"
 	line "contaminate us??"
