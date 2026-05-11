@@ -189,7 +189,7 @@ Route31MailRecipientScript:
 	ifequal POKEMAIL_WRONG_MAIL, .WrongMail
 	ifequal POKEMAIL_REFUSED, .Refused
 	ifequal POKEMAIL_NO_MAIL, .NoMail
-	ifequal POKEMAIL_LAST_MON, .LastMon
+	;ifequal POKEMAIL_LAST_MON, .LastMon
 	; POKEMAIL_CORRECT
 	writetext Text_Route31ReadingMail
 	promptbutton
@@ -220,11 +220,11 @@ Route31MailRecipientScript:
 	closetext
 	end
 
-.LastMon:
-	writetext Text_Route31CantTakeLastMon
-	waitbutton
-	closetext
-	end
+;.LastMon:
+;	writetext Text_Route31CantTakeLastMon
+;	waitbutton
+;	closetext
+;	end
 
 ReceivedSpearowMailText: 
 if DEF(_FR_FR)
@@ -495,20 +495,20 @@ endc
 
 	done
 
-Text_Route31CantTakeLastMon: 
-if DEF(_FR_FR)
-	text "Si je te prends ce"
-	line "#MON, avec qui"
-	cont "vas-tu combattre?"
-else
-	text "If I take that"
-	line "#MON from you,"
-
-	para "what are you going"
-	line "to use in battle?"
-endc
-
-	done
+;Text_Route31CantTakeLastMon: 
+;if DEF(_FR_FR)
+;	text "Si je te prends ce"
+;	line "#MON, avec qui"
+;	cont "vas-tu combattre?"
+;else
+;	text "If I take that"
+;	line "#MON from you,"
+;
+;	para "what are you going"
+;	line "to use in battle?"
+;endc
+;
+;	done
 
 Route31YoungsterText: 
 if DEF(_FR_FR)

@@ -128,7 +128,7 @@ SilphCoNurseScript:
 	ifequal POKEMAIL_WRONG_MAIL, .WrongMail
 	ifequal POKEMAIL_REFUSED, .Refused
 	ifequal POKEMAIL_NO_MAIL, .NoMail
-	ifequal POKEMAIL_LAST_MON, .LastMon
+;	ifequal POKEMAIL_LAST_MON, .LastMon
 
 	;opentext
 	writetext SilphCoNurse_ReadsText
@@ -224,6 +224,7 @@ SilphCoNurseScript:
 	writetext SilphCoNurse_CandiesText
 	promptbutton
 	writetext SilphCoNurse_SayHiText
+.wait_end_text
 	waitbutton
 	closetext
 	end
@@ -232,16 +233,20 @@ SilphCoNurseScript:
 	jumptext SilphCoNurse_NoRoomText
 
 .WrongMail:
-	jumptext SilphCoNurse_WrongMail
+	writetext SilphCoNurse_WrongMail
+	sjump .wait_end_text
 
 .Refused:
-	jumptext SilphCoNurse_InsistText
+	writetext SilphCoNurse_InsistText
+	sjump .wait_end_text
 
 .NoMail:
-	farjumptext Text_Route31MissingMail
+	farwritetext Text_Route31MissingMail
+	sjump .wait_end_text
 
-.LastMon:
-	farjumptext Text_Route31CantTakeLastMon
+;.LastMon:
+;	farwritetext Text_Route31CantTakeLastMon
+;	sjump .wait_end_text
 
 .iz_ded:
 	jumptext SilphCoNurse_SayHiText
