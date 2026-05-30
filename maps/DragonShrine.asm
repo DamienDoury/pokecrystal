@@ -274,7 +274,11 @@ DragonShrineElder3Script:
 
 DragonShrineQuestion1_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 10, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+else
 	menu_coords 8, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -293,7 +297,11 @@ endc
 
 DragonShrineQuestion2_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 5, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+else
 	menu_coords 9, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -312,7 +320,11 @@ endc
 
 DragonShrineQuestion3_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 4, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+else
 	menu_coords 5, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -331,7 +343,11 @@ endc
 
 DragonShrineQuestion4_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 9, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+else
 	menu_coords 8, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
@@ -350,7 +366,11 @@ endc
 
 DragonShrineQuestion5_MenuHeader:
 	db MENU_BACKUP_TILES ; flags
+if DEF(_FR_FR)
+	menu_coords 9, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+else
 	menu_coords 12, 4, SCREEN_WIDTH - 1, TEXTBOX_Y - 1
+endc
 	dw .MenuData
 	db 1 ; default option
 
