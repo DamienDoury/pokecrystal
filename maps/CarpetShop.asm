@@ -30,6 +30,9 @@ CarpetShop_LoopScript:
 	
 .Carpet1
 	scall CarpetShop_BuyRoutine
+	iffalse CarpetShop_BuyRoutine.end
+
+	checkmoney YOUR_MONEY, CARPET_PRICE
 	ifequal HAVE_LESS, CarpetShop_NotEnoughMoneyScript
 
 	checkevent EVENT_DECO_CARPET_1
@@ -39,6 +42,9 @@ CarpetShop_LoopScript:
 	
 .Carpet2
 	scall CarpetShop_BuyRoutine
+	iffalse CarpetShop_BuyRoutine.end
+
+	checkmoney YOUR_MONEY, CARPET_PRICE
 	ifequal HAVE_LESS, CarpetShop_NotEnoughMoneyScript
 
 	checkevent EVENT_DECO_CARPET_2
@@ -48,6 +54,9 @@ CarpetShop_LoopScript:
 	
 .Carpet3
 	scall CarpetShop_BuyRoutine
+	iffalse CarpetShop_BuyRoutine.end
+
+	checkmoney YOUR_MONEY, CARPET_PRICE
 	ifequal HAVE_LESS, CarpetShop_NotEnoughMoneyScript
 
 	checkevent EVENT_DECO_CARPET_3
@@ -57,6 +66,9 @@ CarpetShop_LoopScript:
 
 .Carpet4
 	scall CarpetShop_BuyRoutine
+	iffalse CarpetShop_BuyRoutine.end
+
+	checkmoney YOUR_MONEY, CARPET_PRICE
 	ifequal HAVE_LESS, CarpetShop_NotEnoughMoneyScript
 
 	checkevent EVENT_DECO_CARPET_4
@@ -75,7 +87,7 @@ CarpetShop_BuyRoutine:
 	writetext CarpetShop_AreYouSureText
 	yesorno
 	iffalse CarpetShop_CancelScript
-	checkmoney YOUR_MONEY, CARPET_PRICE	
+.end
 	end
 
 CarpetShop_CancelScript:
