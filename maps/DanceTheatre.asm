@@ -341,20 +341,15 @@ endc
 
 WhirlpoolGuyNeverLeftAScratchText:
 if DEF(_FR_FR)
-	text "Non seulement les"
-	line "KIMONO sont"
-	cont "d'excellentes"
-	cont "danseuses, mais"
+	text "Les KIMONO ne sont"
+	line "pas seulement de"
 
-	para "eles sont aussi"
-	line "douées en combat."
+	para "bonnes danseuses,"
+	line "elles sont aussi"
+	cont "douées en #MON."
 
-	para "Je les ai souvent"
-	line "défié, mais"
-
-	para "je n'ai jamais"
-	line "laissé la moindre"
-	cont "égratignure..."
+	para "Je les défie"
+	line "souvent..."
 else
 	text "Not only are the"
 	line "KIMONO GIRLS great"
@@ -373,11 +368,13 @@ endc
 
 WhirlpoolGuyLadGiftText:
 if DEF(_FR_FR)
-	text "Gamin! Si tu bats"
-	line "toutes les KIMONO,"
+WhirlpoolGuyLassieGiftText:
+	text "Hep! Si tu réussis"
+	line "à vaincre toutes"
 
-	para "j'aurai un cadeau"
-	line "pour toi."
+	para "les KIMONO, je te"
+	line "donnerai alors un"
+	cont "joli cadeau."
 else
 	text "Lad! If you can"
 	line "defeat all the"
@@ -387,15 +384,9 @@ else
 endc
 	done
 
-WhirlpoolGuyLassieGiftText:
 if DEF(_FR_FR)
-	text "Ma petite! Si tu"
-	line "bats toutes les"
-
-	para "KIMONO, j'aurais"
-	line "un cadeau pour"
-	cont "toi."
 else
+WhirlpoolGuyLassieGiftText:
 	text "Lassie, if you can"
 	line "defeat all the"
 
@@ -406,18 +397,18 @@ endc
 
 WhirlpoolGuyLikeADanceText:
 if DEF(_FR_FR)
-	text "Ta façon de"
-	line "combattre, c'était"
-	cont "comme admirer une"
-	cont "danse."
+	text "La façon dont tu"
+	line "as combattu..."
+	cont "C'était beau comme"
+	cont "une danse."
 
-	para "C'était un réel"
-	line "plaisir à vivre!"
+	para "Beau comme une"
+	line "pirouette!"
 
 	para "Je veux que tu"
-	line "prennes ceci. Ne"
-	cont "t'en fais pas--"
-	cont "prends-le!"
+	line "acceptes ceci."
+	cont "N'aie pas peur!"
+	cont "Prends-le!"
 else
 	text "The way you bat-"
 	line "tled, it was like"
