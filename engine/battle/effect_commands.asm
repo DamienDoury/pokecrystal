@@ -2332,6 +2332,11 @@ BattleCommand_FailureText:
 	and a
 	ret z
 
+	push bc
+	ld c, 40
+	call DelayFrames
+	pop bc
+
 	call GetFailureResultText
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVarAddr
