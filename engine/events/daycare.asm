@@ -856,20 +856,25 @@ DayCare_InitBreeding:
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH
 	call CopyBytes
+
 	ld hl, wEggMonMoves
 	ld de, wEggMonPP
 	predef FillPP
+
 	ld hl, wMonOrItemNameBuffer
 	ld de, wStringBuffer1
 	ld bc, NAME_LENGTH
 	call CopyBytes
+
 	ld a, [wBaseEggSteps]
 	ld hl, wEggMonHappiness
 	ld [hli], a
+
 	xor a
 	ld [hli], a
 	ld [hli], a
 	ld [hl], a
+	
 	ld a, [wCurPartyLevel]
 	ld [wEggMonLevel], a
 	ret

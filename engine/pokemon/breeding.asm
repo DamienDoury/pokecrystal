@@ -356,27 +356,52 @@ HatchEggs:
 	text_end
 
 InitEggMoves:
-	call GetHeritableMoves
-	ld d, h
-	ld e, l
+	call InheritParentsCommonMoves
+
+	ld a, [wBreedMotherOrNonDitto]
+	and a
+	jr z, .breedmon2first
+
+;.breedmon1first
+	ld de, wBreedMon1Moves
+	call InheritParentEggMoves
+
+	ld de, wBreedMon2Moves
+	jr InheritParentEggMoves
+	
+.breedmon2first
+	ld de, wBreedMon2Moves
+	call InheritParentEggMoves
+
+	ld de, wBreedMon1Moves
+	jr InheritParentEggMoves
+
+InheritParentsCommonMoves:
 	ld b, NUM_MOVES
 .loop
 	ld a, [de]
 	and a
 	jr z, .done
+
 	ld hl, wEggMonMoves
 	ld c, NUM_MOVES
 .next
 	ld a, [de]
 	cp [hl]
-	jr z, .skip
+	jr z, .skip ; The Pokémon egg already knows this move, and can't learn it twice. So we skip it.
+
 	inc hl
 	dec c
-	jr nz, .next
-	call GetEggMove
-	jr nc, .skip
-	call LoadEggMove
+	jr nz, .next ; While we have not reached the end of the egg's move list, we keep searching for the parent's move.
 
+	; If the Pokémon egg doesn't know this move, we check if it can learn it.
+	call CheckBothParentsGotMove
+	jr nc, .skip ; If both parents don't know the move, the baby doesn't get to learn it.
+
+	;call GetEggMove
+	;jr nc, .skip
+
+	call LoadEggMove
 .skip
 	inc de
 	dec b
@@ -385,6 +410,42 @@ InitEggMoves:
 .done
 	ret
 
+; This is exactly the same function as InheritParentsCommonMoves, except for the line "call GetEggMove".
+; Perhaps we could optimize it with a call _hl_, while using 2 ROM bytes (map specific bytes).
+; Input: the parent's first move in [HL] (from wBreedMon1Moves or wBreedMon2Moves).
+InheritParentEggMoves:
+	ld b, NUM_MOVES
+.loop
+	ld a, [de]
+	and a
+	jr z, .done
+
+	ld hl, wEggMonMoves
+	ld c, NUM_MOVES
+.next
+	ld a, [de]
+	cp [hl]
+	jr z, .skip ; The Pokémon egg already knows this move, and can't learn it twice. So we skip it.
+
+	inc hl
+	dec c
+	jr nz, .next ; While we have not reached the end of the egg's move list, we keep searching for the parent's move.
+
+	; If the Pokémon egg doesn't know this move, we check if it can learn it.
+	call GetEggMove
+	jr nc, .skip
+
+	call LoadEggMove
+.skip
+	inc de
+	dec b
+	jr nz, .loop
+
+.done
+	ret
+
+; Input: the move to learn in [DE] (from wBreedMon1Moves or wBreedMon2Moves).
+; Output: carry if the move can be learned, nc otherwise.
 GetEggMove:
 	push bc
 	ld a, [wEggMonSpecies]
@@ -395,79 +456,20 @@ GetEggMove:
 	add hl, bc
 	add hl, bc
 	ld a, BANK(EggMovePointers)
-	call GetFarWord
+	call GetFarWord ; HL now contains the address of the start of this Pokémon's egg moves in egg_moves.asm.
 .loop
 	ld a, BANK("Egg Moves")
-	call GetFarByte
+	call GetFarByte ; Get the next egg move from egg_moves.asm in A.
 	cp -1
-	jr z, .reached_end
+	jr z, .done
+
 	ld b, a
 	ld a, [de]
 	cp b
 	jr z, .done_carry
+
 	inc hl
 	jr .loop
-
-.reached_end
-	call GetBreedmonMovePointer
-	ld b, NUM_MOVES
-.loop2
-	ld a, [de]
-	cp [hl]
-	jr z, .found_eggmove
-	inc hl
-	dec b
-	jr z, .inherit_tmhm
-	jr .loop2
-
-.found_eggmove
-	ld a, [wEggMonSpecies]
-	dec a
-	ld c, a
-	ld b, 0
-	ld hl, EvosAttacksPointers
-	add hl, bc
-	add hl, bc
-	ld a, BANK(EvosAttacksPointers)
-	call GetFarWord
-.loop3
-	ld a, BANK("Evolutions and Attacks")
-	call GetFarByte
-	inc hl
-	and a
-	jr nz, .loop3
-.loop4
-	ld a, BANK("Evolutions and Attacks")
-	call GetFarByte
-	and a
-	jr z, .inherit_tmhm
-	inc hl
-	ld a, BANK("Evolutions and Attacks")
-	call GetFarByte
-	ld b, a
-	ld a, [de]
-	cp b
-	jr z, .done_carry
-	inc hl
-	jr .loop4
-
-.inherit_tmhm
-	ld hl, TMHMMoves
-.loop5
-	ld a, BANK(TMHMMoves)
-	call GetFarByte
-	inc hl
-	and a
-	jr z, .done
-	ld b, a
-	ld a, [de]
-	cp b
-	jr nz, .loop5
-	ld [wPutativeTMHMMove], a
-	predef CanLearnTMHMMove
-	ld a, c
-	and a
-	jr z, .done
 
 .done_carry
 	pop bc
@@ -479,6 +481,47 @@ GetEggMove:
 	and a
 	ret
 
+; Input: the move to learn in [DE].
+; Output: carry if both parents know the move, nc otherwise.
+CheckBothParentsGotMove:
+	push bc
+	ld hl, wBreedMon1Moves
+	ld b, NUM_MOVES
+.first_parent
+	ld a, [de]
+	cp [hl]
+	jr z, .next_parent
+
+	inc hl
+	dec b
+	jr z, .false
+
+	jr .first_parent
+
+.next_parent
+	ld hl, wBreedMon2Moves
+	ld b, NUM_MOVES
+.second_parent
+	ld a, [de]
+	cp [hl]
+	jr z, .true
+
+	inc hl
+	dec b
+	jr nz, .second_parent
+
+.false
+	pop bc
+	and a
+	ret
+
+.true
+	pop bc
+	scf
+	ret
+
+; Saves the move to the Pokemon's move list and loads the move's PP.
+; Input: the move to learn in [DE] (from wBreedMon1Moves or wBreedMon2Moves).
 LoadEggMove:
 	push de
 	push bc
@@ -489,16 +532,21 @@ LoadEggMove:
 .loop
 	ld a, [hli]
 	and a
-	jr z, .done
+	jr z, .done ; If a move slot is available, we take it.
+
 	dec c
-	jr nz, .loop
+	jr nz, .loop ; While we have not reached the end of the move list, we keep searching an available move slot.
+
+	; Shifts moves down to make room for the new move.
 	ld de, wEggMonMoves
 	ld hl, wEggMonMoves + 1
 	ld a, [hli]
 	ld [de], a
+
 	inc de
 	ld a, [hli]
 	ld [de], a
+
 	inc de
 	ld a, [hli]
 	ld [de], a
@@ -511,63 +559,6 @@ LoadEggMove:
 	predef FillPP
 	pop bc
 	pop de
-	ret
-
-GetHeritableMoves:
-	ld hl, wBreedMon2Moves
-	ld a, [wBreedMon1Species]
-	cp DITTO
-	jr z, .ditto1
-	ld a, [wBreedMon2Species]
-	cp DITTO
-	jr z, .ditto2
-	ld a, [wBreedMotherOrNonDitto]
-	and a
-	ret z
-	ld hl, wBreedMon1Moves
-	ret
-
-.ditto1
-	ld a, [wCurPartySpecies]
-	push af
-	ld a, [wBreedMon2Species]
-	ld [wCurPartySpecies], a
-	ld a, [wBreedMon2DVs]
-	ld [wTempMonDVs], a
-	ld a, [wBreedMon2DVs + 1]
-	ld [wTempMonDVs + 1], a
-	ld a, TEMPMON
-	ld [wMonType], a
-	predef GetGender
-	jr c, .inherit_mon2_moves
-	jr nz, .inherit_mon2_moves
-	jr .inherit_mon1_moves
-
-.ditto2
-	ld a, [wCurPartySpecies]
-	push af
-	ld a, [wBreedMon1Species]
-	ld [wCurPartySpecies], a
-	ld a, [wBreedMon1DVs]
-	ld [wTempMonDVs], a
-	ld a, [wBreedMon1DVs + 1]
-	ld [wTempMonDVs + 1], a
-	ld a, TEMPMON
-	ld [wMonType], a
-	predef GetGender
-	jr c, .inherit_mon1_moves
-	jr nz, .inherit_mon1_moves
-
-.inherit_mon2_moves
-	ld hl, wBreedMon2Moves
-	pop af
-	ld [wCurPartySpecies], a
-	ret
-
-.inherit_mon1_moves
-	ld hl, wBreedMon1Moves
-	pop af
-	ld [wCurPartySpecies], a
 	ret
 
 GetBreedmonMovePointer:

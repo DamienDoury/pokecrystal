@@ -3302,9 +3302,9 @@ wDayCareLady::
 
 wStepsToEgg::
 	db
-wBreedMotherOrNonDitto::
-;  z: yes
-; nz: no
+wBreedMotherOrNonDitto:: ; Returns the index of the breedmon that will transmit the species to the egg.
+; $0 : wBreedMon1Species
+; $1 : wBreedMon2Species
 	db
 
 wBreedMon2Nickname:: ds MON_NAME_LENGTH
