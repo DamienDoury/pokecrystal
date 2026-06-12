@@ -16,7 +16,7 @@ box_struct: MACRO ; 32 bytes.
 \1DefExp::         dw
 \1SpdExp::         dw
 \1SpcExp::         dw
-\1DVs::            dw
+\1DVs::            dw ; hi:spd/spe lo:atk/def
 \1PP::             ds NUM_MOVES
 \1Happiness::      db
 \1PokerusStatus::  db

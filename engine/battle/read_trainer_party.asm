@@ -285,7 +285,6 @@ ReadTrainerPartyPieces:
 	bit TRAINERTYPE_STAT_EXP_F, a
 	jr z, .no_stat_exp
 
-.do_stat_exp
 	call GetLastOTMonStatExpAddress
 
 	ld c, NUM_EXP_STATS
