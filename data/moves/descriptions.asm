@@ -2624,10 +2624,10 @@ endc
 
 HiddenPowerDescription:
 if DEF(_FR_FR)
-	db   "Puissance varie"
+	db   "Le type varie"
 	next "suivant le PKMN.@"
 else
-	db   "The power varies"
+	db   "The type varies"
 	next "with the #MON.@"
 endc
 
