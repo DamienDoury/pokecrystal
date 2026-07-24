@@ -167,8 +167,8 @@ CheckSpeechBlockingTile::
 	ret z
 	cp COLL_WATER
 	ret z
-;	cp COLL_PIT ; Should I allow this?
-;	ret z
+	cp COLL_PIT ; This is allowed for Ecruteak's gym.
+	ret z
 	cp COLL_WARP_CARPET_DOWN
 	ret z
 	cp COLL_WARP_CARPET_LEFT
