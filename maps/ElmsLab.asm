@@ -149,9 +149,14 @@ ElmMartRush:
 	sjump ElmsLab_EndText
 
 ElmIllegalToBeHere:
+	writetext ElmLockdownCurfewVisitText
+	waitbutton
+	closetext
+	pause 2
 	showemote EMOTE_QUESTION, ELMSLAB_ELM, 15
 	pause 2
-	writetext ElmLockdownCurfewVisitText
+	opentext
+	writetext ElmLockdownCurfewVisit_SequelText
 	sjump ElmsLab_EndText
 
 ElmVaccinePassport:
@@ -1849,8 +1854,14 @@ endc
 ElmLockdownCurfewVisitText:
 if DEF(_FR_FR)
 	text "ORME: <PLAYER>?"
+else
+	text "ELM: <PLAYER>?"
+endc
+	done
 
-	para "C'est illégal que"
+ElmLockdownCurfewVisit_SequelText:
+if DEF(_FR_FR)
+	text "C'est illégal que"
 	line "tu sois ici!"
 
 	para "Tu devrais être"
@@ -1872,9 +1883,7 @@ if DEF(_FR_FR)
 	para "Fais juste atten-"
 	line "tion."
 else
-	text "ELM: <PLAYER>?"
-
-	para "It's illegal for"
+	text "It's illegal for"
 	line "you to be here!"
 
 	para "You should be home"
