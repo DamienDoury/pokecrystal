@@ -516,9 +516,10 @@ endc
 
 PokefanfJaimeAfterBattleText: 
 if DEF(_FR_FR)
-	text "J'ai vu MIAOUSS la"
-	line "nuit, ici sur la"
-	cont "ROUTE 39."
+	text "J'ai rencontré mon"
+	line "TEDDIURSA la nuit,"
+	cont "ici sur la ROUTE"
+	cont "39."
 
 	para "Je ne sais pas"
 	line "pourquoi mais il"
@@ -530,9 +531,9 @@ if DEF(_FR_FR)
 	line "amical de cette"
 	cont "façon..."
 else
-	text "I met my MEOWTH at"
-	line "night, right here"
-	cont "on ROUTE 39."
+	text "I met my TEDDIURSA"
+	line "at night, right"
+	cont "here on ROUTE 39."
 
 	para "I'm not sure why,"
 	line "but it seems to"

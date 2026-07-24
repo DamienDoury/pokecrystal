@@ -7452,7 +7452,7 @@ else
 	db "JAIME@"
 endc
 	db TRAINERTYPE_ITEM
-	db 16, MEOWTH,     BERRY
+	db 16, TEDDIURSA,     BERRY
 	db -1 ; end
 
 	; POKEFANF (7)
