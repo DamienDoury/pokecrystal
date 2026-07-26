@@ -3198,8 +3198,12 @@ PickPartyMonInBattle:
 	call JumpToPartyMenuAndPrintText
 	call SelectBattleMon
 	ret c
+
 	call CheckIfCurPartyMonIsFitToFight
 	jr z, .loop
+
+	call SwitchMonAlreadyOut
+	jr c, .loop
 
 .submenu_loop
 	farcall FreezeMonIcons
