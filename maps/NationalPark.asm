@@ -489,7 +489,7 @@ if DEF(_FR_FR)
 
 	para "Par exemple..."
 
-	para "Il y a 50 types"
+	para "Il y a {d:NUM_TMS} types"
 	line "de CT."
 
 	para "Les #MON"
