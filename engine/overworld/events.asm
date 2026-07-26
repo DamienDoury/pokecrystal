@@ -1956,11 +1956,9 @@ DoBikeStep::
 	bit STATUSFLAGS2_BIKE_SHOP_CALL_F, [hl]
 	jr z, .NoCall
 
-	; If we have less than 4 badges, we don't have to be here.
-	ld hl, wBadges
-	ld b, 1
-	call CountSetBits
-	cp 4
+	; If it's before May 2020, we don't have to be here.
+	ld a, [wYearMonth]
+	cp $04
 	jr c, .NoCall
 
 	; If we're not on the bike, we don't have to be here.
