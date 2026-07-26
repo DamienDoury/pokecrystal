@@ -17,7 +17,13 @@ MahoganyPokecenter1FNurseScript:
 	jumpstd PokecenterNurseScript
 
 MahoganyPokecenter1FPokefanMScript:
+	checkevent EVENT_ROUTE_43_GATE_ROCKETS
+	iftrue .post_team_rocket
+
 	jumptextfaceplayer MahoganyPokecenter1FPokefanMText
+
+.post_team_rocket
+	jumptextfaceplayer MahoganyPokecenter1FPokefanMText_PostTeamRocket
 
 MahoganyPokecenter1FYoungsterScript:
 	jumptextfaceplayer MahoganyPokecenter1FYoungsterText
@@ -46,6 +52,19 @@ else
 	para "I saw some men in"
 	line "black at LAKE OF"
 	cont "RAGE…"
+endc
+
+	done
+
+MahoganyPokecenter1FPokefanMText_PostTeamRocket:
+if DEF(_FR_FR)
+	text "Tu connais le"
+	line "concept de l'apéro-"
+	cont "visio?"
+else
+	text "Do you know the"
+	line "concept of virtual"
+	cont "happy hour?"
 endc
 
 	done
