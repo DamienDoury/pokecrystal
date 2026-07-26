@@ -642,22 +642,13 @@ BlackthornGymGuideWinText:
 if DEF(_FR_FR)
 	text "Bien joué!"
 	line "Beau combat!"
-
-	para "Il ne reste plus"
-	line "que le challenge"
-	cont "de la LIGUE"
-	cont "#MON."
-
-	para "Tu es sur le"
-	line "point de devenir"
+	
+	para "Tu es sur la bonne"
+	line "voie pour devenir"
 	cont "MAITRE #MON!"
 else
 	text "You were great to"
 	line "beat CLAIR!"
-
-	para "All that's left is"
-	line "the #MON LEAGUE"
-	cont "challenge."
 
 	para "You're on the way"
 	line "to becoming the"
