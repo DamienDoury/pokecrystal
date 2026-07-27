@@ -1086,6 +1086,18 @@ PrintPartyMenuText:
 	jmp PlaceString
 
 .no_item
+	ld a, [wMenuCursorY]
+	dec a
+	ld e, a
+	ld d, 0
+	push hl
+	ld hl, wPartySpecies
+	add hl, de
+	ld a, [hl]
+	pop hl
+	cp EGG
+	ret z
+
 	ld de, .give
 	jmp PlaceString
 
