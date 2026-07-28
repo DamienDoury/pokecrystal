@@ -248,12 +248,12 @@ if DEF(_FR_FR)
 	para "Les règles sont"
 	line "simples."
 
-	para "Avec un #MON de"
-	line "l'équipe, il faut"
+	para "Avec un #MON"
+	line "de l'équipe, il"
 
-	para "attraper un #-"
-	line "MON insecte qui"
-	cont "sera noté."
+	para "faut attraper un"
+	line "#MON insecte"
+	cont "qui sera noté."
 
 	para "Alors? On tente"
 	line "sa chance?"
@@ -458,8 +458,8 @@ if DEF(_FR_FR)
 	para "Change-le avec le"
 	line "#MON de ton"
 
-	para "choix et viens me"
-	line "voir."
+	para "choix et reviens"
+	line "me voir."
 else
 	text "Uh-oh…"
 	line "The first #MON"

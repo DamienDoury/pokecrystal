@@ -67,7 +67,7 @@ Route36NationalParkGate_MapScripts:
 	readvar VAR_CONTESTMINUTES
 	addval 1
 	getnum STRING_BUFFER_3
-	writetext Route36NationalParkGateOfficer1WantToFinishText
+	farwritetext Route35NationalParkGateOfficer1WantToFinishText
 	yesorno
 	iffalse .GoBackToContest
 	writetext Route36NationalParkGateOfficer1WaitHereForAnnouncementText
@@ -84,7 +84,7 @@ Route36NationalParkGate_MapScripts:
 	jumpstd BugContestResultsScript
 
 .GoBackToContest:
-	writetext Route36NationalParkGateOfficer1OkGoFinishText
+	farwritetext Route35NationalParkGateOfficer1OkGoFinishText
 	waitbutton
 	closetext
 	turnobject PLAYER, LEFT
@@ -152,7 +152,7 @@ Route36OfficerScriptContest:
 	checkflag ENGINE_DAILY_BUG_CONTEST
 	iftrue Route36Officer_ContestHasConcluded
 	scall Route36ParkGate_DayToText
-	writetext Route36NationalParkGateOfficer1AskToParticipateText
+	farwritetext Route35NationalParkGateOfficer1AskToParticipateText
 	yesorno
 	iffalse .DecidedNotToJoinContest
 	readvar VAR_PARTYCOUNT
@@ -162,13 +162,13 @@ Route36OfficerScriptContest:
 .ResumeStartingContest:
 	setflag ENGINE_BUG_CONTEST_TIMER
 	special PlayMapMusic
-	writetext Route36NationalParkGateOfficer1GiveParkBallsText
+	farwritetext Route35NationalParkGateOfficer1GiveParkBallsText
 	promptbutton
 	waitsfx
-	writetext Route36NationalParkGatePlayerReceivedParkBallsText
+	farwritetext Route35NationalParkGatePlayerReceivedParkBallsText
 	playsound SFX_ITEM
 	waitsfx
-	writetext Route36NationalParkGateOfficer1ExplainsRulesText
+	farwritetext Route35NationalParkGateOfficer1ExplainsRulesText
 	waitbutton
 	closetext
 	setflag ENGINE_BUG_CONTEST_TIMER
@@ -193,46 +193,46 @@ Route36OfficerScriptContest:
 .ContinueLeavingMons:
 	special CheckFirstMonIsEgg
 	ifequal TRUE, .FirstMonIsEgg
-	writetext Route36NationalParkGateOfficer1AskToUseFirstMonText
+	farwritetext Route35NationalParkGateOfficer1AskToUseFirstMonText
 	yesorno
 	iffalse .RefusedToLeaveMons
 	special ContestDropOffMons
 	iftrue .FirstMonIsFainted
 	setevent EVENT_LEFT_MONS_WITH_CONTEST_OFFICER
-	writetext Route36NationalParkGateOfficer1WellHoldYourMonText
+	farwritetext Route35NationalParkGateOfficer1WellHoldYourMonText
 	promptbutton
-	writetext Route36NationalParkGatePlayersMonLeftWithHelperText
+	farwritetext Route35NationalParkGatePlayersMonLeftWithHelperText
 	playsound SFX_GOT_SAFARI_BALLS
 	waitsfx
 	promptbutton
 	sjump .ResumeStartingContest
 
 .DecidedNotToJoinContest:
-	writetext Route36NationalParkGateOfficer1TakePartInFutureText
+	farwritetext Route35NationalParkGateOfficer1TakePartInFutureText
 	waitbutton
 	closetext
 	end
 
 .RefusedToLeaveMons:
-	writetext Route36NationalParkGateOfficer1ChooseMonAndComeBackText
+	farwritetext Route35NationalParkGateOfficer1ChooseMonAndComeBackText
 	waitbutton
 	closetext
 	end
 
 .FirstMonIsFainted:
-	writetext Route36NationalParkGateOfficer1FirstMonCantBattleText
+	farwritetext Route35NationalParkGateOfficer1FirstMonCantBattleText
 	waitbutton
 	closetext
 	end
 
 .BoxFull:
-	writetext Route36NationalParkGateOfficer1MakeRoomText
+	farwritetext Route35NationalParkGateOfficer1MakeRoomText
 	waitbutton
 	closetext
 	end
 
 .FirstMonIsEgg:
-	writetext Route36NationalParkGateOfficer1EggAsFirstMonText
+	farwritetext Route35NationalParkGateOfficer1EggAsFirstMonText
 	waitbutton
 	closetext
 	end
@@ -246,7 +246,7 @@ Route36Officer_ContestHasConcluded:
 	iftrue .GoldBerry
 	checkevent EVENT_CONTEST_OFFICER_HAS_BERRY
 	iftrue .Berry
-	writetext Route36NationalParkGateOfficer1ContestIsOverText
+	farwritetext Route35NationalParkGateOfficer1ContestIsOverText
 	waitbutton
 	closetext
 	end
@@ -478,327 +478,6 @@ Route36NationalParkGatePlayerWaitWithContestantsMovement:
 	turn_head UP
 	step_end
 
-Route36NationalParkGateOfficer1AskToParticipateText: 
-if DEF(_FR_FR)
-	text "On est @"
-	text_ram wStringBuffer3
-	text "."
-	line "Ca veut dire que"
-
-	para "le Concours de"
-	line "Capture d'insecte"
-	cont "est aujourd'hui."
-
-	para "Les règles sont"
-	line "simples."
-
-	para "Avec un #MON"
-	line "de l'équipe, il"
-
-	para "faut attraper un"
-	line "#MON insecte"
-	cont "qui sera noté."
-
-	para "Alors? On tente"
-	line "sa chance?"
-else
-	text "Today's @"
-	text_ram wStringBuffer3
-	text "."
-	line "That means the"
-
-	para "Bug-Catching Con-"
-	line "test is on today."
-
-	para "The rules are sim-"
-	line "ple."
-
-	para "Using one of your"
-	line "#MON, catch a"
-
-	para "bug #MON to be"
-	line "judged."
-
-	para "Would you like to"
-	line "give it a try?"
-endc
-
-	done
-
-Route36NationalParkGateOfficer1GiveParkBallsText: 
-if DEF(_FR_FR)
-	text "Voici des PARC"
-	line "BALLS pour le"
-	cont "concours."
-else
-	text "Here are the PARK"
-	line "BALLS for the"
-	cont "Contest."
-endc
-
-	done
-
-Route36NationalParkGatePlayerReceivedParkBallsText: 
-if DEF(_FR_FR)
-	text "<PLAYER> reçoit"
-	line "{d:BUG_CONTEST_BALLS} PARC BALLS."
-else
-	text "<PLAYER> received"
-	line "{d:BUG_CONTEST_BALLS} PARK BALLS."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1ExplainsRulesText: 
-if DEF(_FR_FR)
-	text "La personne qui"
-	line "capture le #-"
-	cont "MON insecte le"
-	cont "plus puissant est"
-	cont "désignée vain-"
-	cont "queur."
-
-	para "La partie dure"
-	line "{d:BUG_CONTEST_MINUTES} minutes."
-
-	para "Si toutes les"
-	line "PARC BALLS sont"
-	cont "épuisées, c'est"
-	cont "fini!"
-
-	para "Le dernier #MON"
-	line "attrapé peut être"
-	cont "gardé."
-
-	para "Allez hop! C'est"
-	line "la chasse aux"
-	cont "#MON insecte!"
-else
-	text "The person who"
-	line "gets the strong-"
-	cont "est bug #MON"
-	cont "is the winner."
-
-	para "You have {d:BUG_CONTEST_MINUTES}"
-	line "minutes."
-
-	para "If you run out of"
-	line "PARK BALLS, you're"
-	cont "done."
-
-	para "You can keep the"
-	line "last #MON you"
-	cont "catch as your own."
-
-	para "Go out and catch"
-	line "the strongest bug"
-
-	para "#MON you can"
-	line "find!"
-endc
-
-	done
-
-Route36NationalParkGateOfficer1AskToUseFirstMonText: 
-if DEF(_FR_FR)
-	text "Oh-oh..."
-
-	para "Tu as plus d'un"
-	line "#MON."
-
-	para "Tu dois utiliser"
-	line "@"
-	text_ram wStringBuffer3
-	text ", le"
-
-	para "premier #MON de"
-	line "ton équipe."
-
-	para "Tu es d'accord?"
-else
-	text "Uh-oh…"
-
-	para "You have more than"
-	line "one #MON."
-
-	para "You'll have to use"
-	line "@"
-	text_ram wStringBuffer3
-	text ", the"
-
-	para "first #MON in"
-	line "your party."
-
-	para "Is that OK with"
-	line "you?"
-endc
-
-	done
-
-Route36NationalParkGateOfficer1WellHoldYourMonText: 
-if DEF(_FR_FR)
-	text "Parfait. Je vais"
-	line "garder les autres"
-	cont "#MON pendant le"
-	cont "concours."
-else
-	text "Fine, we'll hold"
-	line "your other #MON"
-	cont "while you compete."
-endc
-
-	done
-
-Route36NationalParkGatePlayersMonLeftWithHelperText: 
-if DEF(_FR_FR)
-	text "<PLAYER> confie"
-	line "ses #MON au"
-	cont "RECEPTIONNISTE."
-else
-	text "<PLAYER>'s #MON"
-	line "were left with the"
-	cont "CONTEST HELPER."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1ChooseMonAndComeBackText: 
-if DEF(_FR_FR)
-	text "Choisis le #MON"
-	line "à utiliser pendant"
-
-	para "le concours et"
-	line "viens me voir."
-else
-	text "Please choose the"
-	line "#MON to be used"
-
-	para "in the Contest,"
-	line "then come see me."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1TakePartInFutureText: 
-if DEF(_FR_FR)
-	text "OK."
-	line "A la prochaine."
-else
-	text "OK. We hope you'll"
-	line "take part in the"
-	cont "future."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1FirstMonCantBattleText: 
-if DEF(_FR_FR)
-	text "Oh-oh..."
-	line "Le premier #MON"
-
-	para "de ton équipe ne"
-	line "peut combattre."
-
-	para "Change-le avec le"
-	line "#MON de ton"
-
-	para "choix et reviens"
-	line "me voir."
-else
-	text "Uh-oh…"
-	line "The first #MON"
-
-	para "in your party"
-	line "can't battle."
-
-	para "Please switch it"
-	line "with the #MON"
-
-	para "you want to use,"
-	line "then come see me."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1MakeRoomText: 
-if DEF(_FR_FR)
-	text "Oh-oh... Ton"
-	line "équipe et ta BOITE"
-	cont "PC sont pleines."
-
-	para "Tu n'as pas de"
-	line "place pour le"
-	cont "#MON insecte"
-	cont "à attraper."
-
-	para "Fais de la place"
-	line "dans l'équipe ou"
-
-	para "dans la BOITE PC"
-	line "et viens me voir."
-else
-	text "Uh-oh…"
-	line "Both your party"
-
-	para "and your PC BOX"
-	line "are full."
-
-	para "You have no room"
-	line "to put the bug"
-	cont "#MON you catch."
-
-	para "Please make room"
-	line "in your party or"
-
-	para "your PC BOX, then"
-	line "come see me."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1EggAsFirstMonText: 
-if DEF(_FR_FR)
-	text "Oh-oh... Tu as un"
-	line "OEUF en premier"
-	cont "dans ton équipe."
-
-	para "Change-le avec le"
-	line "#MON de ton"
-
-	para "choix et reviens"
-	line "me voir."
-else
-	text "Uh-oh…"
-	line "You have an EGG as"
-
-	para "the first #MON"
-	line "in your party."
-
-	para "Please switch it"
-	line "with the #MON"
-
-	para "you want to use,"
-	line "then come see me."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1WantToFinishText: 
-if DEF(_FR_FR)
-	text "Tu as encore @"
-	text_ram wStringBuffer3
-else
-	text "You still have @"
-	text_ram wStringBuffer3
-endc
-
-	text_start
-	line "minute(s) left."
-
-	para "Do you want to"
-	line "finish now?"
-	done
-
 Route36NationalParkGateOfficer1WaitHereForAnnouncementText: 
 if DEF(_FR_FR)
 	text "OK. Attends ici"
@@ -812,35 +491,6 @@ else
 
 	para "announcement of"
 	line "the winners."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1OkGoFinishText: 
-if DEF(_FR_FR)
-	text "OK. Retourne de-"
-	line "hors et termine."
-else
-	text "OK. Please go back"
-	line "outside and finish"
-	cont "up."
-endc
-
-	done
-
-Route36NationalParkGateOfficer1ContestIsOverText: 
-if DEF(_FR_FR)
-	text "Le concours d'au-"
-	line "jourd'hui est ter-"
-
-	para "miné. Reviens une"
-	line "autre fois."
-else
-	text "Today's Contest is"
-	line "over. We hope you"
-
-	para "will participate"
-	line "in the future."
 endc
 
 	done
