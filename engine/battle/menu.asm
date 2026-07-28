@@ -1,5 +1,10 @@
+ContestBattleMenu:
+	ld hl, ContestBattleMenuHeader
+	jr LoadBattleMenu.load
+	
 LoadBattleMenu:
 	ld hl, BattleMenuHeader
+.load
 	call LoadMenuHeader
 	ld a, [wBattleMenuCursorPosition]
 	ld [wMenuCursorPosition], a
@@ -10,11 +15,6 @@ LoadBattleMenu:
 
 SafariBattleMenu: ; unreferenced
 	ld hl, SafariBattleMenuHeader
-	call LoadMenuHeader
-	jr CommonBattleMenu
-
-ContestBattleMenu:
-	ld hl, ContestBattleMenuHeader
 	call LoadMenuHeader
 	; fallthrough
 
