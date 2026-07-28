@@ -543,16 +543,20 @@ Route35NationalParkGateOfficer1WantToFinishText:
 if DEF(_FR_FR)
 	text "Tu as encore @"
 	text_ram wStringBuffer3
+	text_start
+	line "minute(s)."
+
+	para "Veux-tu t'arrêter"
+	line "maintenant?"
 else
 	text "You still have @"
 	text_ram wStringBuffer3
-endc
-
 	text_start
 	line "minute(s) left."
 
 	para "Do you want to"
 	line "finish now?"
+endc	
 	done
 
 Route35NationalParkGateOfficer1WaitAtNorthGateText: 
