@@ -1021,7 +1021,7 @@ CheckLongStartPressOW:
 
 	ldh a, [hLongPressStart]
 	and a
-	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressB has been set to 1 when B is first pressed down.
+	jr z, .check_pressed_this_frame ; The increment can only start once the hLongPressStart has been set to 1 when START is first pressed down.
 
 	ldh a, [hJoypadDown]
 	cp START
@@ -1063,6 +1063,11 @@ CheckLongStartPressOW:
 	and START
 	ret z
 
+	; Can't save during the bug catching contest, and during the escort quest on Route 9.
+	ld a, [wStatusFlags2]
+ 	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
+	jr nz, .start_menu	
+
 	ld a, 1
 	ldh [hLongPressStart], a ; Initiates a long press.
 	xor a
@@ -1076,6 +1081,7 @@ CheckLongStartPressOW:
 	; Note: the long press is activated as soon as possible.
 	; Which means if we are here, the short press is automatically validated.
 
+.start_menu
 	xor a
 	ldh [hLongPressStart], a ; Prevents infinite triggers.
 
