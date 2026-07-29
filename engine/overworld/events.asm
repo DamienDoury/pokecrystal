@@ -1063,7 +1063,7 @@ CheckLongStartPressOW:
 	and START
 	ret z
 
-	; Can't save during the bug catching contest, and during the escort quest on Route 9.
+	; Can't quick save during the bug catching contest.
 	ld a, [wStatusFlags2]
  	bit STATUSFLAGS2_BUG_CONTEST_TIMER_F, a
 	jr nz, .start_menu	
