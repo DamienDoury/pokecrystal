@@ -3237,7 +3237,7 @@ wPokemonData::
 
 wPartyCount::   db
 wPartySpecies:: ds PARTY_LENGTH
-wPartyEnd::     db ; older code doesn't check wPartyCount
+wPartyEnd::     db ; older code doesn't check wPartyCount. Also useful for ContestReturnMons.
 
 wPartyMons::
 	table_width PARTYMON_STRUCT_LENGTH, wPartyMons
