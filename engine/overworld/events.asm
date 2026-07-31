@@ -1036,10 +1036,6 @@ CheckLongStartPressOW:
 	xor a
 	ldh [hLongPressStart], a ; Preventing infinite triggers.
 
-	ld a, [wLinkMode]
-	and a
-	jr nz, .cancel_long_press ; Can't save in link mode.
-
 ; Try quick save.
 	farcall LoadOW_BGPal7
 	
@@ -1062,6 +1058,11 @@ CheckLongStartPressOW:
 	ldh a, [hJoyPressed]
 	and START
 	ret z
+
+	; Can't save in link mode.
+	ld a, [wLinkMode]
+	and a
+	jr nz, .start_menu
 
 	; Can't quick save during the bug catching contest.
 	ld a, [wStatusFlags2]
