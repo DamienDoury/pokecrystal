@@ -104,10 +104,10 @@ TVShow:
 	iffalse .Phase6
 	checkevent EVENT_CROWD_IN_VACCINATION_CENTER
 	iffalse .Phase5
-	readvar VAR_BADGES
-	ifgreater 6, .Phase4
-	readvar VAR_BADGES
-	ifgreater 4, .Phase3
+	readmem wYearMonth
+	ifgreater $09, .Phase4
+	checkevent EVENT_FIRST_CURFEW_STARTED
+	iftrue .Phase3
 	checkevent EVENT_FIRST_LOCKDOWN_STARTED
 	iftrue .Phase2
 	checkitem HM_CUT
@@ -157,9 +157,9 @@ TVShow:
 	checktime MORN
 	iftrue .Phase2Odd1
 	checktime DAY
-	iftrue .Phase2Odd1
-	checktime NITE
 	iftrue .Phase2Odd2
+	checktime NITE
+	iftrue .Phase2Odd3
 	farjumptext TVText
 
 .Phase3:
@@ -197,7 +197,7 @@ TVShow:
 	checktime DAY
 	iftrue .Phase4Even2
 	checktime NITE
-	iftrue .Phase4Even3
+	iftrue .Phase4Even2
 
 .Phase4OddDays:
 	checktime MORN
@@ -721,6 +721,122 @@ else
 	done
 endc
 
+.Phase2Odd3:
+	jumptext .Phase2Odd3Text
+
+.Phase2Odd3Text:
+	if DEF(_FR_FR)
+	text "REVUE SCIENTIFIQUE"
+
+	para "“Le confinement"
+	line "n'est qu'une option"
+	cont "parmi d'autres pour"
+	cont "venir à bout du"
+	cont "virus."
+
+	para "Une autre voie"
+	line "serait l'immunité"
+	cont "collective."
+
+	para "Si la majorité de"
+	line "la population"
+	cont "attrapait le virus"
+	cont "sur une courte"
+	cont "période, alors"
+
+	para "les survivants"
+	line "seraient immunisés"
+
+	para "ce qui ralentirait"
+	line "le virus jusqu'à"
+	cont "le stopper net."
+
+	para "Mais cela"
+	line "tuerait près de"
+	cont "10<PERCENT> de la"
+	cont "population."
+
+	para "Le conseil"
+	line "scientifique a"
+	cont "choisi le"
+	cont "confinement pour"
+	cont "stopper le virus"
+	cont "immédiatement, et"
+	cont "éviter la"
+	cont "saturation des"
+	cont "hôpitaux, ce qui"
+	cont "devrait sauver de"
+	cont "nombreuses vies."
+
+	para "Cela offre aussi"
+	line "du temps aux"
+	cont "chercheurs pour"
+	cont "étudier le virus"
+	cont "et travailler sur"
+	cont "un vaccin.”"
+	done
+else
+	text "SCIENTIFIC REVIEW"
+
+	para "“The lockdown is"
+	line "only one of the"
+	cont "options to try to"
+	cont "kill the virus."
+
+	para "Another way would"
+	line "be to reach"
+
+	para "collective"
+	line "immunity."
+
+	para "If most of the"
+	line "population caught"
+	cont "the virus in a"
+	cont "short time span,"
+
+	para "then the majority"
+	line "of us would be"
+	cont "immuned,"
+
+	para "which would slow"
+	line "down the spread of"
+	cont "the virus to"
+	cont "a halt."
+
+	para "But this is not a"
+	line "long term"
+	cont "solution and most"
+	cont "importantly,"
+
+	para "it would kill"
+	line "nearly 10<PERCENT> of"
+	cont "our population."
+
+	para "That is why the"
+	line "scientific counsel"
+	cont "advised for a"
+	cont "lockdown in order"
+	cont "to slow down the"
+	cont "virus spread"
+	cont "immediately,"
+
+	para "which should"
+	line "prevent saturation"
+	cont "of our healthcare"
+	cont "system,"
+
+	para "effectively saving"
+	line "lives."
+
+	para "It also gives"
+	line "researchers more"
+	cont "time to study the"
+	cont "virus and work"
+	cont "on a vaccine.”"
+	done
+endc
+
+
 
 .Phase2Even1:
 	jumptext .Phase2Even1Text
@@ -829,21 +945,35 @@ endc
 
 .Phase2Even3Text:
 if DEF(_FR_FR)
-	text "REVUE SCIENTIFIQUE"
+	text "BUSINESS"
 
-	para "“La perte de goût"
-	line "et d'odorat a été"
-	cont "confirmée comme"
-	cont "symptôme du"
-	cont "COVID.”"
+	para "“Le confinement"
+	line "n'est pas une"
+	cont "mauvaise nouvelle"
+	cont "pour tout le"
+	cont "monde."
+
+	para "Les géants du"
+	line "jeu vidéo et du"
+	cont "streaming ont"
+	cont "doublé leurs"
+	cont "bénéfices ce"
+	cont "trimestre.”"
 	done
 else
-	text "SCIENTIFIC REVIEW"
+	text "BUSINESS"
 
-	para "“Loss of taste and"
-	line "smell has been"
-	cont "confirmed as a"
-	cont "symptom of COVID.”"
+	para "“The lockdown"
+	line "is not bad news"
+	cont "for everyone."
+
+	para "The biggest games"
+	line "and video stream-"
+	cont "ing companies"
+
+	para "have doubled their"
+	line "earnings in the"
+	cont "last quarter.”"
 	done
 endc
 
@@ -1099,111 +1229,19 @@ endc
 if DEF(_FR_FR)
 	text "REVUE SCIENTIFIQUE"
 
-	para "“Le confinement"
-	line "n'est qu'une option"
-	cont "parmi d'autres pour"
-	cont "venir à bout du"
-	cont "virus."
-
-	para "Une autre voie"
-	line "serait l'immunité"
-	cont "collective."
-
-	para "Si la majorité de"
-	line "la population"
-	cont "attrapait le virus"
-	cont "sur une courte"
-	cont "période, alors"
-
-	para "les survivants"
-	line "seraient immunisés"
-
-	para "ce qui ralentirait"
-	line "le virus jusqu'à"
-	cont "le stopper net."
-
-	para "Mais cela"
-	line "tuerait près de"
-	cont "10<PERCENT> de la"
-	cont "population."
-
-	para "Le conseil"
-	line "scientifique a"
-	cont "choisi le"
-	cont "confinement pour"
-	cont "stopper le virus"
-	cont "immédiatement, et"
-	cont "éviter la"
-	cont "saturation des"
-	cont "hôpitaux, ce qui"
-	cont "devrait sauver de"
-	cont "nombreuses vies."
-
-	para "Cela offre aussi"
-	line "du temps aux"
-	cont "chercheurs pour"
-	cont "étudier le virus"
-	cont "et travailler sur"
-	cont "un vaccin.”"
+	para "“La perte de goût"
+	line "et d'odorat a été"
+	cont "confirmée comme"
+	cont "symptôme du"
+	cont "COVID.”"
 	done
 else
 	text "SCIENTIFIC REVIEW"
 
-	para "“The lockdown is"
-	line "only one of the"
-	cont "options to try to"
-	cont "kill the virus."
-
-	para "Another way would"
-	line "be to reach"
-
-	para "collective"
-	line "immunity."
-
-	para "If most of the"
-	line "population caught"
-	cont "the virus in a"
-	cont "short time span,"
-
-	para "then the majority"
-	line "of us would be"
-	cont "immuned,"
-
-	para "which would slow"
-	line "down the spread of"
-	cont "the virus to"
-	cont "a halt."
-
-	para "But this is not a"
-	line "long term"
-	cont "solution and most"
-	cont "importantly,"
-
-	para "it would kill"
-	line "nearly 10<PERCENT> of"
-	cont "our population."
-
-	para "That is why the"
-	line "scientific counsel"
-	cont "advised for a"
-	cont "lockdown in order"
-	cont "to slow down the"
-	cont "virus spread"
-	cont "immediately,"
-
-	para "which should"
-	line "prevent saturation"
-	cont "of our healthcare"
-	cont "system,"
-
-	para "effectively saving"
-	line "lives."
-
-	para "It also gives"
-	line "researchers more"
-	cont "time to study the"
-	cont "virus and work"
-	cont "on a vaccine.”"
+	para "“Loss of taste and"
+	line "smell has been"
+	cont "confirmed as a"
+	cont "symptom of COVID.”"
 	done
 endc
 
@@ -1212,51 +1250,6 @@ endc
 	jumptext .Phase3Even3Text
 
 .Phase3Even3Text:
-if DEF(_FR_FR)
-	text "BUSINESS"
-
-	para "“Le confinement"
-	line "n'est pas une"
-	cont "mauvaise nouvelle"
-	cont "pour tout le"
-	cont "monde."
-
-	para "Les géants du"
-	line "jeu vidéo et du"
-	cont "streaming ont"
-	cont "doublé leurs"
-	cont "bénéfices ce"
-	cont "trimestre.”"
-	done
-else
-	text "BUSINESS"
-
-	para "“The lockdown"
-	line "is not bad news"
-	cont "for everyone."
-
-	para "The biggest games"
-	line "and video stream-"
-	cont "ing companies"
-
-	para "have doubled their"
-	line "earnings in the"
-	cont "last quarter.”"
-	done
-endc
-
-
-
-
-
-
-
-
-
-.Phase4Odd1:
-	jumptext .Phase4Odd1Text
-
-.Phase4Odd1Text:
 if DEF(_FR_FR)
 	text "FAITS DIVERS"
 
@@ -1296,6 +1289,34 @@ else
 	line "GYM LEADER KOGA"
 	cont "has been promoted"
 	cont "to the ELITE 4.”"
+	done
+endc
+
+
+
+
+
+
+
+
+
+.Phase4Odd1:
+	jumptext .Phase4Odd1Text
+
+.Phase4Odd1Text:
+if DEF(_FR_FR)
+	text "INTERNATIONAL"
+
+	para "“Les leaders de"
+	line "plusieurs pays ont"
+	cont "attrapé le COVID.”"
+	done
+else
+	text "INTERNATIONAL"
+
+	para "“Several world"
+	line "leaders have"
+	cont "caught COVID.”"
 	done
 endc
 
@@ -1505,28 +1526,6 @@ else
 	cont "activity.”"
 	done
 endc
-
-
-.Phase4Even3:
-	jumptext .Phase4Even3Text
-
-.Phase4Even3Text:
-if DEF(_FR_FR)
-	text "INTERNATIONAL"
-
-	para "“Les leaders de"
-	line "plusieurs pays ont"
-	cont "attrapé le COVID.”"
-	done
-else
-	text "INTERNATIONAL"
-
-	para "“Several world"
-	line "leaders have"
-	cont "caught COVID.”"
-	done
-endc
-
 
 
 
