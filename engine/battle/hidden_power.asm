@@ -62,7 +62,37 @@ HiddenPowerDamage:
 ;	ld d, a
 
 ; Type:
+	call GetHiddenPowerType
 
+; Overwrite the current move type.
+	push af
+	ld a, BATTLE_VARS_MOVE_TYPE
+	call GetBattleVarAddr
+	pop af
+	or SPECIAL
+	ld [hl], a
+
+; Get the rest of the damage formula variables
+; based on the new type, but keep base power.
+;	ld a, d
+;	push af
+	farcall BattleCommand_DamageStats ; damagestats
+;	pop af
+;	ld d, a
+	ret
+
+; Input: DE = pointer to DVs.
+; Output: [hFarByte] = Hidden Power type.
+GetHiddenPowerTypeFromDE::
+	ld h, d
+	ld l, e
+	call GetHiddenPowerType
+	ldh [hFarByte], a
+	ret
+
+; Input: HL = pointer to DVs.
+; Output: A = Hidden Power type.
+GetHiddenPowerType:
 	; Def & 3
 	ld a, [hl]
 	and %0011
@@ -81,29 +111,13 @@ HiddenPowerDamage:
 
 ; Skip Bird
 	cp BIRD
-	jr c, .done
+	ret c
+
 	inc a
 
 ; Skip unused types
 	cp UNUSED_TYPES
-	jr c, .done
+	ret c
+
 	add UNUSED_TYPES_END - UNUSED_TYPES
-
-.done
-
-; Overwrite the current move type.
-	push af
-	ld a, BATTLE_VARS_MOVE_TYPE
-	call GetBattleVarAddr
-	pop af
-	or SPECIAL
-	ld [hl], a
-
-; Get the rest of the damage formula variables
-; based on the new type, but keep base power.
-;	ld a, d
-;	push af
-	farcall BattleCommand_DamageStats ; damagestats
-;	pop af
-;	ld d, a
 	ret

@@ -6,6 +6,18 @@ LakeOfRageHiddenPowerHouse_MapScripts:
 
 	def_callbacks
 
+AorAnStringBuffer1:
+	loadmem wStringBuffer5, "@"
+
+	farscall IsVowelFromStringBuffer1
+	iftrue .an
+	end
+
+.an
+	loadmem wStringBuffer5, "n"
+	loadmem wStringBuffer5 + 1, "@"
+	end
+
 HiddenPowerGuy:
 	faceplayer
 	opentext
@@ -19,10 +31,29 @@ HiddenPowerGuy:
 	closetext
 	end
 .AlreadyGotItem:
-	writetext HiddenPowerGuyText3
+	writetext HiddenPowerGuyText_GiveHelp
+	waitbutton
+	callasm SelectMonForHiddenPowerReveal
+	ifequal -1, .cancelled
+	ifequal -2, .egg
+
+	scall AorAnStringBuffer1
+	writetext HiddenPowerGuyText_Answer1
+	promptbutton
+	writetext HiddenPowerGuyText_Answer2
+
+.closetext:
 	waitbutton
 	closetext
 	end
+
+.cancelled:
+	writetext HiddenPowerGuyText3
+	sjump .closetext
+
+.egg:
+	writetext HiddenPowerGuyText_Egg
+	sjump .closetext
 
 HiddenPowerHouseBookshelf:
 	jumpstd DifficultBookshelfScript
@@ -90,6 +121,63 @@ else
 	line "type and power de-"
 	cont "pend on the #-"
 	cont "MON using it."
+endc
+
+	done
+
+HiddenPowerGuyText_GiveHelp: 
+if DEF(_FR_FR)
+	text "Je peux sentir la"
+	line "puissance cachée"
+	cont "de tes #MON."
+else
+	text "I can sense the"
+	line "hidden power of"
+	cont "your #MON."
+endc
+
+	done
+
+HiddenPowerGuyText_Answer1:
+if DEF(_FR_FR)
+	text "Ton @"
+	text_ram wStringBuffer3 
+	text "..."
+	line "... Hmmm."
+else
+	text "Your @"
+	text_ram wStringBuffer3 
+	text "…"
+	line "…Hmmm."
+endc
+
+	done
+
+HiddenPowerGuyText_Answer2:
+if DEF(_FR_FR)
+	text "Je vois une"
+	line "puissance cachée"
+	cont "de type @"
+	text_ram wStringBuffer1 
+	text "."
+else
+	text "I see a@"
+	text_ram wStringBuffer5
+	text " @"
+	text_ram wStringBuffer1 
+	text "-"
+	line "type hidden power."
+endc
+
+	done
+
+HiddenPowerGuyText_Egg:
+if DEF(_FR_FR)
+	text "Impossible de"
+	line "sentir un OEUF."
+else
+	text "I can't sense an"
+	line "EGG."
 endc
 
 	done

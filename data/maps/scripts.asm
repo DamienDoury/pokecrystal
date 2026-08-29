@@ -458,6 +458,7 @@ INCLUDE "maps/RedsHouse1F.asm"
 INCLUDE "maps/RedsHouse2F.asm"
 INCLUDE "maps/SoulHouse.asm"
 INCLUDE "maps/Route10South.asm"
+INCLUDE "maps/GuideGentsHouse.asm"
 
 
 SECTION "Map Scripts 26", ROMX
@@ -514,7 +515,6 @@ INCLUDE "maps/Route40BattleTowerGate.asm"
 INCLUDE "maps/SilverCaveRoom1.asm"
 INCLUDE "maps/SilverCaveRoom2.asm"
 INCLUDE "maps/SilverCaveItemRooms.asm"
-INCLUDE "maps/GuideGentsHouse.asm"
 INCLUDE "maps/LakeOfRageHiddenPowerHouse.asm"
 INCLUDE "maps/OlivineMart.asm"
 INCLUDE "maps/WardensNeighborHouse.asm"

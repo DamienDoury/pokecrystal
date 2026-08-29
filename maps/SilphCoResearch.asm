@@ -69,8 +69,13 @@ SilphCoResearch_MapScripts:
     end
 
 if DEF(_EN_US)
-IsVowel:
+IsVowelFromStringBuffer1::
+    readmem wStringBuffer1
+    sjump IsVowel.memory_location_set
+    
+IsVowel::
     readmem wStringBuffer3
+.memory_location_set
     ifequal $80, .vowel
     ifequal $84, .vowel
     ifequal $88, .vowel
