@@ -4314,7 +4314,7 @@ if DEF(_FR_FR)
 	line "fragile."
 
 	para "Un poids assez"
-	line "grand le fera"
+	line "lourd le fera"
 	cont "s'effondrer."
 	done
 else
