@@ -3127,7 +3127,7 @@ else
 	prompt
 endc
 
-_DeleterIntroText::
+_DeleterIntroTextJohto::
 if DEF(_FR_FR)
 	text "Et oui! Moi j'suis"
 	line "le TYPE QUI EFFACE"
@@ -3143,6 +3143,7 @@ if DEF(_FR_FR)
 	cont "#MON?"
 	done
 else
+_DeleterIntroTextKanto::
 	text "Um… Oh, yes, I'm"
 	line "the MOVE DELETER."
 	
@@ -3151,6 +3152,29 @@ else
 	
 	para "Shall I make a"
 	line "#MON forget?"
+	done
+endc
+
+if DEF(_FR_FR)
+_DeleterIntroTextKanto::
+	text "Hein quoi?"
+	
+	para ""
+	line "Oui... moi?"
+
+	para "..."
+
+	para "Je suis la DAME"
+	line "QUI EFFACE LES"
+	cont "CAPACITES."
+	
+	para "Je peux faire"
+	line "oublier leurs"
+	cont "capacités aux"
+	cont "#MON."
+	
+	para "Heu..."
+	line "On fait ça?"
 	done
 endc
 
@@ -3657,7 +3681,7 @@ endc
 
 
 
-_MoveReminderIntro::
+_MoveReminderIntroJohto::
 if DEF(_FR_FR)
 	text "Tu ne me reconnais"
 	line "pas? Je suis le"
@@ -3688,6 +3712,38 @@ else
 	para "For the service,"
 	line "I charge ¥500."
 	cont "Deal?"
+	done
+endc
+
+_MoveReminderIntroKanto::
+if DEF(_FR_FR)
+	text "Je suis la"
+	line "MAITRESSE DES"
+	cont "CAPACITES!"
+
+	para "Je peux réappren-"
+	line "dre à un #MON"
+
+	para "une capacité"
+	line "déjà oubliée."
+
+	para "Je te montre?"
+	line "Choisis un de tes"
+	cont "#MON."
+	done
+else
+	text "I'm the MOVE"
+	line "REMINDER GIRL!"
+
+	para "I can teach your"
+	line "#MON a move it"
+
+	para "has learned pre-"
+	line "viously."
+
+	para "Let me show you."
+	line "Pick one of your"
+	cont "#MON."
 	done
 endc
 
@@ -3794,13 +3850,26 @@ else
 	done
 endc
 
-_MoveReminderThanks::
+_MoveReminderThanksJohto::
 if DEF(_FR_FR)
 	text "Je ne l'oublierai"
 	line "pas!"
 	done
 else
 	text "I won't forget it!"
+	done
+endc
+
+_MoveReminderThanksKanto::
+if DEF(_FR_FR)
+	text "Wah ça a marché!"
+	line "Je suis aussi"
+	cont "douée que maman!"
+	done
+else
+	text "Wah! It worked!"
+	line "I'm as skilled as"
+	cont "mom!"
 	done
 endc
 	

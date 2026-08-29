@@ -866,6 +866,7 @@ FuchsiaCity_MapEvents:
 	warp_event 31, 24, WARDENS_NEIGHBOR_HOUSE, 3
 	warp_event 27, 24, SAFARI_ZONE_WARDENS_HOME, 3
 	warp_event 31, 27, WARDENS_NEIGHBOR_HOUSE, 1
+	warp_event 15, 27, FUCHSIA_MOVES_HOUSE, 1
 
 	def_coord_events
 

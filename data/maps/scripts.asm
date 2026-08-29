@@ -344,6 +344,7 @@ INCLUDE "maps/CherrygroveEvolutionSpeechHouse.asm"
 INCLUDE "maps/Route30BerryHouse.asm"
 INCLUDE "maps/AzaleaMart.asm"
 INCLUDE "maps/CeruleanTradeSpeechHouse.asm"
+INCLUDE "maps/FuchsiaMovesHouse.asm"
 
 
 SECTION "Map Scripts 18", ROMX

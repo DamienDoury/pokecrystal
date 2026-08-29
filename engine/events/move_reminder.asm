@@ -4,7 +4,11 @@
 ; https://github.com/TwitchPlaysPokemon/tppcrystal251pub/blob/public/event/move_relearner.asm
 
 MoveReminder:
-	ld hl, Text_MoveReminderIntro
+	call IsInJohto
+	and a
+	jr nz, .intro_kanto
+
+	ld hl, Text_MoveReminderIntroJohto
 	call PrintText
 	farcall PlaceMoneyTopRight
 	call YesNoBox
@@ -23,7 +27,14 @@ MoveReminder:
 	ld hl, Text_MoveReminderWhichMon
 	call PrintText
 	call JoyWaitAorB
+	jr .select_mon
 
+.intro_kanto
+	ld hl, Text_MoveReminderIntroKanto
+	call PrintText
+	call JoyWaitAorB
+
+.select_mon
 	ld b, $6
 	farcall SelectMonFromParty
 	jp c, .cancel
@@ -69,6 +80,12 @@ MoveReminder:
 	jr z, .choose_move
 
 	call ReturnToMapWithSpeechTextbox
+
+	ld hl, Text_MoveReminderThanksKanto
+	call IsInJohto
+	and a
+	jr nz, .print_thanks
+
 	farcall PlaceMoneyTopRight
 	ld hl, .cost_to_relearn
 	ld de, hMoneyTemp
@@ -90,7 +107,8 @@ MoveReminder:
 	call PlaySFX
 	call WaitSFX
 
-	ld hl, Text_MoveReminderThanks
+	ld hl, Text_MoveReminderThanksJohto
+.print_thanks
 	jmp PrintText
 
 .skip_learn
@@ -496,8 +514,12 @@ ChooseMoveToLearn:
 	predef PrintMoveFullDescription
 	ret
 
-Text_MoveReminderIntro:
-	text_far _MoveReminderIntro
+Text_MoveReminderIntroJohto:
+	text_far _MoveReminderIntroJohto
+	text_end
+
+Text_MoveReminderIntroKanto:
+	text_far _MoveReminderIntroKanto
 	text_end
 	
 Text_MoveReminderWhichMon:
@@ -532,6 +554,10 @@ Text_MoveReminderTakeMoney:
 	text_far _MoveReminderTakeMoney
 	text_end
 
-Text_MoveReminderThanks:
-	text_far _MoveReminderThanks
+Text_MoveReminderThanksJohto:
+	text_far _MoveReminderThanksJohto
+	text_end
+
+Text_MoveReminderThanksKanto:
+	text_far _MoveReminderThanksKanto
 	text_end

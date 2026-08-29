@@ -1,5 +1,11 @@
 MoveDeletion:
-	ld hl, .DeleterIntroText
+	ld hl, .DeleterIntroTextJohto
+	call IsInJohto
+	and a
+	jr z, .print_intro
+	
+	ld hl, .DeleterIntroTextKanto
+.print_intro:
 	call PrintText
 	call YesNoBox
 	jp c, .declined
@@ -97,8 +103,12 @@ MoveDeletion:
 	text_far _DeleterAskWhichMoveText
 	text_end
 
-.DeleterIntroText:
-	text_far _DeleterIntroText
+.DeleterIntroTextJohto:
+	text_far _DeleterIntroTextJohto
+	text_end
+
+.DeleterIntroTextKanto:
+	text_far _DeleterIntroTextKanto
 	text_end
 
 .DeleterAskWhichMonText:
