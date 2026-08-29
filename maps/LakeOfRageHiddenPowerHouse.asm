@@ -6,6 +6,7 @@ LakeOfRageHiddenPowerHouse_MapScripts:
 
 	def_callbacks
 
+if DEF(_EN_US)
 AorAnStringBuffer1:
 	loadmem wStringBuffer5, "@"
 
@@ -17,6 +18,7 @@ AorAnStringBuffer1:
 	loadmem wStringBuffer5, "n"
 	loadmem wStringBuffer5 + 1, "@"
 	end
+endc
 
 HiddenPowerGuy:
 	faceplayer
@@ -37,7 +39,9 @@ HiddenPowerGuy:
 	ifequal -1, .cancelled
 	ifequal -2, .egg
 
+if DEF(_EN_US)
 	scall AorAnStringBuffer1
+endc
 	writetext HiddenPowerGuyText_Answer1
 	promptbutton
 	writetext HiddenPowerGuyText_Answer2
