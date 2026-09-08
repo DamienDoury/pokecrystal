@@ -477,24 +477,17 @@ endc
 
 YoungsterIanAfterText:
 if DEF(_FR_FR)
-	text "Tu savais qu'un"
+	text "Savais-tu qu'un"
 	line "#MON enfant est"
 	
-	para "presque toujours"
-	line "plus robuste que"
+	para "toujours plus"
+	line "robuste que"
 	cont "ses parents?"
 	
 	para "C'est parce qu'il"
 	line "hérite des meil-"
 	cont "leurs attributs"
 	cont "de ses parents!"
-	
-	para "Mais il reste"
-	line "toujours une part"
-	
-	para "de hasard dans le"
-	line "processus de"
-	cont "reproduction."
 	
 	para "C'est le vieux de"
 	line "la PENSION qui me"
@@ -503,21 +496,14 @@ else
 	text "Did you know that"
 	line "a child #MON"
 	
-	para "is almost always"
-	line "stronger than"
-	cont "its parents?"
+	para "is always stronger"
+	line "than its parents?"
 	
 	para "It's because it"
 	line "inherits from the"
 	
 	para "best traits of"
 	line "its parents!"
-	
-	para "But there's always"
-	line "a slight bit of"
-	
-	para "randomness in the"
-	line "breeding process."
 
 	para "The old man at the"
 	line "DAY-CARE told me."

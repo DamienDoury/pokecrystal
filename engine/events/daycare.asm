@@ -821,37 +821,96 @@ DayCare_InitBreeding:
 	ld [hl], a
 
 ; After selecting the highest DVs of both parents, we roll one at random.
-	ld hl, wEggMonDVs
-
-	call Random
-	bit 1, a
-	jr z, .dv_byte_selected
-
-	inc hl
-
-.dv_byte_selected
-	ld c, a
-	bit 0, a
+	dec hl ; wEggMonDVs
 	ld a, [hl]
-	jr z, .dv_nybble_selected
-	
-	swap a
-
-.dv_nybble_selected
 	and $f0
-	ld b, a
+	push af ; Storing the ATK DV for later.
+
+	ld a, [hl]
+	and $f
+	ld b, a ; Saving the DEF DV in B.
 
 	call Random
-	and $f
+	and $f0
 	or b
+	ld [hl], a ; Storing the randomly generated ATK DV + previous DEF DV in the wEggMon struct.
 
-	bit 0, c
-	jr z, .dv_nybble_edited
+	xor a ; PARTYMON
+	ld [wMonType], a
+	ld a, BANK(GetGender)
+	ld de, GetGender.DVs
+	call FarCall_de
+	jr c, .get_highest_atk_DV_between_parents_and_random ; genderless
+	jr nz, .get_highest_atk_DV_between_parents_and_random ; male
 
-	swap a
+	; At this point, the generated egg is female.
+	; We want to give it the best DV possible, while making sure that it stays a female.
+	; That's why we will chose the greatest ATK DV between the randomly generated one, and the highest ATK DV of the FEMALE parent.
+	; First step: we need to find out which parent is the female one (if there is one. Could be a male + a Ditto).
+	ld hl, wBreedMon1
+	ld a, [wBreedMotherOrNonDitto]
+	and a
+	jr z, .got_species_giver
+				
+	ld hl, wBreedMon2
+.got_species_giver
+	push hl
+	ld a, BANK(GetGender)
+	ld de, GetGender.DVs
+	call FarCall_de
+	pop hl
 
-.dv_nybble_edited
-	ld [hl], a
+	; Male or genderless -> the child keeps its random ATK DV that made it a female.
+	jr c, .anti_shiny_check ; genderless
+	jr nz, .anti_shiny_check ; male
+
+	; Female mother -> we need to replace the previously saved ATK DV (which is the best of both parents) with the ATK DV of the female parent.
+	ld de, MON_DVS - MON_SPECIES
+	add hl, de
+	ld a, [hl] ; We store the female parent's ATK DV in A.
+	and $f0
+
+	pop bc ; Discarding the previously saved ATK DV from the stack.
+	push af ; Saving the female parent's ATK DV in the stack.
+
+.get_highest_atk_DV_between_parents_and_random
+	pop bc ; Retrieving the parent's highest ATK DV in B.
+	ld hl, wEggMonDVs
+	ld a, [hl]
+	and $f0 ; Retrieving the randomly generated ATK DV in A.
+	cp b
+	jr nc, .anti_shiny_check ; Keep the random ATK DV.
+
+	ld a, [hl]
+	and $f
+	or b ; Keeping the parent's highest ATK DV instead of the randomly generated one.
+	ld [hl], a ; Saving the edited ATK DV into the data structure.
+
+.anti_shiny_check
+	ld hl, wEggMonDVs + 1
+	ld a, [hl]
+	cp SPDSPCDV_SHINY
+	jr nz, .nickname ; Not shiny, we can skip the anti-shiny check.
+
+	dec hl
+	ld a, [hl]
+	bit SHINY_ATK_BIT, a
+	jr z, .nickname ; Not shiny, we can skip the anti-shiny check.
+	
+	and $f
+	cp SHINY_DEF_VAL
+	jr nz, .nickname ; Not shiny, we can skip the anti-shiny check.
+
+	; The egg is shiny. 
+	; We need to prevent shiny parents from always producing shiny eggs.
+	; Thus we only give them a 2/256 (~0.78%) chance of producing a shiny egg.
+	call Random
+	cp 2
+	jr c, .nickname ; CONGRATS! You got yourself a shiny egg!
+
+	inc [hl] ; We increment the DEF DV by 1, which will make the egg not shiny anymore. Also keeps the gender intact.
+
+.nickname
 	ld hl, wStringBuffer1
 	ld de, wMonOrItemNameBuffer
 	ld bc, NAME_LENGTH
