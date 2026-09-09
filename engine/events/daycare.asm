@@ -861,8 +861,10 @@ DayCare_InitBreeding:
 	pop hl
 
 	; Male or genderless -> the child keeps its random ATK DV that made it a female.
+	pop bc ; The "push af" from line 827 (7 lines after .gotSpeedDV) needs to be balanced, in case we jump to .anti_shiny_check.
 	jr c, .anti_shiny_check ; genderless
 	jr nz, .anti_shiny_check ; male
+	push bc ; Balancing the stack.
 
 	; Female mother -> we need to replace the previously saved ATK DV (which is the best of both parents) with the ATK DV of the female parent.
 	ld de, MON_DVS - MON_SPECIES
