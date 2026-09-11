@@ -1395,8 +1395,8 @@ endc
 
 HazeDescription:
 if DEF(_FR_FR)
-	db   "Annule changement"
-	next "de statut.@"
+	db   "Annule changements"
+	next "de stats.@"
 else
 	db   "Eliminates all"
 	next "stat changes.@"
