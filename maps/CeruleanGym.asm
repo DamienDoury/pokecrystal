@@ -139,9 +139,7 @@ CeruleanGymMistyScript:
 
 ; The player doesn't have an appropriate team.
 	writetext MistyOnlyWaterOrFlyingTypeText
-	waitbutton
-	closetext
-	end
+	sjump .EndText
 
 .ProceedToBattle:
 	writetext MistyValidatesTeamText
@@ -249,6 +247,7 @@ CeruleanGymGruntRunsDownMovement:
 	big_step DOWN
 	big_step DOWN
 	big_step DOWN
+CeruleanGymGruntMovesCloseMovement:
 	big_step DOWN
 	step_end
 
@@ -271,10 +270,6 @@ CeruleanGymGruntRunsIntoYouMovement:
 	step_sleep 8
 	step_sleep 8
 	step DOWN
-	step_end
-
-CeruleanGymGruntMovesCloseMovement:
-	big_step DOWN
 	step_end
 
 CeruleanGymGruntBacksAwayMovement:

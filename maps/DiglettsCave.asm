@@ -174,12 +174,12 @@ if DEF(_FR_FR)
 	cont "gauche à droite"
 	cont "et de bas en haut,"
 	
-	text "quand des"
-	line "TAUPIQUEUR ont"
-	cont "surgi du sol"
+	para "quand des TAUPI-"
+	line "QUEUR ont surgi"
+	cont "du sol d'un coup!"
 
-	para "d'un coup! C'était"
-	line "super flippant."
+	para "C'était super"
+	line "flippant."
 	done
 else
 	text "I was having fun"
