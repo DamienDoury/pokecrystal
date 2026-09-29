@@ -2898,12 +2898,13 @@ PlayVictoryMusic:
 	call PlayMusic
 	call DelayFrame
 
-	call IsInJohto
-	cp KANTO_REGION
-	ld de, MUSIC_WILD_VICTORY_RBY
+	farcall RegionCheck ; If in Johto, returns 0 in e.
+	ld a, e
+	and a
+	ld de, MUSIC_WILD_VICTORY
 	jr z, .wild_victory_music_determined
 
-	ld de, MUSIC_WILD_VICTORY
+	ld de, MUSIC_WILD_VICTORY_RBY
 .wild_victory_music_determined
 	ld a, [wBattleMode]
 	dec a
@@ -2926,12 +2927,13 @@ PlayVictoryMusic:
 	farcall IsGymLeader
 	jr c, .play_music
 
-	ld de, MUSIC_TRAINER_VICTORY_RBY
-	call IsInJohto
-	cp KANTO_REGION
-	jr z, .play_music
-	
+	farcall RegionCheck
+	ld a, e
+	and a
 	ld de, MUSIC_TRAINER_VICTORY
+	jr z, .play_music
+
+	ld de, MUSIC_TRAINER_VICTORY_RBY
 .play_music
 	call PlayMusic
 
