@@ -454,6 +454,14 @@ PlacePartyMonGender:
 	
 	ld c, a
 	ld b, 0
+
+	ld a, [wCurPartySpecies]
+	ld h, a
+	ld a, [wCurPartyMon]
+	ld l, a
+	ld a, c ; Retrieving the value of A (wPartyCount) that has been overridden by the previous instructions.
+	push hl ; Saving the values of [wCurPartySpecies] and [wCurPartyMon] for later.
+
 	hlcoord 7, 2
 .loop
 	push bc
@@ -487,6 +495,12 @@ PlacePartyMonGender:
 	inc b
 	dec c
 	jr nz, .loop
+
+	pop hl ; Retrieving the values of [wCurPartySpecies] and [wCurPartyMon] previously saved for this purpose.
+	ld a, h
+	ld [wCurPartySpecies], a
+	ld a, l
+	ld [wCurPartyMon], a
 	ret
 
 .male
