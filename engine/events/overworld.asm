@@ -1742,6 +1742,7 @@ Fishing_CheckFacingUp:
 Script_PullOutSquirtbottle::
 	;reloadmappart
 	loadmem hBGMapMode, $0
+	callasm PreloadSquirtbottleGFX
 	special UpdateTimePals
 	applymovement PLAYER, .MovementData_PullOutSquirtbottle
 	callasm LoadSquirtbottleGFX
