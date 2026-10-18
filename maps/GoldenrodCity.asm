@@ -679,8 +679,8 @@ if DEF(_FR_FR)
 	line "contraire à"
 	cont "la loi..."
 
-	para "T'as l'esprit"
-	line "rebel, c'est ça?"
+	para "T'as envie de te"
+	line "rebeller, c'est ça?"
 
 	para "Rejoins donc la"
 	line "TEAM ROCKET!"
