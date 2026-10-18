@@ -33,9 +33,18 @@ ElmPhoneCalleeScript:
 	readvar VAR_BADGES
 	ifnotequal 8, .not_8_badges
 
+	; If the player has 8 badges, and didn't get the work visa yet, the prof asks the player to meet at the lab.
 	checkevent EVENT_GOT_WORK_VISA_FROM_ELM
+	iffalse .meet_me
+
+	; If the player has 8 badges AND beaten the league BUT didn't get the vaccine speech yet, the prof asks the player to meet at the lab.
+	checkevent EVENT_BEAT_ELITE_FOUR
+	iffalse .not_8_badges
+
+	checkevent EVENT_ELM_ENCOURAGED_TO_GET_VACCINATED
 	iftrue .not_8_badges
 
+.meet_me
 	farwritetext ElmPhoneMeetMeText
 	end
 
