@@ -176,44 +176,51 @@ UndergroundSilverBattleScript:
 	waitbutton
 	closetext
 	setevent EVENT_RIVAL_GOLDENROD_UNDERGROUND
+	winlosstext UndergroundSilverWinText, UndergroundSilverLossText
+	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
 	checkevent EVENT_GOT_TOTODILE_FROM_ELM
 	iftrue .Totodile
 	checkevent EVENT_GOT_CHIKORITA_FROM_ELM
 	iftrue .Chikorita
-	winlosstext UndergroundSilverWinText, UndergroundSilverLossText
-	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
+
+	checkevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
+	iftrue .CyndaquilPostElite4
+
 	loadtrainer RIVAL1, RIVAL1_4_TOTODILE
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump .FinishRivalBattle
+	sjump .StartBattle
+	
+.CyndaquilPostElite4:
+	loadtrainer RIVAL1, RIVAL1_5_TOTODILE
+	sjump .StartBattle
 
 .Totodile:
-	winlosstext UndergroundSilverWinText, UndergroundSilverLossText
-	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
+	checkevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
+	iftrue .TotodilePostElite4
+
 	loadtrainer RIVAL1, RIVAL1_4_CHIKORITA
-	startbattle
-	dontrestartmapmusic
-	reloadmapafterbattle
-	sjump .FinishRivalBattle
+	sjump .StartBattle
+
+.TotodilePostElite4:
+	loadtrainer RIVAL1, RIVAL1_5_CHIKORITA
+	sjump .StartBattle
 
 .Chikorita:
-	winlosstext UndergroundSilverWinText, UndergroundSilverLossText
-	setlasttalked GOLDENRODUNDERGROUNDSWITCHROOMENTRANCES_SILVER
+	checkevent EVENT_ALLOWED_ACCESS_TO_VICTORY_ROAD
+	iftrue .ChikoritaPostElite4
+
 	loadtrainer RIVAL1, RIVAL1_4_CYNDAQUIL
+	sjump .StartBattle
+
+.ChikoritaPostElite4
+	loadtrainer RIVAL1, RIVAL1_5_CYNDAQUIL
+	
+.StartBattle
 	startbattle
 	dontrestartmapmusic
 	reloadmapafterbattle
-	sjump .FinishRivalBattle
-
-.FinishRivalBattle:
 	playmusic MUSIC_RIVAL_AFTER
-	opentext
-	writetext UndergroundSilverAfterText
-	waitbutton
-	closetext
 	setevent EVENT_BEAT_SILVER_IN_GOLDENROD_UNDERGROUND
-	end
+	jumptext UndergroundSilverAfterText
 
 TrainerGruntM11:
 	trainer GRUNTM, GRUNTM_11, EVENT_BEAT_ROCKET_GRUNTM_11, GruntM11SeenText, GruntM11BeatenText, 0, .Script
@@ -621,15 +628,9 @@ GoldenrodUndergroundSwitchRoomEntrancesHiddenMaxPotion:
 GoldenrodUndergroundSwitchRoomEntrancesHiddenRevive:
 	hiddenitem REVIVE, EVENT_GOLDENROD_UNDERGROUND_SWITCH_ROOM_ENTRANCES_HIDDEN_REVIVE
 
-UndergroundSilverApproachMovement1:
-	step DOWN
-	step LEFT
-	step LEFT
-	step LEFT
-	step_end
-
 UndergroundSilverApproachMovement2:
 	step DOWN
+UndergroundSilverApproachMovement1:
 	step DOWN
 	step LEFT
 	step LEFT
