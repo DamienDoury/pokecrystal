@@ -416,9 +416,9 @@ endc
 GruntM8AfterBattleText:
 if DEF(_FR_FR)
 	text "S'il te plaît, ne"
-	line "sers plus de ta"
-	cont "liberté pour me"
-	cont "battre."
+	line "te sers plus de"
+	cont "ta liberté pour"
+	cont "me battre."
 
 	para "Je me rends!"
 else
