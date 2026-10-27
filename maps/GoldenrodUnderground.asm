@@ -470,6 +470,7 @@ BasementDoorScript::
 	end
 
 .Unlock:
+	waitsfx
 	playsound SFX_TRANSACTION
 	writetext GoldenrodUndergroundBasementKeyOpenedDoorText
 	waitbutton
@@ -632,12 +633,9 @@ ScammerRunsAwayMovement:
 	big_step UP
 	step_end
 
-StepBumpMovement:
-	step_bump
-	step_end
-
 GoldenrodUnderground_StepBumpLeftMovement:
 	turn_step LEFT
+StepBumpMovement:
 	step_bump
 	step_end
 
