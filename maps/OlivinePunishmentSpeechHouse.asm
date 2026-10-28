@@ -40,8 +40,8 @@ OlivinePunishmentSpeechHouseDadLockdown:
 	readmem wCurFreedomState
 	ifnotequal 1 << CURFEW, .skip_curfew_text
 
-	writetext OlivinePunishmentSpeechHouseDadCurfewText
 	promptbutton
+	writetext OlivinePunishmentSpeechHouseDadCurfewText
 
 .skip_curfew_text
 	waitbutton
