@@ -86,7 +86,7 @@ EarlsPokemonAcademyGameboyKid1Script:
 	faceplayer
 	opentext
 	writetext EarlsPokemonAcademyGameboyKid1Text
-	waitbutton
+	promptbutton
 	scall TradebackGuyScript
 	turnobject EARLSPOKEMONACADEMY_GAMEBOY_KID1, DOWN
 	end

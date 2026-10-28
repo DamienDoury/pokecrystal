@@ -48,7 +48,7 @@ VioletKylesHouseTradebackGuyScript:
 	faceplayer
 	opentext
 	writetext VioletKylesHouseTradebackGuyText
-	waitbutton
+	promptbutton
 	farscall TradebackGuyScript
 	turnobject EARLSPOKEMONACADEMY_GAMEBOY_KID1, DOWN
 	end
